@@ -1,127 +1,135 @@
-Return-Path: <clang-built-linux+bncBCD3NZ4T2IKRBS66RHZQKGQE7YYRYKQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD42DY67RYARBIPJRHZQKGQEKDSV65I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3b.google.com (mail-vk1-xa3b.google.com [IPv6:2607:f8b0:4864:20::a3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id E416F17C206
-	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Mar 2020 16:42:04 +0100 (CET)
-Received: by mail-vk1-xa3b.google.com with SMTP id a19sf894783vko.6
-        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Mar 2020 07:42:04 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1583509323; cv=pass;
+Received: from mail-qt1-x837.google.com (mail-qt1-x837.google.com [IPv6:2607:f8b0:4864:20::837])
+	by mail.lfdr.de (Postfix) with ESMTPS id 984FC17C27C
+	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Mar 2020 17:04:50 +0100 (CET)
+Received: by mail-qt1-x837.google.com with SMTP id t15sf1638385qtq.3
+        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Mar 2020 08:04:50 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1583510689; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Sg5WvzIOg9oXLZLBqqmhWZw5ZVDVzv9S9WpoeRdc+VwZ4UvkvcLe552FH+HR8cqJtG
-         RkU0KxL+UkiCj8uBI5yfd+fQoJNtddVkHQOnjL5Zdu3/wp5jUdFKXZY6W3QMy18kerjX
-         boGiB97X7Nx2AC3RTIA4fkHC+zGG2rVEZD8pfjuH+ZR11N3C+RwZ+BByfLNHUjE54Xhl
-         szCTw7qJPYrQAO1b1OEFc+PvK3iTtXJSdG3OkHldn9oIUOiQEcOpCzPrljivfpWXxfQq
-         RqUVNgl5KiCZMEG01bVUxR4ayFNBySp8aXnTIerLzNAg5rRnTgiQkNx3DZRfyWkraBNE
-         Q7fQ==
+        b=Mr4LzQD825CpKAhp+z/d6fgT4Bh50/G7ztMjKxFKU9SDPl3n3hic5awvIH6kusJncY
+         +6yN1hR+qMX7YjkpXFtu0YpbqA55oL2AhW1DCWg2iORnDnAid5TU8Mc07N9NcO3Mgkb1
+         lFOn6Rr/YNOU6Db5In/Mlqb3pj1i6I966lAOi+yvw462Yh4I2Kt/C6FE03vNsFYpDGV6
+         e4KRYpWgf3E72RWFlwhJB0LVJnVnDq9v3s8d9dQymaYUoQkU+XHqeTwy+ZhuXh4o+Xuy
+         95ppQ7+ryCNxXMklKBP0XSloMa0HjwBXYPqb3je1X4P3hA25t/MoqmMx1bXQGTw8IvuL
+         oCxQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
-         :mime-version:sender:dkim-signature;
-        bh=vp15mzVd9aSfPTHE6+Xvav4iMotVhVamzjfXFZlnS24=;
-        b=s271k8lxWBCD46RHVGnNMFAVthNzAs14OOcqndWsFGlOVWDuxUvEwAyRIZbQhk425v
-         bxSqdjkdkqeAoe97oGcdN1Z0/N1o32AyfWGy++WqjZMF7eSC5+AWYDecGAxmhL1CwxU/
-         1Ou3em04qFkEzl6SFTRUR5oxqP+OyTMV7nuilQWLxn53ctQlzdfajzceToYRyamXle7D
-         moZHbUf2S3HPIXIvM1dpBP7twjqDYMuxvBRi017C1T4umv35gz87aLFweNfXH+760E5Y
-         fYgrkZ1DGhEadhe4sfOD/63AcH3QKvI6VnDVS5Yu1kZ8jaM0m+7pbI1Q2s33oWDm5ZbZ
-         Lvuw==
+         :list-id:mailing-list:precedence:to:in-reply-to:cc:references
+         :message-id:date:subject:mime-version:from:content-transfer-encoding
+         :sender:dkim-signature;
+        bh=KLELP7OiEqRz3lyJtnPp/QEmKz1AUzWucSeIqZngZes=;
+        b=Dxqa1QHzpGJq4C5tyid2d/H6Xevl9Tq9YRvdIbtPuIJA2PCGpNcyOWJd9jkZ22VShS
+         pSMGcgJL49RilRl9qcevQuN8iHyd+bMjfGO5lh1rhMokZzUFsmLOFo/9qjlhEAzU0uqL
+         UbhFqfjT9GlVFjS4BqAQKtNT9SNcBLJ8XVQbWPlr5MRy5hBH68gcJcijK/rg/0nyb6+F
+         C4aBBgwt4riGnAWKKMUoNZYMyAVdjm6HSL5aUyTRgYy2/jpPzCrc9jgIBXA4N1zcqKT5
+         xYKOsXLJTdO4672ji9YYMBeyH2DwolZp3YTSLVa/oNbtq00RtMLo9v4Cm3IdXuNWdWv2
+         YGHg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@lca.pw header.s=google header.b=XfqrDDLT;
-       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=cai@lca.pw
+       dkim=pass header.i=@amacapital-net.20150623.gappssmtp.com header.s=20150623 header.b=sN76knTs;
+       spf=pass (google.com: domain of luto@amacapital.net designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=luto@amacapital.net
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:to:cc:subject:date:message-id
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=vp15mzVd9aSfPTHE6+Xvav4iMotVhVamzjfXFZlnS24=;
-        b=ev4IrCubd+rQZSaWUIm6eAEzzpYkAX765q9WxhjN1m+L/kWvNDSyeK4sQyZ+bD1TXC
-         KCtsdOCYw19qDErNeSe9lypUqA+R1G1r14gSfLMoG7tGNv63cDBdNjYKG6WYxLZ6dG9D
-         TjV86smQ57ohAeWOv/w3OODdm38MbEqjbWw8KrWXnVWLgJ+Vmpjoft2U+PmZTjINeRvZ
-         Mqg4xIahevtb7E14PdHHRGbpSeU7va2ARZ3LqSZeisXOBcXcEgmMEtKu0XPZ+q8KD6Kj
-         19n7/+6x1LMbI50aCNfexy1QwQNrOw8tFCz0pUsczOFt8eXqfa+WnsyGqQ/Z8IXBKXEO
-         YYnw==
+        h=sender:content-transfer-encoding:from:mime-version:subject:date
+         :message-id:references:cc:in-reply-to:to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=KLELP7OiEqRz3lyJtnPp/QEmKz1AUzWucSeIqZngZes=;
+        b=s6I/zsMP/VCvYrAcuwf2w6uSLpCFuuPJHF6XYt9cwqsDtrsALeKPkIC07pa1rNBfJ2
+         yB9SgpTq/UH7lzIYOuNeGQCTiriaUUeMc7eH0iin0k3eADZ2JUeUoYaF5yg1K2RUP6WT
+         Ny4InPiglfx4t5wkPplVH61nAqyF0QylqmEUVgU9rXyJeYOWo7w1zASmi8JvQ8HWlOYX
+         MuzpmKtdRQBNAYhoqSRA3HMpUvP9g7/ODSxLdtGRGB3KOpsn1WBbzktFr4ZAdIvJ8Yd4
+         1xde1PiK8P6QnwwbGP25JuGygzQqMm4nEWAimW/zrDBOV5dm4uoxeKCFLoEXWYe5Rd//
+         Qq9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
-         :message-id:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=vp15mzVd9aSfPTHE6+Xvav4iMotVhVamzjfXFZlnS24=;
-        b=aa0Bomm8JzFu9fUNautHXyP8BXNdQvIHS5JKTxv1/I2CDzEoVvouYlqm3g/mjeGle8
-         duZ4fLFpfsCMIiy6DLKpfYF56Jp/T7hpSzvXXtQjnDF1XYsXb7C3213Z5PhqagokL/cb
-         j0r46gHKbeFLCviksb8F8drtzjxE7o3lJAjNU2Tuv2AThiuEhFU30+0Ng4L4FZhTkn59
-         4eW979Sv1oDX0c+Ud5I4NkBkbddOeu7B7X30S1OfIC5992Yzv5LlGXEflech6dA9INY/
-         0h2wRXbJJnmrIFrj6Y5qn8cBi8iDgezIT/cPI38Wi8/zcufSupk77XqYsrYBPRebPhpr
-         qNSQ==
+        h=sender:x-gm-message-state:content-transfer-encoding:from
+         :mime-version:subject:date:message-id:references:cc:in-reply-to:to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=KLELP7OiEqRz3lyJtnPp/QEmKz1AUzWucSeIqZngZes=;
+        b=jGLHtKWyyTNQj2u0A9NBj0AwZNDZW91BZS147lwjNTm0mWos9rXAPtrmncSpQv2Z2Z
+         7txDfL4Rfq4FOy7hCJLjw3eirgQQ4X29yKSEE0r6Vj//gWttVqPlX6eoS4aJ04Yf/kB8
+         PpOOMerFhFwnSI9WRloHrpWA/RELXpjS12FItJpSqMMvOb7/6JF7f4aKfMYcKMOQlxVK
+         JQjOw4acfz9nh1PXOeOh/AKdj6o/lgGssFXG9pTQLp+SQI/aX4mjZWLYBXMjsQSnB/Nk
+         i8zmV0N79bM7P41arVtqdnI5Qs/pWhHi8JKz9Rn/UVtYtkEKg79/gCreR4hKW9nAs1H+
+         0R3A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ3lUCMDYWbmoDg5I4aokvvLrSdYRN205+fDSJNRl06oMo50SCVj
-	WGVMDjnaiYSVjhHWJyfF394=
-X-Google-Smtp-Source: ADFU+vuSHYpO5B0v1WrTx7RZqNKMFIOgM3XoLFa/MXb55gLDN+dEKxE6wFJvQWv0Nv8iaWKFxHS1Jg==
-X-Received: by 2002:ab0:1d1:: with SMTP id 75mr1979882ual.108.1583509323659;
-        Fri, 06 Mar 2020 07:42:03 -0800 (PST)
-MIME-Version: 1.0
+X-Gm-Message-State: ANhLgQ19ghdXyNRYnoMFDHKfq9b/5u7NlrzKGfHctZ4hpRZ9RjOJFcVV
+	zsnrisFHNqfjxMj9FgvsvWE=
+X-Google-Smtp-Source: ADFU+vsQdSNyZgrZMFSm/plG2HMvju7BgDF+V5InRChA2Da7xjOTi2CIT+jiioMVMjNSnTlI6y6WXg==
+X-Received: by 2002:a37:a38b:: with SMTP id m133mr3536457qke.418.1583510689353;
+        Fri, 06 Mar 2020 08:04:49 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:27c5:: with SMTP id n188ls390338vsn.8.gmail; Fri, 06 Mar
- 2020 07:42:02 -0800 (PST)
-X-Received: by 2002:a67:ea54:: with SMTP id r20mr2406702vso.217.1583509322702;
-        Fri, 06 Mar 2020 07:42:02 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1583509322; cv=none;
+Received: by 2002:ac8:4558:: with SMTP id z24ls954578qtn.11.gmail; Fri, 06 Mar
+ 2020 08:04:48 -0800 (PST)
+X-Received: by 2002:ac8:2fd1:: with SMTP id m17mr3668796qta.306.1583510688484;
+        Fri, 06 Mar 2020 08:04:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1583510688; cv=none;
         d=google.com; s=arc-20160816;
-        b=GVN+L3GMHh1++OKRQpPwu9SAbqiftncStlBu0ZtY5j7je5ht2gVhioEKslbg6V0Gp3
-         KhE7QY48/eb3AnAKt/GqgMDCurPo/DWLVBljKFPGgAZzGRcgAOP/AGvf7rXuCiPL/b4w
-         l/OT59XN6xISBC6zWQEn3ETzpxApZ6qkKbXabvnvF4y3l11MMjd6B34N3yQ5nWCJ5B/1
-         NpwhWs3XI2LloXW+MrPF42mpxUa1aGIWsYRU7sIeJ8LM9GL9JsMvoLYKxHmu+pFX+pTQ
-         fjDT8njIp2GBU/f8fe4vZCxU4+1bNdDsEJb48ucmQiZUIpect/VRYaJUinbPQyfwyPqS
-         Zg7A==
+        b=WwbBiuDoyCFDjcKtzbFbUOD6+WErl3Ps3hCWNgYN+soEbDwtHqxS6V1HhshbZm2RB4
+         PDTOf3FMUFynvY3th9jZ9tjPRsu/6DY5Spfncn3hHQm0NN89xHMOi3H7BJVlQQwuQb7g
+         6gUSXQQGVgWMTT3N7IyopADsG2rRrQ4pOI6sLtF1otg8zgw+g6WckVoEBcKoGrIdnqr2
+         9znKm7BUEm3CHqmkNeclr/lCGoeujJ1Ne8zjAaMHyvTnDilKLUV+NC1IxyBn85SInSnF
+         fN1R40vHSLD/NYCj0pbkLJ4dNUWFsKfd85lMxG2+vC4rGYPwnaByVqM9rhzL37peRYZy
+         OU9g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:subject:cc:to:from:dkim-signature;
-        bh=MXluHjiwZwq++M60EzdikuAJ7SQh4kY9FFj9/2rOI1E=;
-        b=zwV97bSjWTl52sNSJ3oKn7/fU+lZy/j9U5S+1k5ShetCR/mv6wflqbvymrh++kF4Nx
-         Dj+/KYo68DAy6L3jnWEpoeYZLW5zWRfGrkCictwMi99JjAZY6WNE7lSJ2hna7ir/mamy
-         zbO0tXMzE0HeI2pO8+0on2fMHOILqGa+wrLexsqgpfce9LJZv/IceGI3O9xzLA7QuEFE
-         916/chzP27qYAV9NkA/PtqChSznCqqe5uEKPb5NqWfTphQAEfD3MPUJFVEe0xRFW8igm
-         R4J15fOWiCM/soZ76KieqRnUK0f0SxJ3aY+N1LTfyGp0ovFHzPhWe2InBYxnOjhQ+gmh
-         r9ew==
+        h=to:in-reply-to:cc:references:message-id:date:subject:mime-version
+         :from:content-transfer-encoding:dkim-signature;
+        bh=7u/E+2AE1Gw8zduCp3vcJIoh4aQz/xJ780ourlTfM+A=;
+        b=EjxA/BGMNGG7R1U0ZgHkNllFr130Tx+hgrBTd/06zV+YEQurARMj91Il7zwJv9+3SG
+         JumjwtpJsJguxlldsKL7Pqkqo4ih1Ou4drxVXQAZKT5ZhJnId3LdlC5/d9HxiEJxcO5N
+         OwaXG+BzEnL9T8d3Jw2Ox1AxZY5p1MN1WoKzCjhvVJ3N1Kg8j+yQ7X7ANUeQb0MGNMEB
+         kf81Z7y9QnrDP5nSUlRv5pLpJYa3cqYqLiaoxdVjHGu8elozHTE2rxYHXQ8bMiFSQLZe
+         MWy6mY7RQKwOxwmi1+1f5PXWlMObt+EFIhtS+jlCvtREDBlHvun1rX1kNLVjXuyLoWaS
+         c2oA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@lca.pw header.s=google header.b=XfqrDDLT;
-       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=cai@lca.pw
-Received: from mail-qk1-x743.google.com (mail-qk1-x743.google.com. [2607:f8b0:4864:20::743])
-        by gmr-mx.google.com with ESMTPS id s74si200132vkb.5.2020.03.06.07.42.02
+       dkim=pass header.i=@amacapital-net.20150623.gappssmtp.com header.s=20150623 header.b=sN76knTs;
+       spf=pass (google.com: domain of luto@amacapital.net designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=luto@amacapital.net
+Received: from mail-pj1-x1044.google.com (mail-pj1-x1044.google.com. [2607:f8b0:4864:20::1044])
+        by gmr-mx.google.com with ESMTPS id x18si185294qtk.0.2020.03.06.08.04.48
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 06 Mar 2020 07:42:02 -0800 (PST)
-Received-SPF: pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::743 as permitted sender) client-ip=2607:f8b0:4864:20::743;
-Received: by mail-qk1-x743.google.com with SMTP id j7so2680522qkd.5
-        for <clang-built-linux@googlegroups.com>; Fri, 06 Mar 2020 07:42:02 -0800 (PST)
-X-Received: by 2002:a37:ef04:: with SMTP id j4mr3491798qkk.68.1583509322259;
-        Fri, 06 Mar 2020 07:42:02 -0800 (PST)
-Received: from qcai.nay.com (nat-pool-bos-t.redhat.com. [66.187.233.206])
-        by smtp.gmail.com with ESMTPSA id w11sm13942407qti.54.2020.03.06.07.42.00
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 06 Mar 2020 07:42:01 -0800 (PST)
-From: Qian Cai <cai@lca.pw>
-To: peterz@infradead.org,
-	mingo@redhat.com
-Cc: juri.lelli@redhat.com,
-	vincent.guittot@linaro.org,
-	dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	bsegall@google.com,
-	mgorman@suse.de,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Qian Cai <cai@lca.pw>
-Subject: [PATCH] sched/cputime: silence a -Wunused-function warning
-Date: Fri,  6 Mar 2020 10:41:44 -0500
-Message-Id: <1583509304-28508-1-git-send-email-cai@lca.pw>
-X-Mailer: git-send-email 1.8.3.1
-X-Original-Sender: cai@lca.pw
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@lca.pw header.s=google header.b=XfqrDDLT;       spf=pass
- (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::743 as
- permitted sender) smtp.mailfrom=cai@lca.pw
+        Fri, 06 Mar 2020 08:04:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of luto@amacapital.net designates 2607:f8b0:4864:20::1044 as permitted sender) client-ip=2607:f8b0:4864:20::1044;
+Received: by mail-pj1-x1044.google.com with SMTP id lt1so1238997pjb.2
+        for <clang-built-linux@googlegroups.com>; Fri, 06 Mar 2020 08:04:48 -0800 (PST)
+X-Received: by 2002:a17:90a:9f93:: with SMTP id o19mr4348094pjp.76.1583510687333;
+        Fri, 06 Mar 2020 08:04:47 -0800 (PST)
+Received: from ?IPv6:2601:646:c200:1ef2:9126:9a7f:9c94:9d63? ([2601:646:c200:1ef2:9126:9a7f:9c94:9d63])
+        by smtp.gmail.com with ESMTPSA id p2sm18206125pfb.41.2020.03.06.08.04.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 06 Mar 2020 08:04:46 -0800 (PST)
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+From: Andy Lutomirski <luto@amacapital.net>
+Mime-Version: 1.0 (1.0)
+Subject: Re: [PATCH v2 00/20] Introduce common headers
+Date: Fri, 6 Mar 2020 08:04:44 -0800
+Message-Id: <3278D604-28F1-47A1-BAB8-D8EB439995E8@amacapital.net>
+References: <20200306133242.26279-1-vincenzo.frascino@arm.com>
+Cc: linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+ clang-built-linux@googlegroups.com, x86@kernel.org,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will.deacon@arm.com>, Arnd Bergmann <arnd@arndb.de>,
+ Russell King <linux@armlinux.org.uk>, Paul Burton <paul.burton@mips.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Andy Lutomirski <luto@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Stephen Boyd <sboyd@kernel.org>, Mark Salyzyn <salyzyn@android.com>,
+ Kees Cook <keescook@chromium.org>, Peter Collingbourne <pcc@google.com>,
+ Dmitry Safonov <0x7f454c46@gmail.com>, Andrei Vagin <avagin@openvz.org>,
+ Nick Desaulniers <ndesaulniers@google.com>
+In-Reply-To: <20200306133242.26279-1-vincenzo.frascino@arm.com>
+To: Vincenzo Frascino <vincenzo.frascino@arm.com>
+X-Mailer: iPhone Mail (17D50)
+X-Original-Sender: luto@amacapital.net
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@amacapital-net.20150623.gappssmtp.com header.s=20150623
+ header.b=sN76knTs;       spf=pass (google.com: domain of luto@amacapital.net
+ designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=luto@amacapital.net
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,45 +142,209 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-account_other_time() is only used when CONFIG_IRQ_TIME_ACCOUNTING=y (in
-irqtime_account_process_tick()) or CONFIG_VIRT_CPU_ACCOUNTING_GEN=y (in
-get_vtime_delta()). When both are off, it will generate a compilation
-warning from Clang,
 
-kernel/sched/cputime.c:255:19: warning: unused function
-'account_other_time' [-Wunused-function]
-static inline u64 account_other_time(u64 max)
 
-Rather than wrapping around this function with a macro expression,
+> On Mar 6, 2020, at 5:32 AM, Vincenzo Frascino <vincenzo.frascino@arm.com>=
+ wrote:
+>=20
+> =EF=BB=BFBack in July last year we started having a problem in building c=
+ompat
+> vDSOs on arm64 [1] [2] that was not present when the arm64 porting to
+> the Unified vDSO was done. In particular when the compat vDSO on such
+> architecture is built with gcc it generates the warning below:
+>=20
+> In file included from ./arch/arm64/include/asm/thread_info.h:17:0,
+>                 from ./include/linux/thread_info.h:38,
+>                 from ./arch/arm64/include/asm/preempt.h:5,
+>                 from ./include/linux/preempt.h:78,
+>                 from ./include/linux/spinlock.h:51,
+>                 from ./include/linux/seqlock.h:36,
+>                 from ./include/linux/time.h:6,
+>                 from ./lib/vdso/gettimeofday.c:7,
+>                 from <command-line>:0:
+> ./arch/arm64/include/asm/memory.h: In function =E2=80=98__tag_set=E2=80=
+=99:
+> ./arch/arm64/include/asm/memory.h:233:15: warning: cast from pointer
+>                to integer of different size [-Wpointer-to-int-cast]
+>  u64 __addr =3D (u64)addr & ~__tag_shifted(0xff);
+>               ^
+> In file included from ./arch/arm64/include/asm/pgtable-hwdef.h:8:0,
+>                 from ./arch/arm64/include/asm/processor.h:34,
+>                 from ./arch/arm64/include/asm/elf.h:118,
+>                 from ./include/linux/elf.h:5,
+>                 from ./include/linux/elfnote.h:62,
+>                 from arch/arm64/kernel/vdso32/note.c:11:
+> ./arch/arm64/include/asm/memory.h: In function =E2=80=98__tag_set=E2=80=
+=99:
+> ./arch/arm64/include/asm/memory.h:233:15: warning: cast from pointer
+>                to integer of different size [-Wpointer-to-int-cast]
+>  u64 __addr =3D (u64)addr & ~__tag_shifted(0xff);
+>=20
+> The same porting does not build at all when the selected compiler is
+> clang.
+>=20
+> I started an investigation to try to understand better the problem and
+> after various discussions at Plumbers and Recipes last year the
+> conclusion was that the vDSO library as it stands it is including more
+> headers that it needs. In particular, being a user-space library, it
+> should require only the UAPI and a minimal vDSO kernel interface instead
+> of all the kernel-related inline functions which are not directly used
+> and in some cases can have side effects.
+>=20
+> To solve the problem, I decided to use the approach below:
+>  * Extract from include/linux/ the vDSO required kernel interface
+>    and place it in include/common/
 
- if defined(CONFIG_IRQ_TIME_ACCOUNTING) || \
-    defined(CONFIG_VIRT_CPU_ACCOUNTING_GEN)
+I really like the approach, but I=E2=80=99m wondering if =E2=80=9Ccommon=E2=
+=80=9D is the right name. This directory is headers that aren=E2=80=99t sta=
+ble ABI like uapi but are shared between the kernel and the vDSO. Regular u=
+ser code should *not* include these, right?
 
-just use __maybe_unused for this small function which seems like a good
-trade-off.
+Would =E2=80=9Cvdso=E2=80=9D or perhaps =E2=80=9Cprivate-abi=E2=80=9D be cl=
+earer?
 
-Signed-off-by: Qian Cai <cai@lca.pw>
----
- kernel/sched/cputime.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+>  * Make sure that where meaningful the kernel includes "common"
+>  * Limit the vDSO library to include headers coming only from UAPI
+>    and "common" (with 2 exceptions compiler.h for barriers and
+>    param.h for HZ).
+>  * Adapt all the architectures that support the unified vDSO library
+>    to use "common" headers.
 
-diff --git a/kernel/sched/cputime.c b/kernel/sched/cputime.c
-index cff3e656566d..85da4d6dee24 100644
---- a/kernel/sched/cputime.c
-+++ b/kernel/sched/cputime.c
-@@ -252,7 +252,7 @@ static __always_inline u64 steal_account_process_time(u64 maxtime)
- /*
-  * Account how much elapsed time was spent in steal, irq, or softirq time.
-  */
--static inline u64 account_other_time(u64 max)
-+static inline __maybe_unused u64 account_other_time(u64 max)
- {
- 	u64 accounted;
- 
--- 
-1.8.3.1
+>=20
+> According to me this approach allows up to exercise a better control on
+> what the vDSO library can include and to prevent potential issues in
+> future.
+>=20
+> This patch series contains the implementation of the described approach.
+>=20
+> The "common" headers have been verified on all the architectures that sup=
+port
+> unified vDSO using the vdsotest [3] testsuite for what concerns the vDSO =
+part
+> and randconfig to verify that they are included in the correct places.
+>=20
+> To simplify the testing, a copy of the patchset on top of a recent linux
+> tree can be found at [4].
+>=20
+> [1] https://github.com/ClangBuiltLinux/linux/issues/595
+> [2] https://lore.kernel.org/lkml/20190926151704.GH9689@arrakis.emea.arm.c=
+om
+> [3] https://github.com/nathanlynch/vdsotest
+> [4] git://linux-arm.org/linux-vf.git common-headers/v2
+>=20
+> Changes:
+> --------
+> v2:
+>  - Addressed review comments for clang support.
+>  - Rebased on 5.6-rc4.
+>=20
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will.deacon@arm.com>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Russell King <linux@armlinux.org.uk>
+> Cc: Paul Burton <paul.burton@mips.com>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Andy Lutomirski <luto@kernel.org>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Borislav Petkov <bp@alien8.de>
+> Cc: Stephen Boyd <sboyd@kernel.org>
+> Cc: Mark Salyzyn <salyzyn@android.com>
+> Cc: Kees Cook <keescook@chromium.org>
+> Cc: Peter Collingbourne <pcc@google.com>
+> Cc: Dmitry Safonov <0x7f454c46@gmail.com>
+> Cc: Andrei Vagin <avagin@openvz.org>
+> Cc: Nick Desaulniers <ndesaulniers@google.com>
+> Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
+>=20
+> Vincenzo Frascino (20):
+>  linux/const.h: Extract common header for vDSO
+>  linux/bits.h: Extract common header for vDSO
+>  linux/limits.h: Extract common header for vDSO
+>  linux/math64.h: Extract common header for vDSO
+>  linux/time.h: Extract common header for vDSO
+>  linux/time32.h: Extract common header for vDSO
+>  linux/time64.h: Extract common header for vDSO
+>  linux/jiffies.h: Extract common header for vDSO
+>  linux/ktime.h: Extract common header for vDSO
+>  common: Introduce processor.h
+>  linux/elfnote.h: Replace elf.h with UAPI equivalent
+>  arm64: Introduce asm/common/processor.h
+>  arm64: vdso: Include common headers in the vdso library
+>  arm64: vdso32: Include common headers in the vdso library
+>  arm64: Introduce asm/common/arch_timer.h
+>  mips: vdso: Enable mips to use common headers
+>  x86: vdso: Enable x86 to use common headers
+>  arm: vdso: Enable arm to use common headers
+>  lib: vdso: Enable common headers
+>  arm64: vdso32: Enable Clang Compilation
+>=20
+> arch/arm/include/asm/common/cp15.h            | 38 +++++++++++++++++++
+> arch/arm/include/asm/common/processor.h       | 22 +++++++++++
+> arch/arm/include/asm/cp15.h                   | 20 +---------
+> arch/arm/include/asm/processor.h              | 11 +-----
+> arch/arm/include/asm/vdso/gettimeofday.h      |  4 +-
+> arch/arm64/include/asm/arch_timer.h           | 29 +++-----------
+> arch/arm64/include/asm/common/arch_timer.h    | 33 ++++++++++++++++
+> arch/arm64/include/asm/common/processor.h     | 31 +++++++++++++++
+> arch/arm64/include/asm/processor.h            | 16 +-------
+> .../include/asm/vdso/compat_gettimeofday.h    |  2 +-
+> arch/arm64/include/asm/vdso/gettimeofday.h    |  8 ++--
+> arch/arm64/kernel/vdso/vgettimeofday.c        |  2 -
+> arch/arm64/kernel/vdso32/Makefile             | 13 ++++++-
+> arch/arm64/kernel/vdso32/vgettimeofday.c      |  3 --
+> arch/mips/include/asm/common/processor.h      | 27 +++++++++++++
+> arch/mips/include/asm/processor.h             | 16 +-------
+> arch/mips/include/asm/vdso/gettimeofday.h     |  4 --
+> arch/x86/include/asm/common/processor.h       | 23 +++++++++++
+> arch/x86/include/asm/processor.h              | 12 +-----
+> include/common/bits.h                         |  9 +++++
+> include/common/const.h                        | 10 +++++
+> include/common/jiffies.h                      | 11 ++++++
+> include/common/ktime.h                        | 16 ++++++++
+> include/common/limits.h                       | 18 +++++++++
+> include/common/math64.h                       | 24 ++++++++++++
+> include/common/processor.h                    | 14 +++++++
+> include/common/time.h                         | 12 ++++++
+> include/common/time32.h                       | 17 +++++++++
+> include/common/time64.h                       | 14 +++++++
+> include/linux/bits.h                          |  2 +-
+> include/linux/const.h                         |  5 +--
+> include/linux/elfnote.h                       |  2 +-
+> include/linux/jiffies.h                       |  4 +-
+> include/linux/ktime.h                         |  9 +----
+> include/linux/limits.h                        | 13 +------
+> include/linux/math64.h                        | 20 +---------
+> include/linux/time.h                          |  5 +--
+> include/linux/time32.h                        | 13 +------
+> include/linux/time64.h                        | 10 +----
+> include/vdso/datapage.h                       | 32 ++++++++++++++--
+> lib/vdso/gettimeofday.c                       | 21 ----------
+> 41 files changed, 388 insertions(+), 207 deletions(-)
+> create mode 100644 arch/arm/include/asm/common/cp15.h
+> create mode 100644 arch/arm/include/asm/common/processor.h
+> create mode 100644 arch/arm64/include/asm/common/arch_timer.h
+> create mode 100644 arch/arm64/include/asm/common/processor.h
+> create mode 100644 arch/mips/include/asm/common/processor.h
+> create mode 100644 arch/x86/include/asm/common/processor.h
+> create mode 100644 include/common/bits.h
+> create mode 100644 include/common/const.h
+> create mode 100644 include/common/jiffies.h
+> create mode 100644 include/common/ktime.h
+> create mode 100644 include/common/limits.h
+> create mode 100644 include/common/math64.h
+> create mode 100644 include/common/processor.h
+> create mode 100644 include/common/time.h
+> create mode 100644 include/common/time32.h
+> create mode 100644 include/common/time64.h
+>=20
+> --=20
+> 2.25.1
+>=20
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1583509304-28508-1-git-send-email-cai%40lca.pw.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/3278D604-28F1-47A1-BAB8-D8EB439995E8%40amacapital.net.
