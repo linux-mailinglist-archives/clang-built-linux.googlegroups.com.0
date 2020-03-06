@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB56VQ7ZQKGQEIZI2M4Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBN7YQ7ZQKGQEV3X6MYI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc3a.google.com (mail-yw1-xc3a.google.com [IPv6:2607:f8b0:4864:20::c3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id B4FB617B69D
-	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Mar 2020 07:17:28 +0100 (CET)
-Received: by mail-yw1-xc3a.google.com with SMTP id q128sf1946265ywb.8
-        for <lists+clang-built-linux@lfdr.de>; Thu, 05 Mar 2020 22:17:28 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1583475447; cv=pass;
+Received: from mail-io1-xd3a.google.com (mail-io1-xd3a.google.com [IPv6:2607:f8b0:4864:20::d3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5947317B76A
+	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Mar 2020 08:31:05 +0100 (CET)
+Received: by mail-io1-xd3a.google.com with SMTP id d16sf927471iop.17
+        for <lists+clang-built-linux@lfdr.de>; Thu, 05 Mar 2020 23:31:05 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1583479864; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yRwBnZ175EATMGfWBj/GoNsBhEvZRUkkqi3FEGouez+enOnqKCh64XIDexfkSiXDwT
-         1Mt9HHIvEDDsdPIA6ps3zKA3lcXJWUdvQD1+ifk+R9RjauP73VzZY6Q0/V/LmpXYQrB8
-         xRaB2CSwet3QbQ8sX6pprxzmUIg5utCgrt2ggpFvY5bzpC5kWTGc/zT9Ln1z/qQP+MCI
-         BKMUS85u4wsc+nCAK6bndqG3dJi0RZtm2kjPPyaQBqTel8GflUxYHGGkWAMiaWT8kzK6
-         GShmY5NsNHhQB1P+5avDMUm9lbQ8lfAeSKfUers3FHh/RZ/T6b+LseIzg1K3BLekzUdh
-         rYEQ==
+        b=LE1gXlM2TJevDJbNmqkik755uE78KVwEuev+30IY5RuHSkV4vgCUAOHuADsx8+GgEz
+         iEhaNLfXke5AaRdBm4SSQwlAszG8KkM/oy6/1YjrbA2BwGwMb6zMc+LWpRLjtm/YsRyM
+         /NA6OQiW0FPbJZBm6oNVafLduTp/msEXUlQyvXzqd1xnIssQpPRv01d/IP5AXnRYnYzH
+         HQJvR3Ma5M+wzmauy+Vi0P+Qi3nuzU8oiA67GnVRDmkNLCzAgslhlV67WtFa5B3Tf3nd
+         LVxAOcV8BCNnMtWIqxt3VKAKokb5s1Sl7wdzgOvENt95yuHiQt5ldI9XjM4Io4Z2ciHu
+         5fUg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature;
-        bh=nWxqCOOF3l5Y5MsP7QBoVfvyvwsQDBxYUfHV8Zwe4ks=;
-        b=aLCucElzy8PzNj4X1U88EZJQyoXWyGPIIM/dfOJxNGp/qxRz1FmCH4Kv8UJlSO5kV+
-         RBtCWOzeuBCzCumg6cF0up3vuqs6tno4YJcgWcFfM4JC45aiyFxF9ihUctILxDauBkIg
-         +K9j4+gk/6fo3QCnlk8QdVO88fBCLFlXuaP/w0TqDZQQrsFMVZL4TqIX0NmOPMbsX9sw
-         x8E1ZCMLk3ywVOtZArQ2MDlDfx3tDteLV7MwxkorHmpJXJTMdPb4DBpRTZLJ+r4nO0GP
-         iOrXs39Uqe6WO6CceKF0EH2G6m80C0GqUFJ5CMwaH7FmZBHH1m5ECr/2LVYCdWlwJ+s/
-         ECtg==
+        bh=UUUapCiTMyN7ZIPAqD5RSghqWqa05IH2ypbxVeWLIyY=;
+        b=GQBLvZOEUiADo6RGvxtWiFBD+8pEWmsqBt4X0L6j6K4aYQ7QkEbl+L2Mauyzvo1SZo
+         faHbt/aN7lRv+48W6D3DK+A20HMbyBqBiwS4lEa/HypfOyE8A8KPAo1DNtt+3LQRvMiz
+         XW/EbHQZBpGXJLz/M8r7jWLIZ+8q/0LCKvyPaDSGs5JkD+dutIZR3stk4Zf1a504Qg9X
+         JE3qpvapHoPxu0KP/ZDhlZKIqQC1/nO0ncxAPcOmWQBk/VQs+ldI8Ugq5yu5J4J5+u+O
+         GDDqZdQftNOMkknSNHithXmfxN748Gxcvg2V5AW9OGUcwMjckkXwzz0jB7oB5NoutrrU
+         xHLQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=nWxqCOOF3l5Y5MsP7QBoVfvyvwsQDBxYUfHV8Zwe4ks=;
-        b=gRYShVsAAc3015IV7M30LfOu+WSrOUQHEiOQpQAC3muG+dARTCCZAnfsPaOHQDSqPl
-         myzK+rhyH8E9DTBUErewOgW/4XGdYXaqqks2gu/1GQukbuL/E1m4GaKzlf0h33PnCPYa
-         gv6bFSwItPR1ylTgB4/L3q6Gqw67LoSocxN0aVVcgeR+tzojnopOnx6LJ7Ftgn778itp
-         /QVLQeZvug7mjYgSn0qehWeQkISVQy7SDjWriVP22JDD9CELI7TdT1w5YAiRDirysRV3
-         UA75DMQ3Ncy1rekhk9MMsS6mJlHuf8EEhaRmUvAHpzi1K15ezwBMC8+7suG5bxd2nqTS
-         zCwQ==
+        bh=UUUapCiTMyN7ZIPAqD5RSghqWqa05IH2ypbxVeWLIyY=;
+        b=nbgT4mtbwoECVmLjetn9sm2HVC63q0ZHtooOYxrNyCMEoFoqFuo1Yy0AiZY/Elg6rm
+         TuxuLtYlSpx4rCo1sESzGJBIX7hwUNyaB/LKG79qEfaNkNIl2yovW/DB9yeRxWNNnvw+
+         47xDhDXEcvjAZXqqaG693f3TU9mXfVfkIfnztPgdaY+MreKOLFw/lSM2er+yTWnNaPkU
+         tTfR0qbekSE7X7xwIy4FqSSEVNE/T8iLJ1NOv4JuggNnjAVG+69DLw0o3hmqGoQm767s
+         MQL/wpBGpN4M3elgazfPRJS7nZLPuDoiLEZhA7qZJspcrxjt3WD+4NYXwNd3ORZENv9L
+         2V7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,65 +49,65 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=nWxqCOOF3l5Y5MsP7QBoVfvyvwsQDBxYUfHV8Zwe4ks=;
-        b=bBAsRVkPRa7Lw7XqW0nkMOyfzY9TRPKkqCtq6oMYSpYdivcD+qObWttvo9E4QBghuv
-         prJJX8E/BOGeRGJiXAtbIujYaexSO110oYuDh4Vm+OpsRFdH0qdeH+72dK7QqCtfFhzP
-         wINm2FZckIGTM9RD1Jd3XVNLUYvXcPhOtgr/U1hkUUl6vuAcwnVBgGWsePp8OSESt7Gy
-         neCthogkCUPfIyJpmhlTcxfqbR7ggBclKG1z93IA8717GOv5nfeNKVkOaOVMevryVdL4
-         0FNDHSVKmKkaKMPfQHz/kiJYfuPpWKizrclw0eoso4Qf0z1NG2k/fOdIqrNIYJ3IE1n/
-         fkwg==
+        bh=UUUapCiTMyN7ZIPAqD5RSghqWqa05IH2ypbxVeWLIyY=;
+        b=MSFaTr1JOYd9V6DMWo1ncHOlvfFb7VofNYH9y57MZkAVJYJf1xmILLyAl3T3BAqoVy
+         t+uuZdfYp0YD352ODWKmzawowOq9nb8/CIDNqSc+ViF7fstDDQXcvccfpN42VJpDK9nI
+         R7/FcOho1ZvyMSyL8oPpJ+jfiFu4p6eCC1Akhw7ja+9G23gFQ0cXLFyF+L09CygD+6aV
+         eItfQgEEM76+AHCZbnDzo2u6XRbDY6Ww2jfkFuxLhwcaZKS3Oxp9vCLGf4VUsmK7JHPI
+         3nuXukIO7zEZwlN48jBVxiM6J9G6q0HciyOMofmqiLLapnBYsAIwltKQEbXQPCeoe98Q
+         xYZw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ1hGR3ETdvRbgtwNwweUmCjGXog6NSymUfGQ0M1yYYiacgSh5cq
-	EeIjhnIcFarq//pxZc0SI88=
-X-Google-Smtp-Source: ADFU+vv4O9dQvECye8+8XKhwiCf8LAQij4CA4kKQRXfgxt8/H2xQxb/FrGCC4N80o7njQANETnW3bg==
-X-Received: by 2002:a25:47d5:: with SMTP id u204mr2145305yba.500.1583475447499;
-        Thu, 05 Mar 2020 22:17:27 -0800 (PST)
+X-Gm-Message-State: ANhLgQ0DIqpnYmnnMCCJyycQAco4XGIvusW1Tm7coNIt/NLKhnd0bRRK
+	VYgAN+59lSuIoLj5Ar3Df8Q=
+X-Google-Smtp-Source: ADFU+vuyMa/z4bcCDCHPRytKmMs5aMe7Z/HLHadXfweg7jSnx0jPJTMH0debWTEUmJC99WGLYICcAQ==
+X-Received: by 2002:a92:3550:: with SMTP id c77mr1999469ila.105.1583479863938;
+        Thu, 05 Mar 2020 23:31:03 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a0d:ebd6:: with SMTP id u205ls240220ywe.0.gmail; Thu, 05 Mar
- 2020 22:17:27 -0800 (PST)
-X-Received: by 2002:a81:668b:: with SMTP id a133mr1909890ywc.220.1583475446965;
-        Thu, 05 Mar 2020 22:17:26 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1583475446; cv=none;
+Received: by 2002:a92:dcc8:: with SMTP id b8ls403196ilr.3.gmail; Thu, 05 Mar
+ 2020 23:31:03 -0800 (PST)
+X-Received: by 2002:a92:1b4b:: with SMTP id b72mr2054281ilb.227.1583479863442;
+        Thu, 05 Mar 2020 23:31:03 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1583479863; cv=none;
         d=google.com; s=arc-20160816;
-        b=drCjVUwaiHvHnb6SWl9Oh6P26sev5EE0AkDLCbwdIeMMfXvTzGaTuXm4i2UJKXKa1w
-         lzT+9D1RAPy10A6c9ebN1GGnGxG7uxxV1pRq9pvPHRHTBm4j9KlnRFn2oMmoz02QlL90
-         1YrV0XnLRpKZTN/lBIZkDktRAdrRInzu2vIeFNT6j/VaqT6sbiNrpkgxdLRhoipQuyFB
-         rjWJU18FJglt+5mhTH+UmloiV7wD4E0GibEgjCZHlH+upvqbJd6HSSMeFJ3rSJENm1wR
-         Rs8fXDwnmqJNny9nfkFijBGoshLei1rEfFm3Z1dhjXJidb4QZMQda/QD1be4kb8CmtKI
-         Yu8g==
+        b=vRdDuR1k6zddb5ULrA9WTt6POJIgzoKet5mCnztEa+ntlbD0/fh3iasyvXSfo9e8Mn
+         cRaBcpWCwVvQSSzR/I63NAPkuIzxiQtp41+EIaXh4OilFQkpDSawPXNTryHse44g4PCp
+         EwP3XKluGrGdtcyKPXc8WaYtfO/DyjC8oM2DTIIRUAQIklBT/uY7vw5YWPKWs4cEiBut
+         hfdLpO0h3bzsjhVZ5/+YwJPDXinjwmDyXYeNH/7lf5OA7+Nsjh/D/pMZnao7BxHJ5bX4
+         OWDkIurW93/TliWDidpszMgKOXx+P1zkx9H/Wj0yGJcs97oJxu9Ki2e0H5XfgG3/fiau
+         9muA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date;
-        bh=c5y/3m+8KPrlNwkfeFiG2gEhTqIBoU89bnqkJLZs6ts=;
-        b=BIQzrxi5rZJUTkj5BRLYpxepdvj9OVS5ngjdA8HBH/Z5Vd0QFhxTsBORNuDS2UkSLL
-         CXzkm1mm79hd62r6rdkKqb4eFtjhEG5lRA+xp0gyKNIoKHOJHBlHi7lQc+FklXOWjfGb
-         GVKbD6NtPsJT9lNexIJXlw8aaSeQ1ecCDc+tlWR3LBDYvqkeAMUSqdbz9yHfE3TXzQ1s
-         UkkNHJ31KY2IWwkxn+ExJJBorVXW/ZZV3FvMRT6GjiGKg6ch4B+JQvyQlSToZ2IPD1a7
-         0tadn6D/Zt4wtpP76nUD+JVaFaoE8fzDWCrIEF2rLPo8plfhtJIEDGyHfIJYI/ydX0WK
-         3lHQ==
+        bh=aX4NScihrajlibobwRobCW6RPx070T+eV6I/ybruRZ4=;
+        b=PO1YKGb59NmGLW3h6QC4JPP5Fbo+irie6ERrazzJvYswU88n26q9kFQ8w78zHcs3FH
+         mOO+Q0sgephN5Rc+CpUwIbTxZ1eyh6OGyVbEdrTnvTCLkd938/4jwr5VHnFbCO/htoT0
+         W2Mn2vC51JOMyifYEVlXGSEHG1O0Ir7hwpLx/5bLueVed1boEJTsI+CQSiya1CL+629Y
+         7PIZhxTE5ELD4gXjhFRYYcS5C8F7MuvZYZNGBLEDdNGuQDI0JEyzWneagZ0/wJB916EL
+         qSsa8mh70eq8z7dw1/njQEPSAd1nrl95lCXfFI+ulRIlru5p+bVO9Ocf94oQ56e2gXZK
+         D2DA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga07.intel.com (mga07.intel.com. [134.134.136.100])
-        by gmr-mx.google.com with ESMTPS id u7si96619ywg.5.2020.03.05.22.17.26
+Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
+        by gmr-mx.google.com with ESMTPS id r8si82460ioo.3.2020.03.05.23.31.03
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 05 Mar 2020 22:17:26 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) client-ip=134.134.136.100;
+        Thu, 05 Mar 2020 23:31:03 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga002.fm.intel.com ([10.253.24.26])
-  by orsmga105.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 05 Mar 2020 22:17:25 -0800
+Received: from fmsmga005.fm.intel.com ([10.253.24.32])
+  by orsmga102.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 05 Mar 2020 23:31:01 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.70,521,1574150400"; 
-   d="gz'50?scan'50,208,50";a="275424251"
+   d="gz'50?scan'50,208,50";a="440034140"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga002.fm.intel.com with ESMTP; 05 Mar 2020 22:17:11 -0800
+  by fmsmga005.fm.intel.com with ESMTP; 05 Mar 2020 23:30:49 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1jA6II-000J5f-Lb; Fri, 06 Mar 2020 14:17:10 +0800
-Date: Fri, 6 Mar 2020 14:16:48 +0800
+	id 1jA7RY-0009sd-CE; Fri, 06 Mar 2020 15:30:48 +0800
+Date: Fri, 6 Mar 2020 15:30:39 +0800
 From: kbuild test robot <lkp@intel.com>
 To: Thomas Zimmermann <tzimmermann@suse.de>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
@@ -138,17 +138,17 @@ Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
 	linux-mediatek@lists.infradead.org,
 	Thomas Zimmermann <tzimmermann@suse.de>,
 	linux-tegra@vger.kernel.org
-Subject: Re: [PATCH 06/22] drm/hisilicon/kirin: Use simple encoder
-Message-ID: <202003061415.76jjt0tz%lkp@intel.com>
-References: <20200305155950.2705-7-tzimmermann@suse.de>
+Subject: Re: [PATCH 07/22] drm/i2c/tda998x: Use simple encoder
+Message-ID: <202003061520.1jjrNWVL%lkp@intel.com>
+References: <20200305155950.2705-8-tzimmermann@suse.de>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="2oS5YaxWCcQjTEyO"
+Content-Type: multipart/mixed; boundary="HcAYCG3uE/tztfnV"
 Content-Disposition: inline
-In-Reply-To: <20200305155950.2705-7-tzimmermann@suse.de>
+In-Reply-To: <20200305155950.2705-8-tzimmermann@suse.de>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -164,7 +164,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---2oS5YaxWCcQjTEyO
+--HcAYCG3uE/tztfnV
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -191,42 +191,52 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> drivers/gpu//drm/hisilicon/kirin/dw_drm_dsi.c:713:8: error: implicit declaration of function 'drm_simple_encoder_init' [-Werror,-Wimplicit-function-declaration]
-           ret = drm_simple_encoder_init(drm_dev, encoder, DRM_MODE_ENCODER_DSI);
+>> drivers/gpu/drm/i2c/tda998x_drv.c:2018:8: error: implicit declaration of function 'drm_simple_encoder_init' [-Werror,-Wimplicit-function-declaration]
+           ret = drm_simple_encoder_init(drm, &priv->encoder,
                  ^
-   drivers/gpu//drm/hisilicon/kirin/dw_drm_dsi.c:713:8: note: did you mean 'drm_i2c_encoder_init'?
-   include/drm/drm_encoder_slave.h:104:5: note: 'drm_i2c_encoder_init' declared here
-   int drm_i2c_encoder_init(struct drm_device *dev,
+   drivers/gpu/drm/i2c/tda998x_drv.c:2018:8: note: did you mean 'drm_encoder_init'?
+   include/drm/drm_encoder.h:189:5: note: 'drm_encoder_init' declared here
+   int drm_encoder_init(struct drm_device *dev,
        ^
    1 error generated.
 
-vim +/drm_simple_encoder_init +713 drivers/gpu//drm/hisilicon/kirin/dw_drm_dsi.c
+vim +/drm_simple_encoder_init +2018 drivers/gpu/drm/i2c/tda998x_drv.c
 
-   699	
-   700	static int dw_drm_encoder_init(struct device *dev,
-   701				       struct drm_device *drm_dev,
-   702				       struct drm_encoder *encoder)
-   703	{
-   704		int ret;
-   705		u32 crtc_mask = drm_of_find_possible_crtcs(drm_dev, dev->of_node);
-   706	
-   707		if (!crtc_mask) {
-   708			DRM_ERROR("failed to find crtc mask\n");
-   709			return -EINVAL;
-   710		}
-   711	
-   712		encoder->possible_crtcs = crtc_mask;
- > 713		ret = drm_simple_encoder_init(drm_dev, encoder, DRM_MODE_ENCODER_DSI);
-   714		if (ret) {
-   715			DRM_ERROR("failed to init dsi encoder\n");
-   716			return ret;
-   717		}
-   718	
-   719		drm_encoder_helper_add(encoder, &dw_encoder_helper_funcs);
-   720	
-   721		return 0;
-   722	}
-   723	
+  2000	
+  2001	static int tda998x_encoder_init(struct device *dev, struct drm_device *drm)
+  2002	{
+  2003		struct tda998x_priv *priv = dev_get_drvdata(dev);
+  2004		u32 crtcs = 0;
+  2005		int ret;
+  2006	
+  2007		if (dev->of_node)
+  2008			crtcs = drm_of_find_possible_crtcs(drm, dev->of_node);
+  2009	
+  2010		/* If no CRTCs were found, fall back to our old behaviour */
+  2011		if (crtcs == 0) {
+  2012			dev_warn(dev, "Falling back to first CRTC\n");
+  2013			crtcs = 1 << 0;
+  2014		}
+  2015	
+  2016		priv->encoder.possible_crtcs = crtcs;
+  2017	
+> 2018		ret = drm_simple_encoder_init(drm, &priv->encoder,
+  2019					      DRM_MODE_ENCODER_TMDS);
+  2020		if (ret)
+  2021			goto err_encoder;
+  2022	
+  2023		ret = drm_bridge_attach(&priv->encoder, &priv->bridge, NULL, 0);
+  2024		if (ret)
+  2025			goto err_bridge;
+  2026	
+  2027		return 0;
+  2028	
+  2029	err_bridge:
+  2030		drm_encoder_cleanup(&priv->encoder);
+  2031	err_encoder:
+  2032		return ret;
+  2033	}
+  2034	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -235,14 +245,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202003061415.76jjt0tz%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202003061520.1jjrNWVL%25lkp%40intel.com.
 
---2oS5YaxWCcQjTEyO
+--HcAYCG3uE/tztfnV
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICAnmYV4AAy5jb25maWcAnDzJdhu3svv7FTzJJlnE4SRKue9oAaLRJMKeDKBJSps+tEQ5
+H4sICJ71YV4AAy5jb25maWcAnDzJdhu3svv7FTzJJlnE4SRKue9oAaLRJMKeDKBJSps+tEQ5
 etHgS0lO/Pe3CugBQKMVv5eTOGZVYS7UjP7xXz+OyNvr8+Ph9f7m8PDwbfT5+HQ8HV6Pt6O7
 +4fj/4yifJTlasQirj4AcXL/9Pb3r4fT42I+Ovuw+DD+5XQzH22Op6fjw4g+P93df36D5vfP
 T//68V/w748AfPwCPZ3+Pbp5ODx9Hn09nl4APZpMPow/jEc/fb5//fevv8Kfj/en0/Pp14eH
@@ -1128,4 +1138,4 @@ wEsOxceLESa/id2aruo8uus6I6nVCGZjw48uHHM8QwbZzQuGMAlwFnpPC3dt0zCPQREdGSiV
 JnKkP+4j6IYhKfDbHY5PTBmnIxwBO5QvgDFHP4J2gUOstpUMAQ0ZKIjQj7lHJbkVu6suF/4H
 +SLxE204AwA=
 
---2oS5YaxWCcQjTEyO--
+--HcAYCG3uE/tztfnV--
