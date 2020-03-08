@@ -1,196 +1,128 @@
-Return-Path: <clang-built-linux+bncBDNYNPOAQ4GBBA5ISLZQKGQETV6ATPY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY3NC743AGBBYVRSLZQKGQEMLFJA7A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc3a.google.com (mail-yw1-xc3a.google.com [IPv6:2607:f8b0:4864:20::c3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 794F217D210
-	for <lists+clang-built-linux@lfdr.de>; Sun,  8 Mar 2020 07:43:16 +0100 (CET)
-Received: by mail-yw1-xc3a.google.com with SMTP id i81sf10690364ywa.19
-        for <lists+clang-built-linux@lfdr.de>; Sat, 07 Mar 2020 22:43:16 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1583649795; cv=pass;
+Received: from mail-vk1-xa39.google.com (mail-vk1-xa39.google.com [IPv6:2607:f8b0:4864:20::a39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0F08117D221
+	for <lists+clang-built-linux@lfdr.de>; Sun,  8 Mar 2020 08:04:04 +0100 (CET)
+Received: by mail-vk1-xa39.google.com with SMTP id w184sf1471275vkb.23
+        for <lists+clang-built-linux@lfdr.de>; Sat, 07 Mar 2020 23:04:03 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1583651043; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZTu5njkeJ2J+qjTIaOR16gDeldZPb1fiautpUl3Eu2ywN4GvDJrQ4QRxK41hwfjsaF
-         dUfPHRP9AEXy9lIcERy1Bn8he2oH/mE+tOmvdKoK7YjNh5QeVzZbl10iBPTR/MJvuUeW
-         211cO5oczr3reiM8GoJIRx3p/hbYzpB09g4sCGZKSlyBb5JzZZbvT0zLBYscODned+HM
-         uGvvQhhuOPVwQzhWh08LGsV4L7a6WTRUFtDMH4XwARvxUXOVpVz06n+RSkd2xZ0RIgMn
-         BirnQojB5XqluIplzU9EUBe39//MZC3n3M02lWRGwG/ec7frUpX98xnzD+UxlMgp1yx7
-         eHPQ==
+        b=i05ezH/E1IKqDboHOUAcC4KdYffl+huHKl/xE/RPeqmGgTCs72y1prHBSpr+VYbBYU
+         0wWJO8Hr+tQlYyUhXD4TSESqoXmbicdYEjU5UZlrvEQnqH1KTeP9BbdguwUHQUuAI4bo
+         XosU4QEl/+7D43yqPpbxLSBM7aP3L8G65QPh4xnoG1ze+COf0TDJE2xohIDygpiLmvSK
+         +Lm+nLwApIzS4n7rZ7Frs8Hq/kSa6y6A0/AT0kn6sA1rPF3JZPPuOaFrpsTKhK7xJdgD
+         tLWzuuHG4zg1AGWpDibfMn4WWz1Lj+nWcOyV/jrn3vp6HKpnPaKo8ZdCBkCij7Fc/bPh
+         9MwQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:subject:autocrypt:from
-         :references:cc:to:sender:dkim-signature;
-        bh=YbAwXECYTDXhGEbhuByuXz2Ag+MC2qlYs4rxN3Rz0VY=;
-        b=ZDRoNdllLZHabw8DfBCx+lBgJSNOwQrs7xkTxZqmGYYAjj7AwWyp1RaTYU/+E00lZH
-         JRdiO41b+6XDeG/ryauePm8ubHkZycEK9lzlzjjrQrpdowUXRmM+cZkHwkVGzNjay2k2
-         4tK8eS4cttKboQyAICLmHjyG6x7Vv1MGAzrmRbKApyXRAx17fexgw7pKxIscfEXPxlf3
-         cxJ3BCFHF7lGnLuD3pp0vlKJL63r8YxTYObheIKLCTSbpdhN1mz6AzAWMXJjkOrwJpzF
-         CsM6zJraehGOz/+cEdGdIaAFLIw3C2aO9YOPfJ26RBWEjYIAc08M3QhgxCOnpjvIYxHu
-         5cvA==
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :dkim-signature;
+        bh=Ncx2X75h3/FZ1YNiQMcGoFtfsFQnK75BKREcXBEYC/Q=;
+        b=gMqDq9fSSfJNc3DFI4d8PPY0ow/C/WQE/E99rNEp2TmlHdVOeAV42OiAEE1dwvJXTH
+         F4aGA4Ci2YsymKNiF6dZxYC9K4YlJILQ4kXw2KM/FteNUpO30Ku9tC7qklZ3gphpNii9
+         Y0Bp4R0tsDxUtFghUVGn7+mmKMjgHkkgh+luadGzV+x4qGiLgPMC6XnBqNfPrNujdkXL
+         boKqctbk8oTOCCaI0L2WLq024ju1BAVkcJMkbIfzFSh/5GpUzR/U+Abh4GOKy712m2cd
+         SJdzIkHq0XRhTQUEpbg9Ii5aRNKxrRnJu3kJ4L87PT3XJWUO40BvIfTxcgMzx6B/0DjD
+         lU/A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@embeddedor.com header.s=default header.b=YytqQvTP;
-       spf=pass (google.com: domain of gustavo@embeddedor.com designates 50.116.126.2 as permitted sender) smtp.mailfrom=gustavo@embeddedor.com
+       spf=neutral (google.com: 216.40.44.241 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:to:cc:references:from:autocrypt:subject:message-id:date
-         :user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=YbAwXECYTDXhGEbhuByuXz2Ag+MC2qlYs4rxN3Rz0VY=;
-        b=FtKlgsqcPaKoQBNRsfs9fyBHqfi80JuT5usKGcIpnc4iz2Qj/B2o3ogrQ0Nj4xGTKc
-         Zyv1Pn7sSDTjJ8rAPWOZPwXZgPVTq0ClydgDkFG0nZcAoGlr5pTm38iWowyyV08pdVI2
-         KSQBH716NSx1Mpmw3pcO+f78B54d4IkukyYT0S/zlysP/8XLRF7+PkrfuqmITPR/eDRp
-         oo42MmwYMyMZhBKdnazl7Bit93f0fzBmdd1wjpbAy3gUbSU8P5uiVw0YovuTXDuddf4I
-         NKuBw3xWa5O5B6hq3SnIscIHzR44aaD72AR2KD1ud8AK0dBvY/g/W2xRyX0aKh8V52vl
-         KNFw==
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=Ncx2X75h3/FZ1YNiQMcGoFtfsFQnK75BKREcXBEYC/Q=;
+        b=EVvHUWEUJ7nrNvDzwPxE9C4u5lNWcV//BywxAGu/Vh1AGjjFGl38WeIkst6cXL8S+P
+         qcCM85fB0oPNH/l1X0jHpu7VNEPV4fuThQBMiM8mcVFTnEZv0Oe1FJfP8mXBA0bTGqmn
+         9WPGvK09nYm+kRuvMjy9+qakmRJEsMf+0fOq6OBLf9LT+sD2RbvO64MXmmve3vlTRNHi
+         S9Cqd3RzOOPbhNpEbOve5N1R0V2n3FMxw6ldfyiKE1fb+8BOKFhCSWGp5/cAvm7ZgJ/h
+         PnP+KWAts9InicwGHCoFUPnyiRhiDNZr2xPbPIBZSunp2wvVsM0QSK5cs1szQ0c1v8zG
+         WBCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:to:cc:references:from:autocrypt:subject
-         :message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=YbAwXECYTDXhGEbhuByuXz2Ag+MC2qlYs4rxN3Rz0VY=;
-        b=ELIO7fIM6kIamNuj1hiFmiQtMivwVN9BTlrIofaBFQ9q7yKCnk4u2ADSDTEQaWYno1
-         DHzf01A5DQB1v6ejukebIwiyQrqqrLX5Oyz7dEbdqJOkYpV1t3LBTUW2WrucTUo0QJIu
-         UQKAK0bm95z4ZQdkudDijJ++oSg59HRNPBz3l4Lnw/+iAsyOKjIDkDSLtq+fOCRHVf2y
-         ARb1V9KTNPK9b0fWq+BfBGB1lSa+BqhTxJIJSXI0m07FxIMlRXKpVXHjrxyNCLUl/qky
-         cfh8+xyGJlFX1g1QGOs/LI4J4BSoXz0EzklHJ6aCSXpq4s8Rht87WHwNPgkm3KZuVyFO
-         a73g==
+        bh=Ncx2X75h3/FZ1YNiQMcGoFtfsFQnK75BKREcXBEYC/Q=;
+        b=fuQDn1hBsyGpq+FJbuP0v7O61y1yQ+FQTz8CeQ+gjU8CYk9QfZNxb6C+pSjcV4Gnlq
+         5lMhgbMQYitbP7/bLYe6g0Za9LcWkeYrxtN+QIsm1e+zs6q3lOjHDwdCMtedKDRPjJmH
+         5NRFd9g6V9Z/jOY01kpkwx+btS3HMbmdBEGySrLA0dNEqNK3hlhJPxBxgDfB+k+CKA/0
+         LEwlLoAjjeEiSueU1yF1ZacRYaz6ONR5jeBgCaO6KaqiS9aBPCvQEJKVq7wS0iVjaMex
+         m5FVwejSFOHOfwAAyEMTf8ungjuds/xnk5qkG0gsSWl7MGS+IAUp4qG0jvdgVV2kDuzf
+         LRng==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ0yWpZkGu316udlrj1fw1/ttLOQgzxBU9DIMETE3TkFQkLW6QQQ
-	BeBCyeaMqhXUCZxGfDLecNg=
-X-Google-Smtp-Source: ADFU+vuBa8+uY2IjKYAhVLr86xOrMLXf/vQNz8SBvkx0IOrdmQAdsbtdMQimFpOMmWafY+tWQ1/hBg==
-X-Received: by 2002:a25:ccc3:: with SMTP id l186mr12152703ybf.229.1583649795221;
-        Sat, 07 Mar 2020 22:43:15 -0800 (PST)
+X-Gm-Message-State: ANhLgQ0yQ8HL5mbFs4m0mx5ieKQwu7bjldTiAweztOSXPIfJChRkXcWt
+	PwDYDb4pxEF45b2Jh6fIHCc=
+X-Google-Smtp-Source: ADFU+vusaxD7H57WzlVsbYsi4STD3OEhI/s0/ptANaBlduYL5Q3KehyNnRGpsJgQwccNOlwbNrE7+Q==
+X-Received: by 2002:a67:ed4a:: with SMTP id m10mr6993790vsp.82.1583651042693;
+        Sat, 07 Mar 2020 23:04:02 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:e691:: with SMTP id d139ls1694008ybh.4.gmail; Sat, 07
- Mar 2020 22:43:14 -0800 (PST)
-X-Received: by 2002:a25:8381:: with SMTP id t1mr11560650ybk.266.1583649794854;
-        Sat, 07 Mar 2020 22:43:14 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1583649794; cv=none;
+Received: by 2002:ab0:7112:: with SMTP id x18ls456020uan.5.gmail; Sat, 07 Mar
+ 2020 23:04:02 -0800 (PST)
+X-Received: by 2002:ab0:3089:: with SMTP id h9mr5907313ual.48.1583651042366;
+        Sat, 07 Mar 2020 23:04:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1583651042; cv=none;
         d=google.com; s=arc-20160816;
-        b=lT5WhCWiYByohsnJezAOznG30wi6069+OZbLvtN+/ZfflG7BxB6fMOPinj4+alY82l
-         lgvV9PAZD/y9C+mUpLg1lYjCPp9Gg6Ds89W9BXYZdLCKl+nFZAT2squN/nx/wB/G9bDq
-         fOcq4qrjJoQvdsNcKgSq2zafE/KGNSMYRUGdSkHfMwCbVL1PqrGL6VYc7cot+4egF7fd
-         U6rze9BlTW9k9P+HedIYnj3CrHWBbxKyhWqYNIOuRP5a40dDafkQanL19V4eujdQaHlC
-         T0IInaqIZwxoztD1K0euehoJjbmmGAyFVeoyZG3wPsSOrkkMQfl40uqw1qywC+werBol
-         C6OQ==
+        b=zjoTjT3myryoE0xnww135CCL708YIVcw+e0bz7pO9BOpNbre5GVurG5EhKF3Yvy1Qa
+         sy2tvjPiglFWbmW9dGDzd6V9Qxg0qhJZud4vTRU9WG0wFxBXLc7gov69hLtKIEMjpRsy
+         fKTrKfStkdmyCTCzDE1hlJOpaRebNCHcBBcvC8rE4+KwKRfXBctq5HYGFwhl52Gy7QKM
+         Z/o2RwbF7YqHyq79uhaKmGQhnkxEvZL48v7Sk4s7GM83Jk0jx9ZZOpXrMpUr8dpqhUsR
+         AXCqakAXq5qWfWKUm0+is0BjVtfZXBm2kjI5QqhK/L8P9eTtWV+g/exFeHY/aBJu8wh9
+         HaWQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:subject:autocrypt:from:references:cc:to
-         :dkim-signature;
-        bh=ktHGEyhcgp3aw4ArMPWHcrGw64bu26lB+fZatzZfI0c=;
-        b=ecYCI5PuFI/5RgmvZv5FQ5sWprh9t4j/uCz62ySBRgWV2MDbvoAxvEQ9bfS+GCcltR
-         dTt8RXiuLxQT++NHlevqqcSGpne/kjciZrmsKfGuTQdeU9KaXxsuHFV8hpi7iijepIT9
-         LG8iqnmFgafsXH+WsFhoT5DTBfv/w43fZOa+LX4sJABoZ4boc90vCGW2fRK5U0Z3toVv
-         dFBnJ3XDGpcxAhUQ0EBMAg/3+wsjv2TJyut5HqEA6Y3vOSdsXvA7KboYYDmjGm5t0ZiR
-         Kuf69Q9M3p7VzopXqlmPG70ToioYtDyDVvIQ4hDiDEOUzqh+58moE8GOw2lLmNcKdZRQ
-         +/4A==
+        h=content-transfer-encoding:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id;
+        bh=1ZKlowfXTuUQXF4vWRur71+YD6KOFGygXPc3SoI0dk0=;
+        b=Hy74fmBHXFUPj3/m1fEauqilkIAi/FPdsOc0ZChTuy3rM+7VdD9H+lnCkpX1cLh+ck
+         B0RkG/4qaVJDXqS6U2c06HNXu+Zo4wy3fn4xZVQnpvujp4biwqvuRWr+zfSROjbPNhTb
+         2V1Tj96oIOJwP8frGAHwHuKJ7kUXADlPZI+F2yl7GSHQXn/uvUdojIAf1lJklry867KR
+         mn++npLRB8BOrOLYwWNnlYebJ/fR1+XpOi2PY2gHGxdSgR3ra443XnTjecksVfWRPFOP
+         WtzIrVDgohDgT9HbfqOSCzhRSRwrzRFGQX2ar1moHfMEudADnqtXlDhbUB3yERMJf68q
+         jJiQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@embeddedor.com header.s=default header.b=YytqQvTP;
-       spf=pass (google.com: domain of gustavo@embeddedor.com designates 50.116.126.2 as permitted sender) smtp.mailfrom=gustavo@embeddedor.com
-Received: from gateway36.websitewelcome.com (gateway36.websitewelcome.com. [50.116.126.2])
-        by gmr-mx.google.com with ESMTPS id x13si560959ybs.4.2020.03.07.22.43.14
+       spf=neutral (google.com: 216.40.44.241 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Received: from smtprelay.hostedemail.com (smtprelay0241.hostedemail.com. [216.40.44.241])
+        by gmr-mx.google.com with ESMTPS id o21si376467uaj.1.2020.03.07.23.04.02
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 07 Mar 2020 22:43:14 -0800 (PST)
-Received-SPF: pass (google.com: domain of gustavo@embeddedor.com designates 50.116.126.2 as permitted sender) client-ip=50.116.126.2;
-Received: from cm17.websitewelcome.com (cm17.websitewelcome.com [100.42.49.20])
-	by gateway36.websitewelcome.com (Postfix) with ESMTP id 30B914022311E
-	for <clang-built-linux@googlegroups.com>; Sat,  7 Mar 2020 23:58:39 -0600 (CST)
-Received: from gator4166.hostgator.com ([108.167.133.22])
-	by cmsmtp with SMTP
-	id Apecj19ZpAGTXApecjTDJr; Sun, 08 Mar 2020 00:43:14 -0600
-X-Authority-Reason: nr=8
-Received: from [201.162.167.15] (port=17590 helo=[192.168.43.132])
-	by gator4166.hostgator.com with esmtpsa (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128)
-	(Exim 4.92)
-	(envelope-from <gustavo@embeddedor.com>)
-	id 1jApeb-002vxz-LH; Sun, 08 Mar 2020 00:43:14 -0600
-To: Joe Perches <joe@perches.com>, Andrew Morton <akpm@linux-foundation.org>,
- linux-kernel@vger.kernel.org
-Cc: clang-built-linux@googlegroups.com
-References: <b56602fcf79f849e733e7b521bb0e17895d390fa.1582230379.git.joe@perches.com>
- <576fe2ab-7937-4698-b32a-8599813d6ad1@embeddedor.com>
- <4304de54a44b7c8c22d8c2d9249d716664cf5ce8.camel@perches.com>
-From: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
-Autocrypt: addr=gustavo@embeddedor.com; keydata=
- xsFNBFssHAwBEADIy3ZoPq3z5UpsUknd2v+IQud4TMJnJLTeXgTf4biSDSrXn73JQgsISBwG
- 2Pm4wnOyEgYUyJd5tRWcIbsURAgei918mck3tugT7AQiTUN3/5aAzqe/4ApDUC+uWNkpNnSV
- tjOx1hBpla0ifywy4bvFobwSh5/I3qohxDx+c1obd8Bp/B/iaOtnq0inli/8rlvKO9hp6Z4e
- DXL3PlD0QsLSc27AkwzLEc/D3ZaqBq7ItvT9Pyg0z3Q+2dtLF00f9+663HVC2EUgP25J3xDd
- 496SIeYDTkEgbJ7WYR0HYm9uirSET3lDqOVh1xPqoy+U9zTtuA9NQHVGk+hPcoazSqEtLGBk
- YE2mm2wzX5q2uoyptseSNceJ+HE9L+z1KlWW63HhddgtRGhbP8pj42bKaUSrrfDUsicfeJf6
- m1iJRu0SXYVlMruGUB1PvZQ3O7TsVfAGCv85pFipdgk8KQnlRFkYhUjLft0u7CL1rDGZWDDr
- NaNj54q2CX9zuSxBn9XDXvGKyzKEZ4NY1Jfw+TAMPCp4buawuOsjONi2X0DfivFY+ZsjAIcx
- qQMglPtKk/wBs7q2lvJ+pHpgvLhLZyGqzAvKM1sVtRJ5j+ARKA0w4pYs5a5ufqcfT7dN6TBk
- LXZeD9xlVic93Ju08JSUx2ozlcfxq+BVNyA+dtv7elXUZ2DrYwARAQABzSxHdXN0YXZvIEEu
- IFIuIFNpbHZhIDxndXN0YXZvQGVtYmVkZGVkb3IuY29tPsLBfQQTAQgAJwUCWywcDAIbIwUJ
- CWYBgAULCQgHAgYVCAkKCwIEFgIDAQIeAQIXgAAKCRBHBbTLRwbbMZ6tEACk0hmmZ2FWL1Xi
- l/bPqDGFhzzexrdkXSfTTZjBV3a+4hIOe+jl6Rci/CvRicNW4H9yJHKBrqwwWm9fvKqOBAg9
- obq753jydVmLwlXO7xjcfyfcMWyx9QdYLERTeQfDAfRqxir3xMeOiZwgQ6dzX3JjOXs6jHBP
- cgry90aWbaMpQRRhaAKeAS14EEe9TSIly5JepaHoVdASuxklvOC0VB0OwNblVSR2S5i5hSsh
- ewbOJtwSlonsYEj4EW1noQNSxnN/vKuvUNegMe+LTtnbbocFQ7dGMsT3kbYNIyIsp42B5eCu
- JXnyKLih7rSGBtPgJ540CjoPBkw2mCfhj2p5fElRJn1tcX2McsjzLFY5jK9RYFDavez5w3lx
- JFgFkla6sQHcrxH62gTkb9sUtNfXKucAfjjCMJ0iuQIHRbMYCa9v2YEymc0k0RvYr43GkA3N
- PJYd/vf9vU7VtZXaY4a/dz1d9dwIpyQARFQpSyvt++R74S78eY/+lX8wEznQdmRQ27kq7BJS
- R20KI/8knhUNUJR3epJu2YFT/JwHbRYC4BoIqWl+uNvDf+lUlI/D1wP+lCBSGr2LTkQRoU8U
- 64iK28BmjJh2K3WHmInC1hbUucWT7Swz/+6+FCuHzap/cjuzRN04Z3Fdj084oeUNpP6+b9yW
- e5YnLxF8ctRAp7K4yVlvA87BTQRbLBwMARAAsHCE31Ffrm6uig1BQplxMV8WnRBiZqbbsVJB
- H1AAh8tq2ULl7udfQo1bsPLGGQboJSVN9rckQQNahvHAIK8ZGfU4Qj8+CER+fYPp/MDZj+t0
- DbnWSOrG7z9HIZo6PR9z4JZza3Hn/35jFggaqBtuydHwwBANZ7A6DVY+W0COEU4of7CAahQo
- 5NwYiwS0lGisLTqks5R0Vh+QpvDVfuaF6I8LUgQR/cSgLkR//V1uCEQYzhsoiJ3zc1HSRyOP
- otJTApqGBq80X0aCVj1LOiOF4rrdvQnj6iIlXQssdb+WhSYHeuJj1wD0ZlC7ds5zovXh+FfF
- l5qH5RFY/qVn3mNIVxeO987WSF0jh+T5ZlvUNdhedGndRmwFTxq2Li6GNMaolgnpO/CPcFpD
- jKxY/HBUSmaE9rNdAa1fCd4RsKLlhXda+IWpJZMHlmIKY8dlUybP+2qDzP2lY7kdFgPZRU+e
- zS/pzC/YTzAvCWM3tDgwoSl17vnZCr8wn2/1rKkcLvTDgiJLPCevqpTb6KFtZosQ02EGMuHQ
- I6Zk91jbx96nrdsSdBLGH3hbvLvjZm3C+fNlVb9uvWbdznObqcJxSH3SGOZ7kCHuVmXUcqoz
- ol6ioMHMb+InrHPP16aVDTBTPEGwgxXI38f7SUEn+NpbizWdLNz2hc907DvoPm6HEGCanpcA
- EQEAAcLBZQQYAQgADwUCWywcDAIbDAUJCWYBgAAKCRBHBbTLRwbbMdsZEACUjmsJx2CAY+QS
- UMebQRFjKavwXB/xE7fTt2ahuhHT8qQ/lWuRQedg4baInw9nhoPE+VenOzhGeGlsJ0Ys52sd
- XvUjUocKgUQq6ekOHbcw919nO5L9J2ejMf/VC/quN3r3xijgRtmuuwZjmmi8ct24TpGeoBK4
- WrZGh/1hAYw4ieARvKvgjXRstcEqM5thUNkOOIheud/VpY+48QcccPKbngy//zNJWKbRbeVn
- imua0OpqRXhCrEVm/xomeOvl1WK1BVO7z8DjSdEBGzbV76sPDJb/fw+y+VWrkEiddD/9CSfg
- fBNOb1p1jVnT2mFgGneIWbU0zdDGhleI9UoQTr0e0b/7TU+Jo6TqwosP9nbk5hXw6uR5k5PF
- 8ieyHVq3qatJ9K1jPkBr8YWtI5uNwJJjTKIA1jHlj8McROroxMdI6qZ/wZ1ImuylpJuJwCDC
- ORYf5kW61fcrHEDlIvGc371OOvw6ejF8ksX5+L2zwh43l/pKkSVGFpxtMV6d6J3eqwTafL86
- YJWH93PN+ZUh6i6Rd2U/i8jH5WvzR57UeWxE4P8bQc0hNGrUsHQH6bpHV2lbuhDdqo+cM9eh
- GZEO3+gCDFmKrjspZjkJbB5Gadzvts5fcWGOXEvuT8uQSvl+vEL0g6vczsyPBtqoBLa9SNrS
- VtSixD1uOgytAP7RWS474w==
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 07 Mar 2020 23:04:02 -0800 (PST)
+Received-SPF: neutral (google.com: 216.40.44.241 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.241;
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
+	by smtprelay07.hostedemail.com (Postfix) with ESMTP id C87A4181D3417;
+	Sun,  8 Mar 2020 07:04:01 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 2,0,0,,d41d8cd98f00b204,joe@perches.com,,RULES_HIT:41:355:379:599:968:982:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1541:1593:1594:1711:1730:1747:1777:1792:2393:2559:2562:2693:2828:2895:3138:3139:3140:3141:3142:3353:3622:3865:3866:3867:3868:3870:3871:3872:3873:3874:4321:5007:7903:10004:10400:10848:11232:11658:11914:12297:12663:12740:12760:12895:13069:13255:13311:13357:13439:14096:14097:14659:21080:21627:21740:30012:30054:30070:30091,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:1,LUA_SUMMARY:none
+X-HE-Tag: form16_5f6d69e56317
+X-Filterd-Recvd-Size: 2200
+Received: from XPS-9350.home (unknown [47.151.143.254])
+	(Authenticated sender: joe@perches.com)
+	by omf11.hostedemail.com (Postfix) with ESMTPA;
+	Sun,  8 Mar 2020 07:04:00 +0000 (UTC)
+Message-ID: <259f405155a948f90229d3fc8cad928d434b46f9.camel@perches.com>
 Subject: Re: [PATCH] cvt_fallthrough: A tool to convert /* fallthrough */
  comments to fallthrough;
-Message-ID: <6773b7e3-8ce4-55d1-8bb7-bde6d9f6e887@embeddedor.com>
-Date: Sun, 8 Mar 2020 00:46:23 -0600
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.4.1
-MIME-Version: 1.0
-In-Reply-To: <4304de54a44b7c8c22d8c2d9249d716664cf5ce8.camel@perches.com>
+From: Joe Perches <joe@perches.com>
+To: "Gustavo A. R. Silva" <gustavo@embeddedor.com>, Andrew Morton
+	 <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org
+Cc: clang-built-linux@googlegroups.com
+Date: Sat, 07 Mar 2020 23:02:23 -0800
+In-Reply-To: <6773b7e3-8ce4-55d1-8bb7-bde6d9f6e887@embeddedor.com>
+References: <b56602fcf79f849e733e7b521bb0e17895d390fa.1582230379.git.joe@perches.com>
+	 <576fe2ab-7937-4698-b32a-8599813d6ad1@embeddedor.com>
+	 <4304de54a44b7c8c22d8c2d9249d716664cf5ce8.camel@perches.com>
+	 <6773b7e3-8ce4-55d1-8bb7-bde6d9f6e887@embeddedor.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - gator4166.hostgator.com
-X-AntiAbuse: Original Domain - googlegroups.com
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - embeddedor.com
-X-BWhitelist: no
-X-Source-IP: 201.162.167.15
-X-Source-L: No
-X-Exim-ID: 1jApeb-002vxz-LH
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: ([192.168.43.132]) [201.162.167.15]:17590
-X-Source-Auth: gustavo@embeddedor.com
-X-Email-Count: 4
-X-Source-Cap: Z3V6aWRpbmU7Z3V6aWRpbmU7Z2F0b3I0MTY2Lmhvc3RnYXRvci5jb20=
-X-Local-Domain: yes
-X-Original-Sender: gustavo@embeddedor.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@embeddedor.com header.s=default header.b=YytqQvTP;       spf=pass
- (google.com: domain of gustavo@embeddedor.com designates 50.116.126.2 as
- permitted sender) smtp.mailfrom=gustavo@embeddedor.com
+User-Agent: Evolution 3.34.1-2
+MIME-Version: 1.0
+X-Original-Sender: joe@perches.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 216.40.44.241 is neither permitted nor denied by best guess
+ record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -203,34 +135,44 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-
-
-On 3/7/20 21:01, Joe Perches wrote:
-> On Sat, 2020-03-07 at 15:30 -0600, Gustavo A. R. Silva wrote:
->> Some people consistently add blank lines as part of their code style,
->> and if I were
->> one of those people, I wouldn't like to have such lines removed.
+On Sun, 2020-03-08 at 00:46 -0600, Gustavo A. R. Silva wrote:
 > 
-> It's a patch generator, it's not perfect.
-> Nothing is nor ever will be.
-
-Wise words. The thing is that this is feedback over a proposed
-patch.
-
-> It's quite simple to add blank lines if that's
-> what any maintainer desires.
+> On 3/7/20 21:01, Joe Perches wrote:
+> > On Sat, 2020-03-07 at 15:30 -0600, Gustavo A. R. Silva wrote:
+> > > Some people consistently add blank lines as part of their code style,
+> > > and if I were
+> > > one of those people, I wouldn't like to have such lines removed.
+> > 
+> > It's a patch generator, it's not perfect.
+> > Nothing is nor ever will be.
 > 
+> Wise words. The thing is that this is feedback over a proposed
+> patch.
+> 
+> > It's quite simple to add blank lines if that's
+> > what any maintainer desires.
+> > 
+> 
+> I'm not sure if you are saying that it's not a problem to
+> update your proposed patch,
 
-I'm not sure if you are saying that it's not a problem to
-update your proposed patch, or if you are suggesting that
-the maintainers will have the predisposition of applying
-patches that will modify their coding style and then go and
-willingly fix that. I doubt the latter, though.
+It's not a problem with my proposed patch.
+Consistency is good.
 
---
-Gustavo
+Nearly all uses in mm do not have blank lines
+after break.
+
+> or if you are suggesting that
+> the maintainers will have the predisposition of applying
+> patches that will modify their coding style and then go and
+> willingly fix that. I doubt the latter, though.
+
+If any do actually use the script, I guess we'll see.
+
+> --
+> Gustavo
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/6773b7e3-8ce4-55d1-8bb7-bde6d9f6e887%40embeddedor.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/259f405155a948f90229d3fc8cad928d434b46f9.camel%40perches.com.
