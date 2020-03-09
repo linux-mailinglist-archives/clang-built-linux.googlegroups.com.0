@@ -1,126 +1,125 @@
-Return-Path: <clang-built-linux+bncBAABBBGZS3ZQKGQEMFT2KTA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCLMHO6ARMORBKP6S7ZQKGQEPSRRKNQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5686E17D831
-	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Mar 2020 03:40:06 +0100 (CET)
-Received: by mail-pf1-x43d.google.com with SMTP id y20sf5961352pfb.3
-        for <lists+clang-built-linux@lfdr.de>; Sun, 08 Mar 2020 19:40:06 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1583721605; cv=pass;
+Received: from mail-pf1-x43a.google.com (mail-pf1-x43a.google.com [IPv6:2607:f8b0:4864:20::43a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7105117DAEF
+	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Mar 2020 09:32:43 +0100 (CET)
+Received: by mail-pf1-x43a.google.com with SMTP id h125sf125367pfg.3
+        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Mar 2020 01:32:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1583742761; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Ao5NSF9CGNpwuakczmI9cmLqPySSmEdSvBqa6fNjF+PZzML82qV1cR0lGjhzz5nhQv
-         m2kYw4lpAoqBQF/gzpxCBBSQs2cJ7mPOlD69F6wGXW1BGgEWarD1CjjXsMqZLPHNtT4g
-         yDObJ69QDb+645zHHBannuUDauEPYdvRzk8sLjQq545Da+yQ4sX9eLWgobmQ3tqb/1ld
-         C/N9H2g1E6Joz8AR9UdTDlcvBwIb09huJg97Qnkx1jf5ZPS84SuvJ/SHg79w1mUJl1Ad
-         Kqm1uDED/o839pjEnbRmQcgpMNgPa3nKVjsQrOwxiq3/6W4t/NCwpdjZiwy/evcZwgGh
-         81+w==
+        b=m8Zx17yYVg46vJa0UN/hhL1iEgAGmeVPcV+11xn5R8GzyPmtKwaMHlip6WoVItftbS
+         0rSYbFOwicBd0EHYTCsxv9OhD8aopBLsFd2gpX0Gxque1SZ5q8pPIOem4K6MNY2o83K6
+         8kakTzgPg6bPbNaGgPmJ1g3M6RP2Gx31QKd1S9WIZPOHNipWrreWlvJpGZ5MXSZ1RbKf
+         xXKcxFyzkMtDngOHxnpgMLjS+2+EsJxmR0B/dB75XhgGqBg4nFzp1WkzvCHcdpvFN5xg
+         5bsXM/oB07iABkBTw8vRqaryz/QlblOv/VsHquB61dCXlagDvxEH12KQPKmiC6nW0t2t
+         re2g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
-         :dkim-filter:mime-version:sender:dkim-signature;
-        bh=SVCnaVbky+X+GdaGvqQsr2JgNAyFdlUZQSWtxm2MNCs=;
-        b=Mmqgsj2Z7UywEqo/56lqu3slPcHspnIYA3Y2L7Yylw27YpIgoK1c4F0+nvUd/JnURa
-         gPboDHcihvGLJD+pM/MItzhAQepNz/HurOzHtN5I73mmxAX+z777xCRvea5Rfi/z6rPf
-         adQVZwoHaQwn5G3feOtp+mWYct+wwV3Nl3u2du+cNl3cP3AvYa9LKKmN9GJa0Ct6FgDI
-         grIkBC0bcb4e2rKnylsUggWenSdQKaQnJIiqd+l1EJ4/SNFQKhbhiWIZxRvfjaB1Nu3A
-         wIIDl1j+v9YBqfZ0Fg7mFDeOFOioH3Rv/8n9YFEsh96eqCJTTzUH98L+iRFj+dt3efxE
-         gKAQ==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :mime-version:message-id:date:references:organization:in-reply-to
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=sYiyZSGg3gjUiSHbgcNUJkLTX+DTGWkXlOwfGqakmUA=;
+        b=kIrbk18GU0jkHCj5ZsdlYGy5k+hLyLwwrTzws5XMM0YNOUVMGYeAWuFjfjzQsITqkS
+         tM2UAGgOApOGvQDk/C0PsH/Ni3h0WaApfJXAxxXG/W3L7DuLzmix2fnANn4FCb/buR6n
+         NBmIp/xPo6I+/u6a31TWr04beqlYSKb1AMdzFlrwUQ1MiwsfFBrcNEtW3Yb1Ggy60QeI
+         fgJn7/adm8pViZLxvygHtOVKXGVQNbtjj4MlH/Ks8QO6Sw2qfu+HyNzdLEnEKvuTiDqP
+         X6F805ugml4qDSaMmJ723yVaapqWMdkQwNEtIowiRGv84qr3n3FqP20j7J/Bf6OqLY7U
+         6wIw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=Q5WCH5hw;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.74 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of jani.nikula@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=jani.nikula@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:dkim-filter:from:to:cc:subject:date:message-id
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=SVCnaVbky+X+GdaGvqQsr2JgNAyFdlUZQSWtxm2MNCs=;
-        b=K4gdnnGRuciJynHnCkgq5sznfe0cnoRmrly7+otQTP6WeqFEiCVQF3XRE7zUcat78K
-         cpu4+0ALOoGDw246DwWcEi6xCPXRkRpSYPY5ieuR7/xvy7cuE5cGbRK2hgTgiMkKemd4
-         aDYxaY/YRJGb0mlAUiZSjsG1q4ED96/84EpKA0lXetRunBcCYFG6lKRWbLXRM6bgqbBP
-         b92M0Khjv1UbYAUcOOhJdR0P5heiHxwcruJwOAD62OVEXB6+4sxRcIBNb5Yg4zMGOujt
-         nWk3GOSCFm+xLWC4ceTbBFsSYQLBKD8QFjhNqe91KwQmtFEQZ4sjbePIc5zglrMZ7IEV
-         kN8A==
+        h=sender:from:to:cc:subject:in-reply-to:organization:references:date
+         :message-id:mime-version:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=sYiyZSGg3gjUiSHbgcNUJkLTX+DTGWkXlOwfGqakmUA=;
+        b=Tn5/e6Ln6xKRnz24fEO8zX1X3uSESnuwzJog3RD3E10nBSYfDg1iej6yI5mlcO6UXP
+         OcW4L9SIdhilcQ1Qer2ygqLbH9SEcT6bI9VScE1+kwBF/Bvl8QPuLSRkzAyhnH76gQUU
+         h0zIRNRBNXdCTi9+2JhygJ01nSZQUuh5HvP6Sc7Pl77ZXqrlAJ1HnJA1h6PfuaeriMb4
+         BTxLVzJgikrEXxC9vZrvXy09/fT+3JNpXVGX8NiRdfUo5EGT7lKMKNdLgWXhyfUy3puw
+         zYP+NqztwsM0NDZRkP+3pgS22awmw+3wTHQ+cNt3vPZ8INUMBVvacQCrrgn9VuqQr3qq
+         YhOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:dkim-filter:from:to:cc
-         :subject:date:message-id:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to
+         :organization:references:date:message-id:mime-version
+         :content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=SVCnaVbky+X+GdaGvqQsr2JgNAyFdlUZQSWtxm2MNCs=;
-        b=jXTXpA2Zb11Gz4/WBfGO4vMqedjA5dJxpHtUyaq4OJE4dpEL4RL4iQjuqVeSb1tj1u
-         DcZndPz47ebUr3MoGD+yCrVOJOb+CwNaelPd7+v5Frr0kR3JiGyIRUCCUE0MOgO3BFjT
-         X45PI/6T31ARM0gxQO7IRrxMJj6Lgyl0AuDsdA/8Ev8k6zLBV6C+nEh7w7h3oesPaBC/
-         03XnBZhYLCtyyCrN3mVhw6G00oi9hBwmkBLq2y0/i/zwnoFDL3vIymo4aiq3HJozku4H
-         RdJL1mi7ajOaUHpZeHJnTbkn7K+gOmiMw37rJw3h+XI+bA0swZj+avu37QEbKrtuAgnv
-         UeDA==
+        bh=sYiyZSGg3gjUiSHbgcNUJkLTX+DTGWkXlOwfGqakmUA=;
+        b=t6HPf9oCPGM/gm73uKdtqkR9wJUgG6y1RPl0CIAcvlx2XY+DIvFyB5R967pWeTF1SH
+         ssr1F39FhOvKKyiDhtdRkpZ2zOmZPHYdQkCtRfAJGVc+MWZ1/6TGFbyxO8415E+ngfTj
+         YbxDvBxNRThpYN77mEt3JCN9UOoA8cQLyDHiB2kXwUQU4cG/O7QHC1FF0dKPHCKlsD9O
+         NEXp1G2RMY8vkGbhOsO/ny/ynL98z1nTkCSODu7+cluVThtrCkgSayUVgGq9akukoKVv
+         cG8AJGGPSbjiaRqqcahqm4Gs5TIzP6c6ODmTg+WBG3UwTxYyqDGfPLfRE10LsrYNRFaY
+         fdhQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ03APGdnxLhTwXchDP4+ps1bkHoCIN3FZLMqD1xi/WqEWU4dREm
-	r2yX3X4O7pP/tKtfGK4Nn/A=
-X-Google-Smtp-Source: ADFU+vss4Lt8wgIEcyCMJFVGNJphF/KgbBha/wPjA7E/PC4ljIDlSEP+S1pJkEoZ59GzILzUE3aMYA==
-X-Received: by 2002:a17:90a:bd0d:: with SMTP id y13mr443691pjr.12.1583721605000;
-        Sun, 08 Mar 2020 19:40:05 -0700 (PDT)
-MIME-Version: 1.0
+X-Gm-Message-State: ANhLgQ1M3yXBYkxUtcmxpga9QzzT7zNjswLdht97+08Lx+Mb8Dkns3e0
+	7EJvEom6wVMQhFTG/fPMZRo=
+X-Google-Smtp-Source: ADFU+vvR+445xEC+tD1FFfrqv3t98IwEsk+YE75hWm0rfvumiFZ9vSFOBx2NXFpRnpFqcnUkXZTnzA==
+X-Received: by 2002:a63:e007:: with SMTP id e7mr16008223pgh.262.1583742761549;
+        Mon, 09 Mar 2020 01:32:41 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:150:: with SMTP id 77ls2973438pgb.0.gmail; Sun, 08 Mar
- 2020 19:40:04 -0700 (PDT)
-X-Received: by 2002:a63:2cd6:: with SMTP id s205mr13767953pgs.112.1583721604608;
-        Sun, 08 Mar 2020 19:40:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1583721604; cv=none;
+Received: by 2002:a17:90a:898e:: with SMTP id v14ls4470952pjn.3.gmail; Mon, 09
+ Mar 2020 01:32:41 -0700 (PDT)
+X-Received: by 2002:a17:902:343:: with SMTP id 61mr15158241pld.332.1583742761115;
+        Mon, 09 Mar 2020 01:32:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1583742761; cv=none;
         d=google.com; s=arc-20160816;
-        b=nxDW/t8tN6ROzZzM2R3rolZwygercndXZrqzpDF7NL4xwvNOdniyVdPjUxWQeVYnHu
-         0qTGDpNQ4ZfglKqSCPdEdLWHMLXB6FVuG5FHtzci2t4IWMn/+/Hg0PEaues5QkIIZ6FQ
-         CYpukLef6CkWRTyr/czUTLf8m8KPXUi+nPwPNPCTzbv2afKO3v88rKqgYINNOYduM+rv
-         y2ksTTWBToAWbaRkS7Jwr6vlAajcUlI0OaKGpLoMREMgUt4VNi5g3J+yJaimpHePre7b
-         IeUhHoUXefc9Z8p4nZVzU7MqARXv0jqGqBL3UfFGyDRMz8ztiaynL3TlSL/P3KKtG/s+
-         KwSg==
+        b=auPr8EV4o+JQW9em6xlMpMVek3Vzt2Dk2BqM4Z13jL0WL8PeBPxNmis3ODwWZ74yhx
+         tiWuQYQtvPAm1Kzyq4vux3GLuVMsPxryuVHjG3YLWgTtgDZb5tbuxuT3BDolo1eWaLWw
+         O3L83gknoXODW2y/TN06Fy7vASD/AESW7cJbd/WtKOx2vBi/p9dPXY6EnhzTobXNHrUk
+         fi0Qt9m7dgQd2fICPA8/LqKmRmVzR+Qn3CIwdYSddZre/PDYhKU53WY8KGZR7OGX3Xpd
+         /3teBlsbPPe64XL7DRNhlM9uINmfejFheRq2YcqkiCdUy3LrPNHHs769+8vNDcCFRZD3
+         /ptA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:subject:cc:to:from:dkim-signature:dkim-filter;
-        bh=x8rj79kPynZM9/V603rL/WARuM62A6eFpkOiK9ry+jE=;
-        b=EZysUGwITJYiPhpP9eJA4kQF5zY7YL3kWX/T2kNtRkyNEaR+vc53kAfzGTxKBYJ+Wp
-         oHXXjk1J/v94s/5RhdqPOLKn6DPd63omoz7ZL14rnK6E1Ill/WgdXb3Z2wQBj1OHlHdS
-         iSOSbae4v/MtM/uu50a1VTQd11JAS1/2Xuq86pnCds42UsXGePkka4Cxr5l0vWDqN2fj
-         FXxB0/kIemdDImwO8/i8/2FxtQGgthkFNyJRRZsqnqKwa9+sN4XixY6bPnbaW18tVs0a
-         tUOcBQSs7Yo487UiKrm2NhuTKyDN02k+6VbmIBGlgfDMw5ApPHZ14pZ9DncQyUsoqcQD
-         yOHA==
+        h=content-transfer-encoding:mime-version:message-id:date:references
+         :organization:in-reply-to:subject:cc:to:from;
+        bh=SkMxHN/PQRMLhNoon797ZEsfBSLU8MWe7Ck+hbpZBLk=;
+        b=rXfWPv709HlnMbkpTDhYjXtw2zuwwdE+THyS4fL7XMVd3NLbek6ThhQOk4whlZYyo4
+         9z1W1YhpoAq9KO6KnniFN5WZm8Su7J9FbipaqZVKWcwHEHOX5bVbQoUOW/9hnFKI6qlV
+         xQjFHsH9rYpI6FI++T0M3rhO3K8FHGBFBSdLyg9AJiZsaQ9QmL0k98NOREs6obboE5nH
+         ziFCfMbwoLXnkMscifu9QPPqOXW7FA/SS1NDDEUO2ZWESwCFiucb8kvBG6sTGwGwn4JE
+         jMa87bJcKYd4jfqeyKGKUUt10K3GUBfWWqO04OUK8vcrF3W/zhatto1B2CaG1w88ZwWd
+         ppHA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=Q5WCH5hw;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.74 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conuserg-07.nifty.com (conuserg-07.nifty.com. [210.131.2.74])
-        by gmr-mx.google.com with ESMTPS id mv5si1041368pjb.0.2020.03.08.19.40.04
+       spf=pass (google.com: domain of jani.nikula@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=jani.nikula@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id 59si502463ple.2.2020.03.09.01.32.40
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 08 Mar 2020 19:40:04 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.74 as permitted sender) client-ip=210.131.2.74;
-Received: from localhost.localdomain (p14092-ipngnfx01kyoto.kyoto.ocn.ne.jp [153.142.97.92]) (authenticated)
-	by conuserg-07.nifty.com with ESMTP id 0292dL7g029360;
-	Mon, 9 Mar 2020 11:39:21 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-07.nifty.com 0292dL7g029360
-X-Nifty-SrcIP: [153.142.97.92]
-From: Masahiro Yamada <masahiroy@kernel.org>
-To: linux-kbuild@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, Al Viro <viro@zeniv.linux.org.uk>,
-        clang-built-linux@googlegroups.com,
-        =?UTF-8?q?F=8F=AB=A7ng-ru=8F=AB=C0=20S=8F=AB=D2ng?= <maskray@google.com>,
-        Ilie Halip <ilie.halip@gmail.com>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        Nathan Chancellor <natechancellor@gmail.com>,
-        Masahiro Yamada <masahiroy@kernel.org>,
-        Michal Marek <michal.lkml@markovi.net>
-Subject: [PATCH] kbuild: link lib-y objects to vmlinux forcibly when CONFIG_MODULES=y
-Date: Mon,  9 Mar 2020 11:39:10 +0900
-Message-Id: <20200309023910.25370-1-masahiroy@kernel.org>
-X-Mailer: git-send-email 2.17.1
-X-Original-Sender: masahiroy@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=Q5WCH5hw;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.74 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+        Mon, 09 Mar 2020 01:32:41 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jani.nikula@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga007.jf.intel.com ([10.7.209.58])
+  by orsmga104.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 09 Mar 2020 01:32:25 -0700
+X-IronPort-AV: E=Sophos;i="5.70,532,1574150400"; 
+   d="scan'208";a="230852764"
+Received: from memara-mobl.ger.corp.intel.com (HELO localhost) ([10.249.39.218])
+  by orsmga007-auth.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 09 Mar 2020 01:32:23 -0700
+From: Jani Nikula <jani.nikula@linux.intel.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: kbuild-all@lists.01.org, kbuild test robot <lkp@intel.com>, clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [jani:device-info-inheritance-v3 3/19] drivers/gpu/drm/i915/i915_pci.c:212:2: error: initializer element is not a compile-time constant
+In-Reply-To: <CAKwvOdkNXFFzw4fBBzSMf2rUd3hV5Vt=11ONLf4nX4FrcmHFcQ@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+References: <202003060916.RI5pROBS%lkp@intel.com> <CAKwvOdkNXFFzw4fBBzSMf2rUd3hV5Vt=11ONLf4nX4FrcmHFcQ@mail.gmail.com>
+Date: Mon, 09 Mar 2020 10:32:35 +0200
+Message-ID: <87k13ulyho.fsf@intel.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: jani.nikula@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of jani.nikula@intel.com designates 134.134.136.31 as
+ permitted sender) smtp.mailfrom=jani.nikula@intel.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,145 +132,287 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Kbuild supports not only obj-y but also lib-y to list objects linked to
-vmlinux.
+On Fri, 06 Mar 2020, Nick Desaulniers <ndesaulniers@google.com> wrote:
+> Based on the tree, I think this report was meant to go to Jani (cc'ed)?
 
-The difference between them is that all the objects from obj-y are
-forcibly linked to vmlinux by using --whole-archive, whereas the objects
-from lib-y are linked as needed; if there is no user of a lib-y object,
-it is not linked.
+It baffles me that the build bot burns resources on building random
+branches in my personal repositories.
 
-lib-y is intended to list utility functions that may be called from all
-over the place (and may be unused at all), but it is a problem for
-EXPORT_SYMBOL(). Even if there is no call-site in the vmlinux, we need
-to keep exported symbols for the use from loadable modules.
+That said, this builds on GCC 8 just fine. Is clang not able to do this?
+Sad trombone. Pretty much blocks what I thought was a nice cleanup from
+illegible macros to plain C code.
 
-Commit 7f2084fa55e6 ("[kbuild] handle exports in lib-y objects reliably")
-worked around it by linking a dummy object, lib-ksyms.o, which contains
-references to all the symbols exported from lib.a in that directory.
-It uses the linker script command, EXTERN. Unfortunately, the meaning of
-EXTERN of ld.lld is different from that of ld.bfd. Therefore, this does
-not work with LD=ld.lld (CBL issue #515).
 
-Anyway, the build rule of lib-ksyms.o is somewhat tricky. So, I want to
-get rid of it.
+BR,
+Jani.
 
-At first, I was thinking of accumulating lib-y objects into obj-y
-(or even replacing lib-y with obj-y entirely), but the lib-y syntax
-is used beyond the ordinary use in lib/ and arch/*/lib/.
 
-Examples:
+>
+> On Thu, Mar 5, 2020 at 5:31 PM kbuild test robot <lkp@intel.com> wrote:
+>>
+>> tree:   git://people.freedesktop.org/~jani/drm device-info-inheritance-v=
+3
+>> head:   6e8df0961b60ee4c69a95e9304bcb14e85ba4803
+>> commit: c8b57de4e93bccfcabe9e32bb4fe8219d3633049 [3/19] drm/i915: store =
+color info in const structs instead of macros
+>> config: x86_64-allyesconfig (attached as .config)
+>> compiler: clang version 11.0.0 (git://gitmirror/llvm_project f70e7dc17d7=
+8a83265a89158ee549f1147d7d500)
+>> reproduce:
+>>         # FIXME the reproduce steps for clang is not ready yet
+>>
+>> If you fix the issue, kindly add following tag
+>> Reported-by: kbuild test robot <lkp@intel.com>
+>>
+>> All errors (new ones prefixed by >>):
+>>
+>> >> drivers/gpu/drm/i915/i915_pci.c:212:2: error: initializer element is =
+not a compile-time constant
+>>            I830_FEATURES,
+>>            ^~~~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:189:11: note: expanded from macro 'I8=
+30_FEATURES'
+>>            .color =3D i9xx_colors, \
+>>                     ^~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:217:2: error: initializer element is =
+not a compile-time constant
+>>            I845_FEATURES,
+>>            ^~~~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:207:11: note: expanded from macro 'I8=
+45_FEATURES'
+>>            .color =3D i9xx_colors, \
+>>                     ^~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:222:2: error: initializer element is =
+not a compile-time constant
+>>            I830_FEATURES,
+>>            ^~~~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:189:11: note: expanded from macro 'I8=
+30_FEATURES'
+>>            .color =3D i9xx_colors, \
+>>                     ^~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:228:2: error: initializer element is =
+not a compile-time constant
+>>            I845_FEATURES,
+>>            ^~~~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:207:11: note: expanded from macro 'I8=
+45_FEATURES'
+>>            .color =3D i9xx_colors, \
+>>                     ^~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:247:2: error: initializer element is =
+not a compile-time constant
+>>            GEN3_FEATURES,
+>>            ^~~~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:242:11: note: expanded from macro 'GE=
+N3_FEATURES'
+>>            .color =3D i9xx_colors, \
+>>                     ^~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:258:2: error: initializer element is =
+not a compile-time constant
+>>            GEN3_FEATURES,
+>>            ^~~~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:242:11: note: expanded from macro 'GE=
+N3_FEATURES'
+>>            .color =3D i9xx_colors, \
+>>                     ^~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:271:2: error: initializer element is =
+not a compile-time constant
+>>            GEN3_FEATURES,
+>>            ^~~~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:242:11: note: expanded from macro 'GE=
+N3_FEATURES'
+>>            .color =3D i9xx_colors, \
+>>                     ^~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:282:2: error: initializer element is =
+not a compile-time constant
+>>            GEN3_FEATURES,
+>>            ^~~~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:242:11: note: expanded from macro 'GE=
+N3_FEATURES'
+>>            .color =3D i9xx_colors, \
+>>                     ^~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:296:2: error: initializer element is =
+not a compile-time constant
+>>            GEN3_FEATURES,
+>>            ^~~~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:242:11: note: expanded from macro 'GE=
+N3_FEATURES'
+>>            .color =3D i9xx_colors, \
+>>                     ^~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:303:2: error: initializer element is =
+not a compile-time constant
+>>            GEN3_FEATURES,
+>>            ^~~~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:242:11: note: expanded from macro 'GE=
+N3_FEATURES'
+>>            .color =3D i9xx_colors, \
+>>                     ^~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:310:2: error: initializer element is =
+not a compile-time constant
+>>            GEN3_FEATURES,
+>>            ^~~~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:242:11: note: expanded from macro 'GE=
+N3_FEATURES'
+>>            .color =3D i9xx_colors, \
+>>                     ^~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:333:2: error: initializer element is =
+not a compile-time constant
+>>            GEN4_FEATURES,
+>>            ^~~~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:328:11: note: expanded from macro 'GE=
+N4_FEATURES'
+>>            .color =3D i965_colors, \
+>>                     ^~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:341:2: error: initializer element is =
+not a compile-time constant
+>>            GEN4_FEATURES,
+>>            ^~~~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:328:11: note: expanded from macro 'GE=
+N4_FEATURES'
+>>            .color =3D i965_colors, \
+>>                     ^~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:352:2: error: initializer element is =
+not a compile-time constant
+>>            GEN4_FEATURES,
+>>            ^~~~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:328:11: note: expanded from macro 'GE=
+N4_FEATURES'
+>>            .color =3D i965_colors, \
+>>                     ^~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:359:2: error: initializer element is =
+not a compile-time constant
+>>            GEN4_FEATURES,
+>>            ^~~~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:328:11: note: expanded from macro 'GE=
+N4_FEATURES'
+>>            .color =3D i965_colors, \
+>>                     ^~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:384:2: error: initializer element is =
+not a compile-time constant
+>>            GEN5_FEATURES,
+>>            ^~~~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:379:11: note: expanded from macro 'GE=
+N5_FEATURES'
+>>            .color =3D ilk_colors, \
+>>                     ^~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:389:2: error: initializer element is =
+not a compile-time constant
+>>            GEN5_FEATURES,
+>>            ^~~~~~~~~~~~~
+>>    drivers/gpu/drm/i915/i915_pci.c:379:11: note: expanded from macro 'GE=
+N5_FEATURES'
+>>            .color =3D ilk_colors, \
+>>
+>> vim +212 drivers/gpu/drm/i915/i915_pci.c
+>>
+>> da1184cd41d4c6b Matthew Auld          2019-10-18  172
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  173  #define=
+ I830_FEATURES \
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  174   GEN(2)=
+, \
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  175   .is_mo=
+bile =3D 1, \
+>> 8d8b00318593e28 Jani Nikula           2019-09-11  176   .pipe_mask =3D B=
+IT(PIPE_A) | BIT(PIPE_B), \
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  177   .displ=
+ay.has_overlay =3D 1, \
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  178   .displ=
+ay.cursor_needs_physical =3D 1, \
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  179   .displ=
+ay.overlay_needs_physical =3D 1, \
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  180   .displ=
+ay.has_gmch =3D 1, \
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  181   .gpu_r=
+eset_clobbers_display =3D true, \
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  182   .hws_n=
+eeds_physical =3D 1, \
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  183   .unfen=
+ced_needs_alignment =3D 1, \
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  184   .engin=
+e_mask =3D BIT(RCS0), \
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  185   .has_s=
+noop =3D true, \
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  186   .has_c=
+oherent_ggtt =3D false, \
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  187   I9XX_P=
+IPE_OFFSETS, \
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  188   I9XX_C=
+URSOR_OFFSETS, \
+>> c8b57de4e93bccf Jani Nikula           2020-03-05  189   .color =3D i9xx_=
+colors, \
+>> 2411ccdddd53007 Jani Nikula           2020-03-05  190   .page_sizes =3D =
+GEN_DEFAULT_PAGE_SIZES, \
+>> 980a85a19e6db48 Jani Nikula           2020-03-05  191   .memory_regions =
+=3D GEN_DEFAULT_REGIONS
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  192
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  193  #define=
+ I845_FEATURES \
+>> bc76298e68e791f Chris Wilson          2018-02-15  194   GEN(2), \
+>> 8d8b00318593e28 Jani Nikula           2019-09-11  195   .pipe_mask =3D B=
+IT(PIPE_A), \
+>> d53db442db36fdb Jos=C3=A9 Roberto de Souza 2018-11-30  196   .display.ha=
+s_overlay =3D 1, \
+>> d53db442db36fdb Jos=C3=A9 Roberto de Souza 2018-11-30  197   .display.ov=
+erlay_needs_physical =3D 1, \
+>> b2ae318acdcaf1c Rodrigo Vivi          2019-02-04  198   .display.has_gmc=
+h =3D 1, \
+>> 55277e1f3107c0b Chris Wilson          2019-01-03  199   .gpu_reset_clobb=
+ers_display =3D true, \
+>> 3177659a41cc436 Carlos Santa          2016-08-17  200   .hws_needs_physi=
+cal =3D 1, \
+>> f4ce766f28cd0ef Chris Wilson          2017-03-25  201   .unfenced_needs_=
+alignment =3D 1, \
+>> 8a68d464366efb5 Chris Wilson          2019-03-05  202   .engine_mask =3D=
+ BIT(RCS0), \
+>> 5d95c24867aea8a Chris Wilson          2017-09-06  203   .has_snoop =3D t=
+rue, \
+>> 900ccf30f9e112b Chris Wilson          2018-07-20  204   .has_coherent_gg=
+tt =3D false, \
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  205   I845_P=
+IPE_OFFSETS, \
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  206   I845_C=
+URSOR_OFFSETS, \
+>> c8b57de4e93bccf Jani Nikula           2020-03-05  207   .color =3D i9xx_=
+colors, \
+>> 2411ccdddd53007 Jani Nikula           2020-03-05  208   .page_sizes =3D =
+GEN_DEFAULT_PAGE_SIZES, \
+>> 980a85a19e6db48 Jani Nikula           2020-03-05  209   .memory_regions =
+=3D GEN_DEFAULT_REGIONS
+>> 0eec8dc7f628a8d Carlos Santa          2016-08-17  210
+>> 31409fff1a392fa Lucas De Marchi       2019-12-24  211  static const stru=
+ct intel_device_info i830_info =3D {
+>> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05 @212   I830_F=
+EATURES,
+>> c5cb21c17a169ee Chris Wilson          2018-02-15  213   PLATFORM(INTEL_I=
+830),
+>> 42f5551d276921d Chris Wilson          2016-06-24  214  };
+>> 42f5551d276921d Chris Wilson          2016-06-24  215
+>>
+>> :::::: The code at line 212 was first introduced by commit
+>> :::::: 37fbbd49054b624400a65cf1a39f152a7f3f4749 drm/i915: Populate pipe_=
+offsets[] & co. accurately
+>>
+>> :::::: TO: Ville Syrj=C3=A4l=C3=A4 <ville.syrjala@linux.intel.com>
+>> :::::: CC: Ville Syrj=C3=A4l=C3=A4 <ville.syrjala@linux.intel.com>
+>>
+>> ---
+>> 0-DAY CI Kernel Test Service, Intel Corporation
+>> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+>>
+>> --
+>> You received this message because you are subscribed to the Google Group=
+s "Clang Built Linux" group.
+>> To unsubscribe from this group and stop receiving emails from it, send a=
+n email to clang-built-linux+unsubscribe@googlegroups.com.
+>> To view this discussion on the web visit https://groups.google.com/d/msg=
+id/clang-built-linux/202003060916.RI5pROBS%25lkp%40intel.com.
 
- - drivers/firmware/efi/libstub/Makefile builds lib.a, which is linked
-   into vmlinux in the own way (arm64), or linked to the decompressor
-   (arm, x86).
+--=20
+Jani Nikula, Intel Open Source Graphics Center
 
- - arch/alpha/lib/Makefile builds lib.a which is linked not only to
-   vmlinux, but also to bootloaders in arch/alpha/boot/Makefile.
-
- - arch/xtensa/boot/lib/Makefile builds lib.a for use from
-   arch/xtensa/boot/boot-redboot/Makefile.
-
-One more thing, adding everything to obj-y would increase the vmlinux
-size of allnoconfig (or tinyconfig).
-
-For less impact, I tweaked the destination of lib.a at the top Makefile;
-when CONFIG_MODULES=y, lib.a goes to KBUILD_VMLINUX_OBJS, which is
-forcibly linked to vmlinux, otherwise lib.a goes to KBUILD_VMLINUX_LIBS
-as before.
-
-The size impact for normal usecases is quite small since at lease one
-symbol in every lib-y object is eventually called by someone. In case
-you are intrested, here are the figures.
-
-x86_64_defconfig:
-
-   text	   data	    bss	    dec	    hex	filename
-19566602 5422072 1589328 26578002 1958c52 vmlinux.before
-19566932 5422104 1589328 26578364 1958dbc vmlinux.after
-
-The case with the biggest impact is allnoconfig + CONFIG_MODULES=y.
-
-ARCH=x86 allnoconfig + CONFIG_MODULES=y:
-
-   text	   data	    bss	    dec	    hex	filename
-1175162	 254740	1220608	2650510	 28718e	vmlinux.before
-1177974	 254836	1220608	2653418	 287cea	vmlinux.after
-
-Hopefully this is still not a big deal. The per-file trimming with the
-static library is not so effective after all.
-
-If fine-grained optimization is desired, some architectures support
-CONFIG_LD_DEAD_CODE_DATA_ELIMINATION, which trims dead code per-symbol
-basis. When LTO is supported in mainline, even better optimization will
-be possible.
-
-Link: https://github.com/ClangBuiltLinux/linux/issues/515
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
----
-
- Makefile               |  7 ++++++-
- scripts/Makefile.build | 17 -----------------
- 2 files changed, 6 insertions(+), 18 deletions(-)
-
-diff --git a/Makefile b/Makefile
-index 86035d866f2c..07f89d2a581a 100644
---- a/Makefile
-+++ b/Makefile
-@@ -1031,8 +1031,13 @@ init-y		:= $(patsubst %/, %/built-in.a, $(init-y))
- core-y		:= $(patsubst %/, %/built-in.a, $(core-y))
- drivers-y	:= $(patsubst %/, %/built-in.a, $(drivers-y))
- net-y		:= $(patsubst %/, %/built-in.a, $(net-y))
-+libs-y2		:= $(patsubst %/, %/built-in.a, $(filter %/, $(libs-y)))
-+ifdef CONFIG_MODULES
-+libs-y1		:= $(filter-out %/, $(libs-y))
-+libs-y2		+= $(patsubst %/, %/lib.a, $(filter %/, $(libs-y)))
-+else
- libs-y1		:= $(patsubst %/, %/lib.a, $(libs-y))
--libs-y2		:= $(patsubst %/, %/built-in.a, $(filter-out %.a, $(libs-y)))
-+endif
- virt-y		:= $(patsubst %/, %/built-in.a, $(virt-y))
- 
- # Externally visible symbols (used by link-vmlinux.sh)
-diff --git a/scripts/Makefile.build b/scripts/Makefile.build
-index a1730d42e5f3..356601994f3a 100644
---- a/scripts/Makefile.build
-+++ b/scripts/Makefile.build
-@@ -65,7 +65,6 @@ endif
- 
- ifneq ($(strip $(lib-y) $(lib-m) $(lib-)),)
- lib-target := $(obj)/lib.a
--real-obj-y += $(obj)/lib-ksyms.o
- endif
- 
- ifdef need-builtin
-@@ -410,22 +409,6 @@ $(lib-target): $(lib-y) FORCE
- 
- targets += $(lib-target)
- 
--dummy-object = $(obj)/.lib_exports.o
--ksyms-lds = $(dot-target).lds
--
--quiet_cmd_export_list = EXPORTS $@
--cmd_export_list = $(OBJDUMP) -h $< | \
--	sed -ne '/___ksymtab/s/.*+\([^ ]*\).*/EXTERN(\1)/p' >$(ksyms-lds);\
--	rm -f $(dummy-object);\
--	echo | $(CC) $(a_flags) -c -o $(dummy-object) -x assembler -;\
--	$(LD) $(ld_flags) -r -o $@ -T $(ksyms-lds) $(dummy-object);\
--	rm $(dummy-object) $(ksyms-lds)
--
--$(obj)/lib-ksyms.o: $(lib-target) FORCE
--	$(call if_changed,export_list)
--
--targets += $(obj)/lib-ksyms.o
--
- endif
- 
- # NOTE:
--- 
-2.17.1
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200309023910.25370-1-masahiroy%40kernel.org.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/87k13ulyho.fsf%40intel.com.
