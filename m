@@ -1,128 +1,127 @@
-Return-Path: <clang-built-linux+bncBDY3NC743AGBBCF7TLZQKGQE5YWI2YQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBNWATLZQKGQEHDX4FHQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73c.google.com (mail-qk1-x73c.google.com [IPv6:2607:f8b0:4864:20::73c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 63CC617E96C
-	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Mar 2020 20:56:58 +0100 (CET)
-Received: by mail-qk1-x73c.google.com with SMTP id w2sf8073203qka.4
-        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Mar 2020 12:56:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1583783817; cv=pass;
+Received: from mail-io1-xd38.google.com (mail-io1-xd38.google.com [IPv6:2607:f8b0:4864:20::d38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2294317E97A
+	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Mar 2020 20:59:52 +0100 (CET)
+Received: by mail-io1-xd38.google.com with SMTP id r8sf2567979ioj.21
+        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Mar 2020 12:59:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1583783991; cv=pass;
         d=google.com; s=arc-20160816;
-        b=k3htQJydm9PAPrbC07vDCqzdFu1l2CmggRwjcnp6TARn32gzUwB9F2pMljHxvaHq1V
-         B77v/ufqT1zDo+AQbp5AiR/oQImaVwtpnfpf0YJ3c2lviuTJkFrl5fH/12Cn2zQc3PgJ
-         1qbx5kf2g1N6srKeaKjD4ZEyP5/yaclHIbNjAeJK7lQyYmjsnbYYNZWtGlEbgPVzT7Zm
-         otF2Par4NYPpSTHk0aKPmVbNH0jkJy6D78HLPNH/T63phO+913KFOz9781PcckfG41We
-         d5WXWkVSVPEcwAL+7IzWM58xl6uK1RIfv1vZP+WFckSWEVx2kv1gUik12PqSxYsqbOWn
-         0HlQ==
+        b=CsJkpEbYiGNoJ/BJa9YzRy94bnVmGLVa1JvrkymOL1VYRCwq3VMO9jqTUtORYa4yhA
+         QfkrCASarUKUN2T4+51mFerBDDuQWHt9Qpmt42eVqBWH/DgfKTEGoFBr+KcKDBOt8WeM
+         x8+7hJC1YG/kRci4yCygkIbtUmaUwYVKmapIC2sfhvGj67JSHQGbmJUI9a1gpqjNvMba
+         DP7VfRZBcy2Ej6oBnavSlEE6GR7vhyonVsuRJwjFwoC66SSmJEijdADShhavV2ueZaeq
+         Y7ULrfFC9MpnS+eDUvRiBR+vdwwtREl/b9tTLSq7TaRK1+qRbebLmkJcxWOFGg1vp223
+         8EQQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:sender
-         :dkim-signature;
-        bh=UiuIIlZPQYcQyuZ5JasJhBcp4lPrshiGhRY7RePN5N8=;
-        b=nFAwd4u1aNGP8QU6oaU7Sn1RIAlrDjFojQUfq0mZetTFiB5qfL9B5EpTUYrn/7YEw+
-         700I2Yd77z9OiY0R6YKMM9YfK8kRKQUq+vePrfUklDq+pmyoBd/frmBVIGKd6mSmpYPP
-         iWN+tDYCT4PBlySVMC4zeCH0nK6bwJwOfeVNkybwmgI3WGy8WRsT3aweYvPAR9Ec/RNz
-         wZaSq3VfVylXvEaqlY1jeUoiH+GqIiGWcbRr8pcDszui/Vs5ysL5jxbzse1cs40E/m+a
-         bKYnmNqwcofzZ6sQlkbUPrqwOBMg3Pt4uOFS5sZttXlEX7lYrs3Y+V/vlH95s6+kE/15
-         OiPg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=uGi0cgWQaMYy2FYLRxSg2hJjHol6I3esJJxEKj5GgbI=;
+        b=HOWF14PlGQkJZFigrLR44Ng2qAEOfqgQbB+8FopkOZATQALQkBhlGp0eXto+R+Pyu1
+         WbsOa/BtX66gXl/Go6sTl0XLoPnzhfCkmpGJxSroXEUNam7pSymPPwfrtOgpNKP54qq8
+         FFo+cgDrwGBJVDNiKh8XQi3kuUEOJcLhE2szQdF4Po03oweA2vf1rwKOKvgiUFIpbwox
+         7F0AWT+e+V3Ws6V0YKYoxbpqN6C8PErOFA1IYj4FvGh5NjRU7+xC5JWYCaatupHetHb7
+         1+NevM9kMvyxUe2I1A84csrxSUFWp6snc+CTok9Cm4TPl7nNJfRmwZOQznud4psHjOj6
+         zsTQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.239 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=uj+iurUi;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=UiuIIlZPQYcQyuZ5JasJhBcp4lPrshiGhRY7RePN5N8=;
-        b=FvdDABTm68ZV1DLxkbC5QvllciExCnTscBLOhZpyKRLA/EsltM1gS40QAeOrFfV4f8
-         4giil/V60Iuq3WUTk+m+5DS/AQC+BXzSwIKmpe1z1nDbmCCaQaq9ExM8YH9nPRBnWHt4
-         Jl3gooDO953GwQ6EOGTOgKjN7PX+r7j3c6/MY3A7dvdT4m1fnV8CIfl4B8dv8XaDrO7t
-         DsuVXQiM2xvfa0XbKs4R1E1cIyUHB2Rsq5NIXYTUj59RPmecg1j27IjcG5loy/eIfqhH
-         TRtf9iOwG97nxrEkvMzyqPjX4pu1ioPJaPunz2MHKu3Nn4Ve6yDtHfIY7bxXI2UsUOEH
-         Msug==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=uGi0cgWQaMYy2FYLRxSg2hJjHol6I3esJJxEKj5GgbI=;
+        b=oSZBXS6fVPSK74tarGaYBVIwv4SmXBZPz27BMFoOfFwbwc1ZZWL7NNxNooiMVgLBe4
+         Jegk8RP/4+jYWptla/OSVq1LPGgWqdM4fAuGZHfsCBUJ1nwalKHC7T7QG/AbBC8ir3Zb
+         KU3LmXstHa6XxKOlZ0KUHe4yh3v7Scz1tQmG1XYYwzliVYICeuKQ3845nslI5q6mRvg2
+         upPH9kayQWqx4kGaSd8/RL4gDBmVPM3cYClfAtxYgTrdG09u2CEyO7nJ4lllzYT/7/9P
+         f/WW8EHNUf+v5WYBnZkdWbLPBMMmeA2Ytksz4A20CrY5xlfhMJYPt48q/iM/x4aNm6zY
+         mJ6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UiuIIlZPQYcQyuZ5JasJhBcp4lPrshiGhRY7RePN5N8=;
-        b=Xfa2p+YuQQlAgwLxpMc09qyjZxjOt4o1ujrm//mQoKBpAFZHBZe8ZkjVA/xW079k1d
-         p5JlRttRXpVamAjgBT2J+qDoLttLMH/pBKLGhs/WhH0YP25dwZqgYb8Co/X7nw4AUDN9
-         nCGarDZUlUsj6spoBNwMxbKS+duCf+ULJD1MROiDRFqCLGe4FtaJ2IE92jVeWUUY80ID
-         FzsHjqsJZv0rHqBmnSg04ybc5RMRw4H0JJu5/UOJD+LG8GyJ5KH+d6LrDHZvmdVOLDCB
-         LeRh+iHRqz5Y9yAHrjrP1RSUj8DgaQkV0nVOes7TF3IZ3pQtplkE3ztlni1laXG84ttD
-         qy2g==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ0IbRq8iduq4Bo6D4VK5vD36PzyBkGYwXlL8g449qyoCh09Ns1F
-	sfuHTc8rD+vrYy8tjCHbV7g=
-X-Google-Smtp-Source: ADFU+vuM6DEyz6CyNX/od1APIfJ41NhLjRwC85EOmK0jnm/ZzsaD1KdMQQpyt7u/mD+/UaP3mNhGpg==
-X-Received: by 2002:aed:30ce:: with SMTP id 72mr15333180qtf.89.1583783816514;
-        Mon, 09 Mar 2020 12:56:56 -0700 (PDT)
+        bh=uGi0cgWQaMYy2FYLRxSg2hJjHol6I3esJJxEKj5GgbI=;
+        b=HdaRXDvOdj4hNr9Ksjnid20G3hCsSRH8eMTnEJphCCYZtnyGY5dJQjOW8FewnsnBMp
+         mB3truHlR21dLhztJsPn8K36WcHCJ5yxKSn22HyESqM4XO0gYmKAA1Sy9h5Sv74e5A9m
+         Lf/bTkcgEsiMWRIKXH9R9LYFMb6Bn1faB+pvTQ6TAU4TC1QmZBN38+VPsxQ5emWlt3su
+         CxTQSiauzfbnbWTBQHbrA7GUhHnhpOFlp4oQivbmVENzcOyL2F6+BNdUAd0Vq/4nlqTL
+         LPTcgjy0pCN+IWcAY+PQ53BGx5+UXaEV4oJ4bmnEHtv4a/X2AQ8ytRk4XVHhNnfaDdTh
+         fpWQ==
+X-Gm-Message-State: ANhLgQ0aRqeAf/TsiJHgJloaRsQLW7utS4x2RHhoQDdprV4CMHaegs5P
+	rx9CUEsjA6Td0z9dGdILmec=
+X-Google-Smtp-Source: ADFU+vsWT4Q1eesNAbTr37FiazATzQ/elckhGy790VOWp4JbKRLq5vqdmARoqTKIs/yyLBj+M7r3WA==
+X-Received: by 2002:a92:5e44:: with SMTP id s65mr16563248ilb.148.1583783991054;
+        Mon, 09 Mar 2020 12:59:51 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6214:126:: with SMTP id w6ls1949718qvs.10.gmail; Mon, 09
- Mar 2020 12:56:56 -0700 (PDT)
-X-Received: by 2002:a0c:9164:: with SMTP id q91mr15570270qvq.115.1583783816115;
-        Mon, 09 Mar 2020 12:56:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1583783816; cv=none;
+Received: by 2002:a92:ce82:: with SMTP id r2ls2759399ilo.7.gmail; Mon, 09 Mar
+ 2020 12:59:50 -0700 (PDT)
+X-Received: by 2002:a92:640e:: with SMTP id y14mr15288072ilb.228.1583783990674;
+        Mon, 09 Mar 2020 12:59:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1583783990; cv=none;
         d=google.com; s=arc-20160816;
-        b=Z2iQjQqvMlqC7wlDQtY2hnBoc2xiKfu27rV2pSr/ezdw0JSLSeQIlIeve/lTceIajY
-         49RELF+3jTdx6YxovIBrvJt1Re9xpBjSMYefauwmMAEc50RuEefuwT/lEdd8d0caT7P+
-         ix41MpTdlohM9a8RSsyPWZ8y6rUWqUWNFBwlghNrfbQzpKxUr5LNpb7+ZCqcVilvg36A
-         6ZNurYTAVhggr24TySCmEniFTRRVME6qVDqjiwhnMfnyVEEC2WxR294J/HHJ/gxc+QuP
-         fO21eNaX8xRHO4Pu2qeSxY9EzvfqZPbavZnBay2bs29p0QqYaYlfzFG74IUhf5mbqQta
-         A3AA==
+        b=qnQ5SoG7uTM05KrdL6kE75v6AmxGVI5XfBDQip9NhsLDqxymCJqEesRgqmAj1g+uph
+         CN9kiiBezpL9KwN2Lsfof/I9shgIGyyBuZcQdUvzzsL3FC2yGK7tOCJT0fuDWft2ccH/
+         4I+RcTT9xtEVDJjZz6VjEgDo94nEC2pYFfz0xYWJUDywQ8Y7eH/vU5/7j/M9LvOVDDdo
+         47lDub7b0t8fibVIAWuv37SpRuQwpyx7WP70XsGw6ded0EoZYeULBwEKR7IAdl88KeCK
+         vzKHo5jw6PCD2HiJvgShX4y3MAM5xgsZdmTZUPTBhyYHfdiFENjEk7HS9ra2aGOAO4iK
+         Dsdw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id;
-        bh=qBogwVdFMXKoaVgl0h8uBfoEf99BbdxCJE2DG/IthGQ=;
-        b=Du+K9ryMlXEATv89MWhZCCiU96DyoZdD6l1I9BfW13FuJoyoFXhYVQldxV7XiB0xyY
-         N3Dq0GkZ+BpyWtwzuls1hY0wclP2qgf7TPCTsmRFhEqpV6IbUlyMXWtJOOp/+xT4oxGq
-         rgVlp5m69TeWutFixD8Dl7qQzSnsgzdrymY8RYoRyfo5Ywo7PCVtoY2aE/tiFTZltsnV
-         o+crtQoX5BAt75bq0x+LUF9cirkzA2RGDpoHtYcjySR7NcNcBFmOeSHeMYfDKWos27mE
-         aCil334ypwk0YIbKNPFxH21Mm0L7vPhkUnt+1Y1aGgzygfslZSRk6xXIC89szf4JeGAq
-         Pr+w==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=ApMKbaT9NZPQVt7nAnTk1K0Wu/E7soJBK3O0vo/SsBI=;
+        b=j+HaFvIazy3zPyTfVOz6QkmCZX/kBD7nRKRFyCLjP31eXXM4Xgg0MemK/iQs/GmP7W
+         GQgLgp95mxb2CMTKu66tKvY/SRaiGOT5/bAjYwWIMdvscqKogFFyF7KIdioVIDJfSjKp
+         UxEIXDdpKwKoRR/PwTJ6BxaogQ0Jw8tdbrzfHgMSLyVUhTFW1r8JDP2N4hvSwcucWU31
+         XBGn9WOXX9j9BNJuiGy/4yDZzGeGXvSdLgxUlRhoZWFeSz8ZIpLMAGmigipFbpT74b6y
+         Dse5zfpNlGqdrTIqwVqPOXmFIdt5AQxbIqB2Ww4T/pPOiQtD/Njz05y6pQ0DXiOK7GVJ
+         NB6w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.239 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
-Received: from smtprelay.hostedemail.com (smtprelay0239.hostedemail.com. [216.40.44.239])
-        by gmr-mx.google.com with ESMTPS id g42si715943qtk.3.2020.03.09.12.56.56
+       dkim=pass header.i=@google.com header.s=20161025 header.b=uj+iurUi;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pj1-x1043.google.com (mail-pj1-x1043.google.com. [2607:f8b0:4864:20::1043])
+        by gmr-mx.google.com with ESMTPS id d26si579961ioo.1.2020.03.09.12.59.50
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Mar 2020 12:56:56 -0700 (PDT)
-Received-SPF: neutral (google.com: 216.40.44.239 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.239;
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
-	by smtprelay08.hostedemail.com (Postfix) with ESMTP id BB3C3182CED2A;
-	Mon,  9 Mar 2020 19:56:55 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 10,1,0,,d41d8cd98f00b204,joe@perches.com,,RULES_HIT:41:355:379:599:800:960:967:973:982:988:989:1260:1277:1311:1313:1314:1345:1359:1431:1437:1515:1516:1518:1534:1543:1593:1594:1605:1711:1730:1747:1777:1792:2393:2525:2553:2565:2682:2685:2828:2859:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3622:3865:3866:3867:3868:3870:3871:3872:3873:3874:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4321:4384:4605:5007:7875:7903:7974:8526:8531:9025:10004:10400:10848:10967:11232:11658:11914:12043:12291:12296:12297:12555:12663:12683:12698:12737:12740:12760:12895:13149:13230:13255:13439:14096:14097:14157:14180:14181:14659:14721:21080:21324:21433:21451:21627:21740:30012:30041:30045:30054:30090:30091,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:1,LUA_SUMMARY:none
-X-HE-Tag: fork76_769655216b051
-X-Filterd-Recvd-Size: 4485
-Received: from XPS-9350.home (unknown [47.151.143.254])
-	(Authenticated sender: joe@perches.com)
-	by omf10.hostedemail.com (Postfix) with ESMTPA;
-	Mon,  9 Mar 2020 19:56:54 +0000 (UTC)
-Message-ID: <e8db6d1a92001b02bbe2c2a1fc3413e1d44aa0a4.camel@perches.com>
-Subject: Re: [PATCH] cvt_fallthrough: A tool to convert /* fallthrough */
- comments to fallthrough;
-From: Joe Perches <joe@perches.com>
-To: Nick Desaulniers <ndesaulniers@google.com>, Andrew Morton
-	 <akpm@linux-foundation.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, clang-built-linux
-	 <clang-built-linux@googlegroups.com>
-Date: Mon, 09 Mar 2020 12:55:14 -0700
-In-Reply-To: <CAKwvOdkzc3AtpkRcZU06yvAEzp_bjw55HkpGui6RsAcy=FhnJw@mail.gmail.com>
-References: <b56602fcf79f849e733e7b521bb0e17895d390fa.1582230379.git.joe@perches.com>
-	 <20200220162114.138f976ae16a5e58e13a51ae@linux-foundation.org>
-	 <CAKwvOdkzc3AtpkRcZU06yvAEzp_bjw55HkpGui6RsAcy=FhnJw@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.34.1-2
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 09 Mar 2020 12:59:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) client-ip=2607:f8b0:4864:20::1043;
+Received: by mail-pj1-x1043.google.com with SMTP id ca13so369865pjb.2
+        for <clang-built-linux@googlegroups.com>; Mon, 09 Mar 2020 12:59:50 -0700 (PDT)
+X-Received: by 2002:a17:90a:1f8d:: with SMTP id x13mr999711pja.27.1583783989605;
+ Mon, 09 Mar 2020 12:59:49 -0700 (PDT)
 MIME-Version: 1.0
-X-Original-Sender: joe@perches.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 216.40.44.239 is neither permitted nor denied by best guess
- record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+References: <20200309023910.25370-1-masahiroy@kernel.org> <202003091801.6KQQKZ1Y%lkp@intel.com>
+In-Reply-To: <202003091801.6KQQKZ1Y%lkp@intel.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 9 Mar 2020 12:59:37 -0700
+Message-ID: <CAKwvOdksxVa=NGtyT3hsuHg6SJG4CbNWAepf+dxwVDC1+36zyw@mail.gmail.com>
+Subject: Re: [PATCH] kbuild: link lib-y objects to vmlinux forcibly when CONFIG_MODULES=y
+To: "David S. Miller" <davem@davemloft.net>, Masahiro Yamada <masahiroy@kernel.org>
+Cc: kbuild-all@lists.01.org, 
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	Al Viro <viro@zeniv.linux.org.uk>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	=?UTF-8?B?Ru+/ve+/ve+/vW5nLXJ177+977+977+9IFPvv73vv73vv71uZw==?= <maskray@google.com>, 
+	Ilie Halip <ilie.halip@gmail.com>, Nathan Chancellor <natechancellor@gmail.com>, 
+	Michal Marek <michal.lkml@markovi.net>, kbuild test robot <lkp@intel.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=uj+iurUi;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,90 +134,66 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, 2020-03-09 at 12:36 -0700, Nick Desaulniers wrote:
-> On Thu, Feb 20, 2020 at 4:21 PM Andrew Morton <akpm@linux-foundation.org> wrote:
-> > On Thu, 20 Feb 2020 12:30:21 -0800 Joe Perches <joe@perches.com> wrote:
-> > 
-> > > Convert /* fallthrough */ style comments to the pseudo-keyword fallthrough
-> > > to allow clang 10 and higher to work at finding missing fallthroughs too.
-> > > 
-> > > Requires a git repository and overwrites the input files.
-> > > 
-> > > Typical command use:
-> > >     ./scripts/cvt_fallthrough.pl <path|file>
-> > > 
-> > > i.e.:
-> > > 
-> > >    $ ./scripts/cvt_fallthrough.pl block
-> > >      converts all files in block and its subdirectories
-> > >    $ ./scripts/cvt_fallthrough.pl drivers/net/wireless/zydas/zd1201.c
-> > >      converts a single file
-> > > 
-> > > A fallthrough comment with additional comments is converted akin to:
-> > > 
-> > > -             /* fall through - maybe userspace knows this conn_id. */
-> > > +             fallthrough;    /* maybe userspace knows this conn_id */
-> > > 
-> > > A fallthrough comment or fallthrough; between successive case statements
-> > > is deleted.
-> > > 
-> > > e.g.:
-> > > 
-> > >     case FOO:
-> > >       /* fallthrough */ (or fallthrough;)
-> > >     case BAR:
-> > > 
-> > > is converted to:
-> > > 
-> > >     case FOO:
-> > >     case BAR:
-> > > 
-> > > Signed-off-by: Joe Perches <joe@perches.com>
-> > > ---
-> > >  scripts/cvt_fallthrough.pl | 215 +++++++++++++++++++++++++++++++++++++
-> > 
-> > Do we need this in the tree long-term?  Or is it a matters of "hey
-> > Linus, please run this" then something like add a checkpatch rule to
-> > catch future slipups?
-> 
-> Just for some added context, please see
-> https://reviews.llvm.org/D73852, where support for parsing some forms
-> of fallthrough statements was added to Clang in a broken state by a
-> contributor, but then ripped out by the code owner (of the clang front
-> end to LLVM, and also happens to be the C++ ISO spec editor).  He
-> provides further clarification
-> https://bugs.llvm.org/show_bug.cgi?id=43465#c37.
-> 
-> I'm inclined to agree with him; to implement this, we need to keep
-> around comments for semantic analyses, a later phase of compilation
-> than preprocessing.  It feels like a layering violation to either not
-> discard comments as soon as possible, or emit diagnostics from the
-> preprocessor.  And as Joe's data shows, there's the classic issue
-> faced when using regexes to solve a problem; suddenly you now have two
-> problems.
-> https://xkcd.com/1171/
-> 
-> I would like to see this patch landed, though I am curious as toward's
-> Andrew's question ('Or is it a matters of "hey Linus, please run
-> this"') of what's the imagined workflow here, since it seems like the
-> script needs to be run per file. I suppose you could still do that
-> treewide, but is that the intention, or is it to do so on a per
-> subsystem level?
+On Mon, Mar 9, 2020 at 3:55 AM kbuild test robot <lkp@intel.com> wrote:
+>
+> Hi Masahiro,
+>
+> I love your patch! Yet something to improve:
+>
+> [auto build test ERROR on kbuild/for-next]
+> [also build test ERROR on linux/master linus/master v5.6-rc5 next-20200306]
+> [if your patch is applied to the wrong git tree, please drop us a note to help
+> improve the system. BTW, we also suggest to use '--base' option to specify the
+> base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
+>
+> url:    https://github.com/0day-ci/linux/commits/Masahiro-Yamada/kbuild-link-lib-y-objects-to-vmlinux-forcibly-when-CONFIG_MODULES-y/20200309-115312
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/masahiroy/linux-kbuild.git for-next
+> config: sparc-defconfig (attached as .config)
+> compiler: sparc-linux-gcc (GCC) 7.5.0
+> reproduce:
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # save the attached .config to linux build tree
+>         GCC_VERSION=7.5.0 make.cross ARCH=sparc
+>
+> If you fix the issue, kindly add following tag
+> Reported-by: kbuild test robot <lkp@intel.com>
+>
+> All errors (new ones prefixed by >>):
+>
+>    arch/sparc/lib/strlen.o: In function `strlen':
+> >> (.text+0x0): multiple definition of `strlen'
+>    lib/string.o:string.c:(.text+0x2b0): first defined here
 
-A single treewide run of a script like this really could make
-it quite hard to later backport various fixes to stable trees.
+So this looks like a bug in 32b Sparc, that we should fix first.
 
-A depth-first per-maintained subsystem run of the script with
-commits could be useful and would much more easily allow backports.
+arch/sparc/lib/strlen.S provides a definition of strlen, but it does
+not define the preprocessor token __HAVE_ARCH_STRLEN to avoid multiple
+definitions from producing a link error.
 
-Unfortunately there's no tool to apply such a script to the tree
-per subsystem as far as I know.
+Or rather, __HAVE_ARCH_STRLEN is provided in include/asm/string_64.h,
+but not for 32b sparc.  arch/sparc/strlen.o is unconditionally
+required in lib-y in arch/sparc/lib/Makefile.
 
-Such a depth-first apply and commit tool could really be quite
-useful though.
+Either:
+1. arch/sparc/lib/strlen.S supports 32b sparc, then __HAVE_ARCH_STRLEN
+and a forward declaration of strlen should be provided in
+arch/sparc/include/asm/string.h rather than
+arch/sparc/include/asm/string_64.h, or...
+2. arch/sparc/lib/strlen.S does not support 32b sparc, then the
+inclusion of strlen.o in arch/sparc/lib/Makefile should be predicated
+on CONFIG_SPARC64.
 
++ Dave who maybe can provide guidance on how to proceed?  The use of
+the BRANCH32 macro in arch/sparc/lib/strlen.S seems to have different
+definitions based on CONFIG_SPARC64 vs CONFIG_SPARC32, which makes me
+thing it's case 1 above, but I'm not familiar with Sparc assembly to
+be confident.
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/e8db6d1a92001b02bbe2c2a1fc3413e1d44aa0a4.camel%40perches.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdksxVa%3DNGtyT3hsuHg6SJG4CbNWAepf%2BdxwVDC1%2B36zyw%40mail.gmail.com.
