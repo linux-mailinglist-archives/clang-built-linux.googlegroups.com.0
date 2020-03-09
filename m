@@ -1,161 +1,124 @@
-Return-Path: <clang-built-linux+bncBDEPBSN75UNRBRFPTLZQKGQEVOX56FI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBXNVTLZQKGQEAY4B3RQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3b.google.com (mail-qv1-xf3b.google.com [IPv6:2607:f8b0:4864:20::f3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 95EA717E848
-	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Mar 2020 20:23:49 +0100 (CET)
-Received: by mail-qv1-xf3b.google.com with SMTP id k1sf6661427qvw.1
-        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Mar 2020 12:23:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1583781828; cv=pass;
+Received: from mail-vk1-xa38.google.com (mail-vk1-xa38.google.com [IPv6:2607:f8b0:4864:20::a38])
+	by mail.lfdr.de (Postfix) with ESMTPS id B8CD817E8B9
+	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Mar 2020 20:37:02 +0100 (CET)
+Received: by mail-vk1-xa38.google.com with SMTP id y5sf4976012vkg.19
+        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Mar 2020 12:37:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1583782621; cv=pass;
         d=google.com; s=arc-20160816;
-        b=e/Ubm7xZdmFIKDefRCmsOjrpyarusSmgpbeLf+frKCxp6rqHLIbZX8YYpXGxrSsU5R
-         eWNZh2o376/9ZMhHR7scQqvqPWKkiyzsrEzAZASDlcEfrzZVr9WLADjYwIgzQ1vWd/Pd
-         TNcKwYrIByoCPt7LQAdgOKAjy2fsQeixZxf/hpCr/SkSCBgykUzEEH7AmFpdP46Sq3Rt
-         lY4zt+LBKlPGk/5EjdtT9Xnhu+giI8bBnZufb9L09rAOz0L/1+uUsjw07XZWxA/FLSxE
-         rWFZlBIxL7/fsHeSyjNWPlndNlzK3ZfL1Bb47gcOhkp7/+9U3moxPp1uki6Bng6B/07m
-         TxFg==
+        b=1Ago9Ng579sgqkdiFJPA7hkvFUdgy4W2U7JmabP41sNMXNS1h0ybovIEJfrptxMHxV
+         PpRPuQ7uayVGLJB+I5lNE4Zm2MyI4psAIni9tfKAD4A8Ir10rhtF11DR8v2B2SSZcyiC
+         vtQaT01PDSoojNoOUlW/cyf8utfgPQZRRAoGpJYBCQI+WDalqWt7z+4Rtd05osNmB092
+         ehUgfNClxiJOUOEHIPWWBOvDt8dsCofB2RY5fhxozqbNQdTkgZGdH5kF440VAlqBmZYh
+         cVOrBjIgEfUwSV9H5YOQaXiTTC3JvVa2bQDwajzFhgtEifU8EuFmTDGc099FQGHNs1Oy
+         LQYg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to
-         :content-transfer-encoding:content-disposition:mime-version
-         :references:message-id:subject:cc:to:date:from:sender:dkim-signature
-         :dkim-signature;
-        bh=cxLR1frC76/5rNe47/vljml7aEre8PWUr0kxlPOmA1o=;
-        b=WatX2CQEow5ZEiArsCywJrjsZ/VYqQ3f0lFcm3jj5I6xa+NbdwbTufb31fTyZfCM0+
-         shsqvm01LqVbWsD5wP61fRg8+huEZD3CKFHxks8oyGFL0nMtQC5sqHBSeIH2JPrxmwR6
-         Fi0nowVMJka5PIBDF+ylSx7kDOjk3GWXZJjes8tOwpRnDp5MFryCeEukKZgWxPKbMJeM
-         fLss62S7EWUI7g7mWNIzKrheQNop4cwhcIK0XyuuG3PzmwnJMIrFvaQ+cucE2E8tgajc
-         tDfJXC4QaknZHOq5UuVcsqilAmANIU89x94vOXw6nZxScV61AUOHnqA81+BnexpCW0sN
-         ihLw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=W7XTqU8MoBmkTnY6VhwbplQIG0eTXdBY/ky2614geuE=;
+        b=awsAzp+Q/jXTdA4ZiD70Y452o4d+7zK1SWl5zeA2vAubSr7TAePnpsybIl6vvS4iBP
+         uG+3IfroF7y36AzoZxeQ9g8lBPPn6wyPyw9yI7v7kYZ+Eo3Nurpl6XJw9CsmeVCQpnIP
+         CE6tqd0e1JftXMUd2KJcDnxf2UX9LYTn7AeajM3pxtLqozd4nqLWHlKPyMfhYGKc6881
+         7AW4MOrBK+ZkAPpmFiyOIHvsU7o67PCdUtgUo/sFATZ90y/k8MKg1cmvLvUEQNBPcuQU
+         kvN3Xc1dcwH2VVlR5Fc0r2SUabzH14gaffMoZceXwglC8Z9ccTTmavQAvj46Itq3g0ir
+         SCSA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Kw4d6e76;
-       spf=pass (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::f42 as permitted sender) smtp.mailfrom=arnaldo.melo@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=O4ebsCY+;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:cc:subject:message-id:references:mime-version
-         :content-disposition:content-transfer-encoding:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=cxLR1frC76/5rNe47/vljml7aEre8PWUr0kxlPOmA1o=;
-        b=AVaYzsUEm0qm/MNLaEazmXXifGhQZJErS23+U9kPUcc7TMKqooagsq5tFHd6T33Ewo
-         zoV4HaVHKOKS+ZfaMkSXShFSp5AHGLRlXL4B3JptQ7uUNCaV3tjFeDLhHLtYnCbBlfE+
-         nIQVcKBTB4KMXMTatUuzdi7sKKKyn0i8c8IzCAIr3erC64yA9wQq6efFpmkEAUysWw+m
-         F94TsVfkKXUHd1pUXUKzwDWPXCiTv8Z7sqPJX6aJ+Vcc6JNup4UkPsj2K4BY119zMQWx
-         QZC4cpvur6ZksYuq0sh8E9nK/lcEJJf3lL5E4C0sgK+EdZGMoyDxewcMsNKEvJVPbXqu
-         mxsg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:date:to:cc:subject:message-id:references:mime-version
-         :content-disposition:content-transfer-encoding:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=cxLR1frC76/5rNe47/vljml7aEre8PWUr0kxlPOmA1o=;
-        b=lJE/IP2ilxXRB8+hv+ON01n/8RZdoDeXsV1Nyuw72ZauMIsPeNPe64Y9W8+Tc4L2zF
-         8vEXlCN48SC8cdNOPO0RrJGyI8gXnsLO3piWg24Sug6fdQVlkxPVYLPFXOd2EN6JqWlt
-         HLLlPqOCWnOOCjLjFEtX8ZH7qMuJQDtmZWTfZ3PnVSlq+xUKEsZQwe1r5dH/AgSSmsMj
-         IkXBlQqBI6gm1Vq8lz67ADwHmb00bmX48thCxN2ZKnx/bgyJUcFgL8POspNFod4w1PQY
-         ZJgd9a0mmjr8rFOzk9QHTVv2lJv6O76tX/n6jlOYRmnOHy944yjmaWOHuooOQYnaCL88
-         p8OA==
+        bh=W7XTqU8MoBmkTnY6VhwbplQIG0eTXdBY/ky2614geuE=;
+        b=VRGKbSBSSBMQYRWgzmb3zejpJ54SP3RmSGCXSKk9EXhneqKen2j6c0H/8iY/0SY2oB
+         Gaw7XN2NPWEgF1pWzSe7tanvjsIM9gvxNMWlsvEGkzFbu0+4x0Alfn39Hy5Mj91Z0t9P
+         HvaYt+JuOY9Ec21VOs8QXum3kJ/b0WrQZr12DNOjnzypCnfErBaKa30oP55zGnkFuMQa
+         G6PXcy/WK4+7cQ9/XouiFnyY0Dop4Q9qX9Ji8PhNIVyt8/JFCx3aMS0Ib8At3jDa0+0s
+         me046tjzmAQtFNOdPKoANP2FKTy4+UTqlnnSf5Fwx558qzavYV/lTNbNTc+WZjferzlJ
+         c5lw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:cc:subject:message-id
-         :references:mime-version:content-disposition
-         :content-transfer-encoding:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=cxLR1frC76/5rNe47/vljml7aEre8PWUr0kxlPOmA1o=;
-        b=GRa63T4bek6RpXyvUq8edrLTW5D68YC42cathpSkANp0tMcVhU7kVdugq1zM48uevm
-         j1oAyeg6zoJ/4ODb2Iffcsyb2NydsoBAcNYfEZHF5OIc760bTm8itljBdtqrOPql+nJg
-         bxrWU4zlRKnz2FrIW83L6Gg0Z0yaztjSE+9rRbFt6xjbo0PQuTAvqgZwMo1E7gEDHwM8
-         Z4hQxulGI0700ELkxP4Av5OdWujHYryXDy7fJ5quNMe66/fUdOXj3muOeBUq+LC2vGzi
-         TE/6PuMmTdrffgU2PF/FWgO5een+6P+HxeALc6V96wKUr73kGWX+M85aUV4bIa1FCYX4
-         avbg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ3Br8ViSIrh3NeuGkIdaujgu0k6s/Y6DgZJhGKWUekmOh5pPvw1
-	c+876YyBblllm3ITwgjjAy0=
-X-Google-Smtp-Source: ADFU+vvUDBI4T/xzz/Rk1JXwXJXrm2Wje/4HmttuG5f19Ni7gQX+f5z5YZ3IQbqscvvEnKRMim5T6w==
-X-Received: by 2002:a05:620a:84d:: with SMTP id u13mr16612793qku.94.1583781828553;
-        Mon, 09 Mar 2020 12:23:48 -0700 (PDT)
+        bh=W7XTqU8MoBmkTnY6VhwbplQIG0eTXdBY/ky2614geuE=;
+        b=Oy4OW/+7AWfn7tNrtZXj8ES6Tj/5XNb+XyMreImjoWcRBuygdEjbcReXCVYvIc+Rnf
+         juwVhgS9+hQhz9o9JBqhvwEfr4GOuiznbMnbUBJGKZabTn1b5HZJv6u1Cn/HcQV/ELpC
+         hVgvxGT8hYi4nVDdSa/ByDbFpLS5Y9CSNT+GGFlY2SGmpg/zl4rd1uTiigb+PnktHW5b
+         AW5L8Hes9qS6EALKacF5+9iEUbKmfsL2XM1OYxSkSIMclz4drKroiie0ITV6rj0xRxAu
+         FHbCju2cbhk1XGmrOAHgFSU+BH0sYK4+9ndFv1IV/o8OnbvOYVqy795qyKJRzL4lst4o
+         zcJg==
+X-Gm-Message-State: ANhLgQ01Hp04X7y9mntRbDIBtryIDtzSA9wh0BUnB27FhZarYzxxc/qL
+	bwfm/lQnXK1R6t2mWjXoFuo=
+X-Google-Smtp-Source: ADFU+vv13gehDADobDJeZzs120yKdEXvTRypWzWsL1aliXNU/Yn04kQuL9ozA/io1ktp+PVqdZWfrQ==
+X-Received: by 2002:a9f:3733:: with SMTP id z48mr9416990uad.140.1583782621642;
+        Mon, 09 Mar 2020 12:37:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:b8b:: with SMTP id 133ls4693936qkl.0.gmail; Mon, 09 Mar
- 2020 12:23:48 -0700 (PDT)
-X-Received: by 2002:a37:3c7:: with SMTP id 190mr16773427qkd.130.1583781828143;
-        Mon, 09 Mar 2020 12:23:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1583781828; cv=none;
+Received: by 2002:a1f:6184:: with SMTP id v126ls196959vkb.0.gmail; Mon, 09 Mar
+ 2020 12:37:01 -0700 (PDT)
+X-Received: by 2002:a1f:e004:: with SMTP id x4mr2529323vkg.79.1583782621187;
+        Mon, 09 Mar 2020 12:37:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1583782621; cv=none;
         d=google.com; s=arc-20160816;
-        b=pbm60JIkWfA12egXjBFuwKTb4SIiniKjfQkg+5BOhObz06HGM7snOecOqw+u+VEutm
-         GzI3wtvZmEMJY3mXAglsgc4NaCTVyN+XiqFFPIK8PTy4lO+OspyOVEtLEZMA5WbSgquE
-         qlKmpNu3DmjJZ7UZtH9x/9qWitwFnNwPFjfIQ/7GiLaKSlrtNwq/3mtLuUx9tIdTZPk1
-         tzIXReWuKb3fEsAiWFfHTCc05E1NgeV4uqO9dkCwMr+v8qVTQz1ptYo6DEhRN0Lq9FqU
-         cNfswyA4WxJY8o6A9n8065oMudb8hcplAGhc8ha5b6JwcA8pB2TOMLyRHVXXQkCU2HbB
-         wvrA==
+        b=jOEbAoqRSo+AIvnXslhF6rtPmCQxwNdKBDOavdVXTfKDLbMAYDwF7S9EIQuUSdMUFp
+         XNcxb9OQgmhD9p1LwqDvYEGFRrlJzxJVMHVDpjKfc7ISsFxjkVNrT3jh34zA45vVNZQ0
+         2yVUYG2JbvdHahlr9uiBJ/i/Ix+bYxO4G3PhOHuq0YwsaXf8CUtkJ/5HkS6GAHsoy0mn
+         /ss38BfEqvSHyN6Am90EYion2H0qycJLj02Q6aHuGhnTLr1Pr55LhYQLJJaEJmiCQ+5s
+         dM0J3aMau1V5WbFhkXFQ1It0zQqGj9j7TBbNoUHyka1KKFjeDJvPNTwGIRLx9cSsQoXZ
+         Ccyw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from
-         :dkim-signature;
-        bh=pSIEyt4pe+WfrawaMNkeNrr+5fcB3XjzVwsYTOF2ju0=;
-        b=ZLHCANgjSiLdnnp9/1wg68Q7uhtTg3gSfIwj5IlQmnXBZBEzLrtEyGtyo71froKcC9
-         sJMYcxWpnhVfq0JVUoDKeWs0ClaIFN2PML3GNBPaGwBjR81yYrAlbhRxOy5QR10sYSzp
-         atjsaa+Spg7e7nVLZtC2040nzWwGxFyFD72VMAeg8W9mp3Pz3jW4yL0lzJ+680aWC3yT
-         e0ozx31u/erS0jGkmAof7EiBVydOH/6/xKYsnubX+CREAw2nXrnT/UcoFcZ2AEpCihkr
-         t7/7Pe2oIe+DMZjwEDPJk6YNv+g+DK8gpcx6PAgn0K+RYUMpWO8eo9qpNLFFKqQ1Hiee
-         Z2dg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=rITjmflNY+bq50oaknXGIP+wYS1ykHN9pumCvBYNG4g=;
+        b=N8MOP2ynTailutPt/meiNcrlkF/+XSrCfG4HHAg5gfPoYQaaqgfX5o8an6EAXrSMu7
+         lrTJgfyW8ubbyw9iFboJoHvP8UzFzKdeCFQfinInhM2LaqgL5gfaJ+1W8cdeqbgtURiB
+         u8Ib0CzDmxuD+rAwgGsyJgB5p2aDMEYYmBVYyNdm+4k6wLrrYI/bjwbbOXJvLqaGAMBQ
+         IBKq41SzBr+SWriUIRthTXIoJ6ZZ+MFQH6ZE0wKWmk3S03dnETuOzNNWZuCRQjD94jTY
+         j2DQAQgAGR0JVI0ZvbtV1Olc4jfzKx4CJzIQOi454ojIyDu5YE0BmbSDRJ7/jmYGwX31
+         9AjQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Kw4d6e76;
-       spf=pass (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::f42 as permitted sender) smtp.mailfrom=arnaldo.melo@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qv1-xf42.google.com (mail-qv1-xf42.google.com. [2607:f8b0:4864:20::f42])
-        by gmr-mx.google.com with ESMTPS id m18si246339qtn.5.2020.03.09.12.23.48
+       dkim=pass header.i=@google.com header.s=20161025 header.b=O4ebsCY+;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pg1-x541.google.com (mail-pg1-x541.google.com. [2607:f8b0:4864:20::541])
+        by gmr-mx.google.com with ESMTPS id o21si612955uaj.1.2020.03.09.12.37.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Mar 2020 12:23:48 -0700 (PDT)
-Received-SPF: pass (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::f42 as permitted sender) client-ip=2607:f8b0:4864:20::f42;
-Received: by mail-qv1-xf42.google.com with SMTP id cz10so1522560qvb.0
-        for <clang-built-linux@googlegroups.com>; Mon, 09 Mar 2020 12:23:48 -0700 (PDT)
-X-Received: by 2002:ad4:4a6e:: with SMTP id cn14mr15960454qvb.21.1583781827648;
-        Mon, 09 Mar 2020 12:23:47 -0700 (PDT)
-Received: from quaco.ghostprotocols.net ([179.97.37.151])
-        by smtp.gmail.com with ESMTPSA id c12sm1540995qtb.49.2020.03.09.12.23.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Mar 2020 12:23:46 -0700 (PDT)
-From: Arnaldo Carvalho de Melo <arnaldo.melo@gmail.com>
-Received: by quaco.ghostprotocols.net (Postfix, from userid 1000)
-	id 6E9A740009; Mon,  9 Mar 2020 16:23:43 -0300 (-03)
-Date: Mon, 9 Mar 2020 16:23:43 -0300
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
-	Clark Williams <williams@redhat.com>,
-	LKML <linux-kernel@vger.kernel.org>,
-	linux-perf-users@vger.kernel.org, Ilie Halip <ilie.halip@gmail.com>,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Igor Lubashev <ilubashe@akamai.com>, Jiri Olsa <jolsa@redhat.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Subject: Re: [PATCH 3/6] perf python: Fix clang detection when using
- CC=clang-version
-Message-ID: <20200309192343.GG477@kernel.org>
-References: <20200309185323.22583-1-acme@kernel.org>
- <20200309185323.22583-4-acme@kernel.org>
- <CAKwvOdm5RrdpOCMgRezLeHJ9GuocVoKqSUQGHjaCEcZdSr4AwA@mail.gmail.com>
+        Mon, 09 Mar 2020 12:37:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) client-ip=2607:f8b0:4864:20::541;
+Received: by mail-pg1-x541.google.com with SMTP id x7so5174303pgh.5
+        for <clang-built-linux@googlegroups.com>; Mon, 09 Mar 2020 12:37:01 -0700 (PDT)
+X-Received: by 2002:a62:37c7:: with SMTP id e190mr18266676pfa.165.1583782619765;
+ Mon, 09 Mar 2020 12:36:59 -0700 (PDT)
 MIME-Version: 1.0
+References: <b56602fcf79f849e733e7b521bb0e17895d390fa.1582230379.git.joe@perches.com>
+ <20200220162114.138f976ae16a5e58e13a51ae@linux-foundation.org>
+In-Reply-To: <20200220162114.138f976ae16a5e58e13a51ae@linux-foundation.org>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 9 Mar 2020 12:36:47 -0700
+Message-ID: <CAKwvOdkzc3AtpkRcZU06yvAEzp_bjw55HkpGui6RsAcy=FhnJw@mail.gmail.com>
+Subject: Re: [PATCH] cvt_fallthrough: A tool to convert /* fallthrough */
+ comments to fallthrough;
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Joe Perches <joe@perches.com>, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <CAKwvOdm5RrdpOCMgRezLeHJ9GuocVoKqSUQGHjaCEcZdSr4AwA@mail.gmail.com>
-X-Url: http://acmel.wordpress.com
-X-Original-Sender: arnaldo.melo@gmail.com
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=Kw4d6e76;       spf=pass
- (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::f42
- as permitted sender) smtp.mailfrom=arnaldo.melo@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@google.com header.s=20161025 header.b=O4ebsCY+;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -168,227 +131,83 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Em Mon, Mar 09, 2020 at 11:58:33AM -0700, Nick Desaulniers escreveu:
-> On Mon, Mar 9, 2020 at 11:53 AM Arnaldo Carvalho de Melo
-> <acme@kernel.org> wrote:
+On Thu, Feb 20, 2020 at 4:21 PM Andrew Morton <akpm@linux-foundation.org> wrote:
+>
+> On Thu, 20 Feb 2020 12:30:21 -0800 Joe Perches <joe@perches.com> wrote:
+>
+> > Convert /* fallthrough */ style comments to the pseudo-keyword fallthrough
+> > to allow clang 10 and higher to work at finding missing fallthroughs too.
 > >
-> > From: Ilie Halip <ilie.halip@gmail.com>
+> > Requires a git repository and overwrites the input files.
 > >
-> > Currently, the setup.py script detects the clang compiler only when inv=
-oked
-> > with CC=3Dclang. But when using a specific version (e.g. CC=3Dclang-11)=
-, this
-> > doesn't work correctly and wrong compiler flags are set, leading to bui=
-ld
-> > errors.
+> > Typical command use:
+> >     ./scripts/cvt_fallthrough.pl <path|file>
 > >
-> > To properly detect clang, invoke the compiler with -v and check the out=
-put.
-> > The first line should start with "clang version ...".
+> > i.e.:
 > >
-> > Committer testing:
+> >    $ ./scripts/cvt_fallthrough.pl block
+> >      converts all files in block and its subdirectories
+> >    $ ./scripts/cvt_fallthrough.pl drivers/net/wireless/zydas/zd1201.c
+> >      converts a single file
 > >
-> >   $ make CC=3Dclang-9 O=3D/tmp/build/perf -C tools/perf install-bin
-> >   <SNIP>
-> >   $ readelf -wi /tmp/build/perf/python/perf.cpython-37m-x86_64-linux-gn=
-u.so | grep DW_AT_producer | head -1
-> >     <c>   DW_AT_producer    : (indirect string, offset: 0x0): clang ver=
-sion 9.0.1 (Fedora 9.0.1-2.fc31) /usr/bin/clang-9 -Wno-unused-result -Wsign=
--compare -D DYNAMIC_ANNOTATIONS_ENABLED=3D1 -D NDEBUG -O2 -g -pipe -Wall -W=
-error=3Dformat-security -Wp,-D_FORTIFY_SOURCE=3D2 -Wp,-D_GLIBCXX_ASSERTIONS=
- -fexceptions -fstack-protector-strong -grecord-command-line -m64 -mtune=3D=
-generic -fasynchronous-unwind-tables -fcf-protection=3Dfull -D _GNU_SOURCE =
--fPIC -fwrapv -Wbad-function-cast -Wdeclaration-after-statement -Wformat-se=
-curity -Wformat-y2k -Winit-self -Wmissing-declarations -Wmissing-prototypes=
- -Wnested-externs -Wno-system-headers -Wold-style-definition -Wpacked -Wred=
-undant-decls -Wstrict-prototypes -Wswitch-default -Wswitch-enum -Wundef -Ww=
-rite-strings -Wformat -Wshadow -D HAVE_ARCH_X86_64_SUPPORT -I /tmp/build/pe=
-rf/arch/x86/include/generated -D HAVE_SYSCALL_TABLE_SUPPORT -D HAVE_PERF_RE=
-GS_SUPPORT -D HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET -Werror -O3 -fno-omit-fr=
-ame-pointer -ggdb3 -funwind-tables -Wall -Wextra -std=3Dgnu99 -fstack-prote=
-ctor-all -D _FORTIFY_SOURCE=3D2 -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=
-=3D64 -D _GNU_SOURCE -I /home/acme/git/perf/tools/lib/perf/include -I /home=
-/acme/git/perf/tools/perf/util/include -I /home/acme/git/perf/tools/perf/ar=
-ch/x86/include -I /home/acme/git/perf/tools/include/ -I /home/acme/git/perf=
-/tools/arch/x86/include/uapi -I /home/acme/git/perf/tools/include/uapi -I /=
-home/acme/git/perf/tools/arch/x86/include/ -I /home/acme/git/perf/tools/arc=
-h/x86/ -I /tmp/build/perf//util -I /tmp/build/perf/ -I /home/acme/git/perf/=
-tools/perf/util -I /home/acme/git/perf/tools/perf -I /home/acme/git/perf/to=
-ols/lib/ -D HAVE_PTHREAD_ATTR_SETAFFINITY_NP -D HAVE_PTHREAD_BARRIER -D HAV=
-E_EVENTFD -D HAVE_GET_CURRENT_DIR_NAME -D HAVE_GETTID -D HAVE_DWARF_GETLOCA=
-TIONS_SUPPORT -D HAVE_GLIBC_SUPPORT -D HAVE_AIO_SUPPORT -D HAVE_SCHED_GETCP=
-U_SUPPORT -D HAVE_SETNS_SUPPORT -D HAVE_LIBELF_SUPPORT -D HAVE_LIBELF_MMAP_=
-SUPPORT -D HAVE_ELF_GETPHDRNUM_SUPPORT -D HAVE_GELF_GETNOTE_SUPPORT -D HAVE=
-_ELF_GETSHDRSTRNDX_SUPPORT -D HAVE_DWARF_SUPPORT -D HAVE_LIBBPF_SUPPORT -D =
-HAVE_BPF_PROLOGUE -D HAVE_SDT_EVENT -D HAVE_JITDUMP -D HAVE_DWARF_UNWIND_SU=
-PPORT -D NO_LIBUNWIND_DEBUG_FRAME -D HAVE_LIBUNWIND_SUPPORT -D HAVE_LIBCRYP=
-TO_SUPPORT -D HAVE_SLANG_SUPPORT -D HAVE_GTK2_SUPPORT -D NO_LIBPERL -D HAVE=
-_TIMERFD_SUPPORT -D HAVE_LIBPYTHON_SUPPORT -D HAVE_CPLUS_DEMANGLE_SUPPORT -=
-D HAVE_LIBBFD_SUPPORT -D HAVE_ZLIB_SUPPORT -D HAVE_LZMA_SUPPORT -D HAVE_ZST=
-D_SUPPORT -D HAVE_LIBCAP_SUPPORT -D HAVE_BACKTRACE_SUPPORT -D HAVE_LIBNUMA_=
-SUPPORT -D HAVE_KVM_STAT_SUPPORT -D DISASM_FOUR_ARGS_SIGNATURE -D HAVE_LIBB=
-ABELTRACE_SUPPORT -D HAVE_AUXTRACE_SUPPORT -D HAVE_JVMTI_CMLR -I /tmp/build=
-/perf/ -fPIC -I util/include -I /usr/include/python3.7m -c /home/acme/git/p=
-erf/tools/perf/util/python.c -o /tmp/build/perf/python_ext_build/tmp/home/a=
-cme/git/perf/tools/perf/util/python.o -Wbad-function-cast -Wdeclaration-aft=
-er-statement -Wformat-security -Wformat-y2k -Winit-self -Wmissing-declarati=
-ons -Wmissing-prototypes -Wnested-externs -Wno-system-headers -Wold-style-d=
-efinition -Wpacked -Wredundant-decls -Wstrict-prototypes -Wswitch-default -=
-Wswitch-enum -Wundef -Wwrite-strings -Wformat -Wshadow -D HAVE_ARCH_X86_64_=
-SUPPORT -I /tmp/build/perf/arch/x86/include/generated -D HAVE_SYSCALL_TABLE=
-_SUPPORT -D HAVE_PERF_REGS_SUPPORT -D HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET =
--Werror -O3 -fno-omit-frame-pointer -ggdb3 -funwind-tables -Wall -Wextra -s=
-td=3Dgnu99 -fstack-protector-all -D _FORTIFY_SOURCE=3D2 -D _LARGEFILE64_SOU=
-RCE -D _FILE_OFFSET_BITS=3D64 -D _GNU_SOURCE -I /home/acme/git/perf/tools/l=
-ib/perf/include -I /home/acme/git/perf/tools/perf/util/include -I /home/acm=
-e/git/perf/tools/perf/arch/x86/include -I /home/acme/git/perf/tools/include=
-/ -I /home/acme/git/perf/tools/arch/x86/include/uapi -I /home/acme/git/perf=
-/tools/include/uapi -I /home/acme/git/perf/tools/arch/x86/include/ -I /home=
-/acme/git/perf/tools/arch/x86/ -I /tmp/build/perf//util -I /tmp/build/perf/=
- -I /home/acme/git/perf/tools/perf/util -I /home/acme/git/perf/tools/perf -=
-I /home/acme/git/perf/tools/lib/ -D HAVE_PTHREAD_ATTR_SETAFFINITY_NP -D HAV=
-E_PTHREAD_BARRIER -D HAVE_EVENTFD -D HAVE_GET_CURRENT_DIR_NAME -D HAVE_GETT=
-ID -D HAVE_DWARF_GETLOCATIONS_SUPPORT -D HAVE_GLIBC_SUPPORT -D HAVE_AIO_SUP=
-PORT -D HAVE_SCHED_GETCPU_SUPPORT -D HAVE_SETNS_SUPPORT -D HAVE_LIBELF_SUPP=
-ORT -D HAVE_LIBELF_MMAP_SUPPORT -D HAVE_ELF_GETPHDRNUM_SUPPORT -D HAVE_GELF=
-_GETNOTE_SUPPORT -D HAVE_ELF_GETSHDRSTRNDX_SUPPORT -D HAVE_DWARF_SUPPORT -D=
- HAVE_LIBBPF_SUPPORT -D HAVE_BPF_PROLOGUE -D HAVE_SDT_EVENT -D HAVE_JITDUMP=
- -D HAVE_DWARF_UNWIND_SUPPORT -D NO_LIBUNWIND_DEBUG_FRAME -D HAVE_LIBUNWIND=
-_SUPPORT -D HAVE_LIBCRYPTO_SUPPORT -D HAVE_SLANG_SUPPORT -D HAVE_GTK2_SUPPO=
-RT -D NO_LIBPERL -D HAVE_TIMERFD_SUPPORT -D HAVE_LIBPYTHON_SUPPORT -D HAVE_=
-CPLUS_DEMANGLE_SUPPORT -D HAVE_LIBBFD_SUPPORT -D HAVE_ZLIB_SUPPORT -D HAVE_=
-LZMA_SUPPORT -D HAVE_ZSTD_SUPPORT -D HAVE_LIBCAP_SUPPORT -D HAVE_BACKTRACE_=
-SUPPORT -D HAVE_LIBNUMA_SUPPORT -D HAVE_KVM_STAT_SUPPORT -D DISASM_FOUR_ARG=
-S_SIGNATURE -D HAVE_LIBBABELTRACE_SUPPORT -D HAVE_AUXTRACE_SUPPORT -D HAVE_=
-JVMTI_CMLR -I /tmp/build/perf/ -fno-strict-aliasing -Wno-write-strings -Wno=
--unused-parameter -Wno-redundant-decls
->=20
-> Sorry for not speaking up sooner, but if you don't want to include
-> that mass of command line options above, I generally check which
-> toolchain has been used to produce a binary via:
-> $ readelf --string-dump=3D.comment <foo>
-> which may be more concise, but sometimes we strip out the `.comment`
-> section from binaries.
-
-Well, this doesn't produce what I needed, see:
-
-[root@five ~]# readelf --string-dump=3D.comment /tmp/build/perf/python/perf=
-.cpython-37m-x86_64-linux-gnu.so
-
-String dump of section '.comment':
-  [     0]  GCC: (GNU) 9.2.1 20190827 (Red Hat 9.2.1-1)
-
-[root@five ~]#
-
-See the part below, where I need to look at what compiler flags were
-used to build the python build, like -fcf-protection.
-
-- Arnaldo
-
-=20
-> >   $
+> > A fallthrough comment with additional comments is converted akin to:
 > >
-> > And here is how tools/perf/util/setup.py checks if the used clang has
-> > options that the distro specific python extension building compiler
-> > defaults:
+> > -             /* fall through - maybe userspace knows this conn_id. */
+> > +             fallthrough;    /* maybe userspace knows this conn_id */
 > >
-> >   if cc_is_clang:
-> >       from distutils.sysconfig import get_config_vars
-> >       vars =3D get_config_vars()
-> >       for var in ('CFLAGS', 'OPT'):
-> >           vars[var] =3D sub("-specs=3D[^ ]+", "", vars[var])
-> >           if not clang_has_option("-mcet"):
-> >               vars[var] =3D sub("-mcet", "", vars[var])
-> >           if not clang_has_option("-fcf-protection"):
-> >               vars[var] =3D sub("-fcf-protection", "", vars[var])
-> >           if not clang_has_option("-fstack-clash-protection"):
-> >               vars[var] =3D sub("-fstack-clash-protection", "", vars[va=
-r])
-> >           if not clang_has_option("-fstack-protector-strong"):
-> >               vars[var] =3D sub("-fstack-protector-strong", "", vars[va=
-r])
+> > A fallthrough comment or fallthrough; between successive case statements
+> > is deleted.
 > >
-> > So "-fcf-protection=3Dfull" is used, clang-9 has this option and thus i=
-t
-> > was kept, the perf python extension was built with it and the build
-> > completed successfully.
+> > e.g.:
 > >
-> > Link: https://github.com/ClangBuiltLinux/linux/issues/903
-> > Signed-off-by: Ilie Halip <ilie.halip@gmail.com>
-> > Tested-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-> > Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-> > Cc: Igor Lubashev <ilubashe@akamai.com>
-> > Cc: Jiri Olsa <jolsa@redhat.com>
-> > Cc: Mark Rutland <mark.rutland@arm.com>
-> > Cc: Namhyung Kim <namhyung@kernel.org>
-> > Cc: Peter Zijlstra <peterz@infradead.org>
-> > Cc: clang-built-linux@googlegroups.com
-> > Link: http://lore.kernel.org/lkml/20200309085618.14307-1-ilie.halip@gma=
-il.com
-> > Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+> >     case FOO:
+> >       /* fallthrough */ (or fallthrough;)
+> >     case BAR:
+> >
+> > is converted to:
+> >
+> >     case FOO:
+> >     case BAR:
+> >
+> > Signed-off-by: Joe Perches <joe@perches.com>
 > > ---
-> >  tools/perf/util/setup.py | 10 ++++++----
-> >  1 file changed, 6 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/tools/perf/util/setup.py b/tools/perf/util/setup.py
-> > index aa344a163eaf..8a065a6f9713 100644
-> > --- a/tools/perf/util/setup.py
-> > +++ b/tools/perf/util/setup.py
-> > @@ -2,11 +2,13 @@ from os import getenv
-> >  from subprocess import Popen, PIPE
-> >  from re import sub
-> >
-> > +cc =3D getenv("CC")
-> > +cc_is_clang =3D b"clang version" in Popen([cc, "-v"], stderr=3DPIPE).s=
-tderr.readline()
-> > +
-> >  def clang_has_option(option):
-> > -    return [o for o in Popen(['clang', option], stderr=3DPIPE).stderr.=
-readlines() if b"unknown argument" in o] =3D=3D [ ]
-> > +    return [o for o in Popen([cc, option], stderr=3DPIPE).stderr.readl=
-ines() if b"unknown argument" in o] =3D=3D [ ]
-> >
-> > -cc =3D getenv("CC")
-> > -if cc =3D=3D "clang":
-> > +if cc_is_clang:
-> >      from distutils.sysconfig import get_config_vars
-> >      vars =3D get_config_vars()
-> >      for var in ('CFLAGS', 'OPT'):
-> > @@ -40,7 +42,7 @@ class install_lib(_install_lib):
-> >  cflags =3D getenv('CFLAGS', '').split()
-> >  # switch off several checks (need to be at the end of cflags list)
-> >  cflags +=3D ['-fno-strict-aliasing', '-Wno-write-strings', '-Wno-unuse=
-d-parameter', '-Wno-redundant-decls' ]
-> > -if cc !=3D "clang":
-> > +if not cc_is_clang:
-> >      cflags +=3D ['-Wno-cast-function-type' ]
-> >
-> >  src_perf  =3D getenv('srctree') + '/tools/perf'
-> > --
-> > 2.21.1
-> >
-> > --
-> > You received this message because you are subscribed to the Google Grou=
-ps "Clang Built Linux" group.
-> > To unsubscribe from this group and stop receiving emails from it, send =
-an email to clang-built-linux+unsubscribe@googlegroups.com.
-> > To view this discussion on the web visit https://groups.google.com/d/ms=
-gid/clang-built-linux/20200309185323.22583-4-acme%40kernel.org.
->=20
->=20
->=20
-> --=20
-> Thanks,
-> ~Nick Desaulniers
+> >  scripts/cvt_fallthrough.pl | 215 +++++++++++++++++++++++++++++++++++++
+>
+> Do we need this in the tree long-term?  Or is it a matters of "hey
+> Linus, please run this" then something like add a checkpatch rule to
+> catch future slipups?
 
---=20
+Just for some added context, please see
+https://reviews.llvm.org/D73852, where support for parsing some forms
+of fallthrough statements was added to Clang in a broken state by a
+contributor, but then ripped out by the code owner (of the clang front
+end to LLVM, and also happens to be the C++ ISO spec editor).  He
+provides further clarification
+https://bugs.llvm.org/show_bug.cgi?id=43465#c37.
 
-- Arnaldo
+I'm inclined to agree with him; to implement this, we need to keep
+around comments for semantic analyses, a later phase of compilation
+than preprocessing.  It feels like a layering violation to either not
+discard comments as soon as possible, or emit diagnostics from the
+preprocessor.  And as Joe's data shows, there's the classic issue
+faced when using regexes to solve a problem; suddenly you now have two
+problems.
+https://xkcd.com/1171/
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20200309192343.GG477%40kernel.org.
+I would like to see this patch landed, though I am curious as toward's
+Andrew's question ('Or is it a matters of "hey Linus, please run
+this"') of what's the imagined workflow here, since it seems like the
+script needs to be run per file. I suppose you could still do that
+treewide, but is that the intention, or is it to do so on a per
+subsystem level?
+
+
+
+--
+Thanks,
+~Nick Desaulniers
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkzc3AtpkRcZU06yvAEzp_bjw55HkpGui6RsAcy%3DFhnJw%40mail.gmail.com.
