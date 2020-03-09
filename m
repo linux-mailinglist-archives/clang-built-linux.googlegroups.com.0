@@ -1,127 +1,137 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBC4KTLZQKGQEWPLA37Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDZ7JWMQ2EGBBO5BTLZQKGQEXMV5MDQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53e.google.com (mail-pg1-x53e.google.com [IPv6:2607:f8b0:4864:20::53e])
-	by mail.lfdr.de (Postfix) with ESMTPS id C4FFF17E64E
-	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Mar 2020 19:03:56 +0100 (CET)
-Received: by mail-pg1-x53e.google.com with SMTP id v11sf7001485pgs.10
-        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Mar 2020 11:03:56 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1583777035; cv=pass;
+Received: from mail-pj1-x103a.google.com (mail-pj1-x103a.google.com [IPv6:2607:f8b0:4864:20::103a])
+	by mail.lfdr.de (Postfix) with ESMTPS id C7B7C17E793
+	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Mar 2020 19:53:48 +0100 (CET)
+Received: by mail-pj1-x103a.google.com with SMTP id i3sf196799pjx.8
+        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Mar 2020 11:53:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1583780027; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Nb700DVowYs87GhenwArckDnFetKkDc8Re9losG5BzAjoQ1y1Y3yHxIWuVyhs7K35q
-         6C1YBzMT8a1JSfsshtLKANQdWjNmA1Fr/zZ50Do8n9Sf5pegVJZlT2fJbXIR/W5oNp00
-         eiwW8le1xp5ARs3eEKsP0armekEoETyMytuFniu5V6Kj7kUsvXHNE9p7CESavxdtU+v8
-         A6XpPoaCe9Si7mdFLx7RhRv/hqomEOLEHOBCragQm8ys8j+ZY/cilaSy9GdRUig0F/m2
-         AG6WV6Cy7jL4CG+holMauJwPdfrRFMuI4cBqUITX48LZdvdTSUV+qtFrD1cb8yHLDwFP
-         m61Q==
+        b=z5GtNevNhtMuGaKlp30uix2tvJ3+4QF8C2+curpL96ExiNAiJ2usb+abjiBTBpuVYo
+         41xQyGka/BtN1MPyQX9gBT4SVCbZakyaHdsaysBaBFbPGga5f9tzGNlcr1i0RKE5XUOz
+         doDT8q37H9cg0LtSvknp5QYYklmSG7FQgcxx37qDTKpq2v9oRtv5HfvSznXZM+tvR9mS
+         R/plT5WWmnI8s9f5uqXyyOnyX0AghGXXQXQ/IPn7mUvSIPtYFeTe+ymW8xh7LBNvDAds
+         vfDSqEI9biov3nRGhoT5+o6URjrk060SZbfVdr0k6LKzhCEHpnT8Po+2e7RXV3AveuVU
+         u7GA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=36CKqn+f+CFW1DrRdJAapNHlFB08GxLH7xqXsBriqgg=;
-        b=G+knvgyDNx1jvA/hIP4otMmCLxvXEk1EK4dFU3x8xTUw/C03pMCjKEz61HRG8MAH9F
-         BDNGn6/yWRs0/rARu4dy4MiHvcFAQkrE9cy8JkuQJH6ORYm4fDhbFpsYHsfkeY7SIziI
-         IxOy7hIQ82XQbFwVyAp0AD9/NnIyuSmn58D78FflN+3WC9f32eivhbKEyUQxIBlRo0Ug
-         6Z0jLXKz2DK5BsPtG4+6mtjkWcQzBVNmMJFHX0FhMRlT1Dsa1U5F3cimYjbN+7ij/hbD
-         ZECQ/zLF/6WpjulV60ug17Fn3mbWq+hpBoYpcsJ7XDcDvKPhYnrb5jZzr3w9VX1smT5c
-         hKSA==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:sender:dkim-signature;
+        bh=Z48wHhgwkMK6kUJHn7Zt2Ah/s+lRf6ISd6fpoRxCSYY=;
+        b=xQhVODTfXS1elok1oPEayMyQ45LzfeSa2y0d3wb5wwyhe6qG48/SivcT7FEjK/Lf6p
+         0di1Lhqh7OI415boQhnrRzlNSQEyRAVNUgl/PBe8Xk9cm+cgdxKxBskumF+vLV5xe5nB
+         UT6Eu1PBZyuihglwITendKUhkbgps6JyKOtLK4tgqsw2VL5gNGL0IptwDPLFNi5X8yTv
+         32ksyqPP0L96Vu7mIH0SU9nOOXj2YCz0G6aeHXEW7LWvnoR/JRH+LJxoFIW4qXamx1h+
+         8aMTloX91e65Lhc6lfYrM0XBejwAC6uS3N/ZZeerEvokjtFNbeq7rwbLnnXjDEcD+sGe
+         m60A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=PKgr4z16;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=default header.b=fWFjQDXz;
+       spf=pass (google.com: domain of acme@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=acme@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=36CKqn+f+CFW1DrRdJAapNHlFB08GxLH7xqXsBriqgg=;
-        b=JNT86cJ+O0sd0EDm5xFl28lY2xutCgV5qpPnXkAOJQe7IFp1yA9l2bpmASTqNMtwEY
-         9SXyCb6YOuA9A2T12kL+TQ22BMrsUKYWsMmRr50yDlMNsyZqqFPc0ClzERwjbpck8CVt
-         NYCLTVkMJP0Ktv0ovp86tk7YkGaEV4lzR4uSjSjmYFH3Bm6C0SPFEEftbo84NiRoQ6wG
-         Pzi0/32bIillSBhisS4KDNC/vkIA7DS99CBNNzgIExg/8e2ZTuHuakrANjJ4/zlKdKuS
-         ixZIXbufugppOLtgxWJ4fHYJSAESg4Nxb9RjOGqxb1oV2U55FY06ZYITJ7J/e/AiHNJw
-         mwGQ==
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=Z48wHhgwkMK6kUJHn7Zt2Ah/s+lRf6ISd6fpoRxCSYY=;
+        b=YNwfG6LFMMxTO8jjHZ8HmlAapnlWf1Cn2jVKWyRNdBN79CVFeRT0qUlYID5b10h3H3
+         0I/lYByDrLaXQwjFXutDMTMyLHdx3zsIkEaNAJeW/nRCHvhE0xZMLLuMnAgpp2kJOKOW
+         k7lVpHStbwJloKgyCVPhSiV0ohXmJ1YZ1oAj1Rv7zeLb6t17IGXe0TdYhe/pQ/EnpRqd
+         CiOloJhuhshq3uFiCexyvJUf4suEEj3OuLO7tr/MhsXHeI9plsh/C2OIR5geIP275L7b
+         DDJfdS3eFl5n3+j66zwqf+51tQyf29kDGqI+z92FzXFmPhdocV1W5K2VrNKEX/pAw80K
+         ADPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=36CKqn+f+CFW1DrRdJAapNHlFB08GxLH7xqXsBriqgg=;
-        b=qMhilshbicHSbj5JZ7Jc5IzUG4+EA0kWkrUhtS0eIpeWNG1kbgje33tGp1crI82x48
-         PN2tEfVY+0cKg6Zjl1kfBGdG1FPl/YjqvlioB2Lqxty4w+GT7qQJNdDbj5PJ6y0Rk7X6
-         /EmA9DKP4+mVgWbV/6KLWXCdrwJBZ9oG1aKle9eDcHrO+JTx64S2Lb70y2W1A+RZxnTc
-         n/yzEDgNXsJw0JjffarkKGPoZEOk1Aum7BNH7sMYk/9GEejshKPbTf5o4tcxkrfRPrBM
-         eRcq4wTHz2YFz1IIqwyKEoVJpKRhwqTwd+IfVX8Qbr42tL0XtSmmGOeUT2+aJ9u1/CU8
-         tEZg==
-X-Gm-Message-State: ANhLgQ15aReKRB0Pp2n3V/vh4sP8glLX0xVlthUpxih7zVvVZ+ThZriZ
-	6xdBsx6vvWAIdg5h6WugY7M=
-X-Google-Smtp-Source: ADFU+vv+HtSJWWUwg61G9AGGNkKs0BWc/vLuGVSQFTVV7SBRGb0n3QQ6iatdO1a1HbggcUhPLn9+uw==
-X-Received: by 2002:aa7:85c8:: with SMTP id z8mr17316786pfn.66.1583777035124;
-        Mon, 09 Mar 2020 11:03:55 -0700 (PDT)
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=Z48wHhgwkMK6kUJHn7Zt2Ah/s+lRf6ISd6fpoRxCSYY=;
+        b=TfHH1adSf5tUKsnUSWWBP/wbLpLXAOIuZPZhCINZNxLPQDGZaXwlXCeUYVJRQHCyUj
+         D6WiGzyOj+sGvmj78oPG7HgUOuKPzIR30o9VbYvVC9X4PaOj+zthzYuPB80Egt2luNMl
+         X35Wvbxaf+S7XTgmMaJIC6zrAi/P8y5CgMmXK7j3Bw7c+hZn4D7+LEPgCzAAxwo3MCAg
+         w9yKFW/V2BkwXw+OoIaci2aEFlYeAisbnBIsMpQuu/qcla9o4Ze2HO9/OrnvbXxabJ08
+         7YkkUiJ5/xfuSdkh3RnRX0l+Bz/vqkQx+6P7STEEg4HeTeMNVSArJC6boHxxMtPW2z6z
+         wigQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: ANhLgQ1oyU9sZMwKDAga1/CN1tHYQPnZSyLH9tx+4Gxksvblmn3mPnf3
+	fjPh9rHS+8GBtgXqiNv02Zc=
+X-Google-Smtp-Source: ADFU+vulabKthQK/G7zyD/XxY5xfxvKBoDKHC2vc9b1B+SoCqNxcnpqoLvQl/IRNYugXo87u8QkUHw==
+X-Received: by 2002:a17:902:788b:: with SMTP id q11mr17348199pll.44.1583780027351;
+        Mon, 09 Mar 2020 11:53:47 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:1c88:: with SMTP id c130ls3702916pfc.7.gmail; Mon, 09
- Mar 2020 11:03:54 -0700 (PDT)
-X-Received: by 2002:a63:af58:: with SMTP id s24mr17430798pgo.15.1583777034535;
-        Mon, 09 Mar 2020 11:03:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1583777034; cv=none;
+Received: by 2002:a17:902:7618:: with SMTP id k24ls1138886pll.4.gmail; Mon, 09
+ Mar 2020 11:53:46 -0700 (PDT)
+X-Received: by 2002:a17:90b:14c:: with SMTP id em12mr812069pjb.22.1583780026850;
+        Mon, 09 Mar 2020 11:53:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1583780026; cv=none;
         d=google.com; s=arc-20160816;
-        b=0EhCnjmOGLlFsyE4338BHEG7WdpsqZ0KCMx1Rufo0e7R350K10P8BjMbjvjtlPtDSu
-         Tv/jG1wu8pW+UvxwmcwPmXJj8deJag92DJOknoWO/rPbmKAwbJoC7VchT4MRoMjqfFw8
-         6dXtvUipe0hJ52QRzr1oqQLaicQaLG13jXxrFh4HVmJ/3+Rcu0ZO1RapFPp8a1wu/+ZB
-         1jiSQZmlIXWNmDa+Y5CGUP9NjGq4RFkcbpTQPC0sG7jaEoAXSljQ6MvUuGa88Ila2iHF
-         fA+aJ7HG+RgjvdA1ETxiYi+neonBVfEv3BauYbr8ev+d/H5U1UPEWcIEVngmPqkdC8U3
-         gVdQ==
+        b=Mxv1p9lANZpAuYDe7WZXGpoep1SpPFQTKpAAvmQM3D2KEHoXmNAdyNVXaNwzFSST/j
+         UVY7eIDHP/7qay5X17tfOLgO0pDMzyjmk79p5KOkNwzou+t26LAUHO4kn0LT/LKH6Ryw
+         19Z4czAHNaE6UUjtb3bR9eaK+1NMswNSeSLWOFRZuvzCdEm2m8eoq0meWybfvjsoax+L
+         9nIbBB7Uh45oIkAfzP81DLZFAx0lDFbBBUgBYoSIFEkYSEv2uU1BLIz3ayj0QmoB2QW4
+         y2Mj1XjhoRDHowYqV9ut4s5pFtgqzZhHfYXm/ivArEa0Wkp700Bdh0uLEGFEOh56HaLi
+         UxXw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=CRqW+YTfEk6ZcrgFOv+tSfDj6Vrb4aubLry930Wg2+U=;
-        b=WcxJWw8Ya4BQUhwWTLrcQhfYb5ZIqK/B0Rw1g9WVQEJIaSKlY38On+r94vXZEq3G3R
-         +inNc1aO1Iq3teP0IjrN2KeE97WahVegIvefQGMb6vmmU37sO8qkctGdtTYpim2nRQDb
-         GWRisFLEaqzInnlRca+hvmexLIXuJXBgKiCPsbjp+PlWi8N7pTWn3dFgeyR/03naqGSH
-         dkT28sfWxEY4f8enrOrO1u5mzXhuuvRb8MrPKWpb+m3QWDyMMqquRwZj4BVn182O2mAw
-         1xIZmLqhSaMU2l8YuVQ/g9luP8vdPez+J9Y47ZxBhSCZTxXFvqwhPPdf5J66mhqB0ehm
-         fP9A==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=I8jtAw8CBvq/R8zpcGr8aSpjKM1yqW5hDXQsF4PEEc4=;
+        b=aMoPvnNziB2hGouzY1OCmqhoihvtvK8lnsIbcSlBT9PwpCeUfHvbYSOwkjwzf9Db7W
+         Vg0icVAeSJrPw5alJF5LBTS2CLSZSJpetdWPCstnEpoLotQMYs33Bp1VWYRLvGNY8C1O
+         TpzAy+SMnuxBS3qZ3FzIF/ghGgJ/4b4z2g0RJ6/JCL2k6ADEvscD98QluixfoezjFrpz
+         GA7y/OL8HF7t8ev3nGlIuQ6iAQsw8RwGnvJaR/Ua9P0GAa2SapxHwfwcWuZFyHXqKL1z
+         2j0xWQuiEhU9QIRuNy4Y9kgpSU2ddStIWfbthkUJ56+MwVt7mC/SShoEN3ASr9KXQYWW
+         T/eg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=PKgr4z16;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x643.google.com (mail-pl1-x643.google.com. [2607:f8b0:4864:20::643])
-        by gmr-mx.google.com with ESMTPS id z7si198916pgz.5.2020.03.09.11.03.54
+       dkim=pass header.i=@kernel.org header.s=default header.b=fWFjQDXz;
+       spf=pass (google.com: domain of acme@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=acme@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id q19si698317pgt.0.2020.03.09.11.53.46
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Mar 2020 11:03:54 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) client-ip=2607:f8b0:4864:20::643;
-Received: by mail-pl1-x643.google.com with SMTP id j20so4296821pll.6
-        for <clang-built-linux@googlegroups.com>; Mon, 09 Mar 2020 11:03:54 -0700 (PDT)
-X-Received: by 2002:a17:90b:8f:: with SMTP id bb15mr173466pjb.186.1583777033650;
- Mon, 09 Mar 2020 11:03:53 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 09 Mar 2020 11:53:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of acme@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from quaco.ghostprotocols.net (unknown [179.97.37.151])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 2FCF220663;
+	Mon,  9 Mar 2020 18:53:42 +0000 (UTC)
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Ingo Molnar <mingo@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>
+Cc: Jiri Olsa <jolsa@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Clark Williams <williams@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	Ilie Halip <ilie.halip@gmail.com>,
+	Arnaldo Carvalho de Melo <acme@redhat.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Igor Lubashev <ilubashe@akamai.com>,
+	Jiri Olsa <jolsa@redhat.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH 3/6] perf python: Fix clang detection when using CC=clang-version
+Date: Mon,  9 Mar 2020 15:53:20 -0300
+Message-Id: <20200309185323.22583-4-acme@kernel.org>
+X-Mailer: git-send-email 2.21.1
+In-Reply-To: <20200309185323.22583-1-acme@kernel.org>
+References: <20200309185323.22583-1-acme@kernel.org>
 MIME-Version: 1.0
-References: <202003060916.RI5pROBS%lkp@intel.com> <CAKwvOdkNXFFzw4fBBzSMf2rUd3hV5Vt=11ONLf4nX4FrcmHFcQ@mail.gmail.com>
- <87k13ulyho.fsf@intel.com>
-In-Reply-To: <87k13ulyho.fsf@intel.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 9 Mar 2020 11:03:41 -0700
-Message-ID: <CAKwvOd=eHp8ZkS4B-GY9fbaUXS5wNxZQbU+eV6wbsXQ_69bieg@mail.gmail.com>
-Subject: Re: [jani:device-info-inheritance-v3 3/19] drivers/gpu/drm/i915/i915_pci.c:212:2:
- error: initializer element is not a compile-time constant
-To: Jani Nikula <jani.nikula@linux.intel.com>
-Cc: kbuild-all@lists.01.org, kbuild test robot <lkp@intel.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: acme@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=PKgr4z16;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@kernel.org header.s=default header.b=fWFjQDXz;       spf=pass
+ (google.com: domain of acme@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=acme@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,308 +144,170 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Mar 9, 2020 at 1:32 AM Jani Nikula <jani.nikula@linux.intel.com> wr=
-ote:
->
-> On Fri, 06 Mar 2020, Nick Desaulniers <ndesaulniers@google.com> wrote:
-> > Based on the tree, I think this report was meant to go to Jani (cc'ed)?
->
-> It baffles me that the build bot burns resources on building random
-> branches in my personal repositories.
+From: Ilie Halip <ilie.halip@gmail.com>
 
-It uses a branch naming convention to avoid testing branches:
-https://github.com/intel/lkp-tests/wiki/LKP-FAQ#is-there-a-way-not-to-trigg=
-er-kbuild-tests-on-a-specific-branch
+Currently, the setup.py script detects the clang compiler only when invoked
+with CC=3Dclang. But when using a specific version (e.g. CC=3Dclang-11), th=
+is
+doesn't work correctly and wrong compiler flags are set, leading to build
+errors.
 
-But in this case, it seems it caught a build breakage even further
-upstream, which is valuable, right?
+To properly detect clang, invoke the compiler with -v and check the output.
+The first line should start with "clang version ...".
 
->
-> That said, this builds on GCC 8 just fine. Is clang not able to do this?
+Committer testing:
 
-Places that require integer constant expressions can be very subtle.
-See this recent example in i915 for example:
-https://github.com/ClangBuiltLinux/linux/issues/918
-Sometimes reproducing also depends on some configs.  In this case,
-it's not as I've fetched your branch and can repro on defconfig.
+  $ make CC=3Dclang-9 O=3D/tmp/build/perf -C tools/perf install-bin
+  <SNIP>
+  $ readelf -wi /tmp/build/perf/python/perf.cpython-37m-x86_64-linux-gnu.so=
+ | grep DW_AT_producer | head -1
+    <c>   DW_AT_producer    : (indirect string, offset: 0x0): clang version=
+ 9.0.1 (Fedora 9.0.1-2.fc31) /usr/bin/clang-9 -Wno-unused-result -Wsign-com=
+pare -D DYNAMIC_ANNOTATIONS_ENABLED=3D1 -D NDEBUG -O2 -g -pipe -Wall -Werro=
+r=3Dformat-security -Wp,-D_FORTIFY_SOURCE=3D2 -Wp,-D_GLIBCXX_ASSERTIONS -fe=
+xceptions -fstack-protector-strong -grecord-command-line -m64 -mtune=3Dgene=
+ric -fasynchronous-unwind-tables -fcf-protection=3Dfull -D _GNU_SOURCE -fPI=
+C -fwrapv -Wbad-function-cast -Wdeclaration-after-statement -Wformat-securi=
+ty -Wformat-y2k -Winit-self -Wmissing-declarations -Wmissing-prototypes -Wn=
+ested-externs -Wno-system-headers -Wold-style-definition -Wpacked -Wredunda=
+nt-decls -Wstrict-prototypes -Wswitch-default -Wswitch-enum -Wundef -Wwrite=
+-strings -Wformat -Wshadow -D HAVE_ARCH_X86_64_SUPPORT -I /tmp/build/perf/a=
+rch/x86/include/generated -D HAVE_SYSCALL_TABLE_SUPPORT -D HAVE_PERF_REGS_S=
+UPPORT -D HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET -Werror -O3 -fno-omit-frame-=
+pointer -ggdb3 -funwind-tables -Wall -Wextra -std=3Dgnu99 -fstack-protector=
+-all -D _FORTIFY_SOURCE=3D2 -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=3D6=
+4 -D _GNU_SOURCE -I /home/acme/git/perf/tools/lib/perf/include -I /home/acm=
+e/git/perf/tools/perf/util/include -I /home/acme/git/perf/tools/perf/arch/x=
+86/include -I /home/acme/git/perf/tools/include/ -I /home/acme/git/perf/too=
+ls/arch/x86/include/uapi -I /home/acme/git/perf/tools/include/uapi -I /home=
+/acme/git/perf/tools/arch/x86/include/ -I /home/acme/git/perf/tools/arch/x8=
+6/ -I /tmp/build/perf//util -I /tmp/build/perf/ -I /home/acme/git/perf/tool=
+s/perf/util -I /home/acme/git/perf/tools/perf -I /home/acme/git/perf/tools/=
+lib/ -D HAVE_PTHREAD_ATTR_SETAFFINITY_NP -D HAVE_PTHREAD_BARRIER -D HAVE_EV=
+ENTFD -D HAVE_GET_CURRENT_DIR_NAME -D HAVE_GETTID -D HAVE_DWARF_GETLOCATION=
+S_SUPPORT -D HAVE_GLIBC_SUPPORT -D HAVE_AIO_SUPPORT -D HAVE_SCHED_GETCPU_SU=
+PPORT -D HAVE_SETNS_SUPPORT -D HAVE_LIBELF_SUPPORT -D HAVE_LIBELF_MMAP_SUPP=
+ORT -D HAVE_ELF_GETPHDRNUM_SUPPORT -D HAVE_GELF_GETNOTE_SUPPORT -D HAVE_ELF=
+_GETSHDRSTRNDX_SUPPORT -D HAVE_DWARF_SUPPORT -D HAVE_LIBBPF_SUPPORT -D HAVE=
+_BPF_PROLOGUE -D HAVE_SDT_EVENT -D HAVE_JITDUMP -D HAVE_DWARF_UNWIND_SUPPOR=
+T -D NO_LIBUNWIND_DEBUG_FRAME -D HAVE_LIBUNWIND_SUPPORT -D HAVE_LIBCRYPTO_S=
+UPPORT -D HAVE_SLANG_SUPPORT -D HAVE_GTK2_SUPPORT -D NO_LIBPERL -D HAVE_TIM=
+ERFD_SUPPORT -D HAVE_LIBPYTHON_SUPPORT -D HAVE_CPLUS_DEMANGLE_SUPPORT -D HA=
+VE_LIBBFD_SUPPORT -D HAVE_ZLIB_SUPPORT -D HAVE_LZMA_SUPPORT -D HAVE_ZSTD_SU=
+PPORT -D HAVE_LIBCAP_SUPPORT -D HAVE_BACKTRACE_SUPPORT -D HAVE_LIBNUMA_SUPP=
+ORT -D HAVE_KVM_STAT_SUPPORT -D DISASM_FOUR_ARGS_SIGNATURE -D HAVE_LIBBABEL=
+TRACE_SUPPORT -D HAVE_AUXTRACE_SUPPORT -D HAVE_JVMTI_CMLR -I /tmp/build/per=
+f/ -fPIC -I util/include -I /usr/include/python3.7m -c /home/acme/git/perf/=
+tools/perf/util/python.c -o /tmp/build/perf/python_ext_build/tmp/home/acme/=
+git/perf/tools/perf/util/python.o -Wbad-function-cast -Wdeclaration-after-s=
+tatement -Wformat-security -Wformat-y2k -Winit-self -Wmissing-declarations =
+-Wmissing-prototypes -Wnested-externs -Wno-system-headers -Wold-style-defin=
+ition -Wpacked -Wredundant-decls -Wstrict-prototypes -Wswitch-default -Wswi=
+tch-enum -Wundef -Wwrite-strings -Wformat -Wshadow -D HAVE_ARCH_X86_64_SUPP=
+ORT -I /tmp/build/perf/arch/x86/include/generated -D HAVE_SYSCALL_TABLE_SUP=
+PORT -D HAVE_PERF_REGS_SUPPORT -D HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET -Wer=
+ror -O3 -fno-omit-frame-pointer -ggdb3 -funwind-tables -Wall -Wextra -std=
+=3Dgnu99 -fstack-protector-all -D _FORTIFY_SOURCE=3D2 -D _LARGEFILE64_SOURC=
+E -D _FILE_OFFSET_BITS=3D64 -D _GNU_SOURCE -I /home/acme/git/perf/tools/lib=
+/perf/include -I /home/acme/git/perf/tools/perf/util/include -I /home/acme/=
+git/perf/tools/perf/arch/x86/include -I /home/acme/git/perf/tools/include/ =
+-I /home/acme/git/perf/tools/arch/x86/include/uapi -I /home/acme/git/perf/t=
+ools/include/uapi -I /home/acme/git/perf/tools/arch/x86/include/ -I /home/a=
+cme/git/perf/tools/arch/x86/ -I /tmp/build/perf//util -I /tmp/build/perf/ -=
+I /home/acme/git/perf/tools/perf/util -I /home/acme/git/perf/tools/perf -I =
+/home/acme/git/perf/tools/lib/ -D HAVE_PTHREAD_ATTR_SETAFFINITY_NP -D HAVE_=
+PTHREAD_BARRIER -D HAVE_EVENTFD -D HAVE_GET_CURRENT_DIR_NAME -D HAVE_GETTID=
+ -D HAVE_DWARF_GETLOCATIONS_SUPPORT -D HAVE_GLIBC_SUPPORT -D HAVE_AIO_SUPPO=
+RT -D HAVE_SCHED_GETCPU_SUPPORT -D HAVE_SETNS_SUPPORT -D HAVE_LIBELF_SUPPOR=
+T -D HAVE_LIBELF_MMAP_SUPPORT -D HAVE_ELF_GETPHDRNUM_SUPPORT -D HAVE_GELF_G=
+ETNOTE_SUPPORT -D HAVE_ELF_GETSHDRSTRNDX_SUPPORT -D HAVE_DWARF_SUPPORT -D H=
+AVE_LIBBPF_SUPPORT -D HAVE_BPF_PROLOGUE -D HAVE_SDT_EVENT -D HAVE_JITDUMP -=
+D HAVE_DWARF_UNWIND_SUPPORT -D NO_LIBUNWIND_DEBUG_FRAME -D HAVE_LIBUNWIND_S=
+UPPORT -D HAVE_LIBCRYPTO_SUPPORT -D HAVE_SLANG_SUPPORT -D HAVE_GTK2_SUPPORT=
+ -D NO_LIBPERL -D HAVE_TIMERFD_SUPPORT -D HAVE_LIBPYTHON_SUPPORT -D HAVE_CP=
+LUS_DEMANGLE_SUPPORT -D HAVE_LIBBFD_SUPPORT -D HAVE_ZLIB_SUPPORT -D HAVE_LZ=
+MA_SUPPORT -D HAVE_ZSTD_SUPPORT -D HAVE_LIBCAP_SUPPORT -D HAVE_BACKTRACE_SU=
+PPORT -D HAVE_LIBNUMA_SUPPORT -D HAVE_KVM_STAT_SUPPORT -D DISASM_FOUR_ARGS_=
+SIGNATURE -D HAVE_LIBBABELTRACE_SUPPORT -D HAVE_AUXTRACE_SUPPORT -D HAVE_JV=
+MTI_CMLR -I /tmp/build/perf/ -fno-strict-aliasing -Wno-write-strings -Wno-u=
+nused-parameter -Wno-redundant-decls
+  $
 
-This is definitely our bug: https://bugs.llvm.org/show_bug.cgi?id=3D45157
+And here is how tools/perf/util/setup.py checks if the used clang has
+options that the distro specific python extension building compiler
+defaults:
 
-> Sad trombone. Pretty much blocks what I thought was a nice cleanup from
-> illegible macros to plain C code.
->
->
-> BR,
-> Jani.
->
->
-> >
-> > On Thu, Mar 5, 2020 at 5:31 PM kbuild test robot <lkp@intel.com> wrote:
-> >>
-> >> tree:   git://people.freedesktop.org/~jani/drm device-info-inheritance=
--v3
-> >> head:   6e8df0961b60ee4c69a95e9304bcb14e85ba4803
-> >> commit: c8b57de4e93bccfcabe9e32bb4fe8219d3633049 [3/19] drm/i915: stor=
-e color info in const structs instead of macros
-> >> config: x86_64-allyesconfig (attached as .config)
-> >> compiler: clang version 11.0.0 (git://gitmirror/llvm_project f70e7dc17=
-d78a83265a89158ee549f1147d7d500)
-> >> reproduce:
-> >>         # FIXME the reproduce steps for clang is not ready yet
-> >>
-> >> If you fix the issue, kindly add following tag
-> >> Reported-by: kbuild test robot <lkp@intel.com>
-> >>
-> >> All errors (new ones prefixed by >>):
-> >>
-> >> >> drivers/gpu/drm/i915/i915_pci.c:212:2: error: initializer element i=
-s not a compile-time constant
-> >>            I830_FEATURES,
-> >>            ^~~~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:189:11: note: expanded from macro '=
-I830_FEATURES'
-> >>            .color =3D i9xx_colors, \
-> >>                     ^~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:217:2: error: initializer element i=
-s not a compile-time constant
-> >>            I845_FEATURES,
-> >>            ^~~~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:207:11: note: expanded from macro '=
-I845_FEATURES'
-> >>            .color =3D i9xx_colors, \
-> >>                     ^~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:222:2: error: initializer element i=
-s not a compile-time constant
-> >>            I830_FEATURES,
-> >>            ^~~~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:189:11: note: expanded from macro '=
-I830_FEATURES'
-> >>            .color =3D i9xx_colors, \
-> >>                     ^~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:228:2: error: initializer element i=
-s not a compile-time constant
-> >>            I845_FEATURES,
-> >>            ^~~~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:207:11: note: expanded from macro '=
-I845_FEATURES'
-> >>            .color =3D i9xx_colors, \
-> >>                     ^~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:247:2: error: initializer element i=
-s not a compile-time constant
-> >>            GEN3_FEATURES,
-> >>            ^~~~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:242:11: note: expanded from macro '=
-GEN3_FEATURES'
-> >>            .color =3D i9xx_colors, \
-> >>                     ^~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:258:2: error: initializer element i=
-s not a compile-time constant
-> >>            GEN3_FEATURES,
-> >>            ^~~~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:242:11: note: expanded from macro '=
-GEN3_FEATURES'
-> >>            .color =3D i9xx_colors, \
-> >>                     ^~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:271:2: error: initializer element i=
-s not a compile-time constant
-> >>            GEN3_FEATURES,
-> >>            ^~~~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:242:11: note: expanded from macro '=
-GEN3_FEATURES'
-> >>            .color =3D i9xx_colors, \
-> >>                     ^~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:282:2: error: initializer element i=
-s not a compile-time constant
-> >>            GEN3_FEATURES,
-> >>            ^~~~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:242:11: note: expanded from macro '=
-GEN3_FEATURES'
-> >>            .color =3D i9xx_colors, \
-> >>                     ^~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:296:2: error: initializer element i=
-s not a compile-time constant
-> >>            GEN3_FEATURES,
-> >>            ^~~~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:242:11: note: expanded from macro '=
-GEN3_FEATURES'
-> >>            .color =3D i9xx_colors, \
-> >>                     ^~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:303:2: error: initializer element i=
-s not a compile-time constant
-> >>            GEN3_FEATURES,
-> >>            ^~~~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:242:11: note: expanded from macro '=
-GEN3_FEATURES'
-> >>            .color =3D i9xx_colors, \
-> >>                     ^~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:310:2: error: initializer element i=
-s not a compile-time constant
-> >>            GEN3_FEATURES,
-> >>            ^~~~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:242:11: note: expanded from macro '=
-GEN3_FEATURES'
-> >>            .color =3D i9xx_colors, \
-> >>                     ^~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:333:2: error: initializer element i=
-s not a compile-time constant
-> >>            GEN4_FEATURES,
-> >>            ^~~~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:328:11: note: expanded from macro '=
-GEN4_FEATURES'
-> >>            .color =3D i965_colors, \
-> >>                     ^~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:341:2: error: initializer element i=
-s not a compile-time constant
-> >>            GEN4_FEATURES,
-> >>            ^~~~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:328:11: note: expanded from macro '=
-GEN4_FEATURES'
-> >>            .color =3D i965_colors, \
-> >>                     ^~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:352:2: error: initializer element i=
-s not a compile-time constant
-> >>            GEN4_FEATURES,
-> >>            ^~~~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:328:11: note: expanded from macro '=
-GEN4_FEATURES'
-> >>            .color =3D i965_colors, \
-> >>                     ^~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:359:2: error: initializer element i=
-s not a compile-time constant
-> >>            GEN4_FEATURES,
-> >>            ^~~~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:328:11: note: expanded from macro '=
-GEN4_FEATURES'
-> >>            .color =3D i965_colors, \
-> >>                     ^~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:384:2: error: initializer element i=
-s not a compile-time constant
-> >>            GEN5_FEATURES,
-> >>            ^~~~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:379:11: note: expanded from macro '=
-GEN5_FEATURES'
-> >>            .color =3D ilk_colors, \
-> >>                     ^~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:389:2: error: initializer element i=
-s not a compile-time constant
-> >>            GEN5_FEATURES,
-> >>            ^~~~~~~~~~~~~
-> >>    drivers/gpu/drm/i915/i915_pci.c:379:11: note: expanded from macro '=
-GEN5_FEATURES'
-> >>            .color =3D ilk_colors, \
-> >>
-> >> vim +212 drivers/gpu/drm/i915/i915_pci.c
-> >>
-> >> da1184cd41d4c6b Matthew Auld          2019-10-18  172
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  173  #defi=
-ne I830_FEATURES \
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  174   GEN(=
-2), \
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  175   .is_=
-mobile =3D 1, \
-> >> 8d8b00318593e28 Jani Nikula           2019-09-11  176   .pipe_mask =3D=
- BIT(PIPE_A) | BIT(PIPE_B), \
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  177   .dis=
-play.has_overlay =3D 1, \
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  178   .dis=
-play.cursor_needs_physical =3D 1, \
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  179   .dis=
-play.overlay_needs_physical =3D 1, \
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  180   .dis=
-play.has_gmch =3D 1, \
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  181   .gpu=
-_reset_clobbers_display =3D true, \
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  182   .hws=
-_needs_physical =3D 1, \
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  183   .unf=
-enced_needs_alignment =3D 1, \
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  184   .eng=
-ine_mask =3D BIT(RCS0), \
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  185   .has=
-_snoop =3D true, \
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  186   .has=
-_coherent_ggtt =3D false, \
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  187   I9XX=
-_PIPE_OFFSETS, \
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  188   I9XX=
-_CURSOR_OFFSETS, \
-> >> c8b57de4e93bccf Jani Nikula           2020-03-05  189   .color =3D i9x=
-x_colors, \
-> >> 2411ccdddd53007 Jani Nikula           2020-03-05  190   .page_sizes =
-=3D GEN_DEFAULT_PAGE_SIZES, \
-> >> 980a85a19e6db48 Jani Nikula           2020-03-05  191   .memory_region=
-s =3D GEN_DEFAULT_REGIONS
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  192
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  193  #defi=
-ne I845_FEATURES \
-> >> bc76298e68e791f Chris Wilson          2018-02-15  194   GEN(2), \
-> >> 8d8b00318593e28 Jani Nikula           2019-09-11  195   .pipe_mask =3D=
- BIT(PIPE_A), \
-> >> d53db442db36fdb Jos=C3=A9 Roberto de Souza 2018-11-30  196   .display.=
-has_overlay =3D 1, \
-> >> d53db442db36fdb Jos=C3=A9 Roberto de Souza 2018-11-30  197   .display.=
-overlay_needs_physical =3D 1, \
-> >> b2ae318acdcaf1c Rodrigo Vivi          2019-02-04  198   .display.has_g=
-mch =3D 1, \
-> >> 55277e1f3107c0b Chris Wilson          2019-01-03  199   .gpu_reset_clo=
-bbers_display =3D true, \
-> >> 3177659a41cc436 Carlos Santa          2016-08-17  200   .hws_needs_phy=
-sical =3D 1, \
-> >> f4ce766f28cd0ef Chris Wilson          2017-03-25  201   .unfenced_need=
-s_alignment =3D 1, \
-> >> 8a68d464366efb5 Chris Wilson          2019-03-05  202   .engine_mask =
-=3D BIT(RCS0), \
-> >> 5d95c24867aea8a Chris Wilson          2017-09-06  203   .has_snoop =3D=
- true, \
-> >> 900ccf30f9e112b Chris Wilson          2018-07-20  204   .has_coherent_=
-ggtt =3D false, \
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  205   I845=
-_PIPE_OFFSETS, \
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05  206   I845=
-_CURSOR_OFFSETS, \
-> >> c8b57de4e93bccf Jani Nikula           2020-03-05  207   .color =3D i9x=
-x_colors, \
-> >> 2411ccdddd53007 Jani Nikula           2020-03-05  208   .page_sizes =
-=3D GEN_DEFAULT_PAGE_SIZES, \
-> >> 980a85a19e6db48 Jani Nikula           2020-03-05  209   .memory_region=
-s =3D GEN_DEFAULT_REGIONS
-> >> 0eec8dc7f628a8d Carlos Santa          2016-08-17  210
-> >> 31409fff1a392fa Lucas De Marchi       2019-12-24  211  static const st=
-ruct intel_device_info i830_info =3D {
-> >> 37fbbd49054b624 Ville Syrj=C3=A4l=C3=A4         2019-03-05 @212   I830=
-_FEATURES,
-> >> c5cb21c17a169ee Chris Wilson          2018-02-15  213   PLATFORM(INTEL=
-_I830),
-> >> 42f5551d276921d Chris Wilson          2016-06-24  214  };
-> >> 42f5551d276921d Chris Wilson          2016-06-24  215
-> >>
-> >> :::::: The code at line 212 was first introduced by commit
-> >> :::::: 37fbbd49054b624400a65cf1a39f152a7f3f4749 drm/i915: Populate pip=
-e_offsets[] & co. accurately
-> >>
-> >> :::::: TO: Ville Syrj=C3=A4l=C3=A4 <ville.syrjala@linux.intel.com>
-> >> :::::: CC: Ville Syrj=C3=A4l=C3=A4 <ville.syrjala@linux.intel.com>
-> >>
-> >> ---
-> >> 0-DAY CI Kernel Test Service, Intel Corporation
-> >> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> >>
-> >> --
-> >> You received this message because you are subscribed to the Google Gro=
-ups "Clang Built Linux" group.
-> >> To unsubscribe from this group and stop receiving emails from it, send=
- an email to clang-built-linux+unsubscribe@googlegroups.com.
-> >> To view this discussion on the web visit https://groups.google.com/d/m=
-sgid/clang-built-linux/202003060916.RI5pROBS%25lkp%40intel.com.
->
-> --
-> Jani Nikula, Intel Open Source Graphics Center
+  if cc_is_clang:
+      from distutils.sysconfig import get_config_vars
+      vars =3D get_config_vars()
+      for var in ('CFLAGS', 'OPT'):
+          vars[var] =3D sub("-specs=3D[^ ]+", "", vars[var])
+          if not clang_has_option("-mcet"):
+              vars[var] =3D sub("-mcet", "", vars[var])
+          if not clang_has_option("-fcf-protection"):
+              vars[var] =3D sub("-fcf-protection", "", vars[var])
+          if not clang_has_option("-fstack-clash-protection"):
+              vars[var] =3D sub("-fstack-clash-protection", "", vars[var])
+          if not clang_has_option("-fstack-protector-strong"):
+              vars[var] =3D sub("-fstack-protector-strong", "", vars[var])
 
+So "-fcf-protection=3Dfull" is used, clang-9 has this option and thus it
+was kept, the perf python extension was built with it and the build
+completed successfully.
 
+Link: https://github.com/ClangBuiltLinux/linux/issues/903
+Signed-off-by: Ilie Halip <ilie.halip@gmail.com>
+Tested-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: Igor Lubashev <ilubashe@akamai.com>
+Cc: Jiri Olsa <jolsa@redhat.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Namhyung Kim <namhyung@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: clang-built-linux@googlegroups.com
+Link: http://lore.kernel.org/lkml/20200309085618.14307-1-ilie.halip@gmail.c=
+om
+Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+---
+ tools/perf/util/setup.py | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
+diff --git a/tools/perf/util/setup.py b/tools/perf/util/setup.py
+index aa344a163eaf..8a065a6f9713 100644
+--- a/tools/perf/util/setup.py
++++ b/tools/perf/util/setup.py
+@@ -2,11 +2,13 @@ from os import getenv
+ from subprocess import Popen, PIPE
+ from re import sub
+=20
++cc =3D getenv("CC")
++cc_is_clang =3D b"clang version" in Popen([cc, "-v"], stderr=3DPIPE).stder=
+r.readline()
++
+ def clang_has_option(option):
+-    return [o for o in Popen(['clang', option], stderr=3DPIPE).stderr.read=
+lines() if b"unknown argument" in o] =3D=3D [ ]
++    return [o for o in Popen([cc, option], stderr=3DPIPE).stderr.readlines=
+() if b"unknown argument" in o] =3D=3D [ ]
+=20
+-cc =3D getenv("CC")
+-if cc =3D=3D "clang":
++if cc_is_clang:
+     from distutils.sysconfig import get_config_vars
+     vars =3D get_config_vars()
+     for var in ('CFLAGS', 'OPT'):
+@@ -40,7 +42,7 @@ class install_lib(_install_lib):
+ cflags =3D getenv('CFLAGS', '').split()
+ # switch off several checks (need to be at the end of cflags list)
+ cflags +=3D ['-fno-strict-aliasing', '-Wno-write-strings', '-Wno-unused-pa=
+rameter', '-Wno-redundant-decls' ]
+-if cc !=3D "clang":
++if not cc_is_clang:
+     cflags +=3D ['-Wno-cast-function-type' ]
+=20
+ src_perf  =3D getenv('srctree') + '/tools/perf'
 --=20
-Thanks,
-~Nick Desaulniers
+2.21.1
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -443,5 +315,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAKwvOd%3DeHp8ZkS4B-GY9fbaUXS5wNxZQbU%2BeV6wbsXQ_69bieg%4=
-0mail.gmail.com.
+clang-built-linux/20200309185323.22583-4-acme%40kernel.org.
