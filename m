@@ -1,131 +1,126 @@
-Return-Path: <clang-built-linux+bncBAABB36LS3ZQKGQEYJJHVBA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBBGZS3ZQKGQEMFT2KTA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33d.google.com (mail-ot1-x33d.google.com [IPv6:2607:f8b0:4864:20::33d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5E5FB17D80E
-	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Mar 2020 03:12:01 +0100 (CET)
-Received: by mail-ot1-x33d.google.com with SMTP id s8sf509297otd.13
-        for <lists+clang-built-linux@lfdr.de>; Sun, 08 Mar 2020 19:12:01 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1583719920; cv=pass;
+Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5686E17D831
+	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Mar 2020 03:40:06 +0100 (CET)
+Received: by mail-pf1-x43d.google.com with SMTP id y20sf5961352pfb.3
+        for <lists+clang-built-linux@lfdr.de>; Sun, 08 Mar 2020 19:40:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1583721605; cv=pass;
         d=google.com; s=arc-20160816;
-        b=WSidOD2XOctTDRksdtj0Mftyw62pT6r1Y9xD1mponXNfrWwfySGaqeFxG/Twn4ddo/
-         HxuyYq/TNCxI6cpOdnNHDUOWXu4lsW96y7nGvfgUFK5B1pXaiwW4bwDWv9iYVndv6lGB
-         fYnVEvDShoBJLk7b0MNpmv4M45T4ZIcDvSmxVFXbvTkgonwk6XAok2tfvIrupoiUJrKB
-         RnuU/2SrSPoWh+pRQAgCT6g/KHMmXYlcBgfbKhiYlGwHrSdgaSxrecbzr2Vya4hTVOX6
-         zFKkUZtPiaJ7VLLvxBwgnLuE+Hn2ZTNWCkDpie6CHMS6O3VLTp2+SdmOWIsFqK8UdsIF
-         UR2Q==
+        b=Ao5NSF9CGNpwuakczmI9cmLqPySSmEdSvBqa6fNjF+PZzML82qV1cR0lGjhzz5nhQv
+         m2kYw4lpAoqBQF/gzpxCBBSQs2cJ7mPOlD69F6wGXW1BGgEWarD1CjjXsMqZLPHNtT4g
+         yDObJ69QDb+645zHHBannuUDauEPYdvRzk8sLjQq545Da+yQ4sX9eLWgobmQ3tqb/1ld
+         C/N9H2g1E6Joz8AR9UdTDlcvBwIb09huJg97Qnkx1jf5ZPS84SuvJ/SHg79w1mUJl1Ad
+         Kqm1uDED/o839pjEnbRmQcgpMNgPa3nKVjsQrOwxiq3/6W4t/NCwpdjZiwy/evcZwgGh
+         81+w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=mSMT7pl4t73Yt4QwiRKdJpWqlZVuH8CznM0gbtQh+t4=;
-        b=niI8eUa1YMwkr6g28WTX+YSK+wJKR6RzrCAlFD/kQ6qogDGChWkyYfBMbtb6W//M37
-         MicTxFY0fOhwuPaHLeL83oeWSy8aSFfkwfbAZlioXlz94BZubsUTxLtIKR+0KpFPpNA4
-         bXFije2YY2FSsvUi0PHeSYkJjJ5yU8CiqHtpzeCGtTyYzFelwxWMdnVpizcmVaTx/iMF
-         Wydadr78ZXxB1Rv+XxiwW40/SiU5LMe7TuCqQ2ejz+kC6m3XQwjzUfAb4kM8xUyVI4TS
-         Il3Ya1r6nGLoSchn8lAA7qhRxjy0cMNy/wC+Y4LRp3/Z2h2SL6/H4QPkOYkoNN5W9awm
-         nzYw==
+         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
+         :dkim-filter:mime-version:sender:dkim-signature;
+        bh=SVCnaVbky+X+GdaGvqQsr2JgNAyFdlUZQSWtxm2MNCs=;
+        b=Mmqgsj2Z7UywEqo/56lqu3slPcHspnIYA3Y2L7Yylw27YpIgoK1c4F0+nvUd/JnURa
+         gPboDHcihvGLJD+pM/MItzhAQepNz/HurOzHtN5I73mmxAX+z777xCRvea5Rfi/z6rPf
+         adQVZwoHaQwn5G3feOtp+mWYct+wwV3Nl3u2du+cNl3cP3AvYa9LKKmN9GJa0Ct6FgDI
+         grIkBC0bcb4e2rKnylsUggWenSdQKaQnJIiqd+l1EJ4/SNFQKhbhiWIZxRvfjaB1Nu3A
+         wIIDl1j+v9YBqfZ0Fg7mFDeOFOioH3Rv/8n9YFEsh96eqCJTTzUH98L+iRFj+dt3efxE
+         gKAQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=brn1anuS;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.83 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=Q5WCH5hw;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.74 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=mSMT7pl4t73Yt4QwiRKdJpWqlZVuH8CznM0gbtQh+t4=;
-        b=psKgvCDJNQuNBJJLSedlbcMRvAd8KBNdI5sGGQf0ZI0Rc7vZzIHUJHQc/d8hCJhgkh
-         nOwaoIzFvZjwya6l5PAZc7o7hfr+2wtkljoOWio3xdoiSPkuw4oCIWJKreXAnQ6jc5+M
-         VfUspdqQimdNcDbT4/QHPfCJQ/g73wRYMK5ElzuzUFUEO05b23F0NHIx7q5+H5FPe3AH
-         s7rGvX3zf7Rf9Zi+l4dKzHenIBgp8ZSeFvm+9VW8H6z4He20WlkREccTW2AD35AG5c3p
-         hOdu/uX7iJF1WWCGVfp7KbVKxT2kXmG46Rb8VNeiPrnyxofBuajOMfCVq6JR9mOOHD0M
-         ytFw==
+        h=sender:mime-version:dkim-filter:from:to:cc:subject:date:message-id
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=SVCnaVbky+X+GdaGvqQsr2JgNAyFdlUZQSWtxm2MNCs=;
+        b=K4gdnnGRuciJynHnCkgq5sznfe0cnoRmrly7+otQTP6WeqFEiCVQF3XRE7zUcat78K
+         cpu4+0ALOoGDw246DwWcEi6xCPXRkRpSYPY5ieuR7/xvy7cuE5cGbRK2hgTgiMkKemd4
+         aDYxaY/YRJGb0mlAUiZSjsG1q4ED96/84EpKA0lXetRunBcCYFG6lKRWbLXRM6bgqbBP
+         b92M0Khjv1UbYAUcOOhJdR0P5heiHxwcruJwOAD62OVEXB6+4sxRcIBNb5Yg4zMGOujt
+         nWk3GOSCFm+xLWC4ceTbBFsSYQLBKD8QFjhNqe91KwQmtFEQZ4sjbePIc5zglrMZ7IEV
+         kN8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:mime-version:dkim-filter:from:to:cc
+         :subject:date:message-id:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=mSMT7pl4t73Yt4QwiRKdJpWqlZVuH8CznM0gbtQh+t4=;
-        b=RZRnI75UmO5B03jId6YjmoeRfZi455KGEvW7mcJqv91vyVI7E6yQjyO5Aklt5+N1Xa
-         VJ988BXwsyknTm8ybfViREUZt11NzmIBY6VB8sbgI71PFxzlBmpXxWZkGztHUICmxUsU
-         llKAHbMMQR5s72wAzPJ5IEisS3pOk3F+UvtQSerwzWTK9NU1psbmmqAUq1HkdNw2KF9J
-         Pq6o4dC89W2EEFBKXXNUB2fXqiEeiGHOfKtybJUtYFd+/IFKtOqazHU8KTNspE3z/Qir
-         BZzOP/my/8t/YyMs2i1uLb1BW53ZDh+xsSW3sLPiBDWc+t691oO6BaZNnlPcJNxPQ/j1
-         YYSg==
+        bh=SVCnaVbky+X+GdaGvqQsr2JgNAyFdlUZQSWtxm2MNCs=;
+        b=jXTXpA2Zb11Gz4/WBfGO4vMqedjA5dJxpHtUyaq4OJE4dpEL4RL4iQjuqVeSb1tj1u
+         DcZndPz47ebUr3MoGD+yCrVOJOb+CwNaelPd7+v5Frr0kR3JiGyIRUCCUE0MOgO3BFjT
+         X45PI/6T31ARM0gxQO7IRrxMJj6Lgyl0AuDsdA/8Ev8k6zLBV6C+nEh7w7h3oesPaBC/
+         03XnBZhYLCtyyCrN3mVhw6G00oi9hBwmkBLq2y0/i/zwnoFDL3vIymo4aiq3HJozku4H
+         RdJL1mi7ajOaUHpZeHJnTbkn7K+gOmiMw37rJw3h+XI+bA0swZj+avu37QEbKrtuAgnv
+         UeDA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ0ZZCYCQoCswwYzZeLPSoEzauAZcywK1oNZvYqO8V4K/TTd30h+
-	peIQGje3AudZwA1ypvT5orQ=
-X-Google-Smtp-Source: ADFU+vswa87ekM6jmpntp8mNDwhpa7z3JUW+KnXSaHSruZFYxRP4EoxUHOYuFJ9Qhsw8klW/LDD6iw==
-X-Received: by 2002:aca:5303:: with SMTP id h3mr9769709oib.74.1583719919915;
-        Sun, 08 Mar 2020 19:11:59 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ03APGdnxLhTwXchDP4+ps1bkHoCIN3FZLMqD1xi/WqEWU4dREm
+	r2yX3X4O7pP/tKtfGK4Nn/A=
+X-Google-Smtp-Source: ADFU+vss4Lt8wgIEcyCMJFVGNJphF/KgbBha/wPjA7E/PC4ljIDlSEP+S1pJkEoZ59GzILzUE3aMYA==
+X-Received: by 2002:a17:90a:bd0d:: with SMTP id y13mr443691pjr.12.1583721605000;
+        Sun, 08 Mar 2020 19:40:05 -0700 (PDT)
+MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:49cc:: with SMTP id w195ls2265332oia.10.gmail; Sun, 08
- Mar 2020 19:11:59 -0700 (PDT)
-X-Received: by 2002:a05:6808:646:: with SMTP id z6mr10166607oih.163.1583719919629;
-        Sun, 08 Mar 2020 19:11:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1583719919; cv=none;
+Received: by 2002:a63:150:: with SMTP id 77ls2973438pgb.0.gmail; Sun, 08 Mar
+ 2020 19:40:04 -0700 (PDT)
+X-Received: by 2002:a63:2cd6:: with SMTP id s205mr13767953pgs.112.1583721604608;
+        Sun, 08 Mar 2020 19:40:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1583721604; cv=none;
         d=google.com; s=arc-20160816;
-        b=qNnEcB/1DJxfkqZ3FCFplI9kbgHV17wJoSqeDfS+NOrZceGzAsCkRQIA97jV2zZHfa
-         ryQGtYcDprkPY2IH1XEV6fq1op8X2ySRCRVI4tNUxWcRBg8HxGvC4JhCCyQngGCbuG9p
-         RW/iN6FHLebpS2zLlCI+hbziQALqvgFaHHWaO4lt+njekB7TCcPqTB6Qf1JSOpxLwYCK
-         XK77uZpoCVNi19SpxXMmZDeDteZCPxrp9esh3TnkhnXL4BX2Pom4+jWOmp/0Nftkz1Fs
-         dNiz+pM8hP2QfZrlnEdyosGqvdKZoadaXmsmAUUa3ewCDtT71UW9oxJxDOazQWbrQ4V9
-         aixA==
+        b=nxDW/t8tN6ROzZzM2R3rolZwygercndXZrqzpDF7NL4xwvNOdniyVdPjUxWQeVYnHu
+         0qTGDpNQ4ZfglKqSCPdEdLWHMLXB6FVuG5FHtzci2t4IWMn/+/Hg0PEaues5QkIIZ6FQ
+         CYpukLef6CkWRTyr/czUTLf8m8KPXUi+nPwPNPCTzbv2afKO3v88rKqgYINNOYduM+rv
+         y2ksTTWBToAWbaRkS7Jwr6vlAajcUlI0OaKGpLoMREMgUt4VNi5g3J+yJaimpHePre7b
+         IeUhHoUXefc9Z8p4nZVzU7MqARXv0jqGqBL3UfFGyDRMz8ztiaynL3TlSL/P3KKtG/s+
+         KwSg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=cjFzylmuOvPTqSk4AfYJnlN1AXZVcRsUD5oy7paosWc=;
-        b=X0XEhP6ZTflIyG1knDnFP8bNaCQOs6ufVtn98KQgt+xwBZowZaUefBQxkTgPu8Kz/w
-         VqU5qGl5nrOYncrKwft3Kb8uyqjufTLyaLRJo4pYKGPkPt0AZMs1J25gDwvAStdHrGLW
-         O2XIy7Fo7eaZKeupBzGDdo2fJKVOpkz+m5B/I0CtiaC38418ja+oSRppnfdV5sBji16I
-         Z+9L4UX1FdB37QncxYoUkRmATxdLhhme6JltIgFdWyQ8hVS94KETJDvpoSJBTTIZ9G96
-         8FVbwpdktysXzoz93CxgK8zw7dotCRT0Jg/7IvlmZZ/u+dz6nMWj2GM+UDtoWB3zeqUp
-         iAUg==
+        h=message-id:date:subject:cc:to:from:dkim-signature:dkim-filter;
+        bh=x8rj79kPynZM9/V603rL/WARuM62A6eFpkOiK9ry+jE=;
+        b=EZysUGwITJYiPhpP9eJA4kQF5zY7YL3kWX/T2kNtRkyNEaR+vc53kAfzGTxKBYJ+Wp
+         oHXXjk1J/v94s/5RhdqPOLKn6DPd63omoz7ZL14rnK6E1Ill/WgdXb3Z2wQBj1OHlHdS
+         iSOSbae4v/MtM/uu50a1VTQd11JAS1/2Xuq86pnCds42UsXGePkka4Cxr5l0vWDqN2fj
+         FXxB0/kIemdDImwO8/i8/2FxtQGgthkFNyJRRZsqnqKwa9+sN4XixY6bPnbaW18tVs0a
+         tUOcBQSs7Yo487UiKrm2NhuTKyDN02k+6VbmIBGlgfDMw5ApPHZ14pZ9DncQyUsoqcQD
+         yOHA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=brn1anuS;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.83 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=Q5WCH5hw;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.74 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-04.nifty.com (conssluserg-04.nifty.com. [210.131.2.83])
-        by gmr-mx.google.com with ESMTPS id b2si259364oib.5.2020.03.08.19.11.58
+Received: from conuserg-07.nifty.com (conuserg-07.nifty.com. [210.131.2.74])
+        by gmr-mx.google.com with ESMTPS id mv5si1041368pjb.0.2020.03.08.19.40.04
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 08 Mar 2020 19:11:59 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.83 as permitted sender) client-ip=210.131.2.83;
-Received: from mail-vk1-f180.google.com (mail-vk1-f180.google.com [209.85.221.180]) (authenticated)
-	by conssluserg-04.nifty.com with ESMTP id 0292Bgoi005240
-	for <clang-built-linux@googlegroups.com>; Mon, 9 Mar 2020 11:11:43 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-04.nifty.com 0292Bgoi005240
-X-Nifty-SrcIP: [209.85.221.180]
-Received: by mail-vk1-f180.google.com with SMTP id k63so2873vka.7
-        for <clang-built-linux@googlegroups.com>; Sun, 08 Mar 2020 19:11:43 -0700 (PDT)
-X-Received: by 2002:a1f:8cd5:: with SMTP id o204mr7525937vkd.66.1583719902032;
- Sun, 08 Mar 2020 19:11:42 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200308073400.23398-1-natechancellor@gmail.com>
-In-Reply-To: <20200308073400.23398-1-natechancellor@gmail.com>
+        Sun, 08 Mar 2020 19:40:04 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.74 as permitted sender) client-ip=210.131.2.74;
+Received: from localhost.localdomain (p14092-ipngnfx01kyoto.kyoto.ocn.ne.jp [153.142.97.92]) (authenticated)
+	by conuserg-07.nifty.com with ESMTP id 0292dL7g029360;
+	Mon, 9 Mar 2020 11:39:21 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-07.nifty.com 0292dL7g029360
+X-Nifty-SrcIP: [153.142.97.92]
 From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Mon, 9 Mar 2020 11:11:05 +0900
-X-Gmail-Original-Message-ID: <CAK7LNARcTHpd8fzrAhFVB_AR7NoBgenX64de0eS2uN8g0by9PQ@mail.gmail.com>
-Message-ID: <CAK7LNARcTHpd8fzrAhFVB_AR7NoBgenX64de0eS2uN8g0by9PQ@mail.gmail.com>
-Subject: Re: [PATCH] kbuild: Disable -Wpointer-to-enum-cast
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Michal Marek <michal.lkml@markovi.net>,
-        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-        clang-built-linux <clang-built-linux@googlegroups.com>,
-        stable <stable@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+To: linux-kbuild@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Al Viro <viro@zeniv.linux.org.uk>,
+        clang-built-linux@googlegroups.com,
+        =?UTF-8?q?F=8F=AB=A7ng-ru=8F=AB=C0=20S=8F=AB=D2ng?= <maskray@google.com>,
+        Ilie Halip <ilie.halip@gmail.com>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Nathan Chancellor <natechancellor@gmail.com>,
+        Masahiro Yamada <masahiroy@kernel.org>,
+        Michal Marek <michal.lkml@markovi.net>
+Subject: [PATCH] kbuild: link lib-y objects to vmlinux forcibly when CONFIG_MODULES=y
+Date: Mon,  9 Mar 2020 11:39:10 +0900
+Message-Id: <20200309023910.25370-1-masahiroy@kernel.org>
+X-Mailer: git-send-email 2.17.1
 X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=brn1anuS;       spf=softfail
+ header.i=@nifty.com header.s=dec2015msa header.b=Q5WCH5hw;       spf=softfail
  (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.83 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+ 210.131.2.74 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,82 +133,145 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Nathan,
+Kbuild supports not only obj-y but also lib-y to list objects linked to
+vmlinux.
 
-On Sun, Mar 8, 2020 at 4:34 PM Nathan Chancellor
-<natechancellor@gmail.com> wrote:
->
-> Clang's -Wpointer-to-int-cast deviates from GCC in that it warns when
-> casting to enums. The kernel does this in certain places, such as device
-> tree matches to set the version of the device being used, which allows
-> the kernel to avoid using a gigantic union.
->
-> https://elixir.bootlin.com/linux/v5.5.8/source/drivers/ata/ahci_brcm.c#L428
-> https://elixir.bootlin.com/linux/v5.5.8/source/drivers/ata/ahci_brcm.c#L402
-> https://elixir.bootlin.com/linux/v5.5.8/source/include/linux/mod_devicetable.h#L264
->
-> To avoid a ton of false positive warnings, disable this particular part
-> of the warning, which has been split off into a separate diagnostic so
-> that the entire warning does not need to be turned off for clang.
->
-> Cc: stable@vger.kernel.org
-> Link: https://github.com/ClangBuiltLinux/linux/issues/887
-> Link: https://github.com/llvm/llvm-project/commit/2a41b31fcdfcb67ab7038fc2ffb606fd50b83a84
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> ---
->  Makefile | 4 ++++
->  1 file changed, 4 insertions(+)
->
-> diff --git a/Makefile b/Makefile
-> index 86035d866f2c..90e56d5657c9 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -748,6 +748,10 @@ KBUILD_CFLAGS += -Wno-tautological-compare
->  # source of a reference will be _MergedGlobals and not on of the whitelisted names.
->  # See modpost pattern 2
->  KBUILD_CFLAGS += -mno-global-merge
-> +# clang's -Wpointer-to-int-cast warns when casting to enums, which does not match GCC.
-> +# Disable that part of the warning because it is very noisy across the kernel and does
-> +# not point out any real bugs.
-> +KBUILD_CFLAGS += $(call cc-disable-warning, pointer-to-enum-cast)
->  else
+The difference between them is that all the objects from obj-y are
+forcibly linked to vmlinux by using --whole-archive, whereas the objects
+from lib-y are linked as needed; if there is no user of a lib-y object,
+it is not linked.
 
+lib-y is intended to list utility functions that may be called from all
+over the place (and may be unused at all), but it is a problem for
+EXPORT_SYMBOL(). Even if there is no call-site in the vmlinux, we need
+to keep exported symbols for the use from loadable modules.
 
+Commit 7f2084fa55e6 ("[kbuild] handle exports in lib-y objects reliably")
+worked around it by linking a dummy object, lib-ksyms.o, which contains
+references to all the symbols exported from lib.a in that directory.
+It uses the linker script command, EXTERN. Unfortunately, the meaning of
+EXTERN of ld.lld is different from that of ld.bfd. Therefore, this does
+not work with LD=ld.lld (CBL issue #515).
 
-I'd rather want to fix all the call-sites (97 drivers?)
-instead of having -Wno-pointer-to-enum-cast forever.
+Anyway, the build rule of lib-ksyms.o is somewhat tricky. So, I want to
+get rid of it.
 
-If it is tedious to fix them all for now, can we add it
-into scripts/Makefile.extrawarn so that this is disabled
-by default, but shows up with W=1 builds?
+At first, I was thinking of accumulating lib-y objects into obj-y
+(or even replacing lib-y with obj-y entirely), but the lib-y syntax
+is used beyond the ordinary use in lib/ and arch/*/lib/.
 
-(When we fix most of them, we will be able to
-make it a real warning.)
+Examples:
 
+ - drivers/firmware/efi/libstub/Makefile builds lib.a, which is linked
+   into vmlinux in the own way (arm64), or linked to the decompressor
+   (arm, x86).
 
-What do you think?
+ - arch/alpha/lib/Makefile builds lib.a which is linked not only to
+   vmlinux, but also to bootloaders in arch/alpha/boot/Makefile.
 
-Thanks.
+ - arch/xtensa/boot/lib/Makefile builds lib.a for use from
+   arch/xtensa/boot/boot-redboot/Makefile.
 
+One more thing, adding everything to obj-y would increase the vmlinux
+size of allnoconfig (or tinyconfig).
 
+For less impact, I tweaked the destination of lib.a at the top Makefile;
+when CONFIG_MODULES=y, lib.a goes to KBUILD_VMLINUX_OBJS, which is
+forcibly linked to vmlinux, otherwise lib.a goes to KBUILD_VMLINUX_LIBS
+as before.
 
+The size impact for normal usecases is quite small since at lease one
+symbol in every lib-y object is eventually called by someone. In case
+you are intrested, here are the figures.
 
->  # These warnings generated too much noise in a regular build.
-> --
-> 2.25.1
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200308073400.23398-1-natechancellor%40gmail.com.
+x86_64_defconfig:
 
+   text	   data	    bss	    dec	    hex	filename
+19566602 5422072 1589328 26578002 1958c52 vmlinux.before
+19566932 5422104 1589328 26578364 1958dbc vmlinux.after
 
+The case with the biggest impact is allnoconfig + CONFIG_MODULES=y.
 
+ARCH=x86 allnoconfig + CONFIG_MODULES=y:
+
+   text	   data	    bss	    dec	    hex	filename
+1175162	 254740	1220608	2650510	 28718e	vmlinux.before
+1177974	 254836	1220608	2653418	 287cea	vmlinux.after
+
+Hopefully this is still not a big deal. The per-file trimming with the
+static library is not so effective after all.
+
+If fine-grained optimization is desired, some architectures support
+CONFIG_LD_DEAD_CODE_DATA_ELIMINATION, which trims dead code per-symbol
+basis. When LTO is supported in mainline, even better optimization will
+be possible.
+
+Link: https://github.com/ClangBuiltLinux/linux/issues/515
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+---
+
+ Makefile               |  7 ++++++-
+ scripts/Makefile.build | 17 -----------------
+ 2 files changed, 6 insertions(+), 18 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 86035d866f2c..07f89d2a581a 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1031,8 +1031,13 @@ init-y		:= $(patsubst %/, %/built-in.a, $(init-y))
+ core-y		:= $(patsubst %/, %/built-in.a, $(core-y))
+ drivers-y	:= $(patsubst %/, %/built-in.a, $(drivers-y))
+ net-y		:= $(patsubst %/, %/built-in.a, $(net-y))
++libs-y2		:= $(patsubst %/, %/built-in.a, $(filter %/, $(libs-y)))
++ifdef CONFIG_MODULES
++libs-y1		:= $(filter-out %/, $(libs-y))
++libs-y2		+= $(patsubst %/, %/lib.a, $(filter %/, $(libs-y)))
++else
+ libs-y1		:= $(patsubst %/, %/lib.a, $(libs-y))
+-libs-y2		:= $(patsubst %/, %/built-in.a, $(filter-out %.a, $(libs-y)))
++endif
+ virt-y		:= $(patsubst %/, %/built-in.a, $(virt-y))
+ 
+ # Externally visible symbols (used by link-vmlinux.sh)
+diff --git a/scripts/Makefile.build b/scripts/Makefile.build
+index a1730d42e5f3..356601994f3a 100644
+--- a/scripts/Makefile.build
++++ b/scripts/Makefile.build
+@@ -65,7 +65,6 @@ endif
+ 
+ ifneq ($(strip $(lib-y) $(lib-m) $(lib-)),)
+ lib-target := $(obj)/lib.a
+-real-obj-y += $(obj)/lib-ksyms.o
+ endif
+ 
+ ifdef need-builtin
+@@ -410,22 +409,6 @@ $(lib-target): $(lib-y) FORCE
+ 
+ targets += $(lib-target)
+ 
+-dummy-object = $(obj)/.lib_exports.o
+-ksyms-lds = $(dot-target).lds
+-
+-quiet_cmd_export_list = EXPORTS $@
+-cmd_export_list = $(OBJDUMP) -h $< | \
+-	sed -ne '/___ksymtab/s/.*+\([^ ]*\).*/EXTERN(\1)/p' >$(ksyms-lds);\
+-	rm -f $(dummy-object);\
+-	echo | $(CC) $(a_flags) -c -o $(dummy-object) -x assembler -;\
+-	$(LD) $(ld_flags) -r -o $@ -T $(ksyms-lds) $(dummy-object);\
+-	rm $(dummy-object) $(ksyms-lds)
+-
+-$(obj)/lib-ksyms.o: $(lib-target) FORCE
+-	$(call if_changed,export_list)
+-
+-targets += $(obj)/lib-ksyms.o
+-
+ endif
+ 
+ # NOTE:
 -- 
-Best Regards
-Masahiro Yamada
+2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNARcTHpd8fzrAhFVB_AR7NoBgenX64de0eS2uN8g0by9PQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200309023910.25370-1-masahiroy%40kernel.org.
