@@ -1,122 +1,161 @@
-Return-Path: <clang-built-linux+bncBDAMN6NI5EERBPNPTLZQKGQED72NHOY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEPBSN75UNRBRFPTLZQKGQEVOX56FI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33e.google.com (mail-wm1-x33e.google.com [IPv6:2a00:1450:4864:20::33e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3BEB117E847
-	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Mar 2020 20:23:42 +0100 (CET)
-Received: by mail-wm1-x33e.google.com with SMTP id p186sf238055wmp.0
-        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Mar 2020 12:23:42 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1583781822; cv=pass;
+Received: from mail-qv1-xf3b.google.com (mail-qv1-xf3b.google.com [IPv6:2607:f8b0:4864:20::f3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 95EA717E848
+	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Mar 2020 20:23:49 +0100 (CET)
+Received: by mail-qv1-xf3b.google.com with SMTP id k1sf6661427qvw.1
+        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Mar 2020 12:23:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1583781828; cv=pass;
         d=google.com; s=arc-20160816;
-        b=VrxFdBDCPUILS8992EtqB24Wb8dwP3uMjd6QXs7OHQaai/QKSmezP3MQpf73j4URs4
-         BYr348pFU+NZTXT/uB9nBmKXVYgS2jfWvsEdT71dtFEQrr2mzOu4rCHuVvfA+SQBqDhF
-         stysd6ZDUsQIdnuzbh/XEYfIJ61JZPulIHR7jOzQHFtf8H9DI/z8zJIIYApsLgcbuWGJ
-         8RaYYCWuDvcNoSkMi8kK1hNBzv1qkr3xiEH6lkJXEbU0G0zaRE5Dt1NK7/iQM/wYzIhd
-         EMpNShVgk6xHlZCJWxL6djrHmNXLE3g+9POuNjkCS9FSH+HOzYYGBkNp/3/Iol5R6qyz
-         6dqg==
+        b=e/Ubm7xZdmFIKDefRCmsOjrpyarusSmgpbeLf+frKCxp6rqHLIbZX8YYpXGxrSsU5R
+         eWNZh2o376/9ZMhHR7scQqvqPWKkiyzsrEzAZASDlcEfrzZVr9WLADjYwIgzQ1vWd/Pd
+         TNcKwYrIByoCPt7LQAdgOKAjy2fsQeixZxf/hpCr/SkSCBgykUzEEH7AmFpdP46Sq3Rt
+         lY4zt+LBKlPGk/5EjdtT9Xnhu+giI8bBnZufb9L09rAOz0L/1+uUsjw07XZWxA/FLSxE
+         rWFZlBIxL7/fsHeSyjNWPlndNlzK3ZfL1Bb47gcOhkp7/+9U3moxPp1uki6Bng6B/07m
+         TxFg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:sender:dkim-signature;
-        bh=LxlNg2u3m9tBZ0WCmh5ImDEnPjW7t5auB1tQI2p0ixc=;
-        b=PKBwI8VW3YGTIjADJULuy0ByiznxD+6WqMviC7kEfB/Dp02Hgj6oFpK5OrdS4R/G/x
-         9tPQLbz38jWZzletxPXjFEYvh01v9grEu+RWjapF4XjJiDaITstLpF2pczCvCDUsjx6+
-         KMg+HEFBU9Dxe3hisge48h10hCqpfvZu07rXgHYW7nQC8UqwGs+58eAXApJg8p0XA14o
-         t1Y/Lh8jRC5gbm/jt7BEAOAp12ZS1vdYSb4CBAPKgfwTBJax/cV0LJQTTSrafbNkUfNS
-         9UnCzyr2kv9G7HprWOB1ucNC3erG2648ucwuuTfcJTnZAh8w6Xz/7eRveXvNAsZIflL/
-         PyDw==
+         :list-id:mailing-list:precedence:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:date:from:sender:dkim-signature
+         :dkim-signature;
+        bh=cxLR1frC76/5rNe47/vljml7aEre8PWUr0kxlPOmA1o=;
+        b=WatX2CQEow5ZEiArsCywJrjsZ/VYqQ3f0lFcm3jj5I6xa+NbdwbTufb31fTyZfCM0+
+         shsqvm01LqVbWsD5wP61fRg8+huEZD3CKFHxks8oyGFL0nMtQC5sqHBSeIH2JPrxmwR6
+         Fi0nowVMJka5PIBDF+ylSx7kDOjk3GWXZJjes8tOwpRnDp5MFryCeEukKZgWxPKbMJeM
+         fLss62S7EWUI7g7mWNIzKrheQNop4cwhcIK0XyuuG3PzmwnJMIrFvaQ+cucE2E8tgajc
+         tDfJXC4QaknZHOq5UuVcsqilAmANIU89x94vOXw6nZxScV61AUOHnqA81+BnexpCW0sN
+         ihLw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of tglx@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tglx@linutronix.de
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Kw4d6e76;
+       spf=pass (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::f42 as permitted sender) smtp.mailfrom=arnaldo.melo@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
-         :mime-version:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=LxlNg2u3m9tBZ0WCmh5ImDEnPjW7t5auB1tQI2p0ixc=;
-        b=by3RQe0JeJC6d5mtoPltP2K9VY8fwqK9Eq9L2rj8XrKcsyV09Vc0x2OYuaZDGw4KcY
-         hKMmqALZ2s2i+9shhjQReoxGXDP6Rb9Ml5srbArlHSe3Ol/wfZRbOo9hoCX0mj3BaQgS
-         9KYFTkfCybbh1Q5gHEpgHgVOS9ehG/NhvR8Frv6biuqaY7dJIycFQ64WxAVxy8OwUwQa
-         yOoGnPFCWT9ynUu1sByrY3x4edAd/9Ugn1hY+JFJawo82aPPNjMnfNzq0tlp4hx8xEpw
-         xlGyBm89Q25uToPxwnlkzoeGdDepwN+IABYVSzJSXPOaNi9lltWC9Ti0yVJV+cnkc0Fl
-         QCDA==
+        h=sender:from:date:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=cxLR1frC76/5rNe47/vljml7aEre8PWUr0kxlPOmA1o=;
+        b=AVaYzsUEm0qm/MNLaEazmXXifGhQZJErS23+U9kPUcc7TMKqooagsq5tFHd6T33Ewo
+         zoV4HaVHKOKS+ZfaMkSXShFSp5AHGLRlXL4B3JptQ7uUNCaV3tjFeDLhHLtYnCbBlfE+
+         nIQVcKBTB4KMXMTatUuzdi7sKKKyn0i8c8IzCAIr3erC64yA9wQq6efFpmkEAUysWw+m
+         F94TsVfkKXUHd1pUXUKzwDWPXCiTv8Z7sqPJX6aJ+Vcc6JNup4UkPsj2K4BY119zMQWx
+         QZC4cpvur6ZksYuq0sh8E9nK/lcEJJf3lL5E4C0sgK+EdZGMoyDxewcMsNKEvJVPbXqu
+         mxsg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=from:date:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=cxLR1frC76/5rNe47/vljml7aEre8PWUr0kxlPOmA1o=;
+        b=lJE/IP2ilxXRB8+hv+ON01n/8RZdoDeXsV1Nyuw72ZauMIsPeNPe64Y9W8+Tc4L2zF
+         8vEXlCN48SC8cdNOPO0RrJGyI8gXnsLO3piWg24Sug6fdQVlkxPVYLPFXOd2EN6JqWlt
+         HLLlPqOCWnOOCjLjFEtX8ZH7qMuJQDtmZWTfZ3PnVSlq+xUKEsZQwe1r5dH/AgSSmsMj
+         IkXBlQqBI6gm1Vq8lz67ADwHmb00bmX48thCxN2ZKnx/bgyJUcFgL8POspNFod4w1PQY
+         ZJgd9a0mmjr8rFOzk9QHTVv2lJv6O76tX/n6jlOYRmnOHy944yjmaWOHuooOQYnaCL88
+         p8OA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
-         :date:message-id:mime-version:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=LxlNg2u3m9tBZ0WCmh5ImDEnPjW7t5auB1tQI2p0ixc=;
-        b=IDQTlWcksV/VImgTJP28g9AfNG6XEmBihanZ+tclREAGY+q+sU+lXthbeCEZj8NuOP
-         Vsyr/ukxC0vcJ6O07MN3pF2BLKUDrtWyrQeTq3OcwkMkUK0Z05VCd8tPmsyPMwIpBftM
-         ZPP2VTtSo5YN46mMvYHrRfJac0+XLDiutv5bJRmXnwVTQaacEXKus8oUlMy2HXa8/g17
-         BNzAca/ZH0xaE++2wp56T5ZjJJ6haDBh90CDddKsIWgBmc1Nypf2nRJ748JMRJhrqSyi
-         6FLETBeANdkWepjgpS0oJ4IgMxk17sQ+QxtNeszxA/x2Eackp3baxoEhRBcPw7Klpj+G
-         jJ5w==
+        h=sender:x-gm-message-state:from:date:to:cc:subject:message-id
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=cxLR1frC76/5rNe47/vljml7aEre8PWUr0kxlPOmA1o=;
+        b=GRa63T4bek6RpXyvUq8edrLTW5D68YC42cathpSkANp0tMcVhU7kVdugq1zM48uevm
+         j1oAyeg6zoJ/4ODb2Iffcsyb2NydsoBAcNYfEZHF5OIc760bTm8itljBdtqrOPql+nJg
+         bxrWU4zlRKnz2FrIW83L6Gg0Z0yaztjSE+9rRbFt6xjbo0PQuTAvqgZwMo1E7gEDHwM8
+         Z4hQxulGI0700ELkxP4Av5OdWujHYryXDy7fJ5quNMe66/fUdOXj3muOeBUq+LC2vGzi
+         TE/6PuMmTdrffgU2PF/FWgO5een+6P+HxeALc6V96wKUr73kGWX+M85aUV4bIa1FCYX4
+         avbg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ2eDXcu7ryNHnvmhocB7UdERHRu7ErdzAOPFEraIp6JOSaWOBpW
-	qF8D9MMqFv0SgnsIr54LU0w=
-X-Google-Smtp-Source: ADFU+vs2IGzfrr2oZBWDGlS79GraKH+VNHzhewSFxIhm6fukXNq17RpbJnLWvge7hZ3mhkrPpJeCUw==
-X-Received: by 2002:a7b:cb93:: with SMTP id m19mr753813wmi.133.1583781821941;
-        Mon, 09 Mar 2020 12:23:41 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ3Br8ViSIrh3NeuGkIdaujgu0k6s/Y6DgZJhGKWUekmOh5pPvw1
+	c+876YyBblllm3ITwgjjAy0=
+X-Google-Smtp-Source: ADFU+vvUDBI4T/xzz/Rk1JXwXJXrm2Wje/4HmttuG5f19Ni7gQX+f5z5YZ3IQbqscvvEnKRMim5T6w==
+X-Received: by 2002:a05:620a:84d:: with SMTP id u13mr16612793qku.94.1583781828553;
+        Mon, 09 Mar 2020 12:23:48 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:f8d1:: with SMTP id f17ls6466634wrq.3.gmail; Mon, 09 Mar
- 2020 12:23:41 -0700 (PDT)
-X-Received: by 2002:a05:6000:10c5:: with SMTP id b5mr23136754wrx.203.1583781821291;
-        Mon, 09 Mar 2020 12:23:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1583781821; cv=none;
+Received: by 2002:a37:b8b:: with SMTP id 133ls4693936qkl.0.gmail; Mon, 09 Mar
+ 2020 12:23:48 -0700 (PDT)
+X-Received: by 2002:a37:3c7:: with SMTP id 190mr16773427qkd.130.1583781828143;
+        Mon, 09 Mar 2020 12:23:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1583781828; cv=none;
         d=google.com; s=arc-20160816;
-        b=xBJE1wjtt3Oa+dvbftCpTa2yaXlyM8MtWQKTjRvcbcGMCYc/yE3eOWKvIhHNOSgwef
-         hiq0TIu5GtYt+aIXQ2/HlQoYeVxf9xK8jtloKMcqLiHMDVQRB4y3gQTrzLH+rTD0KTzS
-         jSttGXkVeelXZJUUDTu3O/f2K6VTwERIbxbLWPAHNZoe5bQogSZjsy2h3DQwf6Xx8QwV
-         g5+cez/OUyZWsLDlBiqEyQZt6UH596XeQ62bXnlBxyVLR2ZAKLMQcjXy9UlFa9sY4+wh
-         WeZHa5Up6qd3nmjwLkpoDORG/5sViu8URaTkS0Pju/xVOT/XQo50j1GquafzzKrWPNcm
-         q8/w==
+        b=pbm60JIkWfA12egXjBFuwKTb4SIiniKjfQkg+5BOhObz06HGM7snOecOqw+u+VEutm
+         GzI3wtvZmEMJY3mXAglsgc4NaCTVyN+XiqFFPIK8PTy4lO+OspyOVEtLEZMA5WbSgquE
+         qlKmpNu3DmjJZ7UZtH9x/9qWitwFnNwPFjfIQ/7GiLaKSlrtNwq/3mtLuUx9tIdTZPk1
+         tzIXReWuKb3fEsAiWFfHTCc05E1NgeV4uqO9dkCwMr+v8qVTQz1ptYo6DEhRN0Lq9FqU
+         cNfswyA4WxJY8o6A9n8065oMudb8hcplAGhc8ha5b6JwcA8pB2TOMLyRHVXXQkCU2HbB
+         wvrA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from;
-        bh=+ft+Fn9t8bWhHds5BF/w5QFLfpjsQj8LpzLIVszzuTI=;
-        b=eaELr/1GE/wpc4JGj8ek4S3dc1FlP1qIsROMifoT21gIj1NlgYbRIrBUamFE7fFHA4
-         gjgFMLZj3P0hUtLdb2gnmTHe6Yqx4IWNRQqdk3eO4T05d1eaixWSvqDh74IuXTsa4RkH
-         c+Ln5b7QnLZVd1cRPVGIen5zhKU3GJyCf+IH+o2VZFK+sD1ZqCx0vj1Yg5Ea8gOayV4v
-         AgIYuqqhrK9FXJZifXkldSsZ05PmjGDU8Ughu96E61WwyxLvJUihOFqQVnBSG//Ll617
-         bo0Oz3MQxHTkV4008bW1NC5/a4tFUz96VoB9F9T/s07eIywZzd4b2wa1vKJ+pl8DqDCV
-         bZRA==
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from
+         :dkim-signature;
+        bh=pSIEyt4pe+WfrawaMNkeNrr+5fcB3XjzVwsYTOF2ju0=;
+        b=ZLHCANgjSiLdnnp9/1wg68Q7uhtTg3gSfIwj5IlQmnXBZBEzLrtEyGtyo71froKcC9
+         sJMYcxWpnhVfq0JVUoDKeWs0ClaIFN2PML3GNBPaGwBjR81yYrAlbhRxOy5QR10sYSzp
+         atjsaa+Spg7e7nVLZtC2040nzWwGxFyFD72VMAeg8W9mp3Pz3jW4yL0lzJ+680aWC3yT
+         e0ozx31u/erS0jGkmAof7EiBVydOH/6/xKYsnubX+CREAw2nXrnT/UcoFcZ2AEpCihkr
+         t7/7Pe2oIe+DMZjwEDPJk6YNv+g+DK8gpcx6PAgn0K+RYUMpWO8eo9qpNLFFKqQ1Hiee
+         Z2dg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of tglx@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tglx@linutronix.de
-Received: from Galois.linutronix.de (Galois.linutronix.de. [2a0a:51c0:0:12e:550::1])
-        by gmr-mx.google.com with ESMTPS id d16si521361wrv.4.2020.03.09.12.23.41
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Kw4d6e76;
+       spf=pass (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::f42 as permitted sender) smtp.mailfrom=arnaldo.melo@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-qv1-xf42.google.com (mail-qv1-xf42.google.com. [2607:f8b0:4864:20::f42])
+        by gmr-mx.google.com with ESMTPS id m18si246339qtn.5.2020.03.09.12.23.48
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
-        Mon, 09 Mar 2020 12:23:41 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of tglx@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) client-ip=2a0a:51c0:0:12e:550::1;
-Received: from p5de0bf0b.dip0.t-ipconnect.de ([93.224.191.11] helo=nanos.tec.linutronix.de)
-	by Galois.linutronix.de with esmtpsa (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
-	(Exim 4.80)
-	(envelope-from <tglx@linutronix.de>)
-	id 1jBNzw-0005xU-TG; Mon, 09 Mar 2020 20:23:33 +0100
-Received: by nanos.tec.linutronix.de (Postfix, from userid 1000)
-	id 2F3E610408A; Mon,  9 Mar 2020 20:23:32 +0100 (CET)
-From: Thomas Gleixner <tglx@linutronix.de>
-To: Mark Rutland <mark.rutland@arm.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>
-Cc: Andy Lutomirski <luto@amacapital.net>, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, clang-built-linux@googlegroups.com, x86@kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will.deacon@arm.com>, Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>, Paul Burton <paul.burton@mips.com>, Andy Lutomirski <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Stephen Boyd <sboyd@kernel.org>, Mark Salyzyn <salyzyn@android.com>, Kees Cook <keescook@chromium.org>, Peter Collingbourne <pcc@google.com>, Dmitry Safonov <0x7f454c46@gmail.com>, Andrei Vagin <avagin@openvz.org>, Nick Desaulniers <ndesaulniers@google.com>
-Subject: Re: [PATCH v2 00/20] Introduce common headers
-In-Reply-To: <20200309122429.GB26309@lakrids.cambridge.arm.com>
-References: <20200306133242.26279-1-vincenzo.frascino@arm.com> <3278D604-28F1-47A1-BAB8-D8EB439995E8@amacapital.net> <b18c7ce1-0948-a9e2-2d7e-d019669a71e1@arm.com> <20200309122429.GB26309@lakrids.cambridge.arm.com>
-Date: Mon, 09 Mar 2020 20:23:32 +0100
-Message-ID: <877dzt72ob.fsf@nanos.tec.linutronix.de>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 09 Mar 2020 12:23:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::f42 as permitted sender) client-ip=2607:f8b0:4864:20::f42;
+Received: by mail-qv1-xf42.google.com with SMTP id cz10so1522560qvb.0
+        for <clang-built-linux@googlegroups.com>; Mon, 09 Mar 2020 12:23:48 -0700 (PDT)
+X-Received: by 2002:ad4:4a6e:: with SMTP id cn14mr15960454qvb.21.1583781827648;
+        Mon, 09 Mar 2020 12:23:47 -0700 (PDT)
+Received: from quaco.ghostprotocols.net ([179.97.37.151])
+        by smtp.gmail.com with ESMTPSA id c12sm1540995qtb.49.2020.03.09.12.23.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Mar 2020 12:23:46 -0700 (PDT)
+From: Arnaldo Carvalho de Melo <arnaldo.melo@gmail.com>
+Received: by quaco.ghostprotocols.net (Postfix, from userid 1000)
+	id 6E9A740009; Mon,  9 Mar 2020 16:23:43 -0300 (-03)
+Date: Mon, 9 Mar 2020 16:23:43 -0300
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
+	Clark Williams <williams@redhat.com>,
+	LKML <linux-kernel@vger.kernel.org>,
+	linux-perf-users@vger.kernel.org, Ilie Halip <ilie.halip@gmail.com>,
+	Arnaldo Carvalho de Melo <acme@redhat.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Igor Lubashev <ilubashe@akamai.com>, Jiri Olsa <jolsa@redhat.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH 3/6] perf python: Fix clang detection when using
+ CC=clang-version
+Message-ID: <20200309192343.GG477@kernel.org>
+References: <20200309185323.22583-1-acme@kernel.org>
+ <20200309185323.22583-4-acme@kernel.org>
+ <CAKwvOdm5RrdpOCMgRezLeHJ9GuocVoKqSUQGHjaCEcZdSr4AwA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-X-Linutronix-Spam-Score: -1.0
-X-Linutronix-Spam-Level: -
-X-Linutronix-Spam-Status: No , -1.0 points, 5.0 required,  ALL_TRUSTED=-1,SHORTCIRCUIT=-0.0001
-X-Original-Sender: tglx@linutronix.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: best guess record for domain of tglx@linutronix.de designates
- 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tglx@linutronix.de
+In-Reply-To: <CAKwvOdm5RrdpOCMgRezLeHJ9GuocVoKqSUQGHjaCEcZdSr4AwA@mail.gmail.com>
+X-Url: http://acmel.wordpress.com
+X-Original-Sender: arnaldo.melo@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=Kw4d6e76;       spf=pass
+ (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::f42
+ as permitted sender) smtp.mailfrom=arnaldo.melo@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,39 +168,222 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Mark Rutland <mark.rutland@arm.com> writes:
-> On Mon, Mar 09, 2020 at 11:07:08AM +0000, Vincenzo Frascino wrote:
->> On 3/6/20 4:04 PM, Andy Lutomirski wrote:
->> >> To solve the problem, I decided to use the approach below:
->> >>  * Extract from include/linux/ the vDSO required kernel interface
->> >>    and place it in include/common/
->> >=20
->> > I really like the approach, but I=E2=80=99m wondering if =E2=80=9Ccomm=
-on=E2=80=9D is the
->> > right name. This directory is headers that aren=E2=80=99t stable ABI l=
-ike
->> > uapi but are shared between the kernel and the vDSO. Regular user
->> > code should *not* include these, right?
->> >=20
->> > Would =E2=80=9Cvdso=E2=80=9D or perhaps =E2=80=9Cprivate-abi=E2=80=9D =
-be clearer?
->>=20
->> Thanks! These headers are definitely not "uapi" like and they are meant =
-to
->> evolve in future like any other kernel header. We have just to make sure=
- that
->> the evolution does not break what we are trying to achieve with this ser=
-ies.
->
-> Given we already include uapi/* headers in kernel code, I think placing
-> these in a vdso/* namespace would be fine. I think that more clearly
-> expresses the constraints on the headers than private-abi/* would.
+Em Mon, Mar 09, 2020 at 11:58:33AM -0700, Nick Desaulniers escreveu:
+> On Mon, Mar 9, 2020 at 11:53 AM Arnaldo Carvalho de Melo
+> <acme@kernel.org> wrote:
+> >
+> > From: Ilie Halip <ilie.halip@gmail.com>
+> >
+> > Currently, the setup.py script detects the clang compiler only when inv=
+oked
+> > with CC=3Dclang. But when using a specific version (e.g. CC=3Dclang-11)=
+, this
+> > doesn't work correctly and wrong compiler flags are set, leading to bui=
+ld
+> > errors.
+> >
+> > To properly detect clang, invoke the compiler with -v and check the out=
+put.
+> > The first line should start with "clang version ...".
+> >
+> > Committer testing:
+> >
+> >   $ make CC=3Dclang-9 O=3D/tmp/build/perf -C tools/perf install-bin
+> >   <SNIP>
+> >   $ readelf -wi /tmp/build/perf/python/perf.cpython-37m-x86_64-linux-gn=
+u.so | grep DW_AT_producer | head -1
+> >     <c>   DW_AT_producer    : (indirect string, offset: 0x0): clang ver=
+sion 9.0.1 (Fedora 9.0.1-2.fc31) /usr/bin/clang-9 -Wno-unused-result -Wsign=
+-compare -D DYNAMIC_ANNOTATIONS_ENABLED=3D1 -D NDEBUG -O2 -g -pipe -Wall -W=
+error=3Dformat-security -Wp,-D_FORTIFY_SOURCE=3D2 -Wp,-D_GLIBCXX_ASSERTIONS=
+ -fexceptions -fstack-protector-strong -grecord-command-line -m64 -mtune=3D=
+generic -fasynchronous-unwind-tables -fcf-protection=3Dfull -D _GNU_SOURCE =
+-fPIC -fwrapv -Wbad-function-cast -Wdeclaration-after-statement -Wformat-se=
+curity -Wformat-y2k -Winit-self -Wmissing-declarations -Wmissing-prototypes=
+ -Wnested-externs -Wno-system-headers -Wold-style-definition -Wpacked -Wred=
+undant-decls -Wstrict-prototypes -Wswitch-default -Wswitch-enum -Wundef -Ww=
+rite-strings -Wformat -Wshadow -D HAVE_ARCH_X86_64_SUPPORT -I /tmp/build/pe=
+rf/arch/x86/include/generated -D HAVE_SYSCALL_TABLE_SUPPORT -D HAVE_PERF_RE=
+GS_SUPPORT -D HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET -Werror -O3 -fno-omit-fr=
+ame-pointer -ggdb3 -funwind-tables -Wall -Wextra -std=3Dgnu99 -fstack-prote=
+ctor-all -D _FORTIFY_SOURCE=3D2 -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=
+=3D64 -D _GNU_SOURCE -I /home/acme/git/perf/tools/lib/perf/include -I /home=
+/acme/git/perf/tools/perf/util/include -I /home/acme/git/perf/tools/perf/ar=
+ch/x86/include -I /home/acme/git/perf/tools/include/ -I /home/acme/git/perf=
+/tools/arch/x86/include/uapi -I /home/acme/git/perf/tools/include/uapi -I /=
+home/acme/git/perf/tools/arch/x86/include/ -I /home/acme/git/perf/tools/arc=
+h/x86/ -I /tmp/build/perf//util -I /tmp/build/perf/ -I /home/acme/git/perf/=
+tools/perf/util -I /home/acme/git/perf/tools/perf -I /home/acme/git/perf/to=
+ols/lib/ -D HAVE_PTHREAD_ATTR_SETAFFINITY_NP -D HAVE_PTHREAD_BARRIER -D HAV=
+E_EVENTFD -D HAVE_GET_CURRENT_DIR_NAME -D HAVE_GETTID -D HAVE_DWARF_GETLOCA=
+TIONS_SUPPORT -D HAVE_GLIBC_SUPPORT -D HAVE_AIO_SUPPORT -D HAVE_SCHED_GETCP=
+U_SUPPORT -D HAVE_SETNS_SUPPORT -D HAVE_LIBELF_SUPPORT -D HAVE_LIBELF_MMAP_=
+SUPPORT -D HAVE_ELF_GETPHDRNUM_SUPPORT -D HAVE_GELF_GETNOTE_SUPPORT -D HAVE=
+_ELF_GETSHDRSTRNDX_SUPPORT -D HAVE_DWARF_SUPPORT -D HAVE_LIBBPF_SUPPORT -D =
+HAVE_BPF_PROLOGUE -D HAVE_SDT_EVENT -D HAVE_JITDUMP -D HAVE_DWARF_UNWIND_SU=
+PPORT -D NO_LIBUNWIND_DEBUG_FRAME -D HAVE_LIBUNWIND_SUPPORT -D HAVE_LIBCRYP=
+TO_SUPPORT -D HAVE_SLANG_SUPPORT -D HAVE_GTK2_SUPPORT -D NO_LIBPERL -D HAVE=
+_TIMERFD_SUPPORT -D HAVE_LIBPYTHON_SUPPORT -D HAVE_CPLUS_DEMANGLE_SUPPORT -=
+D HAVE_LIBBFD_SUPPORT -D HAVE_ZLIB_SUPPORT -D HAVE_LZMA_SUPPORT -D HAVE_ZST=
+D_SUPPORT -D HAVE_LIBCAP_SUPPORT -D HAVE_BACKTRACE_SUPPORT -D HAVE_LIBNUMA_=
+SUPPORT -D HAVE_KVM_STAT_SUPPORT -D DISASM_FOUR_ARGS_SIGNATURE -D HAVE_LIBB=
+ABELTRACE_SUPPORT -D HAVE_AUXTRACE_SUPPORT -D HAVE_JVMTI_CMLR -I /tmp/build=
+/perf/ -fPIC -I util/include -I /usr/include/python3.7m -c /home/acme/git/p=
+erf/tools/perf/util/python.c -o /tmp/build/perf/python_ext_build/tmp/home/a=
+cme/git/perf/tools/perf/util/python.o -Wbad-function-cast -Wdeclaration-aft=
+er-statement -Wformat-security -Wformat-y2k -Winit-self -Wmissing-declarati=
+ons -Wmissing-prototypes -Wnested-externs -Wno-system-headers -Wold-style-d=
+efinition -Wpacked -Wredundant-decls -Wstrict-prototypes -Wswitch-default -=
+Wswitch-enum -Wundef -Wwrite-strings -Wformat -Wshadow -D HAVE_ARCH_X86_64_=
+SUPPORT -I /tmp/build/perf/arch/x86/include/generated -D HAVE_SYSCALL_TABLE=
+_SUPPORT -D HAVE_PERF_REGS_SUPPORT -D HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET =
+-Werror -O3 -fno-omit-frame-pointer -ggdb3 -funwind-tables -Wall -Wextra -s=
+td=3Dgnu99 -fstack-protector-all -D _FORTIFY_SOURCE=3D2 -D _LARGEFILE64_SOU=
+RCE -D _FILE_OFFSET_BITS=3D64 -D _GNU_SOURCE -I /home/acme/git/perf/tools/l=
+ib/perf/include -I /home/acme/git/perf/tools/perf/util/include -I /home/acm=
+e/git/perf/tools/perf/arch/x86/include -I /home/acme/git/perf/tools/include=
+/ -I /home/acme/git/perf/tools/arch/x86/include/uapi -I /home/acme/git/perf=
+/tools/include/uapi -I /home/acme/git/perf/tools/arch/x86/include/ -I /home=
+/acme/git/perf/tools/arch/x86/ -I /tmp/build/perf//util -I /tmp/build/perf/=
+ -I /home/acme/git/perf/tools/perf/util -I /home/acme/git/perf/tools/perf -=
+I /home/acme/git/perf/tools/lib/ -D HAVE_PTHREAD_ATTR_SETAFFINITY_NP -D HAV=
+E_PTHREAD_BARRIER -D HAVE_EVENTFD -D HAVE_GET_CURRENT_DIR_NAME -D HAVE_GETT=
+ID -D HAVE_DWARF_GETLOCATIONS_SUPPORT -D HAVE_GLIBC_SUPPORT -D HAVE_AIO_SUP=
+PORT -D HAVE_SCHED_GETCPU_SUPPORT -D HAVE_SETNS_SUPPORT -D HAVE_LIBELF_SUPP=
+ORT -D HAVE_LIBELF_MMAP_SUPPORT -D HAVE_ELF_GETPHDRNUM_SUPPORT -D HAVE_GELF=
+_GETNOTE_SUPPORT -D HAVE_ELF_GETSHDRSTRNDX_SUPPORT -D HAVE_DWARF_SUPPORT -D=
+ HAVE_LIBBPF_SUPPORT -D HAVE_BPF_PROLOGUE -D HAVE_SDT_EVENT -D HAVE_JITDUMP=
+ -D HAVE_DWARF_UNWIND_SUPPORT -D NO_LIBUNWIND_DEBUG_FRAME -D HAVE_LIBUNWIND=
+_SUPPORT -D HAVE_LIBCRYPTO_SUPPORT -D HAVE_SLANG_SUPPORT -D HAVE_GTK2_SUPPO=
+RT -D NO_LIBPERL -D HAVE_TIMERFD_SUPPORT -D HAVE_LIBPYTHON_SUPPORT -D HAVE_=
+CPLUS_DEMANGLE_SUPPORT -D HAVE_LIBBFD_SUPPORT -D HAVE_ZLIB_SUPPORT -D HAVE_=
+LZMA_SUPPORT -D HAVE_ZSTD_SUPPORT -D HAVE_LIBCAP_SUPPORT -D HAVE_BACKTRACE_=
+SUPPORT -D HAVE_LIBNUMA_SUPPORT -D HAVE_KVM_STAT_SUPPORT -D DISASM_FOUR_ARG=
+S_SIGNATURE -D HAVE_LIBBABELTRACE_SUPPORT -D HAVE_AUXTRACE_SUPPORT -D HAVE_=
+JVMTI_CMLR -I /tmp/build/perf/ -fno-strict-aliasing -Wno-write-strings -Wno=
+-unused-parameter -Wno-redundant-decls
+>=20
+> Sorry for not speaking up sooner, but if you don't want to include
+> that mass of command line options above, I generally check which
+> toolchain has been used to produce a binary via:
+> $ readelf --string-dump=3D.comment <foo>
+> which may be more concise, but sometimes we strip out the `.comment`
+> section from binaries.
 
-Yes, that makes most sense.
+Well, this doesn't produce what I needed, see:
 
-Thanks,
+[root@five ~]# readelf --string-dump=3D.comment /tmp/build/perf/python/perf=
+.cpython-37m-x86_64-linux-gnu.so
 
-        tglx
+String dump of section '.comment':
+  [     0]  GCC: (GNU) 9.2.1 20190827 (Red Hat 9.2.1-1)
+
+[root@five ~]#
+
+See the part below, where I need to look at what compiler flags were
+used to build the python build, like -fcf-protection.
+
+- Arnaldo
+
+=20
+> >   $
+> >
+> > And here is how tools/perf/util/setup.py checks if the used clang has
+> > options that the distro specific python extension building compiler
+> > defaults:
+> >
+> >   if cc_is_clang:
+> >       from distutils.sysconfig import get_config_vars
+> >       vars =3D get_config_vars()
+> >       for var in ('CFLAGS', 'OPT'):
+> >           vars[var] =3D sub("-specs=3D[^ ]+", "", vars[var])
+> >           if not clang_has_option("-mcet"):
+> >               vars[var] =3D sub("-mcet", "", vars[var])
+> >           if not clang_has_option("-fcf-protection"):
+> >               vars[var] =3D sub("-fcf-protection", "", vars[var])
+> >           if not clang_has_option("-fstack-clash-protection"):
+> >               vars[var] =3D sub("-fstack-clash-protection", "", vars[va=
+r])
+> >           if not clang_has_option("-fstack-protector-strong"):
+> >               vars[var] =3D sub("-fstack-protector-strong", "", vars[va=
+r])
+> >
+> > So "-fcf-protection=3Dfull" is used, clang-9 has this option and thus i=
+t
+> > was kept, the perf python extension was built with it and the build
+> > completed successfully.
+> >
+> > Link: https://github.com/ClangBuiltLinux/linux/issues/903
+> > Signed-off-by: Ilie Halip <ilie.halip@gmail.com>
+> > Tested-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+> > Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+> > Cc: Igor Lubashev <ilubashe@akamai.com>
+> > Cc: Jiri Olsa <jolsa@redhat.com>
+> > Cc: Mark Rutland <mark.rutland@arm.com>
+> > Cc: Namhyung Kim <namhyung@kernel.org>
+> > Cc: Peter Zijlstra <peterz@infradead.org>
+> > Cc: clang-built-linux@googlegroups.com
+> > Link: http://lore.kernel.org/lkml/20200309085618.14307-1-ilie.halip@gma=
+il.com
+> > Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+> > ---
+> >  tools/perf/util/setup.py | 10 ++++++----
+> >  1 file changed, 6 insertions(+), 4 deletions(-)
+> >
+> > diff --git a/tools/perf/util/setup.py b/tools/perf/util/setup.py
+> > index aa344a163eaf..8a065a6f9713 100644
+> > --- a/tools/perf/util/setup.py
+> > +++ b/tools/perf/util/setup.py
+> > @@ -2,11 +2,13 @@ from os import getenv
+> >  from subprocess import Popen, PIPE
+> >  from re import sub
+> >
+> > +cc =3D getenv("CC")
+> > +cc_is_clang =3D b"clang version" in Popen([cc, "-v"], stderr=3DPIPE).s=
+tderr.readline()
+> > +
+> >  def clang_has_option(option):
+> > -    return [o for o in Popen(['clang', option], stderr=3DPIPE).stderr.=
+readlines() if b"unknown argument" in o] =3D=3D [ ]
+> > +    return [o for o in Popen([cc, option], stderr=3DPIPE).stderr.readl=
+ines() if b"unknown argument" in o] =3D=3D [ ]
+> >
+> > -cc =3D getenv("CC")
+> > -if cc =3D=3D "clang":
+> > +if cc_is_clang:
+> >      from distutils.sysconfig import get_config_vars
+> >      vars =3D get_config_vars()
+> >      for var in ('CFLAGS', 'OPT'):
+> > @@ -40,7 +42,7 @@ class install_lib(_install_lib):
+> >  cflags =3D getenv('CFLAGS', '').split()
+> >  # switch off several checks (need to be at the end of cflags list)
+> >  cflags +=3D ['-fno-strict-aliasing', '-Wno-write-strings', '-Wno-unuse=
+d-parameter', '-Wno-redundant-decls' ]
+> > -if cc !=3D "clang":
+> > +if not cc_is_clang:
+> >      cflags +=3D ['-Wno-cast-function-type' ]
+> >
+> >  src_perf  =3D getenv('srctree') + '/tools/perf'
+> > --
+> > 2.21.1
+> >
+> > --
+> > You received this message because you are subscribed to the Google Grou=
+ps "Clang Built Linux" group.
+> > To unsubscribe from this group and stop receiving emails from it, send =
+an email to clang-built-linux+unsubscribe@googlegroups.com.
+> > To view this discussion on the web visit https://groups.google.com/d/ms=
+gid/clang-built-linux/20200309185323.22583-4-acme%40kernel.org.
+>=20
+>=20
+>=20
+> --=20
+> Thanks,
+> ~Nick Desaulniers
+
+--=20
+
+- Arnaldo
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -169,4 +391,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/877dzt72ob.fsf%40nanos.tec.linutronix.de.
+clang-built-linux/20200309192343.GG477%40kernel.org.
