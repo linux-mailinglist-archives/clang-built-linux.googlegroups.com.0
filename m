@@ -1,106 +1,105 @@
-Return-Path: <clang-built-linux+bncBDZ7JWMQ2EGBBO5BTLZQKGQEXMV5MDQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDZ7JWMQ2EGBBQFBTLZQKGQEXZ5LGYQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103a.google.com (mail-pj1-x103a.google.com [IPv6:2607:f8b0:4864:20::103a])
-	by mail.lfdr.de (Postfix) with ESMTPS id C7B7C17E793
-	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Mar 2020 19:53:48 +0100 (CET)
-Received: by mail-pj1-x103a.google.com with SMTP id i3sf196799pjx.8
-        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Mar 2020 11:53:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1583780027; cv=pass;
+Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
+	by mail.lfdr.de (Postfix) with ESMTPS id CBF2C17E798
+	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Mar 2020 19:53:53 +0100 (CET)
+Received: by mail-oi1-x23b.google.com with SMTP id u129sf6161358oia.10
+        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Mar 2020 11:53:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1583780032; cv=pass;
         d=google.com; s=arc-20160816;
-        b=z5GtNevNhtMuGaKlp30uix2tvJ3+4QF8C2+curpL96ExiNAiJ2usb+abjiBTBpuVYo
-         41xQyGka/BtN1MPyQX9gBT4SVCbZakyaHdsaysBaBFbPGga5f9tzGNlcr1i0RKE5XUOz
-         doDT8q37H9cg0LtSvknp5QYYklmSG7FQgcxx37qDTKpq2v9oRtv5HfvSznXZM+tvR9mS
-         R/plT5WWmnI8s9f5uqXyyOnyX0AghGXXQXQ/IPn7mUvSIPtYFeTe+ymW8xh7LBNvDAds
-         vfDSqEI9biov3nRGhoT5+o6URjrk060SZbfVdr0k6LKzhCEHpnT8Po+2e7RXV3AveuVU
-         u7GA==
+        b=OKsI10IvW95/TCZijOb5XUPSa3sTB/YdCZntPCPNZixUsrCREQwg1FmeSVXNKEkQzU
+         j47tZdEwyYXQvIlwYsdqTyQK8euazYrrk66+JPPT2HhdctgG8J5TxtkDfU57CisMKy+3
+         RNin9RTvXO5cnJWHF4iUXAoRikpY/amBCqSvve4il2efPAppQ37VmzoNYhg2rLiYL/kq
+         8FOg9dNmatIz7jqsfTS3jKpe8adOqa9xki/wj0eSAhimMkhBeRIAk8daQenXgwkq3DmT
+         mvllKR2xA2vpOuo+O5u4HAWO04jTQ/QPH27C4b6/AKw79Jmx+O2hfrHY4X6+mfvWRfvT
+         0LDw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:sender:dkim-signature;
-        bh=Z48wHhgwkMK6kUJHn7Zt2Ah/s+lRf6ISd6fpoRxCSYY=;
-        b=xQhVODTfXS1elok1oPEayMyQ45LzfeSa2y0d3wb5wwyhe6qG48/SivcT7FEjK/Lf6p
-         0di1Lhqh7OI415boQhnrRzlNSQEyRAVNUgl/PBe8Xk9cm+cgdxKxBskumF+vLV5xe5nB
-         UT6Eu1PBZyuihglwITendKUhkbgps6JyKOtLK4tgqsw2VL5gNGL0IptwDPLFNi5X8yTv
-         32ksyqPP0L96Vu7mIH0SU9nOOXj2YCz0G6aeHXEW7LWvnoR/JRH+LJxoFIW4qXamx1h+
-         8aMTloX91e65Lhc6lfYrM0XBejwAC6uS3N/ZZeerEvokjtFNbeq7rwbLnnXjDEcD+sGe
-         m60A==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=DK/ylClMQw1mI7Gj4xwCaXvGIr+yb8qEtpmZ72V75Mk=;
+        b=D5sp7c/+zsUhF+x40TU3KniEgkkyjEIDpvMn298ZTmi0Nw5MY4GZa4woCMA6bQyQJm
+         NcqSPx+2NnDkPKJyRAp3MwgbYbf1WhAhKD5SegVbiWw4I1EVH6L7BeQwD69/+eWfUoB+
+         wjH17uEvbu7m5ZMV9qbmE2lP7uBqCElBVfWh2CSVqYkro38J1i7ba1ZoLmsOgBdFv/4n
+         ydTuUyTLWMferbjnbXh8gOUbOQkCl85JGPpisnCdYonvmvFVljy+G5PuDcbNrVMNsqbD
+         o1ofPzcSaTpy2TT5fM7ZjB0Z+gdo8ENT89CHlV2wn5Fp60KCdVs6i3Z2fyXtxmkr0t2E
+         viKQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=fWFjQDXz;
+       dkim=pass header.i=@kernel.org header.s=default header.b=RUJjk4XD;
        spf=pass (google.com: domain of acme@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=acme@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Z48wHhgwkMK6kUJHn7Zt2Ah/s+lRf6ISd6fpoRxCSYY=;
-        b=YNwfG6LFMMxTO8jjHZ8HmlAapnlWf1Cn2jVKWyRNdBN79CVFeRT0qUlYID5b10h3H3
-         0I/lYByDrLaXQwjFXutDMTMyLHdx3zsIkEaNAJeW/nRCHvhE0xZMLLuMnAgpp2kJOKOW
-         k7lVpHStbwJloKgyCVPhSiV0ohXmJ1YZ1oAj1Rv7zeLb6t17IGXe0TdYhe/pQ/EnpRqd
-         CiOloJhuhshq3uFiCexyvJUf4suEEj3OuLO7tr/MhsXHeI9plsh/C2OIR5geIP275L7b
-         DDJfdS3eFl5n3+j66zwqf+51tQyf29kDGqI+z92FzXFmPhdocV1W5K2VrNKEX/pAw80K
-         ADPA==
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=DK/ylClMQw1mI7Gj4xwCaXvGIr+yb8qEtpmZ72V75Mk=;
+        b=Xiuq+L4ALwpeyOECR3tB29pRdqw5v6sS0rkzlcD7OmXukT9HX/0sqTwYK2fvsK4/8a
+         b1MN+mfugfWCz6ooR5va4bEwXu49czuPQzqJXGCyBsduTR+agYkWRs6ebQxpBiOWTPn+
+         Qvg94Qhdb4djIpcumVv0SequnUeOU4xlsvIbDCx/B3lFaKlGj2mxOkIr6nnjiwgifAMD
+         XpL5XI3Hoz6PqEyna2XuhboXWTA6oMhPwG8zPks2A9MfECyeXyQzLo0rspCGNMMj16gl
+         bS3g0avVE6+0F5Mf2ML1AwfU55g1/nvz3E4JcDEXUCqeAExKcsp05hogu6TtbzRM8YYr
+         LTzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=Z48wHhgwkMK6kUJHn7Zt2Ah/s+lRf6ISd6fpoRxCSYY=;
-        b=TfHH1adSf5tUKsnUSWWBP/wbLpLXAOIuZPZhCINZNxLPQDGZaXwlXCeUYVJRQHCyUj
-         D6WiGzyOj+sGvmj78oPG7HgUOuKPzIR30o9VbYvVC9X4PaOj+zthzYuPB80Egt2luNMl
-         X35Wvbxaf+S7XTgmMaJIC6zrAi/P8y5CgMmXK7j3Bw7c+hZn4D7+LEPgCzAAxwo3MCAg
-         w9yKFW/V2BkwXw+OoIaci2aEFlYeAisbnBIsMpQuu/qcla9o4Ze2HO9/OrnvbXxabJ08
-         7YkkUiJ5/xfuSdkh3RnRX0l+Bz/vqkQx+6P7STEEg4HeTeMNVSArJC6boHxxMtPW2z6z
-         wigQ==
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=DK/ylClMQw1mI7Gj4xwCaXvGIr+yb8qEtpmZ72V75Mk=;
+        b=Pm3E8mTDPQGZRoeYrQntk0XZW2wHJ5p+T7fylradvmFuhxyXE/4prIuj9eNbZMdLsZ
+         XtjKngUcoYoMi37C+kPDTy6JcOtTF3QUFfF89jtEZs4cC8Ye17a/V2F50Nzy1NWTNBzP
+         vP1/aYhIiEbRSfAg6/EaHsYBGRCJ4V6Vx0syYAxhMmtesUh0g/Yfo0dIFtmhbslZ2rXa
+         yf0cY+w3487tFN9G+PUMyo5pxPxVO7d9q9Mi3gyRiPFUDXTUf9clgFrYeOgx5F+Ks1b5
+         UEuqky640qOuKld2OlZ3y5rvKAJ8j8AbIjJXPAMUY4VW9mqyjX1+eWxPC6a103NL9GCW
+         Yu2A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ1oyU9sZMwKDAga1/CN1tHYQPnZSyLH9tx+4Gxksvblmn3mPnf3
-	fjPh9rHS+8GBtgXqiNv02Zc=
-X-Google-Smtp-Source: ADFU+vulabKthQK/G7zyD/XxY5xfxvKBoDKHC2vc9b1B+SoCqNxcnpqoLvQl/IRNYugXo87u8QkUHw==
-X-Received: by 2002:a17:902:788b:: with SMTP id q11mr17348199pll.44.1583780027351;
-        Mon, 09 Mar 2020 11:53:47 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ2e+xHijXtKvRKr/f3EkM28nMaUNkjadRS5o6vuGAl1H8/8yxTL
+	x3GLDr2j3vN6qdyUIHBxuyo=
+X-Google-Smtp-Source: ADFU+vvEuCqnfFpD3LfwXyPJJI/UE9uJnKyEvc/hjNBnUy8nhDJnpdRVoMZtP07/eJGx3gXz63h7Rw==
+X-Received: by 2002:a9d:2028:: with SMTP id n37mr14619530ota.127.1583780032225;
+        Mon, 09 Mar 2020 11:53:52 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:7618:: with SMTP id k24ls1138886pll.4.gmail; Mon, 09
- Mar 2020 11:53:46 -0700 (PDT)
-X-Received: by 2002:a17:90b:14c:: with SMTP id em12mr812069pjb.22.1583780026850;
-        Mon, 09 Mar 2020 11:53:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1583780026; cv=none;
+Received: by 2002:a05:6830:164e:: with SMTP id h14ls3560957otr.2.gmail; Mon,
+ 09 Mar 2020 11:53:51 -0700 (PDT)
+X-Received: by 2002:a9d:4787:: with SMTP id b7mr667183otf.323.1583780031807;
+        Mon, 09 Mar 2020 11:53:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1583780031; cv=none;
         d=google.com; s=arc-20160816;
-        b=Mxv1p9lANZpAuYDe7WZXGpoep1SpPFQTKpAAvmQM3D2KEHoXmNAdyNVXaNwzFSST/j
-         UVY7eIDHP/7qay5X17tfOLgO0pDMzyjmk79p5KOkNwzou+t26LAUHO4kn0LT/LKH6Ryw
-         19Z4czAHNaE6UUjtb3bR9eaK+1NMswNSeSLWOFRZuvzCdEm2m8eoq0meWybfvjsoax+L
-         9nIbBB7Uh45oIkAfzP81DLZFAx0lDFbBBUgBYoSIFEkYSEv2uU1BLIz3ayj0QmoB2QW4
-         y2Mj1XjhoRDHowYqV9ut4s5pFtgqzZhHfYXm/ivArEa0Wkp700Bdh0uLEGFEOh56HaLi
-         UxXw==
+        b=AduLEhQSoXc0AvMto4CI5iaR2A1zr73zRiNDZz1hRIWiDTpDf4EA72UFGV7q5dflRD
+         1or4AuYXxHf72sHRqypihn9k7ZQxJ6Fb1nVI6YY+flzOUGbzXcElPl0Zo35N5rpogR6R
+         V1nKrdfUl7HBF3mmgYgd51XWnBDBUODz92/v5/QDxL1TOZhzyoL2dXd+N5txEKy1c70T
+         9rrQ+rQRlv90r/hHKQjKRqa9nZFLMyxrYJGGxrAshCUPcVFzxn6EDFxTsFFQ6QaKuUVn
+         7Xz7e9Mzg3T3g0yQ1Z1WMsDZ2nnexYr+pmZrX9wT0UBM8HEXNo/3B4bMrB+r1WMmrigD
+         WWuA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=I8jtAw8CBvq/R8zpcGr8aSpjKM1yqW5hDXQsF4PEEc4=;
-        b=aMoPvnNziB2hGouzY1OCmqhoihvtvK8lnsIbcSlBT9PwpCeUfHvbYSOwkjwzf9Db7W
-         Vg0icVAeSJrPw5alJF5LBTS2CLSZSJpetdWPCstnEpoLotQMYs33Bp1VWYRLvGNY8C1O
-         TpzAy+SMnuxBS3qZ3FzIF/ghGgJ/4b4z2g0RJ6/JCL2k6ADEvscD98QluixfoezjFrpz
-         GA7y/OL8HF7t8ev3nGlIuQ6iAQsw8RwGnvJaR/Ua9P0GAa2SapxHwfwcWuZFyHXqKL1z
-         2j0xWQuiEhU9QIRuNy4Y9kgpSU2ddStIWfbthkUJ56+MwVt7mC/SShoEN3ASr9KXQYWW
-         T/eg==
+        bh=Ojuk2EG7IlJynOwCTUDOT7YPTrNTUjKTt3YGce6yoZw=;
+        b=eTOnX1kwAkJP+ZVAEXlal0UGiZZsoJXKTugrmtQyk+epOatyvZpcvWBxZS/i9bVACO
+         IjsYuvWUUuJUO6gW2xz8540MJ1xYTUs+xdviuLt6UIBhF+PIRl5ZI3glTxf96chS2SHO
+         OGWHnXE2/xWQn/HICqp8/IDfymV7f6XU/afDKPJBfnryYdTW/XAY8f/ijBKwLVyQWZHY
+         xDi+ESjOlsgxZgjhZidk1IC8SqhSk2Yuzsp7dRY8NjFcDTjbl6srIQyDXnprai7MsYbV
+         Yl7NaJqogUQ1ELVqemkGu0xZeNt/cNbF5Tld3ASW68mUhsEqqSHSm7rmBBgUx0Zsq/Z1
+         klJg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=fWFjQDXz;
+       dkim=pass header.i=@kernel.org header.s=default header.b=RUJjk4XD;
        spf=pass (google.com: domain of acme@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=acme@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id q19si698317pgt.0.2020.03.09.11.53.46
+        by gmr-mx.google.com with ESMTPS id m132si260949oig.3.2020.03.09.11.53.51
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 09 Mar 2020 11:53:46 -0700 (PDT)
+        Mon, 09 Mar 2020 11:53:51 -0700 (PDT)
 Received-SPF: pass (google.com: domain of acme@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from quaco.ghostprotocols.net (unknown [179.97.37.151])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 2FCF220663;
-	Mon,  9 Mar 2020 18:53:42 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 207FB222C3;
+	Mon,  9 Mar 2020 18:53:46 +0000 (UTC)
 From: Arnaldo Carvalho de Melo <acme@kernel.org>
 To: Ingo Molnar <mingo@kernel.org>,
 	Thomas Gleixner <tglx@linutronix.de>
@@ -109,25 +108,26 @@ Cc: Jiri Olsa <jolsa@kernel.org>,
 	Clark Williams <williams@redhat.com>,
 	linux-kernel@vger.kernel.org,
 	linux-perf-users@vger.kernel.org,
-	Ilie Halip <ilie.halip@gmail.com>,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Igor Lubashev <ilubashe@akamai.com>,
-	Jiri Olsa <jolsa@redhat.com>,
+	Andi Kleen <ak@linux.intel.com>,
+	Leo Yan <leo.yan@linaro.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Peter Zijlstra <peterz@infradead.org>,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH 3/6] perf python: Fix clang detection when using CC=clang-version
-Date: Mon,  9 Mar 2020 15:53:20 -0300
-Message-Id: <20200309185323.22583-4-acme@kernel.org>
+	Stephane Eranian <eranian@google.com>,
+	clang-built-linux@googlegroups.com,
+	Arnaldo Carvalho de Melo <acme@redhat.com>
+Subject: [PATCH 4/6] perf parse-events: Fix reading of invalid memory in event parsing
+Date: Mon,  9 Mar 2020 15:53:21 -0300
+Message-Id: <20200309185323.22583-5-acme@kernel.org>
 X-Mailer: git-send-email 2.21.1
 In-Reply-To: <20200309185323.22583-1-acme@kernel.org>
 References: <20200309185323.22583-1-acme@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 X-Original-Sender: acme@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=fWFjQDXz;       spf=pass
+ header.i=@kernel.org header.s=default header.b=RUJjk4XD;       spf=pass
  (google.com: domain of acme@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=acme@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -144,175 +144,164 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Ilie Halip <ilie.halip@gmail.com>
+From: Ian Rogers <irogers@google.com>
 
-Currently, the setup.py script detects the clang compiler only when invoked
-with CC=3Dclang. But when using a specific version (e.g. CC=3Dclang-11), th=
-is
-doesn't work correctly and wrong compiler flags are set, leading to build
-errors.
+ADD_CONFIG_TERM accesses term->weak, however, in get_config_chgs this
+value is accessed outside of the list_for_each_entry and references
+invalid memory. Add an argument for ADD_CONFIG_TERM for weak and set it
+to false in the get_config_chgs case.
 
-To properly detect clang, invoke the compiler with -v and check the output.
-The first line should start with "clang version ...".
+This bug was cause by clang's address sanitizer and libfuzzer. It can be
+reproduced with a command line of:
 
-Committer testing:
+  perf stat -a -e i/bs,tsc,L2/o
 
-  $ make CC=3Dclang-9 O=3D/tmp/build/perf -C tools/perf install-bin
-  <SNIP>
-  $ readelf -wi /tmp/build/perf/python/perf.cpython-37m-x86_64-linux-gnu.so=
- | grep DW_AT_producer | head -1
-    <c>   DW_AT_producer    : (indirect string, offset: 0x0): clang version=
- 9.0.1 (Fedora 9.0.1-2.fc31) /usr/bin/clang-9 -Wno-unused-result -Wsign-com=
-pare -D DYNAMIC_ANNOTATIONS_ENABLED=3D1 -D NDEBUG -O2 -g -pipe -Wall -Werro=
-r=3Dformat-security -Wp,-D_FORTIFY_SOURCE=3D2 -Wp,-D_GLIBCXX_ASSERTIONS -fe=
-xceptions -fstack-protector-strong -grecord-command-line -m64 -mtune=3Dgene=
-ric -fasynchronous-unwind-tables -fcf-protection=3Dfull -D _GNU_SOURCE -fPI=
-C -fwrapv -Wbad-function-cast -Wdeclaration-after-statement -Wformat-securi=
-ty -Wformat-y2k -Winit-self -Wmissing-declarations -Wmissing-prototypes -Wn=
-ested-externs -Wno-system-headers -Wold-style-definition -Wpacked -Wredunda=
-nt-decls -Wstrict-prototypes -Wswitch-default -Wswitch-enum -Wundef -Wwrite=
--strings -Wformat -Wshadow -D HAVE_ARCH_X86_64_SUPPORT -I /tmp/build/perf/a=
-rch/x86/include/generated -D HAVE_SYSCALL_TABLE_SUPPORT -D HAVE_PERF_REGS_S=
-UPPORT -D HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET -Werror -O3 -fno-omit-frame-=
-pointer -ggdb3 -funwind-tables -Wall -Wextra -std=3Dgnu99 -fstack-protector=
--all -D _FORTIFY_SOURCE=3D2 -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=3D6=
-4 -D _GNU_SOURCE -I /home/acme/git/perf/tools/lib/perf/include -I /home/acm=
-e/git/perf/tools/perf/util/include -I /home/acme/git/perf/tools/perf/arch/x=
-86/include -I /home/acme/git/perf/tools/include/ -I /home/acme/git/perf/too=
-ls/arch/x86/include/uapi -I /home/acme/git/perf/tools/include/uapi -I /home=
-/acme/git/perf/tools/arch/x86/include/ -I /home/acme/git/perf/tools/arch/x8=
-6/ -I /tmp/build/perf//util -I /tmp/build/perf/ -I /home/acme/git/perf/tool=
-s/perf/util -I /home/acme/git/perf/tools/perf -I /home/acme/git/perf/tools/=
-lib/ -D HAVE_PTHREAD_ATTR_SETAFFINITY_NP -D HAVE_PTHREAD_BARRIER -D HAVE_EV=
-ENTFD -D HAVE_GET_CURRENT_DIR_NAME -D HAVE_GETTID -D HAVE_DWARF_GETLOCATION=
-S_SUPPORT -D HAVE_GLIBC_SUPPORT -D HAVE_AIO_SUPPORT -D HAVE_SCHED_GETCPU_SU=
-PPORT -D HAVE_SETNS_SUPPORT -D HAVE_LIBELF_SUPPORT -D HAVE_LIBELF_MMAP_SUPP=
-ORT -D HAVE_ELF_GETPHDRNUM_SUPPORT -D HAVE_GELF_GETNOTE_SUPPORT -D HAVE_ELF=
-_GETSHDRSTRNDX_SUPPORT -D HAVE_DWARF_SUPPORT -D HAVE_LIBBPF_SUPPORT -D HAVE=
-_BPF_PROLOGUE -D HAVE_SDT_EVENT -D HAVE_JITDUMP -D HAVE_DWARF_UNWIND_SUPPOR=
-T -D NO_LIBUNWIND_DEBUG_FRAME -D HAVE_LIBUNWIND_SUPPORT -D HAVE_LIBCRYPTO_S=
-UPPORT -D HAVE_SLANG_SUPPORT -D HAVE_GTK2_SUPPORT -D NO_LIBPERL -D HAVE_TIM=
-ERFD_SUPPORT -D HAVE_LIBPYTHON_SUPPORT -D HAVE_CPLUS_DEMANGLE_SUPPORT -D HA=
-VE_LIBBFD_SUPPORT -D HAVE_ZLIB_SUPPORT -D HAVE_LZMA_SUPPORT -D HAVE_ZSTD_SU=
-PPORT -D HAVE_LIBCAP_SUPPORT -D HAVE_BACKTRACE_SUPPORT -D HAVE_LIBNUMA_SUPP=
-ORT -D HAVE_KVM_STAT_SUPPORT -D DISASM_FOUR_ARGS_SIGNATURE -D HAVE_LIBBABEL=
-TRACE_SUPPORT -D HAVE_AUXTRACE_SUPPORT -D HAVE_JVMTI_CMLR -I /tmp/build/per=
-f/ -fPIC -I util/include -I /usr/include/python3.7m -c /home/acme/git/perf/=
-tools/perf/util/python.c -o /tmp/build/perf/python_ext_build/tmp/home/acme/=
-git/perf/tools/perf/util/python.o -Wbad-function-cast -Wdeclaration-after-s=
-tatement -Wformat-security -Wformat-y2k -Winit-self -Wmissing-declarations =
--Wmissing-prototypes -Wnested-externs -Wno-system-headers -Wold-style-defin=
-ition -Wpacked -Wredundant-decls -Wstrict-prototypes -Wswitch-default -Wswi=
-tch-enum -Wundef -Wwrite-strings -Wformat -Wshadow -D HAVE_ARCH_X86_64_SUPP=
-ORT -I /tmp/build/perf/arch/x86/include/generated -D HAVE_SYSCALL_TABLE_SUP=
-PORT -D HAVE_PERF_REGS_SUPPORT -D HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET -Wer=
-ror -O3 -fno-omit-frame-pointer -ggdb3 -funwind-tables -Wall -Wextra -std=
-=3Dgnu99 -fstack-protector-all -D _FORTIFY_SOURCE=3D2 -D _LARGEFILE64_SOURC=
-E -D _FILE_OFFSET_BITS=3D64 -D _GNU_SOURCE -I /home/acme/git/perf/tools/lib=
-/perf/include -I /home/acme/git/perf/tools/perf/util/include -I /home/acme/=
-git/perf/tools/perf/arch/x86/include -I /home/acme/git/perf/tools/include/ =
--I /home/acme/git/perf/tools/arch/x86/include/uapi -I /home/acme/git/perf/t=
-ools/include/uapi -I /home/acme/git/perf/tools/arch/x86/include/ -I /home/a=
-cme/git/perf/tools/arch/x86/ -I /tmp/build/perf//util -I /tmp/build/perf/ -=
-I /home/acme/git/perf/tools/perf/util -I /home/acme/git/perf/tools/perf -I =
-/home/acme/git/perf/tools/lib/ -D HAVE_PTHREAD_ATTR_SETAFFINITY_NP -D HAVE_=
-PTHREAD_BARRIER -D HAVE_EVENTFD -D HAVE_GET_CURRENT_DIR_NAME -D HAVE_GETTID=
- -D HAVE_DWARF_GETLOCATIONS_SUPPORT -D HAVE_GLIBC_SUPPORT -D HAVE_AIO_SUPPO=
-RT -D HAVE_SCHED_GETCPU_SUPPORT -D HAVE_SETNS_SUPPORT -D HAVE_LIBELF_SUPPOR=
-T -D HAVE_LIBELF_MMAP_SUPPORT -D HAVE_ELF_GETPHDRNUM_SUPPORT -D HAVE_GELF_G=
-ETNOTE_SUPPORT -D HAVE_ELF_GETSHDRSTRNDX_SUPPORT -D HAVE_DWARF_SUPPORT -D H=
-AVE_LIBBPF_SUPPORT -D HAVE_BPF_PROLOGUE -D HAVE_SDT_EVENT -D HAVE_JITDUMP -=
-D HAVE_DWARF_UNWIND_SUPPORT -D NO_LIBUNWIND_DEBUG_FRAME -D HAVE_LIBUNWIND_S=
-UPPORT -D HAVE_LIBCRYPTO_SUPPORT -D HAVE_SLANG_SUPPORT -D HAVE_GTK2_SUPPORT=
- -D NO_LIBPERL -D HAVE_TIMERFD_SUPPORT -D HAVE_LIBPYTHON_SUPPORT -D HAVE_CP=
-LUS_DEMANGLE_SUPPORT -D HAVE_LIBBFD_SUPPORT -D HAVE_ZLIB_SUPPORT -D HAVE_LZ=
-MA_SUPPORT -D HAVE_ZSTD_SUPPORT -D HAVE_LIBCAP_SUPPORT -D HAVE_BACKTRACE_SU=
-PPORT -D HAVE_LIBNUMA_SUPPORT -D HAVE_KVM_STAT_SUPPORT -D DISASM_FOUR_ARGS_=
-SIGNATURE -D HAVE_LIBBABELTRACE_SUPPORT -D HAVE_AUXTRACE_SUPPORT -D HAVE_JV=
-MTI_CMLR -I /tmp/build/perf/ -fno-strict-aliasing -Wno-write-strings -Wno-u=
-nused-parameter -Wno-redundant-decls
-  $
-
-And here is how tools/perf/util/setup.py checks if the used clang has
-options that the distro specific python extension building compiler
-defaults:
-
-  if cc_is_clang:
-      from distutils.sysconfig import get_config_vars
-      vars =3D get_config_vars()
-      for var in ('CFLAGS', 'OPT'):
-          vars[var] =3D sub("-specs=3D[^ ]+", "", vars[var])
-          if not clang_has_option("-mcet"):
-              vars[var] =3D sub("-mcet", "", vars[var])
-          if not clang_has_option("-fcf-protection"):
-              vars[var] =3D sub("-fcf-protection", "", vars[var])
-          if not clang_has_option("-fstack-clash-protection"):
-              vars[var] =3D sub("-fstack-clash-protection", "", vars[var])
-          if not clang_has_option("-fstack-protector-strong"):
-              vars[var] =3D sub("-fstack-protector-strong", "", vars[var])
-
-So "-fcf-protection=3Dfull" is used, clang-9 has this option and thus it
-was kept, the perf python extension was built with it and the build
-completed successfully.
-
-Link: https://github.com/ClangBuiltLinux/linux/issues/903
-Signed-off-by: Ilie Halip <ilie.halip@gmail.com>
-Tested-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+Signed-off-by: Ian Rogers <irogers@google.com>
+Acked-by: Jiri Olsa <jolsa@kernel.org>
+Cc: Adrian Hunter <adrian.hunter@intel.com>
 Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: Igor Lubashev <ilubashe@akamai.com>
-Cc: Jiri Olsa <jolsa@redhat.com>
+Cc: Andi Kleen <ak@linux.intel.com>
+Cc: Leo Yan <leo.yan@linaro.org>
 Cc: Mark Rutland <mark.rutland@arm.com>
 Cc: Namhyung Kim <namhyung@kernel.org>
 Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Stephane Eranian <eranian@google.com>
 Cc: clang-built-linux@googlegroups.com
-Link: http://lore.kernel.org/lkml/20200309085618.14307-1-ilie.halip@gmail.c=
-om
+Link: http://lore.kernel.org/lkml/20200307073121.203816-1-irogers@google.com
 Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 ---
- tools/perf/util/setup.py | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ tools/perf/util/parse-events.c | 46 +++++++++++++++++-----------------
+ 1 file changed, 23 insertions(+), 23 deletions(-)
 
-diff --git a/tools/perf/util/setup.py b/tools/perf/util/setup.py
-index aa344a163eaf..8a065a6f9713 100644
---- a/tools/perf/util/setup.py
-+++ b/tools/perf/util/setup.py
-@@ -2,11 +2,13 @@ from os import getenv
- from subprocess import Popen, PIPE
- from re import sub
-=20
-+cc =3D getenv("CC")
-+cc_is_clang =3D b"clang version" in Popen([cc, "-v"], stderr=3DPIPE).stder=
-r.readline()
-+
- def clang_has_option(option):
--    return [o for o in Popen(['clang', option], stderr=3DPIPE).stderr.read=
-lines() if b"unknown argument" in o] =3D=3D [ ]
-+    return [o for o in Popen([cc, option], stderr=3DPIPE).stderr.readlines=
-() if b"unknown argument" in o] =3D=3D [ ]
-=20
--cc =3D getenv("CC")
--if cc =3D=3D "clang":
-+if cc_is_clang:
-     from distutils.sysconfig import get_config_vars
-     vars =3D get_config_vars()
-     for var in ('CFLAGS', 'OPT'):
-@@ -40,7 +42,7 @@ class install_lib(_install_lib):
- cflags =3D getenv('CFLAGS', '').split()
- # switch off several checks (need to be at the end of cflags list)
- cflags +=3D ['-fno-strict-aliasing', '-Wno-write-strings', '-Wno-unused-pa=
-rameter', '-Wno-redundant-decls' ]
--if cc !=3D "clang":
-+if not cc_is_clang:
-     cflags +=3D ['-Wno-cast-function-type' ]
-=20
- src_perf  =3D getenv('srctree') + '/tools/perf'
---=20
+diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
+index a14995835d85..a7dc0b096974 100644
+--- a/tools/perf/util/parse-events.c
++++ b/tools/perf/util/parse-events.c
+@@ -1213,7 +1213,7 @@ static int config_attr(struct perf_event_attr *attr,
+ static int get_config_terms(struct list_head *head_config,
+ 			    struct list_head *head_terms __maybe_unused)
+ {
+-#define ADD_CONFIG_TERM(__type)					\
++#define ADD_CONFIG_TERM(__type, __weak)				\
+ 	struct perf_evsel_config_term *__t;			\
+ 								\
+ 	__t = zalloc(sizeof(*__t));				\
+@@ -1222,18 +1222,18 @@ static int get_config_terms(struct list_head *head_config,
+ 								\
+ 	INIT_LIST_HEAD(&__t->list);				\
+ 	__t->type       = PERF_EVSEL__CONFIG_TERM_ ## __type;	\
+-	__t->weak	= term->weak;				\
++	__t->weak	= __weak;				\
+ 	list_add_tail(&__t->list, head_terms)
+ 
+-#define ADD_CONFIG_TERM_VAL(__type, __name, __val)		\
++#define ADD_CONFIG_TERM_VAL(__type, __name, __val, __weak)	\
+ do {								\
+-	ADD_CONFIG_TERM(__type);				\
++	ADD_CONFIG_TERM(__type, __weak);			\
+ 	__t->val.__name = __val;				\
+ } while (0)
+ 
+-#define ADD_CONFIG_TERM_STR(__type, __val)			\
++#define ADD_CONFIG_TERM_STR(__type, __val, __weak)		\
+ do {								\
+-	ADD_CONFIG_TERM(__type);				\
++	ADD_CONFIG_TERM(__type, __weak);			\
+ 	__t->val.str = strdup(__val);				\
+ 	if (!__t->val.str) {					\
+ 		zfree(&__t);					\
+@@ -1247,62 +1247,62 @@ do {								\
+ 	list_for_each_entry(term, head_config, list) {
+ 		switch (term->type_term) {
+ 		case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
+-			ADD_CONFIG_TERM_VAL(PERIOD, period, term->val.num);
++			ADD_CONFIG_TERM_VAL(PERIOD, period, term->val.num, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_SAMPLE_FREQ:
+-			ADD_CONFIG_TERM_VAL(FREQ, freq, term->val.num);
++			ADD_CONFIG_TERM_VAL(FREQ, freq, term->val.num, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_TIME:
+-			ADD_CONFIG_TERM_VAL(TIME, time, term->val.num);
++			ADD_CONFIG_TERM_VAL(TIME, time, term->val.num, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_CALLGRAPH:
+-			ADD_CONFIG_TERM_STR(CALLGRAPH, term->val.str);
++			ADD_CONFIG_TERM_STR(CALLGRAPH, term->val.str, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_BRANCH_SAMPLE_TYPE:
+-			ADD_CONFIG_TERM_STR(BRANCH, term->val.str);
++			ADD_CONFIG_TERM_STR(BRANCH, term->val.str, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_STACKSIZE:
+ 			ADD_CONFIG_TERM_VAL(STACK_USER, stack_user,
+-					    term->val.num);
++					    term->val.num, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_INHERIT:
+ 			ADD_CONFIG_TERM_VAL(INHERIT, inherit,
+-					    term->val.num ? 1 : 0);
++					    term->val.num ? 1 : 0, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_NOINHERIT:
+ 			ADD_CONFIG_TERM_VAL(INHERIT, inherit,
+-					    term->val.num ? 0 : 1);
++					    term->val.num ? 0 : 1, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_MAX_STACK:
+ 			ADD_CONFIG_TERM_VAL(MAX_STACK, max_stack,
+-					    term->val.num);
++					    term->val.num, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_MAX_EVENTS:
+ 			ADD_CONFIG_TERM_VAL(MAX_EVENTS, max_events,
+-					    term->val.num);
++					    term->val.num, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_OVERWRITE:
+ 			ADD_CONFIG_TERM_VAL(OVERWRITE, overwrite,
+-					    term->val.num ? 1 : 0);
++					    term->val.num ? 1 : 0, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_NOOVERWRITE:
+ 			ADD_CONFIG_TERM_VAL(OVERWRITE, overwrite,
+-					    term->val.num ? 0 : 1);
++					    term->val.num ? 0 : 1, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_DRV_CFG:
+-			ADD_CONFIG_TERM_STR(DRV_CFG, term->val.str);
++			ADD_CONFIG_TERM_STR(DRV_CFG, term->val.str, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_PERCORE:
+ 			ADD_CONFIG_TERM_VAL(PERCORE, percore,
+-					    term->val.num ? true : false);
++					    term->val.num ? true : false, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_AUX_OUTPUT:
+ 			ADD_CONFIG_TERM_VAL(AUX_OUTPUT, aux_output,
+-					    term->val.num ? 1 : 0);
++					    term->val.num ? 1 : 0, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_AUX_SAMPLE_SIZE:
+ 			ADD_CONFIG_TERM_VAL(AUX_SAMPLE_SIZE, aux_sample_size,
+-					    term->val.num);
++					    term->val.num, term->weak);
+ 			break;
+ 		default:
+ 			break;
+@@ -1339,7 +1339,7 @@ static int get_config_chgs(struct perf_pmu *pmu, struct list_head *head_config,
+ 	}
+ 
+ 	if (bits)
+-		ADD_CONFIG_TERM_VAL(CFG_CHG, cfg_chg, bits);
++		ADD_CONFIG_TERM_VAL(CFG_CHG, cfg_chg, bits, false);
+ 
+ #undef ADD_CONFIG_TERM
+ 	return 0;
+-- 
 2.21.1
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20200309185323.22583-4-acme%40kernel.org.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200309185323.22583-5-acme%40kernel.org.
