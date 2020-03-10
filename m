@@ -1,134 +1,142 @@
-Return-Path: <clang-built-linux+bncBAABB5PFT3ZQKGQEQHQ4E4I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBX7MT3ZQKGQEJW4PZKI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc3d.google.com (mail-yw1-xc3d.google.com [IPv6:2607:f8b0:4864:20::c3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id ACB281801E2
-	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Mar 2020 16:32:06 +0100 (CET)
-Received: by mail-yw1-xc3d.google.com with SMTP id q128sf21415334ywb.8
-        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Mar 2020 08:32:06 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1583854325; cv=pass;
+Received: from mail-ot1-x33b.google.com (mail-ot1-x33b.google.com [IPv6:2607:f8b0:4864:20::33b])
+	by mail.lfdr.de (Postfix) with ESMTPS id A655D18023A
+	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Mar 2020 16:46:40 +0100 (CET)
+Received: by mail-ot1-x33b.google.com with SMTP id h22sf8736802otj.4
+        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Mar 2020 08:46:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1583855199; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bsbFdvTU5cpenaUd5MGk3fXZBTQZfpFXkrnbXp5nVm4JbT/9lLH4+EpAjg4L74uwI7
-         B2mSs4EYHKEz30vgmtKOmTaZt1FSFKHtPz5w3AzYdBjyfDMFuz/1nUrROQX7HN7B+Jhn
-         L1gZ6u5/zZIjUVDcncpcbrueOwiEtuGepZjcATRvdnYIZWYKV7xVjSxjI3WdCkqblDVz
-         pA2K+EHwZvExPyrzUozjRrYsTCYI6G9cuxp/c9D4OGJQAns2t2A80lGz8lcf91bYEGut
-         6QbJhG7cmu6z+/bcTxEtd+V/OUTVTU4oPbeDdmX2WZZovh/ERE/P1XgtFKL2Sl0wnytG
-         /RDA==
+        b=Pr5q4ZLtUlNo7niucdf7XkGVuEoMGgsRQEc/+U7kvPrEc6hayuCNnv4Rf8r1MB/R0w
+         XR8oZ1DxW/8k0C4iDj2G1qhRkBpK0MOwvZqG5x8TL2X9tPDUk297vJwiuZWywmnXWNDm
+         nKo3xsyqv+F1PKyww+w8QWQkUIWm8d577stgQnSQZSKIO0rv7osEnSfzVA8Jd+5Apok7
+         xNVkIW4gUBh57FZZspsstyxx538VLKPI+EsgJnvqyXyaPIdVe+plNBOAyp77hU9lhrXe
+         Q79yz9IcFLqQkLJepSR2qbCxtXw1e/07dBtHZqkBlERWJLrzcb3X77G2avcqscCEFWTx
+         7SkQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=KY6MkM2qg+AkWOkKk/EA69ipEtS1srlylewZJOjpYL8=;
-        b=chQMua4dxqNygQKdkoLGNzjMBUDeaUWQ8Ba1BTD3f8c6+DfLqpktalCJXu1GKaqGIq
-         1W2o8Fc+qCytpQhQXvSOSk2lEhMrdKJoe2VjLr4/boo0tNeN4Sv2u6WzfYy1jSn97HhS
-         /GAFusfgvheGPmbjJD7Asmp+gSiigeTB6K4H2OSRalgepcr91Pnn0XTgZ4sJDDJc0E3j
-         Glbc/WhIQ62/brZPob469lvQdcr3kCeoyA0XP/HWIfO+FrMhzY5nKBi/5nENU/rUTjWQ
-         g0FOfh+zmptxOUDIMWHPR77NSnPVPHABVB4/p/IECTDBIrnVL6zGwFeR+bjMdZPhEps2
-         QnMw==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature:dkim-signature;
+        bh=FNoA80bCiFoZZcE/OdjS7B1GHH5u+74wXb6ONhlx22U=;
+        b=BC/03khxAfOjU+5MtW0X32ps+P3zy9iXaXP1MkOtdQWc/Qgx9X4Ol1GwXuQCWxnOUI
+         5/kv0dueeyuVXxK80GX565x5vZIRB/HmnDjCCSyEWFDXCQF6LfebRFeLgZWxnkDJURO+
+         d9yfd2NxNjHwr4C7aRSpOXkZRR4tmveIKefqfw+hKEL0Dn81mU6iid2NIRl4LcEgDZmH
+         /ZBhU4w6pjPu4r0ba+YeNgNG6GLH+9J+oWkffUSHP6CtXJlZGPWctCmt02AoYL7GxPVo
+         FjFxeNk4ssjgvzrZqO9Vk+0AFE47fkLiBKi4terPxb3+sjujMOzpZy1oWz6trfqmCEfo
+         PRCA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=uBFbZowb;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.91 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=etnEvI74;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=KY6MkM2qg+AkWOkKk/EA69ipEtS1srlylewZJOjpYL8=;
-        b=pt340hnoIDI/h+Rj1+Mz3glWdUUdWJjwAwx6es3zVILPYZfZDXxa+y85o+Ny3rgOgM
-         IeGgoyIFVmGXR9jlSx6TMDloHfwfANm51G9qq6YeyuwAYojc4d6JwNyzVVpEqe5h/e/w
-         RE9Pq8uFUcs1/NGc1N5OYP7QsA33krKYNEowQAuZIZ5YPaOJSIESsnsL2xQZCS0vPCwp
-         ex/KDfKJnDGAs49QrdB9/WU4fE5Gg7I3sJ3BbTiAlXJdXs3vVM44U8ca2QHBRMHSOZte
-         /GWmj7V9xoaTRuUB6+gopzNYP55SwVv43oMddRnzew+oglhJNj325DvePpFfIkdAVtbm
-         0lAg==
+        bh=FNoA80bCiFoZZcE/OdjS7B1GHH5u+74wXb6ONhlx22U=;
+        b=fzlA5xIUrvGeNAR+x2qXNKqPC7CRxY9nItVQiampkW8/He9/pU9FPOWBpFRsc30S+g
+         Pn5/qZz8Pp43i21sSENBvhiLdslq32fMI/8jfWkOafXftSsKgsZIxaD3YydNZihwkvfc
+         0j/HCok5Ks02Yt9GQUjYXoi1iIkRyDpBLNvl8P3OA116R2gsl5oN8P94ojk8AMohS18M
+         OHWjWoRQUynRV4zB3UQaJvrerddIcf3sJfCLGCG7P5AvWLALGk43U9WikvShXNkqIHhl
+         6UMROa15heHZI5BTeUd9jzX8OaEOE3vwVCWdnMJgWd0fCYZiaXComHKxUl5QxoUFcMMA
+         YB6g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=FNoA80bCiFoZZcE/OdjS7B1GHH5u+74wXb6ONhlx22U=;
+        b=XRiLl1RmAQMiaMpb4W4VHG1MzMDwoNNqoYv9FZS6fgaCkum8lTEZz1wkAWYt7fk6Iz
+         w12y2W305kTMTMba4X8S3U/CUGWrlWI4gFro64ZwlrREdVOgMHKyI3bKXUcfMRdIbnLS
+         R6UV5y3sm9/m5WHZYCOcmGbv46Od16U6zI37bFqm81XX4/1sUtj7tvDJaUVeuft0CunD
+         U5AQyId+DFTAqhO67Dy8eo6qkKL+oMSWB95/zLDFZKAevdARpq52brkaoqIwH+BrskBR
+         x19B5YqUiY2XW3QOxl90tY6ySbko9po4cM/5oyXUJnTPkRGlYmqTcfPHWX8n4GN5yLBh
+         XaQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=KY6MkM2qg+AkWOkKk/EA69ipEtS1srlylewZJOjpYL8=;
-        b=j9kgateqqhtQXecIGs53nNZUaYBrGrPMJKYgOclYzwKqKYGrHbMTZ1BSlkWwil2mbQ
-         w7tp14CB+dG6f8+bDKg3RcwRMuEYPg+6o9GT+tgT22UxqNGiS7zsAcxgKijjThpC7w8G
-         5OTlIEjagveH9vp8pqKySDjTmshpcSG23Z4JEDndHj8XQA6pp7wm2SgU+uc1ox3cWgac
-         U+8E5iE4IN3Sw51zIHN7wwqzjSfPu8bZZJYRoETRWRhn/2dGXmOVTm8n1M4UbVObQUnw
-         4w1GE4zRpVjeiFNGpEKI9MEkPwAEcMae+KifNAmo6ybMujFu02gzM7Yw8qHEnQpIilwe
-         CxAg==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=FNoA80bCiFoZZcE/OdjS7B1GHH5u+74wXb6ONhlx22U=;
+        b=blPxD6lhXYQBGXUJWV+DaBBwvbyF+Ff9EYF12wR7f+1IDvd/UmJMNrk+89nO3+fPa3
+         qSOklsKX2euCK7KePclC71Pj15MrKifVeW07vHPH4I7oIhAsfFYfITvz0o8J1EQBnxT7
+         6XwpMPDZI3VVGovfJ8vam16c9pXSo9gYUuzDbNnj9cl1XXhbm/H0F3kUJCo6IXyRAFsM
+         uK8E/uyRM2PLvh4UgFzLkeaEj3MI/1DiFEfiK4lK20Fq8gJV2faDc8d5RSoJMDfys+F7
+         uVlQW1MQcwfaP8kk1nDKxiImMO0TAOpLr+87m4Agsgj5JxUFDiTeu4faGPRdu6rcz5ji
+         FT/w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ2P0TXE0HsSg8xAGsoEmP64YQoeS3qRyngzQJC1fHOkDnCD+f32
-	a2Hymjkbagl8Y7zKA1Lfmms=
-X-Google-Smtp-Source: ADFU+vthE0oeWXRmOyLifcyW7X47gsZe/5vyY/qGTlrvWPqK3JLEPqzADN/7zm7xun7+78iOzPQkaQ==
-X-Received: by 2002:a81:9d8:: with SMTP id 207mr24228918ywj.101.1583854325686;
-        Tue, 10 Mar 2020 08:32:05 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ1uRrW3THDy9LmE1pEph9H3Css7AX03KzYRDjgdvQiUlOS+R3Bp
+	V5YwOTxqZpc7Z2XGMIerknc=
+X-Google-Smtp-Source: ADFU+vtiw3Cw3W/DNZjPcCm4Y0JEQPZMRxrl64QlRdTbqYSPvw3BljrwYfD+V9K1xtB4rPVPzenABA==
+X-Received: by 2002:a54:4e96:: with SMTP id c22mr1718678oiy.110.1583855199473;
+        Tue, 10 Mar 2020 08:46:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:ab94:: with SMTP id v20ls3749566ybi.0.gmail; Tue, 10 Mar
- 2020 08:32:05 -0700 (PDT)
-X-Received: by 2002:a25:18c4:: with SMTP id 187mr24958770yby.207.1583854325365;
-        Tue, 10 Mar 2020 08:32:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1583854325; cv=none;
+Received: by 2002:a05:6830:2097:: with SMTP id y23ls4414948otq.0.gmail; Tue,
+ 10 Mar 2020 08:46:39 -0700 (PDT)
+X-Received: by 2002:a9d:bf7:: with SMTP id 110mr6855946oth.259.1583855199078;
+        Tue, 10 Mar 2020 08:46:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1583855199; cv=none;
         d=google.com; s=arc-20160816;
-        b=v8dVDNO8uND+jmPFDrxLTJLtsWCVYjyDEiCvCWlAVEaQv4DsMKSq1lD/Xrewk3246G
-         IgLkoq+CU24iN3HaeD+Nme84DFXj+1IYLEIty1SwB+Bqqcb6SNlNWFHgy3U8JNABMEQu
-         Y3oCjtyTukXmdNdyI76QzcR207ItFKwzjrm8T3JsjS++ezfU5cB41Zdq4oA7gQq5BP/D
-         sBYPy1jlckrOFUkO218KqZjZSndHNCFvrs4J/lG9zDrCav+xToiOJzpp0K0M8wffJoRH
-         Itp+1LRSE9G0IthlyGckN01KCumYtXwPxlWMD8Egj4kqendTdE0ZVm0Z/jMLIayfvCu1
-         2fBg==
+        b=Zpwgm+4k5HzMOvd11AptlNFohu0Vk3cHREAaU1GejWd77pZoERGPTtYqYU3puEzmFM
+         gmep1nEQ7SDczgumUN6lK4rFmvMEqNzp7ORh3P9nXJj0TRsahjXMRURSRB+219gwKK6w
+         8XTkCySkFOATSaBW5WoR+w5cB6w6LK6q8QANRrmnqFqtY3ON9XqMp8JYscvwX9UbQ8CR
+         C8AFfRCP3TbSZGHVHZKaeNRQXoQjM2ArA4Gp4kJKRhDZo6vOous5EP9HwONfXakTIiNG
+         FrNKWCkR1XaiKWPi5aTCJv5E4oD03rNYmHowGBiOmewx6+dauKCkSmB62xxEaz8YLVj/
+         EnAw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=cU9zGQWEYLmKu3ABbJP9fWNhvET72vVMMuEoK2xZbeA=;
-        b=PByHOmTnJJJ2PuMgYkpKrvX22gmHxHY8WMyqBFOlsKQQpl5wue56HJ2MLS7ybvb/W2
-         UVTgTOGwNB8apav86N8CUHnQT8EQo2SoW6xlflyEscj5Nbrdr91cCoO9gVJosMF7zgp9
-         IotWjaeiNs8X1UHBPqzb6XDHERmaPCGPcKEo0P0UCxu6E7Ch3OQJsV1/aqF772h6JWYn
-         aSzt8L/GeV5MnDbk5ZuS4+1WdUxT1USgcAbn5CfBVVaGr3QyYEgWkPaO9URxja5sOe3z
-         dwh7Hd4t9W6QotUl+C7e5CwcAnmrTrBHgIA4I+XEf691n16O+4InzsZ8dHmUTZVyJqZB
-         02pQ==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=oAoaOcfKFLCJ0nOY8c3/piOO/zUeoRHQO/N6WrhcgWU=;
+        b=Xhn+0FwMRqgk2kD0BPJWFpMRxX0YvN/RM1F2kK2GhXa3/oS2A1yX//Fz7d4gXRDFsO
+         lvQuOVlEJw0eMNZoyMT7pFRxf7MhlF7kDxAK01NsUfaP+0+KESzRNLLpuXORY/xilUdH
+         A8dyxChwtnDR91l3RVLAy+/+yWlOyZW9vQhpnTBTY+eObdqB8b79wDhZ2GXRE0cfC+cm
+         OXecpWTG/9SMdRFaJehtPQtoo5/6WrUCfKH9TiaIctd+3+U9gMD6BI0zmooYICDuD2xu
+         2GA9QeXswZzHYytA4n8fCOsvxFFf7Z84Iu8s8O5hwfSB+PdwBPCTBmiDsGfXY7JfPy3j
+         dVXQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=uBFbZowb;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.91 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-06.nifty.com (conssluserg-06.nifty.com. [210.131.2.91])
-        by gmr-mx.google.com with ESMTPS id u202si96717ywe.5.2020.03.10.08.32.04
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=etnEvI74;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-ot1-x342.google.com (mail-ot1-x342.google.com. [2607:f8b0:4864:20::342])
+        by gmr-mx.google.com with ESMTPS id b2si501048oib.5.2020.03.10.08.46.39
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 10 Mar 2020 08:32:05 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.91 as permitted sender) client-ip=210.131.2.91;
-Received: from mail-vk1-f175.google.com (mail-vk1-f175.google.com [209.85.221.175]) (authenticated)
-	by conssluserg-06.nifty.com with ESMTP id 02AFVYfW006411
-	for <clang-built-linux@googlegroups.com>; Wed, 11 Mar 2020 00:31:34 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-06.nifty.com 02AFVYfW006411
-X-Nifty-SrcIP: [209.85.221.175]
-Received: by mail-vk1-f175.google.com with SMTP id e20so3297623vke.9
-        for <clang-built-linux@googlegroups.com>; Tue, 10 Mar 2020 08:31:34 -0700 (PDT)
-X-Received: by 2002:a1f:900c:: with SMTP id s12mr2563486vkd.96.1583854293448;
- Tue, 10 Mar 2020 08:31:33 -0700 (PDT)
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 10 Mar 2020 08:46:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) client-ip=2607:f8b0:4864:20::342;
+Received: by mail-ot1-x342.google.com with SMTP id h17so1154528otn.7
+        for <clang-built-linux@googlegroups.com>; Tue, 10 Mar 2020 08:46:39 -0700 (PDT)
+X-Received: by 2002:a05:6830:2009:: with SMTP id e9mr18014608otp.296.1583855197829;
+        Tue, 10 Mar 2020 08:46:37 -0700 (PDT)
+Received: from ubuntu-m2-xlarge-x86 ([2604:1380:4111:8b00::1])
+        by smtp.gmail.com with ESMTPSA id c12sm4411577oic.27.2020.03.10.08.46.37
+        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+        Tue, 10 Mar 2020 08:46:37 -0700 (PDT)
+Date: Tue, 10 Mar 2020 08:46:36 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: linux-kbuild@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	George Spelvin <lkml@sdf.org>, clang-built-linux@googlegroups.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] kconfig: introduce m32-flag and m64-flag
+Message-ID: <20200310154636.GA24694@ubuntu-m2-xlarge-x86>
+References: <20200310101250.22374-1-masahiroy@kernel.org>
 MIME-Version: 1.0
-References: <20200308073400.23398-1-natechancellor@gmail.com>
- <CAK7LNARcTHpd8fzrAhFVB_AR7NoBgenX64de0eS2uN8g0by9PQ@mail.gmail.com>
- <20200310012545.GA16822@ubuntu-m2-xlarge-x86> <c2a687d065c1463d8eea9947687b3b05@AcuMS.aculab.com>
-In-Reply-To: <c2a687d065c1463d8eea9947687b3b05@AcuMS.aculab.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Wed, 11 Mar 2020 00:30:57 +0900
-X-Gmail-Original-Message-ID: <CAK7LNARMsO0AeO8-kH4czMuW0Y_=dN+ZhtXNdRE7CWGvU2PNvA@mail.gmail.com>
-Message-ID: <CAK7LNARMsO0AeO8-kH4czMuW0Y_=dN+ZhtXNdRE7CWGvU2PNvA@mail.gmail.com>
-Subject: Re: [PATCH] kbuild: Disable -Wpointer-to-enum-cast
-To: David Laight <David.Laight@aculab.com>
-Cc: Nathan Chancellor <natechancellor@gmail.com>,
-        Michal Marek <michal.lkml@markovi.net>,
-        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-        clang-built-linux <clang-built-linux@googlegroups.com>,
-        stable <stable@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
+Content-Disposition: inline
+In-Reply-To: <20200310101250.22374-1-masahiroy@kernel.org>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=uBFbZowb;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.91 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@gmail.com header.s=20161025 header.b=etnEvI74;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,98 +149,83 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Mar 10, 2020 at 8:31 PM David Laight <David.Laight@aculab.com> wrote:
->
-> From: Nathan Chancellor
-> > Sent: 10 March 2020 01:26
-> ...
-> > Sure, I can send v2 to do that but I think that sending 97 patches just
-> > casting the small values (usually less than twenty) to unsigned long
-> > then to the enum is rather frivolous. I audited at least ten to fifteen
-> > of these call sites when creating the clang patch and they are all
-> > basically false positives.
->
-> Such casts just make the code hard to read.
-> If misused casts can hide horrid bugs.
-> IMHO sprinkling the code with casts just to remove
-> compiler warnings will bite back one day.
->
+On Tue, Mar 10, 2020 at 07:12:49PM +0900, Masahiro Yamada wrote:
+> When a compiler supports multiple architectures, some compiler features
+> can be dependent on the target architecture.
+> 
+> This is typical for Clang, which supports multiple LLVM backends.
+> Even for GCC, we need to take care of biarch compiler cases.
+> 
+> It is not a problem when we evaluate cc-option in Makefiles because
+> cc-option is tested against the flag in question + $(KBUILD_CFLAGS).
+> 
+> The cc-option in Kconfig, on the other hand, does not accumulate
+> tested flags. Due to this simplification, it could potentially test
+> cc-option against a different target.
+> 
+> At first, Kconfig always evaluated cc-option against the host
+> architecture.
+> 
+> Since commit e8de12fb7cde ("kbuild: Check for unknown options with
+> cc-option usage in Kconfig and clang"), in case of cross-compiling
+> with Clang, the target triple is correctly passed to Kconfig.
+> 
+> The case with biarch GCC (and native build with Clang) is still not
+> handled properly. We need to pass some flags to specify the target
+> machine bit.
+> 
+> Due to the design, all the macros in Kconfig are expanded in the
+> parse stage, where we do not know the target bit size yet.
+> 
+> For example, arch/x86/Kconfig allows a user to toggle CONFIG_64BIT.
+> If a compiler flag -foo depends on the machine bit, it must be tested
+> twice, one with -m32 and the other with -m64.
+> 
+> However, -m32/-m64 are not always recognized. So, this commits adds
+> m64-flag and m32-flag macros. They expand to -m32, -m64, respectively
+> if supported. Or, they expand to an empty string if unsupported.
+> 
+> The typical usage is like this:
+> 
+>   config FOO
+>           bool
+>           default $(cc-option,$(m64-flag) -foo) if 64BIT
+>           default $(cc-option,$(m32-flag) -foo)
+> 
+> This is clumsy, but there is no elegant way to handle this in the
+> current static macro expansion.
+> 
+> There was discussion for static functions vs dynamic functions.
+> The consensus was to go as far as possible with the static functions.
+> (https://lkml.org/lkml/2018/3/2/22)
+> 
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> ---
+> 
+>  scripts/Kconfig.include | 7 +++++++
+>  1 file changed, 7 insertions(+)
+> 
+> diff --git a/scripts/Kconfig.include b/scripts/Kconfig.include
+> index 85334dc8c997..496d11c92c97 100644
+> --- a/scripts/Kconfig.include
+> +++ b/scripts/Kconfig.include
+> @@ -44,3 +44,10 @@ $(error-if,$(success, $(LD) -v | grep -q gold), gold linker '$(LD)' not supporte
+>  
+>  # gcc version including patch level
+>  gcc-version := $(shell,$(srctree)/scripts/gcc-version.sh $(CC))
+> +
+> +# machine bit flags
+> +#  $(m32-flag): -m32 if the compiler supports it, or an empty string otherwise.
+> +#  $(m64-flag): -m64 if the compiler supports it, or an empty string otherwise.
+> +cc-option-bit = $(if-success,$(CC) -Werror $(1) -E -x c /dev/null -o /dev/null,$(1))
+> +m32-flag := $(cc-option-bit,-m32)
+> +m64-flag := $(cc-option-bit,-m64)
+> -- 
+> 2.17.1
 
-I agree that too much casts make the code hard to read,
-but irrespective of this patch, there is no difference
-in the fact that we need a cast to convert
-(const void *) to a non-pointer value.
-
-The difference is whether we use
-(uintptr_t) or (enum foo).
-
-
-
-
-If we want to avoid casts completely,
-we could use union in struct of_device_id
-although this might be rejected.
-
-
-FWIW:
-
-diff --git a/drivers/ata/ahci_brcm.c b/drivers/ata/ahci_brcm.c
-index 6853dbb4131d..534170bea134 100644
---- a/drivers/ata/ahci_brcm.c
-+++ b/drivers/ata/ahci_brcm.c
-@@ -415,11 +415,11 @@ static struct scsi_host_template ahci_platform_sht = {
- };
-
- static const struct of_device_id ahci_of_match[] = {
--       {.compatible = "brcm,bcm7425-ahci", .data = (void *)BRCM_SATA_BCM7425},
--       {.compatible = "brcm,bcm7445-ahci", .data = (void *)BRCM_SATA_BCM7445},
--       {.compatible = "brcm,bcm63138-ahci", .data = (void *)BRCM_SATA_BCM7445},
--       {.compatible = "brcm,bcm-nsp-ahci", .data = (void *)BRCM_SATA_NSP},
--       {.compatible = "brcm,bcm7216-ahci", .data = (void *)BRCM_SATA_BCM7216},
-+       {.compatible = "brcm,bcm7425-ahci", .data2 = BRCM_SATA_BCM7425},
-+       {.compatible = "brcm,bcm7445-ahci", .data2 = BRCM_SATA_BCM7445},
-+       {.compatible = "brcm,bcm63138-ahci", .data2 = BRCM_SATA_BCM7445},
-+       {.compatible = "brcm,bcm-nsp-ahci", .data2 = BRCM_SATA_NSP},
-+       {.compatible = "brcm,bcm7216-ahci", .data2 = BRCM_SATA_BCM7216},
-        {},
- };
- MODULE_DEVICE_TABLE(of, ahci_of_match);
-@@ -442,7 +442,7 @@ static int brcm_ahci_probe(struct platform_device *pdev)
-        if (!of_id)
-                return -ENODEV;
-
--       priv->version = (enum brcm_ahci_version)of_id->data;
-+       priv->version = of_id->data2;
-        priv->dev = dev;
-
-        res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "top-ctrl");
-diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
-index e3596db077dc..98d44ebf146a 100644
---- a/include/linux/mod_devicetable.h
-+++ b/include/linux/mod_devicetable.h
-@@ -261,7 +261,10 @@ struct of_device_id {
-        char    name[32];
-        char    type[32];
-        char    compatible[128];
--       const void *data;
-+       union {
-+               const void *data;
-+               unsigned long data2;
-+       };
- };
-
- /* VIO */
-
-
-
-
-
-
--- 
-Best Regards
-Masahiro Yamada
+Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNARMsO0AeO8-kH4czMuW0Y_%3DdN%2BZhtXNdRE7CWGvU2PNvA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200310154636.GA24694%40ubuntu-m2-xlarge-x86.
