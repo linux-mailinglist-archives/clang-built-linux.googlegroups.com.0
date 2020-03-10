@@ -1,123 +1,121 @@
-Return-Path: <clang-built-linux+bncBCLMHO6ARMORBFVKTXZQKGQEXE56B3I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBMWQTXZQKGQEHJYAPEQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103a.google.com (mail-pj1-x103a.google.com [IPv6:2607:f8b0:4864:20::103a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0A48B17F24C
-	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Mar 2020 09:51:36 +0100 (CET)
-Received: by mail-pj1-x103a.google.com with SMTP id p3sf167002pjo.4
-        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Mar 2020 01:51:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1583830294; cv=pass;
+Received: from mail-yw1-xc38.google.com (mail-yw1-xc38.google.com [IPv6:2607:f8b0:4864:20::c38])
+	by mail.lfdr.de (Postfix) with ESMTPS id DDE8617F4A7
+	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Mar 2020 11:13:07 +0100 (CET)
+Received: by mail-yw1-xc38.google.com with SMTP id 84sf12635993ywr.4
+        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Mar 2020 03:13:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1583835186; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aSj3fflVr7cwBYBVtMkL3b6NodBa2pCSovGgRYSfbQp4lvV2b8c4P9RKUeyCqBEQFy
-         +xu3C24CKuV+XdxG3oiONH/NA7KRiHs/ipc88Y+oIyeclHtNEaIHZTll50hYsfBFp/E9
-         JeJW1VH28RycS4Y7E8GwuZrX84eB4EVJeMgQPO/Xuv4cYIQNJhB7TZjdBbZsB4zuInqT
-         EbTOo777iz08SabJKjweFXZ+vuLrH5US/0WZK1i3UnvdFtRp9puE+k061jdqBb0NvjRH
-         7+RTlkZozbEfqwetpR0+FGVLhcEj7CVvkymtORq+0gM9Co/QRuP/L/GZihUJNC77H4/X
-         gYxA==
+        b=sAu2HbwRymWM8rGdRrjFRNj9vyMq7G1JgMo31UA9xNWWTNW+4sDZjDk6FxZrtJi6mh
+         ZXxvH9K+7Rn0mYoWl2cYYcpuIkIgHQ3UPtPVmsxBJRdJaOI5QQRXiog9hoK5vJ6YrASq
+         WE2zSMafEJBD+hTITORqzT2d9enYD9dqRLlHr3BQV1bUV1Aq0giUrdEFR07r+S2X/LtI
+         Jxj+yf43JF3D3OxHIsZl0FBYSCwQCbF4Y9M7ymxXn5Z7qhPlZ44vxyLLh0y5Lsq6oWMk
+         Vwwcpf2aZ0gguHEe9eX2UZE1x+fuVoJW144wV89sNwqLh1yJQhES9wYydlWlttSuQW5M
+         VuXg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :references:organization:in-reply-to:subject:cc:to:from:sender
-         :dkim-signature;
-        bh=6RLFaIFzdnkWYfMejVlgcUAJtvE7vB7PXAgo+nfZjTs=;
-        b=SeqI7UBjOID4xDLcisYln9Tass/JCeRNKejtoISxLZIcg9VxezYDw+faPRUyg11w1r
-         nsEeXYQpALhxFfjMAItV443i8n1oueLfxbyKIj2XMQ/7yxH0q9oUSsWBoP9P3bH+EKxu
-         S7V0GidMv9I4BAsMat/u9m9l+O4BCY4BXvpgf8RhqviViQlJtxLtcN+NFnsHttaXxlAa
-         BQMpSg5w708EJ9XDmS+IF+yU1H5okm+1Srre1QMHZ2fUoNwNpTHjKvOjCoOOyrG80gGl
-         de4zT+VO5y/TjpM4lixJAOeG9n5ZMfEacYy6svPVSJwlgC7HEHs/9oNVMHVYvsUDbbAE
-         kWDA==
+         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
+         :dkim-filter:mime-version:sender:dkim-signature;
+        bh=aPQfXqvbQuUuxXq2CxwDS0DU0VUx1XdaPpmVH9qFOPI=;
+        b=q4py6UVNdIpsL0PU8zpZCyD+nnxLBz78PtnrUUyVQJ5/Wv2yW29/Ydxfw3BrtYUSe8
+         OnjFTZTlDsFDl50QHl4/bD4lKfdg8guFSel8dBBbBtm2vgpYnEb+rTt1OBOvpRw81kcU
+         jmbfLZ088sqC6C2mMmPkkGYg14H6KCul3E9Pk2mDl4rOPh4ziuStRbMfe/Ig6ZHBFttQ
+         mbH1toZKfJoLoHicTO4rA2hZ/5ZUlQGnzqNgVA5tiJRr8+0J/Lfv8ruBNooS2uI8i/Hd
+         Ze1VvPUJbsug7eS+jHQ9AYUl7YgthjqaieboCNhcsHE4sKHh3zi8lQk2iNTxV6tXc5aQ
+         H0sA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of jani.nikula@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=jani.nikula@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=1J0xfzfl;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:in-reply-to:organization:references:date
-         :message-id:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=6RLFaIFzdnkWYfMejVlgcUAJtvE7vB7PXAgo+nfZjTs=;
-        b=L1MTbxMpckH1C5c8qekI9GkF8sNZHhsZqMY5tugukSxKzQn0J7uSW5YFGbNw96w0Ut
-         +q4XonUQqxvPTI8rZjxRZWjN2WhdhmtfZXcEbd0T53AobNDlifg+ffGNgsibQbF39/zT
-         eoSbgBBb19VMMQpkFML8+1EQtj1PV2QFTlTez2MnDydz1bOd5GVS76zsqi14CucpTHZb
-         5hp1QIjK2DRqGi3krHUjjzzYq9/QeZNp6W3SSBf4OCQMzuNlPEsKuo29imKTZfC47dH/
-         4oecokjIJBZr4cLd/Q4RqMJptnX84zSq3iB8burHZ9c1D6Ydvx1HliEgELNNcbTQbuTj
-         OT1Q==
+        h=sender:mime-version:dkim-filter:from:to:cc:subject:date:message-id
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=aPQfXqvbQuUuxXq2CxwDS0DU0VUx1XdaPpmVH9qFOPI=;
+        b=LptKgIqkrKlh5kxOxeO8P7tMygaO9FOX5UDbfIxQzEfVdlL7f0m/VO1jXWld51s2rp
+         zu4aBWric2CDjiIp/FtZKoLxSAwqLIqsThQnxEVBb4aNG9gMSt60hxMHfd+cy8ZUWR7Q
+         T7iNrG23G/PPa27O3uvUBPeLyiMsouFzDh2rl/bowFjUuuXHSFNiGS7DnKfsqaLkTntE
+         Ey10di1cIH/JRHR3ONMzc0qm3UsFhvJeGQsnnc9rpj/KBfBwVeSHa+ZwuEflPSF+IqKz
+         Um9KWMZ1+VAv/fWddrlfrcotCBABCsnkw1kiXbezJYUB1p3VAfkNySemDirKBnVT3B3H
+         VErg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to
-         :organization:references:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=6RLFaIFzdnkWYfMejVlgcUAJtvE7vB7PXAgo+nfZjTs=;
-        b=k71mdf5RI/044hiDrR6MbVl0cGiT+BIpNjBQ+f5SjaIT8Xr0IsSoUQI575jjLKxZky
-         DlrNXy5UTIoevVNLN7fQuD7FI0FeskKeHNkrxUHF+MsJKZmrYjaXZTw2r0MKEIrkBZ8S
-         6N/R5eBnO4yyPBkLQzrriCoGb80woVZivZAZc75RYqZE/inJoW1JFwnrxvYM7fUN5ebV
-         3e6LDPLBJboITkDMs/Rokzr1x54wogNOh2+dfllB64mN/l1/SUoNMK5UAHznkfP9oDY2
-         EnbHZE9RCi+FKuRwojmrp5BgnCsC1ngfQq4ByBPSlgJhkpgQyaxisRvuOqjJCXVrJ8Fy
-         YWjQ==
+        h=sender:x-gm-message-state:mime-version:dkim-filter:from:to:cc
+         :subject:date:message-id:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=aPQfXqvbQuUuxXq2CxwDS0DU0VUx1XdaPpmVH9qFOPI=;
+        b=DuIKfE5LSexFIhQoBaPAstGDO78R35CSwlYoWGkzaVC5QBrdqZ7c7Jr5h3lbKVusrD
+         TO2/sFcluHdUUjyQhURsXTOkYbbCQm6MW5d6HdWrflAb/DAK4uLLNh2yBEdKN/GLBUrn
+         /7gRd4/TP5K9jctCSif2IdsxUGmLXo6IFJDyFXhltHE+SpyOtB6ft/uWEUBUbB4kS3pk
+         S5fr3LetHmnxIsG/gj6o0+eOBao6WpynKOwPjQSmpYJQ329hv8H08vVSDIE04k1Kd9Rv
+         Jqy4cCNKyNf/KngpanA+Dh5LtYDSyGqRZdF0pvOw+TWgsg/dXtIoiNAu9p8lvFF8lwHh
+         h1rA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ3cHOoYBRja1zqStaysgThZGKTCv6Roz0nScBW662woWWn2LInX
-	2I33dWrga6xsO1+000h2rnc=
-X-Google-Smtp-Source: ADFU+vtCZR6pYoCSEqTItGdHAxKtki4uz7oFe0Lhf63YLK6GbBSt/0NbayyVMe73ljkbfk7LY1h30g==
-X-Received: by 2002:a17:90a:25c8:: with SMTP id k66mr653449pje.90.1583830294272;
-        Tue, 10 Mar 2020 01:51:34 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ1xYriDxEz0tvh46nqDMdBFA6ZoMYummetE9JtwwGrzlIrN9tDi
+	PUpVA2mZ2A7VmbwaLdL6P4c=
+X-Google-Smtp-Source: ADFU+vuu1CrpUq5JwmPNLpHZQY7bEWITB8iI4IMmKLHYTgskGDH7goBiEA/S0tDYj96D61zwGmR08Q==
+X-Received: by 2002:a81:4c8b:: with SMTP id z133mr21281095ywa.344.1583835186742;
+        Tue, 10 Mar 2020 03:13:06 -0700 (PDT)
+MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:ab0b:: with SMTP id p11ls4605336pff.0.gmail; Tue, 10 Mar
- 2020 01:51:33 -0700 (PDT)
-X-Received: by 2002:a62:cf47:: with SMTP id b68mr20698173pfg.249.1583830293828;
-        Tue, 10 Mar 2020 01:51:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1583830293; cv=none;
+Received: by 2002:a0d:d889:: with SMTP id a131ls2627765ywe.6.gmail; Tue, 10
+ Mar 2020 03:13:06 -0700 (PDT)
+X-Received: by 2002:a0d:d504:: with SMTP id x4mr22271667ywd.179.1583835186408;
+        Tue, 10 Mar 2020 03:13:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1583835186; cv=none;
         d=google.com; s=arc-20160816;
-        b=oHMHuimIGo+WPkHTaaRrMtHANkABi4aYfSuAb6UpEI+Q6my4CaDBRaEVtqhUoYwD9O
-         9t62ppx7PvwEiciF4vGATyTeEZ2WpBO/dgrL1NAc7ltKNzcJrZk9xczX14nnA2ePQ3n9
-         0E9To+lq5DHioAqTD2SnvdDkYDKC84Pi27VLmpsXa27GvaBdqoLE42xeTGMfiYCf5rlJ
-         nMXP+f++22BoT/ab5cRkbuBF6Pe+XVAJdeOCKL6HDE5Q3SO4Z0dBxpZTkJgyxrGm0l9g
-         i9JX1S8ra4IxerAV0YzYuIBh43mS/KokagBiJhAMELOkfasiGHHK0KbjqL43oyWwznGE
-         XgGg==
+        b=ryTZZj6nNUosj3KWFuQDBLYWnNFm7i/JZbKBRuSuzVo14bRxb5F2Lc7BnZPfOJg/8H
+         h5oo6UulF4b89Pu5TDDaMjS3M5emtKHBEyspQozPPh/fGWvYkben4It+w/FDbZ0xpR6F
+         1WTU5r9MtqAxnPMfeb6vS636HFybC3MmjbnBfh4wLA3wiRxhCypgoVFmY7oEQTnzvXZR
+         /PCm89R7j/htZzlUaETKb3fkzOfK42w0kRS/OXhwlBF1rKH7lZEmwMtsVyECkcOf16Ul
+         2GptQPVe4L3/yRdyVPyB9uTd5jjzeWl70CXNEqq5yJnirhuAsk8CDbWP2XnOlMs6kqe2
+         93Yw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:message-id:date:references:organization:in-reply-to
-         :subject:cc:to:from;
-        bh=83RW6C3t9CrnETAXxH8+55+RtMtGUf2zDpZKaUp12Dk=;
-        b=eq8yJkECam012u6mbkKjop1HY39MuBwpAjfz4OTAPn128tcTzmGQ3y5MkDkWrzC6wu
-         9vtPdBfCRUq7PT/fGM1CPamfQxiOAyVteghsyc2y93+jwH6nAuOHUDFrEaDDaSuZWNl7
-         uW9OyUkgM/mMQxrJCT1Tj9DT2CTZV+c6R74ybjYxBfglygrenoYsYZSrLtTCZsZIVysM
-         419phklOfGrCEoH4fbyH5nN4/LRH7V1hTTFqHwa+OnKFK/1ZRThSPuaj0frrPxnLv6qq
-         Y3/UB6GGWZjFZHC7x2tjnSn26cGfQ5A2D+lPpE2qfrY0Pb7nq/KAVFR7SYS1HO+oEtqf
-         TS7w==
+        h=message-id:date:subject:cc:to:from:dkim-signature:dkim-filter;
+        bh=9xOpIGGc+JZ3lbYb04or905H1Kt+yrULBMXg/tSCO2w=;
+        b=kvwAcvKg0wJHlsVuxltCldtxDClP6G/hv7SscWUn+E43635B0PNSXjvEP6J02h8eli
+         vhaQ4maJVtFmVWI4QsZUSvTaHDwlz53S+bprZe+3yZVhbh0Bv/qJaDjMLRnUr5TjoBjA
+         s8kXT40389UW2EEeZr/l26mRhaJ6y1Ti/lhB6KuvawuSTD1cBMgdnOm6GJUe9rOG2NhS
+         Lf+MFVjcMJYk9c63qwEvxu8jyIfdPubZINvjSq8PEHjKK3U/FAH96jjcLRbUvVLLT7pD
+         8VUmRUYQYYSUEUPTmImL9iRdBuScARKe5fv3ncnjo9tMdtQ4YbHjQ2icD9JWofhoggmx
+         hYEQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of jani.nikula@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=jani.nikula@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
-        by gmr-mx.google.com with ESMTPS id 74si338588pfy.0.2020.03.10.01.51.33
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=1J0xfzfl;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conuserg-09.nifty.com (conuserg-09.nifty.com. [210.131.2.76])
+        by gmr-mx.google.com with ESMTPS id e131si394506ybh.3.2020.03.10.03.13.05
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 10 Mar 2020 01:51:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jani.nikula@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga002.fm.intel.com ([10.253.24.26])
-  by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 10 Mar 2020 01:51:33 -0700
-X-IronPort-AV: E=Sophos;i="5.70,535,1574150400"; 
-   d="scan'208";a="276872523"
-Received: from jnikula-mobl3.fi.intel.com (HELO localhost) ([10.237.66.161])
-  by fmsmga002-auth.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 10 Mar 2020 01:51:31 -0700
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: kbuild-all@lists.01.org, kbuild test robot <lkp@intel.com>, clang-built-linux <clang-built-linux@googlegroups.com>
-Subject: Re: [jani:device-info-inheritance-v3 3/19] drivers/gpu/drm/i915/i915_pci.c:212:2: error: initializer element is not a compile-time constant
-In-Reply-To: <CAKwvOd=eHp8ZkS4B-GY9fbaUXS5wNxZQbU+eV6wbsXQ_69bieg@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-References: <202003060916.RI5pROBS%lkp@intel.com> <CAKwvOdkNXFFzw4fBBzSMf2rUd3hV5Vt=11ONLf4nX4FrcmHFcQ@mail.gmail.com> <87k13ulyho.fsf@intel.com> <CAKwvOd=eHp8ZkS4B-GY9fbaUXS5wNxZQbU+eV6wbsXQ_69bieg@mail.gmail.com>
-Date: Tue, 10 Mar 2020 10:51:29 +0200
-Message-ID: <874kuwoani.fsf@intel.com>
-MIME-Version: 1.0
+        Tue, 10 Mar 2020 03:13:06 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) client-ip=210.131.2.76;
+Received: from localhost.localdomain (p14092-ipngnfx01kyoto.kyoto.ocn.ne.jp [153.142.97.92]) (authenticated)
+	by conuserg-09.nifty.com with ESMTP id 02AACqfU019796;
+	Tue, 10 Mar 2020 19:12:53 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-09.nifty.com 02AACqfU019796
+X-Nifty-SrcIP: [153.142.97.92]
+From: Masahiro Yamada <masahiroy@kernel.org>
+To: linux-kbuild@vger.kernel.org
+Cc: Ard Biesheuvel <ardb@kernel.org>, George Spelvin <lkml@sdf.org>,
+        Masahiro Yamada <masahiroy@kernel.org>,
+        clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
+Subject: [PATCH 1/2] kconfig: introduce m32-flag and m64-flag
+Date: Tue, 10 Mar 2020 19:12:49 +0900
+Message-Id: <20200310101250.22374-1-masahiroy@kernel.org>
+X-Mailer: git-send-email 2.17.1
+X-Original-Sender: masahiroy@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@nifty.com header.s=dec2015msa header.b=1J0xfzfl;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: jani.nikula@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of jani.nikula@intel.com designates 134.134.136.126 as
- permitted sender) smtp.mailfrom=jani.nikula@intel.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,51 +128,80 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, 09 Mar 2020, Nick Desaulniers <ndesaulniers@google.com> wrote:
-> On Mon, Mar 9, 2020 at 1:32 AM Jani Nikula <jani.nikula@linux.intel.com> wrote:
->>
->> On Fri, 06 Mar 2020, Nick Desaulniers <ndesaulniers@google.com> wrote:
->> > Based on the tree, I think this report was meant to go to Jani (cc'ed)?
->>
->> It baffles me that the build bot burns resources on building random
->> branches in my personal repositories.
->
-> It uses a branch naming convention to avoid testing branches:
-> https://github.com/intel/lkp-tests/wiki/LKP-FAQ#is-there-a-way-not-to-trigger-kbuild-tests-on-a-specific-branch
->
-> But in this case, it seems it caught a build breakage even further
-> upstream, which is valuable, right?
+When a compiler supports multiple architectures, some compiler features
+can be dependent on the target architecture.
 
-I guess, though I usually only use it to share some half-baked
-stuff. Perhaps I'll also start using it for build testing some of the
-more obscure ideas. ;)
+This is typical for Clang, which supports multiple LLVM backends.
+Even for GCC, we need to take care of biarch compiler cases.
 
->> That said, this builds on GCC 8 just fine. Is clang not able to do this?
->
-> Places that require integer constant expressions can be very subtle.
-> See this recent example in i915 for example:
-> https://github.com/ClangBuiltLinux/linux/issues/918
-> Sometimes reproducing also depends on some configs.  In this case,
-> it's not as I've fetched your branch and can repro on defconfig.
+It is not a problem when we evaluate cc-option in Makefiles because
+cc-option is tested against the flag in question + $(KBUILD_CFLAGS).
 
-Yeah, reminds me of earlier issues with GCC and Clang having different
-order in certain checks and optimizations, leading to Clang warnings in
-code that GCC just optimized away.
+The cc-option in Kconfig, on the other hand, does not accumulate
+tested flags. Due to this simplification, it could potentially test
+cc-option against a different target.
 
-> This is definitely our bug: https://bugs.llvm.org/show_bug.cgi?id=45157
+At first, Kconfig always evaluated cc-option against the host
+architecture.
 
-Any idea if older GCC is also limited in this regard? What versions does
-the kbuild bot test?
+Since commit e8de12fb7cde ("kbuild: Check for unknown options with
+cc-option usage in Kconfig and clang"), in case of cross-compiling
+with Clang, the target triple is correctly passed to Kconfig.
 
-BR,
-Jani.
+The case with biarch GCC (and native build with Clang) is still not
+handled properly. We need to pass some flags to specify the target
+machine bit.
 
+Due to the design, all the macros in Kconfig are expanded in the
+parse stage, where we do not know the target bit size yet.
 
+For example, arch/x86/Kconfig allows a user to toggle CONFIG_64BIT.
+If a compiler flag -foo depends on the machine bit, it must be tested
+twice, one with -m32 and the other with -m64.
 
+However, -m32/-m64 are not always recognized. So, this commits adds
+m64-flag and m32-flag macros. They expand to -m32, -m64, respectively
+if supported. Or, they expand to an empty string if unsupported.
+
+The typical usage is like this:
+
+  config FOO
+          bool
+          default $(cc-option,$(m64-flag) -foo) if 64BIT
+          default $(cc-option,$(m32-flag) -foo)
+
+This is clumsy, but there is no elegant way to handle this in the
+current static macro expansion.
+
+There was discussion for static functions vs dynamic functions.
+The consensus was to go as far as possible with the static functions.
+(https://lkml.org/lkml/2018/3/2/22)
+
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+---
+
+ scripts/Kconfig.include | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/scripts/Kconfig.include b/scripts/Kconfig.include
+index 85334dc8c997..496d11c92c97 100644
+--- a/scripts/Kconfig.include
++++ b/scripts/Kconfig.include
+@@ -44,3 +44,10 @@ $(error-if,$(success, $(LD) -v | grep -q gold), gold linker '$(LD)' not supporte
+ 
+ # gcc version including patch level
+ gcc-version := $(shell,$(srctree)/scripts/gcc-version.sh $(CC))
++
++# machine bit flags
++#  $(m32-flag): -m32 if the compiler supports it, or an empty string otherwise.
++#  $(m64-flag): -m64 if the compiler supports it, or an empty string otherwise.
++cc-option-bit = $(if-success,$(CC) -Werror $(1) -E -x c /dev/null -o /dev/null,$(1))
++m32-flag := $(cc-option-bit,-m32)
++m64-flag := $(cc-option-bit,-m64)
 -- 
-Jani Nikula, Intel Open Source Graphics Center
+2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/874kuwoani.fsf%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200310101250.22374-1-masahiroy%40kernel.org.
