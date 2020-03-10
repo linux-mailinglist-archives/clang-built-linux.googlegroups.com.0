@@ -1,61 +1,47 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBX7MT3ZQKGQEJW4PZKI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCX2JBVY5MBBBEXTT3ZQKGQEWENUJUY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33b.google.com (mail-ot1-x33b.google.com [IPv6:2607:f8b0:4864:20::33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id A655D18023A
-	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Mar 2020 16:46:40 +0100 (CET)
-Received: by mail-ot1-x33b.google.com with SMTP id h22sf8736802otj.4
-        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Mar 2020 08:46:40 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1583855199; cv=pass;
+Received: from mail-yw1-xc40.google.com (mail-yw1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
+	by mail.lfdr.de (Postfix) with ESMTPS id EB7721802A5
+	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Mar 2020 17:00:19 +0100 (CET)
+Received: by mail-yw1-xc40.google.com with SMTP id o64sf21537424ywb.15
+        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Mar 2020 09:00:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1583856019; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Pr5q4ZLtUlNo7niucdf7XkGVuEoMGgsRQEc/+U7kvPrEc6hayuCNnv4Rf8r1MB/R0w
-         XR8oZ1DxW/8k0C4iDj2G1qhRkBpK0MOwvZqG5x8TL2X9tPDUk297vJwiuZWywmnXWNDm
-         nKo3xsyqv+F1PKyww+w8QWQkUIWm8d577stgQnSQZSKIO0rv7osEnSfzVA8Jd+5Apok7
-         xNVkIW4gUBh57FZZspsstyxx538VLKPI+EsgJnvqyXyaPIdVe+plNBOAyp77hU9lhrXe
-         Q79yz9IcFLqQkLJepSR2qbCxtXw1e/07dBtHZqkBlERWJLrzcb3X77G2avcqscCEFWTx
-         7SkQ==
+        b=oRrotAb1nDueigz/K2CSsLQZryF0SZ7WGhilVNXy2f1nmhvUXcSgGhcTdpdBCNBMcR
+         bTx9NOvF2Q0fqKiUAx4WZbVLy8QHVqvMa01N1cMsfjMysXa9d1dDQTYLlSW047W3p4DK
+         tYzSpFGBkSup6dRxkXEZ3AuL/AWuvegmTQl0C7rpDZ5AVbAMHb7wwv6qtcGXBCYb5jM3
+         22Zsr9wTzdyI4ZkHWHgY0jlo5sP7UocSwiU5BStVGjslSAgfRk9J8cTmW7fdSZvCrHAW
+         amMlGdij+Dw5ERcEnZiGSdwd9L0pP7GE9c1nEgCTDtUxTeds2NgYqQUmqJv4xn22NzA/
+         Qhkg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=FNoA80bCiFoZZcE/OdjS7B1GHH5u+74wXb6ONhlx22U=;
-        b=BC/03khxAfOjU+5MtW0X32ps+P3zy9iXaXP1MkOtdQWc/Qgx9X4Ol1GwXuQCWxnOUI
-         5/kv0dueeyuVXxK80GX565x5vZIRB/HmnDjCCSyEWFDXCQF6LfebRFeLgZWxnkDJURO+
-         d9yfd2NxNjHwr4C7aRSpOXkZRR4tmveIKefqfw+hKEL0Dn81mU6iid2NIRl4LcEgDZmH
-         /ZBhU4w6pjPu4r0ba+YeNgNG6GLH+9J+oWkffUSHP6CtXJlZGPWctCmt02AoYL7GxPVo
-         FjFxeNk4ssjgvzrZqO9Vk+0AFE47fkLiBKi4terPxb3+sjujMOzpZy1oWz6trfqmCEfo
-         PRCA==
+         :to:from:date:sender:dkim-signature;
+        bh=JxrkKsxbBRtrXeVCt9+CoapYZYf1D+wcea7quApiNqM=;
+        b=pD5rtDL7IQZz5WMCQyHfIryVJ808Ob7AG7bvMYEUDMwMtCzwzszOSMBU/l3UMvlpcH
+         CtmlLOC5oUFw9uJ4pf4xky24p+wqGBW7YOSCGoR4GJms6RwGWqMksG9g6osGBem7fNEj
+         ouB2uJHMKzhXCuuev8vtX98oh3erZvnZEdcE11Xm9gxox4CMAXZYzYcTUytglx8DFz3H
+         wqIXrPcaP7V4GmuoK3IJjn0XaN2vnJkCHJo9d1armYFDrIvcWjCtQqjE/dPVgGqiPhBQ
+         AamxHNzWRQ2lWRnvUO/DQ2Uovl5FAHKO6y8Qs4ItGjgn2UJ1mbMpO5AaSmzq4fH8nsNm
+         6axg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=etnEvI74;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of philip.li@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=philip.li@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=FNoA80bCiFoZZcE/OdjS7B1GHH5u+74wXb6ONhlx22U=;
-        b=fzlA5xIUrvGeNAR+x2qXNKqPC7CRxY9nItVQiampkW8/He9/pU9FPOWBpFRsc30S+g
-         Pn5/qZz8Pp43i21sSENBvhiLdslq32fMI/8jfWkOafXftSsKgsZIxaD3YydNZihwkvfc
-         0j/HCok5Ks02Yt9GQUjYXoi1iIkRyDpBLNvl8P3OA116R2gsl5oN8P94ojk8AMohS18M
-         OHWjWoRQUynRV4zB3UQaJvrerddIcf3sJfCLGCG7P5AvWLALGk43U9WikvShXNkqIHhl
-         6UMROa15heHZI5BTeUd9jzX8OaEOE3vwVCWdnMJgWd0fCYZiaXComHKxUl5QxoUFcMMA
-         YB6g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=FNoA80bCiFoZZcE/OdjS7B1GHH5u+74wXb6ONhlx22U=;
-        b=XRiLl1RmAQMiaMpb4W4VHG1MzMDwoNNqoYv9FZS6fgaCkum8lTEZz1wkAWYt7fk6Iz
-         w12y2W305kTMTMba4X8S3U/CUGWrlWI4gFro64ZwlrREdVOgMHKyI3bKXUcfMRdIbnLS
-         R6UV5y3sm9/m5WHZYCOcmGbv46Od16U6zI37bFqm81XX4/1sUtj7tvDJaUVeuft0CunD
-         U5AQyId+DFTAqhO67Dy8eo6qkKL+oMSWB95/zLDFZKAevdARpq52brkaoqIwH+BrskBR
-         x19B5YqUiY2XW3QOxl90tY6ySbko9po4cM/5oyXUJnTPkRGlYmqTcfPHWX8n4GN5yLBh
-         XaQw==
+        bh=JxrkKsxbBRtrXeVCt9+CoapYZYf1D+wcea7quApiNqM=;
+        b=RbGurHo0U1UfJ+2zX8kLvuHNphkUkNvova31+g0KpwINhZMebi8Y76eRQbzYmdF6t7
+         GnZh0sa4bqyw63Gce1dsn1/7BtgE/pKNAvneUAWJgeOSaH6f7tSHiH0Qa17qIX0zPD7z
+         fR8c9KwwcVJ/+R8lYhwOawhaXFXB3e6Uyf6tYV5Cw2RTSTtPdpNInD3eionL1LOZAX2s
+         SYFRiijLPqca/S5S3fGDQFG/7M9BBPODGwFEoUNrbu6lDTmnUKxDxanFMXVd07sbIUBx
+         Ltc+FKJ3gdoI3I76/UTJsQMMVB5rWw+c+c/MUUCuRoQc4pQ9+k211mw2cAcWjIM3ZKFN
+         NKyQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -63,80 +49,86 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=FNoA80bCiFoZZcE/OdjS7B1GHH5u+74wXb6ONhlx22U=;
-        b=blPxD6lhXYQBGXUJWV+DaBBwvbyF+Ff9EYF12wR7f+1IDvd/UmJMNrk+89nO3+fPa3
-         qSOklsKX2euCK7KePclC71Pj15MrKifVeW07vHPH4I7oIhAsfFYfITvz0o8J1EQBnxT7
-         6XwpMPDZI3VVGovfJ8vam16c9pXSo9gYUuzDbNnj9cl1XXhbm/H0F3kUJCo6IXyRAFsM
-         uK8E/uyRM2PLvh4UgFzLkeaEj3MI/1DiFEfiK4lK20Fq8gJV2faDc8d5RSoJMDfys+F7
-         uVlQW1MQcwfaP8kk1nDKxiImMO0TAOpLr+87m4Agsgj5JxUFDiTeu4faGPRdu6rcz5ji
-         FT/w==
+        bh=JxrkKsxbBRtrXeVCt9+CoapYZYf1D+wcea7quApiNqM=;
+        b=M4kIlE6yU8qPkdTntNNTR9Dp6yqGQdwbrijsT/7N7C5w9zVY+SCx8Al7UMS/nKpukp
+         18I3gpYS/Rqt2eMfy8WbBzmPchJj+3w+6tewdC5NqRbb/72VeN00KvT/JMf3LK7b41ws
+         HZdiDxhII8MK20ZWWp5ofokyIQYPp7VZN1Pz7C11ALJxu8NENfWJDwg0cUWF83IGFiuu
+         Dgap17ChVTrB1+QmXzRJ7mdWtUPut4qwCBGWtqnIgFYxaqJXWyF9gmnrrtLeohCS9Ivs
+         UbOWVH6TUg0fD1NX6Z4L3HqzBbOYbb/xLk5kseqv7BHWt6JheHNuCndCS+YZf6waEn4V
+         2T8A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ1uRrW3THDy9LmE1pEph9H3Css7AX03KzYRDjgdvQiUlOS+R3Bp
-	V5YwOTxqZpc7Z2XGMIerknc=
-X-Google-Smtp-Source: ADFU+vtiw3Cw3W/DNZjPcCm4Y0JEQPZMRxrl64QlRdTbqYSPvw3BljrwYfD+V9K1xtB4rPVPzenABA==
-X-Received: by 2002:a54:4e96:: with SMTP id c22mr1718678oiy.110.1583855199473;
-        Tue, 10 Mar 2020 08:46:39 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ3sdfduW+st8aW9+ZRIuv3gBAITShAicCurQbRHi2IO7/X4388v
+	tqXX6eb6Ilt7HNvYL6aaJPw=
+X-Google-Smtp-Source: ADFU+vuVQsIQfkf6IB26jODN60gka+dAb5ZSEVeardRqD+YmSSitwhHb01SUNfh+UVrxbSP2WUlieA==
+X-Received: by 2002:a25:cc8a:: with SMTP id l132mr23804921ybf.178.1583856018908;
+        Tue, 10 Mar 2020 09:00:18 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:2097:: with SMTP id y23ls4414948otq.0.gmail; Tue,
- 10 Mar 2020 08:46:39 -0700 (PDT)
-X-Received: by 2002:a9d:bf7:: with SMTP id 110mr6855946oth.259.1583855199078;
-        Tue, 10 Mar 2020 08:46:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1583855199; cv=none;
+Received: by 2002:a0d:cb88:: with SMTP id n130ls579773ywd.2.gmail; Tue, 10 Mar
+ 2020 09:00:17 -0700 (PDT)
+X-Received: by 2002:a81:ad27:: with SMTP id l39mr10011178ywh.194.1583856016957;
+        Tue, 10 Mar 2020 09:00:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1583856016; cv=none;
         d=google.com; s=arc-20160816;
-        b=Zpwgm+4k5HzMOvd11AptlNFohu0Vk3cHREAaU1GejWd77pZoERGPTtYqYU3puEzmFM
-         gmep1nEQ7SDczgumUN6lK4rFmvMEqNzp7ORh3P9nXJj0TRsahjXMRURSRB+219gwKK6w
-         8XTkCySkFOATSaBW5WoR+w5cB6w6LK6q8QANRrmnqFqtY3ON9XqMp8JYscvwX9UbQ8CR
-         C8AFfRCP3TbSZGHVHZKaeNRQXoQjM2ArA4Gp4kJKRhDZo6vOous5EP9HwONfXakTIiNG
-         FrNKWCkR1XaiKWPi5aTCJv5E4oD03rNYmHowGBiOmewx6+dauKCkSmB62xxEaz8YLVj/
-         EnAw==
+        b=oI7SkKzYQUdpw9wFpRc9S9hzvao1uelGAH9ndliufhd+SaVlGG6x9PmiEZQQHWkfdb
+         INChPrdnM/psOe+tQPgvJiwvTk4kDeHQzDURV5rhT0JWADAHFlBa8QQhHrCz5zikEAwp
+         mmQY9VRqMGiceprrbLyNacmBImUb7LKPQrzWSQkziK4/VeKMUuTiFQH8qgK9SVMeb4vY
+         nGnFquuZ5RpXT38iGGgOGbtr8/nr3BzR0NUGBjzN9uBSbS/6BZ4LW7AVijpYgvg3Q26C
+         N3abb3prFI9JME+9F/8MwLHkBT+Y4dDbI9nLZK1w4YNjNG31cOQpj2iMDb1xmfviOgDp
+         pHWg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=oAoaOcfKFLCJ0nOY8c3/piOO/zUeoRHQO/N6WrhcgWU=;
-        b=Xhn+0FwMRqgk2kD0BPJWFpMRxX0YvN/RM1F2kK2GhXa3/oS2A1yX//Fz7d4gXRDFsO
-         lvQuOVlEJw0eMNZoyMT7pFRxf7MhlF7kDxAK01NsUfaP+0+KESzRNLLpuXORY/xilUdH
-         A8dyxChwtnDR91l3RVLAy+/+yWlOyZW9vQhpnTBTY+eObdqB8b79wDhZ2GXRE0cfC+cm
-         OXecpWTG/9SMdRFaJehtPQtoo5/6WrUCfKH9TiaIctd+3+U9gMD6BI0zmooYICDuD2xu
-         2GA9QeXswZzHYytA4n8fCOsvxFFf7Z84Iu8s8O5hwfSB+PdwBPCTBmiDsGfXY7JfPy3j
-         dVXQ==
+         :message-id:subject:cc:to:from:date;
+        bh=zXCbFAvotqa1qO2b0vHggTty7okjRklUoSHXec4hsNs=;
+        b=OwoIyoEn9sWzo8DqQFncLRk4+ypNuv7Zi6xrRM6dxxvNc79zhx32cAO0Sa5GhD2zTQ
+         C+5/lauIRIUPG6EZT9Gb1UPLLlV+sfSusxWQw89SBrA6vnNZvVUA844tUYftlLwquyYC
+         ipo+CVh97gjZWDjtvtywj7PQE9+Ce4PZ32TcyfeWW81HztXQtallTN3WeggqIM164y8/
+         6Pd+i5W0f8Czgdu8hTbMlYekHotBNB5l3QCiHY7JyqrN4FXmE3ANuEGervxROReJykt+
+         Q+mTvyjF23A7nyNA/KemlqRVNoTsN/MNihp4Gz8i1rAlVoP6zyJHstxxTQaludYHHy4V
+         hqug==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=etnEvI74;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x342.google.com (mail-ot1-x342.google.com. [2607:f8b0:4864:20::342])
-        by gmr-mx.google.com with ESMTPS id b2si501048oib.5.2020.03.10.08.46.39
+       spf=pass (google.com: domain of philip.li@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=philip.li@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
+        by gmr-mx.google.com with ESMTPS id b130si857234ywe.2.2020.03.10.09.00.16
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Mar 2020 08:46:39 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) client-ip=2607:f8b0:4864:20::342;
-Received: by mail-ot1-x342.google.com with SMTP id h17so1154528otn.7
-        for <clang-built-linux@googlegroups.com>; Tue, 10 Mar 2020 08:46:39 -0700 (PDT)
-X-Received: by 2002:a05:6830:2009:: with SMTP id e9mr18014608otp.296.1583855197829;
-        Tue, 10 Mar 2020 08:46:37 -0700 (PDT)
-Received: from ubuntu-m2-xlarge-x86 ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id c12sm4411577oic.27.2020.03.10.08.46.37
-        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Tue, 10 Mar 2020 08:46:37 -0700 (PDT)
-Date: Tue, 10 Mar 2020 08:46:36 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: linux-kbuild@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	George Spelvin <lkml@sdf.org>, clang-built-linux@googlegroups.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] kconfig: introduce m32-flag and m64-flag
-Message-ID: <20200310154636.GA24694@ubuntu-m2-xlarge-x86>
-References: <20200310101250.22374-1-masahiroy@kernel.org>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 10 Mar 2020 09:00:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of philip.li@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+X-Amp-File-Uploaded: False
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga105.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 10 Mar 2020 09:00:14 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.70,537,1574150400"; 
+   d="scan'208";a="236079828"
+Received: from pl-dbox.sh.intel.com (HELO intel.com) ([10.239.159.39])
+  by orsmga008.jf.intel.com with ESMTP; 10 Mar 2020 09:00:11 -0700
+Date: Tue, 10 Mar 2020 23:58:53 +0800
+From: Philip Li <philip.li@intel.com>
+To: Jani Nikula <jani.nikula@linux.intel.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, kbuild-all@lists.01.org,
+	kbuild test robot <lkp@intel.com>,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [kbuild-all] Re: [jani:device-info-inheritance-v3 3/19]
+ drivers/gpu/drm/i915/i915_pci.c:212:2: error: initializer element is not a
+ compile-time constant
+Message-ID: <20200310155853.GE22995@intel.com>
+References: <202003060916.RI5pROBS%lkp@intel.com>
+ <CAKwvOdkNXFFzw4fBBzSMf2rUd3hV5Vt=11ONLf4nX4FrcmHFcQ@mail.gmail.com>
+ <87k13ulyho.fsf@intel.com>
+ <CAKwvOd=eHp8ZkS4B-GY9fbaUXS5wNxZQbU+eV6wbsXQ_69bieg@mail.gmail.com>
+ <874kuwoani.fsf@intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200310101250.22374-1-masahiroy@kernel.org>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Original-Sender: natechancellor@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=etnEvI74;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+In-Reply-To: <874kuwoani.fsf@intel.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: philip.li@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of philip.li@intel.com designates 192.55.52.43 as
+ permitted sender) smtp.mailfrom=philip.li@intel.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -149,83 +141,59 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Mar 10, 2020 at 07:12:49PM +0900, Masahiro Yamada wrote:
-> When a compiler supports multiple architectures, some compiler features
-> can be dependent on the target architecture.
+On Tue, Mar 10, 2020 at 10:51:29AM +0200, Jani Nikula wrote:
+> On Mon, 09 Mar 2020, Nick Desaulniers <ndesaulniers@google.com> wrote:
+> > On Mon, Mar 9, 2020 at 1:32 AM Jani Nikula <jani.nikula@linux.intel.com> wrote:
+> >>
+> >> On Fri, 06 Mar 2020, Nick Desaulniers <ndesaulniers@google.com> wrote:
+> >> > Based on the tree, I think this report was meant to go to Jani (cc'ed)?
+> >>
+> >> It baffles me that the build bot burns resources on building random
+> >> branches in my personal repositories.
+> >
+> > It uses a branch naming convention to avoid testing branches:
+> > https://github.com/intel/lkp-tests/wiki/LKP-FAQ#is-there-a-way-not-to-trigger-kbuild-tests-on-a-specific-branch
+> >
+> > But in this case, it seems it caught a build breakage even further
+> > upstream, which is valuable, right?
 > 
-> This is typical for Clang, which supports multiple LLVM backends.
-> Even for GCC, we need to take care of biarch compiler cases.
+> I guess, though I usually only use it to share some half-baked
+> stuff. Perhaps I'll also start using it for build testing some of the
+> more obscure ideas. ;)
 > 
-> It is not a problem when we evaluate cc-option in Makefiles because
-> cc-option is tested against the flag in question + $(KBUILD_CFLAGS).
+> >> That said, this builds on GCC 8 just fine. Is clang not able to do this?
+> >
+> > Places that require integer constant expressions can be very subtle.
+> > See this recent example in i915 for example:
+> > https://github.com/ClangBuiltLinux/linux/issues/918
+> > Sometimes reproducing also depends on some configs.  In this case,
+> > it's not as I've fetched your branch and can repro on defconfig.
 > 
-> The cc-option in Kconfig, on the other hand, does not accumulate
-> tested flags. Due to this simplification, it could potentially test
-> cc-option against a different target.
+> Yeah, reminds me of earlier issues with GCC and Clang having different
+> order in certain checks and optimizations, leading to Clang warnings in
+> code that GCC just optimized away.
 > 
-> At first, Kconfig always evaluated cc-option against the host
-> architecture.
+> > This is definitely our bug: https://bugs.llvm.org/show_bug.cgi?id=45157
 > 
-> Since commit e8de12fb7cde ("kbuild: Check for unknown options with
-> cc-option usage in Kconfig and clang"), in case of cross-compiling
-> with Clang, the target triple is correctly passed to Kconfig.
-> 
-> The case with biarch GCC (and native build with Clang) is still not
-> handled properly. We need to pass some flags to specify the target
-> machine bit.
-> 
-> Due to the design, all the macros in Kconfig are expanded in the
-> parse stage, where we do not know the target bit size yet.
-> 
-> For example, arch/x86/Kconfig allows a user to toggle CONFIG_64BIT.
-> If a compiler flag -foo depends on the machine bit, it must be tested
-> twice, one with -m32 and the other with -m64.
-> 
-> However, -m32/-m64 are not always recognized. So, this commits adds
-> m64-flag and m32-flag macros. They expand to -m32, -m64, respectively
-> if supported. Or, they expand to an empty string if unsupported.
-> 
-> The typical usage is like this:
-> 
->   config FOO
->           bool
->           default $(cc-option,$(m64-flag) -foo) if 64BIT
->           default $(cc-option,$(m32-flag) -foo)
-> 
-> This is clumsy, but there is no elegant way to handle this in the
-> current static macro expansion.
-> 
-> There was discussion for static functions vs dynamic functions.
-> The consensus was to go as far as possible with the static functions.
-> (https://lkml.org/lkml/2018/3/2/22)
-> 
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-> ---
-> 
->  scripts/Kconfig.include | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/scripts/Kconfig.include b/scripts/Kconfig.include
-> index 85334dc8c997..496d11c92c97 100644
-> --- a/scripts/Kconfig.include
-> +++ b/scripts/Kconfig.include
-> @@ -44,3 +44,10 @@ $(error-if,$(success, $(LD) -v | grep -q gold), gold linker '$(LD)' not supporte
->  
->  # gcc version including patch level
->  gcc-version := $(shell,$(srctree)/scripts/gcc-version.sh $(CC))
-> +
-> +# machine bit flags
-> +#  $(m32-flag): -m32 if the compiler supports it, or an empty string otherwise.
-> +#  $(m64-flag): -m64 if the compiler supports it, or an empty string otherwise.
-> +cc-option-bit = $(if-success,$(CC) -Werror $(1) -E -x c /dev/null -o /dev/null,$(1))
-> +m32-flag := $(cc-option-bit,-m32)
-> +m64-flag := $(cc-option-bit,-m64)
-> -- 
-> 2.17.1
+> Any idea if older GCC is also limited in this regard? What versions does
+> the kbuild bot test?
+Hi Jani, we have gcc-4.9/gcc-5/gcc-6/gcc-7 now, gcc-7 is default, and others
+will be picked up randomly, thus it may not have chance to test this commit
+yet, we can give a try to let you know later.
 
-Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+> 
+> BR,
+> Jani.
+> 
+> 
+> 
+> -- 
+> Jani Nikula, Intel Open Source Graphics Center
+> _______________________________________________
+> kbuild-all mailing list -- kbuild-all@lists.01.org
+> To unsubscribe send an email to kbuild-all-leave@lists.01.org
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200310154636.GA24694%40ubuntu-m2-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200310155853.GE22995%40intel.com.
