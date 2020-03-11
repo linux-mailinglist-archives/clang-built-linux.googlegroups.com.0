@@ -1,180 +1,124 @@
-Return-Path: <clang-built-linux+bncBAABBDEKULZQKGQE7RC44DI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBKO6ULZQKGQEBP4IWCA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23d.google.com (mail-lj1-x23d.google.com [IPv6:2a00:1450:4864:20::23d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3D9641810A9
-	for <lists+clang-built-linux@lfdr.de>; Wed, 11 Mar 2020 07:28:29 +0100 (CET)
-Received: by mail-lj1-x23d.google.com with SMTP id t20sf193294ljk.20
-        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Mar 2020 23:28:29 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1583908108; cv=pass;
+Received: from mail-wm1-x33d.google.com (mail-wm1-x33d.google.com [IPv6:2a00:1450:4864:20::33d])
+	by mail.lfdr.de (Postfix) with ESMTPS id A77C11814CA
+	for <lists+clang-built-linux@lfdr.de>; Wed, 11 Mar 2020 10:28:09 +0100 (CET)
+Received: by mail-wm1-x33d.google.com with SMTP id y7sf669275wmd.4
+        for <lists+clang-built-linux@lfdr.de>; Wed, 11 Mar 2020 02:28:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1583918889; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qKfrb/x0IHeW7R4HmZJE59BCREwZqJVanBtUkdK5UEWWgCAgJaMLepF6naThK7w0sF
-         8m/k+iAOHIiZO9+L533NQqw3J96ym38Lbd1CbW9mHz4cGZ+G8RQJLzDFzX3gmrjlIfrP
-         bkohIPf7KeMVy8OypXo0fEhXSbWuf8y83AiF/if7+Vd049Zr9vIPH6EW5Oqmq7XKYUrM
-         CRQgWEjWziXnmWOz2K1Ag5ebEOKtH8yzvnQC4ZV7VgPf53nMU9oxzNUdVMj9unU5g/Ei
-         N2pnTGKnf3GHIglH08GUi6odeHo3lQizHt3zk55kZva7OOciaIZ4GsBWd3frxzGksvgt
-         NvmA==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=MQOY/KUAs2Gz+ofyeFJ9BMCxNDMAbWxDMCzI69ZOfoivBzW6zy85tkDQ+ZXPfYe/Rv
+         kDk5B2RSS9YGvbpQse1bJGEn5xZr51FNKEEiCi+Wy7eqzAIk96VhRXTPjqosToWGYYTO
+         j50KvQ1VDRbPw/muPTR8MFkKP16k2swvvztO3hRs02yC58CkyjdKjUEL8LTSz6221vYk
+         /CkiKdsRKaGv9bDcKq/Y3OgjPPYi+85fk2a3LHBbyjsOp/YyiplrcZSBEAbZIhAnmD8y
+         +qwXDi8XvBhp4IcnmQB+QGiGFj+dGGlXowazwsP/aUY+IAVsxkEyjQnzXNzRN7irznUK
+         BqoQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:sender:dkim-signature;
-        bh=xwXXXVcwFipRAOycIlBODQ5BVBNzICgmITzBRsMrL0o=;
-        b=RbkoBBMXMNvRRYO5fm6AlcVEMX/JZ5sPPo1WEwfLAAAzFGxcSF/ihIkN68yqMnh4ob
-         Lb1TKCJp0ZvEzvjeJjw/g7gAdgGRRW6dDe2Bl7bnVS/wYANyJLp1YGzs//EzTkfS552D
-         wT8xjSX9tc2DosiatYIcsHvfekJg9JRJh9xddq/VzFX8eS9I62rqs2VYXb0zLbiyo9uh
-         ryWHA8y1TCAw/WxeMVlq+kcHgQ2PD2FysDlY1Ovb8Ze33U08vnY3lJ0W1KpeLUjJ/KcA
-         oYkcizMRGbmV681/4sv/+0Yl2iBDFugk7XXuWRXV4/ISAB9TjsMUPs5fryDbCoQLg1U5
-         pouA==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@NXP1.onmicrosoft.com header.s=selector2-NXP1-onmicrosoft-com header.b="SPbH7Gm/";
-       arc=pass (i=1 spf=pass spfdomain=oss.nxp.com dkim=pass dkdomain=oss.nxp.com dmarc=pass fromdomain=oss.nxp.com);
-       spf=pass (google.com: domain of madalin.bucur@oss.nxp.com designates 40.107.20.88 as permitted sender) smtp.mailfrom=madalin.bucur@oss.nxp.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nxp.com
+         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
+         :date:from:sender:dkim-signature;
+        bh=RI6rmvhOgOsy/DdlBQbN4a/GwIwDjzR4j3hh45RdD0Y=;
+        b=QDE0WJTd3ZJO32IQPqYyJoNz92V62/hW4LXkHwZyl4mzyTnGN6mF44nvILvXM+rHau
+         H2vdIJmz310br11wJgNX3rqpBqoFjLwFFZjlfnkCaUki00u49k7O0ivHVLSfpGhtqe5B
+         Ztfrm/eWpJpD4EDcHd4G5AY/5BxLc1wxPLGQySjr4pBwgdslf76moOpK822FKCZa77Ou
+         Q0T7BwZcgFcijFTmMaAhCTVfgtyow/oyA8wb1AQG4jpP0PXTQS83UYinxiY0lfxyUUId
+         dfnVWFoBcQGoc0fgMzRwzsn/sTwraT0STYR/30kVTRPF4Dk5MvjaPWCilkIaVKARO6Nh
+         C/dg==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@linaro.org header.s=google header.b=R92+lCx0;
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42e as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:content-language
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:date:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=xwXXXVcwFipRAOycIlBODQ5BVBNzICgmITzBRsMrL0o=;
-        b=bYap8GKRO4naxMh5LzIZB8ToZw17XWoIRfNH2kKAkweAMpzZa0iCQElwgK1WPFSPqL
-         qFPpABFC1S0/N0SVinTKOgv3A8fxVi89JFzfjgmPdoLN9CsK8JE3POlNXSJXPDSvSVqB
-         bubsMD2/hGTMHsNO1PUUK335M5Qt6nNxZnGqa/6YpjFvWEknMpcWQng2neO8UiU6WMU6
-         t0envgGGTt2U6aa4qMTP6FecJYcNOx+Vxy2fod8MKdKqfSliCjpZT0r5a/R/vOnvCQxX
-         T/U59O/+MiOx9KPbGUeZhClT/AKqqOiOP8wcYJw0bVN28DCT/pUJIMXJ06WzWOvw7Kfm
-         lZIA==
+        bh=RI6rmvhOgOsy/DdlBQbN4a/GwIwDjzR4j3hh45RdD0Y=;
+        b=iOC8BuC1EspX2eG3ce+rNFcmy+y+ZFDKvo9LmNX5MSNgUnbSVwSCA3zk0Eu9Qb9VU/
+         XlWa9CVedOT6pcuDK7NtpHa4OIFCltwt2gvxZE9Gr0VzGhRfUfXUZMOmmR6zHOCSFv26
+         YomQ9SEiBzSGN9NvvCn1ULn304Lo52M8IKxFVATMyCG8/f1VA9vgrhTqF1bSlTC13Pam
+         550gOci+FpumWvypNgmhD6wdUstOslupBmqP3R+2mv1hYduliIaU9E0+Jv1Xx9Ez1UrQ
+         cRpHjomGzOXWZ8+R1JoYosIdiXS1NZqYLbIfg84yvcJ2eHGEzmQ1e1cqhracmKfHDLDM
+         EkSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :content-language:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=xwXXXVcwFipRAOycIlBODQ5BVBNzICgmITzBRsMrL0o=;
-        b=pvBF7t2Qer/eQHm1T4LkkrsIe92+WgmgfmnPPBSB7r/vkPChVTzV87G6BmUx/fLMqS
-         4LRwCEBVet6DwUOGIDB82quF/TkjBivhKS80GKCCBIWlQImQBSIE7MApeyYDmHVxr96p
-         +cACa7Ozu0OsChpnzvslzISkymhVoqrMcFwCcEAfaR0nBlSLC24ElQA45j0WZJD/osO9
-         1tJxoRz2rcVFe0OfxLsKpB4WBwaZJe2dXNCajeLQNBsRFNPElK4GR3fZ8/eJ7M02u9V0
-         20qe736x+ytymb4Ujua4TYEPtawXGSiBiA93uPyBTiUZfLGF1XEAmgFM/XA1OoUpvFeM
-         Ue1w==
+        h=sender:x-gm-message-state:from:date:to:message-id:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=RI6rmvhOgOsy/DdlBQbN4a/GwIwDjzR4j3hh45RdD0Y=;
+        b=hKeVV4jYrtEWDd31XOdxTTRgtjeJrGclC1M6e1SsB6iDwkc8ouYq4k63BbA0aGKE0l
+         X6AisMQZbFydjt+lvDAV3TKixeDIPP8sWnOmMjxnz0NDzbHL/NkU20X9N8jbKn/uVa6Y
+         57o1ombC/is2xhSlTu3aDno6x4KFbv2R3lxpPHIaqwDn9fps6cfHWZs+ylmu/FvO/0Gb
+         2sxQmsK7NtahMldKLXm0mWsJAfRfc1Zs2Mqs/G9OFHge3C5U/YoXIG9RqbmaZw/thzSf
+         jK/Qez/U2xKn0dna28x8F3tanM7C4Tv/yuAfAmPauvg/AeAFNcYifpW8TnuTz4MOyFJ0
+         8zsg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ09qB/+9VeTGQpPFG0aOarZT+mge2g9J3LtqElL+1EpvAjZFBdD
-	4bzajKLS3nTqFQXwngmsetM=
-X-Google-Smtp-Source: ADFU+vsK87JMr4B2bWbiaOc23rmYOa4MuIswOwh71m4JNjXIx5sTh2yHNfTBLlpfNNxHej91596B8g==
-X-Received: by 2002:a2e:9cc1:: with SMTP id g1mr1170838ljj.152.1583908108716;
-        Tue, 10 Mar 2020 23:28:28 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ2o0+9RNInt83OszSN3hMwDzYs0CrHK0sULUs+5FFAKBQx4l8AM
+	6hvrWlyUmUxK6gTy+A5H/B0=
+X-Google-Smtp-Source: ADFU+vuYlESsg68IF5bXx8oGy/pmmdHuiEO0Gon6WAotd8dWb70Tav3kq6SPH0PwSYQajJE+Bh194Q==
+X-Received: by 2002:adf:ed86:: with SMTP id c6mr3607704wro.53.1583918889245;
+        Wed, 11 Mar 2020 02:28:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:b5d9:: with SMTP id g25ls148998ljn.9.gmail; Tue, 10 Mar
- 2020 23:28:28 -0700 (PDT)
-X-Received: by 2002:a2e:b5a2:: with SMTP id f2mr1176217ljn.212.1583908108164;
-        Tue, 10 Mar 2020 23:28:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1583908108; cv=pass;
+Received: by 2002:adf:f8d1:: with SMTP id f17ls612236wrq.3.gmail; Wed, 11 Mar
+ 2020 02:28:08 -0700 (PDT)
+X-Received: by 2002:adf:ed86:: with SMTP id c6mr3607629wro.53.1583918888658;
+        Wed, 11 Mar 2020 02:28:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1583918888; cv=none;
         d=google.com; s=arc-20160816;
-        b=j2MvNFo1pk/FvQt2cST1l7eh9CnAseJ7vcVskIAvBxybOp3BWovJafGcAlpdUS2cy6
-         r96+f8KnIncMAuALZgb2PYVob4DIT8OM2d9AA8ZGnbRXva7PE9UUQNQIHA6c3Vwq4VnB
-         0GvEXeOleigfRxwX4VYSacHBnJhTpA9D/CP+qPgwthsUtSvE2Fl91lWTA8jOoQ4+D+Oe
-         4wSWK+Ra/jGM7e3l4Lp1HMxih81XA0vh31qRufNGb2YPerOnZvIWg90Irf7Aif8yQ/ig
-         ADx1E3OL52AfEU8wSqFmRKHSR5ZpxoJO8zn1uqOIVcgr8VBy3YC6piVn8Pt5+tA7PAwh
-         LH+Q==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:dkim-signature;
-        bh=WrrzdlgW89qyudRrOhcZh+b5nFbUAFMIH/q6G+jBBpE=;
-        b=xMVy7gvklslhFjIUHXwTR5gHzE8aKZjlJRU9uLXSabA9A0b4f8ri7+nMN7NQIz7Ogx
-         9klsYkRI5wWvdiq1cBzA/Utsr2pkY5iE80T1BWfl8JR3vG1Ymbpu1bkIV1zdUj3RDZA0
-         awhNPCvTJ5AzCmoQ5b6kjau6nz/bFQuo9AoaI4tY4JyB69jyh6et52/soREwD/z7fbs8
-         Jg64MCebBUzv8YrkuuVSaTHWOjYHOc3zTMF+pYqzJraXt38kHRnY6tk0rQgO49vLeU/S
-         PVZghY3WXlBbaN14nbbKX5hinGZPLrq71yx5oB01hHibCopRICBXH8/dc7BZUXttNgsq
-         4ddA==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@NXP1.onmicrosoft.com header.s=selector2-NXP1-onmicrosoft-com header.b="SPbH7Gm/";
-       arc=pass (i=1 spf=pass spfdomain=oss.nxp.com dkim=pass dkdomain=oss.nxp.com dmarc=pass fromdomain=oss.nxp.com);
-       spf=pass (google.com: domain of madalin.bucur@oss.nxp.com designates 40.107.20.88 as permitted sender) smtp.mailfrom=madalin.bucur@oss.nxp.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nxp.com
-Received: from EUR05-DB8-obe.outbound.protection.outlook.com (mail-db8eur05on2088.outbound.protection.outlook.com. [40.107.20.88])
-        by gmr-mx.google.com with ESMTPS id s8si58576ljg.0.2020.03.10.23.28.27
+        b=UKhe6RZuwJrRJvuwX8ogivr6l6eSQQ+IjWU8VR65YY6W1ZceWeIkiH4nNXI3N98FGn
+         F7RrAK7HetAG0jn5Dln3ZcIivbBP88+ebFNYRoAz4gqNvR15ty8LoFmf8NVXzvXe5VGz
+         naZcBCBinhOPDmncaVe9aTaPRHc0jaYO5hAAD5AD+MmuRHAhYbHm13FqZ9/e440Nq6yC
+         IQd7ynIHhBDt+ooXxoZVPQxwA4LUaacULdP9hyyMyj9474WRKUf59bPtg+e17euG3bA9
+         o0DgHF2xVP29PehmOBERYSpxi4zYgCdRDgdozi2ZJGbuA97O17zsOr4R65ca4BQ1p20y
+         4ctw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:subject:message-id:to:date:from:dkim-signature;
+        bh=dY+TMeGbGyocqpv9uewF2zy42CnVuPHNUg00Q4qTVvk=;
+        b=zfGZ0GpyVui4vBppvD2qOyxtBv7r9S4QUF+GEFRIYJlf/t7iE0W+kjhICUDcmc2F/T
+         iZwDO0y8qGkftM76LawKf7lyvrfof4QLGcN9iozbXhgIWgu1Er1VNA+ua7JETtGTqFZE
+         gr+jPFo85d9o/sAsd+t2X7XR9++o9xpMoVqNhN2wJVtL1PBc1VJ9SUTcnxTc8/KoGxa3
+         vmNWqVQLlzYXgorTth6DdetUEqznHJrWrxo0gdIh/a9hAeT6tMG/G5rvLi5FdtLwGa5w
+         ncIsjJ7HoAJwfhIzv+zLmW9OU9lF357VwB1ck2YMkbAUSYL3QP/lOS5EyNjjIHQQlbKX
+         GyYg==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@linaro.org header.s=google header.b=R92+lCx0;
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42e as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-wr1-x42e.google.com (mail-wr1-x42e.google.com. [2a00:1450:4864:20::42e])
+        by gmr-mx.google.com with ESMTPS id m2si245451wmi.3.2020.03.11.02.28.08
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 10 Mar 2020 23:28:27 -0700 (PDT)
-Received-SPF: pass (google.com: domain of madalin.bucur@oss.nxp.com designates 40.107.20.88 as permitted sender) client-ip=40.107.20.88;
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=oDcqTUDYKfIDciT+Qf1y262+pGzOuS9BgbTDcaLRHkBydq6c4bS8V8AVEaWRuTl41nR7qX4LAk+z31VWaytkxOZhIDQv92xAOEtXvRHiLb+eifMhRxGKda3LsOzZJMscPUYZeYgjOrPeGIB4mH0mx76KdW41b75RpszX5+AmMrbhrYVc5tFpoyQFVA9eK/i4K3B1bZiqLAwFUO1HuwJefUWLei9tjot1z/wguMwZGAHsp913neek49kWZEX0EY/YPa97PPBPR6uta2Hb4KFBgX1vsGPPql36mDVkwCH0xpTsNgJdV5tPIfOozFmRXNu7Y13CHrKLOKmBEWzP3Jpffw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WrrzdlgW89qyudRrOhcZh+b5nFbUAFMIH/q6G+jBBpE=;
- b=YBgRlNR0tjdrhY1M5yxU11An2dllpSfiHPRcV3MgKR3Hhy4IlzvW914FjpsAhtjqbA8lba9EXyL+rThZTOA5lzgzaxo5YTMe8kiTY7NAPuWnPP1l6YnOVKtAivqXrHBDPDsnMm9URrgHzsH9AbVKK1d9NNYjHZwMrSpN02rHxGDETON+mNr2HQz9joGHGrItVn3MnPWeV7clAsP1z48WCG5VL0JgUNgJHJbpWgRpRQGAK9eHpIqJO2XbnScGrfcLA14tMynnUEBEUvX/hVnBnrWMd7XSR7ndK7rXCduuyK53tc53hEfruLLCfCclF1sU6fqmLD0mA62m8EpW3dP/HA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-Received: from DB8PR04MB6985.eurprd04.prod.outlook.com (52.133.243.85) by
- DB8PR04MB6971.eurprd04.prod.outlook.com (52.133.240.148) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2814.13; Wed, 11 Mar 2020 06:28:26 +0000
-Received: from DB8PR04MB6985.eurprd04.prod.outlook.com
- ([fe80::a523:58cc:b584:2c2]) by DB8PR04MB6985.eurprd04.prod.outlook.com
- ([fe80::a523:58cc:b584:2c2%6]) with mapi id 15.20.2793.013; Wed, 11 Mar 2020
- 06:28:26 +0000
-From: "Madalin Bucur (OSS)" <madalin.bucur@oss.nxp.com>
-To: Nathan Chancellor <natechancellor@gmail.com>, "David S. Miller"
-	<davem@davemloft.net>
-CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
-Subject: RE: [PATCH] dpaa_eth: Remove unnecessary boolean expression in
- dpaa_get_headroom
-Thread-Topic: [PATCH] dpaa_eth: Remove unnecessary boolean expression in
- dpaa_get_headroom
-Thread-Index: AQHV9yg9B58WfTtTEUGZdgGF+/fe+6hC7dsQ
-Date: Wed, 11 Mar 2020 06:28:26 +0000
-Message-ID: <DB8PR04MB6985A192818CEB0F0D274677ECFC0@DB8PR04MB6985.eurprd04.prod.outlook.com>
-References: <20200310220654.1987-1-natechancellor@gmail.com>
-In-Reply-To: <20200310220654.1987-1-natechancellor@gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-messagesentrepresentingtype: 1
-x-originating-ip: [86.126.9.20]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: 15530de9-c1c0-4bfb-13c3-08d7c585681b
-x-ms-traffictypediagnostic: DB8PR04MB6971:
-x-ms-exchange-sharedmailbox-routingagent-processed: True
-x-microsoft-antispam-prvs: <DB8PR04MB69711396ADFD226F8416BAF2ADFC0@DB8PR04MB6971.eurprd04.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:155;
-x-forefront-prvs: 0339F89554
-x-forefront-antispam-report: SFV:NSPM;SFS:(10009020)(4636009)(396003)(136003)(366004)(346002)(376002)(39860400002)(199004)(110136005)(8936002)(316002)(54906003)(6506007)(5660300002)(64756008)(66446008)(66476007)(66556008)(53546011)(76116006)(66946007)(9686003)(55016002)(33656002)(4326008)(2906002)(7696005)(45080400002)(478600001)(71200400001)(52536014)(86362001)(186003)(8676002)(26005)(81166006)(81156014)(966005);DIR:OUT;SFP:1101;SCL:1;SRVR:DB8PR04MB6971;H:DB8PR04MB6985.eurprd04.prod.outlook.com;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;A:0;
-received-spf: None (protection.outlook.com: oss.nxp.com does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: R1uL8wTxG9AIF/q1QYTzEK877BnShzw65z5kog/6yRXdcM5i1fR23NQoUGHUqnp96SSlD6pysxfYofs1RZEZfZsTuJTnWT8GCWFYIQJSdXnu+GbuwMoj2jMmv3y0sLmA/XQdiNpxlIZyk5cAVdi6vJ06Z6Bwvq93E3j2FBaSFn1tpTl2mOo6JwZ/AkhFK3R6jlIa3I+X38JeR8pzB55gCWT5tNzFw/d7aLs57D9TRaf3dUIVIHf/HlMgSBrXLFCd4nNY6PRI/tLTy0J+BWmLFw9KU8xagYqEL8kHNqdSRhruJNebI1td+Z1qH1j9Jdb9sTdjYDOJclLeDaTWJzrjJtj1Mg0Qi+0NE4G4EIYo29yr4uTlmwylYhI77eSvlcI/ZaTKpokdgcbknfJ5Xp1w19A3gCvzMtWPrGw0pBgOwMZf7NF9RVfclpsPDOHzuFh5JFx7DDdWMmYtQMvd/BF7n3hjic3VRuHg0DUkcsKJEUgZFqdFxNq2if4WZBm4sVwwR45rPm279We/PTFtDmxGWA==
-x-ms-exchange-antispam-messagedata: OQD3wOUzvHs+oZCJyi/KbYbiOQU/3Vey7a10YawTrz4nQEksfYsdt21CWf/VbrCXlfAfRIXzRr5BdDWbnTl4JOd1t7wTF8hrAH4c12vbOz8X4XrYbYL0SUgf+YA2Nel+ZkcRXVX2I1cseJJxbZJfaQ==
-x-ms-exchange-transport-forked: True
-Content-Type: text/plain; charset="UTF-8"
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 11 Mar 2020 02:28:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42e as permitted sender) client-ip=2a00:1450:4864:20::42e;
+Received: by mail-wr1-x42e.google.com with SMTP id 6so1613937wre.4
+        for <clang-built-linux@googlegroups.com>; Wed, 11 Mar 2020 02:28:08 -0700 (PDT)
+X-Received: by 2002:adf:f8cf:: with SMTP id f15mr3385216wrq.79.1583918888108;
+        Wed, 11 Mar 2020 02:28:08 -0700 (PDT)
+Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
+        by smtp.gmail.com with ESMTPSA id n11sm36583869wrw.11.2020.03.11.02.28.07
+        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Wed, 11 Mar 2020 02:28:07 -0700 (PDT)
+From: ci_notify@linaro.org
+Date: Wed, 11 Mar 2020 09:28:06 +0000 (UTC)
+To: tcwg-validation@linaro.org, arnd@linaro.org, 
+	clang-built-linux@googlegroups.com
+Message-ID: <1808025749.9405.1583918887619.JavaMail.javamailuser@localhost>
+Subject: [CI-NOTIFY]: TCWG Bisect
+ tcwg_kernel/llvm-master-arm-next-allmodconfig - Build # 69 - Successful!
 MIME-Version: 1.0
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 15530de9-c1c0-4bfb-13c3-08d7c585681b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Mar 2020 06:28:26.3006
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 4ReTbHtuZQi6IjDLqzN30561s5v8rZKTigIwIzqlt0z057ba0+pxWIfTkRWGNw17kZvGS4LBJzRPd2UriWCg2g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6971
-X-Original-Sender: madalin.bucur@oss.nxp.com
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_9404_283336061.1583918886978"
+X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-arm-next-allmodconfig
+X-Jenkins-Result: SUCCESS
+X-Original-Sender: ci_notify@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@NXP1.onmicrosoft.com header.s=selector2-NXP1-onmicrosoft-com
- header.b="SPbH7Gm/";       arc=pass (i=1 spf=pass spfdomain=oss.nxp.com
- dkim=pass dkdomain=oss.nxp.com dmarc=pass fromdomain=oss.nxp.com);
-       spf=pass (google.com: domain of madalin.bucur@oss.nxp.com designates
- 40.107.20.88 as permitted sender) smtp.mailfrom=madalin.bucur@oss.nxp.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nxp.com
+ header.i=@linaro.org header.s=google header.b=R92+lCx0;       spf=pass
+ (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42e
+ as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -187,71 +131,477 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-> -----Original Message-----
-> From: Nathan Chancellor <natechancellor@gmail.com>
-> Sent: Wednesday, March 11, 2020 12:07 AM
-> To: David S. Miller <davem@davemloft.net>; Madalin Bucur
-> <madalin.bucur@nxp.com>
-> Cc: netdev@vger.kernel.org; linux-kernel@vger.kernel.org; clang-built-
-> linux@googlegroups.com; Nathan Chancellor <natechancellor@gmail.com>
-> Subject: [PATCH] dpaa_eth: Remove unnecessary boolean expression in
-> dpaa_get_headroom
-> 
-> Clang warns:
-> 
-> drivers/net/ethernet/freescale/dpaa/dpaa_eth.c:2860:9: warning:
-> converting the result of '?:' with integer constants to a boolean always
-> evaluates to 'true' [-Wtautological-constant-compare]
->         return DPAA_FD_DATA_ALIGNMENT ? ALIGN(headroom,
->                ^
-> drivers/net/ethernet/freescale/dpaa/dpaa_eth.c:131:34: note: expanded
-> from macro 'DPAA_FD_DATA_ALIGNMENT'
-> \#define DPAA_FD_DATA_ALIGNMENT  (fman_has_errata_a050385() ? 64 : 16)
->                                  ^
-> 1 warning generated.
-> 
-> This was exposed by commit 3c68b8fffb48 ("dpaa_eth: FMan erratum A050385
-> workaround") even though it appears to have been an issue since the
-> introductory commit 9ad1a3749333 ("dpaa_eth: add support for DPAA
-> Ethernet") since DPAA_FD_DATA_ALIGNMENT has never been able to be zero.
-> 
-> Just replace the whole boolean expression with the true branch, as it is
-> always been true.
-> 
-> Link:
-> https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.c
-> om%2FClangBuiltLinux%2Flinux%2Fissues%2F928&amp;data=02%7C01%7Cmadalin.buc
-> ur%40nxp.com%7C53f37e7dbf584248844608d7c53f5f70%7C686ea1d3bc2b4c6fa92cd99c
-> 5c301635%7C0%7C0%7C637194748277007260&amp;sdata=GshtiHYyjvTcp87StdMoQDP5L6
-> %2BhYN6nnUi6vbyuqic%3D&amp;reserved=0
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> ---
->  drivers/net/ethernet/freescale/dpaa/dpaa_eth.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/freescale/dpaa/dpaa_eth.c
-> b/drivers/net/ethernet/freescale/dpaa/dpaa_eth.c
-> index 190e4478128a..46039d80bb43 100644
-> --- a/drivers/net/ethernet/freescale/dpaa/dpaa_eth.c
-> +++ b/drivers/net/ethernet/freescale/dpaa/dpaa_eth.c
-> @@ -2857,9 +2857,7 @@ static inline u16 dpaa_get_headroom(struct
-> dpaa_buffer_layout *bl)
->  	headroom = (u16)(bl->priv_data_size + DPAA_PARSE_RESULTS_SIZE +
->  		DPAA_TIME_STAMP_SIZE + DPAA_HASH_RESULTS_SIZE);
-> 
-> -	return DPAA_FD_DATA_ALIGNMENT ? ALIGN(headroom,
-> -					      DPAA_FD_DATA_ALIGNMENT) :
-> -					headroom;
-> +	return ALIGN(headroom, DPAA_FD_DATA_ALIGNMENT);
->  }
-> 
->  static int dpaa_eth_probe(struct platform_device *pdev)
-> --	
-> 2.26.0.rc1
+------=_Part_9404_283336061.1583918886978
+Content-Type: text/plain; charset="UTF-8"
 
-Reviewed-by: Madalin Bucur <madalin.bucur@oss.nxp.com>
+Successfully identified regression in *linux* in CI configuration tcwg_kernel/llvm-master-arm-next-allmodconfig.  So far, this commit has regressed CI configurations:
+ - tcwg_kernel/gnu-master-aarch64-next-allmodconfig
+ - tcwg_kernel/gnu-master-aarch64-next-allyesconfig
+ - tcwg_kernel/gnu-release-aarch64-next-allmodconfig
+ - tcwg_kernel/gnu-release-aarch64-next-allyesconfig
+ - tcwg_kernel/llvm-master-aarch64-next-allmodconfig
+ - tcwg_kernel/llvm-master-aarch64-next-allyesconfig
+ - tcwg_kernel/llvm-master-arm-next-allmodconfig
+ - tcwg_kernel/llvm-release-aarch64-next-allmodconfig
+ - tcwg_kernel/llvm-release-aarch64-next-allyesconfig
+ - tcwg_kernel/llvm-release-arm-next-allmodconfig
+
+Culprit:
+<cut>
+commit 56cc3af4e8c8eaba91b51efa6081a868adbd97c3
+Author: Marco Felsch <m.felsch@pengutronix.de>
+
+    pinctrl: da9062: add driver support
+</cut>
+
+First few build errors in logs:
+00:06:40 drivers/pinctrl/pinctrl-da9062.c:28:10: error: '../gpio/gpiolib.h' file not found with <angled> include; use  instead
+00:06:40 make[2]: *** [drivers/pinctrl/pinctrl-da9062.o] Error 1
+00:06:51 make[1]: *** [drivers/pinctrl] Error 2
+00:25:20 make: *** [drivers] Error 2
+Configuration details:
+rr[llvm_url]="https://github.com/llvm/llvm-project.git"
+rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
+rr[linux_branch]="b86a6a241b7c60ca7a6ca4fb3c0d2aedbbf2c1b6"
+
+Results regressed to (for first_bad == 56cc3af4e8c8eaba91b51efa6081a868adbd97c3)
+reset_artifacts:
+-10
+build_llvm:
+-1
+linux_n_obj:
+20275
+
+from (for last_good == c93214689f0c70b6942ba1d12b8371b9fc60ae41)
+reset_artifacts:
+-10
+build_llvm:
+-1
+linux_n_obj:
+27723
+linux build successful:
+all
+
+Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allmodconfig/69/artifact/artifacts/build-56cc3af4e8c8eaba91b51efa6081a868adbd97c3/
+Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allmodconfig/69/artifact/artifacts/build-c93214689f0c70b6942ba1d12b8371b9fc60ae41/
+Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allmodconfig/69/
+
+Reproduce builds:
+<cut>
+mkdir investigate-linux-56cc3af4e8c8eaba91b51efa6081a868adbd97c3
+cd investigate-linux-56cc3af4e8c8eaba91b51efa6081a868adbd97c3
+
+git clone https://git.linaro.org/toolchain/jenkins-scripts
+
+mkdir -p artifacts/manifests
+curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allmodconfig/69/artifact/artifacts/manifests/build-baseline.sh
+curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allmodconfig/69/artifact/artifacts/manifests/build-parameters.sh
+curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allmodconfig/69/artifact/artifacts/test.sh
+chmod +x artifacts/test.sh
+
+# Reproduce the baseline build (build all pre-requisites)
+./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
+
+cd linux
+
+# Reproduce first_bad build
+git checkout --detach 56cc3af4e8c8eaba91b51efa6081a868adbd97c3
+../artifacts/test.sh
+
+# Reproduce last_good build
+git checkout --detach c93214689f0c70b6942ba1d12b8371b9fc60ae41
+../artifacts/test.sh
+
+cd ..
+</cut>
+
+History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-arm-next-allmodconfig
+
+Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allmodconfig/69/artifact/artifacts/
+Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allmodconfig/69/consoleText
+
+Full commit:
+<cut>
+commit 56cc3af4e8c8eaba91b51efa6081a868adbd97c3
+Author: Marco Felsch <m.felsch@pengutronix.de>
+Date:   Wed Jan 8 11:47:46 2020 +0100
+
+    pinctrl: da9062: add driver support
+    
+    The DA9062 is a mfd pmic device which supports 5 GPIOs. The GPIOs can
+    be used as input, output or have a special use-case.
+    
+    The patch adds the support for the normal input/output use-case.
+    
+    Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+    Link: https://lore.kernel.org/r/20200108104746.1765-4-m.felsch@pengutronix.de
+    Reviewed-by: Adam Thomson <Adam.Thomson.Opensource@diasemi.com>
+    Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+---
+ MAINTAINERS                      |   1 +
+ drivers/pinctrl/Kconfig          |  12 ++
+ drivers/pinctrl/Makefile         |   1 +
+ drivers/pinctrl/pinctrl-da9062.c | 300 +++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 314 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 408fd7c660aa..260c0c4c6e74 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -4921,6 +4921,7 @@ F:	drivers/leds/leds-da90??.c
+ F:	drivers/mfd/da903x.c
+ F:	drivers/mfd/da90??-*.c
+ F:	drivers/mfd/da91??-*.c
++F:	drivers/pinctrl/pinctrl-da90??.c
+ F:	drivers/power/supply/da9052-battery.c
+ F:	drivers/power/supply/da91??-*.c
+ F:	drivers/regulator/da903x.c
+diff --git a/drivers/pinctrl/Kconfig b/drivers/pinctrl/Kconfig
+index df0ef69dd474..834c59950d1c 100644
+--- a/drivers/pinctrl/Kconfig
++++ b/drivers/pinctrl/Kconfig
+@@ -126,6 +126,18 @@ config PINCTRL_DA850_PUPD
+ 	  Driver for TI DA850/OMAP-L138/AM18XX pinconf. Used to control
+ 	  pullup/pulldown pin groups.
+ 
++config PINCTRL_DA9062
++	tristate "Dialog Semiconductor DA9062 PMIC pinctrl and GPIO Support"
++	depends on MFD_DA9062
++	select GPIOLIB
++	help
++	  The Dialog DA9062 PMIC provides multiple GPIOs that can be muxed for
++	  different functions. This driver bundles a pinctrl driver to select the
++	  function muxing and a GPIO driver to handle the GPIO when the GPIO
++	  function is selected.
++
++	  Say yes to enable pinctrl and GPIO support for the DA9062 PMIC.
++
+ config PINCTRL_DIGICOLOR
+ 	bool
+ 	depends on OF && (ARCH_DIGICOLOR || COMPILE_TEST)
+diff --git a/drivers/pinctrl/Makefile b/drivers/pinctrl/Makefile
+index 879f312bfb75..0b36a1cfca8a 100644
+--- a/drivers/pinctrl/Makefile
++++ b/drivers/pinctrl/Makefile
+@@ -16,6 +16,7 @@ obj-$(CONFIG_PINCTRL_AT91PIO4)	+= pinctrl-at91-pio4.o
+ obj-$(CONFIG_PINCTRL_AMD)	+= pinctrl-amd.o
+ obj-$(CONFIG_PINCTRL_BM1880)	+= pinctrl-bm1880.o
+ obj-$(CONFIG_PINCTRL_DA850_PUPD) += pinctrl-da850-pupd.o
++obj-$(CONFIG_PINCTRL_DA9062)	+= pinctrl-da9062.o
+ obj-$(CONFIG_PINCTRL_DIGICOLOR)	+= pinctrl-digicolor.o
+ obj-$(CONFIG_PINCTRL_FALCON)	+= pinctrl-falcon.o
+ obj-$(CONFIG_PINCTRL_GEMINI)	+= pinctrl-gemini.o
+diff --git a/drivers/pinctrl/pinctrl-da9062.c b/drivers/pinctrl/pinctrl-da9062.c
+new file mode 100644
+index 000000000000..f704ee0b2fd9
+--- /dev/null
++++ b/drivers/pinctrl/pinctrl-da9062.c
+@@ -0,0 +1,300 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Dialog DA9062 pinctrl and GPIO driver.
++ * Based on DA9055 GPIO driver.
++ *
++ * TODO:
++ *   - add pinmux and pinctrl support (gpio alternate mode)
++ *
++ * Documents:
++ * [1] https://www.dialog-semiconductor.com/sites/default/files/da9062_datasheet_3v6.pdf
++ *
++ * Copyright (C) 2019 Pengutronix, Marco Felsch <kernel@pengutronix.de>
++ */
++#include <linux/bits.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++
++#include <linux/gpio/driver.h>
++
++#include <linux/mfd/da9062/core.h>
++#include <linux/mfd/da9062/registers.h>
++
++/*
++ * We need this get the gpio_desc from a <gpio_chip,offset> tuple to decide if
++ * the gpio is active low without a vendor specific dt-binding.
++ */
++#include <../gpio/gpiolib.h>
++
++#define DA9062_TYPE(offset)		(4 * (offset % 2))
++#define DA9062_PIN_SHIFT(offset)	(4 * (offset % 2))
++#define DA9062_PIN_ALTERNATE		0x00 /* gpio alternate mode */
++#define DA9062_PIN_GPI			0x01 /* gpio in */
++#define DA9062_PIN_GPO_OD		0x02 /* gpio out open-drain */
++#define DA9062_PIN_GPO_PP		0x03 /* gpio out push-pull */
++#define DA9062_GPIO_NUM			5
++
++struct da9062_pctl {
++	struct da9062 *da9062;
++	struct gpio_chip gc;
++	unsigned int pin_config[DA9062_GPIO_NUM];
++};
++
++static int da9062_pctl_get_pin_mode(struct da9062_pctl *pctl,
++				    unsigned int offset)
++{
++	struct regmap *regmap = pctl->da9062->regmap;
++	int ret, val;
++
++	ret = regmap_read(regmap, DA9062AA_GPIO_0_1 + (offset >> 1), &val);
++	if (ret < 0)
++		return ret;
++
++	val >>= DA9062_PIN_SHIFT(offset);
++	val &= DA9062AA_GPIO0_PIN_MASK;
++
++	return val;
++}
++
++static int da9062_pctl_set_pin_mode(struct da9062_pctl *pctl,
++				    unsigned int offset, unsigned int mode_req)
++{
++	struct regmap *regmap = pctl->da9062->regmap;
++	unsigned int mode = mode_req;
++	unsigned int mask;
++	int ret;
++
++	mode &= DA9062AA_GPIO0_PIN_MASK;
++	mode <<= DA9062_PIN_SHIFT(offset);
++	mask = DA9062AA_GPIO0_PIN_MASK << DA9062_PIN_SHIFT(offset);
++
++	ret = regmap_update_bits(regmap, DA9062AA_GPIO_0_1 + (offset >> 1),
++				 mask, mode);
++	if (!ret)
++		pctl->pin_config[offset] = mode_req;
++
++	return ret;
++}
++
++static int da9062_gpio_get(struct gpio_chip *gc, unsigned int offset)
++{
++	struct da9062_pctl *pctl = gpiochip_get_data(gc);
++	struct regmap *regmap = pctl->da9062->regmap;
++	int gpio_mode, val;
++	int ret;
++
++	gpio_mode = da9062_pctl_get_pin_mode(pctl, offset);
++	if (gpio_mode < 0)
++		return gpio_mode;
++
++	switch (gpio_mode) {
++	case DA9062_PIN_ALTERNATE:
++		return -ENOTSUPP;
++	case DA9062_PIN_GPI:
++		ret = regmap_read(regmap, DA9062AA_STATUS_B, &val);
++		if (ret < 0)
++			return ret;
++		break;
++	case DA9062_PIN_GPO_OD:
++	case DA9062_PIN_GPO_PP:
++		ret = regmap_read(regmap, DA9062AA_GPIO_MODE0_4, &val);
++		if (ret < 0)
++			return ret;
++	}
++
++	return !!(val & BIT(offset));
++}
++
++static void da9062_gpio_set(struct gpio_chip *gc, unsigned int offset,
++			    int value)
++{
++	struct da9062_pctl *pctl = gpiochip_get_data(gc);
++	struct regmap *regmap = pctl->da9062->regmap;
++
++	regmap_update_bits(regmap, DA9062AA_GPIO_MODE0_4, BIT(offset),
++			   value << offset);
++}
++
++static int da9062_gpio_get_direction(struct gpio_chip *gc, unsigned int offset)
++{
++	struct da9062_pctl *pctl = gpiochip_get_data(gc);
++	int gpio_mode;
++
++	gpio_mode = da9062_pctl_get_pin_mode(pctl, offset);
++	if (gpio_mode < 0)
++		return gpio_mode;
++
++	switch (gpio_mode) {
++	case DA9062_PIN_ALTERNATE:
++		return -ENOTSUPP;
++	case DA9062_PIN_GPI:
++		return GPIO_LINE_DIRECTION_IN;
++	case DA9062_PIN_GPO_OD:
++	case DA9062_PIN_GPO_PP:
++		return GPIO_LINE_DIRECTION_OUT;
++	}
++
++	return -EINVAL;
++}
++
++static int da9062_gpio_direction_input(struct gpio_chip *gc,
++				       unsigned int offset)
++{
++	struct da9062_pctl *pctl = gpiochip_get_data(gc);
++	struct regmap *regmap = pctl->da9062->regmap;
++	struct gpio_desc *desc = gpiochip_get_desc(gc, offset);
++	unsigned int gpi_type;
++	int ret;
++
++	ret = da9062_pctl_set_pin_mode(pctl, offset, DA9062_PIN_GPI);
++	if (ret)
++		return ret;
++
++	/*
++	 * If the gpio is active low we should set it in hw too. No worries
++	 * about gpio_get() because we read and return the gpio-level. So the
++	 * gpiolib active_low handling is still correct.
++	 *
++	 * 0 - active low, 1 - active high
++	 */
++	gpi_type = !gpiod_is_active_low(desc);
++
++	return regmap_update_bits(regmap, DA9062AA_GPIO_0_1 + (offset >> 1),
++				DA9062AA_GPIO0_TYPE_MASK << DA9062_TYPE(offset),
++				gpi_type << DA9062_TYPE(offset));
++}
++
++static int da9062_gpio_direction_output(struct gpio_chip *gc,
++					unsigned int offset, int value)
++{
++	struct da9062_pctl *pctl = gpiochip_get_data(gc);
++	unsigned int pin_config = pctl->pin_config[offset];
++	int ret;
++
++	ret = da9062_pctl_set_pin_mode(pctl, offset, pin_config);
++	if (ret)
++		return ret;
++
++	da9062_gpio_set(gc, offset, value);
++
++	return 0;
++}
++
++static int da9062_gpio_set_config(struct gpio_chip *gc, unsigned int offset,
++				  unsigned long config)
++{
++	struct da9062_pctl *pctl = gpiochip_get_data(gc);
++	struct regmap *regmap = pctl->da9062->regmap;
++	int gpio_mode;
++
++	/*
++	 * We need to meet the following restrictions [1, Figure 18]:
++	 * - PIN_CONFIG_BIAS_PULL_DOWN -> only allowed if the pin is used as
++	 *				  gpio input
++	 * - PIN_CONFIG_BIAS_PULL_UP   -> only allowed if the pin is used as
++	 *				  gpio output open-drain.
++	 */
++
++	switch (pinconf_to_config_param(config)) {
++	case PIN_CONFIG_BIAS_DISABLE:
++		return regmap_update_bits(regmap, DA9062AA_CONFIG_K,
++					  BIT(offset), 0);
++	case PIN_CONFIG_BIAS_PULL_DOWN:
++		gpio_mode = da9062_pctl_get_pin_mode(pctl, offset);
++		if (gpio_mode < 0)
++			return -EINVAL;
++		else if (gpio_mode != DA9062_PIN_GPI)
++			return -ENOTSUPP;
++		return regmap_update_bits(regmap, DA9062AA_CONFIG_K,
++					  BIT(offset), BIT(offset));
++	case PIN_CONFIG_BIAS_PULL_UP:
++		gpio_mode = da9062_pctl_get_pin_mode(pctl, offset);
++		if (gpio_mode < 0)
++			return -EINVAL;
++		else if (gpio_mode != DA9062_PIN_GPO_OD)
++			return -ENOTSUPP;
++		return regmap_update_bits(regmap, DA9062AA_CONFIG_K,
++					  BIT(offset), BIT(offset));
++	case PIN_CONFIG_DRIVE_OPEN_DRAIN:
++		return da9062_pctl_set_pin_mode(pctl, offset,
++						DA9062_PIN_GPO_OD);
++	case PIN_CONFIG_DRIVE_PUSH_PULL:
++		return da9062_pctl_set_pin_mode(pctl, offset,
++						DA9062_PIN_GPO_PP);
++	default:
++		return -ENOTSUPP;
++	}
++}
++
++static int da9062_gpio_to_irq(struct gpio_chip *gc, unsigned int offset)
++{
++	struct da9062_pctl *pctl = gpiochip_get_data(gc);
++	struct da9062 *da9062 = pctl->da9062;
++
++	return regmap_irq_get_virq(da9062->regmap_irq,
++				   DA9062_IRQ_GPI0 + offset);
++}
++
++static const struct gpio_chip reference_gc = {
++	.owner = THIS_MODULE,
++	.get = da9062_gpio_get,
++	.set = da9062_gpio_set,
++	.get_direction = da9062_gpio_get_direction,
++	.direction_input = da9062_gpio_direction_input,
++	.direction_output = da9062_gpio_direction_output,
++	.set_config = da9062_gpio_set_config,
++	.to_irq = da9062_gpio_to_irq,
++	.can_sleep = true,
++	.ngpio = DA9062_GPIO_NUM,
++	.base = -1,
++};
++
++static int da9062_pctl_probe(struct platform_device *pdev)
++{
++	struct device *parent = pdev->dev.parent;
++	struct da9062_pctl *pctl;
++	int i;
++
++	pctl = devm_kzalloc(&pdev->dev, sizeof(*pctl), GFP_KERNEL);
++	if (!pctl)
++		return -ENOMEM;
++
++	pctl->da9062 = dev_get_drvdata(parent);
++	if (!pctl->da9062)
++		return -EINVAL;
++
++	if (!device_property_present(parent, "gpio-controller"))
++		return 0;
++
++	for (i = 0; i < ARRAY_SIZE(pctl->pin_config); i++)
++		pctl->pin_config[i] = DA9062_PIN_GPO_PP;
++
++	/*
++	 * Currently the driver handles only the GPIO support. The
++	 * pinctrl/pinmux support can be added later if needed.
++	 */
++	pctl->gc = reference_gc;
++	pctl->gc.label = dev_name(&pdev->dev);
++	pctl->gc.parent = &pdev->dev;
++#ifdef CONFIG_OF_GPIO
++	pctl->gc.of_node = parent->of_node;
++#endif
++
++	platform_set_drvdata(pdev, pctl);
++
++	return devm_gpiochip_add_data(&pdev->dev, &pctl->gc, pctl);
++}
++
++static struct platform_driver da9062_pctl_driver = {
++	.probe = da9062_pctl_probe,
++	.driver = {
++		.name	= "da9062-gpio",
++	},
++};
++module_platform_driver(da9062_pctl_driver);
++
++MODULE_AUTHOR("Marco Felsch <kernel@pengutronix.de>");
++MODULE_DESCRIPTION("DA9062 PMIC pinctrl and GPIO Driver");
++MODULE_LICENSE("GPL v2");
++MODULE_ALIAS("platform:da9062-gpio");
+</cut>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/DB8PR04MB6985A192818CEB0F0D274677ECFC0%40DB8PR04MB6985.eurprd04.prod.outlook.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1808025749.9405.1583918887619.JavaMail.javamailuser%40localhost.
+
+------=_Part_9404_283336061.1583918886978--
