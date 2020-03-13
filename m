@@ -1,141 +1,122 @@
-Return-Path: <clang-built-linux+bncBCOYZDMZ6UMRBGWVV3ZQKGQEQMPDRYY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDPPFIEASMFBBXGXV3ZQKGQE3OV725I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53a.google.com (mail-ed1-x53a.google.com [IPv6:2a00:1450:4864:20::53a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 01D07184B45
-	for <lists+clang-built-linux@lfdr.de>; Fri, 13 Mar 2020 16:45:31 +0100 (CET)
-Received: by mail-ed1-x53a.google.com with SMTP id m24sf8469808edq.8
-        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Mar 2020 08:45:30 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584114330; cv=pass;
+Received: from mail-oi1-x23e.google.com (mail-oi1-x23e.google.com [IPv6:2607:f8b0:4864:20::23e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 56698184BA9
+	for <lists+clang-built-linux@lfdr.de>; Fri, 13 Mar 2020 16:50:53 +0100 (CET)
+Received: by mail-oi1-x23e.google.com with SMTP id s10sf5640724oie.22
+        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Mar 2020 08:50:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584114652; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PoUrk9Ab3q7INiownHC1BPIhda5Zp14WAyYn0wQdvJJg+74AvTdgBGxa4bFN0j43nw
-         ZCcoVmFJ+84rM6xvJnO8ADyZHXgqk4G7DkUgNBnLVz6tVN3YuEMFVYwaW8CxE5kBKwJN
-         qqa8hmXjuGq4UOx9twJYU7s4zoFL2BxnsxAaQ9JpJXftEzR4dUBA8xKln728sWSJIgG/
-         tPu8NFjWwUdZh43mkk/VPK8w21ZmnztbceTnXc/oFq1OB7+8FLxejcFro8mOq8MPaFYU
-         DRq1VxjQwrhB/MqsyzTsu/bh0K+ykE/bU47mx6vm2jtqV0Q9J4/1NkedqzHyyEXWOpAN
-         XBdQ==
+        b=DHg8YopfRvnfrXQRHafGCb0heo78K/XQ18y35c7pzgYrQH25tNM0q6Y9mPozq1iDho
+         Ma7QDCRKBJY19lZH07bC1vc0FAd0WBdBLEDLQECiXGwZkr8ikdZAezswkpV7phVWWNCv
+         WqGkgi5DGKEoHkuFXQwN2cvqAr3RENlv1FVQAdPv+B8YcwKDVg4pShdZZc8YBIsE74/N
+         eFUILBV6kRa30ZcnajGrUoGWMdWPMgr+t6ryzJbtuGtMPPxArxNbifkHMzca7/0dfeiF
+         FCEN+KmKFtlwDmuTOoQDso53mplNKNpLmWBm6cD3ZVxd1Sen9iMmV0HMZ7YB/MkT3MYW
+         En/g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=9VFmMbDrjSIIBnM8/ENNqzv7YSwU6vQOjVwrNUTUA+k=;
-        b=CuVyG+pmq8NLBi4UZRhFD3cFgBHKXBo3tBXHHKXW7bWShIyptGXh3mQC/Auug+R/eO
-         XLVUqNcdi5B+GmQAxPRsRkP7SYhWwGm5C3jYC3cIJ7dwC4jWiGTfLvp6gShF0I+T2ZzS
-         NwyO43DK7txCFBp+7K8XC3fEBlgstYDs5Rg6mGgz9WlMwxAVaLr4sv0JuPBDx4yA9/Rr
-         7cFQT4L7aPkdpUpR87G8Y/MVwP8g/8I5p3Tv92iYyIkAtglY0eUgerdICqESRpNxazSd
-         bobAktWSSV+j9lO9b1LDcC+VbSmJIXxR+0SRl9OcFxEUqx3XvXtRrZbe4IHn4Zbr39Xn
-         n51Q==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :mime-version:message-id:date:dkim-signature;
+        bh=BmRr6f7DKkkHfQYCDC3wv+9sr39IQ37znPGmJNMP6Dc=;
+        b=j61B78xC/a6HT9yOAIG4NkspxQii5B4MaEmZF/HKzQs7nF5tBykrzAvHyrKMrIHmG5
+         KLK7b5NteUay0ohLuAO+LHFEGcjJ22SCqyV1x8Gf3dMT6QHzwT6rSShEE748SXoQgvIb
+         Ph+ipA8zkSqFKxcKrCmiH60eyuDAzYHutx8TPRXRHN4TaQI84qZwOmsintxMKw5Hnlch
+         KkQo/zlH7iGdB/seanT3cV9bveRzWutAIDRhtuGQ78iCFBv0Keo29SMCOWekNnyocJP+
+         G0NPAw9XlT0u2pZpibFZ8ouSnoqm7hm4RyoLkjKnjzd9UCoQAb/tQoPmJWBNvNUn1DnJ
+         HPuQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=vincenzo.frascino@arm.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=IcXI39oT;
+       spf=pass (google.com: domain of 326trxgckedoenkcanockkcha.8ki8h6jc-7qehp-hejqtckkchacnkqlo.8ki@flex--irogers.bounces.google.com designates 2607:f8b0:4864:20::64a as permitted sender) smtp.mailfrom=326trXgcKEdoENKCANOCKKCHA.8KI8H6JC-7QEHP-HEJQTCKKCHACNKQLO.8KI@flex--irogers.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=9VFmMbDrjSIIBnM8/ENNqzv7YSwU6vQOjVwrNUTUA+k=;
-        b=fRSl43spBr/Y5MqZnxNbZjxyKZ/y3CfFJiI7vB67IGO7kOXh7/UF9GQVmOo1jPEOl3
-         mKWiyBLCYATnYV4klZABHB912P74dvia210s6Ri7eqSN7ixWX5DBzWfj3+gOQyVBJaII
-         bV54LhGMx7CznAG/EyjEJr/AIieDuXi53v9YHyO6ARP0iLvPgd++a5jHGbmdWibvGUbj
-         vBhgTSs9A2ATMZOgIjMkkOpb7jiP2i3m8gFFyPmY4SIZ/BOuimYR2sfoCepuCmVRurk0
-         5qLh+2RHjHT+CdghRdsAL+VC2STJ8VRjyGzf1DMuEEfuKNpgCGs/zaxYxUlji2kJO+iJ
-         NW3w==
+        h=date:message-id:mime-version:subject:from:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=BmRr6f7DKkkHfQYCDC3wv+9sr39IQ37znPGmJNMP6Dc=;
+        b=gVsRxfoSDu7z4+qUez7+ZcV64goSz71k5iyEJoN6CQxD4fljNwqWFFNGtHVn+Sqvpe
+         f/c3WlD7P3RCUVcWIsEMSnApdlqNUFyK7JRW4Gh3KV9LtnnzgtqnEo9eK7zENBeDlRok
+         GCoOfDLTdPhMzKAXtwnqyrt3TFzbPcUFW0I9zOzUL1FmOuNQSWaz6wsJe+gvRZq1Upy6
+         +GsSerd6gkSvKHnwHK5NgiaCIQclSmwSj2rYKQf0FPlaYCxGGr2hzrRP1cGcCS6vbxjG
+         gncx56HWFzoSarCOMC8TXIQhmA9kvkpEQeBia+9eZsvcMin8xWAF8xych/9j4vn1II3o
+         abHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=9VFmMbDrjSIIBnM8/ENNqzv7YSwU6vQOjVwrNUTUA+k=;
-        b=THeYWf4cb2/acF+lddu8GxMDzlNAeWYQ4DMec4Rlccpf7INtOoRCIXr80zSkjHZEDj
-         iIWwAE941tXBRtbXPDtf9nVeVmnqFI2mBb+lvWDWhIWO049YM95fxKTwlgM99NurWqBq
-         Zj76SViyjXpohrETpbs1+U3mXgRv7DK8UGuuAcfFd/rwmE3NNWlCZ29IfYEDvx9s+DTV
-         TteEVkyJjZFozO+bcR+72toxp3qQznXsq+18oTw4sSmyLBZ3H2bIwiRET1ul90DKN2QA
-         l+G1pZm9ZcRCpgxpChzISJXKZmAt4SpEgKpoCAk4xSj3gg3lB4/lycU0PwmsyJ5Vv066
-         kjxA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ2oWBbtaWKFGLEb1rzfLyO+WgLemVIH7VC+JDNJREp2ho0hm8r7
-	LejsjAJ+PTBl/imxsT9YLN4=
-X-Google-Smtp-Source: ADFU+vvJ1f8+ANZ9GUg4eRrGqv/VXL8x+tGeKNQ/YJvVLqfUxnnLdNsGAQrMPQ2xZSItZ39YQhi89Q==
-X-Received: by 2002:a50:f09c:: with SMTP id v28mr856722edl.46.1584114330785;
-        Fri, 13 Mar 2020 08:45:30 -0700 (PDT)
+        h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=BmRr6f7DKkkHfQYCDC3wv+9sr39IQ37znPGmJNMP6Dc=;
+        b=MA9kYXzT4rrJk7EMk7PbV2zuOk8sKfRsIESAP7SGSBkQSvXHSX245J+v8fs+OCAkXk
+         6zynu4iSslzyxSCqDDov/Pmz2fBgR1RKwuR1RflVL0V8hMTWNQeIwsaEPn54u2Aj6NEv
+         3wzvVEoEBdIJydiioaB7ruS4Pfdb+fKZIH8jzu0rrwAk4LtkiQJuB64j0wbCS7zY5Ghz
+         bGH1s+O7VsOLYQBlPiFnlkex+KvJbwjM9fwQgHNNRnQGnSSQW0mnawY9SSPO84hTyYdp
+         +9xbdblsD4lz0CJ6wzx3pefstYekrMF0geK9T7Rtj4ZlPEXLIGLUVy6ydut5cOUecfE5
+         Txbg==
+X-Gm-Message-State: ANhLgQ1Ox6yRM3gzn+rKzg3thDzV2TXooW5uhUtcQ2BWp14KoJkKtQpA
+	wJG7cx0oVuc/fmhCKIVqzdQ=
+X-Google-Smtp-Source: ADFU+vuzzT1mtfSl4Uq5KZXZ5jzU2th9ny6wIwKIruistb/FPv8kuNwyKxqVNfP57OZp2MlLu9PYTg==
+X-Received: by 2002:a9d:175:: with SMTP id 108mr12254789otu.287.1584114652246;
+        Fri, 13 Mar 2020 08:50:52 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:584f:: with SMTP id h15ls5786894ejs.9.gmail; Fri, 13
- Mar 2020 08:45:30 -0700 (PDT)
-X-Received: by 2002:a17:906:d211:: with SMTP id w17mr12480529ejz.215.1584114330294;
-        Fri, 13 Mar 2020 08:45:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584114330; cv=none;
+Received: by 2002:a9d:69cb:: with SMTP id v11ls3068341oto.5.gmail; Fri, 13 Mar
+ 2020 08:50:51 -0700 (PDT)
+X-Received: by 2002:a9d:67c7:: with SMTP id c7mr11891931otn.85.1584114651845;
+        Fri, 13 Mar 2020 08:50:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584114651; cv=none;
         d=google.com; s=arc-20160816;
-        b=i6uXzBbnF4dgb0Yw/w3Rofr1a6RiKgzmDlx6LbOtud18gFV/xXbrGAcxDtnAbwpBVG
-         MgYiR6DJZdzrRej1ocFemol7/t768ZahuiviDvgG+y/yk9hSFMGe+wLhWOq/aUSkHDlM
-         g12uRwsGELaFDlDblTjJD2u3CXYPtQ7QGA9NLb8QE6/LA7yrS+GmzSvgPfFP2dlIqgXE
-         qJGg1GSxHkYu7WsZ1oOd5Dd++J6hDEqxHT782MCrBEgkcWysbRJ+q8/RWdW/YJicJDNM
-         tPhrXmdUCB4cEz6RIrTmx3yk5T2/CMus9Qrd7ed/tbl+92f0hZyuOuuuG5eljF8oNXGl
-         EXgA==
+        b=GE8BmWFTO0ESD6yXEbFi+GkfcJ/popDuL5WVq2BS7pmd/9X4dDrGp8qn2YUYOGsIEt
+         wiy1RNP3SH0E+sJyydWaUhR+9kJaHUsgyp2ge9igxEZxenXYp8xtrvcLTi47GZgEzkp5
+         kvjMOjFcRWmpc0+fZDdyX9rJggMFyokAfmHl3o+ZQFe1neQl+lOKoV5QN6BrpOj7uApC
+         dpFU55nwpCLWu5ikLX57KUBQZhVkx0qE18PYjLVFtAi8Mj2Hiul8acm2+fNszBUTL6ci
+         eJGYbBJfpeKxadbTKoWFWU0ua5zU5PtsHRNrVJMWkpPu5n2uGvmI0UYBWmIwwLZwZduT
+         iWCg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from;
-        bh=b7bhnkzbC+17OMzkqH/Ovke5K4m++EdAZbGrKRQ1p/4=;
-        b=yVTMZIXoajWABm4Df7Ur6K2b5oWhX80ZfKapiPNbRiwA/8nT2AfFHKGAfiqY7nussc
-         JkA3WI761S8qc8YL7L46XllqxiCaDyDj5ANgjNU9Zus7b4A+3ZirJwzIpmEXOUrf1UPW
-         doXHhay70JbZIKUx0c6AaCpera5atXUJH/6SPoNplmj8a8b66PDuLIGlIxUJXu7irCbu
-         phJlh0kmtjlHej1oZHgb9JWggmPUszgcO/RbTgmSxrKmbGLX/D6vBdXi1ERFhxES6RN/
-         8Oa84Q8/CNot3LkY+KtMKYjv22vh6MXKHiFAlns51C9ydaqSfq9zD6O56p9iqJdEUU4+
-         7lNQ==
+        h=cc:to:from:subject:mime-version:message-id:date:dkim-signature;
+        bh=eVmA9NNLkJ9r6wHykxZnxklaK4+O9W87gli6+oUvaSc=;
+        b=s1N2cUphoTwTM5rwaK5qstgnvQpWoWHfKbbBJMaQVetjWF/r748wJsjbssZvqtbJ1L
+         V8MaNZbyEuwZvRYUEt/twunn6MyMuh7dNoJ+iy1J3inaI3ZF+w+/ss2WpmdNv/CS3eEF
+         yZ8MAaoWlNOT1jQg2SttAqiRfpo4RvmlQgKLF5FMhRWAE0thxRh2BsWPqcDX5eDTC44M
+         c+PTzdL/UFDmA7LitcOrTOdMKsAbSmGjFx7KK9UO9BVCuSdedKJ/tGDqTBeP5MsoqbVY
+         bcaupZpSUdNGz6dDebhu81Bjt0dtkPJqyddjB9TwLqFILutXn/1TuEA9Om+HlcZ4elLS
+         Yjww==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=vincenzo.frascino@arm.com
-Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
-        by gmr-mx.google.com with ESMTP id x7si264705ejw.0.2020.03.13.08.45.30
-        for <clang-built-linux@googlegroups.com>;
-        Fri, 13 Mar 2020 08:45:30 -0700 (PDT)
-Received-SPF: pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ABF8CFEC;
-	Fri, 13 Mar 2020 08:45:29 -0700 (PDT)
-Received: from e119884-lin.cambridge.arm.com (e119884-lin.cambridge.arm.com [10.1.196.72])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8127B3F67D;
-	Fri, 13 Mar 2020 08:45:26 -0700 (PDT)
-From: Vincenzo Frascino <vincenzo.frascino@arm.com>
-To: linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	x86@kernel.org
-Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will.deacon@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Russell King <linux@armlinux.org.uk>,
-	Paul Burton <paul.burton@mips.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Andy Lutomirski <luto@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Mark Salyzyn <salyzyn@android.com>,
-	Kees Cook <keescook@chromium.org>,
-	Peter Collingbourne <pcc@google.com>,
-	Dmitry Safonov <0x7f454c46@gmail.com>,
-	Andrei Vagin <avagin@openvz.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <Mark.Rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Nathan Chancellor <natechancellor@gmail.com>
-Subject: [PATCH v3 26/26] arm64: vdso32: Enable Clang Compilation
-Date: Fri, 13 Mar 2020 15:43:45 +0000
-Message-Id: <20200313154345.56760-27-vincenzo.frascino@arm.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20200313154345.56760-1-vincenzo.frascino@arm.com>
-References: <20200313154345.56760-1-vincenzo.frascino@arm.com>
-MIME-Version: 1.0
-X-Original-Sender: vincenzo.frascino@arm.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172
- as permitted sender) smtp.mailfrom=vincenzo.frascino@arm.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=IcXI39oT;
+       spf=pass (google.com: domain of 326trxgckedoenkcanockkcha.8ki8h6jc-7qehp-hejqtckkchacnkqlo.8ki@flex--irogers.bounces.google.com designates 2607:f8b0:4864:20::64a as permitted sender) smtp.mailfrom=326trXgcKEdoENKCANOCKKCHA.8KI8H6JC-7QEHP-HEJQTCKKCHACNKQLO.8KI@flex--irogers.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pl1-x64a.google.com (mail-pl1-x64a.google.com. [2607:f8b0:4864:20::64a])
+        by gmr-mx.google.com with ESMTPS id u22si745612otg.4.2020.03.13.08.50.51
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Mar 2020 08:50:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 326trxgckedoenkcanockkcha.8ki8h6jc-7qehp-hejqtckkchacnkqlo.8ki@flex--irogers.bounces.google.com designates 2607:f8b0:4864:20::64a as permitted sender) client-ip=2607:f8b0:4864:20::64a;
+Received: by mail-pl1-x64a.google.com with SMTP id s13so5730511plr.21
+        for <clang-built-linux@googlegroups.com>; Fri, 13 Mar 2020 08:50:51 -0700 (PDT)
+X-Received: by 2002:a17:90b:94a:: with SMTP id dw10mr10525477pjb.105.1584114651018;
+ Fri, 13 Mar 2020 08:50:51 -0700 (PDT)
+Date: Fri, 13 Mar 2020 08:50:47 -0700
+Message-Id: <20200313155047.22339-1-irogers@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.25.1.481.gfbce0eb801-goog
+Subject: [PATCH v2] perf tools: give synthetic mmap events an inode generation
+From: "'Ian Rogers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@redhat.com>, 
+	Namhyung Kim <namhyung@kernel.org>, linux-kernel@vger.kernel.org, 
+	clang-built-linux@googlegroups.com
+Cc: Stephane Eranian <eranian@google.com>, Ian Rogers <irogers@google.com>, iri Olsa <jolsa@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: irogers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=IcXI39oT;       spf=pass
+ (google.com: domain of 326trxgckedoenkcanockkcha.8ki8h6jc-7qehp-hejqtckkchacnkqlo.8ki@flex--irogers.bounces.google.com
+ designates 2607:f8b0:4864:20::64a as permitted sender) smtp.mailfrom=326trXgcKEdoENKCANOCKKCHA.8KI8H6JC-7QEHP-HEJQTCKKCHACNKQLO.8KI@flex--irogers.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Ian Rogers <irogers@google.com>
+Reply-To: Ian Rogers <irogers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,44 +129,125 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Enable Clang Compilation for the vdso32 library.
+When mmap2 events are synthesized the ino_generation isn't being set
+leading to uninitialized memory being compared.
+Caught with clang's -fsanitize=memory.
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-Tested-by: Nathan Chancellor <natechancellor@gmail.com> # build
-Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
+==124733==WARNING: MemorySanitizer: use-of-uninitialized-value
+    #0 0x55a96a6a65cc in __dso_id__cmp tools/perf/util/dsos.c:23:6
+    #1 0x55a96a6a81d5 in dso_id__cmp tools/perf/util/dsos.c:38:9
+    #2 0x55a96a6a717f in __dso__cmp_long_name tools/perf/util/dsos.c:74:15
+    #3 0x55a96a6a6c4c in __dsos__findnew_link_by_longname_id tools/perf/util/dsos.c:106:12
+    #4 0x55a96a6a851e in __dsos__findnew_by_longname_id tools/perf/util/dsos.c:178:9
+    #5 0x55a96a6a7798 in __dsos__find_id tools/perf/util/dsos.c:191:9
+    #6 0x55a96a6a7b57 in __dsos__findnew_id tools/perf/util/dsos.c:251:20
+    #7 0x55a96a6a7a57 in dsos__findnew_id tools/perf/util/dsos.c:259:17
+    #8 0x55a96a7776ae in machine__findnew_dso_id tools/perf/util/machine.c:2709:9
+    #9 0x55a96a77dfcf in map__new tools/perf/util/map.c:193:10
+    #10 0x55a96a77240a in machine__process_mmap2_event tools/perf/util/machine.c:1670:8
+    #11 0x55a96a7741a3 in machine__process_event tools/perf/util/machine.c:1882:9
+    #12 0x55a96a6aee39 in perf_event__process tools/perf/util/event.c:454:9
+    #13 0x55a96a87d633 in perf_tool__process_synth_event tools/perf/util/synthetic-events.c:63:9
+    #14 0x55a96a87f131 in perf_event__synthesize_mmap_events tools/perf/util/synthetic-events.c:403:7
+    #15 0x55a96a8815d6 in __event__synthesize_thread tools/perf/util/synthetic-events.c:548:9
+    #16 0x55a96a882bff in __perf_event__synthesize_threads tools/perf/util/synthetic-events.c:681:3
+    #17 0x55a96a881ec2 in perf_event__synthesize_threads tools/perf/util/synthetic-events.c:750:9
+    #18 0x55a96a562b26 in synth_all tools/perf/tests/mmap-thread-lookup.c:136:9
+    #19 0x55a96a5623b1 in mmap_events tools/perf/tests/mmap-thread-lookup.c:174:8
+    #20 0x55a96a561fa0 in test__mmap_thread_lookup tools/perf/tests/mmap-thread-lookup.c:230:2
+    #21 0x55a96a52c182 in run_test tools/perf/tests/builtin-test.c:378:9
+    #22 0x55a96a52afc1 in test_and_print tools/perf/tests/builtin-test.c:408:9
+    #23 0x55a96a52966e in __cmd_test tools/perf/tests/builtin-test.c:603:4
+    #24 0x55a96a52855d in cmd_test tools/perf/tests/builtin-test.c:747:9
+    #25 0x55a96a2844d4 in run_builtin tools/perf/perf.c:312:11
+    #26 0x55a96a282bd0 in handle_internal_command tools/perf/perf.c:364:8
+    #27 0x55a96a284097 in run_argv tools/perf/perf.c:408:2
+    #28 0x55a96a282223 in main tools/perf/perf.c:538:3
+
+  Uninitialized value was stored to memory at
+    #1 0x55a96a6a18f7 in dso__new_id tools/perf/util/dso.c:1230:14
+    #2 0x55a96a6a78ee in __dsos__addnew_id tools/perf/util/dsos.c:233:20
+    #3 0x55a96a6a7bcc in __dsos__findnew_id tools/perf/util/dsos.c:252:21
+    #4 0x55a96a6a7a57 in dsos__findnew_id tools/perf/util/dsos.c:259:17
+    #5 0x55a96a7776ae in machine__findnew_dso_id tools/perf/util/machine.c:2709:9
+    #6 0x55a96a77dfcf in map__new tools/perf/util/map.c:193:10
+    #7 0x55a96a77240a in machine__process_mmap2_event tools/perf/util/machine.c:1670:8
+    #8 0x55a96a7741a3 in machine__process_event tools/perf/util/machine.c:1882:9
+    #9 0x55a96a6aee39 in perf_event__process tools/perf/util/event.c:454:9
+    #10 0x55a96a87d633 in perf_tool__process_synth_event tools/perf/util/synthetic-events.c:63:9
+    #11 0x55a96a87f131 in perf_event__synthesize_mmap_events tools/perf/util/synthetic-events.c:403:7
+    #12 0x55a96a8815d6 in __event__synthesize_thread tools/perf/util/synthetic-events.c:548:9
+    #13 0x55a96a882bff in __perf_event__synthesize_threads tools/perf/util/synthetic-events.c:681:3
+    #14 0x55a96a881ec2 in perf_event__synthesize_threads tools/perf/util/synthetic-events.c:750:9
+    #15 0x55a96a562b26 in synth_all tools/perf/tests/mmap-thread-lookup.c:136:9
+    #16 0x55a96a5623b1 in mmap_events tools/perf/tests/mmap-thread-lookup.c:174:8
+    #17 0x55a96a561fa0 in test__mmap_thread_lookup tools/perf/tests/mmap-thread-lookup.c:230:2
+    #18 0x55a96a52c182 in run_test tools/perf/tests/builtin-test.c:378:9
+    #19 0x55a96a52afc1 in test_and_print tools/perf/tests/builtin-test.c:408:9
+
+  Uninitialized value was stored to memory at
+    #0 0x55a96a7725af in machine__process_mmap2_event tools/perf/util/machine.c:1646:25
+    #1 0x55a96a7741a3 in machine__process_event tools/perf/util/machine.c:1882:9
+    #2 0x55a96a6aee39 in perf_event__process tools/perf/util/event.c:454:9
+    #3 0x55a96a87d633 in perf_tool__process_synth_event tools/perf/util/synthetic-events.c:63:9
+    #4 0x55a96a87f131 in perf_event__synthesize_mmap_events tools/perf/util/synthetic-events.c:403:7
+    #5 0x55a96a8815d6 in __event__synthesize_thread tools/perf/util/synthetic-events.c:548:9
+    #6 0x55a96a882bff in __perf_event__synthesize_threads tools/perf/util/synthetic-events.c:681:3
+    #7 0x55a96a881ec2 in perf_event__synthesize_threads tools/perf/util/synthetic-events.c:750:9
+    #8 0x55a96a562b26 in synth_all tools/perf/tests/mmap-thread-lookup.c:136:9
+    #9 0x55a96a5623b1 in mmap_events tools/perf/tests/mmap-thread-lookup.c:174:8
+    #10 0x55a96a561fa0 in test__mmap_thread_lookup tools/perf/tests/mmap-thread-lookup.c:230:2
+    #11 0x55a96a52c182 in run_test tools/perf/tests/builtin-test.c:378:9
+    #12 0x55a96a52afc1 in test_and_print tools/perf/tests/builtin-test.c:408:9
+    #13 0x55a96a52966e in __cmd_test tools/perf/tests/builtin-test.c:603:4
+    #14 0x55a96a52855d in cmd_test tools/perf/tests/builtin-test.c:747:9
+    #15 0x55a96a2844d4 in run_builtin tools/perf/perf.c:312:11
+    #16 0x55a96a282bd0 in handle_internal_command tools/perf/perf.c:364:8
+    #17 0x55a96a284097 in run_argv tools/perf/perf.c:408:2
+    #18 0x55a96a282223 in main tools/perf/perf.c:538:3
+
+  Uninitialized value was created by a heap allocation
+    #0 0x55a96a22f60d in malloc llvm/llvm-project/compiler-rt/lib/msan/msan_interceptors.cpp:925:3
+    #1 0x55a96a882948 in __perf_event__synthesize_threads tools/perf/util/synthetic-events.c:655:15
+    #2 0x55a96a881ec2 in perf_event__synthesize_threads tools/perf/util/synthetic-events.c:750:9
+    #3 0x55a96a562b26 in synth_all tools/perf/tests/mmap-thread-lookup.c:136:9
+    #4 0x55a96a5623b1 in mmap_events tools/perf/tests/mmap-thread-lookup.c:174:8
+    #5 0x55a96a561fa0 in test__mmap_thread_lookup tools/perf/tests/mmap-thread-lookup.c:230:2
+    #6 0x55a96a52c182 in run_test tools/perf/tests/builtin-test.c:378:9
+    #7 0x55a96a52afc1 in test_and_print tools/perf/tests/builtin-test.c:408:9
+    #8 0x55a96a52966e in __cmd_test tools/perf/tests/builtin-test.c:603:4
+    #9 0x55a96a52855d in cmd_test tools/perf/tests/builtin-test.c:747:9
+    #10 0x55a96a2844d4 in run_builtin tools/perf/perf.c:312:11
+    #11 0x55a96a282bd0 in handle_internal_command tools/perf/perf.c:364:8
+    #12 0x55a96a284097 in run_argv tools/perf/perf.c:408:2
+    #13 0x55a96a282223 in main tools/perf/perf.c:538:3
+
+SUMMARY: MemorySanitizer: use-of-uninitialized-value tools/perf/util/dsos.c:23:6 in __dso_id__cmp
+
+v2 fixed a white space issue.
+
+Acked-by: iri Olsa <jolsa@kernel.org>
+Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- arch/arm64/kernel/vdso32/Makefile | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ tools/perf/util/synthetic-events.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
-index 04df57b43cb1..3964738ebbde 100644
---- a/arch/arm64/kernel/vdso32/Makefile
-+++ b/arch/arm64/kernel/vdso32/Makefile
-@@ -10,7 +10,18 @@ include $(srctree)/lib/vdso/Makefile
+diff --git a/tools/perf/util/synthetic-events.c b/tools/perf/util/synthetic-events.c
+index dd3e6f43fb86..3f28af39f9c6 100644
+--- a/tools/perf/util/synthetic-events.c
++++ b/tools/perf/util/synthetic-events.c
+@@ -345,6 +345,7 @@ int perf_event__synthesize_mmap_events(struct perf_tool *tool,
+ 			continue;
  
- # Same as cc-*option, but using CC_COMPAT instead of CC
- ifeq ($(CONFIG_CC_IS_CLANG), y)
-+COMPAT_GCC_TOOLCHAIN_DIR := $(dir $(shell which $(CROSS_COMPILE_COMPAT)elfedit))
-+COMPAT_GCC_TOOLCHAIN := $(realpath $(COMPAT_GCC_TOOLCHAIN_DIR)/..)
-+
-+CC_COMPAT_CLANG_FLAGS := --target=$(notdir $(CROSS_COMPILE_COMPAT:%-=%))
-+CC_COMPAT_CLANG_FLAGS += --prefix=$(COMPAT_GCC_TOOLCHAIN_DIR)
-+CC_COMPAT_CLANG_FLAGS += -no-integrated-as -Qunused-arguments
-+ifneq ($(COMPAT_GCC_TOOLCHAIN),)
-+CC_COMPAT_CLANG_FLAGS += --gcc-toolchain=$(COMPAT_GCC_TOOLCHAIN)
-+endif
-+
- CC_COMPAT ?= $(CC)
-+CC_COMPAT += $(CC_COMPAT_CLANG_FLAGS)
- else
- CC_COMPAT ?= $(CROSS_COMPILE_COMPAT)gcc
- endif
+ 		event->mmap2.ino = (u64)ino;
++		event->mmap2.ino_generation = 0;
+ 
+ 		/*
+ 		 * Just like the kernel, see __perf_event_mmap in kernel/perf_event.c
 -- 
-2.25.1
+2.25.1.481.gfbce0eb801-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200313154345.56760-27-vincenzo.frascino%40arm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200313155047.22339-1-irogers%40google.com.
