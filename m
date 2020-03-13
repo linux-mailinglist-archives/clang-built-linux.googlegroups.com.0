@@ -1,141 +1,156 @@
-Return-Path: <clang-built-linux+bncBCS7XUWOUULBBYULYHZQKGQE3QYCEUY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEPBSN75UNRBM56YHZQKGQEEWHOEIQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3b.google.com (mail-io1-xd3b.google.com [IPv6:2607:f8b0:4864:20::d3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id D0FAB187837
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 04:37:07 +0100 (CET)
-Received: by mail-io1-xd3b.google.com with SMTP id n26sf13132537iop.1
-        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Mar 2020 20:37:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584416226; cv=pass;
+Received: from mail-ot1-x33e.google.com (mail-ot1-x33e.google.com [IPv6:2607:f8b0:4864:20::33e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9D06518792D
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 06:25:08 +0100 (CET)
+Received: by mail-ot1-x33e.google.com with SMTP id z62sf13174645otb.0
+        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Mar 2020 22:25:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584422707; cv=pass;
         d=google.com; s=arc-20160816;
-        b=LG0QKqW9w8oz8fgw7UaskKzTw/AWzWnajVgK3OCYnOi7kbFfELBmET9Ka2SDD2CuvA
-         Tp0JM3ZeCgghl0izmcwZ0ARTmEsUutkEO0M4YYh5xVpXWzEa/FvgB8OWmMIup5qUbpRZ
-         nIlxkJYdJY6AlQyBa2+vrNa3Yt9Fnsj7tKXYF414vxjWgr8HSnAMr93USjr+9JZCnc53
-         lGBOQ/j9F8yTEY1nzuBPutAL+i/MkDYBz4BcCSVO+EbUvCZiPLnxASv3w7jtdDdeUxrg
-         J/fcGWM9EF6aN6/0Tjg8/PQN0TnUXdKD2VncilZFyvIdDQh5K2ktOmT+nkAqNJxQdUvw
-         14hA==
+        b=pSzPepubnL9atK0KIsBiKJ9oboY3hoYGZLKobfpfI17EsNUAVzukZsR+jnkZ5uWI3G
+         qtPR3lIO4d0hgnMkEmMeAukb0MGcG8QM1qGES//j8O8muGuQRh89MFBZGKqW3TLjWViN
+         EqBEQY4MMKYDs9H/jWmrPFXZLznjldDouCoL4AFKLiWy/ekmvPIoOnNAuDZMTnIR8n4l
+         AV+aRWVZzhumRhjY9mFzFsjrsMvVdZNEDdx9AZeTjTZ9f8xPs6T4MI3sdGwBwFGEZmDz
+         QfgcAxxypoCQmMw6gznjKq02iHBeIUY2OEb5DKSjSPugxDvGHO4Jtx+fSmSlRuhU7rKc
+         HQzA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:dkim-signature;
-        bh=Kiu9LYRxfFe4aRsEV6HmyPeEnKSIjaVI+P3j748lYIs=;
-        b=RCAO6IO8lgDPEF4XIT8SUCR+MrgyO7Vqlj9ImHCzg6yfUGjjvc9zEx4UlPykzogbgM
-         uYRQGche8KA/vvpAnShSPL6ntSf+qQFL745wk6rhKUTLqdWIfsFDfyhcfrZMb/GYvv3y
-         Hw6zR8U7AnVb2zj4iw2uID9GxQx6nTdL1RVhizKWUgF5OtJEExB55AXViXzAOa1Y59wX
-         189/cCm6fB7oXM/+q0KVmvgqadQhhZxXGDPwvFORxxaJCUytv1uTLmNzeQVnaOYOaVNq
-         bdeU4UfowmcDBnhaA2m3Fk9K+ZXl8I1XmCcCGqc0qC8rFvU2EUZI3Z8D7UHajnkpoXcA
-         6Iew==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:sender
+         :dkim-signature:dkim-signature;
+        bh=UIZVmU71fKMPjOWDnG3DPDq9VNrjC7Mf436CO8GNHtA=;
+        b=k4WpBzKL41C94Zm3WXe2LyIG91zJi4VmHqOE9XfA/cGDQjyyrfIJFsdO8JLzu2jo9r
+         BFzM8VV1QSZXBMGi0MU4c2vOBzOxhHeqR9+ffdevkWaGUSTqj8AJEHAT6RoWPRXe1+5j
+         OGq92o9880s6qr71L8/lKBaRuh2zIHiSMwO0UVrA7sQYCDZjLKgZo9tG/DRw7YyD9JGq
+         GpEAp4shXaHaNAdDSA6e1+94V9FRaz0WxoXjwMI+mMUHzbbGmKjnvcaXw6/RS6r7CGhh
+         JYzWWJuz/YaLvro1xKYx9Sy3cRVWNyhCqeHL0S4phOBeh3OrCon3Z2AOzZmazOQZzlzx
+         txJQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="EDZKf/O3";
-       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=maskray@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="MvK/Xx4f";
+       spf=pass (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=arnaldo.melo@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
+        h=sender:from:date:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=Kiu9LYRxfFe4aRsEV6HmyPeEnKSIjaVI+P3j748lYIs=;
-        b=XtputOEWm34z5f9ZbDLWdXogTlokMRw5GODlvmP/0pXDInHAj5lY4XYR3LYSqDjUD0
-         eHuppHRJ8HSixjgycpijN7WpXvPpGdFgjHXJPBfzp8ayr2v+ixgVdAHnZ/n85Nj4pWVJ
-         /hUNTWYxw7XiPW4+cTtTDCZ3L3GQ7nwyyrQrV7wCNnmVLaTA5zGk3AZpL9zhnfse6Lve
-         rT6y5w1yTVkxgEs31dN9+buBOPLzjzNVGZ6WrS6WirqzDqMYbDoIpQeqHxGFrHD1BB4T
-         0HKAxnhQ+1aBQFtsXtDuN4fBj+gH4Qynfxt2HkrmHYsTLw87Iwze2mKsoeg7yZM7/sl7
-         MsYw==
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=UIZVmU71fKMPjOWDnG3DPDq9VNrjC7Mf436CO8GNHtA=;
+        b=rR+yHzxaRj5cbQ2pXAJSHP81cMlj2px5wDFsPsDaKMPM56MLUFj0zJdrsj+SYDn0Fy
+         EJZa4yLWSyBcqIhYyiJnrj7331r7yfFE3uJFwuJCSSqXmrEvHFmUQLQbu585DsPH2I2v
+         p2FtU66krixTO9/kO1XzAr+6lKF3jbdY2oXhPq/OzMWYB3eZ1scqIWo7P1xahd07RV6L
+         qBs/Rj4oywHOfYqmQygQVdmyreZNDlYMAkmTxqKDTHeR+0eO8Qsa54ULIHMRanOm8s31
+         yL4ETQaS20ynk4YyVzP+eMfANes1wQAv84fVkptrr/OorbpyGX8A/UO+jxlDGTyNnwng
+         /O8Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=from:date:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=UIZVmU71fKMPjOWDnG3DPDq9VNrjC7Mf436CO8GNHtA=;
+        b=BSJmLe7/i1YNu42IL2wx/YlMXHNvV7T8TxxBqHbwRAypCCRbNA2Y1tg3s++Gp/unt4
+         k0SkH/UvQG1DL031x7YJra9KoJBfpua/xizZCwOG51VGWWLlIwVsffdMKVn0UBTYn9Gi
+         XubO/s9kBC5gKnxlrYUUC2teGgNJ9Q4r7mkD2YN1o3L1dtpg4A6mWb4cT5hy1Kq1qtOO
+         Ocnrcm43OLnMI0BiGTKeUoxFO8S5N7/gotvIzNUIuY1YdDv/4LPgzhM6ZNfzrpydXkSC
+         OvhFm8onTKN7OAzclGKuggB0bRuKMkzcjc7PGLz1QfZPZ9/MVaNjwB+Y8jTmB6SD1bFC
+         nJSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:from:date:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Kiu9LYRxfFe4aRsEV6HmyPeEnKSIjaVI+P3j748lYIs=;
-        b=IxyL6PguUj6tuHuPmO0jO8voacR9JyMsYPMc1kIKQju3kpqgg5o6LkTQHfzA42HZs+
-         aBQsyfY77H+eTFFbL6FtF82pKpoMPy7jbWeWt8dhHx7VQDcT4JwOlG2Eop23luqtxaDf
-         kJ0JkY9yLTQee8A/qO5ZbgN+u8fkSn0P9CcgI8sEhw+hkS06fdkQCFALZ8kMdN1Vl/E5
-         atnn7oXI4jDMA60yeMQdfxsPjyuATy29mATwWRgiNgviwG2A0Nq+IiFJ9HcIn+sy6llm
-         Gz0f0zsgc99i9xzP1XjgaLZ4IiJ9iu98SquzIUcupFFY1C8E2Q+Hq37BHEiN4vkvHHf7
-         OJYA==
-X-Gm-Message-State: ANhLgQ0u58cJFjR/aJhpizEwzMH7lc1Ytm0ujR/V0KlvpNbnAirwFLvx
-	1+NpDjM4Nuqs0FyNKfCB548=
-X-Google-Smtp-Source: ADFU+vuaqRB+TV4GEbKTBzJR2U5eKN9ou7hhcqrB3aohrtaiKyMqG2Pd7JQJn4OARg/o+ZHivjH/NQ==
-X-Received: by 2002:a92:9edc:: with SMTP id s89mr3100113ilk.229.1584416226657;
-        Mon, 16 Mar 2020 20:37:06 -0700 (PDT)
+        bh=UIZVmU71fKMPjOWDnG3DPDq9VNrjC7Mf436CO8GNHtA=;
+        b=ll21INIJqmUEUS3jo2liZZfCYdNlKwsrCZytsfQhqKfl4ukvr4wgLx7+sPT8kgIc4b
+         +05IUO0acaOikNhxThuYT/v0Bie0dyhf7hOcUq/xJL6xPtsAzwI4pDmjUU0d1c7vnyHW
+         OgnqK/p7MHOx4C/T9AKUAiLAXGkWLVrvKgWvPeZ1ZUj3gW6diDhuUEku0+W8GIaG5GZC
+         13Obm2tZE6yA53DNfUKAtWDHZo+6DD2+VysxoajfJ5fo+K9ZeT5729Vwk5YXdMgTV+vi
+         P0FXyXmLehE9zGTrkwdFncDiwPk91zApiuSZAgXcChXHMz80JcP8JXo/T87rVaEF/un+
+         i32Q==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: ANhLgQ1wZYOitYMhRALgRK4lQgOEOw4W5BEad4J8uLgZSwOGNYXfgEW6
+	a4qhiTugfHedKDmw1OT1RP8=
+X-Google-Smtp-Source: ADFU+vvTvXjE0zlrmyUs56f/mM6KgBO1NFLIz4Nw7yCZzKyBuilgeAXyWxSbzbWAvNlScgICmedJDQ==
+X-Received: by 2002:a9d:837:: with SMTP id 52mr2225234oty.354.1584422707574;
+        Mon, 16 Mar 2020 22:25:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6e02:d0e:: with SMTP id g14ls4281864ilj.0.gmail; Mon, 16
- Mar 2020 20:37:06 -0700 (PDT)
-X-Received: by 2002:a92:89c7:: with SMTP id w68mr3155621ilk.233.1584416226323;
-        Mon, 16 Mar 2020 20:37:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584416226; cv=none;
+Received: by 2002:a9d:6759:: with SMTP id w25ls7119169otm.10.gmail; Mon, 16
+ Mar 2020 22:25:07 -0700 (PDT)
+X-Received: by 2002:a9d:66d5:: with SMTP id t21mr2287584otm.284.1584422707297;
+        Mon, 16 Mar 2020 22:25:07 -0700 (PDT)
+Received: by 2002:aca:ccc9:0:0:0:0:0 with SMTP id c192msoig;
+        Fri, 13 Mar 2020 11:46:13 -0700 (PDT)
+X-Received: by 2002:aca:d50f:: with SMTP id m15mr7283535oig.19.1584125173701;
+        Fri, 13 Mar 2020 11:46:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584125173; cv=none;
         d=google.com; s=arc-20160816;
-        b=lt7JRApqKF5vF8m9V+P2y8ZwbZ/Q5Q5yBQlc4Q3mnJjxfbRZ+f1WtEIJamore75zrg
-         5MkG1okSNBzFehB2SmFLZAUrl8ibBn/UhbDDZevGglS7DNygXWITx7tPQXy9zuQUATu+
-         W7NtrTs71BBdiigrSKoq68IChBOEjSx/X8er37F3pOudduAqpummmdYBWeXvXrwltvQU
-         v7DuPSYOUlT/9sjTasZVkCFEFfIO0RW9oAkDQUCBKgY6chBHD6AfY+91XOQpTtVOJKnx
-         lEq7EgLUDDbHq04OfmEy+WkmivJ4i2lSlmrddpH014f1liU59ou/qgLGFECe0OX2T+6w
-         VlcA==
+        b=eUnLrGZX/k33x5Y6Y+lMC48NElZ+WFdqsH/3PkYoJvW9EJnJNmoihxKau3vS2XU0+I
+         qFRirln46fgVTjcBtH6UUYF07vlNPM1WTxbd4u+O2L1jJJnCLoGL1+mmsXJKRF9ihdcu
+         GNXmuDwU3r3PVeweXNIedOIfPwA+/0TnQJqZkwiufovaD2oFi1X1q6IFAzsLZ+uofD2/
+         IjylOwlgvFx1pJXjg/xFx2z3jDwJERv1uLkBxKMJ3+7CT043iJL/GfEl8Qk8UuinIMkd
+         tPRPxSOC21n5BNXFxtpmciAfpMvfsuopVB01+ELnVSax9ZkMqzgFOizj6nvWqGBaO4Iy
+         kMog==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=yA+sOfTo6eaYV72YV9c/n33EKYaKnOg8YUVIhA7CJQI=;
-        b=m0vy/fYad7jvctO4hl94butyRDEFWtxXWtlL7t08dM8FhZMf3lnk9q/+3T88lElayH
-         /i1kxcRxJSXmbTPRhlfPvi+eA40IPZWd9GD3+Rd+DltnpvopFcxPSTT7spiVm+GjCJT+
-         YrQ4K5n1k20clxZWVLGcPP/DByh7igk2xHe3zJnzbVhTtsBY1FJOS/R51CmAH/lSaQSR
-         /fJk/j1BdC2sj0vnC2+h/ULm7IrFz45xcqMChyK5P1TVR904UtnZuTG2s3THpYsZyuPj
-         jzeoHmDKCWF7S1lZ5BOJj/uP71bVsdyZBuUWM13JRGiMunApIHxvG1ViDL2oXv4b8h/L
-         Vkrg==
+         :subject:cc:to:date:from:dkim-signature;
+        bh=eHmI1zJjsn+RyxJ173WIfEHfpucuAGOsedaISLkubgc=;
+        b=aZaIN7H+UvEOF3KG/QN5Qx4zvcnpXnISgigyYLjub5tceWKXPBdeqhp+uiQuZ5YS3Y
+         ihT0pvrUSJNT+Nequ0WWu+oyzIfBn5PqdtkBjdcUWQNy+Y3Ulx4TLgYIeh+Mm1oKM0wt
+         mv+kSR3UQGajgUQauGxfO5xDpt6a9TuXSJjYeilQhg/D+VGtdCBvmqyBLZqPtPid64U6
+         smGVKQ8Li/6WOTKO96YK2q73LnFgRBK/yn9j9iPGI7ivXpaUwZJ50aHivFC3/ucyuDiK
+         Z87fFOFGTrEInZF2qaR6TqYCNrHs0Chs7F6rwyrjSfYKWf/4BsJbIdXXSCLTfd1dFtUF
+         CGQQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="EDZKf/O3";
-       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=maskray@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x1044.google.com (mail-pj1-x1044.google.com. [2607:f8b0:4864:20::1044])
-        by gmr-mx.google.com with ESMTPS id r16si34370iot.3.2020.03.16.20.37.06
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="MvK/Xx4f";
+       spf=pass (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=arnaldo.melo@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-qk1-x741.google.com (mail-qk1-x741.google.com. [2607:f8b0:4864:20::741])
+        by gmr-mx.google.com with ESMTPS id x23si548834oif.2.2020.03.13.11.46.13
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Mar 2020 20:37:06 -0700 (PDT)
-Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) client-ip=2607:f8b0:4864:20::1044;
-Received: by mail-pj1-x1044.google.com with SMTP id bo3so8368269pjb.5
-        for <clang-built-linux@googlegroups.com>; Mon, 16 Mar 2020 20:37:06 -0700 (PDT)
-X-Received: by 2002:a17:90a:d156:: with SMTP id t22mr2914076pjw.138.1584416225394;
-        Mon, 16 Mar 2020 20:37:05 -0700 (PDT)
-Received: from google.com ([2620:15c:2ce:0:9efe:9f1:9267:2b27])
-        by smtp.gmail.com with ESMTPSA id c1sm1008492pje.24.2020.03.16.20.37.03
+        Fri, 13 Mar 2020 11:46:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::741 as permitted sender) client-ip=2607:f8b0:4864:20::741;
+Received: by mail-qk1-x741.google.com with SMTP id f28so14271590qkk.13
+        for <clang-built-linux@googlegroups.com>; Fri, 13 Mar 2020 11:46:13 -0700 (PDT)
+X-Received: by 2002:a37:4fd2:: with SMTP id d201mr14801414qkb.190.1584125173201;
+        Fri, 13 Mar 2020 11:46:13 -0700 (PDT)
+Received: from quaco.ghostprotocols.net ([190.15.121.82])
+        by smtp.gmail.com with ESMTPSA id b10sm9070941qto.60.2020.03.13.11.46.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Mar 2020 20:37:04 -0700 (PDT)
-Date: Mon, 16 Mar 2020 20:37:01 -0700
-From: "'Fangrui Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Cc: bpf <bpf@vger.kernel.org>, Networking <netdev@vger.kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Nathan Chancellor <natechancellor@gmail.com>,
+        Fri, 13 Mar 2020 11:46:12 -0700 (PDT)
+From: Arnaldo Carvalho de Melo <arnaldo.melo@gmail.com>
+Received: by quaco.ghostprotocols.net (Postfix, from userid 1000)
+	id D7B4C40009; Fri, 13 Mar 2020 15:46:05 -0300 (-03)
+Date: Fri, 13 Mar 2020 15:46:05 -0300
+To: Jiri Olsa <jolsa@redhat.com>
+Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Namhyung Kim <namhyung@kernel.org>, linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
-	Stanislav Fomichev <sdf@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Alexei Starovoitov <ast@kernel.org>
-Subject: [PATCH bpf v2] bpf: Support llvm-objcopy and llvm-objdump for
- vmlinux BTF
-Message-ID: <20200317033701.w7jwos7mvfnde2t2@google.com>
-References: <20200317011654.zkx5r7so53skowlc@google.com>
- <CAEf4BzYTJqWU++QnQupxFBWGSMPfGt6r-5u9jbeLnEF2ipw+Mw@mail.gmail.com>
+	Stephane Eranian <eranian@google.com>
+Subject: Re: [PATCH] perf tools: give synthetic mmap events an inode
+ generation
+Message-ID: <20200313184605.GB9917@kernel.org>
+References: <20200313053129.131264-1-irogers@google.com>
+ <20200313093639.GA389625@krava>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CAEf4BzYTJqWU++QnQupxFBWGSMPfGt6r-5u9jbeLnEF2ipw+Mw@mail.gmail.com>
-X-Original-Sender: maskray@google.com
+In-Reply-To: <20200313093639.GA389625@krava>
+X-Url: http://acmel.wordpress.com
+X-Original-Sender: arnaldo.melo@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="EDZKf/O3";       spf=pass
- (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1044
- as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Fangrui Song <maskray@google.com>
-Reply-To: Fangrui Song <maskray@google.com>
+ header.i=@gmail.com header.s=20161025 header.b="MvK/Xx4f";       spf=pass
+ (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::741
+ as permitted sender) smtp.mailfrom=arnaldo.melo@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
-X-Spam-Checked-In-Group: clang-built-linux@googlegroups.com
 X-Google-Group-Id: 357212215037
 List-Post: <https://groups.google.com/group/clang-built-linux/post>, <mailto:clang-built-linux@googlegroups.com>
 List-Help: <https://groups.google.com/support/>, <mailto:clang-built-linux+help@googlegroups.com>
@@ -144,97 +159,54 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 2020-03-16, Andrii Nakryiko wrote:
->On Mon, Mar 16, 2020 at 6:17 PM Fangrui Song <maskray@google.com> wrote:
->>
->> Simplify gen_btf logic to make it work with llvm-objcopy and
->> llvm-objdump.  We just need to retain one section .BTF. To do so, we can
->> use a simple objcopy --only-section=.BTF instead of jumping all the
->> hoops via an architecture-less binary file.
->>
->> We use a dd comment to change the e_type field in the ELF header from
->> ET_EXEC to ET_REL so that .btf.vmlinux.bin.o will be accepted by lld.
->>
->> Fixes: df786c9b9476 ("bpf: Force .BTF section start to zero when dumping from vmlinux")
->> Cc: Stanislav Fomichev <sdf@google.com>
->> Cc: Nick Desaulniers <ndesaulniers@google.com>
->> Tested-by: Nick Desaulniers <ndesaulniers@google.com>
->> Reported-by: Nathan Chancellor <natechancellor@gmail.com>
->> Link: https://github.com/ClangBuiltLinux/linux/issues/871
->> Signed-off-by: Fangrui Song <maskray@google.com>
->> ---
->>  scripts/link-vmlinux.sh | 13 ++-----------
->>  1 file changed, 2 insertions(+), 11 deletions(-)
->>
->> diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
->> index dd484e92752e..84be8d7c361d 100755
->> --- a/scripts/link-vmlinux.sh
->> +++ b/scripts/link-vmlinux.sh
->> @@ -120,18 +120,9 @@ gen_btf()
->>
->>         info "BTF" ${2}
->>         vmlinux_link ${1}
->> -       LLVM_OBJCOPY=${OBJCOPY} ${PAHOLE} -J ${1}
->
->Is it really tested? Seems like you just dropped .BTF generation step
->completely...
+Em Fri, Mar 13, 2020 at 10:36:39AM +0100, Jiri Olsa escreveu:
+> On Thu, Mar 12, 2020 at 10:31:29PM -0700, Ian Rogers wrote:
+> 
+> SNIP
+> 
+> > 
+> > SUMMARY: MemorySanitizer: use-of-uninitialized-value tools/perf/util/dsos.c:23:6 in __dso_id__cmp
+> > Signed-off-by: Ian Rogers <irogers@google.com>
+> > ---
+> >  tools/perf/util/synthetic-events.c | 1 +
+> >  1 file changed, 1 insertion(+)
+> > 
+> > diff --git a/tools/perf/util/synthetic-events.c b/tools/perf/util/synthetic-events.c
+> > index dd3e6f43fb86..5fddb64ec8c7 100644
+> > --- a/tools/perf/util/synthetic-events.c
+> > +++ b/tools/perf/util/synthetic-events.c
+> > @@ -345,6 +345,7 @@ int perf_event__synthesize_mmap_events(struct perf_tool *tool,
+> >  			continue;
+> >  
+> >  		event->mmap2.ino = (u64)ino;
+> > +                event->mmap2.ino_generation = 0;
+> 
+> please use tabs for indent, other than that
 
-Sorry, dropped the whole line:/
-I don't know how to test .BTF . I can only check readelf -S...
+I fixed that.
+ 
+> Acked-by: iri Olsa <jolsa@kernel.org>
 
-Attached the new patch.
+Thanks, applied.
 
+- Arnaldo
+ 
+> thanks,
+> jirka
+> 
+> >  
+> >  		/*
+> >  		 * Just like the kernel, see __perf_event_mmap in kernel/perf_event.c
+> > -- 
+> > 2.25.1.481.gfbce0eb801-goog
+> > 
+> 
 
- From 02afb9417d4f0f8d2175c94fc3797a94a95cc248 Mon Sep 17 00:00:00 2001
-From: Fangrui Song <maskray@google.com>
-Date: Mon, 16 Mar 2020 18:02:31 -0700
-Subject: [PATCH bpf v2] bpf: Support llvm-objcopy and llvm-objdump for
-  vmlinux BTF
-
-Simplify gen_btf logic to make it work with llvm-objcopy and llvm-objdump.
-We use a dd comment to change the e_type field in the ELF header from
-ET_EXEC to ET_REL so that .btf.vmlinux.bin.o can be accepted by lld.
-
-Fixes: df786c9b9476 ("bpf: Force .BTF section start to zero when dumping from vmlinux")
-Cc: Stanislav Fomichev <sdf@google.com>
-Cc: Nick Desaulniers <ndesaulniers@google.com>
-Reported-by: Nathan Chancellor <natechancellor@gmail.com>
-Link: https://github.com/ClangBuiltLinux/linux/issues/871
-Signed-off-by: Fangrui Song <maskray@google.com>
----
-  scripts/link-vmlinux.sh | 14 +++-----------
-  1 file changed, 3 insertions(+), 11 deletions(-)
-
-diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-index dd484e92752e..b23313944c89 100755
---- a/scripts/link-vmlinux.sh
-+++ b/scripts/link-vmlinux.sh
-@@ -120,18 +120,10 @@ gen_btf()
-  
-  	info "BTF" ${2}
-  	vmlinux_link ${1}
--	LLVM_OBJCOPY=${OBJCOPY} ${PAHOLE} -J ${1}
-+	${PAHOLE} -J ${1}
-  
--	# dump .BTF section into raw binary file to link with final vmlinux
--	bin_arch=$(LANG=C ${OBJDUMP} -f ${1} | grep architecture | \
--		cut -d, -f1 | cut -d' ' -f2)
--	bin_format=$(LANG=C ${OBJDUMP} -f ${1} | grep 'file format' | \
--		awk '{print $4}')
--	${OBJCOPY} --change-section-address .BTF=0 \
--		--set-section-flags .BTF=alloc -O binary \
--		--only-section=.BTF ${1} .btf.vmlinux.bin
--	${OBJCOPY} -I binary -O ${bin_format} -B ${bin_arch} \
--		--rename-section .data=.BTF .btf.vmlinux.bin ${2}
-+	# Extract .BTF section, change e_type to ET_REL, to link with final vmlinux
-+	${OBJCOPY} --only-section=.BTF ${1} ${2} && printf '\1' | dd of=${2} conv=notrunc bs=1 seek=16
-  }
-  
-  # Create ${2} .o file with all symbols from the ${1} object file
 -- 
-2.25.1.481.gfbce0eb801-goog
+
+- Arnaldo
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200317033701.w7jwos7mvfnde2t2%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200313184605.GB9917%40kernel.org.
