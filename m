@@ -1,30 +1,30 @@
-Return-Path: <clang-built-linux+bncBCOYZDMZ6UMRBB6VV3ZQKGQEFFRDLGQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCOYZDMZ6UMRBC6VV3ZQKGQEG5WN7DI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x539.google.com (mail-ed1-x539.google.com [IPv6:2a00:1450:4864:20::539])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8D440184B33
-	for <lists+clang-built-linux@lfdr.de>; Fri, 13 Mar 2020 16:45:11 +0100 (CET)
-Received: by mail-ed1-x539.google.com with SMTP id p17sf8581639edt.20
-        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Mar 2020 08:45:11 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584114311; cv=pass;
+Received: from mail-lj1-x238.google.com (mail-lj1-x238.google.com [IPv6:2a00:1450:4864:20::238])
+	by mail.lfdr.de (Postfix) with ESMTPS id A5A18184B39
+	for <lists+clang-built-linux@lfdr.de>; Fri, 13 Mar 2020 16:45:15 +0100 (CET)
+Received: by mail-lj1-x238.google.com with SMTP id o21sf1503858ljc.18
+        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Mar 2020 08:45:15 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584114315; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YCzfav7iF90NPlmtgXqvd5CORV7J3KlFy+XtLsH/wwUligKgwYcNyqBXnJDbEY7Ib+
-         eNx8KdH6F0aVp2bZmi6DG2w0IwpvFRErxYE9Ao4MJE+4GYDmsWvXUaXYIHbPxRWMW5Ia
-         8lFsQmg25oYUXi8/4wkqPsX5Hq9ADov7CXHVczDQ7ArUOHhqKVOmo7wRh3QbNnaXHEsl
-         jICRoVeq18pikkfVcDTGlXgnaGkS46UkVnu5G7JTbZlaeJMEGCK4OdaRt3/9cbSkbZth
-         FuNU2xlPWRuCcgE8KFlfNUzD9wOMIqHIL0IVHuNr/xRAw5Mq6ZYFsD0+Bw6mAYdFw84d
-         ml8g==
+        b=Vuw+C/G7mQFzGRjV8IAPBbqDpdcDtzjUIl008K1YDLECq/cpcCFNKcX5Tv65vTXFXu
+         KtxsFlZ8JRadBR8jjRpXRXKiW5VgLaJSkv5a2LzttQaL8zmYyqaXsK6DhVqdIT6OqXik
+         RUQq8UP6W7bnBopwrJzyyvb11BMs9M6FtDJY8YAoLUyEn15rd3/JbHG7DQF9kU/TWneT
+         hjR+ZlClHKi6u7/2z4fhu4ZiHV/CsOioR/hDYcethS8RmH4BcyiIPXerF16JkOyr+lo3
+         ox8VIoi7F83A9xBzb9fHqHXWMvGpyFflikn8T9PPz169ldycChLLWo4+ycfLAs0JrLrT
+         U6wg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=jJeqFnGWEJ3Z41R9KkFDt/82NgT38riJvLF/l4+SN6M=;
-        b=qb6E7iR0fChfEKvgcx+YmLea2iDpZT8Db+zMNOr0gG0DHkb6txkw2Z4Lp29nDdmQta
-         ZllswGWiKsw07ydsyy5haI9j6pQBIoFywVOH6ExYZtbjMx0jIRHq+P6kKM2ky7cPHlip
-         jCxlYvt2hvX+fiFahJl07h/APA5cW3Di2J43yqT8cv7R9Ic3dbBLc4qpCGYPgMu7/SLD
-         C4Bl+KwITIQmyPLsKY4uEp5CQkhH31wa8Dm2mS7ZAc6ZgYnPzFgUe3fWAtMmPAHBlk5U
-         5pux4U4Sc83C/Rtb/yPLanbmHWfSZUAYESEt2uvi2UKIHYFo2b14NuWZcujwPXHRBxaE
-         s/og==
+        bh=V48Ed4eva/FTfNeguF5JxtrXVXrDjp2gGNgBteiEMEE=;
+        b=as5qnt05fKw8ty15IOpsOHG3UzKW5k2GXXoHCF2BI4OjOnkMUkiBaHxED5ptwlr2BT
+         D//Wl535KqnFNhjQ0b3X9D9JUW3gYWFkrHLzuQwufLd02KtBuX+e+95Qu+JVds2aPser
+         luXwjrZtnKxkK1+/O6Dqr7nJWX1hU2jm8fow81jSgcXGJLqYg9A9HF3Ove0sN1vHuvrI
+         WRJLP7n1/JVZ08i5RMCs6MaUSa5BAK9Xjdlqkt4XnRPhcEvWdoPfcSk8QxfeGCnFZvAa
+         KMnKRwfD6ls8bEgsHNT9lhsttaKw+S12uHuzMgHiq/S8ck04DKtMDYqdGJHgjxYPDWkf
+         A9TA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=vincenzo.frascino@arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -33,13 +33,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=jJeqFnGWEJ3Z41R9KkFDt/82NgT38riJvLF/l4+SN6M=;
-        b=Bj2RMUg3I+bBBpAWDGt95RtBxka//aT+n5dtrqlGL1ljnsW4EZsTV66ZCB3jOGaWPk
-         RPu6DFZS3e2j+YsiceywdaaIfYhv5TZhXp1Jf64TM4eFkjdc0snEdz6AHOkoRuJtZM8O
-         MD2h2wCTVgh+zvNgSkNq24msfjLMWbThlYHYFMd1LHeIWY0lxoqIuaYknWLZcvwPZMwC
-         Bqp2RxWMgaIM4IH+gXxFYYUpAFwtXM23V25BJtHVGwnzRB8g3TcX5zPykrQYF5r472Sk
-         ADWaAwZpXwm7tyP0JZHb+08GCGgqy68is3dDeikMSMefXIzIyeVzDlea+jYUZwXJXVJJ
-         OPcA==
+        bh=V48Ed4eva/FTfNeguF5JxtrXVXrDjp2gGNgBteiEMEE=;
+        b=itnNDktNietu952wS4Dm28EuXvhRpeg5VK+TP9937pZGgnoO8K/KnJV3MMr6Zd6Q9C
+         Qjkay51IhoZ8tnWVTdjX6E9hrgaRPyuS/HeMOF2kZNv7XCDdg9h9dfh6rTumB3g+DvFf
+         gzlu/CShduHpg0OvRgx9WHoO75cykp03Hea1W5kVa58ki1gPkHj1cSUrD27WA+su37lT
+         UMkGVbFiYaiQFHWn/dCIVaQEqRaH6VPx0KnwQ6HCsC2rY3figO4Ez2ikx8KnkWoeE/Qv
+         5g9QIU9UU/vb4NrKh371MIDh0X2C0XyPccYoH1mi7FynCecXYCjw1IyvGSjWfbOLOi77
+         gPUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -47,55 +47,55 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=jJeqFnGWEJ3Z41R9KkFDt/82NgT38riJvLF/l4+SN6M=;
-        b=tK5e927zFB6B+ros4dUqd3MjJHVtuM1JI1ACTTZUYNBGNJ0fG9bvjzLkfYd5luT/OI
-         DuMXPktMmEXpH4BS44D9LkpR1tNJyJWWwQMAe5s4MQsXWZ5jnOgDwXZF8GpZ9/b9h+fo
-         NU2BajvGFu0JQnZHQEGRM8zR9gP5ALMyUlZG+1isl9iTpQKDDUzbSQ73J7LrjngmrkJ4
-         Lt5s1upPh1/g5ZNZGn8JRWezI0uAFTujukMVScB4y1uHlAteM38QZ7MNFKUCQqEpYtZW
-         3y6gj+tGGllqLfs8NFESU1EOHtqpr3vJfA3wuPAse+W7qia+NPwUhDo1tzC99GoHCJv3
-         Rz8A==
+        bh=V48Ed4eva/FTfNeguF5JxtrXVXrDjp2gGNgBteiEMEE=;
+        b=EL3RHAXKEg0cEikzy+10wet3tNuz5LhzhFO+L2dD54SVHhrsMJfvuC5PspaxxPVd9S
+         jmwUKLOpZUPYmTwgZpSfWzJej8MiJdb+/4EMOnnEXvpfdOp6xGxs8CEQK3NCACFw0djX
+         KxlwEGHAP+dX8O+dtygK1GA/1pfwm7N932qlJ8HDXTWPnzapHlUGMQK7FOdjiB7j69Vy
+         dM7qtEELXwS4DS+8g4opw0rtfBA8WKJN4uJ4vIZPZA1ybBnsYOPpBERIiwfa16n888BM
+         rgHV2YNavnJqCqFuARxw5eyInjMg91eRSQjyA5K05DdxsBTyBSH3z26CoJldkgq4zHqi
+         31Cg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ1eOgwMWinrOWmfIxZG0+FcjeM8V1ncoIhbNAUs4kL9juQXzb9+
-	7dNF/jt85XZMB0ThnppkGJg=
-X-Google-Smtp-Source: ADFU+vs829PY7msdXWmnqyMb/jwdXWDT/3/ip6D9zsIl2YNY2OI1nmSIm9avo2j+0lpIu/CpRR68Jw==
-X-Received: by 2002:a17:906:8509:: with SMTP id i9mr12183305ejx.61.1584114311286;
-        Fri, 13 Mar 2020 08:45:11 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ28Fv/0+Kqj4FH0Nt1pYb20p6OisV5l3QdgaJMgkZkXmKu987WI
+	R3GXqRRuObh+QREtU/G+Rik=
+X-Google-Smtp-Source: ADFU+vsj376srv5zqUOqgjzRyj1VtVU6Sxxm/k1jIt1V9s5/YqCwOgSUO9eZqwIN7gfZeEQVugCz+g==
+X-Received: by 2002:a05:6512:1054:: with SMTP id c20mr8759630lfb.69.1584114315182;
+        Fri, 13 Mar 2020 08:45:15 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:cac4:: with SMTP id l4ls6558962edt.4.gmail; Fri, 13 Mar
- 2020 08:45:10 -0700 (PDT)
-X-Received: by 2002:a05:6402:292:: with SMTP id l18mr14499419edv.307.1584114310733;
-        Fri, 13 Mar 2020 08:45:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584114310; cv=none;
+Received: by 2002:a19:c795:: with SMTP id x143ls411242lff.10.gmail; Fri, 13
+ Mar 2020 08:45:14 -0700 (PDT)
+X-Received: by 2002:a05:6512:305:: with SMTP id t5mr8800010lfp.104.1584114314464;
+        Fri, 13 Mar 2020 08:45:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584114314; cv=none;
         d=google.com; s=arc-20160816;
-        b=vhnUJOCcA8MGbV2DZ5Wmts4p6upYzBjXE1+ikYzVTVexn2traXUjfxQYdwUB+f77xB
-         9Pn1Ln1Nh4VAQXIKg1cuIyNyEvkdF0hwdJreUPVNGetQK5aCQmyXKf1Cy6qoUuWhCqjk
-         tVkYN2LUQNXm2fZgSmWC/HecIa00l9LD7mgmHCJgnf24MMl0Xqdb4o7DMIEsSkQXnse7
-         XM/2tuppRIEyrm8nxpdZ2ZOyFp+SO5+eRQHwHvErtH5ws6kVXznV8HIQTAI+j1EP3jAV
-         ZaBe0LKCtT8DDlaZ93uZLzVCnEmeIh0FX3x9DwmCiUIuvpDqyQPYdhDwmzzDHryVQ266
-         KRoQ==
+        b=qotEIykpBZamRT6FpRDqmFW9jw+7tYyOloQWvXETerxCwLRyApg1xV0HbCYZ5D7wTI
+         17jVA0gNVHN0Bg2VfhNGRfu1xjRr2ieZoeDQX/Q8/2v5rr/iWTnJeInfoQZcPOvt8bXE
+         8SarsWugdlTLv4tZf54gCrDHrYeSoyCk+6sIUHDXPcZpaVb6BG1m/8zwnn8Kjhw7ZPgi
+         /lfJn/3Qa48+3mQdEcnwb3OF49GwjegCuIukOd/z3inCBQm20MOXv1PBw+l/tTj39Sqc
+         zA/KRNdRRZePBvK5Y6lhfsR3MqPIotGApgcvGVAdHrpcIfr4oY5ZI2CHEwXq6to4nadX
+         JDZQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from;
-        bh=Ghu6d1cx4K92Bt+j2AOswZdkOa4VAxuo2gyY9GmE1H8=;
-        b=lm2jQInNFoP0wuq/925l+/HIYUjpo2ON9CeIMkOiLtZck695Thq+kbZ+rQJFwP1HV2
-         hWlEI8cV/fhxifG61rVD340UIDF3y6bKvBlejR/hapj9n9Gg4s0evthMP+Ddt9OyObN/
-         +d5SLh3e9AjyZtDe/TPy2PewIpU9CaJ76cuZaJDaln9NmXSek5DRDqLbXzNyQ1ORm03C
-         F8Bu/dwxEZeFB6hF/+owlkQxnWrSvAcln3eL+kmt/8L9xps6LNKkfdqkjXZK+tnobYxG
-         nyfTTkoxbyOzDY0OTYFI/6n3fgaYyhXkobLeL3EB3Z5ILxzhJcgA6jncpX4hg/Mzs1WL
-         ZUSw==
+        bh=uQurTtiMw50ngQFpIFo7v4YDXEiq8b/jCp+LFMmw9QY=;
+        b=bK/50gHf7BqtFBUaYtWWCmr9EmAcno3FmS11IZtMWy9+HqsYpBx5vMVXDVdMTzFhJe
+         vm9qZxYdGQhFgN/bunKgJgx0ylgC54bKRQyGmvl3gphTHBDW4S8uQP0i6oI1tRFPs2zW
+         u8/Bo6yMV4mpchJYhR+LWlZSH0IWbBmyJAW6mtcQNi1yTY7i41GmZAc0BvpmWDVWIn5c
+         PuYPcOb+cIZoMn+fo69VVwhX5az6ldNh00fDXJyGDTDNlFL9mtfsD+FLfeWMYN6kwehV
+         cwOoIF9AaIkstgWMTs0ougp/i9a2OU9aWnuh+YWKAxVdrYO9gY6Q8WLeS81EbeMi9Azt
+         klZw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=vincenzo.frascino@arm.com
 Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
-        by gmr-mx.google.com with ESMTP id e19si289724edr.3.2020.03.13.08.45.10
+        by gmr-mx.google.com with ESMTP id e4si139156ljn.1.2020.03.13.08.45.14
         for <clang-built-linux@googlegroups.com>;
-        Fri, 13 Mar 2020 08:45:10 -0700 (PDT)
+        Fri, 13 Mar 2020 08:45:14 -0700 (PDT)
 Received-SPF: pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23C70FEC;
-	Fri, 13 Mar 2020 08:45:10 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7232B31B;
+	Fri, 13 Mar 2020 08:45:13 -0700 (PDT)
 Received: from e119884-lin.cambridge.arm.com (e119884-lin.cambridge.arm.com [10.1.196.72])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 119473F67D;
-	Fri, 13 Mar 2020 08:45:06 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5A0D73F67D;
+	Fri, 13 Mar 2020 08:45:10 -0700 (PDT)
 From: Vincenzo Frascino <vincenzo.frascino@arm.com>
 To: linux-arch@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -123,9 +123,9 @@ Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
 	Marc Zyngier <maz@kernel.org>,
 	Mark Rutland <Mark.Rutland@arm.com>,
 	Will Deacon <will@kernel.org>
-Subject: [PATCH v3 20/26] arm64: vdso32: Include common headers in the vdso library
-Date: Fri, 13 Mar 2020 15:43:39 +0000
-Message-Id: <20200313154345.56760-21-vincenzo.frascino@arm.com>
+Subject: [PATCH v3 21/26] arm64: Introduce asm/vdso/arch_timer.h
+Date: Fri, 13 Mar 2020 15:43:40 +0000
+Message-Id: <20200313154345.56760-22-vincenzo.frascino@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20200313154345.56760-1-vincenzo.frascino@arm.com>
 References: <20200313154345.56760-1-vincenzo.frascino@arm.com>
@@ -152,47 +152,186 @@ a userspace library (UAPI and a minimal set of kernel headers). To make
 this possible it is necessary to isolate from the kernel headers the
 common parts that are strictly necessary to build the library.
 
-Refactor the vdso32 implementation to include common headers.
+Introduce asm/vdso/arch_timer.h to contain all the arm64 specific
+code. This allows to replace the second isb() in __arch_get_hw_counter()
+with a fake dependent stack read of the counter which improves the vdso
+library peformances of ~4.5%. Below the results of vdsotest [1] ran for
+100 iterations.
+
+Before the patch:
+=================
+clock-gettime-monotonic: syscall: 771 nsec/call
+clock-gettime-monotonic:    libc: 130 nsec/call
+clock-gettime-monotonic:    vdso: 111 nsec/call
+...
+clock-gettime-realtime: syscall: 762 nsec/call
+clock-gettime-realtime:    libc: 130 nsec/call
+clock-gettime-realtime:    vdso: 111 nsec/call
+
+After the patch:
+================
+clock-gettime-monotonic: syscall: 792 nsec/call
+clock-gettime-monotonic:    libc: 124 nsec/call
+clock-gettime-monotonic:    vdso: 106 nsec/call
+...
+clock-gettime-realtime: syscall: 776 nsec/call
+clock-gettime-realtime:    libc: 124 nsec/call
+clock-gettime-realtime:    vdso: 106 nsec/call
+
+[1] https://github.com/nathanlynch/vdsotest
 
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Mark Rutland <Mark.Rutland@arm.com>
 Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
 ---
- arch/arm64/include/asm/vdso/compat_gettimeofday.h | 2 +-
- arch/arm64/kernel/vdso32/vgettimeofday.c          | 3 ---
- 2 files changed, 1 insertion(+), 4 deletions(-)
+ arch/arm64/include/asm/arch_timer.h        | 29 ++++---------------
+ arch/arm64/include/asm/vdso/arch_timer.h   | 33 ++++++++++++++++++++++
+ arch/arm64/include/asm/vdso/gettimeofday.h |  7 +++--
+ 3 files changed, 42 insertions(+), 27 deletions(-)
+ create mode 100644 arch/arm64/include/asm/vdso/arch_timer.h
 
-diff --git a/arch/arm64/include/asm/vdso/compat_gettimeofday.h b/arch/arm64/include/asm/vdso/compat_gettimeofday.h
-index 81b0c394f1d8..8d8d1c006a68 100644
---- a/arch/arm64/include/asm/vdso/compat_gettimeofday.h
-+++ b/arch/arm64/include/asm/vdso/compat_gettimeofday.h
-@@ -8,7 +8,7 @@
+diff --git a/arch/arm64/include/asm/arch_timer.h b/arch/arm64/include/asm/arch_timer.h
+index 7ae54d7d333a..7f22cd00ad45 100644
+--- a/arch/arm64/include/asm/arch_timer.h
++++ b/arch/arm64/include/asm/arch_timer.h
+@@ -164,24 +164,7 @@ static inline void arch_timer_set_cntkctl(u32 cntkctl)
+ 	isb();
+ }
+ 
+-/*
+- * Ensure that reads of the counter are treated the same as memory reads
+- * for the purposes of ordering by subsequent memory barriers.
+- *
+- * This insanity brought to you by speculative system register reads,
+- * out-of-order memory accesses, sequence locks and Thomas Gleixner.
+- *
+- * http://lists.infradead.org/pipermail/linux-arm-kernel/2019-February/631195.html
+- */
+-#define arch_counter_enforce_ordering(val) do {				\
+-	u64 tmp, _val = (val);						\
+-									\
+-	asm volatile(							\
+-	"	eor	%0, %1, %1\n"					\
+-	"	add	%0, sp, %0\n"					\
+-	"	ldr	xzr, [%0]"					\
+-	: "=r" (tmp) : "r" (_val));					\
+-} while (0)
++#include <asm/vdso/arch_timer.h>
+ 
+ static __always_inline u64 __arch_counter_get_cntpct_stable(void)
+ {
+@@ -189,7 +172,7 @@ static __always_inline u64 __arch_counter_get_cntpct_stable(void)
+ 
+ 	isb();
+ 	cnt = arch_timer_reg_read_stable(cntpct_el0);
+-	arch_counter_enforce_ordering(cnt);
++	cnt = arch_counter_enforce_ordering(cnt);
+ 	return cnt;
+ }
+ 
+@@ -199,7 +182,7 @@ static __always_inline u64 __arch_counter_get_cntpct(void)
+ 
+ 	isb();
+ 	cnt = read_sysreg(cntpct_el0);
+-	arch_counter_enforce_ordering(cnt);
++	cnt = arch_counter_enforce_ordering(cnt);
+ 	return cnt;
+ }
+ 
+@@ -209,7 +192,7 @@ static __always_inline u64 __arch_counter_get_cntvct_stable(void)
+ 
+ 	isb();
+ 	cnt = arch_timer_reg_read_stable(cntvct_el0);
+-	arch_counter_enforce_ordering(cnt);
++	cnt = arch_counter_enforce_ordering(cnt);
+ 	return cnt;
+ }
+ 
+@@ -219,12 +202,10 @@ static __always_inline u64 __arch_counter_get_cntvct(void)
+ 
+ 	isb();
+ 	cnt = read_sysreg(cntvct_el0);
+-	arch_counter_enforce_ordering(cnt);
++	cnt = arch_counter_enforce_ordering(cnt);
+ 	return cnt;
+ }
+ 
+-#undef arch_counter_enforce_ordering
+-
+ static inline int arch_timer_arch_init(void)
+ {
+ 	return 0;
+diff --git a/arch/arm64/include/asm/vdso/arch_timer.h b/arch/arm64/include/asm/vdso/arch_timer.h
+new file mode 100644
+index 000000000000..a71bc83232f5
+--- /dev/null
++++ b/arch/arm64/include/asm/vdso/arch_timer.h
+@@ -0,0 +1,33 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2020 ARM Ltd.
++ */
++#ifndef __ASM_VDSO_ARCH_TIMER_H
++#define __ASM_VDSO_ARCH_TIMER_H
++
++#include <uapi/linux/types.h>
++
++/*
++ * Ensure that reads of the counter are treated the same as memory reads
++ * for the purposes of ordering by subsequent memory barriers.
++ *
++ * This insanity brought to you by speculative system register reads,
++ * out-of-order memory accesses, sequence locks and Thomas Gleixner.
++ *
++ * http://lists.infradead.org/pipermail/linux-arm-kernel/2019-February/631195.html
++ *
++ */
++static u64 arch_counter_enforce_ordering(u64 val)
++{
++	u64 tmp, _val = (val);
++
++	asm volatile(
++	"	eor	%0, %1, %1\n"
++	"	add	%0, sp, %0\n"
++	"	ldr	xzr, [%0]"
++	: "=r" (tmp) : "r" (_val));
++
++	return _val;
++}
++
++#endif /* __ASM_VDSO_ARCH_TIMER_H */
+diff --git a/arch/arm64/include/asm/vdso/gettimeofday.h b/arch/arm64/include/asm/vdso/gettimeofday.h
+index afba6ba332f8..319808106625 100644
+--- a/arch/arm64/include/asm/vdso/gettimeofday.h
++++ b/arch/arm64/include/asm/vdso/gettimeofday.h
+@@ -8,6 +8,7 @@
  #ifndef __ASSEMBLY__
  
  #include <asm/unistd.h>
--#include <uapi/linux/time.h>
-+#include <asm/errno.h>
++#include <asm/vdso/arch_timer.h>
  
- #include <asm/vdso/compat_barrier.h>
+ #define VDSO_HAS_CLOCK_GETRES		1
  
-diff --git a/arch/arm64/kernel/vdso32/vgettimeofday.c b/arch/arm64/kernel/vdso32/vgettimeofday.c
-index 54fc1c2ce93f..9366ceb635a1 100644
---- a/arch/arm64/kernel/vdso32/vgettimeofday.c
-+++ b/arch/arm64/kernel/vdso32/vgettimeofday.c
-@@ -5,9 +5,6 @@
-  * Copyright (C) 2018 ARM Limited
-  *
-  */
--#include <linux/time.h>
--#include <linux/types.h>
--
- int __vdso_clock_gettime(clockid_t clock,
- 			 struct old_timespec32 *ts)
- {
+@@ -82,10 +83,10 @@ static __always_inline u64 __arch_get_hw_counter(s32 clock_mode)
+ 	isb();
+ 	asm volatile("mrs %0, cntvct_el0" : "=r" (res) :: "memory");
+ 	/*
+-	 * This isb() is required to prevent that the seq lock is
+-	 * speculated.#
++	 * arch_counter_enforce_ordering() is required to prevent that
++	 * the seq lock is speculated.
+ 	 */
+-	isb();
++	res = arch_counter_enforce_ordering(res);
+ 
+ 	return res;
+ }
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200313154345.56760-21-vincenzo.frascino%40arm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200313154345.56760-22-vincenzo.frascino%40arm.com.
