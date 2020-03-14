@@ -1,124 +1,139 @@
-Return-Path: <clang-built-linux+bncBDQMHQVLY4HRBCHRWHZQKGQE2GET4ZA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCDZTXMP2EPRBSGGWPZQKGQETMQXZDI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13c.google.com (mail-il1-x13c.google.com [IPv6:2607:f8b0:4864:20::13c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3060D1854F9
-	for <lists+clang-built-linux@lfdr.de>; Sat, 14 Mar 2020 07:24:10 +0100 (CET)
-Received: by mail-il1-x13c.google.com with SMTP id l10sf8703635ilo.21
-        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Mar 2020 23:24:10 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584167048; cv=pass;
+Received: from mail-qk1-x73c.google.com (mail-qk1-x73c.google.com [IPv6:2607:f8b0:4864:20::73c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9B31D1855CE
+	for <lists+clang-built-linux@lfdr.de>; Sat, 14 Mar 2020 14:59:37 +0100 (CET)
+Received: by mail-qk1-x73c.google.com with SMTP id k194sf11567239qke.10
+        for <lists+clang-built-linux@lfdr.de>; Sat, 14 Mar 2020 06:59:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584194376; cv=pass;
         d=google.com; s=arc-20160816;
-        b=tR7Los/U/46uHl3BFRaJvcZ3Wy4C0FVaVfGHkn7ERp+pp7j+YBMD1+gD5v1fapoLIG
-         UoVcNrASn3sCV+2clg96qz/Wd1DoWaVy1j2Miz5OPvRZBO/1+3xdKgmEA8SDFbKBBcaq
-         yqSuxtzk5v/Xe1KmomBeSb+71RwoMCJhYHVukznYJq/bJsO04D2AH4phOYdT9DO4Zb78
-         7sQSS+ECQZ6wC8eMaIOwFCf6lH4R7ufuvlLoU8UReoRwvHKS6nI5+14dGPNJIv6/y/uA
-         p8Ib++IOe8BxvLeWgTHKL5snQaT0fQJ5s1Cjb4XCsdNNbWxR57ibsNFGfX/Ll2qkqrks
-         eqnA==
+        b=hn711hFM7CxtTrFLAMguA9iYpaqcwBzLj0siYvjo441aQsCc88eCxBK+Zz5t19vET4
+         nomtBHoZaqcCiNvSsDpitS7LykIRcITZZ262wuXWT+p2dmj2CnNa2DTnkR15OYWjKe8A
+         Gv78YkVbgiMFBeXbCNjY7oZGnorwuzulljoeam86s1XRMdX0k/YKWsYlyFB7Ac1bJNPh
+         uebLe8IJX20NtbjIYEIt660e6XfAoMlZebP37qRu+bCrU+M/5RT7hA5A8P6l5oEqYotB
+         FUAaCIlwk4rio1zAIrOO4YZiR1fTUiM03xGQxMQzaCDnTNXEr8EqGx8u0vOj1x6pi0xD
+         RZcA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
-         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=EwVR86PZtwOgAssfi8mgByLMrXfCPO8hflC8R7+CsIM=;
-        b=SRu8DwO6p2xJL7dI5U2LdmsSZ9EsTjC6Tb/mFlSNHLyF8KG6sX16MLOF0HjaSQGOEk
-         v9rlkX+VxU35YD0HYYIHg4iAae9rqmNeLz4pqehYEOr43qJVZA05jKNPlK6sgbq4/yq8
-         PdHSQm+0vWdnOVogSBfU83K1iKOMrcKWH/srSjbqDgjW8NIbgUKzc19bF5UGZnHd2qRj
-         48g2WLgJH5Bg9wX9yCUVHBeMr4Z04mhV3ZIn8yUI+Wxn8xsQ8vwswxhuNaDZGdnJaHqf
-         PkHDRI+xl45vEQTQkKinMEgAQOUE9mc4wccvI9X9bH06oRoS2mrFihWti/0teEvPdo+3
-         QS3A==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=csm1ZaJtr8peAkkFJo0N++x8m7GR80YAjUnSCTldGnk=;
+        b=QIGIo1XhECg3T2Ja0kaCk7taf4umcxEa0MUz6/r+gnz4QtgLk65I1N5aStm2KheWX4
+         rpln/red5mykv/XhaBvRBb8cuUMdFOxFK4MpMhEOJFvm0kG0WqpO6zluoAwZIxy9nms2
+         jtgcX042wchKc+hV/rDigyoTY8pS+16VoTmARoTEo2PYLhO3znt6lvEhQTZmX0lfvuJC
+         V/6WyJjGm+tayD+lZtuS3AIv319ljfgAKw1G8Fjr5m6JKfMB8Vji+C0NxhDiuZk6WnXA
+         u8/YTjVnAZXYSm+A4ZKwBTlBDleBnvvEZ0vsPLBKfBfkrJ1yJyaV/GYHuS4GkWIrxcoJ
+         iptA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=dT71Y4c2;
-       spf=pass (google.com: domain of 3hnhsxgckesmfsgdkdmfnnfkd.bnlbk9mf-athks-khmtwfnnfkdfqntor.bnl@flex--gthelen.bounces.google.com designates 2607:f8b0:4864:20::649 as permitted sender) smtp.mailfrom=3hnhsXgcKESMFSGDKDMFNNFKD.BNLBK9MF-ATHKS-KHMTWFNNFKDFQNTOR.BNL@flex--gthelen.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=Rpej72kS;
+       spf=pass (google.com: domain of jolsa@redhat.com designates 205.139.110.120 as permitted sender) smtp.mailfrom=jolsa@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=EwVR86PZtwOgAssfi8mgByLMrXfCPO8hflC8R7+CsIM=;
-        b=i1TZkhsOyQlUDwiQ4ZZF1bjFy/8Ez3JYNIN9ss8fniWM4YA1tEFsfi/M7z7LwdWGG1
-         XQ4NJMSE9oEChrkywTkeq58mdBHCBsFG6v5WJ+oH/r6+SQ0RWiihl5121LxwpgUl8fBJ
-         kRhFQ3VEArQoL9gvruHvQRvWjXy2uv+Wg+b5uC6Xc+FWyIxUneCZeUqorEsr087QxlwC
-         0yxyAm0dvSKA1DGJ0JVZuRwNHnQ1WCH0NtgkwoZj046qQe26RSoq713kEDBsOFVycEf4
-         EWBAcC16HTPQ2wIbDyD/6vk1tcSdk+xNZALfQpSH3ZR9yAXrp/Gq1GueBcyEqqWiXQtW
-         sRtw==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=csm1ZaJtr8peAkkFJo0N++x8m7GR80YAjUnSCTldGnk=;
+        b=myksqmfywhd30maA1/FsVW1FgAsXw8SLQ0oBhdtE7yoYhAxtES1yzsd+CFKEvo7awe
+         oq8CPHDDH2NJPK9Wv+zuh1KV1ouaKW58mK9lOo/vx3S85vOr7sOuBH9vKFs0ESPLboCN
+         IDuCPIld3H9Kx9WRCIL+rvOWkkJnfszgmVp0j0GMyZTPzpUhd3Orte9aYR1YfuB9yKG7
+         VNjFxBJLwz7WvbeCzh1mXEKPY/FVnfp0U8+f6Z1FaIJq1TbdRz5OvEh7/PQtCISWKwzt
+         s/foQC4x15vsJCgM8GvJhv6WMcb34Bf0MIEM85LJttoAO9wf+VrRWZmozs/qPqlwsxlb
+         6UFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
-         :references:subject:from:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=EwVR86PZtwOgAssfi8mgByLMrXfCPO8hflC8R7+CsIM=;
-        b=TBODsXEN3H2DOY6buDXAtrJhrzznA5FsGJ7X6jvc6FhitGEll6cMYMrNP8WadwQnhW
-         Olwfa/zDyBE1tDrA4UPJ2gkwbMCk2eq8Rzzwcy/QsWvXM27YI1PI55Cy+426f9ASYzet
-         CwMBNHw71CrL7GeWilW1Ws28/iVws0e2/k7yyzhWawUt6K4gxdno+XUsgkVFxH5KRNiG
-         HndCNQWQtoUH5teSAjWBEqsbctAGPK9fu67+T2LNcSdWmexqQvHgXzAenqnR6on73BZG
-         U40BGLYy8YJ9OD5bdhMce5SkaqzhOl3XNHfc8YT4l/grt3rXZCKrLI8KLbcqVLWEfjEh
-         RNKA==
-X-Gm-Message-State: ANhLgQ2Vy2a9I30DnSgJtTkL5X01CAoCoNrktfqHorkEpI2xy4mHj2yY
-	v5Zp7rebV5vdYcBEZ0tLXtE=
-X-Google-Smtp-Source: ADFU+vsfjYGpsVmPuNrsJQDczwpHobj5gzaE4BFsNd5lqUMVRgz7lHrTT5Klpm0MxzEMCDZ+KMFddw==
-X-Received: by 2002:a6b:f20b:: with SMTP id q11mr14168131ioh.99.1584167048274;
-        Fri, 13 Mar 2020 23:24:08 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=csm1ZaJtr8peAkkFJo0N++x8m7GR80YAjUnSCTldGnk=;
+        b=hOuBzMX833ujjBjlXuEe+qiGReQVVpCrVFn8MGVyhkD9OpRz+52m+DUoZ0qHCeQ40Q
+         Kt/wTp6mp4JGWKD/I2E4dgZaex2ULwLOuoir1MY/XucL2nvhJgPODTvpg7j3+TRBDXQw
+         QnHC8mVU/TUORj5Q0FvMMFIe1s5PqLR+Djlbo75ZTLtXOdlIuVH1/ad7ESuYByDzr/QR
+         WmOmxQdDSmXVBtWo4A1IjmacQFV09XxhD6QXMIkg8hyvnka8mlW/62sAmksQ799u0P92
+         6WTMSm5rhxMKbn4Bvy4n0yZX4cYkqQ7GXheFMgKRfQyQ1H7y7AEfXZoq9JxlDzAb/ZEB
+         HD5A==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: ANhLgQ22SU6BKN5OhJqhO/bHs5Xbuib3TLCZ97xGdE/LXiGip627YukD
+	2Fz8/seSQS7uJlbbFsyu5Ec=
+X-Google-Smtp-Source: ADFU+vu9movJCCci5BGTq4h55Po50T9awGBZZtJmpM3Hkreo6mtPso4tjVtT19kSuL/zzoPzeIpU4A==
+X-Received: by 2002:a37:a93:: with SMTP id 141mr14337580qkk.244.1584194376526;
+        Sat, 14 Mar 2020 06:59:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a02:cf36:: with SMTP id s22ls1482872jar.10.gmail; Fri, 13
- Mar 2020 23:24:07 -0700 (PDT)
-X-Received: by 2002:a02:447:: with SMTP id 68mr16992229jab.7.1584167047836;
-        Fri, 13 Mar 2020 23:24:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584167047; cv=none;
+Received: by 2002:a0c:8e46:: with SMTP id w6ls2530383qvb.6.gmail; Sat, 14 Mar
+ 2020 06:59:36 -0700 (PDT)
+X-Received: by 2002:a05:6214:84b:: with SMTP id dg11mr14570498qvb.205.1584194376172;
+        Sat, 14 Mar 2020 06:59:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584194376; cv=none;
         d=google.com; s=arc-20160816;
-        b=JyYzOaolFh5zES9Iz8ewuMw4FrO8KuqGfJO+eOh1bdYRJ/rsG+sSk7YP6EAtNCl2Cz
-         FG9CXaz5o6AZh1cYIDkZ+KnLZ8NVOkDaA3pluv8pcV/kdVsiYrNmGAxwBlWiVQLQg8Kj
-         BbvNz86kyY+86PjYlEj19n5vFPLV2tv9tlBXyLYCsjRYCCttvwoKzA3HTEB9twb5T6mp
-         c9n/YUTIUR2jlkKs6tFohr+KbH8eXi7nRKRG8hf9HBNoxKkSCb8II+r3v58DgnIXU7iw
-         9J9dJHvCy+TIdMXw6GvcvmBdOukiOzJo1qJm8t+quGH/5B3W/4F7sulcB/Vy3+nxTEgD
-         hanA==
+        b=z1y0T9nyGAwY3x4Lljl+JYpJP33UFIGVVf+2p3JpNf4gz9387oYQuYOLmesWR6+Kgi
+         TPJS91RbnDwxXwXumLdshYZT7W9i70OA+6fYwitddKid4cFudaWgxTLb1mLSuaS1S4S0
+         M1csucfbeb1QpTVAeZL3BpwbjEkJbn6yKEARlPs3bIAR8tPcgxYLJI7QilcZ3ZqYWHK4
+         S7YQL+ba8wRbXWUPZ4TmR8Or0Zep5UOnQGUVTXyMKTl47PvZNkPFyC3rshDfPCc057QS
+         30WXMn+3XjUrxc53b5ISqt2WXIMShdLEsJNgY71Ujr8tuMahgb1jVHjz1hFQvDeB1js7
+         betQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
-         :date:dkim-signature;
-        bh=FbErgK09Aa6nJYkuCUrBRaD9zp6nFWInm5nO78O2flo=;
-        b=HReqxIc8tfXrY1xcqcnihZ6EteCKckbqkd/uH3JeaitFkmUrRSPm2I20mvZeJUHpoz
-         cQXggRAhnLFaGTTKjPDg80OU1GYPX45ME8gT2a0H/yBY1jiRawR8SzhGkjvEhdmii3G9
-         Wjsrgk59zfA8l6HJ/XEylylJKZ7C3Oh417bBSdNGljfu+VELGqzEx2j5b7taYvTjq3/j
-         +OwES5sk3Cgk7pbMVDxQkkIUavA8bACfdcB7vrpMdfRE0ik2I8JqIK2Nmti7oK6A4i3D
-         Q5QUIHGJB6I/o2WnT/QUxgJasPyL+dF0YYkZs6HhUQdC6TQxBNjWmGScVoVBgzIs4RHF
-         Vnuw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=Eqzcg40TBoSMhAurr5qREzKJZ7xEUxgoofqeeoS/NZ4=;
+        b=FbDsowL36gWljMPDGAaJR4GTxTmGlAxCZ9+j6BDBJqZRfA3zYqZrd/kEZ78IW3gPCI
+         UVamvM4pRJPAhe3QtZ+OpEp3nEftWO3373+mq5BjLRrjWueBOIHYmSbvxv9TvrRf9R88
+         s0Mf1wPn17oPBSuY6Fk7NZglNLqvpvMyaoCeh+ghTP8EzkH9id65F8B3i9LFMM1w/Zfi
+         rQDacaRNLYysuVTd8M5rWdMiHzEA9ldzABzh2QCrA2BXUurdojQnN/CPzlsTz6CQbuE7
+         VczdzKqVb6XyXqORH7ms1rb/5s7UpkHL7bky/rNpx5N8iSabTcnETH5H3P6XJWH5LpJh
+         zJsg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=dT71Y4c2;
-       spf=pass (google.com: domain of 3hnhsxgckesmfsgdkdmfnnfkd.bnlbk9mf-athks-khmtwfnnfkdfqntor.bnl@flex--gthelen.bounces.google.com designates 2607:f8b0:4864:20::649 as permitted sender) smtp.mailfrom=3hnhsXgcKESMFSGDKDMFNNFKD.BNLBK9MF-ATHKS-KHMTWFNNFKDFQNTOR.BNL@flex--gthelen.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x649.google.com (mail-pl1-x649.google.com. [2607:f8b0:4864:20::649])
-        by gmr-mx.google.com with ESMTPS id e7si474524iof.4.2020.03.13.23.24.07
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=Rpej72kS;
+       spf=pass (google.com: domain of jolsa@redhat.com designates 205.139.110.120 as permitted sender) smtp.mailfrom=jolsa@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
+        by gmr-mx.google.com with ESMTPS id c2si542532qtn.0.2020.03.14.06.59.36
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 13 Mar 2020 23:24:07 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3hnhsxgckesmfsgdkdmfnnfkd.bnlbk9mf-athks-khmtwfnnfkdfqntor.bnl@flex--gthelen.bounces.google.com designates 2607:f8b0:4864:20::649 as permitted sender) client-ip=2607:f8b0:4864:20::649;
-Received: by mail-pl1-x649.google.com with SMTP id d9so6949406plo.10
-        for <clang-built-linux@googlegroups.com>; Fri, 13 Mar 2020 23:24:07 -0700 (PDT)
-X-Received: by 2002:a17:90a:240a:: with SMTP id h10mr12636800pje.123.1584167046988;
- Fri, 13 Mar 2020 23:24:06 -0700 (PDT)
-Date: Fri, 13 Mar 2020 23:24:04 -0700
-In-Reply-To: <4bb8eeef-54ac-86a7-4bc4-8e16fc149c1a@kernel.org>
-Message-Id: <xr93y2s34fp7.fsf@gthelen.svl.corp.google.com>
-Mime-Version: 1.0
-References: <20200227063134.261636-1-gthelen@google.com> <20200229015350.GA26612@ubuntu-m2-xlarge-x86>
- <4bb8eeef-54ac-86a7-4bc4-8e16fc149c1a@kernel.org>
-Subject: Re: [PATCH] kunit: add --make_options
-From: "'Greg Thelen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: shuah <shuah@kernel.org>, Nathan Chancellor <natechancellor@gmail.com>
-Cc: Brendan Higgins <brendanhiggins@google.com>, linux-kselftest@vger.kernel.org, 
-	kunit-dev@googlegroups.com, linux-kernel@vger.kernel.org, 
-	clang-built-linux@googlegroups.com, shuah <shuah@kernel.org>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 14 Mar 2020 06:59:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jolsa@redhat.com designates 205.139.110.120 as permitted sender) client-ip=205.139.110.120;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-364-a7j_hPgqOiu76FN7ROwQpw-1; Sat, 14 Mar 2020 09:59:34 -0400
+X-MC-Unique: a7j_hPgqOiu76FN7ROwQpw-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C60EC18CA241;
+	Sat, 14 Mar 2020 13:59:31 +0000 (UTC)
+Received: from krava (ovpn-204-34.brq.redhat.com [10.40.204.34])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D6DBA73861;
+	Sat, 14 Mar 2020 13:59:27 +0000 (UTC)
+Date: Sat, 14 Mar 2020 14:59:25 +0100
+From: Jiri Olsa <jolsa@redhat.com>
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Namhyung Kim <namhyung@kernel.org>, Andi Kleen <ak@linux.intel.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Leo Yan <leo.yan@linaro.org>, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Stephane Eranian <eranian@google.com>
+Subject: Re: [PATCH] perf parse-events: fix 3 use after frees
+Message-ID: <20200314135925.GA492969@krava>
+References: <20200313230249.78825-1-irogers@google.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: gthelen@google.com
+Content-Disposition: inline
+In-Reply-To: <20200313230249.78825-1-irogers@google.com>
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Original-Sender: jolsa@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=dT71Y4c2;       spf=pass
- (google.com: domain of 3hnhsxgckesmfsgdkdmfnnfkd.bnlbk9mf-athks-khmtwfnnfkdfqntor.bnl@flex--gthelen.bounces.google.com
- designates 2607:f8b0:4864:20::649 as permitted sender) smtp.mailfrom=3hnhsXgcKESMFSGDKDMFNNFKD.BNLBK9MF-ATHKS-KHMTWFNNFKDFQNTOR.BNL@flex--gthelen.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Greg Thelen <gthelen@google.com>
-Reply-To: Greg Thelen <gthelen@google.com>
+ header.i=@redhat.com header.s=mimecast20190719 header.b=Rpej72kS;
+       spf=pass (google.com: domain of jolsa@redhat.com designates
+ 205.139.110.120 as permitted sender) smtp.mailfrom=jolsa@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,182 +146,76 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-shuah <shuah@kernel.org> wrote:
+On Fri, Mar 13, 2020 at 04:02:49PM -0700, Ian Rogers wrote:
+> Reproducible with a clang asan build and then running perf test in
+> particular 'Parse event definition strings'.
+> 
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>  tools/perf/util/parse-events.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
+> index a14995835d85..593b6b03785d 100644
+> --- a/tools/perf/util/parse-events.c
+> +++ b/tools/perf/util/parse-events.c
+> @@ -1449,7 +1449,7 @@ int parse_events_add_pmu(struct parse_events_state *parse_state,
+>  		evsel = __add_event(list, &parse_state->idx, &attr, NULL, pmu, NULL,
+>  				    auto_merge_stats, NULL);
+>  		if (evsel) {
+> -			evsel->pmu_name = name;
+> +			evsel->pmu_name = name ? strdup(name) : NULL;
+>  			evsel->use_uncore_alias = use_uncore_alias;
+>  			return 0;
+>  		} else {
+> @@ -1497,7 +1497,7 @@ int parse_events_add_pmu(struct parse_events_state *parse_state,
+>  		evsel->snapshot = info.snapshot;
+>  		evsel->metric_expr = info.metric_expr;
+>  		evsel->metric_name = info.metric_name;
+> -		evsel->pmu_name = name;
+> +		evsel->pmu_name = name ? strdup(name) : NULL;
 
-> On 2/28/20 6:53 PM, Nathan Chancellor wrote:
->> On Wed, Feb 26, 2020 at 10:31:34PM -0800, 'Greg Thelen' via Clang Built Linux wrote:
->>> The kunit.py utility builds an ARCH=um kernel and then runs it.  Add
->>> optional --make_options flag to kunit.py allowing for the operator to
->>> specify extra build options.
->>>
->>> This allows use of the clang compiler for kunit:
->>>    tools/testing/kunit/kunit.py run --defconfig \
->>>      --make_options CC=clang --make_options HOSTCC=clang
->>>
->>> Signed-off-by: Greg Thelen <gthelen@google.com>
->> 
->> Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
->> 
->
-> Please rebase on Linux 5.6-rc5 and resend. I tried applying
-> on Linux 5.6-rc1 as well as 5.6-rc5 and both fail.
->
-> thanks,
-> -- Shuah
+so it's pmu->name pointer.. does pmu get destroyed before the evsel?
+also should we free that then like below?
 
-Rebased onto v5.6-rc5 below:
+>  		evsel->use_uncore_alias = use_uncore_alias;
+>  		evsel->percore = config_term_percore(&evsel->config_terms);
+>  	}
+> @@ -1547,7 +1547,7 @@ int parse_events_multi_pmu_add(struct parse_events_state *parse_state,
+>  				if (!parse_events_add_pmu(parse_state, list,
+>  							  pmu->name, head,
+>  							  true, true)) {
+> -					pr_debug("%s -> %s/%s/\n", config,
+> +					pr_debug("%s -> %s/%s/\n", str,
 
-From 0517b2c8b481535fb52bd86e94be1fec9aaeead7 Mon Sep 17 00:00:00 2001
-From: Greg Thelen <gthelen@google.com>
-Date: Wed, 26 Feb 2020 22:31:34 -0800
-Subject: [PATCH v2] kunit: add --make_options
+nice catch ;-)
 
-The kunit.py utility builds an ARCH=um kernel and then runs it.  Add
-optional --make_options flag to kunit.py allowing for the operator to
-specify extra build options.
+>  						 pmu->name, alias->str);
+>  					ok++;
+>  				}
+> -- 
+> 2.25.1.481.gfbce0eb801-goog
+> 
 
-This allows use of the clang compiler for kunit:
-  tools/testing/kunit/kunit.py run --defconfig \
-    --make_options CC=clang --make_options HOSTCC=clang
+thanks,
+jirka
 
-Signed-off-by: Greg Thelen <gthelen@google.com>
+
 ---
- tools/testing/kunit/kunit.py        | 15 +++++++++++----
- tools/testing/kunit/kunit_kernel.py | 24 ++++++++++++++----------
- 2 files changed, 25 insertions(+), 14 deletions(-)
-
-diff --git a/tools/testing/kunit/kunit.py b/tools/testing/kunit/kunit.py
-index 180ad1e1b04f..1aa4d14dc28d 100755
---- a/tools/testing/kunit/kunit.py
-+++ b/tools/testing/kunit/kunit.py
-@@ -22,7 +22,9 @@ import kunit_parser
+diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
+index 816d930d774e..15ccd193483f 100644
+--- a/tools/perf/util/evsel.c
++++ b/tools/perf/util/evsel.c
+@@ -1287,6 +1287,7 @@ void perf_evsel__exit(struct evsel *evsel)
+ 	perf_thread_map__put(evsel->core.threads);
+ 	zfree(&evsel->group_name);
+ 	zfree(&evsel->name);
++	zfree(&evsel->pmu_name);
+ 	perf_evsel__object.fini(evsel);
+ }
  
- KunitResult = namedtuple('KunitResult', ['status','result'])
- 
--KunitRequest = namedtuple('KunitRequest', ['raw_output','timeout', 'jobs', 'build_dir', 'defconfig'])
-+KunitRequest = namedtuple('KunitRequest', ['raw_output', 'timeout', 'jobs',
-+                                           'build_dir', 'defconfig',
-+                                           'make_options'])
- 
- KernelDirectoryPath = sys.argv[0].split('tools/testing/kunit/')[0]
- 
-@@ -47,7 +49,7 @@ def get_kernel_root_path():
- def run_tests(linux: kunit_kernel.LinuxSourceTree,
- 	      request: KunitRequest) -> KunitResult:
- 	config_start = time.time()
--	success = linux.build_reconfig(request.build_dir)
-+	success = linux.build_reconfig(request.build_dir, request.make_options)
- 	config_end = time.time()
- 	if not success:
- 		return KunitResult(KunitStatus.CONFIG_FAILURE, 'could not configure kernel')
-@@ -55,7 +57,7 @@ def run_tests(linux: kunit_kernel.LinuxSourceTree,
- 	kunit_parser.print_with_timestamp('Building KUnit Kernel ...')
- 
- 	build_start = time.time()
--	success = linux.build_um_kernel(request.jobs, request.build_dir)
-+	success = linux.build_um_kernel(request.jobs, request.build_dir, request.make_options)
- 	build_end = time.time()
- 	if not success:
- 		return KunitResult(KunitStatus.BUILD_FAILURE, 'could not build kernel')
-@@ -120,6 +122,10 @@ def main(argv, linux=None):
- 				help='Uses a default .kunitconfig.',
- 				action='store_true')
- 
-+	run_parser.add_argument('--make_options',
-+				help='X=Y make option, can be repeated.',
-+				action='append')
-+
- 	cli_args = parser.parse_args(argv)
- 
- 	if cli_args.subcommand == 'run':
-@@ -143,7 +149,8 @@ def main(argv, linux=None):
- 				       cli_args.timeout,
- 				       cli_args.jobs,
- 				       cli_args.build_dir,
--				       cli_args.defconfig)
-+				       cli_args.defconfig,
-+				       cli_args.make_options)
- 		result = run_tests(linux, request)
- 		if result.status != KunitStatus.SUCCESS:
- 			sys.exit(1)
-diff --git a/tools/testing/kunit/kunit_kernel.py b/tools/testing/kunit/kunit_kernel.py
-index d99ae75ef72f..27758d6d115b 100644
---- a/tools/testing/kunit/kunit_kernel.py
-+++ b/tools/testing/kunit/kunit_kernel.py
-@@ -35,8 +35,10 @@ class LinuxSourceTreeOperations(object):
- 		except subprocess.CalledProcessError as e:
- 			raise ConfigError(e.output)
- 
--	def make_olddefconfig(self, build_dir):
-+	def make_olddefconfig(self, build_dir, make_options):
- 		command = ['make', 'ARCH=um', 'olddefconfig']
-+		if make_options:
-+			command.extend(make_options)
- 		if build_dir:
- 			command += ['O=' + build_dir]
- 		try:
-@@ -46,8 +48,10 @@ class LinuxSourceTreeOperations(object):
- 		except subprocess.CalledProcessError as e:
- 			raise ConfigError(e.output)
- 
--	def make(self, jobs, build_dir):
-+	def make(self, jobs, build_dir, make_options):
- 		command = ['make', 'ARCH=um', '--jobs=' + str(jobs)]
-+		if make_options:
-+			command.extend(make_options)
- 		if build_dir:
- 			command += ['O=' + build_dir]
- 		try:
-@@ -107,19 +111,19 @@ class LinuxSourceTree(object):
- 			return False
- 		return True
- 
--	def build_config(self, build_dir):
-+	def build_config(self, build_dir, make_options):
- 		kconfig_path = get_kconfig_path(build_dir)
- 		if build_dir and not os.path.exists(build_dir):
- 			os.mkdir(build_dir)
- 		self._kconfig.write_to_file(kconfig_path)
- 		try:
--			self._ops.make_olddefconfig(build_dir)
-+			self._ops.make_olddefconfig(build_dir, make_options)
- 		except ConfigError as e:
- 			logging.error(e)
- 			return False
- 		return self.validate_config(build_dir)
- 
--	def build_reconfig(self, build_dir):
-+	def build_reconfig(self, build_dir, make_options):
- 		"""Creates a new .config if it is not a subset of the .kunitconfig."""
- 		kconfig_path = get_kconfig_path(build_dir)
- 		if os.path.exists(kconfig_path):
-@@ -128,17 +132,17 @@ class LinuxSourceTree(object):
- 			if not self._kconfig.is_subset_of(existing_kconfig):
- 				print('Regenerating .config ...')
- 				os.remove(kconfig_path)
--				return self.build_config(build_dir)
-+				return self.build_config(build_dir, make_options)
- 			else:
- 				return True
- 		else:
- 			print('Generating .config ...')
--			return self.build_config(build_dir)
-+			return self.build_config(build_dir, make_options)
- 
--	def build_um_kernel(self, jobs, build_dir):
-+	def build_um_kernel(self, jobs, build_dir, make_options):
- 		try:
--			self._ops.make_olddefconfig(build_dir)
--			self._ops.make(jobs, build_dir)
-+			self._ops.make_olddefconfig(build_dir, make_options)
-+			self._ops.make(jobs, build_dir, make_options)
- 		except (ConfigError, BuildError) as e:
- 			logging.error(e)
- 			return False
--- 
-2.25.1.481.gfbce0eb801-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/xr93y2s34fp7.fsf%40gthelen.svl.corp.google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200314135925.GA492969%40krava.
