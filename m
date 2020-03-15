@@ -1,120 +1,135 @@
-Return-Path: <clang-built-linux+bncBDAMN6NI5EERBTP2W7ZQKGQEZTCKMOY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDDL3KWR4EBRBEHIXHZQKGQE5N4XP2Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23e.google.com (mail-lj1-x23e.google.com [IPv6:2a00:1450:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0C003185BCB
-	for <lists+clang-built-linux@lfdr.de>; Sun, 15 Mar 2020 11:02:54 +0100 (CET)
-Received: by mail-lj1-x23e.google.com with SMTP id g17sf2124868ljl.6
-        for <lists+clang-built-linux@lfdr.de>; Sun, 15 Mar 2020 03:02:54 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584266573; cv=pass;
+Received: from mail-wr1-x43d.google.com (mail-wr1-x43d.google.com [IPv6:2a00:1450:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id EEDB3185EF8
+	for <lists+clang-built-linux@lfdr.de>; Sun, 15 Mar 2020 19:29:36 +0100 (CET)
+Received: by mail-wr1-x43d.google.com with SMTP id t4sf3422072wrr.1
+        for <lists+clang-built-linux@lfdr.de>; Sun, 15 Mar 2020 11:29:36 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584296976; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YuVyYDk0eOXoJREzNTwqcX+x9W+D+xII9IKIx9rVupfMHZzDlss3qX5o2dl/101w+W
-         NshzFQHoZ/gRV0B98mCUKj4y/GvSfwNlUQjUh0jT5aWeH8lGe+RCVsUGSsiGmJPtgMBy
-         JkGnqdNk4r1pSbgctec8fUxgYHePYqqvjM8hQg41uyBubmGUnK0R++Jhj/ZH7xaP3vov
-         +ZPmCZu5cC7cwPdKPwvW/4GY/43DyUNXdSCQ6jNn+6kb/cy/NWsWQZQdF1j6rsKZGwaf
-         HZy0JDtq1fuREfdOJhIcqjc8jiUnk5woUZCd6N5h8nK7JvhZ6Ugaxq5KJC/wbcnp6nm0
-         rEvQ==
+        b=IWCEeYKAANelXS/6EMIJWwxWMbLQP/c+6eNBXuW0elQP4woQXsA2Js+23H9wfNdSx1
+         iD/vI80atW7Ca+Oaw/bnY2F6NtvXI2ZJVPeRBSY5zM6H8Tz259wXbJLjqhujjJdmen2E
+         FwTayJj7fL4lJsJz2k4D1wMUji4WWI+qrK4TbANEp5ZdrBhlXdcmHoqkTIR5wjW8jh9X
+         OG/ujSKkaK+Lpp/omWzWhh43f/BSLHBvHFpEjHacce2LVt29nN/NAb5IaO9tPtB6RGen
+         LbIf1g3FGw/itwmM5Pc1IEU/jgoOCmU8O4kqA7A+d9COZ5Rig25SXjwtLpfPAT+Q7t3Z
+         tY0Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
-        bh=9uuvpSBbrMEkHA9LKLxQYZxkYPzm2Hu9GfjPYGAKSJg=;
-        b=fFjXVZgLGE04cNxEhoeGVq2DyTjg8QLwSYt8l606nN2C1zopHZf+uWz8/yBkzQ/KJh
-         BE/58AV1FbYasUOJ/GKZMsvaCYtS7ayqvBDrETBAX2rUpJfJ+bhwzJU3ZWBt1ZjVyBV8
-         zicak0HBF41SZ83mqO32gFWbWpZ/+cT8bzE48+rTBIomImSvNt7Z7eNUn9lKHIHTPx6t
-         JbiE5p3OXEOBULBMhFHXXUllC9slp8Kp5YseWU7TZ9LCBto6A7RBmSozQBdba3ySyGnq
-         XCIIdFqnApHiIGwOGPGey/VHKwhuXukDAn0ZVGY2e8RqZF38zlRdzCDt+lqgnNrr7n5r
-         JTtA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=fexwMhGkvHcbfr0kp9Ugi+ncJiUVYyHp3Ipo8JaEYgo=;
+        b=bk5QaI3U2VraLumwMOb8zSRVUrk86eTLAHNWyTQvt10TnFUBYdgKrZwgqsS0e7FtC9
+         Dljsq8FVnbkVpW3usmsiyFlShzZGv9q0AgS+71cdKUDBBi/OTy/TdR44Nf11UOuvvi1k
+         W8ToaY6i6l2JRPlTl7KROeN6MEEegTr22N5n4KMB5h2A3Lo+ApA6nFbEh21oeKwWjPl1
+         EGX0SBc2HdQccJXSmU8bjcmnKSEbJvU2NRLWLPKWRjZi2xYsaIef3iGYur6Z/z2arWUB
+         x/t5Tu0TeodDl37TScLEfRZKI+DEtaz183NsGC/x95nE4QNITIDD0WjybKcFIwPBp1uZ
+         RYEw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of tglx@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tglx@linutronix.de
+       spf=pass (google.com: domain of catalin.marinas@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=catalin.marinas@arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=9uuvpSBbrMEkHA9LKLxQYZxkYPzm2Hu9GfjPYGAKSJg=;
-        b=NokwnqvWhuJPkHLTCkC6fGJnmcMPaUjAJBeXN8JX+lEg7AQqAnvFj3JFWjBVLinzdS
-         MZdNmxGZjWuXdu4tcYKzTNN2lUcAvt0aAlNL6cjXmCtO4iFfonY6n4zGiPm5CACipcj5
-         u/MpQdlEbvY3y8XEXvkaN0tKfw1P6L2q1RDjCMc9Z8IdzXKaNORadoZgvYL25J3gNPHU
-         Uhl/vGyuSj4KqeHlR3VCWhqPC2RmXZy/Q7cSoqPEWVjxFI5A1X5iAvOjV5/szA1Whgk8
-         ajr8+zcxmCP5A3GJF2nxkgKBAeEV8iH3h77d5xvb4e0ceVGLU/4Kf32gwAW2CdPIPG//
-         OjrA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=fexwMhGkvHcbfr0kp9Ugi+ncJiUVYyHp3Ipo8JaEYgo=;
+        b=d3KSDDMWXapoq8n59/mGm6s+hB/HH+meNSjhowz4fQdbFAMALaDN0Q2NA289zgaIui
+         PXe3RB8SBgZfVQNhZFrAAck2n5SzN3evT3IhaW8/lJs4tDf19581hhJt/A8ADpoHzTtP
+         UhSq11ipgrX+be9m3/LiaTjiG3ghiI8tl9DZkx4Pplg0XU4Z2bX5ct1VvbcSDVnQBuMK
+         CCWIgQF5WfHudL/R/MF9im8q4gX+EIgscUAjwx09wbfaP+kaZfE3WSs7Sxpm5cSZfdRN
+         OqEK4nj/5tZCukjhWlyxx5/svWT2CkGFMusrpTXOY4gfGrCrzNfEuATM/GTT9QuCk+qE
+         Yp8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
-         :date:message-id:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=9uuvpSBbrMEkHA9LKLxQYZxkYPzm2Hu9GfjPYGAKSJg=;
-        b=UAXZd6lswaZjpicy/jrEFUx2lxt2R2/p3mh1kHQdj0fuC1YpNzuuDd1hzCfLWw8Tu+
-         BYPwqaj93V2/IxrHHKZJAbkA4Mkj2SvLozlZOsHvVW/8eoowvLhL4dur40zazv8v9vRT
-         xAczVfUECqsP+otAtFDjyzlQytQxaTIMMUlD3653pKugK1FiRVVeHEDfMmAEso2P71LV
-         OOlQpvCCw/bSSNImmoIOZ3A+D9LUV7qJSJ/iPZU/Axsr1ouGcg4t5i2zwkVKg18rhPqq
-         QIyBJ/pV1macIrE05shePbGNQ03LxTBz/7omd4kO2LVsQ8itmLb/TVy+dnznLcF7hDnX
-         283A==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=fexwMhGkvHcbfr0kp9Ugi+ncJiUVYyHp3Ipo8JaEYgo=;
+        b=WwXfunnOkyDulr6dy+wUP98tWBs2/1sh3H/kd17Qv6IdIeSZx7lW6mAjfH4BTaCbfE
+         nfZtwnvxsd5g+jAX29dRpquzR/vHlUsI77IFNUug7n9cv4O/xLDCWOLYp6iFZwaWoSxE
+         7wlu5UU0h47E2tvvm+9h+G07q4fMGdi7E8hf/gB3OASsrk47tMRkwumvzYGGx5oWIneA
+         o5CKeG149RiIm93FlERNQRFJfsfj3A8VqKkLOl+6gpcV7ZGR4z5aI7h33v6qKZdpwET7
+         H99ga6mNtwm8NCUQPmRAtOvydw4Xbn9SJNL4xfUKYgNZvfyom8oNzOFWh7Mhj/8TwGxw
+         aEvg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ08orZsUtWgeQ8wBnUuX52yzl6Ne9JWxfgC0vGcTr6PEPCZVsq2
-	NsZXR1sYqpnyy9UuuFxrvv8=
-X-Google-Smtp-Source: ADFU+vuqmxl+fsXBP2wDjeGEoDXPYU8kH+CQ10LC2jpzhZv4KwMzAoVVRmfv5ekMt7gFFicHxEswTQ==
-X-Received: by 2002:a19:ee13:: with SMTP id g19mr2966901lfb.205.1584266573472;
-        Sun, 15 Mar 2020 03:02:53 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ2eUXfzKwtMumkkOD3dVoBNwkKNI9WpuIICPhVdY2fxKj7sbqp7
+	iqHOJ+i4nIxYaZIHyfF4St8=
+X-Google-Smtp-Source: ADFU+vuW+Rn5Zq+Mp9onby6FjsoelyvJZKts4MsjuyVo2rgy/0hyyXq5FyUxaMnV4hCR8e/P/qIXPQ==
+X-Received: by 2002:adf:a510:: with SMTP id i16mr32843542wrb.292.1584296976665;
+        Sun, 15 Mar 2020 11:29:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:41d5:: with SMTP id d21ls576331lfi.11.gmail; Sun, 15 Mar
- 2020 03:02:52 -0700 (PDT)
-X-Received: by 2002:ac2:59de:: with SMTP id x30mr13255251lfn.144.1584266572775;
-        Sun, 15 Mar 2020 03:02:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584266572; cv=none;
+Received: by 2002:a1c:208f:: with SMTP id g137ls5108675wmg.1.gmail; Sun, 15
+ Mar 2020 11:29:35 -0700 (PDT)
+X-Received: by 2002:a1c:c3c3:: with SMTP id t186mr23838469wmf.118.1584296975774;
+        Sun, 15 Mar 2020 11:29:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584296975; cv=none;
         d=google.com; s=arc-20160816;
-        b=vt3wRBh0RSqQMBnfT5WvVh4sWCRF6vk61Tiu6y7GmzDvXjNhkq8k6Ox3VppwQrZ0zP
-         vQzeRwceCWsnCoWxuEivK8255SweRcdhnGXyNLr3Y9RQ2ypwoiQQe+9tXaxrSC8dlXzY
-         WXqwrDf0Oskj7xZTwz80ycSV22DpfpD9JNEWU7dUWnv7F1Q8msooXO9chDT7jXKCgy5Y
-         E4WjiwePXowk/oYWaqTq9vOhz1SN85VQ13mkQGm2jWaUGAAtTI7iKxXMLsS8ZKBHJ6HM
-         teLvRWOaCmNhbnkjShTsHbfs/dfJg5npCp22NzeqQDzuW4Vk+T3dTW4gJIt+exEozWJa
-         ZppA==
+        b=fXV0KI50HPfRJoiZmQUXhgTvQIoEWOawUiLZC8em9XWt9Bm5WfkCHMr4Z56aoihjOY
+         reL+S/z/wZGSqe5aMvDEov4U0MVPy8zffrSOt5RRaexeKAv7Ahjq6KKK0VSV6u/tarTD
+         0aY+7tc8gKXvM9Ow+5C2kWBFwooJprzuKFY60vMIFhZxL617aNA4AoIhfgNocQw1eiRL
+         biGZr7djfpkSJEaTDQij8DbZvlDHwl01u0zEAAIgwUCxFxDoPshDiDS5hjh9aWm3J1ST
+         HtyHtc/MZWCRYwK6d726eXrNIFPIAOlJSMz6/TxBOPBuOR67sSnOldTSgqMF0avGUmHI
+         n0Fg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from;
-        bh=OnATym2Ssz6pXenVi2dtMRvwkk2U1JGQuDX9vnQxjpg=;
-        b=KpeuWTryikXLyvynLeYFO5x6mJpDRJbpTRoRIhTlCFOPFZ0B5ZLzkoIQPH4ib2Zoxl
-         0vY+2Nr8MEaQzOa3cKSD7amT7vlR7DDGqF8/ip8HfqJ37dKIGdypq0w2wHBgd5dj/AXs
-         qCqvhxq3/8JRqzr3mO/d3JawTePJTKnm+RiT23yndzaZNGX/B3aPq+f5ol+mD7WueJPE
-         nFps97J9CFeVoyqdLEfOzAAInjNCar+LejZfUR5VqAPV2CVu/rFQlTsuYe65d2jyASvk
-         w1zE5Qg2DaAUmQINXsHkFs7/a5C6R9xc09hyKlkTJjLVwv0zehK8Nvxdpa2sgs0kpj4D
-         XTzQ==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=/reC/sp52ifMN6R9TUen/3LaTxE4qMW6Isp1lqZl0M4=;
+        b=vnEx/18K4qhz8VeIr4xHLI0hk4MRoEV/vrQ+BW8B16EaGr6z3LlpqCJOg2rnILY3lg
+         MzsAmHcmAOahEmUbtcaQCuvU1ca5/VATlDgYqtdynqV7NjmbS1BFINTz7aI6uhSjvCF2
+         W0LRe5gvw8olqwdu4S/MsqQCUP3UX64zRsxh/+tGSSiXP+A5QHnMYKa/YD5GsDa4VsQW
+         c8goZ+rRY11vrq53co5TeHZniRN1mmeuTmhgCYN4vXytYudEE1hAzofel6libGaiHkZO
+         gCX9x7k0NbyKQsUB2tsL3AqbFLS/QHvX9WTvAwMJxw1nhsRaEgv63EtOU5NMEj17iJC3
+         z2ZQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of tglx@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tglx@linutronix.de
-Received: from Galois.linutronix.de (Galois.linutronix.de. [2a0a:51c0:0:12e:550::1])
-        by gmr-mx.google.com with ESMTPS id o4si50988ljp.4.2020.03.15.03.02.52
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
-        Sun, 15 Mar 2020 03:02:52 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of tglx@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) client-ip=2a0a:51c0:0:12e:550::1;
-Received: from p5de0bf0b.dip0.t-ipconnect.de ([93.224.191.11] helo=nanos.tec.linutronix.de)
-	by Galois.linutronix.de with esmtpsa (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
-	(Exim 4.80)
-	(envelope-from <tglx@linutronix.de>)
-	id 1jDQ6Y-0007T9-0n; Sun, 15 Mar 2020 11:02:46 +0100
-Received: by nanos.tec.linutronix.de (Postfix, from userid 1000)
-	id 09DCD101305; Sun, 15 Mar 2020 11:02:45 +0100 (CET)
-From: Thomas Gleixner <tglx@linutronix.de>
-To: Dmitry Safonov <0x7f454c46@gmail.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, clang-built-linux@googlegroups.com, x86@kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will.deacon@arm.com>, Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>, Paul Burton <paul.burton@mips.com>, Andy Lutomirski <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Stephen Boyd <sboyd@kernel.org>, Mark Salyzyn <salyzyn@android.com>, Kees Cook <keescook@chromium.org>, Peter Collingbourne <pcc@google.com>, Andrei Vagin <avagin@openvz.org>, Nick Desaulniers <ndesaulniers@google.com>, Marc Zyngier <maz@kernel.org>, Mark Rutland <Mark.Rutland@arm.com>
-Subject: Re: [PATCH v3 00/26] Introduce common headers for vDSO
-In-Reply-To: <693b6a61-b5f6-2744-1579-b356e6510547@gmail.com>
-References: <20200313154345.56760-1-vincenzo.frascino@arm.com> <693b6a61-b5f6-2744-1579-b356e6510547@gmail.com>
-Date: Sun, 15 Mar 2020 11:02:45 +0100
-Message-ID: <87fteadjga.fsf@nanos.tec.linutronix.de>
+       spf=pass (google.com: domain of catalin.marinas@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=catalin.marinas@arm.com
+Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
+        by gmr-mx.google.com with ESMTP id o194si884646wme.2.2020.03.15.11.29.35
+        for <clang-built-linux@googlegroups.com>;
+        Sun, 15 Mar 2020 11:29:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of catalin.marinas@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C84391FB;
+	Sun, 15 Mar 2020 11:29:34 -0700 (PDT)
+Received: from mbp (unknown [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 94B0A3F67D;
+	Sun, 15 Mar 2020 11:29:31 -0700 (PDT)
+Date: Sun, 15 Mar 2020 18:29:29 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Vincenzo Frascino <vincenzo.frascino@arm.com>
+Cc: linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+	clang-built-linux@googlegroups.com, x86@kernel.org,
+	Will Deacon <will.deacon@arm.com>, Arnd Bergmann <arnd@arndb.de>,
+	Russell King <linux@armlinux.org.uk>,
+	Paul Burton <paul.burton@mips.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Andy Lutomirski <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, Stephen Boyd <sboyd@kernel.org>,
+	Mark Salyzyn <salyzyn@android.com>,
+	Kees Cook <keescook@chromium.org>,
+	Peter Collingbourne <pcc@google.com>,
+	Dmitry Safonov <0x7f454c46@gmail.com>,
+	Andrei Vagin <avagin@openvz.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Marc Zyngier <maz@kernel.org>, Mark Rutland <Mark.Rutland@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v3 06/26] arm64: Introduce asm/vdso/clocksource.h
+Message-ID: <20200315182928.GA32205@mbp>
+References: <20200313154345.56760-1-vincenzo.frascino@arm.com>
+ <20200313154345.56760-7-vincenzo.frascino@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Linutronix-Spam-Score: -1.0
-X-Linutronix-Spam-Level: -
-X-Linutronix-Spam-Status: No , -1.0 points, 5.0 required,  ALL_TRUSTED=-1,SHORTCIRCUIT=-0.0001
-X-Original-Sender: tglx@linutronix.de
+Content-Disposition: inline
+In-Reply-To: <20200313154345.56760-7-vincenzo.frascino@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: catalin.marinas@arm.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: best guess record for domain of tglx@linutronix.de designates
- 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tglx@linutronix.de
+ (google.com: domain of catalin.marinas@arm.com designates 217.140.110.172 as
+ permitted sender) smtp.mailfrom=catalin.marinas@arm.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -127,32 +142,25 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Dmitry Safonov <0x7f454c46@gmail.com> writes:
-> I like the idea, but I'm wondering if we could have less-grained
-> headers? Like, AFAICS the patches create headers < 10 lines and even
-> mostly < 5 lines.. I like that header's names perfectly describe what's
-> inside, but I'm not sure how effective to have a lot of extra-small
-> includes.
+On Fri, Mar 13, 2020 at 03:43:25PM +0000, Vincenzo Frascino wrote:
+> The vDSO library should only include the necessary headers required for
+> a userspace library (UAPI and a minimal set of kernel headers). To make
+> this possible it is necessary to isolate from the kernel headers the
+> common parts that are strictly necessary to build the library.
+> 
+> Introduce asm/vdso/clocksource.h to contain all the arm64 specific
+> functions that are suitable for vDSO inclusion.
+> 
+> This header will be required by a future patch that will generalize
+> vdso/clocksource.h.
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
 
-If that goes all into a big header then the headers from where the bits and
-pieces are split out would have all to include this big header which
-might result in other include dependency nightmares.
-
->>  create mode 100644 include/vdso/time.h
->>  create mode 100644 include/vdso/time32.h
->>  create mode 100644 include/vdso/time64.h
->
-> Maybe we could made them less-grained?
->
-> I.e, time32 + time64 + time.h => time.h?
-
-Then you end up with ifdeffery. I like the clear separation.
-
-Thanks,
-
-        tglx
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87fteadjga.fsf%40nanos.tec.linutronix.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200315182928.GA32205%40mbp.
