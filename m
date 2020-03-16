@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDTKPJW47IKRBS47X3ZQKGQE2CLXYLI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTKPJW47IKRBT47X3ZQKGQENHVQVEI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83f.google.com (mail-qt1-x83f.google.com [IPv6:2607:f8b0:4864:20::83f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 35C12186D4F
-	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Mar 2020 15:40:12 +0100 (CET)
-Received: by mail-qt1-x83f.google.com with SMTP id t6sf17089417qtj.12
-        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Mar 2020 07:40:12 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584369611; cv=pass;
+Received: from mail-qk1-x73f.google.com (mail-qk1-x73f.google.com [IPv6:2607:f8b0:4864:20::73f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 37D0E186D51
+	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Mar 2020 15:40:17 +0100 (CET)
+Received: by mail-qk1-x73f.google.com with SMTP id z17sf1811760qki.18
+        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Mar 2020 07:40:17 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584369616; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kYPDKarmwMk3+nOlIO3v9M6zweTPB5SqoB8pzQGyQ1ueWvyYJbAeXJIf9Zg3B1Gsi1
-         UTKckCppZCS+AqEWMqPWglasphdnWdpAOhztilBJA7zyFKAiMreUah4a11bT2tMjnecu
-         dIEQtw4CD6sO6d8BCd4teV/Xn7lYhl+zuvyDLF5EOOkPnlAwFJVuJdU8VbCSEiOBAOkb
-         sbV2KJh/1mStrX3EFEejcBUaLZuQNjoNpUUJDrYydHM3uh39qPH2gglUEtjC4AQSINGe
-         eHICf0xYd09Q/BbOo9yTi/a1eLl6ePttmAQbqW8QiOB/VXOP7DNG0UR7PGyNyaxt5OCR
-         iGOA==
+        b=VnzSlU2hW3TStQ0Em35HC0vy5ii1WYmwEvgAyvEQmRvkrzjwFJDbjUmaWeO+3znPOU
+         aK10VrzAIIIt06Q4MZ1nxS0kwXAuWvP445GdoqC90AtwYst88sMdt6g0lvV5jYxARCTV
+         xtcus4L7aoC1tvyRPNrVZ294s7ZqhJTrTVNUx9RtFxtZ3RuTGGlUxFfWUsNggvTIiPD3
+         u6SuXUSVmgH5+7NeS0WA39dX5myIQsX/2YDCWgKM1qNYtQ1lWNknUsjDeWukYH1++R5C
+         irJnQrcE9q7/RVy+U0/emjn41tlFdnSPCkU3JIw6ktjx1rEe3Lj1Nx/jQNiFPDGVz4h8
+         xxzA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature;
-        bh=cecQBpgQOE1kzxfI+JAmGZ8kAUAYO8I1b21ZGGgUS2U=;
-        b=ar9elclWLaf3lM+9Wazh4iX41Hyu+wYB8r160cK5+/Usa0m/9gzwCVsDUn1aqSLScL
-         J+fzXk9BYoMCBj67pAh9m4kPov7dKHPFdFAHZYFOKrrdhktXXFHRNLACZ03lKFhtb6SR
-         eYC7Jl/Xy/Zpn+FwYq1oyfyHy4WnaJedIqRqWY+yL/adAf5hJoocgHxhaDQZLpSYqyjH
-         EWBlCvrv1ZKC5jG7RqSYUJH7khYi++5FZ+SKCXO4dZOVikeipB+Jd+RvOcm1xbE8ya8P
-         8ARA5/qATEevDmZH6LaWx3Xvuu3u0PQxnEFzMrKaYXFxm7z0p4Q8steCVy8W15EhxZWU
-         mXHg==
+        bh=XSRh0dHnOGkoduZ2ludYLSozPSmXbQ7QRSYPnV+1xsw=;
+        b=Xb86vyg5gB1wS5EvVaYHIYMHdIitsEahzIZNajYPHETtEi8GPeS4LySxEjDewSOF7R
+         62/kk1k65n+9vXFUH6BS5j99atP1kx10GukRrEGlLyO9wmWCUCsApGqy/0Nd49QHjDcC
+         yVTTuRD99KNynYERshEP3LyQBCu2xma87TyBSXUNTGews4C9UJDo7YbKyZDXPLe2F7Kz
+         veODU+fg9vtyNkcbal7kdHx3smxK8wMuBafhv7b3yoYGeZXmymmkU1/3NDgMoi1rrHA4
+         goOF7OWpBcb8PKbKdHquZWBPd5QaURt2GBRnOoeoMKstcgezKi8CJvTki6NLhA6kZYpb
+         /vfw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@arista.com header.s=googlenew header.b=Jk9g1oUN;
-       spf=pass (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::1041 as permitted sender) smtp.mailfrom=dima@arista.com;
+       dkim=pass header.i=@arista.com header.s=googlenew header.b=UffnQYQr;
+       spf=pass (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=dima@arista.com;
        dmarc=pass (p=QUARANTINE sp=REJECT dis=NONE) header.from=arista.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :reply-to:precedence:mailing-list:list-id:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=cecQBpgQOE1kzxfI+JAmGZ8kAUAYO8I1b21ZGGgUS2U=;
-        b=jX1YSauB5DLE+iGPJfG428scb9fxXucgGy0gAOzT+3iwEFZ7VS8UiYr/7kTLjdtUgj
-         mUfrKfvZs7qza8pDE3cqPoXz1KvOZ4I5xBvf3KBt0e2gE0O3UZco3qqXLA9C8l4ucqRL
-         2uPdARQW/TpY7HQEKWncDh5hqBcNUK9nFujnIMxfcBpxJtKXSH7gdsS6QRJfZkanY366
-         ZOxTghS4Esww84FXso0U1gTuIQpqYOIssspdFdYCAqVfLs5+sDG/yVEDXj9Azm/fn754
-         OihDwmiPjkqJTkvOlOw3S+r8EvIBtAIjZVmdagmmN5xC96YwD98SzQUMCnqJgISjTcRn
-         E90w==
+        bh=XSRh0dHnOGkoduZ2ludYLSozPSmXbQ7QRSYPnV+1xsw=;
+        b=HplD6wnXkvS17S9VI0X1AL3pWtij45AqacYCQTKDfkjTXw/DuRAV5QYISO2VW6p/ll
+         +qCPDk7A/ii1u++DlVfD5rW2ZVVtsVz/DYHHePxmZ5QAj15BXWikj3ADJL50nbwwTady
+         CTer5lfDc1tTTvSOkqFtjAf+/oy1Cw9oHpmiy8bCrcmbN66jr3FRUlsOnFyZ7kCDyt/4
+         xCdMc1vtm89ZCK+Q/xR3QdJU0718mx9C0bKA0R0s9cg1wk2ObvANUN6baQKan/2y1h2t
+         c2u24L6tutR0SyFaPsncwz9JFNxHTxiHKINdQe+RrY7PMi291sc12ugZK7baUq7WgHZt
+         4TAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
@@ -49,59 +49,59 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=cecQBpgQOE1kzxfI+JAmGZ8kAUAYO8I1b21ZGGgUS2U=;
-        b=Aw2jxONwiZKEPYvnbiU1UB9fqaN3TI8T/gFMPekAonK1tF1kWAgiR6CXbTXEUYFPAg
-         hsn88RS8P48Q2D6gJZaduzX58yRSaozV3zsAIWj2M4nNlxL0WOs449CD68Xhg1kfJRE9
-         XopMjB+U852wBcrHSQDCGDn2KalEujJm914Rv1Ayt37n+H6bZbCuMiAy1gA3KxDcsAZ0
-         eDzfaGil5bhMJCbJtsTcvrPR23VMz9hHwRKnLGIZoR+8rwFokdcavMA+Z2WXfUXL4IDI
-         UH8oFO/ChMoqvaAlbLgmQYc4+upQ2uKayec43cbGFxRf3UuDeUGGHQ0XUAhoDPefFe8r
-         XaQw==
-X-Gm-Message-State: ANhLgQ0BKU1BPGIK1VeOfXgvhvy0JDPy38nXvAoeLCdYxTyR8qI9kz5Y
-	kTH5d5RjeESYxRSiRmK1H9A=
-X-Google-Smtp-Source: ADFU+vsKA3LDqBPRXBMbDCJn2DrM9L97jpRsHSGREoiuGCKnnBAtQeDJ2VsP0QU/FUN9+A4TrJ37VA==
-X-Received: by 2002:a05:6214:11e1:: with SMTP id e1mr111836qvu.176.1584369611220;
-        Mon, 16 Mar 2020 07:40:11 -0700 (PDT)
+        bh=XSRh0dHnOGkoduZ2ludYLSozPSmXbQ7QRSYPnV+1xsw=;
+        b=oMgo4C3K8TD4dfeOpfAYpR8WNicQ4caPjAb+J2uz1mWHOR5MVKgLyTWByKoB90Q2lF
+         UirM/LcDEW9coGlbTKwmm50H2jL3ArAikWR7xBsBXOlDe4Qr+wPNOqrm3RId8wdRUKnq
+         8qW5J2V6eOBtq/qnlk4auPlrTX9URGa4p0T3n9nyBdeNYwcKZyWDjBU2Y+17OrbDmc2B
+         N4HGw7bCPS9/5YPVT+2wxVwMcDCU94seC9uEbCvJBK+E10UgVtol/8YWnW09RuDD13NW
+         pO2ZaDw63veOnStkf0BBOUEtSpwaX0ERWYdMYvQjf3Ih7IMX7hv35yH9wsIqE1OTQoak
+         chBg==
+X-Gm-Message-State: ANhLgQ3tGOiwmVk4YZS2sc2jSRdV9e0oFn0p9g+KS/1kzdKUXOTB+FHw
+	u6NIj0lG9ClRAKwU1Ef3F94=
+X-Google-Smtp-Source: ADFU+vt090Hh+EOh59P8K9Vz83LoUdGi07i0WHUTButdq7LoXSdpYsO8LYMaLdhmMFlA1I8/MhJpCQ==
+X-Received: by 2002:a37:4a41:: with SMTP id x62mr3069qka.178.1584369615943;
+        Mon, 16 Mar 2020 07:40:15 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:6487:: with SMTP id y129ls9025804qkb.10.gmail; Mon, 16
- Mar 2020 07:40:10 -0700 (PDT)
-X-Received: by 2002:a37:67c1:: with SMTP id b184mr14248008qkc.307.1584369610771;
-        Mon, 16 Mar 2020 07:40:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584369610; cv=none;
+Received: by 2002:aed:2ca1:: with SMTP id g30ls6963676qtd.1.gmail; Mon, 16 Mar
+ 2020 07:40:15 -0700 (PDT)
+X-Received: by 2002:ac8:6709:: with SMTP id e9mr410772qtp.16.1584369615266;
+        Mon, 16 Mar 2020 07:40:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584369615; cv=none;
         d=google.com; s=arc-20160816;
-        b=WnmPfLi4QXJ4q4nNxmIRMxVyweNpvsgfPNCw1rxCMHa9LrdSxd1GD5jnnzxHEp3Uqf
-         j02lwlZj+0e9iKJbZixH1jEy+WmzOBKMcMxO8ILnaf9s1HOn2aNaY9xvWPO+gSfiAt1K
-         Res8LeGfMLbWDgm1ErobGDYQRzs6bPDCTd6Dla9zEhYydcsKgfGpClcYZnysYucKpW+C
-         NedxRpM/3ZDRJqPwmPV1IcJyABTRp10ZoQ7UvDdv/Be+jFU9E6vvI5L1l2eDccHbUUzj
-         zSN7IOfamcWaxEG5P2h5PqVC3DRMfSeh33A8pPZDcJ2hPl1kvgoo1+PO1+dsuJ3zIULh
-         rm8A==
+        b=r6jRd5tDmDt1fcu47kFqYqusfAb8bEzloLRGL28dsRylNpbNmm+xczfz35cqX1C5Xu
+         HYXq+MHvGX8/vKttB5/MtZWELXMOfHTxOUVOKRLUxNIhx5dG4FzcbqOgNUy1XfURl05i
+         S+G8soeqaGZYyhqvAoMIA3wp0OMWxcDNE0jLuVvcO8KKchG6VgmUt3dbFJjJ5b88T3VQ
+         XhIun62lxCzbDeShiZ85vJowHGqgVrrv0NAfLOs9YO3WaAboicVGTp4GY8aK1lAuHKIk
+         TsbYbBVWJNnySuAwMMRRHZ6DxmdqiJ/mtAkRvk0AZTOL6O6Z5GzZKhGr1VfxTH3M0g7s
+         geJg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=NTTI3yeeENs2ZgUYcRA67its707iG/GndxpZmZw7i/c=;
-        b=k/V464UN92jsisDXFi8+9U2AYxiSugkO0zCTc66yJKGImOC0ogir9hj/4wWpPKvA7N
-         ofSs0agJkMURW5A7GC+Hd3/QX2/Hc/wG+GCxXIBUcqXVtBwR1YaiWNuQT3zk1n7cndhv
-         B3ZWEofTj+AcakWwGtoaaE2HH8OvymlhZB5x4ODbAS/d5c3P0/zCU0o5xnM3G6PxYok2
-         VG4obZZ/4PdPrQM5SjH4iJEEK3bRzfhLCAESVtU6oxhp+Ch9IhjXzcL6275/7oLf7Btx
-         7ee+p0ougiqtwFl1KG3Pz1O/vVhZUv0T/Cpu4JPxvPv70NxgAwUn56RkCTl/BqxC8nXd
-         7Kjg==
+        bh=x/gCbAp+H9Fc7JriqMdSSF6E8ktWavqK5+A0swN3ZDc=;
+        b=OGwBPOgETlV/lUTD1Wo/YE7GgkSMIGx7YCGqory9+raSDENToNyIh0crtKoKKP8n1b
+         Bur3JbASLiTLkzzoFiiOLtUTvspovfa/Fm2aE3TU9gCsVjur51SHCqH4ZM2obISbvRy1
+         1DtfVEGobH51tVtmBQ7rvaqMrKgoicNaW21JxQn85qT3mdebTzVAdZlOvL0fcz16treT
+         xcrnnnlP5OHQ6kNBA8IV9tNt3sEYYBqYzuKaOy4iWJahA0UaL75gWYOREi9bKvxLd7bc
+         1pSyXgUZW318iv9rSA7NnO1aTu4XFYBmWOgHqit3wN7pqTtVEZigv/JWiaHowWXpAUmQ
+         z1Ug==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@arista.com header.s=googlenew header.b=Jk9g1oUN;
-       spf=pass (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::1041 as permitted sender) smtp.mailfrom=dima@arista.com;
+       dkim=pass header.i=@arista.com header.s=googlenew header.b=UffnQYQr;
+       spf=pass (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=dima@arista.com;
        dmarc=pass (p=QUARANTINE sp=REJECT dis=NONE) header.from=arista.com
-Received: from mail-pj1-x1041.google.com (mail-pj1-x1041.google.com. [2607:f8b0:4864:20::1041])
-        by gmr-mx.google.com with ESMTPS id m18si44qtn.5.2020.03.16.07.40.10
+Received: from mail-pl1-x642.google.com (mail-pl1-x642.google.com. [2607:f8b0:4864:20::642])
+        by gmr-mx.google.com with ESMTPS id v85si4279qka.6.2020.03.16.07.40.15
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Mar 2020 07:40:10 -0700 (PDT)
-Received-SPF: pass (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::1041 as permitted sender) client-ip=2607:f8b0:4864:20::1041;
-Received: by mail-pj1-x1041.google.com with SMTP id np9so1806118pjb.4
-        for <clang-built-linux@googlegroups.com>; Mon, 16 Mar 2020 07:40:10 -0700 (PDT)
-X-Received: by 2002:a17:902:bccc:: with SMTP id o12mr5824551pls.96.1584369609808;
-        Mon, 16 Mar 2020 07:40:09 -0700 (PDT)
+        Mon, 16 Mar 2020 07:40:15 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::642 as permitted sender) client-ip=2607:f8b0:4864:20::642;
+Received: by mail-pl1-x642.google.com with SMTP id t3so8094697plz.9
+        for <clang-built-linux@googlegroups.com>; Mon, 16 Mar 2020 07:40:15 -0700 (PDT)
+X-Received: by 2002:a17:90a:36c7:: with SMTP id t65mr25183358pjb.182.1584369614252;
+        Mon, 16 Mar 2020 07:40:14 -0700 (PDT)
 Received: from Mindolluin.aristanetworks.com ([2a02:8084:e84:2480:228:f8ff:fe6f:83a8])
-        by smtp.gmail.com with ESMTPSA id i2sm81524pjs.21.2020.03.16.07.40.05
+        by smtp.gmail.com with ESMTPSA id i2sm81524pjs.21.2020.03.16.07.40.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Mar 2020 07:40:09 -0700 (PDT)
+        Mon, 16 Mar 2020 07:40:13 -0700 (PDT)
 From: "'Dmitry Safonov' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: linux-kernel@vger.kernel.org
 Cc: Dmitry Safonov <0x7f454c46@gmail.com>,
@@ -118,17 +118,17 @@ Cc: Dmitry Safonov <0x7f454c46@gmail.com>,
 	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCHv2 06/50] arm: Add loglvl to dump_backtrace()
-Date: Mon, 16 Mar 2020 14:38:32 +0000
-Message-Id: <20200316143916.195608-7-dima@arista.com>
+Subject: [PATCHv2 07/50] arm: Wire up dump_backtrace_{entry,stm}
+Date: Mon, 16 Mar 2020 14:38:33 +0000
+Message-Id: <20200316143916.195608-8-dima@arista.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20200316143916.195608-1-dima@arista.com>
 References: <20200316143916.195608-1-dima@arista.com>
 MIME-Version: 1.0
 X-Original-Sender: dima@arista.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@arista.com header.s=googlenew header.b=Jk9g1oUN;       spf=pass
- (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::1041 as
+ header.i=@arista.com header.s=googlenew header.b=UffnQYQr;       spf=pass
+ (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::642 as
  permitted sender) smtp.mailfrom=dima@arista.com;       dmarc=pass
  (p=QUARANTINE sp=REJECT dis=NONE) header.from=arista.com
 X-Original-From: Dmitry Safonov <dima@arista.com>
@@ -162,11 +162,7 @@ Introducing log-level parameter and KERN_UNSUPPRESSED [1] seems
 an easier approach than introducing more printk buffers.
 Also, it will consolidate printings with headers.
 
-Add log level argument to dump_backtrace() as a preparation for
-introducing show_stack_loglvl().
-
-As a good side-effect __die() now prints not only "Stack:" header with
-KERN_EMERG, but the backtrace itself.
+Now that c_backtrace() always emits correct loglvl, use it for printing.
 
 Cc: Russell King <linux@armlinux.org.uk>
 Cc: Will Deacon <will@kernel.org>
@@ -175,66 +171,51 @@ Cc: clang-built-linux@googlegroups.com
 [1]: https://lore.kernel.org/lkml/20190528002412.1625-1-dima@arista.com/T/#u
 Signed-off-by: Dmitry Safonov <dima@arista.com>
 ---
- arch/arm/kernel/traps.c | 16 +++++++++-------
- 1 file changed, 9 insertions(+), 7 deletions(-)
+ arch/arm/kernel/traps.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
 
 diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
-index 685e17c2e275..0f09ace18e6c 100644
+index 0f09ace18e6c..e1be6c85327c 100644
 --- a/arch/arm/kernel/traps.c
 +++ b/arch/arm/kernel/traps.c
-@@ -202,17 +202,19 @@ static void dump_instr(const char *lvl, struct pt_regs *regs)
- }
+@@ -68,13 +68,15 @@ void dump_backtrace_entry(unsigned long where, unsigned long from,
+ 	unsigned long end = frame + 4 + sizeof(struct pt_regs);
  
- #ifdef CONFIG_ARM_UNWIND
--static inline void dump_backtrace(struct pt_regs *regs, struct task_struct *tsk)
-+static inline void dump_backtrace(struct pt_regs *regs, struct task_struct *tsk,
-+				  const char *loglvl)
- {
--	unwind_backtrace(regs, tsk, KERN_DEFAULT);
-+	unwind_backtrace(regs, tsk, loglvl);
- }
+ #ifdef CONFIG_KALLSYMS
+-	printk("[<%08lx>] (%ps) from [<%08lx>] (%pS)\n", where, (void *)where, from, (void *)from);
++	printk("%s[<%08lx>] (%ps) from [<%08lx>] (%pS)\n",
++		loglvl, where, (void *)where, from, (void *)from);
  #else
--static void dump_backtrace(struct pt_regs *regs, struct task_struct *tsk)
-+static void dump_backtrace(struct pt_regs *regs, struct task_struct *tsk,
-+			   const char *loglvl)
- {
- 	unsigned int fp, mode;
- 	int ok = 1;
- 
--	printk("Backtrace: ");
-+	printk("%sBacktrace: ", loglvl);
- 
- 	if (!tsk)
- 		tsk = current;
-@@ -239,13 +241,13 @@ static void dump_backtrace(struct pt_regs *regs, struct task_struct *tsk)
- 	pr_cont("\n");
- 
- 	if (ok)
--		c_backtrace(fp, mode, NULL);
-+		c_backtrace(fp, mode, loglvl);
- }
+-	printk("Function entered at [<%08lx>] from [<%08lx>]\n", where, from);
++	printk("%sFunction entered at [<%08lx>] from [<%08lx>]\n",
++		loglvl, where, from);
  #endif
  
- void show_stack(struct task_struct *tsk, unsigned long *sp)
- {
--	dump_backtrace(NULL, tsk);
-+	dump_backtrace(NULL, tsk, KERN_DEFAULT);
- 	barrier();
+ 	if (in_entry_text(from) && end <= ALIGN(frame, THREAD_SIZE))
+-		dump_mem("", "Exception stack", frame + 4, end);
++		dump_mem(loglvl, "Exception stack", frame + 4, end);
  }
  
-@@ -289,7 +291,7 @@ static int __die(const char *str, int err, struct pt_regs *regs)
- 	if (!user_mode(regs) || in_interrupt()) {
- 		dump_mem(KERN_EMERG, "Stack: ", regs->ARM_sp,
- 			 THREAD_SIZE + (unsigned long)task_stack_page(tsk));
--		dump_backtrace(regs, tsk);
-+		dump_backtrace(regs, tsk, KERN_EMERG);
- 		dump_instr(KERN_EMERG, regs);
+ void dump_backtrace_stm(u32 *stack, u32 instruction, const char *loglvl)
+@@ -89,12 +91,12 @@ void dump_backtrace_stm(u32 *stack, u32 instruction, const char *loglvl)
+ 			if (++x == 6) {
+ 				x = 0;
+ 				p = str;
+-				printk("%s\n", str);
++				printk("%s%s\n", loglvl, str);
+ 			}
+ 		}
  	}
+ 	if (p != str)
+-		printk("%s\n", str);
++		printk("%s%s\n", loglvl, str);
+ }
  
+ #ifndef CONFIG_ARM_UNWIND
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200316143916.195608-7-dima%40arista.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200316143916.195608-8-dima%40arista.com.
