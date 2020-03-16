@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBQX4X7ZQKGQEZCF3OFY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBQEQYDZQKGQEPZ6JLFA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43c.google.com (mail-pf1-x43c.google.com [IPv6:2607:f8b0:4864:20::43c])
-	by mail.lfdr.de (Postfix) with ESMTPS id AFC301875A0
-	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Mar 2020 23:31:31 +0100 (CET)
-Received: by mail-pf1-x43c.google.com with SMTP id o5sf8564184pfp.0
-        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Mar 2020 15:31:31 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584397890; cv=pass;
+Received: from mail-pl1-x637.google.com (mail-pl1-x637.google.com [IPv6:2607:f8b0:4864:20::637])
+	by mail.lfdr.de (Postfix) with ESMTPS id 041C018761C
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 00:14:10 +0100 (CET)
+Received: by mail-pl1-x637.google.com with SMTP id 64sf11307768plf.19
+        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Mar 2020 16:14:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584400448; cv=pass;
         d=google.com; s=arc-20160816;
-        b=b+vcQAURlW+qxjq6tkQSHZe+w7lpZtD8j29wg6ydcXl5yCZmqwVZRvQwRlRywfHXA7
-         oG1UCcTEJhVVEoXtZ0VKlSacN0QMRu0z4hjuQ3+m7yAJLPDIbS1nB47mE/EQOG6s9mwY
-         OLfEq2oE4drOK45AbvtTB0Su59EN9BowNepQg4EQ/SoLoYC697n+S3f38784CpEIqj0p
-         BWuRbW2jineLeFVJiUbqIwM6iiMZQsR7TT+g+eHp93CjN1wYTQLp0+DXWF9dcgKIftI3
-         D0ngzGAVpN2ef9EJH6pC1gGEWqnNesoDASybxMaemXWr28ryaheNEITQDINJtPMhf9Xg
-         IUPQ==
+        b=BlyO+Qfjvf7++IqLmVMycMsGN5CwyVQeSKvlgw/uOoajel1gzvsBQscwKZtIfMexOb
+         HRFiUfuM/GDkqbh2dKiLOoj8z7ezqjVapI65oUVebY/vf2HR90TTRt2AL/xvXcK//JJO
+         ay5Xa70OOFzEgKJGaObtVr64WgoLYLgqAbZaICuqB41euQsRARPl8M7bzNYGj6FTCeHu
+         Va6axZWQz7kAfEHK0sh0BouiCehdWm7my9wrQNQ7g0agDIYWP5ZXooEcxa6Dp8ohvW0p
+         EJL0SOltSY8i1Z3AmbtfgohizhVBmI+xn+I9BMAdiwY+1Zt0wMf+w6XyLNVJnwhaCyfv
+         oEgA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=o73TvaZAEUbbpAsSv7OXW7hWxZaYckPklWTDcPfaVfg=;
-        b=UGwozTOcMEmPYjdg9sVVew0WKHkQbsNpII3T/gbasLUepLAu9OkNJuidhoCjU5LCOr
-         KtmEMhpJMQvNBuAuw4q3KakTrsGulvr+/maQe4LXJF+3oImz31StDcXKrhqTwAilQpUx
-         O7E6ihIpWBUURXmRfK5b1B1ad3NQcPb7CoEw89jBKnaShlpxzAiA8QjAUGnNJzWfFlqq
-         xXuXT/QlIOPXEFB6rXwgiW+PSGSnPzEsnX9xg1fEMvc4iFFDvAP+BKhmwVAZDdTdEmrm
-         5E6l8AKrr1gqZ/7Mrt9WhimalwTy19HzAp9l0WfOLnhezCQSPl6JREraS4TiXNsfS928
-         Q8Ww==
+        bh=ERdIw32JwD0UT7e+iTeMq5oNjIQbpUTjln0EIxxg6wc=;
+        b=yfq348HiRR8F898pNgKf++OC8oK3LUN9mwb6Gl5YS+mMroi0yf6JqvaUilmrY+naYf
+         ktnQr6L//tacwxI5h8vqsEFmiMxXHwzySKtbmV4m2nLopCPlvjlnQrlLWXMd9OGn0B4t
+         i7QYoWyayZq++MLoedraFCZ7echQDO1HbDVa5wvnXKQhC+/AYSxX053PiVSBQfSFWZAs
+         k7iKFLCDHoM64W4nEESa/1vqYr+4oylbIzmKYzL6EtCCciZMmpizOdzTL4CukfsiLzfk
+         86FW0keYqCvTKABSF4fzYCZU9SdQZ5eX010b+S9o8kX7xWRp6Xrsr5TlJS9R98dLa/D7
+         gxVg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="O3Mnuc/v";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=N1NKpdHl;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=o73TvaZAEUbbpAsSv7OXW7hWxZaYckPklWTDcPfaVfg=;
-        b=PlBquQZlhAsb+xVVEvb25VS20SS2CUSPgEqcOJpddtkWZTAfVjyrEhKGFocCpEGrj2
-         rqQaJKuoSkPdN5pKKRSJt46tF8+k/unWafi4R9qyJYeNgXcrU1u8wWvw3VUgwFbfpHA9
-         /xSLrtCJPuOjlS1pdvQHzeh7LfJcYCTdbV6t+3qTT2zuy2wc3hk70Fya8vczeSu2Py0l
-         0aHtuHta5wbENMDRjizNl6p649cI/7ema9F5DiPIjvt/ZttRgD44wQ41m+4DJBH4DXDB
-         aunOQrcQIfOobydevJertTsadmYKU9miQLVvIgzk8wvlcuHKD4WhQIS2OVhTKbvD61+5
-         1Dig==
+        bh=ERdIw32JwD0UT7e+iTeMq5oNjIQbpUTjln0EIxxg6wc=;
+        b=XXCab86exwFPQ05ZvCjPXzGbMni8spY00EctlDn9QQTdKPYZ5wNOiLYvvomhQ65TKN
+         vzkx5F9QlkrmTyujOYaQ2qITiGvZRiGQOKM9g6aUH89Nm1INw7N7F9kC0kIzHV72zMAS
+         1vH99MUtk85/Bc21+iNYHk6LLEREVBA+qeQbGLYU2/Mbn2J5sGz+aTeBDwjsHm9m0KVh
+         ylMwFEVG4di3ZEP2peISVZ5kZKeGXFelBxK/qPxkIOWdIrWVl0ZYIr5LR+VY2Xz0PIh0
+         vvmjBB/y6UtWwDIgzu5iVKawBOwKvRGaCw/Zg1uRSRnitu+BjdPlDpYKBgxpmfO9u147
+         QD5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,72 +49,78 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=o73TvaZAEUbbpAsSv7OXW7hWxZaYckPklWTDcPfaVfg=;
-        b=ZH+jyy4+5MtnhW9Ed4bdYVtE/vdpbqyzGUth2yQCtuq+DXOgHIkZJD8KGfi8o7K7C7
-         Z9BN1j6v9NSlMLSeVYv6aFAFM4kEqceNiwJ3nO9OD02x7ADL/Jc9GKJPobPZMrmhWuB5
-         Hhg7r2tuAcgbCJApz3egQL2trbcJqzonxgcuQCA0a2HBV4KNJ3xzcvmAL76BezFgPUNU
-         h2+Q4z7QrREnGfAi2M2wneF22jErFU5YfS1zCy2gX9kTgcCKzPDKI480i/K8p4i2KLrm
-         SWGDgoyM8tLQEH+sQ6Fug1lx1Don5uXJevFO3qYPv90nArMZsX7BYFZOI5yOGc0jve4W
-         rZyw==
-X-Gm-Message-State: ANhLgQ2sGxus4EEKMiJhB6C7/FaHoRTj8sBpSr645wwQ7gxG7AsMnwPw
-	MZYldlG3l/nDkgdufkwbi1s=
-X-Google-Smtp-Source: ADFU+vsSn8NijnbBmrmKG2jO2j3DgLoUOZqHSynwtrK7n/x0u+RSdjYIuDm80UOieXl8EF71PILMlA==
-X-Received: by 2002:a63:cb4a:: with SMTP id m10mr1967798pgi.259.1584397890176;
-        Mon, 16 Mar 2020 15:31:30 -0700 (PDT)
+        bh=ERdIw32JwD0UT7e+iTeMq5oNjIQbpUTjln0EIxxg6wc=;
+        b=DsM8v6SWqbwdlKx07yeTGc6T/+mk05F2Hx2Yk1PN8zsm4HWODRszW7Qh6rST2+I8Fo
+         itYI+z7ZSbLh8OdX9O/2561RDWM847/Vg78ifZ0A3COIK+LNBQbyKf4c8FObwh+Yvb2X
+         N50SugsydFCQ7w/Wt5wB3leL/8u8Hrwc2okArFC7PE0mEnBvJKRSaHV8PXDmh/j5NMiU
+         pOUdVhpakld55FOK9Mff7sMZIl1elO6xb6tAEUwaW8sjEEGzbmFm9lPIE20GNW7a0XAk
+         +D4xdBLGgcOPd3PhgXMAaDAulT/E0UYizV6gG0BIYo2x1yPhZWdr9Nubx3p6Cp3poWxd
+         W/8w==
+X-Gm-Message-State: ANhLgQ2Tf5hNG5YobxWGxYLkgX+IeWsB6FGJO0AkB6OR5qqKiU7QQ5Ro
+	sTV7/Qg16MSe9R8g0OiAssI=
+X-Google-Smtp-Source: ADFU+vskV9aMJhm0VC6VZY2pYfzHY3EPP4Hl1APsnsfuH+hVlZl/8MyaT5ICgO6xXDex7wgTkcOP1w==
+X-Received: by 2002:a63:a746:: with SMTP id w6mr2187308pgo.76.1584400448492;
+        Mon, 16 Mar 2020 16:14:08 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:8597:: with SMTP id w23ls9404473pfn.8.gmail; Mon, 16 Mar
- 2020 15:31:29 -0700 (PDT)
-X-Received: by 2002:a62:447:: with SMTP id 68mr1883822pfe.174.1584397889631;
-        Mon, 16 Mar 2020 15:31:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584397889; cv=none;
+Received: by 2002:a17:902:bd4b:: with SMTP id b11ls7806962plx.4.gmail; Mon, 16
+ Mar 2020 16:14:08 -0700 (PDT)
+X-Received: by 2002:a17:902:b789:: with SMTP id e9mr393568pls.49.1584400447987;
+        Mon, 16 Mar 2020 16:14:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584400447; cv=none;
         d=google.com; s=arc-20160816;
-        b=KI4IUTlh+BklMHubB1vNa+rg/QaR6Ti+xg81GV6Y4VCXrVH6lkx2twC8EkPfBbGKdg
-         FGv74Szwz+HnZYYaMyaa+hx59i48oBYzIB//06KI+ruTDbNwlqboCsSsI/Vz08nfDgaN
-         GwM6jA616uQ/WpxDH7mEWXQSxYrmfap0bxPThr6BedcpYC+bgW11kRyQlAN08ztw/f3z
-         Nvwu6qcHg1nSk1iFr9pNh9vZhUkdv1iWs6aIwqZf2mCa24IWbhOjzHYVIONHF7WzU0Oz
-         mF9xY9/lgpCCevjKgUZT2W3huGPLG1TN8Ucbwl9XRUzTAugmWiPfC7vZJawTSDcy3+Oq
-         X0mg==
+        b=IV0NITWuZDbS/315muvZqSmfldJ9L5/yzsiSBP+WNW/cRIFSOo2Leu4Z5iyH52Tj3j
+         o6oeNYBD0iWBWXXlRLVtIDqm77pYspJjqlQUsn76Jlro03SglUcjVofPtqerj3vYTEc7
+         3k5i/DuRKWcwqOZpHgRV+WwFmUry/1pHrCFeQT2CthjLCBfCtO4Kmi6Naj1/nmTMIgbl
+         DWP+J5WkqEssHtshrHXKDWj19NinvhZa6LTYgRfoDCOVGNn98oXiQHqnk80XFk/s9ZON
+         0rz018AozAdAqbPkb7f+zSscTNXqq/29UdvE8Z9M8zb6IwBtpKr1/+NdTX7awuiIdKOp
+         KRRA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=SqNhlA0LodNsNYph3+Tu9/zrmLTegMWpdjT7+WzkntQ=;
-        b=oSvGfK7lRq8RQTnjVkG/lIAIBViFIA9ozKgGq8rZD/GlwMYAH3CRWV9e0ZXkYwNEn1
-         U1bWobmzrUXawY14Ott1GNynsx28PZezgQZaLsoJ4s8MI9WdpBXcySTfIJyM2pxcktdq
-         DkWpHjKiRG9ystg6aTxJpue/ZuysM2kKQJNJrFels8E5FmAY7vGODMTfyRtwJ0bvUFQ5
-         9aNY6SbkXBzGMkj9bvTvIj+jimUuF9vyB7TDcPDJBXides9f2Qhwrg3SsY+J0fziOQrs
-         9D2mbaWPx1ahKv8wB2nNKIELrffxigMGaM7RhfbhyhrVwx8E00e6T4WGo+zE0xAGu5M5
-         Wwvg==
+        bh=WKhNi3AyDEr1M2ELEjYwXf0ptk3NE9Y1hnct/nl8tYU=;
+        b=guu5pSoc0Nifre6JCne3yPOHB+/54jNU/XtwrMr3Tjdu9f2DiQ2vIBh2s/BgWWmROA
+         iWtKjPR63txbvGUQAKJyc7M3t+8Ey3pDAeqz5/jvPZGQI/MT/mmVSQrRwTubS3zL/Z34
+         m2F0iF5UEctjPl3SWzdNRhlBDwOnd15D5mWNaGlGyIQSyRjnxAy9PLa1mJipn19zAk16
+         vXEaqZMYW8YsrnK/QUC7dwtGY2nahtDAcjxGa0Zdyrre6bmx8UFNk3EY4H2SNtLcZXH4
+         eAeeummp0gTX9HRJgJC9qOMtGSTzjYgAyi7FbfVN3u7Il6o2z1SIqsYbPdW/fTenqv//
+         bacg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="O3Mnuc/v";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=N1NKpdHl;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x544.google.com (mail-pg1-x544.google.com. [2607:f8b0:4864:20::544])
-        by gmr-mx.google.com with ESMTPS id h10si92612pju.1.2020.03.16.15.31.28
+Received: from mail-pg1-x541.google.com (mail-pg1-x541.google.com. [2607:f8b0:4864:20::541])
+        by gmr-mx.google.com with ESMTPS id x12si117915plv.3.2020.03.16.16.14.07
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Mar 2020 15:31:28 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) client-ip=2607:f8b0:4864:20::544;
-Received: by mail-pg1-x544.google.com with SMTP id z72so713530pgz.3
-        for <clang-built-linux@googlegroups.com>; Mon, 16 Mar 2020 15:31:28 -0700 (PDT)
-X-Received: by 2002:a63:4453:: with SMTP id t19mr1858142pgk.381.1584397887913;
- Mon, 16 Mar 2020 15:31:27 -0700 (PDT)
+        Mon, 16 Mar 2020 16:14:07 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) client-ip=2607:f8b0:4864:20::541;
+Received: by mail-pg1-x541.google.com with SMTP id u12so10599269pgb.10
+        for <clang-built-linux@googlegroups.com>; Mon, 16 Mar 2020 16:14:07 -0700 (PDT)
+X-Received: by 2002:a63:4d6:: with SMTP id 205mr2134957pge.10.1584400447305;
+ Mon, 16 Mar 2020 16:14:07 -0700 (PDT)
 MIME-Version: 1.0
-References: <202003170630.NGJUYTfo%lkp@intel.com>
-In-Reply-To: <202003170630.NGJUYTfo%lkp@intel.com>
+References: <20200311223725.27662-2-masahiroy@kernel.org> <202003121230.lys3M8E8%lkp@intel.com>
+ <CAK7LNARwR5X2C_VzK_3RZo+30Cu3uPuiw-rFUut1j8azLhbxAA@mail.gmail.com>
+In-Reply-To: <CAK7LNARwR5X2C_VzK_3RZo+30Cu3uPuiw-rFUut1j8azLhbxAA@mail.gmail.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 16 Mar 2020 15:31:16 -0700
-Message-ID: <CAKwvOdmOF4LGcZLS8wRdsF3bbp9JvBoGWEO+4fj+bzz4zOauZw@mail.gmail.com>
-Subject: Re: [linux-next:master 9025/9312] drivers/soc/qcom/pdr_interface.c:316:2:
- warning: variable 'found' is used uninitialized whenever 'for' loop exits
- because its condition is false
-To: kbuild test robot <lkp@intel.com>
-Cc: Bjorn Andersson <bjorn.andersson@linaro.org>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+Date: Mon, 16 Mar 2020 16:13:55 -0700
+Message-ID: <CAKwvOdmGh+NkVvf=e1W_ThZ8hW2KFe0R+AJ=-0jJ5FUg4sGoaA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] kbuild: link lib-y objects to vmlinux forcibly
+ when CONFIG_MODULES=y
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: inux-mips@vger.kernel.org, Paul Burton <paulburton@kernel.org>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, kbuild-all@lists.01.org, 
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
+	"sparclinux@vger.kernel.org, David S . Miller" <davem@davemloft.net>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Al Viro <viro@zeniv.linux.org.uk>, 
+	Ilie Halip <ilie.halip@gmail.com>, Nathan Chancellor <natechancellor@gmail.com>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Michal Marek <michal.lkml@markovi.net>, 
+	kbuild test robot <lkp@intel.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="O3Mnuc/v";       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544
+ header.i=@google.com header.s=20161025 header.b=N1NKpdHl;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -131,110 +137,148 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-A patch has just been submitted for this, please ignore the report:
-https://github.com/ClangBuiltLinux/linux/issues/933
+On Wed, Mar 11, 2020 at 11:13 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
+>
+> Hi MIPS forks,
+>
+>
+> I got the following report from 0-day bot.
+> Please advise me how to fix it.
+>
+>
+> I am not sure how multi-platform works in MIPS.
+>
+> The cavium-octeon platform has its own implementation
+> of various functions.
+>
+> So, vmlinux links different library routines
+> depending on whether CONFIG_CAVIUM_OCTEON_SOC, correct?
+>
+>
+>
+> fw_init_cmdline():
+> arch/mips/cavium-octeon/setup.c
+> arch/mips/fw/lib/cmdline.c
+>
+>
+> __delay(), __udelay(), __ndelay():
+> arch/mips/cavium-octeon/csrc-octeon.c
+> arch/mips/lib/delay.S
+>
+>
+> memcpy(), memmove():
+> arch/mips/cavium-octeon/octeon-memcpy.S
+> arch/mips/lib/memcpy.S
+>
+>
+>
+> FWIW, the following fixes the multiple definition errors.
+>
+>
+>
+> diff --git a/arch/mips/fw/lib/cmdline.c b/arch/mips/fw/lib/cmdline.c
+> index 6ecda64ad184..6ac6e0493e1f 100644
+> --- a/arch/mips/fw/lib/cmdline.c
+> +++ b/arch/mips/fw/lib/cmdline.c
+> @@ -16,6 +16,7 @@ int fw_argc;
+>  int *_fw_argv;
+>  int *_fw_envp;
+>
+> +#ifndef CONFIG_CAVIUM_OCTEON_SOC
+>  void __init fw_init_cmdline(void)
 
-On Mon, Mar 16, 2020 at 3:28 PM kbuild test robot <lkp@intel.com> wrote:
+Alternatively, you could define this fw_init_cmdline as __weak, then
+let the strong definition in arch/mips/cavium-octeon/setup.c override
+it. But both should work, so:
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Eitherway, octeon has some multiple definition errors that should get fixed.
+
+>  {
+>         int i;
+> @@ -41,6 +42,7 @@ void __init fw_init_cmdline(void)
+>                         strlcat(arcs_cmdline, " ", COMMAND_LINE_SIZE);
+>         }
+>  }
+> +#endif
 >
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> head:   8548fd2f20ed19b0e8c0585b71fdfde1ae00ae3c
-> commit: d538b863da31a4070276cebcd490a8bb45c4a45a [9025/9312] Merge remote-tracking branch 'qcom/for-next'
-> config: arm64-allyesconfig (attached as .config)
-> compiler: clang version 11.0.0 (git://gitmirror/llvm_project 14a1b80e044aac1947c891525cf30521be0a79b7)
-> reproduce:
->         # FIXME the reproduce steps for clang is not ready yet
+>  char * __init fw_getcmdline(void)
+>  {
+> diff --git a/arch/mips/lib/Makefile b/arch/mips/lib/Makefile
+> index 479f50559c83..4cc98af4161a 100644
+> --- a/arch/mips/lib/Makefile
+> +++ b/arch/mips/lib/Makefile
+> @@ -3,10 +3,14 @@
+>  # Makefile for MIPS-specific library files..
+>  #
 >
-> If you fix the issue, kindly add following tag
-> Reported-by: kbuild test robot <lkp@intel.com>
+> -lib-y  += bitops.o csum_partial.o delay.o memcpy.o memset.o \
+> +lib-y  += bitops.o csum_partial.o memset.o \
+>            mips-atomic.o strncpy_user.o \
+>            strnlen_user.o uncached.o
 >
-> All warnings (new ones prefixed by >>):
+> +ifneq ($(CONFIG_CAVIUM_OCTEON_SOC),y)
+> +lib-y  += delay.o memcpy.o
+> +endif
+> +
+>  obj-y                  += iomap_copy.o
+>  obj-$(CONFIG_PCI)      += iomap-pci.o
+>  lib-$(CONFIG_GENERIC_CSUM)     := $(filter-out csum_partial.o, $(lib-y))
 >
-> >> drivers/soc/qcom/pdr_interface.c:316:2: warning: variable 'found' is used uninitialized whenever 'for' loop exits because its condition is false [-Wsometimes-uninitialized]
->            list_for_each_entry(pds, &pdr->lookups, node) {
->            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    include/linux/list.h:602:7: note: expanded from macro 'list_for_each_entry'
->                 &pos->member != (head);                                    \
->                 ^~~~~~~~~~~~~~~~~~~~~~
->    drivers/soc/qcom/pdr_interface.c:325:7: note: uninitialized use occurs here
->            if (!found)
->                 ^~~~~
->    drivers/soc/qcom/pdr_interface.c:316:2: note: remove the condition if it is always true
->            list_for_each_entry(pds, &pdr->lookups, node) {
->            ^
->    include/linux/list.h:602:7: note: expanded from macro 'list_for_each_entry'
->                 &pos->member != (head);                                    \
->                 ^
->    drivers/soc/qcom/pdr_interface.c:309:12: note: initialize the variable 'found' to silence this warning
->            bool found;
->                      ^
->                       = 0
->    1 warning generated.
 >
-> vim +316 drivers/soc/qcom/pdr_interface.c
 >
-> fbe639b44a82755 Sibi Sankar 2020-03-12  299
-> fbe639b44a82755 Sibi Sankar 2020-03-12  300  static void pdr_indication_cb(struct qmi_handle *qmi,
-> fbe639b44a82755 Sibi Sankar 2020-03-12  301                           struct sockaddr_qrtr *sq,
-> fbe639b44a82755 Sibi Sankar 2020-03-12  302                           struct qmi_txn *txn, const void *data)
-> fbe639b44a82755 Sibi Sankar 2020-03-12  303  {
-> fbe639b44a82755 Sibi Sankar 2020-03-12  304     struct pdr_handle *pdr = container_of(qmi, struct pdr_handle,
-> fbe639b44a82755 Sibi Sankar 2020-03-12  305                                           notifier_hdl);
-> fbe639b44a82755 Sibi Sankar 2020-03-12  306     const struct servreg_state_updated_ind *ind_msg = data;
-> fbe639b44a82755 Sibi Sankar 2020-03-12  307     struct pdr_list_node *ind;
-> fbe639b44a82755 Sibi Sankar 2020-03-12  308     struct pdr_service *pds;
-> fbe639b44a82755 Sibi Sankar 2020-03-12  309     bool found;
-> fbe639b44a82755 Sibi Sankar 2020-03-12  310
-> fbe639b44a82755 Sibi Sankar 2020-03-12  311     if (!ind_msg || !ind_msg->service_path[0] ||
-> fbe639b44a82755 Sibi Sankar 2020-03-12  312         strlen(ind_msg->service_path) > SERVREG_NAME_LENGTH)
-> fbe639b44a82755 Sibi Sankar 2020-03-12  313             return;
-> fbe639b44a82755 Sibi Sankar 2020-03-12  314
-> fbe639b44a82755 Sibi Sankar 2020-03-12  315     mutex_lock(&pdr->list_lock);
-> fbe639b44a82755 Sibi Sankar 2020-03-12 @316     list_for_each_entry(pds, &pdr->lookups, node) {
-> fbe639b44a82755 Sibi Sankar 2020-03-12  317             if (strcmp(pds->service_path, ind_msg->service_path))
-> fbe639b44a82755 Sibi Sankar 2020-03-12  318                     continue;
-> fbe639b44a82755 Sibi Sankar 2020-03-12  319
-> fbe639b44a82755 Sibi Sankar 2020-03-12  320             found = true;
-> fbe639b44a82755 Sibi Sankar 2020-03-12  321             break;
-> fbe639b44a82755 Sibi Sankar 2020-03-12  322     }
-> fbe639b44a82755 Sibi Sankar 2020-03-12  323     mutex_unlock(&pdr->list_lock);
-> fbe639b44a82755 Sibi Sankar 2020-03-12  324
-> fbe639b44a82755 Sibi Sankar 2020-03-12  325     if (!found)
-> fbe639b44a82755 Sibi Sankar 2020-03-12  326             return;
-> fbe639b44a82755 Sibi Sankar 2020-03-12  327
-> fbe639b44a82755 Sibi Sankar 2020-03-12  328     pr_info("PDR: Indication received from %s, state: 0x%x, trans-id: %d\n",
-> fbe639b44a82755 Sibi Sankar 2020-03-12  329             ind_msg->service_path, ind_msg->curr_state,
-> fbe639b44a82755 Sibi Sankar 2020-03-12  330             ind_msg->transaction_id);
-> fbe639b44a82755 Sibi Sankar 2020-03-12  331
-> fbe639b44a82755 Sibi Sankar 2020-03-12  332     ind = kzalloc(sizeof(*ind), GFP_KERNEL);
-> fbe639b44a82755 Sibi Sankar 2020-03-12  333     if (!ind)
-> fbe639b44a82755 Sibi Sankar 2020-03-12  334             return;
-> fbe639b44a82755 Sibi Sankar 2020-03-12  335
-> fbe639b44a82755 Sibi Sankar 2020-03-12  336     ind->transaction_id = ind_msg->transaction_id;
-> fbe639b44a82755 Sibi Sankar 2020-03-12  337     ind->curr_state = ind_msg->curr_state;
-> fbe639b44a82755 Sibi Sankar 2020-03-12  338     ind->pds = pds;
-> fbe639b44a82755 Sibi Sankar 2020-03-12  339
-> fbe639b44a82755 Sibi Sankar 2020-03-12  340     mutex_lock(&pdr->list_lock);
-> fbe639b44a82755 Sibi Sankar 2020-03-12  341     list_add_tail(&ind->node, &pdr->indack_list);
-> fbe639b44a82755 Sibi Sankar 2020-03-12  342     mutex_unlock(&pdr->list_lock);
-> fbe639b44a82755 Sibi Sankar 2020-03-12  343
-> fbe639b44a82755 Sibi Sankar 2020-03-12  344     queue_work(pdr->indack_wq, &pdr->indack_work);
-> fbe639b44a82755 Sibi Sankar 2020-03-12  345  }
-> fbe639b44a82755 Sibi Sankar 2020-03-12  346
+> On Thu, Mar 12, 2020 at 1:31 PM kbuild test robot <lkp@intel.com> wrote:
+> >
+> > Hi Masahiro,
+> >
+> > I love your patch! Yet something to improve:
+> >
+> > [auto build test ERROR on kbuild/for-next]
+> > [also build test ERROR on v5.6-rc5 next-20200311]
+> > [if your patch is applied to the wrong git tree, please drop us a note to help
+> > improve the system. BTW, we also suggest to use '--base' option to specify the
+> > base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
+> >
+> > url:    https://github.com/0day-ci/linux/commits/Masahiro-Yamada/sparc-revive-__HAVE_ARCH_STRLEN-for-32bit-sparc/20200312-073459
+> > base:   https://git.kernel.org/pub/scm/linux/kernel/git/masahiroy/linux-kbuild.git for-next
+> > config: mips-cavium_octeon_defconfig (attached as .config)
+> > compiler: mips64-linux-gcc (GCC) 9.2.0
+> > reproduce:
+> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> >         chmod +x ~/bin/make.cross
+> >         # save the attached .config to linux build tree
+> >         GCC_VERSION=9.2.0 make.cross ARCH=mips
+> >
+> > If you fix the issue, kindly add following tag
+> > Reported-by: kbuild test robot <lkp@intel.com>
+> >
+> > All errors (new ones prefixed by >>):
+> >
+> >    mips64-linux-ld: arch/mips/fw/lib/cmdline.o: in function `fw_init_cmdline':
+> > >> cmdline.c:(.init.text+0x0): multiple definition of `fw_init_cmdline'; arch/mips/cavium-octeon/setup.o:setup.c:(.init.text+0xad8): first defined here
+> >    mips64-linux-ld: arch/mips/lib/delay.o: in function `__delay':
+> > >> delay.c:(.text+0x0): multiple definition of `__delay'; arch/mips/cavium-octeon/csrc-octeon.o:csrc-octeon.c:(.text+0x80): first defined here
+> >    mips64-linux-ld: arch/mips/lib/delay.o: in function `__udelay':
+> > >> delay.c:(.text+0x10): multiple definition of `__udelay'; arch/mips/cavium-octeon/csrc-octeon.o:csrc-octeon.c:(.text+0x8): first defined here
+> >    mips64-linux-ld: arch/mips/lib/delay.o: in function `__ndelay':
+> > >> delay.c:(.text+0x50): multiple definition of `__ndelay'; arch/mips/cavium-octeon/csrc-octeon.o:csrc-octeon.c:(.text+0x40): first defined here
+> >    mips64-linux-ld: arch/mips/lib/memcpy.o: in function `memmove':
+> > >> (.text+0x0): multiple definition of `memmove'; arch/mips/cavium-octeon/octeon-memcpy.o:(.text+0x3a0): first defined here
+> >    mips64-linux-ld: arch/mips/lib/memcpy.o: in function `__rmemcpy':
+> > >> (.text+0x20): multiple definition of `__rmemcpy'; arch/mips/cavium-octeon/octeon-memcpy.o:(.text+0x3c0): first defined here
+> >    mips64-linux-ld: arch/mips/lib/memcpy.o: in function `memcpy':
+> > >> (.text+0x80): multiple definition of `memcpy'; arch/mips/cavium-octeon/octeon-memcpy.o:(.text+0x0): first defined here
+> >    mips64-linux-ld: arch/mips/lib/memcpy.o: in function `memcpy':
+> > >> (.text+0x84): multiple definition of `__copy_user'; arch/mips/cavium-octeon/octeon-memcpy.o:(.text+0x4): first defined here
+> >
+> > ---
+> > 0-DAY CI Kernel Test Service, Intel Corporation
+> > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 >
-> :::::: The code at line 316 was first introduced by commit
-> :::::: fbe639b44a82755d639df1c5d147c93f02ac5a0f soc: qcom: Introduce Protection Domain Restart helpers
 >
-> :::::: TO: Sibi Sankar <sibis@codeaurora.org>
-> :::::: CC: Bjorn Andersson <bjorn.andersson@linaro.org>
->
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 >
 > --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202003170630.NGJUYTfo%25lkp%40intel.com.
+> Best Regards
+> Masahiro Yamada
 
 
 
@@ -245,4 +289,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmOF4LGcZLS8wRdsF3bbp9JvBoGWEO%2B4fj%2Bbzz4zOauZw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmGh%2BNkVvf%3De1W_ThZ8hW2KFe0R%2BAJ%3D-0jJ5FUg4sGoaA%40mail.gmail.com.
