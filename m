@@ -1,118 +1,130 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBSUZYDZQKGQEM5YXTUI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDE5JTGNZULRBMFEYDZQKGQEP5AQOBI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x237.google.com (mail-oi1-x237.google.com [IPv6:2607:f8b0:4864:20::237])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4A46C187638
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 00:33:34 +0100 (CET)
-Received: by mail-oi1-x237.google.com with SMTP id 8sf12011567oiq.2
-        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Mar 2020 16:33:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584401613; cv=pass;
+Received: from mail-il1-x13f.google.com (mail-il1-x13f.google.com [IPv6:2607:f8b0:4864:20::13f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 27BC3187668
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 00:56:33 +0100 (CET)
+Received: by mail-il1-x13f.google.com with SMTP id m2sf6272064ilb.21
+        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Mar 2020 16:56:33 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584402992; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BknqMLiZnu+Kj/zjdrwyhFig920PrIb1cZE9PVsMsfhwiZIOhADKGYdgpi9sVAWJDE
-         GqMBpW+9OPnammfQGztBjb9b+yk8EdFUV4XaWeQQ6JtbCbU1tfGMxw9/r684JHxcA783
-         sz8H24xVA+JSsJtVw1Vp4XFSMHXWgnPDJhhBVAU1rCUnN8Z3SoNfyGR3TjWINib/7B/U
-         6qcCX3aEGqwQuu3M0TVyQ4k6z41kiQpi5vRLSWRyloRh1Y2Nh6mPmp0kUEne97vl4lSg
-         79k38d/CyWForv6RAS6kmdx1B+p7k8l8ARr4zGB9nwU91FVtKjxLkYUoCFuBU0JMQAqM
-         o2Lg==
+        b=t/mhWopgeBvwe5jyZ0E/4TyPU2G2foCxLlA0vzzIFius+oBG5VGfV2lJBTq6NUDGKO
+         CgGjqLHINl8HVOZnBXtsO9+AX7UkYVHf/SzXMj8e57Sp32dKRHDpZ1CRMdYsPk2oOxnj
+         y5hXPWR1mFjEdpPDvMgX2wbgTrrMuRYwWBabj358zdNEXSNwi4g7kLO+DD1lVFb+8kte
+         zPswcHlqyNVyBkLDfFnPBhHUir8u2/q1szrZdtTQSsimhRQZWrl3sNCM76kO72rugerE
+         fMeT8s3kgfhx+u3Vt6WyNsAIZyIKsfARgBBVODIsJNnMJzuUj5mUaeEBgusMLB0U309t
+         G9hg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:mime-version:dkim-signature;
-        bh=47PwBU7Si38u9g4GpvRSEsTLwF0d2GttfsqnZiH/7Zc=;
-        b=A7vA4DVlnrz57ejelJJp4vdVnPFICX+s+vzSMlTqtokpbv1L48QKtblcfrfRBgTkoJ
-         P3KH9OVi+eP2yXhjK8XB/ehnlZgGo1C4IZleGROBR5zJHFRgwb41p1waSkLophGL8DSY
-         cves1wZn1u/esIXXKEo75bBroAHkM4y9XHO514YKs0AQLOOqh0OcTzJ3KdMbydW3PDrk
-         XhhpTn9T59MyYvB4Y2IQT3xJ030NP/xZ5prxXbIPv0YzN6A99c620VafMsrt9MMVq0b0
-         2KcC6QPujjoNmczGSi65d7g+dN14XvIvZns1qL6YFDqllojbPeq2WQOdAd7mp7EcilvY
-         h6Fg==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=4V4doVcOXMOdZS7dcfg6Achv2AXIpb2xL2/hFoZxHdA=;
+        b=tnMH8zPYpY7PmFa6YKN0yKZ8VyennwzC24Tw6sBSV6zYnYeGTwGaNssYOx7dJOWdiq
+         dKZYw3wfHBS/o+/rPkrJHD6ilnTYauIa9qEMkVcsELgEIc5Vyihk1Wzv0vt0nh05wmJn
+         ZaCNLT0lCp0Yn1Uo+Z9bd00wZVaWbbVQjGdGbOmE9paXH0uhw8UEaBH++aJx0cjHwOf6
+         9jOO4ZryI7VlG2BxgJcQ4jsI2mxCFxLY5+K99CkQRK6zGTsDbocy9EoGgDw+akoXCJvz
+         N5gAzKKB+keLAguEFyydjqwxnucZFlpAE/sp09bXUGsO51HCBqP0T/J4uobMzhTjFymB
+         qGoQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=GxKHwKF9;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::92b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@fomichev-me.20150623.gappssmtp.com header.s=20150623 header.b=zU6Zi2qO;
+       spf=neutral (google.com: 2607:f8b0:4864:20::1044 is neither permitted nor denied by best guess record for domain of sdf@fomichev.me) smtp.mailfrom=sdf@fomichev.me
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=47PwBU7Si38u9g4GpvRSEsTLwF0d2GttfsqnZiH/7Zc=;
-        b=jO3q1RcS4ObLsift8UMLU5U8MDFgnNmXO5Gc38Al3uhvhdSdb9O+cYuCQT7Jsf+fUC
-         +ooRFVJke0JDHtMYNhCJanKUWkg+YfoEu7iSe2nBKHPJwpiwUi7qtp3bEnkzoeEba8CQ
-         Qij+w0cnfo3BJrUBtFYH7Dfv/bAJG7C20uN8xXPfmjEO+FrZlsfNsVCzvYr58ahAiiwd
-         kd1iVwbrP7JNx/fKXTHi1DQ5ndCt+tNkdv8wucrgjq83KNOGDC6KnzVTjuhO9wrCZyTy
-         n5n9JmMcRaZLdjoN4CNIZFvLzKoFi3Ztdf+WZeVQnddKyTOZx8bnSD55S3GTNjKzCbnh
-         V6ag==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=4V4doVcOXMOdZS7dcfg6Achv2AXIpb2xL2/hFoZxHdA=;
+        b=XczoFxmnRjP/G5wqTGYeRG4FCueC4C4urvASf5j0XemcW9kjNelOb3Wu43WHmTYS2y
+         eteGmiWvWxyWY4cSCYySbhyef9WxWvgiWLnUyh5+HO9Lv9R8cMjIoMiFJ4dpI8wqq0Ue
+         P3rADeyd/PpyRwiFYWFHU7SQdleQ9DOG3PFJb4eiGtpN+vjiwnPjsoXm+90BkeOl3CSx
+         JmcUJCPRx4x0IRv7fuETx58ToIFMBwEfcDydFCnMy/P4++UHG2ZMOyAa0lhbes+tE+Uf
+         OOPHp/a2d7AinC/AgqJGoYdqmzcbadwarFQyj87A1zxkQycjBP8vZV2Bxls0E4SuNtR6
+         q9Ng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=47PwBU7Si38u9g4GpvRSEsTLwF0d2GttfsqnZiH/7Zc=;
-        b=nSTWWJblElP4hhNKuRN8emfSOp7DKBEpJGS1+dhQM8kmxacD2e2fCTvx+azDy8C2c/
-         D0VwjYiEqs3tB1BXkUOh6/Q4VXCPmBdOcjwIil80KDLnEJtur9GaVJm0ZNYBWH9F1dmw
-         yGT6pITPh5nvqWvMQFIgpQB6LXxKnESRoWXTStPopFeqDnZAOFZnv7xhs2je7xhq1QeD
-         HIHeunI7ntbAf6yk2KVzzLPTuTjgPwnvl/DQ1E6Z5xmq5s2pFZKJ8KhhXSORDJ0vK5uv
-         BvdkYLFyw5xv7cCFZLnOHIQi4L9sEcAnQPRPE/ufPMnnSsWqUGCtFGULMioP/XwpCrdh
-         6uqA==
-X-Gm-Message-State: ANhLgQ1DP2lJCP9rtgIVDsmTjGp70LxYr4ypN7jzY6c3dcGeSwtw8Nkj
-	wQE63IG+YkTDBWmbEsQjbwU=
-X-Google-Smtp-Source: ADFU+vvlx0d2Ez2LAR+X0/NaUK5zSC/Y4z2lFNnJCUHuem02iom9qQs5bPoyVPCkTfbbrPguhwA/ZQ==
-X-Received: by 2002:a9d:53c4:: with SMTP id i4mr1536472oth.48.1584401610926;
-        Mon, 16 Mar 2020 16:33:30 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=4V4doVcOXMOdZS7dcfg6Achv2AXIpb2xL2/hFoZxHdA=;
+        b=tslVVHv9PbxBBkwkCkJQI3jRZjQ56oFTLMdbfKK4pTFiFZU2W4FwgIhVDHU3F1m0di
+         U4VsDr2wGGy7Dog3jDOKR119Frk/PU9RQ2wXCHijpCxffkvHkmkv+9lKNP83CK/y1j3R
+         uAUOzpkWcIhkdzQWdJ1ZBBVMiD0mtbkBW8cYrOm8iQ9dmP0uNp6kypg/DbfEDuajIBQt
+         g73dQVVD325z4Zc5/YUl0TyQsmdk0htdAx+bZH4kTy1H59SpqJkFW4sy30YcEaiIGQBx
+         5raPmfwkA/mhvMBNx/SgMaox/I1rn0ABdzjlY3baU5epmBx3ihtHg9Yk9+y5iwgaL+hm
+         fVnw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: ANhLgQ1rGiIaH2vhP/rsZtdFWbCdKm7v4msspOvEIvtpXOdiLQ1CxxR6
+	w2gX6c5Z5VOBhDRuyfl955s=
+X-Google-Smtp-Source: ADFU+vuzSNrtCU1vrrxoJK9P61Vb7idl0r+jsfUpOjc8CQb2xjgkDizIOkzT6MjABB+n4+gckjeVeA==
+X-Received: by 2002:a92:d808:: with SMTP id y8mr2269202ilm.157.1584402992152;
+        Mon, 16 Mar 2020 16:56:32 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:5606:: with SMTP id k6ls1606413oib.1.gmail; Mon, 16 Mar
- 2020 16:33:30 -0700 (PDT)
-X-Received: by 2002:aca:bc86:: with SMTP id m128mr1497240oif.11.1584401610619;
-        Mon, 16 Mar 2020 16:33:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584401610; cv=none;
+Received: by 2002:a5d:9057:: with SMTP id v23ls3179255ioq.5.gmail; Mon, 16 Mar
+ 2020 16:56:31 -0700 (PDT)
+X-Received: by 2002:a5d:9489:: with SMTP id v9mr1486957ioj.170.1584402991682;
+        Mon, 16 Mar 2020 16:56:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584402991; cv=none;
         d=google.com; s=arc-20160816;
-        b=ZmTwrp7eBUe6w/woNbF6tUNzwgr2A6hyVD8buNjMZNTIxT/8L1+x7uSDwpiegijW2c
-         ByheZV3lF7msHF81KWdUbvXMT3pAn/AIeJWsZLBFF2HbA7gLrKKa1D3ni4XbddKbmwdL
-         tYMF4U4c3BaUHBrO5iOk2uQG/YC2rD5+XODV2k243ik9iqUqZkp12rMIKfnOendGRivP
-         eCYECNYsQgyofHjCXVCda4Qb9XPvfCEuQ9KncKkCnQKdXFakXR+bHKTmLjKBS5iDdhTy
-         cq2k18CUVQqmzUC14NWx7YcPgkkflWorXCkkthiLNrzWqVJad9nIp5Mj+rs/ay7f4wAp
-         jrtA==
+        b=YUnl5m3LeNU78gPr2/vf/T0/7O0Ge7kZcDQuSUBxKopyusATjhte6y6DzpTw2ac8Sb
+         HktrST0wYVh+B3bBKozzBWgPIiGv5Op/shUH7b/uwujFunSBJI0PiGB3Gyv4wl1YCUg2
+         afbWYNs8Ejg502ImUGbk/OfglhTwrln+DZxGPYVqUMpwlGTkn8boSrC/1iUAXt/cb5Wx
+         0ABOk1sMw9/YBRfwuTVF2ufPbyjyMFc8OC6gvaFyVObmiswapMpUBYGr3eeqJFlT3w5s
+         Ip4B+Li068FJKf0Kg/SmJqsIZ0dyzW5LZpCk0TV0TscWFlHRYh0cXLZm9PjcvmTKa6u0
+         yfhw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=ka+o6EiNaC9Q528uA0ORRud07w8rLAjCcbVJYtbM7AQ=;
-        b=UNsobopHI6h2s1Yix7DRZOHCY7aOJwxta/SXw1aAJhvE+shKZD+Z/ISAp9Btlt4t4N
-         EswooSyOA181Uh2aK5ry6I2n3uqjnOS1Ut8ZsovDs6ZU2cNzmABwILzWJBne/sEQN2Cw
-         WqJ8heXzKV3bShaxSVdbt5dIkRj6JI6CSzoOz3PTy7U3DUbF1QhErjTcpOao2NrdZm3h
-         V837XLYVph9zHNamFb64UtuvWCXz9QkOhS90jLQNElCzD+/Opj4gWnHiUDf5dgtd9i0+
-         +5GmvJyE0ODyhqdEvtYMR07UQ2QMks7zmp9fpDfUKVzhauSpwTxQj1gdkjfrjg/H6SK+
-         0r2A==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=dUkKsT4toOjs0vDW/Hl0lgm5Vma1SEYh7qBMpks+JuA=;
+        b=CvYE9OforwskDXZq9/2JEFIzm5oDU/0QJ48Q5nTbI5jhj/RBL6ICKRibg1Mm+XzDyq
+         l3aKMaaQFl9nZRV4GLyTFB5SEAh8f1ZgC08CfGPRrAUu3OKb87wFXqvYs88QgPhDHuFb
+         nDU0WyuH+jujK2YOsp+r6ut7s57Ls8g8HTIm0InZxj9XHnHgcFGbwkut3XMp4NfQqiwd
+         lqZ+crNbRQnWd7X+T5jmZjIzNYw2nFt5wQngt/AcjubDSvX3bb8KvxASQ4kEb/Ws5fhg
+         eVG1T1mbPh6JEdwFlyQPy9MoZzFSWKg/VyZQ4jmLGoK75x9uDf0+PHXAF8bCSJysp8tE
+         3QFA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=GxKHwKF9;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::92b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-ua1-x92b.google.com (mail-ua1-x92b.google.com. [2607:f8b0:4864:20::92b])
-        by gmr-mx.google.com with ESMTPS id m132si137529oig.3.2020.03.16.16.33.30
+       dkim=pass header.i=@fomichev-me.20150623.gappssmtp.com header.s=20150623 header.b=zU6Zi2qO;
+       spf=neutral (google.com: 2607:f8b0:4864:20::1044 is neither permitted nor denied by best guess record for domain of sdf@fomichev.me) smtp.mailfrom=sdf@fomichev.me
+Received: from mail-pj1-x1044.google.com (mail-pj1-x1044.google.com. [2607:f8b0:4864:20::1044])
+        by gmr-mx.google.com with ESMTPS id t13si118036ilk.5.2020.03.16.16.56.31
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Mar 2020 16:33:30 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::92b as permitted sender) client-ip=2607:f8b0:4864:20::92b;
-Received: by mail-ua1-x92b.google.com with SMTP id v16so6211800ual.9
-        for <clang-built-linux@googlegroups.com>; Mon, 16 Mar 2020 16:33:30 -0700 (PDT)
-X-Received: by 2002:ab0:4501:: with SMTP id r1mr1885094uar.64.1584401609978;
- Mon, 16 Mar 2020 16:33:29 -0700 (PDT)
+        Mon, 16 Mar 2020 16:56:31 -0700 (PDT)
+Received-SPF: neutral (google.com: 2607:f8b0:4864:20::1044 is neither permitted nor denied by best guess record for domain of sdf@fomichev.me) client-ip=2607:f8b0:4864:20::1044;
+Received: by mail-pj1-x1044.google.com with SMTP id q16so1836504pje.1
+        for <clang-built-linux@googlegroups.com>; Mon, 16 Mar 2020 16:56:31 -0700 (PDT)
+X-Received: by 2002:a17:90b:300c:: with SMTP id hg12mr1962040pjb.96.1584402990779;
+        Mon, 16 Mar 2020 16:56:30 -0700 (PDT)
+Received: from localhost ([2601:646:8f00:18d9:d0fa:7a4b:764f:de48])
+        by smtp.gmail.com with ESMTPSA id c15sm545529pgk.66.2020.03.16.16.56.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Mar 2020 16:56:30 -0700 (PDT)
+Date: Mon, 16 Mar 2020 16:56:29 -0700
+From: Stanislav Fomichev <sdf@fomichev.me>
+To: Fangrui Song <maskray@google.com>
+Cc: Stanislav Fomichev <sdf@google.com>, netdev@vger.kernel.org,
+	bpf@vger.kernel.org, davem@davemloft.net, ast@kernel.org,
+	daniel@iogearbox.net, Nick Desaulniers <ndesaulniers@google.com>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH bpf] bpf: Support llvm-objcopy for vmlinux BTF
+Message-ID: <20200316235629.GC2179110@mini-arch.hsd1.ca.comcast.net>
+References: <20200316222518.191601-1-sdf@google.com>
+ <20200316231516.kakoiumx4afph34t@google.com>
 MIME-Version: 1.0
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 16 Mar 2020 16:33:17 -0700
-Message-ID: <CAKwvOdmYqncnK7SBEi7P0ZSNTMi97XhkiOkqmHoCrWUeG-7GQA@mail.gmail.com>
-Subject: help reviewing 32b ARM VFP assembly
-To: Kristof Beyls <Kristof.Beyls@arm.com>, Peter Smith <Peter.Smith@arm.com>, 
-	Arnd Bergmann <arnd@arndb.de>, oliver.stannard@linaro.org
-Cc: clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <20200316231516.kakoiumx4afph34t@google.com>
+User-Agent: Mutt/1.12.2 (2019-09-21)
+X-Original-Sender: sdf@fomichev.me
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=GxKHwKF9;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::92b
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@fomichev-me.20150623.gappssmtp.com header.s=20150623
+ header.b=zU6Zi2qO;       spf=neutral (google.com: 2607:f8b0:4864:20::1044 is
+ neither permitted nor denied by best guess record for domain of
+ sdf@fomichev.me) smtp.mailfrom=sdf@fomichev.me
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -125,17 +137,102 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hello folks,
-Stefan sent 3 patches to support Clang's integrated assembler for VFP
-on 32b ARM.  Would you be able to help review, or help find someone to
-help review these?
+On 03/16, Fangrui Song wrote:
+> On 2020-03-16, Stanislav Fomichev wrote:
+> > Commit da5fb18225b4 ("bpf: Support pre-2.25-binutils objcopy for vmlinux
+> > BTF") switched from --dump-section to
+> > --only-section/--change-section-address for BTF export assuming
+> > those ("legacy") options should cover all objcopy versions.
+> > 
+> > Turns out llvm-objcopy doesn't implement --change-section-address [1],
+> > but it does support --dump-section. Let's partially roll back and
+> > try to use --dump-section first and fall back to
+> > --only-section/--change-section-address for the older binutils.
+> > 
+> > 1. https://bugs.llvm.org/show_bug.cgi?id=45217
+> > 
+> > Fixes: df786c9b9476 ("bpf: Force .BTF section start to zero when dumping from vmlinux")
+> > Tested-by: Nick Desaulniers <ndesaulniers@google.com>
+> > Reported-by: Nathan Chancellor <natechancellor@gmail.com>
+> > Link: https://github.com/ClangBuiltLinux/linux/issues/871
+> > Signed-off-by: Stanislav Fomichev <sdf@google.com>
+> > ---
+> > scripts/link-vmlinux.sh | 10 ++++++++++
+> > 1 file changed, 10 insertions(+)
+> > 
+> > diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
+> > index dd484e92752e..8ddf57cbc439 100755
+> > --- a/scripts/link-vmlinux.sh
+> > +++ b/scripts/link-vmlinux.sh
+> > @@ -127,6 +127,16 @@ gen_btf()
+> > 		cut -d, -f1 | cut -d' ' -f2)
+> > 	bin_format=$(LANG=C ${OBJDUMP} -f ${1} | grep 'file format' | \
+> > 		awk '{print $4}')
+> > +
+> > +	# Compatibility issues:
+> > +	# - pre-2.25 binutils objcopy doesn't support --dump-section
+> > +	# - llvm-objcopy doesn't support --change-section-address, but
+> > +	#   does support --dump-section
+> > +	#
+> > +	# Try to use --dump-section which should cover both recent
+> > +	# binutils and llvm-objcopy and fall back to --only-section
+> > +	# for pre-2.25 binutils.
+> > +	${OBJCOPY} --dump-section .BTF=$bin_file ${1} 2>/dev/null || \
+> > 	${OBJCOPY} --change-section-address .BTF=0 \
+> > 		--set-section-flags .BTF=alloc -O binary \
+> > 		--only-section=.BTF ${1} .btf.vmlinux.bin
+> > -- 
+> > 2.25.1.481.gfbce0eb801-goog
+> 
+> So let me take advantage of this email to ask some questions about
+> commit da5fb18225b4 ("bpf: Support pre-2.25-binutils objcopy for vmlinux BTF").
+> 
+> Does .BTF have the SHF_ALLOC flag?
+No, that's why we manually do '--set-section-flags .BTF=alloc' to
+make --only-section work.
 
-https://lore.kernel.org/linux-arm-kernel/cover.1583360296.git.stefan@agner.ch/
--- 
-Thanks,
-~Nick Desaulniers
+> Is it a GNU objcopy<2.25 bug that objcopy --set-section-flags .BTF=alloc -O binary --only-section=.BTF does not skip the content?
+> Non-SHF_ALLOC sections usually have 0 sh_addr. Why do they need --change-section-address .BTF=0 at all?
+I think that '--set-section-flags .BTF=alloc' causes objcopy to put
+some non-zero (valid) sh_addr, that's why we need to reset it to 0.
+
+(it's not clear if it's a feature or a bug and man isn't helpful)
+
+> Regarding
+> 
+> > Turns out llvm-objcopy doesn't implement --change-section-address [1],
+> 
+> This option will be difficult to implement in llvm-objcopy if we intend
+> it to have a GNU objcopy compatible behavior.
+> Without --only-section, it is not very clear how
+> --change-section-{address,vma,lma} will affect program headers.
+> There will be a debate even if we decide to implement them in llvm-objcopy.
+> 
+> Some PT_LOAD rewriting examples:
+> 
+>   objcopy --change-section-address .plt=0 a b
+>   objcopy --change-section-address .text=0 a b
+> 
+> There is another bug related to -B
+> (https://github.com/ClangBuiltLinux/linux/issues/871#issuecomment-599790909):
+> 
+> + objcopy --change-section-address .BTF=0 --set-section-flags .BTF=alloc
+> -O binary --only-section=.BTF .tmp_vmlinux.btf .btf.vmlinux.bin
+> + objcopy -I binary -O elf64-x86-64 -B x86_64 --rename-section .data=.BTF .btf.vmlinux.bin .btf.vmlinux.bin.o
+> objcopy: architecture x86_64 unknown
+> + echo 'Failed to generate BTF for vmlinux'
+> 
+> It should be i386:x86_64.
+Here is what I get:
+
++ bin_arch=i386:x86-64
++ bin_format=elf64-x86-64
++ objcopy --change-section-address .BTF=0 --set-section-flags .BTF=alloc -O binary --only-section=.BTF .tmp_vmlinux.btf .btf.vmlinux.bin
++ objcopy -I binary -O elf64-x86-64 -B i386:x86-64 --rename-section .data=.BTF .btf.vmlinux.bin .btf.vmlinux.bin.
+
+Can you try to see where your x86_64 is coming from?
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmYqncnK7SBEi7P0ZSNTMi97XhkiOkqmHoCrWUeG-7GQA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200316235629.GC2179110%40mini-arch.hsd1.ca.comcast.net.
