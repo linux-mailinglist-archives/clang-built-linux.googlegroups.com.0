@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDTKPJW47IKRBQM7X3ZQKGQEPPUDQAA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTKPJW47IKRBRU7X3ZQKGQECIRQTQY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23e.google.com (mail-oi1-x23e.google.com [IPv6:2607:f8b0:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 13A86186D4A
-	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Mar 2020 15:40:03 +0100 (CET)
-Received: by mail-oi1-x23e.google.com with SMTP id e203sf10982235oif.5
-        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Mar 2020 07:40:03 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584369602; cv=pass;
+Received: from mail-io1-xd3a.google.com (mail-io1-xd3a.google.com [IPv6:2607:f8b0:4864:20::d3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1C0DC186D4D
+	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Mar 2020 15:40:08 +0100 (CET)
+Received: by mail-io1-xd3a.google.com with SMTP id k5sf11720157ioa.22
+        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Mar 2020 07:40:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584369606; cv=pass;
         d=google.com; s=arc-20160816;
-        b=lbE+7S4ODV8Fy53TJ1x4DhtvgHXX1cpd1tpU/irKmv91RT2NfgeayQmW0FLvQb/yAV
-         iSl16Z3rszp2M9tXXrF+v3nccHG/2wNr20puLp64khaJk3SC+ZSzAlDSjMbcsp09rJOE
-         cNvN+qI/tKjx/yJJ3Dgc6hpa2jzEq0z8uGPdMyuDsHxHRKcC6yY3RlMOD8XGcUKzLSXK
-         nhjKp5tSBQ0HdOWMjyoVZdSH/dOUGLasCMzD93GAwx1OZfyeidP0Sb0w58R9z2pJXNxM
-         i0HATMf6J5GYIfCyMznxcHWHbkxA61/2cMFG6U3e5v/2W1G8aS09C8bSTjSpILHcSbIP
-         XYdQ==
+        b=KrguDCIVE6NsCrXF8DCT1xFnYvm/b6os2hgydqFKFNWf/t3zaUYCEnUDTKjugWRw6u
+         LZHiSqZkd7X9w5UYkS6u3ScMZeMQkOSa0XwklMPR4HNcwHIVtpBiwxxxe6JbISOIx1RX
+         mdanvRkRBa5hfCLDbacKiXVtNrtQmld8UBuzcec5C7Jzww45XALXpxx7aaHbjgziYWgY
+         3/iCTQ3j8UHqmx4gvtMTGgfUzvdqW7/WsTPmshvxd94sLsYkln3Y6l7lgLoc0QCcgvp7
+         asZt8Cb2/TdZ6I8jRRi4eyeWQVVDkLyimUwrNZewb6fnQwfTMm5KmXr5Xh0oRgsnF4fV
+         IfxA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature;
-        bh=eu/J9G9KBXU6fChUiloJpr/1xbuy6LEOYcYUtWCzVm0=;
-        b=iHJqZf65Ahs4uJLGdcPD2sUtbu/1gBS0tEuYvQjJZv6Neyksx5hhfAov7UnqsivXiG
-         5qw+/mGrAnVfbg+0AFpZvj0Jz6dvmrEDci7w0Mnk/6aZBeoML8G1wSdE+cDbZyC+fRTR
-         0cvCJL3mRT3RfXvwjztbzq9Hmcl4GRCWkakYoxtZ0uh7porb4g05PYCvBcGZST0ksFC9
-         TQDoHpwumkAJNTVQdGxecaU62KjRdlspHQExk02h7hL+sIr0nKTWwzx0Yj8E3zLNpDv2
-         qN1Kb1A4Yldt+bcIgvZEVvYJ4yNbnnfzIASx+cFs/ytN/3JCXA+rF1eYUMzg9/Npewd0
-         b6FA==
+        bh=TXA6l/7k/MFfmOQ5Rg8t7PtGJOnaQeYcbqWoSqoQtjA=;
+        b=LRJIa/SUYbAzVFboSzoMSmFoCni+MJAt9w2mmIHQCmsXLy8SX6LbZYhQSiQ6Hyg5el
+         Rsb6HGXKVKhgQIkBlYV7NLunbjOEjH3eG+QlX2AsR/JhoB70OOsc+W/tXMPW1BLM/sWB
+         H9WsUhe1uUhNAI626fT0BCiC8QgIL5XLFamv4/Yjezx75dFYbyXx3dV/DcfHbipMxtCV
+         xOw4Jy93R9LXLzosUwXFLdWe8rGm3NjKcqc3z4iS8Ig+APTIXce1Z2nHbKfCq8AaT5sm
+         e+xSqikdJMkQ/pJ4EYqIJ0VFNF8fCvx37YRAKEQntPUZN/Md9T9ThrsYKiZzPKRIv9wr
+         ZWYg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@arista.com header.s=googlenew header.b=HUf43cOY;
-       spf=pass (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=dima@arista.com;
+       dkim=pass header.i=@arista.com header.s=googlenew header.b=Cc7unAu9;
+       spf=pass (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=dima@arista.com;
        dmarc=pass (p=QUARANTINE sp=REJECT dis=NONE) header.from=arista.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :reply-to:precedence:mailing-list:list-id:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=eu/J9G9KBXU6fChUiloJpr/1xbuy6LEOYcYUtWCzVm0=;
-        b=bm2fP9LMkS8zNPLK5ltfAl658nDzxv+zlR3Y8JUJCDmCzvdWkOrwhYFUlXqlWtenHx
-         vycrCkgIA+K3SVPomHbMQjubaIF2vG+e/uHr7lf+EQ+UgoD2VD93Wc2ZIEYTflQEnqnG
-         GroUAdXMYJyO/iKhZHcULnY2tjnuioSKPafUHIppgERms8pyC83ahRyeK/l87baCS+vD
-         f84YYaNJ0t+1PvJrFYj9VGB2uG4yZhnhyLnebOXhAcw0fuW79qyPqCpPszu+H+xf9Jd5
-         JYxUrfbMTdt7fzXvQxE8Zu1dRAORnX4ksEPe2+eZbiZqpERWo9OhRdr0CLHSoFp4Zg90
-         zZ2A==
+        bh=TXA6l/7k/MFfmOQ5Rg8t7PtGJOnaQeYcbqWoSqoQtjA=;
+        b=fTBUPv4SfwiD1QsmS/QuvhT738wI8qUrsR76HIxlWfhP9mallV/dY9soh1bS+zUKBJ
+         ppMM1Xcpq3XYolrEWaF4x60VaViRH6D8DVs1P5aqDcuJ6hED1bwpQb6s+H0tSZXLD3Qd
+         cLb36RGWbmravryZiJ5yFIXUB+5/p9i0TU1FPSQMVPBkC01FgtGh8qtDIC019MFn20og
+         uZYU5eWd3Ahehe9iqtmIBA6WS1xSW9lT+C0Md2m6+CegTzWuwsLupAcQq+WVjltg7WCy
+         dlzgytyrx07JCwawcQ+5aNRs+NWP1xcsvGJ9+n2QeoBdEXhm/L3rCl4ZkRAyHtCCnMq7
+         KS0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
@@ -49,59 +49,59 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=eu/J9G9KBXU6fChUiloJpr/1xbuy6LEOYcYUtWCzVm0=;
-        b=Fzm4naWTLv3FUNrdjuVYz3zn5QRtbPuAJW6DrcO8zLM06OYosQp2PxoTFgYFLUJGHY
-         Ee1mM7sdZuYpvMoKZLcDRRv3iQD5lh2Awm5fsM1GVgWP2dbFTaKP5E1ZD/wfUMCIKBp7
-         iKbFatIc1JecBHVaTsHgM7rpCZ4pebCIkk8AU30XSQ+7812DlTgvAWKk4f8h/U+7gLOz
-         RCu8JhNQgYzWrLq+Wkwj7pdJZanAirKHQzjD1JcfrPN2KB6rKBd7kWdTiqYl+MUAyBtz
-         o3d4IVXw5QeIx2Np7doWMpHI6YlunFVTTsAqRAk/z4IPQI2eAVyOV2wwWBD7svsie8b3
-         yj2Q==
-X-Gm-Message-State: ANhLgQ38gdElRH7SnC0yJ826vB3hyVZrSHU+abnnnq0l3OPRvQMxYcS/
-	v/xF7w7uEN9r0dxP2Pfcd1I=
-X-Google-Smtp-Source: ADFU+vuUO4G3yxgjbIO9GtGqGWzEyijzpELgEIVJqfsjhcgvYZ+6r2As+fzRl7ENwwKreQzHDjvwOw==
-X-Received: by 2002:aca:230c:: with SMTP id e12mr6733157oie.127.1584369601835;
-        Mon, 16 Mar 2020 07:40:01 -0700 (PDT)
+        bh=TXA6l/7k/MFfmOQ5Rg8t7PtGJOnaQeYcbqWoSqoQtjA=;
+        b=JoULoPJhKcbvo0eT3iXFO3SB+n8XJfQrZjOGhDH0wtBs1n08E18gySODfEymhjQigU
+         WDK8rhfBbTpoH6/DGuLHhyISmJOAfFtQ/96tCipoO3HEvio3ccn2vu2BpbBOwPqyKAXD
+         NZrfzIqG0MVmnMaHTUr0zwWzqd9ozBw66OJnAcIpq7750aNgPZuudmbPRjwZoh7DbIBs
+         WUTpGrNeSYQYGMN6HdkNE28f5SFQ0r2q5lS/iK5+BYSZZtRm2u1XXXe7M+RGL4gUh1IM
+         75yKb0IHmt6JfxWs6JnkXuA5SD+vPZThd2gizzd18ycNtRt0W2IPy6EXdQgEEh2siH0x
+         5xZA==
+X-Gm-Message-State: ANhLgQ1JUgK9xuKkGan9mm2AmrFhf3SE++itEBbvf4eyZnrQMaylr7fz
+	x3XMKE1lh2EwX17NGWEfFr0=
+X-Google-Smtp-Source: ADFU+vuQixW6QzR+XrUHjzmPPLWvzXk5YY8HQgDRjsFc3XpzlUX2Ytmg9HrHbmfWMh+/NcC1oWITkg==
+X-Received: by 2002:a92:c509:: with SMTP id r9mr52581ilg.273.1584369606521;
+        Mon, 16 Mar 2020 07:40:06 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:6a5a:: with SMTP id h26ls6223435otn.1.gmail; Mon, 16 Mar
- 2020 07:40:01 -0700 (PDT)
-X-Received: by 2002:a9d:74cf:: with SMTP id a15mr18832996otl.258.1584369601348;
-        Mon, 16 Mar 2020 07:40:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584369601; cv=none;
+Received: by 2002:a92:3a9a:: with SMTP id i26ls3940429ilf.3.gmail; Mon, 16 Mar
+ 2020 07:40:06 -0700 (PDT)
+X-Received: by 2002:a92:7b10:: with SMTP id w16mr76113ilc.93.1584369606091;
+        Mon, 16 Mar 2020 07:40:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584369606; cv=none;
         d=google.com; s=arc-20160816;
-        b=ondf4s3oAaynkgIdiKRnn/qEgSMINtP4XGoqZJpPwTW8ZiYCqKtUeOhT/IsC1x5L8R
-         PcwzyXV6CLAJu30jP4xXqRABSxzdf/cEbfh6Le64ftUU0F7bgdsnnrxuuJzyZSOIanAn
-         diT2mmNpy6IL5rsKYSO/5eoPYJTq3pBLE28hxcqo0LZgjO3T8lX3IPsOVAEpJINpzAUC
-         b8Ct/2v7O2GG6kodToPh8IBGfQ8m2dcyNnz7prLqg/eRR8azlvMotYj1C0slfW/HP2Jj
-         9HRmeSfaCsBxT0vc/3r9eIH1/D/BbwKbNIbZi6gnVOeRZlWK5FARp+eOVVm38ebm1x7z
-         QdQg==
+        b=Dnd3+2t+JtXd5TJ60t19FvouSCREvW8WXe3+cycDa6KKINFs+W/rVWtkf8yH8kxf4B
+         Nl5QhH8LTzM6jswCFfdVsd2Av+tMMZEH+DqfdyXvfcIJoQVrpwByS6ZdZTZnENmf5bK9
+         9g7ja6mAgKCNTPeKgiiFoig9izgr7ssVB7Ob9Rwi4nsEVz7Rm2BrFBivTfMT/jUXRHRU
+         y9pFJi3wvGQ2NWDUveXe+ZENbZl41l6OK54t42IfmP31+ZWcPikghDlIxaOoI1IZgKG1
+         mBZbL5ndirDqzSOEfOMgWeezsFCwruxm42WWwdvc//FDmJaAkMFdGM/cCunU9D6SNT1B
+         rVrw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=WRycM3kvderYb9CwKZ+TYqaJ73yGSs7D+hHRot+jXvM=;
-        b=zzKuN7rAY7l1CbiYtBsSARzDLh3KKEznL5ETSXStUB2MSEakET9hS5n45YdnNwtGoQ
-         HNoG6Y0+tgoPCEgnW8RwWqhIEO/7TMOV1etDABet1FKY2Hh8aHQyzAYx2ZDDZTmhwUnU
-         pPEiz+hJPW0l+4/y0MoHxvl8s8EPE3DZ6tpXD9DiMftDMxuaDcP3CNsm3n7+m30Ndk/T
-         vXGYVQl7KyuMzIqwGFklAIq44kI+v5NhSAZyR0o0KsOz6Kwx7H16Uspsr63Y47E4N/+k
-         kqLgGcvL8B3zJGgxJCkQcAcNV83kszXqpaW7Hth9TgWNBMKZbROF2N0SDkxbnLWSNwxY
-         rnCA==
+        bh=Hoy3hKjGTKbXFgtJqdy0XVVKGayseSyt+olpDXinT2U=;
+        b=aThOq3ixPptOHQXeJuEKNfAbj/rY0QXQoMy9IbbdX9h9IZS64Vbo9x/4BeUNuAog8v
+         S9K+BEighGwg2Hu12qPC3Pk0rdNOQLCl3RbITMjUp0To21GnUwtGAWfAFwviLPdwftfW
+         /uD+x+0yTPSZ7SjwEKFxgYLgEaiXtjWoHQ+1Wxoc9OyAnCy48ZuSIlPbGGqaduNTdTet
+         ziZKDg+8GQTEMxXnrEisDI6iGeiQHuOvyhKk7Rn5jZiIkVRGmz5zdhr1Aq6fgAgkwGVi
+         LKw997rPYZBclUwMiyiuc9H1iYoMm9bYZcwBWR7EFBETTuXsS7J2lV0rgQMFdvMx2sTq
+         fpnA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@arista.com header.s=googlenew header.b=HUf43cOY;
-       spf=pass (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=dima@arista.com;
+       dkim=pass header.i=@arista.com header.s=googlenew header.b=Cc7unAu9;
+       spf=pass (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=dima@arista.com;
        dmarc=pass (p=QUARANTINE sp=REJECT dis=NONE) header.from=arista.com
-Received: from mail-pg1-x544.google.com (mail-pg1-x544.google.com. [2607:f8b0:4864:20::544])
-        by gmr-mx.google.com with ESMTPS id d11si13303otk.5.2020.03.16.07.40.01
+Received: from mail-pg1-x542.google.com (mail-pg1-x542.google.com. [2607:f8b0:4864:20::542])
+        by gmr-mx.google.com with ESMTPS id s201si6964ilc.0.2020.03.16.07.40.06
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Mar 2020 07:40:01 -0700 (PDT)
-Received-SPF: pass (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::544 as permitted sender) client-ip=2607:f8b0:4864:20::544;
-Received: by mail-pg1-x544.google.com with SMTP id y30so9852262pga.13
-        for <clang-built-linux@googlegroups.com>; Mon, 16 Mar 2020 07:40:01 -0700 (PDT)
-X-Received: by 2002:a63:1862:: with SMTP id 34mr164092pgy.191.1584369600556;
-        Mon, 16 Mar 2020 07:40:00 -0700 (PDT)
+        Mon, 16 Mar 2020 07:40:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::542 as permitted sender) client-ip=2607:f8b0:4864:20::542;
+Received: by mail-pg1-x542.google.com with SMTP id m15so9861397pgv.12
+        for <clang-built-linux@googlegroups.com>; Mon, 16 Mar 2020 07:40:06 -0700 (PDT)
+X-Received: by 2002:a63:330f:: with SMTP id z15mr215975pgz.104.1584369605413;
+        Mon, 16 Mar 2020 07:40:05 -0700 (PDT)
 Received: from Mindolluin.aristanetworks.com ([2a02:8084:e84:2480:228:f8ff:fe6f:83a8])
-        by smtp.gmail.com with ESMTPSA id i2sm81524pjs.21.2020.03.16.07.39.56
+        by smtp.gmail.com with ESMTPSA id i2sm81524pjs.21.2020.03.16.07.40.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Mar 2020 07:39:59 -0700 (PDT)
+        Mon, 16 Mar 2020 07:40:04 -0700 (PDT)
 From: "'Dmitry Safonov' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: linux-kernel@vger.kernel.org
 Cc: Dmitry Safonov <0x7f454c46@gmail.com>,
@@ -118,17 +118,17 @@ Cc: Dmitry Safonov <0x7f454c46@gmail.com>,
 	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCHv2 04/50] arm/asm: Add loglvl to c_backtrace()
-Date: Mon, 16 Mar 2020 14:38:30 +0000
-Message-Id: <20200316143916.195608-5-dima@arista.com>
+Subject: [PATCHv2 05/50] arm: Add loglvl to unwind_backtrace()
+Date: Mon, 16 Mar 2020 14:38:31 +0000
+Message-Id: <20200316143916.195608-6-dima@arista.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20200316143916.195608-1-dima@arista.com>
 References: <20200316143916.195608-1-dima@arista.com>
 MIME-Version: 1.0
 X-Original-Sender: dima@arista.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@arista.com header.s=googlenew header.b=HUf43cOY;       spf=pass
- (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::544 as
+ header.i=@arista.com header.s=googlenew header.b=Cc7unAu9;       spf=pass
+ (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::542 as
  permitted sender) smtp.mailfrom=dima@arista.com;       dmarc=pass
  (p=QUARANTINE sp=REJECT dis=NONE) header.from=arista.com
 X-Original-From: Dmitry Safonov <dima@arista.com>
@@ -162,8 +162,11 @@ Introducing log-level parameter and KERN_UNSUPPRESSED [1] seems
 an easier approach than introducing more printk buffers.
 Also, it will consolidate printings with headers.
 
-Add log level argument to c_backtrace() as a preparation for introducing
-show_stack_loglvl().
+Add log level argument to unwind_backtrace() as a preparation for
+introducing show_stack_loglvl().
+
+As a good side-effect arm_syscall() is now printing errors with the same
+log level as the backtrace.
 
 Cc: Russell King <linux@armlinux.org.uk>
 Cc: Will Deacon <will@kernel.org>
@@ -172,224 +175,78 @@ Cc: clang-built-linux@googlegroups.com
 [1]: https://lore.kernel.org/lkml/20190528002412.1625-1-dima@arista.com/T/#u
 Signed-off-by: Dmitry Safonov <dima@arista.com>
 ---
- arch/arm/include/asm/bug.h     |  3 ++-
- arch/arm/include/asm/traps.h   |  3 ++-
- arch/arm/kernel/traps.c        |  9 +++++----
- arch/arm/kernel/unwind.c       |  2 +-
- arch/arm/lib/backtrace-clang.S |  9 +++++++--
- arch/arm/lib/backtrace.S       | 14 ++++++++++----
- 6 files changed, 27 insertions(+), 13 deletions(-)
+ arch/arm/include/asm/unwind.h | 3 ++-
+ arch/arm/kernel/traps.c       | 6 +++---
+ arch/arm/kernel/unwind.c      | 5 +++--
+ 3 files changed, 8 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm/include/asm/bug.h b/arch/arm/include/asm/bug.h
-index deef4d0cb3b5..673c7dd75ab9 100644
---- a/arch/arm/include/asm/bug.h
-+++ b/arch/arm/include/asm/bug.h
-@@ -82,7 +82,8 @@ void hook_ifault_code(int nr, int (*fn)(unsigned long, unsigned int,
- 				       struct pt_regs *),
- 		     int sig, int code, const char *name);
+diff --git a/arch/arm/include/asm/unwind.h b/arch/arm/include/asm/unwind.h
+index 6e282c33126b..0f8a3439902d 100644
+--- a/arch/arm/include/asm/unwind.h
++++ b/arch/arm/include/asm/unwind.h
+@@ -36,7 +36,8 @@ extern struct unwind_table *unwind_table_add(unsigned long start,
+ 					     unsigned long text_addr,
+ 					     unsigned long text_size);
+ extern void unwind_table_del(struct unwind_table *tab);
+-extern void unwind_backtrace(struct pt_regs *regs, struct task_struct *tsk);
++extern void unwind_backtrace(struct pt_regs *regs, struct task_struct *tsk,
++			     const char *loglvl);
  
--extern asmlinkage void c_backtrace(unsigned long fp, int pmode);
-+extern asmlinkage void c_backtrace(unsigned long fp, int pmode,
-+				   const char *loglvl);
+ #endif	/* !__ASSEMBLY__ */
  
- struct mm_struct;
- void show_pte(const char *lvl, struct mm_struct *mm, unsigned long addr);
-diff --git a/arch/arm/include/asm/traps.h b/arch/arm/include/asm/traps.h
-index 172b08ff3760..987fefb0a4db 100644
---- a/arch/arm/include/asm/traps.h
-+++ b/arch/arm/include/asm/traps.h
-@@ -29,7 +29,8 @@ static inline int __in_irqentry_text(unsigned long ptr)
- }
- 
- extern void __init early_trap_init(void *);
--extern void dump_backtrace_entry(unsigned long where, unsigned long from, unsigned long frame);
-+extern void dump_backtrace_entry(unsigned long where, unsigned long from,
-+				 unsigned long frame, const char *loglvl);
- extern void ptrace_break(struct pt_regs *regs);
- 
- extern void *vectors_page;
 diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
-index 1e70e7227f0f..2030611f22b8 100644
+index 2030611f22b8..685e17c2e275 100644
 --- a/arch/arm/kernel/traps.c
 +++ b/arch/arm/kernel/traps.c
-@@ -62,7 +62,8 @@ __setup("user_debug=", user_debug_setup);
- 
- static void dump_mem(const char *, const char *, unsigned long, unsigned long);
- 
--void dump_backtrace_entry(unsigned long where, unsigned long from, unsigned long frame)
-+void dump_backtrace_entry(unsigned long where, unsigned long from,
-+			  unsigned long frame, const char *loglvl)
+@@ -204,7 +204,7 @@ static void dump_instr(const char *lvl, struct pt_regs *regs)
+ #ifdef CONFIG_ARM_UNWIND
+ static inline void dump_backtrace(struct pt_regs *regs, struct task_struct *tsk)
  {
- 	unsigned long end = frame + 4 + sizeof(struct pt_regs);
- 
-@@ -76,7 +77,7 @@ void dump_backtrace_entry(unsigned long where, unsigned long from, unsigned long
- 		dump_mem("", "Exception stack", frame + 4, end);
+-	unwind_backtrace(regs, tsk);
++	unwind_backtrace(regs, tsk, KERN_DEFAULT);
  }
- 
--void dump_backtrace_stm(u32 *stack, u32 instruction)
-+void dump_backtrace_stm(u32 *stack, u32 instruction, const char *loglvl)
- {
- 	char str[80], *p;
- 	unsigned int x;
-@@ -238,7 +239,7 @@ static void dump_backtrace(struct pt_regs *regs, struct task_struct *tsk)
- 	pr_cont("\n");
- 
- 	if (ok)
--		c_backtrace(fp, mode);
-+		c_backtrace(fp, mode, NULL);
- }
- #endif
- 
-@@ -666,7 +667,7 @@ asmlinkage int arm_syscall(int no, struct pt_regs *regs)
- 		dump_instr("", regs);
+ #else
+ static void dump_backtrace(struct pt_regs *regs, struct task_struct *tsk)
+@@ -664,10 +664,10 @@ asmlinkage int arm_syscall(int no, struct pt_regs *regs)
+ 	if (user_debug & UDBG_SYSCALL) {
+ 		pr_err("[%d] %s: arm syscall %d\n",
+ 		       task_pid_nr(current), current->comm, no);
+-		dump_instr("", regs);
++		dump_instr(KERN_ERR, regs);
  		if (user_mode(regs)) {
  			__show_regs(regs);
--			c_backtrace(frame_pointer(regs), processor_mode(regs));
-+			c_backtrace(frame_pointer(regs), processor_mode(regs), NULL);
+-			c_backtrace(frame_pointer(regs), processor_mode(regs), NULL);
++			c_backtrace(frame_pointer(regs), processor_mode(regs), KERN_ERR);
  		}
  	}
  #endif
 diff --git a/arch/arm/kernel/unwind.c b/arch/arm/kernel/unwind.c
-index 4574e6aea0a5..0a65005e10f0 100644
+index 0a65005e10f0..9222649ebe0f 100644
 --- a/arch/arm/kernel/unwind.c
 +++ b/arch/arm/kernel/unwind.c
-@@ -493,7 +493,7 @@ void unwind_backtrace(struct pt_regs *regs, struct task_struct *tsk)
+@@ -455,7 +455,8 @@ int unwind_frame(struct stackframe *frame)
+ 	return URC_OK;
+ }
+ 
+-void unwind_backtrace(struct pt_regs *regs, struct task_struct *tsk)
++void unwind_backtrace(struct pt_regs *regs, struct task_struct *tsk,
++		      const char *loglvl)
+ {
+ 	struct stackframe frame;
+ 
+@@ -493,7 +494,7 @@ void unwind_backtrace(struct pt_regs *regs, struct task_struct *tsk)
  		urc = unwind_frame(&frame);
  		if (urc < 0)
  			break;
--		dump_backtrace_entry(where, frame.pc, frame.sp - 4);
-+		dump_backtrace_entry(where, frame.pc, frame.sp - 4, NULL);
+-		dump_backtrace_entry(where, frame.pc, frame.sp - 4, NULL);
++		dump_backtrace_entry(where, frame.pc, frame.sp - 4, loglvl);
  	}
  }
  
-diff --git a/arch/arm/lib/backtrace-clang.S b/arch/arm/lib/backtrace-clang.S
-index 2ff375144b55..6174c45f53a5 100644
---- a/arch/arm/lib/backtrace-clang.S
-+++ b/arch/arm/lib/backtrace-clang.S
-@@ -17,6 +17,7 @@
- #define sv_pc	r6
- #define mask	r7
- #define sv_lr	r8
-+#define loglvl	r9
- 
- ENTRY(c_backtrace)
- 
-@@ -99,6 +100,7 @@ ENDPROC(c_backtrace)
- 						@ to ensure 8 byte alignment
- 		movs	frame, r0		@ if frame pointer is zero
- 		beq	no_frame		@ we have no stack frames
-+		mov	loglvl, r2
- 		tst	r1, #0x10		@ 26 or 32-bit mode?
- 		moveq	mask, #0xfc000003
- 		movne	mask, #0		@ mask for 32-bit
-@@ -167,6 +169,7 @@ finished_setup:
- 		mov	r1, sv_lr
- 		mov	r2, frame
- 		bic	r1, r1, mask		@ mask PC/LR for the mode
-+		mov	r3, loglvl
- 		bl	dump_backtrace_entry
- 
- /*
-@@ -183,6 +186,7 @@ finished_setup:
- 		ldr	r0, [frame]		@ locals are stored in
- 						@ the preceding frame
- 		subeq	r0, r0, #4
-+		mov	r2, loglvl
- 		bleq	dump_backtrace_stm	@ dump saved registers
- 
- /*
-@@ -196,7 +200,8 @@ finished_setup:
- 		bhi	for_each_frame
- 
- 1006:		adr	r0, .Lbad
--		mov	r1, frame
-+		mov	r1, loglvl
-+		mov	r2, frame
- 		bl	printk
- no_frame:	ldmfd	sp!, {r4 - r9, fp, pc}
- ENDPROC(c_backtrace)
-@@ -209,7 +214,7 @@ ENDPROC(c_backtrace)
- 		.long   1005b, 1006b
- 		.popsection
- 
--.Lbad:		.asciz	"Backtrace aborted due to bad frame pointer <%p>\n"
-+.Lbad:		.asciz	"%sBacktrace aborted due to bad frame pointer <%p>\n"
- 		.align
- .Lopcode:	.word	0xe92d4800 >> 11	@ stmfd sp!, {... fp, lr}
- 		.word	0x0b000000		@ bl if these bits are set
-diff --git a/arch/arm/lib/backtrace.S b/arch/arm/lib/backtrace.S
-index 582925238d65..872f658638d9 100644
---- a/arch/arm/lib/backtrace.S
-+++ b/arch/arm/lib/backtrace.S
-@@ -18,6 +18,7 @@
- #define sv_pc	r6
- #define mask	r7
- #define offset	r8
-+#define loglvl	r9
- 
- ENTRY(c_backtrace)
- 
-@@ -25,9 +26,10 @@ ENTRY(c_backtrace)
- 		ret	lr
- ENDPROC(c_backtrace)
- #else
--		stmfd	sp!, {r4 - r8, lr}	@ Save an extra register so we have a location...
-+		stmfd	sp!, {r4 - r9, lr}	@ Save an extra register so we have a location...
- 		movs	frame, r0		@ if frame pointer is zero
- 		beq	no_frame		@ we have no stack frames
-+		mov	loglvl, r2
- 
- 		tst	r1, #0x10		@ 26 or 32-bit mode?
-  ARM(		moveq	mask, #0xfc000003	)
-@@ -73,6 +75,7 @@ for_each_frame:	tst	frame, mask		@ Check for address exceptions
- 		ldr	r1, [frame, #-4]	@ get saved lr
- 		mov	r2, frame
- 		bic	r1, r1, mask		@ mask PC/LR for the mode
-+		mov	r3, loglvl
- 		bl	dump_backtrace_entry
- 
- 		ldr	r1, [sv_pc, #-4]	@ if stmfd sp!, {args} exists,
-@@ -80,12 +83,14 @@ for_each_frame:	tst	frame, mask		@ Check for address exceptions
- 		teq	r3, r1, lsr #11
- 		ldreq	r0, [frame, #-8]	@ get sp
- 		subeq	r0, r0, #4		@ point at the last arg
-+		mov	r2, loglvl
- 		bleq	dump_backtrace_stm	@ dump saved registers
- 
- 1004:		ldr	r1, [sv_pc, #0]		@ if stmfd sp!, {..., fp, ip, lr, pc}
- 		ldr	r3, .Ldsi		@ instruction exists,
- 		teq	r3, r1, lsr #11
- 		subeq	r0, frame, #16
-+		mov	r2, loglvl
- 		bleq	dump_backtrace_stm	@ dump saved registers
- 
- 		teq	sv_fp, #0		@ zero saved fp means
-@@ -96,9 +101,10 @@ for_each_frame:	tst	frame, mask		@ Check for address exceptions
- 		bhi	for_each_frame
- 
- 1006:		adr	r0, .Lbad
--		mov	r1, frame
-+		mov	r1, loglvl
-+		mov	r2, frame
- 		bl	printk
--no_frame:	ldmfd	sp!, {r4 - r8, pc}
-+no_frame:	ldmfd	sp!, {r4 - r9, pc}
- ENDPROC(c_backtrace)
- 		
- 		.pushsection __ex_table,"a"
-@@ -109,7 +115,7 @@ ENDPROC(c_backtrace)
- 		.long	1004b, 1006b
- 		.popsection
- 
--.Lbad:		.asciz	"Backtrace aborted due to bad frame pointer <%p>\n"
-+.Lbad:		.asciz	"%sBacktrace aborted due to bad frame pointer <%p>\n"
- 		.align
- .Ldsi:		.word	0xe92dd800 >> 11	@ stmfd sp!, {... fp, ip, lr, pc}
- 		.word	0xe92d0000 >> 11	@ stmfd sp!, {}
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200316143916.195608-5-dima%40arista.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200316143916.195608-6-dima%40arista.com.
