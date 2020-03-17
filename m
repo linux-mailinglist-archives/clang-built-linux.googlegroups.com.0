@@ -1,30 +1,30 @@
-Return-Path: <clang-built-linux+bncBCOYZDMZ6UMRBUECYPZQKGQELQH76JA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCOYZDMZ6UMRBU4CYPZQKGQEZOA4SQQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33e.google.com (mail-wm1-x33e.google.com [IPv6:2a00:1450:4864:20::33e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 512001883CA
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 13:23:44 +0100 (CET)
-Received: by mail-wm1-x33e.google.com with SMTP id f185sf1869458wmf.8
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 05:23:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584447824; cv=pass;
+Received: from mail-ed1-x540.google.com (mail-ed1-x540.google.com [IPv6:2a00:1450:4864:20::540])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8F8F91883CB
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 13:23:47 +0100 (CET)
+Received: by mail-ed1-x540.google.com with SMTP id x1sf18123311edv.14
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 05:23:47 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584447827; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Ac24P6qSCpZSDbc+DNXcgKHYOx9AarruRZEeyIzyHvp3ViQpr2LyZtZjVK2ioW05ML
-         jDTDP6CgXWDf7SORxC7u5Zamm+js4mOR1WAZ5kwShmlN3fV64cPHuF7ELpI/nhhzGck/
-         HiiLK+UH3ZJ4b3Y0zc7+f0XBfPAkQulr0+rczSR01mP807leRDkUvVIMsOk7FKF3atiD
-         qkqSZwcaUTxo2UBvxw15oneCd1iP0gDMvyziCj1oUXHe6/HPI+GfbpY4u8f0U80wWY7O
-         mlqb4Lw/H0CCMVXZsBi62RH86lA1EahSdenx1no273uyXXayWVvLsNTTcg1c+mesbHCn
-         uaCA==
+        b=ihtDnG23qKLvToJodRrCPY4nfsy7tLNIPKhyL48SGpiZXxSqPRrkrbhoKbtjfhaqe1
+         KBFLfKpzwFNoo9RVZZoOnshOE8Vqxwf3O71A+JYHpfzsGzrq5aJ/8tAfQXwG6gBDnCyR
+         vzhfVBCbuDzJwyKOBcvs4VE6HorTsWbHK0I0HyRkELgFRpFKU1S3TDQsbMG0hDNYyBjx
+         C1SZ/ZphTOmPIG17BGUvhp9P+GUqdEbRhxNC3kUAz4j8qsRkyMz2Q6jMCOWHUpVKVaBZ
+         X+WggtvYdFp68PoiCPSrtkgmpHlGC0HL76pTexSi8t55Y6+206P0KzfTxSN8fdsa9oQ1
+         lXJQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=MoydBVaal+gyDVhywiJA7tXUcMTbkBTMYZ2O19UYwgE=;
-        b=l7WH/ENgT56dhuqH9bmCivwUlUJ/ye2P8sACSMBvAlTZdOfahg9jzgnLsRSV3MaUZ/
-         GxPsHOTYUzKnEwzSHDCwR76bfL19detO5kjuv6h11jyFmneDcaCosOa23bKO6GVwaTM9
-         lO63Ecuv8t2FxLzjnmZoISchdohKB/kp08oXXGkRG8pmWcPs3K9Jw3cCKfVipN09A4pb
-         yYO6JkM1wXfbhNgiZc09XUBH+Sxi5bjn6NCYroX05ORNGCpqIg2e68pSEJLK97AJ/wwi
-         LM5xEMMafaO3fDJuX5E3k1ltiQt8ARPUN+TBlpkRUgaIxGHfSQgPSFb1l9CiJmW0sPDj
-         Z5EQ==
+        bh=UKQBbPHoffPRG0inWsv8gnmkRpF2xK+5478nsPcUAmA=;
+        b=J2UrI8zO0Vv2tYJ88bmT48LstioBxqPgi+XVjeBhQDYhEUs5VAagP9+i1BZ5c/qA9U
+         2sd4fTWVBO8OT97AGJcqPp+vflmECQ9VuYcczSwpY9PzRCKfDBuPe3GvNG73hWLpX679
+         G2LLtFct/mDLsuz/fbuYa+E3xY+QrVrF+3RA8/QG54Ei9uPaK6UXKRsLxRltGiinSlCI
+         iAE0ARGYddgQC/hMMhfS7Vv9bvCVT2uFWdYc4Kp4XsKRtTJ4pR5VjYmbm0kUguC0Pxuz
+         b7flFGs9aK6oZK7NomeXvJGwDAgFmCUGufNU5KLDnK0TXyjNVjIwLD2OYnh3RLOeztt3
+         0Kkg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=vincenzo.frascino@arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -33,13 +33,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=MoydBVaal+gyDVhywiJA7tXUcMTbkBTMYZ2O19UYwgE=;
-        b=Sa/vxm5F2fE8VFTYUlYcBOA62TGJpAv7Xx9n5kYInBDqlKW+JWp2NTJRvnYECaAKTo
-         elHW8IsrkuF9E+gmxE/74AQfizCMUSqwbNAFwINzNM0P1BLfmnAEushT3pv/u9PbjY/P
-         S0FU+rgGB8jRfDJv05ECShwEnuzo6nu+0c1X9xNhNZcrARksk8b1diLmQDRBPvbHUn1h
-         /KqcFliO9yXvspk+U8o7AkFNQvFwd1Eo1d551Q4Mc+hKnMxkOlVVWiYDrE0MKtWqPSvJ
-         cwzEkzHTbyHU/sYqRhJDVxmrXkNMEiAhOIwfXPVRxSFodAq1g4sBcZJUxpLG0RR03jYc
-         dixA==
+        bh=UKQBbPHoffPRG0inWsv8gnmkRpF2xK+5478nsPcUAmA=;
+        b=FPY7NBhRLg5ywWMfOCQK8cDon0Y8eaxnCfgtQGC7c0LgbkKHLes1IFVyXwJ9MpGEiG
+         9+nRtNOzeSfivgba2sLmDvJKr89LYOe01EsqSM1QRiH5VgGJtDK2M9Mqj13aR9eju6bj
+         ds9b83ZyQ8isQi4GT4v5MvvZqCTwE/E8TBsKexdzRamPkXiC5ET0mnrYeawj5TNvAQ1I
+         VBHFIDHxNoOvBaIUR2XbySuiFuJHNqwNjuoHlaEfehoMg34bZfRfnMTwmEAh2809BSlz
+         ckn5HaY0/ZDjfUZxOhYk821Zd6rVrl0xfiFn1vZOzPXZTdLEtP3jbfVMBEVcc0nEpKWc
+         E2+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -47,55 +47,55 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=MoydBVaal+gyDVhywiJA7tXUcMTbkBTMYZ2O19UYwgE=;
-        b=YG/Oi9GVkZbq+QayLN8WqWNebQEGmdn4Gdh94Ssvfhk/QFs2HXL8oSlXfNRVDeIE9O
-         0T+IWQgqX4Ry58zxA/L3g9xKylyNV2vPhHC9RiA43CVdOhYIj61vy0sIqGRbos9cg+Ms
-         OLB+MDRpOQ7zGSsdD0E/HEk8wSVVraHobfPxh+qhP+awJAuii2la8oKHeqKqhY+BYA2N
-         dTafuaQQssgXdakmLtju3lrvhzFcPJtTh4why8Qpc7iBcCvSdRvjqCLLy3TW8mf93PO5
-         J5pMf10eL6u5+bY7OLd93qW+ptJgf93H2PB/Lw6Mv4QQ/1fNUPtePo3MPURBGyBicmg7
-         t7xg==
+        bh=UKQBbPHoffPRG0inWsv8gnmkRpF2xK+5478nsPcUAmA=;
+        b=h+umkfBtZXZyhrnbuNTEKxxAgz8ubt9CvWcNm1ZN8owFoNUKYMLZQAkJqKhhXa8Ri2
+         5GugjiPLsUzbPM5NAasRfVWkzWa+c6MP4gCt2Qyqr40dku39p9T29Vm98xuMjdPNCEmt
+         hPcXVVW0M3unoQe73gjAlnrRPV3LtCabr3M7R+/2s7kE+XeyfTQDDSQQOZ2tgJgwoSLf
+         suvM+XetC+aLNr8nv5fs9JQtZ/K3qZOuErU6Pvv/wmGYcjkKRkQiPZM0pUpocEQhkjO9
+         y10ihn8C1/NC7hozmnxQ8WmNxXY2/cwTk4uCgVXIVBM4s4jKS/3IfTUqt10zSZH87Juo
+         r30A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ0WqjS/0Ub7iBqOoAUPBXeXCxg4Yqez9oa8m70PiRJcEGuiqUHv
-	sgSq9df+lToaKdpgfG91WQY=
-X-Google-Smtp-Source: ADFU+vu3yK2o8nlWi+UD1VO1sgaFRQbJUP6AcZMHIC1arA306HE62WzLUXUebCDsZ+Tqld4Zs1yAXQ==
-X-Received: by 2002:a5d:694e:: with SMTP id r14mr5740721wrw.312.1584447824083;
-        Tue, 17 Mar 2020 05:23:44 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ21E6ybtvxdZsjFINO4kNuQx4jtO6pSCEB6eWBCKdtBgNBZoXjA
+	BYrRqwe+NLuAD8CK8LwJJcs=
+X-Google-Smtp-Source: ADFU+vtA5udXVI5rLD+5MNKX5LJceCS11nWC4Z4bn31f8O4NJPYcJXk0CjPwhsxKlXvbmCNaBwOMzA==
+X-Received: by 2002:a50:fc0f:: with SMTP id i15mr4824537edr.296.1584447827308;
+        Tue, 17 Mar 2020 05:23:47 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:498c:: with SMTP id r12ls11063084wrq.10.gmail; Tue, 17
- Mar 2020 05:23:43 -0700 (PDT)
-X-Received: by 2002:adf:f80d:: with SMTP id s13mr5894230wrp.426.1584447823682;
-        Tue, 17 Mar 2020 05:23:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584447823; cv=none;
+Received: by 2002:a17:906:58a:: with SMTP id 10ls10938491ejn.11.gmail; Tue, 17
+ Mar 2020 05:23:46 -0700 (PDT)
+X-Received: by 2002:a17:906:4b58:: with SMTP id j24mr4003166ejv.2.1584447826769;
+        Tue, 17 Mar 2020 05:23:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584447826; cv=none;
         d=google.com; s=arc-20160816;
-        b=XFi2K9kWbcBt9m2T7W4H7epzXUJ6LpIM4IUdwpk1p9jjsiJjovgG1ztaKgZAahXXfb
-         nrI0hVWlkDnhqXOovDMsFSd69EFpKaQZ4auDqzXV4ZGDjwA8rFLh1nPpv18kXOSWhbfU
-         v4sDdYnviuloswWzeI+rCZ7FNrmuHRC5ocyKV/RleHqbcenOsumIxpO8ef9QsOsfPqLT
-         3fxxwo5PyRT6guLb/huemW+EHBRswkp0VgYhtqPtWJg6bBtMarm+hRMZX1R0dMAwVvNB
-         Behi9ZS/0iPk46yTVngw9eiaFWp/vfhlIRrjheiptzPFfLZW+JQtRUoOkikNPiLNrSZe
-         ygpQ==
+        b=Q1YXrEHqrYb1UIhCIJwwLliYk5bK/znQ7KdWfAucBPLqirB4nEyXsBEuMEkfhj+n2x
+         UIUO1gppY9mQ3RMhc41wvlhihRyRXbieNsA6xCxB4dDLagtgFr5FmpD43Xkb99M8XY7k
+         EwV3Gqv1RjYAyBFsR50Z0ApZZDCjoyuLigWPS6l9Df/sprCAVaoMytuwu7X+MW1MYYsr
+         VOG+f8Eqq1LWbYS8t8SBLSuaA+F6IFfTzI5YD5/63VAn6caLwWlB87O+bLZ01eT4Rw86
+         U1zN8fOUnj/mGr9Gf8zInNlXT9He/PVERvIiutCLH5EVIJlbVIoE+OB13bidnHEe9dqa
+         QM5A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from;
-        bh=dTI/Cj53dgEqu9mqqRs1JEO6VFIo/5Mhkgsxbj91SMQ=;
-        b=RQubr7K9Mbgjqqb19gRvLTXO+CCeXdHdzPclBvriY192p1D4f6E+v0lEecM2cdytpI
-         QQFUaTHCMLMOBjO8Y9Iyv6H1WtGrAO4es7f85K4B0cI7294/FLQts+dur6VFwBmHXtIf
-         RVYRn/Jn4uFgNaVftk0sO7PYySS0rbZeWwd/3Etu6ouTegPBn9UmsZywRWCyqjbV+Xis
-         broLIDZo6NIMF2Bt6IvvLfAtSoCry6ySqsDSlPfiU3uR71RCXrOMsEd7GLvgOzUGyytH
-         mHOpel1bYvHKLH508IlhnQwOxuXK5MNinttF697G6bOBVc6z6X6TkrPBvq7d4I7sgF8q
-         uZHQ==
+        bh=+XT/Ggmb5iCSA91ILbc1CBNHo5HVyQjPuJuT0/OJUWM=;
+        b=bWmKEAoiGV7h1Xk4+IHczdn6SNvAcXGQUOXR/jQVQ1nC2aeLd9rs7tEjlCCKDCZ2jn
+         gdRXEKd1Vq5ajS9NlVMS3AghOBeqpx/TtwTCE46jCVKBqFA56cr4FmgK+ht9Hp+tjp5Q
+         3JCD5wrNiyP01gV25HsWbA2Zk53WdBxl+OIJcikc00i3SCsgkCxW/Vm8gc73ohTn8VZa
+         +f4YGS2f1IHAVITo1EDuDufvQ+Ls3CJhqMCy5xwmh/T2Adpvxk+FvBBM5cI7d0JyZ3T2
+         yDh2B/VgfNiYeC2VpLHqfYD2UacZ3NH95+OFAqH554mmyj3+v++HzaOTO4Z8L6gzaqrD
+         GHBw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=vincenzo.frascino@arm.com
 Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
-        by gmr-mx.google.com with ESMTP id b81si125396wmc.2.2020.03.17.05.23.43
+        by gmr-mx.google.com with ESMTP id l21si100964edq.4.2020.03.17.05.23.46
         for <clang-built-linux@googlegroups.com>;
-        Tue, 17 Mar 2020 05:23:43 -0700 (PDT)
+        Tue, 17 Mar 2020 05:23:46 -0700 (PDT)
 Received-SPF: pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F396430E;
-	Tue, 17 Mar 2020 05:23:42 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2B33CFEC;
+	Tue, 17 Mar 2020 05:23:46 -0700 (PDT)
 Received: from e119884-lin.cambridge.arm.com (e119884-lin.cambridge.arm.com [10.1.196.72])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ADB583F534;
-	Tue, 17 Mar 2020 05:23:39 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3539A3F534;
+	Tue, 17 Mar 2020 05:23:43 -0700 (PDT)
 From: Vincenzo Frascino <vincenzo.frascino@arm.com>
 To: linux-arch@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -121,13 +121,10 @@ Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
 	Andrei Vagin <avagin@openvz.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
 	Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <Mark.Rutland@arm.com>,
-	kbuild test robot <lkp@intel.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Michal Marek <michal.lkml@markovi.net>
-Subject: [PATCH v4 16/26] scripts: Fix the inclusion order in modpost
-Date: Tue, 17 Mar 2020 12:22:10 +0000
-Message-Id: <20200317122220.30393-17-vincenzo.frascino@arm.com>
+	Mark Rutland <Mark.Rutland@arm.com>
+Subject: [PATCH v4 17/26] linux/elfnote.h: Replace elf.h with UAPI equivalent
+Date: Tue, 17 Mar 2020 12:22:11 +0000
+Message-Id: <20200317122220.30393-18-vincenzo.frascino@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20200317122220.30393-1-vincenzo.frascino@arm.com>
 References: <20200317122220.30393-1-vincenzo.frascino@arm.com>
@@ -149,60 +146,36 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-In the process of creating the source file of a module modpost injects a
-set of includes that are not required if the compilation unit is
-statically built into the kernel.
+The vDSO library should only include the necessary headers required for
+a userspace library (UAPI and a minimal set of kernel headers). To make
+this possible it is necessary to isolate from the kernel headers the
+common parts that are strictly necessary to build the library.
 
-The order of inclusion of the headers can cause redefinition problems
-(e.g.):
+Replace linux/elf.h with UAPI equivalent in elfnote.h to make the header
+suitable for vDSO inclusion.
 
-   In file included from include/linux/elf.h:5:0,
-                    from include/linux/module.h:18,
-                    from crypto/arc4.mod.c:2:
->> arch/parisc/include/asm/elf.h:324:0: warning: "ELF_OSABI" redefined
-    #define ELF_OSABI  ELFOSABI_LINUX
-
-   In file included from include/linux/elfnote.h:62:0,
-                    from include/linux/build-salt.h:4,
-                    from crypto/arc4.mod.c:1:
-   include/uapi/linux/elf.h:363:0: note: this is the location of
-   the previous definition
-    #define ELF_OSABI ELFOSABI_NONE
-
-The issue was exposed during the development of the series [1].
-
-[1] https://lore.kernel.org/lkml/20200306133242.26279-1-vincenzo.frascino@arm.com/
-
-Reported-by: kbuild test robot <lkp@intel.com>
-Cc: Masahiro Yamada <masahiroy@kernel.org>
-Cc: Michal Marek <michal.lkml@markovi.net>
 Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
 ---
- scripts/mod/modpost.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ include/linux/elfnote.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
-index 7edfdb2f4497..0f354b1ee2aa 100644
---- a/scripts/mod/modpost.c
-+++ b/scripts/mod/modpost.c
-@@ -2251,8 +2251,12 @@ static int check_modname_len(struct module *mod)
-  **/
- static void add_header(struct buffer *b, struct module *mod)
- {
--	buf_printf(b, "#include <linux/build-salt.h>\n");
- 	buf_printf(b, "#include <linux/module.h>\n");
-+	/*
-+	 * Include build-salt.h after module.h in order to
-+	 * inherit the definitions.
-+	 */
-+	buf_printf(b, "#include <linux/build-salt.h>\n");
- 	buf_printf(b, "#include <linux/vermagic.h>\n");
- 	buf_printf(b, "#include <linux/compiler.h>\n");
- 	buf_printf(b, "\n");
+diff --git a/include/linux/elfnote.h b/include/linux/elfnote.h
+index f236f5b931b2..594d4e78654f 100644
+--- a/include/linux/elfnote.h
++++ b/include/linux/elfnote.h
+@@ -59,7 +59,7 @@
+ 	ELFNOTE_END
+ 
+ #else	/* !__ASSEMBLER__ */
+-#include <linux/elf.h>
++#include <uapi/linux/elf.h>
+ /*
+  * Use an anonymous structure which matches the shape of
+  * Elf{32,64}_Nhdr, but includes the name and desc data.  The size and
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200317122220.30393-17-vincenzo.frascino%40arm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200317122220.30393-18-vincenzo.frascino%40arm.com.
