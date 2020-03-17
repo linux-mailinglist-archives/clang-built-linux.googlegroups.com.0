@@ -1,30 +1,30 @@
-Return-Path: <clang-built-linux+bncBCOYZDMZ6UMRBWMCYPZQKGQEMPJJORA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCOYZDMZ6UMRBXMCYPZQKGQEKEF6JVQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
 Received: from mail-wr1-x43b.google.com (mail-wr1-x43b.google.com [IPv6:2a00:1450:4864:20::43b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 497301883CD
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 13:23:54 +0100 (CET)
-Received: by mail-wr1-x43b.google.com with SMTP id b11sf10576817wru.21
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 05:23:54 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584447834; cv=pass;
+	by mail.lfdr.de (Postfix) with ESMTPS id 7830D1883CF
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 13:23:57 +0100 (CET)
+Received: by mail-wr1-x43b.google.com with SMTP id k11sf1948368wrq.2
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 05:23:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584447837; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zQBmZsUjX2MABDWtTSRA6ZYd5jOldN5h0dfj8LmIXyxpu8pmS9DgADiESRmtNVv8CE
-         ZJyXdIhNRFi9kHPr0NTZSjSon+VfkyFlUL0khzMEA+Js5wdd9V5lrRKivlGByJEuBCaO
-         IQxe9+f7aq0LbQPWVgH0pZS8cVUOhh48EaqsWwl3cHnu6hlAbhwFeGXKuikJKequzM4s
-         wQHKZDrsHkt+WAdvX9sPkSSrLFaJkaKWzRBddJ/1/lolG2CS2UJUHgoUh9YUrPlaZMQp
-         FC2O8+rbVFwJMwMLBKNkz6AbMHccjOba88JbGNspYTk5RF0VWwmpXMFJnVJ/Llknubaq
-         4JGA==
+        b=W1n45aplmjiDhJadhmaawrox6sXWBp1IAu4B2sRBem78+2RJNdXM/pfgE4LlohqYJK
+         0dGeOvohsBJXHEyciAjGmBLLRuqafPf67T8RDYPa1dE4OJVQ61fbkK8e8oSqrqIZy2MR
+         MX54YB5gjBy1CL6PS5TzbQMsXnjoAGa38U0+PNa4DXp5WS8xRHCsWbtGzbvlRgHeOCxB
+         dDvTvdByz3m6aXFpRSgQcdbUVspRRe1TgibVnKjtdSfBVFwgWJXHaJ6LKCbCvJfnyWJM
+         05br0HPrpFaY6+8MuvA0jWG7Iku6tJgl2ZuGiNyqvx3bibf8Ib7FKIxjeK7TI1OD2fGE
+         EpMQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=SK07wdq12zKKUDQxseRSR0PWga5jyKj7owJaU1r7nOo=;
-        b=rr7USUG4FJi+bhby0NoVuj3+FoAb6p+mMP3ilsmEXEgQ6gU8VeiNkcbY+TklsVMEqw
-         ONgYK/f5jKOHFw80MwOjUj8EKODYjj2jLG7K78Esk44t36eVy+ZkVwzSh9RG/rlTi9sC
-         jrgITx28G/vPj1x8MhFH7JWTKmGVQs9xFjxg7FM9yXuii5Vn4dISZt5kAMn35VllXNk3
-         NcWVKh2H1TL6rvacSLmWNrS+f1ds7HWhLFYIHbOBf+jYxWKAr/MTGhD52HC/ks4RFSMO
-         VhHq+NMo/ORqKbLWfkM9IKRbTHQ+mKRaERaNj+ewc7t4wxZUI0S2Shkxoe7Dj6TEFL3d
-         6TWg==
+        bh=igmZQFkjBRahWvQkqqo89oDWI1wAl2Qiww4SybFz1gs=;
+        b=M0t5GBcucre35JHnRgP/JOhoH/UJ44jbCRPdQkYqOmJdhEGV0d/2RSFjo8o4oP23V0
+         IHnDajwX3YgbwakJhC8tfMV4RTEZwCHDLeyuiTgYsXWKO6G9ffkrmevPOiL/50vHy8Ip
+         oAXAIQN9IikjOZ6+qDysK4YxOo1jRHx6/l/bWIXDlG7o9qE22SAXwmnMc4qDttfe59/y
+         3QDtACugPMQhzLodcM6HF4zlaPLfbbTGDr5c+Mwk+xvNTbPcmUd0kOggFaATN0lPhYv6
+         SokklKTkjFRczSqY98wnSgW1imlL58pBfLwwsMVcZQsQS+78zSv8D6SD//Mew6HeSNmX
+         j/oA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=vincenzo.frascino@arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -33,13 +33,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=SK07wdq12zKKUDQxseRSR0PWga5jyKj7owJaU1r7nOo=;
-        b=DPlENXondgHU3U/8yY8XZMoSXEk0Osk3/yX3VrMhDSxNLB59S7FTI+Rvxg/MV0MR+u
-         4eo8inqzSunUsOkJyf2+6ahz6ZMsIaCpfBV0nJbToI+t0Sau2mb3qI3VvH+CAKKOrEKW
-         Xhas8FBpl78OjFguy2GaFG49ovV+ds/jPcdQLqbUrjxfP8oSr7u42c+mV/DJyrElZ11e
-         rjEOm2BArers12ox9z56gyUbCrw9O7LjLAhW7JaP4kL4VJuQhWpDzJc+ap6QZTDgY/ZZ
-         2XPDT5z1vNJFQThaWnZ+6Nj8S82MwgubH3CsL+OpwZb4/lGH0JfJMDa11HDyvkVCxv2r
-         vOsA==
+        bh=igmZQFkjBRahWvQkqqo89oDWI1wAl2Qiww4SybFz1gs=;
+        b=Cz5b579dCZpClB4fpt2cUuB/wu+MQzBMpInb5WmkUvpolYbXuTB9TLD9zLNYc4dOaw
+         1TTUApaEIxrfqxYEJAziac7aeFHkHVWmvI00quykINomzmmy8DD9utW826HOe7vjjpm5
+         zwijHH8F0dae6ZuFJt7QSbZ9mrHSkmGPZG+mfIVjEOIfnwYrSeH8PSi0CTY6YQ+xZyoH
+         Y0ygjDAYb84KZ2VDjd1L6XlXIObq42Y30qSYhPV/ZCQew71kQFonZkc7oxw97Do1+MJ8
+         M4WBdJx6dQE+eXQ5/Rs/4jcE5iZXUaHst+hB0+Sz65sqetydYCSx0M5h8giprT010mxS
+         pmUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -47,55 +47,55 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=SK07wdq12zKKUDQxseRSR0PWga5jyKj7owJaU1r7nOo=;
-        b=TgW8u9tVfyG7a+dMRTryLsfedTO0GJwtQlpsx5IQU8mNhJ+8qNU7yS3EWABI9+E3J5
-         hAx4wkoibmFUhuvFMHxN4xBYcFCW+Jm2kwE+rsdD+Ohv2PhV0nxGtjlqhgS/chzE+/wR
-         19sdar2/49mDcrwyCdJ4FK3pO0JrSw6kS73bOMMwx5QJ2+F0FXwytlMEfScDORwCtqBw
-         4DorDXAZhAJXtViY+Lu1zAdNAl8cXwup4YLdKPKGg/PhS+60JxdPbA7MUmm9h/0Qt77b
-         y9A1zPQi7c8GFHxyVBd0wo6A9dTS/ymDFefPbxYmh7t1SA9fTnWYgEeO3aAji1uHaSIA
-         YH+w==
+        bh=igmZQFkjBRahWvQkqqo89oDWI1wAl2Qiww4SybFz1gs=;
+        b=RE+F65OlQ72wCYJgI/A0Rc7paEEkUAxYIFtueiI7JgkCAYlgHmESK3KTsi72ozeT//
+         0wZSHIVzSmqCo+x3rATZAdef6QalVLEIa4OfFtYQ52Zc4etWGYAZc8iI/AhWNS0Xlktw
+         NE7bXAPzu2283/6svji7cnRnD7XYJk9jzDphUv5Vc4J7U0l+eqG9p/6mA/2/gMhCRzfr
+         B4lnJt9xuEYM1ccPJ+N36KsRZ6vZiY8BF1PV+Q+80MG3Ut9ZlafqxclcsOIDnl5buHVD
+         /Fv8Mytl+c//U4VufHK9shLjoS5eskvpCRR1tbu/qQ0SdFs06/5APdom4H+FgC8xGtJO
+         KIuw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ1oz2Dp7iQN5uLLy/AAta85e/5IxnNODhW79H/kE/watOAv1BrN
-	yZ5mng6V/eauBO3tfb4S5pk=
-X-Google-Smtp-Source: ADFU+vvlwQ3reTi9iJcX0/vTiqQ8ey0vzOslVFjKpPudZlnlfzCeqCqWpowRyIYVJxOtZpOB6rf/PA==
-X-Received: by 2002:a5d:4088:: with SMTP id o8mr5929430wrp.144.1584447833978;
-        Tue, 17 Mar 2020 05:23:53 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ1B/rYHtPKTWtsnTUAQ4atbXUW3MME2GLxLY6lCkxZSW5ZZyiNI
+	eoBKf+kDt0GzzepQG3nGycc=
+X-Google-Smtp-Source: ADFU+vuMHLFx6HswfOZA0jqXy7z2E4iC/yUqwyirnpZsNbPfaUTHdXq9npqqMwt/7jyHIWVQ8i8pgw==
+X-Received: by 2002:a7b:c391:: with SMTP id s17mr5116100wmj.55.1584447837229;
+        Tue, 17 Mar 2020 05:23:57 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:a98b:: with SMTP id s133ls35563wme.3.gmail; Tue, 17 Mar
- 2020 05:23:53 -0700 (PDT)
-X-Received: by 2002:a05:600c:2306:: with SMTP id 6mr5066025wmo.86.1584447833477;
-        Tue, 17 Mar 2020 05:23:53 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584447833; cv=none;
+Received: by 2002:a5d:548b:: with SMTP id h11ls11035367wrv.9.gmail; Tue, 17
+ Mar 2020 05:23:56 -0700 (PDT)
+X-Received: by 2002:adf:fd92:: with SMTP id d18mr6127311wrr.342.1584447836723;
+        Tue, 17 Mar 2020 05:23:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584447836; cv=none;
         d=google.com; s=arc-20160816;
-        b=L+eCVWHo/D1RVNv1Uq94+4Fl2YktjtX/nAflZWlx9XO77TTK4ZCkNrQy5YclUYe1qC
-         9GpgSMabHi/zBCnlFzUh3UU31nTe3aRKbE+Hw/pti7VN96qG4kU0F4egpK33cNqEpEX7
-         tW4jXpAhituNRJurMbC9ZlTHAzyaxPVh1/nnGZHqoWQ8DUmQHJApkkPUHPcPiKo5nb3i
-         u8M80PS22YV3hqpgo7X5VMHievuN72jlcw7RnBcRkRVMSitTK3xMNE8pnK/ewcVqZFKC
-         8nl4bN5+gqwjNJYspwlMLF+wJSql6I4l64o1JAUCJWchdYEHiPZdToupZNdzE/IK0YFq
-         QXFA==
+        b=sUXWTEqIkrKc8vjBCIpvCvM1suenUAcbVOcj0NNdwbKqH8AgGEiosI55nJgq3FpEFw
+         u4xnTJa0WvtEhp66dXCF2OMzBWTMqB5gzHPgIM71/bU4DXJsZWHdW1bd9tRQm2/GsJuG
+         DFLChUt/v+vXPtiw1QY2h6Kj7KJHFAGxh959UBqxcUJj7JkuDWcKwHdA/sFKp5TfsF3u
+         ZbJXHozcCwLQNgKhh1gpsDXtCWPAVBLutahOkfU7D3PGW+1yHjNdY8qW2DpzPl4fOwVu
+         B8WozvPnnj7X0h6Lk/v8KzCq+h0tAdp+6OobIJWGubkU1o6PRrL+jBngPBxnWS+g2coQ
+         hXBw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from;
-        bh=uytJ0JAkV8G+ZYQUrbmx8CC5JLAv4dnR09lx3gXoMVk=;
-        b=tihwHxHGphZopGK2aaGGQuJxiBygn6TQihsFZHnoo4SMByJOfDCaepievV88MV1nYt
-         SusfuDgdibw34LAi9yk5tA+5dctJaprMi6yWHnYlA+zKr0FRPG/EkdHGasPzbNyQ6Oj6
-         BVqfBtNBq8S0FECi2KQXSxqPyOD8nBpD9ZuOeylRpiel5Ov5BKseUBr6jjqy37p4PRoJ
-         eE5Hfd91m39rRedWPRyusbh8dp2SCgxO58qMca/51di3p8aUf9JrBvC5gCToqBGnxRYi
-         VwbtaSrRjUyoazCGh/bfkGxJ46HZ00Ss1GuMHGmMVj9GE+yv4vHvjGxba7Xfr1qtAhVA
-         6hSQ==
+        bh=4kf4B3k+rYAfi5xa1/EHQmCuEv8RhlG9Yi250rvphB0=;
+        b=fsjbOfFbrpocQovu96E1BVvvH7zTpzTJWWb8zQgO5bVyUah7X16JJTjtH+86X90ZCq
+         S/sa8h+HCOCY9XTYnujdttEymWh2zHhoBMs3DyMLgSkmRYBuTdmQxYR9fNFwNUQ4Tvli
+         htTe9B0/5j+jp+9JE7WXlJPffeAav2n7paMoMArou6VTKT8TSmmXor+E5Rf5Ho+U8FnY
+         QOxw7lGoq/23yP4NJrAc50a9ckteGlQ5oKa/C4wSC+QVNHBKFr6XLpyslpJW/4QGIhhp
+         gFQFnexPL66vKc6bGRR5XU79dwETMJ+UWUpS1yTkFyYcqH2bYamMnh0Va8gJ9u5hfE0L
+         z8PQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=vincenzo.frascino@arm.com
 Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
-        by gmr-mx.google.com with ESMTP id d16si112678wrv.4.2020.03.17.05.23.53
+        by gmr-mx.google.com with ESMTP id w17si111080wrn.3.2020.03.17.05.23.56
         for <clang-built-linux@googlegroups.com>;
-        Tue, 17 Mar 2020 05:23:53 -0700 (PDT)
+        Tue, 17 Mar 2020 05:23:56 -0700 (PDT)
 Received-SPF: pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B8B5E30E;
-	Tue, 17 Mar 2020 05:23:52 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 09E55FEC;
+	Tue, 17 Mar 2020 05:23:56 -0700 (PDT)
 Received: from e119884-lin.cambridge.arm.com (e119884-lin.cambridge.arm.com [10.1.196.72])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A84B93F534;
-	Tue, 17 Mar 2020 05:23:49 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EDA673F534;
+	Tue, 17 Mar 2020 05:23:52 -0700 (PDT)
 From: Vincenzo Frascino <vincenzo.frascino@arm.com>
 To: linux-arch@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -123,9 +123,9 @@ Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
 	Marc Zyngier <maz@kernel.org>,
 	Mark Rutland <Mark.Rutland@arm.com>,
 	Will Deacon <will@kernel.org>
-Subject: [PATCH v4 19/26] arm64: Introduce asm/vdso/processor.h
-Date: Tue, 17 Mar 2020 12:22:13 +0000
-Message-Id: <20200317122220.30393-20-vincenzo.frascino@arm.com>
+Subject: [PATCH v4 20/26] arm64: vdso: Include common headers in the vdso library
+Date: Tue, 17 Mar 2020 12:22:14 +0000
+Message-Id: <20200317122220.30393-21-vincenzo.frascino@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20200317122220.30393-1-vincenzo.frascino@arm.com>
 References: <20200317122220.30393-1-vincenzo.frascino@arm.com>
@@ -152,70 +152,46 @@ a userspace library (UAPI and a minimal set of kernel headers). To make
 this possible it is necessary to isolate from the kernel headers the
 common parts that are strictly necessary to build the library.
 
-Introduce asm/vdso/processor.h to contain all the arm64 specific
-functions that are suitable for vDSO inclusion.
+Refactor the vdso implementation to include common headers.
 
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
 ---
- arch/arm64/include/asm/processor.h      |  7 ++-----
- arch/arm64/include/asm/vdso/processor.h | 17 +++++++++++++++++
- 2 files changed, 19 insertions(+), 5 deletions(-)
- create mode 100644 arch/arm64/include/asm/vdso/processor.h
+ arch/arm64/include/asm/vdso/gettimeofday.h | 1 -
+ arch/arm64/kernel/vdso/vgettimeofday.c     | 2 --
+ 2 files changed, 3 deletions(-)
 
-diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
-index 5ba63204d078..e51ef2dc5749 100644
---- a/arch/arm64/include/asm/processor.h
-+++ b/arch/arm64/include/asm/processor.h
-@@ -28,6 +28,8 @@
- #include <linux/string.h>
- #include <linux/thread_info.h>
+diff --git a/arch/arm64/include/asm/vdso/gettimeofday.h b/arch/arm64/include/asm/vdso/gettimeofday.h
+index 5a534432aa5d..afba6ba332f8 100644
+--- a/arch/arm64/include/asm/vdso/gettimeofday.h
++++ b/arch/arm64/include/asm/vdso/gettimeofday.h
+@@ -8,7 +8,6 @@
+ #ifndef __ASSEMBLY__
  
-+#include <vdso/processor.h>
-+
- #include <asm/alternative.h>
- #include <asm/cpufeature.h>
- #include <asm/hw_breakpoint.h>
-@@ -256,11 +258,6 @@ extern void release_thread(struct task_struct *);
+ #include <asm/unistd.h>
+-#include <uapi/linux/time.h>
  
- unsigned long get_wchan(struct task_struct *p);
+ #define VDSO_HAS_CLOCK_GETRES		1
  
--static inline void cpu_relax(void)
--{
--	asm volatile("yield" ::: "memory");
--}
--
- /* Thread switching */
- extern struct task_struct *cpu_switch_to(struct task_struct *prev,
- 					 struct task_struct *next);
-diff --git a/arch/arm64/include/asm/vdso/processor.h b/arch/arm64/include/asm/vdso/processor.h
-new file mode 100644
-index 000000000000..ff830b766ad2
---- /dev/null
-+++ b/arch/arm64/include/asm/vdso/processor.h
-@@ -0,0 +1,17 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2020 ARM Ltd.
-+ */
-+#ifndef __ASM_VDSO_PROCESSOR_H
-+#define __ASM_VDSO_PROCESSOR_H
-+
-+#ifndef __ASSEMBLY__
-+
-+static inline void cpu_relax(void)
-+{
-+	asm volatile("yield" ::: "memory");
-+}
-+
-+#endif /* __ASSEMBLY__ */
-+
-+#endif /* __ASM_VDSO_PROCESSOR_H */
+diff --git a/arch/arm64/kernel/vdso/vgettimeofday.c b/arch/arm64/kernel/vdso/vgettimeofday.c
+index 747635501a14..4236cf34d7d9 100644
+--- a/arch/arm64/kernel/vdso/vgettimeofday.c
++++ b/arch/arm64/kernel/vdso/vgettimeofday.c
+@@ -5,8 +5,6 @@
+  * Copyright (C) 2018 ARM Limited
+  *
+  */
+-#include <linux/time.h>
+-#include <linux/types.h>
+ 
+ int __kernel_clock_gettime(clockid_t clock,
+ 			   struct __kernel_timespec *ts)
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200317122220.30393-20-vincenzo.frascino%40arm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200317122220.30393-21-vincenzo.frascino%40arm.com.
