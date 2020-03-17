@@ -1,30 +1,30 @@
-Return-Path: <clang-built-linux+bncBCOYZDMZ6UMRBOMCYPZQKGQEWMEDTMI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCOYZDMZ6UMRBPECYPZQKGQE7DEVNWA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43d.google.com (mail-wr1-x43d.google.com [IPv6:2a00:1450:4864:20::43d])
-	by mail.lfdr.de (Postfix) with ESMTPS id D6D321883A4
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 13:23:21 +0100 (CET)
-Received: by mail-wr1-x43d.google.com with SMTP id 94sf5924164wrr.3
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 05:23:21 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584447801; cv=pass;
+Received: from mail-ed1-x538.google.com (mail-ed1-x538.google.com [IPv6:2a00:1450:4864:20::538])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0BA971883A6
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 13:23:25 +0100 (CET)
+Received: by mail-ed1-x538.google.com with SMTP id dn10sf4280819edb.6
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 05:23:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584447804; cv=pass;
         d=google.com; s=arc-20160816;
-        b=IwqIhDBAqOyWyUHBD26h/jufEcLp1BGVR07BfORL5+TN/OM260we69RxrKQkxjjXmz
-         xOgYJ+coWDU6EKs/7ra5MTG6dNHN2gzl7lgSrCD7Otekb3EtI1t3TCGXozBQRaY7hw3C
-         u88iq0FRYPOD4M0TixYAS/Tc9JLnImttUXxMjwsDybPZJN5mWJdSHfwwwOem26p6vTly
-         qeaKP7G4KAQVTGbiflVVGuCwx7eoTRVmgtPLevUh6k2kmmil/qz4WCHcLDaL6ge/r0ya
-         D8CQqcasl4CRWfqkXTc/kshngjqzB8MTHdJ5us+BrZNP33uecArGUtDdsKxmjY3yCOdX
-         M2nw==
+        b=ovCy13VaoNoR/5/eZp/1BGNs5qpQZ4jfsO1Kksj+/de6BSMsI11h11IoLxUnlQkQRb
+         61V7uLDdqLNjl2+CvZWejkuRHJJAgkvn6bP3gQxI+0ghkO0iWWD8cwOE3bhvPc2hd5gp
+         EdAxMDRJX4VHEAPSLWgCt5TR+fEqZDWaMCzKUoPyYBUNEXxs3uoUVj2ifju9I65Ynz7+
+         J0Vgy1CR9B3RYY5RoWkgDeDoqlS0fEKouXCI37k/Nv8kZqIGRra5/N+yqKvcbAiafglK
+         33NM/2vc/LcRfXuaX6KBIaLmwvUkZ2U+dToDUTa9hND07Z8bdR9s1GXB2D/ytWwS8QDU
+         5NaQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=/sX32EV2UzLBHzTEKsXUk6W18p+5Zxaj8ItEqzuiCrc=;
-        b=PFuVVWEBuPNUURbGqhIH7E4emry0OEx9WoHet3aOjk+c9nSdsr8afsUH8O18LihDej
-         vfmLGUHc6NCasr7z4IvUr6U1BJbRrQ5R4pSLFvGAbmOpYnpRdlzFroqZg0LkJ/S+CXHE
-         Y/InLrC2dXeeXJwqVibxrHSi0n21qS6WFujpfTNe7wxfUvhbRi863YULnJkr7cqL5EWR
-         k0/LK98ELXsTDKaa5FMT0u2JH104H5rLNOT2A5amXkEVuDew/Jgc22m5RRPbh9NVvxGQ
-         kdZoWo+9AxV31MgLq0+xj9G1RDubXfpZ9W9CqYCz1e7I3ZpGe8bUhhJ83L1j0XZQnO/P
-         LCWA==
+        bh=pfmt0xaZjpBfcWtudrxdXU8F1imQUpx1ZHrs452+j7E=;
+        b=v20oCC3FvdoDD5ooS2dbGhEP1k5XlwuppiCu+kQ2Sno3gJcpBoEzJKzq/iblDnYwpY
+         ZLUKyamLqJ12dDX1qwnnsSxBr5Q339lOubJxtbxejngMce8ps18r+PFm78QA9Z8HLDJp
+         hAvaMcG/i/y+vgaQdLOw1TPmBmiSFoFCl1UI7+wnN2LPA8Phw8S3pbvWxAgrfyD5YNP5
+         v0o4zj9F0pnnKOqLFAejnohxsu2aFl02/3FqzocZswrJY72bXVhDLoS3eskaXp4AspKT
+         O8n96AuIjPixEza8UFaGOMT22okKwYZokxZSpww+7DR8GsRMFiawanDJFbhJXJE/N58k
+         LPog==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=vincenzo.frascino@arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -33,13 +33,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=/sX32EV2UzLBHzTEKsXUk6W18p+5Zxaj8ItEqzuiCrc=;
-        b=GiYVY8O0BqVE2mlw9JvU9edLxny/5RPyE+fK95d0NgTbgXp62RJVSy3DSQ3CQg3cmq
-         12jR46CDS409zJDU5roDTcmdnEP5pnmOJtvlPLWzYfcva7n6HeUH2kGHsnYzD/gmTN66
-         VjxsNF//4OgkGscdq6ajRzd+aNpA88utROnWg2A9xkgzd6/RcrtcxIlgHGInou3iibEi
-         oiY+FQmkjetimSNTItNaZtQNec7Vtt4rRGfMSzypdCuMp6E4fHtvP9UsenZ2/IlaeXHR
-         DX1BovLaGYjr4d1Q4SiJ7r+duxmnumuDSvc0zdVC9wZWohV2WIpqzDZzB+rM9hKy3gs6
-         Bu+g==
+        bh=pfmt0xaZjpBfcWtudrxdXU8F1imQUpx1ZHrs452+j7E=;
+        b=eSSa9YSj/i/+G5/yS+q1YYg7eALMMmYCpzlS+o6lxrJrsd7JCKdfehdv2vUPEU5QaE
+         a7NZLG9VI0XCTg3sVm3i1Xz9yH/QcnGqYOO3ntWko51ox2K4MEOnyuvUHcgIUvzfzf4T
+         YKemnip4E6hIa/n9cFyCKZlytRVxlgaTVKYnevo4Ghiy2qdRIDjZ5uXZnFqKCPgRLpaG
+         rjBMvD+iMdEV45SLtPL4HT9QKDj9wbwS1hnIlHzkm6aYkYUV9C55jvBwSK6Ut9VhjNQi
+         OGvXI6ZyEVP31XHdYkQiA1KKGv+4KHzV6x1pWtYT6Mrsk+NoSlzqGS+5niZNECui7GI+
+         60eA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -47,55 +47,55 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=/sX32EV2UzLBHzTEKsXUk6W18p+5Zxaj8ItEqzuiCrc=;
-        b=qDvD+w2VJIxGB+7Mgy/oJJx8qmlEjlAYc/RSvHi5PuwE7hhBvWyP98z/g1d3Nsokee
-         LoyQgUe25sAc76AmIqN4j/ab0lv5Z7utp9vwugxlJE+QAhOS5cWnRmRJCxQNwes0utKZ
-         5g+6OEgkaIy42bQt/Jl98mRasF6IxfqU46eQmhF7s7HT/bzeWA0qW/TOhbI3t6B9FmGS
-         28M7t3tHb6Hx3z73V3KQgGHiRaqQ3ckF8UBDmyoEgaJppzUgbJCNvw4Ni8m//HDTo4tk
-         p7o+Ey6/Dgsyb9Rh5nKQ2DMZyVsEplVMYBbGNLx3LpKmcH2/I/4W80DfTxLC9hPeWMUR
-         JMLA==
+        bh=pfmt0xaZjpBfcWtudrxdXU8F1imQUpx1ZHrs452+j7E=;
+        b=M+1sOsrUmbFnwY3AlqujZKVb2Isk7vJYoPoHC9wE2ymiBOnjz+IzQ9pqtxkiMQjHQZ
+         mXDlcaqDxUucOtlxbfrTSsHPPtja9esEky2iq8288yXMtQeo0weP3Aab1BEGLZnTQKDg
+         ledcERJIlVwe0XiV/0tHACObdkE+L90d/4PcIa7BijaAybJtv1HHXH80Fe07B7IUDH9O
+         fsf8iBocQKIVzonKGg35urgCzgtlK0Ly+rM+GnU8AJl7CPqfJ9d1sp/0j3W+myPtOhkq
+         NQ6aEK7AkpWbSVV4GmuUn7H6VKGgxq55OjQWQBYscdIMAeLFuG7kH8uecZxXHhbzLKuI
+         eVTA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ1Bfx4NcUpwih8Qpp1OJKOCCMbLvGH9ep/qU5HDoowkUsQz1FAi
-	RmF4OHpOp5r4OsiJZmVv3lU=
-X-Google-Smtp-Source: ADFU+vvcRV8dBIOItI7Qs7ZJx0e8QMoIwHNg05TPRcc72YHSb2Fd/bJLp438ottbCDADWQijmyODVQ==
-X-Received: by 2002:adf:ecc7:: with SMTP id s7mr5952087wro.386.1584447801656;
-        Tue, 17 Mar 2020 05:23:21 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ2wDZ50lLNy70eBTz8EtCybKGZ2xS2+SSvCDsnn3pNrHXahSwWT
+	BrGlv9Gr0abiTZIIOLAsNIw=
+X-Google-Smtp-Source: ADFU+vvmza+j7/tjs+Iepl2tFfeWukcQCy4zVbdtTzxSp4kMzt66dNU1i3Tw8dBO2ndVxF0FX8FcJQ==
+X-Received: by 2002:a17:906:d046:: with SMTP id bo6mr3736282ejb.169.1584447804809;
+        Tue, 17 Mar 2020 05:23:24 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:93:: with SMTP id 141ls35608wma.1.canary-gmail; Tue, 17
- Mar 2020 05:23:21 -0700 (PDT)
-X-Received: by 2002:a1c:2d88:: with SMTP id t130mr5471212wmt.68.1584447801095;
-        Tue, 17 Mar 2020 05:23:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584447801; cv=none;
+Received: by 2002:a17:906:584f:: with SMTP id h15ls11759465ejs.9.gmail; Tue,
+ 17 Mar 2020 05:23:24 -0700 (PDT)
+X-Received: by 2002:a17:906:f0c2:: with SMTP id dk2mr1484634ejb.328.1584447804221;
+        Tue, 17 Mar 2020 05:23:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584447804; cv=none;
         d=google.com; s=arc-20160816;
-        b=XKkKyIQseoo1DvQA4s2c8WdI1caTxCqQS0pO05S8P0pRQQBdonSt7JMY0Jh54nryAe
-         XfQ1PA7O2VyKpNsQ7d6I4HfISI/1kW39mKZO/KG5r1jYP6E9k1xvngdArh/9PznXMkOv
-         INdq94ZenofcnGMx+rB0jOejE/LtlLg0M+weDOyDVkuuUE/mII8MVRGY80JLnpaHlU/s
-         NN41DgfDB4V4umjcpuol3x3vxzW5QCixtMLhTu/euOu0hG9Uvd7k9rhUkRupKQRlh3wq
-         4g9ahJo+bD+14dOhnHxH04JtLAAcVwgNCbR5mHJkMiUF/3YgsexNvVusKfnMZRx03HRC
-         bMdA==
+        b=phmNUjfLhgPv2hB8E1NfT9/LZzq/LkoT5wkIUtPmilStRQ6lmGPABIf1S9lbdB6zrG
+         DsHKjnn7LICUr4jr57Pn4TqMWGFspLq8Od/Gcsizmk2yXDGhrXywmJj65v5Orp735OgN
+         LPNrNx1BrNSYAL5fxvEoDtC1QYqLDbZcVVvEzPxtYYDvkmyJ+aBTNnPuhj3D+XFinooG
+         QsHHudXOWzUeXLd9ZXyf9xgrQtQ3MXN0S0raKXhQ6doizaAPvR8LZfxPSIhoR92oOjJd
+         k153WOD9e02UT/kCuXOZam1qfvAERLkhXat1BhwVyp5VdHlp27iwygCB+0GhyHNc1G7o
+         js4w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from;
-        bh=GGEHKhLb+PBbYXFkR437kpZSwfjgehAHnEZn+yWa+q4=;
-        b=epeMvGBmMQ27yFJLQNPSBfL9ceiM23uYlh2XlH9LKeqQOlvETNaYmHOM1HxRQR7el/
-         4+uzTKNDyTRJCZfKF0DZqi48j8Lr5OgFlERt3vuhAZ567UdxjQfDiPH64PNXiE/yIvhf
-         Ne93tcreRu/nEXaIVZZI4yvKfCIemkO+Z3+tbN3SaoSM72WN5GR9S81zvMma/uSUbVQx
-         8D31wDypS/hhXtr/IoeF56U9cpDeGUjgDFGfF0ehGhNrdzP0cY4r7y1fF16aN7kQ+VrR
-         e+s829AMnl7Lm+Z5ukOfBvH3CYuUhyMVKXY7VexQVGeev8rerw+L9R7P/Eyksfyj/5aH
-         Xc6g==
+        bh=r7MQp9Yp9c27zQDo2jnhYH5VEGO3J90fS1j/2dFhDbg=;
+        b=Y7LWn5mM5XnCTHVGFeBDyWvled2CQEqjUCbGdGQ6B99IWpTZ7+jBIZBhSB76SVG2vN
+         IOiYCIHWKQtTKLMgsEJMZMlbP307+tOV5u9NMHEIQ8lBpcqoFjbMa1NGKimj61hOba9K
+         d3haJr7PfSSfxBvE695sU7P1Y85Lfur0U+f4HTYreRgG4ptA+Fxl+fls2nd0Hzrg3Mgx
+         3XxHVOdufsgjg6UQeVv50ToriQgCuRRVDZTljANQKP8VshxIAPBTTfx9HGt1rK/wF61c
+         QNkEYaGNl0ppOhdTv32hHHbWH6W4TFzXN0qeYI8vYqDPPBt6s6LuRK0A/DCY+VvSDqiW
+         Vi7g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=vincenzo.frascino@arm.com
 Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
-        by gmr-mx.google.com with ESMTP id i19si171456wml.0.2020.03.17.05.23.20
+        by gmr-mx.google.com with ESMTP id k9si8241eds.1.2020.03.17.05.23.24
         for <clang-built-linux@googlegroups.com>;
-        Tue, 17 Mar 2020 05:23:21 -0700 (PDT)
+        Tue, 17 Mar 2020 05:23:24 -0700 (PDT)
 Received-SPF: pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 65EAE101E;
-	Tue, 17 Mar 2020 05:23:20 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9217030E;
+	Tue, 17 Mar 2020 05:23:23 -0700 (PDT)
 Received: from e119884-lin.cambridge.arm.com (e119884-lin.cambridge.arm.com [10.1.196.72])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 700573F534;
-	Tue, 17 Mar 2020 05:23:17 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9BCD93F534;
+	Tue, 17 Mar 2020 05:23:20 -0700 (PDT)
 From: Vincenzo Frascino <vincenzo.frascino@arm.com>
 To: linux-arch@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -122,9 +122,9 @@ Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
 	Nick Desaulniers <ndesaulniers@google.com>,
 	Marc Zyngier <maz@kernel.org>,
 	Mark Rutland <Mark.Rutland@arm.com>
-Subject: [PATCH v4 09/26] linux/math64.h: Extract common header for vDSO
-Date: Tue, 17 Mar 2020 12:22:03 +0000
-Message-Id: <20200317122220.30393-10-vincenzo.frascino@arm.com>
+Subject: [PATCH v4 10/26] linux/time.h: Extract common header for vDSO
+Date: Tue, 17 Mar 2020 12:22:04 +0000
+Message-Id: <20200317122220.30393-11-vincenzo.frascino@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20200317122220.30393-1-vincenzo.frascino@arm.com>
 References: <20200317122220.30393-1-vincenzo.frascino@arm.com>
@@ -151,88 +151,53 @@ a userspace library (UAPI and a minimal set of kernel headers). To make
 this possible it is necessary to isolate from the kernel headers the
 common parts that are strictly necessary to build the library.
 
-Split math64.h into linux and common headers to make the latter suitable
+Split time.h into linux and common headers to make the latter suitable
 for inclusion in the vDSO library.
 
 Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
 ---
- include/linux/math64.h | 20 +-------------------
- include/vdso/math64.h  | 24 ++++++++++++++++++++++++
- 2 files changed, 25 insertions(+), 19 deletions(-)
- create mode 100644 include/vdso/math64.h
+ include/linux/time.h |  5 +----
+ include/vdso/time.h  | 12 ++++++++++++
+ 2 files changed, 13 insertions(+), 4 deletions(-)
+ create mode 100644 include/vdso/time.h
 
-diff --git a/include/linux/math64.h b/include/linux/math64.h
-index 65bef21cdddb..11a267413e8e 100644
---- a/include/linux/math64.h
-+++ b/include/linux/math64.h
-@@ -3,6 +3,7 @@
- #define _LINUX_MATH64_H
+diff --git a/include/linux/time.h b/include/linux/time.h
+index 8ef5e5cc9f57..4c325bf44ce0 100644
+--- a/include/linux/time.h
++++ b/include/linux/time.h
+@@ -111,9 +111,6 @@ static inline bool itimerspec64_valid(const struct itimerspec64 *its)
+  */
+ #define time_between32(t, l, h) ((u32)(h) - (u32)(l) >= (u32)(t) - (u32)(l))
  
- #include <linux/types.h>
-+#include <vdso/math64.h>
- #include <asm/div64.h>
+-struct timens_offset {
+-	s64	sec;
+-	u64	nsec;
+-};
++# include <vdso/time.h>
  
- #if BITS_PER_LONG == 64
-@@ -142,25 +143,6 @@ static inline s64 div_s64(s64 dividend, s32 divisor)
- 
- u32 iter_div_u64_rem(u64 dividend, u32 divisor, u64 *remainder);
- 
--static __always_inline u32
--__iter_div_u64_rem(u64 dividend, u32 divisor, u64 *remainder)
--{
--	u32 ret = 0;
--
--	while (dividend >= divisor) {
--		/* The following asm() prevents the compiler from
--		   optimising this loop into a modulo operation.  */
--		asm("" : "+rm"(dividend));
--
--		dividend -= divisor;
--		ret++;
--	}
--
--	*remainder = dividend;
--
--	return ret;
--}
--
- #ifndef mul_u32_u32
- /*
-  * Many a GCC version messes this up and generates a 64x64 mult :-(
-diff --git a/include/vdso/math64.h b/include/vdso/math64.h
+ #endif
+diff --git a/include/vdso/time.h b/include/vdso/time.h
 new file mode 100644
-index 000000000000..7da703ee5561
+index 000000000000..739f53cd2949
 --- /dev/null
-+++ b/include/vdso/math64.h
-@@ -0,0 +1,24 @@
++++ b/include/vdso/time.h
+@@ -0,0 +1,12 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __VDSO_MATH64_H
-+#define __VDSO_MATH64_H
++#ifndef __VDSO_TIME_H
++#define __VDSO_TIME_H
 +
-+static __always_inline u32
-+__iter_div_u64_rem(u64 dividend, u32 divisor, u64 *remainder)
-+{
-+	u32 ret = 0;
++#include <uapi/linux/types.h>
 +
-+	while (dividend >= divisor) {
-+		/* The following asm() prevents the compiler from
-+		   optimising this loop into a modulo operation.  */
-+		asm("" : "+rm"(dividend));
++struct timens_offset {
++	s64	sec;
++	u64	nsec;
++};
 +
-+		dividend -= divisor;
-+		ret++;
-+	}
-+
-+	*remainder = dividend;
-+
-+	return ret;
-+}
-+
-+#endif /* __VDSO_MATH64_H */
++#endif /* __VDSO_TIME_H */
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200317122220.30393-10-vincenzo.frascino%40arm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200317122220.30393-11-vincenzo.frascino%40arm.com.
