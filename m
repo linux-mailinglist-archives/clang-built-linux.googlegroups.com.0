@@ -1,141 +1,144 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBZ7DYTZQKGQE3WFKROA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCS7XUWOUULBB7PTYTZQKGQEIXSBBFI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa37.google.com (mail-vk1-xa37.google.com [IPv6:2607:f8b0:4864:20::a37])
-	by mail.lfdr.de (Postfix) with ESMTPS id 52303188EF0
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 21:24:08 +0100 (CET)
-Received: by mail-vk1-xa37.google.com with SMTP id c127sf9782912vkh.18
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 13:24:08 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584476647; cv=pass;
+Received: from mail-qv1-xf3a.google.com (mail-qv1-xf3a.google.com [IPv6:2607:f8b0:4864:20::f3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 169EE188FE6
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 21:58:39 +0100 (CET)
+Received: by mail-qv1-xf3a.google.com with SMTP id z4sf22232083qvj.2
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 13:58:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584478718; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Ect2DropJ/loL1uL195MRJ+gG0YhUAAEoNpBzjLYRfE/Vn/0N+8zILRVvy0gGGP1/E
-         DyjJAf7act0uYOhmz7VpS4rdZLF6wiU6ErSIsY8k9WymQ9Xw90y2dAKs4PoyeQKeYnpv
-         yoCA1MaH8L+J3XVvHjJcqt67qm1LLNMT0HEsaoJLHdqo65nFeAsoMayqyS+cJGGKW2Tc
-         h8X5LlIH0YIzJSvGeqcHcDoh+iP0eJOptmdjpC1UHLwa5Azs+LlDb1Yz4EVxlZXO9z/W
-         S/DpX/lhykB81KjmV6Ylc9WSR7/DK64cC2rWe5FrGJZ9QiqC/sfvlef0d+enqa5aAFFW
-         h+gg==
+        b=bILJsqURkyPOZKLik+Rw6sTCnnEZjjvOJ6TtoZvbRqILg5WDnm7+JTbWZ1g5okVVQD
+         1xyKJw9C4veLF2y42uT22z5pNjouPx2zWUJK6NnM14qJKwDKmCgcu6IExXvBBxpxqCtw
+         QyyoS/fY/Lmi1oSiVDPnt4VoLBfgObe59FULRPs1h7z4Yy2oWk/ZrwNNjbMz9mkODILj
+         RbvbSm+QlV8HJ+E112a8D/UYx6dnFw5ItaPEAWkb83NyHcZQEpKwFnfSutZSZtEVLdOI
+         tuocGyVLdVcIfEW0lRdgSm6MPr73sY+4vcd0D2iZ8d+weTigbtGeSZGhdKEvfpsc2PrK
+         s4bg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :list-id:mailing-list:precedence:reply-to:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=V5DkBLa7lmBBpomcrdRqsOsRPcZKAIvxtdiLiATnrH0=;
-        b=0Ueomyt0JNM4gF4MpxFmJjNWUNvtslYDbh4NuD8jh9bMr6jXzFrOLnIhF/mkBW8Ycr
-         4cuiJpmY2HW1mtE7K94G4QnV5vLXzcxige2Asm8obMKLqhx9TPNLl0F8zpPmPH66wpvS
-         3WiT3hqLzrLL8fZbBOuRYqUyf1RY4Cl/Lf1asfIgDYfCt8T8dKUb6e4skCDpTBwabA2h
-         qDLjUj8AbS1rfQuntFXNHrakNsptE8YTGGqbOf4thvekYTBTcxegQIuVThwGCmUhyH9G
-         7WKN3zE65XPOeW4xvM5TcAjjLNAfDhc8J9vO0b1rGelxdKsE6euaFTAu8begvWEer0/5
-         vzdw==
+         :to:from:date:dkim-signature;
+        bh=J+1YMncNY/zngaI3FWfNQUTWN4yoiAMBL6pDR1H6DTU=;
+        b=NLek2OyV4d2/YH8yCvXkMrdCjhLgtUn57HBGQ1O3Flm3vWmUVWQmeuUjXD+5PvunPC
+         8/9UXkDIKLlP+lPQmgiobgmxXE9ody3g4m7T9OF9ciSRjtt362JzTiDjT3X1Rc/uHq/S
+         hoYL1QgNTDUes6i9Y+suVCcA9AaTj1zOFS3hen7djfMwI9nJRvfEf9U9SzvPPQP8+Xb/
+         na5b43AJawq3u9i0tp2y2oeKG5aMl2Hxc5boYTRFk2o7lUqSKWCEgpZobOwnQX65N13J
+         IXlZLz+LlSTSf+N/IJ7Xcg0zaMIeiB+qhnY5zzf5sbu19KF9dE6NJS/LOOq9cdMRyAoN
+         mPPg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=FXvN5UNl;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::244 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Yj2Pge8n;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=V5DkBLa7lmBBpomcrdRqsOsRPcZKAIvxtdiLiATnrH0=;
-        b=Ds0jXeiQ5OtVCtmxWatzL/grNa5+cO71mYRN2HulmhaGniMh9GtxDYLs9Vh7PLXkCU
-         p+xny6dwNvP4UxSh64qPWk5aEpRytVKLMgXcDPk5vHOczecpIpi9YILXsKZ0RQfzJweI
-         5sH2BQcdXtUz6RidFYgHOZfudJwmPmkDhAeYW2u/L7sjnaqLhyJC8TdENsoXik383B9O
-         Jmks1IKyISiplbNcojht3lETJhZpVa3pa7yNwZXMVfYfNyA1ytQdYEBWLeeY+HYmP7YD
-         2NJM9nT0jNz1yTXZIzdombfftT3FPGDl5KzVDOpBbVRCU5XwLtIa/Q0em7QJCORTscUZ
-         71CA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
         h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=V5DkBLa7lmBBpomcrdRqsOsRPcZKAIvxtdiLiATnrH0=;
-        b=hv47f7ZkNnX6GiP5zuPgE7Oy8NcBI/2ElFzZx0o61ROB9Q4wwzRqKa2z1dUqA5N4EA
-         DXUXeeiYtAgM4rdEJ5hYjem85/Xlxu13wP6NfEzT8MjYKIadzQP9ORv5CroSFYgIVkJK
-         q/krQJ1dJ8TZ+V42Y2ITTus5F2vP3rNLiM7koSdAFMCr04N5seCYvxk2UqNexuXLG9ke
-         mGN9gUpPaE/r4lS5swg4SKBaJ/J5Nx3IlPYRcE/WQP9Fg51dp7bZjdxagnrL5UGBQ+gF
-         BbJE+GmjaBKEJzQ0aEx2vjwW9c7IkLM5m0afgxZYPN6NC2ohVMBUW1FsVjT2eKcrdU3z
-         V0TA==
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=J+1YMncNY/zngaI3FWfNQUTWN4yoiAMBL6pDR1H6DTU=;
+        b=VW+JJbf3Fb/JxAvgYVeigqzStUeM45eMHqW14gpPynxar8f7PeVc/36NrH5Wfvyltu
+         1OknGJpwvW9OpIrDEhsAoW81FuHg1lZwYWrNvF4FRe441+Ij9m3hRhU3YnpQ/g1bRAr3
+         Fn16p7fKzH2md2PmJ/tBOUJD9QPtbD+ZSNpQiGd9UAJ6XU45KltFDb2saq+3Ew23BF2b
+         XiSqLAXnUohC7xjaTl0KF+50YvBoMOHL73FtPnkenwWhlNSpQggQEfBKLkMHhx9FsbKc
+         /+iyUKpwsbaoEieNj5CUM65Ax79gKL476b7FbQKN8bO1SO1JUCCTRFZzWRAklSVQvNlf
+         J+aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=V5DkBLa7lmBBpomcrdRqsOsRPcZKAIvxtdiLiATnrH0=;
-        b=k+PQVFcGZ238bTzZL389lKrMbu2/AIwgYBb6tGnNoKNqdIxgKiGzRVEunDdxzbUeWx
-         zDi4J4K6nlCCmbmA/SXvlKxfDsT8k6ms2KaVBlN+nUtu4FCw7nI49sVQI8he2vPBqel0
-         2kGzvoLHOg0KmvaelGZlChWpqejHNpLnPc3Zf9XxAKbejuw6CO5Edut7eShy9spqqubJ
-         KiuoYJVIKIThtMU2j67ttYEvHoJGYIHVijiXkYhVpIw36FkhsUNK68z/nVko7lyk/dZ3
-         VK5f0OjM14VTZ825AiUIjlVXRpgS9vEs87j5dA0dVjOk9cwGOGPV9e4/qNU9g5F6yGh0
-         KkIg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ0BLg0REI9TS0W4xcblnuo7frGaJvNGc76QDfRIvkji1iFvl9I6
-	Sc688vBuJdsN7NWBoWq9AW8=
-X-Google-Smtp-Source: ADFU+vvvm597CA4Nc7lDoS78th7oZEwg5S02lLhIAW1O/II3y8rEx/73MSXGdjDJfsFSBqn2eOxsCg==
-X-Received: by 2002:a05:6102:1052:: with SMTP id h18mr674515vsq.202.1584476647090;
-        Tue, 17 Mar 2020 13:24:07 -0700 (PDT)
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=J+1YMncNY/zngaI3FWfNQUTWN4yoiAMBL6pDR1H6DTU=;
+        b=P5+qmwHIIMRt+uqvWHR/5MMTvss9dPwrQrqHX5B0XPJLamwdz2nelpK1vYxEsZfuRS
+         icovXdXC3xpsddYKmbR+v/SRTqnjeclIbErRy24jB9F+gKfGAHRjG2lVFDr1ap3FnVX5
+         LiPX5kNgIsgogBArrvBmIBp/PtyP+h9ZjsBF3q6Scnqq98FARFrfF2r3+ZFmthUjyIah
+         medIJwK27clmmKPNq78CeqpUw9o3ARCjcy6OD9eHpNlCmxmW13bvhbHL822V39AXH1WU
+         BJoYv2lfHJc4EfOupMpmlOxBp1HN0LJ82tjHqjBStY3dCp4WD0Yjm/CNxWEEazPOziK2
+         ziaw==
+X-Gm-Message-State: ANhLgQ3DqNn0pZpevfqIGDvfmIVLGHB5UoME3Ir8Zy5tEe6tvbw1AH0V
+	VdYUYpWJsZINaXaviaYuEhM=
+X-Google-Smtp-Source: ADFU+vurfJlqh/tL+4YvA/89ltppEfYDoQ3xKXFcTdIYYnr0i6EvInat7Bkixa3OJHRXMyGhdxDpSA==
+X-Received: by 2002:ac8:4e24:: with SMTP id d4mr1106565qtw.307.1584478718050;
+        Tue, 17 Mar 2020 13:58:38 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:c01d:: with SMTP id v29ls2962670vsi.6.gmail; Tue, 17 Mar
- 2020 13:24:06 -0700 (PDT)
-X-Received: by 2002:a67:646:: with SMTP id 67mr625749vsg.34.1584476646746;
-        Tue, 17 Mar 2020 13:24:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584476646; cv=none;
+Received: by 2002:a05:620a:56a:: with SMTP id p10ls11586331qkp.2.gmail; Tue,
+ 17 Mar 2020 13:58:37 -0700 (PDT)
+X-Received: by 2002:a37:4d56:: with SMTP id a83mr920218qkb.40.1584478717665;
+        Tue, 17 Mar 2020 13:58:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584478717; cv=none;
         d=google.com; s=arc-20160816;
-        b=II/0F0YP40vK7Pdl0LdPExsU/C6hLi+bldtqbN1ptRPxn+UTf2YXHKO0wM1aO5Wzxx
-         6NIroQR0N5wmXbBpKh8XK0G/X7DQ3fosFrIHPPqe1E0agDzl7uB0tYOOztd42QvF0Odd
-         NCAj4lKi7UAWmv480sNQXkhGn6AWZEk+FM+66YlyEp5UQP78ZKIwcNAQct62jQBrqr8r
-         GSilEM+YQLr6sFwokjSESvx6j2kFMgF26Kw4w25r3vekwAZ1hVpOjdGspcIeZuHVG4GF
-         rWtUVePkUl4o1Ia8uQe+mklB4H3AFrPwbGI/1gTEIJCWS+pbA0hgI1RUrRVPeT3zR9sq
-         Jmjw==
+        b=QJAPR6fJGJw846q4Pg/AbmZbnxUE4HX8VwLk6e3acGS0UZHlQe1pgmosY1ySLCvnLn
+         og5HQpsjjXlKDFzeySnSbV0TE7hFCq6181W85cLBRkJp5JTjkwuHnRyWdfzcHXtq/u1v
+         yv37C56qz29c6tztozjMRJlf3v9DEC3gb7yH4/nRQchchWDjB4AtOZ9ROkGmOYC9ouvT
+         V2NcUpkH+/cxJn+As+v1Kpcm9kY6HBccRecrhKZwz6olbHf1QIxcJwLDR1qxJvzGScPf
+         o5zTqdFh3Ciz+do0ydNUcUbCACo7cDfZxxnLoE6AKzYrIIvZCiaBMAT7u4DgQK+pI2uC
+         weaQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=ZwrUWPje+er/rxMVZKdfcHZbDPlxBar5CzVyaKnohHw=;
-        b=yugrxlPdNYDZCXvr6Uj534IDoDO3ML+Y0vzCEVhxRbm2vMwKfCvKBd/+LI+sAF8KdG
-         VUuUNErRC1SA7150e5XtGjoBf16Iyf30YfvZNjQVmLPODm0tpA7MuA/FecOMhGwf7pwc
-         n9xFcbgAiL5C9JdkwePu6JxkJh9Ow5IkDhZrjy9vSYnYvYXY0rHNr9OBDI9ubVy3M6Ec
-         7u15O+zqGELTYf7oZPYSwOzRZiuxGneuejHYDMQC7fm7IVCoiZ0BnNkMNmP0fxEqBzzK
-         rJQ0PhJK2Xnh2bpFbuCDqngvUOxoe+X1WdX3wlVJ+g0YFzYOKIBYvZl552qKUUJt7N8p
-         CDtw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=KCBhhTAcVEBazgsEE9+FOciZw820M7vK8so1wHzYoPU=;
+        b=U/J/QwUnukI9AGdsaDLglofvickb53UziGxzinjxUDU5uod/4QmDCCtYJ6NVdOj8a0
+         bEWPjCaqpSPKx9px+uuYqeWm5Bv7aiE5rNwsmHHtUlM6f3tzlRyysD8TMu5L++BPGbDd
+         NRKbhhYjBBJsp/Jjx94EX+VAg9xPzt7JNR9lHZQKmCSMTN9fCJ7Bun4pFvGE+XCaBMHo
+         HOgsDtsFLITr2RC7jeFhpWr2jkSGQlz3AQnnm1bwhX1ml1AAclWmPRrTrJTAsAIVXLi/
+         KZ3TR4qCjbYU/IO/C9Db5P9RXwJ/1t6IynR1dnelNPMMH7AEGrIePusAm+P8BhdWjnNZ
+         K3Jw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=FXvN5UNl;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::244 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-oi1-x244.google.com (mail-oi1-x244.google.com. [2607:f8b0:4864:20::244])
-        by gmr-mx.google.com with ESMTPS id c3si181815uam.1.2020.03.17.13.24.06
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Yj2Pge8n;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pj1-x1044.google.com (mail-pj1-x1044.google.com. [2607:f8b0:4864:20::1044])
+        by gmr-mx.google.com with ESMTPS id z126si176233qkd.2.2020.03.17.13.58.37
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Mar 2020 13:24:06 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::244 as permitted sender) client-ip=2607:f8b0:4864:20::244;
-Received: by mail-oi1-x244.google.com with SMTP id w13so23305746oih.4
-        for <clang-built-linux@googlegroups.com>; Tue, 17 Mar 2020 13:24:06 -0700 (PDT)
-X-Received: by 2002:aca:bfc6:: with SMTP id p189mr563472oif.21.1584476645956;
-        Tue, 17 Mar 2020 13:24:05 -0700 (PDT)
-Received: from ubuntu-m2-xlarge-x86 ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id k110sm1380002otc.59.2020.03.17.13.24.05
-        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Tue, 17 Mar 2020 13:24:05 -0700 (PDT)
-Date: Tue, 17 Mar 2020 13:24:04 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: clang-built-linux@googlegroups.com
-Subject: Re: [RFC 2/2] Makefile.llvm: simplify LLVM build
-Message-ID: <20200317202404.GA20746@ubuntu-m2-xlarge-x86>
-References: <20200220234858.145546-1-ndesaulniers@google.com>
- <20200220234858.145546-2-ndesaulniers@google.com>
+        Tue, 17 Mar 2020 13:58:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) client-ip=2607:f8b0:4864:20::1044;
+Received: by mail-pj1-x1044.google.com with SMTP id l36so284467pjb.3
+        for <clang-built-linux@googlegroups.com>; Tue, 17 Mar 2020 13:58:37 -0700 (PDT)
+X-Received: by 2002:a17:90b:238e:: with SMTP id mr14mr1149466pjb.146.1584478716324;
+        Tue, 17 Mar 2020 13:58:36 -0700 (PDT)
+Received: from google.com ([2620:15c:2ce:0:9efe:9f1:9267:2b27])
+        by smtp.gmail.com with ESMTPSA id w205sm4108803pfc.75.2020.03.17.13.58.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Mar 2020 13:58:35 -0700 (PDT)
+Date: Tue, 17 Mar 2020 13:58:32 -0700
+From: "'Fangrui Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: bpf <bpf@vger.kernel.org>, Networking <netdev@vger.kernel.org>
+Cc: Andrii Nakryiko <andrii.nakryiko@gmail.com>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	clang-built-linux@googlegroups.com,
+	Stanislav Fomichev <sdf@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Kees Cook <keescook@chromium.org>
+Subject: [PATCH bpf-next v4] bpf: Support llvm-objcopy and llvm-objdump for
+ vmlinux BTF
+Message-ID: <20200317205832.lna5phig2ed3bf2n@google.com>
+References: <20200317011654.zkx5r7so53skowlc@google.com>
+ <CAEf4BzYTJqWU++QnQupxFBWGSMPfGt6r-5u9jbeLnEF2ipw+Mw@mail.gmail.com>
+ <20200317033701.w7jwos7mvfnde2t2@google.com>
+ <CAEf4BzYyimAo2_513kW6hrDWwmzSDhNjTYksjy01ugKKTPt+qA@mail.gmail.com>
+ <20200317052120.diawg3a75kxl5hkn@google.com>
+ <CAEf4BzYepRs4uB9vd1SCFY81H5S1kbvw2n9bKNeh-ORK_kutSg@mail.gmail.com>
+ <20200317054359.snyyojyf6gjxufij@google.com>
+ <20200317162405.GB2459609@mini-arch.hsd1.ca.comcast.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Disposition: inline
-In-Reply-To: <20200220234858.145546-2-ndesaulniers@google.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Original-Sender: natechancellor@gmail.com
+In-Reply-To: <20200317162405.GB2459609@mini-arch.hsd1.ca.comcast.net>
+X-Original-Sender: maskray@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=FXvN5UNl;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::244 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@google.com header.s=20161025 header.b=Yj2Pge8n;       spf=pass
+ (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1044
+ as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Fangrui Song <maskray@google.com>
+Reply-To: Fangrui Song <maskray@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,166 +151,368 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Feb 20, 2020 at 03:48:58PM -0800, 'Nick Desaulniers' via Clang Built Linux wrote:
-> Prior to this patch, building the Linux kernel with Clang
-> looked like:
-> 
-> $ make CC=clang
-> 
-> or when cross compiling:
-> 
-> $ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make CC=clang
-> 
-> which got very verbose and unwieldy when using all of LLVM's substitutes
-> for GNU binutils:
-> 
-> $ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make CC=clang AS=clang \
->   LD=ld.lld AR=llvm-ar NM=llvm-nm STRIP=llvm-strip \
->   OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump OBJSIZE=llvm-objsize \
->   READELF=llvm-readelf HOSTCC=clang HOSTCXX=clang++ HOSTAR=llvm-ar \
->   HOSTLD=ld.lld
-> 
-> This change adds a new Makefile under scripts/ which will be included in
-> the top level Makefile AFTER CC and friends are set, in order to make
-> the use of LLVM utilities when building a Linux kernel more ergonomic.
-> 
-> With this patch, the above now looks like:
-> 
-> $ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make LLVM=1
-> 
-> Then you can "opt out" of certain LLVM utilities explicitly:
-> 
-> $ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make LLVM=1 AS=as
-> 
-> will instead invoke arm-linux-gnueabihf-as in place of clang for AS.
-> 
-> This would make it more verbose to opt into just one tool from LLVM, but
-> this patch doesn't actually break the old style; just leave off LLVM=1.
-> Also, LLVM=1 CC=clang would wind up prefixing clang with $CROSS_COMPILE.
-> In that case, it's recommended to just drop LLVM=1 and use the old
-> style. So LLVM=1 can be thought of as default to LLVM with explicit opt
-> ins for GNU, vs the current case of default to GNU and opt in for LLVM.
-> 
-> A key part of the design of this patch is to be minimally invasive to
-> the top level Makefile and not break existing workflows. We could get
-> more aggressive, but I'd prefer to save larger refactorings for another
-> day.
-> 
-> About the script:
-> The pattern used in the script is in the form:
-> 
-> ifeq "$(origin $(CC))" "file"
-> $(CC) := $(clang)
-> else
-> override $(CC) := $(CROSS_COMPILE)$(CC)
-> endif
-> 
-> "Metaprogramming" (eval) is used to template the above to make it more
-> concise for specifying all of the substitutions.
-> 
-> The "origin" of a variable tracks whether a variable was explicitly set
-> via "command line", "environment", was defined earlier via Makefile
-> "file", was provided by "default", or was "undefined".
-> 
-> Variable assignment in GNU Make has some special and complicated rules.
-> 
-> If the variable was set earlier explicitly in the Makefile, we can
-> simply reassign a new value to it. If a variable was unspecified, then
-> earlier assignments were executed and change the origin to file.
-> Otherwise, the variable was explicitly specified.
-> 
-> If a variable's "origin" was "command line" or "environment",
-> non-"override" assignments are not executed. The "override" directive
-> forces the assignment regardless of "origin".
-> 
-> Some tips I found useful for debugging for future travelers:
-> 
-> $(info $$origin of $$CC is $(origin CC))
-> 
-> at the start of the new script for all of the variables can help you
-> understand "default" vs "undefined" variable origins.
-> 
-> $(info $$CC is [${CC}])
-> 
-> in the top level Makefile after including the new script, for all of the
-> variables can help you check that they're being set as expected.
-> 
-> Link: https://www.gnu.org/software/make/manual/html_node/Eval-Function.html
-> Link: https://www.gnu.org/software/make/manual/html_node/Origin-Function.html
-> Link: https://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html
-> Link: https://www.gnu.org/software/make/manual/html_node/Override-Directive.html
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> ---
->  Makefile              |  4 ++++
->  scripts/Makefile.llvm | 24 ++++++++++++++++++++++++
->  2 files changed, 28 insertions(+)
->  create mode 100644 scripts/Makefile.llvm
-> 
-> diff --git a/Makefile b/Makefile
-> index b954c304c479..8c8888ebb822 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -472,6 +472,10 @@ KBUILD_LDFLAGS :=
->  GCC_PLUGINS_CFLAGS :=
->  CLANG_FLAGS :=
->  
-> +ifeq ($(LLVM),1)
-> +include scripts/Makefile.llvm
-> +endif
-> +
->  export ARCH SRCARCH CONFIG_SHELL BASH HOSTCC KBUILD_HOSTCFLAGS CROSS_COMPILE AS LD CC
->  export CPP AR NM STRIP OBJCOPY OBJDUMP OBJSIZE READELF PAHOLE LEX YACC AWK INSTALLKERNEL
->  export PERL PYTHON PYTHON3 CHECK CHECKFLAGS MAKE UTS_MACHINE HOSTCXX
-> diff --git a/scripts/Makefile.llvm b/scripts/Makefile.llvm
-> new file mode 100644
-> index 000000000000..a4401c8677dc
-> --- /dev/null
-> +++ b/scripts/Makefile.llvm
-> @@ -0,0 +1,24 @@
-> +define META_set =
-> +ifeq "$(origin $(1))" "file"
-> +$(1) := $(2)
-> +else
-> +override $(1) := $(CROSS_COMPILE)$($(1))
-> +endif
-> +endef
-> +
-> +$(eval $(call META_set,CC,clang))
-> +$(eval $(call META_set,AS,clang))
-> +$(eval $(call META_set,LD,ld.lld))
-> +$(eval $(call META_set,AR,llvm-ar))
-> +$(eval $(call META_set,NM,llvm-nm))
-> +$(eval $(call META_set,STRIP,llvm-strip))
-> +$(eval $(call META_set,OBJCOPY,llvm-objcopy))
-> +$(eval $(call META_set,OBJDUMP,llvm-objdump))
-> +$(eval $(call META_set,OBJSIZE,llvm-objsize))
-> +$(eval $(call META_set,READELF,llvm-readelf))
-> +$(eval $(call META_set,HOSTCC,clang))
-> +$(eval $(call META_set,HOSTCXX,clang++))
-> +$(eval $(call META_set,HOSTAR,llvm-ar))
-> +$(eval $(call META_set,HOSTLD,ld.lld))
-> +
-> +## TODO: HOSTAR, HOSTLD in tools/objtool/Makefile
-> -- 
-> 2.25.0.265.gbab2e86ba0-goog
-> 
 
-The overall approach seems relatively sane to me, as someone who is not
-a GNU make expert. This could be handy for seeing how hermetic the build
-system is by symlinking /bin/false to gcc, ld, as, etc and adding that
-folder to PATH then passing LLVM=1.
+On 2020-03-17, Stanislav Fomichev wrote:
+>On 03/16, Fangrui Song wrote:
+>> On 2020-03-16, Andrii Nakryiko wrote:
+>> > On Mon, Mar 16, 2020 at 10:21 PM Fangrui Song <maskray@google.com> wrote:
+>> > >
+>> > >
+>> > > On 2020-03-16, Andrii Nakryiko wrote:
+>> > > >On Mon, Mar 16, 2020 at 8:37 PM Fangrui Song <maskray@google.com> wrote:
+>> > > >>
+>> > > >> On 2020-03-16, Andrii Nakryiko wrote:
+>> > > >> >On Mon, Mar 16, 2020 at 6:17 PM Fangrui Song <maskray@google.com> wrote:
+>> > > >> >>
+>> > > >> >> Simplify gen_btf logic to make it work with llvm-objcopy and
+>> > > >> >> llvm-objdump.  We just need to retain one section .BTF. To do so, we can
+>> > > >> >> use a simple objcopy --only-section=.BTF instead of jumping all the
+>> > > >> >> hoops via an architecture-less binary file.
+>> > > >> >>
+>> > > >> >> We use a dd comment to change the e_type field in the ELF header from
+>> > > >> >> ET_EXEC to ET_REL so that .btf.vmlinux.bin.o will be accepted by lld.
+>> > > >> >>
+>> > > >> >> Fixes: df786c9b9476 ("bpf: Force .BTF section start to zero when dumping from vmlinux")
+>> > > >> >> Cc: Stanislav Fomichev <sdf@google.com>
+>> > > >> >> Cc: Nick Desaulniers <ndesaulniers@google.com>
+>> > > >> >> Tested-by: Nick Desaulniers <ndesaulniers@google.com>
+>> > > >> >> Reported-by: Nathan Chancellor <natechancellor@gmail.com>
+>> > > >> >> Link: https://github.com/ClangBuiltLinux/linux/issues/871
+>> > > >> >> Signed-off-by: Fangrui Song <maskray@google.com>
+>> > > >> >> ---
+>> > > >> >>  scripts/link-vmlinux.sh | 13 ++-----------
+>> > > >> >>  1 file changed, 2 insertions(+), 11 deletions(-)
+>> > > >> >>
+>> > > >> >> diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
+>> > > >> >> index dd484e92752e..84be8d7c361d 100755
+>> > > >> >> --- a/scripts/link-vmlinux.sh
+>> > > >> >> +++ b/scripts/link-vmlinux.sh
+>> > > >> >> @@ -120,18 +120,9 @@ gen_btf()
+>> > > >> >>
+>> > > >> >>         info "BTF" ${2}
+>> > > >> >>         vmlinux_link ${1}
+>> > > >> >> -       LLVM_OBJCOPY=${OBJCOPY} ${PAHOLE} -J ${1}
+>> > > >> >
+>> > > >> >Is it really tested? Seems like you just dropped .BTF generation step
+>> > > >> >completely...
+>> > > >>
+>> > > >> Sorry, dropped the whole line:/
+>> > > >> I don't know how to test .BTF . I can only check readelf -S...
+>> > > >>
+>> > > >> Attached the new patch.
+>> > > >>
+>> > > >>
+>> > > >>  From 02afb9417d4f0f8d2175c94fc3797a94a95cc248 Mon Sep 17 00:00:00 2001
+>> > > >> From: Fangrui Song <maskray@google.com>
+>> > > >> Date: Mon, 16 Mar 2020 18:02:31 -0700
+>> > > >> Subject: [PATCH bpf v2] bpf: Support llvm-objcopy and llvm-objdump for
+>> > > >>   vmlinux BTF
+>> > > >>
+>> > > >> Simplify gen_btf logic to make it work with llvm-objcopy and llvm-objdump.
+>> > > >> We use a dd comment to change the e_type field in the ELF header from
+>> > > >> ET_EXEC to ET_REL so that .btf.vmlinux.bin.o can be accepted by lld.
+>> > > >>
+>> > > >> Fixes: df786c9b9476 ("bpf: Force .BTF section start to zero when dumping from vmlinux")
+>> > > >> Cc: Stanislav Fomichev <sdf@google.com>
+>> > > >> Cc: Nick Desaulniers <ndesaulniers@google.com>
+>> > > >> Reported-by: Nathan Chancellor <natechancellor@gmail.com>
+>> > > >> Link: https://github.com/ClangBuiltLinux/linux/issues/871
+>> > > >> Signed-off-by: Fangrui Song <maskray@google.com>
+>> > > >> ---
+>> > > >>   scripts/link-vmlinux.sh | 14 +++-----------
+>> > > >>   1 file changed, 3 insertions(+), 11 deletions(-)
+>> > > >>
+>> > > >> diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
+>> > > >> index dd484e92752e..b23313944c89 100755
+>> > > >> --- a/scripts/link-vmlinux.sh
+>> > > >> +++ b/scripts/link-vmlinux.sh
+>> > > >> @@ -120,18 +120,10 @@ gen_btf()
+>> > > >>
+>> > > >>         info "BTF" ${2}
+>> > > >>         vmlinux_link ${1}
+>> > > >> -       LLVM_OBJCOPY=${OBJCOPY} ${PAHOLE} -J ${1}
+>> > > >> +       ${PAHOLE} -J ${1}
+>> > > >
+>> > > >I'm not sure why you are touching this line at all. LLVM_OBJCOPY part
+>> > > >is necessary, pahole assumes llvm-objcopy by default, but that can
+>> > > >(and should for objcopy) be overridden with LLVM_OBJCOPY.
+>> > >
+>> > > Why is LLVM_OBJCOPY assumed? What if llvm-objcopy is not available?
+>> >
+>> > It's pahole assumption that we have to live with. pahole assumes
+>> > llvm-objcopy internally, unless it is overriden with LLVM_OBJCOPY env
+>> > var. So please revert this line otherwise you are breaking it for GCC
+>> > objcopy case.
+>>
+>> Acknowledged. Uploaded v3.
+>>
+>> I added back 2>/dev/null which was removed by a previous change, to
+>> suppress GNU objcopy warnings. The warnings could be annoying in V=1
+>> output.
+>>
+>> > > This is confusing that one tool assumes llvm-objcopy while the block
+>> > > below immediately uses GNU objcopy (without this patch).
+>> > >
+>> > > e83b9f55448afce3fe1abcd1d10db9584f8042a6 "kbuild: add ability to
+>> > > generate BTF type info for vmlinux" does not say why LLVM_OBJCOPY is
+>> > > set.
+>> > >
+>> > > >>
+>> > > >> -       # dump .BTF section into raw binary file to link with final vmlinux
+>> > > >> -       bin_arch=$(LANG=C ${OBJDUMP} -f ${1} | grep architecture | \
+>> > > >> -               cut -d, -f1 | cut -d' ' -f2)
+>> > > >> -       bin_format=$(LANG=C ${OBJDUMP} -f ${1} | grep 'file format' | \
+>> > > >> -               awk '{print $4}')
+>> > > >> -       ${OBJCOPY} --change-section-address .BTF=0 \
+>> > > >> -               --set-section-flags .BTF=alloc -O binary \
+>> > > >> -               --only-section=.BTF ${1} .btf.vmlinux.bin
+>> > > >> -       ${OBJCOPY} -I binary -O ${bin_format} -B ${bin_arch} \
+>> > > >> -               --rename-section .data=.BTF .btf.vmlinux.bin ${2}
+>> > > >> +       # Extract .BTF section, change e_type to ET_REL, to link with final vmlinux
+>> > > >> +       ${OBJCOPY} --only-section=.BTF ${1} ${2} && printf '\1' | dd of=${2} conv=notrunc bs=1 seek=16
+>> > > >>   }
+>> > > >>
+>> > > >>   # Create ${2} .o file with all symbols from the ${1} object file
+>> > > >> --
+>> > > >> 2.25.1.481.gfbce0eb801-goog
+>> > > >>
+>>
+>> From ca3597477542453e9f63185c27c162da081a4baf Mon Sep 17 00:00:00 2001
+>> From: Fangrui Song <maskray@google.com>
+>> Date: Mon, 16 Mar 2020 22:38:23 -0700
+>> Subject: [PATCH bpf v3] bpf: Support llvm-objcopy and llvm-objdump for
+>>  vmlinux BTF
+>>
+>> Simplify gen_btf logic to make it work with llvm-objcopy and llvm-objdump.
+>> Add 2>/dev/null to suppress GNU objcopy (but not llvm-objcopy) warnings
+>> "empty loadable segment detected at vaddr=0xffffffff81000000, is this intentional?"
+>> Our use of --only-section drops many SHF_ALLOC sections which will essentially nullify
+>> program headers. When used as linker input, program headers are simply
+>> ignored.
+>>
+>> We use a dd command to change the e_type field in the ELF header from
+>> ET_EXEC to ET_REL so that .btf.vmlinux.bin.o can be accepted by lld.
+>> Accepting ET_EXEC as an input file is an extremely rare GNU ld feature
+>> that lld does not intend to support, because this is very error-prone.
+>>
+>> Fixes: df786c9b9476 ("bpf: Force .BTF section start to zero when dumping from vmlinux")
+>> Cc: Stanislav Fomichev <sdf@google.com>
+>> Cc: Nick Desaulniers <ndesaulniers@google.com>
+>> Reported-by: Nathan Chancellor <natechancellor@gmail.com>
+>> Link: https://github.com/ClangBuiltLinux/linux/issues/871
+>> Signed-off-by: Fangrui Song <maskray@google.com>
+>> ---
+>>  scripts/link-vmlinux.sh | 12 ++----------
+>>  1 file changed, 2 insertions(+), 10 deletions(-)
+>>
+>> diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
+>> index dd484e92752e..c3e808a89d4a 100755
+>> --- a/scripts/link-vmlinux.sh
+>> +++ b/scripts/link-vmlinux.sh
+>> @@ -122,16 +122,8 @@ gen_btf()
+>>  	vmlinux_link ${1}
+>>  	LLVM_OBJCOPY=${OBJCOPY} ${PAHOLE} -J ${1}
+>> -	# dump .BTF section into raw binary file to link with final vmlinux
+>> -	bin_arch=$(LANG=C ${OBJDUMP} -f ${1} | grep architecture | \
+>> -		cut -d, -f1 | cut -d' ' -f2)
+>> -	bin_format=$(LANG=C ${OBJDUMP} -f ${1} | grep 'file format' | \
+>> -		awk '{print $4}')
+>> -	${OBJCOPY} --change-section-address .BTF=0 \
+>> -		--set-section-flags .BTF=alloc -O binary \
+>> -		--only-section=.BTF ${1} .btf.vmlinux.bin
+>> -	${OBJCOPY} -I binary -O ${bin_format} -B ${bin_arch} \
+>> -		--rename-section .data=.BTF .btf.vmlinux.bin ${2}
+>> +	# Extract .BTF section, change e_type to ET_REL, to link with final vmlinux
+>> +	${OBJCOPY} --only-section=.BTF ${1} ${2} 2> /dev/null && printf '\1' | dd of=${2} conv=notrunc bs=1 seek=16
+>No, it doesn't work unfortunately, I get "in-kernel BTF is malformed"
+>from the kernel.
+>
+>I think that's because -O binary adds the following:
+>$ nm .btf.vmxlinux.bin
+>00000000002f7bc9 D _binary__btf_vmlinux_bin_end
+>00000000002f7bc9 A _binary__btf_vmlinux_bin_size
+>0000000000000000 D _binary__btf_vmlinux_bin_start
+>
+>While non-binary mode doesn't:
+>$ nm .btf.vmxlinux.bin
+>
+>We don't add them manually in the linker map and expect objcopy to add
+>them, see:
+>https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git/tree/kernel/bpf/btf.c#n3480
 
-Something that needs to be considered is how do we handle people who use
-something like apt.llvm.org, where those versions are suffixed with a
-number. Realistically, they could just add /usr/lib/llvm-#/bin to PATH
-and then everything would work but should we add something like
-LLVM_SUFFIX= so that they could say LLVM_SUFFIX=-11 to get clang-11,
-ld.lld-11, etc?
+Attached v4.
 
-Cheers,
-Nathan
+* Added status=none to the dd command to suppress stderr output.
+* `objcopy -I binary` synthesized symbols are only used in BTF, not
+elsewhere. I think we can replace it with a more common trick,
+__start_$sectionname __stop_$sectionname.
+* GNU ld<2.23 can define __start_BTF and __stop_BTF as SHN_ABS.
+   I think it is totally fine for a SHN_ABS symbol to be referenced by an
+   R_X86_64_32S (absolute relocation), but arch/x86/tools/relocs.c
+   contains an unnecessarily rigid check that rejects this.
+
+   ...
+   Invalid absolute R_X86_64_32S relocation: __start_BTF
+   make[3]: *** [arch/x86/boot/compressed/Makefile:123:
+   arch/x86/boot/compressed/vmlinux.relocs] Error 1
+
+   Since we are going to bump binutils version requirement to 2.23, which
+   will completely avoid the issue. I will not mention it again.
+   https://lore.kernel.org/lkml/202003161354.538479F16@keescook/
+
+* I should mention that an orphan BTF (previously .BTF) could trigger
+   a --orphan-handling=warn warning. So eventually we might need to
+   add an output section description
+
+     BTF : { *(BTF) }
+
+   to the vmlinux linker script for every arch.
+   I'll not do that in this patch, though.
+
+>
+>>  }
+>>  # Create ${2} .o file with all symbols from the ${1} object file
+>> --
+>> 2.25.1.481.gfbce0eb801-goog
+>>
+
+ From 9b694d68fefe041464eccb948f6d246fab67942d Mon Sep 17 00:00:00 2001
+From: Fangrui Song <maskray@google.com>
+Date: Tue, 17 Mar 2020 13:51:04 -0700
+Subject: [PATCH bpf-next v4] bpf: Support llvm-objcopy and
+  llvm-objdump for vmlinux BTF
+
+Simplify gen_btf logic to make it work with llvm-objcopy and llvm-objdump.
+The existing 'file format' and 'architecture' parsing logic is brittle
+and does not work with llvm-objcopy/llvm-objdump.
+
+.BTF in .tmp_vmlinux.btf is non-SHF_ALLOC. Add the SHF_ALLOC flag and
+rename .BTF to BTF so that C code can reference the section via linker
+synthesized __start_BTF and __stop_BTF. This fixes a small problem that
+previous .BTF had the SHF_WRITE flag. Additionally, `objcopy -I binary`
+synthesized symbols _binary__btf_vmlinux_bin_start and
+_binary__btf_vmlinux_bin_start (not used elsewhere) are replaced with
+more common __start_BTF and __stop_BTF.
+
+Add 2>/dev/null because GNU objcopy (but not llvm-objcopy) warns
+"empty loadable segment detected at vaddr=0xffffffff81000000, is this intentional?"
+
+We use a dd command to change the e_type field in the ELF header from
+ET_EXEC to ET_REL so that lld will accept .btf.vmlinux.bin.o.  Accepting
+ET_EXEC as an input file is an extremely rare GNU ld feature that lld
+does not intend to support, because this is error-prone.
+
+Fixes: df786c9b9476 ("bpf: Force .BTF section start to zero when dumping from vmlinux")
+Cc: Stanislav Fomichev <sdf@google.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>
+Reported-by: Nathan Chancellor <natechancellor@gmail.com>
+Link: https://github.com/ClangBuiltLinux/linux/issues/871
+Signed-off-by: Fangrui Song <maskray@google.com>
+---
+  kernel/bpf/btf.c        |  9 ++++-----
+  kernel/bpf/sysfs_btf.c  | 11 +++++------
+  scripts/link-vmlinux.sh | 16 ++++++----------
+  3 files changed, 15 insertions(+), 21 deletions(-)
+
+diff --git a/kernel/bpf/btf.c b/kernel/bpf/btf.c
+index 787140095e58..51fff49de561 100644
+--- a/kernel/bpf/btf.c
++++ b/kernel/bpf/btf.c
+@@ -3477,8 +3477,8 @@ static struct btf *btf_parse(void __user *btf_data, u32 btf_data_size,
+  	return ERR_PTR(err);
+  }
+  
+-extern char __weak _binary__btf_vmlinux_bin_start[];
+-extern char __weak _binary__btf_vmlinux_bin_end[];
++extern char __weak __start_BTF[];
++extern char __weak __stop_BTF[];
+  extern struct btf *btf_vmlinux;
+  
+  #define BPF_MAP_TYPE(_id, _ops)
+@@ -3605,9 +3605,8 @@ struct btf *btf_parse_vmlinux(void)
+  	}
+  	env->btf = btf;
+  
+-	btf->data = _binary__btf_vmlinux_bin_start;
+-	btf->data_size = _binary__btf_vmlinux_bin_end -
+-		_binary__btf_vmlinux_bin_start;
++	btf->data = __start_BTF;
++	btf->data_size = __stop_BTF - __start_BTF;
+  
+  	err = btf_parse_hdr(env);
+  	if (err)
+diff --git a/kernel/bpf/sysfs_btf.c b/kernel/bpf/sysfs_btf.c
+index 7ae5dddd1fe6..3b495773de5a 100644
+--- a/kernel/bpf/sysfs_btf.c
++++ b/kernel/bpf/sysfs_btf.c
+@@ -9,15 +9,15 @@
+  #include <linux/sysfs.h>
+  
+  /* See scripts/link-vmlinux.sh, gen_btf() func for details */
+-extern char __weak _binary__btf_vmlinux_bin_start[];
+-extern char __weak _binary__btf_vmlinux_bin_end[];
++extern char __weak __start_BTF[];
++extern char __weak __stop_BTF[];
+  
+  static ssize_t
+  btf_vmlinux_read(struct file *file, struct kobject *kobj,
+  		 struct bin_attribute *bin_attr,
+  		 char *buf, loff_t off, size_t len)
+  {
+-	memcpy(buf, _binary__btf_vmlinux_bin_start + off, len);
++	memcpy(buf, __start_BTF + off, len);
+  	return len;
+  }
+  
+@@ -30,15 +30,14 @@ static struct kobject *btf_kobj;
+  
+  static int __init btf_vmlinux_init(void)
+  {
+-	if (!_binary__btf_vmlinux_bin_start)
++	if (!__start_BTF)
+  		return 0;
+  
+  	btf_kobj = kobject_create_and_add("btf", kernel_kobj);
+  	if (!btf_kobj)
+  		return -ENOMEM;
+  
+-	bin_attr_btf_vmlinux.size = _binary__btf_vmlinux_bin_end -
+-				    _binary__btf_vmlinux_bin_start;
++	bin_attr_btf_vmlinux.size = __stop_BTF - __start_BTF;
+  
+  	return sysfs_create_bin_file(btf_kobj, &bin_attr_btf_vmlinux);
+  }
+diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
+index dd484e92752e..c0d2ecf1bff7 100755
+--- a/scripts/link-vmlinux.sh
++++ b/scripts/link-vmlinux.sh
+@@ -122,16 +122,12 @@ gen_btf()
+  	vmlinux_link ${1}
+  	LLVM_OBJCOPY=${OBJCOPY} ${PAHOLE} -J ${1}
+  
+-	# dump .BTF section into raw binary file to link with final vmlinux
+-	bin_arch=$(LANG=C ${OBJDUMP} -f ${1} | grep architecture | \
+-		cut -d, -f1 | cut -d' ' -f2)
+-	bin_format=$(LANG=C ${OBJDUMP} -f ${1} | grep 'file format' | \
+-		awk '{print $4}')
+-	${OBJCOPY} --change-section-address .BTF=0 \
+-		--set-section-flags .BTF=alloc -O binary \
+-		--only-section=.BTF ${1} .btf.vmlinux.bin
+-	${OBJCOPY} -I binary -O ${bin_format} -B ${bin_arch} \
+-		--rename-section .data=.BTF .btf.vmlinux.bin ${2}
++	# Extract .BTF, add SHF_ALLOC, rename to BTF so that we can reference
++	# it via linker synthesized __start_BTF and __stop_BTF. Change e_type
++	# to ET_REL so that it can be used to link final vmlinux.
++	${OBJCOPY} --only-section=.BTF --set-section-flags .BTF=alloc,readonly \
++		--rename-section .BTF=BTF ${1} ${2} 2>/dev/null && \
++		printf '\1' | dd of=${2} conv=notrunc bs=1 seek=16 status=none
+  }
+  
+  # Create ${2} .o file with all symbols from the ${1} object file
+-- 
+2.25.1.481.gfbce0eb801-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200317202404.GA20746%40ubuntu-m2-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200317205832.lna5phig2ed3bf2n%40google.com.
