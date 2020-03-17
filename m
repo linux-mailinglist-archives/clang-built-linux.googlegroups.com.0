@@ -1,125 +1,141 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRB76RYTZQKGQEDWDGHAI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBZ7DYTZQKGQE3WFKROA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x239.google.com (mail-lj1-x239.google.com [IPv6:2a00:1450:4864:20::239])
-	by mail.lfdr.de (Postfix) with ESMTPS id 16C8B188E3D
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 20:46:08 +0100 (CET)
-Received: by mail-lj1-x239.google.com with SMTP id e14sf3888785ljp.12
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 12:46:08 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584474367; cv=pass;
+Received: from mail-vk1-xa37.google.com (mail-vk1-xa37.google.com [IPv6:2607:f8b0:4864:20::a37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 52303188EF0
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 21:24:08 +0100 (CET)
+Received: by mail-vk1-xa37.google.com with SMTP id c127sf9782912vkh.18
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 13:24:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584476647; cv=pass;
         d=google.com; s=arc-20160816;
-        b=DHP1wPtLuwMu/DWVjyM0xIu0kTolYA8Ba3/qYyODTWwIQNABbWjBR4b1c5USNNe8rx
-         7XoNbXxvCOusrplgSo60AKZI+S8uzYK9LIce71cNtYJDh1mBZh5oVQa9k9L6QdTDFs+q
-         Atih701UU2WY9mph/3/t+9HdjPG8BmwuX5M7OyeMCxdTnMjgmyudbBIL020B5QRGm+x1
-         EiYHjrZ8UcqNbyltnItn2k+fOyV/3n7WnYrX5I6S2K5CTm51RHayHVC9PhXfFQzM1I0F
-         r+WAz0XeRJk55jt7ZWEvsyy14Dxqi0veBCVqIJxaDCH/lr9b3apuP3Mkk1U26cgWww20
-         ZlyA==
+        b=Ect2DropJ/loL1uL195MRJ+gG0YhUAAEoNpBzjLYRfE/Vn/0N+8zILRVvy0gGGP1/E
+         DyjJAf7act0uYOhmz7VpS4rdZLF6wiU6ErSIsY8k9WymQ9Xw90y2dAKs4PoyeQKeYnpv
+         yoCA1MaH8L+J3XVvHjJcqt67qm1LLNMT0HEsaoJLHdqo65nFeAsoMayqyS+cJGGKW2Tc
+         h8X5LlIH0YIzJSvGeqcHcDoh+iP0eJOptmdjpC1UHLwa5Azs+LlDb1Yz4EVxlZXO9z/W
+         S/DpX/lhykB81KjmV6Ylc9WSR7/DK64cC2rWe5FrGJZ9QiqC/sfvlef0d+enqa5aAFFW
+         h+gg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=XLL/NhNxnCIZKB69tqUUG/Wcn3XWTd3aWo4ffeTY84A=;
-        b=i50Iu1bilWqU8DfSuJXdS+Tpz0hoSVwfpi+6fwxt7wG3xIJ8KA03UQs6nky58rFOp3
-         Oerr8/EV0KNkR6LfIBg9w1u/6cTJMnZ9p6R+6d2QfbDpiUH95ZLiDFTKnms4r+BZH/zF
-         zzoSOtPf91IAg/UmQnNqbvCce1Oq7pkb3jZ2bZL0+BrPmKJB0xcwHYM1sEkrCv14nLiL
-         iARPCQu9QvElGZVkDptQDNhjQowSYvEPZzHuKylANMB2f3z89cgbBGr2ZS5MZqIDQWFB
-         eydBzNLnAoqqwQY739oqg5szf5qQ89TZ4cAQ0uDvBIE57yShG/9tkTgBO1ipbwE82Fue
-         w4oA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature:dkim-signature;
+        bh=V5DkBLa7lmBBpomcrdRqsOsRPcZKAIvxtdiLiATnrH0=;
+        b=0Ueomyt0JNM4gF4MpxFmJjNWUNvtslYDbh4NuD8jh9bMr6jXzFrOLnIhF/mkBW8Ycr
+         4cuiJpmY2HW1mtE7K94G4QnV5vLXzcxige2Asm8obMKLqhx9TPNLl0F8zpPmPH66wpvS
+         3WiT3hqLzrLL8fZbBOuRYqUyf1RY4Cl/Lf1asfIgDYfCt8T8dKUb6e4skCDpTBwabA2h
+         qDLjUj8AbS1rfQuntFXNHrakNsptE8YTGGqbOf4thvekYTBTcxegQIuVThwGCmUhyH9G
+         7WKN3zE65XPOeW4xvM5TcAjjLNAfDhc8J9vO0b1rGelxdKsE6euaFTAu8begvWEer0/5
+         vzdw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b="gu69/6ZY";
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=FXvN5UNl;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::244 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=XLL/NhNxnCIZKB69tqUUG/Wcn3XWTd3aWo4ffeTY84A=;
-        b=LQWZ2QJo7QFuONtzPe9Gz3B3W8KE+PuRvfXeQ8TOoBMcVOYjOAv267DNCSdwc66lrc
-         47ltpRwRuSRAz7QvLsKfNzxXmTqsRI7GiyBQ4RC0zqTVZIt5NvKR1/xhz5m9wSNsHEO1
-         ai98vWfNdqSb42zmXkF01FX/jgYkv2YVjUIRtT2Fl3V7sjRMgAltVJW6udfIBTrBjhGB
-         Bo6JutULMgk31UGEWpQL8HBceczqfxUywC2kj3Syem2C8AMtcnkWfiIafv3VkIyN7Eh8
-         aGynKnsDUb+NlIxNBDlHBOz5PPBEn5U3W8QjUzeqFzFMt2lWiEgX2Ug5Jujh3qoElu0V
-         0E5A==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=V5DkBLa7lmBBpomcrdRqsOsRPcZKAIvxtdiLiATnrH0=;
+        b=Ds0jXeiQ5OtVCtmxWatzL/grNa5+cO71mYRN2HulmhaGniMh9GtxDYLs9Vh7PLXkCU
+         p+xny6dwNvP4UxSh64qPWk5aEpRytVKLMgXcDPk5vHOczecpIpi9YILXsKZ0RQfzJweI
+         5sH2BQcdXtUz6RidFYgHOZfudJwmPmkDhAeYW2u/L7sjnaqLhyJC8TdENsoXik383B9O
+         Jmks1IKyISiplbNcojht3lETJhZpVa3pa7yNwZXMVfYfNyA1ytQdYEBWLeeY+HYmP7YD
+         2NJM9nT0jNz1yTXZIzdombfftT3FPGDl5KzVDOpBbVRCU5XwLtIa/Q0em7QJCORTscUZ
+         71CA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=V5DkBLa7lmBBpomcrdRqsOsRPcZKAIvxtdiLiATnrH0=;
+        b=hv47f7ZkNnX6GiP5zuPgE7Oy8NcBI/2ElFzZx0o61ROB9Q4wwzRqKa2z1dUqA5N4EA
+         DXUXeeiYtAgM4rdEJ5hYjem85/Xlxu13wP6NfEzT8MjYKIadzQP9ORv5CroSFYgIVkJK
+         q/krQJ1dJ8TZ+V42Y2ITTus5F2vP3rNLiM7koSdAFMCr04N5seCYvxk2UqNexuXLG9ke
+         mGN9gUpPaE/r4lS5swg4SKBaJ/J5Nx3IlPYRcE/WQP9Fg51dp7bZjdxagnrL5UGBQ+gF
+         BbJE+GmjaBKEJzQ0aEx2vjwW9c7IkLM5m0afgxZYPN6NC2ohVMBUW1FsVjT2eKcrdU3z
+         V0TA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=XLL/NhNxnCIZKB69tqUUG/Wcn3XWTd3aWo4ffeTY84A=;
-        b=PhDMaYrNo9Fy5X4QOjS+vFlm0LoRe9B+yKqAZs7z9RsMTzhPsmHQWScKEgMlg6Q5d9
-         2w2Zajva/jROfYOHMeMsrMQNylRPcMjatcTxFgWfFxyJV7HtaIXD3bOhK2Rz/2ELRCL/
-         9WoJUVsxwR8eqbzOzcGJ88BXEeD7NJp2zL44vwRPuvR+N0l5yxr+HcnL2eLqp4eH8yqy
-         uU2UGprjU4jP879vQUxgSNK3b7CfN9ZE5zNFDUSY3mWwf2dsXIB7MX42GPNNbIxag2kI
-         vO/I/SUzHpVYm/18dFBDgBO9RG4lt5HQ5qfCr4/yNzbpM171lJpf0IlAUaCwj56mhYTG
-         8vdg==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=V5DkBLa7lmBBpomcrdRqsOsRPcZKAIvxtdiLiATnrH0=;
+        b=k+PQVFcGZ238bTzZL389lKrMbu2/AIwgYBb6tGnNoKNqdIxgKiGzRVEunDdxzbUeWx
+         zDi4J4K6nlCCmbmA/SXvlKxfDsT8k6ms2KaVBlN+nUtu4FCw7nI49sVQI8he2vPBqel0
+         2kGzvoLHOg0KmvaelGZlChWpqejHNpLnPc3Zf9XxAKbejuw6CO5Edut7eShy9spqqubJ
+         KiuoYJVIKIThtMU2j67ttYEvHoJGYIHVijiXkYhVpIw36FkhsUNK68z/nVko7lyk/dZ3
+         VK5f0OjM14VTZ825AiUIjlVXRpgS9vEs87j5dA0dVjOk9cwGOGPV9e4/qNU9g5F6yGh0
+         KkIg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ2FWcjsqtsUqt2INokiA/UJUwc0yk+neVoLewShbSv1Lmf2QHe8
-	h8pYzMHluuhkqe/cHAufRDw=
-X-Google-Smtp-Source: ADFU+vufoa5zc00UrLd8Z+Rqx1dbtZCLW2DVtgI5fbbdZ2I2TI72pvtaLbSUsW6FFej5lEgklwGi/Q==
-X-Received: by 2002:a05:651c:2c9:: with SMTP id f9mr228625ljo.85.1584474367466;
-        Tue, 17 Mar 2020 12:46:07 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ0BLg0REI9TS0W4xcblnuo7frGaJvNGc76QDfRIvkji1iFvl9I6
+	Sc688vBuJdsN7NWBoWq9AW8=
+X-Google-Smtp-Source: ADFU+vvvm597CA4Nc7lDoS78th7oZEwg5S02lLhIAW1O/II3y8rEx/73MSXGdjDJfsFSBqn2eOxsCg==
+X-Received: by 2002:a05:6102:1052:: with SMTP id h18mr674515vsq.202.1584476647090;
+        Tue, 17 Mar 2020 13:24:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:96d9:: with SMTP id d25ls2369331ljj.11.gmail; Tue, 17
- Mar 2020 12:46:06 -0700 (PDT)
-X-Received: by 2002:a2e:9f49:: with SMTP id v9mr230089ljk.238.1584474366719;
-        Tue, 17 Mar 2020 12:46:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584474366; cv=none;
+Received: by 2002:a67:c01d:: with SMTP id v29ls2962670vsi.6.gmail; Tue, 17 Mar
+ 2020 13:24:06 -0700 (PDT)
+X-Received: by 2002:a67:646:: with SMTP id 67mr625749vsg.34.1584476646746;
+        Tue, 17 Mar 2020 13:24:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584476646; cv=none;
         d=google.com; s=arc-20160816;
-        b=zSPHX9Ml2OINVeJRSxQyTPiJPxDOS6oBN5VJWTYus7nelhbaUycBZF5PSbRrAtuY9x
-         goSxRt3TxyVn1siMEWKOKNY/tR6CHqslZH420/jdVslVOzX9aK/E+0P9fs/KhzlsgEiz
-         dR9KXoluPRa5bqCourZ2kajluLQ6J4pATiGrkqMgaz5jm8e7vHF4LLbzBYpN4upR/m/F
-         dgXjbB7fMAHgtw/of5KSIis0eutSQ6hcDBUcPTjNvlcdv86JNa9q9o8TYggQuCHnOBZi
-         VqjyDAY4CPs0uXzubqr1LHrxUdbye/8iVCui4Sy4Pl47LZrttRnAAItVbaQTTGptW7eh
-         JUTA==
+        b=II/0F0YP40vK7Pdl0LdPExsU/C6hLi+bldtqbN1ptRPxn+UTf2YXHKO0wM1aO5Wzxx
+         6NIroQR0N5wmXbBpKh8XK0G/X7DQ3fosFrIHPPqe1E0agDzl7uB0tYOOztd42QvF0Odd
+         NCAj4lKi7UAWmv480sNQXkhGn6AWZEk+FM+66YlyEp5UQP78ZKIwcNAQct62jQBrqr8r
+         GSilEM+YQLr6sFwokjSESvx6j2kFMgF26Kw4w25r3vekwAZ1hVpOjdGspcIeZuHVG4GF
+         rWtUVePkUl4o1Ia8uQe+mklB4H3AFrPwbGI/1gTEIJCWS+pbA0hgI1RUrRVPeT3zR9sq
+         Jmjw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=rFFRtWHjiiMH3F6mMA9ICDyPmkvR5Xy2vTpcf/23k4Q=;
-        b=dem1URq5jMu8HDQ7Q5r/12Go7V+9DS3TpPZXuhhB4dV9TXCmZXIXoQ5LgqcIIy6lOZ
-         9qmeyqLNtZCSZM8EZogat2qkKClcMaQjpGm516E8J5q+aPKyVHc3Sg1Bc3lmwHqixEuD
-         rCQp6ecw2w1H/LJnCnhdqV9C357wMPVoLw+Jr3x4P2FIJXusPVb/AW/sw2rX2E/VcSt1
-         ofPv+yGLkcgHwptSNCYLLMEgdAeIiBTsE7CDC1rrzwUfkarLzxFycd2PxZ1zcQa898Ev
-         tXIu64imzFkNuqZjWeD5xznJYoavjXf7IPgvURyzeSDMBB8jF58CcNCZRCftzaEOz+qj
-         AnzA==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=ZwrUWPje+er/rxMVZKdfcHZbDPlxBar5CzVyaKnohHw=;
+        b=yugrxlPdNYDZCXvr6Uj534IDoDO3ML+Y0vzCEVhxRbm2vMwKfCvKBd/+LI+sAF8KdG
+         VUuUNErRC1SA7150e5XtGjoBf16Iyf30YfvZNjQVmLPODm0tpA7MuA/FecOMhGwf7pwc
+         n9xFcbgAiL5C9JdkwePu6JxkJh9Ow5IkDhZrjy9vSYnYvYXY0rHNr9OBDI9ubVy3M6Ec
+         7u15O+zqGELTYf7oZPYSwOzRZiuxGneuejHYDMQC7fm7IVCoiZ0BnNkMNmP0fxEqBzzK
+         rJQ0PhJK2Xnh2bpFbuCDqngvUOxoe+X1WdX3wlVJ+g0YFzYOKIBYvZl552qKUUJt7N8p
+         CDtw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b="gu69/6ZY";
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wr1-x442.google.com (mail-wr1-x442.google.com. [2a00:1450:4864:20::442])
-        by gmr-mx.google.com with ESMTPS id c15si190923ljn.3.2020.03.17.12.46.06
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=FXvN5UNl;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::244 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-oi1-x244.google.com (mail-oi1-x244.google.com. [2607:f8b0:4864:20::244])
+        by gmr-mx.google.com with ESMTPS id c3si181815uam.1.2020.03.17.13.24.06
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Mar 2020 12:46:06 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::442 as permitted sender) client-ip=2a00:1450:4864:20::442;
-Received: by mail-wr1-x442.google.com with SMTP id f3so20330715wrw.7
-        for <clang-built-linux@googlegroups.com>; Tue, 17 Mar 2020 12:46:06 -0700 (PDT)
-X-Received: by 2002:a5d:6845:: with SMTP id o5mr658490wrw.86.1584474365809;
-        Tue, 17 Mar 2020 12:46:05 -0700 (PDT)
-Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id n9sm557565wmi.23.2020.03.17.12.46.05
-        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Tue, 17 Mar 2020 12:46:05 -0700 (PDT)
-From: ci_notify@linaro.org
-Date: Tue, 17 Mar 2020 19:46:04 +0000 (UTC)
-To: tcwg-validation@linaro.org, llvm@linaro.org, 
-	clang-built-linux@googlegroups.com
-Message-ID: <388916845.10393.1584474365248.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-master-aarch64-stable-allnoconfig - Build # 7 -
- Successful!
+        Tue, 17 Mar 2020 13:24:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::244 as permitted sender) client-ip=2607:f8b0:4864:20::244;
+Received: by mail-oi1-x244.google.com with SMTP id w13so23305746oih.4
+        for <clang-built-linux@googlegroups.com>; Tue, 17 Mar 2020 13:24:06 -0700 (PDT)
+X-Received: by 2002:aca:bfc6:: with SMTP id p189mr563472oif.21.1584476645956;
+        Tue, 17 Mar 2020 13:24:05 -0700 (PDT)
+Received: from ubuntu-m2-xlarge-x86 ([2604:1380:4111:8b00::1])
+        by smtp.gmail.com with ESMTPSA id k110sm1380002otc.59.2020.03.17.13.24.05
+        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+        Tue, 17 Mar 2020 13:24:05 -0700 (PDT)
+Date: Tue, 17 Mar 2020 13:24:04 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: clang-built-linux@googlegroups.com
+Subject: Re: [RFC 2/2] Makefile.llvm: simplify LLVM build
+Message-ID: <20200317202404.GA20746@ubuntu-m2-xlarge-x86>
+References: <20200220234858.145546-1-ndesaulniers@google.com>
+ <20200220234858.145546-2-ndesaulniers@google.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_10392_1824992997.1584474364710"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-aarch64-stable-allnoconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20200220234858.145546-2-ndesaulniers@google.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b="gu69/6ZY";       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::442
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@gmail.com header.s=20161025 header.b=FXvN5UNl;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::244 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,578 +148,166 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_10392_1824992997.1584474364710
-Content-Type: text/plain; charset="UTF-8"
+On Thu, Feb 20, 2020 at 03:48:58PM -0800, 'Nick Desaulniers' via Clang Built Linux wrote:
+> Prior to this patch, building the Linux kernel with Clang
+> looked like:
+> 
+> $ make CC=clang
+> 
+> or when cross compiling:
+> 
+> $ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make CC=clang
+> 
+> which got very verbose and unwieldy when using all of LLVM's substitutes
+> for GNU binutils:
+> 
+> $ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make CC=clang AS=clang \
+>   LD=ld.lld AR=llvm-ar NM=llvm-nm STRIP=llvm-strip \
+>   OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump OBJSIZE=llvm-objsize \
+>   READELF=llvm-readelf HOSTCC=clang HOSTCXX=clang++ HOSTAR=llvm-ar \
+>   HOSTLD=ld.lld
+> 
+> This change adds a new Makefile under scripts/ which will be included in
+> the top level Makefile AFTER CC and friends are set, in order to make
+> the use of LLVM utilities when building a Linux kernel more ergonomic.
+> 
+> With this patch, the above now looks like:
+> 
+> $ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make LLVM=1
+> 
+> Then you can "opt out" of certain LLVM utilities explicitly:
+> 
+> $ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make LLVM=1 AS=as
+> 
+> will instead invoke arm-linux-gnueabihf-as in place of clang for AS.
+> 
+> This would make it more verbose to opt into just one tool from LLVM, but
+> this patch doesn't actually break the old style; just leave off LLVM=1.
+> Also, LLVM=1 CC=clang would wind up prefixing clang with $CROSS_COMPILE.
+> In that case, it's recommended to just drop LLVM=1 and use the old
+> style. So LLVM=1 can be thought of as default to LLVM with explicit opt
+> ins for GNU, vs the current case of default to GNU and opt in for LLVM.
+> 
+> A key part of the design of this patch is to be minimally invasive to
+> the top level Makefile and not break existing workflows. We could get
+> more aggressive, but I'd prefer to save larger refactorings for another
+> day.
+> 
+> About the script:
+> The pattern used in the script is in the form:
+> 
+> ifeq "$(origin $(CC))" "file"
+> $(CC) := $(clang)
+> else
+> override $(CC) := $(CROSS_COMPILE)$(CC)
+> endif
+> 
+> "Metaprogramming" (eval) is used to template the above to make it more
+> concise for specifying all of the substitutions.
+> 
+> The "origin" of a variable tracks whether a variable was explicitly set
+> via "command line", "environment", was defined earlier via Makefile
+> "file", was provided by "default", or was "undefined".
+> 
+> Variable assignment in GNU Make has some special and complicated rules.
+> 
+> If the variable was set earlier explicitly in the Makefile, we can
+> simply reassign a new value to it. If a variable was unspecified, then
+> earlier assignments were executed and change the origin to file.
+> Otherwise, the variable was explicitly specified.
+> 
+> If a variable's "origin" was "command line" or "environment",
+> non-"override" assignments are not executed. The "override" directive
+> forces the assignment regardless of "origin".
+> 
+> Some tips I found useful for debugging for future travelers:
+> 
+> $(info $$origin of $$CC is $(origin CC))
+> 
+> at the start of the new script for all of the variables can help you
+> understand "default" vs "undefined" variable origins.
+> 
+> $(info $$CC is [${CC}])
+> 
+> in the top level Makefile after including the new script, for all of the
+> variables can help you check that they're being set as expected.
+> 
+> Link: https://www.gnu.org/software/make/manual/html_node/Eval-Function.html
+> Link: https://www.gnu.org/software/make/manual/html_node/Origin-Function.html
+> Link: https://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html
+> Link: https://www.gnu.org/software/make/manual/html_node/Override-Directive.html
+> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+> ---
+>  Makefile              |  4 ++++
+>  scripts/Makefile.llvm | 24 ++++++++++++++++++++++++
+>  2 files changed, 28 insertions(+)
+>  create mode 100644 scripts/Makefile.llvm
+> 
+> diff --git a/Makefile b/Makefile
+> index b954c304c479..8c8888ebb822 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -472,6 +472,10 @@ KBUILD_LDFLAGS :=
+>  GCC_PLUGINS_CFLAGS :=
+>  CLANG_FLAGS :=
+>  
+> +ifeq ($(LLVM),1)
+> +include scripts/Makefile.llvm
+> +endif
+> +
+>  export ARCH SRCARCH CONFIG_SHELL BASH HOSTCC KBUILD_HOSTCFLAGS CROSS_COMPILE AS LD CC
+>  export CPP AR NM STRIP OBJCOPY OBJDUMP OBJSIZE READELF PAHOLE LEX YACC AWK INSTALLKERNEL
+>  export PERL PYTHON PYTHON3 CHECK CHECKFLAGS MAKE UTS_MACHINE HOSTCXX
+> diff --git a/scripts/Makefile.llvm b/scripts/Makefile.llvm
+> new file mode 100644
+> index 000000000000..a4401c8677dc
+> --- /dev/null
+> +++ b/scripts/Makefile.llvm
+> @@ -0,0 +1,24 @@
+> +define META_set =
+> +ifeq "$(origin $(1))" "file"
+> +$(1) := $(2)
+> +else
+> +override $(1) := $(CROSS_COMPILE)$($(1))
+> +endif
+> +endef
+> +
+> +$(eval $(call META_set,CC,clang))
+> +$(eval $(call META_set,AS,clang))
+> +$(eval $(call META_set,LD,ld.lld))
+> +$(eval $(call META_set,AR,llvm-ar))
+> +$(eval $(call META_set,NM,llvm-nm))
+> +$(eval $(call META_set,STRIP,llvm-strip))
+> +$(eval $(call META_set,OBJCOPY,llvm-objcopy))
+> +$(eval $(call META_set,OBJDUMP,llvm-objdump))
+> +$(eval $(call META_set,OBJSIZE,llvm-objsize))
+> +$(eval $(call META_set,READELF,llvm-readelf))
+> +$(eval $(call META_set,HOSTCC,clang))
+> +$(eval $(call META_set,HOSTCXX,clang++))
+> +$(eval $(call META_set,HOSTAR,llvm-ar))
+> +$(eval $(call META_set,HOSTLD,ld.lld))
+> +
+> +## TODO: HOSTAR, HOSTLD in tools/objtool/Makefile
+> -- 
+> 2.25.0.265.gbab2e86ba0-goog
+> 
 
-Successfully identified regression in *llvm* in CI configuration tcwg_kernel/llvm-master-aarch64-stable-allnoconfig.  So far, this commit has regressed CI configurations:
- - tcwg_kernel/llvm-master-aarch64-next-allnoconfig
- - tcwg_kernel/llvm-master-aarch64-stable-allnoconfig
+The overall approach seems relatively sane to me, as someone who is not
+a GNU make expert. This could be handy for seeing how hermetic the build
+system is by symlinking /bin/false to gcc, ld, as, etc and adding that
+folder to PATH then passing LLVM=1.
 
-Culprit:
-<cut>
-commit af64948e2a050d1ef3b7fd314ed07b2a2fe402a5
-Author: Kerry McLaughlin <kerry.mclaughlin@arm.com>
+Something that needs to be considered is how do we handle people who use
+something like apt.llvm.org, where those versions are suffixed with a
+number. Realistically, they could just add /usr/lib/llvm-#/bin to PATH
+and then everything would work but should we add something like
+LLVM_SUFFIX= so that they could say LLVM_SUFFIX=-11 to get clang-11,
+ld.lld-11, etc?
 
-    [SVE][Inline-Asm] Add constraints for SVE ACLE types
-</cut>
-
-First few build errors in logs:
-00:00:49 ./arch/arm64/include/asm/processor.h:272:15: error: invalid operand for inline asm constraint 'p'
-00:00:49 make[2]: *** [kernel/locking/qspinlock.o] Error 1
-00:00:49 make[1]: *** [kernel/locking] Error 2
-00:00:54 ./arch/arm64/include/asm/processor.h:266:15: error: invalid operand for inline asm constraint 'p'
-00:00:54 ./arch/arm64/include/asm/processor.h:266:15: error: invalid operand for inline asm constraint 'p'
-00:00:55 make[2]: *** [kernel/sched/core.o] Error 1
-00:00:56 ./arch/arm64/include/asm/processor.h:279:8: error: invalid operand for inline asm constraint 'p'
-00:00:56 make[1]: *** [fs/inode.o] Error 1
-00:00:56 ./arch/arm64/include/asm/processor.h:272:15: error: invalid operand for inline asm constraint 'p'
-00:00:56 make[1]: *** [mm/vmscan.o] Error 1
-Configuration details:
-rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git"
-rr[llvm_branch]="c5ff3df839321847ab7558ffb292f725d0356dfe"
-
-Results regressed to (for first_bad == af64948e2a050d1ef3b7fd314ed07b2a2fe402a5)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-441
-
-from (for last_good == 06489eaa92162c6b01a767124f3fcdada99bb2f1)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-449
-# linux build successful:
-all
-# linux boot successful:
-boot
-
-Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-stable-allnoconfig/7/artifact/artifacts/build-af64948e2a050d1ef3b7fd314ed07b2a2fe402a5/
-Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-stable-allnoconfig/7/artifact/artifacts/build-06489eaa92162c6b01a767124f3fcdada99bb2f1/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-stable-allnoconfig/7/
-
-Reproduce builds:
-<cut>
-mkdir investigate-llvm-af64948e2a050d1ef3b7fd314ed07b2a2fe402a5
-cd investigate-llvm-af64948e2a050d1ef3b7fd314ed07b2a2fe402a5
-
-git clone https://git.linaro.org/toolchain/jenkins-scripts
-
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-stable-allnoconfig/7/artifact/artifacts/manifests/build-baseline.sh
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-stable-allnoconfig/7/artifact/artifacts/manifests/build-parameters.sh
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-stable-allnoconfig/7/artifact/artifacts/test.sh
-chmod +x artifacts/test.sh
-
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
-
-cd llvm
-
-# Reproduce first_bad build
-git checkout --detach af64948e2a050d1ef3b7fd314ed07b2a2fe402a5
-../artifacts/test.sh
-
-# Reproduce last_good build
-git checkout --detach 06489eaa92162c6b01a767124f3fcdada99bb2f1
-../artifacts/test.sh
-
-cd ..
-</cut>
-
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-stable-allnoconfig
-
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-stable-allnoconfig/7/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-stable-allnoconfig/7/consoleText
-
-Full commit:
-<cut>
-commit af64948e2a050d1ef3b7fd314ed07b2a2fe402a5
-Author: Kerry McLaughlin <kerry.mclaughlin@arm.com>
-Date:   Tue Mar 17 10:27:29 2020 +0000
-
-    [SVE][Inline-Asm] Add constraints for SVE ACLE types
-    
-    Summary:
-    Adds the constraints described below to ensure that we
-    can tie variables of SVE ACLE types to operands in inline-asm:
-     - y: SVE registers Z0-Z7
-     - Upl: One of the low eight SVE predicate registers (P0-P7)
-     - Upa: Full range of SVE predicate registers (P0-P15)
-    
-    Reviewers: sdesmalen, huntergr, rovka, cameron.mcinally, efriedma, rengolin
-    
-    Reviewed By: efriedma
-    
-    Subscribers: miyuki, tschuett, rkruppe, psnobl, cfe-commits
-    
-    Tags: #clang
-    
-    Differential Revision: https://reviews.llvm.org/D75690
----
- clang/lib/Basic/Targets/AArch64.cpp                |  14 +-
- clang/lib/Basic/Targets/AArch64.h                  |  15 ++
- clang/lib/CodeGen/CGCall.cpp                       |  10 +-
- clang/lib/CodeGen/CGStmt.cpp                       |  15 +-
- clang/test/CodeGen/aarch64-sve-inline-asm-crash.c  |  24 ++
- .../CodeGen/aarch64-sve-inline-asm-datatypes.c     | 252 +++++++++++++++++++++
- .../CodeGen/aarch64-sve-inline-asm-negative-test.c |  21 ++
- 7 files changed, 340 insertions(+), 11 deletions(-)
-
-diff --git a/clang/lib/Basic/Targets/AArch64.cpp b/clang/lib/Basic/Targets/AArch64.cpp
-index bd1a8834c2f..336c7491a5c 100644
---- a/clang/lib/Basic/Targets/AArch64.cpp
-+++ b/clang/lib/Basic/Targets/AArch64.cpp
-@@ -486,17 +486,29 @@ bool AArch64TargetInfo::validateAsmConstraint(
-     Info.setAllowsRegister();
-     return true;
-   case 'U':
-+    if (Name[1] == 'p' && (Name[2] == 'l' || Name[2] == 'a')) {
-+      // SVE predicate registers ("Upa"=P0-15, "Upl"=P0-P7)
-+      Info.setAllowsRegister();
-+      Name += 2;
-+      return true;
-+    }
-     // Ump: A memory address suitable for ldp/stp in SI, DI, SF and DF modes.
-     // Utf: A memory address suitable for ldp/stp in TF mode.
-     // Usa: An absolute symbolic address.
-     // Ush: The high part (bits 32:12) of a pc-relative symbolic address.
--    llvm_unreachable("FIXME: Unimplemented support for U* constraints.");
-+
-+    // Better to return an error saying that it's an unrecognised constraint
-+    // even if this is a valid constraint in gcc.
-+    return false;
-   case 'z': // Zero register, wzr or xzr
-     Info.setAllowsRegister();
-     return true;
-   case 'x': // Floating point and SIMD registers (V0-V15)
-     Info.setAllowsRegister();
-     return true;
-+  case 'y': // SVE registers (V0-V7)
-+    Info.setAllowsRegister();
-+    return true;
-   }
-   return false;
- }
-diff --git a/clang/lib/Basic/Targets/AArch64.h b/clang/lib/Basic/Targets/AArch64.h
-index 5e78237743c..befbf693ad8 100644
---- a/clang/lib/Basic/Targets/AArch64.h
-+++ b/clang/lib/Basic/Targets/AArch64.h
-@@ -87,6 +87,21 @@ public:
- 
-   ArrayRef<const char *> getGCCRegNames() const override;
-   ArrayRef<TargetInfo::GCCRegAlias> getGCCRegAliases() const override;
-+
-+  std::string convertConstraint(const char *&Constraint) const override {
-+    std::string R;
-+    switch (*Constraint) {
-+    case 'U': // Three-character constraint; add "@3" hint for later parsing.
-+      R = std::string("@3") + std::string(Constraint, 3);
-+      Constraint += 2;
-+      break;
-+    default:
-+      R = std::string(1, *Constraint);
-+      break;
-+    }
-+    return R;
-+  }
-+
-   bool validateAsmConstraint(const char *&Name,
-                              TargetInfo::ConstraintInfo &Info) const override;
-   bool
-diff --git a/clang/lib/CodeGen/CGCall.cpp b/clang/lib/CodeGen/CGCall.cpp
-index 1188ea39ba2..ad8ebd245b9 100644
---- a/clang/lib/CodeGen/CGCall.cpp
-+++ b/clang/lib/CodeGen/CGCall.cpp
-@@ -4496,8 +4496,9 @@ RValue CodeGenFunction::EmitCall(const CGFunctionInfo &CallInfo,
-   // Update the largest vector width if any arguments have vector types.
-   for (unsigned i = 0; i < IRCallArgs.size(); ++i) {
-     if (auto *VT = dyn_cast<llvm::VectorType>(IRCallArgs[i]->getType()))
--      LargestVectorWidth = std::max((uint64_t)LargestVectorWidth,
--                                   VT->getPrimitiveSizeInBits().getFixedSize());
-+      LargestVectorWidth =
-+          std::max((uint64_t)LargestVectorWidth,
-+                   VT->getPrimitiveSizeInBits().getKnownMinSize());
-   }
- 
-   // Compute the calling convention and attributes.
-@@ -4611,8 +4612,9 @@ RValue CodeGenFunction::EmitCall(const CGFunctionInfo &CallInfo,
- 
-   // Update largest vector width from the return type.
-   if (auto *VT = dyn_cast<llvm::VectorType>(CI->getType()))
--    LargestVectorWidth = std::max((uint64_t)LargestVectorWidth,
--                                  VT->getPrimitiveSizeInBits().getFixedSize());
-+    LargestVectorWidth =
-+        std::max((uint64_t)LargestVectorWidth,
-+                 VT->getPrimitiveSizeInBits().getKnownMinSize());
- 
-   // Insert instrumentation or attach profile metadata at indirect call sites.
-   // For more details, see the comment before the definition of
-diff --git a/clang/lib/CodeGen/CGStmt.cpp b/clang/lib/CodeGen/CGStmt.cpp
-index a334bab0678..49f1725ed47 100644
---- a/clang/lib/CodeGen/CGStmt.cpp
-+++ b/clang/lib/CodeGen/CGStmt.cpp
-@@ -2095,8 +2095,9 @@ void CodeGenFunction::EmitAsmStmt(const AsmStmt &S) {
- 
-       // Update largest vector width for any vector types.
-       if (auto *VT = dyn_cast<llvm::VectorType>(ResultRegTypes.back()))
--        LargestVectorWidth = std::max((uint64_t)LargestVectorWidth,
--                                   VT->getPrimitiveSizeInBits().getFixedSize());
-+        LargestVectorWidth =
-+            std::max((uint64_t)LargestVectorWidth,
-+                     VT->getPrimitiveSizeInBits().getKnownMinSize());
-     } else {
-       ArgTypes.push_back(Dest.getAddress(*this).getType());
-       Args.push_back(Dest.getPointer(*this));
-@@ -2120,8 +2121,9 @@ void CodeGenFunction::EmitAsmStmt(const AsmStmt &S) {
- 
-       // Update largest vector width for any vector types.
-       if (auto *VT = dyn_cast<llvm::VectorType>(Arg->getType()))
--        LargestVectorWidth = std::max((uint64_t)LargestVectorWidth,
--                                   VT->getPrimitiveSizeInBits().getFixedSize());
-+        LargestVectorWidth =
-+            std::max((uint64_t)LargestVectorWidth,
-+                     VT->getPrimitiveSizeInBits().getKnownMinSize());
-       if (Info.allowsRegister())
-         InOutConstraints += llvm::utostr(i);
-       else
-@@ -2207,8 +2209,9 @@ void CodeGenFunction::EmitAsmStmt(const AsmStmt &S) {
- 
-     // Update largest vector width for any vector types.
-     if (auto *VT = dyn_cast<llvm::VectorType>(Arg->getType()))
--      LargestVectorWidth = std::max((uint64_t)LargestVectorWidth,
--                                   VT->getPrimitiveSizeInBits().getFixedSize());
-+      LargestVectorWidth =
-+          std::max((uint64_t)LargestVectorWidth,
-+                   VT->getPrimitiveSizeInBits().getKnownMinSize());
- 
-     ArgTypes.push_back(Arg->getType());
-     Args.push_back(Arg);
-diff --git a/clang/test/CodeGen/aarch64-sve-inline-asm-crash.c b/clang/test/CodeGen/aarch64-sve-inline-asm-crash.c
-new file mode 100644
-index 00000000000..11ddb7f6d58
---- /dev/null
-+++ b/clang/test/CodeGen/aarch64-sve-inline-asm-crash.c
-@@ -0,0 +1,24 @@
-+// REQUIRES: aarch64-registered-target
-+
-+// RUN: not %clang_cc1 -triple aarch64-none-linux-gnu -target-feature +sve -fallow-half-arguments-and-returns \
-+// RUN:   -target-feature +neon -S -O1 -o - %s 2>&1 | FileCheck %s
-+
-+// Set a vector constraint for an sve predicate register
-+// As the wrong constraint is used for an SVBool,
-+// the compiler will try to extend the nxv16i1 to an nxv16i8
-+// TODO: We don't have patterns for this yet but once they are added this test
-+// should be updated to check for an assembler error
-+__SVBool_t funcB1(__SVBool_t in)
-+{
-+  __SVBool_t ret ;
-+  asm volatile (
-+    "mov %[ret].b, %[in].b \n"
-+    : [ret] "=w" (ret)
-+    : [in] "w" (in)
-+    :);
-+
-+  return ret ;
-+}
-+
-+// CHECK: funcB1
-+// CHECK-ERROR: fatal error: error in backend: Cannot select
-diff --git a/clang/test/CodeGen/aarch64-sve-inline-asm-datatypes.c b/clang/test/CodeGen/aarch64-sve-inline-asm-datatypes.c
-new file mode 100644
-index 00000000000..c68bb25e36f
---- /dev/null
-+++ b/clang/test/CodeGen/aarch64-sve-inline-asm-datatypes.c
-@@ -0,0 +1,252 @@
-+// RUN: %clang_cc1 -triple aarch64-none-linux-gnu -target-feature +sve -fallow-half-arguments-and-returns \
-+// RUN:   -target-feature +neon -S -O1 -o - -emit-llvm %s | FileCheck %s
-+
-+// Tests to check that all sve datatypes can be passed in as input operands
-+// and passed out as output operands.
-+
-+#define SVINT_TEST(DT, KIND)\
-+DT func_int_##DT##KIND(DT in)\
-+{\
-+  DT out;\
-+  asm volatile (\
-+    "ptrue p0.b\n"\
-+    "mov %[out]." #KIND ", p0/m, %[in]." #KIND "\n"\
-+    : [out] "=w" (out)\
-+    : [in] "w" (in)\
-+    : "p0"\
-+    );\
-+  return out;\
-+}
-+
-+SVINT_TEST(__SVUint8_t,b);
-+// CHECK: call <vscale x 16 x i8> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 16 x i8> %in)
-+SVINT_TEST(__SVUint8_t,h);
-+// CHECK: call <vscale x 16 x i8> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 16 x i8> %in)
-+SVINT_TEST(__SVUint8_t,s);
-+// CHECK: call <vscale x 16 x i8> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 16 x i8> %in)
-+SVINT_TEST(__SVUint8_t,d);
-+// CHECK: call <vscale x 16 x i8> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 16 x i8> %in)
-+
-+SVINT_TEST(__SVUint16_t,b);
-+// CHECK: call <vscale x 8 x i16> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 8 x i16> %in)
-+SVINT_TEST(__SVUint16_t,h);
-+// CHECK: call <vscale x 8 x i16> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 8 x i16> %in)
-+SVINT_TEST(__SVUint16_t,s);
-+// CHECK: call <vscale x 8 x i16> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 8 x i16> %in)
-+SVINT_TEST(__SVUint16_t,d);
-+// CHECK: call <vscale x 8 x i16> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 8 x i16> %in)
-+
-+SVINT_TEST(__SVUint32_t,b);
-+// CHECK: call <vscale x 4 x i32> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 4 x i32> %in)
-+SVINT_TEST(__SVUint32_t,h);
-+// CHECK: call <vscale x 4 x i32> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 4 x i32> %in)
-+SVINT_TEST(__SVUint32_t,s);
-+// CHECK: call <vscale x 4 x i32> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 4 x i32> %in)
-+SVINT_TEST(__SVUint32_t,d);
-+// CHECK: call <vscale x 4 x i32> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 4 x i32> %in)
-+
-+SVINT_TEST(__SVUint64_t,b);
-+// CHECK: call <vscale x 2 x i64> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 2 x i64> %in)
-+SVINT_TEST(__SVUint64_t,h);
-+// CHECK: call <vscale x 2 x i64> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 2 x i64> %in)
-+SVINT_TEST(__SVUint64_t,s);
-+// CHECK: call <vscale x 2 x i64> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 2 x i64> %in)
-+SVINT_TEST(__SVUint64_t,d);
-+// CHECK: call <vscale x 2 x i64> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 2 x i64> %in)
-+
-+SVINT_TEST(__SVInt8_t,b);
-+// CHECK: call <vscale x 16 x i8> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 16 x i8> %in)
-+SVINT_TEST(__SVInt8_t,h);
-+// CHECK: call <vscale x 16 x i8> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 16 x i8> %in)
-+SVINT_TEST(__SVInt8_t,s);
-+// CHECK: call <vscale x 16 x i8> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 16 x i8> %in)
-+SVINT_TEST(__SVInt8_t,d);
-+// CHECK: call <vscale x 16 x i8> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 16 x i8> %in)
-+
-+SVINT_TEST(__SVInt16_t,b);
-+// CHECK: call <vscale x 8 x i16> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 8 x i16> %in)
-+SVINT_TEST(__SVInt16_t,h);
-+// CHECK: call <vscale x 8 x i16> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 8 x i16> %in)
-+SVINT_TEST(__SVInt16_t,s);
-+// CHECK: call <vscale x 8 x i16> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 8 x i16> %in)
-+SVINT_TEST(__SVInt16_t,d);
-+// CHECK: call <vscale x 8 x i16> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 8 x i16> %in)
-+
-+SVINT_TEST(__SVInt32_t,b);
-+// CHECK: call <vscale x 4 x i32> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 4 x i32> %in)
-+SVINT_TEST(__SVInt32_t,h);
-+// CHECK: call <vscale x 4 x i32> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 4 x i32> %in)
-+SVINT_TEST(__SVInt32_t,s);
-+// CHECK: call <vscale x 4 x i32> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 4 x i32> %in)
-+SVINT_TEST(__SVInt32_t,d);
-+// CHECK: call <vscale x 4 x i32> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 4 x i32> %in)
-+
-+SVINT_TEST(__SVInt64_t,b);
-+// CHECK: call <vscale x 2 x i64> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 2 x i64> %in)
-+SVINT_TEST(__SVInt64_t,h);
-+// CHECK: call <vscale x 2 x i64> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 2 x i64> %in)
-+SVINT_TEST(__SVInt64_t,s);
-+// CHECK: call <vscale x 2 x i64> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 2 x i64> %in)
-+SVINT_TEST(__SVInt64_t,d);
-+// CHECK: call <vscale x 2 x i64> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 2 x i64> %in)
-+
-+
-+//Test that floats can also be used as datatypes for integer instructions
-+//and check all the variants which would not be possible with a float
-+//instruction
-+SVINT_TEST(__SVFloat16_t,b);
-+// CHECK: call <vscale x 8 x half> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 8 x half> %in)
-+SVINT_TEST(__SVFloat16_t,h);
-+// CHECK: call <vscale x 8 x half> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 8 x half> %in)
-+SVINT_TEST(__SVFloat16_t,s);
-+// CHECK: call <vscale x 8 x half> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 8 x half> %in)
-+SVINT_TEST(__SVFloat16_t,d);
-+// CHECK: call <vscale x 8 x half> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 8 x half> %in)
-+
-+SVINT_TEST(__SVFloat32_t,b);
-+// CHECK: call <vscale x 4 x float> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 4 x float> %in)
-+SVINT_TEST(__SVFloat32_t,h);
-+// CHECK: call <vscale x 4 x float> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 4 x float> %in)
-+SVINT_TEST(__SVFloat32_t,s);
-+// CHECK: call <vscale x 4 x float> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 4 x float> %in)
-+SVINT_TEST(__SVFloat32_t,d);
-+// CHECK: call <vscale x 4 x float> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 4 x float> %in)
-+
-+SVINT_TEST(__SVFloat64_t,b);
-+// CHECK: call <vscale x 2 x double> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 2 x double> %in)
-+SVINT_TEST(__SVFloat64_t,h);
-+// CHECK: call <vscale x 2 x double> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 2 x double> %in)
-+SVINT_TEST(__SVFloat64_t,s);
-+// CHECK: call <vscale x 2 x double> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 2 x double> %in)
-+SVINT_TEST(__SVFloat64_t,d);
-+// CHECK: call <vscale x 2 x double> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 2 x double> %in)
-+
-+
-+#define SVBOOL_TEST(KIND)\
-+__SVBool_t func_bool_##KIND(__SVBool_t in1, __SVBool_t in2)\
-+{\
-+  __SVBool_t out;\
-+  asm volatile (\
-+    "zip1 %[out]." #KIND ", %[in1]." #KIND ", %[in2]." #KIND "\n"\
-+    : [out] "=Upa" (out)\
-+    :  [in1] "Upa" (in1),\
-+      [in2] "Upa" (in2)\
-+    :);\
-+  return out;\
-+}
-+
-+SVBOOL_TEST(b) ;
-+// CHECK: call <vscale x 16 x i1> asm sideeffect "zip1 $0.b, $1.b, $2.b\0A", "=@3Upa,@3Upa,@3Upa"(<vscale x 16 x i1> %in1, <vscale x 16 x i1> %in2)
-+SVBOOL_TEST(h) ;
-+// CHECK: call <vscale x 16 x i1> asm sideeffect "zip1 $0.h, $1.h, $2.h\0A", "=@3Upa,@3Upa,@3Upa"(<vscale x 16 x i1> %in1, <vscale x 16 x i1> %in2)
-+SVBOOL_TEST(s) ;
-+// CHECK: call <vscale x 16 x i1> asm sideeffect "zip1 $0.s, $1.s, $2.s\0A", "=@3Upa,@3Upa,@3Upa"(<vscale x 16 x i1> %in1, <vscale x 16 x i1> %in2)
-+SVBOOL_TEST(d) ;
-+// CHECK: call <vscale x 16 x i1> asm sideeffect "zip1 $0.d, $1.d, $2.d\0A", "=@3Upa,@3Upa,@3Upa"(<vscale x 16 x i1> %in1, <vscale x 16 x i1> %in2)
-+
-+
-+#define SVBOOL_TEST_UPL(DT, KIND)\
-+__SVBool_t func_bool_upl_##KIND(__SVBool_t in1, DT in2, DT in3)\
-+{\
-+  __SVBool_t out;\
-+  asm volatile (\
-+    "fadd %[out]." #KIND ", %[in1]." #KIND ", %[in2]." #KIND ", %[in3]." #KIND "\n"\
-+    : [out] "=w" (out)\
-+    :  [in1] "Upl" (in1),\
-+      [in2] "w" (in2),\
-+      [in3] "w" (in3)\
-+    :);\
-+  return out;\
-+}
-+
-+SVBOOL_TEST_UPL(__SVInt8_t, b) ;
-+// CHECK: call <vscale x 16 x i1> asm sideeffect "fadd $0.b, $1.b, $2.b, $3.b\0A", "=w,@3Upl,w,w"(<vscale x 16 x i1> %in1, <vscale x 16 x i8> %in2, <vscale x 16 x i8> %in3)
-+SVBOOL_TEST_UPL(__SVInt16_t, h) ;
-+// CHECK: call <vscale x 16 x i1> asm sideeffect "fadd $0.h, $1.h, $2.h, $3.h\0A", "=w,@3Upl,w,w"(<vscale x 16 x i1> %in1, <vscale x 8 x i16> %in2, <vscale x 8 x i16> %in3)
-+SVBOOL_TEST_UPL(__SVInt32_t, s) ;
-+// CHECK: call <vscale x 16 x i1> asm sideeffect "fadd $0.s, $1.s, $2.s, $3.s\0A", "=w,@3Upl,w,w"(<vscale x 16 x i1> %in1, <vscale x 4 x i32> %in2, <vscale x 4 x i32> %in3)
-+SVBOOL_TEST_UPL(__SVInt64_t, d) ;
-+// CHECK: call <vscale x 16 x i1> asm sideeffect "fadd $0.d, $1.d, $2.d, $3.d\0A", "=w,@3Upl,w,w"(<vscale x 16 x i1> %in1, <vscale x 2 x i64> %in2, <vscale x 2 x i64> %in3)
-+
-+#define SVFLOAT_TEST(DT,KIND)\
-+DT func_float_##DT##KIND(DT inout1, DT in2)\
-+{\
-+  asm volatile (\
-+    "ptrue p0." #KIND ", #1 \n"\
-+    "fsub %[inout1]." #KIND ", p0/m, %[inout1]." #KIND ", %[in2]." #KIND "\n"\
-+    : [inout1] "=w" (inout1)\
-+    : "[inout1]" (inout1),\
-+      [in2] "w" (in2)\
-+    : "p0");\
-+  return inout1 ;\
-+}\
-+
-+SVFLOAT_TEST(__SVFloat16_t,s);
-+// CHECK: call <vscale x 8 x half> asm sideeffect "ptrue p0.s, #1 \0Afsub $0.s, p0/m, $0.s, $2.s\0A", "=w,0,w,~{p0}"(<vscale x 8 x half> %inout1, <vscale x 8 x half> %in2)
-+SVFLOAT_TEST(__SVFloat16_t,d);
-+// CHECK: call <vscale x 8 x half> asm sideeffect "ptrue p0.d, #1 \0Afsub $0.d, p0/m, $0.d, $2.d\0A", "=w,0,w,~{p0}"(<vscale x 8 x half> %inout1, <vscale x 8 x half> %in2)
-+
-+SVFLOAT_TEST(__SVFloat32_t,s);
-+// CHECK: call <vscale x 4 x float> asm sideeffect "ptrue p0.s, #1 \0Afsub $0.s, p0/m, $0.s, $2.s\0A", "=w,0,w,~{p0}"(<vscale x 4 x float> %inout1, <vscale x 4 x float> %in2)
-+SVFLOAT_TEST(__SVFloat32_t,d);
-+// CHECK: call <vscale x 4 x float> asm sideeffect "ptrue p0.d, #1 \0Afsub $0.d, p0/m, $0.d, $2.d\0A", "=w,0,w,~{p0}"(<vscale x 4 x float> %inout1, <vscale x 4 x float> %in2)
-+
-+SVFLOAT_TEST(__SVFloat64_t,s);
-+// CHECK: call <vscale x 2 x double> asm sideeffect "ptrue p0.s, #1 \0Afsub $0.s, p0/m, $0.s, $2.s\0A", "=w,0,w,~{p0}"(<vscale x 2 x double> %inout1, <vscale x 2 x double> %in2)
-+SVFLOAT_TEST(__SVFloat64_t,d);
-+// CHECK: call <vscale x 2 x double> asm sideeffect "ptrue p0.d, #1 \0Afsub $0.d, p0/m, $0.d, $2.d\0A", "=w,0,w,~{p0}"(<vscale x 2 x double> %inout1, <vscale x 2 x double> %in2)
-+
-+#define SVFLOAT_TEST_Y(DT, KIND)\
-+__SVBool_t func_float_y_##KIND(DT in1, DT in2)\
-+{\
-+  __SVBool_t out;\
-+  asm volatile (\
-+    "fmul %[out]." #KIND ", %[in1]." #KIND ", %[in2]." #KIND "\n"\
-+    : [out] "=w" (out)\
-+    :  [in1] "w" (in1),\
-+      [in2] "y" (in2)\
-+    :);\
-+  return out;\
-+}
-+
-+SVFLOAT_TEST_Y(__SVFloat16_t,h);
-+// CHECK: call <vscale x 16 x i1> asm sideeffect "fmul $0.h, $1.h, $2.h\0A", "=w,w,y"(<vscale x 8 x half> %in1, <vscale x 8 x half> %in2)
-+SVFLOAT_TEST_Y(__SVFloat32_t,s);
-+// CHECK: call <vscale x 16 x i1> asm sideeffect "fmul $0.s, $1.s, $2.s\0A", "=w,w,y"(<vscale x 4 x float> %in1, <vscale x 4 x float> %in2)
-+SVFLOAT_TEST_Y(__SVFloat64_t,d);
-+// CHECK: call <vscale x 16 x i1> asm sideeffect "fmul $0.d, $1.d, $2.d\0A", "=w,w,y"(<vscale x 2 x double> %in1, <vscale x 2 x double> %in2)
-+
-+
-+// Another test for floats to include h suffix
-+
-+#define SVFLOAT_CVT_TEST(DT1,KIND1,DT2,KIND2)\
-+DT1 func_float_cvt_##DT1##KIND1##DT2##KIND2(DT2 in1)\
-+{\
-+  DT1 out1 ;\
-+  asm volatile (\
-+    "ptrue p0." #KIND2 ", #1 \n"\
-+    "fcvt %[out1]." #KIND1 ", p0/m, %[in1]." #KIND2 "\n"\
-+    : [out1] "=w" (out1)\
-+    : [in1] "w" (in1)\
-+    : "p0");\
-+  return out1 ;\
-+}\
-+
-+SVFLOAT_CVT_TEST(__SVFloat64_t,d,__SVFloat32_t,s);
-+// CHECK: call <vscale x 2 x double> asm sideeffect "ptrue p0.s, #1 \0Afcvt $0.d, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 4 x float> %in1)
-+SVFLOAT_CVT_TEST(__SVFloat64_t,d,__SVFloat16_t,h);
-+// CHECK: call <vscale x 2 x double> asm sideeffect "ptrue p0.h, #1 \0Afcvt $0.d, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 8 x half> %in1)
-+SVFLOAT_CVT_TEST(__SVFloat32_t,s,__SVFloat16_t,h);
-+// CHECK: call <vscale x 4 x float> asm sideeffect "ptrue p0.h, #1 \0Afcvt $0.s, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 8 x half> %in1)
-+SVFLOAT_CVT_TEST(__SVFloat32_t,s,__SVFloat64_t,d);
-+// CHECK: call <vscale x 4 x float> asm sideeffect "ptrue p0.d, #1 \0Afcvt $0.s, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 2 x double> %in1)
-+SVFLOAT_CVT_TEST(__SVFloat16_t,h,__SVFloat64_t,d);
-+// CHECK: call <vscale x 8 x half> asm sideeffect "ptrue p0.d, #1 \0Afcvt $0.h, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 2 x double> %in1)
-+SVFLOAT_CVT_TEST(__SVFloat16_t,h,__SVFloat32_t,s);
-+// CHECK: call <vscale x 8 x half> asm sideeffect "ptrue p0.s, #1 \0Afcvt $0.h, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 4 x float> %in1)
-+
-+//Test a mix of float and ints
-+SVFLOAT_CVT_TEST(__SVInt16_t,h,__SVFloat32_t,s);
-+// CHECK: call <vscale x 8 x i16> asm sideeffect "ptrue p0.s, #1 \0Afcvt $0.h, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 4 x float> %in1)
-+SVFLOAT_CVT_TEST(__SVFloat16_t,s,__SVUint32_t,d);
-+// CHECK: call <vscale x 8 x half> asm sideeffect "ptrue p0.d, #1 \0Afcvt $0.s, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 4 x i32> %in1)
-diff --git a/clang/test/CodeGen/aarch64-sve-inline-asm-negative-test.c b/clang/test/CodeGen/aarch64-sve-inline-asm-negative-test.c
-new file mode 100644
-index 00000000000..ffe7a419469
---- /dev/null
-+++ b/clang/test/CodeGen/aarch64-sve-inline-asm-negative-test.c
-@@ -0,0 +1,21 @@
-+// REQUIRES: aarch64-registered-target
-+
-+// RUN: not %clang_cc1 -triple aarch64-none-linux-gnu -target-feature +sve -fallow-half-arguments-and-returns \
-+// RUN:   -target-feature +neon -S -O1 -o - %s | FileCheck %s
-+
-+// Assembler error
-+// Output constraint : Set a vector constraint on an integer
-+__SVFloat32_t funcB2()
-+{
-+  __SVFloat32_t ret ;
-+  asm volatile (
-+    "fmov %[ret], wzr \n"
-+    : [ret] "=w" (ret)
-+    :
-+    :);
-+
-+  return ret ;
-+}
-+
-+// CHECK: funcB2
-+// CHECK-ERROR: error: invalid operand for instruction
-</cut>
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/388916845.10393.1584474365248.JavaMail.javamailuser%40localhost.
-
-------=_Part_10392_1824992997.1584474364710--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200317202404.GA20746%40ubuntu-m2-xlarge-x86.
