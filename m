@@ -1,134 +1,134 @@
-Return-Path: <clang-built-linux+bncBCX2JBVY5MBBBTF7YDZQKGQE6LTVHGI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCS7XUWOUULBBWGAYDZQKGQE6AB2EGA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3b.google.com (mail-qv1-xf3b.google.com [IPv6:2607:f8b0:4864:20::f3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 044AB187721
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 01:54:38 +0100 (CET)
-Received: by mail-qv1-xf3b.google.com with SMTP id a1sf11511055qvt.10
-        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Mar 2020 17:54:37 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584406477; cv=pass;
+Received: from mail-qt1-x837.google.com (mail-qt1-x837.google.com [IPv6:2607:f8b0:4864:20::837])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2950618772B
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 01:56:57 +0100 (CET)
+Received: by mail-qt1-x837.google.com with SMTP id c26sf6845474qtj.5
+        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Mar 2020 17:56:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584406616; cv=pass;
         d=google.com; s=arc-20160816;
-        b=WjKq2nJLgUnOCQMNGhEsws5CtPvLEMWLsdsFHltNZGzNxDkRXXse0wSl3XNLKgfCFn
-         yBI20m7jTv0L4hA2wW01aBPYZPXH/d01/qaUQYaWBCck+7bZ4wx9pf4j1rOXLNxtH1F6
-         wsl7gAVjVFaZXm/TU4YSYqeHAbgZ3f6SxKXbjsATLs4fjm3zIulrg5xIi6cLdmzpfX3+
-         GdJT5qU7eIVU0J9vX1fqEVa1+7Z6S6wTxhsfukcM+EDBZW35h6K3u7AJ/NBSat0vmz8i
-         l72cRJCzZWSp9+r/M1QZi0C9HbNqwnHtGYG09zjVtbVPnqnC703YI4+PL4ik4w/6P8fj
-         kksA==
+        b=NSBGrc0Dtvei3UAXXjFumi39eCrPVbOmXbNBIO+8sJlMM+dVKiCWaATJzClkbyl3TQ
+         QTxwDL6B0PNzBiU3g+f65CjWM38qxI1izkB9POj+fSs3z2OYb9cxpH9fo6L2EY1MoqqW
+         grTXFdKifVxGmNtQqu56Ux3ePwwowulSI2sM5+fgkdSEcEEPll3VY0hGVF19+6X+S29e
+         c3CgD0ffq93QRBpCINe6zzfAuULuEfd4i3IY0zpTytS1L3zhzGq39BcUvMBU0Ch7dlkf
+         RK6aOstCcMdkDuaxH3r7wyvIhLmIG5GfcCMJfS9WnDOsqpezhDNC4jGZpoaMWCADPw/d
+         4kgg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :list-id:mailing-list:precedence:reply-to:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=PtsY25oHefl7lNyUK1Z9Jxn9QdSk1+4ADMERYaY6kXw=;
-        b=WmLtZ3XbLgd77ABBa0opDgIqbG04u5VJU1IQqvGNaY1mUHd+BK0RQ6TTMskz0Rid34
-         h/LzB7GufJmURIpFwwhW4/3BWudgaOEygYgz0aB+EJW43jr0TrA6qPndCfsqsbev+My9
-         xSvcCI4RWVRZNK3O7Lz8zESNq/EBwNrLf7MGWLRCYpxvFdgtMyC3kH7lnlPzaley4Zx0
-         UorFLRYpt2HczqjujVJp0kMw70H5sI3JxLiG7gkYC8MRl8tfUoyZ0E7gitUbi5G/riWV
-         8QjPXMufbWU121hskAim23jNSqoO58cwW9eAIDgCjrOg3IehnpEvV5d5HDdggHAX2Hsf
-         KVIA==
+         :to:from:date:dkim-signature;
+        bh=na+MUWD9smvPlitdafZd4ERFZPfVqDVYD9N3TXGf87I=;
+        b=W2DOdMsrJeXXjMa8jwFLv/PSnj21JfRrT0EKBYAZB0jaAgVmQtpiWidHH6oJuKmh8Y
+         EJkPov4UYhx/m0jLq7TENMvdEQ4OmjYQqHJbV5UpJWdAAENUvQgwD56RrLFwPlXuMfcj
+         I6Pa4mvYgC6KP8CTrqGRd18vZyQyfvf1ugWMa+dHK1kW6p5FzccoZSQIc4ohjzQXYGPC
+         lQqU0ANxkpQn1JQhPLZHmbo91zRapMn1AdQQtt+PupbqE9rFi1qbdjGg79AF6Kw0ob2C
+         jAknqjNmcyJ1CgrUWo82qeazcsvs5GMvNTIVd15Esqe5JGCQvIGkbHRZp8cpNxh5PXfr
+         GpcQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of philip.li@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=philip.li@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b="sd/xN+RE";
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1041 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=PtsY25oHefl7lNyUK1Z9Jxn9QdSk1+4ADMERYaY6kXw=;
-        b=neTYRntzACVIEX+U9/XwdJ3DZMgrfVBJDyqTZ5WucAGj4ikZXj0lCrtdv9ixDlzhyk
-         zSwvK+LlDYRY6+GZLNXtMZgUNmo8jf7e1xilNEuqvLwa85aFZGbU16UBwwFojTF6bq4H
-         dU2r225hyEgzPkwKmJ1j3aDSz0JaqUSnEHFtO6F05auABVBwT6/K9ylTAUcI82Zaerf4
-         uHD5LPS4IfAopr/JjK9elSSd1OStBHgp71R92tAsXM9JDqL+E/p+fq1X4HWsNlMRdQft
-         xpPp3xsHjKtoUpMk9RHAbZgKr9lJcMECgee3dr769RVY8E8k/ipBkERu1ADySSZi03eK
-         iInA==
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=na+MUWD9smvPlitdafZd4ERFZPfVqDVYD9N3TXGf87I=;
+        b=p7R/lEbMS+lEiYGYx0Ao8koyTFB5YITAtDQvd1CbCQzODMASlIZi3TWfdETOS9S+E8
+         Tyq58zKQFH44KQg86FGhZnHInlfs85Mq74zbl3ZBAyk8PAKztlgfldEf8FiBsB8obd0d
+         FS3D5IaS6q0cqDmTwRtRnCAiQWqmCBspFHhH+ECECZs3RKMlYLSxf0ay/B960kUkuktW
+         sA0osyqd/y/VXMkADTpb7+Ucj0SFmt0kHNgj1kDIfsbibNSPrIkzi1CrAVAJzIy65vGf
+         xHYfoL9ifr0JocU/cVt8dotWuQMY05FibkTzQ7m2ANv7leDJxkETRkrSvX0cLiZBZRpp
+         jdHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:references:mime-version:content-disposition
-         :in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=PtsY25oHefl7lNyUK1Z9Jxn9QdSk1+4ADMERYaY6kXw=;
-        b=KCxIRbubgLuflucYRHEA2pwAj7HPnvAnzS0DYkf3B65/xv1VmjXg6TiHXvPWhwjV4/
-         FoUVVMjySWtwZR0P8sMOkkzCwnJAdsHv8H3g8Do6mcIJSAdgMajaTrhUvCPbVuQwM9OB
-         07oI/ZiIhnGfplhoKZPcuupm+LpTeulQpGotM2+uSsAUFHnHx4Qq82dU5jnqy/zmq1ti
-         zUyR+WLR5epZzyVzPM4ozJXYFYiOZPdDSOyW2bsxfW3ZdxNPSpUks0XAl+FF3jjJizRb
-         UDM0dMvEIrTyxOPA9nzeJ4q/5PRDb/ucMn9PXK0OBhG0+XXqmh0Cv15wKGmq6HmzyXy9
-         eThw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ1GkNghogWSpcczcAK6jywhC1lP8EelzDlMnmLlEMM4E7w5wLVZ
-	KnvkzFY+V9HUT0SGZ2AyQjI=
-X-Google-Smtp-Source: ADFU+vvvVxibi+ZD7CCGWpwWJIx33YR1fEDxge/YhvIM3OPddgz8izsu2Cjay4OctU6qjdYPB4qSNg==
-X-Received: by 2002:a25:d3d4:: with SMTP id e203mr3542933ybf.75.1584406477051;
-        Mon, 16 Mar 2020 17:54:37 -0700 (PDT)
+        bh=na+MUWD9smvPlitdafZd4ERFZPfVqDVYD9N3TXGf87I=;
+        b=YFdtFzNihWUV7TThw/7XlLqwkJliwWxHLHgsF3mK7o0+t053GCpFADYdoWhZsg7Mqn
+         1UN0rbhLUf/7NC/GovsNv5smLgBly5kHU8Gx3v4l275xNsWzyCmwo1nYCDKbev0x+mNy
+         kBhL2A9Rn88P5OgV/6J6VUcMD/VJbovWjXN9JyUnD7I3MlQt+6y0hnNcV7IBPXmtw6/x
+         2OY8Xdchn0DDv3XfVta25zO3jqbrSoDyLxrEDGw2VYsbEuZ+gr9GCyM4bLlCttbDowO+
+         Rk/ERndyI8EBfj7Ny5UiIVU/fnouom0byTUgNj+YHHgPwJqoHzMev0vFJPhThcm/oXGD
+         5Bag==
+X-Gm-Message-State: ANhLgQ3F40D7iZoI5eBLwUUXFACQz3PLhQtdjyRbyoWINxphC1nXeaoE
+	9jz4wLLOY8OH1lAWTrK0rds=
+X-Google-Smtp-Source: ADFU+vvyU/aUgU7d7DVC2zGetu1LxYFEISLQ7Y/RPmDOTPNFnPN/05JH6eznizFJmVLL9EZ9svOoCA==
+X-Received: by 2002:aed:2c06:: with SMTP id f6mr2893242qtd.337.1584406616219;
+        Mon, 16 Mar 2020 17:56:56 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:d982:: with SMTP id q124ls1689205ybg.11.gmail; Mon, 16
- Mar 2020 17:54:36 -0700 (PDT)
-X-Received: by 2002:a25:e84:: with SMTP id 126mr4031414ybo.0.1584406476644;
-        Mon, 16 Mar 2020 17:54:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584406476; cv=none;
+Received: by 2002:ae9:f718:: with SMTP id s24ls8067111qkg.7.gmail; Mon, 16 Mar
+ 2020 17:56:55 -0700 (PDT)
+X-Received: by 2002:a37:4a85:: with SMTP id x127mr2623099qka.152.1584406615872;
+        Mon, 16 Mar 2020 17:56:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584406615; cv=none;
         d=google.com; s=arc-20160816;
-        b=0MotGWPXRJtjXV6MiPGZWknFMpTLPcMub39pGW+/i/nmzpXbo3y4EUSHBz/IfFnFuu
-         KVy/q6UG/uHT1ZQErI2kU/dx7Li14wNIgfCXPSY6hO0AMoC2V/kMQs/hwYtMBAKTP9u5
-         LkjtL8cjoKisc5rIQH3Vrmw6viWJj1JSaJqxOwjn+w3mLeywWHkiaG7Uzj+IOwmDMuWL
-         cnkD7PPdoPI+p8+/SMOCvk+eYOJEYEig0nCFxUCvrMpYsZZciAjTGLy8iqBU+Q5yKKXK
-         RMITgRIA3z8Glbi2rhVukxHVDtNihvXkJg44EW4hUkpKJ+B9+VxeBNDgCcL5mZT3MRYd
-         y96g==
+        b=z6oo2wcMGtM+16SSMEzNXc8n5QZB2eEFvcfe6AEenRpfCOkTKaUm6NiiF8TTp/PwEA
+         NSFZu5cu52CC9IpGJIL7VYRlAiqaoi0omQfffbh1mxP+rfX6QYND4IfKmgwgr261bza/
+         SFaF9fqYhSS7SEpY3uy/dZwtx72kACl50KE2xWrwa/1zBD+VuU5YlovYyoXWX0AhZWmx
+         33/Mp3v5hhtlhq02T9Fe+Xrqy6catQ6UtJ8/pkthMtU3R0QMrTJ0/3EUeCu6RSOnc2Nf
+         6zaMriTZMhIqZhYcY6lpjz8htDeKsgC9SldLv7xdFZ9HvCcwubv5KRhv4fGewcmoOe6R
+         uIYQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=bGhOzFRsHJyc5oR9RvWYMjFedCLCVJSfVsIgYKwmD/4=;
-        b=nQibXF8jyfb/uRED1+PcF8+IsrvDDbKpdcZuQXby2eKATrfPrwuy0g9rg+2MyypEwq
-         efQzfalRIF36muJCeyqZKuS+wbb7V+ukKSfGSOOp1w1JoE803BxwB8PhxOHXuo7awCLJ
-         rPlG5uJMhcay8598v750llYKjo7z6kK4sTSjv/d1pIdXaaBGKzw1SDn3SPHWk4MlRFYs
-         IC2nbX93072WJgXZ/wrH+zbiDI3yv8cTha2pKDIx7hn5d1H1dNnaA1gkyemeqh2rNDmi
-         eABbgOlM5SmjB1JaXkLdmyKjfBnED69NUMKoeA7Ldkdz8CxegNde1OSJ/zYeq5zs0EUq
-         gTjw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=piiiUi1Oxpku//o2qSeAwqcou1OS0cpsZFRb+ApBsBk=;
+        b=H3wIfr79Jiqn6mQh6yZY8vcZfiF6XBfQ+cTRN+ag1ZW0ZqXdw8uXSDbWNe/qcQKt2x
+         EO+4x9AIAs5EKcX39re+wl9HyparR66/scQxaZlihPKhaJ1hGteF7lSGgwYIDPhLaES+
+         Lr4+YheiCJJVsy2o7FzPBDHj4FFrJGAnPxxY5VjNkn7nDidDmPHOVZoGhb+6oLjRBg4w
+         CN0k21TQiCUw2bsvQV2mStVLAjf8cwN4tMdgoz68sbL7/ZYtYi+JhCiTRfzcMplOtEpO
+         uoGkLWakvVp8we119kkntz58MxQf0eenF3TdfjZE1JJ1UG+xfmL87Ao9CvUv0tIiC5Ct
+         Kz8g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of philip.li@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=philip.li@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
-        by gmr-mx.google.com with ESMTPS id e14si184223ybp.0.2020.03.16.17.54.36
+       dkim=pass header.i=@google.com header.s=20161025 header.b="sd/xN+RE";
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1041 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pj1-x1041.google.com (mail-pj1-x1041.google.com. [2607:f8b0:4864:20::1041])
+        by gmr-mx.google.com with ESMTPS id c2si41079qtn.0.2020.03.16.17.56.55
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 16 Mar 2020 17:54:36 -0700 (PDT)
-Received-SPF: pass (google.com: domain of philip.li@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
-IronPort-SDR: 7fItsDTN186cFiK88LNnzzAUvr0MHkLe5j4ppp8+ZTgmB8eJXu2lVJ098gLx71PFjNh8FedhCN
- 8EASi3+2s2Mg==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Mar 2020 17:54:35 -0700
-IronPort-SDR: B3zuBSvRgXW+wUl4yuzNHijRAM5a2ulZgnNi8HAnbR2+aenvaciiIOXtx7LdIrFiJoz+NN1n9B
- UHyMP4PCZu0A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.70,562,1574150400"; 
-   d="scan'208";a="247657199"
-Received: from pl-dbox.sh.intel.com (HELO intel.com) ([10.239.159.39])
-  by orsmga006.jf.intel.com with ESMTP; 16 Mar 2020 17:54:33 -0700
-Date: Tue, 17 Mar 2020 08:53:27 +0800
-From: Philip Li <philip.li@intel.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Rong Chen <rong.a.chen@intel.com>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	lkp@intel.com
-Subject: Re: Should 0day-CI support more architectures with clang?
-Message-ID: <20200317005327.GB26990@intel.com>
-References: <e841a11a-ba40-e999-e840-4b5352262729@intel.com>
- <CAKwvOd=g_Soj_xnrz-ptUoEgek87sbeikcRpdrvEJGa_F72fiA@mail.gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Mar 2020 17:56:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1041 as permitted sender) client-ip=2607:f8b0:4864:20::1041;
+Received: by mail-pj1-x1041.google.com with SMTP id v13so25020pjb.0
+        for <clang-built-linux@googlegroups.com>; Mon, 16 Mar 2020 17:56:55 -0700 (PDT)
+X-Received: by 2002:a17:90a:db49:: with SMTP id u9mr2299919pjx.175.1584406614580;
+        Mon, 16 Mar 2020 17:56:54 -0700 (PDT)
+Received: from google.com ([2620:15c:2ce:0:9efe:9f1:9267:2b27])
+        by smtp.gmail.com with ESMTPSA id o11sm844583pjb.18.2020.03.16.17.56.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Mar 2020 17:56:53 -0700 (PDT)
+Date: Mon, 16 Mar 2020 17:56:51 -0700
+From: "'Fangrui Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Stanislav Fomichev <sdf@fomichev.me>
+Cc: Stanislav Fomichev <sdf@google.com>, netdev@vger.kernel.org,
+	bpf@vger.kernel.org, davem@davemloft.net, ast@kernel.org,
+	daniel@iogearbox.net, Nick Desaulniers <ndesaulniers@google.com>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH bpf] bpf: Support llvm-objcopy for vmlinux BTF
+Message-ID: <20200317005651.tnzbreth7dk4ol43@google.com>
+References: <20200316222518.191601-1-sdf@google.com>
+ <20200316231516.kakoiumx4afph34t@google.com>
+ <20200316235629.GC2179110@mini-arch.hsd1.ca.comcast.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Disposition: inline
-In-Reply-To: <CAKwvOd=g_Soj_xnrz-ptUoEgek87sbeikcRpdrvEJGa_F72fiA@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: philip.li@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of philip.li@intel.com designates 192.55.52.93 as
- permitted sender) smtp.mailfrom=philip.li@intel.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=intel.com
+In-Reply-To: <20200316235629.GC2179110@mini-arch.hsd1.ca.comcast.net>
+X-Original-Sender: maskray@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b="sd/xN+RE";       spf=pass
+ (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1041
+ as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Fangrui Song <maskray@google.com>
+Reply-To: Fangrui Song <maskray@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,63 +141,155 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Mar 16, 2020 at 11:14:42AM -0700, Nick Desaulniers wrote:
-> On Sun, Mar 15, 2020 at 7:28 PM Rong Chen <rong.a.chen@intel.com> wrote:
-> >
-> > Hi Nick,
-> 
-> First off, thank you guys so much for enabling Clang in 0day bot.  It
-> is an incredible system that helps prevent so much breakage from going
-> into the kernel, and I am so happy with it.  If there's something I
-> can write up that you can show to your boss as praise, I would love
-> to, just let me know what I can do.
-> 
-> >
-> > We have already supported to compiler to
-> > x86_64/arm/arm64/powerpc/powerpc64 with clang,
-> 
-> https://travis-ci.com/github/ClangBuiltLinux/continuous-integration is
-> our dashboard of our minimal CI.  Comparing it to the list above, it
-> looks like we're additionally testing:
-> 
-> 1. mips (malta_defconfig)
-> 2. s390 (defconfig)
-thanks for the info, we will consider the build for them
+On 2020-03-16, Stanislav Fomichev wrote:
+>On 03/16, Fangrui Song wrote:
+>> On 2020-03-16, Stanislav Fomichev wrote:
+>> > Commit da5fb18225b4 ("bpf: Support pre-2.25-binutils objcopy for vmlinux
+>> > BTF") switched from --dump-section to
+>> > --only-section/--change-section-address for BTF export assuming
+>> > those ("legacy") options should cover all objcopy versions.
+>> >
+>> > Turns out llvm-objcopy doesn't implement --change-section-address [1],
+>> > but it does support --dump-section. Let's partially roll back and
+>> > try to use --dump-section first and fall back to
+>> > --only-section/--change-section-address for the older binutils.
+>> >
+>> > 1. https://bugs.llvm.org/show_bug.cgi?id=45217
+>> >
+>> > Fixes: df786c9b9476 ("bpf: Force .BTF section start to zero when dumping from vmlinux")
+>> > Tested-by: Nick Desaulniers <ndesaulniers@google.com>
+>> > Reported-by: Nathan Chancellor <natechancellor@gmail.com>
+>> > Link: https://github.com/ClangBuiltLinux/linux/issues/871
+>> > Signed-off-by: Stanislav Fomichev <sdf@google.com>
+>> > ---
+>> > scripts/link-vmlinux.sh | 10 ++++++++++
+>> > 1 file changed, 10 insertions(+)
+>> >
+>> > diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
+>> > index dd484e92752e..8ddf57cbc439 100755
+>> > --- a/scripts/link-vmlinux.sh
+>> > +++ b/scripts/link-vmlinux.sh
+>> > @@ -127,6 +127,16 @@ gen_btf()
+>> > 		cut -d, -f1 | cut -d' ' -f2)
+>> > 	bin_format=$(LANG=C ${OBJDUMP} -f ${1} | grep 'file format' | \
+>> > 		awk '{print $4}')
+>> > +
+>> > +	# Compatibility issues:
+>> > +	# - pre-2.25 binutils objcopy doesn't support --dump-section
+>> > +	# - llvm-objcopy doesn't support --change-section-address, but
+>> > +	#   does support --dump-section
+>> > +	#
+>> > +	# Try to use --dump-section which should cover both recent
+>> > +	# binutils and llvm-objcopy and fall back to --only-section
+>> > +	# for pre-2.25 binutils.
+>> > +	${OBJCOPY} --dump-section .BTF=$bin_file ${1} 2>/dev/null || \
+>> > 	${OBJCOPY} --change-section-address .BTF=0 \
+>> > 		--set-section-flags .BTF=alloc -O binary \
+>> > 		--only-section=.BTF ${1} .btf.vmlinux.bin
+>> > --
+>> > 2.25.1.481.gfbce0eb801-goog
+>>
+>> So let me take advantage of this email to ask some questions about
+>> commit da5fb18225b4 ("bpf: Support pre-2.25-binutils objcopy for vmlinux BTF").
+>>
+>> Does .BTF have the SHF_ALLOC flag?
+>No, that's why we manually do '--set-section-flags .BTF=alloc' to
+>make --only-section work.
+>
+>> Is it a GNU objcopy<2.25 bug that objcopy --set-section-flags .BTF=alloc -O binary --only-section=.BTF does not skip the content?
+>> Non-SHF_ALLOC sections usually have 0 sh_addr. Why do they need --change-section-address .BTF=0 at all?
+>I think that '--set-section-flags .BTF=alloc' causes objcopy to put
+>some non-zero (valid) sh_addr, that's why we need to reset it to 0.
+>
+>(it's not clear if it's a feature or a bug and man isn't helpful)
+>
+>> Regarding
+>>
+>> > Turns out llvm-objcopy doesn't implement --change-section-address [1],
+>>
+>> This option will be difficult to implement in llvm-objcopy if we intend
+>> it to have a GNU objcopy compatible behavior.
+>> Without --only-section, it is not very clear how
+>> --change-section-{address,vma,lma} will affect program headers.
+>> There will be a debate even if we decide to implement them in llvm-objcopy.
+>>
+>> Some PT_LOAD rewriting examples:
+>>
+>>   objcopy --change-section-address .plt=0 a b
+>>   objcopy --change-section-address .text=0 a b
+>>
+>> There is another bug related to -B
+>> (https://github.com/ClangBuiltLinux/linux/issues/871#issuecomment-599790909):
+>>
+>> + objcopy --change-section-address .BTF=0 --set-section-flags .BTF=alloc
+>> -O binary --only-section=.BTF .tmp_vmlinux.btf .btf.vmlinux.bin
+>> + objcopy -I binary -O elf64-x86-64 -B x86_64 --rename-section .data=.BTF .btf.vmlinux.bin .btf.vmlinux.bin.o
+>> objcopy: architecture x86_64 unknown
+>> + echo 'Failed to generate BTF for vmlinux'
+>>
+>> It should be i386:x86_64.
+>Here is what I get:
+>
+>+ bin_arch=i386:x86-64
+>+ bin_format=elf64-x86-64
+>+ objcopy --change-section-address .BTF=0 --set-section-flags .BTF=alloc -O binary --only-section=.BTF .tmp_vmlinux.btf .btf.vmlinux.bin
+>+ objcopy -I binary -O elf64-x86-64 -B i386:x86-64 --rename-section .data=.BTF .btf.vmlinux.bin .btf.vmlinux.bin.
+>
+>Can you try to see where your x86_64 is coming from?
 
-> 
-> We're very close to adding riscv support, and I can keep you both in
-> the loop when we do.  If you use github, I'd love to send you an
-> invite to our github organization, which makes it easier for me to cc
-> you on issues/pull requests within the org, and for you to get emails
-> and notifications.  Please send me a link to your github accounts if
-> you're interested.
-> 
-> > is there any other architecture you wish us to support?
-> 
-> Those 2 or 3 would be good.  We're currently running into some issues
-> at boot with s390 and riscv, but I'd like to at least get build
-> coverage for now. 0day bot it not doing boot tests, right?
-the boot we are doing is limited to x86 now, it would not cover like
-riscv.
+llvm-objdump -f does not print bfdarch (ARCH= in binutils-gdb/ld/emulparams/*.sh).
 
-> 
-> The next thing I'd like to do is more than just substitute Clang, but
-> all of binutils with the llvm equivalents.  For example, GNU binutils
-> has `readelf`, llvm has `llvm-readelf`, and you can use the llvm
-Got it, this is something we will look into. Considering the computing
-resource, if we switch to READELF=llvm-readelf, we will not cover binutils
-readelf, is this ok?
+% objdump -f .btf.vmlinux.bin.o
 
-> version during a kernel build with `make READELF=llvm-readelf`.  In
-> particular, testing llvm's linker LLD is critical to us (and is a good
-> first step).  It gets unwieldy to specify all of these at the command
-> line, so I'm working on simplifying that, you can see a preview/RFC
-> patch here: https://groups.google.com/g/clang-built-linux/c/1j6_AfP0CMQ/m/WEEHsL6pGwAJ
-> -- 
-> Thanks,
-> ~Nick Desaulniers
+.btf.vmlinux.bin.o:     file format elf64-x86-64
+architecture: i386:x86-64, flags 0x00000010:
+HAS_SYMS
+start address 0x0000000000000000
+
+% llvm-objdump -f .btf.vmlinux.bin.o
+
+.btf.vmlinux.bin.o:     file format elf64-x86-64
+
+architecture: x86_64
+start address: 0x0000000000000000
+
+% objcopy -I binary -O elf64-x86-64 -B i386:x86-64 --rename-section .data=.BTF .btf.vmlinux.bin meow.btf.vmlinux.bin.o
+# happy
+% objcopy -I binary -O elf64-x86-64 -B x86-64 --rename-section .data=.BTF .btf.vmlinux.bin meow.btf.vmlinux.bin.o
+objcopy: architecture x86-64 unknown
+
+
+As a non-x86 example, elf64-powerpcle / powerpc:common64:
+
+% powerpc64le-linux-gnu-objdump -f meow.btf.vmlinux.bin.o
+
+meow.btf.vmlinux.bin.o:     file format elf64-powerpcle
+architecture: powerpc:common64, flags 0x00000010:
+
+
+Unfortunately, GNU objcopy<2.34 (before I complained about the redundant -B https://sourceware.org/bugzilla/show_bug.cgi?id=24968)
+could not infer -B from -O elf* .
+% objcopy -I binary -O elf64-x86-64 --rename-section .data=.BTF .btf.vmlinux.bin .btf.vmlinux.bin.o #<2.34
+% file .btf.vmlinux.bin.o
+.btf.vmlinux.bin.o: ELF 64-bit LSB relocatable, no machine, version 1 (SYSV), not stripped
+objcopy: architecture x86-64 unknown
+
+GNU ld and lld will error for e_machine==0.
+
+
+
+I will be a bit nervous to make llvm-objdump behave more BFD like.
+Adding i386:x86-64, powerpc:common64, etc does not look particularly clean.
+Fortunately, looking at the code, it seems that we only want to retain .BTF
+The following scheme may be simpler:
+
+objcopy --only-section=.BTF .tmp_vmlinux.btf .btf.vmlinux.bin.o && printf '\1' | dd of=.btf.vmlinux.bin.o conv=notrunc bs=1 seek=16
+
+The command after && is to change e_type from ET_EXEC to ET_REL. GNU ld has an extremely rare feature that allows ET_EXEC to be linked,
+but lld is more rigid and will reject such an input file.
+https://mail.coreboot.org/hyperkitty/list/seabios@seabios.org/thread/HHIUPUXRIZ3KLTK4TPLG2V4PFP32HRBE/
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200317005327.GB26990%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200317005651.tnzbreth7dk4ol43%40google.com.
