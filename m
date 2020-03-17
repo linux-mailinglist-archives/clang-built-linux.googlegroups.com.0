@@ -1,221 +1,125 @@
-Return-Path: <clang-built-linux+bncBAABB66BYTZQKGQE76E7X2Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDM6PI5M4IFRB76RYTZQKGQEDWDGHAI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43b.google.com (mail-wr1-x43b.google.com [IPv6:2a00:1450:4864:20::43b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 84C37188DC6
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 20:11:55 +0100 (CET)
-Received: by mail-wr1-x43b.google.com with SMTP id c6sf11048242wrm.18
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 12:11:55 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1584472315; cv=pass;
+Received: from mail-lj1-x239.google.com (mail-lj1-x239.google.com [IPv6:2a00:1450:4864:20::239])
+	by mail.lfdr.de (Postfix) with ESMTPS id 16C8B188E3D
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 20:46:08 +0100 (CET)
+Received: by mail-lj1-x239.google.com with SMTP id e14sf3888785ljp.12
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 12:46:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584474367; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Pae1fcXPc+4O6WFImd80H6G2TYoqICESY22rXPFPk99OZCs6WpCaI1/Csy2lhRLBAL
-         utFYaxhKa85I46wTa6P782rCcaxdFD7ghxTCKSQqLRmWllhx28seTpcn61Mj7STw0mZ0
-         JP/xNxqvEu8ZZvHOVSmZ4+lCknrlqp1hD6f/NG6iZT2NC9ByoXkd2+ZbKHVj7VTa2e4s
-         BIgXbGPsF8+UEE7jJSDQuEZ94GffzS/W6b7L0JZqE14pQ5KGEYm4nRRf6BbQHbGhC9cb
-         KNuXECIsHI1y1WQqnzZx3TzB0IaRRdqukrxdvw7/qTZR/H/SfZijPJZRTB23OaKYYAoS
-         5AsA==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=DHP1wPtLuwMu/DWVjyM0xIu0kTolYA8Ba3/qYyODTWwIQNABbWjBR4b1c5USNNe8rx
+         7XoNbXxvCOusrplgSo60AKZI+S8uzYK9LIce71cNtYJDh1mBZh5oVQa9k9L6QdTDFs+q
+         Atih701UU2WY9mph/3/t+9HdjPG8BmwuX5M7OyeMCxdTnMjgmyudbBIL020B5QRGm+x1
+         EiYHjrZ8UcqNbyltnItn2k+fOyV/3n7WnYrX5I6S2K5CTm51RHayHVC9PhXfFQzM1I0F
+         r+WAz0XeRJk55jt7ZWEvsyy14Dxqi0veBCVqIJxaDCH/lr9b3apuP3Mkk1U26cgWww20
+         ZlyA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:original-authentication-results
-         :mime-version:content-transfer-encoding:nodisclaimer
-         :content-language:accept-language:in-reply-to:references:message-id
-         :date:thread-index:thread-topic:subject:cc:to:from:sender
-         :dkim-signature;
-        bh=IJx4HTbv7nKPUgDjWFQEzuL4PiTrRa17lWptWZOsRrw=;
-        b=B99lfNjPXGdDypttnqI8j2vLbv7feUYXoEZ0E3Qb46sxPVXqn4seHQEcId1xPK1tJv
-         LmoaL6BsZHFxT2tDunGJRfwqGZITZkvF+PGm8GjXbB1RH9Dl3eZoONPhsuQFz4P6fkEi
-         SKGjEPMQbVAgXh5BxAuzWFi8DuFJf47E2ErZfwHdkl+2PpMjjWGgZHSlmhCuOMYlolDO
-         6rY2At5XAMwC7657R+b5wpxL9Zemj2c8Bd9hDDkw0xbz8JBU2OJSmA/ly2k7ZxqFUOVK
-         zw0+MM79mgLO3rsc8775qzrCrdv8vmYaoKe/Mk5y1oVFdQmwNUiJ7cjg05A20W04cBtP
-         rwtQ==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@armh.onmicrosoft.com header.s=selector2-armh-onmicrosoft-com header.b="K2k0C/zo";
-       dkim=pass header.i=@armh.onmicrosoft.com header.s=selector2-armh-onmicrosoft-com header.b="K2k0C/zo";
-       arc=pass (i=1 spf=pass spfdomain=arm.com dkim=pass dkdomain=arm.com dmarc=pass fromdomain=arm.com);
-       spf=pass (google.com: domain of peter.smith@arm.com designates 40.107.22.85 as permitted sender) smtp.mailfrom=Peter.Smith@arm.com
+         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
+         :date:from:sender:dkim-signature;
+        bh=XLL/NhNxnCIZKB69tqUUG/Wcn3XWTd3aWo4ffeTY84A=;
+        b=i50Iu1bilWqU8DfSuJXdS+Tpz0hoSVwfpi+6fwxt7wG3xIJ8KA03UQs6nky58rFOp3
+         Oerr8/EV0KNkR6LfIBg9w1u/6cTJMnZ9p6R+6d2QfbDpiUH95ZLiDFTKnms4r+BZH/zF
+         zzoSOtPf91IAg/UmQnNqbvCce1Oq7pkb3jZ2bZL0+BrPmKJB0xcwHYM1sEkrCv14nLiL
+         iARPCQu9QvElGZVkDptQDNhjQowSYvEPZzHuKylANMB2f3z89cgbBGr2ZS5MZqIDQWFB
+         eydBzNLnAoqqwQY739oqg5szf5qQ89TZ4cAQ0uDvBIE57yShG/9tkTgBO1ipbwE82Fue
+         w4oA==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@linaro.org header.s=google header.b="gu69/6ZY";
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:content-language
-         :nodisclaimer:content-transfer-encoding:mime-version
-         :original-authentication-results:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=IJx4HTbv7nKPUgDjWFQEzuL4PiTrRa17lWptWZOsRrw=;
-        b=ebaPM/m/EmYtXe/p7CTQDSi3KaXGg4dh8l0jhuA6YFfPWc9wvhtw8EAWtBC9izETD2
-         hbkraaKztJBaGI4xATdve1nK33/MMtKzbu8WxIWKZGP2pCvE2SFFQymZHIAslmnDRlDb
-         jPCspXd1PN2Ws//bPisHhsn5lQhC6CUl+YyZhfFw7TemrLDk4XLrHjuNUvnfiISEXPNv
-         9EHHC6CZQ+55lvcg7bZDo0bOAlLShar8WBAjPATq7poRWUNSq2kQC4ZI49TDPidKhbuV
-         aH7MMfBmjLC5wixf4TOs0iF1dgq30W7/QU8lkbhrYLXg4U/xu1oPlY/IWV24FSwiYm4Q
-         +byw==
+        h=sender:from:date:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=XLL/NhNxnCIZKB69tqUUG/Wcn3XWTd3aWo4ffeTY84A=;
+        b=LQWZ2QJo7QFuONtzPe9Gz3B3W8KE+PuRvfXeQ8TOoBMcVOYjOAv267DNCSdwc66lrc
+         47ltpRwRuSRAz7QvLsKfNzxXmTqsRI7GiyBQ4RC0zqTVZIt5NvKR1/xhz5m9wSNsHEO1
+         ai98vWfNdqSb42zmXkF01FX/jgYkv2YVjUIRtT2Fl3V7sjRMgAltVJW6udfIBTrBjhGB
+         Bo6JutULMgk31UGEWpQL8HBceczqfxUywC2kj3Syem2C8AMtcnkWfiIafv3VkIyN7Eh8
+         aGynKnsDUb+NlIxNBDlHBOz5PPBEn5U3W8QjUzeqFzFMt2lWiEgX2Ug5Jujh3qoElu0V
+         0E5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :content-language:nodisclaimer:content-transfer-encoding
-         :mime-version:original-authentication-results:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=IJx4HTbv7nKPUgDjWFQEzuL4PiTrRa17lWptWZOsRrw=;
-        b=hZXO6rUZ3L2JddgOg2xso9FqeLzO/3XHS48i42kRIGGy1jLh5miTMLS4jUml05vpQJ
-         C9Q9tgaoMgJbKvL/m8WlwN0JiBw3HM0/tpSAxFzAx402tm5DOLxU0d2zNxmcZ7LgOKg7
-         mpzptVx1SdEgsj5Zc3wM4WROJ/8Eag3yQSCELRd7pTVtRbb5L0VoV8VS/x4JKIH1Unir
-         vuPa4A9HJAKzck/bUULwRIHNfluwopf4TBwRkbIRkM5BCKTBJDuKn8EIyoCkzRSwXwcD
-         ZWifBbAh0bGUGiP4K0TyHnz7mV7f6e6UDQ9bWKl0RyIbHW3z2C41zS2FkIWt2Z6xJUAp
-         NGqw==
+        h=sender:x-gm-message-state:from:date:to:message-id:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=XLL/NhNxnCIZKB69tqUUG/Wcn3XWTd3aWo4ffeTY84A=;
+        b=PhDMaYrNo9Fy5X4QOjS+vFlm0LoRe9B+yKqAZs7z9RsMTzhPsmHQWScKEgMlg6Q5d9
+         2w2Zajva/jROfYOHMeMsrMQNylRPcMjatcTxFgWfFxyJV7HtaIXD3bOhK2Rz/2ELRCL/
+         9WoJUVsxwR8eqbzOzcGJ88BXEeD7NJp2zL44vwRPuvR+N0l5yxr+HcnL2eLqp4eH8yqy
+         uU2UGprjU4jP879vQUxgSNK3b7CfN9ZE5zNFDUSY3mWwf2dsXIB7MX42GPNNbIxag2kI
+         vO/I/SUzHpVYm/18dFBDgBO9RG4lt5HQ5qfCr4/yNzbpM171lJpf0IlAUaCwj56mhYTG
+         8vdg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ116l7CtRK9FQJ1sFaVB8zL0hsXhMxyL26Awv4kacDvRX+/v9VR
-	uK/esq0exVY9Fq2lmDD/H50=
-X-Google-Smtp-Source: ADFU+vugja1sBp9Li1+SOsDuA9TN223E1A212MLwoWVplJ83B/V8C2Yp8+11p6LHa1syQ4d3kUAvQw==
-X-Received: by 2002:a5d:4111:: with SMTP id l17mr523746wrp.271.1584472315266;
-        Tue, 17 Mar 2020 12:11:55 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ2FWcjsqtsUqt2INokiA/UJUwc0yk+neVoLewShbSv1Lmf2QHe8
+	h8pYzMHluuhkqe/cHAufRDw=
+X-Google-Smtp-Source: ADFU+vufoa5zc00UrLd8Z+Rqx1dbtZCLW2DVtgI5fbbdZ2I2TI72pvtaLbSUsW6FFej5lEgklwGi/Q==
+X-Received: by 2002:a05:651c:2c9:: with SMTP id f9mr228625ljo.85.1584474367466;
+        Tue, 17 Mar 2020 12:46:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:660a:: with SMTP id a10ls255382wmc.0.gmail; Tue, 17 Mar
- 2020 12:11:52 -0700 (PDT)
-X-Received: by 2002:a7b:cb17:: with SMTP id u23mr574604wmj.12.1584472312781;
-        Tue, 17 Mar 2020 12:11:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584472312; cv=pass;
+Received: by 2002:a2e:96d9:: with SMTP id d25ls2369331ljj.11.gmail; Tue, 17
+ Mar 2020 12:46:06 -0700 (PDT)
+X-Received: by 2002:a2e:9f49:: with SMTP id v9mr230089ljk.238.1584474366719;
+        Tue, 17 Mar 2020 12:46:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584474366; cv=none;
         d=google.com; s=arc-20160816;
-        b=p5K+xbMOQoKpMwf56tFz1yKuDph/e4Ept4HagKeElRIP6pP5h51gB13J23nKHF6Zmz
-         VMfuyLS7QnCayXTID0OWmoc1106ubcx3Pbf90bPvKxn3B9rDmkjlLv7iUGs5WQC2PpsX
-         rXVeF6zrBrOy2kW3E+79x8XsAhmG1UbLvvmto5bIKqvL/R9yfdDwgeTXx2IYEuVrE60m
-         HDFNTlDyxa6oe5nuMUaaAEo76Bmu+b1jkAa8L4X/HXK0FnYDvj9ByhliWZP4bYPOyh/t
-         isYjYARZ7GZmvR8W2XeuFMO/N1SU3mGSRsaIIH8rp5Grsj5qNzNbBrSQwMlM/lhnPrpX
-         E/Mw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=original-authentication-results:mime-version
-         :content-transfer-encoding:nodisclaimer
-         :authentication-results-original:content-language:accept-language
-         :in-reply-to:references:message-id:date:thread-index:thread-topic
-         :subject:cc:to:from:dkim-signature:dkim-signature;
-        bh=eoCxRlqpggnm+uDPOPi+20lmAPFoZVVUWPQGZzb9SWw=;
-        b=czscHBOYTMa2zUJenmmAYjdyelxlyBoQ06SSO8QXu9rLEglXlbKp9VoBYWXGWgOKKP
-         RxOLPTqWrN5JvS10/S41bZx0QpMaLnmdFEutinBYA9QS72jzNBVbNF2kUAa0+L0EQZRE
-         MlIxDPaIcDEm7EhwPEBe2/bVCYe7kFtQraloyHSFvCU7ZH60zKdd7rYjX02xIfIcu2wg
-         ge2MIVTcjL5ekzB/tzAxMPJpPWGdIYU2hoIQTd8dzGGEqTd6oR0nJf3OKWStTgPsbZYF
-         w/gnya88/3/XmeOo8FQNB+Y/9JDCUDdt1vnQEpMaz9wLyib57iIlO5yHbZ9zVKy/ZoBR
-         KNjg==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@armh.onmicrosoft.com header.s=selector2-armh-onmicrosoft-com header.b="K2k0C/zo";
-       dkim=pass header.i=@armh.onmicrosoft.com header.s=selector2-armh-onmicrosoft-com header.b="K2k0C/zo";
-       arc=pass (i=1 spf=pass spfdomain=arm.com dkim=pass dkdomain=arm.com dmarc=pass fromdomain=arm.com);
-       spf=pass (google.com: domain of peter.smith@arm.com designates 40.107.22.85 as permitted sender) smtp.mailfrom=Peter.Smith@arm.com
-Received: from EUR05-AM6-obe.outbound.protection.outlook.com (mail-am6eur05on2085.outbound.protection.outlook.com. [40.107.22.85])
-        by gmr-mx.google.com with ESMTPS id w17si178061wrn.3.2020.03.17.12.11.52
+        b=zSPHX9Ml2OINVeJRSxQyTPiJPxDOS6oBN5VJWTYus7nelhbaUycBZF5PSbRrAtuY9x
+         goSxRt3TxyVn1siMEWKOKNY/tR6CHqslZH420/jdVslVOzX9aK/E+0P9fs/KhzlsgEiz
+         dR9KXoluPRa5bqCourZ2kajluLQ6J4pATiGrkqMgaz5jm8e7vHF4LLbzBYpN4upR/m/F
+         dgXjbB7fMAHgtw/of5KSIis0eutSQ6hcDBUcPTjNvlcdv86JNa9q9o8TYggQuCHnOBZi
+         VqjyDAY4CPs0uXzubqr1LHrxUdbye/8iVCui4Sy4Pl47LZrttRnAAItVbaQTTGptW7eh
+         JUTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:subject:message-id:to:date:from:dkim-signature;
+        bh=rFFRtWHjiiMH3F6mMA9ICDyPmkvR5Xy2vTpcf/23k4Q=;
+        b=dem1URq5jMu8HDQ7Q5r/12Go7V+9DS3TpPZXuhhB4dV9TXCmZXIXoQ5LgqcIIy6lOZ
+         9qmeyqLNtZCSZM8EZogat2qkKClcMaQjpGm516E8J5q+aPKyVHc3Sg1Bc3lmwHqixEuD
+         rCQp6ecw2w1H/LJnCnhdqV9C357wMPVoLw+Jr3x4P2FIJXusPVb/AW/sw2rX2E/VcSt1
+         ofPv+yGLkcgHwptSNCYLLMEgdAeIiBTsE7CDC1rrzwUfkarLzxFycd2PxZ1zcQa898Ev
+         tXIu64imzFkNuqZjWeD5xznJYoavjXf7IPgvURyzeSDMBB8jF58CcNCZRCftzaEOz+qj
+         AnzA==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@linaro.org header.s=google header.b="gu69/6ZY";
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-wr1-x442.google.com (mail-wr1-x442.google.com. [2a00:1450:4864:20::442])
+        by gmr-mx.google.com with ESMTPS id c15si190923ljn.3.2020.03.17.12.46.06
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 17 Mar 2020 12:11:52 -0700 (PDT)
-Received-SPF: pass (google.com: domain of peter.smith@arm.com designates 40.107.22.85 as permitted sender) client-ip=40.107.22.85;
-Received: from AM6P192CA0002.EURP192.PROD.OUTLOOK.COM (2603:10a6:209:83::15)
- by DB7PR08MB3209.eurprd08.prod.outlook.com (2603:10a6:5:1e::31) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2814.18; Tue, 17 Mar
- 2020 19:11:51 +0000
-Received: from AM5EUR03FT026.eop-EUR03.prod.protection.outlook.com
- (2603:10a6:209:83:cafe::3b) by AM6P192CA0002.outlook.office365.com
- (2603:10a6:209:83::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2814.19 via Frontend
- Transport; Tue, 17 Mar 2020 19:11:51 +0000
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 63.35.35.123 as permitted sender) receiver=protection.outlook.com;
- client-ip=63.35.35.123; helo=64aa7808-outbound-1.mta.getcheckrecipient.com;
-Received: from 64aa7808-outbound-1.mta.getcheckrecipient.com (63.35.35.123) by
- AM5EUR03FT026.mail.protection.outlook.com (10.152.16.155) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2814.13 via Frontend Transport; Tue, 17 Mar 2020 19:11:50 +0000
-Received: ("Tessian outbound 62d9cfe08e54:v42"); Tue, 17 Mar 2020 19:11:50 +0000
-X-CheckRecipientChecked: true
-X-CR-MTA-CID: 9ef8a836f160318e
-X-CR-MTA-TID: 64aa7808
-Received: from a2d4d3f311c0.2
-	by 64aa7808-outbound-1.mta.getcheckrecipient.com id 7ACAEB8F-593B-4AFA-A820-CF6C54884C74.1;
-	Tue, 17 Mar 2020 19:11:45 +0000
-Received: from EUR02-VE1-obe.outbound.protection.outlook.com
-    by 64aa7808-outbound-1.mta.getcheckrecipient.com with ESMTPS id a2d4d3f311c0.2
-    (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384);
-    Tue, 17 Mar 2020 19:11:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=WMQNE++xM3JW7zHkd/BKAWjpQJbILMMYQax2VHc/UxbYnRCC35xDvhOvNmaeh3xMB4pnbYUaEG2xTpEmuDD4UmXyIixXWh3CpuCOkgOhVedRXMtlnewOyZgPs63qQ8qKq5048hOgyPfEnAYnuyg9JN3M/jpvxZb6371DxuYj6/C7G4mp/xNEAU0nIuEitoMDfMqUVQxOXyzNUYMunxuYvfgm7c29KqHQ9qQo2hzNT0aRDnK8+au19sLkL9fq5d70BWJZZblYPJKMOIPD/9bcCu6X7xBAAlqq32GP1iG0dviV1x7HgN8hQ3iHrG8Vq/LAxZe5h0KETNmByHBU+mEDEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eoCxRlqpggnm+uDPOPi+20lmAPFoZVVUWPQGZzb9SWw=;
- b=Y+mCEBca3h4k+RbxZql4Xh9jOjaTkteuFKlCoJxcLhX7ZaqQG+3mDsPxrX+HRvXSrTNNdutLV7EOxoO7pWRMoKFrUayalqtPl4zaGtTGrBVbUdDXtkANK5OTLdO29y4GJowtkPozdzpJgDzb9PfrkhQuOuFAQ/XUeF4IMlatB5VgCpLluJWhTtBQ+5dVEwxVVymUAVxHD+GSFwhCxa7x5UaMlo+Av5Hc/hRaHipXvh6OQZvRJXA6X0Ujop6k+oCo4a8s/nyxtAF+2PZkI6q2ew+4r7S78KOZzwjW1TBy98GtBjNMK+EfhdxbQvFAi0cVuoRR3C3ze5TFNm9bmc2TTg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-Received: from DBBPR08MB4823.eurprd08.prod.outlook.com (10.255.78.22) by
- DBBPR08MB4757.eurprd08.prod.outlook.com (10.255.78.84) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2814.21; Tue, 17 Mar 2020 19:11:43 +0000
-Received: from DBBPR08MB4823.eurprd08.prod.outlook.com
- ([fe80::f46d:4b0d:d07d:949d]) by DBBPR08MB4823.eurprd08.prod.outlook.com
- ([fe80::f46d:4b0d:d07d:949d%6]) with mapi id 15.20.2814.021; Tue, 17 Mar 2020
- 19:11:43 +0000
-From: Peter Smith <Peter.Smith@arm.com>
-To: Nick Desaulniers <ndesaulniers@google.com>, Kristof Beyls
-	<Kristof.Beyls@arm.com>, Arnd Bergmann <arnd@arndb.de>,
-	"oliver.stannard@linaro.org" <oliver.stannard@linaro.org>
-CC: clang-built-linux <clang-built-linux@googlegroups.com>
-Subject: Re: help reviewing 32b ARM VFP assembly
-Thread-Topic: help reviewing 32b ARM VFP assembly
-Thread-Index: AQHV++tRwPgBzetcikKg4cGrjbjPsahNJX2x
-Date: Tue, 17 Mar 2020 19:11:43 +0000
-Message-ID: <DBBPR08MB4823894C5E0C67C7FF6F6DCDF8F60@DBBPR08MB4823.eurprd08.prod.outlook.com>
-References: <CAKwvOdmYqncnK7SBEi7P0ZSNTMi97XhkiOkqmHoCrWUeG-7GQA@mail.gmail.com>
-In-Reply-To: <CAKwvOdmYqncnK7SBEi7P0ZSNTMi97XhkiOkqmHoCrWUeG-7GQA@mail.gmail.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-GB
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [217.140.106.52]
-x-ms-publictraffictype: Email
-X-MS-Office365-Filtering-HT: Tenant
-X-MS-Office365-Filtering-Correlation-Id: 23da048f-95cf-47de-c429-08d7caa70c3b
-x-ms-traffictypediagnostic: DBBPR08MB4757:|DBBPR08MB4757:|DB7PR08MB3209:
-x-ms-exchange-transport-forked: True
-X-Microsoft-Antispam-PRVS: <DB7PR08MB32094C377839587FAE5C6716F8F60@DB7PR08MB3209.eurprd08.prod.outlook.com>
-x-checkrecipientrouted: true
-nodisclaimer: true
-x-ms-oob-tlc-oobclassifiers: OLM:9508;OLM:10000;
-x-forefront-prvs: 0345CFD558
-X-Forefront-Antispam-Report-Untrusted: SFV:NSPM;SFS:(10009020)(4636009)(366004)(376002)(346002)(136003)(396003)(39860400002)(199004)(66446008)(76116006)(52536014)(6506007)(53546011)(66946007)(7696005)(64756008)(66556008)(66476007)(9686003)(316002)(86362001)(33656002)(5660300002)(110136005)(26005)(186003)(4326008)(8936002)(8676002)(81166006)(478600001)(81156014)(71200400001)(966005)(2906002)(55016002);DIR:OUT;SFP:1101;SCL:1;SRVR:DBBPR08MB4757;H:DBBPR08MB4823.eurprd08.prod.outlook.com;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;A:1;
-received-spf: None (protection.outlook.com: arm.com does not designate
- permitted sender hosts)
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam-Untrusted: BCL:0;
-X-Microsoft-Antispam-Message-Info-Original: dC1cbCvCzNKMh0z7I7PivfGfQAKF6Xpio3u54AqFWAJDgqiv1pdPnekdocNbRBrzcY/N28b3nk02VHAuhv+mvTcTR/CzdGym2IRby317BNhDb1+0vL7xBitIKyJ0Zwu5k9NORB0IS6wXcBUG8ORCmydbCSzakgKlC10+TC0ZgFiw6qolJYRcfXc4FGK/wlUbzNpSMbiyxK8cOc0U+rv4KLcwaGDqgaTaOMCAlxJVV0DCSpZRCluyhJZaDN0wgVAxZLIjRlC0W/rXCXsUT6lrgdspMrwdLMMiVrfXNW1GpnhfYFCZWXvqyexuOGovS9tEAXYXNeDsWnVYIn+AEyCKeu01m2M5Rifgo852M1qZi+asN8C9zB7dEpXg2X6RoaTzma0hnJ+TGdvB8k8QwK6mIoX5DKjYRtOoJtci+aMrnPn41raYA7pn9yMzqo0oF0iOTs8Z2XdsmtKlJT2MeIW0iLeygIwFWHVgog6cg9AAq/k8ClDCZ8hX3gYkFt7BLNrMVM7t+QaC/OVq8xej682aQQ==
-x-ms-exchange-antispam-messagedata: W+eywAEKFwLbbSdrJjpW94RW7DLU3ledptau+gV63OSwkWqOHFEVfFii424o27Iplo2P4/5mcc+zCSeIN/DWljRPebXy+dK3RKoc6rfTpimI0UCCREnDk9HIV9HWg9I4myEW1U6HN4YLQbjcP7lGTw==
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Mar 2020 12:46:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::442 as permitted sender) client-ip=2a00:1450:4864:20::442;
+Received: by mail-wr1-x442.google.com with SMTP id f3so20330715wrw.7
+        for <clang-built-linux@googlegroups.com>; Tue, 17 Mar 2020 12:46:06 -0700 (PDT)
+X-Received: by 2002:a5d:6845:: with SMTP id o5mr658490wrw.86.1584474365809;
+        Tue, 17 Mar 2020 12:46:05 -0700 (PDT)
+Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
+        by smtp.gmail.com with ESMTPSA id n9sm557565wmi.23.2020.03.17.12.46.05
+        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Tue, 17 Mar 2020 12:46:05 -0700 (PDT)
+From: ci_notify@linaro.org
+Date: Tue, 17 Mar 2020 19:46:04 +0000 (UTC)
+To: tcwg-validation@linaro.org, llvm@linaro.org, 
+	clang-built-linux@googlegroups.com
+Message-ID: <388916845.10393.1584474365248.JavaMail.javamailuser@localhost>
+Subject: [CI-NOTIFY]: TCWG Bisect
+ tcwg_kernel/llvm-master-aarch64-stable-allnoconfig - Build # 7 -
+ Successful!
 MIME-Version: 1.0
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB4757
-Original-Authentication-Results: spf=none (sender IP is )
- smtp.mailfrom=Peter.Smith@arm.com;
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM5EUR03FT026.eop-EUR03.prod.protection.outlook.com
-X-Forefront-Antispam-Report: CIP:63.35.35.123;IPV:CAL;SCL:-1;CTRY:IE;EFV:NLI;SFV:NSPM;SFS:(10009020)(4636009)(136003)(346002)(396003)(39860400002)(376002)(199004)(46966005)(6506007)(53546011)(4326008)(7696005)(55016002)(9686003)(70206006)(356004)(70586007)(47076004)(81166006)(26826003)(33656002)(478600001)(110136005)(86362001)(2906002)(966005)(36906005)(336012)(81156014)(186003)(8936002)(52536014)(26005)(5660300002)(8676002)(316002);DIR:OUT;SFP:1101;SCL:1;SRVR:DB7PR08MB3209;H:64aa7808-outbound-1.mta.getcheckrecipient.com;FPR:;SPF:Pass;LANG:en;PTR:ec2-63-35-35-123.eu-west-1.compute.amazonaws.com;A:1;
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 0187609e-1dc9-4f82-ae10-08d7caa707b2
-X-Forefront-PRVS: 0345CFD558
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: xT17L9IdDbQhpOYh+ZP3gBAOTfzazWK2P4QmePGUDvWtf317Px3rsw4wXGXqaO0ZN1UOQpz8p8fJ4OeAnI9F03QrhOVVDREgBJ9MiXlwA0dDfP89kdHLVjJlAERxUsyKeydTHLmT1vOc0zMDrOaILtwNWJKg1fOBAPI3c1he/7DJ2P6aYx6H6831vq1+/NB66iJKdU682xIXUHZKYvqOZzK8CsxDOnpMrGnmc6gciCI7+UU3NvkViCrJzYvHCnRQ60l5usx4hxIe6cCAH4nrNzTeHAjN97mG+J267+FdLsB5ReUmS8sPlwiH8vpZQj+jYV09HUkKnO/3KUZB+VhlYh63veJCu9UyCncV80ryHESukYn/NIIbS8so0DrcOomN6hWlL57BYLyjMyoGYSfS4jGCo3KmjTdcHR/EHxLD9GRg5EA3+mggQeBul9+pmysC6tZkwivvsoUr+Fk+es2brZ99NXv/aaoi00o1ecBYS0jaE2mxfLgfFWWlkA3IoCotLbv7jv8USz2iro0Qoeip5AUL3bFg7cR1IAJDqMrKCR3nDIdvF26uw2IHq7cPphptbW2CtKknl8oABH6bWmwLLw==
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2020 19:11:50.9016
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 23da048f-95cf-47de-c429-08d7caa70c3b
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[63.35.35.123];Helo=[64aa7808-outbound-1.mta.getcheckrecipient.com]
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB7PR08MB3209
-X-Original-Sender: peter.smith@arm.com
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_10392_1824992997.1584474364710"
+X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-aarch64-stable-allnoconfig
+X-Jenkins-Result: SUCCESS
+X-Original-Sender: ci_notify@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@armh.onmicrosoft.com header.s=selector2-armh-onmicrosoft-com
- header.b="K2k0C/zo";       dkim=pass header.i=@armh.onmicrosoft.com
- header.s=selector2-armh-onmicrosoft-com header.b="K2k0C/zo";       arc=pass
- (i=1 spf=pass spfdomain=arm.com dkim=pass dkdomain=arm.com dmarc=pass
- fromdomain=arm.com);       spf=pass (google.com: domain of
- peter.smith@arm.com designates 40.107.22.85 as permitted sender) smtp.mailfrom=Peter.Smith@arm.com
+ header.i=@linaro.org header.s=google header.b="gu69/6ZY";       spf=pass
+ (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::442
+ as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -228,43 +132,578 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hello Nick,
+------=_Part_10392_1824992997.1584474364710
+Content-Type: text/plain; charset="UTF-8"
 
-I can check that the VFP opcodes match the coprocessor instructions and the=
- toolchain options, but I'm not sure I can do much from a "Is the right thi=
-ng for the Kernel perspective". I don't have a lot of spare time at the mom=
-ent so I'm reluctant to promise anything more than I'll try my best.
+Successfully identified regression in *llvm* in CI configuration tcwg_kernel/llvm-master-aarch64-stable-allnoconfig.  So far, this commit has regressed CI configurations:
+ - tcwg_kernel/llvm-master-aarch64-next-allnoconfig
+ - tcwg_kernel/llvm-master-aarch64-stable-allnoconfig
 
-Peter
+Culprit:
+<cut>
+commit af64948e2a050d1ef3b7fd314ed07b2a2fe402a5
+Author: Kerry McLaughlin <kerry.mclaughlin@arm.com>
 
-________________________________________
-From: Nick Desaulniers <ndesaulniers@google.com>
-Sent: 16 March 2020 23:33
-To: Kristof Beyls; Peter Smith; Arnd Bergmann; oliver.stannard@linaro.org
-Cc: clang-built-linux
-Subject: help reviewing 32b ARM VFP assembly
+    [SVE][Inline-Asm] Add constraints for SVE ACLE types
+</cut>
 
-Hello folks,
-Stefan sent 3 patches to support Clang's integrated assembler for VFP
-on 32b ARM.  Would you be able to help review, or help find someone to
-help review these?
+First few build errors in logs:
+00:00:49 ./arch/arm64/include/asm/processor.h:272:15: error: invalid operand for inline asm constraint 'p'
+00:00:49 make[2]: *** [kernel/locking/qspinlock.o] Error 1
+00:00:49 make[1]: *** [kernel/locking] Error 2
+00:00:54 ./arch/arm64/include/asm/processor.h:266:15: error: invalid operand for inline asm constraint 'p'
+00:00:54 ./arch/arm64/include/asm/processor.h:266:15: error: invalid operand for inline asm constraint 'p'
+00:00:55 make[2]: *** [kernel/sched/core.o] Error 1
+00:00:56 ./arch/arm64/include/asm/processor.h:279:8: error: invalid operand for inline asm constraint 'p'
+00:00:56 make[1]: *** [fs/inode.o] Error 1
+00:00:56 ./arch/arm64/include/asm/processor.h:272:15: error: invalid operand for inline asm constraint 'p'
+00:00:56 make[1]: *** [mm/vmscan.o] Error 1
+Configuration details:
+rr[llvm_url]="https://github.com/llvm/llvm-project.git"
+rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git"
+rr[llvm_branch]="c5ff3df839321847ab7558ffb292f725d0356dfe"
 
-https://lore.kernel.org/linux-arm-kernel/cover.1583360296.git.stefan@agner.=
-ch/
---
-Thanks,
-~Nick Desaulniers
-IMPORTANT NOTICE: The contents of this email and any attachments are confid=
-ential and may also be privileged. If you are not the intended recipient, p=
-lease notify the sender immediately and do not disclose the contents to any=
- other person, use it for any purpose, or store or copy the information in =
-any medium. Thank you.
+Results regressed to (for first_bad == af64948e2a050d1ef3b7fd314ed07b2a2fe402a5)
+# reset_artifacts:
+-10
+# build_llvm:
+-1
+# linux_n_obj:
+441
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/DBBPR08MB4823894C5E0C67C7FF6F6DCDF8F60%40DBBPR08MB4823.eu=
-rprd08.prod.outlook.com.
+from (for last_good == 06489eaa92162c6b01a767124f3fcdada99bb2f1)
+# reset_artifacts:
+-10
+# build_llvm:
+-1
+# linux_n_obj:
+449
+# linux build successful:
+all
+# linux boot successful:
+boot
+
+Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-stable-allnoconfig/7/artifact/artifacts/build-af64948e2a050d1ef3b7fd314ed07b2a2fe402a5/
+Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-stable-allnoconfig/7/artifact/artifacts/build-06489eaa92162c6b01a767124f3fcdada99bb2f1/
+Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-stable-allnoconfig/7/
+
+Reproduce builds:
+<cut>
+mkdir investigate-llvm-af64948e2a050d1ef3b7fd314ed07b2a2fe402a5
+cd investigate-llvm-af64948e2a050d1ef3b7fd314ed07b2a2fe402a5
+
+git clone https://git.linaro.org/toolchain/jenkins-scripts
+
+mkdir -p artifacts/manifests
+curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-stable-allnoconfig/7/artifact/artifacts/manifests/build-baseline.sh
+curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-stable-allnoconfig/7/artifact/artifacts/manifests/build-parameters.sh
+curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-stable-allnoconfig/7/artifact/artifacts/test.sh
+chmod +x artifacts/test.sh
+
+# Reproduce the baseline build (build all pre-requisites)
+./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
+
+cd llvm
+
+# Reproduce first_bad build
+git checkout --detach af64948e2a050d1ef3b7fd314ed07b2a2fe402a5
+../artifacts/test.sh
+
+# Reproduce last_good build
+git checkout --detach 06489eaa92162c6b01a767124f3fcdada99bb2f1
+../artifacts/test.sh
+
+cd ..
+</cut>
+
+History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-stable-allnoconfig
+
+Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-stable-allnoconfig/7/artifact/artifacts/
+Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-stable-allnoconfig/7/consoleText
+
+Full commit:
+<cut>
+commit af64948e2a050d1ef3b7fd314ed07b2a2fe402a5
+Author: Kerry McLaughlin <kerry.mclaughlin@arm.com>
+Date:   Tue Mar 17 10:27:29 2020 +0000
+
+    [SVE][Inline-Asm] Add constraints for SVE ACLE types
+    
+    Summary:
+    Adds the constraints described below to ensure that we
+    can tie variables of SVE ACLE types to operands in inline-asm:
+     - y: SVE registers Z0-Z7
+     - Upl: One of the low eight SVE predicate registers (P0-P7)
+     - Upa: Full range of SVE predicate registers (P0-P15)
+    
+    Reviewers: sdesmalen, huntergr, rovka, cameron.mcinally, efriedma, rengolin
+    
+    Reviewed By: efriedma
+    
+    Subscribers: miyuki, tschuett, rkruppe, psnobl, cfe-commits
+    
+    Tags: #clang
+    
+    Differential Revision: https://reviews.llvm.org/D75690
+---
+ clang/lib/Basic/Targets/AArch64.cpp                |  14 +-
+ clang/lib/Basic/Targets/AArch64.h                  |  15 ++
+ clang/lib/CodeGen/CGCall.cpp                       |  10 +-
+ clang/lib/CodeGen/CGStmt.cpp                       |  15 +-
+ clang/test/CodeGen/aarch64-sve-inline-asm-crash.c  |  24 ++
+ .../CodeGen/aarch64-sve-inline-asm-datatypes.c     | 252 +++++++++++++++++++++
+ .../CodeGen/aarch64-sve-inline-asm-negative-test.c |  21 ++
+ 7 files changed, 340 insertions(+), 11 deletions(-)
+
+diff --git a/clang/lib/Basic/Targets/AArch64.cpp b/clang/lib/Basic/Targets/AArch64.cpp
+index bd1a8834c2f..336c7491a5c 100644
+--- a/clang/lib/Basic/Targets/AArch64.cpp
++++ b/clang/lib/Basic/Targets/AArch64.cpp
+@@ -486,17 +486,29 @@ bool AArch64TargetInfo::validateAsmConstraint(
+     Info.setAllowsRegister();
+     return true;
+   case 'U':
++    if (Name[1] == 'p' && (Name[2] == 'l' || Name[2] == 'a')) {
++      // SVE predicate registers ("Upa"=P0-15, "Upl"=P0-P7)
++      Info.setAllowsRegister();
++      Name += 2;
++      return true;
++    }
+     // Ump: A memory address suitable for ldp/stp in SI, DI, SF and DF modes.
+     // Utf: A memory address suitable for ldp/stp in TF mode.
+     // Usa: An absolute symbolic address.
+     // Ush: The high part (bits 32:12) of a pc-relative symbolic address.
+-    llvm_unreachable("FIXME: Unimplemented support for U* constraints.");
++
++    // Better to return an error saying that it's an unrecognised constraint
++    // even if this is a valid constraint in gcc.
++    return false;
+   case 'z': // Zero register, wzr or xzr
+     Info.setAllowsRegister();
+     return true;
+   case 'x': // Floating point and SIMD registers (V0-V15)
+     Info.setAllowsRegister();
+     return true;
++  case 'y': // SVE registers (V0-V7)
++    Info.setAllowsRegister();
++    return true;
+   }
+   return false;
+ }
+diff --git a/clang/lib/Basic/Targets/AArch64.h b/clang/lib/Basic/Targets/AArch64.h
+index 5e78237743c..befbf693ad8 100644
+--- a/clang/lib/Basic/Targets/AArch64.h
++++ b/clang/lib/Basic/Targets/AArch64.h
+@@ -87,6 +87,21 @@ public:
+ 
+   ArrayRef<const char *> getGCCRegNames() const override;
+   ArrayRef<TargetInfo::GCCRegAlias> getGCCRegAliases() const override;
++
++  std::string convertConstraint(const char *&Constraint) const override {
++    std::string R;
++    switch (*Constraint) {
++    case 'U': // Three-character constraint; add "@3" hint for later parsing.
++      R = std::string("@3") + std::string(Constraint, 3);
++      Constraint += 2;
++      break;
++    default:
++      R = std::string(1, *Constraint);
++      break;
++    }
++    return R;
++  }
++
+   bool validateAsmConstraint(const char *&Name,
+                              TargetInfo::ConstraintInfo &Info) const override;
+   bool
+diff --git a/clang/lib/CodeGen/CGCall.cpp b/clang/lib/CodeGen/CGCall.cpp
+index 1188ea39ba2..ad8ebd245b9 100644
+--- a/clang/lib/CodeGen/CGCall.cpp
++++ b/clang/lib/CodeGen/CGCall.cpp
+@@ -4496,8 +4496,9 @@ RValue CodeGenFunction::EmitCall(const CGFunctionInfo &CallInfo,
+   // Update the largest vector width if any arguments have vector types.
+   for (unsigned i = 0; i < IRCallArgs.size(); ++i) {
+     if (auto *VT = dyn_cast<llvm::VectorType>(IRCallArgs[i]->getType()))
+-      LargestVectorWidth = std::max((uint64_t)LargestVectorWidth,
+-                                   VT->getPrimitiveSizeInBits().getFixedSize());
++      LargestVectorWidth =
++          std::max((uint64_t)LargestVectorWidth,
++                   VT->getPrimitiveSizeInBits().getKnownMinSize());
+   }
+ 
+   // Compute the calling convention and attributes.
+@@ -4611,8 +4612,9 @@ RValue CodeGenFunction::EmitCall(const CGFunctionInfo &CallInfo,
+ 
+   // Update largest vector width from the return type.
+   if (auto *VT = dyn_cast<llvm::VectorType>(CI->getType()))
+-    LargestVectorWidth = std::max((uint64_t)LargestVectorWidth,
+-                                  VT->getPrimitiveSizeInBits().getFixedSize());
++    LargestVectorWidth =
++        std::max((uint64_t)LargestVectorWidth,
++                 VT->getPrimitiveSizeInBits().getKnownMinSize());
+ 
+   // Insert instrumentation or attach profile metadata at indirect call sites.
+   // For more details, see the comment before the definition of
+diff --git a/clang/lib/CodeGen/CGStmt.cpp b/clang/lib/CodeGen/CGStmt.cpp
+index a334bab0678..49f1725ed47 100644
+--- a/clang/lib/CodeGen/CGStmt.cpp
++++ b/clang/lib/CodeGen/CGStmt.cpp
+@@ -2095,8 +2095,9 @@ void CodeGenFunction::EmitAsmStmt(const AsmStmt &S) {
+ 
+       // Update largest vector width for any vector types.
+       if (auto *VT = dyn_cast<llvm::VectorType>(ResultRegTypes.back()))
+-        LargestVectorWidth = std::max((uint64_t)LargestVectorWidth,
+-                                   VT->getPrimitiveSizeInBits().getFixedSize());
++        LargestVectorWidth =
++            std::max((uint64_t)LargestVectorWidth,
++                     VT->getPrimitiveSizeInBits().getKnownMinSize());
+     } else {
+       ArgTypes.push_back(Dest.getAddress(*this).getType());
+       Args.push_back(Dest.getPointer(*this));
+@@ -2120,8 +2121,9 @@ void CodeGenFunction::EmitAsmStmt(const AsmStmt &S) {
+ 
+       // Update largest vector width for any vector types.
+       if (auto *VT = dyn_cast<llvm::VectorType>(Arg->getType()))
+-        LargestVectorWidth = std::max((uint64_t)LargestVectorWidth,
+-                                   VT->getPrimitiveSizeInBits().getFixedSize());
++        LargestVectorWidth =
++            std::max((uint64_t)LargestVectorWidth,
++                     VT->getPrimitiveSizeInBits().getKnownMinSize());
+       if (Info.allowsRegister())
+         InOutConstraints += llvm::utostr(i);
+       else
+@@ -2207,8 +2209,9 @@ void CodeGenFunction::EmitAsmStmt(const AsmStmt &S) {
+ 
+     // Update largest vector width for any vector types.
+     if (auto *VT = dyn_cast<llvm::VectorType>(Arg->getType()))
+-      LargestVectorWidth = std::max((uint64_t)LargestVectorWidth,
+-                                   VT->getPrimitiveSizeInBits().getFixedSize());
++      LargestVectorWidth =
++          std::max((uint64_t)LargestVectorWidth,
++                   VT->getPrimitiveSizeInBits().getKnownMinSize());
+ 
+     ArgTypes.push_back(Arg->getType());
+     Args.push_back(Arg);
+diff --git a/clang/test/CodeGen/aarch64-sve-inline-asm-crash.c b/clang/test/CodeGen/aarch64-sve-inline-asm-crash.c
+new file mode 100644
+index 00000000000..11ddb7f6d58
+--- /dev/null
++++ b/clang/test/CodeGen/aarch64-sve-inline-asm-crash.c
+@@ -0,0 +1,24 @@
++// REQUIRES: aarch64-registered-target
++
++// RUN: not %clang_cc1 -triple aarch64-none-linux-gnu -target-feature +sve -fallow-half-arguments-and-returns \
++// RUN:   -target-feature +neon -S -O1 -o - %s 2>&1 | FileCheck %s
++
++// Set a vector constraint for an sve predicate register
++// As the wrong constraint is used for an SVBool,
++// the compiler will try to extend the nxv16i1 to an nxv16i8
++// TODO: We don't have patterns for this yet but once they are added this test
++// should be updated to check for an assembler error
++__SVBool_t funcB1(__SVBool_t in)
++{
++  __SVBool_t ret ;
++  asm volatile (
++    "mov %[ret].b, %[in].b \n"
++    : [ret] "=w" (ret)
++    : [in] "w" (in)
++    :);
++
++  return ret ;
++}
++
++// CHECK: funcB1
++// CHECK-ERROR: fatal error: error in backend: Cannot select
+diff --git a/clang/test/CodeGen/aarch64-sve-inline-asm-datatypes.c b/clang/test/CodeGen/aarch64-sve-inline-asm-datatypes.c
+new file mode 100644
+index 00000000000..c68bb25e36f
+--- /dev/null
++++ b/clang/test/CodeGen/aarch64-sve-inline-asm-datatypes.c
+@@ -0,0 +1,252 @@
++// RUN: %clang_cc1 -triple aarch64-none-linux-gnu -target-feature +sve -fallow-half-arguments-and-returns \
++// RUN:   -target-feature +neon -S -O1 -o - -emit-llvm %s | FileCheck %s
++
++// Tests to check that all sve datatypes can be passed in as input operands
++// and passed out as output operands.
++
++#define SVINT_TEST(DT, KIND)\
++DT func_int_##DT##KIND(DT in)\
++{\
++  DT out;\
++  asm volatile (\
++    "ptrue p0.b\n"\
++    "mov %[out]." #KIND ", p0/m, %[in]." #KIND "\n"\
++    : [out] "=w" (out)\
++    : [in] "w" (in)\
++    : "p0"\
++    );\
++  return out;\
++}
++
++SVINT_TEST(__SVUint8_t,b);
++// CHECK: call <vscale x 16 x i8> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 16 x i8> %in)
++SVINT_TEST(__SVUint8_t,h);
++// CHECK: call <vscale x 16 x i8> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 16 x i8> %in)
++SVINT_TEST(__SVUint8_t,s);
++// CHECK: call <vscale x 16 x i8> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 16 x i8> %in)
++SVINT_TEST(__SVUint8_t,d);
++// CHECK: call <vscale x 16 x i8> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 16 x i8> %in)
++
++SVINT_TEST(__SVUint16_t,b);
++// CHECK: call <vscale x 8 x i16> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 8 x i16> %in)
++SVINT_TEST(__SVUint16_t,h);
++// CHECK: call <vscale x 8 x i16> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 8 x i16> %in)
++SVINT_TEST(__SVUint16_t,s);
++// CHECK: call <vscale x 8 x i16> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 8 x i16> %in)
++SVINT_TEST(__SVUint16_t,d);
++// CHECK: call <vscale x 8 x i16> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 8 x i16> %in)
++
++SVINT_TEST(__SVUint32_t,b);
++// CHECK: call <vscale x 4 x i32> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 4 x i32> %in)
++SVINT_TEST(__SVUint32_t,h);
++// CHECK: call <vscale x 4 x i32> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 4 x i32> %in)
++SVINT_TEST(__SVUint32_t,s);
++// CHECK: call <vscale x 4 x i32> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 4 x i32> %in)
++SVINT_TEST(__SVUint32_t,d);
++// CHECK: call <vscale x 4 x i32> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 4 x i32> %in)
++
++SVINT_TEST(__SVUint64_t,b);
++// CHECK: call <vscale x 2 x i64> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 2 x i64> %in)
++SVINT_TEST(__SVUint64_t,h);
++// CHECK: call <vscale x 2 x i64> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 2 x i64> %in)
++SVINT_TEST(__SVUint64_t,s);
++// CHECK: call <vscale x 2 x i64> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 2 x i64> %in)
++SVINT_TEST(__SVUint64_t,d);
++// CHECK: call <vscale x 2 x i64> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 2 x i64> %in)
++
++SVINT_TEST(__SVInt8_t,b);
++// CHECK: call <vscale x 16 x i8> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 16 x i8> %in)
++SVINT_TEST(__SVInt8_t,h);
++// CHECK: call <vscale x 16 x i8> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 16 x i8> %in)
++SVINT_TEST(__SVInt8_t,s);
++// CHECK: call <vscale x 16 x i8> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 16 x i8> %in)
++SVINT_TEST(__SVInt8_t,d);
++// CHECK: call <vscale x 16 x i8> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 16 x i8> %in)
++
++SVINT_TEST(__SVInt16_t,b);
++// CHECK: call <vscale x 8 x i16> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 8 x i16> %in)
++SVINT_TEST(__SVInt16_t,h);
++// CHECK: call <vscale x 8 x i16> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 8 x i16> %in)
++SVINT_TEST(__SVInt16_t,s);
++// CHECK: call <vscale x 8 x i16> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 8 x i16> %in)
++SVINT_TEST(__SVInt16_t,d);
++// CHECK: call <vscale x 8 x i16> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 8 x i16> %in)
++
++SVINT_TEST(__SVInt32_t,b);
++// CHECK: call <vscale x 4 x i32> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 4 x i32> %in)
++SVINT_TEST(__SVInt32_t,h);
++// CHECK: call <vscale x 4 x i32> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 4 x i32> %in)
++SVINT_TEST(__SVInt32_t,s);
++// CHECK: call <vscale x 4 x i32> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 4 x i32> %in)
++SVINT_TEST(__SVInt32_t,d);
++// CHECK: call <vscale x 4 x i32> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 4 x i32> %in)
++
++SVINT_TEST(__SVInt64_t,b);
++// CHECK: call <vscale x 2 x i64> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 2 x i64> %in)
++SVINT_TEST(__SVInt64_t,h);
++// CHECK: call <vscale x 2 x i64> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 2 x i64> %in)
++SVINT_TEST(__SVInt64_t,s);
++// CHECK: call <vscale x 2 x i64> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 2 x i64> %in)
++SVINT_TEST(__SVInt64_t,d);
++// CHECK: call <vscale x 2 x i64> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 2 x i64> %in)
++
++
++//Test that floats can also be used as datatypes for integer instructions
++//and check all the variants which would not be possible with a float
++//instruction
++SVINT_TEST(__SVFloat16_t,b);
++// CHECK: call <vscale x 8 x half> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 8 x half> %in)
++SVINT_TEST(__SVFloat16_t,h);
++// CHECK: call <vscale x 8 x half> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 8 x half> %in)
++SVINT_TEST(__SVFloat16_t,s);
++// CHECK: call <vscale x 8 x half> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 8 x half> %in)
++SVINT_TEST(__SVFloat16_t,d);
++// CHECK: call <vscale x 8 x half> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 8 x half> %in)
++
++SVINT_TEST(__SVFloat32_t,b);
++// CHECK: call <vscale x 4 x float> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 4 x float> %in)
++SVINT_TEST(__SVFloat32_t,h);
++// CHECK: call <vscale x 4 x float> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 4 x float> %in)
++SVINT_TEST(__SVFloat32_t,s);
++// CHECK: call <vscale x 4 x float> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 4 x float> %in)
++SVINT_TEST(__SVFloat32_t,d);
++// CHECK: call <vscale x 4 x float> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 4 x float> %in)
++
++SVINT_TEST(__SVFloat64_t,b);
++// CHECK: call <vscale x 2 x double> asm sideeffect "ptrue p0.b\0Amov $0.b, p0/m, $1.b\0A", "=w,w,~{p0}"(<vscale x 2 x double> %in)
++SVINT_TEST(__SVFloat64_t,h);
++// CHECK: call <vscale x 2 x double> asm sideeffect "ptrue p0.b\0Amov $0.h, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 2 x double> %in)
++SVINT_TEST(__SVFloat64_t,s);
++// CHECK: call <vscale x 2 x double> asm sideeffect "ptrue p0.b\0Amov $0.s, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 2 x double> %in)
++SVINT_TEST(__SVFloat64_t,d);
++// CHECK: call <vscale x 2 x double> asm sideeffect "ptrue p0.b\0Amov $0.d, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 2 x double> %in)
++
++
++#define SVBOOL_TEST(KIND)\
++__SVBool_t func_bool_##KIND(__SVBool_t in1, __SVBool_t in2)\
++{\
++  __SVBool_t out;\
++  asm volatile (\
++    "zip1 %[out]." #KIND ", %[in1]." #KIND ", %[in2]." #KIND "\n"\
++    : [out] "=Upa" (out)\
++    :  [in1] "Upa" (in1),\
++      [in2] "Upa" (in2)\
++    :);\
++  return out;\
++}
++
++SVBOOL_TEST(b) ;
++// CHECK: call <vscale x 16 x i1> asm sideeffect "zip1 $0.b, $1.b, $2.b\0A", "=@3Upa,@3Upa,@3Upa"(<vscale x 16 x i1> %in1, <vscale x 16 x i1> %in2)
++SVBOOL_TEST(h) ;
++// CHECK: call <vscale x 16 x i1> asm sideeffect "zip1 $0.h, $1.h, $2.h\0A", "=@3Upa,@3Upa,@3Upa"(<vscale x 16 x i1> %in1, <vscale x 16 x i1> %in2)
++SVBOOL_TEST(s) ;
++// CHECK: call <vscale x 16 x i1> asm sideeffect "zip1 $0.s, $1.s, $2.s\0A", "=@3Upa,@3Upa,@3Upa"(<vscale x 16 x i1> %in1, <vscale x 16 x i1> %in2)
++SVBOOL_TEST(d) ;
++// CHECK: call <vscale x 16 x i1> asm sideeffect "zip1 $0.d, $1.d, $2.d\0A", "=@3Upa,@3Upa,@3Upa"(<vscale x 16 x i1> %in1, <vscale x 16 x i1> %in2)
++
++
++#define SVBOOL_TEST_UPL(DT, KIND)\
++__SVBool_t func_bool_upl_##KIND(__SVBool_t in1, DT in2, DT in3)\
++{\
++  __SVBool_t out;\
++  asm volatile (\
++    "fadd %[out]." #KIND ", %[in1]." #KIND ", %[in2]." #KIND ", %[in3]." #KIND "\n"\
++    : [out] "=w" (out)\
++    :  [in1] "Upl" (in1),\
++      [in2] "w" (in2),\
++      [in3] "w" (in3)\
++    :);\
++  return out;\
++}
++
++SVBOOL_TEST_UPL(__SVInt8_t, b) ;
++// CHECK: call <vscale x 16 x i1> asm sideeffect "fadd $0.b, $1.b, $2.b, $3.b\0A", "=w,@3Upl,w,w"(<vscale x 16 x i1> %in1, <vscale x 16 x i8> %in2, <vscale x 16 x i8> %in3)
++SVBOOL_TEST_UPL(__SVInt16_t, h) ;
++// CHECK: call <vscale x 16 x i1> asm sideeffect "fadd $0.h, $1.h, $2.h, $3.h\0A", "=w,@3Upl,w,w"(<vscale x 16 x i1> %in1, <vscale x 8 x i16> %in2, <vscale x 8 x i16> %in3)
++SVBOOL_TEST_UPL(__SVInt32_t, s) ;
++// CHECK: call <vscale x 16 x i1> asm sideeffect "fadd $0.s, $1.s, $2.s, $3.s\0A", "=w,@3Upl,w,w"(<vscale x 16 x i1> %in1, <vscale x 4 x i32> %in2, <vscale x 4 x i32> %in3)
++SVBOOL_TEST_UPL(__SVInt64_t, d) ;
++// CHECK: call <vscale x 16 x i1> asm sideeffect "fadd $0.d, $1.d, $2.d, $3.d\0A", "=w,@3Upl,w,w"(<vscale x 16 x i1> %in1, <vscale x 2 x i64> %in2, <vscale x 2 x i64> %in3)
++
++#define SVFLOAT_TEST(DT,KIND)\
++DT func_float_##DT##KIND(DT inout1, DT in2)\
++{\
++  asm volatile (\
++    "ptrue p0." #KIND ", #1 \n"\
++    "fsub %[inout1]." #KIND ", p0/m, %[inout1]." #KIND ", %[in2]." #KIND "\n"\
++    : [inout1] "=w" (inout1)\
++    : "[inout1]" (inout1),\
++      [in2] "w" (in2)\
++    : "p0");\
++  return inout1 ;\
++}\
++
++SVFLOAT_TEST(__SVFloat16_t,s);
++// CHECK: call <vscale x 8 x half> asm sideeffect "ptrue p0.s, #1 \0Afsub $0.s, p0/m, $0.s, $2.s\0A", "=w,0,w,~{p0}"(<vscale x 8 x half> %inout1, <vscale x 8 x half> %in2)
++SVFLOAT_TEST(__SVFloat16_t,d);
++// CHECK: call <vscale x 8 x half> asm sideeffect "ptrue p0.d, #1 \0Afsub $0.d, p0/m, $0.d, $2.d\0A", "=w,0,w,~{p0}"(<vscale x 8 x half> %inout1, <vscale x 8 x half> %in2)
++
++SVFLOAT_TEST(__SVFloat32_t,s);
++// CHECK: call <vscale x 4 x float> asm sideeffect "ptrue p0.s, #1 \0Afsub $0.s, p0/m, $0.s, $2.s\0A", "=w,0,w,~{p0}"(<vscale x 4 x float> %inout1, <vscale x 4 x float> %in2)
++SVFLOAT_TEST(__SVFloat32_t,d);
++// CHECK: call <vscale x 4 x float> asm sideeffect "ptrue p0.d, #1 \0Afsub $0.d, p0/m, $0.d, $2.d\0A", "=w,0,w,~{p0}"(<vscale x 4 x float> %inout1, <vscale x 4 x float> %in2)
++
++SVFLOAT_TEST(__SVFloat64_t,s);
++// CHECK: call <vscale x 2 x double> asm sideeffect "ptrue p0.s, #1 \0Afsub $0.s, p0/m, $0.s, $2.s\0A", "=w,0,w,~{p0}"(<vscale x 2 x double> %inout1, <vscale x 2 x double> %in2)
++SVFLOAT_TEST(__SVFloat64_t,d);
++// CHECK: call <vscale x 2 x double> asm sideeffect "ptrue p0.d, #1 \0Afsub $0.d, p0/m, $0.d, $2.d\0A", "=w,0,w,~{p0}"(<vscale x 2 x double> %inout1, <vscale x 2 x double> %in2)
++
++#define SVFLOAT_TEST_Y(DT, KIND)\
++__SVBool_t func_float_y_##KIND(DT in1, DT in2)\
++{\
++  __SVBool_t out;\
++  asm volatile (\
++    "fmul %[out]." #KIND ", %[in1]." #KIND ", %[in2]." #KIND "\n"\
++    : [out] "=w" (out)\
++    :  [in1] "w" (in1),\
++      [in2] "y" (in2)\
++    :);\
++  return out;\
++}
++
++SVFLOAT_TEST_Y(__SVFloat16_t,h);
++// CHECK: call <vscale x 16 x i1> asm sideeffect "fmul $0.h, $1.h, $2.h\0A", "=w,w,y"(<vscale x 8 x half> %in1, <vscale x 8 x half> %in2)
++SVFLOAT_TEST_Y(__SVFloat32_t,s);
++// CHECK: call <vscale x 16 x i1> asm sideeffect "fmul $0.s, $1.s, $2.s\0A", "=w,w,y"(<vscale x 4 x float> %in1, <vscale x 4 x float> %in2)
++SVFLOAT_TEST_Y(__SVFloat64_t,d);
++// CHECK: call <vscale x 16 x i1> asm sideeffect "fmul $0.d, $1.d, $2.d\0A", "=w,w,y"(<vscale x 2 x double> %in1, <vscale x 2 x double> %in2)
++
++
++// Another test for floats to include h suffix
++
++#define SVFLOAT_CVT_TEST(DT1,KIND1,DT2,KIND2)\
++DT1 func_float_cvt_##DT1##KIND1##DT2##KIND2(DT2 in1)\
++{\
++  DT1 out1 ;\
++  asm volatile (\
++    "ptrue p0." #KIND2 ", #1 \n"\
++    "fcvt %[out1]." #KIND1 ", p0/m, %[in1]." #KIND2 "\n"\
++    : [out1] "=w" (out1)\
++    : [in1] "w" (in1)\
++    : "p0");\
++  return out1 ;\
++}\
++
++SVFLOAT_CVT_TEST(__SVFloat64_t,d,__SVFloat32_t,s);
++// CHECK: call <vscale x 2 x double> asm sideeffect "ptrue p0.s, #1 \0Afcvt $0.d, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 4 x float> %in1)
++SVFLOAT_CVT_TEST(__SVFloat64_t,d,__SVFloat16_t,h);
++// CHECK: call <vscale x 2 x double> asm sideeffect "ptrue p0.h, #1 \0Afcvt $0.d, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 8 x half> %in1)
++SVFLOAT_CVT_TEST(__SVFloat32_t,s,__SVFloat16_t,h);
++// CHECK: call <vscale x 4 x float> asm sideeffect "ptrue p0.h, #1 \0Afcvt $0.s, p0/m, $1.h\0A", "=w,w,~{p0}"(<vscale x 8 x half> %in1)
++SVFLOAT_CVT_TEST(__SVFloat32_t,s,__SVFloat64_t,d);
++// CHECK: call <vscale x 4 x float> asm sideeffect "ptrue p0.d, #1 \0Afcvt $0.s, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 2 x double> %in1)
++SVFLOAT_CVT_TEST(__SVFloat16_t,h,__SVFloat64_t,d);
++// CHECK: call <vscale x 8 x half> asm sideeffect "ptrue p0.d, #1 \0Afcvt $0.h, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 2 x double> %in1)
++SVFLOAT_CVT_TEST(__SVFloat16_t,h,__SVFloat32_t,s);
++// CHECK: call <vscale x 8 x half> asm sideeffect "ptrue p0.s, #1 \0Afcvt $0.h, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 4 x float> %in1)
++
++//Test a mix of float and ints
++SVFLOAT_CVT_TEST(__SVInt16_t,h,__SVFloat32_t,s);
++// CHECK: call <vscale x 8 x i16> asm sideeffect "ptrue p0.s, #1 \0Afcvt $0.h, p0/m, $1.s\0A", "=w,w,~{p0}"(<vscale x 4 x float> %in1)
++SVFLOAT_CVT_TEST(__SVFloat16_t,s,__SVUint32_t,d);
++// CHECK: call <vscale x 8 x half> asm sideeffect "ptrue p0.d, #1 \0Afcvt $0.s, p0/m, $1.d\0A", "=w,w,~{p0}"(<vscale x 4 x i32> %in1)
+diff --git a/clang/test/CodeGen/aarch64-sve-inline-asm-negative-test.c b/clang/test/CodeGen/aarch64-sve-inline-asm-negative-test.c
+new file mode 100644
+index 00000000000..ffe7a419469
+--- /dev/null
++++ b/clang/test/CodeGen/aarch64-sve-inline-asm-negative-test.c
+@@ -0,0 +1,21 @@
++// REQUIRES: aarch64-registered-target
++
++// RUN: not %clang_cc1 -triple aarch64-none-linux-gnu -target-feature +sve -fallow-half-arguments-and-returns \
++// RUN:   -target-feature +neon -S -O1 -o - %s | FileCheck %s
++
++// Assembler error
++// Output constraint : Set a vector constraint on an integer
++__SVFloat32_t funcB2()
++{
++  __SVFloat32_t ret ;
++  asm volatile (
++    "fmov %[ret], wzr \n"
++    : [ret] "=w" (ret)
++    :
++    :);
++
++  return ret ;
++}
++
++// CHECK: funcB2
++// CHECK-ERROR: error: invalid operand for instruction
+</cut>
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/388916845.10393.1584474365248.JavaMail.javamailuser%40localhost.
+
+------=_Part_10392_1824992997.1584474364710--
