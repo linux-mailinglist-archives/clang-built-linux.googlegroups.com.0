@@ -1,47 +1,47 @@
-Return-Path: <clang-built-linux+bncBDE5JTGNZULRBPXKYPZQKGQEYJSVEMY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDE5JTGNZULRBKHTYPZQKGQE7RBSCXA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83b.google.com (mail-qt1-x83b.google.com [IPv6:2607:f8b0:4864:20::83b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5B67F1889C3
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 17:05:22 +0100 (CET)
-Received: by mail-qt1-x83b.google.com with SMTP id q7sf21609660qtp.16
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 09:05:22 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584461121; cv=pass;
+Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
+	by mail.lfdr.de (Postfix) with ESMTPS id A445C188A1D
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 17:24:10 +0100 (CET)
+Received: by mail-pf1-x438.google.com with SMTP id h191sf15788427pfe.14
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Mar 2020 09:24:10 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584462249; cv=pass;
         d=google.com; s=arc-20160816;
-        b=UOP4nLNyKeVqnxzTGx/CbGM//3BK9NgIdHfZyeXwfdOzn+upYB5nfF2QDuruV700bB
-         i2z7nW9PUeobLtE8CqV/HDLvHbBmxGPOEExR+d/RyHdm0HKShxZg64gmJYohZEwAwbeW
-         yjoNRZXTm52GprYtORPiEA2LRB6mBmNQbMqaP9qKW6rg8swCs5ajzMd8YFvLxwh+5+OQ
-         qggBOAGBZPugRg0xPh/QZZmMFv04oLI9q/4vJgOtvIHrjdpsNHG4DhNxxeks/a3OGLYe
-         9pPZTS28p36Z6SJhzzCTIKEUs03rrawfSL8NFaxHnQMz2g+oPGc+OTNg08Zx1xxorTza
-         HthQ==
+        b=iBGzJQ0lQMPbDzMuqEC8JssIdN1X78G7Gr0REubsVv292tg2DrscMGkUsF4xw/HSW7
+         59nu7iZHA/JPPK0jBOawfJWMeQLZtWd4Et/NxOf8W3c6Rna6uxPywn3WKAWoYlhrDO/I
+         +Y5HPUr7EO+JbbBJf9DgXv4+eIS759y+aqgFTMPYEJdRl2ual6XBtDeslKFmLZRTuTA3
+         heSukUlUmAMVSIgCtENTY7vW+ElAhGHWxftaMNMHs/JzVMfz7cHskYWL2WxGybY+93M0
+         a1PiCHKJd9uPPyWmlweI/YfsQo4O8IE97TM6ExFySdn9ryf5ooFgPs9ed+T28sNvK8qp
+         K1Eg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature;
-        bh=jy034Mr4hDcxlGC1ZLL3urAutywNJXttnakfQP5Uj/0=;
-        b=h5W6mPIcxoJ5c1ZAXl8q0JQKAKXUSpFCSIHDCk08lPK0EyyC/A7R9tYeW5hflwr7aB
-         nzU8IEkRcdQRp4fOM1xo9/BK+zL5Op0cmeMEMWKK/M+5IptHZUJPlxjo7PcLcqZMOz0o
-         zqGFGOsn/pU4qyhj9ymezmD4hxNAhvwDtEO7kCjN0HUu71VO8ma8NVLwmxL4i2f9Pw9I
-         d2yavVk5LgZRAKwj0CDvYcEkTyU80GkXGpw/1/SJNqFt9Q9tHMxXcLS3n4WwymXMEH2w
-         E7qsJmM/BetMZV9/Q7fA9xKRCmhNvgCX/Uvmt4n/cr6bkNcyboAFLbQ8YjcS96Kqf8jD
-         4i0A==
+        bh=Fx3uLBJIg5/h63cFzZ1h9znYlMhb30TSJFNoYw95Jk4=;
+        b=08oEP37aixJ1kpbTxRvRot3JN9KktXAUTa60wUYs1iiwVs8nfDQFcDTXeu/mO4OJab
+         8UEJP7vssmjukzA+PHvulpYMndtF+IeexV7HN+4IdZaSIfCpL7i5dPb64mFbPm7X2Nbk
+         d1bRovh2m43OfRpQoSEKBXfuhwHC95TeTb7gfjDNGWXChObeYN6QvXKQ8YVgN1qG1RYg
+         yE0/2hsqyTleBFvjk3SYZmC6nd7KAfa+46Fi1b/2LFoFHF1Qkbh3fp+xlLKmpbYORUiG
+         2pNDZHSdEsY0jp+2rToTcD0XhWafEecAIs9x3kY/vJaT6tsCdF8J/m3MzmMSTRCiR6Fh
+         5Pgw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@fomichev-me.20150623.gappssmtp.com header.s=20150623 header.b=S911caeI;
-       spf=neutral (google.com: 2607:f8b0:4864:20::542 is neither permitted nor denied by best guess record for domain of sdf@fomichev.me) smtp.mailfrom=sdf@fomichev.me
+       dkim=pass header.i=@fomichev-me.20150623.gappssmtp.com header.s=20150623 header.b="EgT9v/aR";
+       spf=neutral (google.com: 2607:f8b0:4864:20::544 is neither permitted nor denied by best guess record for domain of sdf@fomichev.me) smtp.mailfrom=sdf@fomichev.me
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=jy034Mr4hDcxlGC1ZLL3urAutywNJXttnakfQP5Uj/0=;
-        b=HkCwtGk1e1t1qIUx8KhpaTNCXLhNOG8CgdPX9OvmfnEer7VKXecQy+XiG172GO7618
-         zm7wIyEnpnp/PH/5VZDXTckyrvvZCu622BL8XGrvFEJsc/gbXQNbDXlSnuMrAE9SMpbu
-         H0PT74KzYaLaqJ9G/reiZzNG7l+8a6HgWZS8Ex+gdQZbGbZtHD9A7ex8Rw+2heqCtyqn
-         3nUOi1vc6ReBYdNlAJVQ50t7+mMDkXfypACOpJC6f+W5Skq+U7By/lq9wLe575wSGhAv
-         KGjeu3K6Z+Rao4v+hEVJEw4IMDAzHlQfu9J5mmXnwqfzX/Op0Cpvgd1Cq8ZqlyihAKgC
-         twfQ==
+        bh=Fx3uLBJIg5/h63cFzZ1h9znYlMhb30TSJFNoYw95Jk4=;
+        b=mJxnX5OVdURYzFm1+um1sUgUPoWskcZF+nhUCxXtlHJxfOesW6f/9mbMybWVt24E3O
+         pv23366icL+ZF1RcX+aPRMXM+XS02+MW437u/zeDmQGb0RpDr1O35vjTmzFvw4qsVack
+         fDdlGVvtIFoiDbTBO2agM+68uTgqc8n3lEUN5E5u3apiCu38zsKE340k+u/rSGKLZK13
+         xmh92y9WMiPeHhy+NxQ3VFecIuKNBmXNYQ1omJkS4XBCCsftQHZegPDOrgxhWzYsRRgC
+         AjVAJByXdqixlL6knL1TCBSfmGvPxSU9xt/xdT+tWgOTVBJPKHHaHrFaNcdPsqGsjKkU
+         MPfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,60 +49,60 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=jy034Mr4hDcxlGC1ZLL3urAutywNJXttnakfQP5Uj/0=;
-        b=O49Y8IS6+0zgZKEOmBASiLI5XduzRAWkB4mDFyhrrm9MvSrgw7Fcf0SNoWY2ygJg4E
-         JcK5xEnLqPYIwNr35PI/X0bCRb2TnPQUFLEfhQVVwCY2Fzl0+BU3AjSnUDVft8kUt//Q
-         eWs0SSTGW9umDt0PO2iPbaTslfSmjfZcfqPMyLij+1wh/0fHttDSH3hlLQUX4/p6BwYm
-         5VjvvRWuvU9cvPYqqZJCvGFyai4sqiapuWsXng21j04lcdOzRJPsCXJrVqyNz19y/x09
-         E8tkLRx0kieNGdB7X0sr/p9mt7sJY0vBsfhsGoRoodFHIvy7NojqftghqWf7bgDAL1bp
-         YyZA==
+        bh=Fx3uLBJIg5/h63cFzZ1h9znYlMhb30TSJFNoYw95Jk4=;
+        b=jhd0wwPRGZ8ZQ8e4yhTXcFfyhx2LKD8q1ZBZINnAJcUwPm4LF+VKIy0A/HyjwA6Cv7
+         X8CmTz58zBEFoB1zwsRzUfOFJ7GfnngOnB/vgQ5hv7ZKM3NlxmMMkCgz2UzBHwFd2YFb
+         /r/M/tiE/oyrQkqVsordTgv+dWqmg+IPxQxN3nBCEzdmct/ZC1vf0OB8ozs64ZdKKifJ
+         Wnwkt4XbD1U7neqrxgvLuOLTUTlyKq3FzL0kxBSRbPpLO1exavy7eln42d5xu5UORWBl
+         +LrqLC+w3jINXMqHJ6DLK8NUX/atffTVaKidYRQOVRS9Sixj3hXoU5ZC8pQ9PD4cKnp3
+         U1Fw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ1XYz+f+3v477zvc8piKP4Kn9c7vcPEu9uoKonmqqBvTLwNIIOd
-	azuWWUTx8MGcLGVoHMpFcIQ=
-X-Google-Smtp-Source: ADFU+vvlY7CuouXOpZitHgd5dVUTVgjtF5s3ByffSSSXavu/IMczMTjwDSOu78YP1b7VEfSjWlJTNg==
-X-Received: by 2002:a25:254a:: with SMTP id l71mr9138801ybl.237.1584461118791;
-        Tue, 17 Mar 2020 09:05:18 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ0WkhzvCD5OtR8fH3BsmzqP/pCYeixjGoOixPWNuZzUp39xXj/P
+	MCfnaDa2zJrr6mD3w7N8KEg=
+X-Google-Smtp-Source: ADFU+vsMkQJacedjhCogPi9+qGnPGjbGx9bW08uhHClfTYBhQ7tmPxkU/BsB7A4NPei0hwhKrtlwhg==
+X-Received: by 2002:a63:607:: with SMTP id 7mr5904615pgg.303.1584462248922;
+        Tue, 17 Mar 2020 09:24:08 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:cf0a:: with SMTP id f10ls5300931ybg.2.gmail; Tue, 17 Mar
- 2020 09:05:18 -0700 (PDT)
-X-Received: by 2002:a25:d886:: with SMTP id p128mr8808442ybg.190.1584461118395;
-        Tue, 17 Mar 2020 09:05:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584461118; cv=none;
+Received: by 2002:aa7:9708:: with SMTP id a8ls10563320pfg.9.gmail; Tue, 17 Mar
+ 2020 09:24:08 -0700 (PDT)
+X-Received: by 2002:aa7:951d:: with SMTP id b29mr6204703pfp.30.1584462248406;
+        Tue, 17 Mar 2020 09:24:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584462248; cv=none;
         d=google.com; s=arc-20160816;
-        b=zhr/sBexIu5990JMVg9hl7LgG1NOCqRJI/YcX0aAAGFUaABGSWuflN/AIaexhzaL6T
-         31+6z+B/WKNNcxV8ZnSnC/2E4QwGI5qPpPYJosMlSyFatwh8nheAAGwv6Vtdj7mU23Tb
-         nHx37QkOGWsyMmmSUPLWG5JT9VM+A6qNb8MofZuPHc4zq6BbH8VLObCt6xAnpJhUWwon
-         K8/nojeQxYAATun2PzTXdVfJYuikhSoHvKU/zj20x6AobnfZ4NQWeCPw+TuSqEi8IYrB
-         NxmL42MF12JdW3txC2l4FVWIznL9Nt/qby0ipPCfpsFT/3x5bBIxFOS2pkHkXsAu3Hyo
-         K/6Q==
+        b=U4ZJzOz4RWkvWyrgntoKLAOzpWguRlbeNEc4lCQko6gj9ygTHFAJ6PtxsHcjrvKLYJ
+         Lazefi+B7RPYXEKA/kmZXVqNG6XGQmHlSCztdE9QHlHbmeYmhP5N1qPZ3pTXXI3oIHwK
+         vWTF43TYGefMOu8ygM6bN3HNUWQban2b/yema4KTK+RH2jgg96UDdw5rSXlEr0a2R3FI
+         Db4WEGzgzWRQNW4wNb+aNrDve6YUX8vwPUS/sz9Er1JIEa+RykJXWAq6MW5x99Fuqjth
+         WHEjeUkkX0a7bdCYmwxbfYU0tO5G4jnruyOBnWKZVOlOeP7y34JqNchQNVxOjqVW4qSs
+         Zqrg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=0fe+6CUwzbiQ8d1E1j8IqRqgWqyoAVB18XoQMWs5ZAM=;
-        b=sLdNEltNq13eZ6VQZrIN+PDIhE70QDbV7zOYlg3xjo3TqTmmzpbP2Hv9BC8nQqPOQ1
-         EpxJHqcpmxPi5R5nd5zYiStnheihgOlIg3WwRpQqebm0luXFV7gCBdZsTxL3/EPdlFOh
-         1W/lSmfGSXlHRsyF+6Yw1TfnChFw+WgNJCxZFWEmRlJTJ8MCsdLCuItN/1QuVRDxMZ2s
-         Cu/6p/KtAqhJLaF4l2ZZnF0yf216zL1wM+5PQYU8FUtiyCekOl8oBQo9Bgvwy19UtI+R
-         RFAiTcHTfM9F2zefZVhT6tym3HiUwnAR4vl/uydJuRFlAPsR+ajuPhxXdKWOXIv9HuZK
-         URag==
+        bh=3gLHCw1k1vgin5ImJr7e+a6EB7LHD7UzoYRzly3/8qo=;
+        b=m6kSDYSRWXtGOPz56t+JlvJvjDWq9UxfmgrUALn+WdJQAxcqkyrHWc5MRRG3hAJkpm
+         HGd6txWP83ZeJE6AnKw+ALSLmOjv35i9A12XEdUayPuFhHaU/TBzzzadkmhGSQBfXgQJ
+         244D6AaEBYqLgED3rqimJvo2kgaqFBvkIsXx785FvysGKbpZTmRPr0gl93UvlqQ4z0b7
+         WwJueIB75+Yy2MOO40hivO0puXqTIi6Y+mMRNE4eWF4oiRKqfQe/JfwIPBJrblaLZCFd
+         JL2ibr6rAi9mo0/oatAArV5ts/RJhsOsoGFXx88U3q6/ttr2k4GsN7rH7NQrJsbO3E9Z
+         Ts9A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@fomichev-me.20150623.gappssmtp.com header.s=20150623 header.b=S911caeI;
-       spf=neutral (google.com: 2607:f8b0:4864:20::542 is neither permitted nor denied by best guess record for domain of sdf@fomichev.me) smtp.mailfrom=sdf@fomichev.me
-Received: from mail-pg1-x542.google.com (mail-pg1-x542.google.com. [2607:f8b0:4864:20::542])
-        by gmr-mx.google.com with ESMTPS id e131si173076ybh.3.2020.03.17.09.05.17
+       dkim=pass header.i=@fomichev-me.20150623.gappssmtp.com header.s=20150623 header.b="EgT9v/aR";
+       spf=neutral (google.com: 2607:f8b0:4864:20::544 is neither permitted nor denied by best guess record for domain of sdf@fomichev.me) smtp.mailfrom=sdf@fomichev.me
+Received: from mail-pg1-x544.google.com (mail-pg1-x544.google.com. [2607:f8b0:4864:20::544])
+        by gmr-mx.google.com with ESMTPS id a141si65730pfd.5.2020.03.17.09.24.08
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Mar 2020 09:05:17 -0700 (PDT)
-Received-SPF: neutral (google.com: 2607:f8b0:4864:20::542 is neither permitted nor denied by best guess record for domain of sdf@fomichev.me) client-ip=2607:f8b0:4864:20::542;
-Received: by mail-pg1-x542.google.com with SMTP id 7so11995338pgr.2
-        for <clang-built-linux@googlegroups.com>; Tue, 17 Mar 2020 09:05:17 -0700 (PDT)
-X-Received: by 2002:a62:1513:: with SMTP id 19mr5877005pfv.85.1584461116885;
-        Tue, 17 Mar 2020 09:05:16 -0700 (PDT)
+        Tue, 17 Mar 2020 09:24:08 -0700 (PDT)
+Received-SPF: neutral (google.com: 2607:f8b0:4864:20::544 is neither permitted nor denied by best guess record for domain of sdf@fomichev.me) client-ip=2607:f8b0:4864:20::544;
+Received: by mail-pg1-x544.google.com with SMTP id m5so12025351pgg.0
+        for <clang-built-linux@googlegroups.com>; Tue, 17 Mar 2020 09:24:08 -0700 (PDT)
+X-Received: by 2002:a63:d255:: with SMTP id t21mr46599pgi.114.1584462247864;
+        Tue, 17 Mar 2020 09:24:07 -0700 (PDT)
 Received: from localhost ([2601:646:8f00:18d9:d0fa:7a4b:764f:de48])
-        by smtp.gmail.com with ESMTPSA id c207sm3665064pfb.47.2020.03.17.09.05.15
+        by smtp.gmail.com with ESMTPSA id d6sm3303583pjz.39.2020.03.17.09.24.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Mar 2020 09:05:15 -0700 (PDT)
-Date: Tue, 17 Mar 2020 09:05:15 -0700
+        Tue, 17 Mar 2020 09:24:07 -0700 (PDT)
+Date: Tue, 17 Mar 2020 09:24:05 -0700
 From: Stanislav Fomichev <sdf@fomichev.me>
 To: Fangrui Song <maskray@google.com>
 Cc: Andrii Nakryiko <andrii.nakryiko@gmail.com>, bpf <bpf@vger.kernel.org>,
@@ -116,7 +116,7 @@ Cc: Andrii Nakryiko <andrii.nakryiko@gmail.com>, bpf <bpf@vger.kernel.org>,
 	Alexei Starovoitov <ast@kernel.org>
 Subject: Re: [PATCH bpf v3] bpf: Support llvm-objcopy and llvm-objdump for
  vmlinux BTF
-Message-ID: <20200317160515.GA2459609@mini-arch.hsd1.ca.comcast.net>
+Message-ID: <20200317162405.GB2459609@mini-arch.hsd1.ca.comcast.net>
 References: <20200317011654.zkx5r7so53skowlc@google.com>
  <CAEf4BzYTJqWU++QnQupxFBWGSMPfGt6r-5u9jbeLnEF2ipw+Mw@mail.gmail.com>
  <20200317033701.w7jwos7mvfnde2t2@google.com>
@@ -132,7 +132,7 @@ User-Agent: Mutt/1.12.2 (2019-09-21)
 X-Original-Sender: sdf@fomichev.me
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
  header.i=@fomichev-me.20150623.gappssmtp.com header.s=20150623
- header.b=S911caeI;       spf=neutral (google.com: 2607:f8b0:4864:20::542 is
+ header.b="EgT9v/aR";       spf=neutral (google.com: 2607:f8b0:4864:20::544 is
  neither permitted nor denied by best guess record for domain of
  sdf@fomichev.me) smtp.mailfrom=sdf@fomichev.me
 Precedence: list
@@ -288,8 +288,7 @@ On 03/16, Fangrui Song wrote:
 > ET_EXEC to ET_REL so that .btf.vmlinux.bin.o can be accepted by lld.
 > Accepting ET_EXEC as an input file is an extremely rare GNU ld feature
 > that lld does not intend to support, because this is very error-prone.
-I'm testing this with binutils objcopy, will update with the results.
-
+> 
 > Fixes: df786c9b9476 ("bpf: Force .BTF section start to zero when dumping from vmlinux")
 > Cc: Stanislav Fomichev <sdf@google.com>
 > Cc: Nick Desaulniers <ndesaulniers@google.com>
@@ -312,8 +311,6 @@ I'm testing this with binutils objcopy, will update with the results.
 > -		cut -d, -f1 | cut -d' ' -f2)
 > -	bin_format=$(LANG=C ${OBJDUMP} -f ${1} | grep 'file format' | \
 > -		awk '{print $4}')
-Should you also remove 'local bin_arch' on top?
-
 > -	${OBJCOPY} --change-section-address .BTF=0 \
 > -		--set-section-flags .BTF=alloc -O binary \
 > -		--only-section=.BTF ${1} .btf.vmlinux.bin
@@ -321,12 +318,29 @@ Should you also remove 'local bin_arch' on top?
 > -		--rename-section .data=.BTF .btf.vmlinux.bin ${2}
 > +	# Extract .BTF section, change e_type to ET_REL, to link with final vmlinux
 > +	${OBJCOPY} --only-section=.BTF ${1} ${2} 2> /dev/null && printf '\1' | dd of=${2} conv=notrunc bs=1 seek=16
-nit: maybe split this into multiple lines? and drop space in '2>/dev/null'?
-	${OBJCOPY} .... 2>/dev/null && \
-		printf '\1' | dd ....
-?
+No, it doesn't work unfortunately, I get "in-kernel BTF is malformed"
+from the kernel.
+
+I think that's because -O binary adds the following:
+$ nm .btf.vmxlinux.bin
+00000000002f7bc9 D _binary__btf_vmlinux_bin_end
+00000000002f7bc9 A _binary__btf_vmlinux_bin_size
+0000000000000000 D _binary__btf_vmlinux_bin_start
+
+While non-binary mode doesn't:
+$ nm .btf.vmxlinux.bin
+
+We don't add them manually in the linker map and expect objcopy to add
+them, see:
+https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git/tree/kernel/bpf/btf.c#n3480
+
+>  }
+>  # Create ${2} .o file with all symbols from the ${1} object file
+> -- 
+> 2.25.1.481.gfbce0eb801-goog
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200317160515.GA2459609%40mini-arch.hsd1.ca.comcast.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200317162405.GB2459609%40mini-arch.hsd1.ca.comcast.net.
