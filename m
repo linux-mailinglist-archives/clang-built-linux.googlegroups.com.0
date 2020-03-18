@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBAUVZLZQKGQEQPVGJSI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBHUVZLZQKGQEQO7ZYBI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x538.google.com (mail-pg1-x538.google.com [IPv6:2607:f8b0:4864:20::538])
-	by mail.lfdr.de (Postfix) with ESMTPS id E334D18A46F
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Mar 2020 21:54:27 +0100 (CET)
-Received: by mail-pg1-x538.google.com with SMTP id c14sf112995pgw.11
-        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Mar 2020 13:54:27 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584564866; cv=pass;
+Received: from mail-io1-xd40.google.com (mail-io1-xd40.google.com [IPv6:2607:f8b0:4864:20::d40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7840918A486
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Mar 2020 21:54:55 +0100 (CET)
+Received: by mail-io1-xd40.google.com with SMTP id c7sf18075737iog.13
+        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Mar 2020 13:54:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584564894; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BP2vhGwT4KNRnaYR8ph7TqFwl4uGQqB08adbf17hGRPDEhtj3rIFJGLxgColK9gnmj
-         4OQvO+x9TCnZ3vBeON7Pn+OTZSaNUgJGilSY1JzedkA+HAj9fLcAsEUNKW45WXGrXhMU
-         uSFHfyE7R4kshEovvEJNYnwU5CxjTlTUZOCuVObScvQ4NlwNHEVhAafuOQFmw/bUbNW9
-         KmVl0dL0aA/HLt5+MJ+eLt+Wdvadpgp6qrMe3mEW3sAhH3andwatZUAMxWE09dAXg/aE
-         ubOa0pTqjB0azo7HIsCSCpGtrB2wRiAUIrn9Yy4hhLxWJP1OdueZsND919HSX7z3yU/e
-         Fn1g==
+        b=G2LIR0vwJI14n7BpXuqTS1qpzparyr7m3UXU+Em4SXTPygIh5+RcwSazVeWlkYWUv2
+         IoWrzXwkQF2Sn38os4RgogTSPuCqPgyH9N1ufE73eAokp8mulEhNhMrhHwQ4CBae2+xq
+         zqsvz8eaIIRwcJbMvchJF+3q5AT2ucpi2TSHBKQD99AzK6gZ8wyC+mCmbWgSy9X443o2
+         /EU9AJ+emQBcpgLWB8qmPrvjzYqpFlU0hAcFP+QYa74v57Ef/wY2L3IoTXhiLV0PhXsa
+         d6TBP+AJwlhrFH3+jpsmanBCje47Z69SpDAxR8m444oaEDdK8X+ax7RhsRbYg65q+JR0
+         dA1A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=ESIvMHNV548GikTy+hhJV84U4HMt7ZgZJhVbyP9pt9M=;
-        b=d1X5BcP9if5mbawv2e1q0nywFmHLP6wSorXFf6tNRkYzKI2jM0R/DApqGrMPbrU9c+
-         /qsmX8g1mqF1oWwE3vNAVH2iHiJXQ6qT/oi0sv/KHEgm1Thras6FQFNwv+q4dCyinDvW
-         7Fh1dgCaiXOlkprF8z/29GCJKnMQGVcGw3QYGt042HxLCLV7ktnozAUxc2NKEtigyoqO
-         yJsHnWLjqDWAdVFAgg9IbuEfXq7kIwuzrHhqkSkKLW5l+ziHO69jWx7Z/J3sKTypdgoP
-         SYP3tJp7/msBp+M2VXLgpemJpjEFyniC9J+1scAN8JFyGrak7CYYEQP2/kQs+I0evApS
-         AHlg==
+        bh=zSOx/sIm8vjpWnFS7+Jvzy/5ajQRYoPaG3z/cOTteOk=;
+        b=zIFSxN+ywVLqMAA5M8pgEdbtheWtxUi23w/qatJGrmQeozgOya0/Ui9ulMYsywsf4b
+         KcnlP9AJurHB53JFwBlsTLhdZwZd0jkf5BhtMYn5ZytAkrD2aKQNRt1Ps8zeGy1JOBtv
+         x5SKuuWhejbCzeYLkKn3pc1NqGB9b/+TtjCoDSzDBOsatYs4V241TNtb/jCP42XWo7Ds
+         zmt1r21mRAGbsazUIXvVe88m/Sk9JBqh7yrhkcTcp5xYugKiTfn4aKJBQ1LDV+pVQM1d
+         f2xC6yUsAdXyUb2udC2St0JrIxA8lI4hLg31PMNYBJFAapjnRcQW0lbThVpIW3HPCAiG
+         uytg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=dSicSenb;
+       dkim=pass header.i=@kernel.org header.s=default header.b=gjuQmWbM;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ESIvMHNV548GikTy+hhJV84U4HMt7ZgZJhVbyP9pt9M=;
-        b=DfQLPuyaegKyktcABdWvieI/lOmvIW4BvaS0VT9GYiTDdLELSKQQC1S923JNt04ssz
-         u3eL6JjjpJwLOHo3qJ/gR2B2KbkHvbp2iT5y+C/j/+ZUvo9afX27nKXS6hOxT0xFe2Q9
-         JZ6s7F+w9PQd+/ZWu8Xu/SeFQdCpKjBSuDccFKG9obHP2+CwJvZ8g4fnAKrjMQvDdk0A
-         25vWvuiDSVlygHZ371DCVuohm+78aBlgJEVwgsILWooUnKJek0XaZFiQzVqa0EM2SOow
-         nVcH4dc9twiWnFKcVJyKHZVt2JZTjKFROyNh/r1fWh0W1iH7qlqOXh/oS5dTjMK6b05W
-         9g+g==
+        bh=zSOx/sIm8vjpWnFS7+Jvzy/5ajQRYoPaG3z/cOTteOk=;
+        b=i7rxv4CwSbjOImjcMorNQtav/fYapgdRswEjfjqe3X6A6JuvdoQ/kh7q5DHdUEUNPi
+         8wTBR2DhlWebsugnxEZcqZfNJCwHuycIj2igEJcg5h5yz4YMkv8b2ySLE74OxIg2touv
+         bRs4wprwJTDUi2ODDWjYcZD9LvZWQqa19/xI+esYmCyPAVsRoSI3O5IHuN8D+HTyF3DW
+         foMYYd7syYogH/2Mels14w5d3C5LJuDG+KS+K+RkQbdA49VOliyKAZo0dpFN1Wq+ub0u
+         b7I9P0qGPrNxeDxRWT5KSNL7BjhS/7V9nbC3Riz+PLrson7y0LyYF/T9A2xWhgxnfPN7
+         tN7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,69 +49,69 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ESIvMHNV548GikTy+hhJV84U4HMt7ZgZJhVbyP9pt9M=;
-        b=nMmtPGLsRWqNmIyLMS/cFr3shyFDKZLbDVwO8nikL1SHOOWfUw1WGK8lVsBnvCq3Be
-         DvHN6K40ONnDWaOlWPIjHWgCgZ4zEIMzkaQiN1+QRaT9txVjR4pOyhhrw4nXND/WvLUe
-         FLf8f/qQJpOjaz+8cWdo/TrWtI6MpwW9AIp1OQmRmgXtRIkk18gFBzHRfhX0936FiGey
-         gjsPpmWfYc1GsqTcGkdtzqz8ZJ/AdlXVIRiYhmUYH7OeX5r83yRxOaRzHFtUDNP8n2DO
-         0qJ8h5YN4PUzYlS5v40FxiM71aiTp9DoRHMocgDONrIh4rK8KMr4mljdL79jbC/5vid3
-         1abA==
+        bh=zSOx/sIm8vjpWnFS7+Jvzy/5ajQRYoPaG3z/cOTteOk=;
+        b=X+vjF5cNNnlWfdVTLGHy8txOIfdqYb9YvbUi7C+b2vBmux2tTmSQ11i2c1e9JqMjFa
+         MYDg7ZsPTPcXtxYbMtcgtzqYuYAA35E6EKlrdkYz+V7nUPUywNIRxf+sujiId6sLakSC
+         9v13/NmQgyKU1Dr0wOmS91OBxwrLA42RZXz7C98WGkvTPhgPDE4Tm8XGtX9QjYNFB+PC
+         U6qMp8O4BlS/Eos9dor/r5wOfJtE1bAdSPels7iBu9ndA5ToovSNmoqqzjbKkGHPgp8m
+         r7wv+nrh5xWRn/iwwmPpoKRA+po/gKdafGRJuQXBT/1Nnns4LM0jQo1XiPvd3X07WYcr
+         bPUg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ2Y5SwtMoAjiGyXRgO7TSXoSjKIA9gOpuQZ4tVkXF8BIabxhBMn
-	WFSxVAopDBKfzdBq4pyqfqA=
-X-Google-Smtp-Source: ADFU+vuS7LUDks/F4P0RSbZXYY/Z+O3p95qMs8DP2TaSLQuFH4EeOls6G3B0asxN1dB3bcXpvppEHQ==
-X-Received: by 2002:a62:3786:: with SMTP id e128mr194882pfa.124.1584564866521;
-        Wed, 18 Mar 2020 13:54:26 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ0mYDr94davA90QeTDzyRgqNf6+jh3JZaUYFrYEu+mcApyiy5x0
+	SoXZQ4xYILxIWxmhR1JPK3k=
+X-Google-Smtp-Source: ADFU+vtbz2XlSpOG0O4zH0Jv9keO4LTYPdprkX16YwMCesDAVcDXDhit9/4vC7QTWGrYZp88QtHg/g==
+X-Received: by 2002:a92:280f:: with SMTP id l15mr5651208ilf.188.1584564894473;
+        Wed, 18 Mar 2020 13:54:54 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:982:: with SMTP id 2ls2630420pjo.1.gmail; Wed, 18
- Mar 2020 13:54:26 -0700 (PDT)
-X-Received: by 2002:a17:902:8b87:: with SMTP id ay7mr99062plb.2.1584564866046;
-        Wed, 18 Mar 2020 13:54:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584564866; cv=none;
+Received: by 2002:a02:cb08:: with SMTP id j8ls3339578jap.4.gmail; Wed, 18 Mar
+ 2020 13:54:54 -0700 (PDT)
+X-Received: by 2002:a02:cc6f:: with SMTP id j15mr6450577jaq.80.1584564894098;
+        Wed, 18 Mar 2020 13:54:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584564894; cv=none;
         d=google.com; s=arc-20160816;
-        b=b8kadTD3q31LUgVMKTYgX4xEwUHnC/x+zjMfnP8StOZ6SlRLrk/ImMx57XDBq6XqPX
-         dsctZ4NE01wrMjcB8eI+GGy2wUVTmf05z8Klm0YwMb6CPpCAbdsMDPTZvKeNXw3KPIaZ
-         IVAp/e5sZ0WbixjJjXt2G628TT1cd+TIIRuHygnEpE/3wjniOXv33waAAdmgTrY9Sa45
-         fRVVIUPdqtTb4xI2otn3q4/n8LI45Lcz1XlWfqs6g0C13CP1SHjQT6/gAOxLqyWpHoQ8
-         xPkU4nmETF7qGn1voZ8GZS0m6cTxBnuWMhvsY6FzFUA2R8u/oSVKkY4uRWHSzVaKlnv5
-         FWyg==
+        b=vppW8BnnZi767q9vr3qPD4d9lWakgo9buofqO/Y7FWrxk0Gq05yjJuQok8tp/zv12T
+         hIS88xUtd6+QYMlDmjhsoz3lYzYVzuyMy57h6GMQzcDzwgqFFEjrtx8kfpkPiX3hzma2
+         J63OF7AHigKhwjYahf8JqTMHnHIkF08e6QHKNEIsgMcuUkRUIiWTHBeq/RYMgbodrypl
+         FwuwHva7ti/8DAPpPrR4TpRCijRi/GloYxqTVy4rz99U0pwo6bC2bC2cV4aN+az4KFnp
+         AbivaidetACAtPFCFtPlVLAyT51aAyDGRPAgNUuXyklAiH09E1Hb50kh8denMcvH3oky
+         DEPg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=0ko5WQxS92pAvyZoUsXIwzsFWdJOvVQxCRxUqBimYJk=;
-        b=BbDmjQG7t/l2nxs82GAfHBytrTGmnr50bUdxj1jiFoejQv8ZTQ1WZJFu29VJJXNBHj
-         OQbgJFQPwU+YlY7hGD5MoE/rXqulGj088Zb48RGp7VFQmHYy3UXL5trR54X3ka1ED4HM
-         MI1NhagGfebYIkgL34ZUOuo3ecbf6kKgQfVKHa7IfggTFzbs3rLaSuTFfVGNsqf6IqQx
-         baPNfiGBdGxqIh1+7PUsRb01Hz8JDKVsrtTBGi6wop5RlH8SENtCwWF4Cwdwf3wBxJSU
-         XPAsrRxSGETFEAL/xmg7kQXpZHn6GR16W45xNHskB99qk4mQLpY/B4e+uO1JMrxfXIEw
-         rEXA==
+        bh=qAsn/QlQsmpTic22sxC6ksdpZEe0o0rlwKNYR9ZN9MY=;
+        b=v8aBx7QH5YYyYwsPg0TnT90ptcxwqHZf6CL0yfw3OPqW7BTOBuSI7TPHfmgl0VXCeP
+         TogNccQ/xTHAk2ZAb7+HneIoLhoEcPrFCf3nIz4etfG4qsC8nwxJ7+vD0Zye+5lYzLo6
+         /0mANzZRfPSXh47iGHj3AvvLN3eTk3/AJxGC1+8gWeBMAx0ffOs4u/D2eaFfXkXXM77Y
+         WDea4qhNlfQtp0L5DuYVJ+hO4T2NDBqto02cnWUdR9bGpplhZvE56+LU9Pqd32LT7Ju9
+         2HZQXePOZrZ/ZBf3ira4s++xUPwki1lOxkCvl86kolNAK3BYwXN5e4XdtL20sVVJh7lq
+         6Tvg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=dSicSenb;
+       dkim=pass header.i=@kernel.org header.s=default header.b=gjuQmWbM;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id q2si176057pjv.3.2020.03.18.13.54.26
+        by gmr-mx.google.com with ESMTPS id s201si6019ilc.0.2020.03.18.13.54.53
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 18 Mar 2020 13:54:26 -0700 (PDT)
+        Wed, 18 Mar 2020 13:54:54 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 0288820BED;
-	Wed, 18 Mar 2020 20:54:24 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 87EF221707;
+	Wed, 18 Mar 2020 20:54:52 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Nathan Chancellor <natechancellor@gmail.com>,
-	"Michael S . Tsirkin" <mst@redhat.com>,
-	David Hildenbrand <david@redhat.com>,
+	Madalin Bucur <madalin.bucur@oss.nxp.com>,
+	"David S . Miller" <davem@davemloft.net>,
 	Sasha Levin <sashal@kernel.org>,
-	virtualization@lists.linux-foundation.org,
+	netdev@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.4 38/73] virtio_balloon: Adjust label in virtballoon_probe
-Date: Wed, 18 Mar 2020 16:53:02 -0400
-Message-Id: <20200318205337.16279-38-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.4 61/73] dpaa_eth: Remove unnecessary boolean expression in dpaa_get_headroom
+Date: Wed, 18 Mar 2020 16:53:25 -0400
+Message-Id: <20200318205337.16279-61-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200318205337.16279-1-sashal@kernel.org>
 References: <20200318205337.16279-1-sashal@kernel.org>
@@ -120,7 +120,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=dSicSenb;       spf=pass
+ header.i=@kernel.org header.s=default header.b=gjuQmWbM;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -139,48 +139,57 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Nathan Chancellor <natechancellor@gmail.com>
 
-[ Upstream commit 6ae4edab2fbf86ec92fbf0a8f0c60b857d90d50f ]
+[ Upstream commit 7395f62d95aafacdb9bd4996ec2f95b4a655d7e6 ]
 
-Clang warns when CONFIG_BALLOON_COMPACTION is unset:
+Clang warns:
 
-../drivers/virtio/virtio_balloon.c:963:1: warning: unused label
-'out_del_vqs' [-Wunused-label]
-out_del_vqs:
-^~~~~~~~~~~~
+drivers/net/ethernet/freescale/dpaa/dpaa_eth.c:2860:9: warning:
+converting the result of '?:' with integer constants to a boolean always
+evaluates to 'true' [-Wtautological-constant-compare]
+        return DPAA_FD_DATA_ALIGNMENT ? ALIGN(headroom,
+               ^
+drivers/net/ethernet/freescale/dpaa/dpaa_eth.c:131:34: note: expanded
+from macro 'DPAA_FD_DATA_ALIGNMENT'
+\#define DPAA_FD_DATA_ALIGNMENT  (fman_has_errata_a050385() ? 64 : 16)
+                                 ^
 1 warning generated.
 
-Move the label within the preprocessor block since it is only used when
-CONFIG_BALLOON_COMPACTION is set.
+This was exposed by commit 3c68b8fffb48 ("dpaa_eth: FMan erratum A050385
+workaround") even though it appears to have been an issue since the
+introductory commit 9ad1a3749333 ("dpaa_eth: add support for DPAA
+Ethernet") since DPAA_FD_DATA_ALIGNMENT has never been able to be zero.
 
-Fixes: 1ad6f58ea936 ("virtio_balloon: Fix memory leaks on errors in virtballoon_probe()")
-Link: https://github.com/ClangBuiltLinux/linux/issues/886
+Just replace the whole boolean expression with the true branch, as it is
+always been true.
+
+Link: https://github.com/ClangBuiltLinux/linux/issues/928
 Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Link: https://lore.kernel.org/r/20200216004039.23464-1-natechancellor@gmail.com
-Signed-off-by: Michael S. Tsirkin <mst@redhat.com>
-Reviewed-by: David Hildenbrand <david@redhat.com>
+Reviewed-by: Madalin Bucur <madalin.bucur@oss.nxp.com>
+Signed-off-by: David S. Miller <davem@davemloft.net>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/virtio/virtio_balloon.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/ethernet/freescale/dpaa/dpaa_eth.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/drivers/virtio/virtio_balloon.c b/drivers/virtio/virtio_balloon.c
-index d2c4eb9efd70b..7aaf150f89ba0 100644
---- a/drivers/virtio/virtio_balloon.c
-+++ b/drivers/virtio/virtio_balloon.c
-@@ -958,8 +958,8 @@ static int virtballoon_probe(struct virtio_device *vdev)
- 	iput(vb->vb_dev_info.inode);
- out_kern_unmount:
- 	kern_unmount(balloon_mnt);
--#endif
- out_del_vqs:
-+#endif
- 	vdev->config->del_vqs(vdev);
- out_free_vb:
- 	kfree(vb);
+diff --git a/drivers/net/ethernet/freescale/dpaa/dpaa_eth.c b/drivers/net/ethernet/freescale/dpaa/dpaa_eth.c
+index e130233b50853..00c4beb760c35 100644
+--- a/drivers/net/ethernet/freescale/dpaa/dpaa_eth.c
++++ b/drivers/net/ethernet/freescale/dpaa/dpaa_eth.c
+@@ -2770,9 +2770,7 @@ static inline u16 dpaa_get_headroom(struct dpaa_buffer_layout *bl)
+ 	headroom = (u16)(bl->priv_data_size + DPAA_PARSE_RESULTS_SIZE +
+ 		DPAA_TIME_STAMP_SIZE + DPAA_HASH_RESULTS_SIZE);
+ 
+-	return DPAA_FD_DATA_ALIGNMENT ? ALIGN(headroom,
+-					      DPAA_FD_DATA_ALIGNMENT) :
+-					headroom;
++	return ALIGN(headroom, DPAA_FD_DATA_ALIGNMENT);
+ }
+ 
+ static int dpaa_eth_probe(struct platform_device *pdev)
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200318205337.16279-38-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200318205337.16279-61-sashal%40kernel.org.
