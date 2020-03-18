@@ -1,144 +1,141 @@
-Return-Path: <clang-built-linux+bncBCTYRDEG7MGBBQWRZHZQKGQE5HSLLBY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDDL3KWR4EBRBGWUZHZQKGQE267GYEY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
-	by mail.lfdr.de (Postfix) with ESMTPS id A94E318A25A
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Mar 2020 19:30:27 +0100 (CET)
-Received: by mail-pf1-x438.google.com with SMTP id 71sf7350804pfu.1
-        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Mar 2020 11:30:27 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584556226; cv=pass;
+Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1563318A278
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Mar 2020 19:36:11 +0100 (CET)
+Received: by mail-wr1-x440.google.com with SMTP id 94sf8105710wrr.3
+        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Mar 2020 11:36:11 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584556570; cv=pass;
         d=google.com; s=arc-20160816;
-        b=a+64GI9Xlg3rFTu7f3Bn4iN1kKA3Po3GtfhKrx6MHAlWalgIqcTrLrZqjoWz074Qrk
-         67bBuoo/IG0whqRV8+IHtkNNu3FrRHspSdDEXp18PibWc1ylHV0uYMXsTCsBi3S9+1mT
-         CPX5zJ8AGx8jd1hPki3PJO0+Y5W0/8IB75hcFh08aZhIf5uCGUOMPrlOOuYHJz9Cckw+
-         YahMb8KpQSBPI1AoHGVmRO5ZgmzDPt97mgr923MNfIP7Rv4jNbChP99iH3Apoyi3EI4m
-         Kc7aeSJj9cHkUHuurUDI+kV6pF/Qx5Wa0RR4e/NdPCyp/n/gFqxkgZvfpv3OzO8RRgfm
-         qSEg==
+        b=QdLrb2PUYCQP2Q+K7fCXvuK1YiGSGj15ewdgo5fElGCcKWUM9dX+1/Ctm5xb4vlK3o
+         Vm/vLMzua0qqiBVsVtyMXZLp185Nsp4laNI7FB9qlC88MCX+nUj+uFAT3/0ca960TP+W
+         C6GatPNZ9C9gYPjrX4s0yfSoienLoVSfHFt79V9A6Aq/ra4TeWUBgJzSsV+etcPcqLPJ
+         LNwl5RnFgM6UmVPcjqqzSdkLWgmJMwDmfRt8gMcg+izdGLJA10amYDmabB2TDVkQ90ca
+         JPnkhJvAV6HP5hLGr8u7PGEwLORqZCEjsAiYN7NEyQ3HT+07SMz9iSePttbK3CEmnvXD
+         J6fA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=HqTpH4JWPslzekb75F7/9O1F97DsQrsZdS829aNm4r4=;
-        b=y1jbZ4Z5F1KJIvdIgjwXkHxQCE/43tbpR6fn1zs2uItI/LTIPXCGDlW4pWZ24Ixbat
-         XfDEwMCDkZX9iVvPsN3pGhwuo8d4kUZrsINyjOGg+798VfMRX1iacKqtaGSyJkhSPCWV
-         wnx7Q8TaGPel3otM5MfwXeuUK8SboCs86XHO2X+d/Q/BQYZu8MBt9WTGnPN2h1WPj26G
-         fcsLORbXlt8eStsWc1htCPpFbTJ1+GV1144/SRfYb1VxVdGjjMKtk+BBzC5VFkCyWvA8
-         GyL+nlOFoflqygrcw04vY1NGobVL1NOElYuPGUHC5pADQLRK5Fi/ne4CzzFS3miGM0dR
-         itGA==
+        bh=Y0e48wCnOKmdYLRRNl+aVug2lD/GXfR3kmE5414ib+I=;
+        b=bV3HbVL5Et1U701eW4oY61IPhHGvYp5WAQHLSMh1YoH7zGWUV1It8vTcwhPCeI/T5W
+         tFQ+H6SHXDWW40nTqVfrbQlgDPf6XZ3yiCeQTjWT9qOkogO+8P60bZIn4zzJVE6jwr+H
+         fKMPkXng3KqiXX9x86p+DbL7jrVNDtT6exQG6+E4EGHUZTWHqj1xqPbRsDihv41QKhiM
+         GDHHiWNGuTNZcBSBLN9Ytq2BnDsHxpdj/ybIf9gPmwlyRjnqVdrqhKwAoCRM1/HP2bg6
+         jBHhbn3UIwubgTdKudSRlS/sjIw0wFdbZ4+RsYEyhVC6ZS9KmQIYmqhUWJVsvV4v5gkF
+         wVNg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=CSgePkrD;
-       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::742 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of catalin.marinas@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=catalin.marinas@arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=HqTpH4JWPslzekb75F7/9O1F97DsQrsZdS829aNm4r4=;
-        b=mM/3B93MhRMJqFfJeV9na3R0HVyxTQpwZGctFLBO+PPT0nv/NFTLv1ZTWlXBUtoUh+
-         DWlDTcjp4xD8SYK+OBWL3P99rCeuk22ZvRa9wgPTqD2fYWctBoE/ZDwENBZ4uVxqLzxP
-         ZOOa9N9ICoaXas6KG5VEgWi6hMhCCEQzSNgHppPDVGNKH+TJvEFKVsWBrmiz1U3DrbBH
-         L3pdMeb8xfJz52nQqCVAq7aUGCN7MjH5uu1GrHYlx9Ty3pEIw+rdAOfZEfI891HTChbw
-         b0tXD3LxwsL/LPUOr5Ss2MBMeclgDhQRGjKUIcF0k5FweM3hTUXuRolESZDHt7e5mevt
-         q7WA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=HqTpH4JWPslzekb75F7/9O1F97DsQrsZdS829aNm4r4=;
-        b=uOpLlNYZDo7mxh0M2WGcCRlliAFNLKFqKSNWa0BcLusNMiG2aTKsK7N8aj+SprK9vF
-         UcXSInXXmOi/+RlLEGHaK11ZD3ZoXViCXAOhUd6z5v+AueKrBudwcMw9YxKTTzN0V0QX
-         E/LIXBPIICpSW3ae7OXWbtXi/h4lM2pjpR9hd35i6npfGtKsufXMc0x55KmtTrL/oCEC
-         9p5sKjZjF6BatKYMaAdXok7ilSTio0CaFCi9FLIKMzS0okx3yvapLyLTHXrqQFpQSzLJ
-         m/Ncr3CTSSMEKV4BfpzBzhn1SDKtrpVn2au1NdWkfoez9vJz+W057iVB3soYLMxAAHB5
-         DN0Q==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=Y0e48wCnOKmdYLRRNl+aVug2lD/GXfR3kmE5414ib+I=;
+        b=eAS2zWGi46zfrUqf0EfLzqXr+hFfHQZp5KAZvs9b6bTYTPCLBP7Rw2idrnpMd/xGis
+         STGIo5AsvGkcAgnmD9+JzCn4MFgqnWZ+vSD93V8KiWXeRHfiGy4Pd7F67tg53Kgzjl0H
+         wM72ObF8eY6dszwdSym2RENNExUt4cuLcu/EiJCdqMroVqJo8GQDgEftC0eCI45whOsK
+         sD67Aq7VOuqV8+r6XZb5JJRXnC3rOc67k12M0/XUyN+y0jztZvh6QLaOjxbsabKaoalC
+         VbC9iQoLhmPRDMj/qaNSoZG2xsJwFxQJhBfYPoGjat/t+xV/JXzOUwGPmE56YXlW7DeT
+         bR1A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=HqTpH4JWPslzekb75F7/9O1F97DsQrsZdS829aNm4r4=;
-        b=qMAPxjCwQc624CX+kRUtyNmZZbz47kZZ9572XbMDs5A8pudcD8X9dQdBN97PCfIAKt
-         1g9VL9mK65bDjf1p5P/ZYa+bp4bqPIIlbe7lyxPYPej1EVqoj5y/dwWTfiBFHh+p7VMz
-         rvGkfokaOvWTwAM4QUWBK5wLj61xnbzwkBHC/Wp+f86caIGL0Ffcs3mAAUMgiD2+0jkl
-         hue+80nrggiDrOhtf4nLdoeq1MnaJDwCxGTXnVZxJCayOZGzyskhH99KI5lbE3BDrpnP
-         TUYEAopyd+RhD8MxBJGMjSeUhGOCUpOx2KgKnXNBRbUeFg8IzC9Bqh6ewuvhsdo3Fn2p
-         WQwg==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=Y0e48wCnOKmdYLRRNl+aVug2lD/GXfR3kmE5414ib+I=;
+        b=IJHo4Ll5nlPPpAvghwsL6xIH7Yz6efQRr4FiCknMBTkPM96GNxX3elnlY8ILCFKcM9
+         ewTd9lVIJachdeV4IKQHxezCn7suwqJrefNL0JhRSn61YrUj6w4azK7K7+KXXK7ql5j0
+         r67G4/vn7RaHLVu9wVT0h9k9aAyslc8cXq/YWSGZ2O/BnN8lqixQQp8RyAIQA0kpePIN
+         MPGYt3X4FwCB0mNtx0aOeaf+I0DLKZnmDEbuxWMA6FQyDGTPSLuYLBBlFSDiepJXdZxt
+         /yDg8MB6maYKP1QmEWntlD8UCEd5j8irmJmOLAxXQWQTDsqK0lgFOrwv0/VJ0VtlKc1t
+         gygA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ2Ux7e2Za5gxA7SKyGaxmtag7M6fDa9+zEiH/nKIpk6Wuy+qDMV
-	3ydFMEPcOgRt757K1+nO5uE=
-X-Google-Smtp-Source: ADFU+vsKfC4GgYL4dHxcVWAI2vRHpPVL+f4Rr9CXr7hd0jm5eQPgshG7Xz1fF+L+T6Osy2RobdtPtQ==
-X-Received: by 2002:a17:902:bc48:: with SMTP id t8mr4998552plz.308.1584556226158;
-        Wed, 18 Mar 2020 11:30:26 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ1fbngvZzm3VBmrdsuFc6IdsS+J4jc9TRgct8VaIQNlnlY6NOEp
+	HXyejW85W/eXZl+2CsbuekU=
+X-Google-Smtp-Source: ADFU+vurt+9sS+WLCwkeA6ZzEI6lKeBtId328KRE/TV8m6UAVVMf9nY8WWoNMvrAEpgV6dQ8HXJNug==
+X-Received: by 2002:a7b:c0d7:: with SMTP id s23mr6961959wmh.168.1584556570798;
+        Wed, 18 Mar 2020 11:36:10 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:a701:: with SMTP id w1ls14103975plq.7.gmail; Wed, 18
- Mar 2020 11:30:25 -0700 (PDT)
-X-Received: by 2002:a17:90b:19c3:: with SMTP id nm3mr6033155pjb.149.1584556225568;
-        Wed, 18 Mar 2020 11:30:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584556225; cv=none;
+Received: by 2002:a1c:230e:: with SMTP id j14ls1264565wmj.0.canary-gmail; Wed,
+ 18 Mar 2020 11:36:10 -0700 (PDT)
+X-Received: by 2002:a1c:2701:: with SMTP id n1mr6623223wmn.180.1584556570034;
+        Wed, 18 Mar 2020 11:36:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584556570; cv=none;
         d=google.com; s=arc-20160816;
-        b=IzhawrrNHeIVXMcXBJrQMZirqMLpLGnhUeuKV2wCa/m1q1sw3QfAji0jtQma6SEaX1
-         zJkZNLCV/DFmkjD9haCY8+zpyzsqeB0oQsGlXP/mlGeieHDY/mmG0zpODt+Z9PFYSDCb
-         dTJeEuxc1sRgqQUjBvCAAEBhV0zkJP5NIo/MgnjZ7mHVOGgwCh6k0U0E0ZN1Czyj3aaT
-         SIEqYJs1f4Ooq9kkVP9gfVJPrKoEBUGGfwqT3Atv0vvdXIs9zSs64LK8+LEfyddNrMGe
-         TRR7SRCrOeJK8uIsJFy1RtC4l97FhL/lXks5NaIMFxUUXogq3Pee9bRQEWPRCzwEBnwD
-         kG0w==
+        b=H2k2Nf1F/NoQjXP3NzxXfGu0nSfsVi4it1HvFr1W4VWs15yS/Jt8E7gNlzHvchd8af
+         IBZVUWDJBTiSOQSjU982/ChJP/yZa751+g1VNX0YPtsRuK11yIorc6Biqd/SdR1jEqu6
+         3B2wzQywheGpeO3tMTReMCz/QwrQR0s6SSLr8X9trT6kXaijZndWYk+n8iy2NcML0tvN
+         Xm6dgSAxICJ7PX+lqJllBaYz0CVX3iNYFwEVhZrO5Qqb11iJ9sbbOdEcYLSKEGTgK7FZ
+         a5fvUhkXxk3rdGnJrqON49R5ot22E2Tx9WXrRqDBcYBaVw6ToCV6j7aR4S/7DPG85bHZ
+         TEsw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=GqroxdAEbJb7dVXW+7ArkprwDF9g8bc8eBF5e5MyfUc=;
-        b=giEvhocGWRDiNYpoILJJQNTdUub47QFaAtu4JqAI2lAB3vEscWR6tvWHNq5kn0WmfT
-         VAh2nxj4BwXS9Go8+Oh6m3o0Z5INadRFxR4kasTVaU4M5YxbfNg/Bfn1xNyTqF2EbysT
-         ZagHs8Ji9dIDP8AjXgtKaIX2WEfuyAqP5Hvkf+8oHTy2KaoXpLRAUQDGJfB9tkLYi5X6
-         c2fRSUmg+ua+MaMFrJxq2ip1H3fHcWZuz+T5omuD4mUGjKOHj4Bn3MW9GbRmzeUDXlFw
-         GcYqlMzNa6/dCGnTyoCS95KT2Jyg7YdKYUYOizIgO3SKZk0cAMdaK3BqJiIvKo1bI7AF
-         RwGw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date;
+        bh=fQ9jA4yHFwEV2pa/lVBf1RhA2tMzm3GKqxGfpU73Fv0=;
+        b=JZA/J0H/LJPrtjAh8UZx/ZGoV4M4TQSD77UFiP/04a74vnZa5DOUYNkVISUbcmJxhF
+         wYBLj0GoZGRljmJq7bQk16Ka2/Ish/qbZqzwKJxjSUOvlplBGlHQKJH6bqJaGfIo6DVg
+         35S+wsbD6AiJkyBaAtYwo9MKtJAHdx/uMZ0Q3eFwC9vFrFrgqlZlJKksXDTCYvGy7/+r
+         66dA36MiMvHcjuxx7ckfHY1Yxx3+L/3PjGdP1zVlfHoaDwf8jKmeH5s7xnTJocAPAd1O
+         GtuDB4XxRVmmNYjVbayOz9Jj0MdVL8pZwuYGXntlxacQvdnyeIJwhHfEpFNe3RqXENt1
+         IXGQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=CSgePkrD;
-       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::742 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qk1-x742.google.com (mail-qk1-x742.google.com. [2607:f8b0:4864:20::742])
-        by gmr-mx.google.com with ESMTPS id k3si436315plt.1.2020.03.18.11.30.25
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Mar 2020 11:30:25 -0700 (PDT)
-Received-SPF: pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::742 as permitted sender) client-ip=2607:f8b0:4864:20::742;
-Received: by mail-qk1-x742.google.com with SMTP id c145so40453252qke.12
-        for <clang-built-linux@googlegroups.com>; Wed, 18 Mar 2020 11:30:25 -0700 (PDT)
-X-Received: by 2002:a37:e40d:: with SMTP id y13mr5531432qkf.39.1584556224525;
- Wed, 18 Mar 2020 11:30:24 -0700 (PDT)
+       spf=pass (google.com: domain of catalin.marinas@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=catalin.marinas@arm.com
+Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
+        by gmr-mx.google.com with ESMTP id l10si129356wmg.2.2020.03.18.11.36.09
+        for <clang-built-linux@googlegroups.com>;
+        Wed, 18 Mar 2020 11:36:10 -0700 (PDT)
+Received-SPF: pass (google.com: domain of catalin.marinas@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F2DA21FB;
+	Wed, 18 Mar 2020 11:36:08 -0700 (PDT)
+Received: from arrakis.emea.arm.com (arrakis.cambridge.arm.com [10.1.196.71])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 07E133F67D;
+	Wed, 18 Mar 2020 11:36:05 -0700 (PDT)
+Date: Wed, 18 Mar 2020 18:36:03 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Vincenzo Frascino <vincenzo.frascino@arm.com>
+Cc: linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
+	linux-mips@vger.kernel.org, x86@kernel.org,
+	Will Deacon <will.deacon@arm.com>, Arnd Bergmann <arnd@arndb.de>,
+	Russell King <linux@armlinux.org.uk>,
+	Paul Burton <paul.burton@mips.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Andy Lutomirski <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, Stephen Boyd <sboyd@kernel.org>,
+	Mark Salyzyn <salyzyn@android.com>,
+	Kees Cook <keescook@chromium.org>,
+	Peter Collingbourne <pcc@google.com>,
+	Dmitry Safonov <0x7f454c46@gmail.com>,
+	Andrei Vagin <avagin@openvz.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Marc Zyngier <maz@kernel.org>, Mark Rutland <Mark.Rutland@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v4 18/26] arm64: vdso32: Replace TASK_SIZE_32 check in
+ vgettimeofday
+Message-ID: <20200318183603.GF94111@arrakis.emea.arm.com>
+References: <20200317122220.30393-1-vincenzo.frascino@arm.com>
+ <20200317122220.30393-19-vincenzo.frascino@arm.com>
+ <20200317143834.GC632169@arrakis.emea.arm.com>
+ <f03a9493-c8c2-e981-f560-b2f437a208e4@arm.com>
+ <20200317155031.GD632169@arrakis.emea.arm.com>
+ <83aaf9e1-0a8f-4908-577a-23766541b2ba@arm.com>
+ <20200317174806.GE632169@arrakis.emea.arm.com>
+ <93cfe94a-c2a3-1025-bc9c-e7c3fd891100@arm.com>
 MIME-Version: 1.0
-References: <20200317011654.zkx5r7so53skowlc@google.com> <CAEf4BzYTJqWU++QnQupxFBWGSMPfGt6r-5u9jbeLnEF2ipw+Mw@mail.gmail.com>
- <20200317033701.w7jwos7mvfnde2t2@google.com> <CAEf4BzYyimAo2_513kW6hrDWwmzSDhNjTYksjy01ugKKTPt+qA@mail.gmail.com>
- <20200317052120.diawg3a75kxl5hkn@google.com> <CAEf4BzYepRs4uB9vd1SCFY81H5S1kbvw2n9bKNeh-ORK_kutSg@mail.gmail.com>
- <20200317054359.snyyojyf6gjxufij@google.com> <20200317162405.GB2459609@mini-arch.hsd1.ca.comcast.net>
- <20200317205832.lna5phig2ed3bf2n@google.com> <CAEf4BzY8uzcpS8t0JW70V-DrrZ4MbeXOyEtCrpTtQyHW+uQcRg@mail.gmail.com>
- <20200318175918.ulpzopsao4sm6aei@google.com>
-In-Reply-To: <20200318175918.ulpzopsao4sm6aei@google.com>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Wed, 18 Mar 2020 11:30:13 -0700
-Message-ID: <CAEf4BzYBgG4dyhL7Bj21CU4HO9qpm_N7SZkQekTTK6pJBA1ZJA@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v4] bpf: Support llvm-objcopy and llvm-objdump
- for vmlinux BTF
-To: Fangrui Song <maskray@google.com>
-Cc: bpf <bpf@vger.kernel.org>, Networking <netdev@vger.kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Nathan Chancellor <natechancellor@gmail.com>, clang-built-linux@googlegroups.com, 
-	Stanislav Fomichev <sdf@google.com>, "David S. Miller" <davem@davemloft.net>, 
-	Alexei Starovoitov <ast@kernel.org>, Kees Cook <keescook@chromium.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: andrii.nakryiko@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=CSgePkrD;       spf=pass
- (google.com: domain of andrii.nakryiko@gmail.com designates
- 2607:f8b0:4864:20::742 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Disposition: inline
+In-Reply-To: <93cfe94a-c2a3-1025-bc9c-e7c3fd891100@arm.com>
+X-Original-Sender: catalin.marinas@arm.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of catalin.marinas@arm.com designates 217.140.110.172 as
+ permitted sender) smtp.mailfrom=catalin.marinas@arm.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,448 +148,191 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Mar 18, 2020 at 10:59 AM Fangrui Song <maskray@google.com> wrote:
->
->
-> On 2020-03-17, Andrii Nakryiko wrote:
-> >On Tue, Mar 17, 2020 at 1:58 PM Fangrui Song <maskray@google.com> wrote:
-> >>
-> >>
-> >> On 2020-03-17, Stanislav Fomichev wrote:
-> >> >On 03/16, Fangrui Song wrote:
-> >> >> On 2020-03-16, Andrii Nakryiko wrote:
-> >> >> > On Mon, Mar 16, 2020 at 10:21 PM Fangrui Song <maskray@google.com> wrote:
-> >> >> > >
-> >> >> > >
-> >> >> > > On 2020-03-16, Andrii Nakryiko wrote:
-> >> >> > > >On Mon, Mar 16, 2020 at 8:37 PM Fangrui Song <maskray@google.com> wrote:
-> >> >> > > >>
-> >> >> > > >> On 2020-03-16, Andrii Nakryiko wrote:
-> >> >> > > >> >On Mon, Mar 16, 2020 at 6:17 PM Fangrui Song <maskray@google.com> wrote:
-> >> >> > > >> >>
-> >> >> > > >> >> Simplify gen_btf logic to make it work with llvm-objcopy and
-> >> >> > > >> >> llvm-objdump.  We just need to retain one section .BTF. To do so, we can
-> >> >> > > >> >> use a simple objcopy --only-section=.BTF instead of jumping all the
-> >> >> > > >> >> hoops via an architecture-less binary file.
-> >> >> > > >> >>
-> >> >> > > >> >> We use a dd comment to change the e_type field in the ELF header from
-> >> >> > > >> >> ET_EXEC to ET_REL so that .btf.vmlinux.bin.o will be accepted by lld.
-> >> >> > > >> >>
-> >> >> > > >> >> Fixes: df786c9b9476 ("bpf: Force .BTF section start to zero when dumping from vmlinux")
-> >> >> > > >> >> Cc: Stanislav Fomichev <sdf@google.com>
-> >> >> > > >> >> Cc: Nick Desaulniers <ndesaulniers@google.com>
-> >> >> > > >> >> Tested-by: Nick Desaulniers <ndesaulniers@google.com>
-> >> >> > > >> >> Reported-by: Nathan Chancellor <natechancellor@gmail.com>
-> >> >> > > >> >> Link: https://github.com/ClangBuiltLinux/linux/issues/871
-> >> >> > > >> >> Signed-off-by: Fangrui Song <maskray@google.com>
-> >> >> > > >> >> ---
-> >> >> > > >> >>  scripts/link-vmlinux.sh | 13 ++-----------
-> >> >> > > >> >>  1 file changed, 2 insertions(+), 11 deletions(-)
-> >> >> > > >> >>
-> >> >> > > >> >> diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-> >> >> > > >> >> index dd484e92752e..84be8d7c361d 100755
-> >> >> > > >> >> --- a/scripts/link-vmlinux.sh
-> >> >> > > >> >> +++ b/scripts/link-vmlinux.sh
-> >> >> > > >> >> @@ -120,18 +120,9 @@ gen_btf()
-> >> >> > > >> >>
-> >> >> > > >> >>         info "BTF" ${2}
-> >> >> > > >> >>         vmlinux_link ${1}
-> >> >> > > >> >> -       LLVM_OBJCOPY=${OBJCOPY} ${PAHOLE} -J ${1}
-> >> >> > > >> >
-> >> >> > > >> >Is it really tested? Seems like you just dropped .BTF generation step
-> >> >> > > >> >completely...
-> >> >> > > >>
-> >> >> > > >> Sorry, dropped the whole line:/
-> >> >> > > >> I don't know how to test .BTF . I can only check readelf -S...
-> >> >> > > >>
-> >> >> > > >> Attached the new patch.
-> >> >> > > >>
-> >> >> > > >>
-> >> >> > > >>  From 02afb9417d4f0f8d2175c94fc3797a94a95cc248 Mon Sep 17 00:00:00 2001
-> >> >> > > >> From: Fangrui Song <maskray@google.com>
-> >> >> > > >> Date: Mon, 16 Mar 2020 18:02:31 -0700
-> >> >> > > >> Subject: [PATCH bpf v2] bpf: Support llvm-objcopy and llvm-objdump for
-> >> >> > > >>   vmlinux BTF
-> >> >> > > >>
-> >> >> > > >> Simplify gen_btf logic to make it work with llvm-objcopy and llvm-objdump.
-> >> >> > > >> We use a dd comment to change the e_type field in the ELF header from
-> >> >> > > >> ET_EXEC to ET_REL so that .btf.vmlinux.bin.o can be accepted by lld.
-> >> >> > > >>
-> >> >> > > >> Fixes: df786c9b9476 ("bpf: Force .BTF section start to zero when dumping from vmlinux")
-> >> >> > > >> Cc: Stanislav Fomichev <sdf@google.com>
-> >> >> > > >> Cc: Nick Desaulniers <ndesaulniers@google.com>
-> >> >> > > >> Reported-by: Nathan Chancellor <natechancellor@gmail.com>
-> >> >> > > >> Link: https://github.com/ClangBuiltLinux/linux/issues/871
-> >> >> > > >> Signed-off-by: Fangrui Song <maskray@google.com>
-> >> >> > > >> ---
-> >> >> > > >>   scripts/link-vmlinux.sh | 14 +++-----------
-> >> >> > > >>   1 file changed, 3 insertions(+), 11 deletions(-)
-> >> >> > > >>
-> >> >> > > >> diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-> >> >> > > >> index dd484e92752e..b23313944c89 100755
-> >> >> > > >> --- a/scripts/link-vmlinux.sh
-> >> >> > > >> +++ b/scripts/link-vmlinux.sh
-> >> >> > > >> @@ -120,18 +120,10 @@ gen_btf()
-> >> >> > > >>
-> >> >> > > >>         info "BTF" ${2}
-> >> >> > > >>         vmlinux_link ${1}
-> >> >> > > >> -       LLVM_OBJCOPY=${OBJCOPY} ${PAHOLE} -J ${1}
-> >> >> > > >> +       ${PAHOLE} -J ${1}
-> >> >> > > >
-> >> >> > > >I'm not sure why you are touching this line at all. LLVM_OBJCOPY part
-> >> >> > > >is necessary, pahole assumes llvm-objcopy by default, but that can
-> >> >> > > >(and should for objcopy) be overridden with LLVM_OBJCOPY.
-> >> >> > >
-> >> >> > > Why is LLVM_OBJCOPY assumed? What if llvm-objcopy is not available?
-> >> >> >
-> >> >> > It's pahole assumption that we have to live with. pahole assumes
-> >> >> > llvm-objcopy internally, unless it is overriden with LLVM_OBJCOPY env
-> >> >> > var. So please revert this line otherwise you are breaking it for GCC
-> >> >> > objcopy case.
-> >> >>
-> >> >> Acknowledged. Uploaded v3.
-> >> >>
-> >> >> I added back 2>/dev/null which was removed by a previous change, to
-> >> >> suppress GNU objcopy warnings. The warnings could be annoying in V=1
-> >> >> output.
-> >> >>
-> >> >> > > This is confusing that one tool assumes llvm-objcopy while the block
-> >> >> > > below immediately uses GNU objcopy (without this patch).
-> >> >> > >
-> >> >> > > e83b9f55448afce3fe1abcd1d10db9584f8042a6 "kbuild: add ability to
-> >> >> > > generate BTF type info for vmlinux" does not say why LLVM_OBJCOPY is
-> >> >> > > set.
-> >> >> > >
-> >> >> > > >>
-> >> >> > > >> -       # dump .BTF section into raw binary file to link with final vmlinux
-> >> >> > > >> -       bin_arch=$(LANG=C ${OBJDUMP} -f ${1} | grep architecture | \
-> >> >> > > >> -               cut -d, -f1 | cut -d' ' -f2)
-> >> >> > > >> -       bin_format=$(LANG=C ${OBJDUMP} -f ${1} | grep 'file format' | \
-> >> >> > > >> -               awk '{print $4}')
-> >> >> > > >> -       ${OBJCOPY} --change-section-address .BTF=0 \
-> >> >> > > >> -               --set-section-flags .BTF=alloc -O binary \
-> >> >> > > >> -               --only-section=.BTF ${1} .btf.vmlinux.bin
-> >> >> > > >> -       ${OBJCOPY} -I binary -O ${bin_format} -B ${bin_arch} \
-> >> >> > > >> -               --rename-section .data=.BTF .btf.vmlinux.bin ${2}
-> >> >> > > >> +       # Extract .BTF section, change e_type to ET_REL, to link with final vmlinux
-> >> >> > > >> +       ${OBJCOPY} --only-section=.BTF ${1} ${2} && printf '\1' | dd of=${2} conv=notrunc bs=1 seek=16
-> >> >> > > >>   }
-> >> >> > > >>
-> >> >> > > >>   # Create ${2} .o file with all symbols from the ${1} object file
-> >> >> > > >> --
-> >> >> > > >> 2.25.1.481.gfbce0eb801-goog
-> >> >> > > >>
-> >> >>
-> >> >> From ca3597477542453e9f63185c27c162da081a4baf Mon Sep 17 00:00:00 2001
-> >> >> From: Fangrui Song <maskray@google.com>
-> >> >> Date: Mon, 16 Mar 2020 22:38:23 -0700
-> >> >> Subject: [PATCH bpf v3] bpf: Support llvm-objcopy and llvm-objdump for
-> >> >>  vmlinux BTF
-> >> >>
-> >> >> Simplify gen_btf logic to make it work with llvm-objcopy and llvm-objdump.
-> >> >> Add 2>/dev/null to suppress GNU objcopy (but not llvm-objcopy) warnings
-> >> >> "empty loadable segment detected at vaddr=0xffffffff81000000, is this intentional?"
-> >> >> Our use of --only-section drops many SHF_ALLOC sections which will essentially nullify
-> >> >> program headers. When used as linker input, program headers are simply
-> >> >> ignored.
-> >> >>
-> >> >> We use a dd command to change the e_type field in the ELF header from
-> >> >> ET_EXEC to ET_REL so that .btf.vmlinux.bin.o can be accepted by lld.
-> >> >> Accepting ET_EXEC as an input file is an extremely rare GNU ld feature
-> >> >> that lld does not intend to support, because this is very error-prone.
-> >> >>
-> >> >> Fixes: df786c9b9476 ("bpf: Force .BTF section start to zero when dumping from vmlinux")
-> >> >> Cc: Stanislav Fomichev <sdf@google.com>
-> >> >> Cc: Nick Desaulniers <ndesaulniers@google.com>
-> >> >> Reported-by: Nathan Chancellor <natechancellor@gmail.com>
-> >> >> Link: https://github.com/ClangBuiltLinux/linux/issues/871
-> >> >> Signed-off-by: Fangrui Song <maskray@google.com>
-> >> >> ---
-> >> >>  scripts/link-vmlinux.sh | 12 ++----------
-> >> >>  1 file changed, 2 insertions(+), 10 deletions(-)
-> >> >>
-> >> >> diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-> >> >> index dd484e92752e..c3e808a89d4a 100755
-> >> >> --- a/scripts/link-vmlinux.sh
-> >> >> +++ b/scripts/link-vmlinux.sh
-> >> >> @@ -122,16 +122,8 @@ gen_btf()
-> >> >>      vmlinux_link ${1}
-> >> >>      LLVM_OBJCOPY=${OBJCOPY} ${PAHOLE} -J ${1}
-> >> >> -    # dump .BTF section into raw binary file to link with final vmlinux
-> >> >> -    bin_arch=$(LANG=C ${OBJDUMP} -f ${1} | grep architecture | \
-> >> >> -            cut -d, -f1 | cut -d' ' -f2)
-> >> >> -    bin_format=$(LANG=C ${OBJDUMP} -f ${1} | grep 'file format' | \
-> >> >> -            awk '{print $4}')
-> >> >> -    ${OBJCOPY} --change-section-address .BTF=0 \
-> >> >> -            --set-section-flags .BTF=alloc -O binary \
-> >> >> -            --only-section=.BTF ${1} .btf.vmlinux.bin
-> >> >> -    ${OBJCOPY} -I binary -O ${bin_format} -B ${bin_arch} \
-> >> >> -            --rename-section .data=.BTF .btf.vmlinux.bin ${2}
-> >> >> +    # Extract .BTF section, change e_type to ET_REL, to link with final vmlinux
-> >> >> +    ${OBJCOPY} --only-section=.BTF ${1} ${2} 2> /dev/null && printf '\1' | dd of=${2} conv=notrunc bs=1 seek=16
-> >> >No, it doesn't work unfortunately, I get "in-kernel BTF is malformed"
-> >> >from the kernel.
-> >> >
-> >> >I think that's because -O binary adds the following:
-> >> >$ nm .btf.vmxlinux.bin
-> >> >00000000002f7bc9 D _binary__btf_vmlinux_bin_end
-> >> >00000000002f7bc9 A _binary__btf_vmlinux_bin_size
-> >> >0000000000000000 D _binary__btf_vmlinux_bin_start
-> >> >
-> >> >While non-binary mode doesn't:
-> >> >$ nm .btf.vmxlinux.bin
-> >> >
-> >> >We don't add them manually in the linker map and expect objcopy to add
-> >> >them, see:
-> >> >https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git/tree/kernel/bpf/btf.c#n3480
-> >>
-> >> Attached v4.
-> >>
-> >> * Added status=none to the dd command to suppress stderr output.
-> >> * `objcopy -I binary` synthesized symbols are only used in BTF, not
-> >> elsewhere. I think we can replace it with a more common trick,
-> >> __start_$sectionname __stop_$sectionname.
-> >> * GNU ld<2.23 can define __start_BTF and __stop_BTF as SHN_ABS.
-> >>    I think it is totally fine for a SHN_ABS symbol to be referenced by an
-> >>    R_X86_64_32S (absolute relocation), but arch/x86/tools/relocs.c
-> >>    contains an unnecessarily rigid check that rejects this.
-> >>
-> >>    ...
-> >>    Invalid absolute R_X86_64_32S relocation: __start_BTF
-> >>    make[3]: *** [arch/x86/boot/compressed/Makefile:123:
-> >>    arch/x86/boot/compressed/vmlinux.relocs] Error 1
-> >>
-> >>    Since we are going to bump binutils version requirement to 2.23, which
-> >>    will completely avoid the issue. I will not mention it again.
-> >>    https://lore.kernel.org/lkml/202003161354.538479F16@keescook/
-> >>
-> >> * I should mention that an orphan BTF (previously .BTF) could trigger
-> >>    a --orphan-handling=warn warning. So eventually we might need to
-> >>    add an output section description
-> >>
-> >>      BTF : { *(BTF) }
-> >>
-> >>    to the vmlinux linker script for every arch.
-> >>    I'll not do that in this patch, though.
-> >>
-> >> >
-> >> >>  }
-> >> >>  # Create ${2} .o file with all symbols from the ${1} object file
-> >> >> --
-> >> >> 2.25.1.481.gfbce0eb801-goog
-> >> >>
-> >>
-> >>  From 9b694d68fefe041464eccb948f6d246fab67942d Mon Sep 17 00:00:00 2001
-> >> From: Fangrui Song <maskray@google.com>
-> >> Date: Tue, 17 Mar 2020 13:51:04 -0700
-> >> Subject: [PATCH bpf-next v4] bpf: Support llvm-objcopy and
-> >>   llvm-objdump for vmlinux BTF
-> >>
-> >> Simplify gen_btf logic to make it work with llvm-objcopy and llvm-objdump.
-> >> The existing 'file format' and 'architecture' parsing logic is brittle
-> >> and does not work with llvm-objcopy/llvm-objdump.
-> >>
-> >> .BTF in .tmp_vmlinux.btf is non-SHF_ALLOC. Add the SHF_ALLOC flag and
-> >> rename .BTF to BTF so that C code can reference the section via linker
-> >> synthesized __start_BTF and __stop_BTF. This fixes a small problem that
-> >> previous .BTF had the SHF_WRITE flag. Additionally, `objcopy -I binary`
-> >> synthesized symbols _binary__btf_vmlinux_bin_start and
-> >> _binary__btf_vmlinux_bin_start (not used elsewhere) are replaced with
-> >> more common __start_BTF and __stop_BTF.
-> >>
-> >> Add 2>/dev/null because GNU objcopy (but not llvm-objcopy) warns
-> >> "empty loadable segment detected at vaddr=0xffffffff81000000, is this intentional?"
-> >>
-> >> We use a dd command to change the e_type field in the ELF header from
-> >> ET_EXEC to ET_REL so that lld will accept .btf.vmlinux.bin.o.  Accepting
-> >> ET_EXEC as an input file is an extremely rare GNU ld feature that lld
-> >> does not intend to support, because this is error-prone.
-> >>
-> >> Fixes: df786c9b9476 ("bpf: Force .BTF section start to zero when dumping from vmlinux")
-> >> Cc: Stanislav Fomichev <sdf@google.com>
-> >> Cc: Nick Desaulniers <ndesaulniers@google.com>
-> >> Reported-by: Nathan Chancellor <natechancellor@gmail.com>
-> >> Link: https://github.com/ClangBuiltLinux/linux/issues/871
-> >> Signed-off-by: Fangrui Song <maskray@google.com>
-> >> ---
-> >>   kernel/bpf/btf.c        |  9 ++++-----
-> >>   kernel/bpf/sysfs_btf.c  | 11 +++++------
-> >>   scripts/link-vmlinux.sh | 16 ++++++----------
-> >>   3 files changed, 15 insertions(+), 21 deletions(-)
-> >>
-> >> diff --git a/kernel/bpf/btf.c b/kernel/bpf/btf.c
-> >> index 787140095e58..51fff49de561 100644
-> >> --- a/kernel/bpf/btf.c
-> >> +++ b/kernel/bpf/btf.c
-> >> @@ -3477,8 +3477,8 @@ static struct btf *btf_parse(void __user *btf_data, u32 btf_data_size,
-> >>         return ERR_PTR(err);
-> >>   }
-> >>
-> >> -extern char __weak _binary__btf_vmlinux_bin_start[];
-> >> -extern char __weak _binary__btf_vmlinux_bin_end[];
-> >> +extern char __weak __start_BTF[];
-> >> +extern char __weak __stop_BTF[];
-> >>   extern struct btf *btf_vmlinux;
-> >>
-> >>   #define BPF_MAP_TYPE(_id, _ops)
-> >> @@ -3605,9 +3605,8 @@ struct btf *btf_parse_vmlinux(void)
-> >>         }
-> >>         env->btf = btf;
-> >>
-> >> -       btf->data = _binary__btf_vmlinux_bin_start;
-> >> -       btf->data_size = _binary__btf_vmlinux_bin_end -
-> >> -               _binary__btf_vmlinux_bin_start;
-> >> +       btf->data = __start_BTF;
-> >> +       btf->data_size = __stop_BTF - __start_BTF;
-> >>
-> >>         err = btf_parse_hdr(env);
-> >>         if (err)
-> >> diff --git a/kernel/bpf/sysfs_btf.c b/kernel/bpf/sysfs_btf.c
-> >> index 7ae5dddd1fe6..3b495773de5a 100644
-> >> --- a/kernel/bpf/sysfs_btf.c
-> >> +++ b/kernel/bpf/sysfs_btf.c
-> >> @@ -9,15 +9,15 @@
-> >>   #include <linux/sysfs.h>
-> >>
-> >>   /* See scripts/link-vmlinux.sh, gen_btf() func for details */
-> >> -extern char __weak _binary__btf_vmlinux_bin_start[];
-> >> -extern char __weak _binary__btf_vmlinux_bin_end[];
-> >> +extern char __weak __start_BTF[];
-> >> +extern char __weak __stop_BTF[];
-> >>
-> >>   static ssize_t
-> >>   btf_vmlinux_read(struct file *file, struct kobject *kobj,
-> >>                  struct bin_attribute *bin_attr,
-> >>                  char *buf, loff_t off, size_t len)
-> >>   {
-> >> -       memcpy(buf, _binary__btf_vmlinux_bin_start + off, len);
-> >> +       memcpy(buf, __start_BTF + off, len);
-> >>         return len;
-> >>   }
-> >>
-> >> @@ -30,15 +30,14 @@ static struct kobject *btf_kobj;
-> >>
-> >>   static int __init btf_vmlinux_init(void)
-> >>   {
-> >> -       if (!_binary__btf_vmlinux_bin_start)
-> >> +       if (!__start_BTF)
-> >>                 return 0;
-> >>
-> >>         btf_kobj = kobject_create_and_add("btf", kernel_kobj);
-> >>         if (!btf_kobj)
-> >>                 return -ENOMEM;
-> >>
-> >> -       bin_attr_btf_vmlinux.size = _binary__btf_vmlinux_bin_end -
-> >> -                                   _binary__btf_vmlinux_bin_start;
-> >> +       bin_attr_btf_vmlinux.size = __stop_BTF - __start_BTF;
-> >>
-> >>         return sysfs_create_bin_file(btf_kobj, &bin_attr_btf_vmlinux);
-> >>   }
-> >> diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-> >> index dd484e92752e..c0d2ecf1bff7 100755
-> >> --- a/scripts/link-vmlinux.sh
-> >> +++ b/scripts/link-vmlinux.sh
-> >> @@ -122,16 +122,12 @@ gen_btf()
-> >>         vmlinux_link ${1}
-> >>         LLVM_OBJCOPY=${OBJCOPY} ${PAHOLE} -J ${1}
-> >>
-> >> -       # dump .BTF section into raw binary file to link with final vmlinux
-> >> -       bin_arch=$(LANG=C ${OBJDUMP} -f ${1} | grep architecture | \
-> >> -               cut -d, -f1 | cut -d' ' -f2)
-> >> -       bin_format=$(LANG=C ${OBJDUMP} -f ${1} | grep 'file format' | \
-> >> -               awk '{print $4}')
-> >> -       ${OBJCOPY} --change-section-address .BTF=0 \
-> >> -               --set-section-flags .BTF=alloc -O binary \
-> >> -               --only-section=.BTF ${1} .btf.vmlinux.bin
-> >> -       ${OBJCOPY} -I binary -O ${bin_format} -B ${bin_arch} \
-> >> -               --rename-section .data=.BTF .btf.vmlinux.bin ${2}
-> >> +       # Extract .BTF, add SHF_ALLOC, rename to BTF so that we can reference
-> >> +       # it via linker synthesized __start_BTF and __stop_BTF. Change e_type
-> >> +       # to ET_REL so that it can be used to link final vmlinux.
-> >> +       ${OBJCOPY} --only-section=.BTF --set-section-flags .BTF=alloc,readonly \
-> >> +               --rename-section .BTF=BTF ${1} ${2} 2>/dev/null && \
-> >
-> >You can't just rename .BTF into BTF. ".BTF" is part of BTF
-> >specification, tools like bpftool rely on that specific name. Libbpf
-> >relies on this name as well. It cannot be changed. Please stop making
-> >arbitrary changes and breaking stuff, please.
->
-> I can't find anything which really assumes ".BTF" under tools/bpf/bpftool
-
-It's in libbpf, which bpftool uses to load and work with BTF. See
-tools/lib/bpf/btf.{c,h}. And at this point there are other tools and
-apps that rely on .BTF section, so there is absolutely no way we are
-going to rename this, I'm sorry.
-
->
-> % grep -r '\.BTF'
-> Documentation/bpftool-btf.rst:            .BTF section with well-defined BTF binary format data,
->
-> >
-> >> +               printf '\1' | dd of=${2} conv=notrunc bs=1 seek=16 status=none
-> >
-> >I wonder if there is any less hacky and more obvious way to achieve this?..
->
-> No. As a maintainer of lld/ELF, I abandoned https://reviews.llvm.org/D76174 .
-> Also as a maintainer of LLVM binary utilities, I have to complain the whole
-> scheme is really hacky and did not get enough scrutiny when they were merged.
->
-> A previous comment said pahole somehow relied on llvm-objcopy so LLVM_OBJCOPY
-> is used, while llvm-objcopy/llvm-objdump are not really supported...  Note, on
-
-pahole relies on llvm-objcopy internally to add/replace .BTF section.
-Instead of doubting everything I'm saying, you could just have grepped
-for 'llvm-objcopy' in pahole sources. It can be done differently, I'm
-sure, but we'll need to support old versions of pahole anyways, so
-LLVM_OBJCOPY=${OBJCOPY} parts stays, however confusing it might look.
-
-> March 16, I just pushed https://reviews.llvm.org/D76046 to make llvm-objdump
-> print bfdnames to some part of the existing hacks happy...
->
-> I am trying my best to make this stuff better.
-> BTF, when merged into LLVM in December 2018, was not really the best example demonstrating how a subproject should be merged...
-> OK, I'll stop complaining here.
-
-We should make sure that we are not making it worse first, don't you
-agree? I think it's more important, because there are many happy users
-already and breaking them is not an option. It's v5 of your patch and
-every single revision is broken, so I'm not sure you are the one to
-complain here. The least you can do to test this is to build kernel
-with BTF and run selftests/bpf, not just throw your patch out in hopes
-that others will point out all the issues.
-
->
-> commit cb0cc635c7a9fa8a3a0f75d4d896721819c63add "powerpc: Include .BTF section"
-> places .BTF somewhere in the writable section area, so if you insist on ".BTF",
-> I'll make a similar change and add some stuff to arch/x86/kernel/vmlinux.lds.S
->
-> >Also, this script has `set -e` at the top, so you don't have to chain
-> >all command with &&, you put this on separate line with the same
-> >effect, but it will look less confusing.
->
-> Not using section "BTF" has the downside that we have to add
->
-> .BTF : {
->    PROVIDE(__start_BTF = .);
->    *(.BTF)
->    PROVIDE(__stop_BTF = .);
+On Wed, Mar 18, 2020 at 04:14:26PM +0000, Vincenzo Frascino wrote:
+> On 3/17/20 5:48 PM, Catalin Marinas wrote:
+> > On Tue, Mar 17, 2020 at 04:40:48PM +0000, Vincenzo Frascino wrote:
+> >> On 3/17/20 3:50 PM, Catalin Marinas wrote:
+> >>> On Tue, Mar 17, 2020 at 03:04:01PM +0000, Vincenzo Frascino wrote:
+> >>>> On 3/17/20 2:38 PM, Catalin Marinas wrote:
+> >>>>> On Tue, Mar 17, 2020 at 12:22:12PM +0000, Vincenzo Frascino wrote:
+> >>>>
+> >>>> Can TASK_SIZE > UINTPTR_MAX on an arm64 system?
+> >>>
+> >>> TASK_SIZE yes on arm64 but not TASK_SIZE_32. I was asking about the
+> >>> arm32 check where TASK_SIZE < UINTPTR_MAX. How does the vdsotest return
+> >>> -EFAULT on arm32? Which code path causes this in the user vdso code?
+[...]
+> > So clock_gettime() on arm32 always falls back to the syscall?
+> 
+> This seems not what you asked, and I think I answered accordingly. Anyway, in
+> the case of arm32 the error code path is handled via syscall fallback.
+> 
+> Look at the code below as an example (I am using getres because I know this
+> email will be already too long, and I do not want to add pointless code, but the
+> concept is the same for gettime and the others):
+> 
+> static __maybe_unused
+> int __cvdso_clock_getres(clockid_t clock, struct __kernel_timespec *res)
+> {
+> 	int ret = __cvdso_clock_getres_common(clock, res);
+> 
+> 	if (unlikely(ret))
+> 		return clock_getres_fallback(clock, res);
+> 	return 0;
 > }
->
-> to every arch/*/kernel/vmlinux.lds.S which can use BTF.
+> 
+> When the return code of the "vdso" internal function returns an error the system
+> call is triggered.
 
-It doesn't look all that terrible, so why not, I guess? But just
-curious, why this is not required for "BTF", but required for ".BTF"?
-Not very familiar with linker scripts setup in kernel.
+But when __cvdso_clock_getres_common() does *not* return an error, it
+means that it handled the clock_getres() call without a fallback to the
+syscall. I assume this is possible on arm32. When the clock_getres() is
+handled directly (not as a syscall), why doesn't arm32 need the same
+(res >= TASK_SIZE) check?
 
->
-> >>   }
+> In general arm32 has been ported to the unified vDSO library hence it has a
+> proper implementation on par with all the other architectures supported by the
+> unified library.
+
+And that's what I do not fully understand. When the call doesn't fall
+back to a syscall, why does arm32 and arm64 compat need to differ in the
+implementation? I may be missing something here.
+
+> >>> My guess is that on arm32 it only fails with -EFAULT in the syscall
+> >>> fallback path since a copy_to_user() would fail the access_ok() check.
+> >>> Does it always take the fallback path if ts > TASK_SIZE?
 > >>
-> >>   # Create ${2} .o file with all symbols from the ${1} object file
-> >> --
-> >> 2.25.1.481.gfbce0eb801-goog
+> >> Correct, it goes via fallback. The return codes for these syscalls are specified
+> >> by the ABI [1]. Then I agree with you the way on which arm32 achieves it should
+> >> be via access_ok() check.
+> > 
+> > "it should be" or "it is" on arm32?
+[...]
+> SYSCALL_DEFINE2(clock_gettime, const clockid_t, which_clock,
+> 		struct __kernel_timespec __user *, tp)
+[...]
+> This is the syscall on which we fallback when the "vdso" internal function
+> returns an error. The behavior of the vdso has to be exactly the same of the
+> syscall otherwise we end up in an ABI breakage.
+
+I agree. I just don't understand why on arm32 the vdso code doesn't need
+to check for tp >= TASK_SIZE while the arm64 compat one does when it
+does *not* fall back to a syscall. I understand the syscall fallback
+case, that's caused by how we handle access_ok(), but this doesn't
+explain the vdso-only case.
+
+> >>>>> This last check needs an explanation. If the clock_id is invalid but res
+> >>>>> is not NULL, we allow it. I don't see where the compatibility issue is,
+> >>>>> arm32 doesn't have such check.
+> >>>>
+> >>>> The case that you are describing has to return -EPERM per ABI spec. This case
+> >>>> has to return -EINVAL.
+> >>>>
+> >>>> The first case is taken care from the generic code. But if we don't do this
+> >>>> check before on arm64 compat we end up returning the wrong error code.
+> >>>
+> >>> I guess I have the same question as above. Where does the arm32 code
+> >>> return -EINVAL for that case? Did it work correctly before you removed
+> >>> the TASK_SIZE_32 check?
 > >>
+> >> I repeated the test and seems that it was failing even before I removed
+> >> TASK_SIZE_32. For reasons I can't explain I did not catch it before.
+> >>
+> >> The getres syscall should return -EINVAL in the cases specified in [1].
+> > 
+> > It states 'clk_id specified is not supported on this system'. Fair
+> > enough but it doesn't say that it returns -EINVAL only if res == NULL.
+> 
+> Actually it does, the description of getres() starts with:
+> 
+> 'The function clock_getres() finds the resolution (precision) of the
+> specified clock clk_id, and, if res is *non-NULL*, stores it in the
+> struct timespec pointed to by res.'
+> 
+> Please refer to the system call below of which we mimic the behavior in the vdso
+> (kernel/time/posix-timers.c):
+> 
+> SYSCALL_DEFINE2(clock_getres_time32, clockid_t, which_clock,
+> 		struct old_timespec32 __user *, tp)
+> {
+> 	const struct k_clock *kc = clockid_to_kclock(which_clock);
+> 	struct timespec64 ts;
+> 	int err;
+> 
+> 	if (!kc)
+> 		return -EINVAL;
+> 
+> 	err = kc->clock_getres(which_clock, &ts);
+> 	if (!err && tp && put_old_timespec32(&ts, tp))
+> 		return -EFAULT;
+> 
+> 	return err;
+> }
+> 
+> If the clock is bogus and res == NULL we are supposed to return -EINVAL and not
+> -EFAULT or something else.
+
+If the clock is bogus, the above returns 'err' irrespective of the value
+of 'tp'. I presume 'err' is -EINVAL in this case. But there is no
+condition that tp == NULL above.
+
+What the above tries to achieve is that if there is no error (err == 0)
+and tp != NULL, try to write the timespec to the user tp pointer. If
+put_old_timespec32() fails, that's when we return -EFAULT.
+
+> This is what the test is trying to verify. If the check below is not
+> in place on arm64 compat, I get error report from the test suite.
+> 	if (!VALID_CLOCK_ID(clock_id) && res == NULL)
+> 		return -EINVAL;
+
+I really don't get where you deduced that you need to check for res ==
+NULL. The above should be:
+
+	if (!VALID_CLOCK_ID(clock_id))
+		return -EINVAL;
+
+Furthermore, my assumption is that __cvdso_clock_getres_common() should
+handle this case already and we don't need it in the arch vdso code.
+
+> > You also don't explain why __cvdso_clock_getres_time32() doesn't already
+> > detect an invalid clk_id on arm64 compat (but does it on arm32).
+> > 
+> 
+> Thanks for asking to me this question, if I would not have spent the day trying
+> to explain it, I would not have found a bug in the getres() fallback:
+> 
+> diff --git a/arch/arm64/include/asm/unistd.h b/arch/arm64/include/asm/unistd.h
+> index 1dd22da1c3a9..803039d504de 100644
+> --- a/arch/arm64/include/asm/unistd.h
+> +++ b/arch/arm64/include/asm/unistd.h
+> @@ -25,8 +25,8 @@
+>  #define __NR_compat_gettimeofday       78
+>  #define __NR_compat_sigreturn          119
+>  #define __NR_compat_rt_sigreturn       173
+> -#define __NR_compat_clock_getres       247
+>  #define __NR_compat_clock_gettime      263
+> +#define __NR_compat_clock_getres       264
+>  #define __NR_compat_clock_gettime64    403
+>  #define __NR_compat_clock_getres_time64        406
+> 
+> In particular compat getres is mis-numbered and that is what causes the issue.
+> 
+> I am going to add a patch to my v5 that addresses the issue (or probably a
+> separate one and cc stable since it fixes a bug) and in this patch I will remove
+> the check on VALID_CLOCK_ID.
+
+Please send this as a separate patch that should be merged as a fix, cc
+stable.
+
+> I hope that this long email helps you to have a clearer picture of what is going
+> on. Please let me know if there is still something missing.
+
+Not entirely. Sorry.
+
+-- 
+Catalin
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAEf4BzYBgG4dyhL7Bj21CU4HO9qpm_N7SZkQekTTK6pJBA1ZJA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200318183603.GF94111%40arrakis.emea.arm.com.
