@@ -1,148 +1,125 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBHE2ZLZQKGQEUZ26RWY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBJE3ZLZQKGQEMXTLUDY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3C49718A60B
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Mar 2020 22:05:34 +0100 (CET)
-Received: by mail-pg1-x539.google.com with SMTP id n16sf141891pgl.7
-        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Mar 2020 14:05:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584565533; cv=pass;
+Received: from mail-pl1-x63b.google.com (mail-pl1-x63b.google.com [IPv6:2607:f8b0:4864:20::63b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1E24918A657
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Mar 2020 22:07:50 +0100 (CET)
+Received: by mail-pl1-x63b.google.com with SMTP id c7sf15862951plr.11
+        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Mar 2020 14:07:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584565668; cv=pass;
         d=google.com; s=arc-20160816;
-        b=csbdnJk0EAkOrcKZpoztjaPgqNeiKsLA/56YzOXR2excdDynGjXvEfZseO3HrR39Q7
-         6zOgxBNBHmVaASzDlDNhTYulwQBPMSicbckSBUfoxn8JzZhdyJaYAVHQDfep/vvsE78t
-         dIcyehnK2wmp4D0GLkNlyAwD9ap4MfmgX5wJhXDOgjgp8vz9gBNDnJRmHrz31OlJJgvm
-         bJZ9lWSWTID6fWVJuf5nzfkdh28DiWGGexoLqC2r6ZYnfZbL/6t489kKYnqz//PSTURG
-         t0gVfPpK8B6zg42bfXnnzUpxEh6Vc3m3s2rd9D8Mpk7YkhoSGuXZxNlevbZYDYbcjlTl
-         AFJw==
+        b=LoweqU70X7Veb/n5CgUpvsD1acbxURHkaDtKHp/6jsiaPgCQu+W3O8QKe+bwmqEYwv
+         2GW9REcB7MfZTbTuFqqJm8Lvc/3WagNf1oL0ewOC+dU62yO8mzVR5xqQKlYn67cgBjCX
+         hVISYb3eDdBIixU3NbvV0KBq9Hrp2ZIqaf5WGHlG14iCp+tOFP/dsq4Ei7jq1sk8LPV4
+         juPPUgJv5TQJcg5UAk598Bt3deyFQxIwsRIcRJnmsBgrUE5eYwm8lnV9KgOsJ6fXrSaG
+         rsWWb3sVc9Z55mJ6FlP5pDfXXZxaDh2CGcf2K2LKUxsiQhY7ts8SVxn5uElcjT4bOmyK
+         r6zQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature
-         :dkim-signature;
-        bh=PSkgq0JDGuNdmOGe4+jAPTtPh93wtK3zxPf4Q2YVcCI=;
-        b=PTOYlFoUcyQSiYFJL72x0pMafKlcpgX3vaGLOg2fOzXP+xPFosGlByMHJ8oeeakvNF
-         IsYQUKdRPP9PJZq0a6hO4yF52/k7vB0ldtdlJ2hs6arUKRpEuWLx1w2fgI4aPqiuE1Dv
-         YGPBW0kIPs4uVR3x/RsOLF47w8ITL+bnHZFBnrXLQXl0skPGBfM+rjbWc+o+riA9GGdc
-         nYknYNRidzbobx/3Cq3vVoDRRZHylGTVZs5ZH5IuryZqwOx2wRylITHr2CKiFQHzcyEB
-         atnyhTpjgVdrFwHBWLOOhk7+2LcmcMa7iFQXJFnM0dG6ri5j10hOG1jxrIQ6vTG5xYso
-         Xxog==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=98D311jDnWByCRbjKyKQZjzzFXUnM5GhdafR8URADFk=;
+        b=oqUQqzoDreY5C8Uxmuxxmy+L7NLbE4cFIFjFujImdVe+HEi59caYY1Xlw8jgs3qyNa
+         3xOwbGr7v9q4+81TvQI2N0ltnZlSmstX7ed3cSvT9TDEy9bK70BduTnYhW/ZVwXQonT/
+         7HDiAO6+V7Pk5qMTHz6Bhl1/tNjgEB24wVz2oief9HRQjbwwJN8AvaCq5YfS/Xbf2sgi
+         ygWSTukUdRzG05cyjV+iV31T7m29yg6kLmdxw0x+MEse+mxN5BvGkmEMhTkzBSMQ5XMx
+         4/hSNduwmHP+fJJsk1p6IOPH/Vpq/jyIQy04C+adh5pIkISOU31OY1uCPMvw1+OX9U6c
+         AY3A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=OxWGX5hB;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=qN4+WX6l;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=PSkgq0JDGuNdmOGe4+jAPTtPh93wtK3zxPf4Q2YVcCI=;
-        b=hjTriILnt/cwNotfObRmnQ4deAiOWDtmjofLvY17dLCLTCYBu2eaNIGc3XU7VYKZ66
-         vhRkFF3muKXCIX8pxfnBZHQONfxrrEhMaX10uOrjiiIo5LxmpAoE4HkBKEcwE64kiYFt
-         kaMWaxKHSJpOFbYa0Cq2LPQHfP81LIASkozUnvQwz4nbQ/BNrhmRmLmCD7F/DFRsA+0q
-         4tq9lcIQuvGx6Zzg6jBOPvDbVXvJTvbts3AtBk2QbLsXsFdNo7sdEuX1BVDHl8nVrQ6+
-         2e25KinRLCFLhzI0wtS+HDQx1Shdum6BxlXMEy4T5xvWaMQBWbwZq9+M7qsy/2NErb8m
-         Xj2w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=PSkgq0JDGuNdmOGe4+jAPTtPh93wtK3zxPf4Q2YVcCI=;
-        b=LgAM9bjoZUxnOYDA/WblNxwWaOXaPcfx8dyZU2vU0NAluhsddhsh2eu0ZCkLtf6rid
-         iWu450runT3c09IRi3X9Qly0WmbvqBV0bCwXQsfoj6aadjNw4PFcdtwJHk9eQYkItMo6
-         sp87op0c3yQcPd6KL8iY9qDbL/P3grUu0cEXPTmX3owrkIRIuQqKlua+JkbhOiKFENgz
-         2tcoRZWRj83OAua7Ze97C5ck+mqVeqGeyxumQi2NQNfBK0c+RXV1cxHTwE0PfQ2cHZEL
-         RlIpXBxE1bCVdm4TAchH17a+sNObAtMTpG3ALTTtjuXolnoQIZFTAW//BJvHDodJbVy7
-         +elA==
+        bh=98D311jDnWByCRbjKyKQZjzzFXUnM5GhdafR8URADFk=;
+        b=IaKgYj51GX64690xuerUZ4xr6m70e8kkzBIKPuITMRPAIczq3kbf2NT6ssuIxZbT7n
+         enu0DPskzK0z3ZmYZh2pVVQAp+8loFwtmMvSrPm2wx5Kt/VCIKJf+fUzczu792LWpZxZ
+         vkmLRqISOo1nWUPnLNt6S+UO1eVep47VFhx8Vc+8lmsDy8BiqirxNUKF2F3g1nJUv4ru
+         8ZHof0d/eX8LOdvHaORRaukLGD3uETE0/a3eXMzyHhS9cLjhOp811GV600OFXK4s27dz
+         TbVAmbyQ3b1rT9R6BIcK05YfSMmm+DP2x+Nf5Gr9xI0kCo+8rl6vthL/QSuyLO7vhwoT
+         j0yQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=PSkgq0JDGuNdmOGe4+jAPTtPh93wtK3zxPf4Q2YVcCI=;
-        b=ptSD6SvEtIyaGXFfe1EJhSmoXhRWIXaXq1+v0YPbiXDukglfn94fxTlOD5s95KhINn
-         HT+y4f5BaY0DtTdrxPMM1aHhyxq4qhosOTdkZqt2tyjLR05EU5gVILKzsMwUmWczURTu
-         DFKvTZ/8Rq9KofrCnuP6qBrupeRhVVrQaG8k5uwtgdwp68BJH8oGfztjrTnv6mq4PUR/
-         gyC/Snx+pbbbF/QWXsAakRBIQkeVivX678bWCcAyZsQTS9JPBz/XfTOsAPNaMC+Zouty
-         w3wpEuuybNFYjhCT+Ne2h2EFJwy0TmkT2FbIqbMHj1Xv9fvwUeHqEZK3csovVEoRajiL
-         4vTA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ0zSRYp70nSRd53a1WupviGs0rlGGxNOm2Z2NjeShDqgk8Diu8e
-	HzBH4z6wzlBoTMW6EWGPsmY=
-X-Google-Smtp-Source: ADFU+vuWfb5rrqFdveBifLUdJEJyll4KszrzUHtTt5fqPJQARbjNNki3jSTTcNQnA9UEWEVFohS0/A==
-X-Received: by 2002:a17:90a:5d85:: with SMTP id t5mr112848pji.126.1584565532838;
-        Wed, 18 Mar 2020 14:05:32 -0700 (PDT)
+        bh=98D311jDnWByCRbjKyKQZjzzFXUnM5GhdafR8URADFk=;
+        b=D0yAmrvpPiheDcT7Z5IuQ3OidBdGv0Huc4pZlBLIr6icuWcYHR3WO5AElfbCg0q9Ri
+         jeSXy5FJ8V84WE59Ki+6VVkGDDst4FFCRl1NzVSz+FAo3EX9GTVCYMUQF+vaW+ecFW0j
+         Q/gvB42gJGXrHqRQ2U6e6hLwIY2PUp2bV8ODU0aT8j9o4jnMntNtFn0192CYd8u1x5bx
+         iYecuRa0jKezl//kCyBHRxucyGrdwJtgxtVJ9/ICgsdYyUHRNajXa760bsgfpxI3PmnY
+         iiTOFzFQVvmAB4JPg7AHaZT9PAg5bYgNG3sD7hkxEcPwvN0dGE9+5/qbas8KIwENDK4C
+         GQQQ==
+X-Gm-Message-State: ANhLgQ1tV6R5pToGslF0H2lRI9cbLoL/w1xFPQfsbNbgbHiSYj1Toq0Z
+	aEO58u1rck8m3qLqx2JudvU=
+X-Google-Smtp-Source: ADFU+vuSI7eq0vc6xggUZPU5bUDU5+zZJoDniJa/9nLSWxvQPS/VRddzYGu9SrLAx8TM0ovuD6QjCw==
+X-Received: by 2002:a63:f20d:: with SMTP id v13mr6528285pgh.34.1584565668801;
+        Wed, 18 Mar 2020 14:07:48 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:8a89:: with SMTP id a9ls12988943pfc.10.gmail; Wed, 18
- Mar 2020 14:05:32 -0700 (PDT)
-X-Received: by 2002:a62:1a50:: with SMTP id a77mr182459pfa.289.1584565532263;
-        Wed, 18 Mar 2020 14:05:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584565532; cv=none;
+Received: by 2002:a17:902:ab86:: with SMTP id f6ls14362583plr.10.gmail; Wed,
+ 18 Mar 2020 14:07:48 -0700 (PDT)
+X-Received: by 2002:a17:90a:ad85:: with SMTP id s5mr117989pjq.142.1584565668287;
+        Wed, 18 Mar 2020 14:07:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584565668; cv=none;
         d=google.com; s=arc-20160816;
-        b=cHkK1aoqJ+xN3ugyRHOrqwjdOsy2av1T35NDlGpRCBkues/OzHmrF55ZlJOkd0LzHI
-         T8fUhwIETufHfGVboVVMeGMttfzQt9tjGK4g1KnNsrTjktEJq8OEuEBlUlUXGqza5fPU
-         VwQ/r9+EMmElNWgF01fl8MB9jjmRNM5qoCaKjKbe1GP+hxCjQ+OnO8gv4hFwJRnbfNfD
-         cy+C/4+BubEBH/JsVnMhSmW9aird71oEp7ta7tSXMl6CWHDHAz/cFUyiFJG7KFuY4aXa
-         vRNtRalQGAQbcn4fygCgPDGxpfgR1HGbA1HBcRiGycTL61ch/LSyJgt47kx77tAySwF4
-         yVUw==
+        b=QKbx7Y9zFwdEtCTslrGYi3/iDcgWc0OT/ZE/7ekCIlYf1+lo77S1a2sHBV18F3Y/yk
+         WnKU3HFDmpcPo63AkPRRIK2+GGlW0FB9+5AJTZOi+W7x0WAh3+xKdttzhhmj3EMnY0yQ
+         h37Ss9YpBgHEQoS8ruH4dKizsf63+ullCGUoh0hLlFQVSPxwzpir5vt5deEYSPbWSvcO
+         ao8t+seSO5TrSXJx19hRdmFQL69+BRL3KGFboC+GYFpYm4jG4mZi77RXbDwuJvND3U8p
+         FlLliyj39wPQ7NWc3ZSkJcjao4iE0cU6qMeL//5BoYTJdco1+/6veYEiCdqb1wMK4GIX
+         G6GA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=9HrxoukmfoCKdd5cM13ef2cbkm6CijqM+A0vCb8JlpY=;
-        b=zqKg08n5yR1LjbhyrNW+2VGtca93QACamOd7+0iy1NUXQo2omeYB3i2aG8zUQMfAri
-         wXWXWCAhPUzJuV54sQh/wHFq57W7n7y7HDxeIXyNubySGLA8hmJr4Ldz5JT+POg3Tf6d
-         6zc50uEvOZoxh1WHoakCAw5CpTkvWM95XIuMHX5Zv+9GQsitcR+h6eaOrSaoiZoUZRES
-         wnFOIHjxnGIW+EfpouxkyEiTRTNHEc38hXBhH8CZZOFawoWCzRnYUqQoR1d43aSq6ngS
-         /XOUMsYse2/pxCuxJifYY17MYvyksyo8aqDd6roiQBu5EmO6tHArEuMGbiFBLgpTriVt
-         K0sw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=UnW3oRxVQHnYvwZ2+HCKUVYxiIim+eBLvaQELpxrRqU=;
+        b=dY8SPdde7P9tHtMndMFWy5SnxItMYEx8uV1o8j6R6RH5GSliYpIokBzutSjMyAw43f
+         89y9eOkiee6RX8gObXcKuRvwCbATPxguPIdDKa1SXw/t7ssl7G+AKKhHBGTmlFlIWIe4
+         PF5Sy0nX+3iaofvMr2Rjr6DweM+EHWc00BJjNqXTK45J2l0gghsoGpdMc5CRqlN3UJQR
+         LfuqZi1FIXcdXv7JWf77ft/wx8HEJKph0cdNj5DxwOUrkXC3/h6Gg9eUYQksXD/ZEl5S
+         LtlZ14R6RjXABNzoCcYqfZl+5nxjtGiAErPk4wHKlYUlXBYpa+MPxj51eu39jlLBxJJx
+         iozA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=OxWGX5hB;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x344.google.com (mail-ot1-x344.google.com. [2607:f8b0:4864:20::344])
-        by gmr-mx.google.com with ESMTPS id r11si4377pjq.0.2020.03.18.14.05.32
+       dkim=pass header.i=@google.com header.s=20161025 header.b=qN4+WX6l;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pf1-x441.google.com (mail-pf1-x441.google.com. [2607:f8b0:4864:20::441])
+        by gmr-mx.google.com with ESMTPS id c10si188370pjo.2.2020.03.18.14.07.48
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Mar 2020 14:05:32 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) client-ip=2607:f8b0:4864:20::344;
-Received: by mail-ot1-x344.google.com with SMTP id 111so82632oth.13
-        for <clang-built-linux@googlegroups.com>; Wed, 18 Mar 2020 14:05:32 -0700 (PDT)
-X-Received: by 2002:a05:6830:1410:: with SMTP id v16mr5818832otp.315.1584565531513;
-        Wed, 18 Mar 2020 14:05:31 -0700 (PDT)
-Received: from localhost.localdomain ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id 69sm40109otm.60.2020.03.18.14.05.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Mar 2020 14:05:31 -0700 (PDT)
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Alex Deucher <alexander.deucher@amd.com>,
-	"David (ChunMing) Zhou" <David1.Zhou@amd.com>,
-	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>
-Cc: amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Joe Perches <joe@perches.com>,
-	Nick Desaulniers <ndesaulniers@google.com>
-Subject: [PATCH v2] drm/amdgpu: Remove unnecessary variable shadow in gfx_v9_0_rlcg_wreg
-Date: Wed, 18 Mar 2020 14:04:09 -0700
-Message-Id: <20200318210408.4113-1-natechancellor@gmail.com>
-X-Mailer: git-send-email 2.26.0.rc1
-In-Reply-To: <20200318002500.52471-1-natechancellor@gmail.com>
-References: <20200318002500.52471-1-natechancellor@gmail.com>
+        Wed, 18 Mar 2020 14:07:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) client-ip=2607:f8b0:4864:20::441;
+Received: by mail-pf1-x441.google.com with SMTP id u68so156737pfb.2
+        for <clang-built-linux@googlegroups.com>; Wed, 18 Mar 2020 14:07:48 -0700 (PDT)
+X-Received: by 2002:aa7:8b54:: with SMTP id i20mr215129pfd.39.1584565667463;
+ Wed, 18 Mar 2020 14:07:47 -0700 (PDT)
 MIME-Version: 1.0
-X-Patchwork-Bot: notify
-X-Original-Sender: natechancellor@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=OxWGX5hB;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+References: <20200318002500.52471-1-natechancellor@gmail.com> <20200318210408.4113-1-natechancellor@gmail.com>
+In-Reply-To: <20200318210408.4113-1-natechancellor@gmail.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 18 Mar 2020 14:07:34 -0700
+Message-ID: <CAKwvOdmjzemFW9jF-CW1RhLJJbMvFO_NrPUeyi=rdLNVZURsfw@mail.gmail.com>
+Subject: Re: [PATCH v2] drm/amdgpu: Remove unnecessary variable shadow in gfx_v9_0_rlcg_wreg
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Alex Deucher <alexander.deucher@amd.com>, 
+	"David (ChunMing) Zhou" <David1.Zhou@amd.com>, =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	amd-gfx list <amd-gfx@lists.freedesktop.org>, dri-devel <dri-devel@lists.freedesktop.org>, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Joe Perches <joe@perches.com>
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=qN4+WX6l;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -155,75 +132,87 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-clang warns:
+On Wed, Mar 18, 2020 at 2:05 PM Nathan Chancellor
+<natechancellor@gmail.com> wrote:
+>
+> clang warns:
+>
+> drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c:754:6: warning: variable 'shadow'
+> is used uninitialized whenever 'if' condition is
+> false [-Wsometimes-uninitialized]
+>         if (offset == grbm_cntl || offset == grbm_idx)
+>             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c:757:6: note: uninitialized use
+> occurs here
+>         if (shadow) {
+>             ^~~~~~
+> drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c:754:2: note: remove the 'if' if
+> its condition is always true
+>         if (offset == grbm_cntl || offset == grbm_idx)
+>         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c:738:13: note: initialize the
+> variable 'shadow' to silence this warning
+>         bool shadow;
+>                    ^
+>                     = 0
+> 1 warning generated.
+>
+> shadow is only assigned in one condition and used as the condition for
+> another if statement; combine the two if statements and remove shadow
+> to make the code cleaner and resolve this warning.
+>
+> Fixes: 2e0cc4d48b91 ("drm/amdgpu: revise RLCG access path")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/936
+> Suggested-by: Joe Perches <joe@perches.com>
+> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> ---
+>
+> v1 -> v2:
+>
+> * Remove shadow altogether, as suggested by Joe Perches.
+> * Add Nick's Reviewed-by, as I assume it still stands.
 
-drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c:754:6: warning: variable 'shadow'
-is used uninitialized whenever 'if' condition is
-false [-Wsometimes-uninitialized]
-        if (offset == grbm_cntl || offset == grbm_idx)
-            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c:757:6: note: uninitialized use
-occurs here
-        if (shadow) {
-            ^~~~~~
-drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c:754:2: note: remove the 'if' if
-its condition is always true
-        if (offset == grbm_cntl || offset == grbm_idx)
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c:738:13: note: initialize the
-variable 'shadow' to silence this warning
-        bool shadow;
-                   ^
-                    = 0
-1 warning generated.
+yep, thanks
 
-shadow is only assigned in one condition and used as the condition for
-another if statement; combine the two if statements and remove shadow
-to make the code cleaner and resolve this warning.
+>
+>  drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c | 6 +-----
+>  1 file changed, 1 insertion(+), 5 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c b/drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c
+> index 7bc2486167e7..496b9edca3c3 100644
+> --- a/drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c
+> +++ b/drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c
+> @@ -735,7 +735,6 @@ void gfx_v9_0_rlcg_wreg(struct amdgpu_device *adev, u32 offset, u32 v)
+>         static void *spare_int;
+>         static uint32_t grbm_cntl;
+>         static uint32_t grbm_idx;
+> -       bool shadow;
+>
+>         scratch_reg0 = adev->rmmio + (adev->reg_offset[GC_HWIP][0][mmSCRATCH_REG0_BASE_IDX] + mmSCRATCH_REG0)*4;
+>         scratch_reg1 = adev->rmmio + (adev->reg_offset[GC_HWIP][0][mmSCRATCH_REG1_BASE_IDX] + mmSCRATCH_REG1)*4;
+> @@ -751,10 +750,7 @@ void gfx_v9_0_rlcg_wreg(struct amdgpu_device *adev, u32 offset, u32 v)
+>                 return;
+>         }
+>
+> -       if (offset == grbm_cntl || offset == grbm_idx)
+> -               shadow = true;
+> -
+> -       if (shadow) {
+> +       if (offset == grbm_cntl || offset == grbm_idx) {
+>                 if (offset  == grbm_cntl)
+>                         writel(v, scratch_reg2);
+>                 else if (offset == grbm_idx)
+> --
+> 2.26.0.rc1
+>
 
-Fixes: 2e0cc4d48b91 ("drm/amdgpu: revise RLCG access path")
-Link: https://github.com/ClangBuiltLinux/linux/issues/936
-Suggested-by: Joe Perches <joe@perches.com>
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
----
 
-v1 -> v2:
-
-* Remove shadow altogether, as suggested by Joe Perches.
-* Add Nick's Reviewed-by, as I assume it still stands.
-
- drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
-
-diff --git a/drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c b/drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c
-index 7bc2486167e7..496b9edca3c3 100644
---- a/drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c
-+++ b/drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c
-@@ -735,7 +735,6 @@ void gfx_v9_0_rlcg_wreg(struct amdgpu_device *adev, u32 offset, u32 v)
- 	static void *spare_int;
- 	static uint32_t grbm_cntl;
- 	static uint32_t grbm_idx;
--	bool shadow;
- 
- 	scratch_reg0 = adev->rmmio + (adev->reg_offset[GC_HWIP][0][mmSCRATCH_REG0_BASE_IDX] + mmSCRATCH_REG0)*4;
- 	scratch_reg1 = adev->rmmio + (adev->reg_offset[GC_HWIP][0][mmSCRATCH_REG1_BASE_IDX] + mmSCRATCH_REG1)*4;
-@@ -751,10 +750,7 @@ void gfx_v9_0_rlcg_wreg(struct amdgpu_device *adev, u32 offset, u32 v)
- 		return;
- 	}
- 
--	if (offset == grbm_cntl || offset == grbm_idx)
--		shadow = true;
--
--	if (shadow) {
-+	if (offset == grbm_cntl || offset == grbm_idx) {
- 		if (offset  == grbm_cntl)
- 			writel(v, scratch_reg2);
- 		else if (offset == grbm_idx)
 -- 
-2.26.0.rc1
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200318210408.4113-1-natechancellor%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmjzemFW9jF-CW1RhLJJbMvFO_NrPUeyi%3DrdLNVZURsfw%40mail.gmail.com.
