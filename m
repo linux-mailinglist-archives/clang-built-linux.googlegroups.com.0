@@ -1,141 +1,124 @@
-Return-Path: <clang-built-linux+bncBDDL3KWR4EBRBGWUZHZQKGQE267GYEY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBGWWZHZQKGQE74CHFBI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1563318A278
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Mar 2020 19:36:11 +0100 (CET)
-Received: by mail-wr1-x440.google.com with SMTP id 94sf8105710wrr.3
-        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Mar 2020 11:36:11 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584556570; cv=pass;
+Received: from mail-wm1-x340.google.com (mail-wm1-x340.google.com [IPv6:2a00:1450:4864:20::340])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1932E18A287
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Mar 2020 19:40:27 +0100 (CET)
+Received: by mail-wm1-x340.google.com with SMTP id p18sf1464580wmk.9
+        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Mar 2020 11:40:27 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584556826; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QdLrb2PUYCQP2Q+K7fCXvuK1YiGSGj15ewdgo5fElGCcKWUM9dX+1/Ctm5xb4vlK3o
-         Vm/vLMzua0qqiBVsVtyMXZLp185Nsp4laNI7FB9qlC88MCX+nUj+uFAT3/0ca960TP+W
-         C6GatPNZ9C9gYPjrX4s0yfSoienLoVSfHFt79V9A6Aq/ra4TeWUBgJzSsV+etcPcqLPJ
-         LNwl5RnFgM6UmVPcjqqzSdkLWgmJMwDmfRt8gMcg+izdGLJA10amYDmabB2TDVkQ90ca
-         JPnkhJvAV6HP5hLGr8u7PGEwLORqZCEjsAiYN7NEyQ3HT+07SMz9iSePttbK3CEmnvXD
-         J6fA==
+        b=eUBRBtSb3ektJIdMtn4kRlnhuiUsJBBhCcCcfHevJwEyrD3aMbn8v9OAZUiExxth0F
+         navsV/EJqTrSnrg/mwx07iol6EvVZ64N84zm1AScU7OjKHuOixbeS7CVbeZzJF856BiA
+         60e8ij7C0FMWUd/xE4FkfZp/qtZy/BWopf6kdzjjshpRcVTmsYwpSo3PF7UZD/9RC+14
+         3tcBEKprWvV5K2dYWx9Yc3XtZb3SQRKeHNv5ATxvxdOF7uEtm+Ji8Kk+DVN5ybrCbaWe
+         UAhgptB+LYwhQ61mQyJNrsxNRHZfTkOXI5ZlbpzyGfpAFukq/5LaGC3Un9gnXfiF826o
+         e9XA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=Y0e48wCnOKmdYLRRNl+aVug2lD/GXfR3kmE5414ib+I=;
-        b=bV3HbVL5Et1U701eW4oY61IPhHGvYp5WAQHLSMh1YoH7zGWUV1It8vTcwhPCeI/T5W
-         tFQ+H6SHXDWW40nTqVfrbQlgDPf6XZ3yiCeQTjWT9qOkogO+8P60bZIn4zzJVE6jwr+H
-         fKMPkXng3KqiXX9x86p+DbL7jrVNDtT6exQG6+E4EGHUZTWHqj1xqPbRsDihv41QKhiM
-         GDHHiWNGuTNZcBSBLN9Ytq2BnDsHxpdj/ybIf9gPmwlyRjnqVdrqhKwAoCRM1/HP2bg6
-         jBHhbn3UIwubgTdKudSRlS/sjIw0wFdbZ4+RsYEyhVC6ZS9KmQIYmqhUWJVsvV4v5gkF
-         wVNg==
+         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
+         :date:from:sender:dkim-signature;
+        bh=Iff/1x4XjgI/BXolQowHz/cXRcDW5nOKCEnQhmajFgo=;
+        b=NnaVB27bhCMVM6HmkUPAUnRkxxIGjwBIjOEdSYpJBjvRSrzFpgJzA4d9h5Ep3GU96g
+         7uISCEML+RSapbTgMsvg0I/sR1o+gFlF06d53l1tDahTcv65pnpgZOQDe03m3Lwp8lgK
+         Hi3B63R+HZdpukle7+tKlafzFCaSZ/ACEI8PjGnk1o0u9yYBTcK3b2Nb4VL2Dwz17HL7
+         VEy/2QZJeAFjGU/e9krs10Lq5CUSoQss5y0Ttb4WME86zKfmztbBN/gdv1PkuH3rf5bO
+         s1qmy30UWwzFcLYI9zhwo5on53vU6jXia4bDOlUyN5kTbv0CbHBX1JplygHNOXt+fRFE
+         ttdw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of catalin.marinas@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=catalin.marinas@arm.com
+       dkim=pass header.i=@linaro.org header.s=google header.b=iPx0M9T8;
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::434 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Y0e48wCnOKmdYLRRNl+aVug2lD/GXfR3kmE5414ib+I=;
-        b=eAS2zWGi46zfrUqf0EfLzqXr+hFfHQZp5KAZvs9b6bTYTPCLBP7Rw2idrnpMd/xGis
-         STGIo5AsvGkcAgnmD9+JzCn4MFgqnWZ+vSD93V8KiWXeRHfiGy4Pd7F67tg53Kgzjl0H
-         wM72ObF8eY6dszwdSym2RENNExUt4cuLcu/EiJCdqMroVqJo8GQDgEftC0eCI45whOsK
-         sD67Aq7VOuqV8+r6XZb5JJRXnC3rOc67k12M0/XUyN+y0jztZvh6QLaOjxbsabKaoalC
-         VbC9iQoLhmPRDMj/qaNSoZG2xsJwFxQJhBfYPoGjat/t+xV/JXzOUwGPmE56YXlW7DeT
-         bR1A==
+        h=sender:from:date:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Iff/1x4XjgI/BXolQowHz/cXRcDW5nOKCEnQhmajFgo=;
+        b=Sg1cWzPNliFgFxpiqjM8jGj0i0RJE5Qu1rcDUQcniYLvaHTFldljujmyA9e7nTcefv
+         7vvtvZWx9+c06eAREWyJYhID8Q2lTmPJr4RHWDP7+ivJfvgAAJrySTojSK3c2i5QlRpV
+         YGZIKiNkrK++ZrZHDn7c7D0V4jNEg/b61AfYMkI/TTzqySO1AqVh+JMCF5E0gxji0pmO
+         ltctkawEHw1B6Cg/ZIEszaEKxlAQUfMmJDiIymvVfxiTTbv6wuKVVUC6GC6BrWTCIScw
+         15vqnN2p0KeD2LpRXdKK2ogIsS6g/Usr2zUCGU8xl0C2QxaZAWNwu1ZivrRdlGV76q3g
+         dxDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=Y0e48wCnOKmdYLRRNl+aVug2lD/GXfR3kmE5414ib+I=;
-        b=IJHo4Ll5nlPPpAvghwsL6xIH7Yz6efQRr4FiCknMBTkPM96GNxX3elnlY8ILCFKcM9
-         ewTd9lVIJachdeV4IKQHxezCn7suwqJrefNL0JhRSn61YrUj6w4azK7K7+KXXK7ql5j0
-         r67G4/vn7RaHLVu9wVT0h9k9aAyslc8cXq/YWSGZ2O/BnN8lqixQQp8RyAIQA0kpePIN
-         MPGYt3X4FwCB0mNtx0aOeaf+I0DLKZnmDEbuxWMA6FQyDGTPSLuYLBBlFSDiepJXdZxt
-         /yDg8MB6maYKP1QmEWntlD8UCEd5j8irmJmOLAxXQWQTDsqK0lgFOrwv0/VJ0VtlKc1t
-         gygA==
+        h=sender:x-gm-message-state:from:date:to:message-id:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=Iff/1x4XjgI/BXolQowHz/cXRcDW5nOKCEnQhmajFgo=;
+        b=culllROLtK0MjfuHjGqRy6GDhxY4hH7nYVqAdGG6T31p2TR82GMgCYJHG2ghXQDFYY
+         Qjlrmr0xtT0xkpIBKkufCI4OX3QRNIg6dYmen0NlB8MAA0Rt9ChgiHjXKf/zE2CjxO2Z
+         xapZSnQyeapzfugnvFaf3nXrFopuV4tC4+auFD4zHX36R0IcEg6xFaTth8wnKsV/f743
+         4gHQfjUI07DM31aPrDgtNdpZzhxe4frrSX/CJuoaMQ1Z+uAHdpuWG6+4l55GDFdR2pku
+         l+jQ5Mwiruj1LjZYJQU7AkGkED5mh6kjoSLB44JAumr6lqH6IqzavD6rBf73uddGHhQq
+         sb6Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ1fbngvZzm3VBmrdsuFc6IdsS+J4jc9TRgct8VaIQNlnlY6NOEp
-	HXyejW85W/eXZl+2CsbuekU=
-X-Google-Smtp-Source: ADFU+vurt+9sS+WLCwkeA6ZzEI6lKeBtId328KRE/TV8m6UAVVMf9nY8WWoNMvrAEpgV6dQ8HXJNug==
-X-Received: by 2002:a7b:c0d7:: with SMTP id s23mr6961959wmh.168.1584556570798;
-        Wed, 18 Mar 2020 11:36:10 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ00szVt189BCTB93VFrcOLpIlstrcVmRfe42MmHvgb60FVjjIVk
+	8qf8hagzjyWfvpOtOK98VUY=
+X-Google-Smtp-Source: ADFU+vsnAz0wVIcaoFvKd/itq49R0o3L1SioT1DgNs8nAcqm3J60w/MPqnZmEoPkIP4cB24YEEw4/w==
+X-Received: by 2002:a05:600c:148:: with SMTP id w8mr6561708wmm.146.1584556826820;
+        Wed, 18 Mar 2020 11:40:26 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:230e:: with SMTP id j14ls1264565wmj.0.canary-gmail; Wed,
- 18 Mar 2020 11:36:10 -0700 (PDT)
-X-Received: by 2002:a1c:2701:: with SMTP id n1mr6623223wmn.180.1584556570034;
-        Wed, 18 Mar 2020 11:36:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584556570; cv=none;
+Received: by 2002:adf:afd4:: with SMTP id y20ls1049152wrd.5.gmail; Wed, 18 Mar
+ 2020 11:40:26 -0700 (PDT)
+X-Received: by 2002:a5d:458c:: with SMTP id p12mr7464463wrq.66.1584556826304;
+        Wed, 18 Mar 2020 11:40:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584556826; cv=none;
         d=google.com; s=arc-20160816;
-        b=H2k2Nf1F/NoQjXP3NzxXfGu0nSfsVi4it1HvFr1W4VWs15yS/Jt8E7gNlzHvchd8af
-         IBZVUWDJBTiSOQSjU982/ChJP/yZa751+g1VNX0YPtsRuK11yIorc6Biqd/SdR1jEqu6
-         3B2wzQywheGpeO3tMTReMCz/QwrQR0s6SSLr8X9trT6kXaijZndWYk+n8iy2NcML0tvN
-         Xm6dgSAxICJ7PX+lqJllBaYz0CVX3iNYFwEVhZrO5Qqb11iJ9sbbOdEcYLSKEGTgK7FZ
-         a5fvUhkXxk3rdGnJrqON49R5ot22E2Tx9WXrRqDBcYBaVw6ToCV6j7aR4S/7DPG85bHZ
-         TEsw==
+        b=WVeq/jXYfirTrUV7/LfeZ7S3SBa+SUjRUzyvkF68ksYhMVmY2kawdK7e7Sywyi580T
+         juS4qx+ZuDdm4DBldlaT7J8GWW1fnrDi/v5n7BfwEXyhrORRCFTXwIiHTjXpovdE0LTl
+         klL0tkJpNvwLc5yezbnsm8eLvmYdN0AZpFZkOMOX6I7eIWrl7ZgF5qCSchPkKj1A2vKw
+         fCS/kODem/aRnE7qY6Z0S8FLaLz+hBRlQJmIe1tu/S4Q/QhchSgl8P+NXOJFOAmqXcbY
+         LhxI8zZSOmTowYHYLiRKHSK28cTv4iynZAPclGccl29IHmlLyqXbXdBQeXBhyT4+dupq
+         DKOw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date;
-        bh=fQ9jA4yHFwEV2pa/lVBf1RhA2tMzm3GKqxGfpU73Fv0=;
-        b=JZA/J0H/LJPrtjAh8UZx/ZGoV4M4TQSD77UFiP/04a74vnZa5DOUYNkVISUbcmJxhF
-         wYBLj0GoZGRljmJq7bQk16Ka2/Ish/qbZqzwKJxjSUOvlplBGlHQKJH6bqJaGfIo6DVg
-         35S+wsbD6AiJkyBaAtYwo9MKtJAHdx/uMZ0Q3eFwC9vFrFrgqlZlJKksXDTCYvGy7/+r
-         66dA36MiMvHcjuxx7ckfHY1Yxx3+L/3PjGdP1zVlfHoaDwf8jKmeH5s7xnTJocAPAd1O
-         GtuDB4XxRVmmNYjVbayOz9Jj0MdVL8pZwuYGXntlxacQvdnyeIJwhHfEpFNe3RqXENt1
-         IXGQ==
+        h=mime-version:subject:message-id:to:date:from:dkim-signature;
+        bh=eVfWpF06BG9PJDA4eRzZCq/MdYPVbfAsxnVFcbfvgTs=;
+        b=g+A1gEbkaZDCJ45P1NFRUGgHeA0pfvaH2FbM4kg8yI6CCU2hSg8EeKN/qNIZ60kNih
+         8ad2gsC4ypQd/uuzFGHEp4BsHgoHl5zssoSULCrrXj3DNXR/1+8uSWX07k4q3nLHY2ac
+         /7NMP/7b39HvxWyVuWVIHLNBZVsWeOv+rtXhYxiYJ6lARDcOHuRIZyEWYOpwFv4wnOu3
+         C8lh8V9twXPCRH4NWd4bA0gUTt90Y9O4riYedy5gRlmbdcHjokhsMYDhcq0M9iK5kwXU
+         gKZH4UpTbWnHx/k7AqiX1s29ZcQqOWvr3mxkjsdeCJYdNjVH2HlnnM+cU+ii0CsKA3rM
+         t6KA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of catalin.marinas@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=catalin.marinas@arm.com
-Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
-        by gmr-mx.google.com with ESMTP id l10si129356wmg.2.2020.03.18.11.36.09
-        for <clang-built-linux@googlegroups.com>;
-        Wed, 18 Mar 2020 11:36:10 -0700 (PDT)
-Received-SPF: pass (google.com: domain of catalin.marinas@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F2DA21FB;
-	Wed, 18 Mar 2020 11:36:08 -0700 (PDT)
-Received: from arrakis.emea.arm.com (arrakis.cambridge.arm.com [10.1.196.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 07E133F67D;
-	Wed, 18 Mar 2020 11:36:05 -0700 (PDT)
-Date: Wed, 18 Mar 2020 18:36:03 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Vincenzo Frascino <vincenzo.frascino@arm.com>
-Cc: linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
-	linux-mips@vger.kernel.org, x86@kernel.org,
-	Will Deacon <will.deacon@arm.com>, Arnd Bergmann <arnd@arndb.de>,
-	Russell King <linux@armlinux.org.uk>,
-	Paul Burton <paul.burton@mips.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Andy Lutomirski <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, Stephen Boyd <sboyd@kernel.org>,
-	Mark Salyzyn <salyzyn@android.com>,
-	Kees Cook <keescook@chromium.org>,
-	Peter Collingbourne <pcc@google.com>,
-	Dmitry Safonov <0x7f454c46@gmail.com>,
-	Andrei Vagin <avagin@openvz.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Marc Zyngier <maz@kernel.org>, Mark Rutland <Mark.Rutland@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v4 18/26] arm64: vdso32: Replace TASK_SIZE_32 check in
- vgettimeofday
-Message-ID: <20200318183603.GF94111@arrakis.emea.arm.com>
-References: <20200317122220.30393-1-vincenzo.frascino@arm.com>
- <20200317122220.30393-19-vincenzo.frascino@arm.com>
- <20200317143834.GC632169@arrakis.emea.arm.com>
- <f03a9493-c8c2-e981-f560-b2f437a208e4@arm.com>
- <20200317155031.GD632169@arrakis.emea.arm.com>
- <83aaf9e1-0a8f-4908-577a-23766541b2ba@arm.com>
- <20200317174806.GE632169@arrakis.emea.arm.com>
- <93cfe94a-c2a3-1025-bc9c-e7c3fd891100@arm.com>
+       dkim=pass header.i=@linaro.org header.s=google header.b=iPx0M9T8;
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::434 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-wr1-x434.google.com (mail-wr1-x434.google.com. [2a00:1450:4864:20::434])
+        by gmr-mx.google.com with ESMTPS id n7si165022wmc.1.2020.03.18.11.40.26
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Mar 2020 11:40:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::434 as permitted sender) client-ip=2a00:1450:4864:20::434;
+Received: by mail-wr1-x434.google.com with SMTP id f3so24791991wrw.7
+        for <clang-built-linux@googlegroups.com>; Wed, 18 Mar 2020 11:40:26 -0700 (PDT)
+X-Received: by 2002:adf:aacc:: with SMTP id i12mr2873089wrc.116.1584556825844;
+        Wed, 18 Mar 2020 11:40:25 -0700 (PDT)
+Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
+        by smtp.gmail.com with ESMTPSA id g14sm4973964wme.32.2020.03.18.11.40.25
+        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Wed, 18 Mar 2020 11:40:25 -0700 (PDT)
+From: ci_notify@linaro.org
+Date: Wed, 18 Mar 2020 18:40:24 +0000 (UTC)
+To: tcwg-validation@linaro.org, arnd@linaro.org, 
+	clang-built-linux@googlegroups.com
+Message-ID: <1056466409.10585.1584556825292.JavaMail.javamailuser@localhost>
+Subject: [CI-NOTIFY]: TCWG Bisect
+ tcwg_kernel/llvm-release-aarch64-next-defconfig - Build # 19 - Successful!
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <93cfe94a-c2a3-1025-bc9c-e7c3fd891100@arm.com>
-X-Original-Sender: catalin.marinas@arm.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of catalin.marinas@arm.com designates 217.140.110.172 as
- permitted sender) smtp.mailfrom=catalin.marinas@arm.com
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_10584_1862412943.1584556824722"
+X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-release-aarch64-next-defconfig
+X-Jenkins-Result: SUCCESS
+X-Original-Sender: ci_notify@linaro.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@linaro.org header.s=google header.b=iPx0M9T8;       spf=pass
+ (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::434
+ as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,191 +131,189 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Mar 18, 2020 at 04:14:26PM +0000, Vincenzo Frascino wrote:
-> On 3/17/20 5:48 PM, Catalin Marinas wrote:
-> > On Tue, Mar 17, 2020 at 04:40:48PM +0000, Vincenzo Frascino wrote:
-> >> On 3/17/20 3:50 PM, Catalin Marinas wrote:
-> >>> On Tue, Mar 17, 2020 at 03:04:01PM +0000, Vincenzo Frascino wrote:
-> >>>> On 3/17/20 2:38 PM, Catalin Marinas wrote:
-> >>>>> On Tue, Mar 17, 2020 at 12:22:12PM +0000, Vincenzo Frascino wrote:
-> >>>>
-> >>>> Can TASK_SIZE > UINTPTR_MAX on an arm64 system?
-> >>>
-> >>> TASK_SIZE yes on arm64 but not TASK_SIZE_32. I was asking about the
-> >>> arm32 check where TASK_SIZE < UINTPTR_MAX. How does the vdsotest return
-> >>> -EFAULT on arm32? Which code path causes this in the user vdso code?
-[...]
-> > So clock_gettime() on arm32 always falls back to the syscall?
-> 
-> This seems not what you asked, and I think I answered accordingly. Anyway, in
-> the case of arm32 the error code path is handled via syscall fallback.
-> 
-> Look at the code below as an example (I am using getres because I know this
-> email will be already too long, and I do not want to add pointless code, but the
-> concept is the same for gettime and the others):
-> 
-> static __maybe_unused
-> int __cvdso_clock_getres(clockid_t clock, struct __kernel_timespec *res)
-> {
-> 	int ret = __cvdso_clock_getres_common(clock, res);
-> 
-> 	if (unlikely(ret))
-> 		return clock_getres_fallback(clock, res);
-> 	return 0;
-> }
-> 
-> When the return code of the "vdso" internal function returns an error the system
-> call is triggered.
+------=_Part_10584_1862412943.1584556824722
+Content-Type: text/plain; charset="UTF-8"
 
-But when __cvdso_clock_getres_common() does *not* return an error, it
-means that it handled the clock_getres() call without a fallback to the
-syscall. I assume this is possible on arm32. When the clock_getres() is
-handled directly (not as a syscall), why doesn't arm32 need the same
-(res >= TASK_SIZE) check?
+Successfully identified regression in *linux* in CI configuration tcwg_kernel/llvm-release-aarch64-next-defconfig.  So far, this commit has regressed CI configurations:
+ - tcwg_kernel/gnu-master-aarch64-next-defconfig
+ - tcwg_kernel/gnu-release-aarch64-next-defconfig
+ - tcwg_kernel/llvm-master-aarch64-next-defconfig
+ - tcwg_kernel/llvm-release-aarch64-next-defconfig
 
-> In general arm32 has been ported to the unified vDSO library hence it has a
-> proper implementation on par with all the other architectures supported by the
-> unified library.
+Culprit:
+<cut>
+commit 08120d236c47dd2bdb6f7366782f4756dd7f417e
+Author: Alex Elder <elder@linaro.org>
 
-And that's what I do not fully understand. When the call doesn't fall
-back to a syscall, why does arm32 and arm64 compat need to differ in the
-implementation? I may be missing something here.
+    soc: qcom: ipa: support build of IPA code
+</cut>
 
-> >>> My guess is that on arm32 it only fails with -EFAULT in the syscall
-> >>> fallback path since a copy_to_user() would fail the access_ok() check.
-> >>> Does it always take the fallback path if ts > TASK_SIZE?
-> >>
-> >> Correct, it goes via fallback. The return codes for these syscalls are specified
-> >> by the ABI [1]. Then I agree with you the way on which arm32 achieves it should
-> >> be via access_ok() check.
-> > 
-> > "it should be" or "it is" on arm32?
-[...]
-> SYSCALL_DEFINE2(clock_gettime, const clockid_t, which_clock,
-> 		struct __kernel_timespec __user *, tp)
-[...]
-> This is the syscall on which we fallback when the "vdso" internal function
-> returns an error. The behavior of the vdso has to be exactly the same of the
-> syscall otherwise we end up in an ABI breakage.
+First few build errors in logs:
+00:02:59 drivers/net/ipa/gsi.c:220:39: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
+00:02:59 drivers/net/ipa/gsi.c:223:39: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
+00:02:59 drivers/net/ipa/gsi.c:710:16: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
+00:02:59 make[3]: *** [drivers/net/ipa/gsi.o] Error 1
+00:03:10 drivers/net/ipa/ipa_endpoint.c:584:14: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
+00:03:10 drivers/net/ipa/ipa_endpoint.c:965:16: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
+00:03:10 make[3]: *** [drivers/net/ipa/ipa_endpoint.o] Error 1
+00:03:11 drivers/net/ipa/ipa_cmd.c:182:28: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
+00:03:11 drivers/net/ipa/ipa_cmd.c:183:28: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
+00:03:11 make[3]: *** [drivers/net/ipa/ipa_cmd.o] Error 1
+Configuration details:
+rr[llvm_url]="https://github.com/llvm/llvm-project.git"
+rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
+rr[linux_branch]="ec947d0be5f959fff44d59161401515a98a837f3"
 
-I agree. I just don't understand why on arm32 the vdso code doesn't need
-to check for tp >= TASK_SIZE while the arm64 compat one does when it
-does *not* fall back to a syscall. I understand the syscall fallback
-case, that's caused by how we handle access_ok(), but this doesn't
-explain the vdso-only case.
+Results regressed to (for first_bad == 08120d236c47dd2bdb6f7366782f4756dd7f417e)
+# reset_artifacts:
+-10
+# build_llvm:
+-1
+# linux_n_obj:
+5704
 
-> >>>>> This last check needs an explanation. If the clock_id is invalid but res
-> >>>>> is not NULL, we allow it. I don't see where the compatibility issue is,
-> >>>>> arm32 doesn't have such check.
-> >>>>
-> >>>> The case that you are describing has to return -EPERM per ABI spec. This case
-> >>>> has to return -EINVAL.
-> >>>>
-> >>>> The first case is taken care from the generic code. But if we don't do this
-> >>>> check before on arm64 compat we end up returning the wrong error code.
-> >>>
-> >>> I guess I have the same question as above. Where does the arm32 code
-> >>> return -EINVAL for that case? Did it work correctly before you removed
-> >>> the TASK_SIZE_32 check?
-> >>
-> >> I repeated the test and seems that it was failing even before I removed
-> >> TASK_SIZE_32. For reasons I can't explain I did not catch it before.
-> >>
-> >> The getres syscall should return -EINVAL in the cases specified in [1].
-> > 
-> > It states 'clk_id specified is not supported on this system'. Fair
-> > enough but it doesn't say that it returns -EINVAL only if res == NULL.
-> 
-> Actually it does, the description of getres() starts with:
-> 
-> 'The function clock_getres() finds the resolution (precision) of the
-> specified clock clk_id, and, if res is *non-NULL*, stores it in the
-> struct timespec pointed to by res.'
-> 
-> Please refer to the system call below of which we mimic the behavior in the vdso
-> (kernel/time/posix-timers.c):
-> 
-> SYSCALL_DEFINE2(clock_getres_time32, clockid_t, which_clock,
-> 		struct old_timespec32 __user *, tp)
-> {
-> 	const struct k_clock *kc = clockid_to_kclock(which_clock);
-> 	struct timespec64 ts;
-> 	int err;
-> 
-> 	if (!kc)
-> 		return -EINVAL;
-> 
-> 	err = kc->clock_getres(which_clock, &ts);
-> 	if (!err && tp && put_old_timespec32(&ts, tp))
-> 		return -EFAULT;
-> 
-> 	return err;
-> }
-> 
-> If the clock is bogus and res == NULL we are supposed to return -EINVAL and not
-> -EFAULT or something else.
+from (for last_good == 530f9216a9537b58cdc2f967b5cd78f5dafb34c4)
+# reset_artifacts:
+-10
+# build_llvm:
+-1
+# linux_n_obj:
+6265
+# linux build successful:
+all
+# linux boot successful:
+boot
 
-If the clock is bogus, the above returns 'err' irrespective of the value
-of 'tp'. I presume 'err' is -EINVAL in this case. But there is no
-condition that tp == NULL above.
+Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-defconfig/19/artifact/artifacts/build-08120d236c47dd2bdb6f7366782f4756dd7f417e/
+Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-defconfig/19/artifact/artifacts/build-530f9216a9537b58cdc2f967b5cd78f5dafb34c4/
+Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-defconfig/19/
 
-What the above tries to achieve is that if there is no error (err == 0)
-and tp != NULL, try to write the timespec to the user tp pointer. If
-put_old_timespec32() fails, that's when we return -EFAULT.
+Reproduce builds:
+<cut>
+mkdir investigate-linux-08120d236c47dd2bdb6f7366782f4756dd7f417e
+cd investigate-linux-08120d236c47dd2bdb6f7366782f4756dd7f417e
 
-> This is what the test is trying to verify. If the check below is not
-> in place on arm64 compat, I get error report from the test suite.
-> 	if (!VALID_CLOCK_ID(clock_id) && res == NULL)
-> 		return -EINVAL;
+git clone https://git.linaro.org/toolchain/jenkins-scripts
 
-I really don't get where you deduced that you need to check for res ==
-NULL. The above should be:
+mkdir -p artifacts/manifests
+curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-defconfig/19/artifact/artifacts/manifests/build-baseline.sh
+curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-defconfig/19/artifact/artifacts/manifests/build-parameters.sh
+curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-defconfig/19/artifact/artifacts/test.sh
+chmod +x artifacts/test.sh
 
-	if (!VALID_CLOCK_ID(clock_id))
-		return -EINVAL;
+# Reproduce the baseline build (build all pre-requisites)
+./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
 
-Furthermore, my assumption is that __cvdso_clock_getres_common() should
-handle this case already and we don't need it in the arch vdso code.
+cd linux
 
-> > You also don't explain why __cvdso_clock_getres_time32() doesn't already
-> > detect an invalid clk_id on arm64 compat (but does it on arm32).
-> > 
-> 
-> Thanks for asking to me this question, if I would not have spent the day trying
-> to explain it, I would not have found a bug in the getres() fallback:
-> 
-> diff --git a/arch/arm64/include/asm/unistd.h b/arch/arm64/include/asm/unistd.h
-> index 1dd22da1c3a9..803039d504de 100644
-> --- a/arch/arm64/include/asm/unistd.h
-> +++ b/arch/arm64/include/asm/unistd.h
-> @@ -25,8 +25,8 @@
->  #define __NR_compat_gettimeofday       78
->  #define __NR_compat_sigreturn          119
->  #define __NR_compat_rt_sigreturn       173
-> -#define __NR_compat_clock_getres       247
->  #define __NR_compat_clock_gettime      263
-> +#define __NR_compat_clock_getres       264
->  #define __NR_compat_clock_gettime64    403
->  #define __NR_compat_clock_getres_time64        406
-> 
-> In particular compat getres is mis-numbered and that is what causes the issue.
-> 
-> I am going to add a patch to my v5 that addresses the issue (or probably a
-> separate one and cc stable since it fixes a bug) and in this patch I will remove
-> the check on VALID_CLOCK_ID.
+# Reproduce first_bad build
+git checkout --detach 08120d236c47dd2bdb6f7366782f4756dd7f417e
+../artifacts/test.sh
 
-Please send this as a separate patch that should be merged as a fix, cc
-stable.
+# Reproduce last_good build
+git checkout --detach 530f9216a9537b58cdc2f967b5cd78f5dafb34c4
+../artifacts/test.sh
 
-> I hope that this long email helps you to have a clearer picture of what is going
-> on. Please let me know if there is still something missing.
+cd ..
+</cut>
 
-Not entirely. Sorry.
+History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-release-aarch64-next-defconfig
 
--- 
-Catalin
+Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-defconfig/19/artifact/artifacts/
+Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-defconfig/19/consoleText
+
+Full commit:
+<cut>
+commit 08120d236c47dd2bdb6f7366782f4756dd7f417e
+Author: Alex Elder <elder@linaro.org>
+Date:   Thu Mar 5 22:28:29 2020 -0600
+
+    soc: qcom: ipa: support build of IPA code
+    
+    Add build and Kconfig support for the Qualcomm IPA driver.
+    
+    Signed-off-by: Alex Elder <elder@linaro.org>
+    Signed-off-by: David S. Miller <davem@davemloft.net>
+---
+ drivers/net/Kconfig      |  2 ++
+ drivers/net/Makefile     |  1 +
+ drivers/net/ipa/Kconfig  | 19 +++++++++++++++++++
+ drivers/net/ipa/Makefile | 12 ++++++++++++
+ 4 files changed, 34 insertions(+)
+
+diff --git a/drivers/net/Kconfig b/drivers/net/Kconfig
+index 66e410e58c8e..02565bc2be8a 100644
+--- a/drivers/net/Kconfig
++++ b/drivers/net/Kconfig
+@@ -444,6 +444,8 @@ source "drivers/net/fddi/Kconfig"
+ 
+ source "drivers/net/hippi/Kconfig"
+ 
++source "drivers/net/ipa/Kconfig"
++
+ config NET_SB1000
+ 	tristate "General Instruments Surfboard 1000"
+ 	depends on PNP
+diff --git a/drivers/net/Makefile b/drivers/net/Makefile
+index 65967246f240..94b60800887a 100644
+--- a/drivers/net/Makefile
++++ b/drivers/net/Makefile
+@@ -47,6 +47,7 @@ obj-$(CONFIG_ETHERNET) += ethernet/
+ obj-$(CONFIG_FDDI) += fddi/
+ obj-$(CONFIG_HIPPI) += hippi/
+ obj-$(CONFIG_HAMRADIO) += hamradio/
++obj-$(CONFIG_QCOM_IPA) += ipa/
+ obj-$(CONFIG_PLIP) += plip/
+ obj-$(CONFIG_PPP) += ppp/
+ obj-$(CONFIG_PPP_ASYNC) += ppp/
+diff --git a/drivers/net/ipa/Kconfig b/drivers/net/ipa/Kconfig
+new file mode 100644
+index 000000000000..b8cb7cadbf75
+--- /dev/null
++++ b/drivers/net/ipa/Kconfig
+@@ -0,0 +1,19 @@
++config QCOM_IPA
++	tristate "Qualcomm IPA support"
++	depends on ARCH_QCOM && 64BIT && NET
++	select QCOM_QMI_HELPERS
++	select QCOM_MDT_LOADER
++	default QCOM_Q6V5_COMMON
++	help
++	  Choose Y or M here to include support for the Qualcomm
++	  IP Accelerator (IPA), a hardware block present in some
++	  Qualcomm SoCs.  The IPA is a programmable protocol processor
++	  that is capable of generic hardware handling of IP packets,
++	  including routing, filtering, and NAT.  Currently the IPA
++	  driver supports only basic transport of network traffic
++	  between the AP and modem, on the Qualcomm SDM845 SoC.
++
++	  Note that if selected, the selection type must match that
++	  of QCOM_Q6V5_COMMON (Y or M).
++
++	  If unsure, say N.
+diff --git a/drivers/net/ipa/Makefile b/drivers/net/ipa/Makefile
+new file mode 100644
+index 000000000000..afe5df1e6eee
+--- /dev/null
++++ b/drivers/net/ipa/Makefile
+@@ -0,0 +1,12 @@
++# Un-comment the next line if you want to validate configuration data
++#ccflags-y		+=	-DIPA_VALIDATE
++
++obj-$(CONFIG_QCOM_IPA)	+=	ipa.o
++
++ipa-y			:=	ipa_main.o ipa_clock.o ipa_reg.o ipa_mem.o \
++				ipa_table.o ipa_interrupt.o gsi.o gsi_trans.o \
++				ipa_gsi.o ipa_smp2p.o ipa_uc.o \
++				ipa_endpoint.o ipa_cmd.o ipa_modem.o \
++				ipa_qmi.o ipa_qmi_msg.o
++
++ipa-y			+=	ipa_data-sdm845.o ipa_data-sc7180.o
+</cut>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200318183603.GF94111%40arrakis.emea.arm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1056466409.10585.1584556825292.JavaMail.javamailuser%40localhost.
+
+------=_Part_10584_1862412943.1584556824722--
