@@ -1,130 +1,125 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBPHFZXZQKGQECV226AQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDJKZSEQ3YKRBAHYZXZQKGQETLI64HA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13d.google.com (mail-il1-x13d.google.com [IPv6:2607:f8b0:4864:20::13d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 21F2F18B63A
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Mar 2020 14:25:18 +0100 (CET)
-Received: by mail-il1-x13d.google.com with SMTP id 191sf1912797ilb.23
-        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Mar 2020 06:25:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584624317; cv=pass;
+Received: from mail-lj1-f188.google.com (mail-lj1-f188.google.com [209.85.208.188])
+	by mail.lfdr.de (Postfix) with ESMTPS id 22C9418B88E
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Mar 2020 15:04:49 +0100 (CET)
+Received: by mail-lj1-f188.google.com with SMTP id i7sf503874ljg.8
+        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Mar 2020 07:04:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584626688; cv=pass;
         d=google.com; s=arc-20160816;
-        b=WAM5khgeFY3rZyoXvFo/B6wcm682oGAKQPPU2BZ0rQ0baFuCSNzx3h+ISOTx8oSXgI
-         1KweE+xXt1TAFgmzPvmbjThzJlOg05TvBb5L2+9dKkK5ZQ60fsa7H3OR8vVLFFlBLoOe
-         bmUViokoE2qIdaV+sI+qOMXjmRcgXbvSPXX7xilZcptVsuFvQg+PvQLdTm1I5F7hgEmN
-         ahiVqqIo25oElLJ+l5FpifndixgZqAzUSTb+LTO7Bi5sggl9W5kSu8zlQQZF0UvoHkwE
-         NsMwx9z2Q0zMM6DG0oEcfpU9FN6bjjeZxL6LyYu15dHVaIltvr6tP1iq2eN0aiCpG/EW
-         7c5w==
+        b=OhhoCMxjwLgbtpZdY2nVxS3XpxGlMOe1Fi1KJ0yPsZGMrjxwkCFMYAsqkz5YjahEQQ
+         HM/qDWni58XkknFQxx3zVOA69VFIb5ySgABFqIijgHVB7tZglQQbZhfE0qnURRS9m/qB
+         +YdFfDd9mx8KxOnrLjbkoGtROj8MQTdzPdtv9uoU3cb1Fpyo31NOcz0IapWY+/sRtpnp
+         9x7kEmlwPDd9e/4xzWn93+Ha5hp7+zMTVlqu5W2CyLfMw79Z8rJ6eH4DpSaXjPt6UKlY
+         UMgwAbN0r2g0ytt3Vw3M9iiT9K0JJ9ZvYMkB3jM4m3fLlN7XkyoMJZ7nO2+/tUtCO+Ct
+         5tvw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:message-id:date:subject:cc:to:from:sender
-         :dkim-signature;
-        bh=WgCuTLRHWkaUzZubHWummn7ajMOjU+x+4IvHbLbMjmw=;
-        b=Zri/y/AGKVl7hxufPPszVIMMyVESNykiP80LQaoaNIf82fanFD6gTzRV64/2SHSSe4
-         xXz5uGrM2todTnikSsbqSkyPsNml24U6wIz/lQT5HYuckeLwS/LXU67tkR9keqYZ3Ki3
-         RyASWDFmvjBqvCEhtLntci35JpzLpx5Y7NODVkOql6aVgh5yvHrKYZGjCNuOagSKV/MI
-         9Yb9GvL2e0Xq9whmrC9xBcDiSLdkp47AS3MybRheuCnkBnGKFstKX+rtxqAT5thThW8l
-         KaToktajt6GPOx5eLYfMsySec1PjA5SPKTpjrhY4ICfZm7+BzVRnDTNjmua6RjY7wvqN
-         PItA==
+         :list-id:mailing-list:precedence:robot-unsubscribe:robot-id
+         :message-id:mime-version:references:in-reply-to:cc:subject:to
+         :reply-to:sender:from:date;
+        bh=dw9zEnLNwL43066pIt4y6x3vAlJor9XCkn5dRV0Thdg=;
+        b=LbFpSvqFTnQlfvmvN3HZsgsG/rbUh8Dtty4iumJYXLaul1E/GTL3qBcFAc+pRe0z8d
+         trIoiRGGvJnjMfuSgd6PWx6mqQBvPWavCLGpW3O09wKmDEQZVYB2xtupUqVDTumZ5OHz
+         I1Dug4Vc1KfSGWaPMtIsrlYJw+/JcDEaFNvElpxiy4rSKBFOFunAWem7XSWlErX8/e4a
+         8BiXD1icljZaPw8BDbeslvPfcx7r3wM0sL9v6oegIzPqBWMIk9HKjx0GR1R6uUugFwKp
+         IrjpgBo2bp7gu6Q0t7ndyfAAxulvqi3qtBBBFbkX4KwQ/iGBm7TQ7N8ejShUsggGIgGv
+         BEog==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=ubelOgWI;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=WgCuTLRHWkaUzZubHWummn7ajMOjU+x+4IvHbLbMjmw=;
-        b=OK7at/V7RSGRq2MYesysZ038ztBwFa4EptU6O0wErOxn9Cv/XXoRB1Vh1rL/tpJcsw
-         f3doWkgm7s0TaicQbxTgOJAG0wpcUlnwa7YG0VXKDpuUL8VZ6AY351zKvT98u4coH9C2
-         OuxyRnIru5+xbKEUfpLgkLj/XkCC2zUI7DcIkXKmtM+Zmpv79LHLVfPrabDBaOy5dLOq
-         2qbmQWFPoCUSulaWDd7sFWOgfkYsUtDw2UPGVHp146yJ/VdtOrP6mouIvfhex2J0HW6+
-         MmY2DpXLzt5S2dbTCUWjGSOH/nesoUVQ2lM7voVAAsZhx0ibrCtOUmVGyOe0yVthlYHz
-         V+3w==
+       spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
+        h=x-gm-message-state:date:from:sender:reply-to:to:subject:cc
+         :in-reply-to:references:mime-version:message-id:robot-id
+         :robot-unsubscribe:precedence:x-original-sender
+         :x-original-authentication-results:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=WgCuTLRHWkaUzZubHWummn7ajMOjU+x+4IvHbLbMjmw=;
-        b=ODB4I4WEHD92fVHfme5dvgOWnyJfvDREHPECiD32L0ZOX30e1rOE8KSXmRn4owKv23
-         6CEgYiqHfaXveVXWRAVKt14H8mKi2AVTjLNeYcj33mVwuNPDYMIC/NWB7B89/vRcUH60
-         dyDGbZUwTLMkb2gsI/1LLfWvKrhaS5ZI3cG1xfBPy6E0cw7eIm+geyZEl4jFkfA2Wunm
-         Ta3iIKPvVj4d2kQTQ0XFCUcq46YKSuehepxU6yOlwyjsSVIWQJEFSu/7xCyf8OqhABXb
-         jevbGzJmSURaO9udP7V5K2XKzxdY1VEUx6ca8IBsf58XD6GewgwXALDemPdwC2menmBl
-         K5bA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ13i6EIjLZwj2ekm19Duzx9m5m+PIDVd2b6/kSP75R1lOCY1mAq
-	7NhDg0TOyGrLBFm5L81nXT8=
-X-Google-Smtp-Source: ADFU+vvk39ileUVVzCzUGTtkK7on44k0uylISuujbLgjcFM84uuvYapZGw6K9n/4ZgkVnwfzZW3oqw==
-X-Received: by 2002:a92:79cf:: with SMTP id u198mr3188939ilc.23.1584624317030;
-        Thu, 19 Mar 2020 06:25:17 -0700 (PDT)
+        bh=dw9zEnLNwL43066pIt4y6x3vAlJor9XCkn5dRV0Thdg=;
+        b=q8wf3AM3YL5bR6RmyWxgDR7fkefpJO5Pp3YG4wbTVA+X4Ryk+FzZTsgl+vjnDtwdp2
+         Lc570yVqUBOtdw3X2ZQwhAzLR8EdiI3ujjHuYfURHzjJGIDf0Px8kXlUqbqbJItsGDPM
+         hBFxQxZXyMsSUL3OVBcKt0gjzuvCbocHqxsbI3L79KogUthQ5XmuRDLfoiFDDkOj7tI2
+         JxZVELNjEpmiuCDBVW/u+eb0drt8AMCeHKrpssd1771vxAhfTDcYsgt/yBtxjXjpE3gb
+         h1sQyNfdOK09PYz2qdKWiYefkrmSDEUOjlsZJOY+D5cMahjpR8+jjCZqH6uQllR1YPoC
+         5mdw==
+X-Gm-Message-State: ANhLgQ1qdVDwLDX3HRiobRlNO5tOBEQy/aYcgCDsnPC4PNgd40eEeLT2
+	lfuVdsgiUAP/o3iVW33iOQk=
+X-Google-Smtp-Source: ADFU+vvyBGSAgekqkI0byIw02nk6xqiprz1rMBsZh+29MYLjeEUdOMP2O4Z/5VSQK/rb8ppOMTZfGQ==
+X-Received: by 2002:a19:6d0d:: with SMTP id i13mr2261871lfc.105.1584626688490;
+        Thu, 19 Mar 2020 07:04:48 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:31c:: with SMTP id w28ls284269jap.1.gmail; Thu, 19
- Mar 2020 06:25:16 -0700 (PDT)
-X-Received: by 2002:a02:c942:: with SMTP id u2mr3158633jao.49.1584624316467;
-        Thu, 19 Mar 2020 06:25:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584624316; cv=none;
+Received: by 2002:ac2:43b7:: with SMTP id t23ls411233lfl.10.gmail; Thu, 19 Mar
+ 2020 07:04:47 -0700 (PDT)
+X-Received: by 2002:a19:484a:: with SMTP id v71mr2294412lfa.199.1584626687792;
+        Thu, 19 Mar 2020 07:04:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584626687; cv=none;
         d=google.com; s=arc-20160816;
-        b=ip3SVpnIYHa4/ntzRR8CCZKzJMz2nN5iKmKdWsWQranRV4vEDEwPsuERsCX8sYwlbt
-         RUhWw4Gwn1akMlCaE5re9Yzk0zTeNyYfOOXhZJFWOPrpBezW3bzoHqok8/PSulkXWjFD
-         PhQ+c60dkbSvU9SnSIUm6kvuwsQ8+SKbQBzDFukSr6SrBhsSdXAPR0xS61sp0zsgkwNV
-         RiSSJAD7jN6Msemkam0BAjlDsd3YKctoYYP0ZvsbZlfFDP1rOu0vyaKaGdLCqYfojZxr
-         vwKbPxaEl5hgmylyxU8Q0F2VcvfE2Yg2C6feh2zIZoFvQXam6gBZIkBhcsRqthUMT1VE
-         JzUA==
+        b=gRVbawAQF3KzFbcQiX27HDQ4lyRrEGa8nFUZei/bMxE+u0B8qPSP2uAHtyes7mxQpc
+         WaUCTOGv34IChi22stWvshuVZUZZNI9QSomLcR4aEMUObpRgwXOY0J6uxR0TdYipipD7
+         Cyke8We58HrFJWHmBSNrvJS6kj7NWQ90EhCjo3leIzFzCjUsQ7XLABuhpVSaVGKIh0sy
+         AK6KOpCfC+TGJNyf5J0tRgD5OVQrQTy2ou24F6Y2WZFcjReJ1RuSOixnO9ZB7jtE5jhI
+         IjCAKXy7kRgRPyL97Xp1d1il3x8SJIgp7SthdKnTtiYKCDVWM1KC1z/bsPC8CbRg34Ep
+         Aoeg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature;
-        bh=9Heytu8cQKw58pc3hYuwyeX9RlRJSpiC6z3gSad6Lmo=;
-        b=ymmzLPg74QrKzQ0hAe0bpCpkCE5u8Yms9Gm39SlDtUaeQvne2fyUeqBotdpk1jps5V
-         hTfXqbY4JRoppZZ6Un55qybXI1Tg0t/5pXC92JaiRNElYQTrEJnXMWRLxBSrWBsOPQs7
-         QIIOYCGPU1+RwrSXEbXz7D4wCPtrdwbktbCg4Lbis0hTCQ0idTTK2GjFixWexjH636LH
-         g5Efx4eTQWFV5tiU3Bp1FaG8cOkcIi2sJcGyXT1fAWWR0OYyDlKORfN0R0N/lo1LOu9y
-         qpj6ZVEIPk6+dAbqUDz1TzLSyNr6BKb5rhbV3OQt7/qxReqMfCQuZJUdWXmJU1akqjgo
-         a2dg==
+        h=content-transfer-encoding:precedence:robot-unsubscribe:robot-id
+         :message-id:mime-version:references:in-reply-to:cc:subject:to
+         :reply-to:sender:from:date;
+        bh=fm3ddiaQxTuvI/z9KuW3qmE14qjUqi1tn7H9Zi6DatI=;
+        b=WPa3wErntCEXYUO8yHUJg8DoXz2knFEAQUFtwq48WSL86f5u7FbUC/ItHelYfjQ7z6
+         6D6xe4hJYajwYQ9cCXQM5YJthv4cjk6xeJSaNvC5ory+fg+U7TnWgEWYPo5sQco2DY3m
+         w853Fhtpj/Y6Z7UKfda5GAzQyJY705F3pwD4Ytn1bmG2gryLJAwdaV/uBSNWywVWGUoU
+         jSePxCl2H4nNK3dOLs9auF5qWfx4hXQkgKQKQnHV6DdXms5W2HpK2UObrEX6xELgKon+
+         iyizt/45KFpINnOGglt1d7t7P7M2yDj/PMuP3D6lBP1w0EUZxZ9T9NB9XqKUfiScZupf
+         p91Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=ubelOgWI;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id q6si142107ild.2.2020.03.19.06.25.16
+       spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
+Received: from Galois.linutronix.de (Galois.linutronix.de. [2a0a:51c0:0:12e:550::1])
+        by gmr-mx.google.com with ESMTPS id c15si105118ljn.3.2020.03.19.07.04.47
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Mar 2020 06:25:16 -0700 (PDT)
-Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl [83.86.89.107])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 64AB12098B;
-	Thu, 19 Mar 2020 13:25:15 +0000 (UTC)
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: linux-kernel@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	stable@vger.kernel.org,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Paul Burton <paulburton@kernel.org>,
-	Ralf Baechle <ralf@linux-mips.org>,
-	linux-mips@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.5 20/65] MIPS: vdso: Wrap -mexplicit-relocs in cc-option
-Date: Thu, 19 Mar 2020 14:04:02 +0100
-Message-Id: <20200319123932.742469978@linuxfoundation.org>
-X-Mailer: git-send-email 2.25.2
-In-Reply-To: <20200319123926.466988514@linuxfoundation.org>
-References: <20200319123926.466988514@linuxfoundation.org>
-User-Agent: quilt/0.66
+        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
+        Thu, 19 Mar 2020 07:04:47 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) client-ip=2a0a:51c0:0:12e:550::1;
+Received: from [5.158.153.53] (helo=tip-bot2.lab.linutronix.de)
+	by Galois.linutronix.de with esmtpsa (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
+	(Exim 4.80)
+	(envelope-from <tip-bot2@linutronix.de>)
+	id 1jEvmu-0001oY-OL; Thu, 19 Mar 2020 15:04:44 +0100
+Received: from [127.0.1.1] (localhost [IPv6:::1])
+	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id 358171C22A1;
+	Thu, 19 Mar 2020 15:04:44 +0100 (CET)
+Date: Thu, 19 Mar 2020 14:04:43 -0000
+From: "tip-bot2 for Ian Rogers" <tip-bot2@linutronix.de>
+Sender: tip-bot2@linutronix.de
+Reply-to: linux-kernel@vger.kernel.org
+To: linux-tip-commits@vger.kernel.org
+Subject: [tip: perf/urgent] perf parse-events: Fix reading of invalid memory
+ in event parsing
+Cc: Ian Rogers <irogers@google.com>, Jiri Olsa <jolsa@kernel.org>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Andi Kleen <ak@linux.intel.com>, Leo Yan <leo.yan@linaro.org>,
+ Mark Rutland <mark.rutland@arm.com>, Namhyung Kim <namhyung@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>, Stephane Eranian <eranian@google.com>,
+ clang-built-linux@googlegroups.com,
+ Arnaldo Carvalho de Melo <acme@redhat.com>, x86 <x86@kernel.org>,
+ LKML <linux-kernel@vger.kernel.org>
+In-Reply-To: <20200307073121.203816-1-irogers@google.com>
+References: <20200307073121.203816-1-irogers@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: gregkh@linuxfoundation.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=ubelOgWI;       spf=pass
- (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
+Message-ID: <158462668393.28353.16174426995039122842.tip-bot2@tip-bot2>
+X-Mailer: tip-git-log-daemon
+Robot-ID: <tip-bot2.linutronix.de>
+Robot-Unsubscribe: Contact <mailto:tglx@linutronix.de> to get blacklisted from these emails
 Precedence: list
+Content-Type: text/plain; charset="UTF-8"
+X-Linutronix-Spam-Score: -1.0
+X-Linutronix-Spam-Level: -
+X-Linutronix-Spam-Status: No , -1.0 points, 5.0 required,  ALL_TRUSTED=-1,SHORTCIRCUIT=-0.0001
+X-Original-Sender: tip-bot2@linutronix.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: best guess record for domain of tip-bot2@linutronix.de
+ designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
 X-Spam-Checked-In-Group: clang-built-linux@googlegroups.com
@@ -136,61 +131,171 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nathan Chancellor <natechancellor@gmail.com>
+The following commit has been merged into the perf/urgent branch of tip:
 
-[ Upstream commit 72cf3b3df423c1bbd8fa1056fed009d3a260f8a9 ]
+Commit-ID:     05e54e2386733dfdb62b6784b3d6e1b0bd9bb559
+Gitweb:        https://git.kernel.org/tip/05e54e2386733dfdb62b6784b3d6e1b0bd9bb559
+Author:        Ian Rogers <irogers@google.com>
+AuthorDate:    Fri, 06 Mar 2020 23:31:21 -08:00
+Committer:     Arnaldo Carvalho de Melo <acme@redhat.com>
+CommitterDate: Mon, 09 Mar 2020 10:29:45 -03:00
 
-Clang does not support this option and errors out:
+perf parse-events: Fix reading of invalid memory in event parsing
 
-clang-11: error: unknown argument: '-mexplicit-relocs'
+ADD_CONFIG_TERM accesses term->weak, however, in get_config_chgs this
+value is accessed outside of the list_for_each_entry and references
+invalid memory. Add an argument for ADD_CONFIG_TERM for weak and set it
+to false in the get_config_chgs case.
 
-Clang does not appear to need this flag like GCC does because the jalr
-check that was added in commit 976c23af3ee5 ("mips: vdso: add build
-time check that no 'jalr t9' calls left") passes just fine with
+This bug was cause by clang's address sanitizer and libfuzzer. It can be
+reproduced with a command line of:
 
-$ make ARCH=mips CC=clang CROSS_COMPILE=mipsel-linux-gnu- malta_defconfig arch/mips/vdso/
+  perf stat -a -e i/bs,tsc,L2/o
 
-even before commit d3f703c4359f ("mips: vdso: fix 'jalr t9' crash in
-vdso code").
-
--mrelax-pic-calls has been supported since clang 9, which is the
-earliest version that could build a working MIPS kernel, and it is the
-default for clang so just leave it be.
-
-Fixes: d3f703c4359f ("mips: vdso: fix 'jalr t9' crash in vdso code")
-Link: https://github.com/ClangBuiltLinux/linux/issues/890
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-Tested-by: Nick Desaulniers <ndesaulniers@google.com>
-Signed-off-by: Paul Burton <paulburton@kernel.org>
-Cc: Ralf Baechle <ralf@linux-mips.org>
-Cc: linux-mips@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Ian Rogers <irogers@google.com>
+Acked-by: Jiri Olsa <jolsa@kernel.org>
+Cc: Adrian Hunter <adrian.hunter@intel.com>
+Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: Andi Kleen <ak@linux.intel.com>
+Cc: Leo Yan <leo.yan@linaro.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Namhyung Kim <namhyung@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Stephane Eranian <eranian@google.com>
 Cc: clang-built-linux@googlegroups.com
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Link: http://lore.kernel.org/lkml/20200307073121.203816-1-irogers@google.com
+Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 ---
- arch/mips/vdso/Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ tools/perf/util/parse-events.c | 46 ++++++++++++++++-----------------
+ 1 file changed, 23 insertions(+), 23 deletions(-)
 
-diff --git a/arch/mips/vdso/Makefile b/arch/mips/vdso/Makefile
-index bfb65b2d57c7f..2cf4b6131d88d 100644
---- a/arch/mips/vdso/Makefile
-+++ b/arch/mips/vdso/Makefile
-@@ -29,7 +29,7 @@ endif
- cflags-vdso := $(ccflags-vdso) \
- 	$(filter -W%,$(filter-out -Wa$(comma)%,$(KBUILD_CFLAGS))) \
- 	-O3 -g -fPIC -fno-strict-aliasing -fno-common -fno-builtin -G 0 \
--	-mrelax-pic-calls -mexplicit-relocs \
-+	-mrelax-pic-calls $(call cc-option, -mexplicit-relocs) \
- 	-fno-stack-protector -fno-jump-tables -DDISABLE_BRANCH_PROFILING \
- 	$(call cc-option, -fno-asynchronous-unwind-tables) \
- 	$(call cc-option, -fno-stack-protector)
--- 
-2.20.1
-
-
+diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
+index a149958..a7dc0b0 100644
+--- a/tools/perf/util/parse-events.c
++++ b/tools/perf/util/parse-events.c
+@@ -1213,7 +1213,7 @@ static int config_attr(struct perf_event_attr *attr,
+ static int get_config_terms(struct list_head *head_config,
+ 			    struct list_head *head_terms __maybe_unused)
+ {
+-#define ADD_CONFIG_TERM(__type)					\
++#define ADD_CONFIG_TERM(__type, __weak)				\
+ 	struct perf_evsel_config_term *__t;			\
+ 								\
+ 	__t = zalloc(sizeof(*__t));				\
+@@ -1222,18 +1222,18 @@ static int get_config_terms(struct list_head *head_config,
+ 								\
+ 	INIT_LIST_HEAD(&__t->list);				\
+ 	__t->type       = PERF_EVSEL__CONFIG_TERM_ ## __type;	\
+-	__t->weak	= term->weak;				\
++	__t->weak	= __weak;				\
+ 	list_add_tail(&__t->list, head_terms)
+ 
+-#define ADD_CONFIG_TERM_VAL(__type, __name, __val)		\
++#define ADD_CONFIG_TERM_VAL(__type, __name, __val, __weak)	\
+ do {								\
+-	ADD_CONFIG_TERM(__type);				\
++	ADD_CONFIG_TERM(__type, __weak);			\
+ 	__t->val.__name = __val;				\
+ } while (0)
+ 
+-#define ADD_CONFIG_TERM_STR(__type, __val)			\
++#define ADD_CONFIG_TERM_STR(__type, __val, __weak)		\
+ do {								\
+-	ADD_CONFIG_TERM(__type);				\
++	ADD_CONFIG_TERM(__type, __weak);			\
+ 	__t->val.str = strdup(__val);				\
+ 	if (!__t->val.str) {					\
+ 		zfree(&__t);					\
+@@ -1247,62 +1247,62 @@ do {								\
+ 	list_for_each_entry(term, head_config, list) {
+ 		switch (term->type_term) {
+ 		case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
+-			ADD_CONFIG_TERM_VAL(PERIOD, period, term->val.num);
++			ADD_CONFIG_TERM_VAL(PERIOD, period, term->val.num, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_SAMPLE_FREQ:
+-			ADD_CONFIG_TERM_VAL(FREQ, freq, term->val.num);
++			ADD_CONFIG_TERM_VAL(FREQ, freq, term->val.num, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_TIME:
+-			ADD_CONFIG_TERM_VAL(TIME, time, term->val.num);
++			ADD_CONFIG_TERM_VAL(TIME, time, term->val.num, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_CALLGRAPH:
+-			ADD_CONFIG_TERM_STR(CALLGRAPH, term->val.str);
++			ADD_CONFIG_TERM_STR(CALLGRAPH, term->val.str, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_BRANCH_SAMPLE_TYPE:
+-			ADD_CONFIG_TERM_STR(BRANCH, term->val.str);
++			ADD_CONFIG_TERM_STR(BRANCH, term->val.str, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_STACKSIZE:
+ 			ADD_CONFIG_TERM_VAL(STACK_USER, stack_user,
+-					    term->val.num);
++					    term->val.num, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_INHERIT:
+ 			ADD_CONFIG_TERM_VAL(INHERIT, inherit,
+-					    term->val.num ? 1 : 0);
++					    term->val.num ? 1 : 0, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_NOINHERIT:
+ 			ADD_CONFIG_TERM_VAL(INHERIT, inherit,
+-					    term->val.num ? 0 : 1);
++					    term->val.num ? 0 : 1, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_MAX_STACK:
+ 			ADD_CONFIG_TERM_VAL(MAX_STACK, max_stack,
+-					    term->val.num);
++					    term->val.num, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_MAX_EVENTS:
+ 			ADD_CONFIG_TERM_VAL(MAX_EVENTS, max_events,
+-					    term->val.num);
++					    term->val.num, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_OVERWRITE:
+ 			ADD_CONFIG_TERM_VAL(OVERWRITE, overwrite,
+-					    term->val.num ? 1 : 0);
++					    term->val.num ? 1 : 0, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_NOOVERWRITE:
+ 			ADD_CONFIG_TERM_VAL(OVERWRITE, overwrite,
+-					    term->val.num ? 0 : 1);
++					    term->val.num ? 0 : 1, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_DRV_CFG:
+-			ADD_CONFIG_TERM_STR(DRV_CFG, term->val.str);
++			ADD_CONFIG_TERM_STR(DRV_CFG, term->val.str, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_PERCORE:
+ 			ADD_CONFIG_TERM_VAL(PERCORE, percore,
+-					    term->val.num ? true : false);
++					    term->val.num ? true : false, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_AUX_OUTPUT:
+ 			ADD_CONFIG_TERM_VAL(AUX_OUTPUT, aux_output,
+-					    term->val.num ? 1 : 0);
++					    term->val.num ? 1 : 0, term->weak);
+ 			break;
+ 		case PARSE_EVENTS__TERM_TYPE_AUX_SAMPLE_SIZE:
+ 			ADD_CONFIG_TERM_VAL(AUX_SAMPLE_SIZE, aux_sample_size,
+-					    term->val.num);
++					    term->val.num, term->weak);
+ 			break;
+ 		default:
+ 			break;
+@@ -1339,7 +1339,7 @@ static int get_config_chgs(struct perf_pmu *pmu, struct list_head *head_config,
+ 	}
+ 
+ 	if (bits)
+-		ADD_CONFIG_TERM_VAL(CFG_CHG, cfg_chg, bits);
++		ADD_CONFIG_TERM_VAL(CFG_CHG, cfg_chg, bits, false);
+ 
+ #undef ADD_CONFIG_TERM
+ 	return 0;
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200319123932.742469978%40linuxfoundation.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/158462668393.28353.16174426995039122842.tip-bot2%40tip-bot2.
