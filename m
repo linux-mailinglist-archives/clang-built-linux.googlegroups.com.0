@@ -1,156 +1,117 @@
-Return-Path: <clang-built-linux+bncBCTO7KXIRAPRBJNAZ7ZQKGQEINSJRIY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB7FPZ7ZQKGQEKMYK2RI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43b.google.com (mail-pf1-x43b.google.com [IPv6:2607:f8b0:4864:20::43b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4C07E18C0F8
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Mar 2020 21:03:51 +0100 (CET)
-Received: by mail-pf1-x43b.google.com with SMTP id o5sf2677316pfp.0
-        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Mar 2020 13:03:51 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584648229; cv=pass;
+Received: from mail-pl1-x63e.google.com (mail-pl1-x63e.google.com [IPv6:2607:f8b0:4864:20::63e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 36AAA18C185
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Mar 2020 21:37:18 +0100 (CET)
+Received: by mail-pl1-x63e.google.com with SMTP id x6sf2360311plo.13
+        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Mar 2020 13:37:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584650237; cv=pass;
         d=google.com; s=arc-20160816;
-        b=iJvkXZ3RLyT/8fbj/GZnNKx/JqnzsVQyF2Ab9Cpo4ErV/Sjo+9x+yBeYg6fwia7EIC
-         zDh9Fa8vIinCozq0InsAR5VTwmyazXApAu2+dCk0RmgInHG0FCPTLqmJ0YzrjebA9/rJ
-         zgUNFXe4fpI7ZSG9waiMm3D7sSoUj5y2q3qrbR/QsOy87dPEeOf74kcos4i4ETPjEsAQ
-         TeJBmMxE1wc3UMmAh6Jk6iX81GaYgGGUyPSI7VwEmDLah2fWPz9jiLJI41s9nHKHTk+Y
-         FW11XJ4UwgjWME/6eAUa9Nyv+8nwMGw4zj7XcoZs6AOxV7lfKDfMuNVwlD8uNwwmUsVY
-         VK/w==
+        b=GDBmtfuUGkYitsYPTiIXKkK5SAQjTupi4pElj0cEvF1Ra4WOf2b37zCMf3lcwonN7C
+         F4WYJBBGJIpAqzdInwF2s/DQHW1CKO7HepcDVhBa4CkgSA+JRvebFmTWxiFMcVx20t7y
+         iy1vFeo3GkEQlsnnxrjmLHxaZcSWnKCoKOFUCJlStVza7fFwES4RVvDSZjMfPS/cBS7v
+         9sCj96JSN+qlEWfdfVv0shbRAgALLTKKGbRUve9LX8xoSl2QRxPRqF+ZWpchWfQMOGw3
+         cgsQ+cVQHro4qaLtROYejLlfnR4AbdyVfaRXlNYkU9spp4lCu4zg8UwfdpQobJYXzsdv
+         j3iA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-language
-         :in-reply-to:mime-version:user-agent:date:message-id:from:references
-         :cc:to:subject:dkim-signature;
-        bh=mIAMfG0h7CMppOhvg3pvgmTA56yfukiYFOGA6JGQ8pM=;
-        b=ESdoDOo+2VUt4vozB03P9lzoONXtEDWzJ6dVx2NejQFU7sFPJxQlyVyxSFFx/NGa9Q
-         KdMzZVzxfz6FF5OufBRT3BL9l5NT9eiT4cNTmJHcaIzNrd64FxhKIZpwJb2b7iiiwQ0O
-         lsuaUGYsXa0iVBQbLZMFsCzxN+xpH3KrQ0i1j/FVdsogck/V1I56v8xhIg/WOeBSwel3
-         3jo3v8XvkZm6VpIW1cY5HGDR+ddOoVsxTbl8Q3in+9LHaPpwP6YZLsyJ+P40rexFju6f
-         J/0XqsXsAkRbwNx2PJqRl90hzs3wkNJvtXGfpmbF2Rqbv/jrrlXHYm4sKcuJeh4AWY2u
-         A3cA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:mime-version:dkim-signature;
+        bh=FMPPbm2ihVbfnED0McbYLAZPAqYeIAtNrI0cfSQjff8=;
+        b=vIEH1HkuKl/e8qZ4TjbZKP4hyM5ekNxWJT+bcd8UR10zePhO+AtvbTSZUBRxCnv1lj
+         2SOqwZp7VO1IddImR2UXp/z8oiWc1afMwcRR0zhBUSKVgROpnGY2x1RfjnEFJ3atd55Y
+         /NJEnW2rZu8N3yRc8SsB7Z8fDPOZ+CMvgwzMJwGUuC37QdhQrYgwhmuTfX6VGGtFMAGt
+         GkiWJ6act7Ot6Rh6kkiV2cQxI61tUtNqFITXvhTqu8Rri6tIZUBlP14+fdXGRbcYGNd7
+         S0WmRG6llDp4+jH77BURj/WvSOrqCO1iFWdpmajuwzQyF7R3blW1psxJis3UT+81EJO9
+         2MzA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@akamai.com header.s=jan2016.eng header.b=H3mDhUz8;
-       spf=pass (google.com: domain of jbaron@akamai.com designates 2620:100:9001:583::1 as permitted sender) smtp.mailfrom=jbaron@akamai.com;
-       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=akamai.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=RHCmhJ4n;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42f as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
+        h=mime-version:from:date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:list-post:list-help:list-archive:list-subscribe
          :list-unsubscribe;
-        bh=mIAMfG0h7CMppOhvg3pvgmTA56yfukiYFOGA6JGQ8pM=;
-        b=Xk1gn076sEXjythyFKtXwFd0rBc7DPIpdSWo3bW4RiJ4BrJkzPVlXikzhVTQOm2mKd
-         Dn3BOOOEBhFvDswQ5njbKJ9BB3+k2uPjwHiXtZ8+WQZUMO3ZIfcCmJ2u8WeaCGqxnFY7
-         jN1m9vfSMaKiV4d5+Bg7qGpqaK4TSZw4hFxcnpSwC6vH0FvU/Tieqm99nwSLI/+mzZaF
-         UESnI+HsyXkDYhOHjqvgVmWJ7fr4DjzegbtImirnPZ8meeSbp7awvCf4X+s6ZSZcA+o8
-         mhv57PC4czd5ZiY6HG69IKFpGK8L8XcQLr7FKDQ4MnhfLmP13dL3JR+Jma5MjPDNLyaU
-         AkoQ==
+        bh=FMPPbm2ihVbfnED0McbYLAZPAqYeIAtNrI0cfSQjff8=;
+        b=l+9ekdjg5H7P62FZv8biJRk37PQWoc7GQPUlwIzB/P1ySVrwiQbSj8+BMOjiWxcG8i
+         L6XcCugDUyyIrUFnz4+JlfSQ+BMNpvJokcEsuHcekrvyhDZrdyjn0sCVO3oRmdPDS7Fe
+         QlrObsIi7GqhnAOaIr9Ltlny0+T8v8rMHGVT147R+p8w38Hpbb1E1Jz9JixqWOqNLJpo
+         MO6NXwQsvR8xE3RhQ7wOOB+hnd/qhHXJIopr6Y8YSwbgKaYF/1JCr5o7BzETlj5WdDPX
+         Sl+kIhslG1tFmd9r/JgdpWY+Ehz/LvaAfqezlLTX9xCQJ6vXYJdFAcB+/CI7KN1zOi5g
+         n2fA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:subject:to:cc:references:from:message-id:date
-         :user-agent:mime-version:in-reply-to:content-language
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc
          :x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=mIAMfG0h7CMppOhvg3pvgmTA56yfukiYFOGA6JGQ8pM=;
-        b=e350PkYrUcn7DlUmZK91E2qKjGJsKxF9/ToIBOX6NaLsWtjRvRIctYALKKgEFHgnfs
-         j0vlSclvTMKsCXjbO6/j5be+TF2PK9JWx02w/7sexIHfGGUoJLBQRzTyDddQbvfg87vY
-         ApT759VF9OF6NIlWLqy6mO7t2L38l1RDq1AVA5RUcqln/AjuIZ+z50SrTWadJYMWNevb
-         PR/mYlLPSxNG6PljWc7QieJvw0cmiLRfubhCkCLr2nd+sUK+wjzxCNbAJSRo8+xxt6MS
-         J4pjlXpiEtxaTZ09160hM6wOHSQTEGVpIASg0mAg0Fn0cog6HSN/vqBTJakSAZL0XmtO
-         Ds8w==
-X-Gm-Message-State: ANhLgQ3yUlxkGOXVFCbb6Ol8Rnq7li40cpt33GOQFjwDo6BVWY8FLPLd
-	jrjFkZhypcsC6edKJJpI4ac=
-X-Google-Smtp-Source: ADFU+vvkyf8R8PVbz5rrxwBsWlegw5TmBM3AxQDCzRNhEVfAgdhOu2k07OSHHcgl9+I1d49k1OlfJA==
-X-Received: by 2002:a17:902:8508:: with SMTP id bj8mr4904674plb.309.1584648229520;
-        Thu, 19 Mar 2020 13:03:49 -0700 (PDT)
+        bh=FMPPbm2ihVbfnED0McbYLAZPAqYeIAtNrI0cfSQjff8=;
+        b=LB1MLQlbHodHg4mPiCKTSO1HVsgGxyf8nWMTXlQzvon6Z5X1ZGXCFmXhjKqy8jWODN
+         pzRGoMxxnJyeyEm8fXuL7ztFmTPzhF9CtsKr4KqJ8NEDZ7dv1qSfJfbFHe5aGtlST3PN
+         r3gKVtyrzfPUOQIGrSBdsyMLLRjXWFiS39Ts+PoHeA7oiGSLdoYGPLuP+y1i+pcD3Mvg
+         3K7kEwL8eiQ0rWLjIPESMGPd3YAQ5ayXjj3pGdNZtxr7w05A8/sVfvzwAhZUGe68Zukg
+         9a7CBMtKvkKggGpXoqRm14RsbbwK9jnGQVy5pjY6CM45DcVzZ7IfAQ08lgmv2gzmV+ck
+         3A4g==
+X-Gm-Message-State: ANhLgQ1RvvUq6878dRlAHrZAVSlvgziHp14nfo3cPocjtyzdDwiwtfp4
+	t82//dgafEyokIUorwjLTt0=
+X-Google-Smtp-Source: ADFU+vvRnRh14NmliLslNnc658078Xa/twiJ/aZc8FXZc0wwETDvzUTlKqeYSucvFxK6SV4CVCFyqA==
+X-Received: by 2002:a17:90a:d156:: with SMTP id t22mr5608134pjw.138.1584650236885;
+        Thu, 19 Mar 2020 13:37:16 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:b258:: with SMTP id t24ls1962526pgo.10.gmail; Thu, 19
- Mar 2020 13:03:49 -0700 (PDT)
-X-Received: by 2002:a62:2ad0:: with SMTP id q199mr6063705pfq.48.1584648228828;
-        Thu, 19 Mar 2020 13:03:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584648228; cv=none;
+Received: by 2002:a63:684:: with SMTP id 126ls2018034pgg.9.gmail; Thu, 19 Mar
+ 2020 13:37:16 -0700 (PDT)
+X-Received: by 2002:a63:b34d:: with SMTP id x13mr5184506pgt.317.1584650236427;
+        Thu, 19 Mar 2020 13:37:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584650236; cv=none;
         d=google.com; s=arc-20160816;
-        b=qGW4C36OmNC4iCXsnVQQ/hUeAoFhhIf9PPuPOS4FKi4pj+w9TS3Ii5pLoQJVh9D+TA
-         Zad3j9QgbNySJNRKwVU/B46AUxEmvTifPHbU25gyCBI6kLs8wm8UivDVX5XLJYjPlvjY
-         KeFI1De47xTmdqP0nVuW9cgd/+zmeUDNhjvOTpLglE3ZdKAs80F9sylgGYEYvK+6G7Oq
-         d0THSfypf8LKu+Vw0+sG8fnPmNZMPN49Hcwt6ufRnqYs3bYtB/cSv+sueL5QDNycYz4Q
-         H+M9/pv2ZE36dVuUUs/UhC1BE7zP8qKvBvMXezkXzbWvmwI86+Llx8UHqAfB8DyuTcil
-         i08g==
+        b=r6O99mOUe8TWSbgGCsIpvIwZyejmVqmjK5rJjzDoXS7DfdmW7nVnkYHI5titTGKEsz
+         NZg0MkXJ+lz38TbzkWC5sLNZgvdYTGoaJNMRgkCaFkikxEk1XyGrE3Otnt+k0+dIdCd4
+         Kr52ykLFHqZ9i2eS9B5V2BXHs7X+PoXSgk0vqj7hiygGj98H+6IAXu1xBUkOQRjmwD9z
+         Gck52Q6OY3Q3fPPFtzrZMljOqiEXnCugXmIW0MxfYLq9PPfq4P6hfTUqnExEdTaABENT
+         QDNczFhVMZ+sXux7dypp8JoLPO0XsQhK7Kq0Nyd0okuoyJSDaRgX1W80G8xCP1YJIxZW
+         NYJg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=mUn3O9VmAsOwEKC1EoFw6DJt4hCpb0XLTybtGwOerzo=;
-        b=spjEfHRJ6I8qUtbjPVjiDP2HAM1Jl8D8kUINzENTTLtBYRnoF/bZ043XhUNYOY9AWr
-         5qlxiTgZB+nWn/IuhNWxuFxKre0XWyIuhWNnZHGom0hd9tYVsHETnQIYCPd59HLvppuj
-         6NfbFmEz+8OeBvUfBS2WdHmwHxqortxpjlfr9DAYwqryV4EnzaLa2dmj69+tEJPnAP3Y
-         JCf80FLAx49H/wQyCO8QZ7VT7RGuYxFgxPh0ouVP9CccrIf+IzMNbrdHdL6KQMx2ws9Z
-         hth9k26NlSX7Cx+NuYnS3Nd7K/I2lKww77q+8Wa6U//oWqgjsEiOx/GPosjYiXh0vbD3
-         NcyQ==
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=V2dHlsylmcX+8vKv5Pjp+qF8XAmgIyui3eqX6hf1HaI=;
+        b=YT2EOwR33W4mbGlOnN1B5wndgIlh1tiJTF4l8I7XKCOPvI+FOzGuVt1orPd0pD2q3F
+         FJXpSgzY6XrYAcwVGTPG+6XSAU5VyF+7O2qc73c/Zxq/LCt2+nqD6KzSKeYSmK8V8mAP
+         KF3NX16a24tAMFqquyZberxXyGLwymwJybNgIGqKvpghKD5xOYsIXlwOLDoJkMoak9OC
+         yzIFuAoyuvAZgxbYto/eaTgXrSsRKhrOvEWfLfrFpBO/tvuYn6XE3b/qa3pcNDFd+sS0
+         WhSWg5Ysob0GOWdl3yWoL2+Bzp/1ypI9PKWBS2Uv+8niX+EBeLS1FeH3E6S8FUgt79p5
+         4mNQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@akamai.com header.s=jan2016.eng header.b=H3mDhUz8;
-       spf=pass (google.com: domain of jbaron@akamai.com designates 2620:100:9001:583::1 as permitted sender) smtp.mailfrom=jbaron@akamai.com;
-       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=akamai.com
-Received: from mx0a-00190b01.pphosted.com (mx0a-00190b01.pphosted.com. [2620:100:9001:583::1])
-        by gmr-mx.google.com with ESMTPS id j14si194456pgg.1.2020.03.19.13.03.48
+       dkim=pass header.i=@google.com header.s=20161025 header.b=RHCmhJ4n;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42f as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pf1-x42f.google.com (mail-pf1-x42f.google.com. [2607:f8b0:4864:20::42f])
+        by gmr-mx.google.com with ESMTPS id ml9si197429pjb.2.2020.03.19.13.37.16
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Mar 2020 13:03:48 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jbaron@akamai.com designates 2620:100:9001:583::1 as permitted sender) client-ip=2620:100:9001:583::1;
-Received: from pps.filterd (m0050093.ppops.net [127.0.0.1])
-	by m0050093.ppops.net-00190b01. (8.16.0.42/8.16.0.42) with SMTP id 02JJxfgF004755;
-	Thu, 19 Mar 2020 20:03:45 GMT
-Received: from prod-mail-ppoint3 (prod-mail-ppoint3.akamai.com [96.6.114.86] (may be forged))
-	by m0050093.ppops.net-00190b01. with ESMTP id 2yrqduruqg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 19 Mar 2020 20:03:45 +0000
-Received: from pps.filterd (prod-mail-ppoint3.akamai.com [127.0.0.1])
-	by prod-mail-ppoint3.akamai.com (8.16.0.27/8.16.0.27) with SMTP id 02JK3Z4Y001211;
-	Thu, 19 Mar 2020 16:03:44 -0400
-Received: from prod-mail-relay14.akamai.com ([172.27.17.39])
-	by prod-mail-ppoint3.akamai.com with ESMTP id 2yrtm0f8u2-1;
-	Thu, 19 Mar 2020 16:03:42 -0400
-Received: from [0.0.0.0] (prod-ssh-gw01.bos01.corp.akamai.com [172.27.119.138])
-	by prod-mail-relay14.akamai.com (Postfix) with ESMTP id C2BDF85C23;
-	Thu, 19 Mar 2020 20:03:39 +0000 (GMT)
-Subject: Re: [PATCH v2] dynamic_debug: Use address-of operator on section
- symbols
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        Andrew Morton <akpm@linux-foundation.org>
-References: <20200220051320.10739-1-natechancellor@gmail.com>
- <20200319015909.GA8292@ubuntu-m2-xlarge-x86>
-From: "'Jason Baron' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Message-ID: <4b766edb-73e2-c295-22eb-b501405baa9f@akamai.com>
-Date: Thu, 19 Mar 2020 16:03:39 -0400
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.9.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Mar 2020 13:37:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42f as permitted sender) client-ip=2607:f8b0:4864:20::42f;
+Received: by mail-pf1-x42f.google.com with SMTP id c19so2027916pfo.13
+        for <clang-built-linux@googlegroups.com>; Thu, 19 Mar 2020 13:37:16 -0700 (PDT)
+X-Received: by 2002:a63:4d6:: with SMTP id 205mr5085665pge.10.1584650235535;
+ Thu, 19 Mar 2020 13:37:15 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20200319015909.GA8292@ubuntu-m2-xlarge-x86>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Thu, 19 Mar 2020 13:37:04 -0700
+Message-ID: <CAKwvOd=mOmU1S1g5oDDy3rLjnp543Fu6PSVAJyvxhyQDvpOM+A@mail.gmail.com>
+Subject: call to memset() with UACCESS enabled
+To: Josh Poimboeuf <jpoimboe@redhat.com>, Peter Zijlstra <peterz@infradead.org>
+Cc: clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.138,18.0.645
- definitions=2020-03-19_08:2020-03-19,2020-03-19 signatures=0
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 malwarescore=0
- phishscore=0 bulkscore=0 spamscore=0 mlxscore=0 mlxlogscore=999
- adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.0.1-2002250000 definitions=main-2003190083
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.138,18.0.645
- definitions=2020-03-19_07:2020-03-19,2020-03-19 signatures=0
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0 mlxscore=0 phishscore=0
- clxscore=1011 impostorscore=0 priorityscore=1501 lowpriorityscore=0
- suspectscore=0 bulkscore=0 adultscore=0 mlxlogscore=999 spamscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2003020000
- definitions=main-2003190083
-X-Original-Sender: jbaron@akamai.com
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@akamai.com header.s=jan2016.eng header.b=H3mDhUz8;       spf=pass
- (google.com: domain of jbaron@akamai.com designates 2620:100:9001:583::1 as
- permitted sender) smtp.mailfrom=jbaron@akamai.com;       dmarc=pass
- (p=QUARANTINE sp=NONE dis=NONE) header.from=akamai.com
-X-Original-From: Jason Baron <jbaron@akamai.com>
-Reply-To: Jason Baron <jbaron@akamai.com>
+ header.i=@google.com header.s=20161025 header.b=RHCmhJ4n;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42f
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -163,62 +124,23 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+Hello Josh and Peter,
+I'm looking to track down what I think is our last objtool warning:
+https://github.com/ClangBuiltLinux/linux/issues/876
 
+Can you tell me a little bit more about what uaccess is?  I wonder if
+an assignment is getting turned into a memset outside of a "critical
+section" (for some meaning of "critical section" that I don't yet
+understand), which is what objtool is validating against?
 
-On 3/18/20 9:59 PM, Nathan Chancellor wrote:
-> On Wed, Feb 19, 2020 at 10:13:20PM -0700, Nathan Chancellor wrote:
->> Clang warns:
->>
->> ../lib/dynamic_debug.c:1034:24: warning: array comparison always
->> evaluates to false [-Wtautological-compare]
->>         if (__start___verbose == __stop___verbose) {
->>                               ^
->> 1 warning generated.
->>
->> These are not true arrays, they are linker defined symbols, which are
->> just addresses. Using the address of operator silences the warning and
->> does not change the resulting assembly with either clang/ld.lld or
->> gcc/ld (tested with diff + objdump -Dr).
->>
->> Link: https://github.com/ClangBuiltLinux/linux/issues/894
->> Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
->> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
->> ---
->> v1 -> v2: https://lore.kernel.org/lkml/20200219045423.54190-5-natechancellor@gmail.com/
->>
->> * No longer a series because there is no prerequisite patch.
->> * Use address-of operator instead of casting to unsigned long.
->>
->>  lib/dynamic_debug.c | 2 +-
->>  1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/lib/dynamic_debug.c b/lib/dynamic_debug.c
->> index aae17d9522e5..8f199f403ab5 100644
->> --- a/lib/dynamic_debug.c
->> +++ b/lib/dynamic_debug.c
->> @@ -1031,7 +1031,7 @@ static int __init dynamic_debug_init(void)
->>  	int n = 0, entries = 0, modct = 0;
->>  	int verbose_bytes = 0;
->>  
->> -	if (__start___verbose == __stop___verbose) {
->> +	if (&__start___verbose == &__stop___verbose) {
->>  		pr_warn("_ddebug table is empty in a CONFIG_DYNAMIC_DEBUG build\n");
->>  		return 1;
->>  	}
->> -- 
->> 2.25.1
->>
-> 
-> Gentle ping for review/acceptance.
-> 
-> Cheers,
-> Nathan
-
-Works for me.
-
-Acked-by: Jason Baron <jbaron@akamai.com>
+I didn't see any pointers for this warning in
+tools/objtool/Documentation/stack-validation.txt (the tips on how to
+proceed given an observed warning is a great technique!)
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/4b766edb-73e2-c295-22eb-b501405baa9f%40akamai.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DmOmU1S1g5oDDy3rLjnp543Fu6PSVAJyvxhyQDvpOM%2BA%40mail.gmail.com.
