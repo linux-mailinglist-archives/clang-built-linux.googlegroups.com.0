@@ -1,139 +1,126 @@
-Return-Path: <clang-built-linux+bncBDPZFQ463EFRB2GHZPZQKGQEL5ZNJLI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDPPFIEASMFBB562ZPZQKGQES6DHBII@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x139.google.com (mail-lf1-x139.google.com [IPv6:2a00:1450:4864:20::139])
-	by mail.lfdr.de (Postfix) with ESMTPS id A9D4118AB09
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Mar 2020 04:15:52 +0100 (CET)
-Received: by mail-lf1-x139.google.com with SMTP id x7sf417517lff.15
-        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Mar 2020 20:15:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584587752; cv=pass;
+Received: from mail-pj1-x103e.google.com (mail-pj1-x103e.google.com [IPv6:2607:f8b0:4864:20::103e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 563BC18AB52
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Mar 2020 04:56:41 +0100 (CET)
+Received: by mail-pj1-x103e.google.com with SMTP id l5sf710532pjr.3
+        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Mar 2020 20:56:41 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584590200; cv=pass;
         d=google.com; s=arc-20160816;
-        b=vbIs/HezlX2e2HShcgjQawprpp2MIS6/NPy7diGTNu3vAj8k1NYK54Lb7fuAedeSCW
-         soJuiggnXQw6HmneHzFmZYV83+aidhs2tu57HK8cP1qDYr3UnjfbLT+vSfzhOqfeqq4S
-         3/HLKGdHlu8HN/djNO691MdVQWKpdBEVJhEQPAHSmmcv2ohGtdpc+9RfGPEsAUoLKRTD
-         j4w6cQfQgQ2sJHfzcA9kO4NsNiVIW6qevxZA86OGQnEU0QdcQGKAez8O/kTRAj/S5Gl7
-         nconmm2dUrA65J3IJcg+ANhYHov6Nicy5luZuH58bt7Cgq1Dz9sA5bziN6Isa2c11DtP
-         7nTA==
+        b=fyRG9S6G95QTEqV9atsBElPV1whma3uI60jCQM0eQ8AvNoMR9ez7nhyQYanl7JGbzW
+         ubIBdgjJDnXFrzoG+EJ0ObIWiI48X1iOuM+QLhB413VHWza76oRu98gLLOyt1bgdwdr0
+         C+FwKdIjgXntq+NNK2Z+wyrnsjAbJly/diQLQfeR691Iy4lDiIvjgVC1rmjnttC0fq6O
+         DhStbTtaePCNdm9YPZyd6hK4ajr3R2JRSlKua09RyKQYtvXCdwM8JK4GJkYtkn9vN9h2
+         htPpMOVA3nH+OpTqm+wnpBqb2UXNiFPRhBM2SF2jtJZIKjzYP3Y5KbB1W/h9eHuCQybS
+         vkaQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=nLMNUqdnJIx/7TgtF+YOKNmihCNA/mrKtAweSOGT/d4=;
-        b=gBil+HSTuyxwNhe2YaaxnmP+tgvBUxAf7DowYoRUrKHAljsgfez95jt+2XxVlhVXUy
-         7/sMAG6EsT9ugG96zulMDAA0dNAp6qQE9UqVKxtB9tsuh7ibyX8NQNS4lieT/CxGAEF8
-         tcMvE1HzxT5X06UBhsdrvRMx2p0OLm1OQYMQGQEuQ4iCMaIlttGuFSZSaZRJDHLwUEqj
-         jvRHODfgWj5xyaNzBXCvYgLnzA86u1RYwkbrA4vR4sP6JvLW2MphwINZtwKsFzmbgrYl
-         +5q2Loe44os7H7RtgIU1NYO55LSux9mFqyTe6oUmepZcQ86kuA5kThn1x0PYCAsZ3rom
-         kzJg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=vV8BaAcfG9fZCFD4KcZgFY+tdA8MovkzOS8s0UYd500=;
+        b=nmlt3vUXXyE2R7oRqOryGWxu+JDuD+lbtJTrPvvK933bugipb5LKVBoVAGaAfT+Smz
+         Ooh/oER7prwSzS1u86R9nkR7rVaXCu86ZqGFrukh3odQibWaTCn9sAlysjxxUJOWHiMX
+         wWTXX+M/J2fNl9BIGk+tFaKE3JaUZpCPJ0gZmzWTxS1cMGM0eY26EBTBEFBrIMZAO0D6
+         8wMYSkgB6e5pID4k3ZIfC2+AoKDEr0Vvsmm/d/EBnPAlrRqlNMXHuwBPZdXfVcrpaOyH
+         20aYVzt742TkB4YZr0+wne2rn92qj+Z6Dm7gdbJtxgn7+bCSqgcf+rRzcqGcEZcbrdct
+         Zyqw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=juAR90r9;
-       spf=pass (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b="HLqJ5V/9";
+       spf=pass (google.com: domain of irogers@google.com designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=irogers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nLMNUqdnJIx/7TgtF+YOKNmihCNA/mrKtAweSOGT/d4=;
-        b=NSdDdTG6SlrTU4BI0rHN2Hx13m5+G5q4gSnXF435SbqCk7pU2fIwMfnrXg1/odgvSQ
-         FeM7/COr/GsZ2KAS3gZqVBrYwjFiS9M3rI7J5+v+2hjmL/La1eH3LjvkxK12XiCYjpbM
-         ayZ+E6kpeX+MIzBFt/YBcakP7NJ63uINubScbeXssg7hXJjp6Mg/jAMRqfcpOATHz0d2
-         pun6iyynjvMP/t/BrZ8dS4ynpETSr5DHUGPCay5hXZLe9GjDuwoZmq56WILhaAMoTCny
-         Uo8wM7ajGYq44lP2b7bJEDPgusKBOu2C1p89aFZwpN10ZuI7HrorvHYWkS2ghZQuaq7a
-         em5g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=nLMNUqdnJIx/7TgtF+YOKNmihCNA/mrKtAweSOGT/d4=;
-        b=YrYIh7hFqfkKnrehja52NUZwHv5NVCV+ny2bbZUpPqB8PR32gT1sD/n4CT6G99Q9kT
-         pK4QnzAlh5tkkVbOlKPak4rXDIaO0y11DyQpQNpgWz2eMaB9xx+IFL+G5o4FupbSki06
-         kB1e90Eqbh6lRoDycn2rAT0ca+Smez8S4kwp8v+mBgibpvMpjBGy3LQ6AdK6ZDbPqo5b
-         HEVnrtA8UYX4wHZBTIwlg1r0E2FmzlIwds6vsEA3KbVRTAhtRqO/FWdIK5VdyafWZ+oF
-         PiRAg/qOx0WHBYifolBi0wUZTpKa2lnrTpjbzJ5azNXmNUxwUc50xFodPDPbEhfDiUX8
-         uCIw==
+        bh=vV8BaAcfG9fZCFD4KcZgFY+tdA8MovkzOS8s0UYd500=;
+        b=MpyK2GmQFt4i6ObG97Q0C5oc4+G1qS1Leb/MkhSVtjRcDWIAyOSgWmCmkEw60VojkQ
+         XXEkqvtx0ZrvalLP+KST+Jayhdh9jlFePdDaqCaBvJYNgnCooKJNffQCc25OT3pK0zAe
+         U9RahPBcJQ5QpFBnmhQ1DDQD+pjd0EWC7AXDR3MdHKrpKn93F4g0WMD69Bl4s6U47bQG
+         txBk0VAklMN1TfVIxnxYKUqunr4Z1pUXJwPZ37U3J0cX+BFEsSQNN59/z0PE7dpdl6LH
+         lVcx/uF2W7efM1V6VEWLhmuxlGupreGXpS8HmIZLsxKMTh8I8DJCFR+3ORLeJFYAywU3
+         Epuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nLMNUqdnJIx/7TgtF+YOKNmihCNA/mrKtAweSOGT/d4=;
-        b=YZ2vfPyWA46bwq+uzTTc+uf5wPHsdNXTjIhSTVRzhwEHJycRorp3+AXUdfkFOQz1P/
-         hPWti01FkARABO9JZUa+EAWCJFksdVYBTo6gdoa+GbmgB6qBUXmn3aGUMjfjayVcUv9S
-         fxobCB9As398fvPjDjsPgnckGCki5g06kV1bgMCeYZ+NguhwTvuPKD9iO3DYTSa0xW5G
-         DJmBSp57a26dBJADNx1Q34jOC4TYzrEJe2SDj0sULPGO2ZGOSo3IyaTHbLno00J0KVE4
-         bZECETvffGBLSxeG0K0mAjuJzr3TuI4MnRFBejC/InTWNWa/tJAiSG+/fmTv0/tmiQwb
-         6WKA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ2EQurHJJXbKF2Li26i9CLsZafktBDdPw5u8QMH186kWcgxlJ1E
-	VIhB/O4BKBD0sE/dpSekaTk=
-X-Google-Smtp-Source: ADFU+vs40qR5uYdyMLgygMxB6IK/ntl/SF8eNb2vwG6GzTFvh/z+n5yFXjKilh2Fzk1SuxcR8jO0Dw==
-X-Received: by 2002:a19:6e0f:: with SMTP id j15mr752141lfc.76.1584587752180;
-        Wed, 18 Mar 2020 20:15:52 -0700 (PDT)
+        bh=vV8BaAcfG9fZCFD4KcZgFY+tdA8MovkzOS8s0UYd500=;
+        b=cOtTZ6VZr5KkRvvvp9O4Gtl8TieQ2yPnKXQ/Wa2oKrI0EVynQhYmAiUebfdmoxpf4K
+         DPGvDwcnZXlfajqrqFcV+PYuPFjakXCTKo3xa3iWbWYabex/Az/OD3fL0NUOTa9b8k/q
+         Bw19jLXNJoS7zSXi94ACdsQGPG0Adn0EU7KN/v6wCE3NPmSTTZEXtjEFk+8J120hzoQU
+         yT7XUukQLe3fc1YHBd/cxuVEWqNx7CsHD8JnWc4J+eEs9QVYAnx+T8zZgoGLJEfsupVG
+         fEtWmH/UVsvHUEY0wLxkOk5SCulpUi6xNAFvNlGEZ/x+dsfJjJxArKy24TfBzCc6QX4e
+         SdSg==
+X-Gm-Message-State: ANhLgQ1Ac1QbtWfHpCRMTfOUaSXUA+/7ADPwLEf+USpxTw5q6SPbuUy7
+	JHffzciPdiqFhsncdOqPy7Q=
+X-Google-Smtp-Source: ADFU+vvoAMEKmy8PzGpnXbPR4PBxX12grPMjbzVzQa9s+klextHkwK6Keh3i9Gaxh3z3pHGuN3UJvQ==
+X-Received: by 2002:a63:1d4:: with SMTP id 203mr1246572pgb.416.1584590199846;
+        Wed, 18 Mar 2020 20:56:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:8541:: with SMTP id u1ls183261ljj.10.gmail; Wed, 18 Mar
- 2020 20:15:51 -0700 (PDT)
-X-Received: by 2002:a05:651c:112c:: with SMTP id e12mr718111ljo.7.1584587751621;
-        Wed, 18 Mar 2020 20:15:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584587751; cv=none;
+Received: by 2002:a63:5f8b:: with SMTP id t133ls905199pgb.1.gmail; Wed, 18 Mar
+ 2020 20:56:39 -0700 (PDT)
+X-Received: by 2002:aa7:9f03:: with SMTP id g3mr1836525pfr.287.1584590199377;
+        Wed, 18 Mar 2020 20:56:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584590199; cv=none;
         d=google.com; s=arc-20160816;
-        b=HnCSjxgn6TinaZliunlvRR8cf9yc2Q3KKP7E4mbgFfaaHH/KP5m9LuQLlg27fC3Z+D
-         UhjRBrOKA014144AthnTiIEdlzjrR7EMyOw5zunKx5nrzG7fLxwFYuhvh/O7IjUtVzKp
-         A1/qxVfcusAfhxpfR9EuOjKhYI9QEkTlrFR9ir5oizyr+SXNvt+ctyfJfYIInOanVfBi
-         hp1YW9AWpsDav7lwx4TnRRI024a2IHFc6b98gvst+96b9zsPQV7/YXp2Krohy56w7VnL
-         msBXFIuhaHkunyZKr2cGUGeotfUEsTXjbdw0mY7ApoxdiUMBhdRI45hGeAByOlBcHTV5
-         d9rw==
+        b=wcarGJfDSVaJqwuB2Ry4xs5wCDkNAm52UtFOeFjbQKWfM4IprAn426sJ6FmVglcTCW
+         cQ3lByxFxejCRRBh3HRWHSb5eUHxvaLjjABxH0kVSqVozUAPy5hm7C6n42lelcn4Up+2
+         dTmzbWHu7y+LUkfl5Ti1lcH4t1n+fTzKMhlPyWvg3Co5wvk57Jq6b7LMWZCuezAVwUQi
+         fW5WCnLj1+J4fb/eUrVkpgWmGNPc7Seha0P40DrjVvdVcg5hMzPq4xe6mtMenWrgrcpG
+         W4EOf51ik93P/FNnROSDBJzrGPR2GI10sqTI8qeyn+79ZC73pukPeRje7PSTd+ByYsge
+         4+2w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=qXI23a1IwY3ie8JXqjTRuDBwO8bkem8ij+8i6dgXZmY=;
-        b=e/ac7iOI1z6i4m+fgLvLJfrrWC3fc7HhGP+ZuJIsODJELj0MnRpulgUNdLffKBH1BH
-         BwrsdaeKJlOFuESM3+JO1J0ubcSuglbJWu+8Z23+MRVveOEv7KsTM7P7mmNTLZ3X3sMt
-         XJ69t3Xcm3256fKD6LFUNLNXtfvH3rKTZEzlUeT1qIGRTkyI1gzsUVYGSGyOAR4FgkMw
-         5/lQo0GzrulsfIFt9X3cmMfJBuHN8n/pQSBkJ9pOyYU7gRdbgibxEtgnJvcdbbsSNGXx
-         EWavWpUSPFawwlOMaV5c4d8cO3M5yBamTYH1Xsh/M0GzLh6kZWMqCJURgn3XTHbmI6TE
-         Y2rg==
+        bh=OL5W/cXAcaO5++QZJaWBgs8McWwwSxdm+ZdDM1yl8To=;
+        b=T6M5ZLKgiBh3Uwr9oFnEMchPXCdrcXBWFihF05ZF6QBaZeOqwVC7gh6ZvaiceyIjSi
+         3UCj14ym6OopAL8NkV3Y4DHyglFERb/qt67posk2+faPHFHrVZf9pYKFN1UOF8EDg1kK
+         gyRCQSnqpCmdFIC3peeTzRf+l2hKmkFgbIE0XMirQGS+wjHsT9VcADAFz6bSA9Fwaoxs
+         6CSG+jy/kB3BV6+K2/PnadHDOiR+HH9Iq7tGjr5MTvqczIkDkXRGjA6ZCFScl9UStPsu
+         NFiaqvGjZg26ZNQne+MsWHx611FSC6y01bcbu+0+ZoKpTjao1CqxmCB+Y1AEes3MEn4l
+         rwEQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=juAR90r9;
-       spf=pass (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wr1-x442.google.com (mail-wr1-x442.google.com. [2a00:1450:4864:20::442])
-        by gmr-mx.google.com with ESMTPS id d12si40061lfi.2.2020.03.18.20.15.51
+       dkim=pass header.i=@google.com header.s=20161025 header.b="HLqJ5V/9";
+       spf=pass (google.com: domain of irogers@google.com designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=irogers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-qk1-x741.google.com (mail-qk1-x741.google.com. [2607:f8b0:4864:20::741])
+        by gmr-mx.google.com with ESMTPS id i19si237418pjx.1.2020.03.18.20.56.39
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Mar 2020 20:15:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) client-ip=2a00:1450:4864:20::442;
-Received: by mail-wr1-x442.google.com with SMTP id b2so886309wrj.10
-        for <clang-built-linux@googlegroups.com>; Wed, 18 Mar 2020 20:15:51 -0700 (PDT)
-X-Received: by 2002:a05:6000:111:: with SMTP id o17mr1210855wrx.111.1584587751002;
- Wed, 18 Mar 2020 20:15:51 -0700 (PDT)
+        Wed, 18 Mar 2020 20:56:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of irogers@google.com designates 2607:f8b0:4864:20::741 as permitted sender) client-ip=2607:f8b0:4864:20::741;
+Received: by mail-qk1-x741.google.com with SMTP id p6so1192066qkm.0
+        for <clang-built-linux@googlegroups.com>; Wed, 18 Mar 2020 20:56:39 -0700 (PDT)
+X-Received: by 2002:a25:c482:: with SMTP id u124mr1628208ybf.286.1584590198061;
+ Wed, 18 Mar 2020 20:56:38 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200318002500.52471-1-natechancellor@gmail.com>
- <20200318210408.4113-1-natechancellor@gmail.com> <CAKwvOdmjzemFW9jF-CW1RhLJJbMvFO_NrPUeyi=rdLNVZURsfw@mail.gmail.com>
-In-Reply-To: <CAKwvOdmjzemFW9jF-CW1RhLJJbMvFO_NrPUeyi=rdLNVZURsfw@mail.gmail.com>
-From: Alex Deucher <alexdeucher@gmail.com>
-Date: Wed, 18 Mar 2020 23:15:40 -0400
-Message-ID: <CADnq5_NjjorZhuAx+4gCW=LLGGvRhYqVKXUhAcXriehN3_y-UQ@mail.gmail.com>
-Subject: Re: [PATCH v2] drm/amdgpu: Remove unnecessary variable shadow in gfx_v9_0_rlcg_wreg
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Nathan Chancellor <natechancellor@gmail.com>, "David (ChunMing) Zhou" <David1.Zhou@amd.com>, 
-	LKML <linux-kernel@vger.kernel.org>, dri-devel <dri-devel@lists.freedesktop.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	amd-gfx list <amd-gfx@lists.freedesktop.org>, Alex Deucher <alexander.deucher@amd.com>, 
-	Joe Perches <joe@perches.com>, =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+References: <20200316041431.19607-1-irogers@google.com> <20200318104011.GF821557@krava>
+In-Reply-To: <20200318104011.GF821557@krava>
+From: "'Ian Rogers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 18 Mar 2020 20:56:26 -0700
+Message-ID: <CAP-5=fXQzLMuv-6EWGdFY1p5oLjV9301k1tkYL+R7qYHQR6wXA@mail.gmail.com>
+Subject: Re: [PATCH] perf parse-events: fix memory leaks found on parse_events
+To: Jiri Olsa <jolsa@redhat.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Namhyung Kim <namhyung@kernel.org>, 
+	Andi Kleen <ak@linux.intel.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Leo Yan <leo.yan@linaro.org>, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Stephane Eranian <eranian@google.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: alexdeucher@gmail.com
+X-Original-Sender: irogers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=juAR90r9;       spf=pass
- (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::442
- as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@google.com header.s=20161025 header.b="HLqJ5V/9";       spf=pass
+ (google.com: domain of irogers@google.com designates 2607:f8b0:4864:20::741
+ as permitted sender) smtp.mailfrom=irogers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Ian Rogers <irogers@google.com>
+Reply-To: Ian Rogers <irogers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,99 +133,105 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Mar 18, 2020 at 5:08 PM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
+On Wed, Mar 18, 2020 at 3:40 AM Jiri Olsa <jolsa@redhat.com> wrote:
 >
-> On Wed, Mar 18, 2020 at 2:05 PM Nathan Chancellor
-> <natechancellor@gmail.com> wrote:
+> On Sun, Mar 15, 2020 at 09:14:31PM -0700, Ian Rogers wrote:
+> > Memory leaks found by applying LLVM's libfuzzer on the parse_events
+> > function.
 > >
-> > clang warns:
-> >
-> > drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c:754:6: warning: variable 'shadow'
-> > is used uninitialized whenever 'if' condition is
-> > false [-Wsometimes-uninitialized]
-> >         if (offset == grbm_cntl || offset == grbm_idx)
-> >             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> > drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c:757:6: note: uninitialized use
-> > occurs here
-> >         if (shadow) {
-> >             ^~~~~~
-> > drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c:754:2: note: remove the 'if' if
-> > its condition is always true
-> >         if (offset == grbm_cntl || offset == grbm_idx)
-> >         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> > drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c:738:13: note: initialize the
-> > variable 'shadow' to silence this warning
-> >         bool shadow;
-> >                    ^
-> >                     = 0
-> > 1 warning generated.
-> >
-> > shadow is only assigned in one condition and used as the condition for
-> > another if statement; combine the two if statements and remove shadow
-> > to make the code cleaner and resolve this warning.
-> >
-> > Fixes: 2e0cc4d48b91 ("drm/amdgpu: revise RLCG access path")
-> > Link: https://github.com/ClangBuiltLinux/linux/issues/936
-> > Suggested-by: Joe Perches <joe@perches.com>
-> > Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-> > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-
-Applied.  thanks!
-
-Alex
-
+> > Signed-off-by: Ian Rogers <irogers@google.com>
 > > ---
+> >  tools/lib/perf/evlist.c        | 2 ++
+> >  tools/perf/util/parse-events.c | 2 ++
+> >  tools/perf/util/parse-events.y | 3 ++-
+> >  3 files changed, 6 insertions(+), 1 deletion(-)
 > >
-> > v1 -> v2:
-> >
-> > * Remove shadow altogether, as suggested by Joe Perches.
-> > * Add Nick's Reviewed-by, as I assume it still stands.
+> > diff --git a/tools/lib/perf/evlist.c b/tools/lib/perf/evlist.c
+> > index 5b9f2ca50591..6485d1438f75 100644
+> > --- a/tools/lib/perf/evlist.c
+> > +++ b/tools/lib/perf/evlist.c
+> > @@ -125,8 +125,10 @@ static void perf_evlist__purge(struct perf_evlist *evlist)
+> >  void perf_evlist__exit(struct perf_evlist *evlist)
+> >  {
+> >       perf_cpu_map__put(evlist->cpus);
+> > +     perf_cpu_map__put(evlist->all_cpus);
 >
-> yep, thanks
+> ugh, yes, could you please put it to separate libperf patch?
+
+Done. https://lkml.org/lkml/2020/3/18/1318
+
+> >       perf_thread_map__put(evlist->threads);
+> >       evlist->cpus = NULL;
+> > +     evlist->all_cpus = NULL;
 >
+> there's already change adding this waiting on the list:
+>   https://lore.kernel.org/lkml/1583665157-349023-1-git-send-email-zhe.he@windriver.com/
+
+I'm not seeing this in perf/core on
+git://git.kernel.org/pub/scm/linux/kernel/git/acme/linux.git
+The previous thread mentions Arnaldo porting it. It is only 1
+statement so I've left it in.
+
+> >       evlist->threads = NULL;
+> >       fdarray__exit(&evlist->pollfd);
+> >  }
+> > diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
+> > index a14995835d85..997862224292 100644
+> > --- a/tools/perf/util/parse-events.c
+> > +++ b/tools/perf/util/parse-events.c
+> > @@ -1482,6 +1482,8 @@ int parse_events_add_pmu(struct parse_events_state *parse_state,
 > >
-> >  drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c | 6 +-----
-> >  1 file changed, 1 insertion(+), 5 deletions(-)
-> >
-> > diff --git a/drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c b/drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c
-> > index 7bc2486167e7..496b9edca3c3 100644
-> > --- a/drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c
-> > +++ b/drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c
-> > @@ -735,7 +735,6 @@ void gfx_v9_0_rlcg_wreg(struct amdgpu_device *adev, u32 offset, u32 v)
-> >         static void *spare_int;
-> >         static uint32_t grbm_cntl;
-> >         static uint32_t grbm_idx;
-> > -       bool shadow;
-> >
-> >         scratch_reg0 = adev->rmmio + (adev->reg_offset[GC_HWIP][0][mmSCRATCH_REG0_BASE_IDX] + mmSCRATCH_REG0)*4;
-> >         scratch_reg1 = adev->rmmio + (adev->reg_offset[GC_HWIP][0][mmSCRATCH_REG1_BASE_IDX] + mmSCRATCH_REG1)*4;
-> > @@ -751,10 +750,7 @@ void gfx_v9_0_rlcg_wreg(struct amdgpu_device *adev, u32 offset, u32 v)
-> >                 return;
-> >         }
-> >
-> > -       if (offset == grbm_cntl || offset == grbm_idx)
-> > -               shadow = true;
-> > -
-> > -       if (shadow) {
-> > +       if (offset == grbm_cntl || offset == grbm_idx) {
-> >                 if (offset  == grbm_cntl)
-> >                         writel(v, scratch_reg2);
-> >                 else if (offset == grbm_idx)
-> > --
-> > 2.26.0.rc1
-> >
+> >               list_for_each_entry_safe(pos, tmp, &config_terms, list) {
+> >                       list_del_init(&pos->list);
+> > +                     if (pos->free_str)
+> > +                             free(pos->val.str);
 >
+> ack, would be nice to have  perf_evsel__free_config_terms generalized
+> to work directly over config terms list, so we'd have only single
+> cleanup function
+>
+> >                       free(pos);
+> >               }
+> >               return -EINVAL;
+> > diff --git a/tools/perf/util/parse-events.y b/tools/perf/util/parse-events.y
+> > index 94f8bcd83582..8212cc771667 100644
+> > --- a/tools/perf/util/parse-events.y
+> > +++ b/tools/perf/util/parse-events.y
+> > @@ -44,7 +44,7 @@ static void free_list_evsel(struct list_head* list_evsel)
+> >
+> >       list_for_each_entry_safe(evsel, tmp, list_evsel, core.node) {
+> >               list_del_init(&evsel->core.node);
+> > -             perf_evsel__delete(evsel);
+> > +             evsel__delete(evsel);
+>
+> ack
+>
+> >       }
+> >       free(list_evsel);
+> >  }
+> > @@ -326,6 +326,7 @@ PE_NAME opt_pmu_config
+> >       }
+> >       parse_events_terms__delete($2);
+> >       parse_events_terms__delete(orig_terms);
+> > +     free(pattern);
+>
+> ack
+>
+> could you please send the separate change for libperf?
+> and synchronize with that other patch mentioned above
+
+Done-ish. Thanks,
+Ian
+
+> thanks,
+> jirka
 >
 > --
-> Thanks,
-> ~Nick Desaulniers
-> _______________________________________________
-> amd-gfx mailing list
-> amd-gfx@lists.freedesktop.org
-> https://lists.freedesktop.org/mailman/listinfo/amd-gfx
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200318104011.GF821557%40krava.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CADnq5_NjjorZhuAx%2B4gCW%3DLLGGvRhYqVKXUhAcXriehN3_y-UQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAP-5%3DfXQzLMuv-6EWGdFY1p5oLjV9301k1tkYL%2BR7qYHQR6wXA%40mail.gmail.com.
