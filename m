@@ -1,129 +1,149 @@
-Return-Path: <clang-built-linux+bncBDAZZCVNSYPBBZX6Z3ZQKGQEAHZ5Y2Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCXO5TVRYEHBBWX7Z3ZQKGQEFKYMK4I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
-	by mail.lfdr.de (Postfix) with ESMTPS id B956418BFAA
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Mar 2020 19:52:23 +0100 (CET)
-Received: by mail-yb1-xb39.google.com with SMTP id j10sf1559770ybh.22
-        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Mar 2020 11:52:23 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584643942; cv=pass;
+Received: from mail-wm1-x33f.google.com (mail-wm1-x33f.google.com [IPv6:2a00:1450:4864:20::33f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4E82218BFAF
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Mar 2020 19:54:19 +0100 (CET)
+Received: by mail-wm1-x33f.google.com with SMTP id f9sf1371020wme.7
+        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Mar 2020 11:54:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584644059; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QAS4wRRhuR3ZsGMAcwV3qnZn70X+JZs05P8zlZPELAvVIR5MKt7meKwqhycms5ZDT4
-         hMqPr3BsWCsUiUjKp2qwBBqx9aJllOa5pWegkcIth7LAzDeBRuExyYc1Ol1yFkn043u0
-         HpDyclB2A3J0BzbiXL8Z6m1tO21mn/YhqW1E62C2mU/Ueo6W2siL8o/j+KWPWrDcBqvC
-         VFA1hzXHJMQUgji4LLDghx5CWxk4Fk0FZ+0khQuf+iIdYbKQAgqlCcfFf1DlxJyWygQw
-         hE1TFNaDObHHaRZqS41HQ3Tn1GQ0yBq2apzeizfnw/UY3ah3fIwBjjgF9Jnr6Gld6COo
-         vNqw==
+        b=peCt34zcHC4unU1MMUck3y+fwyPLmySHrO+xTuNWkeEEBcIGdcogWlSQpUG7Xe0cC4
+         qbGYNJNk7jlY7KdDv+XUltPPISqIoyou2pvLXFIf2sjGE6dVrJ5bYSfhlimHfaOBrPd6
+         MWR2JCmplni6erFPfYkF7FqYsp3Zoi4cV7QurQPFzaglJzATIF0myVOtetx8TM1YoO9M
+         iXMhBFE0tPbraLJF4dFBu+u2xEH7QC0QJoXdZpnEQu7jjo4p5WsMWjZ3EqXsUOL8keFr
+         0VUi3B8IFNgdHHIG9mdhvN8iCY4jLxMN3YRW3pVdZHYOKoFd+4aAj1psBFjUSyBWjuWJ
+         7fhw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=9HCcuzKWKbHpwDdOWnxF29DPj1zpfrzPYHoLGJOywqg=;
-        b=XoxAUgLieSrC2pYgg6GhXFK+kg7XULXzII07nYxojLCX9U84PaQ2W/FVZqbZsLyNDq
-         /llPpQr3/g8nLXKy4+wFrhyQUnoZd2wKaIjocV9Y6KFET1L+EmXoyjeAacpyNzpaEveE
-         kERHRnklu3RIX2adLnjvazo6hOsgTBLiphUKWJpn3ByUBFwE9yDs33ohG2lduFLCEdiK
-         lA29KRpdVJO9QxZoO2w8DA28ZpiuA4QxKh0YlKrCta7lt0W++v+vnMBQoS19PmJa0XJ9
-         Sn1RPO+9SDBxsJbJ/I/AjQuQ40i3+oxOiZIcsM6kl1agC3jyO2YY099HMBxl3872ZMn1
-         4i2w==
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :message-id:in-reply-to:subject:cc:to:from:date:wdcironportexception
+         :ironport-sdr:ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=SvXLfwOGOcwMaCmwVJw2LW1iwzfGEVfy+j3E0IXYKno=;
+        b=HtzIpGQlTmA9oEA8WE4YETFvc+xTZom2J1fZ9W55Mzuxn1hHYGRCEcwoeWfu+o2sNl
+         zv3OfhOr+O7LUY9bA/bOPt53b3hVpVRZ3EJ26MGVmWafl3nbPY7IgXbnekdwOq/POSZH
+         uFLHIcq9+2Sm2/FBSqf7aS4NWd8PQap6exjl0AelDavIKoQz8GTzbnSIhMwgK04QMUa5
+         aIfML2aPiDnT4pMXp535WNr6ImyWkwt9k1RqJWS6RZJH6CnBQcuCX18Ew966Lz7JLHfc
+         +Hnbg7+y0y/mclINLG73pnBfxQ8+VBWzVYPVzbTZixIM5DXAj1GxcrJ8aNYFWncgJfbu
+         mhew==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=HHGlocEe;
-       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@wdc.com header.s=dkim.wdc.com header.b=LHieSY88;
+       spf=pass (google.com: domain of prvs=34054c40f=macro@wdc.com designates 216.71.154.45 as permitted sender) smtp.mailfrom="prvs=34054c40f=macro@wdc.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=wdc.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:ironport-sdr:ironport-sdr:ironport-sdr:wdcironportexception
+         :date:from:to:cc:subject:in-reply-to:message-id:references
+         :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=9HCcuzKWKbHpwDdOWnxF29DPj1zpfrzPYHoLGJOywqg=;
-        b=I7bIaCDuwSm3pK+nrl8MQxer91uWWhIoShd/ET+uJe5Nl3oSLVYZsR9d+pP4a/pzKB
-         aIT3IMh1URr+K8Ylq83CNl7aanIDYffVwa98znWIwoEjXp+J/NeL1xnIGBQetsoTlwTz
-         CsOz9T0lzpikmtmoDJ+0hbGvL7ZN9kFcx7XK7Ciygcw26baJteH3I8I7wAkM67ZhPrNY
-         IqMUAxFqqLwFq4rquwUF84K+YjdQbl7/5t9DsHO37eQ86miZ0X4RV9Ch3KgiJ2h+WMbR
-         VpqJdRrOMM9LpYynVOy3+AmeRHn7nZGuPahW2NyHei83cKD0r0XvIH7Sk++1GSlkWV02
-         mErw==
+        bh=SvXLfwOGOcwMaCmwVJw2LW1iwzfGEVfy+j3E0IXYKno=;
+        b=Z1NfDt+ZBI12CY218Ddj8drc9vlu0pud67mqlO7i24DChBL58V1fHrMx+lgGBOSKU9
+         GZGU8higYiA8o47xmAjlagV3KqSpG84U0OgS5CTIr8IEfxZQHNd/zNY3auHzo9BCyW2I
+         4qX9mBwnBtzeGs3xBvfld9pLj/wBpsgw+bGzRxFSOnfGyvgaAMQFIa+1rMBpqBKFX8bK
+         6GDNqRprtr9aehREsN1xiua3uP38NLC1yXv0f6ML4YtKqm+cz3smgREPlVGdabgexJ+H
+         nmu39R/Vrdb22KrlGf+tJB68Ov3gD8xTywz7DxcZfgs9bEPKUME19zSKBARtSFnYzreE
+         fe3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=9HCcuzKWKbHpwDdOWnxF29DPj1zpfrzPYHoLGJOywqg=;
-        b=XRVyTMSsrri/+KjMi87rqnn4WY8XgYE55YQp6C2UB/M8hDiA+m1YtfQCDcGGtn/qO+
-         elMRPYfrpincAvIjTPQqarUETzyTK3Z5eWDNkPCoU2wRiyggYcifPyEudW1ksgXRMDaP
-         kqtjFqXiUeuzv0AKv8seQ7zxRFZKtMOgLZ76uhN5hxt1Hxpu7I19ZTqY10JkrQcBKBOi
-         vtImyOa+2rHuQ/dKsRkdmjwb05MqvcpDzS9E+jaj728XwHh8kY/Dp2f1abhFPSHN3+VB
-         PUUrnvaXUjUUx4o6Kt0TFWIc9QFjeSftF8SNRjkh+RTph37b5eaSAEkvLjmXcB2P905Y
-         o/0w==
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:ironport-sdr
+         :wdcironportexception:date:from:to:cc:subject:in-reply-to:message-id
+         :references:user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=SvXLfwOGOcwMaCmwVJw2LW1iwzfGEVfy+j3E0IXYKno=;
+        b=mWagcTQbqWT6M1E3y7OhMSQAhoXGjS6lyb3hdvBeVYOjNtSD8KbXLI6UpwYUm8rcTD
+         OyrjRjAxYCxG04rMvc/+QLQYp/ZyXtW6h1N/+zw6BWT4PlXP72WZv6r6HjZOb3aq4cgD
+         jrtbITnWmNnpuCr3uBS1zMU7JuKFSLSDyVDf3lqWzGYbWGPIlK/8ez/NHk0hthzWn8Q1
+         rgwvZbhs3YBzv3KjoeNq/z8c1ddF6EcVSCTqUrVDKfbATRtatGCTrucqmD09VAU1BRvh
+         cMwmBn2Db+93trb+fA/vO9F/IA1BUjOr5mGGS0yfPhfrN1KMDr88TY1uXIyctEoB3dn/
+         GhvQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ0+HL2vx4Gy6QpF7v4QwrnPYrlIgCjJmt0IXJ6A8LdE9TXwNq9g
-	7wTaoTPiUZ371UClwVnrKAo=
-X-Google-Smtp-Source: ADFU+vuaUDRvR+Y/8wC61EwaVMsxtopcexQWGD6rJjPR6/u6dzQMvl8NArRH08OtTNXaNvAJSKrPiw==
-X-Received: by 2002:a25:6d54:: with SMTP id i81mr7169573ybc.245.1584643942580;
-        Thu, 19 Mar 2020 11:52:22 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ1mU05/MxhV3NHvkGSwHv/7lJ0ng8T75tArIZxIGwaq4NtQWuJm
+	LRFtVlsMT/ftp+EX0/SUIMM=
+X-Google-Smtp-Source: ADFU+vtDjNd6VJnabuYumNuI22nMfKipQOCeIx7iAd32P/Kh0Kuo1Cg6zgIINWn5KOcq1qdIyoST3g==
+X-Received: by 2002:adf:d4ce:: with SMTP id w14mr6142432wrk.101.1584644058890;
+        Thu, 19 Mar 2020 11:54:18 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:5789:: with SMTP id l131ls1204845ybb.9.gmail; Thu, 19
- Mar 2020 11:52:22 -0700 (PDT)
-X-Received: by 2002:a25:86c8:: with SMTP id y8mr7277533ybm.406.1584643942169;
-        Thu, 19 Mar 2020 11:52:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584643942; cv=none;
+Received: by 2002:a1c:a98b:: with SMTP id s133ls1642572wme.3.gmail; Thu, 19
+ Mar 2020 11:54:18 -0700 (PDT)
+X-Received: by 2002:a7b:c308:: with SMTP id k8mr5610431wmj.40.1584644058311;
+        Thu, 19 Mar 2020 11:54:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584644058; cv=none;
         d=google.com; s=arc-20160816;
-        b=YAAnGfwMdpu1Gy0waateneyxp9MznDVL01KTJdJ5d53c4RR3+D1ffBKHnrcng5LpKB
-         kbJU3bpPe7HoalcOu3eANQgHsMwjq/4nSaj1OLHCmnXx0NGtL0i/ChOZJlN2y6unDt1z
-         SpedMNogXLFefr4X96Boakg0QdEO6/V/Bp0Y2Io8phpjjwllBFa/KNNb7Lx255Zf+vSz
-         RVl+J7IuBdRuh9FrQyoogky0GYkCJG5Wmxir6RFqkFbi0BtAUxeCt7lzo4vOM7dmRe26
-         c9LruaP4rJulMa23q4t/WXdjrHcss59zUYX7qWyFkCJ+tBsJvqr1UMzy3ziD5hmGrqf2
-         5g+Q==
+        b=IvFap39eVqdp3lAvL1s2E+iH89e+wFj6isDjb3VYMisDnMCAt8g7lqJ10BJ+zCiDTz
+         QqhWeS2ZihKr2nHlrUsnXysBSGy56U+DwUoMZlcdf1ftAgnMBUcalrzmdsDJUA+3QNV0
+         0q/43x1D00+MGY3fan+45GTq4Au5t+bXDGlxONoj5xQgJuxXRQtrLtUbMuh4/ThP3teL
+         M2cHam3fYAwmGEuckeiSzXT10wMF+JvN6j47ay7xiGHyqzOoRV/M5FIogjD0jvFds96I
+         IySzrvIt+Ucv9+MJvyvJq/LvUuZa5WFMI/JvgzdO0eAecZomVrkb8akxIY0u3xNaNbT4
+         I+Zw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=YWvryETrBKhX2zGEhkwWtLCDgV8s1wkdmU/22DR0SFc=;
-        b=jJUiiX+5F6Age0/hSUpxyBKL/lJMA7+0B9CpzK0VL0w3krAapEBa+EGqKKrclVxpMv
-         GYEvKQUvp7H5nxfTEnhfoBtKyU+YjXqQmS142QTsvmr6YsJuLewGmxV1abah7ibsRpM/
-         6rnlF9Ljn5TgkYczt7U10FggjgkRAocxhp5ZZVQR7YZSL8HRYhi/Ba802DbrLNJDlRdv
-         g+fjZyYLaZuZ7PRAxejRnuplfJFEgAuZo7awieQM+N1mUzz05c/+3UpVuPdhtMoABUvH
-         n125QyOTVj42ozKu7f3HR8FY2Bz2HsrUe6bCevxWQrhvpHRIbNa4OxV0Q2bEDclW0z0u
-         d/pw==
+        h=mime-version:user-agent:references:message-id:in-reply-to:subject
+         :cc:to:from:date:wdcironportexception:ironport-sdr:ironport-sdr
+         :ironport-sdr:dkim-signature;
+        bh=8jSRRmePk+sgyVOpSOQ/tM3UVjLhi41A+D1AHcf217U=;
+        b=m6yyfVvBFHDRvCPzDuv07/l3eQDTvnPDy/A5OUFZSiS0GTufSfPYzZsy6rMGVAGX4N
+         vhYnXbtYnm5QrkTBdXhPAwCCjaBPB2TeND4WqjRUKm0QVtZFRpVcfxHZGY/pGVmHaIOJ
+         79vjdvsHXHbBbhjaUx4LoXW6FXRzCQlX44+WAAa94Gt/T2qR4QRzjpLVIvGUWUyMC+Cw
+         EaTqp95IiEVKqt8FUFyilBFdblGWWeQmis2Fw0Qw7th9Aum5ekjK8GjJ97wDSsqS+22Q
+         2Tnq0aC31sMILb63Oh7rWCJ0vE3ykajRTPx8CgGokV5iyh44S5rs4dc3bnPH8gWHG6ui
+         CqqQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=HHGlocEe;
-       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id y140si160238ybe.1.2020.03.19.11.52.22
+       dkim=pass header.i=@wdc.com header.s=dkim.wdc.com header.b=LHieSY88;
+       spf=pass (google.com: domain of prvs=34054c40f=macro@wdc.com designates 216.71.154.45 as permitted sender) smtp.mailfrom="prvs=34054c40f=macro@wdc.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=wdc.com
+Received: from esa6.hgst.iphmx.com (esa6.hgst.iphmx.com. [216.71.154.45])
+        by gmr-mx.google.com with ESMTPS id y201si346430wmc.0.2020.03.19.11.54.17
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Mar 2020 11:52:22 -0700 (PDT)
-Received-SPF: pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from willie-the-truck (236.31.169.217.in-addr.arpa [217.169.31.236])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 132C92070A;
-	Thu, 19 Mar 2020 18:52:19 +0000 (UTC)
-Date: Thu, 19 Mar 2020 18:52:16 +0000
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"stable@vger.kernel.org" <stable@vger.kernel.org>
-Subject: Re: [PATCH] arm64: compat: Fix syscall number of compat_clock_getres
-Message-ID: <20200319185216.GD27141@willie-the-truck>
-References: <20200319141138.19343-1-vincenzo.frascino@arm.com>
- <20200319181203.GB29214@mbp>
+        Thu, 19 Mar 2020 11:54:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of prvs=34054c40f=macro@wdc.com designates 216.71.154.45 as permitted sender) client-ip=216.71.154.45;
+IronPort-SDR: DlGlgsMv2bNjMBgL7DJ6kfrZAHkpWpBVD0/1UHg752/vQc7Yg062JK0kfiH4OVJHLATtm/WXpP
+ H8anXbKwWbTiRN5vwmudf+YNGUnYk3VCt1I9C2wiPHV6scotYAZZNXUWfNXxzxLm10fJbWvcKm
+ k4CKUVf+EJMNofJFDiXOVGM04ryVT24+fmwN4t9UEPd1QRvjWyWsjVOEny/AyjwcQ9/mi0I/0F
+ HanJLjOgunwDdMis+bE5RvSwdzd9WiJTn2Uae5DnqsMrqHk7VxLEKkdxPBOoK53b73kWoCA9zf
+ rWY=
+X-IronPort-AV: E=Sophos;i="5.70,572,1574092800"; 
+   d="scan'208";a="134434576"
+Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com) ([199.255.45.14])
+  by ob1.hgst.iphmx.com with ESMTP; 20 Mar 2020 02:54:05 +0800
+IronPort-SDR: GZiy3IUXl51eTYR/jh0JrseyOUsXgG1H+j6oqmBESk7sNam4PT+bT9WDl74RdOUc/ZNwzkQ3Fr
+ d3yLF4q+Iy0Di2hQZkgGLDCasW3Kkf8rHHd/f9K8FFiAO+ngQuSwwzmavCYn6lddUNbZr8UUxM
+ D+zv2rrE0DGO+5m3Hm9G+xy8x9WXuU8QgkESUKweNFV99oaUhkxh4yWPX3hBW0wDK0f07d3Q10
+ Z+42gDeKtyMKce5VVqYOcn65QQVoB5xH7XOdQkrkJRiwnVN/zBEu3PBPMiVy/R1/aT+pljzT9U
+ jqjoPnwGjndnNv8Ys2n28tka
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Mar 2020 11:45:53 -0700
+IronPort-SDR: 5Ioet6NlNa8Z1lxKkK9nV2ltc1Jb7viQ7mJqwGekJ9bqOepNSY1Lo1JaMfyVGc0/jORxm1p94V
+ q8uqamPw6iL+LebTkkdUrGgbLfcnNwhUqstxaViKe8SjOPj8+vDb00RW7vTCN08cIctOLJ7ISz
+ ba4Ayo6ZOQ6YKKzjHE4O2qj0HRSIogwQ7XyUrN/77p+2kcAkc3EKIu2FREGfbjNKkEMP6pQZyo
+ SU5EztvWD3STXRH5r5TcB3UQYTqcKnH0pXcpWyJgjx78IdqLVyMCXIW0IXhH740t8w0NLA1TVh
+ t9Q=
+WDCIronportException: Internal
+Received: from unknown (HELO redsun52) ([10.149.66.28])
+  by uls-op-cesaip01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Mar 2020 11:54:04 -0700
+Date: Thu, 19 Mar 2020 18:53:59 +0000 (GMT)
+From: "Maciej W. Rozycki" <macro@wdc.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+cc: Palmer Dabbelt <palmer@dabbelt.com>, 
+    clang-built-linux <clang-built-linux@googlegroups.com>, 
+    linux-riscv@lists.infradead.org, Palmer Dabbelt <palmerdabbelt@google.com>, 
+    kernel-team <kernel-team@android.com>
+Subject: Re: [PATCH 1/3] RISC-V: Stop relying on GCC's register allocator's
+ hueristics
+In-Reply-To: <CAKwvOd=co2R+gVGQmCGWj8U4iV2djFHLDiQRFwhEW8M_V4AeHw@mail.gmail.com>
+Message-ID: <alpine.LFD.2.21.2003191847080.24019@redsun52.ssa.fujisawa.hgst.com>
+References: <20200227213450.87194-1-palmer@dabbelt.com> <20200227213450.87194-2-palmer@dabbelt.com> <CAKwvOd=co2R+gVGQmCGWj8U4iV2djFHLDiQRFwhEW8M_V4AeHw@mail.gmail.com>
+User-Agent: Alpine 2.21 (LFD 202 2017-01-01)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200319181203.GB29214@mbp>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: will@kernel.org
+X-Original-Sender: macro@wdc.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=HHGlocEe;       spf=pass
- (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=will@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@wdc.com header.s=dkim.wdc.com header.b=LHieSY88;       spf=pass
+ (google.com: domain of prvs=34054c40f=macro@wdc.com designates 216.71.154.45
+ as permitted sender) smtp.mailfrom="prvs=34054c40f=macro@wdc.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=wdc.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,34 +156,24 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Mar 19, 2020 at 06:12:03PM +0000, Catalin Marinas wrote:
-> On Thu, Mar 19, 2020 at 02:11:38PM +0000, Vincenzo Frascino wrote:
-> > The syscall number of compat_clock_getres was erroneously set to 247
-> > instead of 264. This causes the vDSO fallback of clock_getres to land
-> > on the wrong syscall.
-> > 
-> > Address the issue fixing the syscall number of compat_clock_getres.
-> > 
-> > Fixes: 53c489e1dfeb6 ("arm64: compat: Add missing syscall numbers")
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Will Deacon <will.deacon@arm.com>
-> 
-> Will left ARM about 8 months ago IIRC ;).
+On Thu, 27 Feb 2020, Nick Desaulniers wrote:
 
-Haha, well I certainly tried to!
+> Indeed, looks like the local register variables are very much intended
+> to be used as inputs & outputs to extended inline assembly, which in
+> these cases are not.
+> Link: https://gcc.gnu.org/onlinedocs/gcc/Local-Register-Variables.html
 
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
-> 
-> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-> 
-> I think Will could take this as a fix.
+ There is a further restriction on local register variables causing them 
+to be possibly clobbered as a result of a function call, which may happen 
+at unusual places due to inlining.
 
-For sure, I'm queuing it now.
+ For an example of this happening see a glibc bug recently reported here: 
+<https://sourceware.org/bugzilla/show_bug.cgi?id=25523> and the cascade of 
+fixes following, including one for the RISC-V target.
 
-Will
+  Maciej
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200319185216.GD27141%40willie-the-truck.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/alpine.LFD.2.21.2003191847080.24019%40redsun52.ssa.fujisawa.hgst.com.
