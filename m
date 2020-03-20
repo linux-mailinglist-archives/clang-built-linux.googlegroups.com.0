@@ -1,124 +1,148 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBCVG2DZQKGQEIVO3FZQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDN7FYMXXEORBW662DZQKGQEGQNPH4Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x439.google.com (mail-wr1-x439.google.com [IPv6:2a00:1450:4864:20::439])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6A7FC18C461
-	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Mar 2020 01:49:15 +0100 (CET)
-Received: by mail-wr1-x439.google.com with SMTP id c6sf1829099wrm.18
-        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Mar 2020 17:49:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584665355; cv=pass;
+Received: from mail-ot1-x33d.google.com (mail-ot1-x33d.google.com [IPv6:2607:f8b0:4864:20::33d])
+	by mail.lfdr.de (Postfix) with ESMTPS id A81A018C579
+	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Mar 2020 03:50:04 +0100 (CET)
+Received: by mail-ot1-x33d.google.com with SMTP id w21sf3033061otp.10
+        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Mar 2020 19:50:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584672603; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Gp6vQtve94UZgZFVIaVYaUZwKJDmEd4jf/xLDoIldjH3jmQFeKZN1br92ikeSBrCu6
-         TOE0HKaEIDKVGwItE65fQ2HbUpnKW3xwkWRlsHC7RgJinNzLKRIff1qDXA/rLqdlVuCN
-         qJJFktGS38ywFTQq122ZdKrIaOaD2txHPzOykX8ucgvVuoUMBHyCwiwfwJ3zMLj1w59L
-         qVjAl22UH3zccGF8MIhQBIpoJFn2Yiu48fvM69FUEVX3q2b9WAyYZ9k/E6tljJ1JqxZM
-         l4Yxr0vrch+zh0QksOKEw92TEYH98Ydp5AMJNkhWyxkPgk4thJLuLJrLtcvEB3Ick+HT
-         hy+Q==
+        b=gz7Ko4UB4y+RiWj7L+UBrqSda5/wNbhOFlmVqdihxplCyJXYzvDJmr7KxscQ1KpyuH
+         BOdTshmI53wdJl+CRyiZrNry19rd9i5Eurr0LDyuYzYNsn6r5on4IVrCQY7O2aypb2Qh
+         gNuGCMidHr7n8+HarVWOhCZ8INI6Rn1P0xPqt7dtc3NyW0c618PNUVhXiWbh7/huTSRI
+         zaznYkshBwaazXh5c0tt67gh3oaUPQaU5+qxlVT6L2XR3N+uyr5wwd/a5CmgRWJf4tYm
+         zfGTao8kZ2TbmXALXzLslNaSzV9Oz6eM2WkrwD+T3nHs83Xig1tAtnVA2ytlV8DONpgm
+         4QkA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=4GFG/1xprKSNK6Bbju4L0a3ezcF5A83un8F7UIFyhmY=;
-        b=Kax/BB0QtQD3Jm/qCKiPUJkS/SrhoMlyG5/3WmVB4699Mx1d8zNzdW8il5o26e/O/S
-         D6WWLnwNoZMM1nBKWUpFKEcOBsZL3lhjAN7eyiOYexF+M+bt5GVEh8LZqlQxeb45gUTZ
-         4aLFfIntg+nWEmdvU6D0k3xtiVH6GSOtPlS4pWaTr3qM2QzK0v4Z9hLrlOFu5ifUans0
-         vjR0KuGrZJUBUH6fohW9aFhiaBXcfTLtVOheNsFkJoDrBP6L0OvsnD00Fd2YD1TCTcps
-         maK6v7gYMmw1562XT2CdKsyEQQXSSdZ3F+9uIXOK945R4vaegrHurcWPS5++HT+6nlyq
-         CZbQ==
+         :list-id:mailing-list:precedence:message-id:user-agent:mime-version
+         :in-reply-to:references:cc:to:subject:from:date:sender
+         :dkim-signature:dkim-signature;
+        bh=VpCMvILka99Voigfw3NuBUgzDxzn8pkB2FnsLOqLg7g=;
+        b=iNvogbXBXnTFNR8WN5FbB3ZSnly27fF+u2MZgCWToJtrkpYtddP6ncIlR7wqVDESs6
+         PGOpEyJZbADNL2rXaLHyLrIZ50Z6P/hLrvVzniYCtdKxfmst4DmZOZbAzncDLCe36h74
+         NR7u+BNMwpwbqDqYnJr+/mzB3CW7YGUAeYDJ7q2VxmbVSuwpJYIYL3YVsn0VUvvxOEPh
+         jAaRkS9xRHl+jSPnf69zv41QlMXxNwPns36Pu3O5g6Nx54XUJYGXgu5dCHv0gyDJNK9y
+         SbSKgWtrMU9ZfdGbx9GQP0phK6nSagF2DC9emXOGq3oLNvKh8PEBD14+g7r4158X0oXK
+         gP3w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b="Ys2sg/ZB";
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=L0kBrlLM;
+       spf=pass (google.com: domain of npiggin@gmail.com designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=npiggin@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=4GFG/1xprKSNK6Bbju4L0a3ezcF5A83un8F7UIFyhmY=;
-        b=Z75/0M0PNbuz9yfURCyOdz+BXnxnLf9qEqUFJGFB6mwlyX2MTMWvxysq4aQqq1Ags+
-         Td0AD5Sbp7MX2aI3LDg/772FGMo6M05Cu3scP/akodCc/fz2Q0n/+ELzZzTg72M5yaJ6
-         i8JHZE58A2B3U5co75iHRHPwZpMo4x2XZ6Q9PXzvku1my6zVamtQlrM/GF2xrUNH2uvm
-         kbMf1ED65PgEwt+TuwdWsvSyBARYf/UUJoy6Z4yXQRwFsZVnEJn97V0/JuNyjBbTDV1m
-         souSpSlB5ew7ueR2VMxXA0n10Df8rAG7kzLQZsMlQ2dyWDWGEFFsAQFG0a4fB+ot4nDu
-         bXkg==
+        h=sender:date:from:subject:to:cc:references:in-reply-to:mime-version
+         :user-agent:message-id:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=VpCMvILka99Voigfw3NuBUgzDxzn8pkB2FnsLOqLg7g=;
+        b=dyrVGrY6CctxcS2qRI4r67QxX61gU9VeznsF/j/rvyMGXDoDP8IT6VDFJTLlzyAhEO
+         AS9v8yNw/xx1ym7bB2jkkjeYHgsJH2nyXaCSkUpwwG8voHtOG7Hd0BXCeBfXg+Yjceh0
+         8DmkOj7llNxOAYVr45FLuptUADSVTgHmATSF1lo7vpjbduaSTIO3UcLgxhYJHaE++c7Y
+         kJlWvaPO90sbLP1lL+Tc68pjEfeymau+pMo5NRrn+z/dcd3qHd7rZjeBCoCfk8r7x/r6
+         1kOsp2rV3qkkHEjRRPKIMpTRGJpKy5fpa5bFpdMlHSpzChBXUx0yTiQ1iFJfVP+BCPFh
+         gKRA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:subject:to:cc:references:in-reply-to:mime-version
+         :user-agent:message-id:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=VpCMvILka99Voigfw3NuBUgzDxzn8pkB2FnsLOqLg7g=;
+        b=dRq357ozCZeFHqJWwUnd8y1Y41TbUQO0Crm3hxhaxq5CjL+6WGzpo6bdpaJuXIqBLY
+         PaDR1nc9Pub47Y1AELXmK5H9RPcBKxMI1P+AzqmvW8Er55mv2jQxIRFl2YoVXeeWPfUz
+         wtTTeH4s53EG0YDBO88gFxds99suNzfwWGD53P55cq56ih3RUhRf12ikTk4e7vKL35M8
+         RZeclG9u4tZn5MHrK6lLOANcse7ZmMtggLHbGz21bvc50X+fnJocP5TjkHYsrmiWrEd9
+         PBitlqRnTGmt6awjckGSXUekC5pov3kZb7YnGTCsGLbqT/O0aevqFUVhOT8yjECcGsEF
+         ZTlg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=4GFG/1xprKSNK6Bbju4L0a3ezcF5A83un8F7UIFyhmY=;
-        b=mL6d0FifGk+6kc74QoIDB3iopQ+s+/zSz1yVAsHGntPKFgdECetQqzhVVuOayF4ZMK
-         BC6au3nNpasS7VX+BqaUXmrgAjHuKCfj+LzTFTgZ/nt1zdFsnfCxcu/cFxsTrJZLftIm
-         NSDQxQjzz0pkOehGQ7JT1t+pRPyWO9q1LS8P56f6iB7KAssnKSEUc7y3/SM/xQ8JKv9T
-         QIE0xOvQIScntcsm6IIG0hNjYqAnM/BTAO8snH2ZSnYuK9EzuFg3r722m2cgVQZA9LDB
-         4paFji4C+wZfi/cXZ6Sg5JJtrcKoBG9vNY5LuengwJuXCyRHZ88rktErAUanFFcxhmwJ
-         duoA==
+        h=sender:x-gm-message-state:date:from:subject:to:cc:references
+         :in-reply-to:mime-version:user-agent:message-id:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=VpCMvILka99Voigfw3NuBUgzDxzn8pkB2FnsLOqLg7g=;
+        b=XZBooShhP79jBpH6kfNVTyatkGexNIISzsy5CLFHo3jq4bspKTjdOu9QZbGamc8PcR
+         VriZdB2i7xzfnd9U6LcdL5M1rVDO7fVJ3ABI50b0PwJvcdjUwtXsHAapbuK/sGN/Kets
+         eJ023sSiaWi/T9g+cbGQTIf0Yno7r5C9X4c6HaXhgjyDs3zvRkYrGaaX506XjExsU4ca
+         BKbpOtPjsaQNLW2wTWdQ0mNTLsTcmAIAsR8DHVaNLV6uJEzwMbtVdxkkOkTM/y3gzm/c
+         sMJXY5y8ip3ifmIThrYKU1X4qsGMI7B8UfBRSm1TMnoL9CWHie1EpSZhvPBSZ+jv5V2B
+         BboQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ1eTSRFAX++ZZrL1aX6xPDnZKWdEkvJO37dsEUwjr5fgr647Rp7
-	W0W/g+Kkkz1zfWcziF264TQ=
-X-Google-Smtp-Source: ADFU+vsTTyWKNKSPUNsXOsYOY4eZomLPfTopG+dUdluXk/hg8IFmoHz4hCqMDj7f8ERBLWMle2HXCA==
-X-Received: by 2002:a1c:408b:: with SMTP id n133mr6396429wma.182.1584665355041;
-        Thu, 19 Mar 2020 17:49:15 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ2w8NjC0t+HjM5cZTBa92SMEABn53rVvooeE/MgSHfBM+N/624a
+	l7bB/l6N2w7AN8SXbcQSIvw=
+X-Google-Smtp-Source: ADFU+vva309IJXyBie+Yd0jWU4cdiPQ3jl4aGfIijgfG/oax14pAfIRz5IebqRNtRxQz9wXckGdFkA==
+X-Received: by 2002:a9d:67d9:: with SMTP id c25mr4902719otn.358.1584672603641;
+        Thu, 19 Mar 2020 19:50:03 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:d4c4:: with SMTP id w4ls1764995wrk.8.gmail; Thu, 19 Mar
- 2020 17:49:14 -0700 (PDT)
-X-Received: by 2002:adf:df8f:: with SMTP id z15mr7321757wrl.184.1584665354469;
-        Thu, 19 Mar 2020 17:49:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584665354; cv=none;
+Received: by 2002:aca:c441:: with SMTP id u62ls1594836oif.9.gmail; Thu, 19 Mar
+ 2020 19:50:03 -0700 (PDT)
+X-Received: by 2002:a54:4090:: with SMTP id i16mr4885242oii.18.1584672603301;
+        Thu, 19 Mar 2020 19:50:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584672603; cv=none;
         d=google.com; s=arc-20160816;
-        b=SrdAeaJnaSQhbk7eMqr0Ts5YOvMGkWXRRJ1FuYUHFFLv8ftcJmUeb5dW54yMLcu0JS
-         8WV3UrYdJWTVOkL2KBmenqidWOqUSQTopAQKpv8Cu4eRgzgVPVlL2nEEgS8Bqf6PkV4r
-         bk7E4mGZTVGB0jIc73p0ybqCLkEnIiwreB/RC5scbRbCGX340vONv159ERVF8IDTOf8A
-         OaD60gX861DKrt7hCojULaA48prkczrYdJPcVP+c6ywiTZU+oc5/iFZIrjUVcXdGuq+g
-         Q5PjO05oGEHNKgBBofSF9lc3Xw1E4MJGz6y7NwAmCkcy7BU79/XiqXD2fyW5YMxOhyQC
-         9Y7A==
+        b=Shl9jFXryxufpG+U5Go1LvYHScDrHoJlAdmq2HdtggeJgUCu5f9KOESQOOs3MEQc7B
+         QEzICtkt88FgSC3puMq5paO7+CdRyodorlR9O14JfhsoVEnralnZ88ibqp83b91cIsTc
+         keCYRazC7jDv51Hsja3qJYa6xLvP1ZFcBykaPaCMiIACwOrr0wxZDepQIHnChVbkt7Wq
+         rCe5IuQouA3jaXSa1d6sYwgcq4BVpMfGSWdxPOnPDCleOcehAI4e9AGKGKOFSRJJWjHX
+         EJgm5FrRhwwKM0iGndPlr/7L/Dl4X+xV9D/jPKRt2IB6s30QAC4xYjgYQQaqMe40dYpj
+         jLKA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=NNx/s5+z/UR+M89VYVA46VQuB+zk/1gjY8q2D53FsPM=;
-        b=ABIcuEPaOm/uclQg576ykDuO7vGswZ6jB9QW3O9X77ovVpoGdK6NfWvxF5dMEgx6qS
-         HR2T20d1Q9hWd/xi+1ffdkyzyHzx6CM5GVSlN/ZUBg0hQUw+7NWsM/TqHnO9Lv7UPRGg
-         n2umObd892QTvy4Xo6TluF6phZViwlRAeGAWa0pIJQdb9pxkD/Dw0l2vpE91qAwxmGMg
-         FNcAGuC9aeKbFUB2XCFXIog1oyOze2x80oqL5sRYs12e4B39eKwuNJ9uloDSM8QR/rFm
-         fPoC0n8mX54BSAn4LZocwRQ/IgDiVMh6VSM6mKmg+noEBpmw7uHEsULzhWZYzrcTHSww
-         fSMg==
+        h=content-transfer-encoding:message-id:user-agent:mime-version
+         :in-reply-to:references:cc:to:subject:from:date:dkim-signature;
+        bh=fgot+Xsy3J7zXuUTY5kkaEeqV+yRF2impnvgtPmEfao=;
+        b=NFipHvAoDmYTaH/VmHA9rhk0FwG0fFwhJIF3FQgWqUv0CLBykT40d/LsakdflsWeSt
+         lX2xidY0JxtZuZ304kUeyz//9e2PU5zidzwQz4tiOO7ObseTGEWXSyepCvn0V0S17WWF
+         47YcDfNGL6QP3fzKj67QcwjOoadkZ8wtMGKeH3Txa3q+XpjkytYp0W1HGCYP8IvumQgy
+         v5VVnYHm4ofb9PoU+3WkDBRIPoazougwTjFRapeVX7EgGb28RkXFwfRtATaj9tm7z/J3
+         EVCgNOsqrj1lgd1ayUfNDEEP3dRifdPJy3C7YrkolsGiXmeIGWFEa0bzudkdlzjs6s32
+         +IUQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b="Ys2sg/ZB";
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wm1-x342.google.com (mail-wm1-x342.google.com. [2a00:1450:4864:20::342])
-        by gmr-mx.google.com with ESMTPS id q205si227011wme.4.2020.03.19.17.49.14
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=L0kBrlLM;
+       spf=pass (google.com: domain of npiggin@gmail.com designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=npiggin@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-pg1-x542.google.com (mail-pg1-x542.google.com. [2607:f8b0:4864:20::542])
+        by gmr-mx.google.com with ESMTPS id c24si259369oto.4.2020.03.19.19.50.03
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Mar 2020 17:49:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::342 as permitted sender) client-ip=2a00:1450:4864:20::342;
-Received: by mail-wm1-x342.google.com with SMTP id 25so4832984wmk.3
-        for <clang-built-linux@googlegroups.com>; Thu, 19 Mar 2020 17:49:14 -0700 (PDT)
-X-Received: by 2002:a1c:9a43:: with SMTP id c64mr5757225wme.173.1584665353847;
-        Thu, 19 Mar 2020 17:49:13 -0700 (PDT)
-Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id b15sm5744919wru.70.2020.03.19.17.49.12
-        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Thu, 19 Mar 2020 17:49:13 -0700 (PDT)
-From: ci_notify@linaro.org
-Date: Fri, 20 Mar 2020 00:49:12 +0000 (UTC)
-To: tcwg-validation@linaro.org, arnd@linaro.org, 
-	clang-built-linux@googlegroups.com
-Message-ID: <420016521.10716.1584665353178.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-release-aarch64-next-defconfig - Build # 21 - Successful!
+        Thu, 19 Mar 2020 19:50:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of npiggin@gmail.com designates 2607:f8b0:4864:20::542 as permitted sender) client-ip=2607:f8b0:4864:20::542;
+Received: by mail-pg1-x542.google.com with SMTP id b22so2324582pgb.6
+        for <clang-built-linux@googlegroups.com>; Thu, 19 Mar 2020 19:50:03 -0700 (PDT)
+X-Received: by 2002:aa7:9244:: with SMTP id 4mr7135748pfp.228.1584672602583;
+        Thu, 19 Mar 2020 19:50:02 -0700 (PDT)
+Received: from localhost (14-202-190-183.tpgi.com.au. [14.202.190.183])
+        by smtp.gmail.com with ESMTPSA id y3sm3733215pfy.158.2020.03.19.19.50.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Mar 2020 19:50:01 -0700 (PDT)
+Date: Fri, 20 Mar 2020 12:47:54 +1000
+From: Nicholas Piggin <npiggin@gmail.com>
+Subject: Re: [PATCH 1/9] scripts/link-vmlinux.sh: Delay orphan handling
+ warnings until final link
+To: Borislav Petkov <bp@suse.de>, Kees Cook <keescook@chromium.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
+	clang-built-linux@googlegroups.com, "H.J. Lu" <hjl.tools@gmail.com>,
+	James Morse <james.morse@arm.com>, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Russell King <linux@armlinux.org.uk>,
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, Mark Rutland
+	<mark.rutland@arm.com>, Masahiro Yamada <masahiroy@kernel.org>,
+	Peter Collingbourne <pcc@google.com>, Will Deacon <will@kernel.org>,
+	x86@kernel.org
+References: <20200228002244.15240-1-keescook@chromium.org>
+	<20200228002244.15240-2-keescook@chromium.org>
+In-Reply-To: <20200228002244.15240-2-keescook@chromium.org>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_10715_799666738.1584665352198"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-release-aarch64-next-defconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
+User-Agent: astroid/0.15.0 (https://github.com/astroidmail/astroid)
+Message-Id: <1584672297.mudnpz3ir9.astroid@bobo.none>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: npiggin@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b="Ys2sg/ZB";       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::342
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@gmail.com header.s=20161025 header.b=L0kBrlLM;       spf=pass
+ (google.com: domain of npiggin@gmail.com designates 2607:f8b0:4864:20::542 as
+ permitted sender) smtp.mailfrom=npiggin@gmail.com;       dmarc=pass (p=NONE
+ sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,268 +155,52 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_10715_799666738.1584665352198
-Content-Type: text/plain; charset="UTF-8"
+Kees Cook's on February 28, 2020 10:22 am:
+> Right now, powerpc adds "--orphan-handling=warn" to LD_FLAGS_vmlinux
+> to detect when there are unexpected sections getting added to the kernel
+> image. There is no need to report these warnings more than once, so it
+> can be removed until the final link stage.
+> 
+> This helps pave the way for other architectures to enable this, with the
+> end goal of enabling this warning by default for vmlinux for all
+> architectures.
+> 
+> Signed-off-by: Kees Cook <keescook@chromium.org>
+> ---
+>  scripts/link-vmlinux.sh | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
+> index 1919c311c149..416968fea685 100755
+> --- a/scripts/link-vmlinux.sh
+> +++ b/scripts/link-vmlinux.sh
+> @@ -255,6 +255,11 @@ info GEN modules.builtin
+>  tr '\0' '\n' < modules.builtin.modinfo | sed -n 's/^[[:alnum:]:_]*\.file=//p' |
+>  	tr ' ' '\n' | uniq | sed -e 's:^:kernel/:' -e 's/$/.ko/' > modules.builtin
+>  
+> +
+> +# Do not warn about orphan sections until the final link stage.
+> +saved_LDFLAGS_vmlinux="${LDFLAGS_vmlinux}"
+> +LDFLAGS_vmlinux="$(echo "${LDFLAGS_vmlinux}" | sed -E 's/ --orphan-handling=warn( |$)/ /g')"
+> +
+>  btf_vmlinux_bin_o=""
+>  if [ -n "${CONFIG_DEBUG_INFO_BTF}" ]; then
+>  	if gen_btf .tmp_vmlinux.btf .btf.vmlinux.bin.o ; then
+> @@ -306,6 +311,7 @@ if [ -n "${CONFIG_KALLSYMS}" ]; then
+>  	fi
+>  fi
+>  
+> +LDFLAGS_vmlinux="${saved_LDFLAGS_vmlinux}"
+>  vmlinux_link vmlinux "${kallsymso}" ${btf_vmlinux_bin_o}
+>  
+>  if [ -n "${CONFIG_BUILDTIME_TABLE_SORT}" ]; then
 
-Successfully identified regression in *linux* in CI configuration tcwg_kernel/llvm-release-aarch64-next-defconfig.  So far, this commit has regressed CI configurations:
- - tcwg_kernel/llvm-release-aarch64-next-defconfig
+That's ugly. Why not just enable it for all archs?
 
-Culprit:
-<cut>
-commit 74afda4016a7437e6e425c3370e4b93b47be8ddf
-Author: Kristina Martsenko <kristina.martsenko@arm.com>
-Date:   Fri Mar 13 14:35:03 2020 +0530
-
-    arm64: compile the kernel with ptrauth return address signing
-    
-    Compile all functions with two ptrauth instructions: PACIASP in the
-    prologue to sign the return address, and AUTIASP in the epilogue to
-    authenticate the return address (from the stack). If authentication
-    fails, the return will cause an instruction abort to be taken, followed
-    by an oops and killing the task.
-    
-    This should help protect the kernel against attacks using
-    return-oriented programming. As ptrauth protects the return address, it
-    can also serve as a replacement for CONFIG_STACKPROTECTOR, although note
-    that it does not protect other parts of the stack.
-    
-    The new instructions are in the HINT encoding space, so on a system
-    without ptrauth they execute as NOPs.
-    
-    CONFIG_ARM64_PTR_AUTH now not only enables ptrauth for userspace and KVM
-    guests, but also automatically builds the kernel with ptrauth
-    instructions if the compiler supports it. If there is no compiler
-    support, we do not warn that the kernel was built without ptrauth
-    instructions.
-    
-    GCC 7 and 8 support the -msign-return-address option, while GCC 9
-    deprecates that option and replaces it with -mbranch-protection. Support
-    both options.
-    
-    Clang uses an external assembler hence this patch makes sure that the
-    correct parameters (-march=armv8.3-a) are passed down to help it recognize
-    the ptrauth instructions.
-    
-    Ftrace function tracer works properly with Ptrauth only when
-    patchable-function-entry feature is present and is ensured by the
-    Kconfig dependency.
-    
-    Cc: Catalin Marinas <catalin.marinas@arm.com>
-    Cc: Will Deacon <will@kernel.org>
-    Cc: Masahiro Yamada <yamada.masahiro@socionext.com>
-    Reviewed-by: Kees Cook <keescook@chromium.org>
-    Reviewed-by: Vincenzo Frascino <Vincenzo.Frascino@arm.com> # not co-dev parts
-    Co-developed-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
-    Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
-    Signed-off-by: Kristina Martsenko <kristina.martsenko@arm.com>
-    [Amit: Cover leaf function, comments, Ftrace Kconfig]
-    Signed-off-by: Amit Daniel Kachhap <amit.kachhap@arm.com>
-    Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-</cut>
-
-First few build errors in logs:
-00:00:41 clang-10: error: assembler command failed with exit code 1 (use -v to see invocation)
-00:00:41 make[1]: *** [arch/arm64/kernel/vdso/vgettimeofday.o] Error 1
-00:00:41 make: *** [vdso_prepare] Error 2
-Configuration details:
-rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
-rr[linux_branch]="08120d236c47dd2bdb6f7366782f4756dd7f417e"
-
-Results regressed to (for first_bad == 74afda4016a7437e6e425c3370e4b93b47be8ddf)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-25
-
-from (for last_good == c2d920bf1fffc3a61cb77db24464caf39496b32d)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-6262
-# linux build successful:
-all
-# linux boot successful:
-boot
-
-Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-defconfig/21/artifact/artifacts/build-74afda4016a7437e6e425c3370e4b93b47be8ddf/
-Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-defconfig/21/artifact/artifacts/build-c2d920bf1fffc3a61cb77db24464caf39496b32d/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-defconfig/21/
-
-Reproduce builds:
-<cut>
-mkdir investigate-linux-74afda4016a7437e6e425c3370e4b93b47be8ddf
-cd investigate-linux-74afda4016a7437e6e425c3370e4b93b47be8ddf
-
-git clone https://git.linaro.org/toolchain/jenkins-scripts
-
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-defconfig/21/artifact/artifacts/manifests/build-baseline.sh
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-defconfig/21/artifact/artifacts/manifests/build-parameters.sh
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-defconfig/21/artifact/artifacts/test.sh
-chmod +x artifacts/test.sh
-
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
-
-cd linux
-
-# Reproduce first_bad build
-git checkout --detach 74afda4016a7437e6e425c3370e4b93b47be8ddf
-../artifacts/test.sh
-
-# Reproduce last_good build
-git checkout --detach c2d920bf1fffc3a61cb77db24464caf39496b32d
-../artifacts/test.sh
-
-cd ..
-</cut>
-
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-release-aarch64-next-defconfig
-
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-defconfig/21/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-defconfig/21/consoleText
-
-Full commit:
-<cut>
-commit 74afda4016a7437e6e425c3370e4b93b47be8ddf
-Author: Kristina Martsenko <kristina.martsenko@arm.com>
-Date:   Fri Mar 13 14:35:03 2020 +0530
-
-    arm64: compile the kernel with ptrauth return address signing
-    
-    Compile all functions with two ptrauth instructions: PACIASP in the
-    prologue to sign the return address, and AUTIASP in the epilogue to
-    authenticate the return address (from the stack). If authentication
-    fails, the return will cause an instruction abort to be taken, followed
-    by an oops and killing the task.
-    
-    This should help protect the kernel against attacks using
-    return-oriented programming. As ptrauth protects the return address, it
-    can also serve as a replacement for CONFIG_STACKPROTECTOR, although note
-    that it does not protect other parts of the stack.
-    
-    The new instructions are in the HINT encoding space, so on a system
-    without ptrauth they execute as NOPs.
-    
-    CONFIG_ARM64_PTR_AUTH now not only enables ptrauth for userspace and KVM
-    guests, but also automatically builds the kernel with ptrauth
-    instructions if the compiler supports it. If there is no compiler
-    support, we do not warn that the kernel was built without ptrauth
-    instructions.
-    
-    GCC 7 and 8 support the -msign-return-address option, while GCC 9
-    deprecates that option and replaces it with -mbranch-protection. Support
-    both options.
-    
-    Clang uses an external assembler hence this patch makes sure that the
-    correct parameters (-march=armv8.3-a) are passed down to help it recognize
-    the ptrauth instructions.
-    
-    Ftrace function tracer works properly with Ptrauth only when
-    patchable-function-entry feature is present and is ensured by the
-    Kconfig dependency.
-    
-    Cc: Catalin Marinas <catalin.marinas@arm.com>
-    Cc: Will Deacon <will@kernel.org>
-    Cc: Masahiro Yamada <yamada.masahiro@socionext.com>
-    Reviewed-by: Kees Cook <keescook@chromium.org>
-    Reviewed-by: Vincenzo Frascino <Vincenzo.Frascino@arm.com> # not co-dev parts
-    Co-developed-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
-    Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
-    Signed-off-by: Kristina Martsenko <kristina.martsenko@arm.com>
-    [Amit: Cover leaf function, comments, Ftrace Kconfig]
-    Signed-off-by: Amit Daniel Kachhap <amit.kachhap@arm.com>
-    Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
----
- arch/arm64/Kconfig  | 24 +++++++++++++++++++++++-
- arch/arm64/Makefile | 11 +++++++++++
- 2 files changed, 34 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 115ceea0293e..155041a5f0e4 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1499,6 +1499,8 @@ config ARM64_PTR_AUTH
- 	bool "Enable support for pointer authentication"
- 	default y
- 	depends on !KVM || ARM64_VHE
-+	depends on (CC_HAS_SIGN_RETURN_ADDRESS || CC_HAS_BRANCH_PROT_PAC_RET) && AS_HAS_PAC
-+	depends on (!FUNCTION_GRAPH_TRACER || DYNAMIC_FTRACE_WITH_REGS)
- 	help
- 	  Pointer authentication (part of the ARMv8.3 Extensions) provides
- 	  instructions for signing and authenticating pointers against secret
-@@ -1506,11 +1508,17 @@ config ARM64_PTR_AUTH
- 	  and other attacks.
- 
- 	  This option enables these instructions at EL0 (i.e. for userspace).
--
- 	  Choosing this option will cause the kernel to initialise secret keys
- 	  for each process at exec() time, with these keys being
- 	  context-switched along with the process.
- 
-+	  If the compiler supports the -mbranch-protection or
-+	  -msign-return-address flag (e.g. GCC 7 or later), then this option
-+	  will also cause the kernel itself to be compiled with return address
-+	  protection. In this case, and if the target hardware is known to
-+	  support pointer authentication, then CONFIG_STACKPROTECTOR can be
-+	  disabled with minimal loss of protection.
-+
- 	  The feature is detected at runtime. If the feature is not present in
- 	  hardware it will not be advertised to userspace/KVM guest nor will it
- 	  be enabled. However, KVM guest also require VHE mode and hence
-@@ -1522,6 +1530,20 @@ config ARM64_PTR_AUTH
- 	  but with the feature disabled. On such a system, this option should
- 	  not be selected.
- 
-+	  This feature works with FUNCTION_GRAPH_TRACER option only if
-+	  DYNAMIC_FTRACE_WITH_REGS is enabled.
-+
-+config CC_HAS_BRANCH_PROT_PAC_RET
-+	# GCC 9 or later, clang 8 or later
-+	def_bool $(cc-option,-mbranch-protection=pac-ret+leaf)
-+
-+config CC_HAS_SIGN_RETURN_ADDRESS
-+	# GCC 7, 8
-+	def_bool $(cc-option,-msign-return-address=all)
-+
-+config AS_HAS_PAC
-+	def_bool $(as-option,-Wa$(comma)-march=armv8.3-a)
-+
- endmenu
- 
- menu "ARMv8.5 architectural features"
-diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-index dca1a97751ab..f15f92ba53e6 100644
---- a/arch/arm64/Makefile
-+++ b/arch/arm64/Makefile
-@@ -65,6 +65,17 @@ stack_protector_prepare: prepare0
- 					include/generated/asm-offsets.h))
- endif
- 
-+ifeq ($(CONFIG_ARM64_PTR_AUTH),y)
-+branch-prot-flags-$(CONFIG_CC_HAS_SIGN_RETURN_ADDRESS) := -msign-return-address=all
-+branch-prot-flags-$(CONFIG_CC_HAS_BRANCH_PROT_PAC_RET) := -mbranch-protection=pac-ret+leaf
-+# -march=armv8.3-a enables the non-nops instructions for PAC, to avoid the
-+# compiler to generate them and consequently to break the single image contract
-+# we pass it only to the assembler. This option is utilized only in case of non
-+# integrated assemblers.
-+branch-prot-flags-$(CONFIG_AS_HAS_PAC) += -Wa,-march=armv8.3-a
-+KBUILD_CFLAGS += $(branch-prot-flags-y)
-+endif
-+
- ifeq ($(CONFIG_CPU_BIG_ENDIAN), y)
- KBUILD_CPPFLAGS	+= -mbig-endian
- CHECKFLAGS	+= -D__AARCH64EB__
-</cut>
+Thanks,
+Nick
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/420016521.10716.1584665353178.JavaMail.javamailuser%40localhost.
-
-------=_Part_10715_799666738.1584665352198--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1584672297.mudnpz3ir9.astroid%40bobo.none.
