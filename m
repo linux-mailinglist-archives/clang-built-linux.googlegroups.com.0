@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDPPFIEASMFBBN4V2TZQKGQENMNBLZY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB3HN2TZQKGQETXY6S3A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13a.google.com (mail-il1-x13a.google.com [IPv6:2607:f8b0:4864:20::13a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9420B18D6F3
-	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Mar 2020 19:26:00 +0100 (CET)
-Received: by mail-il1-x13a.google.com with SMTP id j88sf5868046ilg.9
-        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Mar 2020 11:26:00 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584728759; cv=pass;
+Received: from mail-pf1-x43e.google.com (mail-pf1-x43e.google.com [IPv6:2607:f8b0:4864:20::43e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5C35718DA71
+	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Mar 2020 22:34:38 +0100 (CET)
+Received: by mail-pf1-x43e.google.com with SMTP id t19sf5606937pfq.21
+        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Mar 2020 14:34:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584740077; cv=pass;
         d=google.com; s=arc-20160816;
-        b=WQfOIvMiqigHcp0WoBlTvxm7Io0zw+3GRPSzBKVUZYEibSLgfA8/RYXC7CtgHz5uIe
-         Q2ya/YxqzrBYdW/+sGlUhhCwznzeWH4XrN7u4BT90Rl5zv05r0QiARlVxfJ/RU2EffDM
-         KGzx1ViJ0kbzSqhVCj+HqZ247xDFs33VerD6adn6ZMRwr1AFBJfGcx+NIV7wiw2TUL9b
-         3pi9xbItEwXMSWXmuBq59TW++2WeFhUNoQ+Vql2iOwhyIS4qobTHhbRZW87dK8IUaXIJ
-         qDnG+uoizvlbgtj6P/vC90VlL7+1LD05PtLTsmJmovNKJmZxsXl2vLEBKD97JQiKNY4X
-         KXew==
+        b=kf7jEYvF2LBtcyC3Gwt0uFRLpJOe5RgvsaTPv+uDvE92LuYKu5WdZ1+y8/2R2QtYqd
+         MOnE1xHG6GTJ+XLSzNxOvjPrfawVIMXKu2NIBfQph97YuvJPCj82RrT4W5EStFmBr/tX
+         dDdlsT8rnqI/+7yq+crtU3eVoatEJXu6MVBHmDYSYB1J+MuQctsrlwnyC8YN7WMDGILr
+         OsRoQ/hBHNhEj0onLdGfXO56OxY8kVKNz6uHsBBV7GCOoNJlYa9L27477ZRFAYyNn+dA
+         PUcNZcxTBDXYEuHuT/vCpusX1bbGD8vTmvUJbC+DpilEMXbNxrCx5XqNav4LskJU7ycn
+         pqew==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=N5tgwamOtTYk5625T+WmhlXTOmCpISV+3OAjGh0VFZs=;
-        b=slUwrTTzJXz66bq7zxLZ6uvwmpjgiOz+QDh6WH2LAdnRgFfqFbrkbvZHMDeOY0ymxo
-         lHWCiNIcN1UvANMXdF7HO7+xl+majFJjeU5Y/NiU3sygtUA/hGKU51+PrX7UgILNcYcG
-         D0iCi2lfkZ4mQATA4AqqhbXTlgOn9VvE8FBrmGbF68VTVmJfErYS9/8GkgpDsj96zr7F
-         mUa9KUElPztS3lm2gwWD1bAQenFdlHlry1vNNO7d+uBN8EIsIdOKQFj+5v8yYFk9HMG3
-         ChV01Wa7nycZWtr04gt07pJB9KyJDIb1wJHR/KxP0NLQ+z3cw2YYIvciVF9n8azyMblU
-         9qAA==
+        bh=8ICPEv+Z2fIW7vE0VAZ2Akz/IvGShx/+uW3TcpixCzU=;
+        b=grXfv6fVh7DW3HW5LIT93srBB+ascn8A2gCc0Yv0M5dO0d+nthOpppFikl858xKPN1
+         q3zie9Ct8zHq/nGYqnbRXdKUIbyNTUGa4Yljia40NJaTUsjfpAzKweq8+35rgwDzs+VL
+         Dnx+wD9XtdDyUvqS7uYlJ1XQBhfpDwA57Qb4Zcftkr+HDii1DDCpZLw9ZsCMVtoyDCHI
+         00DwA7tHyOLyqGY3LhQzK3il4iwjawBdvWTv6OKahHRswP26BY7j2KNVysVa2uWVpcsA
+         fTiP/SLT+J6CET7twVaTOQXskFkEhLidBgAexIhXkcFAwFAI59T6O68kyhByxjV3A4lp
+         aRWg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="eq9B/yMz";
-       spf=pass (google.com: domain of irogers@google.com designates 2607:f8b0:4864:20::b44 as permitted sender) smtp.mailfrom=irogers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=YsNkZupP;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1041 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=N5tgwamOtTYk5625T+WmhlXTOmCpISV+3OAjGh0VFZs=;
-        b=Tpy3ihElyquEcj0kc/IXf8Fc0xC7jWlS3+s3pthEVLZ0aaInFe0YH9jOkaud0PC9ZB
-         tfLlmJmlk4ndIJNp587fhvdNex+1WN5HUhnDAf+kX5lKTfOKAwa2GSrNoPGO3qaoXqJ/
-         fwOzvZ9LlvvC4A4OxASLJY5QkRugfgLaCdQl+YVMQO+lf7W+DmrpjcTHxxpGugd6ELUz
-         CZc8yaCjZg7sXbNeAT169cZsPGkZpws9oNP8iaZGlIs4m4tFmRAaODMlFvbUBNdHhDO1
-         CpENR3tKCzheB4Gr6g03CMoMXazqYofz2BKpTSBVcGACiW9z5FWvhR/8JsUPxG/X18RA
-         Mxog==
+        bh=8ICPEv+Z2fIW7vE0VAZ2Akz/IvGShx/+uW3TcpixCzU=;
+        b=TccfilFR67LYbV1j2YUyIbG44/vgEvidoFepppNj7KeeZGYqkSSGcp5/T2uoA1Q3wG
+         uxhjM1Lezd7/G5qUWkVoyEHAhYQIxR5uD3E2zgAobEJZCcP+fTlevx2pAfJQp5rfHCow
+         cVWc0Vmeizejxa+rUbWjvz9n+RU7hIqLCQ8yfpbcHrpjP8QDzDnzHnOqr7ZZk7kcJOoP
+         LoSjkXKuz3XScSTRQx0SzO0ZjF4ih6caZvwIddVI3Ht4WSwPMihhN7Jc+X6nPb6XVpCu
+         0TarKt9LzYUtqJG2mGrlZJzb9at22odrEBdajhG36aCr9KVJgrChHJol/Sz1Jisq8T3F
+         DUKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,78 +49,75 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=N5tgwamOtTYk5625T+WmhlXTOmCpISV+3OAjGh0VFZs=;
-        b=iZszgec+vWg00EyssJZgiFip1CzFwt2zxP1QdM9By1nL/ZvIOocuP+w8hoateHCMr6
-         jcct1k4manX8zXMz72G7rD2YJjUY66AuMOS3ay5l+7WLRZlL8GbFx5DSOnjF8nwJTJhF
-         sEaXPCdb46DjN4HHG0ZGK0ZeUcF7tGmJiyYdr/P9efqqfdN/amM8jyWDZ/nOWb8GEsJ0
-         4Cc4L21OD8pX5dVDNYHXJoAYAzaelXiZVCvnd5rp2q20jpKj89NjgTbqBWdE6Gxra7BQ
-         lxdsBZLYJCOjYJslJpDHRoPIBG46cXnsdvNqX3GTazpbEwnYhKR9l8CxxEVglxdfGvWU
-         j0Jg==
-X-Gm-Message-State: ANhLgQ1tXbxOUgd16SKXY2b92Bms1/I9NNJyglRskR5/KurEoh4HP8sl
-	cN62HNYkSkkTlBU6qrsxsqc=
-X-Google-Smtp-Source: ADFU+vtJ8eJiuMq7UCcDkdgaxKXN/fyT6s/BX3hfN1AiYfpjjJcjlnGIDg0pW0H7fvdLKrFjzhycuw==
-X-Received: by 2002:a6b:fc1a:: with SMTP id r26mr8648446ioh.134.1584728759508;
-        Fri, 20 Mar 2020 11:25:59 -0700 (PDT)
+        bh=8ICPEv+Z2fIW7vE0VAZ2Akz/IvGShx/+uW3TcpixCzU=;
+        b=bZmFcf8xGI6ckX/JNgOgpci545D5/9y1FkgOKoiCK884j+otrRHrQFR8bN86Np78ZH
+         1h4OnA3VPZCAeOcBu/6jymIqF4mBbItkXf1jJdq6E0+4u3qizS0RhdkSP3TtGU55adl6
+         RKO1llrFcgkRq+bGSOpzObbj/wbh2gLMMNXGVrv2SfGBuKCssUfDNwZS5kpjNvMCy3L4
+         lSHVJDDZeIhWHSjruOQyU+ee6GDY0UOoVIUWve641K0uBm8ltgNwzDtZtsMnmvS0m7gH
+         kgqOVa2JEtsesXm5Qqbo0YVcb6y5ttXwYEAAVT+VRNhfOC8r45kFo15nTgh5XQroUQyR
+         yVdw==
+X-Gm-Message-State: ANhLgQ2+VkdDk6ZhLVBsqs//3R2YmlODPc6MCxSLjIesVLbY/9lCHZUI
+	ivHf6rJQT9pJNdQC0Z38gdg=
+X-Google-Smtp-Source: ADFU+vuZQg4wvMboDhPdVR0kU+EKtjW/BDglvxpzDDtnpTS39zAfwJ3oYQBzNxpBVtjr1KMmCZ2QIA==
+X-Received: by 2002:a63:5401:: with SMTP id i1mr10290329pgb.181.1584740076884;
+        Fri, 20 Mar 2020 14:34:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a6b:6216:: with SMTP id f22ls1140024iog.6.gmail; Fri, 20 Mar
- 2020 11:25:59 -0700 (PDT)
-X-Received: by 2002:a5d:851a:: with SMTP id q26mr460288ion.25.1584728759203;
-        Fri, 20 Mar 2020 11:25:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584728759; cv=none;
+Received: by 2002:a62:1c88:: with SMTP id c130ls3808609pfc.7.gmail; Fri, 20
+ Mar 2020 14:34:36 -0700 (PDT)
+X-Received: by 2002:aa7:991c:: with SMTP id z28mr11876387pff.294.1584740076395;
+        Fri, 20 Mar 2020 14:34:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584740076; cv=none;
         d=google.com; s=arc-20160816;
-        b=X/p2WEzEdToOcZ/L7I761iGeaKA95YePyYr7fN7Dkb159HPPbpo/5m0UOJJioWr23F
-         REGFPT+0wBG+DwkP6wump7auXCuDwvwF5VHpI63A74BgD7zaOk20G0RBOlqpuYeJkGMX
-         XVvY6PeW3gIwhurIHAsWgdk9Fs2vt0YwJW+kOEhtyW1oHVjRIUzzBGnsr9CxgN3z0X22
-         IbD9Ea1Ps6ef2TLuvnNn36vYPPGC3qkgI/SPEAAXSx1JXyzAaIU5vTv86GYnInsxnnKn
-         iWT71xDWL+TdpEg/Rio12hi+3dKc8rCQiuiftEDrGC77vC29zZcC1XpLXGgMD5orsWJv
-         /w5A==
+        b=W/GrcSZNrDE31LzxI8TArth/KG8EgUUORu0YbFfbzIUEchjLS5REPu84jSpoKSZMVf
+         IUluClcBDcb3uqDZLMNHdT0jnqQnr7m1g0xgq51HUZ0wzC8UNCFEiS1goAbvfSiE8lDJ
+         jgSPF//qSgIoojyqLZEVO+eFfnbhbvers/AekHZNx6n0ycPoYEqRxrcyjyz+rBjfPYul
+         2rC9iLxe0xew3KFM/A0ip7jkVJ63ahBDm7LtrBkFal6iqrhbxfa5rhZmPgQw0QZc3ghT
+         hB2c3Ys74zSktlphvmez1fCOFMQLUTdfYx7E7SoL73e1EYTdtYo7XVjXwDEoRdr7ce+5
+         PO/w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=sAuZ5tw5lKEWRwYrS4t2K3YVE1qFf5yYC3/QDtY6LpA=;
-        b=VlEJa8+QW9pAMideNGykoCRD7ZbtaVKNDqo+ccCHezaTfQJgCSBirh0+nOmwu4iNLA
-         QF42g6PemhDq/jWIENWqIsORHzFBZBVGXIrEg9qnJZVZ46SpWR0Fk8ERTK6yo4cA9HaK
-         ZgPnbN+wAjuJl87IgUcstS9xZcaPfBK3KJQ14AxOn5m2JU2iJwPNDXEb8m0pq8mVIZRF
-         KtLlr7rq+jLpc2jd/WI8DXY4/drHecJVjabuQPI8EZ3eKDcf2szpz5OF0n2tQQIB6z/9
-         rP7FQhW4tm0rBqfhGoExKXSFJJtaaYR7y2fHVJLZvaIEJ8CqtXF444PfBpOzbxpr47lQ
-         xEAg==
+        bh=m4byeT9utw4Yh/7U93k3Xs15i8NIS7iBpM5yP1kU1CE=;
+        b=l2nInJDAJZPMcbkl65wkJbSpVPyBwUoAEPnlTUjs86hfvKxfKJOWbbYkdhLdXxfZmi
+         siMIM8P9L0GbEWGY0CaJYRdjA5nPt5VYnwY7cN54jh/4FDDKUc7J2C31DczY9aEKxvdR
+         MC3LX2guKjz9bzXtLcLcuMNf76D38J73cL7IM0ciWBQDSlvdszUfYcoQwhbCrfVo8A61
+         cshDPEGzhbRfFGYEZ4HplshRbv4fF6JRPoPVKP1nWTrbcinNosyvlH0IAIvy2FhJv5Wp
+         c/nSSmgfGVxjZw78hcYMTLijKv3AwRr/zhxhUomeJWsl5vtRhq0ivOtUDiResTvRwRSg
+         gnbA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="eq9B/yMz";
-       spf=pass (google.com: domain of irogers@google.com designates 2607:f8b0:4864:20::b44 as permitted sender) smtp.mailfrom=irogers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=YsNkZupP;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1041 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-yb1-xb44.google.com (mail-yb1-xb44.google.com. [2607:f8b0:4864:20::b44])
-        by gmr-mx.google.com with ESMTPS id t13si516283ilk.5.2020.03.20.11.25.59
+Received: from mail-pj1-x1041.google.com (mail-pj1-x1041.google.com. [2607:f8b0:4864:20::1041])
+        by gmr-mx.google.com with ESMTPS id 185si42586pgh.3.2020.03.20.14.34.36
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Mar 2020 11:25:59 -0700 (PDT)
-Received-SPF: pass (google.com: domain of irogers@google.com designates 2607:f8b0:4864:20::b44 as permitted sender) client-ip=2607:f8b0:4864:20::b44;
-Received: by mail-yb1-xb44.google.com with SMTP id d186so2936805ybh.1
-        for <clang-built-linux@googlegroups.com>; Fri, 20 Mar 2020 11:25:59 -0700 (PDT)
-X-Received: by 2002:a25:c482:: with SMTP id u124mr14970611ybf.286.1584728758311;
- Fri, 20 Mar 2020 11:25:58 -0700 (PDT)
+        Fri, 20 Mar 2020 14:34:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1041 as permitted sender) client-ip=2607:f8b0:4864:20::1041;
+Received: by mail-pj1-x1041.google.com with SMTP id mj6so3060251pjb.5
+        for <clang-built-linux@googlegroups.com>; Fri, 20 Mar 2020 14:34:36 -0700 (PDT)
+X-Received: by 2002:a17:90b:8f:: with SMTP id bb15mr10736247pjb.186.1584740075541;
+ Fri, 20 Mar 2020 14:34:35 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200314042826.166953-1-irogers@google.com> <20200314142332.GB492969@krava>
- <CAP-5=fXZJidxHYeCqHcNPBArMe_aYwP0+u2dxiTD+V1fammK_Q@mail.gmail.com> <20200315093013.GC492969@krava>
-In-Reply-To: <20200315093013.GC492969@krava>
-From: "'Ian Rogers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 20 Mar 2020 11:25:47 -0700
-Message-ID: <CAP-5=fWmJdAC3GtwO3sf+725roY6T8s8GRvDJL4Rfqv+ByysGQ@mail.gmail.com>
-Subject: Re: [PATCH] perf mem2node: avoid double free related to realloc
-To: Jiri Olsa <jolsa@redhat.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Namhyung Kim <namhyung@kernel.org>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Stephane Eranian <eranian@google.com>
+References: <CAKwvOd=mOmU1S1g5oDDy3rLjnp543Fu6PSVAJyvxhyQDvpOM+A@mail.gmail.com>
+ <20200320101455.GB20696@hirez.programming.kicks-ass.net>
+In-Reply-To: <20200320101455.GB20696@hirez.programming.kicks-ass.net>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Fri, 20 Mar 2020 14:34:24 -0700
+Message-ID: <CAKwvOd=edOBdTL=FcmXYuN8crykrEoJbfdVy4CmKL7ETj_TpnQ@mail.gmail.com>
+Subject: Re: call to memset() with UACCESS enabled
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Josh Poimboeuf <jpoimboe@redhat.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Kees Cook <keescook@chromium.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: irogers@google.com
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="eq9B/yMz";       spf=pass
- (google.com: domain of irogers@google.com designates 2607:f8b0:4864:20::b44
- as permitted sender) smtp.mailfrom=irogers@google.com;       dmarc=pass
+ header.i=@google.com header.s=20161025 header.b=YsNkZupP;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1041
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Ian Rogers <irogers@google.com>
-Reply-To: Ian Rogers <irogers@google.com>
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,109 +130,173 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, Mar 15, 2020 at 2:30 AM Jiri Olsa <jolsa@redhat.com> wrote:
+On Fri, Mar 20, 2020 at 3:15 AM Peter Zijlstra <peterz@infradead.org> wrote:
 >
-> On Sat, Mar 14, 2020 at 09:49:37AM -0700, Ian Rogers wrote:
-> > On Sat, Mar 14, 2020 at 7:23 AM Jiri Olsa <jolsa@redhat.com> wrote:
-> > >
-> > > On Fri, Mar 13, 2020 at 09:28:26PM -0700, Ian Rogers wrote:
-> > > > Realloc of size zero is a free not an error, avoid this causing a double
-> > > > free. Caught by clang's address sanitizer:
-> > > >
-> > > > ==2634==ERROR: AddressSanitizer: attempting double-free on 0x6020000015f0 in thread T0:
-> > > >     #0 0x5649659297fd in free llvm/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:123:3
-> > > >     #1 0x5649659e9251 in __zfree tools/lib/zalloc.c:13:2
-> > > >     #2 0x564965c0f92c in mem2node__exit tools/perf/util/mem2node.c:114:2
-> > > >     #3 0x564965a08b4c in perf_c2c__report tools/perf/builtin-c2c.c:2867:2
-> > > >     #4 0x564965a0616a in cmd_c2c tools/perf/builtin-c2c.c:2989:10
-> > > >     #5 0x564965944348 in run_builtin tools/perf/perf.c:312:11
-> > > >     #6 0x564965943235 in handle_internal_command tools/perf/perf.c:364:8
-> > > >     #7 0x5649659440c4 in run_argv tools/perf/perf.c:408:2
-> > > >     #8 0x564965942e41 in main tools/perf/perf.c:538:3
-> > > >
-> > > > 0x6020000015f0 is located 0 bytes inside of 1-byte region [0x6020000015f0,0x6020000015f1)
-> > > > freed by thread T0 here:
-> > > >     #0 0x564965929da3 in realloc third_party/llvm/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:164:3
-> > > >     #1 0x564965c0f55e in mem2node__init tools/perf/util/mem2node.c:97:16
-> > > >     #2 0x564965a08956 in perf_c2c__report tools/perf/builtin-c2c.c:2803:8
-> > > >     #3 0x564965a0616a in cmd_c2c tools/perf/builtin-c2c.c:2989:10
-> > > >     #4 0x564965944348 in run_builtin tools/perf/perf.c:312:11
-> > > >     #5 0x564965943235 in handle_internal_command tools/perf/perf.c:364:8
-> > > >     #6 0x5649659440c4 in run_argv tools/perf/perf.c:408:2
-> > > >     #7 0x564965942e41 in main tools/perf/perf.c:538:3
-> > > >
-> > > > previously allocated by thread T0 here:
-> > > >     #0 0x564965929c42 in calloc third_party/llvm/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:154:3
-> > > >     #1 0x5649659e9220 in zalloc tools/lib/zalloc.c:8:9
-> > > >     #2 0x564965c0f32d in mem2node__init tools/perf/util/mem2node.c:61:12
-> > > >     #3 0x564965a08956 in perf_c2c__report tools/perf/builtin-c2c.c:2803:8
-> > > >     #4 0x564965a0616a in cmd_c2c tools/perf/builtin-c2c.c:2989:10
-> > > >     #5 0x564965944348 in run_builtin tools/perf/perf.c:312:11
-> > > >     #6 0x564965943235 in handle_internal_command tools/perf/perf.c:364:8
-> > > >     #7 0x5649659440c4 in run_argv tools/perf/perf.c:408:2
-> > > >     #8 0x564965942e41 in main tools/perf/perf.c:538:3
-> > > >
-> > > > Signed-off-by: Ian Rogers <irogers@google.com>
-> > > > ---
-> > > >  tools/perf/util/mem2node.c | 2 +-
-> > > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > > >
-> > > > diff --git a/tools/perf/util/mem2node.c b/tools/perf/util/mem2node.c
-> > > > index 797d86a1ab09..7f97aa69eb65 100644
-> > > > --- a/tools/perf/util/mem2node.c
-> > > > +++ b/tools/perf/util/mem2node.c
-> > > > @@ -95,7 +95,7 @@ int mem2node__init(struct mem2node *map, struct perf_env *env)
-> > > >
-> > > >       /* Cut unused entries, due to merging. */
-> > > >       tmp_entries = realloc(entries, sizeof(*entries) * j);
-> > > > -     if (tmp_entries)
-> > > > +     if (j == 0 || tmp_entries)
-> > >
-> > > nice catch.. I wonder if we should fail in here, or at least
-> > > warn that there're no entris.. which is really strange ;-)
+> On Thu, Mar 19, 2020 at 01:37:04PM -0700, Nick Desaulniers wrote:
+> > Hello Josh and Peter,
+> > I'm looking to track down what I think is our last objtool warning:
+> > https://github.com/ClangBuiltLinux/linux/issues/876
 > >
-> > The workload was the stream benchmark with perf c2c, but stream isn't
-> > particularly long running. Not sure how j became 0, there's 2
-> > possibilities in the code. The worry with a warning is the spam, so I
-> > just wanted to make the code correct.
+> > Can you tell me a little bit more about what uaccess is?  I wonder if
+> > an assignment is getting turned into a memset outside of a "critical
+> > section" (for some meaning of "critical section" that I don't yet
+> > understand), which is what objtool is validating against?
 >
-> I was wondering if we should fail completely,
-> but we might break some c2c expected behaviour
->
-> how about just WARN_ONCE pn j == 0, and then
-> the lookup will fail already with:
->
->         if (WARN_ONCE(node < 0, "WARNING: failed to find node\n"))
->                 return;
->
-> just get enough hints ;-)
+> This is x86_64 SMAP EFLAGS.AC checking. When SMAP is enabled, kernel
+> code (CPL0) can only access memory with _PAGE_USER set when ELFAGS.AC is
+> set. Otherwise it goes *bang*.
 
-Sorry for the delay. I sent a v2 hopefully doing what you asked :-)
-https://lkml.org/lkml/2020/3/20/858
+Ah, thanks for that context, I was able to find
+https://lwn.net/Articles/517475/ (though I think the Spectre
+mitigations make some of the points outdated) and
+https://en.wikipedia.org/wiki/Supervisor_Mode_Access_Prevention which
+talks more about SMAP.  So it sounds like there's a "critical section"
+in terms of STAC and CLAC "guards" where access to userspace should
+only occur within (IIUC).
 
+> Now, the x86_64 context switch code does not save/restore EFLAGS,
+> because performance.
+
+Oh? Wouldn't tasks need those to branch correctly? If your task is
+context switched out after a comparison, but before a conditional
+jump, and your flags weren't restored...I guess orthogonal to our
+issue, but how does that work?  (It sounds like you're alluding below
+that exceptions may help here?)
+
+> To avoid EFLAGS.AC leaking out and destroying the benefit of this
+> protection, the rule is that any code that has AC set must not CALL/RET.
+> Because if it were to accidentally stumble upon a call to schedule(),
+> our AC flag would leak, and worse, it might be cleared by the time we
+> get back and our valid access goes *splat*.
+
+The attack vector here being userspace might manipulate a pointer in
+kernel memory range, then a call or return might use that "poison"
+pointer to do something bad.  In this case, maybe the destination of
+the memset is modified to scribble arbitrary memory in the kernel,
+which would be bad.  Is that correct?
+
+>
+>  [ exceptions, and thereby also preemption, do save/restore EFLAGS per
+>    the architecture ]
+>
+> Function tracing in particular is suspect, it will hook into pretty much
+> everything and _will_ call preempt_enable(), which is a call to
+> schedule().
+>
+> Now, objtool has a minimal whitelist of functions that are allowed,
+> these are mostly compiler instrumentation calls which are unavoidable.
+
+Looks like this is uaccess_safe_builtin in tools/objtool/check.c.
+
+> All the kernel implementations of them are notrace and they will
+> save/restore EFLAGS themselves before calling out again.
+>
+> See for example KASAN's check_memory_region() (and by extention
+> __asan_{load,store}*_noabort()). mm/kasan/Makefile strips
+> CC_FLAGS_FTRACE and kasan_report() will
+> user_access_save()/user_access_restore().
+>
+> Am I right in thinking that this memset() call is inserted by some
+> 'clever' LLVM optimizer pass trying to optimize writing a few 0s ?
+
+3 of the 4 warnings I observe are from defconfig + CONFIG_KASAN.
+Maybe that can help us limit whatever changes based on CONFIG_KASAN?
+
+In the case of __setup_rt_frame() in arch/x86/kernel/signal.c (for
+CONFIG_X86_64), if I comment out:
+save_altstack_ex(&frame->uc.uc_stack, regs->sp);
+the warning disappears.  Within the save_altstack_ex(), the call to
+sas_ss_reset() seems to be triggering this (removing it silences the
+warning, too). sas_ss_reset() assigns two consecutive `long` members
+of struct taskstruct to 0, which seems to be combined into a memset,
+seemingly only when CONFIG_KASAN is set.
+
+Backing up, put_user_try/put_user_catch seem to be the STAC/CLAC
+guards, and they contain a barrier().  Playing with this in godbolt,
+it looks like a slight difference between -fsanitize=kernel-address
+between GCC and Clang: https://godbolt.org/z/-HhGWV
+
+For a 2 long store of consecutive memory locations with the same value:
+GCC: emits 2 calls to __asan_store8_noabort which is whitelisted in
+uaccess_safe_builtin.
+Clang: emits a call to memset
+
+I don't know enough about the KASAN runtime to say if that's a sort of
+optimization, or a bug.  I would assume that we should always be
+checking writes through pointers before writing through them, so I'm
+leaning more towards bug.
+
+It's tricky to see where in the disassembly the stac/clac would go,
+since I think they use alternatives.  I guess they would fit in the
+sequences of  3-nop sleds I see.  (We really need a kernel
+disassembler that understands our custom sections, objdump can only go
+so far).  So it's not clear to me whether the memset is outside one of
+those "critical sections" or simply the memset was unexpected.
+
+So for:
+arch/x86/kernel/signal.o: warning: objtool: __setup_rt_frame()+0x341:
+call to memset() with UACCESS enabled
+I see:
+
+ d85:   90                      nop
+ d86:   90                      nop
+ d87:   90                      nop
+...
+ e01:   e8 00 00 00 00          callq  e06 <__setup_rt_frame+0x346>
+                        e02: R_X86_64_PLT32     memset-0x4
+...
+ e49:   90                      nop
+ e4a:   90                      nop
+ e4b:   90                      nop
+
+I don't see any jumps in __setup_rt_frame that would jump control flow
+after the 3-nop sled but before the call to memset (pipe the
+disassembly into `less`, then filter via `&__setup_rt_frame`).
+
+If I try this hack, we don't combine the double assignment into a
+memcpy and objtool warning disappears, though I'm not sure that this
+is the correct use of `__asan_store8_noabort`:
+
+```
+diff --git a/include/linux/sched/signal.h b/include/linux/sched/signal.h
+index 65ea429daaa2..2630b4c2e7cf 100644
+--- a/include/linux/sched/signal.h
++++ b/include/linux/sched/signal.h
+@@ -551,9 +551,12 @@ static inline int sas_ss_flags(unsigned long sp)
+        return on_sig_stack(sp) ? SS_ONSTACK : 0;
+ }
+
++void __asan_store8_noabort(unsigned long addr);
+ static inline void sas_ss_reset(struct task_struct *p)
+ {
++       __asan_store8_noabort((unsigned long)&p->sas_ss_sp);
+        p->sas_ss_sp = 0;
++       __asan_store8_noabort((unsigned long)&p->sas_ss_size);
+        p->sas_ss_size = 0;
+        p->sas_ss_flags = SS_DISABLE;
+```
+
+So maybe this is a bug in Clang; -fsanitize=kernel-address should not
+combine assignments of adjacent `longs` into `memset`;
+`__asan_store8_noabort` is expected.
+
+Does that seem like a correct analysis?
+
+Thanks for taking the time to explain all of this to me, it means a
+lot to me that you take the time to do so.  Sorry I'm more familiar
+with some of this stuff, but I feel like I'm learning more over time.
+
+>
+> Looking at the implementation in arch/x86/lib/memset_64.S, we could
+> arguably whitelist it.
+
+But then we'd miss the potential use of memset as a gadget outside of
+stac/clac guards?
+-- 
 Thanks,
-Ian
-
-> jirka
->
-> >
-> > Thanks,
-> > Ian
-> >
-> > > thanks,
-> > > jirka
-> > >
-> > > >               entries = tmp_entries;
-> > > >
-> > > >       for (i = 0; i < j; i++) {
-> > > > --
-> > > > 2.25.1.481.gfbce0eb801-goog
-> > > >
-> > >
-> >
->
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAP-5%3DfWmJdAC3GtwO3sf%2B725roY6T8s8GRvDJL4Rfqv%2BByysGQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DedOBdTL%3DFcmXYuN8crykrEoJbfdVy4CmKL7ETj_TpnQ%40mail.gmail.com.
