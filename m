@@ -1,124 +1,126 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBKPY2HZQKGQE3HSOZVA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBI5P2LZQKGQEGFCPL7Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53a.google.com (mail-ed1-x53a.google.com [IPv6:2a00:1450:4864:20::53a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0439918C8DA
-	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Mar 2020 09:17:46 +0100 (CET)
-Received: by mail-ed1-x53a.google.com with SMTP id ce13sf4397166edb.11
-        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Mar 2020 01:17:45 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584692265; cv=pass;
+Received: from mail-qk1-x737.google.com (mail-qk1-x737.google.com [IPv6:2607:f8b0:4864:20::737])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4F92118CB49
+	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Mar 2020 11:15:01 +0100 (CET)
+Received: by mail-qk1-x737.google.com with SMTP id h186sf801981qkc.22
+        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Mar 2020 03:15:01 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584699300; cv=pass;
         d=google.com; s=arc-20160816;
-        b=I2NgccPPHx5ROnLCvOrk7tMmNg8iH5fejvMzcqyHTv7UlSMlABsBJSdggE03kBCgAH
-         sQRdnOvPJ3dP2777/YPFbzONZIq2EC8C3gIxZG3i2Q7F3bEI0RUaSthDk13mxupnVdg8
-         D5XlrruiQ5GHNFs+3ojqbzrIHV6Ns25t43PC5ld+u7S1Te7XzNuiOOTZ0yUuGYt9xOJT
-         owHNdTd5aWKvTqrG5r1xIAU/4Jem/nQ9aUEMTfuuDZ+A5dyA6a7GhzhtpGO1ipGi+tNz
-         5n8ga9Q4pj2Yq9HhOHBQ0y07CqSiV246oKNiHc08liPT1+8S2Lrg1L0r74OpUMSDXN/c
-         l9yA==
+        b=OEw8YrWh0YD7m9f2DFLgItRqNHUyU3jwBeLwovNGtK6M/HgViC5liLb7GBcv2TSr26
+         V9yBVkDNXGa/pRNTUXexCYOl7MMjssOggFd23wHrgZd4fqzKJFjWOXcGYsJuZdQ57jHm
+         m9Uzvn49fKPTZg5BA4sSAY40ZGYSVd6ghaHu0vM+8Is1ZIpOxc7AiJ+RYQQMRE+d7B1Q
+         QQ5P7NJGPFdOsQLp9vI9TpQvR0EywqeEyVoCur0Pgd0ZUgjjMou39WCeSRdxcx3hsoKY
+         o3jMs9+awE5DLec92XwxUALaAUld4TNBTipEv9ASjfbpNo7Z6w60ILZlqewjfrGUazGN
+         Q75w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=VdC5EoKHH9ja8MygLDQcXlZP3AW9QpGdZtZYUqElJJI=;
-        b=sINyrruN+ZnwIQP4zY8nsg3oo/eEn2G59C897wAmeDYxk/dRDei7vs/PG7z3RJpbm9
-         wLJxEcQurgUsRr/swauZHUVkKqUABA/DL7L4Lg8NOTvGXJ1qjCXKMCLISYPF7nnJCSs0
-         sKx0dLKJDY1Ttkm5dRu6srzRvCZcQjQ5/PW0eTtqTCaCwK3yJ/xhuq/B0AVkg9/xyr0I
-         0BtihmK+tT2PL2IQbo9ICTJ/eE8vc5JrclRkntI76IEhbqh69VvuFFDLbnLSXNCCZhzX
-         V/SGpnkuW38Mejs2S/RQgOv8GpitpWOFpcIJIaUvGAn+goX6GSdlIZK6+IgaH+6mij0P
-         EsiA==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=7a+YX1yaLgP3OMSH9t6HuPML32UbvJWq9UZPWGci3kY=;
+        b=ZzmoJ+LLTOCAnco8vWCJvfjTH0qPfE1sbn+yIaI+s9ahn9WISh25w6eUz2v4vhz3nK
+         Q9QbtKVVUVT1nIXSzTK0rGO//kMvt+85GhBz61GLnHeM/Dq5XGDFf46gj9T8vQBkhWON
+         PQbgxXNt9KxsNj3UcCY25zEq6A9GWSEDwaLPHm0l/7y0/qTarzNYhiO8u7T1TD+SZ0st
+         rJV+FqiSxY/rECz0PP4hSwaHPezpguAk2LSKRAYDtqBjVZZSHyC8pRTNhd4XSBzbBL2l
+         8K85KoAd7aQ18FIQu+4tk3azEH+s0eSDoCwACczSDU5jnHNH4JhunqG2A8ob/xNi4za5
+         vgUg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=EfRMiro6;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42a as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=JYNioPAX;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=VdC5EoKHH9ja8MygLDQcXlZP3AW9QpGdZtZYUqElJJI=;
-        b=Kj+vr9/voI/djFrA5GzXvhADI0LMX/20S4AsH9BuVJ8cFRljav3uDRE/3kRpoGQzO+
-         td17j5Aympi87xEwNg2KEvE0vhbqH3m6u9VvMGbtZj0xumBGmN7KWGUilRfMz3hvpMdK
-         CLxh3+lFhhHRE2hrbEnMQMwwCvEdZo71YiXTxOA6/beSJCCi0Sv6bUuiO5vM4c0N3N3Y
-         mD16lK3g5HbfSf9aui42jSk1+AFrEWKF2rHtUf/HFLPse3UDVn11wbN2vI7NXQJnQKKG
-         axRiY3XDF0PNjjdK/ZrePz2jvF83MSRdMruVVxHIf/WEY+O/aVXh2UcqbwEZQZN/EMJu
-         9RYw==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=7a+YX1yaLgP3OMSH9t6HuPML32UbvJWq9UZPWGci3kY=;
+        b=PniOdag8Lc23qgnl8xcuM+M5x7hfv3WqVhbdx51DRdFm1gFwM53NBF6eUHbpTO7GqL
+         Py7gVqhNgbE3tZdQvzHBx2VeJlVPoJqybLClMnYLVXo1pwJTmZZGX65V8SXRo9GCjDzj
+         A+jJoqbBjO0dJuUjxhQYHKxjS09axZJpvMkIYOyvcWIUnpxuhEU+BSoJKxrcFNRKVR0+
+         HlmduSFzgmlhICY83HZz8zL/l+pPXs3lFI1OjrXk+EWePkLC/13M6kWpBuQe8O6TTKCu
+         gyMkXLnCF7kRJ8xuS/ijFc438JDG7MivHKRPOvGG7IXnyotJjTxjYPe4D/678DVGAFlu
+         Ga5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=VdC5EoKHH9ja8MygLDQcXlZP3AW9QpGdZtZYUqElJJI=;
-        b=TFGqQNjcPyhvjjVKPsF5pUlscIGtFG2N0rbw+4aPzdaasba8K8uoas+FKrHUD0o8de
-         dvldnEO88HErW0PTyJOeAB6R2O8wVA6u8Nlq88UzllwLst29/h9CZhgpPGQLw2/h/FbD
-         PAc+3Yiv4pJpcXu3uVX2CptcsuYxClrHjopA4L1Z97P7elT2o5CHbM9lu8Uqpv4dxW6z
-         dv65LWWWFaZ46gdn1s8e/kRQFgJSq0keEpl+4rdbi19usj+ZlwSNVvXGdn7DwVTCrFzw
-         nO3OT+pvdm9iNOU9FkOKhv6Nv+tbrEl7xz2tdI0ZUFjZi/iig4zGRGFRveEPuaQPYjst
-         uydQ==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=7a+YX1yaLgP3OMSH9t6HuPML32UbvJWq9UZPWGci3kY=;
+        b=edDJ5R7JhWvItGdB3iC7ZJyQ2xbT92hQr5R0AqeTyzPBNm5a49BuAYPuEFxT+ji21y
+         jW+yo+8663CGTGgphyaC5B5/yJsOxRRAOvra6UZuwokP4psQ/GmMsj+pmv9k4F0gZgPS
+         zPJLRqDjfAaf0tykCMRapbJmgsf7dmcTFaUKeicTxMhZOZgFQVntrxw63OO0RRw6L+9x
+         4z+CnVsAY9+pNQXe4sTnu7dW8OqnN9KSif3yLJy5VsCc0OaRrH/Pjly0hvSDRv99Pwaa
+         GtgFt0OuYbd/n+iCD4kr3i/5WjIHVC/n8dCjRxetTKUPvAhoKn0cFXGlAa5M4903e9zu
+         jCTw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ0HXGapa9jOoXGxVtC0CIuYDonD0Q4xOI+MBncInJOSYfq6ktcT
-	wBbIiyqOJr/0jvW8OiHVR/g=
-X-Google-Smtp-Source: ADFU+vva6VxBddU78UnpSE6J+IZiqf+fth9uLOc/chiTC8jLrNqNInK7KNw5Hh2xq/B76CcddgGt/w==
-X-Received: by 2002:a50:d552:: with SMTP id f18mr6697298edj.341.1584692265653;
-        Fri, 20 Mar 2020 01:17:45 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ3Y7lAug7/L1sWO0hMqLZ+Zn1f8ikZN4qOGhY70Kgu52iuxl19v
+	vBzAJg7N9Uje7f3WFkyco/c=
+X-Google-Smtp-Source: ADFU+vv8yxXOEl7tQl0ovlo53H4g+Q857IsPCUrIni47BFxEAS8pcRDLu1sLWWWxM9iUtyVKmaiPUA==
+X-Received: by 2002:ac8:31af:: with SMTP id h44mr1446423qte.252.1584699300012;
+        Fri, 20 Mar 2020 03:15:00 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6402:1d99:: with SMTP id dk25ls2849973edb.3.gmail; Fri,
- 20 Mar 2020 01:17:45 -0700 (PDT)
-X-Received: by 2002:a50:8d84:: with SMTP id r4mr6817567edh.305.1584692265074;
-        Fri, 20 Mar 2020 01:17:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584692265; cv=none;
+Received: by 2002:a37:9e41:: with SMTP id h62ls2903074qke.8.gmail; Fri, 20 Mar
+ 2020 03:14:59 -0700 (PDT)
+X-Received: by 2002:a37:a854:: with SMTP id r81mr6953059qke.384.1584699299444;
+        Fri, 20 Mar 2020 03:14:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584699299; cv=none;
         d=google.com; s=arc-20160816;
-        b=l9NP0mwKWKq/xyIVR9ilqYmcPKJt/6DbG8xH3okdo2zqn85Wqpf9LJTrUljO5n1Uta
-         v0Xh/0ToIl74WzIOHwAUxzFkK8DstFyaT3gNwhkdwlrshFq88nrpXhr5NGijyYgRy5zQ
-         S1UdxNNV8Bc7ztA2J15NBK+6XSHeqb7ZV10RP3rNwL7hXzOXwvIqJU9+yOUfqJ6eG5Kf
-         ZsY/cpLCNOpauftudIC2pfsvrLoU3/o6h79MVGr1CeTOGKHen0YCpqioIgcn2LE4YF1W
-         0Gwhqo3In2fATrIqrDh/dOoaMJtS9oaEF8JEeWhMY/vLXakCksOet758/YGZ4o3l3hSD
-         fjdg==
+        b=qBLfbcSmAlaWYrj7IerRfiqB7JsKJEPM/TUeRlAXHyzuVR/6FnzivtXdyjHJc9s64i
+         wKP9eDxJKutsRdWnsQPVKh79wgxbVSwcK10SFR/qQ4otFDLe2XSjn8Ql41b9bBbMOgrs
+         13EgdnXoPHfONH6AYaLpWxcLW6OVEt9Yh19VmS4pekmJdPVDKLsebE6FoTQ1YP2zr+kZ
+         q7mx2fh27Rc3aBz/B8Milc+ok6fb35LdVuYvHrUig9TcSaVTasvIM/nX9bk7i2Ja4DYY
+         xAbb4qCpMRd9g5m29Ub5spcKTEAxMDe+/pMKrnrDHquqwZHCVqdbLC7bFTfXUPkX+w+u
+         SMfQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=+8hnarmChFO9I3VvjNS11Iu8qKkSGyIvrLimzZsR/O8=;
-        b=T5V1lkbEpi0T/GsykvK1EIL/NOnotsPPGJPNHOlt/xbrwtq+kmcTJYMyEl1JosXxbv
-         5E//j130//6CaFGE4ETHxcO2SV2qRe78FFAXowy5T+UnrOaFtRjhbx0UKsD/kL/Su/0T
-         WWLmPLPpE9pR4ijVAiG0jS83BoKJ0pVF15zEUaz2CHcco1pLDsPgp7NofO9OLVTOgB8+
-         vz9eT9XgR9a2UH0ezJN8CZUwjZPzXgNnl5t2XZe9jLbDYkkDFYQ4Vw7atpvKxQsUjEOV
-         oYSWpKrpFWx7+mRqhU+65uNbz1QAR0kdLIpeJ86q3I+yDoGGpJjqqfKVW2J4N+H4f5As
-         gkEg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=qZPkWH0ejas89PfCOt2YN8D8IASSNmovo1OVly9RpVc=;
+        b=OedRcbWJQTo0936/CgIbcCn5p+rOaf/sSx+7QY8jVJkeg5rHE3qPaHvNH3/22DjypP
+         NlArl/vd9alvzQqaGcnFauZKcvCLPK6unARwZ2ZSguzucXzlSLhOLoDfru16OAj67TG9
+         H7PLn01Q/BtCWy15ggTF6MwsELam8y8GBxi2pLmTbZG+/VnaQFuqv/kTjS54DWCda9td
+         y/HVNhwH13WCgZgBEGMGRJ2zXYYzEHZ63NoxY1/PiVHftmvmtJ+vt2ohgoX2XnTyakWE
+         aa70YAuURKVJ5fiHte7T+AhqDeOg/1WfkeHo8ZLuXs5JyHDTwhZoCjNHq8+gtxWFrNXK
+         uYrQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=EfRMiro6;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42a as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wr1-x42a.google.com (mail-wr1-x42a.google.com. [2a00:1450:4864:20::42a])
-        by gmr-mx.google.com with ESMTPS id ck3si110690edb.5.2020.03.20.01.17.45
+       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=JYNioPAX;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
+Received: from bombadil.infradead.org (bombadil.infradead.org. [2607:7c80:54:e::133])
+        by gmr-mx.google.com with ESMTPS id d193si258420qke.1.2020.03.20.03.14.59
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Mar 2020 01:17:45 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42a as permitted sender) client-ip=2a00:1450:4864:20::42a;
-Received: by mail-wr1-x42a.google.com with SMTP id h4so6334663wru.2
-        for <clang-built-linux@googlegroups.com>; Fri, 20 Mar 2020 01:17:45 -0700 (PDT)
-X-Received: by 2002:a5d:6a4b:: with SMTP id t11mr9373203wrw.52.1584692264725;
-        Fri, 20 Mar 2020 01:17:44 -0700 (PDT)
-Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id u1sm6940546wrt.78.2020.03.20.01.17.43
-        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Fri, 20 Mar 2020 01:17:44 -0700 (PDT)
-From: ci_notify@linaro.org
-Date: Fri, 20 Mar 2020 08:17:43 +0000 (UTC)
-To: tcwg-validation@linaro.org, arnd@linaro.org, 
-	clang-built-linux@googlegroups.com
-Message-ID: <134903312.10741.1584692264065.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-master-aarch64-next-defconfig - Build # 38 - Successful!
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Mar 2020 03:14:59 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) client-ip=2607:7c80:54:e::133;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
+	by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1jFEg5-000297-Rj; Fri, 20 Mar 2020 10:14:58 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 7EDC53012C3;
+	Fri, 20 Mar 2020 11:14:55 +0100 (CET)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 680A4287266DE; Fri, 20 Mar 2020 11:14:55 +0100 (CET)
+Date: Fri, 20 Mar 2020 11:14:55 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Josh Poimboeuf <jpoimboe@redhat.com>,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: call to memset() with UACCESS enabled
+Message-ID: <20200320101455.GB20696@hirez.programming.kicks-ass.net>
+References: <CAKwvOd=mOmU1S1g5oDDy3rLjnp543Fu6PSVAJyvxhyQDvpOM+A@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_10740_340960675.1584692263162"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-aarch64-next-defconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <CAKwvOd=mOmU1S1g5oDDy3rLjnp543Fu6PSVAJyvxhyQDvpOM+A@mail.gmail.com>
+X-Original-Sender: peterz@infradead.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=EfRMiro6;       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42a
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@infradead.org header.s=bombadil.20170209 header.b=JYNioPAX;
+       spf=pass (google.com: best guess record for domain of
+ peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,189 +133,53 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_10740_340960675.1584692263162
-Content-Type: text/plain; charset="UTF-8"
+On Thu, Mar 19, 2020 at 01:37:04PM -0700, Nick Desaulniers wrote:
+> Hello Josh and Peter,
+> I'm looking to track down what I think is our last objtool warning:
+> https://github.com/ClangBuiltLinux/linux/issues/876
+> 
+> Can you tell me a little bit more about what uaccess is?  I wonder if
+> an assignment is getting turned into a memset outside of a "critical
+> section" (for some meaning of "critical section" that I don't yet
+> understand), which is what objtool is validating against?
 
-Successfully identified regression in *linux* in CI configuration tcwg_kernel/llvm-master-aarch64-next-defconfig.  So far, this commit has regressed CI configurations:
- - tcwg_kernel/gnu-master-aarch64-next-defconfig
- - tcwg_kernel/gnu-release-aarch64-next-defconfig
- - tcwg_kernel/llvm-master-aarch64-next-defconfig
- - tcwg_kernel/llvm-release-aarch64-next-defconfig
+This is x86_64 SMAP EFLAGS.AC checking. When SMAP is enabled, kernel
+code (CPL0) can only access memory with _PAGE_USER set when ELFAGS.AC is
+set. Otherwise it goes *bang*.
 
-Culprit:
-<cut>
-commit 08120d236c47dd2bdb6f7366782f4756dd7f417e
-Author: Alex Elder <elder@linaro.org>
+Now, the x86_64 context switch code does not save/restore EFLAGS,
+because performance.
 
-    soc: qcom: ipa: support build of IPA code
-</cut>
+To avoid EFLAGS.AC leaking out and destroying the benefit of this
+protection, the rule is that any code that has AC set must not CALL/RET.
+Because if it were to accidentally stumble upon a call to schedule(),
+our AC flag would leak, and worse, it might be cleared by the time we
+get back and our valid access goes *splat*.
 
-First few build errors in logs:
-00:02:28 drivers/net/ipa/gsi.c:220:39: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
-00:02:28 drivers/net/ipa/gsi.c:223:39: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
-00:02:28 drivers/net/ipa/gsi.c:710:16: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
-00:02:28 make[3]: *** [drivers/net/ipa/gsi.o] Error 1
-00:02:34 drivers/net/ipa/ipa_endpoint.c:584:14: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
-00:02:34 drivers/net/ipa/ipa_endpoint.c:965:16: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
-00:02:34 make[3]: *** [drivers/net/ipa/ipa_endpoint.o] Error 1
-00:02:34 drivers/net/ipa/ipa_cmd.c:182:28: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
-00:02:34 drivers/net/ipa/ipa_cmd.c:183:28: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
-00:02:34 make[3]: *** [drivers/net/ipa/ipa_cmd.o] Error 1
-Configuration details:
-rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
-rr[linux_branch]="47780d7892b77e922bbe19b5dea99cde06b2f0e5"
+ [ exceptions, and thereby also preemption, do save/restore EFLAGS per
+   the architecture ]
 
-Results regressed to (for first_bad == 08120d236c47dd2bdb6f7366782f4756dd7f417e)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-5704
+Function tracing in particular is suspect, it will hook into pretty much
+everything and _will_ call preempt_enable(), which is a call to
+schedule().
 
-from (for last_good == 530f9216a9537b58cdc2f967b5cd78f5dafb34c4)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-6265
-# linux build successful:
-all
-# linux boot successful:
-boot
+Now, objtool has a minimal whitelist of functions that are allowed,
+these are mostly compiler instrumentation calls which are unavoidable.
+All the kernel implementations of them are notrace and they will
+save/restore EFLAGS themselves before calling out again.
 
-Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-defconfig/38/artifact/artifacts/build-08120d236c47dd2bdb6f7366782f4756dd7f417e/
-Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-defconfig/38/artifact/artifacts/build-530f9216a9537b58cdc2f967b5cd78f5dafb34c4/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-defconfig/38/
+See for example KASAN's check_memory_region() (and by extention
+__asan_{load,store}*_noabort()). mm/kasan/Makefile strips
+CC_FLAGS_FTRACE and kasan_report() will
+user_access_save()/user_access_restore().
 
-Reproduce builds:
-<cut>
-mkdir investigate-linux-08120d236c47dd2bdb6f7366782f4756dd7f417e
-cd investigate-linux-08120d236c47dd2bdb6f7366782f4756dd7f417e
+Am I right in thinking that this memset() call is inserted by some
+'clever' LLVM optimizer pass trying to optimize writing a few 0s ?
 
-git clone https://git.linaro.org/toolchain/jenkins-scripts
-
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-defconfig/38/artifact/artifacts/manifests/build-baseline.sh
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-defconfig/38/artifact/artifacts/manifests/build-parameters.sh
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-defconfig/38/artifact/artifacts/test.sh
-chmod +x artifacts/test.sh
-
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
-
-cd linux
-
-# Reproduce first_bad build
-git checkout --detach 08120d236c47dd2bdb6f7366782f4756dd7f417e
-../artifacts/test.sh
-
-# Reproduce last_good build
-git checkout --detach 530f9216a9537b58cdc2f967b5cd78f5dafb34c4
-../artifacts/test.sh
-
-cd ..
-</cut>
-
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-next-defconfig
-
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-defconfig/38/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-defconfig/38/consoleText
-
-Full commit:
-<cut>
-commit 08120d236c47dd2bdb6f7366782f4756dd7f417e
-Author: Alex Elder <elder@linaro.org>
-Date:   Thu Mar 5 22:28:29 2020 -0600
-
-    soc: qcom: ipa: support build of IPA code
-    
-    Add build and Kconfig support for the Qualcomm IPA driver.
-    
-    Signed-off-by: Alex Elder <elder@linaro.org>
-    Signed-off-by: David S. Miller <davem@davemloft.net>
----
- drivers/net/Kconfig      |  2 ++
- drivers/net/Makefile     |  1 +
- drivers/net/ipa/Kconfig  | 19 +++++++++++++++++++
- drivers/net/ipa/Makefile | 12 ++++++++++++
- 4 files changed, 34 insertions(+)
-
-diff --git a/drivers/net/Kconfig b/drivers/net/Kconfig
-index 66e410e58c8e..02565bc2be8a 100644
---- a/drivers/net/Kconfig
-+++ b/drivers/net/Kconfig
-@@ -444,6 +444,8 @@ source "drivers/net/fddi/Kconfig"
- 
- source "drivers/net/hippi/Kconfig"
- 
-+source "drivers/net/ipa/Kconfig"
-+
- config NET_SB1000
- 	tristate "General Instruments Surfboard 1000"
- 	depends on PNP
-diff --git a/drivers/net/Makefile b/drivers/net/Makefile
-index 65967246f240..94b60800887a 100644
---- a/drivers/net/Makefile
-+++ b/drivers/net/Makefile
-@@ -47,6 +47,7 @@ obj-$(CONFIG_ETHERNET) += ethernet/
- obj-$(CONFIG_FDDI) += fddi/
- obj-$(CONFIG_HIPPI) += hippi/
- obj-$(CONFIG_HAMRADIO) += hamradio/
-+obj-$(CONFIG_QCOM_IPA) += ipa/
- obj-$(CONFIG_PLIP) += plip/
- obj-$(CONFIG_PPP) += ppp/
- obj-$(CONFIG_PPP_ASYNC) += ppp/
-diff --git a/drivers/net/ipa/Kconfig b/drivers/net/ipa/Kconfig
-new file mode 100644
-index 000000000000..b8cb7cadbf75
---- /dev/null
-+++ b/drivers/net/ipa/Kconfig
-@@ -0,0 +1,19 @@
-+config QCOM_IPA
-+	tristate "Qualcomm IPA support"
-+	depends on ARCH_QCOM && 64BIT && NET
-+	select QCOM_QMI_HELPERS
-+	select QCOM_MDT_LOADER
-+	default QCOM_Q6V5_COMMON
-+	help
-+	  Choose Y or M here to include support for the Qualcomm
-+	  IP Accelerator (IPA), a hardware block present in some
-+	  Qualcomm SoCs.  The IPA is a programmable protocol processor
-+	  that is capable of generic hardware handling of IP packets,
-+	  including routing, filtering, and NAT.  Currently the IPA
-+	  driver supports only basic transport of network traffic
-+	  between the AP and modem, on the Qualcomm SDM845 SoC.
-+
-+	  Note that if selected, the selection type must match that
-+	  of QCOM_Q6V5_COMMON (Y or M).
-+
-+	  If unsure, say N.
-diff --git a/drivers/net/ipa/Makefile b/drivers/net/ipa/Makefile
-new file mode 100644
-index 000000000000..afe5df1e6eee
---- /dev/null
-+++ b/drivers/net/ipa/Makefile
-@@ -0,0 +1,12 @@
-+# Un-comment the next line if you want to validate configuration data
-+#ccflags-y		+=	-DIPA_VALIDATE
-+
-+obj-$(CONFIG_QCOM_IPA)	+=	ipa.o
-+
-+ipa-y			:=	ipa_main.o ipa_clock.o ipa_reg.o ipa_mem.o \
-+				ipa_table.o ipa_interrupt.o gsi.o gsi_trans.o \
-+				ipa_gsi.o ipa_smp2p.o ipa_uc.o \
-+				ipa_endpoint.o ipa_cmd.o ipa_modem.o \
-+				ipa_qmi.o ipa_qmi_msg.o
-+
-+ipa-y			+=	ipa_data-sdm845.o ipa_data-sc7180.o
-</cut>
+Looking at the implementation in arch/x86/lib/memset_64.S, we could
+arguably whitelist it.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/134903312.10741.1584692264065.JavaMail.javamailuser%40localhost.
-
-------=_Part_10740_340960675.1584692263162--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200320101455.GB20696%40hirez.programming.kicks-ass.net.
