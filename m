@@ -1,138 +1,126 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBWMU2TZQKGQE32H2RJY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDPPFIEASMFBBN4V2TZQKGQENMNBLZY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 068C518D6C2
-	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Mar 2020 19:24:27 +0100 (CET)
-Received: by mail-pl1-x63c.google.com with SMTP id t4sf4390235plz.9
-        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Mar 2020 11:24:26 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584728665; cv=pass;
+Received: from mail-il1-x13a.google.com (mail-il1-x13a.google.com [IPv6:2607:f8b0:4864:20::13a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9420B18D6F3
+	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Mar 2020 19:26:00 +0100 (CET)
+Received: by mail-il1-x13a.google.com with SMTP id j88sf5868046ilg.9
+        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Mar 2020 11:26:00 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584728759; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hEoBa8jRZLQcrpFVuUELN5XiIVDMSnda3irUekmc6NCuBby4dhLe5RkAqQgl86aZyc
-         5cVNjWOgiOAqrUcml6uSqgp/TTZyuMVtcb1E8Qr1OEsKLa3fOjufCmsau2N4o3Gj0gMs
-         cdpBhx5Siw0XPH+jUI3YIcBRffQctOZaBV/zB19tG0gp5br+12Fubb3IyyNgKD2ExkwT
-         sCLBVi9rBs+Ky2govBS8RYFwN5HyNphu0ivlyYsqYfhIt42OYe7xpUeya/Fyv6Ox6reo
-         LG91TEv1BiPwNT7XqiYTRqvgKkX4Bvlf4hZmGckzV/q37c2bjxffQJVIq+XJUj9gPRGb
-         x1wA==
+        b=WQfOIvMiqigHcp0WoBlTvxm7Io0zw+3GRPSzBKVUZYEibSLgfA8/RYXC7CtgHz5uIe
+         Q2ya/YxqzrBYdW/+sGlUhhCwznzeWH4XrN7u4BT90Rl5zv05r0QiARlVxfJ/RU2EffDM
+         KGzx1ViJ0kbzSqhVCj+HqZ247xDFs33VerD6adn6ZMRwr1AFBJfGcx+NIV7wiw2TUL9b
+         3pi9xbItEwXMSWXmuBq59TW++2WeFhUNoQ+Vql2iOwhyIS4qobTHhbRZW87dK8IUaXIJ
+         qDnG+uoizvlbgtj6P/vC90VlL7+1LD05PtLTsmJmovNKJmZxsXl2vLEBKD97JQiKNY4X
+         KXew==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=Iin12TwkqNxXqjkDQ51UD0V7AZbRvt92VuWsrtDp5OQ=;
-        b=NN/q4zz39EN0bH1I9CVb/4oGxoLW1N4lblCNoVCmVH/spCSGRWOdWNbAAOlyfpa6rh
-         +p0xabpeLNlfNucgdWXFkgt/i8QT4tN7K7vOOKRMIqg05frCLyJRCHarw9vpbC/P0SaM
-         W/2E/vrjXwxYDBveMY5kqFANWLlNdoBViNI1or+5C7a98euFb4ICQ7yzAy6BWhB1YmUn
-         QXK6d4DV7foR7EtUo+74e5Uswvfdt0b97OusLODgxOzBqf38ffZDt2ugYBbMmot63tBF
-         /++X/iwOJFD7xjki6POZomEeXMKv2qk3bFbL7hPg7yaG1i1LRfY68WpMTQz9yZiwXwqx
-         WmGw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=N5tgwamOtTYk5625T+WmhlXTOmCpISV+3OAjGh0VFZs=;
+        b=slUwrTTzJXz66bq7zxLZ6uvwmpjgiOz+QDh6WH2LAdnRgFfqFbrkbvZHMDeOY0ymxo
+         lHWCiNIcN1UvANMXdF7HO7+xl+majFJjeU5Y/NiU3sygtUA/hGKU51+PrX7UgILNcYcG
+         D0iCi2lfkZ4mQATA4AqqhbXTlgOn9VvE8FBrmGbF68VTVmJfErYS9/8GkgpDsj96zr7F
+         mUa9KUElPztS3lm2gwWD1bAQenFdlHlry1vNNO7d+uBN8EIsIdOKQFj+5v8yYFk9HMG3
+         ChV01Wa7nycZWtr04gt07pJB9KyJDIb1wJHR/KxP0NLQ+z3cw2YYIvciVF9n8azyMblU
+         9qAA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=egxARSlF;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b="eq9B/yMz";
+       spf=pass (google.com: domain of irogers@google.com designates 2607:f8b0:4864:20::b44 as permitted sender) smtp.mailfrom=irogers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Iin12TwkqNxXqjkDQ51UD0V7AZbRvt92VuWsrtDp5OQ=;
-        b=aHZr0KXbdaxPLwwwNbdoUC/xXoilgxCPGTJWAIlXDu7aA0SQYmtn+DZ35eKXN2OmuD
-         3K+MShzkQ9iAwVQnZf3cJ2qLA5OTw581/MjvwCs83rS/lcXv+AZ4WNFKZV7b3EgxTfvD
-         sAdIbz0zfwSmyzzjVaN9DymvPmRug0Crkgi2lTOBNBfngUNo5r8dvBveSZrBXjS+cJz4
-         wESGiLoWBhE8nTuKsghPRy0sXJ3Ng7z7yfDnWC2ZQuWTsgpzlL5vtY9qzfjapKxdYqOO
-         uOTozmI/SS4miO1bUIRuKl9x8nPdzWfOVTtXwHy7rQK7n8L0JZXeJMHwUe2tT/3P+dBK
-         n5HA==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=N5tgwamOtTYk5625T+WmhlXTOmCpISV+3OAjGh0VFZs=;
+        b=Tpy3ihElyquEcj0kc/IXf8Fc0xC7jWlS3+s3pthEVLZ0aaInFe0YH9jOkaud0PC9ZB
+         tfLlmJmlk4ndIJNp587fhvdNex+1WN5HUhnDAf+kX5lKTfOKAwa2GSrNoPGO3qaoXqJ/
+         fwOzvZ9LlvvC4A4OxASLJY5QkRugfgLaCdQl+YVMQO+lf7W+DmrpjcTHxxpGugd6ELUz
+         CZc8yaCjZg7sXbNeAT169cZsPGkZpws9oNP8iaZGlIs4m4tFmRAaODMlFvbUBNdHhDO1
+         CpENR3tKCzheB4Gr6g03CMoMXazqYofz2BKpTSBVcGACiW9z5FWvhR/8JsUPxG/X18RA
+         Mxog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=Iin12TwkqNxXqjkDQ51UD0V7AZbRvt92VuWsrtDp5OQ=;
-        b=oCiWhACwuyc7jSLh6Mx+DJdObl9+uu4PJKZlMFxE0ta/sOW8Hcuz8MWvle5gzSiyDl
-         Ml8DMfL/SROBqUoYDVx0qNglWHmc7iNAl55Ljtk1ZZ6gRm6YTrBfl8Y5ooK2lb6ybjQk
-         eQfQfyVBfTeI1jN5pvePK+PuZqkjOHWCNW9i1g0GUTsSaEGRqEnlg48Ru4/LjmpwMMkR
-         iamjNO8xXwdSF9houdf8ftwoERkt0glYLmplh+Y3BurhMb1SyvZ730DLepc4o/BZT0F9
-         SzApOQGAuIhLD5ysYMGTOIHfOBzmt3PZtzEnL4SYwvUIOVyLO95+BufSnYvrpUWhRpKX
-         32vw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ3KlyNyNk1tt82f/PVQuJrMbt2XPXcoDIjdiUifD/PpGIm+9XOZ
-	szuhM4y9bFj2/RGa6PvFGUA=
-X-Google-Smtp-Source: ADFU+vtqZDHphvN1tq1cZXCDCOVThWOC7jVcFTu4BvyK3YSJzVi1ThunqWfbCu9j/vlOOI2mgkgJuw==
-X-Received: by 2002:a63:f60e:: with SMTP id m14mr9629908pgh.342.1584728665345;
-        Fri, 20 Mar 2020 11:24:25 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=N5tgwamOtTYk5625T+WmhlXTOmCpISV+3OAjGh0VFZs=;
+        b=iZszgec+vWg00EyssJZgiFip1CzFwt2zxP1QdM9By1nL/ZvIOocuP+w8hoateHCMr6
+         jcct1k4manX8zXMz72G7rD2YJjUY66AuMOS3ay5l+7WLRZlL8GbFx5DSOnjF8nwJTJhF
+         sEaXPCdb46DjN4HHG0ZGK0ZeUcF7tGmJiyYdr/P9efqqfdN/amM8jyWDZ/nOWb8GEsJ0
+         4Cc4L21OD8pX5dVDNYHXJoAYAzaelXiZVCvnd5rp2q20jpKj89NjgTbqBWdE6Gxra7BQ
+         lxdsBZLYJCOjYJslJpDHRoPIBG46cXnsdvNqX3GTazpbEwnYhKR9l8CxxEVglxdfGvWU
+         j0Jg==
+X-Gm-Message-State: ANhLgQ1tXbxOUgd16SKXY2b92Bms1/I9NNJyglRskR5/KurEoh4HP8sl
+	cN62HNYkSkkTlBU6qrsxsqc=
+X-Google-Smtp-Source: ADFU+vtJ8eJiuMq7UCcDkdgaxKXN/fyT6s/BX3hfN1AiYfpjjJcjlnGIDg0pW0H7fvdLKrFjzhycuw==
+X-Received: by 2002:a6b:fc1a:: with SMTP id r26mr8648446ioh.134.1584728759508;
+        Fri, 20 Mar 2020 11:25:59 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:684:: with SMTP id 126ls3526897pgg.9.gmail; Fri, 20 Mar
- 2020 11:24:25 -0700 (PDT)
-X-Received: by 2002:a63:6f0c:: with SMTP id k12mr10016938pgc.142.1584728664988;
-        Fri, 20 Mar 2020 11:24:24 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584728664; cv=none;
+Received: by 2002:a6b:6216:: with SMTP id f22ls1140024iog.6.gmail; Fri, 20 Mar
+ 2020 11:25:59 -0700 (PDT)
+X-Received: by 2002:a5d:851a:: with SMTP id q26mr460288ion.25.1584728759203;
+        Fri, 20 Mar 2020 11:25:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584728759; cv=none;
         d=google.com; s=arc-20160816;
-        b=qB+2RCE18YlB1aX2eWUKUkHpdN1j7j2byQOFTxE8RuCT9H+QTdpo633xWWxqbfs9kC
-         +x/Cy/GAX0OBF4jQFMwFXNXTA9NaceAV/41LksmSR8a3kTbQrtgCbGBtKha5VXIh5eAk
-         /TuEABWRJwWQFFA0qDt70rPsaI6H3PU7H0LbM1Gx7v6HnmkTTC7aPzy0q6bp54x7upa3
-         Se95Ue7rXoXm6V+HXqZNjE8XwMSjjjicOjFz0uMXeJI/PRQtaoWcvOUw5o3spG1XN98p
-         ZoDFUnU/P5i3B1OQmOOEOQ6C5I7PvShllDFnzF6PLAtJvw3Kr5jkEkydLqEgRm3894hf
-         hg8A==
+        b=X/p2WEzEdToOcZ/L7I761iGeaKA95YePyYr7fN7Dkb159HPPbpo/5m0UOJJioWr23F
+         REGFPT+0wBG+DwkP6wump7auXCuDwvwF5VHpI63A74BgD7zaOk20G0RBOlqpuYeJkGMX
+         XVvY6PeW3gIwhurIHAsWgdk9Fs2vt0YwJW+kOEhtyW1oHVjRIUzzBGnsr9CxgN3z0X22
+         IbD9Ea1Ps6ef2TLuvnNn36vYPPGC3qkgI/SPEAAXSx1JXyzAaIU5vTv86GYnInsxnnKn
+         iWT71xDWL+TdpEg/Rio12hi+3dKc8rCQiuiftEDrGC77vC29zZcC1XpLXGgMD5orsWJv
+         /w5A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=2xWVMcAkfq5ne45p4xyMZVZzHfwNqETngAro5lkreP4=;
-        b=y6J8V0CxsuIcA+uwWRts2/01KZWgjMXoytnJ3VUQJC1IE9msfP3Uz3Veccy/x0o12Q
-         mDzZ/zbHxLSTLdteYMbGD371PHGMXq0oy/l4Pwbyyl+QTROqm1PraUCIjlrQfdqEqkEg
-         V3JBppXnju1J8c1W+yLQG6SQkOygfaiaSalfXGzovXwrD4pRLcTCfU6dBinSRHsLdPAl
-         NMXBFMYX81pt0nN23tLeGzO1PNnDi5uU8cVXhqYgvg14NTkjcoawwXmXBv83J8mvbqWr
-         e8C0nN/FyfHanS1zTPPgjTK17qzvtt9EWlqeH4R8wwNQ+FY6mZWWB2vdcdjLcUM1nq8z
-         emjA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=sAuZ5tw5lKEWRwYrS4t2K3YVE1qFf5yYC3/QDtY6LpA=;
+        b=VlEJa8+QW9pAMideNGykoCRD7ZbtaVKNDqo+ccCHezaTfQJgCSBirh0+nOmwu4iNLA
+         QF42g6PemhDq/jWIENWqIsORHzFBZBVGXIrEg9qnJZVZ46SpWR0Fk8ERTK6yo4cA9HaK
+         ZgPnbN+wAjuJl87IgUcstS9xZcaPfBK3KJQ14AxOn5m2JU2iJwPNDXEb8m0pq8mVIZRF
+         KtLlr7rq+jLpc2jd/WI8DXY4/drHecJVjabuQPI8EZ3eKDcf2szpz5OF0n2tQQIB6z/9
+         rP7FQhW4tm0rBqfhGoExKXSFJJtaaYR7y2fHVJLZvaIEJ8CqtXF444PfBpOzbxpr47lQ
+         xEAg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=egxARSlF;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pg1-x543.google.com (mail-pg1-x543.google.com. [2607:f8b0:4864:20::543])
-        by gmr-mx.google.com with ESMTPS id x12si447430plv.3.2020.03.20.11.24.24
+       dkim=pass header.i=@google.com header.s=20161025 header.b="eq9B/yMz";
+       spf=pass (google.com: domain of irogers@google.com designates 2607:f8b0:4864:20::b44 as permitted sender) smtp.mailfrom=irogers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-yb1-xb44.google.com (mail-yb1-xb44.google.com. [2607:f8b0:4864:20::b44])
+        by gmr-mx.google.com with ESMTPS id t13si516283ilk.5.2020.03.20.11.25.59
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Mar 2020 11:24:24 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::543 as permitted sender) client-ip=2607:f8b0:4864:20::543;
-Received: by mail-pg1-x543.google.com with SMTP id 37so3482169pgm.11
-        for <clang-built-linux@googlegroups.com>; Fri, 20 Mar 2020 11:24:24 -0700 (PDT)
-X-Received: by 2002:a63:b706:: with SMTP id t6mr9859014pgf.329.1584728664667;
-        Fri, 20 Mar 2020 11:24:24 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id w205sm6244774pfc.75.2020.03.20.11.24.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Mar 2020 11:24:23 -0700 (PDT)
-Date: Fri, 20 Mar 2020 11:24:22 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Nicholas Piggin <npiggin@gmail.com>
-Cc: Borislav Petkov <bp@suse.de>, Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	clang-built-linux@googlegroups.com, "H.J. Lu" <hjl.tools@gmail.com>,
-	James Morse <james.morse@arm.com>, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Russell King <linux@armlinux.org.uk>, linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Peter Collingbourne <pcc@google.com>, Will Deacon <will@kernel.org>,
-	x86@kernel.org
-Subject: Re: [PATCH 1/9] scripts/link-vmlinux.sh: Delay orphan handling
- warnings until final link
-Message-ID: <202003201121.8CBD96451B@keescook>
-References: <20200228002244.15240-1-keescook@chromium.org>
- <20200228002244.15240-2-keescook@chromium.org>
- <1584672297.mudnpz3ir9.astroid@bobo.none>
+        Fri, 20 Mar 2020 11:25:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of irogers@google.com designates 2607:f8b0:4864:20::b44 as permitted sender) client-ip=2607:f8b0:4864:20::b44;
+Received: by mail-yb1-xb44.google.com with SMTP id d186so2936805ybh.1
+        for <clang-built-linux@googlegroups.com>; Fri, 20 Mar 2020 11:25:59 -0700 (PDT)
+X-Received: by 2002:a25:c482:: with SMTP id u124mr14970611ybf.286.1584728758311;
+ Fri, 20 Mar 2020 11:25:58 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200314042826.166953-1-irogers@google.com> <20200314142332.GB492969@krava>
+ <CAP-5=fXZJidxHYeCqHcNPBArMe_aYwP0+u2dxiTD+V1fammK_Q@mail.gmail.com> <20200315093013.GC492969@krava>
+In-Reply-To: <20200315093013.GC492969@krava>
+From: "'Ian Rogers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Fri, 20 Mar 2020 11:25:47 -0700
+Message-ID: <CAP-5=fWmJdAC3GtwO3sf+725roY6T8s8GRvDJL4Rfqv+ByysGQ@mail.gmail.com>
+Subject: Re: [PATCH] perf mem2node: avoid double free related to realloc
+To: Jiri Olsa <jolsa@redhat.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Namhyung Kim <namhyung@kernel.org>, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Stephane Eranian <eranian@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <1584672297.mudnpz3ir9.astroid@bobo.none>
-X-Original-Sender: keescook@chromium.org
+X-Original-Sender: irogers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=egxARSlF;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::543
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+ header.i=@google.com header.s=20161025 header.b="eq9B/yMz";       spf=pass
+ (google.com: domain of irogers@google.com designates 2607:f8b0:4864:20::b44
+ as permitted sender) smtp.mailfrom=irogers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Ian Rogers <irogers@google.com>
+Reply-To: Ian Rogers <irogers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,60 +133,109 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Mar 20, 2020 at 12:47:54PM +1000, Nicholas Piggin wrote:
-> Kees Cook's on February 28, 2020 10:22 am:
-> > Right now, powerpc adds "--orphan-handling=warn" to LD_FLAGS_vmlinux
-> > to detect when there are unexpected sections getting added to the kernel
-> > image. There is no need to report these warnings more than once, so it
-> > can be removed until the final link stage.
-> > 
-> > This helps pave the way for other architectures to enable this, with the
-> > end goal of enabling this warning by default for vmlinux for all
-> > architectures.
-> > 
-> > Signed-off-by: Kees Cook <keescook@chromium.org>
-> > ---
-> >  scripts/link-vmlinux.sh | 6 ++++++
-> >  1 file changed, 6 insertions(+)
-> > 
-> > diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-> > index 1919c311c149..416968fea685 100755
-> > --- a/scripts/link-vmlinux.sh
-> > +++ b/scripts/link-vmlinux.sh
-> > @@ -255,6 +255,11 @@ info GEN modules.builtin
-> >  tr '\0' '\n' < modules.builtin.modinfo | sed -n 's/^[[:alnum:]:_]*\.file=//p' |
-> >  	tr ' ' '\n' | uniq | sed -e 's:^:kernel/:' -e 's/$/.ko/' > modules.builtin
-> >  
-> > +
-> > +# Do not warn about orphan sections until the final link stage.
-> > +saved_LDFLAGS_vmlinux="${LDFLAGS_vmlinux}"
-> > +LDFLAGS_vmlinux="$(echo "${LDFLAGS_vmlinux}" | sed -E 's/ --orphan-handling=warn( |$)/ /g')"
-> > +
-> >  btf_vmlinux_bin_o=""
-> >  if [ -n "${CONFIG_DEBUG_INFO_BTF}" ]; then
-> >  	if gen_btf .tmp_vmlinux.btf .btf.vmlinux.bin.o ; then
-> > @@ -306,6 +311,7 @@ if [ -n "${CONFIG_KALLSYMS}" ]; then
-> >  	fi
-> >  fi
-> >  
-> > +LDFLAGS_vmlinux="${saved_LDFLAGS_vmlinux}"
-> >  vmlinux_link vmlinux "${kallsymso}" ${btf_vmlinux_bin_o}
-> >  
-> >  if [ -n "${CONFIG_BUILDTIME_TABLE_SORT}" ]; then
-> 
-> That's ugly. Why not just enable it for all archs?
+On Sun, Mar 15, 2020 at 2:30 AM Jiri Olsa <jolsa@redhat.com> wrote:
+>
+> On Sat, Mar 14, 2020 at 09:49:37AM -0700, Ian Rogers wrote:
+> > On Sat, Mar 14, 2020 at 7:23 AM Jiri Olsa <jolsa@redhat.com> wrote:
+> > >
+> > > On Fri, Mar 13, 2020 at 09:28:26PM -0700, Ian Rogers wrote:
+> > > > Realloc of size zero is a free not an error, avoid this causing a double
+> > > > free. Caught by clang's address sanitizer:
+> > > >
+> > > > ==2634==ERROR: AddressSanitizer: attempting double-free on 0x6020000015f0 in thread T0:
+> > > >     #0 0x5649659297fd in free llvm/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:123:3
+> > > >     #1 0x5649659e9251 in __zfree tools/lib/zalloc.c:13:2
+> > > >     #2 0x564965c0f92c in mem2node__exit tools/perf/util/mem2node.c:114:2
+> > > >     #3 0x564965a08b4c in perf_c2c__report tools/perf/builtin-c2c.c:2867:2
+> > > >     #4 0x564965a0616a in cmd_c2c tools/perf/builtin-c2c.c:2989:10
+> > > >     #5 0x564965944348 in run_builtin tools/perf/perf.c:312:11
+> > > >     #6 0x564965943235 in handle_internal_command tools/perf/perf.c:364:8
+> > > >     #7 0x5649659440c4 in run_argv tools/perf/perf.c:408:2
+> > > >     #8 0x564965942e41 in main tools/perf/perf.c:538:3
+> > > >
+> > > > 0x6020000015f0 is located 0 bytes inside of 1-byte region [0x6020000015f0,0x6020000015f1)
+> > > > freed by thread T0 here:
+> > > >     #0 0x564965929da3 in realloc third_party/llvm/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:164:3
+> > > >     #1 0x564965c0f55e in mem2node__init tools/perf/util/mem2node.c:97:16
+> > > >     #2 0x564965a08956 in perf_c2c__report tools/perf/builtin-c2c.c:2803:8
+> > > >     #3 0x564965a0616a in cmd_c2c tools/perf/builtin-c2c.c:2989:10
+> > > >     #4 0x564965944348 in run_builtin tools/perf/perf.c:312:11
+> > > >     #5 0x564965943235 in handle_internal_command tools/perf/perf.c:364:8
+> > > >     #6 0x5649659440c4 in run_argv tools/perf/perf.c:408:2
+> > > >     #7 0x564965942e41 in main tools/perf/perf.c:538:3
+> > > >
+> > > > previously allocated by thread T0 here:
+> > > >     #0 0x564965929c42 in calloc third_party/llvm/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:154:3
+> > > >     #1 0x5649659e9220 in zalloc tools/lib/zalloc.c:8:9
+> > > >     #2 0x564965c0f32d in mem2node__init tools/perf/util/mem2node.c:61:12
+> > > >     #3 0x564965a08956 in perf_c2c__report tools/perf/builtin-c2c.c:2803:8
+> > > >     #4 0x564965a0616a in cmd_c2c tools/perf/builtin-c2c.c:2989:10
+> > > >     #5 0x564965944348 in run_builtin tools/perf/perf.c:312:11
+> > > >     #6 0x564965943235 in handle_internal_command tools/perf/perf.c:364:8
+> > > >     #7 0x5649659440c4 in run_argv tools/perf/perf.c:408:2
+> > > >     #8 0x564965942e41 in main tools/perf/perf.c:538:3
+> > > >
+> > > > Signed-off-by: Ian Rogers <irogers@google.com>
+> > > > ---
+> > > >  tools/perf/util/mem2node.c | 2 +-
+> > > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > > >
+> > > > diff --git a/tools/perf/util/mem2node.c b/tools/perf/util/mem2node.c
+> > > > index 797d86a1ab09..7f97aa69eb65 100644
+> > > > --- a/tools/perf/util/mem2node.c
+> > > > +++ b/tools/perf/util/mem2node.c
+> > > > @@ -95,7 +95,7 @@ int mem2node__init(struct mem2node *map, struct perf_env *env)
+> > > >
+> > > >       /* Cut unused entries, due to merging. */
+> > > >       tmp_entries = realloc(entries, sizeof(*entries) * j);
+> > > > -     if (tmp_entries)
+> > > > +     if (j == 0 || tmp_entries)
+> > >
+> > > nice catch.. I wonder if we should fail in here, or at least
+> > > warn that there're no entris.. which is really strange ;-)
+> >
+> > The workload was the stream benchmark with perf c2c, but stream isn't
+> > particularly long running. Not sure how j became 0, there's 2
+> > possibilities in the code. The worry with a warning is the spam, so I
+> > just wanted to make the code correct.
+>
+> I was wondering if we should fail completely,
+> but we might break some c2c expected behaviour
+>
+> how about just WARN_ONCE pn j == 0, and then
+> the lookup will fail already with:
+>
+>         if (WARN_ONCE(node < 0, "WARNING: failed to find node\n"))
+>                 return;
+>
+> just get enough hints ;-)
 
-It is ugly; I agree.
+Sorry for the delay. I sent a v2 hopefully doing what you asked :-)
+https://lkml.org/lkml/2020/3/20/858
 
-I can try to do this for all architectures, but I worry there are a
-bunch I can't test. But I guess it would stand out. ;)
+Thanks,
+Ian
 
--Kees
-
--- 
-Kees Cook
+> jirka
+>
+> >
+> > Thanks,
+> > Ian
+> >
+> > > thanks,
+> > > jirka
+> > >
+> > > >               entries = tmp_entries;
+> > > >
+> > > >       for (i = 0; i < j; i++) {
+> > > > --
+> > > > 2.25.1.481.gfbce0eb801-goog
+> > > >
+> > >
+> >
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202003201121.8CBD96451B%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAP-5%3DfWmJdAC3GtwO3sf%2B725roY6T8s8GRvDJL4Rfqv%2BByysGQ%40mail.gmail.com.
