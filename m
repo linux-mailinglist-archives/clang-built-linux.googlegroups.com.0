@@ -1,125 +1,127 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBJ6U2HZQKGQEQQNDW2A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCMIZB7QWENRBRGZ2HZQKGQEM7IVT6Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33d.google.com (mail-wm1-x33d.google.com [IPv6:2a00:1450:4864:20::33d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8F08618C7CD
-	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Mar 2020 08:00:55 +0100 (CET)
-Received: by mail-wm1-x33d.google.com with SMTP id g26sf2002967wmk.6
-        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Mar 2020 00:00:55 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584687655; cv=pass;
+Received: from mail-vk1-xa3f.google.com (mail-vk1-xa3f.google.com [IPv6:2607:f8b0:4864:20::a3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2CFCF18C801
+	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Mar 2020 08:12:06 +0100 (CET)
+Received: by mail-vk1-xa3f.google.com with SMTP id h197sf1531788vka.5
+        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Mar 2020 00:12:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584688325; cv=pass;
         d=google.com; s=arc-20160816;
-        b=duTMKYaVTF+Hq9ho/SZfzlXZWZUrzHbN92y9RquSi9wTsWVpNxGyqFzD4GlI+lUQTx
-         y4xfq5+3rGUNhQP4UD4kga8Z0WfZub755YEUlUTHAiLpsLpX6h/p70jrHb4FT2Hs3Sz6
-         1vQp7U2JL7b8fcRoO4fb1qJzHE4hkvKYUQjwSnZecih2GAzxUyZZ2tV2cagEJMMiAitr
-         7aw12jVfwLtIrMEeh2F7XnY7XO0b/Z/oMxqUFL+o328AXnmhpP6xlaAG3TuB9JaWNRAE
-         vDfkcclh7t8i9wTiA1FGtrmE12Px6tWbUSSqJkYoKTiInotTXQ2ipqvKO+mevUozyt46
-         ogng==
+        b=X9lfxZfYWLq4xz+Bi0zfw0HMJkUHo8J2mg/5n3Gf7a0P2/J18bhRo8g7STyf/kRsLI
+         5YUImTLDgBBVSjM/bn2ckj9x+l4Glkcj9oVcZYIXGEh1+drBsuKG3ludasDOcz1mWhSW
+         bc93uSsH5EckV6HBQBQSEI5IvDxjqSN1IwwDdoZsWM8R7NGSGaX/0Z+vWh0cP0W3b24Y
+         caNLmf6VNH1X+BwMI70dbOfi6ZmeXpLygz2lJn9Fof5l44XpKzDZPRfeH3DxRI6eY6Ti
+         q9vdI5BSreKVyA6FkAzS4ap8L0Kn62OEOnBIMmpVdGhjbHwUL0CKDx3mRQ/zT+ghran7
+         RfrQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=HVc+D14FoWd2kOsqxxedg6CFZHME50rrLtFjjaJk5Q8=;
-        b=MNpV26DehO5nud9i+z9LQBT4n/t1fGWXEFy/08ojdc2l4xEVeLFyqZMVmbqbmvhleq
-         GvMSb329aeCS7DzfbOJmavIc9GoGD/nwyZEj5mCl4nhXN8Kt0oIblkPBdKCMURpItgn1
-         v+tmGEEYuRYCIy1PR9g3tJVfaWabzTRA6TN9yPY9nCkT77DrVVc7fRXgd0JWEqzkC8YL
-         pJdKWuEXo3OBIwdwZfRhdJeKC6Q7Hp1IOyybOVprKX5PjdrxKz5EeNBXaSLnQnKiddUx
-         ePvQ4LGfQApXdMT3tUJqBtg6g8Si6Zr8JFbPq0unbrKAGNRXSvcBRYWEYa36KoX95SBX
-         iDAg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=ug0hwg+HpUt/tKsfisan7dtoHhpg60oJPsfRkLxoiZw=;
+        b=sKY+ytk0XlmUDqyu1xUqWyHg/7Tl85EzC6mlsDry1bw2N1nY07B2SzUeksanfyWZ3a
+         2JJC2+N9Y19ZEAntoVjdr91X/sK/h7l6I+jT1yMoswHv2w4a4RIv1U01/fEMugxfwRN+
+         +YLLxBNQeAfpwRQwy/xYCzIBAwAEFCnbuTssVX0TqWWUXkbwtyBSHsCVoDH8VVSfE7MD
+         oJigJ4YPp6FNrp7Xo6AEEZfdAtR9/kl8lHkpsXhzfqccFNIkN/39m4XMAuMtz5m2PP+V
+         EClGiYhTc3kYqY/uyl6nr1/p/3+cP0oQYGq8n4CoPfjdXxuy/jxyZ/R1kgZE64EqcmcP
+         NFNg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b="bu/Muowb";
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42c as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=irdnyX7j;
+       spf=pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::742 as permitted sender) smtp.mailfrom=dvyukov@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=HVc+D14FoWd2kOsqxxedg6CFZHME50rrLtFjjaJk5Q8=;
-        b=iPwU1Apm8KzhmTBO5rNCjk2xH4MgALZpKG/Luoi6aue5RxKQ5e9hvKCgeqo0RIzHbC
-         46g2EuaEsirQ1zxtH26SlmjVFNR+BBRW45G5vA4khzYmZlDFKENIfXLc1MvHhS38LyOI
-         MW0+w4DtRa713/fit57Prehgvy4bHNmHNy/XCbz2b6nHnOGc97wyPiPEW8xKstA2QO6t
-         /IJtms7Y8IEaihrHVmLg1fzuUAOuLSm7ogGemTT7jmimBXz2gEAkjXtS5qCi3HEOmR1V
-         0jfqFDjTo9bjqM1EnJimO0Q304DEuGNtbV7vq/G+2CkopK1qXLazPBq3s9TPYngvYGgq
-         FNxQ==
+        bh=ug0hwg+HpUt/tKsfisan7dtoHhpg60oJPsfRkLxoiZw=;
+        b=BieQ0Q/ZUA6Ro8R82NK3oeyyMwSmyLL1baJMgq6VQF/Zuk3E5wmL37vE0mC551Omv9
+         TBKnJq4sNURt9X2xMjarWwNHkp+usJt/IxqX5q6dCpPsoIlCzbj91EZi54Ix024LXz53
+         iZboYpWI4gRVbs04AptO3a/asq1aEi6xxEnOLYJDwXcQxlyhAVbtevlG6D/gCa4mwehX
+         8mubaf2EE3+9XqRqFoKoPwFi8EIP+HAn4AviXgkMZ0KTy3th5bUsBqBX928WJ1YO4QZb
+         f0Xrho5mAOrF5QqaZxouJh6WcHMxKOov4JX6sGCm9qxm0L9VRCqWha4yMegwZtm/fjMW
+         HyJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=HVc+D14FoWd2kOsqxxedg6CFZHME50rrLtFjjaJk5Q8=;
-        b=M9Jvazg1EnYkTum0S2MSzxnWX1ZZRxlPMXU2gA5Hwy+PuKvIf5IdSSnDGSEXHHk0dk
-         wt+cE9pZ9f4iw0NX8FXOy4btbuFxEPGaiHlYNg+ImpXKTGnKykXRZUhXfBpFHaZ/b5HC
-         fLPjAOdJCftNGxptoR38yqlExguok9YA2AbtyNwZpHo9iPyC+MU0KsHCXovX2+WHyNxU
-         wXvhuRk1HR3dMMGopxJqjJxiHA/QDjuZLfg5uSnMJLrnwlQhsGiZNJ8Ris7uq2KPzXpL
-         y18URYgNg6F+tSIyTZYGLpuRU3So34FZa/SCJhC1VB9Jk9R7VrpgrYLsofDAlBtVROj4
-         KmOw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ3CJgj95z/y+35zR3LS+acjQ3xeBvd0vlLRoAv644e/2BZLQScj
-	EqQ8ZtOll0ubyZ2ThyItBR4=
-X-Google-Smtp-Source: ADFU+vv7LcYY+eOK29kxenkGRrkqHThi5JZKztUuoccETGLAgVdEWRYaMirLStf7/02zo1kwNReZyA==
-X-Received: by 2002:adf:8165:: with SMTP id 92mr9415922wrm.217.1584687655225;
-        Fri, 20 Mar 2020 00:00:55 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ug0hwg+HpUt/tKsfisan7dtoHhpg60oJPsfRkLxoiZw=;
+        b=eYQDzdMhGB5yQjksqvfKcI/vDd3eOvrq3eVLTILefugRbgB0VWKu/JEaIrE0vjWDIF
+         k63XAzUAr5rJyBcpgyY+NVXLyxRXEorswby5PIMo/NlOBe9WW5mMBLf7cGwwGmyXc25a
+         uGnmxIs+nF96Ru02rmePNZtc5j/9OjL2fO6tAZVXDU86UxBvP0rZfyI78zEUEoQk8pvy
+         rEQNw+Stok1WIeUaTwZOMULnXLpnw7CZwluBkkOXEpugk2lD/Sc88xoAuFmPT5wfO6+s
+         NltQkSWChpHwOql23tkP0Fh+mgiXaXe6wZrV1GrhiCUi2pacfDG4y2frVj5pvtqLf0cC
+         afXw==
+X-Gm-Message-State: ANhLgQ3Ce0OSHA+2SqDJoDJtQ+eoXB4RImVF+fDuwkQZlNUfxEGMF/MU
+	7s3vR2EVH1Q0oTyjiJH+kLw=
+X-Google-Smtp-Source: ADFU+vtirre7Dpu5WsKKyuvcjX94YOfBEPKeKhPrW7mRbVFRtjCq0RcUF0gbqRCqLd6g7OO61uR26A==
+X-Received: by 2002:a67:f4d1:: with SMTP id s17mr5244248vsn.83.1584688324848;
+        Fri, 20 Mar 2020 00:12:04 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a7b:c771:: with SMTP id x17ls2466997wmk.2.canary-gmail; Fri,
- 20 Mar 2020 00:00:54 -0700 (PDT)
-X-Received: by 2002:a7b:c776:: with SMTP id x22mr8652771wmk.135.1584687654581;
-        Fri, 20 Mar 2020 00:00:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584687654; cv=none;
+Received: by 2002:a9f:388a:: with SMTP id t10ls405854uaf.0.gmail; Fri, 20 Mar
+ 2020 00:12:04 -0700 (PDT)
+X-Received: by 2002:ab0:1381:: with SMTP id m1mr4465118uae.34.1584688324411;
+        Fri, 20 Mar 2020 00:12:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584688324; cv=none;
         d=google.com; s=arc-20160816;
-        b=q7zqKO2t6Ec9bt3+gyqpdHcszf1iD48imHT5M9tGYMsAN/11SwE7mZUqqOk1YrcgVm
-         9c6BLzT0Fr2Tw0BNHmA6ZXEgL+n7qdktkRDckgkhbxXUIIOLUF/X/M1PDbxgYyj2l+QN
-         YTQ6swHvhfrqVx9lVbIwhjedzao2IQS3n1An6S7QJBZbghm3tU2x41IuF31LlyHsKo3p
-         TiHAFbC/CDpo6ubJnniQiMKLxwcAQB87j1iNh7kG7O3Icc35LPAfGUY9QbzpjfP5nQd3
-         1JPei6Bx8DsHsdixPIEK5i3EBJwkqhjZslIw1UesTTq2vKVS6gA3HwsuIPRhE5Z/egny
-         afwQ==
+        b=qhLoe7zgCd+doEyryJn7nfI5HLVQh02gKof4dz+SDI/Bws+T1Giyhsh2hK0RzVYydT
+         m3m8M4zvb2bsRspywV93h9YrpfxhkiLlLNtOmhp9HDb6nlVBA9tnuqNWZEPDQS7E6UnW
+         Ezl5BG0wwBLDl8ngVvEo0cT45y6LrTxxjEPGDJSXCZznGID1NgD9oNocggkbURfoYdOS
+         Jvyr7Iyas8NJ+ONvjVkCKxMzc9s4DyKnvOl5SZr8TcWQDYwjCj5OCvChF/aUD4kPiL+v
+         vAYBIJWCaHPmBKHYwgZVubtGD5uoMPgMMRG+wrVHqdb6QgvQIHiZmkonAtJVg7Oa1sWv
+         cb2g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=oT5wXTBQ3pa70B9pPZ5csTcjKlcN5bd45Gy5qEoZ3Mk=;
-        b=st+UZvi9DGeZyqTZVJIVswcPLEujgUEd9ZjKZaYPheeHuD8FHwcachRz6o5rfPRTic
-         ZaBHGiYrrQvOPDvslF3EiI8x+ekOm4VOoycz+VTK08GpX80/j5IsCW2yxKNLzVctacxJ
-         yXKwk7OGYgkhY8m0ZvBIqij1RZF+ZV+GlCSs9B2x9I9I2BlW43OZwqOJlALleG8BrdBo
-         J4defOO7E7ckBbClRkLgyVeUbwaKbYzuTpKaqL/JeYwNedN+XRJyA1Ao/8DDoMsUNs+T
-         DmbBI3XEY8YpEqAutToXYFMWTqf5XnF6gSqKwAcc8vdFwhGdORO/ekedxJYQf1IH9GyJ
-         KSbg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=RW2HIz951VQyqkj+aVoDQhNRj+mhIp9eIDH/9Wwem28=;
+        b=IL0Fi9S+iztDavTLGzRV+oInBGtxkngVuNzTC/ebgafZRlA+3HOE2Par311VGXmfpc
+         TL5JPFb9tQpTFnwfc1Tmog45aLZeMZwnbqLoBMAwP+Z8m8HtFKJIf7jzt1pj8X+wEhYv
+         OAYlMcUP5iDMSKBKbzedHc/JmCLkzf74lzeDgh2d8kCbhkuFOSyCABIgBOznMu1nD5Vs
+         OzAjie0w4nN8xPlb1GXubD/GIKvRNjoLVXl2rWkuLnmA3xLOlVHrpLe/0xghZy3rCwg3
+         OFzpFk39s3ZzIkJTQMpqyv6/7xylh6IRijyF82piy1flWpBENc+7807V/251dwzotZ7T
+         8TMQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b="bu/Muowb";
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42c as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wr1-x42c.google.com (mail-wr1-x42c.google.com. [2a00:1450:4864:20::42c])
-        by gmr-mx.google.com with ESMTPS id b81si165072wmc.2.2020.03.20.00.00.54
+       dkim=pass header.i=@google.com header.s=20161025 header.b=irdnyX7j;
+       spf=pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::742 as permitted sender) smtp.mailfrom=dvyukov@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-qk1-x742.google.com (mail-qk1-x742.google.com. [2607:f8b0:4864:20::742])
+        by gmr-mx.google.com with ESMTPS id s124si373525vka.1.2020.03.20.00.12.04
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Mar 2020 00:00:54 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42c as permitted sender) client-ip=2a00:1450:4864:20::42c;
-Received: by mail-wr1-x42c.google.com with SMTP id 31so102273wrs.3
-        for <clang-built-linux@googlegroups.com>; Fri, 20 Mar 2020 00:00:54 -0700 (PDT)
-X-Received: by 2002:adf:e48c:: with SMTP id i12mr8965419wrm.173.1584687654028;
-        Fri, 20 Mar 2020 00:00:54 -0700 (PDT)
-Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id x17sm6603727wmi.28.2020.03.20.00.00.52
-        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Fri, 20 Mar 2020 00:00:53 -0700 (PDT)
-From: ci_notify@linaro.org
-Date: Fri, 20 Mar 2020 07:00:52 +0000 (UTC)
-To: tcwg-validation@linaro.org, arnd@linaro.org, 
-	clang-built-linux@googlegroups.com
-Message-ID: <1148328068.10737.1584687653293.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-release-aarch64-next-allyesconfig - Build # 52 -
- Successful!
+        Fri, 20 Mar 2020 00:12:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::742 as permitted sender) client-ip=2607:f8b0:4864:20::742;
+Received: by mail-qk1-x742.google.com with SMTP id o10so127568qki.10
+        for <clang-built-linux@googlegroups.com>; Fri, 20 Mar 2020 00:12:04 -0700 (PDT)
+X-Received: by 2002:a37:6115:: with SMTP id v21mr6390336qkb.43.1584688307483;
+ Fri, 20 Mar 2020 00:11:47 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_10736_1974519141.1584687652507"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-release-aarch64-next-allyesconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
+References: <CACT4Y+ax3BuO7kNofmTWoTKtZ1O0-6KbnKMrWxPviJom+2wngQ@mail.gmail.com>
+ <CAKwvOd=kSrNTdYiXWDLgqPoaZas5FddbM9XQHc=P=se3e7X04Q@mail.gmail.com>
+ <CACT4Y+bEB94Nf8qNozXh9rj19Yn0URYJ6DPa3rGFTZ_jFC1yBw@mail.gmail.com>
+ <CACT4Y+ZJZ10PEcXmjvDtFEjS=itpMuHnaU-VasDNSLsY0cnWqQ@mail.gmail.com> <CAKwvOd=kxsxtV7EqNpcS-fowaVwvymqshdh3K2SQPwgv+a-6mw@mail.gmail.com>
+In-Reply-To: <CAKwvOd=kxsxtV7EqNpcS-fowaVwvymqshdh3K2SQPwgv+a-6mw@mail.gmail.com>
+From: "'Dmitry Vyukov' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Fri, 20 Mar 2020 08:11:36 +0100
+Message-ID: <CACT4Y+Y7u5mu230bK=n2NGw1BZfRYVWPGVgSZKViR3WVyEX7HA@mail.gmail.com>
+Subject: Re: some clang miscompilation again?
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Alexander Potapenko <glider@google.com>, Tom Roeder <tmroeder@google.com>, 
+	Oliver Upton <oupton@google.com>
+Content-Type: text/plain; charset="UTF-8"
+X-ccpol: medium
+X-Original-Sender: dvyukov@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b="bu/Muowb";       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42c
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@google.com header.s=20161025 header.b=irdnyX7j;       spf=pass
+ (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::742
+ as permitted sender) smtp.mailfrom=dvyukov@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Dmitry Vyukov <dvyukov@google.com>
+Reply-To: Dmitry Vyukov <dvyukov@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,480 +134,258 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_10736_1974519141.1584687652507
-Content-Type: text/plain; charset="UTF-8"
+On Thu, Mar 19, 2020 at 7:57 PM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
+> > > On Wed, Mar 18, 2020 at 8:45 PM Nick Desaulniers
+> > > <ndesaulniers@google.com> wrote:
+> > > >
+> > > > Thanks for the reports.
+> > > >
+> > > > On Wed, Mar 18, 2020 at 4:26 AM 'Dmitry Vyukov' via Clang Built Linux
+> > > > <clang-built-linux@googlegroups.com> wrote:
+> > > > >
+> > > > > Hi,
+> > > > >
+> > > > > We started seeing massive crashes on one of syzbot instances. You can
+> > > > > see 2 examples below. The rest are piled here:
+> > > > > https://syzkaller.appspot.com/bug?id=d5bc3e0c66d200d72216ab343a67c4327e4a3452
+> > > > > (search for "ci-upstream-kasan-gce-smack-root").
+> > > > >
+> > > > > This happens only on the smack instance. It's the only instance that uses clang.
+> > > >
+> > > > Can you please enable more bots to test with Clang?
+> > > >
+> > > > > The previous weird crash spike we observed on that instance was caused
+> > > > > by clang miscompilation:
+> > > > > https://groups.google.com/d/msg/clang-built-linux/LUIT7csFWas/wEd-p6FKDQAJ
+> > > > >
+> > > > > Maybe this rings any bells for somebody?
+> > > > >
+> > > > > The clang we use is:
+> > > > > clang version 10.0.0 (https://github.com/llvm/llvm-project/
+> > > > > c2443155a0fb245c8f17f2c1c72b6ea391e86e81)
+> > > > >
+> > > > >
+> > > > > [  202.652969][ T9969] BUG: kernel NULL pointer dereference, address:
+> > > > > 0000000000000086
+> > > >
+> > > > So all of the reports I looked at had this trace, not the second one
+> > > > (I didn't read all 30+ logs), can you give me the timestamp of the
+> > > > report of the second case?
+> > >
+> > > If it's not on the dashboard (and it's probably already not on the
+> > > dashboard today), unfortunately I did not save any additional info.
+> > > But it was among yesterday's batch and shared all the same properties.
+> > > Yes, I noticed 1 was different from the rest. Either we will see it
+> > > again among new reports... or not.
+> > > But I think we can ignore it for now. We can base debugging on the
+> > > more frequent manifestation. Or maybe that single one is a different
+> > > bug entirely, or maybe was a combination of the bugs + a previous
+> > > memory corruption.
+> > >
+> > > > > [  202.660811][ T9969] #PF: supervisor instruction fetch in kernel mode
+> > > > > [  202.667314][ T9969] #PF: error_code(0x0010) - not-present page
+> > > > > [  202.673292][ T9969] PGD 42d21067 P4D 42d21067 PUD a442d067 PMD 0
+> > > > > [  202.679547][ T9969] Oops: 0010 [#1] PREEMPT SMP KASAN
+> > > > > [  202.684751][ T9969] CPU: 1 PID: 9969 Comm: syz-executor.0 Not
+> > > > > tainted 5.6.0-rc6-syzkaller #0
+> > > > > [  202.685601][ T9967] ubi0: scanning is finished
+> > > > > [  202.693464][ T9969] Hardware name: Google Google Compute
+> > > > > Engine/Google Compute Engine, BIOS Google 01/01/2011
+> > > > > [  202.693481][ T9969] RIP: 0010:0x86
+> > > > > [  202.693499][ T9969] Code: Bad RIP value.
+> > > > > [  202.693508][ T9969] RSP: 0018:ffffc90001b9f998 EFLAGS: 00010086
+> > > > > [  202.693515][ T9969] RAX: ffffc90001b9f9c8 RBX: fffffe0000000000
+> > > > > RCX: 0000000000040000
+> > > > > [  202.693520][ T9969] RDX: ffffc90002121000 RSI: 00000000000042cc
+> > > > > RDI: 00000000000042cd
+> > > > > [  202.693525][ T9969] RBP: 0000000000000ec0 R08: ffffffff839870a3
+> > > > > R09: ffffffff811c7eca
+> > > > > [  202.693530][ T9969] R10: ffff88804b338000 R11: 0000000000000002
+> > > > > R12: dffffc0000000000
+> > > > > [  202.693535][ T9969] R13: fffffe0000000ec8 R14: ffffffff880016f0
+> > > > > R15: fffffe0000000ecb
+> > > > > [  202.693547][ T9969] FS:  00007f70cf831700(0000)
+> > > > > GS:ffff8880ae900000(0000) knlGS:0000000000000000
+> > > > > [  202.693552][ T9969] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+> > > > > [  202.693558][ T9969] CR2: 000000000000005c CR3: 0000000098245000
+> > > > > CR4: 00000000001426e0
+> > > > > [  202.693564][ T9969] Call Trace:
+> > > > > [  202.693582][ T9969]  ? handle_external_interrupt_irqoff+0x154/0x280
+> > > >
+> > > > So handle_external_interrupt_irqoff() defined in
+> > > > arch/x86/kvm/vmx/vmx.c has some tricky inline assembly, then is
+> > > > annotated with STACK_FRAME_NON_STANDARD to tell objtool (the Linux
+> > > > kernel's custom object file validator) to ignore validating the stack
+> > > > frame (see comments in include/linux/frame.h).  Let's see if we can
+> > > > find historical context that explains why
+> > > > handle_external_interrupt_irqoff is marked STACK_FRAME_NON_STANDARD.
+> > > >
+> > > > It looks like handle_external_interrupt_irqoff was renamed from
+> > > > vmx_handle_external_intr in
+> > > > commit 95b5a48c4f2b ("KVM: VMX: Handle NMIs, #MCs and async #PFs in
+> > > > common irqs-disabled fn")
+> > > >
+> > > > STACK_FRAME_NON_STANDARD was added to vmx_handle_external_intr in
+> > > > commit c207aee48037 ("objtool, x86: Add several functions and files to
+> > > > the objtool whitelist")
+> > > >
+> > > > Hmm...so looks like no info on why vmx_handle_external_intr was
+> > > > annotated STACK_FRAME_NON_STANDARD other than that it caused problems
+> > > > for objtool otherwise.  Maybe time to revisit "why does
+> > > > handle_external_interrupt_irqoff have a non-standard call frame?"
+> > > >
+> > > > Looks like vmx_handle_external_intr was added in:
+> > > > commit a547c6db4d2f ("KVM: VMX: Enable acknowledge interupt on vmexit")
+> > > > Maybe "Intel SDM volum 3, chapter 33.2" has more info?
+> > > >
+> > > > handle_external_interrupt_irqoff is qualified as `static inline`, but
+> > > > is not inlined into its lone call site, vmx_handle_exit_irqoff.  None
+> > > > of the other called functions from there are marked
+> > > > STACK_FRAME_NON_STANDARD, which is curious.
+> > > > handle_external_interrupt_irqoff pushes 4 64b values then calls
+> > > > through a function pointer, `entry`.  I assume the thunk also has to
+> > > > pop 4 extra 64b values off the stack, otherwise
+> > > > handle_external_interrupt_irqoff's ret will return somewhere
+> > > > non-sensical, like 0x86?
+> > > >
+> > > > When I compile your config with GCC, I see:
+> > > > arch/x86/kvm/vmx/vmx.o: warning: objtool:
+> > > > vmx_handle_exit_irqoff()+0x1ef: unreachable instruction
+> > > > which is curious, but maybe a red herring.
+> > > >
+> > > > Comparing the disassembly between GCC and Clang of
+> > > > handle_external_interrupt_irqoff, the inline asm looks similar.  One
+> > > > thing I don't understand is that the disassembly of
+> > > > handle_external_interrupt_irqoff from GCC has no `ret` instruction...
+> > > >
+> > > > Are there any more steps to reliably reproduce?
+> > >
+> > > Well, run syzkaller locally on the kernel using the provided
+> > > revision/config, compiler, image, etc. On a beefy machine with lots of
+> > > VMs it should fire every minute or so.
+> > > (that's part of what I mentioned as "using syzbot as unit testing
+> > > system in expensive")
+> > >
+> > > > Do we suspect this is
+> > > > a recent regression in clang-10?
+> > >
+> > > No.
+> > > Alex updated clang to this revision after we debugged the previous
+> > > miscopmilation, then the kernel got back to normal and we did not
+> > > touch clang.
+> > > So it must be a recent kernel change.
+> > > Additionally the kernel produces a broken crash report with all frames
+> > > marked as " ? " questionable, so syzbot classifies it as "corrupted"
+> > > and throws into the single bucket with lots of other corrupted
+> > > reports. So we don't know when exactly this started...
+> >
+> > Looking at some stats data we have for the instance, it seems to start on Mar 6.
+> > The initial 0's in stats on Jan 9-10 is the previous breakage, and
+> > around Mar 6 there is a new anomaly.
+> >
+> > Date Corpus Cover Crashes Executions
+> > 20200109 0 0 0 0
+> > 20200110 0 0 0 0
+> > 20200113 50834 629433 536 1395118
+> > 20200114 56783 674044 209 9193960
+> > 20200115 59186 692183 256 8383961
+> > 20200116 51016 645884 327 6250395
+> > 20200117 53360 667066 238 5698928
+> > 20200118 54800 669470 196 5747800
+> > 20200119 55572 668463 170 6163455
+> > 20200120 58659 689599 194 5444768
+> > 20200121 55657 681862 253 4831752
+> > 20200122 64273 725220 276 5448551
+> > 20200123 59398 692608 258 4414910
+> > 20200124 54089 658262 292 5612887
+> > 20200125 52125 649080 191 5440661
+> > 20200126 56637 687494 367 5095477
+> > 20200127 59136 702062 415 5938377
+> > 20200128 58459 712660 353 4826737
+> > 20200129 60462 723094 349 4870841
+> > 20200130 65067 752818 291 6486425
+> > 20200131 65306 755543 338 5809624
+> > 20200201 56744 672614 375 4468147
+> > 20200202 60243 694134 260 5628242
+> > 20200203 49805 624049 256 5931740
+> > 20200204 52756 648054 230 5932072
+> > 20200205 40670 583719 322 5155979
+> > 20200206 45670 608468 347 4274670
+> > 20200207 48136 614452 323 4850050
+> > 20200208 50242 641225 295 5218742
+> > 20200209 45003 598594 272 5104881
+> > 20200210 49152 630923 379 7100143
+> > 20200211 53779 656252 298 5508205
+> > 20200212 56101 674183 340 5237191
+> > 20200213 60761 702222 263 6239786
+> > 20200214 58013 687933 284 5494024
+> > 20200215 58225 680698 271 7383022
+> > 20200216 58295 704614 290 4919207
+> > 20200217 60289 716586 268 4525219
+> > 20200218 45604 617967 263 5609495
+> > 20200219 48260 637681 274 5284118
+> > 20200220 54224 678450 311 4902636
+> > 20200221 61954 723951 287 4990487
+> > 20200222 59326 730434 302 5298617
+> > 20200223 65439 760776 250 4904851
+> > 20200224 63267 742702 291 4800550
+> > 20200225 69914 778741 237 4722249
+> > 20200226 75572 805909 271 4415733
+> > 20200227 79522 826667 357 3622346
+> > 20200228 82503 842398 424 3348351
+> > 20200229 84755 854530 529 2868372
+> > 20200301 84587 855053 320 4835048
+> > 20200302 82358 840318 273 4105833
+> > 20200303 85566 856249 315 3326516
+> > 20200304 87927 869043 432 2763706
+> > 20200305 89829 878743 507 2536747
+> > 20200306 90973 885239 812 2059721
+> > 20200307 71253 767589 2221 1088846
+>
+> So it looks like you honed in on 20200306, because on 20200307 the
+> number of Crashes goes up to 2221 from 812 the previous day?
 
-Successfully identified regression in *linux* in CI configuration tcwg_kernel/llvm-release-aarch64-next-allyesconfig.  So far, this commit has regressed CI configurations:
- - tcwg_kernel/gnu-master-aarch64-next-allmodconfig
- - tcwg_kernel/gnu-master-aarch64-next-allyesconfig
- - tcwg_kernel/gnu-master-arm-next-allmodconfig
- - tcwg_kernel/gnu-release-aarch64-next-allmodconfig
- - tcwg_kernel/gnu-release-aarch64-next-allyesconfig
- - tcwg_kernel/gnu-release-arm-next-allmodconfig
- - tcwg_kernel/gnu-release-arm-next-allyesconfig
- - tcwg_kernel/llvm-master-aarch64-next-allmodconfig
- - tcwg_kernel/llvm-master-aarch64-next-allyesconfig
- - tcwg_kernel/llvm-master-arm-next-allmodconfig
- - tcwg_kernel/llvm-release-aarch64-next-allmodconfig
- - tcwg_kernel/llvm-release-aarch64-next-allyesconfig
- - tcwg_kernel/llvm-release-arm-next-allmodconfig
+Yes, I think it's the 20200306 that's bad and happened midday. So 812
+is half normal rate + half increased rate.
 
-Culprit:
-<cut>
-commit 56cc3af4e8c8eaba91b51efa6081a868adbd97c3
-Author: Marco Felsch <m.felsch@pengutronix.de>
+> Does that also correspond with the first day that you received a
+> report with this signature or just coincidence?
 
-    pinctrl: da9062: add driver support
-</cut>
+Since these crashes don't proper stacks and were classified as
+corrupted and were thrown in the single trash bucket, that info is
+lost now. We don't have capacity to save millions of crashes and
+usually that's just impossible to process meaningfully.
 
-First few build errors in logs:
-00:02:29 drivers/pinctrl/pinctrl-da9062.c:28:10: error: '../gpio/gpiolib.h' file not found with <angled> include; use  instead
-00:02:29 make[2]: *** [drivers/pinctrl/pinctrl-da9062.o] Error 1
-00:02:39 make[1]: *** [drivers/pinctrl] Error 2
-00:13:04 make: *** [drivers] Error 2
-Configuration details:
-rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
-rr[linux_branch]="47780d7892b77e922bbe19b5dea99cde06b2f0e5"
-
-Results regressed to (for first_bad == 56cc3af4e8c8eaba91b51efa6081a868adbd97c3)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-18276
-
-from (for last_good == c93214689f0c70b6942ba1d12b8371b9fc60ae41)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-18349
-# linux build successful:
-all
-
-Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-allyesconfig/52/artifact/artifacts/build-56cc3af4e8c8eaba91b51efa6081a868adbd97c3/
-Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-allyesconfig/52/artifact/artifacts/build-c93214689f0c70b6942ba1d12b8371b9fc60ae41/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-allyesconfig/52/
-
-Reproduce builds:
-<cut>
-mkdir investigate-linux-56cc3af4e8c8eaba91b51efa6081a868adbd97c3
-cd investigate-linux-56cc3af4e8c8eaba91b51efa6081a868adbd97c3
-
-git clone https://git.linaro.org/toolchain/jenkins-scripts
-
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-allyesconfig/52/artifact/artifacts/manifests/build-baseline.sh
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-allyesconfig/52/artifact/artifacts/manifests/build-parameters.sh
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-allyesconfig/52/artifact/artifacts/test.sh
-chmod +x artifacts/test.sh
-
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
-
-cd linux
-
-# Reproduce first_bad build
-git checkout --detach 56cc3af4e8c8eaba91b51efa6081a868adbd97c3
-../artifacts/test.sh
-
-# Reproduce last_good build
-git checkout --detach c93214689f0c70b6942ba1d12b8371b9fc60ae41
-../artifacts/test.sh
-
-cd ..
-</cut>
-
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-release-aarch64-next-allyesconfig
-
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-allyesconfig/52/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-allyesconfig/52/consoleText
-
-Full commit:
-<cut>
-commit 56cc3af4e8c8eaba91b51efa6081a868adbd97c3
-Author: Marco Felsch <m.felsch@pengutronix.de>
-Date:   Wed Jan 8 11:47:46 2020 +0100
-
-    pinctrl: da9062: add driver support
-    
-    The DA9062 is a mfd pmic device which supports 5 GPIOs. The GPIOs can
-    be used as input, output or have a special use-case.
-    
-    The patch adds the support for the normal input/output use-case.
-    
-    Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-    Link: https://lore.kernel.org/r/20200108104746.1765-4-m.felsch@pengutronix.de
-    Reviewed-by: Adam Thomson <Adam.Thomson.Opensource@diasemi.com>
-    Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
----
- MAINTAINERS                      |   1 +
- drivers/pinctrl/Kconfig          |  12 ++
- drivers/pinctrl/Makefile         |   1 +
- drivers/pinctrl/pinctrl-da9062.c | 300 +++++++++++++++++++++++++++++++++++++++
- 4 files changed, 314 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 408fd7c660aa..260c0c4c6e74 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -4921,6 +4921,7 @@ F:	drivers/leds/leds-da90??.c
- F:	drivers/mfd/da903x.c
- F:	drivers/mfd/da90??-*.c
- F:	drivers/mfd/da91??-*.c
-+F:	drivers/pinctrl/pinctrl-da90??.c
- F:	drivers/power/supply/da9052-battery.c
- F:	drivers/power/supply/da91??-*.c
- F:	drivers/regulator/da903x.c
-diff --git a/drivers/pinctrl/Kconfig b/drivers/pinctrl/Kconfig
-index df0ef69dd474..834c59950d1c 100644
---- a/drivers/pinctrl/Kconfig
-+++ b/drivers/pinctrl/Kconfig
-@@ -126,6 +126,18 @@ config PINCTRL_DA850_PUPD
- 	  Driver for TI DA850/OMAP-L138/AM18XX pinconf. Used to control
- 	  pullup/pulldown pin groups.
- 
-+config PINCTRL_DA9062
-+	tristate "Dialog Semiconductor DA9062 PMIC pinctrl and GPIO Support"
-+	depends on MFD_DA9062
-+	select GPIOLIB
-+	help
-+	  The Dialog DA9062 PMIC provides multiple GPIOs that can be muxed for
-+	  different functions. This driver bundles a pinctrl driver to select the
-+	  function muxing and a GPIO driver to handle the GPIO when the GPIO
-+	  function is selected.
-+
-+	  Say yes to enable pinctrl and GPIO support for the DA9062 PMIC.
-+
- config PINCTRL_DIGICOLOR
- 	bool
- 	depends on OF && (ARCH_DIGICOLOR || COMPILE_TEST)
-diff --git a/drivers/pinctrl/Makefile b/drivers/pinctrl/Makefile
-index 879f312bfb75..0b36a1cfca8a 100644
---- a/drivers/pinctrl/Makefile
-+++ b/drivers/pinctrl/Makefile
-@@ -16,6 +16,7 @@ obj-$(CONFIG_PINCTRL_AT91PIO4)	+= pinctrl-at91-pio4.o
- obj-$(CONFIG_PINCTRL_AMD)	+= pinctrl-amd.o
- obj-$(CONFIG_PINCTRL_BM1880)	+= pinctrl-bm1880.o
- obj-$(CONFIG_PINCTRL_DA850_PUPD) += pinctrl-da850-pupd.o
-+obj-$(CONFIG_PINCTRL_DA9062)	+= pinctrl-da9062.o
- obj-$(CONFIG_PINCTRL_DIGICOLOR)	+= pinctrl-digicolor.o
- obj-$(CONFIG_PINCTRL_FALCON)	+= pinctrl-falcon.o
- obj-$(CONFIG_PINCTRL_GEMINI)	+= pinctrl-gemini.o
-diff --git a/drivers/pinctrl/pinctrl-da9062.c b/drivers/pinctrl/pinctrl-da9062.c
-new file mode 100644
-index 000000000000..f704ee0b2fd9
---- /dev/null
-+++ b/drivers/pinctrl/pinctrl-da9062.c
-@@ -0,0 +1,300 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Dialog DA9062 pinctrl and GPIO driver.
-+ * Based on DA9055 GPIO driver.
-+ *
-+ * TODO:
-+ *   - add pinmux and pinctrl support (gpio alternate mode)
-+ *
-+ * Documents:
-+ * [1] https://www.dialog-semiconductor.com/sites/default/files/da9062_datasheet_3v6.pdf
-+ *
-+ * Copyright (C) 2019 Pengutronix, Marco Felsch <kernel@pengutronix.de>
-+ */
-+#include <linux/bits.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+
-+#include <linux/gpio/driver.h>
-+
-+#include <linux/mfd/da9062/core.h>
-+#include <linux/mfd/da9062/registers.h>
-+
-+/*
-+ * We need this get the gpio_desc from a <gpio_chip,offset> tuple to decide if
-+ * the gpio is active low without a vendor specific dt-binding.
-+ */
-+#include <../gpio/gpiolib.h>
-+
-+#define DA9062_TYPE(offset)		(4 * (offset % 2))
-+#define DA9062_PIN_SHIFT(offset)	(4 * (offset % 2))
-+#define DA9062_PIN_ALTERNATE		0x00 /* gpio alternate mode */
-+#define DA9062_PIN_GPI			0x01 /* gpio in */
-+#define DA9062_PIN_GPO_OD		0x02 /* gpio out open-drain */
-+#define DA9062_PIN_GPO_PP		0x03 /* gpio out push-pull */
-+#define DA9062_GPIO_NUM			5
-+
-+struct da9062_pctl {
-+	struct da9062 *da9062;
-+	struct gpio_chip gc;
-+	unsigned int pin_config[DA9062_GPIO_NUM];
-+};
-+
-+static int da9062_pctl_get_pin_mode(struct da9062_pctl *pctl,
-+				    unsigned int offset)
-+{
-+	struct regmap *regmap = pctl->da9062->regmap;
-+	int ret, val;
-+
-+	ret = regmap_read(regmap, DA9062AA_GPIO_0_1 + (offset >> 1), &val);
-+	if (ret < 0)
-+		return ret;
-+
-+	val >>= DA9062_PIN_SHIFT(offset);
-+	val &= DA9062AA_GPIO0_PIN_MASK;
-+
-+	return val;
-+}
-+
-+static int da9062_pctl_set_pin_mode(struct da9062_pctl *pctl,
-+				    unsigned int offset, unsigned int mode_req)
-+{
-+	struct regmap *regmap = pctl->da9062->regmap;
-+	unsigned int mode = mode_req;
-+	unsigned int mask;
-+	int ret;
-+
-+	mode &= DA9062AA_GPIO0_PIN_MASK;
-+	mode <<= DA9062_PIN_SHIFT(offset);
-+	mask = DA9062AA_GPIO0_PIN_MASK << DA9062_PIN_SHIFT(offset);
-+
-+	ret = regmap_update_bits(regmap, DA9062AA_GPIO_0_1 + (offset >> 1),
-+				 mask, mode);
-+	if (!ret)
-+		pctl->pin_config[offset] = mode_req;
-+
-+	return ret;
-+}
-+
-+static int da9062_gpio_get(struct gpio_chip *gc, unsigned int offset)
-+{
-+	struct da9062_pctl *pctl = gpiochip_get_data(gc);
-+	struct regmap *regmap = pctl->da9062->regmap;
-+	int gpio_mode, val;
-+	int ret;
-+
-+	gpio_mode = da9062_pctl_get_pin_mode(pctl, offset);
-+	if (gpio_mode < 0)
-+		return gpio_mode;
-+
-+	switch (gpio_mode) {
-+	case DA9062_PIN_ALTERNATE:
-+		return -ENOTSUPP;
-+	case DA9062_PIN_GPI:
-+		ret = regmap_read(regmap, DA9062AA_STATUS_B, &val);
-+		if (ret < 0)
-+			return ret;
-+		break;
-+	case DA9062_PIN_GPO_OD:
-+	case DA9062_PIN_GPO_PP:
-+		ret = regmap_read(regmap, DA9062AA_GPIO_MODE0_4, &val);
-+		if (ret < 0)
-+			return ret;
-+	}
-+
-+	return !!(val & BIT(offset));
-+}
-+
-+static void da9062_gpio_set(struct gpio_chip *gc, unsigned int offset,
-+			    int value)
-+{
-+	struct da9062_pctl *pctl = gpiochip_get_data(gc);
-+	struct regmap *regmap = pctl->da9062->regmap;
-+
-+	regmap_update_bits(regmap, DA9062AA_GPIO_MODE0_4, BIT(offset),
-+			   value << offset);
-+}
-+
-+static int da9062_gpio_get_direction(struct gpio_chip *gc, unsigned int offset)
-+{
-+	struct da9062_pctl *pctl = gpiochip_get_data(gc);
-+	int gpio_mode;
-+
-+	gpio_mode = da9062_pctl_get_pin_mode(pctl, offset);
-+	if (gpio_mode < 0)
-+		return gpio_mode;
-+
-+	switch (gpio_mode) {
-+	case DA9062_PIN_ALTERNATE:
-+		return -ENOTSUPP;
-+	case DA9062_PIN_GPI:
-+		return GPIO_LINE_DIRECTION_IN;
-+	case DA9062_PIN_GPO_OD:
-+	case DA9062_PIN_GPO_PP:
-+		return GPIO_LINE_DIRECTION_OUT;
-+	}
-+
-+	return -EINVAL;
-+}
-+
-+static int da9062_gpio_direction_input(struct gpio_chip *gc,
-+				       unsigned int offset)
-+{
-+	struct da9062_pctl *pctl = gpiochip_get_data(gc);
-+	struct regmap *regmap = pctl->da9062->regmap;
-+	struct gpio_desc *desc = gpiochip_get_desc(gc, offset);
-+	unsigned int gpi_type;
-+	int ret;
-+
-+	ret = da9062_pctl_set_pin_mode(pctl, offset, DA9062_PIN_GPI);
-+	if (ret)
-+		return ret;
-+
-+	/*
-+	 * If the gpio is active low we should set it in hw too. No worries
-+	 * about gpio_get() because we read and return the gpio-level. So the
-+	 * gpiolib active_low handling is still correct.
-+	 *
-+	 * 0 - active low, 1 - active high
-+	 */
-+	gpi_type = !gpiod_is_active_low(desc);
-+
-+	return regmap_update_bits(regmap, DA9062AA_GPIO_0_1 + (offset >> 1),
-+				DA9062AA_GPIO0_TYPE_MASK << DA9062_TYPE(offset),
-+				gpi_type << DA9062_TYPE(offset));
-+}
-+
-+static int da9062_gpio_direction_output(struct gpio_chip *gc,
-+					unsigned int offset, int value)
-+{
-+	struct da9062_pctl *pctl = gpiochip_get_data(gc);
-+	unsigned int pin_config = pctl->pin_config[offset];
-+	int ret;
-+
-+	ret = da9062_pctl_set_pin_mode(pctl, offset, pin_config);
-+	if (ret)
-+		return ret;
-+
-+	da9062_gpio_set(gc, offset, value);
-+
-+	return 0;
-+}
-+
-+static int da9062_gpio_set_config(struct gpio_chip *gc, unsigned int offset,
-+				  unsigned long config)
-+{
-+	struct da9062_pctl *pctl = gpiochip_get_data(gc);
-+	struct regmap *regmap = pctl->da9062->regmap;
-+	int gpio_mode;
-+
-+	/*
-+	 * We need to meet the following restrictions [1, Figure 18]:
-+	 * - PIN_CONFIG_BIAS_PULL_DOWN -> only allowed if the pin is used as
-+	 *				  gpio input
-+	 * - PIN_CONFIG_BIAS_PULL_UP   -> only allowed if the pin is used as
-+	 *				  gpio output open-drain.
-+	 */
-+
-+	switch (pinconf_to_config_param(config)) {
-+	case PIN_CONFIG_BIAS_DISABLE:
-+		return regmap_update_bits(regmap, DA9062AA_CONFIG_K,
-+					  BIT(offset), 0);
-+	case PIN_CONFIG_BIAS_PULL_DOWN:
-+		gpio_mode = da9062_pctl_get_pin_mode(pctl, offset);
-+		if (gpio_mode < 0)
-+			return -EINVAL;
-+		else if (gpio_mode != DA9062_PIN_GPI)
-+			return -ENOTSUPP;
-+		return regmap_update_bits(regmap, DA9062AA_CONFIG_K,
-+					  BIT(offset), BIT(offset));
-+	case PIN_CONFIG_BIAS_PULL_UP:
-+		gpio_mode = da9062_pctl_get_pin_mode(pctl, offset);
-+		if (gpio_mode < 0)
-+			return -EINVAL;
-+		else if (gpio_mode != DA9062_PIN_GPO_OD)
-+			return -ENOTSUPP;
-+		return regmap_update_bits(regmap, DA9062AA_CONFIG_K,
-+					  BIT(offset), BIT(offset));
-+	case PIN_CONFIG_DRIVE_OPEN_DRAIN:
-+		return da9062_pctl_set_pin_mode(pctl, offset,
-+						DA9062_PIN_GPO_OD);
-+	case PIN_CONFIG_DRIVE_PUSH_PULL:
-+		return da9062_pctl_set_pin_mode(pctl, offset,
-+						DA9062_PIN_GPO_PP);
-+	default:
-+		return -ENOTSUPP;
-+	}
-+}
-+
-+static int da9062_gpio_to_irq(struct gpio_chip *gc, unsigned int offset)
-+{
-+	struct da9062_pctl *pctl = gpiochip_get_data(gc);
-+	struct da9062 *da9062 = pctl->da9062;
-+
-+	return regmap_irq_get_virq(da9062->regmap_irq,
-+				   DA9062_IRQ_GPI0 + offset);
-+}
-+
-+static const struct gpio_chip reference_gc = {
-+	.owner = THIS_MODULE,
-+	.get = da9062_gpio_get,
-+	.set = da9062_gpio_set,
-+	.get_direction = da9062_gpio_get_direction,
-+	.direction_input = da9062_gpio_direction_input,
-+	.direction_output = da9062_gpio_direction_output,
-+	.set_config = da9062_gpio_set_config,
-+	.to_irq = da9062_gpio_to_irq,
-+	.can_sleep = true,
-+	.ngpio = DA9062_GPIO_NUM,
-+	.base = -1,
-+};
-+
-+static int da9062_pctl_probe(struct platform_device *pdev)
-+{
-+	struct device *parent = pdev->dev.parent;
-+	struct da9062_pctl *pctl;
-+	int i;
-+
-+	pctl = devm_kzalloc(&pdev->dev, sizeof(*pctl), GFP_KERNEL);
-+	if (!pctl)
-+		return -ENOMEM;
-+
-+	pctl->da9062 = dev_get_drvdata(parent);
-+	if (!pctl->da9062)
-+		return -EINVAL;
-+
-+	if (!device_property_present(parent, "gpio-controller"))
-+		return 0;
-+
-+	for (i = 0; i < ARRAY_SIZE(pctl->pin_config); i++)
-+		pctl->pin_config[i] = DA9062_PIN_GPO_PP;
-+
-+	/*
-+	 * Currently the driver handles only the GPIO support. The
-+	 * pinctrl/pinmux support can be added later if needed.
-+	 */
-+	pctl->gc = reference_gc;
-+	pctl->gc.label = dev_name(&pdev->dev);
-+	pctl->gc.parent = &pdev->dev;
-+#ifdef CONFIG_OF_GPIO
-+	pctl->gc.of_node = parent->of_node;
-+#endif
-+
-+	platform_set_drvdata(pdev, pctl);
-+
-+	return devm_gpiochip_add_data(&pdev->dev, &pctl->gc, pctl);
-+}
-+
-+static struct platform_driver da9062_pctl_driver = {
-+	.probe = da9062_pctl_probe,
-+	.driver = {
-+		.name	= "da9062-gpio",
-+	},
-+};
-+module_platform_driver(da9062_pctl_driver);
-+
-+MODULE_AUTHOR("Marco Felsch <kernel@pengutronix.de>");
-+MODULE_DESCRIPTION("DA9062 PMIC pinctrl and GPIO Driver");
-+MODULE_LICENSE("GPL v2");
-+MODULE_ALIAS("platform:da9062-gpio");
-</cut>
+> There's no smoking guns looking at:
+> $ git log --pretty=fuller arch/x86/kvm/
+> for that timeframe.
+>
+> If the version of clang was constant throughout this time period, then
+> we should pinpoint the kernel commit via bisection what commit
+> introduced this regression.  Only then can we determine if we're
+> dealing with a "miscompile" vs code reliant on one particular
+> implementation of undefined behavior (as is typically the case, IME).
+>
+> > 20200308 70813 766510 1181 1699390
+> > 20200309 65817 772257 1101 2821306
+> > 20200310 62675 759004 856 2140766
+> > 20200311 62829 750791 1089 2156522
+> > 20200312 61200 743232 1105 2105367
+> > 20200313 63360 750544 1227 2135191
+> > 20200314 63476 750896 885 4589837
+> > 20200315 55476 676559 1070 2264668
+> > 20200316 57210 690419 860 2763512
+> > 20200317 62560 723584 854 2570067
+> > 20200318 61662 714534 1032 2160078
+>
+>
+>
+> --
+> Thanks,
+> ~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1148328068.10737.1584687653293.JavaMail.javamailuser%40localhost.
-
-------=_Part_10736_1974519141.1584687652507--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CACT4Y%2BY7u5mu230bK%3Dn2NGw1BZfRYVWPGVgSZKViR3WVyEX7HA%40mail.gmail.com.
