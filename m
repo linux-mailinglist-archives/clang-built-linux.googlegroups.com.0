@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBCLI747UVAFRB6HH4TZQKGQE56HXCUI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCLI747UVAFRBJ7M4TZQKGQEYBQCKCY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3d.google.com (mail-yb1-xb3d.google.com [IPv6:2607:f8b0:4864:20::b3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id C4F611900EE
-	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Mar 2020 23:11:05 +0100 (CET)
-Received: by mail-yb1-xb3d.google.com with SMTP id p8sf17307138ybk.18
-        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Mar 2020 15:11:05 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1585001464; cv=pass;
+Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
+	by mail.lfdr.de (Postfix) with ESMTPS id D1401190106
+	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Mar 2020 23:20:24 +0100 (CET)
+Received: by mail-oi1-x23b.google.com with SMTP id c8sf11619051oib.9
+        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Mar 2020 15:20:24 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1585002023; cv=pass;
         d=google.com; s=arc-20160816;
-        b=TZhbU1zP450VS9nUqgIJwqiSU5B+rZaLcQNq7jX/c+TtX99bV9q6Sa01mpI6fxUQcG
-         95EIe4Ci+O+9kpvCwFMnlfsyvCxQvq2W1JETZ3kg18K9yfD9N6fZPUYL897OmWZ1d9HY
-         tr0CogHKo0KRdczvoJyD65GP/y1kR05GVWXqxc6+LQLJXTK3UMPufbcp1ZDhUqKnrihw
-         sOm+Vi1OUrdH+wTqBJAXWFTc3zGtb8I4bT/5lVmK5COkLRONjLOCgnEJCW79TICsKFNn
-         WZWXVOpL+am9uz+xuA0SdRTi+A/7BMtUASWe2iKzGWHP0SK58MYdYipoBWElfsfChG3z
-         6sBA==
+        b=W1DxCTXy3l6Djg5fj9JOa/B1Iz+KgfU4aqChy9LVBftqDiuIJAqpGGn30I3Jz07xmU
+         uHV9nH4NYsMd6F+6lZOoCmdJozqBUnG+QHo8DaQl38PpqHks1xPH+d7A+gl+gqAd4H2h
+         S5jRz9U3I6xO6Z2WwFhWnXCft3nmOTKyQUVGhpHaK9igBl3NvyUd65t3OFMtHGs3uL8n
+         5P47P7y9Y3ji/m8z8rnBg1rrZ2oxHMa/EHDYllR2+7bMdVtTilUCudeTGhDoIBlHfWsI
+         nzBseY0U9CVu5ljjJYxV4h5FXt0dkyQ0UCQCzodf38iotnuVIwqztMVa5Rc6xZlChu1C
+         ESKg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=0CI5f0Rviaq7inZ8/eC5UVEKPIHu9QrGNwtFAJ+kGbk=;
-        b=VqzhDCvAQxHvOjN78P9aC+BlX9RYEzKz9Rsi5TC5p8UIsikzH0lH/p8smplvNcVMYY
-         Dm16ZdUt7F1eVq7E9XQHTkEOVAO7F+FvOBpEQuMgrm230cSL82XW2T4NQUj2ZDqUqXm6
-         e51BHrruvsM/KlBHYy+Eght2zNIJqPHaZZUa08FcZ+xG0SDpbk9oKZEBFt/JyNHLzryR
-         K5IqJif8R+xqXBujvc6zQKqOLKLoYPlSHt726fGWC/kXWhaKFe7JwTRtHSNLqQMA1DYS
-         imibAaJ5U3oJTxVONre+LO7KRKD1cgjTyMws5ftfLslyDToGHM0zxwcjs63Z6K/IBUf6
-         l0Gg==
+        bh=Uku0KSMGnpxRyEM16ddKnWiVqQIpC8/Vy30MeaO+u+4=;
+        b=ux26AHWc1oizN2yfA6TriE/HS5G1SNjoMwYjzMdKXxZxRL8GpgVjpAG/nfYciPK/ZK
+         Ka+WIjQaS+hlGBAHvItw/oSjuUFDgQn1sPIBZitPGoLFoJrOZtmdcrjO5qiobdKl3YmN
+         TGm76lUCnJaq5L1kTtdrziZOWy7PPSimrO2wPvnjy++EWPP4s6GT5fB6NK6JyjQP6p3b
+         l7a+ZXxrZ7Lh8iz3sFHwOmalrAwh9Rj4huVNeHbGWvlyzzDhHWEbFOCBEzTn6wVcaZki
+         matCT9gNr9WyzHK+4QzP/9h21i86o2ZNfVovUFVRi0vokZvjJas71TGZSWeVGGtVBshC
+         gdtw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@zx2c4.com header.s=mail header.b=Bn4ZMdB1;
+       dkim=pass header.i=@zx2c4.com header.s=mail header.b=s0aD2iU5;
        spf=pass (google.com: domain of jason@zx2c4.com designates 192.95.5.64 as permitted sender) smtp.mailfrom=Jason@zx2c4.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=zx2c4.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=0CI5f0Rviaq7inZ8/eC5UVEKPIHu9QrGNwtFAJ+kGbk=;
-        b=o/KZ3DrCVGQ7UmHChRdKs0t35AMN1ATiX5bgRZtk9wo1oNSTsvkevU5yI73QqlL0vb
-         1CqtNZPNYTXDW4ajXN3eKDGvgOinHSTtUkUHOt3Sy/Omv+BY7u8d//HN4lP3L+cUYOgw
-         knbeEHeF6cSCJzakTNut47U49Z1vxFZoeW6iN6jL7idWG3uAShOgBryo+x3GWkpHEhX1
-         q8Y/lpz7gWSRy9uysi0yYFyPvLzhDAwwUVtIyRtULMmZrJ8IYJEkAirLYb0voaOIyB2N
-         JCg/LtjfUNwKtsBcV0159e9dfAYtUTL/zZmTyLtogilC5BHzNB6nnv4XBIbxQLQNrDc6
-         9Aag==
+        bh=Uku0KSMGnpxRyEM16ddKnWiVqQIpC8/Vy30MeaO+u+4=;
+        b=o6wxG7ita1MBOVNSGxJ63s+z1mt7XZEtVK9a/6owLLhGlKX6rNhjav3YKeubCZo9Ip
+         hVsWs5FE0gjzoqklZUCQbGtDIO1hoYCJHtn/FtKkB19+j4bFQ9L9yzYGvlNOcbyPqq2y
+         q9KYNa+44wnS1izzbV93D1zLfCicawbm8UCsLD6Vk2WOwG5+ER0iRmV1iT+1GnQ2oD46
+         0UtanQq4/iXl186tx0MhkyqPAvH4oR5KzcC5qONo5XL0oSTDbIMgKvSijlVZDawCyk3S
+         9zp6ZJ1Ens6sfzfRwW6R3FD4ARA7mDgYFS2wq8xiPXDpE27kf1qSePYGRLzntJUVLBt8
+         /z4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -49,87 +49,77 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=0CI5f0Rviaq7inZ8/eC5UVEKPIHu9QrGNwtFAJ+kGbk=;
-        b=XFd7R7k14mWsednfsuXGXQFAUpp4IcGUbQu8Vue6B42wwMicNmPp0XLzRFvd4S8076
-         64YabLqjr8CBYcclgaOnaIX8xePoCIlDbJhzh/qNTeQWsb41lKH1ZhDblLK9iD9GJIkA
-         r3kGOjKHY95F0i2DUpNbHuXg4lcn9Qs1LGlgx7ZrVY8AS0p551iIvsl7hspOnZDy/Vfp
-         /x/TFJpwlZnCDTFG4/mmp/BHR/YMg8rErHsdhRi72Cwg+JzJYu7DsyyMUPHBAzWuLEGr
-         9xHG3zGTEmzBiba4Vgg+2q336UIRVFKYO7489dfbe8GO+Ux9AzxEQZAHJEARAYz9nqAI
-         KUCg==
+        bh=Uku0KSMGnpxRyEM16ddKnWiVqQIpC8/Vy30MeaO+u+4=;
+        b=BR1idSqmKkso6J9hhOdgryfwzmZs0d8ZeopQi7dL7628uES1YBGXTVTp2XEnGG7cN3
+         wxSvqq6JZYFWOaFcmxlB9cfN6NAn4trHnuTmthNs9iBL9Lv/PJAD6Cj41MQdJqndVwuE
+         N3qTRU1lgYuUM0uKvQbNkYL3zznwzqUTxd0QdWWfW0JUZZtkstGTJ4m3078PQmsOKL5h
+         Tzjx8inrMcdoxzV7EaPjq8xbfim40sHZJ/dHl5EVjUUtEDcpC+cmdnEwypL3uhw3M2/D
+         RnFdZPcMPOMds9dH+E0qO3ELWl5z9J9I4PR9gm5RiLGlB+oLjm28Y7Vfttr/+nlDT3FJ
+         aqxg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ2SMlMNMNkp2KOKuxXp6xHrIP+MvKZID7tos91vdp4T80K0HXEJ
-	VnVY3ZcsTR3urFSmMzu4+K4=
-X-Google-Smtp-Source: ADFU+vshJ+D6QPk9dh6cko44Fq6kv2Id7iL6R05vjjrEA+bwbSVvTtTZLS+5m3QNUftfWYcTCfddpw==
-X-Received: by 2002:a5b:60d:: with SMTP id d13mr37766826ybq.446.1585001464581;
-        Mon, 23 Mar 2020 15:11:04 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ0lLNARnzAcdDZj6TQTTk/GHuY6PFY16rnhEh7edugsa7sMbYw1
+	CYfiZcZ7U8PY7FK2tKXIV1A=
+X-Google-Smtp-Source: ADFU+vsatr87Q78/8W59AeCBtNAA7XUm0EgxLUEkslpD6QM6warYLTA0YJgmlx27MJQeXGyBKGG7ug==
+X-Received: by 2002:a05:6830:1d4f:: with SMTP id p15mr18658063oth.38.1585002023792;
+        Mon, 23 Mar 2020 15:20:23 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:ed04:: with SMTP id k4ls2620293ybh.4.gmail; Mon, 23 Mar
- 2020 15:11:04 -0700 (PDT)
-X-Received: by 2002:a25:2a85:: with SMTP id q127mr28402586ybq.399.1585001464156;
-        Mon, 23 Mar 2020 15:11:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1585001464; cv=none;
+Received: by 2002:aca:ec0a:: with SMTP id k10ls1152423oih.8.gmail; Mon, 23 Mar
+ 2020 15:20:23 -0700 (PDT)
+X-Received: by 2002:aca:4c1:: with SMTP id 184mr1270824oie.76.1585002023457;
+        Mon, 23 Mar 2020 15:20:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1585002023; cv=none;
         d=google.com; s=arc-20160816;
-        b=QlthaoSdOcZf+hnxFA+v7lV9AtS19tpvZa7YUzHhZwyQgG0jGCfZhUieivSO2b759Z
-         N+rVlIyzVTH8je05jWsrYXy7bPWDdHZokcZBeBhkmUwH2SRLk8iSZ50bX1OXtuEEer5F
-         1tgqp803z29MtMu05DyHkzNDmEtWpWWcigndzDowQv1+hGoujAzrPIZnIYcREXR6m3wF
-         plvjt1NnNRksKoOgoKCofJN3jv+PT0kntij5qxfdA08iXXFZ1TPGEeOVLpS9hPSjEnGS
-         o7Jmn55K0cVXKZAzH+jXIxu9wFScqMPS848yz0uIudybbUny/MkXoIQ9UrmM9sZzbVfc
-         xzBg==
+        b=pVd+A8gkvim1AHNBFGGmSmvXPap4EjMB/F03HxhobF6aUoroFVLy71kTDuYR112QET
+         e97AZYuuX4W7k4j5lolO+fO5vrMHep/ctRGu68QrkEuK+1ZzWxDqEmQ79a0ycOAR6pEH
+         ulhvU98myXAwJ1LivnMQbbH7aoTecCIbkbY7KDg895yX/+TEuQx1X06N3VTRUmTnfNjc
+         RfmjHCCuZBRzuWwFHzNA0flWDz/lqsGM6f+ezMXiBTJ3iVfFpj3MkWwHJXHFTcEN7qqp
+         WwWCsMfHmS65Bxp7o2eRKIdMd9oFFNDvKyHia997kwjGwMTWSuMlauMq5D76AeAhocBg
+         lwYg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=0iDoLcb0TJlysYQo/R7FmBVNg8P3MwazEd7nFERtHLk=;
-        b=q44z6q66Dsyvwa9fWbfsfREkx991QIeUP73CY+67davVetYQBVbjnQ/jXAo0riNkla
-         Idzv+W0BqWs0dl2VwUlfRc1+qc1RibmD1kphdN4cJ/rDaKVMzfd3/lU5G2NOua03KLvd
-         9ELaH06XWbCLmcwKXCFr4ozj2X7ZMf8z1zgpPAS5t6/zJkaVuC4RrwvbzMQ/wYxOl9ip
-         EpBSMzSy7OaN8DenNv01uwBWSn9R8g7jkx3b8/I9ZYXUNHzjHzoLH11cLEtbE9MTndbV
-         zWERvmQsIJLIScLYAlhN1QbPp43jRHOGfC9e4Nx8kmPBdKUJLypDssGa33lG1nXweopL
-         +agg==
+        bh=1EhbzYwK91QgR5e3ifwXFHT2QHL7HBuUUYuTTeDeIfU=;
+        b=y2+3y4wo0fm8nacT5DJcwWmny7XNT7Be4UccR2g8CGoyziOppYyipetp0cmSs/2sWP
+         fDfchjhRAjps3bmVwt1l+Aef6r92S46ILGSDgTrzfL7C+mP4G2sAipY2VkKD3UkuQn9X
+         rivimggvRrLhGgz7iCsuw1pLUjuMJOCxYAww5NX8YnNFdg0ZRkvghophJ+tQpYQoeBD3
+         UNfBC6dRjADHE2wffrzY6Pn4d/P4rbeHTkN0Fx5ZSAX5L4ZgGme+GNwSXgeL0gG258P+
+         N2odlxZXUV4RhnyQtsTTJq+pxmstDODfAAoYe4j8bUbR6KRjQVoO/Mj9xNznhVKLcadD
+         jaVQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@zx2c4.com header.s=mail header.b=Bn4ZMdB1;
+       dkim=pass header.i=@zx2c4.com header.s=mail header.b=s0aD2iU5;
        spf=pass (google.com: domain of jason@zx2c4.com designates 192.95.5.64 as permitted sender) smtp.mailfrom=Jason@zx2c4.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=zx2c4.com
 Received: from frisell.zx2c4.com (frisell.zx2c4.com. [192.95.5.64])
-        by gmr-mx.google.com with ESMTPS id l1si887037ybt.2.2020.03.23.15.11.03
+        by gmr-mx.google.com with ESMTPS id n5si563315otf.3.2020.03.23.15.20.23
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Mon, 23 Mar 2020 15:11:03 -0700 (PDT)
+        Mon, 23 Mar 2020 15:20:23 -0700 (PDT)
 Received-SPF: pass (google.com: domain of jason@zx2c4.com designates 192.95.5.64 as permitted sender) client-ip=192.95.5.64;
-Received: by frisell.zx2c4.com (ZX2C4 Mail Server) with ESMTP id 0e5c31c9
+Received: by frisell.zx2c4.com (ZX2C4 Mail Server) with ESMTP id 548ea022
 	for <clang-built-linux@googlegroups.com>;
-	Mon, 23 Mar 2020 22:03:59 +0000 (UTC)
-Received: by frisell.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 527d9dff (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256:NO)
+	Mon, 23 Mar 2020 22:13:18 +0000 (UTC)
+Received: by frisell.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 787baf30 (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256:NO)
 	for <clang-built-linux@googlegroups.com>;
-	Mon, 23 Mar 2020 22:03:59 +0000 (UTC)
-Received: by mail-il1-f182.google.com with SMTP id j69so14901135ila.11
-        for <clang-built-linux@googlegroups.com>; Mon, 23 Mar 2020 15:11:01 -0700 (PDT)
-X-Received: by 2002:a92:cd4e:: with SMTP id v14mr24213070ilq.231.1585001460661;
- Mon, 23 Mar 2020 15:11:00 -0700 (PDT)
+	Mon, 23 Mar 2020 22:13:18 +0000 (UTC)
+Received: by mail-io1-f43.google.com with SMTP id m15so11023074iob.5
+        for <clang-built-linux@googlegroups.com>; Mon, 23 Mar 2020 15:20:21 -0700 (PDT)
+X-Received: by 2002:a05:6638:52a:: with SMTP id j10mr1438090jar.36.1585002020839;
+ Mon, 23 Mar 2020 15:20:20 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200323020844.17064-1-masahiroy@kernel.org> <CAHmME9p=ECJ15uyPH79bF0tuzEksdxoUsjGQSyz74FfdEJxTpQ@mail.gmail.com>
- <CAHmME9q4egN7_KeYB-ZHCFPfXs-virgTv4iz9jW2SVOM7dTnLw@mail.gmail.com>
- <CAK7LNAR07vZFzh1Bbpq4CoJ4zmsc+p5rxpkO1Zv8QVfqhfvr2w@mail.gmail.com>
- <CAHmME9qCjo4kOQM3Dw6PDjEebmb6rvXajqhK-m-=vKcHWqNhAw@mail.gmail.com> <CAK7LNAQgKgKgOpQ2bgHrB5h=LTffs2khbYRrBhrxFM44gS88KQ@mail.gmail.com>
-In-Reply-To: <CAK7LNAQgKgKgOpQ2bgHrB5h=LTffs2khbYRrBhrxFM44gS88KQ@mail.gmail.com>
+References: <20200323215732.13339-1-masahiroy@kernel.org>
+In-Reply-To: <20200323215732.13339-1-masahiroy@kernel.org>
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Date: Mon, 23 Mar 2020 16:10:49 -0600
-X-Gmail-Original-Message-ID: <CAHmME9rgNB5L_x9rRcW4RDHJnPuAZMUtJ+7HNK3302nwb9Y0OQ@mail.gmail.com>
-Message-ID: <CAHmME9rgNB5L_x9rRcW4RDHJnPuAZMUtJ+7HNK3302nwb9Y0OQ@mail.gmail.com>
-Subject: Re: [PATCH 0/7] x86: remove always-defined CONFIG_AS_* options
+Date: Mon, 23 Mar 2020 16:20:10 -0600
+X-Gmail-Original-Message-ID: <CAHmME9qYLYHsfV8S3WVV8x52tvqJNSarfgrXVm0oBsHD1GinCw@mail.gmail.com>
+Message-ID: <CAHmME9qYLYHsfV8S3WVV8x52tvqJNSarfgrXVm0oBsHD1GinCw@mail.gmail.com>
+Subject: Re: [PATCH] kconfig: allow to pass optional flag into as-instr macro
 To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: X86 ML <x86@kernel.org>, Ingo Molnar <mingo@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>, "H . Peter Anvin" <hpa@zytor.com>, 
-	LKML <linux-kernel@vger.kernel.org>, Allison Randal <allison@lohutok.net>, 
-	Armijn Hemel <armijn@tjaldur.nl>, "David S. Miller" <davem@davemloft.net>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	Ingo Molnar <mingo@redhat.com>, Kate Stewart <kstewart@linuxfoundation.org>, 
-	Song Liu <songliubraving@fb.com>, Zhengyuan Liu <liuzhengyuan@kylinos.cn>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Linux Crypto Mailing List <linux-crypto@vger.kernel.org>
+Cc: linux-kbuild@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: jason@zx2c4.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@zx2c4.com header.s=mail header.b=Bn4ZMdB1;       spf=pass
+ header.i=@zx2c4.com header.s=mail header.b=s0aD2iU5;       spf=pass
  (google.com: domain of jason@zx2c4.com designates 192.95.5.64 as permitted
  sender) smtp.mailfrom=Jason@zx2c4.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=zx2c4.com
@@ -145,83 +135,79 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Mar 23, 2020 at 4:04 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
+On Mon, Mar 23, 2020 at 3:58 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
+> Commit 42d519e3d0c0 ("kbuild: Add support for 'as-instr' to be used in
+> Kconfig files") introduced the Kconfig variant of as-instr.
 >
-> Hi Jason,
+> It is currently used in arch/arm64/Kconfig.
 >
-> On Mon, Mar 23, 2020 at 3:53 PM Jason A. Donenfeld <Jason@zx2c4.com> wrote:
-> >
-> > On Mon, Mar 23, 2020 at 12:36 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
-> > >
-> > > Hi Jason,
-> > >
-> > > On Mon, Mar 23, 2020 at 1:28 PM Jason A. Donenfeld <Jason@zx2c4.com> wrote:
-> > > >
-> > > > Hi again,
-> > > >
-> > > > I've consolidated your patches and rebased mine on top, and
-> > > > incorporated your useful binutils comments. The result lives here:
-> > > >
-> > > > https://git.zx2c4.com/linux-dev/log/?h=jd/kconfig-assembler-support
-> > > >
-> > > > I can submit all of those to the list, if you want, or maybe you can
-> > > > just pull them out of there, include them in your v2, and put them in
-> > > > your tree for 5.7? However you want is fine with me.
-> > >
-> > >
-> > > Your series does not work correctly.
-> > >
-> > > I will comment why later.
-> >
-> > Bummer, okay. Looking forward to learning what's up. Also, if some
-> > parts of it are useful (like the resorting and organizing of
-> > arch/x86/crypto/Makefile), feel free to cannibalize it, keeping what's
-> > useful and discarding what's not.
-> >
+> arm and arm64 are simple cases because they are separated by directory,
+> and GCC also provides a single architecture.
 >
+> Such architectures as x86, powerpc, sparc, etc. support both 32 and
+> 64 bit kernel in the unified arch directory, and GCC can be biarch.
+> On such architectures, Kbuild passes -m32 / -m64 flag (or a proper
+> target triple for Clang) to select the target machine bit.
 >
-> The answer is mostly in my previous reply to Linus:
-> https://lkml.org/lkml/2020/3/13/27
+> This commit adds the second parameter to as-instr so you can optionally
+> pass a compiler flag to evaluate the instruction with.
 >
+> One example usage of this is for the conversion of the following code
+> in arch/x86/Makefile:
 >
-> I think this problem would happen
-> for CONFIG_AS_CFI and CONFIG_AS_ADX
-> since the register in instruction code
-> is machine-bit dependent.
+>   adx_instr := $(call as-instr,adox %r10$(comma)%r10,-DCONFIG_AS_ADX=1)
 >
-> The former is OK wince we are planning to
-> remove it.
+> This instruction code should be evaluated by the 64-bit assembler
+> (r10 is a 64-bit register).
 >
-> We need to handle -m64 for the latter.
-> Otherwise, a problem like commit
-> 3a7c733165a4799fa1 would happen.
+> If you use compiler that defaults to 32-bit for building the 64-bit
+> kernel, -m64 should be passed to invoke the 64-bit assembler.
 >
+>   config AS_ADX
+>           def_bool $(as-instr,adox %r10$(comma)%r10,$(m64-flags))
 >
-> So, I think we should merge this
-> https://lore.kernel.org/patchwork/patch/1214332/
-> then, fix-up CONFIG_AS_ADX on top of it.
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> ---
 >
-> (Or, if we do not need to rush,
-> we can delete CONFIG_AS_ADX entirely after
-> we bump the binutils version to 2.23)
+>  scripts/Kconfig.include | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
+>
+> diff --git a/scripts/Kconfig.include b/scripts/Kconfig.include
+> index 496d11c92c97..9b8c98168ba9 100644
+> --- a/scripts/Kconfig.include
+> +++ b/scripts/Kconfig.include
+> @@ -31,9 +31,10 @@ cc-option = $(success,$(CC) -Werror $(CLANG_FLAGS) $(1) -S -x c /dev/null -o /de
+>  # Return y if the linker supports <flag>, n otherwise
+>  ld-option = $(success,$(LD) -v $(1))
+>
+> -# $(as-instr,<instr>)
+> +# $(as-instr,<instr>,[<flag>])
+>  # Return y if the assembler supports <instr>, n otherwise
+> -as-instr = $(success,printf "%b\n" "$(1)" | $(CC) $(CLANG_FLAGS) -c -x assembler -o /dev/null -)
+> +# You can pass optional <flag> to evaluate <instr> with
+> +as-instr = $(success,printf "%b\n" "$(1)" | $(CC) $(CLANG_FLAGS) $(2) -c -x assembler -o /dev/null -)
+>
+>  # check if $(CC) and $(LD) exist
+>  $(error-if,$(failure,command -v $(CC)),compiler '$(CC)' not found)
+> --
+> 2.17.1
 
-Oh, gotcha. The easiest thing to do for that case would actually be
-passing 32-bit registers to adox, which are valid. I'll fix that up in
-my tree.
+This looks fine to me, and might be useful down the line in the
+future. But for the ADX situation, I wound up just going with the
+bicompatible register:
 
-And then indeed it looks like the binutils bump is coming anyway for 5.7.
+https://git.zx2c4.com/linux-dev/commit/?h=jd/kconfig-assembler-support&id=c81d9c743d058ef9013fbf8661d071ac9d574472
 
-Your flags patch looks fine and potentially useful for other things
-down the line though. I suppose you had in mind something like:
++# binutils >= 2.23
++config AS_ADX
++ def_bool $(as-instr,adox %eax$(comma)%eax)
 
-def_bool $(as-instr,...,-m64) if 64BIT
-def_bool $(as-instr,...,-m32) if !64BIT
+This seems to work. But it also doesn't matter much, as it gets
+removed anyway during the binutils 2.23 bump:
 
-Anyway, I'll fix up the ADX code to be biarch like the AVX test code.
-
-Jason
+https://git.zx2c4.com/linux-dev/commit/?h=jd/kconfig-assembler-support&id=c95d6f2ce88722eeb86d54f206bd7599bdc51e1d
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHmME9rgNB5L_x9rRcW4RDHJnPuAZMUtJ%2B7HNK3302nwb9Y0OQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHmME9qYLYHsfV8S3WVV8x52tvqJNSarfgrXVm0oBsHD1GinCw%40mail.gmail.com.
