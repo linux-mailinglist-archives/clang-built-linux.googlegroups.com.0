@@ -1,130 +1,125 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBQ6P4TZQKGQEHRZJRCY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBWGS4TZQKGQEGE67BDI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93b.google.com (mail-ua1-x93b.google.com [IPv6:2607:f8b0:4864:20::93b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1F55619002C
-	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Mar 2020 22:19:00 +0100 (CET)
-Received: by mail-ua1-x93b.google.com with SMTP id t10sf5485697uaj.5
-        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Mar 2020 14:19:00 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1584998339; cv=pass;
+Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
+	by mail.lfdr.de (Postfix) with ESMTPS id DA5FF19003A
+	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Mar 2020 22:25:45 +0100 (CET)
+Received: by mail-pg1-x539.google.com with SMTP id 12sf11879719pgv.1
+        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Mar 2020 14:25:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1584998744; cv=pass;
         d=google.com; s=arc-20160816;
-        b=LoKjEiboIyb7dJMnVMSwVtKZrghSNhJpsgS6QqgITduuSIn2Mu4XExjZpfv0bcvDhl
-         nvMShnUm+m19rqQyd91qXq4OLOfWccKk3YiEvg+XkIHqscGnDBZxt0lpS+34nogEdu5B
-         8YzrZcDpU1C9sRjO/HsxTneuGZYjhfP6KO5jmZHLG8/2LlEOVYAPd4PxPfc5DK/TlgUR
-         JBd6W8LtEaOUpXWD4GPB9laY145B8fnA4PqCr7JqXMtc4s8LSfdkwPTYa5XlpXPJtjV7
-         sOpo1udk/B8o/gPFehzfqgsvyk0laqJx3sTz4eb6G19OeZNMXMo0O+w9rI1VjLkAXZIz
-         dE4g==
+        b=ELE12t+0mJJ3a1Jp28buVmJ3O/obZh9B1wWaTRHe6lAt4Llj6E2xBasmxrbQASiJwh
+         lFplLEebrwO/bt4083yLoWISN2JAOD1wDW/xYUPTzeFClFydK2NDsVcl78N8240heOtZ
+         5zlgDmbNaOOrSSFp+4J4Fgy7+CL0uXr2+mOtyQuvhLkLsZT2U4j/ScUcjpQwb8s6HWX9
+         zoUmx9AwfZ07Q/PJho/1RXZg/mhPTGoJ5yxJqYzBrKINmpXUzNgVdsV8YiIJSwQ5pVnb
+         k06bTyVtAhuakwZr6KaGrHpnbKzy9ZBO6fVgAdxtIXIYYWp+r3s4RRdlB+1lm5kbjv+r
+         9J6Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=fbZ8bM/wviYGy/cdUXpjR7q8P6urbjnxy48ViTCWxp8=;
-        b=UQeF8eXzW6rVeYt3uKnpgUkvKUUy/o23VnnnCjfa4Hy7eAxx/Hst05/WxCeqSsL5SZ
-         nH0weAvMdeYx6aJ57oAMA0XbPmLDp0bB5HjX8/vBUcxQLFgFcbELnyXFxjRhjF8mxPxc
-         6mnSCF2UzELc2r9BWcw0v+Pq1WiR3/EbG+w/4Nfs76FiRnc4GQMzhQBjQ3sd/u3CJH96
-         12sx1GqRQ+NIHWn1CpkjLR2YWvPM1PMwIDA6U4jkBCnL+GvpsOogSj5yXDl8pPtateTr
-         NPtxvTHISDRFPG9hO45MYz32yfH5XFytm30DdwNLcE5bGoomjA3al8ukgd9N6UEX0anw
-         cpug==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=2K3I5ZPar7q7W1YcO3DqxVZa9lXmY8l7TjTE3er0Ges=;
+        b=bfhvD85vzgCX8S5IEzRPXFdBWBNxzukSzH2Fx9DPrWy4PCiYOpvqqVuBUBjRQyZWeb
+         Hazn0g7CsnX8HFjDMTx/QCfLdCFh3xl3ux0nBySvtdYgH4ONfwCWcOa4FkgVWi26AMno
+         +aANe43yk0LFpkmXPULd4iNIEMmmc4xWEUmbUsZyL5z9cNLLplICbea/Smt66d3WPW6z
+         aAQLVm/KVI9Tyr9s+Cao+Grx53lW0ZLJekbtJiHJTPdOgeVVOYElYYDVcHPFNicb7OLE
+         +kuM+JKf70SbT0HWX4u0AbbLqZmvx3TSMfnde0bwz51o+tRhDXzytlwE+fitJxx1E59D
+         Bvgg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=nfPb2+aa;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1031 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=DXQvhOIk;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=fbZ8bM/wviYGy/cdUXpjR7q8P6urbjnxy48ViTCWxp8=;
-        b=YHY+O4lWURq6JLKx0dJZZoZrSaWcb6v9FannxZTD35ba8IB/hONHHRJZmMsJE1hOme
-         tRiZ8wiHUrEcSZSyc9L0hjZ8SJauNAdsWsG9hdaYxgqX076oPwLphJ53FQNLLjUbpAAB
-         ra7nC0BussNA0TXhf6yWIboWqrb6YEDASMjXFyZZKKo1ypBNzKmLtp+Cx2cKvpY9bqSN
-         IR1iqZLPY+UxsMqdKpb/jeHi0TWMQVFdFfiB2tXoGMsrbS+1KytWCZFu6RjNKOD226E0
-         fgGv/7zRGa3qiCs706p07j8Hj8dykP5RXJ5+TysUvMuSObu4xAh2o5fpSkOhXT5AN57i
-         zNdQ==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=2K3I5ZPar7q7W1YcO3DqxVZa9lXmY8l7TjTE3er0Ges=;
+        b=ZhwJhUZmu3lLAyuDvA1+28xo9Lh7at3IRNL+TjmJ3XVgl3X3wykZFD9LZgemhgbuCX
+         3AxCJHIBUmY8oZuIyNCj695r6i2c45AlQtBOwxU2pNIE0S7ha1M0P7iCJbLxScCZdqZZ
+         DSJcEFcDjphWXWY0Ni6J3/pjdjXZcoUtIjMhzm2BC/eoq08jD+4RiTSUCw04VjwGJdLr
+         9deKfgCeRk6eSOUqrNsaSys9yLouB+7EBtfPpQiMXK+CDVWHUfq5k5ZI6RfhiVjKQH3b
+         6excvppqDk5XbnSJjbUMWFzjGjh3sCGLBADe8euzQM9EE8jY326g+RT4RMiRKUpLorlE
+         dqqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=fbZ8bM/wviYGy/cdUXpjR7q8P6urbjnxy48ViTCWxp8=;
-        b=T8SkUAj4m8awR1zYQe7VuQ6lMrDjRcUYBb2a0j6bKpMrhYIO6aa4yvBvGNYF2qPQ9S
-         7T02iTYAj6zirXVe4zUqpovL1rxPDZUxm0acTJx8cbtMSvx46ik1TPM/X1WNnyTii+6X
-         mLiql4uoepYTO+F847+qeBTRtXScZlXgbeeDj+uUCHUHAOu4HWsXkqJsImav+/A+1OxC
-         m2wJj3/z45MK52akoYnwK9Zmdz2q1mo4yre94iTcFin7pW1qTjla/lcgYSFjKgciS1M5
-         +06fUa9636kqhC34lDKBHsf+LxHrGPnT+olfgR/sAGXV0JEVTwT2cOTN9wvHPSClfsXQ
-         fiZw==
-X-Gm-Message-State: ANhLgQ3zeVDI0s1ve7rXJHK9seOnSBWtcfRD43mQ2BWvjrHROWHHQGAX
-	8uuAO4Bj4w18/KaH0vVEV+8=
-X-Google-Smtp-Source: ADFU+vtKCrjlUMYHlsHOCTo0gfymNgJFbfVbPdLQeJUdK0RPdRU0yNetyikVJY0NE/rqpLZST60G2Q==
-X-Received: by 2002:ab0:718b:: with SMTP id l11mr5248265uao.100.1584998339065;
-        Mon, 23 Mar 2020 14:18:59 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=2K3I5ZPar7q7W1YcO3DqxVZa9lXmY8l7TjTE3er0Ges=;
+        b=fI0bzA+9dx33TYsCkriCW+eRMztI0405cILHG4VHoiJJ5uwND43AgKiBIFg7y0m4v3
+         B7dXKltlLm8gKMCRssZ7xWXHn2i+ya7j2PfhqcUbo4jEfL9uJ3rXVyMs9hsd7fgTcALO
+         AXhLipAzRlcCbTItD7yK438JLMSzi/earGS/6O6uXnd4FE8xF9dm+0SklWTmpN17Moiv
+         DBMy5vPm/6+yWLonhkFCdSpHumw0+kdb4BHDteHhtD8+m+VkbMtcTmdG1FzbiHiLGLbq
+         DA1z2lqMwp0Bj1zDhpeA/cBMlmNlusBztBaa+U59geRlWnVbnNzifDlDUEm06LeePo+J
+         42Tg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: ANhLgQ0/dxf0yGCw2oGntAVOoC2kOaGsZ82iSrci3jl9Rr6t5er796n0
+	vg9nF6VXGQRk3AmAHuE92pY=
+X-Google-Smtp-Source: ADFU+vvh1QOl/pvEQheje/3x3rSwTi/xVp4B6FdbqLHxHsApsTQYfaQ7XmSnj+CJkUlIA5C1mN4+YQ==
+X-Received: by 2002:a17:902:aa01:: with SMTP id be1mr22717985plb.227.1584998744378;
+        Mon, 23 Mar 2020 14:25:44 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9f:354c:: with SMTP id o70ls316355uao.1.gmail; Mon, 23 Mar
- 2020 14:18:56 -0700 (PDT)
-X-Received: by 2002:ab0:49e4:: with SMTP id f33mr15004491uad.86.1584998336422;
-        Mon, 23 Mar 2020 14:18:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1584998336; cv=none;
+Received: by 2002:a17:902:b58e:: with SMTP id a14ls7371140pls.5.gmail; Mon, 23
+ Mar 2020 14:25:43 -0700 (PDT)
+X-Received: by 2002:a17:902:b60f:: with SMTP id b15mr9531901pls.14.1584998743810;
+        Mon, 23 Mar 2020 14:25:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1584998743; cv=none;
         d=google.com; s=arc-20160816;
-        b=bZuCq0lFIGYx2Nw89RQRRcasHIZTHzlGHl4i3ebdHOCXSjMkIG/QBtJ9bHMObODSQp
-         PkQFb3x2U+DyRY0U24tiVvdIFcl7eAJh56vfPA3AVXOCdeOa3QUHUYW3VQUDqw8BpWMQ
-         hd6IBqZSi3eqOMT/+t1nuaxbEHC/kNorVNqpRFfLOKWQINgF0KIBk/p9Ajc9jkMrZHYi
-         KqaSWWrZaR+gXFpdTOzeNoQ57dg7cmIRIbqRE6Be+XSg/ldrt3ht0SaFQ55FD+rzZTk9
-         N/UXQMXYgbzh+DJNDX5foCzYN0dfZoaruaXJFBB7/sdhEPlN6lzQFoMYOk18Ek6CCJ2y
-         YN0A==
+        b=wMm37n+kHP0+s4yRgK2DjLDPmicJr5JN4mqtvqXLAXq5Do7Eo2UN7HDJTrq6VO8uaB
+         b8H/HXvCqxin+dMOaWaD5BvXUZFe764+3D4FnBlisMkaAjvYBw8aIGbUgfsMZSD5tpCS
+         6vOTUEuVvWeCAUsqr45ydTJmvoT0zKUNRrpVQ7PDfF2yW6R1PJzK0bOV1AG3NQQmOtg9
+         wU7wFYS1WbM69GruPv7wHsLh5lVcH8XKLjaOEDBetRpn4bbyBqlOjLaSs4IW8pYPl9K0
+         wScBS8j9NKmeevRB/ozFuX4Zbzj4yaOL/Cb7o6JhNEu3dW9swCLwvzrrMpqpyk69gtuh
+         pTWQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=SAo65VWhiT0pMfzK3jPM23q9ZFAqcr7MGIEFD3ZpA9I=;
-        b=rJD5nMm5ywYEkDoVFXxylgxRMREu2jYxQhWy9akX3vVccFyk5tq7/nAT/t1SHYKNTN
-         JaY1WHxfhSWpp0RcQ9AOcvixEbS52j+9BiiVHrKm35JrzSXTUig/Hqi7gCcPMPLZclhP
-         rCairmFSx7MFHxYcarlPFaJgXPJK0LDy2TKD3ZqE1oLd0JD9ZFtBXtqpiHX89v6ug28H
-         MBR3/5aBMLW+M2cJdFx0OH8VtRMm4ca5ZttI42GII63echecI3OT++OpoPbVlKYdG7fU
-         3WdBpavpZ0LywXtlrxf8SYEBcAgytqaRdWYFFKvWBtF75IidFEF02RuwiHOQRZiJtYHc
-         cfrg==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=dv4KzVoQjkkGuKIDr/WWqEpRfY6YahHjPyrmmcTBFa8=;
+        b=nrH8cbujRk4JBhyRKc5+IBgVNdr0Yyk0lMc/Q7GDr+iTwjYPcWU3qKULAm8utWqxbK
+         3L+KEWkfNkLZFrdR0/Q1LdMxZx+LRvVzGAO4IcFSN80toK++H91p+5TADa4dS+bgm55X
+         L42W9TkIIQRaEH1av26xhvfdLv7QKrzdr4DIXyFWTXNBso76q6ELeeGWilnWPLBUmN3a
+         2NnTxWt4WGyumxaDjT0qz9XvZNPuVZMU0VEzuULB67qap0lhnJ+Gz3NblZzNbhGVzOph
+         aidQ0OrVwMlxrWsORGBybL7Z38hr1PQCDrylPsIWLdpGQSM+yKN7MJVJNNYYVvN4NNDu
+         4Uig==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=nfPb2+aa;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1031 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x1031.google.com (mail-pj1-x1031.google.com. [2607:f8b0:4864:20::1031])
-        by gmr-mx.google.com with ESMTPS id v5si431165vsl.0.2020.03.23.14.18.56
+       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=DXQvhOIk;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
+Received: from bombadil.infradead.org (bombadil.infradead.org. [2607:7c80:54:e::133])
+        by gmr-mx.google.com with ESMTPS id 188si1016479pfb.1.2020.03.23.14.25.43
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Mar 2020 14:18:56 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1031 as permitted sender) client-ip=2607:f8b0:4864:20::1031;
-Received: by mail-pj1-x1031.google.com with SMTP id ck23so424529pjb.4
-        for <clang-built-linux@googlegroups.com>; Mon, 23 Mar 2020 14:18:56 -0700 (PDT)
-X-Received: by 2002:a17:902:820a:: with SMTP id x10mr19799846pln.179.1584998335505;
- Mon, 23 Mar 2020 14:18:55 -0700 (PDT)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Mar 2020 14:25:43 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) client-ip=2607:7c80:54:e::133;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=worktop.programming.kicks-ass.net)
+	by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1jGUZp-0003LU-Kk; Mon, 23 Mar 2020 21:25:41 +0000
+Received: by worktop.programming.kicks-ass.net (Postfix, from userid 1000)
+	id A431B983505; Mon, 23 Mar 2020 22:25:38 +0100 (CET)
+Date: Mon, 23 Mar 2020 22:25:38 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Josh Poimboeuf <jpoimboe@redhat.com>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Kees Cook <keescook@chromium.org>
+Subject: Re: call to memset() with UACCESS enabled
+Message-ID: <20200323212538.GN2452@worktop.programming.kicks-ass.net>
+References: <CAKwvOd=mOmU1S1g5oDDy3rLjnp543Fu6PSVAJyvxhyQDvpOM+A@mail.gmail.com>
+ <20200320101455.GB20696@hirez.programming.kicks-ass.net>
+ <CAKwvOd=edOBdTL=FcmXYuN8crykrEoJbfdVy4CmKL7ETj_TpnQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <CAKwvOdmYqncnK7SBEi7P0ZSNTMi97XhkiOkqmHoCrWUeG-7GQA@mail.gmail.com>
- <DBBPR08MB4823894C5E0C67C7FF6F6DCDF8F60@DBBPR08MB4823.eurprd08.prod.outlook.com>
- <CAKwvOdkR=wphdRX4Y406xcA2UFov57AzEN+XEdo4ifpojPaibQ@mail.gmail.com>
- <DBBPR08MB4823214DC0BBA452081864B2F8F70@DBBPR08MB4823.eurprd08.prod.outlook.com>
- <DBBPR08MB4823590F62BEE5238B04BBFEF8F20@DBBPR08MB4823.eurprd08.prod.outlook.com>
-In-Reply-To: <DBBPR08MB4823590F62BEE5238B04BBFEF8F20@DBBPR08MB4823.eurprd08.prod.outlook.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 23 Mar 2020 14:18:43 -0700
-Message-ID: <CAKwvOdnWYPnnnhOHc7QX6GTre4yM+dDxWQM7hOAigGA8fGETHA@mail.gmail.com>
-Subject: Re: help reviewing 32b ARM VFP assembly
-To: Peter Smith <Peter.Smith@arm.com>
-Cc: Kristof Beyls <Kristof.Beyls@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
-	"oliver.stannard@linaro.org" <oliver.stannard@linaro.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <CAKwvOd=edOBdTL=FcmXYuN8crykrEoJbfdVy4CmKL7ETj_TpnQ@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: peterz@infradead.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=nfPb2+aa;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1031
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@infradead.org header.s=bombadil.20170209 header.b=DXQvhOIk;
+       spf=pass (google.com: best guess record for domain of
+ peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,111 +132,232 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-I appreciate the careful review and technical references, Peter!
+On Fri, Mar 20, 2020 at 02:34:24PM -0700, Nick Desaulniers wrote:
+> On Fri, Mar 20, 2020 at 3:15 AM Peter Zijlstra <peterz@infradead.org> wrote:
+> >
+> > On Thu, Mar 19, 2020 at 01:37:04PM -0700, Nick Desaulniers wrote:
+> > > Hello Josh and Peter,
+> > > I'm looking to track down what I think is our last objtool warning:
+> > > https://github.com/ClangBuiltLinux/linux/issues/876
+> > >
+> > > Can you tell me a little bit more about what uaccess is?  I wonder if
+> > > an assignment is getting turned into a memset outside of a "critical
+> > > section" (for some meaning of "critical section" that I don't yet
+> > > understand), which is what objtool is validating against?
+> >
+> > This is x86_64 SMAP EFLAGS.AC checking. When SMAP is enabled, kernel
+> > code (CPL0) can only access memory with _PAGE_USER set when ELFAGS.AC is
+> > set. Otherwise it goes *bang*.
+> 
+> Ah, thanks for that context, I was able to find
+> https://lwn.net/Articles/517475/ (though I think the Spectre
+> mitigations make some of the points outdated) and
+> https://en.wikipedia.org/wiki/Supervisor_Mode_Access_Prevention which
+> talks more about SMAP.  So it sounds like there's a "critical section"
+> in terms of STAC and CLAC "guards" where access to userspace should
+> only occur within (IIUC).
 
-On Sat, Mar 21, 2020 at 8:05 AM Peter Smith <Peter.Smith@arm.com> wrote:
->
-> Hello Nick,
->
-> I've taken a look at the encodings, they all look good to me, and put a f=
-ew references to where to find the substitutions in the manual. Hope one of=
- the kernel reviewers can take it from there.
->
-> Peter
->
-> ________________________________________
-> From: Peter Smith <Peter.Smith@arm.com>
-> Sent: 18 March 2020 10:02
-> To: Nick Desaulniers
-> Cc: Kristof Beyls; Arnd Bergmann; oliver.stannard@linaro.org; clang-built=
--linux
-> Subject: Re: help reviewing 32b ARM VFP assembly
->
-> Hello Nick,
->
-> I think my replacement at Linaro TCWG is starting soon, I think next week=
-. It will be a good time to approach Maxim to ask if he can help with Clang=
-BuiltLinux in general. I'd try that first before Arm, if it doesn't work Kr=
-istof or myself can lobby to get this put on the one of the team at Arm's s=
-prints if I can't get to it in a reasonable time frame.
->
-> Peter
->
-> ________________________________________
-> From: Nick Desaulniers <ndesaulniers@google.com>
-> Sent: 17 March 2020 21:11
-> To: Peter Smith
-> Cc: Kristof Beyls; Arnd Bergmann; oliver.stannard@linaro.org; clang-built=
--linux
-> Subject: Re: help reviewing 32b ARM VFP assembly
->
-> On Tue, Mar 17, 2020 at 12:11 PM Peter Smith <Peter.Smith@arm.com> wrote:
-> >
-> > Hello Nick,
-> >
-> > I can check that the VFP opcodes match the coprocessor instructions and=
- the toolchain options, but I'm not sure I can do much from a "Is the right=
- thing for the Kernel perspective".
->
-> Perfect; the encodings matching was my primary concernt
->
-> > I don't have a lot of spare time at the moment so I'm reluctant to prom=
-ise anything more than I'll try my best.
->
-> Apologies, and I appreciate all the help.  Is there someone else at
-> ARM that you're thinking of tapping who can be more involved in
-> ClangBuiltLinux?  You're one hell of a contributor to lose, and the
-> loss is noticeable.
->
-> >
-> > Peter
-> >
-> > ________________________________________
-> > From: Nick Desaulniers <ndesaulniers@google.com>
-> > Sent: 16 March 2020 23:33
-> > To: Kristof Beyls; Peter Smith; Arnd Bergmann; oliver.stannard@linaro.o=
-rg
-> > Cc: clang-built-linux
-> > Subject: help reviewing 32b ARM VFP assembly
-> >
-> > Hello folks,
-> > Stefan sent 3 patches to support Clang's integrated assembler for VFP
-> > on 32b ARM.  Would you be able to help review, or help find someone to
-> > help review these?
-> >
-> > https://lore.kernel.org/linux-arm-kernel/cover.1583360296.git.stefan@ag=
-ner.ch/
-> > --
-> > Thanks,
-> > ~Nick Desaulniers
-> > IMPORTANT NOTICE: The contents of this email and any attachments are co=
-nfidential and may also be privileged. If you are not the intended recipien=
-t, please notify the sender immediately and do not disclose the contents to=
- any other person, use it for any purpose, or store or copy the information=
- in any medium. Thank you.
->
->
->
-> --
-> Thanks,
-> ~Nick Desaulniers
-> IMPORTANT NOTICE: The contents of this email and any attachments are conf=
-idential and may also be privileged. If you are not the intended recipient,=
- please notify the sender immediately and do not disclose the contents to a=
-ny other person, use it for any purpose, or store or copy the information i=
-n any medium. Thank you.
+Correct.
 
+> > Now, the x86_64 context switch code does not save/restore EFLAGS,
+> > because performance.
+> 
+> Oh? Wouldn't tasks need those to branch correctly? If your task is
+> context switched out after a comparison, but before a conditional
+> jump, and your flags weren't restored...I guess orthogonal to our
+> issue, but how does that work?  (It sounds like you're alluding below
+> that exceptions may help here?)
 
+C syncronization points clobber CC state, so any external call to
+schedule() will not care about this. Any instrucion level preemption
+will be driven by exceptions, which, as you note, I called out for
+saving flags.
 
---=20
-Thanks,
-~Nick Desaulniers
+> > To avoid EFLAGS.AC leaking out and destroying the benefit of this
+> > protection, the rule is that any code that has AC set must not CALL/RET.
+> > Because if it were to accidentally stumble upon a call to schedule(),
+> > our AC flag would leak, and worse, it might be cleared by the time we
+> > get back and our valid access goes *splat*.
+> 
+> The attack vector here being userspace might manipulate a pointer in
+> kernel memory range, then a call or return might use that "poison"
+> pointer to do something bad.  In this case, maybe the destination of
+> the memset is modified to scribble arbitrary memory in the kernel,
+> which would be bad.  Is that correct?
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAKwvOdnWYPnnnhOHc7QX6GTre4yM%2BdDxWQM7hOAigGA8fGETHA%40m=
-ail.gmail.com.
+Any actual thing SMAP protects against, when combined with being tricked
+into the scheduler at just the right point.
+
+> >
+> >  [ exceptions, and thereby also preemption, do save/restore EFLAGS per
+> >    the architecture ]
+> >
+> > Function tracing in particular is suspect, it will hook into pretty much
+> > everything and _will_ call preempt_enable(), which is a call to
+> > schedule().
+> >
+> > Now, objtool has a minimal whitelist of functions that are allowed,
+> > these are mostly compiler instrumentation calls which are unavoidable.
+> 
+> Looks like this is uaccess_safe_builtin in tools/objtool/check.c.
+
+Ack.
+
+> > All the kernel implementations of them are notrace and they will
+> > save/restore EFLAGS themselves before calling out again.
+> >
+> > See for example KASAN's check_memory_region() (and by extention
+> > __asan_{load,store}*_noabort()). mm/kasan/Makefile strips
+> > CC_FLAGS_FTRACE and kasan_report() will
+> > user_access_save()/user_access_restore().
+> >
+> > Am I right in thinking that this memset() call is inserted by some
+> > 'clever' LLVM optimizer pass trying to optimize writing a few 0s ?
+> 
+> 3 of the 4 warnings I observe are from defconfig + CONFIG_KASAN.
+> Maybe that can help us limit whatever changes based on CONFIG_KASAN?
+> 
+> In the case of __setup_rt_frame() in arch/x86/kernel/signal.c (for
+> CONFIG_X86_64), if I comment out:
+> save_altstack_ex(&frame->uc.uc_stack, regs->sp);
+> the warning disappears.  Within the save_altstack_ex(), the call to
+> sas_ss_reset() seems to be triggering this (removing it silences the
+> warning, too). sas_ss_reset() assigns two consecutive `long` members
+> of struct taskstruct to 0, which seems to be combined into a memset,
+> seemingly only when CONFIG_KASAN is set.
+
+Right, that's the sort of thing I was thinking happened; the conditions
+seem 'funny'
+
+> Backing up, put_user_try/put_user_catch seem to be the STAC/CLAC
+> guards, and they contain a barrier().  Playing with this in godbolt,
+> it looks like a slight difference between -fsanitize=kernel-address
+> between GCC and Clang: https://godbolt.org/z/-HhGWV
+> 
+> For a 2 long store of consecutive memory locations with the same value:
+> GCC: emits 2 calls to __asan_store8_noabort which is whitelisted in
+> uaccess_safe_builtin.
+> Clang: emits a call to memset
+> 
+> I don't know enough about the KASAN runtime to say if that's a sort of
+> optimization, or a bug.  I would assume that we should always be
+> checking writes through pointers before writing through them, so I'm
+> leaning more towards bug.
+
+I tihnk it's OK, see how mm/kasan/common.c provide an override for
+memset().
+
+> It's tricky to see where in the disassembly the stac/clac would go,
+> since I think they use alternatives.  I guess they would fit in the
+> sequences of  3-nop sleds I see. 
+
+Correct.
+
+> (We really need a kernel
+> disassembler that understands our custom sections, objdump can only go
+> so far). 
+
+You're not the first to float that... objtool has all the code required
+to parse and understand our object files, it just doesn't have any
+of the print logic.
+
+> So it's not clear to me whether the memset is outside one of
+> those "critical sections" or simply the memset was unexpected.
+
+I'll go with unexpected... but it jogged some memory and see what I dug
+up:
+
+  https://lkml.kernel.org/r/CAHk-=wgKDSSoV5WvO018hoPPSHO=TQ3wwnfOtCpaENceBe0Z6Q@mail.gmail.com
+
+> So for:
+> arch/x86/kernel/signal.o: warning: objtool: __setup_rt_frame()+0x341:
+> call to memset() with UACCESS enabled
+> I see:
+> 
+>  d85:   90                      nop
+>  d86:   90                      nop
+>  d87:   90                      nop
+> ...
+>  e01:   e8 00 00 00 00          callq  e06 <__setup_rt_frame+0x346>
+>                         e02: R_X86_64_PLT32     memset-0x4
+> ...
+>  e49:   90                      nop
+>  e4a:   90                      nop
+>  e4b:   90                      nop
+> 
+> I don't see any jumps in __setup_rt_frame that would jump control flow
+> after the 3-nop sled but before the call to memset (pipe the
+> disassembly into `less`, then filter via `&__setup_rt_frame`).
+> 
+> If I try this hack, we don't combine the double assignment into a
+> memcpy and objtool warning disappears, though I'm not sure that this
+> is the correct use of `__asan_store8_noabort`:
+> 
+> ```
+> diff --git a/include/linux/sched/signal.h b/include/linux/sched/signal.h
+> index 65ea429daaa2..2630b4c2e7cf 100644
+> --- a/include/linux/sched/signal.h
+> +++ b/include/linux/sched/signal.h
+> @@ -551,9 +551,12 @@ static inline int sas_ss_flags(unsigned long sp)
+>         return on_sig_stack(sp) ? SS_ONSTACK : 0;
+>  }
+> 
+> +void __asan_store8_noabort(unsigned long addr);
+>  static inline void sas_ss_reset(struct task_struct *p)
+>  {
+> +       __asan_store8_noabort((unsigned long)&p->sas_ss_sp);
+>         p->sas_ss_sp = 0;
+> +       __asan_store8_noabort((unsigned long)&p->sas_ss_size);
+>         p->sas_ss_size = 0;
+>         p->sas_ss_flags = SS_DISABLE;
+> ```
+> 
+> So maybe this is a bug in Clang; -fsanitize=kernel-address should not
+> combine assignments of adjacent `longs` into `memset`;
+> `__asan_store8_noabort` is expected.
+
+That's pretty gross...
+
+> Does that seem like a correct analysis?
+
+Yeah, I think you nailed it.
+
+> Thanks for taking the time to explain all of this to me, it means a
+> lot to me that you take the time to do so.  Sorry I'm more familiar
+> with some of this stuff, but I feel like I'm learning more over time.
+
+You could return the favour by doing a patch to that Documentation file
+you thought was missing useful text :-)
+
+> >
+> > Looking at the implementation in arch/x86/lib/memset_64.S, we could
+> > arguably whitelist it.
+> 
+> But then we'd miss the potential use of memset as a gadget outside of
+> stac/clac guards?
+
+I think memset, as implemented in memset_64.S is safe. It's a leaf
+function (no fentry or any other CALL out).
+
+And the memset() override in kasan/common.c calls check_memory_region()
+(which is a whitelisted function) and then __memset(), which is the
+above .S thing again.
+
+Something like so,... perhaps with a comment, ought to probably cure
+your woes.
+
+--- a/tools/objtool/check.c
++++ b/tools/objtool/check.c
+@@ -519,6 +519,7 @@ static const char *uaccess_safe_builtin[
+ 	/* misc */
+ 	"csum_partial_copy_generic",
+ 	"__memcpy_mcsafe",
++	"__memset",
+ 	"mcsafe_handle_tail",
+ 	"ftrace_likely_update", /* CONFIG_TRACE_BRANCH_PROFILING */
+ 	NULL
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200323212538.GN2452%40worktop.programming.kicks-ass.net.
