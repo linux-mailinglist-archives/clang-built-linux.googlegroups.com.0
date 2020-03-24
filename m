@@ -1,33 +1,33 @@
 Return-Path: <clang-built-linux+bncBAABBIMT47ZQKGQEELELYHY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb40.google.com (mail-yb1-xb40.google.com [IPv6:2607:f8b0:4864:20::b40])
-	by mail.lfdr.de (Postfix) with ESMTPS id B9CFA190807
+Received: from mail-il1-x140.google.com (mail-il1-x140.google.com [IPv6:2607:f8b0:4864:20::140])
+	by mail.lfdr.de (Postfix) with ESMTPS id AC4F3190805
 	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 09:49:38 +0100 (CET)
-Received: by mail-yb1-xb40.google.com with SMTP id z8sf9423092ybi.10
+Received: by mail-il1-x140.google.com with SMTP id e5sf15476482ilg.3
         for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 01:49:38 -0700 (PDT)
 ARC-Seal: i=2; a=rsa-sha256; t=1585039777; cv=pass;
         d=google.com; s=arc-20160816;
-        b=JtCfbAz/vV+oL2oxYWTGze3LFSRe7v6pMt1HI5GqXH6Ro9lLqJm3MsmnMdz5zAy11A
-         HBX2IKE1WeQTMzYIForwLgtM+ETofj5Mv+fpzuYwk13dLExHyUn+YQ/RvBp2qL+DtG6z
-         kFskg0rafGTgOla9ds6ZbGH99g3q5a4DLAG399l8u740nnwDbNd2dmRYdTeeen2JdMHl
-         em7+J2tzcrAamj6ymrV/UIzYXFhJsUx9OuSfn2mAxSjAGINRsAXBwCMBsX9sOPos/TZE
-         2Av9PdmmN01UpDDwkI8u3E7Gqt+WaSRqon1HC6P7D3yVsZu6VR3VGaD/Bk4u8bQB0v2x
-         cqEg==
+        b=DoyTVHfCbQm4wF0Z38ZEHOmruvgBW0ZM88HDFv4mr8x8xBqN2p9srQn7thrAeDxiFN
+         5LrMi8osEu32ixzpB4e2d4MCDR7G5wLkwZxNa9WwvrcG3W5FwxJIswUJAX4iN5GHzxrp
+         8AsaTIcIcdNQ4RyoMRfw4aEkIYB12TgCYoOwMsqPA1SfNHfso6VXnqLkIBdp0Fhq56ai
+         PYVqdZsELMBB5YDxno6NjYd0Pi8ZsJrqKjYUh/yKV67liatAE7Z7o85eAmXk2qGvO5B9
+         SMXf97rt7elvNU3AzouPV2pYpzZeTc1pQ/tnOtNrT/k9qE1Vhxyykh1Kptyr0K7NCKJI
+         d0Uw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:references:in-reply-to:message-id
          :date:subject:cc:to:from:dkim-filter:mime-version:sender
          :dkim-signature;
-        bh=HDb/emffAlylDMoVqj9TzHcKm9aVDD16E6odoqJPus0=;
-        b=SfMg0VZJOt1zDvDp4QYVjNJF3slDryhiUjiS8u6iAMHG4lp7UzHG5sDwcXNtV9eAOS
-         pBDw34fxkmB9RiGrdus3hcVBm8y/3RC5WizG+DU3NYQ+9JZio/uRvQa4BFlsLAiyGHy5
-         +L/z7hDl1FOiZxrA+/HjbLUiGQILq3CmXG+nnSNkVW/Yi+1MomRF0FvnN/x528pjRR01
-         TEUSV6hvCsHyN4R934i6+y97H8rLaRQhrX2CGXV6P3i1JUW73eQrHIHGpOKOpwCL/nre
-         7FYQ4GSndYKs5i9hoR4ihisGskvPO3bNV1wGn2Su6QzjtfvRIG0O8FGf5b4RKov3dZeS
-         02jA==
+        bh=l6m2/muJQzWXIeTVVDr5uDJxcUHMtaSHtpZM6KFFn+g=;
+        b=ychPDWNgmnVQQjvwsRMj/pyHtHVqEogjDNDC7jN0Ov4r5rXjvumILFZaauTJV3NdXV
+         oNvZ5foAugf4rkpGlD5pdoqlfV+EHR/R6hOkNGh7t9JzKIZQXRCLyx3XaEYSsMw5k8L+
+         oMbLA4rF0BgLS2VIc40wQjgV0Kw4Mg7TV/9/LdRWwbE0aqbbOZFR2O7VDJJA6XtGQDwo
+         2+OHgkNJpUTG2Eu5b/oH6+nJUi/966cgHcuD7TxmVQqyGX4QB3NdYXhkZ3nMvRWcTnyd
+         BBl/oxYdqQtkBmTSlcH+vVTsG8JQAr5P81kSynJsftGeleraej6iawo1hW4JgRb5YbaM
+         uhCQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b="Vdr/w1ER";
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=yld4oUJz;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :in-reply-to:references:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=HDb/emffAlylDMoVqj9TzHcKm9aVDD16E6odoqJPus0=;
-        b=S+G8vhyiBkQHHdrvfezTud+C4uUadEcs4KBZ9UlFpjC0OdvJPaeC/rcXbJK8Y0J9B8
-         4GxX02teBFM6oOL3M2zrVdAIrrpg6XeebiI/5eBQKzvs3bP1WZ8joACROh+GyRUVJuI3
-         ur+sZ3Je9if0bWOWAl0H6LyWlJeasQDH8+fW44fecXtgnRA9aFron04fwKqHB6rivAgD
-         yi1kBqcBowtL0YNJ6Nf1/u/F5/9tlON7XPhWfti/Wsk/SK+JEDg37Whslgb5j29/zT03
-         u083MbvKDAqAchl3EM5lq9rxV2iz19mMPdHrCMyZwpZpFKJ9bBQ7iAn3phLZTwHASpJI
-         lVUg==
+        bh=l6m2/muJQzWXIeTVVDr5uDJxcUHMtaSHtpZM6KFFn+g=;
+        b=CWtQT4CB8zKeluz+gHR3dPSPpA8pDZsruBwiffl2hmA7Tv93XRAHHyGIszxdKMdQxB
+         bTup3jwy3db4oHLmeyS5XjG2IM0EcWI0TozoOGjmL7kF/qHyT5VLDuqueyJZS+vas7WU
+         b3tSJvAH76rIzpVk8T8PiZDwLJckn+9Xuvf1zrUTKL1YFM5IYrhZNNtAt1UOgrBhon2a
+         Xczleo+WvXU1XkQt+plzMC/kPo6reg+Ypx5dLf0iX0hkk9BBXutt4DHhTcAafwvs8CK3
+         /Ce4chXuG3qEkFwg0cP/ne6+2iAd6Y45ZhdPtG4D2Xm7lo3PWoYvjTrDQP4kQT9rPDrP
+         dkEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:dkim-filter:from:to:cc
@@ -50,57 +50,57 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=HDb/emffAlylDMoVqj9TzHcKm9aVDD16E6odoqJPus0=;
-        b=VECBzrvDVaIMEMNpxxbuNgCykyWcEPnXSx2xOYkIp2ZEPyo7P2iJs9cZrxshZSyLVI
-         3IVdP5dZ9+A1N/hDhmRpiUQXD5Ep80/8/VT4LosGH4WIn/RRvnZUX1I1o8S5e2vomZ3K
-         kkVgzdSwoQymRKLNhVpC1rNs5dyXv0Fe/wzt7a5jGM0E4MD69baLrseN6wXo/kt7PUSj
-         oKXHzQktdkx/CmbhNF/SmULVUUhZN6XHI3ov6HsplYWjHAUUc5dpS25W3MMRZp41makT
-         qD6vXQ11xXOOmtdej89RYVcN69tVMNP023J88/+iaXAUORXE13CTARxCEx7Q7pt5RYmR
-         NxJw==
+        bh=l6m2/muJQzWXIeTVVDr5uDJxcUHMtaSHtpZM6KFFn+g=;
+        b=md4LXVt9ex+YVScit+uBGZB7QmD9Q53f+5uAENLGwitOxQUAEZDnDTppGovd4KSdbT
+         PNLzm4K3OtWb2ruTaqrGCYlHCBQrc7NUvjPFkj/WR+2TDAh+hLSduI4QVHrXOqH/Kob9
+         Nkrp2HEa/zPrtHhaz/E0lPF1v/xfH5quPpTfUAcWfbDr9rU1HAIrLDEYkM/YIUTpYbab
+         lrRrtNU8FdnzRerUxldfh6KX23ybGEd1Kp2NWXvq29qORBD+BHovRYXLtwIqaksZefdx
+         t53QSMsz2F8LBSUvKewYcVzoBiUx5TmQf1zLYudV8qcCJlEBSKHGVQ1f95oqiz8a3icL
+         XXjw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ2QTUgMZyR4DclBbuaXZRq1IRrrPSCM7HBk1JS5QNVhXUrMNC19
-	vdUE3tXrxzZm4qVMEj9s/gA=
-X-Google-Smtp-Source: ADFU+vuKsfAXET8CJt51LlNHTJ6iLPluOLaIr+L3HTd2UYOoUwTEo2MEZd8skEpm7K19TkFAJoEcJw==
-X-Received: by 2002:a5b:4d1:: with SMTP id u17mr44135062ybp.172.1585039777591;
+X-Gm-Message-State: ANhLgQ2twiTqsstv8OTU1XOdSFPw0Er2aMoZlx3XZb6f4/eX5xFg7PzC
+	uGtNXcIwomfNSd3+m3nAOI4=
+X-Google-Smtp-Source: ADFU+vt56UsKMgG/cYenECizvGisc/+x5DTtHNCt920NGTR0B56lci/Wn1LtoVfSXXZ+VUyrPh5Mgg==
+X-Received: by 2002:a92:8c45:: with SMTP id o66mr25675422ild.236.1585039777378;
         Tue, 24 Mar 2020 01:49:37 -0700 (PDT)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:1d85:: with SMTP id d127ls1034037ybd.0.gmail; Tue, 24
+Received: by 2002:a92:79c7:: with SMTP id u190ls4135257ilc.10.gmail; Tue, 24
  Mar 2020 01:49:37 -0700 (PDT)
-X-Received: by 2002:a25:d658:: with SMTP id n85mr42232687ybg.128.1585039777240;
+X-Received: by 2002:a92:c14a:: with SMTP id b10mr607325ilh.139.1585039777090;
         Tue, 24 Mar 2020 01:49:37 -0700 (PDT)
 ARC-Seal: i=1; a=rsa-sha256; t=1585039777; cv=none;
         d=google.com; s=arc-20160816;
-        b=buxtpltyQcnZj3PRPtjwU8gDHWAaFZ6ALlw0+P5VZB5O76iXNues7Rn1wRZRIJCAZA
-         T32ebXVaIgQn9TgIRay47DzhzdfP/f4KPFFtoK1CBQ+0dlIoTtFEw6jTjBDUg+w+e9ny
-         Q1RcGh+wrjYVzwnxbvftkmgSTcQoXpYqV1yM2X4jjpURm1iMJSLYBU9qCOK93iHUYy1A
-         Wgg1fJr0QTPAJdocNPv26w7YI3TJbaoo8Kj35YoMI7/wB2GPQO+VOaERq6zhwYx3/Fyn
-         0UeetNFRGNIWJsENnT+sryJqUHH4lwG3bSOTEoDDSXv9jii9VZxtS5nQsXyE/gimwOgt
-         TMvw==
+        b=PlrpF4ewoXep+wictbMBWVxTFG6jzZMOXIBwygp9uOuyqtL31gnyEiS6VSkVPfQuBy
+         V9PxY34rSUEEF0qRr8KXNLjnt5zb4cwuGV05YOOr37Dob1lh/ghQ45dLtZ1j21IXxivX
+         8sIjA3il+NcazigbKJbwx2f7hZoX3LQ0sHf2MVIFq6bQ1TH924xC9PpkMsKr3z2+ARFr
+         y7RkGs/wjphj1jmDZOjDmoRdkHR6Zqkbe5IoxFucWoSOEe0Jy60fJjuVaZ6q+4aFA2/8
+         gJCeD3x1HOGx6IeBjZlrviNRQrwEcYR+CQa0ORtDRKlVxGFZzKRZtBfbRVhZRmsgiBxi
+         jPog==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :dkim-signature:dkim-filter;
-        bh=0n2SNVTASAHLSUpoQ5+c9e3R+yizJV+PNdqURrTAbRw=;
-        b=H1gjspmkLxUJjyl6j+5FaZ3/CP2Fuzs5OxjrlfsTyEmKjJoAtxmk9X8s2+QiuF87xW
-         br0sDrmcIwWtYDjrR7bAGMZYEHK30XzThdQ5UeJUu7T6IKZoPt0vXhKJqLJWS+8WU5Xy
-         i4Y/6huO0T4fbxAoXs7IXUZjWqoZwjMO6vVSUohfUItr1Lf0iy4fgVfbOlvAGJsvwNpF
-         CsTJhMiwYVVyvYb9W21Ia4YWAoEzhyNzSl5Q5eufpUlPIREWGlI8lQJpKFluvBcaanvA
-         lIt68m3rNfia5O6b87InsFNkdFMqzRz5/n7S4DxN8FZk6BhDij9LJ5khJifQO/MBt8ie
-         +MQw==
+        bh=/3RvcKd5y5/yj7b6stGrp33Eo6/OCU1GSvYDWjedZ6g=;
+        b=0vV3/bDkrHa3YlFK72L8hkeLkBA94bUMuTp0nK05T7rDBHYdYSsnuwteYBuZZfxkMk
+         QB6lKighoyVjAPRAGR9TL1ZqM6yvP37OB/R096cY0GEItoNPJqVJYbG43EDLWoCWLvV4
+         WJepZlTPIC3NsMOQM4hbxrDX7UHoK9E26f3hb+OOXdsMQRnptIX4EGq4HykJHXZnseix
+         SmWuuMYvIzZiBkla7MNLdlAU5xhjNav9wSQd2jFLANyXcaW3oTj2DKPa2hQYipXt6DX1
+         ebXEJKRgLU+QeigZeE3dE8ioZfOIfn+IVEcSx7cREVOXZI7CzPL0CkcVLGCqGqF5CI0t
+         +ftQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b="Vdr/w1ER";
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=yld4oUJz;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from conuserg-09.nifty.com (conuserg-09.nifty.com. [210.131.2.76])
-        by gmr-mx.google.com with ESMTPS id d72si183337ybh.5.2020.03.24.01.49.36
+        by gmr-mx.google.com with ESMTPS id m8si616353ili.2.2020.03.24.01.49.36
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
         Tue, 24 Mar 2020 01:49:37 -0700 (PDT)
 Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) client-ip=210.131.2.76;
 Received: from pug.e01.socionext.com (p14092-ipngnfx01kyoto.kyoto.ocn.ne.jp [153.142.97.92]) (authenticated)
-	by conuserg-09.nifty.com with ESMTP id 02O8mgsf011219;
-	Tue, 24 Mar 2020 17:48:53 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-09.nifty.com 02O8mgsf011219
+	by conuserg-09.nifty.com with ESMTP id 02O8mgsg011219;
+	Tue, 24 Mar 2020 17:48:54 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-09.nifty.com 02O8mgsg011219
 X-Nifty-SrcIP: [153.142.97.92]
 From: Masahiro Yamada <masahiroy@kernel.org>
 To: linux-kernel@vger.kernel.org
@@ -112,17 +112,17 @@ Cc: "David S . Miller" <davem@davemloft.net>,
         Borislav Petkov <bp@alien8.de>, Peter Zijlstra <peterz@infradead.org>,
         "H . Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
         linux-kbuild@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>
-Subject: [PATCH 08/16] x86: add comments about the binutils version to support code in as-instr
-Date: Tue, 24 Mar 2020 17:48:13 +0900
-Message-Id: <20200324084821.29944-9-masahiroy@kernel.org>
+Subject: [PATCH 09/16] x86: replace arch macros from compiler with CONFIG_X86_{32,64}
+Date: Tue, 24 Mar 2020 17:48:14 +0900
+Message-Id: <20200324084821.29944-10-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20200324084821.29944-1-masahiroy@kernel.org>
 References: <20200324084821.29944-1-masahiroy@kernel.org>
 X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b="Vdr/w1ER";
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org
- does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+ header.i=@nifty.com header.s=dec2015msa header.b=yld4oUJz;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
@@ -137,50 +137,63 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-We raise the minimal supported binutils version from time to time.
-The last bump was commit 1fb12b35e5ff ("kbuild: Raise the minimum
-required binutils version to 2.21").
+If the intention is to check i386/x86_64 excluding UML, testing
+CONFIG_X86_{32,64} is simpler.
 
-We need to keep these as-instr checks because binutils 2.21 does not
-support them.
+The reason for checking __i386__ / __x86_64__ was perhaps because
+lib/raid6/algos.c is built not only for the kernel but also for
+testing the library code from userspace.
 
-I hope this will be a good hint which one can be dropped when we
-bump the minimal binutils version next time.
-
-As for the Clang/LLVM builds, we require very new LLVM version,
-so the LLVM integrated assembler supports all of them.
+However, lib/raid6/test/Makefile passes -DCONFIG_X86_{32,64} for
+this case. So, I do not see a reason to not use CONFIG option here.
 
 Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-Acked-by: Jason A. Donenfeld <Jason@zx2c4.com>
+Acked-by: H. Peter Anvin (Intel) <hpa@zytor.com>
 ---
 
- arch/x86/Makefile | 5 +++++
- 1 file changed, 5 insertions(+)
+ kernel/signal.c   | 2 +-
+ lib/raid6/algos.c | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/x86/Makefile b/arch/x86/Makefile
-index f32ef7b8d5ca..4c57cb3018fb 100644
---- a/arch/x86/Makefile
-+++ b/arch/x86/Makefile
-@@ -178,10 +178,15 @@ ifeq ($(ACCUMULATE_OUTGOING_ARGS), 1)
- endif
+diff --git a/kernel/signal.c b/kernel/signal.c
+index 5b2396350dd1..db557e1629e5 100644
+--- a/kernel/signal.c
++++ b/kernel/signal.c
+@@ -1246,7 +1246,7 @@ static void print_fatal_signal(int signr)
+ 	struct pt_regs *regs = signal_pt_regs();
+ 	pr_info("potentially unexpected fatal signal %d.\n", signr);
  
- # does binutils support specific instructions?
-+# binutils >= 2.22
- avx2_instr :=$(call as-instr,vpbroadcastb %xmm0$(comma)%ymm1,-DCONFIG_AS_AVX2=1)
-+# binutils >= 2.25
- avx512_instr :=$(call as-instr,vpmovm2b %k1$(comma)%zmm5,-DCONFIG_AS_AVX512=1)
-+# binutils >= 2.24
- sha1_ni_instr :=$(call as-instr,sha1msg1 %xmm0$(comma)%xmm1,-DCONFIG_AS_SHA1_NI=1)
-+# binutils >= 2.24
- sha256_ni_instr :=$(call as-instr,sha256msg1 %xmm0$(comma)%xmm1,-DCONFIG_AS_SHA256_NI=1)
-+# binutils >= 2.23
- adx_instr := $(call as-instr,adox %r10$(comma)%r10,-DCONFIG_AS_ADX=1)
+-#if defined(__i386__) && !defined(__arch_um__)
++#ifdef CONFIG_X86_32
+ 	pr_info("code at %08lx: ", regs->ip);
+ 	{
+ 		int i;
+diff --git a/lib/raid6/algos.c b/lib/raid6/algos.c
+index df08664d3432..b5a02326cfb7 100644
+--- a/lib/raid6/algos.c
++++ b/lib/raid6/algos.c
+@@ -29,7 +29,7 @@ struct raid6_calls raid6_call;
+ EXPORT_SYMBOL_GPL(raid6_call);
  
- KBUILD_AFLAGS += $(avx2_instr) $(avx512_instr) $(sha1_ni_instr) $(sha256_ni_instr) $(adx_instr)
+ const struct raid6_calls * const raid6_algos[] = {
+-#if defined(__i386__) && !defined(__arch_um__)
++#ifdef CONFIG_X86_32
+ #ifdef CONFIG_AS_AVX512
+ 	&raid6_avx512x2,
+ 	&raid6_avx512x1,
+@@ -45,7 +45,7 @@ const struct raid6_calls * const raid6_algos[] = {
+ 	&raid6_mmxx2,
+ 	&raid6_mmxx1,
+ #endif
+-#if defined(__x86_64__) && !defined(__arch_um__)
++#ifdef CONFIG_X86_64
+ #ifdef CONFIG_AS_AVX512
+ 	&raid6_avx512x4,
+ 	&raid6_avx512x2,
 -- 
 2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200324084821.29944-9-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200324084821.29944-10-masahiroy%40kernel.org.
