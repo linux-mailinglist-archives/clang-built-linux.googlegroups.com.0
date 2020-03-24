@@ -1,125 +1,122 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBY4J5LZQKGQEXDASADQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBS475LZQKGQEQYTVZHQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13a.google.com (mail-il1-x13a.google.com [IPv6:2607:f8b0:4864:20::13a])
-	by mail.lfdr.de (Postfix) with ESMTPS id AEFEC191C85
-	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 23:08:36 +0100 (CET)
-Received: by mail-il1-x13a.google.com with SMTP id e7sf150340ilc.0
-        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 15:08:36 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1585087715; cv=pass;
+Received: from mail-qt1-x839.google.com (mail-qt1-x839.google.com [IPv6:2607:f8b0:4864:20::839])
+	by mail.lfdr.de (Postfix) with ESMTPS id 63B99191D21
+	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 23:55:08 +0100 (CET)
+Received: by mail-qt1-x839.google.com with SMTP id o10sf264328qtk.22
+        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 15:55:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1585090507; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zojRHO+HTracf4fql2aoRZnRxWzOwMiizbfPrSvfzy1PKDW5r1EeonVOkhdOJZt+vV
-         yD/ku7ei3TevuR0HFZ640P2u6iOtQ4996WSam6KQcdkWnRJAkAhBoXMc3Ryp/t5OIEvA
-         itlVppMp/MyhJ7hj/y9Cx8/9SzU1JbRmEsnPKm20ZiFJ7xOWLo4YHwCZNqKtq7YH1hv5
-         NLun71FYjlcwQOlSJaWa9KSMrxWh+sqh2vnTDPEfWWkIZ5s7k7eUplercmzGYMa8SznE
-         qfklrDrjdGgkKeVuNv43L378pgJtGJuCWxflY5O0wTVT/xYbmMF9C7v8g381meHuwOC2
-         Cuhg==
+        b=qXVuuKAKtt9lTqxJ3+1Q7WYOOnu2Ytfa8JsW4ntH6Vh7eH/rDW7p2S7ezjOfaKC+xR
+         6DasMBe6lASn5GaBr/HD7oqbEIhedhmlI9bZ9+orAlOuwBZCQtksg405ZA9gc0GrC22z
+         2aiP0OcZFZ8rVtAfnrR/g24ZJjwj57cpcoadKhFAj+mC3k3p1jyRgfACNgIQbTApL2ZC
+         tMTWrdwDD4gkd6+Mc4WxoEeI8eQgyNLWb62ut8uRzFNxDmyv7yV2z5V3s8jOrzMnUySs
+         IDwNH772DGD8oovK8s41XXJJyHu7J6BKO2r9IbSJRH3jdybfxYvW5xtpzm37WbrbExUt
+         LrrA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
-         :mime-version:message-id:date:dkim-signature;
-        bh=CYV4ZuQWVw2YnokOpMJBA/vkEhJB6FC/bEisF8cy8NQ=;
-        b=LGmmmGhr4kOh7zusAY+ig9nikHs5rYA9z79rmtTdpqonvPl2alNNKgQaQRbkfIi8tz
-         kQ0BPN7qphCibltD09wxZJ1nXxQqnIepyWSYt8gbx/9OuDgR7SFcI3PHeIpe8D4DvwOt
-         QgrS8VMmrdRmptsGGE4TPZ9zkuImsygra6cYk4g+QUSBFXiAjciNlBsd6mZ9DyZ8Xlix
-         Q+ezAH9ObNmBjT/vtggVCm9PP4+ig8GeoHvlNzxvKSA6//h1Hb5kdeeEPKOf9zDFcdlO
-         pzf0Cx8XfzabplGwdtiHJJarobPn2C6ILvtGZ4HvdB6CAD/0WFWZMbD4Xy5MqbM7cD5C
-         2e9g==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=7ll8NxpGUhAFCfXoqPWZd6oPKwqUF2yuLTRHXyHfOlY=;
+        b=kStxxCiQ1oJFuKABO7YqApYWoQ8pQNB9ZWRa7qtnsomfdeaNqQ7im1JmQIEKQQYueK
+         561s4Dggg9rZnjmojgKDp11pZVfBtuLUREQjnep50F2m0aFE4tq9Zwdf3770RLZmjG8B
+         Um6B9TkU2sNW9bihvXa/TS2iuPli88uiIUQI7Y6FJ5+tSfYTPFRybr3bKbHHbcdRxCzZ
+         u4vcQ0pJrEx1Z1w8EkbxZJrMJOWj2KrhCMtLjHxtW59zMYzm9HVgd+UEwt8Po3NIRZya
+         ENF7oFi4X+XDBe1/9CoY7q/q7h/28BJTgJg+tRd8oPyP9asFpJnVkJj5tMR/SK0mm8Gr
+         M5Xg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=H6qhOBpI;
-       spf=pass (google.com: domain of 34or6xgwkam88yzdvf683zcd19916z.x97@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::549 as permitted sender) smtp.mailfrom=34oR6XgwKAM88yzDvF683zCD19916z.x97@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=SH2Hgvdq;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:message-id:mime-version:subject:from:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=CYV4ZuQWVw2YnokOpMJBA/vkEhJB6FC/bEisF8cy8NQ=;
-        b=mxi9eFSWICVbZo6KNitEpBMgDldDynqnSkwiKmd/JguMJCJyr4GG3gBAzMaKKCKINI
-         OZe+RxwMgz+UxVl1P9t1+Q07oGJm0EqoOuJlbHAMAmlDgx/bGBWuC/lRNezLgSry/pCh
-         rtOUDb5tFwWMCCzW+IUox7a6pvvUTs+J6+fZIOSUH3McfGrXu/odLbHNowZZsTN+MwHi
-         ZhzVzI+PM2Tr7f9VO2EjNcgH3R+5v0AYoMu0ghyi1Fg1x/eA2ZJQLMdLp7sq0/uUe17N
-         dtgbDhz96cRxWt9bdt+RoZ/cQss3CO29WAiHY3GjU9jfEuE6lxSHJMk72NmOf2bTtWBW
-         Kw/w==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=7ll8NxpGUhAFCfXoqPWZd6oPKwqUF2yuLTRHXyHfOlY=;
+        b=F7rmQGPaUEHVxDW2vceLk0NTMNlHaJhUDMzNYmR6dFC8nip9pwra3OA7fK4n2OT9e/
+         WhTO/GlSivcR7ZU/iv6MfZegHnxFDM9KI4XVONx51xXnrffJnMoQ3gJAYxX8dfVEKVeH
+         tVstUGR8Ddukb/a2D3fIsxEO9eKEAoX9qzUrdHDZ43lGwRm5wT9FYjxoVvR5G9Bfl0Mk
+         WsNQOE+lZB3P2aDFS35B7QBzUI5nJHJhkhFsVFmqpSoq3q/nxAjj2xmunpAb/dMJtM5b
+         lcL5cj+JVCM0PZFfQe9+UxW9TccXz5eL+9qQalocntWlEr9a0uxRL4kmrL3n9n5d/Dok
+         6suA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=CYV4ZuQWVw2YnokOpMJBA/vkEhJB6FC/bEisF8cy8NQ=;
-        b=Ob29Zc8EwtsTOG4AyQygZjPwcjX3zzC5CPkoexHTibnfCn5O7vocHeUfonTXLLGpln
-         e7r44JBc7WdaxDqtoLQCSzU1Im+WqLQNrAwqX5bKz4C4Ea3vmrQxlzFRCZ/Qr6nYkAeF
-         Q3qpN1PYvXfjXJcLvShv8/VmA2cshJ01RWKL0t7d1UQ9SZWNTdhDmpxwxu1rY9ZAsdG3
-         LSlY4SZ6kZzw+TaVFjzT2k02ZxdnoUkQCFc4ryK5lpm/7d+QNaZxvWr6wgyP0nff766I
-         zJtsAybIvlhlx3OrXx2g/ArUPLQHIIaFCxtL0wSQbP1ETKBdczYtNqnKrHzOlLwXfUKR
-         2IAw==
-X-Gm-Message-State: ANhLgQ1+fnHy6Ldn31fUhEWRHKRuUjOM+oCiqYBInBQmtomlcCCl2tGJ
-	IlfPXueZ0hlF+lFN/RWEb/I=
-X-Google-Smtp-Source: ADFU+vsZuGMJWY1jzqJIeMJo9qwFBhfS3IT92gmAdOxhH7oPU9LO0to+cejjiFk74yO++5oD08GQvg==
-X-Received: by 2002:a92:d20e:: with SMTP id y14mr614108ily.104.1585087715663;
-        Tue, 24 Mar 2020 15:08:35 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=7ll8NxpGUhAFCfXoqPWZd6oPKwqUF2yuLTRHXyHfOlY=;
+        b=rBFYxuhfobgw8Vea1PN5bkylG12J/N+5K8GTvpwcNCtl4IOaCR13zNbqspS6s6GnVg
+         BU4M7nvehHpdWjfNzZyFMk3O+szRlvDCpQD32l+Ob1IzuWcJ1ZK+yIsTp5vKM6mATt4D
+         dQX5MNwhfxTW6+pFiI5jDOM62zYqO3hQO/B+f66U8yKpM9j5OTxiWwAKgk+JpRN41Ujj
+         n/lQWC4/ra0pLhknCltaWcMWpDTTK1CfZJC4oTpy0ZnqLIGnSwckQzad3HpF1ZQ0imBt
+         ZHMz430vt7U6X+I2/o31ff2QMC2/wTRTqMLnkeYXoK1V1WopPBvc134aEaYzvAWGfpcn
+         tLHQ==
+X-Gm-Message-State: ANhLgQ3RBn8c9urCRGhw2GxrlfG6gxMG2u/IOmNFmdcHMRC0TFRFbkzV
+	2Ofzok1rEt3XxP0TD6Aov3g=
+X-Google-Smtp-Source: ADFU+vuboXtTu1uo6emmbgT14v+J1Sl/BysouUWmYnUfFgOzl71+VjMJBVvQgY6DdOHdkUyIB9KcMQ==
+X-Received: by 2002:ad4:4774:: with SMTP id d20mr485297qvx.35.1585090507479;
+        Tue, 24 Mar 2020 15:55:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:8106:: with SMTP id e6ls4778749ild.6.gmail; Tue, 24 Mar
- 2020 15:08:35 -0700 (PDT)
-X-Received: by 2002:a92:8cc9:: with SMTP id s70mr539491ill.251.1585087715279;
-        Tue, 24 Mar 2020 15:08:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1585087715; cv=none;
+Received: by 2002:a37:a603:: with SMTP id p3ls2553167qke.6.gmail; Tue, 24 Mar
+ 2020 15:55:07 -0700 (PDT)
+X-Received: by 2002:a37:64c6:: with SMTP id y189mr273982qkb.12.1585090507111;
+        Tue, 24 Mar 2020 15:55:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1585090507; cv=none;
         d=google.com; s=arc-20160816;
-        b=qZNQmEOcg/BId4pCYEngLPm6c2EcRQUjWFN4SwP3noMTKRP5vQgZnWzxYPCum05Zal
-         C0Nw/IhFQx9xInhI2EjSwq/hVapmirxLdOHcqVsj7ZeEtJCXkQ603ajHi/Sw8QzzFXOc
-         S64WPq4DqEbfwbZDZp2m2vx9n2oWHzNa1S5rVthuHxQ1j5nHBhVNPOpG3ur5/F1Xldyt
-         vkW5lir78kFf7tUHCZIwYo72EwCFUK2MFfPeXI7ITu1WR2t33gm3XJPF0RQX/5r/ZotC
-         BMaEKFnitkW89eJgPejk1/VRSDPitLdzgtpULQtmZkWBkABLMN/tRXYWo33QnJwusmqh
-         cDmg==
+        b=a3ppQeGrezl7FRNqowVtfDxzPnalVH1SuQpGnJU2/5LI127oj6PPPEfFmcKEpV+MVi
+         3rgNugAOyJ6fv+jSkuHg20eFOC1qmGupXlQoWJZZI8T/9418+s4qG1yg7HYQbC/8baZ6
+         m1LUV9Ee8srzlAgHtWyuNTgn40/pznnHhij1w/0Ix578/dneoPIcMo8iZG2uBypYae9V
+         NbWgvA4hlHGW3A0+eeQ1kIIZdFxlpVzXwSXXrQSuAZowHNs5HlJlAP7IdbxdiCAhTm1b
+         ysS2YtOqwpuCxc0TU4sPO9pNNWgj36Hf/n05UBPLyzeM9MnmlEUS66scibMaSUO3+F4m
+         ku1w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:from:subject:mime-version:message-id:date:dkim-signature;
-        bh=VnIQr3MBxwNyixFgi8P0Qi6KFxgZe3JgL+pz4Qnuelg=;
-        b=Dg9+ZJ+JdMgBpBYW492MX/UTHijNqNupemLi91NMQuAG42FDSUnBTRXAbYLkOk1p/W
-         LP9rFjiOLs5H7lloQ0H1j99jRIMrxBIpYt22W582JHO3MMpns1AbdFgXN5xErv+6laO6
-         0Hq9tvGTQsav9KBs68hkXOb9weVn48/oUvp27lKwI+bL93INDvNeY7CI+8AWsSnDfcjL
-         SZnkoNqaPh8dnauTzOVJFtcLDsfODd++bHnuNrucWaQbbImQr7bGtS1XViH+MbHnUiIj
-         ZzM1XO5iwj3nnkflgk2GAJQvzVGuNbFw6oboFL4hmTtHGj7YTZ1N/F1lCyJ5zjlZQ9Qp
-         xF+w==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=AMqHNZF1N2myGuwlnPoMXAEWhq/lVFwaveJl75tFaGA=;
+        b=K/l/voyWIduob4ly201Iu5iaLcMSqq0oxntscy2zzXGIehcmyoyVVPSpA+9crgAjDj
+         CNC3rkcuX1glqjnBCrHqAM9mzH65hXHV1isOXl2q1dDIOkMXoGBxaqs6x+CTxP1pP7y3
+         vmywMuty7ZR3KYG9RRP25IVrpc527l4txzbc76qZt0EHiq4Ar6t+zQMhaMQDCjRnxUTV
+         yoBfO8AQvTeE/gyxuueIaVrU1Rfq/sNT8R9Favy3eWkVtJgw2Xg6Kk7LK+0VzkxHji9U
+         3FFdrO6ONlJwBi8MvAGaYL7JOsUXafKiVNDGBxz7jWKqmo5axT3tIRxDFdEJmtqxCajI
+         /srw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=H6qhOBpI;
-       spf=pass (google.com: domain of 34or6xgwkam88yzdvf683zcd19916z.x97@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::549 as permitted sender) smtp.mailfrom=34oR6XgwKAM88yzDvF683zCD19916z.x97@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=SH2Hgvdq;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x549.google.com (mail-pg1-x549.google.com. [2607:f8b0:4864:20::549])
-        by gmr-mx.google.com with ESMTPS id b16si1047867ion.0.2020.03.24.15.08.35
+Received: from mail-pg1-x544.google.com (mail-pg1-x544.google.com. [2607:f8b0:4864:20::544])
+        by gmr-mx.google.com with ESMTPS id t24si1375933qtt.1.2020.03.24.15.55.07
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Mar 2020 15:08:35 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 34or6xgwkam88yzdvf683zcd19916z.x97@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::549 as permitted sender) client-ip=2607:f8b0:4864:20::549;
-Received: by mail-pg1-x549.google.com with SMTP id c33so66389pgl.20
-        for <clang-built-linux@googlegroups.com>; Tue, 24 Mar 2020 15:08:35 -0700 (PDT)
-X-Received: by 2002:a63:36cd:: with SMTP id d196mr29685923pga.280.1585087714533;
- Tue, 24 Mar 2020 15:08:34 -0700 (PDT)
-Date: Tue, 24 Mar 2020 15:08:25 -0700
-Message-Id: <20200324220830.110002-1-ndesaulniers@google.com>
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.25.1.696.g5e7596f4ac-goog
-Subject: [PATCH] x86: signal: move save_altstack_ex out of generic headers
+        Tue, 24 Mar 2020 15:55:07 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) client-ip=2607:f8b0:4864:20::544;
+Received: by mail-pg1-x544.google.com with SMTP id a32so188718pga.4
+        for <clang-built-linux@googlegroups.com>; Tue, 24 Mar 2020 15:55:07 -0700 (PDT)
+X-Received: by 2002:a05:6a00:42:: with SMTP id i2mr137742pfk.108.1585090505789;
+ Tue, 24 Mar 2020 15:55:05 -0700 (PDT)
+MIME-Version: 1.0
+References: <M2AyAx0--3-2@kdrag0n.dev> <CAKwvOdnN6dEwUQCrdEoiDBnjZxPPHVfYcck0sRqcCujYeRHU3Q@mail.gmail.com>
+ <202003121636.265F4852B@keescook>
+In-Reply-To: <202003121636.265F4852B@keescook>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: tglx@linutronix.de, mingo@redhat.com, bp@alien8.de
-Cc: Nick Desaulniers <ndesaulniers@google.com>, Peter Zijlstra <peterz@infradead.org>, 
-	clang-built-linux@googlegroups.com, 
-	Linus Torvalds <torvalds@linux-foundation.org>, "H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org, 
-	Marco Elver <elver@google.com>, Andrey Ryabinin <aryabinin@virtuozzo.com>, 
-	Sami Tolvanen <samitolvanen@google.com>, Brian Gerst <brgerst@gmail.com>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Andrew Morton <akpm@linux-foundation.org>, 
-	Jann Horn <jannh@google.com>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>, 
-	Ben Hutchings <ben.hutchings@codethink.co.uk>, "Eric W. Biederman" <ebiederm@xmission.com>, 
-	linux-kernel@vger.kernel.org
+Date: Tue, 24 Mar 2020 15:54:53 -0700
+Message-ID: <CAKwvOd=R-p0bn7K3cp2X=_jk_MqspEynFtBZOX5YqRZkbNDW1A@mail.gmail.com>
+Subject: Re: LLVM Polly optimizations for Android
+To: Kees Cook <keescook@chromium.org>
+Cc: Danny Lin <danny@kdrag0n.dev>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	android-llvm <android-llvm@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=H6qhOBpI;       spf=pass
- (google.com: domain of 34or6xgwkam88yzdvf683zcd19916z.x97@flex--ndesaulniers.bounces.google.com
- designates 2607:f8b0:4864:20::549 as permitted sender) smtp.mailfrom=34oR6XgwKAM88yzDvF683zCD19916z.x97@flex--ndesaulniers.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+ header.i=@google.com header.s=20161025 header.b=SH2Hgvdq;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
 Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
@@ -134,220 +131,68 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-In some configurations (clang+KASAN), sas_ss_reset() may emit calls to
-memset().  This is a problem for SMAP protections on x86, which should
-try to minimize calls to any function not already on short whitelist, in
-order to prevent leaking AC flags or being used as a gadget.
+On Thu, Mar 12, 2020 at 4:43 PM Kees Cook <keescook@chromium.org> wrote:
+>
+> On Thu, Mar 12, 2020 at 10:27:13AM -0700, 'Nick Desaulniers' via Clang Built Linux wrote:
+> > On Wed, Mar 11, 2020 at 4:40 PM Danny Lin <danny@kdrag0n.dev> wrote:
+> > > I have a kernel commit that exposes the ones I deemed useful through a Kconfig option: https://github.com/kdrag0n/proton_zf6/commit/00f711eead423
+> > > And a prebuilt toolchain with Polly support that can be used for preliminary testing and evaluation: https://github.com/kdrag0n/proton-clang
+> >
+> > So no new compiler warnings, boot issues, or otherwise noticeable
+> > runtime issues? That's impressive, and worth paying attention to.
+>
+> Neat! This should be very upstreamable into the kernel (though it
+> can be updated to actually test, from Kconfig, for the available
+> options). I'm sure someone will want to bikeshed the details, but it'd
 
-Linus noted that save_altstack_ex() only has two callsites, in the
-arch-specific arch/x86/kernel/signal.c, and shouldn't be defined in arch
-independent headers. Move the definitions there, make them static
-functions, then split the reset logic out, and move it outside of the
-put_user_try/put_user_catch SMAP guards. This does less work with the
-SMAP guards down.
+Did someone say bikeshed? *ears perk up*
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/876
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: <clang-built-linux@googlegroups.com>
-Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
-Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
----
-Notes to reviewers:
-* The macro was maybe nicer since the compat_ versions have different
-  type signatures.
-* There's still some duplication, and the code could be DRY'er. Thoughts
-  on whether to:
-  a) move these to arch/x86/include/asm/sigframe.h as static inline
-     functions.
-  b) move these to a new header as static inline function.
-  c) keep them as functions, but non-static, in their own new
-     translation unit.
-  d) patch is fine as it.
-  e) other.
+> be nice to gain CONFIG_LLVM_POLLY in upstream.
+>
+> The Kconfig would look like this:
+>
+> config LLVM_POLLY
+>         bool "Enable LLVM's polyhedral loop optimizer (Polly)"
+>         depends on $(cc-option,-mllvm -polly)
+>         depends on $(cc-option,-mllvm -polly-run-dce)
+>         depends on $(cc-option,-mllvm -polly-run-inliner)
+>         depends on $(cc-option,-mllvm -polly-opt-fusion=max)
+>         depends on $(cc-option,-mllvm -polly-ast-use-context)
+>         depends on $(cc-option,-mllvm -polly-detect-keep-going)
+>         depends on $(cc-option,-mllvm -polly-vectorizer=stripmine)
+>         depends on $(cc-option,-mllvm -polly-invariant-load-hoisting)
 
+Rather than shell out the compiler 8 times, why don't we do it once,
+with all 8 specified?  Let's support all or nothing, that way we don't
+have to chase compiler bugs for combinations of the above.
 
- arch/x86/ia32/ia32_signal.c | 18 +++++++++++++++++-
- arch/x86/kernel/signal.c    | 35 ++++++++++++++++++++++++++++++++---
- include/linux/compat.h      |  9 ---------
- include/linux/signal.h      | 10 ----------
- 4 files changed, 49 insertions(+), 23 deletions(-)
+>         help
+> ...
+>
+> And then the CONFIG won't even show up in the compiler doesn't support
+> it. (Which is the preferred way to doing things now; see
+> STACKPROTECTOR_STRONG for example.)
+>
+> I imagine a commit log would included details on an N=100 hackbench,
+> N=9 kernel builds, and probably a "size" output before/after of the
+> resulting defconfig-built kernel.
+>
+> I'm adding polly to my local LLVM builds right now. :)
 
-diff --git a/arch/x86/ia32/ia32_signal.c b/arch/x86/ia32/ia32_signal.c
-index a3aefe9b9401..dadcc30d1138 100644
---- a/arch/x86/ia32/ia32_signal.c
-+++ b/arch/x86/ia32/ia32_signal.c
-@@ -325,6 +325,21 @@ int ia32_setup_frame(int sig, struct ksignal *ksig,
- 	return 0;
- }
- 
-+static void compat_save_altstack_unsafe(compat_stack_t *uss, unsigned long sp)
-+{
-+	compat_stack_t __user *__uss = uss;
-+	struct task_struct *t = current;
-+	put_user_ex(ptr_to_compat((void __user *)t->sas_ss_sp), &__uss->ss_sp);
-+	put_user_ex(t->sas_ss_flags, &__uss->ss_flags);
-+	put_user_ex(t->sas_ss_size, &__uss->ss_size);
-+}
-+
-+static void reset_altstack(void)
-+{
-+	if (current->sas_ss_flags & SS_AUTODISARM)
-+		sas_ss_reset(current);
-+}
-+
- int ia32_setup_rt_frame(int sig, struct ksignal *ksig,
- 			compat_sigset_t *set, struct pt_regs *regs)
- {
-@@ -362,7 +377,7 @@ int ia32_setup_rt_frame(int sig, struct ksignal *ksig,
- 		else
- 			put_user_ex(0, &frame->uc.uc_flags);
- 		put_user_ex(0, &frame->uc.uc_link);
--		compat_save_altstack_ex(&frame->uc.uc_stack, regs->sp);
-+		compat_save_altstack_unsafe(&frame->uc.uc_stack, regs->sp);
- 
- 		if (ksig->ka.sa.sa_flags & SA_RESTORER)
- 			restorer = ksig->ka.sa.sa_restorer;
-@@ -377,6 +392,7 @@ int ia32_setup_rt_frame(int sig, struct ksignal *ksig,
- 		 */
- 		put_user_ex(*((u64 *)&code), (u64 __user *)frame->retcode);
- 	} put_user_catch(err);
-+	reset_altstack();
- 
- 	err |= __copy_siginfo_to_user32(&frame->info, &ksig->info, false);
- 	err |= ia32_setup_sigcontext(&frame->uc.uc_mcontext, fpstate,
-diff --git a/arch/x86/kernel/signal.c b/arch/x86/kernel/signal.c
-index 8a29573851a3..03ea56ee86ec 100644
---- a/arch/x86/kernel/signal.c
-+++ b/arch/x86/kernel/signal.c
-@@ -213,6 +213,32 @@ int setup_sigcontext(struct sigcontext __user *sc, void __user *fpstate,
- 	return err;
- }
- 
-+#ifdef CONFIG_X86_X32_ABI
-+static void compat_save_altstack_unsafe(compat_stack_t *uss, unsigned long sp)
-+{
-+	compat_stack_t __user *__uss = uss;
-+	struct task_struct *t = current;
-+	put_user_ex(ptr_to_compat((void __user *)t->sas_ss_sp), &__uss->ss_sp);
-+	put_user_ex(t->sas_ss_flags, &__uss->ss_flags);
-+	put_user_ex(t->sas_ss_size, &__uss->ss_size);
-+}
-+#endif
-+
-+static void save_altstack_unsafe(stack_t *uss, unsigned long sp)
-+{
-+	struct task_struct *t = current;
-+	stack_t __user *__uss = uss;
-+	put_user_ex((void __user *)t->sas_ss_sp, &__uss->ss_sp);
-+	put_user_ex(t->sas_ss_flags, &__uss->ss_flags);
-+	put_user_ex(t->sas_ss_size, &__uss->ss_size);
-+}
-+
-+static void reset_altstack(void)
-+{
-+	if (current->sas_ss_flags & SS_AUTODISARM)
-+		sas_ss_reset(current);
-+}
-+
- /*
-  * Set up a signal frame.
-  */
-@@ -394,7 +420,7 @@ static int __setup_rt_frame(int sig, struct ksignal *ksig,
- 		else
- 			put_user_ex(0, &frame->uc.uc_flags);
- 		put_user_ex(0, &frame->uc.uc_link);
--		save_altstack_ex(&frame->uc.uc_stack, regs->sp);
-+		save_altstack_unsafe(&frame->uc.uc_stack, regs->sp);
- 
- 		/* Set up to return from userspace.  */
- 		restorer = current->mm->context.vdso +
-@@ -412,6 +438,7 @@ static int __setup_rt_frame(int sig, struct ksignal *ksig,
- 		 */
- 		put_user_ex(*((u64 *)&rt_retcode), (u64 *)frame->retcode);
- 	} put_user_catch(err);
-+	reset_altstack();
- 	
- 	err |= copy_siginfo_to_user(&frame->info, &ksig->info);
- 	err |= setup_sigcontext(&frame->uc.uc_mcontext, fpstate,
-@@ -475,7 +502,7 @@ static int __setup_rt_frame(int sig, struct ksignal *ksig,
- 		/* Create the ucontext.  */
- 		put_user_ex(uc_flags, &frame->uc.uc_flags);
- 		put_user_ex(0, &frame->uc.uc_link);
--		save_altstack_ex(&frame->uc.uc_stack, regs->sp);
-+		save_altstack_unsafe(&frame->uc.uc_stack, regs->sp);
- 
- 		/* Set up to return from userspace.  If provided, use a stub
- 		   already in userspace.  */
-@@ -487,6 +514,7 @@ static int __setup_rt_frame(int sig, struct ksignal *ksig,
- 			err |= -EFAULT;
- 		}
- 	} put_user_catch(err);
-+	reset_altstack();
- 
- 	err |= setup_sigcontext(&frame->uc.uc_mcontext, fp, regs, set->sig[0]);
- 	err |= __copy_to_user(&frame->uc.uc_sigmask, set, sizeof(*set));
-@@ -560,7 +588,7 @@ static int x32_setup_rt_frame(struct ksignal *ksig,
- 		/* Create the ucontext.  */
- 		put_user_ex(uc_flags, &frame->uc.uc_flags);
- 		put_user_ex(0, &frame->uc.uc_link);
--		compat_save_altstack_ex(&frame->uc.uc_stack, regs->sp);
-+		compat_save_altstack_unsafe(&frame->uc.uc_stack, regs->sp);
- 		put_user_ex(0, &frame->uc.uc__pad0);
- 
- 		if (ksig->ka.sa.sa_flags & SA_RESTORER) {
-@@ -572,6 +600,7 @@ static int x32_setup_rt_frame(struct ksignal *ksig,
- 		}
- 		put_user_ex(restorer, (unsigned long __user *)&frame->pretcode);
- 	} put_user_catch(err);
-+	reset_altstack();
- 
- 	err |= setup_sigcontext(&frame->uc.uc_mcontext, fpstate,
- 				regs, set->sig[0]);
-diff --git a/include/linux/compat.h b/include/linux/compat.h
-index df2475be134a..083a771decb8 100644
---- a/include/linux/compat.h
-+++ b/include/linux/compat.h
-@@ -454,15 +454,6 @@ extern void __user *compat_alloc_user_space(unsigned long len);
- 
- int compat_restore_altstack(const compat_stack_t __user *uss);
- int __compat_save_altstack(compat_stack_t __user *, unsigned long);
--#define compat_save_altstack_ex(uss, sp) do { \
--	compat_stack_t __user *__uss = uss; \
--	struct task_struct *t = current; \
--	put_user_ex(ptr_to_compat((void __user *)t->sas_ss_sp), &__uss->ss_sp); \
--	put_user_ex(t->sas_ss_flags, &__uss->ss_flags); \
--	put_user_ex(t->sas_ss_size, &__uss->ss_size); \
--	if (t->sas_ss_flags & SS_AUTODISARM) \
--		sas_ss_reset(t); \
--} while (0);
- 
- /*
-  * These syscall function prototypes are kept in the same order as
-diff --git a/include/linux/signal.h b/include/linux/signal.h
-index 1a5f88316b08..1732114989f7 100644
---- a/include/linux/signal.h
-+++ b/include/linux/signal.h
-@@ -444,16 +444,6 @@ void signals_init(void);
- int restore_altstack(const stack_t __user *);
- int __save_altstack(stack_t __user *, unsigned long);
- 
--#define save_altstack_ex(uss, sp) do { \
--	stack_t __user *__uss = uss; \
--	struct task_struct *t = current; \
--	put_user_ex((void __user *)t->sas_ss_sp, &__uss->ss_sp); \
--	put_user_ex(t->sas_ss_flags, &__uss->ss_flags); \
--	put_user_ex(t->sas_ss_size, &__uss->ss_size); \
--	if (t->sas_ss_flags & SS_AUTODISARM) \
--		sas_ss_reset(t); \
--} while (0);
--
- #ifdef CONFIG_PROC_FS
- struct seq_file;
- extern void render_sigset_t(struct seq_file *, const char *, sigset_t *);
+How were the results?
+
+Do you plan on posting the above as a patch, or were you suggesting
+Danny dip their toes into upstream kernel development? ;) Maybe you
+could help mentor another padawan?  (Careful, Sith have this weird
+thing where the pupil becomes the master and...not suggesting anyone
+is Sith, but everytime it seems they've all been eliminated, it turns
+out they've just been hiding "in deep space," which is such a cliche.)
+
 -- 
-2.25.1.696.g5e7596f4ac-goog
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200324220830.110002-1-ndesaulniers%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DR-p0bn7K3cp2X%3D_jk_MqspEynFtBZOX5YqRZkbNDW1A%40mail.gmail.com.
