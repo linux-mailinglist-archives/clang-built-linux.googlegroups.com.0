@@ -1,133 +1,125 @@
-Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBCMP5DZQKGQEEUOCZ7Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC47TRXEZUKBB5NH5DZQKGQEMIGY7SY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x540.google.com (mail-pg1-x540.google.com [IPv6:2607:f8b0:4864:20::540])
-	by mail.lfdr.de (Postfix) with ESMTPS id BF247190E7E
-	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 14:13:46 +0100 (CET)
-Received: by mail-pg1-x540.google.com with SMTP id b130sf13543558pga.3
-        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 06:13:46 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1585055625; cv=pass;
+Received: from mail-wr1-x43a.google.com (mail-wr1-x43a.google.com [IPv6:2a00:1450:4864:20::43a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 10FC4191268
+	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 15:06:46 +0100 (CET)
+Received: by mail-wr1-x43a.google.com with SMTP id d17sf9209167wrs.7
+        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 07:06:46 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1585058805; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ykfmDbPvyIJVfCDXcV8PICQNQwgxSVQdxy0tWjmwNB/xNJhG/gb/9yKW2dWv5fjcRH
-         Ueq07weM7JRZPHtlvLf9Jfv02M+9xIKaUksBgtbbXqL8TsOr9EobaNn54OjjliK3h7CN
-         cP6I4rAGW1vkvNasjbyu5OZu9niYDQmGpOePIn99Y2/9XDt0NNGfvcBc4JeT/icOIuO8
-         5ag9iW/Pi6DIsBaWQgv9YpeX+c8XRSPQWvCdCTKVoSCOHrSJy7bqcqZlhbkfAyC0vi5T
-         sxq1FdeQRnofFcIng+WiGaFBWEp8aE4jHwmmQBgzz/W7Za0d7pVmRBcfSy8vO4rVwFWZ
-         TLBQ==
+        b=Ig5SQReXOhH4BhNUBdgeXMZb7YoQYswdp0k+WTY1gAWbOJejU8kRaoRYRwGtbpPD8E
+         vIJGVB4KsVI8vccSkPY4nLfMCyUdAS4nYvXiiZOEYcA1psfXLZVIYog4yZdSlVvMNwhu
+         zAD4XNzdpcl9duzYFieFXLJPySjI7RJUADcedscTtp3g3hpHpSc571o8NIRiD8DTJn/Z
+         U6+gTjSXZ+6qe8D4L/pOFnNBMZbPYBGKNYIxJt32EvpiZ7zaPz21YPEaXLYSDZfOYRU9
+         SAqbWaVego3ogrSbby1wcs4vO0BxjV2NPkAtoGrQzgbwb/8r0VN7bj5rP7Xtbn9SkF9E
+         6m4w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=3M/hh4a2U4dC5whVahWYzHnwVV5NqJ4A1BdMCKnU+LQ=;
-        b=erDMScLkvkOU/Sa5OoDQHpJHLYq9lbdEvfKNJ195ZDtZwBBu+Shs3qJsNHsfCYtLSN
-         OwZBXTeuz9ZmotYP1+CAi9z/koyD0OIduuvJHMrnujyPzGx/mMBSGXJohiIEBBw5cFbM
-         Rty8OXI2uoeXnvJeyinjY+PmFBaHXC5ErT9sG32lwudLlqcN9HNMBAgys3xUrbTT4mQ0
-         QxlLH22h/qkWEGv9pWqZYHcvI7iOxfT4nUV2NXDIEsbR07V6nAaATWt3gPdlmNbKNeOz
-         UQC/mgbEz7h9aZUVm6Cr4uk6k9CCdid1BgYePdMYU5i/2eSpJONWti/Aa8F5NyskRXwB
-         6eOg==
+         :list-id:mailing-list:precedence:reply-to:cc:from:subject:references
+         :mime-version:message-id:in-reply-to:date:dkim-signature;
+        bh=oD8ftv3wW27PoTfgLJ5KQytIwkicPDcpaFZ2y6aR1UU=;
+        b=TCvAwppSLuQyP+Xefbdf7Gmi5IjOWt0sge9ms9/7oEZ0NU7A/eH/ZjGp0X1ewuSzbZ
+         fX1GKQzCJhOv2SB9GL+VH1Os6RVIBr04+3Zj3KUKB1XeKM9QRkNdRDhU0sXl5oHlNZWw
+         Ls1Y3C/HPXfZid2roAPN6rc2DvvsTd3Yz3uoT9YN1U1FXlujCMjq2A6Gm6B5OANJO2lb
+         NSmtySEa9Gv4xaIK9wBtSCo2CSHw8yXTWt3l4tfW+p3KZJ+1Afu+CbLUkHNWz2wizZ0p
+         tHVi080pmp8i8BQqgODHjVojYtXTk3F2p9f4Nq7+1/NvTD74Is2SOGMkG0mmfFwQdkhs
+         hhzw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=UXPufJQb;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=nyDGk1Qh;
+       spf=pass (google.com: domain of 39bn6xgckef0htzwgjylttlqj.htrhqfsl-gznqy-qnsz2lttlqjlwtzux.htr@flex--courbet.bounces.google.com designates 2a00:1450:4864:20::449 as permitted sender) smtp.mailfrom=39BN6XgcKEf0htzwgjylttlqj.htrhqfsl-gznqy-qnsz2lttlqjlwtzux.htr@flex--courbet.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=3M/hh4a2U4dC5whVahWYzHnwVV5NqJ4A1BdMCKnU+LQ=;
-        b=kJIsfc8He2d2nug5V+FWYH9rfTXR+NXwVpHGNSU4LL4XL3EqgweRDFXxVu3THZMgo/
-         qID5KkgsTuC3JeotGXHM5NsJ2mpijAbci8V+oPaG6zZ6LeawkdODEl+8mAoPIl8YOekE
-         iyByZBUvdSPWVHIB54896UAO9Oypt5fb+7+pS/dkzkXc49Xivv84uOP0/8iJZhtIlPV6
-         iaZeBnR7tNojquXxetAhqAwD5f6pmBce1bDoNbl/eo0aY3CttreC69Emcon0Y2VcX/VT
-         u4NXmI6S1jhkUxCobB3P3ffJud7Fe40VGe3vwm5tVj5USc59Yn/ghIk7IrXFZE/ZiLby
-         joiA==
+        h=date:in-reply-to:message-id:mime-version:references:subject:from:cc
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=oD8ftv3wW27PoTfgLJ5KQytIwkicPDcpaFZ2y6aR1UU=;
+        b=KlXz9/KPBESoRVxY92xOgZPawUEzW4mtN6C/YiEGl2B8b0RUzrEHnYn3qxevy1cCKK
+         JNa1z+biuMBeK6WUCp+9YrGI7w0C2Xsmh6Mkoyt0/hnjifL4gesBWWDzQUGfEM38kOqS
+         y8ZWcjVyGdq9ZLJeEfWC3bdqrLdHW4qFgeFmCNUMcsbbtmQiNqqEQQ1BkzLchqKTr7Kk
+         yBJWC0DWs9IDd1RCVDecHyI6cEqJeNsPecxrigTe5BnoanorL6F2C0dxieQmB2hcYJXv
+         7Gt+CRbFRavNjue2hKfY1nbRx+UGVUe/SKkRxy6XTh9My+slkp5MvEjNs2NZbhCWTMjO
+         wj8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=3M/hh4a2U4dC5whVahWYzHnwVV5NqJ4A1BdMCKnU+LQ=;
-        b=MKVxpHmfk+0v3Px959JwaPYBVIt0qv8swSJGnUyCaRK8Zk4UuoFL1ZjFBg432YCrq3
-         w0CfLJFcOaHEhWo7Ybb07XVhSU7dOhGHWfgCf2L+R9SuRJafeOqYcDMmARPMIIp5yscG
-         6B6kvLDdVy8deBZWmwU/VleBIscOMpef0PloBly7T5UzqqczpftSf3lU1ZUz3FFGH/wh
-         jiV9eY5MbyR6tM10TbS+SgnmDyITuWDnoZdZrRu8H8nfZY7nfrLSwm048jq4kIe6PdjD
-         Voa9c9Jiv1UQxMN1691tTzwhyrpgRKIs7DL6TdS0i87CL6728exBhLNCv0flURI5R419
-         pFjg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ1iVK/foqBbEer7maHnMKDtwizoQaMxAcKYce2SoYn3cCXghkl9
-	aIVG699W1K0bHXBRHfQATpo=
-X-Google-Smtp-Source: ADFU+vuvc5H7yQ+fGPi500J/kTJ+VJK8EK0cEh/obDsOkXrCflphRC5YTQTg5rFXksBpCWv5Zh+CSA==
-X-Received: by 2002:a17:902:d898:: with SMTP id b24mr23864877plz.0.1585055625386;
-        Tue, 24 Mar 2020 06:13:45 -0700 (PDT)
+        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
+         :references:subject:from:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=oD8ftv3wW27PoTfgLJ5KQytIwkicPDcpaFZ2y6aR1UU=;
+        b=KkDov4DehyL4penbY58CTq4ULoTNt/OfQM/AZPD/nLZVv43jVycDDEOXvfDtCojlDP
+         7MXwZj9hd+a/9sc6uHYY15Jsl1in2C4AIEMe+H2fx0zkSsKRJ02M80gXJxuQcSIRwCKg
+         kaBt4IoQZhea6+wvTv9YqRHa9aSKMtb7rfIae7vYo365+CvgkHli0DBTuj/25/VV6+q7
+         hjJSJJGORvO/4wyks4dni2hiIpfOE3cG2XEkwq8K727ymzxGz5iw7cJI1wbwkgqVNapK
+         y2mhM1FNL9oqD3YdBo0USlhL8O+WOjrQ7p8ZtLb/vBumulU0+W9bpHKlAWbI97QB6zfO
+         CNJA==
+X-Gm-Message-State: ANhLgQ3fI/7T05mhVoh9ksUR6KKMjF2liu48BowAAa0BGaVMkv/A5Sxg
+	aWXARBwCKCsqlogPiU/zmWU=
+X-Google-Smtp-Source: ADFU+vtQCb4ucICu6Zkgm+t6euFWTAe3ULHzxQsAgkR3HfNESF+zlASIcVayogPb+PxPqlDaQiWZcQ==
+X-Received: by 2002:a5d:5141:: with SMTP id u1mr9000067wrt.146.1585058805402;
+        Tue, 24 Mar 2020 07:06:45 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:9308:: with SMTP id p8ls1826559pjo.0.gmail; Tue, 24
- Mar 2020 06:13:44 -0700 (PDT)
-X-Received: by 2002:a17:90a:bf08:: with SMTP id c8mr5544191pjs.150.1585055624846;
-        Tue, 24 Mar 2020 06:13:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1585055624; cv=none;
+Received: by 2002:a5d:548b:: with SMTP id h11ls3840724wrv.9.gmail; Tue, 24 Mar
+ 2020 07:06:44 -0700 (PDT)
+X-Received: by 2002:a5d:6992:: with SMTP id g18mr37515606wru.426.1585058804890;
+        Tue, 24 Mar 2020 07:06:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1585058804; cv=none;
         d=google.com; s=arc-20160816;
-        b=aOwiHRFKUWzhUh9mQA/+VDDz8fTA89/S0z4eEPTYgGxSkGl+2avf+TMQEPSlJjGxR3
-         KpJIlPuOrzv2wYV5Kq8d3X7Atlwtq9twX7GkDFh/Y/fmDBe95l7Zpo32F2gYMZgql9bP
-         uuKOwagI1UINUXa/ZX8aUA1z1k+GHly7zgMAVskIv3CSC23gIVZVwcltNouPRvFxfmNj
-         +nFOfWvcgNvYDd18Hi7QhcBf/zySWVBwwNjgzAp0DYYVzhoAzpIf8klkMW70AUSMYq98
-         pGtHu8FA/o9y/jCaLKKX2m5GHF7ihc1Q4vtovhcA+KADCQfjC+knu2N5QhXjDS8ETfuq
-         3fiw==
+        b=jFtE8pl91pbfwV9xClmg4Wjhggo58Ekj6i2iwp4QDAdgoc+13M1XIRoSgNe+JiPzT1
+         NhrKVXeHrTcrsDAy1C6C0LS2i1gw9NlesJATbX+5bewOLjumqoJuq4FHw8bfl4iArdcU
+         srFkXUD05wz5CFyUpyqANT0xmawkN7ITa7FKS83aI2C1klEmZ6RtV7rOXHdeKHZQd/0U
+         Cmi1I8Y7oqPIo2Msh1edpBVSwyuZdAmoHM9nUZJUKBiKT3vdUIRgG2P67GCF/6LXwm+t
+         rj2qIlURUQ+4ZGDDo4uNWsNjLYwTqsZonLPb1q/qTafp/rkl9Ar3wIkT09J9yRzF7ozK
+         ddsg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=HXsYg23E0Iecnw5MYyoe/vIEqiBkVzrXX9l0E/D+Zo8=;
-        b=dNglTkzk+BDBS7UAtAY75Hskh+cHVA7KyHeyH9s5zOVkTWCPbxS3bHH15lEzERbLDI
-         TYXYG9F/gNyrwNNcMHL3MWZ+G/CHZwHw7K0o2K8L7iA43TVKG24mPHsZmTfCE0R7Tp7W
-         odsbQo/cz02bRYjV1oWY19RXEdZAZ1j9/tE4HVukP2ZiKjiuNWQul6EGcGPqMkrlZ0OW
-         5X8KfQcC3HaJuR3+vbSgbszILWJqyY3+Y9c7l+o8NGfbejT+apI/q5Z4cvEo6O0WjSKh
-         5jApM78jixjZc6XMVwnfbjCUIuiB6vuKjXnkJzjJQXOgVbw96cFAfC7DtfJgX8zlVEqH
-         Ds2w==
+        h=cc:from:subject:references:mime-version:message-id:in-reply-to:date
+         :dkim-signature;
+        bh=HBdtxiA4456RzmVM1qUhdnGD6aL9Y+FSjlt2D4+kbQs=;
+        b=EhZuioIgGbfnzYLkRWuLvnsJSrp+nYARKVaO28dTbSasO1a5jXIy4lYAJKw1pJRqH/
+         r09pWlv6wIGIfSr7sHeAykEG4JW9EJF4NIswShSyGPIOPM3Dv5D2Ps2dgf4OC89cd7/6
+         asPtx6632ZH4WHY9gNs+k9saiGNKYu8o/Ty/nEEv4VU39OFOl7uSm8JGx+C0c9Dp84p7
+         6JF3bAKYeU6J3W+6Iln6l2fpM1oURhUHVjRaLT1JNQvGBcqjiJ5j4VtDMbQauBTZ9rrE
+         XpF98kvzsEeRn0sg0hWpeT77QZcjJs8L+ogL9K8W0bSPVf9YrpTt63ZlBxEs1oS1IDf6
+         TYXA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=UXPufJQb;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
-Received: from merlin.infradead.org (merlin.infradead.org. [2001:8b0:10b:1231::1])
-        by gmr-mx.google.com with ESMTPS id r76si994439pfr.2.2020.03.24.06.13.44
+       dkim=pass header.i=@google.com header.s=20161025 header.b=nyDGk1Qh;
+       spf=pass (google.com: domain of 39bn6xgckef0htzwgjylttlqj.htrhqfsl-gznqy-qnsz2lttlqjlwtzux.htr@flex--courbet.bounces.google.com designates 2a00:1450:4864:20::449 as permitted sender) smtp.mailfrom=39BN6XgcKEf0htzwgjylttlqj.htrhqfsl-gznqy-qnsz2lttlqjlwtzux.htr@flex--courbet.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-wr1-x449.google.com (mail-wr1-x449.google.com. [2a00:1450:4864:20::449])
+        by gmr-mx.google.com with ESMTPS id q197si198544wme.2.2020.03.24.07.06.44
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Mar 2020 06:13:44 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) client-ip=2001:8b0:10b:1231::1;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
-	by merlin.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jGjNE-0001TL-7l; Tue, 24 Mar 2020 13:13:40 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id BCFC83070FF;
-	Tue, 24 Mar 2020 14:13:38 +0100 (CET)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 995C529B1EADA; Tue, 24 Mar 2020 14:13:38 +0100 (CET)
-Date: Tue, 24 Mar 2020 14:13:38 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Josh Poimboeuf <jpoimboe@redhat.com>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Kees Cook <keescook@chromium.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	"H. Peter Anvin" <hpa@zytor.com>
-Subject: Re: call to memset() with UACCESS enabled
-Message-ID: <20200324131338.GG20713@hirez.programming.kicks-ass.net>
-References: <CAKwvOd=mOmU1S1g5oDDy3rLjnp543Fu6PSVAJyvxhyQDvpOM+A@mail.gmail.com>
- <20200320101455.GB20696@hirez.programming.kicks-ass.net>
- <CAKwvOd=edOBdTL=FcmXYuN8crykrEoJbfdVy4CmKL7ETj_TpnQ@mail.gmail.com>
- <20200323212538.GN2452@worktop.programming.kicks-ass.net>
- <CAKwvOdm1fPpdwoEprcvp=yKWWWP752eXj7zYnJJZ8TzYsx+M3Q@mail.gmail.com>
-MIME-Version: 1.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Mar 2020 07:06:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 39bn6xgckef0htzwgjylttlqj.htrhqfsl-gznqy-qnsz2lttlqjlwtzux.htr@flex--courbet.bounces.google.com designates 2a00:1450:4864:20::449 as permitted sender) client-ip=2a00:1450:4864:20::449;
+Received: by mail-wr1-x449.google.com with SMTP id l17so8887460wro.3
+        for <clang-built-linux@googlegroups.com>; Tue, 24 Mar 2020 07:06:44 -0700 (PDT)
+X-Received: by 2002:a5d:4ac8:: with SMTP id y8mr36558140wrs.272.1585058804297;
+ Tue, 24 Mar 2020 07:06:44 -0700 (PDT)
+Date: Tue, 24 Mar 2020 15:06:38 +0100
+In-Reply-To: <20200323114207.222412-1-courbet@google.com>
+Message-Id: <20200324140639.70079-1-courbet@google.com>
+Mime-Version: 1.0
+References: <20200323114207.222412-1-courbet@google.com>
+X-Mailer: git-send-email 2.25.1.696.g5e7596f4ac-goog
+Subject: [PATCH]     x86: Alias memset to __builtin_memset.
+From: "'Clement Courbet' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Cc: Nathan Chancellor <natechancellor@gmail.com>, Kees Cook <keescook@chromium.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org, 
+	Clement Courbet <courbet@google.com>, linux-kernel@vger.kernel.org, 
+	clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAKwvOdm1fPpdwoEprcvp=yKWWWP752eXj7zYnJJZ8TzYsx+M3Q@mail.gmail.com>
-X-Original-Sender: peterz@infradead.org
+X-Original-Sender: courbet@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=merlin.20170209 header.b=UXPufJQb;
-       spf=pass (google.com: best guess record for domain of
- peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
+ header.i=@google.com header.s=20161025 header.b=nyDGk1Qh;       spf=pass
+ (google.com: domain of 39bn6xgckef0htzwgjylttlqj.htrhqfsl-gznqy-qnsz2lttlqjlwtzux.htr@flex--courbet.bounces.google.com
+ designates 2a00:1450:4864:20::449 as permitted sender) smtp.mailfrom=39BN6XgcKEf0htzwgjylttlqj.htrhqfsl-gznqy-qnsz2lttlqjlwtzux.htr@flex--courbet.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Clement Courbet <courbet@google.com>
+Reply-To: Clement Courbet <courbet@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,38 +132,35 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Mar 23, 2020 at 05:39:30PM -0700, Nick Desaulniers wrote:
-> On Mon, Mar 23, 2020 at 2:25 PM Peter Zijlstra <peterz@infradead.org> wrote:
+Thanks for the comments. Answers below.
 
-> > I think memset, as implemented in memset_64.S is safe. It's a leaf.
-> > function (no fentry or any other CALL out).
-> >
-> > And the memset() override in kasan/common.c calls check_memory_region()
-> > (which is a whitelisted function) and then __memset(), which is the
-> > above .S thing again.
-> 
-> The compiler is inserting calls to memset, not __memset, so
-> whitelisting calls to __memset doesn't fix the warning.  `memset`
-> does, 
+> This ifdef is unnecessary
+> This needs to be within #ifndef CONFIG_FORTIFY_SOURCE
 
-Right..
+Thanks, fixed.
 
-> but do we want to be whitelisting that regardless of
-> CONFIG_KASAN?  Linus and HPA were hesitant:
-> https://lore.kernel.org/lkml/5127C62D-E97D-40B0-85B3-16F30B7ED514@zytor.com/
-> for __memset. Should I respond to that thread with this case of
-> CONFIG_KASAN and Clang?
+> shouldn't this just be done universally ?
 
-Let's add them to the Cc here. Linus, HPA, clang is 'optimizing' some
-code inside user_access_begin() / user_access_end(), namely it replaces
-the two 0 assignments in sas_ss_reset() with a single call to memset().
+It looks like every architecture does its own magic with memory
+functions. I'm not very familiar with how the linux kernel is
+organized, do you have a pointer for where this would go if enabled
+globally ?
 
-Now, memset() isn't a whitelisted symbol, so objtool complains.
+> Who's adding it for 64b?
+> Any idea where it's coming from in your
+> build? Maybe a local modification to be removed?
 
-Previously when memset() came up, there was some hesitation to whitelist
-it.
+Actually this is from our local build configuration. Apparently this
+is needed to build on some architectures that redefine common
+symbols, but the authors seemed to feel strongly that this should be
+on for all architectures. I've reached out to the authors for an
+extended rationale.
+On the other hand I think that there is no reason to prevent people
+from building with freestanding if we can easily allow them to.
+
+
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200324131338.GG20713%40hirez.programming.kicks-ass.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200324140639.70079-1-courbet%40google.com.
