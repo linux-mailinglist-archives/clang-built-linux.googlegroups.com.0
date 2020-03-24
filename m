@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBDTY5EWUQMEBBLXK47ZQKGQEPX53HMY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTY5EWUQMEBBQHK47ZQKGQES76SEUQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 53616190CCB
-	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 12:55:28 +0100 (CET)
-Received: by mail-pf1-x43d.google.com with SMTP id f14sf13779415pfk.5
-        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 04:55:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1585050927; cv=pass;
+Received: from mail-oi1-x23e.google.com (mail-oi1-x23e.google.com [IPv6:2607:f8b0:4864:20::23e])
+	by mail.lfdr.de (Postfix) with ESMTPS id B509F190CCF
+	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 12:55:45 +0100 (CET)
+Received: by mail-oi1-x23e.google.com with SMTP id s10sf12863717oie.22
+        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 04:55:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1585050944; cv=pass;
         d=google.com; s=arc-20160816;
-        b=P0V68t0Pa5znPBYXFrv1na5GEMPpXWxYBK6+UBhOQvlVSPTsfHorrhcXT1SeRA2Qzq
-         iTionQaXfLehVnIbJWfSofcYdsR4/uo74aNXjtgdLhNsPRFzcGoVAKM6maYZWWKdzFKj
-         X+9jabP1r2uIVkZvt0GlNc4LsbXkTnqCp0ywpdet3Ok7hLKxZuuVcl+iXt+O7rfk5PlY
-         M6eU8RNfn5Ap+DnfqQ7aPZzED+tbC/y4awy/nWHwuRE5sSXho921z2HUHBlTGO0S1oOA
-         ooainMPKCTEhclWXVr+h9PO8ByotOdxpE8XaOLoOmiWxuAtxPiBu89Cqy4rvZ7aafo5t
-         qY3g==
+        b=QnrJSUPJYQSxBkfJeO823AdeSihB/e9Xcwg/XkMtJRzTlz2e1kq0jd5S03Zg8k5a1y
+         E34/2srZVI3uh7VxdU28wBzgphwyrNXlDW6Ju4f6RXoeqqS+f6WMvkcnWMhjBHyaIKAe
+         9WovtjgyMNWxGt4qoIa2DefR5GKNQ9VLHost5vBE96vKB8lGzJ3BwUox5Jtuqnup+mHZ
+         NB4klOYdzqegO+a93FL/xxkGky6U7P7B9FtajOArxxiUv0ZtxVvMuj539dbAHERFPHpU
+         fQR5UwEP3NOes3sJ3W5IYPd+Kzayj6oMcPL7kFvmOnwAs9YnNgmMrN6fgulD9rQk4iO0
+         S31g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature;
-        bh=ntssCnPQj/ExdpBijRkRupUMgCdVY8tNZZamZTZem98=;
-        b=l6YSZwPn4TlgJI1p0UAXdH22xH4GyGeHf4Kdp+SAe3XwLNBdnbMwxd6ZlosXDekjKS
-         rYu3VMDEGM3vFllfuUtHfsP6unu3fSvO9Pp31EjGWT3bSePUMn3Buk1RiOppuTRr86w9
-         aciGDL8Nuwb5/pWnulnoz7GrJbX+9MJxlz0iJista9PUOoPn3FTcYnBLWXUeSDa5f2Y9
-         rLxDPusu/fg4OCStKtdDJ8DaQ1jBSXKnqPsKMedPx4PvoRUj2U/02hQPqAeXJQ7mCarv
-         54hTmc+Y2SZwXz2AplBRiPnVWdB0iMEmCkE3u1zZwYfizOpry1ki39raRENjtGjkeNHf
-         FChA==
+        bh=j/dp9GSJiif7z9AgEL6RSAHmDLduD9IuHNc3fWM0ZUM=;
+        b=UA7DJZRgiP+/nHjOlZpW4HmKgoM8n9XWZeKt0c7f5JpowKVA7aQ5LLfPj8sbjy4cX0
+         0OlhR2WjbA8Myzobm3whlbxk7LzTiQ3lnx0pKb4hqoxOvLRZSRGRuww8o7liwt14zf6f
+         6jR2JmPDAVTfe7JFsESPKcz1yfGufaFaGMOhfjn6WWmMKCEozMhk0KFICCjwQV+9gLQH
+         3MohUsR5/LwRnhcRmWXNriuX86HJYwGWVjPZKQmhauPxs9Mar6LAIfClY62BvKOJyWD0
+         X0ISmVhUI9GtVFEnNPNMeZq7ExKs9/7R5lMcUlDPunlV63XlP3HmMBp9WkdqZCTn49Zn
+         ViQw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of herbert@gondor.apana.org.au designates 216.24.177.18 as permitted sender) smtp.mailfrom=herbert@gondor.apana.org.au
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -34,13 +34,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ntssCnPQj/ExdpBijRkRupUMgCdVY8tNZZamZTZem98=;
-        b=OD96ezB83fsgNGxHgyqepI0PbH37oZFG0YUaaeiK/njFRR3PHmEwnfApLQ1v9xALuU
-         zKLBVR7VdXfFULna15cHKCgsmPaKVSWPdK8zonWjIfhX+Lcqf2XssjliFSJTnDP48r04
-         qlTT2xwcixPqczWorbpqbP/UUJzYk7aFwQqye88xcWXMgysBOdarbWI+kjINTA/1HIFA
-         28qc71BK/T2W8VB1miati3x8zDejTfRyWHVC85wbfd0ZcnURDXkSMYvCri1+ZKQTBrV2
-         F+f8bbv6g4Xs3bFAmHJKWiOBOfDwu2Ruav5tWd/gFJsotUnOni61zGRhOd0JrTSsW7k4
-         PHNA==
+        bh=j/dp9GSJiif7z9AgEL6RSAHmDLduD9IuHNc3fWM0ZUM=;
+        b=sepd3nALaaVggNLKgpPJkjSe/mw59p4QxoKpSXOoee1LGzYShfXQBnpQjiykOg09YQ
+         XCZ89ddYAP480mCOmGRyOUoiPAc/iXoJZJ1lnfRJe26DhsriNlfDV3M+DE4xxPZzKJBa
+         CLaIIpzUm0ooSKBsTUJmnHHOB5RPpbjsyZmZ61VNIXGCg4qazkTa1tZmIHXfIR811tV7
+         gEItzY9UexwfgF36Ap5bdu/SwUOEQGH6d769oLE0sD3xiS3dSI1UidvuPWgiYY3JCRu6
+         1caD6OX+Rc1cXPbeFf+niS7xyQap25BoodCeIbOTZYCNoxpy0UlzGA84R+LYZjAstCC+
+         Aj4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -48,55 +48,55 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=ntssCnPQj/ExdpBijRkRupUMgCdVY8tNZZamZTZem98=;
-        b=ExEzSsOgDrtqFIaEFatSJWdH0zd5mO9hKK1qL6Eyc0HBJ9/vUPBfkh2YXyZE6AHCiC
-         jWRwOB0suuE/ZwjTIJLhfV7LUxVkuVsYUwHh93E+3BZ9QELZHYjhdf1WIdoUKwZmUYyx
-         wCLjrgXdoG/mtOYhB7Yde/ZvZS2Mk8sH/43WdRsZZyPyd3J7qOUfUbyUeyMlAuKoit4g
-         4TyvrBAH5F3/Bgc38bmzWZI6M5AagOq34EwjPKpHIES7FtFSimTWtMAPlNN6CH5Hfdcy
-         nrFdkv+ojhK8GbdpCebFdIvPnnNMev8BdFTrXozYqqYKFiBHMi8qjHU0+aYX6xl97u1P
-         4thg==
+        bh=j/dp9GSJiif7z9AgEL6RSAHmDLduD9IuHNc3fWM0ZUM=;
+        b=qLbnfqZnmQjndCC//qr9HvLzgPXhDTmMnW1S61jEsnGI+W7ajzkKmwDvqUbGQrRaM1
+         6beMXT6/uXKpRDI023JdYtFWjFe99P6JhumYYyTNOzRjKMtzmXrszholarmwHVmXVfL1
+         fjzWl2Yu0of+frxFQWqeJm9zPog6dgh3nSIg/xPXTtSGMSNby03ieVLsrtZr+4qG4uH/
+         fwRWSIPzsIdbYThssRseEsiKn2JuNZnKBg6qPOaJ5wEBitYYaxNbVPFZH2svtAkKmcfw
+         edUUVoPVEx4k10Hk6PCOrWXwUiUrMK4fdr36bhvsFQl/mpMpgPREKahSOxeqcEY3j9vl
+         bVcg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ3Y7Rutfq93stP7ZWLcDWVmSuV5erlCE3LpezlvNJ5FofFlt42U
-	7npCpWyW1cIS9VGQkL9jfxk=
-X-Google-Smtp-Source: ADFU+vunBRv2qNYKdxpk2KjzJM0t+1EJzAM0jQ+btqFb87r4TmZxBRbKU3UloFWJFPT0dJ97pAa38A==
-X-Received: by 2002:a17:90a:8c83:: with SMTP id b3mr4974413pjo.1.1585050927058;
-        Tue, 24 Mar 2020 04:55:27 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ1XS7P+L02I2eEl5cOiRkNEkLfe+X1HS/UblE4jpNK1YQny605p
+	/pe5KomyEJBqVr+iMCx2Loc=
+X-Google-Smtp-Source: ADFU+vuY6qTkyOt3yIcsoWDrTk9zMikYES83YEJj4pgq7gc7z+UFV9oZelpu3X2nhtjD+Rzb5OSVZQ==
+X-Received: by 2002:a9d:7696:: with SMTP id j22mr22701808otl.188.1585050944718;
+        Tue, 24 Mar 2020 04:55:44 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:9708:: with SMTP id a8ls9128144pfg.9.gmail; Tue, 24 Mar
- 2020 04:55:26 -0700 (PDT)
-X-Received: by 2002:aa7:8a99:: with SMTP id a25mr3338972pfc.76.1585050926489;
-        Tue, 24 Mar 2020 04:55:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1585050926; cv=none;
+Received: by 2002:aca:b98a:: with SMTP id j132ls1568401oif.3.gmail; Tue, 24
+ Mar 2020 04:55:44 -0700 (PDT)
+X-Received: by 2002:aca:b144:: with SMTP id a65mr3112286oif.75.1585050944111;
+        Tue, 24 Mar 2020 04:55:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1585050944; cv=none;
         d=google.com; s=arc-20160816;
-        b=VKrhpB9WvJySOqRNixqXc7CqkBjTIPm5TifAMV8WOqPPT4iDEqWwo9kSxw5nAck7U8
-         UXmyKfrNLPY63gfPuj/LS48L0lLDFsNnC1qDZ9c1pzZ++2VsbAIVanHsK6UTUI3/eFSy
-         ZvGRZNW3HcI4vJwht3405XAhyl+dxLIcUxRncKOt/DYPV1pSSwny7LS0miKk1kuuULrH
-         JDCh87J6yGyeuQQ7l4t1h4j7cTKTYkULnrYVy72l3yyu65yYheSxVGg2B+w2/9fTuZS5
-         T7Hoim3np9Y0kADfl1XXK07eerqmnIIvKB7L69AIULNY7M8lgMxs2jdEc6GGJVlgFOMn
-         BvrA==
+        b=IM10o1L9NcH6TqzfKSiii+La2m61SHMT3ojHsbd2JcTXlRmlxs4yfhVtXXzBw9BeOP
+         NTI9/95pOH0HvnYX6A8savKmww/EEOc69ARHYqC4iu4ZI8DtQ0n0Ldz2zawu138eXauM
+         sOIzUbBJW3LmuKDQdy2w00/2JpvXT5Ivst2tjUSTiktXsq7xSBvKFsstYub8DEh834W7
+         wVUBF9qHAEtyZfC4pauOrGdoUdB/3cDuzNDjGXBj7xV7F7QxYwmQ/Z52z5YmwYoUEi1M
+         Z3ckT5+vO+s5AzKZPmGQ9URZOK5NNzI+5EJOWj1AwoxDKTXSv5aAtXzuFx/w0zAhahQF
+         mxgA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date;
-        bh=SqbccwuRTTkP/C1ed01v4flrZ64jgaWQG3D1wcy2G6A=;
-        b=iiK+AbT3ALdzlEj1s1C4ot3vxrdnqDXbiv7W8zSkRpmePL0NZtokdgWjK7FOfeqp3t
-         FLhxbdqVu+vAOSI7sZfr9Xwbv/Pdh99kjE+oDpWHP/7DrtaPTcJmfAwml5tG29ErKRWJ
-         0gHlstfR+Hx8nfcwk+lhBr0tMlYWkcYzBtofCUSMCsgpm8Qj4gG776Rw2qz7stQI4PqD
-         lRYrVt30zqTBuP18DclshoA9cVu/dOjnuoljVitwKUM3G4nCVUcdR4ALCGHVO5LdxxwA
-         O1JMa3xe9lWM8Zgw49ZbTxNCfGaz/vVSuOdsyy1+KbWGKL6G2NSudmz12zCJDZTBPwnG
-         M2LQ==
+        bh=INDfyDG13JHQJulrp6OmvE+vCXcSRL3cJzDUyXi2B68=;
+        b=OcrEORoVNycl8LwTawWDN65vzggFCenh5cxJWYHUjDLs50JP9B45s6DOQ9TQkd6TqM
+         UR2RNSlJpak3kJHw9uIJ6buq862TkCjCjB1lbFP7CChTcgUumzFNltXS4V76pA5bKDHc
+         Cb5kTVxIbv2wyUpeS7UbWMJy8/I+DIePFKxz1LR6V+OxWzuO7A4X4OdfOrtDopUxoJGd
+         6uoDDpnwNN3/bjGdBIDgJmQInwHl5o0TwjzkKleMg0Um5YsIaV8Pcd/ApC9zEOBSi2dK
+         5U16jLrleVH9wpzAJY5dAH7+4IrN0F48PRuiao88P0rL6wvMqrc5oiIH4ewfjsc8Jpfu
+         ranw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of herbert@gondor.apana.org.au designates 216.24.177.18 as permitted sender) smtp.mailfrom=herbert@gondor.apana.org.au
 Received: from fornost.hmeau.com (helcar.hmeau.com. [216.24.177.18])
-        by gmr-mx.google.com with ESMTPS id 19si454820pgb.2.2020.03.24.04.55.25
+        by gmr-mx.google.com with ESMTPS id m132si1197155oig.3.2020.03.24.04.55.42
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Tue, 24 Mar 2020 04:55:26 -0700 (PDT)
+        Tue, 24 Mar 2020 04:55:43 -0700 (PDT)
 Received-SPF: pass (google.com: domain of herbert@gondor.apana.org.au designates 216.24.177.18 as permitted sender) client-ip=216.24.177.18;
 Received: from gwarestrin.me.apana.org.au ([192.168.0.7] helo=gwarestrin.arnor.me.apana.org.au)
 	by fornost.hmeau.com with smtp (Exim 4.89 #2 (Debian))
-	id 1jGi91-0005xF-TT; Tue, 24 Mar 2020 22:54:57 +1100
-Received: by gwarestrin.arnor.me.apana.org.au (sSMTP sendmail emulation); Tue, 24 Mar 2020 22:54:55 +1100
-Date: Tue, 24 Mar 2020 22:54:55 +1100
+	id 1jGi9Y-0005xY-1w; Tue, 24 Mar 2020 22:55:29 +1100
+Received: by gwarestrin.arnor.me.apana.org.au (sSMTP sendmail emulation); Tue, 24 Mar 2020 22:55:27 +1100
+Date: Tue, 24 Mar 2020 22:55:27 +1100
 From: Herbert Xu <herbert@gondor.apana.org.au>
 To: Masahiro Yamada <masahiroy@kernel.org>
 Cc: linux-kernel@vger.kernel.org, "David S . Miller" <davem@davemloft.net>,
@@ -108,17 +108,16 @@ Cc: linux-kernel@vger.kernel.org, "David S . Miller" <davem@davemloft.net>,
 	Borislav Petkov <bp@alien8.de>,
 	Peter Zijlstra <peterz@infradead.org>,
 	"H . Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
-	linux-kbuild@vger.kernel.org,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>
-Subject: Re: [PATCH 13/16] crypto: curve25519 - do not pollute dispatcher
- based on assembler
-Message-ID: <20200324115455.GB31003@gondor.apana.org.au>
+	linux-kbuild@vger.kernel.org
+Subject: Re: [PATCH 16/16] crypto: x86 - clean up
+ poly1305-x86_64-cryptogams.S by 'make clean'
+Message-ID: <20200324115527.GC31003@gondor.apana.org.au>
 References: <20200324084821.29944-1-masahiroy@kernel.org>
- <20200324084821.29944-14-masahiroy@kernel.org>
+ <20200324084821.29944-17-masahiroy@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200324084821.29944-14-masahiroy@kernel.org>
+In-Reply-To: <20200324084821.29944-17-masahiroy@kernel.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: herbert@gondor.apana.org.au
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
@@ -136,23 +135,21 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Mar 24, 2020 at 05:48:18PM +0900, Masahiro Yamada wrote:
-> From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+On Tue, Mar 24, 2020 at 05:48:21PM +0900, Masahiro Yamada wrote:
+> poly1305-x86_64-cryptogams.S is a generated file, so it should be
+> cleaned up by 'make clean'.
 > 
-> Since we're doing a static inline dispatch here, we normally branch
-> based on whether or not there's an arch implementation. That would have
-> been fine in general, except the crypto Makefile prior used to turn
-> things off -- despite the Kconfig -- resulting in us needing to also
-> hard code various assembler things into the dispatcher too. The horror!
-> Now that the assembler config options are done by Kconfig, we can get
-> rid of the inconsistency.
+> Assigning it to the variable 'targets' teaches Kbuild that it is a
+> generated file. However, this line is not evaluated while cleaning
+> because scripts/Makefile.clean does not include include/config/auto.conf.
 > 
-> Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+> Removing the ifneq-conditional, so this file is correctly cleaned up.
+> 
 > Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 > ---
 > 
->  include/crypto/curve25519.h | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
+>  arch/x86/crypto/Makefile | 2 --
+>  1 file changed, 2 deletions(-)
 
 Acked-by: Herbert Xu <herbert@gondor.apana.org.au>
 -- 
@@ -163,4 +160,4 @@ PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200324115455.GB31003%40gondor.apana.org.au.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200324115527.GC31003%40gondor.apana.org.au.
