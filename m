@@ -1,47 +1,47 @@
-Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBGEF5DZQKGQEC2KS5SY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBCMP5DZQKGQEEUOCZ7Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33f.google.com (mail-ot1-x33f.google.com [IPv6:2607:f8b0:4864:20::33f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 34966190E1F
-	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 13:52:41 +0100 (CET)
-Received: by mail-ot1-x33f.google.com with SMTP id o18sf12323748otl.14
-        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 05:52:41 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1585054360; cv=pass;
+Received: from mail-pg1-x540.google.com (mail-pg1-x540.google.com [IPv6:2607:f8b0:4864:20::540])
+	by mail.lfdr.de (Postfix) with ESMTPS id BF247190E7E
+	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 14:13:46 +0100 (CET)
+Received: by mail-pg1-x540.google.com with SMTP id b130sf13543558pga.3
+        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 06:13:46 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1585055625; cv=pass;
         d=google.com; s=arc-20160816;
-        b=t8MA9tZP4PVpuXCW9A4kScKc2ExZuzoZF4TD4NqhBBbSQoxBJWr3eazoeQ/ilAYbJQ
-         emQMij6GML4y10fmm/uFlDDg0DvYjvUTp1PSjPvnThpPspYH7YgiY72Wd+fhWcOQj7UQ
-         ipo9DE1rf3+fIoETH3krsE2Ocw3OJAFuIfMqbX704ssoDK2FvZlNVlLmZUDhC1jU44Rh
-         3c7JrvmTHUQ5HckqlM7QgAPztc6P5TjULw1teaKE7YGjZu3yQrDpWL6sr+OzivOICr2/
-         R8+VfcPXG4mgrMKLS8JclND8QpD66EkvEew68tlHVC51G1hyHeknXSjqUP8P2IDneb1j
-         ubVA==
+        b=ykfmDbPvyIJVfCDXcV8PICQNQwgxSVQdxy0tWjmwNB/xNJhG/gb/9yKW2dWv5fjcRH
+         Ueq07weM7JRZPHtlvLf9Jfv02M+9xIKaUksBgtbbXqL8TsOr9EobaNn54OjjliK3h7CN
+         cP6I4rAGW1vkvNasjbyu5OZu9niYDQmGpOePIn99Y2/9XDt0NNGfvcBc4JeT/icOIuO8
+         5ag9iW/Pi6DIsBaWQgv9YpeX+c8XRSPQWvCdCTKVoSCOHrSJy7bqcqZlhbkfAyC0vi5T
+         sxq1FdeQRnofFcIng+WiGaFBWEp8aE4jHwmmQBgzz/W7Za0d7pVmRBcfSy8vO4rVwFWZ
+         TLBQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=n3h1haJemIFWuRpNwqcD4V9KHzeDMWADISISbIPuLQI=;
-        b=Oj5u0WZv5t0VS7mV0pQDLcUNBm0ySjwv3qNEHblscJPE4NgyMjZOxrwuLs/fN8E9XR
-         haMbd6xKo1cXKmvrMTd72NpsaDSxISN8hg1YLV+x5Hm7VSNMgFHZy1z+Nj50Rzn25LS2
-         2Lidbcs14C4hmHPwD7lLmok1Dx+gg1r5o/zOgjkkYvU5K+gxmmp5TtrJH9tvMNZdSJN2
-         B//FtFS9fjQmQgpGPr9Kg9K7ncwvgh9VjAMUhpmYCqwO+0hCjrNRkWUrB6ui99HkDYQO
-         hjDIp9SOtF8d/TT81kgbipxdhW6GYvOmXSOiqAgNNfUZ9Dl1ECa0+iU9gk7z3lFTJiAU
-         x9iQ==
+        bh=3M/hh4a2U4dC5whVahWYzHnwVV5NqJ4A1BdMCKnU+LQ=;
+        b=erDMScLkvkOU/Sa5OoDQHpJHLYq9lbdEvfKNJ195ZDtZwBBu+Shs3qJsNHsfCYtLSN
+         OwZBXTeuz9ZmotYP1+CAi9z/koyD0OIduuvJHMrnujyPzGx/mMBSGXJohiIEBBw5cFbM
+         Rty8OXI2uoeXnvJeyinjY+PmFBaHXC5ErT9sG32lwudLlqcN9HNMBAgys3xUrbTT4mQ0
+         QxlLH22h/qkWEGv9pWqZYHcvI7iOxfT4nUV2NXDIEsbR07V6nAaATWt3gPdlmNbKNeOz
+         UQC/mgbEz7h9aZUVm6Cr4uk6k9CCdid1BgYePdMYU5i/2eSpJONWti/Aa8F5NyskRXwB
+         6eOg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=JYE86fRG;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
+       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=UXPufJQb;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=n3h1haJemIFWuRpNwqcD4V9KHzeDMWADISISbIPuLQI=;
-        b=hDTnKwx7Mn9W2ZrnrPcNtPK5hUafOGkpJd0ZEGEPXbGQd3vxKFSzRrulo4ite9+4vE
-         6KGxLBIb4cRoPdfGVEQBR5GFEdIIjbLybCvy2aE2ZW0mjRf7P8QxAjlNx0/wVjxcJYZ7
-         ExtaB+2VDwQ1bPcsrsy8TIgXUlI/AU/xeX3DFm4H+wriqnQ8zy3o5caMD2uJpq69Tnqm
-         EifCcbCDIEfY0c6YlG7fuXGhBfnZ5UeeWuYwPf7qoXtBwIWx0mykEJJQ3JVzFlmf/jPc
-         gINpEC5ZH/ilYfjahN7sx9oLFWL3R0OwHkdQ649Voi9urYGQQ4e9hs6eW4uLniRgEwNI
-         BZTg==
+        bh=3M/hh4a2U4dC5whVahWYzHnwVV5NqJ4A1BdMCKnU+LQ=;
+        b=kJIsfc8He2d2nug5V+FWYH9rfTXR+NXwVpHGNSU4LL4XL3EqgweRDFXxVu3THZMgo/
+         qID5KkgsTuC3JeotGXHM5NsJ2mpijAbci8V+oPaG6zZ6LeawkdODEl+8mAoPIl8YOekE
+         iyByZBUvdSPWVHIB54896UAO9Oypt5fb+7+pS/dkzkXc49Xivv84uOP0/8iJZhtIlPV6
+         iaZeBnR7tNojquXxetAhqAwD5f6pmBce1bDoNbl/eo0aY3CttreC69Emcon0Y2VcX/VT
+         u4NXmI6S1jhkUxCobB3P3ffJud7Fe40VGe3vwm5tVj5USc59Yn/ghIk7IrXFZE/ZiLby
+         joiA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,82 +49,85 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=n3h1haJemIFWuRpNwqcD4V9KHzeDMWADISISbIPuLQI=;
-        b=EovPU3aPwpmKNrIO3teJzWvDcI9rUWj0DWXnDX+ubAnZfYzmrni53QrEMT2yL8B0/X
-         WO8+oynI2iDqpQFkXacc6qmf6zlm9sY1fZwt+ulpdPqqcq6L2AajRJDyO92oxM5b8OnC
-         5P8rFctGSwdVQ95tk3aUxeA31jcRbBaM06u9rrlkCVmCno680QSg0avuJCd3VbRMFfEm
-         RBnMeMhoVyGaf+QKEYvvc35u0MzoHALzxKJkj502MzBB1rDGx9Pxg4Wzlnek4HKwmHzY
-         3/TkS3bQNRWcXZYYHtUF7LLbDspNnfaSRpu7kiDnOKnOVyn+qW7QX+FTN2bZ0mvG4pyR
-         ZN3g==
+        bh=3M/hh4a2U4dC5whVahWYzHnwVV5NqJ4A1BdMCKnU+LQ=;
+        b=MKVxpHmfk+0v3Px959JwaPYBVIt0qv8swSJGnUyCaRK8Zk4UuoFL1ZjFBg432YCrq3
+         w0CfLJFcOaHEhWo7Ybb07XVhSU7dOhGHWfgCf2L+R9SuRJafeOqYcDMmARPMIIp5yscG
+         6B6kvLDdVy8deBZWmwU/VleBIscOMpef0PloBly7T5UzqqczpftSf3lU1ZUz3FFGH/wh
+         jiV9eY5MbyR6tM10TbS+SgnmDyITuWDnoZdZrRu8H8nfZY7nfrLSwm048jq4kIe6PdjD
+         Voa9c9Jiv1UQxMN1691tTzwhyrpgRKIs7DL6TdS0i87CL6728exBhLNCv0flURI5R419
+         pFjg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ1Kj9O9TH9JheY+xFXRMv6IyYhPiDi+ZJttapLxGSGMy0XSstA7
-	rAWnwHHUKWxI+cGz3wL1pTM=
-X-Google-Smtp-Source: ADFU+vuMa+NZm1LuNB4XGlDkKF8dY9GpWfQCEOGnDaYNLUwJWDtyFFC/h+fzfkB0Nz2BqWrQt8tKTw==
-X-Received: by 2002:aca:7506:: with SMTP id q6mr3221939oic.73.1585054360101;
-        Tue, 24 Mar 2020 05:52:40 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ1iVK/foqBbEer7maHnMKDtwizoQaMxAcKYce2SoYn3cCXghkl9
+	aIVG699W1K0bHXBRHfQATpo=
+X-Google-Smtp-Source: ADFU+vuvc5H7yQ+fGPi500J/kTJ+VJK8EK0cEh/obDsOkXrCflphRC5YTQTg5rFXksBpCWv5Zh+CSA==
+X-Received: by 2002:a17:902:d898:: with SMTP id b24mr23864877plz.0.1585055625386;
+        Tue, 24 Mar 2020 06:13:45 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:2e7:: with SMTP id 94ls7464406otl.6.gmail; Tue, 24 Mar
- 2020 05:52:39 -0700 (PDT)
-X-Received: by 2002:a05:6830:1ac1:: with SMTP id r1mr17550153otc.139.1585054359681;
-        Tue, 24 Mar 2020 05:52:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1585054359; cv=none;
+Received: by 2002:a17:90a:9308:: with SMTP id p8ls1826559pjo.0.gmail; Tue, 24
+ Mar 2020 06:13:44 -0700 (PDT)
+X-Received: by 2002:a17:90a:bf08:: with SMTP id c8mr5544191pjs.150.1585055624846;
+        Tue, 24 Mar 2020 06:13:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1585055624; cv=none;
         d=google.com; s=arc-20160816;
-        b=c8DwW/EgjAWhlWRXGNo4dU1WGH9UDmcd4PYomA8CjM/1cnqqa1r2G+/x+xAt2pEJji
-         jP+qMTla6sH2lZvTUnXB5bp+FKJfQH0GOk2O64arHNb/mzj5vD9Xv10FUlLLwxC1dJTs
-         hE/PrsC2V3vNwacxLl3H17wxmUus1BcZ5QJ4n7m7yM8UzdaABlAc+wZ+NiJtnJJu7Bg0
-         h9uHJYjsrWpASDyl5//wEr12Fo+5ZDxLaVC6ILjyZ1CEutdybdWKRZEOmpWDhXW2wBDg
-         0j+MJqJDwCGND56YBozeBF/VKMFya3XtdDFU6zIjxB431U8vHCyqiufYrFmokME3As3+
-         cezQ==
+        b=aOwiHRFKUWzhUh9mQA/+VDDz8fTA89/S0z4eEPTYgGxSkGl+2avf+TMQEPSlJjGxR3
+         KpJIlPuOrzv2wYV5Kq8d3X7Atlwtq9twX7GkDFh/Y/fmDBe95l7Zpo32F2gYMZgql9bP
+         uuKOwagI1UINUXa/ZX8aUA1z1k+GHly7zgMAVskIv3CSC23gIVZVwcltNouPRvFxfmNj
+         +nFOfWvcgNvYDd18Hi7QhcBf/zySWVBwwNjgzAp0DYYVzhoAzpIf8klkMW70AUSMYq98
+         pGtHu8FA/o9y/jCaLKKX2m5GHF7ihc1Q4vtovhcA+KADCQfjC+knu2N5QhXjDS8ETfuq
+         3fiw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=qXAOLPt6QGHGhV5Hqcq/R5T4WdGX89hi6VL4VBFKtIY=;
-        b=Tmr3BgU5veG7otGfaX8LcODFQr172nUzz/ntjZkSKOpHLh9dyJTLUUNgvd8UhgwiQm
-         itbgw3tIIoMjX+eWtqmJaB3wOt1ekJ/1oWFjzdC9A13DVTkUSfh8Sl4FVly4QOfhackk
-         xLQgCxKhOyV0ZL1PEeBp1UNmySMoPoL3jEalQqpGsFd6SBS1F9TK3EDyDpEM91TLzmF6
-         p8pKxnVwDjMb8uK3q1qYga0i376QQPaMD/8lQVp9egmmxNxcdAP1NtllXGZ52VIZgcoo
-         OvJIGvSlO8iFL7o/SOP0u2J/fu3/LcmUxVW47NoHmY1iHdBGBejJ79n93sb6H9wrQAgi
-         z7JQ==
+        bh=HXsYg23E0Iecnw5MYyoe/vIEqiBkVzrXX9l0E/D+Zo8=;
+        b=dNglTkzk+BDBS7UAtAY75Hskh+cHVA7KyHeyH9s5zOVkTWCPbxS3bHH15lEzERbLDI
+         TYXYG9F/gNyrwNNcMHL3MWZ+G/CHZwHw7K0o2K8L7iA43TVKG24mPHsZmTfCE0R7Tp7W
+         odsbQo/cz02bRYjV1oWY19RXEdZAZ1j9/tE4HVukP2ZiKjiuNWQul6EGcGPqMkrlZ0OW
+         5X8KfQcC3HaJuR3+vbSgbszILWJqyY3+Y9c7l+o8NGfbejT+apI/q5Z4cvEo6O0WjSKh
+         5jApM78jixjZc6XMVwnfbjCUIuiB6vuKjXnkJzjJQXOgVbw96cFAfC7DtfJgX8zlVEqH
+         Ds2w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=JYE86fRG;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
-Received: from bombadil.infradead.org (bombadil.infradead.org. [2607:7c80:54:e::133])
-        by gmr-mx.google.com with ESMTPS id h4si911035otk.2.2020.03.24.05.52.39
+       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=UXPufJQb;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
+Received: from merlin.infradead.org (merlin.infradead.org. [2001:8b0:10b:1231::1])
+        by gmr-mx.google.com with ESMTPS id r76si994439pfr.2.2020.03.24.06.13.44
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Mar 2020 05:52:39 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) client-ip=2607:7c80:54:e::133;
+        Tue, 24 Mar 2020 06:13:44 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) client-ip=2001:8b0:10b:1231::1;
 Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
-	by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jGj2p-0004Hn-Cy; Tue, 24 Mar 2020 12:52:35 +0000
+	by merlin.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1jGjNE-0001TL-7l; Tue, 24 Mar 2020 13:13:40 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 3B82C300235;
-	Tue, 24 Mar 2020 13:52:33 +0100 (CET)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id BCFC83070FF;
+	Tue, 24 Mar 2020 14:13:38 +0100 (CET)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 017F429B1EAD8; Tue, 24 Mar 2020 13:52:32 +0100 (CET)
-Date: Tue, 24 Mar 2020 13:52:32 +0100
+	id 995C529B1EADA; Tue, 24 Mar 2020 14:13:38 +0100 (CET)
+Date: Tue, 24 Mar 2020 14:13:38 +0100
 From: Peter Zijlstra <peterz@infradead.org>
 To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: jpoimboe@redhat.com, Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Wolfram Sang <wsa@the-dreams.de>,
-	Kamalesh Babulal <kamalesh@linux.vnet.ibm.com>,
-	Raphael Gault <raphael.gault@arm.com>, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] objtool: Documentation: document UACCESS warnings
-Message-ID: <20200324125232.GP20696@hirez.programming.kicks-ass.net>
-References: <20200323212538.GN2452@worktop.programming.kicks-ass.net>
- <20200324001321.39562-1-ndesaulniers@google.com>
+Cc: Josh Poimboeuf <jpoimboe@redhat.com>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Kees Cook <keescook@chromium.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	"H. Peter Anvin" <hpa@zytor.com>
+Subject: Re: call to memset() with UACCESS enabled
+Message-ID: <20200324131338.GG20713@hirez.programming.kicks-ass.net>
+References: <CAKwvOd=mOmU1S1g5oDDy3rLjnp543Fu6PSVAJyvxhyQDvpOM+A@mail.gmail.com>
+ <20200320101455.GB20696@hirez.programming.kicks-ass.net>
+ <CAKwvOd=edOBdTL=FcmXYuN8crykrEoJbfdVy4CmKL7ETj_TpnQ@mail.gmail.com>
+ <20200323212538.GN2452@worktop.programming.kicks-ass.net>
+ <CAKwvOdm1fPpdwoEprcvp=yKWWWP752eXj7zYnJJZ8TzYsx+M3Q@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200324001321.39562-1-ndesaulniers@google.com>
+In-Reply-To: <CAKwvOdm1fPpdwoEprcvp=yKWWWP752eXj7zYnJJZ8TzYsx+M3Q@mail.gmail.com>
 X-Original-Sender: peterz@infradead.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=bombadil.20170209 header.b=JYE86fRG;
+ header.i=@infradead.org header.s=merlin.20170209 header.b=UXPufJQb;
        spf=pass (google.com: best guess record for domain of
- peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
+ peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,54 +140,38 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Mar 23, 2020 at 05:13:20PM -0700, Nick Desaulniers wrote:
-> Compiling with Clang and CONFIG_KASAN=y was exposing a few warnings:
->   call to memset() with UACCESS enabled
-> 
-> Document how to fix these for future travelers.
-> 
-> Link: https://github.com/ClangBuiltLinux/linux/issues/876
-> Suggested-by: Peter Zijlstra <peterz@infradead.org>
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> ---
->  .../Documentation/stack-validation.txt        | 20 +++++++++++++++++++
->  1 file changed, 20 insertions(+)
-> 
-> diff --git a/tools/objtool/Documentation/stack-validation.txt b/tools/objtool/Documentation/stack-validation.txt
-> index de094670050b..156fee13ba02 100644
-> --- a/tools/objtool/Documentation/stack-validation.txt
-> +++ b/tools/objtool/Documentation/stack-validation.txt
-> @@ -289,6 +289,26 @@ they mean, and suggestions for how to fix them.
->        might be corrupt due to a gcc bug.  For more details, see:
->        https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70646
->  
-> +9. file.o: warning: objtool: funcA() call to funcB() with UACCESS enabled
-> +
-> +   This means that an unexpected call to a non-whitelisted function exists
-> +   outside of arch-specific guards.
-> +   X86: SMAP (stac/clac): __uaccess_begin()/__uaccess_end()
-> +   ARM: PAN: uaccess_enable()/uaccess_enable()
-> +
-> +   These functions should called to denote a minimal critical section around
-> +   access to __user variables. See also: https://lwn.net/Articles/517475/
-> +
-> +   The intention of the warning is to prevent calls to funcB() from eventually
-> +   calling schedule(), potentially leaking the AC flags state, and not
-> +   restoring them correctly.
-> +
-> +   To fix, either:
-> +   1) add the correct guards before and after calls to low level functions like
-> +      __get_user_size()/__put_user_size().
-> +   2) add funcB to uaccess_safe_builtin whitelist in tools/objtool/check.c, if
-> +      funcB obviously does not call schedule().
+On Mon, Mar 23, 2020 at 05:39:30PM -0700, Nick Desaulniers wrote:
+> On Mon, Mar 23, 2020 at 2:25 PM Peter Zijlstra <peterz@infradead.org> wrote:
 
-There's sadly nothing obvious about 2); __fentry__ is enough to end up
-in schedule() through preempt_enable().
+> > I think memset, as implemented in memset_64.S is safe. It's a leaf.
+> > function (no fentry or any other CALL out).
+> >
+> > And the memset() override in kasan/common.c calls check_memory_region()
+> > (which is a whitelisted function) and then __memset(), which is the
+> > above .S thing again.
+> 
+> The compiler is inserting calls to memset, not __memset, so
+> whitelisting calls to __memset doesn't fix the warning.  `memset`
+> does, 
 
-So any function that has function tracing on (mostly everything) is
-already disqualified.
+Right..
+
+> but do we want to be whitelisting that regardless of
+> CONFIG_KASAN?  Linus and HPA were hesitant:
+> https://lore.kernel.org/lkml/5127C62D-E97D-40B0-85B3-16F30B7ED514@zytor.com/
+> for __memset. Should I respond to that thread with this case of
+> CONFIG_KASAN and Clang?
+
+Let's add them to the Cc here. Linus, HPA, clang is 'optimizing' some
+code inside user_access_begin() / user_access_end(), namely it replaces
+the two 0 assignments in sas_ss_reset() with a single call to memset().
+
+Now, memset() isn't a whitelisted symbol, so objtool complains.
+
+Previously when memset() came up, there was some hesitation to whitelist
+it.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200324125232.GP20696%40hirez.programming.kicks-ass.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200324131338.GG20713%40hirez.programming.kicks-ass.net.
