@@ -1,127 +1,124 @@
-Return-Path: <clang-built-linux+bncBDV2D5O34IDRB7544XZQKGQEZPZYZHY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBS6B4XZQKGQEEPL5OII@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103d.google.com (mail-pj1-x103d.google.com [IPv6:2607:f8b0:4864:20::103d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1B89F190332
-	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 02:12:33 +0100 (CET)
-Received: by mail-pj1-x103d.google.com with SMTP id np3sf1257611pjb.7
-        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Mar 2020 18:12:33 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1585012351; cv=pass;
+Received: from mail-pg1-x53a.google.com (mail-pg1-x53a.google.com [IPv6:2607:f8b0:4864:20::53a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 54856190348
+	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 02:22:21 +0100 (CET)
+Received: by mail-pg1-x53a.google.com with SMTP id d124sf2512256pgc.16
+        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Mar 2020 18:22:21 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1585012940; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bTB1zGNxlZ1tpLOp1K5tbYtPIElebv2IPmU81QSjy+t/yDNm0Uwu+HSHOkLg1Gns4g
-         CXlm8tkSNtZ1ELei7u8zfaSDGMo7vCK06GxAq26n0Z8Kq1Bo+VkM/kGDykLOAvRTIXru
-         ohE+69yT+aa4Lyu8DmXLygtwuPFsFj5EL+x8Vj3p/totvaaQbKWZqp0t4UWk3yDTlmMr
-         myqeFjfSzGTBymuJVpNZAX+DKbsD45U29jE9g9NztMiHuHdU/lVt3U+sVi8IfFR1RSPi
-         E9r2kTH1F6qfCkT9hA213FR4jGJkbMbQW99aVOS7T6B/Ss/hL/CSngJL1wuFYHlGeVTC
-         z1Rg==
+        b=zfqFEst3hqi3AX6nPHg/ham/AcgPSc9qeIy9Cgj0JFinjKb/UbVx8vQkRzWb2izdwB
+         Z6lJO2bSqeDstepOUFH0Yt3rBKngnUdOqRNPnONleM0QDRrO4WYxMwAI8m06C6B3Xqj0
+         yHmBtLv1F/pEz7i1Y0PKKF6c0j/sngqkmcjlCV+kRoXP5DerIuDe29HcUyozaP0L3DTO
+         K4JVo/xPewfZGt/elP0TB8J7+F8E858xcgwtkB1qPIduYzjwhIlNaiGpNwtM7cXcwVRH
+         NyBXwHCFiuBvZTPRFPXfBT45nB2pA+9JDmV1oeWc6b2jh6JgYuZJg64owEikih35mZfH
+         /caw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=vLde5HLCB+0x6/s0KjRE6JJZtWxr6QbR4TC3E6BUkPY=;
-        b=yo90Hb+c9AVOukdvjnkbZU4fptVH6LrOBLozEwmFQs7Ew710iZcz4pLzSND0CJu8Uf
-         5A5JFbhYwnB15KeMfnLwpL+XeRzEoEi44YmTg2J/xmlo/qz1NAITOG0tZ7d87eqy2oGb
-         lZ5kDLpDiW4VVwNRxT0dUVHAenI4BMYLbQCfg2nJtjDMFeN9JKzEVNPAO8dCyjMeZG8Z
-         COQ8w3QyrlVRFZv6tvuKW8Xg9cb6mNRRXm3sBfAdM5lDtxYnXQD4aDw+t9UGvz0L/AV9
-         Ck1H7hc3fdMtfEZnXq+r5doR8Jeaux1OvQGwZuuLnSBvtpe7aT07DFYndzVri17u4YKB
-         nSSw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=Ssbao0TM3giuj6sFkuMAFSw6zJcQ7CGBqpBazi8eOcQ=;
+        b=ISbCq2yg64JQkwlAwnewnmPZ+5UWtiMCTYsVftoqb6xRmSoy6XfeEVCCdzLBEw3At2
+         qXoNJckYHIpsRBZf9WiSnDn3lB8NX+VaytqR9x7UWOdn2Wko5mVAqCoC0n55HyS6Vqyz
+         bGKG1hLIK6xyKEC6eH9JmQncfo1PDU6wkelo7uPDheiWAiuHFftfAd+BV/CL1K4AlQh2
+         PzKxSVKWn2MsBBuKjW/b4K2rF2OdArVQnBP+p8iGQmbBg24oKR0/n867A/wO7NC/+qOV
+         S5D9X0wdJck8Jb3xuhUzCYRfqjHwBrS6D8euwusoeshVabK+yK0L+MwXc74VompMg+U8
+         z73Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=lerPhT70;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=C3gnOA1K;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=vLde5HLCB+0x6/s0KjRE6JJZtWxr6QbR4TC3E6BUkPY=;
-        b=ayG9ZMhBK3U0sfExGG5kyPbw95yKkAsab1ivRv32kpoAteM7jUHLA+A4GDpntVwq8X
-         5hQHo9XAV97P2lAhsBmICL6prW4M7HWJg2cojEZzQMRjO8LN9/zdhqdcz51GCjlXGu3B
-         dg7oJK7uM186DhTb1mbf/5Lh4Alq2RXJZoeFQg0DMsaMcp4ULStJY48HtjRlZ2TSTJfQ
-         EAT/ySKvrgnGLRw1/YshQt4/UgVMtdVRIQf7SfyoTUPYjWWxtGm47nR4DQZXCPzKuDJh
-         zBSwbmq2p7sqEXGFt02Ndv0H5zUIRvwhIPxGeK8mRs4+cbcqYP5X+GsY+IPcapAG363m
-         RvLg==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Ssbao0TM3giuj6sFkuMAFSw6zJcQ7CGBqpBazi8eOcQ=;
+        b=I/OgSYEd157VB1MPzDKAZFgHBdYGQVXn6kRy7GVJEi//velo4GgCR0cPP94h1Kj7fW
+         3nxEGaH9i8p02ZOV/PKTErOjydU8151OVgTj1nyuqi+NPIxqgTAnzpXrz7pPFYIN0fmb
+         aY3ToS0S3Cvj4LWz2p9Hfm5kyZGWhu0f65jCiDcrHj3E+VSX+wvdRgSXZHrwpjljzGeD
+         vkBd3lgXzuFJNm5KfRzsC7fZarK8ZYmPixpk1GgBczxmwd8tjhjwMD02n2aWwwMueDIU
+         Jhg3o0a/s9Td4LXXU65J3gnnrN4EVOjxAWmdkS4DmqCJdFDpRcuvLiGft17EAcYMAcde
+         6NVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=vLde5HLCB+0x6/s0KjRE6JJZtWxr6QbR4TC3E6BUkPY=;
-        b=dM/SVIBW68e7clQj+gqPJFLH9ENNBCRBkoxtEox/eWufjZXkDmuhIhes3bTKxtmWjI
-         I8GxPVXwHZehSZ/f63bEKvYa1Ph8RKyXybTzpZyHLvUUHz7n1dm+2WtChrvar15uGIHM
-         wuP96lrtLcWK51mFzTY70qMU5lWNI7/lMENxaqWzMdzvLFqt9dioGjEEM9emGSqbseq3
-         AQ/ljJCRf5t6V/I66LjDVpX/FFwnyNCeW2GBqqSiuPIg6q0ZF+Lh9ZIZhK82WEdReRzb
-         v9KKO2PKsPWfKbchCuuO4GGWf3yo8zdJR4nEHvATbTUqCvz/vteIXtd2S8ca4iKYVc1I
-         AkRA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ3sfah06gBVpeJgx+YbaOpG9De5etkNTozXsak70NF72MLhJX58
-	Hi4NMyF1SJctIPbZvmTzFLk=
-X-Google-Smtp-Source: ADFU+vtZ1vXCVCrLehaJfXBl0JusFQskuV3DjkUodJrbBE/8kJA8SK4cbi9R+v20Y73gqvkCBZADhg==
-X-Received: by 2002:a17:902:b785:: with SMTP id e5mr8008778pls.175.1585012351487;
-        Mon, 23 Mar 2020 18:12:31 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Ssbao0TM3giuj6sFkuMAFSw6zJcQ7CGBqpBazi8eOcQ=;
+        b=m1cuKGcNT8GrKBBqu75p7rywKUdipl2TEyKiEjjPN2vCucmx6lE875csZgbdo075yl
+         BiOaY3cPBSX7U+Fabz8dY7QtFiH8fpAKVM9bG2pMC4qianrExJs8GZ4lZL6J9rV/5lc1
+         YEgS7cyPEpJ6zHrOm8CKPDgPHWim4IAWunklQDAXOwR3XRjTiQRWyap8opUiTdfhqzf6
+         hmF91phNwWMTqoL0ANmyc/5T8lrS+VRT83sEm9TZA7A3kA6mWyiu7Pj4Mmb1BWX2FeQL
+         qSjkjPH5msFaHVGnlf08ltCaDEws9XmrDbbmXL6T+xFZmEBOW1ie4vVmglIbdC+Pv5EZ
+         Ew3A==
+X-Gm-Message-State: ANhLgQ2N3DF/EwuwIG3z7O9yOEfWFwX+LgLCr2qaJfyYRG7mw/s+pNY1
+	JMisak7ioR986TAjQzBsmOM=
+X-Google-Smtp-Source: ADFU+vsHgTSnV6ERXP3+bwzX/1EGhlFCjQhs086y2MMip0PWfI/UEJhag60oOuQ9Cqp9WJlO25u7mQ==
+X-Received: by 2002:a17:902:463:: with SMTP id 90mr25586383ple.213.1585012939946;
+        Mon, 23 Mar 2020 18:22:19 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:58a:: with SMTP id 132ls8390453pgf.5.gmail; Mon, 23 Mar
- 2020 18:12:31 -0700 (PDT)
-X-Received: by 2002:aa7:97a7:: with SMTP id d7mr26970624pfq.194.1585012350960;
-        Mon, 23 Mar 2020 18:12:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1585012350; cv=none;
+Received: by 2002:a63:34cb:: with SMTP id b194ls5466033pga.1.gmail; Mon, 23
+ Mar 2020 18:22:19 -0700 (PDT)
+X-Received: by 2002:aa7:9a1c:: with SMTP id w28mr27330669pfj.16.1585012939492;
+        Mon, 23 Mar 2020 18:22:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1585012939; cv=none;
         d=google.com; s=arc-20160816;
-        b=DGcM1cLqXcBjwpBypQDgdEO0I+0Ud6LDIRIrM0JOYRLJi1oWFdZcUmNyV3DUWYHMav
-         cyN63hdfy+mYV/nKWRPfey9Nw3vcZIbuplm/pwjHM/kiVbsTeEBb2IISjgxIom5pJYIg
-         nq+/rm30Immi/oPaH42BeKjLEyMbqjkFj0eo+lax9NftSJ9CCrUrM3ZdWRFLmY/NqLMI
-         UVHjWNyAYHA0Cew2ijSbjSZLjBK7JoT2LRehbo/ttiSVW+uOGXu0HGbuDHUkBhxUSK4f
-         wc0J8V3Vf4615LcILMEnZYdHkcbZsmIVyGBGEtgPw9cuvYbH+za+KpNuFux/A+WMym3v
-         xMUA==
+        b=LbCfz/Tfqz/Cjv7xiLSL10eUIkTkzwf1e8Rwjck2S5CyoR69cQx3dDdh5DP3X8P2v9
+         wr539s9zbItkSb41FfRR1VU6Dja4qrDLkbvFbysk/xiKnh5uTvqT2QpnW7TsHGE0L9B2
+         LBQMyNgEydhd5ZHvoe3D2RHKA53R55LZC2dXE0IaAKckKuAaVSNEk92JjrulEQHYgvPD
+         YCbTFN5vHjB1OK5F/mosy63jAdY7KKzjYbdvxozJZI8dAR9MswYbQPYEQmg6TdxxVSmC
+         sk4d5BX/usKNRnm2Vavj7kkOeTApqS7Sewy/XwKTzwjs2CdhtWkjZb5K+vQ7LVRmLg6t
+         HKfw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=PZYj1qXP9cUJY9iynaNb4XscpCafoCGGtBKmUDfUS/4=;
-        b=ui18v6IpAUaSQ/VdqPMrc1amkRNA097FVEsHHmqrKH9VAfHNWn/J/cfFf2tNsi2OMI
-         jzWKrWb3JUeKjwdJ+N0SR+EP1pjqutmxnkXvRqJSbDI5r70iPvnC5+Sj9b/uWQ9yw6hh
-         O/AjDBHqOrmH32X7m2evppJTGM6T7oYc2/7b2AluItVHtx2PZCM1X4ojWiwSIfb2b0i6
-         bTAiNVD5MBDNQIUWG5sdV7TkXhTo/rw+kwGYSFe1K27TheYuz0Ctbjvtb02ewVHGkvfM
-         EqvRh/fIvjS/VxeXpcNS3Y79Y/XGUHyuQozbLUUgEUVvZmum4kfi+1o45XweSuioNnYN
-         rbQg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=2bF4kWzVYozUGgvzITVBuWBVodBeRJJH7jEiGrv7K80=;
+        b=fZdkkHrjZ1SbwLUecWYkh5ZKzRR4goKathcIDpYWnxb2r6MtPArKJ+bzJA/WJZUYFJ
+         RpUWoHw3dXJ9Od0O6QynrQX9P6RPM563Q1NK2uTuiq+m543uk7q3b3rxK9ms3JCdPjq1
+         xY6X9mq0Lqp1jUXXs19tTeuLhZON6WR7vzbIlxDedZZ7jsNfqE48UC+T96kpEAST6e10
+         5YIizAv2Xxy3MKnyLuK43bqTP9Nbr1CO0aHEM2y3u2T6bRHcoJv5Z9NPbsPwjgVid2+h
+         K77VS73kWGHT9l8fyRMVUZjR+bim2pnsn4UVO+otT60JeKHlBselL6ywXn50kfmP9ef+
+         ws3A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=lerPhT70;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
-Received: from bombadil.infradead.org (bombadil.infradead.org. [2607:7c80:54:e::133])
-        by gmr-mx.google.com with ESMTPS id 138si285479pfa.6.2020.03.23.18.12.30
+       dkim=pass header.i=@google.com header.s=20161025 header.b=C3gnOA1K;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pj1-x1043.google.com (mail-pj1-x1043.google.com. [2607:f8b0:4864:20::1043])
+        by gmr-mx.google.com with ESMTPS id s63si20523pjb.0.2020.03.23.18.22.19
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Mar 2020 18:12:30 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2607:7c80:54:e::133 as permitted sender) client-ip=2607:7c80:54:e::133;
-Received: from [2601:1c0:6280:3f0::19c2]
-	by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jGY7I-0001a8-UC; Tue, 24 Mar 2020 01:12:28 +0000
-Subject: Re: [PATCH] objtool: Documentation: document UACCESS warnings
-To: Nick Desaulniers <ndesaulniers@google.com>, jpoimboe@redhat.com,
- peterz@infradead.org
-Cc: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Wolfram Sang <wsa@the-dreams.de>,
- Kamalesh Babulal <kamalesh@linux.vnet.ibm.com>,
- Raphael Gault <raphael.gault@arm.com>, linux-kernel@vger.kernel.org,
- clang-built-linux@googlegroups.com
-References: <20200323212538.GN2452@worktop.programming.kicks-ass.net>
- <20200324001321.39562-1-ndesaulniers@google.com>
-From: Randy Dunlap <rdunlap@infradead.org>
-Message-ID: <f55972ee-8e4e-844f-1678-cde1cdcc1fa9@infradead.org>
-Date: Mon, 23 Mar 2020 18:12:26 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Mar 2020 18:22:19 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) client-ip=2607:f8b0:4864:20::1043;
+Received: by mail-pj1-x1043.google.com with SMTP id jz1so590979pjb.0
+        for <clang-built-linux@googlegroups.com>; Mon, 23 Mar 2020 18:22:19 -0700 (PDT)
+X-Received: by 2002:a17:902:6bc8:: with SMTP id m8mr17986977plt.223.1585012938823;
+ Mon, 23 Mar 2020 18:22:18 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20200324001321.39562-1-ndesaulniers@google.com>
+References: <20200323114207.222412-1-courbet@google.com>
+In-Reply-To: <20200323114207.222412-1-courbet@google.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 23 Mar 2020 18:22:05 -0700
+Message-ID: <CAKwvOd=p5jkqopHr2ka_9PM345d-hzoqT97Gq6z1ZsmJS1ZQvw@mail.gmail.com>
+Subject: Re: [PATCH] x86: Alias memset to __builtin_memset.
+To: Clement Courbet <courbet@google.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	"H. Peter Anvin" <hpa@zytor.com>, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Original-Sender: rdunlap@infradead.org
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=bombadil.20170209 header.b=lerPhT70;
-       spf=pass (google.com: best guess record for domain of
- rdunlap@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+ header.i=@google.com header.s=20161025 header.b=C3gnOA1K;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,60 +131,100 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 3/23/20 5:13 PM, Nick Desaulniers wrote:
-> Compiling with Clang and CONFIG_KASAN=y was exposing a few warnings:
->   call to memset() with UACCESS enabled
-> 
-> Document how to fix these for future travelers.
-> 
-> Link: https://github.com/ClangBuiltLinux/linux/issues/876
-> Suggested-by: Peter Zijlstra <peterz@infradead.org>
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+On Mon, Mar 23, 2020 at 4:43 AM 'Clement Courbet' via Clang Built
+Linux <clang-built-linux@googlegroups.com> wrote:
+>
+>     Recent compilers know the meaning of builtins (`memset`,
+>     `memcpy`, ...) and can replace calls by inline code when
+>     deemed better. For example, `memset(p, 0, 4)` will be lowered
+>     to a four-byte zero store.
+>
+>     When using -ffreestanding (this is the case e.g. building on
+>     clang), these optimizations are disabled. This means that **all**
+>     memsets, including those with small, constant sizes, will result
+>     in an actual call to memset.
+
+Isn't this only added for 32b x86 (if I'm reading arch/x86/Makefile
+right)? Who's adding it for 64b?
+
+arch/x86/Makefile has a comment:
+ 88         # temporary until string.h is fixed
+ 89         KBUILD_CFLAGS += -ffreestanding
+Did you look into fixing that?
+
+>
+>     We have identified several spots where we have high CPU usage
+>     because of this. For example, a single one of these memsets is
+>     responsible for about 0.3% of our total CPU usage in the kernel.
+>
+>     Aliasing `memset` to `__builtin_memset` allows the compiler to
+>     perform this optimization even when -ffreestanding is used.
+>     There is no change when -ffreestanding is not used.
+>
+>     Below is a diff (clang) for `update_sg_lb_stats()`, which
+>     includes the aforementionned hot memset:
+>         memset(sgs, 0, sizeof(*sgs));
+>
+>     Diff:
+>         movq %rsi, %rbx        ~~~>  movq $0x0, 0x40(%r8)
+>         movq %rdi, %r15        ~~~>  movq $0x0, 0x38(%r8)
+>         movl $0x48, %edx       ~~~>  movq $0x0, 0x30(%r8)
+>         movq %r8, %rdi         ~~~>  movq $0x0, 0x28(%r8)
+>         xorl %esi, %esi        ~~~>  movq $0x0, 0x20(%r8)
+>         callq <memset>         ~~~>  movq $0x0, 0x18(%r8)
+>                                ~~~>  movq $0x0, 0x10(%r8)
+>                                ~~~>  movq $0x0, 0x8(%r8)
+>                                ~~~>  movq $0x0, (%r8)
+>
+>     In terms of code size, this grows the clang-built kernel a
+>     bit (+0.022%):
+>     440285512 vmlinux.clang.after
+>     440383608 vmlinux.clang.before
+
+The before number looks bigger? Did it shrink in size, or was the
+above mislabeled?
+
+>
+> Signed-off-by: Clement Courbet <courbet@google.com>
 > ---
->  .../Documentation/stack-validation.txt        | 20 +++++++++++++++++++
->  1 file changed, 20 insertions(+)
-> 
-> diff --git a/tools/objtool/Documentation/stack-validation.txt b/tools/objtool/Documentation/stack-validation.txt
-> index de094670050b..156fee13ba02 100644
-> --- a/tools/objtool/Documentation/stack-validation.txt
-> +++ b/tools/objtool/Documentation/stack-validation.txt
-> @@ -289,6 +289,26 @@ they mean, and suggestions for how to fix them.
->        might be corrupt due to a gcc bug.  For more details, see:
->        https://gcc.gnu.org/bugzilla/show_bug.cgi?id=70646
->  
-> +9. file.o: warning: objtool: funcA() call to funcB() with UACCESS enabled
+>  arch/x86/include/asm/string_64.h | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+>
+> diff --git a/arch/x86/include/asm/string_64.h b/arch/x86/include/asm/string_64.h
+> index 75314c3dbe47..7073c25aa4a3 100644
+> --- a/arch/x86/include/asm/string_64.h
+> +++ b/arch/x86/include/asm/string_64.h
+> @@ -18,6 +18,15 @@ extern void *__memcpy(void *to, const void *from, size_t len);
+>  void *memset(void *s, int c, size_t n);
+>  void *__memset(void *s, int c, size_t n);
+>
+> +/* Recent compilers can generate much better code for known size and/or
+> + * fill values, and will fallback on `memset` if they fail.
+> + * We alias `memset` to `__builtin_memset` explicitly to inform the compiler to
+> + * perform this optimization even when -ffreestanding is used.
+> + */
+> +#if (__GNUC__ >= 4)
+> +#define memset(s, c, count) __builtin_memset(s, c, count)
+> +#endif
 > +
-> +   This means that an unexpected call to a non-whitelisted function exists
-> +   outside of arch-specific guards.
-> +   X86: SMAP (stac/clac): __uaccess_begin()/__uaccess_end()
-> +   ARM: PAN: uaccess_enable()/uaccess_enable()
-> +
-> +   These functions should called to denote a minimal critical section around
-
-                      should be called
-
-> +   access to __user variables. See also: https://lwn.net/Articles/517475/
-> +
-> +   The intention of the warning is to prevent calls to funcB() from eventually
-> +   calling schedule(), potentially leaking the AC flags state, and not
-> +   restoring them correctly.
-> +
-> +   To fix, either:
-> +   1) add the correct guards before and after calls to low level functions like
-> +      __get_user_size()/__put_user_size().
-> +   2) add funcB to uaccess_safe_builtin whitelist in tools/objtool/check.c, if
-> +      funcB obviously does not call schedule().
-> +
->  
->  If the error doesn't seem to make sense, it could be a bug in objtool.
->  Feel free to ask the objtool maintainer for help.
-> 
-
+>  #define __HAVE_ARCH_MEMSET16
+>  static inline void *memset16(uint16_t *s, uint16_t v, size_t n)
+>  {
+> @@ -74,6 +83,7 @@ int strcmp(const char *cs, const char *ct);
+>  #undef memcpy
+>  #define memcpy(dst, src, len) __memcpy(dst, src, len)
+>  #define memmove(dst, src, len) __memmove(dst, src, len)
+> +#undef memset
+>  #define memset(s, c, n) __memset(s, c, n)
+>
+>  #ifndef __NO_FORTIFY
+> --
 
 -- 
-~Randy
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/f55972ee-8e4e-844f-1678-cde1cdcc1fa9%40infradead.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3Dp5jkqopHr2ka_9PM345d-hzoqT97Gq6z1ZsmJS1ZQvw%40mail.gmail.com.
