@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBYHL5XZQKGQESYV7FGQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBE725XZQKGQEHDGQRDA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3b.google.com (mail-io1-xd3b.google.com [IPv6:2607:f8b0:4864:20::d3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5E42C192C09
-	for <lists+clang-built-linux@lfdr.de>; Wed, 25 Mar 2020 16:16:49 +0100 (CET)
-Received: by mail-io1-xd3b.google.com with SMTP id c7sf2305364iog.13
-        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Mar 2020 08:16:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1585149408; cv=pass;
+Received: from mail-ot1-x338.google.com (mail-ot1-x338.google.com [IPv6:2607:f8b0:4864:20::338])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0B2D3192D33
+	for <lists+clang-built-linux@lfdr.de>; Wed, 25 Mar 2020 16:47:33 +0100 (CET)
+Received: by mail-ot1-x338.google.com with SMTP id n6sf1913692otk.18
+        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Mar 2020 08:47:32 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1585151251; cv=pass;
         d=google.com; s=arc-20160816;
-        b=raGG5dzJ/aTdUsw7CKTY3MgvvOiaXKItXiboamiIPUqf2foyKSpbTfGAncJUsAjMfG
-         oF7Jdq6fn3EJ0Ipvg/hQ7yvBqoEPDErdf0Dxwn08y4/AsRtKx8mhYehFr4F1XEVw2Wpd
-         W3jNJqJ5FoPy+k0agIYH1HUDSuf3P/duKnviQyLON7iHEvGsT08bDkD8IVbP75bSajvN
-         bsInPo1dRjr8mrDgxUUf02zLB6vJ9ScoJ9l1tjJeQDNhDn8K5WCOoE2BQWL9fhbu7rvW
-         rj72Jhf2s879foo9B4un1ldX+u7SiyNLaoUn4+xd2ssYQMOVAJNAT50BYe30jQ637iHK
-         BSTw==
+        b=K0ItLz/WE6hhMeepgarIBCZqCaULdScHGJsZAnS9Q7hQAj/3r4nrt+AHt+Dp4FlRPw
+         6qh5impuVUhGWBQeBS6UORe1JNmeVUNnOEHyK4sBtjABpVKM8z2v7XUfCGDfmoZqyrd1
+         lwrEcjckp8T8Bm+Zin9ruWn19yYagBeCQxXAvYTayhZRbeABszFw8Tmb9g0juTbigEjy
+         vAOHnRf4+sxLnSboPGx2z5l/rb87zSFwDUvI7chTV1QXN8FEVxy38WT/R9m9aWhEIkid
+         SaTzipccnL9RwjKGCkh3gangKgdI2ObbNDLhcuPFAiRE/6hMyVDly2UYvzWCdoqWPo26
+         92Ow==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=Co6Gg1JbygX7rPRoLzPSSDi0FPWrrPQWm4l7K7sw61c=;
-        b=d2WTCJ2F18YahTYuJM9o9ZKh/cG+uFWtyWUed/6CZm7LuLZpwqgKV+kgBTfJFNdsum
-         FU9ME9r8V92nNb+3txTzV+WKrUbAdug2ITDbIJc7hvCHr8hhq0C0O9RjDr5qefUOWNAI
-         OR1ilLGXIaU/jPv7K1JQIUyrCojw6FXwPWVj2AHvNbCQ+3cxOfV3XPK6haE9nA5ryRQh
-         JUQbLrHK5NBM8CqvdfHKMCC5hk8tWNBadEByY6HnAuTkbToi7St0HOXcsdn3gSq8GLId
-         NIJiducq+fJx01GT2+c1mwYfS62RFNoCwxCiNg/vq/DO4dj6FG+fhS9d2ow5ANMUXF3o
-         3/Ow==
+        bh=enKRucohTyI3K/7Vwk6qxoR57TyHYEkAwC/Y/4xsfAY=;
+        b=cDgvf0olMsWUDJYXNUUvZS3GHJ9gFhUifSGvfxxSCYxHQ9y9IzSD0tSePCt9gvUa+h
+         QDKIFuLoI2Bx4phHdbGhF28lT2KYHTsgwbIk8iy8F6wCQGRfF1059JJaH/uDAC6JjH6B
+         ONrd8GuJweV/E6PLf8eJMPwzZ2W487/gs/c3ZLbrAjyNrwHL3EIs95NPt8hhrh4p8t9T
+         T6GVWpLt30vVQoaqQPF1I02gPMp00GPCK+Eb2o4u3Yndr7JF1Bp5plTDfOXen25kPzQC
+         PuYHuc3ZwzAIDbRCXuC1IUmLJ5ZvHKkQsnlTcwGCyQi0c0EuA9AY7ZAqhDjcqzW/6usH
+         38Mw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Co6Gg1JbygX7rPRoLzPSSDi0FPWrrPQWm4l7K7sw61c=;
-        b=jme4SR2hwA+EHB8Hp5hBnYRcCiNaI4CEZI7M7t+aCU8fdLM0Gxh+btCQTEvylXqCIB
-         djUKV83UHz9ElwWTP7qdI3RDjQtBs7ZIt8tNrtwIRa7AQM33EUmGVUOR2R7ZQdTURQ+X
-         ORhF38ru3Lex+1ibiAGfgJwKJQ+SwVm9B9Bwzllk6GgG3r5OwX1YmRwFYirR9DHK97X7
-         QAbBV9OxgEDLnkVuDOOCREIn3ffDsvVbkWw+0CMRQ0Yj4B4vy1lZszJtukwNO77Cc1we
-         +xXBZkzywRgYbxksARBT1Dv8+OSzdMe53XV3gPIJmXs87vUg+pM6v+xZQfhJsMmDodr7
-         ZYqg==
+        bh=enKRucohTyI3K/7Vwk6qxoR57TyHYEkAwC/Y/4xsfAY=;
+        b=kcb5z13k2kqDaHrQM4cXpRlWda2gyclp19lWsUD9Z9UvR+14ritB2G/tFpxApk1Izo
+         yG6FEdhmpMralynk9zmjhXwW3qpXVQhrHXrSC98hcEexINOX3kPPWfA/eBm8I6fk0kl7
+         Wo7UK4tzs7CUnKMl9mEC3doaDf+NvdJ6v610j1kYwIeH9YA9CrqLD7dAFkiUzYiuMuGc
+         3w3pS3jfMZkhHUgff5nbpoMiyQDfYN+OuWZxgTXG9JURseYa35vVYViR0hnrLpLAK7XH
+         cGayPm8n24G7TTa+gnJUYg9EJ6ylYA07qU0UGmiU5X1HlceGpeP2taqZ/AFCalCvH/o0
+         PBlg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,83 +49,83 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=Co6Gg1JbygX7rPRoLzPSSDi0FPWrrPQWm4l7K7sw61c=;
-        b=b1w3xWj/676CkoxOyAn3eGIrMkfOcJo/jzSWmTdyX5DA/sMupEAQ38/usoAWxQXgWa
-         b2DHGVmUYf3aRrVxQj8o1i3ukV+AlU2cfPZtQ3YZBXnb/yYM+b2cKrwANBm8P6OBSvV+
-         k+jAr/jBtP6J7cMKdR30m/bVSSDnAwx3ikrWN7Y7XFESIucJ/4W8c7JxOlmlCANFlVs5
-         vIcpQSiIITFKodKpjjKQ9PGuK+DJmRBfpJjIEWauEvpsi3ztarp/DeUY8yrNf95VXJ9f
-         Fx0KE5EsDvWYpTOpjOq697JdMpeIHOuduCHLy6UaSLKijSrXxlnmJJARaO+pyhl76Lh5
-         OYvw==
+        bh=enKRucohTyI3K/7Vwk6qxoR57TyHYEkAwC/Y/4xsfAY=;
+        b=YCpgUTt4SdCdn8GMCTTLRHETImdDxGw1/bwvlVyiTGrqmTMV+id9lEY3dBcNOOyTd8
+         hVGsVS12P2evefOgk0S5MdbVUljcNbra495fCQyuoYBYtFXTkeHKT3T+BtJbTBWyN16A
+         oF9rde4rCqoB6pTycymgsHdDUunsWFn9T5LiY2Byd7m+/DmH9V77ePk/V6bKA7Le9p3w
+         YB8FaiPyN6NUhISOPX/ncMwL9QgNoIDuiDdB3pxZlKB/5Fj/6ZDBe3Mnq1Lh3dLxsWsG
+         5v0MOa63L4cqo60kjzs7tx4BzjEyJkZAqdRU0JkgcObAXEUTfFwjaxBbo9K1kbA3zrZ7
+         hADg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ00XXSH9TMtXdHSj45GRZT4xh23dgt+4o0/N327riSKZl98pz+n
-	FVL0jv3PDb0Xc57dmDETul4=
-X-Google-Smtp-Source: ADFU+vsSIvh/6Sgrwj52M9ahwst93/iJMFDOrAczlgXuumF7epQ0QpUTZaF6koS1zk3ab+rMKPTEig==
-X-Received: by 2002:a92:8c45:: with SMTP id o66mr4068737ild.236.1585149408254;
-        Wed, 25 Mar 2020 08:16:48 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ0B6zOws3R5Yk5hhad3mF3PXKB+CfrKd31zsSYo7chv1M7JhfTo
+	6ApAqKik0Krj/PGbBd0AfyA=
+X-Google-Smtp-Source: ADFU+vuptqCKihgjJjzuedW4yo0XacytkOBG38Yvgan8E/+rwC0pKt42jpqNNMQBBkuJLNMXD0G35w==
+X-Received: by 2002:a9d:554a:: with SMTP id h10mr2774075oti.344.1585151251576;
+        Wed, 25 Mar 2020 08:47:31 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:97d:: with SMTP id o29ls325554jaj.4.gmail; Wed, 25
- Mar 2020 08:16:47 -0700 (PDT)
-X-Received: by 2002:a02:a581:: with SMTP id b1mr3495283jam.10.1585149407829;
-        Wed, 25 Mar 2020 08:16:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1585149407; cv=none;
+Received: by 2002:a9d:3985:: with SMTP id y5ls752697otb.7.gmail; Wed, 25 Mar
+ 2020 08:47:31 -0700 (PDT)
+X-Received: by 2002:a05:6830:1447:: with SMTP id w7mr2969608otp.267.1585151250960;
+        Wed, 25 Mar 2020 08:47:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1585151250; cv=none;
         d=google.com; s=arc-20160816;
-        b=Tl9QLTA2Mu27fjuECeFh/FlPUHSUu3Hdhf29qLqFVCBcsGjsq0BEnIG2mZm1TZB/tT
-         gohKpVq9lIICLcEZo080cNVD3byBy9cqZ6A1KivhkHOrUz1ZV5TAnWdnY56vU/Rh92mt
-         K5RlzBwfrAtMEcsusIXM+vN5Pdx+f89Lg6Pp2DvvqefoEvsOtevoT12jIu0BSWRUDYr2
-         EnQqbeDrKXrK+Bv7s04StFt1uJgI/rUj8QeNrYPtnE1dYsRNr16+8FRWX5Yp3qFL85B6
-         ElaoX7X/uXnYLPjvhsrsEl5Xy7pAX1gjf3f0EkARixQXJBc0lSEYVAJYlDPJJMEiMlMq
-         +SmA==
+        b=OnoLSHtX+fIM3U1JccoePWB4RyBDzouV2/972pcCPfsdLNvfK9VlcZPxXbUbJ301rd
+         /nq+FACVVlmSHYk8S3qRyKghFUrZvRbZ9BSVSL6Gf8vdGgqREt/PZDutBDilcDSgxbk1
+         7D4fYlPZp7KoT/BIo1exH4Fe/iEneTE3IZRWp0gQjpJWZ/cImZZBqufuxQB+oRSNYpM2
+         vpCTlCqZre+inS2cI4gQ2Lb3q9Q2rNQLRIZ7w+0HTYWr+LMCLrHPrSHl551EPappCTrk
+         L5aoMAqrt0jN19eLrNz2gMX05vI0b2fGllmf09bvyeFHqNu3IvbBALLs/gR65s3B99sJ
+         snYw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=zVJ5087trseZhLhmN9v0iD06jMjwdajIM3AJN0IcWJs=;
-        b=CF5i8XMMFPsvA+kQtdSppcPBoSprTsS2zi29hkmACwiQdvliY3e6q9iHQpodwolFwJ
-         kd0zNnIZH1BVFfIEbuHUhSzBiqjiTMxkBKdgm720WEhQUWeGtIhCxPNHdjTh9ukvBX9x
-         KMrxp5+hqAAcECw1DneFG7lhueUsKKt+d2cG11oLb90d0qydLEPkHOMgvO7UKy6+RPUk
-         QwnMFRF4cOvqDrEbMOlB5rQ2soPHDv9xPWC4nTKHClLiQ603URB1BVyrzOjjzeWK5a7E
-         uvIgOdpzjDqmKP/90oWkJ5WnZwswOjqqScKfv+jQmRl5jT1OMkAHZ5Fe4MgkF7/qVeUO
-         4MsA==
+        bh=nQsIvKK1ZDlzq4N9eS3rpx/uH8+p4QQBEm1SvoHDJlg=;
+        b=U2DAmtvMzLtGEteprGW+30577Ql48Wwjm8Zqim6JAXbIlxgdzs7WZUnvzEnqeIvCZP
+         e93EIkiHoH6Ig8NQnPo7gZqYRymDDEBe36Ewd43HjQ4DFPzHTIqSdCzCnqGji+bWH3Ba
+         OkV3124ftMsg27gIoo+UvxklU9sc9IH6KlHXHlkd3GWpsXjwRaOZYoyOvsM1CMt+6IMC
+         PW7GtvTw0cRrwWGrfggkZ3zL8Du33Dgtt7i3Pe8OgdEPcV9AqIjO1iulzZ0sDNdKlf4F
+         E7y0NmQfnoHtKW6zUZLHWRgJncjETwSDt2lVOAeH5x2hgD0B0zJMYWKsoetsGQtio9+D
+         temA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
-        by gmr-mx.google.com with ESMTPS id d207si1170534iof.3.2020.03.25.08.16.47
+Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
+        by gmr-mx.google.com with ESMTPS id e21si250916oob.1.2020.03.25.08.47.30
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 25 Mar 2020 08:16:47 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
-IronPort-SDR: q9silOOGoVQ1WMa5zJcPiF3LFEFCucLw8/ZMgzdw3v9q4D61Lb4F0oVAMlFgeNdnfGBP4597fH
- eN7xVyPQy1Kg==
+        Wed, 25 Mar 2020 08:47:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
+IronPort-SDR: WCc0187JakSfofHW7YXkd5fulGj8hNrciGNjBQavr1ka11NpeHQAJcu2WYpUktqlvFfZCvEhyR
+ WldcwEQYhZgQ==
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga006.fm.intel.com ([10.253.24.20])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Mar 2020 08:16:12 -0700
-IronPort-SDR: hnWPi5jmonAwqdGdxTUfrOEJW21Umlsd37P1Kvesne2o9og+SuXUZXrtQQAjklACNV0PuvHsvE
- un27EYVBkFvA==
+Received: from fmsmga004.fm.intel.com ([10.253.24.48])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Mar 2020 08:47:29 -0700
+IronPort-SDR: w2ejh51/ANJ8yBBMHO4eMOZ+HQbWYBUpA9wGr1zmMBkWjWMji9RLwDQzgOR6PRr1dp2o+/Ryob
+ JU8eBMRD2b0A==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.72,304,1580803200"; 
-   d="gz'50?scan'50,208,50";a="448307028"
+   d="gz'50?scan'50,208,50";a="270844620"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga006.fm.intel.com with ESMTP; 25 Mar 2020 08:16:10 -0700
+  by fmsmga004.fm.intel.com with ESMTP; 25 Mar 2020 08:47:27 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1jH7lJ-000IMf-HE; Wed, 25 Mar 2020 23:16:09 +0800
-Date: Wed, 25 Mar 2020 23:15:41 +0800
+	id 1jH8Fa-000GBv-HJ; Wed, 25 Mar 2020 23:47:26 +0800
+Date: Wed, 25 Mar 2020 23:47:04 +0800
 From: kbuild test robot <lkp@intel.com>
 To: Trond Myklebust <trond.myklebust@hammerspace.com>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
 	linux-nfs@vger.kernel.org
-Subject: [nfs:testing 36/54] fs/nfs/direct.c:308:33: error: no member named
+Subject: [nfs:testing 48/54] fs/nfs/pnfs.h:808:28: error: no member named
  'commits' in 'struct pnfs_ds_commit_info'
-Message-ID: <202003252337.VpntqsJ8%lkp@intel.com>
+Message-ID: <202003252301.mJcHYctS%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="tKW2IUtsqtDRztdT"
+Content-Type: multipart/mixed; boundary="6c2NcOVqGQ03X4Wi"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -141,19 +141,19 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---tKW2IUtsqtDRztdT
+--6c2NcOVqGQ03X4Wi
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   git://git.linux-nfs.org/projects/trondmy/linux-nfs.git testing
 head:   21b71e249eabc75f6db7fb1ff83ce9fc34b09828
-commit: cd21157690af4193233d71828cac656f316a35f9 [36/54] NFSv4/pnfs: Support a list of commit arrays in struct pnfs_ds_commit_info
+commit: 0e648259eac31aaf3922faa9874ab797ed82e11d [48/54] NFS/pNFS: Clean up pNFS commit operations
 config: x86_64-defconfig (attached as .config)
 compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 2093fdd429d52348e08969180ac6b1e705fc4ff6)
 reproduce:
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout cd21157690af4193233d71828cac656f316a35f9
+        git checkout 0e648259eac31aaf3922faa9874ab797ed82e11d
         # save the attached .config to linux build tree
         COMPILER=clang make.cross ARCH=x86_64 
 
@@ -162,34 +162,30 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> fs/nfs/direct.c:308:33: error: no member named 'commits' in 'struct pnfs_ds_commit_info'
+   In file included from fs/nfs/nfs4client.c:19:
+>> fs/nfs/pnfs.h:808:28: error: no member named 'commits' in 'struct pnfs_ds_commit_info'
+           INIT_LIST_HEAD(&fl_cinfo->commits);
+                           ~~~~~~~~  ^
+   1 error generated.
+--
+   In file included from fs/nfs/direct.c:61:
+>> fs/nfs/pnfs.h:808:28: error: no member named 'commits' in 'struct pnfs_ds_commit_info'
+           INIT_LIST_HEAD(&fl_cinfo->commits);
+                           ~~~~~~~~  ^
+   fs/nfs/direct.c:208:33: error: no member named 'commits' in 'struct pnfs_ds_commit_info'
            INIT_LIST_HEAD(&dreq->ds_cinfo.commits);
                            ~~~~~~~~~~~~~~ ^
-   1 error generated.
+   2 errors generated.
 
-vim +308 fs/nfs/direct.c
+vim +808 fs/nfs/pnfs.h
 
-   295	
-   296	static inline struct nfs_direct_req *nfs_direct_req_alloc(void)
-   297	{
-   298		struct nfs_direct_req *dreq;
-   299	
-   300		dreq = kmem_cache_zalloc(nfs_direct_cachep, GFP_KERNEL);
-   301		if (!dreq)
-   302			return NULL;
-   303	
-   304		kref_init(&dreq->kref);
-   305		kref_get(&dreq->kref);
-   306		init_completion(&dreq->completion);
-   307		INIT_LIST_HEAD(&dreq->mds_cinfo.list);
- > 308		INIT_LIST_HEAD(&dreq->ds_cinfo.commits);
-   309		dreq->verf.committed = NFS_INVALID_STABLE_HOW;	/* not set yet */
-   310		INIT_WORK(&dreq->work, nfs_direct_write_schedule_work);
-   311		spin_lock_init(&dreq->lock);
-   312	
-   313		return dreq;
-   314	}
-   315	
+   804	
+   805	static inline void
+   806	pnfs_init_ds_commit_info(struct pnfs_ds_commit_info *fl_cinfo, struct inode *inode)
+   807	{
+ > 808		INIT_LIST_HEAD(&fl_cinfo->commits);
+   809	}
+   810	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -198,14 +194,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202003252337.VpntqsJ8%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202003252301.mJcHYctS%25lkp%40intel.com.
 
---tKW2IUtsqtDRztdT
+--6c2NcOVqGQ03X4Wi
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICHBve14AAy5jb25maWcAlDzbdtu2su/9Cq30pX1oYjuOT7rPygNIghIqkmAAUBe/cKm2
+H4sICAZ3e14AAy5jb25maWcAlDzbdtu2su/9Cq30pX1oYjuOT7rPygNIghIqkmAAUBe/cKm2
 nPpsX7JluTv5+zMDECQAgmrb1ZVEmMF97jPgjz/8OCOvx+fH3fH+Zvfw8H32Zf+0P+yO+9vZ
 3f3D/n9nGZ9VXM1oxtRbQC7un16/vfv28aq9upx9eHv19uyXw83VbLk/PO0fZunz0939l1fo
 f//89MOPP8D/P0Lj41cY6vCv2c3D7unL7M/94QXAs/Pzt2dvz2Y/fbk//uvdO/jz8f5weD68
@@ -748,4 +744,4 @@ TwcWQ6emHeg8nvTYGBpiBIuh4UdzswnegcI+7xaW0PYKvsIh2QtrG8VlOveY8IhiQlFQ04H+
 8HtRNyEp5Acb6kVMyjQfmBEgzQRwaBhcHWQBxzBoWQkLABqrtRrcHqxAAuKe/H84DoZnYuoB
 AA==
 
---tKW2IUtsqtDRztdT--
+--6c2NcOVqGQ03X4Wi--
