@@ -1,142 +1,147 @@
-Return-Path: <clang-built-linux+bncBCVJLOHTTUCBBI435PZQKGQEOR3L47I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD7LZ45K3ECBBQGK5PZQKGQECREU5FA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
-	by mail.lfdr.de (Postfix) with ESMTPS id CEC67191FA2
-	for <lists+clang-built-linux@lfdr.de>; Wed, 25 Mar 2020 04:19:00 +0100 (CET)
-Received: by mail-yb1-xb39.google.com with SMTP id r1sf1337789ybf.2
-        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 20:19:00 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1585106339; cv=pass;
+Received: from mail-ed1-x53a.google.com (mail-ed1-x53a.google.com [IPv6:2a00:1450:4864:20::53a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2EE61192043
+	for <lists+clang-built-linux@lfdr.de>; Wed, 25 Mar 2020 05:59:45 +0100 (CET)
+Received: by mail-ed1-x53a.google.com with SMTP id b100sf1160537edf.15
+        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Mar 2020 21:59:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1585112385; cv=pass;
         d=google.com; s=arc-20160816;
-        b=U/f9ygOMk/IOOX9CVBwWYYp7AgzC5KzhwtwdfRyyQtelneYJywTffbq2CT1u6ZfEvv
-         Jc4EbtzK+M8PyeV+WAQxaT2vOQdffXHCSgd3cyLfRJCwPR5eNcLYrLue8B44voMbpELN
-         hTceLoYymC3wSGkSDyLfBgeb7J8nBTtMFpv9jokLZ01ot5mRDWPqmBrHfS497/jx7rAg
-         AwKWirN7Ha38vKtQJTrMBe7hLhC2U/8AvjZrleUM2f/zmMQFMOBhCii8MsLgHJ7z9T2J
-         pPv9DyJPWw+bbEf1biL6FtoFIweAaxe4Zfic8WwgriOn5p9YTKCPXjKxhcbFvUfr+2JK
-         gq8w==
+        b=VIR2IvwDbXvZGwaUuNXTNihwMKw+wGnR4s23pPOBsY80ewO/MSy/cC8+362QvCXNJB
+         zKe6ptR69tMRW+f1iDjoJREkdcJPgm8C0y32J/DrYNlvJolj9pKpKO2Fg94K4yV2/gpz
+         ddJUMpekbqkfPY/nQaXrqrc2zvMwoCuDAJ+vikPf2dqaS2I07/zxeOR5xs8cTeNxJ9eT
+         wdosRX083jUlbKWlXk7c9XtI0ahPRdfMuV9BcAD6Ag9JTCK1fRjJVAohnZeFDAKxELmN
+         wMZTQ9kV15YpoQKkFa6PjHJwJy5YjWEruQBTtRZBixOdNvcl0iiWb+qljfISbNvG3xpa
+         LiqQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language
-         :content-transfer-encoding:in-reply-to:mime-version:user-agent:date
-         :message-id:from:references:cc:to:subject:ironport-sdr:ironport-sdr
-         :sender:dkim-signature;
-        bh=Pkzv9NhMVVp10sF4CZNa5OdXi7AQMYv5qUVDnkUSMi4=;
-        b=WQ1ByVLtfxIobO/n4Md1GCnWMa8ZJi/nIaxxFd1tRxWL7GxEtGnT6qLkz7HomL3vEV
-         WVBsE9N3QD23La43a4o6cfTT7CsbVjgtMEqgDwXp0SnGJrwqAhDioug82BxYlho22+/Q
-         Px3wGPl/Z9wKI2uUIxb6rlB7eXbnpdsR5FJrWMquPHMlJ01Gg3lk+3e89Ex5AYWH527a
-         QvbdmpA7HMfK0I0KtqjOjAIOocebjzHw2nGbGNPpV90xfAcPLeps1wb+SS489N04qiyD
-         luCegFT7rgdGBQi0yCJdbWMYIrtB9TouxTwSatqpRlEUE2owhpjERX968Ds+B/RME4tQ
-         qt+g==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=dBKcFUxTA1a5edbd7nkRzXVs9LGm28nUKWrTVhHUCBg=;
+        b=KLPSmXiTeqESUie0YOxxk0g4ZMTB+YnG7b7bAvgoseJu+xFBZHy81KZzqUPR9/YIYE
+         d54XidZyDZJ3yNjSoK1Sw3eEAPG7zBuleGKWXX0qqkBnUBy6ZhBY65SyBD7KGdiI5/Rj
+         JTT8/iddJcYPgCetZ5a8NhR6JSqEn37fe1xihbN79W+Kx8yvZIBg42Xt9REO8WAcNsAa
+         GYphFVB6+vLF/OmGpy9airS1sQH5YTTBOUsYatGHqP8WxdxOF0jEqj/lFiCaizDRYKLE
+         s1Pnooyxjh3sQSrL5h2CFjzeDBGSBQ+56iUey49GIRqBy6K7HWOxp3AeoJQDgJvtV/KO
+         6BCw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of yidingx.liu@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=yidingx.liu@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=eym7r4h8;
+       spf=pass (google.com: domain of mingo.kernel.org@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=mingo.kernel.org@gmail.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:subject:to:cc:references:from
-         :message-id:date:user-agent:mime-version:in-reply-to
-         :content-transfer-encoding:content-language:x-original-sender
+        d=gmail.com; s=20161025;
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Pkzv9NhMVVp10sF4CZNa5OdXi7AQMYv5qUVDnkUSMi4=;
-        b=OcqiW4OqTOkqMzaMaOcuOETjg5VnDfrKe9bCC+qb8yXKD1/8gMgFXqMpGLgHD/nSBI
-         JweUJGHRMlFqXJRHChQXKNWqXyb6b36HSOG2LsTI0xPxP1pXqnDj7hYn6xD39lEsahnK
-         B6UHDfk6xSCuGp6VBEUZenfJfpchaui7Yg/yuAjx7j/M6CQp/FUYQXxHAgNuCHWV8Nm9
-         K6GEhr7LCuliS7ZhPgFgMBlWscDoLppr2zo4/fqZqsRX/vGc8+QC8o60IhFEDGlFKrA+
-         PigFdUZW02Ajpu/k6ck9jplzWozO3uBDzQpep1TH7QHl65f4N2l3C0XaPB0756VWTlsV
-         Occg==
+        bh=dBKcFUxTA1a5edbd7nkRzXVs9LGm28nUKWrTVhHUCBg=;
+        b=jtLLS4TeAt9aUewTGUHBb3BhkO1FOWcBovPKJE/uHWfDf7x+B/0mnMI/a8kxYadxgd
+         aGv1z1C3DVqjKU6gn0AitcWo/mf3+nP9ReLr9mAw2APfXHvt/Fz+hyeAfgPITtu8t6m7
+         uTcJDtjBjMUdj1xfABgE0eDKizTKruiO4mEnfP8Ddiy+3BI/nbCtPAybK2g+vcTZ8JfX
+         ltAotZUrMQPd+FTFsK7dbDlnJyllEVPNLHntHIlAmC+fPFiU5My3egPoCkuF4XxD/nCY
+         9gsft+8AbaPQGnZ19m1Ln16k2UFijb7Jzjfta/TKB/f5CszplmZRAOwvWIX9TwlAAyxl
+         nFFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:subject:to:cc
-         :references:from:message-id:date:user-agent:mime-version:in-reply-to
-         :content-transfer-encoding:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Pkzv9NhMVVp10sF4CZNa5OdXi7AQMYv5qUVDnkUSMi4=;
-        b=pXTKZiDTYPX89Qn4TnJlGr4rU75ZEmO9/4xcZtQz+F9Q7Hvh8zQP2hMPazk+P69SiQ
-         44rd41zHTDfEJx/wzqn1Af6qA4Ln7VwRTC9tJZ5bKQzErsb8eTg0H/1hXk/k3f2/QJ0E
-         VRaV362IQqBjjlIUoRZoyLY40UIOG3pg0wYC7cy5JYaFEYy+iVBbtHiG1HHdCWtMH932
-         n8CFGf+JXYK1EgvztgZbXH0MiuQGWL7UspmnEGwV+rvZM9Ri2PlpPBjtV7VUtZWSqiF2
-         UhHZmwcIh1bReCFgKBZlCPp1TRzUHWfBViEBHscVQhV6IhWn5QW9KUbmupsIWMpDNuXC
-         CYSA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ0YZNbnlj+uz8cMffs4NfEcIxnUkJM0kxCj95kpzc/1XPzfyU8t
-	bqMKpEYtHxr9kNzIdb1Cwjc=
-X-Google-Smtp-Source: ADFU+vvQtlILh+xey1jJ6JiRsF+ABBtWYOjmO1xUQ1qcBXdBKhdBpnOnwqsxtcy8HsUjwW3cwjbMCg==
-X-Received: by 2002:a25:f201:: with SMTP id i1mr2437838ybe.371.1585106339670;
-        Tue, 24 Mar 2020 20:18:59 -0700 (PDT)
+        h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=dBKcFUxTA1a5edbd7nkRzXVs9LGm28nUKWrTVhHUCBg=;
+        b=tYyvVbZYZlBZoK1hARbKnJ+PYea6CN8wFOnc6aXhRBc5pA6D3Ib2sAmtdNCV/qULg2
+         gOl2x5h/cFj+L14cjNUWJAVgWKkJ+q4LEYewT65E7J1PeOi/uMLmlJV113JJfF0RAxLu
+         G0lJ5JyKSq+DHVDbffqR9I8qEMHbiS38J4VZjMqJsdf9zIuy2H/TZIMYUM/0MCdo+lVd
+         9yUqyGyeqRU8v1ZG9I57hknY1Q+oLW4L0RMPNti1oYAssYiRZXOsPXoNnWouDlU+EoEO
+         uAU1LFVRyTH3B9l1EgfxgLEJPKDkEAgFc3icFrO86j0zHxb4ZPkMjwLPRzaoDDByDGLd
+         FlkQ==
+X-Gm-Message-State: ANhLgQ0mU1sxtFefdtVTjkiQyDsqU/xnZUW+175fUVdHt5aqfSTyb7bt
+	cDPlPEbZaP95kP8J14gEAmI=
+X-Google-Smtp-Source: ADFU+vvta4sf1JWUIITH0Leek1pCEkVuQIw1QC3F8JEIBnoH+4lM0L1P3hrzNKQZGEaH3XQ5hjnpFg==
+X-Received: by 2002:a17:906:64b:: with SMTP id t11mr1604649ejb.336.1585112384975;
+        Tue, 24 Mar 2020 21:59:44 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:aab3:: with SMTP id t48ls321185ybi.2.gmail; Tue, 24 Mar
- 2020 20:18:59 -0700 (PDT)
-X-Received: by 2002:a25:d658:: with SMTP id n85mr2509759ybg.128.1585106339253;
-        Tue, 24 Mar 2020 20:18:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1585106339; cv=none;
+Received: by 2002:a50:f290:: with SMTP id f16ls1006318edm.6.gmail; Tue, 24 Mar
+ 2020 21:59:44 -0700 (PDT)
+X-Received: by 2002:aa7:cd78:: with SMTP id ca24mr1066351edb.293.1585112384199;
+        Tue, 24 Mar 2020 21:59:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1585112384; cv=none;
         d=google.com; s=arc-20160816;
-        b=esZfSumh9dWriIgmw1qneTzp1BNZsomSabb19kca6i/TruTmeg01QP7JNuClxtpsFs
-         i7olYyrqva6C/380kHL0KGjlOM1zXXzC2dqF8cj0LNYCFZu7v6pMUetqo66+hiuJ7Ukb
-         YraODQKcQb7P7lmGGu1c6CYox1AtdXlw4BfcqWR6Ab2f5pumfJcVwBx6XLbesQfbp8Aw
-         gIPsXXVAupq79nphuYCUA8IxPw8DZfe6WjZnWDnmcXc0Y/EubgGqsBUXxU8mG+I0P/mf
-         W6WPe2cIJ67dmEhZlivjBpX/soTOtjXj3aTJVUjdiZQ6anklnzTBY1rrZ2+h+puV4Eyy
-         2Wvg==
+        b=cfY4q6lUUBCTFt02gldSvHSOFsqO9I06g04TlDhG2Wa1rZlmVz1kEOI6NjzWK+VTmk
+         O8uhx6TQsPmNBy4kv5rej5LjX3ajDrER6rvwulOnQg9xrfx+zXsesQRC5xe1u8xfMPML
+         mxLo9ppNtEqSLpuLKE7FBXE4Ou/5zwts1I2BUqkZTo3GhycCGL78XrXMd/IcPQ/AQwyd
+         qKWz7s9O/7krEtVvyOxd1L7WaNOVjca/fM9lix08Hqclh0yCrAeGaWEAKr27wncUfHxu
+         Hq6Rw4CaQIyGwmCz4d3LkYKlFRU+yC6B7XmbdYmI7dUGbjfGfgUmRw25AuYZ8XfeAYEl
+         EQhQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-language:content-transfer-encoding:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :ironport-sdr:ironport-sdr;
-        bh=atlzxMKWpR6andQsfiFv4Wk0fBj5PJ3tTmqYUL76Zjg=;
-        b=IEv/GIERArVN1w4hsW1ocKLFCkAPZSm2ZeRJE1xuSsBC2ipSRbqHceVW7hIq7sOqag
-         Zi+N+sNGgaLGIAbDDhcs5cut3ybXtpR+pSiIYeFqwq0ln8vtr4kCaEFj7f6BNC43zalF
-         yVpixAxd0jqrTb4edYfq4Cxh6K/EMhFjqgDYssLUAl1GiYtxpPXNwZzqB/DL/uhy715W
-         QQ0sCsTZ6gJ5QJA9SYbJBv8yB1GebPFBU90ofxBvz2b/wlFTlCChjgipGSRlKlltnPQv
-         tRRFKbVPxh7uaGCpsVVOyoG0kk29U7TydGmbO93f+pVU8GSzneGktbzKq50hne/6NHBx
-         8uQw==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=h4KOauMe4v1I9pCuRQdOG97Qu/heRc/6J7SU7o8yNwE=;
+        b=APBs8wacofh8T9jfObYNAlvP/k08VSB16Oi8y22JubuYTlGZA36VcE4xGBKmhlk3HK
+         wjI/turFwefnUzycV/N3wISc9uAI9js1YXXkJAWb1WxbytTxI540FY9swiSU9PPrVpHx
+         ipHWqfYfqZTMP4wk287rUB1C9C5qthht3EOmE7OzZlJi0U/mXZVWtlpZVssnrclUDDV+
+         ftjb3u7ua9XQH+hr+8AV+M/tPXgOud6GUOoiMYvK2n0MznraFVqZ5HlREj53/5aJEqat
+         MSFO8iQgy99xutIuXSupOZKQDzKlzknhj86FGpvyicarDzL5Ty6rRrlAYFklEkasF+uP
+         NVNg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of yidingx.liu@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=yidingx.liu@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
-        by gmr-mx.google.com with ESMTPS id d72si427052ybh.5.2020.03.24.20.18.59
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=eym7r4h8;
+       spf=pass (google.com: domain of mingo.kernel.org@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=mingo.kernel.org@gmail.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail-wr1-x443.google.com (mail-wr1-x443.google.com. [2a00:1450:4864:20::443])
+        by gmr-mx.google.com with ESMTPS id k14si587252ejb.1.2020.03.24.21.59.44
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 24 Mar 2020 20:18:59 -0700 (PDT)
-Received-SPF: pass (google.com: domain of yidingx.liu@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
-IronPort-SDR: ebgPJs0jn9lND2sNC9gJODxKHMV8AUfgGyMlL7Qf7RC9Nc8hd6vMoH20XSKflwSkS5761AwuYl
- jxcvGhVKXf3Q==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga006.fm.intel.com ([10.253.24.20])
-  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2020 20:18:58 -0700
-IronPort-SDR: KRjcym9RLtzoxsdb/Rt1vNsd/JJ7zIjR9KVDzHmYTn6f/ho7011PrNNBG9fa5mGAliZl+FvoM7
- 4EIfdv9bJ/8A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.72,302,1580803200"; 
-   d="scan'208";a="448129499"
-Received: from yzeng14-mobl.ccr.corp.intel.com (HELO [10.255.30.229]) ([10.255.30.229])
-  by fmsmga006.fm.intel.com with ESMTP; 24 Mar 2020 20:18:55 -0700
-Subject: Re: [kbuild-all] Re: [linux-next:master 8211/10629] clang-11: error:
- assembler command failed with exit code 1 (use -v to see invocation)
-To: Philip Li <philip.li@intel.com>,
- Nick Desaulniers <ndesaulniers@google.com>
-Cc: kbuild test robot <lkp@intel.com>, kbuild-all@lists.01.org,
- clang-built-linux <clang-built-linux@googlegroups.com>
-References: <202003210848.qj0RGHwY%lkp@intel.com>
- <CAKwvOd=4euJP5xkAvYzaopiNQD3hNatX-6DFA2ubkCMK83GuDA@mail.gmail.com>
- <20200321005717.GA19135@intel.com>
- <CAKwvOdko3Bw9ZyzGNm0yghNW+0F_6atWCO09EjGz=-d=AJ+NCg@mail.gmail.com>
- <20200323231230.GA27448@intel.com>
-From: Liu Yiding <yidingx.liu@intel.com>
-Message-ID: <09a4cec7-535a-e538-c3ea-91236bc790b4@intel.com>
-Date: Wed, 25 Mar 2020 11:18:45 +0800
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.3.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Mar 2020 21:59:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mingo.kernel.org@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) client-ip=2a00:1450:4864:20::443;
+Received: by mail-wr1-x443.google.com with SMTP id p10so1286701wrt.6
+        for <clang-built-linux@googlegroups.com>; Tue, 24 Mar 2020 21:59:44 -0700 (PDT)
+X-Received: by 2002:a5d:474b:: with SMTP id o11mr1225073wrs.4.1585112383933;
+        Tue, 24 Mar 2020 21:59:43 -0700 (PDT)
+Received: from gmail.com (54033286.catv.pool.telekom.hu. [84.3.50.134])
+        by smtp.gmail.com with ESMTPSA id p16sm7149295wmi.40.2020.03.24.21.59.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Mar 2020 21:59:43 -0700 (PDT)
+Sender: Ingo Molnar <mingo.kernel.org@gmail.com>
+Date: Wed, 25 Mar 2020 05:59:40 +0100
+From: Ingo Molnar <mingo@kernel.org>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: linux-kernel@vger.kernel.org, "David S . Miller" <davem@davemloft.net>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Kees Cook <keescook@chromium.org>,
+	clang-built-linux@googlegroups.com,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-crypto@vger.kernel.org, Ingo Molnar <mingo@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Borislav Petkov <bp@alien8.de>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"H . Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
+	linux-kbuild@vger.kernel.org, Daniel Vetter <daniel@ffwll.ch>,
+	David Airlie <airlied@linux.ie>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Jim Kukunas <james.t.kukunas@linux.intel.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	NeilBrown <neilb@suse.de>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Yuanhan Liu <yuanhan.liu@linux.intel.com>,
+	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+	linux-doc@vger.kernel.org, Peter Zijlstra <a.p.zijlstra@chello.nl>
+Subject: Re: [PATCH 00/16] x86, crypto: remove always-defined CONFIG_AS_* and
+ cosolidate Kconfig/Makefiles
+Message-ID: <20200325045940.GA24974@gmail.com>
+References: <20200324084821.29944-1-masahiroy@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20200323231230.GA27448@intel.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: quoted-printable
-Content-Language: en-US
-X-Original-Sender: yidingx.liu@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of yidingx.liu@intel.com designates 134.134.136.126 as
- permitted sender) smtp.mailfrom=yidingx.liu@intel.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20200324084821.29944-1-masahiroy@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: mingo@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=eym7r4h8;       spf=pass
+ (google.com: domain of mingo.kernel.org@gmail.com designates
+ 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=mingo.kernel.org@gmail.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -149,164 +154,60 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi, All.
 
-On 3/24/20 7:12 AM, Philip Li wrote:
-> On Mon, Mar 23, 2020 at 03:09:43PM -0700, Nick Desaulniers wrote:
->> DTC folks to bcc
->>
->> On Fri, Mar 20, 2020 at 5:58 PM Philip Li <philip.li@intel.com> wrote:
->>> On Fri, Mar 20, 2020 at 05:30:45PM -0700, Nick Desaulniers wrote:
->>>> Known issue, please ignore: https://github.com/ClangBuiltLinux/linux/i=
-ssues/675
->>> thanks for info, 0-day ci will blacklist this error.
->> I'd rather not blacklist it.  So it looks like we don't see this in
->> our CI (example:
->> https://travis-ci.com/github/ClangBuiltLinux/continuous-integration/jobs=
-/301119543).
->> It seems related to which config you compile with.  With the attached
->> config, I was not able to reproduce:
->>
->> $ gunzip config.gz
->> $ cp config .config
->> $ ARCH=3Dpowerpc CROSS_COMPILE=3Dpowerpc-linux-gnu- make CC=3Dclang -j71
->> olddefconfig # note this shouldn't be needed
->> $ ARCH=3Dpowerpc CROSS_COMPILE=3Dpowerpc-linux-gnu- make CC=3Dclang -j71
->> scripts/mod/empty.o
->>
->> Doesn't produce anything, no error from make about being an invalid
->> target, but also no -mpower4 warning.  I also don't understand why the
->> provided config doesn't set or unset many configs in linux-next.
->>
->> Can you please triple check? I want to make sure the steps to
->> reproduce are reproducible.
-> got it, we will check this to see what is wrong.
+* Masahiro Yamada <masahiroy@kernel.org> wrote:
 
+> This series of cleanups was prompted by Linus:
+> https://lkml.org/lkml/2020/3/12/726
+> 
+> First, this series drop always-on CONFIG_AS_* options.
+> Some of those options were introduced in old days.
+> For example, the check for CONFIG_AS_CFI dates back to 2006.
+> 
+> We raise the minimal tool versions from time to time.
+> Currently, we require binutils 2.21
+> (and we plan to bump it to 2.23 for v5.7-rc1).
+> 
+> After cleaning away the old checks,
+> as-instr calls are moved to Kconfig from Makefiles.
+> (patch 11)
+> 
+> This allows more Kconfig / Makefile cleanups.
+> Patch 12 is complex, but I double-checked it does the equivalent.
+> 
+> Patch 14 bumps the binutils version to 2.23,
+> and patch 15 removes more CONFIG_AS_* options.
+> 
+> I folded all relevanet patches into this series,
+> as suggested by Jason A. Donenfeld.
+> 
+> If x86 maintainers take care of this series, that's good.
+> 
+> If it is OK to queue this up to Kbuild tree,
+> I will send a pull request to Linus.
+> 
+> Thank you.
 
-Check build log, we missed CROSS_COMPILE when make prepare
+LGTM. I've got these four from Jason A. Donenfeld queued up in 
+tip:WIP.x86/asm:
 
-```
+ bd5b1283e41c: ("crypto: Curve25519 - do not pollute dispatcher based on assembler")
+ 829f32d78588: ("crypto: X86 - rework configuration, based on Kconfig")
+ 95ef9f80ed63: ("x86/build: Probe assembler from Kconfig instead of Kbuild")
+ 1651e700664b: ("x86: Fix bitops.h warning with a moved cast")
 
-/usr/bin/timeout -k 100 2h /usr/bin/make HOSTCC=3Dclang-11 CC=3Dclang-11=20
--j32 -C source O=3D/kbuild/obj/consumer/powerpc-lyd-reproduce ARCH=3Dpowerp=
-c=20
-prepare
-[snip]
+I suppose these might interact (maybe even conflict), and are topically 
+related.
 
-```
+Would you like to pull these into the kbuild tree? You can find them in:
 
-Reproduce it locally.
+   git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git WIP.x86/asm
 
-```
+Thanks,
 
-root@liuyd-ubuntu1804:/home/liuyd/linux-next# make=20
-HOSTCC=3D/root/0day/clang-latest/bin/clang=20
-CC=3D/root/0day/clang-latest/bin/clang -j8 ARCH=3Dpowerpc prepare
-scripts/kconfig/conf=C2=A0 --syncconfig Kconfig
-[snip]
+	Ingo
 
-./include/linux/string.h:159:12: note: 'bcmp' is a builtin with type=20
-'int (const void *, const void *, unsigned long)'
-15 warnings generated.
-/usr/bin/as: unrecognized option '-mpower4'
-clang: error: assembler command failed with exit code 1 (use -v to see=20
-invocation)
-
-```
-
-
->
->>>> On Fri, Mar 20, 2020 at 5:16 PM kbuild test robot <lkp@intel.com> wrot=
-e:
->>>>> Hi Dirk,
->>>>>
->>>>> FYI, the error/warning still remains.
->>>>>
->>>>> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-ne=
-xt.git master
->>>>> head:   d8f289c16fbb72e17b783175c1fb0942816264fd
->>>>> commit: 35595372d95c0d10784bce1aec8cc144a39eb66d [8211/10629] Remove =
-redundant YYLOC global declaration
->>>>> config: powerpc-defconfig (attached as .config)
->> 'powerpc-defconfig' doesn't seem to be a named config.  Seems I must
->> use the attachment?
->>
->>>>> compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project =
-1993f95f2b1eb2d8da7f1a01e977d8fe06314bcf)
->>>>> reproduce:
->>>>>          wget https://raw.githubusercontent.com/intel/lkp-tests/maste=
-r/sbin/make.cross -O ~/bin/make.cross
->>>>>          chmod +x ~/bin/make.cross
->>>>>          git checkout 35595372d95c0d10784bce1aec8cc144a39eb66d
->>>>>          # save the attached .config to linux build tree
->>>>>          COMPILER=3Dclang make.cross ARCH=3Dpowerpc
->> Hi Philip, I tried the above commands to reproduce, but I see:
->>
->> $ COMPILER=3Dclang make.cross ARCH=3Dpowerpc
->> E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13:
->> Permission denied)
->> E: Unable to acquire the dpkg frontend lock
->> (/var/lib/dpkg/lock-frontend), are you root?
->> cross tool binutils-powerpc-linux-gnu install failed
->> Please ensure powerpc cross tools has been installed.
->> Please install: xz-utils lftp
->> Install clang compiler failed
->> setup_crosstool failed
->> $ sudo apt install binutils-powerpc-linux-gnu
->> binutils-powerpc-linux-gnu is already the newest version (2.33.1-2).
->>
->> Should install_cross_packages() check for these first, instead of
->> always trying to install them?
->>
->>>>> If you fix the issue, kindly add following tag
->>>>> Reported-by: kbuild test robot <lkp@intel.com>
->>>>>
->>>>> All errors (new ones prefixed by >>):
->>>>>
->>>>>     /usr/bin/as: unrecognized option '-mpower4'
->>>>>>> clang-11: error: assembler command failed with exit code 1 (use -v =
-to see invocation)
->>>>>     make[2]: *** [scripts/Makefile.build:268: scripts/mod/empty.o] Er=
-ror 1
->>>>>     make[2]: Target '__build' not remade because of errors.
->>>>>     make[1]: *** [Makefile:1111: prepare0] Error 2
->>>>>     make[1]: Target 'prepare' not remade because of errors.
->>>>>     make: *** [Makefile:179: sub-make] Error 2
->>>>>     34 real  9 user  19 sys  84.67% cpu  make prepare
->>>>>
->>>>> ---
->>>>> 0-DAY CI Kernel Test Service, Intel Corporation
->>>>> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
->>>>>
->>>>> --
->>>>> You received this message because you are subscribed to the Google Gr=
-oups "Clang Built Linux" group.
->>>>> To unsubscribe from this group and stop receiving emails from it, sen=
-d an email to clang-built-linux+unsubscribe@googlegroups.com.
->>>>> To view this discussion on the web visit https://groups.google.com/d/=
-msgid/clang-built-linux/202003210848.qj0RGHwY%25lkp%40intel.com.
->>>>
->>>>
->>>> --
->>>> Thanks,
->>>> ~Nick Desaulniers
->>>> _______________________________________________
->>>> kbuild-all mailing list -- kbuild-all@lists.01.org
->>>> To unsubscribe send an email to kbuild-all-leave@lists.01.org
->>
->>
->> --=20
->> Thanks,
->> ~Nick Desaulniers
-
---=20
-Best regards.
-Liu Yiding
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/09a4cec7-535a-e538-c3ea-91236bc790b4%40intel.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200325045940.GA24974%40gmail.com.
