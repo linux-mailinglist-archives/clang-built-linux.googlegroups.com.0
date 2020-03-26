@@ -1,33 +1,33 @@
 Return-Path: <clang-built-linux+bncBAABBDOD6HZQKGQECLKTIXQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x140.google.com (mail-il1-x140.google.com [IPv6:2607:f8b0:4864:20::140])
-	by mail.lfdr.de (Postfix) with ESMTPS id C8D8D193A29
+Received: from mail-yb1-xb3b.google.com (mail-yb1-xb3b.google.com [IPv6:2607:f8b0:4864:20::b3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8696F193A28
 	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Mar 2020 09:02:22 +0100 (CET)
-Received: by mail-il1-x140.google.com with SMTP id p15sf4545510ils.12
+Received: by mail-yb1-xb3b.google.com with SMTP id h185sf631107yba.13
         for <lists+clang-built-linux@lfdr.de>; Thu, 26 Mar 2020 01:02:22 -0700 (PDT)
 ARC-Seal: i=2; a=rsa-sha256; t=1585209741; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YqZ8B0HUdFpshzSkYEZk/CKTduK9zFxv34Jo/zxnRk6RLP9kov0CogbKtaybaOqqr6
-         HzteqwTORoS25iwY0j3xBoKikj55YKMZXnbNlPZD4g8Tu62JeVXNt1mcwq6Pb7bp4IgS
-         zNI9eCzfJo5+MPjb+lP68GGFGuGInQsrvAy5TdOykswIVIy4J/2B3mX+u12hIMQQ1ms0
-         D0D+vcSHNOFevjIjvZh5d7wgxixXmq1N7fufhI9clm6iq1s7nZnMw1VF9bN6F3gPklF/
-         rUD0jXk/nlH1GjrV+XvxzanNu1UwLSAvK1VrYLOSJDPmJ8b/BZOujAhxXWQm3tSIyGcP
-         PBOg==
+        b=CJdAipZQkUjMUQNMRx6jozux2YjCZmWzA5GOfFebTiyfmkYQ10C5DCf7CAxqICYbvo
+         43U3k4GAn+/KpgkT0YpGu7VuAm6pduflqnU4UGUubftmYjnuwukPNSWa+yovClWNbUiX
+         nCDSwn1cvICaP/YnlfJmfZfIshebRu+5jn11LAaFd+1AAdAm2mpOBfhHr6+ZhRgLICG3
+         1RIFu4/W1sif2FtYn1sSMmjDXKOIu368W24AkQ1UP82BpaYkkehMsFWPrXOgaw5hhjJj
+         0g7VPQrUC6uvEoECyqOQyRCrQ+IM28VSemiUbbVS1U+ftNIWrsT0aMUYMilJdqRXEgeR
+         ELEQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:references:in-reply-to:message-id
          :date:subject:cc:to:from:dkim-filter:mime-version:sender
          :dkim-signature;
-        bh=rwrUzzoyKWebfMyV8dF37VpwWc+965jijCt5QMn7mfk=;
-        b=RtAYzM/Yak+mM5TqwPWEL+ug7xPxxB7+kMnlXCv5NWXEEZQsudckTAR2Pz46uluREh
-         B9nuJs+hJBa7oFIiO4xVQxJX9L1h1XupKnbYVpWe1jYyx+9t+nkn/4BV0b53KWZnkBXs
-         HNGbLaNEt0nSgo0R1nQHZXaYa87+9tZ9BIHzHlhvca9RgXJmCE5YkGrwzDro+uiP2DJj
-         gpFeGw9E1nffmdKthtU2SaG1gBLhCYiBymGkCXc1da+pjvGTZ/BZGohfC7pBaWo8X8Ls
-         84XXKpnj+lvjyNXtKLklk1imxo3enACdLFMWnv4i2ZbR6jwYx4KurT4wsPA9MkYc5T7f
-         T3cg==
+        bh=zqMvEMOrIFKH7gtknuHm3TTSXHz/PfLxdHHQJue+Lpo=;
+        b=IhrykhpET7k/qgYa3ESIQ5ilezPzcY3Ruv7m6g3wop0DbHpVfZIzY4E9Vt+XPJccyf
+         HXD3+8DjSp15f5BwyKlXXvPsZGgugjlNeq2IembrOexJ7s/FnS4U+7hbgDmMToqoV43U
+         evFvVar2wwb72PtjkeSYC5kHKbDFrwGCNP7SHBcTNbYwcb4BtNaFE+MWoGYSIHTveu/w
+         7vczqcGWtNEC+aKeaRUuEfUe7VYrifFyKazfuxOCBTryczpamn1hvSu9CDRjK6Wytq05
+         npiMMweWmKRUWxQvcCJGMIymviJM60+QZfksuCFJyjZN3NrNljhprjHX2/BdlAfNqd8Y
+         VHdA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=AEjWLzxR;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=Y2NGdCpo;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.78 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :in-reply-to:references:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=rwrUzzoyKWebfMyV8dF37VpwWc+965jijCt5QMn7mfk=;
-        b=tbn89qCnVUrr37CMnWT7/Ei/zczhAsPOFiVVEdX4XFRE7B0mS4urs/QjYGzRy2f7DE
-         07e2CqJK65KkN9kRf9/XifQSviam3YprO9vGUGo3Dkaq4EoGW7FDwFNmT317AXbtgb/C
-         K1tWAOpTAF195sjWXLFk7PKHs8ojhTWlIs1SCmj+xPf1BZq0gCPduzDP5FePhjGW2ae6
-         GmcZzeRT7BZbtPLcspd+gNLPHg9FeAwqbpCZCZ7GD8bvtR9CAv3agp+S+bffa/AbAL7Y
-         Ufro7kqoQKxizN/F5TmPGsk8b4VcgEKP3Q2rjiOkRtQYJ9lUQcJGhEpLecHfor8GQC1R
-         9zkQ==
+        bh=zqMvEMOrIFKH7gtknuHm3TTSXHz/PfLxdHHQJue+Lpo=;
+        b=OzrYyiFkT+uNLzZ3cXxdB3vaFcB+MJRs/Vj+4NWrUinc4ItAR/VNd2EiSsCoP8zIyd
+         qqL3YDtdLc/68U4JMOMHlcavk8kiYRU+c//GIfqGcVLmuIXiZX82KcBR/gIT9KZNqlub
+         ZweyrPAZoVGI9YtjpvqKrnHq1KWjgXGwiIUKu/C3JzVrUrodYuPyoCSpf9qj9dGSu37Y
+         tPlYwjf9zX5XaVa2ze0yZChexmUI59JP7MG5UbPakzIWjoptODyxn45pG0v8e9TIrq9Q
+         y5Yxb+dVMTPCQbFGXuLLhDqNYEAnsyHL5UVM3a+HhyaI4jTkPTYk4wIWplSx4noQg4ra
+         vbBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:dkim-filter:from:to:cc
@@ -50,57 +50,57 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=rwrUzzoyKWebfMyV8dF37VpwWc+965jijCt5QMn7mfk=;
-        b=n8BO0n7YvUJxvMa4YSWl7abPEawv3CHC+ULBE6voTxk0bwB7LTJMF/e2tbOgG99YCo
-         /9lv4//kJjhOm9Ex8EJGLEkCBmrYq+whApPvXBlJ87iSS674BB5LTzrnEBdbg0QTIy1K
-         I/p56EHa5wJX7irSy/c9020Qfy0FYOgOlnVjiy1KfGa3VQaiYvjDgdN1dSPipAoSHB7c
-         KtmVy97f9WM+4yv4Ks1d74pMo40Lx5vfbk+8AqB1xOOUFRxFM7iImj2gP8vp3hYitwpO
-         ZqyerqyqO2B0XzksEOgtiJiklXQP5haS5kA68vjM1EJDh9c0TM9uFkorUTcZEK1u8yMd
-         f2SQ==
+        bh=zqMvEMOrIFKH7gtknuHm3TTSXHz/PfLxdHHQJue+Lpo=;
+        b=BPZ9loKu9oymw7qxFWya2r09WuKMLH/xYOhXF9/x2fn/L2+BwwL5KRT/rn0qyTl2HD
+         PXFbn3AJtxkvU+e87Kab7FZibS6Ct96CzpV6SHT2/iIMjw6uxR5RBUSxNScQmplcvYHU
+         qGh6qaUhEw1kwAfHZ2PIz5rQiPu4ZXh/Tz9Hjm1kZ8DVqg3f5rhO+5oHYHKNnM7Kyw5o
+         ctQbcI8MxBxWWEdKPCJnDu8lane020ng7cXQ+D1oVmP1WxdFH15OOak6EAGHyhMXozsN
+         mhx0qiRNj449/HZu04P2OGuCrUaG/KOBvnvYM3xjZeesMoxsyuN4CeMInh+mOA4aDeAk
+         FmxA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ2yx4sgYxxpq0EYAJMzLLHZ2LLBmdaI737yY2mDA+8B63TA4oga
-	7BuCf5wL0Zvn6z42PdDEafQ=
-X-Google-Smtp-Source: ADFU+vtqf6VYXXa+IPJp7rH8bl62CCO0t3eUJbEXnc5oSgGyX4/04p2LM6HHrTSbYEFl6ZHWmc6pCw==
-X-Received: by 2002:a92:2544:: with SMTP id l65mr7828298ill.286.1585209741793;
+X-Gm-Message-State: ANhLgQ32ncpDOt+VK6CaWs8zvfm4ilEfCgPWcKcAqMrPNXBXTJwIlBsd
+	kJzDiMZFAbc+CggO6hXTnrU=
+X-Google-Smtp-Source: ADFU+vvPC78TH/Oag+1aw54ehxZ2JcocSP/i83g+zc0dibuNyVKkjrabe/tQu31+2+92SBshGzwfOA==
+X-Received: by 2002:a25:cb17:: with SMTP id b23mr12303732ybg.319.1585209741389;
         Thu, 26 Mar 2020 01:02:21 -0700 (PDT)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:194:: with SMTP id 142ls1355755ilb.4.gmail; Thu, 26 Mar
+Received: by 2002:a5b:5cd:: with SMTP id w13ls1811309ybp.10.gmail; Thu, 26 Mar
  2020 01:02:21 -0700 (PDT)
-X-Received: by 2002:a92:90c:: with SMTP id y12mr7358858ilg.212.1585209741522;
+X-Received: by 2002:a25:55c4:: with SMTP id j187mr12634247ybb.67.1585209741035;
         Thu, 26 Mar 2020 01:02:21 -0700 (PDT)
 ARC-Seal: i=1; a=rsa-sha256; t=1585209741; cv=none;
         d=google.com; s=arc-20160816;
-        b=0GIcuRkOkW6sv3HckfYmk9MXxU6g/nRH1pNBruKr687XwFL5V8LC6GIF3VtnTvOnJk
-         6sSp0kR1vS7DTjMY21KMB+rklo0m6EkLr5Otl2umnCzEOXttROwfwDxMJhecQxDwnzVw
-         NUewjczbPFhPwj+b+x38rzARsPSDsBAXmeqkgexlCthb1vHv4vdyjx54eBdbqYU0P6+9
-         rM8nfB9M3p5ag51oTGxL6k28VwwMoga6/yreNLBUPF4H3CTZdoWYGLbRoZwP8IDCeedE
-         C91ZNWv3oO94M67MOHX3vOXlVKbDYosTPpFqlKDIWB/wlPXZUVbvirQfzjND4NA2mPrN
-         fyAw==
+        b=hp149fbILaKVxrftHqEMBMohspoeJ8pdMhLBo8GNpqI7J2BFrW3UvE7PrIHzfmtmUB
+         GMCMMsYOtld6mi7Je/O+WVCeaMZouUthELtY7zVDJpprHDWalggpUyObvOYr2E38RzWx
+         H1On36qPqKXE79y7HB+5uDr3yJu5wUtzxzBN7qh7XP/zpTLaz2c7fSGGBm3lY5mMzabF
+         WLNr/Z7hnlMR1jDC3kK3+ND1CSB7850T/rRANP13PuGbEZim/JDfmcE4Y6yeYUpLFpeG
+         sSRbAtrw+erNLdIZBb8HepsjfwNomdI044LtWG1XnysKEOHXSx0aJACtlLaHQhVff/oJ
+         dBog==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :dkim-signature:dkim-filter;
-        bh=fxIIn+ZInoY5PaLn5E0uj7poqY5wTi2d6aVUXentPeM=;
-        b=y5P0w/jb+qNpOd+/qwPWLnXj6EkjYug/8BNnxyDKddSxN2qtWFruWzMjKRnn990s0e
-         20KVYotebcmz2Dy2XUD5qXKm1Zd1JrSFElK21MU5u3BxJwFNzTRgbURgAK0mIYve5+27
-         uRLLqGkGimAOIsCu1mHGydEoNTjSLSx4b9BQW5T3YQVaBFC7iJLfrincxVIOyuPL23gQ
-         L9ZB0ADP93mguzU8lcR0nUOL76LgPKYWLsx+ZY6qZE0iRmeKbQNjXXN2qg4k+bIpBp1r
-         Yyu8FlOID+ZOmAP5VYunM+jJ/cp6K23etMvRbrxemdly1ANXsZlmPzUFQl8w5Vy8BedI
-         9JXQ==
+        bh=oRNT1Ac+rpRmk/HlvvcnBgH0h0mqbrwsbOfQN7oSRkw=;
+        b=CKawhlQHrjR+fau+An7NtmBnLpA1sEyMyTJ2u5uYMD22KB6Rgc4PGKSaoO12SuDjUh
+         Q3LKfMZi1YD53nKc9pmukM7yu3B/QxlPlxDr4xLnXoGnpqZvHxnSc7Cy6BgGcAcM/41E
+         7PSMYhPeFQ0LSBt8LLZZPop3ZXLrCIwyWS1FfaUw6AaEJESgi8CccioJnUeSHtkn+pek
+         yE+zpgvvfjBgYSi8Qk63sPNv4vDxC3AjWin6OgTmC83IicifmRYXJliIdCpv2w89zxJu
+         sHZ6AAulv2rANYGSn1xVMp+i+JK7bYU4gt3IXaMS1LuXldDBSwXP7bwp7a9qJH8OTyAm
+         UfKw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=AEjWLzxR;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=Y2NGdCpo;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.78 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from conuserg-11.nifty.com (conuserg-11.nifty.com. [210.131.2.78])
-        by gmr-mx.google.com with ESMTPS id u6si57867ili.3.2020.03.26.01.02.21
+        by gmr-mx.google.com with ESMTPS id l141si77779ybl.3.2020.03.26.01.02.20
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 26 Mar 2020 01:02:21 -0700 (PDT)
+        Thu, 26 Mar 2020 01:02:20 -0700 (PDT)
 Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.78 as permitted sender) client-ip=210.131.2.78;
 Received: from pug.e01.socionext.com (p14092-ipngnfx01kyoto.kyoto.ocn.ne.jp [153.142.97.92]) (authenticated)
-	by conuserg-11.nifty.com with ESMTP id 02Q81Wpd002183;
-	Thu, 26 Mar 2020 17:01:50 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-11.nifty.com 02Q81Wpd002183
+	by conuserg-11.nifty.com with ESMTP id 02Q81Wpe002183;
+	Thu, 26 Mar 2020 17:01:51 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-11.nifty.com 02Q81Wpe002183
 X-Nifty-SrcIP: [153.142.97.92]
 From: Masahiro Yamada <masahiroy@kernel.org>
 To: linux-kbuild@vger.kernel.org
@@ -112,15 +112,15 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
         clang-built-linux@googlegroups.com,
         Masahiro Yamada <masahiroy@kernel.org>, Ingo Molnar <mingo@redhat.com>,
         linux-kernel@vger.kernel.org
-Subject: [PATCH v2 10/16] x86: probe assembler capabilities via kconfig instead of makefile
-Date: Thu, 26 Mar 2020 17:00:58 +0900
-Message-Id: <20200326080104.27286-11-masahiroy@kernel.org>
+Subject: [PATCH v2 11/16] x86: add comments about the binutils version to support code in as-instr
+Date: Thu, 26 Mar 2020 17:00:59 +0900
+Message-Id: <20200326080104.27286-12-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20200326080104.27286-1-masahiroy@kernel.org>
 References: <20200326080104.27286-1-masahiroy@kernel.org>
 X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=AEjWLzxR;       spf=softfail
+ header.i=@nifty.com header.s=dec2015msa header.b=Y2NGdCpo;       spf=softfail
  (google.com: domain of transitioning masahiroy@kernel.org does not designate
  210.131.2.78 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
@@ -137,86 +137,63 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+We raise the minimal supported binutils version from time to time.
+The last bump was commit 1fb12b35e5ff ("kbuild: Raise the minimum
+required binutils version to 2.21").
 
-Doing this probing inside of the Makefiles means we have a maze of
-ifdefs inside the source code and child Makefiles that need to make
-proper decisions on this too. Instead, we do it at Kconfig time, like
-many other compiler and assembler options, which allows us to set up the
-dependencies normally for full compilation units. In the process, the
-ADX test changes to use %eax instead of %r10 so that it's valid in both
-32-bit and 64-bit mode.
+We need to keep these as-instr checks because binutils 2.21 does not
+support them.
 
-Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+I hope this will be a good hint which one can be dropped when we
+bump the minimal binutils version next time.
+
+As for the Clang/LLVM builds, we require very new LLVM version,
+so the LLVM integrated assembler supports all of them.
+
 Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+Acked-by: Jason A. Donenfeld <Jason@zx2c4.com>
 ---
 
-Changes in v2: None
+Changes in v2:
+  - Change the patch order and rebase
 
- arch/x86/Kconfig           |  2 ++
- arch/x86/Kconfig.assembler | 17 +++++++++++++++++
- arch/x86/Makefile          | 10 ----------
- 3 files changed, 19 insertions(+), 10 deletions(-)
- create mode 100644 arch/x86/Kconfig.assembler
+ arch/x86/Kconfig.assembler | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index beea77046f9b..707673227837 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -2935,3 +2935,5 @@ config HAVE_ATOMIC_IOMAP
- source "drivers/firmware/Kconfig"
- 
- source "arch/x86/kvm/Kconfig"
-+
-+source "arch/x86/Kconfig.assembler"
 diff --git a/arch/x86/Kconfig.assembler b/arch/x86/Kconfig.assembler
-new file mode 100644
-index 000000000000..91230bf11a14
---- /dev/null
+index 91230bf11a14..a5a1d2766b3a 100644
+--- a/arch/x86/Kconfig.assembler
 +++ b/arch/x86/Kconfig.assembler
-@@ -0,0 +1,17 @@
-+# SPDX-License-Identifier: GPL-2.0
-+# Copyright (C) 2020 Jason A. Donenfeld <Jason@zx2c4.com>. All Rights Reserved.
-+
-+config AS_AVX2
-+	def_bool $(as-instr,vpbroadcastb %xmm0$(comma)%ymm1)
-+
-+config AS_AVX512
-+	def_bool $(as-instr,vpmovm2b %k1$(comma)%zmm5)
-+
-+config AS_SHA1_NI
-+	def_bool $(as-instr,sha1msg1 %xmm0$(comma)%xmm1)
-+
-+config AS_SHA256_NI
-+	def_bool $(as-instr,sha256msg1 %xmm0$(comma)%xmm1)
-+
-+config AS_ADX
-+	def_bool $(as-instr,adox %eax$(comma)%eax)
-diff --git a/arch/x86/Makefile b/arch/x86/Makefile
-index f32ef7b8d5ca..b65ec63c7db7 100644
---- a/arch/x86/Makefile
-+++ b/arch/x86/Makefile
-@@ -177,16 +177,6 @@ ifeq ($(ACCUMULATE_OUTGOING_ARGS), 1)
- 	KBUILD_CFLAGS += $(call cc-option,-maccumulate-outgoing-args,)
- endif
+@@ -3,15 +3,25 @@
  
--# does binutils support specific instructions?
--avx2_instr :=$(call as-instr,vpbroadcastb %xmm0$(comma)%ymm1,-DCONFIG_AS_AVX2=1)
--avx512_instr :=$(call as-instr,vpmovm2b %k1$(comma)%zmm5,-DCONFIG_AS_AVX512=1)
--sha1_ni_instr :=$(call as-instr,sha1msg1 %xmm0$(comma)%xmm1,-DCONFIG_AS_SHA1_NI=1)
--sha256_ni_instr :=$(call as-instr,sha256msg1 %xmm0$(comma)%xmm1,-DCONFIG_AS_SHA256_NI=1)
--adx_instr := $(call as-instr,adox %r10$(comma)%r10,-DCONFIG_AS_ADX=1)
--
--KBUILD_AFLAGS += $(avx2_instr) $(avx512_instr) $(sha1_ni_instr) $(sha256_ni_instr) $(adx_instr)
--KBUILD_CFLAGS += $(avx2_instr) $(avx512_instr) $(sha1_ni_instr) $(sha256_ni_instr) $(adx_instr)
--
- KBUILD_LDFLAGS := -m elf_$(UTS_MACHINE)
+ config AS_AVX2
+ 	def_bool $(as-instr,vpbroadcastb %xmm0$(comma)%ymm1)
++	help
++	  Supported by binutils >= 2.22 and LLVM integrated assembler
  
- #
+ config AS_AVX512
+ 	def_bool $(as-instr,vpmovm2b %k1$(comma)%zmm5)
++	help
++	  Supported by binutils >= 2.25 and LLVM integrated assembler
+ 
+ config AS_SHA1_NI
+ 	def_bool $(as-instr,sha1msg1 %xmm0$(comma)%xmm1)
++	help
++	  Supported by binutils >= 2.24 and LLVM integrated assembler
+ 
+ config AS_SHA256_NI
+ 	def_bool $(as-instr,sha256msg1 %xmm0$(comma)%xmm1)
++	help
++	  Supported by binutils >= 2.24 and LLVM integrated assembler
+ 
+ config AS_ADX
+ 	def_bool $(as-instr,adox %eax$(comma)%eax)
++	help
++	  Supported by binutils >= 2.23 and LLVM integrated assembler
 -- 
 2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200326080104.27286-11-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200326080104.27286-12-masahiroy%40kernel.org.
