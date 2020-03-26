@@ -1,33 +1,33 @@
 Return-Path: <clang-built-linux+bncBAABB24I6HZQKGQEQDJISOY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x240.google.com (mail-oi1-x240.google.com [IPv6:2607:f8b0:4864:20::240])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8637319383C
+Received: from mail-ua1-x93e.google.com (mail-ua1-x93e.google.com [IPv6:2607:f8b0:4864:20::93e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 735BA19383B
 	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Mar 2020 06:58:04 +0100 (CET)
-Received: by mail-oi1-x240.google.com with SMTP id v198sf3936169oia.15
+Received: by mail-ua1-x93e.google.com with SMTP id d2sf1951846uak.11
         for <lists+clang-built-linux@lfdr.de>; Wed, 25 Mar 2020 22:58:04 -0700 (PDT)
 ARC-Seal: i=2; a=rsa-sha256; t=1585202283; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zjVi+YEAGqAhR+bxblPJ14FsRLmpdR3dBqMrMc6mKbR+IKkBblSwnin1oiZkqaYpOU
-         6W9eHe4l/sfh3TtPI+qIYou/C1KfzT0eAgGMQ22bgmMt5FMtOCKQmAvLVuP4qKOupfrq
-         w2u+7dVx8elL3U/eguiya00y9tIIBzD6aItYIAR3+pogYhwZTYHGQO8zzIAaEVUc8CUY
-         TjkaFYHrTbClgKD3SERrzxZ0Gbz/Ha2zxG7nLBP8oJZ1ci3W28LS5V3nejqCCWdyR1LV
-         ssP9RA5lDZPVXOHgef3J0DrcYS5e0JTGfeXNNpXHfQXpYSJpjIOSh4c1BwpPYbSoUKWB
-         qZiQ==
+        b=wywmeZ+Ez7SijoSGWsysMkalSmq9xc9SLUePLIgJPrB2iPWBNZqqjGCf71qBJaS7sY
+         xdZVKCaBUThAWhMbzguMcFw1eRaW+MJ4XrR8J+/I+efPWV4+eq62WPXtIKjaRw9Xe5Pw
+         cOOGlMJ1nxg/FqEFXkhJiIoRGrWY8lSLc485epsS5gdKO66qDTbpG33lyw0VwwT2Xrdl
+         vJ8hD63WPy0mGE9HcW06Pbw92t7mrYlWyArQsx0I3THsU4Q9xuwXfg/I4uGCmi6Jq3qD
+         Hzdh+7amb5KafQXq2JInBSOaJrBwlWTPnp5GOg3u+XtXcyY7yFiD5/6KE56P/8yGCL+K
+         vnrA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:references:in-reply-to:message-id
          :date:subject:cc:to:from:dkim-filter:mime-version:sender
          :dkim-signature;
-        bh=9byi/ii/4XQlbP7OqBl5m98rvuCepNUy9KtS3nEfWSU=;
-        b=BNis5ECc3pyH2PDMlgPUN8cYK29qhDbvlXFXduRIOnwyw2+EssRKctMWwzHbH+22c5
-         Zt886xKRBGTU0gtA1/8LzEyBkvzJYo2ET2K6gunauAHzTx7cZbO/uhZuSnWS/QvOO55I
-         628rrggA46sSbx86GFKQIDusRyPK9S72Y7blovvmlEFsP4JXWg821o8c8Y+avcpthrBV
-         eeIedmr/Im9IwffvGMdjbXasNtNya8mJfuXsSnngeN+9uoY+wiclk00NScGT79x4An9b
-         dyS7nIh8yPmX1jA8WVhnk2odMmij3657OTOhrNu9WkUTgIiMZXeWAtgOBwUPZZzh3SdG
-         oq+Q==
+        bh=zl5c9uZEcFrTf2wUddOxGKilpfCbvmDAUo+Js4oGBIM=;
+        b=VI4c14zYuQYz4d+pu4y3tfXn3je6UEy04g1pK3LD/7p3w7uoHrQbMItoOTntYK5DM+
+         3PgYGVjmcn9asJTjwAwrSxAYv2IgeLD9ZUKqb7QvVQFF+YFc4Pbejq8givEMPMYJP5t4
+         WyVQlLM3X1XIeC8GVPO0wdCSdeB8dD2y7TqQUmtzdhX/V6i1rWl21yAQYhPRabHBlu6O
+         crh26kjijtewxAp5bXxdMHkpkOwTYh1yeqq+O6x+RO/5aktfCDyOIdIG4AM8pbgLDmSi
+         g/+NdvOcDI7dR2JErELW9tO2UHjcgOODFMHkiIT6EW6aWf77XtkMZ2hzXDfNPxZ8y4xc
+         xGmA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=s6p2A1sH;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=0npEybbV;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.77 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :in-reply-to:references:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=9byi/ii/4XQlbP7OqBl5m98rvuCepNUy9KtS3nEfWSU=;
-        b=X74nk6HgPGDGm40K3LflgebF0U06N1fz6n+KUvD1sH+wzMQyxJO6VLX6KWokcarhaP
-         2MIvj8wd26+r+Yi3rfgFOLY/Lld6PXMTrlNQy81mFJZnp7tVClgUbnFL8qxjGnccDtij
-         glcafVtmJeLP6ywl6H+hNeoSD/k9c1xzsKGeFRbai3Y2j1upSaR+ESYdtlthRtGvOywS
-         C3WJUTzQLIGMI7p5e85x82frmfbmxE90jVH44KS2JNipALaFnm5D/DGPKSzwsn1viaQc
-         D9CrIannf57Xo7QS8NylcqKPnh27zEkyfC0D5bf7AgRhheChAHtY/Oqc+JXYGITMHmy0
-         HGCQ==
+        bh=zl5c9uZEcFrTf2wUddOxGKilpfCbvmDAUo+Js4oGBIM=;
+        b=KsoEyfuSmathRdJ/vnfMZvfLbSGwDVZGFFNkgHVX2S3HUs+mLKxUAdP7r6PgTCiwIy
+         +R03+ESFRnABuZGuXuwlcpPDrjcJEExKGG9f+FqIcxfbzXFNSSvvOBddpjPMhhvVGY7h
+         DUVEdmknv7TxU+x2LYk4Z0PAxbxftw+8EZtsqvFljPo8xRJerKZzwlK6w+WpTdxxCNfS
+         4DwQff0wJPvNtV87NGdDKFQQzjocAu4hOqqCwB3zHP7XRH/oPIwZVa4g8Ki1AnmNVRMM
+         /Zh1/4Ji+iOFqR7SAONVq1gYwukc97iwHUFJIYuD+FlEFr+HldfY89HKYnNDYxC64b99
+         4Pdg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:dkim-filter:from:to:cc
@@ -50,57 +50,57 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=9byi/ii/4XQlbP7OqBl5m98rvuCepNUy9KtS3nEfWSU=;
-        b=FE0iv9DE+qCY24fFETa28/vCV7COd2+a3ADG/eetWQIjf/rMXAlfnlnSxjsT/F3CKL
-         lyfaD5qinIPWL13o8rPpT+XWExK486UQYirW0iYLbPMGtMJkCidOtfNmPwrVQOrS1gVH
-         /QIusIQZ3zrouWI9pRKaR/uUyEiW2ilKjbbIURntpobIkLe1d5tEYXwC1IsnnXBNNTdF
-         X2Vk4lNo5Gu3ZcCg4ApYYvei0GWhSHWaD2XMMMfoh4KWMagQHX3zyRgT/PljVx4hscID
-         7zTCz8/uagIaitl0+EcMeYh1bSaPEt6JlHDDdJm+t1OzMUIWtFTc7wFex5DI9mavscSB
-         AaiA==
+        bh=zl5c9uZEcFrTf2wUddOxGKilpfCbvmDAUo+Js4oGBIM=;
+        b=fyN1/j+APOfdq+G+1Tcr1BgNTlhANCWSdqsDPfkijQ5cpiMvdjrgDOeDzW5sER1nXf
+         xHLMiChoVSa/tB/5XzMZdO10INN5yxOVXkoWghnzOgs8yFAMWvheKQH6k3kd+bSBrS2i
+         Qq//bWU79VjmyWNOdqsv0YCX9TuS0MrTzOJP5/lfYMoR/CoUoYkX197pES34xaH1bHL9
+         sHpoBJw0ZG+ZUKNOtrArDS2axHe37gMT3kBgnc+HbdRiDvGplJzpN582wDXAC0xI8n6p
+         ODVrOfrOz9q4L9NDD9/r5uKJRdhVWE3kGvyztMiqyGMGVQu5yRwJehczrbCtsQiJ+DBR
+         efeA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ0sayF6zPcnl5DKJ35GDa0t1rmRZ+kCG0/7axXA8VaMOYwNcPsj
-	fKRe9ASOC2VJIq2rxezYVAQ=
-X-Google-Smtp-Source: ADFU+vuZY+xo81L5wAWiqmzlRj++cZGIuntUx8BsOF4G1jxPCQEajLSdZseIRS5FvAl+A0R9HmG70A==
-X-Received: by 2002:aca:5403:: with SMTP id i3mr781621oib.174.1585202283161;
+X-Gm-Message-State: ANhLgQ3abdNEEZSqHnQoLsUnEn54u3r6i8wyLvVcS6lpPnzIRbXFvuFR
+	KGEBJqtj3Ij62QY3g1GRZ4o=
+X-Google-Smtp-Source: ADFU+vtd9akl7FHSu3rmh0EZjNKssclorL12NW9JTt02hc/GFL36nbRif9u9+lEy+C093Qu+CdCoKg==
+X-Received: by 2002:ab0:6204:: with SMTP id m4mr5252047uao.15.1585202283359;
         Wed, 25 Mar 2020 22:58:03 -0700 (PDT)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:3089:: with SMTP id f9ls1715096ots.0.gmail; Wed, 25
- Mar 2020 22:58:02 -0700 (PDT)
-X-Received: by 2002:a05:6830:19ee:: with SMTP id t14mr5441661ott.287.1585202282767;
+Received: by 2002:a1f:a989:: with SMTP id s131ls252454vke.4.gmail; Wed, 25 Mar
+ 2020 22:58:03 -0700 (PDT)
+X-Received: by 2002:a1f:9a08:: with SMTP id c8mr5185524vke.20.1585202282996;
         Wed, 25 Mar 2020 22:58:02 -0700 (PDT)
 ARC-Seal: i=1; a=rsa-sha256; t=1585202282; cv=none;
         d=google.com; s=arc-20160816;
-        b=wInEsdxPO19C+71VS2FPBPpBtvvU3ltfA4iaomf4FVQlXZa/8zC5VrrG0b8tbwl3CP
-         QFvMgrIJeRDHgzzGx6OZGWv3X75XFLrrmm+LoWhCEEYBmoi9u/k4vIgM/Iifk/JdB1D2
-         JFCpPKReW112aUf8sISD3oCwp56Q5T/VvVdu6njwjM1qZcEAdbBdLo+xpCFNGq/3d6nN
-         bLgXhC3G4FatODa4u4+jjG8awdfEQWmo/8S9S2ezIeyS9rL2YqUCMN9JNtnel8bcJLoX
-         tQUih/JTnOdn1xMTCN7KkyPdEyRWmrInjRsVHfBMyYVNeNTrWhA8MUdC09WXsXm2d7bt
-         KgFA==
+        b=XoLALv8Au3/gfTSNLJGA9apAoqMRi6sWvA29onAGIcvO2DphZDQTsziLGYcQvwxnoT
+         Ln5fMDd5DBus1KY5zDpoRD5+fXNnIpA/w0vz2PnMt9sK1ifXFcAl+SgcKQ27u+hF2PKQ
+         bQPBRWphKMnsHPTHZjSnmhLPHnhh221O1zaUoUwxiyqrbSIqsjHrDv6oKAEKllKyrAmX
+         u5Z76YBIyewXGWWkm0za4/u7PPvxl0nVDhANgGl8iKzGEXPrNOEF17DfI3R1OzvAs51x
+         964QBTiQ13LPItlFfB+k0ISqJa8qfU1++8iYUeENRgYsZcNUTrZyk8ZCL8DXuyEqP+4B
+         +UuA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :dkim-signature:dkim-filter;
-        bh=2uTOiFNH4QFbkxz4iV+NRyMxIQi1X//IkZ1ebTA/LHU=;
-        b=rGJjP9m0ndtKe7dBbwt+QSDTi3UvM9AYebIaANs47NfpfiXHxgHQ9BnX5mRTOgZ68a
-         fdTTrhWXaia1Oytadde6FKE8Y6bCDWUi1mqSiUjw5/OeVV7tbWt7w1YK2H5qgyJzFbGa
-         xST1NsamjhYDwa+73x/sXFEKeVtjPDJOCfhhnPxF0HUMd4Bbnq8zzrySvQCVpsb6etUJ
-         ZEtaasJo2PJrxaJKmzJAPcrKEjPNnvLzfSHUDGQJufIkWXjSrpXmCEiC2q5yazUX/gqW
-         m0sbeYi9z2q9DHG0BPSbIdtgoQAdAXtL8T+s27ynzZWgd6X7jQFRA5VG5hDvdQa8aFxl
-         2Tcw==
+        bh=RjmAIJifJD5EjYLBPngifFMr8SyoOw1VRH4zJbCaW44=;
+        b=k+VSWIP3jmaqQBSEL2YmTc8VBC7qNAbTbFE1QmFJPiINr8vlsKemhEpTF01Obr/eP3
+         tdzxCxjdoqeOougdv7NIVbIXDR45lMIkwtWRHBChmRRn+WLwTR4+EUhoh8RZcsKK1v3/
+         BJSGYVroXLQxxBXUK9u8Y8MtLR6wiw7/EuweRQmnKhzzO34PhNPnwi0fNSB+qUDFKGp8
+         RaiAOnG/eAM+Ke1AQT4enZu7XDj31DQLYbV4rwpINlWbFZ9hRJnCLOb5KWh8XvcHC6Nr
+         A4spTKwC6LkKOme1Lu9sboz/T2UZrScaAO1FOaPowm56/d94bUZ8cQCj44oxw4d5cBSp
+         X9jA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=s6p2A1sH;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=0npEybbV;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.77 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from conuserg-10.nifty.com (conuserg-10.nifty.com. [210.131.2.77])
-        by gmr-mx.google.com with ESMTPS id t81si107856oie.5.2020.03.25.22.58.02
+        by gmr-mx.google.com with ESMTPS id k6si62405vso.1.2020.03.25.22.58.02
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
         Wed, 25 Mar 2020 22:58:02 -0700 (PDT)
 Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.77 as permitted sender) client-ip=210.131.2.77;
 Received: from pug.e01.socionext.com (p14092-ipngnfx01kyoto.kyoto.ocn.ne.jp [153.142.97.92]) (authenticated)
-	by conuserg-10.nifty.com with ESMTP id 02Q5ve95008573;
+	by conuserg-10.nifty.com with ESMTP id 02Q5ve96008573;
 	Thu, 26 Mar 2020 14:57:41 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-10.nifty.com 02Q5ve95008573
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-10.nifty.com 02Q5ve96008573
 X-Nifty-SrcIP: [153.142.97.92]
 From: Masahiro Yamada <masahiroy@kernel.org>
 To: linux-kbuild@vger.kernel.org
@@ -109,15 +109,15 @@ Cc: clang-built-linux@googlegroups.com,
         Masahiro Yamada <masahiroy@kernel.org>,
         "David S. Miller" <davem@davemloft.net>, linux-kernel@vger.kernel.org,
         netdev@vger.kernel.org
-Subject: [PATCH v2 2/4] net: wan: wanxl: use $(M68KCC) instead of $(M68KAS) for rebuilding firmware
-Date: Thu, 26 Mar 2020 14:57:16 +0900
-Message-Id: <20200326055719.16755-2-masahiroy@kernel.org>
+Subject: [PATCH v2 3/4] net: wan: wanxl: refactor the firmware rebuild rule
+Date: Thu, 26 Mar 2020 14:57:17 +0900
+Message-Id: <20200326055719.16755-3-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20200326055719.16755-1-masahiroy@kernel.org>
 References: <20200326055719.16755-1-masahiroy@kernel.org>
 X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=s6p2A1sH;       spf=softfail
+ header.i=@nifty.com header.s=dec2015msa header.b=0npEybbV;       spf=softfail
  (google.com: domain of transitioning masahiroy@kernel.org does not designate
  210.131.2.77 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
@@ -134,50 +134,66 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The firmware source, wanxlfw.S, is currently compiled by the combo of
-$(CPP) and $(M68KAS). This is not what we usually do for compiling *.S
-files. In fact, this Makefile is the only user of $(AS) in the kernel
-build.
+Split the big recipe into 3 stages, compile, link, and hexdump.
 
-Instead of combining $(CPP) and (AS) from different tool sets, using
-$(M68KCC) as an assembler driver is simpler, and saner.
+After this commit, the build log with CONFIG_WANXL_BUILD_FIRMWARE
+will look like this:
+
+  M68KAS  drivers/net/wan/wanxlfw.o
+  M68KLD  drivers/net/wan/wanxlfw.bin
+  BLDFW   drivers/net/wan/wanxlfw.inc
+  CC [M]  drivers/net/wan/wanxl.o
 
 Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 ---
 
 Changes in v2: None
 
- drivers/net/wan/Makefile | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/net/wan/Makefile | 29 +++++++++++++++++++----------
+ 1 file changed, 19 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/net/wan/Makefile b/drivers/net/wan/Makefile
-index 995277c657a1..cf7a0a65aae8 100644
+index cf7a0a65aae8..380271a011e4 100644
 --- a/drivers/net/wan/Makefile
 +++ b/drivers/net/wan/Makefile
-@@ -40,16 +40,16 @@ $(obj)/wanxl.o:	$(obj)/wanxlfw.inc
- 
- ifeq ($(CONFIG_WANXL_BUILD_FIRMWARE),y)
- ifeq ($(ARCH),m68k)
--  M68KAS = $(AS)
-+  M68KCC = $(CC)
-   M68KLD = $(LD)
- else
--  M68KAS = $(CROSS_COMPILE_M68K)as
-+  M68KCC = $(CROSS_COMPILE_M68K)gcc
+@@ -47,14 +47,23 @@ else
    M68KLD = $(CROSS_COMPILE_M68K)ld
  endif
  
- quiet_cmd_build_wanxlfw = BLD FW  $@
-       cmd_build_wanxlfw = \
--	$(CPP) -D__ASSEMBLY__ -Wp,-MD,$(depfile) -I$(srctree)/include/uapi $< | $(M68KAS) -m68360 -o $(obj)/wanxlfw.o; \
-+	$(M68KCC) -D__ASSEMBLY__ -Wp,-MD,$(depfile) -I$(srctree)/include/uapi -c -o $(obj)/wanxlfw.o $<; \
- 	$(M68KLD) --oformat binary -Ttext 0x1000 $(obj)/wanxlfw.o -o $(obj)/wanxlfw.bin; \
- 	hexdump -ve '"\n" 16/1 "0x%02X,"' $(obj)/wanxlfw.bin | sed 's/0x  ,//g;1s/^/static const u8 firmware[]={/;$$s/,$$/\n};\n/' >$(obj)/wanxlfw.inc; \
- 	rm -f $(obj)/wanxlfw.bin $(obj)/wanxlfw.o
+-quiet_cmd_build_wanxlfw = BLD FW  $@
+-      cmd_build_wanxlfw = \
+-	$(M68KCC) -D__ASSEMBLY__ -Wp,-MD,$(depfile) -I$(srctree)/include/uapi -c -o $(obj)/wanxlfw.o $<; \
+-	$(M68KLD) --oformat binary -Ttext 0x1000 $(obj)/wanxlfw.o -o $(obj)/wanxlfw.bin; \
+-	hexdump -ve '"\n" 16/1 "0x%02X,"' $(obj)/wanxlfw.bin | sed 's/0x  ,//g;1s/^/static const u8 firmware[]={/;$$s/,$$/\n};\n/' >$(obj)/wanxlfw.inc; \
+-	rm -f $(obj)/wanxlfw.bin $(obj)/wanxlfw.o
+-
+-$(obj)/wanxlfw.inc:	$(src)/wanxlfw.S
+-	$(call if_changed_dep,build_wanxlfw)
+-targets += wanxlfw.inc
++quiet_cmd_build_wanxlfw = BLDFW   $@
++      cmd_build_wanxlfw = hexdump -ve '"\n" 16/1 "0x%02X,"' $< | \
++	sed 's/0x  ,//g;1s/^/static const u8 firmware[]={/;$$s/,$$/\n};\n/' > $@
++
++$(obj)/wanxlfw.inc: $(obj)/wanxlfw.bin FORCE
++	$(call if_changed,build_wanxlfw)
++
++quiet_cmd_m68kld_bin_o = M68KLD  $@
++      cmd_m68kld_bin_o = $(M68KLD) --oformat binary -Ttext 0x1000 $< -o $@
++
++$(obj)/wanxlfw.bin: $(obj)/wanxlfw.o FORCE
++	$(call if_changed,m68kld_bin_o)
++
++quiet_cmd_m68kas_o_S = M68KAS  $@
++      cmd_m68kas_o_S = $(M68KCC) -D__ASSEMBLY__ -Wp,-MD,$(depfile) -I$(srctree)/include/uapi -c -o $@ $<
++
++$(obj)/wanxlfw.o: $(src)/wanxlfw.S FORCE
++	$(call if_changed_dep,m68kas_o_S)
+ endif
++targets += wanxlfw.inc wanxlfw.bin wanxlfw.o
 -- 
 2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200326055719.16755-2-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200326055719.16755-3-masahiroy%40kernel.org.
