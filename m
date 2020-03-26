@@ -1,104 +1,106 @@
-Return-Path: <clang-built-linux+bncBAABBFWD6HZQKGQEVKYGCPA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBDGD6HZQKGQEL4GLKUI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93d.google.com (mail-ua1-x93d.google.com [IPv6:2607:f8b0:4864:20::93d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 163E5193A2D
-	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Mar 2020 09:02:31 +0100 (CET)
-Received: by mail-ua1-x93d.google.com with SMTP id a30sf2075838uae.6
-        for <lists+clang-built-linux@lfdr.de>; Thu, 26 Mar 2020 01:02:31 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1585209750; cv=pass;
+Received: from mail-qk1-x73a.google.com (mail-qk1-x73a.google.com [IPv6:2607:f8b0:4864:20::73a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2FBA6193A24
+	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Mar 2020 09:02:22 +0100 (CET)
+Received: by mail-qk1-x73a.google.com with SMTP id b82sf4101502qkc.11
+        for <lists+clang-built-linux@lfdr.de>; Thu, 26 Mar 2020 01:02:22 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1585209741; cv=pass;
         d=google.com; s=arc-20160816;
-        b=eXfpA4fdnj8RDsd2S3e0XS3gIEzeUX3RHMcYO5p7c+wFbCrsi+KwKByH7IFU7BFLdx
-         W3fe4MGqrx8rntWSxbrCRHQD4zfjTEbryZxrULhyCjgX0zvJCK76Qu2rKEy3KgBKJPJa
-         oDnVIH4xYYYcgx4s5X5H6lrQbbohciwBKHCSnnrO/p+Qz8wJ8bVvJ1LivyGrmtgmf1ks
-         EVxAvAFgpXzOM2bxUeRWgZu36hSWNMbw4bfl0Eph/FBc+l16JQ5TsiXrTeDJVqXt5ylZ
-         QzBVy04PrjMaNlbkrfCuKESmP+R80LcUZP+DVp4TLNGRGuxa6c84NY5axjPTm8tUCWAU
-         Fpew==
+        b=a+tJqgrCLYgTyl1kiLjW6RXKhJO7L9pMWsALmjvArSdeLniWrH83dBpK6KLjz31Wiw
+         DR+Vfkj38eJnPGBmKDqv/tsrzggKvu+k1mdZr6RlfRGHX58xkovFhZNN6drdHt/8msit
+         B8daKyzX1QZLw7sHU6S3QrzJsIYbeFIEG50TmqzAdNYgOs6hyj9qULVGLGxtJ8PSLyp2
+         oDF6OK0Bpi4V0ikcxil2/id73LMAdJIo+SpSdYAlXRC55YkneTTQ3I8i8vP3WvO/xU0X
+         JskzHYJGmcTJDNI5LolMAb6TTHXbOG8SQxS3NYJLa3ifH406Kcyg717R2tyrzwKPptAx
+         Avrg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
-         :dkim-filter:mime-version:sender:dkim-signature;
-        bh=9UrDYAfDzfzdlmFL8ow2lrZvo+GyM8y8ZFw36SbhfPg=;
-        b=MAjZVtOJyhCBAU9xlk/7pFMCP+NeudBumlxSCHc07ogAEpcUdPZ/UXpvQS/+Xk8k9j
-         mJ/EOkkQZx4FEnYDOjc5KUsrGI8ALZoT67VPIPqfqE6Y22XUcr+kaas3WtGWpapwaIaJ
-         tm3zbtPRUm5gs/riGOT7qgpdeyuDtqBiX76IPEfKllzHRjwY57/HEiYxdSbhn+zohmLD
-         5UhSzxLZOFulGLNc9Up+7wNXjfIKE/ogr9URmxv8xx2Cwhrxz60C502UYwfMN2VY9ZFy
-         c7gnmiD0eBRPQSLO0VSem5nAWNdC9sDAS+LmGtNR/Eo5B3g0QBMrnviYrX4LWK0xUDSY
-         K28A==
+         :list-id:mailing-list:precedence:references:in-reply-to:message-id
+         :date:subject:cc:to:from:dkim-filter:mime-version:sender
+         :dkim-signature;
+        bh=PMBywUoTe29e3M0hH0McwclwLqXafq6Ybb+9H2UYjPk=;
+        b=Ijgw0ajLlCghJQH7RLgB8bcs5CNyOrvaZ5AUghkYX8Z4aYjc9t9NOnmIF6jqI20mht
+         NCUmqFgckzvxhJuO0DofkzsKfyYhcY8bhXgP9GUbD9DNngkerFV9gksVHaLF+5aq6zkr
+         zRYovJ9F/ng8jO5uCVlEq9PMe2ibdAP8QeI1SimjBbjkKM9EaT7vrjbmRT+sKtFiujLh
+         ntvs7xXJ5EB0yimZtOG3NilSAq08MrQTf4zdv9bwgXQbqvoJ8f4EZWvhyTpVikq2naLW
+         yDM3pJKSgKIu+Jyl6snGss70bbksBWtUty+PcmyENF+ZEvyX9M+yfHHWzFW23KUS9W6r
+         vEUw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=bzmVG4HA;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=OiXXcS8A;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.78 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:mime-version:dkim-filter:from:to:cc:subject:date:message-id
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=9UrDYAfDzfzdlmFL8ow2lrZvo+GyM8y8ZFw36SbhfPg=;
-        b=U/a+15dopgMysPn0qg/v2sCEQvyq1WS5xeJWPO5Q6L4KL+3YZFghMJcy5tKdajeBDE
-         TICRRoW0YAmwb9xThDgeaO1YtqsWLkiikIcWRPsE6DWnkjb8b4g7D9pXf0POna1FSG0w
-         TfXy/pZe7fyTaMnr8uhuedQdYedJZWlYo3BEXA333BJBJ7TO44ohQek1qxv9CbkHOsmJ
-         CdMOWvsXZ7RurvBmkCci8Gh3jYlHMAYOGbjJWd046mK5i5xMdRvwKi1ith7wqyWA9bt3
-         X/KUjLBF/JPwPIiE0+YD1GA13qVSXtNo83M7dNIHVxpe+x5esRt3yJKjg5bkWMlKiBgK
-         Uywg==
+         :in-reply-to:references:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=PMBywUoTe29e3M0hH0McwclwLqXafq6Ybb+9H2UYjPk=;
+        b=ZyIhrjL9tasZ0XuHTlH3ppud4D2apdp4eFXI5acI8tBHYnMrfAYbQX4A6Yl4UEPyCE
+         5T/lZIGsmFXMPabG6iKK0SBfxdUVjNU0xJtx9dQlo6J8vi1/F5xKwDiBnmm5s0XRGTkP
+         BISc1H+rNLpVG8cUEQX+2wevFiL2UApNOBN8rmIrQ7STp2RUwI0APEhUR5ftVH9w1+sq
+         3v7wgVd26U60ZH3v7Js5lqdAisr9wHbAuLp/07DrwIssOINV0NK1FlNEOgVlDEdGqVuv
+         zx9Qgv8pHgq5e8GMGXhxgUBmk70IOHZHsWWhGSiHj1Ez4XtpN1iSdiBj2i2UtBo2daOt
+         uh1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:dkim-filter:from:to:cc
-         :subject:date:message-id:x-original-sender
+         :subject:date:message-id:in-reply-to:references:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=9UrDYAfDzfzdlmFL8ow2lrZvo+GyM8y8ZFw36SbhfPg=;
-        b=c8366f7dx+FfSVUFDP1ciHjJTkqqa+v0ki59/jz7PeWPGKdiRaRWcrUI9omGdLA4Be
-         HuJH4L8aVWeZniPHsPwtFmJor1x1vwMSCdZPhlovOH+VTLkuaYmzbmwuf4SJBNF2xahJ
-         eJB37ffT8w12ctCXCzG8DUtXMaPceKyLp2QgXZH1Haa+cgLfQgZzwTyFQpd9YZwgg15a
-         zA5dtXDR8IpflpC8MMSr7fXvCm6UFUQPSKKeRaTTvEgLGFflikGTh1vgoRPhdUfOCEBJ
-         HZ5PeHUJbo0VZBytuXTRZYlstXlFRrIz+tZrOPCVtnNSBXJcAKPQopQko2YudSB9+tw7
-         SZwg==
+        bh=PMBywUoTe29e3M0hH0McwclwLqXafq6Ybb+9H2UYjPk=;
+        b=JkpsOD0jARSw5buLWmvwg1qOIQFe/KpUwgQtKjP8vNokJfW8LqN8/kcvhl6IHbCmBL
+         MD5BxT2iqQR0bsJy7eEmvdHH7QgFYjRnrzOqVqkiFWhCHSDVhxp0SXWOxJIS2+CNBvfN
+         NyJtUyx7BmIpfOZZQMHfF2KOxZeoYkVq32BnEq9mmGVnEaCVe0Q3KhkZw8xBlb5zxXkq
+         MCRBT1stweZqE7MGLEeLKz3Eb7HFVNtXumENDsyfzPz2/L8M4JM95OYKyLj7STbfkYly
+         NbqYCcOqOED0v8q+DRsVlFZkG9fh96AIxAD1DojeibK3aQzVG+alz/397jwKcvcq9HP2
+         8ZCg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ3+npn9T2HKwJRYHh6C1XzwB/LWI1nsr6UOIrDnYfMb9rtgJajO
-	skCho6SO4EsJKssoMuDkqNk=
-X-Google-Smtp-Source: ADFU+vuz63yCjo+Fuq9dJRTynN35A5iGKJXl6JkUjpCFBKrit2cmsWuRy2QR0ac0F1vnq3W2Tdk+QQ==
-X-Received: by 2002:ab0:378:: with SMTP id 111mr5702501uat.78.1585209750061;
-        Thu, 26 Mar 2020 01:02:30 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ2LS/ec+AD4+o1QT6E5jyCc52OIyp/VDtBSpC32E6YG+75RvD4l
+	Uir9+RGsuuORP7t1qnrgSmI=
+X-Google-Smtp-Source: ADFU+vsVY1lv2slDSZlEBWlhnptAXOG3YuVM/4ZZPP5oiSwzgSxQJseJTauczKNMmxjenCAA/6B/Ag==
+X-Received: by 2002:a37:2f85:: with SMTP id v127mr6775223qkh.53.1585209740951;
+        Thu, 26 Mar 2020 01:02:20 -0700 (PDT)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9f:354c:: with SMTP id o70ls389668uao.1.gmail; Thu, 26 Mar
- 2020 01:02:29 -0700 (PDT)
-X-Received: by 2002:ab0:2553:: with SMTP id l19mr5249097uan.128.1585209749734;
-        Thu, 26 Mar 2020 01:02:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1585209749; cv=none;
+Received: by 2002:a0c:9ba6:: with SMTP id o38ls1141188qve.8.gmail; Thu, 26 Mar
+ 2020 01:02:20 -0700 (PDT)
+X-Received: by 2002:ad4:4026:: with SMTP id q6mr6931247qvp.118.1585209740647;
+        Thu, 26 Mar 2020 01:02:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1585209740; cv=none;
         d=google.com; s=arc-20160816;
-        b=RXI5f0gxlqyXE1vtrSfB6dDsQ0o/nAaEkPWQkLCyGgBtmuF8+LM4yVihqW+5+5mBak
-         2YDDi3E5BmQExGorO95dgN17eavggr4GvAVX++6w/ydBAyuRfOefCUUzl9R6JjYuYbbv
-         0LLWofdWZKBw+q227tKpe9+BSiNmcrojP4edwQ0lVpeaHocH4H2Y75SWeQQ85iHS45SG
-         eXcj5nVc4AnnV7kbgI78QLqja287yZNNERtA9z22cfBO2jKbrUD12TMm6yt57xSfX40X
-         YU8D0CeIfF/EQFIO67N60g9XtycB6847YLaFGp9vHW23fR4UOKICDlFkTtab+dTnTDAI
-         4e+Q==
+        b=U+3GmRm2EWXLtPNbU3/TEHruhfKxW/YN3T9dUskXPCusaiBuQ2cjbvRJwC0w8C+fjd
+         aXrxFqYRuP6Elb0ItNyVFrtNsw9WlybNr74KeR6mRJpoyLNYOqJRnSDlqmkhRmZ4y2Dl
+         Y+K3CyZFtFAtOdzAyqOgsITHnfYKv+cU6AEB9TZqo2iY39cItOdYMlTZhlG7CbeBMAkq
+         WlSYcWJeFQleftmGyoVjL47G7gU+zA5a3Xd9iyTs+UFyfl3j/ul1Y4ShwmdLHeWTf8n2
+         WxxwmDorwGOr5rATqMR+yDi9U2odU1yZlWQqWEOQvQSvcHJt5ZE5Id9WXEDI+d+xVqSG
+         dKhw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:subject:cc:to:from:dkim-signature:dkim-filter;
-        bh=pP2B3e2HIi5aiL8gQpMs8wNmwELktRFcv9my7u/AjTs=;
-        b=ncLWeBLTjHdG+cE3wQ1MuM/BF+385JfaqCSFFDalwEnnH4F0+x09sxuRLNlrZ/bebI
-         0CQrKpPFAqB7RGEpfcNXlcsO3LEg6ESUwaq0mn/MYULyS725k7nYpIWEINaGK+wPf5KQ
-         I+T1YXOXhov6Hep+NcBk49OgYByGKfFffLs15Iy5vYcbQ+DKwFTTtMgSRhCxVSOD+6ON
-         UDI6xWeFf4ESEM17YQmNGx6nbCQjbweBV7bdgUpiDdek0V7x4Ugs2FEW6PF9+osN/iAe
-         xtyC7PqJIxNNQvPAYlPQr3wxO0ACrI7LasTgFJafrLbFk+BGdUVXChAWAv0AqwH4H+L2
-         ZWIw==
+        h=references:in-reply-to:message-id:date:subject:cc:to:from
+         :dkim-signature:dkim-filter;
+        bh=oOjb9pPYS7LdRFAdDN6Ik8bWPmCh/WjUa0CZHnPToFo=;
+        b=AUa104oTl4ZjZtaMwDbrfGDShGR/736VtSPlw/xi6t8oywxuTtIcHmHlI5Y0yl09co
+         p14h3IRrA1kuAj+V9dbP9Qr9L7a61YsLrnwIYp8BhaSpre150oWSm5bFmAw5t2psS0fF
+         eWLwbxMyWoMMzu4VyNjwYa4CWaVa7hPbtF5fq70Y5Exma71cfOAAA9F27c0xzYWzptMg
+         dYqCWfP/k7ODeeO/lkLJO/bErjRoqMewT5lV142QT959WlrMqQn56tPNZARoe1zC4NPt
+         AezJYvH1e4bSaIUbmug+dB30CiScxjnzBua1AsMI9Dh90Po3GdkDW/HGYPAuHIxyQ5ZT
+         xwhg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=bzmVG4HA;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=OiXXcS8A;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.78 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from conuserg-11.nifty.com (conuserg-11.nifty.com. [210.131.2.78])
-        by gmr-mx.google.com with ESMTPS id v5si43713vsl.0.2020.03.26.01.02.29
+        by gmr-mx.google.com with ESMTPS id t24si138530qtt.1.2020.03.26.01.02.20
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 26 Mar 2020 01:02:29 -0700 (PDT)
+        Thu, 26 Mar 2020 01:02:20 -0700 (PDT)
 Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.78 as permitted sender) client-ip=210.131.2.78;
 Received: from pug.e01.socionext.com (p14092-ipngnfx01kyoto.kyoto.ocn.ne.jp [153.142.97.92]) (authenticated)
-	by conuserg-11.nifty.com with ESMTP id 02Q81WpT002183;
-	Thu, 26 Mar 2020 17:01:32 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-11.nifty.com 02Q81WpT002183
+	by conuserg-11.nifty.com with ESMTP id 02Q81WpU002183;
+	Thu, 26 Mar 2020 17:01:35 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-11.nifty.com 02Q81WpU002183
 X-Nifty-SrcIP: [153.142.97.92]
 From: Masahiro Yamada <masahiroy@kernel.org>
 To: linux-kbuild@vger.kernel.org
@@ -109,26 +111,18 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
         "Jason A . Donenfeld" <Jason@zx2c4.com>,
         clang-built-linux@googlegroups.com,
         Masahiro Yamada <masahiroy@kernel.org>,
-        Daniel Vetter <daniel@ffwll.ch>, David Airlie <airlied@linux.ie>,
-        "David S. Miller" <davem@davemloft.net>,
-        Herbert Xu <herbert@gondor.apana.org.au>,
-        Ingo Molnar <mingo@redhat.com>,
-        Jani Nikula <jani.nikula@linux.intel.com>,
         Jim Kukunas <james.t.kukunas@linux.intel.com>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-        NeilBrown <neilb@suse.de>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
-        Yuanhan Liu <yuanhan.liu@linux.intel.com>,
-        dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
-        linux-crypto@vger.kernel.org, linux-doc@vger.kernel.org,
+        NeilBrown <neilb@suse.de>, Yuanhan Liu <yuanhan.liu@linux.intel.com>,
         linux-kernel@vger.kernel.org
-Subject: [PATCH v2 00/16] x86, crypto: remove always-defined CONFIG_AS_* and cosolidate Kconfig/Makefiles
-Date: Thu, 26 Mar 2020 17:00:48 +0900
-Message-Id: <20200326080104.27286-1-masahiroy@kernel.org>
+Subject: [PATCH v2 01/16] lib/raid6/test: fix build on distros whose /bin/sh is not bash
+Date: Thu, 26 Mar 2020 17:00:49 +0900
+Message-Id: <20200326080104.27286-2-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20200326080104.27286-1-masahiroy@kernel.org>
+References: <20200326080104.27286-1-masahiroy@kernel.org>
 X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=bzmVG4HA;       spf=softfail
+ header.i=@nifty.com header.s=dec2015msa header.b=OiXXcS8A;       spf=softfail
  (google.com: domain of transitioning masahiroy@kernel.org does not designate
  210.131.2.78 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
@@ -145,91 +139,66 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-This series of cleanups was prompted by Linus:
-https://lkml.org/lkml/2020/3/12/726
+You can build a test program to test raid6 library code from user-space,
+like this:
 
-First, this series drop always-on CONFIG_AS_* options.
-Some of those options were introduced in old days.
-For example, the check for CONFIG_AS_CFI dates back to 2006.
+  $ cd lib/raid6/test
+  $ make
 
-We raise the minimal tool versions from time to time.
-Currently, we require binutils 2.21
-(and we even plan to bump it to 2.23).
+The command in $(shell ...) function is evaluated by /bin/sh by default.
+(or, you can specify the shell by passing SHELL=<shell> from command line)
 
-After cleaning away the old checks,
-as-instr calls are moved to Kconfig from Makefiles,
-then more Kconfig / Makefile code is cleaned up.
+Currently '>&/dev/null' is used to sink both stdout and stderr. Because
+this code is bash-ism, it only works when /bin/sh is a symbolic link to
+bash (this is the case on RHEL etc.)
 
-I folded all relevanet patches into this series,
-as suggested by Jason A. Donenfeld.
+This does not work on Ubuntu where /bin/sh is a symbolic link to dash.
 
-The update for v2 is quite small.
-I just swapped the patch order of patch 8 and 11
-instead of moving comments around files,
-which was addressed by Nick Desaulniers.
+I see lots of
 
+  /bin/sh: 1: Syntax error: Bad fd number
 
-Borislav Petkov (1):
-  Documentation/changes: Raise minimum supported binutils version to
-    2.23
+and
 
-Jason A. Donenfeld (4):
-  x86: probe assembler capabilities via kconfig instead of makefile
-  crypto: x86 - rework configuration based on Kconfig
-  crypto: curve25519 - do not pollute dispatcher based on assembler
-  x86: update AS_* macros to binutils >=2.23, supporting ADX and AVX2
+  warning "your version of binutils lacks ... support"
 
-Masahiro Yamada (11):
-  lib/raid6/test: fix build on distros whose /bin/sh is not bash
-  x86: remove unneeded defined(__ASSEMBLY__) check from asm/dwarf2.h
-  x86: remove always-defined CONFIG_AS_CFI
-  x86: remove unneeded (CONFIG_AS_)CFI_SIGNAL_FRAME
-  x86: remove always-defined CONFIG_AS_CFI_SECTIONS
-  x86: remove always-defined CONFIG_AS_SSSE3
-  x86: remove always-defined CONFIG_AS_AVX
-  x86: replace arch macros from compiler with CONFIG_X86_{32,64}
-  drm/i915: remove always-defined CONFIG_AS_MOVNTDQA
-  x86: add comments about the binutils version to support code in
-    as-instr
-  crypto: x86 - clean up poly1305-x86_64-cryptogams.S by 'make clean'
+Replace it with portable '>/dev/null 2>&1'.
 
- Documentation/process/changes.rst             |   4 +-
- arch/x86/Kconfig                              |   2 +
- arch/x86/Kconfig.assembler                    |  17 ++
- arch/x86/Makefile                             |  22 ---
- arch/x86/crypto/Makefile                      | 162 +++++++-----------
- arch/x86/crypto/aesni-intel_avx-x86_64.S      |   6 -
- arch/x86/crypto/aesni-intel_glue.c            |  21 +--
- arch/x86/crypto/blake2s-core.S                |   2 -
- arch/x86/crypto/chacha_glue.c                 |   6 +-
- arch/x86/crypto/poly1305-x86_64-cryptogams.pl |  16 --
- arch/x86/crypto/poly1305_glue.c               |  11 +-
- arch/x86/crypto/sha1_ssse3_asm.S              |   4 -
- arch/x86/crypto/sha1_ssse3_glue.c             |  13 --
- arch/x86/crypto/sha256-avx-asm.S              |   3 -
- arch/x86/crypto/sha256-avx2-asm.S             |   3 -
- arch/x86/crypto/sha256_ssse3_glue.c           |  12 --
- arch/x86/crypto/sha512-avx-asm.S              |   2 -
- arch/x86/crypto/sha512-avx2-asm.S             |   3 -
- arch/x86/crypto/sha512_ssse3_glue.c           |  10 --
- arch/x86/include/asm/dwarf2.h                 |  44 -----
- arch/x86/include/asm/xor_avx.h                |   9 -
- drivers/gpu/drm/i915/Makefile                 |   3 -
- drivers/gpu/drm/i915/i915_memcpy.c            |   5 -
- include/crypto/curve25519.h                   |   6 +-
- kernel/signal.c                               |   2 +-
- lib/raid6/algos.c                             |  12 +-
- lib/raid6/avx2.c                              |   4 -
- lib/raid6/recov_avx2.c                        |   6 -
- lib/raid6/recov_ssse3.c                       |   6 -
- lib/raid6/test/Makefile                       |   9 +-
- 30 files changed, 101 insertions(+), 324 deletions(-)
- create mode 100644 arch/x86/Kconfig.assembler
+Fixes: 4f8c55c5ad49 ("lib/raid6: build proper files on corresponding arch")
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+Acked-by: H. Peter Anvin (Intel) <hpa@zytor.com>
+---
 
+Changes in v2: None
+
+ lib/raid6/test/Makefile | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/lib/raid6/test/Makefile b/lib/raid6/test/Makefile
+index 3ab8720aa2f8..b9e6c3648be1 100644
+--- a/lib/raid6/test/Makefile
++++ b/lib/raid6/test/Makefile
+@@ -35,13 +35,13 @@ endif
+ ifeq ($(IS_X86),yes)
+         OBJS   += mmx.o sse1.o sse2.o avx2.o recov_ssse3.o recov_avx2.o avx512.o recov_avx512.o
+         CFLAGS += $(shell echo "pshufb %xmm0, %xmm0" |		\
+-                    gcc -c -x assembler - >&/dev/null &&	\
++                    gcc -c -x assembler - >/dev/null 2>&1 &&	\
+                     rm ./-.o && echo -DCONFIG_AS_SSSE3=1)
+         CFLAGS += $(shell echo "vpbroadcastb %xmm0, %ymm1" |	\
+-                    gcc -c -x assembler - >&/dev/null &&	\
++                    gcc -c -x assembler - >/dev/null 2>&1 &&	\
+                     rm ./-.o && echo -DCONFIG_AS_AVX2=1)
+ 	CFLAGS += $(shell echo "vpmovm2b %k1, %zmm5" |          \
+-		    gcc -c -x assembler - >&/dev/null &&        \
++		    gcc -c -x assembler - >/dev/null 2>&1 &&	\
+ 		    rm ./-.o && echo -DCONFIG_AS_AVX512=1)
+ else ifeq ($(HAS_NEON),yes)
+         OBJS   += neon.o neon1.o neon2.o neon4.o neon8.o recov_neon.o recov_neon_inner.o
 -- 
 2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200326080104.27286-1-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200326080104.27286-2-masahiroy%40kernel.org.
