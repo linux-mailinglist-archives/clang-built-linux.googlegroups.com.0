@@ -1,126 +1,139 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB57C57ZQKGQE5YAU22Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD26TVH6RINBBG7M57ZQKGQEOI2BZ4Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73d.google.com (mail-qk1-x73d.google.com [IPv6:2607:f8b0:4864:20::73d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0BEB31934D4
-	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Mar 2020 01:04:10 +0100 (CET)
-Received: by mail-qk1-x73d.google.com with SMTP id f206sf3335243qke.9
-        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Mar 2020 17:04:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1585181049; cv=pass;
+Received: from mail-yb1-xb3f.google.com (mail-yb1-xb3f.google.com [IPv6:2607:f8b0:4864:20::b3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6582D1934F4
+	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Mar 2020 01:23:57 +0100 (CET)
+Received: by mail-yb1-xb3f.google.com with SMTP id w189sf4414614yba.9
+        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Mar 2020 17:23:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1585182236; cv=pass;
         d=google.com; s=arc-20160816;
-        b=NPm0eSGQphUjwoiSPS/Wyb+ZMoeDHnKRudPNP8m7bdNOY+qu9H2lSVnPi0XRKjP4bz
-         pYkrwfJ7vU7uAmW5gy/d3gIZCaUdtOxG+cS1JOIAOigIvYVjmSlW4cGpe5RHBoapsCgT
-         MiYFA59TNNTVXKTD2sq52KEehvTeK3+bCrIFq4ZnqtYMalTt5PjAem3ttqXvgpph7iLg
-         8xhyQ95x38s3TYHBwkD2LLJMqo/wcNk24lbqIwu1zmHk0ZkpY6BXKz2c1lQdX+OK3Fms
-         kbfErybsiB1oUl0Zql1a2dcoan43wXG7Y18gax6429+U98sJJPG31IaFqkQ2ghWhOmKk
-         m7yw==
+        b=Y/yWpAYWbj8Q2f6WC2Fa3x+DDLkZRYKZxUNcdbJ0j9s2NyJeFtvL91UCvPmGsMlbQ2
+         2YrV+R8wbnqDpnl8F8uU2SXtM3POsmQ74Mn/jGifamLVQrb+Q72665+W8eBgGbuykAOY
+         Cl+GnsINIbf3IoMaauPc0XQ36NjbgyIM92nCFn2R8WXruU7wdO3rGe1jQ7K+AcbqvcpW
+         6hULz1izOCdT+WRYNfsNls5GlqXUGcQJ514T8BiYfEH6C1FkQNED37rJ66OFSi4uyXng
+         amo1DaZbGkRA+wyefrMv0LkCs5R6xcXm+B52HFiuTXEhnTRSn0vaHSkGKXSei9RvndUG
+         gyXw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=bWOk4xeqhnO5wJm80jtGh2rZ/KbpA7MQTQVKUASjWx8=;
-        b=Ae7Xa1H/keGg8iteuO4DBzwplKEguZWGgiWsmR0iyCXzQ9HUASk62WfnCl2JxcODeT
-         lczZmiRlXCVeLjdzscvD8zeXbdbL1aq+FO87vEhMcQuuoldeX14Gl9PEJG1G7YTGk/kM
-         lhQc/5e1X7R0np3cQqPUihts4Qj4QwUaudyNZWcVrDXErvuOJHRbkBCetxXqWX3D46Q5
-         I55+bJZybUxWtspZ39DPwKcTfXUNfNb+wwd+K2786PeaFDm6rms625oEO1aKAl11sxjb
-         o+Uiv7/uo3cFWBQ+wsP/uivhvOERTpkEY4AI83yOdCMfvFrMRbgLiQXFAkTx2EUwBxFS
-         jwQQ==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=ENnO/jsn2oeimvONS3CJx4Wk67B0WJGRSdLEtomXhRg=;
+        b=tktbyRRfQoXo3lS9nwbGeNM0V/YxcWFhv+i9fWRsUa8KnC1S/7L6qicGBJBfM2u0r1
+         VSU9LRWSFX68G84y+Dqsu3wJGb/ZicwtC8qi048cYN5DjNy66iS2Vl1f16beA+KtS/W/
+         tovvvs4TLCBGTKJ7g2ZLaK3DbM7izCvhnPX4Ypd60UqW55Rx9NOBQHLUC7vPCU/NiUBe
+         kDseUxGVZH0oa2cEcugcJBlMS/jgUN3LcsSipXzyDs+rlnzIaUIJIr5o3nj2eSeAoQwK
+         Xl8nLJ3NVUkNfo3bVIsr3x0xh7hqVZm8PPbC/mrFCXjMlxsRmiAaFhKhoKPmqfG+1756
+         dK/w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="YJEY4Nj/";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42a as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=bWOk4xeqhnO5wJm80jtGh2rZ/KbpA7MQTQVKUASjWx8=;
-        b=VJomR0FfwewdA/59MMez/urs7kh2sPY+8f/y9vuVSDxOKiUhxnOZEFXYrgliYrQ3yL
-         9rxZzD3Yox6ThSJaRtaHidBxFYb5yePl8SibYOy4vH5Nx+t3nIckyMvGQGHU30bVnrTL
-         vce4cywrV8ssaj4jR9CWcdKeikr15Lo/2lEtr/1ZM2afKpqHcTVUKBtdB+YIDsaxp36z
-         XM0lWFEFY2Hoiy+l9BKzGMdghtDkeJA4CrYXWzHvtusEIpvT0CJs0wKDpZzff/ZVa+/U
-         JLr0S13zYoAseSWHsBv5m1h7RpCcV81TKZQkCEnX+sN+2+wAY0AxmnMTJtjS3FksqUhY
-         hSlw==
+        h=sender:ironport-sdr:ironport-sdr:subject:to:cc:references:from
+         :message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ENnO/jsn2oeimvONS3CJx4Wk67B0WJGRSdLEtomXhRg=;
+        b=gvk96nmus6ksCLyEN48If15qfZG/gBcBoiQ2zrvWuqejZqk60rKXjp0USj03Wb4lRo
+         PzM4WSrD/chCVODXOH410/vRLlfGzigrHqoadksOwCzigNGKkyd57uNN0I5rXaU3NgFs
+         ojt3LnFxZ5uutdcQVxa7nk3jYJjQ6GlLWMSbx/kvKDfQgelaBvCsbjZlWDqIdIHc2ZLZ
+         5hYxrBCO/sumgnOvhWrDUZuJ4NRmnE7v78Qpnxka9Fkn61QE64lu6JZ3N+gbjuudwCum
+         8QYoBMq3LzbDtsy1kHyDnevQ2SjVujT3bkdIKgaHRpmEabecZlU/rsEtXJKYCWfPwQsg
+         OmgQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=bWOk4xeqhnO5wJm80jtGh2rZ/KbpA7MQTQVKUASjWx8=;
-        b=cF0rHs02kClB/Hr82eIWeb/fwQwqmpllfVcFjVGGyJSZW4WdFkDVX+5Fsg1OpfTY6N
-         t1g3u57rmGv5gcKe1eNLDq9L1K/q6nKCK/l5+6wxVRhlnvz5Kmbjs023B+4cQiPiAGnc
-         uRsJaOhcfnxvIcPjmbXyNEcUd77hvB7ZnTwnT95hdGHBj0z5ZCI6nSLTb0i93x2CYNG/
-         MlLtFWsg8d72s+pHxvTVtMezs2uRfOE5+Mv76GCV45W8SrcQrb/37jZAaDZlpYQU5SBV
-         AEl25P4nf/w9HtuF3RXGwLX/po93QQs5jXOy+P9tJzD4ogKB9cwZBd5Hrgc3FZ66SkHc
-         uShg==
-X-Gm-Message-State: ANhLgQ18ulobRnuXjzdUV9Vl/beodd8WO5NacYw1Hv2HryO93KEmdW12
-	OeWpL6j4lj308NmYJxgNAw8=
-X-Google-Smtp-Source: ADFU+vsbNc4gbUn6dchHZ4DRlbYIhafW7nAJDV8ZOcdghv6XZ0JBKQQPWuUo+UjKAWJ5NxVa05wjiQ==
-X-Received: by 2002:a05:620a:111a:: with SMTP id o26mr5652740qkk.328.1585181047685;
-        Wed, 25 Mar 2020 17:04:07 -0700 (PDT)
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:subject:to:cc
+         :references:from:message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ENnO/jsn2oeimvONS3CJx4Wk67B0WJGRSdLEtomXhRg=;
+        b=pvvG3lGnRSoWpchwn/BWOOMbsMIqO54pizTW63jFCvfp8w1N/l/nPX6MoCJi/Jv/wV
+         Wl44ixP+GdVPSl03pZL4OocWVSQ0eIyZBjbFbNgx5JeNpf9+ccEHd9BpJqN5Ox4QPhFy
+         gajhqhjNpRcoeRinbed9oGWvChvi/YIKTNS92B/Zpn1MSeLjZiFplmyI4P7522uTtXs7
+         b9x3gJ6WtJQOAl5K7iN+55NroSszaCVpOnxtBOmziovNvDe6iYOmcWtecs6tMSjuJQsl
+         2tExTbaoPbZPU0iMpem3k0bQqWLh+QIwPNc4Y4v+nTLnUvDefwjGZsF4U7RQLfrMEqB+
+         mmPQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: ANhLgQ2vTBgPV1r+xUlv29FQHzjgR1kkxopZlWl1ZsGps+73oX+5DASn
+	Q908ZcdBYSt0jh7rfVBnLaw=
+X-Google-Smtp-Source: ADFU+vsKL10BIcRjk7kn8ghzSTPtTAOPXYkzxucjWubQTMmdaYO4DK1Nni3x2ftKS6cLsvzVYXSWoA==
+X-Received: by 2002:a5b:48e:: with SMTP id n14mr10343304ybp.462.1585182235891;
+        Wed, 25 Mar 2020 17:23:55 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:1971:: with SMTP id g46ls1481979qtk.7.gmail; Wed, 25 Mar
- 2020 17:04:07 -0700 (PDT)
-X-Received: by 2002:ac8:4557:: with SMTP id z23mr5866325qtn.350.1585181047337;
-        Wed, 25 Mar 2020 17:04:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1585181047; cv=none;
+Received: by 2002:a25:aa0c:: with SMTP id s12ls1486678ybi.6.gmail; Wed, 25 Mar
+ 2020 17:23:55 -0700 (PDT)
+X-Received: by 2002:a25:1e8a:: with SMTP id e132mr9806708ybe.425.1585182235474;
+        Wed, 25 Mar 2020 17:23:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1585182235; cv=none;
         d=google.com; s=arc-20160816;
-        b=BUjHbqyGRdMM/Gp4tw6aVjxt81/uw9gzwCxXlLcqVTH0qjW76JY+8j/4MTGdTjpk1H
-         HJ1wQEGjOcXoGGkN7N8SegzldHO4rOKQGJc04mQor10/jFfwjn2UfCAvgwRsuo/23NyU
-         kK7pSBfqVL+DM8m4B64h9ZDNlh9FcqrKq55lTcwCc+tHAQ1jXcAfvVwSQj5smv0pJ90Q
-         rGHBjeYhF811UJ+HliA1y7l3wJj603Fk38//xsbiDpr8pHPmmV0DydGTYSoY2IB4ZqyL
-         x7lVol9Pm6AL+6f8PqIo+Oh/Bnt4fgb6VvFvCwJn01MbL796kNPypkoGkqsbg0+EyWsV
-         rvRw==
+        b=LRV6zj/Py1tI0ThdbYM1LWML/prYljll+n5PqMat0FzsWG4ghEP8SbZX8HBt4hKa+I
+         oaCLI8DQXKLpiFbnJL0jkm4Shxi9GUT5uDKNWux/z1uKbYQfFQ7wpdjOQjzeV+98ST0y
+         wDGxRTukTKUSi/bHGBcTjOax3vaeD2zC3TGcbm0woeD2w30IVsdrotppUu/KE1jYrAoY
+         j+Aa0A+f28vsbZDHjytG6ljZIqPfVe0sKVn8I+TuyJWuWhhoKqz/7E2QubUy34L6PvXG
+         UQDBizChpq/as7k2rEZcEOTbHXAAUpr0pt8RNFWSaS60KaayLAm1cioqek84rbUZbSeU
+         kvNw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=9ofg8uKSIrI/UopczAhYrKg7YkVEGTC8X9resn/U2U8=;
-        b=BEWcN5OcnmIzivBwiWsczqXVuuUggoJpnFbFFmtLPcdGr/deALSoCNAL7UJQjvlbkd
-         lDJA+Y1nuUWxjuZ3LqwND1PCB1qv8Z9S0q4Jf0z06OpgWh1oP66aJlvX3Z7sKjHNUz9K
-         aUgpSTvO8Bda8q+8R8PZtumRDsfO1EYzchweM9fGVqKVO4I3KYe/rtgFxRqUBQ1Avmsu
-         TVby7vyzstvb6Yio9C9HyrkNhvU83Eg6h9dTqhHda+qGVOHkd5DrlS+vB2XxaR1gFM/V
-         7fiXHwuE1UUq3sfxjlVLL++S107Ks493EyBHWj0Z8adOaktUX57KTClNZNdtUXhzCw5i
-         fpIQ==
+        h=content-language:content-transfer-encoding:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :ironport-sdr:ironport-sdr;
+        bh=83/HIFgmM0tXGQS3DGS40kqM/dt1ITlFJ/N0GswsMFE=;
+        b=vrxyWE4wthbYxLAIJlOQg3p3QgN3ctoLkx9ALw+bvy2LsjXMS7M27H59KxC4g/j/1f
+         6TVtVEUBDLM1+6zb41SWMetCPIjkNCl96SwlNW9zq1bN9LB64V61m9zAm+ZRdyWWoR8E
+         P3A9jN5S3Kt7quaQxqxOMDRu3/qPqmCg4ns28ZxBzLutiuV9I30YCKF/z2DxstIqYSCO
+         Mb9hxVPy6Auk+oyQH7y4uBPxMJ8acBH96uIJNk9mJUUAsI5wtlydHEnMKAPOCIZiInHr
+         6pNTIW2CSVyEcW7uAO8E+FLVWZp83LfZy5NiduHm+GjHxR0M2E93VlNUixTbcTzh5O+/
+         F/Uw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="YJEY4Nj/";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42a as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x42a.google.com (mail-pf1-x42a.google.com. [2607:f8b0:4864:20::42a])
-        by gmr-mx.google.com with ESMTPS id r14si72851qtc.5.2020.03.25.17.04.07
+       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
+        by gmr-mx.google.com with ESMTPS id d72si42820ybh.5.2020.03.25.17.23.55
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Mar 2020 17:04:07 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42a as permitted sender) client-ip=2607:f8b0:4864:20::42a;
-Received: by mail-pf1-x42a.google.com with SMTP id f206so1866246pfa.10
-        for <clang-built-linux@googlegroups.com>; Wed, 25 Mar 2020 17:04:07 -0700 (PDT)
-X-Received: by 2002:a63:4e22:: with SMTP id c34mr5739977pgb.263.1585181046070;
- Wed, 25 Mar 2020 17:04:06 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 25 Mar 2020 17:23:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
+IronPort-SDR: uCzCIJavdaPP0QAKwILV++NHYipweOgE+c2bLVsgiMOlGqrmt27QuU12bhxP+MmWvs0a26oAAm
+ 3EElQnBhzHBw==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Mar 2020 17:23:54 -0700
+IronPort-SDR: /7qTxEem+Tx/MbAwzTO31FNVi/C2CjwwSocVtRs6jnbCsQ81aVRdjxitcoXXs0axtdHKs0IqSI
+ MydckWS7qShw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.72,306,1580803200"; 
+   d="scan'208";a="420503114"
+Received: from shao2-debian.sh.intel.com (HELO [10.239.13.3]) ([10.239.13.3])
+  by orsmga005.jf.intel.com with ESMTP; 25 Mar 2020 17:23:49 -0700
+Subject: Re: [kbuild-all] Re: [linux-next:master 7819/11710]
+ security/integrity/ima/ima_crypto.c:514:5: warning: stack frame size of 1152
+ bytes in function 'ima_calc_field_array_hash'
+To: Nick Desaulniers <ndesaulniers@google.com>,
+ kbuild test robot <lkp@intel.com>
+Cc: Dirk Mueller <dmueller@suse.com>, kbuild-all@lists.01.org,
+ clang-built-linux <clang-built-linux@googlegroups.com>,
+ Rob Herring <robh@kernel.org>, David Gibson <david@gibson.dropbear.id.au>
+References: <202003260212.EDh6YemF%lkp@intel.com>
+ <CAKwvOdnQY-w0mad2=D936i7BYOshH5Heo+naE4uC9MrEPC6G3w@mail.gmail.com>
+From: Rong Chen <rong.a.chen@intel.com>
+Message-ID: <a7fdfba0-dd65-179a-60d9-b87b61a209cb@intel.com>
+Date: Thu, 26 Mar 2020 08:23:31 +0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.6.1
 MIME-Version: 1.0
-References: <528FDEDD-391E-486A-8095-7385B33FC736@converseincode.com> <20200325162113.1fecdc8b@gandalf.local.home>
-In-Reply-To: <20200325162113.1fecdc8b@gandalf.local.home>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 25 Mar 2020 17:03:54 -0700
-Message-ID: <CAKwvOd=-mFdTuNhcxf-JJrN++PehpJtWDjhL57a0d4Jmu0EhLQ@mail.gmail.com>
-Subject: Re: Plumbers
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Behan Webster <behanw@converseincode.com>, Elena Zannoni <ezannoni@gmail.com>, 
-	Kate Stewart <kstewart@linuxfoundation.org>, Bill Wendling <morbo@google.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: ndesaulniers@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="YJEY4Nj/";       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42a
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+In-Reply-To: <CAKwvOdnQY-w0mad2=D936i7BYOshH5Heo+naE4uC9MrEPC6G3w@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: rong.a.chen@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of rong.a.chen@intel.com designates 192.55.52.120 as
+ permitted sender) smtp.mailfrom=rong.a.chen@intel.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,69 +146,105 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Thanks for the heads up,
-I've submitted a proposal for an LLVM MC:
-https://www.linuxplumbersconf.org/event/7/abstracts/565/
 
-```
-Significant progress was made in 2019 and 2020 Clang gained the
-ability to compile multiple different architectures supported by the
-kernel. Many LLVM utilities also now work for assembling and linking
-the kernel as well. Multiple continuous integration services covering
-the kernel are also building with Clang.
 
-This micro-conference hopes to cover the current state, benchmarks,
-challenges faced, as well as presenting areas of future work.
-```
+On 3/26/20 3:08 AM, Nick Desaulniers wrote:
+> On Wed, Mar 25, 2020 at 11:37 AM kbuild test robot <lkp@intel.com> wrote:
+>> Hi Dirk,
+>>
+>> First bad commit (maybe != root cause):
+>>
+>> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+>> head:   bfd7a248502373da8b1c8eb0e811fdb19cc3f8b6
+>> commit: 35595372d95c0d10784bce1aec8cc144a39eb66d [7819/11710] Remove redundant YYLOC global declaration
+>> config: arm-allyesconfig (attached as .config)
+>> compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 2093fdd429d52348e08969180ac6b1e705fc4ff6)
+>> reproduce:
+>>          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>>          chmod +x ~/bin/make.cross
+>>          git checkout 35595372d95c0d10784bce1aec8cc144a39eb66d
+>>          # save the attached .config to linux build tree
+>>          COMPILER=clang make.cross ARCH=arm
+>>
+>> If you fix the issue, kindly add following tag
+>> Reported-by: kbuild test robot <lkp@intel.com>
+>>
+>> All warnings (new ones prefixed by >>):
+> Please ignore, these warnings and the identified commit are unrelated;
+> we have a few -Wframe-larger-than= warnings to clean up for 32b arm.
+> I have a tool that parses debug info to find these:
+> https://github.com/ClangBuiltLinux/frame-larger-than
 
-Let's see if it's accepted.
-https://www.linuxplumbersconf.org/blog/2020/ says
-`The first round of accepted microconferences will be announced on
-April 26, 2020.`
+Hi Nick,
 
-On Wed, Mar 25, 2020 at 1:21 PM Steven Rostedt <rostedt@goodmis.org> wrote:
+Thanks a lot, we'll blacklist such warnings.
+
+Best Regards,
+Rong Chen
+
+
+>
+>>>> security/integrity/ima/ima_crypto.c:514:5: warning: stack frame size of 1152 bytes in function 'ima_calc_field_array_hash' [-Wframe-larger-than=]
+>>     int ima_calc_field_array_hash(struct ima_field_data *field_data,
+>>         ^
+>>     1 warning generated.
+>> --
+>>>> sound/soc/codecs/cros_ec_codec.c:757:12: warning: stack frame size of 1152 bytes in function 'wov_hotword_model_put' [-Wframe-larger-than=]
+>>     static int wov_hotword_model_put(struct snd_kcontrol *kcontrol,
+>>                ^
+>>     1 warning generated.
+>> --
+>>>> drivers/staging/exfat/exfat_super.c:2072:12: warning: stack frame size of 1576 bytes in function 'exfat_readdir' [-Wframe-larger-than=]
+>>     static int exfat_readdir(struct file *filp, struct dir_context *ctx)
+>>                ^
+>>     1 warning generated.
+>> --
+>>>> drivers/crypto/inside-secure/safexcel_cipher.c:404:12: warning: stack frame size of 1128 bytes in function 'safexcel_aead_setkey' [-Wframe-larger-than=]
+>>     static int safexcel_aead_setkey(struct crypto_aead *ctfm, const u8 *key,
+>>                ^
+>>     1 warning generated.
+>>
+>> vim +/ima_calc_field_array_hash +514 security/integrity/ima/ima_crypto.c
+>>
+>> 3323eec921efd81 Mimi Zohar      2009-02-04  513
+>> b6f8f16f41d9286 Roberto Sassu   2013-11-08 @514  int ima_calc_field_array_hash(struct ima_field_data *field_data,
+>> b6f8f16f41d9286 Roberto Sassu   2013-11-08  515                               struct ima_template_desc *desc, int num_fields,
+>> a71dc65d30a4724 Roberto Sassu   2013-06-07  516                               struct ima_digest_data *hash)
+>> ea593993d361748 Dmitry Kasatkin 2013-06-07  517  {
+>> ea593993d361748 Dmitry Kasatkin 2013-06-07  518         struct crypto_shash *tfm;
+>> ea593993d361748 Dmitry Kasatkin 2013-06-07  519         int rc;
+>> ea593993d361748 Dmitry Kasatkin 2013-06-07  520
+>> ea593993d361748 Dmitry Kasatkin 2013-06-07  521         tfm = ima_alloc_tfm(hash->algo);
+>> ea593993d361748 Dmitry Kasatkin 2013-06-07  522         if (IS_ERR(tfm))
+>> ea593993d361748 Dmitry Kasatkin 2013-06-07  523                 return PTR_ERR(tfm);
+>> ea593993d361748 Dmitry Kasatkin 2013-06-07  524
+>> b6f8f16f41d9286 Roberto Sassu   2013-11-08  525         rc = ima_calc_field_array_hash_tfm(field_data, desc, num_fields,
+>> b6f8f16f41d9286 Roberto Sassu   2013-11-08  526                                            hash, tfm);
+>> ea593993d361748 Dmitry Kasatkin 2013-06-07  527
+>> ea593993d361748 Dmitry Kasatkin 2013-06-07  528         ima_free_tfm(tfm);
+>> ea593993d361748 Dmitry Kasatkin 2013-06-07  529
+>> ea593993d361748 Dmitry Kasatkin 2013-06-07  530         return rc;
+>> ea593993d361748 Dmitry Kasatkin 2013-06-07  531  }
+>> ea593993d361748 Dmitry Kasatkin 2013-06-07  532
+>>
+>> :::::: The code at line 514 was first introduced by commit
+>> :::::: b6f8f16f41d92861621b043389ef49de1c52d613 ima: do not include field length in template digest calc for ima template
+>>
+>> :::::: TO: Roberto Sassu <roberto.sassu@polito.it>
+>> :::::: CC: Mimi Zohar <zohar@linux.vnet.ibm.com>
+>>
+>> ---
+>> 0-DAY CI Kernel Test Service, Intel Corporation
+>> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+>>
+>> --
+>> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+>> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+>> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202003260212.EDh6YemF%25lkp%40intel.com.
 >
 >
-> It's finally open!
->
->   https://www.linuxplumbersconf.org/blog/2020/
->
-> -- Steve
->
->
-> On Sun, 9 Feb 2020 09:23:52 +0100
-> Behan Webster <behanw@converseincode.com> wrote:
->
-> > I=E2=80=99m at the ClangBuiltLinux meetup this past week and there is d=
-efinitely a lot of interest in putting together an LLVM track for Halifax t=
-his year.
-> >
-> > Let me introduce both Nick and Bill from google who are 2 of the princi=
-pal people in the ClangBuiltLinux project.
-> >
-> > There are so many interesting things to talk about with the right peopl=
-e at plumbers, and so we=E2=80=99re trying to let you know of our intention=
-s to propose an LLVM track early this year. :)
-> >
-> > We=E2=80=99re looking forward to the call for tracks announcement.
-> >
-> > Thanks,
-> >
-> > Behan
-> >
-> > Sent from my Mobile Computer which is also a phone
 
-
-
---=20
-Thanks,
-~Nick Desaulniers
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAKwvOd%3D-mFdTuNhcxf-JJrN%2B%2BPehpJtWDjhL57a0d4Jmu0EhLQ=
-%40mail.gmail.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/a7fdfba0-dd65-179a-60d9-b87b61a209cb%40intel.com.
