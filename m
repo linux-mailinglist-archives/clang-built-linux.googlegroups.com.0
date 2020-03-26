@@ -1,128 +1,153 @@
-Return-Path: <clang-built-linux+bncBCLMHO6ARMORBL6N6HZQKGQEZDNVGHI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD7LZ45K3ECBBWHH6HZQKGQEBICYJBA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
-	by mail.lfdr.de (Postfix) with ESMTPS id CDAA8193AC3
-	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Mar 2020 09:24:16 +0100 (CET)
-Received: by mail-pj1-x1039.google.com with SMTP id d9sf3719851pjs.2
-        for <lists+clang-built-linux@lfdr.de>; Thu, 26 Mar 2020 01:24:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1585211055; cv=pass;
+Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7E69F193B9C
+	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Mar 2020 10:20:24 +0100 (CET)
+Received: by mail-wr1-x440.google.com with SMTP id u18sf2702387wrn.11
+        for <lists+clang-built-linux@lfdr.de>; Thu, 26 Mar 2020 02:20:24 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1585214424; cv=pass;
         d=google.com; s=arc-20160816;
-        b=x/yen+JxMYAnO23VrrkFgH8Wh4Ldd+Zeq7hkN8TGw0f6h3zLeetKOqmbiRXDMp2m97
-         jjGAfm1iqj9VRmX6Ke+QmUq+ytRJt4C4ycvFFl8pjmVTCUuERfLdWSaY4XzfM35632wp
-         HKqxLt2BqWM//LCutBWcQ4ER/oTyQlIcbRHWPXU2blCU/c5iGWsoVAdAzi5yHDQKJBKf
-         5c6nDmrEIO4+smPVoTuRUOaf4z8vVeuJVTEBhrW5jHc+BjhKfgvnzMG6nrukJLCwRpN1
-         Fp7Y3QhgjrwspwRVBLGDnoVoirBNGjkEaBpccLNr7bMivSgWyUZV9Q85owB4ju47SZBy
-         zp7w==
+        b=C6lNe7rhGCIJSUU2+eAwvs4WhLnCMnu6gwQZSaMK3xOajvjIv7mEtXaQfk1CBAsRBQ
+         hIanxUCkq+NPXpcyQtYMeLkzVWsDJhKx40ZUfRLjIa6Tmjy9aJ9qFKxme2NmkjuwIKLI
+         2hi20FxrToWIe3DZZhIEOssZMdnf/5RD0e2kSKDht4Si62WypR8OSHnV07CCFCJj6bvC
+         jX5WFSIRTyLejI3YgogflO4BSjeZKtSF5UDJMV/DM+yvEeJU1gQLOAnymFp5SOHMsZu2
+         OknOb5/28UwYGrYBPS014eBCi670v84l+lcXgbA1ML0pPmD9k7yB2W5jWc/iOKJM5QAZ
+         n40A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :references:organization:in-reply-to:subject:cc:to:from:ironport-sdr
-         :ironport-sdr:sender:dkim-signature;
-        bh=4SzuwqW3iXTs0aE7iYYN4+xifrQqDHY0ht8XIZE1U9Q=;
-        b=YqpTGPL7SqjtGOcimZACN0hFHgsIeT4sD/Kgg2n1w716mWDoM4xjcjuoDd1kV0pKbJ
-         4HutvpQ92LjuuwN0NsjsE05UbP+yq+/XDA7Waz21fqf4PTQWsjcAXwZG4usZm4ws7V8q
-         yNWeXMU3Zp7OVyn5GfDJsWtfIUhQZWk3GElehXj0wME1B1aI34zdKb4Ejt0jEyd1qmvN
-         6Pxiq2Jdbf/gMGz2gXX3mrA8T0PdEIyP25Nx7SNT1X4uCZKZ1yAXLhzVmqYAfGiwkAr7
-         K7FiLuOeUqdt3huHXMFu5Lxj8LS7AIu4MWUOhd/PwkUKxZw6MXw8n2sQ/otneKMIvFOz
-         BZHg==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=cK+BCgB6BdTMXbqbbG/8O/EnTQud0+P3HCIweHilyzA=;
+        b=PVVDFlhMwJOg2vW2ZUC3UJcP6ySMFElPhbhFclCwD73GaVM2qxsFp9082e4Xf94Al5
+         +VvIHormSwFYYhvr1sqw0v/TArT1F6Yu+5yU2eXzx5m62RLnqH2zbGbxhEAb8DBfYVKI
+         B3X/i2/keteny5/wgaVxJ0hWEyhVKgSm3IDjeDe8C9XkgrSM6dgvzU42sbuYFdGoTjAu
+         IPo9IndZYR/D0FnuZcxQV3AiBzPZgIokYLgqw8h8oMiuuseOenSLeu+V1ZZwQxniF7Ym
+         tpykCtbLj/sUlZxpjtMI8XGtxlbluTPrMAuIcONcw6JimUVZU7csVdAPLerQkeGL3BaF
+         JJFQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of jani.nikula@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=jani.nikula@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=RX5mdPiG;
+       spf=pass (google.com: domain of mingo.kernel.org@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=mingo.kernel.org@gmail.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:from:to:cc:subject:in-reply-to
-         :organization:references:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=4SzuwqW3iXTs0aE7iYYN4+xifrQqDHY0ht8XIZE1U9Q=;
-        b=k92hCHvqU94/hU/E9uDYY1pqc325IrgtjPx66d1t/sx8Ad/KP1qWDGf49ee7Sbin2K
-         tnQth27YuCacmpaV6b4RQGm2+Ugh50KUaxso3beKwYvkdmV4gAuiAy5TlGYtA8tjoXin
-         dUqP4aAkkDYQGizGeDDlgnLv3l3O8fq0ievConU550jQGAhQYEbip5ZOZLssPkSyN+bZ
-         yyqUp1IFv4Nw0MjQywQTxdA3mDHHRgzWYbItRZ1IXIDoiHUQjINiWQuJ/r7MHXX9Dasp
-         zwvydyZWIkOqqysM78UgF3lGvpD+TonHPxrwiXfzwNA8BusdJFxM0kcImsLNnik8bfy8
-         +Niw==
+        d=gmail.com; s=20161025;
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=cK+BCgB6BdTMXbqbbG/8O/EnTQud0+P3HCIweHilyzA=;
+        b=QtiQP8GvkkGS4excplNByw+Ovo4JDbgn1u2oeMnxD+oOQ2Fe20u20LlLUnQAyjlPNU
+         xypI3N9F4vZjWA5G3Nh4P7mzrLmFvJRad2YvNea+wZBeSxVJ1BiVJNOr7XY8s80xqpIg
+         z+ZQ7ueenEtdhDZwactK3pD00yGE2nV759DWLw+5K6FOBlbn2XwnAeftxiSK7WLUMd1K
+         y9HgL0xwsg85KktkqxM4eEKXFNmAKEKQCDxdEBmF94AYDR7jcD2or5LKMhakFcoFf+qE
+         DYGwe+PRmOREp7TqqEZTHBNB1oj3Bpv0W1S9uP3borrLjhIPNX43rXO85Dl5+alK2ZAv
+         nbzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:from:to:cc
-         :subject:in-reply-to:organization:references:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=4SzuwqW3iXTs0aE7iYYN4+xifrQqDHY0ht8XIZE1U9Q=;
-        b=ON/UepA49vVZvO/g5Iqi6ifGu4Aewq5xFX4zznW+j1iY50FJ+TRN8R+if3/C6bAZfY
-         No+xlNW6LRTncRxwBHlXJmj/0lvs19sfiPxJOYEqcjwsrekuAE7a3F2Lv5fP5lDE71yx
-         WxEWhoc9Esk3bxkemlHMJTpCRQt7Ai1HRN5RF3T2AkSmHlSHyPIURQb4pIZvXzTRWmaP
-         psL8QI58XRQMEWVFw4GD7jGGn1ripdILHrvRQU9sK4Lw7wsAr4JXz00kMIJ9LqKwiSPr
-         AbQd1aJYdYFz8myr/jUoCCQnOi0uUKunrsNH39b19GMjK9YEbf4wi4xHlMX06hm13UH0
-         g5qg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ3Vv6HQdwfxUQ8xNtsmanoW8EnzJGLg8HbhhFAErtzwJuXK40L/
-	TcpnQzGYDO/16jFuBkJzHsE=
-X-Google-Smtp-Source: ADFU+vtnzu8ldbFSJXrg/h5JN85csgbZS0LLIuZLnHT8eXa+4v1J11sTgl7jMveu7FfMJE91eBQTSA==
-X-Received: by 2002:a17:90a:af81:: with SMTP id w1mr1888365pjq.14.1585211055293;
-        Thu, 26 Mar 2020 01:24:15 -0700 (PDT)
+        h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=cK+BCgB6BdTMXbqbbG/8O/EnTQud0+P3HCIweHilyzA=;
+        b=oe5f6F3Ea8hLmgmLA4SWsav9FBJuaDpFY3k5cs12Xcojy673E1yov4+bPM5VTvzBmf
+         r5CeKp/EQ9oALej2/jyYdZQHwJii2F0Dcayh3N1eW4N5DU0M0VAAzjZkkpylLejy9GHQ
+         9B9J8+NN3k59NzBHgkYijKA2+jkIDX+rXLXWLtxPvfU9SoqoSiaHJFEXba+14ZmexiJQ
+         lgCR9kdcXLZH9L2xT5rvgbuMa2omqFwovNwKBmKekjKJj0kCw1e37w+UtKyuNx6tcJNo
+         xb2zPe+pH1xqYWrAB9yee8OYilBvF7oUlZOUsGVaMZd0GjYWFgd+i0ZVq7EFa4tdPUPI
+         jkMw==
+X-Gm-Message-State: ANhLgQ03uTqs2FfX0wuEdz/uDEINtW3fScIg1D6vzn72RAHlM5RH3V84
+	DO3MHVNSKgIc7dGVUKIwBN4=
+X-Google-Smtp-Source: ADFU+vsvO+9axGM1dkUnt8olOkyrvZNDnAtszGOo4WhjGwl0tS7ccxIFLcD1hwIGQkhew89IyNUzAA==
+X-Received: by 2002:adf:a48d:: with SMTP id g13mr8751271wrb.38.1585214424155;
+        Thu, 26 Mar 2020 02:20:24 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:b58e:: with SMTP id a14ls3637441pls.5.gmail; Thu, 26
- Mar 2020 01:24:14 -0700 (PDT)
-X-Received: by 2002:a17:90a:582:: with SMTP id i2mr1884187pji.51.1585211054826;
-        Thu, 26 Mar 2020 01:24:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1585211054; cv=none;
+Received: by 2002:a05:600c:2250:: with SMTP id a16ls2725200wmm.3.canary-gmail;
+ Thu, 26 Mar 2020 02:20:23 -0700 (PDT)
+X-Received: by 2002:a1c:a58b:: with SMTP id o133mr2212121wme.53.1585214423389;
+        Thu, 26 Mar 2020 02:20:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1585214423; cv=none;
         d=google.com; s=arc-20160816;
-        b=umeYKFuM8J2tQFeP7BvJ4QL3V/sLWjK7XgU7RamMY0i5F9glW1pSj26CKcrAr/dRYd
-         way0Uy8BxEZnk+R6dEuobd4TU3IM35wGGDFPtiz+rSu4/lDP+deHjdm5Q2QBu1rvp3i0
-         hbM0c2b1pDiLe3bTEuDf3byhmvqMkNlpVeyE8wjrqkHBLjWVrkCefe2cCr0Z3PP0/X0T
-         RZFvUT4VhTNDnU62S9LU/JzJhPLdjxkpybZut7qPQ3IYtaufFvler2+r9evnHqEPU0n7
-         54hfWPw0vp7MFOyWDgtkmrb1nFrwdJuyHJVw6VoY7Dhs/OdhL89nudYNljGOOcu+f+PS
-         XmNA==
+        b=rwAnK2Fn9PHN1KuDTTee5nwRuHfHf0z7PkY5X38qIdGFdY7P2utl41uXa50/FK8YVC
+         8RorcRoYstO+iG58/PA3WTznb5JpIMZGi5SBN567AH5zE4Y0tUbmnGTId3GNT+NRL6J7
+         zqEjzEzBmvJtU4A+Bvi1h6Nn8SG4IBRryPn50D9wNx87KTxiHt0WiB0jBfU1rJqZBbch
+         +kGplemQF6UW7DU2SN0+oNmuAhIUU7+C1bi9JImCgspn0eXvaHNURGh5t6Afd/++KMxq
+         lUOB/RhZxGTWm5G8FAl7aWWS/PlaoJl0ejtaWvSn01UGailejuqqfy3Iq8rvp+DGbsyG
+         CqvQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:message-id:date:references:organization:in-reply-to
-         :subject:cc:to:from:ironport-sdr:ironport-sdr;
-        bh=0psL/Uyx0c8pK8RMp92e2//MyVVHzdjXbgVEB9DBXdE=;
-        b=BRWJLysn2HnHS9ShB6JVO9oK+TGUacAsxHCTOHSIhR6bWuf01QR+GMxaQDwE3PA7DH
-         dXjf3v3zf6ZYcFcB16MRFncnZWqghKvi3+D9ohcBQ3hqVTpXZy4QoNy2ntCEKU8ex5wJ
-         NiV+LHl2CZ2oMI7S6NQ0baPU44TydEY1xmWXd3O2THJQCad+Y6d+MhWQvl1Ut03PXJHc
-         GtL4qnCJjCZaKjGiFWe25LMbYudxbrTOJ7JyCAwXn6sgnxIqfYsQg5Ar6CTPfQh/2hHM
-         5utdPGUBrziR+43aUIs8cQbVuBPB8KT+iN8HGu9lrO1+CMkOQcItMdi/n6nSeAtQovEl
-         nlEw==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=QMCowoi/JCe2v265QDbm4p0VWyPtNcTvLQEymboWLVk=;
+        b=iurhp9mVNRoQRscJoFaVkt/AnQuJNVtcy11zR8WXIOH2GaUA1AlihtovGbkRxAz6cN
+         VjAzn2PgE/nUfTSnzbr946FfSzZQ51fPtX+afQuH7Z8IVvmkaXiOvf3qI+kJSsRm2M/s
+         +10t+8KfzVTHlszb/nTdlumjuYa3Se3VZI9Dxd8zAb9QACVlXJnUPlx0sznuAzsNQN4l
+         xlmkuXn6u83lZ93lU5d6LnIR68soBRIE/F37+ph9EOACzHNHCROEiQy6BIHZfpMu3ISk
+         XUmk45mJhCNUNCC3zFGfnub1ufhuFVsAbifZ5il/IjSMoY/dlsZtbpHUqgGriZX6GgQf
+         H9QQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of jani.nikula@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=jani.nikula@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
-        by gmr-mx.google.com with ESMTPS id c16si107398pgw.4.2020.03.26.01.24.14
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=RX5mdPiG;
+       spf=pass (google.com: domain of mingo.kernel.org@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=mingo.kernel.org@gmail.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail-wm1-x343.google.com (mail-wm1-x343.google.com. [2a00:1450:4864:20::343])
+        by gmr-mx.google.com with ESMTPS id l8si89158wrr.1.2020.03.26.02.20.23
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 26 Mar 2020 01:24:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jani.nikula@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
-IronPort-SDR: nFFNisQdIAI74v0uQlr4/uNLvRjuQS+9o/T7Y6W6+DVc+MxRxNvXZs8cbIkzbIfT/qwy+eZqlm
- qOsm/kfmUiuA==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from orsmga004.jf.intel.com ([10.7.209.38])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Mar 2020 01:24:14 -0700
-IronPort-SDR: 5SWx7LobP7Xk7vAZTAJX2qluD5fcl2KfCQrXaLbWi5S2WCQNBYGo4s5/hFX18gOYhnHfbYeuqC
- pMs/3FbeTOdQ==
-X-IronPort-AV: E=Sophos;i="5.72,307,1580803200"; 
-   d="scan'208";a="393901243"
-Received: from mschuste-mobl3.ger.corp.intel.com (HELO localhost) ([10.252.32.130])
-  by orsmga004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Mar 2020 01:24:07 -0700
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Masahiro Yamada <masahiroy@kernel.org>, linux-kbuild@vger.kernel.org
-Cc: Thomas Gleixner <tglx@linutronix.de>, Nick Desaulniers <ndesaulniers@google.com>, Borislav Petkov <bp@alien8.de>, Peter Zijlstra <peterz@infradead.org>, "H . Peter Anvin" <hpa@zytor.com>, x86@kernel.org, "Jason A . Donenfeld" <Jason@zx2c4.com>, clang-built-linux@googlegroups.com, Masahiro Yamada <masahiroy@kernel.org>, Daniel Vetter <daniel@ffwll.ch>, David Airlie <airlied@linux.ie>, Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 09/16] drm/i915: remove always-defined CONFIG_AS_MOVNTDQA
-In-Reply-To: <20200326080104.27286-10-masahiroy@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-References: <20200326080104.27286-1-masahiroy@kernel.org> <20200326080104.27286-10-masahiroy@kernel.org>
-Date: Thu, 26 Mar 2020 10:24:04 +0200
-Message-ID: <87ftdvikwr.fsf@intel.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Mar 2020 02:20:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mingo.kernel.org@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) client-ip=2a00:1450:4864:20::343;
+Received: by mail-wm1-x343.google.com with SMTP id c187so5649142wme.1
+        for <clang-built-linux@googlegroups.com>; Thu, 26 Mar 2020 02:20:23 -0700 (PDT)
+X-Received: by 2002:a1c:a950:: with SMTP id s77mr2082562wme.176.1585214422984;
+        Thu, 26 Mar 2020 02:20:22 -0700 (PDT)
+Received: from gmail.com (54033286.catv.pool.telekom.hu. [84.3.50.134])
+        by smtp.gmail.com with ESMTPSA id v26sm2742597wra.7.2020.03.26.02.20.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Mar 2020 02:20:22 -0700 (PDT)
+Sender: Ingo Molnar <mingo.kernel.org@gmail.com>
+Date: Thu, 26 Mar 2020 10:20:19 +0100
+From: Ingo Molnar <mingo@kernel.org>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Kees Cook <keescook@chromium.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Borislav Petkov <bp@alien8.de>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"H . Peter Anvin" <hpa@zytor.com>, X86 ML <x86@kernel.org>,
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+	Daniel Vetter <daniel@ffwll.ch>, David Airlie <airlied@linux.ie>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Jim Kukunas <james.t.kukunas@linux.intel.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	NeilBrown <neilb@suse.de>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Yuanhan Liu <yuanhan.liu@linux.intel.com>,
+	dri-devel <dri-devel@lists.freedesktop.org>,
+	intel-gfx@lists.freedesktop.org,
+	"open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
+	Peter Zijlstra <a.p.zijlstra@chello.nl>
+Subject: Re: [PATCH 00/16] x86, crypto: remove always-defined CONFIG_AS_* and
+ cosolidate Kconfig/Makefiles
+Message-ID: <20200326092019.GA100058@gmail.com>
+References: <20200324084821.29944-1-masahiroy@kernel.org>
+ <20200325045940.GA24974@gmail.com>
+ <CAK7LNAQvgT=OWVuBVrvgdZ7AAkoaV_K_Y+w9bOFxRPw_1TOSUA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: jani.nikula@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of jani.nikula@intel.com designates 192.55.52.88 as
- permitted sender) smtp.mailfrom=jani.nikula@intel.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Content-Disposition: inline
+In-Reply-To: <CAK7LNAQvgT=OWVuBVrvgdZ7AAkoaV_K_Y+w9bOFxRPw_1TOSUA@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: mingo@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=RX5mdPiG;       spf=pass
+ (google.com: domain of mingo.kernel.org@gmail.com designates
+ 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=mingo.kernel.org@gmail.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,79 +160,52 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, 26 Mar 2020, Masahiro Yamada <masahiroy@kernel.org> wrote:
-> CONFIG_AS_MOVNTDQA was introduced by commit 0b1de5d58e19 ("drm/i915:
-> Use SSE4.1 movntdqa to accelerate reads from WC memory").
->
-> We raise the minimal supported binutils version from time to time.
-> The last bump was commit 1fb12b35e5ff ("kbuild: Raise the minimum
-> required binutils version to 2.21").
->
-> I confirmed the code in $(call as-instr,...) can be assembled by the
-> binutils 2.21 assembler and also by LLVM integrated assembler.
->
-> Remove CONFIG_AS_MOVNTDQA, which is always defined.
->
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
 
-Ack for merging this via whichever tree you see fit; please let me know
-if you want me to pick this up via drm-intel.
+* Masahiro Yamada <masahiroy@kernel.org> wrote:
 
-BR,
-Jani.
+> > LGTM. I've got these four from Jason A. Donenfeld queued up in
+> > tip:WIP.x86/asm:
+> >
+> >  bd5b1283e41c: ("crypto: Curve25519 - do not pollute dispatcher based on assembler")
+> >  829f32d78588: ("crypto: X86 - rework configuration, based on Kconfig")
+> >  95ef9f80ed63: ("x86/build: Probe assembler from Kconfig instead of Kbuild")
+> >  1651e700664b: ("x86: Fix bitops.h warning with a moved cast")
+> >
+> > I suppose these might interact (maybe even conflict), and are topically
+> > related.
+> >
+> > Would you like to pull these into the kbuild tree? You can find them in:
+> >
+> >    git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git WIP.x86/asm
+> >
+> > Thanks,
+> >
+> >         Ingo
+> 
+> 
+> I did not know that these had already landed in tip tree.
+> 
+> They are immature version.
+> (In fact CONFIG_AS_CFI and AS_ADX are false-negative
+> if GCC that defaults to 32-bit is used.)
+> 
+> Can you simply discard the WIP.x86/asm branch,
+> and only reapply
+> 1651e700664b: ("x86: Fix bitops.h warning with a moved cast")
+> 
+> ?
 
+Sure, done!
 
-> ---
->
-> Changes in v2: None
->
->  drivers/gpu/drm/i915/Makefile      | 3 ---
->  drivers/gpu/drm/i915/i915_memcpy.c | 5 -----
->  2 files changed, 8 deletions(-)
->
-> diff --git a/drivers/gpu/drm/i915/Makefile b/drivers/gpu/drm/i915/Makefile
-> index a1f2411aa21b..e559e53fc634 100644
-> --- a/drivers/gpu/drm/i915/Makefile
-> +++ b/drivers/gpu/drm/i915/Makefile
-> @@ -28,9 +28,6 @@ subdir-ccflags-$(CONFIG_DRM_I915_WERROR) += -Werror
->  CFLAGS_i915_pci.o = $(call cc-disable-warning, override-init)
->  CFLAGS_display/intel_fbdev.o = $(call cc-disable-warning, override-init)
->  
-> -subdir-ccflags-y += \
-> -	$(call as-instr,movntdqa (%eax)$(comma)%xmm0,-DCONFIG_AS_MOVNTDQA)
-> -
->  subdir-ccflags-y += -I$(srctree)/$(src)
->  
->  # Please keep these build lists sorted!
-> diff --git a/drivers/gpu/drm/i915/i915_memcpy.c b/drivers/gpu/drm/i915/i915_memcpy.c
-> index fdd550405fd3..7b3b83bd5ab8 100644
-> --- a/drivers/gpu/drm/i915/i915_memcpy.c
-> +++ b/drivers/gpu/drm/i915/i915_memcpy.c
-> @@ -35,7 +35,6 @@
->  
->  static DEFINE_STATIC_KEY_FALSE(has_movntdqa);
->  
-> -#ifdef CONFIG_AS_MOVNTDQA
->  static void __memcpy_ntdqa(void *dst, const void *src, unsigned long len)
->  {
->  	kernel_fpu_begin();
-> @@ -93,10 +92,6 @@ static void __memcpy_ntdqu(void *dst, const void *src, unsigned long len)
->  
->  	kernel_fpu_end();
->  }
-> -#else
-> -static void __memcpy_ntdqa(void *dst, const void *src, unsigned long len) {}
-> -static void __memcpy_ntdqu(void *dst, const void *src, unsigned long len) {}
-> -#endif
->  
->  /**
->   * i915_memcpy_from_wc: perform an accelerated *aligned* read from WC
+In case you need any x86 maintainer acks for your series:
 
--- 
-Jani Nikula, Intel Open Source Graphics Center
+  Acked-by: Ingo Molnar <mingo@kernel.org>
+
+Thanks,
+
+	Ingo
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87ftdvikwr.fsf%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200326092019.GA100058%40gmail.com.
