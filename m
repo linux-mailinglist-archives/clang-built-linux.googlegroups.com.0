@@ -1,125 +1,135 @@
-Return-Path: <clang-built-linux+bncBCMIT47M74ARB24Y7TZQKGQEAHGSBXY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4JTHXGZ4MBBLVL7TZQKGQETRRVCPQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33b.google.com (mail-wm1-x33b.google.com [IPv6:2a00:1450:4864:20::33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9873519647A
-	for <lists+clang-built-linux@lfdr.de>; Sat, 28 Mar 2020 09:35:55 +0100 (CET)
-Received: by mail-wm1-x33b.google.com with SMTP id m4sf6246505wme.0
-        for <lists+clang-built-linux@lfdr.de>; Sat, 28 Mar 2020 01:35:55 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1585384555; cv=pass;
+Received: from mail-qv1-xf3e.google.com (mail-qv1-xf3e.google.com [IPv6:2607:f8b0:4864:20::f3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id BB3191964B7
+	for <lists+clang-built-linux@lfdr.de>; Sat, 28 Mar 2020 10:15:27 +0100 (CET)
+Received: by mail-qv1-xf3e.google.com with SMTP id j7sf9799715qvy.22
+        for <lists+clang-built-linux@lfdr.de>; Sat, 28 Mar 2020 02:15:27 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1585386926; cv=pass;
         d=google.com; s=arc-20160816;
-        b=C8z7EjiWcd5+pgJb4Kxubk6uszY3HZzSit/OJlLwEXcOhuIIJlMxiGdMNBGCw6hZYd
-         QDuASKhrsCDeR4T3m0iBqcPy4y0rHEwqL1seILm8EyB5MaJgRznvTsy8c6dqF2Uk6Gbm
-         lXBfYXJsrBKlry39lInu0XPtchXrCVGtxdmsPXIknjW7MvHs5nISVXqnXaA1l3ai8M3t
-         q5jALBQkxmbFwjepitBgCrogLa3kBSHhI4IXsvDX7CN5XzaN7uxcy/p5R7Dt8Kn1WyA0
-         7eS1IdczgheCuDYKv9XAn4vLri5LjOR1q8kPa5FskyQmW4rsplhTP3WnsxKNpPTtggO7
-         ZYQg==
+        b=ruG3v0vPkGD0Zt/dwvNa31vNxyBGIqD9NzrPbBYyhXhQqiyYOltHECBQg8Ez2yjSqF
+         +CWLxnH4xV2ts32Kc5vdPxjM1v1uXwIRvnbpI8vP/wNzqhqWhTq4iXIIC9luKjS5AN2c
+         yt9zpXkJlXWEVvIhTeK2LRmNVZ0/nXTRIYi8RDPf+EgCBep3+f2eTWr3hhQpElN29unk
+         cS/boKxMZk+5EcbYP/FEjmzKYcAlDvhyPOFPNgWDix2d+/Djds7J++T6P/yOOtgbFFPB
+         NanHchRwNvrY2oqyLU/vA6y/I1+qiq16XKPY6GVy5X0fQSfMYj669GCxhwxYf3Y5uSeV
+         UkvA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
-        bh=jAG8UsaRmbSFZnHi2aQ7/7Ov7xqccKJcXKc2lx1i63Y=;
-        b=KhYTwYWQjCTR3m/pwYwTjrxUyOe8EGTABx/3pd4R8onDpQVNUIuVMk85i09zRkDFgJ
-         aQL8x+whut/DVFwOMkvGRJ28u+a2/vRhsU9gmhbgOzh50fn8DKtAdNJNgrVOBcdaa5xz
-         8E/SR5+3SiWKzJ96f8jgK1urK3zgHpE99dleJiAIWaBV5byxKd8d7FWOzVHDEj2T5R30
-         CVDmtRC6f/szdXR0rrJyQsmO7bwI1Pj46uVUNs+Tbh/Pap08PBkglMkr4zu9iGj8fX1z
-         P/NpkW6KuPayE2LP2RpoaDQkkAf3C10f7ZUSbuY4/eegdPA1nfVD8jBM9SZH+1W8HX4f
-         EGVw==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=6qfMxNDKGMTMe3Q482eaCKzvG21CsUH15+/D66Vs+MI=;
+        b=N1W2cJL6fu8l/HSmmQ8CYeaXv0DAnjScyVeosDoTKF58zPyXXiBfi9fiXQ2C0JEiZo
+         pV8cOnQsDxLOsWcJJeXTOewA7Qy7IS+cZATl+FmwzaYIo5SZOyO7Gll0XyE/JxL5qPXQ
+         N+PDnIQ1opATCLBSIKhE0a2LVaIGNO8y2tyDiQ1lakhETZuOIAsG5lIrqeNsodUTjFJP
+         VUSvSiD8GvWE5Sv00WrWIpc5S2no2ptVoVygwgxyghTZe6WTxECKnG+Y9Ajzg4TVSvWH
+         k4nf2hJPssKzON+4BWt4g1HbetMU/nTpSKPdQqa4rYKz8yLVSNKZhh+mU6aVmy91b3tZ
+         EnYg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=JPnvBuAm;
-       spf=pass (google.com: domain of balbif@gmail.com designates 2a00:1450:4864:20::243 as permitted sender) smtp.mailfrom=balbif@gmail.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=V85xWxIY;
+       spf=pass (google.com: domain of amir73il@gmail.com designates 2607:f8b0:4864:20::d43 as permitted sender) smtp.mailfrom=amir73il@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
+        d=googlegroups.com; s=20161025;
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=jAG8UsaRmbSFZnHi2aQ7/7Ov7xqccKJcXKc2lx1i63Y=;
-        b=M7UhutMb1NT/Ez1xaBg4ev9Say6F/xCw/j1rsR6Vy/2Yodl/iiV30GDFpqdlbwIzi2
-         SVsUtjfqCWxWOlVrZXp5AsienlL3rrXkcTC7Uguo8fJmCwQrQBhvr6OvB6JH6fSpb4lj
-         g6fVg8DUyZAWwUrL5jwQcgAx1dZk6mBCysEZnsIkdW4aLU5eMNR7DfxuMd5IRUpOn8+U
-         UuwAqt3pwE2jOGYGDfvzGINNWsA7mh/LeSPUIfqTiUK0iF9OA0G563L+DrvKM0TWktMA
-         lq+s/nQ6o1lTieipfhVpZxkyu7JKq+SfAhxDrqTkT7nzV2ujhklLvN4It4SfXPxUK7rh
-         PZIw==
+        bh=6qfMxNDKGMTMe3Q482eaCKzvG21CsUH15+/D66Vs+MI=;
+        b=eq/31xwcYdrALs/JuyXhwO2xYsPjhr79UT7DIHws63yv47J0+Iug/czCYbpKcVQXj3
+         y5X/z8UUmvfoSctSyKQXy7fiHPx2mO/t9S/DYzQaMKNDY0752qrnhSjVI4w1c4TWC4kR
+         alrYrU+5OSV+McfsYPD3/p2FBIrtsSA6NZqpSzDXCimX+JanTCMNh2rqG2T8VwG2Ka0g
+         kVlMR5fUs2VsnW4xG9QaFJKyMOp7rIwQAWvG3iwG32JQ1+/hZbG+0g21GFQ71EP8uJz+
+         7lNk7N1niq5kl7ev6gdKSWZIiI3t30dXXKWA4AQictUR6J46e7QwiFP6j6q2Nt5EduzK
+         nKPw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=6qfMxNDKGMTMe3Q482eaCKzvG21CsUH15+/D66Vs+MI=;
+        b=gJkQIZAofiEccvmQb8fIQsBQ1zliZ91NRg6bQ8mnd4tkjFKIx+7Xex+lmI6r7kH7PM
+         dxIgI7rtpcf+ql7EeNH0o98TczlmGKlPbUsLlMreFvHAkqY5yzY/WZ5GFn8dfpEaGZ2O
+         /IcQptwaxHjvw3TJJs2r31eJavJPqyvbTrkff4R0imfGBB8bGb49RUX2UZ+wyRDjHVg1
+         eq8uvCMFXq7VYxZn2T8W7b0XoYqEU21aoUHZvrZ7wgkvyl+ChgwRtYMIiHEURyZ+LPTw
+         7VgRZ8u1Tw04J4Lk9Izr1sohLOMBaQjTc1uF1IeNXnIuBVspfpVeyq7vIAhzPum/8jZE
+         ZNUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:from:to:cc:subject:in-reply-to:references
-         :date:message-id:mime-version:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=jAG8UsaRmbSFZnHi2aQ7/7Ov7xqccKJcXKc2lx1i63Y=;
-        b=rLHX8VBD/PT+6NZHiM0Uae0mtK9BoPVBYqQ+Mxzfiq8+UvVeevt5FtCu/rn6QA47BD
-         9U5dUIKm9IWfwJ9/gTE2PGGisTgDGB9BGot0Ueoa4Fg9mUOcu9lF20Vt7LxDnDmxki6E
-         TsCeG+KTaODPjkPskAoRuZi9+IgaCa/eMha8dBp0WQ4yXeEI2h1IEKwS95LOX6c9Bgg3
-         es00EALa5pv9BsUR67lGtmafAac7fYXHvtGjE5rUo5l/ZhcBiCcXmRsP3GZJceyg5GSt
-         4LNwu4BAMwv/tQBXra0ef1a5WHCCjFMdVsOpiyIkzbALfq1xE0TuVaFIhiRes6ZAqYnh
-         Z7tA==
-X-Gm-Message-State: ANhLgQ0x1ChgF8RdiQ5PwpN2YJDj++HsenXRSzD7Qq8dOLyN6UeAjdsk
-	q5lxpFPqOYsJSckx1kAxSDQ=
-X-Google-Smtp-Source: ADFU+vtrZWMAs9XBluKS+iX8GJ1bw61dnnOgf81d/eYNtbPU+ixvcMz1RS5bUOU5CO9xTTLopLtu3A==
-X-Received: by 2002:adf:9526:: with SMTP id 35mr4026449wrs.164.1585384555364;
-        Sat, 28 Mar 2020 01:35:55 -0700 (PDT)
+        bh=6qfMxNDKGMTMe3Q482eaCKzvG21CsUH15+/D66Vs+MI=;
+        b=ELw1Gr9xBgM68WV/B3Ah9vNRxSi+0MgMRPu/gJPGRaLnNWu4Dy5dQsYfaaEVkgMjz6
+         b7HGQg9JSXOiNaXhsSWd/+HOjugDOxbJeDXPY5APDniJrXt3RHBssI0gQhCf5+ptuHw1
+         n6xZs8/+Lzh7n9nv8bw8VXvnsHT6f5imi4zVnSW1LsDFujvfxBKSBMTjx9IZR8gKSzrZ
+         x4YKgfy7HGXyNxOD4pBgMiQw/1vvrdwXKAwQ3hsFBIL8QZMhIY+oMpPSxMILYi2rvSat
+         ntfaU/I1JskIQNdxNZskSAJbIp68GVjglvKpwsZ5ChfwgZYpkIzB2YIAac297kl8B6KU
+         HIRQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: ANhLgQ0PlxFTlu9A66WgV6yNpOVODfgurL7gLG7J1Mjh/8NLsc4LoUtB
+	j+cW6ElImrqLVfMRjJKLhnc=
+X-Google-Smtp-Source: ADFU+vtfZ2l0kKNrIgkDfl1AK/wDvyfPR1oF21YcnEWPSF5v96v4X9wl7H0kiHbikw8wch0tlLZr5g==
+X-Received: by 2002:ac8:378d:: with SMTP id d13mr3177584qtc.227.1585386926497;
+        Sat, 28 Mar 2020 02:15:26 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:a98b:: with SMTP id s133ls1582997wme.3.gmail; Sat, 28
- Mar 2020 01:35:54 -0700 (PDT)
-X-Received: by 2002:a1c:9ac2:: with SMTP id c185mr2898170wme.45.1585384554893;
-        Sat, 28 Mar 2020 01:35:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1585384554; cv=none;
+Received: by 2002:ac8:b48:: with SMTP id m8ls4618830qti.4.gmail; Sat, 28 Mar
+ 2020 02:15:26 -0700 (PDT)
+X-Received: by 2002:ac8:369d:: with SMTP id a29mr3248494qtc.338.1585386926175;
+        Sat, 28 Mar 2020 02:15:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1585386926; cv=none;
         d=google.com; s=arc-20160816;
-        b=u908jPCM/VuBSq/ZmY2yCngLMN0lF7yt+TNiDHVoW1TAb3uU3B4P0h7Tpb+0BIvJcK
-         PEoq9ACn8mZ/HpLXThdLH2QHy0XWzPRfaEIhz/H5ZxCLKmKODPhWYBhBCWRi94B6koqc
-         Vxb8DheXBAojuWZtnLx0tFxF50aIQD0EKmE1YeE5AaXt0MUYs2sSRAmrUXiCenzMjrVi
-         ARdUEaYCwF+Qx8OEhOveGunTZ7vfdx8eEGhKn4LlzCZchYXY289ZeEELAuOnMl4KWtQb
-         mhtVDKlCF86PEI+XACp9qngAu/Wu/m6YV2gL70w6NOnfiQ/1l0H+fMs39k6wQA/+pFso
-         Un+w==
+        b=gaqh1zyOubF9bk8KsNc7K7S4Ow8V2/y3J4cQlFaBUyzot1UFSwpiDooSuQ105FchU1
+         IgYqvhS8Qi+T5t4G6MSIxP4w5Q1xbJlJvDdnWwnt/P6eQrisNKW+TOGbRBkvtD7NOHSV
+         XNeS6aoyDOIHCsmBZtt47jbtMGtEOlzM5uShycp77Vh65KzpKnAabEYhACn+WdMVYg3r
+         Whbv+IW4gd50p9Iqq2+Tl5y10Vs6iYXLbNXK+OV89Y7T97zS6e+GY0M2fKuHlbWhQmZ/
+         Wn0O6uFKFZazxsANMNHQUZr/el++C4v6Q6BFnkzZmKGC37ngL+TpOfIPBzKRaRn+Cdww
+         DFPQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:sender:dkim-signature;
-        bh=Qer0UP/wnwHE4FuvM+cjbdyplCq3YOMP2VWFL2KepzY=;
-        b=VFVcZiiFsi7VQyKPBfM6knpAUfznRfXUZrYqY4a1CeKDeLiYboTll1cQPEAQKx9ybi
-         z7Y9Q/E1qZGLmG0J2qcc+RiqvmoO0MMCNwRnZdTVAdHb9dkcEzqqSEif1bjVSfXrxLt8
-         POgUY2i3xH1kBHD9JS97Kr8Re4yzY4IawhguTm1DCLuFNV7LMd7MT8C6ej1UWTHDVDnX
-         I2mrpauB8nmbjf/FF2xGe2QO7c/krQWYFBmm/nHrNehxsZqmkzOKHWNtBX3MjMyX+NzD
-         FBa2kxwnCupit3nM7G2TeIAVoOvOqO8NwIZFK4ug588BuSfdj+W9bxNorHrr3C0Gpie5
-         Vzew==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=saHwc+iPTg9mg/TKDP5qS7eXjj7tpT9oKu8R16Snw/0=;
+        b=IBDUp+BY+L3jcmzaDbSAU9+DQo8q/hfkRv4Z+qnQEpF+xdVCpDMk0kDAreUryBovTM
+         DgrnjymfWsRRPt+2bA7fd+X6lahZ3k8eLEKJdNwTMvo4V+MaGs3KmKhbBj4NOBU5llCc
+         bQOiDf4+Wcj2gpUQsCKP+5rE8cio/BvaRXjXzMULzBnYQ2rFy3RjV/ofq1kWa8ECGtOw
+         2gd1IoOJ5RRKYuDTpTYRbMtdEz3stxkoosHcc6fTWnTrbBlF8JnqtJ8nmEKGl0fskUgU
+         FZpPqkdrqSRfrBQZyykD9CMcdsRcIe4CAmw8YqnOOgCfj100+XZqHrhmy3KVCBNuVe8C
+         Rg0g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=JPnvBuAm;
-       spf=pass (google.com: domain of balbif@gmail.com designates 2a00:1450:4864:20::243 as permitted sender) smtp.mailfrom=balbif@gmail.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail-lj1-x243.google.com (mail-lj1-x243.google.com. [2a00:1450:4864:20::243])
-        by gmr-mx.google.com with ESMTPS id y201si639370wmc.0.2020.03.28.01.35.54
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=V85xWxIY;
+       spf=pass (google.com: domain of amir73il@gmail.com designates 2607:f8b0:4864:20::d43 as permitted sender) smtp.mailfrom=amir73il@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-io1-xd43.google.com (mail-io1-xd43.google.com. [2607:f8b0:4864:20::d43])
+        by gmr-mx.google.com with ESMTPS id x11si490628qka.4.2020.03.28.02.15.26
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 28 Mar 2020 01:35:54 -0700 (PDT)
-Received-SPF: pass (google.com: domain of balbif@gmail.com designates 2a00:1450:4864:20::243 as permitted sender) client-ip=2a00:1450:4864:20::243;
-Received: by mail-lj1-x243.google.com with SMTP id k21so12642148ljh.2
-        for <clang-built-linux@googlegroups.com>; Sat, 28 Mar 2020 01:35:54 -0700 (PDT)
-X-Received: by 2002:a2e:9ad2:: with SMTP id p18mr1670420ljj.15.1585384554120;
-        Sat, 28 Mar 2020 01:35:54 -0700 (PDT)
-Received: from saruman (91-155-214-58.elisa-laajakaista.fi. [91.155.214.58])
-        by smtp.gmail.com with ESMTPSA id 9sm4096123ljf.0.2020.03.28.01.35.53
-        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Sat, 28 Mar 2020 01:35:53 -0700 (PDT)
-Sender: Felipe Balbi <balbif@gmail.com>
-From: Felipe Balbi <balbi@kernel.org>
-To: Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>
-Cc: Ashwini Pahuja <ashwini.linux@gmail.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>
-Subject: Re: [PATCH] usb: gadget: udc: bdc: Remove unnecessary NULL checks in bdc_req_complete
-In-Reply-To: <20200326195855.GB29213@ubuntu-m2-xlarge-x86>
-References: <20191023002014.22571-1-natechancellor@gmail.com> <20200221045740.GA43417@ubuntu-m2-xlarge-x86> <CAKwvOdku24UV8J4uSKFFc7gmwOP28-8K352BJepb_z-octFoPw@mail.gmail.com> <20200326195855.GB29213@ubuntu-m2-xlarge-x86>
-Date: Sat, 28 Mar 2020 10:35:49 +0200
-Message-ID: <87zhc0j2qi.fsf@kernel.org>
+        Sat, 28 Mar 2020 02:15:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of amir73il@gmail.com designates 2607:f8b0:4864:20::d43 as permitted sender) client-ip=2607:f8b0:4864:20::d43;
+Received: by mail-io1-xd43.google.com with SMTP id o127so12445551iof.0
+        for <clang-built-linux@googlegroups.com>; Sat, 28 Mar 2020 02:15:26 -0700 (PDT)
+X-Received: by 2002:a02:4881:: with SMTP id p123mr2604324jaa.30.1585386925551;
+ Sat, 28 Mar 2020 02:15:25 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="=-=-=";
-	micalg=pgp-sha256; protocol="application/pgp-signature"
-X-Original-Sender: balbif@gmail.com
+References: <20200327171030.30625-1-natechancellor@gmail.com>
+In-Reply-To: <20200327171030.30625-1-natechancellor@gmail.com>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Sat, 28 Mar 2020 12:15:14 +0300
+Message-ID: <CAOQ4uxjiRcCh-dQLYu6+Gx0u7urXT=Bsbdd8erfmmzfyU3G5UA@mail.gmail.com>
+Subject: Re: [PATCH -next] fanotify: Fix the checks in fanotify_fsid_equal
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Jan Kara <jack@suse.cz>, linux-fsdevel <linux-fsdevel@vger.kernel.org>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, clang-built-linux@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: amir73il@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=JPnvBuAm;       spf=pass
- (google.com: domain of balbif@gmail.com designates 2a00:1450:4864:20::243 as
- permitted sender) smtp.mailfrom=balbif@gmail.com;       dmarc=fail (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@gmail.com header.s=20161025 header.b=V85xWxIY;       spf=pass
+ (google.com: domain of amir73il@gmail.com designates 2607:f8b0:4864:20::d43
+ as permitted sender) smtp.mailfrom=amir73il@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,118 +142,40 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---=-=-=
-Content-Type: text/plain; charset="UTF-8"
-
-
-Hi,
-
-Nathan Chancellor <natechancellor@gmail.com> writes:
-> On Mon, Feb 24, 2020 at 01:42:57PM -0800, Nick Desaulniers wrote:
->> On Thu, Feb 20, 2020 at 8:57 PM Nathan Chancellor
->> <natechancellor@gmail.com> wrote:
->> >
->> > I know it has been a while but ping?
->> 
->> Sorry! Too many bugs...barely treading water! Send help!
->> 
->> >
->> > On Tue, Oct 22, 2019 at 05:20:15PM -0700, Nathan Chancellor wrote:
->> > > When building with Clang + -Wtautological-pointer-compare:
->> > >
->> > > drivers/usb/gadget/udc/bdc/bdc_ep.c:543:28: warning: comparison of
->> > > address of 'req->queue' equal to a null pointer is always false
->> > > [-Wtautological-pointer-compare]
->> > >         if (req == NULL  || &req->queue == NULL || &req->usb_req == NULL)
->> > >                              ~~~~~^~~~~    ~~~~
->> > > drivers/usb/gadget/udc/bdc/bdc_ep.c:543:51: warning: comparison of
->> > > address of 'req->usb_req' equal to a null pointer is always false
->> > > [-Wtautological-pointer-compare]
->> > >         if (req == NULL  || &req->queue == NULL || &req->usb_req == NULL)
->> > >                                                     ~~~~~^~~~~~~    ~~~~
->> > > 2 warnings generated.
->> > >
->> > > As it notes, these statements will always evaluate to false so remove
->> > > them.
->> 
->> `req` is an instance of a `struct bdc_req` defined in
->> drivers/usb/gadget/udc/bdc/bdc.h as:
->> 333 struct bdc_req {
->> 334   struct usb_request  usb_req;
->> 335   struct list_head  queue;
->> 336   struct bdc_ep   *ep;
->> 337   /* only one Transfer per request */
->> 338   struct bd_transfer bd_xfr;
->> 339   int epnum;
->> 340 };
->> 
->> So indeed the non-pointer, struct members can never be NULL.
->> 
->> I think the second check that was removed should be
->> `req->usb_req.complete == NULL`, since otherwise `&req->usb_req` may
->> be passed to usb_gadget_giveback_request which tries to invoke the
->> `complete` member as a callback.  There are numerous places in
->> drivers/usb/gadget/udc/bdc/bdc_ep.c that assign `complete = NULL`.
->> 
->> Can the maintainers clarify?
+On Fri, Mar 27, 2020 at 8:10 PM Nathan Chancellor
+<natechancellor@gmail.com> wrote:
 >
-> $ sed -n 537,555p drivers/usb/gadget/udc/bdc/bdc_ep.c
-> /* callback to gadget layer when xfr completes */
-> static void bdc_req_complete(struct bdc_ep *ep, struct bdc_req *req,
-> 						int status)
-> {
-> 	struct bdc *bdc = ep->bdc;
+> Clang warns:
 >
-> 	if (req == NULL  || &req->queue == NULL || &req->usb_req == NULL)
-> 		return;
+> fs/notify/fanotify/fanotify.c:28:23: warning: self-comparison always
+> evaluates to true [-Wtautological-compare]
+>         return fsid1->val[0] == fsid1->val[0] && fsid2->val[1] == fsid2->val[1];
+>                              ^
+> fs/notify/fanotify/fanotify.c:28:57: warning: self-comparison always
+> evaluates to true [-Wtautological-compare]
+>         return fsid1->val[0] == fsid1->val[0] && fsid2->val[1] == fsid2->val[1];
+>                                                                ^
+> 2 warnings generated.
 >
-> 	dev_dbg(bdc->dev, "%s ep:%s status:%d\n", __func__, ep->name, status);
-> 	list_del(&req->queue);
-> 	req->usb_req.status = status;
-> 	usb_gadget_unmap_request(&bdc->gadget, &req->usb_req, ep->dir);
-> 	if (req->usb_req.complete) {
-> 		spin_unlock(&bdc->lock);
-> 		usb_gadget_giveback_request(&ep->usb_ep, &req->usb_req);
-> 		spin_lock(&bdc->lock);
-> 	}
-> }
+> The intention was clearly to compare val[0] and val[1] in the two
+> different fsid structs. Fix it otherwise this function always returns
+> true.
 >
-> It looks like req->usb_req.complete is checked before being passed to
-> usb_gadget_giveback_request. So the patch as it stands is correct,
-> unless those checks needed to be something else.
->
-> Felipe, could you clarify or pick up this patch if it is correct? This
-> is one of two warnings that I see for -Wtautological-compare and I want
-> it turned on for 5.7 and it'd be nice to be warning free, especially
-> since I sent this patch back in October :/
+> Fixes: afc894c784c8 ("fanotify: Store fanotify handles differently")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/952
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> ---
 
-hmm, I don't have that patch in my inbox. Could you resend it?
+Ouch! Good catch!
 
--- 
-balbi
+It would have been quite hard to catch this with tests as
+non equal fsid and equal fid are quite rare in the wild.
+I will try to write some test with mounts of cloned loop devs.
+
+Thanks,
+Amir.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87zhc0j2qi.fsf%40kernel.org.
-
---=-=-=
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCAAdFiEElLzh7wn96CXwjh2IzL64meEamQYFAl5/DGUACgkQzL64meEa
-mQafUA/9Ht2zH4aYtwxtqPtB+xyMdI4MdcpS+/CjkBgHkTpkpp1WOnANeG7xLxf3
-pbnPBkQiPqDuDbGiM0lZ1tlwwS7+fFswxlqON8gmwH+xcq/BOVe/S5duy3G/Kbkl
-J5LQz6cR/uEvISqJRp8bKgBcy1kR0EgO8o2/nxlNbGNzZEjfq8LtZOqI0yAY0Gw7
-Ken1JOvAw/1uHa0gAWbpkIDD5wHPRCN47Lw93aCm4ZhjOe4fPK6XN+rXA1I9t2Bt
-Ra+rwTz37Biz2s90PWd+XveKCIjFUzNEsxRp+/1lnFv26/WTl4u8GNzqmePNtTx5
-iHSRwQBpqeHA5CpNPgFVmmrU1Y3eoMiBaPZO1pUGu+2e7JzWXuzdS3lgPrvVNXpv
-w723kiTG7E8M68fDiVztC/ii/63v081J+6OxPxHC+vvFtN7lX2hAjcaJGp8LRwQn
-NtlFkXszqk04EeGSebTmEyTTg823hsE+EWA/dVYQxUDJOtmBHttyyRKmeWf9k13f
-9DLJYekjXtbAikddtjRyVwLmKipuU0DfcstggkUm3wzu+JwS7e1HH1aDlZfZW/2A
-3wzpnEjtscMMuXXQlm2tzGE7cQTrHFdwFcQEptJ9JScFDlNYP+fsK8v7XcH2fLLt
-U8Ro3+BqJKKJgz1yXegLP9bDcKjDEjofgpAp3hvQoYfG3WCd8Bc=
-=5F2y
------END PGP SIGNATURE-----
---=-=-=--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAOQ4uxjiRcCh-dQLYu6%2BGx0u7urXT%3DBsbdd8erfmmzfyU3G5UA%40mail.gmail.com.
