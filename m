@@ -1,148 +1,135 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBUOLRH2AKGQE7IFVREA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABB4O3RL2AKGQEFUVIABQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3b.google.com (mail-io1-xd3b.google.com [IPv6:2607:f8b0:4864:20::d3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3B382198695
-	for <lists+clang-built-linux@lfdr.de>; Mon, 30 Mar 2020 23:34:11 +0200 (CEST)
-Received: by mail-io1-xd3b.google.com with SMTP id z207sf17479635iof.7
-        for <lists+clang-built-linux@lfdr.de>; Mon, 30 Mar 2020 14:34:11 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1585604050; cv=pass;
+Received: from mail-qk1-x73a.google.com (mail-qk1-x73a.google.com [IPv6:2607:f8b0:4864:20::73a])
+	by mail.lfdr.de (Postfix) with ESMTPS id A0864198A15
+	for <lists+clang-built-linux@lfdr.de>; Tue, 31 Mar 2020 04:41:54 +0200 (CEST)
+Received: by mail-qk1-x73a.google.com with SMTP id b21sf16890354qkl.14
+        for <lists+clang-built-linux@lfdr.de>; Mon, 30 Mar 2020 19:41:54 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1585622513; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EClDpPiLHK+wnikJlY7LnNFs32Dd8+LXTiRX7viqKePV7/S0mG9a1pen4sRcIzf93M
-         KfH7IBj0pjfAkT6aCcZOg3Hw6bcZtDGA7AKQm9HKFS//ve4Dp/nQk6gdyYD/CRYArt6G
-         vS+3pE8NRyQp2WGyJjv+7jdwu5xV67e/aW+Qv3YEnBdMsXHgWw/LGqk7aAl/CXvyHtWj
-         VbCV6aWMnxf69s+uzyO3ghtAwNN2Tld3Tbohjojnym38ej6oYEk3sDWaP54VHQk78GbT
-         /685nTe/V4hP53ENnd4wYAyoOhJShkwRBgj1MfKGyogYppBJIf19rdXj1MO80XyTYDY7
-         a6rg==
+        b=h3q+fPzPVPKO977onjKZunJjOnvX0eZc3Oh+PsBBNP39O1Z0qTN1Wal3iXZUkWPp5S
+         epwJtKZfAHzC8Di3pdkn3s+CQXkevcBHgho3KSvydS/F9DfUPFFr6GezgNGztN6AIt/O
+         eO6VRCFbDxNDtYSAmAyu/o0Qj5qyUegLYWLxlcsy13Hbm9+AsqTmoa+Bhya7K9alLjbe
+         UrfgzdUYp80ZTXnTBuIxQwIIORg3U0zPThu4+jB4wx8YGZrgXEqb8hcnxb1R5A8dQhI0
+         1cBYQlp+e6MFJ8/Y8fEVI9cZbhd8ad9wkbqHmMZhvzMgXFMZy6d2fqEzA0YSbrJ9oeqL
+         /4pQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=zV3CpDMbATR4lGTjmlqLfjRMOYGFCVwrwSSVW4hUG4M=;
-        b=SmPb27kR4xkGHbScs0cbLArF0YlnxO/WZTVxCDhrO/rt9X2/0e7fUr5BkCrUwFP6mX
-         b7KSY2NhRQLPBVzb1X05Hnug1/egcJV48f+LGGGqu5wEQybMPdc2QZRu7oRuiGvRusVD
-         WWsGQ4QHf7773X4IWK8Os93YBW6uriBYeHS2hpQW+vXrn1Hj7Ilw3guy4tRJBRZLhUU9
-         zDgq/7XgdgwX3YMputBN81OlIA0Yf3fXf0dv3OYgKrMHE2oTdku4cd6hja6NrjZlabrk
-         e6hz/JcW78/nKLSMYaI8JnFEUd5H3lPCsybIPhLcH153hskNZgbG0RClyMwQduS1u48w
-         ND6g==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-filter:sender
+         :dkim-signature;
+        bh=K5XsRgxkCto2ZGBf0Y80CCO18uxvn/tBIGekSY05HpQ=;
+        b=iYXSN42NuF6ZGkbv5I04kBCvkk3SWzubJBNLIddjvva5g0oUXWKLQ9B2EfBpTI5jzX
+         tpKTXRoGO4aPuEeGTK7pAvG/FfIDd/XZovxuCE2xtYsK9wA0T378YXREHNhsN3ON1jMh
+         9mkLNiCqsNurNvJ2AG6TUiA/qHdEA6xQjDtsWhSdfof1xA9eGlmWsrfUmQeynFhGUzUH
+         vMkq0xm1xzmVTyZD8V0SO5Pb2BxRAqyLsQKAgwNm2xbFqt2wggTzyE2cFpcphzos4als
+         zXNDSdUvmBZtAqFfiTUarxI1WZakMd/0bieTIzfnIXcZEPjmnRDV+gz1Rf+uLdh+9l++
+         A6yA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=HrLDXXXt;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=dW6dJjZl;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=zV3CpDMbATR4lGTjmlqLfjRMOYGFCVwrwSSVW4hUG4M=;
-        b=XtJ0vRL47+wWfZcdFA1XAcssGcMFNB485Sx6KiixN1QEE3adD1tkmuL5lV/gHix03G
-         ZKdPSEDGqeWhpJ574GKao+4kB2OQ7pZbXn3h5I2wl4iuD6OEJBRd9wxa54qabe7Y/Kyq
-         Ue4WiJghZeqMeJMVE8bGdJFQDlGTGE1OluJjEdVq11WCyd/XpQwJROJqqm9St18e80w2
-         j86PH2GKIm714yNE3/KMpDaH6Kx5qN0nC4/zp4QKPm74tg0gxEcGCmFqRrcY29rb4jB/
-         SaSsVLiIIUccJnBHX/dnogj9agGQFwWRvU8rXqFGAVtN/ulRaa9i1bCM+IEkB/OxYWs3
-         zXTg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=zV3CpDMbATR4lGTjmlqLfjRMOYGFCVwrwSSVW4hUG4M=;
-        b=ZExnRFeMZ/uPviG+h2/pnoSI7dpY8SAvAA8/nt3tuW1jI8XfYzRKoHwLo1HV03MoQU
-         /ezxEVXXpIzz7sZAol8Co48k+l6bDlQav9F22PNkgeJhumXcl6R3cjSI4rS7Q7gbqW4+
-         LVlGUrjE5GfYQa/M1M5mOs8rVzGXqQgv/XDFA873zdCvDsCp5pexVCjiCGvCE+4wBoJT
-         jIcc7BrACfB+FytQTPyCNrWv+iN3qLhdauM69/EfnMK1WVLLNn6yssFvsdK1LIjsmntC
-         c3SGF+wAMRunWcoblyo7PwDpIReSywYuEMsblthhDY83UTBn9tUKfH7IfNzgs+Z5hd5n
-         DLwg==
+        bh=K5XsRgxkCto2ZGBf0Y80CCO18uxvn/tBIGekSY05HpQ=;
+        b=PNWpm8c8NIdafwYV7n0JcyzwNkOeAyXxIDaxTL/1O3IP5ihAwLP6KzEExASNYUaYZl
+         H/tKrvYb8SaJoUd98RXiyMAlcXUjcMAuNG+jNfQ8aLb4degq6fyuHIHTbmuNwd+mPq5w
+         +/Tf9t8qnFzHxni/HkA+MGJWC7OW8cpBpi7eWbKWUaesapTPUE0AQBJMlBtuKTJU98M/
+         6P8YwTCfA+WsGRlsQNnkzPS9KqMl1WE+hz5pGf4ezUo7qFvzBWI5kmta4a2JaFaWXouI
+         9ZtjLj2Djpw0WooZDrlzRLTY90GpM2Yej6ZxBk6PbVOvTRy6rE3yFn8NOfs7uhofj/OD
+         V/Qg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=zV3CpDMbATR4lGTjmlqLfjRMOYGFCVwrwSSVW4hUG4M=;
-        b=lZnA9ESWD3oINgjvQ6VGWaS/UXJE8V0mqnFVfuqDv7kJlYkoSvQyGAsg8steqRXDlc
-         fdZ5TmgJOHCAfmR0lDEyDgpXeTk/ruPOWSINPLOydJncjn3P4eO5nhwjcUNb7VUq26sG
-         EsZmU98dUe5NsxE8dJmjuzima8c7kmXt/QHLNsUwxvotBzv2CJsrJ0J4TWZwTYSsjQlL
-         Ic9DPE7Ny2ByQhEO+PJEU6GEROVH+ehc+nV/EHq9fyEoPNjtAkG+Kyqpn7LSqvqpbwkG
-         DKQIhG9xYUvb1HtbTpFD9ojW57X1aDqPH+rJrIlqeKr/jnltRSFdvTrIjbZFP7+IDFe2
-         IS6A==
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=K5XsRgxkCto2ZGBf0Y80CCO18uxvn/tBIGekSY05HpQ=;
+        b=jRt9aeE03WYl6c1rJ7KqPxH9r6LpeKkgAiKN6tzcScWjOWLsWUSIoJ/JI45P/kl/8h
+         9dCjgDkgg+yWmKqCKbUNm0gK6hKp5AE/08/c5l1yGrBQ8Qy6T/dHTa0sh/ynBPl2Ru2T
+         HqoWuWfg192DeCgMkVrA5/dbiDZiHteAWqj/ju6lQL5Lm/inaNKj+iFUTfFYzjVLjms/
+         Xx79T05WntEaFF/er/Ru2mC4SmBNRENRORumj/pskP1JAfAiR8T/jBLpuEiOuiJPLX3I
+         yX4dsEnWv7r6sHx5E0O6O9Kkgga0jwwzhE3jHezQE2JNyp2J7LCjc1822y8Rx86ewllV
+         Lz/Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ3Uvbdwb7pIiGJUNL4CEk6FAUAS+zV/BrpnDIbqRwcbQBNpZR6E
-	sSsLeKk24Nsb9pUPXdfZMNA=
-X-Google-Smtp-Source: ADFU+vsnagoQ5tNEiKKXbaYKAbSI8Qup0ZRYIN1xuqB3toT+X+XdF02pXcMsP+DrS7YQou4JUMGcHw==
-X-Received: by 2002:a02:ccb8:: with SMTP id t24mr1231259jap.8.1585604049874;
-        Mon, 30 Mar 2020 14:34:09 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ0UyXWnJjoBLWZXdiSGahnDCLGzazeTm49IBtikUec5JuT52vEY
+	WVpv6yrZGTAdyFgR6i1DDoQ=
+X-Google-Smtp-Source: ADFU+vsPXt31pHIp+nntnSDcQWTtK1xzVce/k3Ge6G/r1m5/H10nI6mk3dQYxYPmxgYJtdudp9uoJA==
+X-Received: by 2002:a37:8ac3:: with SMTP id m186mr3057194qkd.371.1585622513340;
+        Mon, 30 Mar 2020 19:41:53 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:d2:: with SMTP id w18ls2628548jao.7.gmail; Mon, 30
- Mar 2020 14:34:09 -0700 (PDT)
-X-Received: by 2002:a05:6638:c51:: with SMTP id g17mr13124229jal.33.1585604049323;
-        Mon, 30 Mar 2020 14:34:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1585604049; cv=none;
+Received: by 2002:ac8:1b11:: with SMTP id y17ls7943127qtj.8.gmail; Mon, 30 Mar
+ 2020 19:41:53 -0700 (PDT)
+X-Received: by 2002:ac8:60c2:: with SMTP id i2mr3126423qtm.167.1585622513026;
+        Mon, 30 Mar 2020 19:41:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1585622513; cv=none;
         d=google.com; s=arc-20160816;
-        b=qp7HKeOiRKne8pbXY6l5bRcG+btHgFSaiczDWww4BKH3hoTaOXV44eMgFHAxaQne5Z
-         du3xL/VYdH0KFATqgKo+YJ/B5+8lj2TRY9+D5Ckin+qKCIjuQyCqb4nG5lJy3QObgZae
-         a52MuFAtcsBEcZM5QlS7gtJro2AD5bK5FK8defBWwKBrUSjYaZZbnVaGgL6S0TV9lAwQ
-         Lj3VN7TohWF/OQcns4WaKesV19v+rfnTc1vccdnPn1QmZlDM5Xlg/fFBA2F51msQ5qP3
-         VLXUHgOsUfWI+not5rSog1rfvvKjhPCXirDAqGDUjGVmMwn/yu7b3Oh49qE/J0wIqHCX
-         NkuQ==
+        b=q/EwmImI8vXMSvJqNmR7SNTbdR8SxhKMNIDK/Tk7fqenJLfBx6K3at7l4RLD+Bh5Xr
+         iG4p0rN1f/4L0y5e2v7YMOo+hqE2UU8Y1hKnTxli17R18VPZymPE2ugC+3tgT5lxnL4B
+         /vJLvTePGsmem/od1jz1Fw2oUwVSTSCUeP4g45EK+WD1IOmFokAX8Q7qv2RZB5KU0jSK
+         6hETffWeVsuuIjFEBIark2xlLIaB6fFxVB83aXovp8C0VDquYfNr1OLFb1w2PQsIM0/w
+         rEyIevfFgHhnLmJBp7GriZiMa3vo+9fxgf2wmRlE6dq6A1OpKnF86jhCxyunDh0AaTVh
+         G29Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=eJ9iVLSHIFSUq96XznsAAHwNQ6GF7Gxs04ont8jFwbk=;
-        b=lrVeiMbjh5bjBI/SZTvVjHe2Ga//ceeiAL0Y9tOJLPZCzfYOcIW9/jCgufCaNf6Kib
-         B8E55Wow4tjFX15NgjisZA01tisfmWYC9LOfdzeyFGuayVXaZAPnEWRG9E2g7YjdBTLD
-         TvfSNgoe+UmdU6+RbLq0CuSsi96SjDWG2Evuw2qdBNH0BW62fKukA0Wuou7+rk1e0tFS
-         mQ0oE43NCmOX+fjKoUJhBhRmHWl/Gl62KXscLZ73nGwjZkCyn2lpT+6kCPtaLXLuxGOs
-         ib2NAvevHaeO5jHfyLZtlLXANccCKYA0Ty+YV1NcVPXB9uJLY4dIfQxTfq13+bgcQan+
-         N0sA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:dkim-filter;
+        bh=qUuUnCsN8QlAO5iOjog4Igp1OPvQEJ88D5zsqGqYn7U=;
+        b=IKv/pMVa0WyzSa10WsuZqpYdfaHOT4uIfT1JN0OrunYSkx1mLQRavOJCaFeMfYMaVp
+         nqtwE54FaQGaR859fROaeb+cPgA1HTl6K09FJzoKHItUJNkhcksS5fDD5E9S0TkoQYge
+         OV+iuHVSwee8/Uqs3P2kZ+pRpogMG/qPlm+u0HfIUB2N2Z+vSafrd0cSmqwpmezOtu9I
+         f/z1KoXtaDag2FsnRexWOiKoNCbQKzCQNJlnxFy7x7TpJErXGdka+4qsJyNb8AX08HCw
+         UTQcVi2cHfxoGVZ22hlKV+7bZHGTVHI0mnqQc9Bz2muI8/ritp4lmuFQP9hlZrqQZ7Lp
+         9Zvg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=HrLDXXXt;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x344.google.com (mail-ot1-x344.google.com. [2607:f8b0:4864:20::344])
-        by gmr-mx.google.com with ESMTPS id a3si1512387iog.2.2020.03.30.14.34.09
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=dW6dJjZl;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conssluserg-01.nifty.com (conssluserg-01.nifty.com. [210.131.2.80])
+        by gmr-mx.google.com with ESMTPS id p11si1189791qkh.3.2020.03.30.19.41.52
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 30 Mar 2020 14:34:09 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) client-ip=2607:f8b0:4864:20::344;
-Received: by mail-ot1-x344.google.com with SMTP id t28so19812681ott.5
-        for <clang-built-linux@googlegroups.com>; Mon, 30 Mar 2020 14:34:09 -0700 (PDT)
-X-Received: by 2002:a05:6830:11c1:: with SMTP id v1mr10963169otq.264.1585604048763;
-        Mon, 30 Mar 2020 14:34:08 -0700 (PDT)
-Received: from ubuntu-m2-xlarge-x86 ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id h65sm4741444oth.34.2020.03.30.14.34.07
-        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Mon, 30 Mar 2020 14:34:08 -0700 (PDT)
-Date: Mon, 30 Mar 2020 14:34:06 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Rob Herring <robh@kernel.org>,
-	David Gibson <david@gibson.dropbear.id.au>,
-	Dirk Mueller <dmueller@suse.com>, kbuild-all@lists.01.org,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	LKML <linux-kernel@vger.kernel.org>,
-	kbuild test robot <lkp@intel.com>, Philip Li <philip.li@intel.com>
-Subject: Re: ld.lld: error:
- drivers/staging/rtl8192e/rtllib_wx.o:(.rodata.str1.1): offset is outside the
- section
-Message-ID: <20200330213406.GA3170@ubuntu-m2-xlarge-x86>
-References: <202003310500.8jcJ6fgm%lkp@intel.com>
- <CAKwvOdnwaoPSB_pavQimvNEuFdt9wF4xSHBbLtjzQUC=urJAxw@mail.gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 30 Mar 2020 19:41:52 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) client-ip=210.131.2.80;
+Received: from mail-vs1-f53.google.com (mail-vs1-f53.google.com [209.85.217.53]) (authenticated)
+	by conssluserg-01.nifty.com with ESMTP id 02V2fY2R004516
+	for <clang-built-linux@googlegroups.com>; Tue, 31 Mar 2020 11:41:34 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-01.nifty.com 02V2fY2R004516
+X-Nifty-SrcIP: [209.85.217.53]
+Received: by mail-vs1-f53.google.com with SMTP id z125so12484362vsb.13
+        for <clang-built-linux@googlegroups.com>; Mon, 30 Mar 2020 19:41:34 -0700 (PDT)
+X-Received: by 2002:a67:6542:: with SMTP id z63mr11156512vsb.179.1585622493397;
+ Mon, 30 Mar 2020 19:41:33 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200326080104.27286-1-masahiroy@kernel.org> <20200326080104.27286-9-masahiroy@kernel.org>
+In-Reply-To: <20200326080104.27286-9-masahiroy@kernel.org>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Tue, 31 Mar 2020 11:40:57 +0900
+X-Gmail-Original-Message-ID: <CAK7LNARueG4wM-_z+xDjwHci=wwAad8CqP1UF5mFJpPf8Zg71Q@mail.gmail.com>
+Message-ID: <CAK7LNARueG4wM-_z+xDjwHci=wwAad8CqP1UF5mFJpPf8Zg71Q@mail.gmail.com>
+Subject: Re: [PATCH v2 08/16] x86: replace arch macros from compiler with CONFIG_X86_{32,64}
+To: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Borislav Petkov <bp@alien8.de>, Peter Zijlstra <peterz@infradead.org>,
+        "H . Peter Anvin" <hpa@zytor.com>, X86 ML <x86@kernel.org>,
+        "Jason A . Donenfeld" <Jason@zx2c4.com>,
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+        Al Viro <viro@zeniv.linux.org.uk>,
+        Randy Dunlap <rdunlap@infradead.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAKwvOdnwaoPSB_pavQimvNEuFdt9wF4xSHBbLtjzQUC=urJAxw@mail.gmail.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Original-Sender: natechancellor@gmail.com
+X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=HrLDXXXt;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@nifty.com header.s=dec2015msa header.b=dW6dJjZl;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -155,109 +142,118 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Mar 30, 2020 at 02:21:20PM -0700, 'Nick Desaulniers' via Clang Built Linux wrote:
-> Apologies, we're in the process of getting LLD turned on.  These
-> warnings look new to me, so I'll file an issue to follow up on.  It's
-> unrelated to the yyloc change.
-> https://github.com/ClangBuiltLinux/linux/issues/959
+On Thu, Mar 26, 2020 at 5:03 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
+>
+> If the intention is to check i386/x86_64 excluding UML, testing
+> CONFIG_X86_{32,64} is simpler.
+>
+> The reason for checking __i386__ / __x86_64__ was perhaps because
+> lib/raid6/algos.c is built not only for the kernel but also for
+> testing the library code from userspace.
+>
+> However, lib/raid6/test/Makefile passes -DCONFIG_X86_{32,64} for
+> this case. So, I do not see a reason to not use CONFIG option here.
+>
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> Acked-by: H. Peter Anvin (Intel) <hpa@zytor.com>
+> ---
 
-$ gzip -d .config.gz
 
-$ rg ENDIAN .config
-781:CONFIG_CPU_BIG_ENDIAN=y
-782:CONFIG_CPU_ENDIAN_BE8=y
-810:CONFIG_ARCH_SUPPORTS_BIG_ENDIAN=y
-1112:CONFIG_VHOST_CROSS_ENDIAN_LEGACY=y
-7875:CONFIG_FB_FOREIGN_ENDIAN=y
-7876:CONFIG_FB_BOTH_ENDIAN=y
-7877:# CONFIG_FB_BIG_ENDIAN is not set
-7878:# CONFIG_FB_LITTLE_ENDIAN is not set
-9047:CONFIG_USB_OHCI_LITTLE_ENDIAN=y
+Sorry, this patch broke UML builds.
 
-ld.lld does not support AArch64 or ARM big endian:
+https://lkml.org/lkml/2020/3/27/618
 
-https://reviews.llvm.org/D58655#1410281
 
-https://github.com/ClangBuiltLinux/linux/issues/380
 
-Does 0day do an allyesconfig little endian? I know that arm64 defaults
-to little endian after commit d8e85e144bbe ("arm64: Kconfig: add a
-choice for endianness") but arm does not have something like that (maybe
-it should?). I've always forced CONFIG_CPU_LITTLE_ENDIAN with the
-KCONFIG_ALLCONFIG variable, as I note in issue #380 above.
+I will drop this patch for tomorrow's linux-next.
 
-Kind of surprised that it got to drivers/staging though, I error out in
-arch/arm/vdso/Makefile:
 
-$ mkdir -p out/arm32 && curl -LSs 'https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org/message/V6YPX24H2YFOKOE7FWFJ66DQI63R3WKZ/attachment/2/config.gz' | gzip -d > out/arm32/.config
 
-$ make -j$(nproc) -s ARCH=arm CC=clang CROSS_COMPILE=arm-linux-gnueabi- LD=ld.lld O=out/arm32 olddefconfig all
-ld.lld: error: unknown argument: --be8
-make[3]: *** [/home/nathan/src/linux/arch/arm/vdso/Makefile:50: arch/arm/vdso/vdso.so.raw] Error 1
+CONFIG_X86 is not defined for ARCH=um.
+So, I still think it is OK to replace one complicated line
+in lib/raid6/x86.h
 
-> On Mon, Mar 30, 2020 at 2:17 PM kbuild test robot <lkp@intel.com> wrote:
-> >
-> > Hi Dirk,
-> >
-> > First bad commit (maybe != root cause):
-> >
-> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> > head:   7111951b8d4973bda27ff663f2cf18b663d15b48
-> > commit: e33a814e772cdc36436c8c188d8c42d019fda639 scripts/dtc: Remove redundant YYLOC global declaration
-> > date:   3 days ago
-> > config: arm-allyesconfig (attached as .config)
-> > compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project b4695351cb4ce1c4450a029a0c226dc8bb5f5d55)
-> > reproduce:
-> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> >         chmod +x ~/bin/make.cross
-> >         git checkout e33a814e772cdc36436c8c188d8c42d019fda639
-> >         # save the attached .config to linux build tree
-> >         COMPILER=clang make.cross ARCH=arm
-> >
-> > If you fix the issue, kindly add following tag
-> > Reported-by: kbuild test robot <lkp@intel.com>
-> >
-> > All errors (new ones prefixed by >>):
-> >
-> > >> ld.lld: error: drivers/staging/rtl8192e/rtllib_wx.o:(.rodata.str1.1): offset is outside the section
-> > >> ld.lld: error: drivers/staging/rtl8192e/rtllib_softmac.o:(.rodata.str1.1): offset is outside the section
-> > >> ld.lld: error: drivers/staging/rtl8192e/rtllib_tx.o:(.rodata.str1.1): offset is outside the section
-> > --
-> > >> ld.lld: error: drivers/staging/rtl8192u/ieee80211/dot11d.o:(.rodata.str1.1): offset is outside the section
-> > --
-> > >> ld.lld: error: drivers/staging/rtl8723bs/core/rtw_debug.o:(.rodata.str1.1): offset is outside the section
-> > >> ld.lld: error: drivers/staging/rtl8723bs/core/rtw_sta_mgt.o:(.rodata.str1.1): offset is outside the section
-> > >> ld.lld: error: drivers/staging/rtl8723bs/core/rtw_security.o:(.rodata.str1.1): offset is outside the section
-> > >> ld.lld: error: drivers/staging/rtl8723bs/core/rtw_wlan_util.o:(.rodata.str1.1): offset is outside the section
-> > >> ld.lld: error: drivers/staging/rtl8723bs/core/rtw_ieee80211.o:(.rodata.cst4): offset is outside the section
-> > >> ld.lld: error: drivers/staging/rtl8723bs/core/rtw_odm.o:(.rodata.str1.1): offset is outside the section
-> > >> ld.lld: error: drivers/staging/rtl8723bs/core/rtw_recv.o:(.rodata.str1.1): offset is outside the section
-> > >> ld.lld: error: drivers/staging/rtl8723bs/hal/hal_com.o:(.rodata.str1.1): offset is outside the section
-> > >> ld.lld: error: drivers/staging/rtl8723bs/core/rtw_ioctl_set.o:(.rodata.str1.1): offset is outside the section
-> > >> ld.lld: error: drivers/staging/rtl8723bs/core/rtw_xmit.o:(.rodata.str1.1): offset is outside the section
-> >    ld.lld
-> > --
-> > >> ld.lld: error: drivers/misc/mic/vop/vop_vringh.o:(.rodata.str1.1): offset is outside the section
-> > --
-> >    ld.lld: error: drivers/staging/rtl8188eu/core/rtw_efuse.o:(.rodata.str1.1): offset is outside the section
-> > >> ld.lld: error: drivers/staging/rtl8188eu/os_dep/xmit_linux.o:(.rodata.str1.1): offset is outside the section
-> > --
-> > >> ld.lld: error: drivers/staging/kpc2000/kpc_dma/fileops.o:(.rodata.str1.1): offset is outside the section
-> >    ld.lld: error: drivers/staging/kpc2000/kpc_dma/kpc_dma_driver.o:(.rodata.str1.1): offset is outside the section
-> >
-> > ---
-> > 0-DAY CI Kernel Test Service, Intel Corporation
-> > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> >
-> 
-> 
-> 
-> -- 
-> Thanks,
-> ~Nick Desaulniers
-> 
+   #if (defined(__i386__) || defined(__x86_64__)) && !defined(__arch_um__)
+
+with:
+
+   #ifdef CONFIG_X86
+
+
+
+
+Also, I slightly prefer
+
+   #if defined(CONFIG_X86_32) && !defined(CONFIG_UML)
+
+to
+
+   #if defined(__i386__) && !defined(__arch_um__)
+
+
+
+But, we do not need to rush this now.
+
+
+This patch does not affect the rest of this series.
+
+Thanks.
+
+
+
+
+
+> Changes in v2: None
+>
+>  kernel/signal.c   | 2 +-
+>  lib/raid6/algos.c | 4 ++--
+>  2 files changed, 3 insertions(+), 3 deletions(-)
+>
+> diff --git a/kernel/signal.c b/kernel/signal.c
+> index 5b2396350dd1..db557e1629e5 100644
+> --- a/kernel/signal.c
+> +++ b/kernel/signal.c
+> @@ -1246,7 +1246,7 @@ static void print_fatal_signal(int signr)
+>         struct pt_regs *regs = signal_pt_regs();
+>         pr_info("potentially unexpected fatal signal %d.\n", signr);
+>
+> -#if defined(__i386__) && !defined(__arch_um__)
+> +#ifdef CONFIG_X86_32
+>         pr_info("code at %08lx: ", regs->ip);
+>         {
+>                 int i;
+> diff --git a/lib/raid6/algos.c b/lib/raid6/algos.c
+> index df08664d3432..b5a02326cfb7 100644
+> --- a/lib/raid6/algos.c
+> +++ b/lib/raid6/algos.c
+> @@ -29,7 +29,7 @@ struct raid6_calls raid6_call;
+>  EXPORT_SYMBOL_GPL(raid6_call);
+>
+>  const struct raid6_calls * const raid6_algos[] = {
+> -#if defined(__i386__) && !defined(__arch_um__)
+> +#ifdef CONFIG_X86_32
+>  #ifdef CONFIG_AS_AVX512
+>         &raid6_avx512x2,
+>         &raid6_avx512x1,
+> @@ -45,7 +45,7 @@ const struct raid6_calls * const raid6_algos[] = {
+>         &raid6_mmxx2,
+>         &raid6_mmxx1,
+>  #endif
+> -#if defined(__x86_64__) && !defined(__arch_um__)
+> +#ifdef CONFIG_X86_64
+>  #ifdef CONFIG_AS_AVX512
+>         &raid6_avx512x4,
+>         &raid6_avx512x2,
+> --
+> 2.17.1
+>
+
+
+-- 
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200330213406.GA3170%40ubuntu-m2-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNARueG4wM-_z%2BxDjwHci%3DwwAad8CqP1UF5mFJpPf8Zg71Q%40mail.gmail.com.
