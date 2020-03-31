@@ -1,141 +1,134 @@
-Return-Path: <clang-built-linux+bncBCX2JBVY5MBBBONHRP2AKGQEOWCWRSI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABB36ERP2AKGQEDNXXPEY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13c.google.com (mail-il1-x13c.google.com [IPv6:2607:f8b0:4864:20::13c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2E3F6198BA7
-	for <lists+clang-built-linux@lfdr.de>; Tue, 31 Mar 2020 07:23:07 +0200 (CEST)
-Received: by mail-il1-x13c.google.com with SMTP id w76sf19087568ila.6
-        for <lists+clang-built-linux@lfdr.de>; Mon, 30 Mar 2020 22:23:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1585632186; cv=pass;
+Received: from mail-qt1-x83d.google.com (mail-qt1-x83d.google.com [IPv6:2607:f8b0:4864:20::83d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9160F198C44
+	for <lists+clang-built-linux@lfdr.de>; Tue, 31 Mar 2020 08:25:53 +0200 (CEST)
+Received: by mail-qt1-x83d.google.com with SMTP id b3sf12708847qte.13
+        for <lists+clang-built-linux@lfdr.de>; Mon, 30 Mar 2020 23:25:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1585635951; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cZjxSQ3vt7qkMNLz5L+8Ise21iE+YutjeMIM8mzFYgdJu9iVZTazRs3g3fC4e5qwbc
-         FKmG+qyctGXOoMY8ybJ3WdAVRrwi7bEV6hyoFdNuEv1Qrk1nu1H0ZDiRg1/hZuM/0kA0
-         01EKtI8liOlF1xQts2Tby+fNRkHPkCZl4mLgHE+uYQtvxzBFx4mRPS3lScfgBly77puE
-         wUQ5IarVeGVFUedAviBlq1ApAiYmWNU+LFsJlCNvNJqOcqYxi9I/UCM/yYgxLYxAEChV
-         NXkrlTItdKqRjVrLd9BHux/etrAP9eX4rWAXLuBBozJ7Jh58e7IIw7pbfPXGgjFNn6Zt
-         /Ekg==
+        b=yAZnjuYA4DuG+wZAIfDWZxTdddcv8YGLJla4NMOcZYTHMr1qRPKt9SHsO4r3CZGDGn
+         C6wmohPrwfwIuBKKq2UEIxvMqIysPdbDF/RAcIW6bJTxmyopjKw0CtdedsU7VvUyawVx
+         xK71oR0I9rs88DTqsREC6NpQ1YzhnzPoNugAdX0fitHKyMs+4OEJkrCchTmjYtPWQNCA
+         YziyXGggxa+DqdJZIZxSuMutqin7YjV+i64PVWQWxyQOz7wkIkTeYH4Kz2MfCXJ7PXCH
+         Pjm2Drcm7WQQfZFT1NbNrSKkxBk6r0pZEa/bQ97DrBmerKR7ssLKy53ptloBLK8LoqaD
+         b8rg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=+/HQmtaDN2QUaHMvNnGa0divR+ZVa3S4HoItIgq/X3I=;
-        b=ZlqN1wpFC4G2IoiNhKdzLxxfldWV9Qt4r1uBJ2Jhb5NqabovBeSmiPQpoHPZVjGZ38
-         f33G6xbdTgyoiKtXefjzWbzpHHqfVIw7mh3auE3C2IfafRCBOIQbHK3hoizC35UO4rUU
-         50O2EoLomKCE6Z2YwbXI9GSZ/6Ez8om/5UkzzLx7G1b13RhSwNpuIAHy0h0HHrap6M1c
-         O9Ki91QzwRl2nQeeGFsGFz+HJY7qT8q2v+SwuhjY42Jz9SDd3IUOCBBpsVmsGjHNsmNx
-         XDj2VLGqP+5PlWAkp27N/s4O5OI7MMOuKdN+XgXpzK4EW7ti97VHtLr0xh+GXMJMbd/B
-         +qnA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-filter:sender
+         :dkim-signature;
+        bh=DzeZYpFO2c/M/SvPa06VL6pPg14JAlVcD0kRslAaRZ8=;
+        b=HB40tBg+tjPI5Jxt05x63wkCRrl+NfW7BrpNDYuWKIJ0DDdPxkzdxdK4P4YTCTcMB6
+         nCZ66X4W2wNP1Jd+0hMZ4RKJhXzuk4o1DyaXUX2YtJ0zs6jKJEYCQ1eLkZIFVJ63PnWg
+         JSFOLhd0azGf4CqpL6hw9+GbP/6ugYcOa06y/ynzap0+GS8OJNwXvysBPJjWpi/Gv+VN
+         IKnwVS0l74gi/4pVfJ9tcY2fkzHL8GrgVx9OPSY2Kn6na83FDrDM9mSBDkYXLDscv37/
+         X7aq9QCZjoefzkBfDKulAR1AtcfM6n7xJJuWHf2HC5IcM3gdlxXu3kfAmwgtCdmECG/e
+         8cmA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of philip.li@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=philip.li@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=ya91m2S2;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=+/HQmtaDN2QUaHMvNnGa0divR+ZVa3S4HoItIgq/X3I=;
-        b=DGtRZYcpv97oFXG7pQUoW0fjJbAjHTmO4mAJsFH7XPRnVolPSKhvS4tdGpN2H73YIc
-         EHqIwLxpBuWqsI93vLHXRsRt3E4bKk5n+IDcD0d7jbh0RpESIxhJEpbtekMUGjGNe3NQ
-         Trx46IQEqoxVuQ6omSmJRPTY7X01bpsRIn5VUxeVg88LqaFh0cXW9b0q1S29KioPd1Ay
-         gYoyQT3TjeEY2MvCk82oWy7NYhpYjvQhpww4ZsjAWBK/K9fTjJq/f0RJvbWK9cjdIlyh
-         26//4f0i9t5mtsOtWTr0dV1pDb0EJ5SfFawV7gBAO9bbLW906PQItTwKlHjeSbm5SOHQ
-         ccog==
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=DzeZYpFO2c/M/SvPa06VL6pPg14JAlVcD0kRslAaRZ8=;
+        b=ZzWHjNbmpVSQe9K//1zZSAutFN9P5MWtG/my1WsC+HC4FEhHnkRZKEqsPDOegtWgYM
+         iV8N9evFRed1L7aRCTMHdVcSLFx3K/1A2sHsrKZiXK4JdxhM+V4Z4FLyVZj+QeDrJtHO
+         UkdcJ1v4u1W2oPiMdcFJpdpRPxIuDzGvWsUS4YxQYxPsMDQjIUm2y2yTIryBeG6z1fD3
+         kxHV0L2j3BR7OsxkhEmJHogCblo/8nML1qurWcN0p8PlaOyx1Fp2uPbWbOqCTietFZ58
+         KhNj6uIskxc8Squfj2KmckdoChtupQCEf1uNHyKinZkf2caKsKwAtttCFltuqjQCplVb
+         IFvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:references:mime-version:content-disposition
-         :in-reply-to:user-agent:x-original-sender
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=+/HQmtaDN2QUaHMvNnGa0divR+ZVa3S4HoItIgq/X3I=;
-        b=EZu+/F+rjJsLYo2VVCOO4CeRAdzMsDm7BOAUwWkV9voyujEtJ4medBC2LlVtp20cpn
-         phc/lwtCmoGJAmdMRk5WFMJYMnQh4SlAQu14p5RYx8zgaIYEnN2bJmjcparZuLLs2kkm
-         Gr/5waFhwzzRngDh3tlE8YBwIaFVSXnnOhJBwEcGfdVT1g+wfOse2u99ie7WhvUEQB3y
-         Zm1vqziphUjVxvyvUh/9HpY9go/9rNIuNMJCW18QQSyLq3RxcFCTApt9Pebq2eWg+dC8
-         cNZU+rq1yjL3TERyh0AZsfsU9xNDsArKAZf63JoSe1WAPebzvwbB4HkL9ukQ39OO427b
-         cB3Q==
+        bh=DzeZYpFO2c/M/SvPa06VL6pPg14JAlVcD0kRslAaRZ8=;
+        b=UWfDHC3eH0Oc5uBhaAEjw5jRo9By1LXB6gRSYH0gtRejOVSuGcQN17+/H9NzA4ONdX
+         M0x0kTkch9tnNwVCyTmhseXYeHLTQ3y2s1xNBDv8xcCBeyhs03grJlRL9OiWr8Ijq8Ia
+         aYxmItLkv9USU5PT3f496+Fm68fI2HzX9DjxoJuvF3dt53nbp2w5MUsYGbP10nC+MZQS
+         Jx2Qgv135w5SFeluL9cisZDncBPlqIj+mGmk+PeHUaOYygldVMvt9vTF0dtqlCkfN78O
+         vG0PwgqtgSaFkq8Oyqz91YhEUzxmgKkUsOSlY+n4rBxUIMy+H40Z5n1KB7cpxGdIhMfZ
+         mfuA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ1csZAOiUrlLjJAKEu70usCdPPu03jfPsUtZ4/byyL3DX2Xa2PW
-	QkpjgbwrEul5IMiZHp21dks=
-X-Google-Smtp-Source: ADFU+vsXfq6Wvs3W7AbeGNwtgWjeVlipfAelUAI794WtZdU1RswYl9MTro8sc2Y40ywGw2skIOhmsg==
-X-Received: by 2002:a6b:8e08:: with SMTP id q8mr14203611iod.17.1585632185973;
-        Mon, 30 Mar 2020 22:23:05 -0700 (PDT)
+X-Gm-Message-State: ANhLgQ1V8ZJbcRD9D8dDZoXkH2aw+6FoFCXsPLej468e15q7lLCtovbF
+	vOBy3PpAAnQz/NCmu7E+QuQ=
+X-Google-Smtp-Source: ADFU+vuVm3jWFrfqUqqcU7R+IfF7QdJNvPKqkZ0GM+3s4kh86HpvVdfgZupuPZ8XYiBHrTzTqOuzpA==
+X-Received: by 2002:ae9:ee01:: with SMTP id i1mr3534902qkg.498.1585635951328;
+        Mon, 30 Mar 2020 23:25:51 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:1e6:: with SMTP id t6ls2752969jaq.2.gmail; Mon, 30
- Mar 2020 22:23:05 -0700 (PDT)
-X-Received: by 2002:a02:77d4:: with SMTP id g203mr14219016jac.66.1585632185364;
-        Mon, 30 Mar 2020 22:23:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1585632185; cv=none;
+Received: by 2002:a37:aa0c:: with SMTP id t12ls9992231qke.11.gmail; Mon, 30
+ Mar 2020 23:25:51 -0700 (PDT)
+X-Received: by 2002:a05:620a:cc1:: with SMTP id b1mr3669807qkj.202.1585635950988;
+        Mon, 30 Mar 2020 23:25:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1585635950; cv=none;
         d=google.com; s=arc-20160816;
-        b=wKGRnfFPYrVHcY41BeHGBpEH+ov4tNL46gLpeOFK3+VaB/PFmnOEyHmCU+Xni32FEL
-         P0vO0nKHyQqoDciP/fok4X+3t46HmxyZRZKcmKVBItQbRQYFSfOZELrWbIf17+vcdH1W
-         vHAZSlLIZm8Lx8uaAd9QFVvoO6GgTK8xu1TCkvxjpZMwlvQuNlODj+1fQErezIJJmz8v
-         bS35pVqNVM5UhEC0Mqt49j/b7EFEeZN7+UUj/BabcxPQu+G9tubc0qfICwcR2FZ8sy5S
-         Q65WNWrzHKMvOq2tWCfeVS/JEXyP80LUoNe1bpVIc4z3NSo9ODSCamYhtnjaJYpIVg08
-         l0/w==
+        b=cWe7WMhEm4rdWuvEgUobeu3AeqkHD83DSWGUcngb3/L+H6z2LEh2is2f1d6eIDXHMV
+         DJMrIuPhOxfGdP4VRV+T2JG2uvenadI/coY0Qeh3JxGJYqFkRcr9U5o/R6d5dwUCu2Z7
+         jz7e9Cxr1I64MkodWYYMjVzVxd98JTNK4j7CohQv1BXbOFVVhhqPKZpwuFWSeK+dyr7n
+         R3l6cwpHtU1LqHdwRAZvNcs/lIybhMrbxbsF4Uu1zBu/cHYETcNeAel1J86DfE/LxY52
+         RsICnldJBPR+4cSrNXpM5yTb/fwZspI7w21X8TQ7Y3G62dUf6tX4/yfZ985j6iyXPOhK
+         88AA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=kP1mSTOfs1mGS7PhKAyxu5s642KEgFQxMzxDygYQQ1c=;
-        b=KFbGFjVlv+E4VZXu1mg5asa/WwZdiEbs6tZy609gDQUN6Wb4/vY8K7S0cNxEWn6EfH
-         G9l5eL09Bjel2gn++Abv5wLOJ9L8e+13UdbVJD67aC481h/p4H5To367EDpu9REhZQgd
-         eSnyq4ePoCOGqOrT0POJP0pDJZFJAVMxeCQ+2NcOI0+8guMTLTgo4N2jgbdGS5Re0SXn
-         40dzsSZ3YD573LysjGmbZzaOTEUtiuCujDHT5hRxXbp3evP2dnTny8C64Zv1tuxXonYA
-         EbgaXyDLw9HCmw1BERMDj0aD2AWpI3+EQs3KPCLFksm3emHoopF/tBinx33jWLwlI13C
-         Ih6Q==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:dkim-filter;
+        bh=bhHDF/pmVptyuAoHUwFW/YtM1ZLRsyzSLz5SMFr9KSE=;
+        b=OpZZc0ApU1AAmuaYRHlxS8+FtptscvDGdZH9eFuxWUv9ZCozFEgdIHI9rMKuCKonpj
+         0fPvH3SGNXssNGVl1PwSnqrpCXbvw6XV9sKR1XBR5o1hB9wIyo3MXaXyDxKe102+eud6
+         pSxtC7Nnh0Qewc8Jmrtx9ZnlJR4a1yl6jA+TVFsCX9S8Iu24eegXN5IDgdL7YIDmF0ld
+         husIqjWqvbXch2AOXZ8IQQaDC+/bHYuDam9jQZ36RNuTUG+iI/Kie78sLFCgsW/ddJIw
+         ibzp1tUxq24qhbDk9MN5jhrEyfoHBB17qzhZlnIDSikCzoxVOBcvOkp4/Zgnz+pC/jgM
+         QGtQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of philip.li@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=philip.li@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
-        by gmr-mx.google.com with ESMTPS id t13si804269ilk.5.2020.03.30.22.23.05
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=ya91m2S2;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conssluserg-02.nifty.com (conssluserg-02.nifty.com. [210.131.2.81])
+        by gmr-mx.google.com with ESMTPS id p11si1217059qkh.3.2020.03.30.23.25.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 30 Mar 2020 22:23:05 -0700 (PDT)
-Received-SPF: pass (google.com: domain of philip.li@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
-IronPort-SDR: NuB98KXqtrT92cGu2Ntl1on4maR00dAaCu5cUyXBx8t5T4S+2kQgTLHZlM3Z+j7qswhvVUmnkn
- kVsUSdX4kW2w==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from orsmga005.jf.intel.com ([10.7.209.41])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Mar 2020 22:23:04 -0700
-IronPort-SDR: jjSDt0sGR0jEVrpkUc2dMbErId9L2Dx8ff2YAlYZFTA2eNYzZhZFZztgwnXKo9v6zHiXN0sAEx
- lEQDMPxmn80w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.72,327,1580803200"; 
-   d="scan'208";a="422177181"
-Received: from pl-dbox.sh.intel.com (HELO intel.com) ([10.239.159.39])
-  by orsmga005.jf.intel.com with ESMTP; 30 Mar 2020 22:23:01 -0700
-Date: Tue, 31 Mar 2020 13:22:22 +0800
-From: Philip Li <philip.li@intel.com>
+        Mon, 30 Mar 2020 23:25:50 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) client-ip=210.131.2.81;
+Received: from mail-vk1-f176.google.com (mail-vk1-f176.google.com [209.85.221.176]) (authenticated)
+	by conssluserg-02.nifty.com with ESMTP id 02V6PRYw017969
+	for <clang-built-linux@googlegroups.com>; Tue, 31 Mar 2020 15:25:27 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-02.nifty.com 02V6PRYw017969
+X-Nifty-SrcIP: [209.85.221.176]
+Received: by mail-vk1-f176.google.com with SMTP id k63so5403265vka.7
+        for <clang-built-linux@googlegroups.com>; Mon, 30 Mar 2020 23:25:27 -0700 (PDT)
+X-Received: by 2002:a1f:1786:: with SMTP id 128mr10407782vkx.26.1585635926362;
+ Mon, 30 Mar 2020 23:25:26 -0700 (PDT)
+MIME-Version: 1.0
+References: <20200317202404.GA20746@ubuntu-m2-xlarge-x86> <20200317215515.226917-1-ndesaulniers@google.com>
+ <20200327224246.GA12350@ubuntu-m2-xlarge-x86> <CAK7LNAShb1gWuZyycLAGWm19EWn17zeNcmdPyqu1o=K9XrfJbg@mail.gmail.com>
+ <CAK7LNAQ3=jUu4aa=JQB8wErUGDd-Vr=cX_yZSdP_uAP6kWZ=pw@mail.gmail.com>
+ <CAKwvOd=5AG1ARw6JUXmkuiftuShuYHKLk0ZnueuLhvOdMr5dOA@mail.gmail.com> <20200330190312.GA32257@ubuntu-m2-xlarge-x86>
+In-Reply-To: <20200330190312.GA32257@ubuntu-m2-xlarge-x86>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Tue, 31 Mar 2020 15:24:50 +0900
+X-Gmail-Original-Message-ID: <CAK7LNAT1HoV5wUZRdeU0+P1nYAm2xQ4tpOG+7UtT4947QByakg@mail.gmail.com>
+Message-ID: <CAK7LNAT1HoV5wUZRdeU0+P1nYAm2xQ4tpOG+7UtT4947QByakg@mail.gmail.com>
+Subject: Re: [PATCH v2] Makefile.llvm: simplify LLVM build
 To: Nathan Chancellor <natechancellor@gmail.com>
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	Rob Herring <robh@kernel.org>,
-	David Gibson <david@gibson.dropbear.id.au>,
-	Dirk Mueller <dmueller@suse.com>, kbuild-all@lists.01.org,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	LKML <linux-kernel@vger.kernel.org>,
-	kbuild test robot <lkp@intel.com>
-Subject: Re: ld.lld: error:
- drivers/staging/rtl8192e/rtllib_wx.o:(.rodata.str1.1): offset is outside the
- section
-Message-ID: <20200331052222.GB13302@intel.com>
-References: <202003310500.8jcJ6fgm%lkp@intel.com>
- <CAKwvOdnwaoPSB_pavQimvNEuFdt9wF4xSHBbLtjzQUC=urJAxw@mail.gmail.com>
- <20200330213406.GA3170@ubuntu-m2-xlarge-x86>
-MIME-Version: 1.0
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+        Sandeep Patil <sspatil@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200330213406.GA3170@ubuntu-m2-xlarge-x86>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: philip.li@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of philip.li@intel.com designates 192.55.52.43 as
- permitted sender) smtp.mailfrom=philip.li@intel.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=intel.com
+X-Original-Sender: masahiroy@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@nifty.com header.s=dec2015msa header.b=ya91m2S2;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,114 +141,129 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Mar 30, 2020 at 02:34:06PM -0700, Nathan Chancellor wrote:
-> On Mon, Mar 30, 2020 at 02:21:20PM -0700, 'Nick Desaulniers' via Clang Built Linux wrote:
-> > Apologies, we're in the process of getting LLD turned on.  These
-> > warnings look new to me, so I'll file an issue to follow up on.  It's
-> > unrelated to the yyloc change.
-> > https://github.com/ClangBuiltLinux/linux/issues/959
-> 
-> $ gzip -d .config.gz
-> 
-> $ rg ENDIAN .config
-> 781:CONFIG_CPU_BIG_ENDIAN=y
-> 782:CONFIG_CPU_ENDIAN_BE8=y
-> 810:CONFIG_ARCH_SUPPORTS_BIG_ENDIAN=y
-> 1112:CONFIG_VHOST_CROSS_ENDIAN_LEGACY=y
-> 7875:CONFIG_FB_FOREIGN_ENDIAN=y
-> 7876:CONFIG_FB_BOTH_ENDIAN=y
-> 7877:# CONFIG_FB_BIG_ENDIAN is not set
-> 7878:# CONFIG_FB_LITTLE_ENDIAN is not set
-> 9047:CONFIG_USB_OHCI_LITTLE_ENDIAN=y
-> 
-> ld.lld does not support AArch64 or ARM big endian:
-got it, we will update build logic to keep lld where it suits.
+On Tue, Mar 31, 2020 at 4:03 AM Nathan Chancellor
+<natechancellor@gmail.com> wrote:
+>
+> On Mon, Mar 30, 2020 at 11:58:19AM -0700, Nick Desaulniers wrote:
+> > On Sat, Mar 28, 2020 at 6:57 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
+> > >
+> > > I also had planned to provide a single switch to change
+> > > all the tool defaults to LLVM.
+> > >
+> > > So, supporting 'LLVM' is fine, but I'd rather want this
+> > > look symmetrical, and easy to understand.
+> > >
+> > > CPP        = $(CC) -E
+> > > ifneq ($(LLVM),)
+> >
+> > Yes, a simple if statement is much simpler than the overly complex patch I had.
+> >
+> > > CC         = $(LLVM_DIR)clang
+> >
+> > Do we need $LLVM_DIR? Shouldn't users just have that in their $PATH?
+> >
+> > Also, I think we need to support suffixed binaries, as debian
+> > distributes these with version suffixes, as Nathan points out.  Or do
+> > the debian packages install suffixed binaries AND path versioned
+> > non-suffixed binaries?
+>
+> I think the idea here is that ultimately, the suffixed versions of clang
+> that Debian has in /usr/bin are symlinks to binaries in
+> /usr/lib/llvm-#/bin; as a result, a user could say
+> LLVM_DIR=/usr/lib/llvm-#/bin/ and all of those tools would be picked up
+> automatically. I am not really sure what is better.
 
-> 
-> https://reviews.llvm.org/D58655#1410281
-> 
-> https://github.com/ClangBuiltLinux/linux/issues/380
-> 
-> Does 0day do an allyesconfig little endian? I know that arm64 defaults
-currently no, the default arm allyes uses CONFIG_CPU_BIG_ENDIAN=y.
 
-> to little endian after commit d8e85e144bbe ("arm64: Kconfig: add a
-> choice for endianness") but arm does not have something like that (maybe
-> it should?). I've always forced CONFIG_CPU_LITTLE_ENDIAN with the
-> KCONFIG_ALLCONFIG variable, as I note in issue #380 above.
-> 
-> Kind of surprised that it got to drivers/staging though, I error out in
-> arch/arm/vdso/Makefile:
-> 
-> $ mkdir -p out/arm32 && curl -LSs 'https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org/message/V6YPX24H2YFOKOE7FWFJ66DQI63R3WKZ/attachment/2/config.gz' | gzip -d > out/arm32/.config
-> 
-> $ make -j$(nproc) -s ARCH=arm CC=clang CROSS_COMPILE=arm-linux-gnueabi- LD=ld.lld O=out/arm32 olddefconfig all
-> ld.lld: error: unknown argument: --be8
-> make[3]: *** [/home/nathan/src/linux/arch/arm/vdso/Makefile:50: arch/arm/vdso/vdso.so.raw] Error 1
-> 
-> > On Mon, Mar 30, 2020 at 2:17 PM kbuild test robot <lkp@intel.com> wrote:
+I periodically build the latest llvm from the trunk,
+and install it under my home directory.
+
+So, I just thought it would be useful to
+allow a user to specify the llvm directory.
+
+Of course, I can do the equivalent by tweaking PATH, but
+I hesitate to make the non-released version my default.
+
+
+
+Having both LLVM_DIR and LLVM_SUFFIX seems verbose.
+
+In fact, the debian provides multiple versions of GCC.
+For example, my machine has
+
+masahiro@pug:~$ ls -1 /usr/bin/gcc-*
+/usr/bin/gcc-4.8
+/usr/bin/gcc-5
+/usr/bin/gcc-7
+/usr/bin/gcc-ar
+/usr/bin/gcc-ar-4.8
+/usr/bin/gcc-ar-5
+/usr/bin/gcc-ar-7
+/usr/bin/gcc-nm
+/usr/bin/gcc-nm-4.8
+/usr/bin/gcc-nm-5
+/usr/bin/gcc-nm-7
+/usr/bin/gcc-ranlib
+/usr/bin/gcc-ranlib-4.8
+/usr/bin/gcc-ranlib-5
+/usr/bin/gcc-ranlib-7
+
+But, nobody has suggested GCC_SUFFIX.
+
+So, I guess CROSS_COMPILE was enough to
+choose a specific tool version.
+
+
+
+
+> I'll try to have some other comments by later today/tonight.
+>
+> > > LD         = $(LLVM_DIR)ld.lld
+> > > AR         = $(LLVM_DIR)llvm-ar
+> > > NM         = $(LLVM_DIR)llvm-nm
+> > > OBJCOPY    = $(LLVM_DIR)llvm-objcopy
+> > > OBJDUMP    = $(LLVM_DIR)llvm-objdump
+> > > READELF    = $(LLVM_DIR)llvm-readelf
+> > > OBJSIZE    = $(LLVM_DIR)llvm-size
+> > > STRIP      = $(LLVM_DIR)llvm-strip
+> > > else
+> > > CC         = $(CROSS_COMPILE)gcc
+> > > LD         = $(CROSS_COMPILE)ld
+> > > AR         = $(CROSS_COMPILE)ar
+> > > NM         = $(CROSS_COMPILE)nm
+> > > OBJCOPY    = $(CROSS_COMPILE)objcopy
+> > > OBJDUMP    = $(CROSS_COMPILE)objdump
+> > > READELF    = $(CROSS_COMPILE)readelf
+> > > OBJSIZE    = $(CROSS_COMPILE)size
+> > > STRIP      = $(CROSS_COMPILE)strip
+> > > endif
 > > >
-> > > Hi Dirk,
 > > >
-> > > First bad commit (maybe != root cause):
 > > >
-> > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> > > head:   7111951b8d4973bda27ff663f2cf18b663d15b48
-> > > commit: e33a814e772cdc36436c8c188d8c42d019fda639 scripts/dtc: Remove redundant YYLOC global declaration
-> > > date:   3 days ago
-> > > config: arm-allyesconfig (attached as .config)
-> > > compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project b4695351cb4ce1c4450a029a0c226dc8bb5f5d55)
-> > > reproduce:
-> > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> > >         chmod +x ~/bin/make.cross
-> > >         git checkout e33a814e772cdc36436c8c188d8c42d019fda639
-> > >         # save the attached .config to linux build tree
-> > >         COMPILER=clang make.cross ARCH=arm
-> > >
-> > > If you fix the issue, kindly add following tag
-> > > Reported-by: kbuild test robot <lkp@intel.com>
-> > >
-> > > All errors (new ones prefixed by >>):
-> > >
-> > > >> ld.lld: error: drivers/staging/rtl8192e/rtllib_wx.o:(.rodata.str1.1): offset is outside the section
-> > > >> ld.lld: error: drivers/staging/rtl8192e/rtllib_softmac.o:(.rodata.str1.1): offset is outside the section
-> > > >> ld.lld: error: drivers/staging/rtl8192e/rtllib_tx.o:(.rodata.str1.1): offset is outside the section
-> > > --
-> > > >> ld.lld: error: drivers/staging/rtl8192u/ieee80211/dot11d.o:(.rodata.str1.1): offset is outside the section
-> > > --
-> > > >> ld.lld: error: drivers/staging/rtl8723bs/core/rtw_debug.o:(.rodata.str1.1): offset is outside the section
-> > > >> ld.lld: error: drivers/staging/rtl8723bs/core/rtw_sta_mgt.o:(.rodata.str1.1): offset is outside the section
-> > > >> ld.lld: error: drivers/staging/rtl8723bs/core/rtw_security.o:(.rodata.str1.1): offset is outside the section
-> > > >> ld.lld: error: drivers/staging/rtl8723bs/core/rtw_wlan_util.o:(.rodata.str1.1): offset is outside the section
-> > > >> ld.lld: error: drivers/staging/rtl8723bs/core/rtw_ieee80211.o:(.rodata.cst4): offset is outside the section
-> > > >> ld.lld: error: drivers/staging/rtl8723bs/core/rtw_odm.o:(.rodata.str1.1): offset is outside the section
-> > > >> ld.lld: error: drivers/staging/rtl8723bs/core/rtw_recv.o:(.rodata.str1.1): offset is outside the section
-> > > >> ld.lld: error: drivers/staging/rtl8723bs/hal/hal_com.o:(.rodata.str1.1): offset is outside the section
-> > > >> ld.lld: error: drivers/staging/rtl8723bs/core/rtw_ioctl_set.o:(.rodata.str1.1): offset is outside the section
-> > > >> ld.lld: error: drivers/staging/rtl8723bs/core/rtw_xmit.o:(.rodata.str1.1): offset is outside the section
-> > >    ld.lld
-> > > --
-> > > >> ld.lld: error: drivers/misc/mic/vop/vop_vringh.o:(.rodata.str1.1): offset is outside the section
-> > > --
-> > >    ld.lld: error: drivers/staging/rtl8188eu/core/rtw_efuse.o:(.rodata.str1.1): offset is outside the section
-> > > >> ld.lld: error: drivers/staging/rtl8188eu/os_dep/xmit_linux.o:(.rodata.str1.1): offset is outside the section
-> > > --
-> > > >> ld.lld: error: drivers/staging/kpc2000/kpc_dma/fileops.o:(.rodata.str1.1): offset is outside the section
-> > >    ld.lld: error: drivers/staging/kpc2000/kpc_dma/kpc_dma_driver.o:(.rodata.str1.1): offset is outside the section
-> > >
-> > > ---
-> > > 0-DAY CI Kernel Test Service, Intel Corporation
-> > > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> > >
-> > 
-> > 
-> > 
-> > -- 
-> > Thanks,
-> > ~Nick Desaulniers
-> > 
+> > > I attached two patches.
+> > > Comments appreciated.
+> >
+> > I'm not sure the second one that recommends changing cc/c++ is the way
+> > to go; I think it might harm hermeticity.
+>
+> Agreed. I do not modify my host system at all for this project, just
+> relying on PATH modification. In theory, we can still override HOSTCC
+> and HOSTCXX but that would defeat the purpose of that patch.
+>
+> Cheers,
+> Nathan
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200330190312.GA32257%40ubuntu-m2-xlarge-x86.
+
+
+
+-- 
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200331052222.GB13302%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAT1HoV5wUZRdeU0%2BP1nYAm2xQ4tpOG%2B7UtT4947QByakg%40mail.gmail.com.
