@@ -1,125 +1,142 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBL6OS32AKGQEI4KQOLY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCM33EFK7EJRBKORS32AKGQENI2Y5FY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23d.google.com (mail-lj1-x23d.google.com [IPv6:2a00:1450:4864:20::23d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7723D19BDF4
-	for <lists+clang-built-linux@lfdr.de>; Thu,  2 Apr 2020 10:49:52 +0200 (CEST)
-Received: by mail-lj1-x23d.google.com with SMTP id s17sf372333ljo.23
-        for <lists+clang-built-linux@lfdr.de>; Thu, 02 Apr 2020 01:49:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1585817392; cv=pass;
+Received: from mail-wm1-x33d.google.com (mail-wm1-x33d.google.com [IPv6:2a00:1450:4864:20::33d])
+	by mail.lfdr.de (Postfix) with ESMTPS id D05E619BE39
+	for <lists+clang-built-linux@lfdr.de>; Thu,  2 Apr 2020 10:56:09 +0200 (CEST)
+Received: by mail-wm1-x33d.google.com with SMTP id p12sf1002459wmi.0
+        for <lists+clang-built-linux@lfdr.de>; Thu, 02 Apr 2020 01:56:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1585817769; cv=pass;
         d=google.com; s=arc-20160816;
-        b=w/Z8TYqZjLvPXm7EOr/2F/gXTqD7o5VdnmQSBfckenrKo5ffSMdQQjX9KnMNgM8+X2
-         HOyyY5YD+N53gqWHem5e1QFhoW6IUBsfgLRbMC0Jg/e6fM3R85AAR1PiuB7/1uU4XdLz
-         KCZNmWrIuFCFGMhFAXg86v9hSMh6oinTE6AS72JFNkMcN05EoXmhm4XDS06p4bm+mWAw
-         bHYnXKPevJRDyITP5aceCBDmXS32cdVuvyiGiAvA5tjp3HY8/DI8HH+oFINSDxbcDUTX
-         gfV/Ljf7DnwwquZeDUa6tihW0+mWSzk6+FvolNkchZXfsWbOeFZqs1F6uL7DCX1TN3GP
-         Kb/w==
+        b=kaX0zRyRT1DEA958R+ITxS7/F/mbVRTgrD97LCD3tN6dn8Z5lnrAc9fTbQgY8tNxKR
+         V9dxaRJhsBH3IVmqjJNAynd5szekzfJ8BL97qvyECJwmu7qOY+OdlmD459H7E+mplmw0
+         aACOuW6Knz6VGaJLbvOe7mkbIrMR5j7RDBnkrFKQrvfmmovIkOPPl+2XACiCohxU2QDI
+         Tz8X4Bi84pn6XoKdS1iElovc/CdyOC66HtuQmJdxnnyJqa6N+nnon4dxcLNpnzUjTx3f
+         RHko15YZ6mhmdYeZKs2VsVVqH3FkpPn1qVJ7heqAiXQamm/euP+VUt4yLfq9ChgWGYh8
+         ll+Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=eWIU11yuU0/w9y21JskkO/2i8tIzHcsNuQXfmxoqNyE=;
-        b=iJspwlriR1MxSmn5apHaIY4PGW5P6HapfAjPaM1Vt+toZ5ioX3dSmyxHYRi64XaJrA
-         hsM0WdLtrCFeOSgGQfupE8MWEI5V3nxyC1fz8gnfuB3GN2G0a6j2+ee/3eIdJqEvA64c
-         VCrmgAdSduDNSHbgyePvQLU1j0PQ8NCXHS6nLKm9xCe5ooNXrC1lxT3SPa5sBvQEyNIq
-         mHWE/4s8NON/ygFLL08BrRb9cg7Vdc7Q/J+s8LlhXvd+UQb4VTfDKxHJ2nukDAAWtBg6
-         r6/Mo0BHnIRRX9y2HXguHefk1UNYQ5Hri/EuqIJQZHqqvpE7RW52HO8XFK8+Y0C63uwO
-         ZUnA==
+         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
+         :mime-version:sender:dkim-signature:dkim-signature;
+        bh=jz1FOHv1Wc+F/Z7tz2WZjbuLzzU2l6JNlTBiDl6/P9k=;
+        b=eI78TFCOHjK9pvdl3VVYsQbBd7WXTguS+OMUl6Qi2rNossSqyOGo5uLR1PJN34LGnC
+         Lr9VFelAnaeD1sqq/OPbrSNvR1FU5BO2KcjDU0pipjPc9el2gqYQBkg/IvI7FwHNY/F4
+         NMuS/olbvs/PJePwhd10wcxOSGptQtx22sosm/KX/MvS3mSFID1Z2hHljMp0sRNB/9Ly
+         Mmujh77Xj64NWRprl0liguG58qssGIiCvOPI59Wf/ntUoTv8UHpBzgFnL+hXurPSUvba
+         WJ80thlup98Q7Pa5uQohtDy6hUSJorGVgBZ4YAfscoo/zD0JvLFs1agahQc0Zy6aOIDt
+         7YGQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=laGkOEmT;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=ToyxyR6+;
+       spf=pass (google.com: domain of ilie.halip@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=ilie.halip@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
+        h=sender:mime-version:from:to:cc:subject:date:message-id
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=eWIU11yuU0/w9y21JskkO/2i8tIzHcsNuQXfmxoqNyE=;
-        b=jlDg95lEyRWwakNuV/Y1hhPpJGQsIu1YzGv+JBQGa0d5cWYkMLPgo17MsXyifVeYBo
-         krPEJJT49Hh+YeiiODcoZor5JC1bkV9PcyBUpSkpbdZuYA/US7Xf4dbfMmpzYLOinyGx
-         RYjJckGY3f07iHhHq5SF9XYdqncpcya9JUvOVyJRVZEZNVMg1e+1dw/4g6g50Kz9SMRJ
-         G9RQetf3JlBtLsLc6Um/DfLQTHxIXNP5IpAg1t2sMAPebNCznDCbBfxWHAeszP1k7F2e
-         9xQG6muW18vHh6zcCFXrJs1rOOAj0VqCqCYNXFJQXYswXWqcNoHJHctcjglpcgFOMdwt
-         1Z5g==
+        bh=jz1FOHv1Wc+F/Z7tz2WZjbuLzzU2l6JNlTBiDl6/P9k=;
+        b=gn3iwydT1gnFbUBc1DJThdkvHX8D5YfAK9VA8B0BE1KcMzgy6NvP7IehTG+As+m4lA
+         AGmq6TUgeIWfcfc5ZGqorAmCKcaawQTYQ2+767t3gQp30aOAaoLVOoJzALIaAKjvhhx6
+         N9ooAvzDuPqTzu4iXqAIdvQcKl7IdLdg8WagsbvgmvdlrqwM0z9qBqzl3JhPdHqJ3jiq
+         YIw2tCKOY1LN/qRzXYHiY3vCmilnGmUoYbSuZPSv8Ys5buO+tFjG4QYbQkfIad0ZkWZL
+         Op4KUvDceGzLxDXZPr/iugvUpqlIu4mICYegk5zICks8lImeW6hVw2T0IkZVeFAH7gee
+         zsMg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:to:cc:subject:date:message-id:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=jz1FOHv1Wc+F/Z7tz2WZjbuLzzU2l6JNlTBiDl6/P9k=;
+        b=MlvFAiclbx17a0Wm3xfEKzjIWD/YrjWxRVxNeA2KBUgPir6citWsS55e51BVgQ/i2y
+         i1W36J+fZy9d5hzjHq49t6tdcGQlFz5p++82vkzCTwjkEI4SOP6fDWbqrFiVEkmXfrnP
+         GJsZoOFcm7T/42mk41oEGT6UZ1Ygjs7+gN6dG3zt0xiMLl+qY+La9NHGMA5XbTlUA+3E
+         i14mfh/clShs38Sf/z7vn8Toj/1jpfruLojE/1BUmxyJ+anhcPjcOy3X66eKfD3uDxTS
+         SXIKGa5yILm7DFVJ7Tae1xOoC5KdKehxREzp3tGaqIMNyq2nyMss38esyPbOrAXC9tQJ
+         qylA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
+        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
+         :message-id:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=eWIU11yuU0/w9y21JskkO/2i8tIzHcsNuQXfmxoqNyE=;
-        b=o7j5BCzVu0wg7SEskLt183f1drgih/UBpxK8hcybudMdKQBojwUOBgLj78I/6HBJcg
-         R+nOnZMnWwHX1mAGlQrmM3E1z5BX8S1EpZA8b9YKrO1OVVjLpyL9CKj3zMpJYDKxLXV/
-         jczKomjudl5bJYBuLawD9ZQZ7cynOVa8Hfliscp0al56fF2soNDkWPvPiXfVDxwXBXjp
-         reoFxLnY+E1wGlgcu6agOTpGDduJENpTxcKFsfLXCbWSSZQNiAyc4zqCb88h5xjEHNXF
-         4C82r/nIqwuniPruLX+rx8ZbcTZn2RrqfrVMlDUYCxmP53IKB1QI7HoQz2U6kVgkq2nL
-         xrhw==
+        bh=jz1FOHv1Wc+F/Z7tz2WZjbuLzzU2l6JNlTBiDl6/P9k=;
+        b=ixRC2mCCNYyVMFsjp1+gfBJwhPmh3FesCFxZtaJaC6giJH46sYTEG5BlLPpXxHqqnv
+         Qmf/Zb2Q0P+/irBpJ9PqERxMPbnlT+o1en7GlSKR9607fqB4MbAUC+T/RyM8hXtu8m0W
+         L0d9TvtNPTXGd0tQdlqG6iZNdGh7fzQizroj5Yj8l/hLKGAChIz/t0gSTMN51MjcZAmB
+         joKtzOktitqB4UPIllllWEJDwRkUhKcGYI8W4QYLx7zVbu/pAZ0vXm2Q4cektU5mXKGy
+         SFT/q57+zQSkbUWnn5vZc9NmS+ZREU20s3Bp8WkpAz/43bS52t1M6c7NA+zkFs+stAUp
+         zCnw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PubRVu+Qd0qAZFh6Qg9MMIa0N+3oQ7oE0wOUA3uljjp5jMA7uybL
-	6fodGWSdcJuRJG676mO5YQc=
-X-Google-Smtp-Source: APiQypICynkg25TktAuzbTtji1LsbsDRgyJx5ej77cZgu5vTbEn4zPTfdsIKLa/j9kPYs0apKCwjSg==
-X-Received: by 2002:a19:4f43:: with SMTP id a3mr1467471lfk.22.1585817391835;
-        Thu, 02 Apr 2020 01:49:51 -0700 (PDT)
+X-Gm-Message-State: AGi0PuZ8oqNlislxcPvl9weA5NJe5/8wef+WmVN+eer6kFRFXp6sHwXe
+	NyzSH2OOgy3LY6agqGRQ73A=
+X-Google-Smtp-Source: APiQypIOORjKo/fjgvpsWrtCmUI4yLCVurNVE9fewfOLiOO+J7fAI69na+uaxlh+JX57B9iIPyfcZw==
+X-Received: by 2002:a1c:2d8b:: with SMTP id t133mr2478865wmt.131.1585817769566;
+        Thu, 02 Apr 2020 01:56:09 -0700 (PDT)
+MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a19:c310:: with SMTP id t16ls282930lff.2.gmail; Thu, 02 Apr
- 2020 01:49:51 -0700 (PDT)
-X-Received: by 2002:a19:691d:: with SMTP id e29mr1474303lfc.83.1585817391220;
-        Thu, 02 Apr 2020 01:49:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1585817391; cv=none;
+Received: by 2002:a1c:6402:: with SMTP id y2ls924654wmb.1.canary-gmail; Thu,
+ 02 Apr 2020 01:56:08 -0700 (PDT)
+X-Received: by 2002:a1c:5a54:: with SMTP id o81mr2440928wmb.61.1585817768862;
+        Thu, 02 Apr 2020 01:56:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1585817768; cv=none;
         d=google.com; s=arc-20160816;
-        b=fPtSeigtvg5lHPB4v2Eoqih4PoZOna2UgfwQYbRVCkeI77ZtMJk6ebDbbhBTXXbly8
-         wI5hAKHnbt/O1H2WeRHq6nkXCRgzh32fd4icDpck4Uyjfs4aHFq2LLqRcQOu7EpxhzL1
-         HIwzfYDysspFwlQ2rt+TjX/RaD0Wsec05HQP/DLKDYr3iSqRgALsblffek9ogR9+FJ/6
-         SxhvMXIKjNql4bk4NtBje+xAlqGxm+DeBRpPEuudZFYfRDQh+APGa6ltTgSC23kh/ziD
-         AMrDZ1181JbO/ebjlkx2p0/qdh/d7eR2jwd/WmJ6wpuD2iFdh/mj7+E1goxxWu31iDAl
-         0U8Q==
+        b=UDjJ6hOcQE3N03BMUs6CdOcgqZCXby64IaHOwhsO1NcbhodLJN5+UDa6CPrRS8uMPD
+         1VBvlTTiD36JVyRjV463h2dghPxRPJ8d2mc7xGuMGWTrCKAfI3Oa+6rudKhWVjGdh22i
+         KgaSpploTr5Akma6w8H61zIFG6F5d2g7+9EYOD3CU7Rv38A+nnP61N+pdEmOJqxI0QuA
+         KJhyOeYsRwMRHmSLSz+ju1G3t5JxDz/UAE2qV0R6f/c2QoG/3ctm2S1kLi7hcxlZ8aYx
+         kZ81bleasLQkTeoY2aK9Ezw2Npdk8S+zZ5QZYzAW0jdjLMSzmbDPEez3RHw7LW6Jhs5c
+         rjbw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=T56noHM+ERrq2drfHjazQvvkhS+TTOS/bgtlhAWkASc=;
-        b=wuQn7mI8a20Z48xmrgQXWMHEvQ/6eNXXsv0zHposKIhjEjcQHWp3BrEmJhUZvGLCW8
-         GqzCcVjX1aOT9tsdGWjN3rJSou0uwp6dSz0yVAfa6J86ff2Z68PmzF14WKtX6EUGPhwd
-         L7daHblfi/618QvBn2Gem+CQihJTdKLDzMBcgxpc8b2hkQ962NA2IPujxOnGNerXF0WC
-         3ev0B2tTphyZwPRv5d7rrvYTbOZfrqlWoLl6VaXQ/499vhkwaZ9oNuQaebTm35cX/XCY
-         il1ORpAqhlA/E//9ousgdy4DYsHXxPp8vchENsITx+JxL/oYOYsMPfdyDcOJ2vJqy5o5
-         N+UQ==
+        h=message-id:date:subject:cc:to:from:dkim-signature;
+        bh=h09wq+dScd3G1lPfYna5Eel+LXgpSjdYtjatbyrFm9Y=;
+        b=ky1t3KSuuvS7A2hD1ziVyo/n8GcdaMfF8LsENhuUh4IwsPIOrOJ3eInJgsWx8QnZUD
+         pA+/PJny9fOkOF/KX4xc7oQjbERTodhylRmtlRF0gvv4duCR8UYFiSjr4ydQDOBxxdV9
+         Kbr/TgJwcJ1asCfML03aPFCYwTdhn1nh48CyB4FgU0ew09CENgEdvw28/bAcSRsZuA8p
+         hf6421XzQilel+OWudqRkxPwsOAM+YRYPJYe9I5iAcKk6jj3qiWTUXN1U1w9QG6E1/00
+         rfq5Mnk/UZgq7eeLV9PEXriKWs2AglBTPlguexe5KbozpUVH5LkHLHyUHiafC/jruNUG
+         Z9rA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=laGkOEmT;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=ToyxyR6+;
+       spf=pass (google.com: domain of ilie.halip@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=ilie.halip@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Received: from mail-wr1-x443.google.com (mail-wr1-x443.google.com. [2a00:1450:4864:20::443])
-        by gmr-mx.google.com with ESMTPS id w186si192845lff.4.2020.04.02.01.49.51
+        by gmr-mx.google.com with ESMTPS id z18si31478wrn.0.2020.04.02.01.56.08
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 02 Apr 2020 01:49:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::443 as permitted sender) client-ip=2a00:1450:4864:20::443;
-Received: by mail-wr1-x443.google.com with SMTP id p10so3161762wrt.6
-        for <clang-built-linux@googlegroups.com>; Thu, 02 Apr 2020 01:49:51 -0700 (PDT)
-X-Received: by 2002:a05:6000:370:: with SMTP id f16mr2464198wrf.9.1585817390636;
-        Thu, 02 Apr 2020 01:49:50 -0700 (PDT)
-Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id x206sm6286883wmg.17.2020.04.02.01.49.49
-        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Thu, 02 Apr 2020 01:49:50 -0700 (PDT)
-From: ci_notify@linaro.org
-Date: Thu, 2 Apr 2020 08:49:49 +0000 (UTC)
-To: tcwg-validation@linaro.org, arnd@linaro.org, 
+        Thu, 02 Apr 2020 01:56:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ilie.halip@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) client-ip=2a00:1450:4864:20::443;
+Received: by mail-wr1-x443.google.com with SMTP id 91so1249709wri.10
+        for <clang-built-linux@googlegroups.com>; Thu, 02 Apr 2020 01:56:08 -0700 (PDT)
+X-Received: by 2002:a5d:6b8b:: with SMTP id n11mr2259268wrx.379.1585817768538;
+        Thu, 02 Apr 2020 01:56:08 -0700 (PDT)
+Received: from localhost.localdomain ([2a02:a58:8532:8700:29b9:31c4:8247:2806])
+        by smtp.gmail.com with ESMTPSA id a13sm6584160wrh.80.2020.04.02.01.56.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Apr 2020 01:56:07 -0700 (PDT)
+From: Ilie Halip <ilie.halip@gmail.com>
+To: linux-riscv@lists.infradead.org
+Cc: Ilie Halip <ilie.halip@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Mao Han <han_mao@c-sky.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Message-ID: <358438418.13864.1585817390165.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-master-aarch64-mainline-allmodconfig - Build # 95 -
- Successful!
-MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_13863_333604204.1585817389560"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-aarch64-mainline-allmodconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
+Subject: [PATCH] riscv: fix vdso build with lld
+Date: Thu,  2 Apr 2020 11:55:58 +0300
+Message-Id: <20200402085559.24865-1-ilie.halip@gmail.com>
+X-Mailer: git-send-email 2.17.1
+X-Original-Sender: ilie.halip@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=laGkOEmT;       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::443
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@gmail.com header.s=20161025 header.b=ToyxyR6+;       spf=pass
+ (google.com: domain of ilie.halip@gmail.com designates 2a00:1450:4864:20::443
+ as permitted sender) smtp.mailfrom=ilie.halip@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,198 +149,40 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_13863_333604204.1585817389560
-Content-Type: text/plain; charset="UTF-8"
+When building with the LLVM linker this error occurrs:
+    LD      arch/riscv/kernel/vdso/vdso-syms.o
+  ld.lld: error: no input files
 
-Successfully identified regression in *linux* in CI configuration tcwg_kernel/llvm-master-aarch64-mainline-allmodconfig.  So far, this commit has regressed CI configurations:
- - tcwg_kernel/gnu-master-aarch64-mainline-allmodconfig
- - tcwg_kernel/gnu-master-aarch64-mainline-allyesconfig
- - tcwg_kernel/gnu-master-aarch64-mainline-defconfig
- - tcwg_kernel/gnu-master-aarch64-next-defconfig
- - tcwg_kernel/gnu-release-aarch64-mainline-allyesconfig
- - tcwg_kernel/gnu-release-aarch64-next-defconfig
- - tcwg_kernel/llvm-master-aarch64-mainline-allmodconfig
- - tcwg_kernel/llvm-master-aarch64-mainline-allyesconfig
- - tcwg_kernel/llvm-master-aarch64-mainline-defconfig
- - tcwg_kernel/llvm-master-aarch64-next-defconfig
- - tcwg_kernel/llvm-release-aarch64-mainline-allmodconfig
- - tcwg_kernel/llvm-release-aarch64-mainline-allyesconfig
- - tcwg_kernel/llvm-release-aarch64-next-defconfig
+This happens because the lld treats -R as an alias to -rpath, as opposed
+to ld where -R means --just-symbols.
 
-Culprit:
-<cut>
-commit 08120d236c47dd2bdb6f7366782f4756dd7f417e
-Author: Alex Elder <elder@linaro.org>
+Use the long option name for compatibility between the two.
 
-    soc: qcom: ipa: support build of IPA code
-</cut>
-
-Configuration details:
-rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
-rr[linux_branch]="458ef2a25e0cbdc216012aa2b9cf549d64133b08"
-
-Results regressed to (for first_bad == 08120d236c47dd2bdb6f7366782f4756dd7f417e)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-19981
-# First few build errors in logs:
-# 00:09:51 drivers/net/ipa/gsi.c:220:39: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
-# 00:09:51 drivers/net/ipa/gsi.c:223:39: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
-# 00:09:51 drivers/net/ipa/gsi.c:710:16: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
-# 00:09:51 make[3]: *** [drivers/net/ipa/gsi.o] Error 1
-# 00:10:01 drivers/net/ipa/ipa_endpoint.c:584:14: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
-# 00:10:01 drivers/net/ipa/ipa_endpoint.c:965:16: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
-# 00:10:01 drivers/net/ipa/ipa_cmd.c:182:28: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
-# 00:10:01 drivers/net/ipa/ipa_cmd.c:183:28: error: implicit declaration of function 'field_max' [-Werror,-Wimplicit-function-declaration]
-# 00:10:02 make[3]: *** [drivers/net/ipa/ipa_endpoint.o] Error 1
-# 00:10:02 make[3]: *** [drivers/net/ipa/ipa_cmd.o] Error 1
-
-from (for last_good == 530f9216a9537b58cdc2f967b5cd78f5dafb34c4)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-27236
-# linux build successful:
-all
-# linux boot successful:
-boot
-
-Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-mainline-allmodconfig/95/artifact/artifacts/build-08120d236c47dd2bdb6f7366782f4756dd7f417e/
-Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-mainline-allmodconfig/95/artifact/artifacts/build-530f9216a9537b58cdc2f967b5cd78f5dafb34c4/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-mainline-allmodconfig/95/
-
-Reproduce builds:
-<cut>
-mkdir investigate-linux-08120d236c47dd2bdb6f7366782f4756dd7f417e
-cd investigate-linux-08120d236c47dd2bdb6f7366782f4756dd7f417e
-
-git clone https://git.linaro.org/toolchain/jenkins-scripts
-
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-mainline-allmodconfig/95/artifact/artifacts/manifests/build-baseline.sh --fail
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-mainline-allmodconfig/95/artifact/artifacts/manifests/build-parameters.sh --fail
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-mainline-allmodconfig/95/artifact/artifacts/test.sh --fail
-chmod +x artifacts/test.sh
-
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
-
-cd linux
-
-# Reproduce first_bad build
-git checkout --detach 08120d236c47dd2bdb6f7366782f4756dd7f417e
-../artifacts/test.sh
-
-# Reproduce last_good build
-git checkout --detach 530f9216a9537b58cdc2f967b5cd78f5dafb34c4
-../artifacts/test.sh
-
-cd ..
-</cut>
-
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-mainline-allmodconfig
-
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-mainline-allmodconfig/95/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-mainline-allmodconfig/95/consoleText
-
-Full commit:
-<cut>
-commit 08120d236c47dd2bdb6f7366782f4756dd7f417e
-Author: Alex Elder <elder@linaro.org>
-Date:   Thu Mar 5 22:28:29 2020 -0600
-
-    soc: qcom: ipa: support build of IPA code
-    
-    Add build and Kconfig support for the Qualcomm IPA driver.
-    
-    Signed-off-by: Alex Elder <elder@linaro.org>
-    Signed-off-by: David S. Miller <davem@davemloft.net>
+Link: https://github.com/ClangBuiltLinux/linux/issues/805
+Reported-by: Dmitry Golovin <dima@golovin.in>
+Signed-off-by: Ilie Halip <ilie.halip@gmail.com>
 ---
- drivers/net/Kconfig      |  2 ++
- drivers/net/Makefile     |  1 +
- drivers/net/ipa/Kconfig  | 19 +++++++++++++++++++
- drivers/net/ipa/Makefile | 12 ++++++++++++
- 4 files changed, 34 insertions(+)
+ arch/riscv/kernel/vdso/Makefile | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/Kconfig b/drivers/net/Kconfig
-index 66e410e58c8e..02565bc2be8a 100644
---- a/drivers/net/Kconfig
-+++ b/drivers/net/Kconfig
-@@ -444,6 +444,8 @@ source "drivers/net/fddi/Kconfig"
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index 33b16f4212f7..19f7b9ea10ab 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -41,7 +41,8 @@ SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
+ $(obj)/vdso-dummy.o: $(src)/vdso.lds $(obj)/rt_sigreturn.o FORCE
+ 	$(call if_changed,vdsold)
  
- source "drivers/net/hippi/Kconfig"
+-LDFLAGS_vdso-syms.o := -r -R
++# lld aliases -R to -rpath; use the longer option name
++LDFLAGS_vdso-syms.o := -r --just-symbols
+ $(obj)/vdso-syms.o: $(obj)/vdso-dummy.o FORCE
+ 	$(call if_changed,ld)
  
-+source "drivers/net/ipa/Kconfig"
-+
- config NET_SB1000
- 	tristate "General Instruments Surfboard 1000"
- 	depends on PNP
-diff --git a/drivers/net/Makefile b/drivers/net/Makefile
-index 65967246f240..94b60800887a 100644
---- a/drivers/net/Makefile
-+++ b/drivers/net/Makefile
-@@ -47,6 +47,7 @@ obj-$(CONFIG_ETHERNET) += ethernet/
- obj-$(CONFIG_FDDI) += fddi/
- obj-$(CONFIG_HIPPI) += hippi/
- obj-$(CONFIG_HAMRADIO) += hamradio/
-+obj-$(CONFIG_QCOM_IPA) += ipa/
- obj-$(CONFIG_PLIP) += plip/
- obj-$(CONFIG_PPP) += ppp/
- obj-$(CONFIG_PPP_ASYNC) += ppp/
-diff --git a/drivers/net/ipa/Kconfig b/drivers/net/ipa/Kconfig
-new file mode 100644
-index 000000000000..b8cb7cadbf75
---- /dev/null
-+++ b/drivers/net/ipa/Kconfig
-@@ -0,0 +1,19 @@
-+config QCOM_IPA
-+	tristate "Qualcomm IPA support"
-+	depends on ARCH_QCOM && 64BIT && NET
-+	select QCOM_QMI_HELPERS
-+	select QCOM_MDT_LOADER
-+	default QCOM_Q6V5_COMMON
-+	help
-+	  Choose Y or M here to include support for the Qualcomm
-+	  IP Accelerator (IPA), a hardware block present in some
-+	  Qualcomm SoCs.  The IPA is a programmable protocol processor
-+	  that is capable of generic hardware handling of IP packets,
-+	  including routing, filtering, and NAT.  Currently the IPA
-+	  driver supports only basic transport of network traffic
-+	  between the AP and modem, on the Qualcomm SDM845 SoC.
-+
-+	  Note that if selected, the selection type must match that
-+	  of QCOM_Q6V5_COMMON (Y or M).
-+
-+	  If unsure, say N.
-diff --git a/drivers/net/ipa/Makefile b/drivers/net/ipa/Makefile
-new file mode 100644
-index 000000000000..afe5df1e6eee
---- /dev/null
-+++ b/drivers/net/ipa/Makefile
-@@ -0,0 +1,12 @@
-+# Un-comment the next line if you want to validate configuration data
-+#ccflags-y		+=	-DIPA_VALIDATE
-+
-+obj-$(CONFIG_QCOM_IPA)	+=	ipa.o
-+
-+ipa-y			:=	ipa_main.o ipa_clock.o ipa_reg.o ipa_mem.o \
-+				ipa_table.o ipa_interrupt.o gsi.o gsi_trans.o \
-+				ipa_gsi.o ipa_smp2p.o ipa_uc.o \
-+				ipa_endpoint.o ipa_cmd.o ipa_modem.o \
-+				ipa_qmi.o ipa_qmi_msg.o
-+
-+ipa-y			+=	ipa_data-sdm845.o ipa_data-sc7180.o
-</cut>
+-- 
+2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/358438418.13864.1585817390165.JavaMail.javamailuser%40localhost.
-
-------=_Part_13863_333604204.1585817389560--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200402085559.24865-1-ilie.halip%40gmail.com.
