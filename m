@@ -1,138 +1,141 @@
-Return-Path: <clang-built-linux+bncBCPOH6HGVYKRBAFVT72AKGQEUE274YI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCX2JBVY5MBBBNVZT72AKGQE4FBTVQA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33c.google.com (mail-ot1-x33c.google.com [IPv6:2607:f8b0:4864:20::33c])
-	by mail.lfdr.de (Postfix) with ESMTPS id C6CA519E1FE
-	for <lists+clang-built-linux@lfdr.de>; Sat,  4 Apr 2020 02:53:21 +0200 (CEST)
-Received: by mail-ot1-x33c.google.com with SMTP id x89sf8617390otb.12
-        for <lists+clang-built-linux@lfdr.de>; Fri, 03 Apr 2020 17:53:21 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1585961600; cv=pass;
+Received: from mail-oi1-x23c.google.com (mail-oi1-x23c.google.com [IPv6:2607:f8b0:4864:20::23c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 02D1219E206
+	for <lists+clang-built-linux@lfdr.de>; Sat,  4 Apr 2020 03:02:48 +0200 (CEST)
+Received: by mail-oi1-x23c.google.com with SMTP id v198sf8631994oia.15
+        for <lists+clang-built-linux@lfdr.de>; Fri, 03 Apr 2020 18:02:47 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1585962166; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qwHIA5vYrcmyiNfL0Zc3t43ah7OpuMYdpG/rn68aYetEL59xHx5cLpSkqATE1o3Lfs
-         hXg8LKHmC64QhIlFMVBBf1rw0lvWsCixj0/IFBsR2y/Jezx/AGuT3wIXBJ3GV70U2HQx
-         CzhlxFUuCxFtV+tzSZxJLlFJJCKwLHtZ0pI+Za7xoCcOpWPE7m1pEjon6A3Y6Tqv4vXT
-         71kC3X5zEputxJtKlWqEh/kzNcLGiCfTNYwPp2TyvszKsf+UtaX3G2o5cofoybJdnDDJ
-         gtVT23n8Er4z0A1vYhfa7b+7IRDWkEHJ3fzDajarv8FnR3c9qZyHPOl+nAbAS2SkhiSH
-         ko3A==
+        b=dH2f6iz2gmxUS33tDRMFALWrWowQESgUQDL9WqEDsy43y+glQ9Ezm2HcRbrdsjp2l7
+         XXxJIqWfezyUJEJhHOwNBTZjEilLQztjqF08Y2bQIny/elNHqhiqmu5qtr8NTZsmaEFY
+         LXnpr3F2SGA8faDwOiLsf+jo6ofcebTBy/593lDb3rKpJ3pGMa7L2RnK1+7wksiA+BFz
+         aaMsvupmht4P+n+ek1/L2l/tyA1slSz9Bp9IJn8WEiwkaNO7hcqS0Q41kuWnh1iwPqMU
+         03lH9HGdiLbuhXWgrXNMCJ3XCNW/2Nc/uGMHhBEYn2UxetwnPkCjVWbrRLpvMHUQKwYO
+         GWwg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=81QZGRIj+mtoPH7X+5urBOUxVL1UAy2xiTpXe9Inrbc=;
-        b=VGtDSyNaSL7UCvO+4cJ/o/q6EIqlVJc1U1hLm3BGh2IWTlxhVYezJZJV19+1p4vHom
-         pVJndKxZD0igLsyGHimMxXO+tHYl4+VVFH0bqsOql2ItkK8DuGqdpk6Ah/7e0WQowi5c
-         LUOOiIsjIDQ/chw2IuaGmRGkLWU+b07ZhVaDPFvWwTBeWYYn8g1tlKAeY26lRmjwTVq1
-         tA5RukQpnQxZKxYBy17DHQOJ5QKXZrXXcy3is2gSbitWrrgTAIOrL24WhrH6JgMCR75l
-         eqQbOc+9Xcj3gnnnkK9SioEzC17xNGA1extT6WCglDPcuaElHtHvWOAZtf+b2uRfK84r
-         n/7g==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=nS2wsgVwENyDyxCaTZg9Qsq/2NALFza/WE+V1GDA/6s=;
+        b=M3tKXWMnj/xKImrTirttl0179dnsBr4WMcalNN/OliN67FOlNBJp46YdeLoQt9LudN
+         AaZFUlsnYRmMyYxISNryduiBNVT6url031zNpaGI/XNP2ShCQCww3llpFUdKRJOxY0G6
+         fNYv6WuJKeRP0mPC9nqVP+l3Gd2tDNRkMvRobpdagg6uumFl0OuT0dcwu7BLDY45irO2
+         QkKgPuHboBcAruxtVQUxZAmrk1JI56amJN4w0kHJWXNT583sa56EsKE+Ul3MEUE9zLWm
+         pkJ2KMiEW2B+PfcpwiFUu340gMz1Z4Us+KDTthntBzocveq4RR/LLWOgXheCeOxx5fkd
+         8W+Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Q6lxRh0e;
-       spf=pass (google.com: domain of gulshan.yaadav@gmail.com designates 2607:f8b0:4864:20::241 as permitted sender) smtp.mailfrom=gulshan.yaadav@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of philip.li@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=philip.li@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=81QZGRIj+mtoPH7X+5urBOUxVL1UAy2xiTpXe9Inrbc=;
-        b=oqfM6r9YINYTqTgmUY1VLkxHtWzgHXPv+Z9N9r4cxsT0r0qmKQmPJDJu5MeZPy7yrZ
-         gB8iLFwf++8boe7hHm/qMJp2CVC/LgwrPVaPi0hzD8fEoLkVwUVEQZ7KT/ITuKAWE4kB
-         8/uA5qdEnLzSImvmpVhTLtK+nZVKpCwYDEdQhrJSp10yBFWh7lqhE8LGNUsyPHAqRSuk
-         es9SfGzMllsgl+WZhkMJdoHenwY6iiGfsanGn7dwnaM3KWOikuNtgx+r/q7tiwBhnXnh
-         lz0tmeOuH9X5q/ndpTWVh0IS4PPgQLAxfJwvxkrtz6OSzRPAUNA2eQwLEqzFfVlJcAes
-         wHgw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
+        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=81QZGRIj+mtoPH7X+5urBOUxVL1UAy2xiTpXe9Inrbc=;
-        b=bbpdMzOIEtnFM1+PV5cSNqtwO1gOg7fUfMNGr+OcYMvEGwHVP0qaZfooEC+PAVAc+H
-         xTek/nUCT13sWq7N7SwmlC2WeG/KX6rymoChRiGstVkjh2DCKNJMy+sEQtlJGmnfYKw8
-         1wu3woCBz8hifqmVeq0JLhhh2lSfqUDiQ//er96P38eIFim9iymYyfuAtptP7Xk5ecQg
-         JfUKoqT4xVBXDrjXFo4YQxmR5l2qaKzUnKiafU0aHMxWjr7lPTLtjYLpc0q43FbBS3xL
-         qLBrLwpbNiiHxP5g0lAzGROLoYGHWw2Y86uvjh4K8aioZ8/aLUYmRL1Pv2ROD64gwjjE
-         3wgQ==
+        bh=nS2wsgVwENyDyxCaTZg9Qsq/2NALFza/WE+V1GDA/6s=;
+        b=JG4ROMb/9Tco0L2iyaIcCgL0KhN9sRBfl3M8iNO7Z6J52PH7fqgdaKJnyaZfcSFMyH
+         Q4TyMsxu7aMAzPCmiGzEKTl2MOeSXUeqSqU7CMZ+tb5of+A0yx1sHf3WdXRg79nM3azD
+         2mvxjgUgbMZZR4Ta3n6Y13ZD5D9gHLs3QwgVEQbWj2Ki856JnCpuH78sk1WGxESf2w+q
+         OKwyi1u0SU5eFghWtTnH4Fjr3lM8EA16qbzO1nQkF2h2LacDTb1f9MbyR92wRMmDFoWH
+         Ds9ClFvt9dBHG7RpP1BMG15Da9UE6s0+KGKVXyo4YpwD3SZ/FOWiMRg/6O5paZPAKA9k
+         TO+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
+         :subject:message-id:references:mime-version:content-disposition
+         :in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=81QZGRIj+mtoPH7X+5urBOUxVL1UAy2xiTpXe9Inrbc=;
-        b=JcTqLss1K4nSjCG/OYnBNUeY54csRsNwTujgY90sweBAMv2du7W+L6f2e/dhb0/Qrq
-         fiUO2gAfYow2Zwk5jSHxJM6mlHlSzs1wceM2coR1AKwHAr8aZ6JnxPt7pYyAelhaqIv7
-         dYBAC+gKIsPLcQzPpc+mGQQI1/7ZtSurcPuvV6VS/4PbFzfd3eFzSVO6syKodovMh5/T
-         8Yi48dgL7jIIx+xK0JHkHZDYCvdFGwBQnR8pmg7iFh8KMzPhLZ1OQYhEmiX2GGir5rW9
-         lq1x2WNEUarsK1FXIsie3/Zk97dbBTyATzrCZHF+/BxklLUz1oTQTpK361/Nn4/A7HeM
-         mD1A==
+        bh=nS2wsgVwENyDyxCaTZg9Qsq/2NALFza/WE+V1GDA/6s=;
+        b=DwugnbDQ2gnZuW6jOuVWxhJSrK84/DnN9RIXmlvbpGf2YSYxqsEuCrdhcQcnHhR/UJ
+         Clj2HaefWFavCIQCv0T0Oqhycxw0eo1MRpyXHb9/ObLiZAhb3SSecyVf29cQuP5IfQt6
+         vHQw4TevF7KCfZMjSNl2JyFKD/hn/XgVKUq4OwWVa2lwNyeIQ+9oZO/2rmrcshQ5O9/1
+         k+mDYlB2949d2ZWfB2k5/CYe/52DxH4bL941vFF++cm7hps8qPAKwqkH4oeRg0QSrvze
+         laAeZawY9sKspsrgzhpGcvfls2yeDD+VBHXYnbMuyg2DO4NNrpdqCMUxVygTjHhILNK2
+         kFXg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PubJr3YIommOyWCUe4xkPu+L/obRJegyyG1gBVYB7B9dcfbidxf7
-	8BxCghBwJr0kjpO/tvTRdV4=
-X-Google-Smtp-Source: APiQypLjYJsbpKX9Z/ANwcW04MofyF7aJF5CyArWbtHQGiQiZuAwYnfUnAXztiTKgt9S4Q+ZpL8aFA==
-X-Received: by 2002:aca:f084:: with SMTP id o126mr5407080oih.81.1585961600394;
-        Fri, 03 Apr 2020 17:53:20 -0700 (PDT)
+X-Gm-Message-State: AGi0PuZEivAU3dzbJDhdri2pqjtZKAParTk+bg45Gx20XI5dUH09gufU
+	kmEb0vmnNUjNiT8mXhfKmNQ=
+X-Google-Smtp-Source: APiQypLCjIJm8l57e1kQWmxu70S5Vh1VT+6Flzn7N40eUDR1272WC0g8jAWwnX7+6MDIvIS+uDe6WA==
+X-Received: by 2002:aca:d68a:: with SMTP id n132mr5438255oig.40.1585962166803;
+        Fri, 03 Apr 2020 18:02:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:2425:: with SMTP id k5ls3970455ots.2.gmail; Fri, 03
- Apr 2020 17:53:19 -0700 (PDT)
-X-Received: by 2002:a05:6830:239b:: with SMTP id l27mr8870984ots.278.1585961599888;
-        Fri, 03 Apr 2020 17:53:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1585961599; cv=none;
+Received: by 2002:a9d:787:: with SMTP id 7ls3972821oto.3.gmail; Fri, 03 Apr
+ 2020 18:02:46 -0700 (PDT)
+X-Received: by 2002:a9d:69d5:: with SMTP id v21mr9002637oto.197.1585962166357;
+        Fri, 03 Apr 2020 18:02:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1585962166; cv=none;
         d=google.com; s=arc-20160816;
-        b=pN+E99S1ZHRsLY6DScVcVPO8HTi1PRVm/jiIxhW7oGNmUySs/J7G+d0Q1/I5KX+vfs
-         zZ0zPoN403q60DW73vBxGB1wyOchnKs9TH/elusXpwr4P5bxsp/BqcWPWvtMUvhM2JjB
-         XxvqZz6Jr8Muv3hZoU0bbqH7VvTpoOrVnMmalcNxADt5ScwmtfjuPEbC9+dd4dTc++fW
-         CJBBSDyyhXtncaykNFPqH1pGsRkOfhuoWcGBBpVQwt90ydrFdpqBHwlmeQRzF0/x8Z1o
-         e6O/WZHGyav3PFkl6ryp01mNVP2iqiAec6JB1fr6/cY48t0gSR8EL3ZFwPHCa5VH3ue7
-         uYKQ==
+        b=0qm6D5NkF2zOe9cwDWhtpC2z8PXSoY02FqAbRIGuGHIZ1KPBc7b51kHHw+V+76yhtG
+         V6aXDbr1QokGfcElE75iI+bm0rQ4U2BWAo59+h3a1vtEbOCfM5M5Vod8E5lrtlNROY6g
+         PNpXdwaZDwUCdSRn1+BdzmRS6B3gDkp8c2nXsNshnK0+EWJol000CbFA5KbdTFjPlpKj
+         L92GORtr9jTeLr/Q3oFB5qnyyQe8fkCriT10vOKqB6Dx4iFhdhqDUmw4UVFnVJh2lJ2d
+         /rNixAh6hVHEtDQMmbr7yb3kLZPtJDVfKnGdYe+Wy11Eekm3tBKlE9by2BHW52eVpF+1
+         HxUw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=UcAG4NOe0qdwfT2U+sSHg2ww2U02bQtJh4Hw+m97f/Y=;
-        b=sdOIckYtt7RYdKwKdp2+XwO47XOwzGDrm4j2B+z+HEzqW/RFXkaarPAwIfH7A3tInW
-         Le57eJ1nr8+RCLQWsk+QzCQdXA8gKL0hUpx3aYtHXDwfdlOqLplhwXvsCAcJcM/7DTOz
-         yHifLVqgBFDIG7Ha7hQhlW/bxuIM2OfiXQiHUkGYe14PblEU8ClzEhiHAc6w3CkQPKjP
-         dJP813jn3baniP3TVKIVajug8tf90SYMj4QxQ/c73v7e6q61b1yygC+f9S9KGDji0l+j
-         SjrfvwRBNAQENhTzWWklF60g2nxs2+7dnSdYIP8HSb+zJk/wWFt481xoa2wkQbZd6RSI
-         jVFA==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
+        bh=OpN6gHSsCNDFDJTwfJOR9/ANiX3m4XoXOIE6CXUE4MU=;
+        b=juPzN3j/JlBfdmADr6DHQ6ucp2IqFeLoVmWwvcVf32a4gRfkrfJRoXil+q5ZvQFld5
+         fq/g0KmAYddpJXnh06el/tv9XiunmL7eV+j8EdovObZi8/uuVOgfe+yxDmNUsaddorkZ
+         KF3senURNF5pFRhHR/WgKfRPYqPKYbTtXE/0IPbP+tUC47kQ3c3/sq4N1o2T8WCjO6/b
+         +1mVmI2D5IAsdzQqH21MVleTjbb/pWM59vH55Mjc0s/c3gdRbG9/L4lX+cMy3bJtCa1r
+         Qph3Gs1xE3PddjXdABZJViASGELbFINvK0cgJBX1wUleOACsDyt21tThrTRCH+OkEMbm
+         QkMg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Q6lxRh0e;
-       spf=pass (google.com: domain of gulshan.yaadav@gmail.com designates 2607:f8b0:4864:20::241 as permitted sender) smtp.mailfrom=gulshan.yaadav@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-oi1-x241.google.com (mail-oi1-x241.google.com. [2607:f8b0:4864:20::241])
-        by gmr-mx.google.com with ESMTPS id x23si835567oif.2.2020.04.03.17.53.19
+       spf=pass (google.com: domain of philip.li@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=philip.li@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
+        by gmr-mx.google.com with ESMTPS id x23si836804oif.2.2020.04.03.18.02.46
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 03 Apr 2020 17:53:19 -0700 (PDT)
-Received-SPF: pass (google.com: domain of gulshan.yaadav@gmail.com designates 2607:f8b0:4864:20::241 as permitted sender) client-ip=2607:f8b0:4864:20::241;
-Received: by mail-oi1-x241.google.com with SMTP id m14so7891320oic.0
-        for <clang-built-linux@googlegroups.com>; Fri, 03 Apr 2020 17:53:19 -0700 (PDT)
-X-Received: by 2002:a05:6808:b30:: with SMTP id t16mr5157842oij.66.1585961599615;
- Fri, 03 Apr 2020 17:53:19 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200325231250.99205-1-ndesaulniers@google.com>
- <CAKwvOdm8tQaa6BW7EQAz4TxFZETnJCS3z9isY4HvcU7UYqWZUA@mail.gmail.com> <20200403222458.GA49554@ubuntu-m2-xlarge-x86>
-In-Reply-To: <20200403222458.GA49554@ubuntu-m2-xlarge-x86>
-From: Gulshan Kumar <gulshan.yaadav@gmail.com>
-Date: Sat, 4 Apr 2020 06:22:53 +0530
-Message-ID: <CAHDfHbcmqyG5ddSVyZnAaM2p8R-0f=dE9deZfnizT3_M0pc55g@mail.gmail.com>
-Subject: Re: [PATCH] elfnote: mark all .note sections SHF_ALLOC
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 03 Apr 2020 18:02:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of philip.li@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
+IronPort-SDR: RAMbyS5fEw8k2N3ROGdnz5uP+0qpNFxJc7bG2WS7G3Fel7n50Uc/yjPVTI38nN4RFz+m9S9nRj
+ 8ry25i+KPClw==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Apr 2020 18:02:44 -0700
+IronPort-SDR: 0VkANFwCaf2pUHEHBV6JPTsFOwCJaHNcq3H9zjcx73qUx/KXPjmYW2dVtRNvO2Z98txs+M7BJi
+ C9BzszJdZCyQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.72,341,1580803200"; 
+   d="scan'208";a="329324367"
+Received: from unknown (HELO intel.com) ([10.239.159.39])
+  by orsmga001.jf.intel.com with ESMTP; 03 Apr 2020 18:02:41 -0700
+Date: Sat, 4 Apr 2020 09:02:10 +0800
+From: Philip Li <philip.li@intel.com>
 To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Andrew Morton <akpm@linux-foundation.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Ilie Halip <ilie.halip@gmail.com>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, LKML <linux-kernel@vger.kernel.org>
-Content-Type: multipart/alternative; boundary="000000000000c5c75805a26c753f"
-X-Original-Sender: gulshan.yaadav@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=Q6lxRh0e;       spf=pass
- (google.com: domain of gulshan.yaadav@gmail.com designates
- 2607:f8b0:4864:20::241 as permitted sender) smtp.mailfrom=gulshan.yaadav@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	Fangrui Song <maskray@google.com>, Rui Ueyama <ruiu@google.com>,
+	George Rimar <grimar@accesssoftek.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	kbuild-all@lists.01.org,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	kbuild test robot <lkp@intel.com>
+Subject: Re: [peterz-queue:sched/urgent 4/5] ld.lld: error: section .text at
+ 0xFFFFFFFF80200000 of size 0x1E8915C exceeds available address space
+Message-ID: <20200404010210.GA13010@intel.com>
+References: <202004032329.oBqXCsfi%lkp@intel.com>
+ <CAKwvOd=H71Q=r=S6Zr=N1zgkXTb9HyEwF78ZbuKkoigWZxiBDA@mail.gmail.com>
+ <20200403192058.GA41585@ubuntu-m2-xlarge-x86>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20200403192058.GA41585@ubuntu-m2-xlarge-x86>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: philip.li@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of philip.li@intel.com designates 134.134.136.20 as
+ permitted sender) smtp.mailfrom=philip.li@intel.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,208 +148,77 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---000000000000c5c75805a26c753f
-Content-Type: text/plain; charset="UTF-8"
-
-unsubscribe
-
-
-
-On Sat, Apr 4, 2020 at 3:56 AM Nathan Chancellor <natechancellor@gmail.com>
-wrote:
-
-> On Fri, Apr 03, 2020 at 03:13:34PM -0700, 'Nick Desaulniers' via Clang
-> Built Linux wrote:
-> > dropping Jeremy; I got bounceback from the email address. Ping for
-> review?
-> >
-> > On Wed, Mar 25, 2020 at 4:13 PM Nick Desaulniers
-> > <ndesaulniers@google.com> wrote:
+On Fri, Apr 03, 2020 at 12:20:58PM -0700, Nathan Chancellor wrote:
+> On Fri, Apr 03, 2020 at 09:37:57AM -0700, 'Nick Desaulniers' via Clang Built Linux wrote:
+> > + Fangrui, Rui, George
+> > The below errors from LLD look new to me, thoughts?
+> > 
+> > On Fri, Apr 3, 2020 at 8:42 AM kbuild test robot <lkp@intel.com> wrote:
 > > >
-> > > ELFNOTE_START allows callers to specify flags for .pushsection
-> assembler
-> > > directives.  All callsites but ELF_NOTE use "a" for SHF_ALLOC. For
-> > > vdso's that explicitly use ELF_NOTE_START and BUILD_SALT, the same
-> > > section is specified twice after preprocessing, once with "a" flag,
-> once
-> > > without. Example:
+> > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.git sched/urgent
+> > > head:   59d4dade8ccbaa299f5f5dcd775f7a9b7277fb5a
+> > > commit: ae1177617ed17157f29959b0fe4d60f532a5b36e [4/5] workqueue: Remove the warning in wq_worker_sleeping()
+> > > config: mips-randconfig-a001-20200403 (attached as .config)
+> > > compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project f68cc2a7ed766965028b8b0f0d9300a0460c3cf1)
+> > > reproduce:
+> > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> > >         chmod +x ~/bin/make.cross
+> > >         git checkout ae1177617ed17157f29959b0fe4d60f532a5b36e
+> > >         # save the attached .config to linux build tree
+> > >         COMPILER=clang make.cross ARCH=mips
 > > >
-> > > .pushsection .note.Linux, "a", @note ;
-> > > .pushsection .note.Linux, "", @note ;
+> > > If you fix the issue, kindly add following tag
+> > > Reported-by: kbuild test robot <lkp@intel.com>
 > > >
-> > > While GNU as allows this ordering, it warns for the opposite ordering,
-> > > making these directives position dependent. We'd prefer not to
-> precisely
-> > > match this behavior in Clang's integrated assembler.  Instead, the non
-> > > __ASSEMBLY__ definition of ELF_NOTE uses
-> > > __attribute__((section(".note.Linux"))) which is created with
-> SHF_ALLOC,
-> > > so let's make the __ASSEMBLY__ definition of ELF_NOTE consistent with C
-> > > and just always use "a" flag.
+> > > All errors (new ones prefixed by >>):
 > > >
-> > > This allows Clang to assemble a working mainline (5.6) kernel via:
-> > > $ make CC=clang AS=clang
+> > > >> ld.lld: error: section .text at 0xFFFFFFFF80200000 of size 0x1E8915C exceeds available address space
+> > > >> ld.lld: error: section __ex_table at 0xFFFFFFFF82089160 of size 0x27B0 exceeds available address space
+> > > >> ld.lld: error: section __dbe_table at 0xFFFFFFFF8208B910 of size 0x0 exceeds available address space
+> > >    ld.lld: error: section .rodata at 0xFFFFFFFF8208C000 of size 0x480F81 exceeds available address space
+> > >    ld.lld: error: section .data..page_aligned at 0xFFFFFFFF8250D000 of size 0x2000 exceeds available address space
+> > >    ld.lld: error: section .got at 0xFFFFFFFF8250F000 of size 0x8 exceeds available address space
+> > >    ld.lld: error: section .rodata1 at 0xFFFFFFFF8250F008 of size 0x0 exceeds available address space
+> > >    ld.lld: error: section .pci_fixup at 0xFFFFFFFF8250F008 of size 0x0 exceeds available address space
+> > >    ld.lld: error: section .builtin_fw at 0xFFFFFFFF8250F008 of size 0x0 exceeds available address space
+> > >    ld.lld: error: section __ksymtab at 0xFFFFFFFF8250F008 of size 0x145EC exceeds available address space
+> > >    ld.lld: error: section __ksymtab_gpl at 0xFFFFFFFF825235F4 of size 0x12378 exceeds available address space
+> > >    ld.lld: error: section __ksymtab_unused at 0xFFFFFFFF8253596C of size 0x0 exceeds available address space
+> > >    ld.lld: error: section __ksymtab_unused_gpl at 0xFFFFFFFF8253596C of size 0x0 exceeds available address space
+> > >    ld.lld: error: section __ksymtab_gpl_future at 0xFFFFFFFF8253596C of size 0x0 exceeds available address space
+> > >    ld.lld: error: section __kcrctab at 0xFFFFFFFF8253596C of size 0x0 exceeds available address space
+> > >    ld.lld: error: section __kcrctab_gpl at 0xFFFFFFFF8253596C of size 0x0 exceeds available address space
+> > >    ld.lld: error: section __kcrctab_unused at 0xFFFFFFFF8253596C of size 0x0 exceeds available address space
+> > >    ld.lld: error: section __kcrctab_unused_gpl at 0xFFFFFFFF8253596C of size 0x0 exceeds available address space
+> > >    ld.lld: error: section __kcrctab_gpl_future at 0xFFFFFFFF8253596C of size 0x0 exceeds available address space
+> > >    ld.lld: error: section __ksymtab_strings at 0xFFFFFFFF8253596C of size 0x40CB3 exceeds available address space
+> > >    ld.lld: error: too many errors emitted, stopping now (use -error-limit=0 to see all errors)
 > > >
-> > > Link: https://github.com/ClangBuiltLinux/linux/issues/913
-> > > Cc: Jeremy Fitzhardinge <jeremy@xensource.com>
-> > > Debugged-by: Ilie Halip <ilie.halip@gmail.com>
-> > > Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
->
-> Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
->
 > > > ---
-> > > Ilie has further treewide cleanups:
-> > > https://github.com/ihalip/linux/commits/elfnote
-> > > This patch is the simplest to move us forwards.
+> > > 0-DAY CI Kernel Test Service, Intel Corporation
+> > > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 > > >
-> > >  include/linux/elfnote.h | 2 +-
-> > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > >
-> > > diff --git a/include/linux/elfnote.h b/include/linux/elfnote.h
-> > > index 594d4e78654f..69b136e4dd2b 100644
-> > > --- a/include/linux/elfnote.h
-> > > +++ b/include/linux/elfnote.h
-> > > @@ -54,7 +54,7 @@
-> > >  .popsection                            ;
-> > >
-> > >  #define ELFNOTE(name, type, desc)              \
-> > > -       ELFNOTE_START(name, type, "")           \
-> > > +       ELFNOTE_START(name, type, "a")          \
-> > >                 desc                    ;       \
-> > >         ELFNOTE_END
-> > >
-> > > --
-> > > 2.26.0.rc2.310.g2932bb562d-goog
-> > >
-> >
-> >
-> > --
+> > 
+> > 
+> > 
+> > -- 
 > > Thanks,
 > > ~Nick Desaulniers
->
->
+> > 
+> 
+> This is an open issue on our issue tracker:
+> 
+> https://github.com/ClangBuiltLinux/linux/issues/786
+> 
+> Note that this is a mips-randconfig.
+Thanks, we will temporarily blacklist this error.
+
+> 
+> Cheers,
+> Nathan
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHDfHbcmqyG5ddSVyZnAaM2p8R-0f%3DdE9deZfnizT3_M0pc55g%40mail.gmail.com.
-
---000000000000c5c75805a26c753f
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr">unsubscribe<div><div dir=3D"ltr" class=3D"gmail_signature"=
- data-smartmail=3D"gmail_signature"><div dir=3D"ltr"><div><br></div></div><=
-/div></div><br></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
-=3D"gmail_attr">On Sat, Apr 4, 2020 at 3:56 AM Nathan Chancellor &lt;<a hre=
-f=3D"mailto:natechancellor@gmail.com">natechancellor@gmail.com</a>&gt; wrot=
-e:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0=
-.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">On Fri, Apr 0=
-3, 2020 at 03:13:34PM -0700, &#39;Nick Desaulniers&#39; via Clang Built Lin=
-ux wrote:<br>
-&gt; dropping Jeremy; I got bounceback from the email address. Ping for rev=
-iew?<br>
-&gt; <br>
-&gt; On Wed, Mar 25, 2020 at 4:13 PM Nick Desaulniers<br>
-&gt; &lt;<a href=3D"mailto:ndesaulniers@google.com" target=3D"_blank">ndesa=
-ulniers@google.com</a>&gt; wrote:<br>
-&gt; &gt;<br>
-&gt; &gt; ELFNOTE_START allows callers to specify flags for .pushsection as=
-sembler<br>
-&gt; &gt; directives.=C2=A0 All callsites but ELF_NOTE use &quot;a&quot; fo=
-r SHF_ALLOC. For<br>
-&gt; &gt; vdso&#39;s that explicitly use ELF_NOTE_START and BUILD_SALT, the=
- same<br>
-&gt; &gt; section is specified twice after preprocessing, once with &quot;a=
-&quot; flag, once<br>
-&gt; &gt; without. Example:<br>
-&gt; &gt;<br>
-&gt; &gt; .pushsection .note.Linux, &quot;a&quot;, @note ;<br>
-&gt; &gt; .pushsection .note.Linux, &quot;&quot;, @note ;<br>
-&gt; &gt;<br>
-&gt; &gt; While GNU as allows this ordering, it warns for the opposite orde=
-ring,<br>
-&gt; &gt; making these directives position dependent. We&#39;d prefer not t=
-o precisely<br>
-&gt; &gt; match this behavior in Clang&#39;s integrated assembler.=C2=A0 In=
-stead, the non<br>
-&gt; &gt; __ASSEMBLY__ definition of ELF_NOTE uses<br>
-&gt; &gt; __attribute__((section(&quot;.note.Linux&quot;))) which is create=
-d with SHF_ALLOC,<br>
-&gt; &gt; so let&#39;s make the __ASSEMBLY__ definition of ELF_NOTE consist=
-ent with C<br>
-&gt; &gt; and just always use &quot;a&quot; flag.<br>
-&gt; &gt;<br>
-&gt; &gt; This allows Clang to assemble a working mainline (5.6) kernel via=
-:<br>
-&gt; &gt; $ make CC=3Dclang AS=3Dclang<br>
-&gt; &gt;<br>
-&gt; &gt; Link: <a href=3D"https://github.com/ClangBuiltLinux/linux/issues/=
-913" rel=3D"noreferrer" target=3D"_blank">https://github.com/ClangBuiltLinu=
-x/linux/issues/913</a><br>
-&gt; &gt; Cc: Jeremy Fitzhardinge &lt;<a href=3D"mailto:jeremy@xensource.co=
-m" target=3D"_blank">jeremy@xensource.com</a>&gt;<br>
-&gt; &gt; Debugged-by: Ilie Halip &lt;<a href=3D"mailto:ilie.halip@gmail.co=
-m" target=3D"_blank">ilie.halip@gmail.com</a>&gt;<br>
-&gt; &gt; Signed-off-by: Nick Desaulniers &lt;<a href=3D"mailto:ndesaulnier=
-s@google.com" target=3D"_blank">ndesaulniers@google.com</a>&gt;<br>
-<br>
-Reviewed-by: Nathan Chancellor &lt;<a href=3D"mailto:natechancellor@gmail.c=
-om" target=3D"_blank">natechancellor@gmail.com</a>&gt;<br>
-<br>
-&gt; &gt; ---<br>
-&gt; &gt; Ilie has further treewide cleanups:<br>
-&gt; &gt; <a href=3D"https://github.com/ihalip/linux/commits/elfnote" rel=
-=3D"noreferrer" target=3D"_blank">https://github.com/ihalip/linux/commits/e=
-lfnote</a><br>
-&gt; &gt; This patch is the simplest to move us forwards.<br>
-&gt; &gt;<br>
-&gt; &gt;=C2=A0 include/linux/elfnote.h | 2 +-<br>
-&gt; &gt;=C2=A0 1 file changed, 1 insertion(+), 1 deletion(-)<br>
-&gt; &gt;<br>
-&gt; &gt; diff --git a/include/linux/elfnote.h b/include/linux/elfnote.h<br=
->
-&gt; &gt; index 594d4e78654f..69b136e4dd2b 100644<br>
-&gt; &gt; --- a/include/linux/elfnote.h<br>
-&gt; &gt; +++ b/include/linux/elfnote.h<br>
-&gt; &gt; @@ -54,7 +54,7 @@<br>
-&gt; &gt;=C2=A0 .popsection=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ;<br>
-&gt; &gt;<br>
-&gt; &gt;=C2=A0 #define ELFNOTE(name, type, desc)=C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 \<br>
-&gt; &gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0ELFNOTE_START(name, type, &quot;&quot=
-;)=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0\<br>
-&gt; &gt; +=C2=A0 =C2=A0 =C2=A0 =C2=A0ELFNOTE_START(name, type, &quot;a&quo=
-t;)=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 \<br>
-&gt; &gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0desc=
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ;=C2=
-=A0 =C2=A0 =C2=A0 =C2=A0\<br>
-&gt; &gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0ELFNOTE_END<br>
-&gt; &gt;<br>
-&gt; &gt; --<br>
-&gt; &gt; 2.26.0.rc2.310.g2932bb562d-goog<br>
-&gt; &gt;<br>
-&gt; <br>
-&gt; <br>
-&gt; -- <br>
-&gt; Thanks,<br>
-&gt; ~Nick Desaulniers<br>
-<br>
-</blockquote></div>
-
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/CAHDfHbcmqyG5ddSVyZnAaM2p8R-0f%3DdE9deZfnizT3_=
-M0pc55g%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://gr=
-oups.google.com/d/msgid/clang-built-linux/CAHDfHbcmqyG5ddSVyZnAaM2p8R-0f%3D=
-dE9deZfnizT3_M0pc55g%40mail.gmail.com</a>.<br />
-
---000000000000c5c75805a26c753f--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200404010210.GA13010%40intel.com.
