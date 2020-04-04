@@ -1,131 +1,149 @@
-Return-Path: <clang-built-linux+bncBCI2VAWMWUMRBGESUL2AKGQERHK434Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD66N3MZ6ALRB3W6UL2AKGQE65SM4QI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13b.google.com (mail-il1-x13b.google.com [IPv6:2607:f8b0:4864:20::13b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 622B719E529
-	for <lists+clang-built-linux@lfdr.de>; Sat,  4 Apr 2020 15:18:18 +0200 (CEST)
-Received: by mail-il1-x13b.google.com with SMTP id t10sf9959733ilf.2
-        for <lists+clang-built-linux@lfdr.de>; Sat, 04 Apr 2020 06:18:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586006297; cv=pass;
+Received: from mail-pl1-x637.google.com (mail-pl1-x637.google.com [IPv6:2607:f8b0:4864:20::637])
+	by mail.lfdr.de (Postfix) with ESMTPS id A175519E650
+	for <lists+clang-built-linux@lfdr.de>; Sat,  4 Apr 2020 18:01:52 +0200 (CEST)
+Received: by mail-pl1-x637.google.com with SMTP id g7sf7753542plj.9
+        for <lists+clang-built-linux@lfdr.de>; Sat, 04 Apr 2020 09:01:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586016111; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mSclR/2JMBdD8eVKi8YpGyRz/zckXvWHdor9xtlG5VVLHWHAcadoQi5Va/J6ZMzQw3
-         9S+OiUmfLSt1IaMi27BXzxJO60Ho/r33Mc8JMNZbRKvYnkYarz55ywGDt/1VLSMC0jIH
-         XO8fwD2fgMvghjC4RTiNSRnEBH06OqtCjtVsBpsb/q6sRguDB2M2hECJGC7IRHrs784X
-         iWPwyS3hOAEPk7RQRMLuv3bhBUVlflcDaTQyag8D9Dx7SO4ndhz+5vqPXAfhSSmxqKAU
-         KJWD3ic+0TunH9Vj3lCdIiqCNHYrM6xluYOCwA5xVnh1UgmCs2mzWBhh8qMiSgFXToen
-         RasQ==
+        b=hB/8dgLHozhPzOTCkSZe+BivM+ow5+OEJT2Hvw70E8OSjE35rBOyEr/iAFdCqLlfAE
+         X/NMtO9/89TrxKLZk+V9IDVG8tZCnhwvYwk1hvJvwkgpLMvkGBOi/Bq+p6W9sQvBG2Ys
+         eteCdWgEK5GUlbSy8qKxXZYPfjUhM455iRwZ+pj6XXRKDZrgdre3b2wiJKs7OiFvdGAx
+         CNqcS352Tn36EPdxjCkYcrHSR1R3hxpZI7j+0Q6ON60NRZ8k3pe5f5zVCkjqOu3/dDcS
+         k/6BxHw47gYqV5wExS4uAm/rLfM+ByDNiu5REyxsD8K1lcgGZQsFLN0z+upflz3ZyAVo
+         Ea3w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=7Y9axkNk2vKRV+7hfhxWiMaFWWNxZrdEpTNlJJFgFv8=;
-        b=MMbMaLEjO97Q+6SlgmgNa1aw++Lnrop1IF8vl62kSuxi/UMYzdTKF2cps21u2ZCkbK
-         gwonwISByxcK3x0gQALOL78Q3u0cn6JxhIYFf/043U9Q9ksGqY7LVry6pX9Z0OHL8L0N
-         PzSVC9WLttms9HxYZcts3bHQDyUIYXt4aNZrmgE1ynHM56eAol+JqwSVGHGHC0rAIhxH
-         bLVfI+qoMOpwaAfRHdaeAh9jN3z6aMhwq+qwbGtkQJKXxUkQP+0rS72KhrAheWIRa9hA
-         Vd2y66fZ5baY8xd7rMI/18N11gt5Zgn9BeY29HBiPft0jPiJjMahxw3JmvPORXOv7Iuw
-         A0cA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=2eZGc7PyYSmGrIsBCEarrq3RFBHNFUD6wiaKhZPxJoQ=;
+        b=X8aeS0D/jjCWPL2IJQipC1i0XjZ35qWNmieEe8CsXGqC9QyTtbVSgLNy/xoacIuNXi
+         pQij1TwhM7+QvMXm85aLoZ99aJM1nKHc3CbXkvjeQlAgLee6fPTfCoKoDRNmgxa6otEP
+         LMcCx0cKJNflZYyjiTxD4Jcw+zu6dqxLj09mSn3vJLq3Ruv1e8UE8Ux7hGqb5/zgd4ZV
+         2QSDm73PcnfY9kvDT13NCnI20AS6NwjX7AurMg2swWs2AekBW/TXHu89tE74k49kfr3a
+         4VPWPUfGx5xYtUoaxgJ59190bj+SyxNBlOuavwtPguX57G12AAj9/vSHfmWHwL8Hkgq/
+         FYUw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@flygoat.com header.s=mail header.b="Ty/YGshp";
-       spf=pass (google.com: domain of jiaxun.yang@flygoat.com designates 124.251.121.243 as permitted sender) smtp.mailfrom=jiaxun.yang@flygoat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=flygoat.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=URMIfCs2;
+       spf=pass (google.com: domain of oleg@redhat.com designates 205.139.110.120 as permitted sender) smtp.mailfrom=oleg@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=7Y9axkNk2vKRV+7hfhxWiMaFWWNxZrdEpTNlJJFgFv8=;
-        b=H9eaM1NsY+DBKaafBEfFwWH80LrpNXZcWji1P1KHsfKQy6n5zQfkHmjNYKXqDFJm6a
-         VDlxu5b7fGZEx1SG+WK1qt1ERRsJHKkdoZaqtRI61+FIz1tir4Nddq5djVNcVZbIA0/K
-         z/cX6/z/Z6tpo/LY3s9++ldjGCJsGqsDObJahVXRkCS+6gPBZD9AR2mzfhteZJeaaw8B
-         dfFFDZc+VaaTRhqUSQrcub11l1czb0XhlYOOwXKgsrZjIfUiqC+dru4LMC8R3DHD8AlR
-         i6h/8I/YCdQnTBIXb8d6QK7NPAZ+q9QskAgpEa1tezyBLjEIiPYcLoyMqcn4crl/pZaU
-         S96w==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=2eZGc7PyYSmGrIsBCEarrq3RFBHNFUD6wiaKhZPxJoQ=;
+        b=CC7/vcI3uN5EIrYnDyePLhUF737roGdY8jGgMbSgyPHGyJe7ghIUYNo0xvQj4r5RvL
+         5v3FK6YHPkhKu4+fvEYSK3+Gte+WwLhgunXxopx1bBNEtCUoR0D/hdWhiSLzjvBCV3Li
+         UnmcqdMDEM+rzklmI+7SmOP3W3fS6fV4i4GKhhmMaM1vR5Sv1Mq6cSSWQvDMh/pbj5n4
+         LT0SDT5TeZkomzRP/+G8nATT5T8ONxVslOQig/ARqPbZhoEruiXNI7N/87dVWiisLuNu
+         noctHF+vopI4O+hHo3sm2VRtsNqLnwbb4ggVZPK9rVGfsAaAJ6XCCHp/64C1hlRoeXhb
+         b4VA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=7Y9axkNk2vKRV+7hfhxWiMaFWWNxZrdEpTNlJJFgFv8=;
-        b=JxUIg67v6c9oD0BuLbIuiTvSNUIpw/PhANip96oQXQpu94T+6T1ub+MC+MPLTzuVAX
-         y/TNsk7Mg/zHQL2uJKXuHQrBagwsxtm5Zz28w9DX98xlMdJHT/mF6BwBpE7hHE1A1xdF
-         AOpkJ85hc2PKKIsnQHDGn0WVcNOqdQx34c70pzuEzTH2jk0eDGseR/6wgsoj2bX+JPLg
-         HOLc/IGb3Wx1f2K+lFt3jW3eaFMhQs9BA+O+5yGX2E5S0NYEdQVDtmsnIXxX+tC0LfW8
-         P1HZ64TEBOgW8irXsXQRlZGka/ktOQBhUFfKZjtwtRfxzfw2sYqv7oopT8jJTBrHoFai
-         /csQ==
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=2eZGc7PyYSmGrIsBCEarrq3RFBHNFUD6wiaKhZPxJoQ=;
+        b=YOjAC8ImNdujn290HHL1BjO1ckz6S/uFlJxW/AfjrmiapxvM10hu3Jd7RuzJ4DNysI
+         v+MqQb6YDj/E4lRM/xvkxdZ4jFL0eP5pfcLKwdiF9a5T8HPMdnUClPTQxONdwIXSCzZA
+         o4hm8NaQ5+0QsYJLlRp6fXXugWyCLJ7poHGRIUwcRRf6pRjo2JUt7dQKgeILOfTqPYbK
+         qAhKc+gUXQy5AzEKnbaqtgfkzhz5aNOWalAFggXYj8FqFD7v9VpAVSocNAhGkofKKIrC
+         Bm9hVVlF19GbqX7jthlyRZwKv56RKqIGPgFI40WycjNlpyCWCyew6feufq+6onynpD0P
+         FJPg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuZeU3A25UbjLhKIdsc9fXUs21mX6vZTeUPNaM5b4oRBt624H2JW
-	V2YNtHZiBTqXnbc9RBY6LkM=
-X-Google-Smtp-Source: APiQypKQXp1iClxK7SG1sAYRu6HdTtRXmhGlRvaIODktOzeAXtYr7kafW5TSteyQh9/htqSzgkl9eA==
-X-Received: by 2002:a02:7b21:: with SMTP id q33mr12749835jac.24.1586006296784;
-        Sat, 04 Apr 2020 06:18:16 -0700 (PDT)
+X-Gm-Message-State: AGi0Pube8xsvT/gspuh3uZ/8IEhdtBRTh9IxbEgYOBHT/JxXMIkLkwZP
+	P+mVOfJYEfK35GDmYRC03nQ=
+X-Google-Smtp-Source: APiQypKs8iMjs4WvdrL5skaXfrEToWkth0tKaBoIAVtBExHOIzaftbD8bLFdEk4abOH1iAlvFrWT4Q==
+X-Received: by 2002:a17:90a:3783:: with SMTP id v3mr16951123pjb.31.1586016110879;
+        Sat, 04 Apr 2020 09:01:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a02:1cc6:: with SMTP id c189ls2441790jac.8.gmail; Sat, 04
- Apr 2020 06:18:16 -0700 (PDT)
-X-Received: by 2002:a02:304a:: with SMTP id q71mr13313244jaq.131.1586006296355;
-        Sat, 04 Apr 2020 06:18:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586006296; cv=none;
+Received: by 2002:a17:90a:9416:: with SMTP id r22ls8781041pjo.0.canary-gmail;
+ Sat, 04 Apr 2020 09:01:50 -0700 (PDT)
+X-Received: by 2002:a17:902:bd85:: with SMTP id q5mr13260120pls.326.1586016110316;
+        Sat, 04 Apr 2020 09:01:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586016110; cv=none;
         d=google.com; s=arc-20160816;
-        b=urGJ7UVtlqBoyfDoVkcPKCtPSm/DpBQuJvwm3wdmKwe4axQ6WZIsfph4GRHUUtS2sd
-         Tn0/mv+xyYRGpu0qp9Kn1ZLwxmGQ/XMqF0ZIvM3fJdHppYmx9ITshWIzyX9BnHBF+2Vs
-         a5FDSPaQNlzQv5Mq5vaquo5c8eT0I9a01x0EY+CdPj3qtEtMxPA0dE/gSa+XIdJ0BW+4
-         R3ePWNC6I5VO39WnyJrwuY4X+LoD2Rb+Wbwj8bcTrwZ6uwA4AUh+QaUYU24xGBaXGFPv
-         sIKRcvwJeiH5zmcFIjsiYKEnrcIP5ftlxu6272ayzF+IcZKelQHe6qkLp+4sJLPCNY6s
-         ZPKA==
+        b=ypxplmoKzCFv1753WqZ2T2dGrXH2JNKVGSL+fP0ALeSUDaqUF1hxrEWSVoif1Cj+dn
+         0ko5moPI/HpjmlodUTT5kv0/bO1zy54DYed/hggcIICl5ffZgLSM1N949v4Io4DShx5R
+         qr/UcOSgainjxiPrQc2NYAbr8BuUCFQNRehj/voPXNpYgaSJsbhmTZZtq44PjQNNu/4s
+         HFTUOcrAAYMVr0vK+fUEp3Zs9wYKAKlzEUwocXBITUSOtIUXOKyBdU6v/m0LTopo6sm7
+         RV7IJMChGGewvSBhaQ6auUcBnfKRKJSEih3uqM0p8TzvK+Y2FJ6GAnMoNiXkTgNtTOKV
+         6j8A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=M5XBaodP3z4O/JdISCaQsd6Zd50hxPiItNQG8SxouHA=;
-        b=WMnjo+PgwydGgDbDUziCoIi1C+uPVTMLBOXGQUcDMncm9yssRNfJ4tRvPeB/Dvvirr
-         UT4H8IxsINXKUHKkl+ZvQTvM9SP0QaJ1Tz7xvLpO+5z8n5JeysDZekoypw47fIpgqy24
-         zAqbmFEEWTe5Vvoan54D0NN5UXRuW51iLDSTfgVQAM9cQ+0F0DkO2GId8oHPDi3Kzi5I
-         XyUK1DV/IJfiisKq/+fY6XVW0P8dJBfKjgaNwFnhldU7///nE5zHf0A0WklOkvq1YKlk
-         bOK65VWvr5wZOVBkkmZf9oQB2+o+hQr5b0Q781pYxckPFh2uU9y3aIu3KOIbXZQ8mz4w
-         lw8w==
+        bh=FUdF7iY9SS4OEmK+NSy6HOWdmAoXBxog9A83yLakpIU=;
+        b=uAfVy6GbZHSun+aB+fKJbvnLq5ABn6LuUnmbbhiksbMr3kipulc9sqHD49Mx8yYuIN
+         +8Ony9x/zKZ5QdvNFUV0fLwqIl+cp2LL8pP5/lBH3koFie2g+NvfQIcOFF1jxVkmTZx2
+         BK2F0N5jdNNAQtdTSzya3QdOyQcOgPKWrCfDWviAdkRkmU7UGau8prySs/FBO+Lqlnc5
+         +sOGuVBDEG5MirrPHf/8mB1f7j0eSLRrooZwVWHl+hWV8wYFuPRhANEMKSLOUEIoDoEx
+         15iU3vjLgYTgGZb6hKDJCa29HZkvmKKItJrxD+ALZTkqZBTd7XkATDuFvLMMqWMYyoTY
+         Z38A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@flygoat.com header.s=mail header.b="Ty/YGshp";
-       spf=pass (google.com: domain of jiaxun.yang@flygoat.com designates 124.251.121.243 as permitted sender) smtp.mailfrom=jiaxun.yang@flygoat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=flygoat.com
-Received: from sender3-op-o12.zoho.com.cn (sender3-op-o12.zoho.com.cn. [124.251.121.243])
-        by gmr-mx.google.com with ESMTPS id t13si817899ilk.5.2020.04.04.06.18.15
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=URMIfCs2;
+       spf=pass (google.com: domain of oleg@redhat.com designates 205.139.110.120 as permitted sender) smtp.mailfrom=oleg@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
+        by gmr-mx.google.com with ESMTPS id y5si693212plr.4.2020.04.04.09.01.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 04 Apr 2020 06:18:16 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jiaxun.yang@flygoat.com designates 124.251.121.243 as permitted sender) client-ip=124.251.121.243;
-Received: from flygoat-x1e (115.193.87.168 [115.193.87.168]) by mx.zoho.com.cn
-	with SMTPS id 1586006137577447.17997068119337; Sat, 4 Apr 2020 21:15:37 +0800 (CST)
-Date: Sat, 4 Apr 2020 21:15:31 +0800
-From: Jiaxun Yang <jiaxun.yang@flygoat.com>
-To: Fangrui Song <maskray@google.com>
-Cc: linux-mips@vger.kernel.org, Nathan Chancellor
- <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, Rui
- Ueyama <ruiu@google.com>, George Rimar <grimar@accesssoftek.com>, Sebastian
- Andrzej Siewior <bigeasy@linutronix.de>, kbuild-all@lists.01.org,
- clang-built-linux <clang-built-linux@googlegroups.com>, Peter Zijlstra
- <peterz@infradead.org>, kbuild test robot <lkp@intel.com>, Philip Li
- <philip.li@intel.com>
-Subject: Re: [peterz-queue:sched/urgent 4/5] ld.lld: error: section .text at
- 0xFFFFFFFF80200000 of size 0x1E8915C exceeds available address space
-Message-ID: <20200404211252.3540251a@flygoat-x1e>
-In-Reply-To: <20200404013204.p53fteofnppvf7pe@google.com>
-References: <202004032329.oBqXCsfi%lkp@intel.com>
- <CAKwvOd=H71Q=r=S6Zr=N1zgkXTb9HyEwF78ZbuKkoigWZxiBDA@mail.gmail.com>
- <20200403192058.GA41585@ubuntu-m2-xlarge-x86>
- <20200404010210.GA13010@intel.com>
- <20200404013204.p53fteofnppvf7pe@google.com>
-X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+        Sat, 04 Apr 2020 09:01:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of oleg@redhat.com designates 205.139.110.120 as permitted sender) client-ip=205.139.110.120;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-398-BLP3HdZDO0Sr1HutAcntrQ-1; Sat, 04 Apr 2020 12:01:45 -0400
+X-MC-Unique: BLP3HdZDO0Sr1HutAcntrQ-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1D07218A6EC1;
+	Sat,  4 Apr 2020 16:01:08 +0000 (UTC)
+Received: from dhcp-27-174.brq.redhat.com (unknown [10.40.192.53])
+	by smtp.corp.redhat.com (Postfix) with SMTP id 2443F5C541;
+	Sat,  4 Apr 2020 16:01:01 +0000 (UTC)
+Received: by dhcp-27-174.brq.redhat.com (nbSMTP-1.00) for uid 1000
+	oleg@redhat.com; Sat,  4 Apr 2020 18:01:07 +0200 (CEST)
+Date: Sat, 4 Apr 2020 18:01:00 +0200
+From: Oleg Nesterov <oleg@redhat.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	Peter Zijlstra <peterz@infradead.org>,
+	clang-built-linux@googlegroups.com,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	"H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
+	Al Viro <viro@zeniv.linux.org.uk>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Andy Lutomirski <luto@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Marco Elver <elver@google.com>, Brian Gerst <brgerst@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	"Eric W. Biederman" <ebiederm@xmission.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] x86: signal: move save_altstack_ex out of generic
+ headers
+Message-ID: <20200404160100.GB26298@redhat.com>
+References: <20200324220830.110002-1-ndesaulniers@google.com>
+ <20200403231611.81444-1-ndesaulniers@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-ZohoCNMailClient: External
-X-Original-Sender: jiaxun.yang@flygoat.com
+Content-Disposition: inline
+In-Reply-To: <20200403231611.81444-1-ndesaulniers@google.com>
+User-Agent: Mutt/1.5.24 (2015-08-30)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Original-Sender: oleg@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@flygoat.com header.s=mail header.b="Ty/YGshp";       spf=pass
- (google.com: domain of jiaxun.yang@flygoat.com designates 124.251.121.243 as
- permitted sender) smtp.mailfrom=jiaxun.yang@flygoat.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=flygoat.com
+ header.i=@redhat.com header.s=mimecast20190719 header.b=URMIfCs2;
+       spf=pass (google.com: domain of oleg@redhat.com designates
+ 205.139.110.120 as permitted sender) smtp.mailfrom=oleg@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,60 +156,36 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, 3 Apr 2020 18:32:04 -0700
-Fangrui Song <maskray@google.com> wrote:
+On 04/03, Nick Desaulniers wrote:
+>
+> --- a/arch/x86/kernel/signal.c
+> +++ b/arch/x86/kernel/signal.c
+> @@ -416,6 +416,7 @@ static int __setup_rt_frame(int sig, struct ksignal *ksig,
+>  	return 0;
+>  Efault:
+>  	user_access_end();
+> +	reset_altstack();
+>  	return -EFAULT;
+>  }
+>  #else /* !CONFIG_X86_32 */
+> @@ -507,6 +508,7 @@ static int __setup_rt_frame(int sig, struct ksignal *ksig,
+>  
+>  Efault:
+>  	user_access_end();
+> +	reset_altstack();
+>  	return -EFAULT;
+>  }
 
-> 
-> Reproduce for a clang/lld developer:
-> 
-> make -j$(nproc) ARCH=mips CC=clang CROSS_COMPILE=mipsel-linux-gnu-
-> LD=ld.lld O=/tmp/out/mipsel distclean malta_defconfig vmlinux
-> (Requires mipsel-linux-gnu-as and clang in PATH)
-> 
-> I have noticed multiple problems.
-> 
-> % file .tmp_vmlinux.kallsyms1
-> .tmp_vmlinux.kallsyms1: ELF 32-bit LSB executable, MIPS, MIPS32 rel2
-> version 1 (SYSV), statically linked,
-> BuildID[sha1]=ff348ad92c80e525b3f14149e57e8987de66e041, not stripped
-> 
-> In arch/mips/kernel/vmlinux.lds.S, VMLINUX_LOAD_ADDRESS (from load-y)
-> is 0xffffffff8010000. GNU ld seems to allow 64-bit addresses when
-> linking an ELFCLASS32 file. The addresses will be truncated to
-> 32-bit. This behavior seems error-prone to me.
-> 
-> lld does the right thing by erroring out. I do notice a display
-> problem of lld -Map and I have a patch to address that:
-> https://reviews.llvm.org/D77445
-> 
-> For 32-bit linux-mips, the right approach seems to be make
-> VMLINUX_LOAD_ADDRESS fit into 32-bit. However, my Linux-fu and
-> MIPS-fu is not strong enough to do this :/
+I must have missed something, but this looks just wrong.
 
-Hi MaskRay,
+reset_altstack() should be called when __setup_rt_frame() (and
+unsafe_save_altstack() in particular) succeeds, not when it fails.
 
-Could you please try this?
+Nevermind, Al has already suggested to use signal_delivered()...
 
---- a/arch/mips/mti-malta/Platform
-+++ b/arch/mips/mti-malta/Platform
-@@ -6,6 +6,10 @@ cflags-$(CONFIG_MIPS_MALTA)    +=
--I$(srctree)/arch/mips/include/asm/mach-malta ifdef CONFIG_KVM_GUEST
-     load-$(CONFIG_MIPS_MALTA)  += 0x0000000040100000
- else
-+ifdef CONFIG_64BIT
-     load-$(CONFIG_MIPS_MALTA)  += 0xffffffff80100000
-+else
-+    load-$(CONFIG_MIPS_MALTA)  += 0x80100000
-+endif
- endif
- all-$(CONFIG_MIPS_MALTA)       := $(COMPRESSION_FNAME).bin
-
-Thanks.
-
---
-Jiaxun Yang
+Oleg.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200404211252.3540251a%40flygoat-x1e.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200404160100.GB26298%40redhat.com.
