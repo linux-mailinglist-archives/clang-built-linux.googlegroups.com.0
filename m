@@ -1,158 +1,149 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBP46UT2AKGQEYRFLZ7A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCX2JBVY5MBBBN63UT2AKGQE7ISB3QY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93d.google.com (mail-ua1-x93d.google.com [IPv6:2607:f8b0:4864:20::93d])
-	by mail.lfdr.de (Postfix) with ESMTPS id C1BCE19E7F9
-	for <lists+clang-built-linux@lfdr.de>; Sun,  5 Apr 2020 00:50:40 +0200 (CEST)
-Received: by mail-ua1-x93d.google.com with SMTP id a9sf4648236uan.18
-        for <lists+clang-built-linux@lfdr.de>; Sat, 04 Apr 2020 15:50:40 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586040639; cv=pass;
+Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7FCF719E827
+	for <lists+clang-built-linux@lfdr.de>; Sun,  5 Apr 2020 03:00:41 +0200 (CEST)
+Received: by mail-pl1-x63c.google.com with SMTP id m9sf8555098plt.8
+        for <lists+clang-built-linux@lfdr.de>; Sat, 04 Apr 2020 18:00:41 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586048440; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RmDI8KDJJGNoiQUDgSfouj7XXhFif0pXoL/ACo36AVK6kHfxY6C+8hsSJFp4+sNDcJ
-         0xHo6+kGwaWIqC/jFBjYYByUXpEWxBaGPx5X2GPWIZByndIdgYd0vOsBWHsuj+ZA/J82
-         UV4GIO2PsHHGydwEruoYtMtJiurD06+Vy4XAT1bb+bDqHyuW+iNrbDw2zd2MD7Mq8F9+
-         Mx/CJwAIHOrylfaTsfmQog9TmEvK1STa5eCSvVxMVVgY0ZOQDX1U6jmOpYUly1VOyBNd
-         odkd2+tQkQRSwAtaUrlDen1RBjDiQ7ldBsJcFNe6AaHt9+cJqTHSprb55dpZlYd8jBOG
-         oFUQ==
+        b=wdZ2zmL0t9Oj14BU8EvDzvwsS62W3DvXNGm/4guLRYL/HfwXpky0DBJEY4eascr8WW
+         7Nqcr7UK3TkT97AhEJmqmUc1MQ+iixCiVCO9bLTvCq+o62im2wqyGKiaieNG6liRMZA/
+         x0Ih/RNl9+frQIY/slowAhjVMGWR9kIvxooD6RDU3OUYVo01UrJlwXP+gpKaCuq7ESx/
+         ASQzM0L+Kt3RCNavrjKRc+csZ0YF8EqXiT1A1P8KHOF6+U9d3qhMxySe5jKsxMKuPaTC
+         zrVY1lOuIjKR3f1DxxRDgRlshET/Nkl+tlVB+Stw1JvwROx8Dd4/G+mByp9V6kMgK8hJ
+         u77w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=qQA+3W83GbisWQGSEAniLYjQIUrMljQ0cE4Z6jFJHrY=;
-        b=Yf6RYWMK5oPp19aE8nT2Jod7ni3YoV5Fa0Xhcq0uD68WdssmId41Ke4L8dLMlC33IU
-         VQSmEp6zzlW02IUY07t+udZJcdgIDxKoBU1MhwO+wRthmLD+LbN2qq9RnH2eja4p3bkV
-         d3mZKLDS5L2l+dmgiYApxDc18zQfyjtu5JQr93xg/lEq+aoh5u2jINmRNisR04CBJfVW
-         upMfsgWgZ4KyuyW5YPBLfPTFvqWsS99tAA3jgT2UXDSsN+38fa8oQzhxVF4ZMMvll7lb
-         Ikcb3JBXfGtF2OpA6QIyvdX5jui+HSYFL5nHeLpAkc9TBTNLBq68fJzz/NlV4zdRN+4s
-         IXDA==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr:sender
+         :dkim-signature;
+        bh=TwHUR50a2HePehM4KVQ0GJmb3VCc+ZRNni8q3Ry0T9s=;
+        b=FprGjE99OcQ4PskKWLbDfXW7conhbQgEavaBMgOQFoAthStzPPVVhPA/bS60Aa1PZ9
+         n0DJbjrZXplLBfgBbKboxG6FeuzEgZ0c+wH9icXE4q59He8T3YVLGIWx7Q7jefI8itHD
+         JKV2PctxsjqgaNXTf9lhipltGV9I6CxdPIbRzVzibRa0KECbbDCHfeYddpIsk761vxEP
+         5FEBfJ1mxGXyXYsoCEFq/fbvKchm3LNjXFYUJNdnihJ4CKdf7gB81xbSuE+8csJwVRe7
+         S3YefISa45IZMABbRgtJM00c9zSlRxaJotOywC87XQmYrMymZIA87talgnu7416BBElQ
+         jlCg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=GjML8U5N;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of philip.li@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=philip.li@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=qQA+3W83GbisWQGSEAniLYjQIUrMljQ0cE4Z6jFJHrY=;
-        b=Z1c+2KpwnOlNn1WEDwDk5dxY42QQDMomy6B14AYH/KUFvyeigVfim2VHX3mzkyVN+H
-         tSupuY2g2gXf6pMy9NFGsQPh4JPZbdFlYOcXGzESy7M3TjQvH32kTDKkqc1dTAiNTaNI
-         nfJD81H4mG12C1/0WfIDfPup2lrsTKEskowOG8DL+/G02qV7d5s5N0PM8t7KW0HFJIG3
-         Fbt4rjO9NAKM14Kb6R6JU+pk3RdZ/7AM0tMgmqJH/j4un9OfsOtQYRx1DJ1pa8qTun2f
-         xoMwhrtz3qXH/nz1/YRIG3/ArHEBAl2O1rBlcttOUJ/OP1U9NwuWsnl6gKBwRIsATBl+
-         Bjaw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=qQA+3W83GbisWQGSEAniLYjQIUrMljQ0cE4Z6jFJHrY=;
-        b=U0osZPBjYEbISnMpI7v0R6u492fQWE7ldHA5enNEqzcqTvvysYNa8MAp/pMaABkyoq
-         AMoaHZ9ql/zevMmIlh8VDhs0O6sGA5NWC1po788VSObTRZXKiHfg7x8U0p8wBcTqQgsU
-         UbXMWaFAdJuSXP6G/WVaEDabHsvAv/geQGjkNWJk/AU1BTex4sgtR6RfGBTh+x3kCb93
-         TXy6Idd33w0IaaLmjYs2hGjVC9Mz0IAPj6/1NEmrYe/k2T80FHvGnp9GlUsPNRwBkNUc
-         NSpdwoFjj6IxL4r3YdHLe0RuDmpV5dvL+FFqNwY6/K5EFsAiLCLpo0QPuV74O0mWayMQ
-         46Ww==
+        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results
+         :content-transfer-encoding:precedence:mailing-list:list-id:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=TwHUR50a2HePehM4KVQ0GJmb3VCc+ZRNni8q3Ry0T9s=;
+        b=XwyvoRYbL3CsKE0moBKrcksD9hAUlx4cwBmeAugwKng0EhqiUra/44zNS/Da+JC6X7
+         2sEaoB+3Dx0EdmVq7/9fNdg+GaMeGWa7bYJ+8qvyQ6dXtLQPffJmioB3Alb1rngyx5z+
+         BPAzq4/+hjo13j208/lfbYFTT+Ku5Cg+VR6lIjgxMI18/anormzQsjkcmT6uaRsPJ56k
+         tmV2Xt+vU6kb5BiiTchnJNzM1D2tpx0AG7FhKpjmsmtlrf6A7wF9nuWKn+PCJpJWi6ra
+         AMbxRmqM5V8lrB6+Xu528aISn3GtK/9a6OL+i1mBpKgK7+ngcLvpqtV3xB4izkQYcnkX
+         J/6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=qQA+3W83GbisWQGSEAniLYjQIUrMljQ0cE4Z6jFJHrY=;
-        b=k1mTj12iu1gJwbmIj35v//cYdl6khSnVfT7E3a3UpFSQJsthWP2iMXaf331UELl3zF
-         +DWLaqPiB0jREjAIq0qXKzDnLukCFegyF2DgWG7KCru/UJj96pd6S0FFJIAVh8IDKho4
-         XLEhX7BwzjbNLMwHcoknBG0Dh9ggdEEzRnW+QCS8omEkIxmuxpi4xcEfg9K4dT/l9K93
-         qUMtFGT8kZMzZ6s/UZEiUNQkVuOAeQ3uBIA3LqNRSDkBM7BtgeQEemN1FglCqS07HDlw
-         mFt8XSSb5P/QUwm+bCNKN/c4+Fft5GyQsW/TCXelA+fB6hnrY8yq0xDIhNMxenO+hEJT
-         yWHg==
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
+         :subject:message-id:references:mime-version:content-disposition
+         :in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:content-transfer-encoding
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=TwHUR50a2HePehM4KVQ0GJmb3VCc+ZRNni8q3Ry0T9s=;
+        b=KO8NZOAmrEezs1VmOZuTuOnFwLrLn2JahuSHl2crttVuDI0VxcEZ7atOkX6q0zBHqr
+         zkCVSHm4YoAW8ka2PZK7Zvfdim4yzCeBiFNij14HoDaKTuvQSH3iul0Q36Twm6CWDCVB
+         FvhZL8nmWmf/F2aqehms2YOyJoVtPY/fzwGB15tO38lTmZyUh3DtXw84lFwfPuaumjPJ
+         e/9nH9l9VKvwQATkCp0cxqLBUC5VG4y+EhgzblfC6PLmXPtHmHZR3KhK8Z06+XxWkR5F
+         Qfud4mHRZJgC1N2IP3t+GqyWzNi+Yf2FmN96oEnmSe7WzUYeyBMp+MIr7CVOqUNssd+f
+         xcWw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuYU/plouLOPX0w2Bq2THIcLLtPN5BBP/8scmf2nhgHI8itJAeVA
-	YfKZOyixIDsC4kiNGO3xV5Y=
-X-Google-Smtp-Source: APiQypJD3ElTVjsV9m4zaxHQ+ZXJ48oXfaBciviz5jZUpgwouqD5S3Q5j6YH+3DPPtXwmAYemqhRZA==
-X-Received: by 2002:a1f:3210:: with SMTP id y16mr10981810vky.89.1586040639727;
-        Sat, 04 Apr 2020 15:50:39 -0700 (PDT)
+X-Gm-Message-State: AGi0PuaULfnpyG6D7KckzgBW8HZVKB0egXr1KCv7AjDLysdUmve3NjgU
+	rh2KXmFAlaWz4ABP/Q0ASio=
+X-Google-Smtp-Source: APiQypLi5KFUXIrP6+yNpocWbTAd0InfQC9FNgq0dRiZ+YtOeiQWAGZ2h6fP9+qHK3w9w/cKw/Lj4g==
+X-Received: by 2002:a63:58e:: with SMTP id 136mr14980007pgf.311.1586048439623;
+        Sat, 04 Apr 2020 18:00:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6102:8e:: with SMTP id t14ls1779518vsp.5.gmail; Sat, 04
- Apr 2020 15:50:39 -0700 (PDT)
-X-Received: by 2002:a67:f3d3:: with SMTP id j19mr11692526vsn.190.1586040639074;
-        Sat, 04 Apr 2020 15:50:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586040639; cv=none;
+Received: by 2002:a17:90a:9e2:: with SMTP id 89ls10569169pjo.2.canary-gmail;
+ Sat, 04 Apr 2020 18:00:39 -0700 (PDT)
+X-Received: by 2002:a17:90a:cc14:: with SMTP id b20mr19266911pju.75.1586048439094;
+        Sat, 04 Apr 2020 18:00:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586048439; cv=none;
         d=google.com; s=arc-20160816;
-        b=ijJGuouwIQIhkb/UhncbYESOHmzjNZCmnj9PbPiecAzqxj1xja0S1ieSxLJPBE2zo5
-         yBybeSALfXNV9FrB3TRgMLajQSOgugWKBTkN1Y9BM2IwXDiAN85iVBGXtYGpgV1YrDEy
-         M4PSXW3uT6uP78nNpE6k7CSvybxfsxd3iA5BgPe0W95za+NCfVewvmZpclHiAYWxAsMg
-         9NtnmhaAcV6GXP4oRlU2hD/7lDZIZrdEzJaFTq6Z8A8MiqfKCYenm/OScBCWJd8cCTlA
-         yvF+vcEFVB4zdqD8RBBoSNKiC1TgQTlHn+yAXLZ8t+dtWj1buCFSJK0Q4OEW1jlRWPnM
-         RQaw==
+        b=yCu5X6D/nmvY/lIpO9U7J4ecNoduYcQD2LKor5h0JUfGG1qVaW/O3WKtmFtAYus69H
+         tJJDPHUiF4T9UX43POZgZjbqqcSO/8T7Zry40RZlqqpaAt54QBAvKr8q3Y48r/YKGxD+
+         Ebj+VyXyQj2aJKqq1EzmGCavA+ZbX1JGO/oQfNl15qMpfWfsAQ0MAKGGQlzwypXakFXd
+         uPwvkWIHbpU0a7TcRkEvY/PqeZmuusAsVp8mr+5rUN/2qFMYLVY9HrvwKp61r2Luf4VX
+         1sl124mYGBJutlo8m8iGSQW4OAzlz4BDYIgWTdMdBrRCtq8OH91Y2He4M4IuWQZ3M8f6
+         D9wA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=QlGS9JyX8iCTAx/m9fGGWb+D9lnYRdPinBIcwJqWSDA=;
-        b=QbyKiuMM28DdEllJbjPbNV4QA9QRx3MSVeBkH1Tb1JC00b48q2h3NR5GcucA/NFXv4
-         ksU8tcwEY6htNl5WWfLYYfqJmnsgnbl1Xq3ubcRad7Tn4liVx5gfditN2CN1mK8TQiqF
-         /hiOT4GpcQu3oTUXViqKkQvUmiFejP/vIWx8+yhtiRmO1HKxbNHnmULpZpl/JPvvc1eq
-         R83CyIUxfm3PIQf0niTi23/n/d2oBvuAHdbvMW9Yv9JlxVHTrPT0HL610zbNRK7j8xbO
-         SnvAVDbEPqhhud0lVa5v3fcGxplN1o0fgDSUoopFlidpbbIOgkbGElqaF181qVnOheh2
-         ktyQ==
+         :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
+        bh=G8dqOQjiBknE9kgzM0HmI/zppsUfQmxgu6fvgD86oLg=;
+        b=XLqrV4LQriZUi6SrfGfHFCvImBBXTSJOg9k44JVFkJoO2XiIbqmOjvST5SXb7l2jTR
+         WhbGgbD9gi0MxTn/8qgxUW/d/N1QAixnhf68ZTGwYVUo41rv9iH7T0gxgG3Wbadjk9Z+
+         D/v5ANkjWp88ONDFYHV7XUcZFO0Ixc3cayNipCFy+w/ZxE5ten++c5Pq8rDWGavGIERU
+         EXsGufPWpblYsiYcl+o3CoPrf9JrSYT9XRHaRx/MUC1tpEd49SlFAR66IGBB/deYFeGS
+         8UlJu6h+uL/sPSLdlaArWxyWe+qF8vTO9ZxJvsX9t8OsQio/0Ak9HCG2fnalO1NV3iAD
+         a6bg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=GjML8U5N;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x344.google.com (mail-ot1-x344.google.com. [2607:f8b0:4864:20::344])
-        by gmr-mx.google.com with ESMTPS id d20si939958vsf.2.2020.04.04.15.50.39
+       spf=pass (google.com: domain of philip.li@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=philip.li@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
+        by gmr-mx.google.com with ESMTPS id s63si804461pjb.0.2020.04.04.18.00.39
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 04 Apr 2020 15:50:39 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) client-ip=2607:f8b0:4864:20::344;
-Received: by mail-ot1-x344.google.com with SMTP id x11so11404945otp.6
-        for <clang-built-linux@googlegroups.com>; Sat, 04 Apr 2020 15:50:39 -0700 (PDT)
-X-Received: by 2002:a9d:178a:: with SMTP id j10mr11731075otj.182.1586040638463;
-        Sat, 04 Apr 2020 15:50:38 -0700 (PDT)
-Received: from ubuntu-m2-xlarge-x86 ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id q12sm3262874otn.43.2020.04.04.15.50.37
-        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Sat, 04 Apr 2020 15:50:37 -0700 (PDT)
-Date: Sat, 4 Apr 2020 15:50:36 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Al Viro <viro@zeniv.linux.org.uk>
-Cc: Oleg Nesterov <oleg@redhat.com>,
-	Nick Desaulniers <ndesaulniers@google.com>, tglx@linutronix.de,
-	mingo@redhat.com, bp@alien8.de,
-	Peter Zijlstra <peterz@infradead.org>,
-	clang-built-linux@googlegroups.com,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	"H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 04 Apr 2020 18:00:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of philip.li@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
+IronPort-SDR: 9ffd17ueDSJm0twIW8Httd969DaLcXTOKjcqODxZIvOcsAmP+Y7Wa5ngDw/8Sc9gQ2HqA9297p
+ CV+0xRY1jIUQ==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga007.jf.intel.com ([10.7.209.58])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Apr 2020 18:00:38 -0700
+IronPort-SDR: KTdevKEGBgLUFVjLvH6eBiaL7Ro9iATH9nQ7Lr7gzr7z7F9rmo4wcPY/VJWYBKtqOm8TqlT0+E
+ GUqdwWK+blyg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.72,345,1580803200"; 
+   d="scan'208";a="239252078"
+Received: from unknown (HELO intel.com) ([10.239.159.39])
+  by orsmga007.jf.intel.com with ESMTP; 04 Apr 2020 18:00:35 -0700
+Date: Sun, 5 Apr 2020 09:00:05 +0800
+From: Philip Li <philip.li@intel.com>
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Fangrui Song <maskray@google.com>, linux-mips@vger.kernel.org,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Rui Ueyama <ruiu@google.com>,
+	George Rimar <grimar@accesssoftek.com>,
 	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Andy Lutomirski <luto@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Marco Elver <elver@google.com>, Brian Gerst <brgerst@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"Eric W. Biederman" <ebiederm@xmission.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] x86: signal: move save_altstack_ex out of generic
- headers
-Message-ID: <20200404225036.GA12416@ubuntu-m2-xlarge-x86>
-References: <20200324220830.110002-1-ndesaulniers@google.com>
- <20200403231611.81444-1-ndesaulniers@google.com>
- <20200404160100.GB26298@redhat.com>
- <20200404170604.GN23230@ZenIV.linux.org.uk>
+	kbuild-all@lists.01.org,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	kbuild test robot <lkp@intel.com>
+Subject: Re: [peterz-queue:sched/urgent 4/5] ld.lld: error: section .text at
+ 0xFFFFFFFF80200000 of size 0x1E8915C exceeds available address space
+Message-ID: <20200405010005.GA18493@intel.com>
+References: <202004032329.oBqXCsfi%lkp@intel.com>
+ <CAKwvOd=H71Q=r=S6Zr=N1zgkXTb9HyEwF78ZbuKkoigWZxiBDA@mail.gmail.com>
+ <20200403192058.GA41585@ubuntu-m2-xlarge-x86>
+ <20200404010210.GA13010@intel.com>
+ <20200404013204.p53fteofnppvf7pe@google.com>
+ <20200404211252.3540251a@flygoat-x1e>
+ <20200404215916.GA929@ubuntu-m2-xlarge-x86>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200404170604.GN23230@ZenIV.linux.org.uk>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Original-Sender: natechancellor@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=GjML8U5N;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+In-Reply-To: <20200404215916.GA929@ubuntu-m2-xlarge-x86>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: philip.li@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of philip.li@intel.com designates 134.134.136.65 as
+ permitted sender) smtp.mailfrom=philip.li@intel.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=intel.com
+Content-Transfer-Encoding: quoted-printable
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -165,129 +156,81 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Apr 04, 2020 at 06:06:04PM +0100, Al Viro wrote:
-> On Sat, Apr 04, 2020 at 06:01:00PM +0200, Oleg Nesterov wrote:
-> > On 04/03, Nick Desaulniers wrote:
-> > >
-> > > --- a/arch/x86/kernel/signal.c
-> > > +++ b/arch/x86/kernel/signal.c
-> > > @@ -416,6 +416,7 @@ static int __setup_rt_frame(int sig, struct ksignal *ksig,
-> > >  	return 0;
-> > >  Efault:
-> > >  	user_access_end();
-> > > +	reset_altstack();
-> > >  	return -EFAULT;
-> > >  }
-> > >  #else /* !CONFIG_X86_32 */
-> > > @@ -507,6 +508,7 @@ static int __setup_rt_frame(int sig, struct ksignal *ksig,
-> > >  
-> > >  Efault:
-> > >  	user_access_end();
-> > > +	reset_altstack();
-> > >  	return -EFAULT;
-> > >  }
-> > 
-> > I must have missed something, but this looks just wrong.
-> > 
-> > reset_altstack() should be called when __setup_rt_frame() (and
-> > unsafe_save_altstack() in particular) succeeds, not when it fails.
-> > 
-> > Nevermind, Al has already suggested to use signal_delivered()...
-> 
-> FWIW, I propose to do is the patch below (against the current mainline);
-> objections?
-> 
-> Don't do sas_ss_reset() until we are certain that sigframe won't be abandoned
-> 
-> Currently we handle SS_AUTODISARM as soon as we have stored the
-> altstack settings into sigframe - that's the point when we have
-> set the things up for eventual sigreturn to restore the old settings.
-> And if we manage to set the sigframe up (we are not done with that
-> yet), everything's fine.  However, in case of failure we end up
-> with sigframe-to-be abandoned and SIGSEGV force-delivered.  And
-> in that case we end up with inconsistent rules - late failures
-> have altstack reset, early ones do not.
-> 
-> It's trivial to get consistent behaviour - just handle SS_AUTODISARM
-> once we have set the sigframe up and are committed to entering
-> the handler, i.e. in signal_delivered().
-> 
-> Signed-off-by: Al Viro <viro@zeniv.linux.org.uk>
-> ---
-> diff --git a/include/linux/compat.h b/include/linux/compat.h
-> index 0480ba4db592..f614967374f5 100644
-> --- a/include/linux/compat.h
-> +++ b/include/linux/compat.h
-> @@ -461,8 +461,6 @@ int __compat_save_altstack(compat_stack_t __user *, unsigned long);
->  			&__uss->ss_sp, label); \
->  	unsafe_put_user(t->sas_ss_flags, &__uss->ss_flags, label); \
->  	unsafe_put_user(t->sas_ss_size, &__uss->ss_size, label); \
-> -	if (t->sas_ss_flags & SS_AUTODISARM) \
-> -		sas_ss_reset(t); \
->  } while (0);
->  
->  /*
-> diff --git a/include/linux/signal.h b/include/linux/signal.h
-> index 05bacd2ab135..28fe9cc134f7 100644
-> --- a/include/linux/signal.h
-> +++ b/include/linux/signal.h
-> @@ -450,8 +450,6 @@ int __save_altstack(stack_t __user *, unsigned long);
->  	unsafe_put_user((void __user *)t->sas_ss_sp, &__uss->ss_sp, label); \
->  	unsafe_put_user(t->sas_ss_flags, &__uss->ss_flags, label); \
->  	unsafe_put_user(t->sas_ss_size, &__uss->ss_size, label); \
-> -	if (t->sas_ss_flags & SS_AUTODISARM) \
-> -		sas_ss_reset(t); \
->  } while (0);
->  
->  #ifdef CONFIG_PROC_FS
-> diff --git a/kernel/signal.c b/kernel/signal.c
-> index e58a6c619824..4cfe0b9af588 100644
-> --- a/kernel/signal.c
-> +++ b/kernel/signal.c
-> @@ -2769,6 +2769,8 @@ static void signal_delivered(struct ksignal *ksig, int stepping)
->  	if (!(ksig->ka.sa.sa_flags & SA_NODEFER))
->  		sigaddset(&blocked, ksig->sig);
->  	set_current_blocked(&blocked);
-> +	if (current->sas_ss_flags & SS_AUTODISARM)
-> +		sas_ss_reset(current);
->  	tracehook_signal_handler(stepping);
->  }
->  
-> @@ -4070,11 +4072,7 @@ int __save_altstack(stack_t __user *uss, unsigned long sp)
->  	int err = __put_user((void __user *)t->sas_ss_sp, &uss->ss_sp) |
->  		__put_user(t->sas_ss_flags, &uss->ss_flags) |
->  		__put_user(t->sas_ss_size, &uss->ss_size);
-> -	if (err)
-> -		return err;
-> -	if (t->sas_ss_flags & SS_AUTODISARM)
-> -		sas_ss_reset(t);
-> -	return 0;
-> +	return err;
->  }
->  
->  #ifdef CONFIG_COMPAT
-> @@ -4129,11 +4127,7 @@ int __compat_save_altstack(compat_stack_t __user *uss, unsigned long sp)
->  			 &uss->ss_sp) |
->  		__put_user(t->sas_ss_flags, &uss->ss_flags) |
->  		__put_user(t->sas_ss_size, &uss->ss_size);
-> -	if (err)
-> -		return err;
-> -	if (t->sas_ss_flags & SS_AUTODISARM)
-> -		sas_ss_reset(t);
-> -	return 0;
-> +	return err;
->  }
->  #endif
->  
-> 
+On Sat, Apr 04, 2020 at 02:59:16PM -0700, Nathan Chancellor wrote:
+> On Sat, Apr 04, 2020 at 09:15:31PM +0800, Jiaxun Yang wrote:
+> > On Fri, 3 Apr 2020 18:32:04 -0700
+> > Fangrui Song <maskray@google.com> wrote:
+> >=20
+> > >=20
+> > > Reproduce for a clang/lld developer:
+> > >=20
+> > > make -j$(nproc) ARCH=3Dmips CC=3Dclang CROSS_COMPILE=3Dmipsel-linux-g=
+nu-
+> > > LD=3Dld.lld O=3D/tmp/out/mipsel distclean malta_defconfig vmlinux
+> > > (Requires mipsel-linux-gnu-as and clang in PATH)
+> > >=20
+> > > I have noticed multiple problems.
+> > >=20
+> > > % file .tmp_vmlinux.kallsyms1
+> > > .tmp_vmlinux.kallsyms1: ELF 32-bit LSB executable, MIPS, MIPS32 rel2
+> > > version 1 (SYSV), statically linked,
+> > > BuildID[sha1]=3Dff348ad92c80e525b3f14149e57e8987de66e041, not strippe=
+d
+> > >=20
+> > > In arch/mips/kernel/vmlinux.lds.S, VMLINUX_LOAD_ADDRESS (from load-y)
+> > > is 0xffffffff8010000. GNU ld seems to allow 64-bit addresses when
+> > > linking an ELFCLASS32 file. The addresses will be truncated to
+> > > 32-bit. This behavior seems error-prone to me.
+> > >=20
+> > > lld does the right thing by erroring out. I do notice a display
+> > > problem of lld -Map and I have a patch to address that:
+> > > https://reviews.llvm.org/D77445
+> > >=20
+> > > For 32-bit linux-mips, the right approach seems to be make
+> > > VMLINUX_LOAD_ADDRESS fit into 32-bit. However, my Linux-fu and
+> > > MIPS-fu is not strong enough to do this :/
+> >=20
+> > Hi MaskRay,
+> >=20
+> > Could you please try this?
+> >=20
+> > --- a/arch/mips/mti-malta/Platform
+> > +++ b/arch/mips/mti-malta/Platform
+> > @@ -6,6 +6,10 @@ cflags-$(CONFIG_MIPS_MALTA)    +=3D
+> > -I$(srctree)/arch/mips/include/asm/mach-malta ifdef CONFIG_KVM_GUEST
+> >      load-$(CONFIG_MIPS_MALTA)  +=3D 0x0000000040100000
+> >  else
+> > +ifdef CONFIG_64BIT
+> >      load-$(CONFIG_MIPS_MALTA)  +=3D 0xffffffff80100000
+> > +else
+> > +    load-$(CONFIG_MIPS_MALTA)  +=3D 0x80100000
+> > +endif
+> >  endif
+> >  all-$(CONFIG_MIPS_MALTA)       :=3D $(COMPRESSION_FNAME).bin
+> >=20
+> > Thanks.
+> >=20
+> > --
+> > Jiaxun Yang
+>=20
+> Thank you, that fixes the error and I see no new ones. I tested
+> malta_defconfig, which boots in QEMU:
+>=20
+> Linux version 5.6.0-next-20200404-dirty (nathan@ubuntu-m2-xlarge-x86) (Cl=
+angBuiltLinux clang version 11.0.0 (git://github.com/llvm/llvm-project 1ce0=
+bc39eebe95a350174eb0ed4e2508e7cb6ed8), LLD 11.0.0 (git://github.com/llvm/ll=
+vm-project 1ce0bc39eebe95a350174eb0ed4e2508e7cb6ed8)) #1 SMP Sat Apr 4 14:5=
+4:45 MST 2020
+>=20
+> Tested-by: Nathan Chancellor <natechancellor@gmail.com>
+Hi all, want to consult, does it mean 0-day ci doesn't need blacklist
+this ld.lld error anymore? This is a kernel problem and the error itself
+is valid.
 
-On next-20200404, this makes the three objtool warnings about the call
-to memset() with UACCESS disabled disappear and does not add any new
-ones.
-
-Tested-by: Nathan Chancellor <natechancellor@gmail.com>
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200404225036.GA12416%40ubuntu-m2-xlarge-x86.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20200405010005.GA18493%40intel.com.
