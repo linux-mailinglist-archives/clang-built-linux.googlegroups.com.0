@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBWVXVX2AKGQEYIJ34YI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRBXVXVX2AKGQEISPZDCA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3f.google.com (mail-vk1-xa3f.google.com [IPv6:2607:f8b0:4864:20::a3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id BC14B19FA72
-	for <lists+clang-built-linux@lfdr.de>; Mon,  6 Apr 2020 18:42:03 +0200 (CEST)
-Received: by mail-vk1-xa3f.google.com with SMTP id m130sf81422vkh.18
-        for <lists+clang-built-linux@lfdr.de>; Mon, 06 Apr 2020 09:42:03 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586191322; cv=pass;
+Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2112719FA73
+	for <lists+clang-built-linux@lfdr.de>; Mon,  6 Apr 2020 18:42:07 +0200 (CEST)
+Received: by mail-yb1-xb39.google.com with SMTP id 187sf525564ybk.14
+        for <lists+clang-built-linux@lfdr.de>; Mon, 06 Apr 2020 09:42:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586191326; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GjxfQM3eS97Bu/UkgkUWRmcJQoxxhyqiJA8YTzUZ/fTG/p488L1n7GKnkAqpfpaYI0
-         rp+vtI1WCkA3o5DJKoFEKsjT79GXkpDxHzElnYwSqc1MqwKY/CFSEnFRM+Ofaj2E69sV
-         w98cFADAJnNjRa+rQCff8nuQ0QB4Fs9fD2c9XnDnc+uc3hAnQ6WCTub26A85sylpcp2p
-         HGcujNV7f1Ubp8aC5yykDBB1rJ1Mdeg+BVf/PbslxGb2tx83jgNp6oK8k7D13Nj4egvl
-         68MDLQL1ZG9kpCMb4hSsThklzHHwOLIlOQmLX0aOW0gUxtqdklGNbOono5GvgFsXsCOB
-         HUzw==
+        b=kdNJkphgvAfqMTjgljGF8kIevKA3tsgbQ0DudBHOQDidcWRPGzJ/3E/1P2d0UcR9cv
+         69nnMJcMy79BD8mfz3Bv2+HzgDs/g31tnYH+N38mR3aNl8INpkvWsVCg9eVFWTNCVjzK
+         uqy2KL8t9Cb7kowF+s1Q5uq8toLFBfQlmoWlp8U1aftKTHOIhPheAYF8tWeO/+EnCvsf
+         +JkcZy5dtyXrsH8OEDC+wgFvQSF/uq50T6zZf4WxnKpObQr1x3KqYduw5MDdID7rCb/f
+         1HH25+DRmWvJZGPrTIne9x/CaBFo3Ty/NqbkdAh2vqKOsIpX76bc6lMaaroZFxy7Z2zy
+         Nd3w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=KbzJkfPgAntlC0dSFJtUrj6TzTRv8GWNRZL8718CGdI=;
-        b=l78qEQDf1huVR3RTZ/waRPePvaYxVwnmiqYTc8ykdpn8QUMmeDCA+cErVRn7BpGZs0
-         8lx+WNpoY+swoU4Ptp4l4T0eCqH2LZim4fHdOq/gbpVc2iN3AecOSsT4phaCPVjVvfsd
-         jUrZC60rLhkXady1BdtWk/+iyXTCF4Juc3LkJTu7DD+Tod8QVmkaE8a1MDtQklgFSUJN
-         QHqqfQdSgsl6cFLZW/yl8bKClbtnd+VOE9IkNY+BG14j3/HmVuodBKg9roAxxY5ZgD+z
-         9VwDITGTjMBrhWhtXSfi/xd6viMcOxe9pvVekKhDXN6KeCTDArfvCijJ4nzR/fh5SmtI
-         JqSg==
+        bh=J9uR07sxrFjp9YFj5XioSfT2QBTeEpE1l7U1REdjv3A=;
+        b=YeZ28RXPnaVzRXHt+ktmmhm2sXq+MYz/4wrb7RP5/CjpyGayC7T69IWdhkbJ3a9XPp
+         fGNE7vPf4Au2krAL3lBkoICG2ynz4tTSY4AzqJxQ4B8gVR+qFpJgAi02TRHLZWEr6+2l
+         SO8PieSMeA21jIDsC72SNP3uqaaMV/2wLXfBbBxE2k53xKtVTGEsBorfGMRCrhcSa7kX
+         qBwcvwLOt3aHdgYk2EAcYYRJelrkHlHh5eyFkWgWtEX0dft90vtcsh0ryIr/gYjt+QYR
+         PwPB9rtE4FCVuVC8QPrU17SmcEWbOFS/Yp9VgG6jBddOf11ExWtz9zVOwFN+byqELA9M
+         8KMQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=sFTilaim;
-       spf=pass (google.com: domain of 32vulxgwkalgqykgrmjtylclemmejc.amk@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::44a as permitted sender) smtp.mailfrom=32VuLXgwKALgqYkgrmjtYlclemmejc.amk@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=UdDOtErT;
+       spf=pass (google.com: domain of 33fulxgwkalstbnjupmwbofohpphmf.dpn@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::1049 as permitted sender) smtp.mailfrom=33FuLXgwKALstbnjupmwbofohpphmf.dpn@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=KbzJkfPgAntlC0dSFJtUrj6TzTRv8GWNRZL8718CGdI=;
-        b=WiDF1sizsw0uBSJgaxAGw5HRULfseIVuVj00S32ihUJjBHfh55Gfo8CxsaUTGgzBUZ
-         E7n+1j2abSGPceFkCGU/hm6FASgrDPxajFv1jGWnVk6dOJgXQvZRMcN7sLjXBg47yrT6
-         SfyW2obDACpUD3Qumlf05bTVEehAC19CbxtKWNSc2Y7v2XOdaaLGjBaq/8BEDylNeFnE
-         hqoGSsK+GRVudjzqX7I4Iz/DsD27Zgrb2orvt6VDKLk3PqaJsxjtboNB+a+uipkiX+Ya
-         MnbaSqHG0+naFw1lsobSPys5VuUIMRi4tnJInIsA3xvW8UjQ0Ce8tgXPpef/h+JMm9ai
-         EMaQ==
+        bh=J9uR07sxrFjp9YFj5XioSfT2QBTeEpE1l7U1REdjv3A=;
+        b=Bl7vv7R6x7rnWfnJA+rIIylkAqDqRM1weL0GRczbHyokG0OpZqXX9qjyrs1IaS2IXs
+         /De4LYyCqzPpFQGc65t+jKN1q/3SJPMlqlHm8QIMsqb4SHUh6aGoQvnj01CaRk6qjzQb
+         WUmuc4/He3MPcUB1H/jTWW3JYk2/f9OCuDYfvqFY9gTEREY4yWQHIq5s7dnwI5fuh6ZL
+         Qsww9CGrDupM0xNx1+lLW3p+GufgN4ytnG0ZeVTBmH3oJFZeDZceOOc/ZJgEjZclaEyO
+         bjJU5uV3oWa8PUyrkrBtSv5BxXe9rOetqZ5INSnjQutgPwGbUTeKRR5Wbu0fT2M+BBtS
+         942w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:in-reply-to:message-id:mime-version
@@ -49,62 +49,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=KbzJkfPgAntlC0dSFJtUrj6TzTRv8GWNRZL8718CGdI=;
-        b=WsBQf9UaiUOuHRHkSnUDJBsf+GlLCa7sqTstmXfAUtFJWzY5fzMOwLcKrVTp1Kc0m8
-         76qur9DvYMA/Sh8WNe9mD0zZo6wi3VuwZLAC6eIoysgUZM+zc0q3pLn2Pve7kSxJgWX7
-         p1CKpdagNVgbfuBSmbsCcgh1Kymfh3k6etrlwnNGuG8q2FtBTD0JRPyXhPiWwSJw01wh
-         DJt1zlInirEKytKNju7EVJ5Smohg2abhA16gzoeEj822jfVG0RW445PtTP1emr3t3DE0
-         a+ThMqb90YS4aXexIrR0jPWXSSCJgAak/HqgN40Xy2Xymy1tp3463vxf0l2UNgTs3U3C
-         JmZg==
-X-Gm-Message-State: AGi0Pua/YABHVCn0UOKmqrdirAxPulXLTd2eTFEDkWRgdP4jdq5awMR1
-	3cAWtv81UwnV2NUlmWe2PyQ=
-X-Google-Smtp-Source: APiQypKsuAg6UTa+OgUgeGsgB0VKRkjlq4t9/UY/+fs/452iG9P2j6vH0kMMn6bv5lubO5lPHtVkhA==
-X-Received: by 2002:a67:d613:: with SMTP id n19mr440794vsj.207.1586191322555;
-        Mon, 06 Apr 2020 09:42:02 -0700 (PDT)
+        bh=J9uR07sxrFjp9YFj5XioSfT2QBTeEpE1l7U1REdjv3A=;
+        b=ahdQl6pzbcWP35/RlDN8UY/hYZTAhyJxVl6hFdkM2jIsLLsPqZIcrSbg7wuvi3DMAi
+         irq2IJR4SDlsbvjV4uPC2CU9C7SjJr1neiQnRjnnlYZeSeLxsVBMTo67u9baL1gpyLMq
+         zfc2evG07j8kR0mpqYOy5zZDNojTiQAts4qqiYP+XcNtLTIE0xAu7XS7zpRsjOJ8BDAS
+         InhbtnNgZze9wh4qYk+Qj9+VJ6gjVwagW6FL5QpclOdLWaHumaK+UjsixGr2NGB5VqTy
+         1rhGF/n2Vd9NQNgj2u4pJ5jgYAiuzD/DjXpWiyYu0RYeGatESqdo6zhegTQBXd2L0FGj
+         MYJA==
+X-Gm-Message-State: AGi0PubYyKSFD9ZM39uZx05zZqkZpIfcZN2r9XUnhnD8eDtBS0PTnF3g
+	yEsI5ApRWUBcoX/18Ou/VPA=
+X-Google-Smtp-Source: APiQypJnFX1gwPpCFJJ/Y0Ulse2jtVWH9hgOf45rWS8uZT4j3oaGaBpnFOU+zXe+5wHoJ6Xj93xPyg==
+X-Received: by 2002:a25:c601:: with SMTP id k1mr10033604ybf.36.1586191326093;
+        Mon, 06 Apr 2020 09:42:06 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:8797:: with SMTP id j145ls47237vsd.3.gmail; Mon, 06 Apr
- 2020 09:42:02 -0700 (PDT)
-X-Received: by 2002:a67:6f84:: with SMTP id k126mr494684vsc.112.1586191322041;
-        Mon, 06 Apr 2020 09:42:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586191322; cv=none;
+Received: by 2002:a25:25d4:: with SMTP id l203ls34153ybl.3.gmail; Mon, 06 Apr
+ 2020 09:42:05 -0700 (PDT)
+X-Received: by 2002:a25:c0c4:: with SMTP id c187mr39570882ybf.293.1586191325679;
+        Mon, 06 Apr 2020 09:42:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586191325; cv=none;
         d=google.com; s=arc-20160816;
-        b=ITqkY592sx7eO4kY3pS2Yf3XfttbR+o6Z2wzuNKACuZ1ep5x/t8CURbGLBmLxVSzt/
-         SAZWctefLvgdj3UgtCdx6aojU4mgGoacxWnllZGae4hOCjlDzeYXQrNEqHygx9KENCCv
-         FBRtg2LI36s/4G8KH1e9bihfvQ35jPFuT0nwDaog/Dt6xER81MCALgSrQTDQjVYRlCr6
-         xwmZGJQ71i5QqD4vmR3S87GaL4NNWBt1ltgK0o5U3EzFzAhDwNVbRNE4EAJtfyd3PZsi
-         tOGWmVKpRGt3OP/trBau3LlAGq9SKgqxndDopRN/uk1ioAuekHvsoZaw6gFAybNOEW5a
-         7S2g==
+        b=VlNV97BUuzbSKRHMhu2bEnklEoyrJFuE9y4mNE0WxrzhxVs3xXXWJiFB38wCl9K8WT
+         7OXf4BG/5cfTG8aBdt65AM3qL65beFJCY4nBnPk4QEeXiuS8g2+bCM1WMUewkeu+dpU4
+         sfTLlCr4WlJJ/MWwjOS3KEFxfeUWTHNvw4LDDvxg9AVuPswU35Vr9SLSbx2G/IucBNNe
+         NGgNLotbGT+quBK8ufGPjB8fTAPRgRX/brVVc7+bbt2tPgR+5BHUXnjOTY3hEImBDj8x
+         G3PmIFNIIlLHjDM2WExnoy/m6Umg2ECJ4bcsOxILzkxLpjr+u/HDhUmJUkw94zSuSxpV
+         OLEQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:dkim-signature;
-        bh=og4BfgkxEdyP0L7K3K2SXksO/AChbKUXMouXqYPSA00=;
-        b=S7viVhlqzGCQO6aa/yX7YQ3fTHQTc8k+7KxHhNXRz0Pp74KxQ0qtziLycFXjkknGR6
-         zDqwkVf91if7s8k7HVPmO/d/qSufY+G6obWkM0Y86sRUpIXrvnr1jbU4lmmnaTJThevL
-         FroewQrSX9MlGUeJZE98TEYCx56scQNhjgJ87CJD8lFPLgvPB4GUXDBoBkQnQ8HYuACF
-         cvPQSJOkrJCDbcF3ATyXKJSoLZU6aaFxt38GQFdEKnYcepCaR5dwjjVzGFMmZt4W92J1
-         uoZ8Ed0xNhc4CNdp+nWbaBurGqNyH/x/sZYyW1rBVPb4fhy2Exu3nOLnqX8My7aQUEPT
-         Q6mg==
+        bh=kgQPYIY9NGlgwtfpFfU58so/w3Z2UFjuSrLkEeyFxgA=;
+        b=Iv/HJlkBAI96FJ5Zo+CkRs5VuSz0/Yb22v1uDMC7NiKAlzBZGK9arZMhjuzMBdpuxz
+         IjfYwkwhr/KQt1PHCDpdvpXib3NkwUOq1CoLS7ccQ5QEoIfOdQLn1lPGxj2T9RXIlCyB
+         zWDw/YQCb4CxfIHvEt1qW+4OrVWWsC7PsnqrgBXErlr8QjGsgbmhjmu95mAk6H8/UWq8
+         TQJKYYWHrmUIv0Gl1XQvEuOLUqcFhEWX8NF9wM5BVUaiwpx2lM99uWh/FcBeYPoa4mBM
+         8qYJ0GBIWvEoE1kWcfZhZDmJXIOLK9rkJKHbs1gPHv/3jFKo9e2tYeGzBDR9iL8wQCSZ
+         vgwg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=sFTilaim;
-       spf=pass (google.com: domain of 32vulxgwkalgqykgrmjtylclemmejc.amk@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::44a as permitted sender) smtp.mailfrom=32VuLXgwKALgqYkgrmjtYlclemmejc.amk@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=UdDOtErT;
+       spf=pass (google.com: domain of 33fulxgwkalstbnjupmwbofohpphmf.dpn@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::1049 as permitted sender) smtp.mailfrom=33FuLXgwKALstbnjupmwbofohpphmf.dpn@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x44a.google.com (mail-pf1-x44a.google.com. [2607:f8b0:4864:20::44a])
-        by gmr-mx.google.com with ESMTPS id y12si21749vsg.0.2020.04.06.09.42.02
+Received: from mail-pj1-x1049.google.com (mail-pj1-x1049.google.com. [2607:f8b0:4864:20::1049])
+        by gmr-mx.google.com with ESMTPS id l141si26972ybl.3.2020.04.06.09.42.05
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 06 Apr 2020 09:42:02 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 32vulxgwkalgqykgrmjtylclemmejc.amk@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::44a as permitted sender) client-ip=2607:f8b0:4864:20::44a;
-Received: by mail-pf1-x44a.google.com with SMTP id x25so32096pfq.18
-        for <clang-built-linux@googlegroups.com>; Mon, 06 Apr 2020 09:42:01 -0700 (PDT)
-X-Received: by 2002:a63:c504:: with SMTP id f4mr1623499pgd.292.1586191321112;
- Mon, 06 Apr 2020 09:42:01 -0700 (PDT)
-Date: Mon,  6 Apr 2020 09:41:18 -0700
+        Mon, 06 Apr 2020 09:42:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 33fulxgwkalstbnjupmwbofohpphmf.dpn@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::1049 as permitted sender) client-ip=2607:f8b0:4864:20::1049;
+Received: by mail-pj1-x1049.google.com with SMTP id o20so35217pjs.4
+        for <clang-built-linux@googlegroups.com>; Mon, 06 Apr 2020 09:42:05 -0700 (PDT)
+X-Received: by 2002:a17:90a:fa08:: with SMTP id cm8mr50931pjb.144.1586191324789;
+ Mon, 06 Apr 2020 09:42:04 -0700 (PDT)
+Date: Mon,  6 Apr 2020 09:41:19 -0700
 In-Reply-To: <20200406164121.154322-1-samitolvanen@google.com>
-Message-Id: <20200406164121.154322-10-samitolvanen@google.com>
+Message-Id: <20200406164121.154322-11-samitolvanen@google.com>
 Mime-Version: 1.0
 References: <20191018161033.261971-1-samitolvanen@google.com> <20200406164121.154322-1-samitolvanen@google.com>
 X-Mailer: git-send-email 2.26.0.292.g33ef6b2f38-goog
-Subject: [PATCH v10 09/12] arm64: disable SCS for hypervisor code
+Subject: [PATCH v10 10/12] arm64: implement Shadow Call Stack
 From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
 	James Morse <james.morse@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
@@ -120,9 +120,9 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Kees Cook <keescook@chromium.org>,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=sFTilaim;       spf=pass
- (google.com: domain of 32vulxgwkalgqykgrmjtylclemmejc.amk@flex--samitolvanen.bounces.google.com
- designates 2607:f8b0:4864:20::44a as permitted sender) smtp.mailfrom=32VuLXgwKALgqYkgrmjtYlclemmejc.amk@flex--samitolvanen.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=UdDOtErT;       spf=pass
+ (google.com: domain of 33fulxgwkalstbnjupmwbofohpphmf.dpn@flex--samitolvanen.bounces.google.com
+ designates 2607:f8b0:4864:20::1049 as permitted sender) smtp.mailfrom=33FuLXgwKALstbnjupmwbofohpphmf.dpn@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Sami Tolvanen <samitolvanen@google.com>
 Reply-To: Sami Tolvanen <samitolvanen@google.com>
@@ -138,33 +138,350 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Disable SCS for code that runs at a different exception level by
-adding __noscs to __hyp_text.
+This change implements shadow stack switching, initial SCS set-up,
+and interrupt shadow stacks for arm64.
 
-Suggested-by: James Morse <james.morse@arm.com>
 Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-Acked-by: Marc Zyngier <maz@kernel.org>
+Reviewed-by: Kees Cook <keescook@chromium.org>
 ---
- arch/arm64/include/asm/kvm_hyp.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/Kconfig                   |  5 ++++
+ arch/arm64/include/asm/scs.h         | 37 +++++++++++++++++++++++++
+ arch/arm64/include/asm/thread_info.h |  3 +++
+ arch/arm64/kernel/Makefile           |  1 +
+ arch/arm64/kernel/asm-offsets.c      |  3 +++
+ arch/arm64/kernel/entry.S            | 33 +++++++++++++++++++++--
+ arch/arm64/kernel/head.S             |  8 ++++++
+ arch/arm64/kernel/irq.c              |  2 ++
+ arch/arm64/kernel/process.c          |  2 ++
+ arch/arm64/kernel/scs.c              | 40 ++++++++++++++++++++++++++++
+ arch/arm64/kernel/smp.c              |  4 +++
+ 11 files changed, 136 insertions(+), 2 deletions(-)
+ create mode 100644 arch/arm64/include/asm/scs.h
+ create mode 100644 arch/arm64/kernel/scs.c
 
-diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
-index fe57f60f06a8..875b106c5d98 100644
---- a/arch/arm64/include/asm/kvm_hyp.h
-+++ b/arch/arm64/include/asm/kvm_hyp.h
-@@ -13,7 +13,7 @@
- #include <asm/kvm_mmu.h>
- #include <asm/sysreg.h>
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 6e41c4b62607..b47c254ce1dd 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -64,6 +64,7 @@ config ARM64
+ 	select ARCH_USE_QUEUED_RWLOCKS
+ 	select ARCH_USE_QUEUED_SPINLOCKS
+ 	select ARCH_SUPPORTS_MEMORY_FAILURE
++	select ARCH_SUPPORTS_SHADOW_CALL_STACK if CC_HAVE_SHADOW_CALL_STACK
+ 	select ARCH_SUPPORTS_ATOMIC_RMW
+ 	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128 && (GCC_VERSION >= 50000 || CC_IS_CLANG)
+ 	select ARCH_SUPPORTS_NUMA_BALANCING
+@@ -1025,6 +1026,10 @@ config ARCH_HAS_CACHE_LINE_SIZE
+ config ARCH_ENABLE_SPLIT_PMD_PTLOCK
+ 	def_bool y if PGTABLE_LEVELS > 2
  
--#define __hyp_text __section(.hyp.text) notrace
-+#define __hyp_text __section(.hyp.text) notrace __noscs
++# Supported by clang >= 7.0
++config CC_HAVE_SHADOW_CALL_STACK
++	def_bool $(cc-option, -fsanitize=shadow-call-stack -ffixed-x18)
++
+ config SECCOMP
+ 	bool "Enable seccomp to safely compute untrusted bytecode"
+ 	---help---
+diff --git a/arch/arm64/include/asm/scs.h b/arch/arm64/include/asm/scs.h
+new file mode 100644
+index 000000000000..c50d2b0c6c5f
+--- /dev/null
++++ b/arch/arm64/include/asm/scs.h
+@@ -0,0 +1,37 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASM_SCS_H
++#define _ASM_SCS_H
++
++#ifndef __ASSEMBLY__
++
++#include <linux/scs.h>
++
++#ifdef CONFIG_SHADOW_CALL_STACK
++
++extern void scs_init_irq(void);
++
++static __always_inline void scs_save(struct task_struct *tsk)
++{
++	void *s;
++
++	asm volatile("mov %0, x18" : "=r" (s));
++	task_set_scs(tsk, s);
++}
++
++static inline void scs_overflow_check(struct task_struct *tsk)
++{
++	if (unlikely(scs_corrupted(tsk)))
++		panic("corrupted shadow stack detected inside scheduler\n");
++}
++
++#else /* CONFIG_SHADOW_CALL_STACK */
++
++static inline void scs_init_irq(void) {}
++static inline void scs_save(struct task_struct *tsk) {}
++static inline void scs_overflow_check(struct task_struct *tsk) {}
++
++#endif /* CONFIG_SHADOW_CALL_STACK */
++
++#endif /* __ASSEMBLY __ */
++
++#endif /* _ASM_SCS_H */
+diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
+index 512174a8e789..1fb651f73da3 100644
+--- a/arch/arm64/include/asm/thread_info.h
++++ b/arch/arm64/include/asm/thread_info.h
+@@ -41,6 +41,9 @@ struct thread_info {
+ #endif
+ 		} preempt;
+ 	};
++#ifdef CONFIG_SHADOW_CALL_STACK
++	void			*shadow_call_stack;
++#endif
+ };
  
- #define read_sysreg_elx(r,nvh,vh)					\
- 	({								\
+ #define thread_saved_pc(tsk)	\
+diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
+index 4e5b8ee31442..151f28521f1e 100644
+--- a/arch/arm64/kernel/Makefile
++++ b/arch/arm64/kernel/Makefile
+@@ -63,6 +63,7 @@ obj-$(CONFIG_CRASH_CORE)		+= crash_core.o
+ obj-$(CONFIG_ARM_SDE_INTERFACE)		+= sdei.o
+ obj-$(CONFIG_ARM64_SSBD)		+= ssbd.o
+ obj-$(CONFIG_ARM64_PTR_AUTH)		+= pointer_auth.o
++obj-$(CONFIG_SHADOW_CALL_STACK)		+= scs.o
+ 
+ obj-y					+= vdso/ probes/
+ obj-$(CONFIG_COMPAT_VDSO)		+= vdso32/
+diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
+index 9981a0a5a87f..777a662888ec 100644
+--- a/arch/arm64/kernel/asm-offsets.c
++++ b/arch/arm64/kernel/asm-offsets.c
+@@ -33,6 +33,9 @@ int main(void)
+   DEFINE(TSK_TI_ADDR_LIMIT,	offsetof(struct task_struct, thread_info.addr_limit));
+ #ifdef CONFIG_ARM64_SW_TTBR0_PAN
+   DEFINE(TSK_TI_TTBR0,		offsetof(struct task_struct, thread_info.ttbr0));
++#endif
++#ifdef CONFIG_SHADOW_CALL_STACK
++  DEFINE(TSK_TI_SCS,		offsetof(struct task_struct, thread_info.shadow_call_stack));
+ #endif
+   DEFINE(TSK_STACK,		offsetof(struct task_struct, stack));
+ #ifdef CONFIG_STACKPROTECTOR
+diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+index ddcde093c433..c33264ce7258 100644
+--- a/arch/arm64/kernel/entry.S
++++ b/arch/arm64/kernel/entry.S
+@@ -179,6 +179,11 @@ alternative_cb_end
+ 	apply_ssbd 1, x22, x23
+ 
+ 	ptrauth_keys_install_kernel tsk, 1, x20, x22, x23
++
++#ifdef CONFIG_SHADOW_CALL_STACK
++	ldr	x18, [tsk, #TSK_TI_SCS]		// Restore shadow call stack
++	str	xzr, [tsk, #TSK_TI_SCS]		// Limit visibility of saved SCS
++#endif
+ 	.else
+ 	add	x21, sp, #S_FRAME_SIZE
+ 	get_current_task tsk
+@@ -280,6 +285,12 @@ alternative_else_nop_endif
+ 	ct_user_enter
+ 	.endif
+ 
++#ifdef CONFIG_SHADOW_CALL_STACK
++	.if	\el == 0
++	str	x18, [tsk, #TSK_TI_SCS]		// Save shadow call stack
++	.endif
++#endif
++
+ #ifdef CONFIG_ARM64_SW_TTBR0_PAN
+ 	/*
+ 	 * Restore access to TTBR0_EL1. If returning to EL0, no need for SPSR
+@@ -388,6 +399,9 @@ alternative_insn eret, nop, ARM64_UNMAP_KERNEL_AT_EL0
+ 
+ 	.macro	irq_stack_entry
+ 	mov	x19, sp			// preserve the original sp
++#ifdef CONFIG_SHADOW_CALL_STACK
++	mov	x24, x18		// preserve the original shadow stack
++#endif
+ 
+ 	/*
+ 	 * Compare sp with the base of the task stack.
+@@ -405,15 +419,25 @@ alternative_insn eret, nop, ARM64_UNMAP_KERNEL_AT_EL0
+ 
+ 	/* switch to the irq stack */
+ 	mov	sp, x26
++
++#ifdef CONFIG_SHADOW_CALL_STACK
++	/* also switch to the irq shadow stack */
++	ldr_this_cpu x18, irq_shadow_call_stack_ptr, x26
++#endif
++
+ 9998:
+ 	.endm
+ 
+ 	/*
+-	 * x19 should be preserved between irq_stack_entry and
+-	 * irq_stack_exit.
++	 * The callee-saved regs (x19-x29) should be preserved between
++	 * irq_stack_entry and irq_stack_exit, but note that kernel_entry
++	 * uses x20-x23 to store data for later use.
+ 	 */
+ 	.macro	irq_stack_exit
+ 	mov	sp, x19
++#ifdef CONFIG_SHADOW_CALL_STACK
++	mov	x18, x24
++#endif
+ 	.endm
+ 
+ /* GPRs used by entry code */
+@@ -901,6 +925,11 @@ SYM_FUNC_START(cpu_switch_to)
+ 	mov	sp, x9
+ 	msr	sp_el0, x1
+ 	ptrauth_keys_install_kernel x1, 1, x8, x9, x10
++#ifdef CONFIG_SHADOW_CALL_STACK
++	str	x18, [x0, #TSK_TI_SCS]
++	ldr	x18, [x1, #TSK_TI_SCS]
++	str	xzr, [x1, #TSK_TI_SCS]		// limit visibility of saved SCS
++#endif
+ 	ret
+ SYM_FUNC_END(cpu_switch_to)
+ NOKPROBE(cpu_switch_to)
+diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+index 57a91032b4c2..1514445bbccb 100644
+--- a/arch/arm64/kernel/head.S
++++ b/arch/arm64/kernel/head.S
+@@ -424,6 +424,10 @@ SYM_FUNC_START_LOCAL(__primary_switched)
+ 	stp	xzr, x30, [sp, #-16]!
+ 	mov	x29, sp
+ 
++#ifdef CONFIG_SHADOW_CALL_STACK
++	adr_l	x18, init_shadow_call_stack	// Set shadow call stack
++#endif
++
+ 	str_l	x21, __fdt_pointer, x5		// Save FDT pointer
+ 
+ 	ldr_l	x4, kimage_vaddr		// Save the offset between
+@@ -737,6 +741,10 @@ SYM_FUNC_START_LOCAL(__secondary_switched)
+ 	ldr	x2, [x0, #CPU_BOOT_TASK]
+ 	cbz	x2, __secondary_too_slow
+ 	msr	sp_el0, x2
++#ifdef CONFIG_SHADOW_CALL_STACK
++	ldr	x18, [x2, #TSK_TI_SCS]		// set shadow call stack
++	str	xzr, [x2, #TSK_TI_SCS]		// limit visibility of saved SCS
++#endif
+ 	mov	x29, #0
+ 	mov	x30, #0
+ 	b	secondary_start_kernel
+diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
+index 04a327ccf84d..fe0ca522ff60 100644
+--- a/arch/arm64/kernel/irq.c
++++ b/arch/arm64/kernel/irq.c
+@@ -21,6 +21,7 @@
+ #include <linux/vmalloc.h>
+ #include <asm/daifflags.h>
+ #include <asm/vmap_stack.h>
++#include <asm/scs.h>
+ 
+ unsigned long irq_err_count;
+ 
+@@ -63,6 +64,7 @@ static void init_irq_stacks(void)
+ void __init init_IRQ(void)
+ {
+ 	init_irq_stacks();
++	scs_init_irq();
+ 	irqchip_init();
+ 	if (!handle_arch_irq)
+ 		panic("No interrupt controller found.");
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index 56be4cbf771f..a35d3318492c 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -52,6 +52,7 @@
+ #include <asm/mmu_context.h>
+ #include <asm/processor.h>
+ #include <asm/pointer_auth.h>
++#include <asm/scs.h>
+ #include <asm/stacktrace.h>
+ 
+ #if defined(CONFIG_STACKPROTECTOR) && !defined(CONFIG_STACKPROTECTOR_PER_TASK)
+@@ -515,6 +516,7 @@ __notrace_funcgraph struct task_struct *__switch_to(struct task_struct *prev,
+ 	entry_task_switch(next);
+ 	uao_thread_switch(next);
+ 	ssbs_thread_switch(next);
++	scs_overflow_check(next);
+ 
+ 	/*
+ 	 * Complete any pending TLB or cache maintenance on this CPU in case
+diff --git a/arch/arm64/kernel/scs.c b/arch/arm64/kernel/scs.c
+new file mode 100644
+index 000000000000..eaadf5430baa
+--- /dev/null
++++ b/arch/arm64/kernel/scs.c
+@@ -0,0 +1,40 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Shadow Call Stack support.
++ *
++ * Copyright (C) 2019 Google LLC
++ */
++
++#include <linux/percpu.h>
++#include <linux/vmalloc.h>
++#include <asm/pgtable.h>
++#include <asm/scs.h>
++
++DEFINE_PER_CPU(unsigned long *, irq_shadow_call_stack_ptr);
++
++#ifndef CONFIG_SHADOW_CALL_STACK_VMAP
++DEFINE_PER_CPU(unsigned long [SCS_SIZE/sizeof(long)], irq_shadow_call_stack)
++	__aligned(SCS_SIZE);
++#endif
++
++void scs_init_irq(void)
++{
++	int cpu;
++
++	for_each_possible_cpu(cpu) {
++#ifdef CONFIG_SHADOW_CALL_STACK_VMAP
++		unsigned long *p;
++
++		p = __vmalloc_node_range(PAGE_SIZE, SCS_SIZE,
++					 VMALLOC_START, VMALLOC_END,
++					 GFP_SCS, PAGE_KERNEL,
++					 0, cpu_to_node(cpu),
++					 __builtin_return_address(0));
++
++		per_cpu(irq_shadow_call_stack_ptr, cpu) = p;
++#else
++		per_cpu(irq_shadow_call_stack_ptr, cpu) =
++			per_cpu(irq_shadow_call_stack, cpu);
++#endif /* CONFIG_SHADOW_CALL_STACK_VMAP */
++	}
++}
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 061f60fe452f..1d112e34a636 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -46,6 +46,7 @@
+ #include <asm/pgtable.h>
+ #include <asm/pgalloc.h>
+ #include <asm/processor.h>
++#include <asm/scs.h>
+ #include <asm/smp_plat.h>
+ #include <asm/sections.h>
+ #include <asm/tlbflush.h>
+@@ -370,6 +371,9 @@ void cpu_die(void)
+ 	unsigned int cpu = smp_processor_id();
+ 	const struct cpu_operations *ops = get_cpu_ops(cpu);
+ 
++	/* Save the shadow stack pointer before exiting the idle task */
++	scs_save(current);
++
+ 	idle_task_exit();
+ 
+ 	local_daif_mask();
 -- 
 2.26.0.292.g33ef6b2f38-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200406164121.154322-10-samitolvanen%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200406164121.154322-11-samitolvanen%40google.com.
