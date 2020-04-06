@@ -1,121 +1,133 @@
-Return-Path: <clang-built-linux+bncBDPL7R4J6AKRBM5IVT2AKGQEJI6FTZY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBTUZVT2AKGQE55RGMQY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x438.google.com (mail-wr1-x438.google.com [IPv6:2a00:1450:4864:20::438])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5F25719F4AC
-	for <lists+clang-built-linux@lfdr.de>; Mon,  6 Apr 2020 13:36:20 +0200 (CEST)
-Received: by mail-wr1-x438.google.com with SMTP id n7sf4211441wru.9
-        for <lists+clang-built-linux@lfdr.de>; Mon, 06 Apr 2020 04:36:20 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586172980; cv=pass;
+Received: from mail-pj1-x103f.google.com (mail-pj1-x103f.google.com [IPv6:2607:f8b0:4864:20::103f])
+	by mail.lfdr.de (Postfix) with ESMTPS id D186F19F415
+	for <lists+clang-built-linux@lfdr.de>; Mon,  6 Apr 2020 13:04:47 +0200 (CEST)
+Received: by mail-pj1-x103f.google.com with SMTP id q10sf14521999pja.1
+        for <lists+clang-built-linux@lfdr.de>; Mon, 06 Apr 2020 04:04:47 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586171086; cv=pass;
         d=google.com; s=arc-20160816;
-        b=wyC0QP2ay6i0eZVNtGw/DQ8OlhRGlCRTvdoAiKUhkSqUeBimttx5hegRdbyZrjLcS2
-         8vfuUHlR49shl9xXsylsz1WDJavEhgiQfaPLNIDr5vOjIagzz1V+GrPAoFBEA+eDqApx
-         PxDb15yuQs0hQDe0NPB2r8vxAeKHCQdKlmgGSCjkqt56R/ef9Lo9sYr77k+8Xt5caDV/
-         BhQoZSB5QRgQYZwcWdUn7wzrOxTvRORJfmQzKGqLu/UygrGqTviZ1MNILn6/3430Pejg
-         S1OAtxI2NFyo/l4crHPYMbQ1vdltYvRhk3/IBM+z8+yIZ6OcIy44Yo3xNiKSVbaAsIXB
-         8xIw==
+        b=AMlQcSSWgCYZp0llUmcrNXVdqmkKa6rY/BJ37YWuDJIabzHcSAtf59UONt15kNhaGh
+         +bEhYt5eJUxA96L1b15wezK5K4/BDbNZrfI0z1+rBfkrsBVdKIav1KIa/x+YKJOWQeSm
+         EWUcuxoYqJQY2WrCDsVLig9wVX/+L9zuf+wPTvuwNB5ZI176RuZIf4DG40MJGLSp64dw
+         rXCO0Q0ikuFhwHozbGN7GQ1zfbeTJajnwhG7+kocJ64XayiPrw1vYqBiYd681zrpxsd+
+         B+JQbBOxq4fymE2ZV/k+lkudHjuv9ncsxmP9LCZKXovDN09QdltTrW1mHZxgoGAVEVVN
+         jjJg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=dNhlABmqE/ud99pAjEQdyUC+v9auDThZtJ1HtIzbmig=;
-        b=KVDrlDSmQHTCXmJDFzxwZksfAb2xV0QP6bKx3rI84LEzY0clwvjY43hVP1RxCLpjpy
-         uiXMYwijqsY/b9Q2CkQ3oAxzQqbcOotPTPHMu4cNUz40VF+BHYi+xIJPhmxCMDWxXitz
-         EgpgPSRl+DXhV8yfnronu970e8JUXjO2yZYVtHksOO6gQt/H2FLXThvOdTfa3/3AF54B
-         Ne6V8H8tmmzakrXvu3RyvHz+4BIKZKenQQNWw0DhdnmzUVZzd7n27jwDa8VMHqsv6thu
-         3KP2Hu3CRecscJvGkjWURK9ZUnjfdiL4AThVzRHxX/clMkCZ2iSwHUzjp04iQeZuQRvJ
-         J16Q==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=SWuAhyUpJvvExa5j4Z1gHXr8z8yilZNC4dJFHZqPzxg=;
+        b=mSSJhskoF7/umjWryLioXpxzo5fR+PvD7R3yM4dV9OHUeodlQ9Qyyt0GGLKd6u8JuX
+         /K7YTHEUZFAJUn6JNXQNckbBrxS9mWMFcFK1mIWRnDWy/3F0fihULic2OrFPyBZBTx8V
+         m+WcoerPijt4J6X1aI3cdgVT2tYic26LPdobDhdOlZT0KFmoAX64xXYzCodXNAlIEbr0
+         BBTET6nqlgw1VR/VbJWlgRvxEGjuJtteQgEXpHtRlIuNGwJ/5P1KcW0h60OchtJfmzLv
+         tKq1RDmHXP42kflHo0wvcgFJ8PInBLkcZrV/iGx96/y1FnuiMrA2C+K6nDm7JSzXsSk4
+         PBIg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of tsbogend@alpha.franken.de designates 193.175.24.41 as permitted sender) smtp.mailfrom=tsbogend@alpha.franken.de
+       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=NlmLniwP;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=dNhlABmqE/ud99pAjEQdyUC+v9auDThZtJ1HtIzbmig=;
-        b=Z2GsVFcvWY+kOcOnc4WQ4ACqsHaHau7YOYWDVhtAw7h4AsqJxEKXRvbTCr82b/i0Ta
-         x4JHtsxZAF96O/6z7fjG9KKirSOm6g3t8KusUz/Et3TYOwyjsuNLxRf7YRTcyTcH31XD
-         9RZYv4SxbfGa9QKccBGSIVPURL71TsLv3x5K6ncxir7iqKlynj02hp69of7KYzU7npxw
-         YFWuey84nmPDXsJThdm1kdYjx+KxG2ASx71tjwL0jbs7PmzpQaYOiejx67Xj/A16I4j2
-         rEm0kFXGW+nzauOHT969YIybuWJA+30P92hgohGon18EUPoEJ8B6lWrO8jjIb98Fo2oV
-         0vlA==
+        bh=SWuAhyUpJvvExa5j4Z1gHXr8z8yilZNC4dJFHZqPzxg=;
+        b=ZIs25jhSZNbVicEDym9WGw1oIERCTa08daEFCdcuFrtCN5XaYlGt5yN37fAjeOuskr
+         U++3DLqvtIjrCJe4Dz/h1j155XvQeGHqpXPb7TvxfUbsWD6cNI2Q+smvVJ3BnKzR8zaA
+         VH2n5t1ZEfQQTUEs4YxWDU2nF4zjhcxSh3sq2DFl0KRqSznrMWAAJqECGZkn1u1/XCmV
+         2esc8tsfTEgpYMuqYuhFfIeJxZ1dPD2YPJyw/rg2iabiKRUWTgOdbyUSW33ln2ZDFmCj
+         oKZe9GGR8qpyy6G8Q3Ev8rO100YqoBwEBuJtJawsUN0f9Jp8caN+dFnJcs3UbYcz2jVo
+         mL6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=dNhlABmqE/ud99pAjEQdyUC+v9auDThZtJ1HtIzbmig=;
-        b=RhqzCn2vb1JXb2oIdyUBIzPD0hLscdFfhrDPBQwA1/LOsfNVv6e6WPb8C2E1BhjbA9
-         /UwaqfYTzJR9MDBGBZ4sG+29tsM6Ic2jLdl11rcDlVPrYukkXUvewt8n/3hF5pJ4pr/d
-         D88b9UbKf9kCOtQ0wA+MmNGyXdCUIYJ5zuspwPVxJ4XnXPFjaP/vozvt8Udi96EXNfyv
-         waxLS3l820OR4ZiUQoulla017hqI/I707L15TCMotuBwyfXYJB/vL84L39HUXqljF7wI
-         Q7bMmYdNU82ChE8oKZq4qhjuIjOIuEt3Xfy+8bijVVgyD7Jde5qJrhPoV1Ub+crMPT6Y
-         n/RQ==
+        bh=SWuAhyUpJvvExa5j4Z1gHXr8z8yilZNC4dJFHZqPzxg=;
+        b=PS9dmZRFdMg59yIFUgyNmUHiOIz1g9dRpGz7KsEPKYULvgaXzxHOnNn3mpjnX62xtl
+         tj2ipJ+nUc4WA+VOhX9yfoCHAo2H3+NlaGce77fGPErA6Fr+F4LPgcyrp59so43LEArL
+         p+n7/Fs3pTw86xR+Gvj94oDzIkbN7gLs3yS0PjkHjgGB60hJGHZGMuBvCtB2T0tugFX4
+         sCFQCVCjZetDUgkMNz6vcdMye3u3GbRE+AhCmkq04xKt9fvx29SwL1l/yW9ZgM7e/cvW
+         k6ibEd35C7cGUyvkJsP/C1tw324pqx3aFqj25mIcgGlDyNcq3kQjIqCQwrhckxZD8My4
+         yd1A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuYMU/f/doixVl8jLRAsZ5fsSmNpIfvByvS1ofC5RY/e/nxSRnI4
-	nRg+0hCIr7Gu3OBlzY9qJqw=
-X-Google-Smtp-Source: APiQypIl0QOHApRInQKIhu10HaNCmDwJcYhyN2Zz1bLMP5MlegvPPt7DRRFpmF0K7MVgNkpEyP3qtg==
-X-Received: by 2002:a1c:a7c4:: with SMTP id q187mr8247083wme.56.1586172980081;
-        Mon, 06 Apr 2020 04:36:20 -0700 (PDT)
+X-Gm-Message-State: AGi0PuaKjb6Oxcn5QsYYbZS1JVKrx9pDXvmUPOoXsp3/7W7ZAwtnr67I
+	VGfZ1JkqjqqdcWXRJ2Wl4Bk=
+X-Google-Smtp-Source: APiQypIJbmvXvdRlnqlPYYbAU+1JuQYB8v0ZtOqk6EzKceJKH/8T6zNSMut7GnQeplODTROavvg5aA==
+X-Received: by 2002:a63:455:: with SMTP id 82mr19857865pge.197.1586171086445;
+        Mon, 06 Apr 2020 04:04:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:7d97:: with SMTP id y145ls7761226wmc.2.gmail; Mon, 06
- Apr 2020 04:36:19 -0700 (PDT)
-X-Received: by 2002:a1c:f302:: with SMTP id q2mr18187309wmq.185.1586172979507;
-        Mon, 06 Apr 2020 04:36:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586172979; cv=none;
+Received: by 2002:a62:7c97:: with SMTP id x145ls11087226pfc.6.gmail; Mon, 06
+ Apr 2020 04:04:45 -0700 (PDT)
+X-Received: by 2002:a63:3002:: with SMTP id w2mr20703141pgw.290.1586171085783;
+        Mon, 06 Apr 2020 04:04:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586171085; cv=none;
         d=google.com; s=arc-20160816;
-        b=DGBfPBoaQa4VJ0h/hpMqkKNA+UgEUDsp5aqXCp4H3Vg/uVh2rvb7WN4i60MOSAu0ci
-         Lbt8eP8ITf4gD4fxLPSucxp6nl7VsrLOioPiTXMYyjfo5KiQlAbwa6Y/15DaWSrEpvU2
-         pWp5KtvnYd46iHs2zNlNTzRdNzObJW4Z59B/CPx2J6im0JW9f/Wt564QYBBdXtQPA4s/
-         RcMhCgsXJQREOnDXlKG0lytQZtlCfaPdRFvgYIpkSBUEwsCAhHAwde6yK114NfMVr36/
-         KfWOVhnWv3UpegFAZBPhchb1wYilOU5OaWtpWZ2sery2vBIV7wn0A0YWpwLS2kH7AOHn
-         Mpzw==
+        b=rM2MQOrqOWrsBQI4xolNbbYbfu08CqhnS5Z5ufgmOUgpXQqsf27n2d71VfvQosf0Pl
+         kuB5OT7EIyte4Pe5UNnb9ZSxZWHKeJaq17Tgm2syE6nYf5GM6cot+MbV9J7Enfpdljz4
+         lnmoJXFIfEakcc2khxc9JjyutMjQ9oBOsAdtUcDodHiTpma2DTRIKgOKM6TTVHYCkK2K
+         UVmN2iENJtvDwKISHeBMG8NW4JkNdSJ/GTENmQlQkZtNClFK8iLk40COjt1aoZMrZ8X/
+         i8LG/iw8b8JwcWBrCl3o7MyU+XhR7Tos2or2/Op4CUxxCakr90Lk859TrevsAGcOzSKB
+         Ud5g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date;
-        bh=32AYODZJ5HxMEaVfbRH/HHNySAv9VGLbm2kQeicB8r0=;
-        b=DdzX8GaxOqHMp+/bbeq6dYh2ImKj3K8uCjS6Wm3DgCanM9Q+qyW3C9IJ1XB7MNzADL
-         /Ms8PEWbWwXJinwfyNtCUU+xOZ5SQEJdnV9QX40sY6j8A6kF9WX0IqikpMgS9HLHyscN
-         aT0zCrgYz0NU9/hP7k/jFxkLT2++tucSYF90r88sVod6M1+5oLzYuDZFSVoB2eexc34i
-         li31MbP10Zopi06ZkOsoURfnK3r6x5CouqybZKaYLlz0o/a9YfXD5JqCMTsfZ2O+o0HV
-         rhv6D6SjqOZbo7/gn2+kHOf1U0Ou2NnGdZzz4vL4iDdzMxGTCBaMrveTnkXXhki4MZhn
-         rqfg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=91jomgqgEShWhxWCDxxUvWHFtjKYAeVic8T17yZiSn8=;
+        b=EgnV5QUGvGfw5u4iua/brGA+DiXfDmlgK3Fq1DGcX+PKaSijhz2JRHyPFbctp+k8+6
+         FS8n+9jOCQNmafrpyEu6qSrOlKjdXbyNay1hOjiDRiYSwghPC5K197Lxm+m0EUcoLZcH
+         0/p6lQhS6JCqYeQqMF93ix5QSkKhYTHNtA40x8p0im2S5+Kn0yQtBflPmEcOixUmY62p
+         jRsq/SoPRBfU6kuVMhPJZTiiB3MSHBEbdRiX6X2QQ60CLKR9x3g4LboROoBtm1nDqjK8
+         GNcv0iV8u2nUw0OHzYDGSxA0hU3Q2Ix0fmBxzGWqMOgTgACPKOOhN8DWgXLD/tqzH9Tx
+         sroQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of tsbogend@alpha.franken.de designates 193.175.24.41 as permitted sender) smtp.mailfrom=tsbogend@alpha.franken.de
-Received: from elvis.franken.de (elvis.franken.de. [193.175.24.41])
-        by gmr-mx.google.com with ESMTP id g78si1173598wmg.0.2020.04.06.04.36.19
-        for <clang-built-linux@googlegroups.com>;
-        Mon, 06 Apr 2020 04:36:19 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of tsbogend@alpha.franken.de designates 193.175.24.41 as permitted sender) client-ip=193.175.24.41;
-Received: from uucp (helo=alpha)
-	by elvis.franken.de with local-bsmtp (Exim 3.36 #1)
-	id 1jLQ39-0007W1-00; Mon, 06 Apr 2020 13:36:19 +0200
-Received: by alpha.franken.de (Postfix, from userid 1000)
-	id 2E474C0206; Mon,  6 Apr 2020 13:03:33 +0200 (CEST)
-Date: Mon, 6 Apr 2020 13:03:33 +0200
-From: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: linux-kbuild@vger.kernel.org, linux-mips@linux-mips.org,
-	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Paul Burton <paulburton@kernel.org>, linux-mips@vger.kernel.org
-Subject: Re: [PATCH] MIPS: fw: arc: add __weak to prom_meminit and
- prom_free_prom_memory
-Message-ID: <20200406110333.GA6266@alpha.franken.de>
-References: <20200405163052.18942-1-masahiroy@kernel.org>
+       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=NlmLniwP;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
+Received: from bombadil.infradead.org (bombadil.infradead.org. [2607:7c80:54:e::133])
+        by gmr-mx.google.com with ESMTPS id i10si807465pli.0.2020.04.06.04.04.45
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Apr 2020 04:04:45 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) client-ip=2607:7c80:54:e::133;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
+	by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1jLPYX-0005ld-8D; Mon, 06 Apr 2020 11:04:41 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id C6B41304121;
+	Mon,  6 Apr 2020 13:04:38 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id AB48F2BAC6A8E; Mon,  6 Apr 2020 13:04:38 +0200 (CEST)
+Date: Mon, 6 Apr 2020 13:04:38 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Fangrui Song <maskray@google.com>
+Cc: x86@kernel.org, linux-kernel@vger.kernel.org, rostedt@goodmis.org,
+	mhiramat@kernel.org, bristot@redhat.com, jbaron@akamai.com,
+	torvalds@linux-foundation.org, tglx@linutronix.de, mingo@kernel.org,
+	namit@vmware.com, hpa@zytor.com, luto@kernel.org,
+	ard.biesheuvel@linaro.org, jpoimboe@redhat.com,
+	clang-built-linux@googlegroups.com, hjl.tools@gmail.com
+Subject: Re: [RESEND][PATCH v3 09/17] x86/static_call: Add out-of-line static
+ call implementation
+Message-ID: <20200406110438.GJ20730@hirez.programming.kicks-ass.net>
+References: <20200324135603.483964896@infradead.org>
+ <20200324142245.819003994@infradead.org>
+ <20200406010859.bcfouhukcgmg2on7@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200405163052.18942-1-masahiroy@kernel.org>
-User-Agent: Mutt/1.5.23 (2014-03-12)
-X-Original-Sender: tsbogend@alpha.franken.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: best guess record for domain of tsbogend@alpha.franken.de
- designates 193.175.24.41 as permitted sender) smtp.mailfrom=tsbogend@alpha.franken.de
+In-Reply-To: <20200406010859.bcfouhukcgmg2on7@google.com>
+X-Original-Sender: peterz@infradead.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@infradead.org header.s=bombadil.20170209 header.b=NlmLniwP;
+       spf=pass (google.com: best guess record for domain of
+ peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -128,41 +140,73 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Apr 06, 2020 at 01:30:52AM +0900, Masahiro Yamada wrote:
-> As far as I understood, prom_meminit() in arch/mips/fw/arc/memory.c
-> is overridden by the one in arch/mips/sgi-ip32/ip32-memory.c if
-> CONFIG_SGI_IP32 is enabled.
-> 
-> The use of EXPORT_SYMBOL in static libraries potentially causes a
-> problem for the llvm linker [1]. So, I want to forcibly link lib-y
-> objects to vmlinux when CONFIG_MODULES=y.
-> 
-> As a groundwork, we must fix multiple definitions that have previously
-> been hidden by lib-y.
-> 
-> The prom_cleanup() in this file is already marked as __weak (because
-> it is overridden by the one in arch/mips/sgi-ip22/ip22-mc.c).
-> I think it should be OK to do the same for these two.
-> 
-> [1]: https://github.com/ClangBuiltLinux/linux/issues/515
-> 
-> Reported-by: kbuild test robot <lkp@intel.com>
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-> ---
-> 
-> If MIPS maintainers ack this patch,
-> I want to inser it before the following patch:
+On Sun, Apr 05, 2020 at 06:08:59PM -0700, Fangrui Song wrote:
+> On 2020-03-24, Peter Zijlstra wrote:
 
+> > +#define ARCH_DEFINE_STATIC_CALL_TRAMP(name, func)			\
+> > +	asm(".pushsection .text, \"ax\"				\n"	\
+> > +	    ".align 4						\n"	\
+> > +	    ".globl " STATIC_CALL_TRAMP_STR(name) "		\n"	\
+> > +	    STATIC_CALL_TRAMP_STR(name) ":			\n"	\
+> > +	    "	jmp.d32 " #func "				\n"	\
+> > +	    ".type " STATIC_CALL_TRAMP_STR(name) ", @function	\n"	\
+> > +	    ".size " STATIC_CALL_TRAMP_STR(name) ", . - " STATIC_CALL_TRAMP_STR(name) " \n" \
+> > +	    ".popsection					\n")
+> > +
+> > +#endif /* _ASM_STATIC_CALL_H */
+> 
+> Hi Peter,
+> 
+> Coming here from https://github.com/ClangBuiltLinux/linux/issues/974
+> 
+> jmp.d32 is not recognized by clang integrated assembler.
+> The syntax appears to be very rarely used. According to Debian Code Search,
+> u-boot is the only project using this syntax.
 
-Acked-By: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+*groan*... I was going to use it in more places :-/
 
-Thomas.
+> In March 2017, gas added the pseudo prefix {disp32}
+> https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=86fa6981e7487e2c2df4337aa75ed2d93c32eaf2
+> which generalizes jmp.d32  ({disp32} jmp foo)
 
--- 
-Crap can work. Given enough thrust pigs will fly, but it's not necessarily a
-good idea.                                                [ RFC1925, 2.3 ]
+That's all well and cute, but I can't use that because its too new. Not
+until we raise the minimum gcc/bintils version to something that
+includes that.
+
+> I wonder whether the instruction jmp.d32 can be replaced with the trick in
+> arch/x86/include/asm/jump_label.h for clang portability.
+> 
+> % grep -A2 'jmp.d32' arch/x86/include/asm/jump_label.h
+>         /* Equivalent to "jmp.d32 \target" */
+>         .byte           0xe9
+>         .long           \target - .Lstatic_jump_after_\@
+
+Sure, but I was hoping to move away from that since all assemblers
+should now support jmp.d32. Except of course, you have to go ruin
+things.
+
+The thing is, jmp.d32 reads so much nicer than the above crap.
+
+Also, I still need a meta instruction like:
+
+	nopjmp $label
+
+what works just like 'jmp' but instead emits either a nop2 or a nop5.
+I tried various hacks to get GAS to emit that, but no luck :/
+
+The only up-side from that new syntax is that I suppose we can go write:
+
+  {disp8} push \vec
+
+without gas shitting itself and emitting a 5 byte push just because..
+Except of course we can't, for the same reason I can't go around and
+use:
+
+  {disp32} jmp
+
+in the above code.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200406110333.GA6266%40alpha.franken.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200406110438.GJ20730%40hirez.programming.kicks-ass.net.
