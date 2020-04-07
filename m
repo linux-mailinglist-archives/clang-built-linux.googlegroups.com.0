@@ -1,105 +1,131 @@
-Return-Path: <clang-built-linux+bncBCXKBPVPXAFRBAUEWP2AKGQEHXH4UWY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB2UFWP2AKGQEPKUTUKA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-f55.google.com (mail-wr1-f55.google.com [209.85.221.55])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5A2D71A1352
-	for <lists+clang-built-linux@lfdr.de>; Tue,  7 Apr 2020 20:10:11 +0200 (CEST)
-Received: by mail-wr1-f55.google.com with SMTP id t25sf2402260wrb.16
-        for <lists+clang-built-linux@lfdr.de>; Tue, 07 Apr 2020 11:10:11 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586283011; cv=pass;
+Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 40F141A135B
+	for <lists+clang-built-linux@lfdr.de>; Tue,  7 Apr 2020 20:14:04 +0200 (CEST)
+Received: by mail-yb1-xb39.google.com with SMTP id b12sf5117727yba.16
+        for <lists+clang-built-linux@lfdr.de>; Tue, 07 Apr 2020 11:14:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586283243; cv=pass;
         d=google.com; s=arc-20160816;
-        b=TPaKXPgdIGaPKCs4jgH8NKyjwTnMJOb84Q84mlFJpU3RPXmlKaRe3wOOLo158EEpIC
-         q9BdLet20BMYFsMuIt80tstjdkYKA5RmhbetbqUkIogLbn3U59B4RfgMzsbLxq388T+u
-         AqIEXgM2ekzMOloAS3BO7qcRFaKRMScUnVrJNedGZ2atw56B837b9LdMUeyNV5epHRbR
-         t952EhqCIOaGLXXtn8pFBPMXjtyKi518gaCK/I82lJO7+A5rj+iKDVq5XRwIBuzHvw8G
-         P1rqFlIoT0GxXto4dFpR5ngVcOYiq3LYC8HlTWhkthA/zT21TB/Xoro1Kn53b5/SjZZO
-         uPag==
+        b=uoQlIFwAWqhr3Xhlvi3qZ3VQUQJ8RP2kgg3IZBdwZ7kj2+kTfYygVb9mMjRih57oN7
+         7C7zifTyBkR+r28+h+LCCWXESUZtkdnmL75fcRkyA36y7pNmkxjV2Dl+FnCIzPRQoOJq
+         S/4Wwt8HinoVYbIuu3CmUXHTe6kjZMkEITVz5ErDSoElU/kTUfERSsGklYA9VbOfS0kx
+         1ONMimwc+bKllT31vQlsLBQurqqQquiQFy/qrL6MyePx/T9I4uxEJQ4MPoYEpFjObM80
+         5/kFpN9UzdAX8HPD/AIQF0hJ8MP0Kobv0HoFZNpO8EAEJhucOZP5oG89jPhixClct+Rk
+         9V5Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:message-id
-         :in-reply-to:subject:cc:to:from:sender:date;
-        bh=arb8aR26mM0MZiLR63te3EizaLEY86/NQqMGhGW+gpA=;
-        b=AKLv94pnQDQDtO1Q4MR+knH0Kf4xewdkQzDEBUoUmB91CyiHOdXvD6k2++1phN18rz
-         5o5yjf9pR0dueEii+gLk/sAD5rsi2DENv1p4C/ckK9lmv9Wbb+HNdVUWDwxbppqIHZ5P
-         7j17ByvfQVSaVQDzWLFYoR8I9MfNjdF3QgTc4f++zYuIvYqfcGTbveEqgtgkEaS4jqrI
-         v2n1rgTE8TcKJ7iuZeWrHhRStiQFZXXI29xlzdiS1+5vKiojuojfPbjdj3oGM96l2rVG
-         N4Spp6h6ZhoW1GbtoSDYHx7ZAulw9DlB860ca685EcWQxd3LbzGBbmDRu3qPc4T1zSmx
-         gfYQ==
+         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
+         :cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=eSi+3Z/Pg3R5L8cJBAp+G8fzHX62WRooAL0m7jZr7Lo=;
+        b=Ma1im9cInYhwS6qa81vqKlZqzeSYHq2uhzekG/+2oEArbLqXajI/SeFPU+XqOEt4AZ
+         gtTEKI/yqDLivvBYDfyiYnTDVS0G2BV2RltKlIyuiMMGyT92s5lyXw8QilQc77g2CJ1S
+         bDjxhU8njkD4a1Qy8z+jEcDcRALPZacJoO5CbwUHoL3ONsQOUHOPtt3g7VSkbZAFXXRk
+         qNAhE/MNm4UcWstuppMlLFRA73m4kN2YqRgfA1+4kDsVRPDmKk5Mod+rSk5ycgcKlFPn
+         9h15iGBSYVvI5bvM/pdX6Bv/Q+oNr517kWxRyT/GODulUdRMr2Upr5O01U/LdgYlAzYY
+         8AAw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of macro@linux-mips.org designates 148.251.95.138 as permitted sender) smtp.mailfrom=macro@linux-mips.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b="Y+PUf4/I";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::641 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=eSi+3Z/Pg3R5L8cJBAp+G8fzHX62WRooAL0m7jZr7Lo=;
+        b=fw3hbu4P1gEzYbqXvA7UJD8WwFpQNLsmsbxbibpPwr3YRdXGXmikK9GJCuu6vABUk+
+         mfzT5jzWqTqUH74kB6TevgnL7OzKerogAI28b4jCVM+/Vslrnx/zvfSWoxePtZL5bceK
+         FXJKUbKinPd+/sju62Rj83Fk6xx+WG78K4JYnolaBxp/jLXCTiad56Ie96HlMu+z1XJF
+         nNrX2LhtpI3sRVuPfcHa4PqnZZK+r1L5VLtGk2TH6LOplKxD1Iyalg8n3MRt8W6oD0t/
+         xyrSWheqw/2N9Qo2IXLTfl5tSu24rjvE3l3E4BsByQSLEIUSXk0bP+PTK89cX4WRtk1t
+         iyog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:sender:from:to:cc:subject:in-reply-to
-         :message-id:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=arb8aR26mM0MZiLR63te3EizaLEY86/NQqMGhGW+gpA=;
-        b=bUPa4JkrjPrjTq46CvetgrSb/BGdpV9Ncubl8NYKjmmTjlsJPNdIGJT+ii5X5+Kgtb
-         fr2kxr59MlicqI/1yXn9+tFHJIJBccrjbIGs+jLN8B07nmnIg4KlZDo3V9EAulpUzh7P
-         MBREgIPaJhShjwYxJx1+3OxlicKQQGfY9/5tUxm3bGFKiE+l7bdBQh2pkbetOjfv/YG3
-         M8kRBX5tHMBZowaWrh70uoFwRArxB4cFedgyEMoQRmt7PtLqg0YIQQHULKlZ5MJVNd89
-         9lFjFl90FNbV47qWzkCcecsOd8jKNZMYKEf3LrXAx5BQsfmcfmXGlL9YDWvsNZ1Gad1o
-         YP6g==
-X-Gm-Message-State: AGi0PubBwdiz5mgtoqguChDLDAbDP19cAoJUEnfuBYH8VQxbfKU6HpSi
-	U8qk2lXYwXXlux7qgfktvaE=
-X-Google-Smtp-Source: APiQypJXZoijDpTFjMwfdM3VHMeML7OgxP6Gk+qmBjDVuImuV0ufNRhEMbedtQLYaTtb+B8hzu/K+A==
-X-Received: by 2002:a5d:6543:: with SMTP id z3mr1241729wrv.396.1586283011061;
-        Tue, 07 Apr 2020 11:10:11 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=eSi+3Z/Pg3R5L8cJBAp+G8fzHX62WRooAL0m7jZr7Lo=;
+        b=FaI4f6a4+AD33HNqVcJOIQzir1UfqisBq5GUrByBmLBm/twHq9Sue/8f1Sdmkg4tY8
+         HeO0XVM5JpdidDh/068Vdh+VNPuf4EXVlmne0pbj22GORSbVXvQxOMgZMW1BkuTO+ONN
+         GPUyEiBMwJeGn7KCytLgqvgeqh2mzotV9KbM9ZAVEjahu4bIfW9c/XLj0Xs3i0Pd/NG+
+         gTDOP0MLaPwT3WCX55TOIEHkUFTldVQybg9mxmAPhGwntx1RfJagtlrit9u1e3K0vOcT
+         TI1JSoilbg63u/BoMGPjoF9Hb7w0K1iL97eUcV5O4qgCX9R0EQjhJs3SjveFDn0Q3/yS
+         cCdw==
+X-Gm-Message-State: AGi0PuY+rVUC9MsF9gfQxbw7aSZcwCmcvWFFZaqA17r1W1a9/ceq8JU4
+	qajQWkTbRQ3eLEbVGQ5Lmxc=
+X-Google-Smtp-Source: APiQypLqRlNuePLomaAhz9zFnEf8A/7+Z8jNu+MWpf6unNiHOTvMyHw5FCyDly+ro77+fPojBxcBAA==
+X-Received: by 2002:a25:d047:: with SMTP id h68mr6126104ybg.257.1586283243003;
+        Tue, 07 Apr 2020 11:14:03 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:f2cf:: with SMTP id d15ls3452391wrp.8.gmail; Tue, 07 Apr
- 2020 11:10:10 -0700 (PDT)
-X-Received: by 2002:adf:ce83:: with SMTP id r3mr3840994wrn.419.1586283010568;
-        Tue, 07 Apr 2020 11:10:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586283010; cv=none;
+Received: by 2002:a25:cc4f:: with SMTP id l76ls1562945ybf.0.gmail; Tue, 07 Apr
+ 2020 11:14:02 -0700 (PDT)
+X-Received: by 2002:a25:1ed7:: with SMTP id e206mr6287338ybe.387.1586283242611;
+        Tue, 07 Apr 2020 11:14:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586283242; cv=none;
         d=google.com; s=arc-20160816;
-        b=YS4ed2TrJeXIfsid6Uj12xqL7UQm3jduN08FGjwdHsp5gE9FgUK+TlL7PRHy8OpqbP
-         7UlJGkFvUoWINZkNwr93eP7OMsh4V2viXFIbSVkT0jM8/bqg+J+gecAe73931hht6PA0
-         yq9oV5SIBAVEZjqF2zfkai+0pxqmI2Y/xQjr64FFPl5aYeOSFtyyoZxOs+XzU0n3YiGr
-         IxMLY8u7zN/jc+nqOufzNaoicE1R+2RF9S6WkljnEsRGh0FqjLJoxqBiMevT28NUhF16
-         DwvXaWL5QveMQAnav4vU+fPfsvfflqiNf01Crx385PLEcylHXEPbl/Ser2nHvhkUj/YP
-         YdmA==
+        b=vO56X9O3ZiZspauJfEWpLlbtOg5m+dCWZ6/cEKDZhYZHTsKxUeEKlsXVXJN7fZ58Qx
+         7whetN6/SpXRkqDJv2Kl52XOB81tdnph8uCujUk281XsUxX+ulNJCu2AJCPBL48DBQdL
+         utqpUzkDTwV/sZRZlfhXvUcGKcbv+aUnpK10rODSv7YyfXaU3sNZBkugKwEqPL6cXCl9
+         jIcqRs5olFQ20iIYi8zdno8qa4Hm19MkfnjYp4mUIeJXymJtluuKJg3J9x/nnjzokkjh
+         uRLBgwST2MNP2Ixv56+3M81xBifyfidEvIA+8VFwJPPMy1k3vUAK7ii/LVXgDj0fD/G+
+         VvUw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :sender:date;
-        bh=RqRMUcFYybnOGi8AONi7ZDh1UPTZ7wf+AlHIo8q1s3g=;
-        b=gUcXo3VT8zbD8K7vfkyjmjRaMItWeSByNdov2LpfhVuqmW0mGgPyLyQUyhzdibzZDX
-         8mKTAqEVjAyeW0GqCIJZtkrS2jbgwLBbz7sNDiP37biF88b/CX105H/7owCoeCLG+Q+F
-         TO8gTGukeCAR7kXfWosQ4/O4URmr10OrThq6NOHHN6mtFIyl2pwgpkFVcNeHYhIFvQ1W
-         sAhautgBIUx+kJQ5r/jcwzS/8AMkmbWsFcRvjDvEsKEEXCHobZ/2i5gtslUbhLIBwqy8
-         L6uFTsJPcxY6eNwV7pjT1Fuy/QV8u4vOhoRzB3xBC7kecVw7Ibd07hQB5UKUe3WCxehi
-         J2ag==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=PeiZnJCEZqQc3Rqpk45c1lEucyFQ8/zMMdEk9YtKXts=;
+        b=jVHhvMoJUnXcg4sx0VWjrqymUSFFIbn32w8JnDZumpmPA5gi8jPWA5lySlvjJFlZlB
+         KDYxSl3mmLjpszUotkkRvZHCznJUa5SuQ3z8xsqhToFZpDWKvrnOsMMnZc0VyeszAx3j
+         y7A9n0tQLkwl1wlJwwCsl0eFNn4K06OpX4p2xlNLk1U/VtEXpbz31UfXdi14CajUh6bt
+         KxeTyUqMou706VrhjddzdUJaczsDa2IAlSw9mIjTEDoz4qRoXhqnoSNotF8LcImeu6rI
+         TKhTHYOUPO6OP4e9yMDz+4D3fY1U3iM4YxUvS72I+L8GcHnKINugSyj81BqitWdP4nrN
+         5kAQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of macro@linux-mips.org designates 148.251.95.138 as permitted sender) smtp.mailfrom=macro@linux-mips.org
-Received: from cvs.linux-mips.org (eddie.linux-mips.org. [148.251.95.138])
-        by gmr-mx.google.com with ESMTP id z84si110210wmc.2.2020.04.07.11.10.10
-        for <clang-built-linux@googlegroups.com>;
-        Tue, 07 Apr 2020 11:10:10 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of macro@linux-mips.org designates 148.251.95.138 as permitted sender) client-ip=148.251.95.138;
-Received: (from localhost user: 'macro', uid#1010) by eddie.linux-mips.org
-        with ESMTP id S23993994AbgDGSKISscAr (ORCPT
-        <rfc822;clang-built-linux@googlegroups.com>);
-        Tue, 7 Apr 2020 20:10:08 +0200
-Date: Tue, 7 Apr 2020 19:10:08 +0100 (BST)
-Sender: "Maciej W. Rozycki" <macro@linux-mips.org>
-From: "Maciej W. Rozycki" <macro@linux-mips.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-cc: Jiaxun Yang <jiaxun.yang@flygoat.com>, linux-mips@vger.kernel.org,
-        clang-built-linux <clang-built-linux@googlegroups.com>,
-        Fangrui Song <maskray@google.com>,
-        Nathan Chancellor <natechancellor@gmail.com>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] MIPS: Truncate load-y into 32bit for 32bit kernel
-In-Reply-To: <CAKwvOd=Upj_OcrhBnqf1=woCRm-g2wqjv882R0HQeMJu12Uq9w@mail.gmail.com>
-Message-ID: <alpine.LFD.2.21.2004071837440.596385@eddie.linux-mips.org>
-References: <20200405082451.694910-1-jiaxun.yang@flygoat.com> <20200407080611.859256-1-jiaxun.yang@flygoat.com> <CAKwvOd=Upj_OcrhBnqf1=woCRm-g2wqjv882R0HQeMJu12Uq9w@mail.gmail.com>
+       dkim=pass header.i=@google.com header.s=20161025 header.b="Y+PUf4/I";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::641 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pl1-x641.google.com (mail-pl1-x641.google.com. [2607:f8b0:4864:20::641])
+        by gmr-mx.google.com with ESMTPS id l141si289262ybl.3.2020.04.07.11.14.02
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 07 Apr 2020 11:14:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::641 as permitted sender) client-ip=2607:f8b0:4864:20::641;
+Received: by mail-pl1-x641.google.com with SMTP id c12so1550667plz.2
+        for <clang-built-linux@googlegroups.com>; Tue, 07 Apr 2020 11:14:02 -0700 (PDT)
+X-Received: by 2002:a17:90a:8085:: with SMTP id c5mr568939pjn.186.1586283241410;
+ Tue, 07 Apr 2020 11:14:01 -0700 (PDT)
 MIME-Version: 1.0
+References: <29b5043db9a51ef7a0cb6e3a8c69c91e36045cd6.1585944770.git.mirq-linux@rere.qmqm.pl>
+ <202004050928.d6QhVcsQ%lkp@intel.com>
+In-Reply-To: <202004050928.d6QhVcsQ%lkp@intel.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Tue, 7 Apr 2020 11:13:50 -0700
+Message-ID: <CAKwvOdm5BhMdAmXR0gCLntkbvF7ajaNoWoHVCCio1CqbGzS6aQ@mail.gmail.com>
+Subject: Re: [PATCH v3 07/11] power: supply: core: tabularize HWMON
+ temperature labels
+To: kbuild test robot <lkp@intel.com>
+Cc: =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>, 
+	kbuild-all@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Andrey Smirnov <andrew.smirnov@gmail.com>, Guenter Roeck <linux@roeck-us.net>, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, LKML <linux-kernel@vger.kernel.org>, 
+	linux-pm@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: macro@linux-mips.org
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: best guess record for domain of macro@linux-mips.org designates
- 148.251.95.138 as permitted sender) smtp.mailfrom=macro@linux-mips.org
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: ndesaulniers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b="Y+PUf4/I";       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::641
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -112,66 +138,61 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, 7 Apr 2020, Nick Desaulniers wrote:
+On Sat, Apr 4, 2020 at 6:53 PM kbuild test robot <lkp@intel.com> wrote:
+>
+> Hi "Micha=C5=82,
+>
+> I love your patch! Perhaps something to improve:
+>
+> [auto build test WARNING on power-supply/for-next]
+> [also build test WARNING on hwmon/hwmon-next linus/master v5.6 next-20200=
+404]
+> [if your patch is applied to the wrong git tree, please drop us a note to=
+ help
+> improve the system. BTW, we also suggest to use '--base' option to specif=
+y the
+> base tree in git format-patch, please see https://stackoverflow.com/a/374=
+06982]
+>
+> url:    https://github.com/0day-ci/linux/commits/Micha-Miros-aw/extension=
+s-and-fixes/20200405-044024
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/sre/linux-power-s=
+upply.git for-next
+> config: x86_64-randconfig-b002-20200405 (attached as .config)
+> compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 62f3=
+a9650a9f289a07a5f480764fb655178c2334)
+> reproduce:
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbi=
+n/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # save the attached .config to linux build tree
+>         COMPILER=3Dclang make.cross ARCH=3Dx86_64
+>
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kbuild test robot <lkp@intel.com>
+>
+> All warnings (new ones prefixed by >>):
+>
+> >> drivers/power/supply/power_supply_hwmon.o: warning: objtool: power_sup=
+ply_hwmon_read_string() falls through to next function power_supply_hwmon_w=
+rite()
 
-> V2 is way too clever, V1 was much more readable.
+I'm guessing this is from the unreachable:
+https://github.com/0day-ci/linux/commit/b8b2d14ca46ca54257f55c9af58ea25695b=
+9ee36
+I'll need to play with this some more as I couldn't reproduce with a
+simplified test case, but looks like a compiler bug.  Filed
+https://github.com/ClangBuiltLinux/linux/issues/978 for me to track.
 
- I think V2 is a step in the right direction except it still has some 
-issues, and also I'd simplify it as there's surely too much processing 
-there.
+--=20
+Thanks,
+~Nick Desaulniers
 
- OTOH V1 is going to be a maintenance nightmare, as you need to handle all 
-platforms individually whether they want different 32-bit and 64-bit load 
-addresses or not.
-
-> > diff --git a/arch/mips/Makefile b/arch/mips/Makefile
-> > index e1c44aed8156..f8fd3c39fb55 100644
-> > --- a/arch/mips/Makefile
-> > +++ b/arch/mips/Makefile
-> > @@ -286,6 +286,9 @@ ifdef CONFIG_64BIT
-> >        $(error CONFIG_CPU_DADDI_WORKAROUNDS unsupported without -msym32)
-> >      endif
-> >    endif
-> > +else
-> > +       # Truncate address into 32-bit
-> > +       load-y := 0x$(shell echo "$(load-y)" | rev | head -c 8 | rev)
-
- You cannot just truncate `load-y' in place like this as it will break 
-logic with `expr' used elsewhere in this Makefile (your original change 
-would too) that does a string comparison on this variable.  So you need to 
-define another variable for the sole linker's use, like `load-ld'.
-
- Then I think there's no need to invoke multiple programs, especially ones 
-we don't currently rely on (`rev').  How about:
-
-	load-ld = $(shell echo "$(load-y)" | sed 's/.\{8\}\(.\{8\}\)$/\1/')
-
- Also this really needs to be placed elsewhere, as it has nothing to do 
-with KBUILD_SYM32 it has been attached to with this change, and explain 
-why it is done rather than what (it's obvious from the command it's meant 
-to truncate the address).
-
- So use something along the lines of:
-
-# When linking a 32-bit executable the LLVM linker cannot cope with a
-# 32-bit load address that has been sign-extended to 64 bits.  Simply
-# remove the upper 32 bits then, as it is safe to do so with other
-# linkers.
-ifdef CONFIG_64BIT
-	load-ld = $(load-y)
-else
-	load-ld = $(shell echo "$(load-y)" | sed 's/.\{8\}\(.\{8\}\)$/\1/')
-endif
-
-just above the use place, and then adjust the place to refer `load-ld' 
-rather than `load-y'.
-
- Put the justification for this change (feel free to reuse observations I 
-made here), like why a new variable, in the change description.
-
-  Maciej
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/alpine.LFD.2.21.2004071837440.596385%40eddie.linux-mips.org.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/CAKwvOdm5BhMdAmXR0gCLntkbvF7ajaNoWoHVCCio1CqbGzS6aQ%40mai=
+l.gmail.com.
