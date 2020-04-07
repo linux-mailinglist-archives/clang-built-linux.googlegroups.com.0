@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBSU2WP2AKGQEANJPCFA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB2M2WP2AKGQEYNOIAPA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1040.google.com (mail-pj1-x1040.google.com [IPv6:2607:f8b0:4864:20::1040])
-	by mail.lfdr.de (Postfix) with ESMTPS id 24BCC1A1563
-	for <lists+clang-built-linux@lfdr.de>; Tue,  7 Apr 2020 20:58:20 +0200 (CEST)
-Received: by mail-pj1-x1040.google.com with SMTP id q10sf371959pja.1
-        for <lists+clang-built-linux@lfdr.de>; Tue, 07 Apr 2020 11:58:20 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586285899; cv=pass;
+Received: from mail-io1-xd37.google.com (mail-io1-xd37.google.com [IPv6:2607:f8b0:4864:20::d37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 776EB1A1567
+	for <lists+clang-built-linux@lfdr.de>; Tue,  7 Apr 2020 20:58:50 +0200 (CEST)
+Received: by mail-io1-xd37.google.com with SMTP id h17sf1563812ioh.20
+        for <lists+clang-built-linux@lfdr.de>; Tue, 07 Apr 2020 11:58:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586285929; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bsvobEMwHaChsvFqJ+tDVoN2zKF/NBOsh4p22LZD4h72kG4UVdCGaEbt1KrJKrG/gQ
-         lJH/sumgvZ93b6lFxYRZWSdS9t5RtCBMD8b4xLvvuiWN3H9/euLGu3qwbb2yM8rZiwU0
-         LW3TTapsI3HXcqLYjcyd8g2iybIpwMrxuV4qkMAroQi+C2yV+k6AsaGo/26F5hpqCgbZ
-         jM5ixf14WjfHwxvjmhRofe56UPZYkALEXlb2E+0n7b5IKqLldZZyezk0RW7QZKKOKp9j
-         RmTjYNTUYlFlTYtPhOaJ7guzdbwLTrGZQTW0dTvxOSJrFASDNTo6uka95Plu9xk2btxP
-         kaWQ==
+        b=HzzAYrj5krDwDcJWd7DCZPl1j1LBjBv5zHgNs+FPRloXN78mb+01zNsWpcmHfxgjTp
+         E0nZ98hMlhOgQiv3DXnaaYBMV6HmRxkhG0wYlg/92Qt+Vg3dd/+pYorp+eG9ZjlgOuQU
+         osGIL0ihqisahCXFruS6YLA63Rz+mRuvQcXHoSXhVWUrLwKjrE5vCOw+Df+Jhf6R83pG
+         EGBRQLxwjQfnJIVJcw0uv7s3vYCKb24xGEsLhZZXCFEcn3UgUuAsVVpWCa9Y0adOVvhZ
+         P7ECriO2z/+lFiVyrjujdE7puFGlBKQq1y6YsueyzXHbRNufX5ToDyckHsK4kpPLOxyG
+         NPwg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=K7ohy/7tJiC7DdP1/sYowvUcVTYNLZWAKqpayg2t8M0=;
-        b=vNJxDCXGRrjsPEu88ikVZUakshDN38jkZ3iWLu7ac/+eubYggNlqKJN5u2QD9yyqGZ
-         ccQoK3UKfB5cTqeiSY9zPbJ/aS1bE8iNJ2C5UxJLuEz+fSOuePNojN4xo6p5WZbki69z
-         B9sGMfJV/OGmW1XaZEMTpb3A79qfvAX5nCM6vwnuMHIvymlklaEB4qds2vwVRTNDI+to
-         ivLYOz/WaXIyQ30zjA6PmXrgn24ee8f9eKDPsjAyGich2EtVgRSatQm0uSxmk0Kq9nwb
-         ytqjotSrAC7GJcFzlLomqNXhvtOnpoMma3C+NVJCjlzpIehn87PrW/fYOXZdST38KL21
-         huTQ==
+        bh=0jd/RHt0PM7Vs1KsQNdHh14pZKxutKyNfg0nsslcfPs=;
+        b=s0Y6d+aPVgwbNBO56D9VaRaTv3WH6FDLC+XvabiX1WMurFhLYeObDGLhReVT5aySpj
+         lA9VVD85PTHy5ieJmXeh+BAId/hQZGVbJtRdy0CeLnuGow8Oz4y3NVyRFIrhwONZBpjm
+         uRzZ1e2e5igrtQsfm6jI4BgkcfuXSflupa/p60WkY3QRRnofQpYXW1ljsj9z6xV9DSSd
+         1C55NdGbJdAhmfIMSWSBWtrp71sESJa44F6RdorL2kSqlhaGDISSmUv14O/x9DMriAR8
+         srm3mcRD4xmQfe5Of6dFbCOi+buwTiBp2V/3RU3P8DdHtjxV4OPKMC0kvgL+ikFJGz/i
+         RCTQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=gr+rckUK;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=fyPfhj7x;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=K7ohy/7tJiC7DdP1/sYowvUcVTYNLZWAKqpayg2t8M0=;
-        b=MoKF6oEoYee/yeZ9f8ouA9jpYPi0nahSsONcxQPWZUYtxHczKePjUvyeOXp/nYwOJV
-         Pn0C/X+dkwBC62R+Om02gV/QM9ZMWZK+SfobKfgQru+qyZqp4nX4UizWXeEGTE21kblr
-         LlAnYaM21tkIg5YxMAIO9fRlW67NtOdRAWlZL7g5O5HyJKlZluS93KDMtVI2dQxeqaEw
-         I2jmjD8KS262jdGpwze797TSBZ1xmSioOXowuPnZZowmsm/D/yeTvBMvzPJZzgNTzT6s
-         natsvBFuHRYi8HOR312nl87fM6HeByn0LsR+HZhZ8ZnhRyIutAW3wLZsXNMIGZj3Y5P3
-         8bBA==
+        bh=0jd/RHt0PM7Vs1KsQNdHh14pZKxutKyNfg0nsslcfPs=;
+        b=AT2LvxqCOTb3LgdL3BjsEiKDcTaqQLyo3NooC9t6XVJ8/z3kZZkKTyDcAAlG9eAUAI
+         1MaerntR1Q3QDYz/NiegA1Rx1AmuSFPQcln6R/MVHl0NTI/CFBQMiEkQwLKq5wFzWdoS
+         pa++U1WGO6PfBC6iuJpInqR51kJBGA/7JXwnzPuw/vXZAseflSuzOVns9T33EqCidXBD
+         2cVQy/+vhCuZNaqs7Nm+jAScIvUK0nSfxZvYUp3n15qn7D9AAgYIblyDLkn/DugcRWKE
+         WYYzWYR+62goMh9sgitwxkulRDLvDc4IeeKyhzhYE2UTNVkRnT5tRyLLJbwirOhnMZYm
+         0s8Q==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=K7ohy/7tJiC7DdP1/sYowvUcVTYNLZWAKqpayg2t8M0=;
-        b=hbNbaEuS2vILZYcIdcfC55TPa05NcJjxDLoP+CIgNUgY6gePBWjl3zVH/jfwclCab7
-         kF5iZ+dzB4tF/NCbkEdrML6u8i1cxrJql/RfsRv+duvfrt+apwQnUsAacmptBRYPUtWm
-         2uwPGPJJmuYoxexZf9TDau7nBo7AoAYbHFbjmF+s657an2b0Z1DLJNlUjxJFJ3TbZXr8
-         JUyD3fm4EEwyuFqtL2f0Mux77Bxg/hHVs/yxqPf7SbysaeOzvx6/2z9PSmTTfRWuaEPj
-         CN2zUsyjasugtusnGg5jD74jsaHvlkiENmJMnFj/8LXvRdxfmv/bnpMCQrGlx5eTKbHI
-         8qAA==
+        bh=0jd/RHt0PM7Vs1KsQNdHh14pZKxutKyNfg0nsslcfPs=;
+        b=OBom65nTF51asipQbBCdSYUYzOku4hzIWWPjoHwWqn4XL9YvSpZvz2j7v64dxMIPBS
+         NE30p9ewrW6cOqCq+NP/qJi/fRHCdmrY546AA1MNwrlSZ4ZwHsnKtkoV+9ZZamHfuDQ/
+         i2BvYZOwsgcUyYFcpeiobZXM3OsoO8YP1aJjXRwqRhFrijR+8VXklAEFLgMCZ57DpuzL
+         OMBxk5gFDIIs5vOV3euD8+lb2PyyzborH+DZZmvGIpJRlU8Y1nyptrPUnQu8lJP9/9H2
+         jiw2eEC2H6GLPog74fl2/KLcXtgNXNzWhKvlgUI1VrxX3dlrYFx+YN5xeqbUanXEYqiH
+         +PHw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -63,81 +63,79 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=K7ohy/7tJiC7DdP1/sYowvUcVTYNLZWAKqpayg2t8M0=;
-        b=COIFiHXqJMzpsdOlGgkB7TPe3zZOE2VrBiAkQOJlZKE74dHyXkzW7V10WT0S6+eQKa
-         W4H/MKDZmI3D8zpSklJqIxjCFOGkrDgnN2CaxRbVPOQfQwV2e+RIQnHpOVKTI9HhwTEV
-         yEbUmTcXgB/vV6poSF+j+VGdcyAj1rSAK36sIpVWpZWPs1peZGU+laE+yc5+WDSR4qqj
-         YG51dvxW51c81Mxd2whUFhHY9ncEtzo712NQdgaeNUBo2InPpFDBTq8P9dDqQAAHxgKe
-         YSPZb43R+icrOvNPCFs4pmvKpQAHB8NzTIHFSOXDAEhbNbNTOz6muTM2Cak6j1Jc3kC/
-         Je3Q==
+        bh=0jd/RHt0PM7Vs1KsQNdHh14pZKxutKyNfg0nsslcfPs=;
+        b=jQyq6R6ZQc1hcxt82jyCKCW1bmoM6Hi0hfs4yvMxsnP2tO8Tjp4N6KUu3IA8huMPM9
+         9G/RNeo0znXl8TaoKF6iLJ7B2q8OZbBmSkxv78nO5TKgqOSG3IeVlVVDZfj1Wq1Lz+1/
+         +KRJymk+VxBLR4qhQD3LGE9Qt4LZTF384UJTrcLTOhrMefk9ohfXHCWnYknG8fl21gWC
+         D8TVAyNNqPX6z//CeGnY/hkGMOab6G2Xbn95qL6AacNbKb1l0AtlV/E9iLobGSJ0qIF/
+         LCXGdM4tk7UJ46ZHSzs4hxtTs0UBAB1RWRQ72naX7YNIFZ6rsviE7Y2t2/OxOraEKf4E
+         xJjg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuYQGWhdnrGQnJzsVZrkchVmb/GGfVGR3gkyIdu0Woj43B8uJHHj
-	/ert1P0F5unLLygyj/C4NYk=
-X-Google-Smtp-Source: APiQypI5orktmFx25qSIdFfpPg1hwtvUnaPodvYdWO/fxzjgfs4JiTYtg+qyJWWOfwpCiAr2dDmUhw==
-X-Received: by 2002:a17:902:6b84:: with SMTP id p4mr3658760plk.343.1586285898813;
-        Tue, 07 Apr 2020 11:58:18 -0700 (PDT)
+X-Gm-Message-State: AGi0PubxRpPNWCx6dZ1OBKtHr++7cmYPDJE5fpu350xWmC1HGWVyRj8N
+	v6cPkn9e/ofHnx0OjNkOXpM=
+X-Google-Smtp-Source: APiQypKpg8XTllN0GMAH5cnduQSPsyD6P53CRCeZITX358bf/AjY3GSYl/y8P9CT63C+I5PjCA+5Mg==
+X-Received: by 2002:a92:d105:: with SMTP id a5mr4014753ilb.142.1586285929442;
+        Tue, 07 Apr 2020 11:58:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:6456:: with SMTP id y83ls2350668pfb.7.gmail; Tue, 07 Apr
- 2020 11:58:18 -0700 (PDT)
-X-Received: by 2002:a63:ff53:: with SMTP id s19mr3476389pgk.247.1586285898413;
-        Tue, 07 Apr 2020 11:58:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586285898; cv=none;
+Received: by 2002:a92:8619:: with SMTP id g25ls2176643ild.7.gmail; Tue, 07 Apr
+ 2020 11:58:49 -0700 (PDT)
+X-Received: by 2002:a92:79cf:: with SMTP id u198mr4045329ilc.23.1586285929164;
+        Tue, 07 Apr 2020 11:58:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586285929; cv=none;
         d=google.com; s=arc-20160816;
-        b=f0/Su39v6zgTUGQjpylToT7ExYwj77Ed3Sc0Nnxg2sdl5+8MI6eaFGkYVy3TVi7IgF
-         nMoJHZgOc9DCv/RfCixhx9t97qXRZGVWsxMyPZgEAwgTAiP+8iS8M/L/g8wOgWhPpfcs
-         YwtkQL9t8b2/Y3+hdbtp95bI3bCEUgJ987EJmlduOUabqZ0rln4ab8HyN0vPTagcL75I
-         m1ywu5/2r0IMrssH41WYOSjS0bnkVpBFUA5fv37SnJOHv8X0eLh/HXFBPvl4bjeiROIq
-         AetMN3K2vO2tWOySl1VXFmNwlGov46bmqRszAtkI590jkV2Zqqtq75v81PKZ7+G3QWlM
-         1UUg==
+        b=gw04MZcgTMtM+VAd8kXVaQU7GExX4SFqsFSNJELhgYwVZOaC3wCzUzFcIfEQt4tO7z
+         Vtx0Ir0P8Q4h6BiNh0WdyXBAUEZnNcx8CAv0HZrvCZm5R5qPLKTuPMhqEQhsubkCsutF
+         RWBIREOMnI/jrV84j9gF75Kan5nHTOraQJ2ph0daqkl5NlnZk3IvxOIw//GrBcbgIxKh
+         XzPGXn8hz27CgawtijQbDV2xpsmhRKyAd9kqrKCQKPrg86aRjOSBWp18uvIz/8JrCLSv
+         4xTxJWJA2EOf4OdWnqbQdg1P8ASkXehSs3vAre6pShp3AK01BLz5IHnIlzTvdtXmVC36
+         Qp1Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=QGY37FNAkjMLaN4OPkvvGVRfJPoF2m0cC0lGKtXcqAo=;
-        b=VsdoXQujPW2iatb87y1HPVeGCSNXA39C6HgAUJoNbWB7iSuijnPQKjpl2Wf3ZRjNNe
-         p14l+kciHwr3VbuHOdzqV2aPhDWyfYS7nHw2QBDeRBOoiIKzRFLJpeTajlBoIxphrQxK
-         o/UDYxIMy8YMHZN6/BvgJ5VlEgMuyxzooczVY+9Mn6N7PGieDD5UaFKL3QQrlro6+BRV
-         /58/meKgCxYcEIOQdcd1Pjzue++VyVjrefeYjHj1AAVVHdLmW1YrDKhTCh8Lihbf/I5M
-         z3bzQGYYYX+8LjoGINlwy8WvypILQeOyGwGHs+e0dRGMxn8WrmvcRaFf5LyNHaJKz+jE
-         k/gg==
+        bh=YWZDTwn7AEtR6f1wBa6JyrNbxy///AYHB+9+La4XHYA=;
+        b=ZCgHxcpmG03w8N4Q3+Un5Hzdv2ZPrBqIfq1EW/0CMcuBpQHxXhvXPpKXZBbC+EEewS
+         s57Sidh/nR6cg8WcUDg00n5SQr1AlmkUeUYOAB6Sf0evYhlYmX7faTbarkqRSk012CI6
+         qAAQQ9hYKguA5nMZ5S+00TCVBnmZesvD42ScGKkjQulbQ4b5fKB8x1kiCKgflKG9JKP0
+         EgYG94cPb/Th7+MLQzPczV/j3px9hkuxq4sSItZ1WepPLQ+QP729Jo9Z14f30wee8+OY
+         axqqa6Ios2y7mByTAUGWCaeG/YhHwwkoNoAtBxAfrf+d+HsdK27QibEwaCi1WxA6MWHs
+         9bNQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=gr+rckUK;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=fyPfhj7x;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x343.google.com (mail-ot1-x343.google.com. [2607:f8b0:4864:20::343])
-        by gmr-mx.google.com with ESMTPS id c125si270411pga.5.2020.04.07.11.58.18
+Received: from mail-oi1-x242.google.com (mail-oi1-x242.google.com. [2607:f8b0:4864:20::242])
+        by gmr-mx.google.com with ESMTPS id x16si180003iov.1.2020.04.07.11.58.49
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 07 Apr 2020 11:58:18 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::343 as permitted sender) client-ip=2607:f8b0:4864:20::343;
-Received: by mail-ot1-x343.google.com with SMTP id a49so4235942otc.11
-        for <clang-built-linux@googlegroups.com>; Tue, 07 Apr 2020 11:58:18 -0700 (PDT)
-X-Received: by 2002:a9d:75d0:: with SMTP id c16mr2826857otl.8.1586285897659;
-        Tue, 07 Apr 2020 11:58:17 -0700 (PDT)
+        Tue, 07 Apr 2020 11:58:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) client-ip=2607:f8b0:4864:20::242;
+Received: by mail-oi1-x242.google.com with SMTP id k5so2455375oiw.10
+        for <clang-built-linux@googlegroups.com>; Tue, 07 Apr 2020 11:58:49 -0700 (PDT)
+X-Received: by 2002:aca:b441:: with SMTP id d62mr231706oif.107.1586285928809;
+        Tue, 07 Apr 2020 11:58:48 -0700 (PDT)
 Received: from ubuntu-s3-xlarge-x86 ([2604:1380:4111:8b00::3])
-        by smtp.gmail.com with ESMTPSA id 90sm5534875otc.29.2020.04.07.11.58.17
+        by smtp.gmail.com with ESMTPSA id u13sm5552172ote.48.2020.04.07.11.58.48
         (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Tue, 07 Apr 2020 11:58:17 -0700 (PDT)
-Date: Tue, 7 Apr 2020 11:58:15 -0700
+        Tue, 07 Apr 2020 11:58:48 -0700 (PDT)
+Date: Tue, 7 Apr 2020 11:58:47 -0700
 From: Nathan Chancellor <natechancellor@gmail.com>
-To: Stephen Rothwell <sfr@canb.auug.org.au>
-Cc: "Michael S. Tsirkin" <mst@redhat.com>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Gerd Hoffmann <kraxel@redhat.com>,
+To: ci_notify@linaro.org
+Cc: tcwg-validation@linaro.org, arnd@linaro.org,
 	clang-built-linux@googlegroups.com
-Subject: Re: linux-next: build failure after merge of the vhost tree
-Message-ID: <20200407185815.GA1805@ubuntu-s3-xlarge-x86>
-References: <20200407130542.0e3b5d9d@canb.auug.org.au>
+Subject: Re: [CI-NOTIFY]: TCWG Bisect
+ tcwg_kernel/llvm-master-arm-next-allyesconfig - Build # 63 - Successful!
+Message-ID: <20200407185847.GA27337@ubuntu-s3-xlarge-x86>
+References: <1200207249.14740.1586279040613.JavaMail.javamailuser@localhost>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200407130542.0e3b5d9d@canb.auug.org.au>
+In-Reply-To: <1200207249.14740.1586279040613.JavaMail.javamailuser@localhost>
 User-Agent: Mutt/1.9.4 (2018-02-28)
 X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=gr+rckUK;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=fyPfhj7x;       spf=pass
  (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+ 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -151,79 +149,35 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Apr 07, 2020 at 01:05:42PM +1000, Stephen Rothwell wrote:
-> Hi all,
+On Tue, Apr 07, 2020 at 05:03:59PM +0000, ci_notify@linaro.org wrote:
+> Could not identify regression in *linux* in CI configuration tcwg_kernel/llvm-master-arm-next-allyesconfig.  See 'Bisect log' in the links below for bisection details.
 > 
-> After merging the vhost tree, today's linux-next build (x86_64
-> allmodconfig) failed like this:
+> Configuration details:
+> rr[llvm_url]="https://github.com/llvm/llvm-project.git"
+> rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
+> rr[linux_branch]="b2e2a818a01717ba15c74fd355f76822b81a95f6"
 > 
-> drivers/gpu/drm/virtio/virtgpu_kms.c: In function 'virtio_gpu_init':
-> drivers/gpu/drm/virtio/virtgpu_kms.c:153:38: error: 'VIRTIO_RING_F_INDIRECT_DESC' undeclared (first use in this function)
->   153 |  if (virtio_has_feature(vgdev->vdev, VIRTIO_RING_F_INDIRECT_DESC)) {
->       |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-> drivers/gpu/drm/virtio/virtgpu_kms.c:153:38: note: each undeclared identifier is reported only once for each function it appears in
-> 
-> Caused by commit
-> 
->   898952f9597e ("virtio: stop using legacy struct vring in kernel")
-> 
-> interacting with commit
-> 
->   5edbb5608256 ("drm/virtio: fix ring free check")
-> 
-> from Linus' tree (post v5.6).
-> 
-> I have added the following merge fix patch for today.
-> 
-> From: Stephen Rothwell <sfr@canb.auug.org.au>
-> Date: Tue, 7 Apr 2020 12:58:26 +1000
-> Subject: [PATCH] drm/virtio: fix up for include file changes
-> 
-> Signed-off-by: Stephen Rothwell <sfr@canb.auug.org.au>
-> ---
->  drivers/gpu/drm/virtio/virtgpu_kms.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/gpu/drm/virtio/virtgpu_kms.c b/drivers/gpu/drm/virtio/virtgpu_kms.c
-> index 023a030ca7b9..f4ea4cef5e23 100644
-> --- a/drivers/gpu/drm/virtio/virtgpu_kms.c
-> +++ b/drivers/gpu/drm/virtio/virtgpu_kms.c
-> @@ -25,6 +25,7 @@
->  
->  #include <linux/virtio.h>
->  #include <linux/virtio_config.h>
-> +#include <linux/virtio_ring.h>
->  
->  #include <drm/drm_file.h>
->  
-> -- 
-> 2.25.0
-> 
-> I do have to wonder why all this code has been added to the vhost tree
-> during the second week of the merge window (especially when I see it
-> rebased 4 times in one day :-().  Is it really intended for v5.7?
-> -- 
-> Cheers,
-> Stephen Rothwell
+> Results regressed to (for bad == 5fab54423a0a88c4333e802155eeee944e82195b)
+> # reset_artifacts:
+> -10
+> # build_llvm:
+> -1
+> # linux_n_obj:
+> 18629
+> # First few build errors in logs:
+> # 00:07:03 drivers/rpmsg/mtk_rpmsg.c:68:2: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
+> # 00:07:03 drivers/rpmsg/mtk_rpmsg.c:93:9: error: implicit declaration of function 'kzalloc' [-Werror,-Wimplicit-function-declaration]
+> # 00:07:03 drivers/rpmsg/mtk_rpmsg.c:170:2: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
+> # 00:07:03 drivers/rpmsg/mtk_rpmsg.c:204:9: error: implicit declaration of function 'kzalloc' [-Werror,-Wimplicit-function-declaration]
+> # 00:07:03 drivers/rpmsg/mtk_rpmsg.c:223:3: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
+> # 00:07:03 drivers/rpmsg/mtk_rpmsg.c:259:9: error: implicit declaration of function 'kzalloc' [-Werror,-Wimplicit-function-declaration]
+> # 00:07:03 drivers/rpmsg/mtk_rpmsg.c:376:3: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
+> # 00:07:03 drivers/rpmsg/mtk_rpmsg.c:387:15: error: implicit declaration of function 'kzalloc' [-Werror,-Wimplicit-function-declaration]
+> # 00:07:03 drivers/rpmsg/mtk_rpmsg.c:409:2: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
+> # 00:07:03 make[2]: *** [drivers/rpmsg/mtk_rpmsg.o] Error 1
 
-Linaro's CI also reports an issue with this patch with the remoteproc
-drivers that were freshly merged in Linus' tree for 5.7-rc1 (seen with a
-simple arm allyesconfig build):
-
-drivers/rpmsg/mtk_rpmsg.c:68:2: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
-drivers/rpmsg/mtk_rpmsg.c:93:9: error: implicit declaration of function 'kzalloc' [-Werror,-Wimplicit-function-declaration]
-drivers/rpmsg/mtk_rpmsg.c:170:2: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
-drivers/rpmsg/mtk_rpmsg.c:204:9: error: implicit declaration of function 'kzalloc' [-Werror,-Wimplicit-function-declaration]
-drivers/rpmsg/mtk_rpmsg.c:223:3: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
-drivers/rpmsg/mtk_rpmsg.c:259:9: error: implicit declaration of function 'kzalloc' [-Werror,-Wimplicit-function-declaration]
-drivers/rpmsg/mtk_rpmsg.c:376:3: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
-drivers/rpmsg/mtk_rpmsg.c:387:15: error: implicit declaration of function 'kzalloc' [-Werror,-Wimplicit-function-declaration]
-drivers/rpmsg/mtk_rpmsg.c:409:2: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
-drivers/remoteproc/stm32_rproc.c:152:14: error: implicit declaration of function 'kcalloc' [-Werror,-Wimplicit-function-declaration]
-drivers/remoteproc/stm32_rproc.c:179:2: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
-
-It seems like this series shouldn't be in -next until after 5.7-rc1 (or
-rebased on Linus' tree if it is intended for the merge window).
+Reported:
+https://lore.kernel.org/lkml/20200407185815.GA1805@ubuntu-s3-xlarge-x86/
 
 Cheers,
 Nathan
@@ -231,4 +185,4 @@ Nathan
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200407185815.GA1805%40ubuntu-s3-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200407185847.GA27337%40ubuntu-s3-xlarge-x86.
