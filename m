@@ -1,134 +1,140 @@
-Return-Path: <clang-built-linux+bncBCOYZDMZ6UMRBSGJXT2AKGQEB2CBIKA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQYDA7264GRBD5BX32AKGQEJNBDN2I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x338.google.com (mail-ot1-x338.google.com [IPv6:2607:f8b0:4864:20::338])
-	by mail.lfdr.de (Postfix) with ESMTPS id AC09F1A34F6
-	for <lists+clang-built-linux@lfdr.de>; Thu,  9 Apr 2020 15:36:09 +0200 (CEST)
-Received: by mail-ot1-x338.google.com with SMTP id w4sf5247840otp.6
-        for <lists+clang-built-linux@lfdr.de>; Thu, 09 Apr 2020 06:36:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586439368; cv=pass;
+Received: from mail-io1-xd38.google.com (mail-io1-xd38.google.com [IPv6:2607:f8b0:4864:20::d38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 17BB31A3BC5
+	for <lists+clang-built-linux@lfdr.de>; Thu,  9 Apr 2020 23:16:02 +0200 (CEST)
+Received: by mail-io1-xd38.google.com with SMTP id v3sf31172iod.23
+        for <lists+clang-built-linux@lfdr.de>; Thu, 09 Apr 2020 14:16:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586466961; cv=pass;
         d=google.com; s=arc-20160816;
-        b=G2R0C9OHQFKzRpxXQdppRLMptCtED6yVch3C1lCczLxWswAWhGDsaUJTWcceWwBTgE
-         HMYfmrq6H7M69xQnAn5XBp7na9CZpSVeoxgPuzM/07tAiBl2LWG7EWas2TaqTFAeKAk5
-         vthJ+KT88nbOiCGCXsPLcSJP1VFJPEneFTCIxV1HoMQbo3jllYTncuPWwlfj2ceQJbHi
-         YK8YbZ1rSBObrN7Q9hJQBbO0FvfIFZZJ2HIZ4d/4QCglaw7l/a7pIqfOgVTFgR6iwfW8
-         GtSB3ieNqazwbPx5OlsrD+GqmZtSPP0VrjMvwNjeVfY+aCz3W1lRGkV1lteS4vuv2lOF
-         T+nQ==
+        b=xcOOTY8YrSDVGt7Vzy8ZeYt9WcugCF5FfL2f8B4OH9CqnY/8q378Xud4n5uou7e72t
+         zfLNWvmQkD+jd1eUQxWm8tBlYyCnJacDNseZL0EomH2cCI6rzmDGQXE2pzdRytpLNGQV
+         V71L36EOjuWoXwq1Ds6ElQh9+Xm7O2qEVvUgSIzJ2hy3CxQWwfRLBHlY7F07uSz2dKIS
+         ZwHgWl/mlzCuMDVVKl6mFn675aNMglnNUGLi2aUcYcN1O37+Ev4e8lZ3z5SqceqE8lgU
+         ACo4aID6tiW3sUXUmKVNdqkxgoiC/vyh/YtpEJrWvB4B072ZrRWrCdhRdfCgaLRX10T6
+         8Kug==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=GxCHxby8l5jwwGtvilt24ox6ebyMaNeCLRxnwE4SN70=;
-        b=aR1qbxlJk6PI6r6YC6PYDc7zBa5sbZuXexAiOHlUHgZItFq+TDKbf+C4S7T7kOXxI/
-         LMXTl09eLaTYGS7TNFm5n+QLg1TK8Sh/cIpynkyjKao6+F4I18Q6hm/roeOGNt9PgzeO
-         Y/xSNFqqmVtFuRiA7jUj1MN/oOxnah7LIkjoITfRnJiX6JVjLeruD2WGjzu46qE5tzUN
-         4dSrdg38opXIkbJapylrIGFB840UBfc8Cw9qyZmAMgbZJwt9JdxCLXzKR5+C4nFcaVw/
-         XOMJsmjF7A3+KMXjrWSKlQoHWCVu5U/XbNDlcx1N0KbMwBCGVI2DhWxCahINagLgtaYj
-         KbVw==
+         :list-id:mailing-list:precedence:content-disposition:in-reply-to
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=lFSH+qi+oMsHnylZs/iAsz4EyG5HgdDjXs6U1BjfKpo=;
+        b=wTr8E83w7t7H3l2MxGv0b/rtib6l6rLd4DRUKEPyv0ApgI8HMI9MLWvyGMEjgweM6f
+         u4O6lG4/WTj/nODRTy9uIOvljVuopb4sZ6gpUfg9wvsVFFBJ9hOERix0SQoBO08Hvga2
+         aUoFFlnGVRQ3iU2uuoYDszWt5ve9azyljm4+nf0JF4JpesJ/DJ9aiMUCpZTm99JfYcDi
+         Ca58yBNeDiuGvreRLJL3daqKqqasQ77B0GApGWDiKtUSkPtJSIKz5E/Iugjz4snXPqJk
+         tsrFj5HoPiKOYi+727qgSushOZJnUtZ8qZ4l4r9GThmwWSDje1SzPlFDphLtIqzaGNLi
+         OaVQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=vincenzo.frascino@arm.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=DozVcsGK;
+       spf=pass (google.com: domain of mst@redhat.com designates 207.211.31.81 as permitted sender) smtp.mailfrom=mst@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :in-reply-to:content-disposition:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=GxCHxby8l5jwwGtvilt24ox6ebyMaNeCLRxnwE4SN70=;
-        b=PKK0n/9mFZmx2BqNthkaiA87tiyOlnaCq5j4bqLT6x34IJwnZPBjml+tQWCzIf6oxl
-         s7VFh9g5e/HFLkt3yAX46SG9Hd2PERgarJFaAMTbPtThQ6bncFhdscNJ6YcTuOVUiLGs
-         GmdDH3tgggjMoNcYHuAupF1Ey1ZQjRbFisCSAaRczbsYvdcBqt6gw0wWTf4Y+2xFf+i8
-         2dP7vC81gdWmgOv3TcLzQRP/05IJcuZt/zfc0K0U9cmaPYXlT//qFdUdjoo061uW04pE
-         qEBTcg3LB6GZZhLJxJlulVyz1jA2hahlKBklcKHgjHFhN2gu+Xj/6/t8QUWfEtuOmu1h
-         6t5Q==
+        bh=lFSH+qi+oMsHnylZs/iAsz4EyG5HgdDjXs6U1BjfKpo=;
+        b=Ox9llnGaNVIZ2bzciM82tAPtrqc80yz4462m9p9jAABsVD4VU9/Pc4otQX2VubjTgz
+         2CVTdNI4X2vxX3Oq8AZD1RTD5oN3rzz7ToN1lA2tOIBk+/Qm8u6fI6hpPAcfn1r1E9yW
+         /z7Xru7niVd98rU5En5LW0PkjpsCyOD4aZNx3FxWBNrX1Kjz5REJgy+yytwoosuFS0eu
+         bhUm17I2jTXGfpoAKq970H9nNzYnnWEhqIGYTx91QBz/Ek9I0oZzjt80+PjMQioC6bY1
+         kjWvdh2F4ESm287kGqeWuPN3Zjw8clYSzv67seUAFFQ25JHgImzVMUMWl8embtK2SDSP
+         FRzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:in-reply-to:content-disposition
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=GxCHxby8l5jwwGtvilt24ox6ebyMaNeCLRxnwE4SN70=;
-        b=VMirkymwdMWNcRQwlNvHErp29tXTM6KHnENexLTfapzmnjb42YlNQ07b0hB5RnXftt
-         QEaJ30zFYwgIPTrOYqbGwGXCSif+QOVZjP9zK1MvQQqTjVhY7kmMpK8xWhy6ix/JV7Bp
-         rWYhvYetD387N62lvoYzlTO9fN/dVcu94rh+siOQFF5rPZ7s8XMifkFLtdvfCLAWL+9u
-         CjyJhDEw1+daPxr2Nu4OgEaobKLLP7IBIyVs1+cceI8FULom0+ErE1yuShVNvr47xjvM
-         ZXlWquI+UjQvmV60ieM6XFpbaQN0vcFGk09qj25Yl4ncShaF7kSsSkHNf3Dyl2aiTKOD
-         DBuA==
+        bh=lFSH+qi+oMsHnylZs/iAsz4EyG5HgdDjXs6U1BjfKpo=;
+        b=JIpwaft7LRpBHwgvZCiqelmcbYJd6ndrnLfAmaCOXySnDgWDlwPZ9glh97Cv1VZP+g
+         HEeO2jput3/q6BOyQgo/oalfpcJtOnXir9+P3Xgt+2fGBzcFvmDEgIkY6ztv7qK3WeYV
+         MeFIojJIXjhhZ5qvxkdaLAg9mqGvWCt6beJSxwu9zN+mpWpdUa7cwcGCsddodTGWU1Xs
+         B/Up6e7okVx+UJxZpcUuwH5dlDqHUkpljZ/lpPWV3Q38fKJIN7mmG9sTkmIqWrfpaogH
+         RSGUIIXXEtO5WJuKyWJjcmMV666H1czRmJp14wjoOI6knDsR2u3qFuFp1c4TYEc6h4s/
+         FzoA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuYn4fSM7KYctU6iQH1br4wKqMSsE8q/BLtd6K/6r5W1DEtaXJnH
-	qPLqweEaxkNZAODtTazLc8A=
-X-Google-Smtp-Source: APiQypJ+G2Dem7ct1AZ/iZTxbORaH5gjVUNY2H7CnvwYgY8u+uSlxsMN/GSJ5U9GPp6696u3AeglzA==
-X-Received: by 2002:a05:6830:1408:: with SMTP id v8mr9364376otp.123.1586439368387;
-        Thu, 09 Apr 2020 06:36:08 -0700 (PDT)
+X-Gm-Message-State: AGi0PubVyjoPY7LhARssvxtHCKOeU1HbEYPoiMRpfj1/lZW8VSArpmkq
+	bVV4vSRIGhJQl7fBV6/vOQ8=
+X-Google-Smtp-Source: APiQypKCni1DVqbbMjQ9orD7TgPxZKdUcvzvTR0j6b71yC4z1AePfkzZjWjeoj/0PzQv8FEgtNXjrw==
+X-Received: by 2002:a05:6602:15c2:: with SMTP id f2mr1222928iow.179.1586466959490;
+        Thu, 09 Apr 2020 14:15:59 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:bd82:: with SMTP id k2ls1009568oop.1.gmail; Thu, 09 Apr
- 2020 06:36:08 -0700 (PDT)
-X-Received: by 2002:a4a:41ce:: with SMTP id x197mr9958036ooa.77.1586439367974;
-        Thu, 09 Apr 2020 06:36:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586439367; cv=none;
+Received: by 2002:a6b:3e83:: with SMTP id l125ls2985998ioa.9.gmail; Thu, 09
+ Apr 2020 14:15:58 -0700 (PDT)
+X-Received: by 2002:a05:6602:446:: with SMTP id e6mr1230357iov.114.1586466958451;
+        Thu, 09 Apr 2020 14:15:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586466958; cv=none;
         d=google.com; s=arc-20160816;
-        b=vRAiK8x3/enxbk0Clcexyty6twp5XLve1ev1H4180ZYnTvTjeEGcLluU7Nd11wy7lB
-         2m2FY5xHOzEHJIy9pNLqxKMaOdPSLM7fr7XQ/eGG6KUxFZDE20jSCxbMrqF9zpsvPYSi
-         tXPYGTjSm+3HE9e9xlsCnA2wcjCf6pqjlhVZryB3r7z04OMboOjn4GA2djjw6ZmVPfu/
-         ekB6aM92KZ6f/g/WO9Dk5xmN76SQ2aaCUJ+3UD7SQ6/EZCy4wOxiZ4yg6k1tydjCiL5M
-         e8kxp/2woUSVTZCnEIhhkca0pIbWL8Gi0o16TrZNG5+/8xLLciAtHvK1OOljju9lU1jQ
-         dnMg==
+        b=cnYjTYBhWdsg4WehddVUkSZh0i0+EdUzk0WgMIthbMZe7ONCDRhcqtI7xOsiMkMZLU
+         2NjQpQHUzY0S7F2iI8huO/VVQeAnVoNC4B4W4P68nkPgh3f1m0YVHj79UCs7EMbOOo9Y
+         RZJ72AdBznLAgwmW+ZdkrwimBI6I86WKwRICKIW4bHpgA+q34xybaUTjx/7G7r8Kniow
+         Rlu5Rdab2ChAoz5TVLXHkV5KMeeXFNuLGG2TtZG9trnLDflWNfcr4F7cO0zITQqwgXcp
+         FHwEOJa1TottrmSullyCKWYQofRWzfCAMwwb2PrpCQquO/UZrhV15P6eyOg4AaETam3i
+         p6PQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject;
-        bh=YY34YhNyBKPBgy/+TrmFIxc4AIPN0XztxFYZsX0Brf8=;
-        b=TO8UVcAv3FKDrSgn7cxY0bL6eZpCp4Uk2MZKgnMhtcwovQycFj0y9MdYSaK0JlO2uG
-         S/E8ZiJ4ibbWchhKXnwfp9CtPRQoKpxsJiUZ3OBjsagTqQDv9OhB4YmI5qdpX0l7mHJh
-         ed1/OABSduFX9iSuN1oosE/ll7XvNkC/3Qrh2PSBjaA4JsIRtXXucXAJib8bmVZSJd6W
-         vMjdYL2PuN1BphVhVkh981/r67SfLdHUYN378BEwtnudevHk7vSB72q1X+1FYzAf2FSz
-         dmuH6d2tdcALRH08a2nGS84YPlQbWWyUzEfOiauctv+PWIQsNqjLcvOkh57vMPswMP+m
-         l7hQ==
+        h=content-disposition:content-transfer-encoding:in-reply-to
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :dkim-signature;
+        bh=JLLnC1eiQbD9bSK86/H9dA+8hZu3B7gVu5rNaccskrs=;
+        b=LeAqoXCl+vxNwJHp0gv7qd7+UFhwPbxWLRrgymY/mKaTmnbetP6wY/YfrV5klJkvLq
+         qtpHGo/LTx3wG8E2te8qV4yEndAY2oNLfl+gOR2AfM91F/QQ0GikD8tUXf1yKpcoXpp5
+         1PfQSJj9Y/NxsaaMqDwHxVkyM2djhFkSxigYSEX1wVws9zPgHfEhLGMJm2z9o6oP73Aq
+         CTl9RrILtgLLp67TLmTAGk97hYEQU1Bwaijlt2kETIfCP9edLF6AxCVek9GV8BfYoqt1
+         N728J0edCKS0YjnpKwy+3irmyU4Yf1p7bicxS3wjeX754oJ4k1u+0cBihEW5JhjqyaQY
+         lEqg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=vincenzo.frascino@arm.com
-Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
-        by gmr-mx.google.com with ESMTP id a63si723208oib.4.2020.04.09.06.36.07
-        for <clang-built-linux@googlegroups.com>;
-        Thu, 09 Apr 2020 06:36:07 -0700 (PDT)
-Received-SPF: pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BD66930E;
-	Thu,  9 Apr 2020 06:36:07 -0700 (PDT)
-Received: from [10.37.8.193] (unknown [10.37.8.193])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6B1603F73D;
-	Thu,  9 Apr 2020 06:36:03 -0700 (PDT)
-Subject: Re: [PATCH v3 21/26] arm64: Introduce asm/vdso/arch_timer.h
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mips@vger.kernel.org, clang-built-linux@googlegroups.com,
- x86@kernel.org, Will Deacon <will.deacon@arm.com>,
- Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>,
- Paul Burton <paul.burton@mips.com>, Thomas Gleixner <tglx@linutronix.de>,
- Andy Lutomirski <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Stephen Boyd <sboyd@kernel.org>,
- Mark Salyzyn <salyzyn@android.com>, Kees Cook <keescook@chromium.org>,
- Peter Collingbourne <pcc@google.com>, Dmitry Safonov <0x7f454c46@gmail.com>,
- Andrei Vagin <avagin@openvz.org>, Nick Desaulniers
- <ndesaulniers@google.com>, Marc Zyngier <maz@kernel.org>,
- Mark Rutland <Mark.Rutland@arm.com>
-References: <20200313154345.56760-1-vincenzo.frascino@arm.com>
- <20200313154345.56760-22-vincenzo.frascino@arm.com>
- <20200315183151.GE32205@mbp> <4914ad9c-3eaf-b328-f31b-5d3077ef272f@arm.com>
- <20200409132633.GD13078@willie-the-truck>
-From: Vincenzo Frascino <vincenzo.frascino@arm.com>
-Message-ID: <d578db85-7581-9bbb-2dab-25555e424ceb@arm.com>
-Date: Thu, 9 Apr 2020 14:36:48 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.9.0
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=DozVcsGK;
+       spf=pass (google.com: domain of mst@redhat.com designates 207.211.31.81 as permitted sender) smtp.mailfrom=mst@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com. [207.211.31.81])
+        by gmr-mx.google.com with ESMTPS id g17si14182ioe.0.2020.04.09.14.15.58
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 09 Apr 2020 14:15:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mst@redhat.com designates 207.211.31.81 as permitted sender) client-ip=207.211.31.81;
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-225-_cRFbB7INPaws291kRh8gw-1; Thu, 09 Apr 2020 17:15:56 -0400
+X-MC-Unique: _cRFbB7INPaws291kRh8gw-1
+Received: by mail-wm1-f70.google.com with SMTP id t62so80649wma.0
+        for <clang-built-linux@googlegroups.com>; Thu, 09 Apr 2020 14:15:55 -0700 (PDT)
+X-Received: by 2002:adf:b78b:: with SMTP id s11mr1032851wre.235.1586466954849;
+        Thu, 09 Apr 2020 14:15:54 -0700 (PDT)
+X-Received: by 2002:adf:b78b:: with SMTP id s11mr1032831wre.235.1586466954660;
+        Thu, 09 Apr 2020 14:15:54 -0700 (PDT)
+Received: from redhat.com (bzq-109-67-97-76.red.bezeqint.net. [109.67.97.76])
+        by smtp.gmail.com with ESMTPSA id k184sm5096224wmf.9.2020.04.09.14.15.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Apr 2020 14:15:54 -0700 (PDT)
+Date: Thu, 9 Apr 2020 17:15:51 -0400
+From: "Michael S. Tsirkin" <mst@redhat.com>
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Stephen Rothwell <sfr@canb.auug.org.au>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Gerd Hoffmann <kraxel@redhat.com>,
+	clang-built-linux@googlegroups.com
+Subject: Re: linux-next: build failure after merge of the vhost tree
+Message-ID: <20200409170923-mutt-send-email-mst@kernel.org>
+References: <20200407130542.0e3b5d9d@canb.auug.org.au>
+ <20200407185815.GA1805@ubuntu-s3-xlarge-x86>
 MIME-Version: 1.0
-In-Reply-To: <20200409132633.GD13078@willie-the-truck>
+In-Reply-To: <20200407185815.GA1805@ubuntu-s3-xlarge-x86>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Original-Sender: vincenzo.frascino@arm.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172
- as permitted sender) smtp.mailfrom=vincenzo.frascino@arm.com
+Content-Disposition: inline
+X-Original-Sender: mst@redhat.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@redhat.com header.s=mimecast20190719 header.b=DozVcsGK;
+       spf=pass (google.com: domain of mst@redhat.com designates 207.211.31.81
+ as permitted sender) smtp.mailfrom=mst@redhat.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,57 +147,98 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Will,
+On Tue, Apr 07, 2020 at 11:58:15AM -0700, Nathan Chancellor wrote:
+> On Tue, Apr 07, 2020 at 01:05:42PM +1000, Stephen Rothwell wrote:
+> > Hi all,
+> > 
+> > After merging the vhost tree, today's linux-next build (x86_64
+> > allmodconfig) failed like this:
+> > 
+> > drivers/gpu/drm/virtio/virtgpu_kms.c: In function 'virtio_gpu_init':
+> > drivers/gpu/drm/virtio/virtgpu_kms.c:153:38: error: 'VIRTIO_RING_F_INDIRECT_DESC' undeclared (first use in this function)
+> >   153 |  if (virtio_has_feature(vgdev->vdev, VIRTIO_RING_F_INDIRECT_DESC)) {
+> >       |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+> > drivers/gpu/drm/virtio/virtgpu_kms.c:153:38: note: each undeclared identifier is reported only once for each function it appears in
+> > 
+> > Caused by commit
+> > 
+> >   898952f9597e ("virtio: stop using legacy struct vring in kernel")
+> > 
+> > interacting with commit
+> > 
+> >   5edbb5608256 ("drm/virtio: fix ring free check")
+> > 
+> > from Linus' tree (post v5.6).
+> > 
+> > I have added the following merge fix patch for today.
+> > 
+> > From: Stephen Rothwell <sfr@canb.auug.org.au>
+> > Date: Tue, 7 Apr 2020 12:58:26 +1000
+> > Subject: [PATCH] drm/virtio: fix up for include file changes
+> > 
+> > Signed-off-by: Stephen Rothwell <sfr@canb.auug.org.au>
+> > ---
+> >  drivers/gpu/drm/virtio/virtgpu_kms.c | 1 +
+> >  1 file changed, 1 insertion(+)
+> > 
+> > diff --git a/drivers/gpu/drm/virtio/virtgpu_kms.c b/drivers/gpu/drm/virtio/virtgpu_kms.c
+> > index 023a030ca7b9..f4ea4cef5e23 100644
+> > --- a/drivers/gpu/drm/virtio/virtgpu_kms.c
+> > +++ b/drivers/gpu/drm/virtio/virtgpu_kms.c
+> > @@ -25,6 +25,7 @@
+> >  
+> >  #include <linux/virtio.h>
+> >  #include <linux/virtio_config.h>
+> > +#include <linux/virtio_ring.h>
+> >  
+> >  #include <drm/drm_file.h>
+> >  
+> > -- 
+> > 2.25.0
+> > 
+> > I do have to wonder why all this code has been added to the vhost tree
+> > during the second week of the merge window (especially when I see it
+> > rebased 4 times in one day :-().  Is it really intended for v5.7?
 
-On 4/9/20 2:26 PM, Will Deacon wrote:
-> Hi Vincenzo,
-> 
-> Sorry, I was on holiday when you posted this and it slipped through the
-> cracks.
-> 
+I pushed to next branch by mistake as I was publishing a tree for others to test, sorry.
+But yes the final version (which should be ok now hopefully) is intended
+for 5.7.
 
-No issue at all. Thank you for getting back to me.
+> > -- 
+> > Cheers,
+> > Stephen Rothwell
+> 
+> Linaro's CI also reports an issue with this patch with the remoteproc
+> drivers that were freshly merged in Linus' tree for 5.7-rc1 (seen with a
+> simple arm allyesconfig build):
+> 
+> drivers/rpmsg/mtk_rpmsg.c:68:2: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
+> drivers/rpmsg/mtk_rpmsg.c:93:9: error: implicit declaration of function 'kzalloc' [-Werror,-Wimplicit-function-declaration]
+> drivers/rpmsg/mtk_rpmsg.c:170:2: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
+> drivers/rpmsg/mtk_rpmsg.c:204:9: error: implicit declaration of function 'kzalloc' [-Werror,-Wimplicit-function-declaration]
+> drivers/rpmsg/mtk_rpmsg.c:223:3: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
+> drivers/rpmsg/mtk_rpmsg.c:259:9: error: implicit declaration of function 'kzalloc' [-Werror,-Wimplicit-function-declaration]
+> drivers/rpmsg/mtk_rpmsg.c:376:3: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
+> drivers/rpmsg/mtk_rpmsg.c:387:15: error: implicit declaration of function 'kzalloc' [-Werror,-Wimplicit-function-declaration]
+> drivers/rpmsg/mtk_rpmsg.c:409:2: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
+> drivers/remoteproc/stm32_rproc.c:152:14: error: implicit declaration of function 'kcalloc' [-Werror,-Wimplicit-function-declaration]
+> drivers/remoteproc/stm32_rproc.c:179:2: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
 
-> On Mon, Mar 16, 2020 at 03:37:23PM +0000, Vincenzo Frascino wrote:
->>> On Fri, Mar 13, 2020 at 03:43:40PM +0000, Vincenzo Frascino wrote:
->>>> The vDSO library should only include the necessary headers required for
->>>> a userspace library (UAPI and a minimal set of kernel headers). To make
->>>> this possible it is necessary to isolate from the kernel headers the
->>>> common parts that are strictly necessary to build the library.
->>>>
->>>> Introduce asm/vdso/arch_timer.h to contain all the arm64 specific
->>>> code. This allows to replace the second isb() in __arch_get_hw_counter()
->>>> with a fake dependent stack read of the counter which improves the vdso
->>>> library peformances of ~4.5%. Below the results of vdsotest [1] ran for
->>>> 100 iterations.
->>>
->>> The subject seems to imply a non-functional change but as you read, it
->>> gets a lot more complicated. Could you keep the functional change
->>> separate from the header clean-up, maybe submit it as an independent
->>> patch? And it shouldn't go in without Will's ack ;).
->>>
->>
->> It is fine by me. I will repost the series with the required fixes and without
->> this patch. This will give to me enough time to address Mark's comments as well
->> and to Will to have a proper look.
-> 
-> Please can you post whatever is left at -rc1? I'll have a look then, but
-> let's stick to just moving code around rather than randomly changing it
-> at the same time, ok?
-> 
+Yes, this a virtio header change in -next exposes a bug: these are using slab.h
+but not including it. I posted fixes and also pushed them on my branch now.
 
-Sure, I will try to re-post it by -rc1 and take on board your comments.
+> It seems like this series shouldn't be in -next until after 5.7-rc1 (or
+> rebased on Linus' tree if it is intended for the merge window).
+> 
+> Cheers,
+> Nathan
 
-> Thanks,
-> 
-> Will
-> 
+Exposing this kind of issue is what next is for, right?
 
 -- 
-Regards,
-Vincenzo
+MST
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/d578db85-7581-9bbb-2dab-25555e424ceb%40arm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200409170923-mutt-send-email-mst%40kernel.org.
