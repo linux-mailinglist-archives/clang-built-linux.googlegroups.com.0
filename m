@@ -1,140 +1,128 @@
-Return-Path: <clang-built-linux+bncBCQYDA7264GRBD5BX32AKGQEJNBDN2I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBH6MX32AKGQE3X5CNAA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd38.google.com (mail-io1-xd38.google.com [IPv6:2607:f8b0:4864:20::d38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 17BB31A3BC5
-	for <lists+clang-built-linux@lfdr.de>; Thu,  9 Apr 2020 23:16:02 +0200 (CEST)
-Received: by mail-io1-xd38.google.com with SMTP id v3sf31172iod.23
-        for <lists+clang-built-linux@lfdr.de>; Thu, 09 Apr 2020 14:16:02 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586466961; cv=pass;
+Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7043D1A3C80
+	for <lists+clang-built-linux@lfdr.de>; Fri, 10 Apr 2020 00:48:00 +0200 (CEST)
+Received: by mail-wr1-x440.google.com with SMTP id e10sf117687wru.6
+        for <lists+clang-built-linux@lfdr.de>; Thu, 09 Apr 2020 15:48:00 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586472480; cv=pass;
         d=google.com; s=arc-20160816;
-        b=xcOOTY8YrSDVGt7Vzy8ZeYt9WcugCF5FfL2f8B4OH9CqnY/8q378Xud4n5uou7e72t
-         zfLNWvmQkD+jd1eUQxWm8tBlYyCnJacDNseZL0EomH2cCI6rzmDGQXE2pzdRytpLNGQV
-         V71L36EOjuWoXwq1Ds6ElQh9+Xm7O2qEVvUgSIzJ2hy3CxQWwfRLBHlY7F07uSz2dKIS
-         ZwHgWl/mlzCuMDVVKl6mFn675aNMglnNUGLi2aUcYcN1O37+Ev4e8lZ3z5SqceqE8lgU
-         ACo4aID6tiW3sUXUmKVNdqkxgoiC/vyh/YtpEJrWvB4B072ZrRWrCdhRdfCgaLRX10T6
-         8Kug==
+        b=G4rMWkUDyJ42nqL3Lix9W682xyj/Zg93KukpUnrrVmGnQQLNQi5Imse5clxD/aguE/
+         Bqp996BazYjUYBCQLkP3mEUfBHZ5pzGNLabbxa0mImQXE5J5AAjBU6aoRSuImLvlQ8X5
+         VPVttyqJ2z5UT2Pm4G7GE+luxOZnG1Lh9Zi1ESX4v6VlPI/bpXlU7R7VAY2bc3ymqm/1
+         P6eJD7h9QX56M/E60GdkjEGxG1jHl2njhv7UA/I5pAxy5dCRQYlcXZMzeI8ta31YK0bb
+         v1hQMS6+RCRPBFE+VYY5z1J4aJCOgS4jJvR+9MKfrdcdgUIzHq2r/AOUDuWoGwbP9jHS
+         9zDw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-disposition:in-reply-to
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=lFSH+qi+oMsHnylZs/iAsz4EyG5HgdDjXs6U1BjfKpo=;
-        b=wTr8E83w7t7H3l2MxGv0b/rtib6l6rLd4DRUKEPyv0ApgI8HMI9MLWvyGMEjgweM6f
-         u4O6lG4/WTj/nODRTy9uIOvljVuopb4sZ6gpUfg9wvsVFFBJ9hOERix0SQoBO08Hvga2
-         aUoFFlnGVRQ3iU2uuoYDszWt5ve9azyljm4+nf0JF4JpesJ/DJ9aiMUCpZTm99JfYcDi
-         Ca58yBNeDiuGvreRLJL3daqKqqasQ77B0GApGWDiKtUSkPtJSIKz5E/Iugjz4snXPqJk
-         tsrFj5HoPiKOYi+727qgSushOZJnUtZ8qZ4l4r9GThmwWSDje1SzPlFDphLtIqzaGNLi
-         OaVQ==
+         :list-id:mailing-list:precedence:mime-version:subject:references
+         :in-reply-to:message-id:to:date:from:sender:dkim-signature;
+        bh=QwwfbTWjeMnv2ELKiDqqO79E5XGT1l+nk3bXujRKqjE=;
+        b=spBF/pWG4L7090bK1Jtk6HhUOACD0vlfGAI5dGNusGu4qptUGBMlRvkSpeYgSVVMh7
+         Gjpbc0LqFqOnAc3+38QWSosoA0ehh7RouKuW8nzDvhwOMRVaW7bpjEgJ8IIPyJQ/uxqy
+         TxbBmpRRDlvza/iC8zR3HwEcYlWyBLSeOpuDZOEDbm9Tq3muM0NaR5XLRBA9kOyOY1DZ
+         P/fVguRxvRGMnTdZ78FxpRn7eMDh2ZNY29xGlvokcnhF+kChif6/41pYOXnPQdtnutCs
+         4PO0rUhlHInCOFOt5PMvHCpW7RRN3bnKoxSGm7JV36lEFaLWbrRthxtdK4E1Iaqr55tt
+         MHgg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=DozVcsGK;
-       spf=pass (google.com: domain of mst@redhat.com designates 207.211.31.81 as permitted sender) smtp.mailfrom=mst@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@linaro.org header.s=google header.b=ZXXesEDw;
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :in-reply-to:content-disposition:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=lFSH+qi+oMsHnylZs/iAsz4EyG5HgdDjXs6U1BjfKpo=;
-        b=Ox9llnGaNVIZ2bzciM82tAPtrqc80yz4462m9p9jAABsVD4VU9/Pc4otQX2VubjTgz
-         2CVTdNI4X2vxX3Oq8AZD1RTD5oN3rzz7ToN1lA2tOIBk+/Qm8u6fI6hpPAcfn1r1E9yW
-         /z7Xru7niVd98rU5En5LW0PkjpsCyOD4aZNx3FxWBNrX1Kjz5REJgy+yytwoosuFS0eu
-         bhUm17I2jTXGfpoAKq970H9nNzYnnWEhqIGYTx91QBz/Ek9I0oZzjt80+PjMQioC6bY1
-         kjWvdh2F4ESm287kGqeWuPN3Zjw8clYSzv67seUAFFQ25JHgImzVMUMWl8embtK2SDSP
-         FRzw==
+        h=sender:from:date:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=QwwfbTWjeMnv2ELKiDqqO79E5XGT1l+nk3bXujRKqjE=;
+        b=bD48KyfkpoeD6wuKlkNen7gMO3B5ptbORT3OdQbhDghzrBWhLIzSqlCfV6ZcG1htvD
+         yxEaEwMr2dqXzZKwq5m4nzv7K8n4WmtFSe05hGBIuvabMPR5WafJ8bSt7ukttQSg/nDf
+         hSw7znYLtcs2MJUvrfRzlnflk9ysXe9a0GlaGjioPBgNDhPslvcLpbxh3XfAHaKs92rl
+         6ufLzqw6wgOh33CgR6MWecNI5g7wTwQu5/B0mYvzBpG0Vob+3L6I1Sa1KPdx6QKDqYi0
+         9aWiUjqp1W1Wh0htN+m9zyt33gqdgu73h2VOlOR9jCT8MuTy75+2vXDS/qur9Zr/YrrG
+         X/Tg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:in-reply-to:content-disposition
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=lFSH+qi+oMsHnylZs/iAsz4EyG5HgdDjXs6U1BjfKpo=;
-        b=JIpwaft7LRpBHwgvZCiqelmcbYJd6ndrnLfAmaCOXySnDgWDlwPZ9glh97Cv1VZP+g
-         HEeO2jput3/q6BOyQgo/oalfpcJtOnXir9+P3Xgt+2fGBzcFvmDEgIkY6ztv7qK3WeYV
-         MeFIojJIXjhhZ5qvxkdaLAg9mqGvWCt6beJSxwu9zN+mpWpdUa7cwcGCsddodTGWU1Xs
-         B/Up6e7okVx+UJxZpcUuwH5dlDqHUkpljZ/lpPWV3Q38fKJIN7mmG9sTkmIqWrfpaogH
-         RSGUIIXXEtO5WJuKyWJjcmMV666H1czRmJp14wjoOI6knDsR2u3qFuFp1c4TYEc6h4s/
-         FzoA==
+        h=sender:x-gm-message-state:from:date:to:message-id:in-reply-to
+         :references:subject:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=QwwfbTWjeMnv2ELKiDqqO79E5XGT1l+nk3bXujRKqjE=;
+        b=s014KdYgbIddRnDTVAm8Ox6o45kgQ9BOA0GxQskaiKkBieg4/ghxeA4BNiE/tXk3Av
+         rs38p0PTErKgCO3L8bukDiHdVKATRpAAjaCGrtmBCdZDwvtAoXPbh7Ed27mnkHft7+cQ
+         P7mRPcVbd1cys8wO1krF8er9kV3JbUnrrNRtnMZCJrjUQQ3kUYiQ3L8pEy20dWkfD1Ll
+         /TN2JAUXxufCv+OhMa4lNutwtAcrIhEVtmTaWijNyiuRwejgm+2q224k78FhjDDoum8Z
+         PXBoqmHLCm7PIF8vg9T5V7MnGC0uUh69el58kLCqWRMsupWp2NVy0SFH+dT/gP+F+Ig/
+         DUMw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PubVyjoPY7LhARssvxtHCKOeU1HbEYPoiMRpfj1/lZW8VSArpmkq
-	bVV4vSRIGhJQl7fBV6/vOQ8=
-X-Google-Smtp-Source: APiQypKCni1DVqbbMjQ9orD7TgPxZKdUcvzvTR0j6b71yC4z1AePfkzZjWjeoj/0PzQv8FEgtNXjrw==
-X-Received: by 2002:a05:6602:15c2:: with SMTP id f2mr1222928iow.179.1586466959490;
-        Thu, 09 Apr 2020 14:15:59 -0700 (PDT)
+X-Gm-Message-State: AGi0Pub7Dg5Dzzpahb7I2idm5FEaF2bdkLGGN2YfIv2dMiT0Y/edzjVG
+	RjqPj0zrBsK5U91DGJ0kPzY=
+X-Google-Smtp-Source: APiQypJS8DOsqx7/ojIC2Kaaa+8NejQ/wuvXlFKIcSP4j40oX3E/jecJAgYkHyUmAipXNhg1uTDfnA==
+X-Received: by 2002:a1c:e1c1:: with SMTP id y184mr2111769wmg.143.1586472480035;
+        Thu, 09 Apr 2020 15:48:00 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a6b:3e83:: with SMTP id l125ls2985998ioa.9.gmail; Thu, 09
- Apr 2020 14:15:58 -0700 (PDT)
-X-Received: by 2002:a05:6602:446:: with SMTP id e6mr1230357iov.114.1586466958451;
-        Thu, 09 Apr 2020 14:15:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586466958; cv=none;
+Received: by 2002:a1c:968f:: with SMTP id y137ls5198282wmd.3.canary-gmail;
+ Thu, 09 Apr 2020 15:47:59 -0700 (PDT)
+X-Received: by 2002:a05:600c:210c:: with SMTP id u12mr2148377wml.135.1586472479362;
+        Thu, 09 Apr 2020 15:47:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586472479; cv=none;
         d=google.com; s=arc-20160816;
-        b=cnYjTYBhWdsg4WehddVUkSZh0i0+EdUzk0WgMIthbMZe7ONCDRhcqtI7xOsiMkMZLU
-         2NjQpQHUzY0S7F2iI8huO/VVQeAnVoNC4B4W4P68nkPgh3f1m0YVHj79UCs7EMbOOo9Y
-         RZJ72AdBznLAgwmW+ZdkrwimBI6I86WKwRICKIW4bHpgA+q34xybaUTjx/7G7r8Kniow
-         Rlu5Rdab2ChAoz5TVLXHkV5KMeeXFNuLGG2TtZG9trnLDflWNfcr4F7cO0zITQqwgXcp
-         FHwEOJa1TottrmSullyCKWYQofRWzfCAMwwb2PrpCQquO/UZrhV15P6eyOg4AaETam3i
-         p6PQ==
+        b=BahGD8hIwX8Y61EPRk4mvZKv5XfMynHJYy51LQ/liXi34QAqHlTXuiXFwvc2hNdS97
+         3lyONjrYOdnNdlRAi7C00MphPJ3CYnoRZXh4iWAgQ4wRgzXqvowCUUzeY2xJXT7dl6r7
+         p5jE7KDAi7/XmtVM/o9sJZDQZw4RYs+5YSnSHMauZqmasDuxevukUtEDTI2wHjsccJWc
+         W8sGulJ4yfGYE+DR5XogcabGQZxxMD/dclt3xVZGWbdZRE4IYbm2CraIKewSdVHB6dvM
+         Zp9X/aLLe6gXeITagrt/wUkFID9l+Q1afxwJNrfuLHzeDyKhoXERc5NObFZKCsnDVt4Q
+         dYhw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-disposition:content-transfer-encoding:in-reply-to
-         :mime-version:references:message-id:subject:cc:to:from:date
+        h=mime-version:subject:references:in-reply-to:message-id:to:date:from
          :dkim-signature;
-        bh=JLLnC1eiQbD9bSK86/H9dA+8hZu3B7gVu5rNaccskrs=;
-        b=LeAqoXCl+vxNwJHp0gv7qd7+UFhwPbxWLRrgymY/mKaTmnbetP6wY/YfrV5klJkvLq
-         qtpHGo/LTx3wG8E2te8qV4yEndAY2oNLfl+gOR2AfM91F/QQ0GikD8tUXf1yKpcoXpp5
-         1PfQSJj9Y/NxsaaMqDwHxVkyM2djhFkSxigYSEX1wVws9zPgHfEhLGMJm2z9o6oP73Aq
-         CTl9RrILtgLLp67TLmTAGk97hYEQU1Bwaijlt2kETIfCP9edLF6AxCVek9GV8BfYoqt1
-         N728J0edCKS0YjnpKwy+3irmyU4Yf1p7bicxS3wjeX754oJ4k1u+0cBihEW5JhjqyaQY
-         lEqg==
+        bh=8EU5jm6YEVZhSBdpV5aeMHD81RcqITcUlwp86MY6tcM=;
+        b=C8xm6y3IP2FqBvk4wK9TB/PEkBLxpA5MtwLxQMx8xbT2JKRR75sbMp4pNOfCyB7fAJ
+         zO8D5dNC1swXUtBwtcDhtgBj8tRKGLcwFEebnYRxHBRJzK/Z4HNfJPFcD4JXYhpMtd33
+         V4IFlNxHTDWZv+K1TVMPiv6RJjVEcE1d3eAZ8HzPO3l7VtddkujGHhlN9QNyeeBHyHcT
+         iVoB5p4Vw/TRfKmgvvLi0lMuZPOWwXjss5Q6WTymhwK711raFWon9k1taofYk7MZf8o+
+         BU/QHHBGlE/SimkE/nCaczbjHD0PPvr7HQNsLJhBlCLdxET8ZgHG6Sskc3MvpEZbkZqB
+         MZAQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=DozVcsGK;
-       spf=pass (google.com: domain of mst@redhat.com designates 207.211.31.81 as permitted sender) smtp.mailfrom=mst@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com. [207.211.31.81])
-        by gmr-mx.google.com with ESMTPS id g17si14182ioe.0.2020.04.09.14.15.58
+       dkim=pass header.i=@linaro.org header.s=google header.b=ZXXesEDw;
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-wm1-x341.google.com (mail-wm1-x341.google.com. [2a00:1450:4864:20::341])
+        by gmr-mx.google.com with ESMTPS id f129si17026wmf.2.2020.04.09.15.47.59
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 09 Apr 2020 14:15:58 -0700 (PDT)
-Received-SPF: pass (google.com: domain of mst@redhat.com designates 207.211.31.81 as permitted sender) client-ip=207.211.31.81;
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-225-_cRFbB7INPaws291kRh8gw-1; Thu, 09 Apr 2020 17:15:56 -0400
-X-MC-Unique: _cRFbB7INPaws291kRh8gw-1
-Received: by mail-wm1-f70.google.com with SMTP id t62so80649wma.0
-        for <clang-built-linux@googlegroups.com>; Thu, 09 Apr 2020 14:15:55 -0700 (PDT)
-X-Received: by 2002:adf:b78b:: with SMTP id s11mr1032851wre.235.1586466954849;
-        Thu, 09 Apr 2020 14:15:54 -0700 (PDT)
-X-Received: by 2002:adf:b78b:: with SMTP id s11mr1032831wre.235.1586466954660;
-        Thu, 09 Apr 2020 14:15:54 -0700 (PDT)
-Received: from redhat.com (bzq-109-67-97-76.red.bezeqint.net. [109.67.97.76])
-        by smtp.gmail.com with ESMTPSA id k184sm5096224wmf.9.2020.04.09.14.15.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Apr 2020 14:15:54 -0700 (PDT)
-Date: Thu, 9 Apr 2020 17:15:51 -0400
-From: "Michael S. Tsirkin" <mst@redhat.com>
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Stephen Rothwell <sfr@canb.auug.org.au>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Gerd Hoffmann <kraxel@redhat.com>,
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 09 Apr 2020 15:47:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::341 as permitted sender) client-ip=2a00:1450:4864:20::341;
+Received: by mail-wm1-x341.google.com with SMTP id a201so276150wme.1
+        for <clang-built-linux@googlegroups.com>; Thu, 09 Apr 2020 15:47:59 -0700 (PDT)
+X-Received: by 2002:a7b:c002:: with SMTP id c2mr2024560wmb.123.1586472478779;
+        Thu, 09 Apr 2020 15:47:58 -0700 (PDT)
+Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
+        by smtp.gmail.com with ESMTPSA id m13sm231587wrx.40.2020.04.09.15.47.57
+        (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Thu, 09 Apr 2020 15:47:58 -0700 (PDT)
+From: ci_notify@linaro.org
+Date: Thu, 9 Apr 2020 22:47:57 +0000 (UTC)
+To: tcwg-validation@linaro.org, arnd@linaro.org, 
 	clang-built-linux@googlegroups.com
-Subject: Re: linux-next: build failure after merge of the vhost tree
-Message-ID: <20200409170923-mutt-send-email-mst@kernel.org>
-References: <20200407130542.0e3b5d9d@canb.auug.org.au>
- <20200407185815.GA1805@ubuntu-s3-xlarge-x86>
+Message-ID: <1826683512.16916.1586472478110.JavaMail.javamailuser@localhost>
+In-Reply-To: <1095674192.14752.1586292792903.JavaMail.javamailuser@localhost>
+References: <1095674192.14752.1586292792903.JavaMail.javamailuser@localhost>
+Subject: [CI-NOTIFY]: TCWG Bisect
+ tcwg_kernel/llvm-master-aarch64-next-allmodconfig - Build # 84 - Fixed!
 MIME-Version: 1.0
-In-Reply-To: <20200407185815.GA1805@ubuntu-s3-xlarge-x86>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-X-Original-Sender: mst@redhat.com
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_16915_1135851689.1586472477555"
+X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-aarch64-next-allmodconfig
+X-Jenkins-Result: SUCCESS
+X-Original-Sender: ci_notify@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=DozVcsGK;
-       spf=pass (google.com: domain of mst@redhat.com designates 207.211.31.81
- as permitted sender) smtp.mailfrom=mst@redhat.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@linaro.org header.s=google header.b=ZXXesEDw;       spf=pass
+ (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::341
+ as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,98 +135,237 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Apr 07, 2020 at 11:58:15AM -0700, Nathan Chancellor wrote:
-> On Tue, Apr 07, 2020 at 01:05:42PM +1000, Stephen Rothwell wrote:
-> > Hi all,
-> > 
-> > After merging the vhost tree, today's linux-next build (x86_64
-> > allmodconfig) failed like this:
-> > 
-> > drivers/gpu/drm/virtio/virtgpu_kms.c: In function 'virtio_gpu_init':
-> > drivers/gpu/drm/virtio/virtgpu_kms.c:153:38: error: 'VIRTIO_RING_F_INDIRECT_DESC' undeclared (first use in this function)
-> >   153 |  if (virtio_has_feature(vgdev->vdev, VIRTIO_RING_F_INDIRECT_DESC)) {
-> >       |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-> > drivers/gpu/drm/virtio/virtgpu_kms.c:153:38: note: each undeclared identifier is reported only once for each function it appears in
-> > 
-> > Caused by commit
-> > 
-> >   898952f9597e ("virtio: stop using legacy struct vring in kernel")
-> > 
-> > interacting with commit
-> > 
-> >   5edbb5608256 ("drm/virtio: fix ring free check")
-> > 
-> > from Linus' tree (post v5.6).
-> > 
-> > I have added the following merge fix patch for today.
-> > 
-> > From: Stephen Rothwell <sfr@canb.auug.org.au>
-> > Date: Tue, 7 Apr 2020 12:58:26 +1000
-> > Subject: [PATCH] drm/virtio: fix up for include file changes
-> > 
-> > Signed-off-by: Stephen Rothwell <sfr@canb.auug.org.au>
-> > ---
-> >  drivers/gpu/drm/virtio/virtgpu_kms.c | 1 +
-> >  1 file changed, 1 insertion(+)
-> > 
-> > diff --git a/drivers/gpu/drm/virtio/virtgpu_kms.c b/drivers/gpu/drm/virtio/virtgpu_kms.c
-> > index 023a030ca7b9..f4ea4cef5e23 100644
-> > --- a/drivers/gpu/drm/virtio/virtgpu_kms.c
-> > +++ b/drivers/gpu/drm/virtio/virtgpu_kms.c
-> > @@ -25,6 +25,7 @@
-> >  
-> >  #include <linux/virtio.h>
-> >  #include <linux/virtio_config.h>
-> > +#include <linux/virtio_ring.h>
-> >  
-> >  #include <drm/drm_file.h>
-> >  
-> > -- 
-> > 2.25.0
-> > 
-> > I do have to wonder why all this code has been added to the vhost tree
-> > during the second week of the merge window (especially when I see it
-> > rebased 4 times in one day :-().  Is it really intended for v5.7?
+------=_Part_16915_1135851689.1586472477555
+Content-Type: text/plain; charset="UTF-8"
 
-I pushed to next branch by mistake as I was publishing a tree for others to test, sorry.
-But yes the final version (which should be ok now hopefully) is intended
-for 5.7.
+Successfully identified regression in *linux* in CI configuration tcwg_kernel/llvm-master-aarch64-next-allmodconfig.  So far, this commit has regressed CI configurations:
+ - tcwg_kernel/gnu-master-aarch64-next-allyesconfig
+ - tcwg_kernel/gnu-master-arm-next-allmodconfig
+ - tcwg_kernel/llvm-master-aarch64-next-allmodconfig
 
-> > -- 
-> > Cheers,
-> > Stephen Rothwell
-> 
-> Linaro's CI also reports an issue with this patch with the remoteproc
-> drivers that were freshly merged in Linus' tree for 5.7-rc1 (seen with a
-> simple arm allyesconfig build):
-> 
-> drivers/rpmsg/mtk_rpmsg.c:68:2: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
-> drivers/rpmsg/mtk_rpmsg.c:93:9: error: implicit declaration of function 'kzalloc' [-Werror,-Wimplicit-function-declaration]
-> drivers/rpmsg/mtk_rpmsg.c:170:2: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
-> drivers/rpmsg/mtk_rpmsg.c:204:9: error: implicit declaration of function 'kzalloc' [-Werror,-Wimplicit-function-declaration]
-> drivers/rpmsg/mtk_rpmsg.c:223:3: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
-> drivers/rpmsg/mtk_rpmsg.c:259:9: error: implicit declaration of function 'kzalloc' [-Werror,-Wimplicit-function-declaration]
-> drivers/rpmsg/mtk_rpmsg.c:376:3: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
-> drivers/rpmsg/mtk_rpmsg.c:387:15: error: implicit declaration of function 'kzalloc' [-Werror,-Wimplicit-function-declaration]
-> drivers/rpmsg/mtk_rpmsg.c:409:2: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
-> drivers/remoteproc/stm32_rproc.c:152:14: error: implicit declaration of function 'kcalloc' [-Werror,-Wimplicit-function-declaration]
-> drivers/remoteproc/stm32_rproc.c:179:2: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
+Culprit:
+<cut>
+commit 3b0e542de7fb3f0563bdcfee3ddcf91316ee8110
+Author: Michael S. Tsirkin <mst@redhat.com>
 
-Yes, this a virtio header change in -next exposes a bug: these are using slab.h
-but not including it. I posted fixes and also pushed them on my branch now.
+    virtio: stop using legacy struct vring in kernel
+</cut>
 
-> It seems like this series shouldn't be in -next until after 5.7-rc1 (or
-> rebased on Linus' tree if it is intended for the merge window).
-> 
-> Cheers,
-> Nathan
+Configuration details:
+rr[llvm_url]="https://github.com/llvm/llvm-project.git"
+rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
+rr[linux_branch]="b2e2a818a01717ba15c74fd355f76822b81a95f6"
 
-Exposing this kind of issue is what next is for, right?
+Results regressed to (for first_bad == 3b0e542de7fb3f0563bdcfee3ddcf91316ee8110)
+# reset_artifacts:
+-10
+# build_llvm:
+-1
+# linux_n_obj:
+19956
+# First few build errors in logs:
+# 00:03:41 drivers/virtio/virtio_ring.c:870:16: error: implicit declaration of function 'vring_size' [-Werror,-Wimplicit-function-declaration]
+# 00:03:41 drivers/virtio/virtio_ring.c:892:2: error: implicit declaration of function 'vring_init' [-Werror,-Wimplicit-function-declaration]
+# 00:03:41 drivers/virtio/virtio_ring.c:2172:2: error: implicit declaration of function 'vring_init' [-Werror,-Wimplicit-function-declaration]
+# 00:03:43 make[2]: *** [drivers/virtio/virtio_ring.o] Error 1
+# 00:04:02 make[1]: *** [drivers/virtio] Error 2
+# 00:05:44 drivers/misc/mic/vop/vop_main.c:286:2: error: implicit declaration of function 'vring_init' [-Werror,-Wimplicit-function-declaration]
+# 00:05:44 drivers/misc/mic/vop/vop_main.c:323:13: error: implicit declaration of function 'vring_size' [-Werror,-Wimplicit-function-declaration]
+# 00:05:46 drivers/misc/mic/vop/vop_vringh.c:299:24: error: implicit declaration of function 'vring_size' [-Werror,-Wimplicit-function-declaration]
+# 00:05:46 drivers/misc/mic/vop/vop_vringh.c:324:3: error: implicit declaration of function 'vring_init' [-Werror,-Wimplicit-function-declaration]
+# 00:05:46 make[4]: *** [drivers/misc/mic/vop/vop_vringh.o] Error 1
 
--- 
-MST
+from (for last_good == 9af2d59997a8fd77516f78fb5c596fd5c8a20ea4)
+# reset_artifacts:
+-10
+# build_llvm:
+-1
+# linux_n_obj:
+27237
+# linux build successful:
+all
+# linux boot successful:
+boot
+
+Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/84/artifact/artifacts/build-3b0e542de7fb3f0563bdcfee3ddcf91316ee8110/
+Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/84/artifact/artifacts/build-9af2d59997a8fd77516f78fb5c596fd5c8a20ea4/
+Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/84/
+
+Reproduce builds:
+<cut>
+mkdir investigate-linux-3b0e542de7fb3f0563bdcfee3ddcf91316ee8110
+cd investigate-linux-3b0e542de7fb3f0563bdcfee3ddcf91316ee8110
+
+git clone https://git.linaro.org/toolchain/jenkins-scripts
+
+mkdir -p artifacts/manifests
+curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/84/artifact/artifacts/manifests/build-baseline.sh --fail
+curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/84/artifact/artifacts/manifests/build-parameters.sh --fail
+curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/84/artifact/artifacts/test.sh --fail
+chmod +x artifacts/test.sh
+
+# Reproduce the baseline build (build all pre-requisites)
+./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
+
+cd linux
+
+# Reproduce first_bad build
+git checkout --detach 3b0e542de7fb3f0563bdcfee3ddcf91316ee8110
+../artifacts/test.sh
+
+# Reproduce last_good build
+git checkout --detach 9af2d59997a8fd77516f78fb5c596fd5c8a20ea4
+../artifacts/test.sh
+
+cd ..
+</cut>
+
+History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-next-allmodconfig
+
+Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/84/artifact/artifacts/
+Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/84/consoleText
+
+Full commit:
+<cut>
+commit 3b0e542de7fb3f0563bdcfee3ddcf91316ee8110
+Author: Michael S. Tsirkin <mst@redhat.com>
+Date:   Mon Apr 6 11:21:39 2020 -0400
+
+    virtio: stop using legacy struct vring in kernel
+    
+    struct vring (in the uapi directory) and supporting APIs are kept
+    around to solely avoid breaking old userspace builds.
+    It's not actually part of the UAPI - it was kept in the UAPI
+    header by mistake, and using it in kernel isn't necessary
+    and prevents us from making changes safely.
+    In particular, the APIs actually assume the legacy layout.
+    
+    Add an internal kernel-only struct vring and
+    switch everyone to use that.
+    
+    Signed-off-by: Michael S. Tsirkin <mst@redhat.com>
+    Reviewed-by: Stefan Hajnoczi <stefanha@redhat.com>
+---
+ drivers/block/virtio_blk.c       |  1 +
+ include/linux/virtio.h           |  1 -
+ include/linux/virtio_ring.h      | 10 ++++++++++
+ include/linux/vringh.h           |  1 +
+ include/uapi/linux/virtio_ring.h | 26 ++++++++++++++++----------
+ 5 files changed, 28 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/block/virtio_blk.c b/drivers/block/virtio_blk.c
+index 0736248999b0d..dd5732dc4b077 100644
+--- a/drivers/block/virtio_blk.c
++++ b/drivers/block/virtio_blk.c
+@@ -15,6 +15,7 @@
+ #include <linux/blk-mq.h>
+ #include <linux/blk-mq-virtio.h>
+ #include <linux/numa.h>
++#include <uapi/linux/virtio_ring.h>
+ 
+ #define PART_BITS 4
+ #define VQ_NAME_LEN 16
+diff --git a/include/linux/virtio.h b/include/linux/virtio.h
+index 15f906e4a748f..a493eac083933 100644
+--- a/include/linux/virtio.h
++++ b/include/linux/virtio.h
+@@ -9,7 +9,6 @@
+ #include <linux/device.h>
+ #include <linux/mod_devicetable.h>
+ #include <linux/gfp.h>
+-#include <linux/vringh.h>
+ 
+ /**
+  * virtqueue - a queue to register buffers for sending or receiving.
+diff --git a/include/linux/virtio_ring.h b/include/linux/virtio_ring.h
+index 3dc70adfe5f5e..11680e74761a6 100644
+--- a/include/linux/virtio_ring.h
++++ b/include/linux/virtio_ring.h
+@@ -60,6 +60,16 @@ static inline void virtio_store_mb(bool weak_barriers,
+ struct virtio_device;
+ struct virtqueue;
+ 
++struct vring {
++	unsigned int num;
++
++	struct vring_desc *desc;
++
++	struct vring_avail *avail;
++
++	struct vring_used *used;
++};
++
+ /*
+  * Creates a virtqueue and allocates the descriptor ring.  If
+  * may_reduce_num is set, then this may allocate a smaller ring than
+diff --git a/include/linux/vringh.h b/include/linux/vringh.h
+index 9e2763d7c1591..d71b3710f58ef 100644
+--- a/include/linux/vringh.h
++++ b/include/linux/vringh.h
+@@ -11,6 +11,7 @@
+ #ifndef _LINUX_VRINGH_H
+ #define _LINUX_VRINGH_H
+ #include <uapi/linux/virtio_ring.h>
++#include <linux/virtio_ring.h>
+ #include <linux/virtio_byteorder.h>
+ #include <linux/uio.h>
+ #include <linux/slab.h>
+diff --git a/include/uapi/linux/virtio_ring.h b/include/uapi/linux/virtio_ring.h
+index 9223c3a5c46ae..8961a4adda5cb 100644
+--- a/include/uapi/linux/virtio_ring.h
++++ b/include/uapi/linux/virtio_ring.h
+@@ -118,16 +118,6 @@ struct vring_used {
+ 	struct vring_used_elem ring[];
+ };
+ 
+-struct vring {
+-	unsigned int num;
+-
+-	struct vring_desc *desc;
+-
+-	struct vring_avail *avail;
+-
+-	struct vring_used *used;
+-};
+-
+ /* Alignment requirements for vring elements.
+  * When using pre-virtio 1.0 layout, these fall out naturally.
+  */
+@@ -166,6 +156,21 @@ struct vring {
+ #define vring_used_event(vr) ((vr)->avail->ring[(vr)->num])
+ #define vring_avail_event(vr) (*(__virtio16 *)&(vr)->used->ring[(vr)->num])
+ 
++#ifndef __KERNEL__
++/*
++ * The following definitions have been put in the UAPI header by mistake. We
++ * keep them around to avoid breaking old userspace builds.
++ */
++struct vring {
++	unsigned int num;
++
++	struct vring_desc *desc;
++
++	struct vring_avail *avail;
++
++	struct vring_used *used;
++};
++
+ static inline void vring_init(struct vring *vr, unsigned int num, void *p,
+ 			      unsigned long align)
+ {
+@@ -182,6 +187,7 @@ static inline unsigned vring_size(unsigned int num, unsigned long align)
+ 		 + align - 1) & ~(align - 1))
+ 		+ sizeof(__virtio16) * 3 + sizeof(struct vring_used_elem) * num;
+ }
++#endif
+ 
+ #endif /* VIRTIO_RING_NO_LEGACY */
+ 
+</cut>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200409170923-mutt-send-email-mst%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1826683512.16916.1586472478110.JavaMail.javamailuser%40localhost.
+
+------=_Part_16915_1135851689.1586472477555--
