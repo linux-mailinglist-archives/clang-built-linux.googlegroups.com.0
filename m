@@ -1,132 +1,152 @@
-Return-Path: <clang-built-linux+bncBCI2VAWMWUMRBKXOYD2AKGQEHRW7U7I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBU4FYH2AKGQEI3AZK4Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1037.google.com (mail-pj1-x1037.google.com [IPv6:2607:f8b0:4864:20::1037])
-	by mail.lfdr.de (Postfix) with ESMTPS id A68F71A4435
-	for <lists+clang-built-linux@lfdr.de>; Fri, 10 Apr 2020 11:06:52 +0200 (CEST)
-Received: by mail-pj1-x1037.google.com with SMTP id l9sf1420930pjq.8
-        for <lists+clang-built-linux@lfdr.de>; Fri, 10 Apr 2020 02:06:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586509611; cv=pass;
+Received: from mail-wm1-x33d.google.com (mail-wm1-x33d.google.com [IPv6:2a00:1450:4864:20::33d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3A6CB1A44CC
+	for <lists+clang-built-linux@lfdr.de>; Fri, 10 Apr 2020 11:56:36 +0200 (CEST)
+Received: by mail-wm1-x33d.google.com with SMTP id o5sf632335wmo.6
+        for <lists+clang-built-linux@lfdr.de>; Fri, 10 Apr 2020 02:56:36 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586512596; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PfymGamOyyx9G/l6lhH7zzbAAutSRzJDaALVwDSOWRz42LwXQhUo9u5UNjiKLKg0Jd
-         VOshVc0oWduDDLeHtey7XQHPCWkEctuzmdvx9wMEk15JyXeP9V4hLq04LykVgho27Ips
-         Fcu/YfoMGlIAYCHw9R7LUR3sDRFB67lbE+d1G9Y45SQbxwQE8XPdM/sadkr7508HG7uJ
-         3+CSYw/V84Xl9tED4KZYalYb2/pQHpofASAiAyrglQox6VY8cLUacPYpgD6bpC4afPei
-         O6zO/3+oNQTRUw43Om23pOuETK0wPpfv7fqTgYM11iTE4AF4+t8EHL4hbv3DCHXLo3cW
-         6lvQ==
+        b=nG1aIHQUestpyXcHFdGos9qrXIjTw50KErPzDx7nUMJJcycATzlDBGLJ+/t64Lcq3T
+         Ip7BFoXc6T1csHBTTlTAZPM9HtLr3JXs2TydXZoY6IBQM/k31e2wpy/pZys3i708eWs+
+         FQyQrmnW+LCSt+qskAnE2gS2hHzMs//pCyREADdwrtSoL1DNzJk8SRtGu7VSZXqFwES9
+         BHJR0MwjMKPCZKIylaAvj71HUwRXA5EliLmFcnm0VsmdYkIN0p9JfBQH0bOG30R1gr9Q
+         KvghaNrNrvCYiMmNIXsmYSplRMKfu8exTGWctAmUOBOlqRe0tXtkx9/XGC4PTgxYSsbZ
+         fRsA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=s0BI55uFBBnAOlI04A13OBKFvvXBL2BBgMNbwCdEWDw=;
-        b=c+H5Z81PIGW1/1PfrQ/4q7BhUrbnQbOkVs972SAjg874+BGFSrA00wQ9cbquLc9pQu
-         4GrXu9fCpiALHlhD6uMQqy9TQB9KzxFijiNXG9kPbJ8suOEWpr3cefKXait0Rt15RgOk
-         gCD/L9F8gYILJt3/tfTLdXeKFfCGtr4742FMqo42Fh9av3GPwX/ipU+AhxLIOvFlvJBh
-         aVXgKfINJ/9nAhyWTmVTfwXFw+DlAFuNdj2lme8sbsyr5cKIvbFSfcm0xEbu0PFLhi/B
-         N3wNemszOY1mjIykm3ALpMj7Uf3OcB0pckT3OOHnI9oq/D9AiO7mVQ+R5PxCzuRClP/k
-         dtww==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=5pRkpdMMtql+Br9imSBvbdkZREk1dLgoASkv48CjStQ=;
+        b=XsUefZhzhYTJLah0Mur6Bo9c1gu6wr/WiwOQV3hHsJ2XfhySH2GpL2XGDVsLEkj/Qm
+         whL8JjtWP5tH5i+okwqAhbY1cgR7Z9BUzns7yguhH8ZyZBLKXXT9qTbL7epVxJwvOcTp
+         zutVv8izaCDcOCMROCgmubK4F12Mw/t2xUdRInVL+z/va9E+F9JMA0TbJPMJIjupxirE
+         xrfpBaj37qKT6sVyU0+GU9LE00Oc1wksczxtsCpLfdSxpGMz1i50eIZgNYHo9i5T+34U
+         mQeRCdzEOcG1IDtw6C/bdN1p9HNc/D1cnwXoZtkHOPlZYJHX4VjFfKhW/0KNaChCRpfB
+         9yZQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@flygoat.com header.s=vultr header.b="drnb/M7b";
-       spf=pass (google.com: domain of jiaxun.yang@flygoat.com designates 2001:19f0:6001:3633:5400:2ff:fe8c:553 as permitted sender) smtp.mailfrom=jiaxun.yang@flygoat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=flygoat.com
+       spf=neutral (google.com: 212.227.17.13 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=s0BI55uFBBnAOlI04A13OBKFvvXBL2BBgMNbwCdEWDw=;
-        b=nG7lr3zkaGn+3Ru3EdQZZP36XAq7a+Tq8BxCJCTx6CGsUzzCJRQe3PwZEzgK50l0mu
-         ZZCyjCzUJlNHden6nWX/GzqNaFmltTskIDGRQapFOsSRL4z+/3wijfAsLFZGPNzianZk
-         LEiM6ISKRIXsriGmnM+KobMFuQGqIyetan46J31/a1YJiSp18Ffa2ja/Xo73iJDKvQzP
-         y9ucZpQViXsm+qPN0llybA2lVyyXq3SaLqHhuK4/MrAlzlNzD5i/ipFYWP7ZIjkPGH7L
-         SbHOxHeTB+PIHgzoZ3sPMfxaOl+CDrAobll+R2dq4tuy+HGP6l13Z9Qc6V7ywuyiuGKp
-         3NGQ==
+        bh=5pRkpdMMtql+Br9imSBvbdkZREk1dLgoASkv48CjStQ=;
+        b=YUC4VR7Tt7oSsMnVMEH1DYp4q0+d9jdZ/dfQhSefdnvE48Ytir9IkLqFlW3E/0p1eB
+         ++ieM/IfTdpoeN+47lpjfEVv3kGNryoBtYvkE6jAZ3kNjbumtkW6/I8RinJNnvWPZu8a
+         Q0LBfoq1rzfomYZYCsWcg63LcpjJM3P3p2rkSloWLtU7R75tCuh+l5ddFg5fEsR1q4iP
+         uKIlMEq8it4cpTtN8pVG4yN6ztatVczDDw+GKanzZCoVLkDP2YzNIaC2XBm5v2toN/eh
+         WVRFJjHUBAiAit5EyXYekJsU6Kn6du7j+kMaUF2idC0DjlhpRaLGOT9OSyzToTRodJrH
+         4sTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=s0BI55uFBBnAOlI04A13OBKFvvXBL2BBgMNbwCdEWDw=;
-        b=ixMMWb3/Km9PFCFyg/sdUeaofecZSRauVycZ/h1q1SNIKnDm9H8Fwbsr0LMqmg4yG5
-         7XjJiJcC0xtknfRvSeXCyBn++VzW11M0puboTdPjrETtGqM1kfhHjqFdruj9A+lCEEw3
-         ARDcEbA2nJQE/hhJW6BFMyEx7u1QxKhmwkfsO/gRtWU7omV82oHxbA8yQxwBf0sJpsI6
-         hkiK9oO9RMwu8qDmmc+ahDZwdUYMS1GQjMUT7d3Ha55jWseu8vsLGUaqIUMDtVqCDFov
-         +duXE4wwBtG4PSBWicb+Aisqta63S0Vgj0u5Va9/KbxAAGzYZb/hitIZMWqjUR12PxaV
-         habA==
+        bh=5pRkpdMMtql+Br9imSBvbdkZREk1dLgoASkv48CjStQ=;
+        b=GngaBG/nTVQJ+Vbl5R6I0KXU5qxVi+IWrZLVTSbWgJkCthx7nHbhr4cPvgl2dwbOVQ
+         xktBNVx6ExSohab1lNgB3PREMge16PcXKtMZwLEjV6EyxJCnx3tl/oc7qjM8AHK6wGfq
+         6o+z77Wlq5ypGxWw9OpS4oRA2/gyi/WaJOx5Lj/LluG5BFnZ5M/XRl1q9/DvailslhbY
+         7iDETScFsiY+pLZxx0pK+9xcs0ON49ne6+8JS4LbzEm4z5JPxQM3jM1f61BQQkgB2+ks
+         wIXlgos7amB6gvNjja5WwxXJMG87lFuq3J+dt5zZ8kLIw/Og7qlQM/xEguoEc0JdBbYJ
+         SQsw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuakggnR32Aihs6gyqF3HA9sk+xz9SN23iR7o5oWEzun9lGnjXDa
-	E57ap7c1nnroXBnp/34IFms=
-X-Google-Smtp-Source: APiQypJf44746h7iKfED1nXlTEbJj8Ez/OF1qNfpHMp+ISrq2eSqGjfNtdiq/u0KOWduJCBYYsszhQ==
-X-Received: by 2002:a17:90a:e016:: with SMTP id u22mr4132987pjy.65.1586509610988;
-        Fri, 10 Apr 2020 02:06:50 -0700 (PDT)
+X-Gm-Message-State: AGi0PuYpM+jiWNRVQP2fix6hY0JhdWscxms0FDd8oAnRjPHKKlWG3bYb
+	2p4IGihhDd70rBO78sd9x1s=
+X-Google-Smtp-Source: APiQypKAh26vE0c3HHepN96bqE98j+f8o2Z4S+hp71i+E87mIiG/C4lZtCvXynSzRIgNX1SBtlOy8w==
+X-Received: by 2002:adf:f88b:: with SMTP id u11mr3756611wrp.84.1586512595963;
+        Fri, 10 Apr 2020 02:56:35 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:63:: with SMTP id 90ls9188980pla.10.gmail; Fri, 10
- Apr 2020 02:06:50 -0700 (PDT)
-X-Received: by 2002:a17:902:b594:: with SMTP id a20mr1860293pls.282.1586509610513;
-        Fri, 10 Apr 2020 02:06:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586509610; cv=none;
+Received: by 2002:a5d:4690:: with SMTP id u16ls10401343wrq.11.gmail; Fri, 10
+ Apr 2020 02:56:35 -0700 (PDT)
+X-Received: by 2002:adf:f750:: with SMTP id z16mr1524796wrp.115.1586512595255;
+        Fri, 10 Apr 2020 02:56:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586512595; cv=none;
         d=google.com; s=arc-20160816;
-        b=Yg2l1RjaugVt+SXgaw64DqUeh5i8qZaS82IoHP9/h5gkK5XdLCTbSdJKLtyt83F45q
-         S9ghC3LaokgJGehvtrPsPpH7+tXUbNdHpPBH5HWhK+23GlRrD+I7xdOZqPjRWB6x6WEB
-         5uOe34NA2u/wVDqj9Qs8VMyVR8UybRdKpGZIJZGPh0vInMs1lVUIobVtrfrw6VRw5JA4
-         isMu+hhr092uQuCWDMOX9P9F+dLYu2/DTUGnnEXHUgEbUA013pyIjR1jj7eozUs1Rbxl
-         9LRjanKxtyccZvtnQOG7oAaDMcfmlIpDaloDdkal58J/OEM0gzTVXuF6rdLuwzE4Xi+u
-         QM1A==
+        b=bn3Uz3nAXvWL4JY7ZLqHDuvPAx8JCruPzhhnKrIk2tAPAAOL6jirmAiut+y2POMc/Q
+         b/z0bmsdaGd/SujhXoKom/GDw6o57uZN3BBriC/idmcH2wjg8yehjDlEc2OxLFFypHyp
+         smCkbPw68Wpv2Sw0ACEod54ilxevY1uAPGllIjtnX4mkaqt6SBXo/ZCbxlRUWWWwhLua
+         3zTFoe2LKVhKtzQeu3gNzszkPFaSTCh7rW/BuFZ4Zowy+ZrFXgY4uB5LynTdR4GSr0Xy
+         wg3ObcEK81E/62nV9G7mM14khpWft8hnFawY2miaE6FaNuolwCCVucndmK4OV/l7azSB
+         IfHw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=62B5Q8PAKecr1OoxczSRE3+/srYJQsxZv5OVnvpf2o8=;
-        b=eXQqvtxtigSDfDkZ6Fk8/UtLapXZ+7NRwUiwth2uUgBrVPpd9790RKsKEbye0yffe6
-         ABn5ZCW3y1l8s3TgH74YsCwj8jK5LN4K6OTgejjUKGlappot5YdSHU9T10BkiYz9VFGH
-         XybCAgVBFsGz8f06yAde7hyBBYVdoNjtf9ggVWuc+LO45etHqXamsxz5/S7+ghJsLEqE
-         NHUhLLp2I9otX8Ub/UYvlgt2Sd37KMNpF+S1cz9a1DYcBz3WOdCOXPYyBUjIoRPpgQ1y
-         ILUzClwo4JJ7cudxKu/rdUtQblKvOeakhaNgHo+k6i+ibPPAX3AMh2uYzQ3VmrBJxdn8
-         Ah0g==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version;
+        bh=Mph6QgrJ/xrgnWVAXMDXg6jAQJ4ZS9AX8V+syWXWzv8=;
+        b=G0yq8yRmB5wuimDIWqLv51geEb9rhtI1OBlevn3GU4zYEaSIOpSxFwYqYjwqPaZbmb
+         cxBsvpk8RJgHDBoSEUUfASp4/d0bpsx0Vt57mzRg6wYlIvdcJoHLc7ncj7LHiz1eUC8U
+         Zn+6RNwBPkG/+bBOdlLzyoYefS5UU+LjbvO5SEnVhW+AWR0RRnhMy+Un+/dF6zr7h8dK
+         aGz7ugbEhbZWa7DpaYgcE59PXESUvwDiPDxltBJVtnGml7x6odp5fD9im9UiV0H2AXn3
+         CsejvKuuoFXKko9MgFWz5C7Csi0ZqDhPpakEfAtLwOd2HfU6m+j4AwYCYvWstY5ZaqYI
+         aj6Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@flygoat.com header.s=vultr header.b="drnb/M7b";
-       spf=pass (google.com: domain of jiaxun.yang@flygoat.com designates 2001:19f0:6001:3633:5400:2ff:fe8c:553 as permitted sender) smtp.mailfrom=jiaxun.yang@flygoat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=flygoat.com
-Received: from vultr.net.flygoat.com (vultr.net.flygoat.com. [2001:19f0:6001:3633:5400:2ff:fe8c:553])
-        by gmr-mx.google.com with ESMTPS id y5si46657plr.4.2020.04.10.02.06.50
+       spf=neutral (google.com: 212.227.17.13 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.17.13])
+        by gmr-mx.google.com with ESMTPS id g70si299226wmg.1.2020.04.10.02.56.35
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Apr 2020 02:06:50 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jiaxun.yang@flygoat.com designates 2001:19f0:6001:3633:5400:2ff:fe8c:553 as permitted sender) client-ip=2001:19f0:6001:3633:5400:2ff:fe8c:553;
-Received: from localhost.localdomain (unknown [IPv6:2001:da8:20f:4430:250:56ff:fe9a:7470])
-	by vultr.net.flygoat.com (Postfix) with ESMTPSA id 87CF12022B;
-	Fri, 10 Apr 2020 09:06:46 +0000 (UTC)
-From: Jiaxun Yang <jiaxun.yang@flygoat.com>
-To: linux-mips@vger.kernel.org
-Cc: macro@linux-mips.org,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Fangrui Song <maskray@google.com>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Paul Burton <paulburton@kernel.org>,
-	Borislav Petkov <bp@suse.de>,
-	Kees Cook <keescook@chromium.org>,
-	Heiko Carstens <heiko.carstens@de.ibm.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH v3] MIPS: Truncate link address into 32bit for 32bit kernel
-Date: Fri, 10 Apr 2020 17:06:23 +0800
-Message-Id: <20200410090634.3513101-1-jiaxun.yang@flygoat.com>
-X-Mailer: git-send-email 2.26.0.rc2
-In-Reply-To: <20200407080611.859256-1-jiaxun.yang@flygoat.com>
-References: 
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 10 Apr 2020 02:56:35 -0700 (PDT)
+Received-SPF: neutral (google.com: 212.227.17.13 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.17.13;
+Received: from mail-qv1-f42.google.com ([209.85.219.42]) by
+ mrelayeu.kundenserver.de (mreue109 [212.227.15.145]) with ESMTPSA (Nemesis)
+ id 1MPGJf-1jda2B2k2v-00PgTy for <clang-built-linux@googlegroups.com>; Fri, 10
+ Apr 2020 11:56:34 +0200
+Received: by mail-qv1-f42.google.com with SMTP id v38so692303qvf.6
+        for <clang-built-linux@googlegroups.com>; Fri, 10 Apr 2020 02:56:34 -0700 (PDT)
+X-Received: by 2002:a0c:fc03:: with SMTP id z3mr4142553qvo.210.1586512593511;
+ Fri, 10 Apr 2020 02:56:33 -0700 (PDT)
 MIME-Version: 1.0
-X-Original-Sender: jiaxun.yang@flygoat.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@flygoat.com header.s=vultr header.b="drnb/M7b";       spf=pass
- (google.com: domain of jiaxun.yang@flygoat.com designates 2001:19f0:6001:3633:5400:2ff:fe8c:553
- as permitted sender) smtp.mailfrom=jiaxun.yang@flygoat.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=flygoat.com
+References: <20200409232728.231527-1-caij2003@gmail.com>
+In-Reply-To: <20200409232728.231527-1-caij2003@gmail.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Fri, 10 Apr 2020 11:56:16 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a3uj7AHbAo4sNzr6KQx5Fk6v99k4ZixCgKo1tUuGoat9Q@mail.gmail.com>
+Message-ID: <CAK8P3a3uj7AHbAo4sNzr6KQx5Fk6v99k4ZixCgKo1tUuGoat9Q@mail.gmail.com>
+Subject: Re: [PATCH] ARM: do not assemble iwmmxt.S with LLVM toolchain
+To: Jian Cai <caij2003@gmail.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, Manoj Gupta <manojgupta@google.com>, Peter.Smith@arm.com, 
+	Stefan Agner <stefan@agner.ch>, Sami Tolvanen <samitolvanen@google.com>, 
+	Ilie Halip <ilie.halip@gmail.com>, jiancai@google.com, 
+	Russell King <linux@armlinux.org.uk>, Linus Walleij <linus.walleij@linaro.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, 
+	Mauro Carvalho Chehab <mchehab+samsung@kernel.org>, Doug Anderson <armlinux@m.disordat.com>, 
+	Benjamin Gaignard <benjamin.gaignard@linaro.org>, 
+	Bartosz Golaszewski <bgolaszewski@baylibre.com>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, "Steven Rostedt (VMware)" <rostedt@goodmis.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Tejun Heo <tj@kernel.org>, 
+	"Joel Fernandes (Google)" <joel@joelfernandes.org>, Patrick Bellasi <patrick.bellasi@arm.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Dan Williams <dan.j.williams@intel.com>, 
+	"Eric W. Biederman" <ebiederm@xmission.com>, David Howells <dhowells@redhat.com>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
+X-Provags-ID: V03:K1:FKQyzHm3IJb1e1j6cWGYr4Tpd+ida9CK/XNuQnHoaFJGcw4VvQd
+ dhUz5dInir9gfhGT6cYXebhQnjeO6/xwCn5kky3T7tt/JFyHqm0Qnsa4sd+wUszwrLvno0v
+ Tj+FBcSTVic16k+qQuNUvH2MjDH3dlyyswUm46U/zoLAbuesXg2XxFVC3xG6PaTKFNHrVeg
+ Q4Eie8Prq4xR1qTrvKgGA==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:eN5J61Ur79Y=:3D6znUOEScb4oGTxdBhg7t
+ DRb/D8FQE5zNpJQwFKT9btcsmhQNqGQW8Kz1sGMmnSSGT1u0UBt0wK63Kw/Vf6kmQz5sjpL28
+ jTxgHwnVFpjM2pSkdPzDxqqzFvn5GzkdoCMql4ggsDrfpqFM56cLSJDlizOJCj9/lM6SIB5aK
+ 1JeJibd8xI9Rm833eFPA6QcpF0hocHrV/FB5RUttiD0GPsvMOpiX+rDP0WZp0kT8VmAKQz1Ew
+ PZklG76+CyjjIibes3fv6ITbfUkDoxq4Psd/o6VdkVsFZkpGBs7p0nWwXvbgLjqC6p0oIr/YP
+ PYg8EH383AdfqUma6HRJLfHRqv9yUOc04wIz4oUmseGA+ihRG02GLRcmeEEKCx9FV6ERKXcI7
+ 4E4TEuOMIHeCvUerZw0iJDkZpYnKHOABFyfp5J8+3aF6sGfslXSy402m3rxZbWIyGmyRfWjQN
+ OTKWdsq02a2AsoKyGEHOvEr5/xmg+xa4Tqurr9yuDpr7i7Fex56FSGuFieQNQZLGP9DtwAE6U
+ xUoF9478OI2n9ndu26oMdLz+5knz/0J/crW2+px7EvlraDIBSBUIpJ3+OEVpwMJ0BCYofOS75
+ wocEw7leqKtmveQjbnWEYqP2+AMV3ePJD74NJ8mbtaOd4mHxTG/KuEldT5bumeBOVh4La0X31
+ mEBs2lx6vURhmnqHMAPQQzFDRbn3olpqPOoHpdzLTJUeeD9vk2Wxdn0D6oviIe/Tikg1P9J8S
+ ann58E1advx+goVn7rL3wi9QPvA5wsId/JEncOInu5cigp5QZyglwoqpa97f78gozYrUp8F1N
+ jS2JeFjGKZtME38HjZY3rZMUdb2wyH9XE3NU6DNtYPKSDQJOxg=
+X-Original-Sender: arnd@arndb.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 212.227.17.13 is neither permitted nor denied by best guess
+ record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,144 +159,45 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-LLD failed to link vmlinux with 64bit load address for 32bit ELF
-while bfd will strip 64bit address into 32bit silently.
-To fix LLD build, we should truncate load address provided by platform
-into 32bit for 32bit kernel.
+On Fri, Apr 10, 2020 at 1:28 AM Jian Cai <caij2003@gmail.com> wrote:
+>
+> iwmmxt.S contains XScale instructions LLVM ARM backend does not support.
+> Skip this file if LLVM integrated assemmbler or LLD is used to build ARM
+> kernel.
+>
+> Signed-off-by: Jian Cai <caij2003@gmail.com>
 
-Signed-off-by: Jiaxun Yang <jiaxun.yang@flygoat.com>
-Reviewed-by: Fangrui Song <maskray@google.com>
-Tested-by: Nathan Chancellor <natechancellor@gmail.com>
+It clearly makes sense to limit the Kconfig option to compilers that
+can actually build it.
+A few questions though:
 
---
-V2: Take MaskRay's shell magic.
+- Given that Armada XP with its PJ4B was still marketed until fairly
+recently[1],
+  wouldn't it make sense to still add support for it? Is it a lot of work?
 
-V3: After spent an hour on dealing with special character issue in
-Makefile, I gave up to do shell hacks and write a util in C instead.
-Thanks Maciej for pointing out Makefile variable problem.
----
- arch/mips/Makefile             |  2 ++
- arch/mips/kernel/Makefile      | 11 ++++++++++-
- arch/mips/kernel/vmlinux.lds.S |  2 +-
- arch/mips/tools/.gitignore     |  1 +
- arch/mips/tools/Makefile       |  5 +++++
- arch/mips/tools/truncate32.c   | 29 +++++++++++++++++++++++++++++
- 6 files changed, 48 insertions(+), 2 deletions(-)
- create mode 100644 arch/mips/tools/truncate32.c
+- Why does the linker have to understand it, rather than just the assembler?
 
-diff --git a/arch/mips/Makefile b/arch/mips/Makefile
-index e1c44aed8156..633e9de4d262 100644
---- a/arch/mips/Makefile
-+++ b/arch/mips/Makefile
-@@ -14,6 +14,7 @@
- 
- archscripts: scripts_basic
- 	$(Q)$(MAKE) $(build)=arch/mips/tools elf-entry
-+	$(Q)$(MAKE) $(build)=arch/mips/tools truncate32
- ifeq ($(CONFIG_CPU_LOONGSON3_WORKAROUNDS),y)
- 	$(Q)$(MAKE) $(build)=arch/mips/tools loongson3-llsc-check
- endif
-@@ -261,6 +262,7 @@ include arch/mips/Kbuild.platforms
- ifdef CONFIG_PHYSICAL_START
- load-y					= $(CONFIG_PHYSICAL_START)
- endif
-+export VMLINUX_LOAD_ADDRESS		:= $(load-y)
- 
- entry-y				= $(shell $(objtree)/arch/mips/tools/elf-entry vmlinux)
- cflags-y			+= -I$(srctree)/arch/mips/include/asm/mach-generic
-diff --git a/arch/mips/kernel/Makefile b/arch/mips/kernel/Makefile
-index d6e97df51cfb..0178f7085317 100644
---- a/arch/mips/kernel/Makefile
-+++ b/arch/mips/kernel/Makefile
-@@ -112,4 +112,13 @@ obj-$(CONFIG_MIPS_CPC)		+= mips-cpc.o
- obj-$(CONFIG_CPU_PM)		+= pm.o
- obj-$(CONFIG_MIPS_CPS_PM)	+= pm-cps.o
- 
--CPPFLAGS_vmlinux.lds		:= $(KBUILD_CFLAGS)
-+# When linking a 32-bit executable the LLVM linker cannot cope with a
-+# 32-bit load address that has been sign-extended to 64 bits.  Simply
-+# remove the upper 32 bits then, as it is safe to do so with other
-+# linkers.
-+ifdef CONFIG_64BIT
-+	load-ld			= $(VMLINUX_LOAD_ADDRESS)
-+else
-+	load-ld			= $(shell $(objtree)/arch/mips/tools/truncate32 $(VMLINUX_LOAD_ADDRESS))
-+endif
-+CPPFLAGS_vmlinux.lds		:= $(KBUILD_CFLAGS) -DVMLINUX_LINK_ADDRESS=$(load-ld)
-diff --git a/arch/mips/kernel/vmlinux.lds.S b/arch/mips/kernel/vmlinux.lds.S
-index a5f00ec73ea6..5226cd8e4bee 100644
---- a/arch/mips/kernel/vmlinux.lds.S
-+++ b/arch/mips/kernel/vmlinux.lds.S
-@@ -55,7 +55,7 @@ SECTIONS
- 	/* . = 0xa800000000300000; */
- 	. = 0xffffffff80300000;
- #endif
--	. = VMLINUX_LOAD_ADDRESS;
-+	. = VMLINUX_LINK_ADDRESS;
- 	/* read-only */
- 	_text = .;	/* Text and read-only data */
- 	.text : {
-diff --git a/arch/mips/tools/.gitignore b/arch/mips/tools/.gitignore
-index 794817dfb389..58ead412c8d3 100644
---- a/arch/mips/tools/.gitignore
-+++ b/arch/mips/tools/.gitignore
-@@ -1,3 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0-only
- elf-entry
- loongson3-llsc-check
-+truncate32
-diff --git a/arch/mips/tools/Makefile b/arch/mips/tools/Makefile
-index b851e5dcc65a..69debb18bbb4 100644
---- a/arch/mips/tools/Makefile
-+++ b/arch/mips/tools/Makefile
-@@ -8,3 +8,8 @@ hostprogs += loongson3-llsc-check
- PHONY += loongson3-llsc-check
- loongson3-llsc-check: $(obj)/loongson3-llsc-check
- 	@:
-+
-+hostprogs += truncate32
-+PHONY += truncate32
-+truncate32: $(obj)/truncate32
-+	@:
-diff --git a/arch/mips/tools/truncate32.c b/arch/mips/tools/truncate32.c
-new file mode 100644
-index 000000000000..82c19b4c32da
---- /dev/null
-+++ b/arch/mips/tools/truncate32.c
-@@ -0,0 +1,29 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <stdint.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+
-+__attribute__((noreturn))
-+static void die(const char *msg)
-+{
-+	fputs(msg, stderr);
-+	exit(EXIT_FAILURE);
-+}
-+
-+int main(int argc, const char *argv[])
-+{
-+	unsigned long long val;
-+
-+	if (argc != 2)
-+		die("Usage: truncate32 <address>\n");
-+
-+	val = strtoull(argv[1], NULL, 0);
-+
-+	if ((val & 0xffffffff00000000) != 0xffffffff00000000)
-+		die("Invalid input\n");
-+
-+	val = val & 0xffffffff;
-+	printf("0x%08llx\n", val);
-+
-+	return EXIT_SUCCESS;
-+}
--- 
-2.26.0.rc2
+> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+> index 66a04f6f4775..39de8fc64a73 100644
+> --- a/arch/arm/Kconfig
+> +++ b/arch/arm/Kconfig
+> @@ -804,7 +804,7 @@ source "arch/arm/mm/Kconfig"
+>
+>  config IWMMXT
+>         bool "Enable iWMMXt support"
+> -       depends on CPU_XSCALE || CPU_XSC3 || CPU_MOHAWK || CPU_PJ4 || CPU_PJ4B
+> +       depends on !AS_IS_CLANG && !LD_IS_LLD && (CPU_XSCALE || CPU_XSC3 || CPU_MOHAWK || CPU_PJ4 || CPU_PJ4B)
+
+I would suggest splitting it into two lines for readability:
+
+       depends on  CPU_XSCALE || CPU_XSC3 || CPU_MOHAWK || CPU_PJ4 || CPU_PJ4B
+       depends on !AS_IS_CLANG && !LD_IS_LLD
+
+    Arnd
+
+[1] http://web.archive.org/web/20191015165247/https://www.marvell.com/embedded-processors/armada/index.jsp
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200410090634.3513101-1-jiaxun.yang%40flygoat.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a3uj7AHbAo4sNzr6KQx5Fk6v99k4ZixCgKo1tUuGoat9Q%40mail.gmail.com.
