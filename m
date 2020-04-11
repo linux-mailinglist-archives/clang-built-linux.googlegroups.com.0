@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBDFGZD2AKGQEBSZ3MAI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBWVIZH2AKGQELLPOJPA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3d.google.com (mail-io1-xd3d.google.com [IPv6:2607:f8b0:4864:20::d3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id E88661A5378
-	for <lists+clang-built-linux@lfdr.de>; Sat, 11 Apr 2020 20:57:17 +0200 (CEST)
-Received: by mail-io1-xd3d.google.com with SMTP id n26sf5648343iop.1
-        for <lists+clang-built-linux@lfdr.de>; Sat, 11 Apr 2020 11:57:17 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586631437; cv=pass;
+Received: from mail-qt1-x840.google.com (mail-qt1-x840.google.com [IPv6:2607:f8b0:4864:20::840])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5D8491A594B
+	for <lists+clang-built-linux@lfdr.de>; Sun, 12 Apr 2020 01:35:55 +0200 (CEST)
+Received: by mail-qt1-x840.google.com with SMTP id g8sf5502590qtq.2
+        for <lists+clang-built-linux@lfdr.de>; Sat, 11 Apr 2020 16:35:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586648154; cv=pass;
         d=google.com; s=arc-20160816;
-        b=O1x56H8WQjpCSFolA3hgMSaeWI4LrD11Zn/FQeZb6H1dwXrbnUOE0x2wHYa5Bwr2gs
-         V3ZvXsv1nV/3KudTNn3cQHl50ZtHQYAhF6E1vuFueMFFSHjVAg1929vW+uRiFWREQ22m
-         yt4C2zDuo+YUhPEIt70whiO/9MbZJk3OJpKnHVt2+59z9AHADQB9APZbKOHQLsQKHRa0
-         vD/6+TSjT7BuqZDY3ENpgCEwbf0iy4JONzDcHF4imt6b1/RwUhWNCB40wGvOdwNbmlEJ
-         EmsZcXpiAzTypsY8XYatKxDqMY28UfnOYFc0KnCymE5ZwgYcrK3qn2QU+dx6DA0AgDCK
-         BP9w==
+        b=n6TepvVQUZP6lE4LLZOGwKcavXCLZemrICQRw73ysdnlrE9wHYOiU9JzM4yN5VIndO
+         jnG0j9EKYsIt3es27p8pDn7TvLLBsxNmtbFtGFBcOx948k2lzK/v/fMQt3moBgW6iaqn
+         swCbA6BsvuILlaB8fSPgj62vM5OZODf+6DBlYt82p81OWF5HHePmHuVdiBIVrF5Y/Jgj
+         QPDQZTdycneLuhVJNh2vfrKIx9VyyEQe2weldcICcujUhgW8Vi8U7C/5EDN7vw9Aw7ht
+         bEIsDmDL3WO/Oga8E694h0FBPV2vT+0CoSa9CLZ4ooIkbO/PZSL28J8tL10JttZXqV1t
+         csjQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=93yR+n9nXor+HJoQqe5GAG0KlTOZqmvG6zNKCycs1uE=;
-        b=Fr8HrsgcYWq9IR+Bw0PQAfBcrta3ZAYvQu9w/lCP/ovnLeb0SMO+J1jYA846ieYfbY
-         AvMvwOWPkIvWBXECn3Dov/J4bbSKiF/oS+6TX5alpbEJjKnwmyeD4QIpmEqF2u/O3xp9
-         MltPKFL2ZWdJa9iz+/s+d6RvJnEaewI0qZB+mP+h5SEA51ABfQtEMzDRJeh2/ecGeRaO
-         08+gGqq0BfZhuxnHJsUBObjUSEAr4mXGFEszRE/sFF4XfCHUtD2KNqmoRUE9ly5kUXMb
-         kDOBHKv8qHPpVDJwJlogrCNuoaVhPZ0mX8km5qwFZQqgPaScqdOOhhCY98JTv2NhKZo3
-         fusw==
+        bh=aT/5UOQqjpQUtTk9mIprDhd+4UxWffwGH5e69Ue73W8=;
+        b=cTi4PA74somp/UEi4+aWgl4PomEFPKv12PzTXX8FS3wB5ajgfrog3V0NgMvWe/xEnO
+         0A4CMjrajgSB/8+7I3gYX9JftU6DfYRahFqU0a6msN09ClQUbbRRgimLPoT7fooL1DOv
+         squwNOT+kJAdQzdUdj8/MSVRvBX4QXWzK4/K5DFVwZFf55y/Gq+FLckgQpEE256TT2tq
+         zHoJ/uiArQZ8tsM2wCr2gJdvnOIezsiLh74W0tOAMDfE58ig0idn2SODeNAybrrlfzlT
+         WthPqwYaIRsbux/2ULaL6pGZLyRnNhlfL1J9g5V5rI618srRsiNe7lB2p6bV/UFrEfZo
+         3czg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=A23+takW;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=auj0hqYc;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=93yR+n9nXor+HJoQqe5GAG0KlTOZqmvG6zNKCycs1uE=;
-        b=bKD4MFvTgBCLUpwRcVFeWJgvwy/ClFOuS7RWXKir/3z8R5WNWgNSujy8Up8VQFwx34
-         aknppD9DKEblQwfdahel3a+m4yOecOb5ukY1WoU8fVz1+WWq4VoXNsVa+56ohAZemmRB
-         FdoZrMJB/r10U9ozTbHCEFtTpQnUXDXgdPzRjBG/tDfeTQpw1n0IpiwMB7NTCfW1ZRvO
-         9k4PNyPWhpMKWC5+DJ6uB7iuoNz7OGz6FWT2E8IQx20Eo4Fi3+yUUxcPLbsygmNUZTe2
-         I8lMkEVGb5Qs/QevSt/KRLQTxJqBQehVKVUNDy7O65Mbpz1l6FiciR7gcdmFqi1CD116
-         nhHw==
+        bh=aT/5UOQqjpQUtTk9mIprDhd+4UxWffwGH5e69Ue73W8=;
+        b=fK0sdsBGaAeYtTOtk4yJVS4v8xiK99/KtuFx8iHAJW1i5Y8EYdNT8+Dq/wNXrlDo/9
+         Mq/pMxaqJNnvi4cjp5eYRMRZu9khHpUhBbBCArnCPsAjCCc/5Hva5Yy19mt9uKVlveTR
+         U1gADHLtfF2y5kfComZqGPbTsAntgTTP+Dacj887DkzLMQfI1SrpBbPYqxOJNJvs+oFi
+         IVp3jaXX2SLMq1+oqb13wWN24njpLCbj/xbl7eHx0vXMuPpmzIu1LfX9aG7LFSUYZL/P
+         OzT46caPbkJv5jP3h1EM0XFOd1aWX0KPLB0AJhiF1NunzN0mfZl8MP9CkWOthIcDE0na
+         pBwg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=93yR+n9nXor+HJoQqe5GAG0KlTOZqmvG6zNKCycs1uE=;
-        b=tkc/YRGnm7rOQ3zHJcd7k6UCeThoMznnEW8gHvrs3cv9N/4s6rWmQ6Ahl1+ymss4a/
-         cenfzkRdXluAQiXcZF5u/+Fss9DEdZp3grw75GvPhygSmc6KO/zHRNd7g8/JqyYC5/K7
-         PUgl65puZd8no9Efro3zS9U4Y5Ur/iYVzqT58c/IUcR/aapJoNiNaynkjkhL5hOv2C0n
-         xZ98+3d1dqkDUCeNUqhNkG58UBhKY075OiBcI1JzPCmroNkjlSSt6hBgjEjMNumM7P3C
-         jxqr4RW4qrvBUlMlKyGxdVfj/KpqXIm/8MKza7uUH1tDUyKpWEHYlyGaqoBw3O6OR5kU
-         GpWw==
+        bh=aT/5UOQqjpQUtTk9mIprDhd+4UxWffwGH5e69Ue73W8=;
+        b=ovTpgKil69iUaCcchM0UIDprUSASi2gVfJsQDTkQc3moM70M5Oy3edRgb2JYLImwjB
+         77pGT+rqNmrp+5KAZjwGlvoq9kotS5LK0mLvy0uCJoqiRwgjwpE7j9s3dYRjyp8CiLJs
+         kuEcsffvLUGDbPzOdzOX+oULl8QkdnOTTyJDCZ54kLInbehwL++423RRQ4SE7/qY6QXb
+         j38ji8+FJmr8Cml2j1f9hO2ME/u+K1Yir4D6aF8E32qScg0COz3TeSwt03UHJWdiKHEu
+         HRWAD5aeZxCjr3Wnbdu4k89nZhjfvdR76RY5OyDc4/t3gpuJEPwKhqU0LgJtubu0pltg
+         b3hw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -63,83 +63,84 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=93yR+n9nXor+HJoQqe5GAG0KlTOZqmvG6zNKCycs1uE=;
-        b=MvxKhuY/RSHimpt1Olb+egKCKZD92KWL+hGitVZ2dwL48P+cHaLBfj1Y/55wVer15I
-         yx16q4VRN0tPKKWvZF6nmF1hctSlpo28EtFNTK7Az0xhK4GOqV73kWjP4EoX+DtcDsu9
-         hvKbJvWIky8kQ1xSQB/tXVc80Z/NkYheOSVAHMgfPKe9535DQKi6mPaWqcksCJ5OuRiP
-         0ZVBeRfO3zfa3zHNek0vzQRiTCIFasYzONmTkemQHvHciVcGP6f7u/vS69N7lXKfRctl
-         ILn5Y6j5+vaml8XHV5sqJU7XDOzlTq+zuGFjQm3MM+IVo2s9LSg6APyV+rwxZVC0FeG7
-         kKfQ==
+        bh=aT/5UOQqjpQUtTk9mIprDhd+4UxWffwGH5e69Ue73W8=;
+        b=ct/cnVU4xNFA5xt3AufvUgd3KHM/08C3TFEKcT6mLTf8RFpQ0y83Ij7Rc3v3yC7H92
+         X3rHVKnuOOfaYmJrsT8zo7Lj3apjc1mp4QrGa9cA843RLZ6PmM+dgtZlhbkS/xEwFS/Q
+         8EXJpiwhmo44wXX5PRiu3DrfcmaauyqldpS/4kyh+sK9svgU3NHj+uzU/NGvHEtXMPnw
+         awK8qkgzo+WUBD0NE1e2b/BFsBvv8k3QU3Q8lIhGqk4PNE2L6Ry/PN1SC5s0muYY0u2+
+         qmfA3Gsv+P/BOviART+h04ADPMJogJ7zJIa8p8RDgyDTpJprk7O7lqJHlzyTL1XCeoKF
+         H6oQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuafcmcWkL3ivLTNT2PkAhCwSPaupCmdKv4EQPldzd6ghPnZRwex
-	fZvkoVxelaI340dq7czWfx4=
-X-Google-Smtp-Source: APiQypIoHg2zcxO5oXog/QRBlLZp8N+oim8mjx4bdMDp4ukmOFAm9JUjVH9/dlqIlEjFNLQAlnRsqg==
-X-Received: by 2002:a92:760e:: with SMTP id r14mr10638777ilc.152.1586631436899;
-        Sat, 11 Apr 2020 11:57:16 -0700 (PDT)
+X-Gm-Message-State: AGi0PuZPlAr3otdHE+Vx6mvmrpjxYNuPC6q20fMGbzYp0xJ08pB2XPJ0
+	o/zAprctcoIrupKN5JAC+BY=
+X-Google-Smtp-Source: APiQypL6Dkd8ypYOYSWgWeBae/TmwrDUBNRYZ8luTdLCqKzF1LLGrVbZ0Iu3IjOIMlAyd5cs2/cxPQ==
+X-Received: by 2002:ac8:7510:: with SMTP id u16mr4744564qtq.307.1586648154280;
+        Sat, 11 Apr 2020 16:35:54 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:9ac1:: with SMTP id x1ls4632675ion.11.gmail; Sat, 11 Apr
- 2020 11:57:16 -0700 (PDT)
-X-Received: by 2002:a6b:7d0c:: with SMTP id c12mr9425754ioq.83.1586631436358;
-        Sat, 11 Apr 2020 11:57:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586631436; cv=none;
+Received: by 2002:a05:6214:4b2:: with SMTP id w18ls2892207qvz.2.gmail; Sat, 11
+ Apr 2020 16:35:53 -0700 (PDT)
+X-Received: by 2002:a0c:c587:: with SMTP id a7mr11265153qvj.2.1586648153884;
+        Sat, 11 Apr 2020 16:35:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586648153; cv=none;
         d=google.com; s=arc-20160816;
-        b=e7kjM4SpOD02OUYy999xFQ0UPgKJ2RRmYAor4MYIFIasPHtUi47jMV+WCq0/sNR+m1
-         9sOz0hJb/ijdtlfWtAnJGF5br+uiXfLDDjsMDvhsAK6qm22FE1gc22XmuDIY4/CTxabE
-         RPFCvZyLOTWq31Qq5mbaFoa+HKhSxTC8UOv802yVIU91FKF4RFFd3iieWMryAFVoq745
-         i2zSncmsgJzWt5SwBxTmsvx9T4fxgqJ1lVG0qJnGoSednTrL27xup3xMwDjnfddEpuRN
-         GWDkknCA4LeHywQvAO/E+G51Vi6jbHoq7NhnAGRH/T/fzTrgnIVPp0NwQCya1RA4++Ck
-         l+Jg==
+        b=uQP+oiHPCOLhBPiv3ogiAyUUYcmWt+H5SFuiGMz8QpgB69Xlg3ptvIlGk6Dl9mu6gG
+         6b/o49lsoTWpqRD3KEoEh05O3e3VkJmSApVTJjPXTkuEqXzDX8XuiBo4TY2jpqmB0NNA
+         Etj3qLnLpdSFTmgvkzRtEYkgcWyVm112xG2pUXkdcVB+bGAn78pbZAvYBDFT1qS6k/2X
+         SW3eO2dYWvWlhrAU/7qhBbuomKdg843FFJSh6SvAerM6wBmoc0ty2jwKBupVm7Qbuf9p
+         Tov1xHLXj945og5SmcJ1DfW1u1WCnKsGs/xaBlbScqSaRtOZMbEMrPKU/pMmwyrKBhSt
+         eTwA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=MsEh+v7IPOKrGchnu8ufmug9BuJ+6/j7RM26XsVhv04=;
-        b=dP2u9tnS79/eBVoMUlHJaYNKHd6v4stKkDTMwROY9YFGhERPwSimxrlxPoffDChgXc
-         qPeMly10SgW8VM4+M52POhZ5AgaS3RpdOJHg/5/8LLZw64jewJr6TxSuJ8RFUXOFMjoZ
-         LWMoWspulHbk5bOKiIPUTY/OpAjkv8q/W0a7mFaJ565nwF1ZUbvVkLqHJ4M+V2GKEMLQ
-         Y+PiVI80qkruyYmRU0SKAKj4Iijgn7DJhN7C7gecDQYOnQ0NQiWxh/CYiV92t9+G2rZm
-         NWmvl+kLQUbzFoIsP/dbxejyKtdfpG7QwEYEgKjff9BZ+ndLRBpygKLVuzELgmaPx0Uk
-         slmg==
+        bh=FOIrhfa5I+n7DVdFa8ydZMzj2s25vzXCYLjLMUsM8Y4=;
+        b=XXiIckoW/QXuuE0T+3tJ+tkzOdpleKB8F8IFKLx/RDnBaMuCHkvnX4NV6lzV/xINwX
+         nAmUu7or2GjlelKrm6l+pP5z8Gg0lqCq1Td8Y+i/KyqUauyWnUqlszsn7CJVKZdArExZ
+         BGnqin/DrHIIdbVMeYtVehqCiliqFTNanTjvZGF7I8OMF5T2AnuuH/A/5W1rMDv76Egl
+         8a/QAozeGhtQBvoZk4GyskKrUfYge8X9dz5WQgroPahunoe3ebv7s8Uz4SBq7X2+1tWq
+         kgVmQ430vPJSnTyTFycQq5RCyO/SpObOEFK5XcKzaJAZcSCSy7XGQ+2QQPLqmWzxOzb6
+         90IQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=A23+takW;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=auj0hqYc;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x341.google.com (mail-ot1-x341.google.com. [2607:f8b0:4864:20::341])
-        by gmr-mx.google.com with ESMTPS id r8si402640ilj.3.2020.04.11.11.57.16
+Received: from mail-oi1-x242.google.com (mail-oi1-x242.google.com. [2607:f8b0:4864:20::242])
+        by gmr-mx.google.com with ESMTPS id l23si172939qkl.0.2020.04.11.16.35.53
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 11 Apr 2020 11:57:16 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) client-ip=2607:f8b0:4864:20::341;
-Received: by mail-ot1-x341.google.com with SMTP id b13so861294oti.3
-        for <clang-built-linux@googlegroups.com>; Sat, 11 Apr 2020 11:57:16 -0700 (PDT)
-X-Received: by 2002:a9d:17ec:: with SMTP id j99mr8529733otj.213.1586631435936;
-        Sat, 11 Apr 2020 11:57:15 -0700 (PDT)
+        Sat, 11 Apr 2020 16:35:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) client-ip=2607:f8b0:4864:20::242;
+Received: by mail-oi1-x242.google.com with SMTP id d63so4589661oig.6
+        for <clang-built-linux@googlegroups.com>; Sat, 11 Apr 2020 16:35:53 -0700 (PDT)
+X-Received: by 2002:aca:2806:: with SMTP id 6mr7800691oix.135.1586648153184;
+        Sat, 11 Apr 2020 16:35:53 -0700 (PDT)
 Received: from ubuntu-s3-xlarge-x86 ([2604:1380:4111:8b00::3])
-        by smtp.gmail.com with ESMTPSA id i20sm3179852ots.31.2020.04.11.11.57.15
+        by smtp.gmail.com with ESMTPSA id n38sm3487564otn.26.2020.04.11.16.35.52
         (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Sat, 11 Apr 2020 11:57:15 -0700 (PDT)
-Date: Sat, 11 Apr 2020 11:57:14 -0700
+        Sat, 11 Apr 2020 16:35:52 -0700 (PDT)
+Date: Sat, 11 Apr 2020 16:35:51 -0700
 From: Nathan Chancellor <natechancellor@gmail.com>
-To: kbuild test robot <lkp@intel.com>
-Cc: Dirk Mueller <dmueller@suse.com>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	David Gibson <david@gibson.dropbear.id.au>,
-	Rob Herring <robh@kernel.org>
-Subject: Re: [linux-stable-rc:linux-4.4.y 9945/9999]
- net/sunrpc/xprtrdma/svc_rdma_marshal.c:176:9: warning: array index 4 is past
- the end of the array (which contains 3 elements)
-Message-ID: <20200411185714.GA16130@ubuntu-s3-xlarge-x86>
-References: <202004112251.qy85m2DE%lkp@intel.com>
+To: Nicholas Piggin <npiggin@gmail.com>
+Cc: clang-built-linux@googlegroups.com, linuxppc-dev@lists.ozlabs.org,
+	=?iso-8859-1?Q?C=E9dric?= Le Goater <clg@fr.ibm.com>,
+	qemu-ppc@nongnu.org, qemu-devel@nongnu.org,
+	David Gibson <david@gibson.dropbear.id.au>
+Subject: Re: Boot flakiness with QEMU 3.1.0 and Clang built kernels
+Message-ID: <20200411233551.GA34862@ubuntu-s3-xlarge-x86>
+References: <20200410205932.GA880@ubuntu-s3-xlarge-x86>
+ <1586564375.zt8lm9finh.astroid@bobo.none>
+ <20200411005354.GA24145@ubuntu-s3-xlarge-x86>
+ <1586597161.xyshvdbjo6.astroid@bobo.none>
+ <1586612535.6kk4az03np.astroid@bobo.none>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <202004112251.qy85m2DE%lkp@intel.com>
+In-Reply-To: <1586612535.6kk4az03np.astroid@bobo.none>
 User-Agent: Mutt/1.9.4 (2018-02-28)
 X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=A23+takW;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=auj0hqYc;       spf=pass
  (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+ 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -153,111 +154,93 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Apr 11, 2020 at 10:15:59PM +0800, kbuild test robot wrote:
-> Hi Dirk,
+On Sat, Apr 11, 2020 at 11:57:23PM +1000, Nicholas Piggin wrote:
+> Nicholas Piggin's on April 11, 2020 7:32 pm:
+> > Nathan Chancellor's on April 11, 2020 10:53 am:
+> >> The tt.config values are needed to reproduce but I did not verify that
+> >> ONLY tt.config was needed. Other than that, no, we are just building
+> >> either pseries_defconfig or powernv_defconfig with those configs and
+> >> letting it boot up with a simple initramfs, which prints the version
+> >> string then shuts the machine down.
+> >> 
+> >> Let me know if you need any more information, cheers!
+> > 
+> > Okay I can reproduce it. Sometimes it eventually recovers after a long
+> > pause, and some keyboard input often helps it along. So that seems like 
+> > it might be a lost interrupt.
+> > 
+> > POWER8 vs POWER9 might just be a timing thing if P9 is still hanging
+> > sometimes. I wasn't able to reproduce it with defconfig+tt.config, I
+> > needed your other config with various other debug options.
+> > 
+> > Thanks for the very good report. I'll let you know what I find.
 > 
-> First bad commit (maybe != root cause):
+> It looks like a qemu bug. Booting with '-d int' shows the decrementer 
+> simply stops firing at the point of the hang, even though MSR[EE]=1 and 
+> the DEC register is wrapping. Linux appears to be doing the right thing 
+> as far as I can tell (not losing interrupts).
 > 
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-4.4.y
-> head:   8b0440867da246ba6a2e4512f6643702f698eaa4
-> commit: ce513359d8507123e63f34b56e67ad558074be22 [9945/9999] scripts/dtc: Remove redundant YYLOC global declaration
-> config: x86_64-randconfig-h001-20200411 (attached as .config)
-> compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 7149bb70681a91de5d490b4bb0714d9e55a05bcc)
-> reproduce:
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         git checkout ce513359d8507123e63f34b56e67ad558074be22
->         # save the attached .config to linux build tree
->         COMPILER=clang make.cross ARCH=x86_64 
+> This qemu patch fixes the boot hang for me. I don't know that qemu 
+> really has the right idea of "context synchronizing" as defined in the
+> powerpc architecture -- mtmsrd L=1 is not context synchronizing but that
+> does not mean it can avoid looking at exceptions until the next such
+> event. It looks like the decrementer exception goes high but the
+> execution of mtmsrd L=1 is ignoring it.
 > 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kbuild test robot <lkp@intel.com>
+> Prior to the Linux patch 3282a3da25b you bisected to, interrupt replay
+> code would return with an 'rfi' instruction as part of interrupt return,
+> which probably helped to get things moving along a bit. However it would
+> not be foolproof, and Cedric did say he encountered some mysterious
+> lockups under load with qemu powernv before that patch was merged, so
+> maybe it's the same issue?
 > 
-> All warnings (new ones prefixed by >>):
+> Thanks,
+> Nick
 > 
-> >> net/sunrpc/xprtrdma/svc_rdma_marshal.c:176:9: warning: array index 4 is past the end of the array (which contains 3 elements) [-Warray-bounds]
->                    va = &rmsgp->rm_body.rm_padded.rm_pempty[4];
->                          ^                                  ~
->    include/linux/sunrpc/rpc_rdma.h:93:4: note: array 'rm_pempty' declared here
->                            __be32 rm_pempty[3];    /* 3 empty chunk lists */
->                            ^
->    1 warning generated.
-> 
-> vim +176 net/sunrpc/xprtrdma/svc_rdma_marshal.c
-> 
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  147  
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  148  int svc_rdma_xdr_decode_req(struct rpcrdma_msg **rdma_req,
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  149  			    struct svc_rqst *rqstp)
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  150  {
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  151  	struct rpcrdma_msg *rmsgp = NULL;
-> 30b7e246a6222f Chuck Lever 2015-06-04  152  	__be32 *va, *vaend;
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  153  	u32 hdr_len;
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  154  
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  155  	rmsgp = (struct rpcrdma_msg *)rqstp->rq_arg.head[0].iov_base;
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  156  
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  157  	/* Verify that there's enough bytes for header + something */
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  158  	if (rqstp->rq_arg.len <= RPCRDMA_HDRLEN_MIN) {
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  159  		dprintk("svcrdma: header too short = %d\n",
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  160  			rqstp->rq_arg.len);
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  161  		return -EINVAL;
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  162  	}
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  163  
-> 30b7e246a6222f Chuck Lever 2015-06-04  164  	if (rmsgp->rm_vers != rpcrdma_version)
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  165  		return -ENOSYS;
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  166  
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  167  	/* Pull in the extra for the padded case and bump our pointer */
-> 30b7e246a6222f Chuck Lever 2015-06-04  168  	if (rmsgp->rm_type == rdma_msgp) {
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  169  		int hdrlen;
-> 30b7e246a6222f Chuck Lever 2015-06-04  170  
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  171  		rmsgp->rm_body.rm_padded.rm_align =
-> 30b7e246a6222f Chuck Lever 2015-06-04  172  			be32_to_cpu(rmsgp->rm_body.rm_padded.rm_align);
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  173  		rmsgp->rm_body.rm_padded.rm_thresh =
-> 30b7e246a6222f Chuck Lever 2015-06-04  174  			be32_to_cpu(rmsgp->rm_body.rm_padded.rm_thresh);
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  175  
-> ef1eac0a3fa86b Tom Tucker  2007-12-12 @176  		va = &rmsgp->rm_body.rm_padded.rm_pempty[4];
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  177  		rqstp->rq_arg.head[0].iov_base = va;
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  178  		hdrlen = (u32)((unsigned long)va - (unsigned long)rmsgp);
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  179  		rqstp->rq_arg.head[0].iov_len -= hdrlen;
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  180  		if (hdrlen > rqstp->rq_arg.len)
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  181  			return -EINVAL;
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  182  		return hdrlen;
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  183  	}
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  184  
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  185  	/* The chunk list may contain either a read chunk list or a write
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  186  	 * chunk list and a reply chunk list.
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  187  	 */
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  188  	va = &rmsgp->rm_body.rm_chunks[0];
-> 30b7e246a6222f Chuck Lever 2015-06-04  189  	vaend = (__be32 *)((unsigned long)rmsgp + rqstp->rq_arg.len);
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  190  	va = decode_read_list(va, vaend);
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  191  	if (!va)
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  192  		return -EINVAL;
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  193  	va = decode_write_list(va, vaend);
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  194  	if (!va)
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  195  		return -EINVAL;
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  196  	va = decode_reply_array(va, vaend);
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  197  	if (!va)
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  198  		return -EINVAL;
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  199  
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  200  	rqstp->rq_arg.head[0].iov_base = va;
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  201  	hdr_len = (unsigned long)va - (unsigned long)rmsgp;
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  202  	rqstp->rq_arg.head[0].iov_len -= hdr_len;
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  203  
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  204  	*rdma_req = rmsgp;
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  205  	return hdr_len;
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  206  }
-> ef1eac0a3fa86b Tom Tucker  2007-12-12  207  
-> 
-> :::::: The code at line 176 was first introduced by commit
-> :::::: ef1eac0a3fa86b06aa2d87021f157d13abc1903f rdma: ONCRPC RDMA protocol marshalling
-> 
-> :::::: TO: Tom Tucker <tom@opengridcomputing.com>
-> :::::: CC: J. Bruce Fields <bfields@citi.umich.edu>
-> 
+> The patch is a bit of a hack, but if you can run it and verify it fixes
+> your boot hang would be good.
 
-I suspect this was fixed by https://git.kernel.org/linus/647e18e3bd0308b38d5341fc08cd70ed1ce28a71.
+Yes, with this patch applied on top of 5.0.0-rc2 and using the
+pseries-3.1 and powernv8 machines, I do not see any hangs with a clang
+built kernel at b032227c62939b5481bcd45442b36dfa263f4a7c across 100
+boots.
 
-Obviously not caused by the bisected patch and far too invasive for a
-stable backport. Probably will just have to live with this one.
+If you happen to send it upstream:
+
+Tested-by: Nathan Chancellor <natechancellor@gmail.com>
+
+Thanks for looking into it!
+
+> ---
+> 
+> diff --git a/target/ppc/translate.c b/target/ppc/translate.c
+> index b207fb5386..1d997f5c32 100644
+> --- a/target/ppc/translate.c
+> +++ b/target/ppc/translate.c
+> @@ -4364,12 +4364,21 @@ static void gen_mtmsrd(DisasContext *ctx)
+>      if (ctx->opcode & 0x00010000) {
+>          /* Special form that does not need any synchronisation */
+>          TCGv t0 = tcg_temp_new();
+> +        TCGv t1 = tcg_temp_new();
+>          tcg_gen_andi_tl(t0, cpu_gpr[rS(ctx->opcode)],
+>                          (1 << MSR_RI) | (1 << MSR_EE));
+> -        tcg_gen_andi_tl(cpu_msr, cpu_msr,
+> +        tcg_gen_andi_tl(t1, cpu_msr,
+>                          ~(target_ulong)((1 << MSR_RI) | (1 << MSR_EE)));
+> -        tcg_gen_or_tl(cpu_msr, cpu_msr, t0);
+> +        tcg_gen_or_tl(t1, t1, t0);
+> +
+> +        gen_update_nip(ctx, ctx->base.pc_next);
+> +        gen_helper_store_msr(cpu_env, t1);
+>          tcg_temp_free(t0);
+> +        tcg_temp_free(t1);
+> +        /* Must stop the translation as machine state (may have) changed */
+> +        /* Note that mtmsr is not always defined as context-synchronizing */
+> +        gen_stop_exception(ctx);
+> +
+>      } else {
+>          /*
+>           * XXX: we need to update nip before the store if we enter
 
 Cheers,
 Nathan
@@ -265,4 +248,4 @@ Nathan
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200411185714.GA16130%40ubuntu-s3-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200411233551.GA34862%40ubuntu-s3-xlarge-x86.
