@@ -1,125 +1,132 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBKESZP2AKGQEY43IILA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBDX3ZP2AKGQEXCRJ5AA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13e.google.com (mail-lf1-x13e.google.com [IPv6:2a00:1450:4864:20::13e])
-	by mail.lfdr.de (Postfix) with ESMTPS id C513E1A5D5A
-	for <lists+clang-built-linux@lfdr.de>; Sun, 12 Apr 2020 09:54:17 +0200 (CEST)
-Received: by mail-lf1-x13e.google.com with SMTP id y23sf2469767lfg.23
-        for <lists+clang-built-linux@lfdr.de>; Sun, 12 Apr 2020 00:54:17 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586678057; cv=pass;
+Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
+	by mail.lfdr.de (Postfix) with ESMTPS id E2B981A5E4E
+	for <lists+clang-built-linux@lfdr.de>; Sun, 12 Apr 2020 13:37:52 +0200 (CEST)
+Received: by mail-pg1-x53b.google.com with SMTP id q15sf5773541pgb.4
+        for <lists+clang-built-linux@lfdr.de>; Sun, 12 Apr 2020 04:37:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586691471; cv=pass;
         d=google.com; s=arc-20160816;
-        b=oDoDznWPURPWPAnPHpVBX1aGKRh5gAiBs1S5b7gG+Bthh/AlHBQGdzg0nNrs/z7VY4
-         MAP70LskuNX8wIuhEU8aOfXBVbEZ1IAm6D014rRBS3WZ560zWxwI3Ebu2M2STtZ1a1Y6
-         FgXEyV62ZL8bfUQkWczBcBnPfqR2qg5yjR+Q4zu/sLoWhkmzBSs/Mv//qIxo11KHTvYL
-         wIZ4/PeEUX30TBhUyEeCl6+KqX2XrId1L6nx5EMr7QE3EETBcDVErur/gdHG6xY0+h1s
-         oAIvG+tdZLRWns/YTX6LGm36lja3+1YTrZfHxY9u5KNAlgutujmjbn9nIPUMh0OMxEmY
-         97ag==
+        b=hvCp5mR96K0eEf/s29ga8VtxhdjZVSrZE+Me961QjreFQgFI8ijxio+LLqsoCmTtbi
+         RjVick7u2j53SsSF9LTYTeZiBK4PDTgCqtKhffTDomQ6N3GbNqPWaeYDaKwHUrshNB0t
+         DRTh7MBuflls/7fzHaS+1ngMi8K+qoA5+Jwy6HWoDNpYmrvHtGh/ln0qPDO8/uD6NxWH
+         W/lwelXfN8hpY3LXkuq1+IebpGLyL7fvLRxDmCCZ8t9gbsymh7lqRfHstc0tC9kNilM2
+         hsuCxN6zJwXZWvbreA19ZhA3KT8udYhQ5pPXG72pgApN0BFJjnnb8SFmImsEaYINgyHj
+         jy3w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=Y7026XEzAb8J5JWWdEf+8Spz7ghNkSmT0hcdqGtZlh4=;
-        b=ahpqbhY1pSculxYMQO4qFVGQhZZQKPBonIh4TkaEf2y0LygSfZEyF+Es7I/0GixRdr
-         Rudgpd1exnFZTO9MYAo9PhB6HsER3zoR2MFklCa7tYNQ47xUS6COGB5kJgD3ry4uJEBc
-         OOn6Srgo+CfwW6WWyvH5OxZOYs2pGISjPdAGvTkKP0oz3nRkk3AQBUj6JVPFCSy+owsp
-         zqgEwYlRKD7JEEakzXJHaYoFaelx6j+yNy+ntjqLjh0wr6o9b+cBli19gHtWP/xYKb0D
-         L48M+c3wcRAfSRTlXig/mjg2MaC35tZ0mxd8IVBkoLnUkKpWkmtB3IrPZCUTdaLfjTFl
-         qh0Q==
+         :list-id:mailing-list:precedence:user-agent:content-disposition
+         :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
+         :ironport-sdr:sender:dkim-signature;
+        bh=0egl0JqEVJpldfurX14/6tEAIsndCNUp+1j68T66aHA=;
+        b=QYrj6KQiCfER8iYkcLHGvQXDeYG6GYcEVUQNH8YI4I3muW+QFh2GWp6WZsrffHtulz
+         3p+MIRES4IKOIf9mShex1SSzg9JEgOSG9Gyv9ld4YNI0Y4ZqHdRJJaLdjnoLR05E2KQE
+         TvlzZpe9Km7JOmN+CODmDqVTZDeb1VEvgjsMS0TpRK3MhWd4BT2AjoL9qRgsgoW8NSMG
+         8nWGaaHspJhd3+HgKKzCeicYo+3IExQbjQqjKzn5jtOBIlYnTQZma9gBSLhuBTtQkbif
+         I1fewdxACMHWy63nHPxrYwaV9OCrwyUKF3jal5yWjdmfBQcpCfCePdsMvVihjBlW/aSY
+         gbjw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=OF7gKCwn;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::32e as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Y7026XEzAb8J5JWWdEf+8Spz7ghNkSmT0hcdqGtZlh4=;
-        b=bJjRk9BIxxRKtEljrOKMR8D+EFgOWoMAO2Yst/e+rEc3Soa6YVvibYWgIb2XlTT9U4
-         uGy73Qz3p7gk06hiTuyBAghxiClS9ktw+pGsIBZz6NF23Qy4k31fIb8sGhbsz7fd7U61
-         CFMIW/OdK7V/aNS49S+r2GpfFE0Wzc0d0p46cKagRIcFOtEPsJbuTHPa6Z55LcwoNds2
-         ZNnUVvdG3FJs/KEYibcoYE1pai6txq5arpWikTfz3RzV4W+QHqTWanwP8AufnBQXI/k0
-         TIatUmPSA7C5eaSZy2NqLByfyMtZ+NNEzVw2TaY+f7VAyRad1a3b7fO2K1AN6/jkTPuy
-         sl/w==
+        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
+         :mime-version:content-disposition:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=0egl0JqEVJpldfurX14/6tEAIsndCNUp+1j68T66aHA=;
+        b=Z0q/l4c9lKKAVqQeGOzv2rU2ghjlOAXC8vuPjLhOjSiEwDIyJ9Xaqzg/iT7LOVoc3B
+         3Ayc5O8lk/F+AjKtxIBifJ48JwuZPuupzRW8YJOeSTbtXv7hKcxO84jkhABjuxF3Np8H
+         9NP1WYk3mL9DIdPrDYNRMMQy4UnFMHoDn8oyO35DTtZEe4C8HKvoxyIbOGrBA6PCoRgK
+         OvFSo0A+4JSnV0Lw/XxOKjwN4Jfo8O4pR2qwZEBgyO/l9ZIJKPgga7Kw/Tv6U0j7Vmqc
+         iP4fOT3Fin4iP79KMG9pE2N5buVcs5OGbB3s3q6eKmoRdDTx8H+1Xh61tX2StXbNv4Rv
+         u/4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Y7026XEzAb8J5JWWdEf+8Spz7ghNkSmT0hcdqGtZlh4=;
-        b=AxtyRbBYYxV7K0eEKlqdh4BM/tD5aWSOc/yhv3950oZ7b0iIcw+w8fC2ohE8Fyfx/r
-         I4KCaZM13Gkbo3cgbvvcZciCXmVvIthoWD+hE1++6cIti+yveZQjy1GhcDgDqsXd5YHU
-         ZJlWjEzs6m1U2mBRSE9jQEVPjRSVbbFjNmKMFeiyC5ehNT1NjjLqi1XKxXcfrt7WeXz/
-         TaTsKECd32uKbCWZ2qAIdnAjGQaimsDA15ZJqYuXjq6daEqQjFdS0KKGUtFEVioPjVyc
-         ooTLb8haOspQVFvYDuOeTNqGO9ptaCgtuxR/rq0cuQs9NO8wpDzON5s+TFx67IMDCZeL
-         mJoQ==
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
+         :subject:message-id:mime-version:content-disposition:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=0egl0JqEVJpldfurX14/6tEAIsndCNUp+1j68T66aHA=;
+        b=DVHMEM4HBPtV4R1wugiwKe6QZ+C+h5aoPXXpY+cQdV2emSwRcJrsUkl9x3ctzTBNQD
+         obNmDHCV+ABrHm2Anhp/stTJbHU1KVzxSZrx0qk2LDAAFgmF5eBUVvTIvnCJ6QfU70IO
+         V4OtieVV9MaBA2hPEyJIjW1RYyL+TIZVWAbIIGjVEGfHsZgkh+coLPYzBrTrk+j+4JV8
+         r6FnDJYyQ2zxEv4Md7Z9vovpNuiUDxKg0nqku2jp9muHdp/Xu56kLTpLp0EA/Z6ht6kz
+         oLfLQh7JZjFR+tsdqPDnMGw8cMa47QcBcEp75vA5mN1EYY2hN51ChT9qG1rg58eMtSpX
+         KftQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuY+1HIgPxjzkW+5cP+2pjeL5ohM3LqxsVfXrg7WTCJ/FpTzX4yB
-	G+bECJupdWocQrsSqw9yYrA=
-X-Google-Smtp-Source: APiQypJyHMIdSbgz55/FUMQgAaYNATDO0PNz3I9Yht4kk7VFqU7s9p2K2NLU8tgObTDw8PxgnYB+Qw==
-X-Received: by 2002:a2e:9616:: with SMTP id v22mr7113844ljh.107.1586678057287;
-        Sun, 12 Apr 2020 00:54:17 -0700 (PDT)
+X-Gm-Message-State: AGi0PuZ+Pspsi3aP/xzSpI2rt30HQ6nkFZdaCb6CvkVuvMdIWWOAcYJr
+	X1aPhuRwT39Tb9S1HVedkbU=
+X-Google-Smtp-Source: APiQypJ2hbgx3ETKFzZsuvYKoC5WJu55MEkshQET3AOEH/bzK2rPirpfdfnJJeKvvIiV4LzN5MF+hA==
+X-Received: by 2002:a63:d512:: with SMTP id c18mr12590480pgg.347.1586691471131;
+        Sun, 12 Apr 2020 04:37:51 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:5456:: with SMTP id d22ls2335811lfn.6.gmail; Sun, 12 Apr
- 2020 00:54:16 -0700 (PDT)
-X-Received: by 2002:ac2:4248:: with SMTP id m8mr2774367lfl.211.1586678056514;
-        Sun, 12 Apr 2020 00:54:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586678056; cv=none;
+Received: by 2002:a17:90a:9e2:: with SMTP id 89ls11677578pjo.2.canary-gmail;
+ Sun, 12 Apr 2020 04:37:50 -0700 (PDT)
+X-Received: by 2002:a17:90a:e50a:: with SMTP id t10mr16669198pjy.110.1586691470536;
+        Sun, 12 Apr 2020 04:37:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586691470; cv=none;
         d=google.com; s=arc-20160816;
-        b=LYlfqnvqMTPpXIFEi2cbMz5SPVyKkwcApC4oSoPa2Sir13w/qhJxBj3498hogdfv87
-         YJPmsQZkVGZEn3mPzP7oavX5E87v2kxkM2qzKcljhbg3pVtmPjARBsazD9Wdq2Q8i2PR
-         UKkJsOyTcakgmpVG1qea1G1rwqzBfuF8m2BIlDZP47xbvd4OTZv1+JkIxvb7wFvMkN1p
-         pbK9ESNsOLLi4IVicTrCvE2L1EHQVW6fzzCUQri6rtsmIFr8rRHaqGEiWV0AMbRUeEQK
-         7WwtsG8Ar45Z7zmI0e1AQkh1b+DUn/aXTOV38GbmKXenqmh1t8qUE5ZddG6VAtV3ihxo
-         h5PQ==
+        b=SaqTsHYMdzA4i+l3zHYoQ4RbUZ313OewnKOVDxT3momAOpTHSPXlnL5Fbn9X8NUugt
+         DER87vDAi88ecSppDBobMrkHnYM4jivqlZHoJBkn2rH5h8jLlTtkpK3NHaVLAjJQD6gz
+         OlpmSjNAOAYjptUe6aFoQwIc9gxiFhRJgEZ5jchzgRT6f7hDX5jYt090MGQfwBEX3ZmH
+         oJih62U1u3q4Q+h1BbKSiJaOFLGW+uEAwpxDQjz86xl/ZOykzsHQGvjoYjDAEeDvcdwn
+         Imneg2Mmu+erxRtPjHRM50yrGU7OPg3EWdgJTnzjj3ZRps2HymZiRmMRUAYs4ixz9j5Y
+         PWiQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=TmZzCNiVPqhYdncOT93NxYIkWBJA4tzg4D5++AGQZcg=;
-        b=oa3BiSwKYsfrxM3lGph4D5Tts55qlE5TpzlYppKaTb5JUybfYAWwMUR1PnZWk9RnWT
-         eiuK6D1Jo9W260QGfrWqbu2HMy1Qxi4FAS44Vx1kTY7KnvQeUPnMvF35d+CBX33+ZiT7
-         DGIHEpS2oJoAW5xc98yOxvLh2dJlp9lweJN2MAVT6FLNzO+2ofecd6K8uZtJ1cm4SLpj
-         uH58a3Oz+T9hITcJxoEbMNcpMPVqkPc1/5+WTfZ5p/hMBCjEN0PISopXuC1jDJ/b/jFM
-         d9T7k1rSSEVwxZcu8gaL+fkS7Id4Bw30lB0WmhjeV5alEL74EZuFyndjZsSZ7KYWfXDG
-         yjzQ==
+        h=user-agent:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date:ironport-sdr:ironport-sdr;
+        bh=YVqtkADaRUZ2OK8dZ4DjN4XyU8M4ZEzEOLjwyz9VbRk=;
+        b=DDT9eLIlIFOldtKDDJCWVorPV7q7lHpsfNZ7TXNlS/ihePm6krQH0j+gSNxdAMMT9Y
+         lwbF4ODXdwxyeVOllIZHiVrihKt9te/CsRFFK89kaLV55OBqiEVZe1DyxNIa+hZ3cRDZ
+         bCYEoAZqTKe6qnYlP6JKUQ2GSz+X1pqCY0r8ym8vEUMXwpr4mszn/0z73/cCcoSSd2qm
+         ZySjeNLHbZEZCGytqfm2iYNv6Zp9/VIzIjry24hO59NE+e+8qqTSzNwrOBj6Haq6vkko
+         P9rg03xbSCDLB1y3B4M+bf+cky+LvMsxAUB2FwMfHlSu8MreCWQKC6/Dt08sCs4Z2qzR
+         Cd0Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=OF7gKCwn;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::32e as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wm1-x32e.google.com (mail-wm1-x32e.google.com. [2a00:1450:4864:20::32e])
-        by gmr-mx.google.com with ESMTPS id s4si430017ljj.2.2020.04.12.00.54.16
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
+        by gmr-mx.google.com with ESMTPS id cv13si573886pjb.1.2020.04.12.04.37.50
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 12 Apr 2020 00:54:16 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::32e as permitted sender) client-ip=2a00:1450:4864:20::32e;
-Received: by mail-wm1-x32e.google.com with SMTP id d77so6624519wmd.3
-        for <clang-built-linux@googlegroups.com>; Sun, 12 Apr 2020 00:54:16 -0700 (PDT)
-X-Received: by 2002:a1c:2c0b:: with SMTP id s11mr12605737wms.3.1586678056176;
-        Sun, 12 Apr 2020 00:54:16 -0700 (PDT)
-Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id f13sm9965575wrx.56.2020.04.12.00.54.14
-        (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
-        Sun, 12 Apr 2020 00:54:15 -0700 (PDT)
-From: ci_notify@linaro.org
-Date: Sun, 12 Apr 2020 07:54:14 +0000 (UTC)
-To: tcwg-validation@linaro.org, arnd@linaro.org, 
-	clang-built-linux@googlegroups.com
-Message-ID: <1228848350.17072.1586678055502.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-release-arm-mainline-allyesconfig - Build # 46 -
- Successful!
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 12 Apr 2020 04:37:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
+IronPort-SDR: h548fbcYp88t/bX8TFtPMDOxBy9ZshKYV9fqtdUTwCynLa78vwvjZdARI7lxxTsqeLgPWgxZbb
+ Okvql8OEDQlA==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from fmsmga006.fm.intel.com ([10.253.24.20])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Apr 2020 04:37:49 -0700
+IronPort-SDR: bzZN2hoGmr0W+9u3F2AbvIgYKZgRA0SCXSIEktmFICpyxDqcCLvaIZSTrgupvo1QwFerYNxlaH
+ G1EtNLeuj7oA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.72,374,1580803200"; 
+   d="scan'208";a="453948217"
+Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
+  by fmsmga006.fm.intel.com with ESMTP; 12 Apr 2020 04:37:47 -0700
+Received: from kbuild by lkp-server01 with local (Exim 4.89)
+	(envelope-from <lkp@intel.com>)
+	id 1jNavr-0001aT-9R; Sun, 12 Apr 2020 19:37:47 +0800
+Date: Sun, 12 Apr 2020 19:37:20 +0800
+From: kbuild test robot <lkp@intel.com>
+To: "Michael S. Tsirkin" <mst@redhat.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+	kvm@vger.kernel.org, virtualization@lists.linux-foundation.org,
+	netdev@vger.kernel.org
+Subject: [vhost:vhost 54/54] drivers/virtio/Kconfig:49: syntax error
+Message-ID: <202004121907.Djq7hPBe%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_17071_1332030343.1586678054346"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-release-arm-mainline-allyesconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=OF7gKCwn;       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::32e
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: lkp@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted
+ sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,75 +139,142 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_17071_1332030343.1586678054346
-Content-Type: text/plain; charset="UTF-8"
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/mst/vhost.git vhost
+head:   e282a85dc20e6d5da055e65c48aae15cc14897c7
+commit: e282a85dc20e6d5da055e65c48aae15cc14897c7 [54/54] vdpa: make vhost, virtio depend on menu
+config: powerpc-defconfig
+compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 4e86e5eedc684453fe0af6eca2ebdbff33db012c)
+reproduce:
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        git checkout e282a85dc20e6d5da055e65c48aae15cc14897c7
+        COMPILER=clang make.cross ARCH=powerpc  defconfig
+        COMPILER=clang make.cross ARCH=powerpc 
 
-Could not identify regression in *linux* in CI configuration tcwg_kernel/llvm-release-arm-mainline-allyesconfig.  See 'Bisect log' in the links below for bisection details.
+If you fix the issue, kindly add following tag as appropriate
+Reported-by: kbuild test robot <lkp@intel.com>
 
-Configuration details:
-rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
-rr[linux_branch]="5b8b9d0c6d0e0f1993c6c56deaf9646942c49d94"
+All errors (new ones prefixed by >>):
 
-Results regressed to (for bad == b032227c62939b5481bcd45442b36dfa263f4a7c)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-18624
-# First few build errors in logs:
-# 00:31:15 make: *** [vmlinux] Error 1
+>> drivers/virtio/Kconfig:49: syntax error
+>> drivers/virtio/Kconfig:48: unknown statement "depend"
+>> drivers/virtio/Kconfig:49: invalid statement
+   drivers/virtio/Kconfig:50: invalid statement
+>> drivers/virtio/Kconfig:51: unknown statement "This"
+   drivers/virtio/Kconfig:52:warning: ignoring unsupported character '.'
+   drivers/virtio/Kconfig:52:warning: ignoring unsupported character ','
+>> drivers/virtio/Kconfig:52: unknown statement "device"
+>> drivers/virtio/Kconfig:53: unknown statement "an"
+>> drivers/virtio/Kconfig:54: unknown statement "physical"
+   drivers/virtio/Kconfig:55:warning: ignoring unsupported character '.'
+>> drivers/virtio/Kconfig:55: unknown statement "offloaded"
+   drivers/virtio/Kconfig:57:warning: ignoring unsupported character ','
+   drivers/virtio/Kconfig:57:warning: ignoring unsupported character '.'
+>> drivers/virtio/Kconfig:57: unknown statement "If"
+   make[2]: *** [scripts/kconfig/Makefile:85: defconfig] Error 1
+   make[1]: *** [Makefile:568: defconfig] Error 2
+   make: *** [Makefile:180: sub-make] Error 2
+   4 real  1 user  1 sys  59.31% cpu 	make defconfig
+--
+>> drivers/virtio/Kconfig:49: syntax error
+>> drivers/virtio/Kconfig:48: unknown statement "depend"
+>> drivers/virtio/Kconfig:49: invalid statement
+   drivers/virtio/Kconfig:50: invalid statement
+>> drivers/virtio/Kconfig:51: unknown statement "This"
+   drivers/virtio/Kconfig:52:warning: ignoring unsupported character '.'
+   drivers/virtio/Kconfig:52:warning: ignoring unsupported character ','
+>> drivers/virtio/Kconfig:52: unknown statement "device"
+>> drivers/virtio/Kconfig:53: unknown statement "an"
+>> drivers/virtio/Kconfig:54: unknown statement "physical"
+   drivers/virtio/Kconfig:55:warning: ignoring unsupported character '.'
+>> drivers/virtio/Kconfig:55: unknown statement "offloaded"
+   drivers/virtio/Kconfig:57:warning: ignoring unsupported character ','
+   drivers/virtio/Kconfig:57:warning: ignoring unsupported character '.'
+>> drivers/virtio/Kconfig:57: unknown statement "If"
+   make[2]: *** [scripts/kconfig/Makefile:75: oldconfig] Error 1
+   make[1]: *** [Makefile:568: oldconfig] Error 2
+   make: *** [Makefile:180: sub-make] Error 2
+   4 real  1 user  1 sys  66.71% cpu 	make oldconfig
+--
+>> drivers/virtio/Kconfig:49: syntax error
+>> drivers/virtio/Kconfig:48: unknown statement "depend"
+>> drivers/virtio/Kconfig:49: invalid statement
+   drivers/virtio/Kconfig:50: invalid statement
+>> drivers/virtio/Kconfig:51: unknown statement "This"
+   drivers/virtio/Kconfig:52:warning: ignoring unsupported character '.'
+   drivers/virtio/Kconfig:52:warning: ignoring unsupported character ','
+>> drivers/virtio/Kconfig:52: unknown statement "device"
+>> drivers/virtio/Kconfig:53: unknown statement "an"
+>> drivers/virtio/Kconfig:54: unknown statement "physical"
+   drivers/virtio/Kconfig:55:warning: ignoring unsupported character '.'
+>> drivers/virtio/Kconfig:55: unknown statement "offloaded"
+   drivers/virtio/Kconfig:57:warning: ignoring unsupported character ','
+   drivers/virtio/Kconfig:57:warning: ignoring unsupported character '.'
+>> drivers/virtio/Kconfig:57: unknown statement "If"
+   make[2]: *** [scripts/kconfig/Makefile:75: olddefconfig] Error 1
+   make[1]: *** [Makefile:568: olddefconfig] Error 2
+   make: *** [Makefile:180: sub-make] Error 2
+   4 real  1 user  1 sys  66.26% cpu 	make olddefconfig
 
-from (for baseline_rev == 5b8b9d0c6d0e0f1993c6c56deaf9646942c49d94)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-18626
+vim +49 drivers/virtio/Kconfig
 
-Artifacts of bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-arm-mainline-allyesconfig/46/artifact/artifacts/build-b032227c62939b5481bcd45442b36dfa263f4a7c/
-Artifacts of baseline_rev build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-arm-mainline-allyesconfig/46/artifact/artifacts/build-5b8b9d0c6d0e0f1993c6c56deaf9646942c49d94/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-arm-mainline-allyesconfig/46/
+e72542191cbba4 Ohad Ben-Cohen     2011-07-05  14  
+3343660d8c62c6 Anthony Liguori    2007-11-12  15  config VIRTIO_PCI
+d72c5a8c8c57cb Kees Cook          2012-10-02  16  	tristate "PCI driver for virtio devices"
+d72c5a8c8c57cb Kees Cook          2012-10-02  17  	depends on PCI
+3343660d8c62c6 Anthony Liguori    2007-11-12  18  	select VIRTIO
+3343660d8c62c6 Anthony Liguori    2007-11-12  19  	---help---
+b2a6d51ddf7b23 Michael S. Tsirkin 2015-01-15  20  	  This driver provides support for virtio based paravirtual device
+3343660d8c62c6 Anthony Liguori    2007-11-12  21  	  drivers over PCI.  This requires that your VMM has appropriate PCI
+3343660d8c62c6 Anthony Liguori    2007-11-12  22  	  virtio backends.  Most QEMU based VMMs should support these devices
+3343660d8c62c6 Anthony Liguori    2007-11-12  23  	  (like KVM or Xen).
+3343660d8c62c6 Anthony Liguori    2007-11-12  24  
+3343660d8c62c6 Anthony Liguori    2007-11-12  25  	  If unsure, say M.
+3343660d8c62c6 Anthony Liguori    2007-11-12  26  
+46506da5f365ef Michael S. Tsirkin 2015-01-15  27  config VIRTIO_PCI_LEGACY
+46506da5f365ef Michael S. Tsirkin 2015-01-15  28  	bool "Support for legacy virtio draft 0.9.X and older devices"
+46506da5f365ef Michael S. Tsirkin 2015-01-15  29  	default y
+46506da5f365ef Michael S. Tsirkin 2015-01-15  30  	depends on VIRTIO_PCI
+46506da5f365ef Michael S. Tsirkin 2015-01-15  31  	---help---
+46506da5f365ef Michael S. Tsirkin 2015-01-15  32            Virtio PCI Card 0.9.X Draft (circa 2014) and older device support.
+46506da5f365ef Michael S. Tsirkin 2015-01-15  33  
+46506da5f365ef Michael S. Tsirkin 2015-01-15  34  	  This option enables building a transitional driver, supporting
+46506da5f365ef Michael S. Tsirkin 2015-01-15  35  	  both devices conforming to Virtio 1 specification, and legacy devices.
+46506da5f365ef Michael S. Tsirkin 2015-01-15  36  	  If disabled, you get a slightly smaller, non-transitional driver,
+46506da5f365ef Michael S. Tsirkin 2015-01-15  37  	  with no legacy compatibility.
+46506da5f365ef Michael S. Tsirkin 2015-01-15  38  
+46506da5f365ef Michael S. Tsirkin 2015-01-15  39            So look out into your driveway.  Do you have a flying car?  If
+46506da5f365ef Michael S. Tsirkin 2015-01-15  40            so, you can happily disable this option and virtio will not
+46506da5f365ef Michael S. Tsirkin 2015-01-15  41            break.  Otherwise, leave it set.  Unless you're testing what
+46506da5f365ef Michael S. Tsirkin 2015-01-15  42            life will be like in The Future.
+46506da5f365ef Michael S. Tsirkin 2015-01-15  43  
+46506da5f365ef Michael S. Tsirkin 2015-01-15  44  	  If unsure, say Y.
+46506da5f365ef Michael S. Tsirkin 2015-01-15  45  
+c043b4a8cf3b16 Jason Wang         2020-03-26  46  config VIRTIO_VDPA
+c043b4a8cf3b16 Jason Wang         2020-03-26  47  	tristate "vDPA driver for virtio devices"
+e282a85dc20e6d Michael S. Tsirkin 2020-04-12 @48  	depend on VDPA
+c043b4a8cf3b16 Jason Wang         2020-03-26 @49  	select VIRTIO
+c043b4a8cf3b16 Jason Wang         2020-03-26  50  	help
+c043b4a8cf3b16 Jason Wang         2020-03-26 @51  	  This driver provides support for virtio based paravirtual
+c043b4a8cf3b16 Jason Wang         2020-03-26 @52  	  device driver over vDPA bus. For this to be useful, you need
+c043b4a8cf3b16 Jason Wang         2020-03-26 @53  	  an appropriate vDPA device implementation that operates on a
+c043b4a8cf3b16 Jason Wang         2020-03-26 @54  	  physical device to allow the datapath of virtio to be
+c043b4a8cf3b16 Jason Wang         2020-03-26 @55  	  offloaded to hardware.
+c043b4a8cf3b16 Jason Wang         2020-03-26  56  
+c043b4a8cf3b16 Jason Wang         2020-03-26 @57  	  If unsure, say M.
+c043b4a8cf3b16 Jason Wang         2020-03-26  58  
 
-Reproduce builds:
-<cut>
-mkdir investigate-linux-b032227c62939b5481bcd45442b36dfa263f4a7c
-cd investigate-linux-b032227c62939b5481bcd45442b36dfa263f4a7c
+:::::: The code at line 49 was first introduced by commit
+:::::: c043b4a8cf3b16fbdcaec1126841431c33b16e98 virtio: introduce a vDPA based transport
 
-git clone https://git.linaro.org/toolchain/jenkins-scripts
+:::::: TO: Jason Wang <jasowang@redhat.com>
+:::::: CC: Michael S. Tsirkin <mst@redhat.com>
 
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-arm-mainline-allyesconfig/46/artifact/artifacts/manifests/build-baseline.sh --fail
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-arm-mainline-allyesconfig/46/artifact/artifacts/manifests/build-parameters.sh --fail
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-arm-mainline-allyesconfig/46/artifact/artifacts/test.sh --fail
-chmod +x artifacts/test.sh
-
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
-
-cd linux
-
-# Reproduce bad build
-git checkout --detach b032227c62939b5481bcd45442b36dfa263f4a7c
-../artifacts/test.sh
-
-# Reproduce baseline_rev build
-git checkout --detach 5b8b9d0c6d0e0f1993c6c56deaf9646942c49d94
-../artifacts/test.sh
-
-cd ..
-</cut>
-
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-release-arm-mainline-allyesconfig
-
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-arm-mainline-allyesconfig/46/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-arm-mainline-allyesconfig/46/consoleText
+---
+0-DAY CI Kernel Test Service, Intel Corporation
+https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1228848350.17072.1586678055502.JavaMail.javamailuser%40localhost.
-
-------=_Part_17071_1332030343.1586678054346--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202004121907.Djq7hPBe%25lkp%40intel.com.
