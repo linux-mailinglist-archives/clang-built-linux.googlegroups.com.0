@@ -1,132 +1,134 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBDX3ZP2AKGQEXCRJ5AA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTLP5F6X4ERBBEHZT2AKGQEVNI4G3I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
-	by mail.lfdr.de (Postfix) with ESMTPS id E2B981A5E4E
-	for <lists+clang-built-linux@lfdr.de>; Sun, 12 Apr 2020 13:37:52 +0200 (CEST)
-Received: by mail-pg1-x53b.google.com with SMTP id q15sf5773541pgb.4
-        for <lists+clang-built-linux@lfdr.de>; Sun, 12 Apr 2020 04:37:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586691471; cv=pass;
+Received: from mail-wm1-x340.google.com (mail-wm1-x340.google.com [IPv6:2a00:1450:4864:20::340])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6DD421A5E6F
+	for <lists+clang-built-linux@lfdr.de>; Sun, 12 Apr 2020 14:03:16 +0200 (CEST)
+Received: by mail-wm1-x340.google.com with SMTP id c129sf1954745wme.8
+        for <lists+clang-built-linux@lfdr.de>; Sun, 12 Apr 2020 05:03:16 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586692996; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hvCp5mR96K0eEf/s29ga8VtxhdjZVSrZE+Me961QjreFQgFI8ijxio+LLqsoCmTtbi
-         RjVick7u2j53SsSF9LTYTeZiBK4PDTgCqtKhffTDomQ6N3GbNqPWaeYDaKwHUrshNB0t
-         DRTh7MBuflls/7fzHaS+1ngMi8K+qoA5+Jwy6HWoDNpYmrvHtGh/ln0qPDO8/uD6NxWH
-         W/lwelXfN8hpY3LXkuq1+IebpGLyL7fvLRxDmCCZ8t9gbsymh7lqRfHstc0tC9kNilM2
-         hsuCxN6zJwXZWvbreA19ZhA3KT8udYhQ5pPXG72pgApN0BFJjnnb8SFmImsEaYINgyHj
-         jy3w==
+        b=oZoFA7pxGbIrnJuVfikBf4RFw2GXZv+8Kn34oruP8k4xRsUtHuYpTXS/AKd91s8Rlk
+         ZivABbd87IUlpYwAGi10TZtODLAicRRR6pOpd7Y7//kVPtDZoCmC3GD/0s1ou59rIA5Y
+         UiO5ofP9YbRG0xnkiWf0l1hZL8B2ELJo5MqK3AIddz1+sVvmgf0769NKG1dDpIf5SvyM
+         e9RcLnr+8Tva5VSuFbXLn6if+O+M8ujm/NI1WGzrmW7B5zaQ5I/CnIIzf6XTIzpBxhye
+         i2niRP3Fgu/HdgxLXx4+p5kdXhWVng4cLltcy1Wz9hNbGggSChA0Q0/1Ta3h8eVjr7jf
+         91xg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
-         :ironport-sdr:sender:dkim-signature;
-        bh=0egl0JqEVJpldfurX14/6tEAIsndCNUp+1j68T66aHA=;
-        b=QYrj6KQiCfER8iYkcLHGvQXDeYG6GYcEVUQNH8YI4I3muW+QFh2GWp6WZsrffHtulz
-         3p+MIRES4IKOIf9mShex1SSzg9JEgOSG9Gyv9ld4YNI0Y4ZqHdRJJaLdjnoLR05E2KQE
-         TvlzZpe9Km7JOmN+CODmDqVTZDeb1VEvgjsMS0TpRK3MhWd4BT2AjoL9qRgsgoW8NSMG
-         8nWGaaHspJhd3+HgKKzCeicYo+3IExQbjQqjKzn5jtOBIlYnTQZma9gBSLhuBTtQkbif
-         I1fewdxACMHWy63nHPxrYwaV9OCrwyUKF3jal5yWjdmfBQcpCfCePdsMvVihjBlW/aSY
-         gbjw==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=JtMzehSE2ss1epk1wdBdAqvpyTPZMAuijlOatjeJiH8=;
+        b=tk0ZAvP+O1aAIqk13uFB7d5CEjj9ZDaSahjlLPUFHRWQ+wzeZG1pHnSkK7JgX/N48s
+         PW+kVZSBlMa/ZvZg5ms2wrqF6TIQ+nZVYcMEmiHTzxHDM04etoRH0HpyFh5BQqP6YB70
+         f9OE2eAlaOZkMZG7DXCuw2QtGfZ3xqNbYICrRDdrtUKEZSH7Iow6eVntxe5y0kl2BTFa
+         lI0GEUYRTbV8A2xmW+WLWf+nK8na9Z97d/Cr4rTBvAbfayJeQzT9bu3/3dyx17GXn/Be
+         tHnKUF9wMr0uT556eW2PgLcHAIF2HazAwNoLomPqVI0MylD1z+0DRG9JxThDXaY3XT4Z
+         YThw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       spf=pass (google.com: domain of clg@kaod.org designates 46.105.72.216 as permitted sender) smtp.mailfrom=clg@kaod.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:user-agent:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=0egl0JqEVJpldfurX14/6tEAIsndCNUp+1j68T66aHA=;
-        b=Z0q/l4c9lKKAVqQeGOzv2rU2ghjlOAXC8vuPjLhOjSiEwDIyJ9Xaqzg/iT7LOVoc3B
-         3Ayc5O8lk/F+AjKtxIBifJ48JwuZPuupzRW8YJOeSTbtXv7hKcxO84jkhABjuxF3Np8H
-         9NP1WYk3mL9DIdPrDYNRMMQy4UnFMHoDn8oyO35DTtZEe4C8HKvoxyIbOGrBA6PCoRgK
-         OvFSo0A+4JSnV0Lw/XxOKjwN4Jfo8O4pR2qwZEBgyO/l9ZIJKPgga7Kw/Tv6U0j7Vmqc
-         iP4fOT3Fin4iP79KMG9pE2N5buVcs5OGbB3s3q6eKmoRdDTx8H+1Xh61tX2StXbNv4Rv
-         u/4A==
+        bh=JtMzehSE2ss1epk1wdBdAqvpyTPZMAuijlOatjeJiH8=;
+        b=YqgyO5cTipLETVYEnz174mNHyemwzaR0lg13SQqPBg8kEqvYV6Up9Lm+R+CPF6sXQM
+         UEwH2KAO4jX+R1ATQ6K0Oz69bSkNQ9VES+8ifQ50Y4HG2I9vPl+kyncxVkBx5jxsOLxq
+         pF2RonHgBOjPXwx9XBObmJ68UE1DSqwEHRIzI3EQJR3BKOPCTECQEEyIuQZSTGq9edqv
+         pPPlySfNURXv2vvpGKITcQqCTqc2pT9Jg5pz1MsierZuOT5vCgpgk/XFon/kLgi1HT01
+         u47dSC8tSHLEJOcynSW/BFuadXrtrh9zYxdUeKhI8/Gm4cM6KwjL4ewUGUqJJ6qbIiJ/
+         cRYg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:mime-version:content-disposition:user-agent
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=0egl0JqEVJpldfurX14/6tEAIsndCNUp+1j68T66aHA=;
-        b=DVHMEM4HBPtV4R1wugiwKe6QZ+C+h5aoPXXpY+cQdV2emSwRcJrsUkl9x3ctzTBNQD
-         obNmDHCV+ABrHm2Anhp/stTJbHU1KVzxSZrx0qk2LDAAFgmF5eBUVvTIvnCJ6QfU70IO
-         V4OtieVV9MaBA2hPEyJIjW1RYyL+TIZVWAbIIGjVEGfHsZgkh+coLPYzBrTrk+j+4JV8
-         r6FnDJYyQ2zxEv4Md7Z9vovpNuiUDxKg0nqku2jp9muHdp/Xu56kLTpLp0EA/Z6ht6kz
-         oLfLQh7JZjFR+tsdqPDnMGw8cMa47QcBcEp75vA5mN1EYY2hN51ChT9qG1rg58eMtSpX
-         KftQ==
+        bh=JtMzehSE2ss1epk1wdBdAqvpyTPZMAuijlOatjeJiH8=;
+        b=bjL1aB8Dl2lJOMLpMvy8i5Rlf1XaFhYYpgxFoNjOWjKuSzuXMD+hr33ibgflXyRZlg
+         pZmBjwcKHuutWQ1sFsOkLEAXMQXb8zcNunWMNOOmM6rnCcoQ/bXy2CmnqdlJgusl55E8
+         X6Kw86tRPG7+e6UqUboGHPMWaZ9Iv2hG8PESIH1V51SbJeX7qmQFjP6JEVSa1utvfI0F
+         n8b1nIk+5+VaAzEaCPP1EVSJNiFFT6AMjyZjNe2iKeF8f1Sgt+rWc0wQfi919zRUTqGV
+         tY1wEhd8mpBYuIZ0iAE5pkEK/uv1/bK+vINTYWjCbkHajZMdO3ZSqfLU7S4PStw6GRsJ
+         9VaA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuZ+Pspsi3aP/xzSpI2rt30HQ6nkFZdaCb6CvkVuvMdIWWOAcYJr
-	X1aPhuRwT39Tb9S1HVedkbU=
-X-Google-Smtp-Source: APiQypJ2hbgx3ETKFzZsuvYKoC5WJu55MEkshQET3AOEH/bzK2rPirpfdfnJJeKvvIiV4LzN5MF+hA==
-X-Received: by 2002:a63:d512:: with SMTP id c18mr12590480pgg.347.1586691471131;
-        Sun, 12 Apr 2020 04:37:51 -0700 (PDT)
+X-Gm-Message-State: AGi0PubKAGy//6f7jZIRVuVJsjwAB7sVmcppF+kMFxZO730JOg8alMpR
+	+r5Q1c9G9MoI+lLxRPOSeCg=
+X-Google-Smtp-Source: APiQypJttyGsvapoCuBJazcY76haOc2aimgv8mNm86YiWwu0nNyuWKGmBR5A4dT8ZQyaKTyvdZpADA==
+X-Received: by 2002:adf:b189:: with SMTP id q9mr13510476wra.373.1586692996151;
+        Sun, 12 Apr 2020 05:03:16 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:9e2:: with SMTP id 89ls11677578pjo.2.canary-gmail;
- Sun, 12 Apr 2020 04:37:50 -0700 (PDT)
-X-Received: by 2002:a17:90a:e50a:: with SMTP id t10mr16669198pjy.110.1586691470536;
-        Sun, 12 Apr 2020 04:37:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586691470; cv=none;
+Received: by 2002:adf:ec10:: with SMTP id x16ls15076958wrn.10.gmail; Sun, 12
+ Apr 2020 05:03:15 -0700 (PDT)
+X-Received: by 2002:adf:e84e:: with SMTP id d14mr12086643wrn.67.1586692995577;
+        Sun, 12 Apr 2020 05:03:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586692995; cv=none;
         d=google.com; s=arc-20160816;
-        b=SaqTsHYMdzA4i+l3zHYoQ4RbUZ313OewnKOVDxT3momAOpTHSPXlnL5Fbn9X8NUugt
-         DER87vDAi88ecSppDBobMrkHnYM4jivqlZHoJBkn2rH5h8jLlTtkpK3NHaVLAjJQD6gz
-         OlpmSjNAOAYjptUe6aFoQwIc9gxiFhRJgEZ5jchzgRT6f7hDX5jYt090MGQfwBEX3ZmH
-         oJih62U1u3q4Q+h1BbKSiJaOFLGW+uEAwpxDQjz86xl/ZOykzsHQGvjoYjDAEeDvcdwn
-         Imneg2Mmu+erxRtPjHRM50yrGU7OPg3EWdgJTnzjj3ZRps2HymZiRmMRUAYs4ixz9j5Y
-         PWiQ==
+        b=jzG04Q8tAotomSBlJLzUQyvQka9QuTS1anrz7HIU112aIU6B0ZxJtSE0rsyh8zwMm7
+         hpe17bTp87QESNHMeiPLP3S1Hux+J5Px58WiiPHvIUIYso/s2XqyvVm1la14qqF3m/hi
+         /rR/zC2nP1+RYrbVaE+FCc3u7qq6XbhDlS7mbwnBKuY0LUzcH2S5abnATrNBruPrOznV
+         Q8Wv/4/2iFRKR7dTF9FRiBeIeedHZ4TqPAMgxX8ZNzL0vIfqRbGiDHefNyp5SQ2eGMfx
+         GAnNRpoEPvQ+Jc7y+ZQkkElfwRploKuOSIshZWKSOw3zUvsvZlXGDbYq4JHBw23Wp9kX
+         /VTA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:ironport-sdr:ironport-sdr;
-        bh=YVqtkADaRUZ2OK8dZ4DjN4XyU8M4ZEzEOLjwyz9VbRk=;
-        b=DDT9eLIlIFOldtKDDJCWVorPV7q7lHpsfNZ7TXNlS/ihePm6krQH0j+gSNxdAMMT9Y
-         lwbF4ODXdwxyeVOllIZHiVrihKt9te/CsRFFK89kaLV55OBqiEVZe1DyxNIa+hZ3cRDZ
-         bCYEoAZqTKe6qnYlP6JKUQ2GSz+X1pqCY0r8ym8vEUMXwpr4mszn/0z73/cCcoSSd2qm
-         ZySjeNLHbZEZCGytqfm2iYNv6Zp9/VIzIjry24hO59NE+e+8qqTSzNwrOBj6Haq6vkko
-         P9rg03xbSCDLB1y3B4M+bf+cky+LvMsxAUB2FwMfHlSu8MreCWQKC6/Dt08sCs4Z2qzR
-         Cd0Q==
+        h=content-language:in-reply-to:mime-version:user-agent:date
+         :message-id:from:references:cc:to:subject;
+        bh=UE0tYF8j5ICZVrEV/Y5whGfeFLA22iGyHOtEPEgsKBI=;
+        b=pUokI3S5tFtgb5hgilVSh8JmaBezUnPNxG/JXn5OHcpee5ir6/CSz6vKNa9uUgChON
+         sgFTLfUHMDm4fjaf5bxo8e8oZta7CVnChss+NmjTCHOOH43tfpYSfVk0O75qTOjhnANG
+         469V+4Ozo8lXJSxiiZeKsBlHIH6a4FEG79wbNPvHOz39Kq2Qzmx/S3QqVPN4MgWvtJ/G
+         R7C+4hJQ2TEpcxglIUY4USTNJfHNTYQshto4C9k2nmeumD911rJzS1olyAD+9csNdsZQ
+         x0EgdD9FPV2XuE42JZ1U4DNcS0F2eXb582zq9NBdz393vB3zBYZsKhQPHQ3xbBhGy0dd
+         bYBA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
-        by gmr-mx.google.com with ESMTPS id cv13si573886pjb.1.2020.04.12.04.37.50
+       spf=pass (google.com: domain of clg@kaod.org designates 46.105.72.216 as permitted sender) smtp.mailfrom=clg@kaod.org
+Received: from 16.mo7.mail-out.ovh.net (16.mo7.mail-out.ovh.net. [46.105.72.216])
+        by gmr-mx.google.com with ESMTPS id o125si596705wme.4.2020.04.12.05.03.15
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 12 Apr 2020 04:37:50 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
-IronPort-SDR: h548fbcYp88t/bX8TFtPMDOxBy9ZshKYV9fqtdUTwCynLa78vwvjZdARI7lxxTsqeLgPWgxZbb
- Okvql8OEDQlA==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga006.fm.intel.com ([10.253.24.20])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Apr 2020 04:37:49 -0700
-IronPort-SDR: bzZN2hoGmr0W+9u3F2AbvIgYKZgRA0SCXSIEktmFICpyxDqcCLvaIZSTrgupvo1QwFerYNxlaH
- G1EtNLeuj7oA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.72,374,1580803200"; 
-   d="scan'208";a="453948217"
-Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga006.fm.intel.com with ESMTP; 12 Apr 2020 04:37:47 -0700
-Received: from kbuild by lkp-server01 with local (Exim 4.89)
-	(envelope-from <lkp@intel.com>)
-	id 1jNavr-0001aT-9R; Sun, 12 Apr 2020 19:37:47 +0800
-Date: Sun, 12 Apr 2020 19:37:20 +0800
-From: kbuild test robot <lkp@intel.com>
-To: "Michael S. Tsirkin" <mst@redhat.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	kvm@vger.kernel.org, virtualization@lists.linux-foundation.org,
-	netdev@vger.kernel.org
-Subject: [vhost:vhost 54/54] drivers/virtio/Kconfig:49: syntax error
-Message-ID: <202004121907.Djq7hPBe%lkp@intel.com>
+        Sun, 12 Apr 2020 05:03:15 -0700 (PDT)
+Received-SPF: pass (google.com: domain of clg@kaod.org designates 46.105.72.216 as permitted sender) client-ip=46.105.72.216;
+Received: from player687.ha.ovh.net (unknown [10.108.54.156])
+	by mo7.mail-out.ovh.net (Postfix) with ESMTP id 258EF15E273
+	for <clang-built-linux@googlegroups.com>; Sun, 12 Apr 2020 14:03:15 +0200 (CEST)
+Received: from kaod.org (82-64-250-170.subs.proxad.net [82.64.250.170])
+	(Authenticated sender: clg@kaod.org)
+	by player687.ha.ovh.net (Postfix) with ESMTPSA id 9CC5A114BACC1;
+	Sun, 12 Apr 2020 12:03:01 +0000 (UTC)
+Subject: Re: Boot flakiness with QEMU 3.1.0 and Clang built kernels
+To: Nicholas Piggin <npiggin@gmail.com>,
+ Nathan Chancellor <natechancellor@gmail.com>
+Cc: qemu-devel@nongnu.org, clang-built-linux@googlegroups.com,
+ qemu-ppc@nongnu.org, linuxppc-dev@lists.ozlabs.org,
+ David Gibson <david@gibson.dropbear.id.au>,
+ Anton Blanchard <anton@ozlabs.org>, Michael Neuling <mikey@neuling.org>
+References: <20200410205932.GA880@ubuntu-s3-xlarge-x86>
+ <1586564375.zt8lm9finh.astroid@bobo.none>
+ <20200411005354.GA24145@ubuntu-s3-xlarge-x86>
+ <1586597161.xyshvdbjo6.astroid@bobo.none>
+ <1586612535.6kk4az03np.astroid@bobo.none>
+From: =?UTF-8?Q?C=c3=a9dric_Le_Goater?= <clg@kaod.org>
+Message-ID: <d405d8be-93a5-e68c-9ebe-ef42b0f5e87a@kaod.org>
+Date: Sun, 12 Apr 2020 14:03:01 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: lkp@intel.com
+In-Reply-To: <1586612535.6kk4az03np.astroid@bobo.none>
+Content-Type: multipart/mixed;
+ boundary="------------B729630F00F9E16D7736EACA"
+Content-Language: en-US
+X-Ovh-Tracer-Id: 252764531685428071
+X-VR-SPAMSTATE: OK
+X-VR-SPAMSCORE: -100
+X-VR-SPAMCAUSE: gggruggvucftvghtrhhoucdtuddrgeduhedrvdejgdegkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfqggfjpdevjffgvefmvefgnecuuegrihhlohhuthemucehtddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefuvfhfhffkffgfgggjtgesmhdtreertdefjeenucfhrhhomhepveorughrihgtpgfnvggpifhorghtvghruceotghlgheskhgrohgurdhorhhgqeenucfkpheptddrtddrtddrtddpkedvrdeigedrvdehtddrudejtdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhhouggvpehsmhhtphdqohhuthdphhgvlhhopehplhgrhigvrheikeejrdhhrgdrohhvhhdrnhgvthdpihhnvghtpedtrddtrddtrddtpdhmrghilhhfrhhomheptghlgheskhgrohgurdhorhhgpdhrtghpthhtoheptghlrghnghdqsghuihhlthdqlhhinhhugiesghhoohhglhgvghhrohhuphhsrdgtohhm
+X-Original-Sender: clg@kaod.org
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted
- sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=intel.com
+ (google.com: domain of clg@kaod.org designates 46.105.72.216 as permitted
+ sender) smtp.mailfrom=clg@kaod.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,142 +141,123 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/mst/vhost.git vhost
-head:   e282a85dc20e6d5da055e65c48aae15cc14897c7
-commit: e282a85dc20e6d5da055e65c48aae15cc14897c7 [54/54] vdpa: make vhost, virtio depend on menu
-config: powerpc-defconfig
-compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 4e86e5eedc684453fe0af6eca2ebdbff33db012c)
-reproduce:
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        git checkout e282a85dc20e6d5da055e65c48aae15cc14897c7
-        COMPILER=clang make.cross ARCH=powerpc  defconfig
-        COMPILER=clang make.cross ARCH=powerpc 
+This is a multi-part message in MIME format.
+--------------B729630F00F9E16D7736EACA
+Content-Type: text/plain; charset="UTF-8"
 
-If you fix the issue, kindly add following tag as appropriate
-Reported-by: kbuild test robot <lkp@intel.com>
+On 4/11/20 3:57 PM, Nicholas Piggin wrote:
+> Nicholas Piggin's on April 11, 2020 7:32 pm:
+>> Nathan Chancellor's on April 11, 2020 10:53 am:
+>>> The tt.config values are needed to reproduce but I did not verify that
+>>> ONLY tt.config was needed. Other than that, no, we are just building
+>>> either pseries_defconfig or powernv_defconfig with those configs and
+>>> letting it boot up with a simple initramfs, which prints the version
+>>> string then shuts the machine down.
+>>>
+>>> Let me know if you need any more information, cheers!
+>>
+>> Okay I can reproduce it. Sometimes it eventually recovers after a long
+>> pause, and some keyboard input often helps it along. So that seems like 
+>> it might be a lost interrupt.
+>>
+>> POWER8 vs POWER9 might just be a timing thing if P9 is still hanging
+>> sometimes. I wasn't able to reproduce it with defconfig+tt.config, I
+>> needed your other config with various other debug options.
+>>
+>> Thanks for the very good report. I'll let you know what I find.
+> 
+> It looks like a qemu bug. Booting with '-d int' shows the decrementer 
+> simply stops firing at the point of the hang, even though MSR[EE]=1 and 
+> the DEC register is wrapping. Linux appears to be doing the right thing 
+> as far as I can tell (not losing interrupts).
+> 
+> This qemu patch fixes the boot hang for me. I don't know that qemu 
+> really has the right idea of "context synchronizing" as defined in the
+> powerpc architecture -- mtmsrd L=1 is not context synchronizing but that
+> does not mean it can avoid looking at exceptions until the next such
+> event. It looks like the decrementer exception goes high but the
+> execution of mtmsrd L=1 is ignoring it.
+> 
+> Prior to the Linux patch 3282a3da25b you bisected to, interrupt replay
+> code would return with an 'rfi' instruction as part of interrupt return,
+> which probably helped to get things moving along a bit. However it would
+> not be foolproof, and Cedric did say he encountered some mysterious
+> lockups under load with qemu powernv before that patch was merged, so
+> maybe it's the same issue?
 
-All errors (new ones prefixed by >>):
+Nope :/ but this is a fix for an important problem reported by Anton in 
+November. Attached is the test case.  
 
->> drivers/virtio/Kconfig:49: syntax error
->> drivers/virtio/Kconfig:48: unknown statement "depend"
->> drivers/virtio/Kconfig:49: invalid statement
-   drivers/virtio/Kconfig:50: invalid statement
->> drivers/virtio/Kconfig:51: unknown statement "This"
-   drivers/virtio/Kconfig:52:warning: ignoring unsupported character '.'
-   drivers/virtio/Kconfig:52:warning: ignoring unsupported character ','
->> drivers/virtio/Kconfig:52: unknown statement "device"
->> drivers/virtio/Kconfig:53: unknown statement "an"
->> drivers/virtio/Kconfig:54: unknown statement "physical"
-   drivers/virtio/Kconfig:55:warning: ignoring unsupported character '.'
->> drivers/virtio/Kconfig:55: unknown statement "offloaded"
-   drivers/virtio/Kconfig:57:warning: ignoring unsupported character ','
-   drivers/virtio/Kconfig:57:warning: ignoring unsupported character '.'
->> drivers/virtio/Kconfig:57: unknown statement "If"
-   make[2]: *** [scripts/kconfig/Makefile:85: defconfig] Error 1
-   make[1]: *** [Makefile:568: defconfig] Error 2
-   make: *** [Makefile:180: sub-make] Error 2
-   4 real  1 user  1 sys  59.31% cpu 	make defconfig
---
->> drivers/virtio/Kconfig:49: syntax error
->> drivers/virtio/Kconfig:48: unknown statement "depend"
->> drivers/virtio/Kconfig:49: invalid statement
-   drivers/virtio/Kconfig:50: invalid statement
->> drivers/virtio/Kconfig:51: unknown statement "This"
-   drivers/virtio/Kconfig:52:warning: ignoring unsupported character '.'
-   drivers/virtio/Kconfig:52:warning: ignoring unsupported character ','
->> drivers/virtio/Kconfig:52: unknown statement "device"
->> drivers/virtio/Kconfig:53: unknown statement "an"
->> drivers/virtio/Kconfig:54: unknown statement "physical"
-   drivers/virtio/Kconfig:55:warning: ignoring unsupported character '.'
->> drivers/virtio/Kconfig:55: unknown statement "offloaded"
-   drivers/virtio/Kconfig:57:warning: ignoring unsupported character ','
-   drivers/virtio/Kconfig:57:warning: ignoring unsupported character '.'
->> drivers/virtio/Kconfig:57: unknown statement "If"
-   make[2]: *** [scripts/kconfig/Makefile:75: oldconfig] Error 1
-   make[1]: *** [Makefile:568: oldconfig] Error 2
-   make: *** [Makefile:180: sub-make] Error 2
-   4 real  1 user  1 sys  66.71% cpu 	make oldconfig
---
->> drivers/virtio/Kconfig:49: syntax error
->> drivers/virtio/Kconfig:48: unknown statement "depend"
->> drivers/virtio/Kconfig:49: invalid statement
-   drivers/virtio/Kconfig:50: invalid statement
->> drivers/virtio/Kconfig:51: unknown statement "This"
-   drivers/virtio/Kconfig:52:warning: ignoring unsupported character '.'
-   drivers/virtio/Kconfig:52:warning: ignoring unsupported character ','
->> drivers/virtio/Kconfig:52: unknown statement "device"
->> drivers/virtio/Kconfig:53: unknown statement "an"
->> drivers/virtio/Kconfig:54: unknown statement "physical"
-   drivers/virtio/Kconfig:55:warning: ignoring unsupported character '.'
->> drivers/virtio/Kconfig:55: unknown statement "offloaded"
-   drivers/virtio/Kconfig:57:warning: ignoring unsupported character ','
-   drivers/virtio/Kconfig:57:warning: ignoring unsupported character '.'
->> drivers/virtio/Kconfig:57: unknown statement "If"
-   make[2]: *** [scripts/kconfig/Makefile:75: olddefconfig] Error 1
-   make[1]: *** [Makefile:568: olddefconfig] Error 2
-   make: *** [Makefile:180: sub-make] Error 2
-   4 real  1 user  1 sys  66.26% cpu 	make olddefconfig
+Thanks,
 
-vim +49 drivers/virtio/Kconfig
+C. 
 
-e72542191cbba4 Ohad Ben-Cohen     2011-07-05  14  
-3343660d8c62c6 Anthony Liguori    2007-11-12  15  config VIRTIO_PCI
-d72c5a8c8c57cb Kees Cook          2012-10-02  16  	tristate "PCI driver for virtio devices"
-d72c5a8c8c57cb Kees Cook          2012-10-02  17  	depends on PCI
-3343660d8c62c6 Anthony Liguori    2007-11-12  18  	select VIRTIO
-3343660d8c62c6 Anthony Liguori    2007-11-12  19  	---help---
-b2a6d51ddf7b23 Michael S. Tsirkin 2015-01-15  20  	  This driver provides support for virtio based paravirtual device
-3343660d8c62c6 Anthony Liguori    2007-11-12  21  	  drivers over PCI.  This requires that your VMM has appropriate PCI
-3343660d8c62c6 Anthony Liguori    2007-11-12  22  	  virtio backends.  Most QEMU based VMMs should support these devices
-3343660d8c62c6 Anthony Liguori    2007-11-12  23  	  (like KVM or Xen).
-3343660d8c62c6 Anthony Liguori    2007-11-12  24  
-3343660d8c62c6 Anthony Liguori    2007-11-12  25  	  If unsure, say M.
-3343660d8c62c6 Anthony Liguori    2007-11-12  26  
-46506da5f365ef Michael S. Tsirkin 2015-01-15  27  config VIRTIO_PCI_LEGACY
-46506da5f365ef Michael S. Tsirkin 2015-01-15  28  	bool "Support for legacy virtio draft 0.9.X and older devices"
-46506da5f365ef Michael S. Tsirkin 2015-01-15  29  	default y
-46506da5f365ef Michael S. Tsirkin 2015-01-15  30  	depends on VIRTIO_PCI
-46506da5f365ef Michael S. Tsirkin 2015-01-15  31  	---help---
-46506da5f365ef Michael S. Tsirkin 2015-01-15  32            Virtio PCI Card 0.9.X Draft (circa 2014) and older device support.
-46506da5f365ef Michael S. Tsirkin 2015-01-15  33  
-46506da5f365ef Michael S. Tsirkin 2015-01-15  34  	  This option enables building a transitional driver, supporting
-46506da5f365ef Michael S. Tsirkin 2015-01-15  35  	  both devices conforming to Virtio 1 specification, and legacy devices.
-46506da5f365ef Michael S. Tsirkin 2015-01-15  36  	  If disabled, you get a slightly smaller, non-transitional driver,
-46506da5f365ef Michael S. Tsirkin 2015-01-15  37  	  with no legacy compatibility.
-46506da5f365ef Michael S. Tsirkin 2015-01-15  38  
-46506da5f365ef Michael S. Tsirkin 2015-01-15  39            So look out into your driveway.  Do you have a flying car?  If
-46506da5f365ef Michael S. Tsirkin 2015-01-15  40            so, you can happily disable this option and virtio will not
-46506da5f365ef Michael S. Tsirkin 2015-01-15  41            break.  Otherwise, leave it set.  Unless you're testing what
-46506da5f365ef Michael S. Tsirkin 2015-01-15  42            life will be like in The Future.
-46506da5f365ef Michael S. Tsirkin 2015-01-15  43  
-46506da5f365ef Michael S. Tsirkin 2015-01-15  44  	  If unsure, say Y.
-46506da5f365ef Michael S. Tsirkin 2015-01-15  45  
-c043b4a8cf3b16 Jason Wang         2020-03-26  46  config VIRTIO_VDPA
-c043b4a8cf3b16 Jason Wang         2020-03-26  47  	tristate "vDPA driver for virtio devices"
-e282a85dc20e6d Michael S. Tsirkin 2020-04-12 @48  	depend on VDPA
-c043b4a8cf3b16 Jason Wang         2020-03-26 @49  	select VIRTIO
-c043b4a8cf3b16 Jason Wang         2020-03-26  50  	help
-c043b4a8cf3b16 Jason Wang         2020-03-26 @51  	  This driver provides support for virtio based paravirtual
-c043b4a8cf3b16 Jason Wang         2020-03-26 @52  	  device driver over vDPA bus. For this to be useful, you need
-c043b4a8cf3b16 Jason Wang         2020-03-26 @53  	  an appropriate vDPA device implementation that operates on a
-c043b4a8cf3b16 Jason Wang         2020-03-26 @54  	  physical device to allow the datapath of virtio to be
-c043b4a8cf3b16 Jason Wang         2020-03-26 @55  	  offloaded to hardware.
-c043b4a8cf3b16 Jason Wang         2020-03-26  56  
-c043b4a8cf3b16 Jason Wang         2020-03-26 @57  	  If unsure, say M.
-c043b4a8cf3b16 Jason Wang         2020-03-26  58  
 
-:::::: The code at line 49 was first introduced by commit
-:::::: c043b4a8cf3b16fbdcaec1126841431c33b16e98 virtio: introduce a vDPA based transport
-
-:::::: TO: Jason Wang <jasowang@redhat.com>
-:::::: CC: Michael S. Tsirkin <mst@redhat.com>
-
----
-0-DAY CI Kernel Test Service, Intel Corporation
-https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+ 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202004121907.Djq7hPBe%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/d405d8be-93a5-e68c-9ebe-ef42b0f5e87a%40kaod.org.
+
+--------------B729630F00F9E16D7736EACA
+Content-Type: text/plain; charset=UTF-8;
+ name="test.S"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename="test.S"
+
+LyoKCk1pa2V5IGFuZCBJIG5vdGljZWQgdGhhdCB0aGUgZGVjcmVtZW50ZXIgaXNuJ3QgZmly
+aW5nIHdoZW4KaXQgc2hvdWxkLiBJZiBhIGRlY3JlbWVudGVyIGlzIHBlbmRpbmcgYW5kIGFu
+IG10bXNyZChNU1JfRUUpIGlzCmV4ZWN1dGVkIHRoZW4gd2Ugc2hvdWxkIHRha2UgdGhlIGRl
+Y3JlbWVudGVyIGV4Y2VwdGlvbi4gRnJvbSB0aGUgUFBDIEFTOgoKICBJZiBNU1IgRUUgPSAw
+IGFuZCBhbiBFeHRlcm5hbCwgRGVjcmVtZW50ZXIsIG9yIFBlci0KICBmb3JtYW5jZSBNb25p
+dG9yIGV4Y2VwdGlvbiBpcyBwZW5kaW5nLCBleGVjdXRpbmcKICBhbiBtdG1zcmQgaW5zdHJ1
+Y3Rpb24gdGhhdCBzZXRzIE1TUiBFRSB0byAxIHdpbGwKICBjYXVzZSB0aGUgaW50ZXJydXB0
+IHRvIG9jY3VyIGJlZm9yZSB0aGUgbmV4dCBpbnN0cnVjLQogIHRpb24gaXMgZXhlY3V0ZWQs
+IGlmIG5vIGhpZ2hlciBwcmlvcml0eSBleGNlcHRpb24KICBleGlzdHMKCkEgdGVzdCBjYXNl
+IGlzIGJlbG93LiByMzEgaXMgaW5jcmVtZW50ZWQgZm9yIGV2ZXJ5IGRlY3JlbWVudGVyCmV4
+Y2VwdGlvbi4KCnBvd2VycGM2NGxlLWxpbnV4LWdjYyAtYyB0ZXN0LlMKcG93ZXJwYzY0bGUt
+bGludXgtbGQgLVR0ZXh0PTB4MCAtbyB0ZXN0LmVsZiB0ZXN0Lm8KcG93ZXJwYzY0bGUtbGlu
+dXgtb2JqY29weSAtTyBiaW5hcnkgdGVzdC5lbGYgdGVzdC5iaW4KCnFlbXUtc3lzdGVtLXBw
+YzY0IC1NIHBvd2VybnYgLWNwdSBQT1dFUjkgLW5vZ3JhcGhpYyAtYmlvcyB0ZXN0LmJpbgoK
+ImluZm8gcmVnaXN0ZXJzIiBzaG93cyBpdCBsb29waW5nIGluIHRoZSBsb3dlciBsb29wLCBp
+ZSB0aGUKZGVjcmVtZW50ZXIgZXhjZXB0aW9uIHdhcyBuZXZlciB0YWtlbi4KCnIzMSBuZXZl
+ciBtb3Zlcy4gSWYgSSBidWlsZCB3aXRoOgoKcG93ZXJwYzY0bGUtbGludXgtZ2NjIC1ERklY
+X0JST0tFTiAtYyB0ZXN0LlMKCkkgc2VlIHIzMSBtb3ZlLgoKKi8KCiNpbmNsdWRlIDxwcGMt
+YXNtLmg+CgovKiBMb2FkIGFuIGltbWVkaWF0ZSA2NC1iaXQgdmFsdWUgaW50byBhIHJlZ2lz
+dGVyICovCiNkZWZpbmUgTE9BRF9JTU02NChyLCBlKQkJCVwKCWxpcwlyLChlKUBoaWdoZXN0
+OwkJCVwKCW9yaQlyLHIsKGUpQGhpZ2hlcjsJCQlcCglybGRpY3IJcixyLCAzMiwgMzE7CQkJ
+XAoJb3JpcwlyLHIsIChlKUBoOwkJCVwKCW9yaQlyLHIsIChlKUBsOwoKI2RlZmluZSBGSVhV
+UF9FTkRJQU4JCQkJCQkgICBcCgl0ZGkgICAwLDAsMHg0ODsJICAvKiBSZXZlcnNlIGVuZGlh
+biBvZiBiIC4gKyA4CQkqLyBcCgliICAgICAxOTFmOwkgIC8qIFNraXAgdHJhbXBvbGluZSBp
+ZiBlbmRpYW4gaXMgZ29vZAkqLyBcCgkubG9uZyAweGE2MDA2MDdkOyAvKiBtZm1zciByMTEJ
+CQkJKi8gXAoJLmxvbmcgMHgwMTAwNmI2OTsgLyogeG9yaSByMTEscjExLDEJCQkqLyBcCgku
+bG9uZyAweDA1MDA5ZjQyOyAvKiBiY2wgMjAsMzEsJCs0CQkJKi8gXAoJLmxvbmcgMHhhNjAy
+NDg3ZDsgLyogbWZsciByMTAJCQkJKi8gXAoJLmxvbmcgMHgxNDAwNGEzOTsgLyogYWRkaSBy
+MTAscjEwLDIwCQkJKi8gXAoJLmxvbmcgMHhhNjRiNWE3ZDsgLyogbXRoc3JyMCByMTAJCQkq
+LyBcCgkubG9uZyAweGE2NGI3YjdkOyAvKiBtdGhzcnIxIHIxMQkJCSovIFwKCS5sb25nIDB4
+MjQwMjAwNGM7IC8qIGhyZmlkCQkJCSovIFwKMTkxOgoKCS49IDB4MAouZ2xvYmwgX3N0YXJ0
+Cl9zdGFydDoKCWIJMWYKCgkuPSAweDEwCglGSVhVUF9FTkRJQU4KCWIJMWYKCgkuPSAweDEw
+MAoxOgoJRklYVVBfRU5ESUFOCgliCV9faW5pdGlhbGl6ZQoKI2RlZmluZSBFWENFUFRJT04o
+bnIpCQlcCgkuPSBucgkJCTtcCgliCS4KCgkvKiBNb3JlIGV4Y2VwdGlvbiBzdHVicyAqLwoJ
+RVhDRVBUSU9OKDB4MzAwKQoJRVhDRVBUSU9OKDB4MzgwKQoJRVhDRVBUSU9OKDB4NDAwKQoJ
+RVhDRVBUSU9OKDB4NDgwKQoJRVhDRVBUSU9OKDB4NTAwKQoJRVhDRVBUSU9OKDB4NjAwKQoJ
+RVhDRVBUSU9OKDB4NzAwKQoJRVhDRVBUSU9OKDB4ODAwKQoKCS49IDB4OTAwCglMT0FEX0lN
+TTY0KHIwLCAweDEwMDAwMDApCgltdGRlYwlyMAoJYWRkaQlyMzEscjMxLDEKCXJmaWQKCglF
+WENFUFRJT04oMHg5ODApCglFWENFUFRJT04oMHhhMDApCglFWENFUFRJT04oMHhiMDApCglF
+WENFUFRJT04oMHhjMDApCglFWENFUFRJT04oMHhkMDApCglFWENFUFRJT04oMHhlMDApCglF
+WENFUFRJT04oMHhlMjApCglFWENFUFRJT04oMHhlNDApCglFWENFUFRJT04oMHhlNjApCglF
+WENFUFRJT04oMHhlODApCglFWENFUFRJT04oMHhmMDApCglFWENFUFRJT04oMHhmMjApCglF
+WENFUFRJT04oMHhmNDApCglFWENFUFRJT04oMHhmNjApCglFWENFUFRJT04oMHhmODApCglF
+WENFUFRJT04oMHgxMDAwKQoJRVhDRVBUSU9OKDB4MTEwMCkKCUVYQ0VQVElPTigweDEyMDAp
+CglFWENFUFRJT04oMHgxMzAwKQoJRVhDRVBUSU9OKDB4MTQwMCkKCUVYQ0VQVElPTigweDE1
+MDApCglFWENFUFRJT04oMHgxNjAwKQoKX19pbml0aWFsaXplOgoJLyogU0YsIEhWLCBFRSwg
+UkksIExFICovCglMT0FEX0lNTTY0KHIwLCAweDkwMDAwMDAwMDAwMDgwMDMpCgltdG1zcmQJ
+cjAKCQoJLyogSElEMDogSElMRSAqLwoJTE9BRF9JTU02NChyMCwgMHg4MDAwMDAwMDAwMDAw
+MDApCgltdHNwcgkweDNmMCxyMAoKCUxPQURfSU1NNjQocjAsIDB4MTAwMDAwMCkKCW10ZGVj
+IHIwCgoxOglMT0FEX0lNTTY0KHIzMCwweDgwMDApCgltdG1zcmQJcjMwLDEKCgkvKiBXZSBz
+aG91bGQgdGFrZSB0aGUgZGVjcmVtZW50ZXIgaGVyZSAqLwojaWZkZWYgRklYX0JST0tFTgoJ
+TE9BRF9JTU02NChyMjksMHgxMDAwMDAwMDApCgltdGN0cglyMjkKMjoJYmRuegkyYgojZW5k
+aWYKCglsaQlyMzAsMHgwCgltdG1zcmQJcjMwLDEKCWIJMWIK
+--------------B729630F00F9E16D7736EACA--
