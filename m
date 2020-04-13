@@ -1,124 +1,147 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBKPI2L2AKGQECESJTPY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB5PJ2L2AKGQEZGPDUPI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23d.google.com (mail-oi1-x23d.google.com [IPv6:2607:f8b0:4864:20::23d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1F8371A6C34
-	for <lists+clang-built-linux@lfdr.de>; Mon, 13 Apr 2020 20:49:15 +0200 (CEST)
-Received: by mail-oi1-x23d.google.com with SMTP id a8sf8204238oia.8
-        for <lists+clang-built-linux@lfdr.de>; Mon, 13 Apr 2020 11:49:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586803754; cv=pass;
+Received: from mail-ot1-x33f.google.com (mail-ot1-x33f.google.com [IPv6:2607:f8b0:4864:20::33f])
+	by mail.lfdr.de (Postfix) with ESMTPS id F03BA1A6C3A
+	for <lists+clang-built-linux@lfdr.de>; Mon, 13 Apr 2020 20:52:38 +0200 (CEST)
+Received: by mail-ot1-x33f.google.com with SMTP id h33sf8571224oth.20
+        for <lists+clang-built-linux@lfdr.de>; Mon, 13 Apr 2020 11:52:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586803957; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XplQB/fhe8uK8nBx90w/yOdRta5yEzd2VDe4JE/VcSItqwJovmvpRQrkMQJccIQYzu
-         Mr5/VzMVD/GLjjffbLtpgwmsbBs97/V5hB1KAIDoqRoGpYKn2+V47Imt17TziT+GiyMC
-         U2sXPASLLavqYRiTTpDjxva7EuzQjQNwLcXQij7znQC9mKPbOz7w0tcu6dMLYDSHPkmV
-         zuo3IHMoJrSGDZj892pqVR/J/9JjzZkjaAg4ml1mNdViGmIfPJhd3R2w8oG3Y5uDMvhZ
-         Dlgx/Pp4yMH8VGwX2DoDH2wUyr21KsVI+80Ih4DwTNHIt9NYyeCzuxtG2R7AKHh6WUhY
-         wz2A==
+        b=OlQZ5nI7yyfWgTSNdg1I1QlRnKan4evvvn6Ze4zNl9Vy7xBFaji++tLBYiMWGXyTJ+
+         yzBW2P/Oy19qPo7aRBVuOTbEEkzM4Kg7vc7BKZx4xXkhaZ8HadBCpTz9e0i8bTgc0Wyp
+         /4Yi2bzQdaInRvFwrQnTYFhpC1fCfs1QfFCYvpD+vZ1413JpIyhLwysN6gbBkJdLRmaG
+         Ep42jnrkQDg+424mKEgao1JD0eMwYM9JRrihbcGeaFP3WSSezDroroLmZZie+1JU4xig
+         WHx4nt7RJyAQNQkHeJ/smBR3tDxVUipV3vEOwZg2LfrG9xt1YsRTL1V0QsNNOyRl/uB6
+         efYw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=M2WnWFNG9HuhZvFu/Mpk5hH6OkmELViqqaP+vZbQFDg=;
-        b=a7Ah8ML9+zv7mib0F2wuGNN1tyClTgVoCFtlVhHXm79Y5Eyio1FLXZ4MkapVuLeUqR
-         ORjV22j070/LerVKj6DJKi9r6Jruts4vjw5dY35x8P+JmuvxpvYwIUpsHfhswnKJNcae
-         a2P6rbXWzxMvUkTPZ+8Q2da44nYzj8Lml4F1R1IQNpwLetjDl4YiliJcHI5GvTDorONa
-         UEvp5XR8n2OP8jRTOK42H8C84c5I80hEZsN/ucD8aB3pf5S5npZTyY8rDeyATG0v7MnX
-         jtY1J8Z/WQncg1Tprq6r8hooXOZfIeHOLeXuEcIIJNl2+LnoaNh8RJm8546asMsr/sXa
-         c2Mw==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature:dkim-signature;
+        bh=aSr5VJNAKEX0BW7b/NszlMMLJBNNVacZ6aXY94dm3+U=;
+        b=HpMNYtrVY/YPPVcQotcJof7utsQVt9FMA0z1xjGMhgo94QmP8/XIukAM8TdVm9wRS8
+         ceyHXf4UyKWxGWfpHyHeR/nciYqgdu62jU+/s1yvdIH60CNg5/sZpuBfK5jnOvsz6DuR
+         T6I4gvRI4AF096oOHgr+A1nO5ivfdC9MzS1B0NOQUoL1mcS87XUGcmSif5ra9Ji0/B4V
+         iz7P1mSgynIYkoAossX5t7ub4pI4vFFZRSpy2p71xLURhaiMQ35zF0wEVR1XcvWjDjE3
+         dOQkF893pYF7s/DMviKcxpyRH75ytBS+v5JVDmdQjkCqVofNdxD2kryHzIyXoyKomM8g
+         a5Pg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=IuL2Xlc6;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=IgxuuZRw;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=M2WnWFNG9HuhZvFu/Mpk5hH6OkmELViqqaP+vZbQFDg=;
-        b=D4oLBTDHE1QIW5U4XUd7OsRmyp/W0+nTbjv85PZnQ9jPXDFaSfaHG+PfuKAg/pBu3f
-         PBTAvuNwrFu0luT5/nCI6wBuG1yPDb74P6Dp/2kEqlPPCVulsExg1KLewjhox03TTYo/
-         77q4rnOS2Zxf0I49OzhLyqDQ7w69jHRO9Phs0n2UIej2bvTRCCKZiwKhfiGe34eVEECq
-         Jo9DKrAKC8KBRsTXA2gMoAkTBEl9TebXwhYmopRTT4WhpxCsoOZiHa3uAcFG9ctOsxYQ
-         yfU3qzIVV0YFvFEa51xAomNOpdaXZnykcrBg0ijeateLcfwROC0v0fG2cAaRZW/nmfBd
-         h7RA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=aSr5VJNAKEX0BW7b/NszlMMLJBNNVacZ6aXY94dm3+U=;
+        b=FUG96JsCl+LbZKzXZKZkDnMcjQN36TgiO12WQ9b9QQUtpbhTP1ryYYo7piktLQJGmf
+         e+aS4qgMWRfcQN6ThfmkNRDY8qi/4hL3upMUvTASQs7ZjIEgkune056TD968IiCd5pJt
+         mZ661N4vo7GwqyFHF3i5tYjFCzu7huj84nnZqveQmpGIIeUmBQgIbrjrOcTNRX2S0/jy
+         SYBsabQFl+NqsOjAVb5ab8Qx1S7eDEcabdXUqAMIgjCAA1Ol3qzTsuSZZ6a5SpwYUyxs
+         cizWf9W+WSayGaGemSMYaOlk9t/kq7OjLR8AvqjfXehoyEMAYTQnN5H05zWdD9A4gEFX
+         lGdw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=aSr5VJNAKEX0BW7b/NszlMMLJBNNVacZ6aXY94dm3+U=;
+        b=BbP1daWhea3PFkgetFfmvcjpvV76ObEbsG12rp3yQe4X+jp6KTOG46wNNPdkLorVYM
+         MY7QeW3ymSTWmeM0eLdrST5oMggMCgGy7FO1AHCwWzpQU5dUWIpuxAvzXl0UuF+gu1Lr
+         wqWjkbrw25QpYvlWh9iNHtRl3o7g+OhQly7QdNd4mOtugD1NIefU2tVEL/+hsTz7A82x
+         IlfHWk2HN7ByvW/fnsjojnYdroCYRAaGijumYOlaN48KXYpdjEoz1jaEAopv4BneN0NF
+         UaIV6BAgJamveylZuMdqwPABDlz6WiZcy5FuaT8K4rdeQHCJ5+tJGhcdcK809r2G9W7z
+         eHLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=M2WnWFNG9HuhZvFu/Mpk5hH6OkmELViqqaP+vZbQFDg=;
-        b=aN8ogBbncRNSmPqdcrQ6cfY272/O91au6ZNerSLBosA/aIBMbQJqomPcgkVHNH46wC
-         l0RDbMTBwMReVG2EXqBcy5zuTVQb0vuPuj/z4HR2XPPptJsyPE9R60NVoPjZflHNca/z
-         WjS11DJ1i7fdP362hUy5Gv/1oITxIe09PoPPEO9kiRxX5T90ko3WQsV4Gv5MsWPlJCyW
-         Uac0WvN5FeXMFiIvxU8i+0eHO4Htyt40cTbugQpm7+PUZa/mzFHg6rfWgPfEt7vYF4Q6
-         J16+3LRZr+vfqXNH9Ia3ccRGncpDa+iw5zIz1fIpk96kFjIZsv6bnoBJ5I+wZYXGCGa7
-         YM+A==
-X-Gm-Message-State: AGi0PuaZItZSf3b47z7s1s+sZ/t51AqJ8RzJaYhagAuDh+3m0RKxP4fo
-	a/0Yod84e5m1kFDr0atRWcs=
-X-Google-Smtp-Source: APiQypItBYZqY2KHUBZhQgMYLYgFQquEGIBzNQemR1LG4LtZyZx6hLehbrlOmwcFscJe3AaEX/GBVg==
-X-Received: by 2002:a9d:6e02:: with SMTP id e2mr5894259otr.317.1586803753694;
-        Mon, 13 Apr 2020 11:49:13 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=aSr5VJNAKEX0BW7b/NszlMMLJBNNVacZ6aXY94dm3+U=;
+        b=ghQbJjm/fF4fpYr48THVTMsC00xV0JRNBQUo6BKIdILghNvEg6Ox8T8UC8nZ87tFnI
+         W67XNz4+uYEbnrrWtZkiTkzTfWIvVL3116PrsiY9asnYv+ftPJm3+dJPzBGZ5ZzApjUf
+         YhGH/FDH9cae8kWjYJR58wR3xkvym3KBWfOtWBfHl99nqbG/D1yPnl4cUHi+jNxDXA6Z
+         /5nd92Qz2Qdkk7ScgvvsBXs7uf+3UuVW108WazjWo+Ae7IShlVsItxOAkZru5Jh4X4oN
+         v4/bMuth7LQTzirivxRkSenU/h5odQNMEit5hdv/tfBbfpvS/oj5sUAGiBof2qSFE6dc
+         7fgg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AGi0PuaEhzLTj/VgdlvZQw03lZMRIbv3SIFVEUfH8Vq+CdFh67oXAjFP
+	UteQsiDeZGZUaiwDZgwsxvE=
+X-Google-Smtp-Source: APiQypKBpqqbp4MmRR+R98JjmWN/51ovFCSUoDcNtHKpSusD6yRRSYjNlNNB2j8cVpdhYuuVmLgpXg==
+X-Received: by 2002:aca:f491:: with SMTP id s139mr12912285oih.128.1586803957699;
+        Mon, 13 Apr 2020 11:52:37 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:3089:: with SMTP id f9ls218438ots.0.gmail; Mon, 13
- Apr 2020 11:49:13 -0700 (PDT)
-X-Received: by 2002:a05:6830:1606:: with SMTP id g6mr16406639otr.315.1586803753218;
-        Mon, 13 Apr 2020 11:49:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586803753; cv=none;
+Received: by 2002:a4a:c693:: with SMTP id m19ls45887ooq.4.gmail; Mon, 13 Apr
+ 2020 11:52:37 -0700 (PDT)
+X-Received: by 2002:a4a:3306:: with SMTP id q6mr15057019ooq.81.1586803957358;
+        Mon, 13 Apr 2020 11:52:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586803957; cv=none;
         d=google.com; s=arc-20160816;
-        b=TBfvTs2u7xCXRa7GyiShaOw/R32zz1fxa5HVFO1TmtDacEpBpurQ0IDOs39dmUZOqC
-         CoyGldDvrQSgqwfA2P/jr5FuInf1glNHMG/6/yapylRwtY7c+f0ycN3StVw1egZMaWdo
-         2qm1Crnfitxuw8bpYEausdYV9Y5jOxTYlQselSh6Oj4wYpkPAhve2FgO6zgEyekey0XS
-         vL4HeR6ZgDWyW6XXoZ0Y9yL967ouH98H6hS+dxRFw5BoXzBfXO1ZzlF3G2ykFwf+kf1l
-         9/PSxK4GWdNeFMK+fjyuKMRwKfou6+XqrjRNGG0uTRJvQGm0I4gEvbC4ecSyafLhpeTs
-         XfnA==
+        b=WrPN4DLISMjmkjpfOONyFYhsi/9qzfxVEKCAZS/ebcWMxLvRU2vlAxK2VmxJ9rAl8+
+         PjUDHVM/kuYYzOWuu+VaB2RaoqmB16V+d8ScRPZrwks3brhX7LvTBlFWvvntsTneo25g
+         CsMevEV6SEcTHQ+MmOH9U6TTQU4oxw4wKLRH/mD4ep30W3EwwuAJtJm60H+9k4P8cpbN
+         hQMAxHq5KYc+GKOm35DlXMrWe/wVvebi3OUjsdTX730/tMG/b82X2gzln2a1MQAi3LQ+
+         NV2iQ88ZrRaLFEO6BdRyJRcSmnkbS63fFSHEeTsrK5XkKLAOshIXyvy4iJnxw5t+kaRI
+         igIA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=zWzgyXi8WfP9fFqRcnSoD6ax3gruQnjDGFT7CkNEe90=;
-        b=eAEESJhB7OCC/Mj17fSH2lRRNSsRpvau0U9noY5W8hoomappFQX+jAHCAs+qKMWNnM
-         6lWY83fD8W3vT+POOzcUNV1aJPza+6+4/TfjMMouun3dIvomdwSYEqd5pEr1p5vw+JNP
-         W4KBFRTw6C6b/onS+hRd/uWNyJi3nWFAvk/TnVKc5RR/jPvLyLqoumYBLYGUROi/FUbW
-         6qbBVlDmDWGk8OVEcEFUVZtpl6k4A23N8RV2eR4ifXmtIsKSRVfR/mp+Y4xVvk7slU4V
-         ST6SUmr0ybjuC3Rjz6BVbVE9O4gUsiO5cLa4vPK29gX6TTNqcYQPWLfHJAsFzpC+5Q2m
-         UQbQ==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=xC3x0yRcgUpqkBQhYGspeGLwB9d9vOWv+kQdwmDFIYk=;
+        b=P+osym9kHMFDtqu7/qXzbsNqHpObVjSedk50KUjOaFMKYTiPMin2ykarwylJleDD76
+         5MtK+SjsCKsYNRlmd+qxRT3Y04iyaGqp4xmy1ZwKga9cMTRL7d4WWzfATrISX0EYyAtU
+         bTUCrsl8d0gNOa3wsWI8TuiSZI3sy+UghTzFLoWSUw83vtwZnyFk4hd6YXXUZwmg8vwG
+         2pSX0ZUS/kfPTtt5dIttG8mUJxxe9eix0fdxYhvNTwY5zpXuDusYjBidEbcH7s1EIcwu
+         xGjYKVGcCabrs/pPKUDnCon+J8QiVhCf4u5LmAVZo96Ne+yvf1HuSXuat28ntwZgi7le
+         SXfA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=IuL2Xlc6;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x42e.google.com (mail-pf1-x42e.google.com. [2607:f8b0:4864:20::42e])
-        by gmr-mx.google.com with ESMTPS id f7si537572oti.0.2020.04.13.11.49.13
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=IgxuuZRw;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-ot1-x343.google.com (mail-ot1-x343.google.com. [2607:f8b0:4864:20::343])
+        by gmr-mx.google.com with ESMTPS id w6si377802oti.2.2020.04.13.11.52.37
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Apr 2020 11:49:13 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42e as permitted sender) client-ip=2607:f8b0:4864:20::42e;
-Received: by mail-pf1-x42e.google.com with SMTP id u65so4912845pfb.4
-        for <clang-built-linux@googlegroups.com>; Mon, 13 Apr 2020 11:49:13 -0700 (PDT)
-X-Received: by 2002:a63:6604:: with SMTP id a4mr17387267pgc.381.1586803751929;
- Mon, 13 Apr 2020 11:49:11 -0700 (PDT)
+        Mon, 13 Apr 2020 11:52:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::343 as permitted sender) client-ip=2607:f8b0:4864:20::343;
+Received: by mail-ot1-x343.google.com with SMTP id w12so9267240otm.13
+        for <clang-built-linux@googlegroups.com>; Mon, 13 Apr 2020 11:52:37 -0700 (PDT)
+X-Received: by 2002:a4a:9c41:: with SMTP id c1mr15471481ook.43.1586803956871;
+        Mon, 13 Apr 2020 11:52:36 -0700 (PDT)
+Received: from ubuntu-s3-xlarge-x86 ([2604:1380:4111:8b00::3])
+        by smtp.gmail.com with ESMTPSA id w19sm4948336otj.57.2020.04.13.11.52.35
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Mon, 13 Apr 2020 11:52:36 -0700 (PDT)
+Date: Mon, 13 Apr 2020 11:52:34 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Jiaxun Yang <jiaxun.yang@flygoat.com>
+Cc: linux-mips@vger.kernel.org, macro@linux-mips.org,
+	clang-built-linux@googlegroups.com,
+	Fangrui Song <maskray@google.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Borislav Petkov <bp@suse.de>, Kees Cook <keescook@chromium.org>,
+	Heiko Carstens <heiko.carstens@de.ibm.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4] MIPS: Truncate link address into 32bit for 32bit
+ kernel
+Message-ID: <20200413185234.GA12413@ubuntu-s3-xlarge-x86>
+References: <20200413062651.3992652-1-jiaxun.yang@flygoat.com>
 MIME-Version: 1.0
-References: <202004131704.6MH1jcq3%lkp@intel.com>
-In-Reply-To: <202004131704.6MH1jcq3%lkp@intel.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 13 Apr 2020 11:49:00 -0700
-Message-ID: <CAKwvOdnfKF5FqGENvv=BaN-S+V_pE+hLPhVWYuxNdNqhOPUWmA@mail.gmail.com>
-Subject: Re: arch/powerpc/platforms/52xx/mpc52xx_pm.c:58:5: error: stack frame
- size of 1040 bytes in function 'mpc52xx_pm_prepare'
-To: kbuild test robot <lkp@intel.com>
-Cc: Dirk Mueller <dmueller@suse.com>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>, 
-	Rob Herring <robh@kernel.org>, David Gibson <david@gibson.dropbear.id.au>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <20200413062651.3992652-1-jiaxun.yang@flygoat.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=IuL2Xlc6;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42e
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=IgxuuZRw;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,284 +154,120 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Apologies for the wrong report.  This did uncover three new issues for us:
-https://github.com/ClangBuiltLinux/linux/issues/989
-https://github.com/ClangBuiltLinux/linux/issues/990
-https://github.com/ClangBuiltLinux/linux/issues/991
+Hi Jiaxun,
 
-On Mon, Apr 13, 2020 at 2:29 AM kbuild test robot <lkp@intel.com> wrote:
->
-> Hi Dirk,
->
-> First bad commit (maybe != root cause):
->
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> head:   8f3d9f354286745c751374f5f1fcafee6b3f3136
-> commit: e33a814e772cdc36436c8c188d8c42d019fda639 scripts/dtc: Remove redundant YYLOC global declaration
-> date:   2 weeks ago
-> config: powerpc-randconfig-a001-20200413 (attached as .config)
-> compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project dd030036f0a2ace74d0bd2242cfdbcf726ef565d)
-> reproduce:
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         git checkout e33a814e772cdc36436c8c188d8c42d019fda639
->         # save the attached .config to linux build tree
->         COMPILER=clang make.cross ARCH=powerpc
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kbuild test robot <lkp@intel.com>
->
-> All errors (new ones prefixed by >>):
->
-> >> arch/powerpc/platforms/52xx/mpc52xx_pm.c:58:5: error: stack frame size of 1040 bytes in function 'mpc52xx_pm_prepare' [-Werror,-Wframe-larger-than=]
->    int mpc52xx_pm_prepare(void)
->        ^
->    1 error generated.
+On Mon, Apr 13, 2020 at 02:26:49PM +0800, Jiaxun Yang wrote:
+> LLD failed to link vmlinux with 64bit load address for 32bit ELF
+> while bfd will strip 64bit address into 32bit silently.
+> To fix LLD build, we should truncate load address provided by platform
+> into 32bit for 32bit kernel.
+> 
+> Signed-off-by: Jiaxun Yang <jiaxun.yang@flygoat.com>
+> Link: https://github.com/ClangBuiltLinux/linux/issues/786
+> Link: https://sourceware.org/bugzilla/show_bug.cgi?id=25784
+> Cc: Fangrui Song <maskray@google.com>
+> Cc: Nathan Chancellor <natechancellor@gmail.com>
 > --
-> >> arch/powerpc/platforms/embedded6xx/wii.c:195:7: error: attribute declaration must precede definition [-Werror,-Wignored-attributes]
->            if (!machine_is(wii))
->                 ^
->    arch/powerpc/include/asm/machdep.h:248:19: note: expanded from macro 'machine_is'
->                            __attribute__((weak));           \
->                                           ^
->    arch/powerpc/platforms/embedded6xx/wii.c:175:1: note: previous definition is here
->    define_machine(wii) {
->    ^
->    arch/powerpc/include/asm/machdep.h:243:23: note: expanded from macro 'define_machine'
->            struct machdep_calls mach_##name __machine_desc =
->                                 ^
->    <scratch space>:89:1: note: expanded from here
->    mach_wii
->    ^
->    1 error generated.
-> --
-> >> arch/powerpc/platforms/embedded6xx/mvme5100.c:135:58: error: incompatible pointer types passing 'phys_addr_t *' (aka 'unsigned long long *') to parameter of type 'u32 *' (aka 'unsigned int *') [-Werror,-Wincompatible-pointer-types]
->            early_read_config_dword(hose, 0, 0, PCI_BASE_ADDRESS_1, &pci_membase);
->                                                                    ^~~~~~~~~~~~
->    arch/powerpc/include/asm/pci-bridge.h:139:32: note: passing argument to parameter 'val' here
->                            int dev_fn, int where, u32 *val);
->                                                        ^
->    1 error generated.
-> --
-> >> lib/mpi/generic_mpih-mul1.c:37:13: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                    umul_ppmm(prod_high, prod_low, s1_ptr[j], s2_limb);
->                    ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:790:20: note: expanded from macro 'umul_ppmm'
->            : "=r" ((USItype) ph) \
->                    ~~~~~~~~~~^~
->    1 error generated.
-> --
-> >> lib/mpi/generic_mpih-mul2.c:36:13: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                    umul_ppmm(prod_high, prod_low, s1_ptr[j], s2_limb);
->                    ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:790:20: note: expanded from macro 'umul_ppmm'
->            : "=r" ((USItype) ph) \
->                    ~~~~~~~~~~^~
->    1 error generated.
-> --
-> >> lib/mpi/generic_mpih-mul3.c:36:13: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                    umul_ppmm(prod_high, prod_low, s1_ptr[j], s2_limb);
->                    ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:790:20: note: expanded from macro 'umul_ppmm'
->            : "=r" ((USItype) ph) \
->                    ~~~~~~~~~~^~
->    1 error generated.
-> --
-> >> lib/mpi/mpih-div.c:99:16: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:750:21: note: expanded from macro 'sub_ddmmss'
->                    : "=r" ((USItype)(sh)), \
->                            ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:99:20: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:751:20: note: expanded from macro 'sub_ddmmss'
->                    "=&r" ((USItype)(sl)) \
->                           ~~~~~~~~~~^~~
-> >> lib/mpi/mpih-div.c:99:16: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:757:21: note: expanded from macro 'sub_ddmmss'
->                    : "=r" ((USItype)(sh)), \
->                            ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:99:20: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:758:20: note: expanded from macro 'sub_ddmmss'
->                    "=&r" ((USItype)(sl)) \
->                           ~~~~~~~~~~^~~
-> >> lib/mpi/mpih-div.c:99:16: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:764:21: note: expanded from macro 'sub_ddmmss'
->                    : "=r" ((USItype)(sh)), \
->                            ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:99:20: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:765:20: note: expanded from macro 'sub_ddmmss'
->                    "=&r" ((USItype)(sl)) \
->                           ~~~~~~~~~~^~~
-> >> lib/mpi/mpih-div.c:99:16: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:771:21: note: expanded from macro 'sub_ddmmss'
->                    : "=r" ((USItype)(sh)), \
->                            ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:99:20: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:772:20: note: expanded from macro 'sub_ddmmss'
->                    "=&r" ((USItype)(sl)) \
->                           ~~~~~~~~~~^~~
-> >> lib/mpi/mpih-div.c:99:16: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:778:21: note: expanded from macro 'sub_ddmmss'
->                    : "=r" ((USItype)(sh)), \
->                            ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:99:20: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:779:20: note: expanded from macro 'sub_ddmmss'
->                    "=&r" ((USItype)(sl)) \
->                           ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:120:18: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                                    add_ssaaaa(n1, n0, r - d0,
->                                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:725:21: note: expanded from macro 'add_ssaaaa'
->                    : "=r" ((USItype)(sh)), \
->                            ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:120:22: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                                    add_ssaaaa(n1, n0, r - d0,
->                                                    ~~~~~~~~~~~~~~~^~~~~~~~~~~
->    lib/mpi/longlong.h:726:20: note: expanded from macro 'add_ssaaaa'
->                    "=&r" ((USItype)(sl)) \
->                           ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:120:18: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                                    add_ssaaaa(n1, n0, r - d0,
->                                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:732:21: note: expanded from macro 'add_ssaaaa'
->                    : "=r" ((USItype)(sh)), \
->                            ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:120:22: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                                    add_ssaaaa(n1, n0, r - d0,
->                                                    ~~~~~~~~~~~~~~~^~~~~~~~~~~
->    lib/mpi/longlong.h:733:20: note: expanded from macro 'add_ssaaaa'
->                    "=&r" ((USItype)(sl)) \
->                           ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:120:18: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                                    add_ssaaaa(n1, n0, r - d0,
->                                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:739:21: note: expanded from macro 'add_ssaaaa'
->                    : "=r" ((USItype)(sh)), \
->                            ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:120:22: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                                    add_ssaaaa(n1, n0, r - d0,
->                                                    ~~~~~~~~~~~~~~~^~~~~~~~~~~
->    lib/mpi/longlong.h:740:20: note: expanded from macro 'add_ssaaaa'
->                    "=&r" ((USItype)(sl)) \
->                           ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:129:16: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                            umul_ppmm(n1, n0, d0, q);
->                                            ~~~~~~~~~~^~~~~~~~~~~~~~
->    lib/mpi/longlong.h:790:20: note: expanded from macro 'umul_ppmm'
->            : "=r" ((USItype) ph) \
->                    ~~~~~~~~~~^~
->    lib/mpi/mpih-div.c:137:17: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                            sub_ddmmss(n1, n0, n1, n0, 0, d0);
->                                            ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:750:21: note: expanded from macro 'sub_ddmmss'
->                    : "=r" ((USItype)(sh)), \
->                            ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:137:21: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                            sub_ddmmss(n1, n0, n1, n0, 0, d0);
->                                            ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:751:20: note: expanded from macro 'sub_ddmmss'
->                    "=&r" ((USItype)(sl)) \
->                           ~~~~~~~~~~^~~
->    fatal error: too many errors emitted, stopping now [-ferror-limit=]
->    20 errors generated.
->
-> vim +/mpc52xx_pm_prepare +58 arch/powerpc/platforms/52xx/mpc52xx_pm.c
->
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   57
-> e6c5eb9541f219 Rafael J. Wysocki       2007-10-18  @58  int mpc52xx_pm_prepare(void)
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   59  {
-> 75ca399e82726f Grant Likely            2008-01-18   60          struct device_node *np;
-> 66ffbe490b6156 Grant Likely            2008-01-24   61          const struct of_device_id immr_ids[] = {
-> 66ffbe490b6156 Grant Likely            2008-01-24   62                  { .compatible = "fsl,mpc5200-immr", },
-> 66ffbe490b6156 Grant Likely            2008-01-24   63                  { .compatible = "fsl,mpc5200b-immr", },
-> 66ffbe490b6156 Grant Likely            2008-01-24   64                  { .type = "soc", .compatible = "mpc5200", }, /* lite5200 */
-> 66ffbe490b6156 Grant Likely            2008-01-24   65                  { .type = "builtin", .compatible = "mpc5200", }, /* efika */
-> 66ffbe490b6156 Grant Likely            2008-01-24   66                  {}
-> 66ffbe490b6156 Grant Likely            2008-01-24   67          };
-> fb73538e10c7fc Dmitry Eremin-Solenikov 2010-06-11   68          struct resource res;
-> 75ca399e82726f Grant Likely            2008-01-18   69
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   70          /* map the whole register space */
-> 66ffbe490b6156 Grant Likely            2008-01-24   71          np = of_find_matching_node(NULL, immr_ids);
-> fb73538e10c7fc Dmitry Eremin-Solenikov 2010-06-11   72
-> fb73538e10c7fc Dmitry Eremin-Solenikov 2010-06-11   73          if (of_address_to_resource(np, 0, &res)) {
-> fb73538e10c7fc Dmitry Eremin-Solenikov 2010-06-11   74                  pr_err("mpc52xx_pm_prepare(): could not get IMMR address\n");
-> fb73538e10c7fc Dmitry Eremin-Solenikov 2010-06-11   75                  of_node_put(np);
-> fb73538e10c7fc Dmitry Eremin-Solenikov 2010-06-11   76                  return -ENOSYS;
-> fb73538e10c7fc Dmitry Eremin-Solenikov 2010-06-11   77          }
-> fb73538e10c7fc Dmitry Eremin-Solenikov 2010-06-11   78
-> fb73538e10c7fc Dmitry Eremin-Solenikov 2010-06-11   79          mbar = ioremap(res.start, 0xc000); /* we should map whole region including SRAM */
-> fb73538e10c7fc Dmitry Eremin-Solenikov 2010-06-11   80
-> 75ca399e82726f Grant Likely            2008-01-18   81          of_node_put(np);
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   82          if (!mbar) {
-> 75ca399e82726f Grant Likely            2008-01-18   83                  pr_err("mpc52xx_pm_prepare(): could not map registers\n");
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   84                  return -ENOSYS;
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   85          }
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   86          /* these offsets are from mpc5200 users manual */
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   87          sdram   = mbar + 0x100;
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   88          cdm     = mbar + 0x200;
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   89          intr    = mbar + 0x500;
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   90          gpiow   = mbar + 0xc00;
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   91          sram    = mbar + 0x8000;        /* Those will be handled by the */
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   92          sram_size = 0x4000;             /* bestcomm driver soon */
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   93
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   94          /* call board suspend code, if applicable */
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   95          if (mpc52xx_suspend.board_suspend_prepare)
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   96                  mpc52xx_suspend.board_suspend_prepare(mbar);
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   97          else {
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   98                  printk(KERN_ALERT "%s: %i don't know how to wake up the board\n",
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07   99                                  __func__, __LINE__);
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07  100                  goto out_unmap;
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07  101          }
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07  102
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07  103          return 0;
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07  104
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07  105   out_unmap:
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07  106          iounmap(mbar);
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07  107          return -ENOSYS;
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07  108  }
-> 2e1ee1f76684c5 Domen Puncer            2007-05-07  109
->
-> :::::: The code at line 58 was first introduced by commit
-> :::::: e6c5eb9541f2197a3ffab90b1c7a3250a9b51bf6 PM: Rework struct platform_suspend_ops
->
-> :::::: TO: Rafael J. Wysocki <rjw@sisk.pl>
-> :::::: CC: Linus Torvalds <torvalds@woody.linux-foundation.org>
->
+> V2: Take MaskRay's shell magic.
+> 
+> V3: After spent an hour on dealing with special character issue in
+> Makefile, I gave up to do shell hacks and write a util in C instead.
+> Thanks Maciej for pointing out Makefile variable problem.
+> 
+> v4: Finally we managed to find a Makefile method to do it properly
+> thanks to Kees. As it's too far from the initial version, I removed
+> Review & Test tag from Nick and Fangrui and Cc instead.
 > ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202004131704.6MH1jcq3%25lkp%40intel.com.
+>  arch/mips/Makefile             | 12 +++++++++++-
+>  arch/mips/kernel/vmlinux.lds.S |  2 +-
+>  2 files changed, 12 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/mips/Makefile b/arch/mips/Makefile
+> index e1c44aed8156..18495568f03e 100644
+> --- a/arch/mips/Makefile
+> +++ b/arch/mips/Makefile
+> @@ -288,9 +288,19 @@ ifdef CONFIG_64BIT
+>    endif
+>  endif
+>  
+> +# When linking a 32-bit executable the LLVM linker cannot cope with a
+> +# 32-bit load address that has been sign-extended to 64 bits.  Simply
+> +# remove the upper 32 bits then, as it is safe to do so with other
+> +# linkers.
+> +ifdef CONFIG_64BIT
+> +	load-ld			= $(load-y)
+> +else
+> +	load-ld			= $(subst 0xffffffff,0x,$(load-y))
+> +endif
+> +
+>  KBUILD_AFLAGS	+= $(cflags-y)
+>  KBUILD_CFLAGS	+= $(cflags-y)
+> -KBUILD_CPPFLAGS += -DVMLINUX_LOAD_ADDRESS=$(load-y)
+> +KBUILD_CPPFLAGS += -DVMLINUX_LOAD_ADDRESS=$(load-y) -DVMLINUX_LINK_ADDRESS=$(load-ld)
+>  KBUILD_CPPFLAGS += -DDATAOFFSET=$(if $(dataoffset-y),$(dataoffset-y),0)
+>  
+>  bootvars-y	= VMLINUX_LOAD_ADDRESS=$(load-y) \
+> diff --git a/arch/mips/kernel/vmlinux.lds.S b/arch/mips/kernel/vmlinux.lds.S
+> index a5f00ec73ea6..5226cd8e4bee 100644
+> --- a/arch/mips/kernel/vmlinux.lds.S
+> +++ b/arch/mips/kernel/vmlinux.lds.S
+> @@ -55,7 +55,7 @@ SECTIONS
+>  	/* . = 0xa800000000300000; */
+>  	. = 0xffffffff80300000;
+>  #endif
+> -	. = VMLINUX_LOAD_ADDRESS;
+> +	. = VMLINUX_LINK_ADDRESS;
+>  	/* read-only */
+>  	_text = .;	/* Text and read-only data */
+>  	.text : {
+> -- 
+> 2.26.0.rc2
+> 
 
+This version does not quite work:
 
+ld.lld: error: section .text at 0xFFFFFFFF80990000 of size 0x388C exceeds available address space
+ld.lld: error: section .MIPS.abiflags at 0xFFFFFFFF80993890 of size 0x18 exceeds available address space
+ld.lld: error: section .rodata.str1.1 at 0xFFFFFFFF809938A8 of size 0x164 exceeds available address space
+ld.lld: error: section .eh_frame at 0xFFFFFFFF80993A0C of size 0x2C exceeds available address space
+ld.lld: error: section .data at 0xFFFFFFFF80993A40 of size 0x38EFD0 exceeds available address space
+ld.lld: error: section .got at 0xFFFFFFFF80D22A10 of size 0x8 exceeds available address space
+ld.lld: error: section .bss at 0xFFFFFFFF80E22A20 of size 0x402010 exceeds available address space
+ld.lld: error: section .sbss at 0xFFFFFFFF81224A30 of size 0x8 exceeds available address space
+make[2]: *** [/home/nathan/src/linux/arch/mips/boot/compressed/Makefile:104: vmlinuz] Error 1
 
--- 
-Thanks,
-~Nick Desaulniers
+I think something like this is needed but I do not know if it is proper.
+
+Cheers,
+Nathan
+
+diff --git a/arch/mips/Makefile b/arch/mips/Makefile
+index 18495568f03e..68c0f22fefc0 100644
+--- a/arch/mips/Makefile
++++ b/arch/mips/Makefile
+@@ -304,6 +304,7 @@ KBUILD_CPPFLAGS += -DVMLINUX_LOAD_ADDRESS=$(load-y) -DVMLINUX_LINK_ADDRESS=$(loa
+ KBUILD_CPPFLAGS += -DDATAOFFSET=$(if $(dataoffset-y),$(dataoffset-y),0)
+ 
+ bootvars-y	= VMLINUX_LOAD_ADDRESS=$(load-y) \
++		  VMLINUX_LINK_ADDRESS=$(load-ld) \
+ 		  VMLINUX_ENTRY_ADDRESS=$(entry-y) \
+ 		  PLATFORM="$(platform-y)" \
+ 		  ITS_INPUTS="$(its-y)"
+diff --git a/arch/mips/boot/compressed/Makefile b/arch/mips/boot/compressed/Makefile
+index 0df0ee8a298d..3d391256ab7e 100644
+--- a/arch/mips/boot/compressed/Makefile
++++ b/arch/mips/boot/compressed/Makefile
+@@ -90,7 +90,7 @@ ifneq ($(zload-y),)
+ VMLINUZ_LOAD_ADDRESS := $(zload-y)
+ else
+ VMLINUZ_LOAD_ADDRESS = $(shell $(obj)/calc_vmlinuz_load_addr \
+-		$(obj)/vmlinux.bin $(VMLINUX_LOAD_ADDRESS))
++		$(obj)/vmlinux.bin $(VMLINUX_LINK_ADDRESS))
+ endif
+ UIMAGE_LOADADDR = $(VMLINUZ_LOAD_ADDRESS)
+ 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnfKF5FqGENvv%3DBaN-S%2BV_pE%2BhLPhVWYuxNdNqhOPUWmA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200413185234.GA12413%40ubuntu-s3-xlarge-x86.
