@@ -1,126 +1,108 @@
-Return-Path: <clang-built-linux+bncBCI2VAWMWUMRBSEM2D2AKGQEVL4QWMA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCXKBPVPXAFRBU432D2AKGQEJ2G53QA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53e.google.com (mail-pg1-x53e.google.com [IPv6:2607:f8b0:4864:20::53e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2AECA1A630E
-	for <lists+clang-built-linux@lfdr.de>; Mon, 13 Apr 2020 08:27:22 +0200 (CEST)
-Received: by mail-pg1-x53e.google.com with SMTP id 9sf3663286pgh.5
-        for <lists+clang-built-linux@lfdr.de>; Sun, 12 Apr 2020 23:27:22 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586759240; cv=pass;
+Received: from mail-ed1-f63.google.com (mail-ed1-f63.google.com [209.85.208.63])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2FADB1A6357
+	for <lists+clang-built-linux@lfdr.de>; Mon, 13 Apr 2020 08:59:32 +0200 (CEST)
+Received: by mail-ed1-f63.google.com with SMTP id i10sf8431871edk.13
+        for <lists+clang-built-linux@lfdr.de>; Sun, 12 Apr 2020 23:59:32 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586761172; cv=pass;
         d=google.com; s=arc-20160816;
-        b=faVTLn4PEZ6HUhFX9XSvVe+KhTDZu3XlRVbGMqNisduJY60VIHkAzeH1TXHiyVl9g1
-         Ptx6klUe5gpAEcnfD3PO5/rq5wY9QMbI2do8KvMSxK8QxM2Wz6rG+lrQsocveJ4v7jRc
-         J5DYiE7QARNp1krDvH/Fy6IWh3cE/9kgR28NWphiCliZzO3F+JKHmMkdBd3Cw7lcrDxN
-         T6JlUO2DEIXoYGgleGct/xz/RowlLjbwlOHPjchV8I1ksjrO5YsgAQc/MvVrYLINUwEX
-         qtGgG4ro2/zdcKxdB/0A1IrDN7pnfC5LQFhTEjWM/tokWvM35xkaoGwn/nxg4XNs6LMn
-         A24g==
+        b=erBoQuPjJk36X2R5fdm0omBZzkVHRsh6Xm/Yu3m3mk2duEZfYgOJ87tjQMtwiQ7Htx
+         A/LnFRzQBgMNj63yaVBDowM8cuvnoWcGjxWClZjmeATH8g8+vnqfYeHQN+zFqL/rke+U
+         0raPN+6aRqBOTXef946t1KLniQo4AyLbccEy39BbHk5ofpXP89jDYz1m0YcxDMrQg4wm
+         Mwn4l21bNZoKDrrrNn46li8yCYxJVdCIDqO8eCb0jppdR2kY/EyCe7TNHElsUsqsHrs+
+         PM5Q30cBOPf02RXiOEuPYRH5WTUBeUQ/CypbvVpGLDPt02+mcp9FIh4bM37e7Dd/Peyd
+         3NvQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=fQTai42U10Bh5nAS30wRP1esEbfzlZVTtmvpJfbpFRA=;
-        b=Nhk9e+VTUUd7M7Wf7cylfHneMUmSeNvMLa7rmwQg/9qWbcxoC0SJULgXSAYJnFzAL0
-         xZXC07dKi12W7yWpxwT/PFwaB5wdTvjsntdeDusELDeg2zUoAmnMlzeYbglpIKZzSFJx
-         PN2hrXfCRa0QAzTdFLIu584sJFk0DKo7c9iW1Hp2zsVUZJquuOq2//KqusYIN7ubHkv3
-         mzSWwOCnR8Lgj5RveC3spOCaW7fM2R9CJhJKYDz+qLn+bJ+frC9JtyJs9P7xJGpbuMt7
-         oXNR5JZJjmLvoM/7MS3NHhK9IlFReO9D//8t7pihQbKNCZ1Rftcd0D1HIu6G/76pB3l0
-         DAhA==
+         :list-id:mailing-list:precedence:mime-version:references:message-id
+         :in-reply-to:subject:cc:to:from:sender:date;
+        bh=ncJ2XdjXU9s926Gns884Ei0s1Kxvnid+n5ZtGnpGzq4=;
+        b=PNmM5dEnajk0tQPnp+cS5JmvK9iexJle3H3jqqRWLCV15tdZmzDbcdsncYPGDfLuG1
+         BMCf60sc9sGs4W2h8frD/7O1Dht8OpLYyH1wxcuMgeAm9mdynZ7dV/sX5vd6bJQfhMqq
+         nJ58eS8ljZ0uo4kL11nm3TP6qW1hXle6uR0AXEkMMHItSR8JNPH3Or4jnnGQaIL3Zji3
+         PCW6ABqXgz2HJcCVI+49tiAJnr+Z/+QpsD0rd13JDURB71UJeFOypyak3bGuFgDYKSzu
+         x2Rg27ghozGT15f/jKMpn+K/WKebJfsbjBewHUZ5XoqdOcLGXQISFJ1C+ix/vhe9L9Av
+         MVmg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@flygoat.com header.s=vultr header.b=mSzmbvsl;
-       spf=pass (google.com: domain of jiaxun.yang@flygoat.com designates 2001:19f0:6001:3633:5400:2ff:fe8c:553 as permitted sender) smtp.mailfrom=jiaxun.yang@flygoat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=flygoat.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=fQTai42U10Bh5nAS30wRP1esEbfzlZVTtmvpJfbpFRA=;
-        b=sQdzjzMNcQZguoLt6ahmaTHNhBSltjaaDOTmyqXE3O2/Lt9d6p1sQwTjQAWSjyWs3R
-         P2tlQnNiikJil+g2RC/jZ9wtq3iyDaxT+PHuR+nOdBsnMwGb5pyUNqaymmfYgFCOdXB4
-         Q64fSp+by7o9zV3190EQGa7q1mrLfUGoVjeGz1DY98DOX2A1GU1MQRy2mr3rHbE/fgpb
-         kz6pehXrg4sxdstSCog+1INA6OXxRUI58AU+DxkX3wBX46O7UwzMbYJWR0oup9TfUpcX
-         +GImV1vRVzKVZdYA0CY8ufWyaVt4jBIXeKzSfyWKs2vrTN/qlatP0ndC/1Jyve2xqJSe
-         RU+w==
+       spf=pass (google.com: best guess record for domain of macro@linux-mips.org designates 148.251.95.138 as permitted sender) smtp.mailfrom=macro@linux-mips.org
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=fQTai42U10Bh5nAS30wRP1esEbfzlZVTtmvpJfbpFRA=;
-        b=KqT9lu4FzeXbIei2B6j+BhNvns22YhFWv+BB2cp/t9Co7wvrarW+Vp7r9CAtoCYyOE
-         6gx9I9SAaHHs1gx33fSY5pczrwxEbh4PrvYRDDq7R51UACf7uanNwd7XCdl3IUo5IZ3W
-         f7AIl0V6900OS0vdvsLQ2mKpEl67FjzBeziVeofTj/NkuMgw0VU+l42IKSM9e/+24GAe
-         JJO5hvx2IOedWLvYEetbBpcNkVnMPIUEhroNwdzyVcYCShoFin+BBEHZpeur10LelJvZ
-         vxLW8tbRpfwPvWExwGnMVmdJ1FSmhHSao2gjRYI218Kghzs9NB9c+81WZ3k1iRXJ3zPx
-         k+xw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0Publ38yetCYQECqEMo9DkcnDQSTwxgO01YH5yZbBXdg5IYGzqvFp
-	v1apJsjA5Pse3iCL4mYun3w=
-X-Google-Smtp-Source: APiQypL52fEb4+DL5p/uEwT2WPIaMzFXkJvr0eADq3E02JIf1k08ZuaeLQTZZSMBThe5Mg8YM2sDJg==
-X-Received: by 2002:a62:e307:: with SMTP id g7mr15688024pfh.197.1586759240661;
-        Sun, 12 Apr 2020 23:27:20 -0700 (PDT)
+        h=x-gm-message-state:date:sender:from:to:cc:subject:in-reply-to
+         :message-id:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ncJ2XdjXU9s926Gns884Ei0s1Kxvnid+n5ZtGnpGzq4=;
+        b=r97CEsCgjQHP117tG2rz4BEBehFvha5EzSv3kU4jk2XyfINaUTLQcIiZIsps2FYgZA
+         tES4apd0cS6og+HXOko9hvFNr4YTsDodnrtFL+A3S/LEFCZev4aN7GxVlrhSeawgox1K
+         O7xTvZ20L1oB8oZs4eaA3vYiMGHokaFlK60TUB+eOuQAmWDedPhoc1DLTXRiWLhX+GNX
+         3EiunxmbFfDr8RYgN6f9v75C2plX5N+uBg+17Zf0+1anVcrR83asbYw0zMIfpmZNwF8S
+         +Yo10sPAr1GMuaiqh2QFq8JZ5gHpOYNjqrxowbdzNaRJ+cf3BO/Ne6va+ZhE1xQxlfP9
+         QGow==
+X-Gm-Message-State: AGi0PuaztDPyW/fwMDyoh6/YHbezD/MGSxPRxXkftN0gSvMTKViEyqR4
+	mC/qib+mRQNlnNLT3jQm0JY=
+X-Google-Smtp-Source: APiQypIEvsI0TnIP+AUbwusJkzEX+A5R6FqJCWfhsYabLtRNTG9qzEpXUUkt0u8/IOPRbvAAv/YSHg==
+X-Received: by 2002:a17:906:748c:: with SMTP id e12mr12148136ejl.375.1586761171912;
+        Sun, 12 Apr 2020 23:59:31 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:7682:: with SMTP id r124ls8656910pfc.11.gmail; Sun, 12
- Apr 2020 23:27:20 -0700 (PDT)
-X-Received: by 2002:aa7:8b44:: with SMTP id i4mr17232710pfd.179.1586759240285;
-        Sun, 12 Apr 2020 23:27:20 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586759240; cv=none;
+Received: by 2002:a50:eb0d:: with SMTP id y13ls16102940edp.9.gmail; Sun, 12
+ Apr 2020 23:59:31 -0700 (PDT)
+X-Received: by 2002:a05:6402:2067:: with SMTP id bd7mr15751431edb.174.1586761171456;
+        Sun, 12 Apr 2020 23:59:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586761171; cv=none;
         d=google.com; s=arc-20160816;
-        b=PF6mgkbQP3nYm+mNm3ojLyxwt5F9NmK9+uwzkGRQ2B2Cp4QKDOUFXUHCqgLGuBcDvk
-         D899phGBOY2Zjc9eR8/uOTNiZKKPhUGj6U5QKBxM6gQ7ienNYqgKeTMlqggNO82h7+3U
-         C3z43ra74kFb0tEBtlZPrbUIYaLKEI5P3DXxw0ypTcom5f0xliazegCOpVKW8QYVKoE0
-         fciQc+IXxB1Vhcc4H0R1wH646CtM+kUZbjYJ1+tLyQR7XruUwcF2NYygztjVFs+j1eRr
-         URTsO2LNXhjM2IHE0BjTWc5JkVXZIlX7xfQCw40JLk6iGM9gXiFYJ5rmWuRa0RvtKwVZ
-         87tQ==
+        b=qj2eXwNDL90RWjQ5FZ2V3G/Rc7PH50iQMQNP4d2qNNNtlQ81pVeQTAScg2F6mnbsqM
+         qwVJcOROWw+iYympR4TY1vFFF0NAXHutLZEnhX8KZcO8D/GbvR1rrRSysg9OpFc6MOJF
+         lax0jccvZItZYpNALqx2xOjpUYJ0iFOR0eKJSw8v0l0ISg4V3oIcHmknBtCYtqWl+RUp
+         WSlM3J5OfuJ3vYuzs1WyIg4JAL3Ye5WoXp9+1zTXSkt5ztkBGqTx6xmRpgLLpZbn6d+G
+         ta8/GklD7DwouaRMt9c5+duJcmu01VF5JCYfeHJVfvd5FnoCPztG/FLPj3nC3FzawPT0
+         UK6w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=N7CRD9yElMkRERwsSTKGMElxfVIG6/S+kXfBfDHcnyY=;
-        b=U5aoFDpkCYuLnQFFDku43srswp0D/H8ghwe+DL3U66jU/xI2eTpTnG6v4jv81rtXfE
-         yxH4YrRaNG5MXADJX2fvraQbycodM5Rey5cAnC/g+6fq+Z0mkCL5BiXKNtELSlxyezwn
-         S8fEDWqlKpJALq2LNOHXmk/56R1NfdrWp/Y5qGT57vpM632DdFZ0O4YOV1L2ucEJbzte
-         59laHXhFCjgd6yW4hvQFt1XF2isDomLmYuvMmtCt3kRCKHFPmiI4LCxn3OCQy4ixpEF4
-         OnhBWRQymkx4ut3k+b1SKpICriWiufLQpsoSruM1qmf7rLmBl8XljqlBN1Jf0lirb7ye
-         b+Jw==
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :sender:date;
+        bh=Rlk9RQx0FFV3tl4zGx61YSucZdaEw1KlLdzZhm9GC8c=;
+        b=FYr/Akt4Oi3o8h+HzaFxv8FHmwLB4z0U9MEiq0jNes3+vT/8DjKojWkmfiRls2pY2l
+         YU2VDhC1oiNiMpjd90XoixseNCYl9Dz3va85vdB1ZlMVqh2Smyiedkk9Zy6i5qcGv3+i
+         jeDhlfc2XzZyTzqK0d7oIjT7xUYZZTwPX7WuU4Sf3jI5sVe1wbhk6X7HSHEm7U5RrI6N
+         sytDd5yCm5ZeN8Tlr5oyp7YHVq1D0aZESlCWFFE8zPZnTgt5ef7ppEUWXufvlWanBKWl
+         YDHyfIUY2QupyYfcKvuv6mrnmLd2A4nRWq7Xz9S8WjqjX72l07uQ8zR9Q0jH2ffcl9XX
+         sfhw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@flygoat.com header.s=vultr header.b=mSzmbvsl;
-       spf=pass (google.com: domain of jiaxun.yang@flygoat.com designates 2001:19f0:6001:3633:5400:2ff:fe8c:553 as permitted sender) smtp.mailfrom=jiaxun.yang@flygoat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=flygoat.com
-Received: from vultr.net.flygoat.com (vultr.net.flygoat.com. [2001:19f0:6001:3633:5400:2ff:fe8c:553])
-        by gmr-mx.google.com with ESMTPS id np5si400965pjb.2.2020.04.12.23.27.20
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Apr 2020 23:27:20 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jiaxun.yang@flygoat.com designates 2001:19f0:6001:3633:5400:2ff:fe8c:553 as permitted sender) client-ip=2001:19f0:6001:3633:5400:2ff:fe8c:553;
-Received: from localhost.localdomain (unknown [IPv6:2001:da8:20f:4430:250:56ff:fe9a:7470])
-	by vultr.net.flygoat.com (Postfix) with ESMTPSA id 0EDB420D11;
-	Mon, 13 Apr 2020 06:27:16 +0000 (UTC)
-From: Jiaxun Yang <jiaxun.yang@flygoat.com>
-To: linux-mips@vger.kernel.org
-Cc: macro@linux-mips.org,
-	clang-built-linux@googlegroups.com,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Fangrui Song <maskray@google.com>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Borislav Petkov <bp@suse.de>,
-	Kees Cook <keescook@chromium.org>,
-	Heiko Carstens <heiko.carstens@de.ibm.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4] MIPS: Truncate link address into 32bit for 32bit kernel
-Date: Mon, 13 Apr 2020 14:26:49 +0800
-Message-Id: <20200413062651.3992652-1-jiaxun.yang@flygoat.com>
-X-Mailer: git-send-email 2.26.0.rc2
+       spf=pass (google.com: best guess record for domain of macro@linux-mips.org designates 148.251.95.138 as permitted sender) smtp.mailfrom=macro@linux-mips.org
+Received: from cvs.linux-mips.org (eddie.linux-mips.org. [148.251.95.138])
+        by gmr-mx.google.com with ESMTP id v14si388563edr.4.2020.04.12.23.59.31
+        for <clang-built-linux@googlegroups.com>;
+        Sun, 12 Apr 2020 23:59:31 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of macro@linux-mips.org designates 148.251.95.138 as permitted sender) client-ip=148.251.95.138;
+Received: (from localhost user: 'macro', uid#1010) by eddie.linux-mips.org
+        with ESMTP id S23991212AbgDMG73NT9ds (ORCPT
+        <rfc822;clang-built-linux@googlegroups.com>);
+        Mon, 13 Apr 2020 08:59:29 +0200
+Date: Mon, 13 Apr 2020 07:59:29 +0100 (BST)
+Sender: "Maciej W. Rozycki" <macro@linux-mips.org>
+From: "Maciej W. Rozycki" <macro@linux-mips.org>
+To: Jiaxun Yang <jiaxun.yang@flygoat.com>
+cc: linux-mips@vger.kernel.org, clang-built-linux@googlegroups.com,
+        Fangrui Song <maskray@google.com>,
+        Nathan Chancellor <natechancellor@gmail.com>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        Borislav Petkov <bp@suse.de>,
+        Kees Cook <keescook@chromium.org>,
+        Heiko Carstens <heiko.carstens@de.ibm.com>,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4] MIPS: Truncate link address into 32bit for 32bit
+ kernel
+In-Reply-To: <20200413062651.3992652-1-jiaxun.yang@flygoat.com>
+Message-ID: <alpine.LFD.2.21.2004130736410.851719@eddie.linux-mips.org>
+References: <20200413062651.3992652-1-jiaxun.yang@flygoat.com>
 MIME-Version: 1.0
-X-Original-Sender: jiaxun.yang@flygoat.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@flygoat.com header.s=vultr header.b=mSzmbvsl;       spf=pass
- (google.com: domain of jiaxun.yang@flygoat.com designates 2001:19f0:6001:3633:5400:2ff:fe8c:553
- as permitted sender) smtp.mailfrom=jiaxun.yang@flygoat.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=flygoat.com
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: macro@linux-mips.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: best guess record for domain of macro@linux-mips.org designates
+ 148.251.95.138 as permitted sender) smtp.mailfrom=macro@linux-mips.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,73 +115,48 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-LLD failed to link vmlinux with 64bit load address for 32bit ELF
-while bfd will strip 64bit address into 32bit silently.
-To fix LLD build, we should truncate load address provided by platform
-into 32bit for 32bit kernel.
+On Mon, 13 Apr 2020, Jiaxun Yang wrote:
 
-Signed-off-by: Jiaxun Yang <jiaxun.yang@flygoat.com>
-Link: https://github.com/ClangBuiltLinux/linux/issues/786
-Link: https://sourceware.org/bugzilla/show_bug.cgi?id=25784
-Cc: Fangrui Song <maskray@google.com>
-Cc: Nathan Chancellor <natechancellor@gmail.com>
---
-V2: Take MaskRay's shell magic.
+> LLD failed to link vmlinux with 64bit load address for 32bit ELF
+> while bfd will strip 64bit address into 32bit silently.
+> To fix LLD build, we should truncate load address provided by platform
+> into 32bit for 32bit kernel.
 
-V3: After spent an hour on dealing with special character issue in
-Makefile, I gave up to do shell hacks and write a util in C instead.
-Thanks Maciej for pointing out Makefile variable problem.
+Reviewed-by: Maciej W. Rozycki <macro@linux-mips.org>
 
-v4: Finally we managed to find a Makefile method to do it properly
-thanks to Kees. As it's too far from the initial version, I removed
-Review & Test tag from Nick and Fangrui and Cc instead.
----
- arch/mips/Makefile             | 12 +++++++++++-
- arch/mips/kernel/vmlinux.lds.S |  2 +-
- 2 files changed, 12 insertions(+), 2 deletions(-)
+> diff --git a/arch/mips/kernel/vmlinux.lds.S b/arch/mips/kernel/vmlinux.lds.S
+> index a5f00ec73ea6..5226cd8e4bee 100644
+> --- a/arch/mips/kernel/vmlinux.lds.S
+> +++ b/arch/mips/kernel/vmlinux.lds.S
+> @@ -55,7 +55,7 @@ SECTIONS
+>  	/* . = 0xa800000000300000; */
+>  	. = 0xffffffff80300000;
+>  #endif
+> -	. = VMLINUX_LOAD_ADDRESS;
+> +	. = VMLINUX_LINK_ADDRESS;
 
-diff --git a/arch/mips/Makefile b/arch/mips/Makefile
-index e1c44aed8156..18495568f03e 100644
---- a/arch/mips/Makefile
-+++ b/arch/mips/Makefile
-@@ -288,9 +288,19 @@ ifdef CONFIG_64BIT
-   endif
- endif
- 
-+# When linking a 32-bit executable the LLVM linker cannot cope with a
-+# 32-bit load address that has been sign-extended to 64 bits.  Simply
-+# remove the upper 32 bits then, as it is safe to do so with other
-+# linkers.
-+ifdef CONFIG_64BIT
-+	load-ld			= $(load-y)
-+else
-+	load-ld			= $(subst 0xffffffff,0x,$(load-y))
-+endif
-+
- KBUILD_AFLAGS	+= $(cflags-y)
- KBUILD_CFLAGS	+= $(cflags-y)
--KBUILD_CPPFLAGS += -DVMLINUX_LOAD_ADDRESS=$(load-y)
-+KBUILD_CPPFLAGS += -DVMLINUX_LOAD_ADDRESS=$(load-y) -DVMLINUX_LINK_ADDRESS=$(load-ld)
- KBUILD_CPPFLAGS += -DDATAOFFSET=$(if $(dataoffset-y),$(dataoffset-y),0)
- 
- bootvars-y	= VMLINUX_LOAD_ADDRESS=$(load-y) \
-diff --git a/arch/mips/kernel/vmlinux.lds.S b/arch/mips/kernel/vmlinux.lds.S
-index a5f00ec73ea6..5226cd8e4bee 100644
---- a/arch/mips/kernel/vmlinux.lds.S
-+++ b/arch/mips/kernel/vmlinux.lds.S
-@@ -55,7 +55,7 @@ SECTIONS
- 	/* . = 0xa800000000300000; */
- 	. = 0xffffffff80300000;
- #endif
--	. = VMLINUX_LOAD_ADDRESS;
-+	. = VMLINUX_LINK_ADDRESS;
- 	/* read-only */
- 	_text = .;	/* Text and read-only data */
- 	.text : {
--- 
-2.26.0.rc2
+ The CONFIG_BOOT_ELF64 cruft right above it looks interesting to me, never 
+have ever been used.  We have had the current arrangement since:
+
+commit 923ec3d20eef9e36456868b590873ce39f17fe71
+Author: Ralf Baechle <ralf@linux-mips.org>
+Date:   Wed Nov 6 22:16:38 2002 +0000
+
+    Define load address in linker script instead of relying on the
+    deprecated and notoriously unreliable option -Ttext.
+
+and previously `-Ttext' was used with this script anyway, though not very 
+long, as the script was entirely ignored until:
+
+commit 7a782968041ffc4c2d89816238e2f8ea5cceddba
+Author: Ralf Baechle <ralf@linux-mips.org>
+Date:   Thu Oct 31 23:54:21 2002 +0000
+
+    Merge with Linux 2.5.36.
+
+  Maciej
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200413062651.3992652-1-jiaxun.yang%40flygoat.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/alpine.LFD.2.21.2004130736410.851719%40eddie.linux-mips.org.
