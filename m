@@ -1,147 +1,123 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB5PJ2L2AKGQEZGPDUPI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBTPM2L2AKGQEJORLJGY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33f.google.com (mail-ot1-x33f.google.com [IPv6:2607:f8b0:4864:20::33f])
-	by mail.lfdr.de (Postfix) with ESMTPS id F03BA1A6C3A
-	for <lists+clang-built-linux@lfdr.de>; Mon, 13 Apr 2020 20:52:38 +0200 (CEST)
-Received: by mail-ot1-x33f.google.com with SMTP id h33sf8571224oth.20
-        for <lists+clang-built-linux@lfdr.de>; Mon, 13 Apr 2020 11:52:38 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586803957; cv=pass;
+Received: from mail-io1-xd3a.google.com (mail-io1-xd3a.google.com [IPv6:2607:f8b0:4864:20::d3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id C34F01A6C45
+	for <lists+clang-built-linux@lfdr.de>; Mon, 13 Apr 2020 20:58:22 +0200 (CEST)
+Received: by mail-io1-xd3a.google.com with SMTP id f4sf4084731iov.22
+        for <lists+clang-built-linux@lfdr.de>; Mon, 13 Apr 2020 11:58:22 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586804301; cv=pass;
         d=google.com; s=arc-20160816;
-        b=OlQZ5nI7yyfWgTSNdg1I1QlRnKan4evvvn6Ze4zNl9Vy7xBFaji++tLBYiMWGXyTJ+
-         yzBW2P/Oy19qPo7aRBVuOTbEEkzM4Kg7vc7BKZx4xXkhaZ8HadBCpTz9e0i8bTgc0Wyp
-         /4Yi2bzQdaInRvFwrQnTYFhpC1fCfs1QfFCYvpD+vZ1413JpIyhLwysN6gbBkJdLRmaG
-         Ep42jnrkQDg+424mKEgao1JD0eMwYM9JRrihbcGeaFP3WSSezDroroLmZZie+1JU4xig
-         WHx4nt7RJyAQNQkHeJ/smBR3tDxVUipV3vEOwZg2LfrG9xt1YsRTL1V0QsNNOyRl/uB6
-         efYw==
+        b=nhs67G1ozfmtnEDOhMhgxsYyMN8FeFCQt0u7sIk2SKrckxIDTuHgLdLiIBr7CmSuAZ
+         O8VPCxyVSw1WDfywvH0XJBrrDNZRdlSw6ZYizHyv6h28PXPiLq/J6+takMpYyoYkFcg3
+         ht3kaF6aHqB3QUxVMc3rmQp9MXs9Q6BnQSBaz8b7BBqairGXc1e/OoKOQIHXOEK2BNoE
+         pp3pvhmYBB/vujOe5+KNgI2brXrq9c7aQFqmm/LXVadmytxnNgReYHTP16VYfOSnD9sf
+         QcwJ52e+WraHWpXapFbqfCbTdbRpxe+B6T2ERI5+JUyYg5JEWwmKozRyXFGBPWSIlLfc
+         En+g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=aSr5VJNAKEX0BW7b/NszlMMLJBNNVacZ6aXY94dm3+U=;
-        b=HpMNYtrVY/YPPVcQotcJof7utsQVt9FMA0z1xjGMhgo94QmP8/XIukAM8TdVm9wRS8
-         ceyHXf4UyKWxGWfpHyHeR/nciYqgdu62jU+/s1yvdIH60CNg5/sZpuBfK5jnOvsz6DuR
-         T6I4gvRI4AF096oOHgr+A1nO5ivfdC9MzS1B0NOQUoL1mcS87XUGcmSif5ra9Ji0/B4V
-         iz7P1mSgynIYkoAossX5t7ub4pI4vFFZRSpy2p71xLURhaiMQ35zF0wEVR1XcvWjDjE3
-         dOQkF893pYF7s/DMviKcxpyRH75ytBS+v5JVDmdQjkCqVofNdxD2kryHzIyXoyKomM8g
-         a5Pg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=uDcSy2DeKH3BjhTG0xDA6wqXTV2XGiwuFojPQcKZOPA=;
+        b=vFIydoF301l7CcIfCz69IJlTY0kZhA1V4WJ6dTKzcp1/fpIAQlQ2DhSc42y8STCOoh
+         rQsn0IdC2Hgvr+O39q9zGY4mB2oX2dGB6lTfzr1U/HvpU6cC1k+3eBgqFKYCxc12Q3HO
+         h9oRw2zhCORz+mHb3BUNJHQGc5efdwZFZTmyNGypUKKA9kaXD/aggWJgwAEHSFKI6Dks
+         zuDf+ZB+Ckl9M+qlr66JM/cGvBwykGML+0h4zZBaSX5NdJiLgAFODtvHSwTHT7B8EVu6
+         iyczBBQWO3pS8CkABXTPJIjr39/EbGk+4QdDxSz8+Y2cCuL9w3yPiCgNgxxcmund0yhC
+         jgSA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=IgxuuZRw;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b="Q+YoW/d6";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::631 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=aSr5VJNAKEX0BW7b/NszlMMLJBNNVacZ6aXY94dm3+U=;
-        b=FUG96JsCl+LbZKzXZKZkDnMcjQN36TgiO12WQ9b9QQUtpbhTP1ryYYo7piktLQJGmf
-         e+aS4qgMWRfcQN6ThfmkNRDY8qi/4hL3upMUvTASQs7ZjIEgkune056TD968IiCd5pJt
-         mZ661N4vo7GwqyFHF3i5tYjFCzu7huj84nnZqveQmpGIIeUmBQgIbrjrOcTNRX2S0/jy
-         SYBsabQFl+NqsOjAVb5ab8Qx1S7eDEcabdXUqAMIgjCAA1Ol3qzTsuSZZ6a5SpwYUyxs
-         cizWf9W+WSayGaGemSMYaOlk9t/kq7OjLR8AvqjfXehoyEMAYTQnN5H05zWdD9A4gEFX
-         lGdw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=aSr5VJNAKEX0BW7b/NszlMMLJBNNVacZ6aXY94dm3+U=;
-        b=BbP1daWhea3PFkgetFfmvcjpvV76ObEbsG12rp3yQe4X+jp6KTOG46wNNPdkLorVYM
-         MY7QeW3ymSTWmeM0eLdrST5oMggMCgGy7FO1AHCwWzpQU5dUWIpuxAvzXl0UuF+gu1Lr
-         wqWjkbrw25QpYvlWh9iNHtRl3o7g+OhQly7QdNd4mOtugD1NIefU2tVEL/+hsTz7A82x
-         IlfHWk2HN7ByvW/fnsjojnYdroCYRAaGijumYOlaN48KXYpdjEoz1jaEAopv4BneN0NF
-         UaIV6BAgJamveylZuMdqwPABDlz6WiZcy5FuaT8K4rdeQHCJ5+tJGhcdcK809r2G9W7z
-         eHLQ==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=uDcSy2DeKH3BjhTG0xDA6wqXTV2XGiwuFojPQcKZOPA=;
+        b=IXUFZ96ErRZc2gGaB5amJdrWXmZuqoe+BJ+SkDSMXCVKrJi2gSE92ibHVZ6qc3MKY8
+         D0rfBOU3NN7GdL24rfj514RyOOuKigAaT2GeQbIt4qq4jjYgk7e6EiPzl/bZg+wxaxBE
+         Ow0uDYtascKPr4kxZm8sbPPlTNAzUJzbbtcM+3UmdncVBBqAkK1VEqyzXf2tTkIt+e/a
+         y1/yjfBVd75sKe/64y6yv0vNEfgrLhQx7Nscgvb1GYA1ysAW/6d70V4lRVALwJAf6fUd
+         YaSy7KKMToJVQFK1EnehynLD7jHp7NmZEPT187OSt42YKIbDTab60lp2XQbC+oieOtxR
+         Jd+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=aSr5VJNAKEX0BW7b/NszlMMLJBNNVacZ6aXY94dm3+U=;
-        b=ghQbJjm/fF4fpYr48THVTMsC00xV0JRNBQUo6BKIdILghNvEg6Ox8T8UC8nZ87tFnI
-         W67XNz4+uYEbnrrWtZkiTkzTfWIvVL3116PrsiY9asnYv+ftPJm3+dJPzBGZ5ZzApjUf
-         YhGH/FDH9cae8kWjYJR58wR3xkvym3KBWfOtWBfHl99nqbG/D1yPnl4cUHi+jNxDXA6Z
-         /5nd92Qz2Qdkk7ScgvvsBXs7uf+3UuVW108WazjWo+Ae7IShlVsItxOAkZru5Jh4X4oN
-         v4/bMuth7LQTzirivxRkSenU/h5odQNMEit5hdv/tfBbfpvS/oj5sUAGiBof2qSFE6dc
-         7fgg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuaEhzLTj/VgdlvZQw03lZMRIbv3SIFVEUfH8Vq+CdFh67oXAjFP
-	UteQsiDeZGZUaiwDZgwsxvE=
-X-Google-Smtp-Source: APiQypKBpqqbp4MmRR+R98JjmWN/51ovFCSUoDcNtHKpSusD6yRRSYjNlNNB2j8cVpdhYuuVmLgpXg==
-X-Received: by 2002:aca:f491:: with SMTP id s139mr12912285oih.128.1586803957699;
-        Mon, 13 Apr 2020 11:52:37 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=uDcSy2DeKH3BjhTG0xDA6wqXTV2XGiwuFojPQcKZOPA=;
+        b=Qe70n7asg+ZEsYd2gCN+QvQH1ZV2U/DKufIRXGix/4OAhOX2Rv7QchfiUV7Pb3O+ml
+         dnYK01mgTxgT1DGLqmktJqkJPOYYobtpxKp1OiQqDtsJIewtx6JU2yqUcJHGBOQTz4/3
+         Z2T4Cf+OXes+bMJTr7iufUf5MxF0bzCRjI8lZXC+r9/RbBotGj+K+InWjsyEHiPhn8V9
+         Hq3MjGVIqUjLcwD5BgbfvVkQfptUmZLtVrtgloSlhwosXtUO6U13+EytIiG8jV3FJx3x
+         tTHAoagCs/Ec8sRDpNMxXgAIp9Y7csKPwPwHsHJNAfqfvVeF1XTc8yyhKRlCxx1sCApN
+         4Ykg==
+X-Gm-Message-State: AGi0PuZUliXh7iU+gfJ9AWl7No9IbHbtM3NIbRf2e/1Ei36EY8JtIDvm
+	VXaI68VD89ox147JSTTE9c4=
+X-Google-Smtp-Source: APiQypJwBWZFnHfOhWupGbr8F8vp9Fb9SX40wwMHULmN2BQsAFXCRgRs7CyL2YNCtyIsMcUHgB/TLg==
+X-Received: by 2002:a5d:8d90:: with SMTP id b16mr17853648ioj.9.1586804301495;
+        Mon, 13 Apr 2020 11:58:21 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:c693:: with SMTP id m19ls45887ooq.4.gmail; Mon, 13 Apr
- 2020 11:52:37 -0700 (PDT)
-X-Received: by 2002:a4a:3306:: with SMTP id q6mr15057019ooq.81.1586803957358;
-        Mon, 13 Apr 2020 11:52:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586803957; cv=none;
+Received: by 2002:a92:8619:: with SMTP id g25ls407643ild.7.gmail; Mon, 13 Apr
+ 2020 11:58:21 -0700 (PDT)
+X-Received: by 2002:a92:394d:: with SMTP id g74mr18193965ila.250.1586804301081;
+        Mon, 13 Apr 2020 11:58:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586804301; cv=none;
         d=google.com; s=arc-20160816;
-        b=WrPN4DLISMjmkjpfOONyFYhsi/9qzfxVEKCAZS/ebcWMxLvRU2vlAxK2VmxJ9rAl8+
-         PjUDHVM/kuYYzOWuu+VaB2RaoqmB16V+d8ScRPZrwks3brhX7LvTBlFWvvntsTneo25g
-         CsMevEV6SEcTHQ+MmOH9U6TTQU4oxw4wKLRH/mD4ep30W3EwwuAJtJm60H+9k4P8cpbN
-         hQMAxHq5KYc+GKOm35DlXMrWe/wVvebi3OUjsdTX730/tMG/b82X2gzln2a1MQAi3LQ+
-         NV2iQ88ZrRaLFEO6BdRyJRcSmnkbS63fFSHEeTsrK5XkKLAOshIXyvy4iJnxw5t+kaRI
-         igIA==
+        b=IQFDrNU8vwCqZCLukp0qbaqo1rBiUgs54fkKAG0D6+3mi36fY9SMleU0JSBYenNZc5
+         eNURcFG48aJAM7Afrf3W8i9kPH76mbnIJk44eOgnD5+M8rctz9ARBk6N3VFpWg1Nc9Kc
+         wMzowassaFQAKqBSlAGB+q942zi3FOXdpZX4y6MQK1/3Ihir1NFSLzBd+2zmsITfRlSs
+         bG0RhIVuHOvyqgZEJoNr8H0iOUYmLux+Gx3KhsX9/V9MSGNNr4UoWx052qacg1NVYIiv
+         N4PNnlMdqpF6HXjA/usvcS+96s25qvmRUmJwn+/tueWXJ32td60VUHeNUdwZhYIk0o9r
+         GnyA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=xC3x0yRcgUpqkBQhYGspeGLwB9d9vOWv+kQdwmDFIYk=;
-        b=P+osym9kHMFDtqu7/qXzbsNqHpObVjSedk50KUjOaFMKYTiPMin2ykarwylJleDD76
-         5MtK+SjsCKsYNRlmd+qxRT3Y04iyaGqp4xmy1ZwKga9cMTRL7d4WWzfATrISX0EYyAtU
-         bTUCrsl8d0gNOa3wsWI8TuiSZI3sy+UghTzFLoWSUw83vtwZnyFk4hd6YXXUZwmg8vwG
-         2pSX0ZUS/kfPTtt5dIttG8mUJxxe9eix0fdxYhvNTwY5zpXuDusYjBidEbcH7s1EIcwu
-         xGjYKVGcCabrs/pPKUDnCon+J8QiVhCf4u5LmAVZo96Ne+yvf1HuSXuat28ntwZgi7le
-         SXfA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=WjnAyyRsydOKb/QuMqRE12EBcV3KSnJxuMf7eTDSqfg=;
+        b=ZNaHoX9oBLSqE6x8HPykhPBHwrP0dAR7B6tMtGyWKBcaWku9oSsCWEJAPZi7hq8fkO
+         LpmGIVohHNTmirbUC/7J3tKzazIdwIJI43FAiV+chFpEjlR0yRcZViJWggmn5Z0KkFvy
+         sxfGrcmsV7XrLwYF/aRyjDBF8rKQm92SHbsU2dOL8dqbAo21F/LPqmWiLzrpyE++p+5I
+         ddleOplAUEX1PIqlBfBrKxGhtlgytO+bLfA/QuEOi/BwCCpmSxpiceGojz7y4cYupNJJ
+         rL9auMKNpAeMQwVAorOK1CQIJIXXm7alPy7KBF+ZSMDUGVjQQQD5reJIekOMF/RpCQrV
+         vGmA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=IgxuuZRw;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x343.google.com (mail-ot1-x343.google.com. [2607:f8b0:4864:20::343])
-        by gmr-mx.google.com with ESMTPS id w6si377802oti.2.2020.04.13.11.52.37
+       dkim=pass header.i=@google.com header.s=20161025 header.b="Q+YoW/d6";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::631 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pl1-x631.google.com (mail-pl1-x631.google.com. [2607:f8b0:4864:20::631])
+        by gmr-mx.google.com with ESMTPS id g17si206185ioe.0.2020.04.13.11.58.21
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Apr 2020 11:52:37 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::343 as permitted sender) client-ip=2607:f8b0:4864:20::343;
-Received: by mail-ot1-x343.google.com with SMTP id w12so9267240otm.13
-        for <clang-built-linux@googlegroups.com>; Mon, 13 Apr 2020 11:52:37 -0700 (PDT)
-X-Received: by 2002:a4a:9c41:: with SMTP id c1mr15471481ook.43.1586803956871;
-        Mon, 13 Apr 2020 11:52:36 -0700 (PDT)
-Received: from ubuntu-s3-xlarge-x86 ([2604:1380:4111:8b00::3])
-        by smtp.gmail.com with ESMTPSA id w19sm4948336otj.57.2020.04.13.11.52.35
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Mon, 13 Apr 2020 11:52:36 -0700 (PDT)
-Date: Mon, 13 Apr 2020 11:52:34 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Jiaxun Yang <jiaxun.yang@flygoat.com>
-Cc: linux-mips@vger.kernel.org, macro@linux-mips.org,
-	clang-built-linux@googlegroups.com,
-	Fangrui Song <maskray@google.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Borislav Petkov <bp@suse.de>, Kees Cook <keescook@chromium.org>,
-	Heiko Carstens <heiko.carstens@de.ibm.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4] MIPS: Truncate link address into 32bit for 32bit
- kernel
-Message-ID: <20200413185234.GA12413@ubuntu-s3-xlarge-x86>
-References: <20200413062651.3992652-1-jiaxun.yang@flygoat.com>
+        Mon, 13 Apr 2020 11:58:21 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::631 as permitted sender) client-ip=2607:f8b0:4864:20::631;
+Received: by mail-pl1-x631.google.com with SMTP id y12so3418553pll.2
+        for <clang-built-linux@googlegroups.com>; Mon, 13 Apr 2020 11:58:21 -0700 (PDT)
+X-Received: by 2002:a17:902:988e:: with SMTP id s14mr18341817plp.179.1586804300040;
+ Mon, 13 Apr 2020 11:58:20 -0700 (PDT)
 MIME-Version: 1.0
+References: <202004112326.VstzFIY8%lkp@intel.com>
+In-Reply-To: <202004112326.VstzFIY8%lkp@intel.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 13 Apr 2020 11:58:08 -0700
+Message-ID: <CAKwvOdnOFHDFpo4M3xEwzSrAQeRUbxj_quCZWf7tsRa31yOdZA@mail.gmail.com>
+Subject: Re: [android-goldfish:android-4.14 1/2] Warning: ffffffff81ca0d60: 0f
+ ff 49 8d ud0 -0x73(%rcx),%ecx
+To: clang-built-linux <clang-built-linux@googlegroups.com>
+Cc: kbuild-all@lists.01.org, kbuild test robot <lkp@intel.com>, 
+	Martijn Coenen <maco@android.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200413062651.3992652-1-jiaxun.yang@flygoat.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Original-Sender: natechancellor@gmail.com
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=IgxuuZRw;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@google.com header.s=20161025 header.b="Q+YoW/d6";       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::631
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -154,120 +130,96 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Jiaxun,
+On Sat, Apr 11, 2020 at 8:05 AM kbuild test robot <lkp@intel.com> wrote:
+>
+> tree:   https://android.googlesource.com/kernel/goldfish android-4.14
+> head:   bb8ba1da294318ef080cfedb3a632d0035bb0949
+> commit: b8bcfe587e1724f14394a8cae68d7d9ad7ccb55e [1/2] UPSTREAM: loop: Only change blocksize when needed.
+> config: x86_64-randconfig-e001-20200410 (attached as .config)
+> compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 7149bb70681a91de5d490b4bb0714d9e55a05bcc)
+> reproduce:
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         git checkout b8bcfe587e1724f14394a8cae68d7d9ad7ccb55e
+>         # save the attached .config to linux build tree
+>         COMPILER=clang make.cross ARCH=x86_64
+>
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kbuild test robot <lkp@intel.com>
+>
+> All warnings (new ones prefixed by >>):
+>
+> >> Warning: ffffffff81ca0d60: 0f ff 49 8d ud0 -0x73(%rcx),%ecx
+>    Warning: objdump says 4 bytes, but insn_get_length() says 2
+>    Warning: arch/x86/tools/test_get_len found difference at <memcpy_page_flushcache>:ffffffff81ca026a
 
-On Mon, Apr 13, 2020 at 02:26:49PM +0800, Jiaxun Yang wrote:
-> LLD failed to link vmlinux with 64bit load address for 32bit ELF
-> while bfd will strip 64bit address into 32bit silently.
-> To fix LLD build, we should truncate load address provided by platform
-> into 32bit for 32bit kernel.
-> 
-> Signed-off-by: Jiaxun Yang <jiaxun.yang@flygoat.com>
-> Link: https://github.com/ClangBuiltLinux/linux/issues/786
-> Link: https://sourceware.org/bugzilla/show_bug.cgi?id=25784
-> Cc: Fangrui Song <maskray@google.com>
-> Cc: Nathan Chancellor <natechancellor@gmail.com>
+Looks like test_get_len exists in 4.14 but was removed between then
+and 4.19.  Oh, it was renamed to insn_decoder_test in commit
+6b63dd119eb4 ("x86/tools: Rename test_get_len to insn_decoder_test")
+
+ud0 looks like ud2...
+
+Filed https://github.com/ClangBuiltLinux/linux/issues/992 to follow
+up.  The instruction lengths are important for alternatives.
+
 > --
-> V2: Take MaskRay's shell magic.
-> 
-> V3: After spent an hour on dealing with special character issue in
-> Makefile, I gave up to do shell hacks and write a util in C instead.
-> Thanks Maciej for pointing out Makefile variable problem.
-> 
-> v4: Finally we managed to find a Makefile method to do it properly
-> thanks to Kees. As it's too far from the initial version, I removed
-> Review & Test tag from Nick and Fangrui and Cc instead.
+> >> Warning: ffffffff81ca11f2: 0f ff 49 8d ud0 -0x73(%rcx),%ecx
+>    Warning: objdump says 4 bytes, but insn_get_length() says 2
+>    Warning: arch/x86/tools/test_get_len found difference at <memcpy_page_flushcache>:ffffffff81ca026a
+> --
+> >> Warning: ffffffff81ca145f: 0f ff 48 8d ud0 -0x73(%rax),%ecx
+>    Warning: objdump says 4 bytes, but insn_get_length() says 2
+>    Warning: arch/x86/tools/test_get_len found difference at <memcpy_page_flushcache>:ffffffff81ca026a
+> --
+> >> Warning: ffffffff81ca1516: 0f ff 48 8d ud0 -0x73(%rax),%ecx
+>    Warning: objdump says 4 bytes, but insn_get_length() says 2
+>    Warning: arch/x86/tools/test_get_len found difference at <memcpy_page_flushcache>:ffffffff81ca026a
+> --
+> >> Warning: ffffffff81ca173b: 0f ff 48 8d ud0 -0x73(%rax),%ecx
+>    Warning: objdump says 4 bytes, but insn_get_length() says 2
+>    Warning: arch/x86/tools/test_get_len found difference at <memcpy_page_flushcache>:ffffffff81ca026a
+> --
+> >> Warning: ffffffff81ca17c8: 0f ff 48 8d ud0 -0x73(%rax),%ecx
+>    Warning: objdump says 4 bytes, but insn_get_length() says 2
+>    Warning: arch/x86/tools/test_get_len found difference at <memcpy_page_flushcache>:ffffffff81ca026a
+> --
+> >> Warning: ffffffff81ca1955: 0f ff 48 8d ud0 -0x73(%rax),%ecx
+>    Warning: objdump says 4 bytes, but insn_get_length() says 2
+>    Warning: arch/x86/tools/test_get_len found difference at <memcpy_page_flushcache>:ffffffff81ca026a
+> --
+> >> Warning: ffffffff81ca1973: 0f ff 48 8d ud0 -0x73(%rax),%ecx
+>    Warning: objdump says 4 bytes, but insn_get_length() says 2
+>    Warning: arch/x86/tools/test_get_len found difference at <memcpy_page_flushcache>:ffffffff81ca026a
+> --
+> >> Warning: ffffffff81ca1b86: 0f ff 49 8d ud0 -0x73(%rcx),%ecx
+>    Warning: objdump says 4 bytes, but insn_get_length() says 2
+>    Warning: arch/x86/tools/test_get_len found difference at <memcpy_page_flushcache>:ffffffff81ca026a
+> --
+> >> Warning: ffffffff81ca1bd4: 0f ff 48 8d ud0 -0x73(%rax),%ecx
+>    Warning: objdump says 4 bytes, but insn_get_length() says 2
+>    Warning: arch/x86/tools/test_get_len found difference at <memcpy_page_flushcache>:ffffffff81ca026a
+> --
+> >> Warning: ffffffff81ca1bda: 0f ff 48 8d ud0 -0x73(%rax),%ecx
+>    Warning: objdump says 4 bytes, but insn_get_length() says 2
+>    Warning: arch/x86/tools/test_get_len found difference at <memcpy_page_flushcache>:ffffffff81ca026a
+> ..
+>
 > ---
->  arch/mips/Makefile             | 12 +++++++++++-
->  arch/mips/kernel/vmlinux.lds.S |  2 +-
->  2 files changed, 12 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/mips/Makefile b/arch/mips/Makefile
-> index e1c44aed8156..18495568f03e 100644
-> --- a/arch/mips/Makefile
-> +++ b/arch/mips/Makefile
-> @@ -288,9 +288,19 @@ ifdef CONFIG_64BIT
->    endif
->  endif
->  
-> +# When linking a 32-bit executable the LLVM linker cannot cope with a
-> +# 32-bit load address that has been sign-extended to 64 bits.  Simply
-> +# remove the upper 32 bits then, as it is safe to do so with other
-> +# linkers.
-> +ifdef CONFIG_64BIT
-> +	load-ld			= $(load-y)
-> +else
-> +	load-ld			= $(subst 0xffffffff,0x,$(load-y))
-> +endif
-> +
->  KBUILD_AFLAGS	+= $(cflags-y)
->  KBUILD_CFLAGS	+= $(cflags-y)
-> -KBUILD_CPPFLAGS += -DVMLINUX_LOAD_ADDRESS=$(load-y)
-> +KBUILD_CPPFLAGS += -DVMLINUX_LOAD_ADDRESS=$(load-y) -DVMLINUX_LINK_ADDRESS=$(load-ld)
->  KBUILD_CPPFLAGS += -DDATAOFFSET=$(if $(dataoffset-y),$(dataoffset-y),0)
->  
->  bootvars-y	= VMLINUX_LOAD_ADDRESS=$(load-y) \
-> diff --git a/arch/mips/kernel/vmlinux.lds.S b/arch/mips/kernel/vmlinux.lds.S
-> index a5f00ec73ea6..5226cd8e4bee 100644
-> --- a/arch/mips/kernel/vmlinux.lds.S
-> +++ b/arch/mips/kernel/vmlinux.lds.S
-> @@ -55,7 +55,7 @@ SECTIONS
->  	/* . = 0xa800000000300000; */
->  	. = 0xffffffff80300000;
->  #endif
-> -	. = VMLINUX_LOAD_ADDRESS;
-> +	. = VMLINUX_LINK_ADDRESS;
->  	/* read-only */
->  	_text = .;	/* Text and read-only data */
->  	.text : {
-> -- 
-> 2.26.0.rc2
-> 
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202004112326.VstzFIY8%25lkp%40intel.com.
 
-This version does not quite work:
 
-ld.lld: error: section .text at 0xFFFFFFFF80990000 of size 0x388C exceeds available address space
-ld.lld: error: section .MIPS.abiflags at 0xFFFFFFFF80993890 of size 0x18 exceeds available address space
-ld.lld: error: section .rodata.str1.1 at 0xFFFFFFFF809938A8 of size 0x164 exceeds available address space
-ld.lld: error: section .eh_frame at 0xFFFFFFFF80993A0C of size 0x2C exceeds available address space
-ld.lld: error: section .data at 0xFFFFFFFF80993A40 of size 0x38EFD0 exceeds available address space
-ld.lld: error: section .got at 0xFFFFFFFF80D22A10 of size 0x8 exceeds available address space
-ld.lld: error: section .bss at 0xFFFFFFFF80E22A20 of size 0x402010 exceeds available address space
-ld.lld: error: section .sbss at 0xFFFFFFFF81224A30 of size 0x8 exceeds available address space
-make[2]: *** [/home/nathan/src/linux/arch/mips/boot/compressed/Makefile:104: vmlinuz] Error 1
 
-I think something like this is needed but I do not know if it is proper.
-
-Cheers,
-Nathan
-
-diff --git a/arch/mips/Makefile b/arch/mips/Makefile
-index 18495568f03e..68c0f22fefc0 100644
---- a/arch/mips/Makefile
-+++ b/arch/mips/Makefile
-@@ -304,6 +304,7 @@ KBUILD_CPPFLAGS += -DVMLINUX_LOAD_ADDRESS=$(load-y) -DVMLINUX_LINK_ADDRESS=$(loa
- KBUILD_CPPFLAGS += -DDATAOFFSET=$(if $(dataoffset-y),$(dataoffset-y),0)
- 
- bootvars-y	= VMLINUX_LOAD_ADDRESS=$(load-y) \
-+		  VMLINUX_LINK_ADDRESS=$(load-ld) \
- 		  VMLINUX_ENTRY_ADDRESS=$(entry-y) \
- 		  PLATFORM="$(platform-y)" \
- 		  ITS_INPUTS="$(its-y)"
-diff --git a/arch/mips/boot/compressed/Makefile b/arch/mips/boot/compressed/Makefile
-index 0df0ee8a298d..3d391256ab7e 100644
---- a/arch/mips/boot/compressed/Makefile
-+++ b/arch/mips/boot/compressed/Makefile
-@@ -90,7 +90,7 @@ ifneq ($(zload-y),)
- VMLINUZ_LOAD_ADDRESS := $(zload-y)
- else
- VMLINUZ_LOAD_ADDRESS = $(shell $(obj)/calc_vmlinuz_load_addr \
--		$(obj)/vmlinux.bin $(VMLINUX_LOAD_ADDRESS))
-+		$(obj)/vmlinux.bin $(VMLINUX_LINK_ADDRESS))
- endif
- UIMAGE_LOADADDR = $(VMLINUZ_LOAD_ADDRESS)
- 
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200413185234.GA12413%40ubuntu-s3-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnOFHDFpo4M3xEwzSrAQeRUbxj_quCZWf7tsRa31yOdZA%40mail.gmail.com.
