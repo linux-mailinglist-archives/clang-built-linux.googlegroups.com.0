@@ -1,99 +1,106 @@
-Return-Path: <clang-built-linux+bncBCSPV64IYUKBBJ5G2P2AKGQEYABIA6A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDJNHL5JSEOBB2NM2P2AKGQE3IVAIPY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-f63.google.com (mail-lf1-f63.google.com [209.85.167.63])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6695B1A6DB3
-	for <lists+clang-built-linux@lfdr.de>; Mon, 13 Apr 2020 23:01:28 +0200 (CEST)
-Received: by mail-lf1-f63.google.com with SMTP id v6sf4043198lfi.6
-        for <lists+clang-built-linux@lfdr.de>; Mon, 13 Apr 2020 14:01:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586811687; cv=pass;
+Received: from mail-lj1-x23a.google.com (mail-lj1-x23a.google.com [IPv6:2a00:1450:4864:20::23a])
+	by mail.lfdr.de (Postfix) with ESMTPS id A58091A6DD1
+	for <lists+clang-built-linux@lfdr.de>; Mon, 13 Apr 2020 23:15:22 +0200 (CEST)
+Received: by mail-lj1-x23a.google.com with SMTP id h3sf584241lja.1
+        for <lists+clang-built-linux@lfdr.de>; Mon, 13 Apr 2020 14:15:22 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586812522; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RATD29ULon5JsyyZCjH/3d9V0111O+5TlckN5M/J/c8pxKEfWDgu6QkU5qgPacOe5X
-         vjo4kTYhtpI6JpMMzKd4LFv+kao4gIb+9LzNC4rl/aZA2qsfYnFN7hUK81jlwee1LFiL
-         G+ZnDsiU6C1TD4lhHRAtCC4Iw8TBEgtZfQumUHxO5/4LLg49NhA5E19jkffkolJLF/Ef
-         OBp/9wdpEiLcNvVEx6SwlBnmBqNP5k8onnczLSbYKKUIATYKtJcvAL+hmIxQTwbaZzwM
-         6BNlu2F/pOgX2EiNPnIh5p4sGxSDVPDopk0UFhYRV8ZmLKNQ4fRKQcCWsJpTJSSUAE39
-         r68Q==
+        b=jtuKQ72NsNlOL34ZH0iEbl1AcRWL2mPjq9bbdjD2kRc8JOK/AGRbXeHd+tb2c+GoDi
+         aNanW0ervaBDvnX+Gfegymkw34FjrEkIihl2FuY1iC6/yqtqeJgTqc4RaQhx/6f+KgMp
+         V4sBzURM0ZALVqGJ3dxI9u22ED1Jtouhalu2CozTdh0oWPkJmVhBxcrlR2zeKAj4WcaN
+         bItYofsUEiT95OV5UdlzETgZ610BNY5LVPSr47rm/Ug3sQn3tBcPwm7rmBA/U0ktPOWO
+         VYrDHFBKW7qeCA1/LJtsBPorqin5Ik+ExbmQFXbeWc2hTAd7bZipEL3kyvde57Kuf5/x
+         jrUw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:sender:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date;
-        bh=bEAorZZ/ylxnooUAzOAxUZxxpofFVQoC2laAsgLPKkI=;
-        b=uES3svl+g0LfqT2t7EOQpmOkGrqkPgneIUQLMtn0t8m8qJiHNXlQIH2MJayOgNb/tF
-         K70jhe5V3b2mBYRGrYwIxE20/dIUV28XzaOHHEU1ib18SPMDzBu66/LeBI3IfdHZ0Xg8
-         hJMV0gdGbsau7wzQz43JdhCsQQgor9djbiLylTd7weCaoIe342zQYxwws2jNBgchNaJ0
-         Z4Eh4AClQqCqln3D+ssfIT5VRqDiGHrEidAsXOBT8xx5WNWTcK0cpnquhEkDV4k99gBQ
-         rO54TTa73HAFPYr0BqxSx2mW0ciOU89txw2Frg4aTT55PSvqbusMXmjaRp+IC1ZdGjmg
-         9IjA==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=Pr1zRlk8pmzdpGqJvCIfCKJz6x2TI717OQxFz+8ynWQ=;
+        b=viIP+NKdvicILNdiUKoThzUApCn0AAeFRzzXhasQ5DSo8sx40In7C4qew5sU6iH41B
+         YG2rDlrMFm/6B1b6AMgkGCrOb3kgaJyyUYd6mDzrb1fJBDy/1KfYOHyyQNAMvETQb60N
+         +eN0YIjeA732/WvSK+INigDXKDttPnbRaU9DIgyGBlTL2HQulR+mXi6ESyBJHUcGsCaM
+         /CE5R9guXQidJUntfdccLzDm06MYUvji1oaJcWgAHIvaJ6ZD04J0jqhzDSMYAkNzxo1H
+         rni8x3nek/G57UIY5raha+9tx2A7h9P0exFPAn3qmUpLO5PFf06o3rwXFCeTquxNbxU5
+         r38w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass (test mode) header.i=@armlinux.org.uk header.s=pandora-2019 header.b=Dzxd7eN4;
-       spf=pass (google.com: best guess record for domain of linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender) smtp.mailfrom="linux+clang-built-linux=googlegroups.com@armlinux.org.uk";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=armlinux.org.uk
+       dkim=pass header.i=@lunn.ch header.s=20171124 header.b=cOXAiD8Z;
+       spf=pass (google.com: domain of andrew@lunn.ch designates 185.16.172.187 as permitted sender) smtp.mailfrom=andrew@lunn.ch
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20161025;
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=Pr1zRlk8pmzdpGqJvCIfCKJz6x2TI717OQxFz+8ynWQ=;
+        b=tFsem+UByXHwup3TFXHOjQVscNBAL1ZKwo5J3/PNjHaSNHRXMhVqCU5k/qGgc0CiBI
+         P6fxsq8Jx+aG9qvvFtSzTBjG9EuUzoZrf+ClYBObalIeAULyt/owaGWR/LLBLSGjzs6X
+         KpvOrBWqapQCquGcbbbUxe76Gp9hfzmCk8nHb/1n6kxS9v2fB71n1tOtpHnSuY6wUoDC
+         /NrERccEebTxS6G0sxxYDh0QoqNWZ1IxvJfaJi1mW1u4b+Ay9GPajcTpdxMk6gp+eIZt
+         t3WiW9Reg9ku/EGxTuHQNrrnDaXLlfqF71sn0CTEPf2awz1T3klAbb/JeuTbquMZkOD4
+         HZww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to:user-agent:sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=bEAorZZ/ylxnooUAzOAxUZxxpofFVQoC2laAsgLPKkI=;
-        b=F+kP0wsIEkjLIwG1ch/Ks2vaJN3elQEciUx0Lrcm6GmlKtYmIJCFJdhPnDoz53n4V4
-         pFv5fepWEtzQ8vzuSRCEvUz6MVSXprNlPfCZBmAzgmSlQgmO+fcJg+nb/AqIyr4Q1Kmt
-         24q4up18oEYXNsN+4yYqdfy5Xnzp4iI8WsQO+BE58D4EbfFn9QDCIFhXEgYu/YqsrQwj
-         BfsRCHxVGZ4PUQ/+dIsFa2AQcGvmcX9rLmyfZjX/I1fVsVvg8qmJgpco+gQl2Ti2lrF6
-         kb9b2fJwLdlihiU97rrNm9IEXYSs22itdBPadIl7qDh4Hm7VRt64f6dw5RYBz/rZu5+0
-         dLMw==
-X-Gm-Message-State: AGi0PuYhgxR/7kbqyE/+jxU50S+f2CPYSYL+I19Hy6pO05ncAuz8U1m9
-	cjKnASntwNNRkQQYwSpvRiw=
-X-Google-Smtp-Source: APiQypJ8E4kgIc7GZBMXHlYynyjO8l+/hQ052ayVntC1HeOCJSbg98tyQF94FWW5WbnQQ4nIjMlKwQ==
-X-Received: by 2002:a2e:b177:: with SMTP id a23mr11626190ljm.174.1586811687755;
-        Mon, 13 Apr 2020 14:01:27 -0700 (PDT)
+        bh=Pr1zRlk8pmzdpGqJvCIfCKJz6x2TI717OQxFz+8ynWQ=;
+        b=myhh4+X+12YAJRY5Jo0eAMbnitvuBL8ocNosOCPmNk1WxIwtgOA0OkuQleck2ESzmh
+         Iw0EQXIBdIn8xkFz0oYdPCNfsJYEDITpLS9QCACYdUn4hjPB68KPviu0M35mo422YMNj
+         JwghlUGMJz6O4M6gP30wpEna1X9pZ6tm6ijgDr2ub2F0l436ujFLdAww0Ogi4sfHH3dm
+         MxZXosEL6sgdEcWFW+lbcOFjED/ARF+7vxJEhh5faVT8uPIqkFxMNIlaAizG1kZi7Qtz
+         34xQyfgau2KhOPNe0RGcWEaBCfHmqr3cAQO99Q2Du1GyvK63KXMFHybdVVy9p3Ifk0/L
+         Ap+g==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AGi0PuaJVDTInTRG8YEbUpXZnCKDQyEYY1L/6BmNptQ4ap9FlpPPwP5j
+	ak85kdjFZKWURaBhgkCuoCY=
+X-Google-Smtp-Source: APiQypJJopvxHtIKZzXorKCx0C6SnXhEDDjQQrSf6KY5P7/HarOrXZ72vud6MyG1aM+SwP59pNvzBQ==
+X-Received: by 2002:ac2:483a:: with SMTP id 26mr11413581lft.5.1586812522089;
+        Mon, 13 Apr 2020 14:15:22 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:a49b:: with SMTP id h27ls258769lji.5.gmail; Mon, 13 Apr
- 2020 14:01:27 -0700 (PDT)
-X-Received: by 2002:a2e:a58e:: with SMTP id m14mr11249629ljp.204.1586811687114;
-        Mon, 13 Apr 2020 14:01:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586811687; cv=none;
+Received: by 2002:a2e:9708:: with SMTP id r8ls263470lji.10.gmail; Mon, 13 Apr
+ 2020 14:15:21 -0700 (PDT)
+X-Received: by 2002:a2e:974d:: with SMTP id f13mr11939753ljj.178.1586812521231;
+        Mon, 13 Apr 2020 14:15:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586812521; cv=none;
         d=google.com; s=arc-20160816;
-        b=UyW1IJ7UBB+AxpqdfcQ1yPKDygw4jQSfp2iQMDPldNRie4zaC/QhxHl3rF5VapYIKq
-         lgNNN6MrAJqQv6vq4c2tEFxx/qBmXOgJPY+vwftBlJAscYq4mJwuLXJYbeYcmG12pZAu
-         ZrJoXY3+f0IdFpXC3lOAq49FheMilWfZrTTqb2B2bxPOR60N4KL53Cip2h6oiFHfrz+k
-         c/sBnkUPaTlhDGcGO18zQAYcPfWoDrN+0Sui1wVdgskzUdoIcrkNrwi+qgbl0ipbPAIU
-         rv7BbK2M9WkTtMWNTWQlEEYI2HpvOn4/25WECM+74N9IMv6PENBxEn+CiHDgx1HpcTlZ
-         rViA==
+        b=umI8AsvZY4UhbT2YbodZAA71tj7ALrnC1UhIfA0s4pETQnSqHyw3W+QkO1ARgItBw8
+         IYTFP9kUAtHVj261db+6UHe+bfbwlYQMrxFP91AP4YDI/nobY5vwXrjOpOdjL1+VlZkW
+         WMQwq7j4VVdKJMsGrwxCN+0UQu+OVdZWVA4cT7sSHX24OD8r00sFus6tA5CyLcX3EOLl
+         wefAcGboP5M5uwqUaDQrXjkMC2DKTw0mXTQU/5a2eHe4yJ8HTjQ41fbpQpRjcQ6hqQr0
+         I5N7IK6BS8RX1KPCcjMP88IHXgPjzx3bikRroW0DmnfMaYqABzqmLKp5IDgf5ElrDwDx
+         SZwA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=sender:user-agent:in-reply-to:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:dkim-signature;
-        bh=Ws2nR0EpxKl2RJkJk3e0Vaf6eTLG8ASGEhenXWS4AfY=;
-        b=Z0psAxD594HlOydUcuY1A4+jQnPN3gWnlhzQbhWDpHqpN2485Muhp+mkkigGjMa4ja
-         +ZCLlnaI3YiEe85PX0KbwL0yUNgtkLtIjSwHoBWn+XHk1MuM1z+tacLYPBQHzM0InyTi
-         A9nOvtvBjzYWtYBxCyRDl7iwgf2WO7f07TRTnyaCCGN2nMGUiQ+uw2r+eV29vTwhf7Am
-         A+Dn5FWRiYn3ujv7T7FjT7Etdmcfmf3MfZMi17RPOLguN4IsGRLAeggxuCdMDoT5r5MX
-         9lkAP1ilUG1sIr605WjB8V0VhvabEoMdXdK/6aYq7slmcV4fnBKfEy/dbg3xwkAaQZ9V
-         E+/A==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=idZP78QLfRjhluguquTHPSQeRBXMkj6qqFAj2rwGa5w=;
+        b=kSFQb34yJQ7qsii4aHiV/ImaFzjdVYR+riZEpQsp/LezpcN68u0uiKNR1zI5pJftaP
+         kmyG9VRwaHWTlkhh8oLJiUJcXJWuEx6r1ZofSpw8yThseq22akNGjB+VsUnQoCW+eh15
+         2dMxAEQ0oM5cW/3A8ocAengNr0EcwINynOUlBIZ6TmR77ARySzomP78/WjyM/23B2aif
+         rTo1b3IsE1emUOlw8nv697RonMNnu97g7uXeJ9xfVR2q+XRqKviz1jz9aH0gX6TWjemv
+         LIP2CXYfqzzRxYNaiqhBqq+JMuIGOHvymmd1MewHQzw7DJS21e+waVyjNG2tM9HUgzFZ
+         SqIA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass (test mode) header.i=@armlinux.org.uk header.s=pandora-2019 header.b=Dzxd7eN4;
-       spf=pass (google.com: best guess record for domain of linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender) smtp.mailfrom="linux+clang-built-linux=googlegroups.com@armlinux.org.uk";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=armlinux.org.uk
-Received: from pandora.armlinux.org.uk (pandora.armlinux.org.uk. [2001:4d48:ad52:3201:214:fdff:fe10:1be6])
-        by gmr-mx.google.com with ESMTPS id i24si483865ljn.4.2020.04.13.14.01.26
+       dkim=pass header.i=@lunn.ch header.s=20171124 header.b=cOXAiD8Z;
+       spf=pass (google.com: domain of andrew@lunn.ch designates 185.16.172.187 as permitted sender) smtp.mailfrom=andrew@lunn.ch
+Received: from vps0.lunn.ch (vps0.lunn.ch. [185.16.172.187])
+        by gmr-mx.google.com with ESMTPS id a21si597378lfr.4.2020.04.13.14.15.19
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 13 Apr 2020 14:01:26 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender) client-ip=2001:4d48:ad52:3201:214:fdff:fe10:1be6;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:49652)
-	by pandora.armlinux.org.uk with esmtpsa (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
-	(Exim 4.90_1)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1jO6CQ-0003wo-Gw; Mon, 13 Apr 2020 22:00:58 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.92)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1jO6CH-0007Ht-8g; Mon, 13 Apr 2020 22:00:49 +0100
-Date: Mon, 13 Apr 2020 22:00:49 +0100
-From: Russell King - ARM Linux admin <linux@armlinux.org.uk>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Apr 2020 14:15:19 -0700 (PDT)
+Received-SPF: pass (google.com: domain of andrew@lunn.ch designates 185.16.172.187 as permitted sender) client-ip=185.16.172.187;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.93)
+	(envelope-from <andrew@lunn.ch>)
+	id 1jO6Q8-002W4d-Hz; Mon, 13 Apr 2020 23:15:08 +0200
+Date: Mon, 13 Apr 2020 23:15:08 +0200
+From: Andrew Lunn <andrew@lunn.ch>
 To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
+Cc: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linus.walleij@linaro.org>,
 	Peter Smith <Peter.Smith@arm.com>, Stefan Agner <stefan@agner.ch>,
 	David Howells <dhowells@redhat.com>,
 	Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
@@ -101,15 +108,14 @@ Cc: Linus Walleij <linus.walleij@linaro.org>,
 	Benjamin Gaignard <benjamin.gaignard@linaro.org>,
 	"Joel Fernandes (Google)" <joel@joelfernandes.org>,
 	Jian Cai <caij2003@gmail.com>,
-	Bartosz Golaszewski <bgolaszewski@baylibre.com>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
 	Ilie Halip <ilie.halip@gmail.com>,
 	Masahiro Yamada <masahiroy@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
 	Krzysztof Kozlowski <krzk@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Bartosz Golaszewski <bgolaszewski@baylibre.com>,
 	Sami Tolvanen <samitolvanen@google.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
+	"Eric W. Biederman" <ebiederm@xmission.com>,
 	"Steven Rostedt (VMware)" <rostedt@goodmis.org>,
 	Jian Cai <jiancai@google.com>,
 	Doug Anderson <armlinux@m.disordat.com>,
@@ -118,30 +124,22 @@ Cc: Linus Walleij <linus.walleij@linaro.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
 	Patrick Bellasi <patrick.bellasi@arm.com>,
-	"Eric W. Biederman" <ebiederm@xmission.com>,
-	Tejun Heo <tj@kernel.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>, Tejun Heo <tj@kernel.org>,
 	Andrew Morton <akpm@linux-foundation.org>
 Subject: Re: [PATCH] ARM: do not assemble iwmmxt.S with LLVM toolchain
-Message-ID: <20200413210049.GQ25745@shell.armlinux.org.uk>
+Message-ID: <20200413211508.GE436020@lunn.ch>
 References: <20200409232728.231527-1-caij2003@gmail.com>
  <CAK8P3a3uj7AHbAo4sNzr6KQx5Fk6v99k4ZixCgKo1tUuGoat9Q@mail.gmail.com>
- <CAMj1kXGXNxXGiC4dmNXHkZ6n=J0Fhim3oSwNx4Bz5m9fEphJvQ@mail.gmail.com>
- <20200410123301.GX25745@shell.armlinux.org.uk>
- <CAKwvOd=-u3grX3O4CtBayJYhv=mmsxMrRTF=AMcKMbphN5Xkgg@mail.gmail.com>
+ <CAKwvOdnpW0VSRdD6958xyWh-tDbuVTti265aqOpvfhvh6iQEXQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CAKwvOd=-u3grX3O4CtBayJYhv=mmsxMrRTF=AMcKMbphN5Xkgg@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-Sender: Russell King - ARM Linux admin <linux@armlinux.org.uk>
-X-Original-Sender: linux@armlinux.org.uk
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass (test
- mode) header.i=@armlinux.org.uk header.s=pandora-2019 header.b=Dzxd7eN4;
-       spf=pass (google.com: best guess record for domain of
- linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates
- 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender)
- smtp.mailfrom="linux+clang-built-linux=googlegroups.com@armlinux.org.uk";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=armlinux.org.uk
+In-Reply-To: <CAKwvOdnpW0VSRdD6958xyWh-tDbuVTti265aqOpvfhvh6iQEXQ@mail.gmail.com>
+X-Original-Sender: andrew@lunn.ch
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@lunn.ch header.s=20171124 header.b=cOXAiD8Z;       spf=pass
+ (google.com: domain of andrew@lunn.ch designates 185.16.172.187 as permitted
+ sender) smtp.mailfrom=andrew@lunn.ch
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -154,34 +152,47 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Apr 13, 2020 at 12:23:38PM -0700, Nick Desaulniers wrote:
-> On Fri, Apr 10, 2020 at 5:33 AM Russell King - ARM Linux admin
-> <linux@armlinux.org.uk> wrote:
+On Mon, Apr 13, 2020 at 12:20:57PM -0700, Nick Desaulniers wrote:
+> On Fri, Apr 10, 2020 at 2:56 AM Arnd Bergmann <arnd@arndb.de> wrote:
 > >
-> > For older CPUs, it doesn't matter what the latest ARM ARM says, the
-> > appropriate version of the ARM ARM is the one relevant for the CPU
-> > architecture.  This is a mistake frequently made, and it's been pointed
-> > out by Arm Ltd in the past (before ARMv6 even came on the scene) that
-> > keeping older revisions is necessary if you want to be interested in
-> > the older architectures.
+> > On Fri, Apr 10, 2020 at 1:28 AM Jian Cai <caij2003@gmail.com> wrote:
+> > >
+> > > iwmmxt.S contains XScale instructions LLVM ARM backend does not support.
+> > > Skip this file if LLVM integrated assemmbler or LLD is used to build ARM
+> > > kernel.
+> > >
+> > > Signed-off-by: Jian Cai <caij2003@gmail.com>
+> >
+> > It clearly makes sense to limit the Kconfig option to compilers that
+> > can actually build it.
+> > A few questions though:
+> >
+> > - Given that Armada XP with its PJ4B was still marketed until fairly
+> > recently[1],
+> >   wouldn't it make sense to still add support for it? Is it a lot of work?
 > 
-> As if it never existed *waves hands*.  Interesting.  Does ARM still
-> distribute these older reference manuals? Do you keep copies of the
-> older revisions?
+> Sorry, can you help me verify from that link that PJ4B uses XSCALE?
 
-I keep copies of every document I've needed that I'm allowed to keep
-as a general rule, including the early paper copies of the ARM
-architecture reference manual. I even have the original VLSI ARM2
-databook.
+I think you missed my email. iwmmxt is not Xscale. iwmmxt is an
+instruction set of its own, which any ARM processor could implement.
 
-For the ARMv5TE architecture, you're looking for DDI0100E which can be
-found via google.
+> I
+> didn't see references to either in the link provided.  Also, given the
+> history of XSCALE as noted by Russell, I'm surprised to see Marvell in
+> the mix.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTC broadband for 0.8mile line in suburbia: sync at 10.2Mbps down 587kbps up
+https://en.wikipedia.org/wiki/XScale
+
+	XScale comprises several distinct families: IXP, IXC, IOP, PXA
+	and CE.
+
+	Intel sold the PXA family to Marvell Technology Group
+	in June 2006.[1] Marvell then extended the brand to include
+	processors with other microarchitectures, like ARM's Cortex.
+
+	Andrew
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200413210049.GQ25745%40shell.armlinux.org.uk.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200413211508.GE436020%40lunn.ch.
