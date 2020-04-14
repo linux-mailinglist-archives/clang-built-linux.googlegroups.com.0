@@ -1,140 +1,131 @@
-Return-Path: <clang-built-linux+bncBCHPXRO65YERBNM3272AKGQE536GUWY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCS7XUWOUULBBEFU272AKGQEWX2GC2Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd37.google.com (mail-io1-xd37.google.com [IPv6:2607:f8b0:4864:20::d37])
-	by mail.lfdr.de (Postfix) with ESMTPS id E52991A805D
-	for <lists+clang-built-linux@lfdr.de>; Tue, 14 Apr 2020 16:50:30 +0200 (CEST)
-Received: by mail-io1-xd37.google.com with SMTP id i15sf14955497iol.5
-        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Apr 2020 07:50:30 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586875829; cv=pass;
+Received: from mail-vs1-xe3d.google.com (mail-vs1-xe3d.google.com [IPv6:2607:f8b0:4864:20::e3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7B9C31A8391
+	for <lists+clang-built-linux@lfdr.de>; Tue, 14 Apr 2020 17:43:13 +0200 (CEST)
+Received: by mail-vs1-xe3d.google.com with SMTP id x185sf70528vsc.15
+        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Apr 2020 08:43:13 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586878992; cv=pass;
         d=google.com; s=arc-20160816;
-        b=plEK9fyVqgFRMQQZ5tfZRe2wUkMbA5+4OVFsGt3njjn+zh5r7cMqdy3Ajs/n9sOI+T
-         erfrKvLTtdHkNBuJjL3upv6grrKbhw5RJN1EGHwmyA8zLNuTZKnJqTsN013PNFy6KJFv
-         nw56alw+eS7WKLHM5vT8PRNntW0pV8rWiTe2gjNeWB+3sCC4LcHc7anolwqVrPG+SLBo
-         dp4P7uczaMDWrWNkdLLqFO4fDUjJD1Y8BeSR1pu2+We6zyJmUNtLvE/wDi00kLQn4U3U
-         oWHz8zLOM4eyadZgxDmi+a4cD5BJBxDcio2qrfMfXgLlc288JgTRrcs+2VrXG64GfOQa
-         3tEw==
+        b=oP3AolodFel00MmE9SEhq9qU0t6/Le7BfFOPA7ub4s6hPUJYZQWH9EFD9XMC5S9GOS
+         rZHviT7Uoqj6yq0RUcyVemlqHITguo4hSWZsiwPSpz35ibJaV3To+lW4l3NsnLvQHwcf
+         aCzxpspdPRh36JASRDJtbkHwBFkZ3lqhRcR14WSBJ/+kYLurqVZ2POg3M4w52zihPyIp
+         al2bad/BsY9GHWMBBhl8L7KXtaGU7B2dmnuQwqUYmRxFywQk54L4yJphg0cQ4tZ/dSqU
+         EvE27hOv3ianrsDAw+64JcRmsCOHnZZ/Ir94KmzEJSA5n7nAJW4+sCuSdcSXEfKazjTD
+         ICXA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=yV0PAAjVcfC2HkywbbNA2hvtUVty9H6ttzf+ycQ5i80=;
-        b=pNaCft7rJWiiZq94H1RGpookCsQdYknxYejfiKqvzPpfTSAd4wCWC0GKdNkWoPRX4K
-         Mo3cYtMavelR3vlCY1PwPpLipWnhpQNfXP7CGbP3Am9d+R73SVI34thfKNETCkIPJbOq
-         y9r0qkCCnS6oyUeyEPv4R9g9nP8cpaMBHsNHUgB29KtIicW7iOdj0he+Tb/F3Q3MLVNI
-         pnr5fDUKO476hweAAEEUnvWLCBDYJWHQUrAu6djeUnsGThPR2q+9w0krlyB7zNjMPlHL
-         CSnh/+zMp8VPfcxjqQi0xu7riXkrxZLfCc6ml2Y/rNiVr7HlzL17uWDfd8RibnLxkOHD
-         EMqw==
+         :list-id:mailing-list:precedence:reply-to:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=FD1Jq7Sjlwtxzc5QyM+gTQQ+vFQycgDTJM7cPcl8fTQ=;
+        b=AHmgSZbM+6cbp1rjva+fW99ZmK6OG3GQZGsAbXMYmw/9oKbbwsEex8YGlL6qtCTGmI
+         XxRIM1CBOIHD9PsFP9RtHYpbQy0Se/9LlxyThlNE/PJjmh3cXXIChfmOEwePWjiMSjYG
+         PtjlEKdN9oeNCZBy4JwJkvCyk7GpzkKl38+UosoYHYhQfayy8Apm1P3DNhkpcW2DRZH4
+         SR8jxNWJ+H8NrsgwUqPMioOVv532Q6nElApARwnnTvqrWUs5qpOmrY6GKhKXn2cnUp4R
+         vVajJ2gIboWpoWAjSaOrG2zkVjixXQKqYWhvlY1hvEH1B6UrMYtH2T6eIRcd/eb1B+QY
+         FM1A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of pierre-louis.bossart@linux.intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=pierre-louis.bossart@linux.intel.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=YedDG0ZF;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:subject:to:cc:references:from
-         :message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=yV0PAAjVcfC2HkywbbNA2hvtUVty9H6ttzf+ycQ5i80=;
-        b=lrHxWlZ1BdfsikHST1FqUXis94YNC9HijVeaVgD7x00GIlZXJ7dXHuqw6hzVbJGW/7
-         22LHl2z/B9xEAlh3ZFqbQprcBnqJRpYDv9P9ZlbR2TT5I80PupXyvT44+E6ZIIonZOfc
-         KWo2qNn+m8HsUPz7WKMrCJtJoQ5a6QCArhsik6MZUpuuPGOmBYcVjSy3XcjtMvOIgC6T
-         tyN7JpC1WBUikyy+NaIgDk6Sujfnj7tvM6hlUIB3mddUs/htwxNnoNm2hkkKiwrm3hBV
-         AToPaK1elz4+8Fo6kjU7rGnz69dzYzT5sIaZmLFeHEFr/ojl0WVL7/2SNQuihxxQhArS
-         b+BQ==
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=FD1Jq7Sjlwtxzc5QyM+gTQQ+vFQycgDTJM7cPcl8fTQ=;
+        b=goG2bSOczk6QlRcZY+V0ym2uRUEeHVTDnNgDzoQQ7w2+hUHV8xgzJkqK1VIO8UXKkv
+         XEx2H7ieT2rP7Es06UwF5zJSHczzS1GK9tgzREH8KD5P+8vKC4HdJMeRSYm8kwZc/1tm
+         96JbhVGwNvCc2qlVi4mQUnfK/du4or24lFuSumK5AYr0MerQIhUm7OHZk3YtC2+ME3Fe
+         IW7pdM1+fbRzjH4EhYlrq6fJarOn30lEjE/vnL1i1Pu+L2KAQFKphvwwyHnTk6wuz57z
+         dWdT/rH+LSbAucjuAF//46IobLeJ7YcNnT3EgM/mGnOPL33pJiBBFDeRKANTBmN+GeF/
+         BPCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:subject:to:cc
-         :references:from:message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=yV0PAAjVcfC2HkywbbNA2hvtUVty9H6ttzf+ycQ5i80=;
-        b=EN1qs03rpE1moOa4j4pupJoKPPhWfsCLCXKRfXD13jHeQHKNwJufGFZ6qjev8T+tOw
-         pBWtv2QanIrIcdYIy5VTXcT1utb/euVpHH4p30YUYIK92Dn2lalBXs58iX7m4rtcZpbm
-         Xb+rwcniN/DI+gysin2QnyQrfmjrQdfl1YMvV1gDzCLCmp51fJfolDxpyISKgZkB8YRb
-         HAu7gitDCG4g96aBimSKuruk76IlCihpy6QsN7Ihn1HzXB3PH5Yn59rNHPp0pZjz24l9
-         mtFokMLqokOiOTJ8JyflpA1BPHgwJ9yOVQwM4u91CK7bv9g0ZJ9wzHlWMuv3tWdisWEm
-         uB4g==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuZn0MTDTcE4k9SjsfZkBCqrg1P6/cvDYVvd0M+4oUp77TMxIDYZ
-	djQ/007NFC6DoQLXD84oKPA=
-X-Google-Smtp-Source: APiQypK/ByQZhizKK0kkeQR+NeXgi9PDovXsnTMbg9XeUJq7lWa7582x14pFufnomTudtiTu4jm/cw==
-X-Received: by 2002:a92:cccb:: with SMTP id u11mr631271ilq.8.1586875829616;
-        Tue, 14 Apr 2020 07:50:29 -0700 (PDT)
+        bh=FD1Jq7Sjlwtxzc5QyM+gTQQ+vFQycgDTJM7cPcl8fTQ=;
+        b=qzF5W4Sz4tXT7XxzMa5jgseyb/l3ic8AE32ikwVth1/NXmt+nFBpMlMv2CsmPhTVM9
+         60tfwdh1QPxZfnae8BL9w5iuOhZKIpmMlIIOpg7980gXzFl6Tdf7SwsvIewkvtFTU/br
+         oeHEo9JgL099wc/3Y9hyLTdznYaDsgzPCy5VN3EdCgNgTIg0qpfB5MJOAovjLoRK/iMX
+         YPkBeqYmiGEcQYbWR/xMAdpw885dideoGJWMQbzE3yDw4dLXVslu3LOKMzL6p4uKwhp+
+         p25DjDNYfv2z7pM2KXV9gEj+3ehStOTJdfnhWbR27IUKnsueemS9sqEC1EH2x7BUCS8Z
+         /ErQ==
+X-Gm-Message-State: AGi0PuYGhN2I8ktfKgIdj99B4OKjTLEzPWh6ROcQzPFSzLarofWL2fnO
+	jWnRwhWH+D05ilxp9UUTwDM=
+X-Google-Smtp-Source: APiQypLo83pbbqC7GzZLBt9LavfOCA9//dDm0IjA3i1biw4q5sym8v5UVlGkHq7cO/x790//AJbjHA==
+X-Received: by 2002:ab0:6588:: with SMTP id v8mr800616uam.35.1586878992475;
+        Tue, 14 Apr 2020 08:43:12 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a6b:1803:: with SMTP id 3ls1061316ioy.0.gmail; Tue, 14 Apr
- 2020 07:50:29 -0700 (PDT)
-X-Received: by 2002:a6b:14d4:: with SMTP id 203mr22420145iou.123.1586875827662;
-        Tue, 14 Apr 2020 07:50:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586875827; cv=none;
+Received: by 2002:ab0:6950:: with SMTP id c16ls356410uas.0.gmail; Tue, 14 Apr
+ 2020 08:43:12 -0700 (PDT)
+X-Received: by 2002:ab0:2852:: with SMTP id c18mr767878uaq.27.1586878992012;
+        Tue, 14 Apr 2020 08:43:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586878992; cv=none;
         d=google.com; s=arc-20160816;
-        b=rgnGUgWfoGe/cvj/7zHVTf4MuTbW116KFvLPMGOugQ1GbbYv31YJqlqtAxkM8IRYW1
-         4KQ9KY7uxGigw3wNHRkc/etoBat6fREe/Bd9GC2ZGIKmDOkhCwvk0U+Fb9WCNH1tKbHR
-         01+YbgE4+FeO1+l6SajN5ZmdRVzL+Ntc1wMhU5Pod8XTefWNERNMRDDX9nmOM0vecgWW
-         FudWcV9dCvwktpWS3yruLrRf/KpyG9akidDP+c7lPEh972b4yCstZOEZAclvtvuwx8cs
-         L8Tlgs7vCfaUfXw1PfAAhdZ67jwh9GV1hnoVqiq13R7Wftx3qWVl7Mu0O02IzEWd35ZN
-         aHsg==
+        b=psiibFmIDNEGLaBa7zfbjbR+e5Ty+vEaGsjAltScMJM0cnqm6TDJEeSO3Ok0WAdZrE
+         BcP4HAtKofjBFkZShLtis/0fpz0OK6+QHfAy9F4uOPuiakRbjOmk3W7lxb6S6TKB6/8x
+         kcfM2RAihR4jMjp1gmiIHmkl4vkpAeTwkU7h/ji5UZlRaCmqC31R4Dar7kaovsHKnkJ2
+         Fcu88bZ3wiIzir+TuIv1vAFxri+8gaTVKBwfOhGBomcC1kdhKLZ/1Rc5I1Z94EOewYEI
+         fRgRf0uD3XqTW4rN6BosXPPnwDutmDWiuOole9o8BqFJ6GgA3eVza/QyQQ2oJJXSUIAs
+         a+sw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :ironport-sdr:ironport-sdr;
-        bh=U9WVUqh6hQcCI8DBS8zlWNEoMmCyFJTrZa5upMaCXLk=;
-        b=Dmow5Kh+iEe9vv+SyNY/ZMGWIElv103SS6F/hm8FmUf90UHeFYLSba07CENOdlGpp0
-         HHWDchXzZ8w1BtgK06G6/tm3Lq17yGbWZyeBan0kHrS+iTj/tRomNfXv0xgYCFsh2GK7
-         iGad0nWXIdU1ol9jjpFMUOpIWiMiCY1hK9B2Tz/3wlxmW5fPIw/CnS2Js8Z+RB+u4p3z
-         KsSpgsXRy3Qct+jDHjwI6y3UP6cp2KmK+SSetoaY90Ox9KSZlLkfWozv4w2zO/IhG/td
-         kbFOa2slLoTzN3wXyCMPLldGKSIFc1mS6hYOGA+VSDDmsGPB5dd0uTsThzDL3j87VTll
-         CygQ==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=HrHc89msdXgi2Y4Q0qH1yTEHGNBhvf5/H8327yK+Ls4=;
+        b=ot1i/uuS9OvsEMIvThEVe8TaDe/8I5NiZBxOH1ddA1DMRnHq3pyFe4y8I6vsOCQNL2
+         TD+cVBmfnCN6AbT+5nuVvesXqEZOsc8AQimr/ogBgugFjTsz+2tLT0hrsEDa506ibua+
+         AnVFLfwmSIWHqcHCU0CIR1xkCLTxdmblTf2weyDseTlCpmvj8Vg7pOVuKFT/j1SNBv5W
+         oGKIo/4lSZYFG0rQVFr4i/Z9K7xgumgtKzVgai4/RJlaongbMhcBXpOLyOKd5txxnofW
+         amFeUs82Tt/wf1cchGEsG06rVr2JAqqFbQ9vdld8f1D54fz7zLzhKNH6qyKeRl0zDLvK
+         Rtqw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of pierre-louis.bossart@linux.intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=pierre-louis.bossart@linux.intel.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga17.intel.com (mga17.intel.com. [192.55.52.151])
-        by gmr-mx.google.com with ESMTPS id r8si218516ilj.3.2020.04.14.07.50.27
+       dkim=pass header.i=@google.com header.s=20161025 header.b=YedDG0ZF;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pg1-x541.google.com (mail-pg1-x541.google.com. [2607:f8b0:4864:20::541])
+        by gmr-mx.google.com with ESMTPS id i8si109370vsm.0.2020.04.14.08.43.11
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 14 Apr 2020 07:50:27 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of pierre-louis.bossart@linux.intel.com designates 192.55.52.151 as permitted sender) client-ip=192.55.52.151;
-IronPort-SDR: xRWkc0EqtWhM38fO8hWssAdeZrZf7yaz5+w1xRFp7TJHVdtfAP0/JlB0XcSNCqdmuFQgak59iK
- x35bXvpK9dzA==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga002.fm.intel.com ([10.253.24.26])
-  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Apr 2020 07:50:26 -0700
-IronPort-SDR: oa2zvcLMiMYunwJX3n9IURpRxFu+jBxtLqXxgNWnLVssizVt+6mI3tJD51M0AcDg3FlHIzddx0
- hJZpPg6b0YGw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.72,382,1580803200"; 
-   d="scan'208";a="288238064"
-Received: from bjkulkar-mobl.amr.corp.intel.com (HELO [10.212.152.71]) ([10.212.152.71])
-  by fmsmga002.fm.intel.com with ESMTP; 14 Apr 2020 07:50:24 -0700
-Subject: Re: [PATCH] ASoC: Intel: sst: ipc command timeout
-To: Brent Lu <brent.lu@intel.com>, alsa-devel@alsa-project.org
-Cc: Kate Stewart <kstewart@linuxfoundation.org>,
- Cezary Rojewski <cezary.rojewski@intel.com>, linux-kernel@vger.kernel.org,
- clang-built-linux@googlegroups.com,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Takashi Iwai <tiwai@suse.com>, Jie Yang <yang.jie@linux.intel.com>,
- Liam Girdwood <liam.r.girdwood@linux.intel.com>,
- Richard Fontana <rfontana@redhat.com>, Mark Brown <broonie@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>, Allison Randal <allison@lohutok.net>
-References: <1586506705-3194-1-git-send-email-brent.lu@intel.com>
-From: Pierre-Louis Bossart <pierre-louis.bossart@linux.intel.com>
-Message-ID: <4f495cf1-4740-cf3b-196f-cc850c503b43@linux.intel.com>
-Date: Tue, 14 Apr 2020 09:50:24 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.4.1
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 14 Apr 2020 08:43:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::541 as permitted sender) client-ip=2607:f8b0:4864:20::541;
+Received: by mail-pg1-x541.google.com with SMTP id d17so61513pgo.0
+        for <clang-built-linux@googlegroups.com>; Tue, 14 Apr 2020 08:43:11 -0700 (PDT)
+X-Received: by 2002:a63:1e0a:: with SMTP id e10mr23094381pge.417.1586878990825;
+        Tue, 14 Apr 2020 08:43:10 -0700 (PDT)
+Received: from google.com ([2620:15c:2ce:0:9efe:9f1:9267:2b27])
+        by smtp.gmail.com with ESMTPSA id s9sm11766283pjr.5.2020.04.14.08.43.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Apr 2020 08:43:10 -0700 (PDT)
+Date: Tue, 14 Apr 2020 08:43:07 -0700
+From: "'Fangrui Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] arm64: Delete the space separator in __emit_inst
+Message-ID: <20200414154307.2cke3x5ocz3q2as4@google.com>
+References: <20200413033811.75074-1-maskray@google.com>
+ <20200414095904.GB1278@C02TD0UTHF1T.local>
 MIME-Version: 1.0
-In-Reply-To: <1586506705-3194-1-git-send-email-brent.lu@intel.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: pierre-louis.bossart@linux.intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: best guess record for domain of pierre-louis.bossart@linux.intel.com
- designates 192.55.52.151 as permitted sender) smtp.mailfrom=pierre-louis.bossart@linux.intel.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Content-Disposition: inline
+In-Reply-To: <20200414095904.GB1278@C02TD0UTHF1T.local>
+X-Original-Sender: maskray@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=YedDG0ZF;       spf=pass
+ (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::541
+ as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Fangrui Song <maskray@google.com>
+Reply-To: Fangrui Song <maskray@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,57 +139,113 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
+On 2020-04-14, Mark Rutland wrote:
+>Hi Fangrui,
+>
+>On Sun, Apr 12, 2020 at 08:38:11PM -0700, Fangrui Song wrote:
+>> Many instances of __emit_inst(x) expand to a directive. In a few places
+>> it is used as a macro argument, e.g.
+>>
+>>   arch/arm64/include/asm/sysreg.h
+>>   #define __emit_inst(x)                       .inst (x)
+>>
+>>   arch/arm64/include/asm/sysreg.h
+>>   #define SET_PSTATE_PAN(x)            __emit_inst(0xd500401f | PSTATE_PAN | ((!!x) << PSTATE_Imm_shift))
+>>
+>>   arch/arm64/kvm/hyp/entry.S
+>>   ALTERNATIVE(nop, SET_PSTATE_PAN(1), ARM64_HAS_PAN, CONFIG_ARM64_PAN)
+>>
+>> Clang integrated assembler parses `.inst (x)` as two arguments passing
+>> to a macro. We delete the space separator so that `.inst(x)` will be
+>> parsed as one argument.
+>
+>I'm a little confused by the above; sorry if the below sounds stupid or
+>pedantic, but I just want to make sure I've understood the problem
+>correctly.
+>
+>For the above, ALTERNATIVE() and SET_PSTATE_PAN() are both preprocessor
+>macros, so I would expect those to be expanded before either the
+>integrated assembler or an external assembler consumes any of the
+>assembly (and both would see the same expanded text). Given that, I'm a
+>bit confused as to why the integrated assembly would have an impact on
+>preprocessing.
+>
+>Does compiling the pre-processed source using the integrated assembler
+>result in the same behaviour? Can we see the expanded text to make that
+>clear?
+>
+>... at what stage exactly does this go wrong?
+>
+>Thanks,
+>Mark.
 
-On 4/10/20 3:18 AM, Brent Lu wrote:
-> After sending an ipc command to DSP, the host waits for the reply message
-> which will be read from SST_IPCD register in sst_byt_irq_thread() to
-> complete the transaction. Sometimes the value read from SST_IPCD register
-> is still the reply message for previous command instead of the waiting
-> command so ipc command timeout happens.
-> 
-> In an experiment we read the same SST_IPCD register again when the defect
-> happens and found the value of second read is different from previous one
-> and is the correct reply message. It suggests the DSP is okay but the way
-> we read the register may be the cause.
-> 
-> Currently the driver is using memcpy_fromio() to read the value of 64-bit
-> registers. This function is based on __builtin_memcpy() call and depends
-> on the implementation of compiler. Since this issue happens right after
-> the toolchain switched from clang 10 to clang 11, we replace the register
-> read with two readl() function calls to avoid all optimization from
-> compiler's library.
+Hi Mark,
 
-I have mixed feelings about this.
+The C preprocessor expands arch/arm64/kvm/hyp/entry.S
+    ALTERNATIVE(nop, SET_PSTATE_PAN(1), ARM64_HAS_PAN, CONFIG_ARM64_PAN)
 
-One one hand, this looks simple enough.
+to:
+    alternative_insn nop, .inst (0xd500401f | ((0) << 16 | (4) << 5) | ((!!1) << 8)), 4, 1
 
-But on the other hand we have other users of memcpy_fromio(), including 
-SOF drivers, so what are the odds we have the same problems in other 
-places? Wouldn't it be safer to either change this function so that it's 
-behavior is not ambiguous or compiler-dependent, or fix the compiler?
+`alternative_insn` is an assembler macro, not handled by the C preprocessor.
 
-> 
-> Signed-off-by: Brent Lu <brent.lu@intel.com>
-> ---
->   sound/soc/intel/common/sst-dsp.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/sound/soc/intel/common/sst-dsp.c b/sound/soc/intel/common/sst-dsp.c
-> index ec66be2..12af7aa 100644
-> --- a/sound/soc/intel/common/sst-dsp.c
-> +++ b/sound/soc/intel/common/sst-dsp.c
-> @@ -42,7 +42,7 @@ u64 sst_shim32_read64(void __iomem *addr, u32 offset)
->   {
->   	u64 val;
->   
-> -	memcpy_fromio(&val, addr + offset, sizeof(val));
-> +	sst_memcpy_fromio_32(NULL, &val, addr + offset, sizeof(val));
->   	return val;
->   }
->   EXPORT_SYMBOL_GPL(sst_shim32_read64);
-> 
+Both comma and space are separators, with an exception that content
+inside a pair of parentheses/quotes is not split, so clang -cc1as or GNU
+as x86 splits arguments this way:
+
+    nop, .inst, (0xd500401f | ((0) << 16 | (4) << 5) | ((!!1) << 8)), 4, 1
+
+I actually feel that GNU as arm64's behavior is a little bit buggy. It
+works just because GNU as has another preprocessing step `do_scrub_chars`
+and its arm64 backend deletes the space before '('
+
+    alternative_insn nop,.inst(0xd500401f|((0)<<16|(4)<<5)|((!!1)<<8)),4,1
+
+The x86 backend keeps the space before the outmost '('
+
+   alternative_insn nop,.inst (0xd500401f|((0)<<16|(4)<<5)|((!!1)<<8)),4,1
+
+By reading its state machine, I think keeping the spaces will be the
+most reasonable behavior.
+
+If .inst were only used as arguments,
+
+    alternative_insn nop, ".inst (0xd500401f | ((0) << 16 | (4) << 5) | ((!!1) << 8))", 4, 1
+
+would be the best to avoid parsing issues.
+
+>>
+>> Note, GNU as parsing `.inst (x)` as one argument is unintentional (for
+>> example the x86 backend will parse the construct as two arguments).
+>> See https://sourceware.org/bugzilla/show_bug.cgi?id=25750#c10
+>>
+>> Link: https://github.com/ClangBuiltLinux/linux/issues/939
+>> Cc: clang-built-linux@googlegroups.com
+>> Signed-off-by: Fangrui Song <maskray@google.com>
+>> ---
+>>  arch/arm64/include/asm/sysreg.h | 4 +++-
+>>  1 file changed, 3 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+>> index ebc622432831..af21e2ec5e3e 100644
+>> --- a/arch/arm64/include/asm/sysreg.h
+>> +++ b/arch/arm64/include/asm/sysreg.h
+>> @@ -49,7 +49,9 @@
+>>  #ifndef CONFIG_BROKEN_GAS_INST
+>>
+>>  #ifdef __ASSEMBLY__
+>> -#define __emit_inst(x)			.inst (x)
+>> +// The space separator is omitted so that __emit_inst(x) can be parsed as
+>> +// either a directive or a macro argument.
+>> +#define __emit_inst(x)			.inst(x)
+>>  #else
+>>  #define __emit_inst(x)			".inst " __stringify((x)) "\n\t"
+>>  #endif
+>> --
+>> 2.26.0.110.g2183baf09c-goog
+>>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/4f495cf1-4740-cf3b-196f-cc850c503b43%40linux.intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200414154307.2cke3x5ocz3q2as4%40google.com.
