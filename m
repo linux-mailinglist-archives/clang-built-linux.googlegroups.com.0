@@ -1,133 +1,141 @@
-Return-Path: <clang-built-linux+bncBDMK7YOGWYHRBQ64272AKGQEQ3LBWQI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBR4G3D2AKGQECVHGHYY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23f.google.com (mail-oi1-x23f.google.com [IPv6:2607:f8b0:4864:20::23f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7B58B1A8707
-	for <lists+clang-built-linux@lfdr.de>; Tue, 14 Apr 2020 19:09:24 +0200 (CEST)
-Received: by mail-oi1-x23f.google.com with SMTP id k3sf4116349oig.9
-        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Apr 2020 10:09:24 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586884163; cv=pass;
+Received: from mail-pf1-x43c.google.com (mail-pf1-x43c.google.com [IPv6:2607:f8b0:4864:20::43c])
+	by mail.lfdr.de (Postfix) with ESMTPS id AC23A1A89C6
+	for <lists+clang-built-linux@lfdr.de>; Tue, 14 Apr 2020 20:39:04 +0200 (CEST)
+Received: by mail-pf1-x43c.google.com with SMTP id w203sf536365pfc.21
+        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Apr 2020 11:39:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586889543; cv=pass;
         d=google.com; s=arc-20160816;
-        b=O0fgp7g0xL9RXKw+YMwx2V7iAlqzTkHW3d2JnG3wXJqzJ8sjNU/YQ/jcvIfzAmk+RW
-         oqErCNqalgFQhP5nJ4ule62IZMq/LpVyCbjTWYuLHXIDdtxWAuHM/ZI0HRnsqNXZqbAJ
-         o+Q3ojnI56dqaqQAqhgAP+c2MwZilH7BzRnoJkglRDTDjkyEQCprhP84QANYFt2/mcq7
-         WQT5LfDI2czpbZWqoX2CWuYS65Ob6v0xSXZc33SW3tIaN5wuM1l9gthTRzhtGnTz4Keq
-         GjKahxkFJ2da2BZzPbns1/NP8lr56qSkYxIv+x2I0IiS2kViQfKOS3vY+NKKTC6s3Q5p
-         pANg==
+        b=wibj+mtuk5TiUG8wIWAM2S/8VDahe/xV9LFSAsE3UmCpBlk9+0ZQ20BrySglO06fPM
+         ayfPuZO6a71Rv69JW+1hWEB0il8yPtv/QKud8OTJqDVULUALRXVYl4xijEWKJqW6vtvv
+         f2csj6Jg64ByMTVSKKAaX0VT/bqhGWalibxMmql6lAtyac56baDIGIHjfdtgOafjXHoj
+         A8+mmgoSqMv/7RQczC75uMFyaig/U0rlLpVPf1GOuMEMxRul+yHwqRopYY69ZNACFMJL
+         q6vrec/M2JFQ9wXjwIIZJsWq9uFxss3QVeluhQRCyO6bzB+i2bqqVS7RPlxNdRPXDFBE
+         uvbQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:subject:mime-version:organization
-         :references:in-reply-to:date:to:from:message-id:sender
-         :dkim-signature;
-        bh=8ziZPSoz8adIQ+IbOjOoheW6NItRvvKiKPuRoMPdWtU=;
-        b=xdq3xUTaPmMXJYvODaYhEs7zQDISfxdhw+kl+/YI50NyNMugUCn8276CHP80Z57csx
-         yWoZvxhbKwoJSHRB+/DE1j63VvCV225LoeFZaAl6by3BCzHIbJRHCtS77X7O1N8nEtSC
-         I9oW2HQfPKB2GEg6MqjQt7JePVI6mN8Ukpg6jXKtJJ4Vq/onpzznb/hk+u+sVNORAmS9
-         hT5hL3nUnARAN7JOA8lDpnS4Xh1clvRuWuyRAqwvZzXZIrKlAxbmfK0ifw063b2OBnoU
-         fZCuqwOAFiLQAvogjLwmt/yuVpbpDfgIG6dMHjhIpo6YpM2fQMkkKFJ2EQdHndxQE05b
-         wRcg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=YFpDigo5fSUBg5sAPeiqrPiGL2AQeAuH807tvFaMLFg=;
+        b=TEOPqjhT8TYEXb+vFRHE6TSvwn9C6AJH2qt5+379ahx1ynLtCqzxwzjKviocoPVq9L
+         CFKUeTpB6vYvwOg1ESDA35ugHB5mk5dt8yAqse8wjCtu/mMculyjjIQJ5HMJjeC6FziQ
+         mvNjGv2H8gEG3TPeYqNz1nJbmvPdfhgSdOptCwD4Ki61EAXKIyz1rCYbyyDaa3u7mlun
+         19m0xlM2PBWXJhuDVQgcSgDiYfLrhtDKtZd3PBZXHiPHlQbXNShpnLYKoshQY455XjEH
+         giS2zgNrWak63K9X/f/6tP/97SHUGK/KcwjGJyOh4/KYKf+7dx57qM6FVIWjg1EJ4716
+         sCyg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of oss@buserror.net designates 165.227.176.147 as permitted sender) smtp.mailfrom=oss@buserror.net
+       dkim=pass header.i=@google.com header.s=20161025 header.b=cvDA3ZzY;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:from:to:date:in-reply-to:references:organization
-         :mime-version:subject:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=8ziZPSoz8adIQ+IbOjOoheW6NItRvvKiKPuRoMPdWtU=;
-        b=mdkuVHqoGV7OEu1XnDZnqqtrvIVAH2HxHbIBalyUIMga4j535jP778bRMv/W0ynQ2Y
-         M/nUklLKay+Z3qD7IZNoXlITf2K+nS14byRc21+aVCMf2gmBK8Uj4sSE/E718Zei+TZb
-         g1K1bChthVP1YRNUhBxto3qHhMoOY+BYImqrfiViZ2YOOclQKAFWzXAwKAzREL9ZLcIU
-         z0m5uCEW+2ovMNC3p/xb5f5NQQa5BetniNAvl2TLrhvMGCcz4SyzgsrtzfoqQ17BJ2aI
-         OqFP8MeP2TRJAh+udE9gbemIMJP2ZpvyL7asrEzCLo97B1q9+hQd0NqU0+nqVi+pFfTz
-         +yRw==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=YFpDigo5fSUBg5sAPeiqrPiGL2AQeAuH807tvFaMLFg=;
+        b=Gp2z5q2m7nfAmCuF/6FchzHLQ4km2YfBHPpLlNKAKjl2QwDnFRSsmg5tcGkBe9z+tb
+         ll0c7E8Mg+tFpO0uREWPZBTvc1X2vVAB109h/07ryehJfUoZKhKJdrIEqVHZdnO0+l/Q
+         mMUsQ7+boCohekXknwV9Emjvrx3HpfM8jJgUmsCNNW6+Y2xSa3CZl+Jd+9o53L0fHx4O
+         wBrgEBrtpXkG4ry43K9H1dZa3vus/g553+t+h6w/vJWkNSW3LQefdrlnM77EfYlH6yCy
+         LxxeVHKN0W2zhc2fJk5lFAKmmPnGYy9WIvZYdIHlkSDhBtetKJoQYTGn4Lj67aG6wk6T
+         ZWqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:from:to:date:in-reply-to
-         :references:organization:mime-version:subject:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=8ziZPSoz8adIQ+IbOjOoheW6NItRvvKiKPuRoMPdWtU=;
-        b=Nnyi3T3qHOzp5Leg/pv8GAqvl0Y/rO71vOd7/rXghgNVg7mfqKrgtn7KadkBQyT0n1
-         c+TdztnO/u8TBHjaG9Sa6G4w78P6EdbGlybB6NIzKQaUCbmljWaemSvhV9A+qdGkDBoj
-         37if8YmC2Kabt4eQmbJoIFfw3YthZ5b9P+JXbr+hIQ4qclUwIeGTuqfto97nlLt6TXFJ
-         rrHqPjZI1fF2wucW6OiJ3WBQ/Kaz/Kye97gjhDIKvJ4+a3HzjgMsW/yTaas7h4nSV8L2
-         PgUzh0IzhZ46DNx/iTP5bQ8EBS8c4wa7+JCx4kY+gli8Jmh9bMFlIyqVVEfSkd0aR90Z
-         6dRA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuY7frHAnQ+k9ur/uOcnq7tKPII63+HgSicUYpzhoPLa9D/mPsqB
-	IeACF7o+215s/1AAi9IIK9Y=
-X-Google-Smtp-Source: APiQypL0f/YlOCbRV3yeqlPZvrUQ58uV30IBRRRacAWXaMBxkOZytOcpn7dusqMsvSjyuzs9MPDYUg==
-X-Received: by 2002:aca:54d6:: with SMTP id i205mr11069623oib.109.1586884163433;
-        Tue, 14 Apr 2020 10:09:23 -0700 (PDT)
+        bh=YFpDigo5fSUBg5sAPeiqrPiGL2AQeAuH807tvFaMLFg=;
+        b=KOhluYtJrib01L0upmnyUPxIROcRQ4pjiA8XaLxs6agSLtFpccuNG+nc4usN1SFC7v
+         p4FnfQKX5cZFXwxUCSVp0qHu02DiTXUMTOizM5SwFudzF9VKSrd8eKE1hAvJGI1p61AS
+         ELMrNKIwnxnPKP3KbbQqxnek0X9f1hWTQDwBGpx7ET0AAgEaQ0V8j+JuTiwqWddFEewX
+         bMN02ApEFUZB1KRYhxsvgsypheeKJfZId64pMxNAXIQ33vFqnBu1jYXNQQKI/p5CAUSK
+         akigrqUUPqIv9ATgl++g157peFM/Yw6AZpueslRXpnO24j1ZFYzUhpv8v8tsuonRaARm
+         fm1g==
+X-Gm-Message-State: AGi0PubqMuroYtI7Tw/mQmkFqAKl4xpU5hzjXYhVERMVoyMT0r/r9G7k
+	+7lcukidmE64zXcY/Fr+00c=
+X-Google-Smtp-Source: APiQypIpVCj11/iWMT0ltEfjiz2bnRGLWE7LB0wwNbEqx0DruqVSiTy114mNfZbBul0aJC4y+6yG3w==
+X-Received: by 2002:aa7:99d1:: with SMTP id v17mr25600906pfi.165.1586889543367;
+        Tue, 14 Apr 2020 11:39:03 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:3b23:: with SMTP id z32ls950336otb.1.gmail; Tue, 14 Apr
- 2020 10:09:23 -0700 (PDT)
-X-Received: by 2002:a9d:7a98:: with SMTP id l24mr2058347otn.79.1586884163049;
-        Tue, 14 Apr 2020 10:09:23 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586884163; cv=none;
+Received: by 2002:a63:c344:: with SMTP id e4ls3559467pgd.1.gmail; Tue, 14 Apr
+ 2020 11:39:02 -0700 (PDT)
+X-Received: by 2002:a63:4b16:: with SMTP id y22mr21461329pga.251.1586889542850;
+        Tue, 14 Apr 2020 11:39:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586889542; cv=none;
         d=google.com; s=arc-20160816;
-        b=MhkTYQQbxbsOnsKS+5AAqT/5t4MFaayXxsZ9uXBsz5hDKnwFIq1sGEux3mVPK+/+EP
-         rHewXMAvlmnWcwvzquZJaen5g2M6t06QDL2DJSFax8W5sJk+sVTfNClimzfUaDh3wmHF
-         hpcjEp37GxZJnt4lJSXcMoFE5YXHc15dooXWECMlbvx5IBZForSexYY31ISJUt4aKuRr
-         GvOz3WpS0lOO6EowG6GOgtCY/u3l6H4c32Io1gXTwYHEPj9KEmvBk2dEHQ9jvLir6G4+
-         ewl0ELD98rNU82NSC1rSo0YTNcvqibmddswocEqwNPwCpC9CCRyKiu4baI/i4BY1b3d5
-         3Fgg==
+        b=QeQDGL2i9MWhkmRpPIf5tDwyoMyyaC4l87Jlsh5PT+L74cJeOHIZn5tcConG9rSr/6
+         Y1ChK8F7CO68jT6vVqce2v4JKXBqAKyGI1orLfipu1ZCzmtzkHVYR7XwEOXPitx4eeFB
+         fBFDRIcYM8SQy/fKC9R4yRNT6S4n/YBkCphefFUY9fHg+coNKBbRHLUQDWV84hxcXK6h
+         0g56h4ZXyssZYVUCedGwBEgbYeQw2iec3bZrlBSyw9uHqJVIQRbvQYZlX5BW07jWTfzM
+         ilZLUOWU+9+KTSvCG8JM92j2XVo7YMJRMttW+DkosH90lIcw5Tzt5exHOdppK5KirfSe
+         vu2A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=subject:content-transfer-encoding:mime-version:organization
-         :references:in-reply-to:date:to:from:message-id;
-        bh=ub6IELY2e9Pw+UsAk1mQ4+lFP6/3QSF5xnDHyU/UGJQ=;
-        b=tJCfi7Gim4HTQNY627o6iCGW8IrDjmpmephXIhRV397Hs83ekvy6kFzdROnIxJ5NMW
-         01ImRsvuYP/IJvVqLD8IeMoR+S1nQgaVr0qv59x9iRHAMXv69WMl5/lJupSJKhIECTeS
-         oZ4yibDhIifTamRpymE0mq7IpUd5pm7jalqJpgwrk7b4O4ehmSFe8uqyiGn+rCFYkWY3
-         AGC6sd+yMv4OMVi0qWs19bugVPqVUs1gYQTqW9NNq1VhXCsocxZ1LmIMO+CKHZlLVw83
-         iiizT3u1T8VTRpc2gyvS8UIM89C4uXjVKtEw97o4A6gHv4KCbPafcqZNDwnL08FlbvPD
-         qY5A==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=bWzUZ+y/P/VFQc8O9jcjTib7GUAQgeNd8tbzdYTpSw0=;
+        b=t/Om/oxdmpaz8v/vUKUN5TAlPQaYbGWi9Ez95J9ydkhpOYWOqLTNyxqMaQk+923TG/
+         u1Mwn4CJGuFd13lcCh/DCwP4Wv2FNM6ZteLyuBUEE5CukuFoQGPTgjBGFi7HQcQvKJMe
+         LOx/1BtoS+xzFUWgFJMz+azmId+o+ozNDTAkP/MvTJZ0B+ra9rIJWg518YTFw8++0dae
+         x7R+KkW6MM3MMA8LkZ4ddA6b4P5AT5kkZBZpAPKGaaudnwEdevWSSH1fl+e4uW2RANjs
+         2FhPfPeWvMhGd6Wq1da8rNeJOxf45UC7VKCP5n6rc62CXmXEjkVCcRo42brOMbDXE9Wl
+         fewQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of oss@buserror.net designates 165.227.176.147 as permitted sender) smtp.mailfrom=oss@buserror.net
-Received: from baldur.buserror.net (baldur.buserror.net. [165.227.176.147])
-        by gmr-mx.google.com with ESMTPS id q18si541521otg.4.2020.04.14.10.09.22
+       dkim=pass header.i=@google.com header.s=20161025 header.b=cvDA3ZzY;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pg1-x543.google.com (mail-pg1-x543.google.com. [2607:f8b0:4864:20::543])
+        by gmr-mx.google.com with ESMTPS id t6si567755pjl.0.2020.04.14.11.39.02
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Tue, 14 Apr 2020 10:09:22 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of oss@buserror.net designates 165.227.176.147 as permitted sender) client-ip=165.227.176.147;
-Received: from [2601:449:8480:af0:12bf:48ff:fe84:c9a0]
-	by baldur.buserror.net with esmtpsa (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.89)
-	(envelope-from <oss@buserror.net>)
-	id 1jOOzY-0006Mp-5p; Tue, 14 Apr 2020 12:04:56 -0500
-Message-ID: <9796bef636f2aabab6eaf44237b63bd94c01d26f.camel@buserror.net>
-From: Scott Wood <oss@buserror.net>
-To: Michael Ellerman <mpe@ellerman.id.au>, Nathan Chancellor
-	 <natechancellor@gmail.com>, linuxppc-dev@lists.ozlabs.org, 
-	clang-built-linux@googlegroups.com
-Date: Tue, 14 Apr 2020 12:04:52 -0500
-In-Reply-To: <87eesqjzc6.fsf@mpe.ellerman.id.au>
-References: <20200413201034.GA18373@ubuntu-s3-xlarge-x86>
-	 <87eesqjzc6.fsf@mpe.ellerman.id.au>
-Organization: Red Hat
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 14 Apr 2020 11:39:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) client-ip=2607:f8b0:4864:20::543;
+Received: by mail-pg1-x543.google.com with SMTP id g32so290503pgb.6
+        for <clang-built-linux@googlegroups.com>; Tue, 14 Apr 2020 11:39:02 -0700 (PDT)
+X-Received: by 2002:aa7:919a:: with SMTP id x26mr23877309pfa.39.1586889541893;
+ Tue, 14 Apr 2020 11:39:01 -0700 (PDT)
+MIME-Version: 1.0
+References: <20200409232728.231527-1-caij2003@gmail.com> <CAK8P3a3uj7AHbAo4sNzr6KQx5Fk6v99k4ZixCgKo1tUuGoat9Q@mail.gmail.com>
+ <CAMj1kXGXNxXGiC4dmNXHkZ6n=J0Fhim3oSwNx4Bz5m9fEphJvQ@mail.gmail.com>
+ <20200410123301.GX25745@shell.armlinux.org.uk> <CAMj1kXFpknCfwb6JMdk_SHopnGqMswgSqaQUeAUEh5yaV10vJg@mail.gmail.com>
+ <CAKwvOdk-xwuppJzxd1+5sfsC8jYiP3t8D=aTNaYxnFCRDiEUmQ@mail.gmail.com> <CAMj1kXFHb8th0rv1yjrsr=c1o-g9_ERPUy4itnrVN13fcQcXag@mail.gmail.com>
+In-Reply-To: <CAMj1kXFHb8th0rv1yjrsr=c1o-g9_ERPUy4itnrVN13fcQcXag@mail.gmail.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Tue, 14 Apr 2020 11:38:50 -0700
+Message-ID: <CAKwvOdm5aawsa2-=atB8z6W8zo8YVgdDEVbU3i4evDcpo1_AxQ@mail.gmail.com>
+Subject: Re: [PATCH] ARM: do not assemble iwmmxt.S with LLVM toolchain
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Kristof Beyls <Kristof.Beyls@arm.com>, Stephen Hines <srhines@google.com>, 
+	Luis Lozano <llozano@google.com>, Russell King - ARM Linux admin <linux@armlinux.org.uk>, 
+	Arnd Bergmann <arnd@arndb.de>, Jian Cai <caij2003@gmail.com>, 
+	Linus Walleij <linus.walleij@linaro.org>, Peter Smith <Peter.Smith@arm.com>, 
+	Stefan Agner <stefan@agner.ch>, David Howells <dhowells@redhat.com>, 
+	Mauro Carvalho Chehab <mchehab+samsung@kernel.org>, Manoj Gupta <manojgupta@google.com>, 
+	Benjamin Gaignard <benjamin.gaignard@linaro.org>, 
+	"Joel Fernandes (Google)" <joel@joelfernandes.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Ilie Halip <ilie.halip@gmail.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Bartosz Golaszewski <bgolaszewski@baylibre.com>, Sami Tolvanen <samitolvanen@google.com>, 
+	"Eric W. Biederman" <ebiederm@xmission.com>, "Steven Rostedt (VMware)" <rostedt@goodmis.org>, 
+	Jian Cai <jiancai@google.com>, Doug Anderson <armlinux@m.disordat.com>, 
+	Dan Williams <dan.j.williams@intel.com>, Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Patrick Bellasi <patrick.bellasi@arm.com>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Tejun Heo <tj@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Kees Cook <keescook@chromium.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Mailer: Evolution 3.28.5-0ubuntu0.18.04.1
-Mime-Version: 1.0
-X-SA-Exim-Connect-IP: 2601:449:8480:af0:12bf:48ff:fe84:c9a0
-X-SA-Exim-Rcpt-To: mpe@ellerman.id.au, natechancellor@gmail.com, linuxppc-dev@lists.ozlabs.org, clang-built-linux@googlegroups.com
-X-SA-Exim-Mail-From: oss@buserror.net
-X-Spam-Checker-Version: SpamAssassin 3.4.2 (2018-09-13) on baldur.localdomain
-X-Spam-Level: 
-X-Spam-Status: No, score=-16.0 required=5.0 tests=ALL_TRUSTED,BAYES_00
-	autolearn=ham autolearn_force=no version=3.4.2
-X-Spam-Report: * -1.0 ALL_TRUSTED Passed through trusted hosts only via SMTP
-	*  -15 BAYES_00 BODY: Bayes spam probability is 0 to 1%
-	*      [score: 0.0000]
-Subject: Re: -Wincompatible-pointer-types in
- arch/powerpc/platforms/embedded6xx/mvme5100.c
-X-SA-Exim-Version: 4.2.1 (built Tue, 02 Aug 2016 21:08:31 +0000)
-X-SA-Exim-Scanned: Yes (on baldur.buserror.net)
-X-Original-Sender: oss@buserror.net
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: best guess record for domain of oss@buserror.net designates
- 165.227.176.147 as permitted sender) smtp.mailfrom=oss@buserror.net
+X-Original-Sender: ndesaulniers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=cvDA3ZzY;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,60 +148,187 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, 2020-04-14 at 17:33 +1000, Michael Ellerman wrote:
-> I'm not sure TBH. This is all ancient history as far as I can tell, none
-> of it's been touched for ~7 years.
-> 
-> Your config has:
-> 
-> CONFIG_EMBEDDED6xx=y
-> CONFIG_PPC_BOOK3S_32=y
-> CONFIG_PPC_BOOK3S_6xx=y
-> CONFIG_PPC_MPC52xx=y
-> CONFIG_PPC_86xx=y
-> 
-> 
-> Which I'm not sure really makes sense at all, ie. it's trying to build a
-> kernel for multiple platforms at once (EMBEDDED6xx, MPC52xx, 86xx), but
-> the Kconfig doesn't exclude that so I guess we have to live with it for
-> now.
+On Tue, Apr 14, 2020 at 1:59 AM Ard Biesheuvel <ardb@kernel.org> wrote:
+>
+> On Mon, 13 Apr 2020 at 22:45, Nick Desaulniers <ndesaulniers@google.com> wrote:
+> >
+> > On Fri, Apr 10, 2020 at 6:09 AM Ard Biesheuvel <ardb@kernel.org> wrote:
+> > >
+> > > On Fri, 10 Apr 2020 at 14:33, Russell King - ARM Linux admin
+> > > <linux@armlinux.org.uk> wrote:
+> ...
+> > > > If your compiler/assembler only implements what is in the latest ARM
+> > > > ARM, then it is not going to be suitable for these older CPUs and
+> > > > alternate vendor "ARM compatible" CPUs.
+> > > >
+> > >
+> > > Indeed, and I'm a bit disappointed at the willingness to leave stuff
+> > > by the wayside, especially since Clang's integrated assembler has no
+> > > other benefit to it than being built into the compiler.
+> >
+> > I don't disagree.  I also wish LLVM had a backend for every
+> > architecture that GCC does.  But resources are finite and there are
+> > more fires than firemen.  It gets really hard to justify a high
+> > priority for certain things over others.  Doubly-so for hardware no
+> > longer in production.  Triply-so when the ISA vendor doesn't provide
+> > information in available reference manuals.  I'm happy to push for
+> > more investment in LLVM to support the Linux kernel from Google
+> > internally; maybe you can help do so from ARM?  That was my appeal to
+> > ARM back in February; support for newest ISA extensions is great,
+> > support for existing instructions is great, too.  (And not having to
+> > choose between one or the other is preferrable, given the amount of
+> > resources available).
+> >
+>
+> Sure. But my point was really that disabling stuff left and right just
+> so we can get to the finish line is fine for internal kernel-on-clang
+> development, but I'd expect the contributions upstream to be a bit
+> more considerate of other concerns, such as not regressing in terms of
+> functionality.
 
-I thought supporting multiple platforms in a kernel was something we tried to
-support when practical?
+Does this or any of the proposed patches regress anything for GCC?  Do
+they regress anything for Clang?  Is it a regression if it never
+worked in the first place? ;)
 
-> So I'm going to guess it should have also excluded embedded6xx, and this
-> seems to fix it:
-> 
-> diff --git a/arch/powerpc/platforms/Kconfig.cputype
-> b/arch/powerpc/platforms/Kconfig.cputype
-> index 0c3c1902135c..134fc383daf7 100644
-> --- a/arch/powerpc/platforms/Kconfig.cputype
-> +++ b/arch/powerpc/platforms/Kconfig.cputype
-> @@ -278,7 +278,7 @@ config PTE_64BIT
->  
->  config PHYS_64BIT
->  	bool 'Large physical address support' if E500 || PPC_86xx
-> -	depends on (44x || E500 || PPC_86xx) && !PPC_83xx && !PPC_82xx
-> +	depends on (44x || E500 || PPC_86xx) && !PPC_83xx && !PPC_82xx &&
-> !EMBEDDED6xx
->  	select PHYS_ADDR_T_64BIT
->  	---help---
->  	  This option enables kernel support for larger than 32-bit physical
-> 
-> 
-> So unless anyone can tell me otherwise I'm inclined to commit that ^
+Disabling things isn't crossing the finish line.  It's admitting where
+your weaknesses lie, and where you need to improve.  Crossing the
+finish line is implementing and filling out those weaknesses.  We're
+running a race we're behind by 10 years! We may never catch up!
 
-This could silently break someone's config who's depending on PHYS_64BIT (e.g.
-an 86xx kernel that happens to include an embedded6xx target as well, even if
-just by accident).  It'd be better to have the MVME500 depend on
-!CONFIG_PHYS_ADDR_T_64BIT as Nathan suggested (if there's nobody around to
-test a fix to the actual bug), which shouldn't break anyone since it already
-didn't build.
+>
+> > My thoughts on the benefits of this approach to using Clang's
+> > integrated assembler:
+> > 1. continuous integration and randconfigs.  We need CI to help us spot
+> > where things are still broken, and help us from regressing the ground
+> > we've fought for.  We can't expect kernel developers to test with
+> > LLVM.  Currently, we have LLVM builds in numerous kernel continuous
+> > integration services (KernelCI, Kbuild test robot "0day bot", Linaro's
+> > TCWG, Syzcaller, and our own CI).  For services that are bisecting and
+> > notifying authors, they are currently harassing authors for
+> > pre-existing conditions that the service uncovered via randconfig.
+> > This is very very dangerous territory to be in.  If authors start
+> > ignoring build reports due to false positives or false negatives, it
+> > becomes a weak signal that tends to be ignored.  Then when real bugs
+> > are uncovered, the actual bugs get ignored.  We don't want that.  If a
+> > canary dies in a coal mine, but no one notices, was it for naught?
+> >
+>
+> OK, so you are saying you need the Clang *assembler* to perform CI on
+> C pieces that we can now build with the Clang compiler, and we don't
+> want to regress on that? Is this because the cross-assemblers are
+> missing from the CI build hosts?
 
--Scott
+We need to disable configs that we know are broken when using certain
+LLVM tools until we can dedicate more resources to fixing them.  This
+prevents curious failures when doing randconfig builds, which some of
+the CI systems do.  It then gives us a nice list we can grep for
+configs we need to fix, whether that's via improvements to the
+toolchain to changes to the source.  And I think Arnd agreed with me
+when he said "It clearly makes sense to limit the Kconfig option to
+compilers that can actually build it."
 
+>
+> > 2. It helps us quantify how broken we are, via `grep` and `wc`.  LLVM
+> > is in no way a perfect substitute for GNU utilities, but it's not too
+> > far off either.  As an imperfect substitute, there's a lot of work
+> > both on the toolchain side and sources of various codebases in terms
+> > of toolchain portability.  Being able to quantify what doesn't work
+> > let's us be clear in which ways LLVM is not a perfect substitute, but
+> > also where and how much resources we need to get closer.  That helps
+> > then with planning and prioritization.  The proper thing to do is to
+> > bury the dead but at this point we only have resources to collect dog
+> > tags and keep moving.  That doesn't rule out revisiting implementing
+> > iWMMXT in the future.
+> >
+>
+> To be honest with you, I don't actually think iwmmxt is that
+> important. But I have already demonstrated how we can use a couple of
+> macros to emit the same instructions without resorting to bare
+> opcodes, so there is really no need to disable pieces left and right
+> because the Clang assembler does not support them outright - it just
+> needs someone to care enough about this, rather than rush through the
+> list with a tick the box attitude, and rip out the pieces that look a
+> bit too complicated.
+
+I don't think we have a long list of configs to mark broken; it's not
+like we're flooding the list with patches marking tons of things
+broken.
+
+In my town where I live, they spray paint the sidewalks that need
+repair so that people don't trip.  "Why not just replace the
+sidewalk?" you might ask.  Eventually they do, but it takes much more
+time and effort, and there are a lot more broken sidewalks than people
+and money to repair them.  Was it a waste to highlight the areas where
+people might trip?
+
+All I'm suggesting is that we mark the way for future travelers that
+this doesn't work, as you'll get a potentially very confusing error
+message if you try.  Then `git log` probably has a Link: and more
+context as to why.  Then you can `grep` for all of the places that are
+broken, and figure out which sidewalk is most important to repair
+first, and better estimate the cost to repair all of them.
+
+>
+> > 3. Testing Clang's assembler allows for us to do kernel builds without
+> > binutils.  This work is helping uncover places within the kernel where
+> > the build is not hermetic.  We're still a long ways away from hermetic
+> > reproducible kernel builds I suspect, but my main worry is when people
+> > have multiple versions of a toolchain in their path, that only one is
+> > used.  Otherwise, it leads to spooky hard to reproduce bug reports.  I
+> > don't think I need to argue about build hermiticity, but it's
+> > important for user trust and verification.
+> >
+>
+> So we need the Clang assembler for reproducible builds?
+
+No; it allows us to not even install binutils on the host, and know
+that the Clang assembler and only the Clang assembler is being used;
+no other host utilities that happen to be in the $PATH.
+
+When I do a build with any LLVM utility, I'd like to ensure that the
+equivalent from binutils isn't invoked.  This is something folks can
+already start testing today with multiple installs of GNU or LLVM
+utilities, though I don't know of anyone leading a conscious effort.
+This is something we've been finding the hard way; we've been doing
+builds on hosts with no GCC/binutils, and finding places where as an
+example `nm` or `objcopy` is hardcoded, rather than
+`$(NM)`/`$(OBCOPY)`, which is the first step towards making the build
+more hermetic.
+
+The next step is ensuring the tools produce deterministic output,
+which is quite painful.
+
+>
+> > 4. Improving toolchain portability of assembler in LLVM itself.
+> > There's plenty of subtle differences, but missing full on instructions
+> > (or are they psuedo's?) is pretty bad.
+> >
+>
+> I don't think this point belongs in the 'why should we care about the
+> Clang assembler' list :-)
+
+If LLVM improves, thanks to efforts to support the Linux kernel, then
+I'd call that a win that kernel developers can celebrate.
+
+>
+> > I value the feedback from you, Russell, and Arnd even when I disagree.
+> > These are just my thoughts on *why* things are the way they are, FWIW.
+> > If there's thoughts on how we might better prioritize one thing over
+> > another, I would appreciate it.
+>
+> I think the 'all legacy needs to die' attitude is not particularly
+> helpful here. In the 32-bit Linux/ARM community, there are many people
+> who care about older systems, and spend a lot of time on keeping
+> things in a working order on platforms that Google or ARM have stopped
+> caring about long ago.
+
+I think if anyone on this thread had the position that "_all_ legacy
+needs to die," then no one here would have anything to work on. :P
+--
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/9796bef636f2aabab6eaf44237b63bd94c01d26f.camel%40buserror.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdm5aawsa2-%3DatB8z6W8zo8YVgdDEVbU3i4evDcpo1_AxQ%40mail.gmail.com.
