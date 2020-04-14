@@ -1,143 +1,146 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBU6X2X2AKGQE5JREWFA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD63HSEZTUIBB6XW2X2AKGQEKJEGGNY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
-	by mail.lfdr.de (Postfix) with ESMTPS id 54C631A7538
-	for <lists+clang-built-linux@lfdr.de>; Tue, 14 Apr 2020 09:52:53 +0200 (CEST)
-Received: by mail-pf1-x438.google.com with SMTP id 18sf7891585pfu.22
-        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Apr 2020 00:52:53 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586850772; cv=pass;
+Received: from mail-ot1-x33b.google.com (mail-ot1-x33b.google.com [IPv6:2607:f8b0:4864:20::33b])
+	by mail.lfdr.de (Postfix) with ESMTPS id D9F4A1A76BB
+	for <lists+clang-built-linux@lfdr.de>; Tue, 14 Apr 2020 10:59:39 +0200 (CEST)
+Received: by mail-ot1-x33b.google.com with SMTP id d59sf10061786otb.5
+        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Apr 2020 01:59:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586854779; cv=pass;
         d=google.com; s=arc-20160816;
-        b=VT44j/6WXagBHPW2zip1qRTw60ypS/uVQSzJ4vpJXNF556X2SviFl0meLZELsy0QsV
-         R70uUSuE3FAGtAA5uPvoce5m1hrA6soKGsX8R902A0ub6r0ETQjulJnFYUV86Q8louso
-         kGiy9jzIjWgjLbobsgykFVS+MH9PKHWt5V3M4V2aHfRLX8srvbdztfYaQYMtGZF5PxDi
-         7sjsGYOCep0I8swE7hPrN9cTbCyZGNaUvSrAxMRWefr4QJB26Dp5PXJ+YYCaqtTQUQta
-         sKotvfGAPniHrT7z8ZidhPN5L0VpAogCMPX3rUFFOlqyh9udVQIzEIToUNHe+GqCFPnD
-         JyWQ==
+        b=YXXgwkxhhEqsChU6mLN5GTWaV/w4aHORWsegQ0woPKLRsZ/qGqjUQW1SKgVt2Asp/3
+         Q3SGXceyDZ31t1v4GYDARBR9qfoe7wpDqq14MAq7IlLjFhaTLigGMCZgLs/XPMM4eg4R
+         ePeF4/wgzbCzoMSUMB92xYf0xVsAZA2GEmVpjrw0SaLk+1UuDqkDPkCaIDzADuyLlUOT
+         XG9IlLr1NowQ4WV4ABdhADiouoWrdNg8ODdYrrOKdeDdZkqTTE+k0anEd7mSKlXrTi96
+         Dch/VHjEAn0A/tz/pPSHu0AkOnBB2oqht56glqX1zkKUYMd0kK5drbL/6w6IDm4ovJAG
+         nKUA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=v3V36VXWA8eCeZiT7kz7BLnsnZN1ZO+wGCHLk1iM+GI=;
-        b=HAcXnmrHbg5RAvPpKTl9y1AiT/rhymyumax+YY7GBvpL5U1o22KsSedebXaTGk4eHE
-         /XMH1jrNisC34oxlW1JKDrvrd46dzpcbYziXHEiDZUj3oNEYNw1iRMDS3axsZ6MQAdF4
-         35pDsRFu3TKCd3Y1r9Dkd7ekVRmAjIOtEcOG8dv7xA/AzZPCZqHG2lgJ6Z5V8547O2Jy
-         h+ztxMWm/zS65SEgCcsrb0oFPemgEIyE7N9XU5O/mCkxETTXHUq9eOUggnHeEd9RR3ml
-         FZubm4sHE7PGt8d5bSRw6CLKnb1UHrZn6qih+yloEkwjQRBDMegL2lrt6pPsf8e0z+m6
-         WMEg==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=y0ZEGyabpnJIQKBpq3Sh8/K2juI8iJieIG69byfrIuk=;
+        b=dlNjjn2efsu65hTUqW5eU4QZ7djZhOA+oOcQNg6WuqlWE/Ooa17V0meRkxpZUX11uG
+         zqwpyaIKq4vOLGGSZu86jl5tgqErqbwfRptFAVe6NzvmzD6j3NRL1rrDSf9F8ChVfDXi
+         zrysI2X1iR+t2bw+wiccAgwjT+wWltEg4yiOnRIJdSVtpB4I96NnnJoGWbpzYKUteYiN
+         Mtosr5k2OBOpoftG4oszouwzRsVXIAlv43sdl8lNrZfu2OBZ+f5xHn11i+6h+9BUp449
+         i/OILxVTqE+NvHgSvLWLSGQBiCAoY1On6MZhcIZaBtklMkZCxLoWjo6uoRlx5wV7J9XE
+         ffZg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=kTF+QJAp;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@kernel.org header.s=default header.b=ovUwlBW+;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=v3V36VXWA8eCeZiT7kz7BLnsnZN1ZO+wGCHLk1iM+GI=;
-        b=Kz8FJXy6zyoi4r3JKPDsb79jx8fJrau4TiXjCIR62gIdKnMXHGYZUbO/nw37FylCPQ
-         X3g9m11/69kPL+XluWsvrlEUl3aiAiAp+EO+Lqx+3q2pn+nL7Q20kgECv5FHqS6KgS5j
-         xHNNOeT+epWmoRSwtHJg7cHzOEhR2HB2l1grd0MfisBj0E803aYGDh8SVo+fui8teFWq
-         mA2J7W4S8+Th3dpyRLgLUrDB+VuwMkTyh2P/ztZRjZj5dpBRV1vTe6K/C11LJlQqvs9C
-         k1iw5DHtxNVihoX8ZKrP/5dFWBkpP2uNQYhESv/FLN9eHsGkOxTUYZwcJn4gnZGSlzpO
-         hYsA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=v3V36VXWA8eCeZiT7kz7BLnsnZN1ZO+wGCHLk1iM+GI=;
-        b=vYRzwaI4AYA3IHCB/P/ldGCjxzrrKzPjd+FpAgDaFx4gjl2dYxhXnrCKmQYkuce/1v
-         WQOsffS3I1OeBUt5+GeBpgAvxDSsfBnQMa4aG9uxUAZuqsKFcFTVjv3i8qN5YHKK95HO
-         MjQ9zhOsH7a6QwfPTMomznah4amAGg9XMOBIBgBiFl0FHHHv9q+7A8gyVf25d1IkbaLX
-         TH35yPxCvHr22dAQUUxI5Y8BQ7lrwKVI908GzypzHwY5DjfqMtG8q+L1/dTENxhRzJxf
-         6f6g85zjQaHkT3DxO9KdvzuH5Z4i2b1jXgJcoykUmjtPdBWDQDQNrozKFYcbaMagXNPd
-         V6cA==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=y0ZEGyabpnJIQKBpq3Sh8/K2juI8iJieIG69byfrIuk=;
+        b=WFldNmbOQ+oDILHAf1GHZcAzBU7mAIK6WuHcHDJA+bRsJCdTca4Srwzv+pfLZV6apv
+         aSQxcWZhWsFpJ0hpALkYXuRiZXlof9KrwRVGilWTkcf/HEpqGZM2YLLHTdnUMpOYs7Qy
+         84z52NIBkW7/JEW1tZe7MFWYd1kNseKbqR/vyT4ic24aPMpBi8EwQdBbcnibVh9h1m+j
+         hWu1eWbZFqPyZpWV5T7lUtp19XRBwO5+xcaoSAmoU53UujZpucS5OtKC9rg0PvMk5cRD
+         H70QuhuqAoUR3ntfw6+/Czy+aR3qvlBUXNyAHImzZak3RWDK1/9GG6kI5qfdNX81HKvt
+         QFzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=v3V36VXWA8eCeZiT7kz7BLnsnZN1ZO+wGCHLk1iM+GI=;
-        b=jcs9LxMN0aFNBGKeUEGUz0FQu5E1JLrHbjECnQTOkPVoCechyoTOjmdQ33+h7XErr8
-         zWCSyfi8e/WvsIjOPnRCD5B538E39YzPsGIGQg/YlyBY97jpIpCVERJZxdj5djDUUOx4
-         BN6nj7ZNUH59XYBs/MjwCEhTeS51LnpnTTKxC6iGBJgfLQsvtHkDWgwoTs65XrLyqg1X
-         JmuOV/REEWkRYvdG8064lbJb929w6IKKPoQEBIACQZ+NmK1lrVjNIEUqjAx3uk+35K2t
-         V+JhMF1Uo6GF5tbdywwYCFlZ34+S29J0Qj+GDmlvxuhIAw4LZLfftZYVolEnGhFuspsM
-         i8fw==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=y0ZEGyabpnJIQKBpq3Sh8/K2juI8iJieIG69byfrIuk=;
+        b=RswfP9qOC5hgb2N3gkITxwu/1Xxj8OHDPA/FRh27akU8z4FV3RP7ELGVjv7uuAVTLW
+         xDcTs+ia+jlEJW3HbJ/90ZPCEIatrPUS9e5LAOrk3VvvSHj1uRHoSnWS+LxNQcPDE6tc
+         PUcUrOb7hvQNtCGkkqGNbK6Hf1qcK6KTQkfqCcTX3bsn6LaPW2DJhMV7m1Txl+6DnIhg
+         BrNupthYqa4JOi96IJSkGJz+7gRYZld4nUM6aNaVxxgFI5resaBTTWbuFtWsHSfGe7h8
+         3GSOW0HsTVHymkCn3JQePD6LBC3uhy+SwZENRq4UrOg22Epy/4OYZZP/ebMuGHjf8eCr
+         2sjw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PubzJ4SEj/j6pAL81osR06uRP5zkBOADKADi2TNruIbxZApi9hXs
-	iSuOd1li/V9UcHtw+x/Hu3g=
-X-Google-Smtp-Source: APiQypJyLx/JtEO1/F9bAccDGP4GufMsAdBtlWhRMWz4F85iaVWjFChnHcAFWbytIrx7H7hrU8g2Hg==
-X-Received: by 2002:a63:5c1c:: with SMTP id q28mr20749601pgb.125.1586850771868;
-        Tue, 14 Apr 2020 00:52:51 -0700 (PDT)
+X-Gm-Message-State: AGi0PuZFo5j68jPkD/q9RuzgnLdRIbPQ+om7kjyLHKAZoGz2PKlR0198
+	T8yGoF7S10YNorCkcAzNt+g=
+X-Google-Smtp-Source: APiQypJ6oMp8FMu/13WRGnVSEjYYe0o90p5Sm8Z67bpTLXEk8WkYTCVVXnL7g9khFjv2WG54TD32RA==
+X-Received: by 2002:a05:6830:1:: with SMTP id c1mr17333825otp.200.1586854778795;
+        Tue, 14 Apr 2020 01:59:38 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:8c0e:: with SMTP id m14ls2280857pfd.8.gmail; Tue, 14 Apr
- 2020 00:52:51 -0700 (PDT)
-X-Received: by 2002:a63:741a:: with SMTP id p26mr21885599pgc.40.1586850771407;
-        Tue, 14 Apr 2020 00:52:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586850771; cv=none;
+Received: by 2002:aca:4dc4:: with SMTP id a187ls531793oib.4.gmail; Tue, 14 Apr
+ 2020 01:59:38 -0700 (PDT)
+X-Received: by 2002:aca:da8b:: with SMTP id r133mr14935404oig.81.1586854778398;
+        Tue, 14 Apr 2020 01:59:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586854778; cv=none;
         d=google.com; s=arc-20160816;
-        b=Fw0iwk4oejgASWF/jM6A0TQbCJLzP0Ry0a7Pgi+Uh0uGEsEkQURYuNbCyuwJWy4iWb
-         mp/SXPp5jxdvH1Z8I4hwR3SoUEpwYbysEyV1WyeDuZuqtxq5qhYvgaI/bcSQHdxyU5KN
-         2N0oh7s+kgS+TXRZI/gZPP/tmbf+TGX3uF89hOXAqowkq/7vzm6P/oAN/Id157oLQ20V
-         G8knLHSx9LilvW5zdGfAqPkbEz5ptPfmUIU2o4zshUUwhAoXBwJqECkDLnfp7ZC6opAr
-         qcR5t5aM/DT+UtX8DT6aBQ8TezubFINsFYzzR2/Kph2AmKi6SsWM4Ykx2lZ+NramXq2v
-         W1sw==
+        b=RFQ4MikQnEDG9w9f0yvFYQLdkf5fo2pmP49aDBJtwOYW8pci/cCThqnAocz73QBXMb
+         Av4XYbKIphWw6WUYleSSii0tN7PMF9ysC78XoOp9Fcj7glRw3r6xFRsYcK+T953aAS2R
+         yo4Fxiq7HWbZ+aEcDdVDGcrJUmgmd9fyOKiTojaFgbk3esglubxpAbG+P6mBNLo3rryk
+         UQl5oaU+WuU+s2EspDwkL3LWzdgfu/+zdjmCspmKiE1hufUEF9U1O5F4Gk/XbiIfLv27
+         Vbm8pjsG/OR6TARfb8j2t6D59UIPwxFjEPahBnBl+pI7+bl/MFRFIxD6NOp2GFlUzcQe
+         5rZA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=D6QT/rm13y/hSPEdiFNRQzoj//hI3QF0DgCdL+Hvi3s=;
-        b=Ff6zr0gQ+e0LDZSJ2kN/iEF7QKj/k6Sr67TgnuIG7JRskmnj4rCiLmevkH/aWSRSip
-         FZap52ta7UsnWZej1QQ1eEuqj+tvb8rzr4DihSY+s83/nH9GjgljJmoyN/IznBTMmcpc
-         Rf0oRZFH0kyTMieWk35MFPokQwr6EAfArkbQupPbRYPnH01+ZliprQOuRyCjAq3BSOFO
-         hi8wyX1CKiotww8EKeWuRxrIbRgL8DG5ePbaAIqRchbiAW3u8Dj/n1F4q6biIXFmRg8D
-         vmWMoJsKblJ9RCsRhZZCN/kJNNXHKF5lB6EmtfNmpfxbRsMldPHSVMzsRWHQUdlirPzS
-         5Mtg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=7cSYXgoa0MASoBod75idJxSPL+Cu8PZQ/Jv1ceh5hGQ=;
+        b=NPwZgZjZCdL9RialPwpuOCA0lSyh4HDZuVJIMggiWxQWK6NqudFgbMRVA+cWuVssl6
+         +PiMUCelAUnCrElBWrI6GYOeCKxTR5MrjP0sZAOu2Kou/4TrR6YRcLiHeeHOY8Qjw5th
+         gIe6UIiLkIuEwK5tArohc6NGMv+xN9K6dK3CbE+uM3MAMqnFwiQrkHW/l97zHJmMU6bL
+         znFr9+7URvJyl8bCVd20vAHBoqTcSSxMMW5DORSZL5vrNHWhjqL380QVz+FmRO5OcC7H
+         a0BBXJdJMRq51rDxwu94jczUBoatzReEhNSYlTNhzfvPYw+Fg4g806mnkHHmstuDPeS7
+         GvHQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=kTF+QJAp;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x341.google.com (mail-ot1-x341.google.com. [2607:f8b0:4864:20::341])
-        by gmr-mx.google.com with ESMTPS id a3si418512pjw.3.2020.04.14.00.52.51
+       dkim=pass header.i=@kernel.org header.s=default header.b=ovUwlBW+;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id m132si984630oig.3.2020.04.14.01.59.38
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Apr 2020 00:52:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) client-ip=2607:f8b0:4864:20::341;
-Received: by mail-ot1-x341.google.com with SMTP id g14so3680200otg.10
-        for <clang-built-linux@googlegroups.com>; Tue, 14 Apr 2020 00:52:51 -0700 (PDT)
-X-Received: by 2002:a4a:b489:: with SMTP id b9mr13563ooo.71.1586850770598;
-        Tue, 14 Apr 2020 00:52:50 -0700 (PDT)
-Received: from ubuntu-s3-xlarge-x86 ([2604:1380:4111:8b00::3])
-        by smtp.gmail.com with ESMTPSA id v2sm3016355oiv.56.2020.04.14.00.52.48
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Tue, 14 Apr 2020 00:52:48 -0700 (PDT)
-Date: Tue, 14 Apr 2020 00:52:47 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Michael Ellerman <mpe@ellerman.id.au>
-Cc: linuxppc-dev@lists.ozlabs.org, clang-built-linux@googlegroups.com,
-	Scott Wood <oss@buserror.net>
-Subject: Re: -Wincompatible-pointer-types in
- arch/powerpc/platforms/embedded6xx/mvme5100.c
-Message-ID: <20200414075247.GA23026@ubuntu-s3-xlarge-x86>
-References: <20200413201034.GA18373@ubuntu-s3-xlarge-x86>
- <87eesqjzc6.fsf@mpe.ellerman.id.au>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 14 Apr 2020 01:59:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from mail-il1-f170.google.com (mail-il1-f170.google.com [209.85.166.170])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 46C9B21556
+	for <clang-built-linux@googlegroups.com>; Tue, 14 Apr 2020 08:59:37 +0000 (UTC)
+Received: by mail-il1-f170.google.com with SMTP id c17so7493426ilk.6
+        for <clang-built-linux@googlegroups.com>; Tue, 14 Apr 2020 01:59:37 -0700 (PDT)
+X-Received: by 2002:a92:443:: with SMTP id 64mr16054243ile.258.1586854776281;
+ Tue, 14 Apr 2020 01:59:36 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200409232728.231527-1-caij2003@gmail.com> <CAK8P3a3uj7AHbAo4sNzr6KQx5Fk6v99k4ZixCgKo1tUuGoat9Q@mail.gmail.com>
+ <CAMj1kXGXNxXGiC4dmNXHkZ6n=J0Fhim3oSwNx4Bz5m9fEphJvQ@mail.gmail.com>
+ <20200410123301.GX25745@shell.armlinux.org.uk> <CAMj1kXFpknCfwb6JMdk_SHopnGqMswgSqaQUeAUEh5yaV10vJg@mail.gmail.com>
+ <CAKwvOdk-xwuppJzxd1+5sfsC8jYiP3t8D=aTNaYxnFCRDiEUmQ@mail.gmail.com>
+In-Reply-To: <CAKwvOdk-xwuppJzxd1+5sfsC8jYiP3t8D=aTNaYxnFCRDiEUmQ@mail.gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Tue, 14 Apr 2020 10:59:24 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXFHb8th0rv1yjrsr=c1o-g9_ERPUy4itnrVN13fcQcXag@mail.gmail.com>
+Message-ID: <CAMj1kXFHb8th0rv1yjrsr=c1o-g9_ERPUy4itnrVN13fcQcXag@mail.gmail.com>
+Subject: Re: [PATCH] ARM: do not assemble iwmmxt.S with LLVM toolchain
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Kristof Beyls <Kristof.Beyls@arm.com>, Stephen Hines <srhines@google.com>, 
+	Luis Lozano <llozano@google.com>, Russell King - ARM Linux admin <linux@armlinux.org.uk>, 
+	Arnd Bergmann <arnd@arndb.de>, Jian Cai <caij2003@gmail.com>, 
+	Linus Walleij <linus.walleij@linaro.org>, Peter Smith <Peter.Smith@arm.com>, 
+	Stefan Agner <stefan@agner.ch>, David Howells <dhowells@redhat.com>, 
+	Mauro Carvalho Chehab <mchehab+samsung@kernel.org>, Manoj Gupta <manojgupta@google.com>, 
+	Benjamin Gaignard <benjamin.gaignard@linaro.org>, 
+	"Joel Fernandes (Google)" <joel@joelfernandes.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Ilie Halip <ilie.halip@gmail.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Bartosz Golaszewski <bgolaszewski@baylibre.com>, Sami Tolvanen <samitolvanen@google.com>, 
+	"Eric W. Biederman" <ebiederm@xmission.com>, "Steven Rostedt (VMware)" <rostedt@goodmis.org>, 
+	Jian Cai <jiancai@google.com>, Doug Anderson <armlinux@m.disordat.com>, 
+	Dan Williams <dan.j.williams@intel.com>, Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Patrick Bellasi <patrick.bellasi@arm.com>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Tejun Heo <tj@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <87eesqjzc6.fsf@mpe.ellerman.id.au>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Original-Sender: natechancellor@gmail.com
+X-Original-Sender: ardb@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=kTF+QJAp;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@kernel.org header.s=default header.b=ovUwlBW+;       spf=pass
+ (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,114 +153,118 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Michael,
-
-On Tue, Apr 14, 2020 at 05:33:45PM +1000, Michael Ellerman wrote:
-> Hi Nathan,
-> 
-> Thanks for the report.
-> 
-> Nathan Chancellor <natechancellor@gmail.com> writes:
-> > Hi all,
+On Mon, 13 Apr 2020 at 22:45, Nick Desaulniers <ndesaulniers@google.com> wrote:
+>
+> On Fri, Apr 10, 2020 at 6:09 AM Ard Biesheuvel <ardb@kernel.org> wrote:
 > >
-> > 0day reported a build error in arch/powerpc/platforms/embedded6xx/mvme5100.c
-> > when building with clang [1]. This is not a clang specific issue since
-> > it also happens with gcc:
+> > On Fri, 10 Apr 2020 at 14:33, Russell King - ARM Linux admin
+> > <linux@armlinux.org.uk> wrote:
+...
+> > > If your compiler/assembler only implements what is in the latest ARM
+> > > ARM, then it is not going to be suitable for these older CPUs and
+> > > alternate vendor "ARM compatible" CPUs.
+> > >
 > >
-> > $ curl -LSs https://lore.kernel.org/lkml/202004131704.6MH1jcq3%25lkp@intel.com/2-a.bin | gzip -d > .config
-> > $ make -j$(nproc) -s ARCH=powerpc CROSS_COMPILE=powerpc-linux- olddefconfig arch/powerpc/platforms/embedded6xx/mvme5100.o
-> > arch/powerpc/platforms/embedded6xx/mvme5100.c: In function 'mvme5100_add_bridge':
-> > arch/powerpc/platforms/embedded6xx/mvme5100.c:135:58: error: passing argument 5 of 'early_read_config_dword' from incompatible pointer type [-Werror=incompatible-pointer-types]
-> >   135 |  early_read_config_dword(hose, 0, 0, PCI_BASE_ADDRESS_1, &pci_membase);
-> >       |                                                          ^~~~~~~~~~~~
-> >       |                                                          |
-> >       |                                                          phys_addr_t * {aka long long unsigned int *}
-> 
-> 
-> Yuck.
-> 
-> > ...
-> > I am not sure how exactly this should be fixed. Should this driver just
-> > not be selectable when CONFIG_PHYS_ADDR_T_64BIT is selected or is there
-> > something else that I am missing?
-> 
-> I'm not sure TBH. This is all ancient history as far as I can tell, none
-> of it's been touched for ~7 years.
-> 
-> Your config has:
-> 
-> CONFIG_EMBEDDED6xx=y
-> CONFIG_PPC_BOOK3S_32=y
-> CONFIG_PPC_BOOK3S_6xx=y
-> CONFIG_PPC_MPC52xx=y
-> CONFIG_PPC_86xx=y
-> 
-> 
-> Which I'm not sure really makes sense at all, ie. it's trying to build a
-> kernel for multiple platforms at once (EMBEDDED6xx, MPC52xx, 86xx), but
-> the Kconfig doesn't exclude that so I guess we have to live with it for
-> now.
+> > Indeed, and I'm a bit disappointed at the willingness to leave stuff
+> > by the wayside, especially since Clang's integrated assembler has no
+> > other benefit to it than being built into the compiler.
+>
+> I don't disagree.  I also wish LLVM had a backend for every
+> architecture that GCC does.  But resources are finite and there are
+> more fires than firemen.  It gets really hard to justify a high
+> priority for certain things over others.  Doubly-so for hardware no
+> longer in production.  Triply-so when the ISA vendor doesn't provide
+> information in available reference manuals.  I'm happy to push for
+> more investment in LLVM to support the Linux kernel from Google
+> internally; maybe you can help do so from ARM?  That was my appeal to
+> ARM back in February; support for newest ISA extensions is great,
+> support for existing instructions is great, too.  (And not having to
+> choose between one or the other is preferrable, given the amount of
+> resources available).
+>
 
-c'est la randconfig :)
+Sure. But my point was really that disabling stuff left and right just
+so we can get to the finish line is fine for internal kernel-on-clang
+development, but I'd expect the contributions upstream to be a bit
+more considerate of other concerns, such as not regressing in terms of
+functionality.
 
-> Then Kconfig has:
-> 
-> config PHYS_64BIT
-> 	bool 'Large physical address support' if E500 || PPC_86xx
-> 	depends on (44x || E500 || PPC_86xx) && !PPC_83xx && !PPC_82xx
-> 	select PHYS_ADDR_T_64BIT
-> 
-> 
-> So it's PPC_86xx that allows 64-bit phys_addr_t.
-> 
-> That was added in:
-> 
->   4ee7084eb11e ("POWERPC: Allow 32-bit hashed pgtable code to support 36-bit physical")
-> 
-> Which did:
-> 
-> config PHYS_64BIT
-> -	bool 'Large physical address support' if E500
-> -	depends on 44x || E500
-> +	bool 'Large physical address support' if E500 || PPC_86xx
-> +	depends on (44x || E500 || PPC_86xx) && !PPC_83xx && !PPC_82xx
-> 
-> 
-> ie. it wanted to add support for PPC_86xx but had to deliberately
-> exclude some of the other BOOK3S_32 based platforms.
-> 
-> So I'm going to guess it should have also excluded embedded6xx, and this
-> seems to fix it:
+> My thoughts on the benefits of this approach to using Clang's
+> integrated assembler:
+> 1. continuous integration and randconfigs.  We need CI to help us spot
+> where things are still broken, and help us from regressing the ground
+> we've fought for.  We can't expect kernel developers to test with
+> LLVM.  Currently, we have LLVM builds in numerous kernel continuous
+> integration services (KernelCI, Kbuild test robot "0day bot", Linaro's
+> TCWG, Syzcaller, and our own CI).  For services that are bisecting and
+> notifying authors, they are currently harassing authors for
+> pre-existing conditions that the service uncovered via randconfig.
+> This is very very dangerous territory to be in.  If authors start
+> ignoring build reports due to false positives or false negatives, it
+> becomes a weak signal that tends to be ignored.  Then when real bugs
+> are uncovered, the actual bugs get ignored.  We don't want that.  If a
+> canary dies in a coal mine, but no one notices, was it for naught?
+>
 
-This is what I was thinking as well; I agree with your analysis. Feel
-free to slap the following tags on:
+OK, so you are saying you need the Clang *assembler* to perform CI on
+C pieces that we can now build with the Clang compiler, and we don't
+want to regress on that? Is this because the cross-assemblers are
+missing from the CI build hosts?
 
-Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-Tested-by: Nathan Chancellor <natechancellor@gmail.com> # build
+> 2. It helps us quantify how broken we are, via `grep` and `wc`.  LLVM
+> is in no way a perfect substitute for GNU utilities, but it's not too
+> far off either.  As an imperfect substitute, there's a lot of work
+> both on the toolchain side and sources of various codebases in terms
+> of toolchain portability.  Being able to quantify what doesn't work
+> let's us be clear in which ways LLVM is not a perfect substitute, but
+> also where and how much resources we need to get closer.  That helps
+> then with planning and prioritization.  The proper thing to do is to
+> bury the dead but at this point we only have resources to collect dog
+> tags and keep moving.  That doesn't rule out revisiting implementing
+> iWMMXT in the future.
+>
 
-> diff --git a/arch/powerpc/platforms/Kconfig.cputype b/arch/powerpc/platforms/Kconfig.cputype
-> index 0c3c1902135c..134fc383daf7 100644
-> --- a/arch/powerpc/platforms/Kconfig.cputype
-> +++ b/arch/powerpc/platforms/Kconfig.cputype
-> @@ -278,7 +278,7 @@ config PTE_64BIT
->  
->  config PHYS_64BIT
->  	bool 'Large physical address support' if E500 || PPC_86xx
-> -	depends on (44x || E500 || PPC_86xx) && !PPC_83xx && !PPC_82xx
-> +	depends on (44x || E500 || PPC_86xx) && !PPC_83xx && !PPC_82xx && !EMBEDDED6xx
->  	select PHYS_ADDR_T_64BIT
->  	---help---
->  	  This option enables kernel support for larger than 32-bit physical
-> 
-> 
-> So unless anyone can tell me otherwise I'm inclined to commit that ^
-> 
-> cheers
+To be honest with you, I don't actually think iwmmxt is that
+important. But I have already demonstrated how we can use a couple of
+macros to emit the same instructions without resorting to bare
+opcodes, so there is really no need to disable pieces left and right
+because the Clang assembler does not support them outright - it just
+needs someone to care enough about this, rather than rush through the
+list with a tick the box attitude, and rip out the pieces that look a
+bit too complicated.
 
-Cheers,
-Nathan
+> 3. Testing Clang's assembler allows for us to do kernel builds without
+> binutils.  This work is helping uncover places within the kernel where
+> the build is not hermetic.  We're still a long ways away from hermetic
+> reproducible kernel builds I suspect, but my main worry is when people
+> have multiple versions of a toolchain in their path, that only one is
+> used.  Otherwise, it leads to spooky hard to reproduce bug reports.  I
+> don't think I need to argue about build hermiticity, but it's
+> important for user trust and verification.
+>
+
+So we need the Clang assembler for reproducible builds?
+
+> 4. Improving toolchain portability of assembler in LLVM itself.
+> There's plenty of subtle differences, but missing full on instructions
+> (or are they psuedo's?) is pretty bad.
+>
+
+I don't think this point belongs in the 'why should we care about the
+Clang assembler' list :-)
+
+> I value the feedback from you, Russell, and Arnd even when I disagree.
+> These are just my thoughts on *why* things are the way they are, FWIW.
+> If there's thoughts on how we might better prioritize one thing over
+> another, I would appreciate it.
+
+I think the 'all legacy needs to die' attitude is not particularly
+helpful here. In the 32-bit Linux/ARM community, there are many people
+who care about older systems, and spend a lot of time on keeping
+things in a working order on platforms that Google or ARM have stopped
+caring about long ago.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200414075247.GA23026%40ubuntu-s3-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXFHb8th0rv1yjrsr%3Dc1o-g9_ERPUy4itnrVN13fcQcXag%40mail.gmail.com.
