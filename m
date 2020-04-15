@@ -1,136 +1,153 @@
-Return-Path: <clang-built-linux+bncBCS7XUWOUULBBTV23T2AKGQEGGQJZBI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSPV64IYUKBBDN43T2AKGQETYKYKUY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3c.google.com (mail-qv1-xf3c.google.com [IPv6:2607:f8b0:4864:20::f3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 127211AAA57
-	for <lists+clang-built-linux@lfdr.de>; Wed, 15 Apr 2020 16:42:24 +0200 (CEST)
-Received: by mail-qv1-xf3c.google.com with SMTP id y18sf144146qvx.1
-        for <lists+clang-built-linux@lfdr.de>; Wed, 15 Apr 2020 07:42:24 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586961743; cv=pass;
+Received: from mail-lf1-f56.google.com (mail-lf1-f56.google.com [209.85.167.56])
+	by mail.lfdr.de (Postfix) with ESMTPS id E8B341AAA68
+	for <lists+clang-built-linux@lfdr.de>; Wed, 15 Apr 2020 16:45:34 +0200 (CEST)
+Received: by mail-lf1-f56.google.com with SMTP id 66sf1377358lfa.7
+        for <lists+clang-built-linux@lfdr.de>; Wed, 15 Apr 2020 07:45:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586961934; cv=pass;
         d=google.com; s=arc-20160816;
-        b=F6/6BFQRVZXsWjTyOYTMrkjvpxfQvlrOV/7Kv/FTLo8IkJ69ZuLveFQCKBMKClDCFo
-         dK1h41ycoWqCQkotYR8U7gJEPTJ2W49u34RikMTsMyv8tWtGHJg4EdsDY/7Gnw08kE1G
-         yndIdl97CyARrIFLYCuWLSElCtf7R6ShiYSXjq8Azwpc1KnkaismXhAxj9hxHnscA5Wl
-         vSAjWapJ8q9avZHXfM4YK1tA7p0rqMx4hSCaSZFlAWBGtOd5Jtj5CgO48O/f7MrPCa6J
-         5G91BHajLcJ37LFeRxDgFmSSbP/y8hYAayUoKchQDWI3HYnlivjJPpu9IzI3//j+nbKR
-         k+FQ==
+        b=TS0xkUAjaF0Esu16Nmh1r5M68iHQuYeNJ5o5qPxsgpNHdOerxs/OG50jLW73Z/d2ib
+         k9kL4DA4HqjRPtpPK7Hs1KPDVxuyWkC/viX1LESRpk9/raLgMB+iae60vAPLXDwp3KK2
+         lw37Z3Y7hlNqA/fHa5zJxgcO+e3Aw/pmQAJqXgGnnewxSvIqqYamNld+qeVcM19DAjkA
+         P6/EBxupcu4ekeaBIg5mDtvCnrq5dTuwHNzZ4AJs5nuQRJ7kfZT+vm0iJKeGclW8pG3o
+         wNC4po1UGNQ+8wyEb1BT64Heiz06kQoHgNhq23zTibqki+bRtUv59NNv7A5Sxt2A4lH0
+         fqfw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:in-reply-to
+         :list-id:mailing-list:precedence:sender:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:dkim-signature;
-        bh=DOC4ZqFSHoCnaNutIJnpTd4CMt4VnuljSGHxpkAx/OQ=;
-        b=wMj6mf/+nAyWhcSRl9Uot4AgVCOpIcdevP9fJRbcyiTr1JLMkd/IrNTv5LQFMxXfFr
-         SMkGaGDJBgU687n+pokg2OH+np3QUW2P1CtkUGeWs5/S5D2XK6726u4q2oox7Fq/sAb3
-         Ds1rCKpmgPeOZ5xkj2KalB7J/+NpcUDTTPCmiuJKTAiHmkrV8Q2j/gDW+iMWcAReReJ2
-         e7acnJBqMRLbPakkOyCI6R+KBDl2n33LLVnI1BuqLaYTkMKXjHkUHpIE/F9I6Or/KXr1
-         /emCkLHgvWyp2oHchcFmYfp9o53O+BjWN5hGqTY/w2A97m6XHfC23O9zwtKiwSVi82EG
-         tRaQ==
+         :to:from:date;
+        bh=dOokOePjMtOx6HIRMCSg96+wvFqdjcLBgUDbMJzGbmc=;
+        b=KkUkrJJJ3DrLSZ+8ouubfOcvOl9rAPB5md+IKuHWhyAkYZzuxtBRPWDkxTmGJQa6Sz
+         MA255HX9eja5WqwNKDEehyyPoFo/tKIVrm9AiGUvTgk/6PoTOhhMCELnYut3KjSBFf0d
+         To5ER6SRrmk+8fg7zOyv18p5/8Pzm4J2BY75U8dTfdIqleCULpYM53FktBLYFk+nyu1W
+         i8kHlG5nmnS0jR23aP28vA7YluvLn8pw04RHyTtWKbuMUebPXcs9N9EluDshWuIhl1G6
+         jYqb2WtYt1hIW716rgFI+3MuCDcDkEm4HrwlemsTutXNj7vzoHVoGP4eF54UfIaV0ul2
+         wFEQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Rzm5dxhT;
-       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=maskray@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=DOC4ZqFSHoCnaNutIJnpTd4CMt4VnuljSGHxpkAx/OQ=;
-        b=ExtVGn/vkAauXIjPW0NWctHyqPgy/2fOSGp0ARCDtVag7tdz4tJLFZlJM4y1NHIXNT
-         oK6VcSQ9PQBsFfVKzX8BZ4+L/49lQ8tqqsH/WxAkn0s84eSMgxVMHv6tOKADP8IL2cj1
-         3QWJS4o2GKYcs9R1QIY0LeYfvK5zSGxu8i6QFr47PJJ2W/0cMvv5K3/0YZ1ON2Y1kGF7
-         bRRYl+31ECCM5tecTjkxgp9M0pixDqHjuvrNacb359LhIvA6mvWQJsMN+SbZyriOIQSk
-         zHO52FFu1sVc8M22miU1hNg1ZKdtKNgKiCjrw97PJjo9WlUQOp6jXnJyvL6x94TpZ6zI
-         /cMQ==
+       dkim=pass (test mode) header.i=@armlinux.org.uk header.s=pandora-2019 header.b=ZeyHf1lp;
+       spf=pass (google.com: best guess record for domain of linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender) smtp.mailfrom="linux+clang-built-linux=googlegroups.com@armlinux.org.uk";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=armlinux.org.uk
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=DOC4ZqFSHoCnaNutIJnpTd4CMt4VnuljSGHxpkAx/OQ=;
-        b=jo3UjSCSAl71hcsu2HolqP8oRS8P0VQrEthxtLT/IRDWU6Xajyic9uff94SLs5eDxZ
-         dF7R9C2lnIBFXuzI3uuvr7Xe7nAsn4xD5yU/eJkv7xKkRkMAEiT+kmwg3wzbcRdku0w7
-         oD/LYEEzjmG9dIYtYPRcQ5a6bx01yEHiWxV0UgbuQMAcoW+NC2l/BcqMavsJoQeVpNGL
-         mzQk+4ud1lT0c85BA72POrrp59YDKYXWNZWZLEbEdZw3TJaiLPLXQokvdmCPAQiOH+f3
-         UQG5GL3RmAE1wncAGiFhgctmPzMhVduqRnFXTXFObw5HBscWqHDonLwjYtSKY15+BfmN
-         EO0Q==
-X-Gm-Message-State: AGi0Pua94YxNed200yB5qMwR/p/uKdFOvgrgv8l89S++JH68xkxGFz8O
-	W4571FX297aGjFsWnbmKB1k=
-X-Google-Smtp-Source: APiQypIFOAYNLJos8ejDBw7SawzcsJoSBBi1L9/xZYC6/9XTEZx4pbL6IJgLPWeJ5vsbO47bj/4cXw==
-X-Received: by 2002:a37:6e87:: with SMTP id j129mr27066476qkc.358.1586961742951;
-        Wed, 15 Apr 2020 07:42:22 -0700 (PDT)
+         :mime-version:content-disposition:in-reply-to:user-agent:sender
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=dOokOePjMtOx6HIRMCSg96+wvFqdjcLBgUDbMJzGbmc=;
+        b=KhMhXbIvEND7qO9YxR7v4TzOGQicECX58JJKAeUp5/nDssW2C2PBFSGzbemAJ/ObHB
+         wV/j+qgUU1w0DbCOSZaOFa4Y/kEDkJuTCkPRffo9ZWgxiUNxjshosEd0s7Od52OL7/Ev
+         eT7xcRqHwNaOlk8x58u1/ja/C9FJomGh9MKtnRoQOsmHXFl+c1V+3YshM0CbJ0yTHNBw
+         gKEo24LDpwHp5QlgvpwqqWTP6WlEhaRgNV0QNBXnUh6cSjwEjZVBWUJetosan3QDMkja
+         QTZ/kSsD+ycGO9JyaZhBfyRdn6bLCzeSHJ7NrGqV8QlOF4GKD3Pir52HKSfrYiOvHGkf
+         gi2A==
+X-Gm-Message-State: AGi0PubKKXxdpNhwNgIkEImPdrlEzEip2qRlq1oMyiY+zBXCch6LqkXS
+	5CqMBtNmcgeIbhfKsfHKs80=
+X-Google-Smtp-Source: APiQypLpeeT1ZnjkTQ/4KqZL3Gt3TZu8Y9e6qt81fB+o40t+Zvx6UAVToftYMbKvkNiZnTRuyMCfCg==
+X-Received: by 2002:ac2:5e86:: with SMTP id b6mr3222712lfq.65.1586961934013;
+        Wed, 15 Apr 2020 07:45:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:586:: with SMTP id 128ls4693271qkf.5.gmail; Wed, 15 Apr
- 2020 07:42:22 -0700 (PDT)
-X-Received: by 2002:a37:a4c5:: with SMTP id n188mr12260184qke.337.1586961742570;
-        Wed, 15 Apr 2020 07:42:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586961742; cv=none;
+Received: by 2002:ac2:551d:: with SMTP id j29ls1020590lfk.1.gmail; Wed, 15 Apr
+ 2020 07:45:33 -0700 (PDT)
+X-Received: by 2002:a19:1c3:: with SMTP id 186mr3247363lfb.191.1586961933449;
+        Wed, 15 Apr 2020 07:45:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586961933; cv=none;
         d=google.com; s=arc-20160816;
-        b=PMWWWlTvUg0lHIbrjqIOQ70x0Zj5fB/9iIai03r/GJwt+hmeEVr0fPiX+k/N9Q7QXP
-         GcbrwdvnfUW5MERNGAK1pXu1r4Oq5wuOa1lf6tHZ8909mElVgubn3aE9xGEh8enkfiey
-         8SMgNPnS0TP3ZYpOo7sonJPY3cnlZIBQYHCz9HT3HCcV5Z4NtHLHebOJMPWRotrgt6Hy
-         YhlToiV+OE+KpHmj1eA3sxGr8JLynIVwRW5OGXw6q4qXSqDlXS63nRKNnZ1ZjHbwQx5P
-         NaLo3qm5SgK6Arxz4+U0UVM2v/krYN3qqvpxZMIN0VR0NH7gg4S7OSRWzJmcaMsBvhop
-         BFTQ==
+        b=BHZKXrBKm9Yu0EbdREEWRtJdIfov49FpIqTw3AbnGzqQq6K2p6y8tq1ARE04vWt3c2
+         4vAUsy2nsS//obn3C+VSydR7U2j3F7BniPOSft9j11ztDBo0K5zieegww0m7pYckiy9U
+         CzR6OnTzvw67nvCiNDTuT5YTRR8xd36EhXsGquWYWMS2lR8xMEwWbIuQOkru2BRNn98Q
+         +fm1Vof2tU27OHeGVivoZ7mTQZpargareVwm1iAlBC6T6wMS1byvQgPhaGQJaCtF/bJk
+         foOVd82WrdjqYYepsNpNWG5Gve1FuyMIBYHbGcuNXlfp1eshhsXHOIm5cWUXVdSUuTkO
+         p/gg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=TrCr8YaKtrXKuZI1mDLlJ9OwmvLg/1PUlN/6+Ie7Iy0=;
-        b=bp+rNEGK3k/X2LJflW3qTJwc+r/Khvpg6sxJppn/Q7NE9mtRAOn6Shtp3iw03j7gb0
-         dhDUbTI+WHECRPACUmbJJcsI87dhNvC1LBnJrYy6o+FjXjw3zZNXqxylhU4f4tPCBVKu
-         ddZVfiHryYxkNw+VA3cwjUNjjhjS6lHDuQz+8mzlqhuBj+rEAfW84G/M7VOHlgiCeBxw
-         QpPmk4A7T7//4jvFN3RdaJGUkZHeiXpllkW3agBA6PXc9s/GDEuOEpMCEBSOWm85ShHK
-         TeCGieGo06XwGLFeCv/eY1cbGM38j9DK9AKckuIuaetHFpal4B7NUSWP8SOwLWD6Zlyx
-         yEvQ==
+        h=sender:user-agent:in-reply-to:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:dkim-signature;
+        bh=Q6y0RY1r/bsSQu1Pjhp5jZO0J0vCNZAdOGGiFado0tg=;
+        b=kb7GrO8xYcqx28n7BD/YH53Bs8tXhRsq8a0MUbw8R8gXXa6vR1HIa5NGu1uPR7xPkq
+         S1NJAS83Odq/Xwc12hIfSKNOdC+acrm15tOUrgyK6Jo3G3xEkyEUmR7eLZJLNkNc9a2Q
+         NLtWS/pcvWzbCZmOcHUUyCFd2y5BYWyUOOsiMX93r08+zBpim2OQpQd7BofAIeZQXMY+
+         mhSAuomfTfKh39hxqE8CHRcc8WVDGvu00anSUizj3TkaFRqSty1U3YPV949o6zFV/8lm
+         S8kYyZdvZ2SEfklITFX9TLeCjQn4169KZxhPUVtuH5mXkyqg8f6X3KArKE2TMHFKasv/
+         lGLg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Rzm5dxhT;
-       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=maskray@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x543.google.com (mail-pg1-x543.google.com. [2607:f8b0:4864:20::543])
-        by gmr-mx.google.com with ESMTPS id l23si758551qkl.0.2020.04.15.07.42.22
+       dkim=pass (test mode) header.i=@armlinux.org.uk header.s=pandora-2019 header.b=ZeyHf1lp;
+       spf=pass (google.com: best guess record for domain of linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender) smtp.mailfrom="linux+clang-built-linux=googlegroups.com@armlinux.org.uk";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=armlinux.org.uk
+Received: from pandora.armlinux.org.uk (pandora.armlinux.org.uk. [2001:4d48:ad52:3201:214:fdff:fe10:1be6])
+        by gmr-mx.google.com with ESMTPS id e4si264136ljn.1.2020.04.15.07.45.33
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Apr 2020 07:42:22 -0700 (PDT)
-Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::543 as permitted sender) client-ip=2607:f8b0:4864:20::543;
-Received: by mail-pg1-x543.google.com with SMTP id c23so9360pgj.3
-        for <clang-built-linux@googlegroups.com>; Wed, 15 Apr 2020 07:42:22 -0700 (PDT)
-X-Received: by 2002:aa7:8d97:: with SMTP id i23mr27432269pfr.325.1586961741436;
-        Wed, 15 Apr 2020 07:42:21 -0700 (PDT)
-Received: from google.com ([2620:15c:2ce:0:9efe:9f1:9267:2b27])
-        by smtp.gmail.com with ESMTPSA id i15sm2199851pfo.195.2020.04.15.07.42.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Apr 2020 07:42:20 -0700 (PDT)
-Date: Wed, 15 Apr 2020 07:42:17 -0700
-From: "'Fangrui Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Ilie Halip <ilie.halip@gmail.com>
-Cc: linux-riscv@lists.infradead.org,
-	Jordan Rupprecht <rupprecht@google.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 15 Apr 2020 07:45:33 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender) client-ip=2001:4d48:ad52:3201:214:fdff:fe10:1be6;
+Received: from shell.armlinux.org.uk ([2002:4e20:1eda:1:5054:ff:fe00:4ec]:46312)
+	by pandora.armlinux.org.uk with esmtpsa (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.90_1)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1jOjHj-00071l-VP; Wed, 15 Apr 2020 15:45:04 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.92)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1jOjHW-00010F-Ku; Wed, 15 Apr 2020 15:44:50 +0100
+Date: Wed, 15 Apr 2020 15:44:50 +0100
+From: Russell King - ARM Linux admin <linux@armlinux.org.uk>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Kees Cook <keescook@chromium.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
+	Kristof Beyls <Kristof.Beyls@arm.com>,
+	Stephen Hines <srhines@google.com>,
+	Luis Lozano <llozano@google.com>, Jian Cai <caij2003@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Peter Smith <Peter.Smith@arm.com>, Stefan Agner <stefan@agner.ch>,
+	David Howells <dhowells@redhat.com>,
+	Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
+	Manoj Gupta <manojgupta@google.com>,
+	Benjamin Gaignard <benjamin.gaignard@linaro.org>,
+	"Joel Fernandes (Google)" <joel@joelfernandes.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Ilie Halip <ilie.halip@gmail.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Bartosz Golaszewski <bgolaszewski@baylibre.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	"Eric W. Biederman" <ebiederm@xmission.com>,
+	"Steven Rostedt (VMware)" <rostedt@goodmis.org>,
+	Jian Cai <jiancai@google.com>,
+	Doug Anderson <armlinux@m.disordat.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Mao Han <han_mao@c-sky.com>,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v2] riscv: fix vdso build with lld
-Message-ID: <20200415144217.cxxdfeeepzgikp4n@google.com>
-References: <20200415142959.25673-1-ilie.halip@gmail.com>
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Patrick Bellasi <patrick.bellasi@arm.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>
+Subject: Re: [PATCH] ARM: do not assemble iwmmxt.S with LLVM toolchain
+Message-ID: <20200415144450.GF25745@shell.armlinux.org.uk>
+References: <CAK8P3a3uj7AHbAo4sNzr6KQx5Fk6v99k4ZixCgKo1tUuGoat9Q@mail.gmail.com>
+ <CAMj1kXGXNxXGiC4dmNXHkZ6n=J0Fhim3oSwNx4Bz5m9fEphJvQ@mail.gmail.com>
+ <20200410123301.GX25745@shell.armlinux.org.uk>
+ <CAMj1kXFpknCfwb6JMdk_SHopnGqMswgSqaQUeAUEh5yaV10vJg@mail.gmail.com>
+ <CAKwvOdk-xwuppJzxd1+5sfsC8jYiP3t8D=aTNaYxnFCRDiEUmQ@mail.gmail.com>
+ <CAMj1kXFHb8th0rv1yjrsr=c1o-g9_ERPUy4itnrVN13fcQcXag@mail.gmail.com>
+ <CAKwvOdm5aawsa2-=atB8z6W8zo8YVgdDEVbU3i4evDcpo1_AxQ@mail.gmail.com>
+ <202004141258.6D9CB92507@keescook>
+ <CAMj1kXG6_CO6pzeJCSeWiCDyLfWw+ZMuvkv_DLxe-si00fLd1Q@mail.gmail.com>
+ <CAK8P3a3Ko0XTLUGwBxVM=nNebGr6ww66+cCKbYBrd9A4ME0__w@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200415142959.25673-1-ilie.halip@gmail.com>
-X-Original-Sender: maskray@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=Rzm5dxhT;       spf=pass
- (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::543
- as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Fangrui Song <maskray@google.com>
-Reply-To: Fangrui Song <maskray@google.com>
+In-Reply-To: <CAK8P3a3Ko0XTLUGwBxVM=nNebGr6ww66+cCKbYBrd9A4ME0__w@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+Sender: Russell King - ARM Linux admin <linux@armlinux.org.uk>
+X-Original-Sender: linux@armlinux.org.uk
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass (test
+ mode) header.i=@armlinux.org.uk header.s=pandora-2019 header.b=ZeyHf1lp;
+       spf=pass (google.com: best guess record for domain of
+ linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates
+ 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender)
+ smtp.mailfrom="linux+clang-built-linux=googlegroups.com@armlinux.org.uk";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=armlinux.org.uk
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,60 +160,79 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 2020-04-15, Ilie Halip wrote:
->When building with the LLVM linker this error occurrs:
->    LD      arch/riscv/kernel/vdso/vdso-syms.o
->  ld.lld: error: no input files
->
->This happens because the lld treats -R as an alias to -rpath, as opposed
->to ld where -R means --just-symbols.
->
->Use the long option name for compatibility between the two.
->
->Link: https://github.com/ClangBuiltLinux/linux/issues/805
->Reported-by: Dmitry Golovin <dima@golovin.in>
->Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
->Signed-off-by: Ilie Halip <ilie.halip@gmail.com>
->
->---
->Changed in v2:
->  * a comment line dropped, another one slightly reworded
->  * added Nick's Reviewed-by
->---
-> arch/riscv/kernel/vdso/Makefile | 6 +++---
-> 1 file changed, 3 insertions(+), 3 deletions(-)
->
->diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
->index 33b16f4212f7..a4ee3a0e7d20 100644
->--- a/arch/riscv/kernel/vdso/Makefile
->+++ b/arch/riscv/kernel/vdso/Makefile
->@@ -33,15 +33,15 @@ $(obj)/vdso.so.dbg: $(src)/vdso.lds $(obj-vdso) FORCE
-> 	$(call if_changed,vdsold)
->
-> # We also create a special relocatable object that should mirror the symbol
->-# table and layout of the linked DSO.  With ld -R we can then refer to
->-# these symbols in the kernel code rather than hand-coded addresses.
->+# table and layout of the linked DSO. With ld --just-symbols we can then
->+# refer to these symbols in the kernel code rather than hand-coded addresses.
->
-> SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
-> 	-Wl,--build-id -Wl,--hash-style=both
-> $(obj)/vdso-dummy.o: $(src)/vdso.lds $(obj)/rt_sigreturn.o FORCE
-> 	$(call if_changed,vdsold)
->
->-LDFLAGS_vdso-syms.o := -r -R
->+LDFLAGS_vdso-syms.o := -r --just-symbols
-> $(obj)/vdso-syms.o: $(obj)/vdso-dummy.o FORCE
-> 	$(call if_changed,ld)
->
->-- 
->2.17.1
+On Wed, Apr 15, 2020 at 02:58:05PM +0200, Arnd Bergmann wrote:
+> On Wed, Apr 15, 2020 at 12:32 PM Ard Biesheuvel <ardb@kernel.org> wrote:
+> >
+> > On Tue, 14 Apr 2020 at 22:53, Kees Cook <keescook@chromium.org> wrote:
+> > >
+> > > I don't know if this will help, but I feel like folks might be talking
+> > > past each other a little here. I see two primary issues that are
+> > > colliding, and I just want to call them out specifically...
+> >
+> > To reiterate my point: I strongly prefer minor asm surgery over
+> > elaborate Kconfig plumbing if it means we can retain the functionality
+> > even when using LLVM tools. In particular, the use of macros to
+> > implement missing ISA support should be considered before any other
+> > solution, as these are already being used widely across architectures
+> > to fill in such gaps.
+> 
+> +1
+> 
+> > > What's a good middle ground here? For VLAs, I ended up getting akpm's
+> > > help by having him add -Wvla to his local builds and send nag emails
+> > > to people when they added VLAs. That's not really a thing here, but it
+> > > seems like there should be a way to avoid losing ground (in this case,
+> > > it's the erosion of attention: repeated known-issue warnings means the
+> > > CI gets ignored for the warnings on newly added issues). It does seem
+> > > to me like adding the negative depends is a reasonable first step: it
+> > > marks what hard things need fixing later without losing coverage for
+> > > things that can be more easily fixed now with available resources.
+> > >
+> > > For the specific iwmmxt.S case, perhaps the solution is the suggested
+> > > changes? I imagine it should be possible to do a binary diff to see zero
+> > > changes before/after.
+> >
+> > This code has been around since 2004. It has never been possible to
+> > assemble it with Clang's assembler. So the only thing this patch gives
+> > you is the ability to switch from a .config where IWMMXT was disabled
+> > by hand to one where it gets disabled automatically by Kconfig.
+> >
+> > So what hard-won ground are we losing here? Did IWMMXT recently get
+> > enabled in a defconfig that you care about?
+> 
+> I mainly care about the build testing aspect here, it seems we are getting
+> close to having the clang integrated assembler working with all .S files
+> in the kernel (it used to work for none), and I'd like to do randconfig and
+> allmodconfig tests that include these as well. Disabling the option works
+> for me, but your suggestion with the added macros is clearly better.
 
-https://lore.kernel.org/linux-riscv/20200402175354.pzhzhumlqsjk66nu@google.com/
+However, to me it seems the approach has been "clang doesn't like X,
+the kernel has to change to suit clang" - sometimes at the expense
+of either functionality or maintainability of the kernel.
 
-Reviewed-by: Fangrui Song <maskray@google.com>
+Some of the changes have been good (provoking modernisation) but that's
+not true of everything - and I see nothing happening subsequently to
+rectify the situation.
+
+Had we gone down the path of disabling the build of iWMMXT, if anyone
+builds a kernel with clang for ARMv5 PXA and relies on iWMMXT, their
+userspace suddenly breaks because they used a different compiler and
+lost the necessary iWMMXT support in the kernel to allow userspace to
+operate, which isn't a nice approach.
+
+Using macros is the best solution to work around clang, but should not
+be done at the expense of GNU AS which has proper support.
+
+I'd say this: if clang wants to support building ARMv5, then it needs
+to support iWMMXT and stop forcing the kernel to adapt to Clang's
+incomplete implementations (which are no direct fault of the clang
+developers.)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTC broadband for 0.8mile line in suburbia: sync at 10.2Mbps down 587kbps up
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200415144217.cxxdfeeepzgikp4n%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200415144450.GF25745%40shell.armlinux.org.uk.
