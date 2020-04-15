@@ -1,131 +1,122 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB3HI3P2AKGQEBTCBG2Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDDL3KWR4EBRBHPS3P2AKGQEYD6VXXI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3664A1A9DBC
-	for <lists+clang-built-linux@lfdr.de>; Wed, 15 Apr 2020 13:47:58 +0200 (CEST)
-Received: by mail-pg1-x537.google.com with SMTP id u15sf2515841pgg.14
-        for <lists+clang-built-linux@lfdr.de>; Wed, 15 Apr 2020 04:47:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1586951277; cv=pass;
+Received: from mail-yb1-xb3f.google.com (mail-yb1-xb3f.google.com [IPv6:2607:f8b0:4864:20::b3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 884881A9F11
+	for <lists+clang-built-linux@lfdr.de>; Wed, 15 Apr 2020 14:07:58 +0200 (CEST)
+Received: by mail-yb1-xb3f.google.com with SMTP id y7sf19633990ybj.15
+        for <lists+clang-built-linux@lfdr.de>; Wed, 15 Apr 2020 05:07:58 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1586952477; cv=pass;
         d=google.com; s=arc-20160816;
-        b=z0IGeOpTXUMP/B6dTJF5Z26gdJBh4DbdID/ZaywP2Rwcb6R0wG2+vanGEHDIc0ngem
-         ud03NYLDZN90d7F4AA67wiWY+UZlZy/kREU1AdFuAlAvHp6LJaK8/MJzeZ7lIh4ex9A+
-         0fohHuKQUrKpxSTavLS+FsGUpSpHhwrwobZ4Dm+qcpYI++0lJGs1shCiY3bNU2v6EdiR
-         4OkUAOvat7F9yEfryVFsOfqIzB2RstEkPzd03w3lqh0RqPFRLEhkPHZVxKlARmiygu8/
-         c1fvK1s7UrkHn6lZHLf8Df+pH8VOnw3dZ12VtrV2FahsoZu8xOuppmaeqvy3e1qUj6aC
-         vbHw==
+        b=k4L2/jLU2o5EzySimV2q4mZtyISt6aGL3u3Mfw1IhhdusfcDdF5EA3G3CsZ+Dqfj44
+         OOx1q6sL/pUXJLGDxCvj4DxvacZCwLmv8y5bXcO8kcohiplekGEmXTjlo+oKU9jxUneG
+         UjVH42G4XbV4ALvXTOfTAy41rkYR7+HzogAWqfCyNjENOVdZFYoP5TBWAtFGAEtrCnyX
+         B/6bGsqn0gadDE1qug04RyFy+Db4sl4EbHEXAI+G9JyC7d5QIS8exi9K/9W36lWSjfVs
+         kfpxF4FETkHASG923nZx/ptX93sn4G9uehRdIudquZgPDeg0NLNz4hOgABDA6APlFnKD
+         72wA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=n1jcsHIIebf3GJEusB5rMDhEtqgjkzwIjM4ZqM9Hv24=;
-        b=M4JgPmye3Jnz2Sa4Vy/ka8CTAn4pC/+kZ/2/M5r5VsQY8FX6WWpD5LHRTEpn8B9n1c
-         8Ib8TWor3/gxzhhG5gvEdqn/JVj71fFLIyynD0F2WxXMZ6H7q4ReAoUf1FPLwsd/4hc8
-         huXoLnM2+pZkl57JktH5ky3wWm6n+OCWi/YD1xkny9DfVcuAz0qtbXwipkmq737RgmXy
-         hpzJdVecqljEEoggLrK0U53QdQaAbo6XnHRW1DZOk4BHsqg/Sdcq8SP+JndebF80qYoe
-         yweUZ4owFb835Wz1Luati2tRdaVsPLQrcT5972s1gIBBzr7M573aXW/v/4Aw2iwm3Yjy
-         is3A==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=pMxcTd+FksUIhQZGZKtNd1MP64GzSxXsALWOrjz8J20=;
+        b=vWcpR+EXZLDYf0ZPNurzCysx9embHlFUgXdv7T9Zs67z5jSpEg2TpXyNu7hPACJv1W
+         P+ANCG9/t5EGfarUyF9lDuGl4X4YOEAr8Hez3iTrczrlWIdgfX4fbQ0MPEiPLiCGyh+6
+         AgT3D9OifYmL8PTrxRQdNbgNprmLMr+rBPqCnFmyf6P7BjMkd0okBfg0bAsTGWJvjXWd
+         yLOfii1+MblipXRnO1uaS2Zt1LPgxHnUGKzVz395NmPuv0EXIV/PH8CeZ4gelM1YKFSX
+         l7g7wapL6zeQt2ZpDr2zDdwktP68ZJfzid7kjMf9QadMhVl6z77SnFrMYB5Iveoabhjh
+         sBxQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=NQ5HqyQt;
-       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of catalin.marinas@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=catalin.marinas@arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=n1jcsHIIebf3GJEusB5rMDhEtqgjkzwIjM4ZqM9Hv24=;
-        b=LftjbKKVUqxtsByZ6vy0cSBfnnWpwrhEtspICkTBzVjDzSnR3veHgXMrdd766qOqwi
-         Rq/cpOoq/lwbTS2rxP+pjTa9SnRPJupvGqmQSt5SICsoE4QA3JhPqYfJvYrdJu+3Y3RJ
-         sezxi9+IAj8Rf5HEU+rKV3T8XXRoNlGCrMqlW02vejA816bou3JKUWUCtImj2sh7t32j
-         3YCNS8dQmdX4J0pQMAERNwgnrpriezXJ8HTTC1YYyTeu+dJwR2Oi0GAQh2b2eA69pnPM
-         RNv/+QB9qcMf4dyo6SMWXzmXQF0CBxo2HS8WJQsVwBganxQetVpsFzpmcOiHMWSGB+BN
-         uyvg==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=pMxcTd+FksUIhQZGZKtNd1MP64GzSxXsALWOrjz8J20=;
+        b=Oj3lZUsITDuuoHQmxzMqJdXFy5eRr81Q3jBNwTQIBYLYx9hQ9VJZHvr5bG6BeAKxd+
+         C8YolzmZ4PU4KG83LzbteoTE8CnecFsmjT2lzb8H1NFfLTc8oY2kEtpw0bRb6FMsyhg4
+         vsoW+dd6Ue495ddygn75hf31l8ifZBbUHT1ymmtjLVBfo7Sabj3iRTN5UfrXNPUKYvNd
+         566IoJXT4BW8zdv94bi5DyOtaf84k+Aqnkm20tG1ME9LI+/pIWBeFXl13KnpkwHMzXuH
+         9GoStvaIVC4cskWXxi5bYHhdWzWLEcyDTwXTFwAQOrIW2MoMCzYBlxRiJwVRYMic2pIH
+         R/QQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=n1jcsHIIebf3GJEusB5rMDhEtqgjkzwIjM4ZqM9Hv24=;
-        b=BeBQobF0ML8SMzAO2oVAkzWo/83JPTcV9IIW7QQa+yElqNuDiT/dwu+8rGOF2dkFBT
-         0tF98/UdofKBkY9L5PgtdPhaDnhDPzIAZaZKK8BtEHAF2SFP/baJ22TaSwfxfpZEnvWr
-         odceE6czmZdTcNJ6CHmGwY2Tle+Myw69M+DFl7/rouQG3D8U6rh6uT6swCyX3Hls/E8O
-         8Khk4I1Yw4I58zDVEkrosyBuV+plXZgQp14hbbheO5IRx17qaToh9yVk+Y+5vttZmMCi
-         +vWMY0IYXD5z0Fo+mGfvWBdshAHXmEp6fCJZF2NsJDSBOT25ZLxi1IeN4q9VIFuWtj6r
-         ukWw==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=pMxcTd+FksUIhQZGZKtNd1MP64GzSxXsALWOrjz8J20=;
+        b=dzs79lc9qOyWIaADwZBEAKK8hh7hdaI51ZloKA9QAjH/2B0WpOITSN3rpu4stitVJG
+         v9cSmp0xwZhH5+n0VmC+wzDLPmVUWS8raSpXZkULlTgvA0Nl8363yW0QUUsz6W5RfHYF
+         +fsBV/IKTbSLB6rwguJ9MOc16KLlLjbqGDasME8LSfDdj7nLGm+XEnx9LPVFm/OaBYKP
+         GuD+LkvyyLebC2pludnND4j1M5+rZhe5Ag6tbErInj0FDF3qFKXNemr/9iW28tRxEvow
+         C1B2hZRby8tMk+Z16caNyjevPtNsE4jtbvtv4zObpIXScKZ8Svct78yZuHV8/r3mFPWp
+         j6Vg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuY8vgavB1CdV8gbg1MBVOXuNhGQ1vCA+/ekC+hXCOiMHc0AuzMG
-	Pdxi8W+wdl/5knLPfZsb+SA=
-X-Google-Smtp-Source: APiQypIDLyc2P429ZdpJtWnm1zz9GQ0ruvPRjo/7Q07je7l5uIsC3Pio0VUF7VTP6jx3GFYMEqUFXw==
-X-Received: by 2002:a63:140c:: with SMTP id u12mr19740099pgl.243.1586951276901;
-        Wed, 15 Apr 2020 04:47:56 -0700 (PDT)
+X-Gm-Message-State: AGi0PuZdGrUydMmn3E6FYYtcjqjcDdAwDNH9/d5no+JbXvD0iNBZJ8WM
+	bXedDuFTiY4dI29lRQgIZxM=
+X-Google-Smtp-Source: APiQypL6InQr0cdZIUPPrmTARKTgop9RTfzsg0Wpr7qaC1FS0WAP4kLxp0eIgnaM0IBwvl0ddKNLAQ==
+X-Received: by 2002:a5b:84f:: with SMTP id v15mr7308795ybq.134.1586952477356;
+        Wed, 15 Apr 2020 05:07:57 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:f1a:: with SMTP id e26ls753911pgl.10.gmail; Wed, 15 Apr
- 2020 04:47:56 -0700 (PDT)
-X-Received: by 2002:aa7:9711:: with SMTP id a17mr29404144pfg.143.1586951276443;
-        Wed, 15 Apr 2020 04:47:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1586951276; cv=none;
+Received: by 2002:a25:e00d:: with SMTP id x13ls2649014ybg.7.gmail; Wed, 15 Apr
+ 2020 05:07:56 -0700 (PDT)
+X-Received: by 2002:a25:80c3:: with SMTP id c3mr8689944ybm.33.1586952476943;
+        Wed, 15 Apr 2020 05:07:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1586952476; cv=none;
         d=google.com; s=arc-20160816;
-        b=GR+Dfv0ZgxUDXJGDSNO5Q5aYPSNcQ5nBRGXIfYMqQErKFwLCcrfWIBqlBZpGcn8LXS
-         PBGrPDy6YdEZOLmzgPVbL2VeqgPXNgst105V5pnwoAcbsuPj7fxPKQhTwu6UF6PpoGiF
-         plrEUKH4H3drSRMPXXnJk6yyvO+cqULIgF1MHNwU6PpNm2ohlNPDvUZGIiOqtrj+wLtK
-         EgtRYzzskQjjqpYAm6ckJ2beq6ec4IWTrXW0VeDd75DsdX//fP2QjmqP9mgyPCSqhJ0O
-         nfpKoZ36x7ulIU4qoHAZL5RIZqxkx+dyzzC8lnhaUrIXjinX/BsdwaSz2GKb1re5DHFH
-         y1ew==
+        b=UaJAS+dw686+4o4kzCjHiD3vVpgjwDe/iuUlizF6wQ3HWdkq9ODGlYraEFGwZFHSZP
+         74Dieu6aRHR1cPnyrNOVAAGpPknw+UEd9ihg7fXIv5wqqAAG5Mgj/MreH54JooIs4QLw
+         qNEbMyO4Og7YF3mY3mNXUmg216sV4ASL4YmkAfPckmk1/FlXG6Zzjf6pn+cvWI30frcz
+         6glBRRzqXrMHGGGhbMqSNA26ZtOJi4IJisXsu0jC5OZG2fbScEfnGwdd1IbmcW+aVOwY
+         XjZ/4CzzGAYPUHoZuBQmTry3pBzwVNJFkK3IgK2mS+DwPLpMqJOqPTz0LU2d8fNrFOYL
+         uA9g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=P8S6rSwRA4R5Y7ZuWSQClyz1hRgZXJhL/MvOxvrB7gY=;
-        b=GcQGn0K8kxGJRp5crgR8ZAatkt06yjFm3sqSmfe9G0o99knXNHUJvjoClAgInHUP/w
-         ZVdQHMOOtBEZK4lIx+KpGCn+6isdkR07Jvrk9OtWQPQTIj0Bps01grSJVnXb+9Cakc4W
-         SVQbOZEx22TI9si6adVhPy2OlaLGhyyKLeryvfZ79iL0jWXPV8PAwYAtJkKU7psh0OKV
-         VP6FLTbfSe0yKdIR0KADJQyMTohjvEjip1Hgipsv4l5IEICJfVx6F+phV8PKRG3xhiew
-         61o/3u8LinwmGMpVe1wwwEqPo2xK9EFfje3WJsEH+6h3Z2BXn/3OolSy9mMiJwVNBP3B
-         EKQQ==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=NHiOx8HuGBIWG4TyDkQM7WGqG/+VYErX1ETDBr5EevQ=;
+        b=If7rxHXKr3dK0xkQmhhCBDRGh8xdM/4qzogt86ET/784OyLXDsmp8HVwhzs1FOeW2R
+         DFOvkPU7V2o024NUKqZl/qkGIGw1kGa4+gSp4ThOEbIId6U2plaPlzWHVxBijev2eVn3
+         9E3iFNLri6ZfzGrV6iEwIttOZg1wPGQE34HqDZ93Eeb86evORDjVKqkj8Nnvt3i+XglD
+         YuttudeM7wqyCJ+SrICfu8Q9POGgiYjZH3i/rqlkuKM4+HEyFqqDo3tWNL/8iLsEMQPc
+         HWlV+USSP+glLKKxJq9K2tiLboLftZAPsuh8Bq7xzXh65o2HhF/5WdDSB9Fyci3YzxVc
+         mAOA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=NQ5HqyQt;
-       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id t6si678165pjl.0.2020.04.15.04.47.56
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 15 Apr 2020 04:47:56 -0700 (PDT)
-Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 2A2492166E;
-	Wed, 15 Apr 2020 11:47:55 +0000 (UTC)
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Nathan Chancellor <natechancellor@gmail.com>,
+       spf=pass (google.com: domain of catalin.marinas@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=catalin.marinas@arm.com
+Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
+        by gmr-mx.google.com with ESMTP id m18si925265ybf.2.2020.04.15.05.07.56
+        for <clang-built-linux@googlegroups.com>;
+        Wed, 15 Apr 2020 05:07:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of catalin.marinas@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3931C1063;
+	Wed, 15 Apr 2020 05:07:56 -0700 (PDT)
+Received: from gaia (unknown [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E1C653F68F;
+	Wed, 15 Apr 2020 05:07:54 -0700 (PDT)
+Date: Wed, 15 Apr 2020 13:07:52 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Fangrui Song <maskray@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	Ilie Halip <ilie.halip@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Sasha Levin <sashal@kernel.org>,
-	linuxppc-dev@lists.ozlabs.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.9 06/21] powerpc/maple: Fix declaration made after definition
-Date: Wed, 15 Apr 2020 07:47:33 -0400
-Message-Id: <20200415114748.15713-6-sashal@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200415114748.15713-1-sashal@kernel.org>
-References: <20200415114748.15713-1-sashal@kernel.org>
+	clang-built-linux@googlegroups.com,
+	Ilie Halip <ilie.halip@gmail.com>, Jian Cai <jiancai@google.com>
+Subject: Re: [PATCH v2] arm64: Delete the space separator in __emit_inst
+Message-ID: <20200415120752.GD6526@gaia>
+References: <20200414163255.66437-1-maskray@google.com>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-Original-Sender: sashal@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=NQ5HqyQt;       spf=pass
- (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20200414163255.66437-1-maskray@google.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: catalin.marinas@arm.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of catalin.marinas@arm.com designates 217.140.110.172 as
+ permitted sender) smtp.mailfrom=catalin.marinas@arm.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,94 +129,50 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nathan Chancellor <natechancellor@gmail.com>
+On Tue, Apr 14, 2020 at 09:32:55AM -0700, Fangrui Song wrote:
+> In assembly, many instances of __emit_inst(x) expand to a directive. In
+> a few places __emit_inst(x) is used as an assembler macro argument. For
+> example, in arch/arm64/kvm/hyp/entry.S
+> 
+>   ALTERNATIVE(nop, SET_PSTATE_PAN(1), ARM64_HAS_PAN, CONFIG_ARM64_PAN)
+> 
+> expands to the following by the C preprocessor:
+> 
+>   alternative_insn nop, .inst (0xd500401f | ((0) << 16 | (4) << 5) | ((!!1) << 8)), 4, 1
+> 
+> Both comma and space are separators, with an exception that content
+> inside a pair of parentheses/quotes is not split, so the clang
+> integrated assembler splits the arguments to:
+> 
+>    nop, .inst, (0xd500401f | ((0) << 16 | (4) << 5) | ((!!1) << 8)), 4, 1
+> 
+> GNU as preprocesses the input with do_scrub_chars(). Its arm64 backend
+> (along with many other non-x86 backends) sees:
+> 
+>   alternative_insn nop,.inst(0xd500401f|((0)<<16|(4)<<5)|((!!1)<<8)),4,1
+>   # .inst(...) is parsed as one argument
+> 
+> while its x86 backend sees:
+> 
+>   alternative_insn nop,.inst (0xd500401f|((0)<<16|(4)<<5)|((!!1)<<8)),4,1
+>   # The extra space before '(' makes the whole .inst (...) parsed as two arguments
+> 
+> The non-x86 backend's behavior is considered unintentional
+> (https://sourceware.org/bugzilla/show_bug.cgi?id=25750).
+> So drop the space separator inside `.inst (...)` to make the clang
+> integrated assembler work.
+> 
+> Suggested-by: Ilie Halip <ilie.halip@gmail.com>
+> Signed-off-by: Fangrui Song <maskray@google.com>
+> Reviewed-by: Mark Rutland <mark.rutland@arm.com>
+> Link: https://github.com/ClangBuiltLinux/linux/issues/939
 
-[ Upstream commit af6cf95c4d003fccd6c2ecc99a598fb854b537e7 ]
+Queued for 5.7. Thanks.
 
-When building ppc64 defconfig, Clang errors (trimmed for brevity):
-
-  arch/powerpc/platforms/maple/setup.c:365:1: error: attribute declaration
-  must precede definition [-Werror,-Wignored-attributes]
-  machine_device_initcall(maple, maple_cpc925_edac_setup);
-  ^
-
-machine_device_initcall expands to __define_machine_initcall, which in
-turn has the macro machine_is used in it, which declares mach_##name
-with an __attribute__((weak)). define_machine actually defines
-mach_##name, which in this file happens before the declaration, hence
-the warning.
-
-To fix this, move define_machine after machine_device_initcall so that
-the declaration occurs before the definition, which matches how
-machine_device_initcall and define_machine work throughout
-arch/powerpc.
-
-While we're here, remove some spaces before tabs.
-
-Fixes: 8f101a051ef0 ("edac: cpc925 MC platform device setup")
-Reported-by: Nick Desaulniers <ndesaulniers@google.com>
-Suggested-by: Ilie Halip <ilie.halip@gmail.com>
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Signed-off-by: Michael Ellerman <mpe@ellerman.id.au>
-Link: https://lore.kernel.org/r/20200323222729.15365-1-natechancellor@gmail.com
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/powerpc/platforms/maple/setup.c | 34 ++++++++++++++--------------
- 1 file changed, 17 insertions(+), 17 deletions(-)
-
-diff --git a/arch/powerpc/platforms/maple/setup.c b/arch/powerpc/platforms/maple/setup.c
-index b7f937563827d..d1fee2d35b49c 100644
---- a/arch/powerpc/platforms/maple/setup.c
-+++ b/arch/powerpc/platforms/maple/setup.c
-@@ -299,23 +299,6 @@ static int __init maple_probe(void)
- 	return 1;
- }
- 
--define_machine(maple) {
--	.name			= "Maple",
--	.probe			= maple_probe,
--	.setup_arch		= maple_setup_arch,
--	.init_IRQ		= maple_init_IRQ,
--	.pci_irq_fixup		= maple_pci_irq_fixup,
--	.pci_get_legacy_ide_irq	= maple_pci_get_legacy_ide_irq,
--	.restart		= maple_restart,
--	.halt			= maple_halt,
--       	.get_boot_time		= maple_get_boot_time,
--       	.set_rtc_time		= maple_set_rtc_time,
--       	.get_rtc_time		= maple_get_rtc_time,
--      	.calibrate_decr		= generic_calibrate_decr,
--	.progress		= maple_progress,
--	.power_save		= power4_idle,
--};
--
- #ifdef CONFIG_EDAC
- /*
-  * Register a platform device for CPC925 memory controller on
-@@ -372,3 +355,20 @@ static int __init maple_cpc925_edac_setup(void)
- }
- machine_device_initcall(maple, maple_cpc925_edac_setup);
- #endif
-+
-+define_machine(maple) {
-+	.name			= "Maple",
-+	.probe			= maple_probe,
-+	.setup_arch		= maple_setup_arch,
-+	.init_IRQ		= maple_init_IRQ,
-+	.pci_irq_fixup		= maple_pci_irq_fixup,
-+	.pci_get_legacy_ide_irq	= maple_pci_get_legacy_ide_irq,
-+	.restart		= maple_restart,
-+	.halt			= maple_halt,
-+	.get_boot_time		= maple_get_boot_time,
-+	.set_rtc_time		= maple_set_rtc_time,
-+	.get_rtc_time		= maple_get_rtc_time,
-+	.calibrate_decr		= generic_calibrate_decr,
-+	.progress		= maple_progress,
-+	.power_save		= power4_idle,
-+};
 -- 
-2.20.1
+Catalin
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200415114748.15713-6-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200415120752.GD6526%40gaia.
