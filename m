@@ -1,124 +1,134 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBC46372AKGQEIBVOEJQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB55C372AKGQEZ6A7PXQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ej1-x63a.google.com (mail-ej1-x63a.google.com [IPv6:2a00:1450:4864:20::63a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 33C7B1AB626
-	for <lists+clang-built-linux@lfdr.de>; Thu, 16 Apr 2020 05:20:44 +0200 (CEST)
-Received: by mail-ej1-x63a.google.com with SMTP id dx16sf343442ejb.10
-        for <lists+clang-built-linux@lfdr.de>; Wed, 15 Apr 2020 20:20:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1587007244; cv=pass;
+Received: from mail-vk1-xa3e.google.com (mail-vk1-xa3e.google.com [IPv6:2607:f8b0:4864:20::a3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5CB411AB63E
+	for <lists+clang-built-linux@lfdr.de>; Thu, 16 Apr 2020 05:31:04 +0200 (CEST)
+Received: by mail-vk1-xa3e.google.com with SMTP id t207sf2676649vkb.13
+        for <lists+clang-built-linux@lfdr.de>; Wed, 15 Apr 2020 20:31:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1587007863; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QIH3LCrtr2E+E1NJc98woqCL0xRNkOmo+YrZVO8LCFMfWo2Jzgna0kjCfn0J87+MD+
-         UnVnzwOjXVCo8jJzw1Urn3X4VbtZb3bKhNJb/+CeQTkTCWfDqKXaMi+aacWNPJmHQJDu
-         Hi0CTPuLcJwkDaL+N+NeSj8Go10AYhVB8i5Dd5jkaFwI256sh2NkLLnUSO2A6iANzC4C
-         X/aQIEbLJEbCfZXlUEQl5BPE9kZZfWG5kfnNpu2k8a8UzqZ4bgsFOasORCCwXWX/jn3k
-         pMShw25eMUjGRD43PmsX+WUvLPPNwc0DOt4I8RROXn/Ajs2s6jGKiBimWDz1zuvbq8Ox
-         WRdg==
+        b=HPK/g01i/wLy2ooRCu3bb90XyY5OzIFwfujSsqc27Ev6laeSvdlt1nKPvCCeg9KuZN
+         WiT8Q1jo5ZMVj1RFeZbNNC3QDeV6y/5Q0VDGOEXvaQ8ltOBCmD4pDdhRSDpWSUFs6jDF
+         vtPDYWj3GRybcfnegMGqxe+OcazvBw8uGug1LI95JRtsovV06riKFuxvioyGniQkXP5h
+         Q/YcThzBv6uEqrjxSkEpZ1rfDQE8pajKEX/5WWgUnDTfqgMYPp0d4YcopnGo06uDkuGn
+         1zrifTf62WGFHltYJMSzT+vuUwynJK5jjmPBaj1zuKxc1x9JPU2ztrwIeQm32FGaRpcH
+         EuNg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=M59Azco5o2gsr7jEysUY384Qp0PTQcQQCpxfPutt8I4=;
-        b=PiiP+1i415h+LxzpeY4f3GRLFre+A23f1Ziyeq+TlmiEhGIYkaamUmCZhu3qlrZbIf
-         JhB6WH05n6+h/DL/fJUC5hIyX18WjUM4QTkUBpmqW/pmd/eTm9qRFbDsIhvWrQBy5HZ8
-         lEou1+j79X3qaCviMYhSZnqVMz77VwtDLbpEXOGT7gV5PQxy9tf182kvLL9PbfVOmTYy
-         B09M1piaWhtUt52xdYPrAnyvOy+VbKYvy+tBUs4opigCSbBWQ/JPtui44KXimxISRxZN
-         dYsYeee6++aht5iZkdd1+udXFfO4wLvDfRtcArJkxhejz+0oi7GKkmB4744JsWfHkI4n
-         EEsQ==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=khlMKDg+haUBihSFInk3zv/Ifj48OHOgVaoF7Fqw9i8=;
+        b=hPEdtlzyCApfM73iG63J0hq30e6w5ur0kNaxpG8dZKqXn38iQ2gOg86BsBSQryMVrN
+         UuZ0Ioej3a3cMzr5UPRkzRcjRRrWeGR+zij8vz1DBXKapqWS+Godl3oThtMRBPvY9bEv
+         iLKs/lq7NQYLuEzdOvWeUsds6fFjEg+xA6MMmxsr6f9wu2pZTJvpQZH6bPfUx7axY7VK
+         IkGrGLug2WillftVZJ61TEIqPbscCkAEkie/2I/IBUsjtwPgTatG7GPqmzhTBk0qAoM0
+         Vok/+cjzPFq29LvKK2TcqHSykOafjPjAkheUDHhn+A8PmZ9mNq7I0OPQ/qmQkgm/+UTu
+         OIhA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=M3gEw1vK;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@kernel.org header.s=default header.b=k0pDqTrS;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=M59Azco5o2gsr7jEysUY384Qp0PTQcQQCpxfPutt8I4=;
-        b=At7VMFDRFTOu6hmEpyQHmBgyGd6+G8yqCK2afNOEgdgvpP7Np+UtnalQ1tnLjAiCoS
-         jLRbvgTun1+qSxvPNvQZ3xq4zx/szMzfAnt1l9AL8EJBnqxzT5ws7X+NAynr2DfOSAx9
-         8tXGMK18bw4e/WB0Z3WPEa+XvH6H/gOYP1CEHW2siuqf4AyM2NOJjtHRkNdUAM1lgTAf
-         1Hxnj/xfBfLR1n58Y3NnxYor1VT92RyaybXUCSfWVgJZ36o7VglTJCG/5tPuEggm8QHT
-         DFyz7n9ufAbINpx+87xABRM4emgOshajSZ1PHml3o0y+MPQYtp7f9lgkTdRH3hLoLALN
-         aqWw==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=khlMKDg+haUBihSFInk3zv/Ifj48OHOgVaoF7Fqw9i8=;
+        b=GhaR0N6xETQSZGKxwyyxNwwb2bQvjvhNLkh5Qch9MwyOjXCgcpbEMUX3frwstmlRP8
+         JxZxTTJJBwdWes2sL2yTar8dQuuoDq76C/OBsaT0Br2vJqGaECnKYTK+e1nKYRThCY4B
+         H1Az7kuB1mm9u+lXSem2Kyn1SbLBW+096PrCsrJZBz9fFHwNTAS9SkgEDTQWy8EVdUTb
+         Qm2JjFkpkmuFrXrBJ5ecDCXalt0qiscAPnWajke5vYIOQxXUPVhoOSfiJO6rqt8uUVmw
+         3N6hp9zuVGkbvs1aECVyeWP8U6daxa4IGZxtvk8/M6Awh4pi+ybSRHeHoqcKQU8hkMSe
+         LoWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=M59Azco5o2gsr7jEysUY384Qp0PTQcQQCpxfPutt8I4=;
-        b=LG8XzbYljnQHI8Sf+/1VTFbA2ebP5052pIRROwhTilhpKHwEb1ffPjn1yhn7uyPC/0
-         JOu/k/swH53TPOYUsQXCBteyuOPQfEDiqzBo5qOEqBFt81jOPstEMtuuBqbRC1rZjfpm
-         dgRQE11gVnj/wN370gi85GmWWp39l74VnT/rJ50nApSFeW9hSxW4WA6MAvVP9RHkAUEE
-         zVWnwhPMTTZUYJ8iRYcdfnI/SHNcjxjSjYqfsvYbyoAFLOImFFAphDs2659pzGBK6vQR
-         +c9k+dJV0G/y6fIwCOrjmYnLsJyyarP4IQxXs4AaSSsyCAi7CKGpteBUkYk6O+0FOAZY
-         dTMA==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=khlMKDg+haUBihSFInk3zv/Ifj48OHOgVaoF7Fqw9i8=;
+        b=aca97qAbK6rv2IcVV9JuGdTmzVyIuqznXtap1XO9n4d2KCl/ARESMNALvhM6d+qJN0
+         2L2S/QwjyOqPGPp2+evXM4yuTAr8nZZAan6GtngoMcZe2TcdLXUGChzwhrrZCIiD06NM
+         R7BWQrPIoDmwY/pBOQkPHI8aMnsPapC9oTYD2ww4QVqyu7Cx4gktbXCoIppeDOgv6LZ0
+         d342/aZ3IHMwfUzQbIilo11pItAkdjgcZfD67Ejv8k6y2mU0u4ybFqcr6QAipX/+jsPa
+         KnbPimIWcROsT31bYBMGc/dV6itasGnThPBIf3K6l/P6x29XQWi8tIv2KgCMgZO2dLev
+         LO6w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuZyOJsnZKyeT8R7YuzfEDTPnL7lJBpHKslTVP75tw6nsX3t8L9e
-	6+0qUTvNHAgNkqy+xzE/ihQ=
-X-Google-Smtp-Source: APiQypJ04AmuYQK1XysmHxEzByDUml4f5UPIxS6hXZSsD4/m7zXOkyR98Ee3QVOfNI03+deWFUpsrQ==
-X-Received: by 2002:a50:8a03:: with SMTP id i3mr28264359edi.121.1587007243829;
-        Wed, 15 Apr 2020 20:20:43 -0700 (PDT)
+X-Gm-Message-State: AGi0PuY8B1p+83SAAuQIbMiNp1sCi5uRBATzJO1wwv1q3sf7dSA46yU2
+	QtBQiIOrTbQzPe8Jkq4TaBs=
+X-Google-Smtp-Source: APiQypLF8yxBuNTIIV33XeVUtq+h1XkNbaeNPEW0yVyLrkvXyfpNEbbg5nhB3ZFLNvM9IjLXPPulSA==
+X-Received: by 2002:a67:f81:: with SMTP id 123mr7708890vsp.50.1587007863080;
+        Wed, 15 Apr 2020 20:31:03 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:a2d2:: with SMTP id by18ls7767056ejb.2.gmail; Wed,
- 15 Apr 2020 20:20:43 -0700 (PDT)
-X-Received: by 2002:a17:907:9484:: with SMTP id dm4mr7953833ejc.240.1587007243192;
-        Wed, 15 Apr 2020 20:20:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1587007243; cv=none;
+Received: by 2002:a05:6102:2052:: with SMTP id q18ls1334385vsr.4.gmail; Wed,
+ 15 Apr 2020 20:31:02 -0700 (PDT)
+X-Received: by 2002:a05:6102:31a9:: with SMTP id d9mr7164889vsh.152.1587007862769;
+        Wed, 15 Apr 2020 20:31:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1587007862; cv=none;
         d=google.com; s=arc-20160816;
-        b=BqO8ZWlue3/1s0ZGPgzN7g4boj3+GKzEJ+1wepA/SefxznACAyD1HgiFEdz+TM7P/R
-         UzgKAic+HEd1nkk7qgwPNlTiiwJnxcWXLsSe4d/lACYg0TNA1GAINlygqVI/F8wRdgcd
-         omWK9NP9k2kpVOBDMxsSbh0B54UuC2pUHz1tTLdktYj4QABlDOKc3/telcziibPjUm7o
-         zkEOyDJsWc2gKxAUjiXp1LyXHYKTjnIFMcwWrpSnOEOwGM973zDujwKmF58DvWb4M+a6
-         XLI3936yOBKKhXKQ5NEAttsCrXJFvinFBOujacIUz3YYaVwqJ1lnFsgJYjXe+0gxAt+4
-         /qaw==
+        b=lpxjmysr92FptGH+RR4fDhuv3GHLekhSSOzBaOTK6JPAS6ojtBx4/Fwk6HLH8fRYkO
+         5Qo0GEyNZR62gX2YokQ1w6fYmnDYHW9UKfH83qAsp0GR0CqVjZEF7rEUShEkLhmpT4Xe
+         AHsJnREudBfUm8Tl6bMQUksT2AmLsXeuxDZjh0se44QdbvaotfzOWDeUHRBcAJDf0o3X
+         B/Ai3zB2aBAIr3MarFcvzw5En+aYKwvTpNLT51B0dD4ztB/ujCeox20j3exdNSbiDC9/
+         ZG5kLxUtWZ1g5pMXe7wP/e9hfr3Um/ukxQjYsJW5zMH/r8psQKxpiSG8IA0tFDkGUf8j
+         EH0g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=H7HHz2ix/7wfl2SO/UMAxB99I34Kmg6XPEQZkrriSu0=;
-        b=kk7rOIf1OpN04Tt+GGh3lgJy2XTy91sobYFgcLGLm4KrWG3Rdtjni65m6jZATWM7E7
-         aA3OAU+772+FdiSkqkdfuIZTI46d9ce0xEnlfRc5yybd/6wp7YQRbW+7bbhOI7ltnl1I
-         dYbfnQY0LmMiqUpNpbdMjQucuAbjamPPsMjgx6WVK8hOH+eWl9hDyzZfJjEanOUnA2+z
-         ey3TdAcBWiMiSQZ1kRpIuJm1p8C4RENk++rqIGny5QxQfPHRidmeghrVnLUA4ui/Is0t
-         6xfhTN/P87htVWSh0ozLxawNz3nlcBh2iKUvAbQm90K+an7ai/AeLBRFZOLt4yEmqxk8
-         +akw==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=xNqvV5nIZhifwypgd+zvBw2qBtyQkNF8tVcr5ME53gI=;
+        b=gFQ02m/4qS62oEdQBviob1qO9HZlqsLCcrJJ/i/ix9D7eEsnDon7M0b5fq7OvCagNr
+         P3jKEQ8QJUCGEMLbj8dkogveg0Cm3Y5++756QKz4O9XZtdhEk/2Zi8pqt0CcjDdS/MXM
+         5QWeRfp4k3L7YaPtbHUzTpb88iFcWyJvVS3OEu4Bw6dlxObHE+HNxsALSYtlx0GRoGuu
+         MMddpnD5OOlct+VMdZkfjZa72+J2tbc71hnv0OqhqMpzp6iGDxZ+mssUDqO+ShNSTvUL
+         M6coKLwbSU8MxP6TLslL1S1YA447qNpDVcM85s2dQCQZdHu5Eno/DLdCBx+M+HWIbnDd
+         BeVg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=M3gEw1vK;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wr1-x443.google.com (mail-wr1-x443.google.com. [2a00:1450:4864:20::443])
-        by gmr-mx.google.com with ESMTPS id v14si920503edr.4.2020.04.15.20.20.43
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Apr 2020 20:20:43 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::443 as permitted sender) client-ip=2a00:1450:4864:20::443;
-Received: by mail-wr1-x443.google.com with SMTP id h26so3097140wrb.7
-        for <clang-built-linux@googlegroups.com>; Wed, 15 Apr 2020 20:20:43 -0700 (PDT)
-X-Received: by 2002:a5d:4752:: with SMTP id o18mr18248712wrs.283.1587007242821;
-        Wed, 15 Apr 2020 20:20:42 -0700 (PDT)
-Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id p3sm7723810wrx.82.2020.04.15.20.20.42
-        (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
-        Wed, 15 Apr 2020 20:20:42 -0700 (PDT)
-From: ci_notify@linaro.org
-Date: Thu, 16 Apr 2020 03:20:41 +0000 (UTC)
-To: tcwg-validation@linaro.org, llvm@linaro.org, 
-	clang-built-linux@googlegroups.com
-Message-ID: <766678058.17562.1587007242346.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-master-aarch64-lts-allyesconfig - Build # 30 - Successful!
+       dkim=pass header.i=@kernel.org header.s=default header.b=k0pDqTrS;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id 62si847888uav.1.2020.04.15.20.31.02
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 15 Apr 2020 20:31:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from localhost (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 63055206F9;
+	Thu, 16 Apr 2020 03:31:01 +0000 (UTC)
+Date: Wed, 15 Apr 2020 23:31:00 -0400
+From: Sasha Levin <sashal@kernel.org>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Greg KH <gregkh@linuxfoundation.org>,
+	"# 3.4.x" <stable@vger.kernel.org>,
+	Guenter Roeck <groeck@google.com>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	kbuild test robot <lkp@intel.com>,
+	cros-kernel-buildreports@googlegroups.com, kbuild-all@lists.01.org,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [chrome-os:chromeos-4.19 21350/21402]
+ drivers/misc/echo/echo.c:384:27: error: equality comparison with extraneous
+ parentheses
+Message-ID: <20200416033100.GH1068@sasha-vm>
+References: <202004150637.9F62YI28%lkp@intel.com>
+ <20200415002618.GB19509@ubuntu-s3-xlarge-x86>
+ <CABXOdTd-TSKR+x4ALQXAD9VGxd4sQCCVC9hzdGamyUr-ndBJ+w@mail.gmail.com>
+ <CAKwvOdnOuMcjzsqTt2aVtoiKN3L9zOONGX-4BJgRWedeWspWTA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_17561_2074334072.1587007241652"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-aarch64-lts-allyesconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Disposition: inline
+In-Reply-To: <CAKwvOdnOuMcjzsqTt2aVtoiKN3L9zOONGX-4BJgRWedeWspWTA@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=M3gEw1vK;       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::443
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@kernel.org header.s=default header.b=k0pDqTrS;       spf=pass
+ (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,167 +141,47 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_17561_2074334072.1587007241652
-Content-Type: text/plain; charset="UTF-8"
+On Wed, Apr 15, 2020 at 10:51:37AM -0700, Nick Desaulniers wrote:
+>On Tue, Apr 14, 2020 at 5:56 PM 'Guenter Roeck' via Clang Built Linux
+><clang-built-linux@googlegroups.com> wrote:
+>>
+>> On Tue, Apr 14, 2020 at 5:26 PM Nathan Chancellor
+>> <natechancellor@gmail.com> wrote:
+>> >
+>> > Hi all,
+>> >
+>> > Sorry for yet another convergeance on this commit... :/ hopefully this
+>> > does not continue for much longer. None of the warnings are obviously
+>> > caused by the patch below.
+>>> Fixed by commit 85dc2c65e6c9 ("misc: echo: Remove unnecessary
+>>> parentheses and simplify check for zero").
+>> >
+>> No worries.
+>>
+>> I noticed that the problems are pretty much all fixed in the upstream
+>> kernel. I just wasn't sure if it would be worthwhile sending a request
+>> to stable@ to have them applied to 4.19.y (and if necessary 5.4.y).
+>> Any suggestions ?
+>
+>We should strive to be warning free on stable.  Thanks for identifying
+>the fix Nathan.
+>
+>Greg, Sasha,
+>Would you please cherry pick 85dc2c65e6c9 to 4.19.y, 4.14.y, 4.9.y,
+>and 4.4.y (maybe 3.18, didn't check that one)? It applies cleanly and
+>is a trivial fix for a warning that landed in v4.20-rc1.
 
-Successfully identified regression in *llvm* in CI configuration tcwg_kernel/llvm-master-aarch64-lts-allyesconfig.  So far, this commit has regressed CI configurations:
- - tcwg_kernel/llvm-master-aarch64-lts-allyesconfig
+I'll grab it, but could we please look into disabling some clang
+warnings?
 
-Culprit:
-<cut>
-commit 2dd17ff08165e6118e70f00e22b2c36d2d4e0a9a
-Author: George Burgess IV <george.burgess.iv@gmail.com>
-Date:   Wed Apr 15 11:05:22 2020 -0700
+I understand warnings that might warn us about dangerous code, but this
+reads to me like something checkpatch might complain about...
 
-    [CodeGen] only add nobuiltin to inline builtins if we'll emit them
-    
-    There are some inline builtin definitions that we can't emit
-    (isTriviallyRecursive & callers go into why). Marking these
-    nobuiltin is only useful if we actually emit the body, so don't mark
-    these as such unless we _do_ plan on emitting that.
-    
-    This suboptimality was encountered in Linux (see some discussion on
-    D71082, and https://github.com/ClangBuiltLinux/linux/issues/979).
-    
-    Differential Revision: https://reviews.llvm.org/D78162
-</cut>
-
-Configuration details:
-rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git"
-rr[llvm_branch]="35bbf3bb7168a3d8062500b63af87079f6519794"
-
-Results regressed to (for first_bad == 2dd17ff08165e6118e70f00e22b2c36d2d4e0a9a)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-16047
-# First few build errors in logs:
-# 00:01:16 clang-11: error: unable to execute command: Aborted (core dumped)
-# 00:01:16 clang-11: error: clang frontend command failed due to signal (use -v to see invocation)
-# 00:01:16 make[1]: *** [arch/arm64/kernel/arm64ksyms.o] Error 254
-# 00:01:56 make: *** [arch/arm64/kernel] Error 2
-
-from (for last_good == f42baaab4f86d5259717bd26f713c002fd225669)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-16048
-
-Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/30/artifact/artifacts/build-2dd17ff08165e6118e70f00e22b2c36d2d4e0a9a/
-Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/30/artifact/artifacts/build-f42baaab4f86d5259717bd26f713c002fd225669/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/30/
-
-Reproduce builds:
-<cut>
-mkdir investigate-llvm-2dd17ff08165e6118e70f00e22b2c36d2d4e0a9a
-cd investigate-llvm-2dd17ff08165e6118e70f00e22b2c36d2d4e0a9a
-
-git clone https://git.linaro.org/toolchain/jenkins-scripts
-
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/30/artifact/artifacts/manifests/build-baseline.sh --fail
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/30/artifact/artifacts/manifests/build-parameters.sh --fail
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/30/artifact/artifacts/test.sh --fail
-chmod +x artifacts/test.sh
-
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
-
-cd llvm
-
-# Reproduce first_bad build
-git checkout --detach 2dd17ff08165e6118e70f00e22b2c36d2d4e0a9a
-../artifacts/test.sh
-
-# Reproduce last_good build
-git checkout --detach f42baaab4f86d5259717bd26f713c002fd225669
-../artifacts/test.sh
-
-cd ..
-</cut>
-
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-lts-allyesconfig
-
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/30/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/30/consoleText
-
-Full commit:
-<cut>
-commit 2dd17ff08165e6118e70f00e22b2c36d2d4e0a9a
-Author: George Burgess IV <george.burgess.iv@gmail.com>
-Date:   Wed Apr 15 11:05:22 2020 -0700
-
-    [CodeGen] only add nobuiltin to inline builtins if we'll emit them
-    
-    There are some inline builtin definitions that we can't emit
-    (isTriviallyRecursive & callers go into why). Marking these
-    nobuiltin is only useful if we actually emit the body, so don't mark
-    these as such unless we _do_ plan on emitting that.
-    
-    This suboptimality was encountered in Linux (see some discussion on
-    D71082, and https://github.com/ClangBuiltLinux/linux/issues/979).
-    
-    Differential Revision: https://reviews.llvm.org/D78162
----
- clang/lib/CodeGen/CodeGenModule.cpp                |  3 ++-
- .../CodeGen/memcpy-no-nobuiltin-if-not-emitted.c   | 25 ++++++++++++++++++++++
- 2 files changed, 27 insertions(+), 1 deletion(-)
-
-diff --git a/clang/lib/CodeGen/CodeGenModule.cpp b/clang/lib/CodeGen/CodeGenModule.cpp
-index 39aa5c1c512f..73a3212bcd47 100644
---- a/clang/lib/CodeGen/CodeGenModule.cpp
-+++ b/clang/lib/CodeGen/CodeGenModule.cpp
-@@ -1908,7 +1908,8 @@ void CodeGenModule::SetFunctionAttributes(GlobalDecl GD, llvm::Function *F,
-   else if (const auto *SA = FD->getAttr<SectionAttr>())
-      F->setSection(SA->getName());
- 
--  if (FD->isInlineBuiltinDeclaration()) {
-+  // If we plan on emitting this inline builtin, we can't treat it as a builtin.
-+  if (FD->isInlineBuiltinDeclaration() && shouldEmitFunction(FD)) {
-     F->addAttribute(llvm::AttributeList::FunctionIndex,
-                     llvm::Attribute::NoBuiltin);
-   }
-diff --git a/clang/test/CodeGen/memcpy-no-nobuiltin-if-not-emitted.c b/clang/test/CodeGen/memcpy-no-nobuiltin-if-not-emitted.c
-new file mode 100644
-index 000000000000..b4c1376c5bb3
---- /dev/null
-+++ b/clang/test/CodeGen/memcpy-no-nobuiltin-if-not-emitted.c
-@@ -0,0 +1,25 @@
-+// RUN: %clang_cc1 -triple x86_64-unknown-unknown -S -emit-llvm -o - %s | FileCheck %s
-+//
-+// Verifies that clang doesn't mark an inline builtin definition as `nobuiltin`
-+// if the builtin isn't emittable.
-+
-+typedef unsigned long size_t;
-+
-+// always_inline is used so clang will emit this body. Otherwise, we need >=
-+// -O1.
-+#define AVAILABLE_EXTERNALLY extern inline __attribute__((always_inline)) \
-+    __attribute__((gnu_inline))
-+
-+AVAILABLE_EXTERNALLY void *memcpy(void *a, const void *b, size_t c) {
-+  return __builtin_memcpy(a, b, c);
-+}
-+
-+// CHECK-LABEL: define void @foo
-+void foo(void *a, const void *b, size_t c) {
-+  // Clang will always _emit_ this as memcpy. LLVM turns it into @llvm.memcpy
-+  // later on if optimizations are enabled.
-+  // CHECK: call i8* @memcpy
-+  memcpy(a, b, c);
-+}
-+
-+// CHECK-NOT: nobuiltin
-</cut>
+-- 
+Thanks,
+Sasha
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/766678058.17562.1587007242346.JavaMail.javamailuser%40localhost.
-
-------=_Part_17561_2074334072.1587007241652--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200416033100.GH1068%40sasha-vm.
