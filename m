@@ -1,140 +1,126 @@
-Return-Path: <clang-built-linux+bncBDV37XP3XYDRBS4C472AKGQE6OOCVII@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQPVKWLVAIRB64T472AKGQEBXK6F4Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3a.google.com (mail-vk1-xa3a.google.com [IPv6:2607:f8b0:4864:20::a3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8BD381AE020
-	for <lists+clang-built-linux@lfdr.de>; Fri, 17 Apr 2020 16:46:36 +0200 (CEST)
-Received: by mail-vk1-xa3a.google.com with SMTP id s206sf991619vke.20
-        for <lists+clang-built-linux@lfdr.de>; Fri, 17 Apr 2020 07:46:36 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1587134795; cv=pass;
+Received: from mail-yb1-xb3d.google.com (mail-yb1-xb3d.google.com [IPv6:2607:f8b0:4864:20::b3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 882901AE0F6
+	for <lists+clang-built-linux@lfdr.de>; Fri, 17 Apr 2020 17:23:40 +0200 (CEST)
+Received: by mail-yb1-xb3d.google.com with SMTP id s62sf2646091ybs.0
+        for <lists+clang-built-linux@lfdr.de>; Fri, 17 Apr 2020 08:23:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1587137019; cv=pass;
         d=google.com; s=arc-20160816;
-        b=V1NUpRHgvhKzEIjS+oD8x8U9rGrTMmU4LDV4/tDz4q6mN/El1eygDrMi9m3B5LYKfB
-         22SeAM/HzFbiq1KgL129OoIWqnotPaEZWjZb3yhvOF6QzMLHkmiqayKggks2cWBW0tOQ
-         4TolGZVviGbyRR6bHoldrRprUxNHwU4kxzVTNYnClQ2aEUjM4I3DFoDA7qepLo+ThM+Q
-         hM3NWcKPjDEROBG1rauNXeudS7ZtZ3ACapmVff1rajzcuCtzzetSu8fOSmhDBhRXcx5l
-         SnYXmZvGno7hzBbmlmTG2FcGz+6l1rFbgjJ9FE3MyD9pyCD+BKTQQM0JL09H6dTQWJJs
-         5w2Q==
+        b=vnvi8tuSOaXlfIjfqz2XEyx9iI9CX9u1zGmLPRwCmwWdFTQziO56duna5GrVBZsDcY
+         /0nC7w7rxIRDePlZcfuvN5uCFlqFBhMRFWMwb9IIYGtRi8U1WUcgKk2NxRt9jSS0yZcL
+         /ymmIgPfu2HzqgosmkTm9E9YuaaXQKW5+MLRUT47VfyyzSvWV8R4203EkKk1QhLysxo8
+         B6pjqOYehkheDqrMY0bCaNGBigES0HGqMnIIQlAuahQfQsm+jY88or1nmgh8jqKMURNk
+         +VmwPsKcw79+W+e+ZhyZP2C88A0zasEYoDKmDrO4Rgl5XbbcdQ05OsfDN4PN+XCnpXtn
+         P8ww==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=kXngqfv+KdbWuM43Ouud1atVYVaLAJwMV6JCxbpq/ds=;
-        b=yukC/tF7PPfYefwXcSDC0A0TRtfg8UcLWd1L3YQHt311jbL6LDRLbPIVZ0U+kKSyL4
-         eMN//2bTCSpqs0YVy69FFLVz485tTRmce7hZvZJGkijdgUGM6Qdzf/6CTF5Ot3vmg+dx
-         ZsLCWiXiRuTjddnVGs73sexgxMEV4WysiaOROkYlI64c+KalSSNBH+42x1hyR3awiuH3
-         bmH02zGJJiIEz7xPbES2TppzWX2qipNwmNZ+CQTQ5urHa8ofK2392VHU2ORkD4g/u22W
-         GAHUt2QVcCsgKl4gFFidOKDqvXxvoqy5Yeix0JzIBC8u8s9N3N+y3vAqXlOaTaMHTvSP
-         0VXA==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=JmNcb3Q2zMf2AO0Ml7vmMA2FE7RpsLgdm6tTSo2ZiJQ=;
+        b=q3rISE74E/8fZDa5aq+nJLDCB8iX6NGjaWiV1O5Ml2i63JwGRZxfzA4Lw1DsuQGOZp
+         lTu50ToKnY+kVlGQJ4I5yMQq6G1Dnd+u3lJyRAwnnY0yD2aOvdTNrlNe6aGFpw0h7jV9
+         PnqQNopkgyCLhtHxpkLODxQHEQUoj+99/LOZVuVEzlrk61jBpV7IvXlHJHqArjgNW4oR
+         fZANaUXTzeHgUp9qHsrq3Bk0l4lMlxPj8VTS8MQlyTcXtK8zq/1lglzCguvF4Y6fsJu3
+         M136k8SF8SUnYHlNs+z1ObiiCzklnhugDhAj5Dn1+O02DEcx1tjLb4Nw++Gc6mXJAzTz
+         YKnA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=mark.rutland@arm.com
+       spf=neutral (google.com: 72.249.23.125 is neither permitted nor denied by best guess record for domain of tony@atomide.com) smtp.mailfrom=tony@atomide.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=kXngqfv+KdbWuM43Ouud1atVYVaLAJwMV6JCxbpq/ds=;
-        b=PGU4//39toxq9uS43PEmhSsQpSTrQGgmCIALBHZOB8usejJGRyVLTziwlU7V+RFiWe
-         6ul6Vt9FcDsCsq1bODqRUehbZVn0qqwH7sEmhYU5KQvT/Fh89VhC9x0cLHxJUXdFZXIZ
-         Y5uhCx3GD209vVzKYyJeDTrwmXx9kFtV1N5zuBr8zrbx2Q8dpsupJdg6pJXrzql67EvH
-         RMG/TLWMnLS1p7/4kySMWX1s0DQ90XtThSDbYQmQmcx1gIG51fKd04+vUInWHrojrgbp
-         OUtVcFYtcpSbD15rZ0We7O5wqv2JiWM2nIGBXOO+iFWaUACVVx1GwmozzAPRndQOCKhg
-         hxBg==
+        bh=JmNcb3Q2zMf2AO0Ml7vmMA2FE7RpsLgdm6tTSo2ZiJQ=;
+        b=Q+KXhv4QepsdP4eK57cfw52nwsncl2m+bdZILv9M91+rR0O1pXJDU/qpMwBHdM8IL1
+         yTZ/qgDM/wjzyepYJNtZ/OsTAzcVQCTb4zPI0WXjnbpVbLi/WhH8EEXAVL9B0kBUxK9v
+         gfzCYdktXaTxyFJREye60KHuavE33dPJuRK343wWjhA7gh/kwlJjpdzyJxU0h+ar4Ch7
+         2m3aObrALLUn3ntBTN2J8AwTLfIDs8sGt54NYj2vOiO1/Vxa9uNMFC+I+xmT9CXn4UXm
+         g7ftODsKnTMbw3q6w/ymjZGqphQ+xAbvEcdCUhcr4/q8cv+HeJQrVlikvS+GKks0EK4S
+         D2Hg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=kXngqfv+KdbWuM43Ouud1atVYVaLAJwMV6JCxbpq/ds=;
-        b=Jxt1xgH6B35v1RC4p5ZLgt5uUVeunGv70nsHbfnCE2Ckb9JsTg4lmAVHyzmRvSDNJJ
-         NVaMEMQSq6q981MpEe7OGZTbdG96SLI0dYksRGDRpH2e1V+U7RtDydxMe+TkVTFwBwgg
-         nh//yjnweiZjpfqYJBFgEC6jo1rb6XKgJwX6WRsJgjqTq6LIDq1/FwFxAIeo1ECVdm+d
-         VzlYGg+zbTGRBucojQNOB/VwaXpNorujtsisqRBf2rRbWj5shnK38ig565ewk/GEZS6Q
-         9VLTN9R00tiAvBxitclp4yIko1sHJC65AMp0CioefriP/jB6GbqGbRF1F43X7E+ihtnx
-         VDCw==
+        bh=JmNcb3Q2zMf2AO0Ml7vmMA2FE7RpsLgdm6tTSo2ZiJQ=;
+        b=cHYPTGRFKAiuSfM31kpK4N+ZuyarKW04ojj+Ra56YnMERH5622O8+s7GJZiCZa+GI/
+         6Ox16PEQBVEPM3E/Vet/qRe+DkgkDs/n2D2sL/9izOkLvjpY9S0UY0/MQyGCtcgBekmA
+         cYgybNjI/HEfbGcw81E6rSnsIt7lc4vLLlFpqNqEtaXs0jhX88kgMh2UoSwrR5QQfalm
+         z4d/v5AqyuLvgyWqG7aFjBXR/AK4AuUdN7MhIg17I2alQRLDCmFK08aT8lJg9ljSV10r
+         Lg9YKDsLo57BAp7ZOFjJf/xkx65G/PDBY2R7yeFBGUzEMvz6XBFNCHVMAdx70MLfMXSE
+         sl+g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuY42+vlbjuyMnAaGDud4iNQ06rmsq1QoIh2N3Q6Jgu7DadvJ06f
-	0vZ1WorkHt735pAzxMlt2p4=
-X-Google-Smtp-Source: APiQypLWHD2YWCuzGGi6mfJBMDsidmPJZ1B2mlegLvUIrwo8VS0ruhyX/UHaYG0qNmfsDk6MEriWnw==
-X-Received: by 2002:ab0:1f1:: with SMTP id 104mr1575662ual.100.1587134795367;
-        Fri, 17 Apr 2020 07:46:35 -0700 (PDT)
+X-Gm-Message-State: AGi0Pua4sp9Ic38Uha3MIVqFOlGW4+heVoXFqLWAVNpVJEKXd71+rnBI
+	CC0LnIMTeIZqVPPDORzMaas=
+X-Google-Smtp-Source: APiQypKRFpl/b8SQlBtlQw5fTjLRkFsPknDp+fVKkN1E2IM6XnFBMikkdlBSfs5LfDfPACfjIF+TKg==
+X-Received: by 2002:a25:374e:: with SMTP id e75mr6428129yba.429.1587137019388;
+        Fri, 17 Apr 2020 08:23:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9f:354c:: with SMTP id o70ls187383uao.1.gmail; Fri, 17 Apr
- 2020 07:46:34 -0700 (PDT)
-X-Received: by 2002:a9f:21c7:: with SMTP id 65mr2956892uac.14.1587134794829;
-        Fri, 17 Apr 2020 07:46:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1587134794; cv=none;
+Received: by 2002:a25:d6c8:: with SMTP id n191ls987641ybg.4.gmail; Fri, 17 Apr
+ 2020 08:23:39 -0700 (PDT)
+X-Received: by 2002:a25:83c5:: with SMTP id v5mr6833935ybm.229.1587137018963;
+        Fri, 17 Apr 2020 08:23:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1587137018; cv=none;
         d=google.com; s=arc-20160816;
-        b=OvdeeyzKpSt103ZQSxmnxTA4FEEbvvNX3GTj1hBQ4rsuzL9bLg1m8jTwnR9yKThJGo
-         9kO6qQ6jlyFu/9KI8b+YAt46cL7nNXf7NP1F+KrwvvfAuNmcPhY1phBWtxHgif81IjYD
-         z8/5nagWLaqxgjeXU9K0vkVGVslXYj5JUEyj3Z2s9K9180DONi/Keg3ankUrL7+kFlrd
-         CUrW8K3ixwkvgY4YoeDPx5VPp89uY2k+cspFObr1Ug/+9bhL2gftcJUBOeucUABpQrwq
-         AxZ86mFRJtWflbXFoN8eJ4iM/hK6vzv4gKIoLIf7Az+z31gw7Y5cQne4Jw84WshdSIwo
-         iBYw==
+        b=pP89NZKnSGQdMwMBFW3cK3Zo02zN4A/WJdgdtxENWoD+VcZbHFOmGHdowv7luUcxD4
+         BbSQft2BT5YE93AWGfANJx/8PjrvOzOYEpEiFBXQVWIyGEqQPpwquiqfSrIVwepd+Lvr
+         OfNvHmsnIT+LG6csFgkJa/+BDrn4CN6QTieTvNLrEZGWvZYO4oCNU5UwhMxZTINVBe6s
+         eGBcab9jTAVPxOiuZeCfAJxvcYyku0R7eDNe+PU/F3GsoLiVtk3/jRrNiXVI/hED7yWw
+         ZQcILxFaD87ZM3IOQPLKXsSDtDdh4TpJATu2hSfNdtkr8gfPrafLw+ojaJi/yTTGfVPk
+         aywA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date;
-        bh=YGMj6dKGSxT1U2ErpaPB7YOtpxfEhby8o9pUafCfEIg=;
-        b=wGboudgCmbe+9gz8U/Lob12hXe3wuw8OfWFjb0Twm9MVBRDsO20PwrYPVBkS8pQg0H
-         EQtm7bDzCyP1TxewrgkiVa4szuioNP+YevMiGaV1lbmwhReV05mnS22kcczQnyzlGHeF
-         ue1NXqVq593UO8P0p1sSvvSCWJYzqafF649Q09AqPpkGafgao2W+6PHCNItz8kC7g0FG
-         InUmk8ts8Evdz6C19QDdSs5bV9ldlk8G/CJaFMFrWbCs2ZJrNVkqXXp3qbOPmprTgtKS
-         S8rtGKdeaH19eXFh1+pgU8OnjJb+U2CZ6JCz0WAZKruS1pgNqvCUZPiMRI19aZmhbnWM
-         717g==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date;
+        bh=CMTboB2IZtNvUea0zZlT3WU6Q9KHLKB2HrbLFyoXPs4=;
+        b=X45PLHzyCoK2JVcGsw0Q2JhsNidJqv6oSdky+M0ewgJ/C9BdD+2l0p2rXPC+Ktd1tj
+         CGVJHBLog7b7i2w54KHhuuuGga669ChKvH9HBtWa33GpLFdwQHdpNuVBcYaibKtDpw8v
+         MGXx+cgmPidWlLm2su7RPk/N55+gJulceuKyiBypgB8sujtkVQH2cn3pEZ0oOhn8rWFs
+         1G/XHvZIeLxcNUb+a5CbPV1Jv8/zWCdzZMhUBwfgj37/wu4qKiJtil1rzJc1v78sIEDl
+         5sNGHweFT8aSAfIOHNx6zjBhoxIaR6jM27T6J1PN8RZJSkpagUYQ91+4DunAcMVLy6sg
+         esrA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=mark.rutland@arm.com
-Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
-        by gmr-mx.google.com with ESMTP id y4si151449vkg.2.2020.04.17.07.46.34
+       spf=neutral (google.com: 72.249.23.125 is neither permitted nor denied by best guess record for domain of tony@atomide.com) smtp.mailfrom=tony@atomide.com
+Received: from muru.com (muru.com. [72.249.23.125])
+        by gmr-mx.google.com with ESMTP id f195si1549082ybg.4.2020.04.17.08.23.38
         for <clang-built-linux@googlegroups.com>;
-        Fri, 17 Apr 2020 07:46:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D964330E;
-	Fri, 17 Apr 2020 07:46:33 -0700 (PDT)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 061A33F73D;
-	Fri, 17 Apr 2020 07:46:30 -0700 (PDT)
-Date: Fri, 17 Apr 2020 15:46:21 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Sami Tolvanen <samitolvanen@google.com>, Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ard.biesheuvel@linaro.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Michal Marek <michal.lkml@markovi.net>,
-	Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dave Martin <Dave.Martin@arm.com>,
-	Kees Cook <keescook@chromium.org>,
-	Laura Abbott <labbott@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
+        Fri, 17 Apr 2020 08:23:38 -0700 (PDT)
+Received-SPF: neutral (google.com: 72.249.23.125 is neither permitted nor denied by best guess record for domain of tony@atomide.com) client-ip=72.249.23.125;
+Received: from atomide.com (localhost [127.0.0.1])
+	by muru.com (Postfix) with ESMTPS id 7F05E8047;
+	Fri, 17 Apr 2020 15:24:24 +0000 (UTC)
+Date: Fri, 17 Apr 2020 08:23:34 -0700
+From: Tony Lindgren <tony@atomide.com>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Stefan Agner <stefan@agner.ch>, linux-omap@vger.kernel.org,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	Jann Horn <jannh@google.com>,
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	clang-built-linux@googlegroups.com,
-	kernel-hardening@lists.openwall.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v11 04/12] scs: disable when function graph tracing is
- enabled
-Message-ID: <20200417144620.GA9529@lakrids.cambridge.arm.com>
-References: <20191018161033.261971-1-samitolvanen@google.com>
- <20200416161245.148813-1-samitolvanen@google.com>
- <20200416161245.148813-5-samitolvanen@google.com>
- <20200417100039.GS20730@hirez.programming.kicks-ass.net>
+	LKML <linux-kernel@vger.kernel.org>,
+	Peter Smith <Peter.Smith@arm.com>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Russell King <linux@armlinux.org.uk>, nd <nd@arm.com>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] ARM: OMAP2+: drop unnecessary adrl
+Message-ID: <20200417152334.GN37466@atomide.com>
+References: <5a6807f19fd69f2de6622c794639cc5d70b9563a.1585513949.git.stefan@agner.ch>
+ <CAKwvOdkyOW6RXTOCt1xMp2H+uH28ofByQOjyx776t8RDxTED2w@mail.gmail.com>
+ <CAMj1kXGYiMobkue642iDRdOjEHQK=KXpp=Urrgik9UU-eWWibQ@mail.gmail.com>
+ <DBBPR08MB4823129E272220712B470716F8C60@DBBPR08MB4823.eurprd08.prod.outlook.com>
+ <CAMj1kXEQ4v9e6386ogPdy+s+++9H02DMPnDpTq0WSY2e78ts+Q@mail.gmail.com>
+ <e0c125ea492670c7069c407b6b0c5958@agner.ch>
+ <CAMj1kXEe835GbXU5qgX-QQ5n4SmwQO1nAoAZw5pUVCbR=J8XmQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200417100039.GS20730@hirez.programming.kicks-ass.net>
-User-Agent: Mutt/1.11.1+11 (2f07cb52) (2018-12-01)
-X-Original-Sender: mark.rutland@arm.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as
- permitted sender) smtp.mailfrom=mark.rutland@arm.com
+In-Reply-To: <CAMj1kXEe835GbXU5qgX-QQ5n4SmwQO1nAoAZw5pUVCbR=J8XmQ@mail.gmail.com>
+X-Original-Sender: tony@atomide.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 72.249.23.125 is neither permitted nor denied by best guess
+ record for domain of tony@atomide.com) smtp.mailfrom=tony@atomide.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,95 +133,22 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Peter,
-
-On Fri, Apr 17, 2020 at 12:00:39PM +0200, Peter Zijlstra wrote:
-> On Thu, Apr 16, 2020 at 09:12:37AM -0700, Sami Tolvanen wrote:
-> > The graph tracer hooks returns by modifying frame records on the
-> > (regular) stack, but with SCS the return address is taken from the
-> > shadow stack, and the value in the frame record has no effect. As we
-> > don't currently have a mechanism to determine the corresponding slot
-> > on the shadow stack (and to pass this through the ftrace
-> > infrastructure), for now let's disable SCS when the graph tracer is
-> > enabled.
-> > 
-> > With SCS the return address is taken from the shadow stack and the
-> > value in the frame record has no effect. The mcount based graph tracer
-> > hooks returns by modifying frame records on the (regular) stack, and
-> > thus is not compatible. The patchable-function-entry graph tracer
-> > used for DYNAMIC_FTRACE_WITH_REGS modifies the LR before it is saved
-> > to the shadow stack, and is compatible.
-> > 
-> > Modifying the mcount based graph tracer to work with SCS would require
-> > a mechanism to determine the corresponding slot on the shadow stack
-> > (and to pass this through the ftrace infrastructure), and we expect
-> > that everyone will eventually move to the patchable-function-entry
-> > based graph tracer anyway, so for now let's disable SCS when the
-> > mcount-based graph tracer is enabled.
-> > 
-> > SCS and patchable-function-entry are both supported from LLVM 10.x.
+* Ard Biesheuvel <ardb@kernel.org> [200402 14:37]:
+> On Thu, 2 Apr 2020 at 16:34, Stefan Agner <stefan@agner.ch> wrote:
+> > Just to confirm: The instance at hand today seems to be working fine
+> > without adrl, so I guess we are fine here, do you agree?
+> >
 > 
-> SCS would actually provide another way to do return hooking. An arguably
-> much saner model at that.
-> 
-> The 'normal' way is to (temporary) replace the on-stack return value,
-> and then replace it back in the return handler. This is because we can't
-> simply push a fake return on the stack, because that would wreck the
-> expected stack layout of the regular function.
-> 
-> But there is nothing that would stop us from pushing an extra entry on
-> the SCS. It would in fact be a much cleaner solution. The entry hook
-> sticks an extra entry on the SCS, the function ignores what's on the
-> normal stack and pops from the SCS, we return to the exit handler, which
-> in turn pops from the SCS stack at which point we're back to regular.
+> I agree. Apologies for hijacking the thread :-)
 
-For background: on arm64 we wanted to use DYNAMIC_FTRACE_WITH_REGS since
-we already have to use that to handle pointer authentication, and didn't
-want to gain more ways of implementing ftrace.
-
-Arguably we should move the dependency into the arm64 Kconfig for
-ARCH_SUPPORTS_SHADOW_CALL_STACK.
-
-> The only 'funny' is that the exit handler itself should not push to the
-> SCS, or we should frob the return-to-exit-handler such that it lands
-> after the push.
-> 
-> > Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-> > Reviewed-by: Kees Cook <keescook@chromium.org>
-> > Reviewed-by: Mark Rutland <mark.rutland@arm.com>
-> > ---
-> >  arch/Kconfig | 1 +
-> >  1 file changed, 1 insertion(+)
-> > 
-> > diff --git a/arch/Kconfig b/arch/Kconfig
-> > index 691a552c2cc3..c53cb9025ad2 100644
-> > --- a/arch/Kconfig
-> > +++ b/arch/Kconfig
-> > @@ -542,6 +542,7 @@ config ARCH_SUPPORTS_SHADOW_CALL_STACK
-> >  
-> >  config SHADOW_CALL_STACK
-> >  	bool "Clang Shadow Call Stack"
-> > +	depends on DYNAMIC_FTRACE_WITH_REGS || !FUNCTION_GRAPH_TRACER
-> >  	depends on ARCH_SUPPORTS_SHADOW_CALL_STACK
-> >  	help
-> >  	  This option enables Clang's Shadow Call Stack, which uses a
- 
-> AFAICT you also need to kill KRETPROBES, which plays similar games.
-
-Hmm... how does KREPROBES work? If you can only mess with the return
-address when probing the first instruction in the function, it'll just
-work for SCS or pointer authentication, as the LR is used at that
-instant. If KRETPROBES tries to mess with the return address elsewhere
-it'd be broken today...
-
-> And doesn't BPF also do stuff like this?
-
-Can BPF mess with return addresses now!?
+Yes this seems to work just fine based on a quick test, will
+be applying for v5.8.
 
 Thanks,
-Mark.
+
+Tony
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200417144620.GA9529%40lakrids.cambridge.arm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200417152334.GN37466%40atomide.com.
