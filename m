@@ -1,125 +1,147 @@
-Return-Path: <clang-built-linux+bncBDF57NG2XIHRB4XO4X2AKGQELUAIV7Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBV744X2AKGQE4OWQHLY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
 Received: from mail-ua1-x93d.google.com (mail-ua1-x93d.google.com [IPv6:2607:f8b0:4864:20::93d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 210961AD9EB
-	for <lists+clang-built-linux@lfdr.de>; Fri, 17 Apr 2020 11:31:32 +0200 (CEST)
-Received: by mail-ua1-x93d.google.com with SMTP id y11sf675321uaq.4
-        for <lists+clang-built-linux@lfdr.de>; Fri, 17 Apr 2020 02:31:32 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1587115891; cv=pass;
+	by mail.lfdr.de (Postfix) with ESMTPS id 210F61ADA9F
+	for <lists+clang-built-linux@lfdr.de>; Fri, 17 Apr 2020 12:00:56 +0200 (CEST)
+Received: by mail-ua1-x93d.google.com with SMTP id v27sf669804uaa.22
+        for <lists+clang-built-linux@lfdr.de>; Fri, 17 Apr 2020 03:00:56 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1587117655; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Ll5nQrJgjw+R9/FJTZryI7wRkUjBoSHhwxp7hEpRRgUSITXT+woOXTAfXOXgHFgbkP
-         1i85u0+xN5sBBm8FsMSgBfcJ78nvlOJYDvUsGVmeMiJ7wbOMD3EsMPrqqGgZYpBx+zk0
-         FMaMKwCPZN0AkrmRKh33fEvN2lr7NmrwJWx6fPFVDhNaCEHdl5hU+W9EW+j64+6whfZU
-         vGqNHMYcXns7tAjrfwIAprinDGBL9g4bYiU1fiWe5l6O4VBu1UJvmZhp9UTlvEraA5eV
-         BiHHMaGTjZKAY0JxpZk16g0ZLcCMNPgzAf9hPF6OEA6NNL419tk0iV010AhCTIqLItRl
-         zvlQ==
+        b=KHnvh61xMs+PMFz3jA5nbaFlVlq2bF8Jf7GE8+q3Rzy8WRzyTX1yKnFHtcFqBqPuui
+         0QAP+CdN+3IdIeLUINigis4thb1RjfIwRbTHIJ5IekBPW4lBmpkQ5kfgLGvWgF/5qY1s
+         lWzeIPsvQvtb7YLTiyB53rFbpTJ9EVRddQyA6oz0BUCtpfVgdKT5JOQ28a+kzkfKnmgr
+         kFLLUy6Zej4tG/L4n9HNpW93R+nMw1IlYjli61QMxFhSzcUqI2juk9KIUyN7TwvC6exH
+         Jkwj3NqBRptlWemZP0+22Nhqe1ZzjGH9S6xJK5LIGu7KqbWtIFv3CR+wLUV0VO6lfUro
+         pVOg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=qSKVhFRdlBZ9S6/8kTFSwkV9UTodVWXeg+9hUbrseRs=;
-        b=NR+mE9iLszUgZ5Oq3sT1IqxxfeaTnwtWXIA3Y8VsYbu1Mfjm8MbOvKb5DihR5A50uh
-         90fAPVcaz/xRhxuyr/2SPUEQt98h0dCGC10lXL/VTk3hU6l3TJQEb15Phe2C9j5xruI8
-         qhgsiAA9VHebjx++QXtZtbhL36Fvwdbri/HqzRwsTvyhjSh46T/WhpI1tA5lOVBWwlL1
-         urJqF1DdDjUNZEZhtfHG5himMQTdNY+PL+0vIWJwjbQ/SjmFYTtpgW1DOy2fweVqoSRk
-         sFqlD0eFYVGog3YyZ07b45IPh2tNqX0OOARGtj5R4L37DvIDdqROYsA2WkILO/kcxDTJ
-         gGfQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=F4ZJnHaIiw8RNcz0QEw4W/oM5coU6KIkpCv12WAAh2M=;
+        b=JyxkFfY7z4FQow0kzhsaI9A8m8b8ZBS8ykm2OHQNHJ27zUx+4MG7njItenbNPFRb/9
+         zAzd2FEPwwIUyg7O9xbDxog4+3DIfAy7eH8bdLPDiyde7Ws9S3ViLKV95uzyGBnYtVMC
+         1V1eIpiu0+GyRoG+j5eeuTKYyJOltK1fNSqeVPNsgM6h3wvr34+U1V+2WZKg/LXgLyZq
+         yhVGsBfS+ujYUwARdziTMBM2dx5ES72lhYjvRRr2imLTFIFLVGsnNnHcrPovn0c+sI36
+         4Kp7OemAWQP24r+h8PeUw+bqYjT2sDEtosUg/lEzD7lpZA3Tps0tj5pM2MbJFU8NGiEg
+         /+ng==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=By0UkC0U;
-       spf=pass (google.com: domain of ulf.hansson@linaro.org designates 2607:f8b0:4864:20::e41 as permitted sender) smtp.mailfrom=ulf.hansson@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=G25zyJyL;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=qSKVhFRdlBZ9S6/8kTFSwkV9UTodVWXeg+9hUbrseRs=;
-        b=dpTRtY3MxZGgTqAvy9+QN52UfxSYDOmFurqiF5JYBdrzl1XQNvFaW3Kf38mc/47vKI
-         DpYJDFZq/874hBdqKdH7hDZz8VhkRbtu8ODZ5sJAwikvVjM1zK7rJ0D/QUZddyWgbb78
-         Gnn+OsiUpOiQ1UrhZ9KwjlJdyJzo6mty1WlA1d/LtSJfuEcqz22yQ6lPKEZ/H0LkLTUl
-         I2cFFEfdYvLTgC1SPj5WTebGD6eN6daf6QsA47MB3Q40ABWEht55EtWacUSpQhQuJpBc
-         OGrypUZvFoYokHVOp5/hGfimnkhEdsmfRAhDLiH2+7nVoc9Y4xRKQKYnSjqAA/OkNa+q
-         W5IQ==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=F4ZJnHaIiw8RNcz0QEw4W/oM5coU6KIkpCv12WAAh2M=;
+        b=pKUJHuIg6XZGMiMTVKkeFs90S9gf2JFHcGiQjUH/gp49R6wPgwITwRydQiDkvrlHfh
+         Ng2r/vNyPcVqo9r/z/YQJC+DlEBxaJAw+3KfKUZdIGFKqha7Aon+kTeIOSHxQHz32X3m
+         nf/a3DJZoPfoFmK0VGsXk7y6SdLxSd3IwSzviH2L23OkI0HObZMV8zWcAbV1APy23Ozd
+         0DlFjWQPpmFdQOjSd+nqycxVNQg06j0jZdp6IGSaekJtrZtYkOy20Wo+igpbCuxVDv7V
+         FwXTUBLULyjRHvowk7vZ4iAKR1+/ZI4GQgwMnX+Ap84FPvWsynxRt2EC5KohKHFJJAJF
+         miDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=qSKVhFRdlBZ9S6/8kTFSwkV9UTodVWXeg+9hUbrseRs=;
-        b=tn14mlrH539AK9BjtU97IIBSn2oCMnnrJ+z3wwZQYuHz49xRH7k4a3rY/kAxs3VTpa
-         XCtfZI4OXdd3L8IcdZmdjLMHAdV5Vkt8jQPhkILJ/EEXB3MKWobWnmMWi0B/v/6smZsa
-         oaA70AHnwSwg486rwWNtg87aCI8l6Qx/odidKmkqKBjwFTxm46ywpP20z8FOEsKlIyOT
-         Bz2I5nrAd59C/0HrxMtfiezp5febjCR9Yr1+SPglrycAmCRlBfARH8POhDhe6F8uWKWr
-         uq850neQq5jYSnK2nuudoCJVcFFx0BS56afNyaXu8Mj5rmwuGY+qiBpVSfTpfq91sRFU
-         tTiA==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=F4ZJnHaIiw8RNcz0QEw4W/oM5coU6KIkpCv12WAAh2M=;
+        b=KP1dfoy32oYT38v/yo7bPDAyl0iSoLT4mrxxcCOGU3obfWrtI9sf8LmtOYlmiJeW7I
+         tqhXM3GePciJF64R0OArBXZ5SrutWOsEOV1+QalqfpY80phzaVKss92z6gnwhBe9jn/G
+         E3n00dTCC0BR3oFs7ZaJUeT+t4l5xUSVsa/H7nX5Y9NdKdkNsVqsHIHZ2zg8tyUvQlKP
+         +/Yx2VwAVfph/6RxUlzFx3jlZFzcyBOIdS0usDFZ5sLCNO0tfBp6nHW5dbIRj3FzIoyb
+         2Hq7g2A3iCdUc7TzOMHo+Ksjao4OH8n3zBzzWipHLY1keLnS6SeTpbsYqChJV7BIjFIX
+         HkLA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PubQ/HuDIVmo8F+U4MSEvQEs8zJR462Jo/IWfPmJ/ORZoQhDnL+D
-	dXRQ5eXjil5/ZEkyrtrZgBw=
-X-Google-Smtp-Source: APiQypK7rFnh4J0nmVkZqN6MbbKGm+kRaksGqAzIc7zdMfn9uwlJoR4SSp9Iu8NqaOdJQ0NnVNS0vg==
-X-Received: by 2002:a67:6c05:: with SMTP id h5mr1570721vsc.164.1587115891102;
-        Fri, 17 Apr 2020 02:31:31 -0700 (PDT)
+X-Gm-Message-State: AGi0PuYA7mEDvVRcHormoCuWqY/BOA+IqsJl2aelCyYp+8HQCaaw+3mV
+	FM7/jU6wx6pJ4jyopefsxx8=
+X-Google-Smtp-Source: APiQypL//zbBqv3YLRaOC9mu05SQXmKMRYHA7t9I7AAwAqOt/TSVP1w1VODmKGpTceNicD0kWO3Tvg==
+X-Received: by 2002:ab0:6204:: with SMTP id m4mr1767985uao.15.1587117655157;
+        Fri, 17 Apr 2020 03:00:55 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:f88b:: with SMTP id h11ls238770vso.3.gmail; Fri, 17 Apr
- 2020 02:31:30 -0700 (PDT)
-X-Received: by 2002:a67:6282:: with SMTP id w124mr1224630vsb.160.1587115890559;
-        Fri, 17 Apr 2020 02:31:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1587115890; cv=none;
+Received: by 2002:a1f:a989:: with SMTP id s131ls79291vke.4.gmail; Fri, 17 Apr
+ 2020 03:00:54 -0700 (PDT)
+X-Received: by 2002:a1f:d182:: with SMTP id i124mr1674297vkg.26.1587117654810;
+        Fri, 17 Apr 2020 03:00:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1587117654; cv=none;
         d=google.com; s=arc-20160816;
-        b=yICTudD32Gu+u2vytjDB7N7fLeRsEFpqIAzvYrFlqpbi25MR9XcKuZDV885l61GCQa
-         m8WOC8JQkGglSFyi48zHp+nQRbaQiPWoCFIvAoy33I2lPUOjCoTEdKcRF4L1ixKg3EHC
-         rErMuTQqNZZEJcvOnPjkNA6OcmuNCBNeQsVzWccS2Ik2Iyv+oQNhqxGTcU/c6He1vgy+
-         pLTn8x232RQ8XXv6VyWgSN32tY3aBJsYQfQ0oNi8cKFd5UpEvOHaKUgrigKlFzJMmJcM
-         Hji5R719TP6KU7njeGHf+qPFiKWergHIMTFck6v8F8dyKk3sHBRUPAYpZzsjWNtTERgP
-         XupA==
+        b=pfKB+k7cfnWS369ekyrsx/tmzAXl0U1FtdnxI0mtDbiFPIMXrxoG1QRlgqy6WlCNKd
+         JHhkCgSQ8hMfCv0FKgoyeaM7Jl4bDJEX10dkgk+isFZFoGpXU+1pzlVuRTR0XkUVnTjd
+         SfhRohCjSrdUAL6K6A7uwyC647/FA7dFiFgFMNLkGUsLPPH1eutYebbfA6YbPaZTMkxR
+         LlANZEx+zsUEqzMPkQZHbzllU2D4ekWV13c0em/MFtimW78Q9k5LuRTT4C3CsiL25COR
+         6rP0NvYJUdVn0AoQl7epkYJQYfezXdC9GS+AvPJNaOJEjg7ICjsD8XSHuEN3HhQRqe+6
+         0K4A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=p64gz4wBBzrCn9693S5Yg9rZbwKOwkix1v4fg68Kaak=;
-        b=SSd8rkk3kx0mENmppjsDpUMNocTErl27M6FPg8aBwoYipvYUCa7I7vx/v+NvdhALbw
-         pWrnwZWA/X1D3Iz+xcnpcvdoMqLxTkt3gIwVnCqcT7y46g2sEwS9SbKL40pk0gyru63X
-         +Bk4kSAyTw6BqRCoMZa4X3qXRaN4fo5V4pn4UTQloZEpMc1sH0dfQ9tMPFuA8TKlh6Bk
-         D18GFbB+LuSBxsjUv5Yctpb4pSwxk7Wz/n6TaLW5d1b6+fVjjt/aRJ5/q18Xq5/XZ2AD
-         QlZBpe+zNoi3Krrdz/cQ5Jfz2A6p9OWBsEj0KnxQSJffBOvq31ho9rzfwtPO9dD6+cy7
-         Xrfg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=/sCrLJsk9M0RFgQwNkauJ/Dtc5/K6rCJg0npReZJ/ZM=;
+        b=HRv6fIJv18Fvn0OV5XauvJAJiAz2OA3XnBr3XialIAyC/CAJ1CzI3YcelEr7LLz4iI
+         NAhsK1f+OKZdn7uRFVlXEiUYfv1X+2XqtZuT4endb7YofqepLuxY27x/QMtUIBOTU/y+
+         LJ99859x0ioC8ogD5DW5KDqU6c36tU+DoIHOJL3oFfabuW90Cmwu9eXbxusPuVVAGQQi
+         EdvEK0ypJg1/E/t16Ds0ZQ25kG2dqaFLHpr29fEjBwK68Q/n3QqcvOHAwm0dQLMdjM6n
+         cckqvb9tS8I2i7Xzkp/KHYSTIIgEk8GWeSB+rJhREz4SRH/2zUIAc9u1raUYBThcFbOX
+         C2rg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=By0UkC0U;
-       spf=pass (google.com: domain of ulf.hansson@linaro.org designates 2607:f8b0:4864:20::e41 as permitted sender) smtp.mailfrom=ulf.hansson@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-vs1-xe41.google.com (mail-vs1-xe41.google.com. [2607:f8b0:4864:20::e41])
-        by gmr-mx.google.com with ESMTPS id p7si604987vsf.1.2020.04.17.02.31.30
+       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=G25zyJyL;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
+Received: from bombadil.infradead.org (bombadil.infradead.org. [2607:7c80:54:e::133])
+        by gmr-mx.google.com with ESMTPS id s64si619893vkg.1.2020.04.17.03.00.54
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 17 Apr 2020 02:31:30 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ulf.hansson@linaro.org designates 2607:f8b0:4864:20::e41 as permitted sender) client-ip=2607:f8b0:4864:20::e41;
-Received: by mail-vs1-xe41.google.com with SMTP id z1so745115vsn.11
-        for <clang-built-linux@googlegroups.com>; Fri, 17 Apr 2020 02:31:30 -0700 (PDT)
-X-Received: by 2002:a05:6102:72d:: with SMTP id u13mr1392649vsg.35.1587115890241;
- Fri, 17 Apr 2020 02:31:30 -0700 (PDT)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Apr 2020 03:00:54 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) client-ip=2607:7c80:54:e::133;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
+	by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1jPNne-000501-Rg; Fri, 17 Apr 2020 10:00:43 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 816003010BC;
+	Fri, 17 Apr 2020 12:00:39 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 6AB682B120750; Fri, 17 Apr 2020 12:00:39 +0200 (CEST)
+Date: Fri, 17 Apr 2020 12:00:39 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Sami Tolvanen <samitolvanen@google.com>
+Cc: Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	James Morse <james.morse@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ard.biesheuvel@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Michal Marek <michal.lkml@markovi.net>,
+	Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dave Martin <Dave.Martin@arm.com>,
+	Kees Cook <keescook@chromium.org>,
+	Laura Abbott <labbott@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Jann Horn <jannh@google.com>,
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+	clang-built-linux@googlegroups.com,
+	kernel-hardening@lists.openwall.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v11 04/12] scs: disable when function graph tracing is
+ enabled
+Message-ID: <20200417100039.GS20730@hirez.programming.kicks-ass.net>
+References: <20191018161033.261971-1-samitolvanen@google.com>
+ <20200416161245.148813-1-samitolvanen@google.com>
+ <20200416161245.148813-5-samitolvanen@google.com>
 MIME-Version: 1.0
-References: <20200416182402.16858-1-natechancellor@gmail.com>
-In-Reply-To: <20200416182402.16858-1-natechancellor@gmail.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Fri, 17 Apr 2020 11:30:54 +0200
-Message-ID: <CAPDyKFr4VX-3Z=iboMbDmhJvwh+GL5wg_50aPw+_j5jMLBWctg@mail.gmail.com>
-Subject: Re: [PATCH] mmc: sdhci-of-arasan: Remove uninitialized ret variables
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Adrian Hunter <adrian.hunter@intel.com>, Michal Simek <michal.simek@xilinx.com>, 
-	Manish Narani <manish.narani@xilinx.com>, 
-	"linux-mmc@vger.kernel.org" <linux-mmc@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, clang-built-linux@googlegroups.com, 
-	"kernelci . org bot" <bot@kernelci.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ulf.hansson@linaro.org
+Content-Disposition: inline
+In-Reply-To: <20200416161245.148813-5-samitolvanen@google.com>
+X-Original-Sender: peterz@infradead.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=By0UkC0U;       spf=pass
- (google.com: domain of ulf.hansson@linaro.org designates 2607:f8b0:4864:20::e41
- as permitted sender) smtp.mailfrom=ulf.hansson@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@infradead.org header.s=bombadil.20170209 header.b=G25zyJyL;
+       spf=pass (google.com: best guess record for domain of
+ peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,94 +154,73 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, 16 Apr 2020 at 20:24, Nathan Chancellor
-<natechancellor@gmail.com> wrote:
->
-> Clang warns:
->
-> drivers/mmc/host/sdhci-of-arasan.c:784:9: warning: variable 'ret' is
-> uninitialized when used here [-Wuninitialized]
->         return ret;
->                ^~~
-> drivers/mmc/host/sdhci-of-arasan.c:738:9: note: initialize the variable
-> 'ret' to silence this warning
->         int ret;
->                ^
->                 = 0
-> drivers/mmc/host/sdhci-of-arasan.c:860:9: warning: variable 'ret' is
-> uninitialized when used here [-Wuninitialized]
->         return ret;
->                ^~~
-> drivers/mmc/host/sdhci-of-arasan.c:810:9: note: initialize the variable
-> 'ret' to silence this warning
->         int ret;
->                ^
->                 = 0
-> 2 warnings generated.
->
-> This looks like a copy paste error. Neither function has handling that
-> needs ret so just remove it and return 0 directly.
->
-> Fixes: f73e66a36772 ("sdhci: arasan: Add support for Versal Tap Delays")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/996
-> Reported-by: kernelci.org bot <bot@kernelci.org>
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+On Thu, Apr 16, 2020 at 09:12:37AM -0700, Sami Tolvanen wrote:
+> The graph tracer hooks returns by modifying frame records on the
+> (regular) stack, but with SCS the return address is taken from the
+> shadow stack, and the value in the frame record has no effect. As we
+> don't currently have a mechanism to determine the corresponding slot
+> on the shadow stack (and to pass this through the ftrace
+> infrastructure), for now let's disable SCS when the graph tracer is
+> enabled.
+> 
+> With SCS the return address is taken from the shadow stack and the
+> value in the frame record has no effect. The mcount based graph tracer
+> hooks returns by modifying frame records on the (regular) stack, and
+> thus is not compatible. The patchable-function-entry graph tracer
+> used for DYNAMIC_FTRACE_WITH_REGS modifies the LR before it is saved
+> to the shadow stack, and is compatible.
+> 
+> Modifying the mcount based graph tracer to work with SCS would require
+> a mechanism to determine the corresponding slot on the shadow stack
+> (and to pass this through the ftrace infrastructure), and we expect
+> that everyone will eventually move to the patchable-function-entry
+> based graph tracer anyway, so for now let's disable SCS when the
+> mcount-based graph tracer is enabled.
+> 
+> SCS and patchable-function-entry are both supported from LLVM 10.x.
 
-Applied for next, thanks!
+SCS would actually provide another way to do return hooking. An arguably
+much saner model at that.
 
-Kind regards
-Uffe
+The 'normal' way is to (temporary) replace the on-stack return value,
+and then replace it back in the return handler. This is because we can't
+simply push a fake return on the stack, because that would wreck the
+expected stack layout of the regular function.
 
+But there is nothing that would stop us from pushing an extra entry on
+the SCS. It would in fact be a much cleaner solution. The entry hook
+sticks an extra entry on the SCS, the function ignores what's on the
+normal stack and pops from the SCS, we return to the exit handler, which
+in turn pops from the SCS stack at which point we're back to regular.
 
+The only 'funny' is that the exit handler itself should not push to the
+SCS, or we should frob the return-to-exit-handler such that it lands
+after the push.
+
+> Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+> Reviewed-by: Kees Cook <keescook@chromium.org>
+> Reviewed-by: Mark Rutland <mark.rutland@arm.com>
 > ---
->  drivers/mmc/host/sdhci-of-arasan.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/mmc/host/sdhci-of-arasan.c b/drivers/mmc/host/sdhci-of-arasan.c
-> index 16e26c217a77..18bf0e76b1eb 100644
-> --- a/drivers/mmc/host/sdhci-of-arasan.c
-> +++ b/drivers/mmc/host/sdhci-of-arasan.c
-> @@ -735,7 +735,6 @@ static int sdhci_versal_sdcardclk_set_phase(struct clk_hw *hw, int degrees)
->                 container_of(clk_data, struct sdhci_arasan_data, clk_data);
->         struct sdhci_host *host = sdhci_arasan->host;
->         u8 tap_delay, tap_max = 0;
-> -       int ret;
->
->         /*
->          * This is applicable for SDHCI_SPEC_300 and above
-> @@ -781,7 +780,7 @@ static int sdhci_versal_sdcardclk_set_phase(struct clk_hw *hw, int degrees)
->                 sdhci_writel(host, regval, SDHCI_ARASAN_OTAPDLY_REGISTER);
->         }
->
-> -       return ret;
-> +       return 0;
->  }
->
->  static const struct clk_ops versal_sdcardclk_ops = {
-> @@ -807,7 +806,6 @@ static int sdhci_versal_sampleclk_set_phase(struct clk_hw *hw, int degrees)
->                 container_of(clk_data, struct sdhci_arasan_data, clk_data);
->         struct sdhci_host *host = sdhci_arasan->host;
->         u8 tap_delay, tap_max = 0;
-> -       int ret;
->
->         /*
->          * This is applicable for SDHCI_SPEC_300 and above
-> @@ -857,7 +855,7 @@ static int sdhci_versal_sampleclk_set_phase(struct clk_hw *hw, int degrees)
->                 sdhci_writel(host, regval, SDHCI_ARASAN_ITAPDLY_REGISTER);
->         }
->
-> -       return ret;
-> +       return 0;
->  }
->
->  static const struct clk_ops versal_sampleclk_ops = {
->
-> base-commit: a3ca59b9af21e68069555ffff1ad89bd2a7c40fc
-> --
-> 2.26.1
->
+>  arch/Kconfig | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/Kconfig b/arch/Kconfig
+> index 691a552c2cc3..c53cb9025ad2 100644
+> --- a/arch/Kconfig
+> +++ b/arch/Kconfig
+> @@ -542,6 +542,7 @@ config ARCH_SUPPORTS_SHADOW_CALL_STACK
+>  
+>  config SHADOW_CALL_STACK
+>  	bool "Clang Shadow Call Stack"
+> +	depends on DYNAMIC_FTRACE_WITH_REGS || !FUNCTION_GRAPH_TRACER
+>  	depends on ARCH_SUPPORTS_SHADOW_CALL_STACK
+>  	help
+>  	  This option enables Clang's Shadow Call Stack, which uses a
+
+AFAICT you also need to kill KRETPROBES, which plays similar games. And
+doesn't BPF also do stuff like this?
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAPDyKFr4VX-3Z%3DiboMbDmhJvwh%2BGL5wg_50aPw%2B_j5jMLBWctg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200417100039.GS20730%40hirez.programming.kicks-ass.net.
