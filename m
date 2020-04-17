@@ -1,147 +1,127 @@
-Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBV744X2AKGQE4OWQHLY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRBIO5432AKGQE54KP23Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93d.google.com (mail-ua1-x93d.google.com [IPv6:2607:f8b0:4864:20::93d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 210F61ADA9F
-	for <lists+clang-built-linux@lfdr.de>; Fri, 17 Apr 2020 12:00:56 +0200 (CEST)
-Received: by mail-ua1-x93d.google.com with SMTP id v27sf669804uaa.22
-        for <lists+clang-built-linux@lfdr.de>; Fri, 17 Apr 2020 03:00:56 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1587117655; cv=pass;
+Received: from mail-il1-x13a.google.com (mail-il1-x13a.google.com [IPv6:2607:f8b0:4864:20::13a])
+	by mail.lfdr.de (Postfix) with ESMTPS id EB6FE1ADE40
+	for <lists+clang-built-linux@lfdr.de>; Fri, 17 Apr 2020 15:26:58 +0200 (CEST)
+Received: by mail-il1-x13a.google.com with SMTP id l18sf2466215ilg.0
+        for <lists+clang-built-linux@lfdr.de>; Fri, 17 Apr 2020 06:26:58 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1587130017; cv=pass;
         d=google.com; s=arc-20160816;
-        b=KHnvh61xMs+PMFz3jA5nbaFlVlq2bF8Jf7GE8+q3Rzy8WRzyTX1yKnFHtcFqBqPuui
-         0QAP+CdN+3IdIeLUINigis4thb1RjfIwRbTHIJ5IekBPW4lBmpkQ5kfgLGvWgF/5qY1s
-         lWzeIPsvQvtb7YLTiyB53rFbpTJ9EVRddQyA6oz0BUCtpfVgdKT5JOQ28a+kzkfKnmgr
-         kFLLUy6Zej4tG/L4n9HNpW93R+nMw1IlYjli61QMxFhSzcUqI2juk9KIUyN7TwvC6exH
-         Jkwj3NqBRptlWemZP0+22Nhqe1ZzjGH9S6xJK5LIGu7KqbWtIFv3CR+wLUV0VO6lfUro
-         pVOg==
+        b=gmX4yCDMxgZBFI9PVcVanbRwKxF1kerup/+UjDQ+NJtgYID4WfWHqjdCE5zKSvX94u
+         Uk4lio6EN/5vcsm9OuQm0pIw5IaNIJMiASAV52skCvWFuLYHYaqAbiOS4iLs3i20R9Sd
+         yT4jiPgtVTOvTDNrawy5I5xOdNQJ66irLpchkgsMSzDQenxoz/YRseslrrvgGuWYoFqc
+         eU1Z0ZjpNQ100/k5/CxVjuV1yPYnah57Bd25BL/p5S0jIgWo/1x2Ulsj/S95F1HeqFkr
+         gSWdTQD/oAyEsGi+iiJZUIQ9a0+3OMy5Ps0KQNZDhiheRttT+46ZZnPejdTzBHxK9oxe
+         JwJA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
          :dkim-signature;
-        bh=F4ZJnHaIiw8RNcz0QEw4W/oM5coU6KIkpCv12WAAh2M=;
-        b=JyxkFfY7z4FQow0kzhsaI9A8m8b8ZBS8ykm2OHQNHJ27zUx+4MG7njItenbNPFRb/9
-         zAzd2FEPwwIUyg7O9xbDxog4+3DIfAy7eH8bdLPDiyde7Ws9S3ViLKV95uzyGBnYtVMC
-         1V1eIpiu0+GyRoG+j5eeuTKYyJOltK1fNSqeVPNsgM6h3wvr34+U1V+2WZKg/LXgLyZq
-         yhVGsBfS+ujYUwARdziTMBM2dx5ES72lhYjvRRr2imLTFIFLVGsnNnHcrPovn0c+sI36
-         4Kp7OemAWQP24r+h8PeUw+bqYjT2sDEtosUg/lEzD7lpZA3Tps0tj5pM2MbJFU8NGiEg
-         /+ng==
+        bh=bXOhHXU90N0lUkj3u5u/JWzLzNTDvpZBh8yU5L4V9e8=;
+        b=CWunVex7iOe40bFoYLoxotk2Nkgnp7cg23A6CS5QqCqusJuD2jBzALX38/MTT4CBD7
+         ehM1shyX3UxbBKYWWUBIzixEMEf6rfP+YOB11EcEHLGWd9vuLCd5cm0YhJ0xrOEcqhEs
+         u6jFgIPEnzl2BJB2ZNqjB6VhPyar8upix6BhQcqykC/JTkuXIpZtnQHK1Nk/dax1tqDP
+         MwnOK45xjT+zGbpjh8ZCP2qBQNiF1KQYoDg9um0I8eXY/e5X8u7ZquM1Rqrvi29GllVC
+         g77JatpdKVLwyxRpu+L9u3Go1pFr8Eobsy/eY8UHujrRQbEYPp8Sz+sNsudlILfPXnaJ
+         np4w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=G25zyJyL;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=pnMV+uwg;
+       spf=neutral (google.com: 2607:f8b0:4864:20::443 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=F4ZJnHaIiw8RNcz0QEw4W/oM5coU6KIkpCv12WAAh2M=;
-        b=pKUJHuIg6XZGMiMTVKkeFs90S9gf2JFHcGiQjUH/gp49R6wPgwITwRydQiDkvrlHfh
-         Ng2r/vNyPcVqo9r/z/YQJC+DlEBxaJAw+3KfKUZdIGFKqha7Aon+kTeIOSHxQHz32X3m
-         nf/a3DJZoPfoFmK0VGsXk7y6SdLxSd3IwSzviH2L23OkI0HObZMV8zWcAbV1APy23Ozd
-         0DlFjWQPpmFdQOjSd+nqycxVNQg06j0jZdp6IGSaekJtrZtYkOy20Wo+igpbCuxVDv7V
-         FwXTUBLULyjRHvowk7vZ4iAKR1+/ZI4GQgwMnX+Ap84FPvWsynxRt2EC5KohKHFJJAJF
-         miDw==
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=bXOhHXU90N0lUkj3u5u/JWzLzNTDvpZBh8yU5L4V9e8=;
+        b=D3d35lpgAytYs+X0BFKAw9qudj1iUc3DWeIObPmmZWsnHYeRUaH04GEw8yJXlp5Zwh
+         LA1ntT10fDrvkNqXooTwCpvxPC5wHZ5HfROaN4gJYyL41UVfwcEZig8swl4SEV8cBLzD
+         9ged79FzYOQJ6h/4uFS1AkOTgAT1UcRnXBefaOJDS8iXCsUuv6E7VxDUL2LUXHmS6uY5
+         EtLUV13HTQYAbhsY+P9Lzbd0BtuUkA5BdjhTsn6SU8reznUZTzDt+5IZ7yihTkiKaeVS
+         5iDg1GDb2FlboiRJnjVFHk014pVxR3CkZdtKgVo7JXpQSkBpySClbkLm9qIK1uy+0W+n
+         gc3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=F4ZJnHaIiw8RNcz0QEw4W/oM5coU6KIkpCv12WAAh2M=;
-        b=KP1dfoy32oYT38v/yo7bPDAyl0iSoLT4mrxxcCOGU3obfWrtI9sf8LmtOYlmiJeW7I
-         tqhXM3GePciJF64R0OArBXZ5SrutWOsEOV1+QalqfpY80phzaVKss92z6gnwhBe9jn/G
-         E3n00dTCC0BR3oFs7ZaJUeT+t4l5xUSVsa/H7nX5Y9NdKdkNsVqsHIHZ2zg8tyUvQlKP
-         +/Yx2VwAVfph/6RxUlzFx3jlZFzcyBOIdS0usDFZ5sLCNO0tfBp6nHW5dbIRj3FzIoyb
-         2Hq7g2A3iCdUc7TzOMHo+Ksjao4OH8n3zBzzWipHLY1keLnS6SeTpbsYqChJV7BIjFIX
-         HkLA==
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=bXOhHXU90N0lUkj3u5u/JWzLzNTDvpZBh8yU5L4V9e8=;
+        b=S0O97RNPs/8JdzSRwfqdrMRfWQ7nTPibYIAr8L8QmJgc09L3MeMGhqB9DMnFq8/AJM
+         zL47yG9wubYHZFTdGPZfBxlrlE7s7e4L6NY4kjqFCPLxS/OyCQ/CeFWPa2e48iAKjbA/
+         IIozNRWAQ82TAAtxU+MDptt5RZXXXRdjWQrHS6Aqe40NCMbc1jDDeur+o93qc3FqTUNq
+         DCWDPEaVXe4IMDXGi/AD0C3nqsx3WTaEAlrgwiFAzIXGigxSmtgO9ymD09FVYckc0vvP
+         eu/C4HSV8Qd8wQfSf4SOlJqWrpxB/2TFGyQIe1dtDCertAH/PtVprLwivuRdS1EywX1x
+         e9+Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuYA7mEDvVRcHormoCuWqY/BOA+IqsJl2aelCyYp+8HQCaaw+3mV
-	FM7/jU6wx6pJ4jyopefsxx8=
-X-Google-Smtp-Source: APiQypL//zbBqv3YLRaOC9mu05SQXmKMRYHA7t9I7AAwAqOt/TSVP1w1VODmKGpTceNicD0kWO3Tvg==
-X-Received: by 2002:ab0:6204:: with SMTP id m4mr1767985uao.15.1587117655157;
-        Fri, 17 Apr 2020 03:00:55 -0700 (PDT)
+X-Gm-Message-State: AGi0PuaVQKxoi5ee2xGkbUW9WnORYMhQcvzM3mmAV0LBlcNxukjHUnEt
+	/r+9MriYXTeo8T7lNBEP7zg=
+X-Google-Smtp-Source: APiQypL2aagW8YdiqxqyGvGlcYwjiCE5s698qv4qnYg/wAuVVm3vezbqJJ3xbWaelAg1akhIZuL04A==
+X-Received: by 2002:a5d:8946:: with SMTP id b6mr3019751iot.51.1587130017555;
+        Fri, 17 Apr 2020 06:26:57 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:a989:: with SMTP id s131ls79291vke.4.gmail; Fri, 17 Apr
- 2020 03:00:54 -0700 (PDT)
-X-Received: by 2002:a1f:d182:: with SMTP id i124mr1674297vkg.26.1587117654810;
-        Fri, 17 Apr 2020 03:00:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1587117654; cv=none;
+Received: by 2002:a6b:c381:: with SMTP id t123ls455662iof.2.gmail; Fri, 17 Apr
+ 2020 06:26:57 -0700 (PDT)
+X-Received: by 2002:a6b:5c11:: with SMTP id z17mr3050365ioh.204.1587130016252;
+        Fri, 17 Apr 2020 06:26:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1587130016; cv=none;
         d=google.com; s=arc-20160816;
-        b=pfKB+k7cfnWS369ekyrsx/tmzAXl0U1FtdnxI0mtDbiFPIMXrxoG1QRlgqy6WlCNKd
-         JHhkCgSQ8hMfCv0FKgoyeaM7Jl4bDJEX10dkgk+isFZFoGpXU+1pzlVuRTR0XkUVnTjd
-         SfhRohCjSrdUAL6K6A7uwyC647/FA7dFiFgFMNLkGUsLPPH1eutYebbfA6YbPaZTMkxR
-         LlANZEx+zsUEqzMPkQZHbzllU2D4ekWV13c0em/MFtimW78Q9k5LuRTT4C3CsiL25COR
-         6rP0NvYJUdVn0AoQl7epkYJQYfezXdC9GS+AvPJNaOJEjg7ICjsD8XSHuEN3HhQRqe+6
-         0K4A==
+        b=M/6G+6zcm71C43hmKmtknaSvofXDPrhi+/dtIxSrRuPQcpH+Lz0kbQV5OINjcb9Ygx
+         7GG1odcgyNe2xCLG9AiyXv+0bt2t79/+DbBur9eUII8DFVWfwOXnXjrWHmJhnqL5SeW6
+         hj6ZDy36to8wmLbSCN9BCQPnMcW1Uo1DH2byw4ALai/NDlCZ6gcHzS2Jnh3rEReX4XOz
+         KhxGj+do+/97CHAajfHclUZb3ph1uJcd4ZoSe5FumgWNUJYZR+hQr1tPPxHJSNRrP4J8
+         3+akpA7PIt9K37GypjFAcytB7AjmhKWbdIg3BG8M3rsHyhlU7E/9XWHE+HsePZHqFw6O
+         Jarw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=/sCrLJsk9M0RFgQwNkauJ/Dtc5/K6rCJg0npReZJ/ZM=;
-        b=HRv6fIJv18Fvn0OV5XauvJAJiAz2OA3XnBr3XialIAyC/CAJ1CzI3YcelEr7LLz4iI
-         NAhsK1f+OKZdn7uRFVlXEiUYfv1X+2XqtZuT4endb7YofqepLuxY27x/QMtUIBOTU/y+
-         LJ99859x0ioC8ogD5DW5KDqU6c36tU+DoIHOJL3oFfabuW90Cmwu9eXbxusPuVVAGQQi
-         EdvEK0ypJg1/E/t16Ds0ZQ25kG2dqaFLHpr29fEjBwK68Q/n3QqcvOHAwm0dQLMdjM6n
-         cckqvb9tS8I2i7Xzkp/KHYSTIIgEk8GWeSB+rJhREz4SRH/2zUIAc9u1raUYBThcFbOX
-         C2rg==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=nJX2qAG3o/80y6YtIaJlqfq2veLpnVsVyRb/HSIiVc8=;
+        b=jjhI8CcVMyIcsI4ozKoF45epODq1RFBiJeErW1lo0GlB2mkCVpDNqyit5Lhvvb3AC+
+         GE3H4RCIL3Vay3mSmnMiceCx2ewVkHwuM9rFnISS3mz/YEouplP3vc4fXOHA98rFkeml
+         XU2FBlLuLtED6l5QFcZc4iASqzVfrKFXi/rj1LVMZeQHVDQKeylv11HHsTrTqhVGfN1H
+         y6TGtIdUosZuGpNSAKH5jQ6lJjyYiK7sICs9bjtTI6aVfA58E/LFaI14TL652PMWeLRN
+         d2aRddK7HL3NbBAkJsYf8mwOAnGgHAetoIU/gWSABj8cMdEzClHuYmREeXabZe9IZmiq
+         bc2Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=G25zyJyL;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
-Received: from bombadil.infradead.org (bombadil.infradead.org. [2607:7c80:54:e::133])
-        by gmr-mx.google.com with ESMTPS id s64si619893vkg.1.2020.04.17.03.00.54
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=pnMV+uwg;
+       spf=neutral (google.com: 2607:f8b0:4864:20::443 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-pf1-x443.google.com (mail-pf1-x443.google.com. [2607:f8b0:4864:20::443])
+        by gmr-mx.google.com with ESMTPS id x16si14142iov.1.2020.04.17.06.26.55
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 17 Apr 2020 06:26:56 -0700 (PDT)
+Received-SPF: neutral (google.com: 2607:f8b0:4864:20::443 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2607:f8b0:4864:20::443;
+Received: by mail-pf1-x443.google.com with SMTP id x3so1061275pfp.7
+        for <clang-built-linux@googlegroups.com>; Fri, 17 Apr 2020 06:26:55 -0700 (PDT)
+X-Received: by 2002:a63:3195:: with SMTP id x143mr3004298pgx.326.1587130011941;
+        Fri, 17 Apr 2020 06:26:51 -0700 (PDT)
+Received: from kernelci-production.internal.cloudapp.net ([52.250.1.28])
+        by smtp.gmail.com with ESMTPSA id 203sm19898290pfw.25.2020.04.17.06.26.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Apr 2020 03:00:54 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) client-ip=2607:7c80:54:e::133;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
-	by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jPNne-000501-Rg; Fri, 17 Apr 2020 10:00:43 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 816003010BC;
-	Fri, 17 Apr 2020 12:00:39 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 6AB682B120750; Fri, 17 Apr 2020 12:00:39 +0200 (CEST)
-Date: Fri, 17 Apr 2020 12:00:39 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Sami Tolvanen <samitolvanen@google.com>
-Cc: Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ard.biesheuvel@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Michal Marek <michal.lkml@markovi.net>,
-	Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dave Martin <Dave.Martin@arm.com>,
-	Kees Cook <keescook@chromium.org>,
-	Laura Abbott <labbott@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Jann Horn <jannh@google.com>,
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	clang-built-linux@googlegroups.com,
-	kernel-hardening@lists.openwall.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v11 04/12] scs: disable when function graph tracing is
- enabled
-Message-ID: <20200417100039.GS20730@hirez.programming.kicks-ass.net>
-References: <20191018161033.261971-1-samitolvanen@google.com>
- <20200416161245.148813-1-samitolvanen@google.com>
- <20200416161245.148813-5-samitolvanen@google.com>
-MIME-Version: 1.0
+        Fri, 17 Apr 2020 06:26:50 -0700 (PDT)
+Message-ID: <5e99ae9a.1c69fb81.fd068.438b@mx.google.com>
+Date: Fri, 17 Apr 2020 06:26:50 -0700 (PDT)
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200416161245.148813-5-samitolvanen@google.com>
-X-Original-Sender: peterz@infradead.org
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Kernel: next-20200417
+X-Kernelci-Report-Type: build
+X-Kernelci-Tree: next
+X-Kernelci-Branch: master
+Subject: next/master build: 228 builds: 5 failed, 223 passed, 7 errors,
+ 745 warnings (next-20200417)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=bombadil.20170209 header.b=G25zyJyL;
-       spf=pass (google.com: best guess record for domain of
- peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b=pnMV+uwg;       spf=neutral (google.com: 2607:f8b0:4864:20::443 is
+ neither permitted nor denied by best guess record for domain of
+ bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -154,73 +134,3932 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Apr 16, 2020 at 09:12:37AM -0700, Sami Tolvanen wrote:
-> The graph tracer hooks returns by modifying frame records on the
-> (regular) stack, but with SCS the return address is taken from the
-> shadow stack, and the value in the frame record has no effect. As we
-> don't currently have a mechanism to determine the corresponding slot
-> on the shadow stack (and to pass this through the ftrace
-> infrastructure), for now let's disable SCS when the graph tracer is
-> enabled.
-> 
-> With SCS the return address is taken from the shadow stack and the
-> value in the frame record has no effect. The mcount based graph tracer
-> hooks returns by modifying frame records on the (regular) stack, and
-> thus is not compatible. The patchable-function-entry graph tracer
-> used for DYNAMIC_FTRACE_WITH_REGS modifies the LR before it is saved
-> to the shadow stack, and is compatible.
-> 
-> Modifying the mcount based graph tracer to work with SCS would require
-> a mechanism to determine the corresponding slot on the shadow stack
-> (and to pass this through the ftrace infrastructure), and we expect
-> that everyone will eventually move to the patchable-function-entry
-> based graph tracer anyway, so for now let's disable SCS when the
-> mcount-based graph tracer is enabled.
-> 
-> SCS and patchable-function-entry are both supported from LLVM 10.x.
+next/master build: 228 builds: 5 failed, 223 passed, 7 errors, 745 warnings=
+ (next-20200417)
 
-SCS would actually provide another way to do return hooking. An arguably
-much saner model at that.
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20200417/
 
-The 'normal' way is to (temporary) replace the on-stack return value,
-and then replace it back in the return handler. This is because we can't
-simply push a fake return on the stack, because that would wreck the
-expected stack layout of the regular function.
+Tree: next
+Branch: master
+Git Describe: next-20200417
+Git Commit: ea16390b6f2d61f0db6fadc8c512c012c1edd1b9
+Git URL: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.gi=
+t
+Built: 7 unique architectures
 
-But there is nothing that would stop us from pushing an extra entry on
-the SCS. It would in fact be a much cleaner solution. The entry hook
-sticks an extra entry on the SCS, the function ignores what's on the
-normal stack and pops from the SCS, we return to the exit handler, which
-in turn pops from the SCS stack at which point we're back to regular.
+Build Failures Detected:
 
-The only 'funny' is that the exit handler itself should not push to the
-SCS, or we should frob the return-to-exit-handler such that it lands
-after the push.
+arm:
+    qcom_defconfig: (gcc-8) FAIL
 
-> Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-> Reviewed-by: Kees Cook <keescook@chromium.org>
-> Reviewed-by: Mark Rutland <mark.rutland@arm.com>
-> ---
->  arch/Kconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/Kconfig b/arch/Kconfig
-> index 691a552c2cc3..c53cb9025ad2 100644
-> --- a/arch/Kconfig
-> +++ b/arch/Kconfig
-> @@ -542,6 +542,7 @@ config ARCH_SUPPORTS_SHADOW_CALL_STACK
->  
->  config SHADOW_CALL_STACK
->  	bool "Clang Shadow Call Stack"
-> +	depends on DYNAMIC_FTRACE_WITH_REGS || !FUNCTION_GRAPH_TRACER
->  	depends on ARCH_SUPPORTS_SHADOW_CALL_STACK
->  	help
->  	  This option enables Clang's Shadow Call Stack, which uses a
+mips:
+    mtx1_defconfig: (gcc-8) FAIL
 
-AFAICT you also need to kill KRETPROBES, which plays similar games. And
-doesn't BPF also do stuff like this?
+riscv:
+    allnoconfig: (gcc-8) FAIL
+    tinyconfig: (gcc-8) FAIL
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200417100039.GS20730%40hirez.programming.kicks-ass.net.
+x86_64:
+    defconfig: (clang-9) FAIL
+
+Errors and Warnings Detected:
+
+arc:
+
+arm64:
+    allmodconfig (clang-9): 35 warnings
+    allmodconfig (gcc-8): 31 warnings
+    defconfig (gcc-8): 30 warnings
+    defconfig (clang-9): 34 warnings
+    defconfig (gcc-8): 30 warnings
+    defconfig (gcc-8): 30 warnings
+    defconfig (gcc-8): 30 warnings
+
+arm:
+    allmodconfig (clang-9): 48 warnings
+    allmodconfig (gcc-8): 38 warnings
+    am200epdkit_defconfig (gcc-8): 1 warning
+    aspeed_g4_defconfig (gcc-8): 5 warnings
+    aspeed_g5_defconfig (gcc-8): 5 warnings
+    aspeed_g5_defconfig (clang-9): 4 warnings
+    assabet_defconfig (gcc-8): 1 warning
+    axm55xx_defconfig (gcc-8): 1 warning
+    badge4_defconfig (gcc-8): 1 warning
+    bcm2835_defconfig (gcc-8): 14 warnings
+    cerfcube_defconfig (gcc-8): 1 warning
+    clps711x_defconfig (gcc-8): 1 warning
+    cm_x2xx_defconfig (gcc-8): 1 warning
+    cm_x300_defconfig (gcc-8): 3 warnings
+    cns3420vb_defconfig (gcc-8): 1 warning
+    colibri_pxa270_defconfig (gcc-8): 1 warning
+    colibri_pxa300_defconfig (gcc-8): 1 warning
+    collie_defconfig (gcc-8): 1 warning
+    corgi_defconfig (gcc-8): 1 warning
+    davinci_all_defconfig (gcc-8): 1 warning
+    dove_defconfig (gcc-8): 1 warning
+    ebsa110_defconfig (gcc-8): 1 warning
+    em_x270_defconfig (gcc-8): 3 warnings
+    ep93xx_defconfig (gcc-8): 1 warning
+    eseries_pxa_defconfig (gcc-8): 3 warnings
+    exynos_defconfig (gcc-8): 1 warning
+    ezx_defconfig (gcc-8): 1 warning
+    footbridge_defconfig (gcc-8): 1 warning
+    gemini_defconfig (gcc-8): 1 warning
+    h3600_defconfig (gcc-8): 1 warning
+    h5000_defconfig (gcc-8): 1 warning
+    hackkit_defconfig (gcc-8): 1 warning
+    hisi_defconfig (gcc-8): 1 warning
+    imote2_defconfig (gcc-8): 1 warning
+    imx_v4_v5_defconfig (gcc-8): 1 warning
+    imx_v6_v7_defconfig (gcc-8): 1 warning
+    integrator_defconfig (gcc-8): 1 warning
+    iop32x_defconfig (gcc-8): 1 warning
+    ixp4xx_defconfig (gcc-8): 1 warning
+    jornada720_defconfig (gcc-8): 1 warning
+    keystone_defconfig (gcc-8): 1 warning
+    lart_defconfig (gcc-8): 1 warning
+    lpd270_defconfig (gcc-8): 1 warning
+    lubbock_defconfig (gcc-8): 1 warning
+    magician_defconfig (gcc-8): 1 warning
+    mainstone_defconfig (gcc-8): 1 warning
+    milbeaut_m10v_defconfig (gcc-8): 1 warning
+    mini2440_defconfig (gcc-8): 1 warning
+    mmp2_defconfig (gcc-8): 1 warning
+    moxart_defconfig (gcc-8): 1 warning
+    multi_v4t_defconfig (gcc-8): 1 warning
+    multi_v5_defconfig (clang-9): 4 warnings
+    multi_v5_defconfig (gcc-8): 5 warnings
+    multi_v7_defconfig (gcc-8): 21 warnings
+    multi_v7_defconfig (clang-9): 25 warnings
+    multi_v7_defconfig (gcc-8): 24 warnings
+    multi_v7_defconfig (gcc-8): 24 warnings
+    multi_v7_defconfig (gcc-8): 24 warnings
+    multi_v7_defconfig (gcc-8): 25 warnings
+    mv78xx0_defconfig (gcc-8): 1 warning
+    mvebu_v5_defconfig (gcc-8): 1 warning
+    mvebu_v7_defconfig (gcc-8): 1 warning
+    mxs_defconfig (gcc-8): 1 warning
+    neponset_defconfig (gcc-8): 1 warning
+    netwinder_defconfig (gcc-8): 1 warning
+    nhk8815_defconfig (gcc-8): 1 warning
+    omap1_defconfig (gcc-8): 1 warning
+    omap2plus_defconfig (gcc-8): 1 warning
+    orion5x_defconfig (gcc-8): 1 warning
+    oxnas_v6_defconfig (gcc-8): 1 warning
+    palmz72_defconfig (gcc-8): 1 warning
+    pcm027_defconfig (gcc-8): 1 warning
+    pleb_defconfig (gcc-8): 1 warning
+    prima2_defconfig (gcc-8): 1 warning
+    pxa168_defconfig (gcc-8): 1 warning
+    pxa255-idp_defconfig (gcc-8): 1 warning
+    pxa3xx_defconfig (gcc-8): 1 warning
+    pxa910_defconfig (gcc-8): 1 warning
+    pxa_defconfig (gcc-8): 7 warnings
+    qcom_defconfig (gcc-8): 1 error, 1 warning
+    realview_defconfig (gcc-8): 1 warning
+    rpc_defconfig (gcc-8): 1 warning
+    s3c2410_defconfig (gcc-8): 1 warning
+    s3c6400_defconfig (gcc-8): 1 warning
+    s5pv210_defconfig (gcc-8): 1 warning
+    sama5_defconfig (gcc-8): 1 warning
+    shannon_defconfig (gcc-8): 1 warning
+    simpad_defconfig (gcc-8): 1 warning
+    socfpga_defconfig (gcc-8): 1 warning
+    spear13xx_defconfig (gcc-8): 1 warning
+    spear3xx_defconfig (gcc-8): 1 warning
+    spear6xx_defconfig (gcc-8): 1 warning
+    spitz_defconfig (gcc-8): 1 warning
+    sunxi_defconfig (gcc-8): 1 warning
+    tango4_defconfig (gcc-8): 1 warning
+    tct_hammer_defconfig (gcc-8): 1 warning
+    tegra_defconfig (gcc-8): 1 warning
+    trizeps4_defconfig (gcc-8): 1 warning
+    u300_defconfig (gcc-8): 1 warning
+    u8500_defconfig (gcc-8): 1 warning
+    versatile_defconfig (gcc-8): 1 warning
+    vexpress_defconfig (gcc-8): 1 warning
+    vf610m4_defconfig (gcc-8): 1 warning
+    viper_defconfig (gcc-8): 1 warning
+    vt8500_v6_v7_defconfig (gcc-8): 1 warning
+    xcep_defconfig (gcc-8): 1 warning
+    zeus_defconfig (gcc-8): 1 warning
+    zx_defconfig (gcc-8): 1 warning
+
+i386:
+
+mips:
+    32r2el_defconfig (gcc-8): 3 warnings
+    32r2el_defconfig (gcc-8): 3 warnings
+    allnoconfig (gcc-8): 1 warning
+    ar7_defconfig (gcc-8): 2 warnings
+    ath25_defconfig (gcc-8): 2 warnings
+    ath79_defconfig (gcc-8): 2 warnings
+    bcm47xx_defconfig (gcc-8): 2 warnings
+    bcm63xx_defconfig (gcc-8): 1 warning
+    bigsur_defconfig (gcc-8): 2 warnings
+    bmips_be_defconfig (gcc-8): 1 warning
+    bmips_stb_defconfig (gcc-8): 1 warning
+    capcella_defconfig (gcc-8): 2 warnings
+    cavium_octeon_defconfig (gcc-8): 2 warnings
+    ci20_defconfig (gcc-8): 3 warnings
+    cobalt_defconfig (gcc-8): 2 warnings
+    cu1000-neo_defconfig (gcc-8): 1 warning
+    db1xxx_defconfig (gcc-8): 1 warning
+    decstation_64_defconfig (gcc-8): 2 warnings
+    decstation_defconfig (gcc-8): 2 warnings
+    decstation_r4k_defconfig (gcc-8): 2 warnings
+    e55_defconfig (gcc-8): 2 warnings
+    fuloong2e_defconfig (gcc-8): 2 warnings
+    gcw0_defconfig (gcc-8): 1 warning
+    gpr_defconfig (gcc-8): 2 warnings
+    ip22_defconfig (gcc-8): 2 warnings
+    ip27_defconfig (gcc-8): 2 warnings
+    ip28_defconfig (gcc-8): 2 warnings
+    ip32_defconfig (gcc-8): 2 warnings
+    jazz_defconfig (gcc-8): 2 warnings
+    jmr3927_defconfig (gcc-8): 1 warning
+    lasat_defconfig (gcc-8): 1 warning
+    lemote2f_defconfig (gcc-8): 2 warnings
+    loongson1b_defconfig (gcc-8): 2 warnings
+    loongson1c_defconfig (gcc-8): 2 warnings
+    loongson3_defconfig (gcc-8): 3 warnings
+    malta_defconfig (gcc-8): 2 warnings
+    malta_kvm_defconfig (gcc-8): 2 warnings
+    malta_kvm_guest_defconfig (gcc-8): 2 warnings
+    malta_qemu_32r6_defconfig (gcc-8): 3 warnings
+    maltaaprp_defconfig (gcc-8): 2 warnings
+    maltasmvp_defconfig (gcc-8): 2 warnings
+    maltasmvp_eva_defconfig (gcc-8): 2 warnings
+    maltaup_defconfig (gcc-8): 2 warnings
+    maltaup_xpa_defconfig (gcc-8): 2 warnings
+    markeins_defconfig (gcc-8): 2 warnings
+    mips_paravirt_defconfig (gcc-8): 2 warnings
+    mpc30x_defconfig (gcc-8): 2 warnings
+    msp71xx_defconfig (gcc-8): 2 warnings
+    mtx1_defconfig (gcc-8): 2 errors, 1 warning
+    nlm_xlp_defconfig (gcc-8): 2 warnings
+    nlm_xlr_defconfig (gcc-8): 2 warnings
+    omega2p_defconfig (gcc-8): 1 warning
+    pic32mzda_defconfig (gcc-8): 2 warnings
+    pistachio_defconfig (gcc-8): 2 warnings
+    pnx8335_stb225_defconfig (gcc-8): 2 warnings
+    qi_lb60_defconfig (gcc-8): 2 warnings
+    rb532_defconfig (gcc-8): 2 warnings
+    rbtx49xx_defconfig (gcc-8): 2 warnings
+    rm200_defconfig (gcc-8): 3 warnings
+    rt305x_defconfig (gcc-8): 2 warnings
+    sb1250_swarm_defconfig (gcc-8): 2 warnings
+    tb0219_defconfig (gcc-8): 2 warnings
+    tb0226_defconfig (gcc-8): 2 warnings
+    tb0287_defconfig (gcc-8): 2 warnings
+    tinyconfig (gcc-8): 1 warning
+    vocore2_defconfig (gcc-8): 1 warning
+    workpad_defconfig (gcc-8): 2 warnings
+    xway_defconfig (gcc-8): 2 warnings
+
+riscv:
+    allnoconfig (gcc-8): 1 error
+    rv32_defconfig (gcc-8): 6 warnings
+    tinyconfig (gcc-8): 1 error
+
+x86_64:
+    allmodconfig (gcc-8): 3 warnings
+    allmodconfig (clang-9): 11 warnings
+    defconfig (clang-9): 2 errors
+    tinyconfig (gcc-8): 1 warning
+    x86_64_defconfig (gcc-8): 3 warnings
+
+Errors summary:
+
+    2    arch/riscv/kernel/stacktrace.c:78:8: error: =E2=80=98sp_in_global=
+=E2=80=99 undeclared (first use in this function); did you mean =E2=80=98sp=
+in_lock=E2=80=99?
+    1    clang: error: assembler command failed with exit code 1 (use -v to=
+ see invocation)
+    1    ERROR: modpost: "sysrq_toggle_support" [drivers/tty/serial/serial_=
+core.ko] undefined!
+    1    ERROR: modpost: "sysrq_mask" [drivers/tty/serial/serial_core.ko] u=
+ndefined!
+    1    ERROR: modpost: "rd_full" [drivers/gpu/drm/msm/msm.ko] undefined!
+    1    /tmp/cpudeadline-471f08.s:76: Error: `%ecx' not allowed with `orb'
+
+Warnings summary:
+
+    126  arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_fo=
+rmat): /soc/firmware:dma-ranges: empty "dma-ranges" property but its #addre=
+ss-cells (2) differs from /soc (1)
+    125  <stdin>:1520:2: warning: #warning syscall process_madvise not impl=
+emented [-Wcpp]
+    112  arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (=
+dma_ranges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" p=
+roperty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, chil=
+d #address-cells =3D=3D 2, #size-cells =3D=3D 1)
+    102  kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be u=
+sed uninitialized in this function [-Wmaybe-uninitialized]
+    35   scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning=
+ (dma_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property=
+ but its #address-cells (2) differs from /soc (1)
+    24   WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_R=
+EQUEST_API
+    21   arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Wa=
+rning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but=
+ its #size-cells (1) differs from / (2)
+    21   arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Wa=
+rning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but=
+ its #address-cells (1) differs from / (2)
+    13   arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warn=
+ing (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C addr=
+ess must be less than 10-bits, got "0x40000010"
+    13   arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: =
+Warning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus =
+unit address format error, expected "40000010"
+    13   arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warn=
+ing (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C addr=
+ess must be less than 10-bits, got "0x40000010"
+    13   arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: =
+Warning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus =
+unit address format error, expected "40000010"
+    9    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer fro=
+m integer of different size [-Wint-to-pointer-cast]
+    8    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    8    WARNING: modpost: missing MODULE_LICENSE() in drivers/pinctrl/pinc=
+trl-mcp23s08.o
+    8    1 warning generated.
+    7    arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning (dma_range=
+s_format): /soc:dma-ranges: empty "dma-ranges" property but its #size-cells=
+ (1) differs from / (2)
+    7    arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning (dma_range=
+s_format): /soc:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (1) differs from / (2)
+    6    drivers/soc/qcom/cmd-db.c:281:30: warning: field width specifier =
+=E2=80=98*=E2=80=99 expects argument of type =E2=80=98int=E2=80=99, but arg=
+ument 4 has type =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+    6    2 warnings generated.
+    5    drivers/mmc/host/sdhci-of-arasan.c:860:9: warning: variable 'ret' =
+is uninitialized when used here [-Wuninitialized]
+    5    drivers/mmc/host/sdhci-of-arasan.c:810:9: note: initialize the var=
+iable 'ret' to silence this warning
+    5    drivers/mmc/host/sdhci-of-arasan.c:784:9: warning: variable 'ret' =
+is uninitialized when used here [-Wuninitialized]
+    5    drivers/mmc/host/sdhci-of-arasan.c:738:9: note: initialize the var=
+iable 'ret' to silence this warning
+    4    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer fro=
+m integer of different size [-Wint-to-pointer-cast]
+    2    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least=
+ version 4.6 of GCC [-W#warnings]
+    2    WARNING: unmet direct dependencies detected for SND_SOC_WM9713
+    2    WARNING: unmet direct dependencies detected for SND_SOC_WM9705
+    2    WARNING: unmet direct dependencies detected for DMI
+    2    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [=
+-Wcpp]
+    2    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [=
+-Wcpp]
+    2    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemente=
+d [-Wcpp]
+    2    #warning This code requires at least version 4.6 of GCC
+    1    {standard input}:141: Warning: macro instruction expanded into mul=
+tiple instructions
+    1    sound/soc/codecs/cros_ec_codec.c:776:12: warning: stack frame size=
+ of 1152 bytes in function 'wov_hotword_model_put' [-Wframe-larger-than=3D]
+    1    security/integrity/ima/ima_crypto.c:512:5: warning: stack frame si=
+ze of 1152 bytes in function 'ima_calc_field_array_hash' [-Wframe-larger-th=
+an=3D]
+    1    samples/ftrace/ftrace-direct.o: warning: objtool: .text+0x0: unrea=
+chable instruction
+    1    samples/ftrace/ftrace-direct-too.o: warning: objtool: .text+0x0: u=
+nreachable instruction
+    1    samples/ftrace/ftrace-direct-modify.o: warning: objtool: .text+0x0=
+: unreachable instruction
+    1    net/sched/cls_flower.c:331:1: warning: the frame size of 1032 byte=
+s is larger than 1024 bytes [-Wframe-larger-than=3D]
+    1    mm/kasan/common.o: warning: objtool: kasan_report()+0x87: call to =
+__stack_chk_fail() with UACCESS enabled
+    1    include/linux/kern_levels.h:5:18: warning: format =E2=80=98%lu=E2=
+=80=99 expects argument of type =E2=80=98long unsigned int=E2=80=99, but ar=
+gument 2 has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+    1    drivers/soc/fsl/dpio/qbman-portal.c:870:14: warning: cast from poi=
+nter to integer of different size [-Wpointer-to-int-cast]
+    1    drivers/soc/fsl/dpio/dpio-service.c:476:5: warning: stack frame si=
+ze of 1072 bytes in function 'dpaa2_io_service_enqueue_multiple_desc_fq' [-=
+Wframe-larger-than=3D]
+    1    drivers/scsi/bfa/bfa_fcs_lport.c:1900:1: warning: stack frame size=
+ of 1824 bytes in function 'bfa_fcs_lport_fdmi_build_rhba_pyld' [-Wframe-la=
+rger-than=3D]
+    1    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to =
+integer of different size [-Wpointer-to-int-cast]
+    1    drivers/net/dsa/sja1105/sja1105_ethtool.c:421:6: warning: stack fr=
+ame size of 1104 bytes in function 'sja1105_get_ethtool_stats' [-Wframe-lar=
+ger-than=3D]
+    1    drivers/media/tuners/mxl5005s.c:3953:1: warning: the frame size of=
+ 1120 bytes is larger than 1024 bytes [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: =
+warning: stack frame size of 5648 bytes in function 'calculate_bandwidth' [=
+-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3014:6:=
+ warning: stack frame size of 1376 bytes in function 'bw_calcs' [-Wframe-la=
+rger-than=3D]
+    1    drivers/crypto/inside-secure/safexcel_cipher.c:404:12: warning: st=
+ack frame size of 1136 bytes in function 'safexcel_aead_setkey' [-Wframe-la=
+rger-than=3D]
+    1    drivers/block/paride/bpck.c:32: warning: "PC" redefined
+    1    arch/x86/kernel/signal.o: warning: objtool: x32_setup_rt_frame()+0=
+x1c5: call to memset() with UACCESS enabled
+    1    arch/x86/kernel/signal.o: warning: objtool: __setup_rt_frame()+0x1=
+cb: call to memset() with UACCESS enabled
+    1    arch/x86/ia32/ia32_signal.o: warning: objtool: ia32_setup_rt_frame=
+()+0x1fa: call to memset() with UACCESS enabled
+    1    arch/mips/configs/ci20_defconfig:178:warning: override: reassignin=
+g to symbol LEDS_TRIGGER_ONESHOT
+    1    /tmp/test-arm-4de121.s:18788: Warning: using r15 results in unpred=
+ictable behaviour
+    1    /tmp/test-arm-4de121.s:18713: Warning: using r15 results in unpred=
+ictable behaviour
+    1    /tmp/ccewWEhN.s:18191: Warning: using r15 results in unpredictable=
+ behaviour
+    1    /tmp/ccewWEhN.s:18119: Warning: using r15 results in unpredictable=
+ behaviour
+    1    .config:1167:warning: override: UNWINDER_GUESS changes choice stat=
+e
+
+Section mismatches summary:
+
+    1    WARNING: modpost: vmlinux.o(.text.unlikely+0x2a44): Section mismat=
+ch in reference from the function pmax_setup_memory_region() to the functio=
+n .init.text:add_memory_region()
+    1    WARNING: modpost: vmlinux.o(.text.unlikely+0x2830): Section mismat=
+ch in reference from the function pmax_setup_memory_region() to the functio=
+n .init.text:add_memory_region()
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnin=
+gs, 0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/soc/qcom/cmd-db.c:281:30: warning: field width specifier =E2=80=
+=98*=E2=80=99 expects argument of type =E2=80=98int=E2=80=99, but argument =
+4 has type =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+    WARNING: modpost: missing MODULE_LICENSE() in drivers/pinctrl/pinctrl-m=
+cp23s08.o
+    WARNING: modpost: missing MODULE_LICENSE() in drivers/pinctrl/pinctrl-m=
+cp23s08.o
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, clang-9) =E2=80=94 PASS, 0 errors, 11 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    mm/kasan/common.o: warning: objtool: kasan_report()+0x87: call to __sta=
+ck_chk_fail() with UACCESS enabled
+    arch/x86/ia32/ia32_signal.o: warning: objtool: ia32_setup_rt_frame()+0x=
+1fa: call to memset() with UACCESS enabled
+    arch/x86/kernel/signal.o: warning: objtool: x32_setup_rt_frame()+0x1c5:=
+ call to memset() with UACCESS enabled
+    arch/x86/kernel/signal.o: warning: objtool: __setup_rt_frame()+0x1cb: c=
+all to memset() with UACCESS enabled
+    drivers/mmc/host/sdhci-of-arasan.c:784:9: warning: variable 'ret' is un=
+initialized when used here [-Wuninitialized]
+    drivers/mmc/host/sdhci-of-arasan.c:738:9: note: initialize the variable=
+ 'ret' to silence this warning
+    drivers/mmc/host/sdhci-of-arasan.c:860:9: warning: variable 'ret' is un=
+initialized when used here [-Wuninitialized]
+    drivers/mmc/host/sdhci-of-arasan.c:810:9: note: initialize the variable=
+ 'ret' to silence this warning
+    2 warnings generated.
+    WARNING: modpost: missing MODULE_LICENSE() in drivers/pinctrl/pinctrl-m=
+cp23s08.o
+    WARNING: modpost: missing MODULE_LICENSE() in drivers/pinctrl/pinctrl-m=
+cp23s08.o
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-9) =E2=80=94 PASS, 0 errors, 35 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/mmc/host/sdhci-of-arasan.c:784:9: warning: variable 'ret' is un=
+initialized when used here [-Wuninitialized]
+    drivers/mmc/host/sdhci-of-arasan.c:738:9: note: initialize the variable=
+ 'ret' to silence this warning
+    drivers/mmc/host/sdhci-of-arasan.c:860:9: warning: variable 'ret' is un=
+initialized when used here [-Wuninitialized]
+    drivers/mmc/host/sdhci-of-arasan.c:810:9: note: initialize the variable=
+ 'ret' to silence this warning
+    2 warnings generated.
+    WARNING: modpost: missing MODULE_LICENSE() in drivers/pinctrl/pinctrl-m=
+cp23s08.o
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning (dma_ranges_for=
+mat): /soc:dma-ranges: empty "dma-ranges" property but its #address-cells (=
+1) differs from / (2)
+    arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning (dma_ranges_for=
+mat): /soc:dma-ranges: empty "dma-ranges" property but its #size-cells (1) =
+differs from / (2)
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 31 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/soc/qcom/cmd-db.c:281:30: warning: field width specifier =E2=80=
+=98*=E2=80=99 expects argument of type =E2=80=98int=E2=80=99, but argument =
+4 has type =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+    WARNING: modpost: missing MODULE_LICENSE() in drivers/pinctrl/pinctrl-m=
+cp23s08.o
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning (dma_ranges_for=
+mat): /soc:dma-ranges: empty "dma-ranges" property but its #address-cells (=
+1) differs from / (2)
+    arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning (dma_ranges_for=
+mat): /soc:dma-ranges: empty "dma-ranges" property but its #size-cells (1) =
+differs from / (2)
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 48 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: unmet direct dependencies detected for DMI
+    security/integrity/ima/ima_crypto.c:512:5: warning: stack frame size of=
+ 1152 bytes in function 'ima_calc_field_array_hash' [-Wframe-larger-than=3D=
+]
+    1 warning generated.
+    /tmp/test-arm-4de121.s:18713: Warning: using r15 results in unpredictab=
+le behaviour
+    /tmp/test-arm-4de121.s:18788: Warning: using r15 results in unpredictab=
+le behaviour
+    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
+ion 4.6 of GCC [-W#warnings]
+    #warning This code requires at least version 4.6 of GCC
+    1 warning generated.
+    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
+ion 4.6 of GCC [-W#warnings]
+    #warning This code requires at least version 4.6 of GCC
+    1 warning generated.
+    sound/soc/codecs/cros_ec_codec.c:776:12: warning: stack frame size of 1=
+152 bytes in function 'wov_hotword_model_put' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/crypto/inside-secure/safexcel_cipher.c:404:12: warning: stack f=
+rame size of 1136 bytes in function 'safexcel_aead_setkey' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3014:6: warn=
+ing: stack frame size of 1376 bytes in function 'bw_calcs' [-Wframe-larger-=
+than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: warni=
+ng: stack frame size of 5648 bytes in function 'calculate_bandwidth' [-Wfra=
+me-larger-than=3D]
+    2 warnings generated.
+    drivers/mmc/host/sdhci-of-arasan.c:784:9: warning: variable 'ret' is un=
+initialized when used here [-Wuninitialized]
+    drivers/mmc/host/sdhci-of-arasan.c:738:9: note: initialize the variable=
+ 'ret' to silence this warning
+    drivers/mmc/host/sdhci-of-arasan.c:860:9: warning: variable 'ret' is un=
+initialized when used here [-Wuninitialized]
+    drivers/mmc/host/sdhci-of-arasan.c:810:9: note: initialize the variable=
+ 'ret' to silence this warning
+    2 warnings generated.
+    drivers/net/dsa/sja1105/sja1105_ethtool.c:421:6: warning: stack frame s=
+ize of 1104 bytes in function 'sja1105_get_ethtool_stats' [-Wframe-larger-t=
+han=3D]
+    1 warning generated.
+    drivers/soc/fsl/dpio/dpio-service.c:476:5: warning: stack frame size of=
+ 1072 bytes in function 'dpaa2_io_service_enqueue_multiple_desc_fq' [-Wfram=
+e-larger-than=3D]
+    1 warning generated.
+    drivers/scsi/bfa/bfa_fcs_lport.c:1900:1: warning: stack frame size of 1=
+824 bytes in function 'bfa_fcs_lport_fdmi_build_rhba_pyld' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    WARNING: modpost: missing MODULE_LICENSE() in drivers/pinctrl/pinctrl-m=
+cp23s08.o
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 38 warnings, 0 section =
+mismatches
+
+Warnings:
+    WARNING: unmet direct dependencies detected for DMI
+    /tmp/ccewWEhN.s:18119: Warning: using r15 results in unpredictable beha=
+viour
+    /tmp/ccewWEhN.s:18191: Warning: using r15 results in unpredictable beha=
+viour
+    include/linux/kern_levels.h:5:18: warning: format =E2=80=98%lu=E2=80=99=
+ expects argument of type =E2=80=98long unsigned int=E2=80=99, but argument=
+ 2 has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to integ=
+er of different size [-Wpointer-to-int-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/soc/fsl/dpio/qbman-portal.c:870:14: warning: cast from pointer =
+to integer of different size [-Wpointer-to-int-cast]
+    WARNING: modpost: missing MODULE_LICENSE() in drivers/pinctrl/pinctrl-m=
+cp23s08.o
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, clang-9) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (riscv, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section m=
+ismatches
+
+Errors:
+    arch/riscv/kernel/stacktrace.c:78:8: error: =E2=80=98sp_in_global=E2=80=
+=99 undeclared (first use in this function); did you mean =E2=80=98spin_loc=
+k=E2=80=99?
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, clang-9) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
+smatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 =
+section mismatches
+
+Warnings:
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 14 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+
+---------------------------------------------------------------------------=
+-----
+bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings,=
+ 0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    arch/mips/configs/ci20_defconfig:178:warning: override: reassigning to =
+symbol LEDS_TRIGGER_ONESHOT
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+cm_x2xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+cu1000-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings,=
+ 0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+Section mismatches:
+    WARNING: modpost: vmlinux.o(.text.unlikely+0x2a44): Section mismatch in=
+ reference from the function pmax_setup_memory_region() to the function .in=
+it.text:add_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings=
+, 0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+Section mismatches:
+    WARNING: modpost: vmlinux.o(.text.unlikely+0x2830): Section mismatch in=
+ reference from the function pmax_setup_memory_region() to the function .in=
+it.text:add_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 30 warnings, 0 section m=
+ismatches
+
+Warnings:
+    drivers/soc/qcom/cmd-db.c:281:30: warning: field width specifier =E2=80=
+=98*=E2=80=99 expects argument of type =E2=80=98int=E2=80=99, but argument =
+4 has type =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning (dma_ranges_for=
+mat): /soc:dma-ranges: empty "dma-ranges" property but its #address-cells (=
+1) differs from / (2)
+    arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning (dma_ranges_for=
+mat): /soc:dma-ranges: empty "dma-ranges" property but its #size-cells (1) =
+differs from / (2)
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-9) =E2=80=94 PASS, 0 errors, 34 warnings, 0 section=
+ mismatches
+
+Warnings:
+    drivers/mmc/host/sdhci-of-arasan.c:784:9: warning: variable 'ret' is un=
+initialized when used here [-Wuninitialized]
+    drivers/mmc/host/sdhci-of-arasan.c:738:9: note: initialize the variable=
+ 'ret' to silence this warning
+    drivers/mmc/host/sdhci-of-arasan.c:860:9: warning: variable 'ret' is un=
+initialized when used here [-Wuninitialized]
+    drivers/mmc/host/sdhci-of-arasan.c:810:9: note: initialize the variable=
+ 'ret' to silence this warning
+    2 warnings generated.
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning (dma_ranges_for=
+mat): /soc:dma-ranges: empty "dma-ranges" property but its #address-cells (=
+1) differs from / (2)
+    arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning (dma_ranges_for=
+mat): /soc:dma-ranges: empty "dma-ranges" property but its #size-cells (1) =
+differs from / (2)
+
+---------------------------------------------------------------------------=
+-----
+defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (x86_64, clang-9) =E2=80=94 FAIL, 2 errors, 0 warnings, 0 section=
+ mismatches
+
+Errors:
+    /tmp/cpudeadline-471f08.s:76: Error: `%ecx' not allowed with `orb'
+    clang: error: assembler command failed with exit code 1 (use -v to see =
+invocation)
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 30 warnings, 0 section mismatches
+
+Warnings:
+    drivers/soc/qcom/cmd-db.c:281:30: warning: field width specifier =E2=80=
+=98*=E2=80=99 expects argument of type =E2=80=98int=E2=80=99, but argument =
+4 has type =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning (dma_ranges_for=
+mat): /soc:dma-ranges: empty "dma-ranges" property but its #address-cells (=
+1) differs from / (2)
+    arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning (dma_ranges_for=
+mat): /soc:dma-ranges: empty "dma-ranges" property but its #size-cells (1) =
+differs from / (2)
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 30 warnings, 0 section mismatches
+
+Warnings:
+    drivers/soc/qcom/cmd-db.c:281:30: warning: field width specifier =E2=80=
+=98*=E2=80=99 expects argument of type =E2=80=98int=E2=80=99, but argument =
+4 has type =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning (dma_ranges_for=
+mat): /soc:dma-ranges: empty "dma-ranges" property but its #address-cells (=
+1) differs from / (2)
+    arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning (dma_ranges_for=
+mat): /soc:dma-ranges: empty "dma-ranges" property but its #size-cells (1) =
+differs from / (2)
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 30 warnings, 0=
+ section mismatches
+
+Warnings:
+    drivers/soc/qcom/cmd-db.c:281:30: warning: field width specifier =E2=80=
+=98*=E2=80=99 expects argument of type =E2=80=98int=E2=80=99, but argument =
+4 has type =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi:1096.4-52: Warning (dma_r=
+anges_format): /soc/dram-controller@1c62000:dma-ranges: "dma-ranges" proper=
+ty has invalid length (12 bytes) (parent #address-cells =3D=3D 1, child #ad=
+dress-cells =3D=3D 2, #size-cells =3D=3D 1)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#address-cells (1) differs from / (2)
+    arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:7.3-14: Warning=
+ (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" property but its =
+#size-cells (1) differs from / (2)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    scripts/dtc/include-prefixes/arm/bcm2835-rpi.dtsi:18.4-15: Warning (dma=
+_ranges_format): /soc/firmware:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (2) differs from /soc (1)
+    arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning (dma_ranges_for=
+mat): /soc:dma-ranges: empty "dma-ranges" property but its #address-cells (=
+1) differs from / (2)
+    arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning (dma_ranges_for=
+mat): /soc:dma-ranges: empty "dma-ranges" property but its #size-cells (1) =
+differs from / (2)
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ebsa110_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+efm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+em_x270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 =
+section mismatches
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig+kselftest (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 wa=
+rnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ip27_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+lasat_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/media/tuners/mxl5005s.c:3953:1: warning: the frame size of 1120=
+ bytes is larger than 1024 bytes [-Wframe-larger-than=3D]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_guest_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warning=
+s, 0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warning=
+s, 0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    {standard input}:141: Warning: macro instruction expanded into multiple=
+ instructions
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings,=
+ 0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
+ section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+markeins_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0=
+ section mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+mips_paravirt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings,=
+ 0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+msp71xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 FAIL, 2 errors, 1 warning, 0 section=
+ mismatches
+
+Errors:
+    ERROR: modpost: "sysrq_toggle_support" [drivers/tty/serial/serial_core.=
+ko] undefined!
+    ERROR: modpost: "sysrq_mask" [drivers/tty/serial/serial_core.ko] undefi=
+ned!
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 21 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 25 warnings, 0 =
+section mismatches
+
+Warnings:
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    drivers/mmc/host/sdhci-of-arasan.c:784:9: warning: variable 'ret' is un=
+initialized when used here [-Wuninitialized]
+    drivers/mmc/host/sdhci-of-arasan.c:738:9: note: initialize the variable=
+ 'ret' to silence this warning
+    drivers/mmc/host/sdhci-of-arasan.c:860:9: warning: variable 'ret' is un=
+initialized when used here [-Wuninitialized]
+    drivers/mmc/host/sdhci-of-arasan.c:810:9: note: initialize the variable=
+ 'ret' to silence this warning
+    2 warnings generated.
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 24 warnings, 0 section mismatches
+
+Warnings:
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 PASS, 0 errors, 24 warnings, 0 section mismatches
+
+Warnings:
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 24=
+ warnings, 0 section mismatches
+
+Warnings:
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 0 errors, 25 warn=
+ings, 0 section mismatches
+
+Warnings:
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    WARNING: unmet direct dependencies detected for MEDIA_CONTROLLER_REQUES=
+T_API
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+    net/sched/cls_flower.c:331:1: warning: the frame size of 1032 bytes is =
+larger than 1024 bytes [-Wframe-larger-than=3D]
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/bcm2835-rpi.dtsi:18.4-15: Warning (dma_ranges_format)=
+: /soc/firmware:dma-ranges: empty "dma-ranges" property but its #address-ce=
+lls (2) differs from /soc (1)
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+nommu_k210_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nommu_virt_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+pnx8335_stb225_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings=
+, 0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+prima2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 section =
+mismatches
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9705
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9713
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9705
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9713
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 section m=
+ismatches
+
+Errors:
+    ERROR: modpost: "rd_full" [drivers/gpu/drm/msm/msm.ko] undefined!
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/block/paride/bpck.c:32: warning: "PC" redefined
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, =
+0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+tango4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (riscv, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section mi=
+smatches
+
+Errors:
+    arch/riscv/kernel/stacktrace.c:78:8: error: =E2=80=98sp_in_global=E2=80=
+=99 undeclared (first use in this function); did you mean =E2=80=98spin_loc=
+k=E2=80=99?
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    .config:1167:warning: override: UNWINDER_GUESS changes choice state
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+u300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 3 warn=
+ings, 0 section mismatches
+
+Warnings:
+    samples/ftrace/ftrace-direct.o: warning: objtool: .text+0x0: unreachabl=
+e instruction
+    samples/ftrace/ftrace-direct-too.o: warning: objtool: .text+0x0: unreac=
+hable instruction
+    samples/ftrace/ftrace-direct-modify.o: warning: objtool: .text+0x0: unr=
+eachable instruction
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---------------------------------------------------------------------------=
+-----
+zx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
+smatches
+
+Warnings:
+    kernel/futex.c:1676:17: warning: =E2=80=98oldval=E2=80=99 may be used u=
+ninitialized in this function [-Wmaybe-uninitialized]
+
+---
+For more info write to <info@kernelci.org>
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/5e99ae9a.1c69fb81.fd068.438b%40mx.google.com.
