@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBCEJHTXX7MFBBMUL6H2AKGQE7WTJ7RQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCEJHTXX7MFBBN4L6H2AKGQEZR5SAMI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
-	by mail.lfdr.de (Postfix) with ESMTPS id 42EA61AFA01
-	for <lists+clang-built-linux@lfdr.de>; Sun, 19 Apr 2020 14:36:03 +0200 (CEST)
-Received: by mail-wr1-x440.google.com with SMTP id j22sf4039978wrb.4
-        for <lists+clang-built-linux@lfdr.de>; Sun, 19 Apr 2020 05:36:03 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1587299763; cv=pass;
+Received: from mail-lj1-x23e.google.com (mail-lj1-x23e.google.com [IPv6:2a00:1450:4864:20::23e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 201FC1AFA03
+	for <lists+clang-built-linux@lfdr.de>; Sun, 19 Apr 2020 14:36:08 +0200 (CEST)
+Received: by mail-lj1-x23e.google.com with SMTP id o21sf918191ljp.17
+        for <lists+clang-built-linux@lfdr.de>; Sun, 19 Apr 2020 05:36:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1587299767; cv=pass;
         d=google.com; s=arc-20160816;
-        b=xJOX+1JuS/vaj9AbsMVCDX923PrEYc8/OTfdPDnH3UHijq+lN4Vc0NqHdq+12FZToL
-         CYeYIK2roX0WeMqWBN6rjVp+StAe5NGhE0aJkmFYgW1KwsnUPg1toIjZPyG4sQYgSKYI
-         F8nWESvY7/c6gGgMzD+xrIu9iR1U3P5kV++qnltU93JNVkD2ycYOjyZ8woW3LskXVJ5h
-         DuNpH7PK1Gz0ncMDT+bUYJgn8vpL1tYxsAryuiPBjnsJIHqN+mlM6SY8Ml3EUiB2DjK+
-         Vgyu+dGodz7s4O00xC2mbaeKiAik8wTUj7k2XLcA5lwC6gvcmTU0Od0YbHJbF5okk9jT
-         T9iQ==
+        b=xjEMD1pMvbgr/J0AFiG2Z4FAddgBxTN4vje6SZMlsdLDfCW1Hb+CU/25C8Xfc4EAdP
+         X8+NhcuNNM2VjYUc2VrqD8ImM6UKEnXe4rsAG+7eOn1ywo/8yYt4yvU89Pz8IQsBa4Bb
+         ucSY1lEciVDV320KM0kxGsJaXFqo6MDe+W2Fabz9g8rj/YHQc3VSXDbiloA6yr9JXRi/
+         aA8cS9oKU90jlvbN3/8bDqKR7oL+dQSDWWGKYo1uRIRmFxQaOkotbC+reFuWooTO6lEF
+         P98+eRXVJ57UJYBmpHhvDPrAc+vbVpMX2nApaA/HNyorTaCBjrNkp3M2/kL7tzgiTT9I
+         TLRw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=CDxcDtE08BNYCDnJekq4LMTsmJ/ykFehNj9h10Pp0tA=;
-        b=j9L9S0G0xwHP+N+cIxm7F3xKtP4BWct4MAkoDgMDCxMxutBmgv/XVdlvwSRBkVy6Y9
-         XY4KLVTWwD9AbYG2FyCYcUEuKOY+01//OTt733hOj86skIcxiZ/Pogjc5EBgq/Ndm54i
-         8DX1X5/m5TIaGPAoKs6CO++tD2CNKQ8T4UQgyv7Zg1cJJGOAP0A0HPKdmZDBpJS8fWSm
-         cz3Q+A4d5gaVCrlr3RGbHVujfBaUtODcUn8QQRZfABoXhBUpvmmNM9C98CXE2q1WsT/N
-         4e+9EyZpD0Tek9cJErfwBY94Mj5NYT2H76IuqnXDOqAsW7MVRgAUD6fAdWcN+NQ50i7d
-         k+yQ==
+        bh=SrEGVcnyQRo7IqCaVrUdIkX4Ing5FQH0hSI6hBiIFys=;
+        b=BwluzOXIN6PcmfEHiU9E6LeWxHoc2lGcs505IbSmldlJMFjxDaVAekcJJzoUtCUK4p
+         7ui3+cQxiPI5pmPlxePVgCHsjN4TlLUGMzAJhp7rLiuKmZINBwRDljIlkbhG0P57uteP
+         fiyjvkglf44BT4kSq6Pr9JkG5XTqqQv1S9vZIQjKIi2UszrNbCIcM7r6umhhf9F/ZlSx
+         Jo7bI21qUH6VwYJMAdLUib4tzz9I74GHYwIk95PLTIv4yZEjdo8IBKN45JC6/P4XYsJF
+         pgNaRZFHAJ0AJ8CnPN9Wzs5K2gvY0BbTkgkwpdoAdWAJ/KfHdo4/y3t6r3JdgBlRWY8v
+         GWJA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@agner.ch header.s=dkim header.b=NZ9HZ6T3;
+       dkim=pass header.i=@agner.ch header.s=dkim header.b=GcgbgEoa;
        spf=pass (google.com: domain of stefan@agner.ch designates 2a02:418:6a02::a2 as permitted sender) smtp.mailfrom=stefan@agner.ch
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -34,13 +34,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CDxcDtE08BNYCDnJekq4LMTsmJ/ykFehNj9h10Pp0tA=;
-        b=BkH5ojIyET36HxtOab8tzbjHdtwCYGbIJpDmff5UE7TWPca9DKuBVt2oiYtUfVxCG8
-         OBYJThPli3TXyOF20GuKBMnmaPtifsVKKByFPz39/FBLUzpfTCcVQ8+4Qk8zeoCdvaqf
-         ej3pTg7xSGw/1uXtA5Q8FgWIDTgt0+jCWYYao5BAt9V8/IP3nh6uuTN/qMPhjHT3uV6l
-         ThM2asTcmXCCJ4gNjxrSC2HX76EAGyiIxbaJE1POOpKt5UfHnv7L69xIkhD0e2EDweFA
-         bGHfap6mZ1Umxt1FGpFYsXr6S2LinF0Y3NCbM7XGW9kkJUtBORlrviG/imdiczSaHWNo
-         pjcQ==
+        bh=SrEGVcnyQRo7IqCaVrUdIkX4Ing5FQH0hSI6hBiIFys=;
+        b=eCaBHNH2SmX/EjvLZ4RUttfQr+gQVd2p6XvkA19TPtyMOavjPz+P6vCag81hM6DkdM
+         97An0xRfTJ9/bmsu95OKSeeW08sWnJ/D1Gu9cZD1bAvC8v1PQsU69CgUlP/rRoHwGxFH
+         1Y781kIXZVcFfnyxDkroIS04/w/2KqERNxwvEbUVvjDzbGRdFvJqvqnKuxSFgmeK+Urj
+         mP2iCVzEfqwahHixsLF7LulSWayEmlXQmjeQN9ZV/MPoVPADu5qY7omU2pnNBgRbblfQ
+         VA9OkiIkpjvVesNq0RRaeEpXxUA4czpwPELPQumCAzJHUhUViA2gxPuWbLoKZIXEu4yD
+         6zLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -48,53 +48,53 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CDxcDtE08BNYCDnJekq4LMTsmJ/ykFehNj9h10Pp0tA=;
-        b=m4v4JKklYd1hRHOdWfaJfNMWx7gj/Qge9EsvcqyPPmxXBhgR9ozJeePlfUieZBIcRw
-         5FELdGNRPAH3Di9katmpABasia0IqYJgPh8vHiyRbkmFEIztK2N6F/H05HPonbb+L9Up
-         T8jkbhskHGFEMFH3jJPM/IsZeLN3irhJ0Cq1sJylSUCOT3y+jhssjZuJ73TWRnX5qdjd
-         EI7r8FbHhG9Blx+l+F4+ddpGQDeWJHs6dmDWL/91UXAOpZ7J047KnE7nNlEYO2cx4xux
-         JeSwSMVtoSgnQQMZoT3Il6Krq3CMsOYgSxm0hpqMhimeqoIeRJy41TrjkYuf4IrnRbtF
-         dYxg==
+        bh=SrEGVcnyQRo7IqCaVrUdIkX4Ing5FQH0hSI6hBiIFys=;
+        b=Ecv+25ul9egAzBH1S9E7CBwrtG64zUJcFovIa9XlKNodYttZCdI0Sq3tbDRbW2ynQn
+         LrYI3ONZSbI0O0Zoyv3vK1Sh5Chwkn58E6aRA7+ip+aN40LRQe2zII+jz0IStAixUu0i
+         TXajyJ4QMW7/SGUg4fgqbhyp+8F6C61EisXhACaqNvrBZOkAJoQcCqFV6OiwRXv3UDnk
+         VeaeMMfwhQWyP2Ba+ejY5dEb1W6FVxTMbcLS+rzdMetnvHyXreEc7Od2HcVhXC4gfxp2
+         a2qu61zDQfxW4dwp7CKkvC4ffXL1FatoYdP7QyCjUn5uIJA9KONeUesThlzwRSCLg3nO
+         BqGQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PubTBBGQQ927/LuCjmLHdNFISHr3QAJQHJnWg1QqbGnlBQAnsvpi
-	mkEOW4FU+inaCA6tUcZrC1g=
-X-Google-Smtp-Source: APiQypJL6en4pUNPM3ntvr3MvSbhNkulQ+81lqDVI92gXYdkT0DWTjQlkziOm3nbtgEVBvnzQZDuLA==
-X-Received: by 2002:adf:b1c9:: with SMTP id r9mr1489462wra.271.1587299762964;
-        Sun, 19 Apr 2020 05:36:02 -0700 (PDT)
+X-Gm-Message-State: AGi0PubjonTUBFLrkrUi91c51jswyEF9uEoah1KSNgQmEk3AqZv1drjy
+	OFAn5SusgSTl8OTQWLcjYMA=
+X-Google-Smtp-Source: APiQypLl7sNvMXINiLTZim5HAOrnRDNSnYjX0D2vQJF9UKA0g1vYBiOD1sigLmVsTh9tLe43mr+Imw==
+X-Received: by 2002:ac2:5e66:: with SMTP id a6mr7714619lfr.177.1587299767595;
+        Sun, 19 Apr 2020 05:36:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:a9c4:: with SMTP id s187ls10788264wme.0.canary-gmail;
- Sun, 19 Apr 2020 05:36:02 -0700 (PDT)
-X-Received: by 2002:a7b:ce88:: with SMTP id q8mr13457875wmj.161.1587299762389;
-        Sun, 19 Apr 2020 05:36:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1587299762; cv=none;
+Received: by 2002:a19:5205:: with SMTP id m5ls1065649lfb.10.gmail; Sun, 19 Apr
+ 2020 05:36:07 -0700 (PDT)
+X-Received: by 2002:a05:6512:1082:: with SMTP id j2mr7572366lfg.53.1587299767003;
+        Sun, 19 Apr 2020 05:36:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1587299767; cv=none;
         d=google.com; s=arc-20160816;
-        b=a/W8RUwb0nimNhA3yGPvhXHMZ/SjSb4z9x1ZE4RJ7Vy2gGKeUEAe3DcXJ3RmmKO/FD
-         MwsI4BAfo1oTjZoXXjRojH1VCB/0JRYYMYJ5Am1zkkQkAnZZzHGC6NCn3zOxcLqLXe4N
-         ViGQIqBAG89XsYr5NIak25mdAH5LQ6knfTnxhYZkBfTReJ9T7rJX58yhvhAD42WEOx+y
-         f75XOGXUkuwoe6b6duJOWNVzBpAW4ysZ00Vty3MWCGPOiFM6vqq+sUvMejSZfRhvhgHV
-         JbsBagWLNQi9MPDwaRhyekh5usthBbyGFOILV392c6I1uC4NR9hCRAW61HYVsny423pt
-         axsQ==
+        b=SKPiT6wj4P4EvIo8a3JNYvmuhK9POY8+LPXERPxdSqrkVgq1t6TxwazKJT2DonkCqt
+         jlJQ7aZlcwfH3xoyrhhxOyFOmVL4+X0O1B+xO0U/c8w+P/GUcXqwAmYhcIcc0SNabXys
+         DGwJM/67XUzkSeTEsStb3Lz83ngTDjzd08w+3n68yDEwRbRrxXYEFJcHGOrIc6uAyKqB
+         ECvzv7KBW/7YpMx11/Qoy9PiaBhxJUOLi6zrK1+VYu1J2cqih79d0KTWR79oJVXsq7n7
+         e9czfyeNh57XEUq1A/jzk1JudzyUaWjpA15z6/O3WlQboPLHDqDmqp19n3kSZAWnjvjv
+         nYjA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=+WKUUWsGRycuMkF/FdoQXl4ftv3yeMui2kaub0JHDo0=;
-        b=T5mVctUUgs0GsJC0Xcb1gT4EJvsZBSWRhEoc4xBTJXBBT2topSxOZX5bhIgV3hkH9B
-         X3kWYePoiPql/HhQiZJzApYKCzXpHW8m4DC3vtIsEcFoNpppHuoGFtV/dzQ83RUrnXIm
-         IsU+4tKLz+KLrSiVrkWbzj5FdvyNphQSCxsEmuLIprTjNguMS2xr2uHs4Nps3b40E1Lv
-         SvcDPyKxEZCEnlyMbxOPgRE261J+Br7efzHSlRoMhmhSWb4aeEXt9IPl7rFe+ozUwpWf
-         xsaJ489L+y/D8eC3KXFVH45vZ/gR1E8DGt4gaccKmpS7VXu6qazilHGu5mcIvmTDfPHP
-         MnoQ==
+        bh=eNd0y6hHMaqGVRk3t28ZbtVem7JVwuidHktgZjpwZDo=;
+        b=Ib/4TMud64l8PzCyqdLdRNwlTLfgda6JT8f/6AP424qZL04sD2s/+Tbby4Cz1RZbka
+         2gihbaYhynsdxiCIVCMWXrPgD6wgOsZpjH16p4og1zOktA9xsPefnoT3P9Ht4/25YfDq
+         Gi0pjuMJqoxUvwHvUMTk2NcEbzUYZrAXl/4iSSfVrnq9wMtGcbLxtDdM0astLwKud+1O
+         iuhoGJ/WY/bWTnGLDk8K9g9JdO9Rvu33gKWLmjuI+EMimRrX2N+KmA7MHs9b11aFnGEE
+         Mwd+jjAze/bGa0QTamB4WZijC30DTDocTvyoiOszXolDF4shKNdCCjvKVmQGfFyw46z1
+         NAJQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@agner.ch header.s=dkim header.b=NZ9HZ6T3;
+       dkim=pass header.i=@agner.ch header.s=dkim header.b=GcgbgEoa;
        spf=pass (google.com: domain of stefan@agner.ch designates 2a02:418:6a02::a2 as permitted sender) smtp.mailfrom=stefan@agner.ch
 Received: from mail.kmu-office.ch (mail.kmu-office.ch. [2a02:418:6a02::a2])
-        by gmr-mx.google.com with ESMTPS id s22si771721wme.0.2020.04.19.05.36.00
+        by gmr-mx.google.com with ESMTPS id k13si139682lfg.5.2020.04.19.05.36.00
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Sun, 19 Apr 2020 05:36:00 -0700 (PDT)
 Received-SPF: pass (google.com: domain of stefan@agner.ch designates 2a02:418:6a02::a2 as permitted sender) client-ip=2a02:418:6a02::a2;
 Received: from zyt.lan (unknown [IPv6:2a02:169:3df5::564])
-	by mail.kmu-office.ch (Postfix) with ESMTPSA id BFA255C9AE9;
+	by mail.kmu-office.ch (Postfix) with ESMTPSA id EEDF45C9AEC;
 	Sun, 19 Apr 2020 14:35:59 +0200 (CEST)
 From: Stefan Agner <stefan@agner.ch>
 To: linux@armlinux.org.uk
@@ -109,16 +109,16 @@ Cc: arnd@arndb.de,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Stefan Agner <stefan@agner.ch>
-Subject: [PATCH v2 1/3] ARM: use .fpu assembler directives instead of assembler arguments
-Date: Sun, 19 Apr 2020 14:35:49 +0200
-Message-Id: <a78f7e5820a6b827c9d68362a94dcbf80a317dc9.1587299429.git.stefan@agner.ch>
+Subject: [PATCH v2 2/3] ARM: use VFP assembler mnemonics in register load/store macros
+Date: Sun, 19 Apr 2020 14:35:50 +0200
+Message-Id: <583281a29aa28e510ac56da41a93e3f28486901c.1587299429.git.stefan@agner.ch>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1587299429.git.stefan@agner.ch>
 References: <cover.1587299429.git.stefan@agner.ch>
 MIME-Version: 1.0
 X-Original-Sender: stefan@agner.ch
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@agner.ch header.s=dkim header.b=NZ9HZ6T3;       spf=pass
+ header.i=@agner.ch header.s=dkim header.b=GcgbgEoa;       spf=pass
  (google.com: domain of stefan@agner.ch designates 2a02:418:6a02::a2 as
  permitted sender) smtp.mailfrom=stefan@agner.ch
 Content-Type: text/plain; charset="UTF-8"
@@ -134,121 +134,94 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Explicit FPU selection has been introduced in commit 1a6be26d5b1a
-("[ARM] Enable VFP to be built when non-VFP capable CPUs are selected")
-to make use of assembler mnemonics for VFP instructions.
+Clang's integrated assembler does not allow to access the VFP registers
+through the coprocessor load/store instructions:
+<instantiation>:4:6: error: invalid operand for instruction
+ LDC p11, cr0, [r10],#32*4 @ FLDMIAD r10!, {d0-d15}
+     ^
 
-However, clang currently does not support passing assembler flags
-like this and errors out with:
-clang-10: error: the clang compiler does not support '-Wa,-mfpu=softvfp+vfp'
+Replace the coprocessor load/store instructions with explicit assembler
+mnemonics to accessing the floating point coprocessor registers. Use
+assembler directives to select the appropriate FPU version.
 
-Make use of the .fpu assembler directives to select the floating point
-hardware selectively. Also use the new unified assembler language
-mnemonics. This allows to build these procedures with Clang.
+This allows to build these macros with GNU assembler as well as with
+Clang's built-in assembler.
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/762
+Link: https://github.com/ClangBuiltLinux/linux/issues/905
 Signed-off-by: Stefan Agner <stefan@agner.ch>
 ---
 Changes in v2:
 - Add link in commit message
 
- arch/arm/vfp/Makefile |  2 --
- arch/arm/vfp/vfphw.S  | 30 +++++++++++++++++++-----------
- 2 files changed, 19 insertions(+), 13 deletions(-)
+ arch/arm/include/asm/vfpmacros.h | 19 +++++++++++--------
+ 1 file changed, 11 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm/vfp/Makefile b/arch/arm/vfp/Makefile
-index 9975b63ac3b0..749901a72d6d 100644
---- a/arch/arm/vfp/Makefile
-+++ b/arch/arm/vfp/Makefile
-@@ -8,6 +8,4 @@
- # ccflags-y := -DDEBUG
- # asflags-y := -DDEBUG
+diff --git a/arch/arm/include/asm/vfpmacros.h b/arch/arm/include/asm/vfpmacros.h
+index 628c336e8e3b..947ee5395e1f 100644
+--- a/arch/arm/include/asm/vfpmacros.h
++++ b/arch/arm/include/asm/vfpmacros.h
+@@ -19,23 +19,25 @@
  
--KBUILD_AFLAGS	:=$(KBUILD_AFLAGS:-msoft-float=-Wa,-mfpu=softvfp+vfp -mfloat-abi=soft)
--
- obj-y		+= vfpmodule.o entry.o vfphw.o vfpsingle.o vfpdouble.o
-diff --git a/arch/arm/vfp/vfphw.S b/arch/arm/vfp/vfphw.S
-index b2e560290860..e214007a20a2 100644
---- a/arch/arm/vfp/vfphw.S
-+++ b/arch/arm/vfp/vfphw.S
-@@ -258,11 +258,13 @@ vfp_current_hw_state_address:
- 
- ENTRY(vfp_get_float)
- 	tbl_branch r0, r3, #3
--	.irp	dr,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
--1:	mrc	p10, 0, r0, c\dr, c0, 0	@ fmrs	r0, s0
-+	.irp	dr,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,
-+1:	vmov	r0, s\dr
- 	ret	lr
- 	.org	1b + 8
--1:	mrc	p10, 0, r0, c\dr, c0, 4	@ fmrs	r0, s1
-+	.endr
-+	.irp	dr,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
-+1:	vmov	r0, s\dr
- 	ret	lr
- 	.org	1b + 8
- 	.endr
-@@ -271,10 +273,12 @@ ENDPROC(vfp_get_float)
- ENTRY(vfp_put_float)
- 	tbl_branch r1, r3, #3
- 	.irp	dr,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
--1:	mcr	p10, 0, r0, c\dr, c0, 0	@ fmsr	r0, s0
-+1:	vmov	s\dr, r0
- 	ret	lr
- 	.org	1b + 8
--1:	mcr	p10, 0, r0, c\dr, c0, 4	@ fmsr	r0, s1
-+	.endr
-+	.irp	dr,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
-+1:	vmov	s\dr, r0
- 	ret	lr
- 	.org	1b + 8
- 	.endr
-@@ -282,15 +286,17 @@ ENDPROC(vfp_put_float)
- 
- ENTRY(vfp_get_double)
- 	tbl_branch r0, r3, #3
+ 	@ read all the working registers back into the VFP
+ 	.macro	VFPFLDMIA, base, tmp
 +	.fpu	vfpv2
- 	.irp	dr,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
--1:	fmrrd	r0, r1, d\dr
-+1:	vmov	r0, r1, d\dr
- 	ret	lr
- 	.org	1b + 8
- 	.endr
- #ifdef CONFIG_VFPv3
- 	@ d16 - d31 registers
--	.irp	dr,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
--1:	mrrc	p11, 3, r0, r1, c\dr	@ fmrrd	r0, r1, d\dr
-+	.fpu	vfpv3
-+	.irp	dr,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
-+1:	vmov	r0, r1, d\dr
- 	ret	lr
- 	.org	1b + 8
- 	.endr
-@@ -304,15 +310,17 @@ ENDPROC(vfp_get_double)
- 
- ENTRY(vfp_put_double)
- 	tbl_branch r2, r3, #3
-+	.fpu	vfpv2
- 	.irp	dr,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
--1:	fmdrr	d\dr, r0, r1
-+1:	vmov	d\dr, r0, r1
- 	ret	lr
- 	.org	1b + 8
- 	.endr
+ #if __LINUX_ARM_ARCH__ < 6
+-	LDC	p11, cr0, [\base],#33*4		    @ FLDMIAX \base!, {d0-d15}
++	fldmiax	\base!, {d0-d15}
+ #else
+-	LDC	p11, cr0, [\base],#32*4		    @ FLDMIAD \base!, {d0-d15}
++	vldmia	\base!, {d0-d15}
+ #endif
  #ifdef CONFIG_VFPv3
 +	.fpu	vfpv3
- 	@ d16 - d31 registers
--	.irp	dr,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
--1:	mcrr	p11, 3, r0, r1, c\dr	@ fmdrr	r0, r1, d\dr
-+	.irp	dr,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
-+1:	vmov	d\dr, r0, r1
- 	ret	lr
- 	.org	1b + 8
- 	.endr
+ #if __LINUX_ARM_ARCH__ <= 6
+ 	ldr	\tmp, =elf_hwcap		    @ may not have MVFR regs
+ 	ldr	\tmp, [\tmp, #0]
+ 	tst	\tmp, #HWCAP_VFPD32
+-	ldclne	p11, cr0, [\base],#32*4		    @ FLDMIAD \base!, {d16-d31}
++	vldmiane \base!, {d16-d31}
+ 	addeq	\base, \base, #32*4		    @ step over unused register space
+ #else
+ 	VFPFMRX	\tmp, MVFR0			    @ Media and VFP Feature Register 0
+ 	and	\tmp, \tmp, #MVFR0_A_SIMD_MASK	    @ A_SIMD field
+ 	cmp	\tmp, #2			    @ 32 x 64bit registers?
+-	ldcleq	p11, cr0, [\base],#32*4		    @ FLDMIAD \base!, {d16-d31}
++	vldmiaeq \base!, {d16-d31}
+ 	addne	\base, \base, #32*4		    @ step over unused register space
+ #endif
+ #endif
+@@ -44,22 +46,23 @@
+ 	@ write all the working registers out of the VFP
+ 	.macro	VFPFSTMIA, base, tmp
+ #if __LINUX_ARM_ARCH__ < 6
+-	STC	p11, cr0, [\base],#33*4		    @ FSTMIAX \base!, {d0-d15}
++	fstmiax	\base!, {d0-d15}
+ #else
+-	STC	p11, cr0, [\base],#32*4		    @ FSTMIAD \base!, {d0-d15}
++	vstmia	\base!, {d0-d15}
+ #endif
+ #ifdef CONFIG_VFPv3
++	.fpu	vfpv3
+ #if __LINUX_ARM_ARCH__ <= 6
+ 	ldr	\tmp, =elf_hwcap		    @ may not have MVFR regs
+ 	ldr	\tmp, [\tmp, #0]
+ 	tst	\tmp, #HWCAP_VFPD32
+-	stclne	p11, cr0, [\base],#32*4		    @ FSTMIAD \base!, {d16-d31}
++	vstmiane \base!, {d16-d31}
+ 	addeq	\base, \base, #32*4		    @ step over unused register space
+ #else
+ 	VFPFMRX	\tmp, MVFR0			    @ Media and VFP Feature Register 0
+ 	and	\tmp, \tmp, #MVFR0_A_SIMD_MASK	    @ A_SIMD field
+ 	cmp	\tmp, #2			    @ 32 x 64bit registers?
+-	stcleq	p11, cr0, [\base],#32*4		    @ FSTMIAD \base!, {d16-d31}
++	vstmiaeq \base!, {d16-d31}
+ 	addne	\base, \base, #32*4		    @ step over unused register space
+ #endif
+ #endif
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/a78f7e5820a6b827c9d68362a94dcbf80a317dc9.1587299429.git.stefan%40agner.ch.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/583281a29aa28e510ac56da41a93e3f28486901c.1587299429.git.stefan%40agner.ch.
