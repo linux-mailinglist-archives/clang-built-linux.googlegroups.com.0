@@ -1,120 +1,150 @@
-Return-Path: <clang-built-linux+bncBCSPV64IYUKBBXNY6H2AKGQE4TSHLIA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBIXA6H2AKGQE3IOUDPY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-f61.google.com (mail-wr1-f61.google.com [209.85.221.61])
-	by mail.lfdr.de (Postfix) with ESMTPS id 823F31AFB3F
-	for <lists+clang-built-linux@lfdr.de>; Sun, 19 Apr 2020 16:12:45 +0200 (CEST)
-Received: by mail-wr1-f61.google.com with SMTP id j16sf4110351wrw.20
-        for <lists+clang-built-linux@lfdr.de>; Sun, 19 Apr 2020 07:12:45 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1587305565; cv=pass;
+Received: from mail-pg1-x538.google.com (mail-pg1-x538.google.com [IPv6:2607:f8b0:4864:20::538])
+	by mail.lfdr.de (Postfix) with ESMTPS id 85A071AFBBA
+	for <lists+clang-built-linux@lfdr.de>; Sun, 19 Apr 2020 17:37:08 +0200 (CEST)
+Received: by mail-pg1-x538.google.com with SMTP id j16sf7095667pgg.3
+        for <lists+clang-built-linux@lfdr.de>; Sun, 19 Apr 2020 08:37:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1587310627; cv=pass;
         d=google.com; s=arc-20160816;
-        b=j3Puk5cGL81SCgd3LCLgg8rr1E2/QQmIu/+vilqKy/lnBlTs+F4In5PA9Vljqd5eF2
-         8/NJ1o5ZbjvJskcNH/GI3QDMKcIqb+DBbD5wQCfmpmWmnjqie5hR+0DkUzlwaV+hu/ej
-         DfGA4wkoR3Zx1zb4XqFP/fULGEYeic0iPAQZimsnWG+yF/UsfKsVOjIh817C8kFBpdfR
-         CTbjkMep+ciXzjMgWHbAky5qaZtQcFcXAZpasqg9K/cfPwR06Zy9x4y+yGFmbzo0xnwQ
-         6qE+jbFH9Hloi0PUKboMagWIoe3vV4jzmiyUgBoVZgnP5JSovUZ1r72ikFV7+5PkVZHu
-         Zw5A==
+        b=gqPKLpDmTyhMED+cr5Q9uqeBcO3iJrQbldNrdCdqensOKlnBXGu9Wi/ZzC2pRuOx38
+         uqoOocADZg/C0JrnG5MnrEJWjk9qqRl57b0+xVfHMO/ilqobQhINSiY17CpXajX+NQ4R
+         1mSg9iCn3vzE2CPdT453ks9pSaXGAMhYjWmk3C2FMEan1tMnXGF/JnmBHS2DrjhZsCXA
+         X42N9Ocn/ZNQGnMqaAPah5WSjUPRXuF2DMafgJ/FkDFh1zGyJDbXKIxNgPqvDlQl/I5b
+         rouzw651j8Rh/HmWH+aZEcLUc5gfW0NH/knQC6pFybFzJHC5gZoOODy6m86b+9PVNmlz
+         AQRg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:sender:user-agent:in-reply-to
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date;
-        bh=wzpLfGS5Ikpe2zp0TM3O5AkqfatQ+ZU2x2fA2kv0l0g=;
-        b=mN3jDXodyfVmEETvwASOtjqlroZ/12XiOkxEl+UGawAlqpHF+YBkklMNjQitCeA9YF
-         N+SviHTnHAw4mA9zj911nidmuSCRvNcY44jYo4C8zFCuY7mnDBX9TX6NP2tUcBYpCOro
-         DRRRHfFOUgNYMwIBYHlOmv7yqdMs7f9oAr2knL/SPAbI9QPFOWtsx9qvfIH1WO+HF5Mg
-         PuTdVm1/JskQ49OcvwUqrMIKnG8yEtpRwcnHtD32I646k0u/tTpCm+8jhEa6Z43V6nLB
-         c6PX4IOXLyVLyje98dH4mAnnzzx31K7HvUYgtvurQ/z0ysbtS23bJoC3phN8vG2oJ0mi
-         G5aw==
+         :to:from:date:sender:dkim-signature:dkim-signature;
+        bh=qexVTROEnqL/kTeLxUMU7jY1wCBZvNz4K9NCDERXCAQ=;
+        b=NZHIU/lXaWNOQMcYAfzY7jcksIAvyC7JL0TDidLAVRssJzNQl8eJpvqaZD9ZjRkTgB
+         HegsRGidq94I+6xcs82pWkZq8bMPk0AsWlSdliZd3Uw3Ip2Ol+jNJdqdsKLXB/KQgLUI
+         uMnDtRpqBgMUJMOk7elSOcdeCasjs4zDtMXejbZvV1ukJ/YdDKMTgxKXSdFpfn6Mrohc
+         T9cAhjQDRWM1SZ/b9sImAdTBnuzSUQRRtrz4b7NDZjLJnt0eZfXRpWqOeN/LMikZ2Q2Y
+         qZmfAL8NPlEK3RWV/EWOrRt3m/pz+b4uvk1odx3yLYKkOFCXl6aW2wU8XQOJWFUmnzaW
+         WSpw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass (test mode) header.i=@armlinux.org.uk header.s=pandora-2019 header.b=mQ1sT2hP;
-       spf=pass (google.com: best guess record for domain of linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender) smtp.mailfrom="linux+clang-built-linux=googlegroups.com@armlinux.org.uk";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=armlinux.org.uk
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=V0lqQZIH;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20161025;
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=qexVTROEnqL/kTeLxUMU7jY1wCBZvNz4K9NCDERXCAQ=;
+        b=ow0zkY2hdGAQ5iSYq3Nk+LEzlBWi0F5rCRZxQruQa28B6oUsNfqRTyn3SMz2bR5bAT
+         ALa+Ylh+LfIRP5042BGxE1YZwZszNAmyJBzR4xTOvP7nYKFFOcN02OTX3aVf2/J8XFuL
+         8iSTRuF1UZFQOtF2rHig8E2xnBoWkmiJSRIyGJNytfI8vR0VKKMYCiKJWSxsl0+o7UGU
+         9dqfBEt7KSh0k1u7TiC8uFEQGQ90c2fcH66UelpvWJfAzwOpNQgHwmlUFZOlJq3Rv3IE
+         1dP7tmDuMMkeMq5pCOA9Tn0g6/9u1tiaTBQ6Um+YkkwYWaXyCyyeBGPsYzSxBs/FofyK
+         ekxA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=qexVTROEnqL/kTeLxUMU7jY1wCBZvNz4K9NCDERXCAQ=;
+        b=Zuj6LpFQH7mmvZrgV8u41heE5uYdUTsBH5fJfEJIbG2N5iQo1VVI90bBXObuZkz0FD
+         VeBUbxB3QKTRPmBwrUMDEKCvD1zq4jsBP4FrEWPShFfOUr9KVWvSLpLmvhWL1cqiBKP9
+         xnTAkHEy6+nCzLHmArFgdywLBDskEJzJ6OVT+U6p5UOGpdw54Hzr6f/Gv8t5fPiBbM5k
+         o/EWM9VlRFeFMS9hjYSdQP0xBH2vtK6Knca9udYAkDEzbPNZHB1jZPVxdagIptS2Ne9d
+         r9VCLpGk2bBv+liCw2wK5J+ANA8Ok4W+ra3B6SluyW6MJqg9KfLkfXvJfOj3KD3Il3Gj
+         7llA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to:user-agent:sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=wzpLfGS5Ikpe2zp0TM3O5AkqfatQ+ZU2x2fA2kv0l0g=;
-        b=FaJDqrSX6QFbBKvXdkwzTZ7FpEjPsdMbkrWXefqW3lpa60Cuu7cwV5tLecYZOEmyGQ
-         jWRqRHCqvuLGDyLozhLVflkiB0Cb7vhBlly8X2EiQ6akl7x+lX8fZodLpLj4I10mJlzH
-         tvSN5d9jqUsDML4oyPvUcq+rE37COPhEZDCCyXzZvL/tm2iNCXK6sxmTV6JCTFjK6g8D
-         kE2hbAk8//cNkJ3iGQgb2skmDxlKGPaKy+3vPtKCG955w1hOXcJPCy9Q8UjsQKhiWTzP
-         vRphXcngCurAbxdMrJiO7qNLQMcTeFb/bmMjviPW2Q+zaVlUlyy5CMV4iF8XGk2toYRe
-         pgMw==
-X-Gm-Message-State: AGi0PuZ7rvDHGa/VgNE7mkOiUuqpuZor4+qVVRWs9yqV3MWUyMQ7GVJ5
-	oHoyaD444U6YMGr6GKs6QFo=
-X-Google-Smtp-Source: APiQypKJGSHtwgCYZEau2A/5jYuhNjDZVho8K5A7omSmAy0rIW/9HJiT7C1hc4HeoEmc/iCu7JdGOQ==
-X-Received: by 2002:a5d:6887:: with SMTP id h7mr7939554wru.365.1587305565258;
-        Sun, 19 Apr 2020 07:12:45 -0700 (PDT)
+        bh=qexVTROEnqL/kTeLxUMU7jY1wCBZvNz4K9NCDERXCAQ=;
+        b=hWr+n1lKz9QFwoSt8CBaI7VFexuPYoWGdVttUt97yX7M0/CTGWdN1kW3Gtp6PrJB/q
+         DFEXpc+/dgHGAacHvUBDyht2OHtGmQGWP7QehvB4RHaVVtMt2Jf5ahVMra/kOyZIMSQN
+         D5Jr7cqctKJzSmeZ/g71uoBsfvp8yKvw3sk7z3RtfmrmLrpF+l3FUODtgx9aIoNz0pOv
+         X7MpHsFVsdatWqQkhlg1UI3Ed+u54/1Lcp0olOX8pe1J+13Y98k76HvzgjHknYmcCnWB
+         AJwGj0+PVejjtSl0uWOztxY/rEGfTuNo4P1oExIkxANJE4V4XFQIDCG9iUr5F+LOcIgA
+         7aSg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AGi0PuYbP3k1qd3pVO3fSIWS3DJcCCautrIuuTa+fIBl4ecdDWLABr/O
+	vYhyWkTjijOZkQ/zqRxJ4Y8=
+X-Google-Smtp-Source: APiQypIapTmtr5ikdFAyvYsGISUb9CgCPmvti2o2+VMXxKIEBE+LiqnmFmhjPoQx3A6hCJRTXVmx5A==
+X-Received: by 2002:a17:902:b101:: with SMTP id q1mr12331574plr.246.1587310626730;
+        Sun, 19 Apr 2020 08:37:06 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:4605:: with SMTP id t5ls606768wrq.6.gmail; Sun, 19 Apr
- 2020 07:12:44 -0700 (PDT)
-X-Received: by 2002:adf:f5ce:: with SMTP id k14mr14940637wrp.39.1587305564767;
-        Sun, 19 Apr 2020 07:12:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1587305564; cv=none;
+Received: by 2002:a17:902:63:: with SMTP id 90ls7044849pla.10.gmail; Sun, 19
+ Apr 2020 08:37:06 -0700 (PDT)
+X-Received: by 2002:a17:90b:3615:: with SMTP id ml21mr16777430pjb.145.1587310626431;
+        Sun, 19 Apr 2020 08:37:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1587310626; cv=none;
         d=google.com; s=arc-20160816;
-        b=E1B+Hprvl2grASS+GkM6ZaZIrWJlpUh3+H9Z0cTNzME83aMwbFisXuV7wPhlQiTXkB
-         w06jKV0lgyefrEHoKnH2EXX8ArnyHai5eb+eH4GevKkv+BhF+gsZsUh0DxX8ClF2+SA2
-         c7bgykfPET5vxna+ZMT9TMN+3G5mxWBZ3nE7tTfdEVXJFp1yhhePhVqK96MBTBvySW9Q
-         4oomCqtZbDElRNYW+gK87CnKz24Nw2nNI4POskIg/zFuXLV2lGEaoVWVmsCCeeYiVEb1
-         RF6DCdPNgrKzslzl0pULhBzw4GfemddTqItMA/F6I7fbvYItGqFfKX/U3xv5ZkWFsjwy
-         l/Mg==
+        b=wFArf5hYQEDFTYIEc923o/JAreKYw+bRt0bIso7KZ2Vv8OK0O9ZMi9RnikShVhwThW
+         wvRuQhg60l0FagHKzbWgwQI1dgt/qMzGIVVy4yzFgB1pCMPFaypdw6Z/Zn2dBrL+OJ2e
+         b+6scSaOmBBlfsOoaF4Sx1xkEXkYIGRjYDlPpVqLC0Fxn7ZvgjmxX0NwuXF9GsQcvITZ
+         UWyWb3kxaKpUjHiIcLzoX5z6HS8iXzQ4e8snJOlgfDwUfY2Quwm2CBZiy0sHyTeUSw2Q
+         soX7EpK9bjqrCPqpD3XKypx88Ul3CofPbQH2+ghgga1St/pN1lHkFWfVI8jJrqas37+g
+         16Rw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=sender:user-agent:in-reply-to:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:dkim-signature;
-        bh=iPI9+C0OmqfHPSjDQhvBPW39Tw6U8V5gfT1X3EF41SM=;
-        b=dOGquvwQo8jAGG4z7KTA9vAteMoqFXlDlJsMYf9/fLs7LGD9Pyi1Ob9ZEyv6uZ1ZWb
-         ZjkF09YeU8k9NNWaGC2YETH+0aD5QaOMKdxaa2DKQ8oKA+PoUfaisPdYCexHZLWc8Ktx
-         tNrEYSataNmCib/ECjdykt5lTdiVM1WicFzQA6JjSAtHJyQoFwkWI/r4OJke2ziBfI2t
-         VSAVW53dc5Gkq+jfDCQ6Yw+Ty517qIfLLlYh+gGWSLwGnw1D5an7iclAE3gNbTjGHOYa
-         kGfY+WaK/MCqx3EitjpdrdL5x4Xun0ebYoo9vPBj62dimlLzPvKNNjhMg7KOkuKDjBCM
-         w15g==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=5HPkHkilPOStTzSXVFfPa6HLneZJ21Zsjdgq+nilkL4=;
+        b=T18/gXuAh4MJtHP+1fD8a55VfsXJhXkzBGKZ8fkP7GnzoYdlHOdDOz3K6gwSyE9UJ6
+         JVWJNYmDoXQxgZu/Ysq2eUq8UMoU+c6KdojYQTf+1/eR86xwiUx0F/9jbbuK9sgQhhAO
+         zW0uXWikPUEk8T0G3QQuII7NpmquC47zaAOkEEMaqf35rsSZFYW5UeRBDC2GzjpReBQK
+         VytMIvI6AgrQI0+qM2C/H8uqCpfuF2wsB5E6YDi6qHYaTrgBIDk/j7Krw1hiBQFIlbcU
+         b6FUs8lmgRJhfSQ+73/FEOXZ00WI8Wdyk83AAlrlTGLRuzysDz4sUr6IANdTaZfuBoAk
+         kt4Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass (test mode) header.i=@armlinux.org.uk header.s=pandora-2019 header.b=mQ1sT2hP;
-       spf=pass (google.com: best guess record for domain of linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender) smtp.mailfrom="linux+clang-built-linux=googlegroups.com@armlinux.org.uk";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=armlinux.org.uk
-Received: from pandora.armlinux.org.uk (pandora.armlinux.org.uk. [2001:4d48:ad52:3201:214:fdff:fe10:1be6])
-        by gmr-mx.google.com with ESMTPS id x11si693347wmi.1.2020.04.19.07.12.44
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=V0lqQZIH;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-ot1-x341.google.com (mail-ot1-x341.google.com. [2607:f8b0:4864:20::341])
+        by gmr-mx.google.com with ESMTPS id c20si159091pls.0.2020.04.19.08.37.06
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 19 Apr 2020 07:12:44 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender) client-ip=2001:4d48:ad52:3201:214:fdff:fe10:1be6;
-Received: from shell.armlinux.org.uk ([2001:4d48:ad52:3201:5054:ff:fe00:4ec]:40538)
-	by pandora.armlinux.org.uk with esmtpsa (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
-	(Exim 4.90_1)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1jQAgZ-0005zm-NF; Sun, 19 Apr 2020 15:12:39 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.92)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1jQAgP-0004uU-GD; Sun, 19 Apr 2020 15:12:29 +0100
-Date: Sun, 19 Apr 2020 15:12:29 +0100
-From: Russell King - ARM Linux admin <linux@armlinux.org.uk>
-To: Stefan Agner <stefan@agner.ch>
-Cc: clang-built-linux@googlegroups.com, arnd@arndb.de,
-	ard.biesheuvel@linaro.org, ndesaulniers@google.com,
-	linux-kernel@vger.kernel.org, jiancai@google.com,
-	yamada.masahiro@socionext.com, manojgupta@google.com,
-	robin.murphy@arm.com, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 0/3] ARM: make use of UAL VFP mnemonics when possible
-Message-ID: <20200419141229.GX25745@shell.armlinux.org.uk>
-References: <cover.1587299429.git.stefan@agner.ch>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 19 Apr 2020 08:37:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) client-ip=2607:f8b0:4864:20::341;
+Received: by mail-ot1-x341.google.com with SMTP id i27so5820566ota.7
+        for <clang-built-linux@googlegroups.com>; Sun, 19 Apr 2020 08:37:06 -0700 (PDT)
+X-Received: by 2002:a9d:728e:: with SMTP id t14mr6631841otj.63.1587310625625;
+        Sun, 19 Apr 2020 08:37:05 -0700 (PDT)
+Received: from ubuntu-s3-xlarge-x86 ([2604:1380:4111:8b00::3])
+        by smtp.gmail.com with ESMTPSA id m12sm173807oov.41.2020.04.19.08.37.04
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Sun, 19 Apr 2020 08:37:04 -0700 (PDT)
+Date: Sun, 19 Apr 2020 08:37:03 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Sedat Dilek <sedat.dilek@gmail.com>
+Cc: Masahiro Yamada <masahiroy@kernel.org>,
+	"Steven Rostedt (VMware)" <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Jessica Yu <jeyu@kernel.org>,
+	Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
+	"Joel Fernandes (Google)" <joel@joelfernandes.org>,
+	Patrick Bellasi <patrick.bellasi@arm.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Dan Williams <dan.j.williams@intel.com>,
+	"Eric W. Biederman" <ebiederm@xmission.com>,
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] kbuild: Set CLANG_VERSION only when Clang is used
+Message-ID: <20200419153703.GA41789@ubuntu-s3-xlarge-x86>
+References: <20200419123612.173187-1-sedat.dilek@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <cover.1587299429.git.stefan@agner.ch>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-Sender: Russell King - ARM Linux admin <linux@armlinux.org.uk>
-X-Original-Sender: linux@armlinux.org.uk
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass (test
- mode) header.i=@armlinux.org.uk header.s=pandora-2019 header.b=mQ1sT2hP;
-       spf=pass (google.com: best guess record for domain of
- linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates
- 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender)
- smtp.mailfrom="linux+clang-built-linux=googlegroups.com@armlinux.org.uk";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=armlinux.org.uk
+In-Reply-To: <20200419123612.173187-1-sedat.dilek@gmail.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Original-Sender: natechancellor@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=V0lqQZIH;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -127,49 +157,95 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, Apr 19, 2020 at 02:35:48PM +0200, Stefan Agner wrote:
-> To build the kernel with Clang's integrated assembler the VFP code needs
-> to make use of the unified assembler language (UAL) VFP mnemonics.
+On Sun, Apr 19, 2020 at 02:36:12PM +0200, Sedat Dilek wrote:
+> Do like GCC_VERSION is set when GCC (see CC_IS_GCC) is used.
 > 
-> At first I tried to get rid of the co-processor instructions to access
-> the floating point unit along with the macros completely. However, due
-> to missing FPINST/FPINST2 argument support in older binutils versions we
-> have to keep them around. Once we drop support for binutils 2.24 and
-> older, the move to UAL VFP mnemonics will be straight forward with this
-> changes applied.
+> Signed-off-by: Sedat Dilek <sedat.dilek@gmail.com>
+> ---
+>  init/Kconfig | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> Tested using Clang with integrated assembler as well as external
-> (binutils assembler), various gcc/binutils version down to 4.7/2.23.
-> Disassembled and compared the object files in arch/arm/vfp/ to make
-> sure this changes leads to the same code. Besides different inlining
-> behavior I was not able to spot a difference.
+> diff --git a/init/Kconfig b/init/Kconfig
+> index 9e22ee8fbd75..c23f9d3d6d6c 100644
+> --- a/init/Kconfig
+> +++ b/init/Kconfig
+> @@ -25,7 +25,7 @@ config CC_IS_CLANG
+>  
+>  config CLANG_VERSION
+>  	int
+> -	default $(shell,$(srctree)/scripts/clang-version.sh $(CC))
+> +	default $(shell,$(srctree)/scripts/clang-version.sh $(CC)) if CC_IS_CLANG
+>  
+>  config CC_CAN_LINK
+>  	def_bool $(success,$(srctree)/scripts/cc-can-link.sh $(CC))
+> -- 
+> 2.26.1
 > 
-> In v2 the check for FPINST argument support is now made in Kconfig.
 
-Given what I said in the other thread, Clang really _should_ allow
-the MCR/MRC et.al. instructions to access the VFP registers.  There
-is no reason to specifically block them.
+I don't understand the motivation behind this. The commit message needs
+to be expanded upon or further clarification is needed.
 
-As we have seen with FPA, having that ability when iWMMXT comes along
-is very useful.  In any case:
+CONFIG_GCC_VERSION is always set, either to 0 if using clang or the
+actual version spit out by GCC so the commit message is not entirely
+accurate.
 
-1. The ARM ARM (DDI0406) states that "These instructions are MRC and MCR
-instructions for coprocessors 10 and 11." in section A7.8.
+It is done in the
 
-2. The ARM ARM (DDI0406) describes the MRC and MCR instructions as
-being able to access _any_ co-processor.
+    default $(shell,$(srctree)/scripts/gcc-version.sh $(CC)) if CC_IS_GCC
+    default 0
 
-So, Clang deciding that it's going to block access to coprocessor 10
-and 11 because some version of the architecture _also_ defines these
-as VFP instructions is really not on, and Clang needs to be fixed
-irrespective of these patches - and I want to know that *is* going to
-get fixed before I take these patches into the kernel.
+way because it relies on the __GNUC__, __GNUC_MINOR__, and
+__GNUC_PATCHLEVEL__ preprocessor macros to figure out the verison, which
+clang also defines (to 4, 2, and 1 respectively) so it has to be done
+this way to avoid confusing clang for GCC.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTC broadband for 0.8mile line in suburbia: sync at 10.2Mbps down 587kbps up
+We can handle this in clang-version.sh so that CONFIG_CLANG_VERSION is
+set to zero if CONFIG_CC_IS_GCC is set, just like CONFIG_GCC_VERSION:
+
+if ! ( $compiler --version | grep -q clang) ; then
+    echo 0
+    exit 1
+fi
+
+CONFIG_CLANG_VERSION needs to be defined, otherwise we are breaking the
+assumption that I made in commit df3da04880b4 ("mips: Fix unroll macro
+when building with Clang").
+
+With your patch and GCC 9.3.0 building malta_defconfig:
+
+arch/mips/include/asm/r4kcache.h: In function 'blast_scache64_node':
+arch/mips/include/asm/unroll.h:29:9: error: 'CONFIG_CLANG_VERSION' undeclared (first use in this function); did you mean 'CONFIG_LD_VERSION'?
+   29 |         CONFIG_CLANG_VERSION >= 80000) &&  \
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/nathan/src/linux/include/linux/compiler.h:330:9: note: in definition of macro '__compiletime_assert'
+  330 |   if (!(condition))     \
+      |         ^~~~~~~~~
+/home/nathan/src/linux/include/linux/compiler.h:350:2: note: in expansion of macro '_compiletime_assert'
+  350 |  _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+      |  ^~~~~~~~~~~~~~~~~~~
+/home/nathan/src/linux/include/linux/build_bug.h:39:37: note: in expansion of macro 'compiletime_assert'
+   39 | #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
+      |                                     ^~~~~~~~~~~~~~~~~~
+/home/nathan/src/linux/include/linux/build_bug.h:50:2: note: in expansion of macro 'BUILD_BUG_ON_MSG'
+   50 |  BUILD_BUG_ON_MSG(condition, "BUILD_BUG_ON failed: " #condition)
+      |  ^~~~~~~~~~~~~~~~
+/home/nathan/src/linux/arch/mips/include/asm/unroll.h:28:2: note: in expansion of macro 'BUILD_BUG_ON'
+   28 |  BUILD_BUG_ON((CONFIG_GCC_VERSION >= 40700 ||  \
+      |  ^~~~~~~~~~~~
+/home/nathan/src/linux/arch/mips/include/asm/r4kcache.h:203:2: note: in expansion of macro 'unroll'
+  203 |  unroll(times, _cache_op, insn, op, (addr) + (i++ * (lsize))); \
+      |  ^~~~~~
+/home/nathan/src/linux/arch/mips/include/asm/r4kcache.h:370:4: note: in expansion of macro 'cache_unroll'
+  370 |    cache_unroll(32, kernel_cache, indexop,  \
+      |    ^~~~~~~~~~~~
+/home/nathan/src/linux/arch/mips/include/asm/r4kcache.h:376:1: note: in expansion of macro '__BUILD_BLAST_CACHE_NODE'
+  376 | __BUILD_BLAST_CACHE_NODE(s, scache, Index_Writeback_Inv_SD, Hit_Writeback_Inv_SD, 64)
+      | ^~~~~~~~~~~~~~~~~~~~~~~~
+
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200419141229.GX25745%40shell.armlinux.org.uk.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200419153703.GA41789%40ubuntu-s3-xlarge-x86.
