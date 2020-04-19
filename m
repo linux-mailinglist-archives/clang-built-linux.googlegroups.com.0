@@ -1,245 +1,148 @@
-Return-Path: <clang-built-linux+bncBDZIFAMNOMIPTXPP6QCRUBBVHNIN6@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCEJHTXX7MFBBGXC6D2AKGQEKVJG2NI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43f.google.com (mail-wr1-x43f.google.com [IPv6:2a00:1450:4864:20::43f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8212C1AF78C
-	for <lists+clang-built-linux@lfdr.de>; Sun, 19 Apr 2020 08:26:01 +0200 (CEST)
-Received: by mail-wr1-x43f.google.com with SMTP id y1sf3712136wrp.5
-        for <lists+clang-built-linux@lfdr.de>; Sat, 18 Apr 2020 23:26:01 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1587277561; cv=pass;
+Received: from mail-wr1-x43e.google.com (mail-wr1-x43e.google.com [IPv6:2a00:1450:4864:20::43e])
+	by mail.lfdr.de (Postfix) with ESMTPS id A60311AF986
+	for <lists+clang-built-linux@lfdr.de>; Sun, 19 Apr 2020 13:08:11 +0200 (CEST)
+Received: by mail-wr1-x43e.google.com with SMTP id s11sf3942915wru.6
+        for <lists+clang-built-linux@lfdr.de>; Sun, 19 Apr 2020 04:08:11 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1587294491; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sivXwEy+7WR/UuQBiIPp3oif5cqiVDdi9wqzMF1iI+S484UVsYKYAaRvdLcsz0zHu8
-         2AM2Of18FwYXWzOxuq9fvDKXuziWXxL036/c3WJPzGbcw8SE98DsJcC58TeRw7mjoADD
-         cyZuEJRWnOuLHMg5kmFw7iMeiZpDKa6muqot5DXQi6rXAuiASy9DRgwInuVNHC22SdAR
-         3nXWBR3RNtRQhRn3yNo0p0LV1heo1pOpiEfDp4bNNdqiPEMmMhbFu/JXULuPRAJvp5k6
-         d9ScGv488sNHWhg4GyYLduWnia1cNmTl+GTm+0ePmKO8L9iW2MYCZh4qFWrHYjjyloqF
-         wQiA==
+        b=D712zGLjvbkfJ/8cgJvam1JAYvxTYuUqA5N2PtVN51cqtUP7TEUkDoHJ2mboPE2um1
+         MTL/7fIIrZ0NmhRv5MpSg0eDCeRekV+ZXCA92O6pLUMNm+qNxOwck1xHJZs9DSY8QCmY
+         sT9S1L9lqcZCkPcPhNlQhGwE+HTGCuLhRC40ivsnddXMIIycp3nZCKkpPnku38C3rA1Z
+         siGA4+G2LXx0d3ewRuBVv+YESafCuhLICPv+SpmTuDYy9abrnHtByBmLSeYYg650ehk2
+         4crLHufzngFYXdDgUNwosKMgRiHyWv+ScyKywtXH+j3pFfd0twlwNmag4nOLLMCFTIaf
+         qFiw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :content-language:mime-version:user-agent:date:message-id:cc
-         :autocrypt:from:subject:to:sender:dkim-signature;
-        bh=ZiIrITiMNCFZ/9raK9OAn1N1mqHMkp2JPYyzyRWwzYM=;
-        b=EKRuM439BNfKJyrWRg5DJfdch1aLRoWwD3ENYq3LTEoRZZAD1na3vOgCcYtnXo2PLP
-         gt3MRYe6dEgjoJWqF1uMASxi0mNzwDgjhKHegSqmZ62GrLyKv3eoLXzu5/MRV/QWxyh1
-         M57BnJlPcHOWuIioaJkIl9ewbiwX6XaKv4CJQQlUnjW+mSEruZA6qe9w55sWnr8+JgZf
-         33bz3VxtN8kc3eBQQgUVsTYtW/zB4V2j0hH8lE2If6LU81m1wdcJDRsLhemEh+WjxiRM
-         7EOrsilWo3zZwx/oWsLjeP0NDkqa96z+SWZQ/Tr8nod0TdE3hSt0QKGpT6Hv8FMNpKis
-         6GBQ==
+         :list-id:mailing-list:precedence:message-id:user-agent:references
+         :in-reply-to:subject:cc:to:from:date:mime-version:sender
+         :dkim-signature;
+        bh=dd0nL0NWyacFoCco6ATex5ONORVvyryoLoSx2zAWqDc=;
+        b=NvrrcMpx2+5IvJarH+6AqamRVUgw/mUIn1D30V0zbbdJB3smMo0yOS+09Tfxg8zRl0
+         3h1fLRUgG+CxbpKH4Hy+AvDS47GvV804ZvXUF7neWBUYLAqjJQZ20JdkCr7afdgwmqkF
+         0+fYw0K4gjz0evLfEV1xV/KK+MLAt2pgu3T1NmACa+OvCQJlZ7MHqnUY9AvehaZI/SOV
+         /k7vKAY9ytti6RsssGVLtdChp5epAmCrLW3yZfRuoaES445pDaNcQZOVlTdDUD5EauRP
+         UhUUD1aPDHpprvj1VrqO+MY+sBXaZT4O1pjpOFM3uPULiCW52SUjKUlHnXVe/eCyFy2m
+         cgwA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@web.de header.s=dbaedf251592 header.b=Xh1rc4a2;
-       spf=pass (google.com: domain of markus.elfring@web.de designates 217.72.192.78 as permitted sender) smtp.mailfrom=Markus.Elfring@web.de
+       dkim=pass header.i=@agner.ch header.s=dkim header.b=WmfvRi3j;
+       spf=pass (google.com: domain of stefan@agner.ch designates 2a02:418:6a02::a2 as permitted sender) smtp.mailfrom=stefan@agner.ch
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:to:subject:from:autocrypt:cc:message-id:date:user-agent
-         :mime-version:content-language:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=ZiIrITiMNCFZ/9raK9OAn1N1mqHMkp2JPYyzyRWwzYM=;
-        b=r3+Nrx2tiD6od+bUR0EjulaXsrMgq65+vunQ/MhxQiMBbwguU5uRUvQtfot/8VRR8Q
-         9NTux9k7/ZXsSi6+rO2C22ewDqRmllJjEY6OgV34nBLvNB3sAI1VvrxmNFyeTBDwV/Gd
-         b7iT7aFW3ebqriuZQ+HrYU0vg2ht23kUbsOCqL1QRZ9Lj5oqXKWNy0zTTuKrADvP25aE
-         uBLVboqivHVKrkhx/Zsg1RizTqrAH4Smkz+xDBGrwSz5aAP3Ndxt8MFbKQY+GzuCMHne
-         juNpCNRatslZPgGevYp+DZlVfhprKrPd5vvx09fs5kTsPrC17BRIAalehHs7JiDZ6xfP
-         GUfA==
+        h=sender:mime-version:date:from:to:cc:subject:in-reply-to:references
+         :user-agent:message-id:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=dd0nL0NWyacFoCco6ATex5ONORVvyryoLoSx2zAWqDc=;
+        b=ntpl/GjK2FWZFGaiAURUupQXvxAAV+2AJdRa7IfldDNGMg6gbwrvjZiuN4E+4w7C8z
+         cy0IJMYz0U/bbUoE3Ociq387nitJPVVDGZV3vJb54CNJ4nrOPhbggQwyCiruE38EbMdY
+         CsP9RFsTLR5y/BW+Y+Y0KJUztlvIPKhaw/RcQ0+DsipgaONdDGnpqKqBLvutzMfsaAT1
+         fm0wd1J59Ixup9gJ2Z6BM6qleBbwEQSV8UkTTN8oPBWIZX25jEbODWcqOa1DIbkLVFoD
+         oZ3wYV5MqSYVLJ47nA5erL3aUHwjObOwlWz1qvSnD/X/CLoYk2L1p3xbfYPxEpKNmPXv
+         aGKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:to:subject:from:autocrypt:cc:message-id
-         :date:user-agent:mime-version:content-language
-         :content-transfer-encoding:x-original-sender
+        h=sender:x-gm-message-state:mime-version:date:from:to:cc:subject
+         :in-reply-to:references:user-agent:message-id:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ZiIrITiMNCFZ/9raK9OAn1N1mqHMkp2JPYyzyRWwzYM=;
-        b=C+ldl39m1b21THEwEUKUwItOUTaJJtEseAhQ/GUTUoU7Mk7RSKcXkxqeafgu/YrXzJ
-         IVxaZcgT/Ds3mjesgjygT6fzYXf5a75aoUXp8OV40EbxtdrmW9u5nvs1lSCM6ke1OVcc
-         Z7+FL4H/zvPXGRUhGFzHB+ZYeEcXk2MldS4D3nttldVSSGuzabKcKzmm7kS+opVwEhEF
-         PAPoHGy7KEsKAnVxqFL4o3DeVhb4chm3EOEAzFhdVPTOWOaRYkH3kuwjtUYsBPu27Qon
-         PKUS3zVsiAMIFIwPjHvbdXnA+Hp1LbG/vTOWf7Sl6VfU0DbOwCZ9tZgNCHKyNKzC416o
-         ZrfA==
+        bh=dd0nL0NWyacFoCco6ATex5ONORVvyryoLoSx2zAWqDc=;
+        b=S9+8pNFM6XeEdHgyveSQWaQJXP93BwMHwJ+xnLY1MSy/CAU8vwmPvVrx1RWogNmDP4
+         qxqfwbFIWkbIVKkRtcMNwkAJ9SIyyBOYv9C+QSKfUt0IUHeIp+8utCfW7ZpyDLrj1qyx
+         0zDR1TgszJRGOBVVoSMuiWN8s6W2NcMvOIEHRqsz0DyY9Pkbf2Z/qBNWdjjWWLpaKWFU
+         G0xVCBpvydan+b5c6lYiOBRD3WIvtoiwI8ROLfXRukYCkierdPnI38s0JWTmvoA3HIE4
+         DlnzSvlp3kr3ogad/7xwT4O4IaajDTI7ZodQ7Nhy3ukEujr7ybWxMtnqD2Cl1nF7YDFE
+         wB8g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuavOADrROmL2vEgKchx2TLtr6Q5MsV80XGN94+vL2zMoJ9WrqZi
-	qNFHGQA2qdzF14D+b5sEyHE=
-X-Google-Smtp-Source: APiQypIkRBu6YnR1ep/KskgAmkO6X8eYpkoulEEx10qr3MrEbP/GK4SHghtg4fLRHCVr7WbGseyR5w==
-X-Received: by 2002:adf:e711:: with SMTP id c17mr10951200wrm.334.1587277561239;
-        Sat, 18 Apr 2020 23:26:01 -0700 (PDT)
+X-Gm-Message-State: AGi0PuaoROl0zPSF84fizl1ibk5AbmUdMHTo/r83t2n0NC0aDtpdTjiD
+	kOJCnqi6oRO8jiWWBhHBHsY=
+X-Google-Smtp-Source: APiQypJU6X/3F2IFCdlGpzd4AbKoDMaFHNlbR0mXl5SPyT2PhUc2zwId9Gk2BHWrXfN2hphpKzUHbA==
+X-Received: by 2002:adf:e54c:: with SMTP id z12mr14569257wrm.276.1587294491371;
+        Sun, 19 Apr 2020 04:08:11 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:e44e:: with SMTP id t14ls8036478wrm.1.gmail; Sat, 18 Apr
- 2020 23:26:00 -0700 (PDT)
-X-Received: by 2002:adf:cc81:: with SMTP id p1mr13105635wrj.372.1587277560832;
-        Sat, 18 Apr 2020 23:26:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1587277560; cv=none;
+Received: by 2002:a5d:668b:: with SMTP id l11ls233082wru.0.gmail; Sun, 19 Apr
+ 2020 04:08:09 -0700 (PDT)
+X-Received: by 2002:a05:6000:1203:: with SMTP id e3mr14402499wrx.229.1587294489880;
+        Sun, 19 Apr 2020 04:08:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1587294489; cv=none;
         d=google.com; s=arc-20160816;
-        b=Xdgv4v+/QPg0H3KZWG3lN+WF2SjsPErv9IWarJWy4PvefiQcEc55ihdpfj+GlX/rR7
-         Ph4DlgK7tUywHzFn2kqTu70T26AwnVSiTpGwWO8Jcfjp7gcn9L+GEjDVys3YTGaMTuek
-         FcKeNlFIe/TTouBvBHgeha6RkaVRfaNEP5GcRWB0BR6ntGxoqGWMQujjEZQHHyfSLgF0
-         VQaRg4FsZUB3nu8YUTASsDNIEyLpvXR5m7QpgqdcWgOCKb7Hy58eLUAS/BDkgVooQGN5
-         dKL2dN6hQHY2U+Sl8CU1REfhYmCf/K8kPseVVnzjTO6lusTIt9UYNSyy7LvP7KiC9HX/
-         Zu5g==
+        b=k/AYClKxB/xHLYQhnOyBVOCC42rD4+KPNuIZyiVf/ltY/cAmI5jVTyY441lG20/8nf
+         ebrBLFlUJA3FEaPOu8J8CcpPVECY5AawlZWj6TrICebrMJwsgsD9SqlpcM+kqB7uf/Ha
+         vjYn0l+dBonm5CAl8BBbs8Sz+VS961gCJb82Mtw68tp2B7TPtiM//7D1J+Y/Dm1rtp4O
+         ptHs54gMaC7p4OC9EBsVtyh9bsdzt6vqvtQgmEAy9GrpcJqkTj9R195jx+L/IBd1+g49
+         gtVPlw+JYXEd3iq6x2z6cDQpWOadp9DNHT+JC1/9udbccxIAZPNftFFT8ej24rTD/ds1
+         yoSg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:mime-version:user-agent
-         :date:message-id:cc:autocrypt:from:subject:to:dkim-signature;
-        bh=2Jc5ETSxqq6NYY+alx24tGIp1ggMXAYlh7YmjtD5qYU=;
-        b=ViI4Z9jbdS0QeQnp08siOzvuvOpoW3FWoCps09CylDKl4vydnpkdgpoM7GlCQ1iqQv
-         vvPKB5q9rZD/Mx4rzOWsQMb6Qb065kcjrpAnxBndvyFqjUYI3gSYaeFGmjtSR59nej6P
-         nmy6XrtPraguuR/x8+52ZkBJjD1Vd0YrDuPD1xGjaicmDMXugMHmNX6R6NpV4sNmdJ5r
-         G35OtJi3BrZKII/rYfJGhYAdG7cLPHf+Rziy9Gsd0dftxZetQDCHCrlqNQHMfrXGwR6x
-         rJGYZ91qKDVNGfIjFw6FOhifu580F3eN8O/HwsOkKjaK/+yIW4oOjSi4+IPZQSWV2pcL
-         wR3w==
+        h=message-id:user-agent:references:in-reply-to:subject:cc:to:from
+         :date:content-transfer-encoding:mime-version:dkim-signature;
+        bh=a0hpRrCjohxzHvPf38IAgCtaSvu3v8WSSLh0hsDEMqw=;
+        b=fzeIQ0+72tAO92aYTOivAvJC8ricDRqkaDS3LZSlO0VzlKJupzP/BQO2XPvFumPT/m
+         zfWRMhd8B0fE+sYgXFDqZOqn3mevTVXBWDYpCUGCi/tREsPJh5Xgp+0Ls3t0HNySFioe
+         ramElAdMHNW6XfwBO8ANeOx/O6aBgU6Lakp3qfaqu79PD0o+aSB4dmx0lGGt0QapHieH
+         ceTOsVRzKWIRl3mAzU9nAR/O+3WrwwUXFab4TmKaaXXLNv9/H+qsTBSvO538BFyV2QAT
+         nOZLss5DKQIPtE7L8r5QBPYY2Wb0/wMqrc9cc74S9qxplZNGpfEUzDx8K88MJX12JhqZ
+         PKUQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@web.de header.s=dbaedf251592 header.b=Xh1rc4a2;
-       spf=pass (google.com: domain of markus.elfring@web.de designates 217.72.192.78 as permitted sender) smtp.mailfrom=Markus.Elfring@web.de
-Received: from mout.web.de (mout.web.de. [217.72.192.78])
-        by gmr-mx.google.com with ESMTPS id f129si478453wmf.2.2020.04.18.23.26.00
+       dkim=pass header.i=@agner.ch header.s=dkim header.b=WmfvRi3j;
+       spf=pass (google.com: domain of stefan@agner.ch designates 2a02:418:6a02::a2 as permitted sender) smtp.mailfrom=stefan@agner.ch
+Received: from mail.kmu-office.ch (mail.kmu-office.ch. [2a02:418:6a02::a2])
+        by gmr-mx.google.com with ESMTPS id u23si683356wmn.0.2020.04.19.04.08.06
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 18 Apr 2020 23:26:00 -0700 (PDT)
-Received-SPF: pass (google.com: domain of markus.elfring@web.de designates 217.72.192.78 as permitted sender) client-ip=217.72.192.78;
-X-UI-Sender-Class: c548c8c5-30a9-4db5-a2e7-cb6cb037b8f9
-Received: from [192.168.1.2] ([2.243.85.208]) by smtp.web.de (mrweb103
- [213.165.67.124]) with ESMTPSA (Nemesis) id 0M9XM3-1jWsci0q1X-00Czel; Sun, 19
- Apr 2020 08:25:11 +0200
-To: Dmitry Safonov <dima@arista.com>, clang-built-linux@googlegroups.com,
- kgdb-bugreport@lists.sourceforge.net, linux-alpha@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-c6x-dev@linux-c6x.org,
- linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, nios2-dev@lists.rocketboards.org,
- openrisc@lists.librecores.org, sparclinux@vger.kernel.org,
- uclinux-h8-devel@lists.sourceforge.jp, x86@kernel.org
-Subject: Re: [PATCH v3 00/50] Add log level to show_stack()
-From: Markus Elfring <Markus.Elfring@web.de>
-Autocrypt: addr=Markus.Elfring@web.de; prefer-encrypt=mutual; keydata=
- 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 FEE=
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
- Andrew Morton <akpm@linux-foundation.org>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Aurelien Jacquiot <jacquiot.aurelien@gmail.com>,
- Ben Segall <bsegall@google.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@codeaurora.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Chris Zankel <chris@zankel.net>,
- =?UTF-8?Q?Christian_Borntr=c3=a4ger?= <borntraeger@de.ibm.com>,
- Daniel Thompson <daniel.thompson@linaro.org>,
- "David S. Miller" <davem@davemloft.net>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>,
- Dmitry Safonov <0x7f454c46@gmail.com>,
- Douglas Anderson <dianders@chromium.org>, Fenghua Yu <fenghua.yu@intel.com>,
- Greentime Hu <green.hu@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
- Guo Ren <guoren@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
- Heiko Carstens <heiko.carstens@de.ibm.com>, Helge Deller <deller@gmx.de>,
- Ingo Molnar <mingo@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
- "James E. J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- James Hogan <jhogan@kernel.org>, Jason Wessel <jason.wessel@windriver.com>,
- Jeff Dike <jdike@addtoit.com>, Jiri Slaby <jslaby@suse.com>,
- Jonas Bonn <jonas@southpole.se>, Juri Lelli <juri.lelli@redhat.com>,
- Len Brown <len.brown@intel.com>, Ley Foon Tan <lftan@altera.com>,
- Mark Salter <msalter@redhat.com>, Matt Turner <mattst88@gmail.com>,
- Max Filippov <jcmvbkbc@gmail.com>, Mel Gorman <mgorman@suse.de>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Simek <monstr@monstr.eu>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Burton <paulburton@kernel.org>,
- Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Pavel Machek <pavel@ucw.cz>, Peter Zijlstra <peterz@infradead.org>,
- Petr Mladek <pmladek@suse.com>,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- "Rafael J. Wysocki" <rjw@rjwysocki.net>, =?UTF-8?Q?Ralf_B=c3=a4chle?=
- <ralf@linux-mips.org>, Rich Felker <dalias@libc.org>,
- Richard Henderson <rth@twiddle.net>, Richard Weinberger <richard@nod.at>,
- Russell King <linux@armlinux.org.uk>,
- Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
- Stafford Horne <shorne@gmail.com>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Steven Rostedt <rostedt@goodmis.org>,
- Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>,
- Thomas Gleixner <tglx@linutronix.de>, Tony Luck <tony.luck@intel.com>,
- Vasily Gorbik <gor@linux.ibm.com>, Vincent Chen <deanbo422@gmail.com>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Vineet Gupta <vgupta@synopsys.com>, Will Deacon <will@kernel.org>,
- Yoshinori Sato <ysato@users.sourceforge.jp>
-Message-ID: <510426be-c95f-adea-af6a-51e592f41ce0@web.de>
-Date: Sun, 19 Apr 2020 08:24:59 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.7.0
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 19 Apr 2020 04:08:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of stefan@agner.ch designates 2a02:418:6a02::a2 as permitted sender) client-ip=2a02:418:6a02::a2;
+Received: from webmail.kmu-office.ch (unknown [IPv6:2a02:418:6a02::a3])
+	by mail.kmu-office.ch (Postfix) with ESMTPSA id 079D45C9ADE;
+	Sun, 19 Apr 2020 13:08:06 +0200 (CEST)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-GB
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:fiBSRO5JZPPBGS/b+P/QruwXKgWy4xjJvI1a3z6iU6xtTvYTpCB
- pGORkj/vSYtLOKKzKGbFfcSK/Mou5mOeNdeChPpnGK9+R6cV6V2QZpwk6eAyoINjSlTLuMo
- Z/VyxDlhjzKREAtaxgxyanMkXCAvYMpuZTmfgusDDU3VdEOSrKPLcx0qIUljlW1Ka1EknhK
- Eqtnj0zaaSVw0Vha1eRBw==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:ehBQdQ698Lk=:IdmHlujqBKzzQmVyxHxpoK
- DFsD7gY9mP6ek2gQ6rxL1bwYQ1rb5wpstw3lT+rY1bU9hW5itp5hwllJEn+y1i5seCO4fcwLC
- mZMroLfFVhVoOrgTwKR2VXilmctNTk7gJJQpMzH244yiH8Fz47UF/OibZfphqm0nIvrcwwpMl
- gRz54IhzjzfUL+d7d/zfTucpak3ynHWOKZ0BiWupzUqdU7/korEZsWNpjEcHvCQNT8cfk5lLR
- yQU0yAt431TPKozFgClZBlZUZv32ojrXjMkn4KLCnHcuhNEgT0QgjmTtTgHqEg3eExyILQsvc
- 70eUl/OzAKzn6eeQOZ8o4UBMt+T8aB+sT387dq2b7khis+MP0w1QWLS6AKGCjIIljOtBSMVps
- A3wbsAnJyLPAwOs/5pmMYVaosln4zLgVju3A1Hj184A0HVCRWS0Ev/Jiukh8CazfelYhw4DVC
- LwpEsCuJ+BzliLsh5HQXbcLaSzSV1PsHks03z/kz93xBd5emcXaDXdyMOcPWC+J+ztYJ057Cw
- FmuJUbfnbCyBHAmcOdXQ2L0r1VGVQaHzsYmhwLjVRqJVhZU2Ir4q62yurjtctQkq5CF43SHAS
- r6HtFH3JuYVJnWkjNGRgFjEFerKMtvoLkJKr01VQEYpJEzZyUI0RlI3bMBNZFWnodsTzAcUh/
- G9j4BmCAP1sQMVpn+WjR/Kx/lFAHk9mNgjgBMuY1XOyOCwgSIwb7xRY4gNbMeU68nH47zH4gj
- dXwbZvnaZ0fRI/0H0w/SDpG9S+QIrg6EHeBdHvuQc8Id0cqP16ebg+/avJDTFH3QZdFalU7w6
- 3lDZc7cqKqaMFwg2+zdEjIz2Nz5WbX5RaeJfFeRgx06rlgyCR95Tr8eHjOJucwr/OAYDRx1lN
- 02JAqSH42LB0gjpvYRltpAx5o17WFhohio2K+8WYlrL2O7wOai1CsBWdxq6sNfrzBJH/epsOi
- HWg2PMyaUccn3OjxKLf7Uf91fCAQbnFMa0+DhJVLA2U7AbbwhoMpVJ0cDx6sEhcPk4PTjPlT4
- OWr3v5qv7OmtFlIcgGGyvMpc/ODK5bwQBcBsKDKt3HnH80LR+OUURQxbY26ROGtKsdylfz0zu
- CnZ1aBsnFtd/p9jeOSUUh61PAUtgD/bKd2E9jIq75VtWI316Pz04pvz9Wfg/eKimP8IMb4aCS
- tu+XVeQVahy9GAnATDTXNXqzET7vzkpRPlPAwcGWtvpMuKBV5pNuWHCGLcKJ6Vv4DB3VDSeD0
- d4zoddkIxnUJnaDoQ
-X-Original-Sender: Markus.Elfring@web.de
+Date: Sun, 19 Apr 2020 13:08:05 +0200
+From: Stefan Agner <stefan@agner.ch>
+To: Russell King - ARM Linux admin <linux@armlinux.org.uk>
+Cc: Arnd Bergmann <arnd@arndb.de>, Ard Biesheuvel <ardb@kernel.org>, Kees
+ Cook <keescook@chromium.org>, Nick Desaulniers <ndesaulniers@google.com>,
+ Kristof Beyls <Kristof.Beyls@arm.com>, Stephen Hines <srhines@google.com>,
+ Luis Lozano <llozano@google.com>, Jian Cai <caij2003@gmail.com>, Linus
+ Walleij <linus.walleij@linaro.org>, Peter Smith <Peter.Smith@arm.com>, David
+ Howells <dhowells@redhat.com>, Mauro Carvalho Chehab
+ <mchehab+samsung@kernel.org>, Manoj Gupta <manojgupta@google.com>, Benjamin
+ Gaignard <benjamin.gaignard@linaro.org>, "Joel Fernandes (Google)"
+ <joel@joelfernandes.org>, clang-built-linux
+ <clang-built-linux@googlegroups.com>, Ilie Halip <ilie.halip@gmail.com>,
+ Masahiro Yamada <masahiroy@kernel.org>, Krzysztof Kozlowski
+ <krzk@kernel.org>, Bartosz Golaszewski <bgolaszewski@baylibre.com>, Sami
+ Tolvanen <samitolvanen@google.com>, "Eric W. Biederman"
+ <ebiederm@xmission.com>, "Steven Rostedt (VMware)" <rostedt@goodmis.org>,
+ Jian Cai <jiancai@google.com>, Doug Anderson <armlinux@m.disordat.com>, Dan
+ Williams <dan.j.williams@intel.com>, Linux ARM
+ <linux-arm-kernel@lists.infradead.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org, Patrick Bellasi
+ <patrick.bellasi@arm.com>, Masami Hiramatsu <mhiramat@kernel.org>, Tejun Heo
+ <tj@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
+Subject: Re: [PATCH] ARM: do not assemble iwmmxt.S with LLVM toolchain
+In-Reply-To: <20200415144450.GF25745@shell.armlinux.org.uk>
+References: <CAK8P3a3uj7AHbAo4sNzr6KQx5Fk6v99k4ZixCgKo1tUuGoat9Q@mail.gmail.com>
+ <CAMj1kXGXNxXGiC4dmNXHkZ6n=J0Fhim3oSwNx4Bz5m9fEphJvQ@mail.gmail.com>
+ <20200410123301.GX25745@shell.armlinux.org.uk>
+ <CAMj1kXFpknCfwb6JMdk_SHopnGqMswgSqaQUeAUEh5yaV10vJg@mail.gmail.com>
+ <CAKwvOdk-xwuppJzxd1+5sfsC8jYiP3t8D=aTNaYxnFCRDiEUmQ@mail.gmail.com>
+ <CAMj1kXFHb8th0rv1yjrsr=c1o-g9_ERPUy4itnrVN13fcQcXag@mail.gmail.com>
+ <CAKwvOdm5aawsa2-=atB8z6W8zo8YVgdDEVbU3i4evDcpo1_AxQ@mail.gmail.com>
+ <202004141258.6D9CB92507@keescook>
+ <CAMj1kXG6_CO6pzeJCSeWiCDyLfWw+ZMuvkv_DLxe-si00fLd1Q@mail.gmail.com>
+ <CAK8P3a3Ko0XTLUGwBxVM=nNebGr6ww66+cCKbYBrd9A4ME0__w@mail.gmail.com>
+ <20200415144450.GF25745@shell.armlinux.org.uk>
+User-Agent: Roundcube Webmail/1.4.1
+Message-ID: <ee12f583d2e2d4b9acdaeb213d3c4e25@agner.ch>
+X-Sender: stefan@agner.ch
+X-Original-Sender: stefan@agner.ch
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@web.de header.s=dbaedf251592 header.b=Xh1rc4a2;       spf=pass
- (google.com: domain of markus.elfring@web.de designates 217.72.192.78 as
- permitted sender) smtp.mailfrom=Markus.Elfring@web.de
+ header.i=@agner.ch header.s=dkim header.b=WmfvRi3j;       spf=pass
+ (google.com: domain of stefan@agner.ch designates 2a02:418:6a02::a2 as
+ permitted sender) smtp.mailfrom=stefan@agner.ch
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -252,24 +155,148 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-> Changes to v3:
-> - Collected more architectual Acks and Reviewed-by
+On 2020-04-15 16:44, Russell King - ARM Linux admin wrote:
+> On Wed, Apr 15, 2020 at 02:58:05PM +0200, Arnd Bergmann wrote:
+>> On Wed, Apr 15, 2020 at 12:32 PM Ard Biesheuvel <ardb@kernel.org> wrote:
+>> >
+>> > On Tue, 14 Apr 2020 at 22:53, Kees Cook <keescook@chromium.org> wrote:
+>> > >
+>> > > I don't know if this will help, but I feel like folks might be talking
+>> > > past each other a little here. I see two primary issues that are
+>> > > colliding, and I just want to call them out specifically...
+>> >
+>> > To reiterate my point: I strongly prefer minor asm surgery over
+>> > elaborate Kconfig plumbing if it means we can retain the functionality
+>> > even when using LLVM tools. In particular, the use of macros to
+>> > implement missing ISA support should be considered before any other
+>> > solution, as these are already being used widely across architectures
+>> > to fill in such gaps.
+>>
+>> +1
+>>
+>> > > What's a good middle ground here? For VLAs, I ended up getting akpm's
+>> > > help by having him add -Wvla to his local builds and send nag emails
+>> > > to people when they added VLAs. That's not really a thing here, but it
+>> > > seems like there should be a way to avoid losing ground (in this case,
+>> > > it's the erosion of attention: repeated known-issue warnings means the
+>> > > CI gets ignored for the warnings on newly added issues). It does seem
+>> > > to me like adding the negative depends is a reasonable first step: it
+>> > > marks what hard things need fixing later without losing coverage for
+>> > > things that can be more easily fixed now with available resources.
+>> > >
+>> > > For the specific iwmmxt.S case, perhaps the solution is the suggested
+>> > > changes? I imagine it should be possible to do a binary diff to see zero
+>> > > changes before/after.
+>> >
+>> > This code has been around since 2004. It has never been possible to
+>> > assemble it with Clang's assembler. So the only thing this patch gives
+>> > you is the ability to switch from a .config where IWMMXT was disabled
+>> > by hand to one where it gets disabled automatically by Kconfig.
+>> >
+>> > So what hard-won ground are we losing here? Did IWMMXT recently get
+>> > enabled in a defconfig that you care about?
+>>
+>> I mainly care about the build testing aspect here, it seems we are getting
+>> close to having the clang integrated assembler working with all .S files
+>> in the kernel (it used to work for none), and I'd like to do randconfig and
+>> allmodconfig tests that include these as well. Disabling the option works
+>> for me, but your suggestion with the added macros is clearly better.
+> 
+> However, to me it seems the approach has been "clang doesn't like X,
+> the kernel has to change to suit clang" - sometimes at the expense
+> of either functionality or maintainability of the kernel.
 
-* I suggest to avoid a typo in this description.
+There are also quite some quirks which work around gcc/binutils
+weirdness in the kernel. E.g. there are macros to make VFP support work
+with older binutils versions.
 
-* Please separate the tag =E2=80=9CPATCH=E2=80=9D from the version descript=
-or in the subject.
-  https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/D=
-ocumentation/process/submitting-patches.rst?id=3D50cc09c18985eacbbd666acfd7=
-be2391394733f5#n709
+I understand, Clang is the newcomer here. Breaking gcc/binutils is a
+nogo, and functionality or maintainability should not suffer.
 
-Regards,
-Markus
+I think the important thing here is that whatever workarounds are
+introduced that they are properly documented: Why is this required, how
+does it work, and under what circumstances can it be removed again. This
+should be in commit logs as well as inline.
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/510426be-c95f-adea-af6a-51e592f41ce0%40web.de.
+> 
+> Some of the changes have been good (provoking modernisation) but that's
+> not true of everything - and I see nothing happening subsequently to
+> rectify the situation.
+
+And that is true with gcc/binutils work arounds which have been
+introduced long time ago.
+
+From my perspective, the kernel always tried to be very user oriented
+when it comes to toolchain support: Rather than blacklist a known broken
+toolchain version, work arounds have been introduced. And I think we
+should treat Clang no different.
+
+That being said, I am not saying we should hack up the kernel to make
+Clang work no matter what. There are fixes made in Clang so we can avoid
+introducing hacks in the kernel. There needs to be a balance.
+
+Again, I think more important is that when we introduce work arounds in
+Linux, that we make sure that such changes are properly document. This
+will make cleanup a *lot* easier and therefor more likely down the road.
+
+> 
+> Had we gone down the path of disabling the build of iWMMXT, if anyone
+> builds a kernel with clang for ARMv5 PXA and relies on iWMMXT, their
+> userspace suddenly breaks because they used a different compiler and
+> lost the necessary iWMMXT support in the kernel to allow userspace to
+> operate, which isn't a nice approach.
+
+That is actually a very good point and hasn't really been taken into
+account in this discussion.
+
+Currently the default behavior is that iWMMXT is enabled for all CPUs
+supporting it. With the patch as-is, users who might try out Clang (with
+integrated assembler) likely will not notice that iWMMXT is not
+supported. They will be in for a surprise once they try to use user
+space applications making use of iWMMXT instructions.
+
+Avoiding such surprises would mean we either disable all iWMMXT
+CPUs/architectures when using Clang's integrated assembler or make sure
+they work with the integrated assembler.
+
+Is there a nice way to print a warning at build time in this case?
+
+> 
+> Using macros is the best solution to work around clang, but should not
+> be done at the expense of GNU AS which has proper support.
+
+I guess making the macros a Clang only thing should be doable.
+
+> 
+> I'd say this: if clang wants to support building ARMv5, then it needs
+> to support iWMMXT and stop forcing the kernel to adapt to Clang's
+> incomplete implementations (which are no direct fault of the clang
+> developers.)
+
+So far I at least did not really look into supporting ARMv5
+architectures when building with Clang. I would be fine to just disable
+ARMv5 architecture when using Clang's integrated assembler, at least for
+now.
+
+However, iWMMXT is also supported by Marvell's PJ4 microarchitecture,
+which is an ARMv7-A architecture. Hence this file is assembled when
+building multi_v7_defconfig (since ARCH_DOVE is enabled there). So if we
+consider iWMMXT mandatory to support an architecture, we would have to
+disable more than "just" ARMv5.
+
+That said, I still would prefer this patch over disabling all the
+architectures. Keep in mind that integrated assembler needs to be
+explicitly enabled (using LLVM_IAS=1).
+
+While I fear that the asm macro surgery will not be that clean/trivial,
+I still think its the best option. It side steps the problem of
+accidentally breaking user space and ultimately allows to build more
+configurations with Clang's integrated assembler.
+
+--
+Stefan
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/ee12f583d2e2d4b9acdaeb213d3c4e25%40agner.ch.
