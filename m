@@ -1,148 +1,135 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBLVL6L2AKGQEFVM5DOQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABB56O6L2AKGQEIZKNNGQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83d.google.com (mail-qt1-x83d.google.com [IPv6:2607:f8b0:4864:20::83d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 953511AFD29
-	for <lists+clang-built-linux@lfdr.de>; Sun, 19 Apr 2020 20:17:19 +0200 (CEST)
-Received: by mail-qt1-x83d.google.com with SMTP id g55sf8535752qtk.14
-        for <lists+clang-built-linux@lfdr.de>; Sun, 19 Apr 2020 11:17:19 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1587320238; cv=pass;
+Received: from mail-ua1-x939.google.com (mail-ua1-x939.google.com [IPv6:2607:f8b0:4864:20::939])
+	by mail.lfdr.de (Postfix) with ESMTPS id A35711AFD8A
+	for <lists+clang-built-linux@lfdr.de>; Sun, 19 Apr 2020 21:33:12 +0200 (CEST)
+Received: by mail-ua1-x939.google.com with SMTP id n36sf3840153uan.1
+        for <lists+clang-built-linux@lfdr.de>; Sun, 19 Apr 2020 12:33:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1587324791; cv=pass;
         d=google.com; s=arc-20160816;
-        b=0mBJxgNu/gFiq1xWqcznuNY2bmFTBOAYWfkREK64c0hAODJ/NY6XD/ODZmY36VdDf9
-         ykcxCAfo52+O1az+zbwmKwarAECPSms8qOq+LzmaGesJ8+y8Hhrz8JZV3fl4XY0hYYKI
-         LjEVLno7ZyV+DRua1fu4bto2227Q64KzNuA/b4mFFGDM8+n/lEjiViJtwimtUuz5R/ut
-         8Vne7vNSDbs/n01Rh5pZXidP08d/BsOLx/GenGhOUet0N0Ga1LQAA2Gy6qyfJdnaUvTc
-         f3OMFek4opc/N+z1gBG13gYVNK0QL/y3wdphIpa8Un/XwCGm6p2GjRnsBXP5kIrNY4Qg
-         mmow==
+        b=BFKle1a1G+jb+b6cGdYV6qB6wWEpadSq4ooKsUohyQMwvOR1ddBbf5BsW7qLOlYPtS
+         4Q1UtEuEQdwVIvk3pDjDzLHZfPvQJTj4dpusOlpNsIk5tqMaSwuMnqnwclNnv7Vw0310
+         ihIHC7yMovMSeB+6YdX0/D4ICMr0qzlvJUwXnbciV67QsI9o0bWflKHwf7G03vh1mpGI
+         RoKiZ+RyAAWbAIqaUhuFWR3x/uW3/oWKZLk/kPmO4Zumj/h1+19WOf3xIGbNyHzDwifP
+         YLIkN+cmJSvpZKdBp6mJSadTkApJCx6c2Tcs8y5W/yosA/8laaT7OX9b90aFjderhXD5
+         2Dbg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=bhAfRUamGaUWd/mqNhI+wXGJ8+O6zVNN0yTTwet4exU=;
-        b=eTLXceXI2r6yf1fxuahIHRdi6EYvR9t28XocOQnZRqJ7whQGe9BLTb/CTnpi3nkidG
-         tsQ2FRIhW+WunPGTJARGrXZf1rd2H1ZwFVfhSgu5ohdvK0pH5wM/Vhy+TDoxy/l44NFQ
-         KxGCPeqxS0ZYAKoOEVsCzk6swL2YnbMiOGVM/tTxrQC+SRnBHIXOoTZCxG2t36IBp5fG
-         KQn8aFNWh8J1UrT3MJlzy9LduAKAOefNXrraBQCks4aMJXTkNqMPhsbQA5CqcQYAtcAI
-         kcWzgUworxON4d0m8yPi1doaHKNlwy9IZA0NBwQK9XRKClKd7wY6quF3NKrxkK2O2Bf8
-         tqCA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-filter:sender
+         :dkim-signature;
+        bh=4/Jxm8grlC1Gyk74Uh0mxfQzTLfYkFMcEFtQseomfg4=;
+        b=tF6VibD9zSGzznbxxyDOxM3cieqkybTbfVWVlqiwKZbzlO8quSmyDFPumU4q1dPc4n
+         8WJ8fBkQb1DQZ5peZ+4l3CWFB5hUQvu1XzBvmWz32kn7W6cPYx0S+/qO3iO+hHfHUXRi
+         FmFEL9PPKWkMno7R3nIsVXIbzixhLVkVvcTfjQrMZTvE1tAML0Q9AQ/MCpj7IdgpZbeV
+         Zng8kvoxe0d0D4s3xOiSaeZ9V8gmsJydrVSkpYDuibiVguZs/+MR6sNq0K8PQRJWtXrP
+         6ATYhlB48YONPpEPSJeiy2B/Bdw8oR+LMIDlUHdCYTFWvyx7CKRl0S2k8uDLY1n6VJ4D
+         hvUQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=OFPZulq2;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::241 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=chliN8+U;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=bhAfRUamGaUWd/mqNhI+wXGJ8+O6zVNN0yTTwet4exU=;
-        b=YPAEOIInsm3zQTROstpZr4pzLHmZh9Cack9ZlUSWQQp46/PfRZD2mNWj9IZ65hvjlA
-         RZVYhBpvNQk7SOXQCVsdFWZrCZXjZuxHVsQKkLblsD/jvexIMgJY7f+wHFvlw51wKCJr
-         ItAzaKL99WXtEmU3clUEiUgAfDcni8O26JP6w/ckVIUocbcek4+5eqVC8eWS1m5r5C2N
-         BVquFYPxfP0BxvaexZ3DYlEiOSrFR7w867x3SWjz9Qu8C8UfAufUskvqw81k1N73cuwz
-         4kuZcq9NWPNr3+8Y8hPKNDbSbfJEVHsBXsw5c0tDOeShDVvvZJwZheBzpLtjgt6YrkNK
-         6gaA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=bhAfRUamGaUWd/mqNhI+wXGJ8+O6zVNN0yTTwet4exU=;
-        b=CDZqKcYFpwqoxuMVZYRpdWR+AJkwaak5jzWVhsl4A+rmlRvjVB6wi/oikuSoiQykqX
-         uYjCqxfaNbmlVCnZPVi951ibvKKh3afmKLtxXJg/9SEs28+OF1qjLWwyNAvYAQ0hINvr
-         gjqUfRFBuD6rtk6Ckm9F3PiEfzeMmBTIWHavieE53bskV8nKrRKc1hHSEpqnVaU03OMj
-         NwNHSICOze63t+A3mI6OiWd9ChMWo0WRrtFwbevV2aeLWiV3ksVHP7JLrPJORC/IK8ke
-         ifJATXZkFrMazQndAYuJUcrru1a5bt1WgcG+xp5IpPj/BsmX2srrWu+GB87cvMZn6COI
-         Ai9A==
+        bh=4/Jxm8grlC1Gyk74Uh0mxfQzTLfYkFMcEFtQseomfg4=;
+        b=niUw8UE78ai/ASHeCh54Ayc9dNZG9IJXqT30QYilRuUUGLJ+x3QpZEgF5Mr8oY0UsK
+         jyD+zqt8IvIUTRHxNMPMLbg64xYC9RnYVFeAlp2rI4jfDl7+YuKh3u3/2+Muwcm6+4bA
+         K968JjWwRmel57Bdzol6m1UYecWssNuM57gDghjC+iboqUE5gyNDqTpmooNwWRzjz5Fb
+         bejMqd+E4nNxOkBSN+tKcsKHnnh0lecsVdSTgAfhXIzBkZP1Vykfnnb/Js+nroFG69H7
+         d72lPnNEpQEjzTTxltrhK04hT4ooycb15AYb6ukd9gAZ43cZAtyf5UnxKG2e1lf2cc/o
+         L8cQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=bhAfRUamGaUWd/mqNhI+wXGJ8+O6zVNN0yTTwet4exU=;
-        b=Bgz7ffcbfw2CvE0r7+upjU6CBn7/Q7ufU+GRYFsgKqbUwlLSs75oqomM2rixgo9JnF
-         5oVC+BszFScJXH8NNRj/e4xKQICFedB/sEoSJVxtYZf4Suqy/V30HOw/WPVInQIz89/5
-         HkasqSb699etaAef1GYBZZCHKRFy+JXJ6m9eqgT2nHRgjatKzpYlRzY/7Bx4pwqvSbuM
-         PMroMaFUfirvesqUkc+aCScZeASym2qSAKHWlOJdJLFSCtcus8XjatptCEuKwvqCjHdJ
-         Ws/SMErmTiYe47IYS7eLj+a88wxBLEGMdyJvIajtzciQhTE5wY6Xq6LYJiEfdZz4eva5
-         Pp3g==
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=4/Jxm8grlC1Gyk74Uh0mxfQzTLfYkFMcEFtQseomfg4=;
+        b=R8H/oftwtz3SeHsrIYE1yjsCbWjM+65bx48robsX9J0xHZlfn8m4h6wUDiqz6KOEXy
+         HWYvOc1h6fiMrl4Gy78swe45rbdJapMBzXEqJMgsqQd6YeyXZLPOxuzZ3a+Ag9x6dZ8L
+         xOnChbfIQfLb2brARmSyBjz/GSDSWC9GNf7VicvBZk5zF7fdsTLoRuWKtUe1PuxZ2Q5b
+         KCYFx03pe4aEMZEUlZlg4pInqa2gNJxB0h7NCi0LLwwVv3v9HQN7XzG9LugWmsJEp/qr
+         m3KjawQgvLE0TRK4uRr7kyDXpPmK0t3YgGsdH7jXeLRFvLbBZvu3drRowkTlqheWZYKf
+         5TWg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuZRBqquzSvKUG6KvZc+0x+yC8koln0TER7uEDNQEDQF4lbvBPe+
-	2HywPcRKOxIiknby9MLeMUw=
-X-Google-Smtp-Source: APiQypIV6j863aLQaOool7T6ZgHH4wPuRR2QU69LCewzPtjc1Kiywo74mXMe8UT4xfNZE6fAuXECoA==
-X-Received: by 2002:ac8:2dab:: with SMTP id p40mr11960218qta.6.1587320238539;
-        Sun, 19 Apr 2020 11:17:18 -0700 (PDT)
+X-Gm-Message-State: AGi0PuZ+SaLyAil2bI6Lzo+efFiC0q9v83C62B1dgCxc31nAJUZ0Xnmx
+	6UN2jT+Hf/S/ZK1+s9PnAnk=
+X-Google-Smtp-Source: APiQypL/s2/iT3JniE8f6xo+/oNJdYqQYLX1Ep7fum5dp0j3fX6fvxrNiMSd3Yqvb7dgOdfMoIuuUg==
+X-Received: by 2002:a1f:9745:: with SMTP id z66mr8310051vkd.49.1587324791176;
+        Sun, 19 Apr 2020 12:33:11 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6214:7d4:: with SMTP id bb20ls2711272qvb.3.gmail; Sun,
- 19 Apr 2020 11:17:18 -0700 (PDT)
-X-Received: by 2002:a0c:f004:: with SMTP id z4mr11637475qvk.29.1587320238248;
-        Sun, 19 Apr 2020 11:17:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1587320238; cv=none;
+Received: by 2002:a1f:ae95:: with SMTP id x143ls400041vke.3.gmail; Sun, 19 Apr
+ 2020 12:33:10 -0700 (PDT)
+X-Received: by 2002:ac5:c2ce:: with SMTP id i14mr9115583vkk.30.1587324790899;
+        Sun, 19 Apr 2020 12:33:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1587324790; cv=none;
         d=google.com; s=arc-20160816;
-        b=lZIbWE+Qz2LF+91CQlh1WQvxUmSPDzLY4edHljq+JOe1yox5G+MA8lbH2dFdiUTUYc
-         8utj99VG5Na7282IgOsQ2um4AmTH3sTmafAcjV0MGEpcTWZPf76AOZU1sVTO5RcpmaRF
-         ZQf6uDBkpEBbjtIdOmq0z6hgEihiWcwZBihJgrGU0gdJt7I/EYwLLx9DIeVkNCF+Tdxo
-         KvbKfSzdqz7bnImi9SYQYoYzB8FRlUqD0L4kakchtDwwyXIr8z4vAoj4h1DmaD1Z87IL
-         mQNSKLdmz5M9wyIQI13m8iGVsMKSIHcExTigCbPMj7e45XlWEFgoym8A5Cqka5p6c9WM
-         EFiA==
+        b=DpZo3NhzebYpxsklV8sqr/fJDSK+2CXhLNjcu6G0hQi4MmCduleQW8ALqrum2C+PRW
+         JHfYfyA07aYymUl9zouQzd/bhoLQFrjBWCHAb/tCUEgYy+HxQz+ElnalOLvmxOCQ0P/b
+         g5IGUPq1auVyzqg3tdEYW7DL0FDJgrCfaugeUAvAeslMxUPRGY8wkHiGunVBrTKJ9Hf3
+         x5TmYvN0+ppocqmxDbqsbwRpOMo9xjzFc9XlC9Mb445vi+JvdaASnUhL4JMMMIKkKlF3
+         R7NtP8Xa/orOiS3+VLlAGaNHl64YljzuHj2T3saljeSBPEBpRb2lXL2LzpK+jlMakwXB
+         PRcw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=lVp5J3L7xx8RfXE2l8kRTsve29d/FePp3kDwKpOyzDI=;
-        b=ZPpQxL9f5B1E28Aad2x5WFnj5wfIbnCOH8bmm4EhdoaXt4CZg2cAiB8mU5xm7gYpd2
-         ucXUWwo9FP7ubPNsaSDzXESOOKjJBGmlNVpjuU15GAgaSDoajkEuIeJoDqQRhBl3mHY5
-         qv2E1pYT07fgJodEpQ2ACzX7s67teBWxWrNFlCMRtnhG5gf5Yz9t84FyLO+B3HoEOBOE
-         I+VTfHrwTeFReDOCt0EvXZqqy5Y876s7SNPMDHEtw5/LUEC6OpCkGfLmb7YyHWOmy4VT
-         rhIrODFIADmeLY/Zt+4lOVtm0+FiR0IPpLdyrPapro/KcERhdvRrLGleh5FBcDEQltDe
-         oEUA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:dkim-filter;
+        bh=JC4v4U7ZXxpy8Dy/gfPJ3fIYiTG98CoBWO4VVpusmvk=;
+        b=p/hkl4Jlc3/HJlu5V5fWXYANZp2kNcXKVkLPFoBt5BE4yeXkcM/6YMjNGx4tPT6AYK
+         MmH9kA81WECPk3hkuhHj0lsbcTm4jfJlInsBEPyYplRHf1po2OUMRfpGRsg2RH3ux2lP
+         laL+XcptZeogX7+dvbNVlO8kqp45N9DY99i8TlMNSlJtNsAgJhjTykHTQkuCBch+LO2Y
+         +6lARRaBT/XLUk2qxWqIX/8shfmbSfv8dCHySWat/D1xJ8tWpGsg0287MDzNVLehALWE
+         tnYEMU/mTdVKd3rTbRX5tG80sUMmF8hWL7d40jeQQ8OhFVzLT3Y0tQGrzf+wTVWXf23u
+         QGkA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=OFPZulq2;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::241 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-oi1-x241.google.com (mail-oi1-x241.google.com. [2607:f8b0:4864:20::241])
-        by gmr-mx.google.com with ESMTPS id d11si1055247qki.7.2020.04.19.11.17.18
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=chliN8+U;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conssluserg-02.nifty.com (conssluserg-02.nifty.com. [210.131.2.81])
+        by gmr-mx.google.com with ESMTPS id y11si1427165vkc.3.2020.04.19.12.33.10
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 19 Apr 2020 11:17:18 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::241 as permitted sender) client-ip=2607:f8b0:4864:20::241;
-Received: by mail-oi1-x241.google.com with SMTP id q204so6823421oia.13
-        for <clang-built-linux@googlegroups.com>; Sun, 19 Apr 2020 11:17:18 -0700 (PDT)
-X-Received: by 2002:aca:c70f:: with SMTP id x15mr8168206oif.80.1587320237904;
-        Sun, 19 Apr 2020 11:17:17 -0700 (PDT)
-Received: from ubuntu-s3-xlarge-x86 ([2604:1380:4111:8b00::3])
-        by smtp.gmail.com with ESMTPSA id r67sm9556198oie.19.2020.04.19.11.17.17
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Sun, 19 Apr 2020 11:17:17 -0700 (PDT)
-Date: Sun, 19 Apr 2020 11:17:15 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Masahiro Yamada <masahiroy@kernel.org>
-Cc: linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com, linux-kbuild@vger.kernel.org,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Dmitry Golovin <dima@golovin.in>,
-	Sedat Dilek <sedat.dilek@gmail.com>
-Subject: Re: [PATCH 2/2] MIPS: VDSO: Do not disable VDSO when linking with
- ld.lld
-Message-ID: <20200419181715.GA36234@ubuntu-s3-xlarge-x86>
-References: <20200419180445.26722-1-natechancellor@gmail.com>
- <20200419180445.26722-2-natechancellor@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 19 Apr 2020 12:33:10 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) client-ip=210.131.2.81;
+Received: from mail-ua1-f42.google.com (mail-ua1-f42.google.com [209.85.222.42]) (authenticated)
+	by conssluserg-02.nifty.com with ESMTP id 03JJWuF5016149
+	for <clang-built-linux@googlegroups.com>; Mon, 20 Apr 2020 04:32:57 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-02.nifty.com 03JJWuF5016149
+X-Nifty-SrcIP: [209.85.222.42]
+Received: by mail-ua1-f42.google.com with SMTP id g10so2812884uae.5
+        for <clang-built-linux@googlegroups.com>; Sun, 19 Apr 2020 12:32:57 -0700 (PDT)
+X-Received: by 2002:ab0:cd:: with SMTP id 71mr4060816uaj.109.1587324775877;
+ Sun, 19 Apr 2020 12:32:55 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200419180445.26722-1-natechancellor@gmail.com>
+ <20200419180445.26722-2-natechancellor@gmail.com> <20200419181715.GA36234@ubuntu-s3-xlarge-x86>
+In-Reply-To: <20200419181715.GA36234@ubuntu-s3-xlarge-x86>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Mon, 20 Apr 2020 04:32:20 +0900
+X-Gmail-Original-Message-ID: <CAK7LNAS7QHB3GuBeLDh66OHbYRMzmNQNwiueU7jH1i7v0UTAAQ@mail.gmail.com>
+Message-ID: <CAK7LNAS7QHB3GuBeLDh66OHbYRMzmNQNwiueU7jH1i7v0UTAAQ@mail.gmail.com>
+Subject: Re: [PATCH 2/2] MIPS: VDSO: Do not disable VDSO when linking with ld.lld
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        linux-mips@vger.kernel.org,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Sami Tolvanen <samitolvanen@google.com>,
+        Dmitry Golovin <dima@golovin.in>, Sedat Dilek <sedat.dilek@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200419180445.26722-2-natechancellor@gmail.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Original-Sender: natechancellor@gmail.com
+X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=OFPZulq2;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::241 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@nifty.com header.s=dec2015msa header.b=chliN8+U;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -155,72 +142,106 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, Apr 19, 2020 at 11:04:45AM -0700, Nathan Chancellor wrote:
-> Currently, when linking with ld.lld, this warning pops up:
-> 
->     arch/mips/vdso/Makefile:70: MIPS VDSO requires binutils >= 2.25
-> 
-> ld-ifversion calls ld-version, which calls scripts/ld-version.sh, which
-> is specific to GNU ld. ld.lld has a completely different versioning
-> scheme (as it follows LLVM's versioning) and it does not have the issue
-> mentioned in the comment above this block so it should not be subjected
-> to this check.
-> 
-> With this patch, the VDSO successfully links and shows P_MIPS_PC32 in
-> vgettimeofday.o.
-> 
-> $ llvm-objdump -Dr arch/mips/vdso/vgettimeofday.o | grep R_MIPS_PC32
-> 			00000024:  R_MIPS_PC32	_start
-> 			000000b0:  R_MIPS_PC32	_start
-> 			000002bc:  R_MIPS_PC32	_start
-> 			0000036c:  R_MIPS_PC32	_start
-> 			00000468:  R_MIPS_PC32	_start
-> 
-> Link: https://github.com/ClangBuiltLinux/linux/issues/785
-> Link: https://github.com/llvm/llvm-project/commit/e364e2e9ce50c12eb2bf093560e1a1a8544d455a
-> Reported-by: Dmitry Golovin <dima@golovin.in>
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> ---
->  arch/mips/vdso/Makefile | 8 +++++---
->  1 file changed, 5 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/mips/vdso/Makefile b/arch/mips/vdso/Makefile
-> index d7fe8408603e..f99e583d14a1 100644
-> --- a/arch/mips/vdso/Makefile
-> +++ b/arch/mips/vdso/Makefile
-> @@ -65,9 +65,11 @@ DISABLE_VDSO := n
->  # the comments on that file.
->  #
->  ifndef CONFIG_CPU_MIPSR6
-> -  ifeq ($(call ld-ifversion, -lt, 225000000, y),y)
-> -    $(warning MIPS VDSO requires binutils >= 2.25)
-> -    DISABLE_VDSO := y
-> +  ifndef CONFIG_LD_IS_LLD
-> +    ifeq ($(call ld-ifversion, -lt, 225000000, y),y)
-> +      $(warning MIPS VDSO requires binutils >= 2.25)
-> +      DISABLE_VDSO := y
-> +    endif
->    endif
->  endif
->  
-> -- 
-> 2.26.1
-> 
+On Mon, Apr 20, 2020 at 3:17 AM Nathan Chancellor
+<natechancellor@gmail.com> wrote:
+>
+> On Sun, Apr 19, 2020 at 11:04:45AM -0700, Nathan Chancellor wrote:
+> > Currently, when linking with ld.lld, this warning pops up:
+> >
+> >     arch/mips/vdso/Makefile:70: MIPS VDSO requires binutils >= 2.25
+> >
+> > ld-ifversion calls ld-version, which calls scripts/ld-version.sh, which
+> > is specific to GNU ld. ld.lld has a completely different versioning
+> > scheme (as it follows LLVM's versioning) and it does not have the issue
+> > mentioned in the comment above this block so it should not be subjected
+> > to this check.
+> >
+> > With this patch, the VDSO successfully links and shows P_MIPS_PC32 in
+> > vgettimeofday.o.
+> >
+> > $ llvm-objdump -Dr arch/mips/vdso/vgettimeofday.o | grep R_MIPS_PC32
+> >                       00000024:  R_MIPS_PC32  _start
+> >                       000000b0:  R_MIPS_PC32  _start
+> >                       000002bc:  R_MIPS_PC32  _start
+> >                       0000036c:  R_MIPS_PC32  _start
+> >                       00000468:  R_MIPS_PC32  _start
+> >
+> > Link: https://github.com/ClangBuiltLinux/linux/issues/785
+> > Link: https://github.com/llvm/llvm-project/commit/e364e2e9ce50c12eb2bf093560e1a1a8544d455a
+> > Reported-by: Dmitry Golovin <dima@golovin.in>
+> > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> > ---
+> >  arch/mips/vdso/Makefile | 8 +++++---
+> >  1 file changed, 5 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/arch/mips/vdso/Makefile b/arch/mips/vdso/Makefile
+> > index d7fe8408603e..f99e583d14a1 100644
+> > --- a/arch/mips/vdso/Makefile
+> > +++ b/arch/mips/vdso/Makefile
+> > @@ -65,9 +65,11 @@ DISABLE_VDSO := n
+> >  # the comments on that file.
+> >  #
+> >  ifndef CONFIG_CPU_MIPSR6
+> > -  ifeq ($(call ld-ifversion, -lt, 225000000, y),y)
+> > -    $(warning MIPS VDSO requires binutils >= 2.25)
+> > -    DISABLE_VDSO := y
+> > +  ifndef CONFIG_LD_IS_LLD
+> > +    ifeq ($(call ld-ifversion, -lt, 225000000, y),y)
+> > +      $(warning MIPS VDSO requires binutils >= 2.25)
+> > +      DISABLE_VDSO := y
+> > +    endif
+> >    endif
+> >  endif
+> >
+> > --
+> > 2.26.1
+> >
+>
+> Hmmm, I still see this warning when first runing make <config>... I
+> assume because this Makefile gets parsed before Kconfig runs.
 
-Hmmm, I still see this warning when first runing make <config>... I
-assume because this Makefile gets parsed before Kconfig runs.
 
-Perhaps it would be better to check if ld-version is 0 (since that means
-we are not using GNU ld):
+I do not see the warning for 'make <config>'.
 
-ifneq ($(call ld-ifversion, -eq, 0, y),y)
+Could you tell me how to reproduce it?
 
-I am open to suggestions though.
 
-Cheers,
-Nathan
+For cleaning, indeed, i see the warning.
+
+
+$ make ARCH=mips  LLVM=1 clean
+arch/mips/vdso/Makefile:70: MIPS VDSO requires binutils >= 2.25
+
+
+
+
+
+
+
+
+>
+> Perhaps it would be better to check if ld-version is 0 (since that means
+> we are not using GNU ld):
+>
+> ifneq ($(call ld-ifversion, -eq, 0, y),y)
+>
+> I am open to suggestions though.
+>
+> Cheers,
+> Nathan
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200419181715.GA36234%40ubuntu-s3-xlarge-x86.
+
+
+
+-- 
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200419181715.GA36234%40ubuntu-s3-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAS7QHB3GuBeLDh66OHbYRMzmNQNwiueU7jH1i7v0UTAAQ%40mail.gmail.com.
