@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDAZZCVNSYPBBMFS672AKGQEAYKCVPA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDAZZCVNSYPBBPNS672AKGQE65HXVQY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x837.google.com (mail-qt1-x837.google.com [IPv6:2607:f8b0:4864:20::837])
-	by mail.lfdr.de (Postfix) with ESMTPS id DF4DF1B12BE
-	for <lists+clang-built-linux@lfdr.de>; Mon, 20 Apr 2020 19:17:37 +0200 (CEST)
-Received: by mail-qt1-x837.google.com with SMTP id l26sf11688283qtc.12
-        for <lists+clang-built-linux@lfdr.de>; Mon, 20 Apr 2020 10:17:37 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1587403057; cv=pass;
+Received: from mail-pj1-x103b.google.com (mail-pj1-x103b.google.com [IPv6:2607:f8b0:4864:20::103b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1D2161B12C0
+	for <lists+clang-built-linux@lfdr.de>; Mon, 20 Apr 2020 19:17:51 +0200 (CEST)
+Received: by mail-pj1-x103b.google.com with SMTP id v71sf318808pjb.6
+        for <lists+clang-built-linux@lfdr.de>; Mon, 20 Apr 2020 10:17:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1587403069; cv=pass;
         d=google.com; s=arc-20160816;
-        b=moke2vCRf6rilGeMjqg+FK2kPLh7iGfDEQ9E25hPpBRvuExl+AWUbi+Ay8zgbDJ8MB
-         RfEAOij0TRa5B258I3pDcRuV4Kfu58GPih/Dg0XHsQ2D0HhGEpzAdECQ2NIXiHDD+6WQ
-         +2o4IKoX2aIArnFhtfW2ah3gcuMH7NlxA5ikrnhrgsBcfFwUjZz3jHnSMW9RjwC/F7Br
-         cq4B90fi8IRjsLtO6RgmZc37cCXhqEWbdVd5GDdkrESks+C9AB1H8UeAizI625yxEl28
-         iBOJXgYvyFg5Y7huAxiKnpwn26gMsGL26bimPuTHwQavjMQTE2/T+rVDCbFhCTsut1SM
-         cOgg==
+        b=ihvFp9IjLyi5vKw8a+ijsQ28XHnEud+ZUKeqL4QQQC+q9iEWCG5qJ9V24WnoDX+nPy
+         unmaGw7XOWjnyqPFHH8Kq/p5T+wlrgZO19ouZmFLTtKc34ogdOpKauTV7lkE0GI9mESH
+         /IBMipSTuO8d5jR6eMr4rYkln9EvSfK+EIxT06IaAYQgXGHYOKxi+bm7EUq6f6IDx9V3
+         nn5LwpiCuOpqW4H4kOPkDm8hQjMlIlOOYu8EZPWstem5UgdMjWvjQvuynxMxj73SC5Wn
+         x6OhHCAgG3LdgJ89z32e6K6w3bMsb87ICdzaXwWtyR5jQQp4VHWL5oXQNYIH0n8bt60O
+         7ACA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature;
-        bh=/sjBp5lP3AL4LL4HAjOFNaWQcBb6VUfUxFMo8SSRFmQ=;
-        b=J04Cn2myPjECKIDLanvNAB+Iq0ckkGrR1SM70D4yypTsl8KvE22TciOAgaHcxVlC8B
-         XhBB9p0QlIJ67QJHUMJsPa2sJIOSOLQ6NQeaHFq0qSj55CgsA8O1mo/RJ1cLlhX/iWgU
-         2spiuu315063yqn9Oxi9qTMJEzy/2QiUxguwExYiwiZSg42IC3VAcDtlz2Yb0tJSX4BS
-         K8Fg+buwGHUrX8Y/QqBUxr7okjQmQvjgZ8z+gZTeVo4euGPIHLE1WX8i2w3FHUqOnPts
-         saY/LwsOCT8UL2QzM0ESibUf0+z86gl15LkO9JeWvdCVTLoHMDyWm2+tPmj+NdX52jAS
-         5xCA==
+        bh=kJ04m84wCvh7I9jTHNUAQY6F31dj4m67Yuf6koxKHfg=;
+        b=huL7Spc4vhmzuJHg+HfNqhvDzlhsGNwVGQJaskM7+sGS8UWN8qGZ9/2dVTRCVrFuw5
+         DBgcwEMxcwGoAk9aExHTf0Z8jV85q+c8Epp2s4rOCP+z3SzubgvTwsTb4aicLonRgrem
+         04s8CP2zC8HNvAwUoveco/kcJhFmDV70DMPKvhve6A4HqoPq4YW7C4dJ8m+3JoGLgpgX
+         ziWXzYgpBfCLjvTKbEcc3AnnV50NCDdtUNYz0862WQrpM6Upjo+h8qEPb2wv3slgYwoJ
+         rl2UhMcrBiB/mco8xxxtZd99EJo87eU7lCcMAfp2xToyUr1vsWFUtAT2F0X+oOs/5Dui
+         +HDg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=TvIor7yF;
+       dkim=pass header.i=@kernel.org header.s=default header.b="ph/dGiaW";
        spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=/sjBp5lP3AL4LL4HAjOFNaWQcBb6VUfUxFMo8SSRFmQ=;
-        b=ogwZy7D0un8NoYrS/be23pBPK+Cnmbpr3TFbM/cc6I5ea9WR1YvE9l7kGyw8nDKI/0
-         DJSd0uJao6H5Gk6jplsyw5PB9Ya1OwBhu+VzKSkMmOor+G1xjR6zu508y6yg7KH44v0/
-         gB4lHM4bzfnSVFKCN/Ct3IVODUZUVDy6IrgcXi4iTB13fi4EUsMVxzPdWQ5QoOok5EIe
-         DT+hIn3KogKydACE1DpgGzwD2ljJL3BcJuLIRAkimdOTgIW0/5wX7pbVPtmaAVdGOm/u
-         ZiYDjetHx+VxbB5fNJwGQZwXvTvY4I0u3zM5OxJTqyLhOtJfMlIPyGCduJKTqi0Z7LAF
-         /Lmg==
+        bh=kJ04m84wCvh7I9jTHNUAQY6F31dj4m67Yuf6koxKHfg=;
+        b=hWB4u2Elp5T5RtiYTLhwOTTlFUkVS8A8Lwe4VP6MkRiAZB8qdXbAOoOgh9RYAG1s7k
+         aMDoseLJrNg0T74stn/kZCS4UHCwMkoku/uNekfnTkAZDRNFptICU6Jt5eEqtAOmiJow
+         YgZGYMnpi66JoTDMzk3vAa3WLA76JKn6eqeoEfS4vgS6G3W/wMwvKDVLar0eisfq5iZw
+         fvJawG0aPFJCWmgaAN2hRyAV7bwSF4dg6KfGTktdofV4uSYx2i3l3IfTU8ifez90b9nK
+         m7JenFJzW+h+WiBcUJIuiHcZ091pp8kefnuKH6kHfOTQ+Q+SX4jjLx7lLxW0lUQ+SjJR
+         MW/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,58 +50,58 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=/sjBp5lP3AL4LL4HAjOFNaWQcBb6VUfUxFMo8SSRFmQ=;
-        b=l+6tAXeVsDyuc4tYX6fNWLtjLXzAXsy6VeXYxeyy0uSgnOG9LRSeQD+2j+NlrqZcKi
-         34BL2ECGda+PlkTRRbGjsauc2hOLJj/MAzbjojqm/ypzpcfVCn5vKI8svvLz4lXtj4PV
-         1BN37ogIyZfipNNm+Tfe40I8CFW14ZS09F6MDEE7sKcSqcdkky3acM4uIOrXIbJCbt4s
-         zUtl6b1wN0BOBUTcg5nRmoQdpOShd6yeZsmFuaS1TJjrywaZKLNj4R0gcDMeP7EsDxrg
-         UpmhGnvIb9Zhpt+rjw+LpcQWYMGzdpoTWJbN+/fRCFiCrJlezu0zBv+tK5dPpmJbQ8N3
-         pXDg==
+        bh=kJ04m84wCvh7I9jTHNUAQY6F31dj4m67Yuf6koxKHfg=;
+        b=noS6txM9K7ApybHYWmI3nBxl2IPx4DSKdOyj9cEvzhRM+CjMFOGToXQpkJrRfjZ4C2
+         vII2Ah6zSUhfX6rVJK2LiNdJWZT/t5ycW28fOJLhr3Kh8eAMX6KOMcrPwm33UFf9phTo
+         77A3RnCT3rSGrUbM5dqU2iaBP70EEkYuKwJfDf7KN4jCDBRUxG77kKdU64uBz483+8HP
+         jL2zdZmnt+1gAq3AEVC79xljza8oYMpc2/3egdGGR5bIpDeVSfxs+nfq1QjzVokooaWq
+         Wz+XTeEWwGRfOIKgdGMKSotdi/9mb7Adzea6cx1P5HxGp/uHQWte6ty2XqwMQVirQlnR
+         uDdg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0Pub6aXIfvYlPUp2DZhdvz6vd0lDAfrFZwuR1Esz1peAfo4n7pveV
-	pbWe0zMvbNg3d9EK9FGata4=
-X-Google-Smtp-Source: APiQypJzTkeXPcGtqO9GtZmXG6hgxHtYUBiOU74E9ftdyOgF0Mz1WXesSSsghYOuGs9BD+po5Uhv4A==
-X-Received: by 2002:ac8:65d4:: with SMTP id t20mr17133999qto.358.1587403056685;
-        Mon, 20 Apr 2020 10:17:36 -0700 (PDT)
+X-Gm-Message-State: AGi0Pubmt9B4k/BVCjmj6+rFRdTY44CdpamMIBPieDwl/5MVZlJPQ70A
+	ZPsoAzEDEFHm9/T1pBFfFgY=
+X-Google-Smtp-Source: APiQypKb2SkJRAamvco1bSt8UPaUVHtH4cPEfKBGIai0sHFEwqrhLfmg6WNvIXNqlJY4MC9sy2FpkQ==
+X-Received: by 2002:a17:90a:2149:: with SMTP id a67mr467608pje.43.1587403069613;
+        Mon, 20 Apr 2020 10:17:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:9e17:: with SMTP id h23ls7313716qke.7.gmail; Mon, 20 Apr
- 2020 10:17:36 -0700 (PDT)
-X-Received: by 2002:a37:9b0a:: with SMTP id d10mr17712067qke.50.1587403056177;
-        Mon, 20 Apr 2020 10:17:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1587403056; cv=none;
+Received: by 2002:a63:ed0f:: with SMTP id d15ls3371795pgi.11.gmail; Mon, 20
+ Apr 2020 10:17:49 -0700 (PDT)
+X-Received: by 2002:aa7:914f:: with SMTP id 15mr2780362pfi.176.1587403069248;
+        Mon, 20 Apr 2020 10:17:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1587403069; cv=none;
         d=google.com; s=arc-20160816;
-        b=TOLX4EtEaQehpMNUq1UHYlehUbgIAvbMot/D+cfbCGx5y0AAWjr4MPde5a8FPY4DlW
-         8lsHTfddwPBfe9MVqKIcjwTYeGEGzpHZ4VBLxtZkoBuVTwLtFsoLMMK67TdMQvsJ8xD/
-         u8mPRWvom7QPMoNk7F5d8w/kUu7sd4cwUCI2t5Cs6W4zL9GLs+SCCHyEOn7/Suwmg2IG
-         msMXNnPJbb9fkdxaB0OSzOTI4x3SgsCpqaMb/xokDnMOMs7YPI8Hw6aBYwWFMMHVSSR/
-         mipWK5Sq6EZgFdZy196g9r9XjJPGbW8DDebMAP5HedQspVlDzqGdXDXm35gUEbM+281O
-         6SSw==
+        b=L+9jrhexNb2D+DnDw5r0I326RSqH/KIl/F9RNFF61hG6JinHHQzuyuEJuWdm3XWW2s
+         cpm7AyvIs4G+/ZJuUbbkB9Pnd5l3wUrtpeLSlrb0OnmjPySzWS9D8FxjlzNbol8iM7zV
+         S2XNKPrEBfAgem+71Ie4N3IrE8eOrC8RqaB/7FFSDTjI5DvVtcIZjbcj5Xnhd6NIViSp
+         fiIhpXtAg4hwZ/6zZsUdDrhUQw7xHAlrmrHodm7JOj5ZEejRYVu5zg11oUHldmneYjHz
+         STEuKofTCEDFC+L8ukCJxW2CeXXx6Dqlqnp2QymkI8LgpPV5RDmoHym35jG6XqwoIE0Q
+         WSEQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=H73L0Pxx/42SBzZiEhfc4EuwF9bJoRs+7htcLwSBqEQ=;
-        b=Ztk/MMP40rE6QRfA0XHfduQaJEkdbWYg2VRP9MwtJSQHzMLQcigobm0jHt868EPO0A
-         XAQyaxZLZSnlJbp1qLdx4WHvJgSv/k7uxfLJfXmw5MLmv+4CamT/sj6g7oQTe2ylczQb
-         lWK4j9B6KHRnu5rf87Wkj/swjmhcZMT5wqbZP5galKdgMAZ67QT5FxajOipp2CF8yhSW
-         Ri+S3iaPEU43h2/SE1nNS+gumO9cmpNE+yuAKd0TsEIIFVNT3Fe2OfaS+F3/OyNxQBA9
-         cYb6vWbWIVfj/ieX6ThHhJ9B5+y9xMESRxvjc4ftHNldxl9aQZpS50mQ4LIhb8TCu4AZ
-         kOSA==
+        bh=cuyCqB1QL/DqXE3y4YRbg9GmdosW91O4udEkM2zOpV8=;
+        b=RUWyUgWZ7JhlO3hYwxy6o0uEdF/scSWg/FFJ7TMCzgpwPFuAU6EUjI5WKMOaGEmsnz
+         ZWFMXDv89kWET8ZXn40PnQL3QdQ5HC2t/dxj6YIZVKhgqYAlgaCuh05q/04u1wFcqBpf
+         /wbhRGosB8IctVGEfNvw/y/9Now0Q5TKy/iszwOP9xXGDGR6VXqQlnG1Ec03RPeqO0NX
+         JbNGhA5XhwpTWe453rIIYFyLHOhbw59eC34IbTVqI7NqFCYMbin4GbyrErRwrPcKt0hH
+         /zx5rDDO7se7wwf2yEfmvB6INKTKo8q1JuJff7NBTjvKHHJqOAHya2zZ9uFMub79GnYI
+         n5dA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=TvIor7yF;
+       dkim=pass header.i=@kernel.org header.s=default header.b="ph/dGiaW";
        spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id r205si3383qke.3.2020.04.20.10.17.36
+        by gmr-mx.google.com with ESMTPS id z1si123plo.3.2020.04.20.10.17.49
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 20 Apr 2020 10:17:36 -0700 (PDT)
+        Mon, 20 Apr 2020 10:17:49 -0700 (PDT)
 Received-SPF: pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from willie-the-truck (236.31.169.217.in-addr.arpa [217.169.31.236])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 53A5E208E4;
-	Mon, 20 Apr 2020 17:17:31 +0000 (UTC)
-Date: Mon, 20 Apr 2020 18:17:28 +0100
+	by mail.kernel.org (Postfix) with ESMTPSA id 54EF720B1F;
+	Mon, 20 Apr 2020 17:17:45 +0000 (UTC)
+Date: Mon, 20 Apr 2020 18:17:42 +0100
 From: Will Deacon <will@kernel.org>
 To: Sami Tolvanen <samitolvanen@google.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
@@ -125,19 +125,19 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	clang-built-linux@googlegroups.com,
 	kernel-hardening@lists.openwall.com,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v11 01/12] add support for Clang's Shadow Call Stack (SCS)
-Message-ID: <20200420171727.GB24386@willie-the-truck>
+Subject: Re: [PATCH v11 03/12] scs: add support for stack usage debugging
+Message-ID: <20200420171741.GC24386@willie-the-truck>
 References: <20191018161033.261971-1-samitolvanen@google.com>
  <20200416161245.148813-1-samitolvanen@google.com>
- <20200416161245.148813-2-samitolvanen@google.com>
+ <20200416161245.148813-4-samitolvanen@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200416161245.148813-2-samitolvanen@google.com>
+In-Reply-To: <20200416161245.148813-4-samitolvanen@google.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: will@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=TvIor7yF;       spf=pass
+ header.i=@kernel.org header.s=default header.b="ph/dGiaW";       spf=pass
  (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=will@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -153,421 +153,69 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Sami,
-
-Comments inline.
-
-On Thu, Apr 16, 2020 at 09:12:34AM -0700, Sami Tolvanen wrote:
-> This change adds generic support for Clang's Shadow Call Stack,
-> which uses a shadow stack to protect return addresses from being
-> overwritten by an attacker. Details are available here:
-> 
->   https://clang.llvm.org/docs/ShadowCallStack.html
-> 
-> Note that security guarantees in the kernel differ from the
-> ones documented for user space. The kernel must store addresses
-> of shadow stacks used by other tasks and interrupt handlers in
-> memory, which means an attacker capable reading and writing
-> arbitrary memory may be able to locate them and hijack control
-> flow by modifying shadow stacks that are not currently in use.
+On Thu, Apr 16, 2020 at 09:12:36AM -0700, Sami Tolvanen wrote:
+> Implements CONFIG_DEBUG_STACK_USAGE for shadow stacks. When enabled,
+> also prints out the highest shadow stack usage per process.
 > 
 > Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
 > Reviewed-by: Kees Cook <keescook@chromium.org>
-> Reviewed-by: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
 > ---
->  Makefile                       |   6 ++
->  arch/Kconfig                   |  34 ++++++
->  include/linux/compiler-clang.h |   6 ++
->  include/linux/compiler_types.h |   4 +
->  include/linux/scs.h            |  57 ++++++++++
->  init/init_task.c               |   8 ++
->  kernel/Makefile                |   1 +
->  kernel/fork.c                  |   9 ++
->  kernel/sched/core.c            |   2 +
->  kernel/scs.c                   | 187 +++++++++++++++++++++++++++++++++
->  10 files changed, 314 insertions(+)
->  create mode 100644 include/linux/scs.h
->  create mode 100644 kernel/scs.c
+>  kernel/scs.c | 39 +++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 39 insertions(+)
 > 
-> diff --git a/Makefile b/Makefile
-> index 70def4907036..baea6024b409 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -866,6 +866,12 @@ ifdef CONFIG_LIVEPATCH
->  KBUILD_CFLAGS += $(call cc-option, -flive-patching=inline-clone)
->  endif
->  
-> +ifdef CONFIG_SHADOW_CALL_STACK
-> +CC_FLAGS_SCS	:= -fsanitize=shadow-call-stack
-> +KBUILD_CFLAGS	+= $(CC_FLAGS_SCS)
-> +export CC_FLAGS_SCS
-> +endif
-
-CFLAGS_SCS would seem more natural to me, although I see ftrace does it this
-way.
-
->  # arch Makefile may override CC so keep this after arch Makefile is included
->  NOSTDINC_FLAGS += -nostdinc -isystem $(shell $(CC) -print-file-name=include)
->  
-> diff --git a/arch/Kconfig b/arch/Kconfig
-> index 786a85d4ad40..691a552c2cc3 100644
-> --- a/arch/Kconfig
-> +++ b/arch/Kconfig
-> @@ -533,6 +533,40 @@ config STACKPROTECTOR_STRONG
->  	  about 20% of all kernel functions, which increases the kernel code
->  	  size by about 2%.
->  
-> +config ARCH_SUPPORTS_SHADOW_CALL_STACK
-> +	bool
-> +	help
-> +	  An architecture should select this if it supports Clang's Shadow
-> +	  Call Stack, has asm/scs.h, and implements runtime support for shadow
-> +	  stack switching.
-> +
-> +config SHADOW_CALL_STACK
-> +	bool "Clang Shadow Call Stack"
-> +	depends on ARCH_SUPPORTS_SHADOW_CALL_STACK
-> +	help
-> +	  This option enables Clang's Shadow Call Stack, which uses a
-> +	  shadow stack to protect function return addresses from being
-> +	  overwritten by an attacker. More information can be found in
-> +	  Clang's documentation:
-> +
-> +	    https://clang.llvm.org/docs/ShadowCallStack.html
-> +
-> +	  Note that security guarantees in the kernel differ from the ones
-> +	  documented for user space. The kernel must store addresses of shadow
-> +	  stacks used by other tasks and interrupt handlers in memory, which
-> +	  means an attacker capable of reading and writing arbitrary memory
-> +	  may be able to locate them and hijack control flow by modifying
-> +	  shadow stacks that are not currently in use.
-
-Shouldn't some of this depend on CC_IS_CLANG?
-
-> +config SHADOW_CALL_STACK_VMAP
-> +	bool "Use virtually mapped shadow call stacks"
-> +	depends on SHADOW_CALL_STACK
-> +	help
-> +	  Use virtually mapped shadow call stacks. Selecting this option
-> +	  provides better stack exhaustion protection, but increases per-thread
-> +	  memory consumption as a full page is allocated for each shadow stack.
-
-Given that this feature applies only to arm64 kernels built with clang, it
-feels weird to further segment that userbase with another config option.
-Does Android enable SHADOW_CALL_STACK_VMAP? If not, maybe we should ditch
-it for now and add it when we have a user.
-
-> diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
-> index e970f97a7fcb..97b62f47a80d 100644
-> --- a/include/linux/compiler_types.h
-> +++ b/include/linux/compiler_types.h
-> @@ -193,6 +193,10 @@ struct ftrace_likely_data {
->  # define randomized_struct_fields_end
->  #endif
->  
-> +#ifndef __noscs
-> +# define __noscs
-> +#endif
-> +
->  #ifndef asm_volatile_goto
->  #define asm_volatile_goto(x...) asm goto(x)
->  #endif
-> diff --git a/include/linux/scs.h b/include/linux/scs.h
-> new file mode 100644
-> index 000000000000..c5572fd770b0
-> --- /dev/null
-> +++ b/include/linux/scs.h
-> @@ -0,0 +1,57 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Shadow Call Stack support.
-> + *
-> + * Copyright (C) 2019 Google LLC
-> + */
-> +
-> +#ifndef _LINUX_SCS_H
-> +#define _LINUX_SCS_H
-> +
-> +#include <linux/gfp.h>
-> +#include <linux/sched.h>
-> +#include <asm/page.h>
-> +
-> +#ifdef CONFIG_SHADOW_CALL_STACK
-> +
-> +/*
-> + * In testing, 1 KiB shadow stack size (i.e. 128 stack frames on a 64-bit
-> + * architecture) provided ~40% safety margin on stack usage while keeping
-> + * memory allocation overhead reasonable.
-> + */
-> +#define SCS_SIZE	1024UL
-> +#define GFP_SCS		(GFP_KERNEL | __GFP_ZERO)
-> +
-> +/*
-> + * A random number outside the kernel's virtual address space to mark the
-> + * end of the shadow stack.
-> + */
-> +#define SCS_END_MAGIC	0xaf0194819b1635f6UL
-
-This seems like it might be arm64-specific. Why not choose something based
-off CONFIG_ILLEGAL_POINTER_VALUE (see linux/poison.h)?
-
-> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-> index 3a61a3b8eaa9..c99620c1ec20 100644
-> --- a/kernel/sched/core.c
-> +++ b/kernel/sched/core.c
-> @@ -11,6 +11,7 @@
->  #include <linux/nospec.h>
->  
->  #include <linux/kcov.h>
-> +#include <linux/scs.h>
->  
->  #include <asm/switch_to.h>
->  #include <asm/tlb.h>
-> @@ -6045,6 +6046,7 @@ void init_idle(struct task_struct *idle, int cpu)
->  	idle->se.exec_start = sched_clock();
->  	idle->flags |= PF_IDLE;
->  
-> +	scs_task_reset(idle);
->  	kasan_unpoison_task_stack(idle);
->  
->  #ifdef CONFIG_SMP
 > diff --git a/kernel/scs.c b/kernel/scs.c
-> new file mode 100644
-> index 000000000000..28abed21950c
-> --- /dev/null
+> index 5245e992c692..ad74d13f2c0f 100644
+> --- a/kernel/scs.c
 > +++ b/kernel/scs.c
-> @@ -0,0 +1,187 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Shadow Call Stack support.
-> + *
-> + * Copyright (C) 2019 Google LLC
-> + */
-> +
-> +#include <linux/cpuhotplug.h>
-> +#include <linux/kasan.h>
-> +#include <linux/mm.h>
-> +#include <linux/mmzone.h>
-> +#include <linux/scs.h>
-> +#include <linux/slab.h>
-> +#include <linux/vmalloc.h>
-> +#include <asm/scs.h>
-> +
-> +static inline void *__scs_base(struct task_struct *tsk)
-
-Please avoid using 'inline' in C files unless there's a good reason not
-to let the compiler figure it out.
-
+> @@ -184,6 +184,44 @@ int scs_prepare(struct task_struct *tsk, int node)
+>  	return 0;
+>  }
+>  
+> +#ifdef CONFIG_DEBUG_STACK_USAGE
+> +static inline unsigned long scs_used(struct task_struct *tsk)
 > +{
-> +	/*
-> +	 * To minimize risk the of exposure, architectures may clear a
+> +	unsigned long *p = __scs_base(tsk);
+> +	unsigned long *end = scs_magic(p);
+> +	unsigned long s = (unsigned long)p;
+> +
+> +	while (p < end && READ_ONCE_NOCHECK(*p))
+> +		p++;
 
-Should be "the risk of exposure".
+I think the expectation is that the caller has already checked that the
+stack is not corrupted, so I'd probably throw a couple of underscores
+in front of the function name, along with a comment.
 
-> +	 * task's thread_info::shadow_call_stack while that task is
-> +	 * running, and only save/restore the active shadow call stack
-> +	 * pointer when the usual register may be clobbered (e.g. across
-> +	 * context switches).
-> +	 *
-> +	 * The shadow call stack is aligned to SCS_SIZE, and grows
-> +	 * upwards, so we can mask out the low bits to extract the base
-> +	 * when the task is not running.
-> +	 */
-> +	return (void *)((unsigned long)task_scs(tsk) & ~(SCS_SIZE - 1));
+Also, is tsk ever != current?
 
-Could we avoid forcing this alignment it we stored the SCS pointer as a
-(base,offset) pair instead? That might be friendlier on the allocations
-later on.
-
+> +
+> +	return (unsigned long)p - s;
 > +}
 > +
-> +static inline unsigned long *scs_magic(void *s)
+> +static void scs_check_usage(struct task_struct *tsk)
 > +{
-> +	return (unsigned long *)(s + SCS_SIZE) - 1;
-> +}
+> +	static DEFINE_SPINLOCK(lock);
+> +	static unsigned long highest;
+> +	unsigned long used = scs_used(tsk);
 > +
-> +static inline void scs_set_magic(void *s)
-> +{
-> +	*scs_magic(s) = SCS_END_MAGIC;
-
-You added task_set_scs() for this sort of thing, so I'm not convinced you
-need this extra helper.
-
-> +}
-> +
-> +#ifdef CONFIG_SHADOW_CALL_STACK_VMAP
-> +
-> +/* Matches NR_CACHED_STACKS for VMAP_STACK */
-> +#define NR_CACHED_SCS 2
-
-Then they should probably both be derived from the same thing?
-
-> +static DEFINE_PER_CPU(void *, scs_cache[NR_CACHED_SCS]);
-> +
-> +static void *scs_alloc(int node)
-> +{
-> +	int i;
-> +	void *s;
-> +
-> +	for (i = 0; i < NR_CACHED_SCS; i++) {
-> +		s = this_cpu_xchg(scs_cache[i], NULL);
-
-Might be worth a comment about the re-entrancy here.
-
-> +		if (s) {
-> +			memset(s, 0, SCS_SIZE);
-> +			goto out;
-> +		}
-> +	}
-> +
-> +	/*
-> +	 * We allocate a full page for the shadow stack, which should be
-> +	 * more than we need. Check the assumption nevertheless.
-> +	 */
-> +	BUILD_BUG_ON(SCS_SIZE > PAGE_SIZE);
-> +
-> +	s = __vmalloc_node_range(PAGE_SIZE, SCS_SIZE,
-> +				 VMALLOC_START, VMALLOC_END,
-> +				 GFP_SCS, PAGE_KERNEL, 0,
-> +				 node, __builtin_return_address(0));
-> +
-> +out:
-> +	if (s)
-> +		scs_set_magic(s);
-> +	/* TODO: poison for KASAN, unpoison in scs_free */
-
-We don't usually commit these. What's missing?
-
-> +
-> +	return s;
-> +}
-> +
-> +static void scs_free(void *s)
-> +{
-> +	int i;
-> +
-> +	for (i = 0; i < NR_CACHED_SCS; i++)
-> +		if (this_cpu_cmpxchg(scs_cache[i], 0, s) == NULL)
-> +			return;
-> +
-> +	vfree_atomic(s);
-> +}
-> +
-> +static int scs_cleanup(unsigned int cpu)
-> +{
-> +	int i;
-> +	void **cache = per_cpu_ptr(scs_cache, cpu);
-> +
-> +	for (i = 0; i < NR_CACHED_SCS; i++) {
-> +		vfree(cache[i]);
-> +		cache[i] = NULL;
-> +	}
-
-Hmm, can this run concurrently with another CPU doing a stack allocation
-with this_cpu_cmpxchg()? It probably works out on arm64 thanks to the use
-of atomics, but we shouldn't be relying on that in core code.
-
-> +
-> +	return 0;
-> +}
-> +
-> +void __init scs_init(void)
-> +{
-> +	WARN_ON(cpuhp_setup_state(CPUHP_BP_PREPARE_DYN, "scs:scs_cache", NULL,
-> +			scs_cleanup) < 0);
-> +}
-> +
-> +#else /* !CONFIG_SHADOW_CALL_STACK_VMAP */
-> +
-> +static struct kmem_cache *scs_cache;
-> +
-> +static inline void *scs_alloc(int node)
-> +{
-> +	void *s;
-> +
-> +	s = kmem_cache_alloc_node(scs_cache, GFP_SCS, node);
-> +	if (s) {
-> +		scs_set_magic(s);
-> +		/*
-> +		 * Poison the allocation to catch unintentional accesses to
-> +		 * the shadow stack when KASAN is enabled.
-> +		 */
-> +		kasan_poison_object_data(scs_cache, s);
-> +	}
-> +
-> +	return s;
-> +}
-> +
-> +static inline void scs_free(void *s)
-> +{
-> +	kasan_unpoison_object_data(scs_cache, s);
-> +	kmem_cache_free(scs_cache, s);
-> +}
-> +
-> +void __init scs_init(void)
-> +{
-> +	scs_cache = kmem_cache_create("scs_cache", SCS_SIZE, SCS_SIZE,
-> +				0, NULL);
-> +	WARN_ON(!scs_cache);
-
-Memory allocation failure should be noisy enough without this.
-
-> +}
-> +
-> +#endif /* CONFIG_SHADOW_CALL_STACK_VMAP */
-> +
-> +void scs_task_reset(struct task_struct *tsk)
-> +{
-> +	/*
-> +	 * Reset the shadow stack to the base address in case the task
-> +	 * is reused.
-> +	 */
-> +	task_set_scs(tsk, __scs_base(tsk));
-> +}
-
-Why isn't this in the header?
-
-> +
-> +int scs_prepare(struct task_struct *tsk, int node)
-> +{
-> +	void *s;
-> +
-> +	s = scs_alloc(node);
-> +	if (!s)
-> +		return -ENOMEM;
-> +
-> +	task_set_scs(tsk, s);
-> +	return 0;
-> +}
-> +
-> +bool scs_corrupted(struct task_struct *tsk)
-> +{
-> +	unsigned long *magic = scs_magic(__scs_base(tsk));
-> +
-> +	return READ_ONCE_NOCHECK(*magic) != SCS_END_MAGIC;
-> +}
-
-Same here.
-
-> +
-> +void scs_release(struct task_struct *tsk)
-> +{
-> +	void *s;
-> +
-> +	s = __scs_base(tsk);
-> +	if (!s)
+> +	if (used <= highest)
 > +		return;
 > +
-> +	WARN_ON(scs_corrupted(tsk));
+> +	spin_lock(&lock);
 > +
-> +	task_set_scs(tsk, NULL);
+> +	if (used > highest) {
+> +		pr_info("%s (%d): highest shadow stack usage: %lu bytes\n",
+> +			tsk->comm, task_pid_nr(tsk), used);
+> +		highest = used;
+> +	}
+> +
+> +	spin_unlock(&lock);
 
-Aren't we about to free the task here? What does clearing the scs pointer
-achieve?
+Do you really need this lock? I'd have thought you could cmpxchg()
+highest instead.
 
 Will
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200420171727.GB24386%40willie-the-truck.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200420171741.GC24386%40willie-the-truck.
