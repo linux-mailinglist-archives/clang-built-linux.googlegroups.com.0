@@ -1,124 +1,124 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBZM2632AKGQE6NURVCA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDVZNA4ESQGBBWOX632AKGQE477G3GI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
 Received: from mail-lf1-x138.google.com (mail-lf1-x138.google.com [IPv6:2a00:1450:4864:20::138])
-	by mail.lfdr.de (Postfix) with ESMTPS id BA8A11B0822
-	for <lists+clang-built-linux@lfdr.de>; Mon, 20 Apr 2020 13:54:13 +0200 (CEST)
-Received: by mail-lf1-x138.google.com with SMTP id y71sf4138180lff.4
-        for <lists+clang-built-linux@lfdr.de>; Mon, 20 Apr 2020 04:54:13 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1587383653; cv=pass;
+	by mail.lfdr.de (Postfix) with ESMTPS id 036DA1B0DC7
+	for <lists+clang-built-linux@lfdr.de>; Mon, 20 Apr 2020 16:04:10 +0200 (CEST)
+Received: by mail-lf1-x138.google.com with SMTP id d5sf4252565lfb.5
+        for <lists+clang-built-linux@lfdr.de>; Mon, 20 Apr 2020 07:04:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1587391449; cv=pass;
         d=google.com; s=arc-20160816;
-        b=A8fZimMpytRn0YStdw45YB5a3vUJEBDmnkKRDjY19mQ1xVa8nhDl3EpY8CmLPIUwXX
-         ZYIKLXYqv6ZNgOYlvRAjVSvCnZTXx5z775c/mVY1uYttEkjCGYban05nEJ5l0fl+Mmd5
-         IOuSzdK5WSj5Ajz3UyhCLNnruCcbTVVLOmrtut5mMnF4kUPegQAzIHffmK3RVGDO6hhq
-         wAXAousVkNAqXJ7CjovkSOW/TcENn9RqzKOlf8N/pR1UIeGvf70HXL8a3qOvl7fiCwt6
-         SRcr6gNrYciMIfrVMFg9s42vH+8OCEYw5RsbqrwLQdbCORkiflFbYT42IrcEmd+J8RX+
-         p6pg==
+        b=xr9mTCXuQv4al6N2Gzgod1c04tppeOF43KHtUoqT+abd/Iiz+cOyUaJtZUbrMW5wYE
+         dlC9GglFbYg2WV2aJEU4XDnjbEfyurnAPO5lAdpKszdiP3ObGt6xcAMs10UuxxSUiUSA
+         xKabRrzUmLhbxX3wXuz27bODymSLV8MUAe+EU6YiYf1A2JFeucO5dCRy+FDm6M1ehBRL
+         6cg4j1NISRMPCU0r3G9WMRZot3XuQgbyV1zORLPJ6ZbLPeuPimjLz8M+YZrgum8Hv+o8
+         /QGDTMulT8s5YDq9Van79GjlmXRE6gYYzGuWu2DayR9QIwYPQfc5Ynumyc6oGra3zRA2
+         3Fzg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=Om0kx1MrknAPl40bkoEQfEIcfJPrEPGfbiribzhtRRo=;
-        b=PKCtuiDahriGrGALnUOdOkbpJGd3wSBTOYHJxrEGzZRQAVaoZ554GeORa36uqVT/sH
-         HJVAwTO4S1MC6vIYvZue44XBhWE4Z2WsiU0Ik39kEMYFL8R39a/+iSDCH44cKHbc2aVe
-         iRoJ473/FtFNJR0XN4saXBmnKgwvYz3UbB5aSuJYRyPLrLNQzuu8XE3zB4eohZG15l0O
-         aubzSFG16DWk7aPPQY90WsZN8LhUZALNdxwNZdX+w2ETSTmVblN+8q8zaO5i7Kk2b1XB
-         6NE0SGh3tvzP3exNhbQPjZZMYVNv3iZE5N4oDztAB6ysPAAEcum4wW6qop0vobqT0R+P
-         C/vw==
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :message-id:in-reply-to:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=K3AbKHottxRnGhFBxUk7M5fFy3gwAVO8sdui9n5s2QU=;
+        b=ZW8xHUk0ydKaeCKA8nfYKXwdPrmPi1vNlFsPWF3EHd695JexBT3ccOxwB1bO3W2CHL
+         mY2F6xgS+G3IqYNUfc+3Z4iN7oUmTiChruoMqOWhejV4trSQNyKJKLH3rrLSDfk78ddJ
+         iFhiY1X7Y34+56PD1LpiIJ/ph5ngo+iWAjzTq1Jtdtc1hi75blfbNBtxLour/6EKb3UQ
+         hCzIOYvJ/5PktgLXwQCNAnPVBnoOeCNT5GhqGBb/SLQ7f2N0QK1snXQGBJEU6Hf94tNy
+         glcbOvd/KM8fOaUcE1ClPhwn6lk8nAETLPoPcwSexPoE6EcsZpXjX7/XrWXBopGXBa6Y
+         eHDA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=xGgvAele;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       spf=pass (google.com: domain of matz@suse.de designates 195.135.220.15 as permitted sender) smtp.mailfrom=matz@suse.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Om0kx1MrknAPl40bkoEQfEIcfJPrEPGfbiribzhtRRo=;
-        b=bIQwgObtlgu+1FF6EXj2gopY1EsdFn+kuUddLGWHkS1/JCiLkh9GxZiPlGOhRNMBhZ
-         uew0/+IpwqTPNYpF52ukZFk0oHSHlW1N2mpaJqAab2GRtdauiPJS3HIck7lIKnn9+zHk
-         zWPW+FBk1hunznEYSrITN0je0XrTHmIAoJ8Dhe9fbm3PyqOhNJQWyYziGyps+X3xUCrt
-         dIdfLbyG7Q/4XO6th3FPkqAJM4lidWlqo0AtjwMxffMJGFtxb0bpyglGvhCgAfy4I6g+
-         ohlvEptkRph4J4PUInakXz+VF6QctcBeMtc8wfnB+qhNS/hdgTXxNbON24pKIbgMoOiD
-         8L5A==
+        h=sender:date:from:to:cc:subject:in-reply-to:message-id:references
+         :user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=K3AbKHottxRnGhFBxUk7M5fFy3gwAVO8sdui9n5s2QU=;
+        b=cZIepr8FbvURkFHpxq/9TOaPb46dCMKfqQPG/nzpTn/wttpY2DS0HJ1ZrqXKR9n7Be
+         R10lvtNZVFrtlsGPE5WC6s+36KYFDshU+9nn1lF86r5udOu7t64OyPOYJuE3N5mh3IiQ
+         u4iuAWfuQwEwGfg+QTj4Rtu8mP/MB3MWbVY8xqkRDQpe26qrettTzh1127UUXhKtYZZQ
+         zEUakEAg5Z62NGw0DEDpIOUFMz8qUBGJAQMIEvWV/KlWsi2XMb45l4QbSpCz+cxKn6z8
+         oyGe16QfwjTjMIWz4t4IOy9WYogzH9K5iKbxW3rpIaHDrbZ/YVMvVtcMd0jhujI7TsqW
+         u2hg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Om0kx1MrknAPl40bkoEQfEIcfJPrEPGfbiribzhtRRo=;
-        b=f6UgduO7yx8KWfqvOaz8sdDoMOziIPzZX89T7MFM/ISrhuJwUha6wzHjLb2hV7uzyO
-         UmMNlasDH9mU9t+fN1ubGU1TggNvJSA9M9T8XAZdx0tA2wkmQqaSSLWuwx3SyqL1DJMR
-         J56x+tTU/lqy7EA3iKYVnV6izVFVE7at3LYGNUX3ThAXr+rEeJTgEoy9wzUSjawRhmWh
-         M0+RpAmkyTpG6Z9yctZqASkIAHGm8D6YhvHktbk1aMRBdZ5+Z4Ga/YdqKugGxNmCLAGW
-         iTVtXxF643MRb2c8zowlMQDVRRRO9/HzqcUOPFPyqvKB24kRV/YqRuM7jn9MwBOWJmta
-         7siw==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:in-reply-to
+         :message-id:references:user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=K3AbKHottxRnGhFBxUk7M5fFy3gwAVO8sdui9n5s2QU=;
+        b=jbMnuHJkpxDJGlWcNwchQ5eJV++Tki0Aw0hy3VX9yi4rqhhPpyvAYdyiN2qzzaqb8l
+         QlyOaFIpI5R5oCd39fUYM0bwe8GRQCNr3rkCjZWxeXMNIttfY7BBxqWtTqhy99GCjolD
+         am1nRsjn2lEXDl4/kemqzGT0iEjixL/r9fNiPrsqYUemwRE7fNWTm5jBf2E4k1f3AkT7
+         9mXFdndZ5ClCVnuiRorm0IZHgVkgGhHx0TSKJ0WZAMTbHC+EOreYw6DMFeJT7k0ftfpj
+         YrtD+5Roo+uZBOxF9pLOIknDhlCEvnuDyzk+wsvcyqYH++NSdIet7hkA+eKkS7Rsv+Ho
+         ZbVw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuboVYJdsMbQdKtR/MhJmXYwEyesBfpNtH5hxCiWSaqgLkVqWpBr
-	xUP0OvCjVVwy3WKh3jnRAMA=
-X-Google-Smtp-Source: APiQypKG1oUv0FT/bgIVBADFSXJp6JOmUAkKz6VyVyHKS1xE0BKEX0svf4MJQav6WsekVTNx3KUIUA==
-X-Received: by 2002:ac2:4304:: with SMTP id l4mr10270493lfh.87.1587383653227;
-        Mon, 20 Apr 2020 04:54:13 -0700 (PDT)
+X-Gm-Message-State: AGi0Publ7dF0a7EQdJB4swBjMwrWFrEiwNdaNqx5uwj2jLBxlk1QUoRO
+	PEZgb84Zzh9U8M+bcx4zgg4=
+X-Google-Smtp-Source: APiQypJuTdzYBwf3O5eXWfy4URxcGFwp54SJlUbT22LXnUpjIvXF++7Q5kK/IJpa5i64209iVuW3dw==
+X-Received: by 2002:a2e:571a:: with SMTP id l26mr10113405ljb.12.1587391449352;
+        Mon, 20 Apr 2020 07:04:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:651c:2002:: with SMTP id s2ls1627873ljo.3.gmail; Mon, 20
- Apr 2020 04:54:12 -0700 (PDT)
-X-Received: by 2002:a2e:9d8c:: with SMTP id c12mr4419535ljj.67.1587383652764;
-        Mon, 20 Apr 2020 04:54:12 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1587383652; cv=none;
+Received: by 2002:a05:651c:550:: with SMTP id q16ls2038826ljp.1.gmail; Mon, 20
+ Apr 2020 07:04:08 -0700 (PDT)
+X-Received: by 2002:a2e:5847:: with SMTP id x7mr2337409ljd.61.1587391448769;
+        Mon, 20 Apr 2020 07:04:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1587391448; cv=none;
         d=google.com; s=arc-20160816;
-        b=hSUgcIIKdANxvbCoZn2qRLjUD/adwYrqAUaf6WYVROvSbsJhvf83IJ6UZbd3V94zru
-         qU/Cj8cKmQA58PsdEqunGlIy+jY+8WVfPLCDe3MU393ETk2wLEEppYaKsKavBgoFBZjF
-         22ALu/p26pP35ljw5YKRD99OhyjRZRN/4ZKwrUQM2V3RlS+69iUULyApWOy4iQxVSckN
-         HWlgjnAoO1pFojmsTZnPJHjLMBmvmjblKvY+vPah0wW2dvuBacIjL2785l540bufZU0U
-         NxipLFIJBqkKK2V4U0Xg3Z458zCZdyopFKVKNg5QG2fEWxly56Sa6dJ9oznwX8E3lwiI
-         emMA==
+        b=cVV9T/G2EBqzTSUshpyozMcwwYrWytb/DyrdMTIMl+9L8R9ldXQWDWowIB6JzxuCeI
+         oeDQlUYJ0YyeGTPKcglkJgiGMZDuS/7GSusvi4dp2VcMc6jsnop4/BgnoKAL2dt7quIP
+         oiioCOXSW0b/eR/m5Vu4Nb/58iRkjOv4Wsb366GVvZd93YNgtGeKu3S9RhUh1N/piX6V
+         1Pef0PB0irSJdtIpACfWiL3vavWgw/to7IOfnxudltBKyEnoJpKwvlmQ6+Z2vI4cRFqs
+         cQRf9J3LHp6qLJnuCUQOXUbb5PjvlaMLboWoGRV/WBgytaW0c6B3GkoN/uGOTkZQrnfu
+         R8FQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=uf4ZhGPeRZUnuT+JF8XRSiPJzFL777W8l5dXcHM2akY=;
-        b=IJjxdhRFlJrC4Vakl5AsDKTsYz8y6Pt10b+b2czgYYPoUI8azUroJ/hX0r7Ci7wgYS
-         Kpt7x8Q+EXDJLXaOhvgXMlQOqYxERUzXf+RIdGrpgg1uzpFS0hk2AV6ih3unUw1NEaaN
-         eNwqOAPZQt3dwFd/aeF4QmE3uqcF/G1nehJbKIq5bIWxfPszJf52Dg3ft3BrrbpLhFC6
-         HO1ASNo4FVEngur0CAVB4UaH5sewVOCIMv/r79A43JsKIytK8a95Po3ZqZfvDQ4W574a
-         bCGHzEEhpui0E4VVwD2B9jWInMY2zU+eAViOPzS7hm7kCTxmd5EzthTlyNMsov5rtpgj
-         MCwA==
+        h=mime-version:user-agent:references:message-id:in-reply-to:subject
+         :cc:to:from:date;
+        bh=cuMa7oatx8var+QR+Rwmmp50C8J7BkkYmNVn7b8fhvM=;
+        b=p22UnVz3qIs+01WidN00j/b1Zw7ZEg2qoxNtIcN5OTSZVyq28CHCXge8uCEAEhVR/I
+         M6ZTM2gD2LHQ+r281fjX12o0eeacreiYrsUdwChQj7AFCC5oKm5X+csdQWa1TqJQrJDg
+         oVcqrZIcl8H+4/JsezGk4V/aHLE/sxqNuhdLXcqe9wAFBw6BEYSLcI8jluKTN4Y7++Ka
+         fZ8iEuPkAY5Gk6OgXUV7TMAM4gB93vLcTGq4xgyBP9z3KFvpbtTcAHJ/Vl/x2HTH91+k
+         LQlF+1lx/QtitkPXLRvJ5+9AD4XwlBsRE3qsLrDAEYunBx4USPq+L8QibP0vA/WifSPs
+         C/aA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=xGgvAele;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wr1-x444.google.com (mail-wr1-x444.google.com. [2a00:1450:4864:20::444])
-        by gmr-mx.google.com with ESMTPS id f25si69424lfc.3.2020.04.20.04.54.12
+       spf=pass (google.com: domain of matz@suse.de designates 195.135.220.15 as permitted sender) smtp.mailfrom=matz@suse.de
+Received: from mx2.suse.de (mx2.suse.de. [195.135.220.15])
+        by gmr-mx.google.com with ESMTPS id q24si130459ljg.4.2020.04.20.07.04.08
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Apr 2020 04:54:12 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::444 as permitted sender) client-ip=2a00:1450:4864:20::444;
-Received: by mail-wr1-x444.google.com with SMTP id d17so11732195wrg.11
-        for <clang-built-linux@googlegroups.com>; Mon, 20 Apr 2020 04:54:12 -0700 (PDT)
-X-Received: by 2002:a5d:5082:: with SMTP id a2mr16300576wrt.224.1587383652015;
-        Mon, 20 Apr 2020 04:54:12 -0700 (PDT)
-Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id 36sm925669wrc.35.2020.04.20.04.54.10
-        (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
-        Mon, 20 Apr 2020 04:54:11 -0700 (PDT)
-From: ci_notify@linaro.org
-Date: Mon, 20 Apr 2020 11:54:10 +0000 (UTC)
-To: tcwg-validation@linaro.org, arnd@linaro.org, 
-	clang-built-linux@googlegroups.com
-Message-ID: <977809855.18085.1587383651353.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-master-arm-next-allnoconfig - Build # 9 - Successful!
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 20 Apr 2020 07:04:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of matz@suse.de designates 195.135.220.15 as permitted sender) client-ip=195.135.220.15;
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+	by mx2.suse.de (Postfix) with ESMTP id 16C32ABD7;
+	Mon, 20 Apr 2020 14:04:07 +0000 (UTC)
+Date: Mon, 20 Apr 2020 14:04:06 +0000 (UTC)
+From: Michael Matz <matz@suse.de>
+To: Nick Desaulniers <ndesaulniers@google.com>
+cc: Jakub Jelinek <jakub@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+    Sergei Trofimovich <slyfox@gentoo.org>, 
+    LKML <linux-kernel@vger.kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+    Ingo Molnar <mingo@redhat.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+    Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+    "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, 
+    clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH v2] x86: fix early boot crash on gcc-10
+In-Reply-To: <CAKwvOdkkbWgWmNthq5KijCdtatM9PEAaCknaq8US9w4qaDuwug@mail.gmail.com>
+Message-ID: <alpine.LSU.2.21.2004201401120.11688@wotan.suse.de>
+References: <20200415074842.GA31016@zn.tnic> <alpine.LSU.2.21.2004151445520.11688@wotan.suse.de> <20200415231930.19755bc7@sf> <20200417075739.GA7322@zn.tnic> <20200417080726.GS2424@tucnak> <20200417084224.GB7322@zn.tnic> <20200417085859.GU2424@tucnak>
+ <20200417090909.GC7322@zn.tnic> <CAKwvOdnFXPBJsAUD++HtYS5JiR2KmX73M5GAUe-tvX-JYV7DaA@mail.gmail.com> <CAKwvOdmNwNwa6rMC27-QZq8VDrYdTQeQqss-bAwF1EMmnAHxdw@mail.gmail.com> <20200417190607.GY2424@tucnak>
+ <CAKwvOdkkbWgWmNthq5KijCdtatM9PEAaCknaq8US9w4qaDuwug@mail.gmail.com>
+User-Agent: Alpine 2.21 (LSU 202 2017-01-01)
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_18084_1304024539.1587383650716"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-arm-next-allnoconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=xGgvAele;       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::444
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: matz@suse.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of matz@suse.de designates 195.135.220.15 as permitted
+ sender) smtp.mailfrom=matz@suse.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,525 +131,56 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_18084_1304024539.1587383650716
-Content-Type: text/plain; charset="UTF-8"
+Hello,
 
-Successfully identified regression in *linux* in CI configuration tcwg_kernel/llvm-master-arm-next-allnoconfig.  So far, this commit has regressed CI configurations:
- - tcwg_kernel/gnu-release-arm-next-allnoconfig
- - tcwg_kernel/llvm-master-arm-next-allnoconfig
+On Fri, 17 Apr 2020, Nick Desaulniers wrote:
 
-Culprit:
-<cut>
-commit 6f461d34ba8211c36d4c27343e86e4aea8fbc683
-Author: Christoph Hellwig <hch@lst.de>
+> Ah seems we do have __attribute__((no_selector))
+> (https://reviews.llvm.org/D46300,
+> https://releases.llvm.org/7.0.0/tools/clang/docs/AttributeReference.html#no-stack-protector-clang-no-stack-protector-clang-no-stack-protector)
+> which differs from GCC attribute name.
 
-    kernel: move use_mm/unuse_mm to kthread.c
-</cut>
+As you will discover upthread that was tried with GCC and found 
+insufficient, as GCC is a bit surprising with optimize attributes: it 
+resets every -f option from the command line and applies only the ones 
+from the attributes.  Including a potential -fno-omit-frame-pointer, 
+causing all kinds of itches :)
 
-Results regressed to (for first_bad == 6f461d34ba8211c36d4c27343e86e4aea8fbc683)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-397
-# First few build errors in logs:
-# 00:00:49 mm/nommu.c:158:25: error: use of undeclared identifier 'flags'
-# 00:00:49 mm/nommu.c:164:25: error: use of undeclared identifier 'flags'
-# 00:00:49 make[1]: *** [mm/nommu.o] Error 1
-# 00:00:53 make: *** [mm] Error 2
+(The similar attribute in clang might work less surprising of course).
 
-from (for last_good == 8f8ad47e383e6e6d8e7e855d140d8214db37eed3)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-398
 
-Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allnoconfig/9/artifact/artifacts/build-8f8ad47e383e6e6d8e7e855d140d8214db37eed3/
-Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allnoconfig/9/artifact/artifacts/build-6f461d34ba8211c36d4c27343e86e4aea8fbc683/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allnoconfig/9/
+Ciao,
+Michael.
 
-Configuration details:
-rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
-rr[linux_branch]="be950c0b6fb2e9774eb35feded1c407e315ef53b"
-
-Reproduce builds:
-<cut>
-mkdir investigate-linux-6f461d34ba8211c36d4c27343e86e4aea8fbc683
-cd investigate-linux-6f461d34ba8211c36d4c27343e86e4aea8fbc683
-
-git clone https://git.linaro.org/toolchain/jenkins-scripts
-
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allnoconfig/9/artifact/artifacts/manifests/build-baseline.sh --fail
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allnoconfig/9/artifact/artifacts/manifests/build-parameters.sh --fail
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allnoconfig/9/artifact/artifacts/test.sh --fail
-chmod +x artifacts/test.sh
-
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
-
-cd linux
-
-# Reproduce first_bad build
-git checkout --detach 6f461d34ba8211c36d4c27343e86e4aea8fbc683
-../artifacts/test.sh
-
-# Reproduce last_good build
-git checkout --detach 8f8ad47e383e6e6d8e7e855d140d8214db37eed3
-../artifacts/test.sh
-
-cd ..
-</cut>
-
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-arm-next-allnoconfig
-
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allnoconfig/9/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allnoconfig/9/consoleText
-
-Full commit:
-<cut>
-commit 6f461d34ba8211c36d4c27343e86e4aea8fbc683
-Author: Christoph Hellwig <hch@lst.de>
-Date:   Sat Apr 18 16:04:01 2020 +1000
-
-    kernel: move use_mm/unuse_mm to kthread.c
-    
-    Patch series "improve use_mm / unuse_mm", v2.
-    
-    This series improves the use_mm / unuse_mm interface by better documenting
-    the assumptions, and my taking the set_fs manipulations spread over the
-    callers into the core API.
-    
-    This patch (of 3):
-    
-    Use the proper API instead.
-    
-    Link: http://lkml.kernel.org/r/20200404094101.672954-1-hch@lst.de
-    
-    These helpers are only for use with kernel threads, and I will tie them
-    more into the kthread infrastructure going forward.  Also move the
-    prototypes to kthread.h - mmu_context.h was a little weird to start with
-    as it otherwise contains very low-level MM bits.
-    
-    Link: http://lkml.kernel.org/r/20200404094101.672954-1-hch@lst.de
-    Link: http://lkml.kernel.org/r/20200416053158.586887-1-hch@lst.de
-    Link: http://lkml.kernel.org/r/20200404094101.672954-5-hch@lst.de
-    Signed-off-by: Christoph Hellwig <hch@lst.de>
-    Acked-by: Felix Kuehling <Felix.Kuehling@amd.com>
-    Reviewed-by: Jens Axboe <axboe@kernel.dk>
-    Tested-by: Jens Axboe <axboe@kernel.dk>
-    Cc: Alex Deucher <alexander.deucher@amd.com>
-    Cc: Al Viro <viro@zeniv.linux.org.uk>
-    Cc: Felipe Balbi <balbi@kernel.org>
-    Cc: Jason Wang <jasowang@redhat.com>
-    Cc: "Michael S. Tsirkin" <mst@redhat.com>
-    Cc: Zhenyu Wang <zhenyuw@linux.intel.com>
-    Cc: Zhi Wang <zhi.a.wang@intel.com>
-    Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-    Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
-    Signed-off-by: Stephen Rothwell <sfr@canb.auug.org.au>
----
- drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd.h         |  1 +
- .../gpu/drm/amd/amdgpu/amdgpu_amdkfd_arcturus.c    |  1 -
- drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v10.c |  1 -
- drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v7.c  |  2 -
- drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v8.c  |  2 -
- drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v9.c  |  2 -
- drivers/gpu/drm/i915/gvt/kvmgt.c                   |  2 +-
- drivers/usb/gadget/function/f_fs.c                 |  2 +-
- drivers/usb/gadget/legacy/inode.c                  |  2 +-
- drivers/vhost/vhost.c                              |  1 -
- fs/aio.c                                           |  1 -
- fs/io-wq.c                                         |  1 -
- fs/io_uring.c                                      |  1 -
- include/linux/kthread.h                            |  5 ++
- include/linux/mmu_context.h                        |  5 --
- kernel/kthread.c                                   | 56 +++++++++++++++++++
- mm/Makefile                                        |  2 +-
- mm/mmu_context.c                                   | 64 ----------------------
- 18 files changed, 66 insertions(+), 85 deletions(-)
-
-diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd.h b/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd.h
-index 4db143c19dcc..bce5e93fefc8 100644
---- a/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd.h
-+++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd.h
-@@ -27,6 +27,7 @@
- 
- #include <linux/types.h>
- #include <linux/mm.h>
-+#include <linux/kthread.h>
- #include <linux/workqueue.h>
- #include <kgd_kfd_interface.h>
- #include <drm/ttm/ttm_execbuf_util.h>
-diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_arcturus.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_arcturus.c
-index 6529caca88fe..35d4a5ab0228 100644
---- a/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_arcturus.c
-+++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_arcturus.c
-@@ -22,7 +22,6 @@
- #include <linux/module.h>
- #include <linux/fdtable.h>
- #include <linux/uaccess.h>
--#include <linux/mmu_context.h>
- #include <linux/firmware.h>
- #include "amdgpu.h"
- #include "amdgpu_amdkfd.h"
-diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v10.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v10.c
-index 691c89705bcd..bf927f432506 100644
---- a/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v10.c
-+++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v10.c
-@@ -19,7 +19,6 @@
-  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-  * OTHER DEALINGS IN THE SOFTWARE.
-  */
--#include <linux/mmu_context.h>
- #include "amdgpu.h"
- #include "amdgpu_amdkfd.h"
- #include "gc/gc_10_1_0_offset.h"
-diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v7.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v7.c
-index 0b7e78748540..7d01420c0c85 100644
---- a/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v7.c
-+++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v7.c
-@@ -20,8 +20,6 @@
-  * OTHER DEALINGS IN THE SOFTWARE.
-  */
- 
--#include <linux/mmu_context.h>
--
- #include "amdgpu.h"
- #include "amdgpu_amdkfd.h"
- #include "cikd.h"
-diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v8.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v8.c
-index ccd635b812b5..635cd1a26bed 100644
---- a/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v8.c
-+++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v8.c
-@@ -20,8 +20,6 @@
-  * OTHER DEALINGS IN THE SOFTWARE.
-  */
- 
--#include <linux/mmu_context.h>
--
- #include "amdgpu.h"
- #include "amdgpu_amdkfd.h"
- #include "gfx_v8_0.h"
-diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v9.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v9.c
-index df841c2ac5e7..c7fd0c47b254 100644
---- a/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v9.c
-+++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gfx_v9.c
-@@ -19,8 +19,6 @@
-  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-  * OTHER DEALINGS IN THE SOFTWARE.
-  */
--#include <linux/mmu_context.h>
--
- #include "amdgpu.h"
- #include "amdgpu_amdkfd.h"
- #include "gc/gc_9_0_offset.h"
-diff --git a/drivers/gpu/drm/i915/gvt/kvmgt.c b/drivers/gpu/drm/i915/gvt/kvmgt.c
-index eee530453aa6..ad8a9df49f29 100644
---- a/drivers/gpu/drm/i915/gvt/kvmgt.c
-+++ b/drivers/gpu/drm/i915/gvt/kvmgt.c
-@@ -31,7 +31,7 @@
- #include <linux/init.h>
- #include <linux/device.h>
- #include <linux/mm.h>
--#include <linux/mmu_context.h>
-+#include <linux/kthread.h>
- #include <linux/sched/mm.h>
- #include <linux/types.h>
- #include <linux/list.h>
-diff --git a/drivers/usb/gadget/function/f_fs.c b/drivers/usb/gadget/function/f_fs.c
-index 10f01f974f67..34b6fc93aa23 100644
---- a/drivers/usb/gadget/function/f_fs.c
-+++ b/drivers/usb/gadget/function/f_fs.c
-@@ -32,7 +32,7 @@
- #include <linux/usb/functionfs.h>
- 
- #include <linux/aio.h>
--#include <linux/mmu_context.h>
-+#include <linux/kthread.h>
- #include <linux/poll.h>
- #include <linux/eventfd.h>
- 
-diff --git a/drivers/usb/gadget/legacy/inode.c b/drivers/usb/gadget/legacy/inode.c
-index 3afddd3bea6e..20fba95ed0a6 100644
---- a/drivers/usb/gadget/legacy/inode.c
-+++ b/drivers/usb/gadget/legacy/inode.c
-@@ -21,7 +21,7 @@
- #include <linux/sched.h>
- #include <linux/slab.h>
- #include <linux/poll.h>
--#include <linux/mmu_context.h>
-+#include <linux/kthread.h>
- #include <linux/aio.h>
- #include <linux/uio.h>
- #include <linux/refcount.h>
-diff --git a/drivers/vhost/vhost.c b/drivers/vhost/vhost.c
-index d450e16c5c25..ead1deed80d3 100644
---- a/drivers/vhost/vhost.c
-+++ b/drivers/vhost/vhost.c
-@@ -14,7 +14,6 @@
- #include <linux/vhost.h>
- #include <linux/uio.h>
- #include <linux/mm.h>
--#include <linux/mmu_context.h>
- #include <linux/miscdevice.h>
- #include <linux/mutex.h>
- #include <linux/poll.h>
-diff --git a/fs/aio.c b/fs/aio.c
-index 94f2b9256c0c..022dbc1d5ec6 100644
---- a/fs/aio.c
-+++ b/fs/aio.c
-@@ -27,7 +27,6 @@
- #include <linux/file.h>
- #include <linux/mm.h>
- #include <linux/mman.h>
--#include <linux/mmu_context.h>
- #include <linux/percpu.h>
- #include <linux/slab.h>
- #include <linux/timer.h>
-diff --git a/fs/io-wq.c b/fs/io-wq.c
-index 4023c9846860..5f590bf27bff 100644
---- a/fs/io-wq.c
-+++ b/fs/io-wq.c
-@@ -10,7 +10,6 @@
- #include <linux/errno.h>
- #include <linux/sched/signal.h>
- #include <linux/mm.h>
--#include <linux/mmu_context.h>
- #include <linux/sched/mm.h>
- #include <linux/percpu.h>
- #include <linux/slab.h>
-diff --git a/fs/io_uring.c b/fs/io_uring.c
-index 35bb60955b4d..bab196c21c6e 100644
---- a/fs/io_uring.c
-+++ b/fs/io_uring.c
-@@ -55,7 +55,6 @@
- #include <linux/fdtable.h>
- #include <linux/mm.h>
- #include <linux/mman.h>
--#include <linux/mmu_context.h>
- #include <linux/percpu.h>
- #include <linux/slab.h>
- #include <linux/kthread.h>
-diff --git a/include/linux/kthread.h b/include/linux/kthread.h
-index 8bbcaad7ef0f..c2d40c9672d6 100644
---- a/include/linux/kthread.h
-+++ b/include/linux/kthread.h
-@@ -5,6 +5,8 @@
- #include <linux/err.h>
- #include <linux/sched.h>
- 
-+struct mm_struct;
-+
- __printf(4, 5)
- struct task_struct *kthread_create_on_node(int (*threadfn)(void *data),
- 					   void *data,
-@@ -198,6 +200,9 @@ bool kthread_cancel_delayed_work_sync(struct kthread_delayed_work *work);
- 
- void kthread_destroy_worker(struct kthread_worker *worker);
- 
-+void use_mm(struct mm_struct *mm);
-+void unuse_mm(struct mm_struct *mm);
-+
- struct cgroup_subsys_state;
- 
- #ifdef CONFIG_BLK_CGROUP
-diff --git a/include/linux/mmu_context.h b/include/linux/mmu_context.h
-index d9a543a9e1cc..c51a84132d7c 100644
---- a/include/linux/mmu_context.h
-+++ b/include/linux/mmu_context.h
-@@ -4,11 +4,6 @@
- 
- #include <asm/mmu_context.h>
- 
--struct mm_struct;
--
--void use_mm(struct mm_struct *mm);
--void unuse_mm(struct mm_struct *mm);
--
- /* Architectures that care about IRQ state in switch_mm can override this. */
- #ifndef switch_mm_irqs_off
- # define switch_mm_irqs_off switch_mm
-diff --git a/kernel/kthread.c b/kernel/kthread.c
-index bfbfa481be3a..ce4610316377 100644
---- a/kernel/kthread.c
-+++ b/kernel/kthread.c
-@@ -1,13 +1,17 @@
- // SPDX-License-Identifier: GPL-2.0-only
- /* Kernel thread helper functions.
-  *   Copyright (C) 2004 IBM Corporation, Rusty Russell.
-+ *   Copyright (C) 2009 Red Hat, Inc.
-  *
-  * Creation is done via kthreadd, so that we get a clean environment
-  * even if we're invoked from userspace (think modprobe, hotplug cpu,
-  * etc.).
-  */
- #include <uapi/linux/sched/types.h>
-+#include <linux/mm.h>
-+#include <linux/mmu_context.h>
- #include <linux/sched.h>
-+#include <linux/sched/mm.h>
- #include <linux/sched/task.h>
- #include <linux/kthread.h>
- #include <linux/completion.h>
-@@ -25,6 +29,7 @@
- #include <linux/numa.h>
- #include <trace/events/sched.h>
- 
-+
- static DEFINE_SPINLOCK(kthread_create_lock);
- static LIST_HEAD(kthread_create_list);
- struct task_struct *kthreadd_task;
-@@ -1203,6 +1208,57 @@ void kthread_destroy_worker(struct kthread_worker *worker)
- }
- EXPORT_SYMBOL(kthread_destroy_worker);
- 
-+/*
-+ * use_mm
-+ *	Makes the calling kernel thread take on the specified
-+ *	mm context.
-+ *	(Note: this routine is intended to be called only
-+ *	from a kernel thread context)
-+ */
-+void use_mm(struct mm_struct *mm)
-+{
-+	struct mm_struct *active_mm;
-+	struct task_struct *tsk = current;
-+
-+	task_lock(tsk);
-+	active_mm = tsk->active_mm;
-+	if (active_mm != mm) {
-+		mmgrab(mm);
-+		tsk->active_mm = mm;
-+	}
-+	tsk->mm = mm;
-+	switch_mm(active_mm, mm, tsk);
-+	task_unlock(tsk);
-+#ifdef finish_arch_post_lock_switch
-+	finish_arch_post_lock_switch();
-+#endif
-+
-+	if (active_mm != mm)
-+		mmdrop(active_mm);
-+}
-+EXPORT_SYMBOL_GPL(use_mm);
-+
-+/*
-+ * unuse_mm
-+ *	Reverses the effect of use_mm, i.e. releases the
-+ *	specified mm context which was earlier taken on
-+ *	by the calling kernel thread
-+ *	(Note: this routine is intended to be called only
-+ *	from a kernel thread context)
-+ */
-+void unuse_mm(struct mm_struct *mm)
-+{
-+	struct task_struct *tsk = current;
-+
-+	task_lock(tsk);
-+	sync_mm_rss(mm);
-+	tsk->mm = NULL;
-+	/* active_mm is still 'mm' */
-+	enter_lazy_tlb(mm, tsk);
-+	task_unlock(tsk);
-+}
-+EXPORT_SYMBOL_GPL(unuse_mm);
-+
- #ifdef CONFIG_BLK_CGROUP
- /**
-  * kthread_associate_blkcg - associate blkcg to current kthread
-diff --git a/mm/Makefile b/mm/Makefile
-index fa91e963c2f9..6e9d46b2efc9 100644
---- a/mm/Makefile
-+++ b/mm/Makefile
-@@ -49,7 +49,7 @@ obj-y			:= filemap.o mempool.o oom_kill.o fadvise.o \
- 			   maccess.o page-writeback.o \
- 			   readahead.o swap.o truncate.o vmscan.o shmem.o \
- 			   util.o mmzone.o vmstat.o backing-dev.o \
--			   mm_init.o mmu_context.o percpu.o slab_common.o \
-+			   mm_init.o percpu.o slab_common.o \
- 			   compaction.o vmacache.o \
- 			   interval_tree.o list_lru.o workingset.o \
- 			   debug.o gup.o $(mmu-y)
-diff --git a/mm/mmu_context.c b/mm/mmu_context.c
-deleted file mode 100644
-index 3e612ae748e9..000000000000
---- a/mm/mmu_context.c
-+++ /dev/null
-@@ -1,64 +0,0 @@
--/* Copyright (C) 2009 Red Hat, Inc.
-- *
-- * See ../COPYING for licensing terms.
-- */
--
--#include <linux/mm.h>
--#include <linux/sched.h>
--#include <linux/sched/mm.h>
--#include <linux/sched/task.h>
--#include <linux/mmu_context.h>
--#include <linux/export.h>
--
--#include <asm/mmu_context.h>
--
--/*
-- * use_mm
-- *	Makes the calling kernel thread take on the specified
-- *	mm context.
-- *	(Note: this routine is intended to be called only
-- *	from a kernel thread context)
-- */
--void use_mm(struct mm_struct *mm)
--{
--	struct mm_struct *active_mm;
--	struct task_struct *tsk = current;
--
--	task_lock(tsk);
--	active_mm = tsk->active_mm;
--	if (active_mm != mm) {
--		mmgrab(mm);
--		tsk->active_mm = mm;
--	}
--	tsk->mm = mm;
--	switch_mm(active_mm, mm, tsk);
--	task_unlock(tsk);
--#ifdef finish_arch_post_lock_switch
--	finish_arch_post_lock_switch();
--#endif
--
--	if (active_mm != mm)
--		mmdrop(active_mm);
--}
--EXPORT_SYMBOL_GPL(use_mm);
--
--/*
-- * unuse_mm
-- *	Reverses the effect of use_mm, i.e. releases the
-- *	specified mm context which was earlier taken on
-- *	by the calling kernel thread
-- *	(Note: this routine is intended to be called only
-- *	from a kernel thread context)
-- */
--void unuse_mm(struct mm_struct *mm)
--{
--	struct task_struct *tsk = current;
--
--	task_lock(tsk);
--	sync_mm_rss(mm);
--	tsk->mm = NULL;
--	/* active_mm is still 'mm' */
--	enter_lazy_tlb(mm, tsk);
--	task_unlock(tsk);
--}
--EXPORT_SYMBOL_GPL(unuse_mm);
-</cut>
+> 
+> I'm still catching up on the thread (and my cat is insistent about
+> sleeping on my lap while I'm trying to use my laptop), but I like
+> https://lore.kernel.org/lkml/20200417190607.GY2424@tucnak/T/#m23d197d3a66a6c7d04c5444af4f51d940895b412
+> if it additionally defined __no_stack_protector for compiler-clang.h.
+> 
+> On Fri, Apr 17, 2020 at 12:06 PM Jakub Jelinek <jakub@redhat.com> wrote:
+> >
+> > On Fri, Apr 17, 2020 at 11:22:25AM -0700, Nick Desaulniers wrote:
+> > > > Sorry, I don't quite follow.  The idea is that an empty asm statement
+> > > > in foo() should prevent foo() from being inlined into bar()?
+> > >
+> > > s/inlined/tail called/
+> >
+> > Yeah.  The thing is, the caller changes the stack protector guard base
+> > value, so at the start of the function it saves a different value then
+> > it compares at the end.  But, the function that it calls at the end
+> > actually doesn't return, so this isn't a problem.
+> > If it is tail called though, the stack protector guard checking is done
+> > before the tail call and it crashes.
+> > If the called function is marked with noreturn attribute or _Noreturn,
+> > at least GCC will also not tail call it and all is fine, but not sure
+> > what LLVM does in that case.
+> 
+> Seems fine? https://godbolt.org/z/VEoEfw
+> (try commenting out the __attribute__((noreturn)) to observe the tail calls.
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/977809855.18085.1587383651353.JavaMail.javamailuser%40localhost.
-
-------=_Part_18084_1304024539.1587383650716--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/alpine.LSU.2.21.2004201401120.11688%40wotan.suse.de.
