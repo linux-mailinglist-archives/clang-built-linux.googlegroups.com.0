@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBJFO7H2AKGQE2YXKIRY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRBJVO7H2AKGQES3FBYMY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd38.google.com (mail-io1-xd38.google.com [IPv6:2607:f8b0:4864:20::d38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 519061B1B92
-	for <lists+clang-built-linux@lfdr.de>; Tue, 21 Apr 2020 04:15:02 +0200 (CEST)
-Received: by mail-io1-xd38.google.com with SMTP id k1sf10358675iov.18
-        for <lists+clang-built-linux@lfdr.de>; Mon, 20 Apr 2020 19:15:02 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1587435301; cv=pass;
+Received: from mail-pf1-x439.google.com (mail-pf1-x439.google.com [IPv6:2607:f8b0:4864:20::439])
+	by mail.lfdr.de (Postfix) with ESMTPS id 469421B1B94
+	for <lists+clang-built-linux@lfdr.de>; Tue, 21 Apr 2020 04:15:04 +0200 (CEST)
+Received: by mail-pf1-x439.google.com with SMTP id d16sf11861250pfo.15
+        for <lists+clang-built-linux@lfdr.de>; Mon, 20 Apr 2020 19:15:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1587435303; cv=pass;
         d=google.com; s=arc-20160816;
-        b=eC2yACTnwuQTEazAvUb6wV258Ik1XrsEit5fDUJJ/DKsHbLtwKGxR3fiB2jM+sJjcH
-         TfHV5/Elu+UsIpyBLmFrvKgpP1XLaq1UX/4rh/beF5U79DQP4WpxOsrtPHk7Q7HSSPqi
-         nNwu/Pn58UZqZKGSf+Oqz/87Du2WKgkW73GfQ+Ii0ce0JXZlueHqH+OmjJitKouTEaEI
-         S6NUPUQJeE0JHUM8XDc/s8nCHGavD2Ge00OFpClgyWcuzzgDlByGiVcGGiP9FuwD4Ps6
-         aRLfcmjw8F8r205U/RBwdIioX+vGTQce9xI60kvNwVRTTFnsEX1Hvzix7kitmvXrNxTb
-         QJhw==
+        b=ye/WQD/iay4hYTfkNq/yvVfaCpd7BLvsm3esIZG/BIQkoUpH1MrGnTg8J5JeQ3HOKC
+         pJ9HR84ScjcYFm/Qp6TWpXWpuZayYQh4BWSADyOxd5SK6FLdCN/4c2okqelF5wEjMGwR
+         hYZwahqoDCSICQKOXmp8We6V5Z8/xLVa6KEn7SH3kQZxrTssAQWhQnRlegU7qXdbMJsJ
+         79X3BBRwmdxZhQFSdyyoIi7cwDInjgV1qAKQSDFKEpk5d31Q7XnKe917x7MAC1STDfuv
+         uSVHi4vO1vonLn9MyTzJo0wOnFyUj4tmIyS4CzN0i/9Lmen+8vEsv6rnHRSNDv5tNgJY
+         crUQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=Y7zk34X4WppOTbyWAYWSPgF5CO5E0uHCAY/Y4ZTmzQU=;
-        b=bvkXRr0ChqbekgQhMJzUxtjjoK2GlVWe1Bfb6g2V/FhoSVGM5turF298WGDaiZx8sM
-         ZwJNkFkJPTJ5LLOEJr+7A109o+yMGJecDA28zQbbBw3uROYZ6cq1mQpeqUQTeuOGlQFK
-         wkF5qnGazUkRYwpAQDdnA62NfWIJubI8BOFBBu4gmZfv2xTN7BgoNAQC8oKiahQ6vNF4
-         iR2ijKejE7JEo3F3tDZvXAPQJFmEBBzlGnL/+gXrFdkJDz3CHV1OYVZomc/DngwMZ+JC
-         mf9p4c62W4VsJZn0dfq1RmageFh0ymMIxdBbo4EtPODNzWW3ES0XGnLZCTgGkGg6spPI
-         nepg==
+        bh=BgVWytC/cAZzAKfiP6fhaRyia36c4AoHvpjd5vrFngc=;
+        b=DrL12HmllLfEQPTiz4cmNYT9oLDMOhGgPTJKYxuBFMnopUIMWphtTEwM+PUCLimVRR
+         PGAsHJuAbtduhGWrfq6HdkyrjHTobWdBc4vP0Uw0vUFcSli+g40EcKD4s21wHaFCtclI
+         9la00al54eIGbpwXA6q5FMoQi55o//oWYQvfK7XnK3CFA1SNkS4VsPl26r0YukAtDKZm
+         FvZmH4KEOYMaiWKrsYuJeM95/ySWOVST41VeP6HkmYdvqNwWnUrfghNcK/yKajDT/6RU
+         +TkLVTd6vUwSRMgGZqxB38T0jYT5xHWrUswIMiZz0jcubF8tbq0oO60tvKBVCjA0XR24
+         Zuxg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=f4mnh0pW;
-       spf=pass (google.com: domain of 3i1eexgwkaey0iuq1wt3ivmvowwotm.kwu@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3I1eeXgwKAEY0iuq1wt3ivmvowwotm.kwu@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=PAf1VwCj;
+       spf=pass (google.com: domain of 3jleexgwkaek3lxt4zw6lypyrzzrwp.nzx@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::104a as permitted sender) smtp.mailfrom=3JleeXgwKAEk3lxt4zw6lypyrzzrwp.nzx@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Y7zk34X4WppOTbyWAYWSPgF5CO5E0uHCAY/Y4ZTmzQU=;
-        b=ZTGqjCCnPVmo+7uef23c/i+ASG8oJMMSew/lBFpuEFBLFl3N4myaauf1suIOyZK0LI
-         2bbdf1YfQFjS77bVqUD1Xvbfc9ghtKBp3PDPmjelto+8PmlfiyTp8u+S215oz0IRunIG
-         yAmyJOXeXuan3ZHFB26JUszw8KKw4fSxk1tSvsqPRgs55rInXYNR7If0L7bOolRwZjiP
-         KGGiP7KnyvnA6SCy2VLJcA3buR3vM5PiDdUqMHbZATPyXWkh5PNRPGNtxFvkHfGEX5WA
-         yK8nYdV5t1bnTDC0Em5Np7N/o0kdFsW/bV3tsCmkgCmlCa/tPqi1qISZw24L9eOV6IYI
-         +uLg==
+        bh=BgVWytC/cAZzAKfiP6fhaRyia36c4AoHvpjd5vrFngc=;
+        b=QlKNh7OMphiDGr59jPynDVaBeYVQPju5nBGrWr/5gZn6TV5RnTNnecQ/mIc9a/9C0B
+         sKgY+kDGPTgB7rDoWmXXsujGmh7CgBb0b+IDXlMweFW2Dy6xIl8fqOOKlPBmUQmrTRta
+         n2liConPD2GxePaSj4bDwV2ZOGMk6sqGzMyDG25HOySwv4C0x0xnnV1o8LuYM4K0pvlE
+         GcACO4k9urgvF2jodO1iRiQlwqFUz2A+eaJYzw9HmrxgZAI0498RG1l9oT6p853CwtMj
+         wkfkFWEiC9NA61RU981yjFOl69fRPFrXGkZ0JredXAe3cVSYra1NhmXr1FPNTHnnEQtR
+         1S7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:in-reply-to:message-id:mime-version
@@ -49,62 +49,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Y7zk34X4WppOTbyWAYWSPgF5CO5E0uHCAY/Y4ZTmzQU=;
-        b=SrMo2SdYjf0B4EcryzvVHU51FIlpvP8TcaTaeUN3lYDToUbV6vfB3Q4/N/UblJ6fOm
-         muqe6GbplSxA6zh7/abs7nj554DZGV7F+doNYbTTuNsaaBRLJTkoN6njHM3s2J9YlEw7
-         DnJIaOUxeRkfa5Tz6zDsCkTxc1abR4kcZuUpTxcC6OvuJ7pxoQI9flcO0ZqUvSQ3QPlR
-         mqRfqqPVU09Xq0/4TvV9bMgD69BcZGTBFusXemKXg+ELCJYm0qwAgMAC+TrEUm7t+d6E
-         9STVsioazvXg/BrdWKAuaXkloeOsIZrD6j/DsFxaJ8qzD/nUeNaIKLOcIqvu+Oitv4o0
-         9OYg==
-X-Gm-Message-State: AGi0PuaRMG3uRa+Kukaxh67dMHy1V1QbkDlXQ5LBKdjjRqwaUVIaFRx1
-	q/4/f25NNtffj9m7UPjbqqw=
-X-Google-Smtp-Source: APiQypLxB0Kmf9YDmMfuWn2eXHtA9Ecd4beDKBxrHNb86EgcNg/gVxyI14Xh7Hk3D40ZJozbtAI9/Q==
-X-Received: by 2002:a92:c14f:: with SMTP id b15mr19690147ilh.134.1587435300850;
-        Mon, 20 Apr 2020 19:15:00 -0700 (PDT)
+        bh=BgVWytC/cAZzAKfiP6fhaRyia36c4AoHvpjd5vrFngc=;
+        b=IuEH5c13bofmZtk+GfU3Aa9aFRqT0gfzsMMvrK+gGZYRnmeqznk/jpitoPr9RZKv4V
+         bHGgfcv+jYQUY8SwSFhP6AsPnD+YJg5HP0S9JYniYkFgyrU/5FqKJ3Ky4o2SHGVSd+Yf
+         6SJkd4qjzEFUhnTS/AaDFtO3/AfnqZSSa9dVm2wFm0CsFFNRmidfRVez9DEe+czkYd2r
+         KHG9/wz3hfE/UElacJ3z1d1032fKQaK20R5P7NkanudXbH90Vo2dqfW8s3+rLhG2ochN
+         JbDerWtg7RyRgJ7+hFO7D/jEdHt1PBGNrJuX3PqNEFFgM2Q3qIGP2TGiKKzTVwht5zDx
+         UrEw==
+X-Gm-Message-State: AGi0PubsfOsQTQn7mjpOMkGd3I+UkIXIALSaSo5wxxyCfQXpRT2SXl7d
+	2v8i62pi6BEakT6RqMcUyUk=
+X-Google-Smtp-Source: APiQypJVsAaKxlxowsHpmJ6sF+7ci/M2Abjge/rX+e+l0vRSA0CZu8xbXQWXDKD+3lUA2L6bk46fPQ==
+X-Received: by 2002:a62:dd4e:: with SMTP id w75mr8592705pff.221.1587435303002;
+        Mon, 20 Apr 2020 19:15:03 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a6b:c381:: with SMTP id t123ls4185328iof.2.gmail; Mon, 20
- Apr 2020 19:15:00 -0700 (PDT)
-X-Received: by 2002:a6b:bf83:: with SMTP id p125mr12170226iof.118.1587435300453;
-        Mon, 20 Apr 2020 19:15:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1587435300; cv=none;
+Received: by 2002:a17:902:bd4b:: with SMTP id b11ls12426033plx.4.gmail; Mon,
+ 20 Apr 2020 19:15:02 -0700 (PDT)
+X-Received: by 2002:a17:902:c194:: with SMTP id d20mr18317029pld.256.1587435302531;
+        Mon, 20 Apr 2020 19:15:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1587435302; cv=none;
         d=google.com; s=arc-20160816;
-        b=TiK1z7NtCgu5lBGeE/WMGi1GGb/3OVcFLa3f4AlTON1WdIAot/Ar3QORyetomsGahb
-         oEnvYe1dwKWMCKr/lvZiwMbVOGiRMTxqdObSxXsS4bDZ4GSNOp974qSWbTbDJ5lSENlN
-         B/HeVvkkse3gKXWAS/KH4jr5/RQD5tGUrstwtKPHjgJi0IuVURs/RgKhBMMpc9P766Gp
-         qqUU64wcr3JYBv1sEAShJon8Gf5ET+7gGyZ05ngam4Dd63FG+Z9bdNUqIc64T6De/J2m
-         jGSzCB+Qz4nWJs2ocyu3aoFE5gXx4ZmwZhLUs/IKKeLO4ntz+fSeOM2Glcp1dqEeER6Q
-         8qog==
+        b=NgFZGuxNBe0x87/1ckWBxNqOUOluxJ4ID0U4TGnnXWLJLcVmfubzs0PKuFDx0VvLsF
+         R+7F4Jp6cNgN7YsaSbuxaiAalYvcopeveZ/knAT/gGH/WXAie7ImfPRpNW9S14EwuoyM
+         2HObRblyF7XJVzxmxh6QjlcnuVzKR1+4q2iSZL+F1UsEcoaoQCrhr0BntoaHdIT6sd1B
+         9MskIyQIE9lwwy/Zcm0Vl0DEz2s2cGyuUwtiFHhSMqmLwuxA58ZRxifEVhKTYanuSDQE
+         MeJ2bS9FYVNL6IaPgvHJBLbdByAesa0Pm6ljtHRKUYzv+sPxFt5AKSMpX9+NLwGnuP8/
+         qRxg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:dkim-signature;
-        bh=O6cTFRpJP9X3Ho0tpm44ZbomQwaxFpLQPG8cGKQ1jrA=;
-        b=wYleg335z0z+RDzY0wnz12P8K7W2CntLDHFCKiIybNmgWWXuzJXTGoPkcly+u0D0Lw
-         FK4yMjiFYdN7nqIwPhsrM3JYcnawhO/mkc4KmibBQu2yUhfNona4n0W3xbKXV5W9GGH0
-         zvdGFW7zoWnolVXZf+hXa3WX9CR2dHLxj46723HjHzJtKwpgCkAACxY5MB0SLhpQBZu8
-         HrERTgUf2O9NR/rdCYXJe7864JnGFffHPI0S2q/rc3yiGUztxdzqxDa/3mOzl7FORE0i
-         32nfNG3sINkpr8t8gyXkRZz9kAucGAOMddkCJFI9KCknH/OnOgyuKybMX2P2+Wv59JlC
-         ivPw==
+        bh=4sfew7veNdM2nA7ewK2dCK1a6fLxS0TvqgODnTsa84E=;
+        b=SsP9E/eAZo/PcvL8ynqP4c5zGN9CvnXFFT+dBexGGW/A8nAjqnIU4zyuxsl7aPqs/w
+         UandcllB2zYoTx6rt14E8+jgiY8IvieeR8V8jGlQoID7Lhu1utBAdW9DH/Ta2mkAvjPR
+         juDf9s5haBoa+UBFHFN18ka7xASutK80wSqSvrXfniVPEXcM30wlaXdcdew6UHDbvp8P
+         wKyVtu6g0jMeCxbEXTUHnWsQ9plGn1S4OONA2e8d7CVrGTGetU6DYFT307Way413I5Qf
+         W95airdfsi3S1gjEmto8jaR9i7z8vA4Gf07gw+mo7skekROPKc6gf5RmRRzJ6TMr/nuG
+         ey+Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=f4mnh0pW;
-       spf=pass (google.com: domain of 3i1eexgwkaey0iuq1wt3ivmvowwotm.kwu@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3I1eeXgwKAEY0iuq1wt3ivmvowwotm.kwu@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=PAf1VwCj;
+       spf=pass (google.com: domain of 3jleexgwkaek3lxt4zw6lypyrzzrwp.nzx@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::104a as permitted sender) smtp.mailfrom=3JleeXgwKAEk3lxt4zw6lypyrzzrwp.nzx@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x449.google.com (mail-pf1-x449.google.com. [2607:f8b0:4864:20::449])
-        by gmr-mx.google.com with ESMTPS id k13si163356ioq.3.2020.04.20.19.15.00
+Received: from mail-pj1-x104a.google.com (mail-pj1-x104a.google.com. [2607:f8b0:4864:20::104a])
+        by gmr-mx.google.com with ESMTPS id g23si122904pgi.5.2020.04.20.19.15.02
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Apr 2020 19:15:00 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3i1eexgwkaey0iuq1wt3ivmvowwotm.kwu@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) client-ip=2607:f8b0:4864:20::449;
-Received: by mail-pf1-x449.google.com with SMTP id r5so11863826pfh.12
-        for <clang-built-linux@googlegroups.com>; Mon, 20 Apr 2020 19:15:00 -0700 (PDT)
-X-Received: by 2002:a63:5b57:: with SMTP id l23mr5400781pgm.391.1587435299723;
- Mon, 20 Apr 2020 19:14:59 -0700 (PDT)
-Date: Mon, 20 Apr 2020 19:14:42 -0700
+        Mon, 20 Apr 2020 19:15:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3jleexgwkaek3lxt4zw6lypyrzzrwp.nzx@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::104a as permitted sender) client-ip=2607:f8b0:4864:20::104a;
+Received: by mail-pj1-x104a.google.com with SMTP id r5so1869897pji.9
+        for <clang-built-linux@googlegroups.com>; Mon, 20 Apr 2020 19:15:02 -0700 (PDT)
+X-Received: by 2002:a17:90a:cc9:: with SMTP id 9mr2908203pjt.16.1587435302127;
+ Mon, 20 Apr 2020 19:15:02 -0700 (PDT)
+Date: Mon, 20 Apr 2020 19:14:43 -0700
 In-Reply-To: <20200421021453.198187-1-samitolvanen@google.com>
-Message-Id: <20200421021453.198187-2-samitolvanen@google.com>
+Message-Id: <20200421021453.198187-3-samitolvanen@google.com>
 Mime-Version: 1.0
 References: <20191018161033.261971-1-samitolvanen@google.com> <20200421021453.198187-1-samitolvanen@google.com>
 X-Mailer: git-send-email 2.26.1.301.g55bc3eb7cb9-goog
-Subject: [PATCH v12 01/12] add support for Clang's Shadow Call Stack (SCS)
+Subject: [PATCH v12 02/12] scs: add accounting
 From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
 	James Morse <james.morse@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
@@ -122,9 +122,9 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Kees Cook <keescook@chromium.org>,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=f4mnh0pW;       spf=pass
- (google.com: domain of 3i1eexgwkaey0iuq1wt3ivmvowwotm.kwu@flex--samitolvanen.bounces.google.com
- designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3I1eeXgwKAEY0iuq1wt3ivmvowwotm.kwu@flex--samitolvanen.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=PAf1VwCj;       spf=pass
+ (google.com: domain of 3jleexgwkaek3lxt4zw6lypyrzzrwp.nzx@flex--samitolvanen.bounces.google.com
+ designates 2607:f8b0:4864:20::104a as permitted sender) smtp.mailfrom=3JleeXgwKAEk3lxt4zw6lypyrzzrwp.nzx@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Sami Tolvanen <samitolvanen@google.com>
 Reply-To: Sami Tolvanen <samitolvanen@google.com>
@@ -140,393 +140,163 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-This change adds generic support for Clang's Shadow Call Stack,
-which uses a shadow stack to protect return addresses from being
-overwritten by an attacker. Details are available here:
-
-  https://clang.llvm.org/docs/ShadowCallStack.html
-
-Note that security guarantees in the kernel differ from the
-ones documented for user space. The kernel must store addresses
-of shadow stacks used by other tasks and interrupt handlers in
-memory, which means an attacker capable reading and writing
-arbitrary memory may be able to locate them and hijack control
-flow by modifying shadow stacks that are not currently in use.
+This change adds accounting for the memory allocated for shadow stacks.
 
 Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
 Reviewed-by: Kees Cook <keescook@chromium.org>
-Reviewed-by: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
 ---
- Makefile                       |  6 +++
- arch/Kconfig                   | 25 +++++++++
- include/linux/compiler-clang.h |  6 +++
- include/linux/compiler_types.h |  4 ++
- include/linux/scs.h            | 92 ++++++++++++++++++++++++++++++++++
- init/init_task.c               |  8 +++
- kernel/Makefile                |  1 +
- kernel/fork.c                  |  9 ++++
- kernel/sched/core.c            |  2 +
- kernel/scs.c                   | 67 +++++++++++++++++++++++++
- 10 files changed, 220 insertions(+)
- create mode 100644 include/linux/scs.h
- create mode 100644 kernel/scs.c
+ drivers/base/node.c    |  6 ++++++
+ fs/proc/meminfo.c      |  4 ++++
+ include/linux/mmzone.h |  3 +++
+ kernel/scs.c           | 16 ++++++++++++++++
+ mm/page_alloc.c        |  6 ++++++
+ mm/vmstat.c            |  3 +++
+ 6 files changed, 38 insertions(+)
 
-diff --git a/Makefile b/Makefile
-index 49b2709ff44e..6094db2c7252 100644
---- a/Makefile
-+++ b/Makefile
-@@ -866,6 +866,12 @@ ifdef CONFIG_LIVEPATCH
- KBUILD_CFLAGS += $(call cc-option, -flive-patching=inline-clone)
- endif
- 
-+ifdef CONFIG_SHADOW_CALL_STACK
-+CC_FLAGS_SCS	:= -fsanitize=shadow-call-stack
-+KBUILD_CFLAGS	+= $(CC_FLAGS_SCS)
-+export CC_FLAGS_SCS
-+endif
-+
- # arch Makefile may override CC so keep this after arch Makefile is included
- NOSTDINC_FLAGS += -nostdinc -isystem $(shell $(CC) -print-file-name=include)
- 
-diff --git a/arch/Kconfig b/arch/Kconfig
-index 786a85d4ad40..8450d56e6af6 100644
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -533,6 +533,31 @@ config STACKPROTECTOR_STRONG
- 	  about 20% of all kernel functions, which increases the kernel code
- 	  size by about 2%.
- 
-+config ARCH_SUPPORTS_SHADOW_CALL_STACK
-+	bool
-+	help
-+	  An architecture should select this if it supports Clang's Shadow
-+	  Call Stack, has asm/scs.h, and implements runtime support for shadow
-+	  stack switching.
-+
-+config SHADOW_CALL_STACK
-+	bool "Clang Shadow Call Stack"
-+	depends on CC_IS_CLANG && ARCH_SUPPORTS_SHADOW_CALL_STACK
-+	help
-+	  This option enables Clang's Shadow Call Stack, which uses a
-+	  shadow stack to protect function return addresses from being
-+	  overwritten by an attacker. More information can be found in
-+	  Clang's documentation:
-+
-+	    https://clang.llvm.org/docs/ShadowCallStack.html
-+
-+	  Note that security guarantees in the kernel differ from the ones
-+	  documented for user space. The kernel must store addresses of shadow
-+	  stacks used by other tasks and interrupt handlers in memory, which
-+	  means an attacker capable of reading and writing arbitrary memory
-+	  may be able to locate them and hijack control flow by modifying
-+	  shadow stacks that are not currently in use.
-+
- config HAVE_ARCH_WITHIN_STACK_FRAMES
- 	bool
- 	help
-diff --git a/include/linux/compiler-clang.h b/include/linux/compiler-clang.h
-index 333a6695a918..18fc4d29ef27 100644
---- a/include/linux/compiler-clang.h
-+++ b/include/linux/compiler-clang.h
-@@ -42,3 +42,9 @@
-  * compilers, like ICC.
-  */
- #define barrier() __asm__ __volatile__("" : : : "memory")
-+
-+#if __has_feature(shadow_call_stack)
-+# define __noscs	__attribute__((__no_sanitize__("shadow-call-stack")))
-+#else
-+# define __noscs
-+#endif
-diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
-index e970f97a7fcb..97b62f47a80d 100644
---- a/include/linux/compiler_types.h
-+++ b/include/linux/compiler_types.h
-@@ -193,6 +193,10 @@ struct ftrace_likely_data {
- # define randomized_struct_fields_end
- #endif
- 
-+#ifndef __noscs
-+# define __noscs
-+#endif
-+
- #ifndef asm_volatile_goto
- #define asm_volatile_goto(x...) asm goto(x)
- #endif
-diff --git a/include/linux/scs.h b/include/linux/scs.h
-new file mode 100644
-index 000000000000..051d27ad3da4
---- /dev/null
-+++ b/include/linux/scs.h
-@@ -0,0 +1,92 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Shadow Call Stack support.
-+ *
-+ * Copyright (C) 2019 Google LLC
-+ */
-+
-+#ifndef _LINUX_SCS_H
-+#define _LINUX_SCS_H
-+
-+#include <linux/gfp.h>
-+#include <linux/poison.h>
-+#include <linux/sched.h>
-+#include <asm/page.h>
-+
+diff --git a/drivers/base/node.c b/drivers/base/node.c
+index 10d7e818e118..50b8c0d43859 100644
+--- a/drivers/base/node.c
++++ b/drivers/base/node.c
+@@ -415,6 +415,9 @@ static ssize_t node_read_meminfo(struct device *dev,
+ 		       "Node %d AnonPages:      %8lu kB\n"
+ 		       "Node %d Shmem:          %8lu kB\n"
+ 		       "Node %d KernelStack:    %8lu kB\n"
 +#ifdef CONFIG_SHADOW_CALL_STACK
-+
-+/*
-+ * In testing, 1 KiB shadow stack size (i.e. 128 stack frames on a 64-bit
-+ * architecture) provided ~40% safety margin on stack usage while keeping
-+ * memory allocation overhead reasonable.
-+ */
-+#define SCS_SIZE	1024UL
-+#define GFP_SCS		(GFP_KERNEL | __GFP_ZERO)
-+
-+/* An illegal pointer value to mark the end of the shadow stack. */
-+#define SCS_END_MAGIC	(0x5f6UL + POISON_POINTER_DELTA)
-+
-+#define task_scs(tsk)	(task_thread_info(tsk)->shadow_call_stack)
-+
-+static inline void task_set_scs(struct task_struct *tsk, void *s)
-+{
-+	task_scs(tsk) = s;
-+}
-+
-+extern void scs_init(void);
-+
-+static inline void *__scs_base(struct task_struct *tsk)
-+{
-+	/*
-+	 * To minimize the risk of exposure, architectures may clear a
-+	 * task's thread_info::shadow_call_stack while that task is
-+	 * running, and only save/restore the active shadow call stack
-+	 * pointer when the usual register may be clobbered (e.g. across
-+	 * context switches).
-+	 *
-+	 * The shadow call stack is aligned to SCS_SIZE, and grows
-+	 * upwards, so we can mask out the low bits to extract the base
-+	 * when the task is not running.
-+	 */
-+	return (void *)((unsigned long)task_scs(tsk) & ~(SCS_SIZE - 1));
-+}
-+
-+static inline void scs_task_reset(struct task_struct *tsk)
-+{
-+	/*
-+	 * Reset the shadow stack to the base address in case the task
-+	 * is reused.
-+	 */
-+	task_set_scs(tsk, __scs_base(tsk));
-+}
-+
-+extern int scs_prepare(struct task_struct *tsk, int node);
-+
-+static inline unsigned long *__scs_magic(void *s)
-+{
-+	return (unsigned long *)(s + SCS_SIZE) - 1;
-+}
-+
-+static inline bool scs_corrupted(struct task_struct *tsk)
-+{
-+	unsigned long *magic = __scs_magic(__scs_base(tsk));
-+
-+	return READ_ONCE_NOCHECK(*magic) != SCS_END_MAGIC;
-+}
-+
-+extern void scs_release(struct task_struct *tsk);
-+
-+#else /* CONFIG_SHADOW_CALL_STACK */
-+
-+#define task_scs(tsk)	NULL
-+
-+static inline void task_set_scs(struct task_struct *tsk, void *s) {}
-+static inline void scs_init(void) {}
-+static inline void scs_task_reset(struct task_struct *tsk) {}
-+static inline int scs_prepare(struct task_struct *tsk, int node) { return 0; }
-+static inline bool scs_corrupted(struct task_struct *tsk) { return false; }
-+static inline void scs_release(struct task_struct *tsk) {}
-+
-+#endif /* CONFIG_SHADOW_CALL_STACK */
-+
-+#endif /* _LINUX_SCS_H */
-diff --git a/init/init_task.c b/init/init_task.c
-index bd403ed3e418..aaa71366d162 100644
---- a/init/init_task.c
-+++ b/init/init_task.c
-@@ -11,6 +11,7 @@
- #include <linux/mm.h>
- #include <linux/audit.h>
- #include <linux/numa.h>
-+#include <linux/scs.h>
- 
- #include <asm/pgtable.h>
- #include <linux/uaccess.h>
-@@ -185,6 +186,13 @@ struct task_struct init_task
- };
- EXPORT_SYMBOL(init_task);
- 
-+#ifdef CONFIG_SHADOW_CALL_STACK
-+unsigned long init_shadow_call_stack[SCS_SIZE / sizeof(long)] __init_task_data
-+		__aligned(SCS_SIZE) = {
-+	[(SCS_SIZE / sizeof(long)) - 1] = SCS_END_MAGIC
-+};
++		       "Node %d ShadowCallStack:%8lu kB\n"
 +#endif
-+
- /*
-  * Initial thread structure. Alignment of this is handled by a special
-  * linker map entry.
-diff --git a/kernel/Makefile b/kernel/Makefile
-index 4cb4130ced32..c332eb9d4841 100644
---- a/kernel/Makefile
-+++ b/kernel/Makefile
-@@ -103,6 +103,7 @@ obj-$(CONFIG_TRACEPOINTS) += trace/
- obj-$(CONFIG_IRQ_WORK) += irq_work.o
- obj-$(CONFIG_CPU_PM) += cpu_pm.o
- obj-$(CONFIG_BPF) += bpf/
-+obj-$(CONFIG_SHADOW_CALL_STACK) += scs.o
+ 		       "Node %d PageTables:     %8lu kB\n"
+ 		       "Node %d NFS_Unstable:   %8lu kB\n"
+ 		       "Node %d Bounce:         %8lu kB\n"
+@@ -438,6 +441,9 @@ static ssize_t node_read_meminfo(struct device *dev,
+ 		       nid, K(node_page_state(pgdat, NR_ANON_MAPPED)),
+ 		       nid, K(i.sharedram),
+ 		       nid, sum_zone_node_page_state(nid, NR_KERNEL_STACK_KB),
++#ifdef CONFIG_SHADOW_CALL_STACK
++		       nid, sum_zone_node_page_state(nid, NR_KERNEL_SCS_KB),
++#endif
+ 		       nid, K(sum_zone_node_page_state(nid, NR_PAGETABLE)),
+ 		       nid, K(node_page_state(pgdat, NR_UNSTABLE_NFS)),
+ 		       nid, K(sum_zone_node_page_state(nid, NR_BOUNCE)),
+diff --git a/fs/proc/meminfo.c b/fs/proc/meminfo.c
+index 8c1f1bb1a5ce..09cd51c8d23d 100644
+--- a/fs/proc/meminfo.c
++++ b/fs/proc/meminfo.c
+@@ -103,6 +103,10 @@ static int meminfo_proc_show(struct seq_file *m, void *v)
+ 	show_val_kb(m, "SUnreclaim:     ", sunreclaim);
+ 	seq_printf(m, "KernelStack:    %8lu kB\n",
+ 		   global_zone_page_state(NR_KERNEL_STACK_KB));
++#ifdef CONFIG_SHADOW_CALL_STACK
++	seq_printf(m, "ShadowCallStack:%8lu kB\n",
++		   global_zone_page_state(NR_KERNEL_SCS_KB));
++#endif
+ 	show_val_kb(m, "PageTables:     ",
+ 		    global_zone_page_state(NR_PAGETABLE));
  
- obj-$(CONFIG_PERF_EVENTS) += events/
- 
-diff --git a/kernel/fork.c b/kernel/fork.c
-index 8c700f881d92..f6339f9d232d 100644
---- a/kernel/fork.c
-+++ b/kernel/fork.c
-@@ -94,6 +94,7 @@
- #include <linux/thread_info.h>
- #include <linux/stackleak.h>
- #include <linux/kasan.h>
-+#include <linux/scs.h>
- 
- #include <asm/pgtable.h>
- #include <asm/pgalloc.h>
-@@ -456,6 +457,8 @@ void put_task_stack(struct task_struct *tsk)
- 
- void free_task(struct task_struct *tsk)
- {
-+	scs_release(tsk);
-+
- #ifndef CONFIG_THREAD_INFO_IN_TASK
- 	/*
- 	 * The task is finally done with both the stack and thread_info,
-@@ -840,6 +843,8 @@ void __init fork_init(void)
- 			  NULL, free_vm_stack_cache);
- #endif
- 
-+	scs_init();
-+
- 	lockdep_init_task(&init_task);
- 	uprobes_init();
- }
-@@ -899,6 +904,10 @@ static struct task_struct *dup_task_struct(struct task_struct *orig, int node)
- 	if (err)
- 		goto free_stack;
- 
-+	err = scs_prepare(tsk, node);
-+	if (err)
-+		goto free_stack;
-+
- #ifdef CONFIG_SECCOMP
- 	/*
- 	 * We must handle setting up seccomp filters once we're under
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 3a61a3b8eaa9..c99620c1ec20 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -11,6 +11,7 @@
- #include <linux/nospec.h>
- 
- #include <linux/kcov.h>
-+#include <linux/scs.h>
- 
- #include <asm/switch_to.h>
- #include <asm/tlb.h>
-@@ -6045,6 +6046,7 @@ void init_idle(struct task_struct *idle, int cpu)
- 	idle->se.exec_start = sched_clock();
- 	idle->flags |= PF_IDLE;
- 
-+	scs_task_reset(idle);
- 	kasan_unpoison_task_stack(idle);
- 
- #ifdef CONFIG_SMP
+diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
+index 1b9de7d220fb..acffc3bc6178 100644
+--- a/include/linux/mmzone.h
++++ b/include/linux/mmzone.h
+@@ -156,6 +156,9 @@ enum zone_stat_item {
+ 	NR_MLOCK,		/* mlock()ed pages found and moved off LRU */
+ 	NR_PAGETABLE,		/* used for pagetables */
+ 	NR_KERNEL_STACK_KB,	/* measured in KiB */
++#if IS_ENABLED(CONFIG_SHADOW_CALL_STACK)
++	NR_KERNEL_SCS_KB,	/* measured in KiB */
++#endif
+ 	/* Second 128 byte cacheline */
+ 	NR_BOUNCE,
+ #if IS_ENABLED(CONFIG_ZSMALLOC)
 diff --git a/kernel/scs.c b/kernel/scs.c
-new file mode 100644
-index 000000000000..e1a8fc453b86
---- /dev/null
+index e1a8fc453b86..7eea2d97bd2d 100644
+--- a/kernel/scs.c
 +++ b/kernel/scs.c
-@@ -0,0 +1,67 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Shadow Call Stack support.
-+ *
-+ * Copyright (C) 2019 Google LLC
-+ */
-+
-+#include <linux/kasan.h>
-+#include <linux/scs.h>
-+#include <linux/slab.h>
-+#include <asm/scs.h>
-+
-+static struct kmem_cache *scs_cache;
-+
-+static void *scs_alloc(int node)
+@@ -6,8 +6,10 @@
+  */
+ 
+ #include <linux/kasan.h>
++#include <linux/mm.h>
+ #include <linux/scs.h>
+ #include <linux/slab.h>
++#include <linux/vmstat.h>
+ #include <asm/scs.h>
+ 
+ static struct kmem_cache *scs_cache;
+@@ -41,6 +43,17 @@ void __init scs_init(void)
+ 				0, NULL);
+ }
+ 
++static struct page *__scs_page(struct task_struct *tsk)
 +{
-+	void *s;
-+
-+	s = kmem_cache_alloc_node(scs_cache, GFP_SCS, node);
-+	if (s) {
-+		*__scs_magic(s) = SCS_END_MAGIC;
-+		/*
-+		 * Poison the allocation to catch unintentional accesses to
-+		 * the shadow stack when KASAN is enabled.
-+		 */
-+		kasan_poison_object_data(scs_cache, s);
-+	}
-+
-+	return s;
++	return virt_to_page(__scs_base(tsk));
 +}
 +
-+static void scs_free(void *s)
++static void scs_account(struct task_struct *tsk, int account)
 +{
-+	kasan_unpoison_object_data(scs_cache, s);
-+	kmem_cache_free(scs_cache, s);
++	mod_zone_page_state(page_zone(__scs_page(tsk)), NR_KERNEL_SCS_KB,
++		account * (SCS_SIZE / 1024));
 +}
 +
-+void __init scs_init(void)
-+{
-+	scs_cache = kmem_cache_create("scs_cache", SCS_SIZE, SCS_SIZE,
-+				0, NULL);
-+}
+ int scs_prepare(struct task_struct *tsk, int node)
+ {
+ 	void *s;
+@@ -50,6 +63,8 @@ int scs_prepare(struct task_struct *tsk, int node)
+ 		return -ENOMEM;
+ 
+ 	task_set_scs(tsk, s);
++	scs_account(tsk, 1);
 +
-+int scs_prepare(struct task_struct *tsk, int node)
-+{
-+	void *s;
-+
-+	s = scs_alloc(node);
-+	if (!s)
-+		return -ENOMEM;
-+
-+	task_set_scs(tsk, s);
-+	return 0;
-+}
-+
-+void scs_release(struct task_struct *tsk)
-+{
-+	void *s;
-+
-+	s = __scs_base(tsk);
-+	if (!s)
-+		return;
-+
-+	WARN_ON(scs_corrupted(tsk));
-+
-+	scs_free(s);
-+}
+ 	return 0;
+ }
+ 
+@@ -63,5 +78,6 @@ void scs_release(struct task_struct *tsk)
+ 
+ 	WARN_ON(scs_corrupted(tsk));
+ 
++	scs_account(tsk, -1);
+ 	scs_free(s);
+ }
+diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+index 69827d4fa052..83743d7a6177 100644
+--- a/mm/page_alloc.c
++++ b/mm/page_alloc.c
+@@ -5411,6 +5411,9 @@ void show_free_areas(unsigned int filter, nodemask_t *nodemask)
+ 			" managed:%lukB"
+ 			" mlocked:%lukB"
+ 			" kernel_stack:%lukB"
++#ifdef CONFIG_SHADOW_CALL_STACK
++			" shadow_call_stack:%lukB"
++#endif
+ 			" pagetables:%lukB"
+ 			" bounce:%lukB"
+ 			" free_pcp:%lukB"
+@@ -5433,6 +5436,9 @@ void show_free_areas(unsigned int filter, nodemask_t *nodemask)
+ 			K(zone_managed_pages(zone)),
+ 			K(zone_page_state(zone, NR_MLOCK)),
+ 			zone_page_state(zone, NR_KERNEL_STACK_KB),
++#ifdef CONFIG_SHADOW_CALL_STACK
++			zone_page_state(zone, NR_KERNEL_SCS_KB),
++#endif
+ 			K(zone_page_state(zone, NR_PAGETABLE)),
+ 			K(zone_page_state(zone, NR_BOUNCE)),
+ 			K(free_pcp),
+diff --git a/mm/vmstat.c b/mm/vmstat.c
+index 96d21a792b57..2435d2c24657 100644
+--- a/mm/vmstat.c
++++ b/mm/vmstat.c
+@@ -1119,6 +1119,9 @@ const char * const vmstat_text[] = {
+ 	"nr_mlock",
+ 	"nr_page_table_pages",
+ 	"nr_kernel_stack",
++#if IS_ENABLED(CONFIG_SHADOW_CALL_STACK)
++	"nr_shadow_call_stack",
++#endif
+ 	"nr_bounce",
+ #if IS_ENABLED(CONFIG_ZSMALLOC)
+ 	"nr_zspages",
 -- 
 2.26.1.301.g55bc3eb7cb9-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200421021453.198187-2-samitolvanen%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200421021453.198187-3-samitolvanen%40google.com.
