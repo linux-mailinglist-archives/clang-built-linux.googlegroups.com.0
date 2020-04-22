@@ -1,133 +1,126 @@
-Return-Path: <clang-built-linux+bncBCI2VAWMWUMRBNNLQH2QKGQEYPNZ6ZA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDVZNA4ESQGBB752QH2QKGQET7334ZQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x937.google.com (mail-ua1-x937.google.com [IPv6:2607:f8b0:4864:20::937])
-	by mail.lfdr.de (Postfix) with ESMTPS id BBADE1B475F
-	for <lists+clang-built-linux@lfdr.de>; Wed, 22 Apr 2020 16:33:26 +0200 (CEST)
-Received: by mail-ua1-x937.google.com with SMTP id z1sf1054143uar.18
-        for <lists+clang-built-linux@lfdr.de>; Wed, 22 Apr 2020 07:33:26 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1587566005; cv=pass;
+Received: from mail-lf1-x13a.google.com (mail-lf1-x13a.google.com [IPv6:2a00:1450:4864:20::13a])
+	by mail.lfdr.de (Postfix) with ESMTPS id D07E41B4839
+	for <lists+clang-built-linux@lfdr.de>; Wed, 22 Apr 2020 17:06:39 +0200 (CEST)
+Received: by mail-lf1-x13a.google.com with SMTP id t11sf1012787lfc.17
+        for <lists+clang-built-linux@lfdr.de>; Wed, 22 Apr 2020 08:06:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1587567999; cv=pass;
         d=google.com; s=arc-20160816;
-        b=DrC2n60IkvqtUuTrTE4cUpjUDaz3ThALaQ0SpIQkO+Y2H4w1slzuem/5jwtXxL+mgL
-         C3C6FigN5LFwzgcSRWrwBHHj6D0F/07DMRo58tHc08z8m5quOzh7LG9HoGyEq8Y/I6IX
-         h9ajcgRrLfUvwMbP4sdK81+Zki3eodPMoA3deOPSze2tjyf7QdlhwX0s+xxk9mLrf1px
-         rczaUJo/1ZHTE57vfJxyYkBZz+FQU2Wp1B2UWe5VGhNTCXTGEXBw57NvkyH1f98qTLga
-         u+5P44XJIdxqZCZtzRhaEr2zC3LRkRc5pzJwV8nwh2YdsWLSTwIpUMAFk1Ix1Ik5cvwE
-         BWiQ==
+        b=nZYqahzWJWvKPpeI+HPyr4DoGB2hn3NXQ6z3ZKr43qhCMmYF2n8X2028WNVox1gdlD
+         lzOBMNC+WkEoMTYZNCMbAKOhMMaXCbhJQe7vNUwVj1I/8JmxKfOgd1w3/XDFNUjeuV7Z
+         ZG7jVvJi+RUU62bLAhHcRsXgn//UvkT7DJ8URVgycP1Xf5nKs5DnXnoSJP1MqAVVwtiH
+         vv4dcZteWwAnFV1C9gQcMcN4t1Y+u2yXkldBeVr/6zsHHTmwz+s3MNYCWetF/TEHnm1c
+         2jefBdNoKvtISLrvX0s0OXqg28IIlRKhws7QbC4IbNr2N1UqJqgjB4HOPjMighZes8OR
+         II5A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=6Y+7j33Sie3n1EAqJo4MQ9AjyQNsej001RZ8HcjHId8=;
-        b=owSg8XIay6iFc9pT3FDaJPy0b8ZfdJ7JiX8mOYAoPuZoT7Lid7lnEpbNlF0q2ZdisP
-         NdAwMrdYaOGF3auxuxqo4qecDTvI5nY1w+3GQfP3V3m28FuPXHzOwbZM17agfeTF4D3F
-         ctBmQ3X390SZZ0+nJ2r2Id2xvm7Txl9EwHyKhzKXX7tnnNXA/j21vis5ygF5kX3v1jET
-         DSqDMsHFYOSdAHMNgnKm0UG9pNFOpOc0qvpeforqr2n73hOdp1OfkLJUufO6MXQmW0+Z
-         tZ87YJLecTirnZvKheecu2pqK+rWlifhjowDY1un4eZL9LkrU0e46bJyI5Rv83O/FnNQ
-         3gLw==
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :message-id:in-reply-to:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=dJpYBQBHvWMD8G7VthtkOQK4Md1RTg+k6tow5krbOQQ=;
+        b=yIVCCFJwR7MkkiDdxW8R3DWK70f3n5xhat3ZKotNNEgCE9s2j3rLPBjZ5SAYSDFlaH
+         p9H8I8B8UhRlGOruz5DxGMrDoIbPI2T7wAzmYOVPJ9gPcVy+AhV4maHvMAXoTM99yNm2
+         koRb8bbIpiNWn4B6w9+pz5oU6n9SsM2v3A8bp/n1sC0yEtWGBsSQ5077LQrTMurYh+Hd
+         AoF6Vj33FTCDkCFFFZwUm1OJ3vV0nltq2vvWKpvFJyT//3QlfSlPbQo+3ysvefjcQqH+
+         tMg4vIw0D3CmXFLofp/B07P0v7O+6hmfqX7ZWJEhIz+xP30JJxQkJlSFD1lzwYzTzv39
+         dZ4w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@flygoat.com header.s=vultr header.b=N8HBeMWy;
-       spf=pass (google.com: domain of jiaxun.yang@flygoat.com designates 2001:19f0:6001:3633:5400:2ff:fe8c:553 as permitted sender) smtp.mailfrom=jiaxun.yang@flygoat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=flygoat.com
+       spf=pass (google.com: domain of matz@suse.de designates 195.135.220.15 as permitted sender) smtp.mailfrom=matz@suse.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=6Y+7j33Sie3n1EAqJo4MQ9AjyQNsej001RZ8HcjHId8=;
-        b=ThuMaOjCPS66+DtdDuhWQX2sVFMj+q14M88qMg+u1iOvvmOS1iwUMTqPku4oyMe6+a
-         81k+M2XWcICjr6k79EyzM43ORvneTTmmdqxF5746JLYGuZWSC2AFbqKdbHRuporiSV3m
-         RUkAsOt11l4D+U4wczgxnbBefm6+dOuoqwHZix+3a7GNJJSc2EVDXgDm2thiD0Jzxg7e
-         bW/rYLu3m2t99hg0IpdTLf99+VLEKHQYm/NiyBCvIqsZ3d4hnWlC3PocLV7WgjlbTAsW
-         BaZm4+6PzoNVx/QjTkvbkBq8LnUVfBkKG4gmj7hpGO4qVbRed5wuXO/eu/w7cEXYFgRJ
-         ySrA==
+        h=sender:date:from:to:cc:subject:in-reply-to:message-id:references
+         :user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=dJpYBQBHvWMD8G7VthtkOQK4Md1RTg+k6tow5krbOQQ=;
+        b=PiT53U7px8Tdq64NVMe8DuiBxOXZ2rWitWhCWqk8CfOtbxW26jyiWclFCk7am8Mgao
+         wPmcurqOmPHak1qh8Guh1PnDVV0204alxLUnJuickttqkP1kxmaTYaejGMbUuM7yUuve
+         Bl1IUVcNbvDwkmxbYZEm4M0TPsWwCD8vCIadsPnkx+xn+s5luq6YL8NS0z2xDk00hQK+
+         gte/2h0xtH3OcYQoO9IRjC0uSWbZvZDX1roTmfYzwIlInM920zbUYiqyEjc8/XEJRwW2
+         NiRlAbvIzV9mKtQTmCEqPDuKQd5Ho+XH9OQjWCeh+zZZsM+0sHRsYYpceeIhZYcVgJBn
+         5oag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:in-reply-to
+         :message-id:references:user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=6Y+7j33Sie3n1EAqJo4MQ9AjyQNsej001RZ8HcjHId8=;
-        b=tJg1PfLzs/Yb10TNncSacPME3GZVF/J9dKfCdF5NoTN6sfjPA/XX/pcGKqqSpyaYg4
-         WFiNXuTWRkmB+WjhmyZvUvfxxp4Q1yihHZOSsGPoEgyCdixJxxwkOf+8F8QGWr+Q/NUR
-         xltD8AHEln+c2UUoP2tpT4om3Z3XE9cUlaCEnzlm+k2kE96QjI+/+XifWRInOAGpithb
-         HYPBBIH76N/BStQbsFaMYzXY1yHo05iku27y7qkxdxR8uSfHoE6SGxA+3OYqJ4Yws5iY
-         0zu0b03XKCDILkDPZUbUoZ5WRncSEEZ5m9vT3Z3Juj9Io1KYRfbUpvSQrwJInczl6mgv
-         cMBA==
+        bh=dJpYBQBHvWMD8G7VthtkOQK4Md1RTg+k6tow5krbOQQ=;
+        b=XoqlGgBXBvQWzPQ8HlDOBUmj19rHGp7hVzzjwTz/qpWBbZW59jsc63yGDhTytRTtpH
+         FrNTcpZFWrLfz6JK2RF6d4D+q7QMMgLgvrLtvD2Pe8GOTx3ErUv7LxuJnLPlkSrXyVBy
+         XX515M0YTHTSpfSVS3ByoHvTwhrLvmZhyXW0xD5VaJ8guDZ7e3itEdcFebvnUPFI1Ik4
+         nBQ7G4NWbRNxO/SYQyZKW5XlD0Anl2lfNl3pp0gggzr0bf8c1frqZRc716OVpPbuab2Z
+         ZuELXgYLXoLYFCHPyB8AJtiAxdEvgEoGt1KYqbt+zWynjdGkSuSEUourDB+ijjJXPYJR
+         /rVg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuZHL8PB3J+WX+HQPgHZbLlHNlZ2f1QGoTsVykoDttH8VLJqr0h7
-	bFgpXnSuS7i0kVC9bIq+RWg=
-X-Google-Smtp-Source: APiQypIm7j7BxLYThLOl2JVj+VAsWKo+e0LOa7Pp70dLIr0jUfU2EJ0rN1cvazkZxsMxWiVQuGOaxg==
-X-Received: by 2002:ab0:cd:: with SMTP id 71mr14432924uaj.109.1587566005719;
-        Wed, 22 Apr 2020 07:33:25 -0700 (PDT)
+X-Gm-Message-State: AGi0PubkNlCnwN2s3NV4XSjTDGU2wsbOeYb4PnLm/HGozMfRS3mqSf54
+	DEl6yCQEy+X4dMKaigPSIsg=
+X-Google-Smtp-Source: APiQypJPlk7SbdmQH9QY3Rdq3QT1/5y2PKkcb9z8AMT7ouyQdbanOAkSu03GCVeBFSswkIbPUb9C5g==
+X-Received: by 2002:a05:651c:291:: with SMTP id b17mr16519365ljo.166.1587567999296;
+        Wed, 22 Apr 2020 08:06:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:f1c8:: with SMTP id v8ls343810vsm.7.gmail; Wed, 22 Apr
- 2020 07:33:25 -0700 (PDT)
-X-Received: by 2002:a67:7fd1:: with SMTP id a200mr19691827vsd.114.1587566005178;
-        Wed, 22 Apr 2020 07:33:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1587566005; cv=none;
+Received: by 2002:a19:74f:: with SMTP id 76ls533675lfh.0.gmail; Wed, 22 Apr
+ 2020 08:06:38 -0700 (PDT)
+X-Received: by 2002:a19:c750:: with SMTP id x77mr17688837lff.1.1587567998239;
+        Wed, 22 Apr 2020 08:06:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1587567998; cv=none;
         d=google.com; s=arc-20160816;
-        b=DCNqukPhRmSXqTAfCzX3fdAtjK3vNDZcwDHdNypI9vMyrhP09AyDv8imCm/Q7ckTcv
-         yOBL9JKgLJHJd8cjLAHei+46G2mhRz7zJzL5LFO6/0aTXHB4FXVIef5v2kgI/DuFTxNk
-         opIXumahPLJHKxQZtp3SwsG72T/9n6rh3gek6XV2XL+cfpEfvyysEe8llhXWhu+jvz+u
-         nl4QxsH2JULEgs6zKomaaRTxDs8r9kqsVwP/o+Lvm3+b9DS2/aVC/X7wdedV1JB16GL9
-         3tIjdTDyy/xrni7oCtS6rf3/2wJe1so4eQk56Tw4QRT5FcPcpVacQMmSwOK3WvtvGJQY
-         Faxg==
+        b=oqGrc7Jj6eVkbjdPTbYnxLV8xyr2ewsOHjBlUHsnEkzdILGWOB7Ot8bS6ooUr1iV1N
+         wuNM1jcdL6Dy2DTn0F1vl9IJe8Um+SmJu29EBC6+ijoC6AU+hHwHmGn7yMzeSwBYpuVO
+         ozzBqi6icEwoYQDE/akCpKd6fxbMX6IYpGt7ezY3jnWCWMdvua16dLy30wDZ3j0gW5tg
+         As5gXNE/Hcvjis2BJZD0fU1bSXI+fpPAW/x/ANY7gO3RumDuUAbDaLo+PdKhB/XCcrZk
+         zPwj3JjpuFkuM2h+prGIxpsTPaGgbZFEgJeOFh3r9QITFFSgEFG9Lauj8iOiA7LgBjxV
+         xpjw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=yYmPH65voFOF7kTUQC/rDai/QmU3LHu6Zsl1XsnGmWw=;
-        b=E/flEaB5otSAVRQta3ndbTsh8JutkCwecrdFhHTIVAe7tAIy09KTJZtPrR8sGrFgXn
-         zAVY2VuFLb5R2x2JrJHdI5ng0+miydr3B2RdZMtJjyHMHNbZG4woKI5yZEAykXBYDCHc
-         dSvYGyOTfUZ7tyrozNkRB8LX6wevqRNA9gvcZ4aoZGPsi3xyUCF2Mx0fiYOuvGPA3qPv
-         ClBqrAR5rcgRnE0rhRP9ZSDzHyI4OLxC/zCq0nFlkTuLFIEN3p7hdoE8bRSnc7wzxexE
-         pi+X2sMN//oQTbaVtpZ78HDjeuiMK4gv9O1XD8U5h0IgJvRdyTACH6YZ3thq3h8+A2x+
-         7ZHw==
+        h=mime-version:user-agent:references:message-id:in-reply-to:subject
+         :cc:to:from:date;
+        bh=9dasqayWLRMndR5wILHTVq7V8XkEah46KuqfQueNgbY=;
+        b=Lbhj1rnwj8mybHWtMM1LtFrYHbv4e/6xN7bBbjOcKSxK8GTqVpxf7/+QU7idSC2Dzm
+         txZ3GHgHkhq16IWvGZSzabd7LP8bsxLROrrc+OFqI+83aNM+XMzH9ypadyXGuAA/RS1H
+         TTGxoJrgF5HLWNxGDTtJjAfIQJyYqp96OPRwl7a5j4n9PubzmenQM3qvErecw4EwjYcE
+         s3DVsrAX0lwh1tUP9We16LG3LsR9pbqlX5nmzhp9ixGcpoyeYniewVagBAFpC2g+2ebD
+         xqDP7wABFnuMPUoFPYf4O65yGDZTzzrd/FK06/i9b8iJyBTLxzOK9sFaZCOsfb19y3+I
+         +8qg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@flygoat.com header.s=vultr header.b=N8HBeMWy;
-       spf=pass (google.com: domain of jiaxun.yang@flygoat.com designates 2001:19f0:6001:3633:5400:2ff:fe8c:553 as permitted sender) smtp.mailfrom=jiaxun.yang@flygoat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=flygoat.com
-Received: from vultr.net.flygoat.com (vultr.net.flygoat.com. [2001:19f0:6001:3633:5400:2ff:fe8c:553])
-        by gmr-mx.google.com with ESMTPS id t191si525112vkt.0.2020.04.22.07.33.24
+       spf=pass (google.com: domain of matz@suse.de designates 195.135.220.15 as permitted sender) smtp.mailfrom=matz@suse.de
+Received: from mx2.suse.de (mx2.suse.de. [195.135.220.15])
+        by gmr-mx.google.com with ESMTPS id c16si444773ljk.5.2020.04.22.08.06.38
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Apr 2020 07:33:25 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jiaxun.yang@flygoat.com designates 2001:19f0:6001:3633:5400:2ff:fe8c:553 as permitted sender) client-ip=2001:19f0:6001:3633:5400:2ff:fe8c:553;
-Received: from localhost.localdomain (unknown [IPv6:2001:da8:20f:4430:250:56ff:fe9a:7470])
-	by vultr.net.flygoat.com (Postfix) with ESMTPSA id 28E9220CE6;
-	Wed, 22 Apr 2020 14:33:21 +0000 (UTC)
-From: Jiaxun Yang <jiaxun.yang@flygoat.com>
-To: linux-mips@vger.kernel.org
-Cc: clang-built-linux@googlegroups.com,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	"Maciej W . Rozycki" <macro@linux-mips.org>,
-	Fangrui Song <maskray@google.com>,
-	Kees Cook <keescook@chromium.org>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Paul Burton <paulburton@kernel.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Jouni Hogander <jouni.hogander@unikie.com>,
-	Kevin Darbyshire-Bryant <ldir@darbyshire-bryant.me.uk>,
-	Borislav Petkov <bp@suse.de>,
-	Heiko Carstens <heiko.carstens@de.ibm.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v5] MIPS: Truncate link address into 32bit for 32bit kernel
-Date: Wed, 22 Apr 2020 22:32:54 +0800
-Message-Id: <20200422143258.1250960-1-jiaxun.yang@flygoat.com>
-X-Mailer: git-send-email 2.26.0.rc2
-In-Reply-To: <20200413062651.3992652-1-jiaxun.yang@flygoat.com>
-References: <20200413062651.3992652-1-jiaxun.yang@flygoat.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 22 Apr 2020 08:06:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of matz@suse.de designates 195.135.220.15 as permitted sender) client-ip=195.135.220.15;
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+	by mx2.suse.de (Postfix) with ESMTP id 80FE4AFC6;
+	Wed, 22 Apr 2020 15:06:36 +0000 (UTC)
+Date: Wed, 22 Apr 2020 15:06:36 +0000 (UTC)
+From: Michael Matz <matz@suse.de>
+To: =?ISO-8859-15?Q?Martin_Li=A8ka?= <mliska@suse.cz>
+cc: Jakub Jelinek <jakub@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+    Peter Zijlstra <peterz@infradead.org>, 
+    Nick Desaulniers <ndesaulniers@google.com>, 
+    Sergei Trofimovich <slyfox@gentoo.org>, 
+    LKML <linux-kernel@vger.kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+    Ingo Molnar <mingo@redhat.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+    Andy Lutomirski <luto@kernel.org>, 
+    "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, 
+    clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH v2] x86: fix early boot crash on gcc-10
+In-Reply-To: <20a91f2e-0f25-8dba-e441-3233cc1ef398@suse.cz>
+Message-ID: <alpine.LSU.2.21.2004221501440.11688@wotan.suse.de>
+References: <20200417085859.GU2424@tucnak> <20200417090909.GC7322@zn.tnic> <CAKwvOdnFXPBJsAUD++HtYS5JiR2KmX73M5GAUe-tvX-JYV7DaA@mail.gmail.com> <CAKwvOdmNwNwa6rMC27-QZq8VDrYdTQeQqss-bAwF1EMmnAHxdw@mail.gmail.com> <20200417190607.GY2424@tucnak>
+ <CAKwvOdkkbWgWmNthq5KijCdtatM9PEAaCknaq8US9w4qaDuwug@mail.gmail.com> <alpine.LSU.2.21.2004201401120.11688@wotan.suse.de> <20200422102309.GA26846@zn.tnic> <20200422114007.GC20730@hirez.programming.kicks-ass.net> <20200422134924.GB26846@zn.tnic>
+ <20200422135531.GM2424@tucnak> <20a91f2e-0f25-8dba-e441-3233cc1ef398@suse.cz>
+User-Agent: Alpine 2.21 (LSU 202 2017-01-01)
 MIME-Version: 1.0
-X-Original-Sender: jiaxun.yang@flygoat.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@flygoat.com header.s=vultr header.b=N8HBeMWy;       spf=pass
- (google.com: domain of jiaxun.yang@flygoat.com designates 2001:19f0:6001:3633:5400:2ff:fe8c:553
- as permitted sender) smtp.mailfrom=jiaxun.yang@flygoat.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=flygoat.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/mixed; boundary="-1609957120-295431784-1587567996=:11688"
+X-Original-Sender: matz@suse.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of matz@suse.de designates 195.135.220.15 as permitted
+ sender) smtp.mailfrom=matz@suse.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,95 +133,50 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-LLD failed to link vmlinux with 64bit load address for 32bit ELF
-while bfd will strip 64bit address into 32bit silently.
-To fix LLD build, we should truncate load address provided by platform
-into 32bit for 32bit kernel.
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-Signed-off-by: Jiaxun Yang <jiaxun.yang@flygoat.com>
-Link: https://github.com/ClangBuiltLinux/linux/issues/786
-Link: https://sourceware.org/bugzilla/show_bug.cgi?id=25784
-Reviewed-by: Maciej W. Rozycki <macro@linux-mips.org>
-Reviewed-by: Fangrui Song <maskray@google.com>
-Reviewed-by: Kees Cook <keescook@chromium.org>
-Cc: Nathan Chancellor <natechancellor@gmail.com>
---
-V2: Take MaskRay's shell magic.
+---1609957120-295431784-1587567996=:11688
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-V3: After spent an hour on dealing with special character issue in
-Makefile, I gave up to do shell hacks and write a util in C instead.
-Thanks Maciej for pointing out Makefile variable problem.
+Hello,
 
-v4: Finally we managed to find a Makefile method to do it properly
-thanks to Kees. As it's too far from the initial version, I removed
-Review & Test tag from Nick and Fangrui and Cc instead.
+On Wed, 22 Apr 2020, Martin Li=C5=A1ka wrote:
 
-v5: Care vmlinuz as well.
----
- arch/mips/Makefile                 | 13 ++++++++++++-
- arch/mips/boot/compressed/Makefile |  2 +-
- arch/mips/kernel/vmlinux.lds.S     |  2 +-
- 3 files changed, 14 insertions(+), 3 deletions(-)
+> One possible solution can be usage of a GCC pragma that will disable the
+> tail-call optimization:
+>=20
+> $ cat tail.c
+> int foo(int);
+>=20
+> #pragma GCC push_options
+> #pragma GCC optimize("-fno-optimize-sibling-calls")
 
-diff --git a/arch/mips/Makefile b/arch/mips/Makefile
-index e1c44aed8156..68c0f22fefc0 100644
---- a/arch/mips/Makefile
-+++ b/arch/mips/Makefile
-@@ -288,12 +288,23 @@ ifdef CONFIG_64BIT
-   endif
- endif
- 
-+# When linking a 32-bit executable the LLVM linker cannot cope with a
-+# 32-bit load address that has been sign-extended to 64 bits.  Simply
-+# remove the upper 32 bits then, as it is safe to do so with other
-+# linkers.
-+ifdef CONFIG_64BIT
-+	load-ld			= $(load-y)
-+else
-+	load-ld			= $(subst 0xffffffff,0x,$(load-y))
-+endif
-+
- KBUILD_AFLAGS	+= $(cflags-y)
- KBUILD_CFLAGS	+= $(cflags-y)
--KBUILD_CPPFLAGS += -DVMLINUX_LOAD_ADDRESS=$(load-y)
-+KBUILD_CPPFLAGS += -DVMLINUX_LOAD_ADDRESS=$(load-y) -DVMLINUX_LINK_ADDRESS=$(load-ld)
- KBUILD_CPPFLAGS += -DDATAOFFSET=$(if $(dataoffset-y),$(dataoffset-y),0)
- 
- bootvars-y	= VMLINUX_LOAD_ADDRESS=$(load-y) \
-+		  VMLINUX_LINK_ADDRESS=$(load-ld) \
- 		  VMLINUX_ENTRY_ADDRESS=$(entry-y) \
- 		  PLATFORM="$(platform-y)" \
- 		  ITS_INPUTS="$(its-y)"
-diff --git a/arch/mips/boot/compressed/Makefile b/arch/mips/boot/compressed/Makefile
-index 0df0ee8a298d..3d391256ab7e 100644
---- a/arch/mips/boot/compressed/Makefile
-+++ b/arch/mips/boot/compressed/Makefile
-@@ -90,7 +90,7 @@ ifneq ($(zload-y),)
- VMLINUZ_LOAD_ADDRESS := $(zload-y)
- else
- VMLINUZ_LOAD_ADDRESS = $(shell $(obj)/calc_vmlinuz_load_addr \
--		$(obj)/vmlinux.bin $(VMLINUX_LOAD_ADDRESS))
-+		$(obj)/vmlinux.bin $(VMLINUX_LINK_ADDRESS))
- endif
- UIMAGE_LOADADDR = $(VMLINUZ_LOAD_ADDRESS)
- 
-diff --git a/arch/mips/kernel/vmlinux.lds.S b/arch/mips/kernel/vmlinux.lds.S
-index a5f00ec73ea6..5226cd8e4bee 100644
---- a/arch/mips/kernel/vmlinux.lds.S
-+++ b/arch/mips/kernel/vmlinux.lds.S
-@@ -55,7 +55,7 @@ SECTIONS
- 	/* . = 0xa800000000300000; */
- 	. = 0xffffffff80300000;
- #endif
--	. = VMLINUX_LOAD_ADDRESS;
-+	. = VMLINUX_LINK_ADDRESS;
- 	/* read-only */
- 	_text = .;	/* Text and read-only data */
- 	.text : {
--- 
-2.26.0.rc2
+As we determined upthread (and the reason why we even still have this=20
+thread): the optimize attribute (and pragma) reset flags from the command=
+=20
+line (the case in point was -fno-omit-frame-pointer).  So, that's not a
+solution for now.
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200422143258.1250960-1-jiaxun.yang%40flygoat.com.
+> And as I talked to Boris, I would recommend to come up with a=20
+> "configure" check that a compiler does not optimize the key code=20
+> sequence:
+
+Right.  I think the traditional asm (i.e. one without operands) is good=20
+enough for the forseeable future from GCCs side: it relies on documented=20
+behaviour of traditional asms, and hence would be very hard to change.
+
+
+Ciao,
+Michael.
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/alpine.LSU.2.21.2004221501440.11688%40wotan.suse.de.
+
+---1609957120-295431784-1587567996=:11688--
