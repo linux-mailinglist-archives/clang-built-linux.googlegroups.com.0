@@ -1,125 +1,135 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBJOKQ72QKGQESA25ZKQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB3WVQ72QKGQEAHR7WSY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83f.google.com (mail-qt1-x83f.google.com [IPv6:2607:f8b0:4864:20::83f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 49AA21B6418
-	for <lists+clang-built-linux@lfdr.de>; Thu, 23 Apr 2020 20:57:43 +0200 (CEST)
-Received: by mail-qt1-x83f.google.com with SMTP id g55sf7932515qtk.14
-        for <lists+clang-built-linux@lfdr.de>; Thu, 23 Apr 2020 11:57:43 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1587668262; cv=pass;
+Received: from mail-ot1-x33d.google.com (mail-ot1-x33d.google.com [IPv6:2607:f8b0:4864:20::33d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0A2C31B646A
+	for <lists+clang-built-linux@lfdr.de>; Thu, 23 Apr 2020 21:22:24 +0200 (CEST)
+Received: by mail-ot1-x33d.google.com with SMTP id c22sf4804027otp.6
+        for <lists+clang-built-linux@lfdr.de>; Thu, 23 Apr 2020 12:22:23 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1587669743; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Lmq/FdtSfGKLFUBHeyGSBzp4u+6XhJQmaf1qPfR4U4O80dLGvmUz3ks9MJVJRiUZXA
-         biFqMzY6kDWyIElUhnIf0gUUSknrkCx+wTsjhg/JBju4jABYDdZKFePtXdP23Ddk7cFK
-         CeYuDgSpPtH6nNLiGPnY/L4ne2JUBhgyQfAWu4ce22QFw1l22beXbitiBYeRSLraCY/n
-         4Rd9LJnsldcfe8WpmBdIhHkBxtkpSnrNYseQiglDfULJzPVps261F/H+ftMONHDmQAc+
-         w4dypI0osygBlFiT3RDS3gXaXlwwtrnf4i4+GIQ4olAIr13gciTNfdbGcWSyqC/JHykH
-         a5qQ==
+        b=YqihVcPuF+CypYZZJ3YjOZvTsoM8VWfj23NIjm0vXq+OF8GF6Hvw+vsWcMShUVfzw0
+         Y6O1xUz1nxXQO7vRxfB34hWZapfwUWlETvkLGY19tiFMMUvNoSMvyWYb9mPuxZ+YAgUM
+         Ge0S1LDuLz1Ss4CAFMpPCvohmGi8wv2au7k9wvootvE3jhsCo3dmoJ/FdT/i4uwlcbxx
+         iewHTSfqWlAtFl+jK+oQf2k7xtdvJVQYDswSv23dDHpp2ZVy8GZCgdENTKL/hYx6K2T4
+         EHBShIJ/49P6TwgiNVBiDV1UUE2wuLbw7618COJSXJboY2ED0Xnq6oUDcpA3Ubf2vaMD
+         GrKQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=RhMoIBKHdP4Tnlk+D0Zey8Vv56dgO4GPaSrgrAdel94=;
-        b=X13cIAFnJsBKGdUK4li6KkQiq5arCMHMDuKaOEtRh6wwsneZGd4NH1viNh7gfWhg/g
-         tz9FCvCB7m2B0CA2awZ1uWonsfxuyHvRdMrunWDYrTmx89aUG0DnkeoSZLKfItNEWrhW
-         KrWyBWRRx7OWadlVjoKn3PONQylJ9NJnMkU0B3aRaTPgkY+KVAIcSqc/pjXEsyOtV1Rl
-         RUuFq5H5BbwCftRQtSsiQmJu5W/yTMaL8BokkAA5uQ56IGCGBx/Xa+ndIEEC8BoWNnmb
-         HRqgeT1kEX4+7mu7oscqus6i7HfNFFoMBpxalResXZs5agS1Nr+jVh74fjvzTyGiZgtG
-         IPCQ==
+         :list-id:mailing-list:precedence:user-agent
+         :content-transfer-encoding:content-disposition:mime-version
+         :message-id:subject:cc:from:date:ironport-sdr:ironport-sdr:sender
+         :dkim-signature;
+        bh=XQgQwgzP6jD6Sha/YXqpoumDoMmuBhK6fKofpr/f/ao=;
+        b=0wH5OvQe7UsirKczS3C/Ghn9b8kfDm63yaEaG0KsVW0dKK+d2kQYgv8MCfFsscq+2L
+         G0K+b9xjaWbesstF8JaU/M1GuN4npGZKIXgV5GE4R0LU3UOrimRZXgSjjtW/qY7/xI29
+         LTt3MfhkpRV9/Dyl/VCa79n28lEnz735m/PxPPXed+mvfVTXN3uJlj0jUnksS2F6ChKb
+         pUm8js+e6fPuPdazdB8+zE96T82zHzZQhiwWyN8dFHRCtVgYS7YcdcrjqhASXxSFPuUD
+         3kfdjMwqePytnR5E4KnlQdOMaaMfuFJtj43evJVJiVkPArz6hUql94KfaHxsUpq+Nu9k
+         b5wQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Rw8z4TXD;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1029 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:ironport-sdr:ironport-sdr:date:from:cc:subject:message-id
+         :mime-version:content-disposition:content-transfer-encoding
+         :user-agent:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=RhMoIBKHdP4Tnlk+D0Zey8Vv56dgO4GPaSrgrAdel94=;
-        b=JOD13Q44/51CutEL7FHDSL6uVF+k1GPmo7URabdq11a+Xq0J1KcWns/UEw0R1BfBNb
-         DU6EdeWFqZDjmhjqpTytm4uNX2+YoVSpcA3cBKIzEBKkUXnzsgfdyumEIcFfuOyqG93v
-         Bkurgn5LD47eztyGkse403aqPRi0Di73V38PKT8U1mVHDa5rzz9vwJh/lnBE69+jBPpA
-         UbxKN4SEl3eSG9tkeoWO1VKee7lNuY9ugBbqVe9JJiVhM9ofMgDmp6Qm6pgrJM8yaU0s
-         LxrBry8AM3U3Fie6izTKZNerJQNZEJNpq4OF89WohGCUoZbC0XMmye2Nwde/vNAzIx9j
-         PkHw==
+        bh=XQgQwgzP6jD6Sha/YXqpoumDoMmuBhK6fKofpr/f/ao=;
+        b=LDu4DXe3PW3UMDmkBviGF7yS3Q3PdEB8k7tgCnDdV06bhZyvWzy01q1joy6xFa6Q6i
+         uGROqQz6A89gwoFAs5PqqCoITAxKOJ1oYWCdpfaDFWPsHr9EqKtFTfwSMoNUJuS+zLZn
+         OzLnJ2LzylW7kDwuFiL+4hn/K6BNK99X3GY1PajTui3CrnFI4FwoJSYOHsuAUIk6V28N
+         V6IvwhWCEXp1eAR6LZX0CWHCQ4YiP75TtGRvt3hRW/JseFq74dzE9dW0p0EVTxAQcfVM
+         ajPeTiGXems0kZnpNE1ME6xhhtl1HMpiZq0Irj3c+kfOD6TJFSl4f1qX1c8umXgpZc9J
+         N0Wg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:cc
+         :subject:message-id:mime-version:content-disposition
+         :content-transfer-encoding:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=RhMoIBKHdP4Tnlk+D0Zey8Vv56dgO4GPaSrgrAdel94=;
-        b=H7npKYf+OmAXXmyH4tBZjUXOzei4mo8JSdAL+Mq6LHCK7L10TyE2fWXgJA/PP3qOC4
-         dm7NalGeQNqta/YXlMvhkkbVDEAjZIL3OCayS7feA9ZEr1gP9QupFJqAH/iFsjOkAko5
-         Y562cAv5aZkCHXd8ND7YzHmtT0AfBXt4t+CNVPYrssWQxPQYgwN+ZcGYVlGnImtUk5oe
-         40pcgKp6XybjDlnMSLCjdlSxAUW6efEkKpBXzSjJ8zGj1emULjMcyKX1Bd2FFPBf+ESb
-         o3UQCJ7LJAUQS5xFn0fdgBbEBc1LVLjOwWI8hOKVpeJI6L5C4pRLSMn7WX/UIVjvS6rh
-         HC9A==
-X-Gm-Message-State: AGi0PubhBOfDStdQPfleoOe6Fwg0f7fKN2jLQv6JU8qlJxFfufy42nrZ
-	hMT+fl2xCmT4qXq6yxm5Y48=
-X-Google-Smtp-Source: APiQypKC8+34v9oi9BI3GqbQTTGOi8RNih1ULWdMToh/scm/uyrbkmqgXyykNODKN1A+PycMX0Wg3w==
-X-Received: by 2002:a0c:facb:: with SMTP id p11mr5720485qvo.17.1587668261697;
-        Thu, 23 Apr 2020 11:57:41 -0700 (PDT)
+        bh=XQgQwgzP6jD6Sha/YXqpoumDoMmuBhK6fKofpr/f/ao=;
+        b=YppasI1nJ9IjASUZTY8dA4kdD8iK4+9K+3iwHyTQAK7bN3OzTBnvZ0aJ/Zcn461PEc
+         lYPbeBxKeVh4ITcXUk3eVmzgaSx6l7kNhtW6AszA1r6EUpQjolpkYjabxqQWzxfVidJx
+         mdXMNu9xcP3mUZKRg3na+b7WEGzIoLqQi97PfSzZ1RYme56ATnM3P2tHgCYD4G0EiHPZ
+         hLxoRIwMuz80mEI+REHHJTtEZwcdWxbJ9mi4dIJGz6/uthlyDZuYaHJjrK/YQsBnKWsa
+         G+6gs7cYNMjGdtHk41Jb9pbi5+XUg+xMROgRomAvwXcqwfBtIrGZSvJPdWA4EYsUVwA9
+         g1cQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AGi0PuaXZqhQg7AL5soDD9XQNDSrOy0qrpaJvBM6cNgYw5Lohmt5snGK
+	2hjtcOtJ41piM9+/+AvniJk=
+X-Google-Smtp-Source: APiQypJ/1NpOTMfoU6kweWKKyiir9Fgy9m03X/IyZiZomuA7gj6UWDaUOIh+SZsdUn4UQOEJ/91IvQ==
+X-Received: by 2002:a9d:592:: with SMTP id 18mr4609446otd.337.1587669742742;
+        Thu, 23 Apr 2020 12:22:22 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:620a:15d9:: with SMTP id o25ls4471566qkm.6.gmail; Thu,
- 23 Apr 2020 11:57:41 -0700 (PDT)
-X-Received: by 2002:a37:a5c7:: with SMTP id o190mr5371489qke.5.1587668261128;
-        Thu, 23 Apr 2020 11:57:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1587668261; cv=none;
+Received: by 2002:a9d:3985:: with SMTP id y5ls1747242otb.7.gmail; Thu, 23 Apr
+ 2020 12:22:22 -0700 (PDT)
+X-Received: by 2002:a05:6830:243c:: with SMTP id k28mr4871637ots.172.1587669742270;
+        Thu, 23 Apr 2020 12:22:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1587669742; cv=none;
         d=google.com; s=arc-20160816;
-        b=T/H2Qo4DC8YN9fQH2NHgKcf8Bax0rlAYc9A5t56l0c04OJLqd+7+HZQNEsd6fnlP7S
-         ZD4w8fWGdKApOQLCsqmoFhGR2i6EDywWrkP5CkuqsaRLvJHrnSnwvcFFVqzLY7dpda52
-         ywdZxKm7WtICICPn9bYgJaGac3r9je7rZbQCSeAHWPZP8qCA9hJkFMsyD2ISSwOiiicD
-         9Qy/Ssu82pQVK+LUnGmbAUVJ6JliImSYm2Ydg2CIUDZd4Cv6yhcrlDIiJ8NymX75Xt06
-         oreICBVgQExxU8+NLeZIpyQArMg2FBrDaMqeEMnz4YPtFCa63QLR0usNDXcnWQ/Xanhq
-         zdfA==
+        b=HgY+hkojXJY3tFDkMrhdL+lw2QqsVuNKtGLZUBre6HaZZYxb5VHdOL7vLHP01klp2t
+         m6EIYQnJUD1iCAzeqEKskhikpdB03cA4UQdQeQU3jp6WDvZ8cdgncVvxK93+DlI/v9Jw
+         e5G/uV/eh08RjpRxqVvw4rSZSDE8CqZiPSx0dvAiJvjedgIjLdni/LdJo6xky2i47pHv
+         th5muvVlGgelArzR3+doDaQ5XuQvuNcDwP84JQQh2+iEe5RfJ5gOPUxlyXXGHE/Iy6Ph
+         eUWXGvPNLkJBkYiOtRmSAQvQ3JEB8A56t3iq9qmo5pMell2X8hfP6sS8PKriaauYkcLA
+         txww==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Nr46yA0zbXlhlvxHjgfs7GmfQbIhJ57QbrTsGthYgkI=;
-        b=zGjs7CR8tHMkW1zdkA78Vp8BW397mh3spM6YsZVkgQqqMOAbGMY+D2OwvvfpGC7+4n
-         sgMmipdxLD5JdGxgYlDjjlP2P4k6Fh4pTKaUMB4xLy9Qaz6gbVv7M7GiX/ZFSRAWitnt
-         jmJN0pLQgH+rGnM0uZB+ZJNhj5ejnv0Wu1gCZ3hZEbV85m1FblbMzhggdfRsUxOpc6kH
-         UBE57LCT3oqEo4siGEVBr9/yjoDk+Ro9GQ1i5rVa74tPup7Aiplu14Kc/DFyM+CHl6Eg
-         awDQuBurjhz4swhQUv/qDIx59/gKiii++7bcvo5F4FFGfjTRz3hexnMrhIWVkUl+fQXY
-         Fbfg==
+        h=user-agent:content-transfer-encoding:content-disposition
+         :mime-version:message-id:subject:cc:from:date:ironport-sdr
+         :ironport-sdr;
+        bh=KwrEQGAza6WPd4Xf+hSmXEg04AKhs3YtEeD/86+JHd8=;
+        b=tl/vNrUlLhZarqB6fGOHNmDi785n4hXFpbGhCME/yXdy+gz3Hczj4rizKzofxVN9DB
+         ULVsqdEc1gOd0BMH4SR+Zn1LA0ZIsaSxU/mHVqofoPhApL7BQ6ofrOGy+gYT/QhRZevp
+         hRi5/mP0v+3qhKM6CpPhUZJ9RDhhQrlK5hm96Qw2vgq6qf6UzHlu49ZrAycnkQDG+BG3
+         thDS77rmuQENMJxHk7+YPc2hKZff0rtFg3XW5NjM5iLlmR/YoNim3Cx2yHwha3YBXfiD
+         2VV5oCs8KcK5xjTom0kqCSpiIpBdX9sr9f22aGPP3Pdtf/J4I7Qg/A5y5Kbo/7PTZUzf
+         aFVA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Rw8z4TXD;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1029 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x1029.google.com (mail-pj1-x1029.google.com. [2607:f8b0:4864:20::1029])
-        by gmr-mx.google.com with ESMTPS id h33si212918qtd.2.2020.04.23.11.57.40
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
+        by gmr-mx.google.com with ESMTPS id k65si387824oih.1.2020.04.23.12.22.21
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Apr 2020 11:57:41 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1029 as permitted sender) client-ip=2607:f8b0:4864:20::1029;
-Received: by mail-pj1-x1029.google.com with SMTP id a31so1000028pje.1
-        for <clang-built-linux@googlegroups.com>; Thu, 23 Apr 2020 11:57:40 -0700 (PDT)
-X-Received: by 2002:a17:902:b20e:: with SMTP id t14mr5037711plr.223.1587668258675;
- Thu, 23 Apr 2020 11:57:38 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 23 Apr 2020 12:22:21 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
+IronPort-SDR: 0ALIFoF3MSYgFIV2aUiu5jaRJh1l1v0xBEQc+kJN5FYy6ZIZN/Y2/coCbsGDbRJ4oQ91ZelQlR
+ agO4J1YXoVSQ==
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+X-Amp-File-Uploaded: False
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Apr 2020 12:22:20 -0700
+IronPort-SDR: aK/b8iJ0BOfI4hEm25FPOkd4/Wv+ls3bdyHxOOEBid5zawzub1pa8rbKmIM6Uy4rSM/W2S5pNk
+ YZ5uQCXWkdyA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.73,307,1583222400"; 
+   d="gz'50?scan'50,208,50";a="256090481"
+Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
+  by orsmga003.jf.intel.com with ESMTP; 23 Apr 2020 12:22:18 -0700
+Received: from kbuild by lkp-server01 with local (Exim 4.89)
+	(envelope-from <lkp@intel.com>)
+	id 1jRhQQ-000D8k-A5; Fri, 24 Apr 2020 03:22:18 +0800
+Date: Fri, 24 Apr 2020 03:21:59 +0800
+From: kbuild test robot <lkp@intel.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH v3 6/9] input: elants: read touchscreen size for EKTF3624
+Message-ID: <202004240305.pDG4yPdB%lkp@intel.com>
 MIME-Version: 1.0
-References: <1583509304-28508-1-git-send-email-cai@lca.pw> <CAKwvOd=V44ksbiffN5UYw-oVfTK_wdeP59ipWANkOUS_zavxew@mail.gmail.com>
- <a7503afc9d561ae9c7116b97c7a960d7ad5cbff9.camel@perches.com>
- <442b7ace85a414c6a01040368f05d6d219f86536.camel@perches.com>
- <CAKwvOdmdaDL4bhJc+7Xms=f4YXDw-Rr+WQAknd0Jv6UWOBUcEA@mail.gmail.com> <4603e761a5f39f4d97375e1e08d20d720c526341.camel@perches.com>
-In-Reply-To: <4603e761a5f39f4d97375e1e08d20d720c526341.camel@perches.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 23 Apr 2020 11:57:27 -0700
-Message-ID: <CAKwvOdnW-xvSnT3RS8MWufyp+3=NM-Mb+bv0r2u2soNnyVvXBg@mail.gmail.com>
-Subject: Re: linux-kernel: Unused static inline functions
-To: Joe Perches <joe@perches.com>
-Cc: LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Greg KH <gregkh@linuxfoundation.org>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=Rw8z4TXD;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1029
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+Content-Type: multipart/mixed; boundary="zYM0uCDKw75PZbzx"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: lkp@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted
+ sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,1458 +142,665 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-I've been mulling over teaching a class internally at Google on
-getting started contributing to the Linux kernel.  I think this idea
-(removing dead static inline functions) is perfect for having lots of
-small little tasks that are clear wins.  Do you have any other ideas
-for work that there's a lot of?  Like lots of small little bite sized
-tasks?  Maybe more fallthrough conversion? Anything else?
 
-Happy to have folks use your script and add your suggested by tag.
+--zYM0uCDKw75PZbzx
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, Mar 6, 2020 at 4:09 PM Joe Perches <joe@perches.com> wrote:
->
-> On Fri, 2020-03-06 at 11:02 -0800, Nick Desaulniers wrote:
-> > Turns out there are hundreds of unused static inline
-> > > functions in kernel .h files.
-> > >
-> > > A trivial script to find some of them (with likely
-> > > false positives as some might actually be used via ##
-> > > token pasting mechanisms).
-> > >
-> > > (and there's almost certainly a better way to do this
-> > >  too as it takes a _very_ long time to run)
-> > >
-> > > $ grep-2.5.4 -rP --include=*.h '^[ \t]*static\s+inline\s+(?:\w+\s+){1,3}\w+[ \t]*\(' * | \
-> > >   grep -P -oh '\w+\s*\(' | \
-> > >   sort | uniq -c | sort -n | grep -P '^\s+1\b' | \
-> > >   sed -r -e 's/^\s+1\s+//' -e 's/\(//' | \
-> > >   while read line ; do \
-> > >     echo -n "$line: " ; git grep -w $line | wc -l ; \
-> > >   done | \
-> > >   grep ": 1$"
-> >
-> > Please start sending patches to remove them and I'll review.  If this
-> > is a good amount of work, I have newbies that are looking to
-> > contribute and can help.
->
-> Hello Nick.
->
-> Here is the current result of a slightly different run
-> excluding ALL_UPPERCASE variants.  Those upper case entries
-> may have been autogenerated and are likely inappropriate to
-> be removed.
->
-> There are 1395 functions.  Some are uapi and those should
-> likely not be removed.
->
-> All of these below may be unused, defined but unused, but
-> it's possible some may be used by token-pasting.
->
-> arch/alpha/include/asm/io.h:183:static inline void generic_iounmap(volatile void __iomem *a)
-> arch/alpha/include/asm/io.h:188:static inline int generic_is_ioaddr(unsigned long a)
-> arch/alpha/include/asm/io.h:193:static inline int generic_is_mmio(const volatile void __iomem *a)
-> arch/alpha/include/asm/pal.h:121:qemu_get_walltime(void)
-> arch/alpha/include/asm/pal.h:135:qemu_get_alarm(void)
-> arch/alpha/include/uapi/asm/fpu.h:109:ieee_fpcr_to_swcr(unsigned long fp)
-> arch/arc/include/asm/unwind.h:117:arch_unwind_init_running(struct unwind_frame_info *info,
-> arch/arc/include/asm/unwind.h:125:static inline int arch_unw_user_mode(const struct unwind_frame_info *info)
-> arch/arc/include/asm/unwind.h:130:static inline void arch_unw_init_blocked(struct unwind_frame_info *info)
-> arch/arc/include/asm/unwind.h:135:static inline void arch_unw_init_frame_info(struct unwind_frame_info *info,
-> arch/arm64/include/asm/arch_timer.h:67:static inline notrace u32 arch_timer_read_cntp_tval_el0(void)
-> arch/arm64/include/asm/arch_timer.h:72:static inline notrace u32 arch_timer_read_cntv_tval_el0(void)
-> arch/arm64/include/asm/arch_timer.h:77:static inline notrace u64 arch_timer_read_cntpct_el0(void)
-> arch/arm64/include/asm/arch_timer.h:82:static inline notrace u64 arch_timer_read_cntvct_el0(void)
-> arch/arm64/include/asm/atomic_ll_sc.h:237:__ll_sc_atomic64_dec_if_positive(atomic64_t *v)
-> arch/arm64/include/asm/atomic_lse.h:111:static inline void __lse_atomic_sub(int i, atomic_t *v)
-> arch/arm64/include/asm/atomic_lse.h:233:static inline void __lse_atomic64_and(s64 i, atomic64_t *v)
-> arch/arm64/include/asm/atomic_lse.h:264:static inline void __lse_atomic64_sub(s64 i, atomic64_t *v)
-> arch/arm64/include/asm/atomic_lse.h:319:static inline s64 __lse_atomic64_dec_if_positive(atomic64_t *v)
-> arch/arm64/include/asm/atomic_lse.h:80:static inline void __lse_atomic_and(int i, atomic_t *v)
-> arch/arm64/include/asm/kvm_emulate.h:140:static inline unsigned long vcpu_read_elr_el1(const struct kvm_vcpu *vcpu)
-> arch/arm64/include/asm/kvm_emulate.h:197:static inline unsigned long vcpu_read_spsr(const struct kvm_vcpu *vcpu)
-> arch/arm64/include/asm/module.h:65:static inline bool plt_entry_is_initialized(const struct plt_entry *e)
-> arch/arm64/include/asm/pgtable.h:191:static inline pte_t pte_mknoncont(pte_t pte)
-> arch/arm64/include/asm/pgtable.h:316:static inline pmd_t pud_pmd(pud_t pud)
-> arch/arm64/include/asm/uaccess.h:176:static inline void __uaccess_disable_hw_pan(void)
-> arch/arm/include/asm/bitops.h:107:____atomic_test_and_change_bit(unsigned int bit, volatile unsigned long *p)
-> arch/arm/include/asm/bitops.h:36:static inline void ____atomic_set_bit(unsigned int bit, volatile unsigned long *p)
-> arch/arm/include/asm/bitops.h:48:static inline void ____atomic_clear_bit(unsigned int bit, volatile unsigned long *p)
-> arch/arm/include/asm/bitops.h:60:static inline void ____atomic_change_bit(unsigned int bit, volatile unsigned long *p)
-> arch/arm/include/asm/bitops.h:73:____atomic_test_and_set_bit(unsigned int bit, volatile unsigned long *p)
-> arch/arm/include/asm/bitops.h:90:____atomic_test_and_clear_bit(unsigned int bit, volatile unsigned long *p)
-> arch/arm/include/asm/cputype.h:246:static inline unsigned int __attribute_const__ xscale_cpu_arch_version(void)
-> arch/arm/include/asm/floppy.h:75:static inline void fd_scandrives (void)
-> arch/arm/include/asm/kvm_emulate.h:144:static inline bool mode_has_spsr(struct kvm_vcpu *vcpu)
-> arch/arm/include/asm/kvm_emulate.h:45:static inline unsigned long vpcu_read_spsr(struct kvm_vcpu *vcpu)
-> arch/arm/include/asm/pgtable.h:315:static inline pte_t pte_mknexec(pte_t pte)
-> arch/arm/mach-ep93xx/ts72xx.h:62:static inline int board_is_ts7250(void)
-> arch/arm/mach-ep93xx/ts72xx.h:67:static inline int board_is_ts7260(void)
-> arch/arm/mach-ep93xx/ts72xx.h:77:static inline int board_is_ts7400(void)
-> arch/arm/mach-ep93xx/ts72xx.h:82:static inline int is_max197_installed(void)
-> arch/arm/mach-highbank/sysregs.h:45:static inline void highbank_set_pwr_suspend(void)
-> arch/arm/mach-highbank/sysregs.h:69:static inline void highbank_clear_pwr_request(void)
-> arch/arm/mach-imx/mxc.h:88:static inline bool cpu_is_imx7d(void)
-> arch/arm/mach-iop32x/iop3xx.h:249:static inline u32 read_tcr0(void)
-> arch/arm/mach-iop32x/iop3xx.h:288:static inline u32 read_wdtcr(void)
-> arch/arm/mach-mmp/pxa168.h:85:static inline int pxa168_add_pwm(int id)
-> arch/arm/mach-mmp/pxa910.h:70:static inline int pxa910_add_pwm(int id)
-> arch/arm/mach-omap1/include/mach/hardware.h:61:static inline u32 omap_cs0m_phys(void)
-> arch/arm/mach-s3c24xx/include/mach/regs-s3c2443-clock.h:148:s3c2443_get_mpll(unsigned int pllval, unsigned int baseclk)
-> arch/arm/mach-s3c24xx/include/mach/regs-s3c2443-clock.h:168:s3c2443_get_epll(unsigned int pllval, unsigned int baseclk)
-> arch/arm/mm/mm.h:33:static inline pte_t get_top_pte(unsigned long va)
-> arch/arm/nwfpe/fpopcode.h:379:static inline unsigned int getTransferLength(const unsigned int opcode)
-> arch/arm/nwfpe/fpopcode.h:424:static inline unsigned int getRoundingPrecision(const unsigned int opcode)
-> arch/arm/plat-samsung/include/plat/iic-core.h:31:static inline void s3c_i2c2_setname(char *name)
-> arch/arm/plat-samsung/include/plat/sdhci.h:135:static inline void s3c_sdhci_setname(int id, char *name)
-> arch/hexagon/include/asm/hexagon_vm.h:101:static inline long __vmcache_dccleaninva(unsigned long addr, unsigned long len)
-> arch/hexagon/include/asm/hexagon_vm.h:106:static inline long __vmcache_icinva(unsigned long addr, unsigned long len)
-> arch/hexagon/include/asm/hexagon_vm.h:117:static inline long __vmcache_fetch_cfg(unsigned long val)
-> arch/hexagon/include/asm/hexagon_vm.h:124:static inline long __vmintop_nop(void)
-> arch/hexagon/include/asm/hexagon_vm.h:134:static inline long __vmintop_globdis(long i)
-> arch/hexagon/include/asm/hexagon_vm.h:149:static inline long __vmintop_affinity(long i, long cpu)
-> arch/hexagon/include/asm/hexagon_vm.h:154:static inline long __vmintop_get(void)
-> arch/hexagon/include/asm/hexagon_vm.h:159:static inline long __vmintop_peek(void)
-> arch/hexagon/include/asm/hexagon_vm.h:164:static inline long __vmintop_status(long i)
-> arch/hexagon/include/asm/hexagon_vm.h:174:static inline long __vmintop_clear(long i)
-> arch/hexagon/include/asm/suspend.h:9:static inline int arch_prepare_suspend(void)
-> arch/ia64/include/asm/pal.h:1007:ia64_pal_cache_write (pal_cache_line_id_u_t line_id, u64 physical_addr, u64 data)
-> arch/ia64/include/asm/pal.h:1018:ia64_pal_copy_info (u64 copy_type, u64 num_procs, u64 num_iopics,
-> arch/ia64/include/asm/pal.h:1032:ia64_pal_copy_pal (u64 target_addr, u64 alloc_size, u64 processor, u64 *pal_proc_offset)
-> arch/ia64/include/asm/pal.h:1058:ia64_pal_enter_ia32_env (ia32_env1, ia32_env2, ia32_env3)
-> arch/ia64/include/asm/pal.h:1068:ia64_pal_fixed_addr (u64 *global_unique_addr)
-> arch/ia64/include/asm/pal.h:1110:ia64_pal_get_hw_policy (u64 proc_num, u64 *cur_policy, u64 *num_impacted,
-> arch/ia64/include/asm/pal.h:1201:ia64_pal_mc_clear_log (u64 *pending_vector)
-> arch/ia64/include/asm/pal.h:1223:ia64_pal_mc_dynamic_state (u64 info_type, u64 dy_buffer, u64 *size)
-> arch/ia64/include/asm/pal.h:1234:ia64_pal_mc_error_info (u64 info_index, u64 type_index, u64 *size, u64 *error_info)
-> arch/ia64/include/asm/pal.h:1280:ia64_pal_mc_expected (u64 expected, u64 *previous)
-> arch/ia64/include/asm/pal.h:1304:ia64_pal_mc_hw_tracking (u64 *status)
-> arch/ia64/include/asm/pal.h:1318:ia64_pal_mc_register_mem (u64 physical_addr, u64 size, u64 *req_size)
-> arch/ia64/include/asm/pal.h:1331:ia64_pal_mc_resume (u64 set_cmci, u64 save_ptr)
-> arch/ia64/include/asm/pal.h:1353:ia64_pal_mem_for_test (u64 *bytes_needed, u64 *alignment)
-> arch/ia64/include/asm/pal.h:1392:ia64_pal_platform_addr (u64 type, u64 physical_addr)
-> arch/ia64/include/asm/pal.h:1401:ia64_pal_pmi_entrypoint (u64 sal_pmi_entry_addr)
-> arch/ia64/include/asm/pal.h:1428:ia64_pal_proc_set_features (u64 feature_select)
-> arch/ia64/include/asm/pal.h:1508:ia64_pal_set_hw_policy (u64 policy)
-> arch/ia64/include/asm/pal.h:1520:ia64_pal_shutdown (void)
-> arch/ia64/include/asm/pal.h:1529:ia64_pal_test_proc (u64 test_addr, u64 test_size, u64 attributes, u64 *self_test_state)
-> arch/ia64/include/asm/pal.h:1676:ia64_pal_vp_info (u64 feature_set, u64 vp_buffer, u64 *vp_info, u64 *vmm_id)
-> arch/ia64/include/asm/pal.h:899:ia64_pal_bus_set_features (pal_bus_features_u_t feature_select)
-> arch/ia64/include/asm/pal.h:926:ia64_pal_cache_prot_info (u64 cache_level, u64 cache_type, pal_cache_protection_info_t *prot)
-> arch/ia64/include/asm/pal.h:962:ia64_pal_cache_init (u64 level, u64 cache_type, u64 rest)
-> arch/ia64/include/asm/pal.h:984:ia64_pal_cache_read (pal_cache_line_id_u_t line_id, u64 physical_addr)
-> arch/ia64/include/asm/processor.h:431:ia64_init_fpu (void) {
-> arch/ia64/include/asm/processor.h:447:ia64_load_fpu (struct ia64_fpreg *fph) {
-> arch/ia64/include/asm/processor.h:498:ia64_itc (__u64 target_mask, __u64 vmaddr, __u64 pte,
-> arch/ia64/include/asm/processor.h:597:ia64_set_unat (__u64 *unat, void *spill_addr, unsigned long nat)
-> arch/ia64/include/asm/processor.h:625:ia64_get_dbr (__u64 regnum)
-> arch/ia64/include/asm/sal.h:675:ia64_sal_cache_init (void)
-> arch/ia64/include/asm/sal.h:781:ia64_sal_register_physical_addr (u64 phys_entry, u64 phys_addr)
-> arch/ia64/include/asm/sal.h:809:ia64_sal_update_pal (u64 param_buf, u64 scratch_buf, u64 scratch_buf_size,
-> arch/ia64/include/asm/unwind.h:156:unw_get_psp (struct unw_frame_info *info, unsigned long *valp)
-> arch/ia64/include/asm/unwind.h:170:unw_get_cfm (struct unw_frame_info *info, unsigned long *valp)
-> arch/ia64/include/asm/unwind.h:177:unw_set_cfm (struct unw_frame_info *info, unsigned long val)
-> arch/m68k/include/asm/amipcmcia.h:27:static inline u_char pcmcia_read_status(void)
-> arch/m68k/include/asm/atariints.h:191:static inline void atari_clear_pending_irq( unsigned irq )
-> arch/m68k/include/asm/atariints.h:198:static inline int atari_irq_pending( unsigned irq )
-> arch/m68k/include/asm/cacheflush_mm.h:40:static inline void clear_cf_dcache(unsigned long start, unsigned long end)
-> arch/m68k/include/asm/mac_via.h:269:static inline int rbv_set_video_bpp(int bpp)
-> arch/m68k/include/asm/mcf_pgtable.h:167:static inline void pgd_set(pgd_t *pgdp, pmd_t *pmdp)
-> arch/microblaze/include/asm/pgtable.h:313:static inline void pte_uncache(pte_t pte) { pte_val(pte) |= _PAGE_NO_CACHE; }
-> arch/microblaze/include/asm/pgtable.h:314:static inline void pte_cache(pte_t pte)   { pte_val(pte) &= ~_PAGE_NO_CACHE; }
-> arch/microblaze/include/asm/pgtable.h:414:static inline int ptep_test_and_clear_dirty(struct mm_struct *mm,
-> arch/microblaze/include/asm/pgtable.h:434:static inline void ptep_mkdirty(struct mm_struct *mm,
-> arch/mips/include/asm/emma/emma2rh.h:130:static inline void emma2rh_out16(u32 offset, u16 val)
-> arch/mips/include/asm/emma/emma2rh.h:136:static inline u16 emma2rh_in16(u32 offset)
-> arch/mips/include/asm/emma/emma2rh.h:148:static inline u8 emma2rh_in8(u32 offset)
-> arch/mips/include/asm/ginvt.h:39:static inline void ginvt_va(unsigned long addr)
-> arch/mips/include/asm/gio_device.h:42:static inline void gio_device_free(struct gio_device *dev)
-> arch/mips/include/asm/lasat/lasat.h:186:static inline unsigned long lasat_flash_partition_start(int partno)
-> arch/mips/include/asm/lasat/lasat.h:194:static inline unsigned long lasat_flash_partition_size(int partno)
-> arch/mips/include/asm/mach-ar7/ar7.h:176:static inline void ar7_device_on(u32 bit)
-> arch/mips/include/asm/mach-ar7/ar7.h:183:static inline void ar7_device_off(u32 bit)
-> arch/mips/include/asm/mach-ath79/ath79.h:61:static inline int soc_is_ar7241(void)
-> arch/mips/include/asm/mach-ath79/ath79.h:66:static inline int soc_is_ar7242(void)
-> arch/mips/include/asm/mach-au1x00/au1000_dma.h:221:static inline int dma_halted(unsigned int dmanr)
-> arch/mips/include/asm/mach-au1x00/au1000_dma.h:294:static inline void set_dma_fifo_addr(unsigned int dmanr, unsigned int a)
-> arch/mips/include/asm/mach-au1x00/au1000_dma.h:420:static inline int get_dma_done_irq(unsigned int dmanr)
-> arch/mips/include/asm/mach-au1x00/gpio-au1000.h:467:static inline int alchemy_gpio_direction_input(int gpio)
-> arch/mips/include/asm/mach-au1x00/gpio-au1000.h:496:static inline int alchemy_gpio_is_valid(int gpio)
-> arch/mips/include/asm/mach-au1x00/gpio-au1000.h:503:static inline int alchemy_gpio_cansleep(int gpio)
-> arch/mips/include/asm/mach-au1x00/gpio-au1000.h:508:static inline int alchemy_gpio_to_irq(int gpio)
-> arch/mips/include/asm/mach-au1x00/gpio-au1000.h:515:static inline int alchemy_irq_to_gpio(int irq)
-> arch/mips/include/asm/mach-au1x00/gpio-au1300.h:107:static inline int au1300_gpio_getinitlvl(unsigned int gpio)
-> arch/mips/include/asm/mach-jz4740/timer.h:100:static inline void jz4740_timer_ack_full(unsigned int timer)
-> arch/mips/include/asm/mach-jz4740/timer.h:105:static inline void jz4740_timer_irq_full_enable(unsigned int timer)
-> arch/mips/include/asm/mach-jz4740/timer.h:111:static inline void jz4740_timer_irq_full_disable(unsigned int timer)
-> arch/mips/include/asm/mach-jz4740/timer.h:65:static inline bool jz4740_timer_is_enabled(unsigned int timer)
-> arch/mips/include/asm/mach-jz4740/timer.h:95:static inline uint16_t jz4740_timer_get_count(unsigned int timer)
-> arch/mips/include/asm/mach-loongson64/loongson_regs.h:138:static inline u64 csr_readq(u32 reg)
-> arch/mips/include/asm/mach-loongson64/loongson_regs.h:169:static inline void csr_writeq(u64 val, u32 reg)
-> arch/mips/include/asm/mach-loongson64/loongson_regs.h:211:static inline u64 drdtime(void)
-> arch/mips/include/asm/mach-pmcs-msp71xx/msp_gpio_macros.h:200:static inline enum msp_gpio_data msp_gpio_pin_get(unsigned int gpio)
-> arch/mips/include/asm/mach-pmcs-msp71xx/msp_gpio_macros.h:278:static inline void msp_gpio_pin_lo(unsigned int gpio)
-> arch/mips/include/asm/mach-pmcs-msp71xx/msp_gpio_macros.h:284:static inline void msp_gpio_pin_toggle(unsigned int gpio)
-> arch/mips/include/asm/mach-pmcs-msp71xx/msp_gpio_macros.h:290:static inline enum msp_gpio_mode msp_gpio_pin_get_mode(unsigned int gpio)
-> arch/mips/include/asm/mach-pnx833x/gpio.h:153:static inline void pnx833x_gpio_clear_irq(unsigned int pin)
-> arch/mips/include/asm/mach-pnx833x/gpio.h:75:static inline int pnx833x_gpio_read(unsigned int pin)
-> arch/mips/include/asm/mach-ralink/mt7620.h:133:static inline int mt7620_get_eco(void)
-> arch/mips/include/asm/mach-rc32434/dma_v.h:26:static inline int rc32434_halt_dma(struct dma_reg *ch)
-> arch/mips/include/asm/mach-rc32434/dma_v.h:42:static inline void rc32434_start_dma(struct dma_reg *ch, u32 dma_addr)
-> arch/mips/include/asm/mach-rc32434/dma_v.h:48:static inline void rc32434_chain_dma(struct dma_reg *ch, u32 dma_addr)
-> arch/mips/include/asm/mc146818-time.h:31:static inline int mc146818_set_rtc_mmss(unsigned long nowtime)
-> arch/mips/include/asm/mipsregs.h:2755:static inline void guest_tlb_write_random(void)
-> arch/mips/include/asm/mipsregs.h:2768:static inline void guest_tlbinvf(void)
-> arch/mips/include/asm/netlogic/haldefs.h:129:nlm_read_reg_xkphys(uint64_t base, uint32_t reg)
-> arch/mips/include/asm/netlogic/haldefs.h:135:nlm_write_reg_xkphys(uint64_t base, uint32_t reg, uint32_t val)
-> arch/mips/include/asm/netlogic/haldefs.h:141:nlm_read_reg64_xkphys(uint64_t base, uint32_t reg)
-> arch/mips/include/asm/netlogic/haldefs.h:147:nlm_write_reg64_xkphys(uint64_t base, uint32_t reg, uint64_t val)
-> arch/mips/include/asm/netlogic/xlp-hal/pic.h:281:nlm_pic_write_timer(uint64_t base, int timer, uint64_t value)
-> arch/mips/include/asm/netlogic/xlp-hal/uart.h:121:nlm_uart_outbyte(uint64_t base, char c)
-> arch/mips/include/asm/netlogic/xlp-hal/uart.h:135:nlm_uart_inbyte(uint64_t base)
-> arch/mips/include/asm/netlogic/xlr/fmn.h:228:static inline void nlm_msgwait(unsigned int mask)
-> arch/mips/include/asm/netlogic/xlr/pic.h:216:nlm_irt_to_irq(int irt)
-> arch/mips/include/asm/nile4.h:210:static inline void nile4_out32(u32 offset, u32 val)
-> arch/mips/include/asm/nile4.h:216:static inline u32 nile4_in32(u32 offset)
-> arch/mips/include/asm/nile4.h:223:static inline void nile4_out16(u32 offset, u16 val)
-> arch/mips/include/asm/nile4.h:229:static inline u16 nile4_in16(u32 offset)
-> arch/mips/include/asm/nile4.h:236:static inline void nile4_out8(u32 offset, u8 val)
-> arch/mips/include/asm/nile4.h:242:static inline u8 nile4_in8(u32 offset)
-> arch/mips/include/asm/octeon/cvmx-cmd-queue.h:326:static inline cvmx_cmd_queue_result_t cvmx_cmd_queue_write(cvmx_cmd_queue_id_t
-> arch/mips/include/asm/octeon/cvmx-fau.h:170:static inline int64_t cvmx_fau_fetch_and_add64(cvmx_fau_reg_64_t reg,
-> arch/mips/include/asm/octeon/cvmx-fau.h:200:static inline int16_t cvmx_fau_fetch_and_add16(cvmx_fau_reg_16_t reg,
-> arch/mips/include/asm/octeon/cvmx-fau.h:214:static inline int8_t cvmx_fau_fetch_and_add8(cvmx_fau_reg_8_t reg, int8_t value)
-> arch/mips/include/asm/octeon/cvmx-fau.h:233:cvmx_fau_tagwait_fetch_and_add64(cvmx_fau_reg_64_t reg, int64_t value)
-> arch/mips/include/asm/octeon/cvmx-fau.h:257:cvmx_fau_tagwait_fetch_and_add32(cvmx_fau_reg_32_t reg, int32_t value)
-> arch/mips/include/asm/octeon/cvmx-fau.h:281:cvmx_fau_tagwait_fetch_and_add16(cvmx_fau_reg_16_t reg, int16_t value)
-> arch/mips/include/asm/octeon/cvmx-fau.h:304:cvmx_fau_tagwait_fetch_and_add8(cvmx_fau_reg_8_t reg, int8_t value)
-> arch/mips/include/asm/octeon/cvmx-fau.h:363:static inline void cvmx_fau_async_fetch_and_add64(uint64_t scraddr,
-> arch/mips/include/asm/octeon/cvmx-fau.h:402:static inline void cvmx_fau_async_fetch_and_add16(uint64_t scraddr,
-> arch/mips/include/asm/octeon/cvmx-fau.h:420:static inline void cvmx_fau_async_fetch_and_add8(uint64_t scraddr,
-> arch/mips/include/asm/octeon/cvmx-fau.h:443:static inline void cvmx_fau_async_tagwait_fetch_and_add64(uint64_t scraddr,
-> arch/mips/include/asm/octeon/cvmx-fau.h:466:static inline void cvmx_fau_async_tagwait_fetch_and_add32(uint64_t scraddr,
-> arch/mips/include/asm/octeon/cvmx-fau.h:489:static inline void cvmx_fau_async_tagwait_fetch_and_add16(uint64_t scraddr,
-> arch/mips/include/asm/octeon/cvmx-fau.h:511:static inline void cvmx_fau_async_tagwait_fetch_and_add8(uint64_t scraddr,
-> arch/mips/include/asm/octeon/cvmx-fau.h:526:static inline void cvmx_fau_atomic_add64(cvmx_fau_reg_64_t reg, int64_t value)
-> arch/mips/include/asm/octeon/cvmx-fau.h:551:static inline void cvmx_fau_atomic_add16(cvmx_fau_reg_16_t reg, int16_t value)
-> arch/mips/include/asm/octeon/cvmx-fau.h:563:static inline void cvmx_fau_atomic_add8(cvmx_fau_reg_8_t reg, int8_t value)
-> arch/mips/include/asm/octeon/cvmx-fau.h:576:static inline void cvmx_fau_atomic_write64(cvmx_fau_reg_64_t reg, int64_t value)
-> arch/mips/include/asm/octeon/cvmx-fau.h:601:static inline void cvmx_fau_atomic_write16(cvmx_fau_reg_16_t reg, int16_t value)
-> arch/mips/include/asm/octeon/cvmx-fau.h:613:static inline void cvmx_fau_atomic_write8(cvmx_fau_reg_8_t reg, int8_t value)
-> arch/mips/include/asm/octeon/cvmx-fpa.h:131:static inline int cvmx_fpa_is_member(uint64_t pool, void *ptr)
-> arch/mips/include/asm/octeon/cvmx-fpa.h:202:static inline void cvmx_fpa_async_alloc(uint64_t scr_addr, uint64_t pool)
-> arch/mips/include/asm/octeon/cvmx-fpa.h:226:static inline void cvmx_fpa_free_nosync(void *ptr, uint64_t pool,
-> arch/mips/include/asm/octeon/cvmx.h:308:static inline void cvmx_read_csr_async(uint64_t scraddr, uint64_t csr_addr)
-> arch/mips/include/asm/octeon/cvmx.h:439:static inline uint64_t cvmx_get_cycle_global(void)
-> arch/mips/include/asm/octeon/cvmx-pip.h:316:static inline void cvmx_pip_config_watcher(uint64_t watcher,
-> arch/mips/include/asm/octeon/cvmx-pip.h:337:static inline void cvmx_pip_config_vlan_qos(uint64_t vlan_priority,
-> arch/mips/include/asm/octeon/cvmx-pip.h:352:static inline void cvmx_pip_config_diffserv_qos(uint64_t diffserv, uint64_t qos)
-> arch/mips/include/asm/octeon/cvmx-pip.h:459:static inline void cvmx_pip_config_crc(uint64_t interface,
-> arch/mips/include/asm/octeon/cvmx-pip.h:486:static inline void cvmx_pip_tag_mask_clear(uint64_t mask_index)
-> arch/mips/include/asm/octeon/cvmx-pow.h:1403:static inline enum cvmx_pow_tag_type cvmx_pow_work_request_null_rd(void)
-> arch/mips/include/asm/octeon/cvmx-pow.h:1511:static inline uint64_t cvmx_pow_work_invalid(struct cvmx_wqe *wqe_ptr)
-> arch/mips/include/asm/octeon/cvmx-pow.h:1598:static inline void cvmx_pow_tag_sw(uint32_t tag,
-> arch/mips/include/asm/octeon/cvmx-pow.h:1851:static inline void cvmx_pow_set_group_mask(uint64_t core_num, uint64_t mask)
-> arch/mips/include/asm/octeon/cvmx-pow.h:1873:static inline void cvmx_pow_set_priority(uint64_t core_num,
-> arch/mips/include/asm/octeon/cvmx-pow.h:2035:static inline void cvmx_pow_tag_sw_desched(uint32_t tag,
-> arch/mips/include/asm/octeon/cvmx-pow.h:2060:static inline void cvmx_pow_desched(uint64_t no_sched)
-> arch/mips/include/asm/octeon/cvmx-pow.h:2150:static inline uint32_t cvmx_pow_tag_compose(uint64_t sw_bits, uint64_t hw_bits)
-> arch/mips/include/asm/octeon/cvmx-pow.h:2165:static inline uint32_t cvmx_pow_tag_get_sw_bits(uint64_t tag)
-> arch/mips/include/asm/octeon/cvmx-pow.h:2180:static inline uint32_t cvmx_pow_tag_get_hw_bits(uint64_t tag)
-> arch/mips/include/asm/octeon/cvmx-scratch.h:110:static inline void cvmx_scratch_write16(uint64_t address, uint64_t value)
-> arch/mips/include/asm/octeon/cvmx-scratch.h:122:static inline void cvmx_scratch_write32(uint64_t address, uint64_t value)
-> arch/mips/include/asm/octeon/cvmx-scratch.h:51:static inline uint8_t cvmx_scratch_read8(uint64_t address)
-> arch/mips/include/asm/octeon/cvmx-scratch.h:63:static inline uint16_t cvmx_scratch_read16(uint64_t address)
-> arch/mips/include/asm/octeon/cvmx-scratch.h:75:static inline uint32_t cvmx_scratch_read32(uint64_t address)
-> arch/mips/include/asm/octeon/cvmx-scratch.h:98:static inline void cvmx_scratch_write8(uint64_t address, uint64_t value)
-> arch/mips/include/asm/octeon/cvmx-spi.h:77:static inline int cvmx_spi_is_spi_interface(int interface)
-> arch/mips/include/asm/octeon/cvmx-spinlock.h:103:static inline unsigned int cvmx_spinlock_trylock(cvmx_spinlock_t *lock)
-> arch/mips/include/asm/octeon/cvmx-spinlock.h:161:static inline void cvmx_spinlock_bit_lock(uint32_t *word)
-> arch/mips/include/asm/octeon/cvmx-spinlock.h:193:static inline unsigned int cvmx_spinlock_bit_trylock(uint32_t *word)
-> arch/mips/include/asm/octeon/cvmx-spinlock.h:225:static inline void cvmx_spinlock_bit_unlock(uint32_t *word)
-> arch/mips/include/asm/octeon/cvmx-spinlock.h:63:static inline void cvmx_spinlock_init(cvmx_spinlock_t *lock)
-> arch/mips/include/asm/octeon/cvmx-spinlock.h:74:static inline int cvmx_spinlock_locked(cvmx_spinlock_t *lock)
-> arch/mips/include/asm/octeon/cvmx-wqe.h:598:static inline int cvmx_wqe_get_port(struct cvmx_wqe *work)
-> arch/mips/include/asm/r4kcache.h:100:static inline void flush_scache_line(unsigned long addr)
-> arch/mips/include/asm/r4kcache.h:184:static inline int protected_writeback_scache_line(unsigned long addr)
-> arch/mips/include/asm/r4kcache.h:67:static inline void flush_scache_line_indexed(unsigned long addr)
-> arch/mips/include/asm/r4kcache.h:72:static inline void flush_icache_line(unsigned long addr)
-> arch/mips/include/asm/r4kcache.h:85:static inline void flush_dcache_line(unsigned long addr)
-> arch/mips/include/asm/r4kcache.h:90:static inline void invalidate_dcache_line(unsigned long addr)
-> arch/mips/include/asm/r4kcache.h:95:static inline void invalidate_scache_line(unsigned long addr)
-> arch/mips/include/asm/uasm.h:254:static inline void uasm_i_drotr_safe(u32 **p, unsigned int a1,
-> arch/mips/include/asm/uasm.h:281:static inline void uasm_i_dsra_safe(u32 **p, unsigned int a1,
-> arch/mips/math-emu/ieee754dp.h:31:static inline int ieee754dp_finite(union ieee754dp x)
-> arch/mips/math-emu/ieee754.h:172:static inline unsigned int ieee754_getrm(void)
-> arch/mips/math-emu/ieee754.h:177:static inline unsigned int ieee754_setrm(unsigned int rm)
-> arch/mips/math-emu/ieee754.h:185:static inline unsigned int ieee754_getcx(void)
-> arch/mips/math-emu/ieee754.h:200:static inline unsigned int ieee754_getsx(void)
-> arch/mips/math-emu/ieee754.h:207:static inline unsigned int ieee754_clrsx(void)
-> arch/mips/math-emu/ieee754.h:214:static inline int ieee754_sxtest(unsigned int n)
-> arch/mips/math-emu/ieee754int.h:33:static inline int ieee754_setandtestcx(const unsigned int x)
-> arch/mips/math-emu/ieee754sp.h:31:static inline int ieee754sp_finite(union ieee754sp x)
-> arch/nds32/include/asm/pgtable.h:312:static inline pmd_t __mk_pmd(pte_t * ptep, unsigned long prot)
-> arch/openrisc/include/asm/spr.h:30:static inline unsigned long mfspr_off(unsigned long add, unsigned long offset)
-> arch/parisc/include/asm/io.h:114:static inline void gsc_writeq(unsigned long long val, unsigned long addr)
-> arch/parisc/include/asm/io.h:71:static inline unsigned long long gsc_readq(unsigned long addr)
-> arch/parisc/include/asm/ropes.h:237:static inline int agp_mode_mercury(void __iomem *hpa) {
-> arch/parisc/include/uapi/asm/swab.h:21:static inline __attribute_const__ __u32 __arch_swab24(__u32 x)
-> arch/powerpc/include/asm/book3s/64/mmu-hash.h:294:static inline unsigned long hpte_page_size(unsigned long h, unsigned long l)
-> arch/powerpc/include/asm/book3s/64/mmu-hash.h:299:static inline unsigned long hpte_base_page_size(unsigned long h, unsigned long l)
-> arch/powerpc/include/asm/cpm2.h:123:static inline void cpm2_fastbrg(uint brg, uint rate, int div16)
-> arch/powerpc/include/asm/dbell.h:61:static inline void ppc_msgclr(enum ppc_dbell type)
-> arch/powerpc/include/asm/disassemble.h:29:static inline unsigned int get_dcrn(u32 inst)
-> arch/powerpc/include/asm/disassemble.h:59:static inline unsigned int get_rc(u32 inst)
-> arch/powerpc/include/asm/disassemble.h:64:static inline unsigned int get_ws(u32 inst)
-> arch/powerpc/include/asm/disassemble.h:79:static inline unsigned int get_tx_or_sx(u32 inst)
-> arch/powerpc/include/asm/epapr_hcalls.h:521:static inline long epapr_hypercall0(unsigned int nr)
-> arch/powerpc/include/asm/epapr_hcalls.h:529:static inline long epapr_hypercall1(unsigned int nr, unsigned long p1)
-> arch/powerpc/include/asm/epapr_hcalls.h:538:static inline long epapr_hypercall2(unsigned int nr, unsigned long p1,
-> arch/powerpc/include/asm/epapr_hcalls.h:549:static inline long epapr_hypercall3(unsigned int nr, unsigned long p1,
-> arch/powerpc/include/asm/epapr_hcalls.h:561:static inline long epapr_hypercall4(unsigned int nr, unsigned long p1,
-> arch/powerpc/include/asm/fsl_hcalls.h:640:static inline unsigned int fh_partition_stop_dma(unsigned int handle)
-> arch/powerpc/include/asm/fs_pd.h:44:static inline int uart_clock(void)
-> arch/powerpc/include/asm/io.h:352:static inline void __raw_rm_writew(u16 val, volatile void __iomem *paddr)
-> arch/powerpc/include/asm/io.h:375:static inline u8 __raw_rm_readb(volatile void __iomem *paddr)
-> arch/powerpc/include/asm/macio.h:70:static inline unsigned long macio_resource_end(struct macio_dev *dev, int resource_no)
-> arch/powerpc/include/asm/mpic_msgr.h:110:static inline void mpic_msgr_set_destination(struct mpic_msgr *msgr,
-> arch/powerpc/include/asm/mpic_msgr.h:124:static inline int mpic_msgr_get_irq(struct mpic_msgr *msgr)
-> arch/powerpc/include/asm/mpic_msgr.h:73:static inline void mpic_msgr_write(struct mpic_msgr *msgr, u32 message)
-> arch/powerpc/include/asm/mpic_msgr.h:97:static inline void mpic_msgr_clear(struct mpic_msgr *msgr)
-> arch/powerpc/include/asm/plpar_wrappers.h:138:static inline long plpar_pte_read(unsigned long flags, unsigned long ptex,
-> arch/powerpc/include/asm/plpar_wrappers.h:14:static inline long poll_pending(void)
-> arch/powerpc/include/asm/rtas.h:187:void rtas_set_disposition_recovered(struct rtas_error_log *elog)
-> arch/powerpc/include/asm/sections.h:41:static inline int in_kernel_text(unsigned long addr)
-> arch/powerpc/include/asm/smp.h:179:static inline void inhibit_secondary_onlining(void) {}
-> arch/powerpc/include/asm/smp.h:180:static inline void uninhibit_secondary_onlining(void) {}
-> arch/powerpc/include/asm/xive.h:151:static inline void xive_kexec_teardown_cpu(int secondary) { }
-> arch/powerpc/kvm/e500.h:242:static inline unsigned int get_tlb_nv_bit(const struct kvm_vcpu *vcpu)
-> arch/powerpc/platforms/8xx/pic.h:14:static inline uint mk_int_int_mask(uint mask)
-> arch/riscv/include/asm/ptrace.h:93:static inline void frame_pointer_set(struct pt_regs *regs,
-> arch/riscv/include/asm/sbi.h:90:static inline void sbi_remote_sfence_vma_asid(const unsigned long *hart_mask,
-> arch/s390/include/asm/atomic_ops.h:138:static inline long __atomic64_cmpxchg_bool(long *ptr, long old, long new)
-> arch/s390/include/asm/bitops.h:278:static inline void __set_bit_inv(unsigned long nr, volatile unsigned long *ptr)
-> arch/s390/include/asm/bitops.h:283:static inline void __clear_bit_inv(unsigned long nr, volatile unsigned long *ptr)
-> arch/s390/include/asm/cpu_mcf.h:106:static inline int kernel_cpumcf_begin(void)
-> arch/s390/include/asm/cpu_mcf.h:114:static inline void kernel_cpumcf_end(void)
-> arch/s390/include/asm/ftrace.h:64:static inline int is_ftrace_nop(struct ftrace_insn *insn)
-> arch/s390/include/asm/kvm_para.h:146:static inline long kvm_hypercall5(unsigned long nr, unsigned long p1,
-> arch/s390/include/asm/kvm_para.h:175:static inline long kvm_hypercall6(unsigned long nr, unsigned long p1,
-> arch/s390/include/asm/pci_dma.h:134:static inline void invalidate_table_entry(unsigned long *entry)
-> arch/s390/include/asm/pci_dma.h:176:static inline int entry_isprotected(unsigned long entry)
-> arch/s390/include/asm/timex.h:52:static inline void store_clock_comparator(__u64 *time)
-> arch/sh/include/asm/irq.h:39:static inline int generic_irq_demux(int irq)
-> arch/sparc/include/asm/fpumacro.h:20:static inline unsigned long fprs_read(void)
-> arch/sparc/include/asm/mbus.h:91:static inline int get_modid(void)
-> arch/sparc/include/asm/mxcc.h:102:static inline void mxcc_set_stream_dst(unsigned long *paddr)
-> arch/sparc/include/asm/mxcc.h:89:static inline void mxcc_set_stream_src(unsigned long *paddr)
-> arch/sparc/include/asm/obio.h:140:static inline unsigned int bw_get_ctrl(int cpu)
-> arch/sparc/include/asm/obio.h:151:static inline void bw_set_ctrl(int cpu, unsigned int ctrl)
-> arch/sparc/include/asm/pgtable_32.h:373:__get_phys (unsigned long addr)
-> arch/sparc/include/asm/pgtable_32.h:385:__get_iospace (unsigned long addr)
-> arch/sparc/include/asm/pgtable_64.h:406:static inline bool is_default_hugetlb_pte(pte_t pte)
-> arch/sparc/include/asm/pgtable_64.h:435:static inline bool is_hugetlb_pte(pte_t pte)
-> arch/sparc/include/asm/ross.h:100:static inline unsigned int get_ross_icr(void)
-> arch/sparc/include/asm/ross.h:175:static inline void hyper_flush_cache_page(unsigned long page)
-> arch/sparc/include/asm/sbi.h:106:static inline void set_sbi_ctl(int devid, int cfgno, int cfg)
-> arch/sparc/include/asm/sbi.h:95:static inline int get_sbi_ctl(int devid, int cfgno)
-> arch/sparc/include/asm/setup.h:23:static inline int con_is_present(void)
-> arch/sparc/include/asm/spitfire.h:133:static inline unsigned long spitfire_get_dtlb_tag(int entry)
-> arch/sparc/include/asm/spitfire.h:166:static inline unsigned long spitfire_get_itlb_tag(int entry)
-> arch/sparc/include/asm/spitfire.h:185:static inline void spitfire_flush_dtlb_nucleus_page(unsigned long page)
-> arch/sparc/include/asm/spitfire.h:193:static inline void spitfire_flush_itlb_nucleus_page(unsigned long page)
-> arch/sparc/include/asm/spitfire.h:232:static inline unsigned long cheetah_get_ldtlb_data(int entry)
-> arch/sparc/include/asm/spitfire.h:245:static inline unsigned long cheetah_get_litlb_data(int entry)
-> arch/sparc/include/asm/spitfire.h:258:static inline unsigned long cheetah_get_ldtlb_tag(int entry)
-> arch/sparc/include/asm/spitfire.h:270:static inline unsigned long cheetah_get_litlb_tag(int entry)
-> arch/sparc/include/asm/spitfire.h:282:static inline void cheetah_put_ldtlb_data(int entry, unsigned long data)
-> arch/sparc/include/asm/spitfire.h:292:static inline void cheetah_put_litlb_data(int entry, unsigned long data)
-> arch/sparc/include/asm/spitfire.h:302:static inline unsigned long cheetah_get_dtlb_data(int entry, int tlb)
-> arch/sparc/include/asm/spitfire.h:314:static inline unsigned long cheetah_get_dtlb_tag(int entry, int tlb)
-> arch/sparc/include/asm/spitfire.h:324:static inline void cheetah_put_dtlb_data(int entry, unsigned long data, int tlb)
-> arch/sparc/include/asm/spitfire.h:334:static inline unsigned long cheetah_get_itlb_data(int entry)
-> arch/sparc/include/asm/spitfire.h:347:static inline unsigned long cheetah_get_itlb_tag(int entry)
-> arch/sparc/include/asm/spitfire.h:357:static inline void cheetah_put_itlb_data(int entry, unsigned long data)
-> arch/sparc/include/asm/swift.h:56:static inline void swift_flush_icache(void)
-> arch/sparc/include/asm/swift.h:64:static inline void swift_idflash_clear(void)
-> arch/sparc/include/asm/swift.h:83:static inline void swift_flush_segment(unsigned long addr)
-> arch/sparc/include/asm/swift.h:91:static inline void swift_flush_region(unsigned long addr)
-> arch/sparc/include/asm/swift.h:99:static inline void swift_flush_context(void)
-> arch/sparc/include/asm/viking.h:114:static inline void viking_flush_icache(void)
-> arch/sparc/include/asm/viking.h:122:static inline void viking_flush_dcache(void)
-> arch/sparc/include/asm/viking.h:130:static inline void viking_unlock_icache(void)
-> arch/sparc/include/asm/viking.h:138:static inline void viking_unlock_dcache(void)
-> arch/sparc/include/asm/viking.h:164:static inline void viking_get_dcache_ptag(int set, int block,
-> arch/sparc/include/asm/viking.h:213:static inline unsigned long viking_hwprobe(unsigned long vaddr)
-> arch/um/include/asm/processor-generic.h:61:static inline void mm_copy_segments(struct mm_struct *from_mm,
-> arch/um/include/shared/os.h:104:static inline struct openflags of_create(struct openflags flags)
-> arch/um/include/shared/os.h:110:static inline struct openflags of_trunc(struct openflags flags)
-> arch/um/include/shared/os.h:116:static inline struct openflags of_append(struct openflags flags)
-> arch/um/include/shared/os.h:122:static inline struct openflags of_excl(struct openflags flags)
-> arch/unicore32/include/mach/dma.h:40:static inline void puv3_resume_dma(int ch)
-> arch/x86/boot/boot.h:130:static inline void wrfs8(u8 v, addr_t addr)
-> arch/x86/boot/boot.h:134:static inline void wrfs16(u16 v, addr_t addr)
-> arch/x86/boot/boot.h:143:static inline u8 rdgs8(addr_t addr)
-> arch/x86/boot/boot.h:149:static inline u16 rdgs16(addr_t addr)
-> arch/x86/boot/boot.h:162:static inline void wrgs8(u8 v, addr_t addr)
-> arch/x86/boot/boot.h:166:static inline void wrgs16(u16 v, addr_t addr)
-> arch/x86/boot/boot.h:170:static inline void wrgs32(u32 v, addr_t addr)
-> arch/x86/boot/boot.h:176:static inline bool memcmp_fs(const void *s1, addr_t s2, size_t len)
-> arch/x86/boot/boot.h:183:static inline bool memcmp_gs(const void *s1, addr_t s2, size_t len)
-> arch/x86/boot/video.h:109:static inline u8 tst_idx(u8 v, u16 port, u8 index)
-> arch/x86/include/asm/desc.h:84:static inline void pack_gate(gate_desc *gate, unsigned type, unsigned long func,
-> arch/x86/include/asm/i8259.h:32:static inline unsigned char inb_pic(unsigned int port)
-> arch/x86/include/asm/intel_scu_ipc.h:49:static inline void intel_scu_notifier_remove(struct notifier_block *nb)
-> arch/x86/include/asm/invpcid.h:36:static inline void invpcid_flush_single_context(unsigned long pcid)
-> arch/x86/include/asm/invpcid.h:48:static inline void invpcid_flush_all_nonglobals(void)
-> arch/x86/include/asm/iosf_mbi.h:243:int iosf_mbi_call_pmic_bus_access_notifier_chain(unsigned long val, void *v)
-> arch/x86/include/asm/mpspec.h:132:static inline unsigned long physids_coerce(physid_mask_t *map)
-> arch/x86/include/asm/numachip/numachip_csr.h:45:static inline unsigned int read_lcsr(unsigned long offset)
-> arch/x86/include/asm/numachip/numachip_csr.h:73:static inline u32 numachip2_read32_lcsr(unsigned long offset)
-> arch/x86/include/asm/pgalloc.h:130:static inline void pud_populate_safe(struct mm_struct *mm, pud_t *pud, pmd_t *pmd)
-> arch/x86/include/asm/pgalloc.h:21:static inline void paravirt_alloc_pmd_clone(unsigned long pfn, unsigned long clonepfn,
-> arch/x86/include/asm/pgalloc.h:70:static inline void pmd_populate_kernel_safe(struct mm_struct *mm,
-> arch/x86/include/asm/pgtable-2level.h:77:static inline unsigned long pte_bitop(unsigned long value, unsigned int rightshift,
-> arch/x86/include/asm/pgtable.h:193:static inline int pte_global(pte_t pte)
-> arch/x86/include/asm/pgtable.h:361:static inline pte_t pte_mkglobal(pte_t pte)
-> arch/x86/include/asm/pgtable.h:366:static inline pte_t pte_clrglobal(pte_t pte)
-> arch/x86/include/asm/pgtable.h:500:static inline int pud_soft_dirty(pud_t pud)
-> arch/x86/include/asm/pgtable.h:515:static inline pud_t pud_mksoft_dirty(pud_t pud)
-> arch/x86/include/asm/pgtable.h:530:static inline pud_t pud_clear_soft_dirty(pud_t pud)
-> arch/x86/include/asm/pgtable.h:598:static inline pud_t pud_mknotpresent(pud_t pud)
-> arch/x86/include/asm/spec-ctrl.h:68:static inline unsigned long stibp_spec_ctrl_to_tif(u64 spec_ctrl)
-> arch/x86/include/asm/uv/uv_bau.h:797:static inline void bau_cpubits_clear(struct bau_local_cpumask *dstp, int nbits)
-> arch/x86/include/asm/uv/uv_hub.h:299:static inline int is_uv_hub(void)
-> arch/x86/include/asm/uv/uv_hub.h:426:static inline unsigned int uv_gpa_shift(void)
-> arch/x86/include/asm/uv/uv_hub.h:469:static inline unsigned long uv_gpa_nasid(void *v)
-> arch/x86/include/asm/uv/uv_hub.h:597:static inline int uv_apicid_to_socket(int apicid)
-> arch/x86/include/asm/uv/uv_hub.h:650:static inline unsigned char uv_read_global_mmr8(int pnode, unsigned long offset)
-> arch/x86/include/asm/uv/uv_hub.h:674:static inline unsigned char uv_read_local_mmr8(unsigned long offset)
-> arch/x86/kvm/cpuid.h:173:static inline int guest_cpuid_stepping(struct kvm_vcpu *vcpu)
-> arch/x86/kvm/lapic.h:122:static inline bool kvm_hv_vapic_assist_page_enabled(struct kvm_vcpu *vcpu)
-> arch/x86/um/shared/sysdep/stub_32.h:24:static inline long stub_syscall1(long syscall, long arg1)
-> arch/xtensa/include/asm/timex.h:47:static inline void set_ccount (unsigned long ccount)
-> crypto/internal.h:122:static inline void crypto_notify(unsigned long val, void *v)
-> drivers/block/drbd/drbd_vli.h:234:static inline void bitstream_rewind(struct bitstream *bs)
-> drivers/crypto/caam/desc_constr.h:115:static inline void init_sh_desc_pdb(u32 * const desc, u32 options,
-> drivers/crypto/caam/desc_constr.h:292:static inline void append_store(u32 * const desc, dma_addr_t ptr,
-> drivers/crypto/caam/sg_sw_qm.h:29:static inline void dma_to_qm_sg_one_last(struct qm_sg_entry *qm_sg_ptr,
-> drivers/crypto/cavium/nitrox/nitrox_dev.h:297:static inline bool nitrox_vfdev_ready(struct nitrox_vfdev *vfdev)
-> drivers/crypto/chelsio/chtls/chtls.h:443:static inline void __chtls_sock_put(const char *fn, struct chtls_sock *csk)
-> drivers/crypto/chelsio/chtls/chtls.h:448:static inline void __chtls_sock_get(const char *fn,
-> drivers/dma/ioat/dma.h:248:static inline u32 ioat_chanerr(struct ioatdma_chan *ioat_chan)
-> drivers/dma/ioat/dma.h:293:static inline bool is_ioat_suspended(unsigned long status)
-> drivers/dma/ioat/dma.h:299:static inline bool is_ioat_bug(unsigned long err)
-> drivers/dma/iop-adma.h:299:static inline int iop_chan_memset_slot_count(size_t len, int *slots_per_op)
-> drivers/dma/iop-adma.h:378:static inline u32 iop_desc_get_byte_count(struct iop_adma_desc_slot *desc,
-> drivers/dma/iop-adma.h:411:static inline u32 iop_desc_get_src_addr(struct iop_adma_desc_slot *desc,
-> drivers/dma/iop-adma.h:461:iop_desc_init_memset(struct iop_adma_desc_slot *desc, unsigned long flags)
-> drivers/dma/iop-adma.h:776:static inline void iop_desc_set_block_fill_val(struct iop_adma_desc_slot *desc,
-> drivers/fpga/dfl.h:354:static inline bool is_dfl_feature_present(struct device *dev, u64 id)
-> drivers/gpu/drm/amd/amdgpu/amdgpu_object.h:182:static inline unsigned amdgpu_bo_ngpu_pages(struct amdgpu_bo *bo)
-> drivers/gpu/drm/amd/amdgpu/amdgpu_object.h:187:static inline unsigned amdgpu_bo_gpu_page_alignment(struct amdgpu_bo *bo)
-> drivers/gpu/drm/amd/display/dc/dml/dml_inline_defs.h:103:static inline double dml_floor_ex(double x, double granularity)
-> drivers/gpu/drm/amd/display/dc/dml/dml_inline_defs.h:108:static inline double dml_log(double x, double base)
-> drivers/gpu/drm/amd/display/dc/dml/dml_inline_defs.h:132:static inline double dml_abs(double a)
-> drivers/gpu/drm/amd/display/dc/dml/dml_inline_defs.h:88:static inline double dml_fmod(double f, int val)
-> drivers/gpu/drm/amd/display/dc/dml/dml_inline_defs.h:93:static inline double dml_ceil_2(double f)
-> drivers/gpu/drm/amd/display/dc/dml/dml_inline_defs.h:98:static inline double dml_ceil_ex(double x, double granularity)
-> drivers/gpu/drm/amd/display/dc/dm_services.h:89:static inline uint32_t dm_read_index_reg(
-> drivers/gpu/drm/amd/display/dc/dm_services.h:97:static inline void dm_write_index_reg(
-> drivers/gpu/drm/amd/display/dc/inc/bw_fixed.h:54:static inline struct bw_fixed bw_min3(struct bw_fixed v1,
-> drivers/gpu/drm/amd/display/dmub/inc/dmub_rb.h:108:static inline bool dmub_rb_pop_front(struct dmub_rb *rb)
-> drivers/gpu/drm/amd/display/dmub/inc/dmub_rb.h:95:static inline bool dmub_rb_front(struct dmub_rb *rb,
-> drivers/gpu/drm/amd/display/include/grph_object_id.h:242:static inline uint32_t dal_graphics_object_id_to_uint(
-> drivers/gpu/drm/amd/display/include/grph_object_id.h:248:static inline enum controller_id dal_graphics_object_id_get_controller_id(
-> drivers/gpu/drm/amd/display/include/grph_object_id.h:256:static inline enum clock_source_id dal_graphics_object_id_get_clock_source_id(
-> drivers/gpu/drm/amd/display/include/grph_object_id.h:280:static inline enum audio_id dal_graphics_object_id_get_audio_id(
-> drivers/gpu/drm/amd/display/include/grph_object_id.h:288:static inline enum engine_id dal_graphics_object_id_get_engine_id(
-> drivers/gpu/drm/amd/display/include/grph_object_id.h:296:static inline bool dal_graphics_object_id_equal(
-> drivers/gpu/drm/amd/display/include/signal_types.h:93:static inline bool dc_is_dvi_single_link_signal(enum signal_type signal)
-> drivers/gpu/drm/arm/display/komeda/d71/d71_regs.h:536:static inline u32 get_block_type(struct block_header *blk)
-> drivers/gpu/drm/arm/display/komeda/komeda_dev.h:224:komeda_product_match(struct komeda_dev *mdev, u32 target)
-> drivers/gpu/drm/arm/display/komeda/komeda_kms.h:136:static inline bool is_writeback_only(struct drm_crtc_state *st)
-> drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.h:382:static inline u32 atmel_hlcdc_layer_read_cfg(struct atmel_hlcdc_layer *layer,
-> drivers/gpu/drm/exynos/exynos_drm_fbdev.h:30:static inline void exynos_drm_fbdev_restore_mode(struct drm_device *dev)
-> drivers/gpu/drm/i915/gem/i915_gem_object.h:118:static inline bool i915_gem_object_trylock(struct drm_i915_gem_object *obj)
-> drivers/gpu/drm/i915/gem/i915_gem_object.h:152:i915_gem_object_is_contiguous(const struct drm_i915_gem_object *obj)
-> drivers/gpu/drm/i915/gt/gen6_ppgtt.h:24:static inline u32 gen6_pte_index(u32 addr)
-> drivers/gpu/drm/i915/gt/uc/intel_guc.h:141:static inline bool intel_guc_is_supported(struct intel_guc *guc)
-> drivers/gpu/drm/i915/gt/uc/intel_guc.h:146:static inline bool intel_guc_is_wanted(struct intel_guc *guc)
-> drivers/gpu/drm/i915/gt/uc/intel_guc.h:84:intel_guc_send_and_receive(struct intel_guc *guc, const u32 *action, u32 len,
-> drivers/gpu/drm/i915/gt/uc/intel_huc.h:44:static inline bool intel_huc_is_wanted(struct intel_huc *huc)
-> drivers/gpu/drm/i915/gt/uc/intel_huc.h:49:static inline bool intel_huc_is_used(struct intel_huc *huc)
-> drivers/gpu/drm/i915/i915_active.h:179:static inline bool i915_active_has_exclusive(struct i915_active *ref)
-> drivers/gpu/drm/i915/i915_fixed.h:107:static inline u32 div_round_up_u32_fixed16(u32 val, uint_fixed_16_16_t d)
-> drivers/gpu/drm/i915/i915_fixed.h:127:static inline uint_fixed_16_16_t add_fixed16(uint_fixed_16_16_t add1,
-> drivers/gpu/drm/i915/i915_fixed.h:20:static inline bool is_fixed16_zero(uint_fixed_16_16_t val)
-> drivers/gpu/drm/i915/i915_fixed.h:39:static inline u32 fixed16_to_u32(uint_fixed_16_16_t fp)
-> drivers/gpu/drm/i915/i915_utils.h:251:static inline void drain_delayed_work(struct delayed_work *dw)
-> drivers/gpu/drm/i915/i915_vma.h:68:static inline bool i915_vma_has_ggtt_write(const struct i915_vma *vma)
-> drivers/gpu/drm/i915/intel_sideband.h:100:static inline void vlv_nc_get(struct drm_i915_private *i915)
-> drivers/gpu/drm/i915/intel_sideband.h:107:static inline void vlv_nc_put(struct drm_i915_private *i915)
-> drivers/gpu/drm/i915/intel_sideband.h:34:static inline void vlv_bunit_get(struct drm_i915_private *i915)
-> drivers/gpu/drm/i915/intel_sideband.h:42:static inline void vlv_bunit_put(struct drm_i915_private *i915)
-> drivers/gpu/drm/i915/intel_sideband.h:60:static inline void vlv_ccu_get(struct drm_i915_private *i915)
-> drivers/gpu/drm/i915/intel_sideband.h:68:static inline void vlv_ccu_put(struct drm_i915_private *i915)
-> drivers/gpu/drm/msm/dsi/dsi.xml.h:1032:static inline uint32_t DSI_28nm_PHY_PLL_SDM_CFG1_DITHER_EN(uint32_t val)
-> drivers/gpu/drm/msm/dsi/dsi.xml.h:1127:static inline uint32_t REG_DSI_20nm_PHY_LN(uint32_t i0) { return 0x00000000 + 0x40*i0; }
-> drivers/gpu/drm/msm/dsi/dsi.xml.h:1133:static inline uint32_t REG_DSI_20nm_PHY_LN_CFG_2(uint32_t i0) { return 0x00000008 + 0x40*i0; }
-> drivers/gpu/drm/msm/dsi/dsi.xml.h:1139:static inline uint32_t REG_DSI_20nm_PHY_LN_TEST_DATAPATH(uint32_t i0) { return 0x00000014 + 0x40*i0; }
-> drivers/gpu/drm/msm/dsi/dsi.xml.h:1141:static inline uint32_t REG_DSI_20nm_PHY_LN_DEBUG_SEL(uint32_t i0) { return 0x00000018 + 0x40*i0; }
-> drivers/gpu/drm/msm/dsi/dsi.xml.h:1318:static inline uint32_t DSI_14nm_PHY_CMN_CLK_CFG0_DIV_CTRL_3_0(uint32_t val)
-> drivers/gpu/drm/msm/dsi/dsi.xml.h:1324:static inline uint32_t DSI_14nm_PHY_CMN_CLK_CFG0_DIV_CTRL_7_4(uint32_t val)
-> drivers/gpu/drm/msm/dsi/dsi.xml.h:1368:static inline uint32_t REG_DSI_14nm_PHY_LN(uint32_t i0) { return 0x00000000 + 0x80*i0; }
-> drivers/gpu/drm/msm/dsi/dsi.xml.h:1629:static inline uint32_t REG_DSI_10nm_PHY_LN(uint32_t i0) { return 0x00000000 + 0x80*i0; }
-> drivers/gpu/drm/msm/dsi/dsi.xml.h:1639:static inline uint32_t REG_DSI_10nm_PHY_LN_TEST_DATAPATH(uint32_t i0) { return 0x00000010 + 0x80*i0; }
-> drivers/gpu/drm/msm/dsi/dsi.xml.h:571:static inline uint32_t REG_DSI_28nm_8960_PHY_LN(uint32_t i0) { return 0x00000000 + 0x40*i0; }
-> drivers/gpu/drm/msm/dsi/dsi.xml.h:800:static inline uint32_t REG_DSI_28nm_PHY_LN(uint32_t i0) { return 0x00000000 + 0x40*i0; }
-> drivers/gpu/drm/nouveau/dispnv04/hw.h:312:NVLockVgaCrtcs(struct drm_device *dev, bool lock)
-> drivers/gpu/drm/nouveau/dispnv04/hw.h:389:nv_pitch_align(struct drm_device *dev, uint32_t width, int bpp)
-> drivers/gpu/drm/nouveau/nouveau_bo.h:108:nouveau_bo_unmap_unpin_unref(struct nouveau_bo **pnvbo)
-> drivers/gpu/drm/nouveau/nouveau_bo.h:118:nouveau_bo_new_pin_map(struct nouveau_cli *cli, u64 size, int align, u32 flags,
-> drivers/gpu/drm/omapdrm/tcm.h:104:static inline void tcm_deinit(struct tcm *tcm)
-> drivers/gpu/drm/omapdrm/tcm.h:243:static inline bool tcm_area_is_valid(struct tcm_area *area)
-> drivers/gpu/drm/omapdrm/tcm.h:301:static inline s32 tcm_1d_limit(struct tcm_area *a, u32 num_pg)
-> drivers/gpu/drm/qxl/qxl_object.h:51:static inline u64 qxl_bo_gpu_offset(struct qxl_bo *bo)
-> drivers/gpu/drm/qxl/qxl_object.h:56:static inline unsigned long qxl_bo_size(struct qxl_bo *bo)
-> drivers/gpu/drm/qxl/qxl_object.h:66:static inline int qxl_bo_wait(struct qxl_bo *bo, u32 *mem_type,
-> drivers/gpu/drm/radeon/radeon_object.h:101:static inline unsigned radeon_bo_ngpu_pages(struct radeon_bo *bo)
-> drivers/gpu/drm/radeon/radeon_object.h:106:static inline unsigned radeon_bo_gpu_page_alignment(struct radeon_bo *bo)
-> drivers/gpu/drm/vmwgfx/device_include/svga3d_surfacedefs.h:1284:svga3dsurface_get_image_offset(SVGA3dSurfaceFormat format,
-> drivers/gpu/host1x/syncpt.h:111:static inline int host1x_syncpt_is_valid(struct host1x_syncpt *sp)
-> drivers/hid/intel-ish-hid/ishtp/ishtp-dev.h:228:static inline int ish_ipc_reset(struct ishtp_device *dev)
-> drivers/iio/magnetometer/st_magn.h:35:static inline int st_magn_probe_trigger(struct iio_dev *indio_dev, int irq)
-> drivers/iio/magnetometer/st_magn.h:39:static inline void st_magn_remove_trigger(struct iio_dev *indio_dev, int irq)
-> drivers/infiniband/hw/bnxt_re/qplib_rcfw.h:180:static inline void bnxt_qplib_ring_creq_db_rearm(void __iomem *db, u32 raw_cons,
-> drivers/infiniband/hw/bnxt_re/qplib_rcfw.h:193:static inline void bnxt_qplib_ring_creq_db(void __iomem *db, u32 raw_cons,
-> drivers/infiniband/hw/cxgb4/iw_cxgb4.h:662:static inline u32 c4iw_ib_to_tpt_bind_access(int acc)
-> drivers/infiniband/hw/cxgb4/t4.h:490:static inline int t4_rq_full(struct t4_wq *wq)
-> drivers/infiniband/hw/cxgb4/t4.h:537:static inline int t4_sq_full(struct t4_wq *wq)
-> drivers/infiniband/hw/cxgb4/t4.h:682:static inline int t4_wq_db_enabled(struct t4_wq *wq)
-> drivers/infiniband/hw/cxgb4/t4.h:846:static inline int t4_cq_in_error(struct t4_cq *cq)
-> drivers/infiniband/hw/hfi1/chip.h:825:static inline int is_lcb_offset(u32 offset)
-> drivers/infiniband/hw/hfi1/hfi.h:717:static inline void incr_cntr32(u32 *cntr)
-> drivers/infiniband/hw/qib/qib_common.h:799:static inline __u32 qib_hdrget_qib_ver(__le32 hdrword)
-> drivers/infiniband/hw/qib/qib.h:1306:static inline int qib_sdma_empty(const struct qib_pportdata *ppd)
-> drivers/infiniband/hw/qib/qib.h:1367:static inline u32 qib_get_hdrqtail(const struct qib_ctxtdata *rcd)
-> drivers/infiniband/hw/vmw_pvrdma/pvrdma.h:335:static inline enum pvrdma_port_state ib_port_state_to_pvrdma(
-> drivers/infiniband/hw/vmw_pvrdma/pvrdma.h:347:static inline int ib_port_cap_flags_to_pvrdma(int flags)
-> drivers/infiniband/hw/vmw_pvrdma/pvrdma.h:357:static inline enum pvrdma_port_width ib_port_width_to_pvrdma(
-> drivers/infiniband/hw/vmw_pvrdma/pvrdma.h:369:static inline enum pvrdma_port_speed ib_port_speed_to_pvrdma(
-> drivers/infiniband/hw/vmw_pvrdma/pvrdma.h:413:static inline enum ib_qp_type pvrdma_qp_type_to_ib(enum pvrdma_qp_type type)
-> drivers/infiniband/hw/vmw_pvrdma/pvrdma_verbs.h:141:static inline int pvrdma_width_enum_to_int(enum pvrdma_port_width width)
-> drivers/infiniband/hw/vmw_pvrdma/pvrdma_verbs.h:73:static inline int pvrdma_mtu_enum_to_int(enum pvrdma_mtu mtu)
-> drivers/infiniband/hw/vmw_pvrdma/pvrdma_verbs.h:85:static inline enum pvrdma_mtu pvrdma_mtu_int_to_enum(int mtu)
-> drivers/infiniband/sw/rxe/rxe_hdr.h:328:static inline u8 bth_mig(struct rxe_pkt_info *pkt)
-> drivers/infiniband/sw/rxe/rxe_hdr.h:333:static inline void bth_set_mig(struct rxe_pkt_info *pkt, u8 mig)
-> drivers/infiniband/sw/rxe/rxe_hdr.h:353:static inline void bth_set_tver(struct rxe_pkt_info *pkt, u8 tver)
-> drivers/infiniband/sw/rxe/rxe_hdr.h:363:static inline void bth_set_pkey(struct rxe_pkt_info *pkt, u16 pkey)
-> drivers/infiniband/sw/rxe/rxe_hdr.h:378:static inline int bth_fecn(struct rxe_pkt_info *pkt)
-> drivers/infiniband/sw/rxe/rxe_hdr.h:383:static inline void bth_set_fecn(struct rxe_pkt_info *pkt, int fecn)
-> drivers/infiniband/sw/rxe/rxe_hdr.h:388:static inline int bth_becn(struct rxe_pkt_info *pkt)
-> drivers/infiniband/sw/rxe/rxe_hdr.h:393:static inline void bth_set_becn(struct rxe_pkt_info *pkt, int becn)
-> drivers/infiniband/sw/rxe/rxe_hdr.h:398:static inline u8 bth_resv6a(struct rxe_pkt_info *pkt)
-> drivers/infiniband/sw/rxe/rxe_hdr.h:403:static inline void bth_set_resv6a(struct rxe_pkt_info *pkt)
-> drivers/infiniband/sw/rxe/rxe_hdr.h:418:static inline void bth_set_resv7(struct rxe_pkt_info *pkt)
-> drivers/infiniband/sw/rxe/rxe_hdr.h:476:static inline u8 rdeth_een(struct rxe_pkt_info *pkt)
-> drivers/infiniband/sw/rxe/rxe_hdr.h:482:static inline void rdeth_set_een(struct rxe_pkt_info *pkt, u32 een)
-> drivers/infiniband/sw/rxe/rxe_hdr.h:820:static inline u32 aeth_msn(struct rxe_pkt_info *pkt)
-> drivers/infiniband/sw/siw/iwarp.h:117:static inline void __ddp_set_version(struct iwarp_ctrl *ctrl, u8 version)
-> drivers/infiniband/sw/siw/iwarp.h:131:static inline void __rdmap_set_version(struct iwarp_ctrl *ctrl, u8 version)
-> drivers/isdn/mISDN/dsp_ecdis.h:33:echo_can_disable_detector_init(struct ec_disable_detector_state *det)
-> drivers/isdn/mISDN/dsp_ecdis.h:55:echo_can_disable_detector_update(struct ec_disable_detector_state *det,
-> drivers/lightnvm/pblk.h:1308:static inline unsigned int pblk_get_bi_idx(struct bio *bio)
-> drivers/md/bcache/bset.h:469:static inline void bch_bkey_to_text(struct btree_keys *b, char *buf,
-> drivers/md/bcache/bset.h:527:static inline void bch_keylist_reset(struct keylist *l)
-> drivers/md/bcache/closure.h:208:static inline void closure_set_ret_ip(struct closure *cl)
-> drivers/md/persistent-data/dm-space-map.h:109:static inline int dm_sm_set_count(struct dm_space_map *sm, dm_block_t b,
-> drivers/md/raid5.h:750:static inline int algorithm_is_DDF(int layout)
-> drivers/media/dvb-frontends/si21xx.h:28:static inline int si21xx_writeregister(struct dvb_frontend *fe, u8 reg, u8 val)
-> drivers/media/dvb-frontends/stv0288.h:45:static inline int stv0288_writereg(struct dvb_frontend *fe, u8 reg, u8 val)
-> drivers/media/pci/cx25821/cx25821-biffuncs.h:14:static inline u8 getBit(u32 sample, u8 index)
-> drivers/media/pci/ivtv/ivtv-queue.h:18:static inline int ivtv_might_use_pio(struct ivtv_stream *s)
-> drivers/media/platform/davinci/vpif.h:368:static inline void ch0_set_vbi_addr(unsigned long top_vbi,
-> drivers/media/platform/davinci/vpif.h:375:static inline void ch0_set_hbi_addr(unsigned long top_vbi,
-> drivers/media/platform/davinci/vpif.h:382:static inline void ch1_set_vbi_addr(unsigned long top_vbi,
-> drivers/media/platform/davinci/vpif.h:389:static inline void ch1_set_hbi_addr(unsigned long top_vbi,
-> drivers/media/platform/davinci/vpif.h:397:static inline void disable_raw_feature(u8 channel_id, u8 index)
-> drivers/media/platform/davinci/vpif.h:411:static inline void enable_raw_feature(u8 channel_id, u8 index)
-> drivers/media/platform/davinci/vpif.h:493:static inline void channel2_raw_enable(int enable, u8 index)
-> drivers/media/platform/davinci/vpif.h:509:static inline void channel3_raw_enable(int enable, u8 index)
-> drivers/media/platform/davinci/vpif.h:584:static inline void ch2_set_vbi_addr(unsigned long top_strt_luma,
-> drivers/media/platform/davinci/vpif.h:593:static inline void ch3_set_vbi_addr(unsigned long top_strt_luma,
-> drivers/media/platform/exynos4-is/fimc-is.h:310:static inline void fimc_is_set_param_ctrl_cmd(struct fimc_is *is, int cmd)
-> drivers/media/platform/omap3isp/isp.h:349:isp_pad_buffer_type(const struct v4l2_subdev *subdev, int pad)
-> drivers/media/platform/qcom/venus/hfi_parser.h:105:static inline u32 frate_step(struct venus_inst *inst)
-> drivers/media/platform/ti-vpe/vpdma_priv.h:578:static inline u32 ctd_pixel_line_count(int pixel_count, int line_count)
-> drivers/media/platform/ti-vpe/vpdma_priv.h:583:static inline u32 ctd_set_fid_ctl(int fid0, int fid1, int fid2)
-> drivers/media/platform/ti-vpe/vpdma_priv.h:594:static inline u32 ctd_get_pixel_count(struct vpdma_ctd *ctd)
-> drivers/media/platform/ti-vpe/vpdma_priv.h:599:static inline int ctd_get_line_count(struct vpdma_ctd *ctd)
-> drivers/media/platform/ti-vpe/vpdma_priv.h:604:static inline int ctd_get_event(struct vpdma_ctd *ctd)
-> drivers/media/platform/ti-vpe/vpdma_priv.h:609:static inline int ctd_get_fid2_ctl(struct vpdma_ctd *ctd)
-> drivers/media/platform/ti-vpe/vpdma_priv.h:614:static inline int ctd_get_fid1_ctl(struct vpdma_ctd *ctd)
-> drivers/media/platform/ti-vpe/vpdma_priv.h:619:static inline int ctd_get_fid0_ctl(struct vpdma_ctd *ctd)
-> drivers/media/platform/xilinx/xilinx-vip.h:209:static inline void xvip_enable_reg_update(struct xvip_device *xvip)
-> drivers/media/platform/xilinx/xilinx-vip.h:214:static inline void xvip_disable_reg_update(struct xvip_device *xvip)
-> drivers/misc/echo/fir.h:123:static inline void fir32_flush(struct fir32_state_t *fir)
-> drivers/misc/echo/fir.h:128:static inline void fir32_free(struct fir32_state_t *fir)
-> drivers/misc/echo/fir.h:133:static inline int16_t fir32(struct fir32_state_t *fir, int16_t sample)
-> drivers/misc/ibmasm/lowlevel.h:46:static inline int uart_interrupt_pending(void __iomem *base_address)
-> drivers/misc/sgi-gru/gru_instructions.h:371:static inline void gru_vstore_phys(void *cb, unsigned long gpa,
-> drivers/misc/sgi-gru/gru_instructions.h:409:static inline void gru_ivload(void *cb, unsigned long mem_addr,
-> drivers/misc/sgi-gru/gru_instructions.h:422:static inline void gru_ivstore(void *cb, unsigned long mem_addr,
-> drivers/misc/sgi-gru/gru_instructions.h:449:static inline void gru_ivset(void *cb, unsigned long mem_addr,
-> drivers/misc/sgi-gru/gru_instructions.h:463:static inline void gru_vflush(void *cb, unsigned long mem_addr,
-> drivers/misc/sgi-gru/gru_instructions.h:476:static inline void gru_nop(void *cb, int hints)
-> drivers/misc/sgi-gru/gru_instructions.h:499:static inline void gru_bstore(void *cb, const unsigned long src,
-> drivers/misc/sgi-gru/gru_instructions.h:522:static inline void gru_gamirr(void *cb, int exopc, unsigned long src,
-> drivers/misc/sgi-gru/gru_instructions.h:546:static inline void gru_gamerr(void *cb, int exopc, unsigned long src,
-> drivers/misc/sgi-gru/gru_instructions.h:559:static inline void gru_gamxr(void *cb, unsigned long src,
-> drivers/misc/sgi-gru/gru_instructions.h:636:static inline int gru_get_cb_status(void *cb)
-> drivers/misc/sgi-gru/gru_instructions.h:652:static inline int gru_get_cb_substatus(void *cb)
-> drivers/misc/sgi-xp/xpc.h:423:xpc_any_openclose_chctl_flags_set(union xpc_channel_ctl_flags *chctl)
-> drivers/misc/sgi-xp/xpc.h:435:xpc_any_msg_chctl_flags_set(union xpc_channel_ctl_flags *chctl)
-> drivers/misc/sgi-xp/xp.h:321:xpc_partid_to_nasids(short partid, void *nasids)
-> drivers/mmc/core/card.h:142:static inline void __maybe_unused remove_quirk(struct mmc_card *card, int data)
-> drivers/mmc/core/card.h:162:static inline void __maybe_unused remove_quirk_mmc(struct mmc_card *card,
-> drivers/mmc/core/card.h:178:static inline void __maybe_unused remove_quirk_sd(struct mmc_card *card,
-> drivers/net/dsa/b53/b53_priv.h:166:static inline int is5397_98(struct b53_device *dev)
-> drivers/net/ethernet/amazon/ena/ena_netdev.h:439:static inline bool ena_xdp_queues_present(struct ena_adapter *adapter)
-> drivers/net/ethernet/atheros/alx/hw.h:516:static inline void alx_write_mem8(struct alx_hw *hw, u32 reg, u8 val)
-> drivers/net/ethernet/broadcom/bnx2x/bnx2x_init.h:262:static inline void bnx2x_dcb_config_qm(struct bnx2x *bp, enum cos_mode mode,
-> drivers/net/ethernet/cavium/liquidio/octeon_device.h:910:static inline u32 lio_get_priv_flag(struct octeon_device *octdev, u32 flag)
-> drivers/net/ethernet/chelsio/cxgb4/cudbg_lib.h:237:static inline void cudbg_fill_qdesc_txq(const struct sge_txq *txq,
-> drivers/net/ethernet/chelsio/cxgb4/cudbg_lib.h:249:static inline void cudbg_fill_qdesc_rxq(const struct sge_rspq *rxq,
-> drivers/net/ethernet/chelsio/cxgb4/cudbg_lib.h:261:static inline void cudbg_fill_qdesc_flq(const struct sge_fl *flq,
-> drivers/net/ethernet/chelsio/cxgb4/cxgb4.h:1713:static inline int t4_memory_write(struct adapter *adap, int mtype, u32 addr,
-> drivers/net/ethernet/chelsio/cxgb4/cxgb4_ptp.h:60:static inline void cxgb4_xmit_hwtstamp_pending(struct sk_buff *skb)
-> drivers/net/ethernet/chelsio/libcxgb/libcxgb_ppm.h:268:static inline int cxgbi_ppm_ddp_tag_update_sw_bits(struct cxgbi_ppm *ppm,
-> drivers/net/ethernet/chelsio/libcxgb/libcxgb_ppm.h:288:static inline void cxgbi_ppm_ppod_clear(struct cxgbi_pagepod *ppod)
-> drivers/net/ethernet/cisco/enic/enic_res.h:88:static inline void enic_queue_wq_desc_csum(struct vnic_wq *wq,
-> drivers/net/ethernet/emulex/benet/be.h:896:static inline u8 is_tcp_pkt(struct sk_buff *skb)
-> drivers/net/ethernet/freescale/gianfar.h:1201:static inline void gfar_read_filer(struct gfar_private *priv,
-> drivers/net/ethernet/intel/i40e/i40e_client.h:194:static inline bool i40e_client_is_registered(struct i40e_client *client)
-> drivers/net/ethernet/marvell/octeontx2/nic/otx2_common.h:462:static inline int otx2_sync_mbox_up_msg(struct mbox *mbox, int devid)
-> drivers/net/ethernet/marvell/octeontx2/nic/otx2_common.h:479:static inline int otx2_sync_mbox_msg_busy_poll(struct mbox *mbox)
-> drivers/net/ethernet/mellanox/mlx5/core/lib/hv_vhca.h:97:mlx5_hv_vhca_write_agent(struct mlx5_hv_vhca_agent *agent,
-> drivers/net/ethernet/mellanox/mlx5/core/wq.h:105:static inline int mlx5_wq_cyc_is_full(struct mlx5_wq_cyc *wq)
-> drivers/net/ethernet/mellanox/mlx5/core/wq.h:120:static inline void mlx5_wq_cyc_push(struct mlx5_wq_cyc *wq)
-> drivers/net/ethernet/mellanox/mlx5/core/wq.h:167:static inline int mlx5_wq_cyc_cc_bigger(u16 cc1, u16 cc2)
-> drivers/net/ethernet/mellanox/mlx5/core/wq.h:246:static inline int mlx5_wq_ll_is_full(struct mlx5_wq_ll *wq)
-> drivers/net/ethernet/mellanox/mlxsw/cmd.h:1009:static inline int mlxsw_cmd_query_sdq(struct mlxsw_core *mlxsw_core,
-> drivers/net/ethernet/mellanox/mlxsw/cmd.h:1016:static inline int mlxsw_cmd_query_rdq(struct mlxsw_core *mlxsw_core,
-> drivers/net/ethernet/mellanox/mlxsw/cmd.h:1106:static inline int mlxsw_cmd_query_cq(struct mlxsw_core *mlxsw_core,
-> drivers/net/ethernet/mellanox/mlxsw/cmd.h:1184:static inline int mlxsw_cmd_query_eq(struct mlxsw_core *mlxsw_core,
-> drivers/net/ethernet/mellanox/mlxsw/cmd.h:976:static inline int mlxsw_cmd_2err_sdq(struct mlxsw_core *mlxsw_core,
-> drivers/net/ethernet/mellanox/mlxsw/cmd.h:983:static inline int mlxsw_cmd_2err_rdq(struct mlxsw_core *mlxsw_core,
-> drivers/net/ethernet/mellanox/mlxsw/reg.h:2781:mlxsw_reg_perar_hw_regions_needed(unsigned int block_num)
-> drivers/net/ethernet/mellanox/mlxsw/reg.h:420:static inline void mlxsw_reg_sfd_uc_unpack(char *payload, int rec_index,
-> drivers/net/ethernet/mellanox/mlxsw/reg.h:4350:static inline void mlxsw_reg_ptys_ib_unpack(char *payload, u16 *p_ib_proto_cap,
-> drivers/net/ethernet/mellanox/mlxsw/reg.h:481:static inline void mlxsw_reg_sfd_uc_lag_unpack(char *payload, int rec_index,
-> drivers/net/ethernet/mellanox/mlxsw/reg.h:8119:mlxsw_reg_mfcr_pack(char *payload,
-> drivers/net/ethernet/mellanox/mlxsw/reg.h:8232:static inline void mlxsw_reg_mfsl_unpack(char *payload, u8 tacho,
-> drivers/net/ethernet/natsemi/sonic.h:386:static inline __u16 sonic_cda_get(struct net_device* dev, int entry,
-> drivers/net/ethernet/netronome/nfp/bpf/main.h:366:static inline u8 mbpf_mode(const struct nfp_insn_meta *meta)
-> drivers/net/ethernet/netronome/nfp/nfp_app.h:345:static inline bool nfp_app_ctrl_tx(struct nfp_app *app, struct sk_buff *skb)
-> drivers/net/ethernet/pensando/ionic/ionic_lif.h:215:static inline u32 ionic_coal_hw_to_usec(struct ionic *ionic, u32 units)
-> drivers/net/ethernet/qlogic/qlcnic/qlcnic.h:1883:static inline int qlcnic_hw_write_wx_2M(struct qlcnic_adapter *adapter,
-> drivers/net/ethernet/realtek/atp.h:239:static inline void write_word_mode0(short ioaddr, unsigned short value)
-> drivers/net/ethernet/sfc/falcon/efx.h:265:static inline bool ef4_rwsem_assert_write_locked(struct rw_semaphore *sem)
-> drivers/net/ethernet/sfc/falcon/io.h:72:static inline __le64 _ef4_readq(struct ef4_nic *efx, unsigned int reg)
-> drivers/net/ethernet/sfc/falcon/net_driver.h:1301:static inline netdev_features_t ef4_supported_features(const struct ef4_nic *efx)
-> drivers/net/ethernet/sfc/falcon/net_driver.h:909:static inline unsigned int ef4_port_num(struct ef4_nic *efx)
-> drivers/net/ethernet/sfc/io.h:84:static inline __le64 _efx_readq(struct efx_nic *efx, unsigned int reg)
-> drivers/net/ethernet/sfc/net_driver.h:714:static inline bool efx_phy_mode_disabled(enum efx_phy_mode mode)
-> drivers/net/ethernet/ti/netcp.h:160:static inline int netcp_align_psdata(struct netcp_packet *p_info,
-> drivers/net/ethernet/ti/tlan.h:454:static inline u16 tlan_dio_read16(u16 base_addr, u16 internal_addr)
-> drivers/net/wimax/i2400m/i2400m.h:719:int i2400m_is_d2h_barker(const void *buf)
-> drivers/net/wireless/ath/ath10k/hif.h:155:static inline void ath10k_hif_get_default_pipe(struct ath10k *ar,
-> drivers/net/wireless/ath/ath10k/hif.h:167:static inline u16 ath10k_hif_get_free_queue_number(struct ath10k *ar,
-> drivers/net/wireless/ath/ath10k/wmi-ops.h:545:ath10k_wmi_pdev_resume_target(struct ath10k *ar)
-> drivers/net/wireless/ath/ath9k/hw-ops.h:133:static inline bool ath9k_hw_detect_bb_hang(struct ath_hw *ah)
-> drivers/net/wireless/ath/carl9170/fwdesc.h:221:static inline void carl9170fw_fill_desc(struct carl9170fw_desc_head *head,
-> drivers/net/wireless/ath/wil6210/txrx_edma.h:485:static inline int wil_rx_status_get_error(void *msg)
-> drivers/net/wireless/ath/wil6210/txrx_edma.h:588:dma_addr_t wil_rx_desc_get_addr_edma(struct wil_ring_rx_enhanced_dma *dma)
-> drivers/net/wireless/ath/wil6210/txrx.h:539:static inline int wil_rxdesc_ext_subtype(struct vring_rx_desc *d)
-> drivers/net/wireless/ath/wil6210/txrx.h:559:static inline int wil_rxdesc_ds_bits(struct vring_rx_desc *d)
-> drivers/net/wireless/ath/wil6210/txrx.h:594:static inline int wil_ring_is_full(struct wil_ring *ring)
-> drivers/net/wireless/broadcom/b43legacy/main.h:45:u8 b43legacy_freq_to_channel(struct b43legacy_wldev *dev,
-> drivers/net/wireless/broadcom/b43legacy/main.h:66:int b43legacy_channel_to_freq(struct b43legacy_wldev *dev,
-> drivers/net/wireless/broadcom/brcm80211/brcmsmac/aiutils.h:199:static inline u32 ai_get_pmucaps(struct si_pub *sih)
-> drivers/net/wireless/broadcom/brcm80211/include/brcmu_utils.h:137:static inline int pktq_max(struct pktq *pq)
-> drivers/net/wireless/broadcom/brcm80211/include/brcmu_utils.h:142:static inline int pktq_avail(struct pktq *pq)
-> drivers/net/wireless/broadcom/brcm80211/include/brcmu_utils.h:152:static inline bool pktq_empty(struct pktq *pq)
-> drivers/net/wireless/broadcom/brcm80211/include/brcmu_utils.h:81:static inline int pktq_pavail(struct pktq *pq, int prec)
-> drivers/net/wireless/broadcom/brcm80211/include/brcmu_utils.h:91:static inline bool pktq_pempty(struct pktq *pq, int prec)
-> drivers/net/wireless/broadcom/brcm80211/include/brcmu_wifi.h:164:static inline int next_20mhz_chan(int channel)
-> drivers/net/wireless/broadcom/brcm80211/include/brcmu_wifi.h:189:static inline bool ac_bitmap_tst(u8 bitmap, int prec)
-> drivers/net/wireless/intel/ipw2x00/ipw2200.h:846:static inline u8 ipw_get_scan_type(struct ipw_scan_request_ext *scan, u8 index)
-> drivers/net/wireless/intel/ipw2x00/libipw.h:932:static inline int libipw_is_cck_rate(u8 rate)
-> drivers/net/wireless/intel/ipw2x00/libipw.h:993:static inline void libipw_increment_scans(struct libipw_device *ieee)
-> drivers/net/wireless/intel/iwlwifi/iwl-scd.h:85:static inline void iwl_scd_disable_agg(struct iwl_trans *trans)
-> drivers/net/wireless/intel/iwlwifi/iwl-trans.h:1286:static inline bool iwl_trans_fw_running(struct iwl_trans *trans)
-> drivers/net/wireless/intel/iwlwifi/mvm/mvm.h:1321:static inline bool iwl_mvm_bt_is_rrc_supported(struct iwl_mvm *mvm)
-> drivers/net/wireless/marvell/mwifiex/wmm.h:86:mwifiex_wmm_is_ra_list_empty(struct list_head *ra_list_hhead)
-> drivers/net/wireless/quantenna/qtnfmac/bus.h:102:static inline int qtnf_bus_preinit(struct qtnf_bus *bus)
-> drivers/net/wireless/quantenna/qtnfmac/bus.h:109:static inline void qtnf_bus_stop(struct qtnf_bus *bus)
-> drivers/net/wireless/quantenna/qtnfmac/util.h:29:static inline bool qtnf_sta_list_empty(const struct qtnf_sta_list *list)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:172:static inline void set_tx_desc_tx_stbc(__le32 *__pdesc, u32 __val)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:237:static inline int get_tx_desc_tx_buffer_size(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:277:static inline int get_rx_desc_security(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:282:static inline int get_rx_desc_qos(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:302:static inline int get_rx_desc_ls(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:307:static inline int get_rx_desc_fs(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:312:static inline int get_rx_desc_eor(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:352:static inline int get_rx_desc_a1_fit(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:357:static inline int get_rx_desc_a2_fit(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:362:static inline int get_rx_desc_pam(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:367:static inline int get_rx_desc_pwr(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:372:static inline int get_rx_desc_md(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:377:static inline int get_rx_desc_mf(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:382:static inline int get_rx_desc_type(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:387:static inline int get_rx_desc_mc(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:392:static inline int get_rx_desc_bc(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:397:static inline int get_rx_desc_seq(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:402:static inline int get_rx_desc_frag(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:417:static inline int get_rx_status_desc_rx_gf(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:432:static inline int get_rx_desc_htc(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:437:static inline int get_rx_status_desc_eosp(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:442:static inline int get_rx_status_desc_bssid_fit(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:467:static inline u32 get_rx_desc_iv1(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:482:static inline u32 get_rx_desc_buff_addr64(__le32 *__pdesc)
-> drivers/net/wireless/realtek/rtlwifi/rtl8188ee/trx.h:492:static inline void set_rx_desc_buff_addr64(__le32 *__pdesc, u32 __val)
-> drivers/net/wireless/realtek/rtw88/coex.h:319:static inline void rtw_coex_set_gnt_debug(struct rtw_dev *rtwdev)
-> drivers/net/wireless/realtek/rtw88/hci.h:142:static inline void rtw_write16_clr(struct rtw_dev *rtwdev, u32 addr, u16 bit)
-> drivers/net/wireless/realtek/rtw88/hci.h:197:rtw_read16_mask(struct rtw_dev *rtwdev, u32 addr, u32 mask)
-> drivers/net/wireless/realtek/rtw88/hci.h:210:rtw_read8_mask(struct rtw_dev *rtwdev, u32 addr, u32 mask)
-> drivers/net/wireless/st/cw1200/debug.h:80:static inline void cw1200_debug_ba(struct cw1200_common *priv,
-> drivers/net/wireless/st/cw1200/wsm.h:1359:static inline int wsm_get_station_id(struct cw1200_common *priv, u8 *mac)
-> drivers/net/wireless/st/cw1200/wsm.h:1751:static inline int wsm_get_p2p_ps_modeinfo(struct cw1200_common *priv,
-> drivers/net/wireless/st/cw1200/wsm.h:1792:static inline int wsm_set_override_internal_txrate(struct cw1200_common *priv,
-> drivers/net/wireless/st/cw1200/wsm.h:1851:static inline u8 wsm_queue_id_to_linux(u8 queue_id)
-> drivers/net/wireless/ti/wlcore/hw_ops.h:245:wlcore_hw_convert_hwaddr(struct wl1271 *wl, u32 hwaddr)
-> drivers/net/wireless/ti/wlcore/io.h:152:static inline int __must_check wlcore_read_hwaddr(struct wl1271 *wl, int hwaddr,
-> drivers/net/wireless/ti/wlcore/io.h:87:static inline int __must_check wlcore_raw_write_data(struct wl1271 *wl, int reg,
-> drivers/net/wireless/zydas/zd1211rw/zd_chip.h:897:static inline int zd_get_encryption_type(struct zd_chip *chip, u32 *type)
-> drivers/net/wireless/zydas/zd1211rw/zd_chip.h:907:static inline int zd_chip_get_basic_rates(struct zd_chip *chip, u16 *cr_rates)
-> drivers/net/wireless/zydas/zd1211rw/zd_chip.h:928:static inline int zd_get_beacon_interval(struct zd_chip *chip, u32 *interval)
-> drivers/pci/controller/cadence/pcie-cadence.h:302:static inline void cdns_pcie_writeb(struct cdns_pcie *pcie, u32 reg, u8 value)
-> drivers/pci/controller/cadence/pcie-cadence.h:307:static inline void cdns_pcie_writew(struct cdns_pcie *pcie, u32 reg, u16 value)
-> drivers/pci/controller/cadence/pcie-cadence.h:348:static inline void cdns_pcie_ep_fn_writel(struct cdns_pcie *pcie, u8 fn,
-> drivers/pci/controller/cadence/pcie-cadence.h:354:static inline u8 cdns_pcie_ep_fn_readb(struct cdns_pcie *pcie, u8 fn, u32 reg)
-> drivers/pci/controller/dwc/pcie-designware.h:333:static inline u32 dw_pcie_readl_dbi2(struct dw_pcie *pci, u32 reg)
-> drivers/scsi/aic94xx/aic94xx.h:45:static inline void asd_stringify_sas_addr(char *p, const u8 *sas_addr)
-> drivers/scsi/BusLogic.h:1129:static inline void blogic_busreset(struct blogic_adapter *adapter)
-> drivers/scsi/csiostor/csio_scsi.h:237:csio_put_scsi_ddp(struct csio_scsim *scm, struct csio_dma_buf *ddp)
-> drivers/scsi/cxlflash/common.h:294:static inline bool afu_is_ioarrin_cmd_mode(struct afu *afu)
-> drivers/scsi/fnic/cq_exch_desc.h:162:static inline void cq_sgl_desc_dec(struct cq_sgl_desc *desc_ptr,
-> drivers/scsi/fnic/cq_exch_desc.h:46:static inline void cq_exch_wq_desc_dec(struct cq_exch_wq_desc *desc_ptr,
-> drivers/scsi/fnic/fcpio.h:137:fcpio_tag_id_enc(struct fcpio_tag *tag, u32 id)
-> drivers/scsi/fnic/fcpio.h:149:fcpio_tag_exid_enc(struct fcpio_tag *tag, u16 ox_id, u16 rx_id)
-> drivers/scsi/fnic/fcpio.h:156:fcpio_tag_exid_dec(struct fcpio_tag *tag, u16 *ox_id, u16 *rx_id)
-> drivers/scsi/fnic/fcpio.h:174:fcpio_header_enc(struct fcpio_header *hdr,
-> drivers/scsi/fnic/fcpio.h:732:static inline void fcpio_color_enc(struct fcpio_fw_req *fw_req, u8 color)
-> drivers/scsi/fnic/fnic_res.h:206:static inline void fnic_queue_wq_copy_desc_lunmap(struct vnic_wq_copy *wq,
-> drivers/scsi/fnic/vnic_wq_copy.h:69:static inline void vnic_wq_copy_desc_process(struct vnic_wq_copy *wq, u16 index)
-> drivers/scsi/lpfc/lpfc_hw.h:3992:lpfc_bgs_get_bidir_bg_prof(uint32_t bgstat)
-> drivers/scsi/lpfc/lpfc_hw.h:3999:lpfc_bgs_get_bidir_err_cond(uint32_t bgstat)
-> drivers/scsi/lpfc/lpfc_hw.h:4006:lpfc_bgs_get_bg_prof(uint32_t bgstat)
-> drivers/scsi/megaraid/megaraid_sas_fusion.h:212:static inline u16 get_num_sge(struct RAID_CONTEXT_G35 *rctx_g35)
-> drivers/scsi/nsp32_io.h:106:static inline unsigned long nsp32_mmio_read4(unsigned long base,
-> drivers/scsi/nsp32_io.h:160:static inline void nsp32_index_write4(unsigned int  base,
-> drivers/scsi/nsp32_io.h:176:static inline unsigned char nsp32_mmio_index_read1(unsigned long base,
-> drivers/scsi/nsp32_io.h:188:static inline void nsp32_mmio_index_write1(unsigned long base,
-> drivers/scsi/nsp32_io.h:201:static inline unsigned short nsp32_mmio_index_read2(unsigned long base,
-> drivers/scsi/nsp32_io.h:213:static inline void nsp32_mmio_index_write2(unsigned long  base,
-> drivers/scsi/nsp32_io.h:236:static inline void nsp32_fifo_read(unsigned int   base,
-> drivers/scsi/nsp32_io.h:251:static inline void nsp32_fifo_write(unsigned int   base,
-> drivers/scsi/nsp32_io.h:53:static inline void nsp32_mmio_write1(unsigned long base,
-> drivers/scsi/nsp32_io.h:64:static inline unsigned char nsp32_mmio_read1(unsigned long base,
-> drivers/scsi/nsp32_io.h:74:static inline void nsp32_mmio_write2(unsigned long  base,
-> drivers/scsi/nsp32_io.h:85:static inline unsigned short nsp32_mmio_read2(unsigned long base,
-> drivers/scsi/nsp32_io.h:95:static inline void nsp32_mmio_write4(unsigned long base,
-> drivers/scsi/pcmcia/nsp_io.h:150:static inline void nsp_fifo16_write(unsigned int   base,
-> drivers/scsi/pcmcia/nsp_io.h:178:static inline void nsp_mmio_write(unsigned long base,
-> drivers/scsi/pcmcia/nsp_io.h:187:static inline unsigned char nsp_mmio_read(unsigned long base,
-> drivers/scsi/pcmcia/nsp_io.h:197:static inline unsigned char nsp_mmio_index_read(unsigned long base,
-> drivers/scsi/pcmcia/nsp_io.h:207:static inline void nsp_mmio_index_write(unsigned long base,
-> drivers/scsi/pcmcia/nsp_io.h:94:static inline void nsp_fifo16_read(unsigned int   base,
-> drivers/scsi/snic/snic_fwint.h:502:snic_color_enc(struct snic_fw_req *req, u8 color)
-> drivers/scsi/snic/vnic_wq.h:85:static inline unsigned int svnic_wq_desc_avail(struct vnic_wq *wq)
-> drivers/scsi/sym53c8xx_2/sym_misc.h:91:static inline void sym_que_move(struct sym_quehead *orig,
-> drivers/scsi/ufs/ufshcd.h:793:static inline void check_upiu_size(void)
-> drivers/scsi/ufs/ufshcd.h:851:static inline int ufshcd_dme_st_set(struct ufs_hba *hba, u32 attr_sel,
-> drivers/scsi/ufs/ufshcd.h:865:static inline int ufshcd_dme_peer_st_set(struct ufs_hba *hba, u32 attr_sel,
-> drivers/soc/fsl/dpio/qbman-portal.h:317:static inline int qbman_result_is_FQDAN(const struct dpaa2_dq *dq)
-> drivers/soc/fsl/dpio/qbman-portal.h:323:static inline int qbman_result_is_CDAN(const struct dpaa2_dq *dq)
-> drivers/soc/fsl/dpio/qbman-portal.h:329:static inline int qbman_result_is_CSCN(const struct dpaa2_dq *dq)
-> drivers/soc/fsl/dpio/qbman-portal.h:335:static inline int qbman_result_is_BPSCN(const struct dpaa2_dq *dq)
-> drivers/soc/fsl/dpio/qbman-portal.h:341:static inline int qbman_result_is_CGCU(const struct dpaa2_dq *dq)
-> drivers/soc/fsl/dpio/qbman-portal.h:347:static inline int qbman_result_is_FQRN(const struct dpaa2_dq *dq)
-> drivers/soc/fsl/dpio/qbman-portal.h:353:static inline int qbman_result_is_FQRNI(const struct dpaa2_dq *dq)
-> drivers/soc/fsl/dpio/qbman-portal.h:359:static inline int qbman_result_is_FQPN(const struct dpaa2_dq *dq)
-> drivers/soc/fsl/qbman/qman_priv.h:49:static inline u16 qm_mcr_querywq_get_chan(const struct qm_mcr_querywq *wq)
-> drivers/soc/fsl/qbman/qman_priv.h:82:static inline u64 qm_mcr_querycgr_i_get64(const struct qm_mcr_querycgr *q)
-> drivers/soc/fsl/qbman/qman_priv.h:86:static inline u64 qm_mcr_querycgr_a_get64(const struct qm_mcr_querycgr *q)
-> drivers/staging/fwserial/dma_fifo.h:104:static inline bool dma_fifo_busy(struct dma_fifo *fifo)
-> drivers/staging/rtl8188eu/include/rtw_mlme.h:293:static inline void clr_fwstate_ex(struct mlme_priv *pmlmepriv, int state)
-> drivers/staging/rtl8192u/ieee80211/ieee80211.h:2073:static inline int ieee80211_is_valid_mode(struct ieee80211_device *ieee, int mode)
-> drivers/staging/rtl8192u/ieee80211/ieee80211.h:2157:static inline int ieee80211_is_cck_rate(u8 rate)
-> drivers/staging/rtl8192u/ieee80211/ieee80211.h:2408:static inline void ieee80211_increment_scans(struct ieee80211_device *ieee)
-> drivers/staging/rtl8192u/ieee80211/ieee80211.h:2413:static inline int ieee80211_get_scans(struct ieee80211_device *ieee)
-> drivers/staging/rts5208/rtsx_card.h:1048:static inline int card_power_off_all(struct rtsx_chip *chip)
-> drivers/thermal/intel/int340x_thermal/int340x_thermal_zone.h:42:static inline void int340x_thermal_zone_set_priv_data(
-> drivers/thunderbolt/tunnel.h:89:static inline bool tb_tunnel_is_usb3(const struct tb_tunnel *tunnel)
-> drivers/tty/serial/8250/8250.h:342:static inline int serial_index(struct uart_port *port)
-> drivers/usb/core/usb.h:160:static inline int is_usb_endpoint(const struct device *dev)
-> drivers/usb/dwc2/core.h:1271:static inline bool dwc2_is_iot(struct dwc2_hsotg *hsotg)
-> drivers/usb/dwc2/hcd.h:524:static inline u8 dwc2_hcd_is_pipe_isoc(struct dwc2_hcd_pipe_info *pipe)
-> drivers/usb/dwc2/hcd.h:529:static inline u8 dwc2_hcd_is_pipe_int(struct dwc2_hcd_pipe_info *pipe)
-> drivers/usb/dwc2/hcd.h:534:static inline u8 dwc2_hcd_is_pipe_bulk(struct dwc2_hcd_pipe_info *pipe)
-> drivers/usb/dwc2/hcd.h:539:static inline u8 dwc2_hcd_is_pipe_control(struct dwc2_hcd_pipe_info *pipe)
-> drivers/usb/dwc2/hcd.h:698:static inline u32 dwc2_hcd_urb_get_status(struct dwc2_hcd_urb *dwc2_urb)
-> drivers/usb/host/ohci.h:599:static inline __hc16 cpu_to_hc16p (const struct ohci_hcd *ohci, const u16 *x)
-> drivers/usb/host/ohci.h:613:static inline __hc32 cpu_to_hc32p (const struct ohci_hcd *ohci, const u32 *x)
-> drivers/usb/host/ohci.h:621:static inline u16 hc16_to_cpu (const struct ohci_hcd *ohci, const __hc16 x)
-> drivers/usb/mtu3/mtu3.h:374:static inline int is_first_entry(const struct list_head *list,
-> drivers/usb/musb/musb_host.h:100:static inline void musb_host_poll_rh_status(struct musb *musb) {}
-> drivers/usb/usbip/usbip_common.h:326:static inline int interface_to_busnum(struct usb_interface *interface)
-> drivers/usb/usbip/usbip_common.h:333:static inline int interface_to_devnum(struct usb_interface *interface)
-> drivers/vhost/vhost.h:307:static inline __virtio64 cpu_to_vhost64(struct vhost_virtqueue *vq, u64 val)
-> drivers/video/fbdev/aty/atyfb.h:252:static inline void aty_st_le16(int regindex, u16 val,
-> drivers/video/fbdev/bt431.h:116:static inline u8 bt431_read_reg(struct bt431_regs *regs, int ir)
-> drivers/video/fbdev/bt431.h:153:static inline u16 bt431_read_cmap(struct bt431_regs *regs, int cr)
-> drivers/video/fbdev/bt431.h:159:static inline void bt431_write_cmap(struct bt431_regs *regs, int cr, u16 value)
-> drivers/video/fbdev/bt455.h:72:static inline void bt455_read_cmap_entry(struct bt455_regs *regs,
-> drivers/video/fbdev/bt455.h:86:static inline void bt455_write_ovly_entry(struct bt455_regs *regs, u8 grey)
-> drivers/video/fbdev/matrox/matroxfb_base.h:179:static inline void vaddr_add(vaddr_t* va, unsigned long offs) {
-> drivers/video/fbdev/savage/savagefb.h:289:static inline u16 vga_in16(int addr, struct savagefb_par *par)
-> drivers/video/fbdev/savage/savagefb.h:294:static inline u8 vga_in32(int addr, struct savagefb_par *par)
-> drivers/video/fbdev/savage/savagefb.h:309:static inline void vga_out32(int addr, u32 val, struct savagefb_par *par)
-> drivers/video/fbdev/savage/savagefb.h:320:static inline u8 VGArGR (u8 index, struct savagefb_par *par)
-> fs/affs/affs.h:287:affs_adjust_bitmapchecksum(struct buffer_head *bh, u32 val)
-> fs/autofs/autofs_i.h:249:static inline void autofs_add_expiring(struct dentry *dentry)
-> fs/befs/endian.h:89:cpu_to_fsrun(const struct super_block *sb, befs_block_run n)
-> fs/btrfs/ctree.h:1648:static inline unsigned long btrfs_dev_extent_chunk_tree_uuid(struct btrfs_dev_extent *dev)
-> fs/ceph/super.h:1026:static inline int ceph_acl_chmod(struct dentry *dentry, struct inode *inode)
-> fs/ext4/ext4_jbd2.h:198:static inline bool ext4_journal_callback_try_del(handle_t *handle,
-> fs/ext4/ext4_jbd2.h:338:static inline void ext4_journal_free_reserved(handle_t *handle)
-> fs/ext4/extents_status.h:227:static inline void ext4_es_store_status(struct extent_status *es,
-> fs/f2fs/f2fs.h:3629:static inline void update_sit_info(struct f2fs_sb_info *sbi) {}
-> fs/gfs2/glock.h:162:static inline int gfs2_glock_is_held_dfrd(struct gfs2_glock *gl)
-> fs/gfs2/glock.h:167:static inline int gfs2_glock_is_held_shrd(struct gfs2_glock *gl)
-> fs/gfs2/inode.h:35:static inline bool gfs2_is_writeback(const struct gfs2_sbd *sdp)
-> fs/gfs2/inode.h:64:static inline int gfs2_check_inum(const struct gfs2_inode *ip, u64 no_addr,
-> fs/gfs2/meta_io.h:14:static inline void gfs2_buffer_clear(struct buffer_head *bh)
-> fs/hpfs/hpfs.h:423:static inline bool bp_fnode_parent(struct bplus_header *bp)
-> fs/isofs/isofs.h:101:static inline unsigned int isonum_732(u8 *p)
-> fs/isofs/isofs.h:80:static inline int isonum_712(s8 *p)
-> fs/isofs/isofs.h:88:static inline unsigned int isonum_722(u8 *p)
-> fs/nilfs2/bmap.h:81:static inline int nilfs_bmap_is_new_ptr(unsigned long ptr)
-> fs/ntfs/endian.h:24:static inline s32 sle32_to_cpu(sle32 x)
-> fs/ntfs/endian.h:34:static inline s16 sle16_to_cpup(sle16 *x)
-> fs/ntfs/endian.h:39:static inline s32 sle32_to_cpup(sle32 *x)
-> fs/ntfs/endian.h:49:static inline sle16 cpu_to_sle16(s16 x)
-> fs/ntfs/endian.h:54:static inline sle32 cpu_to_sle32(s32 x)
-> fs/ntfs/endian.h:64:static inline sle16 cpu_to_sle16p(s16 *x)
-> fs/ntfs/endian.h:69:static inline sle32 cpu_to_sle32p(s32 *x)
-> fs/ntfs/endian.h:74:static inline sle64 cpu_to_sle64p(s64 *x)
-> fs/ocfs2/extent_map.h:62:static inline int ocfs2_read_virt_block(struct inode *inode, u64 v_block,
-> fs/ocfs2/ocfs2_fs.h:1563:static inline int ocfs2_system_inode_is_global(int type)
-> fs/ocfs2/ocfs2_fs.h:1596:static inline int ocfs2_gd_is_discontig(struct ocfs2_group_desc *gd)
-> fs/ocfs2/ocfs2.h:726:static inline u32 ocfs2_clusters_for_blocks(struct super_block *sb,
-> fs/ocfs2/ocfs2.h:810:static inline unsigned long ocfs2_align_bytes_to_sectors(u64 bytes)
-> fs/ocfs2/ocfs2.h:815:static inline unsigned int ocfs2_page_index_to_clusters(struct super_block *sb,
-> fs/ocfs2/suballoc.h:149:static inline u32 ocfs2_cluster_from_desc(struct ocfs2_super *osb,
-> fs/reiserfs/reiserfs.h:821:reiserfs_mutex_lock_nested_safe(struct mutex *m, unsigned int subclass,
-> fs/reiserfs/reiserfs.h:832:reiserfs_down_read_safe(struct rw_semaphore *sem, struct super_block *s)
-> fs/udf/udfend.h:28:static inline struct short_ad lesa_to_cpu(struct short_ad in)
-> fs/udf/udfend.h:38:static inline struct short_ad cpu_to_lesa(struct short_ad in)
-> fs/udf/udfend.h:48:static inline struct kernel_long_ad lela_to_cpu(struct long_ad in)
-> fs/udf/udfend.h:58:static inline struct long_ad cpu_to_lela(struct kernel_long_ad in)
-> fs/ufs/util.h:585:static inline int ufs_is_data_ptr_zero(struct ufs_sb_private_info *uspi,
-> fs/xfs/libxfs/xfs_format.h:415:static inline void xfs_sb_version_addprojid32bit(struct xfs_sb *sbp)
-> fs/xfs/libxfs/xfs_fs.h:423:bstat_get_projid(const struct xfs_bstat *bs)
-> fs/xfs/libxfs/xfs_health.h:163:xfs_fs_is_healthy(struct xfs_mount *mp)
-> fs/xfs/libxfs/xfs_health.h:169:xfs_rt_is_healthy(struct xfs_mount *mp)
-> fs/xfs/libxfs/xfs_health.h:175:xfs_ag_is_healthy(struct xfs_perag *pag)
-> fs/xfs/libxfs/xfs_health.h:181:xfs_inode_is_healthy(struct xfs_inode *ip)
-> fs/xfs/libxfs/xfs_log_format.h:360:static inline int xfs_ilog_fdata(int w)
-> fs/xfs/libxfs/xfs_rmap.h:100:xfs_owner_info_pack(
-> include/clocksource/timer-sp804.h:13:static inline void sp804_clocksource_init(void __iomem *base, const char *name)
-> include/clocksource/timer-sp804.h:18:static inline void sp804_clocksource_and_sched_clock_init(void __iomem *base,
-> include/clocksource/timer-sp804.h:24:static inline void sp804_clockevents_init(void __iomem *base, unsigned int irq, const char *name)
-> include/crypto/acompress.h:156:static inline int crypto_has_acomp(const char *alg_name, u32 type, u32 mask)
-> include/crypto/internal/aead.h:117:static inline int aead_enqueue_request(struct aead_queue *queue,
-> include/crypto/internal/hash.h:68:static inline int crypto_ahash_walk_done(struct crypto_hash_walk *walk,
-> include/crypto/internal/hash.h:79:static inline int crypto_ahash_walk_last(struct crypto_hash_walk *walk)
-> include/crypto/scatterwalk.h:48:static inline unsigned int scatterwalk_aligned(struct scatter_walk *walk,
-> include/crypto/skcipher.h:328:static inline u32 crypto_sync_skcipher_get_flags(
-> include/drm/drm_fb_helper.h:360:static inline int drm_fb_helper_defio_init(struct drm_fb_helper *fb_helper)
-> include/drm/drm_fixed.h:149:static inline s64 drm_fixp_from_fraction(s64 a, s64 b)
-> include/drm/drm_fixed.h:45:static inline u32 dfixed_floor(fixed20_12 A)
-> include/drm/gpu_scheduler.h:201:static inline bool drm_sched_invalidate_job(struct drm_sched_job *s_job,
-> include/linux/acct.h:68:static inline u32 jiffies_to_AHZ(unsigned long x)
-> include/linux/acpi.h:1194:static inline int acpi_dev_prop_get(const struct acpi_device *adev,
-> include/linux/acpi.h:966:static inline int acpi_dev_runtime_suspend(struct device *dev) { return 0; }
-> include/linux/acpi.h:967:static inline int acpi_dev_runtime_resume(struct device *dev) { return 0; }
-> include/linux/ahci-remap.h:24:static inline unsigned int ahci_remap_base(int i)
-> include/linux/amba/bus.h:136:static inline int amba_pclk_enable(struct amba_device *dev)
-> include/linux/amba/bus.h:141:static inline void amba_pclk_disable(struct amba_device *dev)
-> include/linux/ata.h:725:static inline bool ata_id_has_wcache(const u16 *id)
-> include/linux/ata.h:733:static inline bool ata_id_has_pm(const u16 *id)
-> include/linux/ata.h:802:static inline bool ata_id_sct_features_ctrl(const u16 *id)
-> include/linux/ata.h:807:static inline bool ata_id_sct_error_recovery_ctrl(const u16 *id)
-> include/linux/ata.h:812:static inline bool ata_id_sct_long_sector_access(const u16 *id)
-> include/linux/backing-dev.h:223:static inline int bdi_sched_wait(void *word)
-> include/linux/backing-dev.h:481:static inline int inode_rw_congested(struct inode *inode)
-> include/linux/bcma/bcma.h:367:static inline u32 bcma_read8(struct bcma_device *core, u16 offset)
-> include/linux/bcma/bcma.h:380:void bcma_write8(struct bcma_device *core, u16 offset, u32 value)
-> include/linux/bio.h:641:static inline void bio_list_merge_head(struct bio_list *bl,
-> include/linux/blkdev.h:661:static inline bool blk_account_rq(struct request *rq)
-> include/linux/bottom_half.h:25:static inline void local_bh_enable_ip(unsigned long ip)
-> include/linux/btree-128.h:12:static inline int btree_init128(struct btree_head128 *head)
-> include/linux/btree-128.h:17:static inline void btree_destroy128(struct btree_head128 *head)
-> include/linux/btree-128.h:41:static inline int btree_insert128(struct btree_head128 *head, u64 k1, u64 k2,
-> include/linux/btree-128.h:49:static inline int btree_update128(struct btree_head128 *head, u64 k1, u64 k2,
-> include/linux/btree-128.h:6:static inline void btree_init_mempool128(struct btree_head128 *head,
-> include/linux/btree-128.h:77:static inline int btree_merge128(struct btree_head128 *target,
-> include/linux/btree-128.h:90:static inline size_t btree_visitor128(struct btree_head128 *head,
-> include/linux/btree-128.h:98:static inline size_t btree_grim_visitor128(struct btree_head128 *head,
-> include/linux/can/dev/peak_canfd.h:213:static inline int pucan_error_get_channel(const struct pucan_error_msg *msg)
-> include/linux/can/dev/peak_canfd.h:232:static inline int pucan_status_get_channel(const struct pucan_status_msg *msg)
-> include/linux/capability.h:142:static inline kernel_cap_t cap_invert(const kernel_cap_t c)
-> include/linux/ceph/ceph_frag.h:39:static inline __u32 ceph_frag_mask_shift(__u32 f)
-> include/linux/ceph/pagelist.h:52:static inline int ceph_pagelist_encode_16(struct ceph_pagelist *pl, u16 v)
-> include/linux/ceph/rados.h:326:static inline int ceph_osd_op_type_lock(int op)
-> include/linux/ceph/rados.h:330:static inline int ceph_osd_op_type_data(int op)
-> include/linux/ceph/rados.h:334:static inline int ceph_osd_op_type_attr(int op)
-> include/linux/ceph/rados.h:338:static inline int ceph_osd_op_type_exec(int op)
-> include/linux/ceph/rados.h:342:static inline int ceph_osd_op_type_pg(int op)
-> include/linux/ceph/rados.h:346:static inline int ceph_osd_op_type_multi(int op)
-> include/linux/ceph/rados.h:351:static inline int ceph_osd_op_mode_subop(int op)
-> include/linux/ceph/rados.h:355:static inline int ceph_osd_op_mode_read(int op)
-> include/linux/ceph/rados.h:360:static inline int ceph_osd_op_mode_modify(int op)
-> include/linux/crypto.h:667:static inline int crypto_tfm_alg_priority(struct crypto_tfm *tfm)
-> include/linux/dcache.h:374:static inline bool d_managed(const struct dentry *dentry)
-> include/linux/dcache.h:432:static inline bool d_is_file(const struct dentry *dentry)
-> include/linux/dcache.h:498:static inline bool d_is_fallthru(const struct dentry *dentry)
-> include/linux/dma/ti-cppi5.h:171:static inline void cppi5_desc_dump(void *desc, u32 size)
-> include/linux/dma/ti-cppi5.h:448:static inline u32 cppi5_hdesc_get_pkttype(struct cppi5_host_desc_t *desc)
-> include/linux/dma/ti-cppi5.h:459:static inline void cppi5_hdesc_set_pkttype(struct cppi5_host_desc_t *desc,
-> include/linux/dma/ti-cppi5.h:488:static inline void cppi5_hdesc_get_obuf(struct cppi5_host_desc_t *desc,
-> include/linux/dma/ti-cppi5.h:515:cppi5_hdesc_get_next_hbdesc(struct cppi5_host_desc_t *desc)
-> include/linux/flex_proportions.h:64:void fprop_inc_single(struct fprop_global *p, struct fprop_local_single *pl)
-> include/linux/flex_proportions.h:94:void fprop_inc_percpu(struct fprop_global *p, struct fprop_local_percpu *pl)
-> include/linux/freezer.h:271:static inline bool try_to_freeze_nowarn(void) { return false; }
-> include/linux/fs_enet_pd.h:154:static inline int fs_get_id(struct fs_platform_info *fpi)
-> include/linux/fs_enet_pd.h:41:static inline int fs_get_fec_index(enum fs_id id)
-> include/linux/fs_enet_pd.h:48:static inline int fs_get_fcc_index(enum fs_id id)
-> include/linux/fs_enet_pd.h:55:static inline int fs_get_scc_index(enum fs_id id)
-> include/linux/fs.h:3601:static inline bool dir_relax(struct inode *inode)
-> include/linux/fs.h:829:static inline void inode_lock_shared_nested(struct inode *inode, unsigned subclass)
-> include/linux/fsl/mc.h:426:static inline bool is_fsl_mc_bus_dpni(const struct fsl_mc_device *mc_dev)
-> include/linux/fsl/mc.h:436:static inline bool is_fsl_mc_bus_dpsw(const struct fsl_mc_device *mc_dev)
-> include/linux/fsl/mc.h:456:static inline bool is_fsl_mc_bus_dpmac(const struct fsl_mc_device *mc_dev)
-> include/linux/fsl/mc.h:461:static inline bool is_fsl_mc_bus_dprtc(const struct fsl_mc_device *mc_dev)
-> include/linux/fsl/mc.h:466:static inline bool is_fsl_mc_bus_dpseci(const struct fsl_mc_device *mc_dev)
-> include/linux/fs_uart_pd.h:32:static inline int fs_uart_id_fsid2scc(int id)
-> include/linux/fs_uart_pd.h:42:static inline int fs_uart_id_fsid2smc(int id)
-> include/linux/fs_uart_pd.h:62:static inline int fs_uart_get_id(struct fs_uart_platform_info *fpi)
-> include/linux/ftrace.h:969:static inline void set_tsk_trace_trace(struct task_struct *tsk)
-> include/linux/ftrace.h:974:static inline void clear_tsk_trace_trace(struct task_struct *tsk)
-> include/linux/ftrace.h:979:static inline int test_tsk_trace_trace(struct task_struct *tsk)
-> include/linux/ftrace.h:984:static inline void set_tsk_trace_graph(struct task_struct *tsk)
-> include/linux/ftrace.h:989:static inline void clear_tsk_trace_graph(struct task_struct *tsk)
-> include/linux/ftrace.h:994:static inline int test_tsk_trace_graph(struct task_struct *tsk)
-> include/linux/gameport.h:133:static inline int gameport_pin_driver(struct gameport *gameport)
-> include/linux/gameport.h:138:static inline void gameport_unpin_driver(struct gameport *gameport)
-> include/linux/genl_magic_struct.h:190:static inline void ct_assert_unique_operations(void)
-> include/linux/genl_magic_struct.h:209:static inline void ct_assert_unique_top_level_attributes(void)
-> include/linux/greybus/operation.h:208:static inline int gb_operation_unidirectional(struct gb_connection *connection,
-> include/linux/highmem.h:50:static inline void totalhigh_pages_dec(void)
-> include/linux/highmem.h:60:static inline void totalhigh_pages_set(long val)
-> include/linux/hrtimer.h:294:static inline s64 hrtimer_get_expires_ns(const struct hrtimer *timer)
-> include/linux/hw_breakpoint.h:32:static inline unsigned long hw_breakpoint_addr(struct perf_event *bp)
-> include/linux/hw_breakpoint.h:42:static inline unsigned long hw_breakpoint_len(struct perf_event *bp)
-> include/linux/hyperv.h:1010:static inline void set_low_latency_mode(struct vmbus_channel *c)
-> include/linux/hyperv.h:1015:static inline void clear_low_latency_mode(struct vmbus_channel *c)
-> include/linux/hyperv.h:487:hv_ringbuffer_pending_size(const struct hv_ring_buffer_info *rbi)
-> include/linux/hyperv.h:967:static inline void set_channel_affinity_state(struct vmbus_channel *c,
-> include/linux/i3c/device.h:195:static inline void i3cdev_set_drvdata(struct i3c_device *i3cdev,
-> include/linux/ide.h:1466:static inline void ide_dma_verbose(ide_drive_t *drive) { ; }
-> include/linux/interrupt.h:436:static inline void disable_irq_lockdep(unsigned int irq)
-> include/linux/iommu-helper.h:8:static inline unsigned long iommu_device_max_index(unsigned long size,
-> include/linux/irqdesc.h:273:__irq_set_preflow_handler(unsigned int irq, irq_preflow_handler_t handler)
-> include/linux/irq.h:261:static inline void irqd_mark_affinity_was_set(struct irq_data *d)
-> include/linux/irq.h:401:static inline void irqd_clr_msi_nomask_quirk(struct irq_data *d)
-> include/linux/irq.h:743:static inline void irq_set_thread(unsigned int irq)
-> include/linux/irq.h:921:static inline unsigned int irq_alloc_hwirq(int node)
-> include/linux/irq.h:926:static inline void irq_free_hwirq(unsigned int irq)
-> include/linux/kbd_kern.h:123:static inline void chg_vc_kbd_mode(struct kbd_struct * kbd, int flag)
-> include/linux/kernel.h:438:static inline int __must_check kstrtos64_from_user(const char __user *s, size_t count, unsigned int base, s64 *res)
-> include/linux/ktime.h:193:static inline ktime_t ktime_sub_ms(const ktime_t kt, const u64 msec)
-> include/linux/kvm_host.h:1063:static inline int memslot_id(struct kvm *kvm, gfn_t gfn)
-> include/linux/kvm_host.h:246:static inline bool kvm_vcpu_mapped(struct kvm_host_map *map)
-> include/linux/led-class-flash.h:121:static inline int devm_led_classdev_flash_register(struct device *parent,
-> include/linux/libata.h:1649:static inline bool ata_fpdma_read_log_supported(struct ata_device *dev)
-> include/linux/libata.h:1787:static inline int ata_using_mwdma(struct ata_device *adev)
-> include/linux/libata.h:95:static inline u32 ata_msg_init(int dval, int default_msg_enable_bits)
-> include/linux/linkmode.h:69:static inline void linkmode_change_bit(int nr, volatile unsigned long *addr)
-> include/linux/memcontrol.h:1167:static inline void __inc_memcg_state(struct mem_cgroup *memcg,
-> include/linux/memcontrol.h:1174:static inline void __dec_memcg_state(struct mem_cgroup *memcg,
-> include/linux/memcontrol.h:1181:static inline void __inc_memcg_page_state(struct page *page,
-> include/linux/memcontrol.h:1188:static inline void __dec_memcg_page_state(struct page *page,
-> include/linux/memcontrol.h:1194:static inline void __inc_lruvec_state(struct lruvec *lruvec,
-> include/linux/memcontrol.h:1200:static inline void __dec_lruvec_state(struct lruvec *lruvec,
-> include/linux/memcontrol.h:1212:static inline void __dec_lruvec_page_state(struct page *page,
-> include/linux/memcontrol.h:1229:static inline void inc_memcg_state(struct mem_cgroup *memcg,
-> include/linux/memcontrol.h:1236:static inline void dec_memcg_state(struct mem_cgroup *memcg,
-> include/linux/memcontrol.h:1243:static inline void inc_memcg_page_state(struct page *page,
-> include/linux/memcontrol.h:1250:static inline void dec_memcg_page_state(struct page *page,
-> include/linux/memory_hotplug.h:251:static inline int mhp_notimplemented(const char *func)
-> include/linux/mfd/abx500/ab8500.h:415:static inline int is_ab8500_1p0_or_earlier(struct ab8500 *ab)
-> include/linux/mfd/abx500/ab8500.h:443:static inline int is_ab8505_1p0_or_earlier(struct ab8500 *ab)
-> include/linux/mfd/abx500/ab8500.h:453:static inline int is_ab9540_1p0_or_earlier(struct ab8500 *ab)
-> include/linux/mfd/abx500/ab8500.h:458:static inline int is_ab9540_2p0(struct ab8500 *ab)
-> include/linux/mfd/abx500/ab8500.h:467:static inline int is_ab9540_3p0(struct ab8500 *ab)
-> include/linux/mfd/abx500/ab8500.h:472:static inline int is_ab8540_1p0_or_earlier(struct ab8500 *ab)
-> include/linux/mfd/abx500/ab8500.h:477:static inline int is_ab8540_1p1_or_earlier(struct ab8500 *ab)
-> include/linux/mfd/abx500/ab8500.h:487:static inline int is_ab8540_2p0_or_earlier(struct ab8500 *ab)
-> include/linux/mfd/abx500/ab8500.h:492:static inline int is_ab8540_2p0(struct ab8500 *ab)
-> include/linux/mfd/abx500/ab8500.h:497:static inline int is_ab8505_2p0_earlier(struct ab8500 *ab)
-> include/linux/mfd/abx500/ab8500.h:502:static inline int is_ab9540_2p0_or_earlier(struct ab8500 *ab)
-> include/linux/mfd/as3722.h:391:static inline int as3722_write(struct as3722 *as3722, u32 reg, u32 value)
-> include/linux/mfd/dbx500-prcmu.h:227:static inline u8 prcmu_get_power_state_result(void)
-> include/linux/mfd/dbx500-prcmu.h:542:static inline void prcmu_set(unsigned int reg, u32 bits)
-> include/linux/mfd/dbx500-prcmu.h:547:static inline void prcmu_clear(unsigned int reg, u32 bits)
-> include/linux/mfd/ipaq-micro.h:142:ipaq_micro_tx_msg_async(struct ipaq_micro *micro,
-> include/linux/mfd/max14577-private.h:464:static inline int max14577_bulk_write(struct regmap *map, u8 reg, u8 *buf,
-> include/linux/mfd/rc5t583.h:357:static inline int rc5t583_update(struct device *dev, unsigned int reg,
-> include/linux/mfd/smsc.h:37:static inline int smsc_read(struct device *child, unsigned int reg,
-> include/linux/mfd/smsc.h:45:static inline int smsc_write(struct device *child, unsigned int reg,
-> include/linux/mfd/sta2x11-mfd.h:196:sta2x11_apbreg_mask(struct pci_dev *pdev, u32 reg, u32 mask, u32 val)
-> include/linux/mfd/sta2x11-mfd.h:229:u32 sta2x11_sctl_mask(struct pci_dev *pdev, u32 reg, u32 mask, u32 val)
-> include/linux/mfd/sta2x11-mfd.h:368:u32 sta2x11_apb_soc_regs_mask(struct pci_dev *pdev, u32 reg, u32 mask, u32 val)
-> include/linux/mfd/tps65910.h:946:static inline int tps65910_irq_get_virq(struct tps65910 *tps65910, int irq)
-> include/linux/mfd/tps80031.h:627:static inline int tps80031_irq_get_virq(struct device *dev, int irq)
-> include/linux/mfd/twl.h:784:static inline int twl4030charger_usb_en(int enable) { return 0; }
-> include/linux/mfd/wm8350/core.h:679:static inline void wm8350_unmask_irq(struct wm8350 *wm8350, int irq)
-> include/linux/mfd/wm8994/core.h:101:static inline int wm8994_bulk_read(struct wm8994 *wm8994, unsigned short reg,
-> include/linux/mISDNif.h:358:clear_channelmap(u_int nr, u_char *map)
-> include/linux/mlx5/device.h:830:static inline u8 get_cqe_l3_hdr_type(struct mlx5_cqe64 *cqe)
-> include/linux/mm.h:1220:static inline bool cpupid_cpu_unset(int cpupid)
-> include/linux/mm.h:64:static inline void totalram_pages_dec(void)
-> include/linux/mmzone.h:776:static inline bool pgdat_is_empty(pg_data_t *pgdat)
-> include/linux/module.h:131:     static inline initcall_t __maybe_unused __inittest(void)                \
-> include/linux/module.h:137:     static inline exitcall_t __maybe_unused __exittest(void)                \
-> include/linux/mtd/mtd.h:368:static inline void mtd_set_pairing_scheme(struct mtd_info *mtd,
-> include/linux/mtd/spi-nor.h:202:static inline bool spi_nor_protocol_is_dtr(enum spi_nor_protocol proto)
-> include/linux/netdevice.h:3032:static inline int unregister_gifconf(unsigned int family)
-> include/linux/netdevice.h:4549:static inline int netdev_class_create_file(const struct class_attribute *class_attr)
-> include/linux/netdevice.h:4554:static inline void netdev_class_remove_file(const struct class_attribute *class_attr)
-> include/linux/netdevice.h:4795:static inline bool netdev_unregistering(const struct net_device *dev)
-> include/linux/netpoll.h:113:static inline void netpoll_netdev_init(struct net_device *dev)
-> include/linux/nodemask.h:442:static inline int next_memory_node(int nid)
-> include/linux/nsproxy.h:78:static inline void put_nsproxy(struct nsproxy *ns)
-> include/linux/osq_lock.h:36:static inline bool osq_is_locked(struct optimistic_spin_queue *lock)
-> include/linux/pata_arasan_cf_data.h:43:set_arasan_cf_pdata(struct platform_device *pdev, struct arasan_cf_pdata *data)
-> include/linux/pci-acpi.h:32:static inline acpi_handle acpi_find_root_bridge_handle(struct pci_dev *pdev)
-> include/linux/pci-dma-compat.h:100:pci_dma_sync_sg_for_device(struct pci_dev *hwdev, struct scatterlist *sg,
-> include/linux/pci.h:1124:static inline int pcie_capability_clear_dword(struct pci_dev *dev, int pos,
-> include/linux/pci.h:1621:pci_request_io_regions(struct pci_dev *pdev, const char *name)
-> include/linux/pci.h:1628:pci_release_io_regions(struct pci_dev *pdev)
-> include/linux/phy.h:981:static inline int phy_hwtstamp(struct phy_device *phydev, struct ifreq *ifr)
-> include/linux/phy.h:986:static inline bool phy_rxtstamp(struct phy_device *phydev, struct sk_buff *skb,
-> include/linux/phy.h:998:static inline void phy_txtstamp(struct phy_device *phydev, struct sk_buff *skb,
-> include/linux/pnp.h:115:static inline resource_size_t pnp_mem_end(struct pnp_dev *dev,
-> include/linux/pnp.h:69:static inline resource_size_t pnp_port_end(struct pnp_dev *dev,
-> include/linux/posix-timers.h:49:static inline clockid_t fd_to_clockid(const int fd)
-> include/linux/power_supply.h:467:static inline bool power_supply_is_watt_property(enum power_supply_property psp)
-> include/linux/property.h:168:static inline int device_property_count_u64(struct device *dev, const char *propname)
-> include/linux/property.h:203:static inline int fwnode_property_count_u8(const struct fwnode_handle *fwnode,
-> include/linux/ptr_ring.h:131:static inline int ptr_ring_produce_fallback(struct ptr_ring *r, void *ptr)
-> include/linux/ptr_ring.h:74:static inline bool ptr_ring_full_irq(struct ptr_ring *r)
-> include/linux/ptr_ring.h:85:static inline bool ptr_ring_full_any(struct ptr_ring *r)
-> include/linux/ptr_ring.h:97:static inline bool ptr_ring_full_bh(struct ptr_ring *r)
-> include/linux/pwm.h:123:static inline void pwm_set_duty_cycle(struct pwm_device *pwm, unsigned int duty)
-> include/linux/pwm.h:474:static inline int pwmchip_add_inversed(struct pwm_chip *chip)
-> include/linux/quotaops.h:345:static inline int dquot_prealloc_block(struct inode *inode, qsize_t nr)
-> include/linux/regulator/consumer.h:625:static inline int regulator_is_supported_voltage_tol(struct regulator *regulator,
-> include/linux/resource_ext.h:34:static inline void resource_list_add(struct resource_entry *entry,
-> include/linux/sbitmap.h:323:static inline void sbitmap_clear_bit_unlock(struct sbitmap *sb,
-> include/linux/seqlock.h:588:static inline void read_seqlock_excl_bh(seqlock_t *sl)
-> include/linux/seqlock.h:593:static inline void read_sequnlock_excl_bh(seqlock_t *sl)
-> include/linux/seqlock.h:598:static inline void read_seqlock_excl_irq(seqlock_t *sl)
-> include/linux/seqlock.h:603:static inline void read_sequnlock_excl_irq(seqlock_t *sl)
-> include/linux/sh_clk.h:146:static inline int __deprecated sh_clk_mstp32_register(struct clk *clks, int nr)
-> include/linux/signal.h:220:static inline int sigtestsetmask(sigset_t *set, unsigned long mask)
-> include/linux/signal.h:308:static inline void disallow_signal(int sig)
-> include/linux/skb_array.h:106:static inline int skb_array_consume_batched(struct skb_array *a,
-> include/linux/skb_array.h:117:static inline int skb_array_consume_batched_irq(struct skb_array *a,
-> include/linux/skb_array.h:128:static inline int skb_array_consume_batched_any(struct skb_array *a,
-> include/linux/skb_array.h:140:static inline int skb_array_consume_batched_bh(struct skb_array *a,
-> include/linux/skb_array.h:160:static inline int skb_array_peek_len(struct skb_array *a)
-> include/linux/skb_array.h:165:static inline int skb_array_peek_len_irq(struct skb_array *a)
-> include/linux/skb_array.h:170:static inline int skb_array_peek_len_bh(struct skb_array *a)
-> include/linux/skb_array.h:175:static inline int skb_array_peek_len_any(struct skb_array *a)
-> include/linux/skb_array.h:190:static inline void skb_array_unconsume(struct skb_array *a,
-> include/linux/skb_array.h:196:static inline int skb_array_resize(struct skb_array *a, int size, gfp_t gfp)
-> include/linux/skb_array.h:211:static inline void skb_array_cleanup(struct skb_array *a)
-> include/linux/skb_array.h:32:static inline bool __skb_array_full(struct skb_array *a)
-> include/linux/skb_array.h:47:static inline int skb_array_produce_irq(struct skb_array *a, struct sk_buff *skb)
-> include/linux/skb_array.h:52:static inline int skb_array_produce_bh(struct skb_array *a, struct sk_buff *skb)
-> include/linux/skb_array.h:57:static inline int skb_array_produce_any(struct skb_array *a, struct sk_buff *skb)
-> include/linux/skb_array.h:81:static inline bool skb_array_empty_bh(struct skb_array *a)
-> include/linux/skb_array.h:86:static inline bool skb_array_empty_irq(struct skb_array *a)
-> include/linux/skb_array.h:91:static inline bool skb_array_empty_any(struct skb_array *a)
-> include/linux/skbuff.h:1498:static inline void skb_zcopy_abort(struct sk_buff *skb)
-> include/linux/skbuff.h:3737:static inline ktime_t net_invalid_timestamp(void)
-> include/linux/skmsg.h:172:static inline void sk_msg_clear_meta(struct sk_msg *msg)
-> include/linux/slimbus.h:170:static inline void slim_set_devicedata(struct slim_device *dev, void *data)
-> include/linux/spmi.h:55:static inline void spmi_device_set_drvdata(struct spmi_device *sdev, void *data)
-> include/linux/string_helpers.h:60:static inline int string_escape_mem_any_np(const char *src, size_t isz,
-> include/linux/string_helpers.h:72:static inline int string_escape_str_any_np(const char *src, char *dst,
-> include/linux/sunrpc/svc.h:211:static inline void svc_ungetu32(struct kvec *iov)
-> include/linux/sunrpc/svc_xprt.h:191:static inline unsigned short svc_xprt_remote_port(const struct svc_xprt *xprt)
-> include/linux/sunrpc/xprt.h:441:static inline int xprt_test_and_clear_connected(struct rpc_xprt *xprt)
-> include/linux/sunrpc/xprt.h:453:static inline int xprt_connecting(struct rpc_xprt *xprt)
-> include/linux/superhyway.h:89:superhyway_write_vcr(struct superhyway_device *dev, unsigned long base,
-> include/linux/thunderbolt.h:369:static inline void tb_service_put(struct tb_service *svc)
-> include/linux/timerqueue.h:51:static inline bool timerqueue_node_expires(struct timerqueue_node *node)
-> include/linux/tpm.h:344:static inline u16 tpm_buf_tag(struct tpm_buf *buf)
-> include/linux/ucb1400.h:135:static inline u16 ucb1400_gpio_get_direction(struct snd_ac97 *ac97, u16 gpio)
-> include/linux/usb.h:139:usb_find_int_out_endpoint(struct usb_host_interface *alt,
-> include/linux/usb.h:146:usb_find_last_bulk_in_endpoint(struct usb_host_interface *alt,
-> include/linux/usb.h:153:usb_find_last_bulk_out_endpoint(struct usb_host_interface *alt,
-> include/linux/usb.h:1812:static inline int usb_get_ptm_status(struct usb_device *dev, void *data)
-> include/linux/usb/pd_ado.h:31:static inline unsigned int usb_pd_ado_fixed_batt(u32 ado)
-> include/linux/usb/pd_ado.h:37:static inline unsigned int usb_pd_ado_hot_swap_batt(u32 ado)
-> include/linux/usb/pd.h:158:static inline unsigned int pd_ext_header_chunk_num(u16 ext_header)
-> include/linux/usb/phy.h:199:usb_phy_vbus_on(struct usb_phy *x)
-> include/linux/usb/phy.h:208:usb_phy_vbus_off(struct usb_phy *x)
-> include/linux/uuid.h:46:static inline void import_guid(guid_t *dst, const __u8 *src)
-> include/linux/uuid.h:71:static inline void import_uuid(uuid_t *dst, const __u8 *src)
-> include/linux/uuid.h:76:static inline void export_uuid(__u8 *dst, const uuid_t *src)
-> include/linux/virtio_config.h:201:int virtio_find_vqs_ctx(struct virtio_device *vdev, unsigned nvqs,
-> include/linux/vlynq.h:107:static inline u32 vlynq_mem_start(struct vlynq_device *dev)
-> include/linux/vlynq.h:112:static inline u32 vlynq_mem_end(struct vlynq_device *dev)
-> include/linux/vlynq.h:117:static inline u32 vlynq_mem_len(struct vlynq_device *dev)
-> include/linux/vlynq.h:122:static inline int vlynq_virq_to_irq(struct vlynq_device *dev, int virq)
-> include/linux/vlynq.h:131:static inline int vlynq_irq_to_virq(struct vlynq_device *dev, int irq)
-> include/linux/vlynq.h:92:static inline int vlynq_register_driver(struct vlynq_driver *driver)
-> include/linux/vringh.h:114:static inline void vringh_iov_reset(struct vringh_iov *iov)
-> include/linux/vringh.h:176:static inline void vringh_kiov_reset(struct vringh_kiov *kiov)
-> include/linux/vt_kern.h:117:static inline void con_protect_unimap(struct vc_data *vc, int rdonly)
-> include/media/tpg/v4l2-tpg.h:493:static inline unsigned tpg_calc_line_width(const struct tpg_data *tpg,
-> include/media/tpg/v4l2-tpg.h:628:static inline bool tpg_g_hflip(const struct tpg_data *tpg)
-> include/media/tpg/v4l2-tpg.h:638:static inline bool tpg_g_vflip(const struct tpg_data *tpg)
-> include/media/tpg/v4l2-tpg.h:643:static inline bool tpg_pattern_is_static(const struct tpg_data *tpg)
-> include/media/v4l2-common.h:509:static inline bool v4l2_is_format_bayer(const struct v4l2_format_info *f)
-> include/media/v4l2-mem2mem.h:405:static inline void v4l2_m2m_set_dst_buffered(struct v4l2_m2m_ctx *m2m_ctx,
-> include/net/ax25.h:197:static inline void ax25_hold_route(ax25_route *ax25_rt)
-> include/net/bluetooth/hci_core.h:794:static inline __u8 hci_conn_lookup_type(struct hci_dev *hdev, __u16 handle)
-> include/net/cipso_ipv4.h:154:static inline int cipso_v4_doi_domhsh_add(struct cipso_v4_doi *doi_def,
-> include/net/cipso_ipv4.h:160:static inline int cipso_v4_doi_domhsh_remove(struct cipso_v4_doi *doi_def,
-> include/net/flow.h:209:static inline unsigned int flow_key_size(u16 family)
-> include/net/genetlink.h:114:static inline int genl_err_attr(struct genl_info *info, int err,
-> include/net/ipv6.h:911:static inline void ip6_set_txhash(struct sock *sk) { }
-> include/net/netfilter/nf_tables.h:149:static inline void nft_data_debug(const struct nft_data *data)
-> include/net/nfc/hci.h:170:static inline int nfc_hci_set_vendor_cmds(struct nfc_hci_dev *hdev,
-> include/net/nfc/nci_core.h:344:static inline int nci_set_vendor_cmds(struct nci_dev *ndev,
-> include/net/pkt_cls.h:119:int tc_setup_cb_block_register(struct tcf_block *block, flow_setup_cb_t *cb,
-> include/net/pkt_cls.h:126:void tc_setup_cb_block_unregister(struct tcf_block *block, flow_setup_cb_t *cb,
-> include/net/pkt_sched.h:64:psched_tdiff_bounded(psched_time_t tv1, psched_time_t tv2, psched_time_t bound)
-> include/net/sch_generic.h:1065:static inline unsigned int qdisc_queue_drop_head(struct Qdisc *sch,
-> include/net/sch_generic.h:465:static inline int qdisc_qlen_cpu(const struct Qdisc *q)
-> include/net/sch_generic.h:729:static inline void qdisc_reset_all_tx(struct net_device *dev)
-> include/net/udplite.h:74:static inline __wsum udplite_csum_outgoing(struct sock *sk, struct sk_buff *skb)
-> include/rdma/ib_addr.h:283:static inline u16 rdma_get_vlan_id(union ib_gid *dgid)
-> include/rdma/iba.h:12:static inline u32 _iba_get8(const u8 *ptr)
-> include/rdma/iba.h:17:static inline void _iba_set8(u8 *ptr, u32 mask, u32 prep_value)
-> include/rdma/iba.h:22:static inline u16 _iba_get16(const __be16 *ptr)
-> include/rdma/iba.h:27:static inline void _iba_set16(__be16 *ptr, u16 mask, u16 prep_value)
-> include/rdma/iba.h:32:static inline u32 _iba_get32(const __be32 *ptr)
-> include/rdma/iba.h:37:static inline void _iba_set32(__be32 *ptr, u32 mask, u32 prep_value)
-> include/rdma/iba.h:51:static inline void _iba_set64(__be64 *ptr, u64 mask, u64 prep_value)
-> include/rdma/ib_verbs.h:3066:static inline bool rdma_protocol_raw_packet(const struct ib_device *device, u8 port_num)
-> include/rdma/ib_verbs.h:4064:static inline void ib_dma_unmap_sg_attrs(struct ib_device *dev,
-> include/scsi/fc_frame.h:237:static inline bool fc_frame_is_cmd(const struct fc_frame *fp)
-> include/scsi/scsi_transport.h:57:scsi_transport_reserve_target(struct scsi_transport_template * t, int space)
-> include/soc/fsl/bman.h:65:static inline u8 bm_buffer_get_bpid(const struct bm_buffer *buf)
-> include/soc/fsl/qman.h:154:static inline int qm_fd_get_len_big(const struct qm_fd *fd)
-> include/soc/fsl/qman.h:405:static inline dma_addr_t qm_fqd_stashing_addr(const struct qm_fqd *fqd)
-> include/soc/fsl/qman.h:410:static inline u64 qm_fqd_context_a_get64(const struct qm_fqd *fqd)
-> include/soc/fsl/qman.h:451:static inline int qm_fqd_get_taildrop(const struct qm_fqd *fqd)
-> include/soc/fsl/qman.h:468:static inline u8 qm_fqd_get_stashing(const struct qm_fqd *fqd)
-> include/soc/fsl/qman.h:578:static inline u64 qm_cgr_cs_thres_get64(const struct qm_cgr_cs_thres *th)
-> include/sound/emu10k1.h:1844:static inline unsigned int snd_emu10k1_wc(struct snd_emu10k1 *emu) { return (inl(emu->port + WC) >> 6) & 0xfffff; }
-> include/sound/hda_codec.h:367:snd_hda_queue_unsol_event(struct hda_bus *bus, u32 res, u32 res_ex)
-> include/sound/hdaudio.h:656:static inline unsigned int snd_array_index(struct snd_array *array, void *ptr)
-> include/sound/pcm.h:1110:snd_pcm_kernel_read(struct snd_pcm_substream *substream,
-> include/sound/pcm_params.h:26:static inline size_t snd_mask_sizeof(void)
-> include/sound/pcm_params.h:294:static inline int snd_interval_eq(const struct snd_interval *i1, const struct snd_interval *i2)
-> include/sound/pcm_params.h:87:static inline void snd_mask_set_range(struct snd_mask *mask,
-> include/sound/soc.h:1316:void snd_soc_of_parse_audio_prefix(struct snd_soc_card *card,
-> include/uapi/linux/auto_fs.h:143:static inline void set_autofs_type_any(unsigned int *type)
-> include/uapi/linux/cec-funcs.h:1009:static inline void cec_ops_tuner_device_status(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1024:static inline void cec_msg_give_tuner_device_status(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1035:static inline void cec_ops_give_tuner_device_status(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1041:static inline void cec_msg_select_analogue_service(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1054:static inline void cec_ops_select_analogue_service(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1064:static inline void cec_msg_select_digital_service(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:106:static inline void cec_msg_set_stream_path(struct cec_msg *msg, __u16 phys_addr)
-> include/uapi/linux/cec-funcs.h:1072:static inline void cec_ops_select_digital_service(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1078:static inline void cec_msg_tuner_step_decrement(struct cec_msg *msg)
-> include/uapi/linux/cec-funcs.h:1084:static inline void cec_msg_tuner_step_increment(struct cec_msg *msg)
-> include/uapi/linux/cec-funcs.h:1102:static inline void cec_ops_device_vendor_id(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1108:static inline void cec_msg_give_device_vendor_id(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1116:static inline void cec_msg_vendor_command(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1126:static inline void cec_ops_vendor_command(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1137:static inline void cec_msg_vendor_command_with_id(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1151:static inline void cec_ops_vendor_command_with_id(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:115:static inline void cec_ops_set_stream_path(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1163:static inline void cec_msg_vendor_remote_button_down(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1174:static inline void cec_ops_vendor_remote_button_down(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1185:static inline void cec_msg_vendor_remote_button_up(struct cec_msg *msg)
-> include/uapi/linux/cec-funcs.h:1193:static inline void cec_msg_set_osd_string(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1233:static inline void cec_ops_set_osd_name(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:123:static inline void cec_msg_standby(struct cec_msg *msg)
-> include/uapi/linux/cec-funcs.h:1244:static inline void cec_msg_give_osd_name(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1254:static inline void cec_msg_menu_status(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1262:static inline void cec_ops_menu_status(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1268:static inline void cec_msg_menu_request(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1278:static inline void cec_ops_menu_request(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1298:static inline void cec_msg_user_control_pressed(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:131:static inline void cec_msg_record_off(struct cec_msg *msg, int reply)
-> include/uapi/linux/cec-funcs.h:1328:static inline void cec_ops_user_control_pressed(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1357:static inline void cec_msg_user_control_released(struct cec_msg *msg)
-> include/uapi/linux/cec-funcs.h:1366:static inline void cec_msg_report_power_status(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1374:static inline void cec_ops_report_power_status(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1380:static inline void cec_msg_give_device_power_status(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1398:static inline void cec_ops_feature_abort(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1406:static inline void cec_msg_reply_feature_abort(struct cec_msg *msg, __u8 reason)
-> include/uapi/linux/cec-funcs.h:1415:static inline void cec_msg_abort(struct cec_msg *msg)
-> include/uapi/linux/cec-funcs.h:1423:static inline void cec_msg_report_audio_status(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1432:static inline void cec_ops_report_audio_status(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1440:static inline void cec_msg_give_audio_status(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1448:static inline void cec_msg_set_system_audio_mode(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1456:static inline void cec_ops_set_system_audio_mode(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1462:static inline void cec_msg_system_audio_mode_request(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1474:static inline void cec_ops_system_audio_mode_request(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1483:static inline void cec_msg_system_audio_mode_status(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1491:static inline void cec_ops_system_audio_mode_status(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1497:static inline void cec_msg_give_system_audio_mode_status(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:14:static inline void cec_msg_active_source(struct cec_msg *msg, __u16 phys_addr)
-> include/uapi/linux/cec-funcs.h:1505:static inline void cec_msg_report_short_audio_descriptor(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1522:static inline void cec_ops_report_short_audio_descriptor(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1537:static inline void cec_msg_request_short_audio_descriptor(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1555:static inline void cec_ops_request_short_audio_descriptor(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1573:static inline void cec_msg_set_audio_rate(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1581:static inline void cec_ops_set_audio_rate(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1589:static inline void cec_msg_report_arc_initiated(struct cec_msg *msg)
-> include/uapi/linux/cec-funcs.h:1595:static inline void cec_msg_initiate_arc(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1603:static inline void cec_msg_request_arc_initiation(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1611:static inline void cec_msg_report_arc_terminated(struct cec_msg *msg)
-> include/uapi/linux/cec-funcs.h:1617:static inline void cec_msg_terminate_arc(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1625:static inline void cec_msg_request_arc_termination(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1636:static inline void cec_msg_report_current_latency(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1654:static inline void cec_ops_report_current_latency(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1671:static inline void cec_msg_request_current_latency(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1683:static inline void cec_ops_request_current_latency(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1691:static inline void cec_msg_cdc_hec_inquire_state(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1706:static inline void cec_ops_cdc_hec_inquire_state(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1716:static inline void cec_msg_cdc_hec_report_state(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1742:static inline void cec_ops_cdc_hec_report_state(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1762:static inline void cec_msg_cdc_hec_set_state(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1794:static inline void cec_ops_cdc_hec_set_state(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1816:static inline void cec_msg_cdc_hec_set_state_adjacent(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1830:static inline void cec_ops_cdc_hec_set_state_adjacent(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1840:static inline void cec_msg_cdc_hec_request_deactivation(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1858:static inline void cec_ops_cdc_hec_request_deactivation(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1870:static inline void cec_msg_cdc_hec_notify_alive(struct cec_msg *msg)
-> include/uapi/linux/cec-funcs.h:1879:static inline void cec_ops_cdc_hec_notify_alive(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1885:static inline void cec_msg_cdc_hec_discover(struct cec_msg *msg)
-> include/uapi/linux/cec-funcs.h:1894:static inline void cec_ops_cdc_hec_discover(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1900:static inline void cec_msg_cdc_hpd_set_state(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1912:static inline void cec_ops_cdc_hpd_set_state(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1922:static inline void cec_msg_cdc_hpd_report_state(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:1934:static inline void cec_ops_cdc_hpd_report_state(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:23:static inline void cec_ops_active_source(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:292:static inline void cec_msg_record_on(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:29:static inline void cec_msg_image_view_on(struct cec_msg *msg)
-> include/uapi/linux/cec-funcs.h:320:static inline void cec_ops_record_on(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:346:static inline void cec_msg_record_status(struct cec_msg *msg, __u8 rec_status)
-> include/uapi/linux/cec-funcs.h:353:static inline void cec_ops_record_status(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:359:static inline void cec_msg_record_tv_screen(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:35:static inline void cec_msg_text_view_on(struct cec_msg *msg)
-> include/uapi/linux/cec-funcs.h:369:static inline void cec_msg_timer_status(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:392:static inline void cec_ops_timer_status(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:419:static inline void cec_msg_timer_cleared_status(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:427:static inline void cec_ops_timer_cleared_status(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:433:static inline void cec_msg_clear_analogue_timer(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:43:static inline void cec_msg_inactive_source(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:463:static inline void cec_ops_clear_analogue_timer(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:488:static inline void cec_msg_clear_digital_timer(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:513:static inline void cec_ops_clear_digital_timer(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:52:static inline void cec_ops_inactive_source(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:534:static inline void cec_msg_clear_ext_timer(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:564:static inline void cec_ops_clear_ext_timer(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:589:static inline void cec_msg_set_analogue_timer(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:58:static inline void cec_msg_request_active_source(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:619:static inline void cec_ops_set_analogue_timer(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:644:static inline void cec_msg_set_digital_timer(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:669:static inline void cec_ops_set_digital_timer(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:67:static inline void cec_msg_routing_information(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:690:static inline void cec_msg_set_ext_timer(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:720:static inline void cec_ops_set_ext_timer(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:745:static inline void cec_msg_set_timer_program_title(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:757:static inline void cec_ops_set_timer_program_title(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:776:static inline void cec_ops_cec_version(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:77:static inline void cec_ops_routing_information(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:782:static inline void cec_msg_get_cec_version(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:801:static inline void cec_ops_report_physical_addr(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:808:static inline void cec_msg_give_physical_addr(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:816:static inline void cec_msg_set_menu_language(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:825:static inline void cec_ops_set_menu_language(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:832:static inline void cec_msg_get_menu_language(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:83:static inline void cec_msg_routing_change(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:848:static inline void cec_msg_report_features(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:861:static inline void cec_ops_report_features(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:882:static inline void cec_msg_give_features(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:891:static inline void cec_msg_deck_control(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:899:static inline void cec_ops_deck_control(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:905:static inline void cec_msg_deck_status(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:913:static inline void cec_ops_deck_status(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:919:static inline void cec_msg_give_deck_status(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:930:static inline void cec_ops_give_deck_status(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:936:static inline void cec_msg_play(struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:944:static inline void cec_ops_play(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:98:static inline void cec_ops_routing_change(const struct cec_msg *msg,
-> include/uapi/linux/cec-funcs.h:992:static inline void cec_msg_tuner_device_status(struct cec_msg *msg,
-> include/uapi/linux/cec.h:1137:static inline int cec_is_2nd_tv(const struct cec_log_addrs *las)
-> include/uapi/linux/cec.h:1148:static inline int cec_is_processor(const struct cec_log_addrs *las)
-> include/uapi/linux/cec.h:1159:static inline int cec_is_switch(const struct cec_log_addrs *las)
-> include/uapi/linux/cec.h:164:static inline int cec_msg_status_is_ok(const struct cec_msg *msg)
-> include/uapi/linux/cec.h:234:static inline int cec_has_tv(__u16 log_addr_mask)
-> include/uapi/linux/cec.h:239:static inline int cec_has_record(__u16 log_addr_mask)
-> include/uapi/linux/cec.h:244:static inline int cec_has_tuner(__u16 log_addr_mask)
-> include/uapi/linux/cec.h:249:static inline int cec_has_playback(__u16 log_addr_mask)
-> include/uapi/linux/cec.h:254:static inline int cec_has_audiosystem(__u16 log_addr_mask)
-> include/uapi/linux/cec.h:259:static inline int cec_has_backup(__u16 log_addr_mask)
-> include/uapi/linux/cec.h:264:static inline int cec_has_specific(__u16 log_addr_mask)
-> include/uapi/linux/cec.h:269:static inline int cec_is_unregistered(__u16 log_addr_mask)
-> include/uapi/linux/cec.h:274:static inline int cec_is_unconfigured(__u16 log_addr_mask)
-> include/uapi/linux/fsmap.h:73:fsmap_sizeof(
-> include/uapi/linux/fsmap.h:81:fsmap_advance(
-> include/uapi/linux/phonet.h:138:static inline void pn_sockaddr_set_addr(struct sockaddr_pn *spn, __u8 addr)
-> include/uapi/linux/phonet.h:169:static inline __u16 pn_sockaddr_get_port(const struct sockaddr_pn *spn)
-> include/uapi/linux/tipc.h:289:static inline __u32 tipc_addr(unsigned int zone,
-> include/uapi/linux/usb/audio.h:285:static inline __u8 uac_mixer_unit_iChannelNames(struct uac_mixer_unit_descriptor *desc,
-> include/uapi/linux/usb/audio.h:382:static inline __u8 uac_processing_unit_iChannelNames(struct uac_processing_unit_descriptor *desc,
-> include/uapi/mtd/mtd-abi.h:280:static inline int mtd_type_is_nand_user(const struct mtd_info_user *mtd)
-> include/video/mmp_disp.h:244:static inline void mmp_path_set_onoff(struct mmp_path *path, int status)
-> include/video/vga.h:435:static inline unsigned char vga_io_rattr (unsigned char reg)
-> include/video/vga.h:447:static inline unsigned char vga_mm_rattr (void __iomem *regbase, unsigned char reg)
-> kernel/irq/settings.h:101:static inline void irq_settings_clr_norequest(struct irq_desc *desc)
-> kernel/irq/settings.h:116:static inline void irq_settings_clr_nothread(struct irq_desc *desc)
-> kernel/irq/settings.h:131:static inline void irq_settings_clr_noprobe(struct irq_desc *desc)
-> kernel/locking/mcs_spinlock.h:65:void mcs_spin_lock(struct mcs_spinlock **lock, struct mcs_spinlock *node)
-> kernel/sched/sched.h:1070:static inline u64 __rq_clock_broken(struct rq *rq)
-> lib/zlib_dfltcc/dfltcc_util.h:81:static inline void turn_bit_off(
-> net/batman-adv/distributed-arp-table.h:166:static inline void batadv_arp_change_timeout(struct net_device *soft_iface,
-> net/dccp/dccp.h:111:static inline void dccp_set_seqno(u64 *seqno, u64 value)
-> net/dccp/dccp.h:144:static inline u64 max48(const u64 seq1, const u64 seq2)
-> net/hsr/hsr_main.h:106:static inline u16 get_hsr_stag_path(struct hsr_sup_tag *hst)
-> net/hsr/hsr_main.h:111:static inline u16 get_hsr_stag_HSR_ver(struct hsr_sup_tag *hst)
-> net/ipv6/ila/ila.h:71:static inline bool ila_addr_is_ila(struct ila_addr *iaddr)
-> net/mac802154/driver-ops.h:207:drv_set_pan_coord(struct ieee802154_local *local, bool is_coord)
-> net/smc/smc_cdc.h:101:static inline u64 smc_curs_read(union smc_host_cursor *curs,
-> net/tipc/msg.h:208:static inline void msg_swap_words(struct tipc_msg *msg, u32 a, u32 b)
-> net/tipc/msg.h:417:static inline void msg_reset_reroute_cnt(struct tipc_msg *m)
-> net/tipc/msg.h:724:static inline u32 msg_bcgap_after(struct tipc_msg *m)
-> net/tipc/msg.h:792:static inline void msg_set_long_msgno(struct tipc_msg *m, u32 n)
-> scripts/gcc-plugins/gcc-common.h:168:static inline tree build_const_char_string(int len, const char *str)
-> scripts/gcc-plugins/gcc-common.h:220:static inline bool is_simple_builtin(tree decl)
-> scripts/gcc-plugins/gcc-common.h:252:static inline void add_local_decl(struct function *fun, tree d)
-> scripts/gcc-plugins/gcc-common.h:274:static inline bool gimple_clobber_p(gimple s __unused)
-> scripts/gcc-plugins/gcc-common.h:279:static inline bool gimple_asm_clobbers_memory_p(const_gimple stmt)
-> scripts/gcc-plugins/gcc-common.h:298:static inline int ipa_reverse_postorder(struct cgraph_node **order)
-> scripts/gcc-plugins/gcc-common.h:380:static inline bool gimple_store_p(gimple gs)
-> scripts/gcc-plugins/gcc-common.h:387:static inline void gimple_init_singleton(gimple g __unused)
-> scripts/gcc-plugins/gcc-common.h:434:static inline HOST_WIDE_INT tree_to_shwi(const_tree t)
-> scripts/gcc-plugins/gcc-common.h:577:static inline void set_decl_section_name(tree node, const char *value)
-> scripts/gcc-plugins/gcc-common.h:760:static inline unsigned int rebuild_cgraph_edges(void)
-> scripts/gcc-plugins/gcc-common.h:765:static inline cgraph_node_ptr cgraph_function_node(cgraph_node_ptr node, enum availability *availability)
-> scripts/gcc-plugins/gcc-common.h:770:static inline cgraph_node_ptr cgraph_function_or_thunk_node(cgraph_node_ptr node, enum availability *availability = NULL)
-> scripts/gcc-plugins/gcc-common.h:775:static inline bool cgraph_only_called_directly_p(cgraph_node_ptr node)
-> scripts/gcc-plugins/gcc-common.h:800:static inline void cgraph_remove_function_insertion_hook(struct cgraph_node_hook_list *entry)
-> scripts/gcc-plugins/gcc-common.h:810:static inline void cgraph_remove_node_removal_hook(struct cgraph_node_hook_list *entry)
-> scripts/gcc-plugins/gcc-common.h:820:static inline void cgraph_remove_node_duplication_hook(struct cgraph_2node_hook_list *entry)
-> scripts/gcc-plugins/gcc-common.h:825:static inline void cgraph_call_node_duplication_hooks(cgraph_node_ptr node, cgraph_node_ptr node2)
-> scripts/gcc-plugins/gcc-common.h:830:static inline void cgraph_call_edge_duplication_hooks(cgraph_edge *cs1, cgraph_edge *cs2)
-> scripts/gcc-plugins/gcc-common.h:930:static inline cgraph_node_ptr ipa_ref_referring_node(struct ipa_ref *ref)
-> scripts/kconfig/expr.h:323:static inline int expr_is_no(struct expr *e)
-> security/selinux/include/netlabel.h:101:static inline int selinux_netlbl_conn_setsid(struct sock *sk,
-> security/smack/smack.h:508:static inline void smk_ad_setfield_u_fs_path_mnt(struct smk_audit_info *a,
-> sound/core/seq/oss/seq_oss_timer.h:52:snd_seq_oss_timer_is_realtime(struct seq_oss_timer *timer)
-> sound/firewire/dice/dice.h:180:static inline int snd_dice_transaction_write_sync(struct snd_dice *dice,
-> sound/firewire/dice/dice.h:187:static inline int snd_dice_transaction_read_sync(struct snd_dice *dice,
-> sound/pci/echoaudio/echoaudio.h:520:static inline int num_pipes_in(const struct echoaudio *chip)
-> sound/pci/hda/hda_auto_parser.h:104:static inline int auto_cfg_speaker_outs(const struct auto_pin_cfg *cfg)
-> sound/pci/ice1712/ice1712.h:400:static inline unsigned int snd_ice1712_gpio_get_dir(struct snd_ice1712 *ice)
-> sound/soc/codecs/arizona.h:329:static inline int arizona_register_notifier(struct snd_soc_component *component,
-> sound/soc/codecs/arizona.h:343:static inline int arizona_unregister_notifier(struct snd_soc_component *component,
-> sound/soc/codecs/madera.h:439:static inline int madera_register_notifier(struct snd_soc_component *component,
-> sound/soc/codecs/madera.h:449:madera_unregister_notifier(struct snd_soc_component *component,
-> sound/soc/intel/common/soc-intel-quirks.h:104:static inline bool soc_intel_is_apl(void)
-> sound/soc/intel/common/sst-dsp-priv.h:319:static inline void sst_dsp_write(struct sst_dsp *sst, void *src,
-> sound/soc/sof/ops.h:189:static inline int snd_sof_dsp_set_clk(struct snd_sof_dev *sdev, u32 freq)
-> sound/soc/sof/ops.h:387:snd_sof_pcm_platform_pointer(struct snd_sof_dev *sdev,
-> sound/soc/sof/ops.h:51:static inline int snd_sof_dsp_stall(struct snd_sof_dev *sdev)
-> tools/firewire/list.h:35:list_prepend(struct list *list, struct list *new_link)
-> tools/include/linux/rcu.h:12:static inline int rcu_is_cpu_idle(void)
-> tools/include/linux/stacktrace.h:13:static inline void print_stack_trace(struct stack_trace *trace, int spaces)
-> tools/io_uring/liburing.h:126:static inline void io_uring_prep_read_fixed(struct io_uring_sqe *sqe, int fd,
-> tools/io_uring/liburing.h:140:static inline void io_uring_prep_write_fixed(struct io_uring_sqe *sqe, int fd,
-> tools/io_uring/liburing.h:147:static inline void io_uring_prep_poll_add(struct io_uring_sqe *sqe, int fd,
-> tools/io_uring/liburing.h:156:static inline void io_uring_prep_poll_remove(struct io_uring_sqe *sqe,
-> tools/io_uring/liburing.h:164:static inline void io_uring_prep_fsync(struct io_uring_sqe *sqe, int fd,
-> tools/io_uring/liburing.h:173:static inline void io_uring_prep_nop(struct io_uring_sqe *sqe)
-> tools/lib/bpf/btf.h:171:static inline bool btf_is_int(const struct btf_type *t)
-> tools/lib/bpf/btf.h:191:static inline bool btf_is_union(const struct btf_type *t)
-> tools/lib/bpf/btf.h:218:static inline bool btf_is_volatile(const struct btf_type *t)
-> tools/lib/bpf/btf.h:223:static inline bool btf_is_const(const struct btf_type *t)
-> tools/lib/bpf/btf.h:228:static inline bool btf_is_restrict(const struct btf_type *t)
-> tools/lib/bpf/btf.h:272:static inline __u8 btf_int_bits(const struct btf_type *t)
-> tools/lib/traceevent/event-utils.h:53:static inline int has_text(const char *text)
-> tools/perf/util/cpumap.h:31:static inline int cpu_map__socket(struct perf_cpu_map *sock, int s)
-> tools/testing/selftests/kselftest.h:179:static inline int ksft_exit_xfail(void)
-> tools/testing/selftests/kselftest.h:185:static inline int ksft_exit_xpass(void)
-> tools/testing/selftests/kselftest.h:49:static inline void ksft_inc_xpass_cnt(void) { ksft_cnt.ksft_xpass++; }
-> tools/testing/selftests/kselftest.h:50:static inline void ksft_inc_xskip_cnt(void) { ksft_cnt.ksft_xskip++; }
-> tools/testing/selftests/kselftest.h:51:static inline void ksft_inc_error_cnt(void) { ksft_cnt.ksft_error++; }
-> tools/testing/selftests/kselftest.h:53:static inline int ksft_get_pass_cnt(void) { return ksft_cnt.ksft_pass; }
-> tools/testing/selftests/kselftest.h:55:static inline int ksft_get_xfail_cnt(void) { return ksft_cnt.ksft_xfail; }
-> tools/testing/selftests/kselftest.h:56:static inline int ksft_get_xpass_cnt(void) { return ksft_cnt.ksft_xpass; }
-> tools/testing/selftests/kselftest.h:57:static inline int ksft_get_xskip_cnt(void) { return ksft_cnt.ksft_xskip; }
-> tools/testing/selftests/kvm/include/x86_64/processor.h:242:static inline void set_xmm(int n, unsigned long val)
-> tools/testing/selftests/kvm/include/x86_64/processor.h:273:static inline unsigned long get_xmm(int n)
-> tools/testing/selftests/powerpc/include/subunit.h:14:static inline void test_failure_detail(char *name, char *detail)
-> tools/testing/selftests/powerpc/tm/tm.h:77:static inline bool tcheck_doomed(void)
-> tools/testing/selftests/powerpc/tm/tm.h:87:static inline bool tcheck_suspended(void)
-> tools/testing/selftests/x86/pkey-helpers.h:109:static inline void __pkey_access_allow(int pkey, int do_allow)
-> tools/testing/selftests/x86/pkey-helpers.h:123:static inline void __pkey_write_allow(int pkey, int do_allow_write)
->
->
+In-Reply-To: <d9cbc59382496172555bcbbb4044813b60534374.1586784389.git.mirq-=
+linux@rere.qmqm.pl>
+References: <d9cbc59382496172555bcbbb4044813b60534374.1586784389.git.mirq-l=
+inux@rere.qmqm.pl>
+TO: "Micha=C5=82 Miros=C5=82aw" <mirq-linux@rere.qmqm.pl>
+TO: Dmitry Osipenko <digetx@gmail.com>
+TO: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+TO: Henrik Rydberg <rydberg@bitmath.org>
+TO: James Chen <james.chen@emc.com.tw>
+TO: Johnny Chuang <johnny.chuang@emc.com.tw>
+TO: Rob Herring <robh+dt@kernel.org>
+TO: Scott Liu <scott.liu@emc.com.tw>
+TO: David Heidelberg <david@ixit.cz>
+CC: linux-input@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
 
+Hi "Micha=C5=82,
 
--- 
-Thanks,
-~Nick Desaulniers
+I love your patch! Perhaps something to improve:
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnW-xvSnT3RS8MWufyp%2B3%3DNM-Mb%2Bbv0r2u2soNnyVvXBg%40mail.gmail.com.
+[auto build test WARNING on input/next]
+[also build test WARNING on robh/for-next v5.7-rc2]
+[cannot apply to next-20200423]
+[if your patch is applied to the wrong git tree, please drop us a note to h=
+elp
+improve the system. BTW, we also suggest to use '--base' option to specify =
+the
+base tree in git format-patch, please see https://stackoverflow.com/a/37406=
+982]
+
+url:    https://github.com/0day-ci/linux/commits/Micha-Miros-aw/input-elant=
+s-Support-Asus-TF300T-touchscreen/20200414-032435
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/dtor/input.git next
+config: x86_64-randconfig-f003-20200423 (attached as .config)
+compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project bbf386=
+f02b05db017fda66875cc5edef70779244)
+reproduce:
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/=
+make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # install x86_64 cross compiling tool for clang build
+        # apt-get install binutils-x86-64-linux-gnu
+        # save the attached .config to linux build tree
+        COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cross ARCH=
+=3Dx86_64=20
+
+If you fix the issue, kindly add following tag as appropriate
+Reported-by: kbuild test robot <lkp@intel.com>
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/input/touchscreen/elants_i2c.o: warning: objtool: elants_i2c_ini=
+tialize()+0x460: sibling call from callable instruction with modified stack=
+ frame
+
+---
+0-DAY CI Kernel Test Service, Intel Corporation
+https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/202004240305.pDG4yPdB%25lkp%40intel.com.
+
+--zYM0uCDKw75PZbzx
+Content-Type: application/gzip
+Content-Disposition: attachment; filename=".config.gz"
+Content-Transfer-Encoding: base64
+
+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
+7u5uhO4BAA==
+
+--zYM0uCDKw75PZbzx--
