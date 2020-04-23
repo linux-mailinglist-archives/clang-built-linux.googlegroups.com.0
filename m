@@ -1,137 +1,146 @@
-Return-Path: <clang-built-linux+bncBAABB4WSQ32QKGQEURUQPLY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCP4ZTXNRIFBB3X4Q32QKGQETUZA6NY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3c.google.com (mail-io1-xd3c.google.com [IPv6:2607:f8b0:4864:20::d3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 84DB21B5E17
-	for <lists+clang-built-linux@lfdr.de>; Thu, 23 Apr 2020 16:43:00 +0200 (CEST)
-Received: by mail-io1-xd3c.google.com with SMTP id p9sf5954517ioh.3
-        for <lists+clang-built-linux@lfdr.de>; Thu, 23 Apr 2020 07:43:00 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1587652979; cv=pass;
+Received: from mail-lf1-x139.google.com (mail-lf1-x139.google.com [IPv6:2a00:1450:4864:20::139])
+	by mail.lfdr.de (Postfix) with ESMTPS id C0A921B6072
+	for <lists+clang-built-linux@lfdr.de>; Thu, 23 Apr 2020 18:12:30 +0200 (CEST)
+Received: by mail-lf1-x139.google.com with SMTP id s1sf2514802lfd.16
+        for <lists+clang-built-linux@lfdr.de>; Thu, 23 Apr 2020 09:12:30 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1587658350; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cDd5Y3PkNYfdZ5/0YLf1zAH4whhuof65+RlHD82ST0wKWRl2MNnX3SlPv70fkf0ukw
-         uDeNczgh1oEsHbd2B3Nhbg1kJFBctrYZgBGaumUL/CVIWRxcK1J4Beu/1THOOaN6IVZf
-         VF2fF/Gffpxl4Ndxs6cJ35DmeaMDP7rPX/Y/wUjSUZbRAzmTIr+0JlSmaTJ4X+bfFh5X
-         LR4m09WkKq8EMDc3zsRDlErJfo5mZ/G0ekkzy54cu3HStD1WyFjB5iotkUd/jejSPnhV
-         iEKBXmJYM1BzjfirrGpjuypOuUeFlXtKUcfuFfVZkxuovD1FNKgpQRWTv155V8GJ37qd
-         l8RA==
+        b=Wawt8KZw488SkcApHtbOiMecGnHeIvqlx0cqW8Th91bkiQH4qNUzCzaLJggLhfWEqd
+         J3p0tSSnjp+2bsgAQWM+H/7uxizxaP3pGm17NNPtZ9Sk11rSC3Qg99dnFEJAzNeLI3Bo
+         5zFRoqPuQo8b3b2wjSy/mMRyWYEXfsqMQH8vyZoAlco0meQcsVBfcTVyDB80vcaCZppG
+         Pehe1JOCIyPwBWIgV8JFKQ1nJhpgEObfaNhFXvC5M3AP0ckM980bv0eZqcgfjLeVpkgU
+         KW7rrMzIaH5Ssx0pw17vHuXc/BxtjEnlfX0PQTh79XYzKBXpXZz7Qwue4RdgobuobLJC
+         IvaA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=pyNHkdfuazCsufyYlKnGs/nS0SMZIY+SLET7FqrO7wQ=;
-        b=HwY1Q02IWtKNtDuuDq1xR+tktR9THrdtf6L0ygU8mQISqRwokE/7IQlRcd5rUejBhF
-         QdwqQ+TCJ+w5wfjuPh+L5XgM1F8RXv0uPm6TMi7KXNGyGsWrWjtXWeUoQ/1g1aNMYtmp
-         Sj6fpWLb2R5DEFvGZR0XVGDjyafEYCREwok+smoLfNTNR/zDh38J/ypEYVPYhsrchjOF
-         BbjMW0X7vTEXhqHtKEH66qEsjsQdC/Ur2hyZGkc+qtZsZdjmv4O5eGoV0HHR4wg5l/og
-         1L5BUCcU2srM+XBtTM2+1ptxBf2FT+/kL01hhfFs4lPxcPWuNS0AmlSUwEUa9gDj85aW
-         8ssQ==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=8z3LnY6BDJ32KKhq0Ye4qzP1/IfIWKBREVEReFJohns=;
+        b=vn1Yf6IRLSsIO1Whi8DYrf9LnPUw7rMqjD/urh3QLE2Y+TtOnaS1xga8xu6FzkzudQ
+         ozxlYHUPskjsMDwztVIOF60aF9gRVMRB+N7yFH7uf0asmzx0OQKUdoAZaRuM/Fd0MwBc
+         NJ89PGTNh/0O3tOrvd2hs4iQHhDDm0MjxIubgfCGK1S/UMLeJfO/KIDiQ7xfc23/QLFf
+         BvC2yIb7z5PDwarhyM99LaxPJVMFWEOyvT91awn2CrErQsw2vMEZ7Uxfnjir5g/Gz01K
+         7B2n7dJDZw1mLMttO+gX/51D+lu09cXws1+V/39Bojnd80QEJW+l9iANCgFWYuqMiZWO
+         Cq9g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=23X9GSV0;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@alien8.de header.s=dkim header.b=peqLmI8c;
+       spf=pass (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as permitted sender) smtp.mailfrom=bp@alien8.de;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alien8.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=pyNHkdfuazCsufyYlKnGs/nS0SMZIY+SLET7FqrO7wQ=;
-        b=SpGYHFxRv2F3cBj8zWqqYUAQUoZeuGpxjv4KsWieM05YWk4wWAyTJ0qz2f8MC3faLW
-         bzWiKsriFClJXK142mA3+PnRixUHw0Z+uI9ogncnn1C2EQMG88waLIywCmTmrqRuGfkU
-         yDab3rOghTxyfMOqx0f77Zv3rbu3SjCGZYQmZ+cWRG99UPzzQqNPv+IywnCbovM/iMUd
-         lYuj5vAWK/cCMpJ/P7bRyuasAvGndifPB/y63pUR1KOfSIJR2hmna3FuPPnu0O44CR+P
-         u9D/YFISMsQQYtJZMPfq2zQP0mXxJCa732Ffqv92t9i+0X7vgeP6BMYOq4dnVIZOc85X
-         f3iQ==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :user-agent:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=8z3LnY6BDJ32KKhq0Ye4qzP1/IfIWKBREVEReFJohns=;
+        b=coPsU7V1YP+9dKJMrsjIEvqQfZ/qcRubSBZrChclGKarcka0r5EShR8qhuSs3erlGm
+         Q0FCw52sInyb/g9OU73d8jAZLIWJB88H2ahiCdF/rGzl+YjNQtRumiJKfQQ93cP+wwla
+         EdokaJV8glq4AoYYfj8SJ/PDSLJYJgbMw4Tars5MkuoJap/08HacQmfUqopKiuJLJ6dP
+         fG7xZb+UxjMD9e/rgcWgmfMt3cyR9AY+BpbU5E/9aPHZ9wF4HSqA0N9PbDC85Jt8kw2T
+         zxso17xVIwIpY6x4gRhEMW/dVPdqkqJAWTGfeFWtfOmmPr5C5vOt1DCwu7dvjuOYBIbE
+         nmwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=pyNHkdfuazCsufyYlKnGs/nS0SMZIY+SLET7FqrO7wQ=;
-        b=Ln3kK3VczhN53art6KoZvm1jb57e17KrBwdovy/R+bhcLpvGcHng36QiS1frfW9g7N
-         XQx3TPEMAeiKqa0SNNEtkNWtDdMQtWFs34DnqKicULyYJLbK6XFOFVHQdBYuJltmqGwx
-         rlAjIgQCHzqXF7o2cKkIGzUWviEKAJP9L0HbS1U+oX3nQHoaU9z/vAzXDuhH5fnsO35c
-         b89JML2PmE91mlBiTqkH4uPUxKKi1Kl+Wxv8bKeWkNPaC4Td9E27VAvoSGFAo1GlDk4d
-         +AYkAEUMqmhvWOq4eFVNO2EA7HorEBIe89p89lWf3jyWrjybFDQ1+6MuOuMeVy2sDayq
-         zSuw==
+        bh=8z3LnY6BDJ32KKhq0Ye4qzP1/IfIWKBREVEReFJohns=;
+        b=akbdglc5SdjjqqF8Rj+chxNfYfIIJTxnt98Rrd+thiPYPQdd5OpV38hhyFlzPDTiDF
+         0HoqGC+nYhxDuckqvINeIFZmCetaOvUKwjhGfLJ6yrBLVgxKgDhtf9sCjP1U3Z/6d8rF
+         x0milPoitxyFEGcfjHN7132fs3MR3WS4P2DsPmvTnDe1buSY4gTK7bgKdUv6DQQs0zim
+         TcOLmA4CCh0YAJtW/2tSBv3PIiKR1Fu046GppBBk7TCYoF2lRrPn6yXf80A1XYHChx74
+         HETvW99BZH8Q96LipnVWNHsVAWW1DKqVlFziLtkb37V/H/vG44zQUtkp2QNy5+RUmR3+
+         l5Qw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuYdhwBmeBiZbFHN/08Y/2cQPUDw6SZDrfELcjgt2BAuXoyeqIAr
-	LwJlFHpw/n++s8mjRTCoDxo=
-X-Google-Smtp-Source: APiQypLE44aCfFDwatgpqQRtI18qsqoV0Z5sfAQSbjvHBaIp4cKWrLrD7Iidb9nOZ7c3aWRJSsFfHA==
-X-Received: by 2002:a92:d208:: with SMTP id y8mr3777332ily.1.1587652978954;
-        Thu, 23 Apr 2020 07:42:58 -0700 (PDT)
+X-Gm-Message-State: AGi0PubDisZJgLo+S+nZQixwLtlug0iEJLTTuzNv4jNrxK6jXUlyJWgC
+	0Fw9PDyWlTFsKonFm5puDFk=
+X-Google-Smtp-Source: APiQypL7qLf5r23R8wAooh6+bql/Mq2pAF+uZD9a3Hx3/WwqOWxiOXHTZ1dxB1ow8c+E06Jc1+PciQ==
+X-Received: by 2002:a2e:a313:: with SMTP id l19mr2922310lje.133.1587658350279;
+        Thu, 23 Apr 2020 09:12:30 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:3a05:: with SMTP id h5ls1257208ila.1.gmail; Thu, 23 Apr
- 2020 07:42:58 -0700 (PDT)
-X-Received: by 2002:a92:485b:: with SMTP id v88mr3718836ila.271.1587652978596;
-        Thu, 23 Apr 2020 07:42:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1587652978; cv=none;
+Received: by 2002:a19:5205:: with SMTP id m5ls1388491lfb.10.gmail; Thu, 23 Apr
+ 2020 09:12:29 -0700 (PDT)
+X-Received: by 2002:a05:6512:3f4:: with SMTP id n20mr2940370lfq.100.1587658349696;
+        Thu, 23 Apr 2020 09:12:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1587658349; cv=none;
         d=google.com; s=arc-20160816;
-        b=ABk9UdSe5tKzRZ6wv5T0jCcdMiQH5nTJxYszz5BfEVwbEyXs/BDzywkbDXLACeBr2U
-         BKvHZ69BbOt1p6aIkdJSBQB7KmXXWVZGENR8E1vdPeGMhENgo5K6oX50DGt12D15jksj
-         BwlfJb9Yxd6is7wULSW+QDwoF8N0pdHMGh+N3P6ISEKd0z4RVPcw0xZ2EYtiJmAbsQex
-         4tVFjje+nUDyc9TB3xyEJAZjHTAFdUovJFjIlkbBsTp1NFNP9ZqGviERRNn3Gpvyzt+j
-         2hVNPKGkiP19f+BhYRw4Ix1jaDv1IDS/IQGDwidWGkLbVq2cEhQSh62FNsNkfW3XFAdS
-         ax4A==
+        b=fTvLDjy9LonkNiyRo1JIxQtmiwfdYj2QysAObuvpHnPRBQibxnGvfnvVw4n3eCYOyw
+         h3fQMdkxfximG29cyNMDpRM47Q2Gu74aDHS0vI/BnVnjptK0bDJ3EonFWE3hww9fa4fb
+         V3Chgwyvu8VYqObAOx/TGkuYapM7UvqX9EFOEgnHXcJvSm3iUPaLjZ6TMgTT6JrergND
+         36fe/f0OKq2G5Wac596TI0vF9gfI8PCVC2L0vEpowbe7NS6FMZxIlo17yTHX3TAEagGh
+         qOHCka52ea1jSftjEA00y1AFZqpfXlDJH5IjaOPDf5YjVl507KlQXKGq/Yy4Gj6tOzlK
+         jr/g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=ZbrX8HgIq0QwRra2pCZbmne6rmEly6+QxtlCHSyKHGM=;
-        b=0DHR9T5kSDB0O9MY0XaxKjWXxZ1z8Q5ockW+hEP9THHIgMN4WL6OHgry4nsW7OKZZL
-         E5DqacwK9Ia0H4xVqfxAf3PiJXbi6QYviUv/U9oFPVfID2rzA/Scfv3aZlyZ07lAMTCu
-         +NiFVEOkbV4HC+nCmui8KkOxi3Fdb/wTXx5wMmUyA7TimC9+pGHK1XHLlsqJTBaXsV4x
-         OwKngD24eRzqRQYM77bFtcHn5FTAqY10QD7lc822vRGKbN+9sroG4itSAn/YYX6OIKf0
-         ieQy1piHq9EDU3GSO6hH/6O1WN0rh88Vmo8X0ImQCa50dYHoY5S9woqnAa3ro8ermGkU
-         88YA==
+        h=user-agent:in-reply-to:content-transfer-encoding
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=igXY94ymhLHLbnPRtnKA4PNuErVbqZgvsorBI0rNWao=;
+        b=yac4sH6pX5rGSYtl2rqWjLb/wKULa5Zee0ev2Jfmv0nBH96VCRygNYGSNxhZ5oBwn2
+         LuoibfL70785/kuDKKiAYzjh6pZYy/SgDi0jCIpiEICFdHKuCkEMkZvZF3kjKY1ItcIX
+         /rdxeCTkBKUIOFKssCSh5Nv69Sthxg3p75UNLTnYMLdpz1xyDFuYLq7OjbWwyPD980r2
+         cCbgRpl9ceGExqVJAt5PVoHlojeCD1F2q3U7+epHprFeiqU3ReUV9NBhxkTzpbymqfLK
+         O6Yl1jN8aVV6tjRQcaPgzSG7ctTyJCX6gOe7Gn+RFLFm5plx9BxYKCZWWKGbmrSMxanZ
+         9S7w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=23X9GSV0;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-03.nifty.com (conssluserg-03.nifty.com. [210.131.2.82])
-        by gmr-mx.google.com with ESMTPS id g17si301739ioe.0.2020.04.23.07.42.58
+       dkim=pass header.i=@alien8.de header.s=dkim header.b=peqLmI8c;
+       spf=pass (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as permitted sender) smtp.mailfrom=bp@alien8.de;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alien8.de
+Received: from mail.skyhub.de (mail.skyhub.de. [2a01:4f8:190:11c2::b:1457])
+        by gmr-mx.google.com with ESMTPS id f17si225453lfp.0.2020.04.23.09.12.29
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 23 Apr 2020 07:42:58 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) client-ip=210.131.2.82;
-Received: from mail-ua1-f50.google.com (mail-ua1-f50.google.com [209.85.222.50]) (authenticated)
-	by conssluserg-03.nifty.com with ESMTP id 03NEgXqZ017542
-	for <clang-built-linux@googlegroups.com>; Thu, 23 Apr 2020 23:42:34 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-03.nifty.com 03NEgXqZ017542
-X-Nifty-SrcIP: [209.85.222.50]
-Received: by mail-ua1-f50.google.com with SMTP id v24so5895885uak.0
-        for <clang-built-linux@googlegroups.com>; Thu, 23 Apr 2020 07:42:34 -0700 (PDT)
-X-Received: by 2002:a05:6102:240f:: with SMTP id j15mr3574415vsi.155.1587652953014;
- Thu, 23 Apr 2020 07:42:33 -0700 (PDT)
+        Thu, 23 Apr 2020 09:12:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as permitted sender) client-ip=2a01:4f8:190:11c2::b:1457;
+Received: from zn.tnic (p200300EC2F0D2E00329C23FFFEA6A903.dip0.t-ipconnect.de [IPv6:2003:ec:2f0d:2e00:329c:23ff:fea6:a903])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.skyhub.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 359101EC0D8B;
+	Thu, 23 Apr 2020 18:12:28 +0200 (CEST)
+Date: Thu, 23 Apr 2020 18:12:24 +0200
+From: Borislav Petkov <bp@alien8.de>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Michael Matz <matz@suse.de>, Jakub Jelinek <jakub@redhat.com>,
+	Sergei Trofimovich <slyfox@gentoo.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, "H. Peter Anvin" <hpa@zytor.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>, x86@kernel.org,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Kees Cook <keescook@chromium.org>,
+	Martin =?utf-8?B?TGnFoWth?= <mliska@suse.cz>
+Subject: [PATCH] x86: Fix early boot crash on gcc-10, next try
+Message-ID: <20200423161126.GD26021@zn.tnic>
+References: <20200417190607.GY2424@tucnak>
+ <CAKwvOdkkbWgWmNthq5KijCdtatM9PEAaCknaq8US9w4qaDuwug@mail.gmail.com>
+ <alpine.LSU.2.21.2004201401120.11688@wotan.suse.de>
+ <20200422102309.GA26846@zn.tnic>
+ <CAKwvOd=Dza3UBfeUzs2RW6ko5fDr3jYeGQAYpJXqyEVns6DJHg@mail.gmail.com>
+ <20200422192113.GG26846@zn.tnic>
+ <CAKwvOdkbcO8RzoafON2mGiSy5P96P5+aY8GySysF2my7q+nTqw@mail.gmail.com>
+ <20200422212605.GI26846@zn.tnic>
+ <CAKwvOd=exxhfb8N6=1Q=wBUaYcRDEq3L1+TiHDLz+pxWg8OuwQ@mail.gmail.com>
+ <20200423125300.GC26021@zn.tnic>
 MIME-Version: 1.0
-References: <20200419180445.26722-1-natechancellor@gmail.com>
- <20200419202128.20571-1-natechancellor@gmail.com> <20200419202128.20571-2-natechancellor@gmail.com>
- <CA+icZUVaLW+38WEJhqnfO7B_unHvrbSr0moKnfJ6zXGGA06CWQ@mail.gmail.com> <20200421024256.GA42179@ubuntu-s3-xlarge-x86>
-In-Reply-To: <20200421024256.GA42179@ubuntu-s3-xlarge-x86>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Thu, 23 Apr 2020 23:41:56 +0900
-X-Gmail-Original-Message-ID: <CAK7LNAT-rcfbri48rA8yNYN6ySvRUWg=DoppvrU9eerY5ckBVQ@mail.gmail.com>
-Message-ID: <CAK7LNAT-rcfbri48rA8yNYN6ySvRUWg=DoppvrU9eerY5ckBVQ@mail.gmail.com>
-Subject: Re: [PATCH v2 2/3] MIPS: VDSO: Move disabling the VDSO logic to Kconfig
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Sedat Dilek <sedat.dilek@gmail.com>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        linux-mips@vger.kernel.org,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-        Clang-Built-Linux ML <clang-built-linux@googlegroups.com>,
-        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        Sami Tolvanen <samitolvanen@google.com>,
-        Dmitry Golovin <dima@golovin.in>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20200423125300.GC26021@zn.tnic>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: bp@alien8.de
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=23X9GSV0;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@alien8.de header.s=dkim header.b=peqLmI8c;       spf=pass
+ (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as
+ permitted sender) smtp.mailfrom=bp@alien8.de;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=alien8.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -144,83 +153,106 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Apr 21, 2020 at 11:43 AM Nathan Chancellor
-<natechancellor@gmail.com> wrote:
->
-> On Mon, Apr 20, 2020 at 11:53:55AM +0200, Sedat Dilek wrote:
-> > On Sun, Apr 19, 2020 at 10:21 PM Nathan Chancellor
-> > <natechancellor@gmail.com> wrote:
-> > >
-> > > After commit 9553d16fa671 ("init/kconfig: Add LD_VERSION Kconfig"), we
-> > > have access to GNU ld's version at configuration time. As a result, we
-> > > can make it clearer under what configuration circumstances the MIPS VDSO
-> > > needs to be disabled.
-> > >
-> > > This is a prerequisite for getting rid of the MIPS VDSO binutils
-> > > warning and linking the VDSO when LD is ld.lld. Wrapping the call to
-> > > ld-ifversion with CONFIG_LD_IS_LLD does not work because the config
-> > > values are wiped away during 'make clean'.
-> > >
-> > > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> > > ---
-> > >
-> > > v1 -> v2:
-> > >
-> > > * New patch.
-> > >
-> > >  arch/mips/Kconfig         |  2 ++
-> > >  arch/mips/vdso/Kconfig    | 18 ++++++++++++++++++
-> > >  arch/mips/vdso/Makefile   | 30 ++----------------------------
-> > >  arch/mips/vdso/vdso.lds.S |  2 +-
-> > >  4 files changed, 23 insertions(+), 29 deletions(-)
-> > >  create mode 100644 arch/mips/vdso/Kconfig
-> > >
-> > > diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-> > > index 690718b3701a..45220e4b8a65 100644
-> > > --- a/arch/mips/Kconfig
-> > > +++ b/arch/mips/Kconfig
-> > > @@ -3275,3 +3275,5 @@ endmenu
-> > >  source "drivers/firmware/Kconfig"
-> > >
-> > >  source "arch/mips/kvm/Kconfig"
-> > > +
-> > > +source "arch/mips/vdso/Kconfig"
-> > > diff --git a/arch/mips/vdso/Kconfig b/arch/mips/vdso/Kconfig
-> > ...
-> > > --- /dev/null
-> > > +++ b/arch/mips/vdso/Kconfig
-> > ...
-> > > +config MIPS_DISABLE_VDSO
-> > > +       def_bool CPU_MICROMIPS || (!CPU_MIPSR6 && !MIPS_LD_CAN_LINK_VDSO)
-> > ...
-> > > diff --git a/arch/mips/vdso/vdso.lds.S b/arch/mips/vdso/vdso.lds.S
-> > ...
-> > > --- a/arch/mips/vdso/vdso.lds.S
-> > > +++ b/arch/mips/vdso/vdso.lds.S
-> > ...
-> > > -#ifndef DISABLE_MIPS_VDSO
-> > > +#ifndef CONFIG_DISABLE_MIPS_VDSO
-> >
-> > Should be s/CONFIG_DISABLE_MIPS_VDSO/CONFIG_MIPS_DISABLE_VDSO ?
-> >
-> > - Sedat -
->
-> Ugh yes, thank you much for pointing it out.
->
-> I'll send a v3 once I get further feedback on the series.
+Ok,
+
+I have tried to summarize our odyssey so far and here's what I came up
+with. Just built latest gcc from the git repo and it seems to work.
+
+Next I need to come up with a slick way of testing the compiler...
+
+Thx.
+
+---
+From: Borislav Petkov <bp@suse.de>
+
+... or the odyssey of trying to disable the stack protector for the
+function which generates the stack canary value.
+
+The whole story started with Sergei reporting a boot crash with a kernel
+built with gcc-10:
+
+  Kernel panic =E2=80=94 not syncing: stack-protector: Kernel stack is corr=
+upted in: start_secondary
+  CPU: 1 PID: 0 Comm: swapper/1 Not tainted 5.6.0-rc5=E2=80=9400235=E2=80=
+=94gfffb08b37df9 #139
+  Hardware name: Gigabyte Technology Co., Ltd. To be filled by O.E.M./H77M=
+=E2=80=94D3H, BIOS F12 11/14/2013
+  Call Trace:
+    dump_stack
+    panic
+    ? start_secondary
+    __stack_chk_fail
+    start_secondary
+    secondary_startup_64
+  -=E2=80=94-[ end Kernel panic =E2=80=94 not syncing: stack=E2=80=94protec=
+tor: Kernel stack is corrupted in: start_secondary
+
+This happens because gcc-10 tail-call optimizes the last function call
+in start_secondary() - cpu_startup_entry() - and thus emits a stack
+canary check which fails because the canary value changes after the
+boot_init_stack_canary() call.
+
+To fix that, the initial attempt was to mark the one function which
+generates the stack canary with:
+
+  __attribute__((optimize("-fno-stack-protector"))) ... start_secondary(voi=
+d *unused)
+
+however, using the optimize attribute doesn't work cumulatively
+as the attribute does not add to but rather replaces previously
+supplied optimization options - roughly all -fxxx options.
+
+The key one among them being -fno-omit-frame-pointer and thus leading to
+not present frame pointer - frame pointer which the kernel needs.
+
+The next attempt to prevent compilers from tail-call optimizing
+the last function call cpu_startup_entry(), shy of carving out
+start_secondary() into a separate compilation unit and building it with
+-fno-stack-protector, is this one.
+
+The current solution is short and sweet, and reportedly, is supported by
+both compilers so let's see how far we'll get this time.
+
+Reported-by: Sergei Trofimovich <slyfox@gentoo.org>
+Signed-off-by: Borislav Petkov <bp@suse.de>
+Link: https://lkml.kernel.org/r/20200314164451.346497-1-slyfox@gentoo.org
+---
+ arch/x86/kernel/smpboot.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/arch/x86/kernel/smpboot.c b/arch/x86/kernel/smpboot.c
+index 3b9bf8c7e29d..e9f44727fccd 100644
+--- a/arch/x86/kernel/smpboot.c
++++ b/arch/x86/kernel/smpboot.c
+@@ -266,6 +266,14 @@ static void notrace start_secondary(void *unused)
+=20
+ 	wmb();
+ 	cpu_startup_entry(CPUHP_AP_ONLINE_IDLE);
++
++	/*
++	 * Prevent tail call to cpu_startup_entry() because the stack protector
++	 * guard has been changed a couple of functions up, in
++	 * boot_init_stack_canary() and must not be checked before tail calling
++	 * another function.
++	 */
++	asm ("");
+ }
+=20
+ /**
+--=20
+2.21.0
 
 
-I just wondered if we could raise the minimal binutils
-version from 2.23 to 2.25, but it might be too aggressive...
-I do not know.
+--=20
+Regards/Gruss,
+    Boris.
 
-Other than what Sedat pointed out, this looks good me.
+https://people.kernel.org/tglx/notes-about-netiquette
 
--- 
-Best Regards
-Masahiro Yamada
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAT-rcfbri48rA8yNYN6ySvRUWg%3DDoppvrU9eerY5ckBVQ%40mail.gmail.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20200423161126.GD26021%40zn.tnic.
