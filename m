@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBSUGQ72QKGQE3DYFR7A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB5EHQ72QKGQEQZBX3IQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf40.google.com (mail-qv1-xf40.google.com [IPv6:2607:f8b0:4864:20::f40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 107AD1B6103
-	for <lists+clang-built-linux@lfdr.de>; Thu, 23 Apr 2020 18:33:16 +0200 (CEST)
-Received: by mail-qv1-xf40.google.com with SMTP id dh14sf6676340qvb.4
-        for <lists+clang-built-linux@lfdr.de>; Thu, 23 Apr 2020 09:33:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1587659595; cv=pass;
+Received: from mail-ot1-x33f.google.com (mail-ot1-x33f.google.com [IPv6:2607:f8b0:4864:20::33f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7E8B81B6111
+	for <lists+clang-built-linux@lfdr.de>; Thu, 23 Apr 2020 18:36:06 +0200 (CEST)
+Received: by mail-ot1-x33f.google.com with SMTP id h33sf4324647oth.20
+        for <lists+clang-built-linux@lfdr.de>; Thu, 23 Apr 2020 09:36:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1587659765; cv=pass;
         d=google.com; s=arc-20160816;
-        b=puWWdVaA+lK4W5PT/AwvuqgVZYA0AwKXhTMiWoT6fjWp9lD5LOEbJegG2PlXsQnWoN
-         lepAr85d4d8fvQ0x2sIDhmjj/Ei4q2CskcIpoWvRo+tDtpEsDSCnSMtibolLfQezvqSQ
-         NVjrJ3OD9qe7+ftCLGsn1MJYQ5hszhne8qt61tTHzbsi1jSBACDIw2Eh48b1u/T4O+8B
-         dpyz+7HSLd9GjUP4SIl+Kj2dnvgA8lBWLo1KxupS0Z0KDq8MrU6+yOxNfmf3KztYF4vM
-         XJ7vOt3NXMU1lIV5WoSicwBE5RFxf4/tt160RzrdKA1Oc67rnwztyQ9nOuxBvWioV5p2
-         0cGw==
+        b=cYkG4IWOqc9OOSHiwsRGhYh+LW+44TO7uIplTb1Mb7tPwOVfe+K/pzhWcDxomt39Yl
+         CuvOwjkVRfiM7FAk6KJUhQzKiiDzIkUSgp7kQl+2F/tzidVcBCucMWMBKlYEOWIEeGPa
+         0ZdFOmthDHm8YfkSfkhfx19ANzsxxSUsCPhxIU11HNElOXtCgoTTMmMp3iEmY3vg0It2
+         6SOn7NjEOAodmXweoNWQPBaCO/yLkCJZGVqY2iFLuP8a6n9guM4on19YjfmzdC9YYz/+
+         cpusnXuBywjHA2mrkhnXZpNopEN7SEaPmREWE0Bhk2YHHikntipJlt8mSjU6vmP+iiok
+         hyiA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=n9xVMNNJS7CrlQNhtxaiX3LShZdliki8zVS9XBmdoIs=;
-        b=zQvKjTqNh+obnwEEEYmYorvNNcGEve0f/I0/bJrd+WHTq7i2oF59p0RAGlR9wCkCdb
-         XxVIQtE9vcfFZ/ZY479TGhJ5R8S/ZoKoVAyZy42vu3M+GkgrHewqRyXm9o+IWSkDkQ1A
-         qUXdf60EAB2TZFaL8dTW5Mp4mLGYKEe0fUqG1vy4k0NNNZiD4EsPi9/RO5ghNR4VSHuM
-         lJoTB3eRX6ufD4KMCiKd49knE5wn8iZjobna0je8/00gtTGYCKyAl1LctVnNFmjXSNY8
-         AmWkQQlL1DydeQA95/WpY5gsWXFUZjuB8OwUwaEptjesNmmVSUxHu9iVI2sZMyVLIW+V
-         Nsvw==
+        bh=fPJ47uTRYPzS25Am/VQrroaY7byMSxSEBAWkLcpDcR0=;
+        b=hVbAWM1ZNwE3xQbdpT8aMoerrPMcC/2QgZmpFMRaRMltxGXJvr8RiamDRMUu2QW3ET
+         rRvo5qzYh8zMarBTft2zWOqWgkRyoTcD2oJh2MoOlp/bdRCkPZKqFlL8DnGKII+vzuPb
+         +IodO7eoLTHvrB2Tho2wnkthkZsgt8vjn3dYw3vGkH6ozCv6hr9tra02ZNugCuP6zttO
+         n9/C/fb9j5YufRScFe5az8Ds4fzC23dWzFnwh2LNAX8IWv/Ec+DFHOyHxskt0C7G374o
+         Ebf2n4yPz8YhBtIBoCjrlUGzj5GcNRKu/md4T3+QYk7Y3owo4y25W//OvUiTozTS/f3f
+         201Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=MNYFFwO7;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::c44 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=mrzi5atR;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=n9xVMNNJS7CrlQNhtxaiX3LShZdliki8zVS9XBmdoIs=;
-        b=YB0jGDt5cbMXCN7Gvy6BzMbIxqQ9r4SZ+N6+QsQ77fl+QA4DaqC7nCcKo/xYc3mzu4
-         2vttKjGab/s6Bs+fTQEAj+mJUwD+Ju5omxS6WESphW88dWzKOUeYUoNoMozCwXORvbWp
-         jGk+4pRSRktjfJI008WLmArApwIkT+DE5bWiTceJOZsyvLQOtBkbluw4isl/PoYYgRX3
-         b+N64mW2W1K1YElBRI33N7Khb7u1EfhXCssM4weUbpzOxQ0mH5ymfy2wbYeTa4P+sYLF
-         N00ltZYYfPHbOXYZF9FETySD0hjekX6IXsQt00w34kmYJK6G6cLFdUBznhwJCLXkM8W/
-         FuSQ==
+        bh=fPJ47uTRYPzS25Am/VQrroaY7byMSxSEBAWkLcpDcR0=;
+        b=k3exLGY9b3yYsuJF7yDFGJIlZWfHQmciPfwv3C7V53AG5/RRdhu26dYCWt/AGvVeup
+         F2IYKVAHA7k6PxVEN6DiJEeLwebyES/92viLlGG93GautQeZ61co9Vq73AH7P03ZlZwk
+         GXO9hnoCnzDdMoadNDidU591Uq/99k+JXBdZwcgcU9VOzYYP+I3JykjAGebScVsMDeMO
+         cCzdstPIcRGqyFgF3c+u5kvTJ5IXW3+iVisF7b+9vH3GMMuAYI8kxAf5fjYS9dXBBbh8
+         pdkKyJcTkNdJPX4YmmcWV+2mecRQTB53RBiRQQ3LIbJ++fXsZJkNFiEm9ML+kdsNMZnR
+         Kl1g==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=n9xVMNNJS7CrlQNhtxaiX3LShZdliki8zVS9XBmdoIs=;
-        b=gz7b8HPIifdDHxryJZ9wQJ/0sSEUEmEkCSPbF4q2bu9JAbEkZ4U2Lh7daU6O1CSqwL
-         /1nVnIMkCk7eSWNZ/uC7sWlYcbyfJ6wM0i9WjZ3fZAbc2prrbG1L+AnwMSlWcclfPXTF
-         EVn/EWVOCnHEUC+xR5Kl6ms+yB2MgSEA01MXzmURq3H6cL7Ww2mVCbbiapC/Avd5DjBj
-         USZ6nMVEW+EZjAzjPJbZM4UE3S4Z1mmWpQw3P8pZ5S7f81N8KXsnEDkTIoJC0OickpC1
-         QvsmI5UztcpjK11vA3BVniYt/bNKAdzO+EhCaGWZ5X+vbxSo92+BDDUVpiCiBiektFyk
-         YZxA==
+        bh=fPJ47uTRYPzS25Am/VQrroaY7byMSxSEBAWkLcpDcR0=;
+        b=SCuuYGoBFtlYY3mZ/VX7KRG41ikjkHEULUf+1x98srkshp1s/j1zKVNerqG8xzj/+j
+         ppB2aLqqXIQqCudfXfAn8XVMsLxCUGk3E//id6tLgXNvThK4lKMPbsmTqwU7R1TFgJ2u
+         rXZ7afqogUkvdDyWWk36TRRax3gY5TsglXqFlwZEao/lW6HI0unTUrA+vcaZObFIyg9Y
+         cwXDCJ3DPpFEsukSIbsq15n1xqbPXK3olEIk1UM6PADVZrutzz9Px6aTErZBF/XoQYen
+         aCyC27gkVP0YKXhaXt883XhYBWE65VrVZ0G4fjgA+TpFjcrQfc4Ozn9KP6sJgdq1SwYO
+         bVjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -63,82 +63,83 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=n9xVMNNJS7CrlQNhtxaiX3LShZdliki8zVS9XBmdoIs=;
-        b=aDbucNpBjuS/pbImAVoTURCxImcV61r0a0YjUqNkxGnMIl+zlQf0G22eWuIJ1lLB83
-         CrPsFYp6D+wdrzEmeQbfGHZi474jleBM1SFQCwiyCQqeQwqy6DlIYqDlabCJFSw/+EJu
-         zHfUvBI2kCl1obKtxCPVnSytK1XZcQgdoUlnnuPHhokk3Iv3NGZnlX7ifPPx6CLhXKr0
-         GS3kpOC4jJ47Lv365qfh/GeWTEVHfNGWi7xBLeO50/yYyfwbKryUl2UEAlUqc9r3wSpz
-         /2U1qmcaduBOL6BSJWjODidmu5PXJrz6IERCTj2jfnDp9zkmte+8iXvHrkD0EMjsponz
-         /Jtw==
+        bh=fPJ47uTRYPzS25Am/VQrroaY7byMSxSEBAWkLcpDcR0=;
+        b=oDCKf0lPksWTchANgpiwllvfC46BDwmGXE7hAVv5svRLOhkm6R+r33OUwu14oM86og
+         fm97pLS2Oq8jfbwKEAqLkhwjFHBV0isMB7C8QXTtvu+8Z1PrIwApxVp+UyKIjr5tR4Oc
+         7Umrpodoc8oyt7ZWzOA2miYaeY1usG2JFmaA3u4xH5dThW9JIqyri/+cio8vepRavPXw
+         fz5Md6VEqVv3v+toDFFOCJsBaCXeaSsZ2usgA7JOIMEH3NPd3cbv3ICxQGyrbynBirtL
+         lwabF0iLLnlsSR0chWSt557xtu49rGgKTFZFTrJKrMH3Rd5DwOUgIGa5YglFDJt9cPm7
+         FnKQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuZ1HjVcYK6PGwbrF3/J94L4ShC30wykmsvGi5XLVOSIgb0oYdgb
-	5BQwEIfj0KR/R1KBrQ20a38=
-X-Google-Smtp-Source: APiQypIYyfI/4Qde4HZk9dO+/V/dyZmbFZsh78U8O0sh0rQEZWjKWtiP133T20X+eplrfMWTgEJfhA==
-X-Received: by 2002:ac8:5216:: with SMTP id r22mr4949586qtn.266.1587659595055;
-        Thu, 23 Apr 2020 09:33:15 -0700 (PDT)
+X-Gm-Message-State: AGi0Pubvo0qsGuvk1GuBNXyiVPMm/Q5puD0PhQhHZr4dHbgtfmP6XRLA
+	7LixtY0q+rPmApKU3p7Hy4Y=
+X-Google-Smtp-Source: APiQypJGHLwdyY9oKUm/O52zBTkFctmm5OPprg/1wi9+tlEMS0Az3bHbIJAEGzX66SpL2X77ipVQbw==
+X-Received: by 2002:a54:4187:: with SMTP id 7mr3756969oiy.40.1587659764980;
+        Thu, 23 Apr 2020 09:36:04 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:7542:: with SMTP id b2ls3344609qtr.1.gmail; Thu, 23 Apr
- 2020 09:33:14 -0700 (PDT)
-X-Received: by 2002:ac8:6655:: with SMTP id j21mr4823105qtp.11.1587659594677;
-        Thu, 23 Apr 2020 09:33:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1587659594; cv=none;
+Received: by 2002:a9d:363:: with SMTP id 90ls1562133otv.6.gmail; Thu, 23 Apr
+ 2020 09:36:04 -0700 (PDT)
+X-Received: by 2002:a9d:564:: with SMTP id 91mr4173945otw.250.1587659764588;
+        Thu, 23 Apr 2020 09:36:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1587659764; cv=none;
         d=google.com; s=arc-20160816;
-        b=gaXwMfBTj40k3ya9qQl1/lXHuxpnhjnklOMEBljBQtHD8BXLiTBSuwVqoUj9PiWuGk
-         7eWvHzyxl+Kt49GVOm/a6niC3qqZwBq3f90zgwPgijW+rjEJgy7if+SSKBU2XC66KjDg
-         owlA5gise2/kyVqn44VQ1d59hTOLX6Y0k6cTBVJoDPpYoQNxQR2hFs+/5TuW2/ZRrR8G
-         BAdf5sDwTBFxlN0wPBpZjT4x3AqGC5agM4y+f/xTw7VQNMu1gX4pM3jUrepzFICp35dh
-         g6IOLa5o7TEsgu9hYSZHoR6fA94ilF1kW3SzknaKcysOhoVp9SQFm5p3dptCHdKwHf7r
-         zBRg==
+        b=R3Atz9Ozs0qLh1cgt3zGFbqxBMe/EiUMBqEZMOVHCvsMvITlQURUbAV/is/dGoysoo
+         cHeOLf8VjcEH6+kGTGMgJOKG+WWyl2q6Ld6gdTy7KrvpwmD+XJMP4sL7VXDcDlhSTvck
+         a0cXlnbihxovRkcE32HpkffU6gwTNMR8qEqkJvR5qHC2yTEL8orrOrVFQsZuCh2Li4Tb
+         fudK9XwDtelKpz8/woWUb0IqmwYliqVmnpTFuw+2ZXw1NfG6X/6QNFzjFTR+EOwpcMO4
+         CfGXQS5zTOPSLxFt0rW89QofgLNe1UhK0lbsUfx7uwYWQmBoQOzR0rzE/FJYKIG2UcgO
+         885g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=+P4exUzF4xLf5Y60Fmf3k7cdV4ADYZbeIV1x1d0wOko=;
-        b=kJY37Vje5G0MXwvFjaDSc7YhvqfyVlEKjJlVpsAuW/ABeYNQGaKr/6m/eZ1ZRAp1PA
-         kjLe5UVVaYatIS9CaWS2dAXXxG4HhPhUDN+TJRUJqbXmkTL2wNdZYi0Z8ZXLZzInoJYW
-         uHnn/dhmtQiXeaaB4Z9pMkzu0aSfOUwGphNDWkH2c8IK8EBjbmJ4LcGh94FJLC8w2NjV
-         U8qj0cy85QA0yZlhbu74pUEk4IeXEwaVN5nsZKOM9oFlZMbliZg3YVx5dvsACgSbIxzU
-         iDmzc7eBd+5yuiZlrt09vkddzXhGTwp/FKdlG8isjMltarAXx9l/eBcMiWxBsf3l7CRL
-         0OVA==
+        bh=ZD5R6FmUjPmeYL4MRpYo2rDAvGPliTwTgGLA+RltUqk=;
+        b=Bkus2pxlxjhQLnmfIXygSO3xH5ZWMqWRQ237jy2ENSiKXAZSVqgWGxxO32zWAVdRJ/
+         PPjio7Boq3yDGjZp6EJa1e+BE+h7ZF8Ajp70K2cJLBzLW3fOqe3rb1ZuhrapwWWVUraW
+         4ThUW07/pMIZt0bBR5/3JcVofyN7/dMNxR5mQ3iGUw5f6OxzdMTDO6nsdr8r+yhsvdLp
+         jPm/8FCtb7oN+PDSmjjZAEe9y7n6M3FOZryub0YrEW+Grn01f6ZUq77OqTOH1UCNg54L
+         FRrhNJWytC2OgJBVHAWoV1r4Ee4Ig3WRlkKeYdW8xFzbZFPaixkr22hLWUClaoefNQyJ
+         Xeag==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=MNYFFwO7;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::c44 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=mrzi5atR;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-oo1-xc44.google.com (mail-oo1-xc44.google.com. [2607:f8b0:4864:20::c44])
-        by gmr-mx.google.com with ESMTPS id e7si199001qtc.5.2020.04.23.09.33.14
+Received: from mail-ot1-x342.google.com (mail-ot1-x342.google.com. [2607:f8b0:4864:20::342])
+        by gmr-mx.google.com with ESMTPS id k65si336095oih.1.2020.04.23.09.36.04
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Apr 2020 09:33:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::c44 as permitted sender) client-ip=2607:f8b0:4864:20::c44;
-Received: by mail-oo1-xc44.google.com with SMTP id p67so1433319ooa.11
-        for <clang-built-linux@googlegroups.com>; Thu, 23 Apr 2020 09:33:14 -0700 (PDT)
-X-Received: by 2002:a4a:bb10:: with SMTP id f16mr4021122oop.43.1587659593810;
-        Thu, 23 Apr 2020 09:33:13 -0700 (PDT)
+        Thu, 23 Apr 2020 09:36:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) client-ip=2607:f8b0:4864:20::342;
+Received: by mail-ot1-x342.google.com with SMTP id m18so7113100otq.9
+        for <clang-built-linux@googlegroups.com>; Thu, 23 Apr 2020 09:36:04 -0700 (PDT)
+X-Received: by 2002:aca:f254:: with SMTP id q81mr3723853oih.12.1587659764320;
+        Thu, 23 Apr 2020 09:36:04 -0700 (PDT)
 Received: from ubuntu-s3-xlarge-x86 ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id k12sm764896oik.30.2020.04.23.09.33.12
+        by smtp.gmail.com with ESMTPSA id b19sm791382oii.1.2020.04.23.09.36.03
         (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Thu, 23 Apr 2020 09:33:12 -0700 (PDT)
-Date: Thu, 23 Apr 2020 09:33:11 -0700
+        Thu, 23 Apr 2020 09:36:03 -0700 (PDT)
+Date: Thu, 23 Apr 2020 09:36:02 -0700
 From: Nathan Chancellor <natechancellor@gmail.com>
-To: kbuild test robot <lkp@intel.com>
-Cc: Dirk Mueller <dmueller@suse.com>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	David Gibson <david@gibson.dropbear.id.au>
-Subject: Re: lib/mpi/generic_mpih-mul1.c:37:13: error: invalid use of a cast
- in a inline asm context requiring an l-value: remove the cast or build with
- -fheinous-gnu-extensions
-Message-ID: <20200423163311.GA6774@ubuntu-s3-xlarge-x86>
-References: <202004232041.oMgr2Xiq%lkp@intel.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: Michael Ellerman <mpe@ellerman.id.au>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Paul Mackerras <paulus@samba.org>, linux-crypto@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	kbuild test robot <lkp@intel.com>
+Subject: Re: [PATCH] lib/mpi: Fix building for powerpc with clang
+Message-ID: <20200423163602.GA18872@ubuntu-s3-xlarge-x86>
+References: <20200413195041.24064-1-natechancellor@gmail.com>
+ <20200414135731.GA8766@gondor.apana.org.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <202004232041.oMgr2Xiq%lkp@intel.com>
+In-Reply-To: <20200414135731.GA8766@gondor.apana.org.au>
 User-Agent: Mutt/1.9.4 (2018-02-28)
 X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=MNYFFwO7;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=mrzi5atR;       spf=pass
  (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::c44 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+ 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -152,180 +153,31 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Apr 23, 2020 at 08:00:47PM +0800, kbuild test robot wrote:
-> Hi Dirk,
+On Tue, Apr 14, 2020 at 11:57:31PM +1000, Herbert Xu wrote:
+> On Mon, Apr 13, 2020 at 12:50:42PM -0700, Nathan Chancellor wrote:
+> > 0day reports over and over on an powerpc randconfig with clang:
+> > 
+> > lib/mpi/generic_mpih-mul1.c:37:13: error: invalid use of a cast in a
+> > inline asm context requiring an l-value: remove the cast or build with
+> > -fheinous-gnu-extensions
+> > 
+> > Remove the superfluous casts, which have been done previously for x86
+> > and arm32 in commit dea632cadd12 ("lib/mpi: fix build with clang") and
+> > commit 7b7c1df2883d ("lib/mpi/longlong.h: fix building with 32-bit
+> > x86").
+> > 
+> > Reported-by: kbuild test robot <lkp@intel.com>
+> > Link: https://github.com/ClangBuiltLinux/linux/issues/991
+> > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
 > 
-> First bad commit (maybe != root cause):
-> 
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> head:   c578ddb39e565139897124e74e5a43e56538cb33
-> commit: e33a814e772cdc36436c8c188d8c42d019fda639 scripts/dtc: Remove redundant YYLOC global declaration
-> date:   4 weeks ago
-> config: powerpc-randconfig-a001-20200423 (attached as .config)
-> compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project bbf386f02b05db017fda66875cc5edef70779244)
-> reproduce:
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install powerpc cross compiling tool for clang build
->         # apt-get install binutils-powerpc-linux-gnu
->         git checkout e33a814e772cdc36436c8c188d8c42d019fda639
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc 
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kbuild test robot <lkp@intel.com>
-> 
-> All errors (new ones prefixed by >>):
-> 
-> >> lib/mpi/generic_mpih-mul1.c:37:13: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                    umul_ppmm(prod_high, prod_low, s1_ptr[j], s2_limb);
->                    ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:790:20: note: expanded from macro 'umul_ppmm'
->            : "=r" ((USItype) ph) \
->                    ~~~~~~~~~~^~
->    1 error generated.
-> --
-> >> lib/mpi/generic_mpih-mul2.c:36:13: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                    umul_ppmm(prod_high, prod_low, s1_ptr[j], s2_limb);
->                    ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:790:20: note: expanded from macro 'umul_ppmm'
->            : "=r" ((USItype) ph) \
->                    ~~~~~~~~~~^~
->    1 error generated.
-> --
-> >> lib/mpi/generic_mpih-mul3.c:36:13: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                    umul_ppmm(prod_high, prod_low, s1_ptr[j], s2_limb);
->                    ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:790:20: note: expanded from macro 'umul_ppmm'
->            : "=r" ((USItype) ph) \
->                    ~~~~~~~~~~^~
->    1 error generated.
-> --
-> >> lib/mpi/mpih-div.c:99:16: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:750:21: note: expanded from macro 'sub_ddmmss'
->                    : "=r" ((USItype)(sh)), \
->                            ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:99:20: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:751:20: note: expanded from macro 'sub_ddmmss'
->                    "=&r" ((USItype)(sl)) \
->                           ~~~~~~~~~~^~~
-> >> lib/mpi/mpih-div.c:99:16: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:757:21: note: expanded from macro 'sub_ddmmss'
->                    : "=r" ((USItype)(sh)), \
->                            ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:99:20: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:758:20: note: expanded from macro 'sub_ddmmss'
->                    "=&r" ((USItype)(sl)) \
->                           ~~~~~~~~~~^~~
-> >> lib/mpi/mpih-div.c:99:16: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:764:21: note: expanded from macro 'sub_ddmmss'
->                    : "=r" ((USItype)(sh)), \
->                            ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:99:20: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:765:20: note: expanded from macro 'sub_ddmmss'
->                    "=&r" ((USItype)(sl)) \
->                           ~~~~~~~~~~^~~
-> >> lib/mpi/mpih-div.c:99:16: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:771:21: note: expanded from macro 'sub_ddmmss'
->                    : "=r" ((USItype)(sh)), \
->                            ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:99:20: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:772:20: note: expanded from macro 'sub_ddmmss'
->                    "=&r" ((USItype)(sl)) \
->                           ~~~~~~~~~~^~~
-> >> lib/mpi/mpih-div.c:99:16: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:778:21: note: expanded from macro 'sub_ddmmss'
->                    : "=r" ((USItype)(sh)), \
->                            ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:99:20: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                    sub_ddmmss(n1, n0, n1, n0, d1, d0);
->                                    ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:779:20: note: expanded from macro 'sub_ddmmss'
->                    "=&r" ((USItype)(sl)) \
->                           ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:120:18: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                                    add_ssaaaa(n1, n0, r - d0,
->                                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:725:21: note: expanded from macro 'add_ssaaaa'
->                    : "=r" ((USItype)(sh)), \
->                            ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:120:22: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                                    add_ssaaaa(n1, n0, r - d0,
->                                                    ~~~~~~~~~~~~~~~^~~~~~~~~~~
->    lib/mpi/longlong.h:726:20: note: expanded from macro 'add_ssaaaa'
->                    "=&r" ((USItype)(sl)) \
->                           ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:120:18: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                                    add_ssaaaa(n1, n0, r - d0,
->                                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:732:21: note: expanded from macro 'add_ssaaaa'
->                    : "=r" ((USItype)(sh)), \
->                            ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:120:22: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                                    add_ssaaaa(n1, n0, r - d0,
->                                                    ~~~~~~~~~~~~~~~^~~~~~~~~~~
->    lib/mpi/longlong.h:733:20: note: expanded from macro 'add_ssaaaa'
->                    "=&r" ((USItype)(sl)) \
->                           ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:120:18: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                                    add_ssaaaa(n1, n0, r - d0,
->                                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:739:21: note: expanded from macro 'add_ssaaaa'
->                    : "=r" ((USItype)(sh)), \
->                            ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:120:22: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                                    add_ssaaaa(n1, n0, r - d0,
->                                                    ~~~~~~~~~~~~~~~^~~~~~~~~~~
->    lib/mpi/longlong.h:740:20: note: expanded from macro 'add_ssaaaa'
->                    "=&r" ((USItype)(sl)) \
->                           ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:129:16: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                            umul_ppmm(n1, n0, d0, q);
->                                            ~~~~~~~~~~^~~~~~~~~~~~~~
->    lib/mpi/longlong.h:790:20: note: expanded from macro 'umul_ppmm'
->            : "=r" ((USItype) ph) \
->                    ~~~~~~~~~~^~
->    lib/mpi/mpih-div.c:137:17: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                            sub_ddmmss(n1, n0, n1, n0, 0, d0);
->                                            ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:750:21: note: expanded from macro 'sub_ddmmss'
->                    : "=r" ((USItype)(sh)), \
->                            ~~~~~~~~~~^~~
->    lib/mpi/mpih-div.c:137:21: error: invalid use of a cast in a inline asm context requiring an l-value: remove the cast or build with -fheinous-gnu-extensions
->                                            sub_ddmmss(n1, n0, n1, n0, 0, d0);
->                                            ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
->    lib/mpi/longlong.h:751:20: note: expanded from macro 'sub_ddmmss'
->                    "=&r" ((USItype)(sl)) \
->                           ~~~~~~~~~~^~~
->    fatal error: too many errors emitted, stopping now [-ferror-limit=]
->    20 errors generated.
-> 
-> vim +37 lib/mpi/generic_mpih-mul1.c
+> Acked-by: Herbert Xu <herbert@gondor.apana.org.au>
+> -- 
+> Email: Herbert Xu <herbert@gondor.apana.org.au>
+> Home Page: http://gondor.apana.org.au/~herbert/
+> PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
-Obviously not caused by that commit but I sent a patch a week and a half
-ago:
-
-https://lore.kernel.org/lkml/20200413195041.24064-1-natechancellor@gmail.com/
-
-https://github.com/ClangBuiltLinux/linux/issues/991
+Might be better for you to take this instead. 0day just tripped over
+this again.
 
 Cheers,
 Nathan
@@ -333,4 +185,4 @@ Nathan
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200423163311.GA6774%40ubuntu-s3-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200423163602.GA18872%40ubuntu-s3-xlarge-x86.
