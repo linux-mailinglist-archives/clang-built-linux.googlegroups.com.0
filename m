@@ -1,130 +1,196 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBGNVRP2QKGQE36R7O4Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDNYNPOAQ4GBBJUERT2QKGQEXOVAI4I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x139.google.com (mail-il1-x139.google.com [IPv6:2607:f8b0:4864:20::139])
-	by mail.lfdr.de (Postfix) with ESMTPS id 334A31B7430
-	for <lists+clang-built-linux@lfdr.de>; Fri, 24 Apr 2020 14:24:58 +0200 (CEST)
-Received: by mail-il1-x139.google.com with SMTP id z24sf9302539ilk.23
-        for <lists+clang-built-linux@lfdr.de>; Fri, 24 Apr 2020 05:24:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1587731097; cv=pass;
+Received: from mail-wr1-x438.google.com (mail-wr1-x438.google.com [IPv6:2a00:1450:4864:20::438])
+	by mail.lfdr.de (Postfix) with ESMTPS id 22A911B790F
+	for <lists+clang-built-linux@lfdr.de>; Fri, 24 Apr 2020 17:13:43 +0200 (CEST)
+Received: by mail-wr1-x438.google.com with SMTP id g7sf4903976wrw.18
+        for <lists+clang-built-linux@lfdr.de>; Fri, 24 Apr 2020 08:13:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1587741222; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZeYwoVNy04jkEptOfsL6WN21zVKLJtooe3Q/9a7vJ0ccsr5Ni7vlwdyl4/19s1dxmz
-         OUuE2RsN2WJzO4lDsvbHy2NrzvCy+6kIhmNr7/AwB+3ikmmPLi+56o+halZX4DMHy1o6
-         uB8GDsKR5bfNvGWD3yHnqUARUiOqBzCIQGMhrWk47Mp/oa03Mx0Eczs8bYs79XAGw54C
-         MUGrRLrNG2YZteiKLqJMPvg4sdGTiNu0SurL8omBZh/OWCUD4z6YDFbrlqE05U28f+dm
-         TXu4aK6EIlMGZnPCLMn0vds7S8ViBw+Oh1wdwM4JpFScfYbxClX1oBZPcqbu7e9Uvgjy
-         48UA==
+        b=nHuyz6NaUv5AyTojEtcsNKufcFgiSZzo8/ek+LZTsDdJweB8CR3+8WXvzWi2ixFQee
+         LE58ekcoDnaulLoJlGx0YNoWjYto1duqZfGWlfBJ+okJC2HiNX7MpDygFNWsDe3IYsMk
+         H0nFeBorm7xsO/Xj/MNnQ3pFD7yVLSRdPo2U1p+dgPLxdY/ae5XJuA+FF3Hy+QpFEzdL
+         UpNL+wVu+3ekpUj/Xl2U3wxYqGYuYtcdQfzXWbhQUiPytcH1UOgI7g1Xeab/kgcH0Mj3
+         a7PTvDbX6+muYJ7Ibg1V6GDLf5sHEc+Uql4BdrqtrkXBtKfCfMquvO5LrymX3L3eNXQo
+         SuQw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=cOKBfJcwiSKHMACzjldb4bbecBUbd90/gbYwSyLtRhc=;
-        b=wFNjLHMzxOQQD+Gmwbsdc0ffip8Y1+CMoeMmNVjrbaIzHizj8l8cmVgL/t9ZMt+DV/
-         IGbEi3Fyv014woNaXpg+RFyxAcTtzpo1vujovcDzBU6u6WSDz+4s7EbN6yVjw3YRE8J6
-         WLOFLfUugCP5iKugNUeSkb4Y9GZjKc6Lqj5fT1+xH4a6ioecjUakslC/5qXko0SMOIZy
-         RqWlZV+F1EIyrbHyf1hAJ68YY3cEE9MXbt2CPpexeU144PyAaonuht/lTkOOf60zlEOQ
-         5iaDtuskuBQ3CgGKegi1ce38Yxaz67pw3Z6yDZDsJVEhGDp8uuWgetrQH5sk5JWkXHp9
-         01uw==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:subject:autocrypt:from
+         :references:cc:to:sender:dkim-signature;
+        bh=Vt2IXXdvezCJoww8I+J5ggI+Nt/23u65qa+uUNyfwBE=;
+        b=REuYSUa+ozSIwLNZa5QNWjidVfr38P55yzNslJZ8uDWeuO4dOYiu1h10zlq5omxEsw
+         FhFrLEx5eSyKGQ2tNHD/rjEOT6mhl4VKO1yxE/780bCYj+S75u+x260oCG0e+Udp51P+
+         pDdwRO46Li/k18bMLcx06x+QeI89uvc5ZkVNatLtqlwy8eXMSk0xb+W1ffL6E3rKyvyg
+         ux7D6ktdAa1Jbr77mLD10V9LSBrjY7pWMkrtkvqr8ETYUr1U6l7xKdoPF42J6p4alZqt
+         /keXibwRwLaZ6S92XW/0cl4yPynOvKydB/NV7KXWcsOk2BtvQ9PU9xxWKIwPbopYuHtY
+         sskg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=uCmT4qsV;
-       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@embeddedor.com header.s=default header.b=JRszSWBI;
+       spf=pass (google.com: domain of gustavo@embeddedor.com designates 192.185.45.250 as permitted sender) smtp.mailfrom=gustavo@embeddedor.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:to:cc:references:from:autocrypt:subject:message-id:date
+         :user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=cOKBfJcwiSKHMACzjldb4bbecBUbd90/gbYwSyLtRhc=;
-        b=Blzeg9A8e5l60dFAPieNsY/x/Oz1Kp12oRLSe9G8N/xN4HuaTN2Mbx8PQLPYf6gNIq
-         sS/Lw6+FnKb/mfJyyig3qUbm9lQs38Yf1HYZ5OtlIgvua14yPUxYEq3oI6+FozLELTqY
-         6cmyLhXyJOOLv42xLttLlM0y7kZM4rHqgGr4WMF4I7qqzrL1Za//6bn5LePcXkHl/yjz
-         lr9L4xHV0S8VOwuWrmdh5ha8WwbYCWuXm/FMY4yfD7tdv7Iou3L6NLwxJ+HHAkg9dRYf
-         SmtQyCus+eFiTN1Kq60r5AyyQCstszgvnnw3hqWePaOrlMQ+Gdd7HM/MN8XV58iJHD8+
-         0rJQ==
+        bh=Vt2IXXdvezCJoww8I+J5ggI+Nt/23u65qa+uUNyfwBE=;
+        b=HLdUzzFjXGrp30VLF/0HPwdkuSBNU5+LCUkLmXzpzuO1ZhVYW4LJWM6hmdFEDsSVos
+         nhVpvHq4o9UkLaFFnDkL41QN9Gh/p3n4ZPmARQ39BlIyeIsDR2IFHCItDS+aPTFoyCWf
+         Hi1jFMUERw4xqT3DffBi38qD+xOplZ0SbDRb6w5IaeAuOyOBgvlPLp3XLZakgwfhkYK4
+         44uYQwAodDHkt0HJWYjKUccY/7k6boccG0BnPtrauc4ErZsWN5WgQ6vhFXjRMDoZDQMg
+         ZUuzDbe2vnGCbqjX50kFnK/NdhTItEdgs7fMW6kuLFXnD2EklFe03RIx00TT5CtmjaZR
+         fvVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
+        h=sender:x-gm-message-state:to:cc:references:from:autocrypt:subject
+         :message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=cOKBfJcwiSKHMACzjldb4bbecBUbd90/gbYwSyLtRhc=;
-        b=omNWqYma3eLPZEzUIkMyqTP2+gRIiQVgn0MfaK2p7MlUIp7fwq0kWpPEHGAX0rzqQ6
-         gRqtRc43Y/zybIut+FXjliqulwmoozHVaL6Hf8Vq46TvuC/VJBRqzo6ZRIGPuyzSpg1l
-         /Kfjqu4kRIBWFn9eUdA+FvO12EnrdXqIBl31YoNvRbJPn5B1G1hGbSjEddX9N2H8uHpn
-         tyH4KhkTDflbay0hZ9yq9hvk4KGy7lHdgaOUZP8y/x8WDjYLxcT8kiTSlTmzkDsYzdO1
-         BxIoE3jE8N9Z/XzpYx4oYJ3IFWhCYO5sDXjLgCVNYN0vckbsA8OAcsLO4R80v5mOcuFx
-         9uRQ==
+        bh=Vt2IXXdvezCJoww8I+J5ggI+Nt/23u65qa+uUNyfwBE=;
+        b=PWNNq516yzy6B0lsn1upbZsR1H8r6K0SxE9b5FTjexLYG6bBumgo3OKA20eqPMgF9h
+         OIb+vUodv6ql1x121F3gdCfkT6a2d2WicTOOBdzdsHAbqfuDuaF54ZVURMZZDssKr+/X
+         NQcRTH5XpwoCDSuL+GXGXbPioNQnlyIBXZmhgedolbtjZFbXd1IXaDpf1XLt8fzRif9Z
+         CW8xoJBtyLPSDF1h7NjJPEAW4rifzGQRVEWp9AGxEziuLxq7uKfysn1BrEfNH7ArTrvX
+         WcFpdDxEDCfVN028M3WU7y8rXVBKQIfEUFMhAcL5SYjpg00NO++s/j5bU80+z9KPnWAf
+         W8hQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PubzV00WLcVFmcBixVkISrq7uDoEbj+QTqPONajWQpYXimn4OKI0
-	Wb7L+aeYB/EJU5wf51JRdxc=
-X-Google-Smtp-Source: APiQypL95Bzd/XNGknnHkvd9KQ3wGWs9k9EDZuvi8b1nAOB9K52TBiLIPLpAbGPfoz/hT+c5uvg35Q==
-X-Received: by 2002:a5d:9c09:: with SMTP id 9mr8503681ioe.26.1587731097176;
-        Fri, 24 Apr 2020 05:24:57 -0700 (PDT)
+X-Gm-Message-State: AGi0PuYHAIMlzuwMOBctOgdt9X7/Ge+NE+vTiSo0H2EsvKHUUmDXo2rg
+	66x/pdHWX7oOErEA6xd68gw=
+X-Google-Smtp-Source: APiQypI4qxnlgdT+dr2cWgZN3Zcqny2rfDsq0ekD8hBsWhqk1vuZ/PuboALvUHiqbp0+QpcoE8MFPg==
+X-Received: by 2002:a1c:f615:: with SMTP id w21mr10170295wmc.183.1587741222830;
+        Fri, 24 Apr 2020 08:13:42 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a6b:1803:: with SMTP id 3ls2180429ioy.0.gmail; Fri, 24 Apr
- 2020 05:24:56 -0700 (PDT)
-X-Received: by 2002:a5e:8e4a:: with SMTP id r10mr6094965ioo.9.1587731096539;
-        Fri, 24 Apr 2020 05:24:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1587731096; cv=none;
+Received: by 2002:a5d:4a83:: with SMTP id o3ls9782780wrq.7.gmail; Fri, 24 Apr
+ 2020 08:13:42 -0700 (PDT)
+X-Received: by 2002:adf:dd8f:: with SMTP id x15mr12458160wrl.201.1587741222266;
+        Fri, 24 Apr 2020 08:13:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1587741222; cv=none;
         d=google.com; s=arc-20160816;
-        b=h0pnPHmA5J3cXY1qL6CK7zphKdF1Hbu9+7cUfZR3G9esrbb+F+YlHDrNKDV5rBsd+X
-         0iz4VY4Ssuu/QOCehKbk/SKGoe29UdtTD3bPcyYq4d90CHj9U4njKEbTW3p0ceSDX4eV
-         CRd3U96QkuGbycseDfoyHQu8a5JC68yS8Z5oULHOT+7lUhOJ06Ro4acaPgWlvrK8qNrb
-         1FfyeZkW40gW2YPyxGcuXTBU3WGxbpzqhyEgH5qyWjMeA7IitLQNvqc2/M2hz9H+SehY
-         +Vh/9H6jJWQiN9ZshcGXjsIMs+U+4UgBVycXqUNagV2JrIVsdZmafIqmtXHl5SRKZ+xx
-         nBTw==
+        b=V7Xo47FEd30KxwLxx1045lj0Bpad6aqn8C2MpROJl1E+xsOFJUgnqQCr4oX+Y//Ic8
+         vFhlvuG8oxb+JFoyXNuF69BUT7n7rM2Xb17IR9RevJ1zuinQ+wvrNuw154auVoK8ijWA
+         b7L9gUB7rYae1QQViHj7fKK7mT8ulwgnXnmfFSJS5lyCPu5TB42bH+2VfBtkJugTwHqo
+         0dbIOwJUc9ogNY/GZftiA1wzdXCMXwtshxqclaolC33MW8hIBvvaO1Z7aSBv/OAejST/
+         eolDuii1IX4oWqbjvF98hObDvYQ6hgcSzf68UKDjA2ECrv77ylyudZICFX6MKTZT6deO
+         zM4A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=nQ46E/Rfsw3NIBWqbsvUayMwPODV36fGdXTJAa/yKS4=;
-        b=uG8an9e7fXH5TKnEwIzDmfYYkF4E6rxmZh5Ua/RuKx3za8F8n7npcUdxqfUhiYfxut
-         HAs8AXGwMnbyJYKDPgEC8A/vgdoLPOSIHyThzoNypq18Le/bjsxcVfAjylZCxSaZ0mNG
-         ySPzX8thnyOrsKDkfHfZG97uZHSegc0TXKz2lwBMcUTmgZdp8SYGEJ1LTbYfeQ/+CnwH
-         HL+7glkSkyp4j1TJ6bL5pPDHLWmCShc/pEs45lVSP4Ms/Fk0+EWH6NQbIZ8GGbiWsl1S
-         eswT7FMIDY6v1DntuQO5iRtM/O6oHA1lsO91uQ9PSOsmFS7wvg1vOr268XJ0Qqw8YL80
-         Gp4A==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:subject:autocrypt:from:references:cc:to
+         :dkim-signature;
+        bh=GtcnpGsolmgR53+FPf7YoLxFdbs5TBp3BgCqahnxZ6Y=;
+        b=OeEZ/jP60HtQANSz2UwNS86DEavhjftoBncwgPtPt6JuTdr3tJr2kZ4yvLZeSU3q29
+         /VmwQiZRA15BHIzOBpO1LxrW4TNTkFnqsD+WQEb3G2k0qzGd1fkGFkPR0yIRMoSTrSZS
+         ynI2rW2VygSmLvtkNAIVmJ+BL5m6/vyEP2XvRK/ZGWcrx8ZhsMJyX1iBl0cQcGXb+Yo8
+         +O4LsaCfgDFx0kJaHxf1H8lSJZgEGqxUJIwcV7bND6cYZ50eixv5X+9ptPGPMl+g60km
+         BKJgNvy3UKKUm4KZOrrCJ1sUnlVGUQ6Ku26biBeonBTMNG26oK5Blfa0+L7taHX1eX8m
+         I0fQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=uCmT4qsV;
-       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id t16si357024ilj.3.2020.04.24.05.24.56
+       dkim=pass header.i=@embeddedor.com header.s=default header.b=JRszSWBI;
+       spf=pass (google.com: domain of gustavo@embeddedor.com designates 192.185.45.250 as permitted sender) smtp.mailfrom=gustavo@embeddedor.com
+Received: from gateway21.websitewelcome.com (gateway21.websitewelcome.com. [192.185.45.250])
+        by gmr-mx.google.com with ESMTPS id q17si155027wmg.1.2020.04.24.08.13.41
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 24 Apr 2020 05:24:56 -0700 (PDT)
-Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 0629620776;
-	Fri, 24 Apr 2020 12:24:54 +0000 (UTC)
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Josh Poimboeuf <jpoimboe@redhat.com>,
-	Borislav Petkov <bp@suse.de>,
-	Miroslav Benes <mbenes@suse.cz>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Sasha Levin <sashal@kernel.org>,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.9 07/13] objtool: Support Clang non-section symbols in ORC dump
-Date: Fri, 24 Apr 2020 08:24:40 -0400
-Message-Id: <20200424122447.10882-7-sashal@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200424122447.10882-1-sashal@kernel.org>
-References: <20200424122447.10882-1-sashal@kernel.org>
+        Fri, 24 Apr 2020 08:13:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gustavo@embeddedor.com designates 192.185.45.250 as permitted sender) client-ip=192.185.45.250;
+Received: from cm13.websitewelcome.com (cm13.websitewelcome.com [100.42.49.6])
+	by gateway21.websitewelcome.com (Postfix) with ESMTP id 0CFC1400D3210
+	for <clang-built-linux@googlegroups.com>; Fri, 24 Apr 2020 10:13:41 -0500 (CDT)
+Received: from gator4166.hostgator.com ([108.167.133.22])
+	by cmsmtp with SMTP
+	id S01NjSwjpVQh0S01NjbPVf; Fri, 24 Apr 2020 10:13:41 -0500
+X-Authority-Reason: nr=8
+Received: from [201.162.177.68] (port=57568 helo=[192.168.43.132])
+	by gator4166.hostgator.com with esmtpsa (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128)
+	(Exim 4.92)
+	(envelope-from <gustavo@embeddedor.com>)
+	id 1jS01M-000a3c-JL; Fri, 24 Apr 2020 10:13:40 -0500
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+ Kees Cook <keescook@chromium.org>, Greg KH <gregkh@linuxfoundation.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-rdma@vger.kernel.org, clang-built-linux@googlegroups.com
+References: <6342c465-e34b-3e18-cc31-1d989926aebd@embeddedor.com>
+ <20200424034704.GA12320@ubuntu-s3-xlarge-x86>
+From: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
+Autocrypt: addr=gustavo@embeddedor.com; keydata=
+ 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
+ VtSixD1uOgytAP7RWS474w==
+Subject: Re: remaining flexible-array conversions
+Message-ID: <f636ad65-b313-90e9-557b-856d44c2e14b@embeddedor.com>
+Date: Fri, 24 Apr 2020 10:17:51 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-Original-Sender: sashal@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=uCmT4qsV;       spf=pass
- (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+In-Reply-To: <20200424034704.GA12320@ubuntu-s3-xlarge-x86>
 Content-Type: text/plain; charset="UTF-8"
+Content-Language: en-US
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - gator4166.hostgator.com
+X-AntiAbuse: Original Domain - googlegroups.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - embeddedor.com
+X-BWhitelist: no
+X-Source-IP: 201.162.177.68
+X-Source-L: No
+X-Exim-ID: 1jS01M-000a3c-JL
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: ([192.168.43.132]) [201.162.177.68]:57568
+X-Source-Auth: gustavo@embeddedor.com
+X-Email-Count: 7
+X-Source-Cap: Z3V6aWRpbmU7Z3V6aWRpbmU7Z2F0b3I0MTY2Lmhvc3RnYXRvci5jb20=
+X-Local-Domain: yes
+X-Original-Sender: gustavo@embeddedor.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@embeddedor.com header.s=default header.b=JRszSWBI;       spf=pass
+ (google.com: domain of gustavo@embeddedor.com designates 192.185.45.250 as
+ permitted sender) smtp.mailfrom=gustavo@embeddedor.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,113 +203,78 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Josh Poimboeuf <jpoimboe@redhat.com>
+Hi Nathan,
 
-[ Upstream commit 8782e7cab51b6bf01a5a86471dd82228af1ac185 ]
+On 4/23/20 22:47, Nathan Chancellor wrote:
+> Hi Gustavo,
+> 
+> That patch in -next appears to introduce some warnings with clang when
+> CONFIG_UAPI_HEADER_TEST is enabled (allyesconfig/allmodconfig exposed it
+> for us with KernelCI [1]):
+> 
 
-Historically, the relocation symbols for ORC entries have only been
-section symbols:
+Thanks a lot for reporting this.
 
-  .text+0: sp:sp+8 bp:(und) type:call end:0
+> ./usr/include/rdma/ib_user_verbs.h:436:34: warning: field 'base' with
+> variable sized type 'struct ib_uverbs_create_cq_resp' not at the end of
+> a struct or class is a GNU extension
+> [-Wgnu-variable-sized-type-not-at-end]
+>         struct ib_uverbs_create_cq_resp base;
+>                                         ^
+> ./usr/include/rdma/ib_user_verbs.h:647:34: warning: field 'base' with
+> variable sized type 'struct ib_uverbs_create_qp_resp' not at the end of
+> a struct or class is a GNU extension
+> [-Wgnu-variable-sized-type-not-at-end]
+>         struct ib_uverbs_create_qp_resp base;
+>                                         ^
+> ./usr/include/rdma/ib_user_verbs.h:743:29: warning: field 'base' with
+> variable sized type 'struct ib_uverbs_modify_qp' not at the end of a
+> struct or class is a GNU extension
+> [-Wgnu-variable-sized-type-not-at-end]
+>         struct ib_uverbs_modify_qp base;
+>                                    ^
+> 3 warnings generated.
+> 
+> I presume this is part of the point of the conversion since you mention
+> a compiler warning when the flexible member is not at the end of a
+> struct. How should they be fixed? That should probably happen before the
+> patch gets merged.
+> 
+For all the cases above, the solution seems to be to move the declaration
+of the "base" member to the end of the corresponding structure, as below:
 
-However, the Clang assembler is aggressive about stripping section
-symbols.  In that case we will need to use function symbols:
+diff --git a/include/uapi/rdma/ib_user_verbs.h b/include/uapi/rdma/ib_user_verbs.h
+index a390a667b3f3..e05538be8b30 100644
+--- a/include/uapi/rdma/ib_user_verbs.h
++++ b/include/uapi/rdma/ib_user_verbs.h
+@@ -644,9 +644,9 @@ struct ib_uverbs_create_qp_resp {
+ };
 
-  freezing_slow_path+0: sp:sp+8 bp:(und) type:call end:0
+ struct ib_uverbs_ex_create_qp_resp {
+-       struct ib_uverbs_create_qp_resp base;
+        __u32 comp_mask;
+        __u32 response_length;
++       struct ib_uverbs_create_qp_resp base;
+ };
 
-In preparation for the generation of such entries in "objtool orc
-generate", add support for reading them in "objtool orc dump".
+ /*
 
-Signed-off-by: Josh Poimboeuf <jpoimboe@redhat.com>
-Signed-off-by: Borislav Petkov <bp@suse.de>
-Reviewed-by: Miroslav Benes <mbenes@suse.cz>
-Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Link: https://lkml.kernel.org/r/b811b5eb1a42602c3b523576dc5efab9ad1c174d.1585761021.git.jpoimboe@redhat.com
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- tools/objtool/orc_dump.c | 44 ++++++++++++++++++++++++----------------
- 1 file changed, 27 insertions(+), 17 deletions(-)
+but I guess this will change the ABI?
 
-diff --git a/tools/objtool/orc_dump.c b/tools/objtool/orc_dump.c
-index c3343820916a6..7cbbbdd932f1d 100644
---- a/tools/objtool/orc_dump.c
-+++ b/tools/objtool/orc_dump.c
-@@ -78,7 +78,7 @@ int orc_dump(const char *_objname)
- 	char *name;
- 	size_t nr_sections;
- 	Elf64_Addr orc_ip_addr = 0;
--	size_t shstrtab_idx;
-+	size_t shstrtab_idx, strtab_idx = 0;
- 	Elf *elf;
- 	Elf_Scn *scn;
- 	GElf_Shdr sh;
-@@ -139,6 +139,8 @@ int orc_dump(const char *_objname)
- 
- 		if (!strcmp(name, ".symtab")) {
- 			symtab = data;
-+		} else if (!strcmp(name, ".strtab")) {
-+			strtab_idx = i;
- 		} else if (!strcmp(name, ".orc_unwind")) {
- 			orc = data->d_buf;
- 			orc_size = sh.sh_size;
-@@ -150,7 +152,7 @@ int orc_dump(const char *_objname)
- 		}
- 	}
- 
--	if (!symtab || !orc || !orc_ip)
-+	if (!symtab || !strtab_idx || !orc || !orc_ip)
- 		return 0;
- 
- 	if (orc_size % sizeof(*orc) != 0) {
-@@ -171,21 +173,29 @@ int orc_dump(const char *_objname)
- 				return -1;
- 			}
- 
--			scn = elf_getscn(elf, sym.st_shndx);
--			if (!scn) {
--				WARN_ELF("elf_getscn");
--				return -1;
--			}
--
--			if (!gelf_getshdr(scn, &sh)) {
--				WARN_ELF("gelf_getshdr");
--				return -1;
--			}
--
--			name = elf_strptr(elf, shstrtab_idx, sh.sh_name);
--			if (!name || !*name) {
--				WARN_ELF("elf_strptr");
--				return -1;
-+			if (GELF_ST_TYPE(sym.st_info) == STT_SECTION) {
-+				scn = elf_getscn(elf, sym.st_shndx);
-+				if (!scn) {
-+					WARN_ELF("elf_getscn");
-+					return -1;
-+				}
-+
-+				if (!gelf_getshdr(scn, &sh)) {
-+					WARN_ELF("gelf_getshdr");
-+					return -1;
-+				}
-+
-+				name = elf_strptr(elf, shstrtab_idx, sh.sh_name);
-+				if (!name) {
-+					WARN_ELF("elf_strptr");
-+					return -1;
-+				}
-+			} else {
-+				name = elf_strptr(elf, strtab_idx, sym.st_name);
-+				if (!name) {
-+					WARN_ELF("elf_strptr");
-+					return -1;
-+				}
- 			}
- 
- 			printf("%s+%llx:", name, (unsigned long long)rela.r_addend);
--- 
-2.20.1
+Also, notice that:
+
+"A structure containing a flexible array member, or a union containing
+such a structure (possibly recursively), may not be a member of a structure
+or an element of an array. (However, these uses are permitted by GCC as
+extensions.)"[1]
+
+[1] https://gcc.gnu.org/onlinedocs/gcc/Zero-Length.html
+
+Thanks
+--
+Gustavo
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200424122447.10882-7-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/f636ad65-b313-90e9-557b-856d44c2e14b%40embeddedor.com.
