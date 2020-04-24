@@ -1,149 +1,116 @@
-Return-Path: <clang-built-linux+bncBDAZZCVNSYPBBF7XRL2QKGQEOMG5GCY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBWEMRP2QKGQE43PXM5Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103e.google.com (mail-pj1-x103e.google.com [IPv6:2607:f8b0:4864:20::103e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8BBEB1B71AB
-	for <lists+clang-built-linux@lfdr.de>; Fri, 24 Apr 2020 12:12:40 +0200 (CEST)
-Received: by mail-pj1-x103e.google.com with SMTP id r3sf7292438pjq.7
-        for <lists+clang-built-linux@lfdr.de>; Fri, 24 Apr 2020 03:12:40 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1587723159; cv=pass;
+Received: from mail-lf1-x139.google.com (mail-lf1-x139.google.com [IPv6:2a00:1450:4864:20::139])
+	by mail.lfdr.de (Postfix) with ESMTPS id 297501B728C
+	for <lists+clang-built-linux@lfdr.de>; Fri, 24 Apr 2020 12:58:33 +0200 (CEST)
+Received: by mail-lf1-x139.google.com with SMTP id y19sf3753537lfk.13
+        for <lists+clang-built-linux@lfdr.de>; Fri, 24 Apr 2020 03:58:33 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1587725912; cv=pass;
         d=google.com; s=arc-20160816;
-        b=gBuXn2aGai/Bqq6R8S+GM9d17hVUCuVGpotMVC5GmP4ln/UTbhROp6utN6GLTU4t0g
-         Voz6j3lXgQYM2mIOrYsv8Z08j1XiOjfQhzPc67SbDiPmAMOE/BxAn6eqOZ3mqdN6Gtsw
-         5bTD0Dppd4Hx5bcmIB48UN6J6HFkwDO88HPTe+4Uyq4T/h2DOmxoy0RC1BY28O/5MVxo
-         M2alKo4BDCaophaeptUhDM1HARq/mSxEWtmnLJvgGoETocslFwfVLT7BC5Q4i1zIEWaI
-         mkAXOi7D50Pz44QpspKvT+gHgHYk19NxZKW6sG/xSawpeg4SQLPYd3NUjo04aZP/Kknw
-         umFQ==
+        b=tyluKHr1tilTLT7SvPIz/9fwsc+QC/emeHy9MxGjzSX3EPvyrJ8kF9W66DdZ6kxwW9
+         Hljosq9eEtZ7HgDWlvybfqufDoWK3fnuHetbrKvV3ZK3a6P2UV7Ds3+fcbzjl4V3XMfu
+         jZ70fJURoT39q3bWppjMf/3AQWcFT8D8gV9fk2ogoBRrV7sNrU/U1OrKIb+mvTHm9JaC
+         BxvP8jlGuc4CQSGaEU8mINabE95OchU56OdE+jBDkDWDv2U9VMjCtHhMmzXdovDnG6Pw
+         NSF4ITRk8rdpk5yZwHl8c0YYikU/A1lAY8wWAzRYn7LzhmixjdvAjn7abxT12/VyOAXm
+         t4Ww==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=zNB8SqeeREoPZPcMyPKcnRSUdAqw7Sqfv/mBZ7lQdKc=;
-        b=hHUJy2No8e/iTXVlPyK5NqRlVBK3SDH7BrGKjs29Q4LDmiUbBl6j2F1jdHlRn0i3cE
-         omIi9jLVaM/RGRSkQJGVrCgoNay6njebYJAhrQgLQlfkbIxeJy1XUKSZXOlQmz4NWn6Z
-         fEwZ6yg2p4Jw8dAHQ7ME16AUbWN12xnAcZxzpa/DwozCpISgivKpCpOdr134rhjRXguR
-         Yxn+LN7o8u1ZfZhQzvdUOmFuu2xJMdJ61NInYROU64GdrBALGQv+xEK7548hN5WyyrTP
-         2xo54336hj1J2ZdGuwhTFem7QPSLZBjK5L5HeM5bTaiB6bo4FCSapynfy60v43X4usdm
-         7N3Q==
+         :list-id:mailing-list:precedence:content-language:thread-index
+         :mime-version:message-id:date:subject:to:from:sender:dkim-signature;
+        bh=pa5pY7fy/177mub1BTkDOZhl1lkYpE8U0lXMa0GNVl4=;
+        b=E55I0V5cc/EgX2tsUOwdeI6TMMc4i++Ap8V9RW1IaHfs0AD1n6WopDNi3xcXX8XXpD
+         OtxDANl85D/+1NkV5wZCZEbuL7ZOZYWLWqRvLvnKnKreuALMahyXNS/nM/Jbx4CGhi3v
+         osRFxR1BSFXxSSInZtKaLms62r7UFM87s0C+xUJVYUEUjqSSkC4jECI0CxaVn/gHv4o9
+         D6IdkKtZ4qlzsvu1bYbz4FSElmDIRrrh9oYkqbNDJXtw86V4WpLSHzJdsmyM34u8ubD+
+         AQgeRJDb0xBrKb0bvF8iJondgV4iCHdoBykiXZdAI1xPurhFMhDmHW2auz0MwCqA05n/
+         YgQQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=kSbPHK0w;
-       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=neutral (google.com: 193.46.215.83 is neither permitted nor denied by best guess record for domain of james@mrktresponse.com) smtp.mailfrom=james@mrktresponse.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:from:to:subject:date:message-id:mime-version:thread-index
+         :content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=zNB8SqeeREoPZPcMyPKcnRSUdAqw7Sqfv/mBZ7lQdKc=;
-        b=Dg7BtjW/+k6vn4jfNE0KCNxJ5mVDkvz3d9eOxLWUq9WIXNCT5oEo24a5txnbCxwfZo
-         NgWg/FyCPaB8LJIrq079GJ6Vjp6NiDZ18fVnMBaJu3QQZydK7zjfb4d+aeOhiVXi16Dw
-         LKcRgJJex/xgalhFSnKGBKo1xcHDKZxk69gZW5jtiVqN7BTk0w2ZXWHfOrtW+b4m7cXm
-         8WzXeoly/MacwOGI/TAqRZzFQwpo+MosdJygKmY0ayz8EP7t7fXmNFcKurQeqs0oG+Nw
-         UmQaQBZadxHfxz4ZD4zCxUViHUVyGJO0ClQZA2I++sl5aGXc0LUVU8DLKqNppFgCsi0n
-         KaQQ==
+        bh=pa5pY7fy/177mub1BTkDOZhl1lkYpE8U0lXMa0GNVl4=;
+        b=Le/i0ZLXxn0+C+3i0FWM0jsxG+70dXM9rIgpK25Y3eMhYlg3cmUwqTW2Qfs3PYveK5
+         onqG9vbVbQi8Cr+2dWUvMeZmxbxSplwy4kGeicTCmpwSDRO6VURfi55EC7w8I2waKzhG
+         6CNusMDjFqJ8dAmYh9J1ho/K7/q7rO0Wlx0Lr9qUU+YXSaxY3cqRTY4GcM5nb/8VqzTp
+         5eLBDCI4j6Kz51rna20MQDp51lj4u7x9Rz/k6XrFxAMHgr65ar8qCVFcZ4LsPGu5sDsN
+         hmc2JTZcqhJBaaBJiC8JTbpImq5UNDzxJez3ljwNL9FutOrB8JWzUClV5Fv/+CITznhP
+         gnog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=zNB8SqeeREoPZPcMyPKcnRSUdAqw7Sqfv/mBZ7lQdKc=;
-        b=bmVEPvCXp13o3WkiF0lqz9nWsr3liH+8HdAlVkOmzwLygzWCskEN5oBwJi+ULLhRxZ
-         tvZb1UewkXa1TJ85kHlSx6skoVZ0PdvcECbKwN8gGjdQrtsprh6ytAKzspAY2hW+zErM
-         GfnTsS6Ca08V/LlNtlZGhvQ0aR8alXiKJ+MV88mN4zi3cQ/h1o8m4Cj/KEtiO1XMGM1d
-         2VyacG4m4sAwC4gIvlWtadt+apC4siLYbHUccB3AdiWclYLyLYqxlFowsf9ZdqhvpXpP
-         tdaA22bjB5li8fZnPBab6sJ7loTRnqi6bw4pEsbG1RqdNjdHo4U2myX2C8CZpUd+xJWt
-         RXRA==
+        h=sender:x-gm-message-state:from:to:subject:date:message-id
+         :mime-version:thread-index:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=pa5pY7fy/177mub1BTkDOZhl1lkYpE8U0lXMa0GNVl4=;
+        b=DPGTrfcfT5RbRaA1+LNtmTZyC0V4vLtomqljYN2/TOU2vyFxNo2mXk5Qmnbt+P1YyI
+         KZSmFQDryKYQ81xsl3uRtR/86NmdH/WBRKdc/6Lo+huVNvlO1W/2bL+0uxVJQuvM9pk4
+         01ECqrPV5OGFz1XlSNDG2lQ61FiVkVtGzLGm8vz4DD0OuA4wshzhlcAw5hxgzJYjutyo
+         nshv9oiDaIniKeWJ+pm1HnAiVvL7rvGS2DTmcbJC/KeKSUP37ditNh8sazLnEZvBF2di
+         Sbl/cGeo6ZDS94qwTp2daubpUuQB+saLf4oXUvLUH8xazlgWJEv1qoGyZPOYxPajQI9h
+         dIZQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0Pubbx99GlT0fgz/9JMV54pmU/nInE8UoAYKcP6tbXYvXCBfU20UG
-	ivHVK0i7MtEodmUQzkNgfjY=
-X-Google-Smtp-Source: APiQypIHq8jhAXrB/SBjG7EW4ecbhSMOSnjwZtxLZG9EAs7hwG9rI0O5ubwniqGr0U26nsgm6V1Ktw==
-X-Received: by 2002:a63:4e0c:: with SMTP id c12mr8980211pgb.161.1587723159115;
-        Fri, 24 Apr 2020 03:12:39 -0700 (PDT)
+X-Gm-Message-State: AGi0PuZwp5RcPE0R05OySZvOK420ZabKr9mOMX91I5RG0aUJmiXp5vsy
+	yPOPIRKubwXV7vZZ/+47efc=
+X-Google-Smtp-Source: APiQypIHlZJx2W2LuO/ihotesTMF90YgsmkP8EXa23H/ElknAxFA84Njcy5IKAGH/7KFzfpYNTDqCA==
+X-Received: by 2002:a2e:b4a5:: with SMTP id q5mr5726873ljm.58.1587725912603;
+        Fri, 24 Apr 2020 03:58:32 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:d641:: with SMTP id d1ls5623449pgj.0.gmail; Fri, 24 Apr
- 2020 03:12:38 -0700 (PDT)
-X-Received: by 2002:a62:6485:: with SMTP id y127mr8505986pfb.11.1587723158644;
-        Fri, 24 Apr 2020 03:12:38 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1587723158; cv=none;
+Received: by 2002:ac2:5a0e:: with SMTP id q14ls2110823lfn.3.gmail; Fri, 24 Apr
+ 2020 03:58:32 -0700 (PDT)
+X-Received: by 2002:ac2:5dd7:: with SMTP id x23mr5973929lfq.48.1587725912097;
+        Fri, 24 Apr 2020 03:58:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1587725912; cv=none;
         d=google.com; s=arc-20160816;
-        b=RISVZc3KW2yIRDOOjIzEG3KAbI5XxDW0Iyih24ACowA8QbQrUlWlk43QYUILz5X99N
-         AGzh34MB7NzXJUxODgm6lHWVBtKqW+30oSlZP6PodTt20DDvXisMreSQel/IM8VGEQx5
-         evfAxsn02WrsuOKIraIYr4u/Xaxr427amTV4kK0sIhngBPVtP6MxZhFE0Eunppcxyiox
-         v6uvzovvnFe9DRhoSVWvpFzOTSL6gLGUq7z/FrTSEtmXfXaAlPZnHqRsEhmbKR21mGoJ
-         HK1PoCupb1wjD45h+JfGHTXWuIq1jJ16AdowMEOUpjQNxYoDzgxApKsSYxKkibHOFznx
-         y6oA==
+        b=zffm44R9wCD4Z+/+Z94a7MpexPg0j+Xr8pppNd7MuAGO+9LLVRLJA2Qq26S4cJB7OK
+         UiezAbRLtfAnBF6VI73ARP70QeTiL4Gl9R62u3ysu8Usyl0QPt2QkLs/243gVzRVpa4A
+         jBPWusDomcuPELVRP0/tYY13bxmyAl45ap3IO6ivRCVEeYPAI2hQ1cKxWl0EaVE0oAJ7
+         banqUXdC4gHHbfcIaT3+kltQ8FYf7yrOUIobG7AVjjR1hq5LpCDm6/ivUmKicpZgGgpU
+         GzLyo9IibiJdAF7qnksgDk9aDvhtW+z8MH49eu1M3s1VuBbzInQJMTix2vr1hdz6xYEW
+         Fq1g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=lh1hsQ6RzR4oFBWHfhFpc6qZG1ivR8YS3Q8Hh14wQZw=;
-        b=es7xL8GUq1XMcS+1ly5Djn72Y7+a/k/6P0Pdsl96Qq2UJ2aHr9FsuuabPPHiX0PB2g
-         IK3eimLJwy7kQTfhSAsykehb0eSrCQYFeJCEKVm1/uMWPGIzBxFeIWr0abhelLrHdnjT
-         nv7JAbrjQXxVtG56gukVQP8Mj8xSMO5XI368ZTZ2tSwyUgA8IbR41c9Mbae48GnHE6XF
-         T10XFZrfoHTMsYZ8rLY0EiYhlWV5mur4eaOJkeXsqMfFBukEU047kKPds7nsWmb/66iW
-         NWZmhmbsuKve6nrShJESKbHGlw+6sGnOUcPnLlEJ1bHhtpBaqbVhoxJPKuxMDvEb8g6E
-         o1zg==
+        h=disposition-notification-to:content-language:thread-index
+         :mime-version:message-id:date:subject:to:from;
+        bh=FaeL/nl6pdB5ga+K/nvB4B/2g4Pc0Sa0V/w1EfiTOUE=;
+        b=bQnJVSpQkCtwPuUrMQ3PBp8J9WCTCPk8Wn/r1k+IJsYkk+GGLSkHcBZ9WoeCJBGmuU
+         dkCUwepaZasd+p7145TR7Hya1bSjKht/Eoude+kSLubhDUrhnbuYxYHhWKrS4niZisC7
+         TD78SVxHiNd/6lOye8llfOLmj2F4fmuz6u5eNp3CZLImBPa5oYwxhdnfrastQVVxff56
+         9DmabIg0UR/TilMFB3zlLrTMUf18OwSDlmMOHAbD745RyizKfARPFvOUzDdV8/EV8ZDF
+         Z0CcyjUQ/mDzW5L8YdvjiLaX3LWOKzYURppmV6OHohkyOSN+LPbXhjljUL0+bceLSsId
+         ozUw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=kSbPHK0w;
-       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id 138si459073pfa.6.2020.04.24.03.12.38
+       spf=neutral (google.com: 193.46.215.83 is neither permitted nor denied by best guess record for domain of james@mrktresponse.com) smtp.mailfrom=james@mrktresponse.com
+Received: from newsgw-01.dd24.net (newsgw-01.dd24.net. [193.46.215.83])
+        by gmr-mx.google.com with ESMTPS id q24si455250ljg.4.2020.04.24.03.58.31
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 24 Apr 2020 03:12:38 -0700 (PDT)
-Received-SPF: pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from willie-the-truck (236.31.169.217.in-addr.arpa [217.169.31.236])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+        Fri, 24 Apr 2020 03:58:31 -0700 (PDT)
+Received-SPF: neutral (google.com: 193.46.215.83 is neither permitted nor denied by best guess record for domain of james@mrktresponse.com) client-ip=193.46.215.83;
+Received: from lenovoPC (unknown [1.39.152.106])
+	(using TLSv1.2 with cipher DHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 92E232071E;
-	Fri, 24 Apr 2020 10:12:34 +0000 (UTC)
-Date: Fri, 24 Apr 2020 11:12:31 +0100
-From: Will Deacon <will@kernel.org>
-To: Kees Cook <keescook@chromium.org>
-Cc: Sami Tolvanen <samitolvanen@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ard.biesheuvel@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Michal Marek <michal.lkml@markovi.net>,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dave Martin <Dave.Martin@arm.com>,
-	Laura Abbott <labbott@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Jann Horn <jannh@google.com>,
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	clang-built-linux@googlegroups.com,
-	kernel-hardening@lists.openwall.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v12 01/12] add support for Clang's Shadow Call Stack (SCS)
-Message-ID: <20200424101230.GB21141@willie-the-truck>
-References: <20191018161033.261971-1-samitolvanen@google.com>
- <20200421021453.198187-1-samitolvanen@google.com>
- <20200421021453.198187-2-samitolvanen@google.com>
- <202004221052.489CCFEBC@keescook>
- <20200422180040.GC3121@willie-the-truck>
- <202004231108.1AC704F609@keescook>
+	by newsrelay.moniker.com (Postfix) with ESMTPSA id A5F4160271
+	for <clang-built-linux@googlegroups.com>; Fri, 24 Apr 2020 10:58:30 +0000 (UTC)
+From: "James Miller" <james@mrktresponse.com>
+To: <clang-built-linux@googlegroups.com>
+Subject: Target Audience
+Date: Fri, 24 Apr 2020 06:56:12 -0400
+Message-ID: <!&!AAAAAAAAAAAYAAAAAAAAABaWRVkw9bNPu65QUHt0KBjCgAAAEAAAACap0JCOYI9FpgfDZG/LJl0BAAAAAA==@mrktresponse.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202004231108.1AC704F609@keescook>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: will@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=kSbPHK0w;       spf=pass
- (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=will@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_031A_01D61A05.C48186F0"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AdYaJtXbwMquWuPsRz+Neencoovhjg==
+Content-Language: en-us
+X-Original-Sender: james@mrktresponse.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 193.46.215.83 is neither permitted nor denied by best guess
+ record for domain of james@mrktresponse.com) smtp.mailfrom=james@mrktresponse.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -156,48 +123,236 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Apr 23, 2020 at 11:09:24AM -0700, Kees Cook wrote:
-> On Wed, Apr 22, 2020 at 07:00:40PM +0100, Will Deacon wrote:
-> > On Wed, Apr 22, 2020 at 10:54:45AM -0700, Kees Cook wrote:
-> > > On Mon, Apr 20, 2020 at 07:14:42PM -0700, Sami Tolvanen wrote:
-> > > > +void scs_release(struct task_struct *tsk)
-> > > > +{
-> > > > +	void *s;
-> > > > +
-> > > > +	s = __scs_base(tsk);
-> > > > +	if (!s)
-> > > > +		return;
-> > > > +
-> > > > +	WARN_ON(scs_corrupted(tsk));
-> > > > +
-> > > 
-> > > I'd like to have task_set_scs(tsk, NULL) retained here, to avoid need to
-> > > depend on the released task memory getting scrubbed at a later time.
-> > 
-> > Hmm, doesn't it get zeroed almost immediately by kmem_cache_free() if
-> > INIT_ON_FREE_DEFAULT_ON is set? That seems much better than special-casing
-> > SCS, as there's a tonne of other useful stuff kicking around in the
-> > task_struct and treating this specially feels odd to me.
-> 
-> That's going to be an uncommon config except for the most paranoid of
-> system builders. :)
+This is a multipart message in MIME format.
 
-Sounds like a perfect fit, then ;)
+------=_NextPart_000_031A_01D61A05.C48186F0
+Content-Type: text/plain; charset="UTF-8"
 
-> Having this get wiped particular thing wiped is just
-> a decent best practice for what is otherwise treated as a "secret", just
-> like crypto routines wipe their secrets before free().
+Hi, 
 
-Sorry, but I don't buy that analogy. The SCS pointer is stored in memory
-all over the place and if it needs to treated in the same way as crypto
-secrets then this whole thing needs rethinking. On top of that, where
-crypto routines may wipe their secrets, we don't do what is being proposed
-for the SCS pointer to other similar pieces of data, such as pointer
-authentication keys.
+ 
 
-Will
+I hope all your families are staying safe and healthy! The coronavirus
+crisis will test us all, but marketers need to think long-term and keep
+building their brands
+
+ 
+
+Preparing your marketing plans for the Coronavirus downturn?
+
+Marketing automation is the lowest cost, easiest, and most effective way of
+keeping in touch with your customers. Marketing helps drive commerce
+
+ 
+
+I believe you would be interested in getting a contact list
+
+ 
+
+Industries we cover: Printing/Publishing, IT, Healthcare, Insurance,
+Finance/Banking, Telecom, Retail, Consulting, K-12, Construction,
+Engineering, Computer Software/Hardware, Transportation, Education, Business
+Services, Oil and Gas, Energy and Utilities, Media, Marketing/Advertising
+etc
+
+ 
+
+All we need from you is the criteria to pull out the companies (example
+revenue / industry / employee size / SIC code / Zip code etc.) along with
+the job titles
+
+(Any job titles like sales / IT/ operations / "C" level / manager /
+procurement / HR etc.)
+
+ 
+
+If you could send me your target audience, I'll come up with the data counts
+& Samples for your review.
+
+ 
+
+Thanks
+
+James Miller
+
+Lead Generation
+
+US Data | Technology Data | UK Data | AUS Data| European & MEA Regions |
+APAC | List Suppression | Data Appending | CRM | SEO | Email
+Campaign/Broadcast |
+
+ 
+
+Note: If you do not wish to receive our emails you can reply remove in the
+subject line
+
+ 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200424101230.GB21141%40willie-the-truck.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/!%26!AAAAAAAAAAAYAAAAAAAAABaWRVkw9bNPu65QUHt0KBjCgAAAEAAAACap0JCOYI9FpgfDZG/LJl0BAAAAAA%3D%3D%40mrktresponse.com.
+
+------=_NextPart_000_031A_01D61A05.C48186F0
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:w=3D"urn:sc=
+hemas-microsoft-com:office:word" xmlns:m=3D"http://schemas.microsoft.com/of=
+fice/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html40"><head><META HT=
+TP-EQUIV=3D"Content-Type" CONTENT=3D"text/html; charset=3Dus-ascii"><meta n=
+ame=3DGenerator content=3D"Microsoft Word 15 (filtered medium)"><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+@font-face
+	{font-family:Georgia;
+	panose-1:2 4 5 2 5 4 5 2 3 3;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-language:EN-IN;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{mso-style-priority:99;
+	mso-style-link:"Plain Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.5pt;
+	font-family:Consolas;}
+p
+	{mso-style-priority:99;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.PlainTextChar
+	{mso-style-name:"Plain Text Char";
+	mso-style-priority:99;
+	mso-style-link:"Plain Text";
+	font-family:Consolas;}
+p.gmail-m-1001893104257294750xmsonormal, li.gmail-m-1001893104257294750xmso=
+normal, div.gmail-m-1001893104257294750xmsonormal
+	{mso-style-name:gmail-m_-1001893104257294750x_msonormal;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-language:EN-IN;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{mso-style-type:export-only;
+	margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style></head><body lang=3DEN-US><div class=3DWordSection1><p class=3Dg=
+mail-m-1001893104257294750xmsonormal style=3D'margin:0in;margin-bottom:.000=
+1pt'><span lang=3DEN-IN style=3D'font-size:11.0pt;font-family:"Cambria",ser=
+if;color:#002060'>Hi, <o:p></o:p></span></p><p class=3Dgmail-m-100189310425=
+7294750xmsonormal style=3D'margin:0in;margin-bottom:.0001pt'><span lang=3DE=
+N-IN style=3D'font-size:11.0pt;font-family:"Cambria",serif;color:#002060'><=
+o:p>&nbsp;</o:p></span></p><p style=3D'margin:0in;margin-bottom:.0001pt'><s=
+pan lang=3DEN-IN style=3D'font-size:11.0pt;font-family:"Cambria",serif;colo=
+r:#002060'>I hope all your families are staying safe and healthy! The coron=
+avirus crisis will test us all, but marketers need to think long-term and k=
+eep building their brands<o:p></o:p></span></p><p class=3DMsoNormal><b><spa=
+n lang=3DEN-IN style=3D'font-size:11.0pt;font-family:"Cambria",serif;color:=
+#002060'><o:p>&nbsp;</o:p></span></b></p><p class=3DMsoNormal><span lang=3D=
+EN-IN style=3D'font-size:11.0pt;font-family:"Cambria",serif;color:#002060'>=
+Preparing your marketing plans for the Coronavirus downturn?<o:p></o:p></sp=
+an></p><p class=3DMsoNormal><span lang=3DEN-IN style=3D'font-size:11.0pt;fo=
+nt-family:"Cambria",serif;color:#002060'>Marketing automation is the lowest=
+ cost, easiest, and most effective way of keeping in touch with your custom=
+ers. Marketing helps drive commerce</span><span lang=3DEN-IN style=3D'font-=
+size:11.0pt;font-family:"Cambria",serif;color:#002060;mso-fareast-language:=
+EN-US'><o:p></o:p></span></p><p style=3D'margin:0in;margin-bottom:.0001pt'>=
+<span style=3D'font-size:11.0pt;font-family:"Cambria",serif;color:#002060'>=
+<o:p>&nbsp;</o:p></span></p><p style=3D'margin:0in;margin-bottom:.0001pt'><=
+span style=3D'font-size:11.0pt;font-family:"Cambria",serif;color:#002060'>I=
+ believe you would be interested in getting a contact list</span><b><span l=
+ang=3DEN-IN style=3D'font-size:11.0pt;font-family:"Cambria",serif;color:#00=
+2060'><o:p></o:p></span></b></p><p class=3DMsoPlainText><span style=3D'font=
+-size:11.0pt;font-family:"Cambria",serif;color:#002060'><o:p>&nbsp;</o:p></=
+span></p><p class=3DMsoPlainText><span style=3D'font-size:11.0pt;font-famil=
+y:"Cambria",serif;color:#002060'>Industries we cover: Printing/Publishing, =
+IT, Healthcare, Insurance, Finance/Banking, Telecom, Retail, Consulting, K-=
+12, Construction, Engineering, Computer Software/Hardware, Transportation, =
+Education, Business Services, Oil and Gas, Energy and Utilities, Media, Mar=
+keting/Advertising etc<o:p></o:p></span></p><p class=3DMsoNormal><span lang=
+=3DEN-IN style=3D'font-size:11.0pt;font-family:"Cambria",serif;color:#00206=
+0'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span lang=3DEN-IN styl=
+e=3D'font-size:11.0pt;font-family:"Cambria",serif;color:#002060'>All we nee=
+d from you is the criteria to pull out the companies (example revenue / ind=
+ustry / employee size / SIC code / Zip code etc.) along with the job titles=
+<o:p></o:p></span></p><p class=3DMsoNormal><span lang=3DEN-IN style=3D'font=
+-size:11.0pt;font-family:"Cambria",serif;color:#002060'>(Any job titles lik=
+e sales / IT/ operations / &#8220;C&#8221; level / manager / procurement / =
+HR etc.)<o:p></o:p></span></p><p class=3DMsoNormal><span lang=3DEN-IN style=
+=3D'font-size:11.0pt;font-family:"Cambria",serif;color:#002060'><o:p>&nbsp;=
+</o:p></span></p><p class=3DMsoNormal><span lang=3DEN-IN style=3D'font-size=
+:11.0pt;font-family:"Cambria",serif;color:#002060'>If you could send me you=
+r target audience, I&#8217;ll come up with the data counts &amp; Samples fo=
+r your review.<o:p></o:p></span></p><p class=3Dgmail-m-1001893104257294750x=
+msonormal style=3D'margin:0in;margin-bottom:.0001pt'><span lang=3DEN-IN sty=
+le=3D'font-size:11.0pt;font-family:"Cambria",serif;color:#002060'><o:p>&nbs=
+p;</o:p></span></p><p class=3Dgmail-m-1001893104257294750xmsonormal style=
+=3D'margin:0in;margin-bottom:.0001pt'><span lang=3DEN-IN style=3D'font-size=
+:11.0pt;font-family:"Cambria",serif;color:#002060'>Thanks<o:p></o:p></span>=
+</p><p class=3Dgmail-m-1001893104257294750xmsonormal style=3D'margin:0in;ma=
+rgin-bottom:.0001pt'><span lang=3DEN-IN style=3D'font-size:11.0pt;font-fami=
+ly:"Georgia",serif;color:#548DD4'>James Miller<o:p></o:p></span></p><p clas=
+s=3Dgmail-m-1001893104257294750xmsonormal style=3D'margin:0in;margin-bottom=
+:.0001pt'><span lang=3DEN-IN style=3D'font-size:11.0pt;font-family:"Cambria=
+",serif;color:#002060'>Lead Generation<o:p></o:p></span></p><p class=3DMsoN=
+ormal><span lang=3DEN-IN style=3D'font-size:11.0pt;font-family:"Calibri",sa=
+ns-serif;color:#002060'>US&nbsp;Data&nbsp;|&nbsp;Technology&nbsp;Data&nbsp;=
+|&nbsp;UK&nbsp;Data&nbsp;|&nbsp;AUS&nbsp;Data|&nbsp;European&nbsp;&amp;&nbs=
+p;MEA&nbsp;Regions&nbsp;|<br>APAC&nbsp;|&nbsp;List&nbsp;Suppression&nbsp;|&=
+nbsp;Data&nbsp;Appending&nbsp;|&nbsp;CRM&nbsp;|&nbsp;SEO&nbsp;|&nbsp;Email =
+Campaign/Broadcast&nbsp;|<o:p></o:p></span></p><p class=3DMsoNormal><span l=
+ang=3DEN-IN style=3D'font-size:11.0pt;font-family:"Calibri",sans-serif;colo=
+r:#002060'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span lang=3DEN=
+-IN style=3D'font-size:9.0pt;font-family:"Calibri",sans-serif;color:black'>=
+Note: If you do not wish to receive our emails you can reply <b>remove</b> =
+in the subject line<o:p></o:p></span></p><p class=3DMsoNormal><span lang=3D=
+EN-IN><o:p>&nbsp;</o:p></span></p></div></body></html>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/!%26!AAAAAAAAAAAYAAAAAAAAABaWRVkw9bNPu65QUHt0K=
+BjCgAAAEAAAACap0JCOYI9FpgfDZG/LJl0BAAAAAA%3D%3D%40mrktresponse.com?utm_medi=
+um=3Demail&utm_source=3Dfooter">https://groups.google.com/d/msgid/clang-bui=
+lt-linux/!%26!AAAAAAAAAAAYAAAAAAAAABaWRVkw9bNPu65QUHt0KBjCgAAAEAAAACap0JCOY=
+I9FpgfDZG/LJl0BAAAAAA%3D%3D%40mrktresponse.com</a>.<br />
+
+------=_NextPart_000_031A_01D61A05.C48186F0--
+
