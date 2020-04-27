@@ -1,126 +1,133 @@
-Return-Path: <clang-built-linux+bncBDNIR65Z3ENRBQOTTL2QKGQE7MWAVBA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRBF4DTT2QKGQEWWUUW5A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x837.google.com (mail-qt1-x837.google.com [IPv6:2607:f8b0:4864:20::837])
-	by mail.lfdr.de (Postfix) with ESMTPS id 632721BA03D
-	for <lists+clang-built-linux@lfdr.de>; Mon, 27 Apr 2020 11:45:38 +0200 (CEST)
-Received: by mail-qt1-x837.google.com with SMTP id f56sf19734218qte.18
-        for <lists+clang-built-linux@lfdr.de>; Mon, 27 Apr 2020 02:45:38 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1587980737; cv=pass;
+Received: from mail-oo1-xc37.google.com (mail-oo1-xc37.google.com [IPv6:2607:f8b0:4864:20::c37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4870D1BA975
+	for <lists+clang-built-linux@lfdr.de>; Mon, 27 Apr 2020 18:00:26 +0200 (CEST)
+Received: by mail-oo1-xc37.google.com with SMTP id p23sf16581015ook.9
+        for <lists+clang-built-linux@lfdr.de>; Mon, 27 Apr 2020 09:00:26 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588003225; cv=pass;
         d=google.com; s=arc-20160816;
-        b=l9XtAqeuEIcaTdcWkHchaiPf4rLrrn7wG4NWp3lzwEe09nBpH4Jg0TvbeEqzyF9d+T
-         Li07ZdaP+4eAos6E/c/eiGqdGnFkHTNDImEAWnrQCz3XaK7A8Lc5mTey0K6ODb+BeWfN
-         RDxEtBQDYojmz0Ck4+jthM06VDOcAtqLBySCyQO7gTAqsbsrFx5w/CRWpfHOhtJdZrGo
-         YdtApaK52H4asit6kvRlONTBN/Z462SanSflVYZH5KHiI//6JldkH2MhAK8GExITyoi2
-         74FlzWsoAfq4be9DpwtS0mV07NHZKeor4vsdproooNcwaf1WvcQBBtm6lD/hX3Cwb0L1
-         Pt3g==
+        b=n5kRuapMTkAN5lKO2gP/PB0JWxbGcV5cZV7eyR7tpTvdpIk+cXcjdllQjh7PNkTDhY
+         5mP6FJHvXhwrnL5oppgzMnl//zQSEvQMmpIZLNbLE2v3lNXvCap/suWfylTTFnf83EeU
+         MhAa/Bse5vfcAL9D9jf4juY5pvxmBwhb2W8Jf44nc7mj9MqYb0mnIcIPyd9I3Z+LeP7Z
+         JExhvuvD1587c/r1MFkzEWwpulo6gmkcyy+Vz0iYkD8kQ6XXJJ73HxQIbabuR6d5xunk
+         RE5/SvxiQPe8bh3Z4k36zZdCw57LMEkwIdU/+DT0Mq7DnJADfaI+W/TP/z9XNEV9t+yd
+         Y2LQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=TEMI1Gyl1TJXfgWZdbwJ2BROgnsAn0O1QYkd0SqmuyI=;
-        b=PYWHUY3/9ZV+ZoeHL7r4d8HOtrY+zL/QFV4si+Ut+GNycQjSV1Qtpg2zElT/CbGexM
-         7zn2uZbeZ7tAZaWhiTBI4APeVg9ueKMrISxiLFDQMsKRzVo4+2IAZoEL7pFWzQX3fjOX
-         I2ZMsYKLsbprYjgtr0G260XBtQ7zYTQIl+lcqpQL66SmIw7nt91E8RPwHq566aQ+a/8b
-         qywYTQgc7wNAVyICj1dCmnOcd8hpDVI/olAzVFqWhpjE+xxd8bui1+p4MSX8KDQNwCqu
-         Vbj/KJPNvMaD7oVY/rnLpZtzyVGpVAYpJT112aoQ8AhedyNJfnSZKfJuE/4MEL7gIx2N
-         siUg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
+        bh=yq0PjIJfNZBi7ld+sUUU9/GW/VCrtS//aCCsYja0EVA=;
+        b=n7l/+sy/Jw0poHL23N6jSx2PtEx/iBkisXEjB91rL3p0RoCksnnUpyc5bdBR89HbsU
+         AfhtQdU95ylADRi9KmjMhP2EEC5rOwP41H/F1spAjSOeqXMPFIuZ7Pltsr2ouvlQgYKk
+         /s6QvPqLS871JQ+1rsyrO5DiTOFhJB4Hu/GRLG7fOW5bkx4PrCeC/S9VIp2mpeeN9t29
+         Hu63FfOP+OG8N0cIIN9TTSgjAfikVfgFxVE2LyKcnyPLcbZhTXoYV/r+H3gbP2YZJDgl
+         8IBEDCXTfdrKQaA3+tpbgnAyyZeoLcjfbsKsjDDOzZxiBr+NLaRXgo1g4Ht4h1tcdYcm
+         xIsw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@cloudflare.com header.s=google header.b="wkvZ/2OE";
-       spf=pass (google.com: domain of lorenz@cloudflare.com designates 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=lorenz@cloudflare.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=cloudflare.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=n9KrHF2m;
+       spf=pass (google.com: domain of 3lggnxgwkadefnzvgbyinaratbbtyr.pbz@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3lgGnXgwKADEfNZVgbYiNaRaTbbTYR.PbZ@flex--samitolvanen.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TEMI1Gyl1TJXfgWZdbwJ2BROgnsAn0O1QYkd0SqmuyI=;
-        b=i+iPU2vSVPBQ6PWm/M77TgQf1HEZhVRNMXi/lNJwvjovwKTurpSrrpld3QvBs9h/7h
-         RA0C4GYb8Daw18kL2Xeg71P1iTvKGH15iK4DuDismDpgPE9570fsdMgIOFT2YesqkD28
-         +T7qhSi/hlNpXaTr/2GFvxpKSMb3aMXK7/JzpP/ueHbFF49mRyVNSfo2fzCWfDHAYBrA
-         1ujlA/lsP5T+gzr+dqx0r/LGmlTSi4xYgFcfisrAQP3Udst0500/pNIKaHAabiuVdenk
-         xuxLDRqjUXCoVlA2mbuJ2+wCANfsb0ZQ/mwX/AVukzeyUZCJDlK/KMALObPN4+Mnv/7G
-         XPwQ==
+        bh=yq0PjIJfNZBi7ld+sUUU9/GW/VCrtS//aCCsYja0EVA=;
+        b=GeL62IYJD25sKP1QnJnNU62VodzNbMeT7lDSuXUTNVXez5DqA7Rrgi3U6xlBzVHAZ9
+         f1er44JqhkVdwNiRGiRX8LE+ouXRt8GxzqOJ0tvsBjEs4Oi/toQ8I4HroEytJZkbcs8f
+         LX46gwFYicVNKZK3IADgDHiIHcpePT9Ha/BcHL/D4Q/BW+Q0G3xeCqJ2PBRNvDghZPj3
+         jY3xYpg/leZzVtddt+ug7tVyJDigYEHjG5gzQqs3qJGHgvQkP91KIIl/6xu2DVdJ/54y
+         Ae+uWCayN3p+g4Z2LMUaxmIv/L5586qOQ4PiY7xVih1Jj1en9gKRwCoSkQ8S+oBv2xzd
+         7MPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
+         :references:subject:from:to:cc:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TEMI1Gyl1TJXfgWZdbwJ2BROgnsAn0O1QYkd0SqmuyI=;
-        b=MqhfOLZ9HW702bJvA7aPUwNXt4YWn7srGSCKipK3Is58K1PWHYZpoqdJ4VWiY6IVId
-         q0lmqosP1hLiOO3r8xrthxkbadFmvNWIIkJkR6Z1rWdCM6BOBFGKOox8lWgMhrG0BiBd
-         9MKBPaoXPFW5atpfanQa2GM/+0rxWO59CE7ClDROhu+8vDlDx9rNye2dXpr3sg+jW9sY
-         i8n2WLscy4b6HwVAlHScsBcCRDJ2CmVTOOoUURVBHl8ZbH/ACK3lxAexR46jYaq6sWBO
-         TUAdJjURFWv+0UF1IMNotQq2QgdhQBgyD1DzLskzX+Ax5EP1oUtQAwjSUNPOhdYpB+hx
-         ANTw==
-X-Gm-Message-State: AGi0PuZH+6ONKJweUXWS0yU9b9mNvXLSSYXjjs31aJUt03CdnxGkgpmu
-	8GfRcT7ne/OiJ7JXbTL31QQ=
-X-Google-Smtp-Source: APiQypK8F99SKY9SqnZHAzKM2s9h3iY9d48G15b9/l0tI4pX32lbzZr6TIuhiOD0trFPm90NK+4KBQ==
-X-Received: by 2002:a37:b3c1:: with SMTP id c184mr21081702qkf.194.1587980737104;
-        Mon, 27 Apr 2020 02:45:37 -0700 (PDT)
+        bh=yq0PjIJfNZBi7ld+sUUU9/GW/VCrtS//aCCsYja0EVA=;
+        b=hC8Mzylw/3QILKCowng+N9aX0a0pkQ3JpK5/KaaaPL1q9tCEJWkEdX15czpTSSDJmf
+         MJNisSBh3B1o1CgIlXIDAvBDbMsXByxzyiBuVnlXd8QSjX2egYOBJ979gMEZh/nVjPTC
+         OHsRrLj7Pm4KdQmfXP2u9Y/hHNDbflT2wtJa3CO0TV3Us5v0LPmvBq6HEta4bxQ5A728
+         Jx5gyikL05QPyWthDhX72IY4O0gLetRAMyoBnCTXbcs1XDdOt6ic2IlADEbytROFfDLA
+         L1U1Z/dK1ERv4t8/OjycVZR5SFudxOx/tga6JbGgNFGlEXf0LYogTD1/oTCm3cYy2WEi
+         jE7g==
+X-Gm-Message-State: AGi0PubEMu4CMruvVOMpaaeAIuroqOs2w3ZOShRAwPWH1p7jg1hI5b6n
+	XFi27TQ6nv2DUPPrWasrVC8=
+X-Google-Smtp-Source: APiQypLkOmeVVXUaRnW0GyHaq+ILf7Nkd5NuDG/Kh+uJOWvLH9JgxraSiQ2KYycKA+pF11zaPjr77A==
+X-Received: by 2002:a9d:6644:: with SMTP id q4mr19535390otm.229.1588003223835;
+        Mon, 27 Apr 2020 09:00:23 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:9e17:: with SMTP id h23ls12590206qke.7.gmail; Mon, 27
- Apr 2020 02:45:36 -0700 (PDT)
-X-Received: by 2002:a37:6317:: with SMTP id x23mr21033387qkb.218.1587980736737;
-        Mon, 27 Apr 2020 02:45:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1587980736; cv=none;
+Received: by 2002:a9d:1b0d:: with SMTP id l13ls4183556otl.5.gmail; Mon, 27 Apr
+ 2020 09:00:23 -0700 (PDT)
+X-Received: by 2002:a9d:4508:: with SMTP id w8mr5654385ote.130.1588003223310;
+        Mon, 27 Apr 2020 09:00:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588003223; cv=none;
         d=google.com; s=arc-20160816;
-        b=Imv9dALqHmVGvMTuRbAJRfSzUKQLcq6fi5AIdF1HTxwghL8egftFMBBJltY2feEstN
-         OA51z/HGjUUNNsiJEEgUuJdTEGAM7MgZWiDLGPUbgq23IzOPNd87320kXtAJ3Q15CLbz
-         NfqwOoec5Ix8FjehMeBMc1uStP1fNGYPxXCcofhce+qOjw+0gXNYimRf9a2r+2kZhiXo
-         RbkGGsKfXuH9ICWdMdghyC7umG6w5F8/nCrBSfnucGcUqXV/YpcO7f5midEKubQih1gT
-         FYYXW9KLyLkw9klIEUSnB6YckUy2bJzRaN2wPbrltoA+ItsE41d2CsQyUs611lZtIObD
-         WptQ==
+        b=Ox1x2Ojn8UrxSoHWOQeMexqmTqgG9vONfeM3tDivEHryDkuvhZv7J0Y2Vuq+NU2qtJ
+         LQY71EMK5PG8Zm72h2fZJ4HaE03Zu+/G7ZCd6QaGweSgruBYGW3TmGvLMb0nSN8OPOcF
+         WHC33PkDidcU8TlMDdG3dCFSiPuysWlYW28Pbm02cBdCwM2f2wiJjm1jJ4x022J7GAOG
+         uBZoQc+lryyJxzpGhj285EguDsM2H6HsKLwueYKNDmM556uhXGMqPf6+5blv2SuXU/x6
+         vp7iBIAfiS1kUzFzuUAKsy/38a/XJV/xYj7cIMOokKmJir8K0a/q0BDUTwdn2iNRa9aI
+         CSRA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=p/dkv8siYLu4BZqbzo9AEk9hetqwaOBV9gfUD96SYV4=;
-        b=fCPWw7I8d2BFaL0h6NoSzaKf77w2IPFG8LRZwMooMWYi3IQ/vD6UvoVQOQlbqOgt8Y
-         J9VxcLKAKQcNTkcqag0OkAZagRW6soQzg9/jU/R5mcw/oFaCwOu5Few07Yxqk+/2L4m2
-         rvWhXyv2WjW8FdPvrvuTo0GeKU5uLNAuE9aLU1W8ZCak8OEb3kzyPEjTXwWpkSFeS4mQ
-         XzUYjPkvb5XLQohK9purrq+Sg8U8B3ooAXlANNazjKybRM1wp9hFdSzOXsuk3dNn3bID
-         EnR+nIh/uXMvOFvjvYoIqwT/IuRiRVNGzJ/frfco0hpI7IcXT/EedgQp7dN4U89eYpev
-         KcHg==
+        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
+         :date:dkim-signature;
+        bh=/4Lv0RwdLpBbP8q3ppNzsCXSA3vQogZDo2gd5muLx+Y=;
+        b=pcvcvDKqUZxAcOHc1awx+EmxsDYUU5+iKtWImmXfhtHlDfpuD/d9/G5rVGNOCySyzI
+         gMqCm7IRtMTfhH/0fmW9v3NAuH30KjaIavdfJE53gtQivq5Uf6mVGn85foTc+mO+OUbu
+         Mwn6Y3v9vzeO2Ohtoi9h4kCUSkWSeIlwKFNmaIeuCW61Fdcs2vc0BM+OUuvVygSAJ80x
+         3lSLq0pPUyUj/6rO5eI/ywdEzu0fRl0ac7kJxKKVtXBvK8irMgSmW31eAGoyrVi2nhvr
+         7N42InTge7aFSkaMcgCxr0OFJ0my08ASRkHAnJoLld+MJtg6j26FXRlzAudHQ8em/hfw
+         Nhgg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@cloudflare.com header.s=google header.b="wkvZ/2OE";
-       spf=pass (google.com: domain of lorenz@cloudflare.com designates 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=lorenz@cloudflare.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=cloudflare.com
-Received: from mail-ot1-x343.google.com (mail-ot1-x343.google.com. [2607:f8b0:4864:20::343])
-        by gmr-mx.google.com with ESMTPS id o3si1106235qtm.0.2020.04.27.02.45.36
+       dkim=pass header.i=@google.com header.s=20161025 header.b=n9KrHF2m;
+       spf=pass (google.com: domain of 3lggnxgwkadefnzvgbyinaratbbtyr.pbz@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3lgGnXgwKADEfNZVgbYiNaRaTbbTYR.PbZ@flex--samitolvanen.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-yb1-xb49.google.com (mail-yb1-xb49.google.com. [2607:f8b0:4864:20::b49])
+        by gmr-mx.google.com with ESMTPS id k65si1433569oih.1.2020.04.27.09.00.23
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 27 Apr 2020 02:45:36 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lorenz@cloudflare.com designates 2607:f8b0:4864:20::343 as permitted sender) client-ip=2607:f8b0:4864:20::343;
-Received: by mail-ot1-x343.google.com with SMTP id 72so25128003otu.1
-        for <clang-built-linux@googlegroups.com>; Mon, 27 Apr 2020 02:45:36 -0700 (PDT)
-X-Received: by 2002:aca:5492:: with SMTP id i140mr13417819oib.13.1587980736077;
- Mon, 27 Apr 2020 02:45:36 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200424185556.7358-1-lmb@cloudflare.com> <20200424185556.7358-2-lmb@cloudflare.com>
- <20200426173324.5zg7isugereb5ert@ast-mbp.dhcp.thefacebook.com>
-In-Reply-To: <20200426173324.5zg7isugereb5ert@ast-mbp.dhcp.thefacebook.com>
-From: "'Lorenz Bauer' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 27 Apr 2020 10:45:24 +0100
-Message-ID: <CACAyw98nK_Vkstp-vEqNwKXtoCRnTOPr7Eh+ziH56tJGbnPsig@mail.gmail.com>
-Subject: Re: [PATCH 1/1] selftests/bpf: add cls_redirect classifier
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Shuah Khan <shuah@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Theo Julienne <theojulienne@github.com>, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	Networking <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>, 
-	clang-built-linux@googlegroups.com
+        Mon, 27 Apr 2020 09:00:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3lggnxgwkadefnzvgbyinaratbbtyr.pbz@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) client-ip=2607:f8b0:4864:20::b49;
+Received: by mail-yb1-xb49.google.com with SMTP id g17so21077562ybk.4
+        for <clang-built-linux@googlegroups.com>; Mon, 27 Apr 2020 09:00:23 -0700 (PDT)
+X-Received: by 2002:a5b:345:: with SMTP id q5mr35788916ybp.494.1588003222670;
+ Mon, 27 Apr 2020 09:00:22 -0700 (PDT)
+Date: Mon, 27 Apr 2020 09:00:06 -0700
+In-Reply-To: <20191018161033.261971-1-samitolvanen@google.com>
+Message-Id: <20200427160018.243569-1-samitolvanen@google.com>
+Mime-Version: 1.0
+References: <20191018161033.261971-1-samitolvanen@google.com>
+X-Mailer: git-send-email 2.26.2.303.gf8c07b1a785-goog
+Subject: [PATCH v13 00/12] add support for Clang's Shadow Call Stack
+From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	James Morse <james.morse@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ard Biesheuvel <ard.biesheuvel@linaro.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Michal Marek <michal.lkml@markovi.net>, 
+	Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>
+Cc: Dave Martin <Dave.Martin@arm.com>, Kees Cook <keescook@chromium.org>, 
+	Laura Abbott <labbott@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Jann Horn <jannh@google.com>, Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
+	clang-built-linux@googlegroups.com, kernel-hardening@lists.openwall.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Sami Tolvanen <samitolvanen@google.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: lmb@cloudflare.com
+X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@cloudflare.com header.s=google header.b="wkvZ/2OE";       spf=pass
- (google.com: domain of lorenz@cloudflare.com designates 2607:f8b0:4864:20::343
- as permitted sender) smtp.mailfrom=lorenz@cloudflare.com;       dmarc=pass
- (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=cloudflare.com
-X-Original-From: Lorenz Bauer <lmb@cloudflare.com>
-Reply-To: Lorenz Bauer <lmb@cloudflare.com>
+ header.i=@google.com header.s=20161025 header.b=n9KrHF2m;       spf=pass
+ (google.com: domain of 3lggnxgwkadefnzvgbyinaratbbtyr.pbz@flex--samitolvanen.bounces.google.com
+ designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3lgGnXgwKADEfNZVgbYiNaRaTbbTYR.PbZ@flex--samitolvanen.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Sami Tolvanen <samitolvanen@google.com>
+Reply-To: Sami Tolvanen <samitolvanen@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,259 +140,213 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, 26 Apr 2020 at 18:33, Alexei Starovoitov
-<alexei.starovoitov@gmail.com> wrote:
->
-> On Fri, Apr 24, 2020 at 07:55:55PM +0100, Lorenz Bauer wrote:
-> > cls_redirect is a TC clsact based replacement for the glb-redirect iptables
-> > module available at [1]. It enables what GitHub calls "second chance"
-> > flows [2], similarly proposed by the Beamer paper [3]. In contrast to
-> > glb-redirect, it also supports migrating UDP flows as long as connected
-> > sockets are used. cls_redirect is in production at Cloudflare, as part of
-> > our own L4 load balancer.
->
-> This is awesome. Thank you for contributing!
-> Applied.
->
-> > There are two major distinctions from glb-redirect: first, cls_redirect
-> > relies on receiving encapsulated packets directly from a router. This is
-> > because we don't have access to the neighbour tables from BPF, yet. See
->
-> Let's make it available then :)
+This patch series adds support for Clang's Shadow Call Stack
+(SCS) mitigation, which uses a separately allocated shadow stack
+to protect against return address overwrites. More information
+can be found here:
 
-Yes, I've been dragging my feet on this. It seems like the fib_lookup does
-almost what we want, but I need to experiment with it. In the best case,
-we'd have a helper that does the following:
+  https://clang.llvm.org/docs/ShadowCallStack.html
 
-* Try and find a neighbour
-* Return it if one exists
-* Otherwise, asynchronously trigger neighbour discovery (if it makes sense)
-* And return the default gateway
+SCS provides better protection against traditional buffer
+overflows than CONFIG_STACKPROTECTOR_*, but it should be noted
+that SCS security guarantees in the kernel differ from the ones
+documented for user space. The kernel must store addresses of
+shadow stacks in memory, which means an attacker capable of
+reading and writing arbitrary memory may be able to locate them
+and hijack control flow by modifying the shadow stacks.
 
-I should probably start a new thread about this on the list.
+SCS is currently supported only on arm64, where the compiler
+requires the x18 register to be reserved for holding the current
+task's shadow stack pointer.
 
->
-> > The code base started it's life on v4.19, so there are most likely still
-> > hold overs from old workarounds. In no particular order:
-> >
-> > - The function buf_off is required to defeat a clang optimization
-> >   that leads to the verifier rejecting the program due to pointer
-> >   arithmetic in the wrong order.
-> >
-> > - The function pkt_parse_ipv6 is force inlined, because it would
-> >   otherwise be rejected due to returning a pointer to stack memory.
-> >
-> > - The functions fill_tuple and classify_tcp contain kludges, because
-> >   we've run out of function arguments.
-> >
-> > - The logic in general is rather nested, due to verifier restrictions.
-> >   I think this is either because the verifier loses track of constants
-> >   on the stack, or because it can't track enum like variables.
->
-> Have you tried undoing these workarounds to check the latest verifier?
-> If they're still needed we certainly have to improve the verifier.
->
-> > +#include "test_cls_redirect.skel.h"
->
-> Do you use skeleton internally as well or was it just for selftests? ;)
+With -fsanitize=shadow-call-stack, the compiler injects
+instructions to all non-leaf C functions to store the return
+address to the shadow stack, and unconditionally load it again
+before returning. As a result, SCS is incompatible with features
+that rely on modifying function return addresses in the kernel
+stack to alter control flow. A copy of the return address is
+still kept in the kernel stack for compatibility with stack
+unwinding, for example.
 
-Only for selftests :) Our internal tooling is all Go based. skeleton
-is really nice
-though, so I'll make sure to steal some ideas!
+SCS has a minimal performance overhead, but allocating
+shadow stacks increases kernel memory usage. The feature is
+therefore mostly useful on hardware that lacks support for PAC
+instructions.
 
->
-> > +_Static_assert(
-> > +     sizeof(flow_ports_t) !=
-> > +             offsetofend(struct bpf_sock_tuple, ipv4.dport) -
-> > +                     offsetof(struct bpf_sock_tuple, ipv4.sport) - 1,
-> > +     "flow_ports_t must match sport and dport in struct bpf_sock_tuple");
->
-> Nice. I didn't realize clang supports it. Of course it should.
->
-> > +/* Linux packet pointers are either aligned to NET_IP_ALIGN (aka 2 bytes),
-> > + * or not aligned if the arch supports efficient unaligned access.
-> > + *
-> > + * Since the verifier ensures that eBPF packet accesses follow these rules,
-> > + * we can tell LLVM to emit code as if we always had a larger alignment.
-> > + * It will yell at us if we end up on a platform where this is not valid.
-> > + */
-> > +typedef uint8_t *net_ptr __attribute__((align_value(8)));
->
-> Wow. I didn't know about this attribute.
-> I wonder whether it can help Daniel's memcpy hack.
+Changes in v13:
+ - Changed thread_info::shadow_call_stack to a base address and
+   an offset instead, and removed the now unneeded __scs_base()
+   and scs_save().
+ - Removed alignment from the kmem_cache and static allocations.
+ - Removed the task_set_scs() helper function.
+ - Moved the assembly code for loading and storing the offset in
+   thread_info to scs_load/save macros.
+ - Added offset checking to scs_corrupted().
+ - Switched to cmpxchg_relaxed() in scs_check_usage().
 
-Yes, I think so.
+Changes in v12:
+ - Removed CONFIG_SHADOW_CALL_STACK_VMAP.
+ - Added CC_IS_CLANG as a dependency to CONFIG_SHADOW_CALL_STACK.
+ - Changed SCS_END_MAGIC to use POISON_POINTER_DELTA.
+ - Removed the unnecessary scs_set_magic() helper function.
+ - Moved scs_task_reset() and scs_corrupted() to scs.h, along with
+   __scs_magic() and __scs_base().
+ - Removed a redundant warning from memory allocation.
+ - Removed an unnecessary task_set_scs() call from scs_release().
+ - Changed the accounting code to calculate KiB instead of bytes.
+ - Replaced the lock in scs_check_usage() with a cmpxchg() loop.
 
-> > +
-> > +typedef struct buf {
-> > +     struct __sk_buff *skb;
-> > +     net_ptr head;
-> > +     /* NB: tail musn't have alignment other than 1, otherwise
-> > +     * LLVM will go and eliminate code, e.g. when checking packet lengths.
-> > +     */
-> > +     uint8_t *const tail;
-> > +} buf_t;
-> > +
-> > +static size_t buf_off(const buf_t *buf)
-> > +{
-> > +     /* Clang seems to optimize constructs like
-> > +      *    a - b + c
-> > +      * if c is known:
-> > +      *    r? = c
-> > +      *    r? -= b
-> > +      *    r? += a
-> > +      *
-> > +      * This is a problem if a and b are packet pointers,
-> > +      * since the verifier allows subtracting two pointers to
-> > +      * get a scalar, but not a scalar and a pointer.
-> > +      *
-> > +      * Use inline asm to break this optimization.
-> > +      */
-> > +     size_t off = (size_t)buf->head;
-> > +     asm("%0 -= %1" : "+r"(off) : "r"(buf->skb->data));
-> > +     return off;
-> > +}
->
-> We need to look into this one.
-> This part is not gated by allow_ptr_leaks.
-> if (dst_reg == off_reg) {
->         /* scalar -= pointer.  Creates an unknown scalar */
->         verbose(env, "R%d tried to subtract pointer from scalar\n",
->                 dst);
->         return -EACCES;
-> }
-> Hopefully not too hard to fix.
->
-> > +
-> > +static bool pkt_skip_ipv6_extension_headers(buf_t *pkt,
-> > +                                         const struct ipv6hdr *ipv6,
-> > +                                         uint8_t *upper_proto,
-> > +                                         bool *is_fragment)
-> > +{
-> > +     /* We understand five extension headers.
-> > +      * https://tools.ietf.org/html/rfc8200#section-4.1 states that all
-> > +      * headers should occur once, except Destination Options, which may
-> > +      * occur twice. Hence we give up after 6 headers.
-> > +      */
-> > +     struct {
-> > +             uint8_t next;
-> > +             uint8_t len;
-> > +     } exthdr = {
-> > +             .next = ipv6->nexthdr,
-> > +     };
-> > +     *is_fragment = false;
-> > +
-> > +#pragma clang loop unroll(full)
-> > +     for (int i = 0; i < 6; i++) {
->
-> unroll is still needed even with bounded loop support in the verifier?
+Changes in v11:
+ - Rebased, added maintainers for kernel/ changes.
 
-I've just tried removing this on bpf-next. pkt_ipv4_checksum works
-without the pragma,
-pkt_skip_ipv6_extension_headers fails with the following message:
+Changes in v10:
+ - Removed an unnecessary <asm/scs.h> include from head.S.
 
-libbpf: load bpf program failed: Invalid argument
-libbpf: -- BEGIN DUMP LOG ---
-libbpf:
-476: for (int i = 0; i < 6; i++) {
-477: switch (exthdr.next) {
-back-edge from insn 476 to 477
-processed 0 insns (limit 1000000) max_states_per_insn 0 total_states 0
-peak_states 0 mark_read 0
+Changes in v9:
+ - Fixed grammar in the Kconfig help text.
+ - Changed Kconfig to allow SCS to be selected with the patchable-
+   function-entry graph tracer.
+ - Changed the EFI stub patch to not filter out -ffixed-x18, only
+   SCS flags.
 
-libbpf: -- END LOG --
-libbpf: failed to load program 'classifier/cls_redirect'
-libbpf: failed to load object 'test_cls_redirect'
-libbpf: failed to load BPF skeleton 'test_cls_redirect': -4007
-test_cls_redirect:FAIL:385
-#10 cls_redirect:FAIL
-Summary: 0/0 PASSED, 0 SKIPPED, 1 FAILED
+Changes in v8:
+ - Added __noscs to __hyp_text instead of filtering SCS flags from
+   the entire arch/arm64/kvm/hyp directory.
+ - Added a patch to filter out -ffixed-x18 and SCS flags from the
+   EFI stub.
 
->
->
-> > +/* This function has to be inlined, because the verifier otherwise rejects it
-> > + * due to returning a pointer to the stack. This is technically correct, since
-> > + * scratch is allocated on the stack. However, this usage should be safe since
-> > + * it's the callers stack after all.
-> > + */
->
-> Interesting. The verifier can recognize that ptr to stack can be safe in some cases.
-> When I added that check I didn't think that the code can be as tricky as this :)
->
-> > +static verdict_t process_ipv4(buf_t *pkt, metrics_t *metrics)
-> > +{
-> > +     switch (ipv4->protocol) {
-> > +     case IPPROTO_ICMP:
-> > +             return process_icmpv4(pkt, metrics);
-> > +
-> > +     case IPPROTO_TCP:
-> > +             return process_tcp(pkt, ipv4, sizeof(*ipv4), metrics);
-> > +
-> > +     case IPPROTO_UDP:
-> > +             return process_udp(pkt, ipv4, sizeof(*ipv4), metrics);
-> > +
-> > +     default:
-> > +             metrics->errors_total_unknown_l4_proto++;
-> > +             return INVALID;
-> > +     }
-> > +}
-> > +
-> > +static verdict_t process_ipv6(buf_t *pkt, metrics_t *metrics)
-> > +     if (is_fragment) {
-> > +             metrics->errors_total_fragmented_ip++;
-> > +             return INVALID;
-> > +     }
-> > +
-> > +     switch (l4_proto) {
-> > +     case IPPROTO_ICMPV6:
-> > +             return process_icmpv6(pkt, metrics);
-> > +
-> > +     case IPPROTO_TCP:
-> > +             return process_tcp(pkt, ipv6, sizeof(*ipv6), metrics);
-> > +
-> > +     case IPPROTO_UDP:
-> > +             return process_udp(pkt, ipv6, sizeof(*ipv6), metrics);
-> > +
-> > +     default:
-> > +             metrics->errors_total_unknown_l4_proto++;
-> > +             return INVALID;
-> > +     }
-> > +}
-> > +
-> > +SEC("classifier/cls_redirect")
-> > +int cls_redirect(struct __sk_buff *skb)
-> > +{
-> ...
-> > +     verdict_t verdict;
-> > +     switch (encap->gue.proto_ctype) {
-> > +     case IPPROTO_IPIP:
-> > +             verdict = process_ipv4(&pkt, metrics);
-> > +             break;
-> > +
-> > +     case IPPROTO_IPV6:
-> > +             verdict = process_ipv6(&pkt, metrics);
-> > +             break;
->
-> The code flow looks pretty clean.
-> I didn't find the copy-paste of ipv[46] -> tcp/udp
-> you were mentioning.
-> So that old issue is now gone?
+Changes in v7:
+ - Changed irq_stack_entry/exit to store the shadow stack pointer
+   in x24 instead of x20 as kernel_entry uses x20-x23 to store
+   data that can be used later. Updated the comment as well.
+ - Changed the Makefile in arch/arm64/kvm/hyp to also filter out
+   -ffixed-x18.
+ - Changed SHADOW_CALL_STACK to depend on !FUNCTION_GRAPH_TRACER
+   instead of not selecting HAVE_FUNCTION_GRAPH_TRACER with SCS.
+ - Removed ifdefs from the EFI wrapper and updated the comment to
+   explain why we are restoring x18.
+ - Rebased as Ard's x18 patches that were part of this series have
+   already been merged.
 
-The biggest offenders are fill_tuple (which is purely a hack) as well
-as classify_tcp.
-I'd really like to call classify_tcp from cls_redirect(), using saved
-packet pointers and lengths.
-Right now the function is called starting from process_ipv4 and
-process_ipv6, which
-means all of those arguments have to be passed down somehow.
+Changes in v6:
+ - Updated comment in the EFI RT wrapper to include the
+   explanation from the commit message.
+ - Fixed the SHADOW_CALL_STACK_VMAP config option and the
+   compilation errors in scs_init_irq()
+ - Updated the comment in entry.S to Mark's suggestion
+ - Fixed the WARN_ON in scs_init() to trip only when the return
+   value for cpuhp_setup_state() is < 0.
+ - Removed ifdefs from the code in arch/arm64/kernel/scs.c and
+   added separate shadow stacks for the SDEI handler
 
+Changes in v5:
+ - Updated the comment in __scs_base() to Mark's suggestion
+ - Changed all instances of uintptr_t to unsigned long
+ - Added allocation poisoning for KASAN to catch unintentional
+   shadow stack accesses; moved set_set_magic before poisoning
+   and switched scs_used() and scs_corrupted() to access the
+   buffer using READ_ONCE_NOCHECK() instead
+ - Changed scs_free() to check for NULL instead of zero
+ - Renamed SCS_CACHE_SIZE to NR_CACHED_SCS
+ - Added a warning if cpuhp_setup_state fails in scs_init()
+ - Dropped patches disabling kretprobes after confirming there's
+   no functional conflict with SCS instrumentation
+ - Added an explanation to the commit message why function graph
+   tracing and SCS are incompatible
+ - Removed the ifdefs from arch/arm64/mm/proc.S and added
+   comments explaining why we are saving and restoring x18
+ - Updated scs_check_usage format to include process information
+
+Changes in v4:
+ - Fixed authorship for Ard's patches
+ - Added missing commit messages
+ - Commented code that clears SCS from thread_info
+ - Added a comment about SCS_END_MAGIC being non-canonical
+
+Changes in v3:
+ - Switched to filter-out for removing SCS flags in Makefiles
+ - Changed the __noscs attribute to use __no_sanitize__("...")
+   instead of no_sanitize("...")
+ - Cleaned up inline function definitions and moved task_scs()
+   into a macro
+ - Cleaned up scs_free() and scs_magic()
+ - Moved SCS initialization into dup_task_struct() and removed
+   the now unused scs_task_init()
+ - Added comments to __scs_base() and scs_task_reset() to better
+   document design choices
+ - Changed copy_page to make the offset and bias explicit
+
+Changes in v2:
+ - Changed Ard's KVM patch to use x29 instead of x18 for the
+   guest context, which makes restore_callee_saved_regs cleaner
+ - Updated help text (and commit messages) to point out
+   differences in security properties compared to user space SCS
+ - Cleaned up config options: removed the ROP protection choice,
+   replaced the CC_IS_CLANG dependency with an arch-specific
+   cc-option test, and moved disabling of incompatible config
+   options to an arch-specific Kconfig
+ - Added CC_FLAGS_SCS, which are filtered out where needed
+   instead of using DISABLE_SCS
+ - Added a __has_feature guard around __noscs for older clang
+   versions
+
+Sami Tolvanen (12):
+  add support for Clang's Shadow Call Stack (SCS)
+  scs: add accounting
+  scs: add support for stack usage debugging
+  scs: disable when function graph tracing is enabled
+  arm64: reserve x18 from general allocation with SCS
+  arm64: preserve x18 when CPU is suspended
+  arm64: efi: restore x18 if it was corrupted
+  arm64: vdso: disable Shadow Call Stack
+  arm64: disable SCS for hypervisor code
+  arm64: implement Shadow Call Stack
+  arm64: scs: add shadow stacks for SDEI
+  efi/libstub: disable SCS
+
+ Makefile                              |   6 ++
+ arch/Kconfig                          |  25 ++++++
+ arch/arm64/Kconfig                    |   5 ++
+ arch/arm64/Makefile                   |   4 +
+ arch/arm64/include/asm/kvm_hyp.h      |   2 +-
+ arch/arm64/include/asm/scs.h          |  46 ++++++++++
+ arch/arm64/include/asm/suspend.h      |   2 +-
+ arch/arm64/include/asm/thread_info.h  |  13 +++
+ arch/arm64/kernel/Makefile            |   1 +
+ arch/arm64/kernel/asm-offsets.c       |   4 +
+ arch/arm64/kernel/efi-rt-wrapper.S    |  11 ++-
+ arch/arm64/kernel/entry.S             |  38 +++++++-
+ arch/arm64/kernel/head.S              |   6 ++
+ arch/arm64/kernel/process.c           |   2 +
+ arch/arm64/kernel/scs.c               |  20 +++++
+ arch/arm64/kernel/vdso/Makefile       |   2 +-
+ arch/arm64/mm/proc.S                  |  14 +++
+ drivers/base/node.c                   |   6 ++
+ drivers/firmware/efi/libstub/Makefile |   3 +
+ fs/proc/meminfo.c                     |   4 +
+ include/linux/compiler-clang.h        |   6 ++
+ include/linux/compiler_types.h        |   4 +
+ include/linux/mmzone.h                |   3 +
+ include/linux/scs.h                   |  72 +++++++++++++++
+ init/init_task.c                      |   8 ++
+ kernel/Makefile                       |   1 +
+ kernel/fork.c                         |   9 ++
+ kernel/sched/core.c                   |   2 +
+ kernel/scs.c                          | 121 ++++++++++++++++++++++++++
+ mm/page_alloc.c                       |   6 ++
+ mm/vmstat.c                           |   3 +
+ 31 files changed, 442 insertions(+), 7 deletions(-)
+ create mode 100644 arch/arm64/include/asm/scs.h
+ create mode 100644 arch/arm64/kernel/scs.c
+ create mode 100644 include/linux/scs.h
+ create mode 100644 kernel/scs.c
+
+
+base-commit: 6a8b55ed4056ea5559ebe4f6a4b247f627870d4c
 -- 
-Lorenz Bauer  |  Systems Engineer
-6th Floor, County Hall/The Riverside Building, SE1 7PB, UK
-
-www.cloudflare.com
+2.26.2.303.gf8c07b1a785-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CACAyw98nK_Vkstp-vEqNwKXtoCRnTOPr7Eh%2BziH56tJGbnPsig%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200427160018.243569-1-samitolvanen%40google.com.
