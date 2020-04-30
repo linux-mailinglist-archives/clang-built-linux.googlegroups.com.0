@@ -1,224 +1,192 @@
-Return-Path: <clang-built-linux+bncBDXLVL6Y2MPRBYPBVP2QKGQEJGZEWEA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2JVVVIVIMRBAXEVP2QKGQE3C26GRQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73e.google.com (mail-qk1-x73e.google.com [IPv6:2607:f8b0:4864:20::73e])
-	by mail.lfdr.de (Postfix) with ESMTPS id CD5971C0084
-	for <lists+clang-built-linux@lfdr.de>; Thu, 30 Apr 2020 17:38:10 +0200 (CEST)
-Received: by mail-qk1-x73e.google.com with SMTP id h186sf6796516qkc.22
-        for <lists+clang-built-linux@lfdr.de>; Thu, 30 Apr 2020 08:38:10 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1588261090; cv=pass;
+Received: from mail-oo1-xc3d.google.com (mail-oo1-xc3d.google.com [IPv6:2607:f8b0:4864:20::c3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9889D1C00A2
+	for <lists+clang-built-linux@lfdr.de>; Thu, 30 Apr 2020 17:42:59 +0200 (CEST)
+Received: by mail-oo1-xc3d.google.com with SMTP id v1sf5097423oos.0
+        for <lists+clang-built-linux@lfdr.de>; Thu, 30 Apr 2020 08:42:59 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1588261378; cv=pass;
         d=google.com; s=arc-20160816;
-        b=K7MDv1GDY5LR/TX/B9N4GxxOX+HMjxLwrw7oYE5E3UET/70+MSotiykocA1Vppc1z9
-         SEeJdrZYk31MAjlLT/r2AEikKNiDp7wsKQE68oazigavLozJfGqNtwKJc29xs3vdAsj1
-         qSGj6VQz+1jPzlndvXWLH0sAOjj/NlU5OWxAotxVwGMIa79VEKHQ33SOBAht9jNd/Os9
-         a3cHB7WnnrWZ53jLF0a6My3OkukJ2e74JLBF6I/ru/0SMlgdpwrT+E+W/62Xl2tILfd5
-         kFNLxsTTxSE4SlyBqrVsE0HjRmE4DmR+KY/0eFE852MH4yPbeI1cOEmJgHds+gchtp3M
-         4aKg==
+        b=w/r1SIvD6zeOVCOweeKg3cIddwavmppMQ+AnM0W6+tEFAUeSP8eJ77Hd4NDp6apJ+q
+         f+WGRsb6etSzdLhNNofwsJIhIJUFHQm1WN+k+fQgfS5ge36TUWRWYhmuwJ9oqtXoNqkN
+         H6q8wA6utsZqJ/OC61ARDq9Rxrutrowr+5/giGoSqsDAYjtqQ5S3pQ/7gkBv+J4H8Sfa
+         NZ7DsNDq8qpfgLpoQYt3bOPGWF1gIipOoShjPg1ZfeMgNJy9MZwC4rZIa80vmGJlII0M
+         TUc9xom+Tt22JXAgZ3mUP/TcdJldI9ejx4n6rMQKG5vHllTpLWoa4j+vB6y4jY4ylNkd
+         u/Gg==
 ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:dlp-reaction
-         :dlp-product:dlp-version:content-language:accept-language
-         :in-reply-to:references:message-id:date:thread-index:thread-topic
-         :subject:cc:to:from:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=MqpriAlLPCFEVta+uE4bhW5UT8NOgz7Ql5od6jnBKRM=;
-        b=jg098FyM75a0gioWeNsx7WQUA3uzGdW6REWDYt05aoBEHv3SfqD8RSvuCHvsZ0T+Pk
-         3IwJ9jy7U/MFUM2RsxBLEvLgWug5oivsBqO+/mhxVWRcnxE2HNe3EWW7mZaE/ql3+Oiq
-         iZcUgPWWEmzEaEKib/oUTas7B65oaZwx7pInDkocEtR3p9XugYSQsZF8qaZhpHAOOxCE
-         PCEU2m2NrAp/TcHi9iPRSl9BZKWAa3vbo09UUHSglxCXPuJzr3PmHS1Ds4ptETNzmwEJ
-         Tsc7J93DW6keq155z95r1mwH6PnboZRsfPdRUJMvr+cTsflUqyEkWc6bzCpnzlwaLihu
-         SpZQ==
+         :list-id:mailing-list:precedence:reply-to:mime-version:msip_labels
+         :content-language:accept-language:in-reply-to:references:message-id
+         :date:thread-index:thread-topic:subject:cc:to:from:dkim-signature;
+        bh=OFz5ih0ZQFNBlHYgLrqmqf382odjSXvGa6Z9HDoazjs=;
+        b=RJ8R6szRKpiREOrn/M1mxvpHFQhK5iIX16T/6jdFgMkg46J98sQDEKj6UjyfbpjFAy
+         AwuZqj5eJOiP2CMNbTLBH5Yzm/w/LZdvCLSa3DkeaqxKaWbCP8FBtlnhtDuV4mx4uBWU
+         3wHDaEoVVBWTG2PiRtbZztSgtfuJpPzdMJpM1G1CeO4VAF9coJoFg848/rKnHd7mIBJx
+         MRlaEszlUuxU0kNUGCVUOmwqPj23fxUFN2rxtmtdB8iv1o3sZiAo5RxpiiOJq9IyvaGk
+         KD+zNqU7d3SylcQoynRFP64xCTLvw6cYqWK9zwgMgszh6MWTp4iWvbRs/P9HsRIAAegy
+         LRNg==
 ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@intel.onmicrosoft.com header.s=selector2-intel-onmicrosoft-com header.b=FneWcy0H;
-       arc=pass (i=1 spf=pass spfdomain=intel.com dkim=pass dkdomain=intel.com dmarc=pass fromdomain=intel.com);
-       spf=pass (google.com: domain of brent.lu@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=brent.lu@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@microsoft.com header.s=selector2 header.b=ASlBt2v5;
+       arc=pass (i=1 spf=pass spfdomain=microsoft.com dkim=pass dkdomain=microsoft.com dmarc=pass fromdomain=microsoft.com);
+       spf=pass (google.com: domain of haiyangz@microsoft.com designates 40.107.220.98 as permitted sender) smtp.mailfrom=haiyangz@microsoft.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=microsoft.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :content-language:dlp-version:dlp-product:dlp-reaction:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=MqpriAlLPCFEVta+uE4bhW5UT8NOgz7Ql5od6jnBKRM=;
-        b=bOhkKS7Z0ymZtTb08VxEPh7ykiGFw1GG99XmDOkt3X9dYiGyevpn5VSAiGGgtpXJGD
-         GFlfjFmng43qOOWZ0xEF0/eTPtRUCpV+yNUGI2Qf1ztucS+wDepvTKYlucef5DljjiaI
-         zqsfHhqprjdU4YfiE3KZGFsDitqSWqnS9jek6FHQUzH4LQiwN0z/jW7DSDGKVRRvaAQH
-         JZydDK+jNs6iJc7jgZnx9J0Q48+4aYP38xbwaeIfnFR+FsZzrVp66L94u/Os6wZCNceq
-         7IyplXbmeDjppPoVEHVkhyTvihSclQubzWzC/FzwlD0dEic+tuLAI+8pivCiWA9nM6/1
-         IdNw==
+        h=from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:content-language:msip_labels
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=OFz5ih0ZQFNBlHYgLrqmqf382odjSXvGa6Z9HDoazjs=;
+        b=OCgHpN+1GCrW2fvdR1X0zft0omYdQRyybsccoMRUY3jFVeIBTiDvpYqSt2nbLa7BpX
+         xDe3sjcZ52DScx6La3cA3Q4yl3Ov+t6uZt24QG7g3/q/71J71XqUbEnuDY5L0No17KiX
+         Qgt0e+q+huL6QTS5Su9XigH5Daa/OJ7vDqsXMBOPYdGnlimNF9aFvVmv38H2/Ns/IJu/
+         TWF1lcmvZ1+z8C8SL2UyI0nKfGlv4oj0v81I7ugoigzmPbZy9vt3JO7UcCmARv8Fzopo
+         U5Z9qFrNpe4Sz7gmAd0fp6XxLBoNtvgjF6NExW3WUuOEUysyLff3GMOakJwN5zwSbyTm
+         RO+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:from:to:cc
-         :subject:thread-topic:thread-index:date:message-id:references
-         :in-reply-to:accept-language:content-language:dlp-version
-         :dlp-product:dlp-reaction:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:from:to:cc:subject:thread-topic:thread-index
+         :date:message-id:references:in-reply-to:accept-language
+         :content-language:msip_labels:mime-version:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=MqpriAlLPCFEVta+uE4bhW5UT8NOgz7Ql5od6jnBKRM=;
-        b=RmIbZaUO8VIBhQnnScrVTYwXMUWVuRiIyK0x9nlkuQ8pC1+hjxfKKce/sCQlWT854Z
-         OIl6npWnaIuFelnxFXXib9CgQEUPjvkmFsmBksHMLNx1TV1gyv2Ok0/HN1HQoo+OtBRK
-         1B01OA9cerRGrPsHRd+trsx6ebU22xff7vB1kiiFLtdwpG6BakSIELq0aXZBZfROiEMY
-         xIJ1VOPG1FOo+yCij7ZIh36yJ3dtK+nklXWe5Ndbxr1iCLLcu74g32tlcfaz9qddwwlZ
-         iEhRKTgb6HiCxpp3bugx7U34AHotjHs4od5dfNeje6Io6yyeSCC7xdzECswzcetlef3x
-         zu1A==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PubqpWx8bhdit0ByszpKh/GIQCppbcUAIk7MZIfEalkS8B5wEWYq
-	Z2R2bxbQLI+g4th3hFo4WA4=
-X-Google-Smtp-Source: APiQypKGa1WPfBSGR2thMDw7fZHWo+SWogbvhOAGCAq4lPdowmTkX0nifTm06Gp+BJTYem9YM9B5/g==
-X-Received: by 2002:ac8:66da:: with SMTP id m26mr4201324qtp.342.1588261089778;
-        Thu, 30 Apr 2020 08:38:09 -0700 (PDT)
+        bh=OFz5ih0ZQFNBlHYgLrqmqf382odjSXvGa6Z9HDoazjs=;
+        b=EZghRTa9kMZO8jU7Dp5tbwJ8IID1fQ5//yPFUUjKal3li5Z5mPFoZLRSceGkD16C+Y
+         ZB5GO8IssF9/rO81K3GwEQdt5PvJI8IhsFq/w3hhr8+JtdmbzXwXBxz7L/GLOZI30jgm
+         yV4dxfPGRcoJpA2g5B3lcC7HkuvzTXY7YYkZrnD1hwqWUwG2fNOuzmYCA3CYjkg2DYo2
+         tdHNLkr1/DpI8hNmyMnCHsaaXrwzkAP5459vcOAzxVYsj6fXeUyGBa8xa0YWHkZROi3n
+         pDm8KGYyO3/TJQEXNOizatF45KIAhwNK2vXbmE+d7Aq7tOhsRsVESmMKvswflMRpn+u2
+         YoYA==
+X-Gm-Message-State: AGi0Pua1hZc1V0hurYxTjsNG/9U2ISZWrPPGj5Cm/shGNseM8kvPVLzi
+	gr027R71RJWBHA02dvGMXCQ=
+X-Google-Smtp-Source: APiQypK+kJhMNET620ilgAiixKXpmidmAwQflaD46ypZwOeOvD+ubMKxGhu6BDM8XGSXaVfMKrGVMQ==
+X-Received: by 2002:a9d:7ada:: with SMTP id m26mr2884146otn.181.1588261378158;
+        Thu, 30 Apr 2020 08:42:58 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:8a03:: with SMTP id m3ls1866382qkd.8.gmail; Thu, 30 Apr
- 2020 08:38:09 -0700 (PDT)
-X-Received: by 2002:a37:a5c7:: with SMTP id o190mr4299296qke.5.1588261089356;
-        Thu, 30 Apr 2020 08:38:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588261089; cv=pass;
+Received: by 2002:a9d:150:: with SMTP id 74ls740320otu.8.gmail; Thu, 30 Apr
+ 2020 08:42:57 -0700 (PDT)
+X-Received: by 2002:a9d:1462:: with SMTP id h89mr3140138oth.18.1588261377698;
+        Thu, 30 Apr 2020 08:42:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588261377; cv=pass;
         d=google.com; s=arc-20160816;
-        b=iCRQEAzhcMUugaSM/drTsJRABw59j4r2URMT5OUr3z4WH0qLuhQkCmEcuVFYWQGPsb
-         PotdOyRGjrM4JhVHMZxIkL06jVQoni9E2njnnU53v3goRW72LHma7foeuYXppaq4DmMx
-         0MKq9w1xws0Pi2KfZ3KuiyBM2+ac6mQnit5a1Ndigz86L1wWULmBAohQUsRIcsCZEMOt
-         6aTPTuq95wcVed4P2f//plZgBUnKUzta8NmugXfUoqj0wzXJhfLbvGRocUhFjw4/YxeB
-         wArYLaZJQSBrpb8nGJCtj/cOwynQr/zFSpuJXNCdBvNcdlzuMwEd9YooGPehH1wKUFP2
-         AHWg==
+        b=gR8MnHJlbmw4FwoitIcRPWKzKUCJlyj3skeXrLksDwd6guK5ZGKVdRVOOSTiBBWTJS
+         mG4uzduvPSkNJ1i6f0VVgFmIm3kC0ClliT/2QgfJ2QXJ2l6BAzx0JcdzTMmsw/rAOcrK
+         B/9i5r/lfXD5CsotMAhs+ZKOOezxcvxZVeiv3fKTm4H8TZKTtAz7xZazhhKD4Svjej/S
+         u6Kjr/NdflTVIHQDRRtaNIYpwj8g0xEuBVs8B1FdSlJiqGjgVL8vW4Y2t1sxRXoeWJ8r
+         2BBY/eCKNmWXbaWgKOReAQDi5gBOYoGxFkc8EsV1vMfNOHDZD6fEPdVJp23O3/hPsgDu
+         cYVA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:dlp-reaction:dlp-product
-         :dlp-version:content-language:accept-language:in-reply-to:references
-         :message-id:date:thread-index:thread-topic:subject:cc:to:from
-         :dkim-signature:ironport-sdr:ironport-sdr;
-        bh=PSrCV9xRv/rNmhEpSAjA0iDg6QNdxN2TVQWl4fSyHEA=;
-        b=oGdrqLLaNXMoys7/FlLJgjHN4BIYdvcljY9SCepwHCeQZxOFu9nW8W5h3HK1nRe5ni
-         yrzs5VpNCz+JBhJ2JiufTaIBuZwG6n2WXdCypKCq5T4ETVMLIiG67H5tbQpQU7f1rZg2
-         dPr3AaPK6Hpp1DbMx9hgfvfADX0AND4xXNVcoiD8Cjs25TUfUWGHy2vZHmOAkW36dxeU
-         oHJC4nmLfr4/zzXlZ90pbQyIGcc/ysSdvU35h+ph1qXykYv4bw+UUQt6h8+NuKHVs02E
-         pWbzXraU2HQeFzguqkCZP5UOxaHGxRt/EkeX8TQWcKVF/UypDLDeuG0jlun0mQIZWgzd
-         22DA==
+        h=mime-version:content-transfer-encoding:msip_labels:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:dkim-signature;
+        bh=oQBdZ/fGcozTanySAideIcVdPprG4AIT8zF/vq9KAuY=;
+        b=tos6fkY8larpX61SHWkO+lnaaz2uf5psjoZAxn9G5XIkkKcAnmolnapIUAG9WWGnjZ
+         DPpiOxAq+UxEDT8vVn8uj/gaXTi93FC2EIrmBYB6mTh3ZsyBWKdwto/jpFmArI39oTnw
+         hWKIxJ0s439CFo3eFOR3XiHybj0LLbXYeuPPRU7f9j+Z7yFApPucrc8eAJeHE8iHLR6G
+         Nl+0j4Bh5IEnwZaUNserFMB2axsgAJLv5xNBrlzCRj6quLNjegqwRdx6XU18Mv4/Q4Qg
+         7Hh8ItY4mCLrRHcljMmYfVF74O6AetQ722u6Wxyw8k0cQq7T5tGnfHq0HmLS9mrY+EcQ
+         87HQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@intel.onmicrosoft.com header.s=selector2-intel-onmicrosoft-com header.b=FneWcy0H;
-       arc=pass (i=1 spf=pass spfdomain=intel.com dkim=pass dkdomain=intel.com dmarc=pass fromdomain=intel.com);
-       spf=pass (google.com: domain of brent.lu@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=brent.lu@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
-        by gmr-mx.google.com with ESMTPS id h33si19449qtd.2.2020.04.30.08.38.09
+       dkim=pass header.i=@microsoft.com header.s=selector2 header.b=ASlBt2v5;
+       arc=pass (i=1 spf=pass spfdomain=microsoft.com dkim=pass dkdomain=microsoft.com dmarc=pass fromdomain=microsoft.com);
+       spf=pass (google.com: domain of haiyangz@microsoft.com designates 40.107.220.98 as permitted sender) smtp.mailfrom=haiyangz@microsoft.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=microsoft.com
+Received: from NAM11-CO1-obe.outbound.protection.outlook.com (mail-co1nam11on2098.outbound.protection.outlook.com. [40.107.220.98])
+        by gmr-mx.google.com with ESMTPS id t29si29759otj.2.2020.04.30.08.42.57
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 30 Apr 2020 08:38:09 -0700 (PDT)
-Received-SPF: pass (google.com: domain of brent.lu@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
-IronPort-SDR: S2GZSd6Y1u58esMg4FiL27S4kdPmRg4/MEc4AdKpo0c/sMaAE1br2ZlqFJAF5CbwJi7P/6XeFE
- /VqzJUrSeyTg==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Apr 2020 08:38:07 -0700
-IronPort-SDR: +8XPAG27qspHIHR7Z3++TW0YKYWPQEtpCId02dXbj8tDqoIJkSgZtGg4OUzf64QbsebNL31Wqc
- yQkJhuDBRIiw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.73,336,1583222400"; 
-   d="scan'208";a="368180078"
-Received: from fmsmsx106.amr.corp.intel.com ([10.18.124.204])
-  by fmsmga001.fm.intel.com with ESMTP; 30 Apr 2020 08:38:07 -0700
-Received: from fmsmsx603.amr.corp.intel.com (10.18.126.83) by
- FMSMSX106.amr.corp.intel.com (10.18.124.204) with Microsoft SMTP Server (TLS)
- id 14.3.439.0; Thu, 30 Apr 2020 08:38:07 -0700
-Received: from fmsmsx601.amr.corp.intel.com (10.18.126.81) by
- fmsmsx603.amr.corp.intel.com (10.18.126.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1713.5; Thu, 30 Apr 2020 08:38:07 -0700
-Received: from FMSEDG002.ED.cps.intel.com (10.1.192.134) by
- fmsmsx601.amr.corp.intel.com (10.18.126.81) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.1.1713.5
- via Frontend Transport; Thu, 30 Apr 2020 08:38:07 -0700
-Received: from NAM12-DM6-obe.outbound.protection.outlook.com (104.47.59.177)
- by edgegateway.intel.com (192.55.55.69) with Microsoft SMTP Server (TLS) id
- 14.3.439.0; Thu, 30 Apr 2020 08:38:06 -0700
+        Thu, 30 Apr 2020 08:42:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of haiyangz@microsoft.com designates 40.107.220.98 as permitted sender) client-ip=40.107.220.98;
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=C0HmpRCm8cHfZ+DyCbRQaEET89c4DxXr7ZERYsl/nsiEWP++H1WPH690HDJkp0cv0zxF950088O1+Fqicn5PgxsGHXcKlF5I1PyBdq0u9wZJAH+7H+10mAUAhlLQ3u2sCN+z8LMQfdXYsVzlwMAV3OAsfvAcy+ia2eECEB4dNvjOwpQPvYwym9gX+mEb8MMimudgGYBB9iyP6EisTKjiFEOHPJjELv2BX7CWvegdFHGQNJYO5isiZ/uuMLosBJ5NuXw6Iabbaxt3KZbLRLa8TLBIiQy4arVJ8fTONyDX6J8qS4YXk3lEo+zmOEh3IrvGUGLo/VZOc/iUuzpZmaj8VQ==
+ b=CWgBHvDcnX8UnFL4WySAclcNuRivpsd/4QHzus7Rr0tv0SOx+GjpnNE6/SaFZHwzyLkZsOCYkHeGWkHkOAJ8Gxx1XFQfWjmkl4y1V7gRI/7CyZt4Td1cW8ZdbySqrIihbioVQOA5GHnEL/qMqLLdL4jQuro4kmM4wQWk7U3yL7xvxYpAdpca03oR5GglpygrjZzb5QGo59+HnTPWbADikcgfDVGbI1VB+2UVTEXcd05i+5JJ0cPAh7sN4zSWsKdh3Oh6ZCI6hj8SJlGSfvitj5ilNelYZCbd9OxgJ85xim1TUOKpgmU/ga8Mgt9ONvK/EAjSOEySLADkTjnDPUNg2w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PSrCV9xRv/rNmhEpSAjA0iDg6QNdxN2TVQWl4fSyHEA=;
- b=hDC1iVDWdpnzkqHpbIbEH5DXm5Df595ubp8jhURpTAhnhDQeHWHpw05y9ZVUhj8USk0gbKsECkm1ML6M5NTj5LJUvNP4jT4GCh1xQ+9T+haBWN006vw5bQli1NgXSrU39ks8aAPjlZGNojesqRHXE+DD6poH7vMBKVTkrsx6CO2Icr8INuHO0juuAQR5SC0vlT5MEy68irl0ylK0Q+Y0tFk8z07YDWghc2FsgCQuen8MlP1mnakMLbzM99SIFt4Gi0iyVAYhxORAeHjakIvKvpf0T8r7kZdTPovW6x3rr1wecWOKdORQ+Wh/ZdXm2w7/ps/gdbHMN54oySTewlSWUg==
+ bh=oQBdZ/fGcozTanySAideIcVdPprG4AIT8zF/vq9KAuY=;
+ b=hr6Bav5y8VcQp3uHpC6knN7LF9LMm5fsMipzvzlge2yKs5fa4qHf/4MVS2sJpG0iIHwj2WpPcWb+ORBnYlSAK8sZYKMEDQS2vM5A6/wqL0rlOppSgM9xKPrDK+BI+4fBvzUENaobEJXeCzbr3TGgYsovEGkUTNB1xV7i5yVgx0G0KO7n9q/hI2FtWl+LnGsGr/y2+HJxQYVEcBnCZjFr62E4Xp7VKpSE56bNp735kaM2ReXQ+M5bP2ZDYJG4CVRkjNZCx96Xg50+mIxzkKZs6uO4/7TbUbpcW3x2UMwvPG/+YTMlujlK4K3F1wN7KTXOfxxq9NmkPPXVI98Qb23eGw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BN6PR1101MB2132.namprd11.prod.outlook.com
- (2603:10b6:405:5b::22) by BN6PR1101MB2241.namprd11.prod.outlook.com
- (2603:10b6:405:51::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2958.20; Thu, 30 Apr
- 2020 15:38:05 +0000
-Received: from BN6PR1101MB2132.namprd11.prod.outlook.com
- ([fe80::344b:59bc:1455:37a6]) by BN6PR1101MB2132.namprd11.prod.outlook.com
- ([fe80::344b:59bc:1455:37a6%11]) with mapi id 15.20.2937.026; Thu, 30 Apr
- 2020 15:38:04 +0000
-From: "Lu, Brent" <brent.lu@intel.com>
-To: =?utf-8?B?QW1hZGV1c3ogU8WCYXdpxYRza2k=?=
-	<amadeuszx.slawinski@linux.intel.com>, "Rojewski, Cezary"
-	<cezary.rojewski@intel.com>, Pierre-Louis Bossart
-	<pierre-louis.bossart@linux.intel.com>, "alsa-devel@alsa-project.org"
-	<alsa-devel@alsa-project.org>
-CC: Kate Stewart <kstewart@linuxfoundation.org>,
+ smtp.mailfrom=microsoft.com; dmarc=pass action=none
+ header.from=microsoft.com; dkim=pass header.d=microsoft.com; arc=none
+Received: from MN2PR21MB1437.namprd21.prod.outlook.com (2603:10b6:208:208::10)
+ by MN2PR21MB1149.namprd21.prod.outlook.com (2603:10b6:208:fd::30) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2979.6; Thu, 30 Apr
+ 2020 15:42:55 +0000
+Received: from MN2PR21MB1437.namprd21.prod.outlook.com
+ ([fe80::453:5eca:93bd:5afa]) by MN2PR21MB1437.namprd21.prod.outlook.com
+ ([fe80::453:5eca:93bd:5afa%6]) with mapi id 15.20.2979.005; Thu, 30 Apr 2020
+ 15:42:55 +0000
+From: "'Haiyang Zhang' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Nathan Chancellor <natechancellor@gmail.com>, Michael Kelley
+	<mikelley@microsoft.com>
+CC: KY Srinivasan <kys@microsoft.com>, Stephen Hemminger
+	<sthemmin@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
 	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jie Yang
-	<yang.jie@linux.intel.com>, Takashi Iwai <tiwai@suse.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Liam Girdwood
-	<liam.r.girdwood@linux.intel.com>, Richard Fontana <rfontana@redhat.com>,
-	Mark Brown <broonie@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Allison Randal <allison@lohutok.net>
-Subject: RE: [PATCH] ASoC: Intel: sst: ipc command timeout
-Thread-Topic: [PATCH] ASoC: Intel: sst: ipc command timeout
-Thread-Index: AQHWDxGPcERmvVi2FUaZ0GDzXVeqv6h4uesAgAAAnRCAAFQWgIAEY1sggAkDsACACG0YUIABciOAgAFISrA=
-Date: Thu, 30 Apr 2020 15:38:04 +0000
-Message-ID: <BN6PR1101MB21325FA4FB1446DC2CAF6C6797AA0@BN6PR1101MB2132.namprd11.prod.outlook.com>
-References: <1586506705-3194-1-git-send-email-brent.lu@intel.com>
- <4f495cf1-4740-cf3b-196f-cc850c503b43@linux.intel.com>
- <BN6PR1101MB21328B6F4147640D07F9E40A97DA0@BN6PR1101MB2132.namprd11.prod.outlook.com>
- <c8309abf-cbfb-a3db-5aa7-2e2f748a6d34@intel.com>
- <BN6PR1101MB21328C54E66082227B9F497A97D50@BN6PR1101MB2132.namprd11.prod.outlook.com>
- <5e84c48c-a5d1-b2ff-c197-5efa478c5916@linux.intel.com>
- <BN6PR1101MB2132D23B042284DDA667642A97AC0@BN6PR1101MB2132.namprd11.prod.outlook.com>
- <9d003948-a651-9920-86b6-307e912dd8ed@linux.intel.com>
-In-Reply-To: <9d003948-a651-9920-86b6-307e912dd8ed@linux.intel.com>
+	Sami Tolvanen <samitolvanen@google.com>
+Subject: RE: [PATCH v2] hv_netvsc: Fix netvsc_start_xmit's return type
+Thread-Topic: [PATCH v2] hv_netvsc: Fix netvsc_start_xmit's return type
+Thread-Index: AQHWHYZGNBVu4gM0F0qaHyJdA0wqmKiQy0CAgABjYoCAAJnwsA==
+Date: Thu, 30 Apr 2020 15:42:55 +0000
+Message-ID: <MN2PR21MB14373FE40A4D3AD012FAEC49CAAA0@MN2PR21MB1437.namprd21.prod.outlook.com>
+References: <20200428100828.aslw3pn5nhwtlsnt@liuwe-devbox-debian-v2.j3c5onc20sse1dnehy4noqpfcg.zx.internal.cloudapp.net>
+ <20200428175455.2109973-1-natechancellor@gmail.com>
+ <MW2PR2101MB10522D4D5EBAB469FE5B4D8BD7AA0@MW2PR2101MB1052.namprd21.prod.outlook.com>
+ <20200430060151.GA3548130@ubuntu-s3-xlarge-x86>
+In-Reply-To: <20200430060151.GA3548130@ubuntu-s3-xlarge-x86>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
-dlp-version: 11.2.0.6
-dlp-product: dlpe-windows
-dlp-reaction: no-action
-x-originating-ip: [36.230.113.59]
+msip_labels: MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Enabled=True;
+ MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_SiteId=72f988bf-86f1-41af-91ab-2d7cd011db47;
+ MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Owner=haiyangz@microsoft.com;
+ MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_SetDate=2020-04-30T15:42:54.3419050Z;
+ MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Name=General;
+ MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Application=Microsoft Azure
+ Information Protection;
+ MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_ActionId=5a6f0a0d-2bde-46e2-8635-0d6d252653b2;
+ MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Extended_MSFT_Method=Automatic
+x-originating-ip: [96.61.83.132]
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: a7662647-83bf-4300-9221-08d7ed1c797b
-x-ms-traffictypediagnostic: BN6PR1101MB2241:
-x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+x-ms-office365-filtering-ht: Tenant
+x-ms-office365-filtering-correlation-id: 25283589-86b4-4f36-ae3c-08d7ed1d26ce
+x-ms-traffictypediagnostic: MN2PR21MB1149:|MN2PR21MB1149:
 x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <BN6PR1101MB22411C7BA1E77BDAC0E5030897AA0@BN6PR1101MB2241.namprd11.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:9508;
+x-microsoft-antispam-prvs: <MN2PR21MB11498AAB5E6A5D80C98A6F4ACAAA0@MN2PR21MB1149.namprd21.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:10000;
 x-forefront-prvs: 0389EDA07F
 x-ms-exchange-senderadcheck: 1
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: BLbQWfc1cGQFkcKRNip92VRQWZAQB/HeWgmraLiXQ0lWXbOgHPSGZ/1SwTJG2DyJabtEt6Thjr4OhpnpqMpPwypbdUKwzxR3qOJuFBJcvvUp6id7iziTNxBsEgr7kCnHfwbcOUOHGr4SWXTPxCQuovHsAG4KULMjzXTbdEtvNb3f0njQsAiJiuNpOVkN60yDII+bZHhfhj5nREw17P1REK5Jgow2qaSvnbV9Tkfm6Fuv51MyL71OP9wMy6HjcyuGlbPakR16WLw/Z4601Mpf+IpR0Yjn3axyK8myyoBHxJ3HKeKb3XHKM+wHR+usUn4HfWPps3LfzeVMwl+YokRA+goVS0VNXLPnk+i2SRZR6AX4xhJmBS/TnDRPpXzpljrQVLcXpb9kZTOpap+AHqY2PuQIH7IT+R1xmx8SupyN6JNRnO7W4Sjb1FNgyCLHhGIO
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN6PR1101MB2132.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFTY:;SFS:(366004)(396003)(376002)(136003)(346002)(39860400002)(52536014)(26005)(7416002)(4326008)(186003)(2906002)(6506007)(86362001)(54906003)(66946007)(8936002)(5660300002)(316002)(71200400001)(110136005)(478600001)(66556008)(8676002)(66476007)(33656002)(64756008)(76116006)(55016002)(9686003)(7696005)(66446008);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata: W0D8mwL25KwBOejIC+8/WzMb3f/ReMAjYpkP3QM5VMpjXo3Ac3V2zBupxrWjJAa1126CTitAb12s24OKFDbvdnF3aNqVloYuEgQr/eRE84FHT8IvycxmUXe0cEvMoTg3xTo/4zUp0W2pYvFC8KIPWmCntnCz13eMvKr/nC3JSk4l8VwhGO3pg/3Le6XSX5cvRdXprVRqQuEUIY2UzIv2I0FR/XwSYGv15vG2cGdNH4ilmMxebOpf1mdQoy37vYSFJNlOi/Zn+g0+taykBkbYMFW4NNaI6BSH4X7VOUHyl/00ey2n7KsR+h4jodxYuWJpdAoij/LXJvYrSUXyzGVTZhnshHZ9kTVn5mVBBdnlhxt4Ci2PsxvQQV4aUePXZc06hZbnWb50Ds4u2ge1cq+ZLkFOfPR+0Y28ko85WBICvpfE9YbmAByS48j3IsdouWzhnZWLFM35VLyIamJZsM2ExuytnCw8ZjIpaDAU7BLXJGQUpFK+ABA9ZX/qCa900K9WCfIzhKqnsa2akbytnoEZSKwZ17+TPAsW9CGhHDPBCACZWdgpbKorEDNjywRH3iajj8pZwbDD9vmZOrVje44kuEWOOoplh1SQw0ZsYRBa+Y/qDQF+plfaJCIsKJcxnq/+ej2c3cVcblZr/eaYWE9GAsi04tvVJ0zjtxz/CF/DvsEsZS3S2Ep/aR8iNKT3iw+rVu2LchW05KXi0Gyfa+wBAjiYbE1IvSfRfJAlbXMNf65g96nSg/HmUkyW1K14sR36Hptnh7oIqKfiJjrJI19v6D8n1uudvqkxhuWZJAvh970=
+x-microsoft-antispam-message-info: sJQ02fUP6ojI9CpTn9va7j/XLLt46HY4MUvQmbadjIlVV7fnMJthnWGLy+Dg+bZsWAptnzKC1Yfq4Pd28TcTGRGkugZtAJBA4TDiBYXSmeBPRv0q3cqIoNnvhQb3nC3fulXULFRumnOMbnbbLFn9qDqPYbvl+SFEIWgT6RnDjyGmMNpU0XrGZszNi3lD9QL4ZS8RCXVyMaHbmfe9ik72qb+EnYPjc4a4/VbT1f4l+J5Ti5WSdm6+xDNS+XpHOh0GFpHg6eLwPbihGufzPJ46vKmyVBd4kF98LuZNk2U7NT3GfnfYwNWhOCjOQ5o+UKvUPevGyfqGItSAae12gZGOKHlywmgwoVCNAvxonDxytEsyPMNhCuZjyMzCBTN4Mp5V2L9Xn+Seq6PRuK9Trz+cQ3ysCocOOjjp32xTIih56A8Z1xoGC/Iz6YqnOvLYn1h/
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR21MB1437.namprd21.prod.outlook.com;PTR:;CAT:NONE;SFTY:;SFS:(4636009)(396003)(136003)(39860400002)(376002)(366004)(346002)(186003)(52536014)(478600001)(4326008)(5660300002)(71200400001)(66556008)(66946007)(10290500003)(76116006)(66446008)(82950400001)(82960400001)(64756008)(6636002)(66476007)(54906003)(6506007)(55016002)(316002)(26005)(86362001)(7696005)(110136005)(33656002)(8990500004)(53546011)(8676002)(8936002)(2906002)(9686003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata: WWSgXzDaGSjwNjBl+fz44967biH3cM+w6FvwqsuvsGPGm8+gGnh8ZgpU+DjA4DfAWGIQCF8aV/qdyOL2j3MLeq6ayCfBAuaBPdnRsymXG5Khc/HgpCjDXf8cUzqig6s9QZr4UvqKxNCP5fL/5VP1eJZ1JFVUCfT5bPmToca4+Cctr2cxahMEbw31I1Gh4hVNwuHwdV07+MF4OxMGL9dX08k7WZFpzyB6QSTPQqZFiT2dM4WXomDUlxN7NiRPdAdVZXSfWTPuQWi/+gPXEwan6ON3owApqGOfjy6b0PCHGKeEMxoi7yjlgoxhoehG9N1tT0xDbNaLuPivKZeW51WbyA2+RT0t6RiucWFQ+NZMNYC33o0URquQ7JumWAeUakZyTOpVSdkFkDvwG1aNgmba9RAlcVLpAGrwaYXvynRn+ccfeek7X11+ifw2EzqMa3FfO2LYMPTswKYIaoYLpYIz3+XsArbpKf4eSKwhjTN2Nyr2P+zIIj/bR9UaJ3Rve8sPqFgatoWJGkovVSL6pHVj5woQkiSR3RcwVGaD9LnTVD75Nt498u7ue93THZOYiZQwu7sR1XAGYtiFJLiYJxHKuAqienKy8+Ph4JUgfn3sdbjIEOJyqXaPN9qUweGj48MYrZGCddMjOkBvRAxAGvWVVKX3miNBRa8qhSm39crOMuVmUm3bXcA9XuL6HVUfg0rdySnHfrDtGDwN2bJa4LDWJpJ6UoVmNDNexS3X1koWjH01KOqNgP7TV8GnUSpuO5AgfsbeWtzUWx6EPd1Qvp+I436NVQHKhGKAeZC38CaRQmw=
 Content-Type: text/plain; charset="UTF-8"
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-Network-Message-Id: a7662647-83bf-4300-9221-08d7ed1c797b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Apr 2020 15:38:04.6924
+X-OriginatorOrg: microsoft.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 25283589-86b4-4f36-ae3c-08d7ed1d26ce
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Apr 2020 15:42:55.5853
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-id: 72f988bf-86f1-41af-91ab-2d7cd011db47
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: RwH/5KTsjqhhDPZlqQBdgatsFChapAWbXSxA7JIUFJGme8wpa37svy0W6VPN9LZ1jf4FjRKb4PYU+kz2hXbPhg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN6PR1101MB2241
-X-OriginatorOrg: intel.com
-X-Original-Sender: brent.lu@intel.com
+X-MS-Exchange-CrossTenant-userprincipalname: KpHitXjOyFdQ0WNo7QBJl4d1NER1pG4tBidWhGLHP+tRuTnYxcRFxNFORpUCwHkSuYGKcJF8yjKz7T1ocKjWIA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR21MB1149
+X-Original-Sender: haiyangz@microsoft.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@intel.onmicrosoft.com header.s=selector2-intel-onmicrosoft-com
- header.b=FneWcy0H;       arc=pass (i=1 spf=pass spfdomain=intel.com dkim=pass
- dkdomain=intel.com dmarc=pass fromdomain=intel.com);       spf=pass
- (google.com: domain of brent.lu@intel.com designates 192.55.52.120 as
- permitted sender) smtp.mailfrom=brent.lu@intel.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=intel.com
+ header.i=@microsoft.com header.s=selector2 header.b=ASlBt2v5;       arc=pass
+ (i=1 spf=pass spfdomain=microsoft.com dkim=pass dkdomain=microsoft.com
+ dmarc=pass fromdomain=microsoft.com);       spf=pass (google.com: domain of
+ haiyangz@microsoft.com designates 40.107.220.98 as permitted sender)
+ smtp.mailfrom=haiyangz@microsoft.com;       dmarc=pass (p=REJECT sp=REJECT
+ dis=NONE) header.from=microsoft.com
+X-Original-From: Haiyang Zhang <haiyangz@microsoft.com>
+Reply-To: Haiyang Zhang <haiyangz@microsoft.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -231,93 +199,154 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+
+
+> -----Original Message-----
+> From: Nathan Chancellor <natechancellor@gmail.com>
+> Sent: Thursday, April 30, 2020 2:02 AM
+> To: Michael Kelley <mikelley@microsoft.com>
+> Cc: KY Srinivasan <kys@microsoft.com>; Haiyang Zhang
+> <haiyangz@microsoft.com>; Stephen Hemminger
+> <sthemmin@microsoft.com>; Wei Liu <wei.liu@kernel.org>; linux-
+> hyperv@vger.kernel.org; netdev@vger.kernel.org; linux-
+> kernel@vger.kernel.org; clang-built-linux@googlegroups.com; Sami
+> Tolvanen <samitolvanen@google.com>
+> Subject: Re: [PATCH v2] hv_netvsc: Fix netvsc_start_xmit's return type
 > 
-> Hi,
-> yes that seems bit weird. It is bit better as it does not modify common code,
-> but still... Maybe going back to your original idea of replacing memcpy, try
-> replacing it with readq? It should generate one instruction read (although it is
-> only for x64_64, for 32 bit kernel we would still need to do something else).
+> Hi Michael,
 > 
-> Thanks,
-> Amadeusz
+> On Thu, Apr 30, 2020 at 12:06:09AM +0000, Michael Kelley wrote:
+> > From: Nathan Chancellor <natechancellor@gmail.com> Sent: Tuesday,
+> > April 28, 2020 10:55 AM
+> > >
+> > > Do note that netvsc_xmit still returns int because netvsc_xmit has a
+> > > potential return from netvsc_vf_xmit, which does not return
+> > > netdev_tx_t because of the call to dev_queue_xmit.
+> > >
+> > > I am not sure if that is an oversight that was introduced by commit
+> > > 0c195567a8f6e ("netvsc: transparent VF management") or if everything
+> > > works properly as it is now.
+> > >
+> > > My patch is purely concerned with making the definition match the
+> > > prototype so it should be NFC aside from avoiding the CFI panic.
+> > >
+> >
+> > While it probably works correctly now, I'm not too keen on just
+> > changing the return type for netvsc_start_xmit() and assuming the
+> > 'int' that is returned from netvsc_xmit() will be correctly mapped to
+> > the netdev_tx_t enum type.  While that mapping probably happens
+> > correctly at the moment, this really should have a more holistic fix.
+> 
+> While it might work correctly, I am not sure that the mapping is correct,
+> hence that comment.
+> 
+> netdev_tx_t is an enum with two acceptable types, 0x00 and 0x10. Up until
+> commit 0c195567a8f6e ("netvsc: transparent VF management"), netvsc_xmit
+> was guaranteed to return something of type netdev_tx_t.
+> 
+> However, after said commit, we could return anything from netvsc_vf_xmit,
+> which in turn calls dev_queue_xmit then __dev_queue_xmit which will
+> return either an error code (-ENOMEM or
+> -ENETDOWN) or something from __dev_xmit_skb, which appears to be
+> NET_XMIT_SUCCESS, NET_XMIT_DROP, or NET_XMIT_CN.
+> 
+> It does not look like netvsc_xmit or netvsc_vf_xmit try to convert those
+> returns to netdev_tx_t in some way; netvsc_vf_xmit just passes the return
+> value up to netvsc_xmit, which is the part that I am unsure about...
+> 
+> > Nathan -- are you willing to look at doing the more holistic fix?  Or
+> > should we see about asking Haiyang Zhang to do it?
+> 
+> I would be fine trying to look at a more holistic fix but I know basically nothing
+> about this subsystem. I am unsure if something like this would be acceptable
+> or if something else needs to happen.
+> Otherwise, I'd be fine with you guys taking a look and just giving me
+> reported-by credit.
 
-Hi,
+Here is more info regarding Linux network subsystem:
 
-I've compared the assembly to see if there is clue. Both kernels are using 64-bit
-mov to read register and the only difference is optimized or not. Both
-implementations are looking good to me. Currently I don't have answer why
-slower kernel hits the problem while optimized one survived.
+As said in "include/linux/netdevice.h", drivers are allowed to return any codes 
+from the three different namespaces.
+And hv_netvsc needs to support "transparent VF", and calls netvsc_vf_xmit >> 
+dev_queue_xmit which returns qdisc return codes, and errnos like -ENOMEM, 
+etc. These are compliant with the guideline below:
 
-1. Old kernel. Code is optimized and not able to reproduce the issue on this kernel.
+  79 /*
+  80  * Transmit return codes: transmit return codes originate from three different
+  81  * namespaces:
+  82  *
+  83  * - qdisc return codes
+  84  * - driver transmit return codes
+  85  * - errno values
+  86  *
+  87  * Drivers are allowed to return any one of those in their hard_start_xmit()
 
-(gdb) disas sst_shim32_read64
-Dump of assembler code for function sst_shim32_read64:
-   0x000000000000096c <+0>:     call   0x971 <sst_shim32_read64+5>
-=> call __fentry__
-   0x0000000000000971 <+5>:     push   rbp
-   0x0000000000000972 <+6>:     mov    rbp,rsp
-   0x0000000000000975 <+9>:     mov    eax,esi
-   0x0000000000000977 <+11>:    mov    rax,QWORD PTR [rdi+rax*1]
-=> perform 64-bit mov
-   0x000000000000097b <+15>:    pop    rbp
-   0x000000000000097c <+16>:    ret
-End of assembler dump.
+Also, ndo_start_xmit function pointer is used by upper layer functions which can 
+handles three types of the return codes. 
+For example, in the calling stack: ndo_start_xmit << netdev_start_xmit << 
+xmit_one << dev_hard_start_xmit():
+The function dev_hard_start_xmit() uses dev_xmit_complete() to handle the 
+return codes. It handles three types of the return codes correctly.
 
-2. New kernel: obviously optimization is disabled and it calls memcpy to do the read operation.
+ 3483 struct sk_buff *dev_hard_start_xmit(struct sk_buff *first, struct net_device *dev,
+ 3484                                     struct netdev_queue *txq, int *ret)
+ 3485 {
+ 3486         struct sk_buff *skb = first;
+ 3487         int rc = NETDEV_TX_OK;
+ 3488
+ 3489         while (skb) {
+ 3490                 struct sk_buff *next = skb->next;
+ 3491
+ 3492                 skb_mark_not_on_list(skb);
+ 3493                 rc = xmit_one(skb, dev, txq, next != NULL);
+ 3494                 if (unlikely(!dev_xmit_complete(rc))) {
+ 3495                         skb->next = next;
+ 3496                         goto out;
+ 3497                 }
+ 3498
+ 3499                 skb = next;
+ 3500                 if (netif_tx_queue_stopped(txq) && skb) {
+ 3501                         rc = NETDEV_TX_BUSY;
+ 3502                         break;
+ 3503                 }
+ 3504         }
+ 3505
+ 3506 out:
+ 3507         *ret = rc;
+ 3508         return skb;
+ 3509 }
 
-(gdb) disas sst_shim32_read64
-Dump of assembler code for function sst_shim32_read64:
-   0x00000000000009a8 <+0>:     call   0x9ad <sst_shim32_read64+5>
-=> call __fentry__
-   0x00000000000009ad <+5>:     push   rbp
-   0x00000000000009ae <+6>:     mov    rbp,rsp
-   0x00000000000009b1 <+9>:     push   rbx
-   0x00000000000009b2 <+10>:    sub    rsp,0x10
-   0x00000000000009b6 <+14>:    mov    rax,QWORD PTR gs:0x28
-   0x00000000000009bf <+23>:    mov    QWORD PTR [rbp-0x10],rax
-   0x00000000000009c3 <+27>:    movabs rax,0xaaaaaaaaaaaaaaaa
-   0x00000000000009cd <+37>:    lea    rbx,[rbp-0x18]
-   0x00000000000009d1 <+41>:    mov    QWORD PTR [rbx],rax
-   0x00000000000009d4 <+44>:    mov    esi,esi
-   0x00000000000009d6 <+46>:    add    rsi,rdi
-   0x00000000000009d9 <+49>:    mov    edx,0x8
-   0x00000000000009de <+54>:    mov    rdi,rbx
-   0x00000000000009e1 <+57>:    call   0x9e6 <sst_shim32_read64+62>
-=> call memcpy
 
-The memcpy is implemented in arch/x86/lib/memcpy_64.S
+ 118 /*
+ 119  * Current order: NETDEV_TX_MASK > NET_XMIT_MASK >= 0 is significant;
+ 120  * hard_start_xmit() return < NET_XMIT_MASK means skb was consumed.
+ 121  */
+ 122 static inline bool dev_xmit_complete(int rc)
+ 123 {
+ 124         /*
+ 125          * Positive cases with an skb consumed by a driver:
+ 126          * - successful transmission (rc == NETDEV_TX_OK)
+ 127          * - error while transmitting (rc < 0)
+ 128          * - error while queueing to a different device (rc & NET_XMIT_MASK)
+ 129          */
+ 130         if (likely(rc < NET_XMIT_MASK))
+ 131                 return true;
+ 132
+ 133         return false;
+ 134 }
 
-(gdb) disas memcpy
-Dump of assembler code for function memcpy:
-   0xffffffff813519c0 <+0>:     jmp    0xffffffff813519f0 <memcpy_orig>
-=> jump to memcpy_orig function
+Regarding "a more holistic fix", I believe the return type of ndo_start_xmit should be 
+int, because of three namespaces of the return codes. This means to change all network 
+drivers. I'm not proposing to do this big change right now.
 
-X86_FEATURE_ERMS is disabled so it jumps to memcpy_orig
+So I have no objection of your patch.
 
-(gdb) disas memcpy_orig
-Dump of assembler code for function memcpy_orig:
-   0xffffffff813519f0 <+0>:     mov    rax,rdi
-   0xffffffff813519f3 <+3>:     cmp    rdx,0x20
-   0xffffffff813519f7 <+7>:     jb     0xffffffff81351a77 <memcpy_orig+135>
-=> jump because our read size is 8
-...
-   0xffffffff81351a77 <+135>:   cmp    edx,0x10
-   0xffffffff81351a7a <+138>:   jb     0xffffffff81351aa0 <memcpy_orig+176>
-=> jump because our read size is 8
-...
-   0xffffffff81351aa0 <+176>:   cmp    edx,0x8
-   0xffffffff81351aa3 <+179>:   jb     0xffffffff81351ac0 <memcpy_orig+208>
-   0xffffffff81351aa5 <+181>:   mov    r8,QWORD PTR [rsi]
-   0xffffffff81351aa8 <+184>:   mov    r9,QWORD PTR [rsi+rdx*1-0x8]
-   0xffffffff81351aad <+189>:   mov    QWORD PTR [rdi],r8
-   0xffffffff81351ab0 <+192>:   mov    QWORD PTR [rdi+rdx*1-0x8],r9
-=> perform 64-bit mov twice over same address (rdx=0x8)
-   0xffffffff81351ab5 <+197>:   ret
+Thanks,
+- Haiyang
 
-Regards,
-Brent
+Reviewed-by: Haiyang Zhang <haiyangz@microsoft.com>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/BN6PR1101MB21325FA4FB1446DC2CAF6C6797AA0%40BN6PR1101MB2132.namprd11.prod.outlook.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/MN2PR21MB14373FE40A4D3AD012FAEC49CAAA0%40MN2PR21MB1437.namprd21.prod.outlook.com.
