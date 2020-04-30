@@ -1,61 +1,48 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBUWTVH2QKGQELGEDITA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCDZTXMP2EPRBQ4SVL2QKGQEXNFANDI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3e.google.com (mail-yb1-xb3e.google.com [IPv6:2607:f8b0:4864:20::b3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0128B1BEFF7
-	for <lists+clang-built-linux@lfdr.de>; Thu, 30 Apr 2020 08:01:55 +0200 (CEST)
-Received: by mail-yb1-xb3e.google.com with SMTP id h129sf6500600ybc.3
-        for <lists+clang-built-linux@lfdr.de>; Wed, 29 Apr 2020 23:01:55 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588226514; cv=pass;
+Received: from mail-vs1-xe3e.google.com (mail-vs1-xe3e.google.com [IPv6:2607:f8b0:4864:20::e3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 24FBD1BF26E
+	for <lists+clang-built-linux@lfdr.de>; Thu, 30 Apr 2020 10:16:05 +0200 (CEST)
+Received: by mail-vs1-xe3e.google.com with SMTP id f22sf1122499vsa.7
+        for <lists+clang-built-linux@lfdr.de>; Thu, 30 Apr 2020 01:16:05 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588234564; cv=pass;
         d=google.com; s=arc-20160816;
-        b=pgXiL+uTxB4RDVg83u+4a3YeptBBLAD8Aby5n3hzqtkD5NFvsRo/IHu3zQb7Ggz1IN
-         qKDN75p8PeqwxiBUVhJtow9jGkBCXfN+9gMgcV6UK0X+k2VQcxkY+PhmlnfrcX8Zi+BP
-         xTXQyRYW+IyoIzmpsFGysBm+eWblLBtSsmTAo2Btuc113HOrwfC3zBZTnN8pwZ89nNXJ
-         LbdXVXZPq4Qmj0iZUtmdpKLpzw7CIVPxL/9I7LyAAsrvGNhS2QC9XHecwWUkX13lvUae
-         4aXt9CyYv4+8zCsd980vg5B7fbMyHgegFwUBV/gkgKC9JpK/tNgWElOYpWff2NcxS28n
-         JtEg==
+        b=S5JFAXQF3rDPlfMNZFU7UPA/JQQ9vUA/V24aP/37G7wE++0l6jkOzuQ5wqj4d91i3t
+         x6S9jTquZhucprbNxM5dqat92Mg5O6cj6ojMueXsdg9QUEpb3K9nCWDnvD1QCz+rBTro
+         IXZqa2KDz9OYPKADiAmJWm6VZYhG/nxYkTyH5JK4kcv2TdEXTYsKQV+DFtT3GfX6VSPF
+         L5OjNoXE8qomb+FhYNHBpbJlCYfktGXeVmbI4fvy6CTo2xQROhvCUQ1WPlSW9+WBTSX9
+         YU6e3DZcFYHeECZc3hLmmh6+YG1D1JPnWHTHaGq7IQfpxXpIqLEX4TKplAldH4th1XS0
+         Cvzw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=PNLqYNychvqI9Dmt73AFty6uZH3XANcUZr+m3RUETQ4=;
-        b=dyhO4q3/JN2GQlCakDCoWFu2CSpnec/CSjoVflroOR0o+MbtFbWguQlkEaX7tDBSw4
-         AjnlWKVE+YppJD84bR8vNUGP1idbwdqRxMpo1IXhPQW88RV3BbeXXZTj/OhyCQHN/SoD
-         YTdm9QWODApn1J1cJUnz7EiV8W61Pric8rRh9FuY7CKfXdInYtFBSxn4n+osgg0DMZp1
-         oyFFS6TeLZyOhfhEnHCviKG6WzrUmEmJzMN43E58ee9Gb+9R0Veg/M0ER2BDFzodNDVu
-         T7VRV/yVcZ3FGOErn2AonrALOTZwJfwNZbxwgCkXYW+CRpSRqBiGM+M+2L7q4z1QwR2j
-         Lw1Q==
+         :dkim-signature;
+        bh=QZvUhUYObv6K0pBN00oNMvtIuQszpYCsWjQ1e66oxzQ=;
+        b=clArAHz3MCZzy+SpzIZkKVkurvSxakaUsSjpMpIPhlpxgJ9XY3oXf9VzbiVZ/gaouo
+         dRE2yFXqSZBEUlUlPdMuvZuI3huwqtdyYk1nMJPx/lWTn0FSMlvugp/yEJJSWsMKmbzh
+         TSK1QGd/XtE796ES18ok/HDuN80xEMdKLb0bDUCU1J1be7THSmUq3BEalJY1sdWPwxIf
+         HrhT5obvx1NW8vi3ouUOOIS21YryRJQCsgn/tTl0sz8LZ4MbANAJZ9g7KPbHB6obIMIo
+         tfLnHW0xOEjhJEunSeZDOUWTAd+pmwLF3n9T4+q+g4fSWIw9fgK/taFuctHamm0eA164
+         euDw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=kZgnKrad;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b="Mmo/bEoB";
+       spf=pass (google.com: domain of jolsa@redhat.com designates 205.139.110.120 as permitted sender) smtp.mailfrom=jolsa@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=PNLqYNychvqI9Dmt73AFty6uZH3XANcUZr+m3RUETQ4=;
-        b=CUsJUepp5eps3lTB10De6Osxpy9igTlyuv6Tbrv//EInaQGRXaHPS39dsqvFfHM/ka
-         n7gD6NwfvQmNj00JAVssUUlfZvFuu5sfpIBMRiXMd5+meJL49bcl6DMOjPu2Z3bF6K8K
-         WwnSxwr6/Sgojw0njFySPFrmGSf9Ad94z7I1At8Hje2DUofhm8P0P/kELgls+qvTpbo3
-         a8KfpV0x3qUO0aHw6UavITkirUm/ZcnFNYZTuLLehb3DVFQfrAIAwjqnFhaz7kE4vMNH
-         Gso3lLkprxfOMIAKiyOhSRTk7znl1oFHv07ghmMKo/VyK7repwwo0SU08WWHqJQiTaZs
-         ZtBg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=PNLqYNychvqI9Dmt73AFty6uZH3XANcUZr+m3RUETQ4=;
-        b=pWapToKfs4PF/YXGqAtZXGK7wY8T2ozVZlms6oV3uu6pj262xtx4/vj6bupP+vi9iH
-         tkgsr3SMdDpoV4WYiA8Xti9w9THtaNsF9nh1/5+JUJAXyo6bjBE19gEMBJrBT5b3rFWi
-         YuiOFS0GpoXsqH7jcKniIS0g5vT3PbheVANzQ6JJ2tVQyrlLzDlL9EdBiAo2SFmzNnoU
-         3nPkcYHCQ+utWc92xsn8akM7wjT+6SghsWm/xTOoxOc63opKOqVa+iBUxUCJTcDBYvia
-         l6sr6H5B9kcJ7s9pY4PkqimAOktrC2H64KdDcX+iDOXCXeO3XNmVUl0aupnx9diTvvR6
-         puCQ==
+        bh=QZvUhUYObv6K0pBN00oNMvtIuQszpYCsWjQ1e66oxzQ=;
+        b=B2zQSG9/355nqH8YpAChyUEQ86jGmMzkIVSERy3yMiipgvuh2CHTuYTCtEOTXuSLJw
+         tcrqj2ZZzqZ1BbHS/A/lhk5DLa9V8amFEfeg367UA5MyViXo20vXMW23Wt1IEJcGYDAW
+         DimzlFBMpeD6K07fxjoVDOMobEKNEQ7W7fr70o5NhxNAidiBF4lTXiaCNeiwg6BqMuHO
+         aW5rMMyBwQ8bDL4P9WJu0S/WyEB77VH4bi0ZfhMvL4/IweWVsINI8fMJ9nx4Darr+O0V
+         SdnnjZ9aaIuclGr5V3sebPVEtbTixJcZcnl+RXbPb6W9r2tp2r7AZKh4gu6ZEkeCw0eB
+         A3MQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -63,87 +50,88 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=PNLqYNychvqI9Dmt73AFty6uZH3XANcUZr+m3RUETQ4=;
-        b=fGZ5YDKYy5KnAALJxTyQD5cFrVEsKvxRh6DnMtfFacQs5b1/B8qZK5rdPtrIsa5eyg
-         Ea6whwBmcgN1YdqqBsZ94UJEEbbDR+lg5xSGFqYagPVXwg3G1uwjPhQ9E9XCoNYXeD+d
-         4cR9aLkk5oJm4VrHdEEfUonfi13NLbH2KlgxrfpBQ8BeOuDZMt7PK45/4KdUJr1yYxe+
-         lhaOkByuOdJZYcEr7mctRmak/QZAleY3b7jYymIo75kVe5ov9p4wQhmFdeanwQOMynFw
-         DOjijegQXlPYxGlqm8gdzBzjooX5EHyeKibEAp8C+0BMDbjvweNAM784Lyl7Wg7A9ej+
-         qePA==
+        bh=QZvUhUYObv6K0pBN00oNMvtIuQszpYCsWjQ1e66oxzQ=;
+        b=j3QRLzO7AmHDF1zg4yZw4CWBuif8ckt+yD1NxE+5xi8IFJYR0tpZstK43NsqhC+2wk
+         RYtBoIEfTeUx8T3FPxSmMAP4KUXYRGapB5dDAyEM0kThSE0MQ3W4ZvrC9MqkZqVZBwJ7
+         AdkA092cEl2BYRfRXcjf6qLz8BR7ZQNuULVED1Gjb0p+cPitoI/CAYxAmW8k3PkxruHp
+         t217b9ZtKxG+ClMFsvgOeUbtUSu3kj/qI/4wM/I/CWUvlIV4IhNQhuDlek+8tpO2rXjZ
+         RDRrymX9wUo+27mWZGv61qpfjCSHwKr45JjFh9fi749UeE6vjsSO+juwFUeRTqPNjjbF
+         yZuQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0Pubo4AqL4SyWyuRXoDwnAMsZaxpu9XdqvEhe8PJlR64U4ylOVsJZ
-	QvQKqSIGipVKDsMtCGmXsoU=
-X-Google-Smtp-Source: APiQypIAsuuywva7lfqOHxBCN2CxLkYdnFPVhyHoKHtxMHfhDnNMyXqRdPYTE5fp/FjJtLH15znr/Q==
-X-Received: by 2002:a25:80d0:: with SMTP id c16mr3210533ybm.98.1588226514663;
-        Wed, 29 Apr 2020 23:01:54 -0700 (PDT)
+X-Gm-Message-State: AGi0PuYZaWxSoh035GFddNGM2ofoW0jRYFFJMOngWSGsfDuDfSrhRh7u
+	woaf/ig7NPxIyz3uSM0ashc=
+X-Google-Smtp-Source: APiQypJVLx+sxg6J8wjkOEvbhTPdU50bb/R3YbjhGOahm4WcW8LIoq0ryvL1WUigYn6dLmNSxTW2qA==
+X-Received: by 2002:ab0:48a6:: with SMTP id x35mr1402611uac.138.1588234563855;
+        Thu, 30 Apr 2020 01:16:03 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:3897:: with SMTP id f145ls536351yba.9.gmail; Wed, 29 Apr
- 2020 23:01:54 -0700 (PDT)
-X-Received: by 2002:a25:8045:: with SMTP id a5mr3312357ybn.518.1588226514292;
-        Wed, 29 Apr 2020 23:01:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588226514; cv=none;
+Received: by 2002:a67:c319:: with SMTP id r25ls244928vsj.4.gmail; Thu, 30 Apr
+ 2020 01:16:03 -0700 (PDT)
+X-Received: by 2002:a67:f5d6:: with SMTP id t22mr1841833vso.73.1588234563495;
+        Thu, 30 Apr 2020 01:16:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588234563; cv=none;
         d=google.com; s=arc-20160816;
-        b=Z7Y9Utlo2RP8J+ZlfdZkFYawfX760ia1dsirNnd5HbpdukBrRvQ260UtWYQaGCJsw2
-         Jx2/f3O75ndMv0/ZzMa3b3NrZlWKHwXOoGRhUdz5lmdrdJeH1aDBf/a2+A+5GWpCxi9C
-         M6+Y6FN4lHJEdJBQbSCAcOxnfo7YJn1s74BqTIrhaq9MwxrFfNJjMESIbx3S8fbjA7y5
-         mbdbi7k33TT7dorZGFBGn1QdI5UPQqdbgc2OgBZU8XissZ8mkB6TTtvvAUpH2TM8sRnG
-         jT0KZtlWegYxswV5n6Cz29A0torPrVNwqU6e9Wq7ZZs0OKmC8CQZoONRYcvqZLhu+JUC
-         oa4g==
+        b=OAebC+ErM7NtQGZAyNo59grwe9ASDiIzzyXsQ1a0ImX6s21qbmtc5xOoX9Hg96YXhH
+         h9emU/9OTwkRJ0AFKJXm6l9lj0wpLAMm+Y2RGfULZ3ZE94yXOp/rCWaCOHgMVs4FnCP7
+         q72ghug3R3sXYXoFLygPoBDIjc1ngH0xVJgZgNBKAQ7McukUPTVCWzLRG/TpQGqfztGA
+         Z8x6lzeCXjXtcOdeDVwtvNSd9PFvinQJhmXcmXkPGIYfg4zkP4IUC1af6Wb5w3VX8UDP
+         XiefxxnnvynqPzzmkyvUwwpk7kcXpy/jX/5yFrHQ+XDbewuDZiEGQBhNNwUvSTGF9xHB
+         R3Ew==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=Aa3UitXCFbuTJBux4KS46nQWRa1PCa2MQgyHix6wDug=;
-        b=GWgd87uvR1Z6zRxQoEHrt7rRJMfW3gQZcIREeIP7PH+HCwbiSl1A8A5XA16PUAH17h
-         t8ya/dE1WmBt6xmLM71NiqQlK6DkIkY6in1gmbEjMuKfe3bpW8fQMkB0npReI/IB02Jo
-         bavez5VhXW7GIAMlpdFiGGa8qdqNqYzUAqCUVQPmNkekkRKH0f0rAhpL+g3KsKpDAtDT
-         0LGY6NQmbDvu6LfYfjv6KFytH6rxA9+ie2KETkQDN9lHXCCiDAUZD/z/jwS9zvQc0/5N
-         2AWh+EYsXZmR8XDfG4nQEwH6T3ls9o6C/FJ5faO4pMtLGfRm4HsRPYikBYAcpDqENaz/
-         s9KQ==
+        bh=XWFBCycrzpYryQQUalteW2/Qk7N32f3MKAGykOY2kJY=;
+        b=hysXhwLLgugxFrq8vGwRbkz5WqETci1bQlK/F79/OmzCXIyI2Vbj+oJZ59UKMkXv5P
+         Bvr3aHTdKadnvhlIk8lSVZ2nzxkZOgRgjbhga3eggoi8HQfX5jM2oF0IgttHmvD5KiVi
+         N5SAPJD+rQiqNOnW7jz1T7UDaGNp8G7P6m7ZWElHx5H/DY0808N//cvawIbavOsN4e/y
+         MjYysLN/HcDygfL8XMtWkwqVCcOjRKZMCXfw4kKwM09PPTCtfYNO7lHsWlAUnIh+iRAd
+         7dVOFgRGrEhcWLeU4LxdtJrbSkyVML924GQo8OEddYvBZ6s4AhVPcyEhEcj3BljgkktJ
+         zvUA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=kZgnKrad;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x341.google.com (mail-ot1-x341.google.com. [2607:f8b0:4864:20::341])
-        by gmr-mx.google.com with ESMTPS id o65si76212yba.5.2020.04.29.23.01.54
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b="Mmo/bEoB";
+       spf=pass (google.com: domain of jolsa@redhat.com designates 205.139.110.120 as permitted sender) smtp.mailfrom=jolsa@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
+        by gmr-mx.google.com with ESMTPS id u20si106924uan.1.2020.04.30.01.16.03
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 29 Apr 2020 23:01:54 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) client-ip=2607:f8b0:4864:20::341;
-Received: by mail-ot1-x341.google.com with SMTP id m13so3973975otf.6
-        for <clang-built-linux@googlegroups.com>; Wed, 29 Apr 2020 23:01:54 -0700 (PDT)
-X-Received: by 2002:a9d:6391:: with SMTP id w17mr1276881otk.325.1588226513591;
-        Wed, 29 Apr 2020 23:01:53 -0700 (PDT)
-Received: from ubuntu-s3-xlarge-x86 ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id 10sm993958oto.80.2020.04.29.23.01.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Apr 2020 23:01:53 -0700 (PDT)
-Date: Wed, 29 Apr 2020 23:01:51 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Michael Kelley <mikelley@microsoft.com>
-Cc: KY Srinivasan <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Stephen Hemminger <sthemmin@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>,
-	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
-	Sami Tolvanen <samitolvanen@google.com>
-Subject: Re: [PATCH v2] hv_netvsc: Fix netvsc_start_xmit's return type
-Message-ID: <20200430060151.GA3548130@ubuntu-s3-xlarge-x86>
-References: <20200428100828.aslw3pn5nhwtlsnt@liuwe-devbox-debian-v2.j3c5onc20sse1dnehy4noqpfcg.zx.internal.cloudapp.net>
- <20200428175455.2109973-1-natechancellor@gmail.com>
- <MW2PR2101MB10522D4D5EBAB469FE5B4D8BD7AA0@MW2PR2101MB1052.namprd21.prod.outlook.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 30 Apr 2020 01:16:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jolsa@redhat.com designates 205.139.110.120 as permitted sender) client-ip=205.139.110.120;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-258-x9Pn4iPLMIutuPhv_WeicQ-1; Thu, 30 Apr 2020 04:15:55 -0400
+X-MC-Unique: x9Pn4iPLMIutuPhv_WeicQ-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id DE791872FE0;
+	Thu, 30 Apr 2020 08:15:53 +0000 (UTC)
+Received: from krava (unknown [10.40.192.9])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id ACA3E5D9F1;
+	Thu, 30 Apr 2020 08:15:47 +0000 (UTC)
+Date: Thu, 30 Apr 2020 10:15:41 +0200
+From: Jiri Olsa <jolsa@redhat.com>
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Namhyung Kim <namhyung@kernel.org>, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Stephane Eranian <eranian@google.com>
+Subject: Re: [PATCH v2] perf mem2node: avoid double free related to realloc
+Message-ID: <20200430081541.GA1681583@krava>
+References: <20200320182347.87675-1-irogers@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <MW2PR2101MB10522D4D5EBAB469FE5B4D8BD7AA0@MW2PR2101MB1052.namprd21.prod.outlook.com>
-X-Original-Sender: natechancellor@gmail.com
+In-Reply-To: <20200320182347.87675-1-irogers@google.com>
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Original-Sender: jolsa@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=kZgnKrad;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@redhat.com header.s=mimecast20190719 header.b="Mmo/bEoB";
+       spf=pass (google.com: domain of jolsa@redhat.com designates
+ 205.139.110.120 as permitted sender) smtp.mailfrom=jolsa@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -156,99 +144,83 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Michael,
-
-On Thu, Apr 30, 2020 at 12:06:09AM +0000, Michael Kelley wrote:
-> From: Nathan Chancellor <natechancellor@gmail.com> Sent: Tuesday, April 28, 2020 10:55 AM
-> > 
-> > Do note that netvsc_xmit still returns int because netvsc_xmit has a
-> > potential return from netvsc_vf_xmit, which does not return netdev_tx_t
-> > because of the call to dev_queue_xmit.
-> > 
-> > I am not sure if that is an oversight that was introduced by
-> > commit 0c195567a8f6e ("netvsc: transparent VF management") or if
-> > everything works properly as it is now.
-> > 
-> > My patch is purely concerned with making the definition match the
-> > prototype so it should be NFC aside from avoiding the CFI panic.
-> > 
+On Fri, Mar 20, 2020 at 11:23:47AM -0700, Ian Rogers wrote:
+> Realloc of size zero is a free not an error, avoid this causing a double
+> free. Caught by clang's address sanitizer:
 > 
-> While it probably works correctly now, I'm not too keen on just
-> changing the return type for netvsc_start_xmit() and assuming the
-> 'int' that is returned from netvsc_xmit() will be correctly mapped to
-> the netdev_tx_t enum type.  While that mapping probably happens
-> correctly at the moment, this really should have a more holistic fix.
+> ==2634==ERROR: AddressSanitizer: attempting double-free on 0x6020000015f0 in thread T0:
+>     #0 0x5649659297fd in free llvm/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:123:3
+>     #1 0x5649659e9251 in __zfree tools/lib/zalloc.c:13:2
+>     #2 0x564965c0f92c in mem2node__exit tools/perf/util/mem2node.c:114:2
+>     #3 0x564965a08b4c in perf_c2c__report tools/perf/builtin-c2c.c:2867:2
+>     #4 0x564965a0616a in cmd_c2c tools/perf/builtin-c2c.c:2989:10
+>     #5 0x564965944348 in run_builtin tools/perf/perf.c:312:11
+>     #6 0x564965943235 in handle_internal_command tools/perf/perf.c:364:8
+>     #7 0x5649659440c4 in run_argv tools/perf/perf.c:408:2
+>     #8 0x564965942e41 in main tools/perf/perf.c:538:3
+> 
+> 0x6020000015f0 is located 0 bytes inside of 1-byte region [0x6020000015f0,0x6020000015f1)
+> freed by thread T0 here:
+>     #0 0x564965929da3 in realloc third_party/llvm/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:164:3
+>     #1 0x564965c0f55e in mem2node__init tools/perf/util/mem2node.c:97:16
+>     #2 0x564965a08956 in perf_c2c__report tools/perf/builtin-c2c.c:2803:8
+>     #3 0x564965a0616a in cmd_c2c tools/perf/builtin-c2c.c:2989:10
+>     #4 0x564965944348 in run_builtin tools/perf/perf.c:312:11
+>     #5 0x564965943235 in handle_internal_command tools/perf/perf.c:364:8
+>     #6 0x5649659440c4 in run_argv tools/perf/perf.c:408:2
+>     #7 0x564965942e41 in main tools/perf/perf.c:538:3
+> 
+> previously allocated by thread T0 here:
+>     #0 0x564965929c42 in calloc third_party/llvm/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:154:3
+>     #1 0x5649659e9220 in zalloc tools/lib/zalloc.c:8:9
+>     #2 0x564965c0f32d in mem2node__init tools/perf/util/mem2node.c:61:12
+>     #3 0x564965a08956 in perf_c2c__report tools/perf/builtin-c2c.c:2803:8
+>     #4 0x564965a0616a in cmd_c2c tools/perf/builtin-c2c.c:2989:10
+>     #5 0x564965944348 in run_builtin tools/perf/perf.c:312:11
+>     #6 0x564965943235 in handle_internal_command tools/perf/perf.c:364:8
+>     #7 0x5649659440c4 in run_argv tools/perf/perf.c:408:2
+>     #8 0x564965942e41 in main tools/perf/perf.c:538:3
+> 
+> v2: add a WARN_ON_ONCE when the free condition arises.
+> 
+> Signed-off-by: Ian Rogers <irogers@google.com>
 
-While it might work correctly, I am not sure that the mapping is
-correct, hence that comment.
+I overlooked v2 for this, sry
 
-netdev_tx_t is an enum with two acceptable types, 0x00 and 0x10. Up
-until commit 0c195567a8f6e ("netvsc: transparent VF management"),
-netvsc_xmit was guaranteed to return something of type netdev_tx_t.
+Acked-by: Jiri Olsa <jolsa@redhat.com>
 
-However, after said commit, we could return anything from
-netvsc_vf_xmit, which in turn calls dev_queue_xmit then
-__dev_queue_xmit which will return either an error code (-ENOMEM or
--ENETDOWN) or something from __dev_xmit_skb, which appears to be
-NET_XMIT_SUCCESS, NET_XMIT_DROP, or NET_XMIT_CN.
+thanks,
+jirka
 
-It does not look like netvsc_xmit or netvsc_vf_xmit try to convert those
-returns to netdev_tx_t in some way; netvsc_vf_xmit just passes the
-return value up to netvsc_xmit, which is the part that I am unsure
-about...
-
-> Nathan -- are you willing to look at doing the more holistic fix?  Or
-> should we see about asking Haiyang Zhang to do it?
-
-I would be fine trying to look at a more holistic fix but I know
-basically nothing about this subsystem. I am unsure if something like
-this would be acceptable or if something else needs to happen.
-Otherwise, I'd be fine with you guys taking a look and just giving me
-reported-by credit.
-
-Cheers,
-Nathan
-
-diff --git a/drivers/net/hyperv/netvsc_drv.c b/drivers/net/hyperv/netvsc_drv.c
-index d8e86bdbfba1e..a39480cfb8fa7 100644
---- a/drivers/net/hyperv/netvsc_drv.c
-+++ b/drivers/net/hyperv/netvsc_drv.c
-@@ -520,7 +520,8 @@ static int netvsc_vf_xmit(struct net_device *net, struct net_device *vf_netdev,
- 	return rc;
- }
- 
--static int netvsc_xmit(struct sk_buff *skb, struct net_device *net, bool xdp_tx)
-+static netdev_tx_t netvsc_xmit(struct sk_buff *skb, struct net_device *net,
-+			       bool xdp_tx)
- {
- 	struct net_device_context *net_device_ctx = netdev_priv(net);
- 	struct hv_netvsc_packet *packet = NULL;
-@@ -537,8 +538,11 @@ static int netvsc_xmit(struct sk_buff *skb, struct net_device *net, bool xdp_tx)
- 	 */
- 	vf_netdev = rcu_dereference_bh(net_device_ctx->vf_netdev);
- 	if (vf_netdev && netif_running(vf_netdev) &&
--	    !netpoll_tx_running(net))
--		return netvsc_vf_xmit(net, vf_netdev, skb);
-+	    !netpoll_tx_running(net)) {
-+		if (!netvsc_vf_xmit(net, vf_netdev, skb))
-+			return NETDEV_TX_OK;
-+		goto drop;
-+	}
- 
- 	/* We will atmost need two pages to describe the rndis
- 	 * header. We can only transmit MAX_PAGE_BUFFER_COUNT number
-@@ -707,7 +711,8 @@ static int netvsc_xmit(struct sk_buff *skb, struct net_device *net, bool xdp_tx)
- 	goto drop;
- }
- 
--static int netvsc_start_xmit(struct sk_buff *skb, struct net_device *ndev)
-+static netdev_tx_t netvsc_start_xmit(struct sk_buff *skb,
-+				     struct net_device *ndev)
- {
- 	return netvsc_xmit(skb, ndev, false);
- }
+> ---
+>  tools/perf/util/mem2node.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/tools/perf/util/mem2node.c b/tools/perf/util/mem2node.c
+> index 797d86a1ab09..c84f5841c7ab 100644
+> --- a/tools/perf/util/mem2node.c
+> +++ b/tools/perf/util/mem2node.c
+> @@ -1,5 +1,6 @@
+>  #include <errno.h>
+>  #include <inttypes.h>
+> +#include <asm/bug.h>
+>  #include <linux/bitmap.h>
+>  #include <linux/kernel.h>
+>  #include <linux/zalloc.h>
+> @@ -95,7 +96,7 @@ int mem2node__init(struct mem2node *map, struct perf_env *env)
+>  
+>  	/* Cut unused entries, due to merging. */
+>  	tmp_entries = realloc(entries, sizeof(*entries) * j);
+> -	if (tmp_entries)
+> +	if (tmp_entries || WARN_ON_ONCE(j == 0))
+>  		entries = tmp_entries;
+>  
+>  	for (i = 0; i < j; i++) {
+> -- 
+> 2.25.1.696.g5e7596f4ac-goog
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200430060151.GA3548130%40ubuntu-s3-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200430081541.GA1681583%40krava.
