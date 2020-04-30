@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBWUXVT2QKGQEHSWLHNY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDS6DTHSSUKBB3FHVT2QKGQEE4YDILA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
-	by mail.lfdr.de (Postfix) with ESMTPS id EDD791C03ED
-	for <lists+clang-built-linux@lfdr.de>; Thu, 30 Apr 2020 19:33:17 +0200 (CEST)
-Received: by mail-pj1-x1039.google.com with SMTP id 9sf2271810pjz.6
-        for <lists+clang-built-linux@lfdr.de>; Thu, 30 Apr 2020 10:33:17 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588267996; cv=pass;
+Received: from mail-qk1-x737.google.com (mail-qk1-x737.google.com [IPv6:2607:f8b0:4864:20::737])
+	by mail.lfdr.de (Postfix) with ESMTPS id 22C1A1C045A
+	for <lists+clang-built-linux@lfdr.de>; Thu, 30 Apr 2020 20:07:41 +0200 (CEST)
+Received: by mail-qk1-x737.google.com with SMTP id o21sf7316687qkm.4
+        for <lists+clang-built-linux@lfdr.de>; Thu, 30 Apr 2020 11:07:41 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588270060; cv=pass;
         d=google.com; s=arc-20160816;
-        b=US432caDNKKxZ9/2MI95AtDCFFvSNAb9xC47/QXoeL312MOaA4KCMEqOKI+8NQ2AQw
-         AV9uOHTsHT5Jhsuk3ORbHAsvk2yFs63M5mWoHvdl+/hzJ1yxSEkw666PsJtGDSI8i60A
-         4G6rwBiZo0hI09rQhW74ddQ64n9+K+h+78bvUZFfbnxNtFdE89bZfsHZ3k7liQ6C8cj+
-         AeQP8SOqjboOvAuC2cFseia9eTqGZSTlKEnJoeC5hDZIcN61bZ6GUExYtjSR+8MZfude
-         8kVS2OdWW7lC/nHuY5ydTKSHqh334n1L8W5Q+gOmEciEo65mqn8/qrSRRklMlxOTVgEt
-         olrQ==
+        b=xOT2Iy4NqHM/UiygzjjcPh3SJGNnMpW8B26g7yy+ej5geULtFt7p65GHLEbpEn3M69
+         GO/B3ElCQ8QO8iXir6PSWdPDw7Iiqj040XVoaw1FoJ00ZiZ5NypLzzW+OQvQQ9ZttBw2
+         gX0eTV09yU5yaqF7YirnOe5t+MmsyVKsgCvoraroSLAgt2XQq7o6cKGo9k47Aqn6FmUW
+         89jLVUjPeHqmaH4qZZdq3ZnIuhK8j9UOTxx0iuHx6vpY6gZ8HzwOUK9NYRQo9Q/2Tjjm
+         CSojAQwLYGxmDbAGPoIaVQa+zbysvI7uMPNf/dWkFG/DdkWwnSlZ8e5j9ptWv6OO2Ard
+         eF/Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
          :cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=53wCh+Y7BS8P3on5tBkX22c60dve8MhLGwIUzxMsvIU=;
-        b=U8yeA4TZASwxSvDM53iyYwoYKvujvUW9hhheUr/y4c7enpm9wKdVVADF3LyslcQARm
-         BPQpgUVz3rfMZtggypvdrfXHlzJj60dmgMdLr79am2r1LIqf7oFzdThk80pU4Ib6EdkZ
-         HcrtG9NrXGRw0b9UEDNl+TzNicPF+GE0+8j8mGGE1mn3t9q/wZ0VYLecjEWWAIJz2bgr
-         JItsqOSvzXTR13Ju5B5CnkMlokkvWU0+flvuHD9xTCgzm848JMpT/y2OMtLeaUL4wupZ
-         aiCsvguNiWwa8vQt6uqjiXSFlYPgrGeTv5eSZYWkXFiQUkh3wc25GtwWkK/c4lFyKd9y
-         lX2g==
+        bh=/7LU6OvFl3Feqy8zNRNP7sqBfgpWtRbOx0GlM8WH33c=;
+        b=ic6wTm8YS+VMW1r+1kXHREbIsjTWBOfA0nj95jl+k2ziz6IFF4EBzEHe0Mb/ppGKAz
+         usi7ys5NYXz9B2KrYKm58qhU/Jg9fzl74p+BRRLah2ZlASl8f7j1CfRz/417Do4UPjYI
+         5I3ymPLntOTvwA3RwND3XlD7lADe4rwRZ9QXxq1qV35raWMbgC9y/cOItW/ZudwiMR6u
+         DTiKTTqLlKlnJNaSg4pJ1hA9i/s2qsjTKKUjSl/rAuTFQdg1i8l55RpGmKlZUoYC/SiR
+         ffQObaFuAsjJOEm3minnGjVlNTHAFwQ23t+SzcfLh3T507yyG2m20nyWd/7klpqwm4K+
+         aKEA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=DXJhIosv;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=LQGAOejv;
+       spf=pass (google.com: domain of groeck@google.com designates 2607:f8b0:4864:20::b32 as permitted sender) smtp.mailfrom=groeck@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -37,13 +37,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:list-post:list-help:list-archive:list-subscribe
          :list-unsubscribe;
-        bh=53wCh+Y7BS8P3on5tBkX22c60dve8MhLGwIUzxMsvIU=;
-        b=WdSUwzy8I0eT16qojqN9kCLe2FuCJm1qucKF2t7ZjTJiRZ0vm0NpGkx1ND2shfqmF9
-         uX2BnOELIC6XPoIh+j06Czt+7ebgGzN6DRfcF91VArbJ6hKGyUPVR5kV3M6KNfxHIWl9
-         Zk1BW6kZv1ly70RJ+H9NgUPn53NxiKhr8M5r0x9ldlSGmzGLgfJ4lAHdO/QmiS19NzRj
-         kJh/1Nux9EEfJPFksJMkUMGV8O96fkokLwzAr4IO3mtXo1QGXAvaLB2Zi45jHKRO6uoO
-         IgqMMJvEgmoW3WRc8C3cwVcUOuJzktRwDVTNfK560xWEDNj9mIlmvcVEPMTZJJcPe/9Q
-         60lg==
+        bh=/7LU6OvFl3Feqy8zNRNP7sqBfgpWtRbOx0GlM8WH33c=;
+        b=H9veqM40K8FfwpVJZpGyUkKfTlAhp1mGch0qSpY6PLyKXaxN2ClU1+Z1RgF35xUT0z
+         cTFINHXgkZnKxAKLzijrqjZ5J/a9O6mm2r6CKllBJANi9rEeOF+C2vMHWswrxcxKfOsm
+         rRiFYdhZORK7cKXj3XxlKPbi4IaBaSN2mRL4S8I1Zj+WT3+C9OziKgjRmCdIhQNQECLq
+         dDGEnKe/0UnHCwjGBR9JRv3APQ9kDoK2PNt4HDq1iwJfU/+ypak2LxqNm8l7Gv5uFn00
+         UBSNlBrUHB2j8ejCK/wXSUDbFMOaH+6x5u198dDJKvJBbaY7KkqPC1PSNaI+Uy4AxE5C
+         Z8ag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -51,89 +51,89 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=53wCh+Y7BS8P3on5tBkX22c60dve8MhLGwIUzxMsvIU=;
-        b=i0mYHrdOfyFrIKvsuJzwMb/CeuCYWawchhRojYvUJMPCk1vLvaBDoIcesfF/rkAokO
-         LAg3Hqj0LbOdKC2zEjCCW4Ouwfq5Ig56EfvcklaYBeA4Jr7SEVsKOwtZzhWpxqlUv6ZH
-         XU/noKy/BUycH/XdlvkVBk6/p1Rgzo9b1mF7NO9/Z29yvcDJpyIzmwyFEsgeQZH4SZeR
-         kkqJ7IqzRK8RCJPVMfEMBxm3bMooQUmsYhA1mAm8vl2c03tsPLKMth4FwbK1T7dZaCrh
-         H24UAlTcFxplQRTUODdz3iqMLhQTms8kSsMmBLgTcp7Toh6O+4BcbTnyzOn+ZqIg//NV
-         cdVQ==
-X-Gm-Message-State: AGi0PuZ6JmqfBqPsPSS5wUD31pcYZFFjllulHEi7S21R2zVr5862YvQ8
-	gESS6CcHA/g1Y9H1UbCGANM=
-X-Google-Smtp-Source: APiQypK32ztRTlgwIbwTeyY8mufF38tDtX0SZWPRUQx45RodYu51o64iJ3bv4YetTVgYZEL2t3t7WA==
-X-Received: by 2002:a62:7ece:: with SMTP id z197mr444790pfc.244.1588267994956;
-        Thu, 30 Apr 2020 10:33:14 -0700 (PDT)
+        bh=/7LU6OvFl3Feqy8zNRNP7sqBfgpWtRbOx0GlM8WH33c=;
+        b=VzBlu/2Bofg+jpHzWPLJwY/n5ZLT5zpLghLYJbCVvSOG8qg2KvDnRghfjVEu0nN5Ff
+         22rRSkTWdlud0eSDytEcSMsbLbjl4/yDUa/XIeXdF68DkHg50pXbPK82SeuKupP6/Ox/
+         qzW8pKs5tH8QA2pxW5pMdm/52+mJkB1kjNKx5t0FOUx/vDWHyBKqIGAXDUjeGrn74wMu
+         Bfo512Ra3vj7VtFtMW0piRZveVAjAoeETwK0ikxZ/2XwBeH/yB7R5NwW+VSi6ROTB5rA
+         ZDruoa6t4DrI8f2KctsF6Q6H7s3BiSRiZLvlRN7DPTSM5ZfV56kSosx8OME1lZDCNyAE
+         juIw==
+X-Gm-Message-State: AGi0PuZJjQIcEHB290c5ODnAb3qLhZDLRShHhXRyWbJgwxkgZlWOgvAb
+	olJRIS/A7YlKrt/5QjMSbyk=
+X-Google-Smtp-Source: APiQypIVydDHVIcgRkUFmFjuiI2fV9x2A2Zu2XEFKpmcDzMllB+hfsYR+gP4+/UnEvuwr4ylVSGpaQ==
+X-Received: by 2002:a37:9586:: with SMTP id x128mr4430408qkd.90.1588270060106;
+        Thu, 30 Apr 2020 11:07:40 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:c713:: with SMTP id o19ls2928380pjt.1.gmail; Thu, 30
- Apr 2020 10:33:14 -0700 (PDT)
-X-Received: by 2002:a17:902:a40e:: with SMTP id p14mr34521plq.297.1588267994462;
-        Thu, 30 Apr 2020 10:33:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588267994; cv=none;
+Received: by 2002:a0c:f4d1:: with SMTP id o17ls948061qvm.6.gmail; Thu, 30 Apr
+ 2020 11:07:39 -0700 (PDT)
+X-Received: by 2002:a05:6214:1853:: with SMTP id d19mr113034qvy.150.1588270059669;
+        Thu, 30 Apr 2020 11:07:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588270059; cv=none;
         d=google.com; s=arc-20160816;
-        b=A5bwP3byzmLexjzgyurTI3w0SQENYbbhyD8eIWq3AoTU+yHOWgtTxXGjcG53mWDPDB
-         GCiMoKeVl+U9HqUtYAp5uwnZ7s/sxJEphpBihFCL8udTHoL2577uWZuJ3j3IEMuczhhA
-         qMlAjOa+YFcUqQ0qvVr+qhToRyxh/iWa+EqQ3m0r61KUxDlxeqdrtxOstwSvyYclSkX8
-         sryhETNZUxiq59Ar72FyC9RamVkSNHGMFYui0jRcTYXyI3Cebr1E0cKQ7TL3R0bBvEdV
-         v7D9T885wvx5mv67Zxy9DAQr/xemBsoQp0gSZuTGjKwrX0JMUWiPotsJZVBUEdDuKEGO
-         ltBA==
+        b=EYymXe3kaMug8peSOyVvm1scEmp0Wfq+Qt/k80OGHjGcELJy4xJpKc8r5ryBb/dbiv
+         ILDiYAsgWYIEEDmJNDp5vlu9EVxR303um1k3qvESPAaYRY3IVKfgbwF4Cj/1MLylHeaX
+         P6jaWokst8BAjAk1aoA227iWUhoJ0VFZeY99t4RIaIiz3WjamXxCCTPTkeW9BGgEE7Bx
+         +xiRUf3zUdTjWX5gMzkS5hPmk8otXODS6+aAdTAj7Z4TFkEp6VEv6D86uyKBRfbpeAuA
+         Q/ip9kkerLc/2L9IyEdi7qBAte4bjnwULroMY6fFw+gMhqFXJCl9vzAUdFryzAC9R1rc
+         lAMw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=ZTKrKN96kk2UpGqRVwicQX8u/rD8oUY34WZJT26QaTM=;
-        b=kaC12O772/dAei9m85DYKbqhwXyJ76PrsnB9jsaG2B/N5+Ce9+4drDyoVmvGOdVmpe
-         05p/ydUjJyDQL4Vq6QAHdJCEe1Jrecmv9sxwrxSe/BdMc114bowgeI3lcQrRma2wKp6Q
-         LRYmIGh4jRMrNLPT1oum3+/XRk+wbmihTvq/fE8UJwn8BuNNf6z5tjyR+Enl9Z+QGxSe
-         Os6pqms3zjgrB6nEwenf3m9lL4FfvESVYoUcyLOh5sPGTfq+qwvQuvl6svKXalVhlD5f
-         G5VrHghj8ZIW1xIK6L2JhdoSsMxPP04ZotEtKAqrRX0cW/h9IX4jslooxyOgd5NN3Mn9
-         Uwkg==
+        bh=TpWwj2w6Gw1iWfhLPeP97JT/lnGVtBrnAe2JO86b7eE=;
+        b=GHfjOaDSXg9KvU2Og5c/8jLn1r3RenvYknsIBpZxcq/p0IiCxwFvqE0VCMuS5Ledel
+         OE/au12DWCAo/CaLOmyWtloXfSOyMseAGUSpBhxRYD0cjLFEDfReeKZ+NmLKffau6E3h
+         qqNng2jGpmzy8/NzpXkrGliagVPJpmCgDGsyM30Jsnk2GFKSUpURFrqo9MYXmG72qC73
+         JpQW/uY4n7H8Q3mnAFDoLHDaHt80KP81Z3K2CHHaj7o+SFaGMKgz5Kyg/qgEbdMEbd2l
+         W3ZDga3FLPDn0dHY4ENDkLK4Xej9hkxLpHz1A8FFGx2yDYVzHLkQMxnkWTWZ76XpHs1s
+         AieQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=DXJhIosv;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=LQGAOejv;
+       spf=pass (google.com: domain of groeck@google.com designates 2607:f8b0:4864:20::b32 as permitted sender) smtp.mailfrom=groeck@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x42e.google.com (mail-pf1-x42e.google.com. [2607:f8b0:4864:20::42e])
-        by gmr-mx.google.com with ESMTPS id t141si69748pfc.5.2020.04.30.10.33.14
+Received: from mail-yb1-xb32.google.com (mail-yb1-xb32.google.com. [2607:f8b0:4864:20::b32])
+        by gmr-mx.google.com with ESMTPS id e7si59108qtc.5.2020.04.30.11.07.39
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Apr 2020 10:33:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42e as permitted sender) client-ip=2607:f8b0:4864:20::42e;
-Received: by mail-pf1-x42e.google.com with SMTP id y25so121273pfn.5
-        for <clang-built-linux@googlegroups.com>; Thu, 30 Apr 2020 10:33:14 -0700 (PDT)
-X-Received: by 2002:aa7:9535:: with SMTP id c21mr391709pfp.39.1588267993818;
- Thu, 30 Apr 2020 10:33:13 -0700 (PDT)
+        Thu, 30 Apr 2020 11:07:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of groeck@google.com designates 2607:f8b0:4864:20::b32 as permitted sender) client-ip=2607:f8b0:4864:20::b32;
+Received: by mail-yb1-xb32.google.com with SMTP id l5so3670506ybf.5
+        for <clang-built-linux@googlegroups.com>; Thu, 30 Apr 2020 11:07:39 -0700 (PDT)
+X-Received: by 2002:a25:4290:: with SMTP id p138mr8323839yba.45.1588270058766;
+ Thu, 30 Apr 2020 11:07:38 -0700 (PDT)
 MIME-Version: 1.0
-References: <202004300910.89Gqs7ny%lkp@intel.com> <20200430023120.GA24491@intel.com>
-In-Reply-To: <20200430023120.GA24491@intel.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 30 Apr 2020 10:33:03 -0700
-Message-ID: <CAKwvOdmC7Fvk8KczMrDw9w7PT=VmAhXbcsmHpZk3wTL5xqFkCQ@mail.gmail.com>
-Subject: Re: [kbuild-all] [chrome-os:chromeos-5.4 7926/8251] /bin/bash: line
- 1: 169365 Aborted ld.lld -EL -maarch64elf -r -o fs/xfs/xfs.o
- fs/xfs/xfs_trace.o fs/xfs/libxfs/xfs_ag.o fs/xfs/libxfs/xfs_alloc.o
- fs/xfs/libxfs/xfs_alloc_btree.o fs/xfs/libxfs/xfs_attr.o fs/xfs/libxfs/xfs_attr_leaf.o
- fs/xfs/libxfs/xfs_attr_remote.o fs/xfs/libxfs/xfs_bit.o fs/xfs/libxfs/xfs_bmap.o
- fs/xfs/libxfs/xfs_bmap_btree.o fs/xfs/libxfs/xfs_btree.o fs/xfs/libxfs/xfs_da_btree.o
- fs/xfs/libxfs/xfs_da_format.o fs/xfs/libxfs/xfs_defer.o fs/xfs/libxfs/xfs_dir2.o
- fs/xfs/libxfs/xfs_dir2_block.o fs/xfs/libxfs/xfs_dir2_data.o
- fs/xfs/libxfs/xfs_dir2_leaf.o fs/xfs/libxfs/xfs_dir2_node.o
- fs/xfs/libxfs/xfs_dir2_sf.o fs/xfs/libxfs/xfs_dquot_buf.o fs/xfs/libxfs/xfs_ialloc.o
- fs/xfs/libxfs/xfs_ialloc_btree.o fs/xfs/libxfs/xfs_iext_tree.o
- fs/xfs/libxfs/xfs_inode_fork.o fs/xfs/libxfs/xfs_inode_buf.o
- fs/xfs/libxfs/xfs_log_rlimit.o fs/xfs/libxfs/xfs_ag_resv.o
- fs/xfs/libxfs/xfs_rmap.o fs/xfs/libxfs/xfs_rmap_btree.o fs/xf
-To: Philip Li <philip.li@intel.com>
+References: <202004300910.89Gqs7ny%lkp@intel.com> <CAKwvOdnio2btiaR_TXskHnwXRUBkajSGtQC-8ZEU2mYY4Vt-UA@mail.gmail.com>
+In-Reply-To: <CAKwvOdnio2btiaR_TXskHnwXRUBkajSGtQC-8ZEU2mYY4Vt-UA@mail.gmail.com>
+From: "'Guenter Roeck' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Thu, 30 Apr 2020 11:07:27 -0700
+Message-ID: <CABXOdTeUUKFqweBGnAEfZt4A=KYTUcMAcLG58W6Yvhr1mZ3RLg@mail.gmail.com>
+Subject: Re: [chrome-os:chromeos-5.4 7926/8251] /bin/bash: line 1: 169365
+ Aborted ld.lld -EL -maarch64elf -r -o fs/xfs/xfs.o fs/xfs/xfs_trace.o
+ fs/xfs/libxfs/xfs_ag.o fs/xfs/libxfs/xfs_alloc.o fs/xfs/libxfs/xfs_alloc_btree.o
+ fs/xfs/libxfs/xfs_attr.o fs/xfs/libxfs/xfs_attr_leaf.o fs/xfs/libxfs/xfs_attr_remote.o
+ fs/xfs/libxfs/xfs_bit.o fs/xfs/libxfs/xfs_bmap.o fs/xfs/libxfs/xfs_bmap_btree.o
+ fs/xfs/libxfs/xfs_btree.o fs/xfs/libxfs/xfs_da_btree.o fs/xfs/libxfs/xfs_da_format.o
+ fs/xfs/libxfs/xfs_defer.o fs/xfs/libxfs/xfs_dir2.o fs/xfs/libxfs/xfs_dir2_block.o
+ fs/xfs/libxfs/xfs_dir2_data.o fs/xfs/libxfs/xfs_dir2_leaf.o
+ fs/xfs/libxfs/xfs_dir2_node.o fs/xfs/libxfs/xfs_dir2_sf.o fs/xfs/libxfs/xfs_dquot_buf.o
+ fs/xfs/libxfs/xfs_ialloc.o fs/xfs/libxfs/xfs_ialloc_btree.o
+ fs/xfs/libxfs/xfs_iext_tree.o fs/xfs/libxfs/xfs_inode_fork.o
+ fs/xfs/libxfs/xfs_inode_buf.o fs/xfs/libxfs/xfs_log_rlimit.o
+ fs/xfs/libxfs/xfs_ag_resv.o fs/xfs/libxfs/xfs_rmap.o fs/xfs/libxfs/xfs_rmap_btree.o
+ fs/xfs/libxfs/xfs_
+To: Nick Desaulniers <ndesaulniers@google.com>
 Cc: kbuild test robot <lkp@intel.com>, cros-kernel-buildreports@googlegroups.com, 
-	Guenter Roeck <groeck@google.com>, kbuild-all@lists.01.org, 
+	kbuild-all@lists.01.org, 
 	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: groeck@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=DXJhIosv;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42e
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@google.com header.s=20161025 header.b=LQGAOejv;       spf=pass
+ (google.com: domain of groeck@google.com designates 2607:f8b0:4864:20::b32 as
+ permitted sender) smtp.mailfrom=groeck@google.com;       dmarc=pass (p=REJECT
+ sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Guenter Roeck <groeck@google.com>
+Reply-To: Guenter Roeck <groeck@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,9 +146,11 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Apr 29, 2020 at 7:33 PM Philip Li <philip.li@intel.com> wrote:
+On Thu, Apr 30, 2020 at 10:32 AM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
 >
-> On Thu, Apr 30, 2020 at 09:59:11AM +0800, kbuild test robot wrote:
+> On Wed, Apr 29, 2020 at 7:00 PM kbuild test robot <lkp@intel.com> wrote:
+> >
 > > tree:   https://chromium.googlesource.com/chromiumos/third_party/kernel=
  chromeos-5.4
 > > head:   4000df1bae9f7f207866ae217aeacd5791fb27dc
@@ -174,9 +176,6 @@ ARCH=3Darm64
 > > Note: the chrome-os/chromeos-5.4 HEAD 4000df1bae9f7f207866ae217aeacd579=
 1fb27dc builds fine.
 > >       It only hurts bisectibility.
-> sorry, kindly ignore this noise, we will add more patterns to handle this
-> to only send to clang mailing list.
->
 > >
 > > All errors (new ones prefixed by >>):
 > >
@@ -216,8 +215,20 @@ clang-1ccde53342/bin/lld+0x310c264)
 ebe0)
 > >    #14 0x00007f4b4223af27 start_thread (/lib/x86_64-linux-gnu/libpthrea=
 d.so.0+0x8f27)
+>
+> ^ LLD failed to start a thread. First time I've seen such a failure,
+> will keep my eye out to see if we see this again.
+>
 
-^ boom that's twice now. Hmmm
+I have seen this happen with a broken build which caused make
+recursion until the system ran out of resources (pids). In that case,
+defconfig was removed from the architecture, but KBUILD_DEFCONFIG was
+not set. See upstream commit ededa081ed20 ("parisc: Fix defconfig
+selection") for details. Maybe something similar is happening here ?
+Not because of defconfig, presumably, but maybe there is some other
+recursion.
+
+Guenter
 
 > >    #15 0x00007f4b41e2e2ef clone (/lib/x86_64-linux-gnu/libc.so.6+0xfd2e=
 f)
@@ -255,25 +266,20 @@ s_sysctl.o fs/xfs/xfs_ioctl32.o fs/xfs/xfs_pnfs.o
 > > ---
 > > 0-DAY CI Kernel Test Service, Intel Corporation
 > > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+> >
+> > --
+> > You received this message because you are subscribed to the Google Grou=
+ps "Clang Built Linux" group.
+> > To unsubscribe from this group and stop receiving emails from it, send =
+an email to clang-built-linux+unsubscribe@googlegroups.com.
+> > To view this discussion on the web visit https://groups.google.com/d/ms=
+gid/clang-built-linux/202004300910.89Gqs7ny%25lkp%40intel.com.
 >
 >
-> > _______________________________________________
-> > kbuild-all mailing list -- kbuild-all@lists.01.org
-> > To unsubscribe send an email to kbuild-all-leave@lists.01.org
 >
 > --
-> You received this message because you are subscribed to the Google Groups=
- "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an=
- email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgi=
-d/clang-built-linux/20200430023120.GA24491%40intel.com.
-
-
-
---=20
-Thanks,
-~Nick Desaulniers
+> Thanks,
+> ~Nick Desaulniers
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -281,5 +287,5 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAKwvOdmC7Fvk8KczMrDw9w7PT%3DVmAhXbcsmHpZk3wTL5xqFkCQ%40m=
+clang-built-linux/CABXOdTeUUKFqweBGnAEfZt4A%3DKYTUcMAcLG58W6Yvhr1mZ3RLg%40m=
 ail.gmail.com.
