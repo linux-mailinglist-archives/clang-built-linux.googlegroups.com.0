@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBL5SV32QKGQE4J6N2JI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBNW7V32QKGQEAUCSPMQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x140.google.com (mail-il1-x140.google.com [IPv6:2607:f8b0:4864:20::140])
-	by mail.lfdr.de (Postfix) with ESMTPS id EA7581C0CA6
-	for <lists+clang-built-linux@lfdr.de>; Fri,  1 May 2020 05:36:16 +0200 (CEST)
-Received: by mail-il1-x140.google.com with SMTP id i2sf3573439ile.15
-        for <lists+clang-built-linux@lfdr.de>; Thu, 30 Apr 2020 20:36:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588304175; cv=pass;
+Received: from mail-pj1-x103d.google.com (mail-pj1-x103d.google.com [IPv6:2607:f8b0:4864:20::103d])
+	by mail.lfdr.de (Postfix) with ESMTPS id C144A1C0DA8
+	for <lists+clang-built-linux@lfdr.de>; Fri,  1 May 2020 07:12:23 +0200 (CEST)
+Received: by mail-pj1-x103d.google.com with SMTP id x6sf4251909pjg.5
+        for <lists+clang-built-linux@lfdr.de>; Thu, 30 Apr 2020 22:12:23 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588309942; cv=pass;
         d=google.com; s=arc-20160816;
-        b=SKLEFoOrQ0AkVpv2AKpfxkhuMLsEz4WE9MWOthM6YpQywDhBYSDj8FMKkSeqnKCSjp
-         CHefZFQvq/AQdtUCIbqgzjk0MolekZVCurHnsDopcLBGF3JRUq0Xo9xwoRNlOsR8IIas
-         J6J/2CF8WQdaPW07EFOUEH7VxruVRR0bNUtsi3lQLlYakNcesBXF8fFcUjpP9AyTuK8T
-         cUnstudG6NJpnZEYHjFPQMkFgwNH3hCFFp//MxP7RBLRqPKIRoABMvcL0BuR/WqVnY3E
-         7+3C9Ym7aNsLyoFqW+erOdIpB73OrWYtEx86QfJiu046K3sQRLuiEX1laD+8sSuOh8Z4
-         vfBw==
+        b=owq3lphrrVSC9p7B4SEVdqwYIzXJOYHDH9zBNwDuj2w1/qDWmIoexoS1LdO9tfdWJp
+         3JjiHgnBlaQE8iwf3f+x368fVnm8+EnLV3fFYNkfLhIiWl2LSCDRrdT+kPkiA59FnTqD
+         jUotxcHB3NnIY1CqSmgcsph/0LKKo4xe1xDU7EaoiVu1nfQXGshe4QUxMKEXQxA0sLa6
+         fxM0N9q+RUJ3/+9y3BWzhzB02iaSOmbSvA7eQ16QXhMn8ZJDBs/u02jvM22dLfzUgNTN
+         tbPFaywl73favR/9P5WLIg3OxRsXeNBmrosUPOttCnL/Rjl4wFqchTbjbOicwVFaVJtb
+         wy0Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=YC4gY9NgP+rBcTDh7I6OGFhEnpmjmN+eMsKq5QM4P34=;
-        b=twQnEL7G2bPc78nerJFMEa6m4UiQjAjO/j7j7O361o14nyYCfm/kFxmqqIbDDk1V7W
-         iSC5HOBESC6jNvIMwrUwDlcuR070R2l7px2Dl96G3WfcX6rlvbYBc4EBmNMb7lbcpAcr
-         GvRnw0PR2SSmCWgoh8CZsyNiGhl9G8gLlB6U5P9DWiT+1VP2yM2isVGU7NKJZLN44e5l
-         orjbSJKjscx2ifldh06UIzcwjBnifDxddjTf/F1dL3KqgF+F17xZ51zzhV1l38HzOfj2
-         oQEeMhjh2RdiRKnp3xDMFccSeJoFTaEthA5lXpfl/dFTLm1b2V9QIvPmdkSd7OBuBvy/
-         38+Q==
+        bh=tPfxsQxQbvZeC2vc0CjstId4DyRwgsrHx2C2m2pmKw4=;
+        b=J/SsYKKebCcBsBzut5qw34eXOKcgfkBCXaKqTwwetvHYUoncRsHLbhDhC1apAsoATL
+         Fi5lLapdfc9chORlhgTBrMudLdqBSEEY75ZJ3XvnnnLhU6jji8qdIaRg13gDAo6u9b2l
+         zWDwznEpt5gSD7Pb/najVCxmUxjGpqsmRhDSA3ogHQ9rb7TMUdjvHNhxx8zVorKPtY7G
+         BIs+P4s180+pXQakqx3Y+k9jf8pMp9qiUQNC64idDKpsyG6Pw0FlzJKvGLzyiX+FNf+m
+         tycXHHfUPduFj8UF6EeDxJPEACodkvypwSLlURLG8qCflPmdx2S4r51vMkpTc8Rj2syl
+         i7kw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=YC4gY9NgP+rBcTDh7I6OGFhEnpmjmN+eMsKq5QM4P34=;
-        b=ao3AKQSHqYZ8DxDbx3u4XjooB9J/yVsOKr9kyaMOltnXQXWSWNljSof6VLftGfxdsI
-         dn02+2pd7/povMPy7cHVmMPH1NWybH51Up+slsLemT/62JG41CCOt5PtpgURK9ymBVoA
-         Vml54P208iHv7h5aAKW7FtR2Fugti3Ql2wQitsd9w1cAnjfUaPRUuHbuJx1otPxDI9Zp
-         31ovBJQRq4wV0b0z/C8EovZ2tRPPqjCyiBkKW8hWNfxrgrjYzT9Wj3YaegbbDUVoHfdt
-         sqxRGnjmxaYYIwe8XPx7QyIs5+UP7xn51cAvksBk4OmR0gS2RyU2+qVX4eLjud2W2fPY
-         L5Fg==
+        bh=tPfxsQxQbvZeC2vc0CjstId4DyRwgsrHx2C2m2pmKw4=;
+        b=cQJS1dOQp+QW7CD9SWBL6LmfkoU3pJhmvFs2cLGQtBC0b2irUEdUAWYFQZqfBwytfO
+         ANlQw2QIGd9NgBuaKncuV5RmTg7kAltBHki2Y1F2XylqeY4r42atDc7u7t2pTOiXxSxU
+         YAlhbxjjnEjl7yrydb8IbjF+ps1VdeK2/wme3tW1JUTIu67Z5AGyi0xC4FEMI7OoEW1m
+         d2886RXLdzuRPIXNer2G98/vqZeuh8dQgsmWuT6AMeT9YczyTK9VM2c2fw7hz+1ta+1x
+         dajxdQQvwVqa6jpBfY+CBY8yKj5Xsu28kFDo/Cv9bUwUR6INFUCCEkXeX0rkWULft162
+         Cu5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,84 +49,83 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=YC4gY9NgP+rBcTDh7I6OGFhEnpmjmN+eMsKq5QM4P34=;
-        b=d9WYfwwFpIBynBCMPOxqP1eJmSvLzzcBdjLf7zBM2RWsRHlSfXqg8EDbU7EvOcuIj7
-         ip/Jtj+tROgpNhakK9AOB0tQI06An6L5NjAIPvpb0cEgnVodumUvMibch619TrnL/fHs
-         Q1JXg9A6K04j1Kfzc3ZWsOZ0ByZPIZ1c7/U9E9vJvGfuOAsk/rtBETtozX35XFBHtazn
-         LDQVOoK3M4rh5UM4qOXmDI0CTEWlj5sgMScwewz9lvtxSYfHPjn8VRtNP2bNfOgJlpk1
-         K7j9BlM2z6fSj9L5yFGcvhF3jpVIbemfWfF74FkDi6uAIYMSEoKcaeny/Uf/p9bYhiPy
-         aMDA==
+        bh=tPfxsQxQbvZeC2vc0CjstId4DyRwgsrHx2C2m2pmKw4=;
+        b=rZs3G1l8mqBrZd1CQ8kHGLYhEyyDMGbdeqIH0hYsAUaZl9GdRBK846UuTFogkujcRl
+         QT47RIN4pNDHcZ2hjxAOqenlbxHO4mpjsW0/AsBc5OOl0yI15erJDdHGosCPgPCmu8RX
+         cBlp4tg0w5jweO5K7DgWr032gRtHREThjhqB4ykyF8DYC5JCaiNSEwHervL9qF1ikbof
+         1stqGX+xyu4QKw3Qiud6BiXFnOY6+mEpOOQgZewb6jBSq4QpIhMKXfw0HBMJGAyUfkrC
+         5MPurYksNgUT0q0vO4HvVB6Mg0PGpWxGGQwgdNf45pU58BImerRN5rLSyNYTZciOMOPJ
+         NsiA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuYtBx4G/8vxJZiRp9x/iDxafJ7FPbldDUBlyv+zAcsmiwqaPFQS
-	nq3IhDEaOY3pV6hv7E2H2H0=
-X-Google-Smtp-Source: APiQypKA6kK3SM5xYwBVs+933OopI3/V5Txozz+rPn58azBBBgUbNOxYURoM1s33g8Nxv8qiuTtT2g==
-X-Received: by 2002:a92:8b03:: with SMTP id i3mr1738013ild.242.1588304175645;
-        Thu, 30 Apr 2020 20:36:15 -0700 (PDT)
+X-Gm-Message-State: AGi0PuZWfLr7CjyRXrMT3G8Hw7sUsPAhPmyc4P/1IYxIVgoY5LGuOvzA
+	sLkxIXwArO7qGcbYdgXglkE=
+X-Google-Smtp-Source: APiQypK54nhKPoPwcV/MWPOo41faw9HTy6nB+xMxBEq6aUo5PMCJ4O+e/wWqYFvrEszWYs/Mix7K8Q==
+X-Received: by 2002:a17:902:8b82:: with SMTP id ay2mr2822045plb.285.1588309942094;
+        Thu, 30 Apr 2020 22:12:22 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a6b:3bcf:: with SMTP id i198ls1651620ioa.1.gmail; Thu, 30
- Apr 2020 20:36:15 -0700 (PDT)
-X-Received: by 2002:a6b:e412:: with SMTP id u18mr1916113iog.95.1588304175198;
-        Thu, 30 Apr 2020 20:36:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588304175; cv=none;
+Received: by 2002:a17:90b:3657:: with SMTP id nh23ls5883753pjb.1.canary-gmail;
+ Thu, 30 Apr 2020 22:12:21 -0700 (PDT)
+X-Received: by 2002:a17:90a:384b:: with SMTP id l11mr2701243pjf.89.1588309941532;
+        Thu, 30 Apr 2020 22:12:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588309941; cv=none;
         d=google.com; s=arc-20160816;
-        b=gkf76sKT1SL+5+yB8nmxW9cLCUIKqo5HIJSrQw3m7JhmFpOEtkCukxQr8vhiwu71Ai
-         W1n8h2cilViuC2Ha1mzwHqKsPnMt+qmxB4Z8VXfbbf9RfX3n1876/z4x7P+aAWkJrfsl
-         kkKwjtPap5df53zj4d5th6vil2GChd5mf8ebq1Ksf3mswMrSgwLeLTgkD9ag1u1yB/T2
-         OeN48I2nowmVcPvISWCeTjgo+ELEAlfoVLLwUfPApxuTYf3wWlwn5D0d3h/LRCEaYgJY
-         iQKkL1nh7vo3hldwZsX+S0ZSO8T3MfRs69k7DJDToJbWFdKx9lQFnheD6OFfglGFHnIP
-         ptJA==
+        b=V6yP83Ha8i9PDxa9gZz3PzhhdRELXqRLtBDEPlYAatc+BkgpTyOakBgIxyGucnXHfg
+         nL3gXmx8fB3vIlclFERc2zZdphENPFzX5EHtPwhzoux2x2JomB00S48c0iPGl303K7k6
+         Qin/tQzn07PNc24LKaZ7KibXZu2aJlg1VqPrQn9VBRdQGNBcl2xBcr1F163S7ikwCdRz
+         a9Mc3UcN/X1iDDrTu53ffJzT7KqUlbHDTAuhOPVaJ3XNcTOQvRsqylVvMARTm5MHSLE1
+         DCEPgyCSVVkA2C0N+PlByuMZ4DIylzlgBhuBek5EA1r3od4Ol44i/S5icsBAGbofw1OC
+         AyZA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=QWML96Qm3yl2oTh8AK1FJdkNJ4WI3CD4a9cMZrK2Nfk=;
-        b=wHuG6RpDWfK+Axk8JI8FnlWENfQMvkj4RSvaCB7uI0Gxmytz/+RRlp/e0sQMB3M9wS
-         nMbgCY4ZOfNyqYJF/0CgNl+6yEnxCcBjZHH+T4aGinkPRC+cxBvmbB2F4UUSrf7PrYt1
-         UtVadS+ACNLFjUe15++J1PBOvqotPeOMnIf3wrxb+zpQ1uyu2jdWrPf2lzhhTkUFUD6X
-         dZ9TKkcX2D/3tmWynos+ai0I3AeUixWSCFwGs+xItNzewXDd8e4Q9AGCQfwBxUM6guyn
-         +jUBLmSX3UOhTILY1KdjZ05r1irRKAST33lSe58eZgTsqIY4pViqhDu2sbkegfdbR3LD
-         XoyQ==
+        bh=NFE8F+2Bd8LuVInh2szBbpsPKt1TuHiTeA323Yygk/I=;
+        b=Jl5gHB5nk+B+vRU5/0OSOes+st2ttq36yrwS0bxe6XQ+o8NUTOWiSyT391r+EOyk+V
+         IOmttlP12H3V0d3dqx5QSaWIDz3V4T4YupyKoIG7tK8gPM948cNKOlF/icphbMGc/Gg1
+         OhnxzkV8go9+clZwv4XH6CWmiA6Tv3fIDOlVUxR/rNEg4NL1z/a0hoP3vhH8CQF4Un0U
+         Fx6famNXMGBVAQzvjfzAuRCwU++VbvcPPLtp+OS1nj+he4ZL/M/d263dtK2HIcFl/BEj
+         FpODW1GumTBl+6xPIYA8eWYRTlMaxOqFXUEwUwOrGi1qK2otkMLuS2Y4xaXiCrlZ0kYV
+         2AmQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
-        by gmr-mx.google.com with ESMTPS id x4si152790iof.0.2020.04.30.20.36.14
+Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
+        by gmr-mx.google.com with ESMTPS id u18si231564plq.0.2020.04.30.22.12.21
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 30 Apr 2020 20:36:15 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
-IronPort-SDR: DueyUfTUtzMxDqVbth6+m9uYp2LSNzut1pcqOsgBmeabUD+/2NI23QgzOQUN0P2g6EnDILWftA
- jnDhXSpfc5+Q==
+        Thu, 30 Apr 2020 22:12:21 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
+IronPort-SDR: qmo33xABA+Moo0D3k3I/1bfzrO7SgAz8wqDQqQb/iDAW+hLr+DK/oMB4cmcSLDXVN2MWJ/lu12
+ OAYuO3YpLfJw==
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga003.jf.intel.com ([10.7.209.27])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Apr 2020 20:36:13 -0700
-IronPort-SDR: nfdyezH4gXS+2imsEBaRSH/GRepyLCsMG+XFRp7Y1nlsBpvPK0mdeN8AFnz0/srg8XyqugEFjz
- zlND/3Gb5WTA==
+Received: from fmsmga003.fm.intel.com ([10.253.24.29])
+  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Apr 2020 22:12:20 -0700
+IronPort-SDR: P+P48cdlS6n2Th3rFBUhJ9OtSsLQg/707t21wW9t0010M4QlEKsT6ntFA1KWI8W3abWSYxBB1K
+ RQv2r5369lTQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.73,338,1583222400"; 
-   d="gz'50?scan'50,208,50";a="258512492"
+   d="gz'50?scan'50,208,50";a="303479387"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga003.jf.intel.com with ESMTP; 30 Apr 2020 20:36:11 -0700
+  by FMSMGA003.fm.intel.com with ESMTP; 30 Apr 2020 22:12:18 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1jUMTC-0002LF-Az; Fri, 01 May 2020 11:36:10 +0800
-Date: Fri, 1 May 2020 11:35:29 +0800
+	id 1jUNyD-000DCC-Fy; Fri, 01 May 2020 13:12:17 +0800
+Date: Fri, 1 May 2020 13:12:09 +0800
 From: kbuild test robot <lkp@intel.com>
-To: John Garry <john.garry@huawei.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	Hannes Reinecke <hare@suse.de>
-Subject: [hare-scsi-devel:reserved-tags.v3 36/41]
- drivers/scsi/hisi_sas/hisi_sas_main.c:1194:18: error: variable has
- incomplete type 'struct scsilun'
-Message-ID: <202005011124.3HuWLdhR%lkp@intel.com>
+To: Hannes Reinecke <hare@suse.de>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
+Subject: [hare-scsi-devel:reserved-tags.v3 39/41]
+ drivers/scsi/hisi_sas/hisi_sas_main.c:1972:1: warning: unused label
+ 'err_out'
+Message-ID: <202005011359.soyks2Fz%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="uAKRQypu60I7Lcqm"
+Content-Type: multipart/mixed; boundary="7AUc2qLy4jB3hD7Z"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -142,13 +141,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---uAKRQypu60I7Lcqm
+--7AUc2qLy4jB3hD7Z
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/hare/scsi-devel.git reserved-tags.v3
 head:   7e846b812c89291eaaf342f3a37944fefc17473b
-commit: 7f3f003ba62f8d93a1eec0cd56877a15c7989740 [36/41] scsi: libsas,hisi_sas,mvsas,pm8001: Allocate Scsi_cmd for slow task
+commit: 0b5ae3c0eabfefb5573b84647788cc5d9af89135 [39/41] hisi_sas: use task tag to reference the slot
 config: x86_64-allyesconfig (attached as .config)
 compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 1ccde533425a4ba9d379510206ad680ff9702129)
 reproduce:
@@ -156,169 +155,129 @@ reproduce:
         chmod +x ~/bin/make.cross
         # install x86_64 cross compiling tool for clang build
         # apt-get install binutils-x86-64-linux-gnu
-        git checkout 7f3f003ba62f8d93a1eec0cd56877a15c7989740
+        git checkout 0b5ae3c0eabfefb5573b84647788cc5d9af89135
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kbuild test robot <lkp@intel.com>
 
-All error/warnings (new ones prefixed by >>):
+All warnings (new ones prefixed by >>):
 
->> drivers/scsi/hisi_sas/hisi_sas_main.c:1194:18: error: variable has incomplete type 'struct scsilun'
+   drivers/scsi/hisi_sas/hisi_sas_main.c:1147:18: error: variable has incomplete type 'struct scsilun'
                    struct scsilun lun;
                                   ^
-   drivers/scsi/hisi_sas/hisi_sas_main.c:1194:10: note: forward declaration of 'struct scsilun'
+   drivers/scsi/hisi_sas/hisi_sas_main.c:1147:10: note: forward declaration of 'struct scsilun'
                    struct scsilun lun;
                           ^
->> drivers/scsi/hisi_sas/hisi_sas_main.c:1197:8: warning: address of function 'dev_is_sata' will always evaluate to 'true' [-Wpointer-bool-conversion]
+   drivers/scsi/hisi_sas/hisi_sas_main.c:1150:8: warning: address of function 'dev_is_sata' will always evaluate to 'true' [-Wpointer-bool-conversion]
                    if (!dev_is_sata) {
                        ~^~~~~~~~~~~
-   drivers/scsi/hisi_sas/hisi_sas_main.c:1197:8: note: prefix with the address-of operator to silence this warning
+   drivers/scsi/hisi_sas/hisi_sas_main.c:1150:8: note: prefix with the address-of operator to silence this warning
                    if (!dev_is_sata) {
                         ^
                         &
->> drivers/scsi/hisi_sas/hisi_sas_main.c:1198:24: error: initializing 'struct sas_ssp_task' with an expression of incompatible type 'void *'
+   drivers/scsi/hisi_sas/hisi_sas_main.c:1151:24: error: initializing 'struct sas_ssp_task' with an expression of incompatible type 'void *'
                            struct sas_ssp_task ssp_task = parameter;
                                                ^          ~~~~~~~~~
-   drivers/scsi/hisi_sas/hisi_sas_main.c:2598:41: warning: shift count >= width of type [-Wshift-count-overflow]
+>> drivers/scsi/hisi_sas/hisi_sas_main.c:1972:1: warning: unused label 'err_out' [-Wunused-label]
+   err_out:
+   ^~~~~~~~
+   drivers/scsi/hisi_sas/hisi_sas_main.c:2549:41: warning: shift count >= width of type [-Wshift-count-overflow]
            error = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(64));
                                                   ^~~~~~~~~~~~~~~~
    include/linux/dma-mapping.h:139:54: note: expanded from macro 'DMA_BIT_MASK'
    #define DMA_BIT_MASK(n) (((n) == 64) ? ~0ULL : ((1ULL<<(n))-1))
                                                         ^ ~~~
-   2 warnings and 2 errors generated.
+   3 warnings and 2 errors generated.
 
-vim +1194 drivers/scsi/hisi_sas/hisi_sas_main.c
+vim +/err_out +1972 drivers/scsi/hisi_sas/hisi_sas_main.c
 
-  1178	
-  1179	#define TASK_TIMEOUT 20
-  1180	#define TASK_RETRY 3
-  1181	#define INTERNAL_ABORT_TIMEOUT 6
-  1182	static int hisi_sas_exec_internal_tmf_task(struct domain_device *device,
-  1183						   void *parameter, u32 para_len,
-  1184						   struct hisi_sas_tmf_task *tmf)
-  1185	{
-  1186		struct hisi_sas_device *sas_dev = device->lldd_dev;
-  1187		struct hisi_hba *hisi_hba = sas_dev->hisi_hba;
-  1188		struct sas_ha_struct *sha = &hisi_hba->sha;
-  1189		struct device *dev = hisi_hba->dev;
-  1190		struct sas_task *task;
-  1191		int res, retry;
-  1192	
-  1193		for (retry = 0; retry < TASK_RETRY; retry++) {
-> 1194			struct scsilun lun;
-  1195	
-  1196			int_to_scsilun(0, &lun);
-> 1197			if (!dev_is_sata) {
-> 1198				struct sas_ssp_task ssp_task = parameter;
-  1199	
-  1200				memcpy(lun.scsi_lun, ssp_task.LUN, 8);
-  1201			}
-  1202			task = sas_alloc_slow_task(sha, device, &lun, GFP_KERNEL);
-  1203			if (!task)
-  1204				return -ENOMEM;
-  1205	
-  1206			task->dev = device;
-  1207			task->task_proto = device->tproto;
-  1208	
-  1209			if (dev_is_sata(device)) {
-  1210				task->ata_task.device_control_reg_update = 1;
-  1211				memcpy(&task->ata_task.fis, parameter, para_len);
-  1212			} else {
-  1213				memcpy(&task->ssp_task, parameter, para_len);
-  1214			}
-  1215			task->task_done = hisi_sas_task_done;
-  1216	
-  1217			task->slow_task->timer.function = hisi_sas_tmf_timedout;
-  1218			task->slow_task->timer.expires = jiffies + TASK_TIMEOUT * HZ;
-  1219			add_timer(&task->slow_task->timer);
-  1220	
-  1221			res = hisi_sas_task_exec(task, GFP_KERNEL, 1, tmf);
-  1222	
-  1223			if (res) {
-  1224				del_timer(&task->slow_task->timer);
-  1225				dev_err(dev, "abort tmf: executing internal task failed: %d\n",
-  1226					res);
-  1227				goto ex_err;
-  1228			}
-  1229	
-  1230			wait_for_completion(&task->slow_task->completion);
-  1231			res = TMF_RESP_FUNC_FAILED;
-  1232			/* Even TMF timed out, return direct. */
-  1233			if ((task->task_state_flags & SAS_TASK_STATE_ABORTED)) {
-  1234				if (!(task->task_state_flags & SAS_TASK_STATE_DONE)) {
-  1235					struct hisi_sas_slot *slot = task->lldd_task;
-  1236	
-  1237					dev_err(dev, "abort tmf: TMF task timeout and not done\n");
-  1238					if (slot) {
-  1239						struct hisi_sas_cq *cq =
-  1240						       &hisi_hba->cq[slot->dlvry_queue];
-  1241						/*
-  1242						 * sync irq to avoid free'ing task
-  1243						 * before using task in IO completion
-  1244						 */
-  1245						synchronize_irq(cq->irq_no);
-  1246						slot->task = NULL;
-  1247					}
-  1248	
-  1249					goto ex_err;
-  1250				} else
-  1251					dev_err(dev, "abort tmf: TMF task timeout\n");
-  1252			}
-  1253	
-  1254			if (task->task_status.resp == SAS_TASK_COMPLETE &&
-  1255			     task->task_status.stat == TMF_RESP_FUNC_COMPLETE) {
-  1256				res = TMF_RESP_FUNC_COMPLETE;
-  1257				break;
-  1258			}
-  1259	
-  1260			if (task->task_status.resp == SAS_TASK_COMPLETE &&
-  1261				task->task_status.stat == TMF_RESP_FUNC_SUCC) {
-  1262				res = TMF_RESP_FUNC_SUCC;
-  1263				break;
-  1264			}
-  1265	
-  1266			if (task->task_status.resp == SAS_TASK_COMPLETE &&
-  1267			      task->task_status.stat == SAS_DATA_UNDERRUN) {
-  1268				/* no error, but return the number of bytes of
-  1269				 * underrun
-  1270				 */
-  1271				dev_warn(dev, "abort tmf: task to dev %016llx resp: 0x%x sts 0x%x underrun\n",
-  1272					 SAS_ADDR(device->sas_addr),
-  1273					 task->task_status.resp,
-  1274					 task->task_status.stat);
-  1275				res = task->task_status.residual;
-  1276				break;
-  1277			}
-  1278	
-  1279			if (task->task_status.resp == SAS_TASK_COMPLETE &&
-  1280				task->task_status.stat == SAS_DATA_OVERRUN) {
-  1281				dev_warn(dev, "abort tmf: blocked task error\n");
-  1282				res = -EMSGSIZE;
-  1283				break;
-  1284			}
-  1285	
-  1286			if (task->task_status.resp == SAS_TASK_COMPLETE &&
-  1287			    task->task_status.stat == SAS_OPEN_REJECT) {
-  1288				dev_warn(dev, "abort tmf: open reject failed\n");
-  1289				res = -EIO;
-  1290			} else {
-  1291				dev_warn(dev, "abort tmf: task to dev %016llx resp: 0x%x status 0x%x\n",
-  1292					 SAS_ADDR(device->sas_addr),
-  1293					 task->task_status.resp,
-  1294					 task->task_status.stat);
-  1295			}
-  1296			sas_free_task(task);
-  1297			task = NULL;
-  1298		}
-  1299	ex_err:
-  1300		if (retry == TASK_RETRY)
-  1301			dev_warn(dev, "abort tmf: executing internal task failed!\n");
-  1302		sas_free_task(task);
-  1303		return res;
-  1304	}
-  1305	
+0efff300c72df7 John Garry      2015-11-18  1899  
+441c27401470c4 John Garry      2016-08-24  1900  static int
+ad6048325c7807 John Garry      2017-06-14  1901  hisi_sas_internal_abort_task_exec(struct hisi_hba *hisi_hba, int device_id,
+441c27401470c4 John Garry      2016-08-24  1902  				  struct sas_task *task, int abort_flag,
+795f25a31b542d John Garry      2019-02-06  1903  				  int task_tag, struct hisi_sas_dq *dq)
+441c27401470c4 John Garry      2016-08-24  1904  {
+441c27401470c4 John Garry      2016-08-24  1905  	struct domain_device *device = task->dev;
+441c27401470c4 John Garry      2016-08-24  1906  	struct hisi_sas_device *sas_dev = device->lldd_dev;
+11b752490a051b John Garry      2017-06-14  1907  	struct device *dev = hisi_hba->dev;
+441c27401470c4 John Garry      2016-08-24  1908  	struct hisi_sas_port *port;
+441c27401470c4 John Garry      2016-08-24  1909  	struct hisi_sas_slot *slot;
+2e244f0f5bcaa9 John Garry      2017-03-23  1910  	struct asd_sas_port *sas_port = device->port;
+441c27401470c4 John Garry      2016-08-24  1911  	struct hisi_sas_cmd_hdr *cmd_hdr_base;
+441c27401470c4 John Garry      2016-08-24  1912  	int dlvry_queue_slot, dlvry_queue, n_elem = 0, rc, slot_idx;
+897cc769bcc092 John Garry      2019-08-05  1913  	unsigned long flags;
+fa222db0b03689 Xiang Chen      2018-05-09  1914  	int wr_q_index;
+441c27401470c4 John Garry      2016-08-24  1915  
+917d3bdaf8f2ab Xiaofei Tan     2017-08-11  1916  	if (unlikely(test_bit(HISI_SAS_REJECT_CMD_BIT, &hisi_hba->flags)))
+06ec0fb97c0281 Xiang Chen      2017-03-23  1917  		return -EINVAL;
+06ec0fb97c0281 Xiang Chen      2017-03-23  1918  
+441c27401470c4 John Garry      2016-08-24  1919  	if (!device->port)
+441c27401470c4 John Garry      2016-08-24  1920  		return -1;
+441c27401470c4 John Garry      2016-08-24  1921  
+2e244f0f5bcaa9 John Garry      2017-03-23  1922  	port = to_hisi_sas_port(sas_port);
+441c27401470c4 John Garry      2016-08-24  1923  
+0b5ae3c0eabfef Hannes Reinecke 2020-04-29  1924  	slot_idx = task->tag;
+0b5ae3c0eabfef Hannes Reinecke 2020-04-29  1925  	if (task->tag == -1)
+0b5ae3c0eabfef Hannes Reinecke 2020-04-29  1926  		return -EAGAIN;
+b1a49412f0aed7 Xiang Chen      2017-06-14  1927  
+3de0026dad6b8e Xiang Chen      2018-05-09  1928  	slot = &hisi_hba->slot_info[slot_idx];
+fa222db0b03689 Xiang Chen      2018-05-09  1929  
+e9dc5e11c97ee9 Xiang Chen      2020-01-20  1930  	spin_lock(&dq->lock);
+897cc769bcc092 John Garry      2019-08-05  1931  	wr_q_index = dq->wr_point;
+897cc769bcc092 John Garry      2019-08-05  1932  	dq->wr_point = (dq->wr_point + 1) % HISI_SAS_QUEUE_SLOTS;
+fa222db0b03689 Xiang Chen      2018-05-09  1933  	list_add_tail(&slot->delivery, &dq->list);
+e9dc5e11c97ee9 Xiang Chen      2020-01-20  1934  	spin_unlock(&dq->lock);
+e9dc5e11c97ee9 Xiang Chen      2020-01-20  1935  	spin_lock(&sas_dev->lock);
+4fefe5bbf599d6 Xiang Chen      2019-02-06  1936  	list_add_tail(&slot->entry, &sas_dev->list);
+e9dc5e11c97ee9 Xiang Chen      2020-01-20  1937  	spin_unlock(&sas_dev->lock);
+441c27401470c4 John Garry      2016-08-24  1938  
+b1a49412f0aed7 Xiang Chen      2017-06-14  1939  	dlvry_queue = dq->id;
+fa222db0b03689 Xiang Chen      2018-05-09  1940  	dlvry_queue_slot = wr_q_index;
+b1a49412f0aed7 Xiang Chen      2017-06-14  1941  
+4fefe5bbf599d6 Xiang Chen      2019-02-06  1942  	slot->device_id = sas_dev->device_id;
+441c27401470c4 John Garry      2016-08-24  1943  	slot->n_elem = n_elem;
+441c27401470c4 John Garry      2016-08-24  1944  	slot->dlvry_queue = dlvry_queue;
+441c27401470c4 John Garry      2016-08-24  1945  	slot->dlvry_queue_slot = dlvry_queue_slot;
+441c27401470c4 John Garry      2016-08-24  1946  	cmd_hdr_base = hisi_hba->cmd_hdr[dlvry_queue];
+441c27401470c4 John Garry      2016-08-24  1947  	slot->cmd_hdr = &cmd_hdr_base[dlvry_queue_slot];
+441c27401470c4 John Garry      2016-08-24  1948  	slot->task = task;
+441c27401470c4 John Garry      2016-08-24  1949  	slot->port = port;
+cd938e535e909b Xiang Chen      2018-05-02  1950  	slot->is_internal = true;
+441c27401470c4 John Garry      2016-08-24  1951  	task->lldd_task = slot;
+441c27401470c4 John Garry      2016-08-24  1952  
+441c27401470c4 John Garry      2016-08-24  1953  	memset(slot->cmd_hdr, 0, sizeof(struct hisi_sas_cmd_hdr));
+031da09c110106 Xiang Chen      2017-08-11  1954  	memset(hisi_sas_cmd_hdr_addr_mem(slot), 0, HISI_SAS_COMMAND_TABLE_SZ);
+d380f55503ed28 Xiang Chen      2019-08-05  1955  	memset(hisi_sas_status_buf_addr_mem(slot), 0,
+d380f55503ed28 Xiang Chen      2019-08-05  1956  	       sizeof(struct hisi_sas_err_record));
+441c27401470c4 John Garry      2016-08-24  1957  
+a2b3820bddfbff Xiang Chen      2018-05-09  1958  	hisi_sas_task_prep_abort(hisi_hba, slot, device_id,
+441c27401470c4 John Garry      2016-08-24  1959  				      abort_flag, task_tag);
+441c27401470c4 John Garry      2016-08-24  1960  
+54c9dd2d26d095 John Garry      2017-03-23  1961  	spin_lock_irqsave(&task->task_state_lock, flags);
+441c27401470c4 John Garry      2016-08-24  1962  	task->task_state_flags |= SAS_TASK_AT_INITIATOR;
+54c9dd2d26d095 John Garry      2017-03-23  1963  	spin_unlock_irqrestore(&task->task_state_lock, flags);
+1c09b663168bb5 Xiaofei Tan     2018-07-18  1964  	WRITE_ONCE(slot->ready, 1);
+b1a49412f0aed7 Xiang Chen      2017-06-14  1965  	/* send abort command to the chip */
+e9dc5e11c97ee9 Xiang Chen      2020-01-20  1966  	spin_lock(&dq->lock);
+b1a49412f0aed7 Xiang Chen      2017-06-14  1967  	hisi_hba->hw->start_delivery(dq);
+e9dc5e11c97ee9 Xiang Chen      2020-01-20  1968  	spin_unlock(&dq->lock);
+441c27401470c4 John Garry      2016-08-24  1969  
+441c27401470c4 John Garry      2016-08-24  1970  	return 0;
+441c27401470c4 John Garry      2016-08-24  1971  
+441c27401470c4 John Garry      2016-08-24 @1972  err_out:
+441c27401470c4 John Garry      2016-08-24  1973  	dev_err(dev, "internal abort task prep: failed[%d]!\n", rc);
+441c27401470c4 John Garry      2016-08-24  1974  
+441c27401470c4 John Garry      2016-08-24  1975  	return rc;
+441c27401470c4 John Garry      2016-08-24  1976  }
+441c27401470c4 John Garry      2016-08-24  1977  
+
+:::::: The code at line 1972 was first introduced by commit
+:::::: 441c27401470c417cf4a33ab9c17bcefdf1ecca3 scsi: hisi_sas: add internal abort main code
+
+:::::: TO: John Garry <john.garry@huawei.com>
+:::::: CC: Martin K. Petersen <martin.petersen@oracle.com>
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -327,14 +286,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202005011124.3HuWLdhR%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202005011359.soyks2Fz%25lkp%40intel.com.
 
---uAKRQypu60I7Lcqm
+--7AUc2qLy4jB3hD7Z
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICA6Qq14AAy5jb25maWcAlDzbdtw2ku/zFX2Sl+QhTkuWZe/s8QNIgt1wkwQDgK1uv+Ao
+H4sICEymq14AAy5jb25maWcAlDzbdtw2ku/zFX2Sl+QhTkuWZe/s8QNIgt1wkwQDgK1uv+Ao
 UtvRrix5dMnYf79VAC8FEK3x+uTEZhWuhULd0T//4+cFe366/3L5dHN1eXv7ffH5cHd4uHw6
 XC8+3dwe/ntRyEUjzYIXwryCxtXN3fO337+9O7fnZ4s3r96+Wv72cHWy2Bwe7g63i/z+7tPN
 52fof3N/94+f/wH//QzAL19hqId/Lq5uL+8+L/4+PDwCenFy8mr5arn45fPN0z9//x3+/+Xm
@@ -1695,4 +1654,4 @@ NmGdqZu6Lf2MMsGHlj8qxX0fa91sis6UsVv1b+dCo19PUILoXksR4CNQef5Wj0F45TZJFghI
 3m3xD6EHPNgnuo5RjXTahrkyQuG5Shuntlx4rkoX3/Yj1u0Zb4/1Ncy4bStCP5HjrpMrvuUw
 kD8dUeelKr44+o3LfCW8Uaz/H4fVOvd9sQQA
 
---uAKRQypu60I7Lcqm--
+--7AUc2qLy4jB3hD7Z--
