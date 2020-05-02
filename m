@@ -1,154 +1,151 @@
-Return-Path: <clang-built-linux+bncBDEPBSN75UNRBOE3W32QKGQETXOTN4Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBHFNW32QKGQEA5TQ2CQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa39.google.com (mail-vk1-xa39.google.com [IPv6:2607:f8b0:4864:20::a39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5CDFD1C2672
-	for <lists+clang-built-linux@lfdr.de>; Sat,  2 May 2020 17:11:53 +0200 (CEST)
-Received: by mail-vk1-xa39.google.com with SMTP id u4sf2674750vkl.7
-        for <lists+clang-built-linux@lfdr.de>; Sat, 02 May 2020 08:11:53 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588432312; cv=pass;
+Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 857231C26A7
+	for <lists+clang-built-linux@lfdr.de>; Sat,  2 May 2020 17:49:50 +0200 (CEST)
+Received: by mail-pf1-x43d.google.com with SMTP id c190sf5774302pfc.10
+        for <lists+clang-built-linux@lfdr.de>; Sat, 02 May 2020 08:49:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588434589; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CWN3NZtTPt/tU7oATp/wYCTmcHIoJjpdT2uvMml6KRGtH0F5d5O1ISsX2qOuC9SGVw
-         lMiKBzGs8G4bUhSM01DKJ7bvt2gVw8EmFZ5V0XMmi43wFyxb6P8qPWn7oXMbPAaT0dKk
-         lZN0LirHhQ9mIvt5UR/R5EjUNaXq0XrkDnrLcypg/N08dlZuyMT3RAkTzJ8i6Rl9PNau
-         iIzF7OmYuTjsv+s/sdvkRkLogFie2byBlSNgAZfGlmfW68GeMYrfUyY9yXVjkDrbPg+g
-         EIAM4aT/NCWL6ZUCixdIpWSMyYDxowa6HESrziypbNBJfmecoS9jScuoRu9Sir39Q/JQ
-         Z3/w==
+        b=Pwcy9ytPyyAtlW1SJOTEaiG6iTGkaibvTecMdKbX0sDeqfMvLFi65IflrocOh0nuLU
+         oE0maR1OtCVRh4ebt7dISskF3lM1CHJPYYidxhzwalD2NCDFMmUxCUeXqokaBZLfHt/w
+         176IJM21ZI8lWHKT8eDd8acG5Wb5Cm/SU0IrclUMoWnXHN/okbxK6syzA/Mmqdn+ShlR
+         NqQXz/jnFxlmh+lW9+rqCclmYJHY3gm/+Og/Tyvxowe2qdNbChm1q7Z4F4mf9jMLUwaF
+         3vw9RkF/vDnuwQHq6zv+hO0igTXfPJmLawBEZrC6PazHRpP5O/1I/rgu+83vOm/CNfdE
+         5mDg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:sender
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature:dkim-signature;
-        bh=DAyWCd13haBpUa020JGfRXkxj0tJhqoGdsYL0ZiJKQk=;
-        b=QHmfITUWIjo4nMRfhc/4FSjUXkkpFwrH6fZiGaWwOB4Bst8cYnyxDdY1zsvLdbAaww
-         rb3GO/CdXrXjzjiDb3Pir7dln78FgShMjPPWt6Z5irN7fpVPXLTc/aqdcoCmHRlrN761
-         8VeAdqygPu+M5cvkXf4H0sESumvbKSolp/4Yu4DHVjNPrtj2ZAIU+kamdgYSmUWefSH7
-         DliEPPhOKzFfM8YnxIGF2GLOK6eXlp3arhpqzFBqIcriNpjkHSNPYV08H0M66xoscM2B
-         4XAlFDqhnwaBUHJ5RssCfwE4t+KAPFfdlFDQsEUj60F+9Xpt7NJkWrwTcF4lN7eDFV1M
-         t8PA==
+        bh=HbCSjeeyn5Ad3Z1RJSgUPUxGqkfADeVRx1kQA2b3M34=;
+        b=XCk49RGfM7mbbAWUGJQNHNh3D+FO8Q0ThsdjQ8LJYfDmcWqD3QpvEA54QVzPcEx09a
+         35lRxdeTP31KVtt4rQg07qGKOTlc8XLQ7D1qqAqWv2kY63A31EQzSGVKMfOiK/StWPMr
+         OfUExnOsgVydLno/P/QXxRqwALOptFVLrKLeQ2dksHWDETIMiZT8vVDjjuDN1j9JvUWk
+         svhrGXddfdfrWE7189m2kil7b7HYofYk4WwH5iIfABT+qzj8Vb7CwJsvHECkOWsQaj2z
+         MckAuWJ7HyU2PrrY3u0ivkAPjRGzVoR0lInmZVvmiaTz5yzDYfZy6f/3iXXOSHVbZxOm
+         OVzA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=iY9gEDc7;
-       spf=pass (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::842 as permitted sender) smtp.mailfrom=arnaldo.melo@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=I+skLHrw;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:cc:subject:message-id:references:mime-version
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=DAyWCd13haBpUa020JGfRXkxj0tJhqoGdsYL0ZiJKQk=;
-        b=XPyh+l2k1BJy+qye8/PQP0b4low1BRpbnLyAYjCqoJ0NbpE4iUcC4PqDQMw+x1reUm
-         em+uIl9uToaNYtca9SyWxoF5mrwZEiEIqaffyB04tCVFLfR9SPh19042ca4H3MBx1iQ/
-         AnPlqdoWb144he81guhsPkWVJhBRUNTuqZ0HReLfLEdxLEveaGLOOfm4ClATQo2U4eFG
-         fEL5s3h74TCjL40btnk0WRbapg77VKKGPU3gZpLDwrmFGUWH/NQJ3NaiGV/TUGu0oJ+P
-         ENIVovF/6boE1Hg9EdJNvF/M6hAEZt4tJ9OsL2hN0Y0FUhSRxwmpgD0abTK87svVCtSR
-         DQmA==
+        bh=HbCSjeeyn5Ad3Z1RJSgUPUxGqkfADeVRx1kQA2b3M34=;
+        b=JYcU/Wy/OKIVn3lR48PKHDeoO+lCZj1WjVzNxWhf0OYYoyh9BKT2tdKC/MsXyqCWvx
+         dCODjxr6X3YPTH+na8Np72wXkOFrg9fYKZROWxqVEnHBzvIsi87Ta/mdDddAdzG2xSzP
+         KfZIZiKX6rXjM8w0KK4wVco7ZDL1igeRcIxy08sfZlbrPBoy8rkA4vfctytNBvhjiQfV
+         0nKNVvyv/ZCdMq+mZP2Leg9IG4K3Kre2xbcYMyK0DI6RSNL/cd47qdpPPes+h4PtECVd
+         XNZrrx6hcK23OqfIHYhX+tYNGG123ruG6M4g+YKVamYU/gPwcBZTXyCpeTQLQqy2rwlU
+         CtbA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
-        h=from:date:to:cc:subject:message-id:references:mime-version
+        h=date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=DAyWCd13haBpUa020JGfRXkxj0tJhqoGdsYL0ZiJKQk=;
-        b=YQz2XLw5neI6HKrVaBX5nQGuKiopne43Po6tphohxJ/AaK72Y/1Zpu2/U4XgC+uInT
-         XGi/uLNTl2bX6evhdQtH1TVItkaMd/wtMNlE5wYnQ+rjGUSTXi1nL122UkYpajLB0EWA
-         WTeEj8/M+kkJ/br//n3nnuo05TggI0yIWCQJsPGLCGIN/ZfSeM03SBSZl29g08X7BY2Q
-         bMO6oNDv1R1NQ2ADzgV8gVxVn53TygGjQr0T30juOr9cQ08PT8evnvx51OmUfUIcquYo
-         xbIHLYGKI5kNf8fZR8dhqVFldRV7WpsXN9BKM9nJW7KGu9DGuYhuOlvsCHxcV245Zpu1
-         KY+g==
+        bh=HbCSjeeyn5Ad3Z1RJSgUPUxGqkfADeVRx1kQA2b3M34=;
+        b=qLsM1QpndeMkr91EJ436ng87b0w8YQRb8ZLGHMcdqLMWd+rHc9Asb7lwYfNi7elm5Q
+         dje1dD5Qld6zJ/jJTOg2TxrfhLPBHEZqLjRG6mAnwaM82GTVmFV4H2IAC7tAOyIwINgv
+         S3PDOlAdpPcT3gQmQds1i36heM/d4Xgix3TMu4e3yUWVRtnXi4go2mCFQZ6Sxe2kVvG7
+         OLd7Z/vgAT+BlLZsOPiHX8BkZcJ81mPwpza7wIToZ0SLI0j0xi6wM9+tTVx3IECaxTNF
+         +3SAS/2uP5SaPnn2fNckZkbjy3DDDXofZrj+8IIOUZl1c5ZzVenasNvAUxQYSGueyMBh
+         CGaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:cc:subject:message-id
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
          :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=DAyWCd13haBpUa020JGfRXkxj0tJhqoGdsYL0ZiJKQk=;
-        b=Jg9sDt7oZKuIBoOdtf/ydqaJ4rDY6HQYXu9GQ5auSwGiwz3FCBMcmuSgP8CBAXVxAV
-         vMQLo54znNX+69F+YR0XIEwKo2Je7ASowZeyZQrtFTsDqss2CI+BnqBF0nZ8P4rPVyGj
-         YqvZ9/1CivGfyzWrmmrCsjFR/b5NmUR/KXdRoQlHKFdxSIzCk19XIv7igzRV92MbvLYE
-         +73XboKPG1odxkDyHTcM/0OaB90OjP+N/ORV/7v4n9kCTcIvaSRESzKpN39pIMA7wjWF
-         /gEx+RRO5tygJmjCct7vBdp5xx2/z2IZTCAYZOFEReRNfWw2X1rSZLwPJYYNx32rE8pn
-         YGhA==
+        bh=HbCSjeeyn5Ad3Z1RJSgUPUxGqkfADeVRx1kQA2b3M34=;
+        b=TlcYj9SvppNz81sxbhckg4gR06GERFbSScfBETAKDt2zjR/uF8CIxbw+LnOjisVrHG
+         ZmkVBkxzS02552e8fmh2+dpvISCPYFFDg9VKJVzv6p4ifzVtU1dgHiuHDsFvWhw4RUdZ
+         ass4Vos7o+Hypkc1UbSzDSRf9GJ7JXaazBDX9pINR84xReUL8ERz2RBupZCXPk69/vpR
+         UDz7pttEhlXafPdov2cARAGhycY/coCr/qBXdxdNgPHqJE8O8C/hKB+Dk5UFuRttTsAZ
+         JJ3X2esPt0k/hBUOjoE8yIvblD9m2GEz425B7SQrM3Bhqkh9Y8szL4I59zeErXxnAl2f
+         mxMw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuZnQqtEaUPgpsHN+b4H0BgNH12TWiPA/jUer50RPw3qtlODtSLK
-	BILlo937dsXrs648CVpggCs=
-X-Google-Smtp-Source: APiQypLkbFUkiZapLRNiK1v5vg2K1204o0sF1YWM4Ab8xoDP2SivH2SWBCNFRIDCE77HtBmyIU1jWg==
-X-Received: by 2002:a1f:4586:: with SMTP id s128mr5914460vka.90.1588432312130;
-        Sat, 02 May 2020 08:11:52 -0700 (PDT)
+X-Gm-Message-State: AGi0PuY+F5rI65ZB2r5Md6DmQYr/0MsRadLJNbVQF/hTviNM6qeftCRy
+	8f4UQl80XtQGnpiF7FEmS9E=
+X-Google-Smtp-Source: APiQypKUvSr1TSwKeINTlYR21o/IxsKV3um6MzsHm25DXgyhHzKec8pgavoh9BAAB5B3BIykAHSh9g==
+X-Received: by 2002:a17:902:a511:: with SMTP id s17mr9943692plq.33.1588434588928;
+        Sat, 02 May 2020 08:49:48 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:bd8b:: with SMTP id n133ls457502vkf.1.gmail; Sat, 02 May
- 2020 08:11:51 -0700 (PDT)
-X-Received: by 2002:a1f:208c:: with SMTP id g134mr5917516vkg.74.1588432311746;
-        Sat, 02 May 2020 08:11:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588432311; cv=none;
+Received: by 2002:a62:7790:: with SMTP id s138ls10431525pfc.11.gmail; Sat, 02
+ May 2020 08:49:48 -0700 (PDT)
+X-Received: by 2002:a65:5509:: with SMTP id f9mr9432938pgr.70.1588434588553;
+        Sat, 02 May 2020 08:49:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588434588; cv=none;
         d=google.com; s=arc-20160816;
-        b=F7F0xxVAOVCEZoEgsrJeIj8ho1h4QK2QL6mMop1R3ptA2jfLHF2/0eH0IuHFOdG/Ma
-         j37ALgsILE1XhCWZI5xdjgisfaXs9aZyTgTMhoHeI2n/viXQ553wP+TBiHrBHTG0/ckX
-         KVmq/09ecCvhRLjuLRqyHglabNnnQXkf4P+JLlnmFh/qvA2djtdB1Co/WluRzl+Fxn4/
-         CR60V9VY1i8D8BhrAWvwwFDD5PTgJvvq6xtWlec0Ds4M3HGOsnSw5Jn7CkImoY7Qqd51
-         JbcxXCyc38EO6FMneNcBw3Wt0s5ATpLL3OMcn7/FI6Ini3JOGV/T96jMFH2nNWGScwMi
-         SkJg==
+        b=wu5cXdgWFef7z+Ynz6Wrs6tnCEG8FK5J1yh/wzNoqmS49FoGeR7Kan8UOls9kF2GEm
+         RDzPgnRmIoER/J4fOA0OSrAEwULTgEFSrXIGHKSjcxwjLG5ocA904kjLqU45HF4Aczqn
+         isKtwFogy9k1KwLinpdaySwrttJke+/S+mgyQalyXABRNCC50tUB12o2o3sYH39vXVq3
+         8wHP8XHDmkZzpblr1p6de1zaYm4pssrdE8aqcctoKeyYPkh5AgnTuRejXYl7NmZ90B6g
+         vsJtzuxm1+06NZe0pZHaA/eeuCpBLCirsoy0xtG9GaFmwbth9rGEhmep/NDP+4klLJQT
+         +h1Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:dkim-signature;
-        bh=f945qmsRocAEp8gf6rmU05hEia4s9EsqMMhwTZIcQws=;
-        b=OulRCVTFdCd82bxSud+1dVRmFdHGjsy2ke5oNAMu14eTE4Lgie7fj35MAae5yv3P99
-         ZVnPaPKJyzstUloEQ2IS9XgtvkgfWRTUx39mx/xEI0p1bX24oTYIf5pKDV9f9DYQDy7y
-         qBDH0tf9K1SevWqnRr5/7nPpD0uRritdOrsDNNoLC0T5OYUa2Ak5Kh3VpiuJGcDYqAnI
-         Z3pAqEtLab2IQh97vXYXTLCL8VDlqYwB7oaWl7tZK1NkbsmF0roY6M5TglUD7w3oQvuK
-         wFVaFakbvxxi4uMiGv01YlCVkhSbcofSiCuddq1yaA1cxb+wDZuHwqPS50ZztfYyUB7F
-         3QLA==
+         :subject:cc:to:from:date:dkim-signature;
+        bh=YFLGdaK8ZF69V+GYnZxD8CHXgCZJmtXf2cpemCzs92s=;
+        b=DqstR8ZNxCtO6Vuf4WkoUeBt2WwhRiEt7UbR0nYD0A/dno0oxYPeS5PuEZk0lVnj+8
+         /mrUHAOfNgzU7hf8NW+aYgLA9EbxDPTseMK2sCnuhb8eWfrdNMzRw9iqmNnCy5zqnNJy
+         4iRT7RqQdK2MqIjVSSjwBQ9VHHefdDZZro0CEhg+TbGBP/OSxMDMldrfZXd019WkQg5F
+         2YGdedOpKKjQ8jMeK2xYIa8QzQqP4NyRngl9SpgkdkvV9KnIE7ub8QVDYUJUF4sj3Zqh
+         NPfVPUahw5hHm7tT3Z8+rjSuSsW3eu0X+i+NvU0/znElyBHOYdzYgeoSF1+OgIsmF0C5
+         UZAQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=iY9gEDc7;
-       spf=pass (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::842 as permitted sender) smtp.mailfrom=arnaldo.melo@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=I+skLHrw;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qt1-x842.google.com (mail-qt1-x842.google.com. [2607:f8b0:4864:20::842])
-        by gmr-mx.google.com with ESMTPS id a205si457787vsd.2.2020.05.02.08.11.51
+Received: from mail-ot1-x342.google.com (mail-ot1-x342.google.com. [2607:f8b0:4864:20::342])
+        by gmr-mx.google.com with ESMTPS id q5si61524pgl.1.2020.05.02.08.49.48
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 02 May 2020 08:11:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::842 as permitted sender) client-ip=2607:f8b0:4864:20::842;
-Received: by mail-qt1-x842.google.com with SMTP id b1so10319602qtt.1
-        for <clang-built-linux@googlegroups.com>; Sat, 02 May 2020 08:11:51 -0700 (PDT)
-X-Received: by 2002:ac8:6757:: with SMTP id n23mr8822961qtp.304.1588432311225;
-        Sat, 02 May 2020 08:11:51 -0700 (PDT)
-Received: from quaco.ghostprotocols.net ([179.97.37.151])
-        by smtp.gmail.com with ESMTPSA id h6sm5318820qtd.79.2020.05.02.08.11.49
+        Sat, 02 May 2020 08:49:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) client-ip=2607:f8b0:4864:20::342;
+Received: by mail-ot1-x342.google.com with SMTP id g14so5031451otg.10
+        for <clang-built-linux@googlegroups.com>; Sat, 02 May 2020 08:49:48 -0700 (PDT)
+X-Received: by 2002:a9d:2c1:: with SMTP id 59mr8028014otl.321.1588434587846;
+        Sat, 02 May 2020 08:49:47 -0700 (PDT)
+Received: from ubuntu-s3-xlarge-x86 ([2604:1380:4111:8b00::1])
+        by smtp.gmail.com with ESMTPSA id v207sm850483oie.3.2020.05.02.08.49.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 May 2020 08:11:50 -0700 (PDT)
-From: Arnaldo Carvalho de Melo <arnaldo.melo@gmail.com>
-Received: by quaco.ghostprotocols.net (Postfix, from userid 1000)
-	id 24EAC409A3; Sat,  2 May 2020 12:11:48 -0300 (-03)
-Date: Sat, 2 May 2020 12:11:48 -0300
-To: Ian Rogers <irogers@google.com>
-Cc: Arnaldo Carvalho de Melo <arnaldo.melo@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
-	Andi Kleen <ak@linux.intel.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Leo Yan <leo.yan@linaro.org>, LKML <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Stephane Eranian <eranian@google.com>
-Subject: Re: [PATCH v2 1/2] perf parse-events: fix memory leaks found on
- parse_events
-Message-ID: <20200502151148.GA5377@kernel.org>
-References: <20200319023101.82458-1-irogers@google.com>
- <20200429175420.GD30487@kernel.org>
- <CAP-5=fWTAbyOXr5GghrbvfkaZ6EzH7GNDJiiDJkFqeF5mPgDeA@mail.gmail.com>
+        Sat, 02 May 2020 08:49:47 -0700 (PDT)
+Date: Sat, 2 May 2020 08:49:45 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: "Maciej W. Rozycki" <macro@linux-mips.org>
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Masahiro Yamada <masahiroy@kernel.org>, linux-mips@vger.kernel.org,
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
+	linux-kbuild@vger.kernel.org,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Fangrui Song <maskray@google.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Dmitry Golovin <dima@golovin.in>,
+	Sedat Dilek <sedat.dilek@gmail.com>
+Subject: Re: [PATCH v4 4/5] MIPS: VDSO: Use $(LD) instead of $(CC) to link
+ VDSO
+Message-ID: <20200502154945.GA3361319@ubuntu-s3-xlarge-x86>
+References: <20200423171807.29713-1-natechancellor@gmail.com>
+ <20200428221419.2530697-1-natechancellor@gmail.com>
+ <20200428221419.2530697-5-natechancellor@gmail.com>
+ <alpine.LFD.2.21.2005021435100.3602499@eddie.linux-mips.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CAP-5=fWTAbyOXr5GghrbvfkaZ6EzH7GNDJiiDJkFqeF5mPgDeA@mail.gmail.com>
-X-Url: http://acmel.wordpress.com
-X-Original-Sender: arnaldo.melo@gmail.com
+In-Reply-To: <alpine.LFD.2.21.2005021435100.3602499@eddie.linux-mips.org>
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=iY9gEDc7;       spf=pass
- (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::842
- as permitted sender) smtp.mailfrom=arnaldo.melo@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@gmail.com header.s=20161025 header.b=I+skLHrw;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -161,76 +158,35 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Em Thu, Apr 30, 2020 at 02:39:14PM -0700, Ian Rogers escreveu:
-> On Wed, Apr 29, 2020 at 10:54 AM Arnaldo Carvalho de Melo
-> <arnaldo.melo@gmail.com> wrote:
-> >
-> > Em Wed, Mar 18, 2020 at 07:31:00PM -0700, Ian Rogers escreveu:
-> > > Memory leaks found by applying LLVM's libfuzzer on the parse_events
-> > > function.
-> > >
-> > > Signed-off-by: Ian Rogers <irogers@google.com>
-> > > ---
-> > >  tools/perf/util/parse-events.c | 2 ++
-> > >  tools/perf/util/parse-events.y | 3 ++-
-> > >  2 files changed, 4 insertions(+), 1 deletion(-)
-> > >
-> > > diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-> > > index 593b6b03785d..1e0bec5c0846 100644
-> > > --- a/tools/perf/util/parse-events.c
-> > > +++ b/tools/perf/util/parse-events.c
-> > > @@ -1482,6 +1482,8 @@ int parse_events_add_pmu(struct parse_events_state *parse_state,
-> > >
-> > >               list_for_each_entry_safe(pos, tmp, &config_terms, list) {
-> > >                       list_del_init(&pos->list);
-> > > +                     if (pos->free_str)
-> > > +                             free(pos->val.str);
-> >
-> > I'm applying it but only after changing it to zfree(&pos->free_str), to
-> > make sure that any othe rcode that may still hold a pointer to pos will
-> > see a NULL in ->free_str and crash sooner rather than later.
-> >
-> > >                       free(pos);
-> > >               }
-> > >               return -EINVAL;
-> >
-> > And the following should be in a different patch
-> >
-> > > diff --git a/tools/perf/util/parse-events.y b/tools/perf/util/parse-events.y
-> > > index 94f8bcd83582..8212cc771667 100644
-> > > --- a/tools/perf/util/parse-events.y
-> > > +++ b/tools/perf/util/parse-events.y
-> > > @@ -44,7 +44,7 @@ static void free_list_evsel(struct list_head* list_evsel)
-> > >
-> > >       list_for_each_entry_safe(evsel, tmp, list_evsel, core.node) {
-> > >               list_del_init(&evsel->core.node);
-> > > -             perf_evsel__delete(evsel);
-> > > +             evsel__delete(evsel);
-> > >       }
-> > >       free(list_evsel);
-> > >  }
-> >
-> > And this one in another, I'll fix this up, but please try in the future
-> > to provide different patches for different fixes, so that if we
-> > eventually find out that one of the unrelated fixes is wrong, then we
-> > can revert the patch more easily with 'git revert' instead of having to
-> > do a patch that reverts just part of the bigger hodge-podge patch.
-> >
-> > If you go and have a track record of doing this as piecemeal as
-> > possible, I will in turn feel more confident of processing your patches
-> > in a faster fashion ;-) :-)
+On Sat, May 02, 2020 at 02:50:34PM +0100, Maciej W. Rozycki wrote:
+> On Tue, 28 Apr 2020, Nathan Chancellor wrote:
 > 
-> Thanks, at some point I'd like to get libfuzzer with asan working for
-> more than just me so that we don't backslide. It'd also make the
-> reproductions easier to share.
+> > Before this patch, LD=ld.lld did nothing:
+> > 
+> > $ llvm-readelf -p.comment arch/mips/vdso/vdso.so.dbg | sed 's/(.*//'
+> > String dump of section '.comment':
+> > [     0] ClangBuiltLinux clang version 11.0.0
+> 
+>  What does it mean "did nothing", is `arch/mips/vdso/vdso.so.dbg.raw' not 
+> produced?  Where does `arch/mips/vdso/vdso.so.dbg' come from then?
+> 
+>   Maciej
 
-If we can detect the presence of the needed components, libraries,
-compiler with the right feature set, yeah, a 'perf test' built under
-such environment surely would benefit from having further tests,
+A better wording might be "Before this patch, specifying a linker like
+ld.lld via the LD variable was not respected by the MIPS VDSO". I should
+also probably expand on the second paragraph, maybe something like:
 
-- Arnaldo
+When clang is built in a default configuration, it first attempts to use
+the target triple's default linker then the system's default linker,
+which is almost always ld.bfd. To use ld.lld, '-fuse-ld=lld' must be
+passed to clang. However, we do not use -fuse-ld=lld because it can be
+brittle and we have support for invoking $(LD) directly because we have
+separate compilation and link steps. See commit fe00e50b2db8c ("ARM:
+8858/1: vdso: use $(LD) instead of $(CC) to link VDSO") and
+commit 691efbedc60d2 ("arm64: vdso: use $(LD) instead of $(CC) to link
+VDSO") for examples of doing this in the VDSO.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200502151148.GA5377%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200502154945.GA3361319%40ubuntu-s3-xlarge-x86.
