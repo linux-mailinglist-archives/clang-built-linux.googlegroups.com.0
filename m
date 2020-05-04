@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBHVHYH2QKGQEPJJG4RY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQ2XPNX7EOBBCNSYH2QKGQEWNNXIRQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63f.google.com (mail-pl1-x63f.google.com [IPv6:2607:f8b0:4864:20::63f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 754DE1C4310
-	for <lists+clang-built-linux@lfdr.de>; Mon,  4 May 2020 19:40:48 +0200 (CEST)
-Received: by mail-pl1-x63f.google.com with SMTP id e9sf188940pls.11
-        for <lists+clang-built-linux@lfdr.de>; Mon, 04 May 2020 10:40:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588614047; cv=pass;
+Received: from mail-lf1-x13f.google.com (mail-lf1-x13f.google.com [IPv6:2a00:1450:4864:20::13f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 451C91C4403
+	for <lists+clang-built-linux@lfdr.de>; Mon,  4 May 2020 20:03:54 +0200 (CEST)
+Received: by mail-lf1-x13f.google.com with SMTP id c6sf5749222lfg.0
+        for <lists+clang-built-linux@lfdr.de>; Mon, 04 May 2020 11:03:54 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588615434; cv=pass;
         d=google.com; s=arc-20160816;
-        b=L4dSMNOsEPL0G/1o5QWpvrb3+C1QZevUuGzitH0416t75lf10HjrU7upeCn/kWg8Dy
-         ZRfnUA5BQ340B0XD3mOSbUbgrvYvJVKvJwSvn+zXGi1/v9i3zZvLK6fbl+mwyIUSaQ1v
-         5b65XZI2W+TuDFn0PobkkqO5Xl3fQCo+Nr/Lrr3MCbrr0JBT3VfUtsBc/YiLi2BBVXjk
-         KVcjHBTIPzCMuUIBM1ftd9JHDSOhLoh9AUASWZ06djQDcoK9DCfHszfEPLLqqDgTJ+G/
-         15+jc2kfjjIpZVgeeHTTsf8eaeZ0JNrNacNY7hhduVo+F38IaPuvANeDt5XJywXP2Gcl
-         mV0A==
+        b=KKK+kLYnHUgYyDFrSLl8yjr6w4HhFScEyUat1nITdOMEyxKJ0Tu9dpChg9obm0Mevj
+         OGM84J4pSHg6iSJQ/S7rx6NVmpTIokCoeno/ehvtdO4G09YX6wLdqgfu5/JwwskQtOdI
+         NkWe7rebBf0lvFSzvz1whcdNpdg2LH23yNcW5SSBG17psl/WI0XT65EsJnAdmXXKbz2N
+         Isbg+9pLWWXAnLtGNH2ZPaUqk5xrm53i6gdd2/Z9U4fS4lf0XHbJhCIEQnc1A56ua6b+
+         W4FuDeTfcTeFBGGZb721E0L8X4uDXvCp4YxWRSdymFOggkBjyp65UMnjvg/dIIgu2wFl
+         8/pg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=N2ph6VF0ReZlIkL4Xup4JF+0mNuE1kMoMXCsFQCQYY4=;
-        b=FVodaOVJjlaBL3DF1GvgAthMza7QMHzulkJ6AlmXNEQCoKdd5wC2Pmp8oh1+eZeM0v
-         UCcwlkBsOb9qnm4xXj3TgUO9mFhumsRozFiuXNyLPw2vhzKJHx/kP2szRpDLuvMsoEmm
-         JLZZaCHcaRPTCrfwBk9iNSJ8+DBSQ1jujhhhJ9Vc7lqYc10cxfSI0HnLdvSFB6WcEzcT
-         En5NgG1TNevB3E80ejfs8wO4vivd5AZVGmIYOECyIYtBubVnNUoulvIUwwknz+24kpNf
-         iEJ39dwxp2ir+mD3Sq/NNdF5S8oq3QxYxc9Rw7Jxekn4Yb3Jr//6JOOA1ORcaWEMIoMq
-         mW/g==
+        bh=dosUg6GanQDoc+Yftw2wapsu0mkUTRVHDzPJiJoaxVQ=;
+        b=DbrRiTp3LMzCXSAOxe4N7Grg+6qMnj+d8uwIrV8QomC9jUECgYBZcV9BdM8c1B8aZ0
+         DXMUX5M/DuVDl6IfUL+PD/jIl+T+knjqhod3o7CD3e/266czXSvR+0IGSTkYA3mwh9sy
+         NBkVn36xaYtEjBywUmk4csDnEN8gG8v34OEed9k7U44HaLjt4tnnEUbAh39ug6fbaxGu
+         nMZJ5C/WxFZKTGA+ZUGV2UQ4UTE2CeDzw2OKtuvmLNRfnkTXsMAnc/xbWCFatnn7FgqM
+         DzEfr6qxJwt62zJGtIGqg+yYF91s9j0foB8DnxlR0bgTU4VtdiISdW6ejG/A+mrMKysv
+         PXpw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=sCmvSk9J;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::535 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=rpULkMOh;
+       spf=pass (google.com: domain of jannh@google.com designates 2a00:1450:4864:20::244 as permitted sender) smtp.mailfrom=jannh@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=N2ph6VF0ReZlIkL4Xup4JF+0mNuE1kMoMXCsFQCQYY4=;
-        b=HR8wzOlPyNC0DHDbA+XliyQuofBXlKNpYDSNrP7YmZ9jvYamn/YbmkvK8dlL3GD+69
-         Ig8PEgIpngnLyfpnbjqssKgz+gzm7Pnn6kBjpOM1Eytw+clldCgnPUjN78RN29C+G7sW
-         Wotl+U1okuKXrK8uuYGerspMYv3AiD3+xtqp78h6skS54uramoal5n+1xgocB8qsqf/k
-         xLeOnStO1hI2m0wFonS3b9aABXO0uogpKGuACr6suHs64+ftZNEX+Xnqx9mjWP0GNAzn
-         WdR2M5ERzMorMRvZN6koGlTbfGmrp+6nw0iJuHON0gmgxsTuSlqMY8h6ts8gUNZFROxP
-         OmgQ==
+        bh=dosUg6GanQDoc+Yftw2wapsu0mkUTRVHDzPJiJoaxVQ=;
+        b=gIrEBmg6FNeSgG7pvhlVnhsKuIyPge5t4q+weFwesaUcOPW3BedjrPYV8WDaOr/Rw4
+         GAgA4y2fKUaU8/aOqiyAYNhHuDhHT5fbkB/fP29nVCk6W7vWLcplz9fB/HzI5QVDTLy1
+         BD0MTomHc9CB/oZFK3u1hkbtCDSS+PmW3IZUWgV/nMRBvluhAi001dyMHfmsSBM8SrTF
+         Z3E74oTxuhhOFoqNV1FSemSvLJuzLVG7+xl/L2sny4RKAa0MuKMCTyHVgt8TclU2nF30
+         Xlrqj3o+4DfOoEH/Ukn7kR6u6L3BwdrkFGFQjP9P6XhGm0fNfFlRAMAiMVCyUqFXPzF+
+         ObHw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,76 +49,91 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=N2ph6VF0ReZlIkL4Xup4JF+0mNuE1kMoMXCsFQCQYY4=;
-        b=WvtEOr2nh6D5eynDIMtl3lE9eu/NgCSnONp+hAL55PoErgPbihEEfrkznV+VSrUF+q
-         T7DlsOgEmPE0A/T71qpv1Qd7rAxd6hTW+7Ys9C4mjxyjO/MjoXqrC/YIzygGsQ4gLQXo
-         pFRC9TAeiMJ0A1yRwTCKFSFsHPiIpEu+ljwFp+hJH+iPzgz5o8NMujUHn6164l2uMtQ4
-         DXxxLkU5JZRcb14ADbJuSUTP/x7pjhnYNXZHFP7toYV/6RgnOg0m0fOy92xJVgzPH8oe
-         rCMc7bVgGSyR416w1Qe4WKq6Gt71Snf4F4PSk9cGfNW7YSK8TkgFk5FKyYj6WCu5YOu7
-         G7nw==
-X-Gm-Message-State: AGi0PuYjLOyJyHsqxMcNkYnvhDZE8G/+fXSQ/ew2FuQZouZttw8Or4ar
-	NuZMpvo5eTsg/dTIEhGSX4c=
-X-Google-Smtp-Source: APiQypL/DTeEy6azKviB7KKcUNswvR9lcDBw7CSUNtJlaC8VguIgzoenTNV+W7WcfleduzUnML1gfw==
-X-Received: by 2002:a17:90a:8c3:: with SMTP id 3mr69221pjn.147.1588614046892;
-        Mon, 04 May 2020 10:40:46 -0700 (PDT)
+        bh=dosUg6GanQDoc+Yftw2wapsu0mkUTRVHDzPJiJoaxVQ=;
+        b=BcgsgXw8FUYCThb+boxRwlcoEEZEi31B7QUHNPjc19afHGvz4PtKG9GyYIeNoYjx6n
+         vdI5YwQbyCFhO0L/hqS6RDmwHulG30jS7si3xbkQj9R5/HiDP5J4hSIDQWGO6zpnAWW+
+         fqHdZ6IkwbVVxOUa0Y2j5VMhN2oAzYn/VDKxV/2DziOUxv2i9R0LohxCnMOSa9+PImxT
+         yb0jZ0Ew1OY6qzcrgwfQoW6yKwuFUJtgaXclofVU0K1LnQmzbviONhphuq4c3XrDq/NN
+         fKMTvjOkF7TTMz5LWNb5FtcFOyycs7jvFW/AK4+IY+EjByQu5dZ6+tx4fXGBDC6iM7te
+         l8Aw==
+X-Gm-Message-State: AGi0PuYsTWVlinfkcL6faVPfKtx593up6IOcNT1sUTzyIdZKZlA5sgho
+	TeNIspQpKqRCfvHfzPOfL6o=
+X-Google-Smtp-Source: APiQypLLyuxh677q3sBne4G7k//HJlhefTxMRtiIY3oDGvPOHNIkf3wasWUmNVRb5saI9ImZtgfS1g==
+X-Received: by 2002:a19:5206:: with SMTP id m6mr12328851lfb.33.1588615433835;
+        Mon, 04 May 2020 11:03:53 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:4383:: with SMTP id q125ls15320222pga.7.gmail; Mon, 04
- May 2020 10:40:46 -0700 (PDT)
-X-Received: by 2002:aa7:934d:: with SMTP id 13mr18056291pfn.305.1588614046352;
-        Mon, 04 May 2020 10:40:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588614046; cv=none;
+Received: by 2002:a05:6512:50f:: with SMTP id o15ls1894152lfb.2.gmail; Mon, 04
+ May 2020 11:03:53 -0700 (PDT)
+X-Received: by 2002:a19:f206:: with SMTP id q6mr12944838lfh.85.1588615433002;
+        Mon, 04 May 2020 11:03:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588615432; cv=none;
         d=google.com; s=arc-20160816;
-        b=JQrBgIfikjBxqzjFVbLWGi8WNQNRuPfQ2LlJ56vvpe7QIji3tYPsld/CMr3Tmhz0tT
-         2VK3nnCvNRv/peVc6yTw2OZzu7qZ5k25D0+mzxsuz5+tPyBKTbQK7SOts4FlaV+L8C/N
-         2klFl+nkmS6Ajh0H+WZtUxjZE16GBLQXfirWbWnIPARksKTmJHZVMLsY/TCzmNsNrjIc
-         pLbDjELg4aVezxRItrei5Sbg5nCyu4bFnuogIwFRFkrGty6UbZlAjKwRs3/BMPmXR9Aq
-         Cwu1Iea3yv+Jp8FSpJsxd1SsI6C6ul31WD/ROBPCZdnH3MpZyMCs93A7w1FkS0dW/HWc
-         Fm9A==
+        b=yc/reLnwDXYF6R0iDr/0m4OJ6ECG09OauxEKWJCmji/rWKZIHU7sDKD25+y22N2xoY
+         fWEhYmpOgdse+FWF6cH+FOtA0oVuKIirn8XjHVKHG0/EN0NtdCHryFeQzw+gBlBluC6o
+         J+6irKDUAM4IlgnDy9b4LoWXGoZ7rLdHVgUV2iwuAKFFTbEVnDKBtTsv/zRR2DYb5qps
+         8hk3VgdU+sEyGzolggXSW+ghgavt3nt6kaSXFgwwlYMRfjbWCsLF+vI9hZ0PM5ejDbOQ
+         dsUeYK7yPFDMjYsEeZyz3xYtekHrfP9HnZy8kO/t31SqDnzIDrK5D0H7G7zyMwnV4RLQ
+         dhSQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=vCUIqY3ZybzOFNhbrLtb4vaKRJg3odek+iEj8348L0k=;
-        b=GKo7VXxrkEzgOQnygh6D5p6Zm6DII4h0VQY3qU9dcLLNrNHiEAiKZpf/LuiZPBxvCv
-         dC+k8v44flkPt0Ub6bq4npJHN+sg79Zrbe6xr7VWzumvkrF9e3YSa4BAcmlvA9xWFvbv
-         qiAGfd6O5zxnbOOTg95MUESK8rlubeMwQfv3iDsEyJ0eI5Hh3UWQiCJFiSX5/MJIlRoZ
-         zE9Q4nRBb+RPDgNVOllQv8/D1WDC8IIdf5C1Y5lY5DV+8Kk3PTwK3U7ArUA+41m2/LIp
-         C+fUa4rVp6TqBlKibHK6Ev/nfHhKfSKyk7/yulgizLSkg255A7FKdZoMmyx/nl/RAiGw
-         8DFg==
+        bh=rcDmJIg6XQDOa3chgWWWTIDoYfHpXCrYezz5o9UsioM=;
+        b=ry3YYQ9Cn2IiCvCkaYx7oI1t6aovWofobEVWxNG0LvCg9lPpR0exsILQZOReD40HwM
+         BS16tU5964/iMQWP/Jn+JzhPKJHO48JZnCI4WHRXokK9R3ki3veibZDbPg/CxqQVZrev
+         qet+/dC+aJfRYrkEWHDdD7eh8JsfyN1QyzAe38AsXRxvOVpsqpS517WLRkcPH3IahsIR
+         1n2h/1nvu5d/N6JPr3fMCK3b+7IRuLuPrAYNqXlQ72NtglP1EmajzYJ/AsFkAjgKsVHC
+         lmBvBLRfXtsaA4SfJ+NNiH7VhWHZbAIdpbPL4JfEoUwN4YjPKZExZ5HDWhLUbu5ZtD4/
+         QoBQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=sCmvSk9J;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::535 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=rpULkMOh;
+       spf=pass (google.com: domain of jannh@google.com designates 2a00:1450:4864:20::244 as permitted sender) smtp.mailfrom=jannh@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x535.google.com (mail-pg1-x535.google.com. [2607:f8b0:4864:20::535])
-        by gmr-mx.google.com with ESMTPS id g23si808170pgi.5.2020.05.04.10.40.46
+Received: from mail-lj1-x244.google.com (mail-lj1-x244.google.com. [2a00:1450:4864:20::244])
+        by gmr-mx.google.com with ESMTPS id q24si830270ljg.4.2020.05.04.11.03.52
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 04 May 2020 10:40:46 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::535 as permitted sender) client-ip=2607:f8b0:4864:20::535;
-Received: by mail-pg1-x535.google.com with SMTP id a4so166560pgc.0
-        for <clang-built-linux@googlegroups.com>; Mon, 04 May 2020 10:40:46 -0700 (PDT)
-X-Received: by 2002:aa7:9535:: with SMTP id c21mr18171053pfp.39.1588614045754;
- Mon, 04 May 2020 10:40:45 -0700 (PDT)
+        Mon, 04 May 2020 11:03:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jannh@google.com designates 2a00:1450:4864:20::244 as permitted sender) client-ip=2a00:1450:4864:20::244;
+Received: by mail-lj1-x244.google.com with SMTP id f18so10596579lja.13
+        for <clang-built-linux@googlegroups.com>; Mon, 04 May 2020 11:03:52 -0700 (PDT)
+X-Received: by 2002:a2e:b249:: with SMTP id n9mr11270265ljm.221.1588615432462;
+ Mon, 04 May 2020 11:03:52 -0700 (PDT)
 MIME-Version: 1.0
-References: <202005041106.4EO0eLIB%lkp@intel.com>
-In-Reply-To: <202005041106.4EO0eLIB%lkp@intel.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 4 May 2020 10:40:35 -0700
-Message-ID: <CAKwvOdniUJj+RTiD886=TA4gC8g0iZ16phRSDK=vLcZfTUa_RA@mail.gmail.com>
-Subject: Re: [linux-next:master 4258/6218] drivers/gpu/drm/i915/i915_drv.o:
- warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
-To: Chris Wilson <chris@chris-wilson.co.uk>
-Cc: kbuild-all@lists.01.org, 
+References: <20191018161033.261971-1-samitolvanen@google.com>
+ <20200416161245.148813-1-samitolvanen@google.com> <20200416161245.148813-2-samitolvanen@google.com>
+ <20200420171727.GB24386@willie-the-truck> <20200420211830.GA5081@google.com>
+ <20200422173938.GA3069@willie-the-truck> <20200422235134.GA211149@google.com>
+ <202004231121.A13FDA100@keescook> <20200424112113.GC21141@willie-the-truck>
+ <20200427204546.GA80713@google.com> <20200504165227.GB1833@willie-the-truck>
+In-Reply-To: <20200504165227.GB1833@willie-the-truck>
+From: "'Jann Horn' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 4 May 2020 20:03:25 +0200
+Message-ID: <CAG48ez0OjQpCvO1EqUqtHX+zVj27p3yWd5riY_r7+rNWwec_OQ@mail.gmail.com>
+Subject: Re: [PATCH v11 01/12] add support for Clang's Shadow Call Stack (SCS)
+To: Will Deacon <will@kernel.org>
+Cc: Sami Tolvanen <samitolvanen@google.com>, Kees Cook <keescook@chromium.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, James Morse <james.morse@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Ard Biesheuvel <ard.biesheuvel@linaro.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Michal Marek <michal.lkml@markovi.net>, Ingo Molnar <mingo@redhat.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Dave Martin <Dave.Martin@arm.com>, 
+	Laura Abbott <labbott@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
 	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Nathan Chancellor <natechancellor@gmail.com>, kbuild test robot <lkp@intel.com>
+	Kernel Hardening <kernel-hardening@lists.openwall.com>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	kernel list <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: jannh@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=sCmvSk9J;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::535
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@google.com header.s=20161025 header.b=rpULkMOh;       spf=pass
+ (google.com: domain of jannh@google.com designates 2a00:1450:4864:20::244 as
+ permitted sender) smtp.mailfrom=jannh@google.com;       dmarc=pass (p=REJECT
+ sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Jann Horn <jannh@google.com>
+Reply-To: Jann Horn <jannh@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,76 +146,44 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, May 4, 2020 at 7:01 AM kbuild test robot <lkp@intel.com> wrote:
+On Mon, May 4, 2020 at 6:52 PM Will Deacon <will@kernel.org> wrote:
+> On Mon, Apr 27, 2020 at 01:45:46PM -0700, Sami Tolvanen wrote:
+> > On Fri, Apr 24, 2020 at 12:21:14PM +0100, Will Deacon wrote:
+> > > Also, since you mentioned the lack of redzoning, isn't it a bit dodgy
+> > > allocating blindly out of the kmem_cache? It means we don't have a redzone
+> > > or a guard page, so if you can trigger something like a recursion bug then
+> > > could you scribble past the SCS before the main stack overflows? Would this
+> > > clobber somebody else's SCS?
+> >
+> > I agree that allocating from a kmem_cache isn't ideal for safety. It's a
+> > compromise to reduce memory overhead.
 >
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> head:   fb9d670f57e3f6478602328bbbf71138be06ca4f
-> commit: 9f4069b055d1508c833115df7493b6e0001e5c9b [4258/6218] drm/i915: re-disable -Wframe-address
-> config: x86_64-randconfig-d001-20200502 (attached as .config)
-> compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 45b7d44ecb01780e26dc8d3c30bc34e32c08dd70)
-> reproduce:
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install x86_64 cross compiling tool for clang build
->         # apt-get install binutils-x86-64-linux-gnu
->         git checkout 9f4069b055d1508c833115df7493b6e0001e5c9b
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kbuild test robot <lkp@intel.com>
->
-> All warnings (new ones prefixed by >>):
->
-> >> drivers/gpu/drm/i915/i915_drv.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
-> >> drivers/gpu/drm/i915/i915_drv.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
+> Do you think it would be a problem if we always allocated a page for the
+> SCS?
 
-Known Issue: https://github.com/ClangBuiltLinux/linux/issues/955
-please ignore, sorry for the noise
+I guess doing this safely and without wasting a page per task would
+only be possible in an elegant way once MTE lands on devices?
 
-> --
-> >> drivers/gpu/drm/i915/i915_getparam.o: warning: objtool: __llvm_gcov_writeout()+0x13: call without frame pointer save/setup
-> >> drivers/gpu/drm/i915/i915_getparam.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
-> --
-> >> drivers/gpu/drm/i915/i915_pci.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
-> >> drivers/gpu/drm/i915/i915_pci.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
-> --
-> >> drivers/gpu/drm/i915/i915_params.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
-> >> drivers/gpu/drm/i915/i915_params.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
-> --
-> >> drivers/gpu/drm/i915/i915_irq.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
-> >> drivers/gpu/drm/i915/i915_irq.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
-> --
-> >> drivers/gpu/drm/i915/i915_scatterlist.o: warning: objtool: __llvm_gcov_writeout()+0x13: call without frame pointer save/setup
-> >> drivers/gpu/drm/i915/i915_scatterlist.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
-> --
-> >> drivers/gpu/drm/i915/i915_suspend.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
-> >> drivers/gpu/drm/i915/i915_suspend.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
-> --
-> >> drivers/gpu/drm/i915/i915_sysfs.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
-> >> drivers/gpu/drm/i915/i915_sysfs.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
-> --
-> >> drivers/gpu/drm/i915/i915_switcheroo.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
-> >> drivers/gpu/drm/i915/i915_switcheroo.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
-> --
-> >> drivers/gpu/drm/i915/i915_utils.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
-> >> drivers/gpu/drm/i915/i915_utils.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
-> --
-> >> drivers/gpu/drm/i915/intel_device_info.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
-> >> drivers/gpu/drm/i915/intel_device_info.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
-> ..
->
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+I wonder how bad context switch latency would be if the actual SCS was
+percpu and vmapped (starting at an offset inside the page such that
+the SCS can only grow up to something like 0x400 bytes before
+panicking the CPU) and the context switch path saved/restored the used
+part of the vmapped SCS into a smaller allocation from the slab
+allocator... presumably the SCS will usually just be something like
+one cacheline big? That probably only costs a moderate amount of time
+to copy...
+Or as an extension of that, if the SCS copying turns out to be too
+costly, there could be a percpu LRU cache consisting of vmapped SCS
+pages, and whenever a task gets scheduled that doesn't have a vmapped
+SCS, it "swaps out" the contents of the least recently used vmapped
+SCS into the corresponding task's slab SCS, and "swaps in" from its
+own slab SCS into the vmapped SCS. And task migration would force
+"swapping out".
 
-
-
--- 
-Thanks,
-~Nick Desaulniers
+Not sure if this is a good idea, or if I'm just making things worse by
+suggesting extra complexity...
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdniUJj%2BRTiD886%3DTA4gC8g0iZ16phRSDK%3DvLcZfTUa_RA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAG48ez0OjQpCvO1EqUqtHX%2BzVj27p3yWd5riY_r7%2BrNWwec_OQ%40mail.gmail.com.
