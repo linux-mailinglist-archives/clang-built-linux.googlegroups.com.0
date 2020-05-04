@@ -1,157 +1,124 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBDNEYH2QKGQE4COE6SI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBHVHYH2QKGQEPJJG4RY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc40.google.com (mail-oo1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6BFB91C42E4
-	for <lists+clang-built-linux@lfdr.de>; Mon,  4 May 2020 19:34:07 +0200 (CEST)
-Received: by mail-oo1-xc40.google.com with SMTP id f18sf9345886oov.18
-        for <lists+clang-built-linux@lfdr.de>; Mon, 04 May 2020 10:34:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588613646; cv=pass;
+Received: from mail-pl1-x63f.google.com (mail-pl1-x63f.google.com [IPv6:2607:f8b0:4864:20::63f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 754DE1C4310
+	for <lists+clang-built-linux@lfdr.de>; Mon,  4 May 2020 19:40:48 +0200 (CEST)
+Received: by mail-pl1-x63f.google.com with SMTP id e9sf188940pls.11
+        for <lists+clang-built-linux@lfdr.de>; Mon, 04 May 2020 10:40:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588614047; cv=pass;
         d=google.com; s=arc-20160816;
-        b=K/cK/pT/4u6DOlIXhKJ9akgTH9bV4wAG0Enp3HLVjzm+TUTOezOj72GYUmz8YW52Hh
-         XHNJrEn807skLtUgRjhr6s8BLSg3oNskoV+XxDhtmrTh5U0ia5VkgShVmgY3qaAQC18q
-         Nzz28mE+Xuo5cX9QKoOwhd0qmrVwwT53D7NzoSyMmacKyOhd166Dox5YWBOam8Aff84A
-         O6Ak2AVjPqJMrwU2nX6Mhkk4GUJUlnPTtQB43SMKXhu7HUqX8ybv/JmIncl30a7wNRpZ
-         PxeiDkoQJUomDaElXz+Qqn/+qa744o1PXShLcwyAAerZTTTXiOsObYAtivQz1wfI/f5T
-         aZHQ==
+        b=L4dSMNOsEPL0G/1o5QWpvrb3+C1QZevUuGzitH0416t75lf10HjrU7upeCn/kWg8Dy
+         ZRfnUA5BQ340B0XD3mOSbUbgrvYvJVKvJwSvn+zXGi1/v9i3zZvLK6fbl+mwyIUSaQ1v
+         5b65XZI2W+TuDFn0PobkkqO5Xl3fQCo+Nr/Lrr3MCbrr0JBT3VfUtsBc/YiLi2BBVXjk
+         KVcjHBTIPzCMuUIBM1ftd9JHDSOhLoh9AUASWZ06djQDcoK9DCfHszfEPLLqqDgTJ+G/
+         15+jc2kfjjIpZVgeeHTTsf8eaeZ0JNrNacNY7hhduVo+F38IaPuvANeDt5XJywXP2Gcl
+         mV0A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:dkim-signature;
-        bh=b6urMJ+OUgR/Q2Wh82FYFWWjyzLuDM6uqgts4phuhVg=;
-        b=zWlrNbOH2sN3GOWdJGmLgr5Nha5eIdMThmWTjyFCy68LAGt0BPyX6B4EB3zDSm6mDZ
-         76uvNlW8PkUAZpjvhqPA5YhcM7w9GDH5+2NhN9QXv1rwihx7pqsPOj+fD6uqlxLfdLsY
-         Rq4pqTsSnqnq4MTMMC75guCFylIzInGavYY5GDT8D/xPgIaTJHmJAmzRnQ8ojUSJQt1Z
-         rf3H2lVCmlOxmro6ycNnp/P36ppoKorzfKpFl0FbqBvjHyBFQfRQLoav/0J+Qxv/GgBy
-         wYv9DrKqdV22AIdFYOTgqew34WLgiQBoRnBBvV3cyFZT1ZtOqTzuFn294ZmWK4d/7Fj2
-         Vykw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=N2ph6VF0ReZlIkL4Xup4JF+0mNuE1kMoMXCsFQCQYY4=;
+        b=FVodaOVJjlaBL3DF1GvgAthMza7QMHzulkJ6AlmXNEQCoKdd5wC2Pmp8oh1+eZeM0v
+         UCcwlkBsOb9qnm4xXj3TgUO9mFhumsRozFiuXNyLPw2vhzKJHx/kP2szRpDLuvMsoEmm
+         JLZZaCHcaRPTCrfwBk9iNSJ8+DBSQ1jujhhhJ9Vc7lqYc10cxfSI0HnLdvSFB6WcEzcT
+         En5NgG1TNevB3E80ejfs8wO4vivd5AZVGmIYOECyIYtBubVnNUoulvIUwwknz+24kpNf
+         iEJ39dwxp2ir+mD3Sq/NNdF5S8oq3QxYxc9Rw7Jxekn4Yb3Jr//6JOOA1ORcaWEMIoMq
+         mW/g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=NSx6akBs;
-       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=sCmvSk9J;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::535 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=b6urMJ+OUgR/Q2Wh82FYFWWjyzLuDM6uqgts4phuhVg=;
-        b=gkvFFkudd6an4+iHYNfMLWopJN/eLQDLX/9saVDBiwckiW0H3kD39n7UyYJhj2q8mr
-         LSVeNeVKerT1SGSD/KzCmnOu7WytJyZszlUmpvUDtqFEkhyxFoOnrwiFsGGbNcREZCwi
-         itrqVoSkaAep+57SKULBRgc6Szmh2/VtUaYEmF3PUEayk/1PK+jJtoAsuIkkMHrJVdid
-         s2orffItvbuNomHWhvxedKC4KUgizExBN6tc4MatWBWnK+KYVySRp2OCR5pmps2qX6AY
-         qrqDBnGEoi8IfFs/auvz8LxuiVrETKcvKUkGbJNOP6JOKXFkFiPJY1+Ea4L+eLeCJrG1
-         SaAw==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=N2ph6VF0ReZlIkL4Xup4JF+0mNuE1kMoMXCsFQCQYY4=;
+        b=HR8wzOlPyNC0DHDbA+XliyQuofBXlKNpYDSNrP7YmZ9jvYamn/YbmkvK8dlL3GD+69
+         Ig8PEgIpngnLyfpnbjqssKgz+gzm7Pnn6kBjpOM1Eytw+clldCgnPUjN78RN29C+G7sW
+         Wotl+U1okuKXrK8uuYGerspMYv3AiD3+xtqp78h6skS54uramoal5n+1xgocB8qsqf/k
+         xLeOnStO1hI2m0wFonS3b9aABXO0uogpKGuACr6suHs64+ftZNEX+Xnqx9mjWP0GNAzn
+         WdR2M5ERzMorMRvZN6koGlTbfGmrp+6nw0iJuHON0gmgxsTuSlqMY8h6ts8gUNZFROxP
+         OmgQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to:x-original-sender
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=b6urMJ+OUgR/Q2Wh82FYFWWjyzLuDM6uqgts4phuhVg=;
-        b=o7dZy6HvLfTFN4EVd550Vwec/riHfkibqYBU73s4HpzGCVrb6acmqPbXmj7Iv+5ykF
-         0QQh7/tjdytsr86Ug91LtXKZTwp4Zw+HRBtqY+8QMs3vl53Yw9maviUQeCKvS+LXFb9E
-         rRcN/Z+XwYU348r8v9Bjots5U3hzBez9ieeZWi/Yq8XYtZNQh4mXGjCZSecBQv9IlOps
-         ewIOlR3NSbfAeUySjuvt777owCN7/pHheuw9+q4rOF80Sc2lH9nS1luKDK2DCBLGpqOo
-         g6TF52HZVmVRI+2qxgfDB6nwRS2pbKREIuGCklUioCTObrMg3kGsAJI0+3sUpL/RMVFs
-         nxxA==
-X-Gm-Message-State: AGi0PuZ5/v/lUGv+DsKaP5UhFRuEs87kZfFW0atUy6iJkPPwwwVQ5Et1
-	M+IztmMkq7YsOhY+a9zgEdI=
-X-Google-Smtp-Source: APiQypJjXTBvA4NZGZMAUFOk9+SXrajH8vvbBfOTIIVXGN+CjAcoaoV4L8ajNQ5uoQaUQwgoI33s1w==
-X-Received: by 2002:a05:6830:448:: with SMTP id d8mr3212052otc.89.1588613646019;
-        Mon, 04 May 2020 10:34:06 -0700 (PDT)
+        bh=N2ph6VF0ReZlIkL4Xup4JF+0mNuE1kMoMXCsFQCQYY4=;
+        b=WvtEOr2nh6D5eynDIMtl3lE9eu/NgCSnONp+hAL55PoErgPbihEEfrkznV+VSrUF+q
+         T7DlsOgEmPE0A/T71qpv1Qd7rAxd6hTW+7Ys9C4mjxyjO/MjoXqrC/YIzygGsQ4gLQXo
+         pFRC9TAeiMJ0A1yRwTCKFSFsHPiIpEu+ljwFp+hJH+iPzgz5o8NMujUHn6164l2uMtQ4
+         DXxxLkU5JZRcb14ADbJuSUTP/x7pjhnYNXZHFP7toYV/6RgnOg0m0fOy92xJVgzPH8oe
+         rCMc7bVgGSyR416w1Qe4WKq6Gt71Snf4F4PSk9cGfNW7YSK8TkgFk5FKyYj6WCu5YOu7
+         G7nw==
+X-Gm-Message-State: AGi0PuYjLOyJyHsqxMcNkYnvhDZE8G/+fXSQ/ew2FuQZouZttw8Or4ar
+	NuZMpvo5eTsg/dTIEhGSX4c=
+X-Google-Smtp-Source: APiQypL/DTeEy6azKviB7KKcUNswvR9lcDBw7CSUNtJlaC8VguIgzoenTNV+W7WcfleduzUnML1gfw==
+X-Received: by 2002:a17:90a:8c3:: with SMTP id 3mr69221pjn.147.1588614046892;
+        Mon, 04 May 2020 10:40:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:108e:: with SMTP id y14ls2808161oto.9.gmail; Mon,
- 04 May 2020 10:34:05 -0700 (PDT)
-X-Received: by 2002:a9d:77c3:: with SMTP id w3mr15657966otl.75.1588613645702;
-        Mon, 04 May 2020 10:34:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588613645; cv=none;
+Received: by 2002:a63:4383:: with SMTP id q125ls15320222pga.7.gmail; Mon, 04
+ May 2020 10:40:46 -0700 (PDT)
+X-Received: by 2002:aa7:934d:: with SMTP id 13mr18056291pfn.305.1588614046352;
+        Mon, 04 May 2020 10:40:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588614046; cv=none;
         d=google.com; s=arc-20160816;
-        b=A4yt3mjyvslSwUr7LwNZKPZMF6UETfDnRQBtTbqQ5uzuI/PirnDGZYTu+XoolokODf
-         Uu7sg8R71SNV/sG4y5paK4xGYsJMY2JyeFIb3MkB2wtMYfxXg/fhp4rTc4dvv4OJWIAC
-         G7KvJE4actHD8IDxac2/WxVfXcJsAtKG7IRxAAVJHkZRH6KJwgOiKlyaEmyNWz7farKg
-         W/9S5yjLx5i9pzQAfJ8vW1CBS24f2PWoWsWL5ZVtQOj9Es47G/zaF97OvLqbBM1dTF2R
-         sTPMtszqNPz4Z3e7rHlObItYqAio+IIcbUKwc6q4J9/TM09o1Wg1SeIKiclcvrjtyYCX
-         l6pg==
+        b=JQrBgIfikjBxqzjFVbLWGi8WNQNRuPfQ2LlJ56vvpe7QIji3tYPsld/CMr3Tmhz0tT
+         2VK3nnCvNRv/peVc6yTw2OZzu7qZ5k25D0+mzxsuz5+tPyBKTbQK7SOts4FlaV+L8C/N
+         2klFl+nkmS6Ajh0H+WZtUxjZE16GBLQXfirWbWnIPARksKTmJHZVMLsY/TCzmNsNrjIc
+         pLbDjELg4aVezxRItrei5Sbg5nCyu4bFnuogIwFRFkrGty6UbZlAjKwRs3/BMPmXR9Aq
+         Cwu1Iea3yv+Jp8FSpJsxd1SsI6C6ul31WD/ROBPCZdnH3MpZyMCs93A7w1FkS0dW/HWc
+         Fm9A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=PrY9RkQAS2W4bvl/VgQNbnvFW03G7lNRCloDxmlrbTs=;
-        b=OPv3SZjbiLaWn+SWTm0H22RpJlc6UVZmZVrio9xWcL6CiqSVtIamBaLvJY9dtQjoi4
-         aDVViSLjETibVQES9ew1WYLA9vePvnzlS7RJJ4yt7QzN+feDHJkDGzLxbRgpCrgjDbXf
-         alnCua31j0c8x+DP7fTpYeg5MWYPmMTJl7BwNFk6lGCCmdnRhRWyYFj2QwzSJb0lZUtR
-         WeX8JldNNhCnCALljfBC5GMBhXqAyccOt+hoW9ZfRhHPKaMF5KBhX4kGgbthgp+sE+xW
-         QDxLThNvmQQ1N2Brxz25qUdGqfmDNKWw+95KLTnAmzrTy7LuV66KatxEo5QD0lVGHRGm
-         IE3Q==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=vCUIqY3ZybzOFNhbrLtb4vaKRJg3odek+iEj8348L0k=;
+        b=GKo7VXxrkEzgOQnygh6D5p6Zm6DII4h0VQY3qU9dcLLNrNHiEAiKZpf/LuiZPBxvCv
+         dC+k8v44flkPt0Ub6bq4npJHN+sg79Zrbe6xr7VWzumvkrF9e3YSa4BAcmlvA9xWFvbv
+         qiAGfd6O5zxnbOOTg95MUESK8rlubeMwQfv3iDsEyJ0eI5Hh3UWQiCJFiSX5/MJIlRoZ
+         zE9Q4nRBb+RPDgNVOllQv8/D1WDC8IIdf5C1Y5lY5DV+8Kk3PTwK3U7ArUA+41m2/LIp
+         C+fUa4rVp6TqBlKibHK6Ev/nfHhKfSKyk7/yulgizLSkg255A7FKdZoMmyx/nl/RAiGw
+         8DFg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=NSx6akBs;
-       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=sCmvSk9J;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::535 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x443.google.com (mail-pf1-x443.google.com. [2607:f8b0:4864:20::443])
-        by gmr-mx.google.com with ESMTPS id f139si708593oig.5.2020.05.04.10.34.05
+Received: from mail-pg1-x535.google.com (mail-pg1-x535.google.com. [2607:f8b0:4864:20::535])
+        by gmr-mx.google.com with ESMTPS id g23si808170pgi.5.2020.05.04.10.40.46
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 04 May 2020 10:34:05 -0700 (PDT)
-Received-SPF: pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::443 as permitted sender) client-ip=2607:f8b0:4864:20::443;
-Received: by mail-pf1-x443.google.com with SMTP id x15so5886787pfa.1
-        for <clang-built-linux@googlegroups.com>; Mon, 04 May 2020 10:34:05 -0700 (PDT)
-X-Received: by 2002:a63:2943:: with SMTP id p64mr91169pgp.36.1588613644620;
-        Mon, 04 May 2020 10:34:04 -0700 (PDT)
-Received: from google.com ([2620:15c:201:2:ce90:ab18:83b0:619])
-        by smtp.gmail.com with ESMTPSA id w69sm9342974pff.168.2020.05.04.10.34.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 May 2020 10:34:03 -0700 (PDT)
-Date: Mon, 4 May 2020 10:33:56 -0700
-From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Will Deacon <will@kernel.org>
-Cc: Kees Cook <keescook@chromium.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ard.biesheuvel@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Michal Marek <michal.lkml@markovi.net>,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dave Martin <Dave.Martin@arm.com>,
-	Laura Abbott <labbott@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Jann Horn <jannh@google.com>,
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	clang-built-linux@googlegroups.com,
-	kernel-hardening@lists.openwall.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v11 01/12] add support for Clang's Shadow Call Stack (SCS)
-Message-ID: <20200504173356.GA7200@google.com>
-References: <20200416161245.148813-1-samitolvanen@google.com>
- <20200416161245.148813-2-samitolvanen@google.com>
- <20200420171727.GB24386@willie-the-truck>
- <20200420211830.GA5081@google.com>
- <20200422173938.GA3069@willie-the-truck>
- <20200422235134.GA211149@google.com>
- <202004231121.A13FDA100@keescook>
- <20200424112113.GC21141@willie-the-truck>
- <20200427204546.GA80713@google.com>
- <20200504165227.GB1833@willie-the-truck>
+        Mon, 04 May 2020 10:40:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::535 as permitted sender) client-ip=2607:f8b0:4864:20::535;
+Received: by mail-pg1-x535.google.com with SMTP id a4so166560pgc.0
+        for <clang-built-linux@googlegroups.com>; Mon, 04 May 2020 10:40:46 -0700 (PDT)
+X-Received: by 2002:aa7:9535:: with SMTP id c21mr18171053pfp.39.1588614045754;
+ Mon, 04 May 2020 10:40:45 -0700 (PDT)
 MIME-Version: 1.0
+References: <202005041106.4EO0eLIB%lkp@intel.com>
+In-Reply-To: <202005041106.4EO0eLIB%lkp@intel.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 4 May 2020 10:40:35 -0700
+Message-ID: <CAKwvOdniUJj+RTiD886=TA4gC8g0iZ16phRSDK=vLcZfTUa_RA@mail.gmail.com>
+Subject: Re: [linux-next:master 4258/6218] drivers/gpu/drm/i915/i915_drv.o:
+ warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
+To: Chris Wilson <chris@chris-wilson.co.uk>
+Cc: kbuild-all@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Nathan Chancellor <natechancellor@gmail.com>, kbuild test robot <lkp@intel.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200504165227.GB1833@willie-the-truck>
-X-Original-Sender: samitolvanen@google.com
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=NSx6akBs;       spf=pass
- (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::443
- as permitted sender) smtp.mailfrom=samitolvanen@google.com;       dmarc=pass
+ header.i=@google.com header.s=20161025 header.b=sCmvSk9J;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::535
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Sami Tolvanen <samitolvanen@google.com>
-Reply-To: Sami Tolvanen <samitolvanen@google.com>
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -164,20 +131,76 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, May 04, 2020 at 05:52:28PM +0100, Will Deacon wrote:
-> On Mon, Apr 27, 2020 at 01:45:46PM -0700, Sami Tolvanen wrote:
-> > I agree that allocating from a kmem_cache isn't ideal for safety. It's a
-> > compromise to reduce memory overhead.
-> 
-> Do you think it would be a problem if we always allocated a page for the
-> SCS?
+On Mon, May 4, 2020 at 7:01 AM kbuild test robot <lkp@intel.com> wrote:
+>
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> head:   fb9d670f57e3f6478602328bbbf71138be06ca4f
+> commit: 9f4069b055d1508c833115df7493b6e0001e5c9b [4258/6218] drm/i915: re-disable -Wframe-address
+> config: x86_64-randconfig-d001-20200502 (attached as .config)
+> compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 45b7d44ecb01780e26dc8d3c30bc34e32c08dd70)
+> reproduce:
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install x86_64 cross compiling tool for clang build
+>         # apt-get install binutils-x86-64-linux-gnu
+>         git checkout 9f4069b055d1508c833115df7493b6e0001e5c9b
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
+>
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kbuild test robot <lkp@intel.com>
+>
+> All warnings (new ones prefixed by >>):
+>
+> >> drivers/gpu/drm/i915/i915_drv.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
+> >> drivers/gpu/drm/i915/i915_drv.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
 
-Yes, the memory overhead was deemed too large for Android devices, which
-have thousands of threads running.
+Known Issue: https://github.com/ClangBuiltLinux/linux/issues/955
+please ignore, sorry for the noise
 
-Sami
+> --
+> >> drivers/gpu/drm/i915/i915_getparam.o: warning: objtool: __llvm_gcov_writeout()+0x13: call without frame pointer save/setup
+> >> drivers/gpu/drm/i915/i915_getparam.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
+> --
+> >> drivers/gpu/drm/i915/i915_pci.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
+> >> drivers/gpu/drm/i915/i915_pci.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
+> --
+> >> drivers/gpu/drm/i915/i915_params.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
+> >> drivers/gpu/drm/i915/i915_params.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
+> --
+> >> drivers/gpu/drm/i915/i915_irq.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
+> >> drivers/gpu/drm/i915/i915_irq.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
+> --
+> >> drivers/gpu/drm/i915/i915_scatterlist.o: warning: objtool: __llvm_gcov_writeout()+0x13: call without frame pointer save/setup
+> >> drivers/gpu/drm/i915/i915_scatterlist.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
+> --
+> >> drivers/gpu/drm/i915/i915_suspend.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
+> >> drivers/gpu/drm/i915/i915_suspend.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
+> --
+> >> drivers/gpu/drm/i915/i915_sysfs.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
+> >> drivers/gpu/drm/i915/i915_sysfs.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
+> --
+> >> drivers/gpu/drm/i915/i915_switcheroo.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
+> >> drivers/gpu/drm/i915/i915_switcheroo.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
+> --
+> >> drivers/gpu/drm/i915/i915_utils.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
+> >> drivers/gpu/drm/i915/i915_utils.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
+> --
+> >> drivers/gpu/drm/i915/intel_device_info.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
+> >> drivers/gpu/drm/i915/intel_device_info.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
+> ..
+>
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+
+
+
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200504173356.GA7200%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdniUJj%2BRTiD886%3DTA4gC8g0iZ16phRSDK%3DvLcZfTUa_RA%40mail.gmail.com.
