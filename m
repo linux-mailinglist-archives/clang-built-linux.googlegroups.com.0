@@ -1,112 +1,113 @@
-Return-Path: <clang-built-linux+bncBC7OBJGL2MHBBL4IY32QKGQEIVEJ3FA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBSUMY32QKGQEXRRNTKQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x538.google.com (mail-pg1-x538.google.com [IPv6:2607:f8b0:4864:20::538])
-	by mail.lfdr.de (Postfix) with ESMTPS id 811861C5AE5
-	for <lists+clang-built-linux@lfdr.de>; Tue,  5 May 2020 17:20:16 +0200 (CEST)
-Received: by mail-pg1-x538.google.com with SMTP id y4sf1377055pgo.6
-        for <lists+clang-built-linux@lfdr.de>; Tue, 05 May 2020 08:20:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588692015; cv=pass;
+Received: from mail-ej1-x638.google.com (mail-ej1-x638.google.com [IPv6:2a00:1450:4864:20::638])
+	by mail.lfdr.de (Postfix) with ESMTPS id CB3031C5B26
+	for <lists+clang-built-linux@lfdr.de>; Tue,  5 May 2020 17:29:14 +0200 (CEST)
+Received: by mail-ej1-x638.google.com with SMTP id cb22sf1412654ejb.12
+        for <lists+clang-built-linux@lfdr.de>; Tue, 05 May 2020 08:29:14 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588692554; cv=pass;
         d=google.com; s=arc-20160816;
-        b=z7HgBWJuJqNST/PlSOwraL3LrUtxL4ttDuzXy3Bnivb3EGAlUUYuyUKB873fSoI0lD
-         gvaO5n4DWpb0LS9zQM5C6FFlmwKIcBjarbr1Z8iO4KGz4ER76yvtvCMBTjsvCH/1Zm6l
-         wtE6vhUrNbnftvPE/zwAhBU4Y0lYZGrKrOVNyM/sCIQTO2v5QifTJjPZhnI6WjHhK+Jm
-         De8n4YMnVkxofWrL2BUDGMjSd1V5FLvIa0Sv+mQr2VF9J17TtObZhOIw1U+Fo+M8i5Pl
-         EIdp5/D9Oqw3S36k0mXU6iBIKO0mot5MlfC9mB+HwF5C3kZFux2SdPLoxE8AAFWnGOdN
-         XmtA==
+        b=RY/+zN3w0z1IxUI5r+mVdabeS4G05weJjWpeZpFF1+gKU9Vl3Wx1frOgUXQEHFPmtA
+         IUtoFXA4Rk+MI3gn9PVrNYKUFkdBBCPDUloR/+H72EAyco3GJhQ1ADChmTaqXrvYySeU
+         +mCszPb63pEeTzLJw6+wl+ruHCsBiVjFiL7UjN88fM7p2DVsGPGmREPOenS3Mz2Lttjv
+         QjMvFRqB512aE4IocACsiIop42iQQWFiGTQVNHXgNJOpbc9IUzHsKOpz5c281g5NyQIY
+         Ddxq2nVqbIN+T4UJgFpw0buR0dYRvdaAUODdoh4/Xjpyg/yphSsKTp9Bfq3rjd7wttge
+         pb5g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=y+LPxafCrgTtfYkVDFAs26gwi3TLk4aGuEKwZCoVF7Y=;
-        b=vy7T4yREWUw0IVHXIKEyjPcBjtQL4FCrarS1TL5U4cwvHJyN8ZRtdjGDbRegvvnQih
-         ez+8ZIuk21tJwRWp7/uIhErV14XNAm/EVN4SNJWbTkKy8/+XfrJtDW99BY7XDXXQ3s+Q
-         NPIW7Fp6ymzwyGJ0y6vqd0cgSTHdSCl/XsT5za5yLX1gjQWY+XvVIZv4Cxmnn50Rwphi
-         NQ8m1UgC9jEfsDSnSPY3AlmiNpynSJhTsaNh5oF2RKamZfJTUKJEvPvKBZHYsXOBYBun
-         xkj3vPfGgbaqV+IQl1cxngTN438M+eMpfsz+HfMns4sq5yfGmv2DyRVngm54Bj7t7niL
-         yafw==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=LE9FiBHQBzrI1GlfmWr9ervm7G5q0kHiIEJ1qwmbl7U=;
+        b=RqC/tBsY1LWMzFOACSUzYX0PNQlersHCQ5Ii83ZW2WoXPz9x00djXjFrevkJfeNo/A
+         VDThe2LIwFgyRVQsQGnU/9G+NHW+23UBpDx9oMAPM66gEzt48r5BOtOd53BQfZNo1IGr
+         Ov8BH9MQAfw8lr6ouS1HH8HVFuLQcZ8/oPqYc8P3QGsIcxl5KNrFsEi40sSpo0xUfN4Y
+         pT7wxRIbDnSnNh4KkLigdbBT55XtJJB58UBGiWj4ve0WGeEQ84HgF1XoE01wEIoP09ht
+         atM3Pes2Doa934ZP9D948v1qskedEsuwgDyuHnyaZk/AGFHjS6JvMemUeg/DK3Wo1ci3
+         L2OQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=lxBGwppW;
-       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=elver@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       spf=neutral (google.com: 217.72.192.73 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=y+LPxafCrgTtfYkVDFAs26gwi3TLk4aGuEKwZCoVF7Y=;
-        b=CM+TkmjquHUwxx1FbWptTdBdMDZZ5ZsIROKQ+JWxDqqoMMgbdJiEF2AkbleON/X3Sd
-         wTmImndis/P30ZgPzfu4pPs7hQmGtHJKCIMYlXmwBkxn6hsXK5W5dTCMk5wH5Lp6MXGp
-         cMaeY8VWyojtyIaqsUD4Ql7rm2qmNRnvxRl5XSFFjF1UuIvpnHG5yBs5mDPHGLGy+bR+
-         pM5ARxnDgKy0JMmz5MFFBdjMvMcJihwLXpRFGahzFh4SoHIXb5Nl5aSiLOohLJ6MVSGt
-         gwvbnkKKlEdkhAodVoy0BLGOTPBLt1jcchlY69veAnPucZ4yv933MBpAlGIwGdq0xyib
-         pQyA==
+        bh=LE9FiBHQBzrI1GlfmWr9ervm7G5q0kHiIEJ1qwmbl7U=;
+        b=nu6Oiu6t2wcUCc92VdRoSjfLcWbeJ5QPyUI9WHMyb9hrhEyxSJonH0IvLswIa18vW5
+         K/vlWX04DLjXgPVLXljnLNjspZKGETT94c5kHzLPF1reYrPOtOGcDfuWf6RIBIa+a8Ne
+         ULiSac+CI9uXUJis/ibSnewG5FtHSqb7k8ksdfillyKDxHeKQYsmk+vAvgZw1DRbohl9
+         BSyn/Qmsy20iM7S6JtPgn2Hh9RHEhV/2ntUICWQ3EM5o8Pa3llZHuCaWnPmbE0lvm4Gp
+         jgkBZuUtsZuyl0vKD8yyXU/9YKOPsCztjBFMvOok0JJ7ebN33GlMeFrxgnuO+wdlrXJE
+         6aIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=y+LPxafCrgTtfYkVDFAs26gwi3TLk4aGuEKwZCoVF7Y=;
-        b=ucBkneWRtHC/CiOi3sFMkH0xxDC2Lx6ZNXjc4TwEfj3VmU6n+KxkZwPf3jImQd6Lvm
-         rqqS8RuKhx6GsxPIS4LcfgBOW9J7uaUmGsg6vkz3AkKauPrY+aQbgK9zQebiXlADrf7Y
-         W1efkbiTQCtbF6CXufmVhpDMyk8UF0Sn/vsd46nHy92Ds5yLMHzSXRuMoXwzVr0LEF6H
-         aav+EdEjw4I0gtbT9kGtuj11tuTzRoLy6GPRvEpwPzYDHQPIbbP4Nw/pCDSlf0cFPCp4
-         sh9mOe83r4gjFmx76ZBVF/5hT6oBrfZBbAJaAE+o7mirl9xBaaiPQ/vNNp+bKqusq85C
-         eDjA==
-X-Gm-Message-State: AGi0Pua3uoYxK8uEAq3met1Bu/7FyGhnsFUEQEShBrpzI+ID0DJyswb2
-	mK0FqmflFmGQMNImPHLHY8A=
-X-Google-Smtp-Source: APiQypIDu6ugpmLb+uKmsXe2lFRCJLvo3Q+Q4wu1HG8WSGlgm8Q607d4ijqih80fySYcH/fmTKGSig==
-X-Received: by 2002:a17:902:ba89:: with SMTP id k9mr3300907pls.199.1588692015218;
-        Tue, 05 May 2020 08:20:15 -0700 (PDT)
+        bh=LE9FiBHQBzrI1GlfmWr9ervm7G5q0kHiIEJ1qwmbl7U=;
+        b=n71rSF4U8t0MQWulGagYhUP60V3FaSv1muc+Tum1kBcbcmvBrSEKpVGgbtDMdqpiyv
+         x4SPniTycIMENDXcmaqAz2Uv/174M9CbUV2JgkyHL9eh8n/Ps+bmQjAh/UbPoi+QgAQr
+         a7BdTLRAu2+3NTUQH5w8jaYQS/jpqyZd+iokVyeKt5DHBtxXXxvH40nkDI2tjavwLzTf
+         J9o05HI4fOtMGJxR0x7I3RQxkGsEijkNvqC4ibwqJFIrFQ5ygX7O56VnDeq43QZpEF32
+         NtNC0qa9iiyuC0L2aerZBiS/mxqCAXpKAdMkJ8w3woZxPPmax9JsDdePrIhKaVUy6DYs
+         GUyA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AGi0PuZCzisMPSWZb8T/y3iyRZNH6JHhlaik25VeBc0JIYVrvqRK240x
+	Klo4mIEli/v8Quw+m18j+ic=
+X-Google-Smtp-Source: APiQypJfyOz5f/qEV3BTOr7ZbwH8sM2o/Ill7yV+fx1BiAOhNhtmXJFMS4hm5i+TYcAOjiu+x+lkfA==
+X-Received: by 2002:a17:906:ecb8:: with SMTP id qh24mr3124052ejb.299.1588692554528;
+        Tue, 05 May 2020 08:29:14 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:7203:: with SMTP id ba3ls1766229plb.4.gmail; Tue, 05
- May 2020 08:20:14 -0700 (PDT)
-X-Received: by 2002:a17:90a:fc89:: with SMTP id ci9mr3730004pjb.140.1588692014663;
-        Tue, 05 May 2020 08:20:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588692014; cv=none;
+Received: by 2002:a50:ee14:: with SMTP id g20ls1384872eds.10.gmail; Tue, 05
+ May 2020 08:29:14 -0700 (PDT)
+X-Received: by 2002:aa7:c38a:: with SMTP id k10mr3210707edq.74.1588692554038;
+        Tue, 05 May 2020 08:29:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588692554; cv=none;
         d=google.com; s=arc-20160816;
-        b=pZJCVkJWsZBZA8sAlmzL9BeC1F2fvm02fI4hCcIUlU77lUAtnxZoZO6QBSR40HN6N0
-         XdtFf2Oaxe7tGCgp/zVOASHvbHaBRuGDfZAXOG00ZwuABa4ZcLbaTqgndZghOTxgIMIi
-         I5ECJ1+kDp8Rg4Y4HOrT4OiYCLwvm3Of8uIEs8PZnBRzIHvE0hP2p5UhP5my5m5qeXtr
-         2+HBOXydhOaUuYYbrUWxIaV8wYIq/BhmzmJzklBgwehQ5LVsmANVlazcTNuH4Zz6+vLT
-         WJd7FgLxwdhgfcEZFC/HNXerhLrh+VWsMdDeaFixMS2tiZbkAVQFK/N5QKXP6A6iOmPu
-         Q1kA==
+        b=rZvLhvjp4uVhzgT4mkM3I94EpnPyQcsm1qpoW2Pr7CxHYC2e431mar53H650zgtTcF
+         XUCBh9Uontuk18JEweMSPsvQFN31hLcphIfbLd2bQEWpT7GiLjxDrQl4kjh6O7PvtyEG
+         lYVnRqKIrE2r60lUIcLah8ko2QiQEbYceZQgCTHdF6A0ecG049fw26PO7j3DHTGFmAfn
+         Mp5TcdtAK96iPkePrLhs3L6EIdhzL+ruw5DC7HnjtK6UsufI8Vdg6ZMgHEq8RwuZ0pSL
+         OKJ6rlWPkiWDruSt1gF939nxakECdafxC8miBdGNbkAam3OYQ4nb7FtdR5FhLwfLZiiL
+         AHbA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=V8efal+sgU1en3J4nQ9rg/ceJ49rrnhyDi/kAbpO9w0=;
-        b=l4DRh+zCjclH3mGUIEjWU+e/GWdex9ZZbHp90gIvlDjkZCJGQY0uD2MS3gv6V1Y0zk
-         zeh2ZRdX1Re9Cr3zPUJmyVgBu58RGdB+3/sL5haoqJuYT65AYRx6W8Duz9qe3teKXPyi
-         fKgIwj6DF785HBvkh/m164amGUb1Nx0jtVLygSjVP/dUOGO6LoBxZ2KBTXguIbI8iyrv
-         RDoeuScZFLr+dIn0TfEa0px2JqkPgcWbGToFQZriJuVrQs6fU/fH7XqxyRxG9rC5aW5h
-         yvcrXFtRNOcAjeSqRbdlHiqy/yeyRp7m9YWb1HbqsauGGGmt3DI9NS2Uy2CNFW9JsDoZ
-         p3sg==
+         :mime-version;
+        bh=mLTAfVYvu6D9H2Ch2Co82pMdxfAUJOTBn9LCzwwrSCU=;
+        b=FC5qI63YJSWnXvMpLnx9l8e8RbHSN5wplF2YzLLVpIfK2StwFRXo/gEKO1/Bxi6xGP
+         0kj+aRxHJR1ETo56HYyswDGHfWqAdxcSv2iQghtgbyyOVIUkH5zvCHXF/Qw8KzscjRA8
+         k15t7scHN7frqjxY7nkzoKcCAq7uS00RWG8WgNjI6EkhVnwhXqjfJQvxXhFPKqofFtt0
+         Kz5/x7jNBAjtIyHFmCSgjn7nhj5R2iPLQZ8HcNqIS/bIo+GkUWmPIHlu8gTSQDL+y1Cm
+         JYYRgHGqF7hTj8LQYCfNJkjCVg8TPnR7yVkie1MZUWPg7ALP6/WfEcsmIU+Ms40UNcL8
+         SWmQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=lxBGwppW;
-       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=elver@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-ot1-x343.google.com (mail-ot1-x343.google.com. [2607:f8b0:4864:20::343])
-        by gmr-mx.google.com with ESMTPS id w8si242526pjr.0.2020.05.05.08.20.14
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 05 May 2020 08:20:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::343 as permitted sender) client-ip=2607:f8b0:4864:20::343;
-Received: by mail-ot1-x343.google.com with SMTP id e20so1919852otk.12
-        for <clang-built-linux@googlegroups.com>; Tue, 05 May 2020 08:20:14 -0700 (PDT)
-X-Received: by 2002:a9d:509:: with SMTP id 9mr3055453otw.17.1588692013635;
- Tue, 05 May 2020 08:20:13 -0700 (PDT)
+       spf=neutral (google.com: 217.72.192.73 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Received: from mout.kundenserver.de (mout.kundenserver.de. [217.72.192.73])
+        by gmr-mx.google.com with ESMTPS id by3si52347ejc.0.2020.05.05.08.29.13
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 05 May 2020 08:29:14 -0700 (PDT)
+Received-SPF: neutral (google.com: 217.72.192.73 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=217.72.192.73;
+Received: from mail-qk1-f180.google.com ([209.85.222.180]) by
+ mrelayeu.kundenserver.de (mreue108 [212.227.15.145]) with ESMTPSA (Nemesis)
+ id 1MqrwN-1ijEdM1lWz-00mqDp; Tue, 05 May 2020 17:29:13 +0200
+Received: by mail-qk1-f180.google.com with SMTP id i14so2643084qka.10;
+        Tue, 05 May 2020 08:29:13 -0700 (PDT)
+X-Received: by 2002:a37:aa82:: with SMTP id t124mr3905009qke.3.1588692552175;
+ Tue, 05 May 2020 08:29:12 -0700 (PDT)
 MIME-Version: 1.0
 References: <20200505142341.1096942-1-arnd@arndb.de> <CANpmjNMtGy6YK8zuqf0dmkykZMt=qkxkZrZNEKde1nbw84ZLkg@mail.gmail.com>
- <CACT4Y+Zpp=+JJedhMpunuUh832eJFu+af-r8631Ar0kE2nv72A@mail.gmail.com> <CAK8P3a23XzLhZQNuFbeQhaSNru1abPwXV_mXR_P6N6Dvxm6jFw@mail.gmail.com>
-In-Reply-To: <CAK8P3a23XzLhZQNuFbeQhaSNru1abPwXV_mXR_P6N6Dvxm6jFw@mail.gmail.com>
-From: "'Marco Elver' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 5 May 2020 17:19:58 +0200
-Message-ID: <CANpmjNOE+GUG7O=WaJKQg6rdUOn+YMBhdS8enNWkD_8mdtaSBQ@mail.gmail.com>
+ <CACT4Y+Zpp=+JJedhMpunuUh832eJFu+af-r8631Ar0kE2nv72A@mail.gmail.com>
+ <CAK8P3a23XzLhZQNuFbeQhaSNru1abPwXV_mXR_P6N6Dvxm6jFw@mail.gmail.com> <CANpmjNOE+GUG7O=WaJKQg6rdUOn+YMBhdS8enNWkD_8mdtaSBQ@mail.gmail.com>
+In-Reply-To: <CANpmjNOE+GUG7O=WaJKQg6rdUOn+YMBhdS8enNWkD_8mdtaSBQ@mail.gmail.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Tue, 5 May 2020 17:28:55 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a36w+QFqik_sHS3T5+_DZ7XP9Y5BYqT72pnjC67T9Sn3Q@mail.gmail.com>
+Message-ID: <CAK8P3a36w+QFqik_sHS3T5+_DZ7XP9Y5BYqT72pnjC67T9Sn3Q@mail.gmail.com>
 Subject: Re: [PATCH] ubsan, kcsan: don't combine sanitizer with kcov
-To: Arnd Bergmann <arnd@arndb.de>
+To: Marco Elver <elver@google.com>
 Cc: Dmitry Vyukov <dvyukov@google.com>, Andrey Ryabinin <aryabinin@virtuozzo.com>, 
 	Kees Cook <keescook@chromium.org>, Andrey Konovalov <andreyknvl@google.com>, 
 	"Paul E. McKenney" <paulmck@kernel.org>, Ingo Molnar <mingo@kernel.org>, 
@@ -115,14 +116,28 @@ Cc: Dmitry Vyukov <dvyukov@google.com>, Andrey Ryabinin <aryabinin@virtuozzo.com
 	kasan-dev <kasan-dev@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>, 
 	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: elver@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=lxBGwppW;       spf=pass
- (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::343 as
- permitted sender) smtp.mailfrom=elver@google.com;       dmarc=pass (p=REJECT
- sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Marco Elver <elver@google.com>
-Reply-To: Marco Elver <elver@google.com>
+X-Provags-ID: V03:K1:yXPjj7RSTHy8nvPh0sjlznjQGUgILFaAll8TjnoW91chldM8MJQ
+ RMhhLijyMrp8sdGgF+1PyI0+sdkzQ0LD4fBBwDy+JrBQbirFD6Ki719H4loB5LEeYHuXXUV
+ 5GVl6b0dxqM5OyN/K0q+Rz4lOQXGspgT41wG7jEu1mQUqBae2+tkWdWJjh9cQXj/NfqnBBg
+ zvTNm+6Tb+DCbDFAailsA==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:4tNF2IvDNKo=:MRazf2aTsNfc+hGbcGVL93
+ 4WNC7klZLZY7ZIWUeVLBnNA3LsjX9MocBRo8JxVEgAGsmFifn9j96TbKRrdK18+09O9DqBsPZ
+ UIcPMazEbIsqE1YZvK1FptzPhmeeSu7tHEhUhywJjhGe38GBN9ylXUg5z3cA0nAiN4vDMXeeu
+ kcaZQF7lhhThWvBcr5owmd/vXUWyeqcxuX3MAHFj4h/DKVAnuIbMe9xF/pl5JxehvSko7mcwI
+ 6zX68q1QMoon8+/tYXvcMzGDhBHmXVw40RchLJE8uqQhjmraGiMs747B6b1YxvtOqYwVuzyK9
+ GLIH5rIY/522l4lmAoHeo0WoAIcfaH91kcdUPZ0LPrVUw+YqWJVbX/DkaAVwKee7lNIdecfVa
+ 5ChSVNnLmz8QegwTK/1EV7xbQVJzC2IYQA8p7/EU5MC5Rav4OnsF43+/rIIey3lz+1pjh+cx1
+ pxpcQH2YlRh2wSQ5bwgzIiyot0iTZ7GFMBvjQXvYPtg+8WsZKkUodXeT4Mw4YPaPog8NCv4OF
+ okl6lTmlk9LqT8/027qOFC1ORkIgawNRdGZ7oakGpMS9ylm57RT92X1lS1Z14PyXHeTh7iQ33
+ b9otO9XfBovv2wY7xTdoMjG1sFkp3WkJGEM00CSC4Gac3OKQP8PMphbssY8JCdM+sTsy5R8pW
+ VvPlWIpGLYrHos/WkhekE/h2YADB+6prLSufD4JRlGYItWWf+0kFPJm/wdQMbyv1BTMq7SSt5
+ dhOgkTApVyzQ3QY06QGJUpPQSbpkcU6X2J3lJNW64xbUdiH9Mavx6oZjoE8eefZpJaSy5ceyl
+ eWKj+E1E/nFGBC/PdpiebGEET+d/12U6OAaGf3UYFljFxquBpA=
+X-Original-Sender: arnd@arndb.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 217.72.192.73 is neither permitted nor denied by best guess
+ record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,112 +150,43 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, 5 May 2020 at 16:59, Arnd Bergmann <arnd@arndb.de> wrote:
->
-> On Tue, May 5, 2020 at 4:50 PM 'Dmitry Vyukov' via Clang Built Linux
-> <clang-built-linux@googlegroups.com> wrote:
-> > On Tue, May 5, 2020 at 4:36 PM Marco Elver <elver@google.com> wrote:
-> > > > Clang does not allow -fsanitize-coverage=trace-{pc,cmp} together
-> > > > with -fsanitize=bounds or with ubsan:
-> > > >
-> > > > clang: error: argument unused during compilation: '-fsanitize-coverage=trace-pc' [-Werror,-Wunused-command-line-argument]
-> > > > clang: error: argument unused during compilation: '-fsanitize-coverage=trace-cmp' [-Werror,-Wunused-command-line-argument]
-> > > >
-> > > >  menuconfig KCSAN
-> > > >         bool "KCSAN: dynamic data race detector"
-> > > > -       depends on HAVE_ARCH_KCSAN && DEBUG_KERNEL && !KASAN
-> > > > +       depends on HAVE_ARCH_KCSAN && DEBUG_KERNEL && !KASAN && !KCOV
-> > >
-> > > This also disables KCOV with GCC. Why does this not work with KCSAN?
->
-> My mistake, this should be kept enabled for gcc. If we can get the combination
-> to work in clang, that's something that should also get enabled.
+On Tue, May 5, 2020 at 5:20 PM 'Marco Elver' via Clang Built Linux
+<clang-built-linux@googlegroups.com> wrote:
 
-See my suggestion below how we might dynamically determine if the
-combination is supported.
-
-> > > This is a huge problem for us, since syzbot requires KCOV. In fact
-> > > I've always been building KCSAN kernels with CONFIG_KCOV=y (with GCC
-> > > or Clang) and cannot reproduce the problem.
+> > --- a/lib/Kconfig.kcsan
+> > +++ b/lib/Kconfig.kcsan
+> > @@ -5,7 +5,7 @@ config HAVE_ARCH_KCSAN
+> >
+> >  menuconfig KCSAN
+> >         bool "KCSAN: dynamic data race detector"
+> > -       depends on HAVE_ARCH_KCSAN && DEBUG_KERNEL && !KASAN && !KCOV
+> > +       depends on HAVE_ARCH_KCSAN && DEBUG_KERNEL && !KASAN && !(KCOV
+> > && CC_IS_CLANG)
 >
-> I have some local patches that change the way we pick the warning options
-> for each compiler, and enable more of the warnings that are normally disabled.
+> I wonder if we can just add this:  depends on !(KCOV &&
+> !$(cc-option,-Werror -fsanitize=thread -fsanitize-coverage=trace-pc))
 >
-> Maybe -Wunused-command-line-argument is disabled by default?
-> I only started seeing this problem recently. It's also possible that there
-> are some other options that interact with it so only Kcov+FOO leads to
-> KCSAN being ignored.
-
-I see. It certainly seems quite bad if one or the other option is
-effectively ignored.
-
-> > > Ditto, we really need KCOV for all sanitizers. I also just tried to
-> > > reproduce the problem but can't.
-> > >
-> > > Which version of clang is causing this? I'm currently using Clang 9.
-> > > My guess is that we should not fix this by disallowing KCOV, but
-> > > rather make Clang work with these configs.
-> > >
-> > > Dmitry, can you comment?
-> >
-> > FWIW I can reproduce both with clang:
-> >
-> > $ clang /tmp/test.c -c -fsanitize-coverage=trace-pc -fsanitize=bounds
-> > clang-11: warning: argument unused during compilation:
-> > '-fsanitize-coverage=trace-pc' [-Wunused-command-line-argument]
-> >
-> > $ clang /tmp/test.c -c -fsanitize-coverage=trace-pc -fsanitize=thread
-> > clang-11: warning: argument unused during compilation:
-> > '-fsanitize-coverage=trace-pc' [-Wunused-command-line-argument]
-> >
-> > with both my disto's 9.0.1 and fresher 11.0.0
-> > (7b80cb7cf45faf462d6193cc41c2cb7ad556600d.
-> >
-> > But both work with gcc
-> >
-> > $ gcc /tmp/test.c -c -fsanitize-coverage=trace-pc -fsanitize=thread
-> > $ gcc /tmp/test.c -c -fsanitize-coverage=trace-pc -fsanitize=bounds
-> >
-> > Is it a known issue in clang?
-> >
-> > Can we somehow disable it only for clang and not gcc?
-> >
-> > This will immediately break KCSAN on syzbot as it enables KCSAN and KCOV:
-> > https://syzkaller.appspot.com/upstream?manager=ci2-upstream-kcsan-gce
+> Similarly for UBSAN.
 >
-> I can respin the patch with this fixup if you like:
->
-> --- a/lib/Kconfig.kcsan
-> +++ b/lib/Kconfig.kcsan
-> @@ -5,7 +5,7 @@ config HAVE_ARCH_KCSAN
->
->  menuconfig KCSAN
->         bool "KCSAN: dynamic data race detector"
-> -       depends on HAVE_ARCH_KCSAN && DEBUG_KERNEL && !KASAN && !KCOV
-> +       depends on HAVE_ARCH_KCSAN && DEBUG_KERNEL && !KASAN && !(KCOV
-> && CC_IS_CLANG)
+> That way, once Clang supports this combination, we don't need another
+> patch to fix it.
 
-I wonder if we can just add this:  depends on !(KCOV &&
-!$(cc-option,-Werror -fsanitize=thread -fsanitize-coverage=trace-pc))
+Good idea. It probably get a little more complicated because kcov uses
+different flags depending on other options:
 
-Similarly for UBSAN.
+kcov-flags-$(CONFIG_CC_HAS_SANCOV_TRACE_PC)     += -fsanitize-coverage=trace-pc
+kcov-flags-$(CONFIG_KCOV_ENABLE_COMPARISONS)    += -fsanitize-coverage=trace-cmp
+kcov-flags-$(CONFIG_GCC_PLUGIN_SANCOV)          +=
+-fplugin=$(objtree)/scripts/gcc-plugins/sancov_plugin.so
 
-That way, once Clang supports this combination, we don't need another
-patch to fix it.
+Do you have any preference on whether we should make KCSAN or KCOV
+conditional in this case? It may be easier to move the compiletime check
+into CONFIG_KCOV_ENABLE_COMPARISONS and
+CONFIG_CC_HAS_SANCOV_TRACE_PC.
 
-Thanks,
--- Marco
-
->         select STACKTRACE
->         help
->           The Kernel Concurrency Sanitizer (KCSAN) is a dynamic
->
-> As you both say, the combination seems to be quite important, so maybe there
-> is something else that can be to also enable it with clang.
->
->       Arnd
+      Arnd
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANpmjNOE%2BGUG7O%3DWaJKQg6rdUOn%2BYMBhdS8enNWkD_8mdtaSBQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a36w%2BQFqik_sHS3T5%2B_DZ7XP9Y5BYqT72pnjC67T9Sn3Q%40mail.gmail.com.
