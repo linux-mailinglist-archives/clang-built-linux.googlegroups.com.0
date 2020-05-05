@@ -1,137 +1,121 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBSXDYX2QKGQE6USPJPA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCO4HLFLUAOBBVPDYX2QKGQEQFZJD4I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x138.google.com (mail-lf1-x138.google.com [IPv6:2a00:1450:4864:20::138])
-	by mail.lfdr.de (Postfix) with ESMTPS id 595541C57BA
-	for <lists+clang-built-linux@lfdr.de>; Tue,  5 May 2020 16:01:47 +0200 (CEST)
-Received: by mail-lf1-x138.google.com with SMTP id l6sf658901lfk.2
-        for <lists+clang-built-linux@lfdr.de>; Tue, 05 May 2020 07:01:47 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588687307; cv=pass;
+Received: from mail-wm1-x33a.google.com (mail-wm1-x33a.google.com [IPv6:2a00:1450:4864:20::33a])
+	by mail.lfdr.de (Postfix) with ESMTPS id D51851C57BB
+	for <lists+clang-built-linux@lfdr.de>; Tue,  5 May 2020 16:01:57 +0200 (CEST)
+Received: by mail-wm1-x33a.google.com with SMTP id v23sf350715wmj.0
+        for <lists+clang-built-linux@lfdr.de>; Tue, 05 May 2020 07:01:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588687317; cv=pass;
         d=google.com; s=arc-20160816;
-        b=r/k/CYEiqxBUIwkWYYtC/sEL7ps4yIXqybGOFKq8uQaq1UFa6YM7sv07F3/zjV1A7C
-         4p6Fx8HmsOTnFR+igh3IL4UkMyVIqDW4H9kpHmHAcl/tD63kdB+r6QKXECc2/kgiympX
-         MshMzu0mELi1+4WKHPMC3fqaimVFrm3EtroZfYqakKx1yqY/ZPnpG1rvmcLtwUSlPNDR
-         Q6QIVukN2Ji3FtwQrHRQp+bfjJIN8FN0odPlM8lCKd8TpgXwXWKrQOL64PwwJLAq7NcB
-         icaXcdSuowL6d9ZXRV5015m+AE1m9s3NcRsQVAPKrtCz94Th4jr/omwII0aY/VZleaw3
-         cp/w==
+        b=mGm6iXaoJL8TdboNKT9PCktkSV3Z3O71mlR0/7UPXo89aT9qgoUNyZrNlWqv/Iq0fa
+         QnOvH90O9Er5dYrOh62TPE74AKQrsyeBs6+6F8kXJMJ1Jib5UvGUmAfw+ra6NZlMV7Cq
+         bfqQ3g+/bmP8DyuNESHNI33oKgu1fvtDI7BmeB+OcTaLrXoeKVIZdJgBcjJs+MNPvdGA
+         WI3Yiqvgab3HLL3ppOueI5y+y1x3C3N+na87VOmkTNQqEYNY3x2jsXLDuucaHbKW3CrC
+         NGyt5seImWr6eaGe9We3yf8akQ7aP0yAkQ+qxDZVpqQFMpvLEr+MNoOl6YcC/hrxs6Lb
+         tdqw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=Zvw3K0+/4VI/KEE4oioqu2OMTRBCLl0azuDtYYFqDQM=;
-        b=gG8b8fiD0Fiw9OjeeWaISLb0suHKMX/W15qcIAYVcMdJVCUgp9yC9ieR8n6SNHDkWf
-         /SkO773Cbu9zrNS3ZpUTgd+Ytcodbe0bHK1vEztIAaXCx+ByLLMEaIK6w4XKicuZgAtm
-         /bLxMiwIFFnpHwEU6eB9b0l5I+9cjyMyAxfIAPTZQCJKF2v5vLOyfR9qj0vOohw0gO8L
-         wuYhJHT1JD2Jdlklm2hvifow0BhabnFI2NfZZxGpaqyNx5pVzmxKP69il/hURJKblDDD
-         QgSu1FYOV7fEK8V4DGdmZntYHiV0xbE4cgfP1g3I32+UKuMQVGvpuF1v3+e+ocI+yaWQ
-         /xyA==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=TtVHiKdT8JdAexNtpXpGgM31TLUVVe33qZUAIKzxZ30=;
+        b=J9mElYk0qw6o2UcWW3T5BlGrauHR4Q3FkFGsLLcpnUPvtkqZroKTYY35byaE67sobs
+         fk8/b5jr2fYEh9XWjSRinCuJWMLk3+PNwFBtazdCzjMONTWW+8QJ1nRVR5DFEjl9o68u
+         Wn1JDUnQ01Qsm/tNgflEvUP8xM/XznEfkhryK//MHxDKUVfwaDWbWE1EGZlCiMlghixD
+         DJpvSL5L3Yl048zRzHFY/oOaw5fQ/i8Qaz7hHsVIpKKkHO0Vf7jo5SpiZe0P4BBMekyw
+         KY1XoLpDVWHj5agV7OYRGuMAu93a6RlSid7HynqNbWObgmdn2uXn4z+IlWvBxibyyB63
+         RUOg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.17.24 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+       spf=neutral (google.com: 91.189.89.112 is neither permitted nor denied by best guess record for domain of christian.brauner@ubuntu.com) smtp.mailfrom=christian.brauner@ubuntu.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Zvw3K0+/4VI/KEE4oioqu2OMTRBCLl0azuDtYYFqDQM=;
-        b=MByRLxqdpyLoxmEPbZCZ+lG94H90VD67/HXUfU4o64iSth+0SZGg7JFtubl+G8ssP8
-         HwA7dDwY4xUzTpzRSmKKa3jOQdny9JzwdH41YUqocfmguEDTjzOx+lgSlV5/AZDyrN2p
-         D96hOV2UpUGL5sxB7hgZiGoA6Hp8mkcxTdiDNBrYA2YcWNYKjIpqxfIr5qO+5FVetyA4
-         E0sJcrJBiiMiRfj/tVm7akbyp395esJ3rdyoi6DNvwDgK+OR0Fm57pttGLhRFKVC7T/Q
-         G+soW7AapP6ODkKaAJKbKY/X5pPrzkbCYj14rAvKqEs28uKifH/KmDCYpHjsehotAPrR
-         NXpg==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=TtVHiKdT8JdAexNtpXpGgM31TLUVVe33qZUAIKzxZ30=;
+        b=hNkLvsGZdfi87T9w/s3Bj3qMyIC71fp/IFRR+VjyW5KDmpuSs5XS53S8yfADIUqTrm
+         NFbply5VJB0A5XNDREup5wxcmCKaFoe30W2LwNQUUJrkHNAkfWrjowS1nESbMyTVP0qf
+         azC9Hr07CMGKoeuTmHAQvEcr3h5+ZI2k5uEQFiLHe/hHOIZ7ML2iWiVSr9ve3i2+w3ey
+         0IQQzykk2xm8lgi8IKBYXe12t46hMyytnsYZVdltB35Kz277yyzx5HLm4rGESGO170l+
+         VwTrEE/235RPBPYoqQ7WMAL1rhlrZYuAQD5O+W0cCPSMIGN3RZwkO3wqiUrZq63/tOPc
+         X3IA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Zvw3K0+/4VI/KEE4oioqu2OMTRBCLl0azuDtYYFqDQM=;
-        b=MHZ07JKzv5DCRbvauAhz8tWzwis7h895m7C34VOOHNKntrFS5MIolrNn1c2izIp3HN
-         IsFuPI9H1UBKI5WlxlYCfxADs+W9m/xEfjLK9Be0KrlLW8pgQU2gq25iwPmcd4mweg7G
-         3w9gYYa0EqdPuh0UGasAJbpp+EnyzUqqsY3kltfWiU0672mFQeU0j+QroBqZj3jl1jEM
-         GRBJ4YoiAKZKppfjpZBSGiqmk0tlKYCrFH9pvtpMia5mgK1551QGdbCECl4j6PJJotR4
-         p5PXC4wNG/Zrl4Tp7qY+zqLqZdUNBK6O1i2zeQlb7A1nPPbUPyOoIXd+owUYTBrWHvDV
-         K9KQ==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=TtVHiKdT8JdAexNtpXpGgM31TLUVVe33qZUAIKzxZ30=;
+        b=csCx3xlW6TV7meTRggtey+p1PB0eeEYdZaWa3ThTiVWxp5z9bDQVfMMaigxWiyL+Vv
+         mSWFK2sab7oxbUIiR8KXDX2XRCbRWutBrjYg1z9OErLIWT8X+q2t/SYy7TDk4JWGGWit
+         nF40GSe1bNbuTeETDDtEuAa0A7IynS3GdlY2DlRigpO90s+NLeXwSpUSwCrf81QKm3Pp
+         vlefrQcF4XxxMQ3HHTCfhDnvKP+NWkUrMy31aHUsRk55KJs49H1iZJhpQziRYSiwTSlU
+         /nPMDUwCxXWgQ732BW882+q8itmwlHQQErkYI3zs2gnnRfiXBtW2iHMrsGJFVNtgHVdd
+         yVSw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuY9V6pACrcbVyqucbaIygyFhezBt0pxO2jguxrRmNzrViMW/XVC
-	jvDvtKCG9qhAQT06iwl1Crc=
-X-Google-Smtp-Source: APiQypLLp8Kzw/SojHfLiAhSXl51+lG6JWTCeDrAISceKU2cZaaajTkvGVOCuGnHT02BrsLvXu+luQ==
-X-Received: by 2002:a19:c85:: with SMTP id 127mr1251482lfm.189.1588687306854;
-        Tue, 05 May 2020 07:01:46 -0700 (PDT)
+X-Gm-Message-State: AGi0Puada2+WFYb2KMKCJmX7vS2xMaYv1O7RUY2o2tMjyo858Wu/YorV
+	mrIkaAs0jmY6gn7f3I7H6Ok=
+X-Google-Smtp-Source: APiQypJX+vMngd1piFvLk2PU/rtktTIdLculkCCL0ZpB6GYeP2HfDy5bxuXLIcL8IvWdtgydO3ny6w==
+X-Received: by 2002:a7b:c642:: with SMTP id q2mr3671715wmk.41.1588687317622;
+        Tue, 05 May 2020 07:01:57 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:651c:2002:: with SMTP id s2ls371051ljo.3.gmail; Tue, 05
- May 2020 07:01:46 -0700 (PDT)
-X-Received: by 2002:adf:f146:: with SMTP id y6mr4203808wro.132.1588687306202;
-        Tue, 05 May 2020 07:01:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588687306; cv=none;
+Received: by 2002:a5d:618f:: with SMTP id j15ls4243331wru.3.gmail; Tue, 05 May
+ 2020 07:01:57 -0700 (PDT)
+X-Received: by 2002:adf:ea4d:: with SMTP id j13mr3923623wrn.193.1588687316880;
+        Tue, 05 May 2020 07:01:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588687316; cv=none;
         d=google.com; s=arc-20160816;
-        b=NAjdTr8qABconWBVuAX2d54GoIwyUtWp/Huo5bFqVNQGGuveEzxt8VsWSHm3KZ0OO1
-         SFVEvDZ9zboL1OkHT+uFfK8QCITE5Kkub3ecctKHEe23+lioXbknREtdqwH8tRuXhM6/
-         yt1bHk1C8Qs1jrhxojD6lYCRNJgoCaB/g/UnSPA5EpwYCAgXD3eSBAaqdvwJz5GrJfqC
-         A6uGUfX0YzjmLGjg7roQMfzDQmuE1CTN0Io9Fj2LByE+/JxIKFWxTLTXT4geKjmUxGNT
-         yjofLgRNCcM/wQ2PDsiXNNqHZHGO9J8pO4eCUqcJC17JwwtySEcdSg2A35YqGCYbZmVL
-         neWg==
+        b=aC3o5PZnAiGjCaBV8iP7c7pzCnc1lIIKLuet7k3ezxtJhr1XpY6i0zsXZiQSf1KMii
+         mMZ0GoKvypS8M5EvzB0BDobwWW8JNNtN0jzeITOjZnjky3GNZQAWIMKL69/4oyX1viS4
+         MtPloF29RqdzRsb+C56CqBooNnOHRrsNhct3OH/h8xEKoWk5QqZucHnLdJbXZfEn1cdK
+         3zFeZRtnnc8AarUkMU0od3mDCwVyYuLJRsuYm7ALqCWheCsCsZcR6Wa6RFnIBB64jErU
+         lamYakO9oZl/Cl1yieRWYsM3b+c7dMIOCMYt84GK7Y6HflIOa00vvv3Hrp+yuqsM5G0S
+         kd3A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from;
-        bh=YX0He1j+arifPy5MH3GoI1r5n9iuntEzfj0/NJYbAvk=;
-        b=MaFN4mxUGs6Nubmf/WW+w2t27fnqvgKww6imFXwX19UjaSyLP77Uh9YUdt2w9qmGtm
-         gtAAjKAj+pYsg/Qpby43leq9EMJvvaBbLI0K44T2nc5WYpa3kR/B2c4HgTazkZpag1Dw
-         z7O4APYTE0sITtJP/aP6hFx9f5UA2qop5N4EKkeWS2G9fG9Jj1RS0sdPzpPJzrZ56GmF
-         WS6BPF04hxWAabsrL60sSekoqpOPQ1yaGDYG9Ywuq6x/+AaZmQFppOVHYwgdgfaw36XW
-         tUFnAr0xoK+zxTLDkmIWJ8/huSKokJLZL3238j8U2Cr9V2kfq9e3GaP8o3lBu0uhA1ZN
-         Kqwg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date;
+        bh=DTat+pRGQPIO6iCi9StJBz1SO0+o3ev/dSXPpyoQKEU=;
+        b=SiDe9Qf3KvKf0WlnQ+DmwSc5OL3bIdrH7CzDgBkUAE5nm36IrLADTswarjY4/VlKbV
+         Cd7lL0tRN6PYNKuodfiTjWe23Ceq85p3Ojif1WCvyNrX1MlXZ4dq9+zyN0k31tSxAOJz
+         xbjVdOq3dBoEXKD3tPH/VSDXphTrn3qH4hGZolzi8qM7hnZOq+dpmZ10tXlCG16z5sOU
+         /Kb99xyetR3AzHmLAOiofEZzwcWPz9jElWg62HD8ppayyJf//9zVm1imsxowocZnBM8J
+         xtmn6lTFwbrG5l4yGRlGbYfQQXWlQD7vUk7EgPUda9nEKJRcNKlvtPNI0Tgh0I9BAUwD
+         8AOQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.17.24 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
-Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.17.24])
-        by gmr-mx.google.com with ESMTPS id h8si97221wro.3.2020.05.05.07.01.46
+       spf=neutral (google.com: 91.189.89.112 is neither permitted nor denied by best guess record for domain of christian.brauner@ubuntu.com) smtp.mailfrom=christian.brauner@ubuntu.com
+Received: from youngberry.canonical.com (youngberry.canonical.com. [91.189.89.112])
+        by gmr-mx.google.com with ESMTPS id h8si97273wro.3.2020.05.05.07.01.56
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 05 May 2020 07:01:46 -0700 (PDT)
-Received-SPF: neutral (google.com: 212.227.17.24 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.17.24;
-Received: from localhost.localdomain ([149.172.19.189]) by
- mrelayeu.kundenserver.de (mreue106 [212.227.15.145]) with ESMTPA (Nemesis) id
- 1MuDsZ-1jHTUl1QxZ-00uWRX; Tue, 05 May 2020 16:01:38 +0200
-From: Arnd Bergmann <arnd@arndb.de>
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Vincenzo Aliberti <vincenzo.aliberti@gmail.com>,
-	Brian Norris <computersforpeace@gmail.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Richard Fontana <rfontana@redhat.com>,
-	linux-mtd@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
+        Tue, 05 May 2020 07:01:56 -0700 (PDT)
+Received-SPF: neutral (google.com: 91.189.89.112 is neither permitted nor denied by best guess record for domain of christian.brauner@ubuntu.com) client-ip=91.189.89.112;
+Received: from ip5f5af183.dynamic.kabel-deutschland.de ([95.90.241.131] helo=wittgenstein)
+	by youngberry.canonical.com with esmtpsa (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128)
+	(Exim 4.86_2)
+	(envelope-from <christian.brauner@ubuntu.com>)
+	id 1jVy8s-0000gm-PM; Tue, 05 May 2020 14:01:50 +0000
+Date: Tue, 5 May 2020 16:01:49 +0200
+From: Christian Brauner <christian.brauner@ubuntu.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Josh Poimboeuf <jpoimboe@redhat.com>, linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH] mtd: lpddr: fix excessive stack usage with clang
-Date: Tue,  5 May 2020 16:01:16 +0200
-Message-Id: <20200505140136.263461-1-arnd@arndb.de>
-X-Mailer: git-send-email 2.26.0
+Subject: Re: [PATCH] bitops: avoid clang shift-count-overflow warnings
+Message-ID: <20200505140149.lyru5h2zxmkozn75@wittgenstein>
+References: <20200505135513.65265-1-arnd@arndb.de>
 MIME-Version: 1.0
-X-Provags-ID: V03:K1:iaIPMXhwT+Ozi6/EpaDCzPQ6tOZ0YRFJlPmWlpkMXIOGy4GtadE
- 2Z+LvOLt48OWBL8tlphxtGjgLmEv5xt9TTGL54IbLKq9dBjrTyohtYUyJgkuQXyGFBJuxzc
- 6osWPaVYP906+AjTqqJo7C8bulY+GI4nc8qQYAYy/TF4rtBahP77hmt5uWz15rbdppHrlZ1
- d2CaYJdcLUkSTeHBRS/3Q==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:ZKEdyWcVvbU=:zYkDpW+KkqOFvxVL4/YtNm
- 9RlRgywDUlI6jWeDBe9CgT6v4zfsrTYQx9nUJBpcgMa1WwlbhNH+MYM8vGwR6zecGtm/xoqH2
- GsLnyQytBgbIyv6dibT0Un4WucwiF1kgU2Dw2cCbkBmHF2tjhxBI1lsyZZcEiBD09JW539gOy
- B2DwwiGt1ARK+9SXIGsEAEh/R4IhX9XWgvR3/35YJc0+0NiOXuEevJPbDmMS8WNwc0iKCO9C5
- 6QhAnXFNVGfRuDv5FZGzYGq1d8Yf1MgAJpylYydDSflY3PSaUuIBavOTvq+0YJ+4Uhj/SO49J
- UBhgVHGa/th64j4rCrhZ2puCZZRSXmLFg1gurJYVTVUbMWxbdPeywDtaNPLrkjcuNRPCPbGDs
- vahrHJP9tGpIZDhp3cTatj9www2/VrSG9bezmcdCY3Y6Gjra81B5tzJi+z2tAejKO1bdoA3eI
- e1kEvWTFqJEkgRbRM3yBGP/J8iEEZH65eUbaVpoZk+AGWV4nGA6/ZWhMSlWD7yqcsssVz2ptK
- B7gazvUT31WlAJwYWPU9u7mwAGttdJvPMtZF7g0bblT46ydiDoBAVjVhqi7sZa7slRw+3fZsC
- WRAE6KxqjAB8rH2pGfvGJnmF7UWlfIQdNI1mjjmhWNhm7ICV+BONcVnpj9zM6Xc1kYGTTGl7x
- sJAk9yh9Fs1AaW+O1fOfFjnW2ApxftOdLkAAFVc8y0JbZUhaNykwjJcIwTo/dL10KVPoOT+pO
- shuX5bITpPs9W9S0y3YkJIJTkHW4N90ZNkF2DuTyr5DP1JtiKLCL85NbGDKIEN+S/a35DRqdA
- T2TdfwELWOQHqK+OeflGC5Bo4P0y9AgaidrVeSz5sZp+KV3yWk=
-X-Original-Sender: arnd@arndb.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 212.227.17.24 is neither permitted nor denied by best guess
- record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20200505135513.65265-1-arnd@arndb.de>
+X-Original-Sender: christian.brauner@ubuntu.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 91.189.89.112 is neither permitted nor denied by best guess
+ record for domain of christian.brauner@ubuntu.com) smtp.mailfrom=christian.brauner@ubuntu.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -144,89 +128,39 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Building lpddr2_nvm with clang can result in a giant stack usage
-in one function:
+On Tue, May 05, 2020 at 03:54:57PM +0200, Arnd Bergmann wrote:
+> Clang normally does not warn about certain issues in inline functions when
+> it only happens in an eliminated code path. However if something else
+> goes wrong, it does tend to complain about the definition of hweight_long()
+> on 32-bit targets:
+> 
+> include/linux/bitops.h:75:41: error: shift count >= width of type [-Werror,-Wshift-count-overflow]
+>         return sizeof(w) == 4 ? hweight32(w) : hweight64(w);
+>                                                ^~~~~~~~~~~~
+> include/asm-generic/bitops/const_hweight.h:29:49: note: expanded from macro 'hweight64'
+>  define hweight64(w) (__builtin_constant_p(w) ? __const_hweight64(w) : __arch_hweight64(w))
+>                                                 ^~~~~~~~~~~~~~~~~~~~
+> include/asm-generic/bitops/const_hweight.h:21:76: note: expanded from macro '__const_hweight64'
+>  define __const_hweight64(w) (__const_hweight32(w) + __const_hweight32((w) >> 32))
+>                                                                            ^  ~~
+> include/asm-generic/bitops/const_hweight.h:20:49: note: expanded from macro '__const_hweight32'
+>  define __const_hweight32(w) (__const_hweight16(w) + __const_hweight16((w) >> 16))
+>                                                 ^
+> include/asm-generic/bitops/const_hweight.h:19:72: note: expanded from macro '__const_hweight16'
+>  define __const_hweight16(w) (__const_hweight8(w)  + __const_hweight8((w)  >> 8 ))
+>                                                                        ^
+> include/asm-generic/bitops/const_hweight.h:12:9: note: expanded from macro '__const_hweight8'
+>           (!!((w) & (1ULL << 2))) +     \
+> 
+> Adding an explicit cast to __u64 avoids that warning and makes it easier
+> to read other output.
+> 
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
 
-drivers/mtd/lpddr/lpddr2_nvm.c:399:12: error: stack frame size of 1144 bytes in function 'lpddr2_nvm_probe' [-Werror,-Wframe-larger-than=]
-
-The problem is that clang decides to build a copy of the mtd_info
-structure on the stack and then do a memcpy() into the actual version. It
-shouldn't really do it that way, but it's not strictly a bug either.
-
-As a workaround, use a static const version of the structure to assign
-most of the members upfront and then only set the few members that
-require runtime knowledge at probe time.
-
-Fixes: 96ba9dd65788 ("mtd: lpddr: add driver for LPDDR2-NVM PCM memories")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- drivers/mtd/lpddr/lpddr2_nvm.c | 35 ++++++++++++++++++----------------
- 1 file changed, 19 insertions(+), 16 deletions(-)
-
-diff --git a/drivers/mtd/lpddr/lpddr2_nvm.c b/drivers/mtd/lpddr/lpddr2_nvm.c
-index 0f1547f09d08..72f5c7b30079 100644
---- a/drivers/mtd/lpddr/lpddr2_nvm.c
-+++ b/drivers/mtd/lpddr/lpddr2_nvm.c
-@@ -393,6 +393,17 @@ static int lpddr2_nvm_lock(struct mtd_info *mtd, loff_t start_add,
- 	return lpddr2_nvm_do_block_op(mtd, start_add, len, LPDDR2_NVM_LOCK);
- }
- 
-+static const struct mtd_info lpddr2_nvm_mtd_info = {
-+	.type		= MTD_RAM,
-+	.writesize	= 1,
-+	.flags		= (MTD_CAP_NVRAM | MTD_POWERUP_LOCK),
-+	._read		= lpddr2_nvm_read,
-+	._write		= lpddr2_nvm_write,
-+	._erase		= lpddr2_nvm_erase,
-+	._unlock	= lpddr2_nvm_unlock,
-+	._lock		= lpddr2_nvm_lock,
-+};
-+
- /*
-  * lpddr2_nvm driver probe method
-  */
-@@ -433,6 +444,7 @@ static int lpddr2_nvm_probe(struct platform_device *pdev)
- 		.pfow_base	= OW_BASE_ADDRESS,
- 		.fldrv_priv	= pcm_data,
- 	};
-+
- 	if (IS_ERR(map->virt))
- 		return PTR_ERR(map->virt);
- 
-@@ -444,22 +456,13 @@ static int lpddr2_nvm_probe(struct platform_device *pdev)
- 		return PTR_ERR(pcm_data->ctl_regs);
- 
- 	/* Populate mtd_info data structure */
--	*mtd = (struct mtd_info) {
--		.dev		= { .parent = &pdev->dev },
--		.name		= pdev->dev.init_name,
--		.type		= MTD_RAM,
--		.priv		= map,
--		.size		= resource_size(add_range),
--		.erasesize	= ERASE_BLOCKSIZE * pcm_data->bus_width,
--		.writesize	= 1,
--		.writebufsize	= WRITE_BUFFSIZE * pcm_data->bus_width,
--		.flags		= (MTD_CAP_NVRAM | MTD_POWERUP_LOCK),
--		._read		= lpddr2_nvm_read,
--		._write		= lpddr2_nvm_write,
--		._erase		= lpddr2_nvm_erase,
--		._unlock	= lpddr2_nvm_unlock,
--		._lock		= lpddr2_nvm_lock,
--	};
-+	*mtd = lpddr2_nvm_mtd_info;
-+	mtd->dev.parent		= &pdev->dev;
-+	mtd->name		= pdev->dev.init_name;
-+	mtd->priv		= map;
-+	mtd->size		= resource_size(add_range);
-+	mtd->erasesize		= ERASE_BLOCKSIZE * pcm_data->bus_width;
-+	mtd->writebufsize	= WRITE_BUFFSIZE * pcm_data->bus_width;
- 
- 	/* Verify the presence of the device looking for PFOW string */
- 	if (!lpddr2_nvm_pfow_present(map)) {
--- 
-2.26.0
+Acked-by: Christian Brauner <christian.brauner@ubuntu.com>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200505140136.263461-1-arnd%40arndb.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200505140149.lyru5h2zxmkozn75%40wittgenstein.
