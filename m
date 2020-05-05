@@ -1,131 +1,152 @@
-Return-Path: <clang-built-linux+bncBCLI747UVAFRB24OY72QKGQENZFJDIY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCR6PUHQH4IMDGGH6UCRUBCDP7Z6E@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13e.google.com (mail-il1-x13e.google.com [IPv6:2607:f8b0:4864:20::13e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3628A1C6193
-	for <lists+clang-built-linux@lfdr.de>; Tue,  5 May 2020 22:07:08 +0200 (CEST)
-Received: by mail-il1-x13e.google.com with SMTP id z18sf4000904ilp.16
-        for <lists+clang-built-linux@lfdr.de>; Tue, 05 May 2020 13:07:08 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588709227; cv=pass;
+Received: from mail-vs1-xe37.google.com (mail-vs1-xe37.google.com [IPv6:2607:f8b0:4864:20::e37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 28A5E1C6200
+	for <lists+clang-built-linux@lfdr.de>; Tue,  5 May 2020 22:27:47 +0200 (CEST)
+Received: by mail-vs1-xe37.google.com with SMTP id v1sf941698vsi.17
+        for <lists+clang-built-linux@lfdr.de>; Tue, 05 May 2020 13:27:47 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588710466; cv=pass;
         d=google.com; s=arc-20160816;
-        b=w+sqvUjty5oAi56KtecQs4k8VSSNXS3jwJUQ/bABa2SWk6bbK1/qUNsmLK8dbtYWSp
-         OR5A/1+8Gq52vAGkHkNmnn5Z0ejVHCZwxc0XDvSGnHslO9m+GiG+hfLvOwhIEBPlXNFj
-         qHZxYOl8qCjcZtWIUM8d07vWazY13Qwvh5tJTP8Um0ljVXjN8quWLOwaVbBaeucFqQTr
-         h8c++wTRcwtX4OWi77LgFKimseGrMPmirwvAsglVyhkGMMbWP74hN9USUmNYWuodfAal
-         oShi43xY/asAlZY2tDCLuKx/p1I5NaNDxk0gUjuvMNWDX5LLjAz1go8IR4Kd0c4yW8vD
-         dtkg==
+        b=H/IcttuWflt389gwlFmEgDjcwife47AW00hJyFAyow5yE6DTqMxp91dwkdATQdNb5/
+         /51MVmKqiD4aLg8FT21hSsjzsBEJJvaRdApu4vn0DZePeYh/AMmBCStat7wPcE66eFEN
+         UF03D8y+jcJPlvwVSMMPQdMtmzCjraWZonP9fWh6b+XyjZIaKkPno6UI6POh5A0o4SCP
+         5j/7Avzcka/KfJ21eV9+AsCV2kXG62K+zaTSTVJbkzGhqfMfPIyEgwcQcNqBMHeKZYCW
+         ItQzydlsTHODUedxxjcYhrUcEKLyq4pBIDs5qQ5ZfXXvzzGMX/i9LmomyX8zDZlO3tOR
+         0iqA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=1f3HqR5JaHsfLiXCZ5esW4STfyQoIEDhpIKLjhntiSI=;
-        b=Ukul9AakY/SuYlTTmAvNcvrslfq3BRfUUW64wiuaDyPqPYB2kW2Tf5ZLtDIAIeAM+F
-         uRK7jxO/AEMhovHzM42HcRlxS0naKBKZFm43TfSCVpfNoJcIBBToTlenVASlHcVvqv/P
-         19rSiHKPLvR+zooPZMnYShEdanWsQd/4niyn/PTRleMn0FV13BXaj9Yid4JvAtAjSrf+
-         TkZ4sLB6S5WH9oZquHiak1asBi6cB2LyuPJBXiqS1L/FeVkp3lGzVMdFOhso+DCAfJ8j
-         Ee78HVmnI7aX7h6Ea2E2RygnfNtjlVrrwwCI6OXnTNN9J4jxnkmCZhCl5ZjDVKOA0vVH
-         Rh/Q==
+         :list-id:mailing-list:precedence:thread-index:thread-topic
+         :mime-version:subject:references:in-reply-to:message-id:cc:to:from
+         :date:dkim-filter:sender:dkim-signature;
+        bh=lAvfeOKlaeIJbbYSo7O/IbA17FTMtq9hdQv+nbhvtpo=;
+        b=idXBUU7H3WoU5VAlymDNalp86/DI2EV65s7jsppNfIvTJR8Z0pTCFmd0HTct77koJY
+         DN7wQjJZ+8h/QLK6vDLTFOoylVvLO3oZJbTzPcQ0IVL30Oie991s+fx8creDMPkSbKkx
+         dGhLMtnYkIK8XFlS7MqKjcU326PlbvsDC2vTp7ZznB+LHDDJI5fzPO6MdCOa6c3TTKQ1
+         /WRGKNsv7jBNj6o6sCvne6ZtsiGuiPpvLYQxLSQyT4xZJprsPCWL+apm6Cfh7es8Hk2J
+         dIXSLaOcfoGrEqtU9jepBK+hWvcYtsg2CTQEeWDgZKBbYNG2ig6+pD4mABuoco/TiKtt
+         ShcQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@zx2c4.com header.s=mail header.b=RIT+d+kY;
-       spf=pass (google.com: domain of jason@zx2c4.com designates 192.95.5.64 as permitted sender) smtp.mailfrom=Jason@zx2c4.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=zx2c4.com
+       dkim=pass header.i=@efficios.com header.s=default header.b=Lp4rHoS4;
+       spf=pass (google.com: domain of compudj@efficios.com designates 167.114.26.124 as permitted sender) smtp.mailfrom=compudj@efficios.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=efficios.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:dkim-filter:date:from:to:cc:message-id:in-reply-to
+         :references:subject:mime-version:thread-topic:thread-index
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=1f3HqR5JaHsfLiXCZ5esW4STfyQoIEDhpIKLjhntiSI=;
-        b=LwC+nWJyCB+M5zbz4VkmqhRcgIKSSOEF/6HHETlqaSXB1jw/YAvBRD2r0nJPDuNo+f
-         h+LUmLjnhdovsUbqg6xj6Xg11Yqd5ZQNwC7WaShuULu5IDYLdS4+Ij39kbJQDbK/Lcjb
-         4XXfK7fo9QZzkXMK2FUVfWx1YYrlcdegaBIhC4QBeGYocXrth/cNUU/WNoMXXujMPsdE
-         QKkOcvlkPmtl0X/UVANBbDw7ZVmb6kC1K8Uyp7kk/+s9sKbk3Ctc80rtRjs3Cj8ekoov
-         gJPhbMSVInNuLheXFv67ro3/YzcBD/SKVBbFPNHZVqJtwBUMNCS2jNPJ6LtlO/z68ase
-         ujsA==
+        bh=lAvfeOKlaeIJbbYSo7O/IbA17FTMtq9hdQv+nbhvtpo=;
+        b=XLd3ZNbY/ULOMiMz8CrMdogiHsX1+UoAFl9FiXHt/IN7X/QDm0KnxVAiSIE3nN63/a
+         qzqygqchX5xpSCvGmcSn4Sr8DmdDJKid320WWhe4Kh53/l6Ldl0Urh9NfKO9VPf7MhCV
+         qeFSECTpIG66lcZE7kqUIbhKLbtZJUBQ6MiKtwWe3xytMdoPC2l7AfXvCwtztELr/A8A
+         w3LzX/rXdDrxlXILZ7aoQzS8LA8y3fNZQzb0LaQxMy5TTk/+e5r8vn3hvFoHSaNATwlS
+         fmdE1H4DPtwxYSrzwtKX1qBdBhb9FWPpybdSnO+yAzZMEllBcmNbSPS+kmeT6lTVVF5r
+         REIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=1f3HqR5JaHsfLiXCZ5esW4STfyQoIEDhpIKLjhntiSI=;
-        b=deXe0JIVAgavMYIat0eZ8mkF1DanbuJOmaJCDHI/GLTCFSmafUMg94W+Kddp1mo80L
-         FgvYhAytURzC7OKnXt/4hz3wRGU33NdOzXLscsA8MlxuwmKGliEXLrTCgedSocFYNLCq
-         EQzFQCwCBb0z7NpP2bLMlu1N0GrXCDhG+dtQrBWRZCKNlvseqx3MKMkkhgFylL70yFNF
-         v2KaMuGdu/gvnKHgiOtlS3dIHgEKudER4oAvKws6vIUOGLDmh/8FpCPsl6DtHagUXBuv
-         siOf7BjWEXr+zUmPSgGSBkqZu5XqcxMsuliC2bCG8APCW4wkxQ0EYTlQzjTeTOH8QhCA
-         bXgA==
+        h=sender:x-gm-message-state:dkim-filter:date:from:to:cc:message-id
+         :in-reply-to:references:subject:mime-version:thread-topic
+         :thread-index:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=lAvfeOKlaeIJbbYSo7O/IbA17FTMtq9hdQv+nbhvtpo=;
+        b=p5JukkPcQ1Fc0IJ7dWSzQiEK9kPy4Uzr1BMvPb73VBMVnCKAGddmr8OQBiGh0Vnv59
+         aJE3AjY4SGUQX1KPSv72KD84qR9MrmZnhzgUSVecSWXfubXPccB7ABCzRNhkkAl4cxk2
+         VVP2xGpDAhboDNV6NjObeQi6pCPBqVxrfwQKKKEBZzJpbaomNGy/+kmuE1HsvtCIzZ6L
+         IIzdvYH6MmR+VTHBfpSfXlmx1MQfxK2Ua9YhUoYSblBtSMqSIxNPETWhRh0TRyeOGfVW
+         W/8b6plvrS+8BLGaeaFL/xB/fA7OMNSsK35XDVZbhEpG5LSBFFCmpZOSLOc3Qc4WM86p
+         KUWQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuYKHrd/UaPYzYRxnDtAGUHT+Jp6Yu0WkENfyMcowAih/TlWInQd
-	4wJgVh+alUJZBokSLlUnjeM=
-X-Google-Smtp-Source: APiQypITw1j6AmF280opEbSmzFxmr/UGTeK2WUlei2kGgUe2OO/A3Bbo0Mxb6qoQrArn+dGKThqCjQ==
-X-Received: by 2002:a92:5b42:: with SMTP id p63mr1727341ilb.112.1588709227173;
-        Tue, 05 May 2020 13:07:07 -0700 (PDT)
+X-Gm-Message-State: AGi0PuZeMf86301SDnoykDnVBOcaCqlXlyyzFKG06HxlxIFnQDT0Gl75
+	POpCMvuYL4K/lKes6x7wMdw=
+X-Google-Smtp-Source: APiQypJND3jaXMFeDcH/DB4NZszX1ZxJ5ESNuEX2evVihyGoOZnLKQkJMnCmN7f+rdpfgQbiQbnChg==
+X-Received: by 2002:a1f:a009:: with SMTP id j9mr4458371vke.60.1588710465997;
+        Tue, 05 May 2020 13:27:45 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a02:3007:: with SMTP id q7ls863254jaq.4.gmail; Tue, 05 May
- 2020 13:07:06 -0700 (PDT)
-X-Received: by 2002:aa7:8118:: with SMTP id b24mr4724087pfi.321.1588709226668;
-        Tue, 05 May 2020 13:07:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588709226; cv=none;
+Received: by 2002:a67:f316:: with SMTP id p22ls634904vsf.1.gmail; Tue, 05 May
+ 2020 13:27:45 -0700 (PDT)
+X-Received: by 2002:a67:6cc3:: with SMTP id h186mr4751573vsc.78.1588710465502;
+        Tue, 05 May 2020 13:27:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588710465; cv=none;
         d=google.com; s=arc-20160816;
-        b=FB9Acw7Q/VwtPwUDDrpppZVgUKly4p0GThJG1dG4jGS4aeBgslbysUoFtH/cAKE5c3
-         3MtBahtbFlh2U6u8dxTlme1br228T889DcXEn+xS6Q35sLdYvEbGNqFnX2O+TT9c16Vi
-         lNpqIUcbeU+OMrZCJvwAXPB9Ge7p1CXN45KElDZmRNBtAG9gpeR9lX9S+h6WJEEto7yt
-         qUEA+im8prVwyNEDqtOBrgp7ZbYAjIwrGYWJ/5YC8gdCfcPaQmJOc8jRDbx58wO4Cfcg
-         Dj5t363n7ar66DVKEtXoxGckzeMlUYoVJrz+cLw9B0CCOzJM6Lfjk4chtjlCRC25R82U
-         DvCA==
+        b=ByY+nmIdjY16xvdiQU+CBwPBkObK+frFm/7VFmDE38WF/fiD9frM+3g8i+rTyGdhQD
+         6pQDOpmpPZdOplueiPz7zJ0WCmcMvTgVJL4V6DKmlJf8aIN12Mc8z+QcgaHK20mW2mMv
+         k076dSyr/sjDnjPqSm7uYq5cl9QoTAAwfRNG6LBMkl3JA3q0J5ey2Ghssu6t2kjcGz0G
+         JDRpJlzvlrqz66zj1D0I5UNan++skctJ5WNaBWusUNcoJtpy9kfCMcn80sf2v8QOaDOv
+         qFKcU4ONiNct+YeC1OgqXIq+zKt1p+aAADECemokyNvENByOa2Brwn5EPQxb46uBOcGJ
+         Zy2Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=mhzC5b26/10DWlTedHgwrD0egt/y8/a+V6hvfEr4knM=;
-        b=yBGxe8V7Px6hcO02C7dUgVf89eouc9w+38HHbRvLhgcdMxDMvsuLcLgJ/Dy9hWgHir
-         ogFKL9vE8HArvDZc3lCIQ+Yu0ITz42GuPauqYLBgJmISsffKdb3+TUcfcvurejGVIC+Q
-         2jgSWp6G/d+QuQNtdRrymZKRALgjznzi8HYXC+czfV3TOhxV2MNA9xJDs0To+1yIXKW9
-         XE2HKjUlij/xlrVzjlXIkQu/48jXv6AtzCsPJYblNFObb9JMzrveqPmIPp/volwK+bVB
-         +zD2aezZCk1Ntb5ZyVcAQuC9V5MRU6iJ9Um9pLDxNouFkjAex3ugpiDeM+uZJugELIzN
-         e/LQ==
+        h=thread-index:thread-topic:content-transfer-encoding:mime-version
+         :subject:references:in-reply-to:message-id:cc:to:from:date
+         :dkim-signature:dkim-filter;
+        bh=GrEmWaFbMd1zFTo9Cuyp79HV+BYqRIRTCdvEBTTf208=;
+        b=pxhP/LTWyjVLVGR/dO1jhtL7KQ5kjnRbgkCbSVkvOhXUpdnDmowC8O3P4b3xBiX7IE
+         /LTAF6Sna77iHtlGuZ/4sIyBOPaHX4dWB23nFO3jmfLSMJnkUaXcP/dIvpYSkpbnNuwW
+         MFVIpcmcRyTPGCr+dY2PKkVr16g5Sz5S2aL40P3mXtiyvJMqp0UqTxYai2cOplaiOCl9
+         VoGJrnp9A/f1qMPjbs2uR3iSX1/+WqoAySQdmOihdsR1nirnRafUYTTlcT7el/s7dFvg
+         j9ITTp0jcNSYCyVHMPcW09ago6ZOwZh7e0D2qlpNRvnfa7qQBpnZZygqighk+6Agqbdz
+         rhLQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@zx2c4.com header.s=mail header.b=RIT+d+kY;
-       spf=pass (google.com: domain of jason@zx2c4.com designates 192.95.5.64 as permitted sender) smtp.mailfrom=Jason@zx2c4.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=zx2c4.com
-Received: from mail.zx2c4.com (mail.zx2c4.com. [192.95.5.64])
-        by gmr-mx.google.com with ESMTPS id t141si196179pfc.5.2020.05.05.13.07.06
+       dkim=pass header.i=@efficios.com header.s=default header.b=Lp4rHoS4;
+       spf=pass (google.com: domain of compudj@efficios.com designates 167.114.26.124 as permitted sender) smtp.mailfrom=compudj@efficios.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=efficios.com
+Received: from mail.efficios.com (mail.efficios.com. [167.114.26.124])
+        by gmr-mx.google.com with ESMTPS id i21si248474vkp.5.2020.05.05.13.27.45
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 May 2020 13:07:06 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jason@zx2c4.com designates 192.95.5.64 as permitted sender) client-ip=192.95.5.64;
-Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTP id 0d535073
-	for <clang-built-linux@googlegroups.com>;
-	Tue, 5 May 2020 19:54:30 +0000 (UTC)
-Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id e8b82927 (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO)
-	for <clang-built-linux@googlegroups.com>;
-	Tue, 5 May 2020 19:54:30 +0000 (UTC)
-Received: by mail-il1-f175.google.com with SMTP id e8so3511143ilm.7
-        for <clang-built-linux@googlegroups.com>; Tue, 05 May 2020 13:07:04 -0700 (PDT)
-X-Received: by 2002:a92:5c82:: with SMTP id d2mr5605707ilg.231.1588709223915;
- Tue, 05 May 2020 13:07:03 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200505141327.746184-1-arnd@arndb.de>
-In-Reply-To: <20200505141327.746184-1-arnd@arndb.de>
-From: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Date: Tue, 5 May 2020 14:06:52 -0600
-X-Gmail-Original-Message-ID: <CAHmME9oTO7DiWCXoeCBjmPOBMoZQ2hUhHjZ4_oi-nVP_9pRpSg@mail.gmail.com>
-Message-ID: <CAHmME9oTO7DiWCXoeCBjmPOBMoZQ2hUhHjZ4_oi-nVP_9pRpSg@mail.gmail.com>
-Subject: Re: [PATCH] net: wireguard: avoid unused variable warning
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: "David S. Miller" <davem@davemloft.net>, Greg KH <gregkh@linuxfoundation.org>, 
-	Herbert Xu <herbert@gondor.apana.org.au>, 
-	Linux Crypto Mailing List <linux-crypto@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	Netdev <netdev@vger.kernel.org>, WireGuard mailing list <wireguard@lists.zx2c4.com>, 
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 05 May 2020 13:27:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of compudj@efficios.com designates 167.114.26.124 as permitted sender) client-ip=167.114.26.124;
+Received: from localhost (localhost [127.0.0.1])
+	by mail.efficios.com (Postfix) with ESMTP id C60762A228A;
+	Tue,  5 May 2020 16:27:44 -0400 (EDT)
+Received: from mail.efficios.com ([127.0.0.1])
+	by localhost (mail03.efficios.com [127.0.0.1]) (amavisd-new, port 10032)
+	with ESMTP id 4EYqnJQ3nAPy; Tue,  5 May 2020 16:27:44 -0400 (EDT)
+Received: from localhost (localhost [127.0.0.1])
+	by mail.efficios.com (Postfix) with ESMTP id 508502A2289;
+	Tue,  5 May 2020 16:27:44 -0400 (EDT)
+DKIM-Filter: OpenDKIM Filter v2.10.3 mail.efficios.com 508502A2289
+X-Virus-Scanned: amavisd-new at efficios.com
+Received: from mail.efficios.com ([127.0.0.1])
+	by localhost (mail03.efficios.com [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id cCHThXy3vm1O; Tue,  5 May 2020 16:27:44 -0400 (EDT)
+Received: from mail03.efficios.com (mail03.efficios.com [167.114.26.124])
+	by mail.efficios.com (Postfix) with ESMTP id 3CBD72A213F;
+	Tue,  5 May 2020 16:27:44 -0400 (EDT)
+Date: Tue, 5 May 2020 16:27:44 -0400 (EDT)
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+To: ndesaulniers <ndesaulniers@google.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
+	Peter Zijlstra <peterz@infradead.org>, 
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>, x86 <x86@kernel.org>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, 
+	rostedt <rostedt@goodmis.org>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, bristot <bristot@redhat.com>, 
+	jbaron <jbaron@akamai.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Ingo Molnar <mingo@kernel.org>, Nadav Amit <namit@vmware.com>, 
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
+	Ard Biesheuvel <ard.biesheuvel@linaro.org>, 
+	Josh Poimboeuf <jpoimboe@redhat.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, "H.J. Lu" <hjl.tools@gmail.com>, 
 	clang-built-linux <clang-built-linux@googlegroups.com>
+Message-ID: <470458191.1021.1588710464160.JavaMail.zimbra@efficios.com>
+In-Reply-To: <CAKwvOdnLze0e3Vwmb1Xdqwcwe9h6gnAwGnt3ksiNX7ENb_3Y9w@mail.gmail.com>
+References: <20200501202849.647891881@infradead.org> <20200504201445.GQ3762@hirez.programming.kicks-ass.net> <20200505093625.GE5298@hirez.programming.kicks-ass.net> <CAKwvOd=cP8UCX0+5pZ3AqzvOM8LKzLJJ_heDhrghqJdOnHoGMg@mail.gmail.com> <CAKwvOdkL+2Gvn2mkZ8cdHN=1F5cHQHii57ocD0RFeLJxEt=TUQ@mail.gmail.com> <CAHk-=wiUd=fcpegFLK4VK9iFfrO5BmpGKDszGpuyJkDdz4JaoQ@mail.gmail.com> <656098739.766.1588705237442.JavaMail.zimbra@efficios.com> <CAKwvOdnLze0e3Vwmb1Xdqwcwe9h6gnAwGnt3ksiNX7ENb_3Y9w@mail.gmail.com>
+Subject: Re: [PATCH v4 14/18] static_call: Add static_cond_call()
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: jason@zx2c4.com
+X-Originating-IP: [167.114.26.124]
+X-Mailer: Zimbra 8.8.15_GA_3928 (ZimbraWebClient - FF75 (Linux)/8.8.15_GA_3928)
+Thread-Topic: static_call: Add static_cond_call()
+Thread-Index: LKX/yK89nuESaon3x7N5kSfc1EEjRQ==
+X-Original-Sender: mathieu.desnoyers@efficios.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@zx2c4.com header.s=mail header.b=RIT+d+kY;       spf=pass
- (google.com: domain of jason@zx2c4.com designates 192.95.5.64 as permitted
- sender) smtp.mailfrom=Jason@zx2c4.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=zx2c4.com
+ header.i=@efficios.com header.s=default header.b=Lp4rHoS4;       spf=pass
+ (google.com: domain of compudj@efficios.com designates 167.114.26.124 as
+ permitted sender) smtp.mailfrom=compudj@efficios.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=efficios.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,38 +159,68 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, May 5, 2020 at 8:13 AM Arnd Bergmann <arnd@arndb.de> wrote:
->
-> clang points out a harmless use of uninitialized variables that
-> get passed into a local function but are ignored there:
->
-> In file included from drivers/net/wireguard/ratelimiter.c:223:
-> drivers/net/wireguard/selftest/ratelimiter.c:173:34: error: variable 'skb6' is uninitialized when used here [-Werror,-Wuninitialized]
->                 ret = timings_test(skb4, hdr4, skb6, hdr6, &test_count);
->                                                ^~~~
-> drivers/net/wireguard/selftest/ratelimiter.c:123:29: note: initialize the variable 'skb6' to silence this warning
->         struct sk_buff *skb4, *skb6;
->                                    ^
->                                     = NULL
-> drivers/net/wireguard/selftest/ratelimiter.c:173:40: error: variable 'hdr6' is uninitialized when used here [-Werror,-Wuninitialized]
->                 ret = timings_test(skb4, hdr4, skb6, hdr6, &test_count);
->                                                      ^~~~
-> drivers/net/wireguard/selftest/ratelimiter.c:125:22: note: initialize the variable 'hdr6' to silence this warning
->         struct ipv6hdr *hdr6;
->                             ^
+----- On May 5, 2020, at 3:57 PM, ndesaulniers ndesaulniers@google.com wrote:
 
-Seems like the code is a bit easier to read and is more uniform
-looking by just initializing those two variables to NULL, like the
-warning suggests. If you don't mind, I'll queue something up in my
-tree to this effect.
+> On Tue, May 5, 2020 at 12:00 PM Mathieu Desnoyers
+> <mathieu.desnoyers@efficios.com> wrote:
+>>
+>> ----- On May 5, 2020, at 2:48 PM, Linus Torvalds torvalds@linux-foundation.org
+>> wrote:
+>> [...]
+>> >
+>> > Your initial reaction that "you can't compile away the read and the
+>> > test of NULL" was correct, I think.
+>>
+>> I suspect this pattern of "if (func != NULL) func(...)" could be semantically
+>> changed to just invoking an empty function which effectively does nothing.
+>> This would remove the need to do a pointer check in the first place. But maybe
+>> I'm missing something subtle about why it has not been done in this context.
+> 
+> Good idea, this eliminates the check: https://godbolt.org/z/Xugo9w
+> but you still have an indirect tail call (I think a direct tail call
+> is the desired solution?)
 
-By the way, I'm having a bit of a hard time reproducing the warning
-with either clang-10 or clang-9. Just for my own curiosity, would you
-mind sending the .config that results in this?
+Actually, if the goal is to do code patching of the call, I wonder
+what makes it OK to "guess" all the call patterns generated by the compiler ?
+AFAIU this is not an ABI in any way. For instance, a new compiler version could
+choose to add some no-op instructions within this pattern just because it feels
+like it.
 
-Jason
+For static jumps, we worked with the compiler people to add "asm goto ()" so
+we could express a jump in assembly which would branch outside of the asm.
+Emitting the jump in assembly allows us to control the exact code pattern,
+which can then be patched, and the asm goto operands allow the compiler to
+be in control of all the allowed branch targets.
+
+I'm again possibly missing something, but it looks like this proposal of static_call()
+(especially the static_cond_call part) is trying to just assume the common call
+patterns generated by the compilers, and patch those. What is the expected behavior
+if a compiler ends up generating unknown code patterns in future versions ?
+
+I would think a more robust approach would be to, again, work with the compiler people
+and introduce something like:
+
+asm call ("asm goes here" : : : funcA, funcB, funcC )
+
+which would allow patching the call emitted _in assembly_ between the various
+available targets. Bonus points if the compiler can let the asm know whether
+it's a standard call or tail-call.
+
+Then once we have that, we can start doing fun stuff like adding a conditional
+within the assembly, but I don't see why the conditional should be the same
+variable as the actual function pointer: each can be changed independently as
+long as the function pointer always points to a "valid" function (not NULL).
+
+Thanks,
+
+Mathieu
+
+-- 
+Mathieu Desnoyers
+EfficiOS Inc.
+http://www.efficios.com
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHmME9oTO7DiWCXoeCBjmPOBMoZQ2hUhHjZ4_oi-nVP_9pRpSg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/470458191.1021.1588710464160.JavaMail.zimbra%40efficios.com.
