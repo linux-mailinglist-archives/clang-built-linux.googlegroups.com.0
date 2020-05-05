@@ -1,139 +1,127 @@
-Return-Path: <clang-built-linux+bncBDPZFQ463EFRBZHXYX2QKGQEGM2NBPA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCMIZB7QWENRBLX2YX2QKGQEQUYMPKY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43c.google.com (mail-wr1-x43c.google.com [IPv6:2a00:1450:4864:20::43c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 93CA31C59DF
-	for <lists+clang-built-linux@lfdr.de>; Tue,  5 May 2020 16:44:52 +0200 (CEST)
-Received: by mail-wr1-x43c.google.com with SMTP id 30sf294204wrq.15
-        for <lists+clang-built-linux@lfdr.de>; Tue, 05 May 2020 07:44:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588689892; cv=pass;
+Received: from mail-qk1-x73b.google.com (mail-qk1-x73b.google.com [IPv6:2607:f8b0:4864:20::73b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 41C341C59FD
+	for <lists+clang-built-linux@lfdr.de>; Tue,  5 May 2020 16:50:23 +0200 (CEST)
+Received: by mail-qk1-x73b.google.com with SMTP id p126sf2431800qke.8
+        for <lists+clang-built-linux@lfdr.de>; Tue, 05 May 2020 07:50:23 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588690222; cv=pass;
         d=google.com; s=arc-20160816;
-        b=FxN3RKw/eUoyXr+dhk1Gk0sr/oKHFgUxAuXYBQaJyuJH6VgQ0BIB1YJTomt1b2AvQ8
-         TgdopNOlo8liKLmjhwIKhNJ96wearY114SayK9eT/zL0lKSmj7ZtgEbCfKHcWG9vpGQ7
-         cSSomJeHMNv9p3Yny4HxXRaqCqay09fHg2fwSF1v5eK+yDrkRBuXPIyK1PYxkCWsUZHW
-         dOLaVqtPNkv47DnmL9EFoLNZGC7e4zEjfoPHkgdeDk4dHAgjtE6zNNW7YfRPuxnXUEvl
-         4DPywWe5PmQn/fvgvQ2URFQWtvM37WOD/7WrOPYZczAwhun+ypulxiRqjP1NtVBBgaYH
-         uCrw==
+        b=DFe+ZBqbKwqqZ7EAjB2f+OhfqV74rCa0jxWW963lEczkZgWx4V9lkVlaNVOyVne2I/
+         42ho8OgeDzGc1xbPATKJ1BrvpXRiZ3DVjSpous4krsZiqcYVEBgYcbCfnF91zVvxA/5I
+         iIE/rk0ZhaoQetX6LZrC1fwUVw/ByD1jm28KwTrJvd7MTKbyKixiuG+ydNjQGpPy/RSu
+         2Cu+YZtBXFdQRBMiuhsvCNEvgjUIPPXyQwUCZn0BXTN0ErEyr+U+asl7J6Ui1lUn5ds4
+         SN83yfGQo+UrH62GSvjX5KnzqzhFgvqbKaKT7Nr6sStTh/DW2NIMosqIIeLWivTqCwr3
+         To/g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=dSPY9eDiLm7kof3XzeJrWhFarX7Klcto+bg4bZjTswM=;
-        b=lCR/58/kIC2JHrqFH5hrtZFSZ0ib8TenE6sLmw32OzAXeEm5zcyKSjlTNm8yBMAIBD
-         CmKlQU/025W/maezKcTE4vW2im1RXDxNsvovwdQqsVFGYrvPB+gS0DkbIc02rNNMPVR8
-         2LSgqWesnqef3T71P8IdV5Net0WRgfD4sj8/GbB518684FNtBxOBR9WuurKBfI4FSZrF
-         FB+EJ6ooHnWqEXJ4RERU/OEDEUduUBkPta6KoLwhwMMRhB6LnY6BoY5+Hdf2WHV/fjCw
-         0LYlfPswpNjU0uhu5k+NhUMbLgo7bXIDiHopKsQV6LAIJp8rjjp69Brs5/3VeYl7abZ0
-         +KfA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=8FF4zb1iNvAdXeqfdwYm/SGHguykP6FTNplxS9oPACw=;
+        b=PwCCyGXuw/EDezxbERfvr+f6JOsU/lQfaS6tocq0pWF+MCmuMpHF6MMzJnKYAwy3Fu
+         /wllDMjGOzzFR5qPQ226Jh4hGBcMQRP8BInmn5QVV84h/lCJtyiUGgrSfLOoWSVLptrT
+         pxbgUQtH2P6upgR2vZFsv1Fhjm0w0flyfCSHGnJPATclhfB5nCujHCuPxBOSJFKDqDbF
+         Gc9HSv3FQw/EjS0v6P++vPiCXcRbYOTrFRb6PZ4vrngXnp0JEb1MGAbzhpvZJSWnm2UR
+         zAvbj4QA0uxiNatoJ6CxMA4A0mjAV3ZRhXVjmQBIwZXcpbpVf+UE/CJ62OMyCI1ru+TM
+         bUMg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="Vrc0/YFL";
-       spf=pass (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Zxm+Rr7l;
+       spf=pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::f42 as permitted sender) smtp.mailfrom=dvyukov@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=dSPY9eDiLm7kof3XzeJrWhFarX7Klcto+bg4bZjTswM=;
-        b=Qek2zCzb5/RoXvBWCd/0D8EodShEk2Q2sTPkf4uqWBeQzHHRNkoTjwawtreOf2GBfa
-         bS8NE1RoJ36ztiDL6TOVNHgxrZljA1LNI3wCjvfipCRGZlD2RcjCNY8/JNClQZdDJKuu
-         fie/Szz2PEV1H1YXlNxed3Q4GCSB94zo0ksiEDhkSpcLqrhWxD5JpblSpDl6x7r3cmUX
-         5vFTq9ZnHiKVz6p0iBzXlJqxAk9z+UyONL7dpi2eoMhFda/cFh4chpsN00VrIlGn0bxp
-         w+SqKWfwbc16Pa6ANruymveWa9Swk1gkr2ray0KBq8AjbvKTyh/hRHt4gpvEmMHAJV44
-         pUtg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=dSPY9eDiLm7kof3XzeJrWhFarX7Klcto+bg4bZjTswM=;
-        b=YTjYSgs5DQWHN30fB4SHBx3PxeI5XqkMHnxqQGFWVki4mqT7Of84XmlNOeHo3FDTqR
-         aLLorC9OBvICBvsMuR1qwujlbhXClDh0JAoKaXQdqsq3SflHgcAG8bAwX1Zrpt2NFJiS
-         NIndwnYWGiSEH2VujdCOb8uzgpoBp9hUtnItzklbF1djSz59yxtNUXQaW+4pWsfS/hpD
-         InMZY7o5MKBvOgLyQHfDnwyxWn4kl8B1PFB1XjsH7qc0pQJjVidOH7XOePX3Q9DpEYTp
-         GlEatiUfa3HZE3p2QHueM5mDMnruFKe1E8gtmfEEmq0C/jY5wkBQXjnqmTt+1CTr9jJy
-         /klg==
+        bh=8FF4zb1iNvAdXeqfdwYm/SGHguykP6FTNplxS9oPACw=;
+        b=LmeaqGwyh0urTQ4/QYtkLQtGwzsbNlsCGj5Mp6bDTTp2IMB3w/+QBciyHR4dOnoXp8
+         EG/YslPYQfRxF+0hTo7KI4tuoTDdwWa9U+E1Nkxv44NS7M9QUHCcx1wmeL7oGY9zoNhA
+         +KZsF+25Rufj6oIg4uwk+knKehixuZ8E0eTGnh2/a8aV27kh4us8mcYajdGJv0onMASu
+         IDWsbFx5vI0f26CbD6uXbWUr53AdINwLr9CzW9CkC7S/fKpALCVCz5g0I5korqLSBq9y
+         1k5v9cjiqJdB1A223sQxe8oxv980gwoRZX3PgI8BH5xWP6QnZC45G1P7h/ffe4wSntBL
+         /Ejg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=dSPY9eDiLm7kof3XzeJrWhFarX7Klcto+bg4bZjTswM=;
-        b=k/XsXmwCCG55sJle6VZ/VeOJ9MU+XU09oQpXL8ypHW8Qo6wSXqQzm1FRGmKnvFicIa
-         mJWUhBvaj59pG4Ejsy1N3dySaxkuFB58CBGjczbRoXRmzy6sVzvvWROvhbyQ7SWVjXZn
-         UmgrWYfJEuX7TzoIDVSAL/nQgC5qq4HkdXco7rcxw0uDcEhWDfHLdMxg/NxH2dM5zV6H
-         52YTH68HLI0Fu8clDt6eJK4IRTEbO788SWgQ0MEkYY+bqnWtA3za7Z+iT28qWBLDw7UV
-         8jQPPJBQ9RKrAw0lmC8ms8a+FGjYPZ6jwRjOB6g91gCZBikBjIkueZoaLo9Kq3gd6ktq
-         PK8A==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuaUqfzwaRT9aIoXVOtHVchTk3/hdPoyVpbi7o0xkK2luGej1tuX
-	m/byynirHL1/upddZA/3m8Q=
-X-Google-Smtp-Source: APiQypJ+pPcgqIUoC888QdJKaBabz+PVc/7rKOKgEkO2EWGCAARiqVkVWHq3rycK7KKXVp1Tyo1VdQ==
-X-Received: by 2002:adf:e5c8:: with SMTP id a8mr4525089wrn.56.1588689892357;
-        Tue, 05 May 2020 07:44:52 -0700 (PDT)
+        bh=8FF4zb1iNvAdXeqfdwYm/SGHguykP6FTNplxS9oPACw=;
+        b=iLOyhUIPZZUSEkUAyZxfDyN9KWPAtUYlNulBj59f5DsUl5mxCkbXO4gupJQDLNcIXM
+         m24az2rCj8yIQgTbjLYSSPqGHrapbh1w3pzBSMMrVrHpG8x90M/FWH1tROxirWucGLAG
+         oO4HnCrFswEe3Uvtt0a/t3JniaSL8sqCB2guSR0Cm/WWfRaC+2Z5Zj1xDM5JmoqKrIlt
+         F+25v39Lb1eFnagOjQ0T83LEp1H0dJWlSNTbS9cBnQrqBvULAY9U4K5Jp/FnBigURjsE
+         hHdyOhVrghi2jH6J6sIPVGHydEx7aPesiMy/oPOOXE8WOPZo6uOfO3jv/HNAB5BqAHVC
+         sl/g==
+X-Gm-Message-State: AGi0PubUxpwBQOhU9eTAn4Jnb4mngsEOiza1dzNse447b40vjkOqLyqb
+	BiMFUxHVmNwqXnEFnCTpVUI=
+X-Google-Smtp-Source: APiQypJ6wPZNhKgv/pgyxHLdrMD7wSV/fGS1fs/ceNzzGGnPMBzpvVu+b8czuSCrXY7P+t+rtibb0A==
+X-Received: by 2002:a37:a1d5:: with SMTP id k204mr3854917qke.325.1588690222118;
+        Tue, 05 May 2020 07:50:22 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:f6c4:: with SMTP id y4ls4385809wrp.2.gmail; Tue, 05 May
- 2020 07:44:51 -0700 (PDT)
-X-Received: by 2002:a5d:4f06:: with SMTP id c6mr4436050wru.12.1588689891876;
-        Tue, 05 May 2020 07:44:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588689891; cv=none;
+Received: by 2002:ae9:ec06:: with SMTP id h6ls2051149qkg.9.gmail; Tue, 05 May
+ 2020 07:50:21 -0700 (PDT)
+X-Received: by 2002:a05:620a:120d:: with SMTP id u13mr3774898qkj.157.1588690221787;
+        Tue, 05 May 2020 07:50:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588690221; cv=none;
         d=google.com; s=arc-20160816;
-        b=jkLsFvr9d5DRv0STrOF54k0t0NyUILoOQynLL7q6ZcheGGSCqfMDTnwPrGDHkwNXKz
-         GS3P+arLZBaTLQeQnKrnxT+6Dd1cFdmYLGCnWIUfx5rZs7+4pP0l8nU+hu2UcyeRhUdE
-         Aoy70PbNtTELMk71iW5NTjoWbjBVTMXL6VHkiFmp/x9ctRAFaVNECL9Lp3+YKv6UAP1N
-         t++aTKFX/UJGq2wnIacnMmV1iJdCNiPic1tWNnkK0KRZJTa8lvdv9evWD10MSoqU9Lbt
-         FAtP4AvbNyI7vFwZqJVLoBd2WBd6ksWCmFxwTwpmOFnGBVVAEZUeEg0tT5XN5BRzr8mL
-         WIvQ==
+        b=vDrxxdL2aVQGEIwLj+T7jMYcXa1SRmqe6Ws43iGXjcr20UWlz9fQnCL19mI+o2DIaE
+         kdxKACPaZT1Jj1m9fWRrrWO8HTBGIqsV85rUL/dAv71mzB+ifCZKgfI5TPp7crLJl6sI
+         hs0WaVOQDic0UeQCe3MmoNRL4ZrJPFCa3UKJvPDGK/fQsnKeshCx2ZXtAodIm3IP1fQf
+         f8tsZ04Gmq7C5HQsJHEFBgd5P9F5gS6dz9GDEypDHF0YNAFos/lx9r2a43uw1bcweGNF
+         rbAFESm7FQ3E0emo6WqDuShCj2B5Fz1tXwTf6PxaGbhtjCVzlrZTIvrGtDRDbM43Fa5B
+         8mFw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=PSNzqE9w9ggP7uPPAK4KUUUBVcwgOZ6j5qNH5gD8e9M=;
-        b=GK/tgzhirIwKreW+qT/qWsth4DLMEqTOfOMbEaa58ZtfDqcVPUKbLWVfbhv8mDSRXQ
-         t+D98f54iODtPFB51vrPVj8wfuLhrnNRjjOjN+Czt2EMgjtIeCEUpvw9qbJ+/EsxWJw4
-         snABbVGMCgTluAPX2Yj07UGWRp0cVIf4fFGjfs36jh2dPobldXwn2ms/4yq5myul1Ymh
-         Gts67Azjc+9PUO3iDgKoz1DSP1lA2DNVD7cEcYsr1XhjeIakW7Eh52XRCPEhjuXiay23
-         M28jt1LgszFNWooeN26mCyq7mxn+0HWAzcXQmrWM6x+3pe/uCCAWoba9UIAnfaeHymLk
-         sZMw==
+        bh=7Pq81uf2psyNx4BKzdHn/TmsDqiXEasycTFHLZy0fzE=;
+        b=OezIqCvJfjb9FtIsO8EWCCxS6dAG1ANtvduGEcOxTkGHjFi2RIBaW1od7lyCcram65
+         5VhtXUi8aMYr6CZ+hqnGu4X/Wm9Q+xPj2COXiSuhonTFHrVv3JUQJm17+G2pARa+zvxu
+         RZqDBa1XNBX5lR6kMZC2ULG8pUfus1Ki35NbSTLbB+IMx2ZeiejGgdFxOS54vHFZn1CK
+         +BUiZ54RHDITW6+a63/VDmJR5pN8wGGUPOhDQtl/74rkh44DvEvbOxjjlPnxkxRQpBZM
+         sWW2eeCKreYrAe9XdYM/gHH9oD3bzxhsNs1fEg88o+w/L1Qc4/B6xBTlk8K3OiuZEkeZ
+         yG/A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="Vrc0/YFL";
-       spf=pass (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wr1-x443.google.com (mail-wr1-x443.google.com. [2a00:1450:4864:20::443])
-        by gmr-mx.google.com with ESMTPS id u25si167697wmm.3.2020.05.05.07.44.51
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Zxm+Rr7l;
+       spf=pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::f42 as permitted sender) smtp.mailfrom=dvyukov@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-qv1-xf42.google.com (mail-qv1-xf42.google.com. [2607:f8b0:4864:20::f42])
+        by gmr-mx.google.com with ESMTPS id p9si174061qtn.1.2020.05.05.07.50.21
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 05 May 2020 07:44:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) client-ip=2a00:1450:4864:20::443;
-Received: by mail-wr1-x443.google.com with SMTP id y3so3107659wrt.1
-        for <clang-built-linux@googlegroups.com>; Tue, 05 May 2020 07:44:51 -0700 (PDT)
-X-Received: by 2002:a5d:4389:: with SMTP id i9mr4322821wrq.374.1588689891557;
- Tue, 05 May 2020 07:44:51 -0700 (PDT)
+        Tue, 05 May 2020 07:50:21 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::f42 as permitted sender) client-ip=2607:f8b0:4864:20::f42;
+Received: by mail-qv1-xf42.google.com with SMTP id y19so1108152qvv.4
+        for <clang-built-linux@googlegroups.com>; Tue, 05 May 2020 07:50:21 -0700 (PDT)
+X-Received: by 2002:a0c:f8cf:: with SMTP id h15mr2976751qvo.22.1588690221148;
+ Tue, 05 May 2020 07:50:21 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200502031141.2732221-1-natechancellor@gmail.com>
-In-Reply-To: <20200502031141.2732221-1-natechancellor@gmail.com>
-From: Alex Deucher <alexdeucher@gmail.com>
-Date: Tue, 5 May 2020 10:44:40 -0400
-Message-ID: <CADnq5_NdtZh5_RGDWKJ9c_42XLvrncCs5DDU1YSptfZP94KXkQ@mail.gmail.com>
-Subject: Re: [PATCH] drm/amdgpu: Avoid integer overflow in amdgpu_device_suspend_display_audio
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Alex Deucher <alexander.deucher@amd.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	"David (ChunMing) Zhou" <David1.Zhou@amd.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Maling list - DRI developers <dri-devel@lists.freedesktop.org>, 
-	amd-gfx list <amd-gfx@lists.freedesktop.org>, LKML <linux-kernel@vger.kernel.org>
+References: <20200505142341.1096942-1-arnd@arndb.de> <CANpmjNMtGy6YK8zuqf0dmkykZMt=qkxkZrZNEKde1nbw84ZLkg@mail.gmail.com>
+In-Reply-To: <CANpmjNMtGy6YK8zuqf0dmkykZMt=qkxkZrZNEKde1nbw84ZLkg@mail.gmail.com>
+From: "'Dmitry Vyukov' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Tue, 5 May 2020 16:50:09 +0200
+Message-ID: <CACT4Y+Zpp=+JJedhMpunuUh832eJFu+af-r8631Ar0kE2nv72A@mail.gmail.com>
+Subject: Re: [PATCH] ubsan, kcsan: don't combine sanitizer with kcov
+To: Marco Elver <elver@google.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Andrey Ryabinin <aryabinin@virtuozzo.com>, 
+	Kees Cook <keescook@chromium.org>, Andrey Konovalov <andreyknvl@google.com>, 
+	"Paul E. McKenney" <paulmck@kernel.org>, Ingo Molnar <mingo@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Stephen Rothwell <sfr@canb.auug.org.au>, Thomas Gleixner <tglx@linutronix.de>, 
+	kasan-dev <kasan-dev@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: alexdeucher@gmail.com
+X-Original-Sender: dvyukov@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b="Vrc0/YFL";       spf=pass
- (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::443
- as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@google.com header.s=20161025 header.b=Zxm+Rr7l;       spf=pass
+ (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::f42
+ as permitted sender) smtp.mailfrom=dvyukov@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Dmitry Vyukov <dvyukov@google.com>
+Reply-To: Dmitry Vyukov <dvyukov@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,58 +134,89 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, May 2, 2020 at 4:35 AM Nathan Chancellor
-<natechancellor@gmail.com> wrote:
+On Tue, May 5, 2020 at 4:36 PM Marco Elver <elver@google.com> wrote:
+> > Clang does not allow -fsanitize-coverage=trace-{pc,cmp} together
+> > with -fsanitize=bounds or with ubsan:
+> >
+> > clang: error: argument unused during compilation: '-fsanitize-coverage=trace-pc' [-Werror,-Wunused-command-line-argument]
+> > clang: error: argument unused during compilation: '-fsanitize-coverage=trace-cmp' [-Werror,-Wunused-command-line-argument]
+> >
+> > To avoid that case, add a Kconfig dependency. The dependency could
+> > go either way, disabling CONFIG_KCOV or CONFIG_UBSAN_BOUNDS when the
+> > other is set. I picked the second option here as this seems to have
+> > a smaller impact on the resulting kernel.
+> >
+> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> > ---
+> >  lib/Kconfig.kcsan | 2 +-
+> >  lib/Kconfig.ubsan | 1 +
+> >  2 files changed, 2 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/lib/Kconfig.kcsan b/lib/Kconfig.kcsan
+> > index ea28245c6c1d..8f856c8828d5 100644
+> > --- a/lib/Kconfig.kcsan
+> > +++ b/lib/Kconfig.kcsan
+> > @@ -5,7 +5,7 @@ config HAVE_ARCH_KCSAN
+> >
+> >  menuconfig KCSAN
+> >         bool "KCSAN: dynamic data race detector"
+> > -       depends on HAVE_ARCH_KCSAN && DEBUG_KERNEL && !KASAN
+> > +       depends on HAVE_ARCH_KCSAN && DEBUG_KERNEL && !KASAN && !KCOV
 >
-> When building with Clang:
+> This also disables KCOV with GCC. Why does this not work with KCSAN?
 >
-> drivers/gpu/drm/amd/amdgpu/amdgpu_device.c:4160:53: warning: overflow in
-> expression; result is -294967296 with type 'long' [-Winteger-overflow]
->                 expires = ktime_get_mono_fast_ns() + NSEC_PER_SEC * 4L;
->                                                                   ^
-> 1 warning generated.
+> This is a huge problem for us, since syzbot requires KCOV. In fact
+> I've always been building KCSAN kernels with CONFIG_KCOV=y (with GCC
+> or Clang) and cannot reproduce the problem.
 >
-> Multiplication happens first due to order of operations and both
-> NSEC_PER_SEC and 4 are long literals so the expression overflows. To
-> avoid this, make 4 an unsigned long long literal, which matches the
-> type of expires (u64).
+> >         select STACKTRACE
+> >         help
+> >           The Kernel Concurrency Sanitizer (KCSAN) is a dynamic
+> > diff --git a/lib/Kconfig.ubsan b/lib/Kconfig.ubsan
+> > index 929211039bac..f98ef029553e 100644
+> > --- a/lib/Kconfig.ubsan
+> > +++ b/lib/Kconfig.ubsan
+> > @@ -29,6 +29,7 @@ config UBSAN_TRAP
+> >  config UBSAN_BOUNDS
+> >         bool "Perform array index bounds checking"
+> >         default UBSAN
+> > +       depends on !(CC_IS_CLANG && KCOV)
 >
-> Fixes: 3f12acc8d6d4 ("drm/amdgpu: put the audio codec into suspend state before gpu reset V3")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1017
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> Ditto, we really need KCOV for all sanitizers. I also just tried to
+> reproduce the problem but can't.
+>
+> Which version of clang is causing this? I'm currently using Clang 9.
+> My guess is that we should not fix this by disallowing KCOV, but
+> rather make Clang work with these configs.
+>
+> Dmitry, can you comment?
 
-Applied.  Thanks!
+FWIW I can reproduce both with clang:
 
-Alex
+$ clang /tmp/test.c -c -fsanitize-coverage=trace-pc -fsanitize=bounds
+clang-11: warning: argument unused during compilation:
+'-fsanitize-coverage=trace-pc' [-Wunused-command-line-argument]
 
-> ---
->  drivers/gpu/drm/amd/amdgpu/amdgpu_device.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c
-> index 6f93af972b0a..caa38e7d502e 100644
-> --- a/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c
-> +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c
-> @@ -4157,7 +4157,7 @@ static int amdgpu_device_suspend_display_audio(struct amdgpu_device *adev)
->                  * the audio controller default autosuspend delay setting.
->                  * 4S used here is guaranteed to cover that.
->                  */
-> -               expires = ktime_get_mono_fast_ns() + NSEC_PER_SEC * 4L;
-> +               expires = ktime_get_mono_fast_ns() + NSEC_PER_SEC * 4ULL;
->
->         while (!pm_runtime_status_suspended(&(p->dev))) {
->                 if (!pm_runtime_suspend(&(p->dev)))
->
-> base-commit: fb9d670f57e3f6478602328bbbf71138be06ca4f
-> --
-> 2.26.2
->
-> _______________________________________________
-> dri-devel mailing list
-> dri-devel@lists.freedesktop.org
-> https://lists.freedesktop.org/mailman/listinfo/dri-devel
+$ clang /tmp/test.c -c -fsanitize-coverage=trace-pc -fsanitize=thread
+clang-11: warning: argument unused during compilation:
+'-fsanitize-coverage=trace-pc' [-Wunused-command-line-argument]
+
+with both my disto's 9.0.1 and fresher 11.0.0
+(7b80cb7cf45faf462d6193cc41c2cb7ad556600d.
+
+But both work with gcc
+
+$ gcc /tmp/test.c -c -fsanitize-coverage=trace-pc -fsanitize=thread
+$ gcc /tmp/test.c -c -fsanitize-coverage=trace-pc -fsanitize=bounds
+
+Is it a known issue in clang?
+
+Can we somehow disable it only for clang and not gcc?
+
+This will immediately break KCSAN on syzbot as it enables KCSAN and KCOV:
+https://syzkaller.appspot.com/upstream?manager=ci2-upstream-kcsan-gce
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CADnq5_NdtZh5_RGDWKJ9c_42XLvrncCs5DDU1YSptfZP94KXkQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CACT4Y%2BZpp%3D%2BJJedhMpunuUh832eJFu%2Baf-r8631Ar0kE2nv72A%40mail.gmail.com.
