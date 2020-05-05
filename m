@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBFG7Y32QKGQEST3FYJQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBNHAY32QKGQESK7UMFQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83d.google.com (mail-qt1-x83d.google.com [IPv6:2607:f8b0:4864:20::83d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 66E781C6004
-	for <lists+clang-built-linux@lfdr.de>; Tue,  5 May 2020 20:25:25 +0200 (CEST)
-Received: by mail-qt1-x83d.google.com with SMTP id y31sf2612423qta.16
-        for <lists+clang-built-linux@lfdr.de>; Tue, 05 May 2020 11:25:25 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588703124; cv=pass;
+Received: from mail-pf1-x43e.google.com (mail-pf1-x43e.google.com [IPv6:2607:f8b0:4864:20::43e])
+	by mail.lfdr.de (Postfix) with ESMTPS id CE6921C6012
+	for <lists+clang-built-linux@lfdr.de>; Tue,  5 May 2020 20:28:05 +0200 (CEST)
+Received: by mail-pf1-x43e.google.com with SMTP id a12sf3139304pfc.22
+        for <lists+clang-built-linux@lfdr.de>; Tue, 05 May 2020 11:28:05 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588703284; cv=pass;
         d=google.com; s=arc-20160816;
-        b=IhCb71CIcyv4YvM6I77I84e5oRdc2m+ERbVGf15HFX3BZbzHNZDkO00Lutr8We4F86
-         uvyhrvNikt+p4RK9deZb1gRE7fLO1Zquv2jZV7x216Kb/EwhudzT9KuRT9G8f0LKd1IS
-         1sH4ObUNTtLUm1CBrm412CRiuE41gq3KABQM5mCbOIjQ6GdDuo/56XHC1VDGUBFTX3ev
-         uLW22be1MiqdOFrjM4Jg6mwirIRoOw5jS8ms2kOBAImDfKd3twBxAw1goRPQRPrX+dJK
-         GNTccB7RGkCf6B8YO+heVHtvgTHgAqC7joluT4nLIhKT2WHP1Z9RY1LRCWqQrMp93UWW
-         mc1w==
+        b=nYqg/AxXwieVU52WrY1Tgcabtc1kMTtk5rky8330f3zjMtQ9FsbxFsyigz3royjI33
+         OsmNIvcnfRSHjESbWJ2IBG4LXZgcijTlQV8K99jr7aXD/dePjSI1YiJ4THZ3I6pvi8fb
+         gRTP3ZrXnflk6GDocJ+AvY9w1Mx16yXT93xXdWjT2UXcAi+r6LDVm5/5Q0lQcJfctS4p
+         sYJ9+f+XaHnv9tDfQuypYccl00tvDTHRYQbdmqFfqA+C6w7bQfcKvJxodNURd2ioXlXw
+         mWJsyZLt3dwe5Ov+RpD/PaTuoKR3gSm5Dzwo7lIW3xxYoIgZz8d/zayQpCaj2GsRxiVy
+         hm5w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=w0I60Ie/faH95M+o0pJ1YHwbI5M27LacGr4FM/mqgqc=;
-        b=igzq9/S8Wy1ayVdvMd4tSAdVjcCHoWUsTyH3Xws/3xMKCxfIMcNxJZLzjU4DgaZp/u
-         sG4L68/dCNaOUtAxIT4rs7Z3KsFdlFgupMfQVWE99r6gat1Rngf+A2yEMlqmNQyTjK7m
-         FmUyVW4SfAqgXLk5KeSue+d9iHaeI6EqqfZ1cRhO9dHLL78Hmdve0R5lXBJqSr+SjLwI
-         PjbGKzh9jYnMFR/ZRKsUJQOtQ02egtKUyBy0VYfdisU4S3xX02ktPkiS4sFcTh3PAu+g
-         hF9nhohUg5NnDzC7gT1TqEQWixIQ9LJs63WufIvSCTMVGVAUwAc52CTEFq4FE0YcqyZP
-         Y2Lg==
+        bh=c1OXjQCpEC3vZKOq5i6SxTrpzu1Cq3+cmTzCtFDL15I=;
+        b=v2I7xBmVsJso/eFrPjaGfpnxqRVRVrZAhNnkNCNsoUWZheN+L0EQObYOJjzY3Udmqk
+         QRQ1OVVgHk2fgCAiE7BWuXPSCLeji7jZUMyYoBiXyGgAc2crbgXNSdvfsNfYQIhTQ76B
+         Ux8Rn4NyvkVnoeQ2opYj3SSIqGj2m4FbnVSdwXlvigqLMClAraXZEWfKBWX5RGpT8gty
+         hgBdJkH/pNPquACFbJrhpg1EHDyVm2gh8F8sIa3jakoTOwJa0j8HvXpyJQliHg3F7/la
+         FxQ09VDtZttKaPPXSjEIQbvfpNSIv17DvEaoaWujuGmxIhRg0sWjqQC3NSQQOvT/Gsme
+         Du+A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=TTXqSdYe;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=OYaFBo53;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=w0I60Ie/faH95M+o0pJ1YHwbI5M27LacGr4FM/mqgqc=;
-        b=T/n3cfnWORXQC0b09533tHSvI0ZQYQkJ5R5+dT+3fvgxfFUpuHUfntYxH2l33zYowE
-         MFPgF/nJx6xxQrRX9PLtE3F7nHLYTwoRJ1E8W6Z9SXeneIRDG0Ct5CRkIYP6Dynkrt3t
-         H3jpKNjIaieOef8fVOP8JSSyiyaFXUXuyMjp/bLVZ6MS7t/dxI1S3mQSmnivJDOsIkXL
-         v28IFMI6stRGz7Or0aq3g+QKo0JpMpRH3PITKbK6oeUvxWji3nRlbU3U3VYARiHZANvw
-         VL4xPnC/0EASte06/kxZRg/3+KTHwBcjPrHlrhavoqLVgS04mueL8FHqio3m9Uhd0kal
-         pKkQ==
+        bh=c1OXjQCpEC3vZKOq5i6SxTrpzu1Cq3+cmTzCtFDL15I=;
+        b=eoHUDS9gXALMsUtFtKsuGa5G53jAYGg5/zNtz+3vytqh8HReeJmwwvuzuZqmM4CHt0
+         ngiGnTui7ks8DhrkKJyM2NrEEvG+yX1eEtT2dtGrIDBkWmp8Po5E6buwI7D/6AelIeMw
+         Rn1dKedz09JXIDE/AyvkwNnUAG9WXhI76ptLUQsaQ+lBSsicE1/ZlglldbF9sPyWRf9L
+         EpqdIwEGIXoAsi2N20CUxYngOIR6byw6xueX/l/IRH1l1QeKmJgYt38GyAd2q2HzceCo
+         XZwBusA/qhD8SVIavR14PzIwsMNy4SBBbha64K117JOH6QTcASrJHQJgdUIoz2nNj1s8
+         Q7dw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,71 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=w0I60Ie/faH95M+o0pJ1YHwbI5M27LacGr4FM/mqgqc=;
-        b=AabwtQg0T6aYXFWza7GnvoK1U7GVpbqJUXVsT1bLW0Rto9hluR4a/FzPhG2f87pvM+
-         +isQ3YgtBaiPI17Tn5Wq+4PflyQZPhkHA9SLkMNkCSkofEbgQclKF0pB+SVLbxqR+e6P
-         86Zc3mnV6UWOz/+/xX2qtLff3/GU8qy9DiBsNAhXsN7Zm8whMC/f+21t/kTxXpZ26NCn
-         KLZiWH1E4BF5QBXD+wOOGWbLSqQdWL65/cImR0JI6uF5IMZcXDA4C9a+uR9RpkCmFvBH
-         lo19FSY2Wv8ywuA5nGi+rwf9zcA5bpb+euWqNfg8acEzS9GSa7dZcETIZyU5ncprl/H7
-         7Hhw==
-X-Gm-Message-State: AGi0PuZ/c9hTOXdEz39SWdPBlY4uYkKeRcWzs8nOazEoBm0uhmM3aqbp
-	ltZstpTYWwpABkrWdxOKFcU=
-X-Google-Smtp-Source: APiQypIigk/I09hcc5hXs/+l62JatkzWKPG947b+du+ToJaZAQ45z68D29fAoG3AQ1uqlDRHcMtz2w==
-X-Received: by 2002:a37:a98c:: with SMTP id s134mr5038117qke.259.1588703124465;
-        Tue, 05 May 2020 11:25:24 -0700 (PDT)
+        bh=c1OXjQCpEC3vZKOq5i6SxTrpzu1Cq3+cmTzCtFDL15I=;
+        b=DF9N+XoFkjYQFSyi12tZeeGWTMj4SQMFSe0qjPLbTMTGg4hmRJG/n1TZCf5TCC99oc
+         i3e+VdHx5axtK8PxCdZf+dksolCs8oJUz8nm+4lSpO2V7JX9oXNhXpTWibrqaOiAgyGN
+         Nrx+wOlj1aD2Ap9rfiD7/flYud2Japb79vQh0lEPkzki4eXjO4diBBoaHiorzOn9jW3z
+         3GkZ0OOdnd/dPHVpokl5UZ4venRC/t1M28gX55RXzzX1AsymRK6CbYUxD3Q1S8V2nuty
+         uZzJbagQz1uEBgJNdj+uiIVK1hsPVtyR8wqoDZ2oDzleP4RcVRH/RembDFQI/vXDLLBz
+         rMRA==
+X-Gm-Message-State: AGi0PualC2vqtR4+BcODfrJODSVpPOqGG6BadYxOO2Pmp38BpVvmDb4S
+	z9EeIhg8ELTB2q0O8kiP+Xc=
+X-Google-Smtp-Source: APiQypJylMqCkINpBhLU1PvityvzkGbBCZbjlWCCj82oBr/IMd4ejlgPUSuG9JDNfd8+oaEQP2mRuQ==
+X-Received: by 2002:a62:76c1:: with SMTP id r184mr4431043pfc.155.1588703284562;
+        Tue, 05 May 2020 11:28:04 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ad4:434f:: with SMTP id q15ls282297qvs.4.gmail; Tue, 05 May
- 2020 11:25:24 -0700 (PDT)
-X-Received: by 2002:ad4:4744:: with SMTP id c4mr4177218qvx.203.1588703124132;
-        Tue, 05 May 2020 11:25:24 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588703124; cv=none;
+Received: by 2002:a17:902:9a03:: with SMTP id v3ls256951plp.11.gmail; Tue, 05
+ May 2020 11:28:04 -0700 (PDT)
+X-Received: by 2002:a17:90a:7046:: with SMTP id f64mr2401297pjk.205.1588703284127;
+        Tue, 05 May 2020 11:28:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588703284; cv=none;
         d=google.com; s=arc-20160816;
-        b=W2xm8qpdDB15fEWKaeiII6ULVvk7Oe0F/1GgXgLYOCQ0KG6ioeSq842xsblo1tXt8N
-         WZLafhFNNI5EhONN7qJdbucQMREIamBCvlaKqMedTilyNsSv7igI4N4Cxsw8Z2EJONZB
-         N8p58hcirR+hzePAs3/pDs34lDgF7ZZUJ7Y9c9u2KUL6B5lboUjm0mKzrmYK8Od19VzG
-         Afa9bLxLYZWapI/WtjoIYXm3br8O03FUW6YQkydEyNejB5GoIV/U/K9p9kFfIq3wG8xM
-         JwhknqWUIUC0Zjd5R26IH7paitaozx2KjP4TNiTRYdjMj+T2NQg3XGIrYnr9Qz6uYH+s
-         W9tA==
+        b=sEcC80/uYMkh3cei6WvMffvqZa09iv91Tq+dCyJa9FoKCDxoMbAZeC2Y+mW5h53anU
+         uDgZRCo3YmcPR89PX60ogVc2oyk26nH63XpGUK6VunKVfwlzR7nPZrs4UCnM6b3z6sTT
+         1yU7SztO0J2c8cqTn/+oa1NCRgxSxJIqZ6wFEN/eY4+bFAW4hVBOS2I0tcJ1b/5zy48k
+         H/yoBKVoDW7Q09LhNaqyZdIBt0ZFyq2SrIvPHyaI2S5Y7tuG8kJLRk9ng/6JHAztJfWS
+         3eG9U1fxeHSzVOkbPVkGeTr9cBNXtRtCfpePnWLuV8miis2IvXYJpWrFfqj0CY/2WT/H
+         cMjA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=NNRuq0AT40YPouot7CnciL/M4hY7BDihgw1u2XeF9f4=;
-        b=z1XU6NgMoXg6EYafOB7gY3S1zmqhzhNaBSp0SsRJX09uISMSk0pfVWo5WlVGCbKdBi
-         huHrbjke/bS3vSIomN6bTyAGGuGPLM6ZGsTxAkrLjldbWS/e9MrK9CQFRZ5mf0Tm2pT1
-         O0WAhv7dICdx+hlIUnh1lbaXuIrPryUCIguUzUTHtzBHCdWR7LohEczUGfq7HSZkwwun
-         3dZjedhTDjVUsY85UKTu7i3h1lvFgZP8aRDhyBDSJDgosVC3TuTcxsCY8gRMOonSb7UQ
-         BmjPXcbuRSD3Y106rZTHNA2b9+P2VWoTc4dazdF8rk/A/OmMo+Lfkz/akC5SBfQ+W42I
-         IaSw==
+        bh=o+I2ZEpd9rMStG/cH8oLpZvbJxOrhOe7FbrS6Jy7iRQ=;
+        b=E/lPbUPp+qCvFVfHR7J6m/9mfIVcBfp3rAhOip6euUmOQWiMKasA9TI0MR9dirxGYd
+         VvnQnh3ki6YkMyuKD0FrZwJlpiD6R/eWGuyWLS/9KKlllWowTj+RgE0kpjWVYBa/FO5m
+         btk2sCNOTUxpnFoi47xPuXBBjhynRbC18svHE5L6dbJwtD/nGJRuthX3JlXK23ycJQiY
+         Br8yhfEsv3a7+b8Spx9OBCvrxpl4E0i2ztc1tkG+2PF8tbxYNlZNpDx/QJ+t2jnqLlrB
+         y3tBqOhAz9fFms76ssKrVinqfoF7P+Gii/oov4wr5g+9FwvOdmvNwG6l/+qKVC4G4aG8
+         Yu9w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=TTXqSdYe;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=OYaFBo53;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x442.google.com (mail-pf1-x442.google.com. [2607:f8b0:4864:20::442])
-        by gmr-mx.google.com with ESMTPS id h33si216963qtd.2.2020.05.05.11.25.24
+Received: from mail-pj1-x1043.google.com (mail-pj1-x1043.google.com. [2607:f8b0:4864:20::1043])
+        by gmr-mx.google.com with ESMTPS id a3si148254pfr.4.2020.05.05.11.28.04
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 05 May 2020 11:25:24 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) client-ip=2607:f8b0:4864:20::442;
-Received: by mail-pf1-x442.google.com with SMTP id r14so1286780pfg.2
-        for <clang-built-linux@googlegroups.com>; Tue, 05 May 2020 11:25:24 -0700 (PDT)
-X-Received: by 2002:a65:5b84:: with SMTP id i4mr4038092pgr.263.1588703122954;
- Tue, 05 May 2020 11:25:22 -0700 (PDT)
+        Tue, 05 May 2020 11:28:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) client-ip=2607:f8b0:4864:20::1043;
+Received: by mail-pj1-x1043.google.com with SMTP id mq3so1585442pjb.1
+        for <clang-built-linux@googlegroups.com>; Tue, 05 May 2020 11:28:04 -0700 (PDT)
+X-Received: by 2002:a17:90a:6488:: with SMTP id h8mr4710233pjj.51.1588703283513;
+ Tue, 05 May 2020 11:28:03 -0700 (PDT)
 MIME-Version: 1.0
-References: <202005051634.Yx7kMDrZ%lkp@intel.com> <alpine.DEB.2.22.394.2005051117060.230747@chino.kir.corp.google.com>
-In-Reply-To: <alpine.DEB.2.22.394.2005051117060.230747@chino.kir.corp.google.com>
+References: <20200501202849.647891881@infradead.org> <20200501202944.593400184@infradead.org>
+ <1238787e-d97d-f09b-d76d-2df2dc273f4b@rasmusvillemoes.dk> <20200503125813.GL3762@hirez.programming.kicks-ass.net>
+ <a53369f3-665a-af0e-efad-09ae456af847@rasmusvillemoes.dk> <20200504201445.GQ3762@hirez.programming.kicks-ass.net>
+ <20200505093625.GE5298@hirez.programming.kicks-ass.net> <CAKwvOd=cP8UCX0+5pZ3AqzvOM8LKzLJJ_heDhrghqJdOnHoGMg@mail.gmail.com>
+In-Reply-To: <CAKwvOd=cP8UCX0+5pZ3AqzvOM8LKzLJJ_heDhrghqJdOnHoGMg@mail.gmail.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 5 May 2020 11:25:12 -0700
-Message-ID: <CAKwvOdniBgjgqY_YFY+80isdturCb75zSqCdV0GLH8dT7yS4iA@mail.gmail.com>
-Subject: Re: [linux-next:master 3972/6402] kernel/dma/pool.o: warning:
- objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
-To: David Rientjes <rientjes@google.com>
-Cc: kbuild test robot <lkp@intel.com>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Christoph Hellwig <hch@lst.de>
+Date: Tue, 5 May 2020 11:27:53 -0700
+Message-ID: <CAKwvOdkL+2Gvn2mkZ8cdHN=1F5cHQHii57ocD0RFeLJxEt=TUQ@mail.gmail.com>
+Subject: Re: [PATCH v4 14/18] static_call: Add static_cond_call()
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, bristot@redhat.com, 
+	Jason Baron <jbaron@akamai.com>, Linus Torvalds <torvalds@linux-foundation.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@kernel.org>, Nadav Amit <namit@vmware.com>, 
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
+	Ard Biesheuvel <ard.biesheuvel@linaro.org>, Josh Poimboeuf <jpoimboe@redhat.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+	"H.J. Lu" <hjl.tools@gmail.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=TTXqSdYe;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442
+ header.i=@google.com header.s=20161025 header.b=OYaFBo53;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -130,54 +140,106 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, May 5, 2020 at 11:19 AM 'David Rientjes' via Clang Built Linux
-<clang-built-linux@googlegroups.com> wrote:
+On Tue, May 5, 2020 at 11:13 AM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
 >
-> On Tue, 5 May 2020, kbuild test robot wrote:
+> On Tue, May 5, 2020 at 2:36 AM Peter Zijlstra <peterz@infradead.org> wrote:
+> >
+> >
+> > HJ, Nick,
+> >
+> > Any chance any of you can see a way to make your respective compilers
+> > not emit utter junk for this?
+> >
+> > On Mon, May 04, 2020 at 10:14:45PM +0200, Peter Zijlstra wrote:
+> >
+> > > https://godbolt.org/z/SDRG2q
 >
-> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> > head:   dfd71d381f7e1aa118e0368774aa05f5c4a48870
-> > commit: 82fef0ad811fb5976cf36ccc3d2c3bc0195dfb72 [3972/6402] x86/mm: unencrypted non-blocking DMA allocations use coherent pools
-> > config: x86_64-randconfig-d001-20200502 (attached as .config)
-> > compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 45b7d44ecb01780e26dc8d3c30bc34e32c08dd70)
-> > reproduce:
-> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> >         chmod +x ~/bin/make.cross
-> >         # install x86_64 cross compiling tool for clang build
-> >         # apt-get install binutils-x86-64-linux-gnu
-> >         git checkout 82fef0ad811fb5976cf36ccc3d2c3bc0195dfb72
-> >         # save the attached .config to linux build tree
-> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
-> >
-> > If you fix the issue, kindly add following tag as appropriate
-> > Reported-by: kbuild test robot <lkp@intel.com>
-> >
-> > All warnings (new ones prefixed by >>):
-> >
-> > >> kernel/dma/pool.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
-> > >> kernel/dma/pool.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
-> > --
-> > >> kernel/dma/remap.o: warning: objtool: __llvm_gcov_writeout()+0x14: call without frame pointer save/setup
-> > >> kernel/dma/remap.o: warning: objtool: __llvm_gcov_flush()+0x0: call without frame pointer save/setup
-> >
+> Woah, a godbolt link! Now we're speaking the same language.  What were
+> you expecting? Us to remove the conditional check that a volatile read
+> wasn't NULL? (Not using READ_ONCE, produces the direct tail call I
+> suspect you're looking for, but am unsure if that's what you meant,
+> and understand that's not a solution).  I am simultaneously impressed
+> and disgusted by this btw, cool stuff.
 >
-> At commit 82fef0ad811f ("x86/mm: unencrypted non-blocking DMA allocations
-> use coherent pools") there should be no new kernel/dma/remap.o warnings,
-> the Kconfig is merely selecting DMA_COHERENT_POOL.  The patch series
-> actually only removed code from kernel/dma/remap.c, it did not add any
-> code :)
->
-> Since there are tons of warnings all over the kernel when building with
-> this .config (probably because of CONFIG_FRAME_POINTER) I assume this is
-> unrelated to this particular series or anything that gets introduced in
-> dma-mapping.git.
+> i.e.
+> void *func = &name.func; \
+> rather than
+> void *func = READ_ONCE(name.func); \
 
-Yes, this is an unrelated known issue, sorry.
-https://github.com/ClangBuiltLinux/linux/issues/955
-(We just got clang builds turned on 0day bot, and are now being
-drowned in build reports from randconfigs we hadn't previously found.
-Which is both good (what I want), and bad (what I don't have time to
-fix all the different reports)).
+Changing
+void *func = READ_ONCE(name.func); \
+to
+void *func = &READ_ONCE(name.func); \
+produces the tail call.  Not sure if that's relevant/what you were
+looking for/even correct (haven't thought to hard about the
+implications of that change; juggling other stuff ATM)
+
+> (I'm surprised that `&name.func;` and `name.func;` also produce
+> different results).
+>
+> > >
+> > > ---
+> > > #include <stddef.h>
+> > >
+> > >
+> > > #define READ_ONCE(var)                (*((volatile typeof(var) *)&(var)))
+> > > #define WRITE_ONCE(var, val)  (*((volatile typeof(var) *)&(var)) = (val))
+> > >
+> > > struct static_call_key {
+> > >       void *func;
+> > > };
+> > >
+> > > #define DECLARE_STATIC_CALL(name, func)       \
+> > >       extern struct static_call_key name; \
+> > >       extern typeof(func) __SCT__##name;
+> > >
+> > > #define DEFINE_STATIC_COND_CALL(name, _func) \
+> > >       DECLARE_STATIC_CALL(name, _func) \
+> > >       struct static_call_key name = { \
+> > >               .func = NULL, \
+> > >       }
+> > >
+> > > static void __static_call_nop(void)
+> > > {
+> > > }
+> > >
+> > > #define __static_cond_call(name) \
+> > > ({ \
+> > >       void *func = READ_ONCE(name.func); \
+> > >       if (!func) \
+> > >               func = &__static_call_nop; \
+> > >       (typeof(__SCT__##name)*)func; \
+> > > })
+> > >
+> > > #define static_cond_call(name) (void)__static_cond_call(name)
+> > >
+> > > static void inline static_call_update(struct static_call_key *call, void *func)
+> > > {
+> > >       WRITE_ONCE(call->func, func);
+> > > }
+> > >
+> > > volatile int _x;
+> > >
+> > > void bar(int x)
+> > > {
+> > >       _x = x;
+> > > }
+> > >
+> > > DEFINE_STATIC_COND_CALL(foo, bar);
+> > >
+> > > void ponies(int x)
+> > > {
+> > >       static_cond_call(foo)(x);
+> > > }
+>
+>
+>
+> --
+> Thanks,
+> ~Nick Desaulniers
+
+
 
 -- 
 Thanks,
@@ -186,4 +248,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdniBgjgqY_YFY%2B80isdturCb75zSqCdV0GLH8dT7yS4iA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkL%2B2Gvn2mkZ8cdHN%3D1F5cHQHii57ocD0RFeLJxEt%3DTUQ%40mail.gmail.com.
