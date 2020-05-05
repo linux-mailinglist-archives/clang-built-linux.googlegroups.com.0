@@ -1,147 +1,135 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRB3XIYX2QKGQEKI5RBII@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBDPJYX2QKGQE6OGDUBA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53c.google.com (mail-ed1-x53c.google.com [IPv6:2a00:1450:4864:20::53c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 621721C5850
-	for <lists+clang-built-linux@lfdr.de>; Tue,  5 May 2020 16:13:02 +0200 (CEST)
-Received: by mail-ed1-x53c.google.com with SMTP id c6sf1008300edq.4
-        for <lists+clang-built-linux@lfdr.de>; Tue, 05 May 2020 07:13:02 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588687982; cv=pass;
+Received: from mail-wr1-x439.google.com (mail-wr1-x439.google.com [IPv6:2a00:1450:4864:20::439])
+	by mail.lfdr.de (Postfix) with ESMTPS id 444051C5855
+	for <lists+clang-built-linux@lfdr.de>; Tue,  5 May 2020 16:13:34 +0200 (CEST)
+Received: by mail-wr1-x439.google.com with SMTP id r11sf1255469wrx.21
+        for <lists+clang-built-linux@lfdr.de>; Tue, 05 May 2020 07:13:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588688014; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rVw5uwWbHLICU9SPkhGXZDk+8xEzVpS0ATehNu5qBAgG/NPNomARRPm60mYx9AkVyx
-         XlLhe5QuUs16p1cKdNosd/1mDhezLeoa2hoy0fln74YQRFFgl+Qm4t5OzqhEs2/UZuuv
-         pIo+XKMo9SbF3Bgd/NRq1yGD04FknK780J3I/SqQnR1T5ZinJI/r3SGIwMMHjgvaB/qx
-         1p40VvbIfJLTpa0wwOHcJDtG5+1eNE9HadxTqo2FE1xs0ryZe//Q1aLcyTXyAfY4yTwc
-         lABDySk/fkMp1eJABfqpaijQoJkIV4h01InAuwhis508hxYSINbvi4CxWdo9Ihl6Fxee
-         lm+A==
+        b=dqj4yWbVOLwPQMVsU/3g3zpsc//pVrwE2oduOBq2v1+xBp9dqD5SQkowQuRMBRBTOu
+         XM3bWneqOTeDK5V8NucmT1gsUeyayfBAfVfbTDiVdleFBjQx4Y3RsUgySfyJwDJvQyZJ
+         rsYu3rMjeYJfZm4g0QF9F1/rDoqflan2Pw9lmmHQTXxONs61arIjIBens0yrjbg5oivE
+         axTDzoeptbgd+1l8TrlrlxUVnxPFwk/8eDqoJZMWXvjlwgEMycaLI8fit7VFsCduhMrY
+         Hme1rSC/k5TbqguCiffIn28gUDXe78xie5yyoX+ZR49wl93QrUCPEPMVPefUsHw1u/9K
+         L6yg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:message-id:date
          :subject:cc:to:from:sender:dkim-signature;
-        bh=gUF7YMBkxTjgs3+zpoNUGOBXnvXQgqB2VIAIijJ5YFU=;
-        b=whbPX8NenYpT6AxKRywZ2THycAZR9z+Gz6y7diwKXbZIGzQZsBuQmcFysOrxt4UseY
-         fjSiNlAZrb09+BwAwPyPA5LL0Yl8H8oOxL2tJn8ckNVnDz3x8l3AD5ayVvQJObQLYqMW
-         SGbII7h452C+5aWZLWACMUOkn4MYbeKm0O1m7KR8wqZ9x9CXg8uJKLYnO9JcCh83h6Dv
-         WqbjHX7au37smiBwo4wY5OJlMeg/jJ27U8up6WpXU6Kb7ckKRnJUVULJjjuTO1bQDNOl
-         SwbxV20ISuEqXEcaB4VQDj/MgIXKJdyVjUpMP2xDIzYhephqs/1r+sG95H6unrB/sV4F
-         NK7A==
+        bh=3jEDWA52h82oS0sYkuWcpgOOb3kACDbrbq76wDJW3jg=;
+        b=Hj29BQz+eWdiJTN7COswSrVeo69vc7cizsCTfKp7v0ven/6eTl3K1+vVp6Tg9NIurD
+         R8z3ystFzq0uDREWTtkDH6P4wSv3IS3bSYxIHJVyYBH6Od6277hqP8gs4wwJKdtvn+Ml
+         sFUzqQ1hr5vR6KiOgwvJZ7RBZl8aMt/+ku7gwYnNeguCQLKGTpY3MCSYRTDyWDqoWdC8
+         xCnKULXqhfee+L/yePZgNgq2IqUFLTJkN5D6nhvgpugiLx3rUY5Iu7WPIIq8V7bb6W7k
+         PyWvd1AW3AO1eCqBQb5xg7ug5n9sOCcSrWOlXkfU7kkd+XMxcNfu4BmrmwdWHCJTA5GF
+         Iqhw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.126.134 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+       spf=neutral (google.com: 212.227.126.130 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:from:to:cc:subject:date:message-id:mime-version
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=gUF7YMBkxTjgs3+zpoNUGOBXnvXQgqB2VIAIijJ5YFU=;
-        b=MVbwJjGWGAJjofKpkNkfwIIt3kbmsqJZ3WEFfRRDMlemXf2/Lwkvrfeyz/DhGEoM65
-         GPwqBqY8eTfc9wKbyC7N8q6yJvQ0a+fF046W72ifGtLBkUEVCe9FWKHxp+AkelVbrTSz
-         ZOoyAYlzgZMFrHUX2U0fO3cR/FY5VQ3EKGJYCL4UOKspjYtaoVMOvYYDGaQXotkxjRDu
-         9FtdqCtis50Z3VsMpYdT40+ip3IFS7jEkkob4aNdmhO0wnQAp6Xw61GL8ZgXHWXWl4EU
-         pHv0RoSw0I+dXHDEKzO3nZ+nndn3RaRuU9AGYrMuEu3lpqohSEASEsIon0YTTitEHkRO
-         8Y7w==
+        bh=3jEDWA52h82oS0sYkuWcpgOOb3kACDbrbq76wDJW3jg=;
+        b=Gbd6f4t70oKeMwu3WGY7NQen6PTjxptJL6mb0hdwE0Jf3zGrYEuidGGIKm102+06iJ
+         OL5xkEjYbMEL/XBEDRw+yE43YlabLMHnU/HuTCPFJWBicO1/vqV10E0p3UWmBfQjBLYq
+         rTiG0Jx69RUdLm5bsUjLJp3YJ7KpzYQnJ9VDaU6Xul7621SBmYPYSmfSSu+8oiOP/8n0
+         vYQv2V173MnHzPJruYeIUZtoxyz9TPvE04Vc/TUkZShP10BNdGFxOgAFMv+QK8NhtHAz
+         aSJmhE3qUn12iSphGr/4aZaPoziyogp2Zch4quWI8aRnn/83IQxfnBF7CsTZdDNhQP83
+         L8+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=gUF7YMBkxTjgs3+zpoNUGOBXnvXQgqB2VIAIijJ5YFU=;
-        b=DGmTS7TFUd37F5thGSlcOkzFnNwxqF5MIA0y9ln4iXVc6rkiooIQNbwQdSGKUQ/7eW
-         Dw9e1EBPpn01C5z1zVTKveI7r61T4A/HxKfr/ziM69/kH+KRiXYTZYny4MUrSKW5OEHv
-         T08VJWIWUFQd05CO7pXA6evbTh8Rj526kl2Ejd2QEFqgFBhCqiidR2Xr/bff3THJfxX5
-         35VhLTiR5Ru6/+RTwjaA6sfnb5Edq6hf5eqBOCQn+0CElawFlT9zo9cdckHHL9mqfUOd
-         9+ajyUAf0YY/EiFsZuVCPOmWTOLbQOCrccx3+kW/Q8g/n6bm5JYrsYEObafkGhDWn0uF
-         6bGw==
+        bh=3jEDWA52h82oS0sYkuWcpgOOb3kACDbrbq76wDJW3jg=;
+        b=RadF3MtVWbuoBdh7Wxyva8EPRUtxh9z971AFYB+WA7kpQRTJVT1gHnhScsEf3oYaXw
+         YkyTZ2Aix3hubf9VFp/uwzILo7f2F2ksSTZ1CnfuoJYhtLckHBQk/oWR7UuEE+WSiAIK
+         idPHTtvuFe7gIurNZRTI69aRMj7Bl+w8IJSYkPNsUi9lBkCkUIUeMWK3rgW44gHhsEJd
+         z/W9NyrB0yXqpHY8G8p1ZQJDA8sK16Wg6NxF+02gdiYt6CHFTAWKnO1p5w15ZBOBkQsz
+         6Vnh2EAUahIlpSPSLw8knpAgV7vukilnNVrRBsw6TVl4ntPKeYxuxtQA5ss9m9MSvRkl
+         gDug==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuZ12w/x8ktL/h2R1QMPvOg5OewOFiz1lHL++OY5f01aE7fEfv4E
-	5DAPiGQHiwoRlEU8PhL7fNY=
-X-Google-Smtp-Source: APiQypLUyqBkaECFnWj7incHpgYs6wJaF2rBopQ0uceGG+Wx0Y2YPcZO0fmtFscuaM3hEcMfmrkj7A==
-X-Received: by 2002:aa7:c1ca:: with SMTP id d10mr2902231edp.152.1588687982107;
-        Tue, 05 May 2020 07:13:02 -0700 (PDT)
+X-Gm-Message-State: AGi0PuZPQnQACohnwPYm8yGoi/9CUd6k0+k6eP6NQ/MfL0zl58Is2hRA
+	LF76gtT+OV6w/GLEJdG/cpA=
+X-Google-Smtp-Source: APiQypLfuPj2GQBkpH+XvKwFi30n2/mrMNpCWsOkzOBbuSd1QTmAlxVd5RWCV+H05PThNTkmcnDOXA==
+X-Received: by 2002:adf:f4c4:: with SMTP id h4mr4136297wrp.142.1588688014038;
+        Tue, 05 May 2020 07:13:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a50:d511:: with SMTP id u17ls1326073edi.3.gmail; Tue, 05 May
- 2020 07:13:01 -0700 (PDT)
-X-Received: by 2002:a50:a985:: with SMTP id n5mr2787924edc.338.1588687981633;
-        Tue, 05 May 2020 07:13:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588687981; cv=none;
+Received: by 2002:a1c:a9c4:: with SMTP id s187ls4598904wme.0.canary-gmail;
+ Tue, 05 May 2020 07:13:33 -0700 (PDT)
+X-Received: by 2002:a1c:23d4:: with SMTP id j203mr3814764wmj.49.1588688013595;
+        Tue, 05 May 2020 07:13:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588688013; cv=none;
         d=google.com; s=arc-20160816;
-        b=lleREuWgRcCPrmic8E4q252uXJoD/19jEwafijSgHwwWQI4+c+gBTjG0pf70vh8P+w
-         Wvk2CPprVFF8li1AL+65gaAciIEC4byXvaaHc5HLNOXVm4lhtD7aGfWi+/9OGJ5qu6J3
-         aHMC84UdlKN/lzTNT/fuXKRAB1KxkTekJWQjfHNk6qis1HPotyby9w07V0q++Pq6mxjP
-         ahguSDtGuodzfxNMsWpi936pA19DilZjN45hVtSREUvOlmEKPzoS6PpdX1yMA0Nrz25C
-         g68UILoZbXaItlqQpMHl1osEt2fJeHHK9GNI6SoEEfFuwJkmA7WSv67pWp0DUN2AD4UY
-         UOMQ==
+        b=O4FxzDSM3IjSZvPFMAx8DgfIyqKVnZYcvozqIcp5/TGYjJuem+bGt1DZEMHIw6cs9/
+         9QBE+HBk6Gh/FNbQ6JRQG6OolyvC+Cj0EHQkK2gbbrQ+C5TSLu21wejfIHK7ItwoslnV
+         PqfaDbjqtkfPLP5diGsdlAOtm3egBMlsYazNbICPXq7NEKAdf4pjPRUZMERoX2CR5eco
+         lsUMdFS/5ETNrzkxo5Ra19U3sIwNH/K7xUwkq/jij76P3sZAncmQiWr93JIQqQrgsu0d
+         lCK0uAwdeCmenQUXzLQ2WYoUodEg+5Znui51wZouQXnPKysiu4OYjOiwnLdOqHk42ORX
+         yKGA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from;
-        bh=z8T39btxur0VopfoZfJmON1FviS20ZKbR+N8sC3DbVA=;
-        b=ZE5cbAON2vz9+VHKMHo69a4QW2gccHPqk3QUm137yiLSYRZqkjeprcJbaE7/+N9VbZ
-         02iNm4AsWZL3KJ33s5JMTIuv0DHbefo7xzRzSnSO5hEjawArq2jrOxfGVVea5QzMRYIT
-         Q+Xev9aVRVfxHclTBjaFxU63fIgN2dyMzupH98cP872Zv6dkcsBWbpLM1PXrrnB3ymQF
-         R573UJMkCE198WvW5dw0yNwD+zVy89IGjJaRDDIfO/5c58cAHyTl7JjJ3CR+3BEYAGOh
-         RjGtdMVGGEdwZ3XKY6iOXZuy5S3cjXdfKFVfIcDJyWSABKXCO2zHrC3hruWgdlgpSqi0
-         jRYg==
+        bh=zVWl7POs3FDgf6OJshkbL/jFTp/DcvJrHydDmVyN7wk=;
+        b=e4WsQJ41rkT6iUMW7gpInH4FF6PCqQaytwZW7UOOWocVY4CrafGsRV3us7vd3jeufn
+         0ETX7DEKvkCdRfsPsoNKzszor3lPs5G8Z/ETGy5NuUap6n9JNQw82MZvrIQdvprVo7FM
+         hHbjuhCh7s1cPzv3t2Ge0+wHzCcXgpAOY9Yu+/qu+o2Ij7HFOFs29RbAvWwd9j+6XMLs
+         Jlcrii5hMg/RvWW9TquYtYweKyYaoWoMIwVjbflngh9eHpkJP7fBtAMYF6ImSWCe3ieH
+         96LqK3ZMpk5yQkghpWPdXWiPxpa15RyS0u5Kqz+OHbsaVV4QzVEDRLTpuHTakn71WHzO
+         tQNA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.126.134 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
-Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.126.134])
-        by gmr-mx.google.com with ESMTPS id f24si89639edw.3.2020.05.05.07.13.01
+       spf=neutral (google.com: 212.227.126.130 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.126.130])
+        by gmr-mx.google.com with ESMTPS id u16si173843wmd.2.2020.05.05.07.13.33
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 05 May 2020 07:13:01 -0700 (PDT)
-Received-SPF: neutral (google.com: 212.227.126.134 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.126.134;
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 May 2020 07:13:33 -0700 (PDT)
+Received-SPF: neutral (google.com: 212.227.126.130 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.126.130;
 Received: from localhost.localdomain ([149.172.19.189]) by
- mrelayeu.kundenserver.de (mreue012 [212.227.15.129]) with ESMTPA (Nemesis) id
- 1Mrwnt-1ikU0n0FhF-00nxqr; Tue, 05 May 2020 16:13:00 +0200
+ mrelayeu.kundenserver.de (mreue010 [212.227.15.129]) with ESMTPA (Nemesis) id
+ 1M9WeC-1jSePQ0bES-005d0q; Tue, 05 May 2020 16:13:32 +0200
 From: Arnd Bergmann <arnd@arndb.de>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Torsten Duwe <duwe@lst.de>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Amit Daniel Kachhap <amit.kachhap@arm.com>
+To: "Jason A. Donenfeld" <Jason@zx2c4.com>,
+	"David S. Miller" <davem@davemloft.net>
 Cc: Arnd Bergmann <arnd@arndb.de>,
-	Torsten Duwe <duwe@suse.de>,
-	Ard Biesheuvel <ard.biesheuvel@linaro.org>,
-	AKASHI Takahiro <takahiro.akashi@linaro.org>,
-	Josh Poimboeuf <jpoimboe@redhat.com>,
-	Julien Thierry <jthierry@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Kees Cook <keescook@chromium.org>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Kristina Martsenko <kristina.martsenko@arm.com>,
-	Ionela Voinescu <ionela.voinescu@arm.com>,
-	Steve Capper <steve.capper@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-crypto@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	wireguard@lists.zx2c4.com,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH] arm64: disable patchable function entry on big-endian clang builds
-Date: Tue,  5 May 2020 16:12:36 +0200
-Message-Id: <20200505141257.707945-1-arnd@arndb.de>
+Subject: [PATCH] net: wireguard: avoid unused variable warning
+Date: Tue,  5 May 2020 16:13:17 +0200
+Message-Id: <20200505141327.746184-1-arnd@arndb.de>
 X-Mailer: git-send-email 2.26.0
 MIME-Version: 1.0
-X-Provags-ID: V03:K1:rkN2hFA/4F6NEnM1J64C8Aoib8T4jOG+siBiFVT9WROwOdH7x9t
- 4WH888TrHbFW/FHpjxq3U7UIYxkq42gZJvGVmzWSKCE/CP5xLY+4t0fiBxQKzBPqACB4Rxu
- Ppew9ALCOA7Zl3kFJwrRLZlpqi3jMRixTt0nmQPz31Umnk3BLwwh/1zbLQKb3mod0qsnKR/
- rNXzfBEB11Ep2dBi8d6QQ==
+X-Provags-ID: V03:K1:j5rBKEs2EZ2wBWucgw3jP/snV64xmxjwf5JSJRK1981/0aQIMOW
+ fEF0VkodfzvUsiuEQUDo7kxlEFs3xdtHubS7l8i8Gk1lEj/6nOgXOAI7UbeAobG1OrqBrcG
+ GVJlqLnzIGLXPiv/nvBYUAcfTh4xKECz/6lRIBaCKcqauCArBacxGzmbeG17O3z256yLxp7
+ bPL+EwTM3HZElCMzzbHdg==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:cdva0oxEiZM=:FQRtrzAr9rWx5IUwkwoKVU
- 4+edO8zLchzG0t3lP2T3zLl0VcO/vDceZ7U8gqo0szcf3UGrnp8cqm3RsThr2qeuZDCnoxmJO
- veqZajiQ7CWyp2xDqmSubJR9bg6if5TOtLgEJ48h50YQHo2owT1RleKCLy76qLfmwy4xRXVkR
- XKLca5YQpwBnghGgN/jyJE2KrT/TKk+TsK/QDz2CRA77IiqjaVSB2akJo9+zH0ilrj/1TUj2D
- beLTyKsIsE1xxTZGlLlp66kd5pROyDWGCL1CJIrsmQdcqPBJv0vfcntLO68w61O8bNp6iWhCh
- ANwWYVWBfMwiIl2qwGJw3ZgjIySZ8wCqK5wU1YqOl26ial/nrVdcbrkixCFkG6atDKTbdZv5o
- lM6FuDHZ2WAl5ilc09yi8pu+sn3P1/m+UcpcsxxEpqJQxNKYQsIzCTZ3uyuC3Uz9PD7HjK32B
- 0Bx+Tcgsyya3G5pIone2mmBYxaClBltnbMnWQZJtTIlVpk3MIxLlrORfTCXPpOiqfOTzqNz3J
- D9zb8xppaQvpQHwp81dh1mJh7SVz99Du3S+zZy35Syk9ovW1Te6tM60nT1aUZa9TYRgScSyJ6
- fTfaB8IpMAB8iJV/RjgmGLPR9q4/q9fWr7cd7f+JQwWvmp3H9ACLTum5FFlc6OKxiAo+S0W6V
- Qe2JeJswxsdeh+GNiwZBcsq5GwonmV950Wpccx0cOX/zGJEK3kzxhV6CFJaN+pV9Ae2jku1w2
- 9INoLYGGsrvr8JLgpirpXlAifwJgXoorZG035wf4Nt+ZqQ7+8lCCAdPFhzkSnTRkqZ59sCG5x
- v/JSrNAdWm8DfWvw+w/viI7QyCBKfg1VXkZ7O+ztIiSTuzh++8=
+X-UI-Out-Filterresults: notjunk:1;V03:K0:Dk/GUQ/t1Bc=:yEMm/AYZhCfPtA9HWgU3/6
+ NpaeDf8tJN2PXbUfTPSlKnW7zxCFyXGgCxtknT8672D1Ri8glQ0ejXiFdUI0VLfBoZxCu5ZDq
+ Clbq9XIaw4vcoS70Z2oe1OASZcipm0xIj+Zd/sSDeKE8gTibGvA7lKu5AMxc3kJh2lauU4eO0
+ 2VZryiFexozDS0SJoW6iZ6r2J2I7RNXCG9q5S3XNMZEHyPZxOUTh7XKocmbX2dBzzUCYOYkob
+ ImIbtdgQxuidwLOPtuVokmY/B19rUsAtrBJQavK1pXZUX9zUsmDM1rl6/9jg9JmEWtZYQdHJj
+ +3AnWXN2FG9EqRAhc3HC73C63I/UyhuLDh2+lBinSTdkgGdPQ1TNh58+2id0y4BPR06U8R23C
+ CAB8mOJeJI1VXb2BGa7qb8GxLRBTBqGJotvhWYSel4/A+YrG7hjLIlsAvodsTEb0dEV61D5l5
+ INqNgLWCH3tuiIYBOTpfgiCSB8qU83C9eMU5oClxOZAEpyJjjsLdxi+qSrpIUixWyJbMjM25b
+ NjnrlxnZUtn2Z3CAdaNw786GgKxn3jw80kwrk6Onysd02XylVd4HeN6QAUsczkoyc1CD4L9zK
+ 2ktIYnX4devlUErlwVSGJzrPp+U9YNrHIcGTuM/KMRD3KzIH9+zjoDIVQ3AtpjcnZnuR4NQnt
+ oYRKBcLtwnw/1EJFvNfQsdavWNOOzKnjXIa8BXi8RM980R6bmIOG3PRpoR/waCc+FYsBccfA6
+ xLLw98YqKlcnpnG0+v8pwD98Lv0jX+sbOtb4b3JZeVJm0LO7sik3VgKCtlEjzeXI8AbKWOwCk
+ bvmJu2G6jNC4yXyi8EScJuTfM7t46CimQURKtQRg4qvTNma43E=
 X-Original-Sender: arnd@arndb.de
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 212.227.126.134 is neither permitted nor denied by best guess
+ (google.com: 212.227.126.130 is neither permitted nor denied by best guess
  record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
@@ -156,38 +144,89 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Clang only supports the patchable_function_entry attribute on
-little-endian arm64 builds, but not on big-endian:
+clang points out a harmless use of uninitialized variables that
+get passed into a local function but are ignored there:
 
-include/linux/kasan-checks.h:16:8: error: unknown attribute 'patchable_function_entry' ignored [-Werror,-Wunknown-attributes]
+In file included from drivers/net/wireguard/ratelimiter.c:223:
+drivers/net/wireguard/selftest/ratelimiter.c:173:34: error: variable 'skb6' is uninitialized when used here [-Werror,-Wuninitialized]
+                ret = timings_test(skb4, hdr4, skb6, hdr6, &test_count);
+                                               ^~~~
+drivers/net/wireguard/selftest/ratelimiter.c:123:29: note: initialize the variable 'skb6' to silence this warning
+        struct sk_buff *skb4, *skb6;
+                                   ^
+                                    = NULL
+drivers/net/wireguard/selftest/ratelimiter.c:173:40: error: variable 'hdr6' is uninitialized when used here [-Werror,-Wuninitialized]
+                ret = timings_test(skb4, hdr4, skb6, hdr6, &test_count);
+                                                     ^~~~
+drivers/net/wireguard/selftest/ratelimiter.c:125:22: note: initialize the variable 'hdr6' to silence this warning
+        struct ipv6hdr *hdr6;
+                            ^
 
-Disable that configuration with another dependency. Unfortunately
-the existing check is not enough, as $(cc-option) at this point does
-not pass the -mbig-endian flag.
+Shut up the warning by ensuring the variables are always initialized,
+and make up for the loss of readability by changing the "#if IS_ENABLED()"
+checks to regular "if (IS_ENABLED())".
 
-Fixes: 3b23e4991fb6 ("arm64: implement ftrace with regs")
+Fixes: e7096c131e51 ("net: WireGuard secure network tunnel")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/arm64/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/wireguard/selftest/ratelimiter.c | 32 +++++++++++---------
+ 1 file changed, 17 insertions(+), 15 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 4b256fa6db7a..a33d6402b934 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -151,7 +151,7 @@ config ARM64
- 	select HAVE_DMA_CONTIGUOUS
- 	select HAVE_DYNAMIC_FTRACE
- 	select HAVE_DYNAMIC_FTRACE_WITH_REGS \
--		if $(cc-option,-fpatchable-function-entry=2)
-+		if $(cc-option,-fpatchable-function-entry=2) && !(CC_IS_CLANG && CPU_BIG_ENDIAN)
- 	select HAVE_EFFICIENT_UNALIGNED_ACCESS
- 	select HAVE_FAST_GUP
- 	select HAVE_FTRACE_MCOUNT_RECORD
+diff --git a/drivers/net/wireguard/selftest/ratelimiter.c b/drivers/net/wireguard/selftest/ratelimiter.c
+index bcd6462e4540..f408b936e224 100644
+--- a/drivers/net/wireguard/selftest/ratelimiter.c
++++ b/drivers/net/wireguard/selftest/ratelimiter.c
+@@ -153,19 +153,22 @@ bool __init wg_ratelimiter_selftest(void)
+ 	skb_reset_network_header(skb4);
+ 	++test;
+ 
+-#if IS_ENABLED(CONFIG_IPV6)
+-	skb6 = alloc_skb(sizeof(struct ipv6hdr), GFP_KERNEL);
+-	if (unlikely(!skb6)) {
+-		kfree_skb(skb4);
+-		goto err_nofree;
++	if (IS_ENABLED(CONFIG_IPV6)) {
++		skb6 = alloc_skb(sizeof(struct ipv6hdr), GFP_KERNEL);
++		if (unlikely(!skb6)) {
++			kfree_skb(skb4);
++			goto err_nofree;
++		}
++		skb6->protocol = htons(ETH_P_IPV6);
++		hdr6 = (struct ipv6hdr *)skb_put(skb6, sizeof(*hdr6));
++		hdr6->saddr.in6_u.u6_addr32[0] = htonl(1212);
++		hdr6->saddr.in6_u.u6_addr32[1] = htonl(289188);
++		skb_reset_network_header(skb6);
++		++test;
++	} else {
++		skb6 = NULL;
++		hdr6 = NULL;
+ 	}
+-	skb6->protocol = htons(ETH_P_IPV6);
+-	hdr6 = (struct ipv6hdr *)skb_put(skb6, sizeof(*hdr6));
+-	hdr6->saddr.in6_u.u6_addr32[0] = htonl(1212);
+-	hdr6->saddr.in6_u.u6_addr32[1] = htonl(289188);
+-	skb_reset_network_header(skb6);
+-	++test;
+-#endif
+ 
+ 	for (trials = TRIALS_BEFORE_GIVING_UP;;) {
+ 		int test_count = 0, ret;
+@@ -206,9 +209,8 @@ bool __init wg_ratelimiter_selftest(void)
+ 
+ err:
+ 	kfree_skb(skb4);
+-#if IS_ENABLED(CONFIG_IPV6)
+-	kfree_skb(skb6);
+-#endif
++	if (IS_ENABLED(CONFIG_IPV6))
++		kfree_skb(skb6);
+ err_nofree:
+ 	wg_ratelimiter_uninit();
+ 	wg_ratelimiter_uninit();
 -- 
 2.26.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200505141257.707945-1-arnd%40arndb.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200505141327.746184-1-arnd%40arndb.de.
