@@ -1,45 +1,45 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBU4BY32QKGQEB2EXXFA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBU4CY32QKGQEVA5B63Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x439.google.com (mail-wr1-x439.google.com [IPv6:2a00:1450:4864:20::439])
-	by mail.lfdr.de (Postfix) with ESMTPS id D27CD1C5A71
-	for <lists+clang-built-linux@lfdr.de>; Tue,  5 May 2020 17:05:55 +0200 (CEST)
-Received: by mail-wr1-x439.google.com with SMTP id f15sf1361089wrj.2
-        for <lists+clang-built-linux@lfdr.de>; Tue, 05 May 2020 08:05:55 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588691155; cv=pass;
+Received: from mail-ej1-x63c.google.com (mail-ej1-x63c.google.com [IPv6:2a00:1450:4864:20::63c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0D45D1C5A83
+	for <lists+clang-built-linux@lfdr.de>; Tue,  5 May 2020 17:08:04 +0200 (CEST)
+Received: by mail-ej1-x63c.google.com with SMTP id a23sf1364459ejv.14
+        for <lists+clang-built-linux@lfdr.de>; Tue, 05 May 2020 08:08:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588691283; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YBTqJLNcQh3Z7DhAj0aFu2u2Ly9flIYqnxt3O/AYln2jknPYUxp7OhZaduoHwx2ngV
-         U4ha5LqBepuSJ/sJmAyCS+XFKwodJQpC9wlpeR0nlaRELdPuFSBqt6MIBSbjdcgk9B6B
-         nAN97xZPpXclbHGMGOzh8VaBf4JFMpMcxDCMWiKamer2Omhi1ZnxidrxEfupyxygdAfI
-         r9VoKeFjNpKVAgz72/65/qC4d5cOE1UvVfT6CWCzj29tLaXXVf+I2Mxc3uCnjOwI9M2Z
-         w1v8Ll9GLsuxqUClWaDHxVH1t8lF+0+DS2i8TTEjKvI3ACi26pYK0JdAFiD1vJf/ptD3
-         hFzw==
+        b=EliEi+/DNDgSVjfL+PZRWu3e00TucUUUHlId2b0qBf1DTpXxznFhLOH4M0VLgrEuli
+         wfs2I6kVZdVgkzh0y4GGjcSdPfNmN4JkoTx8h51tIuBd3KMh0usOWeWpoOJA8Kxnqq5I
+         72t8ny9+jFVsmKT8un+BPDXDuX/v3VpcQ8bpQtHmXVEbA/OEEY+/IiyOI1jrebNY4NMS
+         KKMZtd8NkCdD5PzpCwffF3tofpAIOzNyupboxi2pH4ZJxjIl0n0fgaKPcF39YucabICq
+         A7NiXjPYjN8ZwIciANm6D/OinBiQ972cCpCVTyAEdJRHC9vY87OD/Gl20ZW7wL1IWzt7
+         TewA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=agPmZLkJpm8I2/uf56wz9+bcPRJBwUA/PPb54ZTl7oo=;
-        b=dJ5YU/SVvJqiElmVzeui8JJz+VZPuF9xK8tyeG1B9vI8Sf0gwLtOSMGDqKgg5gxfNE
-         ukYR6zyLzXEiXPd3AvXSWz9BXrj2AI21GN5gNLL7xzJDFHdxwNzlmy0Yij9kMgS4dv4R
-         qvKixvqB49d5X3udQYTqOX0nv5fpW0FSTPaltEFxU4zJHueVZr6ZfgptL82M4URd6CwD
-         RQC3w7TigLW6PcB5pefAhsSuinkjb9NAlzZJ1LQ2NUUneA3LRnsJxnv2GkoBSBvbw6yX
-         ysG9wJ417FNqwUzdfjZPsS5n1ZrLoT81IekLzJ/uEru9wFXsxpmkEtigH19xjG/4zhIS
-         NmXw==
+        bh=NnSV+B6D2H2HjFqJD6lkpT6XpzQ/RLDbEmf2Hsce2b4=;
+        b=hW8KgKT6YG7lGk6IfjQAHSYaJIEWNtzi49KtOfadvZ89zMRxtmC5hhyqtJ6YWsC5Rk
+         73tYogPYylgRoeRqRJuVsmMFCJk0LRHLoIigG34vW8fp/pKZA5elfoPrtbJ+66UgBc5E
+         RDrT7xNHnQV0x8r2wgrvfcBVu8oF1z0XZZjodCLdXc2Lov5ybwZzVu3OtYsNiv1o72zH
+         O9p9XKMDVpxFyH2Qox9KX8bBsNjnX1buMvEReHWO9OX/E9e4HzNbBd4J1whrxQ4N4jjC
+         YtJzln1kqt/3mDM5Dq2C1DSFNZtN6ZPIvYDVqvmfu9U/OZWY0Gt7CI4nHHFeGutCKMwg
+         4sLA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.17.10 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+       spf=neutral (google.com: 217.72.192.75 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:mime-version:references:in-reply-to:from:date:message-id
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=agPmZLkJpm8I2/uf56wz9+bcPRJBwUA/PPb54ZTl7oo=;
-        b=a/vGUf/Vzx5zOLjS98EAxMC97BK3tgWo7tdvl/iHtUkWmTVt/oNmGQ3WRpmPWujfDq
-         KRa/JZD4uL6JbdxXqoLgLyhIDLFIJJlCKiGrVBf4sSLP3xhVrlMICplp8lifwcILQ32w
-         rt8Ci70/nrxB30cslN2ERoeXHuLifnWSI+YlmhbKvyKKPTJ+xtq3bhac+wxx5ED0/nhJ
-         /7Dwz4OPjm/kIssVygVTB7sRbiIeUD+kW46yLM38qRyLj+PB4RLuZrsJJ4+AeTe4FJKM
-         /dn1bWZJEZRhZiUiGRQ+sj3i4BZf6Z6vsmtor51188qcPsMwTSyVz4FihCpJJ4M6JwCL
-         1DuA==
+        bh=NnSV+B6D2H2HjFqJD6lkpT6XpzQ/RLDbEmf2Hsce2b4=;
+        b=jfbAChJi3DU+sogf7Np+EglSxgS4MefGIxvkrf7q0xqTUn2sU+DWIvr0NSFxL8ddPN
+         tdnkBMfbNcNF1hNxTAnknm+Avr2jcceIKseWHIN+4onFB01IzFXGawzCH1oai/Uk630y
+         oRk36IidJKJJZt/y0txKj0voQeWX3ifk9DYP5nJJUuEKfDvSBYBqtyzewoFvYBcG/BkB
+         LDniQe4Ekmhd1KLvfQsf5uY8degsi3Soif3V+Athfu1mUhlKhzoDqfNuegHVWmw2fGIm
+         6bb72KECbBTG92Gu8v+SAtDcHFO9E32exh+PaDrRCB/pF3NV+xMkKbI6BrOUBXmwbzvp
+         LAqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -47,95 +47,96 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=agPmZLkJpm8I2/uf56wz9+bcPRJBwUA/PPb54ZTl7oo=;
-        b=HzLJAlGn2CWz9llJ+8yGae5eczOKE1tblhzD2pO1f3IV0NCBO8m/NZyEOVXrdSxs6Z
-         bHD9zne0raEF1HVQFh/ABVNVaYh8UTibYV2yTwyxT8EiVmPIF2K5dODjzhzTOyR9af14
-         cfyOJDNmN4LNWcIgtOMrWxFfhlczT2qi9xthiW/pkSIGM3xMosvqcqbavuqpULKHYJto
-         DQkegf9aJQpGT+P9HWaNhI4GDdZiKlTNj2nE5vgS2wucFRR36tI4eGov1FS8AYTVGsRd
-         22Hl6f+6rOVDa0Q4dHa+9GbLpLCcoVsEXF4DkdhIypE7SoqWlfLPnA+kp4GqDjuWE2B2
-         tQrg==
+        bh=NnSV+B6D2H2HjFqJD6lkpT6XpzQ/RLDbEmf2Hsce2b4=;
+        b=ZNKjozjpY6p4lLDaaSiUdaOX6BZKUvWZ4DWg0IfuAu/vUcfZLci0DiGB5NJIRKaqMN
+         2yYHx371G6pta2I2qjDEZMMrqjm6jClFsWTTo8eWd2pk0YtqCQpQw/5pmletiQ3i6g/r
+         mjgu2WsRRcE1sUtm4tdG5ELfA3eHfFvS84ywtfuo27/SgsDMuUFZ1VD/WSHLGL+JyD1K
+         H2DcDLC7GMO15vWjQQhoK0ogGvTfm2u8Cel3IeXpfg9E1OAS3QN+JrcSlPVjI3fQ4oL+
+         I1KZuDfZXX2F4s1V/8ukeOxaca3Rev88rkwnHHjGI80tZeEWGYzDGzvgtuVhG9OrGIiS
+         xbqQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuYcPbP9B8s2LqnnFnRWbu1PKlccXS+CxXoiOa2W0px0+V1bJcic
-	DI3Oq65Baa3JaNHUIHPV24I=
-X-Google-Smtp-Source: APiQypLZZf2W6o07W6bCWxH0ZYNdHaOA2mlv+quoBnxGFokVBlI1j0Am8DWkCPAk+218D8KNWhdxOA==
-X-Received: by 2002:a1c:a512:: with SMTP id o18mr3709989wme.138.1588691155626;
-        Tue, 05 May 2020 08:05:55 -0700 (PDT)
+X-Gm-Message-State: AGi0PuZFM3LmK71UBdyfJYGUQX1OsiYahIgf06WYJBdXm/J/6Lh6JqDk
+	hefI/fsbkNsCn97skmAvG7c=
+X-Google-Smtp-Source: APiQypJukdTD8ICkZJwLP+qdd5JiY7lNFMb6aFltOzkVdxJLXfdkxW3kyobRdDWTGuTPPRzhHvlFjA==
+X-Received: by 2002:a17:906:6856:: with SMTP id a22mr3247585ejs.115.1588691283801;
+        Tue, 05 May 2020 08:08:03 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:db47:: with SMTP id f7ls3783883wrj.8.gmail; Tue, 05 May
- 2020 08:05:55 -0700 (PDT)
-X-Received: by 2002:adf:f704:: with SMTP id r4mr4293831wrp.5.1588691155102;
-        Tue, 05 May 2020 08:05:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588691155; cv=none;
+Received: by 2002:a05:6402:1a58:: with SMTP id bf24ls1402645edb.2.gmail; Tue,
+ 05 May 2020 08:08:03 -0700 (PDT)
+X-Received: by 2002:a50:e80a:: with SMTP id e10mr3081352edn.204.1588691283415;
+        Tue, 05 May 2020 08:08:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588691283; cv=none;
         d=google.com; s=arc-20160816;
-        b=fgm9lpUjklgF7j4MpsusxFBhHawFSMnqjMCZJfPM/qAZAq2Yqta9iicWGW/0Hh9y1f
-         tCwnXtlWzyL9QSv5jcmDoCHw7zjEWbgAhK3xKe0kADaEW4G6lwxk9BDWt9NKtsdIyrAc
-         U6Sjr+YJPtaMmMZsO6bjZqaA6sdjlkZkQfbZYN1sn9dOlehgeUuDI+aVrKYLbCcVh38e
-         d2QKsnw+hh3nYCqyD3UKLD+K6N4Xw0kICixD+TdOFigw5BK22JgY5etFc7Rz8f72fjjM
-         PCPEtLe+lEnk+FGFUVM8818+qDfr20ABGmOltLdC1i5ufAPsTOyLYvvC4o4djkavG0Z3
-         Eg/Q==
+        b=PdK3dJBmCSGbqrZI/f3FMO1IJiKtn2A94hLIC0cq4J56TNjr2KzvgIgXVM7YWVNuUL
+         rmuERgxbtTv+l4FVSPuKLmYbKbvK+/AG/niXtOad+DJY8fZ7xmXUMUCBIaJkShzy8JoP
+         VyMD8MZQKQWw19TLwkHFsak1DuQ3oebLyBJA/PZu3j0lU/OZTvSfH3z4vexhcP6gwD3H
+         MQOsjSt+WXpDdB5GHoK0SwjZ1CT0QN6EUrPxooKvQK7FGpenYviT/dp0wmF8vjcUr/t3
+         WgLP8vRrUQ3dY02Csv5eeqc9taHunRAA5XwxKfTzzhlLxjr4jLdX1e7mhnfbGf+tIMT6
+         vmrQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version;
-        bh=Q4IggaNR3qupvIPaXX5WQFQPRF9xxUev615Z/09fcf0=;
-        b=LtyVdB6TfY1YyNSmbBfmNJzkisKIwiWd4k3TujyzQgu+Kk1hy7mBhb4Nh+e0iQ9RkG
-         N+LWr3Irv2xXNNi8/V87DAh4skDBdOVyzXv/0xrJuKrqyoO0sR7bmsJjfUxhmYZiHjLt
-         J061/6tIDEmI0rTQZbXGHUu8IDRn5xpwbjt9bhilL1Fg55kOIW0Dkfn28/Ic7Z71tijB
-         7RlUgY5/tCx7XR7op0a0ngsYx+fY4bpUWsBGadTn7z05L370Pjq9+Zozo3se6exWSpUt
-         zOV/qpmYAQ9f8vOhESOf6tEubrFJ6CGs6JwIu/cLKkqJ/+/ZctdtOhfa+SXOB2JR++Ud
-         WG0g==
+        bh=YabCiOFGIopzFQhWmHfg1z7UEgG6y5v9IK/k6xKreb8=;
+        b=IWXFmj2jLO+odG9BPQhKiHE48Kg23NSe2Q7F9PuvM3DYuRF/mfBpYlQF/GxyvocrCT
+         WNAB+b+hU3hOsQFL/K7Dvr5GVyykY/otAivLXdnvaB09yTulbbjOAwC4n0KA1Du8Ll3e
+         8gUFBd/+1AD0MBF/ATe8/crshTaOBr5zgJIalQ2XIbqdtxfONXckoZUj6dFffs6L6h8E
+         PjqBxfTzBH5RFMCQKM/z2Swu/Lk+W3pZDLw76W6SiPaV8zp99SSi0oZNGMwE0YDlVH4V
+         VAprq2apAnR6T1PbuYLzAOTXJLC0rOTP1f6fxEf1ppdyGtWwiCPThFdvolMGsN1wkfqw
+         bD3w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.17.10 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
-Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.17.10])
-        by gmr-mx.google.com with ESMTPS id o186si168687wme.4.2020.05.05.08.05.55
+       spf=neutral (google.com: 217.72.192.75 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Received: from mout.kundenserver.de (mout.kundenserver.de. [217.72.192.75])
+        by gmr-mx.google.com with ESMTPS id v18si90511eju.1.2020.05.05.08.08.03
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 05 May 2020 08:05:55 -0700 (PDT)
-Received-SPF: neutral (google.com: 212.227.17.10 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.17.10;
-Received: from mail-qt1-f182.google.com ([209.85.160.182]) by
- mrelayeu.kundenserver.de (mreue109 [212.227.15.145]) with ESMTPSA (Nemesis)
- id 1MxUfn-1jBrvH22zR-00xuvv for <clang-built-linux@googlegroups.com>; Tue, 05
- May 2020 17:05:54 +0200
-Received: by mail-qt1-f182.google.com with SMTP id z90so2158008qtd.10
-        for <clang-built-linux@googlegroups.com>; Tue, 05 May 2020 08:05:54 -0700 (PDT)
-X-Received: by 2002:ac8:4e2c:: with SMTP id d12mr3185805qtw.204.1588691153393;
- Tue, 05 May 2020 08:05:53 -0700 (PDT)
+        Tue, 05 May 2020 08:08:03 -0700 (PDT)
+Received-SPF: neutral (google.com: 217.72.192.75 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=217.72.192.75;
+Received: from mail-qk1-f181.google.com ([209.85.222.181]) by
+ mrelayeu.kundenserver.de (mreue107 [212.227.15.145]) with ESMTPSA (Nemesis)
+ id 1Ma1HG-1jbbrq3Ege-00W1zd for <clang-built-linux@googlegroups.com>; Tue, 05
+ May 2020 17:08:02 +0200
+Received: by mail-qk1-f181.google.com with SMTP id n14so2569218qke.8
+        for <clang-built-linux@googlegroups.com>; Tue, 05 May 2020 08:08:02 -0700 (PDT)
+X-Received: by 2002:a37:b543:: with SMTP id e64mr3963064qkf.394.1588691281639;
+ Tue, 05 May 2020 08:08:01 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200505141137.665940-1-arnd@arndb.de> <CANpmjNNwgkVR6kjFudrR4ga--PigU5Mx69HZ1mhCAQ0GCLqQGg@mail.gmail.com>
-In-Reply-To: <CANpmjNNwgkVR6kjFudrR4ga--PigU5Mx69HZ1mhCAQ0GCLqQGg@mail.gmail.com>
+References: <20200505140407.373983-1-arnd@arndb.de> <CANpmjNNw6M9Gqj6WGTHH4Cegu8roTVu5x6Vqs_tCBxX3gPwL4A@mail.gmail.com>
+In-Reply-To: <CANpmjNNw6M9Gqj6WGTHH4Cegu8roTVu5x6Vqs_tCBxX3gPwL4A@mail.gmail.com>
 From: Arnd Bergmann <arnd@arndb.de>
-Date: Tue, 5 May 2020 17:05:36 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a3r35VrKVfpn_q2YYhxkvH9j0+3MnMqgRM6R=QOcsE96Q@mail.gmail.com>
-Message-ID: <CAK8P3a3r35VrKVfpn_q2YYhxkvH9j0+3MnMqgRM6R=QOcsE96Q@mail.gmail.com>
-Subject: Re: [PATCH] kcsan: fix section mismatch for __write_once_size/blacklisted_initcalls
+Date: Tue, 5 May 2020 17:07:45 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a01jV71_EzaCkaZgG51vnJ+x1c192dZ9efEKTawF6noDQ@mail.gmail.com>
+Message-ID: <CAK8P3a01jV71_EzaCkaZgG51vnJ+x1c192dZ9efEKTawF6noDQ@mail.gmail.com>
+Subject: Re: [PATCH] omapfb: don't annotate dss_conv_list as __initdata
 To: Marco Elver <elver@google.com>
-Cc: "Paul E. McKenney" <paulmck@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Masami Hiramatsu <mhiramat@kernel.org>, "Steven Rostedt (VMware)" <rostedt@goodmis.org>, 
-	Kees Cook <keescook@chromium.org>, Mike Rapoport <rppt@linux.ibm.com>, 
-	Arvind Sankar <nivedita@alum.mit.edu>, Dominik Brodowski <linux@dominikbrodowski.net>, 
-	Alexander Potapenko <glider@google.com>, LKML <linux-kernel@vger.kernel.org>, 
+Cc: Bartlomiej Zolnierkiewicz <b.zolnierkie@samsung.com>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Allison Randal <allison@lohutok.net>, Alexios Zavras <alexios.zavras@intel.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Enrico Weigelt <info@metux.net>, 
+	Thomas Gleixner <tglx@linutronix.de>, linux-omap <linux-omap@vger.kernel.org>, 
+	Linux Fbdev development list <linux-fbdev@vger.kernel.org>, dri-devel <dri-devel@lists.freedesktop.org>, 
+	LKML <linux-kernel@vger.kernel.org>, 
 	clang-built-linux <clang-built-linux@googlegroups.com>, Will Deacon <will@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Provags-ID: V03:K1:ilyWp6lGDk1Vz+pnbWSaJLl7J/KzoIkt1CjbPBkiKVonHa0BaMA
- bfeE0VBX7SYsbQl3acRMfwlVl0+WF5fM+3hhtW67gt4ye+XOL0sWjPXFGS+Yy7Ae9s5xCrx
- hMOJ48LHT8tdPpDe8XRYEGCaz1Fkef/f2261XTeQrzFVt10qasadC90ioqA5+o5ZoObhfHg
- DRiip9vPVQlkmtOp4ImtA==
+X-Provags-ID: V03:K1:gxXf+KpJpeKTLkitBn424h9flcMY48bC2VUbV2CJd5OCT+ez9RS
+ P0ZNxgRkRKlbjoUNvBBWhSB5nuEWLzKXHeMu6izVxni1VbAIHDUxfm4nTOT9G43GMLLC4fv
+ qQX7L2s9wiCt7LbO+Byh728QqGHGAkheukIf+0CUvOWo7U5U6PsrUM3o1QmJAELgiKaf5Fh
+ YEcV+VDrl2LK8BivwJq2A==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:0ivUFdVhhmM=:5mArBxKwq7Q7qW8Dqa/UhS
- hBtMlbqObsDFbmG2fYxh2XD1DlMtrvVZQYyZHwUxCG8dGY5BBF/SzGLV/udBqdrNJDtxLkmDM
- Qbqt7eHYVaPBWbYTbyMfCknNULyG+xwmmITdz4gRKkWMtwDA4AbE/9n1UoPEsGzAPtV5IXnjU
- NWOCww3qRJga8ljjXXkYofvBNXtZO6B7ZA1DdDaMfD8QBtqvxiaJN8ndher49o2Y8JPDtk9OO
- lpehL2ZMUO+dtxulzz/qMChmgWlV50aPkZOi9o2D+aiV2lIR9arH5YOUbIW1ZgNjEBYWI4U3P
- waFJC9kNdO2GGxMzz6f2DT46x9SozdSN7ouZ14eJreUR2RA72Hcs7DJ3Zqw9L6yOU44qGSqeV
- EdOGU1BJOirYOuhGvAkiRsH4/tzfGywKdHBW7mmPOyso/F3f0+CqMg5bL1B21m8iDl2RrN/mP
- RxhOc6AOtFUgW4LG7kicL7GtLMMof7GOtCGxU2HIBLK/B34wjYI349fc/3imTn0zDZJne5Qms
- F4KU9KWTOoECQcKH0g9H/R6+Yg4CGTxk623p+anWL1wde+uFtbtP7N6JzF7+7CZ38Q4qnPZ3L
- skexNMuyX03DTaENPLR7aQH86LNohQiokDnbQ3nLFWtHZ7V5UBFCok3t06fixA+k14bRuJLYj
- K4Q0NEE+4n2o1waKoTusUeBeSzGxSyFK/USqwDvQsglA4IaSidbZYv7J95H863Tt7o+9duP+/
- NLeRTl/kXQza3fLZ9OfDcU8pB+owUG+fwkpIwE4t0Hd15gdpTTYpRMIlIkakPcPsvJ88B6tey
- T1llPib1ekkLCWttMR22M8x304eVfedReVAR9xpkH5Hqb3gkXo=
+X-UI-Out-Filterresults: notjunk:1;V03:K0:mkoNylV14pk=:JEcaK90CqOzt488kueGee2
+ ScM5EsujoXFNrjGy0Tow6bXPVOwCVzltxqNN23/SobcM0THVzUpa2RVgi+eHmoS9ahMbl5sIl
+ /IkruEE1rk5r2p+MG4AyjZvTKJMRAoerhYZOtLTS+9LZilGRMDjWspCeE3RkuRNMDzbnbeQGA
+ 0DT+np2LAOkn4CX0EVEIT6Vqy46CuHkP5FBPixAfo5AkJuzikI48Tq2Bj2GgnDNu+Sqf2bmmb
+ mKHvIYgOsa4RU+4zsteEK0hZMwJQS3UGIx37J1p6brPzWOs63pad11Otw6vw2Vx2K/esCe4GC
+ I0XU+T83cNiTSXZc/oP7LEka2+JJE9eu4DVK6K87Qb6trvEcOK1KdbIF/S7P58hJGqjZtoxtD
+ zXtPWMInsR6rLE6uvBzhyzPEOOIXeAaWq+POyAFhanqYs8xY1w7LeAl5/Zxohp1e/f2uX9Ytj
+ eQSL4QWv3bTq4GbLnFWz6IeHKnP4jXo89G5SvEKTuSJfEELRlgPRJI6dRYKwD6cP0TQKgSrbc
+ vraZvtPvJYkgnYvXhSjObQQ0zvZlEi4C+nPud5zJqIfQTbJdO6fbzU1R+t7NBu0DA1snxLfiS
+ lfCqion27VlEE5qB//iXafDk/NavlYNCjJ77yl72+VPsSGMMq9p532/9RoseRWF60lQjJj5c8
+ XjV+9FT260jU3nadBq9CZoKGSJSw1hLunaHEGbkk+IRAmAKaklph+0l+ApSvhD5IuZkuMd9bu
+ EvrO1+y7LqTPakxYoOd1mkOlZB5fdqyPcDg0FVXgsi5OsIhqDfslkQN5w/wPJzpWL+7WIYEYk
+ FqTDnZ2YvCbW6Myzwt33Hq9dFtn28w6KPVsd3TG8C5W5bEyIt8=
 X-Original-Sender: arnd@arndb.de
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 212.227.17.10 is neither permitted nor denied by best guess
+ (google.com: 217.72.192.75 is neither permitted nor denied by best guess
  record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -149,30 +150,43 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, May 5, 2020 at 4:17 PM 'Marco Elver' via Clang Built Linux
+On Tue, May 5, 2020 at 4:12 PM 'Marco Elver' via Clang Built Linux
 <clang-built-linux@googlegroups.com> wrote:
-> On Tue, 5 May 2020 at 16:11, Arnd Bergmann <arnd@arndb.de> wrote:
-> > So far, my randconfig checks found two such instances, one for read_once
-> > and one for write_once. There are probably a couple more in random
-> > configurations, but I guess they are rare enough that we can just work
-> > around them like this.
+> On Tue, 5 May 2020 at 16:04, Arnd Bergmann <arnd@arndb.de> wrote:
+> > With the kcsan changes, __read_once_size() is not inlined, but
+> > clang can decide to emit a version that hardcodes the address, which
+> > in turn triggers a warning for dss_conv_list being __initdata but
+> > __read_once_size() not being __init:
+> >
+> > WARNING: modpost: vmlinux.o(.text+0x6e4d7a): Section mismatch in
+> > reference from the function __read_once_size() to the variable
+> > .init.data:dss_conv_list
+> > The function __read_once_size() references
+> > the variable __initdata dss_conv_list.
+> > This is often because __read_once_size lacks a __initdata
+> > annotation or the annotation of dss_conv_list is wrong.
+> >
+> > This is clearly a false positive warning, but it's hard to tell
+> > who is to blame for it. Work around it by removing the __initdata
+> > annotation, wasting the space of two pointers in return for getting
+> > rid of the warning.
+> >
+> > Fixes: dfd402a4c4ba ("kcsan: Add Kernel Concurrency Sanitizer infrastructure")
+> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 >
 > [+Cc Will]
 >
-> Thanks for testing and fixing this. Note that this may no longer be
-> necessary once Will's patches land. Also noted here:
-> https://lkml.kernel.org/r/CANpmjNNw6M9Gqj6WGTHH4Cegu8roTVu5x6Vqs_tCBxX3gPwL4A@mail.gmail.com
->
-> For reference, Will's series:
-> https://lore.kernel.org/lkml/20200421151537.19241-1-will@kernel.org/
+> I think Will is working on a series that completely overhauls
+> READ_ONCE/WRITE_ONCE, also getting rid of __read_once_size() in the
+> process, which would make this patch redundant. If we can live with
+> this warning until the new READ_ONCE/WRITE_ONCE gets merged, we can
+> probably keep things as-is for now.
 
-Right, good point. If that is going to get merged for the same release, we don't
-need my workarounds and I'll just keep them applied locally in my linux-next
-randconfig tree for the moment.
+Ok, let's drop this one for now.
 
-      Arnd
+        Arnd
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a3r35VrKVfpn_q2YYhxkvH9j0%2B3MnMqgRM6R%3DQOcsE96Q%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a01jV71_EzaCkaZgG51vnJ%2Bx1c192dZ9efEKTawF6noDQ%40mail.gmail.com.
