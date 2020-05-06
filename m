@@ -1,146 +1,147 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRB5FCZL2QKGQE3227LEY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCV5TUXXRUIBB24BZP2QKGQEBNWUUHQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x437.google.com (mail-wr1-x437.google.com [IPv6:2a00:1450:4864:20::437])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5FEFA1C6E60
-	for <lists+clang-built-linux@lfdr.de>; Wed,  6 May 2020 12:29:08 +0200 (CEST)
-Received: by mail-wr1-x437.google.com with SMTP id p8sf1083765wrj.5
-        for <lists+clang-built-linux@lfdr.de>; Wed, 06 May 2020 03:29:08 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588760948; cv=pass;
+Received: from mail-pj1-x1040.google.com (mail-pj1-x1040.google.com [IPv6:2607:f8b0:4864:20::1040])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3EC0E1C7220
+	for <lists+clang-built-linux@lfdr.de>; Wed,  6 May 2020 15:51:41 +0200 (CEST)
+Received: by mail-pj1-x1040.google.com with SMTP id l11sf2465618pjz.4
+        for <lists+clang-built-linux@lfdr.de>; Wed, 06 May 2020 06:51:41 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588773100; cv=pass;
         d=google.com; s=arc-20160816;
-        b=X1eLy06YxC4b3f2CfhYfy2nPcfLLmPlcvplUeRTuhHdgMesqgJmSjvC7uWGOBQKFDM
-         8JTCU+M4U1MpekoHNlrQibNozia+JWIGUQxoWhdccBkr+3w7+y4s0qUz70jVfZ1FMF78
-         WkGUqcuNRCxqw0EGc2JYskhbfiVFVgrekWwPz0LBgsMHVO+0NrCuovzRfpQ/W0Wt9F9T
-         HvIrxg1K3NqlC9k40erQdUrKQdcyNVS2uFxDGbVK+iJ9P3KgQiuNsVwiqph9a3tg6N4O
-         j6dAgSEpcTqxiP0dPK26c5/obRoeX+pGzV7EpsHoUKGH2QlemqdDj5/DVXSaZHSAANsd
-         UfyQ==
+        b=Ap9kdZqZpy0rZ/fTsFWsyb2Wbx+6ovulUIRiQUjZ7+mp36Wwh2twFKObMUdkz5Ho6a
+         12SldVScihPsoplXNjUXHiG0blO9dWo7Ko+rlTBY4CpnF4MCj4P8IhLV6QTdGIf8JzPN
+         6cUbVAAPEPAqnbVg/feyKHIZhwXnkAXlmwpS7AFiJsRMsdJvMpnKj1k26RDhG/lRLNgo
+         lTsZf7WrOtrwl5A/2VIX3kBgxFDZfIXoFFr11wqEAzwEmxxJ/u5Tin0x3cpiZbJI2OqT
+         AmdCM55cTFOgnVE4Lupg6EIg2Z0OyTZSUNk3tImxCsAfQfWuj7IrUz2BZzq9FDqOfrB4
+         eO1g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding:cc:to
-         :subject:message-id:date:from:in-reply-to:references:mime-version
-         :sender:dkim-signature;
-        bh=xOSbz8FPNiKepvtPQVse6jdQPyk5QxkGRFQnces3zVs=;
-        b=CY+5xxr4bq9HQcUjqv4Wj8nq20CW65P3IrEt56u4GPxI8CQR7vkCplZiyErF+J3KwV
-         dCWGFBH+ApiEPlqcbFMkvBv5ZZYbYwUVfYH0urt9f3bw0O5oPOVT/p2WhMLzmVjGajo6
-         srjW/W4WU07nN7u7rpgeObrflS7F44/cA2cNjCBkyJXKFgarFPPTfrPZT8/aqlZ+47xp
-         SruJW3jGuxJhrOBNvrGHRHFJLH6L1Q79WiW1kyPvpFAUmXdnibst+MCrCXyW3eY498lj
-         8TrT+mYIu+CnovI7LqDCbX3wQTPkjF9JcHZcJ2e3927uNAv4G5WTaCoGNVg3TJpSgKhv
-         e3cw==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=S9ZTQ23uU9c6hzpVqEhYccu/7Xf1dGxWecDX3u9QE/E=;
+        b=p9Dj5JPdY5VzbBqbC1nuWHa2xBpV/ux0N6RbFchkbGmiqfcT+3ZRxMbA+apRFdRRhe
+         4vbbNegu7tFcMXCPmXjUPFeMGBuRLgQn4LukgO3VOxzfM4xifjwpVYSqaIErmvANMzup
+         YQmQDP0+CFTuv9YqQ2pshp8o+R7dHmerxCRMd83Gq9bjdqbsiIEGej9lkUKgyxzG0swq
+         x7pavJARTZa29F9zrZLPvBSeEGKCIYVqxH0InUl3jyY7eRQbQow1rZWdIFK19O7arJK1
+         e0SZLcSISsfS0hRKIM+92XKKsbW2OOfrQT5XEP+890ZxCGVMDkjYz2P5w+fVfBVbbHle
+         A02A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.17.10 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=UiBCw6Ml;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:content-transfer-encoding:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=xOSbz8FPNiKepvtPQVse6jdQPyk5QxkGRFQnces3zVs=;
-        b=pmWPLhTNNW0aUMDt9Tdw9zKvoIcUvkipS+PDZLTp/rUYc34jusBlD/+AOx4wG9nPcP
-         KF/SWpPEvvhZWSajDPAVue1cOWBgjsj5FQIiLE39cFfmM/cNH1u9RfP0ay7BJQJVfjHK
-         ymCqhegYBgXJW/1SdX4doRSJuyNGKa/dnp1OrAk6IQlKrYoaY9wsiRC9sU4WLDKwIRkG
-         8xGPJlmpJNM4InXoejcpkmxXFsKkpzmdbAj0EFN1JJIv16UNWiQxlnlsT99eVcd9d08i
-         I58PNiIK8YSpXGeW1dQBvSrTI+u485iNm10fhzJC1CJxU4wb5QjvMs/hx3ZAOr6r4yk2
-         zx2g==
+        bh=S9ZTQ23uU9c6hzpVqEhYccu/7Xf1dGxWecDX3u9QE/E=;
+        b=VV5M/YUtRbttvCqTP+KMM+W7Qe9evy+z7h+9tH7o+0KgCc+msFDnfjqIacJ08ozNes
+         IvFRO87Nwwh8j7rHpXpXSorG+N3jLTPjkowc6eRzRQvIepoqJoJ93bU+52FDg/2iv0jy
+         LLrhxiaE3AqIBFhjdo/zcWj8Z59OukA/qrH+N/0Wumbn6+nQC1PeWGwJPaWFbjYEJ05d
+         ogOGqZQevxa/NoDDI75SMDTI4eMmd+inXaiWvO6bFt1f+m7XE7bjTm8NqAz8fcdQlkS8
+         evWXnvD+E6rQp92JMZm12RT/4sA8zpnfN2U/P83nRTwt74b3EUMERSB8x3Y0/M8fbLul
+         yoVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:content-transfer-encoding
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=xOSbz8FPNiKepvtPQVse6jdQPyk5QxkGRFQnces3zVs=;
-        b=iti/NqVXIeh3609+rXfm4i1ppzkaXSiHr+EgakyAXRJjSH68bq6nmrZ0I3a4anfG3l
-         yaKzeaaBYyCwned0HDhPiiNHJxYDkFSumRpP/6Cv+5wbd61mZ5tgRPFrxV9gX3l++P/f
-         avu+nSLYmkCHO4oT85zyxh1Hs5wj6qLAlhTBumQYKTLDS8XABh1gnblRZCcmKpsQTxmN
-         6xh4Dl8JRSA7L9XifSX4kaEB/1oz5qqTrff0nHEwZsJLgY1dM8C1sggT0MrK1m2/Sce7
-         QqS/e9UXjA1MbqyM2UWnE9BVXKwWc781YDziIh5sMSqWzrUcjgDqpLgmaB2F3k+/HzEw
-         yrkw==
+        bh=S9ZTQ23uU9c6hzpVqEhYccu/7Xf1dGxWecDX3u9QE/E=;
+        b=pJYyBXQtFE3xzTNbN/IR6H/i//RYhJU1m5bLUfomy04whGNX4TBndFD/DE+qDrT5GO
+         xaWU4Lzs7bFbnQi+fZpTgS1MO76+2oxsDzTgYmLwXbe9PJ15YUIXTIbMTAdy6U6gAWM1
+         +edPywqbcD0vBLu2Gs4bFzK9ZNeZ/Tz4ntJxrdOO41Cxb3Fux5WgAzd/8f2lXDBdzEDE
+         ZH5VU0eBmRp2EFeFOdvImaxRpNjFrEAoBGSC6g9szQGQH0CfflTDtF05757tdtgmmMZW
+         nACgbrZ6r2ygidgFnfs1QjHop14on3y4ZkZ94D22vpz2JhuDVlu3fcHUaaI47AzNs+do
+         +MgA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PubalYyoj3Ow0KNpDchnHt99ZwG9iWQ2U6ws56CLOKPAXVc/dMI9
-	uf32CYX0zhB+b/P6Q5IE+BI=
-X-Google-Smtp-Source: APiQypJJVYd9NTtuR8rEzXfVhPDDAA9p/CBxSXDBBkSe4fbkyA9P1eoELexVaj2gkwOfrO6GmLhI2g==
-X-Received: by 2002:a1c:4946:: with SMTP id w67mr3824388wma.38.1588760948136;
-        Wed, 06 May 2020 03:29:08 -0700 (PDT)
+X-Gm-Message-State: AGi0PubKUUlQBXmACFOj4KS+u3oZQlzqmuRefxRCLiZEUdVvOIHG+YVc
+	FsmCBSTdzZ+PIwoBT0gvj18=
+X-Google-Smtp-Source: APiQypJr4OF7WvIvZMiONGD23MEouroFgmbWm9jh2lCb0cgCY/nUGqPS16nDHC8elO54IaSEIZ9nQw==
+X-Received: by 2002:a62:7c16:: with SMTP id x22mr8028208pfc.267.1588773099961;
+        Wed, 06 May 2020 06:51:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:7ec2:: with SMTP id z185ls3071165wmc.1.canary-gmail;
- Wed, 06 May 2020 03:29:07 -0700 (PDT)
-X-Received: by 2002:a1c:9dd1:: with SMTP id g200mr4040345wme.82.1588760947590;
-        Wed, 06 May 2020 03:29:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588760947; cv=none;
+Received: by 2002:a05:6a00:87:: with SMTP id c7ls1469991pfj.8.gmail; Wed, 06
+ May 2020 06:51:39 -0700 (PDT)
+X-Received: by 2002:aa7:9252:: with SMTP id 18mr8294633pfp.17.1588773099581;
+        Wed, 06 May 2020 06:51:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588773099; cv=none;
         d=google.com; s=arc-20160816;
-        b=ZEVhe9XgGDerXM8MEG8cyk9DQadK9tT3BkCCsX/+wJw3sn9Wzv3YebXzhuDZ993MA9
-         hiVPYbL034M3O7oDu4xWSGGYS1UP0B/eelqnc7Cr9ZC6LV6V3RmdZcvgo7x5rYiY0H09
-         SfrXZtFN+3sTR/Rj9RirLbf5HPlUon9lDpn3qOGoKpJX/tSIPzUetPOUFOfPyhRvxQCZ
-         ms/Vtdc3IVY9J0w2qujm35Yd6/kWNlJ+nRoloRV259nrBZP8i7kNRO6bsePBpARY+qBA
-         WNZl1boFETe+e3B3XzYjIJ0ttBaSmukAZzdQPWR/QAk85wXsF3jif0TWihlAQPOIOixa
-         CTTQ==
+        b=ZVSVXkjbM3Uj0CcBQeSOEciWxePeie1b4VoKKsUmykbOvfdDCt4uz7oi7g0V/vzj2s
+         7/NkhZeaDa6VvgOYAgqjcipTmdb+/SFBjRktWf8kZkkTQUydg6291WWQ0tciqPOiUdoT
+         gP7Z4n+PMFzfosoDTICdpeXf774VPnP4RWSzjt/f05B7GqIIdhRKMUacSjUUWqpdOBx7
+         VXFpIK5UwqdeDD87bYyDKStriO6Dbw+nUqlrMYodrDJ6WPkW51e3FBxeYVtekyPtaCR+
+         VnmsEYfm22KI3XOBm199WhKiqVoPDuE8wgimBG5l8XOR4yVNPNiIqQhh4HlQEeslhDOs
+         YIZA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version;
-        bh=mYoOAtoaZBfzfuPAi/9+TvghdC1Qq7GX7bW9wJSfF5A=;
-        b=fA1m3v/uikAkkvOKJLvAcEgXvmtlwCT0X3R7X0Nfyy6iVXeiH5gDLSizMx/aU/sn6J
-         BxbOuqo79q/zSGDRb49bUkjqMKxfwcSxsohajbXw0Y6IiufNsG28EiUMYcRYltLhPr4t
-         NMRWJ6rNmiK3v65xBW2H6RZqWBQ3mEpIPDg6Waj7tTYw+TLfoeUCEhqomiskbuNZGVya
-         ONeQtEycUBA4pK1MHWFylD+3oFile55y3sFU3YBGm1HcH9QoTdPOQtqFezkkyAz6iJbw
-         Tz2sG0XEiCc55hJZIqc3RXUd83Q9lbBJzt1zVnlbLz+u58XJikjrlWMrVzbY/YFP8oaG
-         sJmw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=jEJBzua8/RGymwAaDc/kEJMuCfcFhoV0OLdBTpJd4BA=;
+        b=zZ+YebZQZL1daUpgWSjgtSH3TbZ9Itd569k0ieeW9JC6K2a4ZbmUfrXv94iQyq1CkJ
+         qPWnH9187DWiWbU2/LHzHkOJv8xqjXPwTeVNruaX/Xj6HGXS1QCt8lij4Ye7atSCkLS9
+         bRFE+duCxQ6ZTpM/yEMYRoANGcAp7YKqNmjYG4hOHCq9T6gOMelovOEz/XLR/URSlDGB
+         putl1lSIT/vhB/zJMiZ8HVaAOCtKsoLcsso0hb7ho3tvp+hrYr5iXemq2T9m6V1Q6Ogs
+         L+beDlFpqbZKI6olP8rAs6GEHkVtva+cS/xs++nK/Y3rXzjdC4pUSYaSbifXV7Oecjm0
+         1Eew==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.17.10 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
-Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.17.10])
-        by gmr-mx.google.com with ESMTPS id x11si76809wmi.1.2020.05.06.03.29.07
+       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=UiBCw6Ml;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
+Received: from bombadil.infradead.org (bombadil.infradead.org. [2607:7c80:54:e::133])
+        by gmr-mx.google.com with ESMTPS id z17si187486pfq.1.2020.05.06.06.51.39
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 06 May 2020 03:29:07 -0700 (PDT)
-Received-SPF: neutral (google.com: 212.227.17.10 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.17.10;
-Received: from mail-qk1-f176.google.com ([209.85.222.176]) by
- mrelayeu.kundenserver.de (mreue107 [212.227.15.145]) with ESMTPSA (Nemesis)
- id 1N7yuz-1j19e403SV-0155My for <clang-built-linux@googlegroups.com>; Wed, 06
- May 2020 12:29:07 +0200
-Received: by mail-qk1-f176.google.com with SMTP id n14so1309525qke.8
-        for <clang-built-linux@googlegroups.com>; Wed, 06 May 2020 03:29:06 -0700 (PDT)
-X-Received: by 2002:a37:aa82:: with SMTP id t124mr7608771qke.3.1588760945935;
- Wed, 06 May 2020 03:29:05 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200505141546.824573-1-arnd@arndb.de> <30d49e6d-570b-f6fd-3a6f-628abcc8b127@suse.com>
- <CAK8P3a0mWH=Zcq180+cTRMpqOkGt05xDP1+kCTP6yc9grAg2VQ@mail.gmail.com>
- <48893239-dde9-4e94-040d-859f4348816d@suse.com> <CAK8P3a2_7+_a_cwDK1cwfrJX4azQJhd_Y0xB18cCUn6=p7fVsg@mail.gmail.com>
- <2c6e4b36-6618-1889-55c4-16eeb1ef6f57@suse.com>
-In-Reply-To: <2c6e4b36-6618-1889-55c4-16eeb1ef6f57@suse.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Wed, 6 May 2020 12:28:49 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a05wLCy0GT88mc451h3uXuU86aZ7XC=YXYXi12J0dFJkw@mail.gmail.com>
-Message-ID: <CAK8P3a05wLCy0GT88mc451h3uXuU86aZ7XC=YXYXi12J0dFJkw@mail.gmail.com>
-Subject: Re: [PATCH] xenbus: avoid stack overflow warning
-To: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-Cc: Boris Ostrovsky <boris.ostrovsky@oracle.com>, Stefano Stabellini <sstabellini@kernel.org>, 
-	Yan Yankovskyi <yyankovskyi@gmail.com>, Wei Liu <wl@xen.org>, 
-	xen-devel <xen-devel@lists.xenproject.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 May 2020 06:51:39 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) client-ip=2607:7c80:54:e::133;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
+	by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1jWKSS-0000MN-8W; Wed, 06 May 2020 13:51:32 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 4D3B9301DFC;
+	Wed,  6 May 2020 15:51:28 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 2FE952B74FC98; Wed,  6 May 2020 15:51:28 +0200 (CEST)
+Date: Wed, 6 May 2020 15:51:28 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>, bristot@redhat.com,
+	Jason Baron <jbaron@akamai.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@kernel.org>, Nadav Amit <namit@vmware.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Ard Biesheuvel <ard.biesheuvel@linaro.org>,
+	Josh Poimboeuf <jpoimboe@redhat.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
 	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH v4 14/18] static_call: Add static_cond_call()
+Message-ID: <20200506135128.GR3762@hirez.programming.kicks-ass.net>
+References: <20200501202849.647891881@infradead.org>
+ <20200501202944.593400184@infradead.org>
+ <1238787e-d97d-f09b-d76d-2df2dc273f4b@rasmusvillemoes.dk>
+ <20200503125813.GL3762@hirez.programming.kicks-ass.net>
+ <a53369f3-665a-af0e-efad-09ae456af847@rasmusvillemoes.dk>
+ <20200504201445.GQ3762@hirez.programming.kicks-ass.net>
+ <20200505093625.GE5298@hirez.programming.kicks-ass.net>
+ <CAKwvOd=cP8UCX0+5pZ3AqzvOM8LKzLJJ_heDhrghqJdOnHoGMg@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:ScJFKVRWwLAyKvPOSfSjaF9N4W6ByMtSOhnfhvS3KEcffgoOZdu
- E01UwpKwBr3phy1vgxS8lTWCvZ1pJ4noiywVSM8lWrVn+EnTyMwo5JhYl6HabRiea6Gw1ox
- I0mMwCPNqMNWNZp9n0QqpRoxySMiujD/WkCGnfebtQWD7r79KjF3bjj56sr+un7ClwdMLiR
- enGepfVJgsSPu+mAi2bAg==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:PlHf+A/lSj0=:RIQsb3m+R8km7wIoF+7SSM
- tgiLT38TX97Ua1KPZraTAw0poqwk7+L/lHGYpyFcBvvXTxtPZI5GfNMX0KUKZNFNRA/7RDeYV
- n2l4CMJcmtWLE5esXuduQL/yfbn05M9Pd95PT7FOFWT7CDxbLCmTuwRhPAm27gwbkXsBLw5CX
- vRqewjy9PSJcd11LYoaxUWCNpwgT35zAW7WE01otj0IA5cbuSSKweaEkDxJxQXZr0HNZIRO+1
- pt7w91SjsFI2G2i1Da9nZxQ+qSbNFAS3CuOlnU8gRTsELDXAYOt42pgMqZIMvLFEmSAqVYOQc
- qQ2ZjxdNj+ijlrkbsk2r7j98I8U0MURMjIkHRH1P3mj3HG2orqncUOiDpMIIiecYEa2CaLY3k
- i9C8s1mRrRMw4vmcLavQAcLyDXxLY3jZxYdlQqwvhbDo+eJqrLr0d610Co1SXUDyQ3l7hY7Rh
- WrCAFsscb+Gko1ochzG4r9t7YHw92ZPxZWvWfHpObS+4G7rGOY3+rYA2o25J++bfR6xUEnz9e
- 4CspzEi43hPJi6KxPybYHRFcP3bfeJqbNZBG7SqwzVS/q3DHFl66bgIB/lgo/K3AHfK2QXx1k
- M2z0cpO4f13iZ3sZSKHyoRKe+r92AUN2rlcFZAdBS78i5bZt9eYQqVuhwAydLTUWa62x9KK8X
- U+qV6V1rOGlQQXqbNty987O78bD6qN29dcngcK7fvtmlskutiYtaPPlutK1gdZ9C4I9KYxoUW
- U3BYiOpFJFkYQ7KH9nAGD3v6O/soI/XqTFuJ11hezpp7G0JJZvpFwcxDmnPgmK9DXjpiOAEkJ
- v7FcQK3a7Adq/lKWBE5V0ozLdcVCaAxP2QJSthJOiODU1fDyIE=
-X-Original-Sender: arnd@arndb.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 212.227.17.10 is neither permitted nor denied by best guess
- record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Content-Disposition: inline
+In-Reply-To: <CAKwvOd=cP8UCX0+5pZ3AqzvOM8LKzLJJ_heDhrghqJdOnHoGMg@mail.gmail.com>
+X-Original-Sender: peterz@infradead.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@infradead.org header.s=bombadil.20170209 header.b=UiBCw6Ml;
+       spf=pass (google.com: best guess record for domain of
+ peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,50 +154,99 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, May 6, 2020 at 7:12 AM J=C3=BCrgen Gro=C3=9F <jgross@suse.com> wrot=
-e:
->
-> On 05.05.20 22:57, Arnd Bergmann wrote:
-> > On Tue, May 5, 2020 at 6:02 PM J=C3=BCrgen Gro=C3=9F <jgross@suse.com> =
-wrote:
-> >> On 05.05.20 17:01, Arnd Bergmann wrote:
-> >>> On Tue, May 5, 2020 at 4:34 PM J=C3=BCrgen Gro=C3=9F <jgross@suse.com=
-> wrote:
-> >>>> On 05.05.20 16:15, Arnd Bergmann wrote:
-> >>>
-> >>> I considered that as well, and don't really mind either way. I think =
-it does
-> >>> get a bit ugly whatever we do. If you prefer the union, I can respin =
-the
-> >>> patch that way.
-> >>
-> >> Hmm, thinking more about it I think the real clean solution would be t=
-o
-> >> extend struct map_ring_valloc_hvm to cover the pv case, too, to add th=
-e
-> >> map and unmap arrays (possibly as a union) to it and to allocate it
-> >> dynamically instead of having it on the stack.
-> >>
-> >> Would you be fine doing this?
+On Tue, May 05, 2020 at 11:13:53AM -0700, Nick Desaulniers wrote:
+> On Tue, May 5, 2020 at 2:36 AM Peter Zijlstra <peterz@infradead.org> wrote:
 > >
-> > This is a little more complex than I'd want to do without doing any tes=
-ting
-> > (and no, I don't want to do the testing either) ;-)
 > >
-> > It does sound like a better approach though.
->
-> I take this as you are fine with me writing the patch and adding you as
-> "Reported-by:"?
+> > HJ, Nick,
+> >
+> > Any chance any of you can see a way to make your respective compilers
+> > not emit utter junk for this?
+> >
+> > On Mon, May 04, 2020 at 10:14:45PM +0200, Peter Zijlstra wrote:
+> >
+> > > https://godbolt.org/z/SDRG2q
+> 
+> Woah, a godbolt link! Now we're speaking the same language.  What were
+> you expecting?
 
-Yes, definitely. Thanks!
+Given the output for x86-64 clang (trunk)
 
-     Arnd
+	bar:                                    # @bar
+		movl    %edi, .L_x$local(%rip)
+		retq
+	ponies:                                 # @ponies
+		movq    .Lfoo$local(%rip), %rax
+		testq   %rax, %rax
+		movl    $__static_call_nop, %ecx
+		cmovneq %rax, %rcx
+		jmpq    *%rcx                   # TAILCALL
+	__static_call_nop:                      # @__static_call_nop
+		retq
+	_x:
+	.L_x$local:
+		.long   0                       # 0x0
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAK8P3a05wLCy0GT88mc451h3uXuU86aZ7XC%3DYXYXi12J0dFJkw%40m=
-ail.gmail.com.
+	foo:
+	.Lfoo$local:
+		.zero   8
+
+
+I was hoping for:
+
+	bar:                                    # @bar
+		movl    %edi, .L_x$local(%rip)
+		retq
+	ponies:                                 # @ponies
+		movq    .Lfoo$local(%rip), %rax
+		testq   %rax, %rax
+		jz	1f
+		jmpq    *%rcx                   # TAILCALL
+	1:
+		retq
+
+That avoids the indirect call (possible retpoline) and does an immediate
+return.
+
+So it does 2 things different:
+
+ - it realizes the NULL case is a constant and uses an
+   immediate call and avoids the indirect call/jmp.
+
+ - it realizes __static_call_nop() is a no-op and avoids the call
+   entirely and does an immediate return.
+
+> Us to remove the conditional check that a volatile read
+> wasn't NULL?
+
+No, obviously the load is required, and the READ_ONCE() is so that the
+compiler will not emit 2 different loads (just for giggles).
+
+That is:
+
+	tmp1 = name.func;
+	if (!tmp) {
+		tmp2 = name.func;
+		tmp2(args);
+	}
+
+is a valid translation of:
+
+	if (!name.func)
+		name.func(args)
+
+and allows for a NULL dereference (as noted by Rasmus).
+
+What I did do want, per the above, is to avoid the indirect (tail) call.
+Because indirect jmp/call are evil and expensive.
+
+> I am simultaneously impressed
+> and disgusted by this btw, cool stuff.
+
+Yes, it's nasty, esp the casting of a function pointer like that is
+gruesome.
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200506135128.GR3762%40hirez.programming.kicks-ass.net.
