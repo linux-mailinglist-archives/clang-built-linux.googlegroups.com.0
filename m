@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB35QZP2QKGQESEZ4C5I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBWNSZP2QKGQEDINVSIY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb40.google.com (mail-yb1-xb40.google.com [IPv6:2607:f8b0:4864:20::b40])
-	by mail.lfdr.de (Postfix) with ESMTPS id D01311C74EB
-	for <lists+clang-built-linux@lfdr.de>; Wed,  6 May 2020 17:32:00 +0200 (CEST)
-Received: by mail-yb1-xb40.google.com with SMTP id r14sf2923842ybk.21
-        for <lists+clang-built-linux@lfdr.de>; Wed, 06 May 2020 08:32:00 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588779120; cv=pass;
+Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
+	by mail.lfdr.de (Postfix) with ESMTPS id EFBC81C7506
+	for <lists+clang-built-linux@lfdr.de>; Wed,  6 May 2020 17:35:54 +0200 (CEST)
+Received: by mail-pl1-x63d.google.com with SMTP id c3sf2050823plz.13
+        for <lists+clang-built-linux@lfdr.de>; Wed, 06 May 2020 08:35:54 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588779353; cv=pass;
         d=google.com; s=arc-20160816;
-        b=tDFJ5bTluMi4MiMsOCu0iXzueQ065CIOPCC5ReO25dCAImiI0IpjY/4+Yvpkpvlbkw
-         GCUHnmkeaBiLyHEm3r8VQdhhQSyx7bBIDGqjitygj+ZqcSIxHF4t8XlxKsL0y8UTmuKA
-         9PC/FBAQXFEmjmnRtXeVxwYneT4JphFwdLEZiQaXO7xhd8B1l9lQrrmS3nGFgrU9sfmZ
-         epuZQOm1/LWL2wE0B7WpHSKdJNx7rvlyP83+XWsTAcMh6zx5pclLFeXg7uJ72kgyVYRk
-         hZjc7To7kdC8I7E9UqfzCr49+/nRmYsOqCzLl/WZF0lJyd0T9ueuu1Je1Rlgrgx1N5ka
-         6VNQ==
+        b=V1c3AcCZBTXF4+L38DyhtZTN6uQrUlkjhjurJeHHczamaByhhHDhbku4XKjil2uDHs
+         JdWqpxZmySUPmMgiy9Tw1t0g4oj0BgxN+/ORIpMxsq4ZuPphznCdThdk4wb8dbBeqLT5
+         X73IVEMItPTWAPCgUrPkKH901VRtnw+bxasOsKQ6pMhjHQleG3Yuw7jEhXezVsVfxaPP
+         f7wo3Nq9Z+fT4KDgLugT3PVnYig/DLT2N9pabltl0QycMz9a9p1BqfyKzp003nrlQIMk
+         JbwQ3fCD/QWwp++dpRlduhiUc8xbvRLJ7GY1Odgq+FGufj2CMvkXzja9VzVjqwASlThb
+         QNGg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature:dkim-signature;
-        bh=7XKbnDwmD1n9zPWnHNQygKkZ+URF7Q5suyMihiAuZEs=;
-        b=Yf8zeE89zjndl3qOwA+jAKr8/mzJkYKVas//5rF30u/oxdinmZzZC8QCooz/QoijYN
-         Y2YgMTaWg4wC9K4iBA/O1XxNCS5xFcUg3uaRsynFMdJ+H2yYVTNq6ymWN5tHHHzAnuig
-         GD5+X62DW42IQgMkgrZqzEPw9E/5zd0kJKwzuhbG8BVax3O2hfns/srymGsM8gZLf/G8
-         O77ga2Ji5srr2trnJOk9ack8SD1WAbteHjX0b8HqfrApYZy3hMxAWZYmGyEWcvimrT1x
-         /cfdwEqkvJemj6fgpu/2bvBc1vpiy4uGCcV4rcob7zc8uDNr7U+SEhLhuATIUpJyIOk6
-         1zSA==
+        bh=JMOc/MEnTVKCat0VLPj2xS3iUVAitjHVpkkfxBO3e1c=;
+        b=kAb60OvtPgkV9997vYt4c21Yjnf+iE7/zXlq9raVpX4qPNxGnknZ4R6d8+KnkU2Enz
+         6NdofwsVGrf/snLWd5CAQgdfXvjFwt5IckNrW8vYmL1o5f/ZTxiynpXIOYQcQasEyVxW
+         L2h0FWsqhpZ0zUBXsw8cwNnS2Au4I8ehpd7W2UCcv559T1YbbIqrXQo12qKNbEpt0cNc
+         4uxrFgiN7Y7r1UI7H8BYO8fkoHNhkEYA70MDs8OaHp3+L5mwB8kToCESCeuu8RjSy/2l
+         nMEjgLSIG4nFXIkcWGq9i2sUfHmO+CdvmKxjYXRDl/gIyqn+ijzeqzAVPtPHQtOwv4as
+         uU2A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=ft34+Tuj;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=tifmsMUF;
        spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=7XKbnDwmD1n9zPWnHNQygKkZ+URF7Q5suyMihiAuZEs=;
-        b=c+3Gcxa+lVXdzWGm5ghiuPBzRHe5l9oaj9r+DzTjt7IzWsQEJe/GMO/iMBpMxx5AQT
-         Aw0+Chryfqxh0OYhh14T2H+E7nvwhm/J76uInCJGgddODS1Gm0Mtm9OgYvTKKDViVvpL
-         xvIMePP4dp/Hy/AtVH83VGBqA2wdGqT8U4ekVBBvZCHOk7UmmTndaPi+zLiRU9HwMoJc
-         FteiZ9Bh0Zfhom2/MVRoxEDV4ui0LaCnxA2g754RIc7Tm/T7hs5q9X+IbkPiadn4wGC6
-         nTyD1k1ZP2jNpCFfThG+BX1tYuANLFQJCQVn3QrLJ/HULqB8ZUK4NCvTXUfNKOQ3fIha
-         OGSQ==
+        bh=JMOc/MEnTVKCat0VLPj2xS3iUVAitjHVpkkfxBO3e1c=;
+        b=cmNsGXkCGnktt+tiAF6LnSZ/fbWjUfBSW6f/rJ2a7Z9Yqt/NExLQMIB7zi3IWtmbfj
+         pJ5zqYZgpQbxxtEFMgb4jUrdJeaQ7+w1eFv5j/J5UJTZSTkPVD1NnbePylgxlzlqlJ1B
+         ej2jAE2WQEuHvpbMaskqLMmKZTcQS7tmikrI71P4eH/1bmHnox9UYmhVXCA0VnfK1+J3
+         7VkUqdx0ELm70rWOXy8id7HX5bMsBiTwudYfWMQd7cux0BbBvlqQd2DxsSY6gXH9oAwe
+         przBGvwfvGX2ZFnwVU8De3WNBu+N+mAxxYrGos4FKRyoN8IQDCrT49QffZaTY7yr+RPt
+         X6Fw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=7XKbnDwmD1n9zPWnHNQygKkZ+URF7Q5suyMihiAuZEs=;
-        b=OObByIjt9UxmUDG7VHeOIx+33bNAQuyWZUvqQSy3Bxqq9NZiqg/zRtZ5OsUnrhbAr5
-         Yb8XdfM2V82JJcRJsFu4DEaBJ/I9GR//k4qAXNOlRh8p1To4C0ZqtQ3dLOOe/L2t4BVn
-         f8kzYMGC1smw0av6L8RlhXmnOy0ABx50S8fyhwpS0QnA0sjj5U/b31xk+Jc7qYPusAXm
-         +/TdWfM77IMuC2OPkRv3K8c3EiR7alDhVSiMAG3HfJ3LAxuXWQTYdFGs7TSYotGntZX8
-         Zy2MdObvdZfAaTelNMSuz248LJxFhoQ6VYOOCL/r3r/9nVZ83faENpLjPTKAnBykF5hE
-         lFWw==
+        bh=JMOc/MEnTVKCat0VLPj2xS3iUVAitjHVpkkfxBO3e1c=;
+        b=eoxbjEEzSwHxRPo8OUHhmYyo51NZF91sJe07jTghuAHB6o5VFnZSGLIUpoNutDeO0F
+         HPYGzdv+bKaJ7m8DcKH/R4ccAwvNGiX7XfHXKdgzxCPaOUPAjQam19KQnjg5Y13f8nVX
+         X8CO7UfpxRgR2ahwgIGkq+/Fe00eA2KdP3ocLHHALUDvCLKmu6EM9otliklsDK6oiAm0
+         Dt5/XAuzp4o79ir9kz5kgWCBJk6VpM/Hqi4Dhll4t1M/IrjBAUiJtgtRzfUkwpYlue0t
+         R7eWRCEM0PiGkycbD+FvCbQBw1gzOvliQwj4pgomSJEcvVpWek8UWgEwiIJ2hA5QgjvM
+         ABrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -63,97 +63,83 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=7XKbnDwmD1n9zPWnHNQygKkZ+URF7Q5suyMihiAuZEs=;
-        b=axIYJp4DHvKqJO5WqbC2XHhKWbut/cKh+BL9nXd6hu+AcQ4VS6iNpDJV5WyBNCVC98
-         uoONfl1vkx9sorLJiB2IxpzfMltXNU4E4KwoMvxavsvur9fp/6coxhUgA5MuKWczkcuH
-         n4DfqqszZRBHCnlGGjfoxQLkSOy4un5IS7fREbxFkKd7SI3xcuw/sLFyt3/et34VB+Sv
-         +vOHj6rCU2o7RFFFHWJWjGxrUjgWV2sCtFLIp+06BvRGtTrPpsOCP2RIYMvYV/U+BAoO
-         bfuEMciJOUghEE4eg+akUDyRVrOjdv+972xrFQzqi7BHFUcp9mW6tIpClJu/2adoMC3r
-         50/Q==
+        bh=JMOc/MEnTVKCat0VLPj2xS3iUVAitjHVpkkfxBO3e1c=;
+        b=N47BvMiQpYYruui67Ju0u3hmDxE9S4ZPgtO2uOMg99GahdptpmaBWtE2FBI0Lbz2K7
+         sGpLCMtdPmXv1FxBLpK2/19jTb+WqN9ltE2mG5nqG3aLbsmqCKRO12ZZxut6N7BY7OyV
+         7ff6WObKCGZqDKwIxMgHfGooo97eEIBmVS0jAaeNIwp2YX1i/RGKgJ0ZhJpTrKobiklt
+         yF9JfSFQjQ3+lup6oBwiWJpoSuLN0j5NaHyrioplU6y487QMdKOEOyUwtNcToZqRJVWn
+         Cd0MwlR8t+1VfGuurzUyxNyqIxmImhzTptXg6BghJNifvhFc+SyzhlA5fy7W6P7cqpLh
+         QMsg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuYHuTSc6CWZf3gO5R1dAtNZPvA36ti2cxv+n7kfODAXVSi1ufls
-	YeLV+0uh+9RIUfH5TYgSxeI=
-X-Google-Smtp-Source: APiQypKFVAES2yunJbhHoEH/z/zRYYzuy1Z6RsUJ24ewNQxJeV0QIN/DCBusJ9b5JbZ79OJW/cAWjw==
-X-Received: by 2002:a25:3b08:: with SMTP id i8mr14876159yba.402.1588779119823;
-        Wed, 06 May 2020 08:31:59 -0700 (PDT)
+X-Gm-Message-State: AGi0Pubhof2LDSq4i7NiqZz6hRWKMQY/E6/30MawCz29oyfZK16a+uSB
+	rKuIPyLMV+LdFLV14tHtOp0=
+X-Google-Smtp-Source: APiQypJraKo0WJxEAUvrcqvwY/r3IWWd9mkYLlNDri9DZw210UrgpkNDU0Mizja77Od8FGdWIIsmQA==
+X-Received: by 2002:a17:902:bf41:: with SMTP id u1mr8551889pls.195.1588779353666;
+        Wed, 06 May 2020 08:35:53 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:ae63:: with SMTP id g35ls302381ybe.1.gmail; Wed, 06 May
- 2020 08:31:59 -0700 (PDT)
-X-Received: by 2002:a25:4443:: with SMTP id r64mr13778619yba.41.1588779119452;
-        Wed, 06 May 2020 08:31:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588779119; cv=none;
+Received: by 2002:a62:7c89:: with SMTP id x131ls1816532pfc.5.gmail; Wed, 06
+ May 2020 08:35:53 -0700 (PDT)
+X-Received: by 2002:a62:81c6:: with SMTP id t189mr8618996pfd.174.1588779353276;
+        Wed, 06 May 2020 08:35:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588779353; cv=none;
         d=google.com; s=arc-20160816;
-        b=cDvmfJn+kyStp8T8jW/nXMOzK8kBUgI/PphNyV/S/kOB6mrZM5/z1a99f0dhzM2c5y
-         x6hylg7RDzNY7S/NbiyZC7JBK0aZAmfdjID7j406bS3urb4U4toxXQIZJe2tBm8uB0Ku
-         a2b5gjEICioD9Qb5ILWrd93SH3T68YikkBrRwWzVKs+TeXZd4d7pWltO4d8+ap0ej2EN
-         EqYhcOJCxNya4dZE/WKkKZTr+aLVwVjCUOIyobOwF7AHobwy32Kxbud/YMrID4fb7GwF
-         PdT9Qe+77+ONAv4IbQtM4mjXIDk06DybLlwcgK0glA5Jj2MG5pcfFg+QTu2F83j48fLA
-         ViMQ==
+        b=dEwNw7bE30XPkx6ed85XfIu+sh8/P626laZr7MWbr1gBzsC610FFoJ+GrE0RVnBmPL
+         hJwVKs+NZ6Iw5qApx1NheN6rppLmXgK1/dlohOU0xWDAhh0xC7Ex2hMbRyr31OiYzbYC
+         FNho9nejQW4W1j2KHExBPbs54csnjO3BA4b2+ngVCjDpiNODgu/xRULY+0X/jonP3wMS
+         ntlgWRGK1+52eURJx2CZcmwdBCGNxfz8zkd4YviyyK8oV70r/EmRJ1x+06kk4XA16ZlI
+         2pvg1uoH/9DPNIYbdSK4A+3Tkw6i/HwOkGwJ2FIao7JNu4ToQ5QZS1AQcg0Ax4qL75C0
+         7EFA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=HGob2W+jtJ1wxr5TyUwXRK5f3ACyssA5mwEkdojnzSc=;
-        b=YCiwXXczXkXeuApHA+6rRiYE+K9mJZHvbanlF5zVsljk/OQS+GbUauMqwvi+BXryGS
-         ggC1cdkyMB1XhkDnXBb1f2wvQE2idAZ8HiT4aVu7CEEL88ZnKWgT2CWsQm3Xwvwtpd8D
-         EC7awpIlTkIjrz7QCABZxSGuAXcDEFm/U9+TqEaxRGLaDB3dHKijUtOza155c8fEbiXA
-         KZGQufCs+FsTuMuNsvSPsKZySoyYASksFzKAxTj4JitGPLTegO/toWnhfvYeSoxSouWS
-         O+iDAA/mY3mQJyx4KZGXvViGmJ1kjxjLUpVQKy3B8YTuyqLhRV3PAlbclWmHUeviI/z9
-         7dcg==
+        bh=ckjD+FqBC50sSOZnIMh6YuZzBECHbpinchtFk/oKQF4=;
+        b=XWJQvSRzXbX4eNJdI7dgH+h1Z0WEkpz0bowEjfdxzaBNzoiQvALbze2S6qTSQZubT/
+         Z7m4xL4wthmaVBq4aA6V7bdVW1xPlsJxUsbppVeWIS1fylwQQAuutOzBKItFmX34J4F8
+         vk8mUwilDVHNsWivEOUDwWBw5kAZQG+TkRkixSJs6lI9L4HJVz1iN04nWw4SOpGeeIJ3
+         xpSGama5a1gHWTnXKkyQLuZPYBk9FtW6mAb4Wc02pPON+F+oP9t/3YGHbPXTE2QJYQ6Z
+         stWSbVTNdi6hKlT3rIQ2UzRZGNOr4+OVH/UoczycMoc8ncrFXJePEVg3nSVa2C1Qw9h2
+         Araw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=ft34+Tuj;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=tifmsMUF;
        spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Received: from mail-ot1-x344.google.com (mail-ot1-x344.google.com. [2607:f8b0:4864:20::344])
-        by gmr-mx.google.com with ESMTPS id h14si173863ybq.0.2020.05.06.08.31.59
+        by gmr-mx.google.com with ESMTPS id x3si623221pjt.1.2020.05.06.08.35.53
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 May 2020 08:31:59 -0700 (PDT)
+        Wed, 06 May 2020 08:35:53 -0700 (PDT)
 Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) client-ip=2607:f8b0:4864:20::344;
-Received: by mail-ot1-x344.google.com with SMTP id g19so1685658otk.5
-        for <clang-built-linux@googlegroups.com>; Wed, 06 May 2020 08:31:59 -0700 (PDT)
-X-Received: by 2002:a05:6830:1d9c:: with SMTP id y28mr7465935oti.280.1588779118864;
-        Wed, 06 May 2020 08:31:58 -0700 (PDT)
+Received: by mail-ot1-x344.google.com with SMTP id m18so1683243otq.9
+        for <clang-built-linux@googlegroups.com>; Wed, 06 May 2020 08:35:53 -0700 (PDT)
+X-Received: by 2002:a05:6830:1e49:: with SMTP id e9mr6817601otj.184.1588779352509;
+        Wed, 06 May 2020 08:35:52 -0700 (PDT)
 Received: from ubuntu-s3-xlarge-x86 ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id m189sm600819oig.12.2020.05.06.08.31.57
+        by smtp.gmail.com with ESMTPSA id t15sm672971oov.32.2020.05.06.08.35.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 May 2020 08:31:58 -0700 (PDT)
-Date: Wed, 6 May 2020 08:31:56 -0700
+        Wed, 06 May 2020 08:35:51 -0700 (PDT)
+Date: Wed, 6 May 2020 08:35:50 -0700
 From: Nathan Chancellor <natechancellor@gmail.com>
 To: Arnd Bergmann <arnd@arndb.de>
-Cc: Torsten Duwe <duwe@lst.de>, Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Amit Daniel Kachhap <amit.kachhap@arm.com>,
-	Torsten Duwe <duwe@suse.de>,
-	Ard Biesheuvel <ard.biesheuvel@linaro.org>,
-	AKASHI Takahiro <takahiro.akashi@linaro.org>,
-	Josh Poimboeuf <jpoimboe@redhat.com>,
-	Julien Thierry <jthierry@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>, Kees Cook <keescook@chromium.org>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Kristina Martsenko <kristina.martsenko@arm.com>,
-	Ionela Voinescu <ionela.voinescu@arm.com>,
-	Steve Capper <steve.capper@arm.com>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+Cc: Jacek Anaszewski <jacek.anaszewski@gmail.com>,
+	Pavel Machek <pavel@ucw.cz>, Bryan Wu <bryan.wu@canonical.com>,
+	"G.Shark Jeong" <gshark.jeong@gmail.com>,
+	Dan Murphy <dmurphy@ti.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	linux-leds@vger.kernel.org,
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Fangrui Song <maskray@google.com>
-Subject: Re: [PATCH] arm64: disable patchable function entry on big-endian
- clang builds
-Message-ID: <20200506153156.GA1213645@ubuntu-s3-xlarge-x86>
-References: <20200505141257.707945-1-arnd@arndb.de>
- <20200505142556.GF82823@C02TD0UTHF1T.local>
- <20200505194243.5bfc6ec6@blackhole>
- <20200506034523.GA564255@ubuntu-s3-xlarge-x86>
- <CAK8P3a24EiEvGAenL0FdgGakmwWi=giReOJuiisnzkgC_SuhZg@mail.gmail.com>
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH] leds: lm355x: avoid enum conversion warning
+Message-ID: <20200506153550.GB1213645@ubuntu-s3-xlarge-x86>
+References: <20200505141928.923428-1-arnd@arndb.de>
+ <20200506024416.GB415100@ubuntu-s3-xlarge-x86>
+ <CAK8P3a3wqiXAx2GuKJjY90qLGNnyBNTst6LW7n6tRDvzvBQVVQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CAK8P3a24EiEvGAenL0FdgGakmwWi=giReOJuiisnzkgC_SuhZg@mail.gmail.com>
+In-Reply-To: <CAK8P3a3wqiXAx2GuKJjY90qLGNnyBNTst6LW7n6tRDvzvBQVVQ@mail.gmail.com>
 X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=ft34+Tuj;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=tifmsMUF;       spf=pass
  (google.com: domain of natechancellor@gmail.com designates
  2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
@@ -169,70 +155,68 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, May 06, 2020 at 12:22:58PM +0200, Arnd Bergmann wrote:
-> On Wed, May 6, 2020 at 5:45 AM Nathan Chancellor
+On Wed, May 06, 2020 at 04:19:45PM +0200, Arnd Bergmann wrote:
+> On Wed, May 6, 2020 at 4:44 AM Nathan Chancellor
 > <natechancellor@gmail.com> wrote:
-> > On Tue, May 05, 2020 at 07:42:43PM +0200, Torsten Duwe wrote:
-> > > On Tue, 5 May 2020 15:25:56 +0100 Mark Rutland <mark.rutland@arm.com> wrote:
-> > > > On Tue, May 05, 2020 at 04:12:36PM +0200, Arnd Bergmann wrote:
-> > > > This practically rules out a BE distro kernel with things like PAC,
-> > > > which isn't ideal.
 > >
-> > To be fair, are there big endian AArch64 distros?
+> > On Tue, May 05, 2020 at 04:19:17PM +0200, Arnd Bergmann wrote:
+> > > clang points out that doing arithmetic between diffent enums is usually
+> >                                                  ^ different
+> > > a mistake:
+> > >
+> > > drivers/leds/leds-lm355x.c:167:28: warning: bitwise operation between different enumeration types ('enum lm355x_tx2' and 'enum lm355x_ntc') [-Wenum-enum-conversion]
+> > >                 reg_val = pdata->pin_tx2 | pdata->ntc_pin;
+> > >                           ~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~
+> > > drivers/leds/leds-lm355x.c:178:28: warning: bitwise operation between different enumeration types ('enum lm355x_tx2' and 'enum lm355x_ntc') [-Wenum-enum-conversion]
+> > >                 reg_val = pdata->pin_tx2 | pdata->ntc_pin | pdata->pass_mode;
+> > >                           ~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~
+> > >
+> > > In this driver, it is intentional, so add a cast to hide the false-positive
 > >
-> > https://wiki.debian.org/Arm64Port: "There is also a big-endian version
-> > of the architecture/ABI: aarch64_be-linux-gnu but we're not supporting
-> > that in Debian (so there is no corresponding Debian architecture name)
-> > and hopefully will never have to. Nevertheless you might want to check
-> > for this by way of completeness in upstream code."
-> >
-> > OpenSUSE and Fedora don't appear to have support for big endian.
+> > Not sure that I would call this a false positive. The warning is correct
+> > that there is a bitwise operation between different enumeration types
+> > but we do not care since we are just using the enumerated type for its
+> > integer value in lieu of a #define VAR value.
 > 
-> I don't think any of the binary distros ship big endian ARM64. There are
-> a couple of users that tend to build everything from source using Yocto
-> or similar embedded distros, but as far as I can tell this is getting less
-> common over time as applications get ported to be compatible with
-> big-endian, or get phased out and replaced by code running on regular
-> little-endian systems.
-> 
-> The users we see today are likely in telco, military or aerospace
-> settings (While earth is mostly little-endian these days, space is
-> definitely big-endian) that got ported from big-endian hardware, but
-> often with a high degree of customization and long service life.
+> Right, I meant that the code works as intended and said "false positive"
+> to avoid claiming the driver is broken when this was a deliberate
+> design point.
 
-Ah yes, that makes sense, thanks for the information and background.
-Helps orient myself for the future.
+Ack.
 
-> My policy for Arm specific kernel code submissions is generally that
-> it should be written so it can work on either big-endian or little-endian
-> using the available abstractions (just like any architecture independent
-> code), but I don't normally expect it to be tested on big endian.
-> 
-> There are some important examples of code that just doesn't work
-> on big-endian because it's far too hard, e.g. the UEFI runtime services.
-> That is also ok, if anyone really needs it, they can do the work.
-> 
-> > > I suggest to get a quote from clang folks first about their schedule and
-> > > regarded importance of patchable-function-entries on BE, and leave it as
-> > > is: broken on certain clang configurations. It's not the kernel's fault.
+> We do want clang to warn about this though as you say, so I can
+> rephrase it to explain that both the driver and the compiler work
+> as intended but they clash in their views of how to do it ;-)
+
+Yes, that would be good if we don't go a different direction based on
+your commends below.
+
+> > > -             reg_val = pdata->pass_mode;
+> > > +             reg_val = (u32)pdata->pass_mode;
 > >
-> > We can file an upstream PR (https://bugs.llvm.org) to talk about this
-> > (although I've CC'd Fangrui) but you would rather the kernel fail to
-> > work properly than prevent the user from being able to select that
-> > option? Why even have the "select" or "depends on" keyword then?
+> > Is this cast needed? I don't think there should be warning from going
+> > from an enumerated type to unsigned int.
 > 
-> I definitely want all randconfig kernels to build without warnings,
-> and I agree with you that making it just fail at build time is not
-> a good solution.
-> 
-> > That said, I do think we should hold off on this patch until we hear
-> > from the LLVM developers.
-> 
-> +1
-> 
->       Arnd
+> This cast is not needed for warnings, I added it for consistency because
+> it seemed odd to cast only four of the five enums. I can remove if though
+> if you think it's clearer without the cast.
 
-Glad we are on the same page.
+I don't really have a strong opinion but I do think that not having the
+cast makes the patch a little more specific/precise.
+
+> There may also be a different solution in completely removing the
+> lm355x_chip_init() function, as it was added at a time when we
+> were converting the last board files into devicetree, and there has
+> never been a board file defining lm355x_platform_data.
+> 
+> There is unfortunately no DT support either in it, so I assume we
+> could just remove the driver completely, or change it to use a
+> DT binding similar to
+> Documentation/devicetree/bindings/leds/leds-lm36*.txt
+> 
+> LED maintainers, any opinions on this?
+> 
+>      Arnd
 
 Cheers,
 Nathan
@@ -240,4 +224,4 @@ Nathan
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200506153156.GA1213645%40ubuntu-s3-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200506153550.GB1213645%40ubuntu-s3-xlarge-x86.
