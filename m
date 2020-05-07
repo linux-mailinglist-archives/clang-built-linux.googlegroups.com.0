@@ -1,145 +1,141 @@
-Return-Path: <clang-built-linux+bncBDWIJUMT74BRBL4JZ72QKGQEFBJ7DOA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDAZZCVNSYPBB54NZ72QKGQEUNL6C2Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13a.google.com (mail-il1-x13a.google.com [IPv6:2607:f8b0:4864:20::13a])
-	by mail.lfdr.de (Postfix) with ESMTPS id A04BD1C84A2
-	for <lists+clang-built-linux@lfdr.de>; Thu,  7 May 2020 10:20:00 +0200 (CEST)
-Received: by mail-il1-x13a.google.com with SMTP id l9sf5188908ili.19
-        for <lists+clang-built-linux@lfdr.de>; Thu, 07 May 2020 01:20:00 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588839599; cv=pass;
+Received: from mail-yb1-xb3f.google.com (mail-yb1-xb3f.google.com [IPv6:2607:f8b0:4864:20::b3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id E5CE21C84CD
+	for <lists+clang-built-linux@lfdr.de>; Thu,  7 May 2020 10:29:44 +0200 (CEST)
+Received: by mail-yb1-xb3f.google.com with SMTP id s8sf6045939ybj.9
+        for <lists+clang-built-linux@lfdr.de>; Thu, 07 May 2020 01:29:44 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588840184; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HZdccyF55/qz+syuyd9mS+70AUTxgimGwGxmv0bRY9SmrcyrQLdTs+5V9evyeu4uqW
-         YjDIvweB3BN2pWcbt870sXjPPwi4l4j4ThkBDO/A0pwSZAz1bJXxzch9MGX+b+wa9wp5
-         jVYtaVbYEgsyRQ0xHKNx8D/yjlqjTsWf05oW4BN4xABV17actuNVnoxVPqnkT2eZX6hd
-         UT0Lmdlj06xNWZGtA+nweSTpSxfONjZFkAA3RPeMBHzp0XPWu96KzIPqQ6iyKguylHaO
-         TCuglFX2p1xU72nihwKG+2mlqO95BB45SaAzMSeJ6LoYnY8uaZHMAKf7scywj3E7Q8Fw
-         3fOg==
+        b=bkFFz/gKc/HabKlKI3jVRxFhcbaqI2xLS6kMwWRCe3EdT/tzKqW3PpNmZ6VkMgl7Ta
+         RgwPv3Urm1OgcrGqQYnTC056ZjMusFYq03Nr5fBEETtwiqkePHmruzL7IpOLmtdC9QAp
+         somw5VY2/MUdbUOe4iRD0ZHtlXK+ZkaQdSEi9NBQaGlD89gJ8fMbr2q8b/21/vP1rCSG
+         mGF3feO/xp9G/TK1CAAtfTyjja0RfKd17yOaQeYo+N7HsrFOtOKJPMWIW+JDvQfnMbJV
+         txoWc+DeA4Ci5H04893IXYlUS1CitzUeISPWR8qqsrTNvdqrysreHjkcG9ypzN9Zv6hC
+         8DAg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=SdeOmtzDmDtT5y+KgJKkKWtbKk8LWabdQQgGSgHzPSc=;
-        b=UIRLks9wCGA3ABpu/5nxe3MvEph2Oaa4rBGIoJEdkJw6lfSi14CpFEWLZj2+9STRGf
-         2waUsrfjz3uDWYw0yhmtGdkXR5Qj3p4m1d5aJSCnbnXSsdShFy1vx+1JtT4J9XUQYHYO
-         FBv/soQlMserGghPG42Os18s3an5pLhxmvf97MPgzNBdlaDUtGNOg4MXwJ5Cl/ZlylhW
-         SrHt89QO84WLUrF4fd7hJ8tczosKyvuS+L5OxvNmaZXF4OzJQY7knBlzxamyQllyzLMs
-         iazn11/fmd5+1aZUPmBlnD42B/BikIwRs0Z3yQAt9ZolWLrqnoCdnqdEH3tE9+0Q9Co7
-         VTwg==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=+rL8vWvZU+u+ke4IH3zrUDfktFYZPMk39CS8mWYj/3k=;
+        b=lIkq9N09lPbF6TfF6z+bR9ae3nI6OskFPWuqG6Q/yrbraj6hNpJzHBcab3k34yTcgZ
+         +6IvOQkgppem1z+Br1xezovLj7dG3aTNp4kpVjz46c4JQis8OGTVJzxzTsr5slQ8gjeM
+         JZG+nbdEAE51rp5nWTtMZ3EuahrMqYnc1425jWhNzcikmoPw0aposPHAH19BCpFdnAmm
+         2xLiflcxpoe9ySfxQ8lTqJK+A8MpiPE1rM6Ottq+X2Yu3MXwDrGVSAYcNcaP1MDwi7TE
+         YQJLpOa2ONyP5uCAFA1FT7ZXJVWawNZ+BjPejnPbNVKPPs62QHrf+ZlF7GqjPSJzzCRq
+         +NDQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=lr7yTnWB;
-       spf=pass (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=maz@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=default header.b=xzoti7dx;
+       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
-         :organization:mime-version:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=SdeOmtzDmDtT5y+KgJKkKWtbKk8LWabdQQgGSgHzPSc=;
-        b=awqvSqxrWenYMLB9gexreIjWf1DlrPKmEEdGIQwoffhAuxyYZuw82s1HnrmZp8+EIY
-         oqyKEC7ZZ/Xq7WVL2KR+irDepp2lzh9u/FfxovBIgwlxkBJcHNk/7OMgCanyHAQ+FwAz
-         +R6usKpvadfzhXVtw7KfOI9qByLEs3XWKlHVgly1ECQ2Hsmrc9ayBC38hfhUDRkDFe4H
-         FpQyf3RbpVNmp7poMbjUO/DhFwdGEjcQZ+CyvL/v3YMA6y2qTwzzJmCtQ3iv+RnJnVeU
-         BGNw2Sme8etuqTVBpKHqOs/TeF3rgQZiXfd4vYaHIedMkbFA+uZlKvPuLr1O6AUY1wfI
-         WRSA==
+        bh=+rL8vWvZU+u+ke4IH3zrUDfktFYZPMk39CS8mWYj/3k=;
+        b=cSYIveTSV8Hf3cKQD67tg1wPynNzu58pbazqdhZ9vSjfLSlCwsTmkwTLKYCri+O6HB
+         JCpRjVryQnip5ea45xYVXTfBqbfkdUjU2wOUShyKgfMe0JRQOfyYeQRsPeRaTWNm8cmK
+         DtGgs2NTBCddC0vHJ8AI0yFZlTPXPC87OsH3CbCtizFkEHBPh0uMhRZAPfWr2VV1mpLa
+         JLUmDh5WIVNjXn0br2v8cjAnvfmyKVKb5vhr6Hr1ZLUl7MyS0uY9mzOb0pH5RRoRunm7
+         Yk7HdTwy3t9YHFxdbehvJFJg9m5hLD4lfTVYsCp6KNqIDvJLna5hZlzEtWjb8RObVj59
+         jAnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :in-reply-to:references:organization:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=SdeOmtzDmDtT5y+KgJKkKWtbKk8LWabdQQgGSgHzPSc=;
-        b=HyVmYv+O5cyamXqOd3/L7PAKLikmh0ULk/o4Qoml1ToqCVkM+ZVONTqj2TjCrk17cU
-         V4doVfoGmH0K2a58ZXxz1vIdhgJnWxMlDg/rMC+VRZooAN7/u+jSEqSWofvM8LQfNeJx
-         3N8VoerHbsfJk1XjLm/9EeoNZ0ms1l26tUhqCPIz+I8Ks5BccQ2UGP+2KBRQ7jL8FlXZ
-         rXxSRfYL9CuGJMiVV4w+kb75Pimshm0vPVWSKV8z01vC+mKr6AfuWZw22KgmWdYjBqzr
-         6QEuMWYZ241hTOV+M7q5IrmrF05Wn5LC4QFd/wTPNxrM/IeDNf9el0JMSs4dnz2bR3OY
-         H/WA==
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=+rL8vWvZU+u+ke4IH3zrUDfktFYZPMk39CS8mWYj/3k=;
+        b=SyMpSxt6UlmhUMyHam5c0SUBybzDVjsCC7GhCOyyibakh837pHabYvpzRt+le/lTyp
+         ozLMoEFaauupU2r5Ff7rsBI0CRKhxgkv2vF46xLkc+pc1HKAi8pgtu7UQUrge3h1ISub
+         csVuNyZRBaucgB4ENsmV4hHKO0iM5o9tYVFiw6vECkPkHl7Boye6RknuyrVyGA+ZuVC3
+         r6vQTjNbmk63jnB54eJ70Jm5JA9N0JA5KBLy2uDRFPOeIyBLCPf6MDN01Yi5dIdpcNAo
+         pimFD79iR/NYGfZ70M2CZ9rKKZxmBN6+Hc1xlZ9TsiqwbDYgIXLJbJJIJFBfJCUlXmxu
+         ytMA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0Pua2OZhaVpIyuffbC1lk4EEBMF2LET8CvzBfZCLLMsDTSrXfk7jo
-	9o2gIuhrrBpsg61r+Ffrp4k=
-X-Google-Smtp-Source: APiQypLgYYyINvsf7nxZJPk+lKUj9AqrkgUGKpwkMycNS6vqe2ttNQjTufm4AdWh1Z2bJe0RH3zmMw==
-X-Received: by 2002:a92:498d:: with SMTP id k13mr12986383ilg.216.1588839599372;
-        Thu, 07 May 2020 01:19:59 -0700 (PDT)
+X-Gm-Message-State: AGi0Pua7yI+dcMTbukzGdfPxJE5vrHzM47l1jxgTlcBSH2fT61IOcb5F
+	FaGTcOLmAxwlbBlDiFuaKnk=
+X-Google-Smtp-Source: APiQypLEvc5vtbr9hnoXpcaVuo5H0RDWrJoEr8T+FYX7MSww5S32CmItsQjFYc2tJEPCPDD5T4m7Cw==
+X-Received: by 2002:a25:7dc6:: with SMTP id y189mr20044039ybc.218.1588840183900;
+        Thu, 07 May 2020 01:29:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:b60c:: with SMTP id s12ls4394574ili.5.gmail; Thu, 07 May
- 2020 01:19:59 -0700 (PDT)
-X-Received: by 2002:a92:8415:: with SMTP id l21mr13023744ild.214.1588839599066;
-        Thu, 07 May 2020 01:19:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588839599; cv=none;
+Received: by 2002:a25:748b:: with SMTP id p133ls1079543ybc.0.gmail; Thu, 07
+ May 2020 01:29:43 -0700 (PDT)
+X-Received: by 2002:a25:bb08:: with SMTP id z8mr7805585ybg.129.1588840183584;
+        Thu, 07 May 2020 01:29:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588840183; cv=none;
         d=google.com; s=arc-20160816;
-        b=yWyDm7e5Uj69FfvU0VanWODMEySrqOa3X5wAxcHskoAhQd3SBOkNzLM4DZEiaQHLFv
-         hNcq04/v9h8w1dhYMejcdXFXfZSs0tep267DbGOd3ACWVdzsu6LYaUgUq45RipzR2I7O
-         FLGRw+2RmEeRnCaltXQzYYc56H7SXmVeu6oiRrNAZrvaGegueVXmshSjNVsa8qWRhKWX
-         WgFLePobF7sMuKMMRVInDL4+wic78Ui1ggAgwLCbGvh8pviJ8k5ipGZ+RTiI8m0DyFiM
-         vbXUJ3InWf+oeCSuMWREpYV77Mc/wkp6WuaF+mCyS0JCpEyXCTJzysQexGxsqI24ihSz
-         Q/1w==
+        b=tqDHhoDhJKaBqY4yfFTWtKFkF4W47+h+g+ROGIB5XNuE8O69ROECBZ2w00SbOQKXly
+         hNFqvtIH0mzTqAsV7ABWcS0IXP/khhVvA94IQTKrbMvfAC03kmL/mqnSUuJdB+wnB8rb
+         bVOlROhPckMtg6VW6KWsWKwrbegnBZd//R63l3awY5AhDKudsyfl+5VsrpXgNXoE+FwF
+         LInyc5CGe1cq6tfQbL3xr2MR7DargxnqjB3U49h5gRrijYxeWf9MiDxpSa8WZQDfK17y
+         RkoiYqRJaW8+a/CRPX/qESpJE+/Izh9xZr2ZtR6BFbV2W/BVoWdX9el5Nc7/u94vnkHI
+         bfew==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:organization:references
-         :in-reply-to:message-id:subject:cc:to:from:date:dkim-signature;
-        bh=f8r4mGNHpliFS9BvA52GHWjdTMVxHGz0PmLr5Fm5RDI=;
-        b=RCIqa9mkGLTXAzRFpvZZt74iqou7IVRbjxzdPzpe1TarSGYM8fO85LAMYZ1J43BqBJ
-         JJ7gPyx1gRYcET5UF9JsFC4J5dK6jmRtdvSAKUwA5ZDOzfZAKR/P66j/wGcwlZ5hxXqZ
-         TX277viZPcdt8wibOsLNR201k5+Xg5XzlW1lFnMn/X3+jgK6EBG2DB/J30fqoxqQZLAq
-         YKB994Ko3Ii4ujglM6wwlSG6gKynL4RLn0HDsG+AHVE9PjmqOfBtlIzTbr5NfxBCycf1
-         lTmVeL2/nsdcXNVtV6Fmga6XkVuVQDFBenRTtXHvmyRJQEMzRlIHE9NwNy+uGS41ptC/
-         3Vyw==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=4jvHK0E0U4w0HSsaWB72leDwouUNNO3Jp6LlfdWdiho=;
+        b=OwmumWjJyyeCXP/BTbGGSE/2TlS5/glTGzO7CBauYTv46L2GSGTM0qsP5270yqI/J9
+         zxRSpHe8LawxMcGXbRaCe5cTW8AZmp2mEYvzeVl7Qwk/VS6k+e0bEiF8U0+en/fua6kw
+         c+uTZO+XPpiJwwLeesrB/KOlQ0kALWpYsRpLXCAfBmIiQ0e5F3BcfI3yzPARd0elgpJU
+         81nG6TFhuWOC+0IDTq3tvzojZ12JRu6LB6hIcGQ2yYHgS67QMZTEQTPX5BMprVEGUm+r
+         NFFQbdhBymrnLU/H3HPjT3+IURGnI2g3+sIXi8r5ED0NognPz9N2SkMviLrHCqI8rSQp
+         kc6A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=lr7yTnWB;
-       spf=pass (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=maz@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=default header.b=xzoti7dx;
+       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id v22si517241ioj.2.2020.05.07.01.19.58
+        by gmr-mx.google.com with ESMTPS id o65si285356yba.5.2020.05.07.01.29.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 07 May 2020 01:19:59 -0700 (PDT)
-Received-SPF: pass (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from disco-boy.misterjones.org (disco-boy.misterjones.org [51.254.78.96])
+        Thu, 07 May 2020 01:29:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from willie-the-truck (236.31.169.217.in-addr.arpa [217.169.31.236])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 221B820753;
-	Thu,  7 May 2020 08:19:58 +0000 (UTC)
-Received: from 78.163-31-62.static.virginmediabusiness.co.uk ([62.31.163.78] helo=why)
-	by disco-boy.misterjones.org with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <maz@kernel.org>)
-	id 1jWbl6-00ACFm-4L; Thu, 07 May 2020 09:19:56 +0100
-Date: Thu, 7 May 2020 09:19:53 +0100
-From: Marc Zyngier <maz@kernel.org>
+	by mail.kernel.org (Postfix) with ESMTPSA id C36B12073A;
+	Thu,  7 May 2020 08:29:38 +0000 (UTC)
+Date: Thu, 7 May 2020 09:29:35 +0100
+From: Will Deacon <will@kernel.org>
 To: Luke Nelson <lukenels@cs.washington.edu>
-Cc: bpf@vger.kernel.org, Luke Nelson <luke.r.nels@gmail.com>, Xi Wang
- <xi.wang@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Alexei
- Starovoitov <ast@kernel.org>, Zi Shen Lim <zlim.lnx@gmail.com>, Martin
- KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghong Song
- <yhs@fb.com>, Andrii Nakryiko <andriin@fb.com>, John Fastabend
- <john.fastabend@gmail.com>, KP Singh <kpsingh@chromium.org>, Mark Rutland
- <mark.rutland@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Thomas Gleixner <tglx@linutronix.de>, Christoffer Dall
- <christoffer.dall@linaro.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- clang-built-linux@googlegroups.com
+Cc: bpf@vger.kernel.org, Luke Nelson <luke.r.nels@gmail.com>,
+	Xi Wang <xi.wang@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Zi Shen Lim <zlim.lnx@gmail.com>, Martin KaFai Lau <kafai@fb.com>,
+	Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>,
+	Andrii Nakryiko <andriin@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@chromium.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Christoffer Dall <christoffer.dall@linaro.org>,
+	Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	clang-built-linux@googlegroups.com
 Subject: Re: [RFC PATCH bpf-next 1/3] arm64: insn: Fix two bugs in encoding
  32-bit logical immediates
-Message-ID: <20200507091953.70505638@why>
-In-Reply-To: <20200507010504.26352-2-luke.r.nels@gmail.com>
+Message-ID: <20200507082934.GA28215@willie-the-truck>
 References: <20200507010504.26352-1-luke.r.nels@gmail.com>
-	<20200507010504.26352-2-luke.r.nels@gmail.com>
-Organization: Approximate
-X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+ <20200507010504.26352-2-luke.r.nels@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-SA-Exim-Connect-IP: 62.31.163.78
-X-SA-Exim-Rcpt-To: lukenels@cs.washington.edu, bpf@vger.kernel.org, luke.r.nels@gmail.com, xi.wang@gmail.com, catalin.marinas@arm.com, will@kernel.org, daniel@iogearbox.net, ast@kernel.org, zlim.lnx@gmail.com, kafai@fb.com, songliubraving@fb.com, yhs@fb.com, andriin@fb.com, john.fastabend@gmail.com, kpsingh@chromium.org, mark.rutland@arm.com, gregkh@linuxfoundation.org, tglx@linutronix.de, christoffer.dall@linaro.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org, clang-built-linux@googlegroups.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-Original-Sender: maz@kernel.org
+Content-Disposition: inline
+In-Reply-To: <20200507010504.26352-2-luke.r.nels@gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: will@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=lr7yTnWB;       spf=pass
- (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=maz@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ header.i=@kernel.org header.s=default header.b=xzoti7dx;       spf=pass
+ (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=will@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -155,23 +151,14 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 Hi Luke,
 
-Thanks a lot for nailing these bugs.
+Thanks for the patches.
 
-On Wed,  6 May 2020 18:05:01 -0700
-Luke Nelson <lukenels@cs.washington.edu> wrote:
-
+On Wed, May 06, 2020 at 06:05:01PM -0700, Luke Nelson wrote:
 > This patch fixes two issues present in the current function for encoding
 > arm64 logical immediates when using the 32-bit variants of instructions.
 > 
 > First, the code does not correctly reject an all-ones 32-bit immediate
 > and returns an undefined instruction encoding, which can crash the kernel.
-
-You make it sound more dramatic than it needs to be! ;-) As you pointed
-out below, nothing in the kernel calls this code to encode a 32bit
-immediate, so triggering a crash is not possible (unless you manage to
-exploit something else to call into this code). It definitely needs
-fixing though!
-
 > The fix is to add a check for this case.
 > 
 > Second, the code incorrectly rejects some 32-bit immediates that are
@@ -198,23 +185,18 @@ fixing though!
 > 0..01..10..0, which succeeds.
 > 
 > The fix is to use a 32-bit all-ones default mask for 32-bit immediates.
-
-Paging this thing back in is really hard (I only had one coffee, more
-needed). Yes, I see what you mean. Duh! I think this only happens if
-mask hasn't been adjusted by the "pattern spotting" code the first place
-though.
-
 > 
 > Currently, the only user of this function is in
 > arch/arm64/kvm/va_layout.c, which uses 64-bit immediates and won't
 > trigger these bugs.
-> 
+
+Ah, so this isn't a fix or a bpf patch ;)
+
+I can queue it via arm64 for 5.8, along with the bpf patches since there
+are some other small changes pending in the arm64 bpf backend for BTI.
+
 > We tested the new code against llvm-mc with all 1,302 encodable 32-bit
 > logical immediates and all 5,334 encodable 64-bit logical immediates.
-
-That, on its own, is awesome information. Do you have any pointer on
-how to set this up?
-
 > 
 > Fixes: ef3935eeebff ("arm64: insn: Add encoder for bitwise operations using literals")
 > Co-developed-by: Xi Wang <xi.wang@gmail.com>
@@ -237,40 +219,16 @@ how to set this up?
 >  
 >  	/* Can't encode full zeroes or full ones */
 >  	if (!imm || !~imm)
-> @@ -1543,13 +1543,15 @@ static u32 aarch64_encode_immediate(u64 imm,
->  
->  	switch (variant) {
->  	case AARCH64_INSN_VARIANT_32BIT:
-> -		if (upper_32_bits(imm))
-> +		if (upper_32_bits(imm) || imm == 0xffffffffUL)
 
-nit: I don't like the fact that this create a small dissymmetry in the
-way we check things (we start by checking !~imm, which is not relevant
-to 32bit constants).
+It's a bit grotty spreading the checks out now. How about we tweak things
+slightly along the lines of:
 
->  			return AARCH64_BREAK_FAULT;
->  		esz = 32;
-> +		mask = 0xffffffffUL;
->  		break;
->  	case AARCH64_INSN_VARIANT_64BIT:
->  		insn |= AARCH64_INSN_SF_BIT;
->  		esz = 64;
-> +		mask = ~0UL;
-
-I'd rather we generate the mask in a programmatic way, which is pretty
-easy to do since we have the initial element size.
-
->  		break;
->  	default:
->  		pr_err("%s: unknown variant encoding %d\n", __func__, variant);
-
-To account for the above remarks, I came up with the following patch:
 
 diff --git a/arch/arm64/kernel/insn.c b/arch/arm64/kernel/insn.c
-index 4a9e773a177f..422bf9a79ed6 100644
+index 4a9e773a177f..60ec788eaf33 100644
 --- a/arch/arm64/kernel/insn.c
 +++ b/arch/arm64/kernel/insn.c
-@@ -1535,11 +1535,7 @@ static u32 aarch64_encode_immediate(u64 imm,
+@@ -1535,16 +1535,10 @@ static u32 aarch64_encode_immediate(u64 imm,
  				    u32 insn)
  {
  	unsigned int immr, imms, n, ones, ror, esz, tmp;
@@ -283,28 +241,31 @@ index 4a9e773a177f..422bf9a79ed6 100644
  
  	switch (variant) {
  	case AARCH64_INSN_VARIANT_32BIT:
-@@ -1556,6 +1552,11 @@ static u32 aarch64_encode_immediate(u64 imm,
+-		if (upper_32_bits(imm))
+-			return AARCH64_BREAK_FAULT;
+ 		esz = 32;
+ 		break;
+ 	case AARCH64_INSN_VARIANT_64BIT:
+@@ -1556,6 +1550,12 @@ static u32 aarch64_encode_immediate(u64 imm,
  		return AARCH64_BREAK_FAULT;
  	}
  
++	mask = GENMASK(esz - 1, 0);
++
 +	/* Can't encode full zeroes or full ones */
-+	mask = GENMASK_ULL(esz - 1, 0);
-+	if (!imm || !(~imm & mask))
++	if (imm & ~mask || !imm || imm == mask)
 +		return AARCH64_BREAK_FAULT;
 +
  	/*
  	 * Inverse of Replicate(). Try to spot a repeating pattern
  	 * with a pow2 stride.
 
-which is of course completely untested (it does compile though).
 
-Thoughts?
+What do you think?
 
-	M.
--- 
-Jazz is not dead. It just smells funny...
+Will
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200507091953.70505638%40why.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200507082934.GA28215%40willie-the-truck.
