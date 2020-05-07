@@ -1,145 +1,128 @@
-Return-Path: <clang-built-linux+bncBDPKNA7WYADBBI4E2L2QKGQE424VZ5Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBAUK2L2QKGQEY2KQGBI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13d.google.com (mail-lf1-x13d.google.com [IPv6:2a00:1450:4864:20::13d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 812861C9DD4
-	for <lists+clang-built-linux@lfdr.de>; Thu,  7 May 2020 23:48:20 +0200 (CEST)
-Received: by mail-lf1-x13d.google.com with SMTP id p9sf2912418lfh.6
-        for <lists+clang-built-linux@lfdr.de>; Thu, 07 May 2020 14:48:20 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588888100; cv=pass;
+Received: from mail-vk1-xa3f.google.com (mail-vk1-xa3f.google.com [IPv6:2607:f8b0:4864:20::a3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id E5C121C9E1B
+	for <lists+clang-built-linux@lfdr.de>; Fri,  8 May 2020 00:00:35 +0200 (CEST)
+Received: by mail-vk1-xa3f.google.com with SMTP id s206sf2876077vke.20
+        for <lists+clang-built-linux@lfdr.de>; Thu, 07 May 2020 15:00:35 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588888835; cv=pass;
         d=google.com; s=arc-20160816;
-        b=No6pAeocRzLTPuW5ws77fCsNBG/0v7v6QkAb5na9YAIy6IYF/RjfrnIzJpFNdYqFv5
-         6l541VwGB+eXFNTCNSKDscyy01n9xS6SSYkFjYFXfqimlL5ZfR7PCvjyDZesv8Q4p8IO
-         YqucBJ20h5Lm3SGjmiBCG2Y55Kz84bZaf44Yrq32sjd1MRYUUv5fzHFnusE/Re8wOuAa
-         En/wTx1eQze6e+6SGPaG1InEFTJSVEvN3sSQhOeAovo7DXbVoOV27s+WL75PeNZWcBCt
-         fV29hfWjJ5yFPVuFGE2TWmndxMnptoJxTRC46ZubDDnrusfvYkuZXmss2HxQyhz6pkjm
-         msog==
+        b=FOCosH2Jw708zftCZDRpw6eRbaKs3BbJaVgcHQRyugYFZBaUEQecDjDYbLMDZuk1i0
+         EARJHOMSVgORckJuCGsUZCZ3+t3TCbVtkg89EA93i6+aw91Kv2Xa6LKdzgYeNpLeoyBN
+         sxiZ1AnG0VkGql9T6sUpJNxVeic6Z+438tKuQPGGgw59KvQ2mLX/W4MZ54PlBP2z3LQk
+         luhM76s+Z7eWB7OfkBm0OtKqM0UBRZzzf0FN55T/1thd15NclQHScW39IvcAGuHMf9YT
+         G/wa5Pso2F01U4THDM+BPNiFRbs4dF+35MqNDPYhehkxeBEReP6aFUgsYmAwWK1HK6iu
+         8vpg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=BuU4xw/uXo3uJgYwhBu5hrSJf3+3s9bEDAju1pcP+uA=;
-        b=1B2u+u5vSWwBjyJk2LPJi+dOhqlL6fdG2hln74EmOHOvt540mafQoaDugcOtYkSdvZ
-         ACZgKO90TeR2u77KhYDN7Lstpq17doEY+dcjr5hH1IwejG9q+V/nNWHDJ6UZ0cFduPfr
-         j331DvAUmDE85zMMIUeLvDTo4SciHPpUQGsxIRYeeKefyyLy+pHcDnt4RKPCyiUdm+TZ
-         yFNkOInUWYPehLffZAny4yNXh9wyI6fDT8ZtnKMVUxz+z+YggVce+7C0GuS9Ko0IPBbJ
-         tPpIF9HqB9zaL4vUtAhrZK1AC9yQnYw6ff0flTE5krWLHZy40doiTVHA5UAN6axejFAT
-         YvJg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=cAEa5xuLw0/ECPnAbIwgj/XwafZmH+t3VxMQeftxw6E=;
+        b=PVJ2pyYpODCu2T1Zm1PKuTcJMyMRQFQL9eGfsqc3WUQe0A8TI0Z+k/kRV2LE5SsF7k
+         8jiN837zpfm5gb2KuvwE1QYPinEF/VQYLqxgz3Y5VV5KOXYfYiB/QUAyerzA0HcGKVvx
+         YP1QpSDDjO3VuseNqWNSaiXJE/WAxXdG/yopBdhPh9iQb7hg4J2UnCorWW46IRvsVupl
+         j/V0FKGjL3kowSS6m9u4FwIlM6xX4f5kFG6HBrt5OiB7RhQzGxqcvI7H57YEkaS8sPRM
+         L5bVGXA9uxrVt7yies7cBwVFMNMXgCtUMqefECIOEl5j3MzkXzGKwZHdkPkMLWVoKMnl
+         zGeg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=XTFfyL0X;
-       spf=pass (google.com: domain of luke.r.nels@gmail.com designates 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=luke.r.nels@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b="vI/53XPm";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=BuU4xw/uXo3uJgYwhBu5hrSJf3+3s9bEDAju1pcP+uA=;
-        b=OMMuEv9ePfLavggDAgPqOIzMhvlRCtxD6xa+8Y09HRCtWuQ2RCdpPI3tPl6ZNt43xT
-         6wUL72oImadcRcQVOflEH/jjusd3b+WzcRC4CZt68mzn6OoAoZ4Jvavu2VnQzIR2EXpq
-         eegBDgAXxn+1ugcaKaeArrlXCCTZKzwmjj06T4/twjRBVoeXJ8Wub55j5GLznhjLIH0b
-         PjW1HN/vuaQq2r7t9QLwE7ltxhL9rw1HVq4FS4z7ySZc+eBdWF+yIDqI4qI6GYM2VbWV
-         vVQE9Xtrys3gDOBlvOxHPkiGdsvkfwx8jTiWzthmr2sZcFMkciB8Qb2hDZPRffS+aras
-         z+mQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=BuU4xw/uXo3uJgYwhBu5hrSJf3+3s9bEDAju1pcP+uA=;
-        b=duJqaJZxW3bour5u5xyozlj63ZcFQvprUtc61Pn57UFT1IBmB1RaKTM8ES8F13xuQP
-         Z5X+wAQOBjOzoLjzn+E1NHxwqfoJ/iyLDSEPrO49rEkSG1ssR50SOshA4RMJQ1yud8Yh
-         XEaQ0AJU3awYurdjht2KBJqpOECOZTtgAlpDGozngSx3AggNltfj8r503ivDLZkls/UK
-         wjcSZDYgIzrYNPQpPkYEYwrvuOx0Rq4xXi8GQl8Y9Jgc9iZyDVI93547sCEiXBOgd7sG
-         tMMHBnW6SjXkf2P2fFe7P3dDpfieu4Bdu3Jlc2/AlmLptAnmmwza9b9bMFR47bWPtFix
-         X96Q==
+        bh=cAEa5xuLw0/ECPnAbIwgj/XwafZmH+t3VxMQeftxw6E=;
+        b=bdQwb4jwZcfhfg4zgk1joDEMos0Yq0sISfYK82T4vsTKTeUuZQJc300ae84zRApyu5
+         0suwa0jbBb6QLR8jBZ1SCPon6Q+Hx95s4faRsThzs9VAfm4j88Rgwxt2MlZ6eexDi+zB
+         +etXXCOFJ2iNNGN1eSD4CzRst8PlMnoCuND91IA2H/89rlPx6U4WEmfLqAjPFutMqVS8
+         N71yvrMI9eLjgUknju05J/hLVyXzSjgw0mfWWdIZNgdtvNbuKyVmJThrq4797eeVxITZ
+         L7liSE2Vs/+7EsymwHLrGPmIzgHx0tsHPxgVNctXNYlE95BdDmt8ZP89PCz6AffNqDOp
+         X60w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=BuU4xw/uXo3uJgYwhBu5hrSJf3+3s9bEDAju1pcP+uA=;
-        b=GBZmLBA94gq4WZR3HzFishhYMjcSWw5HLRWwYavmZlgSe04JtKjSpLlF4MhVWFL1Y8
-         7cNSXBa2adae/Bb6CXMQi6h/5oYYJ0i/jc94MuPIWho3fUrtHmUQe2AaUaFG6FX+fHX1
-         ZbzcpYHYbHGBlieUZte14OiFOEgmdWkl5O8m5YJ9E/7rPXYh21uuQdTrf0cCGNgVVmnC
-         IywIpNIloUtqk4Mw1cX3U1QjklEtyDpr5AAw8SNNEAwMX2POB8RSROoHTj0M4xG93MDW
-         Ifzge6OiwnG4IPf3IPoh3Y74kZ3doxAChglcKZoIP7aaomwBoshkq0FZgWZBeLPmi1A0
-         teHA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuZAPA9xaTZ8RigTBKyxjNJ4SMAHlifFN0Ke9PHV5+ltahd18TpS
-	OQKQwrlwzRJnSFrYBQ6+PyM=
-X-Google-Smtp-Source: APiQypKR1VKSf+O4MJ3wt1oZraaXN95I9MYzMdn1pXdq2Jhgyh7bvjUEO7UJ54xjxv9eVfPEFvywLw==
-X-Received: by 2002:a05:6512:308c:: with SMTP id z12mr9938013lfd.195.1588888100018;
-        Thu, 07 May 2020 14:48:20 -0700 (PDT)
+        bh=cAEa5xuLw0/ECPnAbIwgj/XwafZmH+t3VxMQeftxw6E=;
+        b=fJWXdkz3u78P9d3U/SI3wlXrImQzCEYb2IaVjxZXYPZxkn8o9yUOI5soH400chz3ET
+         PT8UCaKnbbmx5bxR+VEMJpEkplbQsuhyRSA7hlBwF0wPuwkpFXPvJz1ep/RqIZF7EwQK
+         xKg12pdK7OLo6PFOP8LAERyLCo5G9Uik859107lPGyB0RRv+RjQ+5ZPvxXhogTEy7HWS
+         Lw7DooDEfq4bMdK3JGkQ0iWsAD1pr+Sr2JYqYzl/LjGziCPJEIgSz/zJMs3oJb2fGBQJ
+         3YYIZOvPITpIuwiLReaoF3t7YYb54hC+69GpmCePiCQaGFnjEtx+5ix7azl2laMDQ2jE
+         CSEg==
+X-Gm-Message-State: AGi0PuaEcPQxvw/pzthN8Y1vQUSQlltDvRepC4RNDqwtVYPPgTGbE9jc
+	SMgSDJv7wyCRcLWBpw1vx1k=
+X-Google-Smtp-Source: APiQypKHz3xGGGt7ztOxQXA6pmfGhRXd5pDLKiin4dudWOIP0ZbPnbMvuLbBd8VODpkTJwxLWWG0Yg==
+X-Received: by 2002:ab0:238f:: with SMTP id b15mr14047814uan.32.1588888834763;
+        Thu, 07 May 2020 15:00:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:5c09:: with SMTP id r9ls1758812lfp.5.gmail; Thu, 07 May
- 2020 14:48:19 -0700 (PDT)
-X-Received: by 2002:a05:6512:3136:: with SMTP id p22mr10083708lfd.159.1588888099180;
-        Thu, 07 May 2020 14:48:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588888099; cv=none;
+Received: by 2002:a67:7f86:: with SMTP id a128ls896798vsd.8.gmail; Thu, 07 May
+ 2020 15:00:34 -0700 (PDT)
+X-Received: by 2002:a67:fe09:: with SMTP id l9mr13575339vsr.176.1588888834296;
+        Thu, 07 May 2020 15:00:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588888834; cv=none;
         d=google.com; s=arc-20160816;
-        b=gFqFfhGZRZXcDt6gGE2H6BAWn4Z/czjbq7lWb4SJej/ZYgmc0h9GEKneTCCebb1Yba
-         fsFzM8FlZom24qs3uA7wltjpRvqgtQfy5O9sEcRCA3ECyEj65R4WnQfPPuqgKxERhTVl
-         xxsQ1hDKPNThKEADIuUHkzbm3YcPiFN4VNIzAgWzPaBsQrdygNdLDTWBSKEhLkoI3MqG
-         GMe6R47ODS2BofSNz5eAD5SZvWAfIcY4ZnttBpViI4glTibzFqt6TrR2Vf8D/oxopvPu
-         5m0PoTMcuPOU/rSnKZhJbGnwEEPMmx1kFIfh7J4kW2w3OxI7CuSaQ/xspdWjA8jEdbtD
-         m/cA==
+        b=PZusw18mn7zMabA8fbOrcIjIiJN1vfE0QbIVRM+Zd30sSsVm8f6FWFofS45PpVxZXT
+         ejOLDWXUJd/Y6an2gTDaqGX/Odbhggx6ydBpYiflGrwDx/j3n5RiXNt6qJr/tX8voGck
+         wBmXDkvUDi/jIRxNSoIVkhoi9tYD/hQi1SvV3R9ncdjDVyN5dNr0A90W4FILPjCtLtg6
+         ry2Ad7sKGs684C0Dz1cbTdrRIY7LzcBQN7Ch7WK6IpW9gCMYnQwLA59Iwb+i6E/ZJZDt
+         j+M59cXZKNKjr4HSrO4bhZNI3b2oHbYBuEyuV3Xd3i+dh21qFdRHQJ/cjXQRZbgvsAe+
+         HvpA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=3VucMel2VcMPBSW+yTXmQNjNtFkFkvQaIgxnkoAD4f8=;
-        b=F0zp+/2CumBbyA7mpH8DsWAe2YT8Vc8c1gKH5KeTsHpIeiiSGeZE9vW+XISCk1rGHm
-         8+wJIVxoH1AcBffFYNen0RTN7sA6uF27PHCErB/Sp20B7PlSbmPDZIYytRPGPAQ2QZWt
-         VCa/TGglnjHGtpq7zZ1lUyh+Uqx63wkZAPjaGoAQHofgljcMm4Ag33AEjjMathQe7M8/
-         PN2iogxT7sLycTGOnHDi3RXXnc45696lOmYwVX2WpLlPlYvU2bqkTXMVUSofgdH6qvmR
-         hteUIq2nYCSFub4S+GEj8d+VJ56DYOBVAav6RgQYuiirlQLhN+0UDSbEaLWwYYu7kE/a
-         0QBQ==
+        bh=6fT4k86WplkenZajSARoycgD+uv5LCdkOQsyfX/+mVQ=;
+        b=tTOsTgJd9xndLl0ziIbAwyoVmQ4vw/W63NeQnn3Y4V4WuYSePN8FRvzNvFsSVqYHRH
+         sxz+fruz4rjs8k6LWm1U1ThNyHsXXsrtja1EoYDrUHFTODSaPJIUo5C2acmCwcIVMCeA
+         VgZ+nEzrc98+i9r6c8IScF1PLEL87DZVe3WswDaVrWwyI+JaPgO0RSBU1VTGIXww8hHV
+         isc0KkMWB246XgfqhbFzHT99jcgA10Migq9cXXhPUyKHOF7vOpQxjB+TPF1NY5t1XO+c
+         mU+8QFeBLoVPZqyPG0ERAblgMLmD20517oxR8RdYJ0RqZK7NTTft2RUMi8pd2VGuZ1ZY
+         cPjA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=XTFfyL0X;
-       spf=pass (google.com: domain of luke.r.nels@gmail.com designates 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=luke.r.nels@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wm1-x342.google.com (mail-wm1-x342.google.com. [2a00:1450:4864:20::342])
-        by gmr-mx.google.com with ESMTPS id c16si394474ljk.5.2020.05.07.14.48.19
+       dkim=pass header.i=@google.com header.s=20161025 header.b="vI/53XPm";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pl1-x643.google.com (mail-pl1-x643.google.com. [2607:f8b0:4864:20::643])
+        by gmr-mx.google.com with ESMTPS id e22si451934vkn.4.2020.05.07.15.00.34
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 07 May 2020 14:48:19 -0700 (PDT)
-Received-SPF: pass (google.com: domain of luke.r.nels@gmail.com designates 2a00:1450:4864:20::342 as permitted sender) client-ip=2a00:1450:4864:20::342;
-Received: by mail-wm1-x342.google.com with SMTP id g12so8537572wmh.3
-        for <clang-built-linux@googlegroups.com>; Thu, 07 May 2020 14:48:19 -0700 (PDT)
-X-Received: by 2002:a05:600c:24cf:: with SMTP id 15mr12017512wmu.94.1588888098625;
- Thu, 07 May 2020 14:48:18 -0700 (PDT)
+        Thu, 07 May 2020 15:00:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) client-ip=2607:f8b0:4864:20::643;
+Received: by mail-pl1-x643.google.com with SMTP id t7so2641355plr.0
+        for <clang-built-linux@googlegroups.com>; Thu, 07 May 2020 15:00:34 -0700 (PDT)
+X-Received: by 2002:a17:902:ac87:: with SMTP id h7mr14650635plr.119.1588888832973;
+ Thu, 07 May 2020 15:00:32 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200507010504.26352-1-luke.r.nels@gmail.com> <20200507010504.26352-2-luke.r.nels@gmail.com>
- <20200507082934.GA28215@willie-the-truck> <20200507101224.33a44d71@why>
-In-Reply-To: <20200507101224.33a44d71@why>
-From: Luke Nelson <luke.r.nels@gmail.com>
-Date: Thu, 7 May 2020 14:48:07 -0700
-Message-ID: <CAB-e3NRCJ_4+vkFPkMN67DwBBtO=sJwR-oL4-AozVw2bBJHOzg@mail.gmail.com>
-Subject: Re: [RFC PATCH bpf-next 1/3] arm64: insn: Fix two bugs in encoding
- 32-bit logical immediates
-To: Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>
-Cc: Luke Nelson <lukenels@cs.washington.edu>, bpf <bpf@vger.kernel.org>, 
-	Xi Wang <xi.wang@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Alexei Starovoitov <ast@kernel.org>, Zi Shen Lim <zlim.lnx@gmail.com>, 
-	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, 
-	Andrii Nakryiko <andriin@fb.com>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@chromium.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	linux-arm-kernel@lists.infradead.org, 
-	open list <linux-kernel@vger.kernel.org>, Networking <netdev@vger.kernel.org>, 
-	clang-built-linux@googlegroups.com
+References: <20200507042835.9135-3-bvanassche@acm.org> <202005080353.y49Uwj18%lkp@intel.com>
+In-Reply-To: <202005080353.y49Uwj18%lkp@intel.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Thu, 7 May 2020 15:00:21 -0700
+Message-ID: <CAKwvOdnuXX2xpsz6fxV-qfvj1AqN3V7qyOwtwtCG4NWq+HzfAw@mail.gmail.com>
+Subject: Re: [PATCH v5 02/11] qla2xxx: Suppress two recently introduced
+ compiler warnings
+To: kbuild test robot <lkp@intel.com>
+Cc: Bart Van Assche <bvanassche@acm.org>, "Martin K . Petersen" <martin.petersen@oracle.com>, 
+	"James E . J . Bottomley" <jejb@linux.vnet.ibm.com>, kbuild-all@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, linux-scsi@vger.kernel.org, 
+	Daniel Wagner <dwagner@suse.de>, Himanshu Madhani <himanshu.madhani@oracle.com>, 
+	Hannes Reinecke <hare@suse.de>, Rajan Shanmugavelu <rajan.shanmugavelu@oracle.com>, 
+	Joe Jin <joe.jin@oracle.com>, Nilesh Javali <njavali@marvell.com>, 
+	Quinn Tran <qutran@marvell.com>, Arnd Bergmann <arnd@arndb.de>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: luke.r.nels@gmail.com
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=XTFfyL0X;       spf=pass
- (google.com: domain of luke.r.nels@gmail.com designates 2a00:1450:4864:20::342
- as permitted sender) smtp.mailfrom=luke.r.nels@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@google.com header.s=20161025 header.b="vI/53XPm";       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,69 +135,142 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi everyone,
-
-Thanks for the comments! Responses below:
-
-> It's a bit grotty spreading the checks out now. How about we tweak things
-> slightly along the lines of:
+On Thu, May 7, 2020 at 12:18 PM kbuild test robot <lkp@intel.com> wrote:
 >
+> Hi Bart,
 >
-> diff --git a/arch/arm64/kernel/insn.c b/arch/arm64/kernel/insn.c
-> index 4a9e773a177f..60ec788eaf33 100644
-> --- a/arch/arm64/kernel/insn.c
-> +++ b/arch/arm64/kernel/insn.c
-> [...]
-
-Agreed; this new version looks much cleaner. I re-ran all the tests /
-verification and everything seems good. Would you like me to submit a
-v2 of this series with this new code?
-
-
->> We tested the new code against llvm-mc with all 1,302 encodable 32-bit
->> logical immediates and all 5,334 encodable 64-bit logical immediates.
+> I love your patch! Yet something to improve:
 >
-> That, on its own, is awesome information. Do you have any pointer on
-> how to set this up?
+> [auto build test ERROR on scsi/for-next]
+> [also build test ERROR on mkp-scsi/for-next tip/perf/core v5.7-rc4 next-20200507]
+> [if your patch is applied to the wrong git tree, please drop us a note to help
+> improve the system. BTW, we also suggest to use '--base' option to specify the
+> base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
+>
+> url:    https://github.com/0day-ci/linux/commits/Bart-Van-Assche/Fix-qla2xxx-endianness-annotations/20200507-135245
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/jejb/scsi.git for-next
+> config: x86_64-allyesconfig (attached as .config)
+> compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 54b35c066417d4856e9d53313f7e98b354274584)
+> reproduce:
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install x86_64 cross compiling tool for clang build
+>         # apt-get install binutils-x86-64-linux-gnu
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
+>
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kbuild test robot <lkp@intel.com>
+>
+> All errors (new ones prefixed by >>):
+>
+>    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
+> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
+>    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
+>                                   ^
 
-Sure! The process of running the tests is pretty involved, but I'll
-describe it below and give some links here.
+Hi Bart,
+These compiler specific pragma's are not toolchain portable.  You'll
+need to wrap them in:
+#ifndef __clang__
+preprocessor macros, or I think we have a pragma helper in tree that
+helps with compiler specific pragmas.  IIRC it uses _Pragma to define
+pragmas in macros.
 
-We found the bugs in insn.c while adding support for logical immediates
-to the BPF JIT and verifying the changes with our tool, Serval:
-https://github.com/uw-unsat/serval-bpf. The basic idea for how we tested /
-verified logical immediates is the following:
+>    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
+>    In file included from include/trace/events/qla.h:44:
+>    In file included from include/trace/define_trace.h:95:
+> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
+>    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
+>                                   ^
+>    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
+>    In file included from include/trace/events/qla.h:44:
+>    In file included from include/trace/define_trace.h:102:
+>    In file included from include/trace/trace_events.h:155:
+> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
+>    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
+>                                   ^
+>    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
+>    In file included from include/trace/events/qla.h:44:
+>    In file included from include/trace/define_trace.h:102:
+>    In file included from include/trace/trace_events.h:222:
+> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
+>    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
+>                                   ^
+>    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
+>    In file included from include/trace/events/qla.h:44:
+>    In file included from include/trace/define_trace.h:102:
+>    In file included from include/trace/trace_events.h:402:
+> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
+>    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
+>                                   ^
+>    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
+>    In file included from include/trace/events/qla.h:44:
+>    In file included from include/trace/define_trace.h:102:
+>    In file included from include/trace/trace_events.h:453:
+> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
+>    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
+>                                   ^
+>    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
+>    In file included from include/trace/events/qla.h:44:
+>    In file included from include/trace/define_trace.h:102:
+>    In file included from include/trace/trace_events.h:533:
+> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
+>    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
+>                                   ^
+>    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
+>    In file included from include/trace/events/qla.h:44:
+>    In file included from include/trace/define_trace.h:102:
+>    In file included from include/trace/trace_events.h:727:
+> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
+>    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
+>                                   ^
+>    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
+>    In file included from include/trace/events/qla.h:44:
+>    In file included from include/trace/define_trace.h:102:
+>    In file included from include/trace/trace_events.h:792:
+> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
+>    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
+>                                   ^
+>    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
+>    In file included from include/trace/events/qla.h:44:
+>    In file included from include/trace/define_trace.h:103:
+>    In file included from include/trace/perf.h:90:
+> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
+>    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
+>                                   ^
+>    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
+>    In file included from include/trace/events/qla.h:44:
+>    In file included from include/trace/define_trace.h:104:
+>    In file included from include/trace/bpf_probe.h:114:
+> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
+>    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
+>                                   ^
+>    11 errors generated.
+>
+> vim +13 include/trace/events/qla.h
+>
+>     11
+>     12  #pragma GCC diagnostic push
+>   > 13  #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
+>     14
+>
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202005080353.y49Uwj18%25lkp%40intel.com.
 
-First, we have a Python script [1] for generating every encodable
-logical immediate and the corresponding instruction fields that encode
-that immediate. The script validates the list by checking that llvm-mc
-decodes each instruction back to the expected immediate.
 
-Next, we use the list [2] from the first step to check a Racket
-translation [3] of the logical immediate encoding function in insn.c.
-We found the second mask bug by noticing that some (encodable) 32-bit
-immediates were being rejected by the encoding function.
 
-Last, we use the Racket translation of the encoding function to verify
-the correctness of the BPF JIT implementation [4], i.e., the JIT
-correctly compiles BPF_{AND,OR,XOR,JSET} BPF_K instructions to arm64
-instructions with equivalent semantics. We found the first bug as the
-verifier complained that the function was producing invalid encodings
-for 32-bit -1 immediates, and we were able to reproduce a kernel crash
-using the BPF tests.
-
-We manually translated the C code to Racket because our verifier, Serval,
-currently only works on Racket code.
-
-Thanks again,
-- Luke
-
-[1]: https://github.com/uw-unsat/serval-bpf/blob/00838174659034e9527e67d9eccd2def2354cec6/racket/test/arm64/gen-logic-imm.py
-[2]: https://github.com/uw-unsat/serval-bpf/blob/00838174659034e9527e67d9eccd2def2354cec6/racket/test/arm64/logic-imm.rkt
-[3]: https://github.com/uw-unsat/serval-bpf/blob/00838174659034e9527e67d9eccd2def2354cec6/racket/arm64/insn.rkt#L66
-[4]: https://github.com/uw-unsat/serval-bpf/blob/00838174659034e9527e67d9eccd2def2354cec6/racket/arm64/bpf_jit_comp.rkt
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAB-e3NRCJ_4%2BvkFPkMN67DwBBtO%3DsJwR-oL4-AozVw2bBJHOzg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnuXX2xpsz6fxV-qfvj1AqN3V7qyOwtwtCG4NWq%2BHzfAw%40mail.gmail.com.
