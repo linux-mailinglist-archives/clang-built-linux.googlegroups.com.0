@@ -1,139 +1,145 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBAH62H2QKGQEXXHTOUA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDPKNA7WYADBBI4E2L2QKGQE424VZ5Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33f.google.com (mail-wm1-x33f.google.com [IPv6:2a00:1450:4864:20::33f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 80E961C9D52
-	for <lists+clang-built-linux@lfdr.de>; Thu,  7 May 2020 23:34:56 +0200 (CEST)
-Received: by mail-wm1-x33f.google.com with SMTP id f17sf3194348wmm.5
-        for <lists+clang-built-linux@lfdr.de>; Thu, 07 May 2020 14:34:56 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588887296; cv=pass;
+Received: from mail-lf1-x13d.google.com (mail-lf1-x13d.google.com [IPv6:2a00:1450:4864:20::13d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 812861C9DD4
+	for <lists+clang-built-linux@lfdr.de>; Thu,  7 May 2020 23:48:20 +0200 (CEST)
+Received: by mail-lf1-x13d.google.com with SMTP id p9sf2912418lfh.6
+        for <lists+clang-built-linux@lfdr.de>; Thu, 07 May 2020 14:48:20 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588888100; cv=pass;
         d=google.com; s=arc-20160816;
-        b=JIUPnNSJp2hdpYJFEutXpZmQnne+M95Sj0LeaBEoTK+rlF3swZysg6TFPOnA7SVEHZ
-         AHVUVhJ1olXDCiUrMDj6CFNNqw1UbSM6lN973R4A+WoaVlIVHbwoqyKktbaoxP4AW4Qq
-         ccUVKlvg6O5grA/NhWSZlGEIbcKQBIgsGtFD7YRzKfFMVbW9SZn6o9RXIOyCee5hNyLh
-         rPKlytn4x3fgnEhOxRcCybo9TyxETx96hqZPvbWm/4re5hSXv8KZX93ZDPFg/PtY6s4S
-         vXkkQKQSvskSBeXfJVlvsqJWCgXCp5G/BaBXBrUrPWsZoEwiVxLp3gS98wlSNhdjy++z
-         PbfQ==
+        b=No6pAeocRzLTPuW5ws77fCsNBG/0v7v6QkAb5na9YAIy6IYF/RjfrnIzJpFNdYqFv5
+         6l541VwGB+eXFNTCNSKDscyy01n9xS6SSYkFjYFXfqimlL5ZfR7PCvjyDZesv8Q4p8IO
+         YqucBJ20h5Lm3SGjmiBCG2Y55Kz84bZaf44Yrq32sjd1MRYUUv5fzHFnusE/Re8wOuAa
+         En/wTx1eQze6e+6SGPaG1InEFTJSVEvN3sSQhOeAovo7DXbVoOV27s+WL75PeNZWcBCt
+         fV29hfWjJ5yFPVuFGE2TWmndxMnptoJxTRC46ZubDDnrusfvYkuZXmss2HxQyhz6pkjm
+         msog==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=CBLf9xEQoLrI2fwIRwCGq03HexNPD+iMeA/G+J8reOs=;
-        b=uV/JLleqgvjR9NpNcwpQRf+6WBp0qjHyCT7q8xrYk/HC0TicS1ev9gRdfNXj6kga6j
-         glKBPFP79voJ42vEw2E2ihN8NWNZ1qtimLDKWTnC3OCmocYQzd07d5rksqJWoih0Wo73
-         8ctY9xbtIOANyOmVpNv3/pbWEREABXUvCZckDfmMEzFD622tx4ziGG5Ryd3viuAIQhhV
-         bgKss9QPlNisw8qhKB+gQIou0MCf9G2P2xKxBh7eQPmbfA5pX09InxMGwgfCBJE8MHH8
-         eCzWtBZ6pG+Ep9e8SZFengQIeM3z3fTNcHEFCCD5NLiLlqrwoKN7h0PnLmAnH9iOBduo
-         EgSQ==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=BuU4xw/uXo3uJgYwhBu5hrSJf3+3s9bEDAju1pcP+uA=;
+        b=1B2u+u5vSWwBjyJk2LPJi+dOhqlL6fdG2hln74EmOHOvt540mafQoaDugcOtYkSdvZ
+         ACZgKO90TeR2u77KhYDN7Lstpq17doEY+dcjr5hH1IwejG9q+V/nNWHDJ6UZ0cFduPfr
+         j331DvAUmDE85zMMIUeLvDTo4SciHPpUQGsxIRYeeKefyyLy+pHcDnt4RKPCyiUdm+TZ
+         yFNkOInUWYPehLffZAny4yNXh9wyI6fDT8ZtnKMVUxz+z+YggVce+7C0GuS9Ko0IPBbJ
+         tPpIF9HqB9zaL4vUtAhrZK1AC9yQnYw6ff0flTE5krWLHZy40doiTVHA5UAN6axejFAT
+         YvJg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 217.72.192.75 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=XTFfyL0X;
+       spf=pass (google.com: domain of luke.r.nels@gmail.com designates 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=luke.r.nels@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=BuU4xw/uXo3uJgYwhBu5hrSJf3+3s9bEDAju1pcP+uA=;
+        b=OMMuEv9ePfLavggDAgPqOIzMhvlRCtxD6xa+8Y09HRCtWuQ2RCdpPI3tPl6ZNt43xT
+         6wUL72oImadcRcQVOflEH/jjusd3b+WzcRC4CZt68mzn6OoAoZ4Jvavu2VnQzIR2EXpq
+         eegBDgAXxn+1ugcaKaeArrlXCCTZKzwmjj06T4/twjRBVoeXJ8Wub55j5GLznhjLIH0b
+         PjW1HN/vuaQq2r7t9QLwE7ltxhL9rw1HVq4FS4z7ySZc+eBdWF+yIDqI4qI6GYM2VbWV
+         vVQE9Xtrys3gDOBlvOxHPkiGdsvkfwx8jTiWzthmr2sZcFMkciB8Qb2hDZPRffS+aras
+         z+mQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CBLf9xEQoLrI2fwIRwCGq03HexNPD+iMeA/G+J8reOs=;
-        b=msTmAk7+FsZKgazakxgHIkZ3z9Ld73+QBikCSwArmNaUhcC6zNpZR/IJplU4Amuf5C
-         9YmR5piqFuSwCkBRV89sYnw5ESwSEQgbFWmFsLbcsTxM2xOme6D+n1kBQOEyhEGAuePu
-         mQBF+PLbg6ZDFpAWRn5ia9MnUZQe99Lzld1y/+kpHHud4V31QtJ33q3PEbJQEDqywqR8
-         WqM07n5S7pwPAYDyWUAPwZbLwM4DxENf9rGT8MgJ8J1tyKtRGxQpJYoXqi0d7CQFGJcn
-         Tv2a6EJa/ZW66DJpaoa397HCY1dhNwmpg04vcTM/lp9+uAj66Us5Det6VZZfIYF09BCF
-         W+Aw==
+        bh=BuU4xw/uXo3uJgYwhBu5hrSJf3+3s9bEDAju1pcP+uA=;
+        b=duJqaJZxW3bour5u5xyozlj63ZcFQvprUtc61Pn57UFT1IBmB1RaKTM8ES8F13xuQP
+         Z5X+wAQOBjOzoLjzn+E1NHxwqfoJ/iyLDSEPrO49rEkSG1ssR50SOshA4RMJQ1yud8Yh
+         XEaQ0AJU3awYurdjht2KBJqpOECOZTtgAlpDGozngSx3AggNltfj8r503ivDLZkls/UK
+         wjcSZDYgIzrYNPQpPkYEYwrvuOx0Rq4xXi8GQl8Y9Jgc9iZyDVI93547sCEiXBOgd7sG
+         tMMHBnW6SjXkf2P2fFe7P3dDpfieu4Bdu3Jlc2/AlmLptAnmmwza9b9bMFR47bWPtFix
+         X96Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=CBLf9xEQoLrI2fwIRwCGq03HexNPD+iMeA/G+J8reOs=;
-        b=SZAKa1bd8sJNpRaleNhZJ+Ap3KO1TkVonmdl79eg5IHQWGibIVjXNbxQme8gsR6j4l
-         q1ifb9PS1unc8phSDJokpO7wfnoDsSAPahMFMLmjJzU0Ahl1TrzllyMW+cij5YdYrI3X
-         QmgW/XQoZfWBn6s3A4bSv8Y8uqwdYu/DD95dyN4f3Twj68fCFA6XldAjNzdBtlQaFOMV
-         +tSTeJPuGOl4F2ORQMI8Dsn1drDNhiv/+N/602zMPYd6VnQCNw4MC51Jl/dL/Pn2S/fB
-         oIbPPJLLthjKyHcRSyf9OG2squWtCvdsOnBoo97nvxOCWXwWHDYsZceYYhZFUG9bVVfI
-         3d5Q==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=BuU4xw/uXo3uJgYwhBu5hrSJf3+3s9bEDAju1pcP+uA=;
+        b=GBZmLBA94gq4WZR3HzFishhYMjcSWw5HLRWwYavmZlgSe04JtKjSpLlF4MhVWFL1Y8
+         7cNSXBa2adae/Bb6CXMQi6h/5oYYJ0i/jc94MuPIWho3fUrtHmUQe2AaUaFG6FX+fHX1
+         ZbzcpYHYbHGBlieUZte14OiFOEgmdWkl5O8m5YJ9E/7rPXYh21uuQdTrf0cCGNgVVmnC
+         IywIpNIloUtqk4Mw1cX3U1QjklEtyDpr5AAw8SNNEAwMX2POB8RSROoHTj0M4xG93MDW
+         Ifzge6OiwnG4IPf3IPoh3Y74kZ3doxAChglcKZoIP7aaomwBoshkq0FZgWZBeLPmi1A0
+         teHA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuYat/JU1sEIkTC7IxicTX6fgZQZTMVwDl962Sd57X/78Rwb/eMl
-	0704vTVt3F5/U3h7lLXZYGE=
-X-Google-Smtp-Source: APiQypIgVgPWnOXvk3ArSxHdtSE1JUnZ1a8DBN/cSKSlJu9a09hdoCZflRzILy3EGN60/+eQv1j0Dw==
-X-Received: by 2002:a5d:4006:: with SMTP id n6mr3021464wrp.27.1588887296238;
-        Thu, 07 May 2020 14:34:56 -0700 (PDT)
+X-Gm-Message-State: AGi0PuZAPA9xaTZ8RigTBKyxjNJ4SMAHlifFN0Ke9PHV5+ltahd18TpS
+	OQKQwrlwzRJnSFrYBQ6+PyM=
+X-Google-Smtp-Source: APiQypKR1VKSf+O4MJ3wt1oZraaXN95I9MYzMdn1pXdq2Jhgyh7bvjUEO7UJ54xjxv9eVfPEFvywLw==
+X-Received: by 2002:a05:6512:308c:: with SMTP id z12mr9938013lfd.195.1588888100018;
+        Thu, 07 May 2020 14:48:20 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:600c:224f:: with SMTP id a15ls17804202wmm.3.gmail; Thu,
- 07 May 2020 14:34:55 -0700 (PDT)
-X-Received: by 2002:a1c:32c7:: with SMTP id y190mr13181005wmy.13.1588887295794;
-        Thu, 07 May 2020 14:34:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588887295; cv=none;
+Received: by 2002:ac2:5c09:: with SMTP id r9ls1758812lfp.5.gmail; Thu, 07 May
+ 2020 14:48:19 -0700 (PDT)
+X-Received: by 2002:a05:6512:3136:: with SMTP id p22mr10083708lfd.159.1588888099180;
+        Thu, 07 May 2020 14:48:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588888099; cv=none;
         d=google.com; s=arc-20160816;
-        b=yaHXRADGgxgjrtyVqSk05VLlH0P17NuMJCUem84Aw+50mmpKbvNQxQi6+2JSm4bAKW
-         SL2YRpwHBZORf0MCJjvrIFVWS1UzMJIes+oyY/UhLCcsQslHTQistmec7Xcw5JZIue0S
-         gYAKDHtuwjw2fSvJRkykSvLes+SRWItGS/HG2q/xa+RC4JYvpBLFlY4ypiL0iN/qDTdg
-         MfVna3g23ztDWYAxcCDQNukRQjS/otPmiyDPM1G3JZ1mn955POLfyKuXHx+6ZBwVMsnK
-         DNwx2vh2iIj5/OdLTw3LkBifzc2mkekbyvtq4Wnsc0Y0l/HBp0B2Y/IDPbzsWIZ5lG//
-         Y1Nw==
+        b=gFqFfhGZRZXcDt6gGE2H6BAWn4Z/czjbq7lWb4SJej/ZYgmc0h9GEKneTCCebb1Yba
+         fsFzM8FlZom24qs3uA7wltjpRvqgtQfy5O9sEcRCA3ECyEj65R4WnQfPPuqgKxERhTVl
+         xxsQ1hDKPNThKEADIuUHkzbm3YcPiFN4VNIzAgWzPaBsQrdygNdLDTWBSKEhLkoI3MqG
+         GMe6R47ODS2BofSNz5eAD5SZvWAfIcY4ZnttBpViI4glTibzFqt6TrR2Vf8D/oxopvPu
+         5m0PoTMcuPOU/rSnKZhJbGnwEEPMmx1kFIfh7J4kW2w3OxI7CuSaQ/xspdWjA8jEdbtD
+         m/cA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from;
-        bh=nhv4GvfYhkkmqqYlnHEBVh9Jjl3c4znu7YZfmMy0vwE=;
-        b=U2xMurYUByG4bozZzfBOI5y3XTx4H4r9eb/jKcJ1RVRVuNnm5G/o0FJNeaf1GOCllJ
-         lFKofkaQIRubkhT4iH8uxHipJNFd5g9G4pNYe1Nx543/sR3W+KnOUIVjW+FumefAXnlK
-         7N/QSb0gAzzL3H6jK048N+s15TuWxgfhCU/x1o5v8ORq0qMQ60JPnKeWNY9g11JGBvb5
-         2CqNbdBdXcY/ongp6BHW3xrTPqTtylaNh4f9g2htIOW4eSQOnRqPPGQf4RebFuNFtrmK
-         E7UolxqhkcnOt93/FOrO6DzQSwkZvHr1hU40kwakSSb/0pTKnNNUwrAI6qgrdF5FyaKc
-         X6SQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=3VucMel2VcMPBSW+yTXmQNjNtFkFkvQaIgxnkoAD4f8=;
+        b=F0zp+/2CumBbyA7mpH8DsWAe2YT8Vc8c1gKH5KeTsHpIeiiSGeZE9vW+XISCk1rGHm
+         8+wJIVxoH1AcBffFYNen0RTN7sA6uF27PHCErB/Sp20B7PlSbmPDZIYytRPGPAQ2QZWt
+         VCa/TGglnjHGtpq7zZ1lUyh+Uqx63wkZAPjaGoAQHofgljcMm4Ag33AEjjMathQe7M8/
+         PN2iogxT7sLycTGOnHDi3RXXnc45696lOmYwVX2WpLlPlYvU2bqkTXMVUSofgdH6qvmR
+         hteUIq2nYCSFub4S+GEj8d+VJ56DYOBVAav6RgQYuiirlQLhN+0UDSbEaLWwYYu7kE/a
+         0QBQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 217.72.192.75 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
-Received: from mout.kundenserver.de (mout.kundenserver.de. [217.72.192.75])
-        by gmr-mx.google.com with ESMTPS id x11si300628wmi.1.2020.05.07.14.34.55
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=XTFfyL0X;
+       spf=pass (google.com: domain of luke.r.nels@gmail.com designates 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=luke.r.nels@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wm1-x342.google.com (mail-wm1-x342.google.com. [2a00:1450:4864:20::342])
+        by gmr-mx.google.com with ESMTPS id c16si394474ljk.5.2020.05.07.14.48.19
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 07 May 2020 14:34:55 -0700 (PDT)
-Received-SPF: neutral (google.com: 217.72.192.75 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=217.72.192.75;
-Received: from localhost.localdomain ([149.172.19.189]) by
- mrelayeu.kundenserver.de (mreue109 [212.227.15.145]) with ESMTPA (Nemesis) id
- 1M2fDl-1jYidz2tHb-004D2T; Thu, 07 May 2020 23:34:40 +0200
-From: Arnd Bergmann <arnd@arndb.de>
-To: Christine Caulfield <ccaulfie@redhat.com>,
-	David Teigland <teigland@redhat.com>,
-	Steve Whitehouse <swhiteho@redhat.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Josh Poimboeuf <jpoimboe@redhat.com>,
-	clang-built-linux@googlegroups.com,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Alexios Zavras <alexios.zavras@intel.com>,
-	"Gustavo A. R. Silva" <gustavo@embeddedor.com>,
-	Richard Fontana <rfontana@redhat.com>,
-	cluster-devel@redhat.com,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] dlm: remove BUG() before panic()
-Date: Thu,  7 May 2020 23:34:28 +0200
-Message-Id: <20200507213438.1886005-1-arnd@arndb.de>
-X-Mailer: git-send-email 2.26.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 07 May 2020 14:48:19 -0700 (PDT)
+Received-SPF: pass (google.com: domain of luke.r.nels@gmail.com designates 2a00:1450:4864:20::342 as permitted sender) client-ip=2a00:1450:4864:20::342;
+Received: by mail-wm1-x342.google.com with SMTP id g12so8537572wmh.3
+        for <clang-built-linux@googlegroups.com>; Thu, 07 May 2020 14:48:19 -0700 (PDT)
+X-Received: by 2002:a05:600c:24cf:: with SMTP id 15mr12017512wmu.94.1588888098625;
+ Thu, 07 May 2020 14:48:18 -0700 (PDT)
 MIME-Version: 1.0
-X-Provags-ID: V03:K1:MWsD4C2gbHQCzPSYpVZ0sRh+EhEaHN4oMDZVkk1sis4OPLEClxS
- 9xPRJqaQrjFl8IZ2Wv+Imy6LKHFafuWPi7xy8fl6ubV2+zFiAgJ6IxDiVxaK4716fxwdvqh
- M5rEYTS93N64nWAN6gDJVXmzdZYNsNmMvQlR/FTzVXrvI8h/2iIzH/7IgDXLXgUGItn6TXu
- GD9+FlIaYKZw9eXdw7bPg==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:zlN+6/l7oGM=:Dtq4zd5iUWJg9Z78qsfioZ
- 8RK3MHA0rTEYRPIyN7utMpOZAgFAhbZRr2wZmJ6rZD7wYBQeVP6lJjJYNP0Y4pA8ziyluG+OA
- 0emP49TXl7VaRidDwOBf3AIz1rvtgUEUmlqDcx7VPKsC49CK2ZxZq9BQYMIN9lKnSIPCe72y6
- LamOjF/74tCb2buLKP/rHpDHeatvFoo9xLhujqR7Nf2OyzkMsOdKLv/UfsDOTQGPuJJdVL+Bb
- punQYzmOEevxUCFpxvXnGSnKpqP6L8Z4S5riXlgoNOPgH/EegygOfE2jwHXlT7K2Noa+evqJ/
- TQn71PQJM5umwRSI+Df7ztizmEMrmNpbfSAQEjIxhNq42CeSWmWA1VI9uXMnguoveazaJ4aYT
- qFonyxDdXAdZkeYS3j3WLQZbUjNf9Pr71lF4fRkTLUvBM/qisoljjIa5TCb6hYEp1zjy/93rZ
- feBlVofAdNBshcUd3Z5/DLhZ0xJ8T3Pn+e2LBbv9xvv0aNTOx/7OVp/SFkosOQw12GOvCaN59
- 8Lo6dSS+pK2H61RZulEtmOm6AItFAZKtPWi0OowNBIm13PffuCKmNhiD0aZt9Urdz7oPmRmAy
- t2PubAtayKfOzzrQjMLDVkZ9PzcMX1CohkcyKWJYuZ81BL3ajX5rnaIjlXyOuYo0IU7MERGhl
- dE+XXVaHj2cVQCMdASZIfIrWy7xM49XBBn4igMM96xL8ai9SJ0Rn1yS055OHKCBzc2AiP8nsG
- krVjtRPYFE/MBMvZeMC+tBjymko3ZImGZv/Rrn8kGdIuJUFFzEe8UpdekyHRZpbgZURXtsNKm
- fkZkKttRwrfOHBxEfx593W9WShzlz+bMYciYGVzrKlPqxjMlI8=
-X-Original-Sender: arnd@arndb.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 217.72.192.75 is neither permitted nor denied by best guess
- record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+References: <20200507010504.26352-1-luke.r.nels@gmail.com> <20200507010504.26352-2-luke.r.nels@gmail.com>
+ <20200507082934.GA28215@willie-the-truck> <20200507101224.33a44d71@why>
+In-Reply-To: <20200507101224.33a44d71@why>
+From: Luke Nelson <luke.r.nels@gmail.com>
+Date: Thu, 7 May 2020 14:48:07 -0700
+Message-ID: <CAB-e3NRCJ_4+vkFPkMN67DwBBtO=sJwR-oL4-AozVw2bBJHOzg@mail.gmail.com>
+Subject: Re: [RFC PATCH bpf-next 1/3] arm64: insn: Fix two bugs in encoding
+ 32-bit logical immediates
+To: Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>
+Cc: Luke Nelson <lukenels@cs.washington.edu>, bpf <bpf@vger.kernel.org>, 
+	Xi Wang <xi.wang@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Alexei Starovoitov <ast@kernel.org>, Zi Shen Lim <zlim.lnx@gmail.com>, 
+	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, 
+	Andrii Nakryiko <andriin@fb.com>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@chromium.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	linux-arm-kernel@lists.infradead.org, 
+	open list <linux-kernel@vger.kernel.org>, Networking <netdev@vger.kernel.org>, 
+	clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: luke.r.nels@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=XTFfyL0X;       spf=pass
+ (google.com: domain of luke.r.nels@gmail.com designates 2a00:1450:4864:20::342
+ as permitted sender) smtp.mailfrom=luke.r.nels@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,47 +152,69 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Building a kernel with clang sometimes fails with an objtool error in dlm:
+Hi everyone,
 
-fs/dlm/lock.o: warning: objtool: revert_lock_pc()+0xbd: can't find jump dest instruction at .text+0xd7fc
+Thanks for the comments! Responses below:
 
-The problem is that BUG() never returns and the compiler knows
-that anything after it is unreachable, however the panic still
-emits some code that does not get fully eliminated.
+> It's a bit grotty spreading the checks out now. How about we tweak things
+> slightly along the lines of:
+>
+>
+> diff --git a/arch/arm64/kernel/insn.c b/arch/arm64/kernel/insn.c
+> index 4a9e773a177f..60ec788eaf33 100644
+> --- a/arch/arm64/kernel/insn.c
+> +++ b/arch/arm64/kernel/insn.c
+> [...]
 
-Having both BUG() and panic() is really pointless as the BUG()
-kills the current process and the subsequent panic() never hits.
-In most cases, we probably don't really want either and should
-replace the DLM_ASSERT() statements with WARN_ON(), as has
-been done for some of them.
+Agreed; this new version looks much cleaner. I re-ran all the tests /
+verification and everything seems good. Would you like me to submit a
+v2 of this series with this new code?
 
-Remove the BUG() here so the user at least sees the panic message
-and we can reliably build randconfig kernels.
 
-Fixes: e7fd41792fc0 ("[DLM] The core of the DLM for GFS2/CLVM")
-Cc: Josh Poimboeuf <jpoimboe@redhat.com>
-Cc: clang-built-linux@googlegroups.com
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- fs/dlm/dlm_internal.h | 1 -
- 1 file changed, 1 deletion(-)
+>> We tested the new code against llvm-mc with all 1,302 encodable 32-bit
+>> logical immediates and all 5,334 encodable 64-bit logical immediates.
+>
+> That, on its own, is awesome information. Do you have any pointer on
+> how to set this up?
 
-diff --git a/fs/dlm/dlm_internal.h b/fs/dlm/dlm_internal.h
-index 416d9de35679..4311d01b02a8 100644
---- a/fs/dlm/dlm_internal.h
-+++ b/fs/dlm/dlm_internal.h
-@@ -97,7 +97,6 @@ do { \
-                __LINE__, __FILE__, #x, jiffies); \
-     {do} \
-     printk("\n"); \
--    BUG(); \
-     panic("DLM:  Record message above and reboot.\n"); \
-   } \
- }
--- 
-2.26.0
+Sure! The process of running the tests is pretty involved, but I'll
+describe it below and give some links here.
+
+We found the bugs in insn.c while adding support for logical immediates
+to the BPF JIT and verifying the changes with our tool, Serval:
+https://github.com/uw-unsat/serval-bpf. The basic idea for how we tested /
+verified logical immediates is the following:
+
+First, we have a Python script [1] for generating every encodable
+logical immediate and the corresponding instruction fields that encode
+that immediate. The script validates the list by checking that llvm-mc
+decodes each instruction back to the expected immediate.
+
+Next, we use the list [2] from the first step to check a Racket
+translation [3] of the logical immediate encoding function in insn.c.
+We found the second mask bug by noticing that some (encodable) 32-bit
+immediates were being rejected by the encoding function.
+
+Last, we use the Racket translation of the encoding function to verify
+the correctness of the BPF JIT implementation [4], i.e., the JIT
+correctly compiles BPF_{AND,OR,XOR,JSET} BPF_K instructions to arm64
+instructions with equivalent semantics. We found the first bug as the
+verifier complained that the function was producing invalid encodings
+for 32-bit -1 immediates, and we were able to reproduce a kernel crash
+using the BPF tests.
+
+We manually translated the C code to Racket because our verifier, Serval,
+currently only works on Racket code.
+
+Thanks again,
+- Luke
+
+[1]: https://github.com/uw-unsat/serval-bpf/blob/00838174659034e9527e67d9eccd2def2354cec6/racket/test/arm64/gen-logic-imm.py
+[2]: https://github.com/uw-unsat/serval-bpf/blob/00838174659034e9527e67d9eccd2def2354cec6/racket/test/arm64/logic-imm.rkt
+[3]: https://github.com/uw-unsat/serval-bpf/blob/00838174659034e9527e67d9eccd2def2354cec6/racket/arm64/insn.rkt#L66
+[4]: https://github.com/uw-unsat/serval-bpf/blob/00838174659034e9527e67d9eccd2def2354cec6/racket/arm64/bpf_jit_comp.rkt
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200507213438.1886005-1-arnd%40arndb.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAB-e3NRCJ_4%2BvkFPkMN67DwBBtO%3DsJwR-oL4-AozVw2bBJHOzg%40mail.gmail.com.
