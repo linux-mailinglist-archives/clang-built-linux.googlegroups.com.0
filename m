@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBAUK2L2QKGQEY2KQGBI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBXMX2L2QKGQEDTQLXXQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3f.google.com (mail-vk1-xa3f.google.com [IPv6:2607:f8b0:4864:20::a3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id E5C121C9E1B
-	for <lists+clang-built-linux@lfdr.de>; Fri,  8 May 2020 00:00:35 +0200 (CEST)
-Received: by mail-vk1-xa3f.google.com with SMTP id s206sf2876077vke.20
-        for <lists+clang-built-linux@lfdr.de>; Thu, 07 May 2020 15:00:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588888835; cv=pass;
+Received: from mail-oo1-xc3d.google.com (mail-oo1-xc3d.google.com [IPv6:2607:f8b0:4864:20::c3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 69AE81C9E79
+	for <lists+clang-built-linux@lfdr.de>; Fri,  8 May 2020 00:29:50 +0200 (CEST)
+Received: by mail-oo1-xc3d.google.com with SMTP id h13sf4713739oov.16
+        for <lists+clang-built-linux@lfdr.de>; Thu, 07 May 2020 15:29:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588890589; cv=pass;
         d=google.com; s=arc-20160816;
-        b=FOCosH2Jw708zftCZDRpw6eRbaKs3BbJaVgcHQRyugYFZBaUEQecDjDYbLMDZuk1i0
-         EARJHOMSVgORckJuCGsUZCZ3+t3TCbVtkg89EA93i6+aw91Kv2Xa6LKdzgYeNpLeoyBN
-         sxiZ1AnG0VkGql9T6sUpJNxVeic6Z+438tKuQPGGgw59KvQ2mLX/W4MZ54PlBP2z3LQk
-         luhM76s+Z7eWB7OfkBm0OtKqM0UBRZzzf0FN55T/1thd15NclQHScW39IvcAGuHMf9YT
-         G/wa5Pso2F01U4THDM+BPNiFRbs4dF+35MqNDPYhehkxeBEReP6aFUgsYmAwWK1HK6iu
-         8vpg==
+        b=CE9eT31LEy6qGnNoS6SlMe3zDlXOtbo/VnM37Olv+NymXHXFNHfdPUoyJqnBVllbpW
+         5MFyQ1+PDGgmr4ojJGb9w46nULpKcxRJGvYl5MvONqJzIyhrfcc/xfsPwr21NhgehV3k
+         7UiC16P3yCoi3pjsL6etPEx68i0w9K0iTUEbV6ZMWqLX1tFEBJrHDkG8RobyAlHgc4ra
+         zsPY5u/rayCizjuLHCQdCapFO5GKswXzoFXmwcAshkMH9nltsWgszAI5S+KRVXCpubEB
+         1r677FgwxofdATzAc4kwt9vqJnir4vGU2nDv+c2J8cmgSF1ZwYTGphd1Jlb3+klILX+J
+         2zUw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=cAEa5xuLw0/ECPnAbIwgj/XwafZmH+t3VxMQeftxw6E=;
-        b=PVJ2pyYpODCu2T1Zm1PKuTcJMyMRQFQL9eGfsqc3WUQe0A8TI0Z+k/kRV2LE5SsF7k
-         8jiN837zpfm5gb2KuvwE1QYPinEF/VQYLqxgz3Y5VV5KOXYfYiB/QUAyerzA0HcGKVvx
-         YP1QpSDDjO3VuseNqWNSaiXJE/WAxXdG/yopBdhPh9iQb7hg4J2UnCorWW46IRvsVupl
-         j/V0FKGjL3kowSS6m9u4FwIlM6xX4f5kFG6HBrt5OiB7RhQzGxqcvI7H57YEkaS8sPRM
-         L5bVGXA9uxrVt7yies7cBwVFMNMXgCtUMqefECIOEl5j3MzkXzGKwZHdkPkMLWVoKMnl
-         zGeg==
+        bh=LPgmNhRLsmV6bgm+Cwv+6FfTakgfjcav4yH3wMYiMJY=;
+        b=iATlULDk9yiWnIhO6dCCDB5Lm1Bn50mYcNTDq/Qx7znkEyaQ3Lkefpw/tMXVcWOgTX
+         XwvWM7eKn0S+xxbaTHKAAjx6Wl1/uvuM1/sC1Wi0qSyamBFPpVOVxVYiwT6fSkmAtVrp
+         BBW/KfCVyuwqL+RbmYKW3qjaY3rXSaclHsfKIbRBXc4SqiHnz6I+TWmRYfQ25QfE6fPe
+         ye6xnEi21w9XNWyh4FUGEkf7OwPVmDFkNLsRdSERry3R1CM1QGyQRc/Iz/8lrorh7iv2
+         xn0BW8IKYD2LUUWJi4ELlnpF/ILvAjYYy41Ac3M/sZ9lsRck6nRPKUCQNu/CSub8ncxo
+         /gtQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="vI/53XPm";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="SVUtOgJ/";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::641 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=cAEa5xuLw0/ECPnAbIwgj/XwafZmH+t3VxMQeftxw6E=;
-        b=bdQwb4jwZcfhfg4zgk1joDEMos0Yq0sISfYK82T4vsTKTeUuZQJc300ae84zRApyu5
-         0suwa0jbBb6QLR8jBZ1SCPon6Q+Hx95s4faRsThzs9VAfm4j88Rgwxt2MlZ6eexDi+zB
-         +etXXCOFJ2iNNGN1eSD4CzRst8PlMnoCuND91IA2H/89rlPx6U4WEmfLqAjPFutMqVS8
-         N71yvrMI9eLjgUknju05J/hLVyXzSjgw0mfWWdIZNgdtvNbuKyVmJThrq4797eeVxITZ
-         L7liSE2Vs/+7EsymwHLrGPmIzgHx0tsHPxgVNctXNYlE95BdDmt8ZP89PCz6AffNqDOp
-         X60w==
+        bh=LPgmNhRLsmV6bgm+Cwv+6FfTakgfjcav4yH3wMYiMJY=;
+        b=Ss6G6O73MaaSR9C71lloZMVwSVmX9br1hS5fJpvbzsjQTwRtTpawCzl/grD0jLxGpi
+         Ba1BlUKsrdGzhmWd2iN9YI0agVtAMYoXa5NzZzTjCj7okvN/6jH/Dl4/JpAeUQbZhSWk
+         SmZSCC2T487M/fj3QjXMvAzj7ArzA9pir2O4z0+L7MOd3tD9PEz5kAkbVgSRUZojyL6v
+         FlAOkoOKp1LgSDxrV1p+Nss2/gnvmp+l6BUV3aH/cWKTn/Sfg7rcuEyNgHfSQTCeFR0v
+         iFBqRb1WXg3q9arKXCjAIYgd2C5xpHf3HNIwA/RWlE7h+rBSUtFXswaSzaXwsPOgtZYb
+         ueKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,76 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=cAEa5xuLw0/ECPnAbIwgj/XwafZmH+t3VxMQeftxw6E=;
-        b=fJWXdkz3u78P9d3U/SI3wlXrImQzCEYb2IaVjxZXYPZxkn8o9yUOI5soH400chz3ET
-         PT8UCaKnbbmx5bxR+VEMJpEkplbQsuhyRSA7hlBwF0wPuwkpFXPvJz1ep/RqIZF7EwQK
-         xKg12pdK7OLo6PFOP8LAERyLCo5G9Uik859107lPGyB0RRv+RjQ+5ZPvxXhogTEy7HWS
-         Lw7DooDEfq4bMdK3JGkQ0iWsAD1pr+Sr2JYqYzl/LjGziCPJEIgSz/zJMs3oJb2fGBQJ
-         3YYIZOvPITpIuwiLReaoF3t7YYb54hC+69GpmCePiCQaGFnjEtx+5ix7azl2laMDQ2jE
-         CSEg==
-X-Gm-Message-State: AGi0PuaEcPQxvw/pzthN8Y1vQUSQlltDvRepC4RNDqwtVYPPgTGbE9jc
-	SMgSDJv7wyCRcLWBpw1vx1k=
-X-Google-Smtp-Source: APiQypKHz3xGGGt7ztOxQXA6pmfGhRXd5pDLKiin4dudWOIP0ZbPnbMvuLbBd8VODpkTJwxLWWG0Yg==
-X-Received: by 2002:ab0:238f:: with SMTP id b15mr14047814uan.32.1588888834763;
-        Thu, 07 May 2020 15:00:34 -0700 (PDT)
+        bh=LPgmNhRLsmV6bgm+Cwv+6FfTakgfjcav4yH3wMYiMJY=;
+        b=TvwtL7/Mc00Jc5iwKggPlyCK8PsDXW6CyP72dQ8B+ZFZyl4yyLcZjI7b0YfTM0h6fL
+         nziTPZjPVPjElj7rZmGVYqeZvvJLZfTiUSb7XvMzmxFuknVZ0MEbWsUtDaRpttpHVak2
+         8ztBeArX6Zcm4z24v2XjrQFiHSMaptwQRAdc5lppYycpl/stiI6FqFY5HTmlt4oLWks9
+         MSyRdCjTuilLGXngtXVcgl8iwsrb1mkkXDGYuGWUSnjsVft51BYq/N7ifk6ha4OKaCw8
+         KFWrRQLKcvBsDJzeIgGVHfnCRBLit3TO4VhwGOjToIb0lW5PFmwbCPWG20oxAJL2r5Yx
+         OGUA==
+X-Gm-Message-State: AGi0Puauj76XsesUfr4ZoVNlH+P1gbVkxkw1Cxbdj0jlHXW1oQ+7S1/d
+	9DAwjkNgoA3xDT7iHvHtDH4=
+X-Google-Smtp-Source: APiQypLXuK9bX7s++XP/+Xn8qtvmna3BvJc+XQKJQBV/ayJWdfD+NaMPaJkrnhPqB+eJs0ZYa1hAww==
+X-Received: by 2002:aca:d6c1:: with SMTP id n184mr8280981oig.126.1588890589159;
+        Thu, 07 May 2020 15:29:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:7f86:: with SMTP id a128ls896798vsd.8.gmail; Thu, 07 May
- 2020 15:00:34 -0700 (PDT)
-X-Received: by 2002:a67:fe09:: with SMTP id l9mr13575339vsr.176.1588888834296;
-        Thu, 07 May 2020 15:00:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588888834; cv=none;
+Received: by 2002:a9d:150:: with SMTP id 74ls1818272otu.8.gmail; Thu, 07 May
+ 2020 15:29:48 -0700 (PDT)
+X-Received: by 2002:a9d:412:: with SMTP id 18mr13087677otc.233.1588890588749;
+        Thu, 07 May 2020 15:29:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588890588; cv=none;
         d=google.com; s=arc-20160816;
-        b=PZusw18mn7zMabA8fbOrcIjIiJN1vfE0QbIVRM+Zd30sSsVm8f6FWFofS45PpVxZXT
-         ejOLDWXUJd/Y6an2gTDaqGX/Odbhggx6ydBpYiflGrwDx/j3n5RiXNt6qJr/tX8voGck
-         wBmXDkvUDi/jIRxNSoIVkhoi9tYD/hQi1SvV3R9ncdjDVyN5dNr0A90W4FILPjCtLtg6
-         ry2Ad7sKGs684C0Dz1cbTdrRIY7LzcBQN7Ch7WK6IpW9gCMYnQwLA59Iwb+i6E/ZJZDt
-         j+M59cXZKNKjr4HSrO4bhZNI3b2oHbYBuEyuV3Xd3i+dh21qFdRHQJ/cjXQRZbgvsAe+
-         HvpA==
+        b=G0O13Jf5qpwSbR2196kWA5NZtRLUzFc9mvmjfUgKmX3ktlPUwWoe/mMX7GN0wrQnpa
+         BsKvibyvBEI1mtcAVtsDpCZH356DnQipknWndVz17YRiaqyPR0xHEJMGygMW3aZaT5fK
+         HCA9FozepPjNNv76THf6pktV34SKaH1ZQzigxXEkHdjngPOV+fd2IZumDFAuMleR+2mW
+         IKBYfSnXipNj0GEhwaF0kvdibj72LUFv74QMZKenUEqSD5dtJPBCHJRpfUv2vjW6wIYr
+         NUBzkRj9P46EWRHZkom2f0/odDhOhMlZOev980que1L4HpZKdA65f9IDZVz5jAEcitwe
+         Akaw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=6fT4k86WplkenZajSARoycgD+uv5LCdkOQsyfX/+mVQ=;
-        b=tTOsTgJd9xndLl0ziIbAwyoVmQ4vw/W63NeQnn3Y4V4WuYSePN8FRvzNvFsSVqYHRH
-         sxz+fruz4rjs8k6LWm1U1ThNyHsXXsrtja1EoYDrUHFTODSaPJIUo5C2acmCwcIVMCeA
-         VgZ+nEzrc98+i9r6c8IScF1PLEL87DZVe3WswDaVrWwyI+JaPgO0RSBU1VTGIXww8hHV
-         isc0KkMWB246XgfqhbFzHT99jcgA10Migq9cXXhPUyKHOF7vOpQxjB+TPF1NY5t1XO+c
-         mU+8QFeBLoVPZqyPG0ERAblgMLmD20517oxR8RdYJ0RqZK7NTTft2RUMi8pd2VGuZ1ZY
-         cPjA==
+        bh=XBVohqdeB+6SWxRGmmFJuyeMSq6V5Fxg2K5EHMfRPbg=;
+        b=TKVp0E/f1Dni3O5pu2Km3DkFg/qEGeNyQH2Rjdcvcj1lgbCB1VA8aQk+bUT8VUBP+Z
+         dzFG2evFuVenHEbZPg5W6FmVX/enisMxkLTsFUC3SXdBEdbKuDv9AAnUCby4bn/r+occ
+         53pkTwnsNE4NrtiFW63h6bM2QfNQY+CvyQB7hYaPR61sNMnTRk/AGTyv0GLa9x4a9+hl
+         +H7bbR3IadxgfnfQLU+waH1lwThjrkT/fXVjNo9Seqkzpo5TU392BotLTNCd6nm0XLtU
+         2sDqiwbG125oiTcgOfS1zTp1P+5uqg20GrFrS7NribSjSVAIsEibu9AfjrBDjvWzvxtG
+         pVBw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="vI/53XPm";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="SVUtOgJ/";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::641 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x643.google.com (mail-pl1-x643.google.com. [2607:f8b0:4864:20::643])
-        by gmr-mx.google.com with ESMTPS id e22si451934vkn.4.2020.05.07.15.00.34
+Received: from mail-pl1-x641.google.com (mail-pl1-x641.google.com. [2607:f8b0:4864:20::641])
+        by gmr-mx.google.com with ESMTPS id s69si477016oih.3.2020.05.07.15.29.48
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 07 May 2020 15:00:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) client-ip=2607:f8b0:4864:20::643;
-Received: by mail-pl1-x643.google.com with SMTP id t7so2641355plr.0
-        for <clang-built-linux@googlegroups.com>; Thu, 07 May 2020 15:00:34 -0700 (PDT)
-X-Received: by 2002:a17:902:ac87:: with SMTP id h7mr14650635plr.119.1588888832973;
- Thu, 07 May 2020 15:00:32 -0700 (PDT)
+        Thu, 07 May 2020 15:29:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::641 as permitted sender) client-ip=2607:f8b0:4864:20::641;
+Received: by mail-pl1-x641.google.com with SMTP id f8so2670803plt.2
+        for <clang-built-linux@googlegroups.com>; Thu, 07 May 2020 15:29:48 -0700 (PDT)
+X-Received: by 2002:a17:90a:6d03:: with SMTP id z3mr2573417pjj.32.1588890587535;
+ Thu, 07 May 2020 15:29:47 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200507042835.9135-3-bvanassche@acm.org> <202005080353.y49Uwj18%lkp@intel.com>
-In-Reply-To: <202005080353.y49Uwj18%lkp@intel.com>
+References: <20200505174423.199985-1-ndesaulniers@google.com>
+ <8A776DBC-03AF-485B-9AA6-5920E3C4ACB2@zytor.com> <20200507113422.GA3762@hirez.programming.kicks-ass.net>
+ <CAMzpN2hXUYvLuTA63N56ef4DEzyWXt_uVVq6PV0r8YQT-YN42g@mail.gmail.com> <CAKwvOd=a3MR7osKBpbq=d41ieo7G9FtOp5Kok5por1P5ZS9s4g@mail.gmail.com>
+In-Reply-To: <CAKwvOd=a3MR7osKBpbq=d41ieo7G9FtOp5Kok5por1P5ZS9s4g@mail.gmail.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 7 May 2020 15:00:21 -0700
-Message-ID: <CAKwvOdnuXX2xpsz6fxV-qfvj1AqN3V7qyOwtwtCG4NWq+HzfAw@mail.gmail.com>
-Subject: Re: [PATCH v5 02/11] qla2xxx: Suppress two recently introduced
- compiler warnings
-To: kbuild test robot <lkp@intel.com>
-Cc: Bart Van Assche <bvanassche@acm.org>, "Martin K . Petersen" <martin.petersen@oracle.com>, 
-	"James E . J . Bottomley" <jejb@linux.vnet.ibm.com>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, linux-scsi@vger.kernel.org, 
-	Daniel Wagner <dwagner@suse.de>, Himanshu Madhani <himanshu.madhani@oracle.com>, 
-	Hannes Reinecke <hare@suse.de>, Rajan Shanmugavelu <rajan.shanmugavelu@oracle.com>, 
-	Joe Jin <joe.jin@oracle.com>, Nilesh Javali <njavali@marvell.com>, 
-	Quinn Tran <qutran@marvell.com>, Arnd Bergmann <arnd@arndb.de>
+Date: Thu, 7 May 2020 15:29:35 -0700
+Message-ID: <CAKwvOd=Ogbp0oVgmF2B9cePjyWnvLLFRSp2EnaonA-ZFN3K7Dg@mail.gmail.com>
+Subject: Re: [PATCH] x86: bitops: fix build regression
+To: Brian Gerst <brgerst@gmail.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Sedat Dilek <sedat.dilek@gmail.com>, stable <stable@vger.kernel.org>, 
+	Jesse Brandeburg <jesse.brandeburg@intel.com>, "kernelci . org bot" <bot@kernelci.org>, 
+	Andy Shevchenko <andriy.shevchenko@intel.com>, Ilie Halip <ilie.halip@gmail.com>, 
+	"the arch/x86 maintainers" <x86@kernel.org>, Marco Elver <elver@google.com>, 
+	"Paul E. McKenney" <paulmck@kernel.org>, Daniel Axtens <dja@axtens.net>, 
+	Masahiro Yamada <yamada.masahiro@socionext.com>, 
+	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="vI/53XPm";       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643
+ header.i=@google.com header.s=20161025 header.b="SVUtOgJ/";       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::641
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -135,137 +140,28 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, May 7, 2020 at 12:18 PM kbuild test robot <lkp@intel.com> wrote:
+On Thu, May 7, 2020 at 12:19 PM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
 >
-> Hi Bart,
+> On Thu, May 7, 2020 at 7:00 AM Brian Gerst <brgerst@gmail.com> wrote:
+> >
+> > This change will make sparse happy and allow these cleanups:
+> > #define CONST_MASK(nr)                 ((u8)1 << ((nr) & 7))
 >
-> I love your patch! Yet something to improve:
->
-> [auto build test ERROR on scsi/for-next]
-> [also build test ERROR on mkp-scsi/for-next tip/perf/core v5.7-rc4 next-20200507]
-> [if your patch is applied to the wrong git tree, please drop us a note to help
-> improve the system. BTW, we also suggest to use '--base' option to specify the
-> base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
->
-> url:    https://github.com/0day-ci/linux/commits/Bart-Van-Assche/Fix-qla2xxx-endianness-annotations/20200507-135245
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/jejb/scsi.git for-next
-> config: x86_64-allyesconfig (attached as .config)
-> compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 54b35c066417d4856e9d53313f7e98b354274584)
-> reproduce:
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install x86_64 cross compiling tool for clang build
->         # apt-get install binutils-x86-64-linux-gnu
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kbuild test robot <lkp@intel.com>
->
-> All errors (new ones prefixed by >>):
->
->    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
-> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
->    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
->                                   ^
+> yep, this is more elegant, IMO.  Will send a v3 later with this
+> change.  Looking at the uses of CONST_MASK, I noticed
+> arch_change_bit() currently has the (u8) cast from commit
+> 838e8bb71dc0c ("x86: Implement change_bit with immediate operand as
+> "lock xorb""), so that instance can get cleaned up with the above
+> suggestion.
 
-Hi Bart,
-These compiler specific pragma's are not toolchain portable.  You'll
-need to wrap them in:
-#ifndef __clang__
-preprocessor macros, or I think we have a pragma helper in tree that
-helps with compiler specific pragmas.  IIRC it uses _Pragma to define
-pragmas in macros.
-
->    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
->    In file included from include/trace/events/qla.h:44:
->    In file included from include/trace/define_trace.h:95:
-> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
->    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
->                                   ^
->    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
->    In file included from include/trace/events/qla.h:44:
->    In file included from include/trace/define_trace.h:102:
->    In file included from include/trace/trace_events.h:155:
-> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
->    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
->                                   ^
->    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
->    In file included from include/trace/events/qla.h:44:
->    In file included from include/trace/define_trace.h:102:
->    In file included from include/trace/trace_events.h:222:
-> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
->    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
->                                   ^
->    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
->    In file included from include/trace/events/qla.h:44:
->    In file included from include/trace/define_trace.h:102:
->    In file included from include/trace/trace_events.h:402:
-> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
->    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
->                                   ^
->    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
->    In file included from include/trace/events/qla.h:44:
->    In file included from include/trace/define_trace.h:102:
->    In file included from include/trace/trace_events.h:453:
-> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
->    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
->                                   ^
->    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
->    In file included from include/trace/events/qla.h:44:
->    In file included from include/trace/define_trace.h:102:
->    In file included from include/trace/trace_events.h:533:
-> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
->    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
->                                   ^
->    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
->    In file included from include/trace/events/qla.h:44:
->    In file included from include/trace/define_trace.h:102:
->    In file included from include/trace/trace_events.h:727:
-> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
->    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
->                                   ^
->    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
->    In file included from include/trace/events/qla.h:44:
->    In file included from include/trace/define_trace.h:102:
->    In file included from include/trace/trace_events.h:792:
-> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
->    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
->                                   ^
->    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
->    In file included from include/trace/events/qla.h:44:
->    In file included from include/trace/define_trace.h:103:
->    In file included from include/trace/perf.h:90:
-> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
->    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
->                                   ^
->    In file included from drivers/scsi/qla2xxx/qla_dbg.c:77:
->    In file included from include/trace/events/qla.h:44:
->    In file included from include/trace/define_trace.h:104:
->    In file included from include/trace/bpf_probe.h:114:
-> >> include/trace/events/qla.h:13:32: error: unknown warning group '-Wsuggest-attribute=format', ignored [-Werror,-Wunknown-warning-option]
->    #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
->                                   ^
->    11 errors generated.
->
-> vim +13 include/trace/events/qla.h
->
->     11
->     12  #pragma GCC diagnostic push
->   > 13  #pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
->     14
->
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202005080353.y49Uwj18%25lkp%40intel.com.
-
-
-
+Oh, we need the cast to be the final operation.  The binary AND and
+XOR in 2 of the 3 uses of CONST_MASK implicitly promote the operands
+of the binary operand to int, so the type of the evaluated
+subexpression is int.
+https://wiki.sei.cmu.edu/confluence/display/c/EXP14-C.+Beware+of+integer+promotion+when+performing+bitwise+operations+on+integer+types+smaller+than+int
+So I think this version (v2) is most precise fix, and would be better
+than defining more macros or (worse) using metaprogramming.
 -- 
 Thanks,
 ~Nick Desaulniers
@@ -273,4 +169,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnuXX2xpsz6fxV-qfvj1AqN3V7qyOwtwtCG4NWq%2BHzfAw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DOgbp0oVgmF2B9cePjyWnvLLFRSp2EnaonA-ZFN3K7Dg%40mail.gmail.com.
