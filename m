@@ -1,146 +1,145 @@
-Return-Path: <clang-built-linux+bncBDWIJUMT74BRB7VBZ72QKGQEW34FHSI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCT4VV5O2QKBBHVEZ72QKGQEFKBELGQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13d.google.com (mail-il1-x13d.google.com [IPv6:2607:f8b0:4864:20::13d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 732781C8568
-	for <lists+clang-built-linux@lfdr.de>; Thu,  7 May 2020 11:12:31 +0200 (CEST)
-Received: by mail-il1-x13d.google.com with SMTP id c11sf5321364ilr.6
-        for <lists+clang-built-linux@lfdr.de>; Thu, 07 May 2020 02:12:31 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588842750; cv=pass;
+Received: from mail-pj1-x103e.google.com (mail-pj1-x103e.google.com [IPv6:2607:f8b0:4864:20::103e])
+	by mail.lfdr.de (Postfix) with ESMTPS id D56051C858B
+	for <lists+clang-built-linux@lfdr.de>; Thu,  7 May 2020 11:17:19 +0200 (CEST)
+Received: by mail-pj1-x103e.google.com with SMTP id ev2sf5336686pjb.3
+        for <lists+clang-built-linux@lfdr.de>; Thu, 07 May 2020 02:17:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588843038; cv=pass;
         d=google.com; s=arc-20160816;
-        b=gCA9BIJGvVlASuERTZafUvLZu1hb+cGeZLF35EA4BxDPqvmWnAXIh0GuvKtHY/h3VR
-         o8YfQuYnGvbThEeg7YFS4ESs2LxLZgtzofJ8ZM52NXkWsw//mR0qs02Bazwyoe0/Mjsa
-         xrstjfxDXH9UjRHmEo+5coThIJMREPPdOihlXTtBJ/5m6LZhsp6QvmHleGFgxaqqdhtg
-         VS2gi+txKZLfoQw7+JTpbdIzYvIhaPOADQJT4P2Yuer03JJfTfDTUXxlGQOyt3eTT9a4
-         J3yV6tAPVLwok3fzIEuFr0EKO+HkXr7eetVyYgOu6IqpnxbF5z17nZfQoPIIT5rx1CGj
-         l2CA==
+        b=cZ6va1ikPBYCHqnWU4n9b1D5RyoJZ7+fsRNM7gXeyawndTxbjHAw5KcpWDqlbpTOJ1
+         Sx7neu+CXK2kot+PI7bzXUm8ftmgc+KShf/WmuGCECXetU8cYKzGJoDhBA4h8bERJUtC
+         2x5dOBm0xl5IMmS8QgLtU8gMq3zn0GEH1pE38GFZBeUXmWrFsYzm7bKUsNyLzdlyeGvD
+         PC1GM8PEe1HTE/yEkpYNxKuULi5ISK+iG0TDeZnX4c1ZSEGkEpv4cR31OIR+bJqyR9HZ
+         9oSRd74sFEWO6RAWF8kGmqrL63FX4eP+44TxXHAZlXed37i+NnAY099Fu8vh4dXySksx
+         K3sQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=V7953sAL1ztIkr2TOtGf7ojyOBA2J4FgWacoWjTgsw8=;
-        b=LS9aNmOrVulj+cIuglih76iW2urmSy3beqFXkedCLecG4qCkCkFiW6gZQ9bTPvOTAQ
-         FFLKqGVm+vKcr9R48JmIk7JNCeAPGMVquvKsG0HAA8Rrew0Hw0vdnKGMXcX6cQHE/kD6
-         VZuT5f0Pt1UIZFUHaUvkPPDU3J5ChgQozALAg6y3NF8bU9n+Qg/I21OUlvwMyMsVVVbV
-         W2p4FC2Gw4zDgm2lmAFwpH1u6RZ4ZM1oFiE894D3fLD+4r4V6mHjHg3+gKeZ/6Ss6eJR
-         cDxxUJoA93KdN/RWeliyJayBCtfCfrLrnaghX43Ty7fPImdtXwqLZJZxqJJ1NqUnkD+h
-         4EoQ==
+        bh=RaGkU3psyfmFYr+X/8xRJC2RFw7aFlEmJWdFcI67c6A=;
+        b=KbCICHYBjdF4r/oo1p3+3iAyZE7WmKzoVWRvv09GM+8h2iXp1aLErCbsuP7EWXsB1Q
+         ctVQYySFSoHI/SqZy5UEPsyp2SuHYoE45JWb+z47W8tYtiBUz3BMOXGasOtJQ6doNxam
+         lCxTKugzkv9sPWky3qRmS2NqVJGSAET5Rx9xNzyocMd3CwbMKIEoXZdMZLhPyjKApLxb
+         zn2LfhqrHovOJs2ZtjzlyhA68Oq7h5mwbZQUEul1T23A6cJ2/lzPe3SmElJpoEWY+Dg6
+         P1fcbuZ9PeBh1wPgsAxNBxaaqMgLy2iEgfPG1cqetiBrCYODWqavxMWPqFm+L87IFPsu
+         JwoA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=xEn4xIit;
-       spf=pass (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=maz@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=jDHCH5FQ;
+       spf=pass (google.com: domain of andy.shevchenko@gmail.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
-         :organization:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=V7953sAL1ztIkr2TOtGf7ojyOBA2J4FgWacoWjTgsw8=;
-        b=MRjYS6yZkvs4+jt4kwN0P/7sGtySCPaVkv36wDpusJTGLAJCwBh2lu+cwxAka4tKS/
-         R4+dT0d8VQM4KMsQPcdXccpJMS0rbu10IqzIazRMaXuKrNjRsfAHq9l+SrreEKXT0+YN
-         C4FfeECAr4G5ur/IXuqNXKkfdMnim6dS27pHEkCHGPJilHOZUKgz324cOMEH6C5gU4pJ
-         5zh+XyLN/+tJRUH6VvXTCAFsWSn3RpnINEhmJFCGqqNZQg5isCIZQvZ1z/iZCBYTqdJ6
-         LJlvanvB0InUlR6ArL/mBl1xsftJ71tn/l9OBLm/54F6UbUSX5CWNAAeZKajv24OzN4x
-         Okbw==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=RaGkU3psyfmFYr+X/8xRJC2RFw7aFlEmJWdFcI67c6A=;
+        b=leEsewrIzjg+YaLgcH34+Azi3TRQ4j09JTgVG6IfxtUIllRB4wMgPZYpLySdUVsPTf
+         dXjbXjTxEHUMnYDlueDkdK3s86ZokrUytQgbFTJG9CgO7HuhGxmKq5LW3PNuWwnMJgU3
+         zhfe6hKOsLpDMt76F9FPDpOvM7vfAwyHZG//FRSkXRwD7ylp5F1QU5Ww4RmjB0/FivdN
+         ouksCvrFSJA0RLVX1SpXqAiwVa5U7M70lcOKMAjSMJhPS6Zb/PnAgyhJdy+2GPJvDi/K
+         PNXr6lQNYlTJqnTZJoHFDNY/Zw+Dchzf0S9kTAyQe9nh56HUCiTsXEw/eNpNFZ5GpHup
+         fOYw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=RaGkU3psyfmFYr+X/8xRJC2RFw7aFlEmJWdFcI67c6A=;
+        b=p3HDjYGiwrCiyE98piWnJLrLCx75Q7F31tRBHSyHDHH+w1wz3q1m9YeH6JM8AKvU2q
+         X7+Wr5/lb+gqs6gcPQPk3pFHeaLqtUNHqL/iiG0QB6Gjl/1YkZ2ty0tKCNBPr88UqYus
+         b2ti26/YMeW7QRzP7t6AHVF9fT2zKuHdQlYsJxUy6QXc6leXX6eL7+Bu4H4rtNp01k5A
+         vissdPjfXxP797p26BmzJoyDUOGAXZyRoEfLYsdAMoDdCm+tiUpBlsjOGn89fl96C/J7
+         zpuMZVLj7Mq8wYz2eEe4P6shKc8oT1f866+41P1qmgddcRqq3HuRR0d10Ch/kJOsAcj1
+         r3gg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :in-reply-to:references:organization:mime-version:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=V7953sAL1ztIkr2TOtGf7ojyOBA2J4FgWacoWjTgsw8=;
-        b=M+yDLNb1hgQjR6+JpP7lEDlAzOQ00Q6sySDsbFwB+OHUmpIGbQO7nEBopkNUvAK6Cs
-         klqiO9UWuslxQQGKwgkBU+atMRZiofcGnhfHneIwvO75QvhpeOB7B/4q67XlsKI7JVm5
-         NCTCjxBY8KVxjvhKziagIfPdp1rQTuamAC2EDOlsNZUFSl4z1g0JoSfbrqbO8Tz1N/aF
-         QH/UhavmDj4t+JaX5YnlRqAjRqcs/CK5H3JL3LCR0OucfAoS+QXGL/RzKzy93GR0oHeQ
-         y36Enod1UjLthh5ovRuWRV3+8T97hCn99+ktVEBpAnQ2TnTjwnOgtIj90KjUbQ+CW+jL
-         5UXA==
+        bh=RaGkU3psyfmFYr+X/8xRJC2RFw7aFlEmJWdFcI67c6A=;
+        b=M+FBpthrLUSl8+2bM5zVNyQFrS2cBIz7UXwIy3HXp+f9ja8UWteXMs3sVVgwHXBF4T
+         NR22zSJNx+KOHhxgUqzqG6XpAEFQYtNKu5fO8R60gNvsE26u+8dfXsbkggK4Tjmkhse9
+         2c83nnGhNlmEHk6dOcdrrWKiVt6Gv0fipZYAXsLuF02ZdU9Ei56qXf65dVltQJ9DeYKS
+         G97ssbvGM9vFAVAtXXtesUQZpQZyIR/iOv/hYTvaQh0F9DzcVQJ7cf6EOXAZbkVGaF6W
+         jNPLDQhkpQkx6yrkqufKak1fapssZh+W2QbMT6M1g/rQ73BFYbi3sqt3HaXX5qs6gyRV
+         SO1w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0Pub0+Fj05UO/IvGvPx7WlM0/kzXJbfBej+6DcW7gY9VaHK2zSoCr
-	NXMnJFsNoCnLOJdz3U2B7Rw=
-X-Google-Smtp-Source: APiQypKHf9BuZhY5KLwtM3PqCQ8q1VVPpRaFIEDBRvS+CdnszK1+Sio99PhQk+uAJEL7+RqDRJN9wA==
-X-Received: by 2002:a92:6b04:: with SMTP id g4mr14425965ilc.82.1588842750469;
-        Thu, 07 May 2020 02:12:30 -0700 (PDT)
+X-Gm-Message-State: AGi0PuaBVcdPAlXPjZci1m++v0GyWKY4U1Z7g9GL/bXSmNROz7MlJJmv
+	D9qdacPjB332xnuNgHeFZ/g=
+X-Google-Smtp-Source: APiQypJ2QgC0Y2Br/t7pllXzZK3K1mqvfMC7TBaYc6Glt59Rb0Jeo+yeabmIVSkXuthm0zNGG70sGQ==
+X-Received: by 2002:a17:90a:21ee:: with SMTP id q101mr14990414pjc.24.1588843038252;
+        Thu, 07 May 2020 02:17:18 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6e02:4cd:: with SMTP id f13ls4564195ils.11.gmail; Thu,
- 07 May 2020 02:12:30 -0700 (PDT)
-X-Received: by 2002:a05:6e02:cc4:: with SMTP id c4mr13141062ilj.31.1588842750194;
-        Thu, 07 May 2020 02:12:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588842750; cv=none;
+Received: by 2002:a17:902:48:: with SMTP id 66ls6545314pla.0.gmail; Thu, 07
+ May 2020 02:17:17 -0700 (PDT)
+X-Received: by 2002:a17:902:fe06:: with SMTP id g6mr12780697plj.105.1588843037784;
+        Thu, 07 May 2020 02:17:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588843037; cv=none;
         d=google.com; s=arc-20160816;
-        b=ddkwVOfMxXRXBNNGJpW+hRwtcirazaBBxsEZO0q37XyXbqZaXRkkVPglhU9X6GLf0O
-         EDlqM6i4rHBDdhGgYfbz0cQCTaS3tk9n+1rsCzU9DLhlZE2upituzoMQo6OTgRMk84cz
-         XZCqr3UJyypvlm3Rq8yaZVyX6BH5XS3HTZU45o4DDRn0reWiSK/8qy5n8GnR+YCo7iFl
-         JPjXaNGZYme9BKL0MC+mXylDc8bXvFxFUO1QmUtsUV7aUWzGC+yvj9Lt0WCflBdB9VYG
-         wPPR/ctrP4RJHTHOa2mb8H55iDfVRjy5Uc+p6Bheij4AxwSTt0LVdy8vmbFpizia0zeN
-         BaNQ==
+        b=Q9gDpmmvHlH+3Zi6i+bsDuLhTJyOuEWUO+1NDUTHfH5ucU6eEpMCBpEr32V4EpjX7e
+         iW2+aS6jQZ3Xo4Qh6lqmLoXZLO4F4uyJVhFvvVQeBm8xJ1d9y2G+AX3lSSs07aTliRMQ
+         D1pcsHR72VvffqwCxZ3foZZhxQ0nVs1ExbfpzRh1AEa6j770Ugq0NmpznZB/OjA5iqWY
+         rPeLDH93QudxbstietejYDsAJiLNGDRSu6HWSQlBH7L1XGI5Q/1Gr1cPT8oIYCuI+8Ll
+         qpfyq/fUfWrtw3tbCKe/Z6XW8Y1jCUF9sIzJ98JsDllg4jr28D7VoNzhgd7eDuYrgQ2i
+         ggzw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:organization:references
-         :in-reply-to:message-id:subject:cc:to:from:date:dkim-signature;
-        bh=+/Bw5BhyYKitrumYiy7BQ2zd+yUN9z8dxvp9ANOxkP8=;
-        b=L84xmGKPC+rXKufGz3fEhgJpBbZo3V5jtu4kvUIPsgJCaSCDu2c3IdjFKLjYcShorh
-         zJlQrTzrfmWnYBHW8LZYsAZTqVZKYjn77WZRv0JuKI4lDpqts3xkXa0elPj5Ulw0j3UI
-         NK9zVaKehaqZpZBcRlSAO3vhpEet4rTRTZd6WXyW6JZZ3ECQE1Lz7F1rU95f4TxLd/MH
-         G3OksGbAy09bQSseUjA64vjeAix176bea2JOvVsngyfgFNj3+KwYdiJT8etlEbs11TGk
-         hWXGB5IaKcfZzLbQHYQSDnkI0jzqTjxfbWqwOiLbFG+COsGmIfabH3Utd6rRriksxuCd
-         G5oA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=NsGXZKVjnwITEukQUNn3zovirkspDit08UiRlVwi+Ws=;
+        b=XEi+rErPMHI9qJrIGxZ9LQDG1CiKZHQvoJYoG2Btqua/GH5ZJnwY1KevwDCLLhICjQ
+         OJ3+SBOupRIYv4wspokcyqcmVGNRFNkLE3dCl1lZ7Kl2tazOUetAM33GAsaPnsZkY0op
+         4FWAb2WNnpU5U+4/SITW70LA+C4+yOWcTF3bWUwYVUoPHt+sJEnWBdYZ+xCoAZGOTWED
+         09FJkIFiJP+OCMFTLfuRn17zu/OBun8x6YTBl8FRqXNL0yVr3cfGDqeIVWCsFZzVTdv3
+         VmFo6RgdBt/W2YfUvxzYF9YStgiG0H71SThpHLvrPPkg24FKonBYA7J7VaAV0aYjLdbT
+         moJA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=xEn4xIit;
-       spf=pass (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=maz@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id x4si401463iof.0.2020.05.07.02.12.30
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=jDHCH5FQ;
+       spf=pass (google.com: domain of andy.shevchenko@gmail.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-pj1-x1042.google.com (mail-pj1-x1042.google.com. [2607:f8b0:4864:20::1042])
+        by gmr-mx.google.com with ESMTPS id g23si178339pgi.5.2020.05.07.02.17.17
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 07 May 2020 02:12:30 -0700 (PDT)
-Received-SPF: pass (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from disco-boy.misterjones.org (disco-boy.misterjones.org [51.254.78.96])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 3690D2075E;
-	Thu,  7 May 2020 09:12:29 +0000 (UTC)
-Received: from 78.163-31-62.static.virginmediabusiness.co.uk ([62.31.163.78] helo=why)
-	by disco-boy.misterjones.org with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <maz@kernel.org>)
-	id 1jWcZu-00ACrT-U4; Thu, 07 May 2020 10:12:27 +0100
-Date: Thu, 7 May 2020 10:12:24 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: Luke Nelson <lukenels@cs.washington.edu>, bpf@vger.kernel.org, Luke
- Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, Catalin
- Marinas <catalin.marinas@arm.com>, Daniel Borkmann <daniel@iogearbox.net>,
- Alexei Starovoitov <ast@kernel.org>, Zi Shen Lim <zlim.lnx@gmail.com>,
- Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghong
- Song <yhs@fb.com>, Andrii Nakryiko <andriin@fb.com>, John Fastabend
- <john.fastabend@gmail.com>, KP Singh <kpsingh@chromium.org>, Mark Rutland
- <mark.rutland@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- clang-built-linux@googlegroups.com
-Subject: Re: [RFC PATCH bpf-next 1/3] arm64: insn: Fix two bugs in encoding
- 32-bit logical immediates
-Message-ID: <20200507101224.33a44d71@why>
-In-Reply-To: <20200507082934.GA28215@willie-the-truck>
-References: <20200507010504.26352-1-luke.r.nels@gmail.com>
-	<20200507010504.26352-2-luke.r.nels@gmail.com>
-	<20200507082934.GA28215@willie-the-truck>
-Organization: Approximate
-X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 07 May 2020 02:17:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of andy.shevchenko@gmail.com designates 2607:f8b0:4864:20::1042 as permitted sender) client-ip=2607:f8b0:4864:20::1042;
+Received: by mail-pj1-x1042.google.com with SMTP id a5so2385641pjh.2
+        for <clang-built-linux@googlegroups.com>; Thu, 07 May 2020 02:17:17 -0700 (PDT)
+X-Received: by 2002:a17:90a:fa81:: with SMTP id cu1mr14735775pjb.25.1588843037478;
+ Thu, 07 May 2020 02:17:17 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200505174423.199985-1-ndesaulniers@google.com>
+ <CAMzpN2idWF2_4wtPebM2B2HVyksknr9hAqK8HJi_vjQ06bgu2g@mail.gmail.com> <60b16c05ca9e4954a7e4fcdd3075e23d@AcuMS.aculab.com>
+In-Reply-To: <60b16c05ca9e4954a7e4fcdd3075e23d@AcuMS.aculab.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Thu, 7 May 2020 12:17:05 +0300
+Message-ID: <CAHp75VceSvk25rbbS-hmJKAgP4Xe+U6tFQDHBEA=9EHnzBH5+g@mail.gmail.com>
+Subject: Re: [PATCH] x86: bitops: fix build regression
+To: David Laight <David.Laight@aculab.com>
+Cc: Brian Gerst <brgerst@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Sedat Dilek <sedat.dilek@gmail.com>, stable <stable@vger.kernel.org>, 
+	Jesse Brandeburg <jesse.brandeburg@intel.com>, "kernelci . org bot" <bot@kernelci.org>, 
+	Andy Shevchenko <andriy.shevchenko@intel.com>, Ilie Halip <ilie.halip@gmail.com>, 
+	"the arch/x86 maintainers" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Marco Elver <elver@google.com>, 
+	"Paul E. McKenney" <paulmck@kernel.org>, "Peter Zijlstra (Intel)" <peterz@infradead.org>, 
+	Daniel Axtens <dja@axtens.net>, Masahiro Yamada <yamada.masahiro@socionext.com>, 
+	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-SA-Exim-Connect-IP: 62.31.163.78
-X-SA-Exim-Rcpt-To: will@kernel.org, lukenels@cs.washington.edu, bpf@vger.kernel.org, luke.r.nels@gmail.com, xi.wang@gmail.com, catalin.marinas@arm.com, daniel@iogearbox.net, ast@kernel.org, zlim.lnx@gmail.com, kafai@fb.com, songliubraving@fb.com, yhs@fb.com, andriin@fb.com, john.fastabend@gmail.com, kpsingh@chromium.org, mark.rutland@arm.com, gregkh@linuxfoundation.org, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org, clang-built-linux@googlegroups.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-Original-Sender: maz@kernel.org
+X-Original-Sender: andy.shevchenko@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=xEn4xIit;       spf=pass
- (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=maz@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@gmail.com header.s=20161025 header.b=jDHCH5FQ;       spf=pass
+ (google.com: domain of andy.shevchenko@gmail.com designates
+ 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,139 +152,25 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, 7 May 2020 09:29:35 +0100
-Will Deacon <will@kernel.org> wrote:
+On Thu, May 7, 2020 at 10:50 AM David Laight <David.Laight@aculab.com> wrote:
+> From: Brian Gerst
+> > Sent: 07 May 2020 07:18
 
-Hi Will,
+> > I think a better fix would be to make CONST_MASK() return a u8 value
+> > rather than have to cast on every use.
+>
+> Or assign to a local variable - then it doesn't matter how
+> the value is actually calculated. So:
+>                         u8 mask = CONST_MASK(nr);
 
-> Hi Luke,
-> 
-> Thanks for the patches.
-> 
-> On Wed, May 06, 2020 at 06:05:01PM -0700, Luke Nelson wrote:
-> > This patch fixes two issues present in the current function for encoding
-> > arm64 logical immediates when using the 32-bit variants of instructions.
-> > 
-> > First, the code does not correctly reject an all-ones 32-bit immediate
-> > and returns an undefined instruction encoding, which can crash the kernel.
-> > The fix is to add a check for this case.
-> > 
-> > Second, the code incorrectly rejects some 32-bit immediates that are
-> > actually encodable as logical immediates. The root cause is that the code
-> > uses a default mask of 64-bit all-ones, even for 32-bit immediates. This
-> > causes an issue later on when the mask is used to fill the top bits of
-> > the immediate with ones, shown here:
-> > 
-> >   /*
-> >    * Pattern: 0..01..10..01..1
-> >    *
-> >    * Fill the unused top bits with ones, and check if
-> >    * the result is a valid immediate (all ones with a
-> >    * contiguous ranges of zeroes).
-> >    */
-> >   imm |= ~mask;
-> >   if (!range_of_ones(~imm))
-> >           return AARCH64_BREAK_FAULT;
-> > 
-> > To see the problem, consider an immediate of the form 0..01..10..01..1,
-> > where the upper 32 bits are zero, such as 0x80000001. The code checks
-> > if ~(imm | ~mask) contains a range of ones: the incorrect mask yields
-> > 1..10..01..10..0, which fails the check; the correct mask yields
-> > 0..01..10..0, which succeeds.
-> > 
-> > The fix is to use a 32-bit all-ones default mask for 32-bit immediates.
-> > 
-> > Currently, the only user of this function is in
-> > arch/arm64/kvm/va_layout.c, which uses 64-bit immediates and won't
-> > trigger these bugs.  
-> 
-> Ah, so this isn't a fix or a bpf patch ;)
-> 
-> I can queue it via arm64 for 5.8, along with the bpf patches since there
-> are some other small changes pending in the arm64 bpf backend for BTI.
-> 
-> > We tested the new code against llvm-mc with all 1,302 encodable 32-bit
-> > logical immediates and all 5,334 encodable 64-bit logical immediates.
-> > 
-> > Fixes: ef3935eeebff ("arm64: insn: Add encoder for bitwise operations using literals")
-> > Co-developed-by: Xi Wang <xi.wang@gmail.com>
-> > Signed-off-by: Xi Wang <xi.wang@gmail.com>
-> > Signed-off-by: Luke Nelson <luke.r.nels@gmail.com>
-> > ---
-> >  arch/arm64/kernel/insn.c | 6 ++++--
-> >  1 file changed, 4 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kernel/insn.c b/arch/arm64/kernel/insn.c
-> > index 4a9e773a177f..42fad79546bb 100644
-> > --- a/arch/arm64/kernel/insn.c
-> > +++ b/arch/arm64/kernel/insn.c
-> > @@ -1535,7 +1535,7 @@ static u32 aarch64_encode_immediate(u64 imm,
-> >  				    u32 insn)
-> >  {
-> >  	unsigned int immr, imms, n, ones, ror, esz, tmp;
-> > -	u64 mask = ~0UL;
-> > +	u64 mask;
-> >  
-> >  	/* Can't encode full zeroes or full ones */
-> >  	if (!imm || !~imm)  
-> 
-> It's a bit grotty spreading the checks out now. How about we tweak things
-> slightly along the lines of:
-> 
-> 
-> diff --git a/arch/arm64/kernel/insn.c b/arch/arm64/kernel/insn.c
-> index 4a9e773a177f..60ec788eaf33 100644
-> --- a/arch/arm64/kernel/insn.c
-> +++ b/arch/arm64/kernel/insn.c
-> @@ -1535,16 +1535,10 @@ static u32 aarch64_encode_immediate(u64 imm,
->  				    u32 insn)
->  {
->  	unsigned int immr, imms, n, ones, ror, esz, tmp;
-> -	u64 mask = ~0UL;
-> -
-> -	/* Can't encode full zeroes or full ones */
-> -	if (!imm || !~imm)
-> -		return AARCH64_BREAK_FAULT;
-> +	u64 mask;
->  
->  	switch (variant) {
->  	case AARCH64_INSN_VARIANT_32BIT:
-> -		if (upper_32_bits(imm))
-> -			return AARCH64_BREAK_FAULT;
->  		esz = 32;
->  		break;
->  	case AARCH64_INSN_VARIANT_64BIT:
-> @@ -1556,6 +1550,12 @@ static u32 aarch64_encode_immediate(u64 imm,
->  		return AARCH64_BREAK_FAULT;
->  	}
->  
-> +	mask = GENMASK(esz - 1, 0);
-> +
-> +	/* Can't encode full zeroes or full ones */
+Another case with negation won't work like this I believe.
+So, I thin kthe patch we have is good enough, no need to seek for an evil.
 
-... nor a value wider than the mask.
-
-> +	if (imm & ~mask || !imm || imm == mask)
-> +		return AARCH64_BREAK_FAULT;
-> +
->  	/*
->  	 * Inverse of Replicate(). Try to spot a repeating pattern
->  	 * with a pow2 stride.
-> 
-> 
-> What do you think?
-
-I'd be pretty happy with that.
-
-Reviewed-by: Marc Zyngier <maz@kernel.org>
-
-Thanks,
-
-	M.
 -- 
-Jazz is not dead. It just smells funny...
+With Best Regards,
+Andy Shevchenko
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200507101224.33a44d71%40why.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHp75VceSvk25rbbS-hmJKAgP4Xe%2BU6tFQDHBEA%3D9EHnzBH5%2Bg%40mail.gmail.com.
