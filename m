@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBDJKZSEQ3YKRBC5S2X2QKGQER4ZHW3A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDJKZSEQ3YKRBDNS2X2QKGQEVDRQKHI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-f60.google.com (mail-wm1-f60.google.com [209.85.128.60])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5307E1CAD89
-	for <lists+clang-built-linux@lfdr.de>; Fri,  8 May 2020 15:05:16 +0200 (CEST)
-Received: by mail-wm1-f60.google.com with SMTP id 71sf3655957wmb.8
-        for <lists+clang-built-linux@lfdr.de>; Fri, 08 May 2020 06:05:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588943116; cv=pass;
+Received: from mail-ed1-f58.google.com (mail-ed1-f58.google.com [209.85.208.58])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6AEFA1CAD8B
+	for <lists+clang-built-linux@lfdr.de>; Fri,  8 May 2020 15:05:17 +0200 (CEST)
+Received: by mail-ed1-f58.google.com with SMTP id p12sf678475edi.15
+        for <lists+clang-built-linux@lfdr.de>; Fri, 08 May 2020 06:05:17 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588943117; cv=pass;
         d=google.com; s=arc-20160816;
-        b=gx5X5oDI0MPa7Ivu2t3QWvfGxTli+Gs+VB5V6oVWEeAh4A4cZuGqBmv+KTCOICQnAi
-         C3c+458miAajtKN0Zq4CBwBTbJL+WMUccGP3jGPPPr1NbQ8jUMzG9h7W7SKLI3VguC+B
-         Ka2YJ6slv7acXKRZPRZm/is7f0ZTSqgnvr/hRgZM+eRLbpCXsO4s3djmufiTh9GtDpcb
-         R13n9lW1lIIQVh8LaZLMtl6cilW3n9KJlrzP16nrANtLfOkoR96eiEFrCHp1KxPbJ5WX
-         UGHuTXPp8YW7TfWH1C/PiMl5JuywSA0M1MHRH/dZH1OW0tzAxhmrPfurLu05LsUDXWqG
-         xCyw==
+        b=Ly0hkX8E+Q6qU3pXGYhFSHnpTuyhHTVYZ4S4Bevk44KHU+wpa/wmU6bbhsfDfIHxY2
+         WG0tCgMjwuDKCVBo6+vvMnfwuXMc6Xr/UejpZCL7fAjeDiND0sk7xfuquGG15rmOHO7m
+         g1jo84mOxbJFUV3xoo0tx2tnTuh5DwE+4CTXI3wUKzVid2Ab6Xl7FrvLh0Dh6kgQAakB
+         9+onKlQDZePKrEkGQLt+1NCAXHArUcrGkZ8lZWtCaJ1cDJ59eAb1EgIY6D6ZbDZSdDgY
+         3WuLleWgpdR+OHUdSRHlaOeuq0F/rQu7Ov8kjnGGYF0F1Po9Za8x3EOcf27D70XB5smi
+         60gw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:robot-unsubscribe:robot-id
          :message-id:mime-version:references:in-reply-to:cc:subject:to
          :reply-to:sender:from:date;
-        bh=64G90tWXJb84AdYXD+iAfkwUP60KlCdLXaM6VvPS94I=;
-        b=FDrF53cLKSAB7FeG47KvxvQIhEYeM4I3fpsUdLVvSZSWLiRc2CbkIxdM6tjcKVTELg
-         8RkqFgPk+jRQLdyQDdEjHK45XQks1QXX4WtsQWpCOuOuG4hXcJ9BlHemznIzwp9ETWMy
-         Vxo6FISpImABh58xH6JhdPmvCuFlUi4oXkxoUKCUQy+2F4rTOOgdJ2qqZsXbLtTx0xit
-         Qsj0bKtSjj9aF+UiawGx8q2PcQ+PH0HAY5IDMvzpAZXMvzsTwLu4AvP2Ri9+9UBkGCMr
-         SFkoNjRqDNtIrdIZe0iEnyxjE3p8BT67LdRqc+a50FB4v4mje+fWg4cnNg8iNVu2Lfzx
-         BcOw==
+        bh=Mb8/dou3qRCWy2MdOUyAQy9cJSMiZl/e9XotIAetg5E=;
+        b=snNqz4rVMKa9+TNmk9lNKtNT7dRwgu+bgxySYYCI9MgZY30raHf9XIMeFr08RsjmJl
+         WFCxMpZzDxT8i0RgQ1z/beIJp0jhqSvwX31VA5cEedhxW2N9+Bxydx+NgzRGelU6uPhB
+         p1Tu0m6nXyqizQlrGakNT2iQvX1JES+WVBl8miiY/s/z/tohpucwnFw2JHWlIkJ9k+Lz
+         IJnCRQgmmrUcJTCs5c9xluCOQu39TPDU5Zv/0Tvb5Uq642ax/OhGOmd+mir5Cevb5kdZ
+         0tQXpsQXiY63LgPc9XrMJjz9EQhAxhAmQXWbv2UxnQVzFrOizwLB+Llho8kdPa12uW3A
+         tEmw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,76 +36,77 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=64G90tWXJb84AdYXD+iAfkwUP60KlCdLXaM6VvPS94I=;
-        b=ZmB0oqnqU1etp+R8yhCHNAm26hesSn5WMQsxNTNXFkaHUZT3K3Dl1rOGIsv4TICVsh
-         AGUzyfLq9mvIrAltdL/bHcTNYh6c6lPQR91OuBahSFmZtsOX/KdG9G8Nx/mrVytHYPgn
-         tNHIhLSBHMy2om/HVDaBvFSNaC97/9hY3YAYJgAOBuoFgcbalq4pfsvI9bfN+CkQ9B2L
-         7/UdOoIy+u5yrx+d+hh6Kd/WAD6xKyQKGritt/xJ3eZ8j22h928k8KJOeylUZZEJ9WhX
-         1umAwk/9NNt3CQ29RSU7zySMQjJF86InUIr50Im/m/vqrZNcD2hA+4uUBEcz2FKPw/Qk
-         RtSg==
-X-Gm-Message-State: AGi0PuZxkIMt9CTCE0jq69eyC5/pVbuWAQalUJVM03/5QqEPbMX+W4mX
-	xbXufVs5loC9XZMM4YoY+3M=
-X-Google-Smtp-Source: APiQypKngoJkgF5MenmyB1ynYxRBwG/X2rupwnPeJU591wHMD3FVN/Dtmj0J7EnLL68tyaB9Mx9pwg==
-X-Received: by 2002:adf:fa92:: with SMTP id h18mr2928909wrr.260.1588943116059;
-        Fri, 08 May 2020 06:05:16 -0700 (PDT)
+        bh=Mb8/dou3qRCWy2MdOUyAQy9cJSMiZl/e9XotIAetg5E=;
+        b=jN+69yxf39XkwMGvJxjACUqdoSXNF8uSNeIB2UW/5D98HrWBkiKxTZ9xgiADFGPzyq
+         wvNtkQm073lAd4Er6XlGADWhow9ttjCwu2apJaXhVD44NPlbMr/jVEj+pRtVbm1/KXpC
+         JaMMjnKxDnesaUymz/hVlOAlwns4htMEJDlDCKF090JRFQrBKtG+CjykUaUC2f3RHRZP
+         sooiJc1jTM9oEAKKxWz2ofNwahlY0Y57pOcyV9MEoV+2u8G3sCQa9kwzTtRPFBS1vQOW
+         FMRA8WY94omHZJWgLuEAQorrtaE4IIDE6VKFvPRu1FCse2B45a0cIZNPdnNKHOie6xJk
+         LZRA==
+X-Gm-Message-State: AGi0PuZf27w24wbVmrtJtgo6ZGklg8BtsEszWJTbn/8yv0dW52c118iR
+	Hn6tIegp+6aYFIpw4+dWuxk=
+X-Google-Smtp-Source: APiQypLpsyfPCQ6I5aO20FX9lRJOF3+ziNE8mw6fsVHxW+QZAo8G4dYDSDLuzLUso2XcR2fvtU4uHQ==
+X-Received: by 2002:a17:906:1199:: with SMTP id n25mr1857682eja.30.1588943117198;
+        Fri, 08 May 2020 06:05:17 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6000:8d:: with SMTP id m13ls657995wrx.4.gmail; Fri, 08
- May 2020 06:05:15 -0700 (PDT)
-X-Received: by 2002:adf:b30f:: with SMTP id j15mr3077937wrd.394.1588943115514;
-        Fri, 08 May 2020 06:05:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588943115; cv=none;
+Received: by 2002:a50:d511:: with SMTP id u17ls593030edi.3.gmail; Fri, 08 May
+ 2020 06:05:16 -0700 (PDT)
+X-Received: by 2002:a05:6402:3047:: with SMTP id bu7mr2067687edb.303.1588943116710;
+        Fri, 08 May 2020 06:05:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588943116; cv=none;
         d=google.com; s=arc-20160816;
-        b=tVPvFDotXJhV4z6s+9PkhkpAeDzRiwGGn0/WKwGbQSHpd2f2i4F56KAyl/JbdKBcRc
-         ANr1CgCT1Nq5DPMDyUsuK2YatURjlaVCvtJFkE4I3yuCjXl2Y3vWQlHlrk675kA7/00S
-         T8msxFCbU1FWblK5VtcK5JJ/KDdQ3hG7nmCxlc2jwJR58a+varwxWknBeBQkl/NUGvWl
-         0WQRnaRzwN6qEbLYlz0gvNa14tBI6o2wOzdgj8H/oC+tZuPkYUYLenppIY/cHju/Huxh
-         1QmHMG4WD30LuUPQs2ph11v9G11jk6UDC8dgJcYZYF0MqC0AJTqZ8/7AdcAleGKTzikd
-         OfMg==
+        b=GJpuouP+aV7DDjvY25bF0slx0G0/degFeen6RVZW3BmJgFJoMS4S0teVOfLBymGrwx
+         qj1WX9VxyiVN5Hl6I0pKsxGrh2BwkwtdB7oWcSx56BSgDsLNfQGFyJ1LIrAFDdZ6YH9d
+         Pjn+8JM62lz1ofqbfO4SLBSyorTg8UbLRCBVkFsuQCheXNqmk6SYSZZfh6SCBrgZr40j
+         Xb+OYQDXxHdyW+L9HWl9fI6eutgj5ZVhCKfX0i92V19q4boXucWybd9x0XtsuPMy+ZpG
+         YhfNXwuMamRYrn5FGSvegF2rDSk5anNg+hPi8smPhtPK0w4aGOo2fcja107sMVhYZSjh
+         Etbw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:precedence:robot-unsubscribe:robot-id
          :message-id:mime-version:references:in-reply-to:cc:subject:to
          :reply-to:sender:from:date;
-        bh=/eSsV7fzVxDV7F7dv36AZ6xG5B2c8zuj76ISfFU6CbE=;
-        b=bGY5jZdJc4A4GnZaorBizgfO2rFaTX+JoZiZT5qpC2PIgzq4yQxTENGwot8qt6neqZ
-         Vex1jHvjqhFxYXK1U3p5EkEj9efL/ZmOLDDa4rHJa3K9+m+0sB3gOD2F0SDCjh3qv2eB
-         4ncMLInIkYOc/A2gdB8NeYiWHAp6qu1G3d9VXgdSanDQTyNhnqLC/XJwyUgZl6jjYm7f
-         1ZOOF1DluFTKgd2NGbWJ5vwXbdY8E53jIo7M8GGm0oe10iyEYY9/IDkcPgeAQ8YAFD9M
-         K/jEZlTSDiWJK6y6oV5BSMlcHdSwSo1Hi01xK5U44yrLOZroG4YeXhmfBjWu8wjY7pqO
-         SykQ==
+        bh=kfuUEoW7ukEiJ9SDG4t5UY5Re6gn83lRIYZyxtESaNU=;
+        b=jp4KL3VofpuujU3H8B3IaF4TNB4sVFQv8gqVLZFpGzWYH0+eZLD6L9K2LQHsdr834F
+         yR2GY4RzWQWplloEaGgQksHwDUCg91OvobrLIF2NAa08YBpaxlrsVM81yT4ToDag8E+R
+         A34usnPbEn0ucHlALpSRkTfRdG/iZRYLAG4N+lvZIiwXm2fnRxnqq+VoWsyQGsclRumz
+         nIvDAb9CsExwN9+TqHgef5c30BwG35TlfURognbekK5YL+WTeuiKmyVeuTbM0ip1+S/s
+         AqYKGiS94nRMNtfF6m5ujNJ+VW1qeU4Lr7u1R3iRKuibrUlcDdEGl/xEt4kob9Y8/fFd
+         2mWw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 Received: from Galois.linutronix.de (Galois.linutronix.de. [2a0a:51c0:0:12e:550::1])
-        by gmr-mx.google.com with ESMTPS id w8si67339wrn.2.2020.05.08.06.05.15
+        by gmr-mx.google.com with ESMTPS id by5si98222ejc.0.2020.05.08.06.05.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=AES128-SHA bits=128/128);
-        Fri, 08 May 2020 06:05:15 -0700 (PDT)
+        Fri, 08 May 2020 06:05:16 -0700 (PDT)
 Received-SPF: pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) client-ip=2a0a:51c0:0:12e:550::1;
 Received: from [5.158.153.53] (helo=tip-bot2.lab.linutronix.de)
 	by Galois.linutronix.de with esmtpsa (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
 	(Exim 4.80)
 	(envelope-from <tip-bot2@linutronix.de>)
-	id 1jX2gj-0007aq-Sc; Fri, 08 May 2020 15:05:14 +0200
+	id 1jX2gl-0007cr-CT; Fri, 08 May 2020 15:05:15 +0200
 Received: from [127.0.1.1] (localhost [IPv6:::1])
-	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id 6FB761C0822;
-	Fri,  8 May 2020 15:05:01 +0200 (CEST)
-Date: Fri, 08 May 2020 13:05:01 -0000
+	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id D12591C0858;
+	Fri,  8 May 2020 15:05:02 +0200 (CEST)
+Date: Fri, 08 May 2020 13:05:02 -0000
 From: "tip-bot2 for Ian Rogers" <tip-bot2@linutronix.de>
 Sender: tip-bot2@linutronix.de
 Reply-to: linux-kernel@vger.kernel.org
 To: linux-tip-commits@vger.kernel.org
-Subject: [tip: perf/core] libperf evlist: Fix a refcount leak
-Cc: Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
+Subject: [tip: perf/core] perf parse-events: Fix memory leaks found on parse_events
+Cc: Ian Rogers <irogers@google.com>, Jiri Olsa <jolsa@redhat.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
  Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Andi Kleen <ak@linux.intel.com>, Jiri Olsa <jolsa@redhat.com>,
- Leo Yan <leo.yan@linaro.org>, Mark Rutland <mark.rutland@arm.com>,
- Namhyung Kim <namhyung@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Stephane Eranian <eranian@google.com>, clang-built-linux@googlegroups.com,
+ Andi Kleen <ak@linux.intel.com>, Leo Yan <leo.yan@linaro.org>,
+ Mark Rutland <mark.rutland@arm.com>, Namhyung Kim <namhyung@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>, Stephane Eranian <eranian@google.com>,
+ clang-built-linux@googlegroups.com,
  Arnaldo Carvalho de Melo <acme@redhat.com>, x86 <x86@kernel.org>,
  LKML <linux-kernel@vger.kernel.org>
-In-Reply-To: <20200319023101.82458-2-irogers@google.com>
-References: <20200319023101.82458-2-irogers@google.com>
+In-Reply-To: <20200319023101.82458-1-irogers@google.com>
+References: <20200319023101.82458-1-irogers@google.com>
 MIME-Version: 1.0
-Message-ID: <158894310133.8414.12761535620114506171.tip-bot2@tip-bot2>
+Message-ID: <158894310274.8414.12032385963685476913.tip-bot2@tip-bot2>
 X-Mailer: tip-git-log-daemon
 Robot-ID: <tip-bot2.linutronix.de>
 Robot-Unsubscribe: Contact <mailto:tglx@linutronix.de> to get blacklisted from these emails
@@ -131,50 +132,49 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 The following commit has been merged into the perf/core branch of tip:
 
-Commit-ID:     4599d292128d89e4cf866a0ea9a9b047a2de8418
-Gitweb:        https://git.kernel.org/tip/4599d292128d89e4cf866a0ea9a9b047a2de8418
+Commit-ID:     e8dfb81838b14f82521968343884665b996646ef
+Gitweb:        https://git.kernel.org/tip/e8dfb81838b14f82521968343884665b996646ef
 Author:        Ian Rogers <irogers@google.com>
-AuthorDate:    Wed, 18 Mar 2020 19:31:01 -07:00
+AuthorDate:    Wed, 18 Mar 2020 19:31:00 -07:00
 Committer:     Arnaldo Carvalho de Melo <acme@redhat.com>
 CommitterDate: Tue, 05 May 2020 16:35:29 -03:00
 
-libperf evlist: Fix a refcount leak
+perf parse-events: Fix memory leaks found on parse_events
 
-Memory leaks found by applying LLVM's libfuzzer on the tools/perf
-parse_events function.
+Fix a memory leak found by applying LLVM's libfuzzer on parse_events().
 
 Signed-off-by: Ian Rogers <irogers@google.com>
+Acked-by: Jiri Olsa <jolsa@redhat.com>
 Cc: Adrian Hunter <adrian.hunter@intel.com>
 Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
 Cc: Andi Kleen <ak@linux.intel.com>
-Cc: Jiri Olsa <jolsa@redhat.com>
 Cc: Leo Yan <leo.yan@linaro.org>
 Cc: Mark Rutland <mark.rutland@arm.com>
 Cc: Namhyung Kim <namhyung@kernel.org>
 Cc: Peter Zijlstra <peterz@infradead.org>
 Cc: Stephane Eranian <eranian@google.com>
 Cc: clang-built-linux@googlegroups.com
-Link: http://lore.kernel.org/lkml/20200319023101.82458-2-irogers@google.com
-[ Did a minor adjustment due to some other previous patch having already set evlist->all_cpus to NULL at perf_evlist__exit() ]
+Link: http://lore.kernel.org/lkml/20200319023101.82458-1-irogers@google.com
+[ split from a larger patch, use zfree() ]
 Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 ---
- tools/lib/perf/evlist.c | 1 +
+ tools/perf/util/parse-events.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/tools/lib/perf/evlist.c b/tools/lib/perf/evlist.c
-index c481b62..6a875a0 100644
---- a/tools/lib/perf/evlist.c
-+++ b/tools/lib/perf/evlist.c
-@@ -123,6 +123,7 @@ static void perf_evlist__purge(struct perf_evlist *evlist)
- void perf_evlist__exit(struct perf_evlist *evlist)
- {
- 	perf_cpu_map__put(evlist->cpus);
-+	perf_cpu_map__put(evlist->all_cpus);
- 	perf_thread_map__put(evlist->threads);
- 	evlist->cpus = NULL;
- 	evlist->all_cpus = NULL;
+diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
+index 5795f3a..6dc9e57 100644
+--- a/tools/perf/util/parse-events.c
++++ b/tools/perf/util/parse-events.c
+@@ -1482,6 +1482,7 @@ int parse_events_add_pmu(struct parse_events_state *parse_state,
+ 
+ 		list_for_each_entry_safe(pos, tmp, &config_terms, list) {
+ 			list_del_init(&pos->list);
++			zfree(&pos->val.str);
+ 			free(pos);
+ 		}
+ 		return -EINVAL;
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/158894310133.8414.12761535620114506171.tip-bot2%40tip-bot2.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/158894310274.8414.12032385963685476913.tip-bot2%40tip-bot2.
