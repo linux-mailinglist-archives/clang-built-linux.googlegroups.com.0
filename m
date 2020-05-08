@@ -1,146 +1,143 @@
-Return-Path: <clang-built-linux+bncBDPKNA7WYADBBCOC232QKGQEMQCSD3Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCL7F3V2TIDBBX6D232QKGQEBU3DKXQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x238.google.com (mail-lj1-x238.google.com [IPv6:2a00:1450:4864:20::238])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7BFC51CB6BF
-	for <lists+clang-built-linux@lfdr.de>; Fri,  8 May 2020 20:12:26 +0200 (CEST)
-Received: by mail-lj1-x238.google.com with SMTP id y5sf441429ljn.20
-        for <lists+clang-built-linux@lfdr.de>; Fri, 08 May 2020 11:12:26 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1588961546; cv=pass;
+Received: from mail-pj1-x1038.google.com (mail-pj1-x1038.google.com [IPv6:2607:f8b0:4864:20::1038])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1166A1CB6D5
+	for <lists+clang-built-linux@lfdr.de>; Fri,  8 May 2020 20:16:01 +0200 (CEST)
+Received: by mail-pj1-x1038.google.com with SMTP id x6sf10287505pjg.5
+        for <lists+clang-built-linux@lfdr.de>; Fri, 08 May 2020 11:16:00 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1588961760; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QmMIRbnUStFV1bGhA9XWill0WMjcZsZRpDwaDZaSQk2aQinZzP0YWi9XkbELa9RbMx
-         EwH/RrjXnIr1TTucQr79esWdHAy8E4T6xzGajs1d5uyjwiI5M2HatV4KyI1SOAOVNjI/
-         uLpAAc+0w7o9XHMAyIb30bF1700ZbPoKUHONYDmaloUsbSWOdm+Ybo/SxKDLY3Ktfd/V
-         Y39IA0gD36Nod7UVJqu3qFBYGRRUQAWn9SsPQNy+aOYIcjus9auDbgbRDvkYcw/bMKcH
-         WfvceNWslKnGqFzEUbq3bjQkcVSn75f7724zHvWrpVDIGaSxGT+KWeLkvTDQfblzW73U
-         DETQ==
+        b=KzuPgM/kLBzwVPnKjgOOEppxCrplK0jaAplZUSGvNDv/ZFttUVJ96ac5ANQ2llhH4r
+         m4+sFpEJBPFgKSuFMClLCSPanCBLRfVhJhCMVr5eXEGXXvxxKx5ByeSbrZQisjeuYbPi
+         hig4RRgri98eQPn1Y9YphDu9kETGbsLHRZFrS6r/Ecs4lACRSWjAIAZVP0E+ZUSqRtta
+         zu3EGeHovIHemdBndLpjG85vwAkd1YGu8lGQsKrjDkakf/LYg7FdR0FYDDALyQlzykrK
+         uRJGnt2Dh2uQR6g4+VvHmXG5l8D9GG3dVfxe3+gRtpZ8X5bDJsoHr5IsyjKZV5cW3pLM
+         QzPQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=AB4CT4wwHBAVgOWeo56CIqm6h+R0m8HiMs7f815VTp4=;
-        b=nSsA8Z+tdExHgF6dJNF9Db2OqKAFBjRs/imjPiCFkq+ew6baS8swaZh5C4zkWt23Bw
-         cwmkbYPC1WmCklK1dEkFRPdEl1bOrKExF8kKaXOdjo4Mkyg7yzzTByzobrq2cTChtUB2
-         spmlbJV/QTti/Qa7M+XvmM0lfOsVCzPM2UjQQ9Qgu5e3vQRSdBMFDka3IbALYy8VMnKh
-         L3nHTdOxf/BhACLFNNfpWwTRr/hv2+T4sKOOZjLTCxCRciwPxhUq9OPgeyO88CAlQ8bY
-         yzxQdPemzs28uwO8ZmTINUE37tIwCJAuDbDq3HSzmOw2tJd5lnWBUHxsYnMG8pFSx8PE
-         2K+A==
+         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
+         :mime-version:sender:dkim-signature;
+        bh=tHa9hEZjpxzeWgaiajBdoF32ckUjMhysJmo1N5z57w4=;
+        b=rjb+cxv4TnJm654iDmvDhiR0JLIGbIXVTVPUoY4+8pE50YSfLm3eEnI7rKEk5nJL/J
+         A8ZxkEsl6xg+jb9tIiFiRAMfrb1Zxes7bM1YeQNjqRk5acvyTKObIbTA65Od7Tb3h6M7
+         sS8jd7l4k+kA6GxRLc9lJPZlc+YbMFfSsf/M6jBujKnzwDopTfohhYJ0uVwpGoKao/Nh
+         i1QmlqhIzxxc1tWHO4aua8BpxmK7PyXSirDNDKpFXABIe+7D+F0Jy5/bWu8eAHqdtvtT
+         UpwOHcCsPvI6qBfthlz47SmcicjBFd2aGH5h6Yx1Fa5Z6xkmt9E+oxUaDlMdeRlRHhl0
+         jNzg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="jiGw8gA/";
-       spf=pass (google.com: domain of luke.r.nels@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=luke.r.nels@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@cs.washington.edu header.s=goo201206 header.b=OUaIAWfx;
+       spf=pass (google.com: domain of lukenels@cs.washington.edu designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=lukenels@cs.washington.edu;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=cs.washington.edu
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=AB4CT4wwHBAVgOWeo56CIqm6h+R0m8HiMs7f815VTp4=;
-        b=YsIwJW8PO+rlLS1S3MeCu4ikOpoFiBvcEziMbygAuAIFeEMnmEZAcqegWmQ3p71wDX
-         hYIV4DuAQcDfaPgGPJtAPXeg2CPVcULb3R/GkG3X66hpaHVtbUJAVpUu37AsiTxDcbJu
-         M8vTafxdBjBl/C/ZdQzxl6BlqcVnot12WMOQRuljvy3+Fd+QUbfU7TLQFjlsN7ga7DPz
-         YsUcPkqERFNXTWn3aNa3fN/AZ+309AWAhDnXnVJLAVNoM/ZePLrupElASubuN+ax3gzq
-         IM9044Lc2pJrnupD/aOiNwy7+zycFxEo3yju8i1+j0IPy+7ShmIzsIf1VAgbNMuhAmCW
-         Kgbw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
+        h=sender:mime-version:from:to:cc:subject:date:message-id
+         :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=AB4CT4wwHBAVgOWeo56CIqm6h+R0m8HiMs7f815VTp4=;
-        b=n+bLJ3nF/TSeApZAmyYWG7JIDFapVpdI+Po/Curd4cHaY9IQRkHDHX/+I4YTOYGp8v
-         SS6zPMUsnIY5PfjQqAoWiBj3Kw6FSkAO5epCDIKX/5/tVczc/Xtmz0h96fhOQC/wV3xO
-         PZZI+KAZbA2D6RRqEi8zQE5/EvXYjW7rF2NU7k3kwNNor1/hK30jk3D3zLWWNM2uuvhr
-         DJfpBLnFHTnWIJXJ/9Ncmc5Ke41zuyUW5+YPbMf/G8Fd5VqKkbK7gS8+edTKxvNa2xZ7
-         s7FjGcpzsh7AOYu8pURzbOBOSn50KM/FIjx/MU8Rew05Cf/TF7p75lo0H55hZky+IeKB
-         lRJQ==
+        bh=tHa9hEZjpxzeWgaiajBdoF32ckUjMhysJmo1N5z57w4=;
+        b=RUThyxFNR/PklOGU2ceKqbhr9hCJEoExF72oLjMPs0wq5JK0XXcdD4TxaWtBxrchc5
+         4iXLxLovYllD8AHb3Re3Jbfb7MR0L2jk/pLub2fZb1sMh5kiJ0zUa5tMphJWFs/4tAnT
+         sMyygLUt7wTkaxR9g3SaKbIwLTcNi2kxfQQCU9vkfzw3RXPmKqcI0caxxl03VQw/Lv1I
+         GZRG+dgHKfir0gb5WvtBCT2DBeiCLiAcAj7rETQ0pE7nwKG4W2Ge/BVgE8rcBd/TR+Zr
+         OI0m0NdqzF99ddjPVtbIJJOAYA/NX/XmZcivQVikW4I01f0t+zZIvd3o9yGGLfeuwO0V
+         wvDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=AB4CT4wwHBAVgOWeo56CIqm6h+R0m8HiMs7f815VTp4=;
-        b=ma/fccM5mI+iTMqPGgLKl+btOxaa7FGV6fqu523V0ZzWoDNAmkqiqUrebTXG49kIPZ
-         ANa8x1me4nJou0igL5U8rRhjhy4mgmDnviZljQ5qKldFAhcg5gA4FZ+0alwZfXNm9//o
-         Es25/SRpYZbElc0k1h0/UUZIw8Lkma13rp5dbSrWiZSN26XVf7EoxLqAzI0sB2iTupd0
-         szrXK3Y3bghP/Uvwa0qdWY5k+tG93npovWNkUuEw3dFe9cyrwytZymJMsDZ6XuMuWsuH
-         I26Pb9Q2i8s4piyvaNj4lx+i9Y8ZaknamaFooRfYXQs14gFatTYIQaFifNdE2R1rdx8l
-         ycmg==
+        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
+         :message-id:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=tHa9hEZjpxzeWgaiajBdoF32ckUjMhysJmo1N5z57w4=;
+        b=fx3HweV+N6MiSXqdkdOamdddvZ65cS5/bFKsieB7pWIzqc1BXsjSQBZunJFZwSzahv
+         +O9kwjX3ybwfymSg+VL3OwuhwmDSb8raEA5e2bJYo0pSW0ZFqIJcwVGhm6BdoWBxh8m7
+         td43TFDJ8riSFRgXEGH2JBcdN0IeE3+bv4/HNfWpFiRYY2Ax56qgQOh7Scn+eGEuxk7P
+         A/B8bC06EctGOG4fyVAHg7qzBMj++dTHb8+YpcDAdOe7ZLIdoGivV/doGyInWDalPdbS
+         jU11TW0yjpZK6VNG/M5tVmmBDokbkR/0VayHd5HgWcfk3TEHccHVlhVBiTfzcg2wR6E9
+         M+Rg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530uUqPllzJo3dql52LfHyrOnd0Ij2N+wNVaTgYd9BSIfhHIr37a
-	pYTqMRMCJFL6zNZKhL8sdbI=
-X-Google-Smtp-Source: ABdhPJxQM/3sFC2CxE4XYObOFkTdKwZRjwW+ZyuM0hfwbRIwG4wjWpus3QjR9tI+bhkNOuHydga7Tw==
-X-Received: by 2002:a05:6512:44d:: with SMTP id y13mr2726410lfk.118.1588961546052;
-        Fri, 08 May 2020 11:12:26 -0700 (PDT)
+X-Gm-Message-State: AGi0PubRJn2QEqCYd2rBY4gBfsjpGm6sCDJtDwbcoiZvRtcO2GK6DsQM
+	efLe/AyiOOmQyZ/2VpAq9w8=
+X-Google-Smtp-Source: APiQypIhRP0YT2QZUYg7sZIWNlhUJ8OAcj9lj8g3SGBs5ba3Ntj14GDl5xEeq2xqMFtgrNjpUm4K4g==
+X-Received: by 2002:a17:90a:2ac2:: with SMTP id i2mr7396048pjg.91.1588961759549;
+        Fri, 08 May 2020 11:15:59 -0700 (PDT)
+MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:3047:: with SMTP id b7ls529326lfb.1.gmail; Fri, 08
- May 2020 11:12:24 -0700 (PDT)
-X-Received: by 2002:ac2:47fb:: with SMTP id b27mr2830614lfp.10.1588961544495;
-        Fri, 08 May 2020 11:12:24 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1588961544; cv=none;
+Received: by 2002:a17:902:9a03:: with SMTP id v3ls2052037plp.11.gmail; Fri, 08
+ May 2020 11:15:59 -0700 (PDT)
+X-Received: by 2002:a17:90a:8815:: with SMTP id s21mr7628029pjn.154.1588961759146;
+        Fri, 08 May 2020 11:15:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588961759; cv=none;
         d=google.com; s=arc-20160816;
-        b=crQntWSYqmnpj3wcNlACqgPD5XZWgEGnIgXcPXdTMCh3DE3vFmXSoh1wG92RobM3Mg
-         nqLpGaeGxdfGeEHFUL/M/GSO+Bx6h/MkrrF/qNI228/z7FvYPVGbs93/XS3r3Ehh0eDo
-         /5+inAkKBtzlS/+VPHQ+XaWiXVz5W/1MELbXPaB5LBB93xBeJMLwmxTDlQW0zrJvdSF/
-         DrVx1Vfm4W1D0HtzoifqRssA8Bh6MK5ACrTkljMU4Q0SieGurcBnu8w9BWqD93fGGQn9
-         A+V+EBpH3P4q0Bt1bMCpmmEIbhV5EH82Q/VKp8s0qr7QaX3gM8tMhiPVn4g9rOufJNw2
-         Vemw==
+        b=vh5dyzI/zka1uNhtQU5XKDPDINgD1kz+0Mwo2YeCPO1iXUsIU/duw+h7EgrXRhmO5S
+         Ve16YV/7XHKBay8MbVLpj/32K64rH7DvMrXH5MFs4ZecOdEBzYbXeR9dOip6H3QlA2iN
+         L92+G4DMmzbnEfjcFcDaNIpMUERAho+7i7RO7O6rHeThCRbScq5h7ICnLkCMAKoPj87B
+         +8tZLv3cxGmndAeAKkxN1fVDfqQtzYhOHJTTYSkw2y6Jen/+KQHJXdfb0ucW7Hhol/Kx
+         p4qsZmb1MhZ2Sza3bO4+J1ZVwYNJU+CDkBC9Rs/+EYrqPDXaPZqvk26NxQufdbzVWK5A
+         glog==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=wEg6363KALMCBQBSLOKuoUfGPXNIfqB9uH8JLDVOLn8=;
-        b=LGyZqPlqKaRANAKdrHkh+OIVK6IbA7t6QtjQmInY3UM5xGVK/iK5ADDO8mu9aG373p
-         xE5wEVfRITgGLjw8cTrTSIEqHNP/FPhSexnIxIydEUWRhkSpgvHaQAktYdRQSibObK06
-         jQ3CWL0Qd513vJu0D0Lv0iXvdlopaYmyVzmw06p0aborbovTLYtx1/lpwrMBtFe4m5eC
-         B4vTO1WGHDjck0XL+4gW3ekHs7vYwICg61t+my+p/6dW5TlOTLhVWC7d6h4od41PivrJ
-         Cfo7KMpej6aLwxj4/7bBM4q7mxWAPohRmhEl6QqhZtr22vYueZR9iXfK1aJ8y7TM7t5Z
-         ORGw==
+        h=message-id:date:subject:cc:to:from:dkim-signature;
+        bh=SpXTpjywTMwNg9TSFFzsjIj59xv1CBVoV4EOvzTnkkE=;
+        b=vtDuwVh/eJif/K2mOveEU6ET7mHtlkIiJrBY/TlQLKqPAd9pQ4I90Jwqvl/aGIe0J0
+         ifeV7B2HUBrmMhjZkgSpKHHgPkc/FezD9c0Pl4MANLUIYQnz8FeBAEC3L4Tjv9A67agp
+         ZeXnFqBiIH9RZj/ocJIO82RZph4c21CQd3Aiv9n/HKX01S6T39AZmi3zN3mLkTvAkGBx
+         eE9I1DACg8ZDLx592TF0Hg3jqgmYawr2ZRhNwHBXC/qXF0PDaWBsraG+I8GY5LEud5Nk
+         c4k18+k9898N/w/SzZT9qdYsC9XTwUuTMnPLUgfbGr/nm7v0s2hvG7xEM8MadUSykMjb
+         QJ+w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="jiGw8gA/";
-       spf=pass (google.com: domain of luke.r.nels@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=luke.r.nels@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wr1-x442.google.com (mail-wr1-x442.google.com. [2a00:1450:4864:20::442])
-        by gmr-mx.google.com with ESMTPS id 184si135382lfi.1.2020.05.08.11.12.24
+       dkim=pass header.i=@cs.washington.edu header.s=goo201206 header.b=OUaIAWfx;
+       spf=pass (google.com: domain of lukenels@cs.washington.edu designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=lukenels@cs.washington.edu;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=cs.washington.edu
+Received: from mail-pl1-x644.google.com (mail-pl1-x644.google.com. [2607:f8b0:4864:20::644])
+        by gmr-mx.google.com with ESMTPS id a1si160623plp.2.2020.05.08.11.15.59
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 08 May 2020 11:12:24 -0700 (PDT)
-Received-SPF: pass (google.com: domain of luke.r.nels@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) client-ip=2a00:1450:4864:20::442;
-Received: by mail-wr1-x442.google.com with SMTP id x17so2959942wrt.5
-        for <clang-built-linux@googlegroups.com>; Fri, 08 May 2020 11:12:24 -0700 (PDT)
-X-Received: by 2002:adf:8401:: with SMTP id 1mr4356440wrf.241.1588961543855;
- Fri, 08 May 2020 11:12:23 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200507010504.26352-1-luke.r.nels@gmail.com> <20200507010504.26352-2-luke.r.nels@gmail.com>
- <20200507082934.GA28215@willie-the-truck> <20200507101224.33a44d71@why>
- <CAB-e3NRCJ_4+vkFPkMN67DwBBtO=sJwR-oL4-AozVw2bBJHOzg@mail.gmail.com> <20200508114709.GB16247@willie-the-truck>
-In-Reply-To: <20200508114709.GB16247@willie-the-truck>
-From: Luke Nelson <luke.r.nels@gmail.com>
-Date: Fri, 8 May 2020 11:12:12 -0700
-Message-ID: <CAB-e3NQLuaHLxNB3Zpgy8EqyiZBqEYGzh1TSzXQe++nqPu2oLg@mail.gmail.com>
-Subject: Re: [RFC PATCH bpf-next 1/3] arm64: insn: Fix two bugs in encoding
- 32-bit logical immediates
-To: Will Deacon <will@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Luke Nelson <lukenels@cs.washington.edu>, 
-	bpf <bpf@vger.kernel.org>, Xi Wang <xi.wang@gmail.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Alexei Starovoitov <ast@kernel.org>, Zi Shen Lim <zlim.lnx@gmail.com>, Martin KaFai Lau <kafai@fb.com>, 
-	Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, Andrii Nakryiko <andriin@fb.com>, 
-	John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@chromium.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org, 
-	open list <linux-kernel@vger.kernel.org>, Networking <netdev@vger.kernel.org>, 
+        Fri, 08 May 2020 11:15:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lukenels@cs.washington.edu designates 2607:f8b0:4864:20::644 as permitted sender) client-ip=2607:f8b0:4864:20::644;
+Received: by mail-pl1-x644.google.com with SMTP id t16so1085897plo.7
+        for <clang-built-linux@googlegroups.com>; Fri, 08 May 2020 11:15:59 -0700 (PDT)
+X-Received: by 2002:a17:902:9a43:: with SMTP id x3mr3623548plv.332.1588961758604;
+        Fri, 08 May 2020 11:15:58 -0700 (PDT)
+Received: from localhost.localdomain (c-73-53-94-119.hsd1.wa.comcast.net. [73.53.94.119])
+        by smtp.gmail.com with ESMTPSA id e11sm2349463pfl.85.2020.05.08.11.15.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 May 2020 11:15:57 -0700 (PDT)
+From: Luke Nelson <lukenels@cs.washington.edu>
+To: bpf@vger.kernel.org
+Cc: Luke Nelson <luke.r.nels@gmail.com>,
+	Xi Wang <xi.wang@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Zi Shen Lim <zlim.lnx@gmail.com>,
+	Martin KaFai Lau <kafai@fb.com>,
+	Song Liu <songliubraving@fb.com>,
+	Yonghong Song <yhs@fb.com>,
+	Andrii Nakryiko <andriin@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@chromium.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexios Zavras <alexios.zavras@intel.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Christoffer Dall <christoffer.dall@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: luke.r.nels@gmail.com
+Subject: [PATCH bpf-next v2 0/3] arm64 BPF JIT Optimizations
+Date: Fri,  8 May 2020 11:15:43 -0700
+Message-Id: <20200508181547.24783-1-luke.r.nels@gmail.com>
+X-Mailer: git-send-email 2.17.1
+X-Original-Sender: lukenels@cs.washington.edu
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b="jiGw8gA/";       spf=pass
- (google.com: domain of luke.r.nels@gmail.com designates 2a00:1450:4864:20::442
- as permitted sender) smtp.mailfrom=luke.r.nels@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@cs.washington.edu header.s=goo201206 header.b=OUaIAWfx;
+       spf=pass (google.com: domain of lukenels@cs.washington.edu designates
+ 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=lukenels@cs.washington.edu;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=cs.washington.edu
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,33 +150,37 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Will,
+This patch series introduces several optimizations to the arm64 BPF JIT.
+The optimizations make use of arm64 immediate instructions to avoid
+loading BPF immediates to temporary registers, when possible.
 
-On Fri, May 8, 2020 at 4:47 AM Will Deacon <will@kernel.org> wrote:
->
-> Yes, please! And please include Daniel's acks on the BPF changes too. It's a
-> public holiday here in the UK today, but I can pick this up next week.
+In the process, we discovered two bugs in the logical immediate encoding
+function in arch/arm64/kernel/insn.c using Serval. The series also fixes
+the two bugs before introducing the optimizations.
 
-Thanks!
+Tested on aarch64 QEMU virt machine using test_bpf and test_verifier.
 
-> Nice! Two things:
->
-> (1) I really think you should give a talk on this at a Linux conference
+v2:
+ - Cleaned up patch to insn.c.
+   (Marc Zyngier, Will Deacon) 
 
-That would be great, I'd be happy to give a talk on our verification
-work some time in the future :)
+Luke Nelson (3):
+  arm64: insn: Fix two bugs in encoding 32-bit logical immediates
+  bpf, arm64: Optimize AND,OR,XOR,JSET BPF_K using arm64 logical
+    immediates
+  bpf, arm64: Optimize ADD,SUB,JMP BPF_K using arm64 add/sub immediates
 
-> (2) Did you look at any instruction generation functions other than the
->     logical immediate encoding function?
+ arch/arm64/kernel/insn.c      | 14 +++----
+ arch/arm64/net/bpf_jit.h      | 22 +++++++++++
+ arch/arm64/net/bpf_jit_comp.c | 73 ++++++++++++++++++++++++++++-------
+ 3 files changed, 88 insertions(+), 21 deletions(-)
 
-Other instruction generation functions are on our todo list, but we
-haven't got a chance to spend more time on them yet.
+Cc: Xi Wang <xi.wang@gmail.com>
 
-Thanks again,
-
-- Luke
+-- 
+2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAB-e3NQLuaHLxNB3Zpgy8EqyiZBqEYGzh1TSzXQe%2B%2BnqPu2oLg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200508181547.24783-1-luke.r.nels%40gmail.com.
