@@ -1,70 +1,148 @@
-Return-Path: <clang-built-linux+bncBC6NHXNFTUIBBOFA3H2QKGQEVQ3NNIY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBEWG3H2QKGQE6JDLOSA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x238.google.com (mail-oi1-x238.google.com [IPv6:2607:f8b0:4864:20::238])
-	by mail.lfdr.de (Postfix) with ESMTPS id B40021CBE1B
-	for <lists+clang-built-linux@lfdr.de>; Sat,  9 May 2020 08:39:54 +0200 (CEST)
-Received: by mail-oi1-x238.google.com with SMTP id 17sf7970648oij.6
-        for <lists+clang-built-linux@lfdr.de>; Fri, 08 May 2020 23:39:54 -0700 (PDT)
+Received: from mail-ed1-x53d.google.com (mail-ed1-x53d.google.com [IPv6:2a00:1450:4864:20::53d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8BAE71CBEA2
+	for <lists+clang-built-linux@lfdr.de>; Sat,  9 May 2020 10:00:18 +0200 (CEST)
+Received: by mail-ed1-x53d.google.com with SMTP id b7sf1544018edf.9
+        for <lists+clang-built-linux@lfdr.de>; Sat, 09 May 2020 01:00:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1589011218; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=YiNdX/vqbuctUDABwSSUTq7elNpPviAIOmw0Viq1HH9uWi+eGDuifHRq7phSJvYPEr
+         vwGwtA8dykX5xq/8L3b/4u5DCnfejdB2jtLvBh8mtCy0CsXj6gMcQl355f4jjX3809WK
+         fRNRlbG8HxvNY+zAlWI1POAZmBd6PhPb6DutHJe6dmuLY/scXBijTb8t67lyeaL+OQp+
+         P9PnxcTdNuFpUt6HtgYbdXL2EbVRPnCMt/DxDQloQrtUx+AtVMb+wpZ4DGGTGiG9fSBk
+         pWCt/bSAX0b7q6SGH2ZUuGKoFcKR5XaZd7VAFKCPl9y/EEjc7LEZQow58snQzOO+NWMb
+         K+5g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=VQsJrClL+Y2RgES2yARx6jHWfiHDa0FykLFfUiPXxuU=;
+        b=q6D9EA44Uin7QuH5HYR6+vrhaZSVmxLMblbT1q78pNbRi66jLnVY103qFUYOLH45lt
+         qIszorH0pt9cT3eVjHUHpNeLiQeMQrrvMuZOrAxyA3kKDhefykO8eDl59z08FIhti2BI
+         Qw+W1htfCo4zheEWjaSeatoFbFtIf57q7i06v4jHmXee1nqnlNR43Aq6R2dpkbrXA+/T
+         2n/HWSqlCNvWhFIsVAj0OxdCkBmpPHXVKsxhZ0MUmhVF9KbGd1ylRdWyZZuDtfBJZaOS
+         a26wNms3nyJhbthRVov9YFT68fNBUSG0vflDXiO4oOQT2f/Z0d119uNjVVFSlAwGbvBn
+         pq5Q==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       spf=neutral (google.com: 212.227.126.134 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:message-id:in-reply-to:references:subject
-         :mime-version:x-original-sender:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=o+0ti85aIv1odXP+RFrLgr/afVI9FCDTqjkxssqBpGs=;
-        b=BT4zNY6rA/uiRrBbEWWzc81CnTrOYrTGivevK0ORDV5YGxTMLvE56oJEkTyAFsjeTl
-         sBvUdGfgpmP2IUK7SPI4LwkGF58vTmk+ZDGsTSc3zxC6EiJBc2w0A7ZnBkpH1ttFHtv+
-         BBQISx97zJilaoFt+0T0WOw3WrOc90JWaee8SBOF+Sh0tqhdccJzpdEx7nafIPxhEqtG
-         O91AtF0WAkQ1A2J+oOgLiE/4Shd0MT/FG8MGjlPhu7WROAzUYMlFcylrRhMugE13m1+T
-         wuI0udiCFuapdnNRJp/6B/2KJhCARD+PpjH1IICI2W1+JsEwcRcjwnjCufcIqjCDOe3O
-         9IPg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:message-id:in-reply-to:references:subject:mime-version
-         :x-original-sender:precedence:mailing-list:list-id:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=o+0ti85aIv1odXP+RFrLgr/afVI9FCDTqjkxssqBpGs=;
-        b=juJ7k+uL/IldZ6mW/OUhhFhfAIYna+uMAVuvBsD64Ip6E9DTB3Eq/6DPhd4kNGxGjx
-         7SaqOj+OaWdKZ67LXJyB8xIA5lLjQpVUJTc9B0esLivRPpILGpwfuYLHWJHXkIMcQAym
-         qZF8piN1c5sN9V+7nVU5RI35w1t70CDBZGvfLMGdjDdZkERmk3u6tde87ULWPnhPdPmN
-         kyV39X5ltOOTkbHpVgtleQ5bHUCYKzvqysaoxBnHY4RNtdhlviMDnvCYQ8u+MC7d3siK
-         O/ooE47YFpSu3dTEM5me2xWHiRe6m/EPI2aXeArxUfZz34yV7HGhelN7/Cy80g3Jlvh5
-         eTXQ==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=VQsJrClL+Y2RgES2yARx6jHWfiHDa0FykLFfUiPXxuU=;
+        b=HB4EIZsToWxVD81HeQuUQmVt2V3L9FeOEuOa9bYyfTjb53zjqh8dXVg7vI8uUSnjvL
+         dOjCbvrDpLZG7GHb1aLHGaBoII2F0XPci+FV9XhZF8N5/xis1dKfEwpuwIO9/8AA0jqa
+         Yb++6+YSd5fjDRnLpSxWkEF57KZBa8WPl1Hhd6AyPUHV6BBfqs+dvd+6+d3Em6PejY3c
+         glDKmiRg8bAV/h0nOeud7ET4wdrR+OCGaBqQTPwdFAs9KeZ9WdET2y5BwmbDsnOk2VIh
+         rrmPoQtJxXbqtyCZ4pvjf94qN8Nsjw+eI0xz3zNZPLJgRjXI6SnvhVe+D8eKb6tTpfug
+         EhcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:message-id:in-reply-to
-         :references:subject:mime-version:x-original-sender:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=o+0ti85aIv1odXP+RFrLgr/afVI9FCDTqjkxssqBpGs=;
-        b=RDi5XV5Jxybt3WtTYYgHwDRPprZeLpC6iAnh4H3921dV5ijdWN74W8pfXO5Q/5hV2h
-         Ehx+r1uGty/5p+guFfW2vktOmMTVj/iTWrkrql8Hv7tEWmzDq/kKPvz9nMHLaRyaJD8J
-         nE3AAfH17aW4reCO5lNlFoIWcPzmA1KJzWT2F1baeHoAsV0XlfTDw0VhUck26QS43xyj
-         5b07c3KQYsAbjrQk4OblsIZ1uohblpJhZK3JkRaABaL1Kb91iV2q2Mn0DQJxNJemukvB
-         +7WbBHtSFV3Vc1a1LeBn9zYiTHssfPH0rXJwhjxaoGzuKe7uc5IM3tUhy5hNpd0prnHc
-         Y2KQ==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=VQsJrClL+Y2RgES2yARx6jHWfiHDa0FykLFfUiPXxuU=;
+        b=fM8ESlotR2sbdbPtSPSPxlbCoFZJUKs5EbZKrN7cB1IQU0Omp6Q63pfoiOxYOIShRq
+         vrV9OSEMvB0KXbsvwV3x3yFjqpMFvfnjeCvit1mzbvkqmTyLqN3PiFCD7kXLh8kSoEKB
+         nomRnMv7+IMg74BMHcPCNjtDEZ9hxrnPkaKhlNAPjQ4d1V2lrd26zegk+zN3W8iujzAR
+         rTkLYbURAkXSyQbCi3czw2dOLZ/G4v8DvgYALkQg+jYV0/7lH75YLHipEbFn8LulpFaB
+         kPJMV0ko61NfS+ep0jMl0eAIvdac9LL8K4ZEDdm+QdWy+E6MmybCYer5tyOG05qgCgR4
+         gdWg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuZFp9pxXX77Nm9y+pVqSpUIkF2BSp5isXth18qGlRIKnlYCj8Gx
-	hc1oXbpOmWIT2Ur2lGJIXMs=
-X-Google-Smtp-Source: APiQypKml0+CC6qo9KJM+4j7O/6p4WmznW6qM5sW8DKrcIiHZfXwf3h2g3bAnzW6OSH7yYI4jv+hlA==
-X-Received: by 2002:aca:c282:: with SMTP id s124mr711564oif.0.1589006392867;
-        Fri, 08 May 2020 23:39:52 -0700 (PDT)
+X-Gm-Message-State: AGi0PuYIZD0nNwWVw+PfYUCdIEdK7PRTd4PYOHsvZ6wSB03nO7bkwzEO
+	YPcaYCno+4wxA0TEpFuM7JE=
+X-Google-Smtp-Source: APiQypJ66yzrrM5nQzSgxGR/cRDLTfUpXJ2Fyja+sCb2GjVx1BB4XDmD62kAY0JtkdIfEHxZjJweEw==
+X-Received: by 2002:a17:906:7d7:: with SMTP id m23mr4976286ejc.154.1589011218257;
+        Sat, 09 May 2020 01:00:18 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:1eb:: with SMTP id e98ls973258ote.3.gmail; Fri, 08 May
- 2020 23:39:52 -0700 (PDT)
-X-Received: by 2002:a05:6830:1082:: with SMTP id y2mr4906489oto.123.1589006392231;
-        Fri, 08 May 2020 23:39:52 -0700 (PDT)
-Date: Fri, 8 May 2020 23:39:51 -0700 (PDT)
-From: craig.topper@gmail.com
-To: Clang Built Linux <clang-built-linux@googlegroups.com>
-Message-Id: <3276d0f7-bdc8-4a46-aed9-790b9f7bc89c@googlegroups.com>
-In-Reply-To: <CAGG=3QVGz+5-2KV-5qt6wSatrVkRvVMXsKato3xDDjKh7JZoSQ@mail.gmail.com>
-References: <CAGG=3QVGz+5-2KV-5qt6wSatrVkRvVMXsKato3xDDjKh7JZoSQ@mail.gmail.com>
-Subject: Re: Interesting Code Generation Bug
+Received: by 2002:aa7:ca0c:: with SMTP id y12ls1621632eds.7.gmail; Sat, 09 May
+ 2020 01:00:17 -0700 (PDT)
+X-Received: by 2002:a05:6402:2293:: with SMTP id cw19mr5295028edb.351.1589011217736;
+        Sat, 09 May 2020 01:00:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1589011217; cv=none;
+        d=google.com; s=arc-20160816;
+        b=hRdggKDbweFMzgl8RQgJlJHm+excjEn/RBITIgd41UYao6f8MCRx++k4hgJSU8SQpn
+         ow7e3BJvs3XEAxCK1GgPfKxMx2bf8+jH2kxfCQ/QCAEtCra0kgus2gSAj4JbadmiBclE
+         3W7VRksow2IdinCOcSooWYW0Bp1fxoqK+jIOD2ku72dqKL/1Vc+DAZ4KsraVULHocyNE
+         llpBh9aR8HAS2815vaLxos2dpKqG4MmXLsw54xYr1MOnMHW85jr1EYeSuy2wk34VORRQ
+         dX1AyUDx29mwl2/L+68rvdwnv60BbswxXjWCtXrfWH9fB2uzMPY+KALL7yvXTKr0D1wR
+         Cthw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version;
+        bh=PhVgevAt6mpitggXS9c/fwcobj1XH70kq9F6ooWytDg=;
+        b=ettBk6rHSjvb2P/3ltgZJQ+GX+VzBB3L3u4uk0cX2AxD5DWwrDLOHHV+WgoQ/g8/sI
+         C2LLJUBwHsKrV/oACt3I9japyNDH178iqwF8fvQaEPcKCxuDnVK0SeNs6oydEGNyZpw2
+         xJLYhsmwzx0jHu/wcDa9nGoJ1xaiV8aH53VBClgaF9xfIleqiGVuDXCVRDfiSCsYkN+3
+         pbzYfNwbfSGmZ7ub4E3Hi8Euzk0oCSKGy6jTHJ7tJgyqUCx66zZVsBCn+B0PoRXSLDrc
+         u0uMhKbERW6xD2PMjfPiUytJa590ZglhXYLBF4hQJ0lYQVF+513qpmBmPHR8V8v1e0xB
+         3bdQ==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       spf=neutral (google.com: 212.227.126.134 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.126.134])
+        by gmr-mx.google.com with ESMTPS id r26si178436edb.5.2020.05.09.01.00.17
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 09 May 2020 01:00:17 -0700 (PDT)
+Received-SPF: neutral (google.com: 212.227.126.134 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.126.134;
+Received: from mail-qk1-f176.google.com ([209.85.222.176]) by
+ mrelayeu.kundenserver.de (mreue010 [212.227.15.129]) with ESMTPSA (Nemesis)
+ id 1MQ67s-1jkTZJ0lhg-00M43Z for <clang-built-linux@googlegroups.com>; Sat, 09
+ May 2020 10:00:17 +0200
+Received: by mail-qk1-f176.google.com with SMTP id s9so3430512qkm.6
+        for <clang-built-linux@googlegroups.com>; Sat, 09 May 2020 01:00:17 -0700 (PDT)
+X-Received: by 2002:a37:4e08:: with SMTP id c8mr6448672qkb.286.1589011216094;
+ Sat, 09 May 2020 01:00:16 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_713_1230125889.1589006391579"
-X-Original-Sender: craig.topper@gmail.com
+References: <20200507042835.9135-3-bvanassche@acm.org> <202005080353.y49Uwj18%lkp@intel.com>
+ <CAKwvOdnuXX2xpsz6fxV-qfvj1AqN3V7qyOwtwtCG4NWq+HzfAw@mail.gmail.com>
+ <86bcf088-a35d-0a0f-0ba4-5883b1f2d6cb@acm.org> <CAK8P3a3PA25WUJp73Yea9xq_ca3uXA9Vz2U=UmHiDhg8FmGiNw@mail.gmail.com>
+ <040756ba-81ea-64e4-6a11-85608b871b88@acm.org>
+In-Reply-To: <040756ba-81ea-64e4-6a11-85608b871b88@acm.org>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Sat, 9 May 2020 09:59:59 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a1+jtP9NRj-UCaDHjGSJiqDA4Y=0YTMfvr7zWS+OKRTUw@mail.gmail.com>
+Message-ID: <CAK8P3a1+jtP9NRj-UCaDHjGSJiqDA4Y=0YTMfvr7zWS+OKRTUw@mail.gmail.com>
+Subject: Re: [PATCH v5 02/11] qla2xxx: Suppress two recently introduced
+ compiler warnings
+To: Bart Van Assche <bvanassche@acm.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, kbuild test robot <lkp@intel.com>, 
+	"Martin K . Petersen" <martin.petersen@oracle.com>, 
+	"James E . J . Bottomley" <jejb@linux.vnet.ibm.com>, kbuild-all@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	linux-scsi <linux-scsi@vger.kernel.org>, Daniel Wagner <dwagner@suse.de>, 
+	Himanshu Madhani <himanshu.madhani@oracle.com>, Hannes Reinecke <hare@suse.de>, 
+	Rajan Shanmugavelu <rajan.shanmugavelu@oracle.com>, Joe Jin <joe.jin@oracle.com>, 
+	Nilesh Javali <njavali@marvell.com>, Quinn Tran <qutran@marvell.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Provags-ID: V03:K1:iNZ/jprjgufMjx93oHjadctzRQv3oEmaojDO8UHNuuKpDYDFn7z
+ gBocr9EJkltAzRlob59AdfoyQ76SMkwuS0BBadIGCrtG4XI9qjSWJw2O/P41heoG3Rw7rhp
+ iSHVivR5ZsJTD+mR0AK9/6g984foznA1TIdRf8zzC/c/GF3h8dp0ng1iejnqJv1IhwKl1up
+ 4r1PqUZWkKgQlQrv52NKg==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:Z7X3egZtvFk=:plgI9ziNvqb6kQFvEI7olq
+ XYSIALeaV1enzqHBB40PgpXZCotF3Rp6qFpmRSqjM+czpuYgf0UhxyhDtPRSw9TsxparN18ks
+ 5qNo1p/1YYRbtVXG/CvjpU4GHKkoXgV0AopLbzbwipxS0nEb1UvTtIm3KMm/GKmnbeititEKx
+ kCzULos3QtUzG3BkF3wLV+2j3fVSLwhi45Ab/dWUu6SmPCRC+AC2HQZ2hXJWl+EjJz9L8WKiw
+ zodvBhg1PR19YkYkUIjuqAiitdoeVzdbKUhb3VmpfR8K1ablsBbQ40+i2EHyq2b9pmiH3A4tr
+ +Ijsdb71WoYa5QHe3ciBlXM2NYXWTJrIw4WlG2q/Fnb55WMoyQFyw6fXOJqfZ1zaetJ/bbx0O
+ nafEJ6vlKtQoP9Uk1a6LGHssU33RluM+zY3tAM8fsYLFskKpmeHia2omp83OafiV5UBjxb0R6
+ D/RSJdp1v40YomH0PcHCfg8EsaCxax0lihMIjLrk5QaX63TrWK4VZJIyYpUOzOsiNmIvjQnc2
+ BSvutwVCUCGLPtQ2hbX5vExkmetbXFBeEpTQNgEOn7WD9pJiTjkVD6HkyOeZhC3J6FXfGJwa3
+ DBm+91BJAg9m3vhBDknLatiUoEYDDypKjjKSPR0tT12Jvb0N1LQ3ESRdTTdFB4u6nYCji6B1/
+ 0VK6EwhbYoln25vC5dgGYxko/NFl98VUFV79oriUasRlGqW6jDzUevupbepRkqQ9qMOTSuPcE
+ HYWLxfZjNbbZXZ2fN/aaPjTI3BKO+xm9PEi7dMecNVGMO7c/xG3kCWrUsZNagD7ZVpBe62omt
+ 2wyT0wOC2IwlOuFyfTdRchipaVnk38Hgb4gHYRmLZMEBNbrf3s=
+X-Original-Sender: arnd@arndb.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 212.227.126.134 is neither permitted nor denied by best guess
+ record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -77,331 +155,48 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_713_1230125889.1589006391579
-Content-Type: multipart/alternative; 
-	boundary="----=_Part_714_480248941.1589006391579"
-
-------=_Part_714_480248941.1589006391579
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Few things I noticed trying to poke around
-
-The clang frontend is emitting the load/store for l4_hash and sw_hash as an=
-=20
-i16 despite it being stored in __u8. Not sure how clang decides the types=
-=20
-for bitfields.
-
-The X86 backend really likes to turn i16 and i8 loads that are least 4 byte=
-=20
-aligned into i32 loads unless the load is volatile. This helps with folding=
-=20
-loads into operations especially when operations are promoted from 16 bits.=
-=20
-But we seem to do it even for loads we aren't folding. It's a 1 byte=20
-encoding savings for i8, but doesn't save any bytes for i16. We also prefer=
-=20
-to widen a 4 byte aligned load so we can fold it into an instruction even=
-=20
-when there's an immediate to fold. Unless the immediate is [-128, 127].
-
-I think when I looked at some of this back in March. I also spotted some=20
-interaction with isTypeDesirableForOp or IsDesirableToPromoteOp in DAG=20
-Combiner. Those are two of the functions we use to indicate that i16 is to=
-=20
-be avoided due to the extra 0x66 prefix in the encoding. I can't remember=
-=20
-the specifics of how it came into play here.
-
-
-On Wednesday, May 6, 2020 at 12:50:53 PM UTC-7, Bill Wendling wrote:
+On Sat, May 9, 2020 at 12:29 AM Bart Van Assche <bvanassche@acm.org> wrote:
 >
-> This is a bug we came across here at an obscure search company that I=20
-> thought people would be interested in and/or may be able to help with:
+> >> Thanks for the feedback. I will have a look at _Pragma() and see what
+> >> the best way is to suppress this warning.
+> >
+> > The __diag_ignore() macro in linux/compiler.h should work for this.
 >
-> The cpu has a known problem of reloading a byte/short/int/long right afte=
-r=20
-> it has been written. Here in GRO, the issue is that=20
-> NAPI_GRO_CB(skb)->same_flow is written (at the end of skb_gro_receive()) =
-a=20
-> few cycles before CLANG reads again the byte containing=20
-> NAPI_GRO_CB(skb)->free. The dev_gro_receive() stall: mov $0x5,%r12d cmp=
-=20
-> $0xffffffffffffff8d,%rbx je 3bd 37.63 522: movzwl 0x4a(%r15),%r14d // Hig=
-h=20
-> cost reading something already in cache xor %r12d,%r12d 1.08 test=20
-> $0xc0,%r14b 1.79 setne %al test %rbx,%rbx 18.69% [kernel] [k]=20
-> gq_rx_alloc_page 14.19% [kernel] [k] dev_gro_receive // Only with CLANG=
-=3D1=20
-> we can see such high cost 13.02% [kernel] [k] gq_rx_napi_handler 7.95%=20
-> [kernel] [k] tcp_gro_receive 7.32% [kernel] [k]=20
-> __direct_call_packet_offload_callbacks_gro_receive1 5.34% [kernel] [k]=20
-> skb_gro_receive =E2=94=82 000000000022b880 <clear_b1>: =E2=94=82 clear_b1=
-(): 3.97 =E2=94=82 callq=20
-> __fentry__ =E2=94=82 push %rbp 3.77 =E2=94=82 mov %rsp,%rbp 90.62 =E2=94=
-=82 andb $0xfe,(%rdi) //=20
-> byte access 1.63 =E2=94=82 pop %rbp =E2=94=82 retq While the iter() stuff=
- uses word access=20
-> : 0.89 =E2=94=82 and $0x1,%r12d =E2=94=82 mov %r14,%rdi 1.16 =E2=94=82 ca=
-llq clear_b1 33.36 =E2=94=82 mov=20
-> 0x2bfd90(%r13),%ecx // very high penalty 0.10 =E2=94=82 mov %ecx,%edx 1.8=
-9 =E2=94=82 shr=20
-> $0x8,%edx 3.59 =E2=94=82 add %ebx,%edx 1.37 =E2=94=82 and $0x1,%edx =E2=
-=94=82 mov %edx,%eax 1.72 =E2=94=82=20
-> shl $0x8,%eax 0.83 =E2=94=82 and $0xfffffeff,%ecx 1.21 =E2=94=82 or %eax,=
-%ecx 4.24 =E2=94=82 mov=20
-> %ecx,0x2bfd90(%r13) 0.02 =E2=94=82 addl $0x1,0x2bfd94(%r13) =E2=94=82 mov=
- %r12d,%eax 2.28 =E2=94=82=20
-> shl $0x18,%eax =E2=94=82 test %edx,%edx 0.02 =E2=94=82 je 20 8.72 =E2=94=
-=82 and $0xfeffffff,%ecx=20
-> 0.69 =E2=94=82 or %eax,%ecx 2.66 =E2=94=82 mov %ecx,(%r14) =E2=94=82 jmpq=
- 20 Another very high cost=20
-> with CLANG is the skb->l4_hash setting, done with again a read of a 32bit=
-=20
-> quantity in order to set a 2bit bitfield. skb_set_hash(skb,=20
-> be32_to_cpu(desc->rss_hash), gq_rss_type(desc->flags_seq)); mov=20
-> 0x80(%r13),%ecx // 40% of cpu cycles in gq_rx_napi_handler() ! mov=20
-> $0xfffffcff,%esi and %esi,%ecx or %edx,%ecx mov %cx,0x80(%r13) Again, thi=
-s=20
-> high cost (reading 32bits) is because of a prior write of 16bits in=20
-> 0x80(%r13): mov 0x80(%r13),%eax and $0xffffff9f,%eax or $0x40,%eax mov=20
-> %ax,0x80(%r13) // writing 16bits ! This prior sequence is about=20
-> skb->ip_summed being set: skb->ip_summed =3D CHECKSUM_COMPLETE; Here is w=
-hat=20
-> gcc emits (no mix of bytes/word access) 765: 0f b6 83 80 00 00 00 movzbl=
-=20
-> 0x80(%rbx),%eax // byte load 76c: 83 e0 9f and $0xffffff9f,%eax 76f: 83 c=
-8=20
-> 40 or $0x40,%eax 772: 88 83 80 00 00 00 mov %al,0x80(%rbx) // byte write=
-=20
-> ... 79e: 0f b6 83 81 00 00 00 movzbl 0x81(%rbx),%eax // byte load 7a5: 41=
-=20
-> 8b 56 08 mov 0x8(%r14),%edx 7a9: 40 0f 95 c6 setne %sil 7ad: 83 e0 fc and=
-=20
-> $0xfffffffc,%eax 7b0: 0f ca bswap %edx 7b2: 09 f0 or %esi,%eax 7b4: 89 93=
-=20
-> 94 00 00 00 mov %edx,0x94(%rbx) 7ba: 88 83 81 00 00 00 mov %al,0x81(%rbx)=
-=20
-> // byte write=20
-> Replication program is attached. Some results:
+> Thanks Arnd, that's good to know. Is using __diag_ignore() mandatory in
+> this case? The following construct seems to work fine with both gcc and
+> clang:
 >
-> $ perf stat -r10 -e cycles clang-bitfield: 8,709,304,936 cycles:u ( +-=20
-> 0.34% ) 2.8238 +- 0.0131 seconds time elapsed ( +- 0.46% ) $ perf stat -r=
-10=20
-> -e cycles clang-bitfield-word: 8,059,274,548 cycles:u ( +- 0.13% ) 2.6271=
-=20
-> +- 0.0118 seconds time elapsed ( +- 0.45% ) $ perf stat -r10 -e cycles=20
-> gcc-bitfield: 7,841,119,839 cycles:u ( +- 0.25% ) 2.5847 +- 0.0151 second=
-s=20
-> time elapsed ( +- 0.58% )
+>  #define QLA_MSG_MAX 256
 >
+> +#pragma GCC diagnostic push
+> +#ifndef __clang__
+> +#pragma GCC diagnostic ignored "-Wsuggest-attribute=format"
+> +#endif
+> +
+>  DECLARE_EVENT_CLASS(qla_log_event,
+>         TP_PROTO(const char *buf,
+>                 struct va_format *vaf),
+> @@ -27,6 +32,8 @@ DECLARE_EVENT_CLASS(qla_log_event,
+>         TP_printk("%s %s", __get_str(buf), __get_str(msg))
+>  );
+>
+> +#pragma GCC diagnostic pop
+> +
+>  DEFINE_EVENT(qla_log_event, ql_dbg_log,
+>         TP_PROTO(const char *buf, struct va_format *vaf),
+>         TP_ARGS(buf, vaf)
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/3276d0f7-bdc8-4a46-aed9-790b9f7bc89c%40googlegroups.com.
+__diag_push(), __diag_ignore(), and __diag_pop() are just
+shortcuts for open-coded #pragma plus #ifdef, they do
+exactly the same thing here. I think it would be best to be
+consistent and use the macros, but it works either way.
 
-------=_Part_714_480248941.1589006391579
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+I actually have patches to introduce yet another syntax as part
+of a larger rework, but that is still WiP.
 
-<div dir=3D"ltr">Few things I noticed trying to poke around<div><br></div><=
-div>The clang frontend is emitting the load/store for=C2=A0l4_hash and=C2=
-=A0sw_hash as an i16 despite it being stored in __u8. Not sure how clang de=
-cides the types for bitfields.</div><div><br></div><div>The X86 backend rea=
-lly likes to turn i16 and i8 loads that are least 4 byte aligned into i32 l=
-oads unless the load is volatile. This helps with folding loads into operat=
-ions especially when operations are promoted from 16 bits. But we seem to d=
-o it even for loads we aren&#39;t folding. It&#39;s a 1 byte encoding savin=
-gs for i8, but doesn&#39;t save any bytes for i16. We also prefer to widen =
-a 4 byte aligned load so we can fold it into an instruction even when there=
-&#39;s an immediate to fold. Unless the immediate is [-128, 127].</div><div=
-><br></div><div>I think when I looked at some of this back in March. I also=
- spotted some interaction with=C2=A0isTypeDesirableForOp or=C2=A0IsDesirabl=
-eToPromoteOp in DAG Combiner. Those are two of the functions we use to indi=
-cate that i16 is to be avoided due to the extra 0x66 prefix in the encoding=
-. I can&#39;t remember the specifics of how it came into play here.<br><div=
-><br></div><div><br>On Wednesday, May 6, 2020 at 12:50:53 PM UTC-7, Bill We=
-ndling wrote:<blockquote class=3D"gmail_quote" style=3D"margin: 0;margin-le=
-ft: 0.8ex;border-left: 1px #ccc solid;padding-left: 1ex;"><div dir=3D"ltr">=
-<div style=3D"margin:15px 0px 11px;border:0px;font-weight:inherit;font-styl=
-e:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;outlin=
-e:0px"><div style=3D"margin:0px;border:0px;font-weight:inherit;font-style:i=
-nherit;font-family:inherit;vertical-align:baseline;outline:0px"><span><div =
-style=3D"margin:11px 0px 0px;border:0px;font-weight:inherit;font-style:inhe=
-rit;font-family:inherit;vertical-align:baseline;line-height:18px;word-break=
-:break-word;display:flex;outline:0px"><div style=3D"margin:0px;border:0px;f=
-ont-weight:inherit;font-style:inherit;font-family:inherit;vertical-align:ba=
-seline;display:flex;min-width:0px;outline:0px"><span><span><div style=3D"ma=
-rgin:0px;border:0px;font-style:inherit;font-size:0.8125rem;font-family:Work=
-AroundWebKitAndMozilla,monospace;vertical-align:baseline;outline:0px;letter=
--spacing:0.0142857em;line-height:1.38462"><span><span><div style=3D"margin:=
-0px;border:0px;font-weight:inherit;font-style:inherit;font-family:inherit;v=
-ertical-align:baseline;outline:0px;white-space:pre-wrap"><div style=3D"marg=
-in:0px;border:0px;font-weight:inherit;font-style:inherit;font-family:inheri=
-t;vertical-align:baseline;outline:0px">This is a bug we came across here at=
- an obscure search company that I  thought people would be interested in an=
-d/or may be able to help with:</div><div style=3D"margin:0px;border:0px;fon=
-t-weight:inherit;font-style:inherit;font-family:inherit;vertical-align:base=
-line;outline:0px"><br></div><div style=3D"margin:0px;border:0px;font-weight=
-:inherit;font-style:inherit;font-family:inherit;vertical-align:baseline;out=
-line:0px">The cpu has a known problem of reloading a byte/short/int/long ri=
-ght after it has been written.
+       Arnd
 
-Here in GRO, the issue is that NAPI_GRO_CB(skb)-&gt;same_flow is written (a=
-t the end of skb_gro_receive()) a few cycles before CLANG reads again the b=
-yte containing NAPI_GRO_CB(skb)-&gt;free.
-
-The dev_gro_receive() stall:
-
-               mov    $0x5,%r12d
-               cmp    $0xffffffffffffff8d,%rbx
-               je     3bd
-  37.63 522:   movzwl 0x4a(%r15),%r14d  // High cost reading something alre=
-ady in cache
-               xor    %r12d,%r12d
-   1.08        test   $0xc0,%r14b
-   1.79        setne  %al
-               test   %rbx,%rbx
-
-   18.69%  [kernel]          [k] gq_rx_alloc_page
-   14.19%  [kernel]          [k] dev_gro_receive  // Only with CLANG=3D1 we=
- can see such high cost
-   13.02%  [kernel]          [k] gq_rx_napi_handler
-    7.95%  [kernel]          [k] tcp_gro_receive
-    7.32%  [kernel]          [k] __direct_call_packet_offload_<wbr>callback=
-s_gro_receive1
-    5.34%  [kernel]          [k] skb_gro_receive
-
-
-
-       =E2=94=82   000000000022b880 &lt;clear_b1&gt;:
-       =E2=94=82   clear_b1():
-  3.97 =E2=94=82     callq  __fentry__
-       =E2=94=82     push   %rbp
-  3.77 =E2=94=82     mov    %rsp,%rbp
- 90.62 =E2=94=82     andb   $0xfe,(%rdi) // byte access
-  1.63 =E2=94=82     pop    %rbp
-       =E2=94=82     retq
-
-While the iter() stuff uses word access :
-
-  0.89 =E2=94=82      and    $0x1,%r12d
-       =E2=94=82      mov    %r14,%rdi
-  1.16 =E2=94=82      callq  clear_b1
- 33.36 =E2=94=82      mov    0x2bfd90(%r13),%ecx  // very high penalty
-  0.10 =E2=94=82      mov    %ecx,%edx
-  1.89 =E2=94=82      shr    $0x8,%edx
-  3.59 =E2=94=82      add    %ebx,%edx
-  1.37 =E2=94=82      and    $0x1,%edx
-       =E2=94=82      mov    %edx,%eax
-  1.72 =E2=94=82      shl    $0x8,%eax
-  0.83 =E2=94=82      and    $0xfffffeff,%ecx
-  1.21 =E2=94=82      or     %eax,%ecx
-  4.24 =E2=94=82      mov    %ecx,0x2bfd90(%r13)
-  0.02 =E2=94=82      addl   $0x1,0x2bfd94(%r13)
-       =E2=94=82      mov    %r12d,%eax
-  2.28 =E2=94=82      shl    $0x18,%eax
-       =E2=94=82      test   %edx,%edx
-  0.02 =E2=94=82      je     20
-  8.72 =E2=94=82      and    $0xfeffffff,%ecx
-  0.69 =E2=94=82      or     %eax,%ecx
-  2.66 =E2=94=82      mov    %ecx,(%r14)
-       =E2=94=82      jmpq   20
-
-Another very high cost with CLANG is the skb-&gt;l4_hash setting, done with=
- again a read of a 32bit quantity in order to set a 2bit bitfield.
-
-skb_set_hash(skb, be32_to_cpu(desc-&gt;rss_hash), gq_rss_type(desc-&gt;flag=
-s_seq));
-
-mov    0x80(%r13),%ecx  // 40% of cpu cycles in gq_rx_napi_handler() !
-mov    $0xfffffcff,%esi
-and    %esi,%ecx
-or     %edx,%ecx
-mov    %cx,0x80(%r13)
-
-Again, this high cost (reading 32bits) is because of a prior write of 16bit=
-s in 0x80(%r13):
-
-mov    0x80(%r13),%eax
-and    $0xffffff9f,%eax
-or     $0x40,%eax
-mov    %ax,0x80(%r13)   // writing 16bits !
-
-This prior sequence is about skb-&gt;ip_summed being set: skb-&gt;ip_summed=
- =3D CHECKSUM_COMPLETE;
-
-Here is what gcc emits (no mix of bytes/word access)
-
-     765: 0f b6 83 80 00 00 00 movzbl 0x80(%rbx),%eax  // byte load
-     76c: 83 e0 9f             and    $0xffffff9f,%eax
-     76f: 83 c8 40             or     $0x40,%eax
-     772: 88 83 80 00 00 00     mov    %al,0x80(%rbx) // byte write
-
-...
-     79e: 0f b6 83 81 00 00 00 movzbl 0x81(%rbx),%eax  // byte load
-     7a5: 41 8b 56 08           mov    0x8(%r14),%edx
-     7a9: 40 0f 95 c6           setne  %sil
-     7ad: 83 e0 fc             and    $0xfffffffc,%eax
-     7b0: 0f ca                 bswap  %edx
-     7b2: 09 f0                 or     %esi,%eax
-     7b4: 89 93 94 00 00 00     mov    %edx,0x94(%rbx)
-     7ba: 88 83 81 00 00 00     mov    %al,0x81(%rbx)  // byte write
-<br></div><div style=3D"margin:0px;border:0px;font-weight:inherit;font-styl=
-e:inherit;font-family:inherit;vertical-align:baseline;outline:0px">Replicat=
-ion program is attached. Some results:</div><div style=3D"margin:0px;border=
-:0px;font-weight:inherit;font-style:inherit;font-family:inherit;vertical-al=
-ign:baseline;outline:0px"><br></div><div style=3D"margin:0px;border:0px;fon=
-t-weight:inherit;font-style:inherit;font-family:inherit;vertical-align:base=
-line;outline:0px"><span style=3D"color:rgb(32,33,36);letter-spacing:0.18571=
-4px">$ perf stat -r10 -e cycles clang-bitfield:
-    8,709,304,936      cycles:u ( +-  0.34% )
-    2.8238 +- 0.0131 seconds time elapsed  ( +-  0.46% )
-
-$ perf stat -r10 -e cycles clang-bitfield-word:
-   8,059,274,548      cycles:u  ( +-  0.13% )
-   2.6271 +- 0.0118 seconds time elapsed  ( +-  0.45% )
-
-$ perf stat -r10 -e cycles gcc-bitfield:
-    7,841,119,839      cycles:u  ( +-  0.25% )
-    2.5847 +- 0.0151 seconds time elapsed  ( +-  0.58% )</span><br></div></=
-div></span></span></div></span></span></div></div></span></div></div><div s=
-tyle=3D"margin:0px;border:0px;font-weight:inherit;font-style:inherit;font-s=
-ize:13px;font-family:inherit;vertical-align:baseline;clear:both;outline:0px=
-"></div><div style=3D"margin:10px 0px;border-width:1px 0px 0px;border-top-s=
-tyle:solid;border-right-style:initial;border-bottom-style:initial;border-le=
-ft-style:initial;border-top-color:rgb(229,229,229);border-right-color:initi=
-al;border-bottom-color:initial;border-left-color:initial;font-weight:inheri=
-t;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:base=
-line;outline:0px"><div style=3D"margin:10px 0px;border:0px;font-weight:inhe=
-rit;font-style:inherit;font-family:inherit;vertical-align:baseline;outline:=
-0px"><div style=3D"margin:5px;border:0px;font-family:Roboto,Arial,sans-seri=
-f;vertical-align:baseline;float:left;outline:0px;color:rgb(32,33,36);letter=
--spacing:0.185714px"><span name=3D"file-present" size=3D"large" style=3D"co=
-lor:rgb(60,64,67);display:inline-block;line-height:0;vertical-align:middle"=
-><span style=3D"background-repeat:no-repeat;display:inline-block;min-height=
-:24px;width:24px"></span></span></div></div></div></div>
-</blockquote></div></div></div>
-
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/3276d0f7-bdc8-4a46-aed9-790b9f7bc89c%40googleg=
-roups.com?utm_medium=3Demail&utm_source=3Dfooter">https://groups.google.com=
-/d/msgid/clang-built-linux/3276d0f7-bdc8-4a46-aed9-790b9f7bc89c%40googlegro=
-ups.com</a>.<br />
-
-------=_Part_714_480248941.1589006391579--
-
-------=_Part_713_1230125889.1589006391579--
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a1%2BjtP9NRj-UCaDHjGSJiqDA4Y%3D0YTMfvr7zWS%2BOKRTUw%40mail.gmail.com.
