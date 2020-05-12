@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBHWF5P2QKGQET62NDZI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBP6G5P2QKGQEJTBTH3I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
-	by mail.lfdr.de (Postfix) with ESMTPS id E5F6B1CFCAA
-	for <lists+clang-built-linux@lfdr.de>; Tue, 12 May 2020 19:53:35 +0200 (CEST)
-Received: by mail-pf1-x43f.google.com with SMTP id a5sf12528954pfk.6
-        for <lists+clang-built-linux@lfdr.de>; Tue, 12 May 2020 10:53:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1589306014; cv=pass;
+Received: from mail-io1-xd3e.google.com (mail-io1-xd3e.google.com [IPv6:2607:f8b0:4864:20::d3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9F11C1CFCB0
+	for <lists+clang-built-linux@lfdr.de>; Tue, 12 May 2020 19:56:16 +0200 (CEST)
+Received: by mail-io1-xd3e.google.com with SMTP id 2sf13711620ioy.23
+        for <lists+clang-built-linux@lfdr.de>; Tue, 12 May 2020 10:56:16 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1589306175; cv=pass;
         d=google.com; s=arc-20160816;
-        b=iuABx2Q2/5noow5pHYHULg++4jqSby/SVpjCPJx0Te34a2xK7M/RG/5orkT+ufVysp
-         +2jvrwsae80eNpAZVCWoMhFcwHo0PIwClJCi1dpc875aZt/vYX56qVX2IwDzjWk3Aah5
-         /mvnOMNMNzsSUlCN6sgDj+zJ118bRptozt3vpB8G3zGSEcpT1ky9/Wt98rWUYfav0IQD
-         E+2KmoT202xEqroILOjMrtcehzxapNplmsmzX82PsMseuh3cOdmSnKy8B3tre33J2qME
-         ba/p1Jlcd1Nk2Vc3zDqhxZmUd4/GmpPcbnTbmVw9AYOQpP0TmD2nK4Bo+roeqmxWsjKv
-         zKYQ==
+        b=GxY4ali0jWu2CxGxHXk93WN2I02XaW5Wke93szyXxhqRdE8gCJY624EkP3pP5VZ1E1
+         jaUiTPidLdcspEkg5t/OJBqQzEmwiOh16/bLIqVNazfNpi3LEThjjb86GDAr6mIAWjwm
+         RHB2cZMGtvi+F/09GDHamt3P186ELva4p/Uz8NzddMp4dnG6+ytS6bzgQgjg3/wz4BEp
+         m6xkKVrwxL15ADTA3aHw6VrgXMHd0YPSOKOi+3QLLy71UoiByR1eNRpOFdy6Bkjmc4Xt
+         jT1ToPZQ9VW5OdlYcb8VI/0R6iiAlwzh4o6WJTBqoCWQD6zjSIcuoklqmybV3K0ciddi
+         9AWg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=Z0+diA5DAp7rrCf/BSIU13jaVCAt5du4CuEgw2Rre/U=;
-        b=DheotQ1mnzblaTer8og5Hen2sq0+rUvWEsz8ZRtdN+rV7srtk/fzmCQnSuEkL3bBYw
-         eBj59Vb4nB/Xe7OFbpb4TSK0uU57jqH3BjxwEFs3XB37S296ebeRJtLJPPVtDXVCN3Q8
-         8xQGIBc+cerQqAt46P6czpuh9TC2d0FqMAsnESv/0O3YNjFQRMGaJNPe4Sh4KJx0SF4f
-         itPSxAJG8Z44JVjmmNNv2BmGx+q0GIYmhZ5X7aHOPTpism4wc55J7dBWFNAs2ypM900d
-         TtoIuAhnIvJk3YiNm0tDINDHVUh364NstZPKdqjSajNvth4C7y83aO9Kxm0Y2VLbyPt2
-         l7xQ==
+        bh=5Klk/L1QXqcP4nGuAAJSreBqvIQqPRs+XqaQ9fmBVNg=;
+        b=gJSf8DmF8MV6r4WyTWDNpj1K4yUIiWm5klbKUZEkd13c4xKA/n8Md7HD2s4+hlTWxm
+         zh9zhBx545tman0i22Uj/WFNw/uarW+bmbB5U54WFgSIzgAxZCoRIEbXP3xm0dK3AX2m
+         kIEfG+gIsqj0mMpAqzAg57i5sCzTqvdJV2UrZykwc86X6NpjZsfNi3rNersuecnpZT3S
+         Lzzb+36+AiFi+kprumf8ZS2Nrb8jPT3LujWh/hcl1KTBbRukE/if60mXdkmQNMbAO2xD
+         3CF3SDxUoZyc2Jw3VaVzp+iIMLULdbiJ3uaDV/TC8lNchKvKK5y7f7hJdb62I3ohfzwM
+         Ue5Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=LhTXJky1;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1035 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=SiI0qUbo;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Z0+diA5DAp7rrCf/BSIU13jaVCAt5du4CuEgw2Rre/U=;
-        b=BSqru2zYFktdlOTbyJtPrjPYOZyirnjSCj1GOeTxwiYM6UjGZeohLj88OWNxUfJVRU
-         1VM7hfF/3tiq5K8O4g20Ikcz42wgwOCe8MVQO7xyi8F3kK9zipoT4OmuCIY71dkzQ+Xw
-         IY8ozARkLJrxbC2W/fwFqOrk6hzSqepIJgFzchjQ4tz0Zza0Ep6gNtZH5pJRr50OfgWM
-         ztBCQf5UBLWF3f7xRvpYJsht4KhrUioubGok1Dr7pXpF7al+gWa4Jr5Wx4qcNiau0TpU
-         mrvhuEUEozCmw4kSkSilY0KRMFqyb/mmpoY9MtJy/NaQk8hMGaXz4l/GXHY7c9OzHUhe
-         mHQg==
+        bh=5Klk/L1QXqcP4nGuAAJSreBqvIQqPRs+XqaQ9fmBVNg=;
+        b=b8k5wTSempewFFnMi1E566J9PKvUiYJwz4VPLUDFSkVvDLYhRUEpRs+s3z3iAdg1l6
+         As9BZSeC67+2/rtr2rR6fl2Ck+dOm2rHgEge9Cc7Bje/G9/w6TSG2O9xV1TLck4dN2GT
+         t2cAwCo9RMM3nR4UQ8t/UjQIl+5bXVSdSSfVywhvLRHaHppgWire5CZb5uU9wHpkqn9/
+         gCOOY9r6KsiE8mf+Vr7k1PYiGvPFA8KMHVr9e0FkGKH19lf7gEUO9WLcOPnwwztQPh+2
+         Q0ZSO57m/U5MIoOC3TWBfnp5B3LqgcAZhvNZZeFI8tBDNtuu1GzDX2VXAnmzBTxwjSZV
+         Te2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,71 +49,70 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Z0+diA5DAp7rrCf/BSIU13jaVCAt5du4CuEgw2Rre/U=;
-        b=pyrB/miJn64H009Wxi1N47cqcsgTneRE35sJy0nDvrjE0e0iaHeIDoyL1S8S+YcfxZ
-         I+9+q96NXdBsICCxBN6H3MZ/OnlmVjr85jG7iJ2UHZE7iQm7gINYidvZJXDcqNek4ehW
-         UuocVBxObfDmaw4RNVvljbB8Ci4NnF9ZaBBBwRj5UE8aytQ9y1ZelpNT5qymCDkOGROI
-         8I/CXiwbnOdDA0FNYhDXJ5miyQy4WDFDJ6rJ6cy8LsVlity8YgaQPJQEbR7YzNsZ/jMn
-         jwaJtp1Dh2LWM/evSFLldJl8RJ7ppaBgifi1AvLZDEUnyGamFoQEfbwgEi0jkk3UWx+x
-         K67A==
-X-Gm-Message-State: AGi0PuZUbu4VuxU+H08lXZlIO8AovqmT34bsGTsjs4K9Fjqab6tJgutW
-	0xH9olC6Hv7F0uh3rCXp214=
-X-Google-Smtp-Source: APiQypIsyWyo8nV5zOpPoeHLmDR/5I33jm7ANAPoqD5585QS+M0qpScF1M1V/lMiQy8z1CvTG4jtug==
-X-Received: by 2002:a62:1452:: with SMTP id 79mr22159179pfu.108.1589306014631;
-        Tue, 12 May 2020 10:53:34 -0700 (PDT)
+        bh=5Klk/L1QXqcP4nGuAAJSreBqvIQqPRs+XqaQ9fmBVNg=;
+        b=k6zkUH02eqAgni9g6oL7jPxbpqe3dQv2RXGNWlW70dvx5QwUdgKvCEclNoPk99FT1E
+         qCag4txRWKLNsDP0xS6IcgngNHqHWXYxbZX8jxomgs9RCUCA6HkAmtyc0MuZut704r8I
+         tRUNQtTxprM0SDR1R2SdwuVBsPtAtlpGm23yX5gPVsh4LFhSEq/gopyaeIT+fhA/LNL+
+         T4R7LHP/WM9+yeY1A5UNcXzSLZh2bPyB1mhLFm52JtOFh70mfpQwCe7eSZXHPwT/bEHX
+         lNAJPfpORtHTbLdHjaQRHyGJAv3cPApcIyShsLzwg7nt+11D8JIY7Egplgou/z/X8c66
+         vzXQ==
+X-Gm-Message-State: AGi0PuayKEdfDr5R3QJGhZ+JcytrcDuy5ngl2pZpxj6nh4UWvSh6SC/A
+	05V581J6jolckX25exRGmQ0=
+X-Google-Smtp-Source: APiQypLvsP+LlqNYlaLkXwYAB0m2rjPeCsHgsAk/hZB2aYVaQxUUBmT1CSk0dW/UjpLAa/qAACHCJA==
+X-Received: by 2002:a92:d341:: with SMTP id a1mr23597794ilh.130.1589306175585;
+        Tue, 12 May 2020 10:56:15 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:2944:: with SMTP id p65ls1413171pgp.2.gmail; Tue, 12 May
- 2020 10:53:34 -0700 (PDT)
-X-Received: by 2002:a63:712:: with SMTP id 18mr9920664pgh.96.1589306014220;
-        Tue, 12 May 2020 10:53:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1589306014; cv=none;
+Received: by 2002:a92:1b96:: with SMTP id f22ls4429623ill.3.gmail; Tue, 12 May
+ 2020 10:56:15 -0700 (PDT)
+X-Received: by 2002:a92:1593:: with SMTP id 19mr5909876ilv.291.1589306175272;
+        Tue, 12 May 2020 10:56:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1589306175; cv=none;
         d=google.com; s=arc-20160816;
-        b=F52kNs7patCHrYY4xH/HPkkJPDSRb08ri1UvQEqKSQqTwjnQ9t4K3bmEO1eYcCnu/F
-         +slPe/4SzNaVimLQ4faJb8OelaSDiAVRq7A/mJGkgfsF/IOiCXtQf0Wq1er9rbqfAibO
-         3yJtd/ICRA85dIidipgobbxE9kq7EZwt9CZAqYFN6/XWDnW7uxbl2HLA+Yp29QCBp3DM
-         gmvoXKjE9TL+KAIsmnL7KbPy2aFz2groQYGaMNJBZKNg4oE3Ma+Qk3cBWrJoedY52MS3
-         dl97bzZbpEpPwCr3lR0J0aMBwz9ziELI7TB2NQoZBh+bCwlTLS+wIL+D+RzCTWfu4KVC
-         0Tcg==
+        b=GAtFmRIVsUOVctzW1nGNazIcFcYehtRGvA6tN/jo4e2+e+Ont4Dw9PozhSlkeTh6Kf
+         BrnTi9Xg552FuuxPbujoTkMseIuo2wwcbj/76zh0pCKwr5z2rNA6QR0W2arPsZnKTvd8
+         sYHWfwHPD67gW0eNWC5cppieipWGzZlD8YZ6GfX++k3fCC0CqEqy20gsNui5Oatea+pW
+         mVzmuWveHCHWog1TUJsT6mf33/ZN50HYdZ08zqKqRqqr5+RYsu4Woc/36jGwKko1tWQf
+         OmEpyDYtFHB4a6npwLWMYP8lF4pf47V00Cx20GAl62j2EXdUtmIKhRwoJ0tVhp450cnd
+         crKA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=NFN7gxqWaZ3YkC9qeEMk0Yks4570DH54lSu80CUMPHM=;
-        b=GuVvXriTbvVW3B3ysCVDlI3L7CLMaNRVNCTap+K4ItbbgvQKFWP76jJsLonUrfGSFQ
-         e1ASBTbSfyUYbLl6iNXNUs9N8r+MiuLlAGuhbzAwR6scUcV6u0Wa0bIp0XFLzSDD30QN
-         5mfcQLPUoz+poWaYm/V+adRRq4qan25zfS5i6H2Y0YjHSh2SDgQnasMKqOObNfFKNn6V
-         DE9r+qAlEiOXj9sfWDFuYLD/sj49CW4JorbDQ5AtKrSOFNt5VK6qyE4VCxMQkAPf0em3
-         6Lv0Krs3KTnjfV81EfbP8l3/5o/1dSiiQYrZ7L1pCWFHDb9De1vD0yHTh4xNYLrfcIsX
-         O23g==
+        bh=232a3UeI1DOJlN2Hl1VV1JacE9AzAHhltRJ2VYXnP1w=;
+        b=WWpHP7ruhzba4bdtadU1ynW6yAuCM+nbW1GpU7K52wD12UtSyDhapByfHg6nn0+Scx
+         92lIES1awSQPZDvx+Kdr3SozQbUUV5p2SZiVAiTTV3MgATJC9qtRqfVdZnZ9L2cPVxDy
+         CgTu5ixpHUADm+0+Mb0oHJoEQO41mozDTrpzHNxElsNRLL9w/DXCf+SPpRhMhrss94cT
+         lRQsO59TL9J8bBYGRkZsz/tPItJ4nete1ku/jBSJ89Pd7KO0TzdNYaeAJp7keFxctuBB
+         8/MdqI5z4i96rkq7qt8TqqtQK+4geLA/jqAbky/gj+Wt5erKTO/qpWYWgK0Pr9vxwqO5
+         PMOA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=LhTXJky1;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1035 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=SiI0qUbo;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x1035.google.com (mail-pj1-x1035.google.com. [2607:f8b0:4864:20::1035])
-        by gmr-mx.google.com with ESMTPS id x5si400391pjo.0.2020.05.12.10.53.34
+Received: from mail-pg1-x544.google.com (mail-pg1-x544.google.com. [2607:f8b0:4864:20::544])
+        by gmr-mx.google.com with ESMTPS id p18si304556ile.5.2020.05.12.10.56.15
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 12 May 2020 10:53:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1035 as permitted sender) client-ip=2607:f8b0:4864:20::1035;
-Received: by mail-pj1-x1035.google.com with SMTP id a5so9883725pjh.2
-        for <clang-built-linux@googlegroups.com>; Tue, 12 May 2020 10:53:34 -0700 (PDT)
-X-Received: by 2002:a17:90a:2a4a:: with SMTP id d10mr4391072pjg.32.1589306013668;
- Tue, 12 May 2020 10:53:33 -0700 (PDT)
+        Tue, 12 May 2020 10:56:15 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) client-ip=2607:f8b0:4864:20::544;
+Received: by mail-pg1-x544.google.com with SMTP id p21so640649pgm.13
+        for <clang-built-linux@googlegroups.com>; Tue, 12 May 2020 10:56:15 -0700 (PDT)
+X-Received: by 2002:a65:5b84:: with SMTP id i4mr21255326pgr.263.1589306174309;
+ Tue, 12 May 2020 10:56:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <202005120804.nsmIMr1X%lkp@intel.com>
-In-Reply-To: <202005120804.nsmIMr1X%lkp@intel.com>
+References: <20200508204751.155488-5-lyude@redhat.com> <202005101057.9xhrjs8z%lkp@intel.com>
+In-Reply-To: <202005101057.9xhrjs8z%lkp@intel.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 12 May 2020 10:53:20 -0700
-Message-ID: <CAKwvOd=+43yo8xaSvbgU0f4MWdZVxdKr7vhjY86QK6UKGGunsw@mail.gmail.com>
-Subject: Re: [drm-drm-intel:for-linux-next 4/5] drivers/gpu/drm/i915/gt/gen8_ppgtt.c:392:24:
- warning: duplicate 'inline' declaration specifier
-To: Mika Kuoppala <mika.kuoppala@linux.intel.com>, Chris Wilson <chris@chris-wilson.co.uk>
+Date: Tue, 12 May 2020 10:56:01 -0700
+Message-ID: <CAKwvOdk16Wa59kPYSM-51P2xcJ9E_RDhTd=7GvGXwtvvvZiHug@mail.gmail.com>
+Subject: Re: [RFC v4 04/12] drm/vblank: Add vblank works
+To: Lyude Paul <lyude@redhat.com>
 Cc: kbuild-all@lists.01.org, 
 	clang-built-linux <clang-built-linux@googlegroups.com>, kbuild test robot <lkp@intel.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=LhTXJky1;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1035
+ header.i=@google.com header.s=20161025 header.b=SiI0qUbo;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -130,49 +129,169 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, May 11, 2020 at 5:09 PM kbuild test robot <lkp@intel.com> wrote:
+Hi Lyude,
+Sorry for the noise. This report is unrelated to your patch.  It has
+to do with Clang validating dead code.  At least now we have a
+randconfig to reliably reproduce.
+
+On Sat, May 9, 2020 at 8:04 PM kbuild test robot <lkp@intel.com> wrote:
 >
-> tree:   git://anongit.freedesktop.org/drm/drm-intel for-linux-next
-> head:   1c8ee8b92fb6ac9d5975147cc902e8c142eca338
-> commit: 84eac0c65940d9633247b0c8c826d4bcb7307351 [4/5] drm/i915/gt: Force pte cacheline to main memory
-> config: x86_64-randconfig-a011-20200511 (attached as .config)
+> Hi Lyude,
+>
+> [FYI, it's a private test report for your RFC patch.]
+> [auto build test ERROR on drm-exynos/exynos-drm-next]
+> [also build test ERROR on drm-tip/drm-tip]
+> [cannot apply to drm-intel/for-linux-next tegra-drm/drm/tegra/for-next linus/master drm/drm-next v5.7-rc4 next-20200508]
+> [if your patch is applied to the wrong git tree, please drop us a note to help
+> improve the system. BTW, we also suggest to use '--base' option to specify the
+> base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
+>
+> url:    https://github.com/0day-ci/linux/commits/Lyude-Paul/drm-nouveau-Introduce-CRC-support-for-gf119/20200509-083258
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/daeinki/drm-exynos.git exynos-drm-next
+> config: x86_64-randconfig-a004-20200510 (attached as .config)
 > compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 68a9356bdea69dbcec1233f8b1fab47e72fca991)
 > reproduce:
->         git checkout 84eac0c65940d9633247b0c8c826d4bcb7307351
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install x86_64 cross compiling tool for clang build
+>         # apt-get install binutils-x86-64-linux-gnu
 >         # save the attached .config to linux build tree
->         make ARCH=x86_64
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
 >
 > If you fix the issue, kindly add following tag as appropriate
 > Reported-by: kbuild test robot <lkp@intel.com>
 >
-> All warnings (new ones prefixed by >>):
+> All errors (new ones prefixed by >>):
 >
-> >> drivers/gpu/drm/i915/gt/gen8_ppgtt.c:392:24: warning: duplicate 'inline' declaration specifier [-Wduplicate-decl-specifier]
->    static __always_inline inline void
->                           ^
-
-IIRC __always_inline expands to `inline` plus the __attribute__, so
-you don't need __always_inline + inline.  I hit something similar
-yesterday with `noinline`.
-
->    include/linux/compiler_types.h:138:16: note: expanded from macro 'inline'
->    #define inline inline __gnu_inline __inline_maybe_unused notrace
->                   ^
->    1 warning generated.
+>    In file included from include/linux/fs.h:34:
+>    In file included from include/linux/percpu-rwsem.h:7:
+>    In file included from include/linux/rcuwait.h:6:
+>    In file included from include/linux/sched/signal.h:6:
+>    include/linux/signal.h:177:1: warning: array index 2 is past the end of the array (which contains 1 element) [-Warray-bounds]
+>    _SIG_SET_OP(signotset, _sig_not)
+>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    include/linux/signal.h:165:3: note: expanded from macro '_SIG_SET_OP'
+>                    set->sig[2] = op(set->sig[2]);                          \
+>                    ^        ~
+>    arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+>            unsigned long sig[_NSIG_WORDS];
+>            ^
+>    In file included from drivers/gpu/drm/drm_vblank.c:32:
+>    In file included from include/drm/drm_crtc.h:31:
+>    In file included from include/linux/fb.h:10:
+>    In file included from include/linux/fs.h:34:
+>    In file included from include/linux/percpu-rwsem.h:7:
+>    In file included from include/linux/rcuwait.h:6:
+>    In file included from include/linux/sched/signal.h:6:
+>    include/linux/signal.h:177:1: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+>    _SIG_SET_OP(signotset, _sig_not)
+>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    include/linux/signal.h:167:27: note: expanded from macro '_SIG_SET_OP'
+>            case 2: set->sig[1] = op(set->sig[1]);                          \
+>                                     ^        ~
+>    include/linux/signal.h:176:24: note: expanded from macro '_sig_not'
+>    #define _sig_not(x)     (~(x))
+>                               ^
+>    arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+>            unsigned long sig[_NSIG_WORDS];
+>            ^
+>    In file included from drivers/gpu/drm/drm_vblank.c:32:
+>    In file included from include/drm/drm_crtc.h:31:
+>    In file included from include/linux/fb.h:10:
+>    In file included from include/linux/fs.h:34:
+>    In file included from include/linux/percpu-rwsem.h:7:
+>    In file included from include/linux/rcuwait.h:6:
+>    In file included from include/linux/sched/signal.h:6:
+>    include/linux/signal.h:177:1: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+>    _SIG_SET_OP(signotset, _sig_not)
+>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    include/linux/signal.h:167:10: note: expanded from macro '_SIG_SET_OP'
+>            case 2: set->sig[1] = op(set->sig[1]);                          \
+>                    ^        ~
+>    arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+>            unsigned long sig[_NSIG_WORDS];
+>            ^
+>    In file included from drivers/gpu/drm/drm_vblank.c:32:
+>    In file included from include/drm/drm_crtc.h:31:
+>    In file included from include/linux/fb.h:10:
+>    In file included from include/linux/fs.h:34:
+>    In file included from include/linux/percpu-rwsem.h:7:
+>    In file included from include/linux/rcuwait.h:6:
+>    In file included from include/linux/sched/signal.h:6:
+>    include/linux/signal.h:188:10: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+>            case 2: set->sig[1] = 0;
+>                    ^        ~
+>    arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+>            unsigned long sig[_NSIG_WORDS];
+>            ^
+>    In file included from drivers/gpu/drm/drm_vblank.c:32:
+>    In file included from include/drm/drm_crtc.h:31:
+>    In file included from include/linux/fb.h:10:
+>    In file included from include/linux/fs.h:34:
+>    In file included from include/linux/percpu-rwsem.h:7:
+>    In file included from include/linux/rcuwait.h:6:
+>    In file included from include/linux/sched/signal.h:6:
+>    include/linux/signal.h:201:10: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+>            case 2: set->sig[1] = -1;
+>                    ^        ~
+>    arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+>            unsigned long sig[_NSIG_WORDS];
+>            ^
+>    In file included from drivers/gpu/drm/drm_vblank.c:32:
+>    In file included from include/drm/drm_crtc.h:31:
+>    In file included from include/linux/fb.h:10:
+>    In file included from include/linux/fs.h:34:
+>    In file included from include/linux/percpu-rwsem.h:7:
+>    In file included from include/linux/rcuwait.h:6:
+>    In file included from include/linux/sched/signal.h:6:
+>    include/linux/signal.h:232:10: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+>            case 2: set->sig[1] = 0;
+>                    ^        ~
+>    arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+>            unsigned long sig[_NSIG_WORDS];
+>            ^
+>    In file included from drivers/gpu/drm/drm_vblank.c:32:
+>    In file included from include/drm/drm_crtc.h:31:
+>    In file included from include/linux/fb.h:10:
+>    In file included from include/linux/fs.h:34:
+>    In file included from include/linux/percpu-rwsem.h:7:
+>    In file included from include/linux/rcuwait.h:6:
+>    In file included from include/linux/sched/signal.h:6:
+>    include/linux/signal.h:244:10: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
+>            case 2: set->sig[1] = -1;
+>                    ^        ~
+>    arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+>            unsigned long sig[_NSIG_WORDS];
+>            ^
+> >> drivers/gpu/drm/drm_vblank.c:2376:2: error: indirection requires pointer operand ('void' invalid)
+>            DEFINE_KTHREAD_FLUSH_WORK(fwork);
+>            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    include/linux/kthread.h:146:36: note: expanded from macro 'DEFINE_KTHREAD_FLUSH_WORK'
+>            struct kthread_flush_work fwork = KTHREAD_FLUSH_WORK_INIT(fwork);
+>                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    include/linux/kthread.h:132:2: note: expanded from macro 'KTHREAD_FLUSH_WORK_INIT'
+>            COMPLETION_INITIALIZER_ONSTACK((fwork).done), \
+>            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    include/linux/completion.h:43:3: note: expanded from macro 'COMPLETION_INITIALIZER_ONSTACK'
+>            (*({ init_completion(&work); &work; }))
+>             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    49 warnings and 2 errors generated.
 >
-> vim +/inline +392 drivers/gpu/drm/i915/gt/gen8_ppgtt.c
+> vim +2376 drivers/gpu/drm/drm_vblank.c
 >
->    391
->  > 392  static __always_inline inline void
->    393  write_pte(gen8_pte_t *pte, const gen8_pte_t val)
->    394  {
->    395          /* Magic delays? Or can we refine these to flush all in one pass? */
->    396          *pte = val;
->    397          wmb(); /* cpu to cache */
->    398          clflush(pte); /* cache to memory */
->    399          wmb(); /* visible to all */
->    400  }
->    401
+>   2364
+>   2365  /**
+>   2366   * drm_vblank_work_flush - wait for a scheduled vblank work to finish
+>   2367   * executing
+>   2368   * @work: vblank work to flush
+>   2369   *
+>   2370   * Wait until @work has finished executing once.
+>   2371   */
+>   2372  void drm_vblank_work_flush(struct drm_vblank_work *work)
+>   2373  {
+>   2374          struct drm_vblank_crtc *vblank = work->vblank;
+>   2375          bool scheduled;
+> > 2376          DEFINE_KTHREAD_FLUSH_WORK(fwork);
 >
 > ---
 > 0-DAY CI Kernel Test Service, Intel Corporation
@@ -181,7 +300,7 @@ yesterday with `noinline`.
 > --
 > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202005120804.nsmIMr1X%25lkp%40intel.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202005101057.9xhrjs8z%25lkp%40intel.com.
 
 
 
@@ -192,4 +311,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3D%2B43yo8xaSvbgU0f4MWdZVxdKr7vhjY86QK6UKGGunsw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdk16Wa59kPYSM-51P2xcJ9E_RDhTd%3D7GvGXwtvvvZiHug%40mail.gmail.com.
