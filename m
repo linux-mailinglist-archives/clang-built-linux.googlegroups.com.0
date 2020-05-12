@@ -1,148 +1,141 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBPN45H2QKGQE3ADTR5A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRB3OK5H2QKGQED45TDUI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd38.google.com (mail-io1-xd38.google.com [IPv6:2607:f8b0:4864:20::d38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2D2A21CEF19
-	for <lists+clang-built-linux@lfdr.de>; Tue, 12 May 2020 10:28:47 +0200 (CEST)
-Received: by mail-io1-xd38.google.com with SMTP id m5sf5172986ioq.19
-        for <lists+clang-built-linux@lfdr.de>; Tue, 12 May 2020 01:28:47 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1589272126; cv=pass;
+Received: from mail-qk1-x73a.google.com (mail-qk1-x73a.google.com [IPv6:2607:f8b0:4864:20::73a])
+	by mail.lfdr.de (Postfix) with ESMTPS id DD9941CEFDC
+	for <lists+clang-built-linux@lfdr.de>; Tue, 12 May 2020 10:59:26 +0200 (CEST)
+Received: by mail-qk1-x73a.google.com with SMTP id y64sf12895067qkc.19
+        for <lists+clang-built-linux@lfdr.de>; Tue, 12 May 2020 01:59:26 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1589273965; cv=pass;
         d=google.com; s=arc-20160816;
-        b=vnEdUg9fvCkfNy4X2fDtawKH82Q7UX2q9VfersC4rGukuc3RxYKkPIBogGapnjmpuq
-         zJvUuaLv5OTs7dL1hcn4l8lxNXKNmfrGxujOKwyZCdcLJeTvhUmha7pYcKJzwkHdKdG9
-         p84mMbN8aQhRSV3Fd9PyU503fs6gDRjwZ6OfDvQh4ROP5snF0UKoVGQ9rKulCP0yhrHk
-         +c7Uv3axL7RrE/s/6Pbh/ooXAjyKiFbYeRyi2NVuGOHyH7oui7a/1BxxxtQHecb+Lwss
-         q1rFV0HfcLI7bcfrScT9TJ8pMhd3sp0ZNWi+3AQIPWZ15qre0VIYRbfLZk6lfApc79A8
-         It1A==
+        b=eg0W5l+4aLjoq+wFRKxd6Ts5IuY4+G7BnNca9ATkhCpV4oWWLRJxLog1B6imKkeYSF
+         i6sNm++imBkfDhArdTCfCpxskujah+xdE/E9LfZBkUXoSXtS6zKlUZ7NMmJRvnXB5GgJ
+         LLBtyMIZiP5ecPHEpwe8ErAkLzdceFcLHjRIeXXLctLgyUJQyavw75TvfwIWILuLoO52
+         R9V56+zNJdTyjxD8vVFYBy5AwtxtbRk6z6jiBGJKNxxTkyOOBAfiQlwQOuCeuwYfy1Ul
+         Ftw3ZJYRHj7v9G+Oof+sX75Rm4KkAeSJA6zMvMZP+6U/6tWZseTeX5yyuZuBErKbCneM
+         5rzQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=nltcHnR7Wv7r7pHeMcNPddqTtdkxr4d4VPpcsfN3cZU=;
-        b=0OkunB5KQVI3LAivpZlUiu1/FZ0kIhopPjd/lk06O9N8JMhpsSGtqzL7PfuR5YDAi2
-         3x6r+rF4uDIOk6MkiwE+DPVD9onAVJuYMuzCEOFLxftl3809zfM6DqKrX+PMuG5p+lBj
-         r9fmFYejwo41o0H7WWNF9Zi+O/Qc9bjJBLC1wfd7tbwj4op+yCamVdLrwbIAc1+i3qIg
-         LJBtrrzfer+7ksC/euGslWfYr89S7O9UamB+EndCrOWg/DjundMIR4x4UgGntCWOEADY
-         +pujIAghp1jy4GU6ZGpeNJQ5CakavfJs6oSU3eZXlLCxp1PS3H8DMFH9cbohs0g7y6uz
-         K4Wg==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=NnRgzsM1uOogDeINmb5kCQnu9FJyK2XzzbwrEDoCAKw=;
+        b=jNJ0s242wjfWeetprxTfHsCsmFv+iP7XG01++CgV1xY5Sa57+HM/JlN0koowrzFYuw
+         QU3mlvcxkFuoQkXCCZSIfK4If6JD/MUi6UOOrZqZsCzlkaxp1LhOdjhLJiA00GMJ18NX
+         dm5llWCI/g4ZdiSre9gbuKNFR9RQyqv9JKdlFmtn5hcaW/Tsa+l9YBFMlwZo7X+u+Tuf
+         EdeOVesQQUv+Fj4NEFzilCF+mRBp6hTCMBXGN/+lyzRXWEx8nMU07BVo63wkaa+q5RoT
+         MIDX7madvOAN4F+Z+qYw2k/k8nx0wnz7LXnL0yjzMtkcNb+AFVIdcHwv08G3r2GxTQMt
+         RPgg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NSSEVtZz;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::c43 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Zxl5nYqS;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d42 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:mime-version:references:in-reply-to:reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=nltcHnR7Wv7r7pHeMcNPddqTtdkxr4d4VPpcsfN3cZU=;
-        b=HWdBfTQBTHZdCimQI117204rwbmw5EdWF8oH2csMoZdjEkFB8OIBghMPVw9u55ZMY6
-         kjUekMEKpC07yfkqU/zlwt1Dd+zyjnW7ioDzwu0P28C2PsbglnYDde/A3VoGnIrZ38Sp
-         4CGg6hmoXmNPN7vjadlN69gjq0mw68acc7hRbb0Lef+uQRD+kNy1qkqx5RD1EXDmx9Xq
-         xCmVLU4Xgm5Xjm5hQpq3RIO2uSbtkLi4KcOK7M378jvqNiyDofkfekZ2YkzKWEMF5gex
-         mdjDvE8fpltQEhlo8QNchyASu9JNsLq2tb+jjVjoEoplp7pedzlWscBomXJgUJ10s/5w
-         SRfQ==
+        bh=NnRgzsM1uOogDeINmb5kCQnu9FJyK2XzzbwrEDoCAKw=;
+        b=ocHSUbyYPFF2fn6P7FCoRebnFEpdXoiRsb9J3O0joH8IjVSZ2HvVWz1dEb/DL4vNkC
+         OBaefPCzyRnN2PUNojPX+dKxvzhusQOVJSUisI06LPMoSoQOe+Co12Bd4javrcjaKCNt
+         xSSBc72yz7AZajRaWLq1GSs5LfYe7XPLol6cS/GCRCtuh9A3BzV0nKiRuEOPlLCuU2XS
+         ISKfBszWNQKPW+TG3zdt4IZKSiOiNp0l9zOp71QqwV6vEqvmDHO64eZX5OZfH95J7CEV
+         PbXjNfiKIfpaZ3qvAnISay4jDkvZz8PEHi2cc8YS4YyA7227iDnrWBw5ETm2B7rUUSjI
+         tgWw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=nltcHnR7Wv7r7pHeMcNPddqTtdkxr4d4VPpcsfN3cZU=;
-        b=S0MTI61HoP8qMeo1sGuMnoztTrx8zjS5I8XC+egNytsCrqgUiPkn8lHbUnpNMLQ2Pq
-         oMwe2g5XTOvmyQLHqa+LtSmaQXaRMofJvIiFe7a1wZ+RsZFVP2MuLGfM7GkmcU2RlxUy
-         fiRFKG7ibFRl5qKz30gQUv5HUvMI3rCuTNLWhUbw4GM4ydAq6VD47KkIz0k8B6B3f0j3
-         5q2Wl8rO9Or13vHe9b1qUbrthR5S6pyGkvYLhGN2FKvMzgsGUXSVzwoINk8KMGFfKRpK
-         SAne/Ugfp4IzPWAG1chxnDxQyPO6zEol3XF/5cFAIJSPXeVFUuH3wRGYMUkc3ptF8QHR
-         MHdA==
+        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=NnRgzsM1uOogDeINmb5kCQnu9FJyK2XzzbwrEDoCAKw=;
+        b=k4dhJOo8gU+leYloZVgQ/gXEr4cw1oBxHxU5G0bYjG/jrsaobQg69TLTas/A45yMRQ
+         sYRcuXwU+aPtw36AZFX1QYcpb01y4Umdpzmw8XTnlco2VrO3mgne+PkZFfvAJBJiNHtI
+         1cWP2UyAVi8AWYtZpHqGbA4+/chXDqeBzodonpWS3HovT0c5mzpAe2COTe9PwJm3IgDF
+         YWrGSf7/YbI6G7eqUoJ1GR1sLfdk6pRIGqzyN4t0dqbl68po/d9dhuh1azhRyDzcVtAS
+         AlbGXhD/F3xuTgKMauJJ3haWXb4i+Xa9K1uGP5Aaeu8qqtbfdrwNbcOIkY3TwZk7UFOW
+         S/Yg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=nltcHnR7Wv7r7pHeMcNPddqTtdkxr4d4VPpcsfN3cZU=;
-        b=LdNzOcFxRj+kFkOAiNhdM1u7NvknQfBCYa+mfK8SFR8D32YoL4Vt/KgtGr9MLNfJUJ
-         e97os1KGG99py0VlEZ+zsidp+wT7D38F8CHvBCY7I33ATEdfdUNDnpaql/MJE7NCA10Z
-         3Da8Tewepfn211XcmOrr184R9b6N+nt2ssgXdxrwSDfh54pfVrjPKJjlo3KYiEC6PEmh
-         TJqsOzobHcoT0HmMb4J86TktOsqNVOItmUHST5xvpnUcOyF1iwSWOBYarEkeaoPx6UmH
-         zIaBkmMgaumNDCeCrXRDLTRLP+y4G21GPCRzmbr3uZqiKaEF7YvFFAxt3emm6y8Hl+FF
-         Bq/w==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to
+         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=NnRgzsM1uOogDeINmb5kCQnu9FJyK2XzzbwrEDoCAKw=;
+        b=cV84QOOqaL4cbXz5Xne7vd2YZkpNGw5O0hIuofyagJPN+uCv22u6GaOawBTeGEqTDE
+         JcfNym5G485P+2DaemJKsWoCTPbuUu5k0qsQmLBaex7dYKs4AKGiTaI4nUEGLk8zTVTA
+         OwAaKT34svYLsR3qP+znBRcE2xkRzFi8ywG+aLLZLL6+JHqOz0nTHH7wm1kPJetEJCTZ
+         hHKuRM2MtcADSs3k03J5/Pa9EU7YUIt2DJlnrz3jZziCgHgTi1BJKfpDYI6/L+oJ8Q/u
+         /M3/ShEhnCOI2z5maNw3HYZrRJGJJEBBn4MC8zKRUdCxseFPuZsimt1wqG4HQIlLV+60
+         FXZw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0PuZx1twn6lIYd+pfRBUdi2SSy7hGyk4zvdpltTQAH/mdF4ec40B4
-	uGBc5UV+0FyOxVmVGZhbzLc=
-X-Google-Smtp-Source: APiQypLVcQpbhzXR7QueVEyZ+1b8Z4B5EF5ELj+LtqHoz67zODSdztk1Y6SmWhlrmnkKWObuMjjHUQ==
-X-Received: by 2002:a92:5b05:: with SMTP id p5mr19011543ilb.94.1589272125935;
-        Tue, 12 May 2020 01:28:45 -0700 (PDT)
+X-Gm-Message-State: AOAM531S6767QgQ8eAPTbxWaqBoo62z0hY1uGP1ePSSRegODL5jUH6LN
+	Z0ceT/pLz3AH9B2VrPEN0JQ=
+X-Google-Smtp-Source: ABdhPJyGIpcplXOrKxiiYVhS18Ijjk+c0/cdggHGFEuKQ5MTg7j5Y7Ln5EKlZYNCy989Uk4Pqy8C0A==
+X-Received: by 2002:ac8:7698:: with SMTP id g24mr4804421qtr.290.1589273965576;
+        Tue, 12 May 2020 01:59:25 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:ce4c:: with SMTP id a12ls4020682ilr.8.gmail; Tue, 12 May
- 2020 01:28:45 -0700 (PDT)
-X-Received: by 2002:a92:bb01:: with SMTP id w1mr21281355ili.233.1589272125646;
-        Tue, 12 May 2020 01:28:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1589272125; cv=none;
+Received: by 2002:ac8:468d:: with SMTP id g13ls5715231qto.11.gmail; Tue, 12
+ May 2020 01:59:25 -0700 (PDT)
+X-Received: by 2002:ac8:7683:: with SMTP id g3mr20918090qtr.166.1589273965233;
+        Tue, 12 May 2020 01:59:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1589273965; cv=none;
         d=google.com; s=arc-20160816;
-        b=MwHf+cjQnZd9qwDrM+5TdTRbdkg4bP9alYQUKNCqHkXi6us39rLKVx4RZ17XacrLf/
-         DXoqm0Wb3aX7TZxsQNbssuwwq1f2fMl4h6LUk3DgxALS4iEoyJAJOpJ1bAMEqU3DQfaL
-         NiVqKg9T9RGUyiKgFlTtaQg0iXYaBqAU2p2J54lbjHZylObUjg0UnlhQdPSkHYnMrjk5
-         uiEIG0w4FSTwG0q2VzCTuH52f0Y3k4KeTBFNeDDrYThTYenT34z4JA0N4Hqb5Mwi1pgq
-         yFZbk8KV7jhV8K54GlamHBvOb+Y2E707Js2egFllSQeA5I36I1N5gZq2TbA9YARj2MgL
-         7Uqw==
+        b=Hp+lULewtGr0hCgwxeGuZmNloc16TDMi0aFtiNufHhwACHknkZONWiebd5SInivwAh
+         /euU3pwFrPZ1OByxvZgzC26TnTK7x4oN/qupnISm0kD3/aakJM8T4frLuaNS2Hf63Bue
+         0cU184V5sasSziRPQzuJxheT6utlPNgMXmIbQRzcPdpdP2bSe4EzOIZMy0Zs29/ulG71
+         qBM6qTLBftW7RcRN4B5Qu8PKMA2Az3PKfLvR+wnirgfvD3GFChmi7boD1O2eoXbgzN23
+         gDgtPfM/6CtpTuS/OTX8k35HwFFjv+pTUpawIY5HFoOxepBsCZOirkUznMG/BYCC5r4G
+         K2pQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=4kVbCD/n1BkwyUP75XXZyibv77Dl7m/9w8NUlO/ODo8=;
-        b=sf2hbrpnsZpHEDUjvgRZRbrhZK77mEdHRn1eBpJ/3ryR8liDfLPUEBdl0H2PqVThY3
-         LXiuYxs6R9ENpeumDZgtE77xxt39jzANRYZi8AV+YAuIppY+1wFIIV2AARxKzPGEA9Cr
-         HvyB2Bm1ARjdrP246fES6gMiTeIK6rjwBc6fRbZxs+KFCUsqeudD6oZYbB1esvyODTPu
-         wjnt28xRvfFbMY7WYvJXT5BYY9zrdTWJ2ogwOUrucD5jn47bG5v8hTaqAkCY6XCOwaB1
-         9CDJQkMBCkU6H/NkyXfLu18tNEXzdjldSm1eI3aw9o2Gg8MLs8ew+vJAuxN3c6ZKoCQX
-         0SsQ==
+        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=mgvGrSBn4Z3elWdlR4h/uRqag8YgI6/1Az/oywN8U8E=;
+        b=B7eGxlm37C6E2j1ooXVBJf9G6I/pf8hIOy/UCDG365DHecUXYCavIel/ylFg63LOJh
+         d4yzFXthfn3aBeFc8JGD2MmoApE1PX8B+OPlTr9Rpkx81+dT1BNniB8oombL9ADik7qj
+         Wkq7yOqFFO8tG5TZZjUuGmCLb+CK5mZAFdrMJ4IX2jPx0hu+h85TBLtwc0vuXPxz+BoR
+         CvP+9yPLhb3lvDCikexL00SCDW6nZ/yR0D67L+S9utHnilvOlsDpU4m58a3DK/VRppHp
+         BPgAIwdvGBiYBH5VDGVQavTS59ok7Ack5zp17GYJg99ECHwyydHtmgrNTORQ4vQXWose
+         GgnA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NSSEVtZz;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::c43 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Zxl5nYqS;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d42 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-oo1-xc43.google.com (mail-oo1-xc43.google.com. [2607:f8b0:4864:20::c43])
-        by gmr-mx.google.com with ESMTPS id k8si379209ilq.3.2020.05.12.01.28.45
+Received: from mail-io1-xd42.google.com (mail-io1-xd42.google.com. [2607:f8b0:4864:20::d42])
+        by gmr-mx.google.com with ESMTPS id a196si53254qkb.4.2020.05.12.01.59.25
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 12 May 2020 01:28:45 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::c43 as permitted sender) client-ip=2607:f8b0:4864:20::c43;
-Received: by mail-oo1-xc43.google.com with SMTP id t3so2529954oou.8
-        for <clang-built-linux@googlegroups.com>; Tue, 12 May 2020 01:28:45 -0700 (PDT)
-X-Received: by 2002:a4a:d8d7:: with SMTP id c23mr17048455oov.8.1589272125154;
-        Tue, 12 May 2020 01:28:45 -0700 (PDT)
-Received: from ubuntu-s3-xlarge-x86 ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id l2sm5243695oib.58.2020.05.12.01.28.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 May 2020 01:28:44 -0700 (PDT)
-Date: Tue, 12 May 2020 01:28:43 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, linux-mips@vger.kernel.org,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
-	linux-kbuild@vger.kernel.org,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Fangrui Song <maskray@google.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Dmitry Golovin <dima@golovin.in>,
-	Sedat Dilek <sedat.dilek@gmail.com>
-Subject: Re: [PATCH v5 0/5] Allow ld.lld to link the MIPS VDSO
-Message-ID: <20200512082843.GA3815743@ubuntu-s3-xlarge-x86>
-References: <20200423171807.29713-1-natechancellor@gmail.com>
- <20200428221419.2530697-1-natechancellor@gmail.com>
- <20200512080509.GA9433@alpha.franken.de>
+        Tue, 12 May 2020 01:59:25 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d42 as permitted sender) client-ip=2607:f8b0:4864:20::d42;
+Received: by mail-io1-xd42.google.com with SMTP id i19so13034713ioh.12
+        for <clang-built-linux@googlegroups.com>; Tue, 12 May 2020 01:59:25 -0700 (PDT)
+X-Received: by 2002:a5e:c814:: with SMTP id y20mr19147281iol.135.1589273964630;
+ Tue, 12 May 2020 01:59:24 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200504031340.7103-1-nick.desaulniers@gmail.com>
+ <CA+icZUUOaqeKeh6n4BJq2k6XQWAfNghUj57j42ZX5qyd3iOmLw@mail.gmail.com> <CAK7LNAR+pm-_nd5=B2OeLpimW42FXxm8TQUMru9DR_asT3qYnA@mail.gmail.com>
+In-Reply-To: <CAK7LNAR+pm-_nd5=B2OeLpimW42FXxm8TQUMru9DR_asT3qYnA@mail.gmail.com>
+Reply-To: sedat.dilek@gmail.com
+From: Sedat Dilek <sedat.dilek@gmail.com>
+Date: Tue, 12 May 2020 10:59:13 +0200
+Message-ID: <CA+icZUUdRk9TYOSb5mzqBrfAsHYCRAy0ciNtKZJxbTdv-KaHpQ@mail.gmail.com>
+Subject: Re: [PATCH] Makefile: support compressed debug info
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Nick Desaulniers <nick.desaulniers@gmail.com>, Michal Marek <michal.lkml@markovi.net>, 
+	Andrew Morton <akpm@linux-foundation.org>, Changbin Du <changbin.du@intel.com>, 
+	Randy Dunlap <rdunlap@infradead.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200512080509.GA9433@alpha.franken.de>
-X-Original-Sender: natechancellor@gmail.com
+X-Original-Sender: sedat.dilek@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=NSSEVtZz;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::c43 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@gmail.com header.s=20161025 header.b=Zxl5nYqS;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d42
+ as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -155,33 +148,236 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, May 12, 2020 at 10:05:09AM +0200, Thomas Bogendoerfer wrote:
-> On Tue, Apr 28, 2020 at 03:14:14PM -0700, Nathan Chancellor wrote:
-> > [..]
-> > Please let me know if there are any issues!
-> 
-> I found no issues in my tests. Is this the final state ? If yes, I'm
-> going to apply it to mips-next.
-> 
-> Thomas.
-> 
-> -- 
-> Crap can work. Given enough thrust pigs will fly, but it's not necessarily a
-> good idea.                                                [ RFC1925, 2.3 ]
+On Tue, May 12, 2020 at 7:47 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
+>
+> Hi Sedat,
+>
+>
+> On Tue, May 5, 2020 at 1:25 AM Sedat Dilek <sedat.dilek@gmail.com> wrote:
+> >
+> > On Mon, May 4, 2020 at 5:13 AM Nick Desaulniers
+> > <nick.desaulniers@gmail.com> wrote:
+> > >
+> > > As debug information gets larger and larger, it helps significantly save
+> > > the size of vmlinux images to compress the information in the debug
+> > > information sections. Note: this debug info is typically split off from
+> > > the final compressed kernel image, which is why vmlinux is what's used
+> > > in conjunction with GDB. Minimizing the debug info size should have no
+> > > impact on boot times, or final compressed kernel image size.
+> > >
+> > > All of the debug sections will have a `C` flag set.
+> > > $ readelf -S <object file>
+> > >
+> > > $ bloaty vmlinux.gcc75.compressed.dwarf4 -- \
+> > >     vmlinux.gcc75.uncompressed.dwarf4
+> > >
+> > >     FILE SIZE        VM SIZE
+> > >  --------------  --------------
+> > >   +0.0%     +18  [ = ]       0    [Unmapped]
+> > >  -73.3%  -114Ki  [ = ]       0    .debug_aranges
+> > >  -76.2% -2.01Mi  [ = ]       0    .debug_frame
+> > >  -73.6% -2.89Mi  [ = ]       0    .debug_str
+> > >  -80.7% -4.66Mi  [ = ]       0    .debug_abbrev
+> > >  -82.9% -4.88Mi  [ = ]       0    .debug_ranges
+> > >  -70.5% -9.04Mi  [ = ]       0    .debug_line
+> > >  -79.3% -10.9Mi  [ = ]       0    .debug_loc
+> > >  -39.5% -88.6Mi  [ = ]       0    .debug_info
+> > >  -18.2%  -123Mi  [ = ]       0    TOTAL
+> > >
+> > > $ bloaty vmlinux.clang11.compressed.dwarf4 -- \
+> > >     vmlinux.clang11.uncompressed.dwarf4
+> > >
+> > >     FILE SIZE        VM SIZE
+> > >  --------------  --------------
+> > >   +0.0%     +23  [ = ]       0    [Unmapped]
+> > >  -65.6%    -871  [ = ]       0    .debug_aranges
+> > >  -77.4% -1.84Mi  [ = ]       0    .debug_frame
+> > >  -82.9% -2.33Mi  [ = ]       0    .debug_abbrev
+> > >  -73.1% -2.43Mi  [ = ]       0    .debug_str
+> > >  -84.8% -3.07Mi  [ = ]       0    .debug_ranges
+> > >  -65.9% -8.62Mi  [ = ]       0    .debug_line
+> > >  -86.2% -40.0Mi  [ = ]       0    .debug_loc
+> > >  -42.0% -64.1Mi  [ = ]       0    .debug_info
+> > >  -22.1%  -122Mi  [ = ]       0    TOTAL
+> > >
+> >
+> > Hi Nick,
+> >
+> > thanks for the patch.
+> >
+> > I have slightly modified it to adapt to Linux v5.7-rc4 (what was your base?).
+> >
+> > Which linker did you use and has it an impact if you switch from
+> > ld.bfd to ld.lld?
+> >
+> > I tried a first normal run and in a 2nd one with
+> > CONFIG_DEBUG_INFO_COMPRESSED=y both with clang-10 and ld.lld-10.
+> >
+> > My numbers (sizes in MiB):
+> >
+> > [ diffconfig ]
+> >
+> > $ scripts/diffconfig /boot/config-5.7.0-rc4-1-amd64-clang
+> > /boot/config-5.7.0-rc4-2-amd64-clang
+> >  BUILD_SALT "5.7.0-rc4-1-amd64-clang" -> "5.7.0-rc4-2-amd64-clang"
+> > +DEBUG_INFO_COMPRESSED y
+> >
+> > [ compiler and linker ]
+> >
+> > $ clang-10 -v
+> > ClangBuiltLinux clang version 10.0.1
+> > (https://github.com/llvm/llvm-project
+> > 92d5c1be9ee93850c0a8903f05f36a23ee835dc2)
+> > Target: x86_64-unknown-linux-gnu
+> > Thread model: posix
+> > InstalledDir: /home/dileks/src/llvm-toolchain/install/bin
+> > Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/10
+> > Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/8
+> > Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
+> > Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/10
+> > Candidate multilib: .;@m64
+> > Candidate multilib: 32;@m32
+> > Candidate multilib: x32;@mx32
+> > Selected multilib: .;@m64
+> >
+> > $ ld.lld-10 -v
+> > LLD 10.0.1 (https://github.com/llvm/llvm-project
+> > 92d5c1be9ee93850c0a8903f05f36a23ee835dc2) (compatible with GNU
+> > linkers)
+> >
+> > [ sizes vmlinux ]
+> >
+> > $ du -m 5.7.0-rc4-*/vmlinux*
+> > 409     5.7.0-rc4-1-amd64-clang/vmlinux
+> > 7       5.7.0-rc4-1-amd64-clang/vmlinux.compressed
+> > 404     5.7.0-rc4-1-amd64-clang/vmlinux.o
+> > 324     5.7.0-rc4-2-amd64-clang/vmlinux
+> > 7       5.7.0-rc4-2-amd64-clang/vmlinux.compressed
+> > 299     5.7.0-rc4-2-amd64-clang/vmlinux.o
+> >
+> > [ readelf (.debug_info as example) ]
+> >
+> > $ readelf -S vmlinux.o
+> >   [33] .debug_info       PROGBITS         0000000000000000  01d6a5e8
+> >        0000000006be1ee6  0000000000000000           0     0     1
+> >
+> > $ readelf -S vmlinux.o
+> >   [33] .debug_info       PROGBITS         0000000000000000  01749f18
+> >        0000000002ef04d2  0000000000000000   C       0     0     1 <---
+> > XXX: "C (compressed)" Flag
+> >
+> > Key to Flags:
+> >   W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+> >   L (link order), O (extra OS processing required), G (group), T (TLS),
+> >   C (compressed), x (unknown), o (OS specific), E (exclude),
+> >   l (large), p (processor specific)
+> >
+> > [ sizes linux-image debian packages ]
+> >
+> > $ du -m 5.7.0-rc4-*/linux-image*.deb
+> > 47      5.7.0-rc4-1-amd64-clang/linux-image-5.7.0-rc4-1-amd64-clang_5.7.0~rc4-1~bullseye+dileks1_amd64.deb
+> > 424     5.7.0-rc4-1-amd64-clang/linux-image-5.7.0-rc4-1-amd64-clang-dbg_5.7.0~rc4-1~bullseye+dileks1_amd64.deb
+> > 47      5.7.0-rc4-2-amd64-clang/linux-image-5.7.0-rc4-2-amd64-clang_5.7.0~rc4-2~bullseye+dileks1_amd64.deb
+> > 771     5.7.0-rc4-2-amd64-clang/linux-image-5.7.0-rc4-2-amd64-clang-dbg_5.7.0~rc4-2~bullseye+dileks1_amd64.deb
+> >
+> > [ sizes linux-git dir (compilation finished ]
+> >
+> > 5.7.0-rc4-1-amd64-clang: 17963   /home/dileks/src/linux-kernel/linux
+> > 5.7.0-rc4-2-amd64-clang: 14328   /home/dileks/src/linux-kernel/linux
+> >
+> > [ xz compressed linux-image-dbg packages ]
+> >
+> > $ file linux-image-5.7.0-rc4-1-amd64-clang-dbg_5.7.0~rc4-1~bullseye+dileks1_amd64.deb
+> > linux-image-5.7.0-rc4-1-amd64-clang-dbg_5.7.0~rc4-1~bullseye+dileks1_amd64.deb:
+> > Debian binary package (format 2.0), with control.tar.xz, data
+> > compression xz
+> > $ file linux-image-5.7.0-rc4-2-amd64-clang-dbg_5.7.0~rc4-2~bullseye+dileks1_amd64.deb
+> > linux-image-5.7.0-rc4-2-amd64-clang-dbg_5.7.0~rc4-2~bullseye+dileks1_amd64.deb:
+> > Debian binary package (format 2.0), with control.tar.xz, data
+> > compression xz
+> >
+> > [ file-lists ]
+> >
+> > $ dpkg --contents
+> > linux-image-5.7.0-rc4-1-amd64-clang-dbg_5.7.0~rc4-1~bullseye+dileks1_amd64.deb
+> > | wc -l
+> > 4395
+> > $ dpkg --contents
+> > linux-image-5.7.0-rc4-2-amd64-clang-dbg_5.7.0~rc4-2~bullseye+dileks1_amd64.deb
+> > | wc -l
+> > 4395
+> >
+> > [ file-lists vmlinux ]
+> >
+> > $ dpkg --contents
+> > linux-image-5.7.0-rc4-1-amd64-clang-dbg_5.7.0~rc4-1~bullseye+dileks1_amd64.deb
+> > | grep vmlinux
+> > -rwxr-xr-x root/root 428588312 2020-05-04 06:15
+> > ./usr/lib/debug/lib/modules/5.7.0-rc4-1-amd64-clang/vmlinux
+> > lrwxrwxrwx root/root         0 2020-05-04 06:15
+> > ./usr/lib/debug/boot/vmlinux-5.7.0-rc4-1-amd64-clang ->
+> > ../lib/modules/5.7.0-rc4-1-amd64-clang/vmlinux
+> > lrwxrwxrwx root/root         0 2020-05-04 06:15
+> > ./usr/lib/debug/vmlinux-5.7.0-rc4-1-amd64-clang ->
+> > lib/modules/5.7.0-rc4-1-amd64-clang/vmlinux
+> >
+> > $ dpkg --contents
+> > linux-image-5.7.0-rc4-2-amd64-clang-dbg_5.7.0~rc4-2~bullseye+dileks1_amd64.deb
+> > | grep vmlinux
+> > -rwxr-xr-x root/root 339341456 2020-05-04 12:24
+> > ./usr/lib/debug/lib/modules/5.7.0-rc4-2-amd64-clang/vmlinux
+> > lrwxrwxrwx root/root         0 2020-05-04 12:24
+> > ./usr/lib/debug/boot/vmlinux-5.7.0-rc4-2-amd64-clang ->
+> > ../lib/modules/5.7.0-rc4-2-amd64-clang/vmlinux
+> > lrwxrwxrwx root/root         0 2020-05-04 12:24
+> > ./usr/lib/debug/vmlinux-5.7.0-rc4-2-amd64-clang ->
+> > lib/modules/5.7.0-rc4-2-amd64-clang/vmlinux
+> >
+> > [ conclusion ]
+> >
+> > As you can see there is a size-reduction in case of vmlinux/vmlinux.o
+> > (debug) files...
+> > ...and my linux-git directory in total is smaller: 17963M vs. 14328M.
+> >
+> > But the resulting linux-image-dbg file is much fatter: 424M vs. 711M.
+> > XZ-compressing the gz/zlib-compressed vmlinux (debug) file results in
+> > a fatter linux-image-dbg package.
+>
+>
+> I also confirmed that, but this would not
+> be a blocker of this patch.
+>
 
-Maciej seemed to have some issue with the way I worded the commit
-message of patch 4 but I have not heard anything back about my
-suggestion and Fangrui commented that --eh-frame-hdr might not be
-necessary but if everything works fine for you with this version, I
-am not inclined to touch it.
+Hi Masahiro,
 
-If you feel this is good to go, I am happy to let it go in. Thanks for
-accepting it!
+No, it is not a blocker.
+I have this patch now in my Linux v5.7-rc5 series.
 
-Cheers,
-Nathan
+I see a lot of more benefits concerning disc-usage - in my linux-git
+and a reduced vmlinux file when I wanted to test with QEMU.
+
+Feel free to add:
+Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
+
+- Sedat -
+
+> Users can disable CONFIG_DEBUG_INFO_COMPRESSED
+> if they care about the debug package size.
+>
+>
+>
+>
+>
+> --
+> Best Regards
+> Masahiro Yamada
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAR%2Bpm-_nd5%3DB2OeLpimW42FXxm8TQUMru9DR_asT3qYnA%40mail.gmail.com.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200512082843.GA3815743%40ubuntu-s3-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUUdRk9TYOSb5mzqBrfAsHYCRAy0ciNtKZJxbTdv-KaHpQ%40mail.gmail.com.
