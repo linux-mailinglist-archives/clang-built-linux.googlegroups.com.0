@@ -1,139 +1,141 @@
-Return-Path: <clang-built-linux+bncBAABBXWB5X2QKGQEBJDOSHY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDA5BKNJ6MIBB54U572QKGQEB72OTYY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x538.google.com (mail-pg1-x538.google.com [IPv6:2607:f8b0:4864:20::538])
-	by mail.lfdr.de (Postfix) with ESMTPS id BD60A1D052B
-	for <lists+clang-built-linux@lfdr.de>; Wed, 13 May 2020 04:52:15 +0200 (CEST)
-Received: by mail-pg1-x538.google.com with SMTP id x132sf4668672pgx.22
-        for <lists+clang-built-linux@lfdr.de>; Tue, 12 May 2020 19:52:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1589338334; cv=pass;
+Received: from mail-ot1-x33e.google.com (mail-ot1-x33e.google.com [IPv6:2607:f8b0:4864:20::33e])
+	by mail.lfdr.de (Postfix) with ESMTPS id EC49F1D0F9D
+	for <lists+clang-built-linux@lfdr.de>; Wed, 13 May 2020 12:22:48 +0200 (CEST)
+Received: by mail-ot1-x33e.google.com with SMTP id g50sf7692362otg.9
+        for <lists+clang-built-linux@lfdr.de>; Wed, 13 May 2020 03:22:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1589365367; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Cm2AkG2V3P4zRyHDuf+w2C4U8MijBdY/7paQSMTaEEwJju0RCngL/DhcZJK/tsCvra
-         t/d7n7HCtFX1rfK8CBtgGBzmhudd2W1fSbf1oNJJf/baavU2/EgDC+Tb58mJDyeoklbe
-         UiuwsQwHs1a8rN7XCHP1Q5w/iy2cbQhg1FX1qLMzcHAZnM3UkJazHeruLs4e2BuKpdty
-         0rfG1fXAs8kEqgL4aAoICkN/PiLtJYnxrJgEQaGFzsH1sW9AndvlDt3q9DnCcZe+otFB
-         jtzo84RMl5KbARRnAkre4oO/WkLfuymBHf3C4pojqKndrMqt8aWJbV6zzgSkdPKyAIZa
-         ZBkQ==
+        b=OuclXeeh3tgb0HKcp/u7TygGNHLT4meocos+OgKgA6qqCVXl150DnmSWw15fJ0tQQv
+         PqZ0t+3F9Rd+/yNBuCexruMysITeeluEwA53lG2AHHSs6RnpP8ZVg321yQI5ClvE7KeB
+         y74l+Jl/lTibgngXjPIUd35RTIJd43Av8RkoQf+MUP8dPk5MDqLWRyuo3wqj1McjCPty
+         TPYvMRCb4ixLulX08HseFHPSWtK4CK3lUJo9dejg+wimnQk/nCFCStkODkXBXAJD8W9o
+         rjqfC9vHxAf0SzHxF3FvDE8EkM38mu4+w2x/+sXrfR1V1nsw28lP5QtMzgMl11NlDOBL
+         URiQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=pDHaoVSiRaxZqhDvH6PouWh3cr2tLnmnfT8lzwxzScM=;
-        b=Soi8IyT4wB6lbVCnyslskaf+ovjOkCT+Hmr6XRb86QbhhQiiUNNWY49W88bAdc5qRu
-         O9rEPmsgFLQS63IS3rqKM4hMy/OHxwKERrYNT4h+dd5Hvir/kdclK+ONsh+f8qn9Vg2/
-         d0fi6KsNorGqlmL3IOE6A/ciyk6DB5wZvJ/bU8dDVJBTVhfk7cHBkxZ8zMTz6XSmNYtc
-         +E2BAbW0B9LfB61VlLshHdxzQvfbeCJ/lyQDvW7Ff1Csl/33VmpCSetqZY6wIqVj9zGs
-         D/EhRqBdPDwA49/zcdsNAnlv0dZ+tUo8Tug6kgVApnAl6Ev1JE9oYCXYg/KtEuPYveof
-         qxQA==
+         :list-id:mailing-list:precedence:organization:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=skZPw1CSf5uQ7VAFTYBEaZfotU9Mf3k+xTJwEu25eiY=;
+        b=YBhzAlS7NXzAwpj8dssEOX7p1s6gZh2+BRVHr4JZ7q5AbJD8E4rmpLNlxnqCFn7J0S
+         w/fBAOPGbbAm3w67/Itt9Egdb0m4KmbHYnnciwtU31lGHEo+8rjW5Caj7aTCnN53SGPP
+         vcgqffykCCoY/mXMRpZxx9mXV6HLw7kQzZqw9EIp1amzGC/jY3PQnb0pppuAHadyTwkc
+         Rlc3xWz1NwHK8u6XSsWzz0z3V9uOHsTT61VVgOAJjTGo14OqJ2Oz2Yd2s3UqxXSydv+U
+         NRAEg47KJSOR/lIuEku+Nn1QwLDlh0OIVGFNIOrXH3wcW58ph6/Vaa/iyYPgWwNY5UMo
+         FNhw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=vns5+sHo;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.83 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: best guess record for domain of andriy.shevchenko@linux.intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=andriy.shevchenko@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=pDHaoVSiRaxZqhDvH6PouWh3cr2tLnmnfT8lzwxzScM=;
-        b=mEncWKKWaLIOJuLr2quEFPrOhtAtNPlM4pLKPzBMWyVSog4CroBzGBCALDM3KpSmQr
-         YHqHgHlxzK71QefX0YEwLB+jGK/IFBMSavth+YthH8n+RX2/Wq7vo6y8xp5ZTSYp2jgi
-         tukNQeAb7n1J89Sxz6ReoyK+DjMU74b9Ez1uAzUGvf7vq4OzbkX1DoMiGd0tq3HqCzYA
-         wVbXzNj3Wh7TeDaHqICisOqo30kMd8uv3iq+QPEI57XtOrkRNRVN97gvG6+CogKqKdYS
-         OnykqVQRKbG8whRgv76Ifw9NUCES0XjvDGetLAGDDJqLov+AqDayDaTLmT3n9DMzxL1u
-         rXRw==
+        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :organization:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=skZPw1CSf5uQ7VAFTYBEaZfotU9Mf3k+xTJwEu25eiY=;
+        b=p7q/Y3ouV8ijMgvH3tblyt2C8ILFY67TzehDS1jdGN7fkWDtoOLdn9BQ6jWfVBrgAk
+         7fWA9b+ID3Zh+LjVGBr2yawmpD5zL6zb/XqDH3sQgZU4gFOvSd1dNbZcsfvGKMNxXXmW
+         9+OkAAHceFqqrRBR87jmHcaGPxIkF7EKHjGwD8pFJy0uJ/JyY5hYuxmjizJ1mZWD4Flt
+         XIxT9T4PP1G6BNIk9pUEuYNFmTtAlouspZm4+j09LCPrQz4fT1/JkkuMPZBPOQrt0XYC
+         7Z5nEl5EQwp/aDNmwBFNJhsiRZcP4a2XKm3/L1HlUWI45xr/RtJZB8g1lkO5sU3DTSt3
+         oKGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
+         :subject:message-id:references:mime-version:content-disposition
+         :in-reply-to:organization:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=pDHaoVSiRaxZqhDvH6PouWh3cr2tLnmnfT8lzwxzScM=;
-        b=nvnokHdXdK/apu6/WT1qI6ThE+1rALty/qBvUssgtIOrGFvjwuvJXGdTPAQbXtdFTN
-         pIaqXCIp3tUoC0w4B1jw0H0RhftZ43acaMU69t8/jX168NLuEK5H2oQyfWen4kp4khTz
-         asX7RnYQK53oBoqHf20cVHKH+CiMerQes/78j89l6a6B7h1k4tTniV1HsrYWb8AD7MiA
-         qls4G8p9g45yxUKVPkGUQGBmy2vpjqPsj9/rk9zbZsoDOdVoSJM1SF49UqG7rv2qv26M
-         PicO4QbKgYu+SyzeICM3iOGXWTCjZJOE1R9XYmrctrNGzK0wzPtOAx3MgbqpNUfHeJt6
-         z1SQ==
+        bh=skZPw1CSf5uQ7VAFTYBEaZfotU9Mf3k+xTJwEu25eiY=;
+        b=ZD4XfTTmB4lNzDX59dgwRCF8l9GjNrNrvts4fbeq6QlWSBDUfmonFfgaMRQ3IQB2Fy
+         o3PWbcyZhxhAMf179BaDC0dG1ZrliaIf+oB67UZ3VciDGm/zqYbMnuwnJeVP/75Lrd5O
+         79cICflujO63a1jrkoUa4s2PDRNknbLf6moyykJw5sD6my2jOH+bemcXoe3nMAADLcI8
+         xDfwxfJT2cP7L/OHYsnoETpmbAiXEDkGcVw0PhU0U/UKbQ+QXf9ZQo8nDMFQwbPUdTCp
+         L7KcXAvWIoTQo/PStqnfUGUsZVF0/0F8bHQZPyfDWWa9te6OttO4LueDIEEfcUMtGoP1
+         iwOw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533ilsL2IRUyKH5ifV84U54s7RTcUuUZC6wLrA8P3AhxuSCx/YrP
-	QHdGSuBeJhqSyPri+XeZV1s=
-X-Google-Smtp-Source: ABdhPJzEdY5w9wg5gNlD5tRy3jUFrOTjlduV/fVWxphNkTOcJOtY5cwAhRJKJQPc64HdIAgzTjqGiQ==
-X-Received: by 2002:a63:7d53:: with SMTP id m19mr8910168pgn.168.1589338334208;
-        Tue, 12 May 2020 19:52:14 -0700 (PDT)
+X-Gm-Message-State: AGi0PuZrAK2SS2VWrBZJGVaLpUuXftwQG8Ai/PQk4Z+Wzga/Eopm4Xmj
+	NwdMP7Qa8T9AZt8ZfwZ/pt8=
+X-Google-Smtp-Source: APiQypJMHYZeSoOsfCHdYsVMEbmKwdpELiH7uKP9VdFS0ELmdw1EIfxLGprrd8gi6PjpioPDtv1VzQ==
+X-Received: by 2002:a4a:86cd:: with SMTP id y13mr12619547ooh.87.1589365367496;
+        Wed, 13 May 2020 03:22:47 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:4c02:: with SMTP id na2ls267168pjb.0.gmail; Tue, 12
- May 2020 19:52:13 -0700 (PDT)
-X-Received: by 2002:a17:902:8601:: with SMTP id f1mr23340539plo.122.1589338333828;
-        Tue, 12 May 2020 19:52:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1589338333; cv=none;
+Received: by 2002:a05:6808:84:: with SMTP id s4ls413886oic.2.gmail; Wed, 13
+ May 2020 03:22:47 -0700 (PDT)
+X-Received: by 2002:aca:f482:: with SMTP id s124mr26782818oih.128.1589365367134;
+        Wed, 13 May 2020 03:22:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1589365367; cv=none;
         d=google.com; s=arc-20160816;
-        b=q3RfMGevU90srvDJr83L/quF9yKdXtQvlS95+vpyRQ+GIy2mlngsCAr6PMA9CPk1SF
-         +vvsOyWYsNDmR4dv160CCrFg93rY90UPfm6W93pEBA9VekLSd2kTVaH69+hM+fNfgGPx
-         MrZHl1uLVZ8o3X0/obTdP/duu7R7nJ9hqK6BTNyNaqfK6dNlRq0WgPVcfmO1zhHAFbB4
-         o9khIySJbSI+6sLhpjybnlW7Eg9di4ufPYtoYMbAr9EeGJpt8QBJ7jiJMCLrK40NhXWg
-         Mjvc1+bCMpc+W8984JthjtMv26X9glJWit98RviURr2cNZVNuAFtgVcVRUhA2o6TBdtV
-         NyGA==
+        b=WnuV/EtFtMc8B0nsJZLusB/YyzxT2sKd9kxpcDtzSVBUAJ8gYtgaq+3jpVa4eL9jMp
+         lmul6PSLPb5cm9F9XUNs6kZo4hPQ104OK8NevgyJ/S1+GaUW2Xpy6YW9+ZTfk14MHHcR
+         ddftsId/JRhlP32/3E/xw13f/lUJFLwmHkoxkJr+9G/xHW4y/ZkwOr9RCK/Es/p3wDzN
+         2W/LhKa+nYcug+mZ4l9DfNWyleMoogFFYvr3tWYnttEDSfO6BusxmrrhYmoxw5XGcLtS
+         ImAa3zYUUCxMZ0mkLEQQco9rTFuba/xyWbW+GkCe3VtKInRbC1l4F3eATDSeVGzCxo6z
+         rEXw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=nPF0UZ4QARocmx7+6QkAPjfyPPWGMF/E7w8Sll+vGQ0=;
-        b=AyYKWgCHQuPVBdz5JjWKhlUf5XkR6YoD0xbskMeUMYI9N5r9cU9bCiG4/Bbuy8curW
-         bK+7vTzgQKF31uq9FaozHSkr0mFfNEy1NxgrYo8PrLudTnmAs6BDsd+AyffDkSWsqjfC
-         O6MAMaaneXG12GI6p6wK7xD4sjo0LYm+S6ymPdjtKwOTCe1OIX533RtxzrfgFxabJHmf
-         RZiog9fFIKlbHBwEp7ly1KNs++pFTWpykfiNO19htynOM+RSxpy5f13LbczH3Vvq2Qcm
-         1c7iry6ENHVj5beI2YD5Iszg+YByp9LLaTNXvie2ajJxztw5mgYS65AI7DrQMhCXjlTv
-         hioA==
+        h=organization:in-reply-to:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:ironport-sdr
+         :ironport-sdr;
+        bh=KhRDsARQTHrJiTMDIrvgCRoRWQwRwYjPfFk5Zvxx23g=;
+        b=HdF9DmCiUdz+QbVGddJ8f8AuL3RImvDDsKs6033IW1PcongIPXZdp6TurbEniIxAwo
+         NopS0f9NgR3RKKVkK1VTq4R85BqLMFvjzqqRjNMoA+a2/bDDi/QxfJWh1BihGQuFNST2
+         WZl59Ls9WlH6B9fgDWfNChYmNmiX+MFI+3eBzVbvi4L+AAn0YkOPdFUXrW2qofyTFUCo
+         KVYykBghN6LaXXVYauR72K/LDt7QfOaFkRzQkc2NZ+RCwDeP3XC3jg+UduKSeg3yji89
+         A3s0q3rIe5uJvC5zVvd2Jx/NMrzYiRvNPwXKTZnFjPTv9WhlroInTsLFcPMZzT/d7Eld
+         MaCA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=vns5+sHo;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.83 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-04.nifty.com (conssluserg-04.nifty.com. [210.131.2.83])
-        by gmr-mx.google.com with ESMTPS id bi9si447457plb.3.2020.05.12.19.52.13
+       spf=pass (google.com: best guess record for domain of andriy.shevchenko@linux.intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=andriy.shevchenko@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
+        by gmr-mx.google.com with ESMTPS id w196si635355oif.4.2020.05.13.03.22.46
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 12 May 2020 19:52:13 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.83 as permitted sender) client-ip=210.131.2.83;
-Received: from mail-vs1-f51.google.com (mail-vs1-f51.google.com [209.85.217.51]) (authenticated)
-	by conssluserg-04.nifty.com with ESMTP id 04D2pnFa032763
-	for <clang-built-linux@googlegroups.com>; Wed, 13 May 2020 11:51:49 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-04.nifty.com 04D2pnFa032763
-X-Nifty-SrcIP: [209.85.217.51]
-Received: by mail-vs1-f51.google.com with SMTP id m24so9197252vsq.10
-        for <clang-built-linux@googlegroups.com>; Tue, 12 May 2020 19:51:49 -0700 (PDT)
-X-Received: by 2002:a67:d00e:: with SMTP id r14mr7200783vsi.215.1589338308705;
- Tue, 12 May 2020 19:51:48 -0700 (PDT)
+        Wed, 13 May 2020 03:22:46 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of andriy.shevchenko@linux.intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
+IronPort-SDR: EoqLyxM46hCL4nTqt+WuEwPRKmTxbEJitonifzwFFPCokkOGwNlTfta+kDHiXBNu3Hs0NwT/6K
+ lttxhPGmt9CA==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from fmsmga006.fm.intel.com ([10.253.24.20])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 May 2020 03:22:45 -0700
+IronPort-SDR: 6+Rw5lLxqdA9uScyogmeQV5iOUc2WT5NFeSreF85uIusSJr4GHOVlMHTkkXkgB25Cl2FkYlB6C
+ wHvbJFvw3cvA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.73,387,1583222400"; 
+   d="scan'208";a="464083641"
+Received: from smile.fi.intel.com (HELO smile) ([10.237.68.40])
+  by fmsmga006.fm.intel.com with ESMTP; 13 May 2020 03:22:43 -0700
+Received: from andy by smile with local (Exim 4.93)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1jYoXG-006POZ-NZ; Wed, 13 May 2020 13:22:46 +0300
+Date: Wed, 13 May 2020 13:22:46 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: kbuild test robot <lkp@intel.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <bgolaszewski@baylibre.com>,
+	linux-gpio@vger.kernel.org, kbuild-all@lists.01.org,
+	clang-built-linux@googlegroups.com,
+	Serge Semin <fancer.lancer@gmail.com>
+Subject: Re: [PATCH v1 4/4] gpio: dwapb: Remove unneeded has_irq member in
+ struct dwapb_port_property
+Message-ID: <20200513102246.GL185537@smile.fi.intel.com>
+References: <20200512184513.86883-4-andriy.shevchenko@linux.intel.com>
+ <202005130651.mJCyUboB%lkp@intel.com>
 MIME-Version: 1.0
-References: <20200504031340.7103-1-nick.desaulniers@gmail.com>
- <CA+icZUUOaqeKeh6n4BJq2k6XQWAfNghUj57j42ZX5qyd3iOmLw@mail.gmail.com>
- <20200505004738.ew2lcp27c2n4jqia@google.com> <CAK7LNAR7-VMEWBcJ_Wd+61ZDHEa0gD8FaSs63YPu7m_FgH8Htg@mail.gmail.com>
- <CAKwvOdmEP9Auuc+M+MqPoQmx+70DgdsPYZQ6pg=8oGnfCviqRA@mail.gmail.com>
-In-Reply-To: <CAKwvOdmEP9Auuc+M+MqPoQmx+70DgdsPYZQ6pg=8oGnfCviqRA@mail.gmail.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Wed, 13 May 2020 11:51:12 +0900
-X-Gmail-Original-Message-ID: <CAK7LNATm2r9pH7i=pe3e7WvNmumGnivn05J+Mz10DzrzB8i=hw@mail.gmail.com>
-Message-ID: <CAK7LNATm2r9pH7i=pe3e7WvNmumGnivn05J+Mz10DzrzB8i=hw@mail.gmail.com>
-Subject: Re: [PATCH] Makefile: support compressed debug info
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Fangrui Song <maskray@google.com>, Sedat Dilek <sedat.dilek@gmail.com>,
-        Nick Desaulniers <nick.desaulniers@gmail.com>,
-        Michal Marek <michal.lkml@markovi.net>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Changbin Du <changbin.du@intel.com>,
-        Randy Dunlap <rdunlap@infradead.org>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-        Clang-Built-Linux ML <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=vns5+sHo;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.83 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Content-Disposition: inline
+In-Reply-To: <202005130651.mJCyUboB%lkp@intel.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+X-Original-Sender: andriy.shevchenko@linux.intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: best guess record for domain of andriy.shevchenko@linux.intel.com
+ designates 192.55.52.120 as permitted sender) smtp.mailfrom=andriy.shevchenko@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,123 +148,48 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Nick,
+On Wed, May 13, 2020 at 06:53:09AM +0800, kbuild test robot wrote:
+> Hi Andy,
+> 
+> I love your patch! Yet something to improve:
+> 
+> [auto build test ERROR on gpio/for-next]
+> [also build test ERROR on next-20200512]
+> [cannot apply to linus/master v5.7-rc5]
+> [if your patch is applied to the wrong git tree, please drop us a note to help
+> improve the system. BTW, we also suggest to use '--base' option to specify the
+> base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
+> 
+> url:    https://github.com/0day-ci/linux/commits/Andy-Shevchenko/gpio-dwapb-avoid-error-message-for-optional-IRQ/20200513-025227
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-gpio.git for-next
+> config: x86_64-randconfig-a003-20200512 (attached as .config)
+> reproduce:
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install x86_64 cross compiling tool for clang build
+>         # apt-get install binutils-x86-64-linux-gnu
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
+> 
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kbuild test robot <lkp@intel.com>
+> 
+> All errors (new ones prefixed by >>):
+> 
+> drivers/mfd/intel_quark_i2c_gpio.c: In function 'intel_quark_gpio_setup':
+> >> drivers/mfd/intel_quark_i2c_gpio.c:219:19: error: 'struct dwapb_port_property' has no member named 'has_irq'
+> pdata->properties->has_irq = true;
+> ^~
 
-On Wed, May 13, 2020 at 4:23 AM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> On Mon, May 11, 2020 at 10:54 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
-> >
-> > > >On Mon, May 4, 2020 at 5:13 AM Nick Desaulniers
-> > > ><nick.desaulniers@gmail.com> wrote:
-> > > >>
-> > > >> As debug information gets larger and larger, it helps significantly save
-> > > >> the size of vmlinux images to compress the information in the debug
-> > > >> information sections. Note: this debug info is typically split off from
-> > > >> the final compressed kernel image, which is why vmlinux is what's used
-> > > >> in conjunction with GDB. Minimizing the debug info size should have no
-> > > >> impact on boot times, or final compressed kernel image size.
-> > > >>
-> > Nick,
-> >
-> > I am OK with this patch.
-> >
-> > Fangrui provided the minimal requirement for
-> > --compress-debug-sections=zlib
-> >
-> >
-> > Is it worth recording in the help text?
-> > Do you want to send v2?
->
-> Yes I'd like to record that information.  I can also record Sedat's
-> Tested-by tag.  Thank you for testing Sedat.
->
-> I don't know what "linux-image-dbg file" are, or why they would be
-> bigger.  The size of the debug info is the primary concern with this
-> config.  It sounds like however that file is created might be
-> problematic.
-
-
-
-As Sedat explained, deb package data
-is compressed by xz, which is default.
-
-You can use another compression method,
-or disable compression if you desire.
-
-
-
-"man dpkg-deb" says as follows:
-
- -Zcompress-type
-      Specify which compression type to use when building a package.
-      Allowed  values  are  gzip,  xz  (since  dpkg  1.15.6), and none
-      (default is xz).
-
-
-
-Kbuild supports KDEB_COMPRESS variable
-to change the compression method.
-See line 46 of scripts/package/builddeb.
-
-
-
-If you are interested,
-try "make bindeb-pkg" with/without CONFIG_DEBUG_INFO_COMPRESSED,
-and compare the size of the generated debug package.
-
-
-
-
-As Sedat stated,
-
-(plain data) -> compress by gzip  ->  compress by xz
-
-   is often less efficient than
-
-(plain data) -> compress by xz
-
-
-
-I hope this is clearer.
-
-
-
-
-
-
-
-
-> Fangrui, I wasn't able to easily find what version of binutils first
-> added support.  Can you please teach me how to fish?
->
-> Another question I had for Fangrui is, if the linker can compress
-> these sections, shouldn't we just have the linker do it, not the the
-> compiler and assembler?  IIUC the debug info can contain relocations,
-> so the linker would have to decompress these, perform relocations,
-> then recompress these?  I guess having the compiler and assembler
-> compress the debug info as well would minimize the size of the .o
-> files on disk.
->
-> Otherwise I should add this flag to the assembler invocation, too, in
-> v2.  Thoughts?
->
-> I have a patch series that enables dwarf5 support in the kernel that
-> I'm working up to.  I wanted to send this first.  Both roughly reduce
-> the debug info size by 20% each, though I haven't measured them
-> together, yet.  Requires ToT binutils because there have been many
-> fixes from reports of mine recently.
-> --
-> Thanks,
-> ~Nick Desaulniers
-
-
+Indeed. I have that removed by other WIP patch in my tree.
+Thanks!
 
 -- 
-Best Regards
-Masahiro Yamada
+With Best Regards,
+Andy Shevchenko
+
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNATm2r9pH7i%3Dpe3e7WvNmumGnivn05J%2BMz10DzrzB8i%3Dhw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200513102246.GL185537%40smile.fi.intel.com.
