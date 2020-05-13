@@ -1,144 +1,116 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBR7W6D2QKGQEF2TKAEI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCDITI7XW4DRBWPX6D2QKGQEFD3ETUQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc38.google.com (mail-oo1-xc38.google.com [IPv6:2607:f8b0:4864:20::c38])
-	by mail.lfdr.de (Postfix) with ESMTPS id A12B91D1D60
-	for <lists+clang-built-linux@lfdr.de>; Wed, 13 May 2020 20:24:08 +0200 (CEST)
-Received: by mail-oo1-xc38.google.com with SMTP id n11sf219002oot.5
-        for <lists+clang-built-linux@lfdr.de>; Wed, 13 May 2020 11:24:08 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1589394247; cv=pass;
+Received: from mail-lf1-x140.google.com (mail-lf1-x140.google.com [IPv6:2a00:1450:4864:20::140])
+	by mail.lfdr.de (Postfix) with ESMTPS id DE5351D1D6A
+	for <lists+clang-built-linux@lfdr.de>; Wed, 13 May 2020 20:26:33 +0200 (CEST)
+Received: by mail-lf1-x140.google.com with SMTP id m11sf81250lfo.11
+        for <lists+clang-built-linux@lfdr.de>; Wed, 13 May 2020 11:26:33 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1589394393; cv=pass;
         d=google.com; s=arc-20160816;
-        b=UWo7Sli6vWvrmd7dsNEgZlGS+B09f7J7L/ofkanJqUEmuWyf/ZHu+6348GiIMHlul+
-         kb82XCw9GLtnTUmNzc2vK0HcirYdLVfHvpYKgM0gAFBGHnItnZF5oY5MM7aKf2bixGch
-         JMufpBM0MDgDOMoUIOqtfYKY5EHl9/MKOjkI8OnVANwbiqxMRkcnwKybDEjzmWzcsrav
-         ZnP9DV38hRCj1PDLhBIn0Qt6UI0I94IJPVm2/mIKN3DEugnMWWZVTAs2qbECAWBOwLVu
-         mhKWj7V9lH0lKgtVcDN/iE7CdMTUzREBH6LRaHVsjTJwa16WQCi5R9grL6HQ7IBkOt4/
-         dnEg==
+        b=jjizdIMO/QjU/TTsmubdW7LewVkEw+MAYLqKO13K7TCaoPofPVZ+6FowSrpnhTfBrl
+         KSg/Ok0o4YrQ7tbMTjUv+9Z94Wtk0d+x8NGfYLT3kFGgveQY1mbNOXOLLqxLRJ4zyex0
+         4km2+LCQvlAyO8H4TtW9soSogzx9hoMuM9tMRAVSswTVR9r4MH67ZuCAnyO0SAOxvDec
+         0tsWUVh+9DZ+6r19uzSJYOVXAvsFrVU6mGUbpKeXrd1Su5ZXgFqiKDUafVGImzNqpgmM
+         cMR8T8tURLtvOZR+izFwZnrZ9oV2NIe4Y7tvAgiw6dxT6RDF4R6jfohAwu+0PJTy22cz
+         s2/Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature:dkim-signature;
-        bh=PskN+mT+80g0qmeHzbL+ZohC4/tQMSGUKBCmZvKdx0I=;
-        b=a4QZe5NbhaBHqC3kdQSQUJR8uCZd4/Pib1Fs6/xz9c+TXAhmQYT+8G1lmoyNjlaj+x
-         W0N3iFJIA/O9mdeZ95vIugbElK8xta4fIp6LsdjuO0CF7nQEy9wHoKrhUJKACys5DnVe
-         +lcz632BuS5jGzVR5JBwgJZqVgMjG8N15vSZvOXLNGG/PsPT555dx/dTANq48VHXKiRu
-         18oByqoyiSW71JwMdpB3XAvJuh6Q+XUzPpz6KOZEKC5HOeB7205hUI6P/xYEy1/W9PSA
-         JnKYmaE5mdWpDfn0y+iYt3NEYvcQhB0xaegMZwURskK1okf9+wQ4yRtKYJD4CYsBtmrQ
-         WGcA==
+         :list-id:mailing-list:precedence:date:user-agent:message-id:subject
+         :from:cc:to:references:in-reply-to:mime-version:sender
+         :dkim-signature;
+        bh=Kt7qqCiUjmFk386wtMsBNpLneHvt38P6rthD6ajsrts=;
+        b=Ghm+BSJKebkm/yq8Ttrq+G/jJA5XbzJIQ124DqQKnLRGHOHwNJw04IiKOPCpkU/Cw1
+         CRYyWpG11G3f634l0h3Ur6IxNFHCOMhiWCXzhtCnhvD3StQQX/vSwNDPZtJqqSZ2Lr0e
+         plo7PXLX4rIWAqFOuW00bcGv8ufe/IyAelJHOOAZYyakclFi6sFEZeCmGkAcYPhAy6GY
+         m0zcMRKP30fa5lYsMrWfB7V7X/X68YUJLFRQ94Oj2RKZG6KptrtEXKY7WjTbkEPbgB6m
+         PL79/guLDGidgqMXef/6r2AKPw8j4PGtGrZp89e3nF9q6IhBivNAO33ls2ZXmvnia8hi
+         XS5w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=j+7yt7La;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=neutral (google.com: 109.228.58.192 is neither permitted nor denied by best guess record for domain of chris@chris-wilson.co.uk) smtp.mailfrom=chris@chris-wilson.co.uk
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=PskN+mT+80g0qmeHzbL+ZohC4/tQMSGUKBCmZvKdx0I=;
-        b=bx6740qyMqkbUBPMBPTFWgo0sZYPo1cna4YOS+gRZ5gUFlNRak9CfPxwmaAMQYY78m
-         LXP/70sBhjkUgr56HmZVIEN1PoL3UjfZJ+aDgWIUdkXHg9J+Qoij4La2KtzqsOuPP+xG
-         kekAghewiWH7uLnVfAulqFzxkF3l7oPr6gZtvjPjusmk3WxwJbwOOaQzFUNC2BL4Mj6i
-         Riy6y+B1Fs+qW12elDcEWX2KIUHvI1+yfUGOco24XXbTDwea4W9H5r4RDU1LiLcvjeo1
-         8uV41HIvqOD2LXsKqQbHicEv8WQhj0lE0uze/49UUQROd1PaajT8AiRdHw5z/cF+0liC
-         d3Xw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
+        h=sender:mime-version:in-reply-to:references:to:cc:from:subject
+         :message-id:user-agent:date:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=PskN+mT+80g0qmeHzbL+ZohC4/tQMSGUKBCmZvKdx0I=;
-        b=ouaxbMnw0rV2mPauLJMOoaw/SAGryCp4Nhje0MQvgC5KWCe43jN3wOSmU9mjHc69ws
-         tBiOcUdOt1wd68HP6A8KXe1q4SPL2Ti+m7ynIt5li9oCJmHs2qygcGxv1d+UcrUvhnFg
-         ZWBpKxgtFsDqEqFXmtpCjnfQBuTbCCbWWUipLiEVcXMe3EQBVOWVVFVse51NL4do9DCz
-         lIuXcecsMroGh/aP6rnDOLJ3z1QLdhvAFVL0zDE1EWFvr/zA23w5jIFRruqrNShJ333M
-         S0GbUDWH2LGKJTReM+yqwai9s/sccw505N/3SiqOOu3F365qVdiiMkZwwGPMiU3fABvz
-         tx0w==
+        bh=Kt7qqCiUjmFk386wtMsBNpLneHvt38P6rthD6ajsrts=;
+        b=b87lEqL29tp3M9KmwA40yaXgeo9rkGYKDzw53NC6ATbHBc7yWbfV+3AUskkEt6Jxrk
+         SjurzlbrpwghasrIr86BLEImcEsV2sk1AhNMRvoSikBGwlL6p0V1a/B1i2GGdJfJYxvq
+         NueYGbgh9LScQgwCAzh65RQSVkTTpX6UayVHLZc6sUrrosjujsVfCbY4b5gZGPx7nqKA
+         b9VFpYoz6SATY6T0RXHg3Fy5Bzd8MIPrVACI0fw+h1KDZO5TWbGKLj4ALdn7tqiC31yA
+         569oYz0T+EQnjmonbIE2qJuLULVrP2GzR67YXNdIfpKOJJ5YHaeAFi7YKBz9/SGiysaU
+         WiJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=PskN+mT+80g0qmeHzbL+ZohC4/tQMSGUKBCmZvKdx0I=;
-        b=g7ATgRJ4HyQc+AGx+38OLWcTq2oVBUG8j51l/iwbruQtemDPP9GLQlm9RSUqUlKLov
-         vJo1x295D0DMh+rpsv9yecSUyZsl5TXBjV6MbdnJTPkax5Lw4av0err68GLYelN4Ea22
-         f/3Av08AZ7QYeuOwCJwg0cAWUTLEHmeOcF1Py2etzmkOyyft4IzSBHbQ7THFaW5kDklm
-         v05q1jH+Kgu/MSw+YyjJ54m98d1HRo+/18jnnf8BrxdV6q0nSdw4jFzs9OKELCtY8ZAV
-         clozIMJbehieitUMbaOaEyCIfsEflQgOD0EsvUUAkg11dQTcL9mSxZls1Rpf4+Wq/l+m
-         xU7g==
+        h=sender:x-gm-message-state:mime-version:in-reply-to:references:to:cc
+         :from:subject:message-id:user-agent:date:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Kt7qqCiUjmFk386wtMsBNpLneHvt38P6rthD6ajsrts=;
+        b=QfEBDt0IFRyfL/xSFlKzJ5IP/7WaHbK3vbTTLXsHAkjF/patZh/tP8WHautX+SHIyd
+         ICn2Qm17SI0FufnPiZDnwC0KmBlWY1HKJ1cITkZckIndiV9EHWpCIpK47WZtMukufbwm
+         pFk+thMfd67IiPz7UUhCHS1miLncplEo6BuZ00kST5pHL/DS9d2ZULXb+/+eMqfA/vbG
+         W6cCgKsZgdRQ7OZJVfFZwAN49Sj1XspvO4GQvdprC1/UBNgnCfPtgeoJMAwccjnd5YpP
+         oCwaANuotJ5Mz2fk5vvUmjOaorQNoyL+5RvSNTftkH8Bo6KFi/ONlsjUPqeD6177nCs4
+         R3og==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AGi0Pub8fmwXBSu/Tf2OuA/GjN1eU0XDoyZmebSNHuVWVOo1L0cis3hq
-	Nw/9coUt/PZZ1209yMyM9UY=
-X-Google-Smtp-Source: APiQypKALvyWXQ9mfrlJeg5AZu5Pz1fe8Uzfc9n6lVVl5aOIv7v8JN9XN0wegEHJHG/vAOk9wuwung==
-X-Received: by 2002:aca:d548:: with SMTP id m69mr28100478oig.16.1589394247214;
-        Wed, 13 May 2020 11:24:07 -0700 (PDT)
+X-Gm-Message-State: AOAM532CuU25z9iqvL2K/f6VJoqYf96TThC7Z0zJkHA3kRgHbgRMQcm0
+	ogrxcap8Tg5u8otuZK0WhZY=
+X-Google-Smtp-Source: ABdhPJy2QCtBPW1G8dPpyya87F0/Hf1l8OO5+u0WK6UdyV7XYrMa0i1j7OPQV3kP2PkceQoWVs/XVQ==
+X-Received: by 2002:a19:8d3:: with SMTP id 202mr497337lfi.201.1589394393278;
+        Wed, 13 May 2020 11:26:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:363:: with SMTP id 90ls33105otv.6.gmail; Wed, 13 May
- 2020 11:24:06 -0700 (PDT)
-X-Received: by 2002:a05:6830:1551:: with SMTP id l17mr593257otp.153.1589394246816;
-        Wed, 13 May 2020 11:24:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1589394246; cv=none;
+Received: by 2002:ac2:4566:: with SMTP id k6ls51168lfm.6.gmail; Wed, 13 May
+ 2020 11:26:32 -0700 (PDT)
+X-Received: by 2002:a05:6512:3384:: with SMTP id h4mr536081lfg.150.1589394392728;
+        Wed, 13 May 2020 11:26:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1589394392; cv=none;
         d=google.com; s=arc-20160816;
-        b=fV7Me2XhR+Acx9NLDzU9Fe5hxo7+jsQv7KTNcCdTCxTFgkUHMw5X6tPhhSR6kDd5Jx
-         Rfh1Br0UF10+KihQR/WOgGG/TtMYeltiulnakb611pDKXYa1ARI9G7xOhllvZgwOlZbi
-         C5Pw0aAZuJmf6mgUBDum1nFCLznUgTblh5L5wVm77eyFt7hbPdL2jlrnt6CREZtdDyC3
-         O8irEplmOJKpnwIi4NLOHPM5p1ZnVkU3kUbJKVjvXO+eVC1mgVraPj0wJ398YfVDau2Y
-         SCp48A0oo5MPEBy6o9s3dJJgADGyNWdCCJSKnbdsWc3JitXL95LsvjZDJRfHvdVsPMKB
-         Zz/Q==
+        b=NKBrwRw+FAqLOpIa+PuTI6WeqWLu99JpPgCcwoqPZwbDO++K8k+Xe6bK3HHca3wANS
+         fPK7udf6RcJf6cOaLmXrYrtRu74GREClV9DBgSU7yQAHi7n/dCt1hWY6D/2uApLJSSGj
+         rH+AU9aEH5n89T4dQCnAgEjfpvtnPjPuY+H92TZdYVaWBMHYKc2Eoe+xsKhVUW5oIZHp
+         ip8K7q2+HCRvf+x7nKvZ8S/H2W0hWj4BqRmSqHLBBw1P/KvRucs9anMMFAjx6wlBhJ3a
+         c6//g+eWKOklaGvftaYaAxfucw5Cg4qYZ+1JU7hnZQd89XrnZl2o3yjWKTvZqlxCNYv4
+         0gQg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=vKnnhjZf+Lvy/wEev/k/9Sd4WlZuSJaabLD4NBhl2lM=;
-        b=XygwduR0zgi9YTJsHrssCY+momhq0Oyy6g0CGnHO/6128jD2QTaJkLXSXGqIx+lQcY
-         Hc1o7n7LdiyJMSOBllW3mPhrSlJ3vR6HIUemOc3kwtC3rTCcpGdDapImOeVh7kvI1S89
-         pqAO6GlT5uvUbBluyayfOTDuR/ZzDhQ+zBbGLudMaDlWnM3zEBR1QtzgcsRYEeFkOnVd
-         +AwHCKncnoEW5Q4636bf3VRgPUkw+u9/tuy34TEm+yTMjvSxv0pSTKi6Z//UgwSEBkT6
-         vdVqIVv5njkX5DZ57P6sS6cX267UNx1bP3AVwSsL2hx1fkeZWEyMbk6yzVuAoz0ojDaL
-         tAhg==
+        h=date:user-agent:message-id:subject:from:cc:to:references
+         :in-reply-to:content-transfer-encoding:mime-version;
+        bh=+PqhfXAf9X2GIvSUai0x3I6kCb8xdg0z5Af3IITl8k0=;
+        b=t0FoEfYOVqiw6wFkzKccujn2+s1qNez4Yf63ImUmyM926mVRnGLBwMuJNCLTYUfrsa
+         I9H5Lrz09Gj+RJu3czPuo0e9Z8hltIdjJ5xb2SC3RzlmhuuUPPtIJmhwVR5Z4jPa0B4y
+         21Rxj0ZLdfqDVKDb1SAXlZAB28uqrI3SvyfPAYNllvKWPKsoSeFBr7P9DiFFLQOR6i8W
+         BD/jEXGfNwyBbHYqVj1wpAaPxIhmHS2EU/n4Hygaro83+Ky68yrrykIjAlQsAWUzXupt
+         PG0mAqbbRAwrg/ww71pULLoy7BWtnKMH6xot8Ci1fZFBxp/Sm5SPxeAo0xSgDP8eubbS
+         Qkpg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=j+7yt7La;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x344.google.com (mail-ot1-x344.google.com. [2607:f8b0:4864:20::344])
-        by gmr-mx.google.com with ESMTPS id w196si803113oif.4.2020.05.13.11.24.06
+       spf=neutral (google.com: 109.228.58.192 is neither permitted nor denied by best guess record for domain of chris@chris-wilson.co.uk) smtp.mailfrom=chris@chris-wilson.co.uk
+Received: from fireflyinternet.com (mail.fireflyinternet.com. [109.228.58.192])
+        by gmr-mx.google.com with ESMTPS id d19si31600lji.3.2020.05.13.11.26.30
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 13 May 2020 11:24:06 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) client-ip=2607:f8b0:4864:20::344;
-Received: by mail-ot1-x344.google.com with SMTP id c3so147381otr.12
-        for <clang-built-linux@googlegroups.com>; Wed, 13 May 2020 11:24:06 -0700 (PDT)
-X-Received: by 2002:a9d:2dc1:: with SMTP id g59mr604409otb.288.1589394246442;
-        Wed, 13 May 2020 11:24:06 -0700 (PDT)
-Received: from localhost.localdomain ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id b63sm125772otc.23.2020.05.13.11.24.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 May 2020 11:24:05 -0700 (PDT)
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Jani Nikula <jani.nikula@linux.intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>
-Cc: Chris Wilson <chris@chris-wilson.co.uk>,
-	Mika Kuoppala <mika.kuoppala@linux.intel.com>,
-	intel-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	kbuild test robot <lkp@intel.com>
-Subject: [PATCH] drm/i915: Remove duplicate inline specifier on write_pte
-Date: Wed, 13 May 2020 11:23:40 -0700
-Message-Id: <20200513182340.3968668-1-natechancellor@gmail.com>
-X-Mailer: git-send-email 2.26.2
-MIME-Version: 1.0
-X-Patchwork-Bot: notify
-X-Original-Sender: natechancellor@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=j+7yt7La;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 13 May 2020 11:26:30 -0700 (PDT)
+Received-SPF: neutral (google.com: 109.228.58.192 is neither permitted nor denied by best guess record for domain of chris@chris-wilson.co.uk) client-ip=109.228.58.192;
+X-Default-Received-SPF: pass (skip=forwardok (res=PASS)) x-ip-name=78.156.65.138;
+Received: from localhost (unverified [78.156.65.138]) 
+	by fireflyinternet.com (Firefly Internet (M1)) with ESMTP (TLS) id 21191037-1500050 
+	for multiple; Wed, 13 May 2020 19:26:10 +0100
 Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+In-Reply-To: <20200513182340.3968668-1-natechancellor@gmail.com>
+References: <20200513182340.3968668-1-natechancellor@gmail.com>
+To: Jani Nikula <jani.nikula@linux.intel.com>, Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Nathan Chancellor <natechancellor@gmail.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>
+Cc: Mika Kuoppala <mika.kuoppala@linux.intel.com>, intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com, Nathan Chancellor <natechancellor@gmail.com>, kbuild test robot <lkp@intel.com>
+From: Chris Wilson <chris@chris-wilson.co.uk>
+Subject: Re: [PATCH] drm/i915: Remove duplicate inline specifier on write_pte
+Message-ID: <158939436821.29850.17450210375327657946@build.alporthouse.com>
+User-Agent: alot/0.8.1
+Date: Wed, 13 May 2020 19:26:08 +0100
+X-Original-Sender: chris@chris-wilson.co.uk
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 109.228.58.192 is neither permitted nor denied by best guess
+ record for domain of chris@chris-wilson.co.uk) smtp.mailfrom=chris@chris-wilson.co.uk
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,49 +123,33 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-When building with clang:
+Quoting Nathan Chancellor (2020-05-13 19:23:40)
+> When building with clang:
+> 
+>  drivers/gpu/drm/i915/gt/gen8_ppgtt.c:392:24: warning: duplicate
+>  'inline' declaration specifier [-Wduplicate-decl-specifier]
+>  declaration specifier [-Wduplicate-decl-specifier]
+>  static __always_inline inline void
+>                         ^
+>  include/linux/compiler_types.h:138:16: note: expanded from macro
+>  'inline'
+>  #define inline inline __gnu_inline __inline_maybe_unused notrace
+>                 ^
+>  1 warning generated.
+> 
+> __always_inline is defined as 'inline __attribute__((__always_inline))'
+> so we do not need to specify it twice.
+> 
+> Fixes: 84eac0c65940 ("drm/i915/gt: Force pte cacheline to main memory")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1024
+> Reported-by: kbuild test robot <lkp@intel.com>
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
 
- drivers/gpu/drm/i915/gt/gen8_ppgtt.c:392:24: warning: duplicate
- 'inline' declaration specifier [-Wduplicate-decl-specifier]
- declaration specifier [-Wduplicate-decl-specifier]
- static __always_inline inline void
-                        ^
- include/linux/compiler_types.h:138:16: note: expanded from macro
- 'inline'
- #define inline inline __gnu_inline __inline_maybe_unused notrace
-                ^
- 1 warning generated.
-
-__always_inline is defined as 'inline __attribute__((__always_inline))'
-so we do not need to specify it twice.
-
-Fixes: 84eac0c65940 ("drm/i915/gt: Force pte cacheline to main memory")
-Link: https://github.com/ClangBuiltLinux/linux/issues/1024
-Reported-by: kbuild test robot <lkp@intel.com>
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
----
- drivers/gpu/drm/i915/gt/gen8_ppgtt.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/gpu/drm/i915/gt/gen8_ppgtt.c b/drivers/gpu/drm/i915/gt/gen8_ppgtt.c
-index 2dc88e76ebec..699125928272 100644
---- a/drivers/gpu/drm/i915/gt/gen8_ppgtt.c
-+++ b/drivers/gpu/drm/i915/gt/gen8_ppgtt.c
-@@ -389,7 +389,7 @@ static int gen8_ppgtt_alloc(struct i915_address_space *vm,
- 	return err;
- }
- 
--static __always_inline inline void
-+static __always_inline void
- write_pte(gen8_pte_t *pte, const gen8_pte_t val)
- {
- 	/* Magic delays? Or can we refine these to flush all in one pass? */
-
-base-commit: e098d7762d602be640c53565ceca342f81e55ad2
--- 
-2.26.2
+I forgot to ping Mika about this,
+Reviewed-by: Chris Wilson <chris@chris-wilson.co.uk>
+-Chris
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200513182340.3968668-1-natechancellor%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/158939436821.29850.17450210375327657946%40build.alporthouse.com.
