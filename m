@@ -1,145 +1,130 @@
-Return-Path: <clang-built-linux+bncBDAZZCVNSYPBBNFA7P2QKGQENP4UKMQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC6LFE5SYELBBJ5U7P2QKGQEWSEE4DY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23a.google.com (mail-oi1-x23a.google.com [IPv6:2607:f8b0:4864:20::23a])
-	by mail.lfdr.de (Postfix) with ESMTPS id AB4861D57A8
-	for <lists+clang-built-linux@lfdr.de>; Fri, 15 May 2020 19:24:05 +0200 (CEST)
-Received: by mail-oi1-x23a.google.com with SMTP id j84sf1602240oib.21
-        for <lists+clang-built-linux@lfdr.de>; Fri, 15 May 2020 10:24:05 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1589563444; cv=pass;
+Received: from mail-vs1-xe39.google.com (mail-vs1-xe39.google.com [IPv6:2607:f8b0:4864:20::e39])
+	by mail.lfdr.de (Postfix) with ESMTPS id E8E8D1D589F
+	for <lists+clang-built-linux@lfdr.de>; Fri, 15 May 2020 20:06:32 +0200 (CEST)
+Received: by mail-vs1-xe39.google.com with SMTP id a22sf387842vsl.18
+        for <lists+clang-built-linux@lfdr.de>; Fri, 15 May 2020 11:06:32 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1589565992; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zW0JZItCYFIDQhB8cT7Xury1xDrc7JxM+2+15pPoHg1Bxhc0XMwmvFbaOHLAMqS6ji
-         9cWurZm7q90LZGk2s6w7c0aHPkcuUvu5E3/VNpVl6htwsvXFVidELdFWTGetqOTY5rDo
-         8VaaWU8CG6K6jDq8Mo5qoGQA7RjYosmE3FDYt7C3ncw52qiYIKDSShNRL1s7cO50L3pR
-         XCH3yLzsEsgNt/t5fFBCxFJlZuAdcVvp4ZfGrMtmbWIdV5r02TVlzQQyqDbN+UEYfp+f
-         m86L/e3F6armW8ta5rLaLEhIWsdcKCux1fmvNBmk3F6aJhX4lWP0zDkz64Rf8U68gdPV
-         Qrxg==
+        b=gPLrho2bcYeV6feNUvjq6F+OtGEilOFAk85gIaRmmaPiGt0aJF6AHMRA7PUBZJ5JX3
+         ss8QOVE8Xvg9FBg2QzVON+OvONYtreOqQUbwyNuc/thOnuW2t3RLTMc0UgZSatJD5sJN
+         kRkC+a4oc6BrGJ8VSM2GD2/CTkktBFp1bN3oP0vkkViaBFB3GuE1/ORDClA6mT1P+R0N
+         tN4WgMcb3PBYPTjffPcbBNwzZhmN1TXx5t4M+iuH16lYEqQThVsWoODYIZFRkmqQdRdD
+         fj/P6Re0wncbbXTRSDfptQOM5hwsC0hJ2hUMo8TsFSqksp0vBXkD55Xq1dFdHJgnfXD6
+         fn+Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=gVpkASubCXhQMK4z1waGQuefracp2k8hqlP4SGi+2ZM=;
-        b=nPxTuLHbLceyTJjLcWsj/qxApMei5lqheWypPLrGGexa2hwlR9HHPJGQx4ENbuTmDZ
-         Q5odfWfx6RkYHkHOlzgGEPR2UVOtFn/F9YEUesV52sVNSA7dh6mjmmZESnL1pUxnVrn2
-         elYTrNPmqV/VR8jd5zGkYY1GMFQSeODN6IEVnTTqoXA4uKmUu5/dRMsW7FCS3rmOVhba
-         v128LFcvY13GN/6y+l/kfSztbbFK1+RNDNeaMpl2H+ynWPibtHhkDfS5j9ZtPIawv2K0
-         dz9/Kh2fD3lf0Fik2eb4l+IoX6IwufQbFDMD+kLwx2bCHxIhsmT95j9B8IVf3cwYMF1E
-         6I1A==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :mime-version:message-id:date:dkim-signature;
+        bh=1FO5wd2Q9YCxPyI+qpLuxKA2288DGm7/wuR479TZvrI=;
+        b=IeATaHscMqFW7r5wLsGyc035We17O0uAkSlgeC3QlQCpOml8FLTlqHbR+c636U7ANF
+         Li/pnjUGrrSc9a+ybDzG/0+ufDKJq6ACYtGPfLmiv5BvF6wYaFvbYcO5WYpRCzNbgGlX
+         OQnCVStfwh+u2zKt7QfiuDO6jNKcmJ9VAHyNyI4qO+xfiG87EtHG4Qiwrtg7Cfz/+ITz
+         ozEOUOf0wnuQJlc/6uNAXiDSGNgEP6Qq/XQ860kJMKXLhCtREyLuzLj8BYN498ZOGQuV
+         e5VRdMxU0fus9DuElI7vOdLJe73/e397J9M3j1MgKDztm4K7is1M3O28lUZ4asOPugWw
+         sBHw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=u58EeNvo;
-       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=qt025oqx;
+       spf=pass (google.com: domain of 3jtq-xgkkane5a38be5ba3bb381.zb9@flex--inglorion.bounces.google.com designates 2607:f8b0:4864:20::749 as permitted sender) smtp.mailfrom=3Jtq-XgkKANE5A38BE5BA3BB381.zB9@flex--inglorion.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=gVpkASubCXhQMK4z1waGQuefracp2k8hqlP4SGi+2ZM=;
-        b=oHs2KjaUL4wh1yx/We3VxSfzqBBkkWwE8kjnGSfeyQGX3kuELj+vIQFOUqX5TgR94W
-         vZeiX3b26M6xZVd5V5RN3UnXWSrk1MD06GR1KG1GXHcAHZgDS2oyDMMxLvFc/5hBwn9k
-         X9BRO188BfImyWh2eSZUCw0jzyNGMS5dI82aVHIpvDQGmW/cS+nhpSjgBqMQBXeazvYA
-         tJlOWowVj8XbgNLVTqpm0zWmUHjmL6Kd8edg/0B1wlGnDJiEPBF5GkQVM6DECVisAcg4
-         lWVbhjsm6qSlBXN971MRcewNGPmclOnxGSxgg+gI9HBz9+P78Oea2ld57+JX3ud4nOcD
-         mffQ==
+        h=date:message-id:mime-version:subject:from:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=1FO5wd2Q9YCxPyI+qpLuxKA2288DGm7/wuR479TZvrI=;
+        b=Yf+uZkDlEbV1wBGRbElnjfaTz5gAlvbb0MkG/Ui88BmkoXsab9OnLIhzolyx1M10Mu
+         hnAKgOWpbx34Hx4saO4xZ3eg2jOJJMjmtJKPjVmJlLOXEFyEDXZGyaKsV4lJZLOKfQJH
+         uoZvhmNLDvxZ/nIJ7QXv7/C9LtVusw1XySwT3MIt82h2thR0cNMAE/yT0/zJl9+TsFvr
+         UlP51sWUaPH8Ox21Ku5C4CdvnDqPLBUUk42Kx9u88S0RTnbXhfc4Tn9vCE634gGi//IA
+         0ocK6q+EM9nxRcTv+GVroRWgxnnBhK0KqW1n9CCR/DbGNmqfjyZ8eLP2S0fY+DeW73n/
+         cRRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=gVpkASubCXhQMK4z1waGQuefracp2k8hqlP4SGi+2ZM=;
-        b=FkpU3tjcPvCzNsGrqNrzFT+4iAk4qBiX4QXAPpCVSx1PE+79qlm35M+FSXj/qbS44a
-         3MWqRZN8nW5K83piCwgJAbc4BqE8VAi8NmxsSL+p7ON4AtCLNQN1fSEhwFgl2Qt4G0bU
-         xsnANtrBD1CP04/XC52TkDNZPp9nHkl8CkLHOA1ozGcsV4bSqLvDexjtXSm4tH1YzhsK
-         0sSGsmiF832Ssy2kYuY/bl/IXfEhj0suQPVXZmUH5F5NTGBSGY2LSL9QQmMes6wPp/Lp
-         F0gBqE3q3IgwpWRTeRmgWyMhE/STGlQrWZxNKfKalSKkbTxcDBzdNYHTq5YED94mk5wr
-         dJ9g==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5302wZRB+lxgp2e9AEqFF4JqpJ2UWXBY8TkrPjDZ7wn/EVUvdFNT
-	FqSlalUa/gtRuNOQrPYaeps=
-X-Google-Smtp-Source: ABdhPJyYCmlIyy8h/GZBNW1+sSvZpLjgluLjPeEjS07ZTtbg5I4js60k6N6Px3KHCKHvQrxMVzv7cQ==
-X-Received: by 2002:a9d:7f04:: with SMTP id j4mr3198024otq.185.1589563444637;
-        Fri, 15 May 2020 10:24:04 -0700 (PDT)
+        h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=1FO5wd2Q9YCxPyI+qpLuxKA2288DGm7/wuR479TZvrI=;
+        b=W2qSVA/AgIbYwtCGtF40ACKwt/ftNRczioTTKKU2HlIdqJoynJKLh4OmtKSQ6Xz4X7
+         5LoLoVAq3AYmQoTO1ggGIqpU1TzEnqx22kmqO3DVt5jN4X6yMSa639pJDiqRfzWi01Ws
+         0HbxpwXM2ot3OEHdcSTqQL4HwEBcn6/VRfNvelzQ2n3KDbInnJsZWFhONAafkQUEprMW
+         5XfkSqp16QPeOsbhFyF8Xexr+FGNFDRWsq9AymZIOwJacZ+Rzv4Yvaxbi16+xsFwDNQr
+         Faua62a8YJPJnS08ts/cxfuX+ObW/no5rwXIx23ICcOvgl6ms/mKe6kF2caR9LtUawTM
+         z4TQ==
+X-Gm-Message-State: AOAM530VvrJMCdvBJNpl/v5BNeXDI6iZv9A2CSI119L+NAV9C2X+wDB6
+	FLEpn9qwLbIXnPyrmNaHk/I=
+X-Google-Smtp-Source: ABdhPJx346aoqVCL+5i9rxwTOZSYp6apKBvn79S7tX+OoEe2Jiq4Vqwc/Spp6/Sz0hNb31DBlzmEMQ==
+X-Received: by 2002:a67:ecc3:: with SMTP id i3mr3347408vsp.170.1589565991940;
+        Fri, 15 May 2020 11:06:31 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:7516:: with SMTP id q22ls666584oic.1.gmail; Fri, 15 May
- 2020 10:24:04 -0700 (PDT)
-X-Received: by 2002:aca:f146:: with SMTP id p67mr3054242oih.56.1589563444382;
-        Fri, 15 May 2020 10:24:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1589563444; cv=none;
+Received: by 2002:ab0:70cb:: with SMTP id r11ls226954ual.5.gmail; Fri, 15 May
+ 2020 11:06:31 -0700 (PDT)
+X-Received: by 2002:ab0:6ec6:: with SMTP id c6mr680735uav.7.1589565991441;
+        Fri, 15 May 2020 11:06:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1589565991; cv=none;
         d=google.com; s=arc-20160816;
-        b=ydEUDVyvzwm0MBqGWlxchTn7FldqxPmV4m91pwZXLRp3Q9Y2SKvBx8R1biMoa/QaA5
-         2pm+vLLBcFakZvQUL3u/h670BFQQNLEAnp/H6NYBwW15agUyQsoUnETgg3JYUfpQCj3P
-         ZNihsAD31ipnBuWK4uJ6KgHT2jqpc4ge1OtFatTFGAuJoCi6839kbc75yMtY96rKYWql
-         6ttleolS+7nRCYQSW0Gu5q92m4gdinNnpG6fTYnRh0V+xcDnh6VOFHHarS1QN5VX409Z
-         Cq3q8Y4LCwV5wJdfOnWioLQAHn+BfIWUVeoNQGjiPy9Jy75/LhrcHas1U7hgy+RVgUdi
-         BNQw==
+        b=0HpmzNG11oIzzuKcFJVmeNtp0uPC0Tr5JQzx4sRa+CU6IYHkEHwYjWtB4MM3vrnYCr
+         b3Y7xItfWtLZ3o/CPLqCew5BFkDnDey7lmbEbbr8OEUHDQ79mPSxh7J/GSVztEUNCaFv
+         cSsFjNdkrdJ55vFvrhz+aXLfjPNdPiPmq2c1tV111f6KKAYCqtWpSzL79ImfT+O9WtfJ
+         5ghSRX0jEHJM0oUktzzbhNYzvZdnbwAe23ufExRliuRLaUqKqgC/WRDzwvq/3WZz8pfi
+         KuaVoUb6uFaEzBBrA8N6BDB+y4QrW7RFf+B3lbxFKB1oYy9+J1JaAO4G9SG17BJo18eA
+         hUZg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=8oYDK6ySEK4kobuBLoYfIAzILlvEejQOTWOwvjwD00k=;
-        b=vhkYag+J/6WZAr/0FiGPnsvZt1QzfJ7m8sf2M5PxqfdsRlmXfjS46A8HK7xs25bg5c
-         T5g+zDWRMsyHH5N+oVd+N2iBi128BaDgytrdU0dbOJAb8cmN3PfqOaMXRIHAFLd+PtIh
-         YXTVjBVZxuNDiWdluvv8hJXcxo13ksEd73yHhpknucn7cAIjB6/6gGHuPQwJ6y6DYjnn
-         gyUGiKvXpn0BYIeCDg0yLn8gn3cpniWvDxZ2bgDF56geLo+se71CVpyZprYRBc8Sjo/L
-         ZyNBO3Ac5JcuOJM3Hgg0/hqE+6H6P1Tnt8YwYlkuoRabRAYKADZjmx9FdeT5FV9HEyMq
-         P7zw==
+        h=cc:to:from:subject:mime-version:message-id:date:dkim-signature;
+        bh=L/+EYSk36TST2rIE8NznK9E9+/xuLx5a1Z0fVdYAEAY=;
+        b=OX/LYh0Me/3HaGAcE3ocDsaTVEWdMjBcxtyDgqnJg8eTdFxsmGBPQZ0EQsSmRIZKtN
+         rN1S/j+uMDCRR+aXxgwPKqDlHYf3EYgCXIYTuJBPXwuJ6/rXiEEoUghoWdJGbdvZIv1S
+         A47HM8zOuOlkUeb86xaXPavfpihQYCAcKXcfBTj4qnX/aKQwd1t4JRc+ni/6fo/hKY+6
+         FDixTaFSFr5dy+BC6WYucJOJeucavlpQ+7zE611AMY7Y6XPdS/CcJvH+kb+4ClStvLWJ
+         QRnjMgd24Y8m8nqrnIrUQD322Il/OXRxJTXzO8eWMrFIo+6q8b4mtj3guIoOuTvt1W7Y
+         59RA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=u58EeNvo;
-       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id l22si318559oos.2.2020.05.15.10.24.04
+       dkim=pass header.i=@google.com header.s=20161025 header.b=qt025oqx;
+       spf=pass (google.com: domain of 3jtq-xgkkane5a38be5ba3bb381.zb9@flex--inglorion.bounces.google.com designates 2607:f8b0:4864:20::749 as permitted sender) smtp.mailfrom=3Jtq-XgkKANE5A38BE5BA3BB381.zB9@flex--inglorion.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-qk1-x749.google.com (mail-qk1-x749.google.com. [2607:f8b0:4864:20::749])
+        by gmr-mx.google.com with ESMTPS id a65si199225vki.2.2020.05.15.11.06.31
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 15 May 2020 10:24:04 -0700 (PDT)
-Received-SPF: pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from willie-the-truck (236.31.169.217.in-addr.arpa [217.169.31.236])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id C922D20727;
-	Fri, 15 May 2020 17:23:59 +0000 (UTC)
-Date: Fri, 15 May 2020 18:23:56 +0100
-From: Will Deacon <will@kernel.org>
-To: Sami Tolvanen <samitolvanen@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ard.biesheuvel@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Michal Marek <michal.lkml@markovi.net>,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dave Martin <Dave.Martin@arm.com>,
-	Kees Cook <keescook@chromium.org>,
-	Laura Abbott <labbott@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Jann Horn <jannh@google.com>,
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	clang-built-linux@googlegroups.com,
-	kernel-hardening@lists.openwall.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v13 00/12] add support for Clang's Shadow Call Stack
-Message-ID: <20200515172355.GD23334@willie-the-truck>
-References: <20191018161033.261971-1-samitolvanen@google.com>
- <20200427160018.243569-1-samitolvanen@google.com>
-MIME-Version: 1.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 15 May 2020 11:06:31 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3jtq-xgkkane5a38be5ba3bb381.zb9@flex--inglorion.bounces.google.com designates 2607:f8b0:4864:20::749 as permitted sender) client-ip=2607:f8b0:4864:20::749;
+Received: by mail-qk1-x749.google.com with SMTP id m15so3057216qka.20
+        for <clang-built-linux@googlegroups.com>; Fri, 15 May 2020 11:06:31 -0700 (PDT)
+X-Received: by 2002:a0c:9c4f:: with SMTP id w15mr4602062qve.245.1589565990696;
+ Fri, 15 May 2020 11:06:30 -0700 (PDT)
+Date: Fri, 15 May 2020 11:05:40 -0700
+Message-Id: <20200515180544.59824-1-inglorion@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.26.2.761.g0e0b3e54be-goog
+Subject: [PATCH] x86_64: fix jiffies ODR violation
+From: "'Bob Haarman' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>
+Cc: Fangrui Song <maskray@google.com>, Sami Tolvanen <samitolvanen@google.com>, 
+	Bob Haarman <inglorion@google.com>, stable@vger.kernel.org, 
+	Nathan Chancellor <natechancellor@gmail.com>, Alistair Delva <adelva@google.com>, 
+	Nick Desaulniers <ndesaulniers@google.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Josh Poimboeuf <jpoimboe@redhat.com>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, Kyung Min Park <kyung.min.park@intel.com>, 
+	afzal mohammed <afzal.mohd.ma@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Kees Cook <keescook@chromium.org>, Heiko Carstens <heiko.carstens@de.ibm.com>, 
+	Dave Hansen <dave.hansen@intel.com>, Baoquan He <bhe@redhat.com>, 
+	Thomas Lendacky <Thomas.Lendacky@amd.com>, Ross Zwisler <zwisler@chromium.org>, 
+	Arvind Sankar <nivedita@alum.mit.edu>, Dmitry Safonov <0x7f454c46@gmail.com>, 
+	Andi Kleen <ak@linux.intel.com>, linux-kernel@vger.kernel.org, 
+	clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200427160018.243569-1-samitolvanen@google.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: will@kernel.org
+X-Original-Sender: inglorion@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=u58EeNvo;       spf=pass
- (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=will@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@google.com header.s=20161025 header.b=qt025oqx;       spf=pass
+ (google.com: domain of 3jtq-xgkkane5a38be5ba3bb381.zb9@flex--inglorion.bounces.google.com
+ designates 2607:f8b0:4864:20::749 as permitted sender) smtp.mailfrom=3Jtq-XgkKANE5A38BE5BA3BB381.zB9@flex--inglorion.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Bob Haarman <inglorion@google.com>
+Reply-To: Bob Haarman <inglorion@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,187 +137,130 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Sami,
+`jiffies` and `jiffies_64` are meant to alias (two different symbols
+that share the same address).  Most architectures make the symbols alias
+to the same address via linker script assignment in their
+arch/<arch>/kernel/vmlinux.lds.S:
 
-On Mon, Apr 27, 2020 at 09:00:06AM -0700, Sami Tolvanen wrote:
-> This patch series adds support for Clang's Shadow Call Stack
-> (SCS) mitigation, which uses a separately allocated shadow stack
-> to protect against return address overwrites. More information
-> can be found here:
-> 
->   https://clang.llvm.org/docs/ShadowCallStack.html
+jiffies = jiffies_64;
 
-I'm planning to queue this with the (mostly cosmetic) diff below folded in.
-I also have some extra patches on top which I'll send out shortly for
-review.
+which is effectively a definition of jiffies.
 
-However, I really think we need to get to the bottom of the size issue
-since I'm highly sceptical about not being able to afford a full page
-for the shadow stack allocation. We can change this later so it needn't
-hold up the patchset, but given that Android is the only user, I'd like
-to make sure that if we change to use a full page upstream then that is
-also acceptable in AOSP.
+jiffies and jiffies_64 are both forward declared for all arch's in:
+include/linux/jiffies.h.
 
-Thanks,
+jiffies_64 is defined in kernel/time/timer.c for all arch's.
 
-Will
+x86_64 was peculiar in that it wasn't doing the above linker script
+assignment, but rather was:
+1. defining jiffies in arch/x86/kernel/time.c instead via linker script.
+2. overriding the symbol jiffies_64 from kernel/time/timer.c in
+arch/x86/kernel/vmlinux.lds.s via `jiffies_64 = jiffies;`.
 
---->8
+As Fangrui notes:
+```
+In LLD, symbol assignments in linker scripts override definitions in
+object files. GNU ld appears to have the same behavior. It would
+probably make sense for LLD to error "duplicate symbol" but GNU ld is
+unlikely to adopt for compatibility reasons.
+```
 
-diff --git a/include/linux/compiler-clang.h b/include/linux/compiler-clang.h
-index 18fc4d29ef27..790c0c6b8552 100644
---- a/include/linux/compiler-clang.h
-+++ b/include/linux/compiler-clang.h
-@@ -45,6 +45,4 @@
+So we have an ODR violation (UB), which we seem to have gotten away
+with thus far. Where it becomes harmful is when we:
+
+1. Use -fno-semantic-interposition.
+
+As Fangrui notes:
+```
+Clang after LLVM
+commit 5b22bcc2b70d ("[X86][ELF] Prefer to lower MC_GlobalAddress
+operands to .Lfoo$local")
+defaults to -fno-semantic-interposition similar semantics which help
+-fpic/-fPIC code avoid GOT/PLT when the referenced symbol is defined
+within the same translation unit. Unlike GCC
+-fno-semantic-interposition, Clang emits such relocations referencing
+local symbols for non-pic code as well.
+```
+
+This causes references to jiffies to refer to `.Ljiffies$local` when
+jiffies is defined in the same translation unit. Likewise, references
+to jiffies_64 become references to `.Ljiffies_64$local` in translation
+units that define jiffies_64.  Because these differ from the names
+used in the linker script, they will not be rewritten to alias one
+another.
+
+Combined with ...
+
+2. Full LTO effectively treats all source files as one translation
+unit, causing these local references to be produced everywhere.  When
+the linker processes the linker script, there are no longer any
+references to `jiffies_64` anywhere to replace with `jiffies`.  And
+thus `.Ljiffies$local` and `.Ljiffies_64$local` no longer alias
+at all.
+
+In the process of porting patches enabling Full LTO from arm64 to
+x86_64, we observe spooky bugs where the kernel appeared to boot, but
+init doesn't get scheduled.
+
+Instead, we can avoid the ODR violation by matching other arch's by
+defining jiffies only by linker script.  For -fno-semantic-interposition
++ Full LTO, there is no longer a global definition of jiffies for the
+compiler to produce a local symbol which the linker script won't ensure
+aliases to jiffies_64.
+
+Link: https://github.com/ClangBuiltLinux/linux/issues/852
+Fixes: 40747ffa5aa8 ("asmlinkage: Make jiffies visible")
+Cc: stable@vger.kernel.org
+Reported-by: Nathan Chancellor <natechancellor@gmail.com>
+Reported-by: Alistair Delva <adelva@google.com>
+Suggested-by: Fangrui Song <maskray@google.com>
+Debugged-by: Nick Desaulniers <ndesaulniers@google.com>
+Debugged-by: Sami Tolvanen <samitolvanen@google.com>
+Signed-off-by: Bob Haarman <inglorion@google.com>
+---
+ arch/x86/kernel/time.c        | 4 ----
+ arch/x86/kernel/vmlinux.lds.S | 4 ++--
+ 2 files changed, 2 insertions(+), 6 deletions(-)
+
+diff --git a/arch/x86/kernel/time.c b/arch/x86/kernel/time.c
+index 371a6b348e44..e42faa792c07 100644
+--- a/arch/x86/kernel/time.c
++++ b/arch/x86/kernel/time.c
+@@ -25,10 +25,6 @@
+ #include <asm/hpet.h>
+ #include <asm/time.h>
  
- #if __has_feature(shadow_call_stack)
- # define __noscs	__attribute__((__no_sanitize__("shadow-call-stack")))
--#else
--# define __noscs
- #endif
-diff --git a/include/linux/scs.h b/include/linux/scs.h
-index 060eeb3d1390..3f3662621a27 100644
---- a/include/linux/scs.h
-+++ b/include/linux/scs.h
-@@ -11,7 +11,7 @@
- #include <linux/gfp.h>
- #include <linux/poison.h>
- #include <linux/sched.h>
--#include <asm/page.h>
-+#include <linux/sizes.h>
- 
- #ifdef CONFIG_SHADOW_CALL_STACK
- 
-@@ -20,7 +20,7 @@
-  * architecture) provided ~40% safety margin on stack usage while keeping
-  * memory allocation overhead reasonable.
-  */
--#define SCS_SIZE		1024UL
-+#define SCS_SIZE		SZ_1K
- #define GFP_SCS			(GFP_KERNEL | __GFP_ZERO)
- 
- /* An illegal pointer value to mark the end of the shadow stack. */
-@@ -29,7 +29,9 @@
- #define task_scs(tsk)		(task_thread_info(tsk)->scs_base)
- #define task_scs_offset(tsk)	(task_thread_info(tsk)->scs_offset)
- 
--extern void scs_init(void);
-+void scs_init(void);
-+int scs_prepare(struct task_struct *tsk, int node);
-+void scs_release(struct task_struct *tsk);
- 
- static inline void scs_task_reset(struct task_struct *tsk)
- {
-@@ -40,8 +42,6 @@ static inline void scs_task_reset(struct task_struct *tsk)
-	task_scs_offset(tsk) = 0;
- }
- 
--extern int scs_prepare(struct task_struct *tsk, int node);
--
- static inline unsigned long *__scs_magic(void *s)
- {
-	return (unsigned long *)(s + SCS_SIZE) - 1;
-@@ -55,12 +55,8 @@ static inline bool scs_corrupted(struct task_struct *tsk)
-		READ_ONCE_NOCHECK(*magic) != SCS_END_MAGIC);
- }
- 
--extern void scs_release(struct task_struct *tsk);
--
- #else /* CONFIG_SHADOW_CALL_STACK */
- 
--#define task_scs(tsk)	NULL
--
- static inline void scs_init(void) {}
- static inline void scs_task_reset(struct task_struct *tsk) {}
- static inline int scs_prepare(struct task_struct *tsk, int node) { return 0; }
-diff --git a/kernel/scs.c b/kernel/scs.c
-index 2a96573f2b1b..9389c28f0853 100644
---- a/kernel/scs.c
-+++ b/kernel/scs.c
-@@ -55,45 +55,37 @@ static void scs_account(struct task_struct *tsk, int account)
- 
- int scs_prepare(struct task_struct *tsk, int node)
- {
--	void *s;
-+	void *s = scs_alloc(node);
- 
--	s = scs_alloc(node);
-	if (!s)
-		return -ENOMEM;
- 
-	task_scs(tsk) = s;
-	task_scs_offset(tsk) = 0;
-	scs_account(tsk, 1);
--
-	return 0;
- }
- 
--#ifdef CONFIG_DEBUG_STACK_USAGE
--static unsigned long __scs_used(struct task_struct *tsk)
-+static void scs_check_usage(struct task_struct *tsk)
- {
--	unsigned long *p = task_scs(tsk);
--	unsigned long *end = __scs_magic(p);
--	unsigned long s = (unsigned long)p;
-+	static unsigned long highest;
- 
--	while (p < end && READ_ONCE_NOCHECK(*p))
--		p++;
-+	unsigned long *p, prev, curr = highest, used = 0;
- 
--	return (unsigned long)p - s;
--}
-+	if (!IS_ENABLED(CONFIG_DEBUG_STACK_USAGE))
-+		return;
- 
--static void scs_check_usage(struct task_struct *tsk)
--{
--	static unsigned long highest;
--	unsigned long used = __scs_used(tsk);
--	unsigned long prev;
--	unsigned long curr = highest;
-+	for (p = task_scs(tsk); p < __scs_magic(tsk); ++p) {
-+		if (!READ_ONCE_NOCHECK(*p))
-+			break;
-+		used++;
-+	}
- 
-	while (used > curr) {
-		prev = cmpxchg_relaxed(&highest, curr, used);
- 
-		if (prev == curr) {
--			pr_info("%s (%d): highest shadow stack usage: "
--				"%lu bytes\n",
-+			pr_info("%s (%d): highest shadow stack usage: %lu bytes\n",
-				tsk->comm, task_pid_nr(tsk), used);
-			break;
-		}
-@@ -101,21 +93,16 @@ static void scs_check_usage(struct task_struct *tsk)
-		curr = prev;
-	}
- }
--#else
--static inline void scs_check_usage(struct task_struct *tsk) {}
+-#ifdef CONFIG_X86_64
+-__visible volatile unsigned long jiffies __cacheline_aligned_in_smp = INITIAL_JIFFIES;
 -#endif
- 
- void scs_release(struct task_struct *tsk)
- {
--	void *s;
-+	void *s = task_scs(tsk);
- 
--	s = task_scs(tsk);
-	if (!s)
-		return;
- 
--	WARN_ON(scs_corrupted(tsk));
-+	WARN(scs_corrupted(tsk), "corrupted shadow stack detected when freeing task\n");
-	scs_check_usage(tsk);
 -
-	scs_account(tsk, -1);
-	scs_free(s);
- }
+ unsigned long profile_pc(struct pt_regs *regs)
+ {
+ 	unsigned long pc = instruction_pointer(regs);
+diff --git a/arch/x86/kernel/vmlinux.lds.S b/arch/x86/kernel/vmlinux.lds.S
+index 1bf7e312361f..7c35556c7827 100644
+--- a/arch/x86/kernel/vmlinux.lds.S
++++ b/arch/x86/kernel/vmlinux.lds.S
+@@ -40,13 +40,13 @@ OUTPUT_FORMAT(CONFIG_OUTPUT_FORMAT)
+ #ifdef CONFIG_X86_32
+ OUTPUT_ARCH(i386)
+ ENTRY(phys_startup_32)
+-jiffies = jiffies_64;
+ #else
+ OUTPUT_ARCH(i386:x86-64)
+ ENTRY(phys_startup_64)
+-jiffies_64 = jiffies;
+ #endif
+ 
++jiffies = jiffies_64;
++
+ #if defined(CONFIG_X86_64)
+ /*
+  * On 64-bit, align RODATA to 2MB so we retain large page mappings for
+-- 
+2.26.2.761.g0e0b3e54be-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200515172355.GD23334%40willie-the-truck.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200515180544.59824-1-inglorion%40google.com.
