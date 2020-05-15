@@ -1,144 +1,145 @@
-Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBCEF7P2QKGQE5PFTYJY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDAZZCVNSYPBBNFA7P2QKGQENP4UKMQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23d.google.com (mail-oi1-x23d.google.com [IPv6:2607:f8b0:4864:20::23d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0B74E1D55E1
-	for <lists+clang-built-linux@lfdr.de>; Fri, 15 May 2020 18:25:47 +0200 (CEST)
-Received: by mail-oi1-x23d.google.com with SMTP id l11sf815131oil.13
-        for <lists+clang-built-linux@lfdr.de>; Fri, 15 May 2020 09:25:46 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1589559946; cv=pass;
+Received: from mail-oi1-x23a.google.com (mail-oi1-x23a.google.com [IPv6:2607:f8b0:4864:20::23a])
+	by mail.lfdr.de (Postfix) with ESMTPS id AB4861D57A8
+	for <lists+clang-built-linux@lfdr.de>; Fri, 15 May 2020 19:24:05 +0200 (CEST)
+Received: by mail-oi1-x23a.google.com with SMTP id j84sf1602240oib.21
+        for <lists+clang-built-linux@lfdr.de>; Fri, 15 May 2020 10:24:05 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1589563444; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qHAdt94yy30IKe6nuKLZftPv4RTJZ0VfkMyyPn8n3RnMVj7MtINrtIZj84Y5KGukZ8
-         FzwhX+MUF+B0kWHtE8jHjmPs2f+8PCtQI+QI66vd+sPXEzCH7Sh4oD0ZvdpFd8FML0FM
-         iRzEf/Vfp4t+JexigghG9NHDyH23+rhHGxSc79NBbHrCNRz9WCsjjV0MYdngWAIhWDZB
-         i9OMHeOVh29zRVEtPJT/lzHJcmZCzLAA9elE1Wi7IGZ8F8Y7PXC9tYUavT9HfW6lnHUy
-         EP9JT03tnchpA0MfRVACUOiX5JyVKq9etp03k2mVQCRegWLGkz0gLIJqtki/JI7Oslg3
-         NyBw==
+        b=zW0JZItCYFIDQhB8cT7Xury1xDrc7JxM+2+15pPoHg1Bxhc0XMwmvFbaOHLAMqS6ji
+         9cWurZm7q90LZGk2s6w7c0aHPkcuUvu5E3/VNpVl6htwsvXFVidELdFWTGetqOTY5rDo
+         8VaaWU8CG6K6jDq8Mo5qoGQA7RjYosmE3FDYt7C3ncw52qiYIKDSShNRL1s7cO50L3pR
+         XCH3yLzsEsgNt/t5fFBCxFJlZuAdcVvp4ZfGrMtmbWIdV5r02TVlzQQyqDbN+UEYfp+f
+         m86L/e3F6armW8ta5rLaLEhIWsdcKCux1fmvNBmk3F6aJhX4lWP0zDkz64Rf8U68gdPV
+         Qrxg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-disposition:in-reply-to
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=MzvCf0H370DIKGEwG1fnVQlqVyDPDdc4vFlxLpBOiJg=;
-        b=pvpnV5xxrbYZK6GH1FNTEocOw3gxla9b1AibYxRD5EDEOdUc07sS5OEFFHIRjsxNdC
-         hQFe3trgWjcVAIDMfbGJZw1hNIiBQZGFcr7C+XUTIbdpmDuv6wEZDR4reOSOSuQIuwTl
-         VGkyw2JkxbTQcXTQD6k1BevCb+zkZ+cimIJkiJD+sMPZOBJDHEKdF0uRKXr8DRt/p+mD
-         fpSLieAxeXFiZ9DU37tMjQi8SiipOBGdI9kE4K2WkaN7Gz3JlfSw5eyv6en2VcadlBDU
-         +hPKo4n8zISiTT7OFj458BwU9zZ/rlvlIBj87HNrS5+lb1/zyTZYFRNDsvL8sRuo+SX7
-         8quA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=gVpkASubCXhQMK4z1waGQuefracp2k8hqlP4SGi+2ZM=;
+        b=nPxTuLHbLceyTJjLcWsj/qxApMei5lqheWypPLrGGexa2hwlR9HHPJGQx4ENbuTmDZ
+         Q5odfWfx6RkYHkHOlzgGEPR2UVOtFn/F9YEUesV52sVNSA7dh6mjmmZESnL1pUxnVrn2
+         elYTrNPmqV/VR8jd5zGkYY1GMFQSeODN6IEVnTTqoXA4uKmUu5/dRMsW7FCS3rmOVhba
+         v128LFcvY13GN/6y+l/kfSztbbFK1+RNDNeaMpl2H+ynWPibtHhkDfS5j9ZtPIawv2K0
+         dz9/Kh2fD3lf0Fik2eb4l+IoX6IwufQbFDMD+kLwx2bCHxIhsmT95j9B8IVf3cwYMF1E
+         6I1A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=YKDnLQDY;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates 205.139.110.61 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@kernel.org header.s=default header.b=u58EeNvo;
+       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :in-reply-to:content-disposition:x-original-sender
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=MzvCf0H370DIKGEwG1fnVQlqVyDPDdc4vFlxLpBOiJg=;
-        b=V87HgDj5YGPxhSwFA/W+DOG+qv4XizrCUtUb228AWGWD9pEER8GwiWa/Yw635IrA+/
-         KHNmzOuZ//XrXkm+Fvx3oGurHAX8DzxPoOIrWHFPYpRZtFZm4bCdP/uQ3xe2xNTFxWAM
-         nv71b1j8pGXYziZKbq2jqDdT2W4EE/wQlVWNPnMO8nhmi0dzVuVF93f8FCHxgDF7mVDj
-         zw4UjWgZu8bjsnkgRMjGRvvoiDfdvveGZgWHO9JyGmsUZjQF/0LAzHvEM7s3g8CxW2w/
-         xpl6sOolPA4KLxT8wXj61JdFJtjHkXW/3yEsjyEMhg8vJymC98sE2ImZbtXwZGmko6hO
-         7SNA==
+        bh=gVpkASubCXhQMK4z1waGQuefracp2k8hqlP4SGi+2ZM=;
+        b=oHs2KjaUL4wh1yx/We3VxSfzqBBkkWwE8kjnGSfeyQGX3kuELj+vIQFOUqX5TgR94W
+         vZeiX3b26M6xZVd5V5RN3UnXWSrk1MD06GR1KG1GXHcAHZgDS2oyDMMxLvFc/5hBwn9k
+         X9BRO188BfImyWh2eSZUCw0jzyNGMS5dI82aVHIpvDQGmW/cS+nhpSjgBqMQBXeazvYA
+         tJlOWowVj8XbgNLVTqpm0zWmUHjmL6Kd8edg/0B1wlGnDJiEPBF5GkQVM6DECVisAcg4
+         lWVbhjsm6qSlBXN971MRcewNGPmclOnxGSxgg+gI9HBz9+P78Oea2ld57+JX3ud4nOcD
+         mffQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:in-reply-to:content-disposition
+         :references:mime-version:content-disposition:in-reply-to:user-agent
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=MzvCf0H370DIKGEwG1fnVQlqVyDPDdc4vFlxLpBOiJg=;
-        b=bsEiitxovaq6xj+w8YaXR9rXMkOg/q5uzEzxFHUQovpRlIiyhgTrdThHi/8/W8/1fO
-         DncJODwJMjhZ++I1x8WJt7UA2mDSGnFxV1cvA7EpkP69ukQM2SJLX60nVVOlA2W5rcJv
-         gKmd2ETMSq11gVE2uQ6m3FDuWHp8IJiwD8dOXIztOLIe6nrKsDoIeXKuf/e405yZTDrD
-         vzDiu2FUF+2SJx7r3v60GoQVVASQQhoSYvk+ZLrzVrWHCKl2n3ked/Ljl6vPkk2X9WFh
-         JFVPTxb+gY2Xz9Mm6D7gI7FVZOIs/p1MrW7NebX9bBy9JMb/1/EaNKdEC7tgPRBvVZ7u
-         JDcg==
+        bh=gVpkASubCXhQMK4z1waGQuefracp2k8hqlP4SGi+2ZM=;
+        b=FkpU3tjcPvCzNsGrqNrzFT+4iAk4qBiX4QXAPpCVSx1PE+79qlm35M+FSXj/qbS44a
+         3MWqRZN8nW5K83piCwgJAbc4BqE8VAi8NmxsSL+p7ON4AtCLNQN1fSEhwFgl2Qt4G0bU
+         xsnANtrBD1CP04/XC52TkDNZPp9nHkl8CkLHOA1ozGcsV4bSqLvDexjtXSm4tH1YzhsK
+         0sSGsmiF832Ssy2kYuY/bl/IXfEhj0suQPVXZmUH5F5NTGBSGY2LSL9QQmMes6wPp/Lp
+         F0gBqE3q3IgwpWRTeRmgWyMhE/STGlQrWZxNKfKalSKkbTxcDBzdNYHTq5YED94mk5wr
+         dJ9g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531jDc5XcqZ2nFgBn2hT4EKa9DiWy8dBx7uBP8olFUOn8EKYelb0
-	bufpD6Xbc0oRl3NhGJICJBQ=
-X-Google-Smtp-Source: ABdhPJzxgxsOUHrQr8xOlPAKuiBUTw3AVZ8xKXdAvQwHzPUBuBbPegYnq+5geBnjFbvvfBN7Z7qk6A==
-X-Received: by 2002:a54:4701:: with SMTP id k1mr2718828oik.175.1589559944955;
-        Fri, 15 May 2020 09:25:44 -0700 (PDT)
+X-Gm-Message-State: AOAM5302wZRB+lxgp2e9AEqFF4JqpJ2UWXBY8TkrPjDZ7wn/EVUvdFNT
+	FqSlalUa/gtRuNOQrPYaeps=
+X-Google-Smtp-Source: ABdhPJyYCmlIyy8h/GZBNW1+sSvZpLjgluLjPeEjS07ZTtbg5I4js60k6N6Px3KHCKHvQrxMVzv7cQ==
+X-Received: by 2002:a9d:7f04:: with SMTP id j4mr3198024otq.185.1589563444637;
+        Fri, 15 May 2020 10:24:04 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:7516:: with SMTP id q22ls629568oic.1.gmail; Fri, 15 May
- 2020 09:25:44 -0700 (PDT)
-X-Received: by 2002:aca:908:: with SMTP id 8mr2828490oij.170.1589559944669;
-        Fri, 15 May 2020 09:25:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1589559944; cv=none;
+Received: by 2002:aca:7516:: with SMTP id q22ls666584oic.1.gmail; Fri, 15 May
+ 2020 10:24:04 -0700 (PDT)
+X-Received: by 2002:aca:f146:: with SMTP id p67mr3054242oih.56.1589563444382;
+        Fri, 15 May 2020 10:24:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1589563444; cv=none;
         d=google.com; s=arc-20160816;
-        b=K9Tk7eYXIMG7KjsqTtMuoLThgp/W3HULveka7A7C0ZrpVVLSnLffdjBoPeU7cydwoI
-         xxw3Fu5Q6oRsuRQuVp51UcYg0QhnX+vI1XrA9SYusTfHbXjpXISQNrZp19IZFprljPBw
-         M2T+wEN1Ed3c35ZJkDbm2VO8EDF/daOBf0FeCpSozsOddEVSukOoHARq1eOgqSFcRgNO
-         IWcq485nvkfc2Q9EFjctJLI7YSQWBWe8FrzsKRzOjAxzVtQ9rzSn1oLcjJtelD946/gF
-         wQTld+HhhqI7g1huoRb2pNzoj9HAgShyxaCbqbL3Wm8ltLcsSwRFsSlEoxsZ0fNQ4nUv
-         REMA==
+        b=ydEUDVyvzwm0MBqGWlxchTn7FldqxPmV4m91pwZXLRp3Q9Y2SKvBx8R1biMoa/QaA5
+         2pm+vLLBcFakZvQUL3u/h670BFQQNLEAnp/H6NYBwW15agUyQsoUnETgg3JYUfpQCj3P
+         ZNihsAD31ipnBuWK4uJ6KgHT2jqpc4ge1OtFatTFGAuJoCi6839kbc75yMtY96rKYWql
+         6ttleolS+7nRCYQSW0Gu5q92m4gdinNnpG6fTYnRh0V+xcDnh6VOFHHarS1QN5VX409Z
+         Cq3q8Y4LCwV5wJdfOnWioLQAHn+BfIWUVeoNQGjiPy9Jy75/LhrcHas1U7hgy+RVgUdi
+         BNQw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-disposition:in-reply-to:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=ps5IsNy+4gcgBuZjYkSlVoRaiYUMkLWqlqvIdZeZJ0Y=;
-        b=eDhd6I+bFbYED8EEIwqbZKkDU5draIGqVjwUU+Du9+4zjR/koGfm4VpUHNLVk8/lbO
-         fBuVRdBJkvD7m2HBLFAYuhR1MnOVADQMqeqv2yEY9V9G8F7LJc4YJgfT02ISR2bPt2xG
-         gSbZp4TYYPbG6IjeIb8/UAV/6r2QAhiM1itT8VPKOMMkP/rOzucdqevuVsct/9KirNjv
-         ZsPrrnZnGGzqxJp/z0zOPmP6aVQkWH7yd2+PVQA7S8B5JXGQ1Uxo6UVE1iaoPZuaz7eL
-         /M2qc1aYChCx02o/3MApaobR0gxFDmp3bwe/dcxHBmQY2w1ShZz/sUMRwvOUW7eSKAoW
-         5lCQ==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=8oYDK6ySEK4kobuBLoYfIAzILlvEejQOTWOwvjwD00k=;
+        b=vhkYag+J/6WZAr/0FiGPnsvZt1QzfJ7m8sf2M5PxqfdsRlmXfjS46A8HK7xs25bg5c
+         T5g+zDWRMsyHH5N+oVd+N2iBi128BaDgytrdU0dbOJAb8cmN3PfqOaMXRIHAFLd+PtIh
+         YXTVjBVZxuNDiWdluvv8hJXcxo13ksEd73yHhpknucn7cAIjB6/6gGHuPQwJ6y6DYjnn
+         gyUGiKvXpn0BYIeCDg0yLn8gn3cpniWvDxZ2bgDF56geLo+se71CVpyZprYRBc8Sjo/L
+         ZyNBO3Ac5JcuOJM3Hgg0/hqE+6H6P1Tnt8YwYlkuoRabRAYKADZjmx9FdeT5FV9HEyMq
+         P7zw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=YKDnLQDY;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates 205.139.110.61 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com. [205.139.110.61])
-        by gmr-mx.google.com with ESMTPS id k65si318416oib.2.2020.05.15.09.25.44
+       dkim=pass header.i=@kernel.org header.s=default header.b=u58EeNvo;
+       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id l22si318559oos.2.2020.05.15.10.24.04
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 15 May 2020 09:25:44 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 205.139.110.61 as permitted sender) client-ip=205.139.110.61;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-492-QAI_14QDPhGuck0a4mvcpQ-1; Fri, 15 May 2020 12:25:42 -0400
-X-MC-Unique: QAI_14QDPhGuck0a4mvcpQ-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+        Fri, 15 May 2020 10:24:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from willie-the-truck (236.31.169.217.in-addr.arpa [217.169.31.236])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 97D9D835B47;
-	Fri, 15 May 2020 16:25:40 +0000 (UTC)
-Received: from treble (ovpn-117-151.rdu2.redhat.com [10.10.117.151])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9F83E5D714;
-	Fri, 15 May 2020 16:25:39 +0000 (UTC)
-Date: Fri, 15 May 2020 11:25:37 -0500
-From: Josh Poimboeuf <jpoimboe@redhat.com>
-To: Marco Elver <elver@google.com>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	kasan-dev <kasan-dev@googlegroups.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@google.com>,
-	Peter Zijlstra <peterz@infradead.org>
-Subject: Re: ORC unwinder with Clang
-Message-ID: <20200515162537.j2nj5nq42b4zxmqz@treble>
-References: <CANpmjNNLY9EcSXhBbdjMR2pLJfrgQoffuzs27Xrgx3nOuAUxMQ@mail.gmail.com>
- <CAKwvOdnQaeQ2bLqyXs-H3MZTPBd+yteVG4NiY0Wd05WceAad9g@mail.gmail.com>
- <CANpmjNPLgFdFpHzj5Hb_1CfFzPMmqy3z1O98N=wsr8kQ1VS9_Q@mail.gmail.com>
- <CAKwvOd=0Ducgnkf8tzNGH10_UJSk56Ff_oSyGMddBCyG3Xt5Gg@mail.gmail.com>
- <20200514191754.dawwxxiv4cqytn2u@treble>
- <CANpmjNOoB36xu4iBwcOZ=RpjWEMwmqOX1tYU8+m285xXJDHRGg@mail.gmail.com>
+	by mail.kernel.org (Postfix) with ESMTPSA id C922D20727;
+	Fri, 15 May 2020 17:23:59 +0000 (UTC)
+Date: Fri, 15 May 2020 18:23:56 +0100
+From: Will Deacon <will@kernel.org>
+To: Sami Tolvanen <samitolvanen@google.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	James Morse <james.morse@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ard.biesheuvel@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Michal Marek <michal.lkml@markovi.net>,
+	Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dave Martin <Dave.Martin@arm.com>,
+	Kees Cook <keescook@chromium.org>,
+	Laura Abbott <labbott@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Jann Horn <jannh@google.com>,
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+	clang-built-linux@googlegroups.com,
+	kernel-hardening@lists.openwall.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v13 00/12] add support for Clang's Shadow Call Stack
+Message-ID: <20200515172355.GD23334@willie-the-truck>
+References: <20191018161033.261971-1-samitolvanen@google.com>
+ <20200427160018.243569-1-samitolvanen@google.com>
 MIME-Version: 1.0
-In-Reply-To: <CANpmjNOoB36xu4iBwcOZ=RpjWEMwmqOX1tYU8+m285xXJDHRGg@mail.gmail.com>
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-X-Original-Sender: jpoimboe@redhat.com
+In-Reply-To: <20200427160018.243569-1-samitolvanen@google.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: will@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=YKDnLQDY;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates
- 205.139.110.61 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@kernel.org header.s=default header.b=u58EeNvo;       spf=pass
+ (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=will@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,50 +152,187 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, May 15, 2020 at 01:50:07PM +0200, Marco Elver wrote:
-> On Thu, 14 May 2020 at 21:18, Josh Poimboeuf <jpoimboe@redhat.com> wrote:
-> >
-> > On Thu, May 14, 2020 at 11:34:52AM -0700, Nick Desaulniers wrote:
-> > > > The stack traces of the races shown should all start with a
-> > > > "test_kernel_*" function, but do not. Then:
-> > > >
-> > > >   sed -i "s/noinline/noinline __attribute__((disable_tail_calls))/"
-> > > > kernel/kcsan/kcsan-test.c
-> > > >
-> > > > which adds the disable_tail_calls attribute to all "test_kernel_*"
-> > > > functions, and the tests pass.
-> > >
-> > > That's a good lead to start with.  Do the tests pass with
-> > > UNWINDER_FRAME_POINTER rather than UNWINDER_ORC?  Rather than
-> > > blanketing the kernel with disable_tail_calls, the next steps I
-> > > recommend is to narrow down which function caller and callee
-> > > specifically trip up this test.  Maybe from there, we can take a look
-> > > at the unwind info from objtool that ORC consumes?
-> >
-> > After a function does a tail call, it's no longer on the stack, so
-> > there's no way for an unwinder to find it.
+Hi Sami,
+
+On Mon, Apr 27, 2020 at 09:00:06AM -0700, Sami Tolvanen wrote:
+> This patch series adds support for Clang's Shadow Call Stack
+> (SCS) mitigation, which uses a separately allocated shadow stack
+> to protect against return address overwrites. More information
+> can be found here:
 > 
-> Right, if this is a general limitation of the unwinder, that's fair
-> enough. However, if we build a kernel where we want to have the full
-> stack-trace always available, would it be reasonable to assume we need
-> to build with -fno-optimize-sibling-calls? I can imagine that we'll
-> need this for the sanitizer builds, for compilation units that want to
-> be sanitized normally.
+>   https://clang.llvm.org/docs/ShadowCallStack.html
 
-It depends on your definition of a full stack trace.  Unwinders really
-trace the *return* path, not the call path.  That's not specific to ORC,
-though having frame pointers enabled might make sibling calls less
-likely.
+I'm planning to queue this with the (mostly cosmetic) diff below folded in.
+I also have some extra patches on top which I'll send out shortly for
+review.
 
-Building the entire kernel with -fno-optimize-sibling-calls seems like
-overkill, I'm not sure what that would solve?  If the test code always
-expects to see certain callers on the stack, it sounds like only the
-test code needs the flag.
+However, I really think we need to get to the bottom of the size issue
+since I'm highly sceptical about not being able to afford a full page
+for the shadow stack allocation. We can change this later so it needn't
+hold up the patchset, but given that Android is the only user, I'd like
+to make sure that if we change to use a full page upstream then that is
+also acceptable in AOSP.
 
--- 
-Josh
+Thanks,
+
+Will
+
+--->8
+
+diff --git a/include/linux/compiler-clang.h b/include/linux/compiler-clang.h
+index 18fc4d29ef27..790c0c6b8552 100644
+--- a/include/linux/compiler-clang.h
++++ b/include/linux/compiler-clang.h
+@@ -45,6 +45,4 @@
+ 
+ #if __has_feature(shadow_call_stack)
+ # define __noscs	__attribute__((__no_sanitize__("shadow-call-stack")))
+-#else
+-# define __noscs
+ #endif
+diff --git a/include/linux/scs.h b/include/linux/scs.h
+index 060eeb3d1390..3f3662621a27 100644
+--- a/include/linux/scs.h
++++ b/include/linux/scs.h
+@@ -11,7 +11,7 @@
+ #include <linux/gfp.h>
+ #include <linux/poison.h>
+ #include <linux/sched.h>
+-#include <asm/page.h>
++#include <linux/sizes.h>
+ 
+ #ifdef CONFIG_SHADOW_CALL_STACK
+ 
+@@ -20,7 +20,7 @@
+  * architecture) provided ~40% safety margin on stack usage while keeping
+  * memory allocation overhead reasonable.
+  */
+-#define SCS_SIZE		1024UL
++#define SCS_SIZE		SZ_1K
+ #define GFP_SCS			(GFP_KERNEL | __GFP_ZERO)
+ 
+ /* An illegal pointer value to mark the end of the shadow stack. */
+@@ -29,7 +29,9 @@
+ #define task_scs(tsk)		(task_thread_info(tsk)->scs_base)
+ #define task_scs_offset(tsk)	(task_thread_info(tsk)->scs_offset)
+ 
+-extern void scs_init(void);
++void scs_init(void);
++int scs_prepare(struct task_struct *tsk, int node);
++void scs_release(struct task_struct *tsk);
+ 
+ static inline void scs_task_reset(struct task_struct *tsk)
+ {
+@@ -40,8 +42,6 @@ static inline void scs_task_reset(struct task_struct *tsk)
+	task_scs_offset(tsk) = 0;
+ }
+ 
+-extern int scs_prepare(struct task_struct *tsk, int node);
+-
+ static inline unsigned long *__scs_magic(void *s)
+ {
+	return (unsigned long *)(s + SCS_SIZE) - 1;
+@@ -55,12 +55,8 @@ static inline bool scs_corrupted(struct task_struct *tsk)
+		READ_ONCE_NOCHECK(*magic) != SCS_END_MAGIC);
+ }
+ 
+-extern void scs_release(struct task_struct *tsk);
+-
+ #else /* CONFIG_SHADOW_CALL_STACK */
+ 
+-#define task_scs(tsk)	NULL
+-
+ static inline void scs_init(void) {}
+ static inline void scs_task_reset(struct task_struct *tsk) {}
+ static inline int scs_prepare(struct task_struct *tsk, int node) { return 0; }
+diff --git a/kernel/scs.c b/kernel/scs.c
+index 2a96573f2b1b..9389c28f0853 100644
+--- a/kernel/scs.c
++++ b/kernel/scs.c
+@@ -55,45 +55,37 @@ static void scs_account(struct task_struct *tsk, int account)
+ 
+ int scs_prepare(struct task_struct *tsk, int node)
+ {
+-	void *s;
++	void *s = scs_alloc(node);
+ 
+-	s = scs_alloc(node);
+	if (!s)
+		return -ENOMEM;
+ 
+	task_scs(tsk) = s;
+	task_scs_offset(tsk) = 0;
+	scs_account(tsk, 1);
+-
+	return 0;
+ }
+ 
+-#ifdef CONFIG_DEBUG_STACK_USAGE
+-static unsigned long __scs_used(struct task_struct *tsk)
++static void scs_check_usage(struct task_struct *tsk)
+ {
+-	unsigned long *p = task_scs(tsk);
+-	unsigned long *end = __scs_magic(p);
+-	unsigned long s = (unsigned long)p;
++	static unsigned long highest;
+ 
+-	while (p < end && READ_ONCE_NOCHECK(*p))
+-		p++;
++	unsigned long *p, prev, curr = highest, used = 0;
+ 
+-	return (unsigned long)p - s;
+-}
++	if (!IS_ENABLED(CONFIG_DEBUG_STACK_USAGE))
++		return;
+ 
+-static void scs_check_usage(struct task_struct *tsk)
+-{
+-	static unsigned long highest;
+-	unsigned long used = __scs_used(tsk);
+-	unsigned long prev;
+-	unsigned long curr = highest;
++	for (p = task_scs(tsk); p < __scs_magic(tsk); ++p) {
++		if (!READ_ONCE_NOCHECK(*p))
++			break;
++		used++;
++	}
+ 
+	while (used > curr) {
+		prev = cmpxchg_relaxed(&highest, curr, used);
+ 
+		if (prev == curr) {
+-			pr_info("%s (%d): highest shadow stack usage: "
+-				"%lu bytes\n",
++			pr_info("%s (%d): highest shadow stack usage: %lu bytes\n",
+				tsk->comm, task_pid_nr(tsk), used);
+			break;
+		}
+@@ -101,21 +93,16 @@ static void scs_check_usage(struct task_struct *tsk)
+		curr = prev;
+	}
+ }
+-#else
+-static inline void scs_check_usage(struct task_struct *tsk) {}
+-#endif
+ 
+ void scs_release(struct task_struct *tsk)
+ {
+-	void *s;
++	void *s = task_scs(tsk);
+ 
+-	s = task_scs(tsk);
+	if (!s)
+		return;
+ 
+-	WARN_ON(scs_corrupted(tsk));
++	WARN(scs_corrupted(tsk), "corrupted shadow stack detected when freeing task\n");
+	scs_check_usage(tsk);
+-
+	scs_account(tsk, -1);
+	scs_free(s);
+ }
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200515162537.j2nj5nq42b4zxmqz%40treble.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200515172355.GD23334%40willie-the-truck.
