@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBHXGQD3AKGQE5HFYHHA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBG4DQH3AKGQE4B73HLQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3e.google.com (mail-vk1-xa3e.google.com [IPv6:2607:f8b0:4864:20::a3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id C3E211D63A6
-	for <lists+clang-built-linux@lfdr.de>; Sat, 16 May 2020 20:38:23 +0200 (CEST)
-Received: by mail-vk1-xa3e.google.com with SMTP id n28sf2224173vkl.4
-        for <lists+clang-built-linux@lfdr.de>; Sat, 16 May 2020 11:38:23 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1589654302; cv=pass;
+Received: from mail-vk1-xa3d.google.com (mail-vk1-xa3d.google.com [IPv6:2607:f8b0:4864:20::a3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id A6C1C1D63DC
+	for <lists+clang-built-linux@lfdr.de>; Sat, 16 May 2020 21:40:12 +0200 (CEST)
+Received: by mail-vk1-xa3d.google.com with SMTP id 188sf2270487vkz.19
+        for <lists+clang-built-linux@lfdr.de>; Sat, 16 May 2020 12:40:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1589658011; cv=pass;
         d=google.com; s=arc-20160816;
-        b=0ADyOK8Z3kHGuAvttiFDX54KYC+PrbVDU95Y39Rc2ChkvZYT1QhzSGEN/zFzGv3EeI
-         kEoXQ4hMj0SFjod/pyd3J4APpKiIaUt2wokGOiYGwUt6L6erXapiBRTUD31K7NXnY/G7
-         QNtimHWMPmxmApBVF8HQAzQR7hS6y5xKvX7+aO+y/MC1FUR85ax4p5MWDsm/QRmCjx5Q
-         KIcy/tREtHOUcK58pGM0k1Suttn/qenkyx+arCaCq2Ism5FIo1gNdsYi/Dw9/Cl/OrJ6
-         E9uHfasERkHFDPirgWbRnSZi1qoEiDA98bdHC+l6yxAOiTN5MDHuzyYd5KnFM3Gr1uEH
-         uBSg==
+        b=X3EyAM9HClrVnX1GpRG5gnc33VlDSB6KyAHLU62fRYPscXWCfYqAlUtqkD8i/3gzw4
+         mQsf3d28HW9OaD10VBSZoPOIyGL4mrco64aBDfynwhXBwKNoMFoXgyuXtDRoZl4I7JIt
+         iaJo8Q3LwWKIoTm+tYpRNVrSPzZspN3tuKJGtO/IwLvFMX3YwGSFnHIYeAVdG0wr+U5t
+         JfTlJtBVYpMtWr/uBf8pJyYTPat2CNFhQYLLAEQ1eNngRUaxYWJG5/SNqz6DpaMiDxxF
+         wSijyaxAbb+CLZSYtZLtvU/cDrWnZbn+OPHeSa4vsEI15DhgO8QTUzuePOP/asSo4xVF
+         Kclg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=YcUnNT9/iyTPWsGLL6USnEBUiFzICZcueI8vJIyZi6o=;
-        b=SJ1ACCyyKJ9iQ9Q2pEbhS+dIufZDEjIAXrC0T6644aBm96FtLMJE7HCShsUO4Sb3jA
-         cD7ppZE7n4WyvQFHZDAQE2KEZiWMZkLATN9ZG3r2KLduHw+li5L0oqcSNngKoYMb/VPN
-         a355mHMWYYABgymxqG47uTuxkLFMvKn+U2bChtf6Ywg8GapAkaI5IsPIfdwsfd9Xlj5l
-         c8moerCfFDznojqRLrndGdk+EryOS4T5AcDI3FDwEW+F+fh6UgK6uADBngbNeAplIyXm
-         RYBNmvdliTqi206GT4R20PwjuFa8VqsBHAflyE9BZYU4tlIwxHJ0G/xwoiA5dYWazDN8
-         NrIQ==
+        bh=GbzPH6f+k590ZuVGXuwPkF4kzIa9KTj/hcUWJiHB/fA=;
+        b=mKNJWmC270HKvJRzeae1cqRGzCGeQn3vDIGzMrkAYigk2OYYNxqepXp5cIPLM8jX7I
+         D3wEaHnKU78z/wT4smDyVpdirHjFvRDb2koMGZjqqgBRJJhHphAB/1bW+FFTVEt7eGnA
+         9yjoX+qzxVLDXcnvE5AUdwyk2jXb2KaBY3uZVxdFtP6uKx+KuVLqZ3sdWzcNH+lmQulm
+         yF0J/9xwfqZmMNAMxcEqt080WlJY/ME5hpFrHLoJKQE78Z8SZjNHsaSQGy1fAVtDwOjn
+         oopZOOpMIhKrh0sHdNA52+Whq7nvQqRH3y6Eyhj6ghcIn0LcdlOn7Ohj74LZvB2zenwh
+         M9Uw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=YcUnNT9/iyTPWsGLL6USnEBUiFzICZcueI8vJIyZi6o=;
-        b=pjCdy9FguV1bJEWcGeQxXJRdoDNOM+ye48qgFYdqFdHbr4klGv+I/AzbKakUzyR57w
-         RNISn0vfyrTWM1CYWubG/06jbu4hs5rfpsJWGkFFtiAyllC4F/7k5l/R7D7Y/0JA2WNX
-         rZHxt60saFW2fcfgj87MK9k+iengCqGY3BZr0FO5wkT6+qDwMIwzvAG/usXr2QDs92y6
-         JOnIldHI9OCbXBl7ob5y/k4ag74f/lu2E0X5sPddNAVs7XcG3txaX2xT5hxL/RBSM5ur
-         +EI1VqVMUbjM2hffoP3lsqww3kVLIWjTDRxVFDhgzO7zs0CSTqSCzM71AYqyHIAtEBlz
-         Z5VQ==
+        bh=GbzPH6f+k590ZuVGXuwPkF4kzIa9KTj/hcUWJiHB/fA=;
+        b=h8NKDEZppvgzdnSww75jmN+wjImJjq3SU7hm0Oll/wDc5FjXfKxxio8lKW1FSmoNrH
+         c3LHcb+BxQHRH64FG68zo3Y2d80DTUiyBgN2YxQTpMSAeCa3CUJLu4lpMJqr4zYioyx2
+         L/lT+8/T0wSqNaNoM733TVETfINO2L+aV01AqFikb3XdJy36DY0rBGvD8Etvhe3i6RhI
+         W2ocnkjI4TV8W9mfcRyu6NaH7vbVI064ZGSXqFcn1HbN4Enk6iSbY18KDq4Il28K/QCr
+         zE/jrFA4H99WGMQB9Kr22qHjnBI+CtUUX2Ra/KJO9OyGU+gzedxYngGUNoubmKB2lKST
+         pUDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:cc
@@ -49,81 +49,82 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=YcUnNT9/iyTPWsGLL6USnEBUiFzICZcueI8vJIyZi6o=;
-        b=MlSq5XI1DMZvJxPzoZD7HXTYOol/wv1oEjcxkuKNbA6NtFLHIJ0QbrdtRg0meZmNOy
-         +wjwpWt+CmUO305pFsNfyiTfOFigJxv2HIR4wmK7iQRZcOeQ1b5SJw9YVMd/MMm5YihG
-         LM/VpEljG+M6lEBSe2dHWsiWjp/HrK8CPaPyshgs4PrdA9+TFoCKF+lYuGS50w8xAfI/
-         JocEOI+X6WRw69iUc2hSSLnUVB4WkZxB/jTZ7OQ477NAeXEwZLHOT2sW5Ghulj+HVRHC
-         q8NbojiI9a5XL6fwj4iL2eUBzZNIWxWFZ0nQPX25DntlIQSXxR8JTSIPns41OeDn7TFs
-         z8aQ==
+        bh=GbzPH6f+k590ZuVGXuwPkF4kzIa9KTj/hcUWJiHB/fA=;
+        b=p2IEXmFWjcbcnvgZsLvPkmwTavwp6b/9Rl0VH6s8jBlWsLic5ihPLICQU6qEQZvBEm
+         9XVBAMSZjj7UYtSEZF0oR3g/k0TnfjfO+HzzH2wRE56VN9T8jv/BBoF4fn7Ymj0GbQ31
+         cTXoVpAO6q2mVCgXeaRwZve/CX8G0D1SmgCAcLAGdGuN+Lh5aMMQlqQE68SRePD+EzRf
+         IovsilJY0GwdpjyaIi/8MyGjdzW7Mx46UslSWDh/YQkHFaXxrdVD1QPGgiNDRoWOiDN+
+         I5XrbrJqcst59+2mQOuPaR4e0A1wJ3mwDjLW6QuAe38DUeFOBFPuIsYU+wq5nWX4nliI
+         EPtA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530jjh2pKdYMFXox/tz3DXVEjM4h1zPnHvX/bZSWnogaQ97jbuxy
-	pW6HAt8oBWO/53y3/B/Bap4=
-X-Google-Smtp-Source: ABdhPJz4qqDSA2aN9G84iYJ72R1GuCVQvtp7isZtOd/MTCugJeZdZYi3ou8uCYvCYy4Sk+Ddwb+E6g==
-X-Received: by 2002:ab0:6050:: with SMTP id o16mr6650742ual.140.1589654302265;
-        Sat, 16 May 2020 11:38:22 -0700 (PDT)
+X-Gm-Message-State: AOAM531Yuv7SLB97PMF7s2qBCQUQA0MBXe+mNbfUG0dGbl4lYXmr+VXA
+	BYuubCwElVFO4/i+W1zNvY4=
+X-Google-Smtp-Source: ABdhPJyIRcFmsgFrt7GX4Acmj8ISfs3N4lb1FL3FR14nBaMmBVIv89MaQThqADNWPv5YJEb/Urn1Mg==
+X-Received: by 2002:a9f:2c96:: with SMTP id w22mr7357662uaj.14.1589658011610;
+        Sat, 16 May 2020 12:40:11 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:7608:: with SMTP id o8ls400420uap.8.gmail; Sat, 16 May
- 2020 11:38:21 -0700 (PDT)
-X-Received: by 2002:a9f:31a9:: with SMTP id v38mr6772724uad.119.1589654301646;
-        Sat, 16 May 2020 11:38:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1589654301; cv=none;
+Received: by 2002:a1f:3f85:: with SMTP id m127ls280754vka.8.gmail; Sat, 16 May
+ 2020 12:40:11 -0700 (PDT)
+X-Received: by 2002:a1f:bd96:: with SMTP id n144mr7014863vkf.6.1589658011112;
+        Sat, 16 May 2020 12:40:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1589658011; cv=none;
         d=google.com; s=arc-20160816;
-        b=Jn+IYYNtpp/5ZalHRUledRP3LDbnGyy/36uqsAmpXxhUVW1XWBKj0DvGYiLboMwp+3
-         cB3B85E0fd484m+a350t44Dkno2aUear4aFj7hTqfnyVkjdoRRUPZR4lEpxZwNq9KvPE
-         8QmMQK25VzUH3lUlgqvfuIpK1FnA0AcTvD2PnDc1D9NR4sIHLHcqk+Vi8e42UXIqL8fZ
-         Wz7bW1BYWh2lpacWnAYgCF8KQ26AQJUN4cnvV3P9Lbz/PctesmOgLZapBLLz5rIrSObM
-         wzNLqQ+h2ji9g+xp+UU1OxP4bwSspe8un8oF6sHM3RTwUPNbAEhKlt9/dcafzmnLjFzP
-         H4PA==
+        b=U7taLaQIJJCnLhr2CPVdx7AdtFXOXFGn8+FFVlTfqwORXFxzKdSm/NbAtVCl5kRfZ7
+         Cbi91QET4JzzKkvgZ7+KezASt3HfMsL0+dWTh0LMbtiAZSKznhdP5wDTu6PyyRRhxgn0
+         Nav2HR45B3uh2Iwwm0QQ44rEDgu78y2p1qcYrZjV0BfwTygeyHfBW+cqwO/eUTcEAdpr
+         C5PvcmnTWczwT39MdJ9nG1gXt6sKOMqrqY3Q8ID/yhg+jnM0/aLIOiLQp7HqOTjUjkzU
+         7cv2iSuu8imcoXLfGmkqnDrgPIQ6wHGdgQXbLXJbbCD4CDtFw12s7irY7kpK1exEIEtj
+         BdRA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :from:date:ironport-sdr:ironport-sdr;
-        bh=XQGE5qL9h751i1xO3gdm/qJsJSsTA1BZMKLUiPulETI=;
-        b=fHg8oH5KIhkWClQUFqVMHfWubftwDRoXp6VBwVNjwV7BZmNUHb2GaBcDIE2+rAh9RO
-         SmiwAJhgFJ0lBVni+mRNz/1lfkI96vujQbLAl+oj2qZsbJ6tan1Fh1h5DbJXMA7py5e4
-         yRO4bSwTRKTW3UBLpGOMb5D7pwd18LxKX4CCju61fikYYHxqEx/T6mC5hiw9NPSR06W3
-         jw1JlfCvgmXxwh8caJllC/qssGRqn3VsQ9qZDGiJn3SmbF/Pxnrjxd095NovpGw6eG1h
-         ml/giCxxBGaW1FPmbqPJA+qLmLZ3MxHaiz+8urIE4NdSmWEiA+r6cdciY3eG7/ze9Bty
-         SgOw==
+        bh=/iR1EAeu1TgnlYSz8lAKpA6zR9RwEVK7GHXdEdQGvCc=;
+        b=e+vM5LV3AJ65dn7lSfKci9V4P+4mrNX0BQY/zcRGFvT8ODFLxxldeykIKIUX4/hR0D
+         fr2FOfXsEepadNuw65zW6QteFgg6l1bw6s97GJPm/bno3uamPnbInv3uANTjMO9Nsr+1
+         dul+/X2hapuYBVNHGTLD4ybo5D3u76CJxtOMPmVCdvILox76c4tsSQKwM6aexeb/v3tI
+         H5PhVLJbhfW20w5qOkctvKlYqq6Zajzw5QrmKqHvXe3fU1pL7c0c95SrgpDqpXZ5Osom
+         7MxAScoMfnIHsiOTOOW/aMwoNi3EnySbKUrDDPqBRT+bkjqqHCjLeryiAlVQvJNwvCR9
+         GjMQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga07.intel.com (mga07.intel.com. [134.134.136.100])
-        by gmr-mx.google.com with ESMTPS id 132si401707vkb.1.2020.05.16.11.38.20
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id b10si426715vso.1.2020.05.16.12.40.10
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 16 May 2020 11:38:21 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) client-ip=134.134.136.100;
-IronPort-SDR: RqRzZxjjfs34LwhN9+iY/yWv98l+CusxroeufsXCcBWnO23U2LymUT6ebB2NH28hSyK/UzfoPU
- brdIk4wmgZiQ==
+        Sat, 16 May 2020 12:40:10 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+IronPort-SDR: WEVvlrnIOhiIZIPgZJAO3Tq6FEinNnGm6T2p8usZyeB0pS6kRnraHKjF93WMnsiGS9QRO+tGkN
+ 1WKy6lIxMUCA==
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 May 2020 11:38:19 -0700
-IronPort-SDR: CXWEuN23gs0Z9aNCwN/vA5V0VOwcKpSCNnKOtUhFxmpGyakvdyaXvwTES84vSk9G/M/tjdWeZc
- uh5/WambYeCw==
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 May 2020 12:40:08 -0700
+IronPort-SDR: 6pO9ObyvVVpi6CVPr9v5u5UE4NtW3PnUelXetLbtqJHwiIEvdHjO8lNx8HND8OZCka+3cIoOEY
+ h7MvxtFizDlg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.73,400,1583222400"; 
-   d="gz'50?scan'50,208,50";a="252470391"
+   d="gz'50?scan'50,208,50";a="438730913"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga007.jf.intel.com with ESMTP; 16 May 2020 11:38:17 -0700
+  by orsmga005.jf.intel.com with ESMTP; 16 May 2020 12:40:06 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1ja1hQ-000DcI-Ix; Sun, 17 May 2020 02:38:16 +0800
-Date: Sun, 17 May 2020 02:37:24 +0800
+	id 1ja2fG-0004JT-7H; Sun, 17 May 2020 03:40:06 +0800
+Date: Sun, 17 May 2020 03:39:50 +0800
 From: kbuild test robot <lkp@intel.com>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: [dhowells-fs:notifications-pipe-core 16/18] ld.lld: error: section
- .text at 0xFFFFFFFF84000000 of size 0xF87684 exceeds available address space
-Message-ID: <202005170220.8wMXgWIw%lkp@intel.com>
+Subject: [dhowells-fs:notifications-pipe-core 14/18] ld.lld: error: section
+ .rodata at 0xFFFFFFFF84F8A000 of size 0x21665F exceeds available address
+ space
+Message-ID: <202005170348.rBDcsJ7v%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="4Ckj6UjgE2iN1+kY"
+Content-Type: multipart/mixed; boundary="17pEHd4RhPHOinZp"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -139,7 +140,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---4Ckj6UjgE2iN1+kY
+--17pEHd4RhPHOinZp
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -147,7 +148,7 @@ TO: David Howells <dhowells@redhat.com>
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/linux-fs.git notifications-pipe-core
 head:   0c5c93119aa067d20f7ff07bb50d450543ec0f4f
-commit: 5794f7c561f2d496461ca84d012735c66549144e [16/18] watch_queue: Introduce a non-repeating system-unique superblock ID
+commit: e91bed49f250773231c379aa01b89d70453aae08 [14/18] watch_queue: Implement mount topology and attribute change notifications
 config: mips-randconfig-r004-20200517 (attached as .config)
 compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 13d44b2a0c7ef404b13b16644765977cd5310fe2)
 reproduce:
@@ -155,7 +156,7 @@ reproduce:
         chmod +x ~/bin/make.cross
         # install mips cross compiling tool for clang build
         # apt-get install binutils-mips-linux-gnu
-        git checkout 5794f7c561f2d496461ca84d012735c66549144e
+        git checkout e91bed49f250773231c379aa01b89d70453aae08
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=mips 
 
@@ -164,26 +165,26 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>, old ones prefixed by <<):
 
->> ld.lld: error: section .text at 0xFFFFFFFF84000000 of size 0xF87684 exceeds available address space
->> ld.lld: error: section __ex_table at 0xFFFFFFFF84F87690 of size 0x1DE8 exceeds available address space
->> ld.lld: error: section __dbe_table at 0xFFFFFFFF84F89478 of size 0x0 exceeds available address space
-ld.lld: error: section .rodata at 0xFFFFFFFF84F8A000 of size 0x2165B7 exceeds available address space
-ld.lld: error: section .data..page_aligned at 0xFFFFFFFF851A1000 of size 0x2000 exceeds available address space
-ld.lld: error: section .got at 0xFFFFFFFF851A3000 of size 0x8 exceeds available address space
-ld.lld: error: section .rodata1 at 0xFFFFFFFF851A3008 of size 0x0 exceeds available address space
-ld.lld: error: section .pci_fixup at 0xFFFFFFFF851A3008 of size 0x1E90 exceeds available address space
-ld.lld: error: section .builtin_fw at 0xFFFFFFFF851A4E98 of size 0x0 exceeds available address space
-ld.lld: error: section __ksymtab at 0xFFFFFFFF851A4E98 of size 0x1038C exceeds available address space
-ld.lld: error: section __ksymtab_gpl at 0xFFFFFFFF851B5224 of size 0xEF40 exceeds available address space
-ld.lld: error: section __ksymtab_unused at 0xFFFFFFFF851C4164 of size 0x0 exceeds available address space
-ld.lld: error: section __ksymtab_unused_gpl at 0xFFFFFFFF851C4164 of size 0x0 exceeds available address space
-ld.lld: error: section __ksymtab_gpl_future at 0xFFFFFFFF851C4164 of size 0x0 exceeds available address space
-ld.lld: error: section __kcrctab at 0xFFFFFFFF851C4164 of size 0x0 exceeds available address space
-ld.lld: error: section __kcrctab_gpl at 0xFFFFFFFF851C4164 of size 0x0 exceeds available address space
+ld.lld: error: section .text at 0xFFFFFFFF84000000 of size 0xF87504 exceeds available address space
+ld.lld: error: section __ex_table at 0xFFFFFFFF84F87510 of size 0x1DE8 exceeds available address space
+ld.lld: error: section __dbe_table at 0xFFFFFFFF84F892F8 of size 0x0 exceeds available address space
+>> ld.lld: error: section .rodata at 0xFFFFFFFF84F8A000 of size 0x21665F exceeds available address space
+>> ld.lld: error: section .data..page_aligned at 0xFFFFFFFF851A1000 of size 0x2000 exceeds available address space
+>> ld.lld: error: section .got at 0xFFFFFFFF851A3000 of size 0x8 exceeds available address space
+>> ld.lld: error: section .rodata1 at 0xFFFFFFFF851A3008 of size 0x0 exceeds available address space
+>> ld.lld: error: section .pci_fixup at 0xFFFFFFFF851A3008 of size 0x1E90 exceeds available address space
+>> ld.lld: error: section .builtin_fw at 0xFFFFFFFF851A4E98 of size 0x0 exceeds available address space
+>> ld.lld: error: section __ksymtab at 0xFFFFFFFF851A4E98 of size 0x1038C exceeds available address space
+>> ld.lld: error: section __ksymtab_gpl at 0xFFFFFFFF851B5224 of size 0xEF40 exceeds available address space
+>> ld.lld: error: section __ksymtab_unused at 0xFFFFFFFF851C4164 of size 0x0 exceeds available address space
+>> ld.lld: error: section __ksymtab_unused_gpl at 0xFFFFFFFF851C4164 of size 0x0 exceeds available address space
+>> ld.lld: error: section __ksymtab_gpl_future at 0xFFFFFFFF851C4164 of size 0x0 exceeds available address space
+>> ld.lld: error: section __kcrctab at 0xFFFFFFFF851C4164 of size 0x0 exceeds available address space
+>> ld.lld: error: section __kcrctab_gpl at 0xFFFFFFFF851C4164 of size 0x0 exceeds available address space
 ld.lld: error: section __kcrctab_unused at 0xFFFFFFFF851C4164 of size 0x0 exceeds available address space
 ld.lld: error: section __kcrctab_unused_gpl at 0xFFFFFFFF851C4164 of size 0x0 exceeds available address space
 ld.lld: error: section __kcrctab_gpl_future at 0xFFFFFFFF851C4164 of size 0x0 exceeds available address space
-ld.lld: error: section __ksymtab_strings at 0xFFFFFFFF851C4164 of size 0x34391 exceeds available address space
+>> ld.lld: error: section __ksymtab_strings at 0xFFFFFFFF851C4164 of size 0x34391 exceeds available address space
 ld.lld: error: too many errors emitted, stopping now (use -error-limit=0 to see all errors)
 
 ---
@@ -193,14 +194,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202005170220.8wMXgWIw%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202005170348.rBDcsJ7v%25lkp%40intel.com.
 
---4Ckj6UjgE2iN1+kY
+--17pEHd4RhPHOinZp
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICDwtwF4AAy5jb25maWcAlDxZc+M20u/5FarkJVuVw9d4JvuVH0ASlBCRBAcAZckvLI9H
+H4sICBE5wF4AAy5jb25maWcAlDxZc+M20u/5FarkJVuVw9d4JvuVH0ASlBCRBAcAZckvLI9H
 M/EXH1OyJsn8++0GLwBsykpqaxN1NxpX32j6h+9+mLGv++fH2/393e3Dw7fZ5+3Tdne7336c
 fbp/2P7fLJGzQpoZT4T5BYiz+6ev//z6eP/lZfbml7e/nPy8uzufLbe7p+3DLH5++nT/+SuM
 vn9++u6H7+B/PwDw8Qsw2v13dvdw+/R59td29wLo2enpLye/nMx+/Hy//++vv8L/P97vds+7
@@ -779,4 +780,4 @@ A/MZcpqW2CxhoanIV4UzD+tCmWZsqPRPxnhld9Zqbx7RrW9ZSbP42krml5WYWT0gQplNpJko
 NsxMK6W+ts7CZnoSAsQ4Asg5UD6Gh2nUIENXusNik0HV0pHSHvKqqBJv4RS8iEH4P7jGpUth
 dojV8CJIALigj8DB89ULh1U39P8L1zvAL7nrAQA=
 
---4Ckj6UjgE2iN1+kY--
+--17pEHd4RhPHOinZp--
