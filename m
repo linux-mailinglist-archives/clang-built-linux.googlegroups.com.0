@@ -1,125 +1,135 @@
-Return-Path: <clang-built-linux+bncBCU73AEHRQBBBJE3RT3AKGQEATS4K6I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSJ7B6JQALRB3VDRT3AKGQEXL5N2EI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83b.google.com (mail-qt1-x83b.google.com [IPv6:2607:f8b0:4864:20::83b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 735751D8B00
-	for <lists+clang-built-linux@lfdr.de>; Tue, 19 May 2020 00:35:18 +0200 (CEST)
-Received: by mail-qt1-x83b.google.com with SMTP id a14sf12245848qto.6
-        for <lists+clang-built-linux@lfdr.de>; Mon, 18 May 2020 15:35:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1589841317; cv=pass;
+Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 29AF91D8B4A
+	for <lists+clang-built-linux@lfdr.de>; Tue, 19 May 2020 00:53:36 +0200 (CEST)
+Received: by mail-pg1-x53c.google.com with SMTP id l25sf2718385pgn.8
+        for <lists+clang-built-linux@lfdr.de>; Mon, 18 May 2020 15:53:36 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1589842415; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Fiqyw9zSm5HakfsGx5BpN2EajfXBVPb4oldYjrAYwI1lLrx+XVP1ibDc3u//WfvFcH
-         584FtcFWPpjts3wqGTFfe+1M4HtJtwjHtzSJdzLNSMaAJM03O7dAGXHSZ1WTwh7My+T7
-         FvJ0ELGITaAL/qIlIH9YZ3dv8DQtyuquMUO+hFs09XKX3Cq1McTRMIj1vA6zRiR0fq4I
-         Zi4jauszbmExwYgDtLCj/XZ3YsdCFhHqJXE6rLCGQsHqkojMZJAtmUVS0Ei2EKRnl8wy
-         PKPF44MN21Es2S/PeXv60LKGoc9oCNbkIGdJ4xOebeG2NIPResSx0jRbA79Giuy1h34t
-         TJUQ==
+        b=0sSxD+3YY/TeOBFrpDFil0QwELt+yAKVlufnaeITUDXA5D9HUbhbL6Yz7REXVH5Zdp
+         AL5Awe5P2XT9zKQMb6c7GNWGZyzJVGbvUoVumSE4o88G6PXEtbQ19/s2xb6YuR6FQIRJ
+         L22cvglHpD/2ceyOsKNW3bbpG//ilw9Pfyzxz07GX26+5c23a3DZUr0AbGK0SwKMxMbE
+         XNVGZ5mlBICjN3vHHUp+CCfUSbdr/p7GcK+JI2R+yCP+wt82R4oIwSuUrcxtXPvSLyDj
+         yWo2gIjJYXi2dWfpLIHmkHKArkAQ2JArXtaG7wdzGgpome65j7f0Khc/81Bpha9BICQX
+         gs6g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=SyetN+dIFROWLpUZlUYX7T/KK29tflw1TyMo0iGo2HQ=;
-        b=eMqUdxH6bMnjSsUiK9dl1/RFz++DKtv1Ekb+llpxIkqEtm0DqTL5Ezo8XmYqaIzY4v
-         oTylLkGrxJL9nHucLctIEUf2aKM3HRTYf5bHSs9KirSa51kpz7eZc6nO1hgQnhWLc/Pa
-         dOSOIGwxqfBw75zcpuwE9mEHULk/uGvqKS6mATCPSCQS5ERSF3rQjJCdbl+WaAoC89ee
-         m7fPBV5UO3CE21hVBLlQrI1wzFJwvtWrImparEwWFaY5Qd5jtyrXbZEK+XLR5UohFxKt
-         yuN4kggsb2Kb5g8UyOEBmT0PHdZJhTbyhCaKNe8CO3X3XUHPuxwmkiGfzLkPXDdfFEA/
-         z9+w==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=4cEzGMgGLiNDlbgAG+rpvaoD109qFB6nhB+1ID3/PLs=;
+        b=zkNNXXzdTrpfLJCZbzY/rZMOH1nDPAG/c7ktyxnmEVXjXcK+SWAAjEfHpzKYMzdOCf
+         J80D/NuFIO+opmM5nNQ6eFdyF28JfjiRRw1RvW+bQd0efLDYD34/lYXU3PDtujAcJ56g
+         136x1wokAtVRkubxdvMmnG4tl0BFGCAuj7d3Q3o4kC+IA4jw+PULqfmIuX0DBdSWWI+R
+         x1keBU/I0wD6Y/xn8Sudzpli5UGBj4Fd3X4CH9GKccLQ35LOQpk+p1UFet1a2+KDGKHL
+         zXPpFhSAktTQPf7OLQ9p76QMrw0pXYP7K+Txw2QyWwXIvUlkFc5Tj+QvL/FuVSKz7B9I
+         ciEQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of srs0=kbka=7a=goodmis.org=rostedt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=kBKa=7A=goodmis.org=rostedt@kernel.org"
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=GXnDhDr0;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates 207.211.31.81 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=SyetN+dIFROWLpUZlUYX7T/KK29tflw1TyMo0iGo2HQ=;
-        b=hz6pk/pgssdFKtUAwmKGvz4/30JKKCyKWtaJZza+oADYhUR/+4/2DOpCjgy2gZemdu
-         tEeVdP2bYq6LFzuSSL2esns2D5gqll8BcH8z2C0mAZFsy+oYhECZyDhe7Lu2QCbM4PHS
-         vzcDu20v0WPMeN8dMilwVPtLyDHpw81t/Smao0PhEBSmcvdNxB0/GBwxEjaC+dLtjhCU
-         3zG+vb7ZrI6c2nzw190H7RhcniWsOyNPaoQVziROsbmYu9MqKZIuKP7lPDK9sfHBtOMY
-         wMOFOGyHDzlMh+7byPi27M4JKS/90/Yz/Z60yIApHRR8YOsc+Eu6+vCYA00Rh20dOQh6
-         a0PA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=4cEzGMgGLiNDlbgAG+rpvaoD109qFB6nhB+1ID3/PLs=;
+        b=VeAR2Ja5HNTwkLOVsByw6JKPqu1horu52cqZ2U8q5UKf0glXn6U+zwX7EUlDp4cOAS
+         fjAflFOZe+HhASlr1kKXOkUJE3St19IQbR68qjWY2Hsl5ILYNww11ulGLTGuqn9xGQaF
+         E3rTNJP7MV4Ge6s11fWaUirismeI4TEvxlvXAgcXb/gP/9gNj2NVRmeq9G7n8Q7DmSC3
+         jNzRDTRinZF3L24yqBGJzHybnNFeJRcQYOGhhTeVEcvb/QKD9Uqw4fixdX5SuVCuPFaE
+         3T/6OaxeRySiwxSvYMG7B2pkV1raXgA/+7mF+SschE+/fhwl5j7fnf6TlMXw1wO1hoqA
+         zLEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=SyetN+dIFROWLpUZlUYX7T/KK29tflw1TyMo0iGo2HQ=;
-        b=Ryvoth/H8U+/l/bBDuFtgNb34idie87w34OFr7beiNJMRtFQIlSa08HPIOus/TynjT
-         0W/DbwiMBw8DnUxUuWrm7j1uqWgq5nH5NAnKEohhb0KaI1zcw7xKHsimGN09rl8ScTYH
-         WEASIVtLsfH14DmecedtuH/KHSsUNBvmHTidTxyFWhzduk8VjiOEiBALCdePO71L9qwe
-         GKoaIQZzpdNV2dAgpyWWJ0ZiBsQt2wiqDPiik2N+QLsCZMWS+MUEw/FIXosi5teyPnpd
-         r0h00j9+vA795DF8i0WLh5UZz/jRXLVBW0kz5ZhQWQTT2ABtESTe7HfUuvHxNEtCxQQu
-         e+Lw==
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=4cEzGMgGLiNDlbgAG+rpvaoD109qFB6nhB+1ID3/PLs=;
+        b=XLOo8m4T1XKaXSGXnzEasjlHhS18y746zYO+/sV6EnzwDrlhsl/ChGFqiEVZ+gplIh
+         WtohHhPZquwnqM2TlVVRl7wVAkgY/jzTsnzjW/+ZYYTupCVzmHYXQLKPezlzAQ5XLznP
+         Yb75SKB56I2JQei5m/Cb1O2C+VVkJsVHKflbDuCgMWT4q/q2QZmVQ32Apw03V23DlD9O
+         eDgwnhswDOILaABNDmgRDEXxLUiQzn+6NC0hAi5tm3dY1WPjEAPMnfymxOXzyxkA1grq
+         /M5AoISI5fdmQBE+04xPuBM7yQUdJNVMeiTjTxqxzO7Gozkn5mxG8Jxn6JMkgmyyq/9a
+         JbSg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531OueSmguClkScbEzTHiXHVQzedS71NkA5/5a/LFIMM+vMJfkiI
-	J1PiE4syCTUieUOFsPDe7/A=
-X-Google-Smtp-Source: ABdhPJzHR327TxC7d4ajBS4vU0fFEwi8D/1hl2XReQhpJmp14kC/lLrgo7Rs75ehHG/N8xCcOrRMxw==
-X-Received: by 2002:ad4:5629:: with SMTP id cb9mr8368477qvb.181.1589841317038;
-        Mon, 18 May 2020 15:35:17 -0700 (PDT)
+X-Gm-Message-State: AOAM530vb+2OdrHemfy2cmHq4w9reiMCn0FZen+mqxPKL6He47KpADSU
+	y4F+6+dhmwpN4p5heNeXOnI=
+X-Google-Smtp-Source: ABdhPJyxgoGq+P9jtoiwJ5n9ZOrNbnwqotQxJzjkRid0AiWMSY/wEdIA7pAMiTPqhO8vFXYSZze7WA==
+X-Received: by 2002:a17:902:d907:: with SMTP id c7mr18892066plz.200.1589842414823;
+        Mon, 18 May 2020 15:53:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:a394:: with SMTP id m142ls5489083qke.6.gmail; Mon, 18
- May 2020 15:35:16 -0700 (PDT)
-X-Received: by 2002:a05:620a:634:: with SMTP id 20mr17091371qkv.15.1589841316691;
-        Mon, 18 May 2020 15:35:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1589841316; cv=none;
+Received: by 2002:a17:90a:c38e:: with SMTP id h14ls423307pjt.1.canary-gmail;
+ Mon, 18 May 2020 15:53:34 -0700 (PDT)
+X-Received: by 2002:a17:90a:d086:: with SMTP id k6mr1832518pju.47.1589842414451;
+        Mon, 18 May 2020 15:53:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1589842414; cv=none;
         d=google.com; s=arc-20160816;
-        b=XllmvjeMtxmMunw+GAym53yEHy9Jk7vkYjKDxBW2JUTSi8WaRSfqt933hgVXjBiDUw
-         PE0VR5sSuD2G2C4xfynCGDOLldWJOoCcSgtT3wnxruQhwjd2rzFMrFh+sch9+0Rv1kYp
-         eqRGTmdibNbsp4dreA8Xc07cKwSv2lWaRWA7ewG5UQwd33mY3Ehx6uraOFRfgK1yx8+B
-         Agxq7EgNZdTD14zXKz+lYgx62v+6rFJopl1XLtAeOXGe8UnshoM+teBD9tbHowwE2EHo
-         xy6u/WDcEma5QUfwm9nCI6DQNnFDCxQWC0MCNYT6Up1VH6fo8Vcj6Ao0Qos6RERE2wi/
-         Vmiw==
+        b=sJ5NTqUz7XwVKGHy4U4AVZSpBtGpbGlFB5NpXkrgF7nlWAL1uIZ9SL3u2ztFcKAnZj
+         efqdFITJfC6VDnBnZpoOFnuEsUJbdWs2z60NLhSZ0093pn3YKjuq5LiJlVHAaC2lpxm6
+         JRERPTSGEtGRCEzjlRzuOHd39srn9GpjU/npGnbEfhz71J388wamzMiGIF+CqNHaQhEv
+         FnbF+FKkHet8OEb3/FiOAXsXwpGUY2yADKd1RdGAAWxX4SytdBsTw0eTb9z0m1uPQbIL
+         VVj6lajoMBUjes8wb9xcsss2yzKCpQBluqajeYQ3zy+zGa64HdXmITaCv0WlfA22p3dk
+         55ig==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date;
-        bh=y2ce6D0XkxW5GPTm2+CTkhcGD+GIp89uKxBsLzc9J+g=;
-        b=WsivgKKeyIgR/TiCAKxOFYdIuzmyhZUG5ifYtFxJgCm8/3RfBtkMt8JZqWQHgMIyNt
-         dSuE8OC+2QWxEjmsTLzuNEgeMADZkRFF/Qqu08yOhpowEbzO9m6X/y7MfmhVGx7JI7Bw
-         ycBEbGuTC6Tdao8bC32P0SJcyZA6UpDA/Ntmm0ewaOsMJIdPIQRmasp7LnKIJPbZ9Blp
-         SezHu199DNzXas2jCMy7rTqOfs8cuZ4u9T+PMWMAQI4Kz5phZd+D0hnEKsU275wjSS79
-         H6jr3JQg71Y4JViE0X/YEMPkgaZJ0NQR2TCwLWFPHRfJgyt8w6K0H+jl8Hs8PUlOFecu
-         dozw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=Ge02D+vMtH+KKLBjcerJB21jPgtxIQMEv9lA24a7Lpg=;
+        b=oHgDTsVGMMq/zwonHSq6eZrTTkxIWJDyGDvnf/F1+B37VtwrLg6EizIc0xjFFdl+/Q
+         TMDP4ITvHnENk5H4q+3pR/FeIt3D7D0E1/nx28y0tWuCyjTF3PZ1sQtxv1n7aLP8xmyN
+         zfPV7x+qyoReghn14l5fg2t0JKXd8yIgP0/47MknUqhcTMtGy7E+MhZFifE4/fjvPUcN
+         UCoWiysdjYzLiIcN8tsDaFaUDqqA/fVs/dKc0K598Vaz7xt5rxXetjuLQ+no8Rw082e1
+         H8yWVj+EO3tBypPPqzOBRwu3MwyRz+ZLil2/3A9XdGfTierxWX/0cJI2XRSFoUokQl1q
+         fYrQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of srs0=kbka=7a=goodmis.org=rostedt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=kBKa=7A=goodmis.org=rostedt@kernel.org"
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id h15si659125qtr.4.2020.05.18.15.35.16
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=GXnDhDr0;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates 207.211.31.81 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-1.mimecast.com. [207.211.31.81])
+        by gmr-mx.google.com with ESMTPS id g11si826562pgj.2.2020.05.18.15.53.34
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 18 May 2020 15:35:16 -0700 (PDT)
-Received-SPF: pass (google.com: domain of srs0=kbka=7a=goodmis.org=rostedt@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from gandalf.local.home (cpe-66-24-58-225.stny.res.rr.com [66.24.58.225])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+        Mon, 18 May 2020 15:53:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 207.211.31.81 as permitted sender) client-ip=207.211.31.81;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-191-DotPqO2TMOuWWHAGZDGNFw-1; Mon, 18 May 2020 18:53:29 -0400
+X-MC-Unique: DotPqO2TMOuWWHAGZDGNFw-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 84B6220674;
-	Mon, 18 May 2020 22:35:14 +0000 (UTC)
-Date: Mon, 18 May 2020 18:35:13 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Nick Desaulniers <ndesaulniers@google.com>, Linus Torvalds
- <torvalds@linux-foundation.org>
-Cc: Nathan Chancellor <natechancellor@gmail.com>, Ingo Molnar
- <mingo@kernel.org>, Karol Herbst <karolherbst@gmail.com>, Pekka Paalanen
- <ppaalanen@gmail.com>, "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)"
- <x86@kernel.org>, LKML <linux-kernel@vger.kernel.org>,
- nouveau@lists.freedesktop.org, clang-built-linux
- <clang-built-linux@googlegroups.com>, Sedat Dilek <sedat.dilek@gmail.com>
-Subject: Re: [PATCH] x86: mmiotrace: Use cpumask_available for cpumask_var_t
- variables
-Message-ID: <20200518183513.53b94f11@gandalf.local.home>
-In-Reply-To: <CAKwvOdmXgYThHRDpt5dFZy5T1zS6MYQhcBNcq6-rsuc5fjiE6Q@mail.gmail.com>
-References: <20200408205323.44490-1-natechancellor@gmail.com>
-	<20200518093117.GA719849@ubuntu-s3-xlarge-x86>
-	<CAKwvOdmXgYThHRDpt5dFZy5T1zS6MYQhcBNcq6-rsuc5fjiE6Q@mail.gmail.com>
-X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 69F21460;
+	Mon, 18 May 2020 22:53:28 +0000 (UTC)
+Received: from treble (ovpn-113-47.rdu2.redhat.com [10.10.113.47])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id BA3AD1C92D;
+	Mon, 18 May 2020 22:53:27 +0000 (UTC)
+Date: Mon, 18 May 2020 17:53:25 -0500
+From: Josh Poimboeuf <jpoimboe@redhat.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Peter Zijlstra <peterz@infradead.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: objtool warning breaks build for fs/dlm/lock.o
+Message-ID: <20200518225325.is5ojipcc5uq5y5n@treble>
+References: <CAK8P3a0QkqyA2wq_EbA+oWrLGgVdQwpBvb+G0aKyz60BOLs6fg@mail.gmail.com>
+ <20200507232941.jccuywl56bppxfyp@treble>
+ <CAK8P3a0G9uOatw93R90nP3tURgx=WW7yDB7qDtC8cwx0DHZqCw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: rostedt@goodmis.org
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of srs0=kbka=7a=goodmis.org=rostedt@kernel.org designates
- 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=kBKa=7A=goodmis.org=rostedt@kernel.org"
+Content-Disposition: inline
+In-Reply-To: <CAK8P3a0G9uOatw93R90nP3tURgx=WW7yDB7qDtC8cwx0DHZqCw@mail.gmail.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Original-Sender: jpoimboe@redhat.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@redhat.com header.s=mimecast20190719 header.b=GXnDhDr0;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates
+ 207.211.31.81 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,87 +142,52 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, 18 May 2020 11:52:47 -0700
-Nick Desaulniers <ndesaulniers@google.com> wrote:
-
-> On Mon, May 18, 2020 at 2:31 AM Nathan Chancellor
-> <natechancellor@gmail.com> wrote:
+On Mon, May 18, 2020 at 09:57:50PM +0200, Arnd Bergmann wrote:
+> On Fri, May 8, 2020 at 1:29 AM Josh Poimboeuf <jpoimboe@redhat.com> wrote:
 > >
-> > On Wed, Apr 08, 2020 at 01:53:23PM -0700, Nathan Chancellor wrote:  
-> > > When building with Clang + -Wtautological-compare and
-> > > CONFIG_CPUMASK_OFFSTACK unset:
+> > On Wed, May 06, 2020 at 04:07:25PM +0200, Arnd Bergmann wrote:
+> > > Hi,
 > > >
-> > > arch/x86/mm/mmio-mod.c:375:6: warning: comparison of array 'downed_cpus'
-> > > equal to a null pointer is always false [-Wtautological-pointer-compare]
-> > >         if (downed_cpus == NULL &&
-> > >             ^~~~~~~~~~~    ~~~~
-> > > arch/x86/mm/mmio-mod.c:405:6: warning: comparison of array 'downed_cpus'
-> > > equal to a null pointer is always false [-Wtautological-pointer-compare]
-> > >         if (downed_cpus == NULL || cpumask_weight(downed_cpus) == 0)
-> > >             ^~~~~~~~~~~    ~~~~
-> > > 2 warnings generated.
+> > > During randconfig testing with clang-10 I came across a number
+> > > of additional objtool warnings, I'll send another mail about those
+> > > when I have collected more information and some object files.
 > > >
-> > > Commit f7e30f01a9e2 ("cpumask: Add helper cpumask_available()") added
-> > > cpumask_available to fix warnings of this nature. Use that here so that
-> > > clang does not warn regardless of CONFIG_CPUMASK_OFFSTACK's value.
-> > >
-> > > Link: https://github.com/ClangBuiltLinux/linux/issues/982
-> > > Reported-by: Sedat Dilek <sedat.dilek@gmail.com>
-> > > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>  
-> 
-> Thanks for the patch, sorry I'm falling behind on code review!
-> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-
-Linus sent me a issue about this failure privately as well, and had two
-solutions for it (one being identical to this one, and I shared that with
-him, and another one he thought would be better, but had some issues).
-
-Linus,
-
-Are you OK with this patch?
-
--- Steve
-
-
-> 
-> > > ---
-> > >  arch/x86/mm/mmio-mod.c | 4 ++--
-> > >  1 file changed, 2 insertions(+), 2 deletions(-)
-> > >
-> > > diff --git a/arch/x86/mm/mmio-mod.c b/arch/x86/mm/mmio-mod.c
-> > > index 109325d77b3e..43fd19b3f118 100644
-> > > --- a/arch/x86/mm/mmio-mod.c
-> > > +++ b/arch/x86/mm/mmio-mod.c
-> > > @@ -372,7 +372,7 @@ static void enter_uniprocessor(void)
-> > >       int cpu;
-> > >       int err;
-> > >
-> > > -     if (downed_cpus == NULL &&
-> > > +     if (!cpumask_available(downed_cpus) &&
-> > >           !alloc_cpumask_var(&downed_cpus, GFP_KERNEL)) {
-> > >               pr_notice("Failed to allocate mask\n");
-> > >               goto out;
-> > > @@ -402,7 +402,7 @@ static void leave_uniprocessor(void)
-> > >       int cpu;
-> > >       int err;
-> > >
-> > > -     if (downed_cpus == NULL || cpumask_weight(downed_cpus) == 0)
-> > > +     if (!cpumask_available(downed_cpus) || cpumask_weight(downed_cpus) == 0)
-> > >               return;
-> > >       pr_notice("Re-enabling CPUs...\n");
-> > >       for_each_cpu(cpu, downed_cpus) {
-> > >
-> > > base-commit: ae46d2aa6a7fbe8ca0946f24b061b6ccdc6c3f25
-> > > --
-> > > 2.26.0
-> > >  
+> > > This one sticks out however, as objtool returns an error code that
+> > > stops the build:
 > >
-> > Gentle ping for acceptance, I am not sure who should take this.  
+> > > fs/dlm/lock.o: warning: objtool: __receive_convert_reply()+0x1e5: can't find jump dest instruction at .text+0xcaa7
+> >
+> > Thanks for sending the patch for this one.  Objtool always gets confused
+> > by new compiler versions, I really think we need to revert
+> >
+> >   644592d32837 ("objtool: Fail the kernel build on fatal errors")
+> >
+> > because objtool is never going to be reliable enough such that we can be
+> > confident that failing the build is the right thing to do.
 > 
-> Looks like Steven or Ingo are the listed maintainers for MMIOTRACE?
+> I'm now struggling with a clang -fintegrated-as related failure:
 > 
+> arch/x86/kernel/ftrace_64.o: warning: objtool: missing symbol for insn at offset 0x16
+> make[4]: *** [/git/arm-soc/scripts/Makefile.build:355:
+> arch/x86/kernel/ftrace_64.o] Error 255
+> 
+> Using this as a local workaround, but I'd like to find out if this is a bug
+> in clang or in objtool:
+
+It seems like an objtool bug, though at first glance I don't know where
+exactly.  It could be a problem with the rb-tree stuff Peter added
+recently.
+
+That instruction should be part of the __fentry__ function:
+
+     4: 0000000000000000   165 FUNC    GLOBAL DEFAULT    3 __fentry__
+
+So find_symbol_containing() should associate it with __fentry__.
+
+-- 
+Josh
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200518183513.53b94f11%40gandalf.local.home.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200518225325.is5ojipcc5uq5y5n%40treble.
