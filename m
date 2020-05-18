@@ -1,142 +1,126 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBE5MRH3AKGQEGNZBXAQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC7OBJGL2MHBBKUGRL3AKGQE7AOPXGA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103b.google.com (mail-pj1-x103b.google.com [IPv6:2607:f8b0:4864:20::103b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6C67E1D7413
-	for <lists+clang-built-linux@lfdr.de>; Mon, 18 May 2020 11:32:05 +0200 (CEST)
-Received: by mail-pj1-x103b.google.com with SMTP id ck14sf5671402pjb.2
-        for <lists+clang-built-linux@lfdr.de>; Mon, 18 May 2020 02:32:05 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1589794324; cv=pass;
+Received: from mail-qt1-x837.google.com (mail-qt1-x837.google.com [IPv6:2607:f8b0:4864:20::837])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7A85C1D78DB
+	for <lists+clang-built-linux@lfdr.de>; Mon, 18 May 2020 14:44:27 +0200 (CEST)
+Received: by mail-qt1-x837.google.com with SMTP id t57sf11357121qte.7
+        for <lists+clang-built-linux@lfdr.de>; Mon, 18 May 2020 05:44:27 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1589805866; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Sj0wELg6eRbLDJTj0OBYIKMru0KJ6qbWHQLmHZix4g6YjJzHIvH5g7yBiel3Kwhsng
-         mCn5f3F2ynt7NZaF3t3TD2Kko2n9WxYPCH9qWEtvdFfMy5pqdwF4jPe/L+iTlzQ+BM+8
-         IiHAIZzkrHqgyls3PlrurJM8JWfP9of7YjAa6tW0dVWTfYRtoV2CdWHXCU++AlemFFmv
-         r6rTtpM3anIvFGtgrPWjGQ+mfbPe2vfXCoELjze8u8Nn9+tvb6FYzB1CxTlDfhx4kPVd
-         6l0N2slKqrr9f7+6al/6oF37ZL96SYhewPsRelEaPVL3adtfyYoSwFvrSLH8ko1aUmBT
-         H2Rw==
+        b=0BZlCjVtIW7va9Qq3SYYQcUZvA+r9VxCLGzxvt8A64ZSGMicvsCgal0INWkHRuIn+Q
+         jmlma4DlwW8S0roB91y6pKQoLhUi0vCrzNPMu8PaVDYB+iXMh6fpCicxWqN5B0byodXM
+         Aa+2ttYeVz1kCPwcLzVmyc6LDHzqw1LeQZJsT8ttLdDxNd26hGkDwg2Wi7p97O0nb3Eq
+         +pRfVBbog3c/YSzkN/CU6jgDyvF/9YVihC0SsRhE8iUxDiIYNODoaYPBuAPhcz12ytKA
+         6fSB2q7dh5BS5b/KPsruxMqjhG9Vb+rcfjh8nBog/X2JR19xt+6ciAaJwiqt98X3TGho
+         IfHA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=dlCmn0IrQ0wyibH9VH5B2nCkJGQcOVwZOxchtVynXXo=;
-        b=CRVh2UigS1olQ63So7Za87LQbYFFznvRyOofinQeEl9N4dec6qdu9XuZXVochrK1Vn
-         lt01bnsLXUqfFjKFs2jQXa1rZPaPZiiQk/GYrscFEmbCGbBthIm2MD1mvtqpQfgfWIGt
-         bTkBVnvUhBULLigASzEzsFLc5QgSCAc2nEvt7btq2wTT3Zw+NSOpZoMtXotWVnqAYg4d
-         nmKm7iYU0RnrDrePmvRia2cCc0+Jf6uFi2kSnh7BYjDGFcmdaxM3JtrW8j1U50LYVzNA
-         ycrc4AsoZLwq+Mfqa+LEW1dbtE1YSfepMh4uSLJwvFRkzFwjoybb/Ad3X3XGmU1G6zFc
-         Dpdg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=mO/3wlkirzlo/IsC0wh19QxO27TEG44vnS5a101uGGE=;
+        b=m0Y6fCdu+a8OBHgUtb8kyoAR9DWy53jQAAkjmHr5d8lbrbKEa7bLneJXOM0PcmBReG
+         aDQBoa0pmfKzr/GwsGfq13hWrG8Zmytu0J3n+WSZleDsrFHHUU2hN5yb9IOPPQPnqo6/
+         qhEzI+rZkC8SLmpXZI6ZNjzKFtjyLWCfwTBzNLKY9RT3rP3KKTbVEaHiR0bX3GkSsNiq
+         bU7/SwgW9ZFSutSAd9B62f2XjNkaNxujw3yrcDswwxsfYFi6L9VKr+myzfKTh91k85ND
+         BOJP74yBfi4eh++0LflXXTotIqxksuhO4lBY0y4pCYQEAmOodEL3RSAbqvzthOJ11p4M
+         xafA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=OMjsPKlR;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::241 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b="CE/lKTEp";
+       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=elver@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=dlCmn0IrQ0wyibH9VH5B2nCkJGQcOVwZOxchtVynXXo=;
-        b=fk0A4VttZyXBlg8BKg5cIWY1QuYy5KJKTzPwpqdCCSs5BZnu5AK+yaplWmww5mLUah
-         h/2r+cI8qF2361ujovocrKhWtdhOjH9J2vAVNN2p6jv9yD5y4AfFVW0QkyFQqsYymt7y
-         7/X8WDsTkYIh3korbIzljmTVm8thokwl6SgVETpKdDeoARb6E1X5eV545tdbztaCk7ic
-         jBq+CCaRmRrqcBl7/8ETSBZYhWq6sA4xL/ZlP3uM4jIvWZ4XqdxJdJO/7Wojp3aGMaw4
-         wWyum1JTlkCIH5Gr4LtXvYZ0ez44LWwbXXi84Olfpda/+j0euQ5WV4ukiERNMWztQZXN
-         jBEg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=dlCmn0IrQ0wyibH9VH5B2nCkJGQcOVwZOxchtVynXXo=;
-        b=UJG8T0pG8t9BtdEFUuDg9VT33Ame2L4g556t5yDcnrWHRkPGJEFgUJQsywFBLBzmcx
-         327fEaqx6FIp4ri9vWOk9LqtJ8V73zl7ShawLIQJaWyXbqDZNXWkJxdqp++dk7J/Q31j
-         uMAnCoN2yczMcWT/6QVuXq9ECnHaTizWTg1twJX4TZAG+F/FcGv/tOKLNEiMDXrZcOIo
-         sXRew2ye4u+I5kH+c8pJKJhW83tZU0qzILunWxaQDG4ETo4lRpLX7kVPowcdxhRoQFyX
-         qUbHusojGJqU4D9HnYD0iqGPl6/OxKY6y/iqHkWs1LzaNptIdio3MP2yzryvp/ISBMY4
-         rjvg==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=mO/3wlkirzlo/IsC0wh19QxO27TEG44vnS5a101uGGE=;
+        b=jR23d3X68ItL9tPunrUakONZ9OJZK6MDjSeYMOnoIFu9oowUCQfDrtnkImo1jx2Z5p
+         pxyCxuEIbWv15oLFOy/sUTc6LTI96Fu7Jf/zz+yc9t9re0GlhHPso6+KXhAycPLDg1Yw
+         l2zSqD8VTUpMFy21NVW8nT0rdmCQdy8CvRhhOxTX/SIT9JWxeyxOYchgvbg0JfDUnSHK
+         m8RXjTFWoLbiId6UHgRg0bcJvvsskYvpJJVSACOEGYoRsvKfhlKGrhzHhCenvR/VlL7G
+         aXEBZVjhFxIn3qkh4VLA9bfravrJKpagpF0SS6zPufLJXJ8v3ljaiqGMYEu5iwzqXybE
+         w4AQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=dlCmn0IrQ0wyibH9VH5B2nCkJGQcOVwZOxchtVynXXo=;
-        b=OTOX7mMqSg7HU/8T4TPqESpmT/RrgTN9SexCTEY9ncVPr/pEy3z91qrDlrBPdfXK8x
-         Gth17zl/pVN+dPy08F5umHpv4qO7i1bTwu6DXJGbjCkRUglIIx7oBT9pJ5WKTGaxD0p/
-         I71hUhEvyszYnDCh76c/1H/dgsGwp8qxS6m0SZGt5FuiT0jQE0Wz9GR0GAGQa/TglD8M
-         RJsOI85KHr0MIqSqUe5+eT65V81HlbOPuJXe3UZyTtMlTfnKPi7wLjPY3hvF6wv6sAeM
-         EmbBZ6di6NqNy/31Yd+SO2kFPphdUo+FoZtIzwsvmgsJNzkbckRvYnmdNyDoyt69rjS7
-         2HAA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533PSyS7LEfXk3Imb9jBKUI7AuzRwykVp0vGZ7/PQOs2XwTLic+2
-	cSeqPsBDMrWqEL2WQ4JLsFE=
-X-Google-Smtp-Source: ABdhPJykoz2gkA6+4NX8k1FpqHENbRmc6yi5Gk7qlhNyVcIdPp0r7X06cP1El6EubSKvM2zguhFkUg==
-X-Received: by 2002:a17:902:6ac3:: with SMTP id i3mr16089862plt.261.1589794323861;
-        Mon, 18 May 2020 02:32:03 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=mO/3wlkirzlo/IsC0wh19QxO27TEG44vnS5a101uGGE=;
+        b=B6lz7OU1PVF7YBusOQ08nYBJVVfxCxSbglE0oPfrYs5s7ZNNRNhQXVGJgDy+Pr5Frl
+         t7MSdZW0+L2lD/rKFN7fx1dewF8fHA4rN0GpjkKEOa3NPfDCM+I2wHipuvotNqXcGRM6
+         3B9OvIdn7vpFlC0H1sRQbBrx8u4mDz1QyJieWn80gOYPaox+6GmXSD9ximrefq+/vclE
+         D+GBj744WCULmTkn+A+/NkIKfpxXXi9+bwUYHL5bHvW1tfmJglImTwwH+U5IncsbMY7o
+         ehoDFX/AvdysGTPvxT1gqsfl2+c/uqedazbOraRDwg7CcvEFc+eTrFNBx4vFG/3ajvZ6
+         qBLQ==
+X-Gm-Message-State: AOAM530bgRSjRz2nV9ZRg+r/SbMPDJXe87aUqBlpbknD6BgBphadsZcP
+	qmS8isn3ufPETF5vFqIugZA=
+X-Google-Smtp-Source: ABdhPJzAoQzTwMFQ1PNJppr7ShteDUvYs6UTPHQf+SKsNTRY/NghYCiQMsS+jzgqjo65KxkmnsTDUg==
+X-Received: by 2002:a37:8d6:: with SMTP id 205mr16577357qki.144.1589805866125;
+        Mon, 18 May 2020 05:44:26 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:7d97:: with SMTP id a23ls2272428plm.0.gmail; Mon, 18
- May 2020 02:32:03 -0700 (PDT)
-X-Received: by 2002:a17:90a:5289:: with SMTP id w9mr17646768pjh.97.1589794323452;
-        Mon, 18 May 2020 02:32:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1589794323; cv=none;
+Received: by 2002:ac8:7542:: with SMTP id b2ls3866391qtr.1.gmail; Mon, 18 May
+ 2020 05:44:25 -0700 (PDT)
+X-Received: by 2002:aed:2fc4:: with SMTP id m62mr4776308qtd.357.1589805865754;
+        Mon, 18 May 2020 05:44:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1589805865; cv=none;
         d=google.com; s=arc-20160816;
-        b=FUq971Ebo7j5PUhvvgkZ5Cu1A6c85UPvJc8DZU3TvKmUbAqA97AFLeLVPrsVq9NAL/
-         0sfsf1uLGwGLO7PcvnU67N2fjq/f3+WNy2g3F7XffNx1RRvRCw89ittJsV9caQ5U6uVV
-         OBEn9F8JX3laHA7JC7Ctp99lh9xboaYG8OC0w39WH2CK+CPmB8VHT92QDoizPE1ZX9uz
-         u5CZO6u41PIXEXlUFgb/0U7qy3xigLsDnUUM0dWuudQVsKAVWNdL4cVHX8dYJxyu9u0F
-         +4/icsT4Xfrh006DnucXxQkEKmRo0NKjn23yjXJ+EBNugYJNZLTXNiizWwyfyblA/WTd
-         id4Q==
+        b=OOgDB4lhiATLjhqkkZQSAC3pYdT64yNxDocOgHrtHJsTSU/zeKcrqspldT1WTb90cE
+         sUpQzWM9/0/018ya9qLVPVpJ2E3TdR4JarmnBPtgKkPZAvA46ziUES2z5oWyqo0r7wp/
+         /NnqmYPTxZ4JO3YBgr0lHaRqogkN6IO3+j2iEHbKTqFO5gvmRNDaZ3+gmeSXURgjJo4M
+         /HzyVkhbDvBhbGo14laIS/AY/X5lSjSVZ/tx9dJsY69YWWN9FbRBRuO/0tr1X0a13At6
+         7XW8aOy7wSGBsufn4MvxH8GOLEx9DHjGF/ouWbjnMgSJ1Sn9xmZp0IsXz/3CKS4f/yfH
+         dZGg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=V4KeqXR0hNSztYcChgmQJ2RuPcBryFoEBZpBxPtEK1g=;
-        b=VlIw/btr5MTk1xBtbohR88ZKY0GR41GlFr9zjnLLn4MpYWQj9x+HY0O/tIiYB580A+
-         h4qSKISUH5iokD8nUoLk2GCUeD2mivrMwdPnbxIpYCH/9kItpnMeA3KboS4YS/+upbpP
-         7DWqlKwZp08muIhEIN+UA9XE5agnc2XpydZJpXrXugMCTiSDyLb0HLaFs69MH5HIF62x
-         ksZz3J+ek999yHyxYbAadWKi1g3B7CLUdwZ53ymsyXAReuyfIMJWSVC0m5knFJOa8ZHh
-         Ed0yGweRwicISCj/PQ4wwXvvF7iDFOQ6Z6vHwmhWFWOGfVblCqY3u5yFAa4QDXU/Hk2w
-         +OIg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=mTr78JEsRcOgBqxtDKga7we0yjXSTYq9V0GCD/PQUyg=;
+        b=UeUxrRfebjI5gN4/+qxiT8rH2HcdaIrUFxj+HxjSwEWr8rYbt3x83FFA7OBIDzpM9D
+         evx0DlLJESjfbufihYzeCn14qWAMd00wnznFpWiEwRONuBtW9p/SPj+1QehzhL/mt/oO
+         v9Uxv7AbQwi9ilPrqrUoY2oi3HywIz4SuqDQhYapror9ip8+zVa2ZM9kP/8vaC/K/D1M
+         0FI4V/idUxIWuh7FvdGreIZCIn/0X3m2VrDhi2C5+3EjwTbazePH/kCCvW06NKYUsWzU
+         gq6DY9w/CHEWdLsZbijPisWvGQVpcEeI9AQJQodaMJkpNc67bLN+NzsVrUFvlFtB+GAE
+         B4vA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=OMjsPKlR;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::241 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-oi1-x241.google.com (mail-oi1-x241.google.com. [2607:f8b0:4864:20::241])
-        by gmr-mx.google.com with ESMTPS id j204si821157pfd.1.2020.05.18.02.32.03
+       dkim=pass header.i=@google.com header.s=20161025 header.b="CE/lKTEp";
+       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=elver@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-ot1-x342.google.com (mail-ot1-x342.google.com. [2607:f8b0:4864:20::342])
+        by gmr-mx.google.com with ESMTPS id m128si623128qke.3.2020.05.18.05.44.25
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 May 2020 02:32:03 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::241 as permitted sender) client-ip=2607:f8b0:4864:20::241;
-Received: by mail-oi1-x241.google.com with SMTP id j145so8439301oib.5
-        for <clang-built-linux@googlegroups.com>; Mon, 18 May 2020 02:32:03 -0700 (PDT)
-X-Received: by 2002:aca:e1d6:: with SMTP id y205mr1544032oig.142.1589794322753;
-        Mon, 18 May 2020 02:32:02 -0700 (PDT)
-Received: from ubuntu-s3-xlarge-x86 ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id r14sm2820213otk.60.2020.05.18.02.32.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 May 2020 02:32:02 -0700 (PDT)
-Date: Mon, 18 May 2020 02:32:00 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Paul Mackerras <paulus@samba.org>, linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
-	kbuild test robot <lkp@intel.com>
-Subject: Re: [PATCH] powerpc/wii: Fix declaration made after definition
-Message-ID: <20200518093200.GA719945@ubuntu-s3-xlarge-x86>
-References: <20200413190644.16757-1-natechancellor@gmail.com>
+        Mon, 18 May 2020 05:44:25 -0700 (PDT)
+Received-SPF: pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::342 as permitted sender) client-ip=2607:f8b0:4864:20::342;
+Received: by mail-ot1-x342.google.com with SMTP id 69so3311238otv.2
+        for <clang-built-linux@googlegroups.com>; Mon, 18 May 2020 05:44:25 -0700 (PDT)
+X-Received: by 2002:a9d:7608:: with SMTP id k8mr12982752otl.233.1589805865139;
+ Mon, 18 May 2020 05:44:25 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200517011732.GE24705@shao2-debian> <20200517034739.GO2869@paulmck-ThinkPad-P72>
+ <CANpmjNNj37=mgrZpzX7joAwnYk-GsuiE8oOm13r48FYAK0gSQw@mail.gmail.com>
+In-Reply-To: <CANpmjNNj37=mgrZpzX7joAwnYk-GsuiE8oOm13r48FYAK0gSQw@mail.gmail.com>
+From: "'Marco Elver' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 18 May 2020 14:44:13 +0200
+Message-ID: <CANpmjNMx0+=Cac=WvHuzKb2zJvgNVvVxjo_W1wYWztywxDKeCQ@mail.gmail.com>
+Subject: Re: [rcu] 2f08469563: BUG:kernel_reboot-without-warning_in_boot_stage
+To: "Paul E. McKenney" <paulmck@kernel.org>, kan.liang@linux.intel.com, 
+	Peter Zijlstra <peterz@infradead.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Nick Desaulniers <ndesaulniers@google.com>
+Cc: kernel test robot <rong.a.chen@intel.com>, LKML <linux-kernel@vger.kernel.org>, 
+	LKP <lkp@lists.01.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200413190644.16757-1-natechancellor@gmail.com>
-X-Original-Sender: natechancellor@gmail.com
+X-Original-Sender: elver@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=OMjsPKlR;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::241 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@google.com header.s=20161025 header.b="CE/lKTEp";       spf=pass
+ (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::342 as
+ permitted sender) smtp.mailfrom=elver@google.com;       dmarc=pass (p=REJECT
+ sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Marco Elver <elver@google.com>
+Reply-To: Marco Elver <elver@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -149,79 +133,64 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Apr 13, 2020 at 12:06:45PM -0700, Nathan Chancellor wrote:
-> A 0day randconfig uncovered an error with clang, trimmed for brevity:
-> 
-> arch/powerpc/platforms/embedded6xx/wii.c:195:7: error: attribute
-> declaration must precede definition [-Werror,-Wignored-attributes]
->         if (!machine_is(wii))
->              ^
-> 
-> The macro machine_is declares mach_##name but define_machine actually
-> defines mach_##name, hence the warning.
-> 
-> To fix this, move define_machine after the is_machine usage.
-> 
-> Fixes: 5a7ee3198dfa ("powerpc: wii: platform support")
-> Reported-by: kbuild test robot <lkp@intel.com>
-> Link: https://github.com/ClangBuiltLinux/linux/issues/989
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> ---
->  arch/powerpc/platforms/embedded6xx/wii.c | 25 ++++++++++++------------
->  1 file changed, 12 insertions(+), 13 deletions(-)
-> 
-> diff --git a/arch/powerpc/platforms/embedded6xx/wii.c b/arch/powerpc/platforms/embedded6xx/wii.c
-> index 67e48b0a164e..a802ef957d63 100644
-> --- a/arch/powerpc/platforms/embedded6xx/wii.c
-> +++ b/arch/powerpc/platforms/embedded6xx/wii.c
-> @@ -172,19 +172,6 @@ static void wii_shutdown(void)
->  	flipper_quiesce();
->  }
->  
-> -define_machine(wii) {
-> -	.name			= "wii",
-> -	.probe			= wii_probe,
-> -	.setup_arch		= wii_setup_arch,
-> -	.restart		= wii_restart,
-> -	.halt			= wii_halt,
-> -	.init_IRQ		= wii_pic_probe,
-> -	.get_irq		= flipper_pic_get_irq,
-> -	.calibrate_decr		= generic_calibrate_decr,
-> -	.progress		= udbg_progress,
-> -	.machine_shutdown	= wii_shutdown,
-> -};
-> -
->  static const struct of_device_id wii_of_bus[] = {
->  	{ .compatible = "nintendo,hollywood", },
->  	{ },
-> @@ -200,3 +187,15 @@ static int __init wii_device_probe(void)
->  }
->  device_initcall(wii_device_probe);
->  
-> +define_machine(wii) {
-> +	.name			= "wii",
-> +	.probe			= wii_probe,
-> +	.setup_arch		= wii_setup_arch,
-> +	.restart		= wii_restart,
-> +	.halt			= wii_halt,
-> +	.init_IRQ		= wii_pic_probe,
-> +	.get_irq		= flipper_pic_get_irq,
-> +	.calibrate_decr		= generic_calibrate_decr,
-> +	.progress		= udbg_progress,
-> +	.machine_shutdown	= wii_shutdown,
-> +};
-> 
-> base-commit: 8f3d9f354286745c751374f5f1fcafee6b3f3136
-> -- 
-> 2.26.0
-> 
+[+Cc clang-built-linux FYI]
 
-Gentle ping for review/acceptance.
-
-Cheers,
-Nathan
+On Mon, 18 May 2020 at 12:11, Marco Elver <elver@google.com> wrote:
+>
+> On Sun, 17 May 2020 at 05:47, Paul E. McKenney <paulmck@kernel.org> wrote:
+> >
+> > On Sun, May 17, 2020 at 09:17:32AM +0800, kernel test robot wrote:
+> > > Greeting,
+> > >
+> > > FYI, we noticed the following commit (built with clang-11):
+> > >
+> > > commit: 2f08469563550d15cb08a60898d3549720600eee ("rcu: Mark rcu_state.ncpus to detect concurrent writes")
+> > > https://git.kernel.org/cgit/linux/kernel/git/paulmck/linux-rcu.git dev.2020.05.14c
+> > >
+> > > in testcase: boot
+> > >
+> > > on test machine: qemu-system-x86_64 -enable-kvm -cpu SandyBridge -smp 2 -m 8G
+> > >
+> > > caused below changes (please refer to attached dmesg/kmsg for entire log/backtrace):
+> > >
+> > >
+> > >
+> > >
+> > > If you fix the issue, kindly add following tag
+> > > Reported-by: kernel test robot <rong.a.chen@intel.com>
+> > >
+> > >
+> > > [    0.054943] BRK [0x05204000, 0x05204fff] PGTABLE
+> > > [    0.061181] BRK [0x05205000, 0x05205fff] PGTABLE
+> > > [    0.062403] BRK [0x05206000, 0x05206fff] PGTABLE
+> > > [    0.065200] RAMDISK: [mem 0x7a247000-0x7fffffff]
+> > > [    0.067344] ACPI: Early table checksum verification disabled
+> > > BUG: kernel reboot-without-warning in boot stage
+> >
+> > I am having some difficulty believing that this commit is at fault given
+> > that the .config does not list CONFIG_KCSAN=y, but CCing Marco Elver
+> > for his thoughts.  Especially given that I have never built with clang-11.
+> >
+> > But this does invoke ASSERT_EXCLUSIVE_WRITER() in early boot from
+> > rcu_init().  Might clang-11 have objections to early use of this macro?
+>
+> The macro is a noop without KCSAN. I think the bisection went wrong.
+>
+> I am able to reproduce a reboot-without-warning when building with
+> Clang 11 and the provided config. I did a bisect, starting with v5.6
+> (good), and found this:
+> - Since v5.6, first bad commit is
+> 20e2aa812620439d010a3f78ba4e05bc0b3e2861 (Merge tag
+> 'perf-urgent-2020-04-12' of
+> git://git.kernel.org/pub/scm/linux/kernel//git/tip/tip)
+> - The actual commit that introduced the problem is
+> 2b3b76b5ec67568da4bb475d3ce8a92ef494b5de (perf/x86/intel/uncore: Add
+> Ice Lake server uncore support) -- reverting it fixes the problem.
+>
+> Thanks,
+> -- Marco
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200518093200.GA719945%40ubuntu-s3-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANpmjNMx0%2B%3DCac%3DWvHuzKb2zJvgNVvVxjo_W1wYWztywxDKeCQ%40mail.gmail.com.
