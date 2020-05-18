@@ -1,135 +1,139 @@
-Return-Path: <clang-built-linux+bncBCX2JBVY5MBBBN57RT3AKGQEHODZZ3Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTYRDEG7MGBB5GART3AKGQEUQB7U4A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13c.google.com (mail-il1-x13c.google.com [IPv6:2607:f8b0:4864:20::13c])
-	by mail.lfdr.de (Postfix) with ESMTPS id AB4AC1D8BDA
-	for <lists+clang-built-linux@lfdr.de>; Tue, 19 May 2020 01:52:24 +0200 (CEST)
-Received: by mail-il1-x13c.google.com with SMTP id b29sf11501201ilb.0
-        for <lists+clang-built-linux@lfdr.de>; Mon, 18 May 2020 16:52:24 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1589845943; cv=pass;
+Received: from mail-qk1-x73b.google.com (mail-qk1-x73b.google.com [IPv6:2607:f8b0:4864:20::73b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2E9D71D8BE3
+	for <lists+clang-built-linux@lfdr.de>; Tue, 19 May 2020 01:55:34 +0200 (CEST)
+Received: by mail-qk1-x73b.google.com with SMTP id m15sf12595271qka.20
+        for <lists+clang-built-linux@lfdr.de>; Mon, 18 May 2020 16:55:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1589846133; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZnHtnPoYS+kWuwJRqBQdjBO6tMkDL7odqb2xgVL0vr+hI/yrD9B9DA1u8UUXxdYs2n
-         k+UZpMhLJJcjJLCts+M787+37VVtfBioVJkzK4I5VjOT3qb2YXBIWNm8/HUOHtSV/HAy
-         1fw+bYlKyCYACBA1Jv/Eup+beRIU4sNzsKggLXypi0LjP7TgmZACo61ugZRMXsOIeZaY
-         Cu7auxOzySFfoJwwiEAWIOB4Ast7wGkI1M9kbTgfK7HyxPYcK/qsb+ptpvtSj3jb1li5
-         NO8bUcbmDEQKXopKUT6EYGh+9Jnb/pELAFAUwmf4v7PsaIPIJMwBtoHCcmfA9otC83MD
-         SxFA==
+        b=f70N3i4sX2uPXksqtc79c6DYqqFfAbq+HSWU6CCIOvN2ezZoYD4SISnRYhdWNpdkU7
+         SLKD523Ay0Xc3gqiyhIJp/aiNpjj1ZStqKQ+Pe9M/3XgeRPcWJZuO1nHczoAM4dlrIvK
+         GOy3+/YkENEtpCkaecOEacVW/XTNJsLYabOm/E9kxhB4wawGC2cS7nCCOeiyxUP6QlIX
+         uf7IcEMlPAvduO4VUUSsMnjNBkmty0bcBeel40gBFIVU5w3qE4CODrNnW4B0Ju5K+MBe
+         gYYqit8ZOlGFkG4afGckFnQqhRVRqyLOSgESOdJhvMosnPWIbteiyF8SvIiiVlC9bzpo
+         6JZg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=26Rr1gp48ll/eohOFUCCOUPq57PgOY+Tinn/zlJrBNQ=;
-        b=j6cZWYlNquLjofIfdKTsOoh6bYrrnrTG5dUlJlY5XgQvxs/Pw/jZFDdx7qibuFqH/Q
-         S0+Ha/7yGp7NZewZByojlRayWpAs0pt/efHLn4b7pUVfQaDONdOcRbg3WkabRhVs/IaI
-         jmYhDu8QNOTi4toy3Yj2aIJP6dEqtjAKqgQm8PwnmlR2NxdkCR5JaMut1JOQPNBlYp5S
-         ukww3msBmOTmu2xri5bUngoBIGQl+jFSGIA8YOe4tUqqntMsTifEvwujrugZc+rpXRm5
-         3Dh/D5FSzXrOI7UkvlGCD9UImDSv51pbhAxEukZ20KrSkTyfg6NNwQ9cztlnsjUkIhn8
-         HO6w==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=/+wZpl/NfLFL4cwq9PY8ddA10dY00CWhEVIKdxC4r4k=;
+        b=0ua+fWBxmAv2KPd0W16zPQ8WyXy/n3kvplnJEu6usYMxwRvZrMjf+YYSwMWyBZR7rT
+         GA+aRMimHB2jqkWXoTgDsmEz2/Yl+WlBNnWAFl49PvdTtQOtaw5LWd3VgdpEzoODjB0T
+         ujen9xNEHGz90FmYcXzwwKQseHyMNKNkgim6evLhr8CWyi1zf4OhW0ZecC2jRRkb9sz0
+         pU+jXaoOegBTE9QFBERLqjnKNEU0NJPvBmDuleoE8IvINTz8z7A9CnWhbb7GeyjimtxG
+         4JJ0Z1d54yYvgIYr+VRN86ZxQsknDgx8mu3f0QfE+77y+t1yKicP7RnFIkyuuMccRkh9
+         Jmag==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of philip.li@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=philip.li@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=of7AbYv0;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=/+wZpl/NfLFL4cwq9PY8ddA10dY00CWhEVIKdxC4r4k=;
+        b=m4379lLRiQcXjiBsfEL8sfMYChiG8d4UU8jK5ys78voSmKT3bHOD7KTJ5rUKI2YpUG
+         olEjyZ1HspqmCeqWjBH4efz5ZXBZWBGgXcx8w4+VdBarfjQZbQ/dyFJhGWFzyr2I41T+
+         FFD7yBhC2u0N3RdmBVeh4Gto0PLUUFZQKsR+tfIsgTJ5lHfwOyHiO7qa4wszk84C9j8n
+         zuY5GvuRImRw/1xj6a5/MUmNqkqJ9SASBrizz/NVfeSBz4XzBgpLadxF/GyTf9IYES+x
+         W/yoMwCPaC6mCs4D8BQGIkKmnbIgOQC/XTUqtFlU/emqwITQAzlbdPNmjpNEp4ct/jKB
+         b7lw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=26Rr1gp48ll/eohOFUCCOUPq57PgOY+Tinn/zlJrBNQ=;
-        b=mWD3zagVYnk9KJQFr3DoSiDtiJzEBdwG6b8i1LdLegi38+0lIPuCERfJk2qDIPvBiP
-         2UJT91yHoWVrGjCpquLIS2hik+OjMTDItRgf7W62iCXPeODlO33j0YLBIB7pOXawylSW
-         PEORn6J5FV1j7s2Ahu1O/Os0X/RvSYJ8DwTFy1gihtmRhYWwG5fptIqQtqJnSkdCTd6M
-         0fK+wOOggENUMxGJ6pGcD6veYT4KVWiDlFaH1ee2EDSZzv6va8NbyfoMpeVMHtkLHx9h
-         efLoYAEqLWHaLTXUzObJskVcSxeL2YmiFVI7t18/9mR4MyJca9ioG0HlPnAjgfPWX/HC
-         ixdg==
+        bh=/+wZpl/NfLFL4cwq9PY8ddA10dY00CWhEVIKdxC4r4k=;
+        b=ArjVQDmK8jlyKpz0gXteVBKsH5JmRg+3Wfxb5/dn0RUP6BYxpTY8GRHCw6vDp6ywvo
+         s45Hu0mOKi77kyGTffVWkrQTEztN/rrl9B6SypqAieoBuiGCP42diM/G1dbSkPfgQRKq
+         ajqWUxMNKatEp9XlvW6Qsc7ve2xSwORe0gqm2r8zx0cZ67DWAqNZtv58jzy06j3ld2k5
+         9FONX+T2KWQlMnBQdpLBxPhAqNCWoeCdDBbFza8PZa3U7xa/ufxFjkbMlZf5uB2QjsSI
+         jGl1LqLeueDB6nELQCYNLDk4RcU+g5YG9zuMLtau+9Y6SNY/heZtY9OXKY/n/Hg9egrc
+         8lTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:references:mime-version:content-disposition
-         :in-reply-to:user-agent:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=26Rr1gp48ll/eohOFUCCOUPq57PgOY+Tinn/zlJrBNQ=;
-        b=O1BIcSwGkSPnz93Nm+7Fj/mR76ZuGTBEnSWi68lmpFSrXsmcADLj3iaFmyHR8q6vyt
-         iWJsMUU1E2e4zNjz2O/NUoeg1hPqiTmU2LuAwKWucf1hMcUy+kCxtM6jmA/rQNnPDhyC
-         HE06SlzVXRtCab30c1YgNBLmVUO4IhF9S+vJHJW+eLgirZmsICXWFqiT0SNMqmQnWo/+
-         Oxtz+yDz5HME/pKu09djdg848BMxkEh8BeajendZuzjttZTwIxEHkyUygWCbQ4F0eQvz
-         EeVTSkAezIzTflxLw6Ps6eXqV+yfaLtGawjyO4QR+qKNACCnQrmnSxjY+f0i+hLaKzmX
-         xcZQ==
+        bh=/+wZpl/NfLFL4cwq9PY8ddA10dY00CWhEVIKdxC4r4k=;
+        b=fead7hCUeDnoXFBb0fw0Kjwdom2bcOm/kYUSVRhAtnp0eDI16TdC+o10YiN7Ahzu++
+         YbwsRRQS+zqU9EdwI6SVB5xSWlFUDH/SCIgsIudz9kZcWFbB2RwvFeerxS1CHSc9p4ai
+         /Fo/em7JQ87lR4eRhR3iUIWXglMKiRQem2FuKx2ogkw6CwrPsiE2TRd+Q5k0LT/m046B
+         7AS7mcTwOTuRkIHo9OgPq9fqL9a2IEc1ntwUyXrZpHKolwfUXTgOhVyQ7VflT2QZM7IA
+         8d/7ju8oatHeHnoapoiJuv1u5wUTA6nlqBvUOF2c4Xgiilpmy9VLUB4GyRgPByKZnVo5
+         7hUg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5306GhcTKkXvvEChG8GcNO26gxu85OyzTMzu0mMXl0RSFc4f4YYd
-	lm6t5Xu14NvpqJXmRYlV34U=
-X-Google-Smtp-Source: ABdhPJwp58hIn5iGpk0UesQD0jWw+palEc9+sjB2srd5uJ7pg1/hOFmrDn8Cw5GR3rVOND4ikCSk7g==
-X-Received: by 2002:a92:9f4b:: with SMTP id u72mr17482717ili.273.1589845943475;
-        Mon, 18 May 2020 16:52:23 -0700 (PDT)
+X-Gm-Message-State: AOAM533glA7U9N7SN4B9B8xNUya95AL/wZmlnYHpbjmwxrzGo8Iw6YlN
+	PS0P6eCre4ZjWG4X7gJsuZg=
+X-Google-Smtp-Source: ABdhPJyUj0WMik644z82A0HtI4aLCZdezS2XU1lzcyYO6bazFj3NRk892R1goEnkqoEO6Aqi/7+zGQ==
+X-Received: by 2002:a05:6214:12b0:: with SMTP id w16mr4059835qvu.114.1589846132964;
+        Mon, 18 May 2020 16:55:32 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a02:7f85:: with SMTP id r127ls1400510jac.3.gmail; Mon, 18
- May 2020 16:52:23 -0700 (PDT)
-X-Received: by 2002:a02:cf9e:: with SMTP id w30mr18132127jar.101.1589845943125;
-        Mon, 18 May 2020 16:52:23 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1589845943; cv=none;
+Received: by 2002:a05:620a:2051:: with SMTP id d17ls5538051qka.11.gmail; Mon,
+ 18 May 2020 16:55:32 -0700 (PDT)
+X-Received: by 2002:a05:620a:1184:: with SMTP id b4mr17578870qkk.364.1589846132642;
+        Mon, 18 May 2020 16:55:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1589846132; cv=none;
         d=google.com; s=arc-20160816;
-        b=ky4P26CdcWiI2DFnh7/6bT7Dp7kRg4HFCr/jk/bSy4Hu2tJgGWBieEKsI1ujcdB9lh
-         0X4onXsmdhBArjjROtcJtz8E3aCtCnvssFyY5PodQUHkayd1NVdzAbi5aWjP+X+DP2a1
-         fMFS9s/WdqQRxPWYEPtHZ9ZmtkyLfUlhbsYfSPYEq/j19da8/2nY2F/nhFeMq0SZUgsz
-         TehMso6/IIrgk7epHgqPae2hRjdfei7FkWfg17YP649xMTFbtL75b6Bnc90zUbJ5XVqh
-         ooFFkOgHcgjWmNR8Uw3dUsvWh1IgT+gFpY1OmtdvqDLRwBLW0t5ZrVqFsLjdI5kRcJ1b
-         qHiQ==
+        b=XKMxUyM0tx+KmsEBrBUYrpDaF8fotrlG2lgjtbAbDNyi/SoF6gupyNDq2Of3EwdRfA
+         BNUQrz0IQvKk1TboERaTITiFlYp6shfiF6vpSbASdRx/t4888QA5CsAZLKI5xUXYPWyW
+         Dyy41JJCVEiSCXloW2a8MJK+Xlb2IcO+bIrqUl7pebrpRzo76dPI0mtrtg5mZyWWW4Fm
+         eRTFxi7/9SD6pNGrNxBBKvBpZuqVgiWc5pdSHafhDcNwxfRoo5AJCROphPRPVbNjCmTm
+         vJN+B5k6GbByRM+YMSUiXcVsU2D4d/OOOalL7jSpJcxqEbrRG65Vp8iNvRwAdXhuRmcG
+         jwQg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=lSUjCRRelGnCy9q/s+dvhE6m8rWUUb4Jh6TJl9v0Q5Y=;
-        b=MhBxeJ2jQj9ZnA259y/eYqlrdSkPX86GQNxG1dSU4GMY48ou41ijCSWs4Fqv5q0ymn
-         Zfa6Nv1jcZyN6vwaCZzUlrOfWfdrO1ytyrsfEm1gC29wU413gUsHbGDp4bexhtH+fim1
-         1L8s6Y6xMOS8AhC3YKSSENAFBgWIifz9wIzbUF3bhZPIS1BJnsWCtLe4F1NCS3G8tts/
-         IQBcv5izfKXfvqZ5Lt/UG/2r+ZC/x6xQ5V0n+yytNwCla/dJxcOZR8POS6/x122MKBSv
-         WSMfPwDr1dxj5WlipYGcWEhyBursSb8o92qkDaEQbrRp6a9LRACDJ3QN/LXE25kPuoN0
-         mXsw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=qAA3OKl6AVtvhmTV5S8FL74OsHN/DYWammXE/OmRhwk=;
+        b=Gbin87OWrQezMYmh3u2rg92+s23oyGBsH5zp39mJ/YWV+OAM4sQsGm2088vZ9F6S7W
+         56TNgYbLeRXcBTF+n4K3s5rqs7KVoi6PgtU4VOdiuYTNcPw6LRW54G+dt55TC3siYBg/
+         yOnWnLERCcVss2bwjClHfqFRcp1b7AgXGcpvXpsAD7KldTeYcSnIrFMhFPPXWDOTepr+
+         kLbDOGg4KBIluf5JthKjmivh46ACXS2A5MJ6EdQK1g3MOItJzYJF/yeShTwJgH8H6vCQ
+         pjvfmAp3TnlNunXqVHmSFXqpY3Ny8XKeaM9oAMIyIU3mpN6ejnjnugtf7jsCnBomujwE
+         H8RQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of philip.li@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=philip.li@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
-        by gmr-mx.google.com with ESMTPS id m17si720407ioc.2.2020.05.18.16.52.22
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=of7AbYv0;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-qk1-x743.google.com (mail-qk1-x743.google.com. [2607:f8b0:4864:20::743])
+        by gmr-mx.google.com with ESMTPS id q4si823459qtn.5.2020.05.18.16.55.32
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 18 May 2020 16:52:23 -0700 (PDT)
-Received-SPF: pass (google.com: domain of philip.li@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
-IronPort-SDR: qE1RmTa7MFq11rEzfl+qSJCs0E+GOzrhV2i/47SDCgUAvZd2ojvluQ0Vn/8s5D7XAIk6OXBkLR
- qXfSdL3tp9Iw==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga006.fm.intel.com ([10.253.24.20])
-  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 May 2020 16:52:22 -0700
-IronPort-SDR: CK+xquN6vSg7i4UgPP3gwJSPa8rI99JcEtTjGPJ8zQDqXMPNl/50c2tvhNpuPycgK6zgtGw3oA
- UzC5Ghu8sGTQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.73,408,1583222400"; 
-   d="scan'208";a="465935580"
-Received: from pl-dbox.sh.intel.com (HELO intel.com) ([10.239.159.39])
-  by fmsmga006.fm.intel.com with ESMTP; 18 May 2020 16:52:20 -0700
-Date: Tue, 19 May 2020 07:51:01 +0800
-From: Philip Li <philip.li@intel.com>
-To: Sumit Garg <sumit.garg@linaro.org>
-Cc: kbuild test robot <lkp@intel.com>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com
-Subject: Re: [kbuild-all] Re: [RFC] arm64: Enable perf events based hard
- lockup detector
-Message-ID: <20200518235100.GA30480@intel.com>
-References: <1589532593-16428-1-git-send-email-sumit.garg@linaro.org>
- <202005160303.4pIJwjQx%lkp@intel.com>
- <CAFA6WYMnv5xgFSa+2UbqVW7MPfSGvsQ5MdeUwh1aX-WXKc0T_A@mail.gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 18 May 2020 16:55:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::743 as permitted sender) client-ip=2607:f8b0:4864:20::743;
+Received: by mail-qk1-x743.google.com with SMTP id g185so12511304qke.7
+        for <clang-built-linux@googlegroups.com>; Mon, 18 May 2020 16:55:32 -0700 (PDT)
+X-Received: by 2002:ae9:efc1:: with SMTP id d184mr19648194qkg.437.1589846132391;
+ Mon, 18 May 2020 16:55:32 -0700 (PDT)
 MIME-Version: 1.0
+References: <CAG=TAF6mfrwxF1-xEJJ9dL675uMUa7RZrOa_eL2mJizZJ-U7iQ@mail.gmail.com>
+In-Reply-To: <CAG=TAF6mfrwxF1-xEJJ9dL675uMUa7RZrOa_eL2mJizZJ-U7iQ@mail.gmail.com>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Mon, 18 May 2020 16:55:21 -0700
+Message-ID: <CAEf4BzazvGOoJbm+zNMqTjhTPJAnVLVv9V=rXkdXZELJ4FPtiA@mail.gmail.com>
+Subject: Re: UBSAN: array-index-out-of-bounds in kernel/bpf/arraymap.c:177
+To: Qian Cai <cai@lca.pw>
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, 
+	Andrii Nakryiko <andriin@fb.com>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@chromium.org>, Linux Netdev List <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAFA6WYMnv5xgFSa+2UbqVW7MPfSGvsQ5MdeUwh1aX-WXKc0T_A@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: philip.li@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of philip.li@intel.com designates 134.134.136.31 as
- permitted sender) smtp.mailfrom=philip.li@intel.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=intel.com
+X-Original-Sender: andrii.nakryiko@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=of7AbYv0;       spf=pass
+ (google.com: domain of andrii.nakryiko@gmail.com designates
+ 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,167 +146,28 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, May 18, 2020 at 11:25:37AM +0530, Sumit Garg wrote:
-> Hi,
-> 
-> On Sat, 16 May 2020 at 01:21, kbuild test robot <lkp@intel.com> wrote:
-> >
-> > Hi Sumit,
-> >
-> > [FYI, it's a private test report for your RFC patch.]
-> > [auto build test ERROR on arm64/for-next/core]
-> > [also build test ERROR on arm-soc/for-next arm/for-next kvmarm/next linus/master v5.7-rc5 next-20200515]
-> > [if your patch is applied to the wrong git tree, please drop us a note to help
-> > improve the system. BTW, we also suggest to use '--base' option to specify the
-> > base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
-> >
-> 
-> This isn't a correct report as it doesn't take in account the
-> dependency of this patch on other patch-set [1] mentioned after "---".
-thanks for the input, kindly ignore this false report. So far,
-the bot is not able to parse base info like this, thus leads
-to false positive.
+On Sun, May 17, 2020 at 7:45 PM Qian Cai <cai@lca.pw> wrote:
+>
+> With Clang 9.0.1,
+>
+> return array->value + array->elem_size * (index & array->index_mask);
+>
+> but array->value is,
+>
+> char value[0] __aligned(8);
 
-> 
-> [1] https://patchwork.kernel.org/cover/11047407/
-> 
-> -Sumit
-> 
-> > url:    https://github.com/0day-ci/linux/commits/Sumit-Garg/arm64-Enable-perf-events-based-hard-lockup-detector/20200515-165226
-> > base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
-> > config: arm64-randconfig-r025-20200515 (attached as .config)
-> > compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 9d4cf5bd421fb6467ff5f00e26a37527246dd4d6)
-> > reproduce:
-> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> >         chmod +x ~/bin/make.cross
-> >         # install arm64 cross compiling tool for clang build
-> >         # apt-get install binutils-aarch64-linux-gnu
-> >         # save the attached .config to linux build tree
-> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64
-> >
-> > If you fix the issue, kindly add following tag as appropriate
-> > Reported-by: kbuild test robot <lkp@intel.com>
-> >
-> > All errors (new ones prefixed by >>, old ones prefixed by <<):
-> >
-> > drivers/perf/arm_pmu.c:613:20: error: use of undeclared identifier 'cpu_irq_ops'; did you mean 'cpu_map_ops'?
-> > irq_ops = per_cpu(cpu_irq_ops, smp_processor_id());
-> > ^~~~~~~~~~~
-> > cpu_map_ops
-> > include/linux/percpu-defs.h:269:43: note: expanded from macro 'per_cpu'
-> > #define per_cpu(var, cpu)       (*per_cpu_ptr(&(var), cpu))
-> > ^
-> > include/linux/percpu-defs.h:235:20: note: expanded from macro 'per_cpu_ptr'
-> > __verify_pcpu_ptr(ptr);                                                                      ^
-> > include/linux/percpu-defs.h:219:47: note: expanded from macro '__verify_pcpu_ptr'
-> > const void __percpu *__vpp_verify = (typeof((ptr) + 0))NULL;                                                            ^
-> > include/linux/bpf_types.h:108:35: note: 'cpu_map_ops' declared here
-> > BPF_MAP_TYPE(BPF_MAP_TYPE_CPUMAP, cpu_map_ops)
-> > ^
-> > drivers/perf/arm_pmu.c:613:20: error: use of undeclared identifier 'cpu_irq_ops'; did you mean 'cpu_map_ops'?
-> > irq_ops = per_cpu(cpu_irq_ops, smp_processor_id());
-> > ^~~~~~~~~~~
-> > cpu_map_ops
-> > include/linux/percpu-defs.h:269:43: note: expanded from macro 'per_cpu'
-> > #define per_cpu(var, cpu)       (*per_cpu_ptr(&(var), cpu))
-> > ^
-> > include/linux/percpu-defs.h:236:20: note: expanded from macro 'per_cpu_ptr'
-> > SHIFT_PERCPU_PTR((ptr), per_cpu_offset((cpu)));                                              ^
-> > include/linux/percpu-defs.h:231:23: note: expanded from macro 'SHIFT_PERCPU_PTR'
-> > RELOC_HIDE((typeof(*(__p)) __kernel __force *)(__p), (__offset))
-> > ^
-> > include/linux/compiler.h:165:31: note: expanded from macro 'RELOC_HIDE'
-> > __ptr = (unsigned long) (ptr);                                                              ^
-> > include/linux/bpf_types.h:108:35: note: 'cpu_map_ops' declared here
-> > BPF_MAP_TYPE(BPF_MAP_TYPE_CPUMAP, cpu_map_ops)
-> > ^
-> > drivers/perf/arm_pmu.c:613:20: error: use of undeclared identifier 'cpu_irq_ops'; did you mean 'cpu_map_ops'?
-> > irq_ops = per_cpu(cpu_irq_ops, smp_processor_id());
-> > ^~~~~~~~~~~
-> > cpu_map_ops
-> > include/linux/percpu-defs.h:269:43: note: expanded from macro 'per_cpu'
-> > #define per_cpu(var, cpu)       (*per_cpu_ptr(&(var), cpu))
-> > ^
-> > include/linux/percpu-defs.h:236:20: note: expanded from macro 'per_cpu_ptr'
-> > SHIFT_PERCPU_PTR((ptr), per_cpu_offset((cpu)));                                              ^
-> > include/linux/percpu-defs.h:231:49: note: expanded from macro 'SHIFT_PERCPU_PTR'
-> > RELOC_HIDE((typeof(*(__p)) __kernel __force *)(__p), (__offset))
-> > ^
-> > include/linux/compiler.h:165:31: note: expanded from macro 'RELOC_HIDE'
-> > __ptr = (unsigned long) (ptr);                                                              ^
-> > include/linux/bpf_types.h:108:35: note: 'cpu_map_ops' declared here
-> > BPF_MAP_TYPE(BPF_MAP_TYPE_CPUMAP, cpu_map_ops)
-> > ^
-> > drivers/perf/arm_pmu.c:613:20: error: use of undeclared identifier 'cpu_irq_ops'; did you mean 'cpu_map_ops'?
-> > irq_ops = per_cpu(cpu_irq_ops, smp_processor_id());
-> > ^~~~~~~~~~~
-> > cpu_map_ops
-> > include/linux/percpu-defs.h:269:43: note: expanded from macro 'per_cpu'
-> > #define per_cpu(var, cpu)       (*per_cpu_ptr(&(var), cpu))
-> > ^
-> > include/linux/percpu-defs.h:236:20: note: expanded from macro 'per_cpu_ptr'
-> > SHIFT_PERCPU_PTR((ptr), per_cpu_offset((cpu)));                                              ^
-> > include/linux/percpu-defs.h:231:23: note: expanded from macro 'SHIFT_PERCPU_PTR'
-> > RELOC_HIDE((typeof(*(__p)) __kernel __force *)(__p), (__offset))
-> > ^
-> > include/linux/compiler.h:166:13: note: expanded from macro 'RELOC_HIDE'
-> > (typeof(ptr)) (__ptr + (off)); })
-> > ^
-> > include/linux/bpf_types.h:108:35: note: 'cpu_map_ops' declared here
-> > BPF_MAP_TYPE(BPF_MAP_TYPE_CPUMAP, cpu_map_ops)
-> > ^
-> > drivers/perf/arm_pmu.c:613:20: error: use of undeclared identifier 'cpu_irq_ops'; did you mean 'cpu_map_ops'?
-> > irq_ops = per_cpu(cpu_irq_ops, smp_processor_id());
-> > ^~~~~~~~~~~
-> > cpu_map_ops
-> > include/linux/percpu-defs.h:269:43: note: expanded from macro 'per_cpu'
-> > #define per_cpu(var, cpu)       (*per_cpu_ptr(&(var), cpu))
-> > ^
-> > include/linux/percpu-defs.h:236:20: note: expanded from macro 'per_cpu_ptr'
-> > SHIFT_PERCPU_PTR((ptr), per_cpu_offset((cpu)));                                              ^
-> > include/linux/percpu-defs.h:231:49: note: expanded from macro 'SHIFT_PERCPU_PTR'
-> > RELOC_HIDE((typeof(*(__p)) __kernel __force *)(__p), (__offset))
-> > ^
-> > include/linux/compiler.h:166:13: note: expanded from macro 'RELOC_HIDE'
-> > (typeof(ptr)) (__ptr + (off)); })
-> > ^
-> > include/linux/bpf_types.h:108:35: note: 'cpu_map_ops' declared here
-> > BPF_MAP_TYPE(BPF_MAP_TYPE_CPUMAP, cpu_map_ops)
-> > ^
-> > >> drivers/perf/arm_pmu.c:613:10: error: assigning to 'const struct pmu_irq_ops *' from incompatible type 'typeof (*((&(cpu_map_ops))))' (aka 'const struct bpf_map_ops')
-> > irq_ops = per_cpu(cpu_irq_ops, smp_processor_id());
-> > ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> > drivers/perf/arm_pmu.c:614:18: error: use of undeclared identifier 'pmunmi_ops'
-> > if (irq_ops == &pmunmi_ops || irq_ops == &percpu_pmunmi_ops)
-> > ^
-> > drivers/perf/arm_pmu.c:614:44: error: use of undeclared identifier 'percpu_pmunmi_ops'
-> > if (irq_ops == &pmunmi_ops || irq_ops == &percpu_pmunmi_ops)
-> > ^
-> > 8 errors generated.
-> >
-> > vim +613 drivers/perf/arm_pmu.c
-> >
-> >    608
-> >    609  bool arm_pmu_irq_is_nmi(void)
-> >    610  {
-> >    611          const struct pmu_irq_ops *irq_ops;
-> >    612
-> >  > 613          irq_ops = per_cpu(cpu_irq_ops, smp_processor_id());
-> >    614          if (irq_ops == &pmunmi_ops || irq_ops == &percpu_pmunmi_ops)
-> >    615                  return true;
-> >    616          else
-> >    617                  return false;
-> >    618  }
-> >    619
-> >
-> > ---
-> > 0-DAY CI Kernel Test Service, Intel Corporation
-> > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> _______________________________________________
-> kbuild-all mailing list -- kbuild-all@lists.01.org
-> To unsubscribe send an email to kbuild-all-leave@lists.01.org
+This, and ptrs and pptrs, should be flexible arrays. But they are in a
+union, and unions don't support flexible arrays. Putting each of them
+into anonymous struct field also doesn't work:
+
+/data/users/andriin/linux/include/linux/bpf.h:820:18: error: flexible
+array member in a struct with no named members
+   struct { void *ptrs[] __aligned(8); };
+
+So it probably has to stay this way. Is there a way to silence UBSAN
+for this particular case?
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200518235100.GA30480%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAEf4BzazvGOoJbm%2BzNMqTjhTPJAnVLVv9V%3DrXkdXZELJ4FPtiA%40mail.gmail.com.
