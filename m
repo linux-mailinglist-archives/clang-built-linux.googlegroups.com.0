@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBIF3RP3AKGQE7EBWUEQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB755RP3AKGQEMVAK3BI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8F8011D87F6
-	for <lists+clang-built-linux@lfdr.de>; Mon, 18 May 2020 21:10:26 +0200 (CEST)
-Received: by mail-pg1-x539.google.com with SMTP id 12sf8793544pgu.19
-        for <lists+clang-built-linux@lfdr.de>; Mon, 18 May 2020 12:10:26 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1589829025; cv=pass;
+Received: from mail-pf1-x43e.google.com (mail-pf1-x43e.google.com [IPv6:2607:f8b0:4864:20::43e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 396931D880B
+	for <lists+clang-built-linux@lfdr.de>; Mon, 18 May 2020 21:16:17 +0200 (CEST)
+Received: by mail-pf1-x43e.google.com with SMTP id 79sf9695516pfv.18
+        for <lists+clang-built-linux@lfdr.de>; Mon, 18 May 2020 12:16:17 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1589829376; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fKctN1MrT4Ktn582Jnb+nD0VbyagzWNEQe0dnDJpNMPqCt9XO42I6GyGRk/NQuHmcg
-         m4aj7pbZX6QhFWLDNguevdFoYjgxITOA8BdAxRGF9J2SSYyll5j5KEKEdHpWc40eO9sc
-         SCZkFpq7ZXY4FN/4yhxZyuqtX9ZbPtZZp0QU3bxZsI4B4VOm9Pvbb/n3RcTKdUZ2QWsZ
-         bNn8DgKuMebTKyWY9ik70JNBa9H5A8BaCaaWW7dnx8B22X2dBMmGcMGjRP7bdhw8TRFx
-         baJKFZl6R9lwUB938K9786bn1Ib/fxRH5t86nOAJyyvQ2NEZMSr9noIza8D2qnDkRCrk
-         o9Ng==
+        b=fhGa32llEoEEoazKnVWDqTB/bUu07DbRXf/Jjz+zb5P0gHHU2Qdb9cVOdvJkOjPQD3
+         Kau9BK2Ajp0YP4oxFm1QhcD5z3O63oTZaA8tKFFf4XaqIVb0p/XVlb2qmpyrio42z6Jz
+         fRW222HujFLTPcsoBgaEGt7Gll80u1UlanY/8ic3MFGyL3b0AoLXHlOYSvfbce+DuvmK
+         rV6R+42bSGEU5ngBozAP5r/iWLKzCaOeIpbZD/bwRjO188XmW42ujvxpXp2PDcV1ekwp
+         qWkkycnOivKSf/WiAu54iGKIz61/07ZExyEmFmdrMmkW2LVazPjgUxm/it2xZuWq/Pla
+         m+jQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=XTKC+51SSLNlEF05+ygu90JAgpN/k+MQ2N5h9NbSOiI=;
-        b=0xv1XWmpgQrJVwcW741cthQAGZRCU5vYM0uIWzwXrPC1KaehXFH8uA81Owha03tVCf
-         KBDYIdBHUZ0LqRgrUt+7DndlkxqRK+4TnTetavbVGar49r3RmPkROvwSM36OkkoFcn6s
-         L448Qctp4Yep/enMJelp1Xtt4J5bAbJKBnW7h9no12zDEE2wT43+Txs7H/mrDMkc6m5q
-         vScWOGOynxVBiQZuCP+gIr3pR9LXMJouuVLTQjlzM2rODuAt9vQt0qTb4ahuZlzrZlnJ
-         RRcl5CT/27MggUqSK2Q3BbZZ+xrJRnaZ9DA5NkaAc0Z++6w6Tex6VVLr8zaDwL2KEESk
-         YGQA==
+        bh=fdqQtunuL4XrpySNt1Y9IB76C0rvhadu6kgSUjo1mUQ=;
+        b=dZqA/iRaFjo5xfGkRCO2zzQNRpUQbTltXkSRXU1iARADowMgn61AdKzIL5b2YZWAhV
+         w2F4USW5nHi50GGu1TbccNHV5jNyev6DlEkoBeBhxi8B6+oUFZV2UkTeadDxMkXQTKXN
+         dFJ2ELWTnAp2BQpoNHinbNK9A9Tzhp6kWam2aItalB02Hy8WRp8K2uyJEvX7d7o+NLdk
+         KVojyzGfiHRbbb5TGL2i1mh39ChfaABkVEL0xOX27ffWfB7pHBEs+a6TKA5DqddHOSv5
+         xQvAq8NtuDPjW/7gKGaJwfkwTL/QILjQXcRkDh19JmLcTRjI2OlahdGgLcVbsX4Ucv0n
+         kYOg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=cHuezSmh;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="QocAv/2l";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::a33 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=XTKC+51SSLNlEF05+ygu90JAgpN/k+MQ2N5h9NbSOiI=;
-        b=XnZvmDdZSKCBuvyjaO56uEwTrxmdbNiXMD+jJjG/m0zHASBUz/GfYC8HooY97SzXsT
-         iM0fuJGo6LRvlBOtlfh/9YeeVcPLVkiExCNfn+OyGY77uKt28yAg3d7pQdH9rWQCPnG/
-         upoezjjQVXkSgOBoHmTJO5sDZBanSUKUEHRS8/+XxUCq2S8nXDZcu7LnpEm5LciHvSG3
-         5lXbMP9Ek/te9Fed8BTD8Htfyrag+uKfK+uhnF6DUNucmuXkOf/qAMin9PdCChSNAhB+
-         PsHPfSyWEFlQsfiyCBmrIvPE0uwEL5gJbEdThX3lhEPBBUQG2andPu31bd3BrH4cp9w0
-         Frcg==
+        bh=fdqQtunuL4XrpySNt1Y9IB76C0rvhadu6kgSUjo1mUQ=;
+        b=mCuU5CRw1LvafLe1kt4FtlUyE54SIzJdDIjHWR1HBjWkdDLZEd74jae+66zOGK27jx
+         Qelh7XRLFfnfwWOUKG5k/YVWgNfT/hTStGCUS7zt0UkIJtGLnKiLD2uRbKwhjF/1P6CH
+         9y0pFO7JeNP5tcJMhNgVKzbyageANqWhGihPnXVU+7UCqCXLLhoQfxx1LJNHuJE6k0Xc
+         JDgeCR8F8HfaOYxoSiUVztAnH6x6eOUGa5dGaEosZxbE/1oa3qXbxluNbdXebapmSkzz
+         1z2d2nnD3Dp249Ao3SDBzBA7wc6kwZ+u7oHwFRJCr+1NdXZQGdrPdcVncZihKQPGJ0kH
+         JDFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,75 +49,73 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=XTKC+51SSLNlEF05+ygu90JAgpN/k+MQ2N5h9NbSOiI=;
-        b=dVV3O91cc0IprKR3WmP0/zRYz5uYa/5dOnemroLaHMdHu1tMkNpmg8eKpRt7eCQgfZ
-         VSTW1pjm7tU9UXZWevllxtvW+AZZQbTIeec1P12OY+4hFZB48r0B8qIvLVsM+lic4uM2
-         jDUy53eqW3UtzNnuegtDZAXmdE93u0f9enXWGLMh1kXLsclymN3qGxb+HvzMQjccSZbP
-         lsRgyd2e23wTNSURqZ46TnCUa+ZYJG7X5zvyO6vBnfpVoBIVKWrLNw0HVIutLPkJT/E0
-         xL2OSyz8Eut1522MsqiNAyHBCyNlqHfdOEdELaijWNO/LqlxODIEhOHRs8+jRY6W9Gcs
-         OdNQ==
-X-Gm-Message-State: AOAM533WLEzXZgOHJyHM7/tYhNzWqUEdfzfZa50orwKOjQi/ooJSeZFg
-	y8LIowBpDEcb+dJqN8chTPY=
-X-Google-Smtp-Source: ABdhPJz+gPU4NA9cTFFy+mJoWXXT2uWwgtcKb7/mC1cTwwRe9xik2pm6BxYaHfKgPUrTTiwMbP8KnQ==
-X-Received: by 2002:a63:5642:: with SMTP id g2mr16523167pgm.211.1589829024984;
-        Mon, 18 May 2020 12:10:24 -0700 (PDT)
+        bh=fdqQtunuL4XrpySNt1Y9IB76C0rvhadu6kgSUjo1mUQ=;
+        b=g3+hAkAXzUdt86UWPVbOX4cRZp7TKRtjn+bl6A5yfNrSdIqWGcyrgAFCbl03YZuMqO
+         tjVFTIAArYpYHRYzDH4t+edKT7tkOqd58BgRGRKSjVucZlzTw3up6bX+EpUMOl/0tRr4
+         yZqRQVS/iyMduvQfJFc6V0eCj5/a5X6b0IQUA+cP/lvkmQUzbH+ZeAOM74YGK8I8huWd
+         usuH7Zaw/DqgQsDa9NBepnY1EGMn8CNHUrkqLGZ8jK98OdCgDEuNRxfzgA0as3wur05P
+         xWIdtFCyH/RCP2LeXg/QRLzyhr+F7obtuT2KFna9OQC5D29gcokTXjjRTWLpWG5LyBW0
+         66tw==
+X-Gm-Message-State: AOAM531RZfWY7Q+ZbM+TIGVVWAwWIYLcP2znHmcUpXx2jcLjIB+WgcFR
+	kFXt9gIGG98pZx+7pMkJNhs=
+X-Google-Smtp-Source: ABdhPJzawY6ZyzNYJHwLSz4lR4v8R7uBj0uH3rhMOetZqkvRtiCRc3PzWx2fJRdLBdO/5y0S42xQaA==
+X-Received: by 2002:aa7:9543:: with SMTP id w3mr6965392pfq.191.1589829375854;
+        Mon, 18 May 2020 12:16:15 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:c31a:: with SMTP id v26ls3429773pfg.2.gmail; Mon, 18 May
- 2020 12:10:24 -0700 (PDT)
-X-Received: by 2002:a62:4e88:: with SMTP id c130mr18549100pfb.122.1589829024532;
-        Mon, 18 May 2020 12:10:24 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1589829024; cv=none;
+Received: by 2002:a17:902:d684:: with SMTP id v4ls1221808ply.11.gmail; Mon, 18
+ May 2020 12:16:15 -0700 (PDT)
+X-Received: by 2002:a17:902:8c8c:: with SMTP id t12mr8635758plo.285.1589829375388;
+        Mon, 18 May 2020 12:16:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1589829375; cv=none;
         d=google.com; s=arc-20160816;
-        b=yumnBgq2S/ox8jQklUsnCoMQwrjdFBabvxQxRSPgsRFyzyFyhS2wPRU4hMJjZCy3oU
-         mYsOz8teWUkUfl7sv4HUb4AZdwDGEjQ1UWshiG5M2b+vu9Fz3XdK+dEA1ykXO9E7Ov6M
-         WpnDREaPADidnZgDALAXny3QdPZZnX1DyVFco/jb6MarmvvNi9G/7rITH+Lsvq/yo3Vy
-         mXzyoPNkNIrONA1vGm/9i9RRSMncHD1orE4TAx47tAADgBIRr2qHCvNeqnGR+WvSDp5m
-         l0BMk6wFoW9nYq17nILQRpZhdeXfPZdRZ9EN8srjq0QgW+KolYNJCOZCnyzEkpqwaXzf
-         LoIQ==
+        b=TpN1gTmLMTWp/IELTL8DENDsPqlECujMQ8/zM5aikdeA1URptuMsqqXdlc5lAaDKUU
+         iJbDCshuLSa/dQ7XrfGQnGPSNltaw+Wi4eyzwBYovwmi0Yw7QS9FxB3gXXZj2kenoaai
+         dHdsO9ZHZdxsnjiPhEDpolRj4lDrZy5A+XXdNECt6ZFjkIFEM2nM3MGYHRr7ZUf6/yjb
+         9btob7Dy1GaEZBsllX4DMGAM3sEgmKaz/VCz8hcyJXcueTf5/eaNbE8et/DWxpNamtod
+         tujl2Zu3XRUxCBUgRmuvR+M+6cfCbFjlJd873GIUX8L5DU5M7QF3NTIexxjb8ZeMpELS
+         MLZw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=B9WsWP6dnEY5vCfQiuvwQaqKnNQto5CQpnFS4KzI7DY=;
-        b=E20yUQWHVzLBW5ehRWuiHUKy8NJ3+6QjYExH+RbxEeoUfCBKp/mS8zGPfif12joWb4
-         0kIqxYK95oFxifgf9pK5E5JMVKisFBA101Abn+ycMmTtEudbdbZL0voRxfw8LpcaMP3Y
-         v2BbuG/D0Shrz61qJw7X4KQn2pRdsPNRlrJq+EaeonytXP2OwsYdtaUFxZKx80lVzxz7
-         2wd5jeMa9pca+MGn79QxsLJVUfzxBEs735YppHODExL58f5Lk+a8L/bkj1NHv3VPsBdW
-         XZ/vK+VJjXzq57BgoK1/mxR7jYYQvANg5KS2pwWmkfKFap4RabM9cwCiPNwG0bKA551h
-         2vcQ==
+        bh=d9febKbO+X9TW6NJch6QBSlDkyYkRzGxZP3vv1h218k=;
+        b=QLranZsOYwo6xpzDp0NLfDbIx7AWEVMdYJG7gAkoYt6qQRcBigi5nIkXFrJ27VX7C0
+         fNDC/DqBC7RLQ2hxZenojPFTm9sXZNo/meCifwUfGP8i0cLeFt15gqZnOmLonZtoJoXh
+         AAZX0Ew6UEEq0OuGcVeSDvpa3jBbbGDopFwtC/2uDOGzQRGRWYX6/tk4ixVkSzddUJEt
+         1ZxsM7Es8XohxHnTIojf1fvL4zRE3pj+puoNH5/yOAr8+2Is7yQyhAQdrM+v/7A05JEf
+         RPgQRD+KiZB2md1aPXSbLzyiItzDjw0QobEe4B/e1ucQVBcsmj4hG2QpaLjHWH52aiRP
+         0JNA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=cHuezSmh;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="QocAv/2l";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::a33 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x541.google.com (mail-pg1-x541.google.com. [2607:f8b0:4864:20::541])
-        by gmr-mx.google.com with ESMTPS id s12si293465pfh.5.2020.05.18.12.10.24
+Received: from mail-vk1-xa33.google.com (mail-vk1-xa33.google.com. [2607:f8b0:4864:20::a33])
+        by gmr-mx.google.com with ESMTPS id c15si60926pjv.1.2020.05.18.12.16.15
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 May 2020 12:10:24 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) client-ip=2607:f8b0:4864:20::541;
-Received: by mail-pg1-x541.google.com with SMTP id p21so5272106pgm.13
-        for <clang-built-linux@googlegroups.com>; Mon, 18 May 2020 12:10:24 -0700 (PDT)
-X-Received: by 2002:a63:4f09:: with SMTP id d9mr3246799pgb.10.1589829023749;
- Mon, 18 May 2020 12:10:23 -0700 (PDT)
+        Mon, 18 May 2020 12:16:15 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::a33 as permitted sender) client-ip=2607:f8b0:4864:20::a33;
+Received: by mail-vk1-xa33.google.com with SMTP id p7so2716404vkf.5
+        for <clang-built-linux@googlegroups.com>; Mon, 18 May 2020 12:16:15 -0700 (PDT)
+X-Received: by 2002:a1f:5c16:: with SMTP id q22mr10293844vkb.89.1589829374032;
+ Mon, 18 May 2020 12:16:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200501084215.242-1-dima@golovin.in> <20200515185051.GC19017@zn.tnic>
- <602331589572661@mail.yandex.ru> <20200517194429.scwhfr4l4bv4h3ux@google.com> <20200517202527.GA2563549@rani.riverdale.lan>
-In-Reply-To: <20200517202527.GA2563549@rani.riverdale.lan>
+References: <202005162313.CDreQC6s%lkp@intel.com>
+In-Reply-To: <202005162313.CDreQC6s%lkp@intel.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 18 May 2020 12:10:11 -0700
-Message-ID: <CAKwvOd=qB+EoJwfAYUA9Hg7f9op4Q4W+TDnht8pLRG5bPX=29Q@mail.gmail.com>
-Subject: Re: [PATCH] x86/boot: allow a relocatable kernel to be linked with lld
-To: Arvind Sankar <nivedita@alum.mit.edu>
-Cc: Fangrui Song <maskray@google.com>, Dmitry Golovin <dima@golovin.in>, Borislav Petkov <bp@alien8.de>, 
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Ingo Molnar <mingo@redhat.com>, "x86@kernel.org" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, 
-	Ard Biesheuvel <ardb@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Daniel Kiper <daniel.kiper@oracle.com>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Date: Mon, 18 May 2020 12:16:00 -0700
+Message-ID: <CAKwvOdmqf-0Y2GrY=SzGQr1UC3n=b_SphdB9efkqic=5ZaR9vA@mail.gmail.com>
+Subject: Re: [kvm:queue 71/177] arch/x86/kvm/vmx/nested.c:5246:3: error:
+ variable 'roots_to_free' is used uninitialized whenever 'if' condition is false
+To: kbuild test robot <lkp@intel.com>
+Cc: Sean Christopherson <sean.j.christopherson@intel.com>, kbuild-all@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, kvm <kvm@vger.kernel.org>, 
+	Robert Hu <robert.hu@intel.com>, Farrah Chen <farrah.chen@intel.com>, 
+	Danmei Wei <danmei.wei@intel.com>, Paolo Bonzini <pbonzini@redhat.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=cHuezSmh;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541
+ header.i=@google.com header.s=20161025 header.b="QocAv/2l";       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::a33
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -134,75 +132,185 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, May 17, 2020 at 1:25 PM Arvind Sankar <nivedita@alum.mit.edu> wrote:
+On Sat, May 16, 2020 at 8:39 AM kbuild test robot <lkp@intel.com> wrote:
 >
-> On Sun, May 17, 2020 at 12:44:29PM -0700, Fangrui Song wrote:
-> > On 2020-05-16, Dmitry Golovin wrote:
-> > >15.05.2020, 21:50, "Borislav Petkov" <bp@alien8.de>:
-> > >>
-> > >> I need more info here about which segment is read-only?
-> > >>
-> > >> Is this something LLD does by default or what's happening?
-> > >>
-> > >
-> > >Probably should have quoted the original error message:
-> > >
-> > >    ld.lld: error: can't create dynamic relocation R_386_32 against
-> > >    symbol: _bss in readonly segment; recompile object files with -fPIC
-> > >    or pass '-Wl,-z,notext' to allow text relocations in the output
-> >
-> > Do we know where do these R_386_32 come from?
-> >
-> > When linking in -shared mode, the linker assumes the image is a shared
-> > object and has undetermined image base at runtime. An absolute
-> > relocation needs a text relocation (a relocation against a readonly
-> > segment).
-> >
-> > When neither -z notext nor -z text is specified, GNU ld is in an
-> > indefinite state where it will enable text relocations (DT_TEXTREL
-> > DF_TEXTREL) on demand. It is not considered a good practice for
-> > userspace applications to do this.
-> >
-> > Of course the kernel is different....... I know little about the kernel,
-> > but if there is a way to make the sections containing R_386_32
-> > relocations writable (SHF_WRITE), that will be a better solution to me.
-> > In LLD, -z notext is like making every section SHF_WRITE.
+> tree:   https://git.kernel.org/pub/scm/virt/kvm/kvm.git queue
+> head:   cb953129bfe5c0f2da835a0469930873fb7e71df
+> commit: ce8fe7b77bd8ee405295e349c82d0ef8c9788200 [71/177] KVM: nVMX: Free only the affected contexts when emulating INVEPT
+> config: x86_64-randconfig-a012-20200515 (attached as .config)
+> compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 13d44b2a0c7ef404b13b16644765977cd5310fe2)
+> reproduce:
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install x86_64 cross compiling tool for clang build
+>         # apt-get install binutils-x86-64-linux-gnu
+>         git checkout ce8fe7b77bd8ee405295e349c82d0ef8c9788200
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
 >
-> The assembly files head_32.S and head_64.S in arch/x86/boot/compressed
-> create bogus relocations in .head.text and .text.
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kbuild test robot <lkp@intel.com>
 >
-> This is the source of the common warning when using the bfd linker, for
-> eg on 64-bit:
->   LD      arch/x86/boot/compressed/vmlinux
->   ld: arch/x86/boot/compressed/head_64.o: warning: relocation in read-only section `.head.text'
->   ld: warning: creating a DT_TEXTREL in object
+> Note: the kvm/queue HEAD cb953129bfe5c0f2da835a0469930873fb7e71df builds fine.
+>       It only hurts bisectibility.
 >
-> These relocations are "bogus", i.e. they're unwanted and the kernel
-> won't actually boot if anything were to perform those relocations before
-> running it. They're also the cause of the 64-bit kernel requiring linker
-> support for the -z noreloc-overflow option to link it as PIE.
+> All errors (new ones prefixed by >>, old ones prefixed by <<):
 >
-> From arch/x86/boot/compressed/Makefile:
+> >> arch/x86/kvm/vmx/nested.c:5246:3: error: variable 'roots_to_free' is used uninitialized whenever 'if' condition is false [-Werror,-Wsometimes-uninitialized]
+> BUG_ON(1);
+> ^~~~~~~~~
+> include/asm-generic/bug.h:62:32: note: expanded from macro 'BUG_ON'
+> #define BUG_ON(condition) do { if (unlikely(condition)) BUG(); } while (0)
+> ^~~~~~~~~~~~~~~~~~~~~~~~
+> include/linux/compiler.h:56:28: note: expanded from macro 'if'
+> #define if(cond, ...) if ( __trace_if_var( !!(cond , ## __VA_ARGS__) ) )
+> ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> include/linux/compiler.h:58:30: note: expanded from macro '__trace_if_var'
+> #define __trace_if_var(cond) (__builtin_constant_p(cond) ? (cond) : __trace_if_value(cond))
+> ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> arch/x86/kvm/vmx/nested.c:5250:6: note: uninitialized use occurs here
+> if (roots_to_free)
+> ^~~~~~~~~~~~~
+> include/linux/compiler.h:56:47: note: expanded from macro 'if'
+> #define if(cond, ...) if ( __trace_if_var( !!(cond , ## __VA_ARGS__) ) )
+> ^~~~
+> include/linux/compiler.h:58:52: note: expanded from macro '__trace_if_var'
+> #define __trace_if_var(cond) (__builtin_constant_p(cond) ? (cond) : __trace_if_value(cond))
+> ^~~~
+> arch/x86/kvm/vmx/nested.c:5246:3: note: remove the 'if' if its condition is always true
+> BUG_ON(1);
+> ^
+> include/asm-generic/bug.h:62:32: note: expanded from macro 'BUG_ON'
+> #define BUG_ON(condition) do { if (unlikely(condition)) BUG(); } while (0)
+> ^
+> include/linux/compiler.h:56:23: note: expanded from macro 'if'
+> #define if(cond, ...) if ( __trace_if_var( !!(cond , ## __VA_ARGS__) ) )
+> ^
+> arch/x86/kvm/vmx/nested.c:5179:35: note: initialize the variable 'roots_to_free' to silence this warning
+> unsigned long type, roots_to_free;
+> ^
+> = 0
+> 1 error generated.
 >
-> # To build 64-bit compressed kernel as PIE, we disable relocation
-> # overflow check to avoid relocation overflow error with a new linker
-> # command-line option, -z noreloc-overflow.
-> KBUILD_LDFLAGS += $(shell $(LD) --help 2>&1 | grep -q "\-z
-> noreloc-overflow" \
->         && echo "-z noreloc-overflow -pie --no-dynamic-linker")
+> vim +5246 arch/x86/kvm/vmx/nested.c
 >
-> The relocations come from code like
->         leal    gdt(%ebp), %eax
-> which should really be
->         leal    (gdt-startup_32)(%ebp), %eax
-> to be technically correct.
->
-> I've played around with fixing the head code to avoid creating the
-> relocations in the first place, but never got around to submitting
-> anything: if there is interest in this, I can polish it up and send it
-> around.
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5173
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5174  /* Emulate the INVEPT instruction */
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5175  static int handle_invept(struct kvm_vcpu *vcpu)
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5176  {
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5177     struct vcpu_vmx *vmx = to_vmx(vcpu);
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5178     u32 vmx_instruction_info, types;
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5179     unsigned long type, roots_to_free;
 
-We'd be happy to help test and review. :)
+^ definition of roots_to_free
+
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5180     struct kvm_mmu *mmu;
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5181     gva_t gva;
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5182     struct x86_exception e;
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5183     struct {
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5184             u64 eptp, gpa;
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5185     } operand;
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5186     int i;
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5187
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5188     if (!(vmx->nested.msrs.secondary_ctls_high &
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5189           SECONDARY_EXEC_ENABLE_EPT) ||
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5190         !(vmx->nested.msrs.ept_caps & VMX_EPT_INVEPT_BIT)) {
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5191             kvm_queue_exception(vcpu, UD_VECTOR);
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5192             return 1;
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5193     }
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5194
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5195     if (!nested_vmx_check_permission(vcpu))
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5196             return 1;
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5197
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5198     vmx_instruction_info = vmcs_read32(VMX_INSTRUCTION_INFO);
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5199     type = kvm_register_readl(vcpu, (vmx_instruction_info >> 28) & 0xf);
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5200
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5201     types = (vmx->nested.msrs.ept_caps >> VMX_EPT_EXTENT_SHIFT) & 6;
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5202
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5203     if (type >= 32 || !(types & (1 << type)))
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5204             return nested_vmx_failValid(vcpu,
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5205                             VMXERR_INVALID_OPERAND_TO_INVEPT_INVVPID);
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5206
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5207     /* According to the Intel VMX instruction reference, the memory
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5208      * operand is read even if it isn't needed (e.g., for type==global)
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5209      */
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5210     if (get_vmx_mem_address(vcpu, vmcs_readl(EXIT_QUALIFICATION),
+> fdb28619a8f033 Eugene Korenevsky   2019-06-06  5211                     vmx_instruction_info, false, sizeof(operand), &gva))
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5212             return 1;
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5213     if (kvm_read_guest_virt(vcpu, gva, &operand, sizeof(operand), &e)) {
+> ee1fa209f5e5ca Junaid Shahid       2020-03-20  5214             kvm_inject_emulated_page_fault(vcpu, &e);
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5215             return 1;
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5216     }
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5217
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5218     /*
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5219      * Nested EPT roots are always held through guest_mmu,
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5220      * not root_mmu.
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5221      */
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5222     mmu = &vcpu->arch.guest_mmu;
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5223
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5224     switch (type) {
+> b119019847fbca Jim Mattson         2019-06-13  5225     case VMX_EPT_EXTENT_CONTEXT:
+> eed0030e4caa94 Sean Christopherson 2020-03-20  5226             if (!nested_vmx_check_eptp(vcpu, operand.eptp))
+> eed0030e4caa94 Sean Christopherson 2020-03-20  5227                     return nested_vmx_failValid(vcpu,
+> eed0030e4caa94 Sean Christopherson 2020-03-20  5228                             VMXERR_INVALID_OPERAND_TO_INVEPT_INVVPID);
+> f8aa7e3958bc43 Sean Christopherson 2020-03-20  5229
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5230             roots_to_free = 0;
+
+^ assignment
+
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5231             if (nested_ept_root_matches(mmu->root_hpa, mmu->root_cr3,
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5232                                         operand.eptp))
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5233                     roots_to_free |= KVM_MMU_ROOT_CURRENT;
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5234
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5235             for (i = 0; i < KVM_MMU_NUM_PREV_ROOTS; i++) {
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5236                     if (nested_ept_root_matches(mmu->prev_roots[i].hpa,
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5237                                                 mmu->prev_roots[i].cr3,
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5238                                                 operand.eptp))
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5239                             roots_to_free |= KVM_MMU_ROOT_PREVIOUS(i);
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5240             }
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5241             break;
+> eed0030e4caa94 Sean Christopherson 2020-03-20  5242     case VMX_EPT_EXTENT_GLOBAL:
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5243             roots_to_free = KVM_MMU_ROOTS_ALL;
+
+^ assignment
+
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5244             break;
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5245     default:
+> 55d2375e58a61b Sean Christopherson 2018-12-03 @5246             BUG_ON(1);
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5247             break;
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5248     }
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5249
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5250     if (roots_to_free)
+
+^ use
+
+While the BUG_ON in the default case should prevent the problematic
+use, Clang can't understand the semantics of BUG_ON.  roots_to_free
+should just be initialized to zero.
+
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5251             kvm_mmu_free_roots(vcpu, mmu, roots_to_free);
+> ce8fe7b77bd8ee Sean Christopherson 2020-03-20  5252
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5253     return nested_vmx_succeed(vcpu);
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5254  }
+> 55d2375e58a61b Sean Christopherson 2018-12-03  5255
+>
+> :::::: The code at line 5246 was first introduced by commit
+> :::::: 55d2375e58a61be072431dd3d3c8a320f4a4a01b KVM: nVMX: Move nested code to dedicated files
+>
+> :::::: TO: Sean Christopherson <sean.j.christopherson@intel.com>
+> :::::: CC: Paolo Bonzini <pbonzini@redhat.com>
+>
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202005162313.CDreQC6s%25lkp%40intel.com.
+
+
+
 -- 
 Thanks,
 ~Nick Desaulniers
@@ -210,4 +318,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DqB%2BEoJwfAYUA9Hg7f9op4Q4W%2BTDnht8pLRG5bPX%3D29Q%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmqf-0Y2GrY%3DSzGQr1UC3n%3Db_SphdB9efkqic%3D5ZaR9vA%40mail.gmail.com.
