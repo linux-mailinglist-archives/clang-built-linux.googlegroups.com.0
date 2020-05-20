@@ -1,128 +1,128 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB6XWS33AKGQESWNLQ3Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCT4XGV33UIBBG7XS33AKGQE6SJXUHY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93c.google.com (mail-ua1-x93c.google.com [IPv6:2607:f8b0:4864:20::93c])
-	by mail.lfdr.de (Postfix) with ESMTPS id A73E11DC2BE
-	for <lists+clang-built-linux@lfdr.de>; Thu, 21 May 2020 01:21:31 +0200 (CEST)
-Received: by mail-ua1-x93c.google.com with SMTP id n36sf1830784uan.1
-        for <lists+clang-built-linux@lfdr.de>; Wed, 20 May 2020 16:21:31 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1590016890; cv=pass;
+Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id 41BEE1DC2C5
+	for <lists+clang-built-linux@lfdr.de>; Thu, 21 May 2020 01:22:05 +0200 (CEST)
+Received: by mail-pf1-x440.google.com with SMTP id r3sf3799266pfg.12
+        for <lists+clang-built-linux@lfdr.de>; Wed, 20 May 2020 16:22:05 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1590016924; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sCF64zbC7Ng+avzQ8UYw+uql8kOqvhipf5I6J7rrRIAY0chhvnA/m7uGsjRxFbgcXz
-         OyUAIgeBwzTYqphThHz0WEKmk/FAYfMEMdhQhXTQ4nNipQmXwEZCPEnzRd53ahbu7Rul
-         YqwzMrsRl4r+cdS7a6/EmPo81A1xn6TmOLrgBhxn1xHpgf7PAVv1tCy9dzrzG9gXE1FD
-         jVgWUV9mF+ZL+eQ31twcrLrnh/nbduPGuWDRgSuQ/T9CmfpeXjN0E3lLgrw+rAh2zPX2
-         Sq6wFjTYXmzPKI8O33Q7WSoL8iMK/QsEQcB7VErdRg21fVjJfWfPaBJ4xe1EAnlFgfUF
-         xBaQ==
+        b=XihuCUkyC/DBAwsxK/SRtp0fa0lQz4YZ/w5l6DRstU6S00BmhXkkeruRPJZKZQtFFw
+         D3D5qwU+n4ZtelbV2TA8mU1G/MrmeABHAFgL6YmWQmjFan4sNmsEYSXdyiQ/O7tbI/sN
+         cKePouYMtJPY9BkOTFZEHkw6IAZ8Te3oHOCx7k2ngKW6xl2VkMeyVdRfpGk0Ry/qHplr
+         q95AM0WFHSkQcWvTh+8xu87zwr5O1bCIORJu7ZFHpUDqKq8ZGImvonejXNh3QAFdJ7p3
+         UQ6a2/Sv37ldRm9Mlc4dPtvIM3GCIyre5li7ucKVG5grQ0HkS2hF0Lt305heD5TVqUeg
+         mIUw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=ldLOlKT4+ynn4FG2FnGvGPtflvbUHJWLe6Yv+sJ4to8=;
-        b=syFb+0D5La5XkMjqDIedTn5+9EArE4l3wFddS/Ci7RqNEN2ITKlCRnsvkKJ8NQ2gcV
-         Z1pkYoKKFyIUXvG17wzil6VtAhDbC2CqXbtreS2z5PIbmVr4danE7KvaaGhyMpaV/Cg4
-         HIZN04lZJke597My9NLF/xiq+pRTccM3pqY5Y0J6/C84H5t9EBQzDdUekSUzISnNyLKw
-         smOQvtGVXQMWwitG2O0VJ3dJUHpBW42qIh9TEX30ISxlXugKFv8oONrZz8ktsAXpjRxq
-         eQdL2oMzH8QFA6U2sWToWLJWzMvXRByiSJx5b7KtWXtiDB7eSbZjKKIYvlW7dcaJtVTa
-         HJcQ==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=SJ1hp1rHFXrKAtuRCSvzaDwe6fZyB0J6ctOfTLlDrso=;
+        b=B16HWr7L/ZcYW8n4kwUBa4/bX+VCD+eiscol4ogPvJnldgI9c/VEQbrFsCEACShwci
+         6aYedI63SvkHrXdraPFlW1OMBoACmzQNocQPzNsLorX7cxQpwhtdui+YmJovZyTQLpwQ
+         anVV5NqcZ1Nveh2GvCsEUWSaCFe8ahYT4Dr6BfQHnL3IU2utEl7bAvdSTedP7DgNwGmu
+         LiBQCbfrA8XeJNSuwucjQls7LXrZHc7yA5XBNkItEukI7fIiDignJApN+W3xNsqIKrqz
+         bkjAIT/sM0UitIcZulp7nngpNPtcmOtJz12NbnhShqhJ5iqF2eAI0EU7arjBY+9kbb7r
+         09Pw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="bCMe/xuf";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=default header.b=lLOeQzkh;
+       spf=pass (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=akpm@linux-foundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ldLOlKT4+ynn4FG2FnGvGPtflvbUHJWLe6Yv+sJ4to8=;
-        b=dIvJEcK5HjB5B1rxB3tS366znwz2yrMODLR3LI6BPyeRwujMONwfejewOn6xzSavmJ
-         Djdmjo5zHEXRJELMXeR+WP1XAoLBkHmhK7zFN5mEtWWZBYdiexuKLUpkwkHTm/WRBbKG
-         Wc6xW/fxFzwmGJUS+qFu2AmdOxE0Fkcp3hnN3BkMw7W1pORDcEV/xoRMl/hS/wuVy7w7
-         P2xeaYVBz0HjICe/ScIDYEipynRcZCc3ZDTBL+7ajpYqEXzncJzv9OxRuPPZ4invveuH
-         V2LFWX3GEFChHFGOb8ZiYDWGXE9JlV13YHod0YjLhPxzSFJ/+PAo5QxUixlGzRsuSooI
-         uMUw==
+        bh=SJ1hp1rHFXrKAtuRCSvzaDwe6fZyB0J6ctOfTLlDrso=;
+        b=Ns7o25CjEJ+oNqXXDeKxBWiwYgCNZq1sCOwLc2gXBWuTpjZqCI8mi/oNPYitFEo5Os
+         v31CjUJvapbduCOCaiFnsKlrhSbuQPMtkmQdJ3j/8303OhQJPc4wELT9PoygIRf80tbk
+         eaWizRn6lp1VlbkEYmdBMNy9KLlKUB2Ug9ki9YVXqd409dmyeCLREfR3fdRvMYeNOPnj
+         /jNhYUSF7BftcwcYCCHdK7xoiGgJgF8Rg2sIzPXQeqXC3ktZf/XD4w0etmeBC363z2ZQ
+         PQenFZOUmdZtWMnQrxIKuWJuRZZ2eCT+clXg8Ct9c2f+iKuRusFX+0A7IdebP0hvPokY
+         FGbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ldLOlKT4+ynn4FG2FnGvGPtflvbUHJWLe6Yv+sJ4to8=;
-        b=Kmbn8G/xicTjUpon39HtXmDrwDIWw456e9wdlKsTluN+ZG81WNINo+/mVZu7xIs9fu
-         PJ2GsF/XGEXJj9JS85MvmG5L5w1Jo+KrqqLsgQf0lPPbcaL/Z53YJ/pFo0ku4+h5UyTj
-         Zrcj/1yXUula/O7fObje+yhqeJIJkVXRGLYvBrBPT3XWsCCJK6po5r9GXPYZfPmzXcBG
-         rnRhE/nbWTIHRVEoPa7MhHWQBt9aro5bCjexRcSoRcKfPvItincFCBmf2aSLJJDhchPt
-         1NdKsyREh1F85zEJZCOw5paNxZCbpaY1QOmHdVtRoYq4BgDXcjCr6mJPwdA8dNrzASPz
-         SW+w==
-X-Gm-Message-State: AOAM531dJs+iTnS4JzfyvV+qiJGgCAyrcZ7kEiKb79CRbAMws1hYQk3y
-	uWqFoWQNfrWpnctAolG+6tk=
-X-Google-Smtp-Source: ABdhPJyChvrWDK13OB2QsJTVlcG3vfUsgLlam/TFF4yOdRN81RISnbc/uCXf5+KoUTvXGHuhCaAHzQ==
-X-Received: by 2002:ab0:7c1:: with SMTP id d1mr5284951uaf.76.1590016890699;
-        Wed, 20 May 2020 16:21:30 -0700 (PDT)
+        bh=SJ1hp1rHFXrKAtuRCSvzaDwe6fZyB0J6ctOfTLlDrso=;
+        b=t2i3d55xQWhonBDDNm5pIDFLOdHcMZ83y9OdyDA52pdWSz9QJj+v1dT0C27NDSa1nA
+         Opf1MYUWssnJfUGK/jPl4G3l3cMWTNptIuewbjBqAGkgpt1QotroHDh25J5dAQAAb0IQ
+         86K7ietmkd+TntsNQpkbM0dkc7gQL7ZGkwgqnAg8b8q7dLHt44T/ARNt5XO6c2tudxB4
+         8MVbjHO0uPf+2OwWpCva8wgLyVqftFq9+DQ7cbJhPH6Tb+unZCQqoAt5NyMfyfw/Um8m
+         Mk7pWryZ22YxKiNjU87tOo8vJIrrWoeftXDlxHLxyfAXzEhw08wma6LpuzcwDNNHmuJf
+         FqQA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM5307WaM0ix9BERtY2ARDLqi+u/V99lc/OzssftohwuigFPtzWLrM
+	kzkO+kCzzDy0/fUN/AuRGi4=
+X-Google-Smtp-Source: ABdhPJwoMZokH06K7TP8qAB3SgKcVnRGNz2Bv9o+0BlnE+iMhu7vk1xzMo/d4QnCSl9tNJN1cRloAg==
+X-Received: by 2002:a05:6a00:14c5:: with SMTP id w5mr6480693pfu.160.1590016923838;
+        Wed, 20 May 2020 16:22:03 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:80cf:: with SMTP id b198ls29697vsd.3.gmail; Wed, 20 May
- 2020 16:21:30 -0700 (PDT)
-X-Received: by 2002:a67:d016:: with SMTP id r22mr5046225vsi.215.1590016890319;
-        Wed, 20 May 2020 16:21:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1590016890; cv=none;
+Received: by 2002:aa7:9307:: with SMTP id 7ls40602pfj.5.gmail; Wed, 20 May
+ 2020 16:22:03 -0700 (PDT)
+X-Received: by 2002:a62:cd4a:: with SMTP id o71mr6635558pfg.115.1590016923299;
+        Wed, 20 May 2020 16:22:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1590016923; cv=none;
         d=google.com; s=arc-20160816;
-        b=UgxbsicjOZ3ZKKoyqfCr0jjOKRmkE1xdYdCflgHMbotlU4cJJnCmpUBMBebrJrOGKo
-         +3EOzM5ozMFDjRSKgbsbojb6PDvDCIl+oIqlxQN04Pmdo03csiFo70jvgx4wHXeAAhfy
-         RilPd46/5RZlezbA4JllEzhcb5Ky45Jc6XaABpHyOe4yUAJhKjdGoBXUXTm7mKSUESzL
-         fd6E5bN5VHiUS6PHOr9CDJrvBWre9Ag2sKkO4XWswxv7pWQGdePeUOd6KlT28et9s+mL
-         8RHLFzO6P6sPaNO3bHb5Q63umof5KP+XVK66a4uCjViRvg3ldJypks3TdxxIaUlYVVFA
-         hwvQ==
+        b=PdLecmVQYS33puFUjAdQyf6QmuvTjOmO5O6i44TFhAJlii/glH1NziEI+P1pXCd2QD
+         HGW0Pstma2DhWGXiSl9AEoFrRpv5hI8NUgsjR+o5YiCRXEulJV5vBknifYy+yJxd0zvp
+         d4sk20LamRYc13DjG/rdCcMakKP7vG8o6B+ldPlt7T3e85XwBKDfEpZbNaYCKUcQlWR0
+         C1rBMRTwhLeM52NlSPpvYpIL+lMTF2cCh1tQzJD4B8m44cjL6yKGZa71aW3uB8ZekB1x
+         jAeF6ms0A1z1pejYmViwcva/7YnXKMaGtr6UpkN2BqwyrzVMLvI/a0NrENCV8FIQKKZ3
+         EAhw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=d9DQ+P49I61QAM9lR3N7+GDsq5XLFYN6aPsU2WBNwdA=;
-        b=MM+SNE0cdnIK3uafL9C0ydlRvFkFolOC9Pwva6/ISTui2Wbe5iC66x597rwRAcEobG
-         seeh+Kb0i99nqemRdtO+QFof51h9xRlV56lSzdJa0iRMET1H8KNBTIG12gVJi3MQPR8+
-         a7pWZhrsf2od0STKzWQpj3ftO3z7UAheLtMqZKCJ51Q9ZgXpTCKcE/rgg4rYFqUn5a+s
-         FmBQ/TmbbjBFzW31setF0fFmjiDbcwyCgh4mLqkf17exqPWAowYgXqvl52RraIz6v+co
-         7NXR4psRD6VlDxezy85NQNyDWhpSJYP9aBtLBbNaF9oFjyMaLm6dlQhHqMyEcV45ExSQ
-         VHxg==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=8g3Dac+0vDO5MefIu70MRuqaKQAyM6L5XLCOcEhaZOY=;
+        b=aHKHy1dajAZfD4dFDqNEt+cihEXrqYpgoiOHYa2eGl6BU2y+C9vjoH4hEv9Mxlv9S0
+         lGMB+W0nKlGwuem0W03TUjSISlXjb+jCSuWevHiBIjy/SWPLrmkkZ8GHwoaaTLhSWTBN
+         DbDgRdoEtz4Gwsu04+fC8UTDEUA5CrPl4UQGxLLEGE113CwLUOy4JAeHGB2c78+e5zZx
+         24M2QnOgmqEFFIRE1YE2huza79I0BsintIzuDCHdjxoMRRkWcNFliTT/oynHKH+/gC5m
+         tgCnZVYfw6JGQvbW1rmN0amsL1Hh648pALAtErpWeBqurpVQ1S/89WR8g6AavVEpUPvh
+         QH1g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="bCMe/xuf";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x1042.google.com (mail-pj1-x1042.google.com. [2607:f8b0:4864:20::1042])
-        by gmr-mx.google.com with ESMTPS id 137si299353vkw.5.2020.05.20.16.21.30
+       dkim=pass header.i=@kernel.org header.s=default header.b=lLOeQzkh;
+       spf=pass (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=akpm@linux-foundation.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id z145si372912pfc.0.2020.05.20.16.22.03
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 May 2020 16:21:30 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) client-ip=2607:f8b0:4864:20::1042;
-Received: by mail-pj1-x1042.google.com with SMTP id q9so2095928pjm.2
-        for <clang-built-linux@googlegroups.com>; Wed, 20 May 2020 16:21:30 -0700 (PDT)
-X-Received: by 2002:a17:90b:19cc:: with SMTP id nm12mr7431934pjb.25.1590016889009;
- Wed, 20 May 2020 16:21:29 -0700 (PDT)
-MIME-Version: 1.0
-References: <10f4fb0b-1012-b0e6-af05-0aa5a906de21@redhat.com> <20200520193637.6015-1-ndesaulniers@google.com>
-In-Reply-To: <20200520193637.6015-1-ndesaulniers@google.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 20 May 2020 16:21:17 -0700
-Message-ID: <CAKwvOd=LvSSrg6ynWwnmg4oYS+Ti_rcUrQNudwQLCnEgt6Uzyg@mail.gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 20 May 2020 16:22:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from localhost.localdomain (c-73-231-172-41.hsd1.ca.comcast.net [73.231.172.41])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 56BB52070A;
+	Wed, 20 May 2020 23:22:02 +0000 (UTC)
+Date: Wed, 20 May 2020 16:22:01 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Masahiro Yamada <masahiroy@kernel.org>, Sedat Dilek
+ <sedat.dilek@gmail.com>, Fangrui Song <maskray@google.com>, Nick Clifton
+ <nickc@redhat.com>, David Blaikie <blakie@google.com>, Michal Marek
+ <michal.lkml@markovi.net>, Changbin Du <changbin.du@intel.com>, Randy
+ Dunlap <rdunlap@infradead.org>, Stephen Rothwell <sfr@canb.auug.org.au>,
+ Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, Anshuman Khandual
+ <anshuman.khandual@arm.com>, Krzysztof Kozlowski <krzk@kernel.org>,
+ linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+ clang-built-linux@googlegroups.com
 Subject: Re: [PATCH v2] Makefile: support compressed debug info
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: Sedat Dilek <sedat.dilek@gmail.com>, Fangrui Song <maskray@google.com>, 
-	Nick Clifton <nickc@redhat.com>, Michal Marek <michal.lkml@markovi.net>, 
-	Andrew Morton <akpm@linux-foundation.org>, Changbin Du <changbin.du@intel.com>, 
-	Randy Dunlap <rdunlap@infradead.org>, Stephen Rothwell <sfr@canb.auug.org.au>, 
-	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, David Blaikie <blaikie@google.com>
+Message-Id: <20200520162201.0d18667c12c144c09112cdfc@linux-foundation.org>
+In-Reply-To: <20200520193637.6015-1-ndesaulniers@google.com>
+References: <10f4fb0b-1012-b0e6-af05-0aa5a906de21@redhat.com>
+	<20200520193637.6015-1-ndesaulniers@google.com>
+X-Mailer: Sylpheed 3.5.1 (GTK+ 2.24.31; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: akpm@linux-foundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="bCMe/xuf";       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@kernel.org header.s=default header.b=lLOeQzkh;       spf=pass
+ (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=akpm@linux-foundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,22 +135,21 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, May 20, 2020 at 12:36 PM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
+On Wed, 20 May 2020 12:36:36 -0700 Nick Desaulniers <ndesaulniers@google.com> wrote:
+
 > As debug information gets larger and larger, it helps significantly save
 > the size of vmlinux images to compress the information in the debug
 > information sections. Note: this debug info is typically split off from
 > the final compressed kernel image, which is why vmlinux is what's used
 > in conjunction with GDB. Minimizing the debug info size should have no
 > impact on boot times, or final compressed kernel image size.
->
+> 
 > All of the debug sections will have a `C` flag set.
 > $ readelf -S <object file>
->
+> 
 > $ bloaty vmlinux.gcc75.compressed.dwarf4 -- \
 >     vmlinux.gcc75.uncompressed.dwarf4
->
+> 
 >     FILE SIZE        VM SIZE
 >  --------------  --------------
 >   +0.0%     +18  [ = ]       0    [Unmapped]
@@ -163,10 +162,10 @@ On Wed, May 20, 2020 at 12:36 PM Nick Desaulniers
 >  -79.3% -10.9Mi  [ = ]       0    .debug_loc
 >  -39.5% -88.6Mi  [ = ]       0    .debug_info
 >  -18.2%  -123Mi  [ = ]       0    TOTAL
->
+> 
 > $ bloaty vmlinux.clang11.compressed.dwarf4 -- \
 >     vmlinux.clang11.uncompressed.dwarf4
->
+> 
 >     FILE SIZE        VM SIZE
 >  --------------  --------------
 >   +0.0%     +23  [ = ]       0    [Unmapped]
@@ -179,92 +178,61 @@ On Wed, May 20, 2020 at 12:36 PM Nick Desaulniers
 >  -86.2% -40.0Mi  [ = ]       0    .debug_loc
 >  -42.0% -64.1Mi  [ = ]       0    .debug_info
 >  -22.1%  -122Mi  [ = ]       0    TOTAL
->
+> 
 > For x86_64 defconfig + LLVM=1 (before):
 > Elapsed (wall clock) time (h:mm:ss or m:ss): 3:22.03
 > Maximum resident set size (kbytes): 43856
->
+> 
 > For x86_64 defconfig + LLVM=1 (after):
 > Elapsed (wall clock) time (h:mm:ss or m:ss): 3:32.52
 > Maximum resident set size (kbytes): 1566776
->
-> Suggested-by: David Blaikie <blakie@google.com>
 
-Sorry, I have mistyped David's email, it should be:
-Suggested-by: David Blaikie <blaikie@google.com>
-(I missed the first `i` in the last name)
+I'm not sure who we're expecting to merge this, but I like shiny things ;)
 
-> Suggested-by: Fangrui Song <maskray@google.com>
-> Suggested-by: Nick Clifton <nickc@redhat.com>
-> Suggested-by: Sedat Dilek <sedat.dilek@gmail.com>
-> Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> ---
-> Changes V1 -> V2:
-> * rebase on linux-next.
-> * Add assembler flags as per Fangrui.
-> * Add note about KDEB_COMPRESS+scripts/package/builddeb
->   as per Sedat and Masahiro.
-> * Add note about bintutils version requirements as per Nick C.
-> * Add note about measured increased build time and max RSS.
->
->  Makefile          |  6 ++++++
->  lib/Kconfig.debug | 15 +++++++++++++++
->  2 files changed, 21 insertions(+)
->
-> diff --git a/Makefile b/Makefile
-> index 71687bfe1cd9..be8835296754 100644
 > --- a/Makefile
 > +++ b/Makefile
-> @@ -822,6 +822,12 @@ DEBUG_CFLAGS       += $(call cc-option, -femit-struct-debug-baseonly) \
->                    $(call cc-option,-fno-var-tracking)
+> @@ -822,6 +822,12 @@ DEBUG_CFLAGS	+= $(call cc-option, -femit-struct-debug-baseonly) \
+>  		   $(call cc-option,-fno-var-tracking)
 >  endif
->
+>  
 > +ifdef CONFIG_DEBUG_INFO_COMPRESSED
-> +DEBUG_CFLAGS   += -gz=zlib
-> +KBUILD_AFLAGS  += -Wa,--compress-debug-sections=zlib
-> +KBUILD_LDFLAGS += --compress-debug-sections=zlib
+> +DEBUG_CFLAGS	+= -gz=zlib
+> +KBUILD_AFLAGS	+= -Wa,--compress-debug-sections=zlib
+> +KBUILD_LDFLAGS	+= --compress-debug-sections=zlib
 > +endif
 > +
 >  KBUILD_CFLAGS += $(DEBUG_CFLAGS)
 >  export DEBUG_CFLAGS
->
+>  
 > diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
 > index b8f023e054b9..5a423cbfaea4 100644
 > --- a/lib/Kconfig.debug
 > +++ b/lib/Kconfig.debug
 > @@ -225,6 +225,21 @@ config DEBUG_INFO_REDUCED
->           DEBUG_INFO build and compile times are reduced too.
->           Only works with newer gcc versions.
->
+>  	  DEBUG_INFO build and compile times are reduced too.
+>  	  Only works with newer gcc versions.
+>  
 > +config DEBUG_INFO_COMPRESSED
-> +       bool "Compressed debugging information"
-> +       depends on DEBUG_INFO
-> +       depends on $(cc-option,-gz=zlib)
-> +       depends on $(as-option,-Wa,--compress-debug-sections=zlib)
-> +       depends on $(ld-option,--compress-debug-sections=zlib)
-> +       help
-> +         Compress the debug information using zlib.  Requires GCC 5.0+ or Clang
-> +         5.0+, binutils 2.26+, and zlib.
-> +
-> +         Users of dpkg-deb via scripts/package/builddeb may
-> +         wish to set the $KDEB_COMPRESS env var to "none" to avoid recompressing
-> +         the debug info again with a different compression scheme, which can
-> +         result in larger binaries.
-> +
->  config DEBUG_INFO_SPLIT
->         bool "Produce split debuginfo in .dwo files"
->         depends on DEBUG_INFO
-> --
-> 2.26.2.761.g0e0b3e54be-goog
->
+> +	bool "Compressed debugging information"
+> +	depends on DEBUG_INFO
+> +	depends on $(cc-option,-gz=zlib)
+> +	depends on $(as-option,-Wa,--compress-debug-sections=zlib)
+> +	depends on $(ld-option,--compress-debug-sections=zlib)
 
+huh, I didn't know kbuild/kconfig could do this.  Does it all work as
+expected when cross-compiling?
 
--- 
-Thanks,
-~Nick Desaulniers
+> +	help
+> +	  Compress the debug information using zlib.  Requires GCC 5.0+ or Clang
+> +	  5.0+, binutils 2.26+, and zlib.
+> +
+> +	  Users of dpkg-deb via scripts/package/builddeb may
+> +	  wish to set the $KDEB_COMPRESS env var to "none" to avoid recompressing
+> +	  the debug info again with a different compression scheme, which can
+> +	  result in larger binaries.
+> +
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DLvSSrg6ynWwnmg4oYS%2BTi_rcUrQNudwQLCnEgt6Uzyg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200520162201.0d18667c12c144c09112cdfc%40linux-foundation.org.
