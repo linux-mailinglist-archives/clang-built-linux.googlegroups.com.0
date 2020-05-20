@@ -1,146 +1,130 @@
-Return-Path: <clang-built-linux+bncBCX2JBVY5MBBBCUOSL3AKGQE2UCTC3Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCD3NZ4T2IKRBI44SL3AKGQEFP5LYTQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13b.google.com (mail-il1-x13b.google.com [IPv6:2607:f8b0:4864:20::13b])
-	by mail.lfdr.de (Postfix) with ESMTPS id CBEE91DA725
-	for <lists+clang-built-linux@lfdr.de>; Wed, 20 May 2020 03:25:31 +0200 (CEST)
-Received: by mail-il1-x13b.google.com with SMTP id a13sf1324455ila.9
-        for <lists+clang-built-linux@lfdr.de>; Tue, 19 May 2020 18:25:31 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1589937930; cv=pass;
+Received: from mail-qk1-x738.google.com (mail-qk1-x738.google.com [IPv6:2607:f8b0:4864:20::738])
+	by mail.lfdr.de (Postfix) with ESMTPS id 63BF51DA791
+	for <lists+clang-built-linux@lfdr.de>; Wed, 20 May 2020 03:55:48 +0200 (CEST)
+Received: by mail-qk1-x738.google.com with SMTP id p15sf2185721qkk.15
+        for <lists+clang-built-linux@lfdr.de>; Tue, 19 May 2020 18:55:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1589939747; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ULqb8oHZBvXfb8dR5Vdn/AsQTBCtl2ZBOx2lJKrItzjjqoFE9BXfz5QgTb3fdvYZ3+
-         zZAUvPaTN6DVzYjNMw1QyXYNpbeDBTZP/pY0piyygaofYMASfK7QRUj2NWSjGc2xRygY
-         cI7OMM2+zp8psIuEUZEAD3QEFthbzcBSvpgMmJ7hjv+SeHnoJzDDVOzgEXb0jQ+UZWpZ
-         HAaYFKX0faQSbHWECo5xSiFHbFiX/aPkLsohKprOAVSqmm6ldz7vyMj+JE/ng5vOD2ss
-         97XLm9H9gH8KAa8HpGkrHi5/r0ZdAGDlOUJadyX4GcfT4THz4/io3pvUmSnobLb0jtWH
-         6wTA==
+        b=l9XE85grrJS9f2vKNpUFTX69iwOTKGL1AST79UXKih1wYwoLADiBRJpxkZOlhXMUyz
+         mXp6MmcumQylurl8biMxWC6P1nNR5bvttGOfkU4upM1yPA4RsylkTww3sP1DYYA2qmf/
+         gdQm59NvHNJxgzWwOqsAlLL7dBFaxC33WeCTDX9fPE9eorn06n0VokN4Qn3fCQpr5O4C
+         ti+lDBR1gzeqKTIyJSmoJnbWi48w/O1BYbhrTrZ+lkMJcZsJCEy3GdIVEwU6xwYFIGMy
+         0F1CNYBfOn4TDLyAEhaw8z7LS5gtIo7mxpKWr8viJ/Qzxco0f1qoWkj/FOl4zsxzKn7I
+         1xDw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=pUrXp1ZbGBOsmlOVWHoEcVpwtqvkdYuUKboxKAAHRV8=;
-        b=fcFC1QcCdpZLXAOhsWRNuaxgReDHySz9CDAY5jWq5U2qBVZn62YymeaH+36OAhTshy
-         RmVASF+JCSX38aRcOn/VWcMxrdGtGVG4D+xikZrvvMVVOmSMhkLA/8uSYgJ7fsvs8TIh
-         CUs4mvux5kwMMlc6LG4QfZd/qAbpXcLgLIpHNyUovqlz9crX34QruFbbnmh42kkz5Jt3
-         jmWG+8MbRILKWAbZC+7P1BQoCj9vov6WRmSsuLstPlMxLu1xSsNlZWiVEvUIQm2AXfc7
-         iG2rj9GWBbFF0WpF0TvzVBvIVriOSS0aG1gUaJGeE/yRyngK7iqYOcs4Gvw6qBHkOm0i
-         8JDg==
+         :list-id:mailing-list:precedence:to:in-reply-to:cc:references
+         :message-id:date:subject:mime-version:from:sender:dkim-signature;
+        bh=ypfcBa7DbiMviuv06u7AOlTXOq63hd9I0JyVyfUMPcg=;
+        b=MuVaRz72FRIefRinoHyFIusF6XhmOF3ueEep/MZzjXMyGP8LabsywCLXmAEvxnDTUw
+         gUo8AinCXFlxZdfH8bzyYIihO4Os0yqBElnyZZtmUgBPF3IuCPAGuZSvnfSbmCop96RL
+         EO9x3MdzhA8XlXZpnN3o16dGHPz4FV0QUZsuUjnRsY82C+QzymDxx/6VEY6FFmOc0S15
+         dN+S9AZYfsnJRf77WWKqNcYG8GPZTXfS4cw6QL5L7MYnXxJugr9k6/sI1LCBtVg4XH2h
+         DSoLW6lqN6j3mYQpsjjqNAuOgKpXF1hnqj8fAUe2UTYlSUtLCWhhHEjkGjiyxv/IG4+h
+         UxGA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of philip.li@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=philip.li@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@lca.pw header.s=google header.b=ZOSedoTX;
+       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::f2c as permitted sender) smtp.mailfrom=cai@lca.pw
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:mime-version:subject:date:message-id:references:cc
+         :in-reply-to:to:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=pUrXp1ZbGBOsmlOVWHoEcVpwtqvkdYuUKboxKAAHRV8=;
-        b=JxrQRAyO54GBoprdnfCEbUhuwbzHzHWmXgGeXYDrzy5IP0ANhEQXSRAJEs4EKJt1ad
-         x3JSN5OOiT/wTfa8bGSIiF1AZxbFAcq4cxdAvPAm/HpLnV9NLUZgbWn7obp60DB2FUpN
-         s/PJJRE8sXxV3haRevNzG02L1J700bBD2hk69+um83/VCiJbTTa+vgpS8DOD1hjB/swR
-         qA4US4jlVMvRj+jZAbCXNWU0wZWKycTHb1ppcvNlkDbbs2MQQCqU3xRbZ3reUp3G/rh2
-         2EL7D80kcWbpT5jHXxdrfj00EZxAJkO9WNUj9xN5HxyRVjp4zE7jDY4E0lmvLcYVrcjC
-         a7BA==
+        bh=ypfcBa7DbiMviuv06u7AOlTXOq63hd9I0JyVyfUMPcg=;
+        b=G0b6KcJr4Ahpc/phXPLhFaydFqBlCpE6bZLKC9M+DUtFlvad3A9XXgP3UMEHQ3pwTb
+         Y9Pc2nl+N4EwA8zMd6hlYTeFNRhr3h/Wa6Y4i68bW2Vx7GBfzz6ihgjLbKZ/ZyhhMsJ4
+         lmcSX3ssFMzg06cAf7f4pStjoJY1LToxXsi5o5wUDcrs92iJa8sBKcZmyzeZErtKmZml
+         29PeqZd8CdyhYa7XKBM9VZupsjkzbNmdpljl5Queg1EueT/YjrIrfzwWx450WHnbPSi5
+         UqKeRTNk07nj5G7nBm1t2dHGZgz3Tq72ljWzksufSQuRdSyiLRxRqtXLtygqMC9rcvtY
+         DWUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:references:mime-version:content-disposition
-         :in-reply-to:user-agent:x-original-sender
+        h=sender:x-gm-message-state:from:mime-version:subject:date:message-id
+         :references:cc:in-reply-to:to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=pUrXp1ZbGBOsmlOVWHoEcVpwtqvkdYuUKboxKAAHRV8=;
-        b=NRhsYvCHzup/8tMpUi/yg1oX17uLBu3wWfUReP0yNX5oAcwcfouycm4w8gbBxiHFK+
-         K27VU+lZXTK/5mPUS9h/OIbpd06ely7w0lbI2tH+DAkW4KBFl7bDG/VzFnBMgt8bH9SD
-         NksH1YXNYs+OyibjN18aRku+TEthQHJOWTBQN+49yC0NbToZg+B8/6nVsNSUBfuOJNoi
-         bZat2XqI2S/rCb2klDg6MrAGiH8tK9tF1T5kI1nQE5DQhTpiGpOpzuP1vwR+sKl9523c
-         WN9hk7IQmG80yW06LEy+1d7owKCerrO1bSLYkZQWgrhX7aF0oPokNxikpEsaCndWEN7d
-         GTaA==
+        bh=ypfcBa7DbiMviuv06u7AOlTXOq63hd9I0JyVyfUMPcg=;
+        b=iqJ0EjKk7S2aJwW7qhcNq4Gd5Qc9HVnh7RstNdaxQ7KeIEAnBPhKi1TMMXB/BQIlwP
+         1yE/5+wUrIDb46NYa+9xSeWZdxHtxt/uCPq7mJ2JnCj9P12YqsT/esLeCRwkMDGflZxS
+         sj4q5MvPDW9w62AkyuaNFPcDuSNpJLKAYTMeHOwqAtaYALW6Sevs1hylkoheLPnYorje
+         5NpGdnhEsqqcOeDIkzTjvQC1tl/kraA+1ADULvNunpnl1QJf1TNUcJfJtWLYNJX1vLpG
+         icvp+FJLPT6d5VeoyT/i4KB8N4HUv52T57rFfCuWWnTDauscxKoCYQP93GdeKGWRxsaK
+         KMZw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531OcFBgK4VQFI8BYFGak4/DUPEOlVanZx7AyqQ4DuQHX8V6Bqyt
-	cbG+KCPWmcSXxhU4M8owbyQ=
-X-Google-Smtp-Source: ABdhPJylNPoRm5XEMieNou0f1bHke7byCGzOfatP/k+S1Qmko4bNvpaP3CdRVQT6zokq/Jsd1gR2/A==
-X-Received: by 2002:a5d:938a:: with SMTP id c10mr1577877iol.157.1589937930477;
-        Tue, 19 May 2020 18:25:30 -0700 (PDT)
+X-Gm-Message-State: AOAM5313G5+mbJtQRgFWenVTGP2PhSgKynL0khVL+zFP63nDV6WQnyOm
+	OkhWr1h6TJ5WVfmvYK2nILs=
+X-Google-Smtp-Source: ABdhPJyg4ViQHc6AMJO6cQ2mEP/0CyiWHK5BfCrfeLGnV3AkMKfD1usAnJHAg33tG35xhfOfuyw9sw==
+X-Received: by 2002:a0c:ed4b:: with SMTP id v11mr2664362qvq.179.1589939747124;
+        Tue, 19 May 2020 18:55:47 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:da05:: with SMTP id z5ls316495ilm.10.gmail; Tue, 19 May
- 2020 18:25:30 -0700 (PDT)
-X-Received: by 2002:a92:1dd7:: with SMTP id g84mr1904945ile.231.1589937930054;
-        Tue, 19 May 2020 18:25:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1589937930; cv=none;
+Received: by 2002:aed:2d62:: with SMTP id h89ls765924qtd.0.gmail; Tue, 19 May
+ 2020 18:55:46 -0700 (PDT)
+X-Received: by 2002:ac8:7b43:: with SMTP id m3mr3017739qtu.298.1589939746823;
+        Tue, 19 May 2020 18:55:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1589939746; cv=none;
         d=google.com; s=arc-20160816;
-        b=iK4H8qwuv4QPDj9ovm0LnhEy7J2002Pqnv8f4CqCcmcVLrs9tc5aw8C20LESW0+b8i
-         SeX5JbG1l2aRP6vUblxKTV3JjSumuG4HDy6lzvlY9Ncs0WkhWqMtlSRkhu0CUTDyInnc
-         orjXuZkLTc5sQKdMVea1bY2X3s0u86OacMIXc77MlD16//3+rvO9kHtMDqlONhk2sp5g
-         QuyPjncW1nNdQVcsUarC1OuOnT/AFyvDgKXn707zgmkFS3FH1ULuSjcDeh3tS91iFc99
-         lqEiyTdLVszvSZp/OfSdj5Q6sySNwpgEsOwcl/Sfr8c1uUXyEfbB8H7e7xrbZJdW9wlv
-         1cdA==
+        b=vc0HykW7l7pEkdja8xq31s4Q2T6aPM1gtg4s51s2grx9PYYsCPMca06/qbaHbWblWb
+         4n8OyGVv79+pI/S0CPE2x5IXtOOlE+UTgDz3i/frZKPJg4zt4tF7w0mbOGkbge5CbSCC
+         vi/dI/UMmp+f7Q6LZqjZ2O8ekkvsjJr4Jyk5qMeHtUuFevUSMlS3f/MNIuz0w4Gohnop
+         z+9J6ufz/QntVWcc9VBPCBtbW8vqNtYHuX5wemd+7Ti76xXzSSANUW5FKaxg9PETWe93
+         86VB74UfWnLGz8hVXw4M7e4dGL0RXyHyHWo6muDM2XDaPJDR0JtOlhW0QlvO0KYq6IBz
+         wAwg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=1JUT6oYKxicd1q6w0CcpqFOBvuxbmJH+IGsB+46gkk0=;
-        b=L8GpMO38Vmf85LjGFvkEk1ufdHrgIQtnB+KyiJoROkSgz7fSW0Dxgnt3r3U4tTlcjU
-         dvOLOfTLsAa7t6W9+KbRQuZIXoXRvMUegK7toTlwKvKf/DiCUO+vD1XA57TPHB99wt3n
-         LbKGxM3J3KZlD0/25M2BF6wza35Ao8721JW/TL6sj7wEaF2ahJbiP3qlUxtzInbGQ9W7
-         P5s6lrHvpyzkbhM8KB0nRwAEek5HhYCEjVJnLGhyXHp9SKWApg3/T5VXzXIDR8+h0y1x
-         lROjEx53os2FsfTaddSK+H5ZQNlFSWHmxEel3QrU6lA2LT7M1BxKqNNfulvfPKdc6AC+
-         ajJQ==
+        h=to:in-reply-to:cc:references:message-id:date:subject:mime-version
+         :from:content-transfer-encoding:dkim-signature;
+        bh=ghTZqejRfgfS5fU2jVg75uMDbgGX4TrDcdfAaAdauPM=;
+        b=IhCvsICjSY5Twckb5RiBZPPKgfCsFUEo/TTTnDwp6ypq584gKZ8LpA2W2bIppSh22r
+         uguflIWHD0iBH9kwBYkeDIKlfPLlWHBwbcCIGNfYgxBCdT9WKOL5Y+zlhMh0jjkmF3+Q
+         8cupUwu5mQ0nL5lLJeZ9h6rQPEXSImomFWdb+Pf0KZjmW0R+C2vOQ8wTJENcE29SbvNq
+         26WpCGwgxOtEEtaYroT890OCFtujCE+SSlIBYHTE/tUNwVOeLyGQP/EJdB7dZGOoqqcg
+         JbjZQh4VCh5RRM6dU+xgPuVj0IWUJCH33iPTDVngvbgyIJLHbfqZQfuInLnnxj/tIZLR
+         vp4A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of philip.li@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=philip.li@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
-        by gmr-mx.google.com with ESMTPS id n16si121278iog.4.2020.05.19.18.25.29
+       dkim=pass header.i=@lca.pw header.s=google header.b=ZOSedoTX;
+       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::f2c as permitted sender) smtp.mailfrom=cai@lca.pw
+Received: from mail-qv1-xf2c.google.com (mail-qv1-xf2c.google.com. [2607:f8b0:4864:20::f2c])
+        by gmr-mx.google.com with ESMTPS id g126si91185qkb.0.2020.05.19.18.55.46
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 19 May 2020 18:25:30 -0700 (PDT)
-Received-SPF: pass (google.com: domain of philip.li@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
-IronPort-SDR: Fnxw400rUeYb0Sk0Mh5ucDnulpPH3NteMm5YvRlm0VL+w8l0izt7Mfz0owkMmqI3i1VJZzD8Mv
- dD7cNWHPer3g==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga005.fm.intel.com ([10.253.24.32])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 May 2020 18:25:29 -0700
-IronPort-SDR: MDx3VP1Ag3njQZh53RjtNhipvr8a/FY2Meq9Bv17SiqNpQJAh3/K1jVEYEsAkqeGXFuYpc7kJ1
- hu9Mz+vnpMcA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.73,412,1583222400"; 
-   d="scan'208";a="466194708"
-Received: from pl-dbox.sh.intel.com (HELO intel.com) ([10.239.159.39])
-  by fmsmga005.fm.intel.com with ESMTP; 19 May 2020 18:25:26 -0700
-Date: Wed, 20 May 2020 09:24:04 +0800
-From: Philip Li <philip.li@intel.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, Borislav Petkov <bp@alien8.de>,
-	lkp <lkp@intel.com>, Christoph Hellwig <hch@lst.de>,
-	"kbuild-all@lists.01.org" <kbuild-all@lists.01.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	LKML <linux-kernel@vger.kernel.org>,
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
-	Benjamin Thiel <b.thiel@posteo.de>,
-	Nathan Chancellor <natechancellor@gmail.com>
-Subject: Re: [tip:x86/mm 1/23] arch/x86/mm/init.c:75:6: warning: no previous
- prototype for function 'x86_has_pat_wp'
-Message-ID: <20200520012404.GA3992@intel.com>
-References: <202005200123.gFjGzJEH%lkp@intel.com>
- <20200519205505.GD444@zn.tnic>
- <20200519212541.GA3580016@ubuntu-s3-xlarge-x86>
- <CAKwvOdk+JwddxLaXc9S7SMMTye8bDaGEckcs7zu5tEMD0G3Yog@mail.gmail.com>
- <831EE4E5E37DCC428EB295A351E6624952648ACF@shsmsx102.ccr.corp.intel.com>
- <CAKwvOdmoA5ZFCiUQ5fVf7+970Y4bxvU=kYWb49NENQzxdm7F1Q@mail.gmail.com>
- <20200520005218.GA3101@intel.com>
- <CAKwvOdkPW2p-4fDUNT6so3DrxiJgtUNEFPJcHNf7VROozc4wjQ@mail.gmail.com>
-MIME-Version: 1.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 19 May 2020 18:55:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::f2c as permitted sender) client-ip=2607:f8b0:4864:20::f2c;
+Received: by mail-qv1-xf2c.google.com with SMTP id fb16so639712qvb.5
+        for <clang-built-linux@googlegroups.com>; Tue, 19 May 2020 18:55:46 -0700 (PDT)
+X-Received: by 2002:ad4:466f:: with SMTP id z15mr2750441qvv.101.1589939746442;
+        Tue, 19 May 2020 18:55:46 -0700 (PDT)
+Received: from [192.168.1.183] (pool-71-184-117-43.bstnma.fios.verizon.net. [71.184.117.43])
+        by smtp.gmail.com with ESMTPSA id j3sm1007064qkf.9.2020.05.19.18.55.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 19 May 2020 18:55:45 -0700 (PDT)
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAKwvOdkPW2p-4fDUNT6so3DrxiJgtUNEFPJcHNf7VROozc4wjQ@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: philip.li@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of philip.li@intel.com designates 192.55.52.93 as
- permitted sender) smtp.mailfrom=philip.li@intel.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=intel.com
+From: Qian Cai <cai@lca.pw>
+Mime-Version: 1.0 (1.0)
+Subject: Re: UBSAN: array-index-out-of-bounds in kernel/bpf/arraymap.c:177
+Date: Tue, 19 May 2020 21:55:45 -0400
+Message-Id: <FE7742FF-713E-4310-95E7-9B217662E53E@lca.pw>
+References: <CAEf4BzZKCh7+2TL8GVetxrOKYCoL0U7jTGsO5CbDExs7Px+bYQ@mail.gmail.com>
+Cc: Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <kafai@fb.com>,
+ Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>,
+ Andrii Nakryiko <andriin@fb.com>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@chromium.org>,
+ Linux Netdev List <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>,
+ Kees Cook <keescook@chromium.org>
+In-Reply-To: <CAEf4BzZKCh7+2TL8GVetxrOKYCoL0U7jTGsO5CbDExs7Px+bYQ@mail.gmail.com>
+To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+X-Mailer: iPhone Mail (17E262)
+X-Original-Sender: cai@lca.pw
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@lca.pw header.s=google header.b=ZOSedoTX;       spf=pass
+ (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::f2c as
+ permitted sender) smtp.mailfrom=cai@lca.pw
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,47 +137,24 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, May 19, 2020 at 06:07:14PM -0700, Nick Desaulniers wrote:
-> On Tue, May 19, 2020 at 5:53 PM Philip Li <philip.li@intel.com> wrote:
-> >
-> > On Tue, May 19, 2020 at 05:26:18PM -0700, Nick Desaulniers wrote:
-> > > I think having in the top of the warning that this is a W=1 build will
-> > > make it more obvious.
-> > >
-> > > I get that -Wmissing-prototypes can be noisy, but it's trivial to fix.
-> > > I do worry what other warnings lurk in W=1 though...
-> > with some monitoring, so far, issue like unused-but-set-variable is quite
-> > helpful. We will keep monitor for other issues and feedbacks.
-> 
-> Hey, I'm always happy to see more warnings turned on.  In our
-> experience, we had to get a sense of how many instances of a newly
-> enabled warning there are, and estimate how much time it would take to
-> fix them all.  It's further complicated by the fix going into
-> different maintainers' trees and reaching mainline at different points
-> in time, while regressions continue to sneak in until the warning is
-> enabled.
-thanks and agree all the thinking here. For the 0-day ci side, we will
-be very careful, since the mechanism for us is to notify newly introduced
-problems from developer's patch, this can allow relatively min effort
-to solve the new problems.
 
-The other consideration is we test a lot of developer's tree and mailing
-list before they are upstream, we also hope such shift left testing can
-expose these warnings in new patches before maintainer's trees. Of course,
-there're extra reports due to W=1 against stable or mainline, while the
-number is small comparing to developer and mailing list part.
 
+> On May 19, 2020, at 7:23 PM, Andrii Nakryiko <andrii.nakryiko@gmail.com> wrote:
 > 
-> It may be time to consider "promoting" some warnings from W=1 to be on
-> by default.  But that takes careful manual review and estimation of
-> the work involved.  Turning on W=1 may be blasting people with a lot
-> of new warnings, but if developers treat them with the same respect as
-> the default enabled ones for Kbuild then I'm not complaining.
-> -- 
-> Thanks,
-> ~Nick Desaulniers
+> I agree, it's bad to have this noise. But again, there is nothing
+> wrong with the way it's used in BPF code base. We'd gladly use
+> flexible array, if we could. But given we can't, I'd say the proper
+> solution (in order of my preference) would be:
+> 
+>  - don't trigger false error, if zero-sized array is the member of union;
+>  - or have some sort of annotation at field declaration site (not a
+> field access site).
+> 
+> Is that possible?
+
+I am not a compiler expert, but with my experience with all those compiler instrumental technology like KCSAN, KASAN and UBSAN, it seems both options you prop need to modify compilers, i.e., -fsanitize=undefined
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200520012404.GA3992%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/FE7742FF-713E-4310-95E7-9B217662E53E%40lca.pw.
