@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC7OBJGL2MHBBMM5TL3AKGQETIU6WGY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC7OBJGL2MHBBM45TL3AKGQEAHW5AYA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3e.google.com (mail-yb1-xb3e.google.com [IPv6:2607:f8b0:4864:20::b3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7022A1DCF85
-	for <lists+clang-built-linux@lfdr.de>; Thu, 21 May 2020 16:22:42 +0200 (CEST)
-Received: by mail-yb1-xb3e.google.com with SMTP id d7sf5448880ybp.12
-        for <lists+clang-built-linux@lfdr.de>; Thu, 21 May 2020 07:22:42 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1590070961; cv=pass;
+Received: from mail-ot1-x33d.google.com (mail-ot1-x33d.google.com [IPv6:2607:f8b0:4864:20::33d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 108471DCF88
+	for <lists+clang-built-linux@lfdr.de>; Thu, 21 May 2020 16:22:45 +0200 (CEST)
+Received: by mail-ot1-x33d.google.com with SMTP id e15sf3181377otj.12
+        for <lists+clang-built-linux@lfdr.de>; Thu, 21 May 2020 07:22:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1590070964; cv=pass;
         d=google.com; s=arc-20160816;
-        b=l7t2rdh1Y90R1sNW7QpmMUO5RS0EyFeHr6k66XJLzF1T1vqpx1F8pAPBkRIIBaIuPb
-         gNvxHttRqyyllcC+WSSH7IXEOUNYVaktTCH96XC6hehlHR9BSg6A9sXXNG4qkmjlB8q8
-         C8K9cujWyaSYYCyz/RLnofS2Cl5dB57POADmyOyQWO+nZV1OzqSny0ZIBK5LBImCR+Br
-         6cKP/ctxRzlg76DKw0QRWjJMehOSS6MUqCsc9CJSIUFveFE2RNXH8Q94KmfjVUACrSmB
-         bHYHzMvWKTNolTxO1PPUA2plccmma9YME1zxvCAwEWCrw0rP1MP7cqDIhpydjxb4i4qD
-         lakg==
+        b=xfiTxDEGZ9t3K90aj0jB1ZCpruaen+Exoe4gt3XdomlAHg4LhEWFPC56x93dIxJS+R
+         VItyDgdPyzjhJ51Q1bA7L5woYflWg1zyurvOuOE2wqrztU9KbrfnWOvDahDIHifkUo50
+         OJmLNp8rbTY1mM/kny6viGVlcTM4FGT154j6KLH25Q1bYxg5iFr+Fqx+tP7Ue8JcnWAU
+         LbzqJHKwQpwcxHFcYNG+E6U/82VpF3ZSNYpDGl0EZsTvzw6BOadQ+/7azR6naDFy4VXB
+         quI0xgoNLa7Eq4yBeWphM2OMU01W5jc4wcyrVEwgKP4nx5SOqtsU24gO0m41V6khGkV1
+         8Qqw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=6D8dqJb8yFNeuDwfQs56eZsDsjP55BovjtmSF9V/ws0=;
-        b=MELMQqGHc2wQZkiWkT4jEL2adH/KWQz+MwanuNdFd6wSkQRXglEBDFEUbppanhzbpt
-         mG1pg0+2+CnRhbTUuvHz0r7GDi3lP00mB1nHAxN5S5q9INgX5+uXKHmzQjST/o/isVeL
-         ihRyPbUGqGQoV0v6w/NIxZBcpDbVjee6z8RWz8b9YNgo/c5asFGG1jajonq/R1qCtp35
-         bQKdU4kj0b+y9y0GYKVsfp2b2iDdzKIHFJnfa5mrIccLabhnhfgIjNg2rK1gqFXWUKiO
-         3HuzeUCOPQ0ynH2luDULKPDRUgmIGmeSwvaiJ3ezNKbaUjRqZk5Qlom5pOZlDRRgrrDn
-         nVyA==
+        bh=Hs/WGtbaHLpPe8ct+OxzOddc2D6k20c5UySR82DPHfE=;
+        b=GHRPUxUFh5/FuzGJmk9JD4Rm1A2+4+WTHYTXgVPiJfXUF9EIj+6j1cCBwH0rKZT7Wi
+         N8iznuOoDy0Pt4RMVmMJO5fePTwSDRm/1tTlBcPt1d8OjFAdgVAWrRJaGZuEZa8j5baq
+         I9Yar9fLOjU7LnA1jLba885Ye3tAsHfriHLMTWADi+1b8TwCB7pOf8MGCowIE7vO66m3
+         78pGCGlubx6dbNVsGAW7mNBep5MtQSmOm78R9gk9uupNi2aBPxBx3e2ZnA7gJWesRb0K
+         9mg+mv+7W00HzC0il/lF8/Fe8V9rlJSBLNPsQqFRvyVRUo5/7feKuV8+L2+cdotq9IM7
+         CMqQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=joJLl5J1;
-       spf=pass (google.com: domain of 3si7gxgukeemjqajwlttlqj.htrhqfsl-gznqy-qnszclttlqjlwtzux.htr@flex--elver.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3sI7GXgUKEeMJQaJWLTTLQJ.HTRHQFSL-GZNQY-QNSZcLTTLQJLWTZUX.HTR@flex--elver.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Ry3yF5S5;
+       spf=pass (google.com: domain of 3s47gxgukeeymtdmzowwotm.kwuktivo-jcqtb-tqvcfowwotmozwcxa.kwu@flex--elver.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3s47GXgUKEeYMTdMZOWWOTM.KWUKTIVO-JcQTb-TQVcfOWWOTMOZWcXa.KWU@flex--elver.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=6D8dqJb8yFNeuDwfQs56eZsDsjP55BovjtmSF9V/ws0=;
-        b=BaBtxRnxtjczRgjQGQGk+VvaA3RpuktH2ng/zjAzYGM73myCUrL/rmsRfAg1YjPN+5
-         YQCzXKenNkFQXJgAs4agBvsHR4aDSBirWaljblTsGkAAqUulQQawGETkocq+Q2L1fy+Q
-         PP3Jy9tOKuk7UpZDxeQjE+Zzn2Qd3RKJVzh3cDEfkEQgmxNyAyvMnoC6uRW9kVMtJJC4
-         bXHBYbtasVPQQZbfL9MKdyB34DmGL1MprLWJy7fU/CLpnTJmgUezWuDL4SO0MtI9uXi/
-         bgLbWeuKLc3QMRx86jAGPl76SvIDJb4VhyALBZ1FQGJfo3vJPZHB5U6Qn1wo2HSnlzuT
-         ozfQ==
+        bh=Hs/WGtbaHLpPe8ct+OxzOddc2D6k20c5UySR82DPHfE=;
+        b=si+tvfdVlHYIQlcj5akv8t01f7Ls6mvAy1WyLoL1EmmUeoV/9JCeTMFb5m5ThV4JAG
+         MYdq7NXdAt8cLubg6de4VCH9gUKBdulW082ZcCFPzy5CB/UZ1iGsxOnFQRC/3ucFE/aS
+         yF1osH3T1PkPIjwzcXJXwH6sXK1V7Q3ayURxGoCsxpD6d8Fvhk9i3YDlsd+bmrXGx2tD
+         Nq7GbOZ8x3UHrYUbOuPzy1j+jL6WdbTAlBpGVcC4wC2DvjHXVqxRVJzk8H3qIoMu6214
+         S1aHdVcDIVwNf97rIUYhoC8HTfgXnh1ZdJKcoZPHaATm/3t6xp76nwMCfY7xKS1dl4oN
+         DKBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:in-reply-to:message-id:mime-version
@@ -49,62 +49,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=6D8dqJb8yFNeuDwfQs56eZsDsjP55BovjtmSF9V/ws0=;
-        b=TEDkB4BZJCUR0iz+fpHQbic4xfGW3z+OPAK70DEZvzFhJU3zL3zM3eWNhAazycVzu7
-         cZpn1BK7uPUw1xDQE7HXMiT0NdiftAwRxQzt6t3QImRL7nEolQH4afsn37QncF/9h6FX
-         zXWlNgEauu+3xVbLfI51I6vUmH3WLKguj8DSkffc8VrUmLgJudJS1hWyQHSFk88bXKRA
-         4FD5KR/PjpSf7+NDnN4QUeixIfqgnuTY0/XBGUfJXAGIdxPyFgXNt8qUB9jxGnMpVRw0
-         NFCnkrh6aRFgteHtkdWHDMzEI4Stsi5M4bdcqOx4ymfaL2RPwcBbSy1SsNkHI0JlLpbE
-         nc/w==
-X-Gm-Message-State: AOAM532IsptCJ0SA2ZIW2qwMiZsrWbBsdLHhNixECHxrf195WaSx6iMu
-	DD17C1F8jzNDUtTqe1MiHnY=
-X-Google-Smtp-Source: ABdhPJxuA1eNqBGxRY0NaPlj2KMcng9dR9XGc4m4xCTQ54/dSHM5IjVI3ilgaQEC1lPf3Tlguz+OXA==
-X-Received: by 2002:a25:c287:: with SMTP id s129mr15754268ybf.337.1590070961525;
-        Thu, 21 May 2020 07:22:41 -0700 (PDT)
+        bh=Hs/WGtbaHLpPe8ct+OxzOddc2D6k20c5UySR82DPHfE=;
+        b=PC9iI+mv8mQ4uCh26BQwtSvgiEbmf0Px+WbBSIrgrn2As/FTm7veJ7kBKXq4q76u8W
+         v8ALW8FJAwvu2oXPTODu7WL3mzH03P/yB7REAtO1B2SKK1L0zivPK8xZF4nsbdTtqaKu
+         60wUDbtF3CE+o8JVxUlS1M54nbn3Qso5dgtkuRyPaIUImjsrKQOYOylo/TcwUCAS3NH+
+         DHtrI6nWHPVLXOzCOPHKjw6kSeNOhPSx/ElV4LZmwsk3jFdLmMzh4V+ducSvxajdj8zR
+         sOJJLR01MoBF/QMSQt34TSZMKHEVn5VGnGkW6cItvejzhGQDeQRjPSwpOF9SMXuMRR1k
+         L/Jw==
+X-Gm-Message-State: AOAM531NjLxJaTWFZewqqUFVwjEE0oSDADbkw61UR9yHjr0/Aqi2hlQ2
+	BHYmaKN4IGxaXnh9YGNStMg=
+X-Google-Smtp-Source: ABdhPJwP95MhmYCK3olodpRrkXj6B7TysAvGBFYhYWGRQKeEvzFWWbKJ8Vie3ECh0xuZRhYhA00NWw==
+X-Received: by 2002:a05:6830:20c8:: with SMTP id z8mr7150759otq.313.1590070963847;
+        Thu, 21 May 2020 07:22:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:678b:: with SMTP id b133ls800527ybc.5.gmail; Thu, 21 May
- 2020 07:22:41 -0700 (PDT)
-X-Received: by 2002:a25:ab4b:: with SMTP id u69mr17342707ybi.457.1590070961161;
-        Thu, 21 May 2020 07:22:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1590070961; cv=none;
+Received: by 2002:a9d:3987:: with SMTP id y7ls482335otb.11.gmail; Thu, 21 May
+ 2020 07:22:43 -0700 (PDT)
+X-Received: by 2002:a9d:ae9:: with SMTP id 96mr7495930otq.16.1590070963487;
+        Thu, 21 May 2020 07:22:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1590070963; cv=none;
         d=google.com; s=arc-20160816;
-        b=TlL6/0bAA0+SnCHJB5WCikBIZkeu3mjnVR37C88Ee5yonnq7tvpmatl9RRLTwiz1s9
-         Gmc+bjPOUJ1kb29Bw6LGcHyDNw08y9YYrrDiXbFE6m/MsPCmSzc68vcrt4nqGJZTZxwZ
-         9aqbqfJY0yj28sFqI/xEx0PoirREdd1AmeO/jM5oHUkWB1gbK7IC10zV8F9Gt8PRaZhS
-         W0YhNh0zOzGHVUURj/91eonyd81BX/IIoCnCbbtzU6x5aPYchcHJnSzCkcketuNQrtOl
-         gi8EkTgpo/xPQmqEv4Lpgq8wiFmcDjLjKZ8ETwRnU3DggKutPbBTLtnl7SblIgnx4CFX
-         uhhg==
+        b=oBv1gsFiO9XOvXdCYbvQT41Je8hlTUGtBhwZGvwRNcPWuOjfy25agRaf2/0vEFMefY
+         uAp285Y649MYYhuRk55ogUn8gsym9JSYBg83G/MI+jxOdcVROXB5SgGUuLrFFYBC79nS
+         1970mtmA6Wn77KF6xyOtGoKWB75U6fBUePkvySYVQQc11dyn/Bz+3vamcdxKPnm5rNeh
+         ZvCFWPsASBdDu7pd9HVBLsqyM/sEuN+yCJTYFIioN71PcC70wjTpzltvVV7rLib5VaRG
+         fRYxe2757I/UezSNNKDF5hP+nNBMERxoaxTWC75rSTzpTBPf7o+JG6oPP1p2lsZu4S43
+         FjDw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:dkim-signature;
-        bh=2MIiys78gGheOmgr5sadClIeI2A+sMpKPCOuDS/ESKE=;
-        b=Vq9qA9u7c2JNCAVRXjL5esmeNBJ/wcUm4oc0iZDNAhqZNGJnhuyhIYDoHUL+dJjA87
-         RrN7XvorPNOzxe3EZlaAbitqLhHyLEs8ezNVWC6jO31L2wMf4+ZicpluEjpESErtHYe1
-         JJphIpY5ShUsmIH34Bnq4u13H/e20O0HNL5Ezw1wHIQzonIEh/aS+1hXBKUkc3gjoONp
-         rCN3rSQXt3kEHY4iVUD+hEwXJFDD+RZU1e3g8NQFR4AjoxFqJcn9YUJrxLFOF8FkHOCH
-         vmhcD7qI65G6OFR0TP4XiCnfFeRdehrYEM+x+tmxatxrSgjxy0n7J4JHmm69h1YFcVqu
-         mVOQ==
+        bh=Lmm+/+h5qLO6fUy4Is9S48RQHv+8MyPjNoPxJUCaU88=;
+        b=BHqb92VTnu3zH4gx6odl9B1NPzGQvsoOaQX7bDua+PcWom5mVFeA04Y/RlwbeTaelt
+         Le8AMgA2P+o+5LhTJ8AxbwzOZ88t86QV0Y8H1a+bLSbgFZTZq5flONbtMNUfIvnnqYyh
+         tfMaGeCF2b6qhY39lt0C2N1COzT80Q1Q0ztEptcEbSJFTXJdB8mxZgFZ02ltPS/plxAT
+         vb3k9nDP7AlIqULhOQ/XjNegs7M517C0cUncadxKzzxypMMTMf2xXRCdJsIRltZ8TPJ3
+         8x8N+mQGKxXjNFafuGIe7u92yD8NXt4wY0fQSwjLqvO78BFTQzc2oRahXppCVB1P/bU/
+         GOEw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=joJLl5J1;
-       spf=pass (google.com: domain of 3si7gxgukeemjqajwlttlqj.htrhqfsl-gznqy-qnszclttlqjlwtzux.htr@flex--elver.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3sI7GXgUKEeMJQaJWLTTLQJ.HTRHQFSL-GZNQY-QNSZcLTTLQJLWTZUX.HTR@flex--elver.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Ry3yF5S5;
+       spf=pass (google.com: domain of 3s47gxgukeeymtdmzowwotm.kwuktivo-jcqtb-tqvcfowwotmozwcxa.kwu@flex--elver.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3s47GXgUKEeYMTdMZOWWOTM.KWUKTIVO-JcQTb-TQVcfOWWOTMOZWcXa.KWU@flex--elver.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-yb1-xb49.google.com (mail-yb1-xb49.google.com. [2607:f8b0:4864:20::b49])
-        by gmr-mx.google.com with ESMTPS id m9si377917ybc.3.2020.05.21.07.22.41
+Received: from mail-yb1-xb4a.google.com (mail-yb1-xb4a.google.com. [2607:f8b0:4864:20::b4a])
+        by gmr-mx.google.com with ESMTPS id b20si364589ots.0.2020.05.21.07.22.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 May 2020 07:22:41 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3si7gxgukeemjqajwlttlqj.htrhqfsl-gznqy-qnszclttlqjlwtzux.htr@flex--elver.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) client-ip=2607:f8b0:4864:20::b49;
-Received: by mail-yb1-xb49.google.com with SMTP id r18so5450378ybg.10
-        for <clang-built-linux@googlegroups.com>; Thu, 21 May 2020 07:22:41 -0700 (PDT)
-X-Received: by 2002:a25:3608:: with SMTP id d8mr16539361yba.11.1590070960816;
- Thu, 21 May 2020 07:22:40 -0700 (PDT)
-Date: Thu, 21 May 2020 16:20:45 +0200
+        Thu, 21 May 2020 07:22:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3s47gxgukeeymtdmzowwotm.kwuktivo-jcqtb-tqvcfowwotmozwcxa.kwu@flex--elver.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) client-ip=2607:f8b0:4864:20::b4a;
+Received: by mail-yb1-xb4a.google.com with SMTP id i190so5458660ybg.6
+        for <clang-built-linux@googlegroups.com>; Thu, 21 May 2020 07:22:43 -0700 (PDT)
+X-Received: by 2002:a25:77d0:: with SMTP id s199mr14286095ybc.333.1590070963005;
+ Thu, 21 May 2020 07:22:43 -0700 (PDT)
+Date: Thu, 21 May 2020 16:20:46 +0200
 In-Reply-To: <20200521142047.169334-1-elver@google.com>
-Message-Id: <20200521142047.169334-10-elver@google.com>
+Message-Id: <20200521142047.169334-11-elver@google.com>
 Mime-Version: 1.0
 References: <20200521142047.169334-1-elver@google.com>
 X-Mailer: git-send-email 2.26.2.761.g0e0b3e54be-goog
-Subject: [PATCH -tip v3 09/11] data_race: Avoid nested statement expression
+Subject: [PATCH -tip v3 10/11] compiler.h: Move function attributes to compiler_types.h
 From: "'Marco Elver' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: elver@google.com
 Cc: paulmck@kernel.org, dvyukov@google.com, glider@google.com, 
@@ -115,9 +115,9 @@ Cc: paulmck@kernel.org, dvyukov@google.com, glider@google.com,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: elver@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=joJLl5J1;       spf=pass
- (google.com: domain of 3si7gxgukeemjqajwlttlqj.htrhqfsl-gznqy-qnszclttlqjlwtzux.htr@flex--elver.bounces.google.com
- designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3sI7GXgUKEeMJQaJWLTTLQJ.HTRHQFSL-GZNQY-QNSZcLTTLQJLWTZUX.HTR@flex--elver.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=Ry3yF5S5;       spf=pass
+ (google.com: domain of 3s47gxgukeeymtdmzowwotm.kwuktivo-jcqtb-tqvcfowwotmozwcxa.kwu@flex--elver.bounces.google.com
+ designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3s47GXgUKEeYMTdMZOWWOTM.KWUKTIVO-JcQTb-TQVcfOWWOTMOZWcXa.KWU@flex--elver.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Marco Elver <elver@google.com>
 Reply-To: Marco Elver <elver@google.com>
@@ -133,49 +133,102 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-It appears that compilers have trouble with nested statement
-expressions. Therefore remove one level of statement expression nesting
-from the data_race() macro. This will help us avoid potential problems
-in future as its usage increases.
+Cleanup and move the KASAN and KCSAN related function attributes to
+compiler_types.h, where the rest of the same kind live.
 
-Link: https://lkml.kernel.org/r/20200520221712.GA21166@zn.tnic
+No functional change intended.
+
 Acked-by: Will Deacon <will@kernel.org>
 Signed-off-by: Marco Elver <elver@google.com>
 ---
-v3:
-* Fix for 'const' non-scalar expressions.
-v2:
-* Add patch to series in response to above linked discussion.
----
- include/linux/compiler.h | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ include/linux/compiler.h       | 29 -----------------------------
+ include/linux/compiler_types.h | 29 +++++++++++++++++++++++++++++
+ 2 files changed, 29 insertions(+), 29 deletions(-)
 
 diff --git a/include/linux/compiler.h b/include/linux/compiler.h
-index 7444f026eead..379a5077e9c6 100644
+index 379a5077e9c6..652aee025c89 100644
 --- a/include/linux/compiler.h
 +++ b/include/linux/compiler.h
-@@ -211,12 +211,12 @@ void ftrace_likely_update(struct ftrace_likely_data *f, int val,
-  */
- #define data_race(expr)							\
- ({									\
--	__kcsan_disable_current();					\
--	({								\
--		__unqual_scalar_typeof(({ expr; })) __v = ({ expr; });	\
--		__kcsan_enable_current();				\
--		__v;							\
-+	__unqual_scalar_typeof(({ expr; })) __v = ({			\
-+		__kcsan_disable_current();				\
-+		expr;							\
- 	});								\
-+	__kcsan_enable_current();					\
-+	__v;								\
- })
+@@ -250,35 +250,6 @@ do {									\
+ 	__WRITE_ONCE(x, val);						\
+ } while (0)
  
- /*
+-#ifdef CONFIG_KASAN
+-/*
+- * We can't declare function 'inline' because __no_sanitize_address conflicts
+- * with inlining. Attempt to inline it may cause a build failure.
+- *     https://gcc.gnu.org/bugzilla/show_bug.cgi?id=67368
+- * '__maybe_unused' allows us to avoid defined-but-not-used warnings.
+- */
+-# define __no_kasan_or_inline __no_sanitize_address notrace __maybe_unused
+-# define __no_sanitize_or_inline __no_kasan_or_inline
+-#else
+-# define __no_kasan_or_inline __always_inline
+-#endif
+-
+-#define __no_kcsan __no_sanitize_thread
+-#ifdef __SANITIZE_THREAD__
+-/*
+- * Rely on __SANITIZE_THREAD__ instead of CONFIG_KCSAN, to avoid not inlining in
+- * compilation units where instrumentation is disabled.
+- */
+-# define __no_kcsan_or_inline __no_kcsan notrace __maybe_unused
+-# define __no_sanitize_or_inline __no_kcsan_or_inline
+-#else
+-# define __no_kcsan_or_inline __always_inline
+-#endif
+-
+-#ifndef __no_sanitize_or_inline
+-#define __no_sanitize_or_inline __always_inline
+-#endif
+-
+ static __no_sanitize_or_inline
+ unsigned long __read_once_word_nocheck(const void *addr)
+ {
+diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
+index 6ed0612bc143..b190a12e7089 100644
+--- a/include/linux/compiler_types.h
++++ b/include/linux/compiler_types.h
+@@ -167,6 +167,35 @@ struct ftrace_likely_data {
+  */
+ #define noinline_for_stack noinline
+ 
++#ifdef CONFIG_KASAN
++/*
++ * We can't declare function 'inline' because __no_sanitize_address conflicts
++ * with inlining. Attempt to inline it may cause a build failure.
++ *     https://gcc.gnu.org/bugzilla/show_bug.cgi?id=67368
++ * '__maybe_unused' allows us to avoid defined-but-not-used warnings.
++ */
++# define __no_kasan_or_inline __no_sanitize_address notrace __maybe_unused
++# define __no_sanitize_or_inline __no_kasan_or_inline
++#else
++# define __no_kasan_or_inline __always_inline
++#endif
++
++#define __no_kcsan __no_sanitize_thread
++#ifdef __SANITIZE_THREAD__
++/*
++ * Rely on __SANITIZE_THREAD__ instead of CONFIG_KCSAN, to avoid not inlining in
++ * compilation units where instrumentation is disabled.
++ */
++# define __no_kcsan_or_inline __no_kcsan notrace __maybe_unused
++# define __no_sanitize_or_inline __no_kcsan_or_inline
++#else
++# define __no_kcsan_or_inline __always_inline
++#endif
++
++#ifndef __no_sanitize_or_inline
++#define __no_sanitize_or_inline __always_inline
++#endif
++
+ #endif /* __KERNEL__ */
+ 
+ #endif /* __ASSEMBLY__ */
 -- 
 2.26.2.761.g0e0b3e54be-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200521142047.169334-10-elver%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200521142047.169334-11-elver%40google.com.
