@@ -1,127 +1,129 @@
-Return-Path: <clang-built-linux+bncBC7OBJGL2MHBBJUDTL3AKGQE54WZRYY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDAZZCVNSYPBBTEFTL3AKGQED4PJHSA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc39.google.com (mail-oo1-xc39.google.com [IPv6:2607:f8b0:4864:20::c39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1B0AD1DCDE5
-	for <lists+clang-built-linux@lfdr.de>; Thu, 21 May 2020 15:27:04 +0200 (CEST)
-Received: by mail-oo1-xc39.google.com with SMTP id l21sf3394727oos.22
-        for <lists+clang-built-linux@lfdr.de>; Thu, 21 May 2020 06:27:04 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1590067623; cv=pass;
+Received: from mail-qk1-x737.google.com (mail-qk1-x737.google.com [IPv6:2607:f8b0:4864:20::737])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1DAF01DCE09
+	for <lists+clang-built-linux@lfdr.de>; Thu, 21 May 2020 15:31:58 +0200 (CEST)
+Received: by mail-qk1-x737.google.com with SMTP id y64sf7355759qkc.19
+        for <lists+clang-built-linux@lfdr.de>; Thu, 21 May 2020 06:31:58 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1590067917; cv=pass;
         d=google.com; s=arc-20160816;
-        b=gsSOnxxk0i6KQkLECdM/eC0S6evF8GVTaE/awu6VELyxkB84G6WJPAqjrXtjN9MvFv
-         p7S/igYrJmsiTkUtZFMPtrI4gi2rbsseWdBwmnXNNS/05t83NFozhvaYmLu2OaYB12sH
-         IBga25A4bVHVn7NLYXtZFurFZAZfU+csRegT60lgxeE3ZgLGgBpv42NwPWykv/K5FY8U
-         VFry+QjSfta79U8AESNEFftVPMOcrLUKRMEkCa7M7YVzhZdnVUOFFOmNEEsbKb+DOPn7
-         eOWwgYb0inxq1jNi7wulkafRJxilICLhMBaRos6WaUsFPIFstcaOMhwrICp2yxfYEuDD
-         SbZw==
+        b=U++/435QY6j0cQzTrAcoLRRl6WhjAUh+GZi3F4RwM1OlvVlGoaPmEjXxFmpbw4XDsA
+         YhA4dX1uiw1o/c6BWDApGH7S59xa0gAVVubJlzEdAg85/pOdF5NCcpouVEIN5xM/1GLX
+         T3yPdv9hZgv/f7yx1VSRfi+64AJm9JBXSVhOpPdHI1XKElDFgYFTKWTjdcVVbjmRL6g/
+         yPjO0UKvSHhGlS5kgSfLl2xh012r/mD1dE9oegHNyevfi/DXLAppg+F1qXEJvzz4aqQ5
+         bUK/uV+3e+ZlS69xFGkO9SCo+UuT/AZJQbmAdaEiRs4lRtBaSus33ml+GFg2iS74Eoec
+         vNtA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=K7nNuf+T2f4DM/guWllVmg+2g0Gmu1F60Q6j84BEYWU=;
-        b=KCs9zc+zv6b5Yo03wlJ0Q8eNaDp1vteoo9FQ/73uabK5Nwt2nq4+aXOmGTftZO1oI6
-         FEYjEIuOLqClXMNdJVISDGPxKDqIdUQYwZPsRlA1afrZhwX6rPUixxk3IK6Zc/aamEgi
-         1jvctE0cUNaU/kWkJwAYJZAyPBOoRGRNucfdlExIiEjVzTFkJgoANMS/c6vA/h16OrG4
-         QbzBz9sdNRNwxjt0wVGM+rxGA4chuIyhnxOm1gVRn8Nyu3KaRPGrfdOwv/SNOZyh+D3j
-         LLCSjzVap93ZFbEF6uoizl+hJfq2rfrAZmyjKj1TAfr9IdPw3keG3bjDG4eey9iKkH+q
-         cKBg==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=Y3LBQvQAGhqDgCB2tdnczwr25jd54/VZz0rVavwstv0=;
+        b=Y34QYFCRotL1+nBd20F+iKYzgGZb5j7TjMRDG7QlclWpZm2xqdh20cbAbEqKq87JrE
+         ODrCmZjzDnNTXASPIoOECXkGLtwbfS0Lxu47gbE8IUgHnBlkiFSff9UImRRnH8ncVdkd
+         ssoW4NJIRmLRjbVXzeRLja6nqVlxfabgNSkTqHFwlhGR9EXmrHXdpf6Zi1OFLcSWTLiY
+         kCttkkqL0NHaDUqvU6pkOUhH7rIXK+SkRKTmYy0/EB9E++eKFoCyT0PoN3Pa6CMP5gdu
+         OGr7FnwKGlJA5QfBZQWBl/z51B3W8+Tgb+1X0FGdZbYMrKjdg9G0exvhslHRxizvWP64
+         3xog==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=GXlGtQiQ;
-       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=elver@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=default header.b=GtKd6Mpi;
+       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=K7nNuf+T2f4DM/guWllVmg+2g0Gmu1F60Q6j84BEYWU=;
-        b=OhDTVJ2tzYDzzOkbDbVcWW7llxMV1ynH4KReW4f7UgPPYhzB052458GKWfVXZmzjwj
-         SWM7QLChJ9eMhAcYYLUUGFIgB2UifC5uFLd4NInnMT9jAPcJUnnUVc2qOkZWAvIuVNFO
-         iLwfIjeE0WhnQlc+RHDFU8df+i2QVq4zPmS0Zw6AO3V2ywi7lh2Y5jQn8EFGj49uvNTS
-         BZ+/pTPgdLALFfqtdYpJ3Fdhc/KCYjT47vyX1a0bhdl6M/F/FXeAnFAofHQqwrqWURif
-         yeTV5USCYHQwCbBkFHYkHb8KNHXXMYGO3on62TxMF1CUzBD1xvVxG9FXiE2v+77vJKmT
-         v2rA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=Y3LBQvQAGhqDgCB2tdnczwr25jd54/VZz0rVavwstv0=;
+        b=qU5s32O9NzV5UeucV2I61Up1Ff15U/LgRT8NBacbSQNUvYf+EjM7Oo5bkp83Zxc4uh
+         vXQe8hgH4j6KbXG9aow2/mziHHIz2joSWMwKEPx466B+qEsVpDaZ/y/m1fVQozJMcZ87
+         waLbgUm9rAtHr1/zP+/N5dU8listn2zUaPC6smIdFuEyTh4u9Cek9ao5b05m+QmG1FXx
+         9tO+X2A8iIMbYxsONsj0YqVAPxs5SlEfEsH0tXmOhyuKqcUXoniwi/NALatWRLG5Pdel
+         4bDibEhjolGPREO+4+WS6MeUdNSp8hmEE4YcW+X2K/UvB73kcM1duTIrrzLyav9ppJL/
+         v1LA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=K7nNuf+T2f4DM/guWllVmg+2g0Gmu1F60Q6j84BEYWU=;
-        b=M9Oz4FR5okZjygVOqBLVOcdHL2730/WPRxxjSfbeAbCgP/ehy6G/Ep6qhW8jIvKZ8J
-         lr/g8Sr3gDAN3FDEbFDZ7BOJPzOCtUfRZrn0pQpeUz51wTKb3M0V6rbMAoIhxh1A00T4
-         Q1Z9n5OJ6dGhjNrwHVJKdQ/nXZ1FUEieX0aiWtryqif7DcKk+Tce1Xa8yWHJHEzTq0/H
-         UJU58HK9auMzJFuaobH9B840gs8vLV6Cwbd1LJ4jdZeM6Ub4hO9f9e92Sirkm+9INhpW
-         PDp/VjxwhYY3wcl6qwelNS50bgPjoPrKsjc/0ed9N1haW3qSPefHq2xnDi734zODeZlU
-         FcJQ==
-X-Gm-Message-State: AOAM530cjLRAV3+HHq5yxRRzSvVWb/PzFotXHDCCC3HU+jy3N6ws3iR7
-	du3FVER3+q++ipKJlR2gB9Y=
-X-Google-Smtp-Source: ABdhPJyKBxiyDTnk24cvfjnnRgfAqsc/iGrT54nx+/zBJuL61vIiYQeVma0MyG6tbyZFNAGHwoQJsw==
-X-Received: by 2002:aca:1a18:: with SMTP id a24mr7059601oia.99.1590067623038;
-        Thu, 21 May 2020 06:27:03 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=Y3LBQvQAGhqDgCB2tdnczwr25jd54/VZz0rVavwstv0=;
+        b=R6mZvpGSuoJUBL7V8Xpwq2oKOZhROh1RjU1ZVKt1I2xh0FZ3dIOAH6ffLP3gJQXoIN
+         GxJgEZOGP/FKmw4ff1eEFmMBImI6cjACLbaWUGLqbVBsrcNsBCp2g8HqC60Znn/hgJ/d
+         j520F0DBKMAQMPpr6V75A438jIBdEpyelKLLI47JsRCiKLRMw+DZaJLrwcZXW90VevPl
+         r7gwm/R1PATVZUAXQdVhhq6Zul88t79E6QDu5VRCvmUsGYRQuXItq9tWfscyljXVLJQT
+         ybtinc/tD8DDG27gmcXx8NmHfjWFiRK33PWn39QU3HK1/aneJn2VG0mdOfCpgerIyJJK
+         JUMQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM5327zi4WAD8Nz426BQrTwCheQIdL+7Wh/BO3I0CidJZDl91u6mz6
+	DiI9LyL9Wzuc7zZvLPUaMZY=
+X-Google-Smtp-Source: ABdhPJx98icfrOXi/tKtbAXVnZh7ZxExS1ZFzx3c+d82Az6yF/jIf3YbHT6Msi3zpMFxJZ8OUPf/hw==
+X-Received: by 2002:a0c:b44c:: with SMTP id e12mr9746291qvf.30.1590067917029;
+        Thu, 21 May 2020 06:31:57 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:7d11:: with SMTP id v17ls453958otn.2.gmail; Thu, 21 May
- 2020 06:27:02 -0700 (PDT)
-X-Received: by 2002:a05:6830:1006:: with SMTP id a6mr7307625otp.65.1590067622714;
-        Thu, 21 May 2020 06:27:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1590067622; cv=none;
+Received: by 2002:a37:9b12:: with SMTP id d18ls1034556qke.5.gmail; Thu, 21 May
+ 2020 06:31:56 -0700 (PDT)
+X-Received: by 2002:ae9:f214:: with SMTP id m20mr9885144qkg.232.1590067916671;
+        Thu, 21 May 2020 06:31:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1590067916; cv=none;
         d=google.com; s=arc-20160816;
-        b=FRqy74d3H7h872oZelbxrtdZ8NA9EBMswIyfiG8W2fPhUfnFmC6JyBXSUuYRiAFz0V
-         Q340DDRFKxNOkeL04DvS+5wtHCB50cj26kw51cLZQcDWCSkHyU4JdeTTIakrMuZhBlVN
-         CxI2YJGvxWnTOTl/wyaplwYMjDKk0X+w0q2pN2VcIfBhVSPtRxD7TgOMTONCYnj0VjJm
-         nsHEzWMy1FNGrlIuBbIP10sNVjlz1UW1CFPiPlb7RQKLSzwvUmWgD19tIk7VchM3WuKV
-         WI7frjd4V7NYOMu/YmEe0s3+xjAjd7ujKWEZ/lPYHUykTnTlEBYIG6GvFy15gSwqpbqt
-         2G6g==
+        b=Y+45QNi65ufGdXYmZWRRiFqKeZff8DLI75aaAWSBTaQL1KSuL49WsABZsNed2UYRl/
+         JV7s8bKe27SajjJEvyOsedtaPHeGU8VV5JRcJztIiPagxgefSa7obYI29kfNGceKaxeV
+         UVF0x1mI1WqHYryw/hksvW2r/kI7Y9/kU1E88kpIbVMsNXtrVu00tjSphxxRcyqO6GJr
+         6roBUo10lvkIzCCod51UY2Y0KBGOe7n9N6xV70jJbf5CpsZRJPUfKLXq3OHqdT2dBIvX
+         JlErO91gCdO+Vm3HlFQenC0HexlfoZRbU5f1vQ27T6l4rwr/PFT4MVZ3/nlev4xNRUsw
+         aBSw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Moc8xalnKllIyEU4EMIrwAPrYnUw5Fl91QeBkTIQAoU=;
-        b=get8s/7KvYlHhemHxD/OPm3S6zwYnl04j6/29YU6/e7ktkTIfWA805ZPwgvhIZ6WyF
-         z+g/ES/HKjk8dYg1DnwGPeaBHH9Udc9nSuUB9ueQriFgoiy8njFRkJS4YGPA6mRVf1mf
-         Q0hJTbGGPZXn5YvgWIJuU5P5uC34Fkbd7R5TCBECSaNAHgCPXuGt9cMwiw2iLsndjshG
-         vVPDqoWfBnFEDWkQ1TEtJ0+VoFV5UqMwy/C4PPByqNrMDtRG4rykUe2T9+E9/6LE64NO
-         a4CGMiSSsKaf7DUNe769Zdv5EvfBOy/Nsd9Z+QKpIEjOl63S6Zof/PIPF2ijKhIjXf7t
-         XelQ==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=Y9oT5LJ56sVLWLUeDHVQXC+f3+Bd0ET3FwdKC0MDxtc=;
+        b=ehMbGA8ZnaF8FCJdtfFhhwhhiNY8Byxc/e60qtElg2edkPXO9EVD4v3PVSaV4IPcPE
+         HSP/bYNF5iqTfqe0Rvu3Q3fkT9msvjuvnX+TK7VxNRWZXLFzuYgci8NaiwCnrxu7MNjK
+         GQJ928PpibrBFBa/8z9vXs+4UUjvU9WXE3d7Y9YsZUcGKaa7adyxO4gGcXfZNKkhqZmv
+         ovFWsL8y/kfrgd131HNdPk65rxGxcOHgovuU3bHzCJdgEgRWy9rR+7tOGoECrI3TGMEn
+         WpWOtuUHILSYHtCxVGs2I1tTOaocWkMFOhRUYbR0j7wcWmdTnZ8HzLVKcmqAQB28v//z
+         wlcw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=GXlGtQiQ;
-       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=elver@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-ot1-x342.google.com (mail-ot1-x342.google.com. [2607:f8b0:4864:20::342])
-        by gmr-mx.google.com with ESMTPS id n140si395643oig.0.2020.05.21.06.27.02
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 May 2020 06:27:02 -0700 (PDT)
-Received-SPF: pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::342 as permitted sender) client-ip=2607:f8b0:4864:20::342;
-Received: by mail-ot1-x342.google.com with SMTP id h7so5488189otr.3
-        for <clang-built-linux@googlegroups.com>; Thu, 21 May 2020 06:27:02 -0700 (PDT)
-X-Received: by 2002:a05:6830:18ce:: with SMTP id v14mr6550417ote.251.1590067622152;
- Thu, 21 May 2020 06:27:02 -0700 (PDT)
+       dkim=pass header.i=@kernel.org header.s=default header.b=GtKd6Mpi;
+       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id w66si406176qka.6.2020.05.21.06.31.56
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 21 May 2020 06:31:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from willie-the-truck (236.31.169.217.in-addr.arpa [217.169.31.236])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 8EBBB206BE;
+	Thu, 21 May 2020 13:31:53 +0000 (UTC)
+Date: Thu, 21 May 2020 14:31:50 +0100
+From: Will Deacon <will@kernel.org>
+To: Marco Elver <elver@google.com>
+Cc: paulmck@kernel.org, dvyukov@google.com, glider@google.com,
+	andreyknvl@google.com, kasan-dev@googlegroups.com,
+	linux-kernel@vger.kernel.org, tglx@linutronix.de, mingo@kernel.org,
+	peterz@infradead.org, clang-built-linux@googlegroups.com,
+	bp@alien8.de
+Subject: Re: [PATCH -tip v2 09/11] data_race: Avoid nested statement
+ expression
+Message-ID: <20200521133150.GB6608@willie-the-truck>
+References: <20200521110854.114437-1-elver@google.com>
+ <20200521110854.114437-10-elver@google.com>
 MIME-Version: 1.0
-References: <20200521110854.114437-1-elver@google.com> <20200521110854.114437-4-elver@google.com>
- <20200521131803.GA6608@willie-the-truck>
-In-Reply-To: <20200521131803.GA6608@willie-the-truck>
-From: "'Marco Elver' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 21 May 2020 15:26:48 +0200
-Message-ID: <CANpmjNNDRb+wokzagQtLRVvZrj-8eH87gOX1JwG9hWf+eicRNg@mail.gmail.com>
-Subject: Re: [PATCH -tip v2 03/11] kcsan: Support distinguishing volatile accesses
-To: Will Deacon <will@kernel.org>
-Cc: "Paul E. McKenney" <paulmck@kernel.org>, Dmitry Vyukov <dvyukov@google.com>, 
-	Alexander Potapenko <glider@google.com>, Andrey Konovalov <andreyknvl@google.com>, 
-	kasan-dev <kasan-dev@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Borislav Petkov <bp@alien8.de>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: elver@google.com
+Content-Disposition: inline
+In-Reply-To: <20200521110854.114437-10-elver@google.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: will@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=GXlGtQiQ;       spf=pass
- (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::342 as
- permitted sender) smtp.mailfrom=elver@google.com;       dmarc=pass (p=REJECT
- sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Marco Elver <elver@google.com>
-Reply-To: Marco Elver <elver@google.com>
+ header.i=@kernel.org header.s=default header.b=GtKd6Mpi;       spf=pass
+ (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=will@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,100 +136,46 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, 21 May 2020 at 15:18, Will Deacon <will@kernel.org> wrote:
->
-> On Thu, May 21, 2020 at 01:08:46PM +0200, Marco Elver wrote:
-> > In the kernel, volatile is used in various concurrent context, whether
-> > in low-level synchronization primitives or for legacy reasons. If
-> > supported by the compiler, we will assume that aligned volatile accesses
-> > up to sizeof(long long) (matching compiletime_assert_rwonce_type()) are
-> > atomic.
-> >
-> > Recent versions Clang [1] (GCC tentative [2]) can instrument volatile
-> > accesses differently. Add the option (required) to enable the
-> > instrumentation, and provide the necessary runtime functions. None of
-> > the updated compilers are widely available yet (Clang 11 will be the
-> > first release to support the feature).
-> >
-> > [1] https://github.com/llvm/llvm-project/commit/5a2c31116f412c3b6888be361137efd705e05814
-> > [2] https://gcc.gnu.org/pipermail/gcc-patches/2020-April/544452.html
-> >
-> > This patch allows removing any explicit checks in primitives such as
-> > READ_ONCE() and WRITE_ONCE().
-> >
-> > Signed-off-by: Marco Elver <elver@google.com>
-> > ---
-> > v2:
-> > * Reword Makefile comment.
-> > ---
-> >  kernel/kcsan/core.c    | 43 ++++++++++++++++++++++++++++++++++++++++++
-> >  scripts/Makefile.kcsan |  5 ++++-
-> >  2 files changed, 47 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/kernel/kcsan/core.c b/kernel/kcsan/core.c
-> > index a73a66cf79df..15f67949d11e 100644
-> > --- a/kernel/kcsan/core.c
-> > +++ b/kernel/kcsan/core.c
-> > @@ -789,6 +789,49 @@ void __tsan_write_range(void *ptr, size_t size)
-> >  }
-> >  EXPORT_SYMBOL(__tsan_write_range);
-> >
-> > +/*
-> > + * Use of explicit volatile is generally disallowed [1], however, volatile is
-> > + * still used in various concurrent context, whether in low-level
-> > + * synchronization primitives or for legacy reasons.
-> > + * [1] https://lwn.net/Articles/233479/
-> > + *
-> > + * We only consider volatile accesses atomic if they are aligned and would pass
-> > + * the size-check of compiletime_assert_rwonce_type().
-> > + */
-> > +#define DEFINE_TSAN_VOLATILE_READ_WRITE(size)                                  \
-> > +     void __tsan_volatile_read##size(void *ptr)                             \
-> > +     {                                                                      \
-> > +             const bool is_atomic = size <= sizeof(long long) &&            \
-> > +                                    IS_ALIGNED((unsigned long)ptr, size);   \
-> > +             if (IS_ENABLED(CONFIG_KCSAN_IGNORE_ATOMICS) && is_atomic)      \
-> > +                     return;                                                \
-> > +             check_access(ptr, size, is_atomic ? KCSAN_ACCESS_ATOMIC : 0);  \
-> > +     }                                                                      \
-> > +     EXPORT_SYMBOL(__tsan_volatile_read##size);                             \
-> > +     void __tsan_unaligned_volatile_read##size(void *ptr)                   \
-> > +             __alias(__tsan_volatile_read##size);                           \
-> > +     EXPORT_SYMBOL(__tsan_unaligned_volatile_read##size);                   \
-> > +     void __tsan_volatile_write##size(void *ptr)                            \
-> > +     {                                                                      \
-> > +             const bool is_atomic = size <= sizeof(long long) &&            \
-> > +                                    IS_ALIGNED((unsigned long)ptr, size);   \
-> > +             if (IS_ENABLED(CONFIG_KCSAN_IGNORE_ATOMICS) && is_atomic)      \
-> > +                     return;                                                \
-> > +             check_access(ptr, size,                                        \
-> > +                          KCSAN_ACCESS_WRITE |                              \
-> > +                                  (is_atomic ? KCSAN_ACCESS_ATOMIC : 0));   \
-> > +     }                                                                      \
-> > +     EXPORT_SYMBOL(__tsan_volatile_write##size);                            \
-> > +     void __tsan_unaligned_volatile_write##size(void *ptr)                  \
-> > +             __alias(__tsan_volatile_write##size);                          \
-> > +     EXPORT_SYMBOL(__tsan_unaligned_volatile_write##size)
-> > +
-> > +DEFINE_TSAN_VOLATILE_READ_WRITE(1);
-> > +DEFINE_TSAN_VOLATILE_READ_WRITE(2);
-> > +DEFINE_TSAN_VOLATILE_READ_WRITE(4);
-> > +DEFINE_TSAN_VOLATILE_READ_WRITE(8);
-> > +DEFINE_TSAN_VOLATILE_READ_WRITE(16);
->
-> Having a 16-byte case seems a bit weird to me, but I guess clang needs this
-> for some reason?
+On Thu, May 21, 2020 at 01:08:52PM +0200, Marco Elver wrote:
+> It appears that compilers have trouble with nested statements
+> expressions, as such make the data_race() macro be only a single
+> statement expression. This will help us avoid potential problems in
+> future as its usage increases.
+> 
+> Link: https://lkml.kernel.org/r/20200520221712.GA21166@zn.tnic
+> Signed-off-by: Marco Elver <elver@google.com>
+> ---
+> v2:
+> * Add patch to series in response to above linked discussion.
+> ---
+>  include/linux/compiler.h | 9 ++++-----
+>  1 file changed, 4 insertions(+), 5 deletions(-)
+> 
+> diff --git a/include/linux/compiler.h b/include/linux/compiler.h
+> index 7444f026eead..1f9bd9f35368 100644
+> --- a/include/linux/compiler.h
+> +++ b/include/linux/compiler.h
+> @@ -211,12 +211,11 @@ void ftrace_likely_update(struct ftrace_likely_data *f, int val,
+>   */
+>  #define data_race(expr)							\
+>  ({									\
+> +	__unqual_scalar_typeof(({ expr; })) __v;			\
+>  	__kcsan_disable_current();					\
+> -	({								\
+> -		__unqual_scalar_typeof(({ expr; })) __v = ({ expr; });	\
+> -		__kcsan_enable_current();				\
+> -		__v;							\
+> -	});								\
+> +	__v = ({ expr; });						\
+> +	__kcsan_enable_current();					\
+> +	__v;								\
 
-Yes, the emitted fixed-size instrumentation is up to 16 bytes, so
-we'll need it (for both volatile and non-volatile -- otherwise we'll
-get linker errors). It doesn't mean we'll consider 16 byte volatile
-accesses as atomic, because of the size check to compute is_atomic
-above.
+Hopefully it doesn't matter, but this will run into issues with 'const'
+non-scalar expressions.
 
-Thanks,
--- Marco
+Will
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANpmjNNDRb%2BwokzagQtLRVvZrj-8eH87gOX1JwG9hWf%2BeicRNg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200521133150.GB6608%40willie-the-truck.
