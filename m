@@ -1,127 +1,143 @@
-Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBJ7TT33AKGQECINOESQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBGH4T33AKGQEHMEOSEI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
-	by mail.lfdr.de (Postfix) with ESMTPS id B51871DE5AA
-	for <lists+clang-built-linux@lfdr.de>; Fri, 22 May 2020 13:38:16 +0200 (CEST)
-Received: by mail-pl1-x63d.google.com with SMTP id y17sf7639179plb.7
-        for <lists+clang-built-linux@lfdr.de>; Fri, 22 May 2020 04:38:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1590147495; cv=pass;
+Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
+	by mail.lfdr.de (Postfix) with ESMTPS id D7A4A1DE5F3
+	for <lists+clang-built-linux@lfdr.de>; Fri, 22 May 2020 13:57:13 +0200 (CEST)
+Received: by mail-pf1-x43f.google.com with SMTP id p21sf7984794pfn.14
+        for <lists+clang-built-linux@lfdr.de>; Fri, 22 May 2020 04:57:13 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1590148632; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sSeQc/TtT6dSX+56wyJoFRSiyyf/VnCvHND0V998mp0bTZS9n23C9qX2Vh5N1AqtNK
-         1TQiRNdugIjPkfX8RxRAADf26pCSmSrYz+m0yaJxFYl/er3F+hloTca1uSSmxITZf5s3
-         8zSCAvtHv7ZZW29oDMiWODWk0dzdVkHtBwGezqucWzo0WEuyjbg6EemBeArRBW/QC8Bw
-         9o3jB9q/4bgmOkXG0jIScz8ELo69/2Aj/g3bjpJKv1UcWq74v/7kBh5JCI85kjnCUGqD
-         +RVgB6KpLiS8YCIc/oAO+2JlMmF8fu9qP08wD6Bbq14/1/R82ReeYODTit9QMn8FlOQU
-         eaXA==
+        b=T54sffvy3QNqPo70Js4oj/VdWDuEqR6ubVOYG+e3y6IWN3R5wqD468AjI6gBcCvyiV
+         qtDJ+6dUmaNphIuqLpJAGV/cnfSNbHeOTJPMY0wYAEIHb18zDF7qaq/K45ooUcLFEFet
+         SmhLO0+jd/niUO5rMgQ+VUstQCmp20MkXjiHZchBqPaCfU9lVTHvxoZO9SXcobjtVtes
+         ++vPNadUb2d4LuNFxPjOcL9r5wi3am2bVhxE46U+d95xHo44j4o4GTYHbQDU3RPDJdYU
+         njOkTNX9639uRrV6tozaZanJkxGd019d2oyu668gmZZyctuO7DJy4VRHWYdeA2JLpbYH
+         aUcg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=cki4VtRORplKPCmUu/hNjCwRh57gh5oaCQciMtBdYRQ=;
-        b=ebGvaDaTGwX2Hg+yn2cP4y0WMITyS7sLnR02EgC/vvqH9ValmaL5a4eFMTUmT/khnk
-         bfcNsPyj40ZkJzIa0OOxKtTAU45rhZ9mAP9eVRh+pb7dWfAxROa9Vntm+VnAZg477CVc
-         YCVCBEo8pzs7ywchaaG0xfdkbVPz0mAIKOPvRat/9zQPLOUKuuVnWQ37MCSMgdHOBx1c
-         O1sJDZKUDkF+Vyz1XsGMeJmBqkoizs+Ed4GAKQ9CsDwF846KaxFT+SiKRos+zlquEFhR
-         xZWazfy13p+shzXWi3O7qDmXi1LNSmqUCa47ANmdUCtZkMJICZp18o9ogr8iCi8BeAlb
-         Tt+w==
+        bh=cM4DvjskBk3OD+y28N83RpMQe6hzACLY0kSMO7FifrI=;
+        b=mkkAjPA6N6QgDsvXt5y1KgM0FhyI3HYZzJlUOQ5sCCJNW3pUbj6MWTVemHEtHM40QN
+         +0gPTNsrX+e4/ee3pabEcftg0Bh6FoD8LxiJYOdG3gxH4k1CaYYz+AEn7B42Trloak8O
+         wP1KGdTqo3WK4ov21Q1Q9OxqKPBgMLacG8DzTFScs7LchM40g7jn9bhf/xUIvMLTIFFg
+         mUEYRcX4Cb2LWgdhNgo1FQI+BEprl+W9k0cs3SE59RT2GRpL9nAcEkDc5WDtJkJd0jfV
+         EOU2VwGD2kwRTT0XUcsTZls9qnTMoIcWxkU+2l2y17jN63jIvlqR+n+cHpC3kRyWsbSw
+         LNXA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=d6QGp6Xm;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 205.233.59.134 as permitted sender) smtp.mailfrom=peterz@infradead.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=kT0kNKEy;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d41 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:mime-version:references:in-reply-to:reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=cki4VtRORplKPCmUu/hNjCwRh57gh5oaCQciMtBdYRQ=;
-        b=MKpCIn2IWsRwPrFATcMB8r++ZuIrjjm0RqwnkjXAhfcglNC4BMMjI3etOZj9W44yZX
-         IgKMXmq3EUZoABIcQ4cY31WG9M3Jw11SnoceSOqSa8FXGVsmYkcZZsXMu9xPjDpWB/TM
-         4wYbjOZ0EofR8t6GP2cdJ4NisfWmriKLlNOixP6qNxW6SU+KyDD6oii45AvfjHi48eY4
-         H0lA8i/bK71HZeMurU90sTZVP29YJj5rFc7p/aLkwiYy4qPYvLU/USSu/wJcE0XKTUY1
-         Qsc1hm//rXaPuj0iEcmr6BVblE+uOHjROawxBQ8V+iKFwgki+styfsVGqQ2brdn3+UHR
-         YLDg==
+        bh=cM4DvjskBk3OD+y28N83RpMQe6hzACLY0kSMO7FifrI=;
+        b=BS9rHHECc/+9QLN5Hi3krmrYfnosh7iYr4a0hh9fQ8k2FhD5SbxPDOLSuZS11aIC0j
+         z8gJpLw7HE5g+UGJ7UPOYzmUpcNBjyOzjjOSBwOjxPDeF3/v12dR/XpwnGpJs9o9FJgT
+         zS5yEZKqHYSlEcMNI3gxzZfTe9vIZja8aInrL/2jrostHIjggbZCzkntK4RZvMEzZ7x4
+         FXOyeRDkX+zV28ClzXr5dWWG6pQnuTlgmgb+4DVEB4RazBS5y4ZDgpHBNaYv498tvkZ8
+         ffptRmULWRIkes1R3oYJzd0EnUYV5eKqJbtH4wNLv4ZsQihNb4VN2DBjc5xeJiphckKN
+         8IRw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=cM4DvjskBk3OD+y28N83RpMQe6hzACLY0kSMO7FifrI=;
+        b=Z7ux/BmHtL4uuB029sSgkTZ1uFArGFwxQTZs+B/sddcIGUEH+4Xsd5wQW1gVbuw9fb
+         pY0MQAq0Ml6SNtZ288kX5QhfLgCtF6zLGSRyPHQtG/prxrzTZ6vxiEmMcUoL2MxZWn5G
+         KMOt96dERiBYi203Y2ny9T6VEjtROG2pHV31+xAVif7b+9jNkk5t6+KuYGu2w8oicS9V
+         ECHFLM79Fxv+rI2x31sDJn+bGFWMLbaaIc8fFf9LzqEs52Pg1aqpfjQD119b94Z93Jmh
+         QVPoVC8KhBwxWHDKJzalFT+Ul298NAmHUKZX0BLy2HhZpqsXTNHdsB4A8LY0nZ9kvySL
+         bs+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=cki4VtRORplKPCmUu/hNjCwRh57gh5oaCQciMtBdYRQ=;
-        b=XTgKmWgsah7cS3ts65D6cGlje6T9Joz4UlQgtqzLupTvkw1soGYWlNnJ3AlWJ6vA0U
-         HQsDsDVUxn4i/Gmye5ncEPHtyNJHFfBv+ZWjs492IVV3H/ML1d05/d0Ae2dUV87wqq04
-         X+hQ9a/1L0+K9P36RDDGOr9bB/vzPgNjxXynP4R6se75jSnt5tf50ToTqVJwl3/125XW
-         /T/4BthIOajBkKUl4vzYaK+DuTo4bTiuJc6qe2a0gg+yvwUg25X8brOHzzpjJ3h+RPaj
-         qyhWfT96wUPPJ8Ouje+awb4YzMUq94b96MWMOannpWI6skm++SZZozlTrhVabXVTRtcV
-         PEEA==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to
+         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=cM4DvjskBk3OD+y28N83RpMQe6hzACLY0kSMO7FifrI=;
+        b=fH6tt8wbsFaYO5yg56Dm0baBZi95wY01EnESh9SEziPxAdqJiBAg/sPYyDLHWCnspo
+         W4UY2b6W6v4Tz0UwseIgPUU3ZkoTtJGK0u0KTEnGweGcNT/cf2uTaqaBWcPXB3zs41jN
+         8sxFiMJBZXJZ0HwUPKixGySdV8o8dq2MlE881xrdqMhp0u6ggU1WlV+bZ76AbfcuYP0x
+         GGPdWNX0+dlAfKcQrmZlrsN6WjOtbH9sF16M9frVcS5BASXD3Llhd7PwUpYfHOK4kmEI
+         RbFA0kSy32Uf896MUAC/aga1TEKxQncQJw57VkW5AsVrVUzURiTKHeyFkSUJ8BHmF/XL
+         MPjg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530Cr0P3ajmplsCX7liGN+7LJE9G8NWD0PhuXlA5Tt/Wk2Nbg61W
-	6TEAn/tVdqri2Bz4GzBDR5k=
-X-Google-Smtp-Source: ABdhPJxyTguWaJ9fDBrHC9CzngVq1XrNlvSfbQpOSzUiM+O57faKTCSUc0UtQVt4fStBlr+yulv7bQ==
-X-Received: by 2002:a17:902:ea8a:: with SMTP id x10mr14408129plb.220.1590147495450;
-        Fri, 22 May 2020 04:38:15 -0700 (PDT)
+X-Gm-Message-State: AOAM531RoYefgbIbA3va4b/oHSShLayv69x+vp7dLjvLJBXQSEKe/nli
+	Osx32wwYH7yiIoLA+RjJBh4=
+X-Google-Smtp-Source: ABdhPJzkl4UJYQYlRuPwNj60mRNL7ZiQWjaMbli3G6rdL/PXmdB/BjYDW1ENaUH+YUZjZO4rFXrHNw==
+X-Received: by 2002:a63:4462:: with SMTP id t34mr13069200pgk.332.1590148632350;
+        Fri, 22 May 2020 04:57:12 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:384c:: with SMTP id nl12ls640023pjb.2.canary-gmail;
- Fri, 22 May 2020 04:38:15 -0700 (PDT)
-X-Received: by 2002:a17:902:694b:: with SMTP id k11mr14971391plt.59.1590147495068;
-        Fri, 22 May 2020 04:38:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1590147495; cv=none;
+Received: by 2002:a17:902:d713:: with SMTP id w19ls531393ply.9.gmail; Fri, 22
+ May 2020 04:57:11 -0700 (PDT)
+X-Received: by 2002:a17:90a:db0f:: with SMTP id g15mr4278403pjv.8.1590148631836;
+        Fri, 22 May 2020 04:57:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1590148631; cv=none;
         d=google.com; s=arc-20160816;
-        b=PYtXA4dqRTCzPoYJnom0bxzjXXroo4AOHZMz+Nl3TSR/vGMoIILAG7m1qdAtHURI5x
-         0Q5ApaHvwaFFDZsvYiuFtaurCGQJsyQzh/XFIlet7ssJdKHfazR2qcgsQ4dBvytWUEKO
-         OQaZLCNRrDWMW/j01MV+6gHA9LqLSeOsY4sXJ/QB6dLNC/6++lJcxEAnIc0mtFImUXaZ
-         LtigY/anXmSor+r0xHayn0Zx0Qj/NwR5w5oA32tv4DByZMtXwZCpdhl+j/dcTdCiLxwY
-         emW/xUfqZwRzhZRK9o+8iUlzdfj1JNv9+qbGQfpOq3tidNgPtqSomfWYAoPs3EkHKyX6
-         sidg==
+        b=iG5/BSqSW0CzjlT/QmVBbQDiy7h9LMEG76wN+0N8jAm0Y63HAxsIZMVmJM6K70JYZ9
+         UaNd1zRn3DYYPnJPjsYhla9DfeufP/cC29H+I5XYWzg91pyoeRlCHZM4MVrgEaubj4Xf
+         L7TYIRh+AF6NuhIKm/DyzJ4qmD4B9J4diHJkutL7z8jO6dNDPO4jjGAsViIsLWqn0j3e
+         YymR9TCcKfH2JfQszqx1BaB2P8ZJzkAILJPBkZSqpequVeNG45xtEfoBS6+6IhkHCsk+
+         Xb142bsVQZxgnnLhPiCMvNRasHzEEKc9IxDBsaIv2ypRwbxC0XQ3BGYFheF+65IlXpap
+         FgNw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=XH1Yj5aOcR07TnTGoIfuiVoH/MNimUictOSMhtQ2KiY=;
-        b=MhJiVJ000jnlJgGNIVY5d4/mvDXWGJ5xi54MzC/GT497ahOkK2yA1VfuRiQ4usV6jv
-         Nb8p5WZ73Z5SO0nKdB5EkcAmPNR7+186ZohTS0fYljE3AJax7wMWMWoCmNwXxNxSOmZT
-         3HCcMI8hbiioo2KCV/SkCWqzN9O+S3wqoTIel7l6sRy/8EkgmqfA5hrXeBLBiNntlCuy
-         gjAidnbZvcm1jWBhIZ5D0TZDd+uTsagoWCzSMS0DtvjUvwzA40AayvnkOFd7OOXfyB7P
-         MFCptB7kIQTDRuKjphWtq5/X+cnI4zH5FwHCC55mNV5A1Dk43iOCoZyGNgZsdis4djRJ
-         RRmg==
+        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=vVgEQoaZGULeKq6mOVsxabUK+ok8IXX8M0Wjc4JGWnw=;
+        b=kpzTJufzumDdZSj1f0qEQ9PLRkcNUNQjzibU7UlQrntGZ/iiiUP2dA/ZzmBERzpS7m
+         SWqrEHL1G5BLQf6hCfg3Ee3vtJaEa4o1rGfz9C/fWsXB2JiwWILjSk4KBmxoVcEafxeJ
+         0woQ7u6hXD7RBUUHfrNFWRdf6Mkm5+tyrhj0TcsD4rTu7v7Ms9FHNQFWKh8NnG0qejB+
+         b00OjxRDEUQIdB5rtl7LG1OYN3/gh3GLpql9LvfE4IMgWpoXsIZM6fQo2zbPy0+lF95E
+         6rj0oIY7z0D4TRGpur3yxrJN+BfBdZ5oyG/gmLvyMR75Nf4hiwMIyKSacDI8lRl0yY4x
+         U4yg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=d6QGp6Xm;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 205.233.59.134 as permitted sender) smtp.mailfrom=peterz@infradead.org
-Received: from merlin.infradead.org (merlin.infradead.org. [205.233.59.134])
-        by gmr-mx.google.com with ESMTPS id c15si996994pjv.1.2020.05.22.04.38.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2020 04:38:15 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 205.233.59.134 as permitted sender) client-ip=205.233.59.134;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
-	by merlin.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jc5xy-0007dX-JN; Fri, 22 May 2020 11:35:55 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 2D6EE300478;
-	Fri, 22 May 2020 13:35:53 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id F2D12201479A0; Fri, 22 May 2020 13:35:47 +0200 (CEST)
-Date: Fri, 22 May 2020 13:35:47 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Marco Elver <elver@google.com>
-Cc: paulmck@kernel.org, dvyukov@google.com, glider@google.com,
-	andreyknvl@google.com, kasan-dev@googlegroups.com,
-	linux-kernel@vger.kernel.org, tglx@linutronix.de, mingo@kernel.org,
-	will@kernel.org, clang-built-linux@googlegroups.com, bp@alien8.de
-Subject: Re: [PATCH -tip v3 00/11] Fix KCSAN for new ONCE (require Clang 11)
-Message-ID: <20200522113547.GL325280@hirez.programming.kicks-ass.net>
-References: <20200521142047.169334-1-elver@google.com>
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=kT0kNKEy;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d41 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-io1-xd41.google.com (mail-io1-xd41.google.com. [2607:f8b0:4864:20::d41])
+        by gmr-mx.google.com with ESMTPS id lt18si755797pjb.0.2020.05.22.04.57.11
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 22 May 2020 04:57:11 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d41 as permitted sender) client-ip=2607:f8b0:4864:20::d41;
+Received: by mail-io1-xd41.google.com with SMTP id r2so719927ioo.4
+        for <clang-built-linux@googlegroups.com>; Fri, 22 May 2020 04:57:11 -0700 (PDT)
+X-Received: by 2002:a05:6602:2c45:: with SMTP id x5mr2690450iov.80.1590148631440;
+ Fri, 22 May 2020 04:57:11 -0700 (PDT)
 MIME-Version: 1.0
+References: <CAKwvOd=jOr4ZaLx-dSNTqZnGRATY1PZktUfu4JGWKRwRH=Ujnw@mail.gmail.com>
+ <20200521220041.87368-1-ndesaulniers@google.com>
+In-Reply-To: <20200521220041.87368-1-ndesaulniers@google.com>
+Reply-To: sedat.dilek@gmail.com
+From: Sedat Dilek <sedat.dilek@gmail.com>
+Date: Fri, 22 May 2020 13:56:59 +0200
+Message-ID: <CA+icZUWGB8bp1UZHQpB_W8YL7SeN23h5V9NTq-p3jeUqO4MK+w@mail.gmail.com>
+Subject: Re: [PATCH v3] Makefile: support compressed debug info
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Masahiro Yamada <masahiroy@kernel.org>, Fangrui Song <maskray@google.com>, 
+	Nick Clifton <nickc@redhat.com>, David Blaikie <blaikie@google.com>, 
+	Michal Marek <michal.lkml@markovi.net>, Andrew Morton <akpm@linux-foundation.org>, 
+	Changbin Du <changbin.du@intel.com>, Randy Dunlap <rdunlap@infradead.org>, 
+	Stephen Rothwell <sfr@canb.auug.org.au>, Anshuman Khandual <anshuman.khandual@arm.com>, 
+	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200521142047.169334-1-elver@google.com>
-X-Original-Sender: peterz@infradead.org
+X-Original-Sender: sedat.dilek@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=merlin.20170209 header.b=d6QGp6Xm;
-       spf=pass (google.com: best guess record for domain of
- peterz@infradead.org designates 205.233.59.134 as permitted sender) smtp.mailfrom=peterz@infradead.org
+ header.i=@gmail.com header.s=20161025 header.b=kT0kNKEy;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d41
+ as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,37 +150,138 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, May 21, 2020 at 04:20:36PM +0200, Marco Elver wrote:
-> Arnd Bergmann (1):
->   ubsan, kcsan: don't combine sanitizer with kcov on clang
-> 
-> Marco Elver (10):
->   kcsan: Avoid inserting __tsan_func_entry/exit if possible
->   kcsan: Support distinguishing volatile accesses
->   kcsan: Pass option tsan-instrument-read-before-write to Clang
->   kcsan: Remove 'noinline' from __no_kcsan_or_inline
->   kcsan: Restrict supported compilers
->   kcsan: Update Documentation to change supported compilers
->   READ_ONCE, WRITE_ONCE: Remove data_race() and unnecessary checks
->   data_race: Avoid nested statement expression
->   compiler.h: Move function attributes to compiler_types.h
->   compiler_types.h, kasan: Use __SANITIZE_ADDRESS__ instead of
->     CONFIG_KASAN to decide inlining
-> 
->  Documentation/dev-tools/kcsan.rst |  9 +-----
->  include/linux/compiler.h          | 54 ++++---------------------------
->  include/linux/compiler_types.h    | 32 ++++++++++++++++++
->  kernel/kcsan/core.c               | 43 ++++++++++++++++++++++++
->  lib/Kconfig.kcsan                 | 20 +++++++++++-
->  lib/Kconfig.ubsan                 | 11 +++++++
->  scripts/Makefile.kcsan            | 15 ++++++++-
->  7 files changed, 127 insertions(+), 57 deletions(-)
+On Fri, May 22, 2020 at 12:00 AM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
+>
+> As debug information gets larger and larger, it helps significantly save
+> the size of vmlinux images to compress the information in the debug
+> information sections. Note: this debug info is typically split off from
+> the final compressed kernel image, which is why vmlinux is what's used
+> in conjunction with GDB. Minimizing the debug info size should have no
+> impact on boot times, or final compressed kernel image size.
+>
+> All of the debug sections will have a `C` flag set.
+> $ readelf -S <object file>
+>
+> $ bloaty vmlinux.gcc75.compressed.dwarf4 -- \
+>     vmlinux.gcc75.uncompressed.dwarf4
+>
+>     FILE SIZE        VM SIZE
+>  --------------  --------------
+>   +0.0%     +18  [ = ]       0    [Unmapped]
+>  -73.3%  -114Ki  [ = ]       0    .debug_aranges
+>  -76.2% -2.01Mi  [ = ]       0    .debug_frame
+>  -73.6% -2.89Mi  [ = ]       0    .debug_str
+>  -80.7% -4.66Mi  [ = ]       0    .debug_abbrev
+>  -82.9% -4.88Mi  [ = ]       0    .debug_ranges
+>  -70.5% -9.04Mi  [ = ]       0    .debug_line
+>  -79.3% -10.9Mi  [ = ]       0    .debug_loc
+>  -39.5% -88.6Mi  [ = ]       0    .debug_info
+>  -18.2%  -123Mi  [ = ]       0    TOTAL
+>
+> $ bloaty vmlinux.clang11.compressed.dwarf4 -- \
+>     vmlinux.clang11.uncompressed.dwarf4
+>
+>     FILE SIZE        VM SIZE
+>  --------------  --------------
+>   +0.0%     +23  [ = ]       0    [Unmapped]
+>  -65.6%    -871  [ = ]       0    .debug_aranges
+>  -77.4% -1.84Mi  [ = ]       0    .debug_frame
+>  -82.9% -2.33Mi  [ = ]       0    .debug_abbrev
+>  -73.1% -2.43Mi  [ = ]       0    .debug_str
+>  -84.8% -3.07Mi  [ = ]       0    .debug_ranges
+>  -65.9% -8.62Mi  [ = ]       0    .debug_line
+>  -86.2% -40.0Mi  [ = ]       0    .debug_loc
+>  -42.0% -64.1Mi  [ = ]       0    .debug_info
+>  -22.1%  -122Mi  [ = ]       0    TOTAL
+>
+> For x86_64 defconfig + LLVM=1 (before):
+> Elapsed (wall clock) time (h:mm:ss or m:ss): 3:22.03
+> Maximum resident set size (kbytes): 43856
+>
+> For x86_64 defconfig + LLVM=1 (after):
+> Elapsed (wall clock) time (h:mm:ss or m:ss): 3:32.52
+> Maximum resident set size (kbytes): 1566776
+>
+> Suggested-by: David Blaikie <blaikie@google.com>
+> Suggested-by: Nick Clifton <nickc@redhat.com>
+> Suggested-by: Sedat Dilek <sedat.dilek@gmail.com>
+> Reviewed-by: Fangrui Song <maskray@google.com>
+> Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
 
-LTGM
+Re-tested V3 on top of Linux v5.7-rc6+ with Clang/LLD v10.0.1-rc1.
 
-Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+- Sedat -
+
+> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+> ---
+> Changes V2 -> V3:
+> * Fix blaikie@'s email addr.
+> * Fix Fangrui's Reviewed-by tag as per Masahiro.
+> * Fix help text as per Masahiro.
+> * Fix -Wa$(comma)foo as per Masahiro.
+>
+> Changes V1 -> V2:
+> * rebase on linux-next.
+> * Add assembler flags as per Fangrui.
+> * Add note about KDEB_COMPRESS+scripts/package/builddeb
+>   as per Sedat and Masahiro.
+> * Add note about bintutils version requirements as per Nick C.
+> * Add note about measured increased build time and max RSS.
+>  Makefile          |  6 ++++++
+>  lib/Kconfig.debug | 17 +++++++++++++++++
+>  2 files changed, 23 insertions(+)
+>
+> diff --git a/Makefile b/Makefile
+> index 71687bfe1cd9..be8835296754 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -822,6 +822,12 @@ DEBUG_CFLAGS       += $(call cc-option, -femit-struct-debug-baseonly) \
+>                    $(call cc-option,-fno-var-tracking)
+>  endif
+>
+> +ifdef CONFIG_DEBUG_INFO_COMPRESSED
+> +DEBUG_CFLAGS   += -gz=zlib
+> +KBUILD_AFLAGS  += -Wa,--compress-debug-sections=zlib
+> +KBUILD_LDFLAGS += --compress-debug-sections=zlib
+> +endif
+> +
+>  KBUILD_CFLAGS += $(DEBUG_CFLAGS)
+>  export DEBUG_CFLAGS
+>
+> diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+> index b8f023e054b9..7fc82dcf814b 100644
+> --- a/lib/Kconfig.debug
+> +++ b/lib/Kconfig.debug
+> @@ -225,6 +225,23 @@ config DEBUG_INFO_REDUCED
+>           DEBUG_INFO build and compile times are reduced too.
+>           Only works with newer gcc versions.
+>
+> +config DEBUG_INFO_COMPRESSED
+> +       bool "Compressed debugging information"
+> +       depends on DEBUG_INFO
+> +       depends on $(cc-option,-gz=zlib)
+> +       depends on $(as-option,-Wa$(comma)--compress-debug-sections=zlib)
+> +       depends on $(ld-option,--compress-debug-sections=zlib)
+> +       help
+> +         Compress the debug information using zlib.  Requires GCC 5.0+ or Clang
+> +         5.0+, binutils 2.26+, and zlib.
+> +
+> +         Users of dpkg-deb via scripts/package/builddeb may find an increase in
+> +         size of their debug .deb packages with this config set, due to the
+> +         debug info being compressed with zlib, then the object files being
+> +         recompressed with a different compression scheme. But this is still
+> +         preferable to setting $KDEB_COMPRESS to "none" which would be even
+> +         larger.
+> +
+>  config DEBUG_INFO_SPLIT
+>         bool "Produce split debuginfo in .dwo files"
+>         depends on DEBUG_INFO
+> --
+> 2.27.0.rc0.183.gde8f92d652-goog
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200522113547.GL325280%40hirez.programming.kicks-ass.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUWGB8bp1UZHQpB_W8YL7SeN23h5V9NTq-p3jeUqO4MK%2Bw%40mail.gmail.com.
