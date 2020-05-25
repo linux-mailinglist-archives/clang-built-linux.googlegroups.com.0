@@ -1,124 +1,132 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBUUEVX3AKGQEYP6KKCY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD63HSEZTUIBBWGCVX3AKGQEAKB336A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x539.google.com (mail-ed1-x539.google.com [IPv6:2a00:1450:4864:20::539])
-	by mail.lfdr.de (Postfix) with ESMTPS id 86D6F1E05B2
-	for <lists+clang-built-linux@lfdr.de>; Mon, 25 May 2020 05:58:10 +0200 (CEST)
-Received: by mail-ed1-x539.google.com with SMTP id dk23sf6898161edb.15
-        for <lists+clang-built-linux@lfdr.de>; Sun, 24 May 2020 20:58:10 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1590379090; cv=pass;
+Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id EACD81E06A9
+	for <lists+clang-built-linux@lfdr.de>; Mon, 25 May 2020 08:10:33 +0200 (CEST)
+Received: by mail-yb1-xb3a.google.com with SMTP id e14sf16497794ybh.16
+        for <lists+clang-built-linux@lfdr.de>; Sun, 24 May 2020 23:10:33 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1590387033; cv=pass;
         d=google.com; s=arc-20160816;
-        b=jwMU5VNyhEH5ciUWEHleWHcsEycpxHUZDorODI62Ehl6BCXRFhbgXmXGGnD8Ybpkpi
-         SNAOmHO8X92ZEsBuVJqrlcpLgXmd5H2i2Ur8K/jF4CjCB6SPnzlGXQTzL9On1jndqDn3
-         POlYIvJ+Vyblva7OiGDYXPYFAXNoaYBvYYbVa2SlW7lpRBNFN3tKwbkW+0jjkVXumubz
-         ELhRyp6EN8Bh1RvcP/2EUsrbcDYm3JU/x1f9OqD8VIleu2lSSyFux3Frd5+L0IOFPUUw
-         VlGZzWu/eDvSFQrb9jimCRBnasmw4ljJJGoaoSWdx8WcYfvVtFhba5AOOx5EiZZu1glj
-         kADw==
+        b=xS8wDDlyOa5xRtsff1FywC6Qyjs+q0fHFt0KXCyvEfiefJtD3PdcYY7rCmH7JEpdb2
+         8I0Csl9Ivc3jf/z0OTnyTrEoScJDdCTIcdoo47FwDTPHybmm75Z19SmBlBfzi5gO2Iyw
+         UMEX4NZcc+aB90Ki9NgcCreeqHtQm759piqte94Nw1Q1uUU8ujCxZTVxi5BK3blvOybZ
+         j6U2kH027x3o8VTGgjvABMVbzbC2SVVfd9cEzMXxW6NAIr5qzhPraCJLwgtwjzgtC9rx
+         lSgfkj2QJNxSY1fBxLAx0kTn6/fjEU+Z6jwgIZCoZsCZGM6I6/SJSU6RaX2biuozwENB
+         UUwA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=ursbQ9z6L0uf2AuLaZ7zk+ieWJkZLMepvLagVaIX1vU=;
-        b=zfwlv7NTmnstRTvrFGzIDUhHtSVq27dPLoajrj6wLsacnN9uS2kMVdsl0tOwY2pyLg
-         NGv8eTwN3Vr0oDbTYkTXeuU/QLuoGUJE/ZjwMy6YLF3DZ61QTbhtblmbWHXABOnLjEJR
-         +dG4oK6r/5V9SqVOZfmM7L3xLH3QQfn2NYBFuPfURGheHIDWzgrVweR6Mrj70wg8/ruA
-         iY4RObfxzZfla0/So4hi9nkgyx6ay3JVqScFY/rGqritdCCsYKR6YSAnyy+Xy26PKa5Y
-         veVJKAg6RKcyYkMYPEr6VKda8S1fa/ZFHXZvQZMrykKFb3fXMeI1jpNyjpYUgWZU0lOF
-         EIPQ==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=Imc9PfDvNxDlZeNXfvovq26ho6jLZ+SZRrLihot/Xm0=;
+        b=S10DKlDnKSHyoaLR2vTUQc53sUYwV5Emy2BbuvV51Cu9X293OJrx3exwA4CD5gLfId
+         4y08ybm3KLaTOEq7G1gdFf+74lj/78bkg+me5GGhsuT5Fwhdc6F9FUDzohLuJa5LtW4J
+         mAr2vQVVSHH+SiE5v7DYcj7SKwqXuP3l7k2cvU6E9QtMwDQkLbQOymNN2UH9YjuHqsRd
+         Os3V+UCVZZWBar3WLbxEHfCavRzBGrmtgSakW2sR24Ogab+nVX7hp/zevA+NCBLb1ge7
+         dTuhx2Y012bAlB1DlamOzeegd+PMTKMGqtritMTEjrUqMVl7zxUv+eoAGgAOIu5nf4Xb
+         nvmA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=Gmu9wONV;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@kernel.org header.s=default header.b=KEedDt7h;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ursbQ9z6L0uf2AuLaZ7zk+ieWJkZLMepvLagVaIX1vU=;
-        b=BnMmKwd91KDjsSYuKUIPDUyhP4Gr+OafMvFZx6S9lkIslxA/XTGRgZdbWHOHW6wJtx
-         ahpKQAGwyfZCzpMU7amBHp9xezel/5MvGD4f/7tiB/jLHXw5Pl34djCmiff9OsNvJUem
-         YwbrrkdzSHiBfvq03bIQNfL09zdgFdHjfd5+5pxTnBJOaGgUQOXxen7TbfLhtn6TN6p+
-         /xK4WsyWkAy0zgrldzcVtFop4CsXkmWjAcrgw0AT6aYnQTIjGQYVV//lQg3iwhCRQOck
-         n6cg/pTU2V3nB3og6jLkA2TrbO7j1N0MEi+Qi1enkwgnNKvuyUhGowahXmzedXw/IypM
-         hUMQ==
+        bh=Imc9PfDvNxDlZeNXfvovq26ho6jLZ+SZRrLihot/Xm0=;
+        b=Uj/dN7UHct6RfRCaljN8tVB+LCqSUc5AIogZQ9iT2mJz6FntJRTP9PqsHHTNrivU+l
+         bFfEVYIDw2Dam7Kcn9/p2axHGyxcRri+sjaFoHd6qBP4/En0gVrClccStiKnOUvq4gLl
+         M/ifouHdakbuV2h4F7kOfpTXkt7IxBVHZa7uYw4DxPq1OxrrYZe6622gZ6Tj/ssDPsJ7
+         5MdrYTaQ0tbOKC0Q92I0jyMPDd+3U9jKof7DCug3s//7ToUYISuJ1l2nIKpB8cSUKFYQ
+         crXqPQMZwv0f8G6YCpY3BRSXCDMNDWPICesgnSYbBIBZGlW37bh/ueBymc1MrUxuOHMW
+         ugtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ursbQ9z6L0uf2AuLaZ7zk+ieWJkZLMepvLagVaIX1vU=;
-        b=ssFLdmckH1MvfEv1DzC1rHNhuA+Lm02YkyfxJ22TFoiPwRDHQYfucENl75a5xnNn5L
-         VhF2s7l3L7/q8iqsrMoJTu1nfFBEoScYPbC68rudkhYTtt+VikwGGbfbUcL0TRY0gOBY
-         Kx+Sc2cTAv0StuaOPnar/WGAFd4h8fc3/Eav/GDk0YYHaMQ3vjqV+9LrMdXQu5usVMVS
-         Ip4yHfqoEue3VT2B3I7C//r2dzQnBcUagMN55/gHifjg8VsPgMQBXKc1ZHjRRgyWkyka
-         rpWAjt00wZmHe3hjQVoQCrrqm39nMBzch+FSknT39N0g8lp/GAtIVEkxclnOYA/pvwCc
-         jaug==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Imc9PfDvNxDlZeNXfvovq26ho6jLZ+SZRrLihot/Xm0=;
+        b=FLsM4JUxQb1qHiXCOzAKdT03Y0bxFRsB36JuqQ/U8M1jG9WLm6/T8X0ohWPNEFZDrn
+         lWcZMK58a8RHf4PoSzc1MQxSSwemYw5dIyYs+93C9PleYr6OVCbJOl2H0CUvmnAiNNy/
+         ftTDcrZa93s043JB2Lhly4kt6yK0Nxxmx9eqPM4JFCzgVZTwtrzCVmLebZzUPyb9Gc7g
+         dUGLLaY50fyboyMQxUWR96B/M3BfyNmtmoGEbi7ew5lj0wyaa7Q7ppfo4io861ZMruJi
+         N/9ZZSUxTq51FLBr7y01Sj1eK8vVW5YOwGwEZASgRd4Z2uLS8/b0OaQEthQ7mR70TJhj
+         nz4Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533+uuQrVJNO2Vphe60K+oF8M9O7Km1ZJTJAs39MfaVk+Kb3jK2u
-	ccIiQ7JKesOBin3j+651940=
-X-Google-Smtp-Source: ABdhPJzipYqktKu/aFoUuJFl44+8EoFGeCe/MIEfFnqsxt+/oX1/ehl7lu+GM+1bJ+RGv+iEM7W9Gw==
-X-Received: by 2002:a17:906:57d6:: with SMTP id u22mr17193812ejr.49.1590379090203;
-        Sun, 24 May 2020 20:58:10 -0700 (PDT)
+X-Gm-Message-State: AOAM531bjnAGr99PEX3vrMJOkxwcu08DGjDTOkCik75g9KqPga3tSZb8
+	+HRpojPwGMwDf3cexSHgNFw=
+X-Google-Smtp-Source: ABdhPJxzbXmtnyUQyS7NeE7lctnejT5jcjKhvNTnGoovevmzlwH4iGMi8vGyK6Pfgbfzeeiak44s4A==
+X-Received: by 2002:a25:ccd4:: with SMTP id l203mr34381371ybf.108.1590387032815;
+        Sun, 24 May 2020 23:10:32 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:9508:: with SMTP id u8ls3316343ejx.8.gmail; Sun, 24
- May 2020 20:58:09 -0700 (PDT)
-X-Received: by 2002:a17:906:7b52:: with SMTP id n18mr17678620ejo.292.1590379089711;
-        Sun, 24 May 2020 20:58:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1590379089; cv=none;
+Received: by 2002:a25:cd43:: with SMTP id d64ls2769958ybf.6.gmail; Sun, 24 May
+ 2020 23:10:32 -0700 (PDT)
+X-Received: by 2002:a25:4ac9:: with SMTP id x192mr4340199yba.172.1590387032484;
+        Sun, 24 May 2020 23:10:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1590387032; cv=none;
         d=google.com; s=arc-20160816;
-        b=ghO37ul4S2PlxPKgggWjs+lytjrPGUsHPoZIPnNEMt6ywRC3ZN3H9xr2Xwkgk/Aab9
-         WGEdz8YE0UWQjisIHoTpeTmrDmwhPiFbQOuObmpe+C6GsKebdsnI40OmgROed+jkL/w3
-         gfTgPKVO1SDIXLaiee+hrTnd7JLBqCdyJ6oo7uE1RlxtfGcgGx0idvOVfyq39C/lR0+f
-         UAqXXnJ+xc03p3d41LJpMMD/UyY3PnQjDwcu+5MoJZHVxCo1pIyDOZrQmre5iiwDI8nC
-         oKPlL3Q+6rJi5M77k+1RPPfIEKPd6tojjqXeNr5kr+iWhrC2BYrFtwRkKeYg3gfDAjLj
-         UspQ==
+        b=w+F2pK/9PXhN2RUzHvTDwKF2/3fQscviMyJ3RN5dRTIByKXUJD2PH6pbd7MLyONbrM
+         xpayrq1y7kFO4KheHUfHC0dHJtNtgXDn8/NlF2Oyk7NoFwxU1NYIbu5cRdyfq268BFeo
+         mc6LGHezYchWkeKljuLCAyvJeUjTSVVhHUlCIXszhZmAwSFKrR/63w6+Uzaz1rbs5+bn
+         fYM1XslJQQU8qAWNP50Dtnj9Czm4SWxYBX9PbAaSlTbFepkWm8ecozXfbsF3lm9Jzp8J
+         bcdOS0pxn/y7xvD51OpmdfQRQV9SI4gfmWpslqGdRcZOdM3lVKfJROFdtheNF8zOW2zO
+         dr2g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=RXPfpzSq5HcYIBIZtdEue/ShYJXC/e6Ut30wWDQ6Py4=;
-        b=Jyhv5DCHwiNx2VsL44YOCCyOsdUupYOGWuflzAESa5+wTdF5MqPIYOZ5vlsNr9tcQR
-         oG4YAvy0qCzr/jGFgTAXxOMbYA9mzh8AzkQXGl5YBZjwU/ep0rY1AiPGQHrbzi0z64oZ
-         zElVmrL/t+GTWSOC+LjNeB9RQANVK5JRbwg0OcX0SeEtI7/aId6cywuN3nh7M19MAnfD
-         PdYjNqMZhZRBvF4yGZ5XfcmMC+wmOYHP5YN35+ykCoD9UWw67/KvHVzsifKNk4rQ3zIU
-         uQ+F/FizBy4TLi5NCMHDhcoKax+DtF4YC/Vn4UZS6QKIadtdydWwhVnM7JiFNvVDLVo8
-         0CLA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=/Z6uVSJY0F3/oxUe2ctHRxGQinOz286C1drb53Xlifc=;
+        b=ucMgZxi79JgR8C6RXx4+62gEesDNJ75yOgIg8GEeGfnyffcUAQnaduyB7qWdsQy3fa
+         4m/UAsx1zFbILQCuYSc+DAavKn+ydkr/j/CwOwIzAFy2Ou0NoTKkgKvVMEt0jyScJ+0P
+         CjZO/CBkaTEhKJfVLsOnnhXZzRzl0fkszlNRTfXP9qyauJea/ri5F79S87noXoYTJVVl
+         essQa7qEmkh1/EE4u2jQRmU0t4rwCmxYk+PNDeIY4h642Vu2Ylqu7iSBuBzFfPGIflax
+         KA9Gy8kPbFRH+c/WKzdooDCMKkL0Dan4M4Ls4AVHIZ89emDpDL0Sn94RLkHrvohgjOLr
+         fFow==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=Gmu9wONV;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wm1-x344.google.com (mail-wm1-x344.google.com. [2a00:1450:4864:20::344])
-        by gmr-mx.google.com with ESMTPS id cm25si766325edb.5.2020.05.24.20.58.09
+       dkim=pass header.i=@kernel.org header.s=default header.b=KEedDt7h;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id u126si875310ybg.0.2020.05.24.23.10.32
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 24 May 2020 20:58:09 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::344 as permitted sender) client-ip=2a00:1450:4864:20::344;
-Received: by mail-wm1-x344.google.com with SMTP id y5so2148250wmi.5
-        for <clang-built-linux@googlegroups.com>; Sun, 24 May 2020 20:58:09 -0700 (PDT)
-X-Received: by 2002:a1c:4e0e:: with SMTP id g14mr23254669wmh.0.1590379089432;
-        Sun, 24 May 2020 20:58:09 -0700 (PDT)
-Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id m13sm16464165wmi.42.2020.05.24.20.58.08
-        (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
-        Sun, 24 May 2020 20:58:08 -0700 (PDT)
-From: ci_notify@linaro.org
-Date: Mon, 25 May 2020 03:58:08 +0000 (UTC)
-To: tcwg-validation@linaro.org, arnd@linaro.org, 
-	clang-built-linux@googlegroups.com
-Message-ID: <832171545.1623.1590379088959.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-release-arm-next-allmodconfig - Build # 5 - Successful!
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 24 May 2020 23:10:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from mail-io1-f49.google.com (mail-io1-f49.google.com [209.85.166.49])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 8140420812
+	for <clang-built-linux@googlegroups.com>; Mon, 25 May 2020 06:10:31 +0000 (UTC)
+Received: by mail-io1-f49.google.com with SMTP id q129so8462258iod.6
+        for <clang-built-linux@googlegroups.com>; Sun, 24 May 2020 23:10:31 -0700 (PDT)
+X-Received: by 2002:a05:6602:2dcd:: with SMTP id l13mr12238753iow.203.1590387030826;
+ Sun, 24 May 2020 23:10:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_1622_1960213520.1590379088563"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-release-arm-next-allmodconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
+References: <CAKwvOd=qB+EoJwfAYUA9Hg7f9op4Q4W+TDnht8pLRG5bPX=29Q@mail.gmail.com>
+ <20200524212816.243139-5-nivedita@alum.mit.edu>
+In-Reply-To: <20200524212816.243139-5-nivedita@alum.mit.edu>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 25 May 2020 08:10:20 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXFjDMuLekYKiPoKDqJhfkY8UViApdMd3JaPmGbnKLO+NA@mail.gmail.com>
+Message-ID: <CAMj1kXFjDMuLekYKiPoKDqJhfkY8UViApdMd3JaPmGbnKLO+NA@mail.gmail.com>
+Subject: Re: [PATCH 4/4] x86/boot: Check that there are no runtime relocations
+To: Arvind Sankar <nivedita@alum.mit.edu>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	"H. Peter Anvin" <hpa@zytor.com>, X86 ML <x86@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Fangrui Song <maskray@google.com>, 
+	Dmitry Golovin <dima@golovin.in>, clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Daniel Kiper <daniel.kiper@oracle.com>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ardb@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=Gmu9wONV;       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::344
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@kernel.org header.s=default header.b=KEedDt7h;       spf=pass
+ (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,169 +139,129 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_1622_1960213520.1590379088563
-Content-Type: text/plain; charset="UTF-8"
+On Sun, 24 May 2020 at 23:28, Arvind Sankar <nivedita@alum.mit.edu> wrote:
+>
+> Add a linker script check that there are no runtime relocations, and
+> remove the old one that tries to check via looking for specially-named
+> sections in the object files.
+>
+> Drop the tests for -fPIE compiler option and -pie linker option, as they
+> are available in all supported gcc and binutils versions (as well as
+> clang and lld).
+>
+> Signed-off-by: Arvind Sankar <nivedita@alum.mit.edu>
+> ---
+>  arch/x86/boot/compressed/Makefile      | 28 +++-----------------------
+>  arch/x86/boot/compressed/vmlinux.lds.S | 11 ++++++++++
+>  2 files changed, 14 insertions(+), 25 deletions(-)
+>
+> diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
+> index d3e882e855ee..679a2b383bfe 100644
+> --- a/arch/x86/boot/compressed/Makefile
+> +++ b/arch/x86/boot/compressed/Makefile
+> @@ -27,7 +27,7 @@ targets := vmlinux vmlinux.bin vmlinux.bin.gz vmlinux.bin.bz2 vmlinux.bin.lzma \
+>         vmlinux.bin.xz vmlinux.bin.lzo vmlinux.bin.lz4
+>
+>  KBUILD_CFLAGS := -m$(BITS) -O2
+> -KBUILD_CFLAGS += -fno-strict-aliasing $(call cc-option, -fPIE, -fPIC)
+> +KBUILD_CFLAGS += -fno-strict-aliasing -fPIE
+>  KBUILD_CFLAGS += -DDISABLE_BRANCH_PROFILING
+>  cflags-$(CONFIG_X86_32) := -march=i386
+>  cflags-$(CONFIG_X86_64) := -mcmodel=small
+> @@ -49,7 +49,7 @@ UBSAN_SANITIZE :=n
+>  KBUILD_LDFLAGS := -m elf_$(UTS_MACHINE)
+>  # Compressed kernel should be built as PIE since it may be loaded at any
+>  # address by the bootloader.
+> -KBUILD_LDFLAGS += $(call ld-option, -pie) $(call ld-option, --no-dynamic-linker)
+> +KBUILD_LDFLAGS += -pie $(call ld-option, --no-dynamic-linker)
+>  LDFLAGS_vmlinux := -T
+>
+>  hostprogs      := mkpiggy
+> @@ -84,30 +84,8 @@ vmlinux-objs-$(CONFIG_ACPI) += $(obj)/acpi.o
+>  vmlinux-objs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
+>  vmlinux-objs-$(CONFIG_EFI_MIXED) += $(obj)/efi_thunk_$(BITS).o
+>
+> -# The compressed kernel is built with -fPIC/-fPIE so that a boot loader
+> -# can place it anywhere in memory and it will still run. However, since
+> -# it is executed as-is without any ELF relocation processing performed
+> -# (and has already had all relocation sections stripped from the binary),
+> -# none of the code can use data relocations (e.g. static assignments of
+> -# pointer values), since they will be meaningless at runtime. This check
+> -# will refuse to link the vmlinux if any of these relocations are found.
+> -quiet_cmd_check_data_rel = DATAREL $@
+> -define cmd_check_data_rel
+> -       for obj in $(filter %.o,$^); do \
+> -               $(READELF) -S $$obj | grep -qF .rel.local && { \
+> -                       echo "error: $$obj has data relocations!" >&2; \
+> -                       exit 1; \
+> -               } || true; \
+> -       done
+> -endef
+> -
+> -# We need to run two commands under "if_changed", so merge them into a
+> -# single invocation.
+> -quiet_cmd_check-and-link-vmlinux = LD      $@
+> -      cmd_check-and-link-vmlinux = $(cmd_check_data_rel); $(cmd_ld)
+> -
+>  $(obj)/vmlinux: $(vmlinux-objs-y) FORCE
+> -       $(call if_changed,check-and-link-vmlinux)
+> +       $(call if_changed,ld)
+>
+>  OBJCOPYFLAGS_vmlinux.bin :=  -R .comment -S
+>  $(obj)/vmlinux.bin: vmlinux FORCE
+> diff --git a/arch/x86/boot/compressed/vmlinux.lds.S b/arch/x86/boot/compressed/vmlinux.lds.S
+> index d826ab38a8f9..0ac14feacb24 100644
+> --- a/arch/x86/boot/compressed/vmlinux.lds.S
+> +++ b/arch/x86/boot/compressed/vmlinux.lds.S
+> @@ -11,9 +11,15 @@ OUTPUT_FORMAT(CONFIG_OUTPUT_FORMAT)
+>  #ifdef CONFIG_X86_64
+>  OUTPUT_ARCH(i386:x86-64)
+>  ENTRY(startup_64)
+> +
+> +#define REL .rela
+> +
+>  #else
+>  OUTPUT_ARCH(i386)
+>  ENTRY(startup_32)
+> +
+> +#define REL .rel
+> +
+>  #endif
+>
+>  SECTIONS
+> @@ -42,6 +48,9 @@ SECTIONS
+>                 *(.rodata.*)
+>                 _erodata = . ;
+>         }
+> +       REL.dyn : {
+> +               *(REL.*)
+> +       }
 
-Successfully identified regression in *linux* in CI configuration tcwg_kernel/llvm-release-arm-next-allmodconfig.  So far, this commit has regressed CI configurations:
- - tcwg_kernel/gnu-master-arm-next-allmodconfig
- - tcwg_kernel/gnu-release-aarch64-next-allmodconfig
- - tcwg_kernel/gnu-release-arm-next-allmodconfig
- - tcwg_kernel/llvm-master-aarch64-next-allmodconfig
- - tcwg_kernel/llvm-master-arm-next-allmodconfig
- - tcwg_kernel/llvm-release-aarch64-next-allmodconfig
- - tcwg_kernel/llvm-release-arm-next-allmodconfig
+Do we really need the macro here? Could we just do
 
-Culprit:
-<cut>
-commit 7b9d428e05197b589d5b770a791231cf972bd2ed
-Author: Rob Herring <robh@kernel.org>
+.rel.dyn : { *(.rel.* .rela.*) }
 
-    mfd: vexpress-sysreg: Support building as a module
-</cut>
+(or even
 
-Results regressed to (for first_bad == 7b9d428e05197b589d5b770a791231cf972bd2ed)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-20464
-# First few build errors in logs:
-# 00:13:07 make[1]: *** [__modpost] Error 1
-# 00:13:07 make: *** [modules] Error 2
+.rel.dyn  : { *(.rel.* }
+.rela.dyn : { *(.rela.*) }
 
-from (for last_good == 0ea355ef78434ae3e8faffe605c98b62e07d1273)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-27985
-# linux build successful:
-all
+if the output section name matters, and always assert that both are empty)?
 
-Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-release-arm-next-allmodconfig/5/artifact/artifacts/build-0ea355ef78434ae3e8faffe605c98b62e07d1273/
-Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-release-arm-next-allmodconfig/5/artifact/artifacts/build-7b9d428e05197b589d5b770a791231cf972bd2ed/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-release-arm-next-allmodconfig/5/
-
-Configuration details:
-rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
-rr[linux_branch]="9b1f2cbdb6d3062c468d3f9b579501f0f7ce330b"
-
-Reproduce builds:
-<cut>
-mkdir investigate-linux-7b9d428e05197b589d5b770a791231cf972bd2ed
-cd investigate-linux-7b9d428e05197b589d5b770a791231cf972bd2ed
-
-git clone https://git.linaro.org/toolchain/jenkins-scripts
-
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-release-arm-next-allmodconfig/5/artifact/artifacts/manifests/build-baseline.sh --fail
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-release-arm-next-allmodconfig/5/artifact/artifacts/manifests/build-parameters.sh --fail
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-release-arm-next-allmodconfig/5/artifact/artifacts/test.sh --fail
-chmod +x artifacts/test.sh
-
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
-
-cd linux
-
-# Reproduce first_bad build
-git checkout --detach 7b9d428e05197b589d5b770a791231cf972bd2ed
-../artifacts/test.sh
-
-# Reproduce last_good build
-git checkout --detach 0ea355ef78434ae3e8faffe605c98b62e07d1273
-../artifacts/test.sh
-
-cd ..
-</cut>
-
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-release-arm-next-allmodconfig
-
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-release-arm-next-allmodconfig/5/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-release-arm-next-allmodconfig/5/consoleText
-
-Full commit:
-<cut>
-commit 7b9d428e05197b589d5b770a791231cf972bd2ed
-Author: Rob Herring <robh@kernel.org>
-Date:   Wed Apr 29 15:58:20 2020 -0500
-
-    mfd: vexpress-sysreg: Support building as a module
-    
-    Enable building the vexpress-sysreg driver as a module.
-    
-    As deferred probe between the vexpress components works now, we don't
-    need to create struct devices early with of_platform_device_create().
-    
-    Cc: Liviu Dudau <liviu.dudau@arm.com>
-    Cc: Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>
-    Cc: Linus Walleij <linus.walleij@linaro.org>
-    Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-    Acked-by: Lee Jones <lee.jones@linaro.org>
-    Signed-off-by: Rob Herring <robh@kernel.org>
----
- drivers/mfd/Kconfig           |  2 +-
- drivers/mfd/vexpress-sysreg.c | 15 ++++-----------
- 2 files changed, 5 insertions(+), 12 deletions(-)
-
-diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-index b1311dea2da1..792766558328 100644
---- a/drivers/mfd/Kconfig
-+++ b/drivers/mfd/Kconfig
-@@ -2028,7 +2028,7 @@ config MCP_UCB1200_TS
- endmenu
- 
- config MFD_VEXPRESS_SYSREG
--	bool "Versatile Express System Registers"
-+	tristate "Versatile Express System Registers"
- 	depends on VEXPRESS_CONFIG && GPIOLIB
- 	default y
- 	select GPIO_GENERIC_PLATFORM
-diff --git a/drivers/mfd/vexpress-sysreg.c b/drivers/mfd/vexpress-sysreg.c
-index 9fb37fa689e0..eeeeb1d26d5d 100644
---- a/drivers/mfd/vexpress-sysreg.c
-+++ b/drivers/mfd/vexpress-sysreg.c
-@@ -8,6 +8,7 @@
- #include <linux/err.h>
- #include <linux/io.h>
- #include <linux/mfd/core.h>
-+#include <linux/module.h>
- #include <linux/of_platform.h>
- #include <linux/platform_data/syscon.h>
- #include <linux/platform_device.h>
-@@ -151,6 +152,7 @@ static const struct of_device_id vexpress_sysreg_match[] = {
- 	{ .compatible = "arm,vexpress-sysreg", },
- 	{},
- };
-+MODULE_DEVICE_TABLE(of, vexpress_sysreg_match);
- 
- static struct platform_driver vexpress_sysreg_driver = {
- 	.driver = {
-@@ -160,14 +162,5 @@ static struct platform_driver vexpress_sysreg_driver = {
- 	.probe = vexpress_sysreg_probe,
- };
- 
--static int __init vexpress_sysreg_init(void)
--{
--	struct device_node *node;
--
--	/* Need the sysreg early, before any other device... */
--	for_each_matching_node(node, vexpress_sysreg_match)
--		of_platform_device_create(node, NULL, NULL);
--
--	return platform_driver_register(&vexpress_sysreg_driver);
--}
--core_initcall(vexpress_sysreg_init);
-+module_platform_driver(vexpress_sysreg_driver);
-+MODULE_LICENSE("GPL v2");
-</cut>
+>         .got : {
+>                 *(.got)
+>         }
+> @@ -83,3 +92,5 @@ ASSERT(SIZEOF(.got.plt) == 0 || SIZEOF(.got.plt) == 0x18, "Unexpected GOT/PLT en
+>  #else
+>  ASSERT(SIZEOF(.got.plt) == 0 || SIZEOF(.got.plt) == 0xc, "Unexpected GOT/PLT entries detected!")
+>  #endif
+> +
+> +ASSERT(SIZEOF(REL.dyn) == 0, "Unexpected runtime relocations detected!")
+> --
+> 2.26.2
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/832171545.1623.1590379088959.JavaMail.javamailuser%40localhost.
-
-------=_Part_1622_1960213520.1590379088563--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXFjDMuLekYKiPoKDqJhfkY8UViApdMd3JaPmGbnKLO%2BNA%40mail.gmail.com.
