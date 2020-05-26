@@ -1,121 +1,130 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBKETWX3AKGQECYGS7TI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB3EXWX3AKGQEBI3O5DY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63a.google.com (mail-pl1-x63a.google.com [IPv6:2607:f8b0:4864:20::63a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 985091E27B9
-	for <lists+clang-built-linux@lfdr.de>; Tue, 26 May 2020 18:54:01 +0200 (CEST)
-Received: by mail-pl1-x63a.google.com with SMTP id d9sf16036022pll.12
-        for <lists+clang-built-linux@lfdr.de>; Tue, 26 May 2020 09:54:01 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1590512040; cv=pass;
+Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4B0FB1E27DC
+	for <lists+clang-built-linux@lfdr.de>; Tue, 26 May 2020 19:03:42 +0200 (CEST)
+Received: by mail-pg1-x53c.google.com with SMTP id 22sf17084903pgf.13
+        for <lists+clang-built-linux@lfdr.de>; Tue, 26 May 2020 10:03:42 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1590512621; cv=pass;
         d=google.com; s=arc-20160816;
-        b=eIq0yEOo5MZcrT+8VLxuvIzMbByQhZ3HfauKrWSJfQxS/aWzZMPHHRu0sBwdEwicRu
-         815mYfkM+aev9+sWiTuHRlxuSs5jN4G8Jk76EkzVzHE0rR1oCxyST9alKzdRYmB0h9t4
-         Zv2XsJ/8N1XMZhH2/iZ5Ib2SrZ8xCeLHqDfh46yLlirDASRwCGSl4JtZkohXK66CtY0O
-         NkT+WKECY30n7Vvp1TuRv9BsyWnqKELucR9Zr2mCUgxruWJWaLLyM2RnBeUxVRoYO4/U
-         7t//J/j75J+jwSHX9nia61mtCwxnMoUxsgwEufxjavrnA+lJSL6O9jh6OEJWvgMCP2Es
-         tt/A==
+        b=ZaSuFQ3CFUT6f7Y/7zd2THoTfGloz8+CzYAB4Aht2r8xg6bXQdS3dYisLLmfTOtlvF
+         3OqDdNdIccMLSe68zNZVaxfTL/LyUytlOel2O1J9n/bliRRC1XITsZpEufrT1r759fnJ
+         aOe9P4TlWM4et0/PqTbGbPi9FboNqOYBdOZbLH90HAF7Io2snvxDJvr4/u6GfSglEcAY
+         ImbQFTzO8uiIcuioCEKLklnVoxnVy7WdJyG4GoIVa8SDZqwfrJte0giSMU7+HuF5ksA+
+         cksTHkOybGQU3W0G5UJWQ/0bLF+TtVhwivXtUzwVwF4/Q+ZwLHeZW39/nNYO2E91lUQW
+         fQYA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=wPjZeZSCRL5oV4NARUnLKp7fsRpesjQH9QH8xWRCxO0=;
-        b=dfVVNn4dnaorG5cXOO8YDGvDydGvYdn2Uvdmj7/WthgrTjfBnPvPTvQDNaeHfOvhmD
-         kdCN/9sMqTNFw6armozyPMlNnK7EUDDKrUQN5+h175v8FM5LD43eYETADrKpNmRmKDDz
-         u01tnfPZ//eLPkJOJGFy+kSJhsz6llDvillvSXMYEiYN9RU08kZIGG3gYMjngUBo7Jd3
-         Q0zrZ6oYmWKY9Rrps/XD9A8RqhIUgmwhJeSqeJW+pSo6q9BoTp/ioVmRdk+KwaiWUIMV
-         Tpsf5bk3Rt1j3M8BULR6nDGHmLY3NSxpiCxVmxxCaeHK3H2bUe/2WA1RdgBR2C1Dv0UJ
-         nfAQ==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
+        bh=w9VQxfeIF0IEsPwuIbopxtlclvDxzlWcJ4aWf2jrUQc=;
+        b=CEaYzF+yD9/spQP1xpO88Dr6FmSwML8uD+hrOesRDP0hVuQrfkh2Pa6W/NylghGpfP
+         jdWhs878MQJNE95KJ99aq45ZZ3z+MwO0+mBnuo3ZfxEKtDO5+oj52uaGgMKeF8wL7DSs
+         fJOEEf0qQyC+nyuRSW3YpaFigxHP6Onskzdkisyqw9AYrIK9FjRqNmKwAlZOiDvFZ8Bg
+         OfLMslB6J/Z6lcczSqsv3iWG26oRuH9U9syTyiFQcw/at8UmmvC24yGfqvK5tbGrNLlU
+         CVR5hPyMeHd3ErPNsSflG5Xiuj0EVbr9qSemeDd0tyiWCiu2J7MNF5ms6wPPkMhTtLIC
+         LTVw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=rZroSeUn;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=G3Ey5fIQ;
+       spf=pass (google.com: domain of 360vnxgwkalqhxymuofhcylmaiiafy.wig@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=360vNXgwKALQhXYmUofhcYlmaiiafY.Wig@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=wPjZeZSCRL5oV4NARUnLKp7fsRpesjQH9QH8xWRCxO0=;
-        b=n9jFS5PNvgypQ6SIm0Bw5KTmeuZTzeosbYyH1tEjIBv5qokAc0NQ9xSfMVul40rC8c
-         dCLCuNO65ineAty8UAL9jVj4EzA7G0JJfnbNj0yfgmDjcPo4XuJemDjJAauNX97XFbHG
-         mNTy/T1Jnnvf+9ZfEkKr9YMdJW4pMLspg0saXkonJxcSD74x0H2FtK9/e37gn2ZVPOVO
-         Vjk86oLViBF15iYBO6Wd20rtfgY0vVeo5n1CERP77TfZBDr2fZaO/XpCGK9zlinyla7i
-         D7r0tBFbwkDaDXj5RgNzWb1EFbsytkbPuBwGnUnZwZtWN0T8JqV1qN+s+vXMLwzyJnWA
-         axmw==
+        bh=w9VQxfeIF0IEsPwuIbopxtlclvDxzlWcJ4aWf2jrUQc=;
+        b=HnPUd3Ns1cVdzYl6IShjzGmodtb4MLv/z0oRlomLsw0tIX8ObDdQp62ThNblY1/gxy
+         LtrviWymiOSsKNQOuP5Bc9Re9uED1RmV6bSGmopydRN8LzJowEUWXOYygbS0ETzgxtjG
+         i8r1P2IZEgOj4ZJOYa5IkTDdTdOjeIAUp34Sn8I6AgHrX9KCVui2IqnQwNr4e4N+i2sx
+         URQ9AZ2O+SPs9fmwt/n032yZymhkeZusIvryv9RxNWyYZIhYHcqaXQUQWBjlbobJIQNG
+         GvfQ1AM6c0TlKRgfmeOgN3ldfI5mPqImEpKZ5c7SnvnXOwpH0DmQrXhUEqd50jyrnFAE
+         bvaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
+         :references:subject:from:to:cc:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=wPjZeZSCRL5oV4NARUnLKp7fsRpesjQH9QH8xWRCxO0=;
-        b=pzZ5ZnjUA8E7dIppis2060ntU8m7lKkS3yqtVgJE7Mly2OxV8TpllZbrWCXcIVwAgW
-         0ES81eRAqmgfcCubiYviaF6JkxekEFXzQC0A8MbxIOYzub7qRIZIK9Qmlr+51aYCC0mk
-         MD3hKYIzApq7Wc3UVjtlQ6T+26FDa0MIJE9et/sNUTujVShjW8lz+PdqQ5s1cgdIkCoF
-         tQjmysRLa918sc6jaxc6KQgCnVUZDb3zKX1PC2RL+Bn1sobPZmZecygkBIOEdHGI24lk
-         /uOZjBVQH0t89OWTN5BCLESJXFJMJThq6Jc3f/6rm8+2RGEOx9psACXIaqeTEH2r+rs7
-         /Fbw==
-X-Gm-Message-State: AOAM532l2i2dqNBzLSgwAj5o7h5EufCh1OwKAn8MS3gjTDGdE+TUCxgF
-	uFWy8iW+R4/yhNZFLfBbru0=
-X-Google-Smtp-Source: ABdhPJwY5cglgMTZ5jLPM0I6t2P6ZoDzlv+kUKa4pyY58DLvZeAwqvPI5XuNK9eWrR543uah3FuD0g==
-X-Received: by 2002:a17:90a:64c6:: with SMTP id i6mr192234pjm.14.1590512040234;
-        Tue, 26 May 2020 09:54:00 -0700 (PDT)
+        bh=w9VQxfeIF0IEsPwuIbopxtlclvDxzlWcJ4aWf2jrUQc=;
+        b=ITQESm3kjGqnNuSX51Ev6OzXhElDggd5rAsRrQrb85ETZ1jHS5QRH/p2F8M7qMetNZ
+         4CIHWKNoM8mY4sel3yPDXO6FjZROK7FyPLq54sSKVQi6E5BzTBcoZJ/Mmq524p9OXzq2
+         z7taTQ43Dje1Yo7PFoEz/Y4FVSN+HIA8J0a50xEYq1UvpdiUJTY3Qp7lM5LB+ZccN9zY
+         bMfcch5HCiZ5pt2Oq8D65FjHdGHn/CLJYcTxULu87tF4BOA1jmirrP7lD2+5KDiUqyPT
+         Xlm3u8k4tONlF2UudKrR0c6dqzwVl/V2M0FzzgjOrJK9SPJs1J0M4lxqOyDXO8lADq77
+         RXiw==
+X-Gm-Message-State: AOAM530qznDKBDiYQrB49iAio1i2T4ycuWgI1cBMFjLbBVq0HiGFumtZ
+	Hk6R6G3ACsY4BtQBNdgANMw=
+X-Google-Smtp-Source: ABdhPJwgrMWs+0c65nxcoFHENScBhTaHCXYCOvCo1D+DsgZ66UNfb5AdsS1dimbZ1r93MiC5CwlFQw==
+X-Received: by 2002:a63:9e12:: with SMTP id s18mr2043842pgd.333.1590512620787;
+        Tue, 26 May 2020 10:03:40 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:a605:: with SMTP id u5ls1882258plq.9.gmail; Tue, 26
- May 2020 09:53:59 -0700 (PDT)
-X-Received: by 2002:a17:902:d311:: with SMTP id b17mr628242plc.82.1590512039835;
-        Tue, 26 May 2020 09:53:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1590512039; cv=none;
+Received: by 2002:a62:7697:: with SMTP id r145ls1199401pfc.1.gmail; Tue, 26
+ May 2020 10:03:40 -0700 (PDT)
+X-Received: by 2002:a63:e60b:: with SMTP id g11mr2105995pgh.120.1590512620350;
+        Tue, 26 May 2020 10:03:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1590512620; cv=none;
         d=google.com; s=arc-20160816;
-        b=U3AJnhWEcqvCQK8GKT8jfL76O5YOanbcOor7TG1GKyX2hb+ovQzcMm+THJurEMGkX1
-         VYmBOBCLxtYM6cc6/t7UU9olf0vb95HJvCM98MR3flmkdm7WNO/DwL9o/r2LbHNf6393
-         by7tdsLPe/UTHd5hT8vXlBiurvz4LEwd47sOv04OJ/glU0YHtEUI4S8ONReyipzF88YI
-         paToZCaN+1KX/siljPLqH3caW7J7ntcAhOVi6937YYK8oIXnKqpiy1SFcpqX9F+VwUoL
-         VWHFDB/BaUOhCnaNESQCETcbdtMLaNgzGL3dHwSKfu3Bb7C1XIRJaNMyH+QK0NaaSot4
-         rfrg==
+        b=fbdz1nUWu+L+OWz1EtMZ8bU3oH1TA4r2T6pPn1jRzwAdPwfUYxTCKCA/bMGLTsU1jD
+         d/r4AbCfxvnBe376LoWt/RePmD7AiiNAbKcYUshGohKuBfNgi3AN0sb5P4WpfSe0APhh
+         u0apcK9Pcv1XlIYEJQ/zhsLIUtrUnRSctOQOuf6fXzEakz8wlxJwVtf534L2CuHzhnsJ
+         05kJzHfnPfL6w+uOunXP8oK9D1mepZuu7dsmMd8Cu1Iw/SHG1AIL+zT6qxMkg2ubsvc0
+         xf+R0yaWHAiz3HLSKvK4rliAsJ6B7Wl2x9aerZ1fZD4tJWgg6XiCWZQYN7sozM3cV+iO
+         HObQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=AF5B89TG8C1c9LxKfGn56PDf0mXBAFYjA7XNnBi1JYY=;
-        b=qnjI8z/IT2Mi1wO63PzilgTOTTkYjhUToYJDsM3nQpsQn5PjWS5Ic/KhfGqluLAHzQ
-         JCVtOcTXySiflDaSknZ/8cBEllzUuYTFydTtNYUdhYFsv6wLnHf9XTsBWp3RzY0YI7Ab
-         wHsxg1CACSUZ29x0CBn1m3/nlV6fVj81dcEnQIay6UkTQw8fKSTOQbm7XSJZtioWI3Jb
-         QX3QWCLpnNHNPNiGjJx3lWVbJrNYKn9TnBI7b7Nz1pdZ9OtWIw0YfqlSGrP8wqQIMiIk
-         4xTZcIulEu8BJc4AqVJIqNz6aNSL5bI80fARHledwh2rnCZ4oINhuZ7BsWOeqDEpbaol
-         PXew==
+        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
+         :date:dkim-signature;
+        bh=sjeGTWCrYFBnhNd6ar8naLJbL00oyzfJjyGq2z7zCYM=;
+        b=gg9ttGf/9CEA8s3pTV22YoqM4Gq/zKLW6q6g1Vno6EVA1Nl1Xs3GDBcMbnX3n9+w48
+         JXmJGIPEymFDqD3cQMHpciQk3OIKEmz+XqTM8FHXsYAufqs93DydqYkw/o7g4gU7zM+m
+         a029CAfTFk5HJwlEmtjlQkNvqxj+euuV+qSfgKa+zNLe0RTKppb8yNrcT5Y9VPMimAMX
+         s2+lpPK+8cf7dqUCVHQi9s+//ku4bkYqNgDPahDyb6Gi1WF6vQzeOkwAUmtSKthaGX5R
+         4wrr1BY7JfXEiBy0ZCQdYFzToG/j8E873AjXW8jFtLIqfAjlj0WPj9HTIS+rdLg7LYGe
+         CNzQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=rZroSeUn;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=G3Ey5fIQ;
+       spf=pass (google.com: domain of 360vnxgwkalqhxymuofhcylmaiiafy.wig@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=360vNXgwKALQhXYmUofhcYlmaiiafY.Wig@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x643.google.com (mail-pl1-x643.google.com. [2607:f8b0:4864:20::643])
-        by gmr-mx.google.com with ESMTPS id q1si29036pgg.5.2020.05.26.09.53.59
+Received: from mail-qt1-x849.google.com (mail-qt1-x849.google.com. [2607:f8b0:4864:20::849])
+        by gmr-mx.google.com with ESMTPS id j204si69129pfd.1.2020.05.26.10.03.40
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 26 May 2020 09:53:59 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) client-ip=2607:f8b0:4864:20::643;
-Received: by mail-pl1-x643.google.com with SMTP id x10so8906910plr.4
-        for <clang-built-linux@googlegroups.com>; Tue, 26 May 2020 09:53:59 -0700 (PDT)
-X-Received: by 2002:a17:902:341:: with SMTP id 59mr1811404pld.119.1590512039128;
- Tue, 26 May 2020 09:53:59 -0700 (PDT)
-MIME-Version: 1.0
-References: <202005231418.iVv6BaVV%lkp@intel.com> <20200523210231.GC2483@worktop.programming.kicks-ass.net>
-In-Reply-To: <20200523210231.GC2483@worktop.programming.kicks-ass.net>
+        Tue, 26 May 2020 10:03:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 360vnxgwkalqhxymuofhcylmaiiafy.wig@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) client-ip=2607:f8b0:4864:20::849;
+Received: by mail-qt1-x849.google.com with SMTP id u61so23056639qtd.4
+        for <clang-built-linux@googlegroups.com>; Tue, 26 May 2020 10:03:40 -0700 (PDT)
+X-Received: by 2002:a05:6214:10e4:: with SMTP id q4mr2609572qvt.83.1590512619406;
+ Tue, 26 May 2020 10:03:39 -0700 (PDT)
+Date: Tue, 26 May 2020 10:03:16 -0700
+In-Reply-To: <CAK7LNASkcLx-K+W1va9WxfxZ=7H-w65QbyBt=88dzK1NrrM_PQ@mail.gmail.com>
+Message-Id: <20200526170321.137238-1-ndesaulniers@google.com>
+Mime-Version: 1.0
+References: <CAK7LNASkcLx-K+W1va9WxfxZ=7H-w65QbyBt=88dzK1NrrM_PQ@mail.gmail.com>
+X-Mailer: git-send-email 2.27.0.rc0.183.gde8f92d652-goog
+Subject: [PATCH v4] Makefile: support compressed debug info
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 26 May 2020 09:53:47 -0700
-Message-ID: <CAKwvOdnRDbUXvfGsP9VX47nkuD3a8G_jWmGkH35cMcAATmgbvg@mail.gmail.com>
-Subject: Re: [peterz-queue:sched/core 8/8] lib/math/div64.c:194:1: warning:
- attribute declaration must precede definition
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: kbuild test robot <lkp@intel.com>, Oleg Nesterov <oleg@redhat.com>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Sedat Dilek <sedat.dilek@gmail.com>, Fangrui Song <maskray@google.com>, 
+	Nick Clifton <nickc@redhat.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	David Blaikie <blaikie@google.com>, Michal Marek <michal.lkml@markovi.net>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Naohiro Aota <naohiro.aota@wdc.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Changbin Du <changbin.du@intel.com>, Randy Dunlap <rdunlap@infradead.org>, 
+	Stephen Rothwell <sfr@canb.auug.org.au>, Anshuman Khandual <anshuman.khandual@arm.com>, 
+	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=rZroSeUn;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+ header.i=@google.com header.s=20161025 header.b=G3Ey5fIQ;       spf=pass
+ (google.com: domain of 360vnxgwkalqhxymuofhcylmaiiafy.wig@flex--ndesaulniers.bounces.google.com
+ designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=360vNXgwKALQhXYmUofhcYlmaiiafY.Wig@flex--ndesaulniers.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
 Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
@@ -130,68 +139,153 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, May 23, 2020 at 2:05 PM Peter Zijlstra <peterz@infradead.org> wrote:
->
-> On Sat, May 23, 2020 at 02:50:21PM +0800, kbuild test robot wrote:
-> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.git sched/core
-> > head:   42da62769d7de07bea28f81307723050f3339727
-> > commit: 42da62769d7de07bea28f81307723050f3339727 [8/8] sched/cputime: Improve cputime_adjust()
-> > config: x86_64-randconfig-a013-20200521 (attached as .config)
-> > compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 3393cc4cebf9969db94dc424b7a2b6195589c33b)
-> > reproduce (this is a W=1 build):
-> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> >         chmod +x ~/bin/make.cross
-> >         # install x86_64 cross compiling tool for clang build
-> >         # apt-get install binutils-x86-64-linux-gnu
-> >         git checkout 42da62769d7de07bea28f81307723050f3339727
-> >         # save the attached .config to linux build tree
-> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
-> >
-> > If you fix the issue, kindly add following tag as appropriate
-> > Reported-by: kbuild test robot <lkp@intel.com>
-> >
-> > All warnings (new ones prefixed by >>, old ones prefixed by <<):
-> >
-> > >> lib/math/div64.c:194:1: warning: attribute declaration must precede definition [-Wignored-attributes]
-> > __weak u64 mul_u64_u64_div_u64(u64 a, u64 b, u64 c)
-> > ^
-> > include/linux/compiler_attributes.h:271:56: note: expanded from macro '__weak'
-> > #define __weak                          __attribute__((__weak__))
-> > ^
-> > arch/x86/include/asm/div64.h:81:28: note: previous definition is here
-> > extern __always_inline u64 mul_u64_u64_div_u64(u64 a, u64 mul, u64 div)
-> > ^
-> > 1 warning generated.
->
-> So what is that thing complaining about?
->
-> Why can't we have two fuctions with the same name and signature, one
-> '__weak' and one 'extern __always_inline' ? GCC likes it just fine.
->
-> clang folks?
+As debug information gets larger and larger, it helps significantly save
+the size of vmlinux images to compress the information in the debug
+information sections. Note: this debug info is typically split off from
+the final compressed kernel image, which is why vmlinux is what's used
+in conjunction with GDB. Minimizing the debug info size should have no
+impact on boot times, or final compressed kernel image size.
 
-Seems to be related to __attribute__((gnu_inline)) from the kernel's
-redefinition of `inline`.
-https://godbolt.org/z/q-tfYy
-https://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.git/commit/?h=sched/core&id=42da62769d7de07bea28f81307723050f3339727
+All of the debug sections will have a `C` flag set.
+$ readelf -S <object file>
 
-Though, playing with this more, is this working as expected?
-https://godbolt.org/z/jjrFKL
-I thought the `extern inline` definition would be used only for
-inlining, but the above case shows that's not the case when the
-declaration doesn't contain `__attribute__((gnu_inline)) inline`?
+$ bloaty vmlinux.gcc75.compressed.dwarf4 -- \
+    vmlinux.gcc75.uncompressed.dwarf4
 
-Another question, how come the `__weak` definition of
-`mul_u64_u64_div_u64` doesn't follow the convention of the rest of
-lib/math/div64.c of using preprocessor guards?  Maybe that's more
-appropriate than `__weak` definitions?
-https://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.git/tree/lib/math/div64.c?h=sched/core&id=42da62769d7de07bea28f81307723050f3339727
-(I think that's the way to go)
+    FILE SIZE        VM SIZE
+ --------------  --------------
+  +0.0%     +18  [ = ]       0    [Unmapped]
+ -73.3%  -114Ki  [ = ]       0    .debug_aranges
+ -76.2% -2.01Mi  [ = ]       0    .debug_frame
+ -73.6% -2.89Mi  [ = ]       0    .debug_str
+ -80.7% -4.66Mi  [ = ]       0    .debug_abbrev
+ -82.9% -4.88Mi  [ = ]       0    .debug_ranges
+ -70.5% -9.04Mi  [ = ]       0    .debug_line
+ -79.3% -10.9Mi  [ = ]       0    .debug_loc
+ -39.5% -88.6Mi  [ = ]       0    .debug_info
+ -18.2%  -123Mi  [ = ]       0    TOTAL
+
+$ bloaty vmlinux.clang11.compressed.dwarf4 -- \
+    vmlinux.clang11.uncompressed.dwarf4
+
+    FILE SIZE        VM SIZE
+ --------------  --------------
+  +0.0%     +23  [ = ]       0    [Unmapped]
+ -65.6%    -871  [ = ]       0    .debug_aranges
+ -77.4% -1.84Mi  [ = ]       0    .debug_frame
+ -82.9% -2.33Mi  [ = ]       0    .debug_abbrev
+ -73.1% -2.43Mi  [ = ]       0    .debug_str
+ -84.8% -3.07Mi  [ = ]       0    .debug_ranges
+ -65.9% -8.62Mi  [ = ]       0    .debug_line
+ -86.2% -40.0Mi  [ = ]       0    .debug_loc
+ -42.0% -64.1Mi  [ = ]       0    .debug_info
+ -22.1%  -122Mi  [ = ]       0    TOTAL
+
+For x86_64 defconfig + LLVM=1 (before):
+Elapsed (wall clock) time (h:mm:ss or m:ss): 3:22.03
+Maximum resident set size (kbytes): 43856
+
+For x86_64 defconfig + LLVM=1 (after):
+Elapsed (wall clock) time (h:mm:ss or m:ss): 3:32.52
+Maximum resident set size (kbytes): 1566776
+
+Thanks to:
+Nick Clifton helped us to provide the minimal binutils version.
+Sedat Dilet found an increase in size of debug .deb package.
+
+Cc: Nick Clifton <nickc@redhat.com>
+Cc: Sedat Dilek <sedat.dilek@gmail.com>
+Suggested-by: David Blaikie <blaikie@google.com>
+Reviewed-by: Fangrui Song <maskray@google.com>
+Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
+Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+---
+Changes V3 -> V4:
+* Add thanks line to commit message as per Masahiro.
+* Swap Sugguested-by to Cc for two lines in commit message, as per
+  Masahiro.
+
+Changes V2 -> V3:
+* Fix blaikie@'s email addr.
+* Fix Fangrui's Reviewed-by tag as per Masahiro.
+* Fix help text as per Masahiro.
+* Fix -Wa$(comma)foo as per Masahiro.
+
+Changes V1 -> V2:
+* rebase on linux-next.
+* Add assembler flags as per Fangrui.
+* Add note about KDEB_COMPRESS+scripts/package/builddeb
+  as per Sedat and Masahiro.
+* Add note about bintutils version requirements as per Nick C.
+* Add note about measured increased build time and max RSS.
+
+ Makefile                          |  6 ++++++
+ arch/arm64/kernel/vdso32/Makefile |  2 +-
+ lib/Kconfig.debug                 | 17 +++++++++++++++++
+ 3 files changed, 24 insertions(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 71687bfe1cd9..be8835296754 100644
+--- a/Makefile
++++ b/Makefile
+@@ -822,6 +822,12 @@ DEBUG_CFLAGS	+= $(call cc-option, -femit-struct-debug-baseonly) \
+ 		   $(call cc-option,-fno-var-tracking)
+ endif
+ 
++ifdef CONFIG_DEBUG_INFO_COMPRESSED
++DEBUG_CFLAGS	+= -gz=zlib
++KBUILD_AFLAGS	+= -Wa,--compress-debug-sections=zlib
++KBUILD_LDFLAGS	+= --compress-debug-sections=zlib
++endif
++
+ KBUILD_CFLAGS += $(DEBUG_CFLAGS)
+ export DEBUG_CFLAGS
+ 
+diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
+index 3964738ebbde..5fd7792d03fc 100644
+--- a/arch/arm64/kernel/vdso32/Makefile
++++ b/arch/arm64/kernel/vdso32/Makefile
+@@ -135,7 +135,7 @@ c-obj-vdso-gettimeofday := vgettimeofday.o
+ asm-obj-vdso := sigreturn.o
+ 
+ ifneq ($(c-gettimeofday-y),)
+-VDSO_CFLAGS_gettimeofday_o += -include $(c-gettimeofday-y)
++VDSO_CFLAGS_gettimeofday_o += -include $(c-gettimeofday-y) -marm
+ endif
+ 
+ VDSO_CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE) -Os
+diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+index b8f023e054b9..7fc82dcf814b 100644
+--- a/lib/Kconfig.debug
++++ b/lib/Kconfig.debug
+@@ -225,6 +225,23 @@ config DEBUG_INFO_REDUCED
+ 	  DEBUG_INFO build and compile times are reduced too.
+ 	  Only works with newer gcc versions.
+ 
++config DEBUG_INFO_COMPRESSED
++	bool "Compressed debugging information"
++	depends on DEBUG_INFO
++	depends on $(cc-option,-gz=zlib)
++	depends on $(as-option,-Wa$(comma)--compress-debug-sections=zlib)
++	depends on $(ld-option,--compress-debug-sections=zlib)
++	help
++	  Compress the debug information using zlib.  Requires GCC 5.0+ or Clang
++	  5.0+, binutils 2.26+, and zlib.
++
++	  Users of dpkg-deb via scripts/package/builddeb may find an increase in
++	  size of their debug .deb packages with this config set, due to the
++	  debug info being compressed with zlib, then the object files being
++	  recompressed with a different compression scheme. But this is still
++	  preferable to setting $KDEB_COMPRESS to "none" which would be even
++	  larger.
++
+ config DEBUG_INFO_SPLIT
+ 	bool "Produce split debuginfo in .dwo files"
+ 	depends on DEBUG_INFO
 -- 
-Thanks,
-~Nick Desaulniers
+2.27.0.rc0.183.gde8f92d652-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnRDbUXvfGsP9VX47nkuD3a8G_jWmGkH35cMcAATmgbvg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200526170321.137238-1-ndesaulniers%40google.com.
