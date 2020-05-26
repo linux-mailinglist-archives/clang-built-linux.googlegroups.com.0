@@ -1,140 +1,129 @@
-Return-Path: <clang-built-linux+bncBCS7XUWOUULBBS44WX3AKGQEUSPUGAQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB3U6WX3AKGQEBPUGEUY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc39.google.com (mail-oo1-xc39.google.com [IPv6:2607:f8b0:4864:20::c39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 496051E2814
-	for <lists+clang-built-linux@lfdr.de>; Tue, 26 May 2020 19:13:49 +0200 (CEST)
-Received: by mail-oo1-xc39.google.com with SMTP id q1sf11836226oos.17
-        for <lists+clang-built-linux@lfdr.de>; Tue, 26 May 2020 10:13:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1590513227; cv=pass;
+Received: from mail-ot1-x33c.google.com (mail-ot1-x33c.google.com [IPv6:2607:f8b0:4864:20::33c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6EC961E2846
+	for <lists+clang-built-linux@lfdr.de>; Tue, 26 May 2020 19:18:39 +0200 (CEST)
+Received: by mail-ot1-x33c.google.com with SMTP id h26sf10142676otl.17
+        for <lists+clang-built-linux@lfdr.de>; Tue, 26 May 2020 10:18:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1590513518; cv=pass;
         d=google.com; s=arc-20160816;
-        b=S9lLSTsiPIaow23lR2l0curbqVDcY7wlunQJhjtIl7oa98zMNPTJcLmXwmREL/QFcb
-         Bymw5TX3PU8GCvTeVYhWslcLItJu600iIra+/j3hb0VNvELoFmbkApYo0Yopw6ie3j25
-         jGH4By4Jmwh+LhwbXBuIvOq+Sr4Emvjb8dMcPzLM6OQvB38wfqk2LzDcYgmt5lLNoi4I
-         7hQY0McM7QGk+qPR/n8AgvfYyPp/TaHmzh1XXoW3TlakSgcadAFbUdopKtU8UVqzT0pl
-         5Jx35ZLClkRH19jlMwn2B9Bf5fPr1ZXEcl3Xldta9a0sGjyBO2jUfkd9WVBW6w75NPb4
-         BxMQ==
+        b=wZN9ehB/kbzTrTdbZg58oxHx7/75OCTRE3IBXZqaSJ9mD/BqdpTOronOBe3yj6HVJV
+         zBALXTe6HGVmHU3gVe1iGsHfNOltVF7Na0c/7aAbFl8384sFYCJe6+U3BCFbzu8xaESU
+         2mGI1T+5S+IMXUGtxzvGwmVW9FzTi+FWdIvjPBzLixLSFl4yYCWKt7rGZtpDsG++fRHu
+         2LC2H0kWhqy+ePoBMIIS5x5MYoAtU4IK7J7AG8VTGqH7LO8LyNJikczVD4Sg8IT0l2FU
+         eu39PkMRS7GpSydgNSEdnXA82/UGki/AuevfzgtXSHJrxk/8AHWhhEj3uyEju4GafGBl
+         oOrQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:dkim-signature;
-        bh=/6ROL9u7uqhfh9T8blLJCN4OSztxqauCQxO6J5VPjk0=;
-        b=RlX97LcxgtIArv641dgEs+IL0PEEKAjnzAUdrybJ+yeL36lIifXkW/KPDiZFEpDVYX
-         BmjbBz9bS5rWCCAp881dD4fVezjR470+DyQRrxAIHMXeNqW6tAxJX547KQg+cs9YSODq
-         eLEMcuiGWBCARKQIyClb5UARNSAdno3ZKhOBR7oHKbCTSUWmaXe011yKsQvkB8f36alH
-         eVm1nLMxlj66c2XVzp3mLVuLquhVXIjIdiys+arvOiBLvDKpgNsF/1PHzkabVflnx0E8
-         KCQPGHOQOKCc/p4Ixv2AnLzHHf/svtRSvbrNQBSctHeUlmpmmLtVFssxa9luINATgFbv
-         RGBw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
+        bh=g5oP6HGW/NAP2WLh3xPeHpMh72X88iOg6EMsSO0Lwlg=;
+        b=UzJ30oDPwL58bx/nNqQL26tqJ9B8FbSmBhtyAch8A/2w9N9ELOJBeTuoEaLTPpU0VE
+         W9cYnpo/jcCuRthz+cRGuLSaj7eiYJG4hncDg1UpFPT1SsLcskuZ4c1Uv9FIg9iwZuYX
+         b+dtg54o2pvXNbWaea+ker63uFzXH84zMKy4r7vy4WDj9PPvwuYoq8QcXhJlMeLgdMfQ
+         ZFT2J7s6iFJoAjysP+L9IMaKwMz656CHzDWCGUoKKIxjRTug4IWf+utd+hZyW6YVi+Xm
+         YzglAojon7wqNEUL9m3VB5gbOb2slLrwiuBIedb1/NDU7G9CWXuoTF8jz3IX8cSpz/pL
+         bqbA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="Oo5M/TaH";
-       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=aV+EtZWf;
+       spf=pass (google.com: domain of 3bu_nxgwkad4sijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3bU_NXgwKAD4sijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=/6ROL9u7uqhfh9T8blLJCN4OSztxqauCQxO6J5VPjk0=;
-        b=LuO+mjv1wfShScsmKtTe8PrXc8UAZ/WyXHWfC9THQTTQqYppNwkJtMtAvPZDtppDcI
-         1Kd5aoddNIaL9hkPJTlhW6S+j8d5L/yQWUo3XouuaTMEOIyMZNQ/OZFdDRdfIv5to+Jt
-         hz92jgLxrhjKAWAHB19dVY6HCQy3cfNa1cNipZBQtaYeAymGv+0K18dGa2FX2VfTm4Im
-         dHf7cJ/UOIEsK6gsDogyNqueyQDA+w0ZYncnS0WD68Ji8NEYdHxTjVyDPxPiA2RxT8FV
-         ki7hryhAPd9OrLPwWJXPjGChwzycHg5MaFK1M36/z52rq3Ul4kWet4oo96yAgDuAtT2t
-         W7mA==
+        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=g5oP6HGW/NAP2WLh3xPeHpMh72X88iOg6EMsSO0Lwlg=;
+        b=hByLF6xSh48QXNZmL3WB3GziZrYu1KqVZri0FuoLghZCVPDoeBagnvnzHKy5t89EJ/
+         ApbW+Reh+Hk6f8H9Mo+pu5H4lbiVQizIbio5VFE/UmJFI2W2+4wHCfKLtfMZDWjhJ/ZZ
+         3P1faf9IfpuD08v1qRR9bkNKWbuf2SO4Nd9NNiB1YRo8V0A3fQhMpXq/NmxzeHOggyOV
+         7OzrOTmUQRvKeoJTxmGW9/CB6RpDinUbe/w4SoW8wSiuHZGN9/4Ic+1oGbALVbFTn3Rb
+         GSIJ2G04Cqs6s/Wh0yzYUw15svkACzLls+sCJbpXXBrJUoHDYbR+7wyhRnMeuQn8qyD0
+         AHEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to:x-original-sender
+        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
+         :references:subject:from:to:cc:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=/6ROL9u7uqhfh9T8blLJCN4OSztxqauCQxO6J5VPjk0=;
-        b=pI1uYwaFtTALSDX5G559p7x2BhPDm1K7SbZGcfSYcFQ5h+WLDbeOJNKriWZBecW4HV
-         N2R9mW/3/F7deNYcz/FE9SApewUTQptEMZnlzIkFBahz+SgYzJSlqZUs9fWabOIB28Ej
-         RJ0+rtauVhPlKn6DTkbZMExMWg6dDSnZW1AXt0LdgQGxRRcWVdPwwLlg9ejES7JEnXHW
-         /TLB+atleXMGhnK4oOIZnUlK/4YWdeOxebWTtXXcYwU34/6PsO2UHElUkgYBijsMmfBq
-         S9OPI7y2ndGtMI4/K1HpBgEak0An26f988KA5woSbWE32lkay+Wh7NH4kcyo8BSJF6JT
-         LyUA==
-X-Gm-Message-State: AOAM533sfPoDXDX6/nu20/lgDqEZxxiDnnxp9umH/sf5PNDbXZf6FV/d
-	SCh+DpqmN/ItC1y2o5XD+gQ=
-X-Google-Smtp-Source: ABdhPJxhs7NGGK4+f9hzHveZmxBvHbhDM3zJtcd0Q7ZDPnJd3zwZAsF+iU2wuHkaSzeSdK+VASlTEA==
-X-Received: by 2002:a05:6830:1df6:: with SMTP id b22mr1680800otj.74.1590513227729;
-        Tue, 26 May 2020 10:13:47 -0700 (PDT)
+        bh=g5oP6HGW/NAP2WLh3xPeHpMh72X88iOg6EMsSO0Lwlg=;
+        b=K0XvzbH5/gigeZXkA8jWyzQCNBQVHTDm0CvAn6mufclcUd5Pd4qV264jlLeioMwJfE
+         jDXN7zzo7hNLwNkvOF8FEBjy4aABPFowIKeAuRZCipA0U6X3kDv3MDAzgWZ79ullXBXD
+         0khnfneiBkL+xa3YI1MbE4NBC2528UclToFWOepPoN/kMCKNQ1WcHbB+E+1HR0KzmXdH
+         sIsqyFLFFaWDEWzyl4hXLu5UcarvwwbUmbMNgufXmK1hUm24qWOJR+kErbTh+K+4//cO
+         hiocEWOlPZtictACILxHmSFpPIdHe7OpkeJj0iuv9axi2BQsmZ2wXSjjvrDOQWKlejfG
+         /ugA==
+X-Gm-Message-State: AOAM531Tf2W9Q0+Oa2A2AlgqH49XZTUJDEGclkheeiONiZ+tVEXOrDLL
+	pEsaoXzwvaab5tta5Q+ieQw=
+X-Google-Smtp-Source: ABdhPJzD+oCWTss6hHHfUjHcd0FANBRdADESUqLVUWtQyLHf62id/Vy9/2SYlYIOPkStvgXrWUPKUg==
+X-Received: by 2002:aca:b30a:: with SMTP id c10mr188648oif.44.1590513518182;
+        Tue, 26 May 2020 10:18:38 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:19af:: with SMTP id k44ls2460164otk.4.gmail; Tue, 26 May
- 2020 10:13:47 -0700 (PDT)
-X-Received: by 2002:a9d:4702:: with SMTP id a2mr1675970otf.273.1590513227419;
-        Tue, 26 May 2020 10:13:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1590513227; cv=none;
+Received: by 2002:a05:6830:61a:: with SMTP id w26ls2472146oti.8.gmail; Tue, 26
+ May 2020 10:18:37 -0700 (PDT)
+X-Received: by 2002:a9d:2ab:: with SMTP id 40mr1736738otl.230.1590513517864;
+        Tue, 26 May 2020 10:18:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1590513517; cv=none;
         d=google.com; s=arc-20160816;
-        b=tjHFRKQ08wV8JdsD/4ClecllmWoc4wpSlxEp5SDXgopl8HfBohMVYcehJtGNfux6ZE
-         JDpsCzYSKzMEfgx3E1mOiI0XvGdqeL+oQK2HW7Ni0ANodcKG1fOqQsq28nsC8S9GQ+Zq
-         nYZ/geOA6mNHnAjxVFqYJTljRN+zy5YiEaYouhzyC3Ae+H4QwhWHHCUi03EEBYxLXnkB
-         TxmS/G11KS5iKNXsJwEXKZ5Y9cdIUAeejb3GYtzkTwzcHu2Er2TcFoC8J6wD5if2pjkx
-         /AUcX/JxBd9+9OJTqLJQMENxDl3cVXWWpA999d29PqUHEkD5q6Z+HE+RgKuQU5cGTFjb
-         hL/Q==
+        b=D7qiaUFaVPYTLJpUM2F786SH/7nf28kPiVj7maH6bEWeO9wMZcgKLn1NzhuyR0OMNa
+         g8K0elSLEn+tuuPD7tj6U3OLI94stmYxKSJISEbC+gFuH1h2mEirfEQzR5NKq6og/JoG
+         fow67tO+EsbFQME1sX3CJBTFqS013LNU6m7Pa7SSQLj6JaOFswGkuLUh+mbc036rHCXp
+         HwZJQCQpHdWzhokM3QOBE8Q77pYwQUwBruTyrxWxJ2H2yMBRY2OwbNPLcOTKi5Ej0aq2
+         ZCLOg99QA/tkidkBWLu6n/57slUC0s98wfbNiKcnfEBKb+PWgI5t0CTRMdw6jNI0b/G7
+         q9Jw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=Q2tb1AeXDG23hGcjPRVLc3Ey0WPkny9sKX+WHXY3/jE=;
-        b=EoQAX96DY6WmsJuSiHV3aoPZsEdX5Bel7yGd9u4FRU9Avj4adDFh1fS30t4+s0UmK2
-         9eUX/gI0nKXdeRjdS8XYdm8gij+MKXQ5o2cPCMj6Trm5EwMS+FsCVtX4NtfEETJjHgNS
-         s0sCigentLMUQRHnXwiEFDvrhEWPDb/0E7yP75qpSFNQV5uEhTLn9XMGNx7i/7a1wf1X
-         y8WjeqYbm+MbQdeCGx5Ql046QAWxu+iT8z1ne9NmKBRVWaoGjrGntM4R8LU71IjCQPiq
-         B0w8a/IdbOEG5kquM70JMsYdODTbBKRPBCBy2syb9UQyTnJro5M8GEq4WmUiOSUOnLsi
-         bBcA==
+        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
+         :date:dkim-signature;
+        bh=qz8XL5HjRypO1RoMKqirUSXQ6SNzxq1AQO7Af1uk7eg=;
+        b=CBRSTRorHU477ssUZVt3mDeOjAzJppOpXWOk7BVHTzDGfS/TDzsf+j4YVcdZeZHPyu
+         ZmvaWTToptNUybTi0s+b7ULPIn0UmiYQtXkSO51nirLtYhP13DBEsMED5KsPrXM5L/VO
+         T2hLOlLpg4WrhhnapEZwWMX2/TaM2yLhvesFjUZ0SOW5WxDZEZc8DZFDEG7w5xlUWMk1
+         CMNR4YaW3rMRad/GaX88irtrARzghKEErvg/hPN3W+dafJZm9UBVcxRa2FNKRDHNa7an
+         C9e8FNdpH1IKW8BjfyTAgytBmVbMFPoSiYrU7cAxQAnI/BVRkUq8brsGkaShI6j++XiJ
+         YL8A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="Oo5M/TaH";
-       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=aV+EtZWf;
+       spf=pass (google.com: domain of 3bu_nxgwkad4sijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3bU_NXgwKAD4sijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x1043.google.com (mail-pj1-x1043.google.com. [2607:f8b0:4864:20::1043])
-        by gmr-mx.google.com with ESMTPS id p28si78343ota.3.2020.05.26.10.13.47
+Received: from mail-yb1-xb49.google.com (mail-yb1-xb49.google.com. [2607:f8b0:4864:20::b49])
+        by gmr-mx.google.com with ESMTPS id a62si72733oii.1.2020.05.26.10.18.37
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 26 May 2020 10:13:47 -0700 (PDT)
-Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) client-ip=2607:f8b0:4864:20::1043;
-Received: by mail-pj1-x1043.google.com with SMTP id t8so58127pju.3
-        for <clang-built-linux@googlegroups.com>; Tue, 26 May 2020 10:13:47 -0700 (PDT)
-X-Received: by 2002:a17:90a:34cc:: with SMTP id m12mr238695pjf.123.1590513226563;
-        Tue, 26 May 2020 10:13:46 -0700 (PDT)
-Received: from google.com ([2620:15c:2ce:0:9efe:9f1:9267:2b27])
-        by smtp.gmail.com with ESMTPSA id g7sm55515pjs.48.2020.05.26.10.13.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 May 2020 10:13:45 -0700 (PDT)
-Date: Tue, 26 May 2020 10:13:40 -0700
-From: "'Fangrui Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Arvind Sankar <nivedita@alum.mit.edu>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	"H. Peter Anvin" <hpa@zytor.com>, X86 ML <x86@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Dmitry Golovin <dima@golovin.in>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Daniel Kiper <daniel.kiper@oracle.com>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 4/4] x86/boot: Check that there are no runtime
- relocations
-Message-ID: <20200526171340.pdbautbix5ygdvgp@google.com>
-References: <20200524212816.243139-1-nivedita@alum.mit.edu>
- <20200525225918.1624470-5-nivedita@alum.mit.edu>
- <CAMj1kXHc4o91VkaChoyVzr4w-HOaashMPtkCKLaszMGCxhR_2A@mail.gmail.com>
- <20200526151623.GB2190602@rani.riverdale.lan>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Disposition: inline
-In-Reply-To: <20200526151623.GB2190602@rani.riverdale.lan>
-X-Original-Sender: maskray@google.com
+        Tue, 26 May 2020 10:18:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3bu_nxgwkad4sijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) client-ip=2607:f8b0:4864:20::b49;
+Received: by mail-yb1-xb49.google.com with SMTP id d69so16989918ybc.22
+        for <clang-built-linux@googlegroups.com>; Tue, 26 May 2020 10:18:37 -0700 (PDT)
+X-Received: by 2002:a25:253:: with SMTP id 80mr3241130ybc.405.1590513517344;
+ Tue, 26 May 2020 10:18:37 -0700 (PDT)
+Date: Tue, 26 May 2020 10:18:29 -0700
+In-Reply-To: <CAK7LNASkcLx-K+W1va9WxfxZ=7H-w65QbyBt=88dzK1NrrM_PQ@mail.gmail.com>
+Message-Id: <20200526171830.151966-1-ndesaulniers@google.com>
+Mime-Version: 1.0
+References: <CAK7LNASkcLx-K+W1va9WxfxZ=7H-w65QbyBt=88dzK1NrrM_PQ@mail.gmail.com>
+X-Mailer: git-send-email 2.27.0.rc0.183.gde8f92d652-goog
+Subject: [PATCH v5] Makefile: support compressed debug info
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Sedat Dilek <sedat.dilek@gmail.com>, Fangrui Song <maskray@google.com>, 
+	Nick Clifton <nickc@redhat.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	David Blaikie <blaikie@google.com>, Michal Marek <michal.lkml@markovi.net>, 
+	Andrew Morton <akpm@linux-foundation.org>, Changbin Du <changbin.du@intel.com>, 
+	Randy Dunlap <rdunlap@infradead.org>, Stephen Rothwell <sfr@canb.auug.org.au>, 
+	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, linux-kbuild@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="Oo5M/TaH";       spf=pass
- (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1043
- as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Fangrui Song <maskray@google.com>
-Reply-To: Fangrui Song <maskray@google.com>
+ header.i=@google.com header.s=20161025 header.b=aV+EtZWf;       spf=pass
+ (google.com: domain of 3bu_nxgwkad4sijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com
+ designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3bU_NXgwKAD4sijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,49 +136,141 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+As debug information gets larger and larger, it helps significantly save
+the size of vmlinux images to compress the information in the debug
+information sections. Note: this debug info is typically split off from
+the final compressed kernel image, which is why vmlinux is what's used
+in conjunction with GDB. Minimizing the debug info size should have no
+impact on boot times, or final compressed kernel image size.
 
-On 2020-05-26, Arvind Sankar wrote:
->On Tue, May 26, 2020 at 08:11:56AM +0200, Ard Biesheuvel wrote:
->> On Tue, 26 May 2020 at 00:59, Arvind Sankar <nivedita@alum.mit.edu> wrote:
->> >  # Compressed kernel should be built as PIE since it may be loaded at any
->> >  # address by the bootloader.
->> > -KBUILD_LDFLAGS += $(call ld-option, -pie) $(call ld-option, --no-dynamic-linker)
->> > +KBUILD_LDFLAGS += -pie $(call ld-option, --no-dynamic-linker)
->>
->> Do we still need -pie linking with these changes applied?
->>
->
->I think it's currently not strictly necessary -- eg the 64bit kernel
->doesn't get linked as pie right now with LLD or old binutils. However,
->it is safer to do so to ensure that the result remains PIC with future
->versions of the linker. There are linker optimizations that can convert
->certain PIC instructions when PIE is disabled. While I think they
->currently all focus on eliminating indirection through the GOT (and thus
->wouldn't be applicable any more),
+All of the debug sections will have a `C` flag set.
+$ readelf -S <object file>
 
-There are 3 forms described by x86-64 psABI B.2 Optimize GOTPCRELX Relocations
+$ bloaty vmlinux.gcc75.compressed.dwarf4 -- \
+    vmlinux.gcc75.uncompressed.dwarf4
 
-(1) movq foo@GOTPCREL(%rip), %reg -> leaq foo(%rip), %reg
-(2) call *foo@GOTPCREL(%rip) -> nop; call foo
-(3) jmp *foo@GOTPCREL(%rip) -> jmp foo; nop
+    FILE SIZE        VM SIZE
+ --------------  --------------
+  +0.0%     +18  [ = ]       0    [Unmapped]
+ -73.3%  -114Ki  [ = ]       0    .debug_aranges
+ -76.2% -2.01Mi  [ = ]       0    .debug_frame
+ -73.6% -2.89Mi  [ = ]       0    .debug_str
+ -80.7% -4.66Mi  [ = ]       0    .debug_abbrev
+ -82.9% -4.88Mi  [ = ]       0    .debug_ranges
+ -70.5% -9.04Mi  [ = ]       0    .debug_line
+ -79.3% -10.9Mi  [ = ]       0    .debug_loc
+ -39.5% -88.6Mi  [ = ]       0    .debug_info
+ -18.2%  -123Mi  [ = ]       0    TOTAL
 
-ld.bfd and gold perform (1) even for R_X86_64_GOTPCREL. LLD requires R_X86_64_[REX_]GOTPCRELX
+$ bloaty vmlinux.clang11.compressed.dwarf4 -- \
+    vmlinux.clang11.uncompressed.dwarf4
 
->it's easy to imagine that they could
->get extended to, for eg, convert
->	leaq	foo(%rip), %rax
->to
->	movl	$foo, %eax
->with some nop padding, etc.
+    FILE SIZE        VM SIZE
+ --------------  --------------
+  +0.0%     +23  [ = ]       0    [Unmapped]
+ -65.6%    -871  [ = ]       0    .debug_aranges
+ -77.4% -1.84Mi  [ = ]       0    .debug_frame
+ -82.9% -2.33Mi  [ = ]       0    .debug_abbrev
+ -73.1% -2.43Mi  [ = ]       0    .debug_str
+ -84.8% -3.07Mi  [ = ]       0    .debug_ranges
+ -65.9% -8.62Mi  [ = ]       0    .debug_line
+ -86.2% -40.0Mi  [ = ]       0    .debug_loc
+ -42.0% -64.1Mi  [ = ]       0    .debug_info
+ -22.1%  -122Mi  [ = ]       0    TOTAL
 
-Not with NOP padding, but probably with instruction prefixes. It is
-unclear the rewriting will be beneficial. Rewriting instructions definitely requires a
-dedicated relocation type like R_X86_64_[REX_]GOTPCRELX.
+For x86_64 defconfig + LLVM=1 (before):
+Elapsed (wall clock) time (h:mm:ss or m:ss): 3:22.03
+Maximum resident set size (kbytes): 43856
 
->Also, the relocation check that's being added here would only work with
->PIE linking.
+For x86_64 defconfig + LLVM=1 (after):
+Elapsed (wall clock) time (h:mm:ss or m:ss): 3:32.52
+Maximum resident set size (kbytes): 1566776
+
+Thanks to:
+Nick Clifton helped us to provide the minimal binutils version.
+Sedat Dilet found an increase in size of debug .deb package.
+
+Cc: Nick Clifton <nickc@redhat.com>
+Cc: Sedat Dilek <sedat.dilek@gmail.com>
+Suggested-by: David Blaikie <blaikie@google.com>
+Reviewed-by: Fangrui Song <maskray@google.com>
+Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
+Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+---
+Changes V4 -> V5:
+* Drop unrelated hunk from a dirty tree.
+
+Changes V3 -> V4:
+* Add thanks line to commit message as per Masahiro.
+* Swap Sugguested-by to Cc for two lines in commit message, as per
+  Masahiro.
+
+Changes V2 -> V3:
+* Fix blaikie@'s email addr.
+* Fix Fangrui's Reviewed-by tag as per Masahiro.
+* Fix help text as per Masahiro.
+* Fix -Wa$(comma)foo as per Masahiro.
+
+Changes V1 -> V2:
+* rebase on linux-next.
+* Add assembler flags as per Fangrui.
+* Add note about KDEB_COMPRESS+scripts/package/builddeb
+  as per Sedat and Masahiro.
+* Add note about bintutils version requirements as per Nick C.
+* Add note about measured increased build time and max RSS.
+ Makefile          |  6 ++++++
+ lib/Kconfig.debug | 17 +++++++++++++++++
+ 2 files changed, 23 insertions(+)
+
+diff --git a/Makefile b/Makefile
+index 71687bfe1cd9..be8835296754 100644
+--- a/Makefile
++++ b/Makefile
+@@ -822,6 +822,12 @@ DEBUG_CFLAGS	+= $(call cc-option, -femit-struct-debug-baseonly) \
+ 		   $(call cc-option,-fno-var-tracking)
+ endif
+ 
++ifdef CONFIG_DEBUG_INFO_COMPRESSED
++DEBUG_CFLAGS	+= -gz=zlib
++KBUILD_AFLAGS	+= -Wa,--compress-debug-sections=zlib
++KBUILD_LDFLAGS	+= --compress-debug-sections=zlib
++endif
++
+ KBUILD_CFLAGS += $(DEBUG_CFLAGS)
+ export DEBUG_CFLAGS
+ 
+diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+index b8f023e054b9..7fc82dcf814b 100644
+--- a/lib/Kconfig.debug
++++ b/lib/Kconfig.debug
+@@ -225,6 +225,23 @@ config DEBUG_INFO_REDUCED
+ 	  DEBUG_INFO build and compile times are reduced too.
+ 	  Only works with newer gcc versions.
+ 
++config DEBUG_INFO_COMPRESSED
++	bool "Compressed debugging information"
++	depends on DEBUG_INFO
++	depends on $(cc-option,-gz=zlib)
++	depends on $(as-option,-Wa$(comma)--compress-debug-sections=zlib)
++	depends on $(ld-option,--compress-debug-sections=zlib)
++	help
++	  Compress the debug information using zlib.  Requires GCC 5.0+ or Clang
++	  5.0+, binutils 2.26+, and zlib.
++
++	  Users of dpkg-deb via scripts/package/builddeb may find an increase in
++	  size of their debug .deb packages with this config set, due to the
++	  debug info being compressed with zlib, then the object files being
++	  recompressed with a different compression scheme. But this is still
++	  preferable to setting $KDEB_COMPRESS to "none" which would be even
++	  larger.
++
+ config DEBUG_INFO_SPLIT
+ 	bool "Produce split debuginfo in .dwo files"
+ 	depends on DEBUG_INFO
+-- 
+2.27.0.rc0.183.gde8f92d652-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200526171340.pdbautbix5ygdvgp%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200526171830.151966-1-ndesaulniers%40google.com.
