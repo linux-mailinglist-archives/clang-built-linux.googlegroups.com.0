@@ -1,130 +1,138 @@
-Return-Path: <clang-built-linux+bncBCIO53XE7YHBBTE3WH3AKGQEKDN2Y2I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCS7XUWOUULBBNWJWH3AKGQEREYSILQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x137.google.com (mail-il1-x137.google.com [IPv6:2607:f8b0:4864:20::137])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6F6981E17FE
-	for <lists+clang-built-linux@lfdr.de>; Tue, 26 May 2020 00:59:25 +0200 (CEST)
-Received: by mail-il1-x137.google.com with SMTP id g13sf16040821ild.16
-        for <lists+clang-built-linux@lfdr.de>; Mon, 25 May 2020 15:59:25 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1590447564; cv=pass;
+Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id F32791E1880
+	for <lists+clang-built-linux@lfdr.de>; Tue, 26 May 2020 02:37:12 +0200 (CEST)
+Received: by mail-pf1-x440.google.com with SMTP id w24sf10986513pfq.10
+        for <lists+clang-built-linux@lfdr.de>; Mon, 25 May 2020 17:37:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1590453431; cv=pass;
         d=google.com; s=arc-20160816;
-        b=p8GS/2SNL5Oy3n7CcdZfiCXWd2FCe8cK6KtPg4DrSa0SdGkKP+s6EPAFUrll5GWBW6
-         5ASjP1xfGZmyshVl2GOCLMtd98yrznUQMIKwpUxI5nPANyr1nPEU2DaocXSiTWqglyUk
-         m1GjFr0pwW2Cn9Nlkm5BExaBBUGOYoWV9BaoA2F3Hr+Qh9ngeSiN4EpOeeAKOr3pJlDe
-         FLx6hfOlKLQUR84/JZWW+gYK4HBYqp6bGNzgwgnWcd1PFfoNkvMBmFIJSS1VzSmosrTh
-         MHs0G19Tvf6Jct3aZZkolxzdbVhrBb1VQGNvNIrptETvvpl/ykiTaI+TMj/esJYOGUyo
-         O8ag==
+        b=ivOwEnOxUXML7V2GXiQVo2Iwn8JEZ9dxhSCYCKK/mUIhZtGrXAajt0CSgm6D2b1Pvg
+         D9gWXnviLtID5dmG7pG/KQPjQGKmJQE2V9IpD8rFaYG4FNoaOeGS66cwoVTlgeCVtNqr
+         z1OMaD94yLXZAn/b3Ij9C3TaonzdwFCA3OOmw5dFDTBzh7GduQU/sKqKOz4uuR3Diybt
+         tNPxt0wlPa7IsX7oKxKhK8TcyoQTLl+ys+n5uPS3X8DYHy/D0NlgKbV00CLO5nXvqD1W
+         SYpZFPkOFlUjC3dN4RG7hkhOBz2zqMuiAoXUW+2EekCuNJ3j5G4arfon7J+QKFQkJmbz
+         Rsbw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=B2R7PxPFZR1Qyoc9pztOIy00ERTz27zGyznlKe/k1tk=;
-        b=StfGWvprd8kanqsHQPvk5ArNvHF5b43cSD6hizww+4UdRsE4+fgQ07HR44bmxvTuR3
-         ByBUXSaLEsCnoOeuoYCZv9XFsbj/9CTe8avnQYTmvbJnytec4Bz8JZMqBBoP+Ohp8Noo
-         KWWeRI+PIQ+L+8iY5caJf/4PGx06E7SYL/W4T7t3WDoH3Cjm5CutRMdxRP1lpiqJKINh
-         LVbfUxIRdZ75YnYmh89Bt4abiuqPTTqz2Fn+6TrCDolcpeFjDFUe9Pw+J3F5bkwLk5LU
-         CHF8RmfRQgt2cJYzkScnM2mmsaYPrXbvpvbShHxY1hb8QqP5k1cq1+vpxJCX12BVTzcT
-         +Qig==
+         :list-id:mailing-list:precedence:reply-to:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=2N6wU1bTjsMq48cIiOuBKbAzXiP1eNruI/Ku00heI1w=;
+        b=EwreM38qCAs38lNBuFhviAUQ4MJtsH2QNjVmUdJgnsbZr6tPSG4Mwb8y4UoxDm3KGG
+         JkULGQTWtpkcAKoDtzpZ7FF3ubxpQGQa+5xcA3GR4oj6cOz4OYx4epi1ujcgnLKs+yta
+         BitO6CA1OZD0HDFT0bnEFEp9wrowSSJh/mq2jd8OR4o71Efrc7qIkDbr1IaQkv2C+oRr
+         ENxaiaYGKFJRtb4/hXZXTZ6tjH/H7r+mdrvP3yUFvGbdegLlWdGBNmZTO0a4Sv//p/hq
+         jG+LR9bw04rDB4ycU4se1FAHxyBp5+X1DRgujYxuZGmeiE4X0RV774SLwC3w4fkNt4R6
+         sWhg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 209.85.219.47 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=hiBEnNOr;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=B2R7PxPFZR1Qyoc9pztOIy00ERTz27zGyznlKe/k1tk=;
-        b=Jftl3lYsyxEInz80VBew63IR3q9AMmtVl7zjubhSfSFJ0y9k3yadFmyO+s/gFAR1CC
-         GYbDlpLsJ1fT22idK32CNrso5XUlFLAVqXThWLe2j5/9wXA0EJZV6CJPqR8ZlYAWHU4n
-         sR/gRBRpDByGKlGCMqgK3dwYV7CxY0nEHUmE4T9M8+gM1DPWtOZuVYPNY6WZrHwy4so0
-         ggczJUW8fvo2UuPiUbu6bRICR+dQKdZkTLn3qkF8DkpJAw4ER7WnadVS2bpgZka2vaQ7
-         ant9oipNu08Pd1Xq2BOAGrz88tn2yNmhMHV9VNssmypvMriAM/bHoHiw8PlNLqAIkpsn
-         L9cg==
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=2N6wU1bTjsMq48cIiOuBKbAzXiP1eNruI/Ku00heI1w=;
+        b=P8fC0o7kebwzH4yjSRk3EMAXeSkL6Wcoxqrv7AzkOKNoc5kc9ia7z+K20tErO5fErN
+         wfYxRfojUksZaWijCf5tL7olswp7505A2DJ5lP07bSMUCBF8elXeu2ymTJG2PsorML6r
+         1FbTqbR7aXcE0pKUA9FjWvdc2IyT6SgNyFxTt02emjtLkz3jb9Gga377rBwdrjXT9jP3
+         sC+HAl1sx10K83aQlKwCRqTPGX3D2JSQl4PElEYIoBDQscvTzw8eCFtiNf4XUHFfOyVo
+         NSqaiZ4lGz62ZGd2GXcBLvqgH6zCnhhSUIIfn2NfR7Xu7bUiHMDboaVLHg89ewdOrwvB
+         lTfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=B2R7PxPFZR1Qyoc9pztOIy00ERTz27zGyznlKe/k1tk=;
-        b=e3HgMr0RmTYjfHRKEjBpiV1QIPNfq1UQVbKavh3k70Y/xlikpugkOwnF8JAeoX44Iv
-         7sQPxwENOGKBE7SC/nX2GOxExx7A8+KjKFo+aK/xPk/SMMDKxK3tuMXOdQH84AT6qkUM
-         yXSbuGaePFrDkC2W3LdenLKM/YHN/pt8gUdJezj+Qeg34qEG+nQAXYAiKztTzoxLSxc0
-         T2unQvK7lLr9A3WWZ/8DiQaMw3SkOOCXerpP2vGHJhHFuVdr/LskWLmEGom8GZC02h+I
-         lSL1ayfGt4b/tREBg7WqoHHKdtLGZ3irdJs4EbZnLtJC8b0Y/Z6oRyHCtT4e5oqycdvG
-         DdMw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533+0eOIjun51zSAiDwwRx7wns0JZN5xky8YQHElYF/p9ZqQunhd
-	Hsqk7sRACO2l7z/eFLEGo2A=
-X-Google-Smtp-Source: ABdhPJzsZCK9pfV88BbaAuBy397T+UHBinOZYTg2p8GU1o2exFUHOOFVkP9DuzcdM/pW6ZDblb+LEA==
-X-Received: by 2002:a92:d449:: with SMTP id r9mr1443387ilm.166.1590447564443;
-        Mon, 25 May 2020 15:59:24 -0700 (PDT)
+        bh=2N6wU1bTjsMq48cIiOuBKbAzXiP1eNruI/Ku00heI1w=;
+        b=kudNJ/HC1GxN6SRsp5EOxT/RD9LxprnHIcwdW3cxSYOMGdbKzfa9DDhv4AUqgfgvjh
+         vSYOOlofiwFFtXWjefGtXYpoiOQsgbyJARr+48zb5dFfAclKrdZXET1138dSnFhuVDvL
+         xcBhW5XKbKr3twycyS+LvbguKRUbqfvsfMy8OYVX11FI0shw5x3lY2HJH4ZmNm8a7e3b
+         ShTiZCR1+V4kuBDUYRVc6FB5gCXVErbAFM/DuyibiYHh94ATf1q/VaUMKZqgsRn53p9K
+         moIjckasZKyAGAMXjbZyqNaYRkSJYXUTG9s+CnPiIDCfJPN7OYEFCQVszKbSNjzInT0K
+         rRiA==
+X-Gm-Message-State: AOAM530QIj/UbI69m7sLXpWgO/NbxOwnq9aPv155jdoMaMS73IPMWHfw
+	g39ScVIzlrxBpRZ7Knw/7xc=
+X-Google-Smtp-Source: ABdhPJx3xVLLDZwCbEaik4eoLDGcFeTEDQFDMC2sE8GMXHAeQCkobLkBrgM9fAvuNYD3UGS7hITGkw==
+X-Received: by 2002:a17:90a:6f41:: with SMTP id d59mr10195032pjk.141.1590453431045;
+        Mon, 25 May 2020 17:37:11 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:5b8c:: with SMTP id c12ls2278404ilg.5.gmail; Mon, 25 May
- 2020 15:59:24 -0700 (PDT)
-X-Received: by 2002:a05:6e02:68c:: with SMTP id o12mr27389010ils.170.1590447564088;
-        Mon, 25 May 2020 15:59:24 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1590447564; cv=none;
+Received: by 2002:a65:668c:: with SMTP id b12ls3106434pgw.10.gmail; Mon, 25
+ May 2020 17:37:10 -0700 (PDT)
+X-Received: by 2002:a63:4c0b:: with SMTP id z11mr25861862pga.348.1590453430668;
+        Mon, 25 May 2020 17:37:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1590453430; cv=none;
         d=google.com; s=arc-20160816;
-        b=PokkwbNhP19sUiFd1N8OYscsiHvH+sZDgCHVmuE0iPuFfXCn9eVdl7/XSEU/1lJsYT
-         bNTVE98UccmbN+hxJBUd2LoHn3KDqhAz+TF8HBRg3S1xwKBKA452Jo+R6Ki3yqp4puP4
-         TH1M3Kbv6C+NytmHI2aEF+T+zuRYE/nemmJzDHLOUJzjagxIHMixa2XsvjjNnZ7M5tKe
-         5iz5OhsHANEvdRg7GuutcwEO/XkCCqE9fYso4meSkEX11aTe3dk+FW34OJtH1+CHAwT1
-         avr93Zm7t+mPP450/0QQC1SrmBVphFYtoaKAYjBSXNTCav3cHHJLKp2RjUJp99K1CD8g
-         mvuw==
+        b=xhGsDLOSSv7j1bfQD6H8S/XYKJCxjsqMVfEvWdqcYbSA1NViMqaf9HPgncHzusH+wg
+         MaoUs4wZHlJYqlaktteQExRjsZuONBXTDRlK7yUabiWIojNI++y0ucsJosTeQ67T0rpf
+         melKCP9za7yRQeIB75zwbN853N2E4qBBtwt+EX9aMXGtKUeOFX0gsQwOeE08rYA03j4J
+         tPAEBRGjM+kRtDTnEg4AiB7ZqRnbRGjpCwg0v5vVJkK9cTO7dE3lBVb7mRujVnWyiWlG
+         Bu6MybCXnZJFwrgWEchUHcTH5bLkF2c36cCHoIcIbUEGmsoVW63IUHWpLLp/u6ZE7Dv6
+         5GYg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from;
-        bh=wAMjAyQp9bQBfv0jsI9bNQ7DjPHoHnMHzy3coGwiqYc=;
-        b=nV9hauC+G5VJtlvBOVwufUsKTXaoeImZMlt/K8e0wp1vksrxmZrN8u3HPHMZFVSIfb
-         ku0LdctdDy1l77Uy7AYhMjdTkxq8pEyYuGGS5e4XmJYrzGb0j8vphzJi/wvkjR49iMkE
-         yxerIgBEW/kV+FHLVPZuRO7lddjld47jLClvEEyTo4HElo/MT7lijZ0Kaxoesz+AzQA9
-         g9dT75A0N0286YHBXnl5MOYR/V5S+S57iFCm0qQGKo9ZtzkytAZysuve+HBWP3+9EXxB
-         GYAorfPbTEQ5R+H/GdGOyArLfOQkNcIc3CCCky2yj8pRhGltND7iuu1N9CQZflTLyg0b
-         Cd7Q==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=e0QmqwRh8HAG2Vlx7bh9P7hF+0B2FhgdgqTRYD2VzoE=;
+        b=JRxt+qDnjGMJ+doaWph0EWP+ja3YSV6o+vFYmakyfvf82r58xlu8aGRDWLbTfgXE5m
+         oMusjsVuDamzkfjIox33ZbS2YLhsw79odF3kNIp33DdbVKlca3ryESy8HTDo8nC0f2Vt
+         l6cvcyrYxwskxRZx9CV210NSoC0JliglzyjNUe9M111cVI1uU9rW+1BIgEQ+OFLe1/9C
+         mass8LxlIxqlarHJdNbMj9Pn7vVb6PyB0kOB5IzaTKrRWuX1HoOqEnuNbmW+NZmqvSnc
+         +RbCqLx3i2AHh4PFI900x3w4RckRDThRpjxNM4ai0Za+Rg9nhvXlpWQaUgWGuPxNG9pT
+         7vlw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 209.85.219.47 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
-Received: from mail-qv1-f47.google.com (mail-qv1-f47.google.com. [209.85.219.47])
-        by gmr-mx.google.com with ESMTPS id d3si1262962ilg.0.2020.05.25.15.59.24
+       dkim=pass header.i=@google.com header.s=20161025 header.b=hiBEnNOr;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pj1-x1042.google.com (mail-pj1-x1042.google.com. [2607:f8b0:4864:20::1042])
+        by gmr-mx.google.com with ESMTPS id e6si82156pgr.1.2020.05.25.17.37.10
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 25 May 2020 15:59:24 -0700 (PDT)
-Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 209.85.219.47 as permitted sender) client-ip=209.85.219.47;
-Received: by mail-qv1-f47.google.com with SMTP id v15so8653322qvr.8
-        for <clang-built-linux@googlegroups.com>; Mon, 25 May 2020 15:59:24 -0700 (PDT)
-X-Received: by 2002:a0c:f286:: with SMTP id k6mr17583207qvl.72.1590447563545;
-        Mon, 25 May 2020 15:59:23 -0700 (PDT)
-Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
-        by smtp.gmail.com with ESMTPSA id d140sm15024585qkc.22.2020.05.25.15.59.22
+        Mon, 25 May 2020 17:37:10 -0700 (PDT)
+Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) client-ip=2607:f8b0:4864:20::1042;
+Received: by mail-pj1-x1042.google.com with SMTP id q24so499823pjd.1
+        for <clang-built-linux@googlegroups.com>; Mon, 25 May 2020 17:37:10 -0700 (PDT)
+X-Received: by 2002:a17:902:740b:: with SMTP id g11mr26469332pll.158.1590453429992;
+        Mon, 25 May 2020 17:37:09 -0700 (PDT)
+Received: from google.com ([2620:15c:2ce:0:9efe:9f1:9267:2b27])
+        by smtp.gmail.com with ESMTPSA id e26sm12470490pgl.27.2020.05.25.17.37.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 May 2020 15:59:23 -0700 (PDT)
-From: Arvind Sankar <nivedita@alum.mit.edu>
-To: Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	x86@kernel.org
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	Fangrui Song <maskray@google.com>,
+        Mon, 25 May 2020 17:37:09 -0700 (PDT)
+Date: Mon, 25 May 2020 17:37:03 -0700
+From: "'Fangrui Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Arvind Sankar <nivedita@alum.mit.edu>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>,
+	x86@kernel.org, Nick Desaulniers <ndesaulniers@google.com>,
 	Dmitry Golovin <dima@golovin.in>,
 	clang-built-linux@googlegroups.com,
 	Ard Biesheuvel <ardb@kernel.org>,
 	Masahiro Yamada <masahiroy@kernel.org>,
 	Daniel Kiper <daniel.kiper@oracle.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 4/4] x86/boot: Check that there are no runtime relocations
-Date: Mon, 25 May 2020 18:59:18 -0400
-Message-Id: <20200525225918.1624470-5-nivedita@alum.mit.edu>
-X-Mailer: git-send-email 2.26.2
-In-Reply-To: <20200524212816.243139-1-nivedita@alum.mit.edu>
-References: <20200524212816.243139-1-nivedita@alum.mit.edu>
+Subject: Re: [PATCH 0/4] x86/boot: Remove runtime relocations from compressed
+ kernel
+Message-ID: <20200526003703.qr2yq6fgxpl6wcua@google.com>
+References: <CAKwvOd=qB+EoJwfAYUA9Hg7f9op4Q4W+TDnht8pLRG5bPX=29Q@mail.gmail.com>
+ <20200524212816.243139-1-nivedita@alum.mit.edu>
 MIME-Version: 1.0
-X-Original-Sender: nivedita@alum.mit.edu
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of niveditas98@gmail.com designates 209.85.219.47 as
- permitted sender) smtp.mailfrom=niveditas98@gmail.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20200524212816.243139-1-nivedita@alum.mit.edu>
+X-Original-Sender: maskray@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=hiBEnNOr;       spf=pass
+ (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1042
+ as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Fangrui Song <maskray@google.com>
+Reply-To: Fangrui Song <maskray@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,101 +145,82 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Add a linker script check that there are no runtime relocations, and
-remove the old one that tries to check via looking for specially-named
-sections in the object files.
+On 2020-05-24, Arvind Sankar wrote:
+>The compressed kernel currently contains bogus runtime relocations in
+>the startup code in head_{32,64}.S, which are generated by the linker,
+>but must not actually be processed at runtime.
+>
+>This generates warnings when linking with the BFD linker, and errors
+>with LLD, which defaults to erroring on runtime relocations in read-only
+>sections. It also requires the -z noreloc-overflow hack for the 64-bit
+>kernel, which prevents us from linking it as -pie on an older BFD linker
+>(<= 2.26) or on LLD, because the locations that are to be apparently
+>relocated are only 32-bits in size and so cannot normally have
+>R_X86_64_RELATIVE relocations.
+>
+>This series aims to get rid of these relocations. It is based on
+>efi/next (efi-changes-for-v5.8), where the latest patches touch the
+>head code to eliminate the global offset table.
+>
+>The first patch is an independent fix for LLD, to avoid an orphan
+>section in arch/x86/boot/setup.elf [0].
+>
+>The second patch gets rid of almost all the relocations. It uses
+>standard PIC addressing technique for 32-bit, i.e. loading a register
+>with the address of _GLOBAL_OFFSET_TABLE_ and then using GOTOFF
+>references to access variables. For 64-bit, there is 32-bit code that
+>cannot use RIP-relative addressing, and also cannot use the 32-bit
+>method, since GOTOFF references are 64-bit only. This is instead handled
+>using a macro to replace a reference like gdt with (gdt-startup_32)
+>instead. The assembler will generate a PC32 relocation entry, with
+>addend set to (.-startup_32), and these will be replaced with constants
+>at link time. This works as long as all the code using such references
+>lives in the same section as startup_32, i.e. in .head.text.
+>
+>The third patch addresses a remaining issue with the BFD linker, which
+>insists on generating runtime relocations for absolute symbols. We use
+>z_input_len and z_output_len, defined in the generated piggy.S file, as
+>symbols whose absolute "addresses" are actually the size of the
+>compressed payload and the size of the decompressed kernel image
+>respectively. LLD does not generate relocations for these two symbols,
+>but the BFD linker does. To get around this, piggy.S is extended to also
+>define two u32 variables (in .rodata) with the lengths, and the head
+>code is modified to use those instead of the symbol addresses.
+>
+>An alternative way to handle z_input_len/z_output_len would be to just
+>include piggy.S in head_{32,64}.S instead of as a separate object file,
+>since the GNU assembler doesn't generate relocations for symbols set to
+>constants.
+>
+>The last patch adds a check in the linker script to ensure that no
+>runtime relocations get reintroduced. Since the GOT has been eliminated
+>as well, the compressed kernel has no runtime relocations whatsoever any
+>more.
+>
+>[0] https://lore.kernel.org/lkml/20200521152459.558081-1-nivedita@alum.mit.edu/
+>
+>Arvind Sankar (4):
+>  x86/boot: Add .text.startup to setup.ld
+>  x86/boot: Remove runtime relocations from .head.text code
+>  x86/boot: Remove runtime relocations from head_{32,64}.S
+>  x86/boot: Check that there are no runtime relocations
+>
+> arch/x86/boot/compressed/Makefile      | 36 +---------
+> arch/x86/boot/compressed/head_32.S     | 59 +++++++--------
+> arch/x86/boot/compressed/head_64.S     | 99 +++++++++++++++-----------
+> arch/x86/boot/compressed/mkpiggy.c     |  6 ++
+> arch/x86/boot/compressed/vmlinux.lds.S | 11 +++
+> arch/x86/boot/setup.ld                 |  2 +-
+> 6 files changed, 109 insertions(+), 104 deletions(-)
+>
+>-- 
+>2.26.2
 
-Drop the tests for -fPIE compiler option and -pie linker option, as they
-are available in all supported gcc and binutils versions (as well as
-clang and lld).
+All 4 commits look good.
 
-Signed-off-by: Arvind Sankar <nivedita@alum.mit.edu>
----
- arch/x86/boot/compressed/Makefile      | 28 +++-----------------------
- arch/x86/boot/compressed/vmlinux.lds.S |  8 ++++++++
- 2 files changed, 11 insertions(+), 25 deletions(-)
-
-diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
-index d3e882e855ee..679a2b383bfe 100644
---- a/arch/x86/boot/compressed/Makefile
-+++ b/arch/x86/boot/compressed/Makefile
-@@ -27,7 +27,7 @@ targets := vmlinux vmlinux.bin vmlinux.bin.gz vmlinux.bin.bz2 vmlinux.bin.lzma \
- 	vmlinux.bin.xz vmlinux.bin.lzo vmlinux.bin.lz4
- 
- KBUILD_CFLAGS := -m$(BITS) -O2
--KBUILD_CFLAGS += -fno-strict-aliasing $(call cc-option, -fPIE, -fPIC)
-+KBUILD_CFLAGS += -fno-strict-aliasing -fPIE
- KBUILD_CFLAGS += -DDISABLE_BRANCH_PROFILING
- cflags-$(CONFIG_X86_32) := -march=i386
- cflags-$(CONFIG_X86_64) := -mcmodel=small
-@@ -49,7 +49,7 @@ UBSAN_SANITIZE :=n
- KBUILD_LDFLAGS := -m elf_$(UTS_MACHINE)
- # Compressed kernel should be built as PIE since it may be loaded at any
- # address by the bootloader.
--KBUILD_LDFLAGS += $(call ld-option, -pie) $(call ld-option, --no-dynamic-linker)
-+KBUILD_LDFLAGS += -pie $(call ld-option, --no-dynamic-linker)
- LDFLAGS_vmlinux := -T
- 
- hostprogs	:= mkpiggy
-@@ -84,30 +84,8 @@ vmlinux-objs-$(CONFIG_ACPI) += $(obj)/acpi.o
- vmlinux-objs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
- vmlinux-objs-$(CONFIG_EFI_MIXED) += $(obj)/efi_thunk_$(BITS).o
- 
--# The compressed kernel is built with -fPIC/-fPIE so that a boot loader
--# can place it anywhere in memory and it will still run. However, since
--# it is executed as-is without any ELF relocation processing performed
--# (and has already had all relocation sections stripped from the binary),
--# none of the code can use data relocations (e.g. static assignments of
--# pointer values), since they will be meaningless at runtime. This check
--# will refuse to link the vmlinux if any of these relocations are found.
--quiet_cmd_check_data_rel = DATAREL $@
--define cmd_check_data_rel
--	for obj in $(filter %.o,$^); do \
--		$(READELF) -S $$obj | grep -qF .rel.local && { \
--			echo "error: $$obj has data relocations!" >&2; \
--			exit 1; \
--		} || true; \
--	done
--endef
--
--# We need to run two commands under "if_changed", so merge them into a
--# single invocation.
--quiet_cmd_check-and-link-vmlinux = LD      $@
--      cmd_check-and-link-vmlinux = $(cmd_check_data_rel); $(cmd_ld)
--
- $(obj)/vmlinux: $(vmlinux-objs-y) FORCE
--	$(call if_changed,check-and-link-vmlinux)
-+	$(call if_changed,ld)
- 
- OBJCOPYFLAGS_vmlinux.bin :=  -R .comment -S
- $(obj)/vmlinux.bin: vmlinux FORCE
-diff --git a/arch/x86/boot/compressed/vmlinux.lds.S b/arch/x86/boot/compressed/vmlinux.lds.S
-index d826ab38a8f9..f9902c6ffe29 100644
---- a/arch/x86/boot/compressed/vmlinux.lds.S
-+++ b/arch/x86/boot/compressed/vmlinux.lds.S
-@@ -42,6 +42,12 @@ SECTIONS
- 		*(.rodata.*)
- 		_erodata = . ;
- 	}
-+	.rel.dyn : {
-+		*(.rel.*)
-+	}
-+	.rela.dyn : {
-+		*(.rela.*)
-+	}
- 	.got : {
- 		*(.got)
- 	}
-@@ -83,3 +89,5 @@ ASSERT(SIZEOF(.got.plt) == 0 || SIZEOF(.got.plt) == 0x18, "Unexpected GOT/PLT en
- #else
- ASSERT(SIZEOF(.got.plt) == 0 || SIZEOF(.got.plt) == 0xc, "Unexpected GOT/PLT entries detected!")
- #endif
-+
-+ASSERT(SIZEOF(.rel.dyn) == 0 && SIZEOF(.rela.dyn) == 0, "Unexpected runtime relocations detected!")
--- 
-2.26.2
+Reviewed-by: Fangrui Song <maskray@google.com>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200525225918.1624470-5-nivedita%40alum.mit.edu.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200526003703.qr2yq6fgxpl6wcua%40google.com.
