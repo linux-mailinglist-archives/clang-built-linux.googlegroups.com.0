@@ -1,149 +1,140 @@
-Return-Path: <clang-built-linux+bncBC3MJ5UR74ERBAMSW73AKGQE5GDSCIA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTYRDEG7MGBBAXMW73AKGQESVFZTBY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3b.google.com (mail-vk1-xa3b.google.com [IPv6:2607:f8b0:4864:20::a3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id EF9CE1E3511
-	for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 03:57:22 +0200 (CEST)
-Received: by mail-vk1-xa3b.google.com with SMTP id j186sf8779579vkc.10
-        for <lists+clang-built-linux@lfdr.de>; Tue, 26 May 2020 18:57:22 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1590544642; cv=pass;
+Received: from mail-ua1-x937.google.com (mail-ua1-x937.google.com [IPv6:2607:f8b0:4864:20::937])
+	by mail.lfdr.de (Postfix) with ESMTPS id CE3851E37AD
+	for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 07:09:23 +0200 (CEST)
+Received: by mail-ua1-x937.google.com with SMTP id 65sf8974112uae.3
+        for <lists+clang-built-linux@lfdr.de>; Tue, 26 May 2020 22:09:23 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1590556162; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zoup10LjTEXivee42q4VuHuZk4YhnT8FDb8COJJQwsinRRbMrMmgIO0h4MBVIlgs9P
-         HFD6ljQgA/0qbS0GW4TH9BQ3FT3AkTDotO6y+9foOGJUWq8zTfo9qim0V7/NAUwcz46T
-         k29XexT5es3OuxQe7EJK7cYXhTy0Cv9tz3O/0KhK8Fitx0i6xEdQZQQou8cGUeJ2F34c
-         rX2ckrwX1Xal8/ayBzxe61oqEbP3JlOGuNmL6T9f9URvxWGNlMOEaQ6mr+zrW05PN5Fp
-         1mxlr83ybARw6ajE6n5VVCdwiJLwFgH6QQv9AzmZS4RRmmY8WAUjIMPch3PllFG4eSKg
-         Om8w==
+        b=d1KtBuHqSLYcnHoWtdZbQgZqCrK5UD6sOr0krUSIN0tcU3uc/qafbBole2vIUna4rI
+         QmS4/b8d7VE7+mFyfpPwToLcvZ1EQ3XFzEfLYp9NMLe0lZF4z6ua/XxFUdDYFSpSve08
+         jcAlmSm6Wa8DtwnZEN/HjYzyIwpfuQPYLFJvnQu0Nr65v/fbu+a8dj0rfyXdIDgsm1Tq
+         h1bMZwl9BMHRT34PTQZquVbHmVPgp+99naqUj3oE92XR1MO3rh6hytTMGNAGvyq+AW1k
+         mfiJJPjV0KZDEX6Q11FU7Qd+J0WnQujr3287xlgWsSWciv3n+S6sCzTFEK8G6M8/IPZH
+         6oEQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=xzKOuGSPpVazgGQabt5viYKu2uBDOMXYF0MxlzPR6VA=;
-        b=hgtRbaFLjIp5/t2pq3dsiQtYkIuNtbPxzPx1hkMtA9CfVd8+WMyScWLX04nN0uY0o9
-         Zh7+RvskwJOnnRGaBEcVzjvYGJnYbqRMw95JP/asLx+IW68fE9aKf3AUDf/NZBLXOL4b
-         JEsIxMPHNADFyvUpUkShlKd3clARp98jcq3ZopyUjwRbL1zngTvo0c4Z1S713djUBYTm
-         QsnYxo2huZUCc/ZOTTojIxbUB2ya8kWvBLdNK57ZEEOQyK58bLLYEZa6Gd8FHt8JaGw2
-         eqM5mFABNPePJIF8MFJrLCeia3QR6eWyBzzwzi8TVSbDzZrf6XjrULjysl6ZCAe9abM+
-         bXLw==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=sN37J9hrCYIFcIXrnhYEaOiMQg/LfCouzZ4B5z+HfXI=;
+        b=m7aoYQdpbn0sI5V8fTv2V7As075rzypnXFChUVHzALFSZg+CR9p94lfVSHof6xdxsO
+         i9NhWgzkVFtXM5i7LKTZfXFysrt80THNY9hxCY1e/EcaNqOMGmAbF5ptvdC0wAj71stj
+         ezxruSSZcJFFsGXDQt6t7r4HgEuuXqQ+QzlAcZtuqQVUG0Mzav4Jgv1lfLQtDdSWTpY3
+         Lo9YUSLwocmhZAAQWdR7fdYfkK2oRYGL+ED0Xbznjxzkr7fHQDG11l6NFwoVAd7f7Cv3
+         a8ed0O1HFQFhzKgYishyGUzqXHqny393ZNazIEcH/QCzu+soTpLFhYckJL5Wqgv35dJG
+         elAQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@dxuuu.xyz header.s=fm3 header.b=cq4cSNvp;
-       dkim=pass header.i=@messagingengine.com header.s=fm2 header.b="k7o/aCqW";
-       spf=pass (google.com: domain of dxu@dxuuu.xyz designates 66.111.4.229 as permitted sender) smtp.mailfrom=dxu@dxuuu.xyz
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=CV2ucSIX;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=sN37J9hrCYIFcIXrnhYEaOiMQg/LfCouzZ4B5z+HfXI=;
+        b=HzMTDt2YJbf2a2bZhToESqcXhzQtj3juhkzvLdiK7W9YmhhuTc/+ForcadoI6zqQ0S
+         PWllTfBFk4Ar29rVlMkU1PEe2n02NkT2MR6wIhiVpvY7t0AXmf4ZFuRjs2JpD9JA5ZGf
+         AP4dZDOjhTIjSBdECfhaJ2nyFyNAlYDUQxLtj+94/SFpY0y8HooytWxIbo0FEyp1ZyNk
+         VTifZkw0B86bUaOTL9gryX8kpg5xO79XM/68papA0wpFoUWvHZHxNc2V4tGfGE5jeqFb
+         dyYCXjtUvPvzWgv2X+GJYzD5sZC1Lu+s4Z53iTLjo01diJ3fivCNHq7tQc01bFHAdSVB
+         51Ww==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=xzKOuGSPpVazgGQabt5viYKu2uBDOMXYF0MxlzPR6VA=;
-        b=QxKiOnuVEvEy3EHPl8gB8zlHrPXyH7JYgFI4yvNDmtS3RWw3xPETrWcyc+wxACb8XQ
-         iB1qiR/g+wz2hwYBEuXdthD79e4gNQtCOEZ5Y1rtrPzNG4KEc5jspBAvDPMsxvciBvdU
-         NeWsZzCUMbM63zYu1JOfDroQwEMqU9w0EfezUQ4jceTYQ3ijWgJH3KqDDKGedqoojPaW
-         pasmaXF27O+FMcZ2WVFjQVdHaPIkW9szHRvhBiYDsouYS2atd1f3iyobXRwnIWe14j3K
-         XFUn+ygunp8SLRBMkrTqKqYqi7nOwbAV8I8IuaK9uV25cgyy4I0M8Do3o/KGeSuSrcBc
-         4PtQ==
+        bh=sN37J9hrCYIFcIXrnhYEaOiMQg/LfCouzZ4B5z+HfXI=;
+        b=SMYdoXRkmRIuYtTn7OZV0UI7cTrjnHaknC1zsSJsxHL8ZY7KB+gyF462DETcoynYs+
+         cQO0IEg8+DUJzMF3ILZdXcLeyha8oTKg3Z1hfA6z62Sn4RwfOrJ8pVLNEDflodGA5S/l
+         sCZOVHc5T93m4mBV6VcKUSsFiSSUyOXOOEqUTNwTOjYuVllQSrpyugqCyQNjz0R0tgqu
+         dVvwxJNJac0c1Zi8kRJhRGUen3Fa+yL10y4ZXu6GdmAASiqVGuJjdOB1WrCTjQWvrk7p
+         gThJjXeMznbZfJ43QCyjbjpJlSpZDAmYm/y9PScRX2K5QIr7rtfWEta9qbGsBKRSzYZH
+         KheA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=xzKOuGSPpVazgGQabt5viYKu2uBDOMXYF0MxlzPR6VA=;
-        b=KcJSkVnisKq6ebOnf4I0rDsOXqCbf6JM18DKVvTgFxMm/HSe1b4uepN8RDp3rlTu4g
-         PjE4BMn/tz8VmYiLgsilVHCPqdPDn5SVda46TJknsBkNOvzBLOuVuGT0RuAXXAOjcZmg
-         3kYVr7k2d7BPVjM62SLIK/DAUQ6VHw32ausvSlzRNgqjlzSyeC58TFrR/56adL/HS8Z1
-         lzZC5N7toQAD4Rk8+tZ1Ma1TxvVXtigg1mcEtG69Sd5GZcplE5q4D0zAAYeN6+zXhB5E
-         kEuP4q8iWIR2B4W97a3mhsdLEvWL2ySJVIpa2EPHImIxPuOJ5NoqYnIMLM/7mTzonQFi
-         XCEw==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=sN37J9hrCYIFcIXrnhYEaOiMQg/LfCouzZ4B5z+HfXI=;
+        b=eZMh1/J5pIKZvJUsIXgDAOBTa1al2xydNnMxd+E8KRGM+CG9saqt6LylXyvRYTzM/b
+         WwoSlYKqJ5g86DmvC5mCYaDL7QyY7FHyu7bvVqyOgpPn7CLavKdywivH+lgNFJq1mdQW
+         B/dmPwwiJRc4ryXQZ9v/fI6HCyN5nhHABVqmN20C3evfnHcD/4hTJ9GTwqa11P5jPbq0
+         Tbhy4tBQaHXlP4gLf42Y78dDDQt+VLXvwFO2gD/ZG1JHzR5YYbtdCdp88b+H+73HrU+/
+         i83RonD+dye5tqaoxWlo/wyeC+pTbvIvL1Mc5+GPUftE+J+tL1csi/xeSWDdCjPkCbSH
+         zF2w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532m0l0SAPp3ihOge1UHvnX1w5dEgFAQXXj+zUMV88f68094sjG6
-	ut99Wz/Yf+757/IkMAI6Na0=
-X-Google-Smtp-Source: ABdhPJyIXr2AEI3ImII3E19oy2OqtV5amKAc2D8ZjqrMmjIgOI308qjCAdjHT5hgEBGLX4wQ8mkP/w==
-X-Received: by 2002:a05:6102:201b:: with SMTP id p27mr3415946vsr.101.1590544641993;
-        Tue, 26 May 2020 18:57:21 -0700 (PDT)
+X-Gm-Message-State: AOAM533y7R6Kkz9wM75n+23Lingpa7j765pnuJXDczmxWWBKGX8WhT6N
+	0XeZPWjLNMZk6w733fSK8nI=
+X-Google-Smtp-Source: ABdhPJyp2sdFo78R7e/pjtv2YR/sN4As/0kdk/XHPlbsSQ/Car1GC4CkNDZPpDOWjEBrpKLCNu6s1Q==
+X-Received: by 2002:a1f:a6c8:: with SMTP id p191mr3616800vke.94.1590556162719;
+        Tue, 26 May 2020 22:09:22 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:80cf:: with SMTP id b198ls1360317vsd.3.gmail; Tue, 26
- May 2020 18:57:21 -0700 (PDT)
-X-Received: by 2002:a67:684a:: with SMTP id d71mr3142618vsc.176.1590544641636;
-        Tue, 26 May 2020 18:57:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1590544641; cv=none;
+Received: by 2002:a1f:4504:: with SMTP id s4ls598698vka.3.gmail; Tue, 26 May
+ 2020 22:09:22 -0700 (PDT)
+X-Received: by 2002:a1f:2b53:: with SMTP id r80mr3741887vkr.17.1590556162372;
+        Tue, 26 May 2020 22:09:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1590556162; cv=none;
         d=google.com; s=arc-20160816;
-        b=OE1nIy72BK+1GqODBarasF45Daan2BnhW7aPwAAj4TJ296kgneJZjOS7jC+57y+rWE
-         31/Cp8mImZgYrfWXxDTQbfYrVo3fWUoFkbPSxnQNjoR5Kx1RQX/rO48OH876UORNOq3p
-         tEoUkL4pk89B8Nhiatm+VNc5CaE9OxI6ljLklHtniMVr6jDTxGgDnRIu4y1OWJzGRBSr
-         n2Jxh6Ayrx9hULFnEyX4ELZ+hFnmluf6LolmfDx3tozwqNM/fuuUtU+6NQTjNipLQMtR
-         B0bgKLhUM16ld+39YVdeGxpY3NQxfdwfLOU2wdC3UO3/DVgOKLwpCQzqTldhcwThIEV4
-         +WYA==
+        b=VmdYLaOqGRr925eKo2Vio/9Z1SLy4j6/8gOz7j9ql8pffNVkflQ3waxV9vlM0XQ3TM
+         ICxT+ppDL1pHfeKA5ZAMAOu7s+hux6zJCdpdn2kzF33rmYTU4bBAmaNQ7IhHupjfZBgu
+         srDPDCY9mCDChzAFUKyTATjReSg3MaCNbEOFVGIdA8MOyAZBT5pYSOD2MAoOPC+pLo0v
+         wypzDj2RmidepKSyK4mCSX2JBn8/mKPV/UkO0vCwnMxkfip4vxeBoIJhH7gt61js0uLC
+         WvGxUUV80PWSRjQ+bkRBeepwx9j7hGZtmHuuovjSQWVX0n67doaTN8lx2ZSevZjF552z
+         UZoA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:dkim-signature;
-        bh=SR919SUjGUEOgu6aawZxJ9MFHnifhK/bHfB0G/3X0fI=;
-        b=GSry6R6M9digqc89HWy9aP5CWiWCNaIz3D/PVEASpx1tvvlC/ysaHibIOWh3YpKUoF
-         kGa6WBKETvAdAWxmLbDdw73GZfGccas+zepQjDS4E6NXuThsKHxXhZZ/cOxYjuhGcN1T
-         38TPOigG7s3b47lhukyCL9DoxM2zw9UmzZDdICR/dP8yAaVE0o/GOqeBN3TUbaUpzDu0
-         tqYktxB8vTcCdz4iY4BdVGPH+Sp8Ra2+xkUGuW3g7zFGSonAs0CbzitIf7qJyxekm+9C
-         TqvgL1bH4bgI11VcPsLlEEPYw0ax1BZc6or6AQgt0AQ+wyPjGLtG/6UvnSTXITH4lYuD
-         ipwQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=iTJZDY5H/dFxsdNEjr0CYs0oWVGjpyqAezVJ96AZYfc=;
+        b=z1G2OPAMPrsTGpufQmojhO+ABsbZ3oDR/esnZtCSL1XFHME2a3xSbOK/pcV/SRKOQm
+         +iffA+taihrwON+4q+BvMzxmteMMBLEW56QvhTv1dJeAyjpBmsWhUMJPRW07Lo/zlZB5
+         VbheMnrYw5WOQOSTHEYUN1yv4RM/O5kU2QgRHaOtKQsm3vlJDcrrioq8P3fDOALRdevJ
+         nahcIw34CwSaEiavyuxUj+3GvA56/v/EA/WoybTf+wCWsUFzpFUu5fCLi0LpdYLwb8Ib
+         5F3nyZ9gpi7e5bFgAxY4dnDXt1dmBxjBNLp99sTe2nuTJjlYJnPHvH1F6TCmcN4mjkUJ
+         q9pw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@dxuuu.xyz header.s=fm3 header.b=cq4cSNvp;
-       dkim=pass header.i=@messagingengine.com header.s=fm2 header.b="k7o/aCqW";
-       spf=pass (google.com: domain of dxu@dxuuu.xyz designates 66.111.4.229 as permitted sender) smtp.mailfrom=dxu@dxuuu.xyz
-Received: from new3-smtp.messagingengine.com (new3-smtp.messagingengine.com. [66.111.4.229])
-        by gmr-mx.google.com with ESMTPS id e10si131834vkp.4.2020.05.26.18.57.21
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=CV2ucSIX;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-qk1-x741.google.com (mail-qk1-x741.google.com. [2607:f8b0:4864:20::741])
+        by gmr-mx.google.com with ESMTPS id j5si226751vkl.3.2020.05.26.22.09.22
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 26 May 2020 18:57:21 -0700 (PDT)
-Received-SPF: pass (google.com: domain of dxu@dxuuu.xyz designates 66.111.4.229 as permitted sender) client-ip=66.111.4.229;
-Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
-	by mailnew.nyi.internal (Postfix) with ESMTP id F0D13580130;
-	Tue, 26 May 2020 21:57:20 -0400 (EDT)
-Received: from mailfrontend2 ([10.202.2.163])
-  by compute4.internal (MEProxy); Tue, 26 May 2020 21:57:20 -0400
-X-ME-Sender: <xms:AMnNXhkgQRzrFeZXHml6CVKTpKr1BjPRrTCG9X5wY4FFJqiMEAZzFQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduhedruddvfedghedtucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucgfrhhlucfvnfffucdljedtmdenucfjughrpefhvf
-    fufffkofgggfestdekredtredttdenucfhrhhomhepffgrnhhivghlucgiuhcuoegugihu
-    segugihuuhhurdighiiiqeenucggtffrrghtthgvrhhnpeeifffgledvffeitdeljedvte
-    effeeivdefheeiveevjeduieeigfetieevieffffenucfkphepjeefrdelfedrvdegjedr
-    udefgeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
-    gugihusegugihuuhhurdighiii
-X-ME-Proxy: <xmx:AMnNXs08kxfcZlxVTfc6s5Mg2voABwVlKDQCbkm9n-ClABInitVuGA>
-    <xmx:AMnNXnpprRwZEB6eNarDnIcbEN8WqO-OHmH7cc7yFLcLmdkBpoZ5nQ>
-    <xmx:AMnNXhnx9E-k8BokHtE2BFPaQkWVpn3YJwf5r8zLd5wF1-wehTV5Dg>
-    <xmx:AMnNXtOWFFfbbb8vIDMv-joayJ2cUsN9uzADKJb9B1ijBs-RYannvQ>
-Received: from localhost.localdomain (c-73-93-247-134.hsd1.ca.comcast.net [73.93.247.134])
-	by mail.messagingengine.com (Postfix) with ESMTPA id 7A02E3060F09;
-	Tue, 26 May 2020 21:57:18 -0400 (EDT)
-From: Daniel Xu <dxu@dxuuu.xyz>
-To: ast@kernel.org,
-	daniel@iogearbox.net,
-	kafai@fb.com,
-	songliubraving@fb.com,
-	yhs@fb.com,
-	andriin@fb.com,
-	john.fastabend@gmail.com,
-	kpsingh@chromium.org,
-	davem@davemloft.net,
-	kuba@kernel.org,
-	hawk@kernel.org,
-	bpf@vger.kernel.org
-Cc: Daniel Xu <dxu@dxuuu.xyz>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH bpf-next] libbpf: Export bpf_object__load_vmlinux_btf
-Date: Tue, 26 May 2020 18:57:04 -0700
-Message-Id: <20200527015704.2294223-1-dxu@dxuuu.xyz>
-X-Mailer: git-send-email 2.26.2
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 26 May 2020 22:09:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::741 as permitted sender) client-ip=2607:f8b0:4864:20::741;
+Received: by mail-qk1-x741.google.com with SMTP id b27so13239860qka.4
+        for <clang-built-linux@googlegroups.com>; Tue, 26 May 2020 22:09:22 -0700 (PDT)
+X-Received: by 2002:a37:a89:: with SMTP id 131mr2339534qkk.92.1590556162058;
+ Tue, 26 May 2020 22:09:22 -0700 (PDT)
 MIME-Version: 1.0
-X-Original-Sender: dxu@dxuuu.xyz
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@dxuuu.xyz header.s=fm3 header.b=cq4cSNvp;       dkim=pass
- header.i=@messagingengine.com header.s=fm2 header.b="k7o/aCqW";
-       spf=pass (google.com: domain of dxu@dxuuu.xyz designates 66.111.4.229
- as permitted sender) smtp.mailfrom=dxu@dxuuu.xyz
+References: <20200527015704.2294223-1-dxu@dxuuu.xyz>
+In-Reply-To: <20200527015704.2294223-1-dxu@dxuuu.xyz>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Tue, 26 May 2020 22:09:11 -0700
+Message-ID: <CAEf4BzbR+7X-boCBC-f60jugp8xWKVTeFTyUmrcv8Qy4iKsvjg@mail.gmail.com>
+Subject: Re: [PATCH bpf-next] libbpf: Export bpf_object__load_vmlinux_btf
+To: Daniel Xu <dxu@dxuuu.xyz>
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Martin Lau <kafai@fb.com>, 
+	Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, Andrii Nakryiko <andriin@fb.com>, 
+	john fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@chromium.org>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+	Jesper Dangaard Brouer <hawk@kernel.org>, bpf <bpf@vger.kernel.org>, 
+	Networking <netdev@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: andrii.nakryiko@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=CV2ucSIX;       spf=pass
+ (google.com: domain of andrii.nakryiko@gmail.com designates
+ 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -156,63 +147,41 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Right now the libbpf model encourages loading the entire object at once.
-In this model, libbpf handles loading BTF from vmlinux for us. However,
-it can be useful to selectively load certain maps and programs inside an
-object without loading everything else.
+On Tue, May 26, 2020 at 7:09 PM Daniel Xu <dxu@dxuuu.xyz> wrote:
+>
+> Right now the libbpf model encourages loading the entire object at once.
+> In this model, libbpf handles loading BTF from vmlinux for us. However,
+> it can be useful to selectively load certain maps and programs inside an
+> object without loading everything else.
 
-In the latter model, there was perviously no way to load BTF on-demand.
-This commit exports the bpf_object__load_vmlinux_btf such that we are
-able to load BTF on demand.
+There is no way to selectively load or not load a map. All maps are
+created, unless they are reusing map FD or pinned instances. See
+below, I'd like to understand the use case better.
 
-Signed-off-by: Daniel Xu <dxu@dxuuu.xyz>
----
- tools/lib/bpf/libbpf.c   | 2 +-
- tools/lib/bpf/libbpf.h   | 1 +
- tools/lib/bpf/libbpf.map | 1 +
- 3 files changed, 3 insertions(+), 1 deletion(-)
+>
+> In the latter model, there was perviously no way to load BTF on-demand.
+> This commit exports the bpf_object__load_vmlinux_btf such that we are
+> able to load BTF on demand.
+>
 
-diff --git a/tools/lib/bpf/libbpf.c b/tools/lib/bpf/libbpf.c
-index 5d60de6fd818..399094b1f580 100644
---- a/tools/lib/bpf/libbpf.c
-+++ b/tools/lib/bpf/libbpf.c
-@@ -2477,7 +2477,7 @@ static inline bool libbpf_prog_needs_vmlinux_btf(struct bpf_program *prog)
- 	return false;
- }
- 
--static int bpf_object__load_vmlinux_btf(struct bpf_object *obj)
-+int bpf_object__load_vmlinux_btf(struct bpf_object *obj)
- {
- 	struct bpf_program *prog;
- 	int err;
-diff --git a/tools/lib/bpf/libbpf.h b/tools/lib/bpf/libbpf.h
-index 1e2e399a5f2c..6cbd678eb124 100644
---- a/tools/lib/bpf/libbpf.h
-+++ b/tools/lib/bpf/libbpf.h
-@@ -147,6 +147,7 @@ LIBBPF_API unsigned int bpf_object__kversion(const struct bpf_object *obj);
- struct btf;
- LIBBPF_API struct btf *bpf_object__btf(const struct bpf_object *obj);
- LIBBPF_API int bpf_object__btf_fd(const struct bpf_object *obj);
-+LIBBPF_API int bpf_object__load_vmlinux_btf(struct bpf_object *obj);
- 
- LIBBPF_API struct bpf_program *
- bpf_object__find_program_by_title(const struct bpf_object *obj,
-diff --git a/tools/lib/bpf/libbpf.map b/tools/lib/bpf/libbpf.map
-index 381a7342ecfc..56415e671c70 100644
---- a/tools/lib/bpf/libbpf.map
-+++ b/tools/lib/bpf/libbpf.map
-@@ -261,6 +261,7 @@ LIBBPF_0.0.9 {
- 		bpf_iter_create;
- 		bpf_link_get_fd_by_id;
- 		bpf_link_get_next_id;
-+		bpf_object__load_vmlinux_btf;
- 		bpf_program__attach_iter;
- 		perf_buffer__consume;
- } LIBBPF_0.0.8;
--- 
-2.26.2
+Let's start with the real problem, not a solution. Do you have
+specific use case where you need bpf_object__load_vmlinux_btf()? It
+might not do anything if none of BPF programs in the object requires
+BTF, because it's very much tightly coupled with loading bpf_object as
+a whole model. I'd like to understand what you are after with this,
+before exposing internal implementation details as an API.
+
+> Signed-off-by: Daniel Xu <dxu@dxuuu.xyz>
+> ---
+>  tools/lib/bpf/libbpf.c   | 2 +-
+>  tools/lib/bpf/libbpf.h   | 1 +
+>  tools/lib/bpf/libbpf.map | 1 +
+>  3 files changed, 3 insertions(+), 1 deletion(-)
+>
+
+[...]
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200527015704.2294223-1-dxu%40dxuuu.xyz.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAEf4BzbR%2B7X-boCBC-f60jugp8xWKVTeFTyUmrcv8Qy4iKsvjg%40mail.gmail.com.
