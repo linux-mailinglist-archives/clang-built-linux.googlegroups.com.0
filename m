@@ -1,124 +1,132 @@
-Return-Path: <clang-built-linux+bncBAABBLGRXD3AKGQEALD3LUI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCX4NXWA6APRBXGRXD3AKGQEGU4ZOTI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc37.google.com (mail-oo1-xc37.google.com [IPv6:2607:f8b0:4864:20::c37])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2EEF41E3C71
-	for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 10:45:33 +0200 (CEST)
-Received: by mail-oo1-xc37.google.com with SMTP id y22sf13111211oos.12
-        for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 01:45:33 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1590569132; cv=pass;
+Received: from mail-vk1-xa3d.google.com (mail-vk1-xa3d.google.com [IPv6:2607:f8b0:4864:20::a3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 74F841E3C76
+	for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 10:46:21 +0200 (CEST)
+Received: by mail-vk1-xa3d.google.com with SMTP id x74sf2844412vke.2
+        for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 01:46:21 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1590569180; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QNaWGIBJBMuYoivinUbef9b8vMcO1vqijvSfxui2T2CSWIQ1Mc2TpZMwH0Q01CZp4S
-         GUiRzg/2My6+u3onW7fZZSrJmF3goipiaM72x/hx8l+Ynl+RiQALiLk6fHQF4yVinH+1
-         5C3bwbnyWpMbreTjrOVKspHU5RlJQlYxJkhFYdqQQMTtMSar83doGa6oWTgvSVg8wwNs
-         T+IwYxbr532eOc7S+Mn29qc1hZj5bOSjxqFXWOxM5DTzkCu+lXufwYT5usWq7v0Zdd2d
-         Xgf0efOINywLkrZGwkTmawChL3szeKNUE4auf2hVM5vFcgtztgsp6OfC5+ylCTw+NZt9
-         Bfuw==
+        b=yDmLIcGQoM1L4zjHYxEuXWsLYB9oi4sMuG/EdNjHYw4nuzJ+7XOGtr9a08WowcXP/T
+         7xi0bXs8UddVkffaJ1g9Fngu2VRKR6RcDIMk4NbTvm1NKW3WocMccMoNvsIs4eGjb6YH
+         mGGRHn1QtCBTGbBvjZ2WbzP6hT4oYuqR/53jvXmXZyQ9j4dYl1mLQ8pdIKNYT+cpeGsp
+         TqHNwIsrWjoaWb/0jOPldixo3eEfartDmOoTbDRanTO1P/3J+j8MRgAktUwpQ+ahWqO9
+         rjKFesrlK5o01jMpF8XcBGUpZmN3blow0nG7jMMnB/qqPpwGjEset6tn7r+tLmyXMDeD
+         bbAg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=AW1V6w7eDxasyEqT/ecqnlZmuzDE4+g8jUOVROlt8l8=;
-        b=f7n3cC0UwvFPxKEXJV05lq3dBf1BG6ehMirLtlxn+QrGeVKkwFeIEUUfIeBxa8rOg1
-         H9w3A73q7aP5URFnMJ4+MZbtBf43+9tO728WO/gqwuzQFPfdMMIy4OhGV/0X6UW/F+FZ
-         gSJzRBmTa7b6m0m6GXUkR2i7TJZDWFCE4+aKvy3Kmqp88rDM46J9dI5c4i0oPSUH3ugH
-         HQqHTp2X5wwTowt0P5msg3mLhLIjiIyXgZWv5wX2D6tBYP3JMdVHVWFZdgaTt4w2pnTt
-         x2wLN2/6T2k7c+diWhC0JLsX2ikpZ+6awV+LDtngmtzYB3MPZONdXBHTx1gxnvmF+U35
-         mkkg==
+         :list-id:mailing-list:precedence:content-transfer-encoding:cc:to
+         :subject:message-id:date:from:in-reply-to:references:mime-version
+         :sender:dkim-signature;
+        bh=I9qBjAZyMUBy8JvQZsttMfCZhU17iI8i5yGn8ck0Skc=;
+        b=AJYFGpVnhwQ458tICuyoUzi6Bd5UMMlsopniKK7+l5kc1Kq0GuVw8k7YWh0D3buYhK
+         dGcalKXdSWs6g5g9LjScn1fl6zRLJhdwLEECpSbRV+ufGl4EMbLDjWWWQqDBUCM6IFAE
+         G0YmCnXuVP/JzqMTVvUSTwQaFjfgWmJtfwjU9SL0bSCqtK65eJ5Sw+oWkl+d/HLDo7V1
+         5giv+V0lstYf45GXb9jykvKs+j7/ch9y7xhoxLnb9Rmu8CNcckPvs8ajCgpwtMzwnUSq
+         WBeXWYjP8ZyEroh8EpmOj72L1kQWlBufQpYlJownijcNmx991u+khnuM855Ujo43CLQQ
+         adqQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=BvL3nr0E;
-       spf=pass (google.com: domain of mchehab@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=mchehab@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@bgdev-pl.20150623.gappssmtp.com header.s=20150623 header.b=GxKyCH66;
+       spf=neutral (google.com: 2607:f8b0:4864:20::d41 is neither permitted nor denied by best guess record for domain of brgl@bgdev.pl) smtp.mailfrom=brgl@bgdev.pl
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=AW1V6w7eDxasyEqT/ecqnlZmuzDE4+g8jUOVROlt8l8=;
-        b=EyKjDUVOcXlN41VA7ie8bG/TTk2WyeLzC8ZMgcZSrY2KGXmV0MTBb22XMjwA+Vw7Il
-         7eWVtf/QWTPSXHQx+R653Y3SfU7caP6g5Ts9LEhGonhbZDq3gKi3In9mDEAmEJsFMFLd
-         paSbCj2Pg1k9/6ocvmVY0OwgabBItUjZAlM5XqV33fiVQpDWrEr7VS5cVB4wExZjzldT
-         EFNr9CDyr2x0ip3Py3zOkgs7pwb89fx2wB82QHWlOCaAM1tjVCSmj55LeIcPF6jQYpmr
-         IBUCqsfsYwDg6OcrfUi76toXCIge0i4rwXPPR9kXBoZi6Mu6NsZM983sDfi03G5DccN+
-         iOzw==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=I9qBjAZyMUBy8JvQZsttMfCZhU17iI8i5yGn8ck0Skc=;
+        b=Khu1PgDFrU6gOJV/N/S2hJKWqk0Sf4SRv5ZS8X3cUD7Qeg7Zo1qcmLbKTdCHWUy4qT
+         lFcnhEGHSCTkHUAnsgaluUYQbUhmaDw1XiuobHeZBU10woqLqeUAKnnWEOFXbriA87wh
+         JZ0euRNr8Kepau6kH5WRT2vIP92F38VCXJrL61qnOLQc25ZT4/vpaaHV0O35pYQ3NpwO
+         GnGX8vPg2JPBjiRpEHAiTrDY6xMjdBJgPhffTOWUfc37gLNDJWEDhJ/zhvAFsdsaDfGp
+         WdbLKbSzP+CQJ3JSJUxx2luWzLQhx047JLMAttTx963DJVQ5o2aDA0+bFmo58hD1PThY
+         kMHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=AW1V6w7eDxasyEqT/ecqnlZmuzDE4+g8jUOVROlt8l8=;
-        b=I8iDdUJAVZUukTZWy0zEHE7FKA74soVXYmAPUpItO6uXFc4z3YTxdYieUXkngk+6ul
-         nSDKMPgklJLTewk1kQbPhhpitY675xTMUMnVfrRkzQPoF5eG/uN1TY2iLM1qZuNl79K0
-         gkszdV/Pyu8GodMmCTTCK763z3LOva05iHa6T+SwZF8OGvqJ1IuGYRqZwW15Er8clWJE
-         Rgl9peQmuoI8pwNloxcS0gjcn4/pRUkqa+k1/VBsN2Ls2QjpEAmtYAIl5fT9Zed1VpZe
-         cPnuk02XItnTgeheaarXFh34GxXMztNRzOmxsRx3/pvIawzYfoBdO75+6fBa7hfO7Cb0
-         tQdQ==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=I9qBjAZyMUBy8JvQZsttMfCZhU17iI8i5yGn8ck0Skc=;
+        b=ZsS/VLo4M6uljeu6rHrnqY6UjpmciIYCabUCPwK+OHhNL+0QHYHE7428pOHa3wE1sY
+         Dy8vWZpVoBBNaWtz3xGCwrvKaPsBeHkQND1yI5B+24AgQLfCaLgFX4q9ngc/ITCNq/hB
+         c1mpx7+LTDExga8i62U4IZPQ0HEOycgstlqtQdHtX09HRPN1III8Sq1DH8voD5eTXaj+
+         2q/zRhzSeW4e7jnd7627Osq2tXh7wO/qZtgj3EfAZiSRJ9FIhZBTHsP62OgwPzxB+HGZ
+         qmale3/rBJ4vPdpgqkjxUGTcL7qOJTJcjC+gydAiAtePqnqMtqbmWRiCas8VLh+lrcSS
+         Gpyg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532R3bld071vpHwqi39YQjld4t66JpnhJAt+/kDR7lmJ62IL0VSc
-	91giE+58Mpt4gUxWFKwWn1g=
-X-Google-Smtp-Source: ABdhPJy0Pa8h5SfraF1C2QnlHVJ9QcvOAeZDz7fTVru4T+s01lLFqIgkIQbaJPNVr3reAlYqAhilpQ==
-X-Received: by 2002:a05:6830:1e46:: with SMTP id e6mr3984843otj.363.1590569132149;
-        Wed, 27 May 2020 01:45:32 -0700 (PDT)
+X-Gm-Message-State: AOAM532AuTMv0KKJdtMvBx19NIIqNEk6JtzJTTxG08cbf1C6UGdXV2RS
+	M8sOXwFWoTfBK8XZEUUNVZU=
+X-Google-Smtp-Source: ABdhPJyuirO9quOZU2sOrXKisJMzlO4UeDkU7PUgfrogPXbuzxzs5ZIU3eTrdKtjNpwPeoXY7WWQcA==
+X-Received: by 2002:ab0:2981:: with SMTP id u1mr3987999uap.137.1590569180494;
+        Wed, 27 May 2020 01:46:20 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:148c:: with SMTP id s12ls1552809otq.5.gmail; Wed,
- 27 May 2020 01:45:31 -0700 (PDT)
-X-Received: by 2002:a9d:1d61:: with SMTP id m88mr4010112otm.300.1590569131902;
-        Wed, 27 May 2020 01:45:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1590569131; cv=none;
+Received: by 2002:a9f:2d99:: with SMTP id v25ls923349uaj.10.gmail; Wed, 27 May
+ 2020 01:46:20 -0700 (PDT)
+X-Received: by 2002:a9f:28c6:: with SMTP id d64mr3704135uad.61.1590569180119;
+        Wed, 27 May 2020 01:46:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1590569180; cv=none;
         d=google.com; s=arc-20160816;
-        b=skcDchZpCJjlq5btJDxK3SiVo/O2GR2YIRmLAWCfLO+qNhiPHuIdWsvxj6dFzOE7gg
-         8mCuUlQhhIkmRBWZ/m37tBe/kmMbnbrv1CahTj6jgNguxgqTAmhdr8IMnXtu1ExfOaLK
-         c92CR19+6kG1Ve0OMbmEnohmq0i0RETj3dKy/lopjpocyX7A41SHHga+JiV6TdIms3eJ
-         3LlaMe56jNeXyErC9za9jQsyVgGQpB5mR9CWKA+SFh2kokUQoDvhEV45ziNaPwZO0Y/p
-         x8MVfFvcwuW9++p66/Kp7qK57M3FQcwIUXQO/ZgTtoedku9rONE9ez/H0v7QIfzWQEhP
-         9+Yg==
+        b=xTk+4O4dK5wKWBIqYCDAassYvAx2EUeDtdjSmT5ZmHRnqevHWnF8YgSToFlgeQulTg
+         Aqb2adBqdi25kCW4tzkgTQodqyvU9SlClpdF+/AL1DfeCUmsw7AXK6mbkRd485pWeKhG
+         eyRCvKk4KtqpVMfqRjHpqLCeqfAbxUshVTwnDhzTHa2bTgRopW9w+RT44qE1PHw86T5v
+         i5xB7jQhacQUNlqb702hBY79qriDO6QOc0Iiu+oiukncDDfDNALpOTQ+wKpc3i2ZQCvH
+         hmGWq1iqKOivv+JScW+797gRouUxKAV4PhhpZ8SQcDFhdoxjy195hsEiWhdV5Ql33anU
+         kdSQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=+yajX07SZTeoBwXBVFh/Dd0/LKHxWSAv1UJTY3csuCM=;
-        b=dOuL1EANGD4ZRFWg7TyELilVwByJokOIAtZonTqOftxoFV7q+XvuYc+Wquw7d5SShV
-         sRK7wlS11ywBOhGN1HKWS+VhzQ99IYL8JHh9sSIYR1lxkgqp8jmT9+S12zEYxyym1jXQ
-         qrZt2VF5n1g0ZFCowjkrHhO4G1x7mx+eee/tBRtzm2eJFLGfiUgn+z4mySgka6saz03T
-         J4SXmCv9+PCTh0SS84rVsXoqIks9iBJkdUx5FD5LThD1kZjNaoFbkISP0t1w7Ob+I/Tx
-         u8Q9rou7mb85WhGNLk2JbzgOblTsdPs3AU7o8iuIIhIaxMao93N47xUQGBEXXKjik+SH
-         a+bg==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=cpwITzrftWrJAY0LVaSeu6jYTmkJe1PVewzQjLawjdA=;
+        b=fBkvLAFkOiGaVxtO+S9m6lmzEU3eBfJacOBuPa1Yf0HcUh53c7OcNi6ZswwRswFOOc
+         Dd5Ic0pnBaG71LN+XfLLRuURNPfwm+Puwi50TCPy+AJ47qi56cew6X0dVMQzZmhLRcJN
+         tbS3z4vuHrQYOoRMb7hc269UluKzZ2kNdrd6w+Y++ML8iyG964W4wloCIln9hVYxaE+8
+         P1u20YjAyThuPoPTFht8fxlE3VvVMZWjHJ9lDTf8Bm+tu34ltxTu2pP+DFE1sQE4B+ol
+         9ccekYyabh98QrL74lN6GgjAa0p7N8MApt/KGNr40tr85IpEQAg+7s0yJ3n9iM90Vdqu
+         OAZg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=BvL3nr0E;
-       spf=pass (google.com: domain of mchehab@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=mchehab@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id k65si243200oib.2.2020.05.27.01.45.31
+       dkim=pass header.i=@bgdev-pl.20150623.gappssmtp.com header.s=20150623 header.b=GxKyCH66;
+       spf=neutral (google.com: 2607:f8b0:4864:20::d41 is neither permitted nor denied by best guess record for domain of brgl@bgdev.pl) smtp.mailfrom=brgl@bgdev.pl
+Received: from mail-io1-xd41.google.com (mail-io1-xd41.google.com. [2607:f8b0:4864:20::d41])
+        by gmr-mx.google.com with ESMTPS id d84si193209vsc.0.2020.05.27.01.46.19
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 27 May 2020 01:45:31 -0700 (PDT)
-Received-SPF: pass (google.com: domain of mchehab@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from coco.lan (ip5f5ad5c5.dynamic.kabel-deutschland.de [95.90.213.197])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 7BE9B206F1;
-	Wed, 27 May 2020 08:45:29 +0000 (UTC)
-Date: Wed, 27 May 2020 10:45:25 +0200
-From: Mauro Carvalho Chehab <mchehab@kernel.org>
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
- linux-media@vger.kernel.org, devel@driverdev.osuosl.org,
- linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 0/7] media: atomisp: Address several clang warnings
-Message-ID: <20200527104525.5e6cd93b@coco.lan>
-In-Reply-To: <20200527071150.3381228-1-natechancellor@gmail.com>
-References: <20200527071150.3381228-1-natechancellor@gmail.com>
-X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 27 May 2020 01:46:19 -0700 (PDT)
+Received-SPF: neutral (google.com: 2607:f8b0:4864:20::d41 is neither permitted nor denied by best guess record for domain of brgl@bgdev.pl) client-ip=2607:f8b0:4864:20::d41;
+Received: by mail-io1-xd41.google.com with SMTP id k18so25131117ion.0
+        for <clang-built-linux@googlegroups.com>; Wed, 27 May 2020 01:46:19 -0700 (PDT)
+X-Received: by 2002:a02:3e06:: with SMTP id s6mr4481666jas.57.1590569179357;
+ Wed, 27 May 2020 01:46:19 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200522120700.838-1-brgl@bgdev.pl> <20200522120700.838-7-brgl@bgdev.pl>
+ <20200527073150.GA3384158@ubuntu-s3-xlarge-x86>
+In-Reply-To: <20200527073150.GA3384158@ubuntu-s3-xlarge-x86>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 27 May 2020 10:46:08 +0200
+Message-ID: <CAMRc=MevVsYZFDQif+8Zyv41sSkbS8XqWbKGdCvHooneXz88hg@mail.gmail.com>
+Subject: Re: [PATCH v5 06/11] net: ethernet: mtk-star-emac: new driver
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Rob Herring <robh+dt@kernel.org>, "David S . Miller" <davem@davemloft.net>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, John Crispin <john@phrozen.org>, 
+	Sean Wang <sean.wang@mediatek.com>, Mark Lee <Mark-MC.Lee@mediatek.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Fabien Parent <fparent@baylibre.com>, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Edwin Peer <edwin.peer@broadcom.com>, 
+	devicetree <devicetree@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, netdev <netdev@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	"moderated list:ARM/Mediatek SoC..." <linux-mediatek@lists.infradead.org>, 
+	Stephane Le Provost <stephane.leprovost@mediatek.com>, Pedro Tsai <pedro.tsai@mediatek.com>, 
+	Andrew Perepech <andrew.perepech@mediatek.com>, 
+	Bartosz Golaszewski <bgolaszewski@baylibre.com>, clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: mchehab@kernel.org
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: brgl@bgdev.pl
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=BvL3nr0E;       spf=pass
- (google.com: domain of mchehab@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=mchehab@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@bgdev-pl.20150623.gappssmtp.com header.s=20150623
+ header.b=GxKyCH66;       spf=neutral (google.com: 2607:f8b0:4864:20::d41 is
+ neither permitted nor denied by best guess record for domain of
+ brgl@bgdev.pl) smtp.mailfrom=brgl@bgdev.pl
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,40 +139,170 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Em Wed, 27 May 2020 00:11:43 -0700
-Nathan Chancellor <natechancellor@gmail.com> escreveu:
+=C5=9Br., 27 maj 2020 o 09:31 Nathan Chancellor <natechancellor@gmail.com>
+napisa=C5=82(a):
+>
+> On Fri, May 22, 2020 at 02:06:55PM +0200, Bartosz Golaszewski wrote:
+>
+> <snip>
+>
+> > diff --git a/drivers/net/ethernet/mediatek/mtk_star_emac.c b/drivers/ne=
+t/ethernet/mediatek/mtk_star_emac.c
+> > new file mode 100644
+> > index 000000000000..789c77af501f
+> > --- /dev/null
+> > +++ b/drivers/net/ethernet/mediatek/mtk_star_emac.c
+> > @@ -0,0 +1,1678 @@
+>
+> <snip>
+>
+> I've searched netdev and I cannot find any reports from others but this
+> function introduces a clang warning:
+>
+> drivers/net/ethernet/mediatek/mtk_star_emac.c:1296:6: warning: variable '=
+new_dma_addr' is used uninitialized whenever 'if' condition is true [-Wsome=
+times-uninitialized]
+>         if (!new_skb) {
+>             ^~~~~~~~
+> drivers/net/ethernet/mediatek/mtk_star_emac.c:1321:23: note: uninitialize=
+d use occurs here
+>         desc_data.dma_addr =3D new_dma_addr;
+>                              ^~~~~~~~~~~~
+> drivers/net/ethernet/mediatek/mtk_star_emac.c:1296:2: note: remove the 'i=
+f' if its condition is always false
+>         if (!new_skb) {
+>         ^~~~~~~~~~~~~~~
+> drivers/net/ethernet/mediatek/mtk_star_emac.c:1285:6: warning: variable '=
+new_dma_addr' is used uninitialized whenever 'if' condition is true [-Wsome=
+times-uninitialized]
+>         if ((desc_data.flags & MTK_STAR_DESC_BIT_RX_CRCE) ||
+>             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> drivers/net/ethernet/mediatek/mtk_star_emac.c:1321:23: note: uninitialize=
+d use occurs here
+>         desc_data.dma_addr =3D new_dma_addr;
+>                              ^~~~~~~~~~~~
+> drivers/net/ethernet/mediatek/mtk_star_emac.c:1285:2: note: remove the 'i=
+f' if its condition is always false
+>         if ((desc_data.flags & MTK_STAR_DESC_BIT_RX_CRCE) ||
+>         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> drivers/net/ethernet/mediatek/mtk_star_emac.c:1285:6: warning: variable '=
+new_dma_addr' is used uninitialized whenever '||' condition is true [-Wsome=
+times-uninitialized]
+>         if ((desc_data.flags & MTK_STAR_DESC_BIT_RX_CRCE) ||
+>             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> drivers/net/ethernet/mediatek/mtk_star_emac.c:1321:23: note: uninitialize=
+d use occurs here
+>         desc_data.dma_addr =3D new_dma_addr;
+>                              ^~~~~~~~~~~~
+> drivers/net/ethernet/mediatek/mtk_star_emac.c:1285:6: note: remove the '|=
+|' if its condition is always false
+>         if ((desc_data.flags & MTK_STAR_DESC_BIT_RX_CRCE) ||
+>             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> drivers/net/ethernet/mediatek/mtk_star_emac.c:1274:25: note: initialize t=
+he variable 'new_dma_addr' to silence this warning
+>         dma_addr_t new_dma_addr;
+>                                ^
+>                                 =3D 0
+> 3 warnings generated.
+>
+> > +static int mtk_star_receive_packet(struct mtk_star_priv *priv)
+> > +{
+> > +     struct mtk_star_ring *ring =3D &priv->rx_ring;
+> > +     struct device *dev =3D mtk_star_get_dev(priv);
+> > +     struct mtk_star_ring_desc_data desc_data;
+> > +     struct net_device *ndev =3D priv->ndev;
+> > +     struct sk_buff *curr_skb, *new_skb;
+> > +     dma_addr_t new_dma_addr;
+>
+> Uninitialized here
+>
+> > +     int ret;
+> > +
+> > +     spin_lock(&priv->lock);
+> > +     ret =3D mtk_star_ring_pop_tail(ring, &desc_data);
+> > +     spin_unlock(&priv->lock);
+> > +     if (ret)
+> > +             return -1;
+> > +
+> > +     curr_skb =3D desc_data.skb;
+> > +
+> > +     if ((desc_data.flags & MTK_STAR_DESC_BIT_RX_CRCE) ||
+> > +         (desc_data.flags & MTK_STAR_DESC_BIT_RX_OSIZE)) {
+> > +             /* Error packet -> drop and reuse skb. */
+> > +             new_skb =3D curr_skb;
+> > +             goto push_new_skb;
+>
+> this goto
+>
+> > +     }
+> > +
+> > +     /* Prepare new skb before receiving the current one. Reuse the cu=
+rrent
+> > +      * skb if we fail at any point.
+> > +      */
+> > +     new_skb =3D mtk_star_alloc_skb(ndev);
+> > +     if (!new_skb) {
+> > +             ndev->stats.rx_dropped++;
+> > +             new_skb =3D curr_skb;
+> > +             goto push_new_skb;
+>
+> and this goto
+>
+> > +     }
+> > +
+> > +     new_dma_addr =3D mtk_star_dma_map_rx(priv, new_skb);
+> > +     if (dma_mapping_error(dev, new_dma_addr)) {
+> > +             ndev->stats.rx_dropped++;
+> > +             dev_kfree_skb(new_skb);
+> > +             new_skb =3D curr_skb;
+> > +             netdev_err(ndev, "DMA mapping error of RX descriptor\n");
+> > +             goto push_new_skb;
+> > +     }
+> > +
+> > +     /* We can't fail anymore at this point: it's safe to unmap the sk=
+b. */
+> > +     mtk_star_dma_unmap_rx(priv, &desc_data);
+> > +
+> > +     skb_put(desc_data.skb, desc_data.len);
+> > +     desc_data.skb->ip_summed =3D CHECKSUM_NONE;
+> > +     desc_data.skb->protocol =3D eth_type_trans(desc_data.skb, ndev);
+> > +     desc_data.skb->dev =3D ndev;
+> > +     netif_receive_skb(desc_data.skb);
+> > +
+> > +push_new_skb:
+> > +     desc_data.dma_addr =3D new_dma_addr;
+>
+> assign it uninitialized here.
+>
+> > +     desc_data.len =3D skb_tailroom(new_skb);
+> > +     desc_data.skb =3D new_skb;
+> > +
+> > +     spin_lock(&priv->lock);
+> > +     mtk_star_ring_push_head_rx(ring, &desc_data);
+> > +     spin_unlock(&priv->lock);
+> > +
+> > +     return 0;
+> > +}
+>
+> I don't know if there should be a new label that excludes that
+> assignment for those particular gotos or if new_dma_addr should
+> be initialized to something at the top. Please take a look at
+> addressing this when you get a chance.
+>
+> Cheers,
+> Nathan
 
-> Hi all,
-> 
-> This series aims to clean up the code while addressing the majority of
-> clang warnings in this driver, some found by the 0day bot and others
-> found by me.
-> 
-> There are several enum conversion warnings that happen, which I do not
-> really know how to solve without understanding how exactly this driver
-> works. I would appreciate some guidance or a solution. Below are the
-> warnings, sorry for not wrapping them but they would be hard to read
-> otherwise.
+Hi Nathan,
 
-... 
-> ../drivers/staging/media/atomisp//pci/atomisp_compat_css20.h:117:22: note: expanded from macro 'CSS_ID'
-> #define CSS_ID(val)     (IA_ ## val)
-...
+Thanks for reporting this! I have a fix ready and will send it shortly.
 
-I actually wrote a patch getting rid of this ugly thing:
+Bartosz
 
-	https://git.linuxtv.org/mchehab/experimental.git/commit/?h=atomisp_v3&id=cf6a15543ace1e99364911c0b7a2f6b8f2f43021
-
-This one was already submitted upstream (not merged yet), but there
-are also lots of other patches on my working tree.
-
-I'll try to apply your patch series on it, once I'll be able to
-fix a bug with mmap support.
-
-Thanks,
-Mauro
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200527104525.5e6cd93b%40coco.lan.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/CAMRc%3DMevVsYZFDQif%2B8Zyv41sSkbS8XqWbKGdCvHooneXz88hg%4=
+0mail.gmail.com.
