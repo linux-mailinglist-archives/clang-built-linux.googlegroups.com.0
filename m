@@ -1,142 +1,144 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBJFSXL3AKGQEZDT56OI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC3MJ5UR74ERBBF7XL3AKGQESJSIA7I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x640.google.com (mail-pl1-x640.google.com [IPv6:2607:f8b0:4864:20::640])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5D52F1E4AB0
-	for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 18:45:26 +0200 (CEST)
-Received: by mail-pl1-x640.google.com with SMTP id s7sf5424051plp.13
-        for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 09:45:26 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1590597925; cv=pass;
+Received: from mail-lf1-x138.google.com (mail-lf1-x138.google.com [IPv6:2a00:1450:4864:20::138])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3ED381E4B95
+	for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 19:12:37 +0200 (CEST)
+Received: by mail-lf1-x138.google.com with SMTP id 74sf5662108lfa.20
+        for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 10:12:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1590599556; cv=pass;
         d=google.com; s=arc-20160816;
-        b=e0E+jKI1tXFQWHRDEvTyljLEP2M2/1H+jbPPLBlG4SOGsgxS7LNAWhHdzqgxm8dXEg
-         lyvqT5ZhZwqz1mPs+THcT9641d2hGjN/n2bQyftdH/GwaJZkQQvcTXWmVnTFpTADFC55
-         Oo54oNr5QS9NSaGO/JcTn449SeiXKlkB1zRMvSrpJHPzk1HAUuDCDgNFS0xoSicqrYhu
-         P7MoPl8WwdKfa8zSjtugfRN5eCJylPEoIuRrYuPos4SJGUUhSdXeCFJOkPimZMEF/58O
-         5vTLl2A5sgUegY5uVA4aE5a9nUOrVsyfBJsL/j+q8NXsf+Pl6deY76LBE6yyV0kPK8OX
-         M2rg==
+        b=vVypPd9GdhIJ+KN9IpvfICdRbhsTMjyUYdd6XW+bXo2RmLJ51CyVCDGDwoDuzuKZtc
+         gInRmv5DdsEg+asE1W3JpkIZJJkeFRLb5/WJalNT08beaybOmDosxwy9WTu9q/MggCqg
+         +RNUGjAlBL/FUH8a2i1pjfegPQovt1VRJ6A5H7BdxNP7bFSubYS1jYo66l2SCK2wJt2A
+         lA3BBnTdFIUrStQ0ToJSpzvVmNisff6V4Kbz/M5rZeviWAlGVr6p/sicNAAPGnyunEO3
+         a6r04UN0vo+4TNqTucVgokUVBuYhm3R/5TCTnA7btwwA0P7gJ/eTfde0dxy0j654chNS
+         Fcew==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=LdwrOsB5V5pM6vFUYf2zvP/w+7A5jSpb0XH8p7pmEyU=;
-        b=pgLMS5zhu0HwPDVU/p79zy1OKb7jDLqQTN6YVwWUoVHOFxYRqEtKsKzuKlBzkyyQn4
-         xbAYpKggnEqNpg556qxukljKAQsC39Sep5TdCdIaVMQJFQYAnFGsP3UqXJsqkjKSTt72
-         m4H0WqEmemUF8RCyTwnjD+MorfnFeJ0Ng8dfGkeYsCM1awbwISMygXKDgBU7zdV0t6FD
-         OLI74qOcGCYVtVQPldo6h1FRDijesg6/1DBpksWhiZz9W4F2Pbj75aIMVGy3bJLPBg7m
-         uhd1ukcDoHfoy9npDoxrSu5c4vD3AkUmMkb6JBqLL/sWiLlWQ/QK4InfQW9c9hiK9Gwx
-         kg0w==
+         :list-id:mailing-list:precedence:message-id:to:from:subject:cc:date
+         :in-reply-to:mime-version:sender:dkim-signature;
+        bh=8FUB+9YgEOxzET1MSMjpWH50hEj9/Yhl9a+IZfqQVnc=;
+        b=ibvNPpfKuUYr6ABGS5syy82gaDg6Ef9zhjWlpRWw0rL+bn7e+hCGyDgiZw9b+cRTPy
+         4+PoDMC4lIt1e9jiudpuQTPy+/SgPkrMNMQ1yGXKyS6NC5BLdAQwxgsrnJ2xMcU7X2Hk
+         j33/gFUGP1v6yfQb+aRHPnbuhV3I6GXa2o1tOD/kPDyQE4l3NmHwJCyNSpHGJM/AswXI
+         AzzdHZIkBCZWKVVD+PfZvXMnxNbyFAreRlZzMk1Uom62sLQBHbvmbUvmFTamQ80tdP5D
+         1hH5Wz7IZOF8flAH6NlOzMTBkONeRu4CtGsnWsrgKdm8BxZIfJZEgdL2eVBb9dy6exEL
+         lbrw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=p4Ckd5wa;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@dxuuu.xyz header.s=fm3 header.b="Dx1/Dmht";
+       dkim=pass header.i=@messagingengine.com header.s=fm2 header.b=0IfLJJFz;
+       spf=pass (google.com: domain of dxu@dxuuu.xyz designates 64.147.123.18 as permitted sender) smtp.mailfrom=dxu@dxuuu.xyz
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=LdwrOsB5V5pM6vFUYf2zvP/w+7A5jSpb0XH8p7pmEyU=;
-        b=e6i9/GTZ/Z7lF7P3ptOHASohMehkcK8vK9ThjEs9DezkIXc0gyCJrTU+Rwq1RHH1Zc
-         wMn5MPpZryIk7/+kUKysUcYAXwd/bbym/YLs4FOh01YCrCssEPcRmEmDs8BckgWvR8Ho
-         8REo5yZupFZoT0iEHLIEERtMwbgscfgMnz8Lb6JMpOIR6zmzIlCaI9grH5h5cxjz3lTt
-         jl7fT6pjX9y+do6acbOpuhKeNXvWaWFAochkZBvesw8YdnbvJ8ZVMv77a4FqeYxNcqRG
-         0qS+8rawrdQz1eYUW9oIIxw5CgbZ0CtdC/Kvr+CvnI5dmCKoZSSd42U0RWlwjLs4kBwN
-         Im/Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=LdwrOsB5V5pM6vFUYf2zvP/w+7A5jSpb0XH8p7pmEyU=;
-        b=u+qaVW02g+0PQXuz+dYfHwKEFuWizoU4wvHf3kKSaUIInL80kLTTqEN57Qbf1JLrjM
-         bsLYLmg7RY6gm9yReMx6drUpFmaKBgssDyJlwL6+ASrez6q5k48IVnx0VaTnQAf7Aucu
-         r9mhhuym2FfmbUcU3Br5L832KEM0A1B9YSfULT1+PxhKwE5mBTxwAdLr3I19w0uoMFI1
-         62qIrLP0l7cEcskXMVz4IZrVCZaAER+/25sCIF8aKf9tEcaDlGGGa82GHQyzst6Ko/Gw
-         MGuOXq2RjQpW7mWbN6VInL1gmLRsZZOxaUoH5kvOWJWiz1UUAE8GxBcZ5C8Pv9vaz7Gs
-         Ok3g==
+        h=sender:mime-version:in-reply-to:date:cc:subject:from:to:message-id
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=8FUB+9YgEOxzET1MSMjpWH50hEj9/Yhl9a+IZfqQVnc=;
+        b=cK9s4j1ZQSsYPXE21A03eCtubEvJIuJmKz/VigUJqvh6SYfpuu62zrc7rWT95DKnGR
+         nCe0n1rbHlJGcdBfM0G+hndPbQy0ybdioDdMmDrrbd8Lwkc2/Yyun9xxVHFSu4nTvFgp
+         uVk2XRbnQdSK5qHbHH7rmNAqMEnJ+XmWELvFoL8UmrnwdV9LjX0EslOnyasYFsCFZUY0
+         RII/3ndY+F4nT9Etelj+0Xd0n9U+Qukgk2LdFn4zIDFihLPduSyEOMeMYyPbgRui/Ai3
+         cF/aTGAKa4pTji/32EBtt7BadHr9/0M4JMfoFxCm/ztlt1IwFRoSwo9c1Aa2UXcNkaDh
+         guDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=LdwrOsB5V5pM6vFUYf2zvP/w+7A5jSpb0XH8p7pmEyU=;
-        b=hoZfCcKj/J5umIb3HKRVZ6/KAWYhk9k2wuEzLAyZZ0KGaKg2wXkUu6HNqNlA2wnFMd
-         LpPvuHmaHiW+Xef5cOTnDEcHXeXKPCQ1BvOr0z8MV8Ye8Qpla3wx0L0lmn8usF3MEptt
-         +0+lTPeVbqy6BQE0/d02nqOMumbeUh9Gv+CWsvypWHLh5G3lZZw0ywmY43UksvNWpcva
-         7uJsYwIJpZLI2hRIy2iTSw02DmPFQUvFRNeqKyVMRNSxeRKAtA+3e7ZYM93JnntA8c0V
-         LX7B7oI98YVz+nYANACwERrf2OJ5iihIbRqeSzvKBSkKJKGBLMlnoXoGrr5TreRkj1lm
-         cY2Q==
+        h=sender:x-gm-message-state:mime-version:in-reply-to:date:cc:subject
+         :from:to:message-id:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=8FUB+9YgEOxzET1MSMjpWH50hEj9/Yhl9a+IZfqQVnc=;
+        b=RvqPrsb/nygeV7zseoW947tBDtwOPDPyPRY895/jc3gYwe6UX7zyaG2ZMJvOp/9Lhi
+         HajImgVL73rgLS/xdFrnTzWieU6UO2sFiUtnQew96NJxF4a0CZlbq6pmTOVXi7ukyYw5
+         VyZdxdKxDl2k3QdV0ZiP5sEhJ1z4hr6JKVTdsi8iFr3P17OY/Y1bquSvI+iMLS0xifCa
+         bFhENJbtAJNKEr06YCHOjyEQPa//TIMbz8b8UKl2wyXGvk4qZ0DdOQM0MP/OzqtWKElu
+         tnpym+FLtPciIkU9/63Qw9oq3tYyxTYEOUeAtNzZc370VEB8ZCeL3JpH2+WBvabShhWE
+         q3YQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531zL1lguvw3BoINoMd4vRV34+VqOncWcqhIheUNvpTJlf1z1mUp
-	K8e5UbAM9YCSQZBu+/cLzwY=
-X-Google-Smtp-Source: ABdhPJyz7s2/Ke6GcHI3rKSD3ZWVkOOQaOMy0m1qR6/SDsy6doN4X22rbEed+QCMWLkcYSFGR+u3Ow==
-X-Received: by 2002:a17:90b:2396:: with SMTP id mr22mr6049730pjb.118.1590597925059;
-        Wed, 27 May 2020 09:45:25 -0700 (PDT)
-X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:920f:: with SMTP id o15ls4834487pgd.11.gmail; Wed, 27
- May 2020 09:45:24 -0700 (PDT)
-X-Received: by 2002:a63:1608:: with SMTP id w8mr4862152pgl.232.1590597924611;
-        Wed, 27 May 2020 09:45:24 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1590597924; cv=none;
-        d=google.com; s=arc-20160816;
-        b=vvAiSJxuJndVo650VtBRwuGNXWFkh8cVPK+MD808+rYRJLLJw/T7dbYKPLzikrJVY5
-         WYQ2lqCXYdLAldvZ+PwSecE2J+IVvQQoNkEGkSprNiKCMyVVrsrdTkiIoXfqfx4a96wc
-         kpMPq0jYRiM8vB3rSx0v+uVcusVlP7ATJVeeG1t9siBfy2dFhOmZ6ArVhv+gnxkLJysE
-         AknNRhJJplZ6GvdHWkkCWXXtep3UQ2x1pYiJOzbDtz+aX57UqS/eCBSD6xvjiEg/T8EQ
-         9v01xCk/iUU5A9OZaadNAy3GNPVx+/R4YSC1UU/SluNw7Gkzmu8YzljZ9icP1QxF0+01
-         nqkQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=HOBnpx8HZKNA2mYIrdIzHPO79IIq+OTFtfJlgxpJynw=;
-        b=C4r4kGaFpH60igmsp2XkH0M40QcBzW0h14gc52oqJ1qB9nyNzhYvEyCj0JqUTlKMzA
-         BsxxS6atfJHAPrUxrgqBC0nchETlNbnQ6eslXoLC2FHk/e1OwOJ1G7flx6bN97LIsJ75
-         kPiEUOhLWaz8EwIpAY8kKerFxZ8mFkQZju0y3PsstZ3mLSr3GuLpHIG4SUn+6E/u+3My
-         K0Kt5OrtRxIClZfcNHO7kQpT+LgmqljPFVhx6k5WDflN4NOBKc4Kp8SG5FBz+IR8CBWf
-         f/KbklhohNnYVSKslOO/agM4rjFfu+lJvCBX5f3TWaZKtcbJcQp662Jl/HHkTLqyp/HI
-         QluQ==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=p4Ckd5wa;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-pj1-x1042.google.com (mail-pj1-x1042.google.com. [2607:f8b0:4864:20::1042])
-        by gmr-mx.google.com with ESMTPS id e13si337591plq.3.2020.05.27.09.45.24
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 May 2020 09:45:24 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::1042 as permitted sender) client-ip=2607:f8b0:4864:20::1042;
-Received: by mail-pj1-x1042.google.com with SMTP id cx22so1753505pjb.1
-        for <clang-built-linux@googlegroups.com>; Wed, 27 May 2020 09:45:24 -0700 (PDT)
-X-Received: by 2002:a17:902:a584:: with SMTP id az4mr6717595plb.201.1590597924251;
-        Wed, 27 May 2020 09:45:24 -0700 (PDT)
-Received: from ubuntu-s3-xlarge-x86 ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id c12sm3147692pjm.46.2020.05.27.09.45.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 May 2020 09:45:23 -0700 (PDT)
-Date: Wed, 27 May 2020 09:45:21 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
-	linux-media@vger.kernel.org, devel@driverdev.osuosl.org,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 0/7] media: atomisp: Address several clang warnings
-Message-ID: <20200527164521.GA1239557@ubuntu-s3-xlarge-x86>
-References: <20200527071150.3381228-1-natechancellor@gmail.com>
- <20200527104525.5e6cd93b@coco.lan>
+X-Gm-Message-State: AOAM533ut+6mTinV8PA4AXOvwZoPf1OHFXx0FhaH9fqkNrKgsNC1ATsX
+	9ZnGKm+DyclvTJfvyffo/8E=
+X-Google-Smtp-Source: ABdhPJzbVF4bdgxUj8veeDei0SD95vgKCulgmCyzVxpTuKas4fn0cJq8zvP3ElnZmeu+6JBNdGDN5A==
+X-Received: by 2002:a19:490d:: with SMTP id w13mr3529410lfa.96.1590599556669;
+        Wed, 27 May 2020 10:12:36 -0700 (PDT)
 MIME-Version: 1.0
+X-BeenThere: clang-built-linux@googlegroups.com
+Received: by 2002:a19:4b43:: with SMTP id y64ls4495080lfa.2.gmail; Wed, 27 May
+ 2020 10:12:36 -0700 (PDT)
+X-Received: by 2002:a19:c88e:: with SMTP id y136mr3698714lff.78.1590599556026;
+        Wed, 27 May 2020 10:12:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1590599556; cv=none;
+        d=google.com; s=arc-20160816;
+        b=k++506lwz0FOvKqQLeu8gGXZYsAl2l+4h5HK4kQIfBO2HponB0qnELyGWTEy9M7mAh
+         2CI/04Ik5TyYjRCNdbrDgvxZw588SxjOPZugXdjn/ceWgj+oNMcroxnwM9bbel6eD8xY
+         3YjFWiK/1p/QKudHO0ZVKdsdKgEzWRYPV/aTTfGGpSIelKdOKvhpQ9bz3qcC024nLOZp
+         h+AQs1V2x10VsUUVBC7V4E2tDQ5cRLfQdYe4tyWK44hf3aakdj3KwDmz3hrJu1yoaTkw
+         wBjWI1U0R/eiA5avJ8KJcznCHBv16NMn7nPndnB1B07tzQsocmtRmXIArk5svnz9/nBN
+         xldw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:to:from:subject:cc:date:in-reply-to
+         :content-transfer-encoding:dkim-signature:dkim-signature;
+        bh=6pxEigjWfelMjOWs/Jq1DeSXeYEVsneKZclbXHsrvFQ=;
+        b=qme7w6YSYRGoak8Y1ka0jWC3Wdq4uVRbSbSKIrDhFfRTuOi595zg+c8F/Pu5ItjRJb
+         HQ+5codt1od0A1ofXgnmEfBMlLCjaj5dSPve0wxwjRNXVTB0H/zclV5TRssmEOZDD1Af
+         Lw/YOgatq0fbmbv+hkTm5xsNo3Qcl7OwDpjbC0BYbXR6zE1u0rm9SWbEdfMJeSo6/Hd6
+         VIM2bIluCQcn9NArznTKA46UqgPs2CURrFRQuqdJjTLDaw9rSM3l4xnucN31atGqkpf1
+         HLrQ9qtn49PtbsE29hncCYTg8U32ik4LjaF5J5Dhkk43TL/9jZEVlpVf0KZvw2jBP2++
+         FQpw==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@dxuuu.xyz header.s=fm3 header.b="Dx1/Dmht";
+       dkim=pass header.i=@messagingengine.com header.s=fm2 header.b=0IfLJJFz;
+       spf=pass (google.com: domain of dxu@dxuuu.xyz designates 64.147.123.18 as permitted sender) smtp.mailfrom=dxu@dxuuu.xyz
+Received: from wnew4-smtp.messagingengine.com (wnew4-smtp.messagingengine.com. [64.147.123.18])
+        by gmr-mx.google.com with ESMTPS id 130si173312lfi.3.2020.05.27.10.12.35
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 27 May 2020 10:12:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dxu@dxuuu.xyz designates 64.147.123.18 as permitted sender) client-ip=64.147.123.18;
+Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
+	by mailnew.west.internal (Postfix) with ESMTP id 022B8A97;
+	Wed, 27 May 2020 13:12:31 -0400 (EDT)
+Received: from mailfrontend1 ([10.202.2.162])
+  by compute4.internal (MEProxy); Wed, 27 May 2020 13:12:33 -0400
+X-ME-Sender: <xms:fp_OXnzMMddzuGs3DxMkcMGcAaZYDGTqZrX0dF1dx5rYHJOk_uyfcw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduhedruddvgedgleelucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    gfrhhlucfvnfffucdljedtmdenucfjughrpefgtggjfffuhffvkfesthhqredttddtjeen
+    ucfhrhhomhepfdffrghnihgvlhcuighufdcuoegugihusegugihuuhhurdighiiiqeenuc
+    ggtffrrghtthgvrhhnpeelleelfeekudehudeitdefkeeutdfhieeiudeggfdutdetleek
+    vedtteevieffteenucfkphepjeefrdelfedrvdegjedrudefgeenucevlhhushhtvghruf
+    hiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegugihusegugihuuhhurdighiii
+X-ME-Proxy: <xmx:fp_OXvSUMbDbI3ZC12QTnicdy3P20kMOKD3dc3jOfmeB3oesg5oXDA>
+    <xmx:fp_OXhX8P3FO9-Nt1LGVYuVV2rj-Slpt8I8KW0srICQtB7EPwbtJUQ>
+    <xmx:fp_OXhif-JI4R5yF4LAsFNrABBnXAQv97F_q5pBCEdII_QRGP4NGBg>
+    <xmx:f5_OXt7AKk-ovSiZzUxVTphnwaOqRn5Id8NRDUl4Od2wBnp27IJaxlzjc_g>
+Received: from localhost (c-73-93-247-134.hsd1.ca.comcast.net [73.93.247.134])
+	by mail.messagingengine.com (Postfix) with ESMTPA id 7C89A3280063;
+	Wed, 27 May 2020 13:12:29 -0400 (EDT)
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200527104525.5e6cd93b@coco.lan>
-X-Original-Sender: natechancellor@gmail.com
+In-Reply-To: <CAEf4BzbR+7X-boCBC-f60jugp8xWKVTeFTyUmrcv8Qy4iKsvjg@mail.gmail.com>
+Date: Wed, 27 May 2020 10:03:56 -0700
+Cc: "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann"
+ <daniel@iogearbox.net>, "Martin Lau" <kafai@fb.com>, "Song Liu"
+ <songliubraving@fb.com>, "Yonghong Song" <yhs@fb.com>, "Andrii Nakryiko"
+ <andriin@fb.com>, "john fastabend" <john.fastabend@gmail.com>, "KP Singh"
+ <kpsingh@chromium.org>, "David S. Miller" <davem@davemloft.net>, "Jakub
+ Kicinski" <kuba@kernel.org>, "Jesper Dangaard Brouer" <hawk@kernel.org>,
+ "bpf" <bpf@vger.kernel.org>, "Networking" <netdev@vger.kernel.org>, "open
+ list" <linux-kernel@vger.kernel.org>, "clang-built-linux"
+ <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH bpf-next] libbpf: Export bpf_object__load_vmlinux_btf
+From: "Daniel Xu" <dxu@dxuuu.xyz>
+To: "Andrii Nakryiko" <andrii.nakryiko@gmail.com>
+Message-Id: <C31OATROKNZK.27CUNDSXX9I4K@maharaja>
+X-Original-Sender: dxu@dxuuu.xyz
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=p4Ckd5wa;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@dxuuu.xyz header.s=fm3 header.b="Dx1/Dmht";       dkim=pass
+ header.i=@messagingengine.com header.s=fm2 header.b=0IfLJJFz;       spf=pass
+ (google.com: domain of dxu@dxuuu.xyz designates 64.147.123.18 as permitted
+ sender) smtp.mailfrom=dxu@dxuuu.xyz
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -149,65 +151,58 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, May 27, 2020 at 10:45:25AM +0200, Mauro Carvalho Chehab wrote:
-> Em Wed, 27 May 2020 00:11:43 -0700
-> Nathan Chancellor <natechancellor@gmail.com> escreveu:
-> 
-> > Hi all,
-> > 
-> > This series aims to clean up the code while addressing the majority of
-> > clang warnings in this driver, some found by the 0day bot and others
-> > found by me.
-> > 
-> > There are several enum conversion warnings that happen, which I do not
-> > really know how to solve without understanding how exactly this driver
-> > works. I would appreciate some guidance or a solution. Below are the
-> > warnings, sorry for not wrapping them but they would be hard to read
-> > otherwise.
-> 
-> ... 
-> > ../drivers/staging/media/atomisp//pci/atomisp_compat_css20.h:117:22: note: expanded from macro 'CSS_ID'
-> > #define CSS_ID(val)     (IA_ ## val)
-> ...
-> 
-> I actually wrote a patch getting rid of this ugly thing:
-> 
-> 	https://git.linuxtv.org/mchehab/experimental.git/commit/?h=atomisp_v3&id=cf6a15543ace1e99364911c0b7a2f6b8f2f43021
-> 
-> This one was already submitted upstream (not merged yet), but there
-> are also lots of other patches on my working tree.
+Hi Andrii,
 
-Ah excellent, that makes the warnings a lot more readable. I am still
-not sure how to reconcile the differences, it might be easier to just
-change the types in the struct to int.
+On Tue May 26, 2020 at 3:09 PM PST, Andrii Nakryiko wrote:
+> On Tue, May 26, 2020 at 7:09 PM Daniel Xu <dxu@dxuuu.xyz> wrote:
+> >
+> > Right now the libbpf model encourages loading the entire object at once.
+> > In this model, libbpf handles loading BTF from vmlinux for us. However,
+> > it can be useful to selectively load certain maps and programs inside an
+> > object without loading everything else.
+>
+> There is no way to selectively load or not load a map. All maps are
+> created, unless they are reusing map FD or pinned instances. See
+> below, I'd like to understand the use case better.
+>
+> >
+> > In the latter model, there was perviously no way to load BTF on-demand.
+> > This commit exports the bpf_object__load_vmlinux_btf such that we are
+> > able to load BTF on demand.
+> >
+>
+> Let's start with the real problem, not a solution. Do you have
+> specific use case where you need bpf_object__load_vmlinux_btf()? It
+> might not do anything if none of BPF programs in the object requires
+> BTF, because it's very much tightly coupled with loading bpf_object as
+> a whole model. I'd like to understand what you are after with this,
+> before exposing internal implementation details as an API.
 
-../drivers/staging/media/atomisp/pci/atomisp_subdev.c:49:68: warning: implicit conversion from enumeration type 'enum ia_css_frame_format' to different enumeration type 'enum atomisp_input_format' [-Wenum-conversion]
-        { V4L2_MBUS_FMT_CUSTOM_NV21, 12, 12, IA_CSS_FRAME_FORMAT_NV21, 0, IA_CSS_FRAME_FORMAT_NV21 },
-        ~                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/staging/media/atomisp/pci/atomisp_subdev.c:49:39: warning: implicit conversion from enumeration type 'enum ia_css_frame_format' to different enumeration type 'enum atomisp_input_format' [-Wenum-conversion]
-        { V4L2_MBUS_FMT_CUSTOM_NV21, 12, 12, IA_CSS_FRAME_FORMAT_NV21, 0, IA_CSS_FRAME_FORMAT_NV21 },
-        ~                                    ^~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/staging/media/atomisp/pci/atomisp_subdev.c:48:68: warning: implicit conversion from enumeration type 'enum ia_css_frame_format' to different enumeration type 'enum atomisp_input_format' [-Wenum-conversion]
-        { V4L2_MBUS_FMT_CUSTOM_NV12, 12, 12, IA_CSS_FRAME_FORMAT_NV12, 0, IA_CSS_FRAME_FORMAT_NV12 },
-        ~                                                                 ^~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/staging/media/atomisp/pci/atomisp_subdev.c:48:39: warning: implicit conversion from enumeration type 'enum ia_css_frame_format' to different enumeration type 'enum atomisp_input_format' [-Wenum-conversion]
-        { V4L2_MBUS_FMT_CUSTOM_NV12, 12, 12, IA_CSS_FRAME_FORMAT_NV12, 0, IA_CSS_FRAME_FORMAT_NV12 },
-        ~                                    ^~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/staging/media/atomisp/pci/atomisp_subdev.c:47:34: warning: implicit conversion from enumeration type 'enum ia_css_frame_format' to different enumeration type 'enum atomisp_input_format' [-Wenum-conversion]
-        { MEDIA_BUS_FMT_JPEG_1X8, 8, 8, IA_CSS_FRAME_FORMAT_BINARY_8, 0, ATOMISP_INPUT_FORMAT_BINARY_8 },
-        ~                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
-5 warnings generated.
+If I try loading a program through the following sequence:
 
-> I'll try to apply your patch series on it, once I'll be able to
-> fix a bug with mmap support.
+    bpf_object__open_file()
+    bpf_object__find_program_by_name()
+    bpf_program__load()
 
-It looks like all of them apply to your experimental branch aside from
-patch 3, which you handled in a different way.
+And the program require BTF (tp_btf), I get an unavoidable (to the best
+of my knowledge) segfault in the following code path:
 
-Cheers,
-Nathan
+    bpf_program__load()
+      libbpf_find_attach_btf_id()    <-- [0]
+        __find_vmlinx_btf_id()
+          find_btf_by_prefix_kind()
+            btf__find_by_name_kind() <-- boom (btf->nr_types)
+
+because [0] passes prog->obj->btf_vmlinux which is still null. So the
+solution I'm proposing is exporting bpf_object__load_vmlinux_btf() and
+calling that on struct bpf_object before performing prog loads.
+
+[...]
+
+Thanks,
+Daniel
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200527164521.GA1239557%40ubuntu-s3-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/C31OATROKNZK.27CUNDSXX9I4K%40maharaja.
