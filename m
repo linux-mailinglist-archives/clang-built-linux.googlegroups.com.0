@@ -1,128 +1,141 @@
-Return-Path: <clang-built-linux+bncBD66FMGZA4IKFKF36YCRUBC5Q6WRK@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTYRDEG7MGBBJFZXP3AKGQEP6DDTUQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x137.google.com (mail-il1-x137.google.com [IPv6:2607:f8b0:4864:20::137])
-	by mail.lfdr.de (Postfix) with ESMTPS id F26191E4FB4
-	for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 22:57:07 +0200 (CEST)
-Received: by mail-il1-x137.google.com with SMTP id w65sf21516319ilk.14
-        for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 13:57:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1590613026; cv=pass;
+Received: from mail-vk1-xa3b.google.com (mail-vk1-xa3b.google.com [IPv6:2607:f8b0:4864:20::a3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9C66B1E508A
+	for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 23:33:25 +0200 (CEST)
+Received: by mail-vk1-xa3b.google.com with SMTP id m142sf9694992vke.21
+        for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 14:33:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1590615204; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Y/TWRy3d1wyoNwPj4aRpOwswMqweWrDSEBM/cUWZSMinF27j64YJE4BHKj8PQxg/SV
-         HGf5oO/o3Cq8St0VdzMLfT5xhNiXYjbQVRWGSQaIxT20AT5hycQCcTdY/Ij90fQxJQtn
-         jlcLhAzcIuT2w/dL0LN4nQXpVlQyx0aQ7tgKmVIIjv8sYXJiyLrXiSdtY6WPWClUDD++
-         otyb1KCs2nfUDWRhrOI1Ktv5xyftlIypk5BVJrbkh04rQV3majVLxxsfihElpcbv3CdP
-         JqV3Iqo0PB6Q7UZwEJ76WzoXWpyvp/AJz6TQkn7LWz1opbtP1OZefWSvf163cTVB80zA
-         GvLQ==
+        b=lGd2khpp6CzKeF4Zlvj2tOPKfdMLsOPnRLdj4ou+B5IPAK+qKWtwTGXDZwiGjvmFmW
+         JPW9AfelQjfLUAumaC4IXCirZh1CPTY54cZH0ob4RKRlw5WD17VZnIdbKOq2Bo3r50TY
+         RhH+ALYAM6vEy9H6H4gak7+siDV0jyDruuvFdFAGBWK53/wK4LFL7HnldYN1B5InRb8Z
+         FYur+FTxJWEtCC/r/OO8s6HGoKX8VNebLEnFXN+UjCVH7z7E+H5kJD/qk/NXxn9957AX
+         M9dVdfcN7D3/A7691itrNdB4dBG4L+lP84e/AiK/PEKGfkmk2/rkqzshNjXXhcI997xW
+         p6Zw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=i0nzDXYVSwPbazjxHk1RXiKaQxa6NkBmJWRoIHospgE=;
-        b=E7Igly/Bzs0uA/4cbxn0SCGLfkN36LX2HUaZAdU0RikjRSkGWKTJYE/ZMxAm6fDRxq
-         juEYfNT6QY+n5uFvB8YTtyVpmBZ5oTN10E1ThI6Avqk3FbeUNOvBKGBNs/6yqnxPlqS8
-         WrbqnBCIYpWvJ5l1RvLHW6PhjYOk/66Mj09D2s09KfLQICKhxLjmpAFGhAB1hEhcsT5k
-         hYXVu0GJpfi9l2SbqYU/8IA1hZHL6k8W/4o6G3vL1fuGF8Jbj5we5krXV9v5kH5mtKml
-         xoUFH5AmxVn9eBgmG01LU5NmcYCV80hCEXvEZNL0G1lHqH1bmg0PFIBYUMUMcerc3xQX
-         tojA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=+Xq+NQ6/CctbiHttWSiyKHx10ifkEbe6I8l+15q8+O8=;
+        b=tD6pql6fEt0D9pVAgPv+ZRWC+Iqbq/lO4mbQGm5GzoHkFRjg4KdxKL4IqTdgrHpUOt
+         pXSmv7afFcBUYfyEcArSiVF+S8oyF2Sjxw9O9XT76F0XRfHq2F0EQuoq+BMap0dWZzLE
+         vL5D/jAYTo9FFdJMB+m2Ydho3xYycHvoY071OEbun4dRi64GlyXmzZMIQa8Z8FC7csJA
+         /fqR+yMB8ScVB5WdyETOZlCsdWBZQGkalWEZ0zjRTlPvxnKP9BkPiVV8Y1RbZ4xfA+9W
+         Elj86sgN2e1APnrC9aL3kQBZ7RE+knJOsZcvgNNqE/eqkh77PNVZRG56S61ertRFCiYW
+         UA7g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=IuSI9B47;
-       spf=pass (google.com: domain of morbo@google.com designates 2607:f8b0:4864:20::e42 as permitted sender) smtp.mailfrom=morbo@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=lqZp7hod;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::844 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=i0nzDXYVSwPbazjxHk1RXiKaQxa6NkBmJWRoIHospgE=;
-        b=G4d4rrWpUVxqERD9lRgZ2fRfVptBdmTMr9lO17I6t6FWDNwfoGSd7QCVvgmObhdWbC
-         Om3b2EZOjfpY70Zi0+5IdghuxEmgTifuaUugk5nRdBDhL6tcxzOuUPZcsgVErtsUD0HD
-         Bk73alx4jrOnn4t6tI39sKuk4vN868rk9sAO4aquTfKXfKBMy7ygguN12o2uIt40gJG6
-         hOyY4ydIYjCOMN2bAo8n5/Ta5MZFemcp1kc8dZo+xVA3HhOck50Ac/v8W5c0WbbCe28t
-         vqJsdGoYFr5XDJC2ZFAYMZ1Sw1uek/W96Mkv9vOPpNnnodPNvbPcEQ4XPMHkKm619ZQt
-         Ov1Q==
+        bh=+Xq+NQ6/CctbiHttWSiyKHx10ifkEbe6I8l+15q8+O8=;
+        b=b3JR5SfQVftP8rLd4XkyME7N+1+Jr7m75YPuSb9KiJ0aRgf6OMA7Zw9eSS96JYi73y
+         gP72dITMtVI3na2XpUVoUmJPaGYd8RGeSDBxIwTlOHWqGKvy3LBqEu5KVs3rNaP1ROJw
+         ylNi080KGeRnec95Y+jtcyikSHvtmvBFRuleFJ5iLUVUX9LEWz4Hhj15moAQE9lV0Mss
+         kgzRLnoIFnHGEXV+d7AW4Vv+VcNttdFKzKXtmxMeViK/YLhUNpzn184PvhaQK0YZwmF0
+         OVB3M5ork/d2yuD0fvMBP1HUPasQw3KXSKCNs9jGxIN7M35sUDGHCYsgZxxHl5USqmGS
+         JDjA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=+Xq+NQ6/CctbiHttWSiyKHx10ifkEbe6I8l+15q8+O8=;
+        b=C+5brZTnQWsxXD2JjxiPF52k6bPwm7jWzhh677EtJlEHyMJDNE25tJT6WwfrAHVLlI
+         FiAd+H9o1hBT70Z6YeaLnEaVMFP8Je3vsOM07zibhePY0dfww8jM1/6kAuVEY00rii4U
+         5D0lJEn33gzmdXFpdAkZlTCAwXnbuP3YKEZbm2tl5aat/LkH90n2kXuakFYBsHEWi5Kj
+         BxFIF5UBKl9nHKgI1qBTrePJmRnuH7pcBtccPjr4SvzDd+kXieCxR0af4WrviJGb46ao
+         fYywwmykFBBtIa7zUsJYv7/J8QPNFdUiEUo2HqGZ9OOiNzyHS+WC/PS+9ZZ/U7N1UM0t
+         +Z/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=i0nzDXYVSwPbazjxHk1RXiKaQxa6NkBmJWRoIHospgE=;
-        b=XeeCrNfftCqVXB2UqIjja5NHXY4naoWaBC48OpvjPDeA150/jndg1XMJ74oYOY7qyS
-         O4DAXlqYLSFNyDy79/xheSvUOYcMhxKWdJWbzf1BrEK0YjEzkUUbximviTs2DkXJlQ0t
-         oG26XWgKPW7xsp09+Zj97PhCqdabLf3kWGpdwAygI+zQl7KSDxQr7DOIVgdOj1xxlGWz
-         W0LvpSCLQZ9VgeW0M/irYvRV8O/EzgVev9VWLVG+C6tySDTDilP+mi9n+m9dH8t2EPYm
-         YX9NaPwehhisUe4DSCHEanPilC4GyUP7EJ9H2cAHe1oFZON3rjj67QSKbcokME553d/a
-         xrBA==
-X-Gm-Message-State: AOAM5311mcE6x9/zpMhmDMgSK9E2H7I+eLAWjjkGYz7K/JGQBRMV1Zyf
-	eMi64UfOTG1yPWcHQwKTPqM=
-X-Google-Smtp-Source: ABdhPJxYDnZgN442nwMp0lDBw0HI4GCm/7dvvp5xSF2fg8Ezck7umd4cSdtiZGiWspnjnEGqUq53JQ==
-X-Received: by 2002:a92:da52:: with SMTP id p18mr137116ilq.173.1590613026663;
-        Wed, 27 May 2020 13:57:06 -0700 (PDT)
+        bh=+Xq+NQ6/CctbiHttWSiyKHx10ifkEbe6I8l+15q8+O8=;
+        b=i0/f35idr4t10APWQrJTv3yOVbwPunjUfzShuK23BBDhLmtAWzTi2xYCuNF0LTfZY0
+         xNrPFcSSNTgurEjqNK4EkCY9Q/K7uKf83R+n7k0yk5JbYnOF1b1fuO2opOiEMp8Rdy8s
+         3/zXhsPNamg2v0USVD8MDT2WjvKz3fYsqpwV3twc3/Dr2SUkNMpre9WlerHF/cuOkBLq
+         LGAhELkc6DagDFhJIFqAvgFad7T6NQC1tZwXLf8JED+vbaOJPdtVH4Ll+kBNn7QhPg7b
+         QSaxD9dyrb+Z7m/hOCYFD/GcWKhIOOQjyddNZdwt0IGVpvjGetMkMUky7HoLYbEebFbl
+         ZvFw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530d4gbkH2p1qKzZTbsH/oijURMj19ujPIS5FlxSrdXOtHv+yrJL
+	8jjE8H62B6pxlvrG3kryN+k=
+X-Google-Smtp-Source: ABdhPJycjZgjQrEBNrJLv9ULaKkBiiQhTa/y7HrX+C/v2uzLW2S3RHz2OjQUG8ORNKk7rtwzEhLblQ==
+X-Received: by 2002:a67:30ce:: with SMTP id w197mr6390865vsw.49.1590615204633;
+        Wed, 27 May 2020 14:33:24 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a02:13c7:: with SMTP id 190ls33616jaz.9.gmail; Wed, 27 May
- 2020 13:57:06 -0700 (PDT)
-X-Received: by 2002:a02:c84b:: with SMTP id r11mr2602676jao.110.1590613025228;
-        Wed, 27 May 2020 13:57:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1590613025; cv=none;
+Received: by 2002:a67:fe91:: with SMTP id b17ls31226vsr.5.gmail; Wed, 27 May
+ 2020 14:33:24 -0700 (PDT)
+X-Received: by 2002:a67:e952:: with SMTP id p18mr6358615vso.73.1590615204209;
+        Wed, 27 May 2020 14:33:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1590615204; cv=none;
         d=google.com; s=arc-20160816;
-        b=klP/5KFbinwqNLZPqQ2wMVbdDXzwzdOYajRA74SDruZ+sW5tyhgyz1IvH1lRcx2+23
-         9wU/M9SS59oR+TBzMwbBR0tblUpE+VWM0gzPYZ6CVcoi/d20oxbK6kFpMBl22/C3PLCl
-         HigvABEfTAXGovif7DbexqOotHMuTMQSMfmza0kLeopuGUPi+6XZkB7fz0OPDHeWQFaa
-         R8cuOCnupt9GKk9GxXvVn16GUPdzHtOKe9Av0P6srs6YrJ4YEiP2Q44xs6Sd9+Y0yqFu
-         qRME0yReVxJp5mXxb6HZtMMePDXq9a64DC8IW+DVfYgO8CRvHtoE+lB0WQbaADN4hH7z
-         nJTQ==
+        b=wjG9rx6DQ2pM7cgLKQ6PqN3JDW9ctEmjuZpKqqzqjfJFV+MARMvSO1L8XFFH2cXfSI
+         fExWV05dmVX9x9AwzrcaMisI7BeQb+n9y4D9BsIv71QnJAi0VlPne5xFOpwhMkbY8b8M
+         LuojHrwipD/WKeKXgeA4QGppD0s/7ZSSaXrwJyU6Vpv0keOuhLSKXIZKOEMSMwXWxvAu
+         ENNfl3B5pbY3gLOH+yPZVZOfcY5B+UO1IP9RiC3UNzbN76PHBlHe8mFTPC9Ke5pZLd4A
+         7HYWeHe5pasXuUlrjXJ1FofBB/XyCCX2bOgpgNFkijACt6ceC7gCy7J1316lgyo87dId
+         CDSA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=5RlSGdtXeb2Xqn8H6X++yGDrYB0LeXD8fwO0GTM5QqU=;
-        b=eyalexSjADX4pcTQylB7R/g7ug4zbtp7Y6u8t+ejlgduFvibsm6VSq+kDu2qWVV9fk
-         E5jI/cpdJnW4TT9jrtXVwWW2PyvQvPs3BDLJR1PVTFfYTog8VhphKqcukcGkJdqpbBs2
-         Y2v6tYFi46+nCc/WZW0BTtPC6hrDYuiv6iTj4E+knd5hZZFPD8ZDI2iY+HKv4skAgXKx
-         tAHXxItrdKvTPJ7YAedkBBCJSgLZoWeNCFt2lI502dxj8IudMvCseQ7h0LP6eS0GMGDS
-         2q2Pvw+qwUVVViMiCcI/edLbgxfmi5+pPZDVlF4td4Jgm4reLOA8600iEpCqhs2VVArn
-         XAdg==
+        bh=fxtUP+fWIp3dwg1JcjyXsNPnXoOQD/0uIPaUAzDSEdI=;
+        b=RewYglrVX5l6UB0twNBtDApy22BoGOo6gkOUQHxoPkUDuB1a0EqHF5HFGp3TRBBjsL
+         vj8BZEJmgeCvv29Th59c+El3ET3OBOrRVDsQACgz/kY9G+I2S1AaCalEk3qHnxvVXKmO
+         FYHzvO2qrF11d9blHlzBxHDw19WARodWKzWnIRKh9x+gpoKF9EkaYpXfXX+iX9RaSIa/
+         SYxACljT1jtCuFtktrve+sKgoVPPoJEndXq7hvMIqGzIOFPnHtaglB/eC0FF6PoQnWcZ
+         F6lJN1L9wR79J7uD87q/K2O5e7eqxZwDtZtJbw5bR1LZBORPLqKjlzc2Ppn5i8YXEkAy
+         PO7w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=IuSI9B47;
-       spf=pass (google.com: domain of morbo@google.com designates 2607:f8b0:4864:20::e42 as permitted sender) smtp.mailfrom=morbo@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-vs1-xe42.google.com (mail-vs1-xe42.google.com. [2607:f8b0:4864:20::e42])
-        by gmr-mx.google.com with ESMTPS id v72si187417ili.4.2020.05.27.13.57.05
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=lqZp7hod;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::844 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-qt1-x844.google.com (mail-qt1-x844.google.com. [2607:f8b0:4864:20::844])
+        by gmr-mx.google.com with ESMTPS id t9si359316vkb.1.2020.05.27.14.33.24
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 May 2020 13:57:05 -0700 (PDT)
-Received-SPF: pass (google.com: domain of morbo@google.com designates 2607:f8b0:4864:20::e42 as permitted sender) client-ip=2607:f8b0:4864:20::e42;
-Received: by mail-vs1-xe42.google.com with SMTP id r10so2158092vsa.12
-        for <clang-built-linux@googlegroups.com>; Wed, 27 May 2020 13:57:05 -0700 (PDT)
-X-Received: by 2002:a67:6687:: with SMTP id a129mr6253534vsc.72.1590613024300;
- Wed, 27 May 2020 13:57:04 -0700 (PDT)
+        Wed, 27 May 2020 14:33:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::844 as permitted sender) client-ip=2607:f8b0:4864:20::844;
+Received: by mail-qt1-x844.google.com with SMTP id k22so5791816qtm.6
+        for <clang-built-linux@googlegroups.com>; Wed, 27 May 2020 14:33:24 -0700 (PDT)
+X-Received: by 2002:ac8:42ce:: with SMTP id g14mr6437895qtm.117.1590615203771;
+ Wed, 27 May 2020 14:33:23 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200527141553.1768675-1-arnd@arndb.de> <CAKwvOdk8PToaHMWVKV-6Uhhx6CNz15OWLOp_5RCERvdOisLrpA@mail.gmail.com>
-In-Reply-To: <CAKwvOdk8PToaHMWVKV-6Uhhx6CNz15OWLOp_5RCERvdOisLrpA@mail.gmail.com>
-From: "'Bill Wendling' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 27 May 2020 13:56:53 -0700
-Message-ID: <CAGG=3QWwafjBUPaGLbJxyU7K65H0SnHBHZ-mnxtAC2A1xfjWYA@mail.gmail.com>
-Subject: Re: [PATCH] x86: fix clang integrated assembler build
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, "# 3.4.x" <stable@vger.kernel.org>, 
-	"H. Peter Anvin" <hpa@zytor.com>, Jiri Slaby <jslaby@suse.cz>, Juergen Gross <jgross@suse.com>, 
-	Herbert Xu <herbert@gondor.apana.org.au>, Tony Luck <tony.luck@intel.com>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Fangrui Song <maskray@google.com>, 
-	Jian Cai <jiancai@google.com>
-Content-Type: multipart/alternative; boundary="0000000000004a4fd105a6a7740f"
-X-Original-Sender: morbo@google.com
+References: <CAEf4BzbR+7X-boCBC-f60jugp8xWKVTeFTyUmrcv8Qy4iKsvjg@mail.gmail.com>
+ <C31OATROKNZK.27CUNDSXX9I4K@maharaja>
+In-Reply-To: <C31OATROKNZK.27CUNDSXX9I4K@maharaja>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Wed, 27 May 2020 14:33:12 -0700
+Message-ID: <CAEf4BzYP0gf9wKonV6vkXxR4c9dsVfqJr0-tCXU_3j_R98k9FA@mail.gmail.com>
+Subject: Re: [PATCH bpf-next] libbpf: Export bpf_object__load_vmlinux_btf
+To: Daniel Xu <dxu@dxuuu.xyz>
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Martin Lau <kafai@fb.com>, 
+	Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, Andrii Nakryiko <andriin@fb.com>, 
+	john fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@chromium.org>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+	Jesper Dangaard Brouer <hawk@kernel.org>, bpf <bpf@vger.kernel.org>, 
+	Networking <netdev@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: andrii.nakryiko@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=IuSI9B47;       spf=pass
- (google.com: domain of morbo@google.com designates 2607:f8b0:4864:20::e42 as
- permitted sender) smtp.mailfrom=morbo@google.com;       dmarc=pass (p=REJECT
- sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Bill Wendling <morbo@google.com>
-Reply-To: Bill Wendling <morbo@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=lqZp7hod;       spf=pass
+ (google.com: domain of andrii.nakryiko@gmail.com designates
+ 2607:f8b0:4864:20::844 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,247 +148,69 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---0000000000004a4fd105a6a7740f
-Content-Type: text/plain; charset="UTF-8"
-
-On Wed, May 27, 2020 at 11:04 AM Nick Desaulniers <ndesaulniers@google.com>
-wrote:
-
-> On Wed, May 27, 2020 at 7:16 AM Arnd Bergmann <arnd@arndb.de> wrote:
-> >
-> > clang and gas seem to interpret the symbols in memmove_64.S and
-> > memset_64.S differently, such that clang does not make them
-> > 'weak' as expected, which leads to a linker error, with both
-> > ld.bfd and ld.lld:
-> >
-> > ld.lld: error: duplicate symbol: memmove
-> > >>> defined at common.c
-> > >>>            kasan/common.o:(memmove) in archive mm/built-in.a
-> > >>> defined at memmove.o:(__memmove) in archive arch/arm64/lib/lib.a
-> >
-> > ld.lld: error: duplicate symbol: memset
-> > >>> defined at common.c
-> > >>>            kasan/common.o:(memset) in archive mm/built-in.a
-> > >>> defined at memset.o:(__memset) in archive arch/arm64/lib/lib.a
-> >
-> > Copy the exact way these are written in memcpy_64.S, which does
-> > not have the same problem.
-> >
-> > I don't know why this makes a difference, and it would be good
-> > to have someone with a better understanding of assembler internals
-> > review it.
-> >
-> > It might be either a bug in the kernel or a bug in the assembler,
-> > no idea which one. My patch makes it work with all versions of
-> > clang and gcc, which is probably helpful even if it's a workaround
-> > for a clang bug.
-> >
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+On Wed, May 27, 2020 at 10:12 AM Daniel Xu <dxu@dxuuu.xyz> wrote:
 >
-> + Bill, Fangrui, Jian
-> I think we saw this bug or a very similar bug internally around the
-> ordering of .weak to .global.
+> Hi Andrii,
 >
-> I think that would be this patch by Fangrui:
-
-
-https://prodkernel-review.git.corp.google.com/c/kernel/release/9xx/+/292011
-
--bw
-
-
-> > ---
-> >  arch/x86/lib/memmove_64.S | 4 ++--
-> >  arch/x86/lib/memset_64.S  | 4 ++--
-> >  2 files changed, 4 insertions(+), 4 deletions(-)
+> On Tue May 26, 2020 at 3:09 PM PST, Andrii Nakryiko wrote:
+> > On Tue, May 26, 2020 at 7:09 PM Daniel Xu <dxu@dxuuu.xyz> wrote:
+> > >
+> > > Right now the libbpf model encourages loading the entire object at once.
+> > > In this model, libbpf handles loading BTF from vmlinux for us. However,
+> > > it can be useful to selectively load certain maps and programs inside an
+> > > object without loading everything else.
 > >
-> > diff --git a/arch/x86/lib/memmove_64.S b/arch/x86/lib/memmove_64.S
-> > index 7ff00ea64e4f..dcca01434be8 100644
-> > --- a/arch/x86/lib/memmove_64.S
-> > +++ b/arch/x86/lib/memmove_64.S
-> > @@ -26,8 +26,8 @@
-> >   */
-> >  .weak memmove
+> > There is no way to selectively load or not load a map. All maps are
+> > created, unless they are reusing map FD or pinned instances. See
+> > below, I'd like to understand the use case better.
 > >
-> > -SYM_FUNC_START_ALIAS(memmove)
-> > -SYM_FUNC_START(__memmove)
-> > +SYM_FUNC_START_ALIAS(__memmove)
-> > +SYM_FUNC_START_LOCAL(memmove)
+> > >
+> > > In the latter model, there was perviously no way to load BTF on-demand.
+> > > This commit exports the bpf_object__load_vmlinux_btf such that we are
+> > > able to load BTF on demand.
+> > >
 > >
-> >         mov %rdi, %rax
-> >
-> > diff --git a/arch/x86/lib/memset_64.S b/arch/x86/lib/memset_64.S
-> > index 9ff15ee404a4..a97f2ea4e0b2 100644
-> > --- a/arch/x86/lib/memset_64.S
-> > +++ b/arch/x86/lib/memset_64.S
-> > @@ -19,8 +19,8 @@
-> >   *
-> >   * rax   original destination
-> >   */
-> > -SYM_FUNC_START_ALIAS(memset)
-> > -SYM_FUNC_START(__memset)
-> > +SYM_FUNC_START_ALIAS(__memset)
-> > +SYM_FUNC_START_LOCAL(memset)
-> >         /*
-> >          * Some CPUs support enhanced REP MOVSB/STOSB feature. It is
-> recommended
-> >          * to use it when possible. If not available, use fast string
-> instructions.
-> > --
-> > 2.26.2
-> >
-> > --
-> > You received this message because you are subscribed to the Google
-> Groups "Clang Built Linux" group.
-> > To unsubscribe from this group and stop receiving emails from it, send
-> an email to clang-built-linux+unsubscribe@googlegroups.com.
-> > To view this discussion on the web visit
-> https://groups.google.com/d/msgid/clang-built-linux/20200527141553.1768675-1-arnd%40arndb.de
-> .
+> > Let's start with the real problem, not a solution. Do you have
+> > specific use case where you need bpf_object__load_vmlinux_btf()? It
+> > might not do anything if none of BPF programs in the object requires
+> > BTF, because it's very much tightly coupled with loading bpf_object as
+> > a whole model. I'd like to understand what you are after with this,
+> > before exposing internal implementation details as an API.
 >
+> If I try loading a program through the following sequence:
 >
+>     bpf_object__open_file()
+>     bpf_object__find_program_by_name()
+>     bpf_program__load()
 >
-> --
+
+bpf_program__load() is just broken and shouldn't have been ever
+exposed. It **might** work for trivial BPF programs not using maps,
+Kconfig and global variables, etc, but more by accident. I think the
+right fix for your use-case is to allow more control of which programs
+are auto-loaded. There was a patch by Eric Sage previously adding
+bpf_program__set_autoload(), but it never landed. We should actually
+do that approach instead.
+
+> And the program require BTF (tp_btf), I get an unavoidable (to the best
+> of my knowledge) segfault in the following code path:
+>
+>     bpf_program__load()
+>       libbpf_find_attach_btf_id()    <-- [0]
+>         __find_vmlinx_btf_id()
+>           find_btf_by_prefix_kind()
+>             btf__find_by_name_kind() <-- boom (btf->nr_types)
+>
+> because [0] passes prog->obj->btf_vmlinux which is still null. So the
+> solution I'm proposing is exporting bpf_object__load_vmlinux_btf() and
+> calling that on struct bpf_object before performing prog loads.
+>
+> [...]
+>
 > Thanks,
-> ~Nick Desaulniers
->
+> Daniel
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAGG%3D3QWwafjBUPaGLbJxyU7K65H0SnHBHZ-mnxtAC2A1xfjWYA%40mail.gmail.com.
-
---0000000000004a4fd105a6a7740f
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr"><div dir=3D"ltr"><br></div><br><div class=3D"gmail_quote">=
-<div dir=3D"ltr" class=3D"gmail_attr">On Wed, May 27, 2020 at 11:04 AM Nick=
- Desaulniers &lt;<a href=3D"mailto:ndesaulniers@google.com">ndesaulniers@go=
-ogle.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D=
-"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-le=
-ft:1ex">On Wed, May 27, 2020 at 7:16 AM Arnd Bergmann &lt;<a href=3D"mailto=
-:arnd@arndb.de" target=3D"_blank">arnd@arndb.de</a>&gt; wrote:<br>
-&gt;<br>
-&gt; clang and gas seem to interpret the symbols in memmove_64.S and<br>
-&gt; memset_64.S differently, such that clang does not make them<br>
-&gt; &#39;weak&#39; as expected, which leads to a linker error, with both<b=
-r>
-&gt; ld.bfd and ld.lld:<br>
-&gt;<br>
-&gt; ld.lld: error: duplicate symbol: memmove<br>
-&gt; &gt;&gt;&gt; defined at common.c<br>
-&gt; &gt;&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 kasan/common.o:(=
-memmove) in archive mm/built-in.a<br>
-&gt; &gt;&gt;&gt; defined at memmove.o:(__memmove) in archive arch/arm64/li=
-b/lib.a<br>
-&gt;<br>
-&gt; ld.lld: error: duplicate symbol: memset<br>
-&gt; &gt;&gt;&gt; defined at common.c<br>
-&gt; &gt;&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 kasan/common.o:(=
-memset) in archive mm/built-in.a<br>
-&gt; &gt;&gt;&gt; defined at memset.o:(__memset) in archive arch/arm64/lib/=
-lib.a<br>
-&gt;<br>
-&gt; Copy the exact way these are written in memcpy_64.S, which does<br>
-&gt; not have the same problem.<br>
-&gt;<br>
-&gt; I don&#39;t know why this makes a difference, and it would be good<br>
-&gt; to have someone with a better understanding of assembler internals<br>
-&gt; review it.<br>
-&gt;<br>
-&gt; It might be either a bug in the kernel or a bug in the assembler,<br>
-&gt; no idea which one. My patch makes it work with all versions of<br>
-&gt; clang and gcc, which is probably helpful even if it&#39;s a workaround=
-<br>
-&gt; for a clang bug.<br>
-&gt;<br>
-&gt; Cc: <a href=3D"mailto:stable@vger.kernel.org" target=3D"_blank">stable=
-@vger.kernel.org</a><br>
-&gt; Signed-off-by: Arnd Bergmann &lt;<a href=3D"mailto:arnd@arndb.de" targ=
-et=3D"_blank">arnd@arndb.de</a>&gt;<br>
-<br>
-+ Bill, Fangrui, Jian<br>
-I think we saw this bug or a very similar bug internally around the<br>
-ordering of .weak to .global.<br>
-<br></blockquote><div>I think that would be this patch by Fangrui:</div><di=
-v><br></div><div>=C2=A0=C2=A0<a href=3D"https://prodkernel-review.git.corp.=
-google.com/c/kernel/release/9xx/+/292011">https://prodkernel-review.git.cor=
-p.google.com/c/kernel/release/9xx/+/292011</a></div><div><br></div><div>-bw=
-</div><div>=C2=A0</div><blockquote class=3D"gmail_quote" style=3D"margin:0p=
-x 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">
-&gt; ---<br>
-&gt;=C2=A0 arch/x86/lib/memmove_64.S | 4 ++--<br>
-&gt;=C2=A0 arch/x86/lib/memset_64.S=C2=A0 | 4 ++--<br>
-&gt;=C2=A0 2 files changed, 4 insertions(+), 4 deletions(-)<br>
-&gt;<br>
-&gt; diff --git a/arch/x86/lib/memmove_64.S b/arch/x86/lib/memmove_64.S<br>
-&gt; index 7ff00ea64e4f..dcca01434be8 100644<br>
-&gt; --- a/arch/x86/lib/memmove_64.S<br>
-&gt; +++ b/arch/x86/lib/memmove_64.S<br>
-&gt; @@ -26,8 +26,8 @@<br>
-&gt;=C2=A0 =C2=A0*/<br>
-&gt;=C2=A0 .weak memmove<br>
-&gt;<br>
-&gt; -SYM_FUNC_START_ALIAS(memmove)<br>
-&gt; -SYM_FUNC_START(__memmove)<br>
-&gt; +SYM_FUNC_START_ALIAS(__memmove)<br>
-&gt; +SYM_FUNC_START_LOCAL(memmove)<br>
-&gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0mov %rdi, %rax<br>
-&gt;<br>
-&gt; diff --git a/arch/x86/lib/memset_64.S b/arch/x86/lib/memset_64.S<br>
-&gt; index 9ff15ee404a4..a97f2ea4e0b2 100644<br>
-&gt; --- a/arch/x86/lib/memset_64.S<br>
-&gt; +++ b/arch/x86/lib/memset_64.S<br>
-&gt; @@ -19,8 +19,8 @@<br>
-&gt;=C2=A0 =C2=A0*<br>
-&gt;=C2=A0 =C2=A0* rax=C2=A0 =C2=A0original destination<br>
-&gt;=C2=A0 =C2=A0*/<br>
-&gt; -SYM_FUNC_START_ALIAS(memset)<br>
-&gt; -SYM_FUNC_START(__memset)<br>
-&gt; +SYM_FUNC_START_ALIAS(__memset)<br>
-&gt; +SYM_FUNC_START_LOCAL(memset)<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0/*<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 * Some CPUs support enhanced REP MOV=
-SB/STOSB feature. It is recommended<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 * to use it when possible. If not av=
-ailable, use fast string instructions.<br>
-&gt; --<br>
-&gt; 2.26.2<br>
-&gt;<br>
-&gt; --<br>
-&gt; You received this message because you are subscribed to the Google Gro=
-ups &quot;Clang Built Linux&quot; group.<br>
-&gt; To unsubscribe from this group and stop receiving emails from it, send=
- an email to <a href=3D"mailto:clang-built-linux%2Bunsubscribe@googlegroups=
-.com" target=3D"_blank">clang-built-linux+unsubscribe@googlegroups.com</a>.=
-<br>
-&gt; To view this discussion on the web visit <a href=3D"https://groups.goo=
-gle.com/d/msgid/clang-built-linux/20200527141553.1768675-1-arnd%40arndb.de"=
- rel=3D"noreferrer" target=3D"_blank">https://groups.google.com/d/msgid/cla=
-ng-built-linux/20200527141553.1768675-1-arnd%40arndb.de</a>.<br>
-<br>
-<br>
-<br>
--- <br>
-Thanks,<br>
-~Nick Desaulniers<br>
-</blockquote></div></div>
-
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/CAGG%3D3QWwafjBUPaGLbJxyU7K65H0SnHBHZ-mnxtAC2A=
-1xfjWYA%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://gr=
-oups.google.com/d/msgid/clang-built-linux/CAGG%3D3QWwafjBUPaGLbJxyU7K65H0Sn=
-HBHZ-mnxtAC2A1xfjWYA%40mail.gmail.com</a>.<br />
-
---0000000000004a4fd105a6a7740f--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAEf4BzYP0gf9wKonV6vkXxR4c9dsVfqJr0-tCXU_3j_R98k9FA%40mail.gmail.com.
