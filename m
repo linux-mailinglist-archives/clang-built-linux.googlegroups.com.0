@@ -1,124 +1,149 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBOHDXD3AKGQE53MH4LI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEKVJM7XAHRB3XEXD3AKGQESATSRBA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33a.google.com (mail-wm1-x33a.google.com [IPv6:2a00:1450:4864:20::33a])
-	by mail.lfdr.de (Postfix) with ESMTPS id B1CA91E3D7B
-	for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 11:24:08 +0200 (CEST)
-Received: by mail-wm1-x33a.google.com with SMTP id v23sf677905wmj.0
-        for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 02:24:08 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1590571448; cv=pass;
+Received: from mail-wm1-x33d.google.com (mail-wm1-x33d.google.com [IPv6:2a00:1450:4864:20::33d])
+	by mail.lfdr.de (Postfix) with ESMTPS id B6E8A1E3D88
+	for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 11:27:10 +0200 (CEST)
+Received: by mail-wm1-x33d.google.com with SMTP id k185sf910852wme.8
+        for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 02:27:10 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1590571630; cv=pass;
         d=google.com; s=arc-20160816;
-        b=E+TCgJpMsxnyQzrFFW9JJG4PJkh92sskXyZQbajK6SUlhuVIQG12xEnNt+BAN/flvO
-         kzZIt/oe4U9B+Xhvqpr7c8TS8tQ+pJ0fri0fvB85rzRlmjNctO+7+wJ8H+XHLYVO2RLQ
-         ZnRX2jmTcVDCKoIv8aRLDzr+5iUzZLp3aNh5aFzXJoA9b1vpRUMzPquCl6KjUpULQIrv
-         JMhVz4R6zKC129LpyQiMzzM2CRIj1rEBwGmQA602+mL9/PFxYJAJNwZ80d1XIpZy4Ioc
-         sKSkWmIP1bZhzINxmlpYYbN8wDPSvKvPbfieAUXh5Ea8k+GX0ohYjLEzMMXaX4gE8yHu
-         I0rw==
+        b=pD3mKYiqcMwyjlZMljwZ7pkdm0E1AvHyb5Y8wFo9bAHUrfnIqZZTYBEHjZCEXZbtcl
+         erSox/KXxH5BkbB1wnTMPPV6zrAD54ugAAefZb24KZPZ056oXCAobBvqGiVwS16bxFps
+         zpqGsYrf0TXMY3YRQauj8AI9h4jg8dcjTNz4EQRSgc3ES2Ve9rlMtGw3nT1xIE86SZkL
+         VG38c+gGQBZvbfOW46SUlMU9PYGnjGah5bElewBu0imlVXFfClpLq5QmX+tU3ijAbmbd
+         VRTJRrzzGT9AoSjacpZG8mQUJv/Dh9PnEF2MQEU3ttFIymBVKfq3SpiRtzYHexRsFjc1
+         aPTg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=zRBxV9Av6B5YIn0xulkE5T3YgB0zUcVuwt24NUfqYZQ=;
-        b=Uhp7WVN2iHuLV5cZ8eStzOqun6LfZx9croUxsrJpn4dK5O3O47ULb2JoPBXj7huORx
-         73LZ3szbjrLjTI03g3nDbFQ4faywzcJJjLvzQUV+legyxEhomF55XjESdfTrnM2Ie3BG
-         kNqRM3sh8/+zInfXMK1hiuLlN8Kz8j7ipvuczvHWdwwlkXPKmlrr4UwgBoiG+OAS9aEO
-         OTLX2MqVh1VQLt63A5MjtDlPUum4TmbSFTFm84HmMhwtJsSPkrKUxtQVq4twQvZbz+VP
-         knkwjm1UN+uOZM0CKOJt6II0VtrCE7HrofPEngWqPyadTJV6QMyuJiFHFxqbg8r9t7UO
-         nRrA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=cGj9yvIHtpOsEp4n0nxYWq+7YUt6atUm5SN9wOCbJm4=;
+        b=zKdcOrjC62ycdH2kE/Hsv1MxP+jmgkMCsEnDjotz9dqrG9nGxXb3fbSFTAExKz2VuS
+         LHYTnC/rgXYoVKPqrPTfnI12fl0Jye2OxjeTyPJQvecO65Cl8Zt9oLvHsAE5708z7S8r
+         3RIrNoJYzqs64y9aTHW4v7zAR7n1CHfpOw8Oa1duX8nz/Qo+hOtboBnfYCwB0eTvIMVe
+         gm5LeqJZg5IAlbRH8Wej5+ufalkLrx7itq6jB8SrbJ3PCZZ6zmKn3V5W3PdB4WbDOsye
+         daorueD0117YJFm1mITyQHr3mPvhkmJBMcDkmGeYOcDCViiyd1ZCdLYG2Vwe7yvwEWT0
+         yt1w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=sjQ5hHLc;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42b as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       spf=neutral (google.com: 212.227.126.131 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=zRBxV9Av6B5YIn0xulkE5T3YgB0zUcVuwt24NUfqYZQ=;
-        b=kVvoKMMiUUF+IZrf6rvtL9/dy6XeMALAMQrxMP7Yu6SJVUbCJ2/t/xXDhON9J3ZAD6
-         mu/5vPmOxZBxOL1yPSfTloC5n0rCQ5CTRMnbOZ03mmMOkVtsEG3X+yyTYxEyS7dpRfNi
-         AIyhNszkzkLoNDWS+1CSLxdWu4gDDZhjavpHKmVGm3tWgnAQ7Zh8t0Lxk//XRZGsDtiR
-         gEBEYaJ5IeMS+pTiSok+63cnBpBjZ62UM2Sug0pwFbDM7L2IDwfYq8En3Ox+7oNtCl9C
-         8um9pQRgV+w1KzhPRa72t4e0JAowvhWSjKpJK/OiL3GRzfvMp/aE5osAX0L3F+4e3fWM
-         Be7g==
+        bh=cGj9yvIHtpOsEp4n0nxYWq+7YUt6atUm5SN9wOCbJm4=;
+        b=LAWpJid5uKnhcTh44V2NlsojynQJwG6IV9hLFeELwQ7fjeous4AYOYbn6Fd/iMpqsN
+         Lgfb8TZLIbl+zUdLtoevsK2zQ5tJtnS2xzzsdT4d6xuB00VDagD+3jhqjUfRrGPZuV3l
+         lxja/E8/bohm0du4MbmAnocVNMbcVf68F/bCsVkZV4IDJKRYKdresZq3OTBuSufckDXW
+         AaggLAAqi7W+lCq3d2LxgSv7sWK7DwTp72cb3Qvqmb0l3JoctVIJdgYR2WLtYT6sf3QW
+         BGdoqKjDOWI7e+tfwEj5jt8ijFSXewfQZbVdfUl0z9EuQ4lTZskWZWN6IG1rnusuC+k/
+         UeeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=zRBxV9Av6B5YIn0xulkE5T3YgB0zUcVuwt24NUfqYZQ=;
-        b=qYsPv9qRZ4CkB9oV8RD490eFqPznJmHNJCtLBOz6RqHfgsCi2DeJrqoZgDmbPrkYNt
-         diM8avfO+Zg3Nw0UzktC8eGzkjJ7ueztxbj2IfOo52a1nhyhpVQ1PkKs5DfMjiRxHAsj
-         9aupR68BjOASiwqNx1tn1Bv7EAD+0ZL9C8nA8HRjZKXtNYHIZ0X70N2M+EYp31xdTUBO
-         Jiqu3XZp5EqkPrQQmVQBrOc8Au3UfO5O+YJ031hFmmowOUBvnpfhdj8h9IZvSUH6Go9i
-         37cTvEpQigMTyR1V3Aq0DF8R3whnHkgLzMjdnjWHYNnTaMLDdRC89ctaFyHtDgGn+aVF
-         uWUg==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=cGj9yvIHtpOsEp4n0nxYWq+7YUt6atUm5SN9wOCbJm4=;
+        b=qyt4FxR9a4v6xcht7rTfse3ara9BHTGI2GWYaosWzP8zCBUZdrr4LhmEEklSO25bdh
+         nj1qIOrod/3DoPhK7C+FGJkvKJ0GuLfofT9EfnNCpndFa4kj/y4Z+VxW5gvIBPsnpkke
+         f0BflAK+rUNPFpNL+VPmGK1rYkbne2aV93sdqquzyXpeGOSabHUu9h+RsV6hzphP9AyO
+         0RqOEgvl/rT0+ZgfjNz8nfNnVTSaXOeJtRNJKtGxKzhIWu6rifAYQ/eSXGCCcQUomBgQ
+         1O7oyjewV4lCtqqmsXqi9dR7eIC5ir5cy5SMsSIBBZIW7Xk5V/t7CoVHjuDhyElypZrz
+         3zDg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5326WSi6JJ1czCYsS2RGOtgALirzh6hN0J0Dt9xSbGNmQ25is1oX
-	A+SfigBBBBs0Gpfg68P+JN4=
-X-Google-Smtp-Source: ABdhPJyQ4LEh6GjnlRC2gmUs5Q4nHJRwhLFvdL/7SydTtkXsiLtARrVzsGSZ4bQsFhz9jS+F51+sOw==
-X-Received: by 2002:a5d:49c5:: with SMTP id t5mr24592123wrs.18.1590571448351;
-        Wed, 27 May 2020 02:24:08 -0700 (PDT)
+X-Gm-Message-State: AOAM531Z46GEH+4tyTq/WLNFsgvgV1IeDbs3PufBKSPF3PRyZ4rZ7rHQ
+	5G4SvFAdYYkjNHzprSf4LwQ=
+X-Google-Smtp-Source: ABdhPJzCsjZrvg56dgT7Rq+KAzGGKCMwJ/+wfBRFok9EYchqGwTF7cNPaRZNwEuGwko6GyYnPIXW2Q==
+X-Received: by 2002:a1c:dc05:: with SMTP id t5mr3574615wmg.112.1590571630403;
+        Wed, 27 May 2020 02:27:10 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:82ce:: with SMTP id 72ls2631386wrc.1.gmail; Wed, 27 May
- 2020 02:24:07 -0700 (PDT)
-X-Received: by 2002:adf:aa97:: with SMTP id h23mr21294658wrc.251.1590571447822;
-        Wed, 27 May 2020 02:24:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1590571447; cv=none;
+Received: by 2002:adf:82ce:: with SMTP id 72ls2642348wrc.1.gmail; Wed, 27 May
+ 2020 02:27:10 -0700 (PDT)
+X-Received: by 2002:a5d:4b4d:: with SMTP id w13mr25545445wrs.178.1590571629985;
+        Wed, 27 May 2020 02:27:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1590571629; cv=none;
         d=google.com; s=arc-20160816;
-        b=vkEyf5fy1h5A6+t7uVa8wbuqVEKanID/FNNert2UGMUeuvsqmB8FDla1kq+3uyuJNU
-         PsVgyybN1Cz15elQKbU6KecMCicrjMO0IYXZvHgbKOu0VBZwx4JGLPRqgu+cG2sdeYl7
-         FgOQI/8jj+adkL3/veSy2eJd5T8IJejIeGHy7Y0E8bNBrPOrFyaW2Q31rvs/vyGOe6Kk
-         XxZhwY2JSNGchWYcBQpbZmxRn2xedQrkwwgSEr/lgRwW7X85PbrYKosgBG9XUqkvXMPf
-         7F+8YpS7Q0VKtok6zDVlWVIlKd/rBc0mI6xjE1Si7lXfdoq4BEGfNi4SOV7ztle+iUht
-         Qvzg==
+        b=quoVvaLr+YHDYmRHD1tLg3VOOfIce4qzACmn7SutCLD/gM8Dr+IQUAzagBZmfH72dJ
+         aMHU77/Ll7hmyhyfqqogzh/u925HyrBxQWNMyy6m+1hgzQSZwyxfHVPSZYhJiD6OUjtZ
+         NaEQX+Yrd5AOB05CVKhE/KKPoBdApAvF/MaZpjpNP5daaZgQ0qx8DSRbn/UfzQJ8t7is
+         ltuwMMVBM+DCtZCeDRvfb7enE7uZgXwKTSBWJm4borxzEpaZiWhCst0w64AqVcof5E/s
+         Kb7BFnN9JdWxDcNMLHNIHfhXZQy8zAUWbSBWMDWOIbsb8rZj10ytiSR8teyCf1qyc2n5
+         rofA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=PTqrMt+Q9OOgPO9nrdkUBN4gkOtfYzm6K7seVv2KEWQ=;
-        b=fiThl3rKkM4YBmansZfvmQNvObxslJhbeSo3BtI74JiEZZKclru7XNviHFsUGIeDG7
-         1DCvQBIL10LiC8h33er71jXCXkx4UHFExMrxzOS9KY5TwYLF3I+K5y/9sXbxO9aNtYgO
-         SsN/pqaZnrvM4sPUaEwxsB2hKSnALrkWE6KiuORKH5NrEUonYnYctTDpvY7Nll2/4oJj
-         +W08XyEMwopaDZwItCEz5AXQUX3youJ6Ta2Z7azJH/qG/JoKGuRdlUc/QcawHk+QlUVW
-         1ce9K5k3DjPow2XevY0/9O20PTR5UeoD1mPPqd+NG/UIvUlD9vhZce+XlCF4AxxlUB1t
-         IK1A==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version;
+        bh=S25vVde9yiEiJGC4pstAOIXqe7k8wnOQKj8y0xY81d8=;
+        b=Hk4Nv/FzCr+sWnfto5v9eHq2wPSurllpcNpMoOj6mGhj5mNHV0w+mkVLbRrj62zgWv
+         9QzIsaD4nCQmnP5jWSVBD8uJKboYUVduERV0OBRZdiOOpRzlRwfxujwWNN5pEBnkgZV7
+         jae8oBPKUMZ+q1Dp1FD9Rl00U5n7Co48T5No7tuD+FHdksHo3UFfq9XaaayJDVczU5uG
+         RzArpXSD9ykc5Yz+Ry1XAo4yr57aJWVYiak59bo/ZImMVT1uMik2SrvZnhUBlZJoYLk0
+         HEWXoXVt/YD9kiYoyW7pizajRd6E3xUaO2rnYnvl46FWqeoSnCh0v9zIBOzV2gAgSD3F
+         M23g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=sjQ5hHLc;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42b as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wr1-x42b.google.com (mail-wr1-x42b.google.com. [2a00:1450:4864:20::42b])
-        by gmr-mx.google.com with ESMTPS id z18si91456wml.2.2020.05.27.02.24.07
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 May 2020 02:24:07 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42b as permitted sender) client-ip=2a00:1450:4864:20::42b;
-Received: by mail-wr1-x42b.google.com with SMTP id l11so23331611wru.0
-        for <clang-built-linux@googlegroups.com>; Wed, 27 May 2020 02:24:07 -0700 (PDT)
-X-Received: by 2002:a05:6000:114e:: with SMTP id d14mr23520661wrx.110.1590571447045;
-        Wed, 27 May 2020 02:24:07 -0700 (PDT)
-Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id j4sm101849wma.7.2020.05.27.02.24.06
-        (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
-        Wed, 27 May 2020 02:24:06 -0700 (PDT)
-From: ci_notify@linaro.org
-Date: Wed, 27 May 2020 09:24:05 +0000 (UTC)
-To: tcwg-validation@linaro.org, llvm@linaro.org, 
-	clang-built-linux@googlegroups.com
-Message-ID: <1911984047.98.1590571446364.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-master-aarch64-next-allyesconfig - Build # 2 - Successful!
+       spf=neutral (google.com: 212.227.126.131 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.126.131])
+        by gmr-mx.google.com with ESMTPS id y71si151014wmd.3.2020.05.27.02.27.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 May 2020 02:27:09 -0700 (PDT)
+Received-SPF: neutral (google.com: 212.227.126.131 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.126.131;
+Received: from mail-qk1-f171.google.com ([209.85.222.171]) by
+ mrelayeu.kundenserver.de (mreue009 [212.227.15.129]) with ESMTPSA (Nemesis)
+ id 1M2wCi-1jaaY51dhE-003QxJ; Wed, 27 May 2020 11:27:09 +0200
+Received: by mail-qk1-f171.google.com with SMTP id b27so13661989qka.4;
+        Wed, 27 May 2020 02:27:09 -0700 (PDT)
+X-Received: by 2002:ae9:c10d:: with SMTP id z13mr2828308qki.3.1590571628188;
+ Wed, 27 May 2020 02:27:08 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_97_1674878126.1590571445980"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-aarch64-next-allyesconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=sjQ5hHLc;       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42b
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+References: <20200521142047.169334-1-elver@google.com> <20200521142047.169334-10-elver@google.com>
+ <CAKwvOdnR7BXw_jYS5PFTuUamcwprEnZ358qhOxSu6wSSSJhxOA@mail.gmail.com>
+ <CAK8P3a0RJtbVi1JMsfik=jkHCNFv+DJn_FeDg-YLW+ueQW3tNg@mail.gmail.com>
+ <20200526120245.GB27166@willie-the-truck> <CAK8P3a29BNwvdN1YNzoN966BF4z1QiSxdRXTP+BzhM9H07LoYQ@mail.gmail.com>
+ <CANpmjNOUdr2UG3F45=JaDa0zLwJ5ukPc1MMKujQtmYSmQnjcXg@mail.gmail.com>
+ <20200526173312.GA30240@google.com> <CAK8P3a3ZawPnzmzx4q58--M1h=v4X-1GtQLiwL1=G6rDK8=Wpg@mail.gmail.com>
+ <CAK8P3a3UYQeXhiufUevz=rwe09WM_vSTCd9W+KvJHJcOeQyWVA@mail.gmail.com>
+ <20200527072248.GA9887@willie-the-truck> <CANpmjNO2A39XRQ9OstwKGKpZ6wQ4ebVcBNfH_ZhCTi8RG6WqYw@mail.gmail.com>
+In-Reply-To: <CANpmjNO2A39XRQ9OstwKGKpZ6wQ4ebVcBNfH_ZhCTi8RG6WqYw@mail.gmail.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Wed, 27 May 2020 11:26:51 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a1BH5nXDK2VS7jWc_u2B1kztr4u9JMXhWF9-iZdrsb-7Q@mail.gmail.com>
+Message-ID: <CAK8P3a1BH5nXDK2VS7jWc_u2B1kztr4u9JMXhWF9-iZdrsb-7Q@mail.gmail.com>
+Subject: Re: [PATCH -tip v3 09/11] data_race: Avoid nested statement expression
+To: Marco Elver <elver@google.com>
+Cc: Will Deacon <will@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	"Paul E. McKenney" <paulmck@kernel.org>, Dmitry Vyukov <dvyukov@google.com>, 
+	Alexander Potapenko <glider@google.com>, Andrey Konovalov <andreyknvl@google.com>, 
+	kasan-dev <kasan-dev@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Borislav Petkov <bp@alien8.de>, 
+	Stephen Rothwell <sfr@canb.auug.org.au>
+Content-Type: text/plain; charset="UTF-8"
+X-Provags-ID: V03:K1:OKhXd5sauaVhy9yPy9q+1hLD9XO7k/02k5bDh0/XnEr+XkJ1o+e
+ u2SP+OCnnreggI1HSoiXYjwNEZw2U69UWa2QqpORVoUbfCEQmiL0y7ROsUJXp/HHu5wcHBB
+ 6g74U5hPOj9N9f/+KIQRing2mL2B8lmrUJnDQm+vTMiUxaF5m0y2GC01a/aZA0B/FKePblN
+ EzzKgovOSK3DuLeRI5dIw==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:GSc5di7Wdg0=:QJGaIvhp132N8AvTVnfDcD
+ Za3G8pfgssZdEtO8XHz3AAxIGupexbIEE+Em+O7HdjjvoqW1XVAZRyoPlRlYcFKoYc+gBjGkY
+ MsNceLOKddJJLdTVEqmvXt35QuT+Bla5lzVsctRuqMLQhtEo2CmCId6Ad4rF++cFAIK/bvJz5
+ r65rk8KtjrinWgrYitXzooC83B2uSStuTZiYLXFv82gqfUH6HSrzUlMc9zDXneMgc/srZ3PEh
+ kqYcgfppA4s3Zk5K49hs+JDjURXg7CxwBd6qYViUqs8x/R2W21pOAHC7DAUk5P9swek2TE2kD
+ HVPuhGXarh5kxV2qZLr5ZkwJH+VRkBGXXB1ODLFQr96TuoSsxKsyLiP7czNgPczjWVG7oQL4I
+ YqGul1qM4GogTS9kwo4cZu2egrbbo4o1v9jAU50NHpngaXm/eEfZ0CZFfmofb3MsWqfikd41t
+ pvp798OuL/1hmKYsmerWA7qQuebNNCdi2r2Ibozy1g0yLIfMLe3PbfrQFLe+ldYlcvM3P1+el
+ 7XvgzewmZA49Mpeo5NsWb9XbpkauayH1+mTjDN8IGGiogrYsd95q7ycWS/ZGRvbWVVAvJljee
+ At2kFTU2yef+GqvDWySMKYHoqkEEQP7kzWMAstk19DWdfCBzfzk41+lApNqURvWE+mQPDznRR
+ hphT7AkePjacQ5jih4u5FzWJ9XtdfuJioIwp2EIC2Qww2rydcAkTpLMesNZM1INQjOF77My6y
+ 00gMI+nXdXzBmemrsRhPbJNwmdvVVNqVN0VJhd5ptynTJGv6hByMEzWJJk52vLxezXzpkpbKk
+ UppxwD+ed9RmUIeSAAohur/IrUdEIpSDZDPBnQwel3Loj54sMM=
+X-Original-Sender: arnd@arndb.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 212.227.126.131 is neither permitted nor denied by best guess
+ record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,403 +156,57 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_97_1674878126.1590571445980
-Content-Type: text/plain; charset="UTF-8"
+On Wed, May 27, 2020 at 9:44 AM 'Marco Elver' via Clang Built Linux
+<clang-built-linux@googlegroups.com> wrote:
+> On Wed, 27 May 2020 at 09:22, Will Deacon <will@kernel.org> wrote:
+> >
+> > Nice! FWIW, I'm planning to have Alpha override __READ_ONCE_SCALAR()
+> > eventually, so that smp_read_barrier_depends() can disappear forever. I
+> > just bit off more than I can chew for 5.8 :(
+> >
+> > However, '__unqual_scalar_typeof()' is still useful for
+> > load-acquire/store-release on arm64, so we still need a better solution to
+> > the build-time regression imo. I'm not fond of picking random C11 features
+> > to accomplish that, but I also don't have any better ideas...
+>
+> We already use _Static_assert in the kernel, so it's not the first use
+> of a C11 feature.
+>
+> > Is there any mileage in the clever trick from Rasmus?
+> >
+> > https://lore.kernel.org/r/6cbc8ae1-8eb1-a5a0-a584-2081fca1c4aa@rasmusvillemoes.dk
+>
+> Apparently that one only works with GCC 7 or newer, and is only
+> properly defined behaviour since C11. It also relies on multiple
+> _Pragma. I'd probably take the arguably much cleaner _Generic solution
+> over that. ;-)
 
-Successfully identified regression in *llvm* in CI configuration tcwg_kernel/llvm-master-aarch64-next-allyesconfig.  So far, this commit has regressed CI configurations:
- - tcwg_kernel/llvm-master-aarch64-mainline-allmodconfig
- - tcwg_kernel/llvm-master-aarch64-mainline-allyesconfig
- - tcwg_kernel/llvm-master-aarch64-next-allyesconfig
- - tcwg_kernel/llvm-master-aarch64-stable-allmodconfig
- - tcwg_kernel/llvm-master-aarch64-stable-allyesconfig
+I'd have to try, but I suspect we could force gcc-4.9 or higher to
+accept it by always passing --std=gnu11 instead of --std=gnu89,
+but that still wouldn't help us with gcc-4.8, and it's definitely not
+something we could consider changing for v5.8.
 
-Culprit:
-<cut>
-commit 98cad555e29187a03e2bc3db5780762981913902
-Author: Lucas Prates <lucas.prates@arm.com>
+However, if we find a solution that is nicer and faster but does
+requires C11 or some other features from a newer compiler,
+I think making it version dependent is a good idea and lets us
+drop the worse code eventually.
 
-    [Clang][AArch64] Capturing proper pointer alignment for Neon vld1 intrinsicts
-</cut>
+> I think given that Peter and Arnd already did some testing, and it
+> works as intended, if you don't mind, I'll send a patch for the
+> _Generic version. At least that'll give us a more optimized
+> __unqual_scalar_typeof(). Any further optimizations to READ_ONCE()
+> like you mentioned then become a little less urgent.
 
-Results regressed to (for first_bad == 98cad555e29187a03e2bc3db5780762981913902)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-18709
-# First few build errors in logs:
-# 00:07:35 clang-11: error: unable to execute command: Aborted (core dumped)
-# 00:07:35 clang-11: error: clang frontend command failed due to signal (use -v to see invocation)
-# 00:07:36 make[1]: *** [crypto/aegis128-neon-inner.o] Error 254
-# 00:12:01 make: *** [crypto] Error 2
+Right. I think there is still room for optimization around here, but
+for v5.8 I'm happy enough with Marco's__unqual_scalar_typeof()
+change. Stephen Rothwell is probably the one who's most affected
+by compile speed, so it would be good to get an Ack/Nak from him
+on whether this brings speed and memory usage back to normal
+for him as well.
 
-from (for last_good == 871556a494552c0f503eec17055f075bcd859937)
-# reset_artifacts:
--10
-# build_llvm:
--1
-# linux_n_obj:
-18784
-# linux build successful:
-all
-
-Artifacts of last_good build: https://ci.linaro.org/jenkins/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-next-allyesconfig/2/artifact/artifacts/build-871556a494552c0f503eec17055f075bcd859937/
-Artifacts of first_bad build: https://ci.linaro.org/jenkins/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-next-allyesconfig/2/artifact/artifacts/build-98cad555e29187a03e2bc3db5780762981913902/
-Build top page/logs: https://ci.linaro.org/jenkins/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-next-allyesconfig/2/
-
-Configuration details:
-rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
-rr[llvm_branch]="179c80117c91fc3ba3079740a91de40d98b18916"
-
-Reproduce builds:
-<cut>
-mkdir investigate-llvm-98cad555e29187a03e2bc3db5780762981913902
-cd investigate-llvm-98cad555e29187a03e2bc3db5780762981913902
-
-git clone https://git.linaro.org/toolchain/jenkins-scripts
-
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/jenkins/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-next-allyesconfig/2/artifact/artifacts/manifests/build-baseline.sh --fail
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/jenkins/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-next-allyesconfig/2/artifact/artifacts/manifests/build-parameters.sh --fail
-curl -o artifacts/test.sh https://ci.linaro.org/jenkins/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-next-allyesconfig/2/artifact/artifacts/test.sh --fail
-chmod +x artifacts/test.sh
-
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
-
-cd llvm
-
-# Reproduce first_bad build
-git checkout --detach 98cad555e29187a03e2bc3db5780762981913902
-../artifacts/test.sh
-
-# Reproduce last_good build
-git checkout --detach 871556a494552c0f503eec17055f075bcd859937
-../artifacts/test.sh
-
-cd ..
-</cut>
-
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-next-allyesconfig
-
-Artifacts: https://ci.linaro.org/jenkins/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-next-allyesconfig/2/artifact/artifacts/
-Build log: https://ci.linaro.org/jenkins/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-next-allyesconfig/2/consoleText
-
-Full commit:
-<cut>
-commit 98cad555e29187a03e2bc3db5780762981913902
-Author: Lucas Prates <lucas.prates@arm.com>
-Date:   Tue May 5 11:52:09 2020 +0100
-
-    [Clang][AArch64] Capturing proper pointer alignment for Neon vld1 intrinsicts
-    
-    Summary:
-    During CodeGen for AArch64 Neon intrinsics, Clang was incorrectly
-    assuming all the pointers from which loads were being generated for vld1
-    intrinsics were aligned according to the intrinsics result type, causing
-    alignment faults on the code generated by the backend.
-    
-    This patch updates vld1 intrinsics' CodeGen to properly capture the
-    correct load alignment based on the type of the pointer provided as
-    input for the intrinsic.
-    
-    Reviewers: t.p.northover, ostannard, pcc
-    
-    Reviewed By: ostannard
-    
-    Subscribers: kristof.beyls, danielkiss, cfe-commits
-    
-    Tags: #clang
-    
-    Differential Revision: https://reviews.llvm.org/D79721
----
- clang/lib/CodeGen/CGBuiltin.cpp              | 12 +++----
- clang/test/CodeGen/aarch64-neon-intrinsics.c | 52 ++++++++++++++--------------
- 2 files changed, 32 insertions(+), 32 deletions(-)
-
-diff --git a/clang/lib/CodeGen/CGBuiltin.cpp b/clang/lib/CodeGen/CGBuiltin.cpp
-index 1adae1a7ea42..ddd9a68a8edb 100644
---- a/clang/lib/CodeGen/CGBuiltin.cpp
-+++ b/clang/lib/CodeGen/CGBuiltin.cpp
-@@ -10327,9 +10327,9 @@ Value *CodeGenFunction::EmitAArch64BuiltinExpr(unsigned BuiltinID,
-   }
-   case NEON::BI__builtin_neon_vld1_v:
-   case NEON::BI__builtin_neon_vld1q_v: {
-+    auto Alignment = CGM.getNaturalPointeeTypeAlignment(
-+        E->getArg(0)->IgnoreParenCasts()->getType());
-     Ops[0] = Builder.CreateBitCast(Ops[0], llvm::PointerType::getUnqual(VTy));
--    auto Alignment = CharUnits::fromQuantity(
--        BuiltinID == NEON::BI__builtin_neon_vld1_v ? 8 : 16);
-     return Builder.CreateAlignedLoad(VTy, Ops[0], Alignment);
-   }
-   case NEON::BI__builtin_neon_vst1_v:
-@@ -10342,8 +10342,8 @@ Value *CodeGenFunction::EmitAArch64BuiltinExpr(unsigned BuiltinID,
-     Ops[1] = Builder.CreateBitCast(Ops[1], Ty);
-     Ty = llvm::PointerType::getUnqual(VTy->getElementType());
-     Ops[0] = Builder.CreateBitCast(Ops[0], Ty);
--    auto Alignment = CharUnits::fromQuantity(
--        BuiltinID == NEON::BI__builtin_neon_vld1_lane_v ? 8 : 16);
-+    auto Alignment = CGM.getNaturalPointeeTypeAlignment(
-+        E->getArg(0)->IgnoreParenCasts()->getType());
-     Ops[0] =
-         Builder.CreateAlignedLoad(VTy->getElementType(), Ops[0], Alignment);
-     return Builder.CreateInsertElement(Ops[1], Ops[0], Ops[2], "vld1_lane");
-@@ -10353,8 +10353,8 @@ Value *CodeGenFunction::EmitAArch64BuiltinExpr(unsigned BuiltinID,
-     Value *V = UndefValue::get(Ty);
-     Ty = llvm::PointerType::getUnqual(VTy->getElementType());
-     Ops[0] = Builder.CreateBitCast(Ops[0], Ty);
--    auto Alignment = CharUnits::fromQuantity(
--        BuiltinID == NEON::BI__builtin_neon_vld1_dup_v ? 8 : 16);
-+    auto Alignment = CGM.getNaturalPointeeTypeAlignment(
-+        E->getArg(0)->IgnoreParenCasts()->getType());
-     Ops[0] =
-         Builder.CreateAlignedLoad(VTy->getElementType(), Ops[0], Alignment);
-     llvm::Constant *CI = ConstantInt::get(Int32Ty, 0);
-diff --git a/clang/test/CodeGen/aarch64-neon-intrinsics.c b/clang/test/CodeGen/aarch64-neon-intrinsics.c
-index 7744b4f4a159..1fb245f3d342 100644
---- a/clang/test/CodeGen/aarch64-neon-intrinsics.c
-+++ b/clang/test/CodeGen/aarch64-neon-intrinsics.c
-@@ -8956,7 +8956,7 @@ float64_t test_vrsqrted_f64(float64_t a) {
- 
- // CHECK-LABEL: @test_vld1q_u8(
- // CHECK:   [[TMP0:%.*]] = bitcast i8* %a to <16 x i8>*
--// CHECK:   [[TMP1:%.*]] = load <16 x i8>, <16 x i8>* [[TMP0]]
-+// CHECK:   [[TMP1:%.*]] = load <16 x i8>, <16 x i8>* [[TMP0]], align 1
- // CHECK:   ret <16 x i8> [[TMP1]]
- uint8x16_t test_vld1q_u8(uint8_t const *a) {
-   return vld1q_u8(a);
-@@ -8965,7 +8965,7 @@ uint8x16_t test_vld1q_u8(uint8_t const *a) {
- // CHECK-LABEL: @test_vld1q_u16(
- // CHECK:   [[TMP0:%.*]] = bitcast i16* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <8 x i16>*
--// CHECK:   [[TMP2:%.*]] = load <8 x i16>, <8 x i16>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <8 x i16>, <8 x i16>* [[TMP1]], align 2
- // CHECK:   ret <8 x i16> [[TMP2]]
- uint16x8_t test_vld1q_u16(uint16_t const *a) {
-   return vld1q_u16(a);
-@@ -8974,7 +8974,7 @@ uint16x8_t test_vld1q_u16(uint16_t const *a) {
- // CHECK-LABEL: @test_vld1q_u32(
- // CHECK:   [[TMP0:%.*]] = bitcast i32* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <4 x i32>*
--// CHECK:   [[TMP2:%.*]] = load <4 x i32>, <4 x i32>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <4 x i32>, <4 x i32>* [[TMP1]], align 4
- // CHECK:   ret <4 x i32> [[TMP2]]
- uint32x4_t test_vld1q_u32(uint32_t const *a) {
-   return vld1q_u32(a);
-@@ -8983,7 +8983,7 @@ uint32x4_t test_vld1q_u32(uint32_t const *a) {
- // CHECK-LABEL: @test_vld1q_u64(
- // CHECK:   [[TMP0:%.*]] = bitcast i64* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <2 x i64>*
--// CHECK:   [[TMP2:%.*]] = load <2 x i64>, <2 x i64>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <2 x i64>, <2 x i64>* [[TMP1]], align 8
- // CHECK:   ret <2 x i64> [[TMP2]]
- uint64x2_t test_vld1q_u64(uint64_t const *a) {
-   return vld1q_u64(a);
-@@ -8991,7 +8991,7 @@ uint64x2_t test_vld1q_u64(uint64_t const *a) {
- 
- // CHECK-LABEL: @test_vld1q_s8(
- // CHECK:   [[TMP0:%.*]] = bitcast i8* %a to <16 x i8>*
--// CHECK:   [[TMP1:%.*]] = load <16 x i8>, <16 x i8>* [[TMP0]]
-+// CHECK:   [[TMP1:%.*]] = load <16 x i8>, <16 x i8>* [[TMP0]], align 1
- // CHECK:   ret <16 x i8> [[TMP1]]
- int8x16_t test_vld1q_s8(int8_t const *a) {
-   return vld1q_s8(a);
-@@ -9000,7 +9000,7 @@ int8x16_t test_vld1q_s8(int8_t const *a) {
- // CHECK-LABEL: @test_vld1q_s16(
- // CHECK:   [[TMP0:%.*]] = bitcast i16* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <8 x i16>*
--// CHECK:   [[TMP2:%.*]] = load <8 x i16>, <8 x i16>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <8 x i16>, <8 x i16>* [[TMP1]], align 2
- // CHECK:   ret <8 x i16> [[TMP2]]
- int16x8_t test_vld1q_s16(int16_t const *a) {
-   return vld1q_s16(a);
-@@ -9009,7 +9009,7 @@ int16x8_t test_vld1q_s16(int16_t const *a) {
- // CHECK-LABEL: @test_vld1q_s32(
- // CHECK:   [[TMP0:%.*]] = bitcast i32* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <4 x i32>*
--// CHECK:   [[TMP2:%.*]] = load <4 x i32>, <4 x i32>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <4 x i32>, <4 x i32>* [[TMP1]], align 4
- // CHECK:   ret <4 x i32> [[TMP2]]
- int32x4_t test_vld1q_s32(int32_t const *a) {
-   return vld1q_s32(a);
-@@ -9018,7 +9018,7 @@ int32x4_t test_vld1q_s32(int32_t const *a) {
- // CHECK-LABEL: @test_vld1q_s64(
- // CHECK:   [[TMP0:%.*]] = bitcast i64* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <2 x i64>*
--// CHECK:   [[TMP2:%.*]] = load <2 x i64>, <2 x i64>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <2 x i64>, <2 x i64>* [[TMP1]], align 8
- // CHECK:   ret <2 x i64> [[TMP2]]
- int64x2_t test_vld1q_s64(int64_t const *a) {
-   return vld1q_s64(a);
-@@ -9027,7 +9027,7 @@ int64x2_t test_vld1q_s64(int64_t const *a) {
- // CHECK-LABEL: @test_vld1q_f16(
- // CHECK:   [[TMP0:%.*]] = bitcast half* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <8 x half>*
--// CHECK:   [[TMP2:%.*]] = load <8 x half>, <8 x half>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <8 x half>, <8 x half>* [[TMP1]], align 2
- // CHECK:   ret <8 x half> [[TMP2]]
- float16x8_t test_vld1q_f16(float16_t const *a) {
-   return vld1q_f16(a);
-@@ -9036,7 +9036,7 @@ float16x8_t test_vld1q_f16(float16_t const *a) {
- // CHECK-LABEL: @test_vld1q_f32(
- // CHECK:   [[TMP0:%.*]] = bitcast float* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <4 x float>*
--// CHECK:   [[TMP2:%.*]] = load <4 x float>, <4 x float>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <4 x float>, <4 x float>* [[TMP1]], align 4
- // CHECK:   ret <4 x float> [[TMP2]]
- float32x4_t test_vld1q_f32(float32_t const *a) {
-   return vld1q_f32(a);
-@@ -9045,7 +9045,7 @@ float32x4_t test_vld1q_f32(float32_t const *a) {
- // CHECK-LABEL: @test_vld1q_f64(
- // CHECK:   [[TMP0:%.*]] = bitcast double* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <2 x double>*
--// CHECK:   [[TMP2:%.*]] = load <2 x double>, <2 x double>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <2 x double>, <2 x double>* [[TMP1]], align 8
- // CHECK:   ret <2 x double> [[TMP2]]
- float64x2_t test_vld1q_f64(float64_t const *a) {
-   return vld1q_f64(a);
-@@ -9053,7 +9053,7 @@ float64x2_t test_vld1q_f64(float64_t const *a) {
- 
- // CHECK-LABEL: @test_vld1q_p8(
- // CHECK:   [[TMP0:%.*]] = bitcast i8* %a to <16 x i8>*
--// CHECK:   [[TMP1:%.*]] = load <16 x i8>, <16 x i8>* [[TMP0]]
-+// CHECK:   [[TMP1:%.*]] = load <16 x i8>, <16 x i8>* [[TMP0]], align 1
- // CHECK:   ret <16 x i8> [[TMP1]]
- poly8x16_t test_vld1q_p8(poly8_t const *a) {
-   return vld1q_p8(a);
-@@ -9062,7 +9062,7 @@ poly8x16_t test_vld1q_p8(poly8_t const *a) {
- // CHECK-LABEL: @test_vld1q_p16(
- // CHECK:   [[TMP0:%.*]] = bitcast i16* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <8 x i16>*
--// CHECK:   [[TMP2:%.*]] = load <8 x i16>, <8 x i16>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <8 x i16>, <8 x i16>* [[TMP1]], align 2
- // CHECK:   ret <8 x i16> [[TMP2]]
- poly16x8_t test_vld1q_p16(poly16_t const *a) {
-   return vld1q_p16(a);
-@@ -9070,7 +9070,7 @@ poly16x8_t test_vld1q_p16(poly16_t const *a) {
- 
- // CHECK-LABEL: @test_vld1_u8(
- // CHECK:   [[TMP0:%.*]] = bitcast i8* %a to <8 x i8>*
--// CHECK:   [[TMP1:%.*]] = load <8 x i8>, <8 x i8>* [[TMP0]]
-+// CHECK:   [[TMP1:%.*]] = load <8 x i8>, <8 x i8>* [[TMP0]], align 1
- // CHECK:   ret <8 x i8> [[TMP1]]
- uint8x8_t test_vld1_u8(uint8_t const *a) {
-   return vld1_u8(a);
-@@ -9079,7 +9079,7 @@ uint8x8_t test_vld1_u8(uint8_t const *a) {
- // CHECK-LABEL: @test_vld1_u16(
- // CHECK:   [[TMP0:%.*]] = bitcast i16* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <4 x i16>*
--// CHECK:   [[TMP2:%.*]] = load <4 x i16>, <4 x i16>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <4 x i16>, <4 x i16>* [[TMP1]], align 2
- // CHECK:   ret <4 x i16> [[TMP2]]
- uint16x4_t test_vld1_u16(uint16_t const *a) {
-   return vld1_u16(a);
-@@ -9088,7 +9088,7 @@ uint16x4_t test_vld1_u16(uint16_t const *a) {
- // CHECK-LABEL: @test_vld1_u32(
- // CHECK:   [[TMP0:%.*]] = bitcast i32* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <2 x i32>*
--// CHECK:   [[TMP2:%.*]] = load <2 x i32>, <2 x i32>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <2 x i32>, <2 x i32>* [[TMP1]], align 4
- // CHECK:   ret <2 x i32> [[TMP2]]
- uint32x2_t test_vld1_u32(uint32_t const *a) {
-   return vld1_u32(a);
-@@ -9097,7 +9097,7 @@ uint32x2_t test_vld1_u32(uint32_t const *a) {
- // CHECK-LABEL: @test_vld1_u64(
- // CHECK:   [[TMP0:%.*]] = bitcast i64* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <1 x i64>*
--// CHECK:   [[TMP2:%.*]] = load <1 x i64>, <1 x i64>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <1 x i64>, <1 x i64>* [[TMP1]], align 8
- // CHECK:   ret <1 x i64> [[TMP2]]
- uint64x1_t test_vld1_u64(uint64_t const *a) {
-   return vld1_u64(a);
-@@ -9105,7 +9105,7 @@ uint64x1_t test_vld1_u64(uint64_t const *a) {
- 
- // CHECK-LABEL: @test_vld1_s8(
- // CHECK:   [[TMP0:%.*]] = bitcast i8* %a to <8 x i8>*
--// CHECK:   [[TMP1:%.*]] = load <8 x i8>, <8 x i8>* [[TMP0]]
-+// CHECK:   [[TMP1:%.*]] = load <8 x i8>, <8 x i8>* [[TMP0]], align 1
- // CHECK:   ret <8 x i8> [[TMP1]]
- int8x8_t test_vld1_s8(int8_t const *a) {
-   return vld1_s8(a);
-@@ -9114,7 +9114,7 @@ int8x8_t test_vld1_s8(int8_t const *a) {
- // CHECK-LABEL: @test_vld1_s16(
- // CHECK:   [[TMP0:%.*]] = bitcast i16* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <4 x i16>*
--// CHECK:   [[TMP2:%.*]] = load <4 x i16>, <4 x i16>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <4 x i16>, <4 x i16>* [[TMP1]], align 2
- // CHECK:   ret <4 x i16> [[TMP2]]
- int16x4_t test_vld1_s16(int16_t const *a) {
-   return vld1_s16(a);
-@@ -9123,7 +9123,7 @@ int16x4_t test_vld1_s16(int16_t const *a) {
- // CHECK-LABEL: @test_vld1_s32(
- // CHECK:   [[TMP0:%.*]] = bitcast i32* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <2 x i32>*
--// CHECK:   [[TMP2:%.*]] = load <2 x i32>, <2 x i32>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <2 x i32>, <2 x i32>* [[TMP1]], align 4
- // CHECK:   ret <2 x i32> [[TMP2]]
- int32x2_t test_vld1_s32(int32_t const *a) {
-   return vld1_s32(a);
-@@ -9132,7 +9132,7 @@ int32x2_t test_vld1_s32(int32_t const *a) {
- // CHECK-LABEL: @test_vld1_s64(
- // CHECK:   [[TMP0:%.*]] = bitcast i64* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <1 x i64>*
--// CHECK:   [[TMP2:%.*]] = load <1 x i64>, <1 x i64>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <1 x i64>, <1 x i64>* [[TMP1]], align 8
- // CHECK:   ret <1 x i64> [[TMP2]]
- int64x1_t test_vld1_s64(int64_t const *a) {
-   return vld1_s64(a);
-@@ -9141,7 +9141,7 @@ int64x1_t test_vld1_s64(int64_t const *a) {
- // CHECK-LABEL: @test_vld1_f16(
- // CHECK:   [[TMP0:%.*]] = bitcast half* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <4 x half>*
--// CHECK:   [[TMP2:%.*]] = load <4 x half>, <4 x half>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <4 x half>, <4 x half>* [[TMP1]], align 2
- // CHECK:   ret <4 x half> [[TMP2]]
- float16x4_t test_vld1_f16(float16_t const *a) {
-   return vld1_f16(a);
-@@ -9150,7 +9150,7 @@ float16x4_t test_vld1_f16(float16_t const *a) {
- // CHECK-LABEL: @test_vld1_f32(
- // CHECK:   [[TMP0:%.*]] = bitcast float* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <2 x float>*
--// CHECK:   [[TMP2:%.*]] = load <2 x float>, <2 x float>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <2 x float>, <2 x float>* [[TMP1]], align 4
- // CHECK:   ret <2 x float> [[TMP2]]
- float32x2_t test_vld1_f32(float32_t const *a) {
-   return vld1_f32(a);
-@@ -9159,7 +9159,7 @@ float32x2_t test_vld1_f32(float32_t const *a) {
- // CHECK-LABEL: @test_vld1_f64(
- // CHECK:   [[TMP0:%.*]] = bitcast double* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <1 x double>*
--// CHECK:   [[TMP2:%.*]] = load <1 x double>, <1 x double>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <1 x double>, <1 x double>* [[TMP1]], align 8
- // CHECK:   ret <1 x double> [[TMP2]]
- float64x1_t test_vld1_f64(float64_t const *a) {
-   return vld1_f64(a);
-@@ -9167,7 +9167,7 @@ float64x1_t test_vld1_f64(float64_t const *a) {
- 
- // CHECK-LABEL: @test_vld1_p8(
- // CHECK:   [[TMP0:%.*]] = bitcast i8* %a to <8 x i8>*
--// CHECK:   [[TMP1:%.*]] = load <8 x i8>, <8 x i8>* [[TMP0]]
-+// CHECK:   [[TMP1:%.*]] = load <8 x i8>, <8 x i8>* [[TMP0]], align 1
- // CHECK:   ret <8 x i8> [[TMP1]]
- poly8x8_t test_vld1_p8(poly8_t const *a) {
-   return vld1_p8(a);
-@@ -9176,7 +9176,7 @@ poly8x8_t test_vld1_p8(poly8_t const *a) {
- // CHECK-LABEL: @test_vld1_p16(
- // CHECK:   [[TMP0:%.*]] = bitcast i16* %a to i8*
- // CHECK:   [[TMP1:%.*]] = bitcast i8* [[TMP0]] to <4 x i16>*
--// CHECK:   [[TMP2:%.*]] = load <4 x i16>, <4 x i16>* [[TMP1]]
-+// CHECK:   [[TMP2:%.*]] = load <4 x i16>, <4 x i16>* [[TMP1]], align 2
- // CHECK:   ret <4 x i16> [[TMP2]]
- poly16x4_t test_vld1_p16(poly16_t const *a) {
-   return vld1_p16(a);
-</cut>
+      Arnd
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1911984047.98.1590571446364.JavaMail.javamailuser%40localhost.
-
-------=_Part_97_1674878126.1590571445980--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a1BH5nXDK2VS7jWc_u2B1kztr4u9JMXhWF9-iZdrsb-7Q%40mail.gmail.com.
