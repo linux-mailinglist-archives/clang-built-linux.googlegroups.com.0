@@ -1,131 +1,137 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRB4O5XH3AKGQER5ZN4RQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBEW7XH3AKGQE4IECHWQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33d.google.com (mail-wm1-x33d.google.com [IPv6:2a00:1450:4864:20::33d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2510E1E4422
-	for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 15:45:22 +0200 (CEST)
-Received: by mail-wm1-x33d.google.com with SMTP id p24sf861325wmc.1
-        for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 06:45:22 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1590587122; cv=pass;
+Received: from mail-ed1-x53c.google.com (mail-ed1-x53c.google.com [IPv6:2a00:1450:4864:20::53c])
+	by mail.lfdr.de (Postfix) with ESMTPS id E9DE31E444B
+	for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 15:48:02 +0200 (CEST)
+Received: by mail-ed1-x53c.google.com with SMTP id a18sf10123496eds.9
+        for <lists+clang-built-linux@lfdr.de>; Wed, 27 May 2020 06:48:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1590587282; cv=pass;
         d=google.com; s=arc-20160816;
-        b=gLOzOAME0vZ4gbRE6O5exSX1HFr3PlMuzup9QzSW2MsfBKIBgGDmai4hJniEMxUpfg
-         KASe2HXeb8zw1by2LNoMpQmStXGS5DVxm8HHw8uXUYVbPw7aCIzdKIBVCLe+YgCOs6nG
-         ESuI++t/i5wrZU+KCl9ciYXBUQKpjsKA3MGsZ/3rCkJuLtNcgdCF5NvrxJis7sr/Avtf
-         CGlMfsvQqtjSGm71/ijEbN6wWQe1FaMBbYE+ZAgUftZ/8K/0Z1prCwpCs+aaULpTF4kK
-         prXr0PIiux9zkgv57p2JPlaL04vqwceg+VYwDTI/rT00pbPu/XEuc/fLvmyWkP0UFqmr
-         AvaQ==
+        b=aTwB3WKZcYtsqLdc9/2uQ7FUeWNO7Icwt6EwpABs/3Ugy5udFL2WYfTIUg2yfwVW36
+         yyXtcmHLvp0Uw3amkHUbU7hIjlqSHRpxm35mQLeyyUyHxpAXMzL3QqtU3RrO7UozbcBE
+         DQuIWXUDFyte2ORK+LxnQkGLXr4mbfbrs1QJ5x0AnIRTrg1ylXCtdULTf3Vzs9ViApkf
+         h+Aw+hGwJeV7iYwWE7Y1m+CJ2pdyJywb2W9FEX27TTCG1GfWsBbcv4IXxHmcZ3QSNlj9
+         PLHkuSDms2BOMet8R86Q/fq2YcMAOF4r7rJZ9aiztl8+nMwM/FlpstGH6B1An4a/sIve
+         KCkA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:message-id:date
          :subject:cc:to:from:sender:dkim-signature;
-        bh=RnF2HFWmk0TRSQa9PNLYXDAFC3HYScAO8nLozQfhk8U=;
-        b=gGOCozh1JmRGGwriXg/G5sj2fU/Zd418n3eCvhOGgeayaEXrSlKv6YaoqVc6ERrT2q
-         8Q3utX0qat2JLT/JRNqThXqvKPG6SIvrnHvTlG3Kk5NYg8vcd4gZhz54fLuDzvmobSqq
-         TkhiFhJSHYl4ma706q40MkZ8FfitHoaObaxejOSPA6wfiF5I9o1DcSaRJhVg+BlCqbgF
-         SxbItRCxyb8V0PCVQSfy5KPyjTQ4GxOhLWXiLJAGhKr4JCcNRfMdUMmdPH2MF9Sw0JXW
-         z6T0/THRuDIBclqlXYjtr/QNRjKyjXASp9FA3lA0tobpfVpGCLzD9jTpeBBuOMzOYJR+
-         ZV1Q==
+        bh=MRieyEBkdMoAYvyLO4iyNSqGe46CcRxoeLiN2Rxgzh4=;
+        b=OnY6xDKpSP3IioGg1myMhTnYd7q3eu5UzPEnI6gNBvm0tUKFR4v+5A+4GEgLw5mqsH
+         R1IbXjh02MQr0USSlrmB5ThBB8BpqvfRt5yLiuwPvtGaBM77zxCkciUXp9GZOUjn3rih
+         5otE5NguGkWt89gpbuJyP7PIGbuE/1ylxK93xP6Vef8Q/RFVC8PVgHHEtuS73Uv/UdiJ
+         ftDk4w10epzYyj/1Db2Fu5+itYwihFl9OR8YaIAXlbKPsTz+b3x1ltd6BfqIRs+GlFYl
+         p+dCzi52AFNh9sLDPe87IynVIz8gLmG5HNimsPhLYjzdpyeq3l1D8Nl4IaEFrgNmVcVn
+         DtSA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.126.130 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+       spf=neutral (google.com: 212.227.126.133 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:from:to:cc:subject:date:message-id:mime-version
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=RnF2HFWmk0TRSQa9PNLYXDAFC3HYScAO8nLozQfhk8U=;
-        b=BXZhX6eu1tsQv9SSBrppLmdETX1PjWw7ACgvOFt5JUk/Elc0CF8l2Gn4xCbyVXJ9lb
-         IL1hInFxmmPIEBYwrsxb4P5ETfygeVXNDSgEyfTOV5lNiDutlIPWmjxdqwlFAQLY5MOO
-         8EQ2MNHHweI6iF4ypiTvY+ChvwACP65kNYXSlUonvSGykik2XlHTge8Ouup4DEHkJ28O
-         QgIKGF0ArIs86yLBGLcQFfA5mslGas9yqVUpc0BPyrGftnG7Aknnv5+7u9VfK73siVq7
-         2RoaIIEqT9qLc2tc5QTBixd060x2Ewy2x9eW1VFaCMQnITBOajiyTgQvnSbK7ieDpNh9
-         BZxg==
+        bh=MRieyEBkdMoAYvyLO4iyNSqGe46CcRxoeLiN2Rxgzh4=;
+        b=fZHYYwcaK9TvI0ParpPWggBEsImJwrrbQ3xcTOs2fa7go6C/o5h17dWwPlqyOcdDbC
+         pMxpHBQOpQXfv6GqC61pwWD453u7CRdUrRGUyK2aycNX29fl7Xmcyeo14D4RdmgOC0tT
+         nV44G/dlXT+je/RSa0ihg9IvRPTo5X6fDFZ4IaGZhPOja19iSPbHtIXO52WGMGBeO0Zy
+         RHLUWS4dhoioL/gHM6a9wHZ5kq81xNwBdNntjxq/xaEiGXn6lhYl9TiuRosZ2XxNuYOs
+         c/PNYBSQsUF6lP2WoRM9GU3D77TPQdg2wMZEctsmVsBcMuAENYWlu/sKczIkYCnYLam+
+         ah2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=RnF2HFWmk0TRSQa9PNLYXDAFC3HYScAO8nLozQfhk8U=;
-        b=s8Duu0rIc/UMijP1AzYMSZ0AcVjyQuTiZJv+lg2Rb3wuAVe3CS0LjWAHN+B4442/w/
-         FvlzCooWTU5R6TYF/jbZYdk31KcHnZ1d2C1rRL3tqmYLZofCNpDhERLDFzNCPoAT52sf
-         rVJzbYBH0m3Eyi0eeV7VGHUYGUsG5dEWp96BjbgUjY6aicHWrmJZyNhnl/rIJKSMyKFv
-         5KR/lKlj0eb/8pRBX1bm+L/3EHhZEqzqjFFsY6hUlnEOJmy1na76B38Fj+922/iaBZkh
-         NIqwNrfu1lr39kTKdIpoUBHlGq/Qev7qdeF3CmyMChWqNwsugtUsNeiuIy9J3TL+Mgvd
-         GS0Q==
+        bh=MRieyEBkdMoAYvyLO4iyNSqGe46CcRxoeLiN2Rxgzh4=;
+        b=je/tGLrMPMvadHV7sp93Ju2paVPh09/bIWe6XYyuttTRDBmluBRQtRgtvZZCT8QURE
+         9mmSHSdSKmDduikbAgncOtGnAMeyrBfzrBkzkKeXR7MN+VBn5rbQqzu7cvmhvt/ulEMP
+         A1tscxigstmL63sAWObQvlYf4Ox+jj5TEHZR25iJZH1ntpoClOAG/yJiGylAWfjdQePJ
+         /Rz41SSNpanVS5vTcTKbRsIl1pTlOX53c5e7vGEmlzc0FkiZH6vrKsBGSv5ywMlNfO0B
+         CiRAnDP9xphHwowjbaIHq8+G2DCSFd0/URcN6isVHNtJoWBCtgZOfPwoTT/eO79lNx8R
+         +2CA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532/v9hqOFK2AWJJ9X8X/Lri7pwNEdZSb1QLGukFQvEjb7nsK8Rm
-	Pl2nmRmtgEftiXr7Le6L1TA=
-X-Google-Smtp-Source: ABdhPJz+ROfVB4ihQB+cPteUyzdZsxyf5ZKA0HNy+rmNOUmv8hEf7ENCAdmSxxbyxatoyuaZteKUqg==
-X-Received: by 2002:a5d:6884:: with SMTP id h4mr26845068wru.198.1590587121916;
-        Wed, 27 May 2020 06:45:21 -0700 (PDT)
+X-Gm-Message-State: AOAM532RCz6HbvIOJNLK88CqlDFfYVfe3m+fj//tyXo8LyTJnKiav074
+	yJLCdwDptoq5tulinfYCxBE=
+X-Google-Smtp-Source: ABdhPJw+TasDmqmGQL3HwEQg+BUXv4CACksKluGC4r/fQrxVswb0q1VKfDdkkqkzIGwP91gc174rAQ==
+X-Received: by 2002:a17:906:46d3:: with SMTP id k19mr6367706ejs.349.1590587282734;
+        Wed, 27 May 2020 06:48:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a7b:c770:: with SMTP id x16ls1548579wmk.3.gmail; Wed, 27 May
- 2020 06:45:21 -0700 (PDT)
-X-Received: by 2002:a05:600c:2c53:: with SMTP id r19mr4652827wmg.83.1590587121431;
-        Wed, 27 May 2020 06:45:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1590587121; cv=none;
+Received: by 2002:a05:6402:1004:: with SMTP id c4ls15121088edu.0.gmail; Wed,
+ 27 May 2020 06:48:02 -0700 (PDT)
+X-Received: by 2002:a05:6402:c95:: with SMTP id cm21mr24150332edb.81.1590587282249;
+        Wed, 27 May 2020 06:48:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1590587282; cv=none;
         d=google.com; s=arc-20160816;
-        b=S9upE452n0h+W5U0VkZYnz+QoWOZvRPV/H40zUCHf3sV7fvT5pvVq5Mo4pxEYeB3h7
-         MrUk7IG/XK8aJPAKRiaqgkzh5fXqGZ4RMYBjQFz0Uuz+Sx2zx/ckZuKp+DMZVPLurhIi
-         bkMUIUOJa5uQTgvs5GRUZmP7trXyS4x1taAX9e0HYJh+jPR4tXkWh+1K2DoqD6lFxmkN
-         0OMgpVrMK+2iE3bBPSvv96v7/1eYAxLGnCRz1TMY5AuWvcz2axgDYywGPaHOKct34+3C
-         BXTF8W46ajL3vxfKa/k5HX5n8u6Rf4zt7es9/DOlEpvHPXxz3spHfgZhAKtHPwJHtnB8
-         V4Zg==
+        b=RRHZMCklOcmtC7Z5aNQ0ACSzXSVCqi30vfGLX/aud5n6ONfbwDb8i7AQLiVoNz5GW2
+         HsOG4fDBqB0YNJfr/VPEn6N+i37zhFlxN1AomkLQ9JCmy4yHSDJVDLMgezR4GaXODnaW
+         WJ3trkovdoS8g04WrTqRF5DrPbt/BAArepMXWfiNagbzRYlgSWwFyM3b+WQ7Wg6Qi2oV
+         NPuH5mn6MRU+lnPXdLPM/nsrFL1O8T9gDCXLTCdxO1TrTat2KcordPNq83boR3ZrRZu/
+         KN7HbcGCkq5bOwzBL9ro5hqAs/RaYOG/HzWoadHmV087TYXhFQp6Ul63rJQgAOyX7x9W
+         ERVA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from;
-        bh=wLarC1QIqGZsCp73Kz2OzO3zuIfBLfYAblzcOdnHoRk=;
-        b=PABVQ6O3MTsbgsA2axPMkEcGLt87u7o02nqgTVtVnuZGbuscIPP/+wWn8yTsR514FK
-         guj77Cjl2y4HDdjwM+3cMrV6JgQwSbU9QDhk2EpYBn7ZzhrwEXuyI3BqICqC9ztif0U8
-         E2nUJwm/Ln17RDDe/TIHbELE5MIZ04urm3iZmHIT/MQuqejvzVnOq5NPrz3WXEEIDtPJ
-         CYiyNaRzHvXGTdzFkKN2WqS+ZcWqjT9cauD5/cmtDqmldkDNGJbbjCvCtjsoz9JRCGCB
-         VuT+4kW0LfHwqIqL8p7YXF21vAs4ku8JBbA/tmbHiev9TJL4uM/DeU6uowFdk9jdwJXy
-         M2UA==
+        bh=om+SEmArlBn97JBuii/c8jFc4FakHG0mFjbcO79AK80=;
+        b=Hh4UjFs3VXBEdyLSgrZ07BBbf/101rvh67KXuth8CVqdvdAMnyum/kvtuRCtREBIXm
+         JxqlJSPnGqq+f6E+6ygLkceUXyh+B2NGROLNGFXXdmjWrjhIqpynaWQQyxS4GvRfma3b
+         SrxUnXc2uAmCKKTTz+Djj1wwRijMI0ZC1I2ULYwYSiKQcGrpc9BLAtgJ+gEeRcS1HIf3
+         BVPEjN2cOWggT41mNb5La10JBf4HoC01aDc+ncMt3uAra6Kb42KJmSs13JNzgQupp6Ef
+         d8IWitnz3DPbRgvVPDXuYoH6p5ZxaDp/zCceOLuPzBBk3yCsfLvNteGh3FF5APj2LoWH
+         lOnA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.126.130 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
-Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.126.130])
-        by gmr-mx.google.com with ESMTPS id 135si194277wma.2.2020.05.27.06.45.21
+       spf=neutral (google.com: 212.227.126.133 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.126.133])
+        by gmr-mx.google.com with ESMTPS id o23si145677edz.4.2020.05.27.06.48.02
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 May 2020 06:45:21 -0700 (PDT)
-Received-SPF: neutral (google.com: 212.227.126.130 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.126.130;
+        Wed, 27 May 2020 06:48:02 -0700 (PDT)
+Received-SPF: neutral (google.com: 212.227.126.133 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.126.133;
 Received: from threadripper.lan ([149.172.98.151]) by mrelayeu.kundenserver.de
  (mreue012 [212.227.15.129]) with ESMTPA (Nemesis) id
- 1N5CMP-1iv9Gv0jwb-0118Vd; Wed, 27 May 2020 15:45:20 +0200
+ 1MP2zs-1jNNUv2gma-00POkx; Wed, 27 May 2020 15:47:57 +0200
 From: Arnd Bergmann <arnd@arndb.de>
-To: Kishon Vijay Abraham I <kishon@ti.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Dilip Kota <eswara.kota@linux.intel.com>
+To: David Ahern <dsahern@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Alexey Kuznetsov <kuznet@ms2.inr.ac.ru>,
+	Hideaki YOSHIFUJI <yoshfuji@linux-ipv6.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Roopa Prabhu <roopa@cumulusnetworks.com>
 Cc: Arnd Bergmann <arnd@arndb.de>,
+	Colin Ian King <colin.king@canonical.com>,
+	Stephen Worley <sworley@cumulusnetworks.com>,
+	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH] phy: intel: fix enum type mismatch warning
-Date: Wed, 27 May 2020 15:45:06 +0200
-Message-Id: <20200527134518.908624-1-arnd@arndb.de>
+Subject: [PATCH] [net-next] nexthop: fix enum type confusion
+Date: Wed, 27 May 2020 15:47:41 +0200
+Message-Id: <20200527134755.978758-1-arnd@arndb.de>
 X-Mailer: git-send-email 2.26.2
 MIME-Version: 1.0
-X-Provags-ID: V03:K1:nyIOF008cbZxsbmhfvGhCRdrwCcN1q1JDweBfwxy95/py9s3Bz7
- BFHwcfK/dnZiPczlXT624LDAPtJsDwXBDDVwKsXxmRjYf1EWQfTsfA1lMSe65U0u8rKWGRz
- 3INsuZt+Gl5Bw9EtoeuItFkPoX0bh/5MKbcJprGU199PLC52YdwdIY6BxhvjcCJSsvqOqAI
- hm1FdsF24f+/DT3woz7iQ==
+X-Provags-ID: V03:K1:n5qEtqFUXXj4zCm5zjHLPSjM3G1b9LQHX2qPlw6UHDY5j+eeoTt
+ RZVjMN1E+TihYiBM1VrGlWrZfadBUWmEQXT17oY8cDNC8Z3OsN5DEOo6oYhFHCk5aUlvHCA
+ lTkYegq9MeUrQfdhrM59VDRUWQt4AU312DjVElEYJQRTO92fjl88TlwXlru+3qg4u8HRQHY
+ 4rn1m9//P8Y12puOmtDbg==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:JauS/qGrgKE=:E8zZXa1xetlRt0BTAijuz5
- X0mQ+xT50m+/+kDnEKmuArkBTJXF096ns60R0bqWmW9YD9hv5hvPx5q83HjOoWzs+KxKNymy3
- 8drzDdkH35yPqJK9roborwsd/c8NqvXUZIrT+KrRDdW8N7t1mmHMKsyVQgOnuSZPUa0yu1R8s
- 5As1TX/0KyWq3G7V6GidUbogztS46M/n5olB7epjstaleNgtSsLFwbLIPNgqSdLeS1QBYupGS
- pnPiB1WeN4JZoPoC2yMIs2raU+7Yh1b2kVOfV2qUjAxTyRhsc4kZojwdHPkYCg+f+Ip1ClB72
- DpVLBg7PiD5rCc3McRVwnUUHes9lmnSQkzCptMSPztT/HFD2nkRZgCBJjVekLeYb9jL0nqBBX
- VnNzrImSCMTinqB62tyeRCwdCoZqkyqUKHJOFpNKY6lA9BVSTrP0y1RkDOdm/tIr3KW63jY86
- OJ8c+zVEoc6xc2lNBXSqkExO2OkJnDu/1eA8xCwpBSGME24XqDEQX7mkkxAco8KrHqtH54rs7
- 6H1T295VZ/3UKHhCPxpKrazeX1UACoHFWarFD8rvcWaBudccUk1itslfLRk+ikPp69O4Pk3bx
- TPJGyeKDLYmKZkmxDLLomdfql/hXGIXDccGOtyQTypxgsskTutUa/a+IeBAtbNlqa3HAtmlXN
- k+1xtv3VC/6qp3IGjrqVK6YQ4UHw9wHtVeNa2HpRNK/WVnyi+8usIN94R1r8Lk3N5T5IwT9bl
- +UwwWo98adgXNiY1f81FyiMNQiKDt+gHPASU69bNXDCcfOLxHDx/n+wpPNIC/rn1shIN5v0Ba
- Jfwr8DWgUGXYWltQ3BUf8x6G8jUdnpE+ywwMU72tPj3VTl+9xM=
+X-UI-Out-Filterresults: notjunk:1;V03:K0:0vssRlZ1k7Y=:FW5nQtiKCgGw7l3TtxlrIB
+ z5X3TPsAWxaRibqoS8sYLvmBKczlqGl87mf5Nkq17HYkf/Mhx4ZAqdURXaGGTXTN/sJIUmSR0
+ YCgCHyvhsUt61uoYNNdFbCIaIePjRjLRdCIZHRK39MygPRYpfss1WqA7MEAQU2oB7ezqDSUIM
+ KSX3x5Tu5lIAlFc2LmtETZIj7Evy3HiCopCV8OqC4/H4pAmanHvq4E5QvZUnHnk0GSWocFNkg
+ +DdgKLyb+T15WJWzv2Nu5R0UJGxeoHJOh0ZWs6wtkdlclRv6XuFMNLon+ftDfNOMY1mceYD6e
+ uDJ7OviiXknDsw/IUMgKslfAM4fsZzCDj37w6/cscxSZeYCgN0+oj1tBRk/UScOV6f6Rfu6F1
+ 3Disro/0yQVHaJCB3Jf8fnh+ysExvNIheTwDs4QGQ954iNudvOZhMBGea4ohGSzZlpZCyvmOx
+ qGaZmPcjxgV8xyxLUtDzZLMxrGOtElQuAOyc2KaS+ERdBoO015hgwxq6b4jnjd9o6B9En4CIk
+ JAi35XTkp/Er0PymziPIBnnjymVjsVIoNCcusuf9QvkiSfT5LBKyv7o0wwtMXeL10wvGDJOca
+ EmV3X8wL7zrfWnwRweZH79lYMoSY14YNqtGK5vyQSTwV8A4LJm45yHOHaNdi3LpObAOrllgyP
+ MfoCP71BGbfwTJDkQdBYs6seNxm8SfSRTrnPtbW0a2ToeCf3jluGn454W2wBHf8b9OWDyQ2y5
+ /O4xqMKkwCZTxSpKqTDNVrhaaoXOEzA7B3CQsmoAUSYnZjiKN6LEOw3CACu19ODaNmri8qtf/
+ MgyKMgMwFo4ffznhqfLBTJhEEfGBF1EIOfIasw7KYYUz1ed01A=
 X-Original-Sender: arnd@arndb.de
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 212.227.126.130 is neither permitted nor denied by best guess
+ (google.com: 212.227.126.133 is neither permitted nor denied by best guess
  record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
@@ -140,52 +146,39 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-clang points out that a local variable is initialized with
-an enum value of the wrong type:
+Clang points out a mismatch between function arguments
+using a different enum type:
 
-drivers/phy/intel/phy-intel-combo.c:202:34: error: implicit conversion from enumeration type 'enum intel_phy_mode' to different enumeration type 'enum intel_combo_mode' [-Werror,-Wenum-conversion]
-        enum intel_combo_mode cb_mode = PHY_PCIE_MODE;
-                              ~~~~~~~   ^~~~~~~~~~~~~
+net/ipv4/nexthop.c:841:30: error: implicit conversion from enumeration type 'enum nexthop_event_type' to different enumeration type 'enum fib_event_type' [-Werror,-Wenum-conversion]
+        call_nexthop_notifiers(net, NEXTHOP_EVENT_DEL, nh);
+        ~~~~~~~~~~~~~~~~~~~~~~      ^~~~~~~~~~~~~~~~~
 
-From reading the code, it seems that this was not only the
-wrong type, but not even supposed to be a code path that can
-happen in practice.
+This looks like a copy-paste error, so just use the intended
+type instead.
 
-Change the code to have no default phy mode but instead return an
-error for invalid input.
-
-Fixes: ac0a95a3ea78 ("phy: intel: Add driver support for ComboPhy")
+Fixes: 8590ceedb701 ("nexthop: add support for notifiers")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- drivers/phy/intel/phy-intel-combo.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ net/ipv4/nexthop.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/phy/intel/phy-intel-combo.c b/drivers/phy/intel/phy-intel-combo.c
-index c2a35be4cdfb..04f7b0d08742 100644
---- a/drivers/phy/intel/phy-intel-combo.c
-+++ b/drivers/phy/intel/phy-intel-combo.c
-@@ -199,7 +199,7 @@ static int intel_cbphy_pcie_dis_pad_refclk(struct intel_cbphy_iphy *iphy)
+diff --git a/net/ipv4/nexthop.c b/net/ipv4/nexthop.c
+index 143011f9b580..ec1282858cb7 100644
+--- a/net/ipv4/nexthop.c
++++ b/net/ipv4/nexthop.c
+@@ -37,7 +37,7 @@ static const struct nla_policy rtm_nh_policy[NHA_MAX + 1] = {
+ };
  
- static int intel_cbphy_set_mode(struct intel_combo_phy *cbphy)
+ static int call_nexthop_notifiers(struct net *net,
+-				  enum fib_event_type event_type,
++				  enum nexthop_event_type event_type,
+ 				  struct nexthop *nh)
  {
--	enum intel_combo_mode cb_mode = PHY_PCIE_MODE;
-+	enum intel_combo_mode cb_mode;
- 	enum aggregated_mode aggr = cbphy->aggr_mode;
- 	struct device *dev = cbphy->dev;
- 	enum intel_phy_mode mode;
-@@ -224,6 +224,8 @@ static int intel_cbphy_set_mode(struct intel_combo_phy *cbphy)
- 
- 		cb_mode = SATA0_SATA1_MODE;
- 		break;
-+	default:
-+		return -EINVAL;
- 	}
- 
- 	ret = regmap_write(cbphy->hsiocfg, REG_COMBO_MODE(cbphy->bid), cb_mode);
+ 	int err;
 -- 
 2.26.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200527134518.908624-1-arnd%40arndb.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200527134755.978758-1-arnd%40arndb.de.
