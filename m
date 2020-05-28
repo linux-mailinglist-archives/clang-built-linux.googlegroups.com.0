@@ -1,119 +1,140 @@
-Return-Path: <clang-built-linux+bncBCR5PSMFZYORBWH2X33AKGQEGUECFCY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC7OBJGL2MHBBRVLX73AKGQEQHL2K5Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43b.google.com (mail-pf1-x43b.google.com [IPv6:2607:f8b0:4864:20::43b])
-	by mail.lfdr.de (Postfix) with ESMTPS id D62461E6251
-	for <lists+clang-built-linux@lfdr.de>; Thu, 28 May 2020 15:32:10 +0200 (CEST)
-Received: by mail-pf1-x43b.google.com with SMTP id 67sf22381258pfe.0
-        for <lists+clang-built-linux@lfdr.de>; Thu, 28 May 2020 06:32:10 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1590672729; cv=pass;
+Received: from mail-ua1-x939.google.com (mail-ua1-x939.google.com [IPv6:2607:f8b0:4864:20::939])
+	by mail.lfdr.de (Postfix) with ESMTPS id 87A2E1E65B4
+	for <lists+clang-built-linux@lfdr.de>; Thu, 28 May 2020 17:16:23 +0200 (CEST)
+Received: by mail-ua1-x939.google.com with SMTP id y6sf7766165ual.0
+        for <lists+clang-built-linux@lfdr.de>; Thu, 28 May 2020 08:16:23 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1590678982; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zi5DTAZof8KNpttnsQ6rahS/CALNNg+E+D/aQ1BgPWZOTGJWu6S1o/FIFO7rH5LpH6
-         5fxvOm7VR+XeU1T7z1w4BEEPnj5cSaZ/zkN5yZdovhIaRM3p5Fq/w4Y3Dq0qZdMzYapH
-         KutRgVJq0ETnWRgf0wsdXrVcGzhj0chR5dTewZBuJOZVYtWZuD05kyNqTovh8VR6rF7F
-         WPscJssWJxxdR3SIcYECk3UEMkSW2KDX6rjWecvMv7KvOZ9VF5cdeSKOWJESwHuF7xvn
-         +jY9JqCtnh/1AucFa+tAc4YThVlgBMgb2dzYB8wWJPc4up3eLM4oNvJjXEc4M4KAvEy7
-         t1Eg==
+        b=liMHSxO64VgrAdbDdItDGg2DWIr8tI/FVtmliKenvJu8Dg/R3KtB85af5bZ2EjMR6P
+         JKNKUMDpek/1h17vv5nP32h8Jaj+wfV7pmqMD0QTROtenv7BGF4DPNoJlLSO+1XE5bKO
+         hg8j+STgHerqe/FzCDBfclrtE3aSeJ4q9grpAWYOZc2Cd9L3YohHZ55+auXHcWqyjTxD
+         9GsEqZOBrfyRtw/AbcMZKKV54YymrPdNRLSsc1MeO1ib0N9yejvYmgpRAIqRscSoxsPO
+         JjPE6STGTvQ/6WPycm/EdGbFMrhZotPKO7diFVTJCrl+0CSC92lsARus1dJv6CBaHMTW
+         5W5A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
-        bh=A7WD950YQVXRdZ0P2R81cL5Sruy6+/aUO6aAfOOF4X8=;
-        b=NebuEmsgwQEdf5yH8vxAPpFbSkLF5kuN38vbeJBha2J/LoOZznsHqRjJoFLKvhqbzD
-         g0I48UnnpSs0pUR06eQ+aZ3Vxd6805qUWMC0+pH64rtSmuZ32u48MGXMWDiOElTNmPTI
-         hpt+QSuQ2JmFNnpoHMenPciTYPaZ6/kZEkrmvj1HiZwVgJOpV6dlMW+lVDH/JK/ztAhU
-         gXsVP9ckeCHP71TEJUW8JO5BvjMR5xL1l4JVJB6rCUpj+UVJK9MScoZioK40EG36KozM
-         RsP33mJ2o3AJwYdyvk5sGdsEU5hkOTOT89/PavGKKIXHbyyMMEsfEzbbrPdaFh1EjFYK
-         flnA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=Fb/TF/v8qyd6i8nq/8OsgpdszGaPHDz6PWQH0y/wKaE=;
+        b=VVhc0BDQoOE3xUdH0ACs3LgxMn/4IXr/0BpDvfuOaHVrnHCCwUVFN0kTCrsPA88oQy
+         ZkcrcZv+5AHKMp6GJok0ZFIjIHZ0ZSpoyRZoaoWNUW2alOlR1YB0PCQyi7lzGdgqmxN+
+         xYqTK15E2c6VQLeaynObwstUbtH7LbrRqA7QMHVUeN0u0rCT7Upm2Fysm6yeWWETyZ44
+         HdVkyN9i+f0qKDr+Ff3xFD8kQvaBXG6aDewGFwNv2ZPnDTR3axKnoOcUnO+aDOO7aC3p
+         gC+YSDFHzi3IwCGi5pE62qJrCSQJ3ecs7KsHvsxckoZS60sqEI7YVpaso5JYzr5MZxrs
+         G+aw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ellerman.id.au header.s=201909 header.b=S7lLmzfT;
-       spf=pass (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted sender) smtp.mailfrom=mpe@ellerman.id.au
+       dkim=pass header.i=@google.com header.s=20161025 header.b="A4SBl6/w";
+       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=elver@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=A7WD950YQVXRdZ0P2R81cL5Sruy6+/aUO6aAfOOF4X8=;
-        b=oZa+eaqTukpyTJXUPs5/Zd/Z1hh3WaLsrvxLnFB9YQlZMff/ScuIT2pYad07OYi84r
-         e9dcuaWdKINHUnvKZBePVvly9ArDwhZHGJOS3TeOsKWX1MLLX3Y1Egf7zf33u8sHW3ru
-         tj+u0DUbyO810Q6qq08GVknrIlqnoexHMnLioTPvKG/DgMrkYmbyZWThvP52eIiaQqOs
-         TDHCYEJqXM0Q5RQbgBWOYfHXRbxEhR4yJ7IKd6zZR99VhBGxdA2ENcVFK9VD7cWN9u4f
-         NPDBkXaexdSnLxmhCTDTIemOpr0zJCBuFruhcaC1E9aYTonPl+/bLMBTGSe7I9nKSN3X
-         5tDw==
+        bh=Fb/TF/v8qyd6i8nq/8OsgpdszGaPHDz6PWQH0y/wKaE=;
+        b=g9r28YLlw5F47CYK+soRR90YO/sYIxs/Ys/l15J0OmLs1eMdTt7mF0O2Q40mWCv+Nz
+         8DPd5yXWWayEVA3jNxAydEIhxD3dF18h8GDCVaSqmccg6TGKJocGu7UIiNfr8VvEUqJs
+         3W7ncSI1Iaqavu7VzFdBLeqAomWO5HykDE9AGDBF224s4We+yLh5FCxXfktGXEAWToiI
+         1tyhOVajSB4lWmqboMUjN14c9OyEudTfoRIG6infzm529/7UyOxPfDQq67SwuHPWDVtX
+         +qubfacpb80g8vwVmmQBQetzHcGA37ggwsD/h5+rqzvimzUWq6u4AKRRjGxqn4rQwecG
+         AwaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
-         :date:message-id:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=A7WD950YQVXRdZ0P2R81cL5Sruy6+/aUO6aAfOOF4X8=;
-        b=sAYwWE7yfbbSg1jhKbb9rmOVzW9UTMQ5fGcjQv4AXQqud3OKUY7YC+72Gu9qlpLaqt
-         OJKCWrWrlcDf/IN3Tcswr0loAipvmbdxh6cbJrTLusPG+uNzbZVhfP3YN/ZSOx3N+nuq
-         1j1vkRX5rMx0V8xlPqbmZLk8I27SgBJl35KzU9FiUxUYRKGvyfOolRudFstV7dSpq8FU
-         yLa+UV2ufBuoif2rhkj6nrcKuTdMse3wuS4O2q6RxFxe19SeBhiioQv4P+qerTgH4iXp
-         M3CBgnUDUUDwQ/tzhxKXoTRRND8gGha2X52FQF5XG3VRAybDmpS/bLc5NSCEpUhZCGM0
-         sNyQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533M+4qjaRxgVCgF3kPLDqAlCRaqP4ztPQTxpqADm0YifOHQu/ta
-	vZc28v/BiLaoU7UTAnX3g88=
-X-Google-Smtp-Source: ABdhPJx6ljr8wS0WDEjNAG5otYCH0o5dAqsnYOy/bPx9jESUCzyXXYhQrOHSAbHp3VoAMa5tZnx/8g==
-X-Received: by 2002:a17:90a:648c:: with SMTP id h12mr3920079pjj.229.1590672728923;
-        Thu, 28 May 2020 06:32:08 -0700 (PDT)
+        bh=Fb/TF/v8qyd6i8nq/8OsgpdszGaPHDz6PWQH0y/wKaE=;
+        b=sFw9uZaxNsjflErZ25yPvYAp2ObT6EGQ29zSx6+JSev3VCVJjmFjyypTuAn2wShzV9
+         aNs1fP7B9oLpSjMMcVsriqKNJC9y5BoQjrpj37P687aexx13k83jxXOHHbtdZiuAZtO5
+         mD89s517rOg0ASrOs2ZG8y1dq55vpBhpcF00VxjPwow+/f59cq9ucdGRM0K9z8ErGHB8
+         WzSMi9uMSJOT/2Z5WEbgKm4AY86UvAgD7215cICnofizo3nCE1cf+jjTC5q4HstXCX54
+         sqEejQLCUBQpQXb9Z56I+ZR9EBMSgS/RwaugTpPrEvRKzEDvRfveCNRCc8JUPO3qpbwb
+         5n2A==
+X-Gm-Message-State: AOAM532U84oheIwdhN9Hrn0QyeuPighc2AiPtvo4C8GgaLq1YilVV9nL
+	+laabSnhqlYn+3Tgb+IomY8=
+X-Google-Smtp-Source: ABdhPJzpKVGbSbsvWzv+HmdBsi2sx4uc4QYWxJbKNgMeeMI1RpgzRtzCQWUKr6WS7BLJ7Bgyl4L2Jw==
+X-Received: by 2002:a05:6102:20cb:: with SMTP id i11mr2412791vsr.137.1590678982413;
+        Thu, 28 May 2020 08:16:22 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:ab89:: with SMTP id f9ls93580plr.3.gmail; Thu, 28
- May 2020 06:32:08 -0700 (PDT)
-X-Received: by 2002:a17:902:9d94:: with SMTP id c20mr3559484plq.224.1590672728487;
-        Thu, 28 May 2020 06:32:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1590672728; cv=none;
+Received: by 2002:a05:6102:7b8:: with SMTP id x24ls318080vsg.11.gmail; Thu, 28
+ May 2020 08:16:22 -0700 (PDT)
+X-Received: by 2002:a67:12c4:: with SMTP id 187mr2459089vss.100.1590678981916;
+        Thu, 28 May 2020 08:16:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1590678981; cv=none;
         d=google.com; s=arc-20160816;
-        b=goqWvWHbvx6GSAg8rqgE/Xxs5AWdncrE2xs5RS0HqOGcZ1ZdA12qPUwBdZBLhJO45q
-         mcFPkKAXusJoJNFCelIeO3VlZBBwR5MK/oItoBYO+7Ncu13SvYrCp2DHdaZqtCmqsl0F
-         C8eGx3gl60eBkiNJzX9NKYr9D8KDgGSm8q0V3bBnkBnAcsH4gC6RpCmb0Cl4QZ+Nson2
-         yeuw3uLebT8sJpz4G/A2A7TX2RQCs21s9ybRY17F37LEN0I7UeAadiX6uRUutGWj1Yuy
-         2gEROoMPLZnftiJT2L3aOxFe+dJlOnYTaZaBNQKVtJLUd/7moIVDXyRN9olIW9KBwTcA
-         Smcg==
+        b=AskXAGaPuHmf2mGoWgZz1qiOmjqU6r43o13mWVaw/usUUKFC1/nFomQ9WZ2HFxrHTz
+         EyWzKcv4Wda0dSWkhNgT0tDXpbYWWrPE5ZCIFY0mU1iU0pRecz7nPY4ManIxOZpmgMcv
+         ex6m53zawyXC9LP9JI7fAORQB3xzpbP/yu8tzmGO2lSnJ1stkIVB53nyrCO/g0rwxrYs
+         TpMzfoQW+t59KUwlGVXexKSdXeoLDKx1GWoY4ZHR0VXSIlXebo/hn2TZyP7kS6fb7Cay
+         jXcuTCfU/G3T4pztRz8LuEMhxWp+bchTHLY9NDb2bteqBENuVBxcqOvd3OurxGJV7XHv
+         c8fw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:dkim-signature;
-        bh=C4bHhMZOigJbKRP/EDJCEGvcLfxdpubgpJoFH9AX/tM=;
-        b=QgOv6rz8K+bdr66V0/EAbgMehAYpEp9iwNfVYKxEhE1jef5pjHiWadH3NViluerCEc
-         sgtur9IuNJ1518RNKLMkAkcKZV0Da7SQzlWX7ML/Bu3Vtjw9lvqczNZ6b3KtBUO/Jg4l
-         OblVNxGROmR/Apf5pO8XVNOOq8+GQZmbfyjO6oF+qm63136+vUOgmSY1hUCVL68kitr/
-         8O07z5LXtlHtY9EtOnWHbvcMS18Lmx1U4fGiyf73/tAaEVfsNrCDJU3inLjsFIWtc7BU
-         C+Hb8bl4r7xIshBlcwitLczrbVcO3T0/UVNQM9lHUdu0yxv1Jv91Il4ALAp/kg0Qk+9a
-         NKyw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=VBOMR4dl3vHE3pgP6stmXiAZ6B3bsjHJjxfDsRtyI4A=;
+        b=X7a990pXQpGi4U51OjlgX64wB7oEZIWbXYkZtbQFelz2VzE5QGg7AT/S9sAZi4Ctp+
+         1fe8fGlHxPCdC5ZkJI1TIEc0JThzSrrpTLaFRBHFJoX2Hg/ECeJfYP0muI6WeR7dzsQ7
+         PQC6GVVsm9hcKjKGZxua6HOmNoBt1Z2PKs495qNINzkpuTSRscxr8BqtDXotSTAld802
+         iH+4zzVs6lJpaw9Fh2aBi1ubWvIOxlpSl/noA2i0qS+tRWsdC1fGU3tsMXdvusPq+Od/
+         v0eNNUPvPHGqOtbySd1S7ENSMbR42XZHvEqJOofV8xHX7823aPdgAMLua/HZdWaF2QHE
+         wYPw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ellerman.id.au header.s=201909 header.b=S7lLmzfT;
-       spf=pass (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted sender) smtp.mailfrom=mpe@ellerman.id.au
-Received: from ozlabs.org (bilbo.ozlabs.org. [203.11.71.1])
-        by gmr-mx.google.com with ESMTPS id l22si420054pgt.3.2020.05.28.06.32.08
+       dkim=pass header.i=@google.com header.s=20161025 header.b="A4SBl6/w";
+       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=elver@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-oi1-x242.google.com (mail-oi1-x242.google.com. [2607:f8b0:4864:20::242])
+        by gmr-mx.google.com with ESMTPS id b10si474593vso.1.2020.05.28.08.16.21
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 May 2020 06:32:08 -0700 (PDT)
-Received-SPF: pass (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted sender) client-ip=203.11.71.1;
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 49XpX46yFYz9sSJ;
-	Thu, 28 May 2020 23:32:04 +1000 (AEST)
-From: Michael Ellerman <mpe@ellerman.id.au>
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>, linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com, Nathan Chancellor <natechancellor@gmail.com>, kbuild test robot <lkp@intel.com>, Nick Desaulniers <ndesaulniers@google.com>
-Subject: Re: [PATCH v2] powerpc/wii: Fix declaration made after definition
-In-Reply-To: <20200526205756.2952882-1-natechancellor@gmail.com>
-References: <20200413190644.16757-1-natechancellor@gmail.com> <20200526205756.2952882-1-natechancellor@gmail.com>
-Date: Thu, 28 May 2020 23:32:29 +1000
-Message-ID: <871rn4jic2.fsf@mpe.ellerman.id.au>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 28 May 2020 08:16:21 -0700 (PDT)
+Received-SPF: pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::242 as permitted sender) client-ip=2607:f8b0:4864:20::242;
+Received: by mail-oi1-x242.google.com with SMTP id y85so297681oie.11
+        for <clang-built-linux@googlegroups.com>; Thu, 28 May 2020 08:16:21 -0700 (PDT)
+X-Received: by 2002:aca:ebc5:: with SMTP id j188mr2580409oih.70.1590678980942;
+ Thu, 28 May 2020 08:16:20 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200527103236.148700-1-elver@google.com> <CAK8P3a1MFgRxm6=+9WZKNzN+Nc5fhrDso6orSNQaaa-0yqygYA@mail.gmail.com>
+ <CA+icZUWtzu0ONUSy0E27Mq1BrdO79qNaY3Si-PDhHZyF8M4S5g@mail.gmail.com>
+ <CAK8P3a04=mVQgSrvDhpVxQj50JEFDn_xMhYrvjmUnLYTWH3QXQ@mail.gmail.com>
+ <CA+icZUXVSTxDYJwXLyAwZd91cjMPcPRpeAR72JKqkqa-wRNnWg@mail.gmail.com>
+ <CAK8P3a3i0kPf8dRg7Ko-33hsb+LkP=P05uz2tGvg5B43O-hFvg@mail.gmail.com>
+ <CA+icZUWr5xDz5ujBfsXjnDdiBuopaGE6xO5LJQP9_y=YoROb+Q@mail.gmail.com>
+ <CANpmjNOtKQAB_3t1G5Da-J1k-9Dk6eQKP+xNozRbmHJXZqXGFw@mail.gmail.com>
+ <CA+icZUWzPMOj+qsDz-5Z3tD-hX5gcowjBkwYyiy8SL36Jg+2Nw@mail.gmail.com>
+ <CANpmjNOPcFSr2n_ro8TqhOBXOBfUY0vZtj_VT7hh3HOhJN4BqQ@mail.gmail.com>
+ <CA+icZUVK=5agY_FPdPeRbZyn3EoUgnmPToR3iGWuCzY+KHtoAA@mail.gmail.com>
+ <CANpmjNOA2Oa=AJkKYadbvEVOaqzgD840aC5wfGGrFvDqUmjhpg@mail.gmail.com> <CA+icZUXu15=NK8wQgy=eeu=JcOGfB4Qr6UnwzTVvcH4T1L4pUQ@mail.gmail.com>
+In-Reply-To: <CA+icZUXu15=NK8wQgy=eeu=JcOGfB4Qr6UnwzTVvcH4T1L4pUQ@mail.gmail.com>
+From: "'Marco Elver' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Thu, 28 May 2020 17:16:09 +0200
+Message-ID: <CANpmjNNFxvL2Mrq1eJeRsyU19wgSdZrtLaTo2ksOfTzPTGKOzQ@mail.gmail.com>
+Subject: Re: [PATCH -tip] compiler_types.h: Optimize __unqual_scalar_typeof
+ compilation time
+To: sedat.dilek@gmail.com
+Cc: Arnd Bergmann <arnd@arndb.de>, Will Deacon <will@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Borislav Petkov <bp@alien8.de>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	"Paul E. McKenney" <paulmck@kernel.org>, Dmitry Vyukov <dvyukov@google.com>, 
+	Alexander Potapenko <glider@google.com>, Andrey Konovalov <andreyknvl@google.com>, 
+	kasan-dev <kasan-dev@googlegroups.com>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Stephen Rothwell <sfr@canb.auug.org.au>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: mpe@ellerman.id.au
+X-Original-Sender: elver@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ellerman.id.au header.s=201909 header.b=S7lLmzfT;       spf=pass
- (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted
- sender) smtp.mailfrom=mpe@ellerman.id.au
+ header.i=@google.com header.s=20161025 header.b="A4SBl6/w";       spf=pass
+ (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::242 as
+ permitted sender) smtp.mailfrom=elver@google.com;       dmarc=pass (p=REJECT
+ sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Marco Elver <elver@google.com>
+Reply-To: Marco Elver <elver@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -126,38 +147,190 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Nathan Chancellor <natechancellor@gmail.com> writes:
-> A 0day randconfig uncovered an error with clang, trimmed for brevity:
+On Thu, 28 May 2020 at 04:12, Sedat Dilek <sedat.dilek@gmail.com> wrote:
 >
-> arch/powerpc/platforms/embedded6xx/wii.c:195:7: error: attribute
-> declaration must precede definition [-Werror,-Wignored-attributes]
->         if (!machine_is(wii))
->              ^
->
-> The macro machine_is declares mach_##name but define_machine actually
-> defines mach_##name, hence the warning.
->
-> To fix this, move define_machine after the machine_is usage.
->
-> Fixes: 5a7ee3198dfa ("powerpc: wii: platform support")
-> Reported-by: kbuild test robot <lkp@intel.com>
-> Link: https://github.com/ClangBuiltLinux/linux/issues/989
-> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> ---
->
-> v1 -> v2:
->
-> * s/is_machine/machine_is/ (Nick)
->
-> * Add Nick's reviewed-by tag.
+[...]
 
-I already picked up v1, and it's behind a merge so I don't want to
-rebase it. I'll live with the typo. Thanks.
+> > > >
+> > > > In general, CONFIG_KCSAN=y and the defaults for the other KCSAN
+> > > > options should be good. Depending on the size of your system, you
+> > > > could also tweak KCSAN runtime performance:
+> > > > https://lwn.net/Articles/816850/#Interacting%20with%20KCSAN%20at%20Runtime
+> > > > -- the defaults should be good for most systems though.
+> > > > Hope this helps. Any more questions, do let me know.
+> > > >
+> > >
+> > > Which "projects" and packages do I need?
+> > >
+> > > I have installed:
+> > >
+> > > # LC_ALL=C apt-get install llvm-11 clang-11 lld-11
+> > > --no-install-recommends -t llvm-toolchain -y
+> > >
+> > > # dpkg -l | grep
+> > > 1:11~++20200527111130+65030821d4a-1~exp1~20200527091804.3261 | awk
+> > > '/^ii/ {print $1 " " $2 " " $3}' | column -t
+> > > ii  clang-11
+> > > 1:11~++20200527111130+65030821d4a-1~exp1~20200527091804.3261
+> > > ii  libclang-common-11-dev
+> > > 1:11~++20200527111130+65030821d4a-1~exp1~20200527091804.3261
+> > > ii  libclang-cpp11
+> > > 1:11~++20200527111130+65030821d4a-1~exp1~20200527091804.3261
+> > > ii  libclang1-11
+> > > 1:11~++20200527111130+65030821d4a-1~exp1~20200527091804.3261
+> > > ii  libllvm11:amd64
+> > > 1:11~++20200527111130+65030821d4a-1~exp1~20200527091804.3261
+> > > ii  lld-11
+> > > 1:11~++20200527111130+65030821d4a-1~exp1~20200527091804.3261
+> > > ii  llvm-11
+> > > 1:11~++20200527111130+65030821d4a-1~exp1~20200527091804.3261
+> > > ii  llvm-11-runtime
+> > > 1:11~++20200527111130+65030821d4a-1~exp1~20200527091804.3261
+> > >
+> > > Is that enough?
+> >
+> > Just clang-11 (and its transitive dependencies) is enough. Unsure what
+> > your installed binary is, likely "clang-11", so if you can do "make
+> > CC=clang-11 defconfig" (and check for CONFIG_HAVE_KCSAN_COMPILER)
+> > you're good to go.
+> >
+>
+> I was able to build with clang-11 from apt.llvm.org.
+>
+> [ build-time ]
+>
+> Normally, it takes me approx. 05:00 to build with clang-10
+> (10.0.1-rc1) and Linux v5.7-rc7.
+>
+> This time start: 21:18 and stop: 03:45 means 06:27 - took 01:27 longer.
+>
+> Samsung Ultrabook 2nd generation aka Intel Sandybridge CPU with 'make -j3'.
+>
+> [ diffconfig ]
+>
+>  BUILD_SALT "5.7.0-rc7-2-amd64-clang" -> "5.7.0-rc7-3-amd64-clang"
+>  CLANG_VERSION 100001 -> 110000
+> +CC_HAS_ASM_INLINE y
+> +HAVE_ARCH_KCSAN y
+> +HAVE_KCSAN_COMPILER y
+> +KCSAN y
+> +KCSAN_ASSUME_PLAIN_WRITES_ATOMIC y
+> +KCSAN_DEBUG n
+> +KCSAN_DELAY_RANDOMIZE y
+> +KCSAN_EARLY_ENABLE y
+> +KCSAN_IGNORE_ATOMICS n
+> +KCSAN_INTERRUPT_WATCHER n
+> +KCSAN_NUM_WATCHPOINTS 64
+> +KCSAN_REPORT_ONCE_IN_MS 3000
+> +KCSAN_REPORT_RACE_UNKNOWN_ORIGIN y
+> +KCSAN_REPORT_VALUE_CHANGE_ONLY y
+> +KCSAN_SELFTEST y
+> +KCSAN_SKIP_WATCH 4000
+> +KCSAN_SKIP_WATCH_RANDOMIZE y
+> +KCSAN_UDELAY_INTERRUPT 20
+> +KCSAN_UDELAY_TASK 80
+>
+> I am seeing this data-races:
+>
+> root@iniza:~# LC_ALL=C dmesg -T | grep 'BUG: KCSAN: data-race'
+> [Thu May 28 03:51:53 2020] BUG: KCSAN: data-race in
+> mutex_spin_on_owner+0xe0/0x1b0
+> [Thu May 28 03:52:00 2020] BUG: KCSAN: data-race in mark_page_accessed
+> / workingset_activation
+> [Thu May 28 03:52:02 2020] BUG: KCSAN: data-race in
+> mutex_spin_on_owner+0xe0/0x1b0
+> [Thu May 28 03:52:08 2020] BUG: KCSAN: data-race in
+> blk_mq_sched_dispatch_requests / blk_mq_sched_dispatch_requests
+> [Thu May 28 03:52:10 2020] BUG: KCSAN: data-race in dd_has_work /
+> dd_insert_requests
+> [Thu May 28 03:52:11 2020] BUG: KCSAN: data-race in
+> mutex_spin_on_owner+0xe0/0x1b0
+> [Thu May 28 03:52:13 2020] BUG: KCSAN: data-race in
+> page_counter_try_charge / page_counter_try_charge
+> [Thu May 28 03:52:15 2020] BUG: KCSAN: data-race in ep_poll_callback /
+> ep_send_events_proc
+> [Thu May 28 03:52:21 2020] BUG: KCSAN: data-race in
+> mutex_spin_on_owner+0xe0/0x1b0
+> [Thu May 28 03:52:25 2020] BUG: KCSAN: data-race in
+> mutex_spin_on_owner+0xe0/0x1b0
+> [Thu May 28 03:52:26 2020] BUG: KCSAN: data-race in dd_has_work /
+> deadline_remove_request
+> [Thu May 28 03:52:31 2020] BUG: KCSAN: data-race in dd_has_work /
+> deadline_remove_request
+> [Thu May 28 03:52:38 2020] BUG: KCSAN: data-race in dd_has_work /
+> deadline_remove_request
+> [Thu May 28 03:52:53 2020] BUG: KCSAN: data-race in dd_has_work /
+> dd_insert_requests
+> [Thu May 28 03:52:56 2020] BUG: KCSAN: data-race in dd_has_work /
+> deadline_remove_request
+> [Thu May 28 03:52:59 2020] BUG: KCSAN: data-race in
+> blk_mq_sched_dispatch_requests / blk_mq_sched_dispatch_requests
+> [Thu May 28 03:53:25 2020] BUG: KCSAN: data-race in
+> rwsem_spin_on_owner+0x102/0x1a0
+> [Thu May 28 03:53:25 2020] BUG: KCSAN: data-race in
+> page_counter_try_charge / page_counter_try_charge
+> [Thu May 28 03:53:39 2020] BUG: KCSAN: data-race in do_epoll_wait /
+> ep_poll_callback
+> [Thu May 28 03:53:39 2020] BUG: KCSAN: data-race in find_next_and_bit+0x30/0xd0
+> [Thu May 28 03:53:41 2020] BUG: KCSAN: data-race in dd_has_work /
+> dd_insert_requests
+> [Thu May 28 03:53:43 2020] BUG: KCSAN: data-race in do_epoll_wait /
+> ep_poll_callback
+> [Thu May 28 03:53:45 2020] BUG: KCSAN: data-race in dd_has_work /
+> dd_insert_requests
+> [Thu May 28 03:53:46 2020] BUG: KCSAN: data-race in
+> blk_mq_sched_dispatch_requests / blk_mq_sched_dispatch_requests
+> [Thu May 28 03:53:47 2020] BUG: KCSAN: data-race in
+> rwsem_spin_on_owner+0x102/0x1a0
+> [Thu May 28 03:54:02 2020] BUG: KCSAN: data-race in dd_has_work /
+> deadline_remove_request
+> [Thu May 28 03:54:11 2020] BUG: KCSAN: data-race in find_next_and_bit+0x30/0xd0
+> [Thu May 28 03:54:19 2020] BUG: KCSAN: data-race in
+> rwsem_spin_on_owner+0x102/0x1a0
+> [Thu May 28 03:55:00 2020] BUG: KCSAN: data-race in
+> mutex_spin_on_owner+0xe0/0x1b0
+> [Thu May 28 03:56:14 2020] BUG: KCSAN: data-race in dd_has_work /
+> deadline_remove_request
+> [Thu May 28 03:56:50 2020] BUG: KCSAN: data-race in dd_has_work /
+> deadline_remove_request
+> [Thu May 28 03:56:50 2020] BUG: KCSAN: data-race in dd_has_work /
+> deadline_remove_request
+> [Thu May 28 03:56:52 2020] BUG: KCSAN: data-race in
+> tick_nohz_next_event / tick_nohz_stop_tick
+> [Thu May 28 03:56:58 2020] BUG: KCSAN: data-race in
+> blk_mq_sched_dispatch_requests / blk_mq_sched_dispatch_requests
+> [Thu May 28 03:57:58 2020] BUG: KCSAN: data-race in
+> blk_mq_sched_dispatch_requests / blk_mq_sched_dispatch_requests
+> [Thu May 28 03:58:00 2020] BUG: KCSAN: data-race in dd_has_work /
+> deadline_remove_request
+> [Thu May 28 03:58:07 2020] BUG: KCSAN: data-race in
+> tick_nohz_next_event / tick_nohz_stop_tick
+> [Thu May 28 03:58:44 2020] BUG: KCSAN: data-race in
+> mutex_spin_on_owner+0xe0/0x1b0
+> [Thu May 28 03:58:49 2020] BUG: KCSAN: data-race in __bitmap_subset+0x38/0xd0
+> [Thu May 28 03:59:46 2020] BUG: KCSAN: data-race in
+> tick_nohz_next_event / tick_nohz_stop_tick
+> [Thu May 28 04:00:25 2020] BUG: KCSAN: data-race in dd_has_work /
+> deadline_remove_request
+> [Thu May 28 04:00:26 2020] BUG: KCSAN: data-race in
+> tick_nohz_next_event / tick_nohz_stop_tick
+>
+> Full dmesg output and linux-config attached.
 
-cheers
+Thank you for the report. There are a number of known data races. Note
+that, we do not think it's wise to rush fixes for data races,
+especially because each one requires careful analysis of what the
+appropriate response is. In the meantime, also have a look at these 2
+articles (if you haven't already), which describes the current state
+of things:
+
+1. https://lwn.net/Articles/816850/
+2. https://lwn.net/Articles/816854/
+
+Thanks,
+-- Marco
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/871rn4jic2.fsf%40mpe.ellerman.id.au.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANpmjNNFxvL2Mrq1eJeRsyU19wgSdZrtLaTo2ksOfTzPTGKOzQ%40mail.gmail.com.
