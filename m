@@ -1,45 +1,45 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRB2WTYX3AKGQE3AYDLZI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEKVJM7XAHRB26TYX3AKGQEAQD4CRA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43b.google.com (mail-wr1-x43b.google.com [IPv6:2a00:1450:4864:20::43b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0FC1F1E883D
+Received: from mail-ej1-x63d.google.com (mail-ej1-x63d.google.com [IPv6:2a00:1450:4864:20::63d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8BB7E1E8842
 	for <lists+clang-built-linux@lfdr.de>; Fri, 29 May 2020 22:00:43 +0200 (CEST)
-Received: by mail-wr1-x43b.google.com with SMTP id h92sf1443588wrh.23
+Received: by mail-ej1-x63d.google.com with SMTP id f19sf221064ejx.7
         for <lists+clang-built-linux@lfdr.de>; Fri, 29 May 2020 13:00:43 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1590782442; cv=pass;
+ARC-Seal: i=2; a=rsa-sha256; t=1590782443; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fUYTg4+8xoI4MeLDwXltWF0PyfYKEIZEMpYuQzwAj7dQ27LXUdKS7n8bxuYNTis+VY
-         uQhuYfgCUI6TWG+u57UNfsCn/aaFizzYWVoqjXKjzBtWMxR7Y8clQYo4pXDYVODnUJkV
-         rzsfs08w3wX2Y7WjddEYN9IhaTIpQplLYJMGv7moWUj9J4ZA3IEItK7/vRDokFPvvdK3
-         b6lbc7+l5sC1qsV7S0tnnqLCzKKxxpgNee07VKGWWR2N+zN9fMrDHV/2+3yx/e4bjjbS
-         +kREFeunmtRIm1DGSb0KY8z/8JyaDj9yrdCAdQyT8APoAoRLoBRtXCJuMSgGYQE2Owz7
-         0ZQw==
+        b=A5ArdoI3ne/jsqev7qGQqqO3Ee4mi8T0GX5Vc4sCfPiRJWx8uoqQk0e1DPpHCh7lIw
+         UUgwO14rfXdfvSZoU7dddrLqSw2osNgNGSCYj4ExOVB7kwYfntxJzK2X3rZ/jaW+Xpzb
+         369Et+pjq5Jv2AVy9lUv7m4+w9/5PaNVGHXdoNICI/oa+x+Hq+Tkqp/88FCrLz4j7aYY
+         51DAC2FND/b6xk7C7M/XITH9LT0pWbMd0JT/mOTNd7GmAovSxG1BT0AeUk+uGxQniiRU
+         +bb1NAQCxHDO/siR5204IonIjT6MhKlB9YtDxHhhBo3ofqqt9h20kJjMvCd57xCxyRFX
+         ZvnQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=ql65RKsrmIbyfOJI+tj21dMZ0yjCn823KjyzhQgH030=;
-        b=xNWUIGrgDOcGBRDT6MsG2dbdRfSs586uE1oroujYNUSwJlj2HVtH+LTZBP6X8m9y5n
-         8jEHY3ShUZ9x6rY8y48h/iW1+IcqXENHwy8MDVAl6g09YHIo2uejAM+ofoRCgshB6wv6
-         3kswadjTe3JheAuXWwi75W9W0lMMraHG+OeWEEWpdlwh5Zl/hCBFvJ2F/n+/NSJsKma/
-         CwKw6RF5wF6Og4iTrfcIrvRWXtfPmPn6lljpNNo8m1gYIShVKx6wmhfY5s0s0Fzc1dYy
-         n0vXvmI4A+A9aNgflBO9wZic9UPU3Bh98qlPDAEUvsrP4xXqLBh6yrW4NltuDs2o1Qq3
-         kwsQ==
+        bh=kzQYZxYs2vi1Ao8PuUt77xwcOzchu3G5I2eRSoBak1g=;
+        b=oMHZdyVYclk0sxMChO48NnASoH9f3/x7Un/nxjUD3GFh19eEFn5rYoT/m2AWGnz84y
+         AqtsSInSBNymhL0bOJ/GYEisD9U5Y+WmNCf66zZmkeEqs6HYyRgvSrCQEoQIRo7Bt1xT
+         bidE63Vz0esAupiV05Ni3zgTukGNqS3maJ9/Lpbc3fIHDi37mRrb3PyNZeHtQ7QuZtvy
+         xH8n8s0A+Rs7CEAGWb5gm2u5LER3tUO/J3DBvXzBzEc4tRhCdRm2lae8YDurXz49gKiU
+         X3NSJ1zlvCFP7g2WSVJLFHjhLkGYITbmx2QNqlR4ryhJ/r/7bC4/RWXNPIPHRGdng7w+
+         Az+A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.17.24 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+       spf=neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ql65RKsrmIbyfOJI+tj21dMZ0yjCn823KjyzhQgH030=;
-        b=AV8FVMgNXbDSDzEYGy837iAUcTDJpwetPMBzjx8gYJtuE4W2ttU1OBDTOI0CDntZ7M
-         +GBHk3amG8bYWOwVI5qta+VWsKeAZDUvOwWIBR2mIt9EP0SJWa8DBRldYHg73C/Lj2G6
-         GAizzUc/APnNC/A55BMf9nejOl+BOcInh4lIezUA3w/HVrJMSMNHa+PU3xgGNY2ahU9H
-         gdeB6XPyY9M+ZxGENB8n6enupnMvPz3iWwGgmRj2on5N4aQo0L+vKRLICy4MORZAzMip
-         /TgupDL8edSHqA2rh1JkN1V5dQj4CyYVd+Oomf82YbFMSNykOMpavq9H1L6O/Sh7VbjY
-         u0Jg==
+        bh=kzQYZxYs2vi1Ao8PuUt77xwcOzchu3G5I2eRSoBak1g=;
+        b=I29ZWPculia8eEIj/BuuEbgZ/fbpzkehYkev8bYNpsBDYfdFJg8KSw/X+filbv0eFD
+         fr3L/dOkwIFmR5e+kNwSjLGsCMUIPvEL06gfdQPHKsupoznaaUpoMoISsuPH5lxUVI7C
+         HM3GhWq2Cvz1NzPbqpDpQjgn59mNsSvtfZ1l517JHJT92IOvRUHKxP9pkFuWxwHSuaJn
+         tB8uc8+tuX35UC+zs1yCLRcpGXSxV1NXBcnBAQpPAAtcw67aHFzRdvswGOcSHfdcK1Vn
+         jCYn21GmXYIY7G2N/0FprEpHU3IZTFDlja1aZW7JGi7QQYk7HDLsot72uEMumm0a9S4v
+         uIkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -47,53 +47,53 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ql65RKsrmIbyfOJI+tj21dMZ0yjCn823KjyzhQgH030=;
-        b=cKYQO3Z6E0nqJimj2+cRPbFsCJdsAcgMImT9yvGqzPvgVVfUC9cr2/g5mnQ51mg3QJ
-         L6uasHzhrwTgBCkre/uhuWAEKcRg76OxStBD71v5a9Ud50F2yBAsKAetzXjVU28q9KQx
-         +BdMWNNhyG+0ZmmVaKu3Dhi7k9jina6J7nfVHqkTL7bhSXAE6aUOE08C/1zOb36iWKNc
-         2G/HdjuOGOPXIR5CpI0vSYWqzPqBWHG4HMwxyO7PFYd6ETZ2MTRPOx7bAv3E1TRNE9Wl
-         P5QLlz/MhktIOEIXiqF/ttr3P9K2EQ4YLi400JSzvq+Ai2yr5Oc/LcAg14xU7xk3UGbL
-         dELw==
+        bh=kzQYZxYs2vi1Ao8PuUt77xwcOzchu3G5I2eRSoBak1g=;
+        b=sQKGlVkWBXNSou3R7e4LHVGE47bj/CQouAvhBHyA+WbDCi90Iiu+OkN8rBpdqXu+Aw
+         gho0mGYQ4EINAMJ8AxOC2wxl4kA7KeStMX73uyRbxkxCtJOJoTYYYl3AOVuj6iTNFNnj
+         0UOe/TvlI2AYOGkXhGPdoYuEgxzV6iZeB73OjrjJWCM5zHW+RLbObdaQzOd6Rpk4n+2/
+         DcVjtv6UJWCrHxGHsfPzXwlvtu9o7Ff+RnxvNNhRCGEUWEopqtk3bif8ZRY/TmliuJeS
+         YKSpEdFaMUsEougZKFrhtdVQQGnVFb/emsrPPEtNMHD5zNc0LuImmaXAjgecqEpvSkhO
+         1h6g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM53340re0/MDi4jOPYaug9NRYUqlhAT53yRdtHPPZLa0Zmb882Q+a
-	qqZAgsdEWCBqjrUUyA8s53A=
-X-Google-Smtp-Source: ABdhPJxkd45MzYzsdtMnP+xLFywGdS4bdrhX3lmQUxXCaUZSMvAfthSlj8i/p/4h+jF/2nmSkKf5gQ==
-X-Received: by 2002:a5d:400f:: with SMTP id n15mr10770838wrp.419.1590782442827;
-        Fri, 29 May 2020 13:00:42 -0700 (PDT)
+X-Gm-Message-State: AOAM533/Fnvs1I9z7RfJU1qxM8hA4/A4nGQboVJSahNCprMuRiHw7Vor
+	H0NW5nI0ZrjGmi/jQLjao2w=
+X-Google-Smtp-Source: ABdhPJxoxJoq9f9qyeBdrpOiQ3LPjAfv/REefif6yGh1suy4udyc5r5EG617NUZO+ARmeYqRuMrbEw==
+X-Received: by 2002:a05:6402:1216:: with SMTP id c22mr10434143edw.208.1590782443213;
+        Fri, 29 May 2020 13:00:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:fac9:: with SMTP id a9ls8565809wrs.2.gmail; Fri, 29 May
+Received: by 2002:aa7:d987:: with SMTP id u7ls238809eds.3.gmail; Fri, 29 May
  2020 13:00:42 -0700 (PDT)
-X-Received: by 2002:adf:e587:: with SMTP id l7mr10332851wrm.352.1590782442402;
+X-Received: by 2002:aa7:cc84:: with SMTP id p4mr10065260edt.216.1590782442756;
         Fri, 29 May 2020 13:00:42 -0700 (PDT)
 ARC-Seal: i=1; a=rsa-sha256; t=1590782442; cv=none;
         d=google.com; s=arc-20160816;
-        b=Wvefsvaw48gdds5S9CscSFg6keoaKOm0tkfS5fVXCx+d+KwzCr9kQ5TqQnMnfGcyp0
-         f/wfD10PHrzJFM33CXvn+2tjNnIKiiVgEV+on4i9iofWhxJBCxm8BqSC1E28OFrdPh7S
-         935CKWfGg8JgOvAzo692aOSOtj7R8EZlk8JQuipBZ8RpldiIGvsyy5vUTzloL/D3Mf8/
-         lcFTWmrwQZcnT9E5d7mbv6DOZhUILEwnJnN1bfXmZK0S6TQK5ID+tqCa1tx9E/hk6UI+
-         slL0/p2HiYCvos0gIOnWPGVysOVz9Ki8WtuaBOHA127g9T7Ik7vOFRTePdZ5ZOaroLkM
-         /voQ==
+        b=MFRhrIzzgHxYC9swT9RyXOPxdkEODkSDT7FxIg56OYfj+SYb8fI8ZDe0iT2OFZtefP
+         m+CI4Iq5RvtHruirriGg5Ws0tkgJ++hxdpoklSFEgRjAARGHrY97SYbLt82rZFjYcjjf
+         IBOwrcr3yFNI0Kmi4TQbLv/VrwEETqYJpQEu56yXwmg9bhidarobHz6Cttu0y67De2Hc
+         pbEvCNMoBQ7sVcHlLkRhVVvLTzKjHUso8UabQQ4QY7BDT3STmsbVlydQ4pLHSMmNHR/9
+         gZGbU8PQFf5o4QuffQ6EZV/Vfx1F9oAlKIgeYBHBxlltqtTisE9GeRKMRry8lyslvVuJ
+         NU9g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from;
-        bh=PxD0rsvwSO8Zecv/hZoQyhLj0QKwVh7ohUbi31d2FyU=;
-        b=1Bmj/whuTgGvgrpmSNJZT4K7j7HQb4exhQkzt9gZ/D0AARAeOwrLUCbcBsBh3TnwN8
-         ulHguTAdmsc+Nnzr86ghOh74r00K9kIqzRTkO4nOOMK1WM88hR9WkBY/H7BGA4ji1dtx
-         UUW64Fnc8SH6rHcohhtXHC5cpr5i0nG05FwozjcbpLUH8Vb6Uvtepv35LwnbZnZvyHnO
-         0YQK1RUdUtNi76tLqTAffCazaPnhcKdVHZJ/n68yYtSkj9YW0cjebaJ8uNXa3aUy06KR
-         yKpmF/nYBPu7uJpWGbny0Xd3GiVhJ67mM2akvFKtcY5McCRvwhc0UyVDR1PQHSWnH4t6
-         gg4w==
+        bh=iOMLDx+BFNI59cJuHrnmOgqwoqsdGMagJPCi14qWa4A=;
+        b=eOeVtshJfKe+MZg0Wstpg+GhMgvOIumNJnDmxu55AOcw18mSjMQAsKS8nLpu6jLRQE
+         rwgBZ3dtJXgEIJ/f8e05N/cz/g1mXLbTS9Dy8vcKpaHr8h1opILuFbq68uj/+WTymP+F
+         o0McUwcOSxaQ0KIp3BAA7WR1W1Kzx3W+kBJfcmUmKTkV9Uof+cCr8A61GbUusjoGDrfK
+         /XjZgFCnZgLLUKMssAcbWJqSBOQt7wyTSZlLoUNRCwvppj2arwE7yLhduruHc7YlmUkj
+         HhQZ5atONLGHgWEYDkYWyODNwHnrdyhzsCueWhM9kbFv587NDWY5duTKDsKimpUR+CC+
+         ltlA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.17.24 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
-Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.17.24])
-        by gmr-mx.google.com with ESMTPS id f16si593644wrq.5.2020.05.29.13.00.42
+       spf=neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Received: from mout.kundenserver.de (mout.kundenserver.de. [217.72.192.74])
+        by gmr-mx.google.com with ESMTPS id cm25si499748edb.5.2020.05.29.13.00.42
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Fri, 29 May 2020 13:00:42 -0700 (PDT)
-Received-SPF: neutral (google.com: 212.227.17.24 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.17.24;
+Received-SPF: neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=217.72.192.74;
 Received: from threadripper.lan ([149.172.98.151]) by mrelayeu.kundenserver.de
  (mreue109 [212.227.15.145]) with ESMTPA (Nemesis) id
- 1N3sZy-1iwnQf3ybI-00zltS; Fri, 29 May 2020 22:00:42 +0200
+ 1MryKp-1jAuTP0z7F-00o1uJ; Fri, 29 May 2020 22:00:42 +0200
 From: Arnd Bergmann <arnd@arndb.de>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>
 Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
@@ -102,34 +102,34 @@ Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Arnd Bergmann <arnd@arndb.de>
-Subject: [PATCH 7/9] staging: media: atomisp: fix enum type mixups
-Date: Fri, 29 May 2020 22:00:29 +0200
-Message-Id: <20200529200031.4117841-7-arnd@arndb.de>
+Subject: [PATCH 8/9] staging: media: atomisp: disable all custom formats
+Date: Fri, 29 May 2020 22:00:30 +0200
+Message-Id: <20200529200031.4117841-8-arnd@arndb.de>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200529200031.4117841-1-arnd@arndb.de>
 References: <20200529200031.4117841-1-arnd@arndb.de>
 MIME-Version: 1.0
-X-Provags-ID: V03:K1:Oi9GZuwYCtVW0YQN+bXyI0AbOsWHne7iHij3kFt4OBTdybYPLLc
- H1tbAKJGDVUZ/HsQa0IsK0ChzDn9x9fU4h3sHE2M5zUavENXzgppLZMmVaXJw8OgyvWf8JI
- 6WLxv0LO1XndxyGT2+tNMSzcBc5pudM+yARQsUzCWMNXsbqpLy5LFNUd51iYNWH5M1XMuyd
- x4l1SpV6NWqnyboGlSK2w==
+X-Provags-ID: V03:K1:qJ+Rt2kztW50CUtyGkYL0hFqj3O3Tr4F/pY389rx0O6o6EIN8vC
+ 1lCEbUfSh8FP7dkPqxLoITkuB6a10nWMuZak7qSz7LgZdyHDIgSAr52nLeV0cn1dTs/hNmJ
+ qpzPc94azOr/MuKJcOKoEoEreNOP6BcKL/2tOmAOeoWEyF8UcVfW7afpZWrgtQDdl/P8taX
+ kttbZO/XccamWEPS4281w==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:Iey8Rc3idrk=:R17CteIWPzHogAGPk1oHj2
- Ef9fDUzN7RcPNaW6sLJmU2Xs+zMyOjV0Yi2Rm6e9hOJsxxSwz6p3nF0I1uqsJphWUNwjZ5VFq
- cGBRzn9WDHR4MSsXIyVXGbPM5VHX7gRM8FeUxu81KrIwXXEuiD5JHweTfRLdlm/a+8XO1f9pX
- IHrvVNBArScrA2uLz6vrjnJzdPI6bM1eACaJnn/LjxuRiinFSalnndz0ed39CLMJX5iKHlzsd
- dGA2cupAXce2lpCk7UQB5r2RJtVprgpO3JYpUGppuuHLwr0ClY2F+UH+mS5zdub7M+MEJhBU4
- ubSfRC+2iR2pXRFD4DxvMp+mVZrUH3X8+3YluC4oCC7orAFJZmArPNOIa5wjhufII/+BHgR/7
- gKW4RUhD1AquC5HQ4QQWq+uGyqDyjCG6G809Z7LmGYrzuaYmw/cKs5RZQnc4nkl8RO6IoTA1p
- dlzfyWYWzYYKBsrRyZZ/3Oq7Xkxj0brEtxLfpZmM6m4rhKx24bRkKrt0iAf9uNfMPnoyG8jSQ
- pcE8IBgbsu//iK333FfoLHYzqsRVpBqems8d90rwo1wRUKHk6Dziw2EZ3cm6K26OZcWQCDZ8T
- 8C3c5a9jV7LDkWUSFBfAHenQKFl0tnPbPcDtNqYxhYYthptPMcnNxRxscHftceodQhl3bC6L9
- HcnxTel/SZ+jZs4Qt2XdlV9gZrGUJtMXXeEtYRMQ1h9p73p4/+a4XSlSh4alXgbnHDzbJ3yjb
- w67r9wWYFhXQYPwO9+nn3zEMuMnGYyNjYqMaJrzi93icSQhIYIRAjQb0VutuIsPYC8OUwACDc
- nAIbKVkBQ8scTOAeuXWvnyk94XHy1BVHXzrodpMYzYwVNvLrKk=
+X-UI-Out-Filterresults: notjunk:1;V03:K0:prz40u1jyDo=:zd1Jik3K+y7oBmpr6xyGwg
+ rqYC7cD7GAinKwyfFDLJIzNdgZF+PStBCYdWKfM5Z6l1JCPDhCUHVnLV4kiOdEFBxeTqB78pg
+ gQscXGQ4I1kkKkbWmu3A5RXK1lgcBmO7f4tCGOrqewtuMXbxEDNpfXOIla0EEbOzT1TJYnGe5
+ r0aR1aew/b5GJA6z2iIErBg9aKsA4b+lhCBa8FSVUwvRyWZmAAK6Sod/CieWy00ypIU4R5wYJ
+ aM02E3XARxdVyoO2wTVJwupb5q58h6zJaWWJrZeK8Qn09C0KCp6iaClxza2kS3mVW753gVhzK
+ UjlVi4Dtm3C0jZj2hFWZgOhI5T4GgZ90gsnxs2d0lgiZRKn5pcsckU6J0shqp6y1brOOn/2u0
+ Q+VqH2unQnN+jF63VGLrP11UVPZhe90/IqiqGNYdjy4W/4643JQ9JRVCoKilzzO/tNSAUVCmG
+ IFlWjPlQZZGM1Xu6gboffg4AEiLlif2lZUrclbEkt/4JIoYGFsBAzZNpk72+LDXLWTm652cg8
+ hnIs03JuPbvrkX0fp1zdiUdF7S/1JQglFnN9SqAUVHeqqw9U7rnIbw+jU85EdUpXEjd73jQ5q
+ 3+2K+fLUWSMk5qfkM3TzKmC6vPAw2mzMXQT0ABG7C8lhaqwgTqZMQ0gm6n035cS7SlSWXSOuQ
+ B6Pau3rwH/1qFuy1MzPYO81nXGXbi1WqTw1wzuOaDqqwCPWqOETJOtX+7kkBl44gRlPTSJeli
+ yDXdFSOOgvmXkrhHbdA3kqW6M5AHeTvk5ZVl+rl8jPMKhUGAGiriyNnIDbBoxlvOpQOFP6LOu
+ KNxy5bpYKsuiX9yru/eXvNTldOwCCnQX4e3TKLvMpMDLVoeCmQ=
 X-Original-Sender: arnd@arndb.de
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 212.227.17.24 is neither permitted nor denied by best guess
+ (google.com: 217.72.192.74 is neither permitted nor denied by best guess
  record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
@@ -144,75 +144,49 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Some function calls pass an incorrect enum type:
+clang points out the usage of an incorrect enum type in the
+list of supported image formats:
 
-drivers/staging/media/atomisp/pci/hive_isp_css_common/host/input_system.c:858:16: error: implicit conversion from enumeration type 'input_system_ID_t' to different enumeration type 'gp_device_ID_t' [-Werror,-Wenum-conversion]
-        gp_device_rst(INPUT_SYSTEM0_ID);
-        ~~~~~~~~~~~~~ ^~~~~~~~~~~~~~~~
-drivers/staging/media/atomisp/pci/hive_isp_css_common/host/input_system.c:860:19: error: implicit conversion from enumeration type 'input_system_ID_t' to different enumeration type 'gp_device_ID_t' [-Werror,-Wenum-conversion]
-        input_switch_rst(INPUT_SYSTEM0_ID);
-        ~~~~~~~~~~~~~~~~ ^~~~~~~~~~~~~~~~
-drivers/staging/media/atomisp/pci/hive_isp_css_common/host/input_system.c:876:27: error: implicit conversion from enumeration type 'input_system_cfg_flag_t' to different enumeration type 'input_system_connection_t' [-Werror,-Wenum-conversion]
-                config.multicast[i]              = INPUT_SYSTEM_CFG_FLAG_RESET;
-                                                 ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-drivers/staging/media/atomisp/pci/hive_isp_css_common/host/input_system.c:1326:32: error: implicit conversion from enumeration type 'input_system_ID_t' to different enumeration type 'gp_device_ID_t' [-Werror,-Wenum-conversion]
-        input_selector_cfg_for_sensor(INPUT_SYSTEM0_ID);
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^~~~~~~~~~~~~~~~
-drivers/staging/media/atomisp/pci/hive_isp_css_common/host/input_system.c:1329:19: error: implicit conversion from enumeration type 'input_system_ID_t' to different enumeration type 'gp_device_ID_t' [-Werror,-Wenum-conversion]
-        input_switch_cfg(INPUT_SYSTEM0_ID, &config.input_switch_cfg);
-        ~~~~~~~~~~~~~~~~ ^~~~~~~~~~~~~~~~
+drivers/staging/media/atomisp/pci/atomisp_subdev.c:49:65: error: implicit conversion from enumeration type 'enum ia_css_frame_format' to different enumeration type 'enum atomisp_input_format' [-Werror,-Wenum-conversion]
+        { V4L2_MBUS_FMT_CUSTOM_NV21, 12, 12, CSS_FRAME_FORMAT_NV21, 0, CSS_FRAME_FORMAT_NV21 },
+drivers/staging/media/atomisp/pci/atomisp_subdev.c:49:39: error: implicit conversion from enumeration type 'enum ia_css_frame_format' to different enumeration type 'enum atomisp_input_format' [-Werror,-Wenum-conversion]
+        { V4L2_MBUS_FMT_CUSTOM_NV21, 12, 12, CSS_FRAME_FORMAT_NV21, 0, CSS_FRAME_FORMAT_NV21 },
+        { V4L2_MBUS_FMT_CUSTOM_NV12, 12, 12, CSS_FRAME_FORMAT_NV12, 0, CSS_FRAME_FORMAT_NV12 },
+        { MEDIA_BUS_FMT_JPEG_1X8, 8, 8, CSS_FRAME_FORMAT_BINARY_8, 0, ATOMISP_INPUT_FORMAT_BINARY_8 },
 
-INPUT_SYSTEM0_ID is zero, so use the corresponding zero-value
-of the expected types instead.
+Checking the git history, I found a commit that disabled one such case
+because it did not work. It seems likely that the incorrect enum was
+part of the original problem and that the others do not work either,
+or have never been tested.
 
-Fixes: a49d25364dfb ("staging/atomisp: Add support for the Intel IPU v2")
+Disable all the ones that cause a warning.
+
+Fixes: cb02ae3d71ea ("media: staging: atomisp: Disable custom format for now")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- .../pci/hive_isp_css_common/host/input_system.c        | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ drivers/staging/media/atomisp/pci/atomisp_subdev.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/staging/media/atomisp/pci/hive_isp_css_common/host/input_system.c b/drivers/staging/media/atomisp/pci/hive_isp_css_common/host/input_system.c
-index 2114cf4f3fda..aa0f0fca9346 100644
---- a/drivers/staging/media/atomisp/pci/hive_isp_css_common/host/input_system.c
-+++ b/drivers/staging/media/atomisp/pci/hive_isp_css_common/host/input_system.c
-@@ -855,9 +855,9 @@ input_system_error_t input_system_configuration_reset(void)
- 
- 	input_system_network_rst(INPUT_SYSTEM0_ID);
- 
--	gp_device_rst(INPUT_SYSTEM0_ID);
-+	gp_device_rst(GP_DEVICE0_ID);
- 
--	input_switch_rst(INPUT_SYSTEM0_ID);
-+	input_switch_rst(GP_DEVICE0_ID);
- 
- 	//target_rst();
- 
-@@ -873,7 +873,7 @@ input_system_error_t input_system_configuration_reset(void)
- 
- 	for (i = 0; i < N_CSI_PORTS; i++) {
- 		config.csi_buffer_flags[i]	 = INPUT_SYSTEM_CFG_FLAG_RESET;
--		config.multicast[i]		 = INPUT_SYSTEM_CFG_FLAG_RESET;
-+		config.multicast[i]		 = INPUT_SYSTEM_DISCARD_ALL;
- 	}
- 
- 	config.source_type_flags				 = INPUT_SYSTEM_CFG_FLAG_RESET;
-@@ -1323,10 +1323,10 @@ static input_system_error_t configuration_to_registers(void)
- 	} // end of switch (source_type)
- 
- 	// Set input selector.
--	input_selector_cfg_for_sensor(INPUT_SYSTEM0_ID);
-+	input_selector_cfg_for_sensor(GP_DEVICE0_ID);
- 
- 	// Set input switch.
--	input_switch_cfg(INPUT_SYSTEM0_ID, &config.input_switch_cfg);
-+	input_switch_cfg(GP_DEVICE0_ID, &config.input_switch_cfg);
- 
- 	// Set input formatters.
- 	// AM: IF are set dynamically.
+diff --git a/drivers/staging/media/atomisp/pci/atomisp_subdev.c b/drivers/staging/media/atomisp/pci/atomisp_subdev.c
+index 46590129cbe3..8bce466cc128 100644
+--- a/drivers/staging/media/atomisp/pci/atomisp_subdev.c
++++ b/drivers/staging/media/atomisp/pci/atomisp_subdev.c
+@@ -44,9 +44,11 @@ const struct atomisp_in_fmt_conv atomisp_in_fmt_conv[] = {
+ 	{ MEDIA_BUS_FMT_SRGGB12_1X12, 12, 12, ATOMISP_INPUT_FORMAT_RAW_12, CSS_BAYER_ORDER_RGGB, CSS_FORMAT_RAW_12 },
+ 	{ MEDIA_BUS_FMT_UYVY8_1X16, 8, 8, ATOMISP_INPUT_FORMAT_YUV422_8, 0, ATOMISP_INPUT_FORMAT_YUV422_8 },
+ 	{ MEDIA_BUS_FMT_YUYV8_1X16, 8, 8, ATOMISP_INPUT_FORMAT_YUV422_8, 0, ATOMISP_INPUT_FORMAT_YUV422_8 },
++#if 0
+ 	{ MEDIA_BUS_FMT_JPEG_1X8, 8, 8, CSS_FRAME_FORMAT_BINARY_8, 0, ATOMISP_INPUT_FORMAT_BINARY_8 },
+ 	{ V4L2_MBUS_FMT_CUSTOM_NV12, 12, 12, CSS_FRAME_FORMAT_NV12, 0, CSS_FRAME_FORMAT_NV12 },
+ 	{ V4L2_MBUS_FMT_CUSTOM_NV21, 12, 12, CSS_FRAME_FORMAT_NV21, 0, CSS_FRAME_FORMAT_NV21 },
++#endif
+ 	{ V4L2_MBUS_FMT_CUSTOM_YUV420, 12, 12, ATOMISP_INPUT_FORMAT_YUV420_8_LEGACY, 0, ATOMISP_INPUT_FORMAT_YUV420_8_LEGACY },
+ #if 0
+ 	{ V4L2_MBUS_FMT_CUSTOM_M10MO_RAW, 8, 8, CSS_FRAME_FORMAT_BINARY_8, 0, ATOMISP_INPUT_FORMAT_BINARY_8 },
 -- 
 2.26.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200529200031.4117841-7-arnd%40arndb.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200529200031.4117841-8-arnd%40arndb.de.
