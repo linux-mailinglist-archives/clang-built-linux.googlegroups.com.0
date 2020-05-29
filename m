@@ -1,132 +1,129 @@
-Return-Path: <clang-built-linux+bncBDA7X7F2WUEBBCXUYL3AKGQEXQBVEUA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCV5TUXXRUIBB54CYX3AKGQEE7ILRAQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43e.google.com (mail-wr1-x43e.google.com [IPv6:2a00:1450:4864:20::43e])
-	by mail.lfdr.de (Postfix) with ESMTPS id DB8411E76A6
-	for <lists+clang-built-linux@lfdr.de>; Fri, 29 May 2020 09:30:18 +0200 (CEST)
-Received: by mail-wr1-x43e.google.com with SMTP id r5sf247134wrt.9
-        for <lists+clang-built-linux@lfdr.de>; Fri, 29 May 2020 00:30:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1590737418; cv=pass;
+Received: from mail-wr1-x439.google.com (mail-wr1-x439.google.com [IPv6:2a00:1450:4864:20::439])
+	by mail.lfdr.de (Postfix) with ESMTPS id A38B41E8450
+	for <lists+clang-built-linux@lfdr.de>; Fri, 29 May 2020 19:08:07 +0200 (CEST)
+Received: by mail-wr1-x439.google.com with SMTP id y7sf1287685wrd.12
+        for <lists+clang-built-linux@lfdr.de>; Fri, 29 May 2020 10:08:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1590772087; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YX7J2nNExV6sHcgxImekaW1gtb2d8B2Y8IjXyLMBNxidv2Wiibl3+w/N1KselE1Z52
-         7MmF0FAQzqNHWNtIeEdHxoy56X4LerWYyB1fXG5Q7QKP8M7HsBnMywYbcxgb7G1tLpp+
-         DLT3W4BNkhfQsU4/4EV3F4T4ncJQXbDeC8hA/hLWOuoThBkPvn+7T6WBIJEx8LFEirWo
-         Lq899UDkoZDBauSjvIDjieFzleXa2p7INag4YnlWPRhdcv06j5FDSVhMyNoLcB56Dowq
-         uU09Ikl7OUGiyrdwEPgQp6fZ2l8kFkQb+7PBbDuqSTp4yBIZdrJBJYtX9Ig/pD+DDqcL
-         qlQg==
+        b=rb94J8aps/sfpHfa5w8lEyeVKMTN7xN0JHjftbl7+JaRUE62GO17vuD2FaPzP4ppN8
+         jD+XvhlAGoTxIFRwH6wRHoQ+XTqQN7s90Lj5/F3FsSc4S81hvDP3492ZrDm69sNtWPfD
+         6LC/gYEzHdloS+X+QoY51bs5KXlfMBxA0gOn9Kg0F7tXTAQ4sLTs9qIqVFw5le3xRUjk
+         7MkJYd9KSJi2FUhfgu/GjoNLBLqLFEPPwxSWXuV41DdLuFc7Qv7zAOdWio8sR02dpNKQ
+         VhVnJFf6nl/8PU8YAZvzRUL1Ai/KkInK0BAdQU9lhBMANnCl/CGL/vJIBZkCtc6+nGjf
+         ElZQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to
-         :content-transfer-encoding:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=9EZcmFRMlPgn3gOECt33Xe7FQ5Tlny+WgcBKqvEASp4=;
-        b=Lmc5NUA3ucfxJZ/Y6p3BrmNkSHVNlHHk6yge8HA/zcivztyEOk4YT6zeEXZAggwylV
-         8djWhQjZ39V/8JFucvC1bm1U9C3FYIqDa3PCO1PPDSj1QAOhsaBi/Zebqgn2/AR/KtCb
-         EsQN2JVCY+wrjKs83ngnBQfJ3l2vgkEcWJftQYQmYIbbYX4DZYhC6BXQDqfkB5QbNjuO
-         whVhbjzOI5eIw32vjsWnWS0GJ0SHynCP+OvPTl3YXngFiyuTtj3jXH7uFJfLsgFqm2px
-         dfOfo3i3fhup6puCP1wJXmlgrzv4KKydCbcHK0Z1pET6uG0rpJtaYpnFfq8H95M1Sh3t
-         nCXw==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=2fAlXuqI4/wuL7N8NXhOf6R9nfR9a2vsFBpIoF8eEWg=;
+        b=uT8dUR5jKGUktBQ8zshLPDHC7iQ9ReyHYLjIAczpGqlrjEJLhVL13K4fAWRSyAaTA+
+         jTyAistxxO9LM/xEpVLg2D2yLqkXjX28cr1NzTCSwwSdLveqU5VtPYk0RLIrPd0vi439
+         3MzTUAipdO1ecWGghouVzl5YUuktOziQUOU0Z4mWCkZwlTesw4p2Uyd3Kpu8RH8UOyiR
+         ic1EOUJ0WVlbs12crGsgYy9SmQ2hDKZjJe5IHLrUwtOpHefL93aMdHA6S3OL+KJXp39S
+         4Ou/eW+JI2hEqPLMdVAaxVjtfp00v0iwLEvMp5WONBdXs1vWW9t12ThEBohj2mWa3nfr
+         H0Ow==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=Je+yv0rY;
-       spf=pass (google.com: domain of lee.jones@linaro.org designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=lee.jones@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=MSosw5qP;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:content-transfer-encoding:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=9EZcmFRMlPgn3gOECt33Xe7FQ5Tlny+WgcBKqvEASp4=;
-        b=rooWGnhm+NPLjT0Mcw/JRvjpuSQUOr18rn8Vjy1XWYE8dL/q8UP5JKI2dNeT2Ab1Es
-         BM10/YAEWUvA+MHbsHHlcPSAbD9H7sdVeOZjvF4PBDWtfpL8GxoLTddps2+tRog6ekqV
-         InK1zBAmcHOf+K0yCV4pKxIK/5WBMfECthJ2v24gwCb4FINMecoZADmnF5UXm68zj/f/
-         AbHoRVGrTmOy3rUBMrpVRs+aJmO7P+YaGLgLmx3f/18WIvFx6Utcw7IZjJZZmMFQoKpX
-         kvKpYNidH6dLF/zj+ie4UEy3gue4NBWhChFx/lGdSF7u+dIh2f5Q2OlK+zXByf5q8xTL
-         xGew==
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=2fAlXuqI4/wuL7N8NXhOf6R9nfR9a2vsFBpIoF8eEWg=;
+        b=XNgcxRUcIbYLKzRD8vsXM0HrRlx93fAzZnC/9qbny3z8y1PZxcZgWZVyn9UDREHOv/
+         Fraz4imBwMP4+1Cex5zWe5SBknreOy8b8WoJzrz9HqRIeJYM12pnJFYaVz2gGqYIzVOr
+         uZ4h8LVrbbVAB6LfSqnFSBjXtsDBsh0vvmMwR8MyD+5RhHULduqvv/Qd+/IJ/QbEMToN
+         R5hZMT9mTLtKnLxEYRZOryvcg9QmRlAPBY+R8PuXKj1c4Z7d3UNWRTW+q+toqCa4Aw43
+         TRcjhoiFpQ4+7Q6BIVYZhgYkQ1muj08pCcmkK4/0Txx6ARhyUgmAnwgl0Huv28nB15Tb
+         LFRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition
-         :content-transfer-encoding:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=9EZcmFRMlPgn3gOECt33Xe7FQ5Tlny+WgcBKqvEASp4=;
-        b=r5DbwpfVIIiT4rBJBt21G66ADbq3A4sRGE1AZ6P5sNnNlzSFZ5HSkK1Hw/zTvIiyS9
-         lSzYvSfkSNIo4sdb0dLgCcAwJG5dWXtNJdBwXoxsJhlUOXB/icWs6W0+bLDh88JTvBj5
-         WBaGvNsJzFXzVniRxhdI3divm+Gq6xqPUAZg8Vgjnrl47YDwpZIrFstaLDOpJzZAhfzy
-         yu7k0CS0Ly7WryGLD9BcsdbsJwde4d+XHlwTKzz8Gyljvg1skirbgTxaReZ9jRM1kDDv
-         9vSyVhTUIhN9kMbW0kAF+JJ/l5VtlZjTofbxbHtZ6bsxcof2arpdp3kl43ZJ1PVH0kMe
-         935w==
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=2fAlXuqI4/wuL7N8NXhOf6R9nfR9a2vsFBpIoF8eEWg=;
+        b=Z+cKg/k1ioaQzbXin6Ll+Pw3TnlaAV6m680EkNX883p8lFscNSqHcnvmoMlZCJL98P
+         hBI9r60P6uLb6LQt7U4S3O8UduJfrWtsQuYhSBbk+Bbm7ypM6sF9QYLU/msycATIk37o
+         3AjErQhhkCGefc3+K6J9w7I1YK1pVv80y0+lMQ+/s5B1FKQtj4+qUIG0U/DPa8Z1/v+y
+         /v9dQVyK/7psTNPMITx2t5Xywj0/9CeVEyMUBDCco9szFL/wibgc79aHQAtc2q6EbU7h
+         irj1Xijquc0tQw4EstCwSIs4Mkm9/FaKB3n2xzGGaWF/4T4+yutaXUwhN3pVLmA0ptb1
+         /r1A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532AxQ23cNpOopGiVmm9Lk2uuLzjFAMekXfGKacr9WdsEujM9Bd3
-	+s3bNLJSZeW9HJRlerwnLsw=
-X-Google-Smtp-Source: ABdhPJzLLaXmrEs7gphoEUUkozPBUPNvX2hyaYGi0bFye6i12JulQyEu6wdtFnhsX0t/6PpWNAMEfw==
-X-Received: by 2002:a7b:cf35:: with SMTP id m21mr7457323wmg.181.1590737418564;
-        Fri, 29 May 2020 00:30:18 -0700 (PDT)
+X-Gm-Message-State: AOAM532HZKPTt61QaKaJgw8ux7VneXAXCToJcWqHy4Vgjush9jAL6vyq
+	uOx8uu46oNHEQh8un+TLlY4=
+X-Google-Smtp-Source: ABdhPJxV2wuC/PtZCS6rmXhTyu5VgQHk2H2FlZU57gcxAgP0pRY4dKDViFagayTlgydabCqmiqVljA==
+X-Received: by 2002:a1c:4008:: with SMTP id n8mr7658505wma.118.1590772087344;
+        Fri, 29 May 2020 10:08:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:9e15:: with SMTP id h21ls2442009wme.0.canary-gmail; Fri,
- 29 May 2020 00:30:18 -0700 (PDT)
-X-Received: by 2002:a7b:c0d9:: with SMTP id s25mr7599458wmh.175.1590737418086;
-        Fri, 29 May 2020 00:30:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1590737418; cv=none;
+Received: by 2002:a7b:c959:: with SMTP id i25ls3489812wml.2.gmail; Fri, 29 May
+ 2020 10:08:06 -0700 (PDT)
+X-Received: by 2002:a7b:ce01:: with SMTP id m1mr9600709wmc.116.1590772086754;
+        Fri, 29 May 2020 10:08:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1590772086; cv=none;
         d=google.com; s=arc-20160816;
-        b=Jk7XKrlaJN4srghIvtxk3Rm6Tnl6sHu0o8YBl3scYnYWuS5k6dnadQhbFu1r4IDebU
-         GD5DT9Hgfxd423+gVUPxcHBA+PqYBL/gS1Xt/HwWxadoXtRaVYsqku+9vP8FuMxEIaIl
-         rRq1wG0WruFWGXEg4xnUd1C83zg/XN0h4vNpF1VhxDwdpB7IztoLpdY8CO5e2IkSuNlW
-         3sLI3AU8/9Ycq0eSC+T6Ms48oiCPOACGJ7zh1zxcTX1iiTnfhAdaD+wGIxqDJJgnNvOX
-         FPVTpJI710z7l58T/TbvnjJIN129pKM9ynm5V6Bv6p4vdqgt4EDGuILuTvO2pT82IwZ9
-         zQ3w==
+        b=Wau9p9UGFQYrYGoTme5wQ5CLlGtPjnlYifSmcCdvuK04FS69BOXDovtblmmrviaz7B
+         FT1g7o7ctV9EfnZgwD2gMDnCfdSuTdWaiANrU7vJ3BAepJMCmBlOMnAR4qkS4CHFOgTq
+         LFyDG7zEOpm/giTVTKdeNbuK0duVZ3bVA8VUztpXutgOdjw4hwaGp3FixBjt6r9DsPYO
+         nTxLV7FqMABEMbbCsOAh+zLPASkA3NFTyu3EcRQb1LDpc3JFdvTUtv/CQYdIXnlzf2u9
+         LqhIeRoYOYnJeLUDFG8/501hP+VAIPXHYjWJ5IUswQ2wTZ2c8uxPljnvYY7QS1Eddqvp
+         z69Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :dkim-signature;
-        bh=Lu7JAc3YfepkRtFpRq1xiOguFXwB8Pfr946uwrP9f7k=;
-        b=kTjLLFUFQYSsD5gUXmfL2pWTbVbYpkD8Y3qjblooW4XBYXd3KfStU3s0JEFtOHiaSd
-         25FkgvSZ+o36W4aQ2MIt5Jgvm17Vt4KX1Xert4FN37ObPjxzfYY6pQDkKg6J72hQ0gXt
-         7GTkF2xNCcd8EPb/J3JgQCKZ9+6Ec766Jmk5oEBTKQ1ylriL0uJFn37xOt1Ay7KMpr3I
-         fR6tBonZbF5GJXvSOyEczIZZObUsmUHKf49T3hj41hC6PvsiGpArEIafiyX/MYq/0RFF
-         M7RF43KE6Qe2QyeX4RtR19zeuv3SOjcYZj2njuhaJlNe8/2uggfY3nDwZE50n+6W0+DT
-         NY6Q==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=TFvRXAcR53qFccB0D5t7OoqWfRiUV7I+frw7I0E1gOo=;
+        b=LP1xD1OAT0H0N6+k4UKYN6zGHusLbMokYD9/ACpAh4+LjoesLeJfMyJZCfkUX+FY6y
+         8tzdUfXNFr/gZQ2o6a9Sjw4NKmqSqG8DjmWcGIx52BA/jN0U/47iyJJoADbk3eND4ivB
+         eWEGZm2m68jSDy3cCczwF/j/tn8pESTpmiWhvR74Raq6Hn0k4kD19pCyTiT2sc7A8QHr
+         mb3PKacJi/hzA6d8xspNl+AmYkpu5Y8lZzl1aJ2gd7a1ZDAfl46y/r39TgIqIX2Sh4Ql
+         67Cmk5dyUS6ZdiqryXCjbVUBda/sZdUpIjtiBhiSLsSTWyS93+32poh2SPH5kuPnANQj
+         UJyg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=Je+yv0rY;
-       spf=pass (google.com: domain of lee.jones@linaro.org designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=lee.jones@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wm1-x343.google.com (mail-wm1-x343.google.com. [2a00:1450:4864:20::343])
-        by gmr-mx.google.com with ESMTPS id m20si381496wmc.0.2020.05.29.00.30.18
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 29 May 2020 00:30:18 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lee.jones@linaro.org designates 2a00:1450:4864:20::343 as permitted sender) client-ip=2a00:1450:4864:20::343;
-Received: by mail-wm1-x343.google.com with SMTP id f185so2132243wmf.3
-        for <clang-built-linux@googlegroups.com>; Fri, 29 May 2020 00:30:18 -0700 (PDT)
-X-Received: by 2002:a7b:cf35:: with SMTP id m21mr7457243wmg.181.1590737417542;
-        Fri, 29 May 2020 00:30:17 -0700 (PDT)
-Received: from dell ([95.147.198.92])
-        by smtp.gmail.com with ESMTPSA id h137sm12232358wme.0.2020.05.29.00.30.16
+       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=MSosw5qP;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
+Received: from bombadil.infradead.org (bombadil.infradead.org. [2607:7c80:54:e::133])
+        by gmr-mx.google.com with ESMTPS id w126si14251wma.4.2020.05.29.10.08.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 May 2020 00:30:16 -0700 (PDT)
-Date: Fri, 29 May 2020 08:30:15 +0100
-From: Lee Jones <lee.jones@linaro.org>
-To: kbuild test robot <lkp@intel.com>
-Cc: Gene Chen <gene.chen.richtek@gmail.com>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com
-Subject: Re: [linux-next:master 12774/13554] drivers/mfd/mt6360-core.c:148:2:
- warning: initializer overrides prior initialization of this subobject
-Message-ID: <20200529073015.GQ3628@dell>
-References: <202005291101.X3TXWqSi%lkp@intel.com>
+        Fri, 29 May 2020 10:08:06 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) client-ip=2607:7c80:54:e::133;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
+	by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1jeiUA-0001rc-PT; Fri, 29 May 2020 17:07:59 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id C01BD3011FF;
+	Fri, 29 May 2020 19:07:55 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id AC7DB2BB51407; Fri, 29 May 2020 19:07:55 +0200 (CEST)
+Date: Fri, 29 May 2020 19:07:55 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Marco Elver <elver@google.com>
+Cc: paulmck@kernel.org, dvyukov@google.com, glider@google.com,
+	andreyknvl@google.com, kasan-dev@googlegroups.com,
+	linux-kernel@vger.kernel.org, tglx@linutronix.de, mingo@kernel.org,
+	will@kernel.org, clang-built-linux@googlegroups.com, bp@alien8.de
+Subject: Re: [PATCH -tip v3 05/11] kcsan: Remove 'noinline' from
+ __no_kcsan_or_inline
+Message-ID: <20200529170755.GN706495@hirez.programming.kicks-ass.net>
+References: <20200521142047.169334-1-elver@google.com>
+ <20200521142047.169334-6-elver@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <202005291101.X3TXWqSi%lkp@intel.com>
-X-Original-Sender: lee.jones@linaro.org
+In-Reply-To: <20200521142047.169334-6-elver@google.com>
+X-Original-Sender: peterz@infradead.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=Je+yv0rY;       spf=pass
- (google.com: domain of lee.jones@linaro.org designates 2a00:1450:4864:20::343
- as permitted sender) smtp.mailfrom=lee.jones@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@infradead.org header.s=bombadil.20170209 header.b=MSosw5qP;
+       spf=pass (google.com: best guess record for domain of
+ peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,163 +136,129 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Gene,
-
-On Fri, 29 May 2020, kbuild test robot wrote:
-
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.g=
-it master
-> head:   ff387fc20c697cdc887b2abf7ef494e853795a2f
-> commit: 7edd363421dab1d4806802ac65613d1c0ec85824 [12774/13554] mfd: Add s=
-upport for PMIC MT6360
-> config: x86_64-allyesconfig (attached as .config)
-> compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 2d06=
-8e534f1671459e1b135852c1b3c10502e929)
-> reproduce (this is a W=3D1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbi=
-n/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install x86_64 cross compiling tool for clang build
->         # apt-get install binutils-x86-64-linux-gnu
->         git checkout 7edd363421dab1d4806802ac65613d1c0ec85824
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cross AR=
-CH=3Dx86_64=20
->=20
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kbuild test robot <lkp@intel.com>
->=20
-> All warnings (new ones prefixed by >>, old ones prefixed by <<):
->=20
-> >> drivers/mfd/mt6360-core.c:148:2: warning: initializer overrides prior =
-initialization of this subobject [-Winitializer-overrides]
-> REGMAP_IRQ_REG_LINE(MT6360_CHG_TREG_EVT, 8),
-> ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> include/linux/regmap.h:1191:10: note: expanded from macro 'REGMAP_IRQ_REG=
-_LINE'
-> [_id] =3D {                                                  ^~~~~~~~~~~~=
-~~~~~~~~~~~~~~~~~~~~~
-> drivers/mfd/mt6360-core.c:124:2: note: previous initialization is here
-> REGMAP_IRQ_REG_LINE(MT6360_CHG_TREG_EVT, 8),
-> ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> include/linux/regmap.h:1191:10: note: expanded from macro 'REGMAP_IRQ_REG=
-_LINE'
-> [_id] =3D {                                                  ^~~~~~~~~~~~=
-~~~~~~~~~~~~~~~~~~~~~
-> 1 warning generated.
-
-Could you fix this today please?
-
-> vim +148 drivers/mfd/mt6360-core.c
->=20
->    122=09
->    123	static const struct regmap_irq mt6360_pmu_irqs[] =3D  {
->    124		REGMAP_IRQ_REG_LINE(MT6360_CHG_TREG_EVT, 8),
->    125		REGMAP_IRQ_REG_LINE(MT6360_CHG_AICR_EVT, 8),
->    126		REGMAP_IRQ_REG_LINE(MT6360_CHG_MIVR_EVT, 8),
->    127		REGMAP_IRQ_REG_LINE(MT6360_PWR_RDY_EVT, 8),
->    128		REGMAP_IRQ_REG_LINE(MT6360_CHG_BATSYSUV_EVT, 8),
->    129		REGMAP_IRQ_REG_LINE(MT6360_FLED_CHG_VINOVP_EVT, 8),
->    130		REGMAP_IRQ_REG_LINE(MT6360_CHG_VSYSUV_EVT, 8),
->    131		REGMAP_IRQ_REG_LINE(MT6360_CHG_VSYSOV_EVT, 8),
->    132		REGMAP_IRQ_REG_LINE(MT6360_CHG_VBATOV_EVT, 8),
->    133		REGMAP_IRQ_REG_LINE(MT6360_CHG_VBUSOV_EVT, 8),
->    134		REGMAP_IRQ_REG_LINE(MT6360_WD_PMU_DET, 8),
->    135		REGMAP_IRQ_REG_LINE(MT6360_WD_PMU_DONE, 8),
->    136		REGMAP_IRQ_REG_LINE(MT6360_CHG_TMRI, 8),
->    137		REGMAP_IRQ_REG_LINE(MT6360_CHG_ADPBADI, 8),
->    138		REGMAP_IRQ_REG_LINE(MT6360_CHG_RVPI, 8),
->    139		REGMAP_IRQ_REG_LINE(MT6360_OTPI, 8),
->    140		REGMAP_IRQ_REG_LINE(MT6360_CHG_AICCMEASL, 8),
->    141		REGMAP_IRQ_REG_LINE(MT6360_CHGDET_DONEI, 8),
->    142		REGMAP_IRQ_REG_LINE(MT6360_WDTMRI, 8),
->    143		REGMAP_IRQ_REG_LINE(MT6360_SSFINISHI, 8),
->    144		REGMAP_IRQ_REG_LINE(MT6360_CHG_RECHGI, 8),
->    145		REGMAP_IRQ_REG_LINE(MT6360_CHG_TERMI, 8),
->    146		REGMAP_IRQ_REG_LINE(MT6360_CHG_IEOCI, 8),
->    147		REGMAP_IRQ_REG_LINE(MT6360_PUMPX_DONEI, 8),
->  > 148		REGMAP_IRQ_REG_LINE(MT6360_CHG_TREG_EVT, 8),
->    149		REGMAP_IRQ_REG_LINE(MT6360_BAT_OVP_ADC_EVT, 8),
->    150		REGMAP_IRQ_REG_LINE(MT6360_TYPEC_OTP_EVT, 8),
->    151		REGMAP_IRQ_REG_LINE(MT6360_ADC_WAKEUP_EVT, 8),
->    152		REGMAP_IRQ_REG_LINE(MT6360_ADC_DONEI, 8),
->    153		REGMAP_IRQ_REG_LINE(MT6360_BST_BATUVI, 8),
->    154		REGMAP_IRQ_REG_LINE(MT6360_BST_VBUSOVI, 8),
->    155		REGMAP_IRQ_REG_LINE(MT6360_BST_OLPI, 8),
->    156		REGMAP_IRQ_REG_LINE(MT6360_ATTACH_I, 8),
->    157		REGMAP_IRQ_REG_LINE(MT6360_DETACH_I, 8),
->    158		REGMAP_IRQ_REG_LINE(MT6360_QC30_STPDONE, 8),
->    159		REGMAP_IRQ_REG_LINE(MT6360_QC_VBUSDET_DONE, 8),
->    160		REGMAP_IRQ_REG_LINE(MT6360_HVDCP_DET, 8),
->    161		REGMAP_IRQ_REG_LINE(MT6360_CHGDETI, 8),
->    162		REGMAP_IRQ_REG_LINE(MT6360_DCDTI, 8),
->    163		REGMAP_IRQ_REG_LINE(MT6360_FOD_DONE_EVT, 8),
->    164		REGMAP_IRQ_REG_LINE(MT6360_FOD_OV_EVT, 8),
->    165		REGMAP_IRQ_REG_LINE(MT6360_CHRDET_UVP_EVT, 8),
->    166		REGMAP_IRQ_REG_LINE(MT6360_CHRDET_OVP_EVT, 8),
->    167		REGMAP_IRQ_REG_LINE(MT6360_CHRDET_EXT_EVT, 8),
->    168		REGMAP_IRQ_REG_LINE(MT6360_FOD_LR_EVT, 8),
->    169		REGMAP_IRQ_REG_LINE(MT6360_FOD_HR_EVT, 8),
->    170		REGMAP_IRQ_REG_LINE(MT6360_FOD_DISCHG_FAIL_EVT, 8),
->    171		REGMAP_IRQ_REG_LINE(MT6360_USBID_EVT, 8),
->    172		REGMAP_IRQ_REG_LINE(MT6360_APWDTRST_EVT, 8),
->    173		REGMAP_IRQ_REG_LINE(MT6360_EN_EVT, 8),
->    174		REGMAP_IRQ_REG_LINE(MT6360_QONB_RST_EVT, 8),
->    175		REGMAP_IRQ_REG_LINE(MT6360_MRSTB_EVT, 8),
->    176		REGMAP_IRQ_REG_LINE(MT6360_OTP_EVT, 8),
->    177		REGMAP_IRQ_REG_LINE(MT6360_VDDAOV_EVT, 8),
->    178		REGMAP_IRQ_REG_LINE(MT6360_SYSUV_EVT, 8),
->    179		REGMAP_IRQ_REG_LINE(MT6360_FLED_STRBPIN_EVT, 8),
->    180		REGMAP_IRQ_REG_LINE(MT6360_FLED_TORPIN_EVT, 8),
->    181		REGMAP_IRQ_REG_LINE(MT6360_FLED_TX_EVT, 8),
->    182		REGMAP_IRQ_REG_LINE(MT6360_FLED_LVF_EVT, 8),
->    183		REGMAP_IRQ_REG_LINE(MT6360_FLED2_SHORT_EVT, 8),
->    184		REGMAP_IRQ_REG_LINE(MT6360_FLED1_SHORT_EVT, 8),
->    185		REGMAP_IRQ_REG_LINE(MT6360_FLED2_STRB_EVT, 8),
->    186		REGMAP_IRQ_REG_LINE(MT6360_FLED1_STRB_EVT, 8),
->    187		REGMAP_IRQ_REG_LINE(MT6360_FLED2_STRB_TO_EVT, 8),
->    188		REGMAP_IRQ_REG_LINE(MT6360_FLED1_STRB_TO_EVT, 8),
->    189		REGMAP_IRQ_REG_LINE(MT6360_FLED2_TOR_EVT, 8),
->    190		REGMAP_IRQ_REG_LINE(MT6360_FLED1_TOR_EVT, 8),
->    191		REGMAP_IRQ_REG_LINE(MT6360_BUCK1_PGB_EVT, 8),
->    192		REGMAP_IRQ_REG_LINE(MT6360_BUCK1_OC_EVT, 8),
->    193		REGMAP_IRQ_REG_LINE(MT6360_BUCK1_OV_EVT, 8),
->    194		REGMAP_IRQ_REG_LINE(MT6360_BUCK1_UV_EVT, 8),
->    195		REGMAP_IRQ_REG_LINE(MT6360_BUCK2_PGB_EVT, 8),
->    196		REGMAP_IRQ_REG_LINE(MT6360_BUCK2_OC_EVT, 8),
->    197		REGMAP_IRQ_REG_LINE(MT6360_BUCK2_OV_EVT, 8),
->    198		REGMAP_IRQ_REG_LINE(MT6360_BUCK2_UV_EVT, 8),
->    199		REGMAP_IRQ_REG_LINE(MT6360_LDO1_OC_EVT, 8),
->    200		REGMAP_IRQ_REG_LINE(MT6360_LDO2_OC_EVT, 8),
->    201		REGMAP_IRQ_REG_LINE(MT6360_LDO3_OC_EVT, 8),
->    202		REGMAP_IRQ_REG_LINE(MT6360_LDO5_OC_EVT, 8),
->    203		REGMAP_IRQ_REG_LINE(MT6360_LDO6_OC_EVT, 8),
->    204		REGMAP_IRQ_REG_LINE(MT6360_LDO7_OC_EVT, 8),
->    205		REGMAP_IRQ_REG_LINE(MT6360_LDO1_PGB_EVT, 8),
->    206		REGMAP_IRQ_REG_LINE(MT6360_LDO2_PGB_EVT, 8),
->    207		REGMAP_IRQ_REG_LINE(MT6360_LDO3_PGB_EVT, 8),
->    208		REGMAP_IRQ_REG_LINE(MT6360_LDO5_PGB_EVT, 8),
->    209		REGMAP_IRQ_REG_LINE(MT6360_LDO6_PGB_EVT, 8),
->    210		REGMAP_IRQ_REG_LINE(MT6360_LDO7_PGB_EVT, 8),
->    211	};
->    212=09
->=20
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+On Thu, May 21, 2020 at 04:20:41PM +0200, Marco Elver wrote:
+> Some compilers incorrectly inline small __no_kcsan functions, which then
+> results in instrumenting the accesses. For this reason, the 'noinline'
+> attribute was added to __no_kcsan_or_inline. All known versions of GCC
+> are affected by this. Supported version of Clang are unaffected, and
+> never inlines a no_sanitize function.
+> 
+> However, the attribute 'noinline' in __no_kcsan_or_inline causes
+> unexpected code generation in functions that are __no_kcsan and call a
+> __no_kcsan_or_inline function.
+> 
+> In certain situations it is expected that the __no_kcsan_or_inline
+> function is actually inlined by the __no_kcsan function, and *no* calls
+> are emitted. By removing the 'noinline' attribute we give the compiler
+> the ability to inline and generate the expected code in __no_kcsan
+> functions.
 
 
+Doesn't this mean we can do the below?
 
---=20
-Lee Jones [=E6=9D=8E=E7=90=BC=E6=96=AF]
-Linaro Services Technical Lead
-Linaro.org =E2=94=82 Open source software for ARM SoCs
-Follow Linaro: Facebook | Twitter | Blog
+---
+ Documentation/dev-tools/kcsan.rst |  6 ------
+ arch/x86/include/asm/bitops.h     |  6 +-----
+ include/linux/compiler_types.h    | 14 ++++----------
+ kernel/kcsan/kcsan-test.c         |  4 ++--
+ 4 files changed, 7 insertions(+), 23 deletions(-)
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20200529073015.GQ3628%40dell.
+diff --git a/Documentation/dev-tools/kcsan.rst b/Documentation/dev-tools/kcsan.rst
+index ce4bbd918648..b38379f06194 100644
+--- a/Documentation/dev-tools/kcsan.rst
++++ b/Documentation/dev-tools/kcsan.rst
+@@ -114,12 +114,6 @@ functions, compilation units, or entire subsystems.  For static blacklisting,
+   To dynamically limit for which functions to generate reports, see the
+   `DebugFS interface`_ blacklist/whitelist feature.
+ 
+-  For ``__always_inline`` functions, replace ``__always_inline`` with
+-  ``__no_kcsan_or_inline`` (which implies ``__always_inline``)::
+-
+-    static __no_kcsan_or_inline void foo(void) {
+-        ...
+-
+ * To disable data race detection for a particular compilation unit, add to the
+   ``Makefile``::
+ 
+diff --git a/arch/x86/include/asm/bitops.h b/arch/x86/include/asm/bitops.h
+index 35460fef39b8..0367efdc5b7a 100644
+--- a/arch/x86/include/asm/bitops.h
++++ b/arch/x86/include/asm/bitops.h
+@@ -201,12 +201,8 @@ arch_test_and_change_bit(long nr, volatile unsigned long *addr)
+ 	return GEN_BINARY_RMWcc(LOCK_PREFIX __ASM_SIZE(btc), *addr, c, "Ir", nr);
+ }
+ 
+-static __no_kcsan_or_inline bool constant_test_bit(long nr, const volatile unsigned long *addr)
++static __always_inline bool constant_test_bit(long nr, const volatile unsigned long *addr)
+ {
+-	/*
+-	 * Because this is a plain access, we need to disable KCSAN here to
+-	 * avoid double instrumentation via instrumented bitops.
+-	 */
+ 	return ((1UL << (nr & (BITS_PER_LONG-1))) &
+ 		(addr[nr >> _BITOPS_LONG_SHIFT])) != 0;
+ }
+diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
+index 4e4982d6f3b0..6a2c0f857ac3 100644
+--- a/include/linux/compiler_types.h
++++ b/include/linux/compiler_types.h
+@@ -118,10 +118,6 @@ struct ftrace_likely_data {
+ #define notrace			__attribute__((__no_instrument_function__))
+ #endif
+ 
+-/* Section for code which can't be instrumented at all */
+-#define noinstr								\
+-	noinline notrace __attribute((__section__(".noinstr.text")))
+-
+ /*
+  * it doesn't make sense on ARM (currently the only user of __naked)
+  * to trace naked functions because then mcount is called without
+@@ -192,17 +188,15 @@ struct ftrace_likely_data {
+ #endif
+ 
+ #define __no_kcsan __no_sanitize_thread
+-#ifdef __SANITIZE_THREAD__
+-# define __no_kcsan_or_inline __no_kcsan notrace __maybe_unused
+-# define __no_sanitize_or_inline __no_kcsan_or_inline
+-#else
+-# define __no_kcsan_or_inline __always_inline
+-#endif
+ 
+ #ifndef __no_sanitize_or_inline
+ #define __no_sanitize_or_inline __always_inline
+ #endif
+ 
++/* Section for code which can't be instrumented at all */
++#define noinstr								\
++	noinline notrace __attribute((__section__(".noinstr.text"))) __no_kcsan
++
+ #endif /* __KERNEL__ */
+ 
+ #endif /* __ASSEMBLY__ */
+diff --git a/kernel/kcsan/kcsan-test.c b/kernel/kcsan/kcsan-test.c
+index a8c11506dd2a..374263ddffe2 100644
+--- a/kernel/kcsan/kcsan-test.c
++++ b/kernel/kcsan/kcsan-test.c
+@@ -43,7 +43,7 @@ static struct {
+ };
+ 
+ /* Setup test checking loop. */
+-static __no_kcsan_or_inline void
++static __no_kcsan inline void
+ begin_test_checks(void (*func1)(void), void (*func2)(void))
+ {
+ 	kcsan_disable_current();
+@@ -60,7 +60,7 @@ begin_test_checks(void (*func1)(void), void (*func2)(void))
+ }
+ 
+ /* End test checking loop. */
+-static __no_kcsan_or_inline bool
++static __no_kcsan inline bool
+ end_test_checks(bool stop)
+ {
+ 	if (!stop && time_before(jiffies, end_time)) {
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200529170755.GN706495%40hirez.programming.kicks-ass.net.
