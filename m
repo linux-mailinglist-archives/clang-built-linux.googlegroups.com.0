@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBTGG2D3AKGQEHVFSTII@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBFPG2D3AKGQEUHOKYDA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43b.google.com (mail-pf1-x43b.google.com [IPv6:2607:f8b0:4864:20::43b])
-	by mail.lfdr.de (Postfix) with ESMTPS id D625B1E9A8E
-	for <lists+clang-built-linux@lfdr.de>; Sun, 31 May 2020 23:36:14 +0200 (CEST)
-Received: by mail-pf1-x43b.google.com with SMTP id w1sf4166007pfw.2
-        for <lists+clang-built-linux@lfdr.de>; Sun, 31 May 2020 14:36:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1590960973; cv=pass;
+Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
+	by mail.lfdr.de (Postfix) with ESMTPS id 018BD1E9AB9
+	for <lists+clang-built-linux@lfdr.de>; Mon,  1 Jun 2020 00:43:35 +0200 (CEST)
+Received: by mail-pg1-x537.google.com with SMTP id m15sf3927362pgl.15
+        for <lists+clang-built-linux@lfdr.de>; Sun, 31 May 2020 15:43:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1590965013; cv=pass;
         d=google.com; s=arc-20160816;
-        b=NJMlW49fuXbdxl+C0H3clW2UPMzszNEjxASlJTf9bQeJmKnvuHhW5pSEWTW6Hljt5/
-         bQGe6vcw7TD9KoVysVooaNN4XEPXXZ1j29tQHfAxn1YQxelxdkn6zTHbL9UVgTGClWCh
-         U1uK4qDolnJ3wvM7IslPERpdNfp87yjdrogw1Yc2/7zrzMYlcTspn7x/OQXbhyHuw+Ww
-         dD7Iny/2OrVHPdbt/MFLjb29k2McP8MFLqNKmr3DWPCZTvHOZIO2V2Yf29vvaKbdubI7
-         XLXZdPNFwZ6hK7s+or2rYmmxpIx1GP/AJiyrVrYtNOL0Yo6qw8buKBin4gRob+2JJPXz
-         fBLg==
+        b=Kpzs3lkzKR1oceMgo8N2O9DyNHgw1lOmArF1orHHhLo5EE9tlT2Q5AkM5lRjgGhS9i
+         asBHotMPtfqm2M9qoaOdN6RF44xruT1KjgKR19y3Cil2Wlsuil5iuBP8e7/1H49emkw0
+         XkTVRTSzu4kd+aN0x22KIMCCmrIXi2O8PIZvpEqrHYwycFv5+pSuW/ZyON5bfnAtkrm6
+         gvUK/5CuvQEbenFndn9VXZAQ2xtUiQSlU1yE7MQkLLZj4qfs2xbMFFBy5esdcT6ZabIo
+         KqLFhR8XVLvV6w2mnqkHVmkKLTEQ/0hogPXbt+iDbd2oOOp917Pv48JPQwI0KFeQO+oE
+         jTGA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=5Sn22OEOqHnfEliZq97TBQ4P6FWEPZ+NhqxCblvfwlk=;
-        b=fQUZE/q9Wwjb3+qEl9Mq+K9bGQkiz2ThPx7rfyLkQxIncDnnZecwU4IWAD/nZC6ZsP
-         kyCF1UfKWZpMkTum+vdhkSdtXOL/5TH5hpwdBSPopxHg5fwgyNzsy5ajAUqEovqmU6wr
-         93o6FCQfzQCD8KTsvObUTAXMBrRPRw5XtWrlUsxwhEbAuJVnid/w3rJBwqaqkD2nOaYX
-         2lJmNmi9c4D3Q/PVaqMHdjFMDGgh+rKwBuDyQka1gLEhn7cXvD0/Ars/koM9UNFyjOGx
-         qSBA3w6piOdLo7PyDKqyHXU1wcyim2O9HIcr5ICvsJCbKLmxVyi26KI0LWoo2JoTKJAi
-         blVg==
+        bh=0xPJUV9csuBujippkS3QEf0IKncyq2E3ednkqfBql6I=;
+        b=f6kcHKOPa/q3mSQGtycULN1W88hXD7NteJT4fp2jn3xPTeVxWcMYjndzNMHBubIywV
+         BPzBSheHPoEb4ynUSmgeQ9/VDsk1cD3L93Ijd5xVsq435hh/CmT3DAbCqB9Q/pUSuIWl
+         Xzt1JebqWeoz2hFR0ekPZhCm9759ku31n9h8MI+a5PsQOAwGoExvw+9/OAcK8jHG0tYj
+         Ga7JBOK0durkVmcEtzLjmQ44TsL2G220whflPM10Q5LjJcLJ6MVxpZIXRoutE+P2S3Q1
+         CDMcRYlWFg+tIylKXti2u0r4q7ySivE/dGDuZqMrqoNUofol/ADFLW1LINgQAlqA8z2+
+         brdA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5Sn22OEOqHnfEliZq97TBQ4P6FWEPZ+NhqxCblvfwlk=;
-        b=MeCEItkwtRKYcBiTC14KN8nUIsdSsCPEJZU8A2od1oFbRykADFYA+5hQsAd+H5Kl8k
-         0SKjKNnL84RRnWHZHM/dS0/O4uATG9C8PBwKYVproYJDDVahzh1Dg4J2WCyWWCtYr/Vb
-         9bA5cBlIruUD4F52gxVD91N07VRfz7PqiuJj1qDS3Yy+OMl3RpJ1JPiYr2WiHy4C6D5g
-         hCeSIA0sssbUylqCl4B4T3r81wK/xv+RPMIFBLQYgzupI/wG4iOSEC88Z/txy1MiH8zO
-         /EQzr3iwn397cJHXCsqxXS2tUUnyUr3Wk5tM/sSNv32Alc+F2oRa5fpdQuwOlWJMY6zn
-         VfJQ==
+        bh=0xPJUV9csuBujippkS3QEf0IKncyq2E3ednkqfBql6I=;
+        b=qMlQKQWswDpf6kQsjgTnXv2s29q4T4XvxxHSdWQtvYCK0suTKo+GJML6eUlFBb15Hc
+         eElLbi6in7z1aPXrYMGkQRVO8MK/d5fRC4OEJ85ze0u7uWvRaoO8sdWw+GEe56URPHoo
+         eg/B9PGwGsTgyVuhciv7kABv+kzSWLWZa6oIHAn3ZPTyMJZJpwtnitXEGIwH2SyFgLxI
+         9ptX2vvrXWwBkNCNkOizDCRp3qKQcNk2xoXEQwn1rVsmF98hG232491hHeQJKeEboeCI
+         5/JyNjyPwSASvnqqionS6uhScSb/zt1vJK5Tndj/kRuvYBV7O6ua5TKbfmwmThMi/ubW
+         v8kg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -51,85 +51,85 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5Sn22OEOqHnfEliZq97TBQ4P6FWEPZ+NhqxCblvfwlk=;
-        b=sejku/Lxwt3KXMARueAUzNJHeSGbn4VtP91dqZxCXyFFR46qCOeWgwjazW3IzwhMy6
-         e1NXpvkmrQoez8BV72/VEqg3pnEOMqCjG6JR78jO2PeDGrPSlNfz/D1MCXCMx9Qnnj+s
-         T4hTn4FFnmU1mZXLhETrvWylWj0g70AFZEkVYKlGRkHDvFsq3fHLHD2IAZtm+vnR2+40
-         M5HXTK1dnb9FjXt9LNtNxgpZskm22mdL0zhtD//C/w/wNu+qATpyudwHJkvq2QD0WDuf
-         rbm3E4zPPZKhmPO1AQHlX6jYGqRY5i+PTEZlp/sqA++OXJVSr895ITGO/zj1b6qA0TrJ
-         6lVA==
+        bh=0xPJUV9csuBujippkS3QEf0IKncyq2E3ednkqfBql6I=;
+        b=cpgnjR/HR+TeKzgFhrIc0NIAJKBGCmQWWe8rF7gGGv4GScr69MOoDcnRSrn9mk1tge
+         FCCu1kT1QZzt9QcwawhsmGi+1YRJ0mfvPOEdfh7igKB9coz/Bjpd2nwzzqIGbXLB1mvL
+         5TjKg6DaxZHbjfK8durfFX89dMaObxL9ZCF6sIePUsyJkEt0SNssgUjZSQsWzqLNJsA8
+         bAlLE8oEoZiF5pihOiDaETHvV/xIlTpU7sZ5Dax9gehdwdaSDdBZMKjlzrpMR+Y/aW1h
+         6lo/w2UVSjEyyYpDai4iDxXKGd8jg+GsmUj62vykP/CHO/au2JkA7nMmBtazGHPanpXF
+         7awg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5330V7FWEDorPO6WNWikaMnEUre5rHwxRUz9Y44u1v6os/aiSbJV
-	r/ORZYhNfKPsJE1ESWkSmhc=
-X-Google-Smtp-Source: ABdhPJxtUxIzP2GUZ8IhnXzDzcLyz9r8ZIuFCbig98BWxJbaS3zAklJf4/hTJg2iJtxZGWtnZkLszQ==
-X-Received: by 2002:a65:6686:: with SMTP id b6mr17296834pgw.427.1590960973005;
-        Sun, 31 May 2020 14:36:13 -0700 (PDT)
+X-Gm-Message-State: AOAM532v8TyjZQN69IauIC2RDmPciRSGq9QWjdnLiK6zP8Z068KeWdg7
+	dmtwIaLouV1sEiQoJY4PzPI=
+X-Google-Smtp-Source: ABdhPJznvxbzYH2S81Ld9seIukIM7ZRrYaCjnPAd9dZmSdcXX2CPXCOyZvPWqoMhuAB4+yodz1nH5Q==
+X-Received: by 2002:a17:90a:26c1:: with SMTP id m59mr17337868pje.175.1590965013510;
+        Sun, 31 May 2020 15:43:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:ab89:: with SMTP id f9ls4000930plr.3.gmail; Sun, 31
- May 2020 14:36:12 -0700 (PDT)
-X-Received: by 2002:a17:90a:b90:: with SMTP id 16mr20578944pjr.85.1590960972547;
-        Sun, 31 May 2020 14:36:12 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1590960972; cv=none;
+Received: by 2002:a63:1415:: with SMTP id u21ls1935029pgl.7.gmail; Sun, 31 May
+ 2020 15:43:33 -0700 (PDT)
+X-Received: by 2002:aa7:8a51:: with SMTP id n17mr18568181pfa.21.1590965012946;
+        Sun, 31 May 2020 15:43:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1590965012; cv=none;
         d=google.com; s=arc-20160816;
-        b=rhK6j1xrR6fJc6EE/+tsfAWAdOoONoTLFGNFt6SFBVIFQdfVVdmk/ccUMb5i3SDVEF
-         PpKIJhVgoMWJ0oTb/Lho/jAaRjm6qPuiSplMSjaDtZtYWCTp5qQHkgI0oD7++gGAutxe
-         rGUtzdP3KBMNhx0Wd/NREn8mHslOeJZk8HY7dqoA1fZTZGDH/ExioeODHN7g9VxHAQmR
-         /7O0cP6Q7phwA9spqWtwelYfVypYv3lgv+GCGXg9a2S97wF0XH3RP2VweXINbKkD4IX4
-         CWoAXqCJIn71SmJqpTaTzD5ESH/suL1Lfki3ZxiUwU2qGoYPPfCQtG4CTUOz+HAeCU+p
-         sLeA==
+        b=KdtbqFIhkLfLYDRX0oxnDxd9yT/u4C2ijsU1qTS0yPUT2j9taV4gofkEkBmrzp9ycm
+         PjUhsG5k1UgFNSFKWxzTwD0ymX2JJ9jufOW7ZmK5haLXopa91atRt40r4UEHCURUWjn8
+         eYlRp3ja4UCb6XfkqE4N/aptk0Xw8h+dmNj15SmmvhORdyTwvjbvzCALgW3syVnhS6qq
+         fjoR3fI/2tcSFCez99KCdDgIPAU2s2rdqPjLbxoHGzpxPzDjI1LC+8n0qrhUrMEaQsUn
+         qvCZd4wbxyIr6zuEMELDFNilKw8WlkXSEBch9jX88frN8tpxo66KA/ZdO2JAf90Re4xR
+         xIhA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=9N4WAzY9CR3F2yrr7YUCCg3IZjMH4Q4pHXaiQP2RCaQ=;
-        b=G6cK92UIRN+zZL3i7TVuHxm+9I1HFdDnulEhafZOUQ//wbq4XD8cIpZGeXqc23aG82
-         NhQ2QX//08779oqiguOpTFgyWWDKuCkkInDsTgNwqIji4l62dTofWBa1+K0M7foGGvtl
-         DetW2iYTdYWNimCXY+MyLLbB+BUN4+jKpRuNAWhpdb++HAjCX4ICcA1qpb7PBtYM3uQ3
-         XGwgHYuCUlYGqP1NgTIJlKrQ+FnJt/wvh83p1AaDcLbUmVgfcEQX5vrpkjgnT3CXIil+
-         e6HoTd15/GO4NLTy434jRA2UvPhONxIZGCrN1qOIq7C1qO9manG0k746/8+tDoZGlDY5
-         xDnw==
+        bh=58wzxdkqL1WwKoERaIhPnWR/L9Y0JXrUMkz2QnX6o3A=;
+        b=YNez/3RJAcGEig3SZnaRp7NXZ+g4fYhuXY+W9QhZ09XmJVun1EDto34ET4i0BOPe0K
+         AoPEmzMODvyQtX0IVjkP32w50Y5oqVDT4+2aLLodPuwV8h7E3n+6oza4P+G5QUZ8BqGO
+         EYKKPOkh6iHwW2wlWp3mbn+EMbIF4l8vp3bdNL1iKnCbL5T4fYVdYypzZRGpd7f95zUE
+         GaOZ1BIvHjKBjz6p9xrAZbecY+7moM878MWkFLq6PyrUaA/eHAskOM2+bSJCbhCWTDTi
+         5h6vXUgsorGdsuOLQrhhKkPk5ymr0UFBH1GqzfMpIdM5MrpIEYARjX1o6jcQrjzbIfM0
+         uoxA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
-        by gmr-mx.google.com with ESMTPS id q1si1060766pgg.5.2020.05.31.14.36.12
+Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
+        by gmr-mx.google.com with ESMTPS id q1si1069632pgg.5.2020.05.31.15.43.32
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 31 May 2020 14:36:12 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
-IronPort-SDR: G1TqbZ+GTuCqYegP2IEipuS0fpbt3uJhjo2elBHsIlISsQ9nIaIL/IDtrZtLtwj0deeU/jq0ne
- 2NnudzZ3YTzw==
+        Sun, 31 May 2020 15:43:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
+IronPort-SDR: yp8Kj66dRgdWEd3x7dlN82zmQ2lLwn31X4NiQwf0ndDx2emgtQxM+cdtvEnfCoLcsYfg1aF8qw
+ opokovQJ6yMA==
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga007.fm.intel.com ([10.253.24.52])
-  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 May 2020 14:36:10 -0700
-IronPort-SDR: qWiAcM1pjiESVjwCTwoYP3CU2Y1GNlypOHiQGzXJWp8MlhTWbHkbRB+zo0WvA9YgVd7NwZVuv5
- 56jMpgFuepRg==
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 May 2020 15:43:31 -0700
+IronPort-SDR: fEkQj/KJEaXN21hJys0VxI70nPBtMIGuZtlGqBdTd063iFG7faN7bKGjJXDsqAh0+eoAkMUC9/
+ OykZVxOa5Law==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.73,458,1583222400"; 
-   d="gz'50?scan'50,208,50";a="256591227"
+   d="gz'50?scan'50,208,50";a="415603362"
 Received: from lkp-server01.sh.intel.com (HELO 49d03d9b0ee7) ([10.239.97.150])
-  by fmsmga007.fm.intel.com with ESMTP; 31 May 2020 14:36:07 -0700
+  by orsmga004.jf.intel.com with ESMTP; 31 May 2020 15:43:28 -0700
 Received: from kbuild by 49d03d9b0ee7 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1jfVck-000067-QH; Sun, 31 May 2020 21:36:06 +0000
-Date: Mon, 1 Jun 2020 05:35:34 +0800
+	id 1jfWfv-00006t-PT; Sun, 31 May 2020 22:43:27 +0000
+Date: Mon, 1 Jun 2020 06:43:18 +0800
 From: kbuild test robot <lkp@intel.com>
 To: Changming <charley.ashbringer@gmail.com>, gregkh@linuxfoundation.org
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
 	linux-usb@vger.kernel.org, thomas@winischhofer.net,
 	Changming Liu <liu.changm@northeastern.edu>
-Subject: Re: [PATCH 2/6] USB: sisusbvga: change sisusb_write_mem_bulk
-Message-ID: <202006010537.wKLu2kqm%lkp@intel.com>
-References: <20200530014820.9967-3-liu.changm@northeastern.edu>
+Subject: Re: [PATCH 5/6] USB: sisusbvga: change sisusb_read_mem_bulk
+Message-ID: <202006010620.mYwc56Q1%lkp@intel.com>
+References: <20200530014820.9967-6-liu.changm@northeastern.edu>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="FL5UXtIhxfXey3p5"
+Content-Type: multipart/mixed; boundary="17pEHd4RhPHOinZp"
 Content-Disposition: inline
-In-Reply-To: <20200530014820.9967-3-liu.changm@northeastern.edu>
+In-Reply-To: <20200530014820.9967-6-liu.changm@northeastern.edu>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -145,7 +145,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---FL5UXtIhxfXey3p5
+--17pEHd4RhPHOinZp
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
@@ -185,17 +185,25 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>, old ones prefixed by <<):
 
->> drivers/usb/misc/sisusbvga/sisusb.c:2997:11: error: incompatible functio=
-n pointer types initializing 'ssize_t (*)(struct file *, const char *, size=
-_t, loff_t *)' (aka 'long (*)(struct file *, const char *, unsigned long, l=
-ong long *)') with an expression of type 'ssize_t (struct file *, const u8 =
-*, size_t, loff_t *)' (aka 'long (struct file *, const unsigned char *, uns=
-igned long, long long *)') [-Werror,-Wincompatible-function-pointer-types]
+>> drivers/usb/misc/sisusbvga/sisusb.c:2996:11: error: incompatible functio=
+n pointer types initializing 'ssize_t (*)(struct file *, char *, size_t, lo=
+ff_t *)' (aka 'long (*)(struct file *, char *, unsigned long, long long *)'=
+) with an expression of type 'ssize_t (struct file *, u8 *, size_t, loff_t =
+*)' (aka 'long (struct file *, unsigned char *, unsigned long, long long *)=
+') [-Werror,-Wincompatible-function-pointer-types]
+.read =3D         sisusb_read,
+^~~~~~~~~~~
+drivers/usb/misc/sisusbvga/sisusb.c:2997:11: error: incompatible function p=
+ointer types initializing 'ssize_t (*)(struct file *, const char *, size_t,=
+ loff_t *)' (aka 'long (*)(struct file *, const char *, unsigned long, long=
+ long *)') with an expression of type 'ssize_t (struct file *, const u8 *, =
+size_t, loff_t *)' (aka 'long (struct file *, const unsigned char *, unsign=
+ed long, long long *)') [-Werror,-Wincompatible-function-pointer-types]
 .write =3D        sisusb_write,
 ^~~~~~~~~~~~
-1 error generated.
+2 errors generated.
 
-vim +2997 drivers/usb/misc/sisusbvga/sisusb.c
+vim +2996 drivers/usb/misc/sisusbvga/sisusb.c
 
 ^1da177e4c3f41 Linus Torvalds              2005-04-16  2991 =20
 066202dd48cf32 Luiz Fernando N. Capitulino 2006-08-05  2992  static const s=
@@ -206,9 +214,9 @@ IS_MODULE,
 susb_open,
 ^1da177e4c3f41 Linus Torvalds              2005-04-16  2995  	.release =3D	=
 sisusb_release,
-^1da177e4c3f41 Linus Torvalds              2005-04-16  2996  	.read =3D		si=
+^1da177e4c3f41 Linus Torvalds              2005-04-16 @2996  	.read =3D		si=
 susb_read,
-^1da177e4c3f41 Linus Torvalds              2005-04-16 @2997  	.write =3D	si=
+^1da177e4c3f41 Linus Torvalds              2005-04-16  2997  	.write =3D	si=
 susb_write,
 ^1da177e4c3f41 Linus Torvalds              2005-04-16  2998  	.llseek =3D	s=
 isusb_lseek,
@@ -222,7 +230,7 @@ tl =3D sisusb_ioctl
 ^1da177e4c3f41 Linus Torvalds              2005-04-16  3003  };
 ^1da177e4c3f41 Linus Torvalds              2005-04-16  3004 =20
 
-:::::: The code at line 2997 was first introduced by commit
+:::::: The code at line 2996 was first introduced by commit
 :::::: 1da177e4c3f41524e886b7f1b8a0c1fc7321cac2 Linux-2.6.12-rc2
 
 :::::: TO: Linus Torvalds <torvalds@ppc970.osdl.org>
@@ -238,14 +246,14 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/202006010537.wKLu2kqm%25lkp%40intel.com.
+clang-built-linux/202006010620.mYwc56Q1%25lkp%40intel.com.
 
---FL5UXtIhxfXey3p5
+--17pEHd4RhPHOinZp
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICF0c1F4AAy5jb25maWcAlDxdd9u2ku/9FTrtS/vQ1HYc1/fuyQNIghIikmABUJbyguM6
+H4sICEMr1F4AAy5jb25maWcAlDxdd9u2ku/9FTrtS/vQ1HYc1/fuyQNIghIikmABUJbyguM6
 Supdx87Kdm/y73cG4McAhNxsTk8TzuBzMJhv6Kcfflqw56eHz9dPtzfXd3ffFp/29/vD9dP+
 w+Lj7d3+vxaFXDTSLHghzCtoXN3eP3/97evlhb04X7x59furk18PNxeL9f5wv79b5A/3H28/
 PUP/24f7H376Af77CYCfv8BQh38vbu6u7z8t/t4fHgG9OD19dfLqZPHzp9unf//2G/z/8+3h
@@ -1608,4 +1616,4 @@ SdQJhXK+/cAbOF9KBF8erDN1f7eln1EG9tDyR1W572OtE03RmTIyq/7tXH702whKEN1rqQd8
 BCq/3uqpB6/cJskCAckbLyFwwsSH3aPrcNXIrG2YK/MTnqu0bmrLhaetkV0f+Azijq8AhTfN
 +hom37aVsfQ87KRKYHkG5G9E1IGqCiSODuIyX0l3lPv/B/Q7saGBswQA
 
---FL5UXtIhxfXey3p5--
+--17pEHd4RhPHOinZp--
