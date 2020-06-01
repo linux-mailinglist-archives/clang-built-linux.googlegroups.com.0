@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBOUF2X3AKGQE4XOMRGI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBWMF2X3AKGQETXLSRWI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33d.google.com (mail-ot1-x33d.google.com [IPv6:2607:f8b0:4864:20::33d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 915CB1EA96D
-	for <lists+clang-built-linux@lfdr.de>; Mon,  1 Jun 2020 20:02:35 +0200 (CEST)
-Received: by mail-ot1-x33d.google.com with SMTP id 66sf4374395otf.2
-        for <lists+clang-built-linux@lfdr.de>; Mon, 01 Jun 2020 11:02:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591034554; cv=pass;
+Received: from mail-ot1-x33e.google.com (mail-ot1-x33e.google.com [IPv6:2607:f8b0:4864:20::33e])
+	by mail.lfdr.de (Postfix) with ESMTPS id A4D691EA977
+	for <lists+clang-built-linux@lfdr.de>; Mon,  1 Jun 2020 20:03:06 +0200 (CEST)
+Received: by mail-ot1-x33e.google.com with SMTP id 66sf4375339otf.2
+        for <lists+clang-built-linux@lfdr.de>; Mon, 01 Jun 2020 11:03:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591034585; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fpE+Kgq6VzVFUW464+NsFbWqvf6rgFGIycna4b1pTEeLePWysEiAvpy2ylna4pDUTQ
-         fy8nIG3Zbl64fsULdwozJt2ulXwKDS1ozCk+ubEEvAcq3sswuZ/QoPjO2uvrOMgPmsTF
-         GnKEr/xZ/cUPHvU7MkZoEzXmx9M9WRI70yVGW7UDtoLWzXL5qttUWSi7j/VsJU9uV6uV
-         9CGI91yScwAVuYI73fMAqW3IDtQEyWwwM/ocpAN7x+R3tMpP5eUskdopOw8w5efs5zHk
-         dlooIVJmZhWteuZqJe9sP4mkpLTPzsk+GTmEFIPO+VLCRrXN9/mtHU/6//+UxfHvGDsA
-         buUQ==
+        b=XyImYoqxxx1EZNc8k8JtYAmLy9FPIfk4D0Xd+D4EsX9rDduqlgGavv49D1m+NcVC1f
+         GFnPbW5Q04fctPDIPU3wu19MZbpBSUbK2eoPcKzE+cEn3D4RZ+8HhKKYmMTyZ8DDkzze
+         fC6S41o/bIdDQQnipWJPcfONIVTN1C7TnyQWrNXTrKsoc3wYa9hYejg4OLeyRY0w5jHa
+         jmAaFFWOPlTM1+MsjyK/pKyjL2l/YbOZt3s5TQ47boHhdOZnZdY5RLTbIVaaxA96+3Tm
+         Ltjfk3gLf8pE8JgfJnKI3DC5pbW3dKBsvmgXh9FkEwFqMv9+/wjDzJteQLyGICdmE7/9
+         jowQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=1Mz8rxl8Ka1RtZoejE35kjM0bOGWpRvh4XJvviBAe7U=;
-        b=HaGdiRoezV/ITK10rN/sgwfDbOohyeyTcHH+GcVqK94LulXEfT103+2c1cNhNb0HGN
-         kEODwBnsIGhEIjkfU3A3SfrwrV3JKHV99oL6HZvtq3QAp+br1ZFkix567UHZTay+qhDU
-         uE7GJnvIxnDvjBxBR30CuMf9vm3JMXSTHOV8cKtER9wyeERPAQZCPySC4GwoOHqVOOSy
-         obY7XEXB/U7ZGjZ0y9wr4AbJhFKOPoiJULfU7fpvrsAEYu1M+ma2LUYtxGA1WB3n/LM3
-         6JOfv2w4q/sqvkPyYyhS2DPGcr9Z6ERPby34MmArFEk5o6o/nCb68pPWsorQgjhPCKkp
-         RMTQ==
+        bh=tDV08bmBRMAqpSDXswYsEB/bCU6bDaTTUJZBrfuRfx4=;
+        b=amzAbonHBgNLKeqFoQoj1/A7X6z+Ew/B52sFeeN4QcFT3XJ4L0ieHLVommvWudLgOa
+         RXOuOF2pRjCRghwnUQqPNtidYno7me+usw1KFZk7sW30SwB456m1qekLJhKoHpXZtk+V
+         sdehUJLh1ZmegV29nbozKP7xqvpjTd9zDrsWiNnjRjh947qARwFkzIn+lbTP7cqgd48l
+         n6GIiBxjKCxzX5mZGjy3hs/uZNrdmlNaZge0NNkI1XlBqZvBjcOIrisoZ1+vTFR3qDai
+         NyU9QhU7R07STUH03q6blMBYiyH2x5mXrLYs0ZyvVa6qeI3WKXoItua46v5yPLlV7W7a
+         R/Cw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=kByfvhbr;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::629 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=aPQ27MW8;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=1Mz8rxl8Ka1RtZoejE35kjM0bOGWpRvh4XJvviBAe7U=;
-        b=KkOHXMQCWY4zgVnEu5LpIghw4dv7uuTluldNJAcq12pL7vtRazfNWhWNvAI3Tx6Fwx
-         2toEWJJ3W+CWCl4S5Kan9E1CWIR5Pl+M5DJbWqPkalTsvldCodLMvFZtWCh7B0/PUiP2
-         +nNvNfNQEL6Ha6nHvbautBI7vznCGeg2AMy6sjOvBxvRQQa35kXmw5pkJ9tRNb3i8omL
-         N2ITANNgFI62E1ZVA+UiPiJLZcmdrvrPKNi479tbPVzCmjLuF3rWsYV1G1MzErwGpenq
-         bREiuvEwMHn46CLVdm9ej454d+jVcyVza1noXnLiBTc0vVLxtkeNRm/h5RKQPrj99hX2
-         QTiw==
+        bh=tDV08bmBRMAqpSDXswYsEB/bCU6bDaTTUJZBrfuRfx4=;
+        b=gmYBouzC9GPFZZdHNNcwLo/7lwRQ1gC2YBDG+0luB4hlbxudct5M7f+cZpavZToVTB
+         3k8zwpRpd9b5h6lvX2aowEx44H6YCF4IBaIrfRH5fwt9r7/L8iXJmKOeR/7IBxOh8XNE
+         zJ1iTB5zzGTlMf1GQGyxj0WTct2vqt67MgWcxDsIMTNlQJUxcTY1WhKo7V7tsDT+2c0k
+         JGDvRsTlxIv9SJFNMt6myG7g2Fmb0SThaoYuQDs1Uu7HzLJBcTagwmcq2RVTEoCLY8du
+         i44BGiwP/fchXuydTaUTqgSQGRZsjdHWlVcQ+nanAEcdza3v9+YVv1SOaqxjzVzjAUOL
+         5AYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,72 +49,72 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=1Mz8rxl8Ka1RtZoejE35kjM0bOGWpRvh4XJvviBAe7U=;
-        b=Gfbv9uW/RxQBxQmHOME5ncC1voPAKtc7x0SATd++l5+wTgy+fP1FXscO0cEsFVIUST
-         M70Z3Df+tjncc7sMsVEC6P9XQEGdA/br31M9NpZr1GMMSkgepWsl8pB4HxlLUvbYBtmY
-         O4taNLqnt5VhEr5BTWlprIJw6BcMKRbJ7B0tECLrTAISzYyWAKygjJ1MYjdzuhgrxxeH
-         nErZaTSa+gQsFssjQnKU0XPYRc8kUvtdbfCA930elQ2Vt1HOiWUwF+ipy26IZt90KXF0
-         6gcykacWKVlr8HNtt2Z3uKq6rCDxqzMRwfbufRa1oh0IHV6dliCVw/PrIjSU49+YOebr
-         nrCQ==
-X-Gm-Message-State: AOAM533TAviVkZvcWmYknMjxk5ifYS8xVrfPI627gRAGLZd3xITQPQUJ
-	XDWsPxIoam3XD34hbvLU3R0=
-X-Google-Smtp-Source: ABdhPJzYlbYLCr4GNu40p7elTdAmRJWs6MJNdjeVxyZ0/0GafAZSGq6jD7uPmcoogsyxGg8Fm6hJfw==
-X-Received: by 2002:a05:6830:4ad:: with SMTP id l13mr14355198otd.353.1591034554252;
-        Mon, 01 Jun 2020 11:02:34 -0700 (PDT)
+        bh=tDV08bmBRMAqpSDXswYsEB/bCU6bDaTTUJZBrfuRfx4=;
+        b=j7Vk9qd8ICPK5upsU004ORcNx7iSmQRCzvefM3LQ9sE16CnKVolApvtKovnYx1iJsS
+         jh4YWTJVf3MgtLyZl+34IFDnJXg78CHypKpzf3Sf+qh0aQTEnIO818OLXnNgKc0jFWJi
+         Muw6W0AnjEAvHNyVomaOHwxiCNAtkb1SMfhWeVqszv1FaA8gWrtw/kLZXhPt9u3W/eB1
+         2R6w3AJURwyWy4rHR0eh6n21QHulgSsHZ8ayEthcObHeJpXks4/Fd9P69Ii7IdrPdQx6
+         wGI/BO3+d/JdvbCNxeEK9luzvALXJQmQ+QJZbdxXyfC8LgEtoyI90KQ+rAdoXRZmYOWi
+         uIpQ==
+X-Gm-Message-State: AOAM532tsvbLoIM/ht5sIajW5Xb0YAC5xm2q8YkCDtp3DxTYeDcooEPC
+	sUCrKVLDsOaDzTXtF8C8TwY=
+X-Google-Smtp-Source: ABdhPJydu5olMzuGiirFbelpyT0cmLEDF4dixi4WuTmcdU6O8gsy3NjvHcQoXYtJOnFcUdHeJGltew==
+X-Received: by 2002:aca:1110:: with SMTP id 16mr383877oir.98.1591034585524;
+        Mon, 01 Jun 2020 11:03:05 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a54:460f:: with SMTP id p15ls2683517oip.7.gmail; Mon, 01 Jun
- 2020 11:02:33 -0700 (PDT)
-X-Received: by 2002:aca:6144:: with SMTP id v65mr350163oib.33.1591034553684;
-        Mon, 01 Jun 2020 11:02:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591034553; cv=none;
+Received: by 2002:aca:4fc3:: with SMTP id d186ls1006554oib.1.gmail; Mon, 01
+ Jun 2020 11:03:05 -0700 (PDT)
+X-Received: by 2002:aca:c6ca:: with SMTP id w193mr360774oif.81.1591034585080;
+        Mon, 01 Jun 2020 11:03:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591034585; cv=none;
         d=google.com; s=arc-20160816;
-        b=Qs5s8eCylIXDu9Wd59JlV3oMN0i/SrX3fG1Sjm188d1AUhEq+Ww2tYoZx8x+lWdGxo
-         C0+rAT7fLFauVtFDKqBitu3NnYWgPlOFT5fdkG7j3aDsNF26Gg4Jc59B7dIP0oHCedxs
-         IQVIW4FTE+3leaNilY9tJ+kvd/yUpbK9UFY4+dFevQmTz4QNCD5mdFAV/G9+xgOY/hzY
-         J1YOyjbp0f6dkW/6WtO31CTHRAjjzut/zH8YOZ7FP24FPdZCHHmIMd0lOyK/dE5AJWjP
-         6A75PJ9HlPIy4QBgRQEuyFeifoXjXKM/6c428KjZHlCoIoF2KLq271egJO83eQFc6dYO
-         SYaA==
+        b=WzxEMWDdhfCO7ODggZ6xU+nWCFLCVg2hC0jCWD+FgF4EynVRcI6+xNX0gOCpwd/VH8
+         9pLA90l7f1uqdPf5YnrHCgO06ywst6n1sQ/IdyRu8O/BpDTdqkkAQZeD+8wNFF/iv64C
+         OnPAfnE29/O9tSkNvvYKmdhKU0KbtXdMfssLmamBptCBQNDhGH8TKGyltIzcNBkBiTh6
+         rUCqrqqtCH6UTSeOEIh1hJNjJLAlUy8SarehjwexXq/Kv/h0QtUfi7IdCG/UaHgWiDsU
+         uPQfH8eQvQcuYKfrq5OFwZYadSTdJS7hIqzQDCKV1A6k64kdxToMr/e09eFTr3PR3SiZ
+         zXAQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=5r2FLJZvS4apnVJUvia1LdiyjeetiucFqacIaJB0qwE=;
-        b=Nh6wNlUriKENBmo2W7dUVDZSUwpXb4+dYnIiTrKz5aUk7D3wO8G7jncEYiXq+Vb0GM
-         si7HT8nsWD7ls16J4Kz0GdnhWdZtvw+6DL4rMmVARbfbshbrlEq/M4Zeq7bv8etX1i5l
-         jjdBwUheOMXNBHjvHbiTgYHhO6H8L707BfTFJFISpxjDoxdwVf5gD+dOoqayAy4/iBrb
-         rR4rmhU86TvyDfSCeN2nFAjYIa5IEPmhOS1BBCgFNHAOSUVijM25jG6WYLRjHyJMq3fK
-         cgRhpQVZTCA3skDQPA4NmitqoCLsjK+xYDjZnZ+F85quqc2q1WH6Q1WpYxIKPnN6KsTK
-         bi8w==
+        bh=wVYayIPVNOeveIJv6WNGU7voIvnU+MlvFwDdxTllZWw=;
+        b=oA0uspRETEmEGyOLyNRCRgJj+Prmcotlt/ZGHpNllI3tu0fSd0SmbJfS43e+dGyo+Y
+         hK+jczLz/wVudoqID7jUn5qo4RVbzfa8iNATK6K9C2D0JnL+tydUqSOkF7gBD1dn19zW
+         a4MoSVCEgPywPZkD/mR9z7S0VF1/o/hWqPgLm258QSPtAHLKhW6AjfjzeG8ay6Hy3GGr
+         /RaGHdvP8pkozgJH6RNzz4L4JuRaHZAOATBuR45CbU2LrEwvlh5kxnPAQpZX+iBlrBzY
+         mQefjo9wkvS115DqmC7vlXE/ROqi9sAvEDKKUIDVYaxBzk5ychnyIt36fdo3x8UtzPOn
+         XHYg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=kByfvhbr;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::629 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=aPQ27MW8;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x629.google.com (mail-pl1-x629.google.com. [2607:f8b0:4864:20::629])
-        by gmr-mx.google.com with ESMTPS id e20si9393oie.4.2020.06.01.11.02.33
+Received: from mail-pg1-x52b.google.com (mail-pg1-x52b.google.com. [2607:f8b0:4864:20::52b])
+        by gmr-mx.google.com with ESMTPS id e69si9561oob.2.2020.06.01.11.03.05
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 01 Jun 2020 11:02:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::629 as permitted sender) client-ip=2607:f8b0:4864:20::629;
-Received: by mail-pl1-x629.google.com with SMTP id bh7so247047plb.11
-        for <clang-built-linux@googlegroups.com>; Mon, 01 Jun 2020 11:02:33 -0700 (PDT)
-X-Received: by 2002:a17:902:82c9:: with SMTP id u9mr21165072plz.179.1591034552563;
- Mon, 01 Jun 2020 11:02:32 -0700 (PDT)
+        Mon, 01 Jun 2020 11:03:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52b as permitted sender) client-ip=2607:f8b0:4864:20::52b;
+Received: by mail-pg1-x52b.google.com with SMTP id r10so3844213pgv.8
+        for <clang-built-linux@googlegroups.com>; Mon, 01 Jun 2020 11:03:05 -0700 (PDT)
+X-Received: by 2002:a63:f00d:: with SMTP id k13mr20736822pgh.263.1591034584078;
+ Mon, 01 Jun 2020 11:03:04 -0700 (PDT)
 MIME-Version: 1.0
-References: <202006011907.ocBGNEZT%lkp@intel.com>
-In-Reply-To: <202006011907.ocBGNEZT%lkp@intel.com>
+References: <202006011945.SmpRQmd0%lkp@intel.com>
+In-Reply-To: <202006011945.SmpRQmd0%lkp@intel.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 1 Jun 2020 11:02:20 -0700
-Message-ID: <CAKwvOdkff8dwqHGkrnyK++e+yWTTYZwefPJ4wqqXQCQhmePE5A@mail.gmail.com>
-Subject: Re: [ext4:dev 41/50] fs/ext4/mballoc.c:1494:2: error: invalid input
- size for constraint 'qi'
+Date: Mon, 1 Jun 2020 11:02:52 -0700
+Message-ID: <CAKwvOdm75T+gzjgd6yGUrou-xJMqBhaqa363YKcOJxLxPecnDw@mail.gmail.com>
+Subject: Re: [linux-next:master 10017/14131] kernel/sched/cpuacct.c:350:3:
+ error: invalid input size for constraint 'qi'
 To: kbuild test robot <lkp@intel.com>
-Cc: "Ritesh, Harjani," <riteshh@linux.ibm.com>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, linux-ext4@vger.kernel.org, 
-	"Theodore Ts'o" <tytso@mit.edu>, Philip Li <philip.li@intel.com>
+Cc: "Muchun, Song," <songmuchun@bytedance.com>, kbuild-all@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Philip Li <philip.li@intel.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=kByfvhbr;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::629
+ header.i=@google.com header.s=20161025 header.b=aPQ27MW8;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52b
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -131,21 +131,21 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-nevermind this failure. Clang doesn't support i386 yet (WIP).
+Nevermind this failure, Clang doesn't support i386 yet (WIP)
 
-On Mon, Jun 1, 2020 at 4:41 AM kbuild test robot <lkp@intel.com> wrote:
+On Mon, Jun 1, 2020 at 4:39 AM kbuild test robot <lkp@intel.com> wrote:
 >
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/tytso/ext4.git dev
-> head:   38bd76b9696c5582dcef4ab1af437e0666021f65
-> commit: 42f56b7a4a7db127a9d281da584152dc3d525d25 [41/50] ext4: mballoc: introduce pcpu seqcnt for freeing PA to improve ENOSPC handling
-> config: i386-randconfig-a014-20200601 (attached as .config)
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> head:   e7b08814b16b80a0bf76eeca16317f8c2ed23b8c
+> commit: 12aa2587388de6697fd2e585ae6a90f70249540b [10017/14131] sched/cpuacct: Use __this_cpu_add() instead of this_cpu_ptr()
+> config: i386-randconfig-a012-20200601 (attached as .config)
 > compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 2388a096e7865c043e83ece4e26654bd3d1a20d5)
 > reproduce (this is a W=1 build):
 >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
 >         chmod +x ~/bin/make.cross
 >         # install i386 cross compiling tool for clang build
 >         # apt-get install binutils-i386-linux-gnu
->         git checkout 42f56b7a4a7db127a9d281da584152dc3d525d25
+>         git checkout 12aa2587388de6697fd2e585ae6a90f70249540b
 >         # save the attached .config to linux build tree
 >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=i386
 >
@@ -154,218 +154,133 @@ On Mon, Jun 1, 2020 at 4:41 AM kbuild test robot <lkp@intel.com> wrote:
 >
 > All errors (new ones prefixed by >>, old ones prefixed by <<):
 >
-> >> fs/ext4/mballoc.c:1494:2: error: invalid input size for constraint 'qi'
-> this_cpu_inc(discard_pa_seq);
+> >> kernel/sched/cpuacct.c:350:3: error: invalid input size for constraint 'qi'
+> __this_cpu_add(ca->cpuusage->usages[index], cputime);
 > ^
-> include/linux/percpu-defs.h:520:28: note: expanded from macro 'this_cpu_inc'
-> #define this_cpu_inc(pcp)               this_cpu_add(pcp, 1)
-> ^
-> include/linux/percpu-defs.h:509:33: note: expanded from macro 'this_cpu_add'
-> #define this_cpu_add(pcp, val)          __pcpu_size_call(this_cpu_add_, pcp, val)
+> include/linux/percpu-defs.h:458:2: note: expanded from macro '__this_cpu_add'
+> raw_cpu_add(pcp, val);                                                     ^
+> include/linux/percpu-defs.h:422:32: note: expanded from macro 'raw_cpu_add'
+> #define raw_cpu_add(pcp, val)           __pcpu_size_call(raw_cpu_add_, pcp, val)
 > ^
 > include/linux/percpu-defs.h:377:11: note: expanded from macro '__pcpu_size_call'
 > case 1: stem##1(variable, __VA_ARGS__);break;                                      ^
-> <scratch space>:160:1: note: expanded from here
-> this_cpu_add_1
+> <scratch space>:35:1: note: expanded from here
+> raw_cpu_add_1
 > ^
-> arch/x86/include/asm/percpu.h:432:34: note: expanded from macro 'this_cpu_add_1'
-> #define this_cpu_add_1(pcp, val)        percpu_add_op(volatile, (pcp), val)
+> arch/x86/include/asm/percpu.h:401:34: note: expanded from macro 'raw_cpu_add_1'
+> #define raw_cpu_add_1(pcp, val)         percpu_add_op(, (pcp), val)
 > ^
 > arch/x86/include/asm/percpu.h:147:16: note: expanded from macro 'percpu_add_op'
 > : "qi" ((pao_T__)(val)));                                                          ^
-> >> fs/ext4/mballoc.c:1494:2: error: invalid input size for constraint 'qi'
-> include/linux/percpu-defs.h:520:28: note: expanded from macro 'this_cpu_inc'
-> #define this_cpu_inc(pcp)               this_cpu_add(pcp, 1)
-> ^
-> include/linux/percpu-defs.h:509:33: note: expanded from macro 'this_cpu_add'
-> #define this_cpu_add(pcp, val)          __pcpu_size_call(this_cpu_add_, pcp, val)
+> >> kernel/sched/cpuacct.c:350:3: error: invalid input size for constraint 'qi'
+> include/linux/percpu-defs.h:458:2: note: expanded from macro '__this_cpu_add'
+> raw_cpu_add(pcp, val);                                                     ^
+> include/linux/percpu-defs.h:422:32: note: expanded from macro 'raw_cpu_add'
+> #define raw_cpu_add(pcp, val)           __pcpu_size_call(raw_cpu_add_, pcp, val)
 > ^
 > include/linux/percpu-defs.h:378:11: note: expanded from macro '__pcpu_size_call'
 > case 2: stem##2(variable, __VA_ARGS__);break;                                      ^
-> <scratch space>:185:1: note: expanded from here
-> this_cpu_add_2
+> <scratch space>:60:1: note: expanded from here
+> raw_cpu_add_2
 > ^
-> arch/x86/include/asm/percpu.h:433:34: note: expanded from macro 'this_cpu_add_2'
-> #define this_cpu_add_2(pcp, val)        percpu_add_op(volatile, (pcp), val)
+> arch/x86/include/asm/percpu.h:402:34: note: expanded from macro 'raw_cpu_add_2'
+> #define raw_cpu_add_2(pcp, val)         percpu_add_op(, (pcp), val)
 > ^
 > arch/x86/include/asm/percpu.h:147:16: note: expanded from macro 'percpu_add_op'
 > : "qi" ((pao_T__)(val)));                                                          ^
-> >> fs/ext4/mballoc.c:1494:2: error: invalid input size for constraint 'qi'
-> include/linux/percpu-defs.h:520:28: note: expanded from macro 'this_cpu_inc'
-> #define this_cpu_inc(pcp)               this_cpu_add(pcp, 1)
-> ^
-> include/linux/percpu-defs.h:509:33: note: expanded from macro 'this_cpu_add'
-> #define this_cpu_add(pcp, val)          __pcpu_size_call(this_cpu_add_, pcp, val)
+> >> kernel/sched/cpuacct.c:350:3: error: invalid input size for constraint 'qi'
+> include/linux/percpu-defs.h:458:2: note: expanded from macro '__this_cpu_add'
+> raw_cpu_add(pcp, val);                                                     ^
+> include/linux/percpu-defs.h:422:32: note: expanded from macro 'raw_cpu_add'
+> #define raw_cpu_add(pcp, val)           __pcpu_size_call(raw_cpu_add_, pcp, val)
 > ^
 > include/linux/percpu-defs.h:379:11: note: expanded from macro '__pcpu_size_call'
 > case 4: stem##4(variable, __VA_ARGS__);break;                                      ^
-> <scratch space>:210:1: note: expanded from here
-> this_cpu_add_4
+> <scratch space>:85:1: note: expanded from here
+> raw_cpu_add_4
 > ^
-> arch/x86/include/asm/percpu.h:434:34: note: expanded from macro 'this_cpu_add_4'
-> #define this_cpu_add_4(pcp, val)        percpu_add_op(volatile, (pcp), val)
+> arch/x86/include/asm/percpu.h:403:34: note: expanded from macro 'raw_cpu_add_4'
+> #define raw_cpu_add_4(pcp, val)         percpu_add_op(, (pcp), val)
 > ^
 > arch/x86/include/asm/percpu.h:147:16: note: expanded from macro 'percpu_add_op'
 > : "qi" ((pao_T__)(val)));                                                          ^
-> fs/ext4/mballoc.c:1636:2: error: invalid input size for constraint 'qi'
-> this_cpu_inc(discard_pa_seq);
+> kernel/sched/cpuacct.c:366:3: error: invalid input size for constraint 'qi'
+> __this_cpu_add(ca->cpustat->cpustat[index], val);
 > ^
-> include/linux/percpu-defs.h:520:28: note: expanded from macro 'this_cpu_inc'
-> #define this_cpu_inc(pcp)               this_cpu_add(pcp, 1)
-> ^
-> include/linux/percpu-defs.h:509:33: note: expanded from macro 'this_cpu_add'
-> #define this_cpu_add(pcp, val)          __pcpu_size_call(this_cpu_add_, pcp, val)
+> include/linux/percpu-defs.h:458:2: note: expanded from macro '__this_cpu_add'
+> raw_cpu_add(pcp, val);                                                     ^
+> include/linux/percpu-defs.h:422:32: note: expanded from macro 'raw_cpu_add'
+> #define raw_cpu_add(pcp, val)           __pcpu_size_call(raw_cpu_add_, pcp, val)
 > ^
 > include/linux/percpu-defs.h:377:11: note: expanded from macro '__pcpu_size_call'
 > case 1: stem##1(variable, __VA_ARGS__);break;                                      ^
-> <scratch space>:12:1: note: expanded from here
-> this_cpu_add_1
+> <scratch space>:113:1: note: expanded from here
+> raw_cpu_add_1
 > ^
-> arch/x86/include/asm/percpu.h:432:34: note: expanded from macro 'this_cpu_add_1'
-> #define this_cpu_add_1(pcp, val)        percpu_add_op(volatile, (pcp), val)
+> arch/x86/include/asm/percpu.h:401:34: note: expanded from macro 'raw_cpu_add_1'
+> #define raw_cpu_add_1(pcp, val)         percpu_add_op(, (pcp), val)
 > ^
 > arch/x86/include/asm/percpu.h:147:16: note: expanded from macro 'percpu_add_op'
 > : "qi" ((pao_T__)(val)));                                                          ^
-> fs/ext4/mballoc.c:1636:2: error: invalid input size for constraint 'qi'
-> include/linux/percpu-defs.h:520:28: note: expanded from macro 'this_cpu_inc'
-> #define this_cpu_inc(pcp)               this_cpu_add(pcp, 1)
-> ^
-> include/linux/percpu-defs.h:509:33: note: expanded from macro 'this_cpu_add'
-> #define this_cpu_add(pcp, val)          __pcpu_size_call(this_cpu_add_, pcp, val)
+> kernel/sched/cpuacct.c:366:3: error: invalid input size for constraint 'qi'
+> include/linux/percpu-defs.h:458:2: note: expanded from macro '__this_cpu_add'
+> raw_cpu_add(pcp, val);                                                     ^
+> include/linux/percpu-defs.h:422:32: note: expanded from macro 'raw_cpu_add'
+> #define raw_cpu_add(pcp, val)           __pcpu_size_call(raw_cpu_add_, pcp, val)
 > ^
 > include/linux/percpu-defs.h:378:11: note: expanded from macro '__pcpu_size_call'
 > case 2: stem##2(variable, __VA_ARGS__);break;                                      ^
-> <scratch space>:37:1: note: expanded from here
-> this_cpu_add_2
+> <scratch space>:138:1: note: expanded from here
+> raw_cpu_add_2
 > ^
-> arch/x86/include/asm/percpu.h:433:34: note: expanded from macro 'this_cpu_add_2'
-> #define this_cpu_add_2(pcp, val)        percpu_add_op(volatile, (pcp), val)
+> arch/x86/include/asm/percpu.h:402:34: note: expanded from macro 'raw_cpu_add_2'
+> #define raw_cpu_add_2(pcp, val)         percpu_add_op(, (pcp), val)
 > ^
 > arch/x86/include/asm/percpu.h:147:16: note: expanded from macro 'percpu_add_op'
 > : "qi" ((pao_T__)(val)));                                                          ^
-> fs/ext4/mballoc.c:1636:2: error: invalid input size for constraint 'qi'
-> include/linux/percpu-defs.h:520:28: note: expanded from macro 'this_cpu_inc'
-> #define this_cpu_inc(pcp)               this_cpu_add(pcp, 1)
-> ^
-> include/linux/percpu-defs.h:509:33: note: expanded from macro 'this_cpu_add'
-> #define this_cpu_add(pcp, val)          __pcpu_size_call(this_cpu_add_, pcp, val)
+> kernel/sched/cpuacct.c:366:3: error: invalid input size for constraint 'qi'
+> include/linux/percpu-defs.h:458:2: note: expanded from macro '__this_cpu_add'
+> raw_cpu_add(pcp, val);                                                     ^
+> include/linux/percpu-defs.h:422:32: note: expanded from macro 'raw_cpu_add'
+> #define raw_cpu_add(pcp, val)           __pcpu_size_call(raw_cpu_add_, pcp, val)
 > ^
 > include/linux/percpu-defs.h:379:11: note: expanded from macro '__pcpu_size_call'
 > case 4: stem##4(variable, __VA_ARGS__);break;                                      ^
-> <scratch space>:62:1: note: expanded from here
-> this_cpu_add_4
+> <scratch space>:163:1: note: expanded from here
+> raw_cpu_add_4
 > ^
-> arch/x86/include/asm/percpu.h:434:34: note: expanded from macro 'this_cpu_add_4'
-> #define this_cpu_add_4(pcp, val)        percpu_add_op(volatile, (pcp), val)
-> ^
-> arch/x86/include/asm/percpu.h:147:16: note: expanded from macro 'percpu_add_op'
-> : "qi" ((pao_T__)(val)));                                                          ^
-> fs/ext4/mballoc.c:3996:2: error: invalid input size for constraint 'qi'
-> this_cpu_inc(discard_pa_seq);
-> ^
-> include/linux/percpu-defs.h:520:28: note: expanded from macro 'this_cpu_inc'
-> #define this_cpu_inc(pcp)               this_cpu_add(pcp, 1)
-> ^
-> include/linux/percpu-defs.h:509:33: note: expanded from macro 'this_cpu_add'
-> #define this_cpu_add(pcp, val)          __pcpu_size_call(this_cpu_add_, pcp, val)
-> ^
-> include/linux/percpu-defs.h:377:11: note: expanded from macro '__pcpu_size_call'
-> case 1: stem##1(variable, __VA_ARGS__);break;                                      ^
-> <scratch space>:150:1: note: expanded from here
-> this_cpu_add_1
-> ^
-> arch/x86/include/asm/percpu.h:432:34: note: expanded from macro 'this_cpu_add_1'
-> #define this_cpu_add_1(pcp, val)        percpu_add_op(volatile, (pcp), val)
+> arch/x86/include/asm/percpu.h:403:34: note: expanded from macro 'raw_cpu_add_4'
+> #define raw_cpu_add_4(pcp, val)         percpu_add_op(, (pcp), val)
 > ^
 > arch/x86/include/asm/percpu.h:147:16: note: expanded from macro 'percpu_add_op'
 > : "qi" ((pao_T__)(val)));                                                          ^
-> fs/ext4/mballoc.c:3996:2: error: invalid input size for constraint 'qi'
-> include/linux/percpu-defs.h:520:28: note: expanded from macro 'this_cpu_inc'
+> 6 errors generated.
 >
-> vim +/qi +1494 fs/ext4/mballoc.c
+> vim +/qi +350 kernel/sched/cpuacct.c
 >
->   1473
->   1474  static void mb_free_blocks(struct inode *inode, struct ext4_buddy *e4b,
->   1475                             int first, int count)
->   1476  {
->   1477          int left_is_free = 0;
->   1478          int right_is_free = 0;
->   1479          int block;
->   1480          int last = first + count - 1;
->   1481          struct super_block *sb = e4b->bd_sb;
->   1482
->   1483          if (WARN_ON(count == 0))
->   1484                  return;
->   1485          BUG_ON(last >= (sb->s_blocksize << 3));
->   1486          assert_spin_locked(ext4_group_lock_ptr(sb, e4b->bd_group));
->   1487          /* Don't bother if the block group is corrupt. */
->   1488          if (unlikely(EXT4_MB_GRP_BBITMAP_CORRUPT(e4b->bd_info)))
->   1489                  return;
->   1490
->   1491          mb_check_buddy(e4b);
->   1492          mb_free_blocks_double(inode, e4b, first, count);
->   1493
-> > 1494          this_cpu_inc(discard_pa_seq);
->   1495          e4b->bd_info->bb_free += count;
->   1496          if (first < e4b->bd_info->bb_first_free)
->   1497                  e4b->bd_info->bb_first_free = first;
->   1498
->   1499          /* access memory sequentially: check left neighbour,
->   1500           * clear range and then check right neighbour
->   1501           */
->   1502          if (first != 0)
->   1503                  left_is_free = !mb_test_bit(first - 1, e4b->bd_bitmap);
->   1504          block = mb_test_and_clear_bits(e4b->bd_bitmap, first, count);
->   1505          if (last + 1 < EXT4_SB(sb)->s_mb_maxs[0])
->   1506                  right_is_free = !mb_test_bit(last + 1, e4b->bd_bitmap);
->   1507
->   1508          if (unlikely(block != -1)) {
->   1509                  struct ext4_sb_info *sbi = EXT4_SB(sb);
->   1510                  ext4_fsblk_t blocknr;
->   1511
->   1512                  blocknr = ext4_group_first_block_no(sb, e4b->bd_group);
->   1513                  blocknr += EXT4_C2B(sbi, block);
->   1514                  ext4_grp_locked_error(sb, e4b->bd_group,
->   1515                                        inode ? inode->i_ino : 0,
->   1516                                        blocknr,
->   1517                                        "freeing already freed block "
->   1518                                        "(bit %u); block bitmap corrupt.",
->   1519                                        block);
->   1520                  ext4_mark_group_bitmap_corrupted(sb, e4b->bd_group,
->   1521                                  EXT4_GROUP_INFO_BBITMAP_CORRUPT);
->   1522                  mb_regenerate_buddy(e4b);
->   1523                  goto done;
->   1524          }
->   1525
->   1526          /* let's maintain fragments counter */
->   1527          if (left_is_free && right_is_free)
->   1528                  e4b->bd_info->bb_fragments--;
->   1529          else if (!left_is_free && !right_is_free)
->   1530                  e4b->bd_info->bb_fragments++;
->   1531
->   1532          /* buddy[0] == bd_bitmap is a special case, so handle
->   1533           * it right away and let mb_buddy_mark_free stay free of
->   1534           * zero order checks.
->   1535           * Check if neighbours are to be coaleasced,
->   1536           * adjust bitmap bb_counters and borders appropriately.
->   1537           */
->   1538          if (first & 1) {
->   1539                  first += !left_is_free;
->   1540                  e4b->bd_info->bb_counters[0] += left_is_free ? -1 : 1;
->   1541          }
->   1542          if (!(last & 1)) {
->   1543                  last -= !right_is_free;
->   1544                  e4b->bd_info->bb_counters[0] += right_is_free ? -1 : 1;
->   1545          }
->   1546
->   1547          if (first <= last)
->   1548                  mb_buddy_mark_free(e4b, first >> 1, last >> 1);
->   1549
->   1550  done:
->   1551          mb_set_largest_free_order(sb, e4b->bd_info);
->   1552          mb_check_buddy(e4b);
->   1553  }
->   1554
+>    332
+>    333  /*
+>    334   * charge this task's execution time to its accounting group.
+>    335   *
+>    336   * called with rq->lock held.
+>    337   */
+>    338  void cpuacct_charge(struct task_struct *tsk, u64 cputime)
+>    339  {
+>    340          struct cpuacct *ca;
+>    341          int index = CPUACCT_STAT_SYSTEM;
+>    342          struct pt_regs *regs = task_pt_regs(tsk);
+>    343
+>    344          if (regs && user_mode(regs))
+>    345                  index = CPUACCT_STAT_USER;
+>    346
+>    347          rcu_read_lock();
+>    348
+>    349          for (ca = task_ca(tsk); ca; ca = parent_ca(ca))
+>  > 350                  __this_cpu_add(ca->cpuusage->usages[index], cputime);
+>    351
+>    352          rcu_read_unlock();
+>    353  }
+>    354
 >
 > ---
 > 0-DAY CI Kernel Test Service, Intel Corporation
@@ -374,7 +289,7 @@ On Mon, Jun 1, 2020 at 4:41 AM kbuild test robot <lkp@intel.com> wrote:
 > --
 > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202006011907.ocBGNEZT%25lkp%40intel.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202006011945.SmpRQmd0%25lkp%40intel.com.
 
 
 
@@ -385,4 +300,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkff8dwqHGkrnyK%2B%2Be%2ByWTTYZwefPJ4wqqXQCQhmePE5A%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdm75T%2Bgzjgd6yGUrou-xJMqBhaqa363YKcOJxLxPecnDw%40mail.gmail.com.
