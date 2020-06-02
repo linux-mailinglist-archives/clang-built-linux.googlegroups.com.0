@@ -1,136 +1,137 @@
-Return-Path: <clang-built-linux+bncBCX2JBVY5MBBBRNQ233AKGQEXQ5QDDY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDLPNNEQZUFBBFE5273AKGQEWD2CKXA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3f.google.com (mail-oo1-xc3f.google.com [IPv6:2607:f8b0:4864:20::c3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 13D261EB28A
-	for <lists+clang-built-linux@lfdr.de>; Tue,  2 Jun 2020 02:07:35 +0200 (CEST)
-Received: by mail-oo1-xc3f.google.com with SMTP id t24sf5634688oor.0
-        for <lists+clang-built-linux@lfdr.de>; Mon, 01 Jun 2020 17:07:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591056453; cv=pass;
+Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
+	by mail.lfdr.de (Postfix) with ESMTPS id EB1EA1EB408
+	for <lists+clang-built-linux@lfdr.de>; Tue,  2 Jun 2020 05:59:17 +0200 (CEST)
+Received: by mail-pg1-x539.google.com with SMTP id b131sf6968898pga.9
+        for <lists+clang-built-linux@lfdr.de>; Mon, 01 Jun 2020 20:59:17 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591070356; cv=pass;
         d=google.com; s=arc-20160816;
-        b=AJTXgkQ1dKMlYjF7VWrzpBD3vFJUmgrhHGrhCHIoXiy7CTtaRtDJSQAMqmjh8XQxgp
-         aeXRBb6H6ivbItOTy4n3LEMG5zdrv2yrktLa5K+M2KikFefaR3ZXmyACb591oUi8Vifo
-         zrF0SqGBJvl2M5deLBUVU5CKrwHsoQ8vQu1B13tsQ4vS1/uTmFf78FQuPfRfxwZ7IjzI
-         +exGesecy56DbGh0aVysoFzZ8PGkCC6kMfScLwhyM1wYU+ZvRGScHjXPbWHBw32OlCfN
-         ZRuJQh1YRXkqmheGALRW4S0nJnM34P2HqMtvWqJg5Fns9gHI8lQ8aDqcWlOUrrp2z1Z1
-         W8Ww==
+        b=TmMLlvzg6BANXjVhFdRjWJSqcbyk6iehUO9/1qEX8e9i9p/GvNuk3UUzr+t0GDmZmt
+         VDuhyepwlxE1NazTOnSvtduqd0CrTfUr7keyxzNu2vH+LuqpVqn4lCTtClObCTKsJScN
+         2zb8Lj1sMOMMyQDDnMK4xCm3R7C/SUuUYxiaGxESIORFLyAJiL52UpQRmsJexdS+IdWV
+         0ZNhvGjBw1cpFM7LNT04CjQTSm8bFOVdhfNENzqV5B9CDmqGtXBdviKu1x6EHJZ+Hp3n
+         k58oV8mRTM4+a31Frr+UFPQgyF+1CXkkRiP8w/1oGCtRURBLqaXFlVu9KxKY0TRN1nkM
+         Uftw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=SatNfWAS4fZmInykLACykyIOufnP0iMGnE8fr1hNVE8=;
-        b=HdVYkcs6rXhD3wQpSQhAu7xcnVFBegWJxL9pxlefIRHMK7MXY6rJ8/QJkgqnmIIY1z
-         Dto0cNHN52y6wp6ktKoo9exV7fPWNRInLSD+RxNWZKHkzq8thdkizjsmQi/r367O8iow
-         TpnkBSlD/iHEUxU38tjZPEzE3r2dot3xXgzi03CV0GIFfc1hiFxRcykVeZLp7bJbCxck
-         0DqWPE8bJYAbp1nYn5DvavcvFe1JJkSaIdnfve0NB1Wfrw0RsNl1DKswyNJ+952izj7R
-         msrs1v/iJ0027VmkLpwiknlwhrjc6PDyXPxOJ86GtQ4dhrbtVjUbyci/Ic2KI3l2FHxL
-         mrVQ==
+         :list-id:mailing-list:precedence:content-transfer-encoding:cc:to
+         :subject:message-id:date:from:in-reply-to:references:mime-version
+         :sender:dkim-signature:dkim-signature;
+        bh=qwwYrMFHSR97OXf/Pf+e1glpvtGH43xypikmOYvUkHc=;
+        b=aa5inHl7dyobOaOpHuqbLigrIKvAHgdnPs6Z7qihkwxtrMwK39yS0N5CQyF2DRIb0F
+         tFFbeV9ILTVrbuwJ9pF25zrRTR0LJhHL7pJI2MImwjy9H1tfW43DXcebSEKpuC3l/Hj0
+         M3YELJxQPzUo+EH7+17h8ss+CGINp2TbQm2P+jA9pbY3RlOUGRy3eMRRt53WqpOKxXRA
+         F8gCUvITuqzsYvd5Vxi65DUYjEVdP3hOq5ffL0WC9TUK7XTVXo7sut6Fc56KMcFSDoB2
+         tHtxtY392PM7kYfg/X+PzR1ze1wBo8/z5VL4jH2ylgJ0UjHTmAAcupjUIgEgvYXpPm8V
+         o00w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of philip.li@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=philip.li@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=BQnjU+32;
+       spf=pass (google.com: domain of gene.chen.richtek@gmail.com designates 2607:f8b0:4864:20::143 as permitted sender) smtp.mailfrom=gene.chen.richtek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=SatNfWAS4fZmInykLACykyIOufnP0iMGnE8fr1hNVE8=;
-        b=Vzlonl+UNEcCOBxlmGW762qPZ9Dk2d8zMDGD+RTn1Hk4kzY4cpn11ZxhjY4BlTjk5C
-         RUdwyOxJDwzF45tYx0rdmDuOwN1qSnuofWBKt+8qk3re4ZJxzMczdn0o/vshaspNb79m
-         D1bIE+G3Nenk4DTmd2ScoJAOVZ7691iD5ld+6ZEqfPc6iBx7yK5DlFLfUIIpqOdgf/uE
-         ml27Tq4L/hd8g15XjXLZ9X87U+xT4JqDx+9cUnM65tnG+GLD4FkOltCBAmDP0+hB6bsN
-         mC1WDCafFoTB2j2cBntM5T1s/pxo/6LEAj1BL7SFe6NM/w/Qj0BzSwRz0jP8iwm3Qj9J
-         4N7A==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=qwwYrMFHSR97OXf/Pf+e1glpvtGH43xypikmOYvUkHc=;
+        b=bEbiP9x+cENfdA+BWiYxZb+ksFHs6esgR1sTNuwvY6WAF+fj9Q2bzroSZCOGasWied
+         zhL5vTN7M6uZFKZo72muQVmHdx11spRbStQHmmblXsJVmc6VKE0kkswsD+mN9ESVVv1f
+         ahYhSlITzr2aFbAX2j30vAcw8OHeiOwqCgR+goBpXjJrWG1NGMDuKWEerbUw5mZVP0lV
+         Pd19b8OeVDc7CPtRia2O7nScHO426EXeqfF91TbL5SYlQVkkvaEonQhYSoEWl8vmM5Rn
+         0NK7nXgwjpDy/viU/zFNfECfVkjE7vpCYYQy/QiOrtb1RU6JMUG96xsKmOy2mFfC1g0E
+         yyZw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=qwwYrMFHSR97OXf/Pf+e1glpvtGH43xypikmOYvUkHc=;
+        b=h5oNLwAeRKJvWj0vNuadIw8WqOCp6HLGLIbJuPR0DuE4ELXI+yz/o3doffe2PdRKQN
+         b/Kn3WJg+bAm61J8QtJxkkxwis0jdxYW38yqCHwWidygHDPqW7DPZEIxoZ3/1SMytMg2
+         HBlvBEweJX6Im0WO74Jrk8r8wjsJzpUxT3irSJmh2g+ZU5YZMl8PcQbTq2Ss7rt44Fgd
+         i7s9HPjdCYryJu3v2lHMLfgAIip7IBcWO6RrP/cR7o69DFSg1v1QosMlPrgi1Z+D9sEA
+         9FhBV3vo3n5gV8PmRMdWDKRgaqwNr16zjhfofdrvuLpWd7hzbxKs4Ok7neXWNe/SJ9af
+         Vgvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:references:mime-version:content-disposition
-         :in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=SatNfWAS4fZmInykLACykyIOufnP0iMGnE8fr1hNVE8=;
-        b=NWaXkWubMuMfKbT7e9ZIHBtyJ8VZfIfysErLenmrPtSciXpUtzfQx2ut4PXqG6EMji
-         Z60Mq53Rdqnz1uvAV7OZ2GG3KwB+b8rJUd1TgYewS351Hfl7c1oNgxa8WRKfDtQ9rNkI
-         zdFS728d1QIG7NalOP8rh1LYfLl+M8Z1Hjb8ZC0lQMoCWVEUOE42D/+pTYeDlyx7qhfZ
-         /sEz6tLNOvGuCRrfKV3wjGswT2VaS4Izclx8yxQe8PDK8+/YExNwCRlXzI60fes93frs
-         2WfkO4Dcv9FNvsuw+4l2N+ikOaKsdj5vYmE1JmFaj3wO06RPFKokv9lcu+SVI8jsXsQ1
-         70cQ==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=qwwYrMFHSR97OXf/Pf+e1glpvtGH43xypikmOYvUkHc=;
+        b=AMzl+0wYIKs2xvDQRWJWXqOWUPLItzFGoI+ttErn7He7Q11Zo9M9ac/FJaqH3KqABu
+         hgZ+rDg3qIGeoYergtUlzru0j7dU58Fx5lB61GLkUBhAlb+H98HIZdmKNF2PDj45s2WA
+         jpJfo6Tp3/ZJYYFL956pnpWevNbOFa19xI9XVGUc7hyC+ZLTyAb0g813Pp1MMKb7rRdY
+         VpDhejfhSrfEIRvuXLXc0yYufnOnpToEm5E282gZFe6MLOiKZYh8HIVd9hoI4FwcFocj
+         ReFXlpuRwQV2ce9/6dsj6Z2XRh42SIUtjkVNHMGDOFDCBLAZJLkWHMHMsnfyFepD2Bng
+         z8wA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531Gu4O5Z32hb1FXWpkUU5t/nSG29g58FefRL8Ctpf7NCZSrqbh8
-	sTUz25yIei/cr7TFduoTb7s=
-X-Google-Smtp-Source: ABdhPJxzTm1y/0svyM7qo4zt7q8lqlDVqGhBELKkTTV73RCqOhKdQtOWorzdXUrNYbAhJeOe/n5AoQ==
-X-Received: by 2002:aca:40d:: with SMTP id 13mr1182574oie.8.1591056453553;
-        Mon, 01 Jun 2020 17:07:33 -0700 (PDT)
+X-Gm-Message-State: AOAM533M8j5QvrIHN3C89qEnaTS4YtjdWYvRKaOMN+UXMIQf24w2ZxWI
+	oRTHjUnoP/JENHOfsSewJlg=
+X-Google-Smtp-Source: ABdhPJw7e/3NR8ESPvE8iIdOn37fNKYpw77ylPJ0APnBihZEUzY012npRHdrYRtm48Mgq59I/xETLg==
+X-Received: by 2002:a63:dc0f:: with SMTP id s15mr21541828pgg.182.1591070356376;
+        Mon, 01 Jun 2020 20:59:16 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:cf10:: with SMTP id f16ls2858762oig.10.gmail; Mon, 01
- Jun 2020 17:07:33 -0700 (PDT)
-X-Received: by 2002:aca:b3c5:: with SMTP id c188mr1313255oif.86.1591056453023;
-        Mon, 01 Jun 2020 17:07:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591056453; cv=none;
+Received: by 2002:a63:1415:: with SMTP id u21ls3089505pgl.7.gmail; Mon, 01 Jun
+ 2020 20:59:15 -0700 (PDT)
+X-Received: by 2002:a63:de06:: with SMTP id f6mr23258853pgg.238.1591070355905;
+        Mon, 01 Jun 2020 20:59:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591070355; cv=none;
         d=google.com; s=arc-20160816;
-        b=jEOIa97WHZ7sytLLPyAKKe96IOPUv9tQ3Gq9OHHmFh1bTjXA6OZu+Zo/CCxYRkiRmG
-         NmHhQCJ52QyeDL/ZQQAQkdzGP0oN97grdHAQIwIE/epT/Y85o8gMEtTIRA/g+o9B7uKr
-         FeR6iG6a5zzxqoDdLto44p4MrsXAjiGQEfh+CCiDhrsC3+6QodF17kv08inY6OsRcMDp
-         z0dpycWlL4NNOD6IN/Jp7V+SkIkfksEiTYgR5bKOPoPAgHS6yhaRKVloMgzwpu7lOAJd
-         e8FeH+1DSTqnNvd9wAiuo0uFRh48H7rWi43QkCQYiX1gnkqLvgUl1PeJ1M7j5S3D2Nul
-         zTgQ==
+        b=AuSrPKe92llk1JWOwGyenH+vb53iHwEsPhnRJp1BYwVBQEaEJnRzVUWFZ/dfF6DXmF
+         NHbrQdjL3VjA0FFvQ3W2Kuiwi/nx8nGQnPzB7zStbKF1nSWypY+S/j42eVoZJ3+iXyu7
+         97/i3z+djQInIImPl+VXSeie2JvW6cWx4ZixqLMzViVKMJS1+zz0C7zzzixBP6I/fINa
+         AxDb3qX9Lkj8AWIiyMikuNqQpHpSUIV4C0xq+WsYI8YZcp6HPy/17jORRFHUT0S4U7Rc
+         +zWmkMvPiyDuuIlQZNcEtYFx+Giadwk7VN/FQ1JJZZOsOMTRTHavH8zYOfLMbX0+uVHX
+         I22w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=0V0hhwDpQHH/rAGaNPINXziYYayRmSHo/+JLtInD8kk=;
-        b=WRX74ztPZR/+lgTxs/A2uG6oU9FhpNW2fOVeP6gFtqCOvDUg3GE4+0lDM1QieW2/lc
-         25dB7Hcais1pzRnrikzJL3+LjFwrH7skPBXs7G5qM/4yoXNY1eyHb8t0JYw8QQRj1xbP
-         ePRkCY/t478Qy3Je7e7I/5PFtw2GrJQAnc8k1FWAnq7mwPLSsGZDBzlX9TPVp8GmipMy
-         MxtkrpQoy8Ue6j6aDsImO3ePL3DSOj7zQic9S/zlS1ZFPdNSdH0vJOuImIxqKGvnu+J6
-         1t8cH7koHmRFMmwwWXdJn7zh6zNQAR/eWM1316DFoIEO2Kj3Bq3b9nMwxR6r6MLX4HeQ
-         Hoow==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=2EkKSxFNSloHoz6pqPnY6y5JXq3EJ6iYhKX0julLF6A=;
+        b=wGueU/i7A4Le3TTqsOUvGWqeyKxjUDG9SjojIAJhZ9eE1JQMBipQFMn+XJ0BLpHGCH
+         Emnsl0/MVqrdL9phoVIv8CNahZwhZ872p4D9uV486OYV5xjt+jELG6JRAhOn/6ZwkU0X
+         XDvnNridwTWF3tDsUmgikXg2Zx7zCP7Mmixkt5YZs5qpPbWH88BswY0vqUIPZAAX2DnJ
+         SOZ3nZUkeGhEiOjXwN/lDdyfRJCGInvmE6oAetdSTnHRE3rrcx/AjbdeLd9YIdD5X4et
+         ItTVSaRRUTShnhLXLTKoxbBCvYfE4pr1mwwvS6vLAW5MwOhbJg4C9iVUdpqJR51JC1TA
+         eerw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of philip.li@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=philip.li@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
-        by gmr-mx.google.com with ESMTPS id o199si52611ooo.0.2020.06.01.17.07.32
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=BQnjU+32;
+       spf=pass (google.com: domain of gene.chen.richtek@gmail.com designates 2607:f8b0:4864:20::143 as permitted sender) smtp.mailfrom=gene.chen.richtek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-il1-x143.google.com (mail-il1-x143.google.com. [2607:f8b0:4864:20::143])
+        by gmr-mx.google.com with ESMTPS id g6si56367pjl.1.2020.06.01.20.59.15
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 01 Jun 2020 17:07:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of philip.li@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
-IronPort-SDR: F5Ao+uJfXi5hfIh41LIC9i5ptNkbTwA4CDHUqdMQ12+PcZ0U0ctV0NlxhPD7qx1Dh+POWATMOX
- 6aq6qAKdTnDg==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jun 2020 17:07:32 -0700
-IronPort-SDR: x21/RN9A78lYTgGkgjF0eZn2nugKXcxt4BpedqFASbp7ohcm7bf734qY2o4aAcurBlL/618/R3
- jrZzF2raolmg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.73,462,1583222400"; 
-   d="scan'208";a="293371984"
-Received: from pl-dbox.sh.intel.com (HELO intel.com) ([10.239.159.39])
-  by fmsmga004.fm.intel.com with ESMTP; 01 Jun 2020 17:07:29 -0700
-Date: Tue, 2 Jun 2020 08:06:36 +0800
-From: Philip Li <philip.li@intel.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: kbuild test robot <lkp@intel.com>,
-	"Muchun, Song," <songmuchun@bytedance.com>, kbuild-all@lists.01.org,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Peter Zijlstra <peterz@infradead.org>
-Subject: Re: [linux-next:master 10017/14131] kernel/sched/cpuacct.c:350:3:
- error: invalid input size for constraint 'qi'
-Message-ID: <20200602000636.GA28064@intel.com>
-References: <202006011945.SmpRQmd0%lkp@intel.com>
- <CAKwvOdm75T+gzjgd6yGUrou-xJMqBhaqa363YKcOJxLxPecnDw@mail.gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 01 Jun 2020 20:59:15 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gene.chen.richtek@gmail.com designates 2607:f8b0:4864:20::143 as permitted sender) client-ip=2607:f8b0:4864:20::143;
+Received: by mail-il1-x143.google.com with SMTP id a13so6790050ilh.3
+        for <clang-built-linux@googlegroups.com>; Mon, 01 Jun 2020 20:59:15 -0700 (PDT)
+X-Received: by 2002:a05:6e02:e8c:: with SMTP id t12mr23747386ilj.186.1591070355374;
+ Mon, 01 Jun 2020 20:59:15 -0700 (PDT)
 MIME-Version: 1.0
+References: <202005291101.X3TXWqSi%lkp@intel.com> <20200529073015.GQ3628@dell>
+In-Reply-To: <20200529073015.GQ3628@dell>
+From: Gene Chen <gene.chen.richtek@gmail.com>
+Date: Tue, 2 Jun 2020 11:59:03 +0800
+Message-ID: <CAE+NS37O=7+d2THMijcVRCTbWoT5i7K6QfcGuhgTD6_UGfYvHw@mail.gmail.com>
+Subject: Re: [linux-next:master 12774/13554] drivers/mfd/mt6360-core.c:148:2:
+ warning: initializer overrides prior initialization of this subobject
+To: Lee Jones <lee.jones@linaro.org>
+Cc: kbuild test robot <lkp@intel.com>, kbuild-all@lists.01.org, 
+	clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAKwvOdm75T+gzjgd6yGUrou-xJMqBhaqa363YKcOJxLxPecnDw@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: philip.li@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of philip.li@intel.com designates 192.55.52.115 as
- permitted sender) smtp.mailfrom=philip.li@intel.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=intel.com
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: gene.chen.richtek@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=BQnjU+32;       spf=pass
+ (google.com: domain of gene.chen.richtek@gmail.com designates
+ 2607:f8b0:4864:20::143 as permitted sender) smtp.mailfrom=gene.chen.richtek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,176 +144,174 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jun 01, 2020 at 11:02:52AM -0700, Nick Desaulniers wrote:
-> Nevermind this failure, Clang doesn't support i386 yet (WIP)
-sorry for the noise, we will disable this.
-
-> 
-> On Mon, Jun 1, 2020 at 4:39 AM kbuild test robot <lkp@intel.com> wrote:
-> >
-> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> > head:   e7b08814b16b80a0bf76eeca16317f8c2ed23b8c
-> > commit: 12aa2587388de6697fd2e585ae6a90f70249540b [10017/14131] sched/cpuacct: Use __this_cpu_add() instead of this_cpu_ptr()
-> > config: i386-randconfig-a012-20200601 (attached as .config)
-> > compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 2388a096e7865c043e83ece4e26654bd3d1a20d5)
-> > reproduce (this is a W=1 build):
-> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+Lee Jones <lee.jones@linaro.org> =E6=96=BC 2020=E5=B9=B45=E6=9C=8829=E6=97=
+=A5 =E9=80=B1=E4=BA=94 =E4=B8=8B=E5=8D=883:30=E5=AF=AB=E9=81=93=EF=BC=9A
+>
+> Gene,
+>
+> On Fri, 29 May 2020, kbuild test robot wrote:
+>
+> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next=
+.git master
+> > head:   ff387fc20c697cdc887b2abf7ef494e853795a2f
+> > commit: 7edd363421dab1d4806802ac65613d1c0ec85824 [12774/13554] mfd: Add=
+ support for PMIC MT6360
+> > config: x86_64-allyesconfig (attached as .config)
+> > compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 2d=
+068e534f1671459e1b135852c1b3c10502e929)
+> > reproduce (this is a W=3D1 build):
+> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/s=
+bin/make.cross -O ~/bin/make.cross
 > >         chmod +x ~/bin/make.cross
-> >         # install i386 cross compiling tool for clang build
-> >         # apt-get install binutils-i386-linux-gnu
-> >         git checkout 12aa2587388de6697fd2e585ae6a90f70249540b
+> >         # install x86_64 cross compiling tool for clang build
+> >         # apt-get install binutils-x86-64-linux-gnu
+> >         git checkout 7edd363421dab1d4806802ac65613d1c0ec85824
 > >         # save the attached .config to linux build tree
-> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=i386
+> >         COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cross =
+ARCH=3Dx86_64
 > >
 > > If you fix the issue, kindly add following tag as appropriate
 > > Reported-by: kbuild test robot <lkp@intel.com>
 > >
-> > All errors (new ones prefixed by >>, old ones prefixed by <<):
+> > All warnings (new ones prefixed by >>, old ones prefixed by <<):
 > >
-> > >> kernel/sched/cpuacct.c:350:3: error: invalid input size for constraint 'qi'
-> > __this_cpu_add(ca->cpuusage->usages[index], cputime);
-> > ^
-> > include/linux/percpu-defs.h:458:2: note: expanded from macro '__this_cpu_add'
-> > raw_cpu_add(pcp, val);                                                     ^
-> > include/linux/percpu-defs.h:422:32: note: expanded from macro 'raw_cpu_add'
-> > #define raw_cpu_add(pcp, val)           __pcpu_size_call(raw_cpu_add_, pcp, val)
-> > ^
-> > include/linux/percpu-defs.h:377:11: note: expanded from macro '__pcpu_size_call'
-> > case 1: stem##1(variable, __VA_ARGS__);break;                                      ^
-> > <scratch space>:35:1: note: expanded from here
-> > raw_cpu_add_1
-> > ^
-> > arch/x86/include/asm/percpu.h:401:34: note: expanded from macro 'raw_cpu_add_1'
-> > #define raw_cpu_add_1(pcp, val)         percpu_add_op(, (pcp), val)
-> > ^
-> > arch/x86/include/asm/percpu.h:147:16: note: expanded from macro 'percpu_add_op'
-> > : "qi" ((pao_T__)(val)));                                                          ^
-> > >> kernel/sched/cpuacct.c:350:3: error: invalid input size for constraint 'qi'
-> > include/linux/percpu-defs.h:458:2: note: expanded from macro '__this_cpu_add'
-> > raw_cpu_add(pcp, val);                                                     ^
-> > include/linux/percpu-defs.h:422:32: note: expanded from macro 'raw_cpu_add'
-> > #define raw_cpu_add(pcp, val)           __pcpu_size_call(raw_cpu_add_, pcp, val)
-> > ^
-> > include/linux/percpu-defs.h:378:11: note: expanded from macro '__pcpu_size_call'
-> > case 2: stem##2(variable, __VA_ARGS__);break;                                      ^
-> > <scratch space>:60:1: note: expanded from here
-> > raw_cpu_add_2
-> > ^
-> > arch/x86/include/asm/percpu.h:402:34: note: expanded from macro 'raw_cpu_add_2'
-> > #define raw_cpu_add_2(pcp, val)         percpu_add_op(, (pcp), val)
-> > ^
-> > arch/x86/include/asm/percpu.h:147:16: note: expanded from macro 'percpu_add_op'
-> > : "qi" ((pao_T__)(val)));                                                          ^
-> > >> kernel/sched/cpuacct.c:350:3: error: invalid input size for constraint 'qi'
-> > include/linux/percpu-defs.h:458:2: note: expanded from macro '__this_cpu_add'
-> > raw_cpu_add(pcp, val);                                                     ^
-> > include/linux/percpu-defs.h:422:32: note: expanded from macro 'raw_cpu_add'
-> > #define raw_cpu_add(pcp, val)           __pcpu_size_call(raw_cpu_add_, pcp, val)
-> > ^
-> > include/linux/percpu-defs.h:379:11: note: expanded from macro '__pcpu_size_call'
-> > case 4: stem##4(variable, __VA_ARGS__);break;                                      ^
-> > <scratch space>:85:1: note: expanded from here
-> > raw_cpu_add_4
-> > ^
-> > arch/x86/include/asm/percpu.h:403:34: note: expanded from macro 'raw_cpu_add_4'
-> > #define raw_cpu_add_4(pcp, val)         percpu_add_op(, (pcp), val)
-> > ^
-> > arch/x86/include/asm/percpu.h:147:16: note: expanded from macro 'percpu_add_op'
-> > : "qi" ((pao_T__)(val)));                                                          ^
-> > kernel/sched/cpuacct.c:366:3: error: invalid input size for constraint 'qi'
-> > __this_cpu_add(ca->cpustat->cpustat[index], val);
-> > ^
-> > include/linux/percpu-defs.h:458:2: note: expanded from macro '__this_cpu_add'
-> > raw_cpu_add(pcp, val);                                                     ^
-> > include/linux/percpu-defs.h:422:32: note: expanded from macro 'raw_cpu_add'
-> > #define raw_cpu_add(pcp, val)           __pcpu_size_call(raw_cpu_add_, pcp, val)
-> > ^
-> > include/linux/percpu-defs.h:377:11: note: expanded from macro '__pcpu_size_call'
-> > case 1: stem##1(variable, __VA_ARGS__);break;                                      ^
-> > <scratch space>:113:1: note: expanded from here
-> > raw_cpu_add_1
-> > ^
-> > arch/x86/include/asm/percpu.h:401:34: note: expanded from macro 'raw_cpu_add_1'
-> > #define raw_cpu_add_1(pcp, val)         percpu_add_op(, (pcp), val)
-> > ^
-> > arch/x86/include/asm/percpu.h:147:16: note: expanded from macro 'percpu_add_op'
-> > : "qi" ((pao_T__)(val)));                                                          ^
-> > kernel/sched/cpuacct.c:366:3: error: invalid input size for constraint 'qi'
-> > include/linux/percpu-defs.h:458:2: note: expanded from macro '__this_cpu_add'
-> > raw_cpu_add(pcp, val);                                                     ^
-> > include/linux/percpu-defs.h:422:32: note: expanded from macro 'raw_cpu_add'
-> > #define raw_cpu_add(pcp, val)           __pcpu_size_call(raw_cpu_add_, pcp, val)
-> > ^
-> > include/linux/percpu-defs.h:378:11: note: expanded from macro '__pcpu_size_call'
-> > case 2: stem##2(variable, __VA_ARGS__);break;                                      ^
-> > <scratch space>:138:1: note: expanded from here
-> > raw_cpu_add_2
-> > ^
-> > arch/x86/include/asm/percpu.h:402:34: note: expanded from macro 'raw_cpu_add_2'
-> > #define raw_cpu_add_2(pcp, val)         percpu_add_op(, (pcp), val)
-> > ^
-> > arch/x86/include/asm/percpu.h:147:16: note: expanded from macro 'percpu_add_op'
-> > : "qi" ((pao_T__)(val)));                                                          ^
-> > kernel/sched/cpuacct.c:366:3: error: invalid input size for constraint 'qi'
-> > include/linux/percpu-defs.h:458:2: note: expanded from macro '__this_cpu_add'
-> > raw_cpu_add(pcp, val);                                                     ^
-> > include/linux/percpu-defs.h:422:32: note: expanded from macro 'raw_cpu_add'
-> > #define raw_cpu_add(pcp, val)           __pcpu_size_call(raw_cpu_add_, pcp, val)
-> > ^
-> > include/linux/percpu-defs.h:379:11: note: expanded from macro '__pcpu_size_call'
-> > case 4: stem##4(variable, __VA_ARGS__);break;                                      ^
-> > <scratch space>:163:1: note: expanded from here
-> > raw_cpu_add_4
-> > ^
-> > arch/x86/include/asm/percpu.h:403:34: note: expanded from macro 'raw_cpu_add_4'
-> > #define raw_cpu_add_4(pcp, val)         percpu_add_op(, (pcp), val)
-> > ^
-> > arch/x86/include/asm/percpu.h:147:16: note: expanded from macro 'percpu_add_op'
-> > : "qi" ((pao_T__)(val)));                                                          ^
-> > 6 errors generated.
+> > >> drivers/mfd/mt6360-core.c:148:2: warning: initializer overrides prio=
+r initialization of this subobject [-Winitializer-overrides]
+> > REGMAP_IRQ_REG_LINE(MT6360_CHG_TREG_EVT, 8),
+> > ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> > include/linux/regmap.h:1191:10: note: expanded from macro 'REGMAP_IRQ_R=
+EG_LINE'
+> > [_id] =3D {                                                  ^~~~~~~~~~=
+~~~~~~~~~~~~~~~~~~~~~~~
+> > drivers/mfd/mt6360-core.c:124:2: note: previous initialization is here
+> > REGMAP_IRQ_REG_LINE(MT6360_CHG_TREG_EVT, 8),
+> > ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> > include/linux/regmap.h:1191:10: note: expanded from macro 'REGMAP_IRQ_R=
+EG_LINE'
+> > [_id] =3D {                                                  ^~~~~~~~~~=
+~~~~~~~~~~~~~~~~~~~~~~~
+> > 1 warning generated.
+>
+> Could you fix this today please?
+>
+
+fixed update patch v10, also sync latest patch in server
+https://git.kernel.org/pub/scm/linux/kernel/git/lee/mfd.git/commit/?h=3Dfor=
+-mfd-next
+
+> > vim +148 drivers/mfd/mt6360-core.c
 > >
-> > vim +/qi +350 kernel/sched/cpuacct.c
-> >
-> >    332
-> >    333  /*
-> >    334   * charge this task's execution time to its accounting group.
-> >    335   *
-> >    336   * called with rq->lock held.
-> >    337   */
-> >    338  void cpuacct_charge(struct task_struct *tsk, u64 cputime)
-> >    339  {
-> >    340          struct cpuacct *ca;
-> >    341          int index = CPUACCT_STAT_SYSTEM;
-> >    342          struct pt_regs *regs = task_pt_regs(tsk);
-> >    343
-> >    344          if (regs && user_mode(regs))
-> >    345                  index = CPUACCT_STAT_USER;
-> >    346
-> >    347          rcu_read_lock();
-> >    348
-> >    349          for (ca = task_ca(tsk); ca; ca = parent_ca(ca))
-> >  > 350                  __this_cpu_add(ca->cpuusage->usages[index], cputime);
-> >    351
-> >    352          rcu_read_unlock();
-> >    353  }
-> >    354
+> >    122
+> >    123        static const struct regmap_irq mt6360_pmu_irqs[] =3D  {
+> >    124                REGMAP_IRQ_REG_LINE(MT6360_CHG_TREG_EVT, 8),
+> >    125                REGMAP_IRQ_REG_LINE(MT6360_CHG_AICR_EVT, 8),
+> >    126                REGMAP_IRQ_REG_LINE(MT6360_CHG_MIVR_EVT, 8),
+> >    127                REGMAP_IRQ_REG_LINE(MT6360_PWR_RDY_EVT, 8),
+> >    128                REGMAP_IRQ_REG_LINE(MT6360_CHG_BATSYSUV_EVT, 8),
+> >    129                REGMAP_IRQ_REG_LINE(MT6360_FLED_CHG_VINOVP_EVT, 8=
+),
+> >    130                REGMAP_IRQ_REG_LINE(MT6360_CHG_VSYSUV_EVT, 8),
+> >    131                REGMAP_IRQ_REG_LINE(MT6360_CHG_VSYSOV_EVT, 8),
+> >    132                REGMAP_IRQ_REG_LINE(MT6360_CHG_VBATOV_EVT, 8),
+> >    133                REGMAP_IRQ_REG_LINE(MT6360_CHG_VBUSOV_EVT, 8),
+> >    134                REGMAP_IRQ_REG_LINE(MT6360_WD_PMU_DET, 8),
+> >    135                REGMAP_IRQ_REG_LINE(MT6360_WD_PMU_DONE, 8),
+> >    136                REGMAP_IRQ_REG_LINE(MT6360_CHG_TMRI, 8),
+> >    137                REGMAP_IRQ_REG_LINE(MT6360_CHG_ADPBADI, 8),
+> >    138                REGMAP_IRQ_REG_LINE(MT6360_CHG_RVPI, 8),
+> >    139                REGMAP_IRQ_REG_LINE(MT6360_OTPI, 8),
+> >    140                REGMAP_IRQ_REG_LINE(MT6360_CHG_AICCMEASL, 8),
+> >    141                REGMAP_IRQ_REG_LINE(MT6360_CHGDET_DONEI, 8),
+> >    142                REGMAP_IRQ_REG_LINE(MT6360_WDTMRI, 8),
+> >    143                REGMAP_IRQ_REG_LINE(MT6360_SSFINISHI, 8),
+> >    144                REGMAP_IRQ_REG_LINE(MT6360_CHG_RECHGI, 8),
+> >    145                REGMAP_IRQ_REG_LINE(MT6360_CHG_TERMI, 8),
+> >    146                REGMAP_IRQ_REG_LINE(MT6360_CHG_IEOCI, 8),
+> >    147                REGMAP_IRQ_REG_LINE(MT6360_PUMPX_DONEI, 8),
+> >  > 148                REGMAP_IRQ_REG_LINE(MT6360_CHG_TREG_EVT, 8),
+> >    149                REGMAP_IRQ_REG_LINE(MT6360_BAT_OVP_ADC_EVT, 8),
+> >    150                REGMAP_IRQ_REG_LINE(MT6360_TYPEC_OTP_EVT, 8),
+> >    151                REGMAP_IRQ_REG_LINE(MT6360_ADC_WAKEUP_EVT, 8),
+> >    152                REGMAP_IRQ_REG_LINE(MT6360_ADC_DONEI, 8),
+> >    153                REGMAP_IRQ_REG_LINE(MT6360_BST_BATUVI, 8),
+> >    154                REGMAP_IRQ_REG_LINE(MT6360_BST_VBUSOVI, 8),
+> >    155                REGMAP_IRQ_REG_LINE(MT6360_BST_OLPI, 8),
+> >    156                REGMAP_IRQ_REG_LINE(MT6360_ATTACH_I, 8),
+> >    157                REGMAP_IRQ_REG_LINE(MT6360_DETACH_I, 8),
+> >    158                REGMAP_IRQ_REG_LINE(MT6360_QC30_STPDONE, 8),
+> >    159                REGMAP_IRQ_REG_LINE(MT6360_QC_VBUSDET_DONE, 8),
+> >    160                REGMAP_IRQ_REG_LINE(MT6360_HVDCP_DET, 8),
+> >    161                REGMAP_IRQ_REG_LINE(MT6360_CHGDETI, 8),
+> >    162                REGMAP_IRQ_REG_LINE(MT6360_DCDTI, 8),
+> >    163                REGMAP_IRQ_REG_LINE(MT6360_FOD_DONE_EVT, 8),
+> >    164                REGMAP_IRQ_REG_LINE(MT6360_FOD_OV_EVT, 8),
+> >    165                REGMAP_IRQ_REG_LINE(MT6360_CHRDET_UVP_EVT, 8),
+> >    166                REGMAP_IRQ_REG_LINE(MT6360_CHRDET_OVP_EVT, 8),
+> >    167                REGMAP_IRQ_REG_LINE(MT6360_CHRDET_EXT_EVT, 8),
+> >    168                REGMAP_IRQ_REG_LINE(MT6360_FOD_LR_EVT, 8),
+> >    169                REGMAP_IRQ_REG_LINE(MT6360_FOD_HR_EVT, 8),
+> >    170                REGMAP_IRQ_REG_LINE(MT6360_FOD_DISCHG_FAIL_EVT, 8=
+),
+> >    171                REGMAP_IRQ_REG_LINE(MT6360_USBID_EVT, 8),
+> >    172                REGMAP_IRQ_REG_LINE(MT6360_APWDTRST_EVT, 8),
+> >    173                REGMAP_IRQ_REG_LINE(MT6360_EN_EVT, 8),
+> >    174                REGMAP_IRQ_REG_LINE(MT6360_QONB_RST_EVT, 8),
+> >    175                REGMAP_IRQ_REG_LINE(MT6360_MRSTB_EVT, 8),
+> >    176                REGMAP_IRQ_REG_LINE(MT6360_OTP_EVT, 8),
+> >    177                REGMAP_IRQ_REG_LINE(MT6360_VDDAOV_EVT, 8),
+> >    178                REGMAP_IRQ_REG_LINE(MT6360_SYSUV_EVT, 8),
+> >    179                REGMAP_IRQ_REG_LINE(MT6360_FLED_STRBPIN_EVT, 8),
+> >    180                REGMAP_IRQ_REG_LINE(MT6360_FLED_TORPIN_EVT, 8),
+> >    181                REGMAP_IRQ_REG_LINE(MT6360_FLED_TX_EVT, 8),
+> >    182                REGMAP_IRQ_REG_LINE(MT6360_FLED_LVF_EVT, 8),
+> >    183                REGMAP_IRQ_REG_LINE(MT6360_FLED2_SHORT_EVT, 8),
+> >    184                REGMAP_IRQ_REG_LINE(MT6360_FLED1_SHORT_EVT, 8),
+> >    185                REGMAP_IRQ_REG_LINE(MT6360_FLED2_STRB_EVT, 8),
+> >    186                REGMAP_IRQ_REG_LINE(MT6360_FLED1_STRB_EVT, 8),
+> >    187                REGMAP_IRQ_REG_LINE(MT6360_FLED2_STRB_TO_EVT, 8),
+> >    188                REGMAP_IRQ_REG_LINE(MT6360_FLED1_STRB_TO_EVT, 8),
+> >    189                REGMAP_IRQ_REG_LINE(MT6360_FLED2_TOR_EVT, 8),
+> >    190                REGMAP_IRQ_REG_LINE(MT6360_FLED1_TOR_EVT, 8),
+> >    191                REGMAP_IRQ_REG_LINE(MT6360_BUCK1_PGB_EVT, 8),
+> >    192                REGMAP_IRQ_REG_LINE(MT6360_BUCK1_OC_EVT, 8),
+> >    193                REGMAP_IRQ_REG_LINE(MT6360_BUCK1_OV_EVT, 8),
+> >    194                REGMAP_IRQ_REG_LINE(MT6360_BUCK1_UV_EVT, 8),
+> >    195                REGMAP_IRQ_REG_LINE(MT6360_BUCK2_PGB_EVT, 8),
+> >    196                REGMAP_IRQ_REG_LINE(MT6360_BUCK2_OC_EVT, 8),
+> >    197                REGMAP_IRQ_REG_LINE(MT6360_BUCK2_OV_EVT, 8),
+> >    198                REGMAP_IRQ_REG_LINE(MT6360_BUCK2_UV_EVT, 8),
+> >    199                REGMAP_IRQ_REG_LINE(MT6360_LDO1_OC_EVT, 8),
+> >    200                REGMAP_IRQ_REG_LINE(MT6360_LDO2_OC_EVT, 8),
+> >    201                REGMAP_IRQ_REG_LINE(MT6360_LDO3_OC_EVT, 8),
+> >    202                REGMAP_IRQ_REG_LINE(MT6360_LDO5_OC_EVT, 8),
+> >    203                REGMAP_IRQ_REG_LINE(MT6360_LDO6_OC_EVT, 8),
+> >    204                REGMAP_IRQ_REG_LINE(MT6360_LDO7_OC_EVT, 8),
+> >    205                REGMAP_IRQ_REG_LINE(MT6360_LDO1_PGB_EVT, 8),
+> >    206                REGMAP_IRQ_REG_LINE(MT6360_LDO2_PGB_EVT, 8),
+> >    207                REGMAP_IRQ_REG_LINE(MT6360_LDO3_PGB_EVT, 8),
+> >    208                REGMAP_IRQ_REG_LINE(MT6360_LDO5_PGB_EVT, 8),
+> >    209                REGMAP_IRQ_REG_LINE(MT6360_LDO6_PGB_EVT, 8),
+> >    210                REGMAP_IRQ_REG_LINE(MT6360_LDO7_PGB_EVT, 8),
+> >    211        };
+> >    212
 > >
 > > ---
 > > 0-DAY CI Kernel Test Service, Intel Corporation
 > > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> >
-> > --
-> > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> > To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202006011945.SmpRQmd0%25lkp%40intel.com.
-> 
-> 
-> 
-> -- 
-> Thanks,
-> ~Nick Desaulniers
+>
+>
+>
+> --
+> Lee Jones [=E6=9D=8E=E7=90=BC=E6=96=AF]
+> Linaro Services Technical Lead
+> Linaro.org =E2=94=82 Open source software for ARM SoCs
+> Follow Linaro: Facebook | Twitter | Blog
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200602000636.GA28064%40intel.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/CAE%2BNS37O%3D7%2Bd2THMijcVRCTbWoT5i7K6QfcGuhgTD6_UGfYvHw=
+%40mail.gmail.com.
