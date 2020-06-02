@@ -1,145 +1,133 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBGWQ3L3AKGQEYT4NZKA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC6LFE5SYELBBCOS3L3AKGQERXPQ3OQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x940.google.com (mail-ua1-x940.google.com [IPv6:2607:f8b0:4864:20::940])
-	by mail.lfdr.de (Postfix) with ESMTPS id AAB711EC2B3
-	for <lists+clang-built-linux@lfdr.de>; Tue,  2 Jun 2020 21:27:23 +0200 (CEST)
-Received: by mail-ua1-x940.google.com with SMTP id q19sf1584125uad.21
-        for <lists+clang-built-linux@lfdr.de>; Tue, 02 Jun 2020 12:27:23 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591126042; cv=pass;
+Received: from mail-vk1-xa3f.google.com (mail-vk1-xa3f.google.com [IPv6:2607:f8b0:4864:20::a3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 680841EC2C1
+	for <lists+clang-built-linux@lfdr.de>; Tue,  2 Jun 2020 21:31:22 +0200 (CEST)
+Received: by mail-vk1-xa3f.google.com with SMTP id d64sf1787302vkh.16
+        for <lists+clang-built-linux@lfdr.de>; Tue, 02 Jun 2020 12:31:22 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591126281; cv=pass;
         d=google.com; s=arc-20160816;
-        b=waW8WwbS5Axl+eZKUt6CZCKjvUSBVEAEtEBymRs/zhv5OynwLYwMK+/XTvJXbYVbGr
-         xXXCXSz0Cx5StUOVjBvdToCqtisXpZR7WrgrRSADy4GkjzoVz2CFm4B6YBCzjTTGiuOg
-         T6OmV8oe3b8/9cL4eirZaDD8bd/lQdTH8n1OnMqktdiCtxP4sEceYhgfwrsfUmsnKqcc
-         CB18U4BR7hbxpDh17ksmeHF0xs+a7oTvhPiW11jAS/Rknw6y6lLfQVh55d9owG3OndmE
-         bOGYrPOkO6SxrgWBOVKncFgohfwSPa1NFba90O3NznL1fASVh5G8vQ9y/N/Fb7kAYEoc
-         2IUw==
+        b=oQiLwAZN9+QvTl0SY1wBV09RvYueFLBMcso8fyo5LDLirxccCQ0pdegHm8CXPtXD8C
+         UxkVNJwCVVpgvdxEWhjR4JR/8+Gwwutgs9rG2jda9xumalFRDTGqcfLxLeymokU6slHT
+         QUBT5BFdMncFXZA8OphDr3Ki7T1HHQgLXusFIY0l1Vlo5IExuyR8iyRk0749A0PmOKun
+         KP8O1EUZtgUGYsyWbTQIwOadMZnlGsEyraIy7sddHFDVf9kVYodiQJ/UgLvqLTP6oVtA
+         67cEfPawCJkat5DVh4oIIeMTR11fyXdaFORkwubVd+Onkgphj8NIsO5/YvznbXOb7Yn5
+         n/qw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=Sw9T4J9JRymLpLgpWg/Xq3STrXC/BHmxavwwJ6fBdUw=;
-        b=ckNyf7OX/azrYgN01e8mNU3GhHNlOQKEwxSgyog/OpsfyKsMfMregYG0cjYTlqgRgT
-         c8U1/0t/uDthP6oV17ZbaZGwFbwqTzqH7GjsNtKx1j58nJEppyRtjizHi7CjFdBRiyqw
-         XYeKmpyzUAWi9bDm07/9EUvPOVp5eKcu/QiOH//3GDIGr4H3kWkiI1eHH82taIZsEWdx
-         lSUsxcJn1dRl77qX2f3c2/Ifr+qhApVoSFPL+CS9KInNyididijmfAiXLwVFgqs7fKeN
-         H3AQ3LBKWUYVhoe8dw2bhL3Npom1I5XfBRhydx0Vx0wKE+CBjSUis1FW12y+JG6JveJM
-         DAqw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
+        bh=qRbm7k9cD56dy8PleRplHUv3floZVtzYs4q8HJRCDiE=;
+        b=tPHa6Lw2axfqMTTa0GLnr/qhC6VRm0WR4yTcwy/iCZYoCEyARY44/tU43cZZ3l6vQw
+         FSdpeFZVbjAghugZounbh4iS2EsEBj+fV+JoqcKKg6Y3rDqVsg5P5XuecOdy63GGnTtd
+         l+megYhsQIwIN45dEAFz6I89/qATStLPl2/uL8epzOkTk3/OGsPERsTDS5KX4G2MVg8v
+         gcXF/uULSzWUujs2a4RmFRvlwg9uWjq8FF2zqhMAIoHAN7EZZqI3aSAiPmytSPL8x2D8
+         Z/yA+TG7Mc9NlDAPGXqwB8+l/Hr0gYeWAAMa5mRLfGKYam1u9J6YAGD7BRtXBoz40Non
+         mOeQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="b/kvpOvI";
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=lKTcFEgW;
+       spf=pass (google.com: domain of 3cknwxgkkalezexcfizfexffxcv.tfd@flex--inglorion.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3CKnWXgkKALEZeXcfiZfeXffXcV.Tfd@flex--inglorion.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Sw9T4J9JRymLpLgpWg/Xq3STrXC/BHmxavwwJ6fBdUw=;
-        b=Xxl/KaXUuxmVGe/jF4l2ThM3xSSzqVzsZ3nJsseuTtlmVmd3GrIHtF0sQBzzN8Isp9
-         F+8NDnT2pMveEJLRJ/rTEFhNaqWReHpcRapOt6XUXadVdvKhh4MphzXbjoG/XfXbVEPs
-         0C7pbt1Xi73fWS6dBSF9qioth2h08BSVGhaseBfiqkc0luyq8Ro9xaeEQ9WUfI6YJHSy
-         lJblDve7ogWd0XjiG4t1u03EabYHW0UasDjm0eLWODjT330VgcGoEg1aUytKMSBTWJHc
-         IA2ucmK98zAkaPG1jJ8vP2l9XlD5ihPWISPanGosaNd/TGRshTs0utvTLbtUlVZ9ApQN
-         oFzQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Sw9T4J9JRymLpLgpWg/Xq3STrXC/BHmxavwwJ6fBdUw=;
-        b=XHD+lCZRi4w0TcgeyaOqAQ7HbTrtJNH8iDi+NT4a6RKOmPszFbu3HNspmCYSadZJby
-         GEMSyrcYXbFtiYpS2lkpG4Q3q/5jqVATqk1WoDEh8AIZZ0mXHBma/nIiDEfZpkDXYUdI
-         MJIzUvuYxURMq6c+WU6bMRVgbSFcgdxrkFd50tcAnH+lvbH1vIJYg0BXcmPkzUPlbXfK
-         4IeRKYkVInkm3Xjf9vw7gJ4+b0tGJHPiqMjo6I8WIKeN2CNWYCORPMN/2+kxc5YOOob1
-         6LIumI0FvaEIjX6lAvIQZj99TPVqtBOZM6550aIBItRnal8pkjBax918OuLZPO32ces9
-         +3DA==
+        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=qRbm7k9cD56dy8PleRplHUv3floZVtzYs4q8HJRCDiE=;
+        b=gMzl5NNQuIedcN/SzsFL77+xyN7wtLlPyM3bEbyXNTanE2aPXPOCEmKJwh1tB1ZR4d
+         IuQhdgfRTvEHUbaFae5zuaKmfjFwQ42Gpm5VTN11bW0O35yPHMvEYWnKBnz2wLnvRC80
+         IQU9vzczcHIlgYx9Z1ZE/sDvehKxAGo6Kb5juG9sjW5Pipl/t4xIpDIVpE7mrTDCywLT
+         A2Qny0eQLf2Xcm/bfm+a/oRC8rihDVxyKZ4bmdVIg+m0RdZ9Bajd4hnMmukXd9+zAzq8
+         oQE8/SfdveQmjru+v+qFTAflob4h3DbFeUcZ4wEuTZprAFnvsOS+XjeVP6xsW7FI0XkW
+         xm7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=Sw9T4J9JRymLpLgpWg/Xq3STrXC/BHmxavwwJ6fBdUw=;
-        b=PRG59KvKicTdhWIbwSHV8jB74XQ9/2BpJ59TG1nw4N0gGJ5toc7CrD6RqWsDoFqRP+
-         jNq26x7FBUnZWEOmaS5Pmz//5BAazJKxEdu/6VcZjj0GVjaYUJ1wu2+L8Ly+fiHUg/tV
-         lStRBaRMtO7fjyzZepSKT5i6O7bJXHhOBkR6NC3tCqSdVTCTPZE+UeZP1zbfjrii4DYz
-         EEE5IdDRAW08yLBHlqSaJxNSVqQ8y9Usz6fplZR3xRFw6QZudBLrb1LI/7Vsd82m0LNP
-         EKnT0ebANEJAUtCfdnHFKfjqh+aAXUTPKrNXlC5MJumjv5X5Vj0NamNX++Zpy6m1q0z6
-         R6hQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532e98ep5UbIglwM3u2ri012EaKuNQ/483IjGXouuSTrMqp3Jstc
-	i7ksfV6j75NG9LMd48kGB+Y=
-X-Google-Smtp-Source: ABdhPJw08yP2K6tbzMrRFwaR1kF34fprJ0HqOUbch9esWUyghtPUaSnCPvCo08YKPDp7h7fQ/ZKxig==
-X-Received: by 2002:a05:6102:3ce:: with SMTP id n14mr19480301vsq.113.1591126042736;
-        Tue, 02 Jun 2020 12:27:22 -0700 (PDT)
+        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
+         :references:subject:from:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=qRbm7k9cD56dy8PleRplHUv3floZVtzYs4q8HJRCDiE=;
+        b=bR4+Gt0JB0172ti3BUxRn/LouevwjJP6LXOHbKJydUWvYo54f91ZxFaqv5rGMoJW0g
+         2NJ5CbTR7euwlfaVxQh2FVwWLTKLYscDv1GMm1UltW8tmX9nT5r01S1RJgC6jOIgns0f
+         PkXApvnNCYkWSMAD35J/llhb1N+lre0XYubNQop0404sKqrNpIc2Cite+iTkBkYlP0fj
+         TapO4Xtr4dMHD0mAGBhVdtyJ09ENyQjIEndArHDxCZkpoXVlakdO8BMPyqly16PXHRoL
+         zBv93FQjbeSeIBjwOa/RgPzF07WMSt/f3tZRYnIPvY386qMAUIizlc2+axOWZi7Tk3wE
+         JsHQ==
+X-Gm-Message-State: AOAM5333/Yr3OsTFRkLn0Bar2DoJ9sB5i1zZVty4KLicFx2JHPhc5GkF
+	VTMk4aDIHbpdvE+0cUTNGy4=
+X-Google-Smtp-Source: ABdhPJwA6SF6d0FAlfwlfobSTBXeJ9NFdJTs0v4Nr8ZS/KDWK4oFcq38JIXw8w9Ila8xJ3wV7NYaRA==
+X-Received: by 2002:a67:77cd:: with SMTP id s196mr10442749vsc.111.1591126281472;
+        Tue, 02 Jun 2020 12:31:21 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:c01:: with SMTP id a1ls408614uak.0.gmail; Tue, 02 Jun
- 2020 12:27:22 -0700 (PDT)
-X-Received: by 2002:ab0:268b:: with SMTP id t11mr19093931uao.58.1591126042356;
-        Tue, 02 Jun 2020 12:27:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591126042; cv=none;
+Received: by 2002:a67:fc16:: with SMTP id o22ls898vsq.3.gmail; Tue, 02 Jun
+ 2020 12:31:21 -0700 (PDT)
+X-Received: by 2002:a67:79ce:: with SMTP id u197mr11174817vsc.17.1591126281059;
+        Tue, 02 Jun 2020 12:31:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591126281; cv=none;
         d=google.com; s=arc-20160816;
-        b=v8o4sZ3UPqmz/IkooOXuct2vMq3A8x63AJVDDTaiJAgSzZnX12qkWqLTS1tjZyTEfy
-         uiANIRWubmj47+F9h3G00bK59YZzsgKA6bwrEEWxfJu/G17R6iskpOaRPKbJYZczm56h
-         zTMbDMz8gwG/TYN+ybw+TlDlyPxfBgGd7lOLqB5EJhN/yInMfKgd+6e8ACzOL+knuk40
-         dLWJPdq9pzhhY8KfFe2qONrTRFpf17gLs3mNcIHNfSq0rcjgz8vcon/ugAhTj9xHm6cn
-         dyW7yRLbAJu7gy7jVtebFVFVtio8CL7L18RhmUJVXATapZOlx6iFMnLUsvx3Q2XAnUCW
-         oP8A==
+        b=n92GjVVxUi4V6H4sR2zPdUhZEZ68bMaFFj1oiNPGZpUdc4yMly6jJ6/cr9ybdWpsq8
+         mde18v3zrY6CJNDhQY4oaXjvf1ycyL9Tt83NgkSviV1Y6dmoMgcmL363yFAo3AIldJEG
+         6iHYPD4CAAFJYl7Cxgfrupg+Igko0R9gIW1zgUN2mPU2zSjgDy60zSEaJSUI54CHxesD
+         tXq6l1mUAKxy8YCD+QLN6R+CztFUW30h7DAS5Z6FvNI9p+zMvEaeQHmou1Mp+GTMZlpb
+         U+pX1EMJZc4PdxU7FbH8XLgjs+rEpIEzl0HxLgsR5jtEJ5eLgs71JAEMlswnNp/cx4N+
+         KekA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=ojxsapJVRcLIVUs+X1YXzLQFjCqQZDJZ+jxsQ+PG7k4=;
-        b=m1f9vwnx+p74o5OTSzsX6v797YPVdO/GsuAxk/y+5eCUI2i+Uctbn3AEcA4XJHFWE2
-         Deb0irlX+KYxMVEWGUONfRJwoE5sMh8czQLX601n9PoOpfaF6kOLn2qIIwFN3Q0yif/O
-         V4vH+AqoZbPEu6rgQ/SRrRhF5n6QaWlBadahJwdENn7Ce/G0sjQG3gF09gGJXqWujcGg
-         4pGo6MzLVwdpP0jhUeZ7TftUMYSt0vK0ErgwSp8dYinDEUU0ztNzf8r603YNnXIn9ter
-         byVmAzsPcapc3urPmBWbhD0M1kozEoo9t29Yjtx2kc8UDEqk37dd9RJlh/+NGz+3kCFt
-         /yOA==
+        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
+         :date:dkim-signature;
+        bh=rclZP01j1InoS/3XtOg/bC1dGPlx80uQ6aMTFnGzZ2w=;
+        b=x2louv3AkJkgpPjzgNfpZfpeNlG+C0QqSD/ioyXj0e1yhRUswoXSzihlxzFEEvc32E
+         sN4co7HBUkpgs0FGFivZkMkqbHx3PNkvPAFT57Eir0BUvgXEPnHSeO2M38P7Y/BgsUil
+         mhZHlwYpRFvWfVDytU1i5EGB9gx5WwiWDuduudKRn3VaLoE2q/IKUCpKFvxomFLjcZpZ
+         mgzACjGrzRlcYQHlP40POWcIXcdSfSmeF4CxxTmHxABqrsXulRYxSYGgzG4iP+YNW5aE
+         /hhN5mjntq+dm1xP0+HEySRcdKdrzJjxmLTlX/eOJhf7LWuMf5QKLCut+gXgeX6PA6gV
+         hmFQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="b/kvpOvI";
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-pl1-x642.google.com (mail-pl1-x642.google.com. [2607:f8b0:4864:20::642])
-        by gmr-mx.google.com with ESMTPS id o18si52778vke.0.2020.06.02.12.27.22
+       dkim=pass header.i=@google.com header.s=20161025 header.b=lKTcFEgW;
+       spf=pass (google.com: domain of 3cknwxgkkalezexcfizfexffxcv.tfd@flex--inglorion.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3CKnWXgkKALEZeXcfiZfeXffXcV.Tfd@flex--inglorion.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-yb1-xb4a.google.com (mail-yb1-xb4a.google.com. [2607:f8b0:4864:20::b4a])
+        by gmr-mx.google.com with ESMTPS id a126si193144vsd.2.2020.06.02.12.31.21
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 02 Jun 2020 12:27:22 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::642 as permitted sender) client-ip=2607:f8b0:4864:20::642;
-Received: by mail-pl1-x642.google.com with SMTP id q16so1805938plr.2
-        for <clang-built-linux@googlegroups.com>; Tue, 02 Jun 2020 12:27:22 -0700 (PDT)
-X-Received: by 2002:a17:902:bf47:: with SMTP id u7mr25970116pls.159.1591126041361;
-        Tue, 02 Jun 2020 12:27:21 -0700 (PDT)
-Received: from Ryzen-9-3900X.localdomain ([107.152.99.41])
-        by smtp.gmail.com with ESMTPSA id 17sm3057279pfn.19.2020.06.02.12.27.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jun 2020 12:27:20 -0700 (PDT)
-Date: Tue, 2 Jun 2020 12:27:24 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Leon Romanovsky <leon@kernel.org>
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Leon Romanovsky <leonro@mellanox.com>,
-	clang-built-linux@googlegroups.com, linux-rdma@vger.kernel.org,
-	netdev@vger.kernel.org, Saeed Mahameed <saeedm@mellanox.com>,
-	Vu Pham <vuhuong@mellanox.com>
-Subject: Re: [PATCH net] net/mlx5: Don't fail driver on failure to create
- debugfs
-Message-ID: <20200602192724.GA672@Ryzen-9-3900X.localdomain>
-References: <20200602122837.161519-1-leon@kernel.org>
-MIME-Version: 1.0
+        Tue, 02 Jun 2020 12:31:21 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3cknwxgkkalezexcfizfexffxcv.tfd@flex--inglorion.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) client-ip=2607:f8b0:4864:20::b4a;
+Received: by mail-yb1-xb4a.google.com with SMTP id u6so6395ybo.18
+        for <clang-built-linux@googlegroups.com>; Tue, 02 Jun 2020 12:31:21 -0700 (PDT)
+X-Received: by 2002:a25:c186:: with SMTP id r128mr46983177ybf.92.1591126280496;
+ Tue, 02 Jun 2020 12:31:20 -0700 (PDT)
+Date: Tue,  2 Jun 2020 12:30:59 -0700
+In-Reply-To: <20200602132702.y3tjwvqdbww7oy5i@treble>
+Message-Id: <20200602193100.229287-1-inglorion@google.com>
+Mime-Version: 1.0
+References: <20200602132702.y3tjwvqdbww7oy5i@treble>
+X-Mailer: git-send-email 2.27.0.rc2.251.g90737beb825-goog
+Subject: [PATCH v2] x86_64: fix jiffies ODR violation
+From: "'Bob Haarman' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Andrew Morton <akpm@linux-foundation.org>, Josh Poimboeuf <jpoimboe@redhat.com>
+Cc: Bob Haarman <inglorion@google.com>, stable@vger.kernel.org, 
+	Nathan Chancellor <natechancellor@gmail.com>, Alistair Delva <adelva@google.com>, 
+	Fangrui Song <maskray@google.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Sami Tolvanen <samitolvanen@google.com>, Andi Kleen <ak@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, afzal mohammed <afzal.mohd.ma@gmail.com>, 
+	Kyung Min Park <kyung.min.park@intel.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Kees Cook <keescook@chromium.org>, Heiko Carstens <heiko.carstens@de.ibm.com>, 
+	Baoquan He <bhe@redhat.com>, Thomas Lendacky <Thomas.Lendacky@amd.com>, 
+	"H.J. Lu" <hjl.tools@gmail.com>, Ross Zwisler <zwisler@chromium.org>, 
+	Arvind Sankar <nivedita@alum.mit.edu>, Dmitry Safonov <0x7f454c46@gmail.com>, 
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200602122837.161519-1-leon@kernel.org>
-X-Original-Sender: natechancellor@gmail.com
+X-Original-Sender: inglorion@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b="b/kvpOvI";       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@google.com header.s=20161025 header.b=lKTcFEgW;       spf=pass
+ (google.com: domain of 3cknwxgkkalezexcfizfexffxcv.tfd@flex--inglorion.bounces.google.com
+ designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3CKnWXgkKALEZeXcfiZfeXffXcV.Tfd@flex--inglorion.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Bob Haarman <inglorion@google.com>
+Reply-To: Bob Haarman <inglorion@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,73 +140,134 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jun 02, 2020 at 03:28:37PM +0300, Leon Romanovsky wrote:
-> From: Leon Romanovsky <leonro@mellanox.com>
-> 
-> Clang warns:
-> 
-> drivers/net/ethernet/mellanox/mlx5/core/main.c:1278:6: warning: variable
-> 'err' is used uninitialized whenever 'if' condition is true
-> [-Wsometimes-uninitialized]
->         if (!priv->dbg_root) {
->             ^~~~~~~~~~~~~~~
-> drivers/net/ethernet/mellanox/mlx5/core/main.c:1303:9: note:
-> uninitialized use occurs here
->         return err;
->                ^~~
-> drivers/net/ethernet/mellanox/mlx5/core/main.c:1278:2: note: remove the
-> 'if' if its condition is always false
->         if (!priv->dbg_root) {
->         ^~~~~~~~~~~~~~~~~~~~~~
-> drivers/net/ethernet/mellanox/mlx5/core/main.c:1259:9: note: initialize
-> the variable 'err' to silence this warning
->         int err;
->                ^
->                 = 0
-> 1 warning generated.
-> 
-> The check of returned value of debugfs_create_dir() is wrong because
-> by the design debugfs failures should never fail the driver and the
-> check itself was wrong too. The kernel compiled without CONFIG_DEBUG_FS
-> will return ERR_PTR(-ENODEV) and not NULL as expected.
-> 
-> Fixes: 11f3b84d7068 ("net/mlx5: Split mdev init and pci init")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1042
-> Reported-by: Nathan Chancellor <natechancellor@gmail.com>
-> Signed-off-by: Leon Romanovsky <leonro@mellanox.com>
+'jiffies' and 'jiffies_64' are meant to alias (two different symbols
+that share the same address).  Most architectures make the symbols alias
+to the same address via linker script assignment in their
+arch/<arch>/kernel/vmlinux.lds.S:
 
-Thanks! That's what I figured it should be.
+jiffies = jiffies_64;
 
-Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+which is effectively a definition of jiffies.
 
-> ---
-> Original discussion:
-> https://lore.kernel.org/lkml/20200530055447.1028004-1-natechancellor@gmail.com
-> ---
->  drivers/net/ethernet/mellanox/mlx5/core/main.c | 5 -----
->  1 file changed, 5 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/main.c b/drivers/net/ethernet/mellanox/mlx5/core/main.c
-> index df46b1fce3a7..110e8d277d15 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/main.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/main.c
-> @@ -1275,11 +1275,6 @@ static int mlx5_mdev_init(struct mlx5_core_dev *dev, int profile_idx)
-> 
->  	priv->dbg_root = debugfs_create_dir(dev_name(dev->device),
->  					    mlx5_debugfs_root);
-> -	if (!priv->dbg_root) {
-> -		dev_err(dev->device, "mlx5_core: error, Cannot create debugfs dir, aborting\n");
-> -		goto err_dbg_root;
-> -	}
-> -
->  	err = mlx5_health_init(dev);
->  	if (err)
->  		goto err_health_init;
-> --
-> 2.26.2
-> 
+jiffies and jiffies_64 are both forward declared for all arch's in:
+include/linux/jiffies.h.
+
+jiffies_64 is defined in kernel/time/timer.c for all arch's.
+
+x86_64 was peculiar in that it wasn't doing the above linker script
+assignment, but rather was:
+1. defining jiffies in arch/x86/kernel/time.c instead via linker script.
+2. overriding the symbol jiffies_64 from kernel/time/timer.c in
+arch/x86/kernel/vmlinux.lds.s via 'jiffies_64 = jiffies;'.
+
+As Fangrui notes:
+
+  In LLD, symbol assignments in linker scripts override definitions in
+  object files. GNU ld appears to have the same behavior. It would
+  probably make sense for LLD to error "duplicate symbol" but GNU ld
+  is unlikely to adopt for compatibility reasons.
+
+So we have an ODR violation (UB), which we seem to have gotten away
+with thus far. Where it becomes harmful is when we:
+
+1. Use -fno-semantic-interposition.
+
+As Fangrui notes:
+
+  Clang after LLVM commit 5b22bcc2b70d
+  ("[X86][ELF] Prefer to lower MC_GlobalAddress operands to .Lfoo$local")
+  defaults to -fno-semantic-interposition similar semantics which help
+  -fpic/-fPIC code avoid GOT/PLT when the referenced symbol is defined
+  within the same translation unit. Unlike GCC
+  -fno-semantic-interposition, Clang emits such relocations referencing
+  local symbols for non-pic code as well.
+
+This causes references to jiffies to refer to '.Ljiffies$local' when
+jiffies is defined in the same translation unit. Likewise, references
+to jiffies_64 become references to '.Ljiffies_64$local' in translation
+units that define jiffies_64.  Because these differ from the names
+used in the linker script, they will not be rewritten to alias one
+another.
+
+Combined with ...
+
+2. Full LTO effectively treats all source files as one translation
+unit, causing these local references to be produced everywhere.  When
+the linker processes the linker script, there are no longer any
+references to jiffies_64' anywhere to replace with 'jiffies'.  And
+thus '.Ljiffies$local' and '.Ljiffies_64$local' no longer alias
+at all.
+
+In the process of porting patches enabling Full LTO from arm64 to
+x86_64, we observe spooky bugs where the kernel appeared to boot, but
+init doesn't get scheduled.
+
+Instead, we can avoid the ODR violation by matching other arch's by
+defining jiffies only by linker script.  For -fno-semantic-interposition
++ Full LTO, there is no longer a global definition of jiffies for the
+compiler to produce a local symbol which the linker script won't ensure
+aliases to jiffies_64.
+
+Link: https://github.com/ClangBuiltLinux/linux/issues/852
+Fixes: 40747ffa5aa8 ("asmlinkage: Make jiffies visible")
+Cc: stable@vger.kernel.org
+Reported-by: Nathan Chancellor <natechancellor@gmail.com>
+Reported-by: Alistair Delva <adelva@google.com>
+Suggested-by: Fangrui Song <maskray@google.com>
+Debugged-by: Nick Desaulniers <ndesaulniers@google.com>
+Debugged-by: Sami Tolvanen <samitolvanen@google.com>
+Signed-off-by: Bob Haarman <inglorion@google.com>
+Reviewed-by: Andi Kleen <ak@linux.intel.com>
+Reviewed-by: Josh Poimboeuf <jpoimboe@redhat.com>
+---
+v2:
+* Changed commit message as requested by Josh Poimboeuf
+  (no code change)
+
+---
+ arch/x86/kernel/time.c        | 4 ----
+ arch/x86/kernel/vmlinux.lds.S | 4 ++--
+ 2 files changed, 2 insertions(+), 6 deletions(-)
+
+diff --git a/arch/x86/kernel/time.c b/arch/x86/kernel/time.c
+index 371a6b348e44..e42faa792c07 100644
+--- a/arch/x86/kernel/time.c
++++ b/arch/x86/kernel/time.c
+@@ -25,10 +25,6 @@
+ #include <asm/hpet.h>
+ #include <asm/time.h>
+ 
+-#ifdef CONFIG_X86_64
+-__visible volatile unsigned long jiffies __cacheline_aligned_in_smp = INITIAL_JIFFIES;
+-#endif
+-
+ unsigned long profile_pc(struct pt_regs *regs)
+ {
+ 	unsigned long pc = instruction_pointer(regs);
+diff --git a/arch/x86/kernel/vmlinux.lds.S b/arch/x86/kernel/vmlinux.lds.S
+index 1bf7e312361f..7c35556c7827 100644
+--- a/arch/x86/kernel/vmlinux.lds.S
++++ b/arch/x86/kernel/vmlinux.lds.S
+@@ -40,13 +40,13 @@ OUTPUT_FORMAT(CONFIG_OUTPUT_FORMAT)
+ #ifdef CONFIG_X86_32
+ OUTPUT_ARCH(i386)
+ ENTRY(phys_startup_32)
+-jiffies = jiffies_64;
+ #else
+ OUTPUT_ARCH(i386:x86-64)
+ ENTRY(phys_startup_64)
+-jiffies_64 = jiffies;
+ #endif
+ 
++jiffies = jiffies_64;
++
+ #if defined(CONFIG_X86_64)
+ /*
+  * On 64-bit, align RODATA to 2MB so we retain large page mappings for
+-- 
+2.27.0.rc2.251.g90737beb825-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200602192724.GA672%40Ryzen-9-3900X.localdomain.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200602193100.229287-1-inglorion%40google.com.
