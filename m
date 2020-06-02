@@ -1,133 +1,138 @@
-Return-Path: <clang-built-linux+bncBC6LFE5SYELBBCOS3L3AKGQERXPQ3OQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBV6V3L3AKGQEHIS7DUY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3f.google.com (mail-vk1-xa3f.google.com [IPv6:2607:f8b0:4864:20::a3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 680841EC2C1
-	for <lists+clang-built-linux@lfdr.de>; Tue,  2 Jun 2020 21:31:22 +0200 (CEST)
-Received: by mail-vk1-xa3f.google.com with SMTP id d64sf1787302vkh.16
-        for <lists+clang-built-linux@lfdr.de>; Tue, 02 Jun 2020 12:31:22 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591126281; cv=pass;
+Received: from mail-il1-x138.google.com (mail-il1-x138.google.com [IPv6:2607:f8b0:4864:20::138])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4F11A1EC2E8
+	for <lists+clang-built-linux@lfdr.de>; Tue,  2 Jun 2020 21:39:05 +0200 (CEST)
+Received: by mail-il1-x138.google.com with SMTP id p11sf12629396iln.3
+        for <lists+clang-built-linux@lfdr.de>; Tue, 02 Jun 2020 12:39:05 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591126744; cv=pass;
         d=google.com; s=arc-20160816;
-        b=oQiLwAZN9+QvTl0SY1wBV09RvYueFLBMcso8fyo5LDLirxccCQ0pdegHm8CXPtXD8C
-         UxkVNJwCVVpgvdxEWhjR4JR/8+Gwwutgs9rG2jda9xumalFRDTGqcfLxLeymokU6slHT
-         QUBT5BFdMncFXZA8OphDr3Ki7T1HHQgLXusFIY0l1Vlo5IExuyR8iyRk0749A0PmOKun
-         KP8O1EUZtgUGYsyWbTQIwOadMZnlGsEyraIy7sddHFDVf9kVYodiQJ/UgLvqLTP6oVtA
-         67cEfPawCJkat5DVh4oIIeMTR11fyXdaFORkwubVd+Onkgphj8NIsO5/YvznbXOb7Yn5
-         n/qw==
+        b=Rd5VWt2kfhgg14X9l9ypT3+h4NrgJm3BM5NKQ5mhb/dYCmXJZDA5WMnlfvtvn3YimN
+         OzVflhKeoTo6QOWnCfb0kF1eBIdFhGhsP2T3km//EpuduGPrHmFIPY8VTHM+Umxr4+H5
+         o8tRNnCeAT/309CS2hrkftVgy76/MCrG3yXDoiWwfpP4nGcigAn34IwBsJ7nUXXvKjv7
+         PqAfGbhpoLudYg3ecfg0It0YMk6z+IpzIgTKaZzUXTOg8g4H2PQ8NUozkdOvb/yJYSu+
+         t8ONjjSUDAtKcZgvuVFKZzFaY+LxQGKk1l11mj34cGm4ZwzCZsD+Dt1md1mz+r5L9MmG
+         ZUoQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
-         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=qRbm7k9cD56dy8PleRplHUv3floZVtzYs4q8HJRCDiE=;
-        b=tPHa6Lw2axfqMTTa0GLnr/qhC6VRm0WR4yTcwy/iCZYoCEyARY44/tU43cZZ3l6vQw
-         FSdpeFZVbjAghugZounbh4iS2EsEBj+fV+JoqcKKg6Y3rDqVsg5P5XuecOdy63GGnTtd
-         l+megYhsQIwIN45dEAFz6I89/qATStLPl2/uL8epzOkTk3/OGsPERsTDS5KX4G2MVg8v
-         gcXF/uULSzWUujs2a4RmFRvlwg9uWjq8FF2zqhMAIoHAN7EZZqI3aSAiPmytSPL8x2D8
-         Z/yA+TG7Mc9NlDAPGXqwB8+l/Hr0gYeWAAMa5mRLfGKYam1u9J6YAGD7BRtXBoz40Non
-         mOeQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=piqQGSlrQW1lc3NHLk3kdJwLzLBpZuvIetk5yrObX8A=;
+        b=OEkFoV9xE1+pr1h6+zRZjjRvsrO4n6Dk0fPPtAzi51ny8h0XdAGBQHxZpQy6m1quXM
+         AJSbRrsFqmL/879AiLElI7Pbb8xg6lqK8pmG5Qg/ifMc2nmFZmKWMyAv8rNuaIfSSPP+
+         8FGvgXg235Yjhe/EF/OhwquSnw9usvZWA3gfsZ1B7bP2wAxKCd5dt71Pb5lBICXEI2//
+         szkZ2Xvuq9nNuFM2GD780UzK6gonxZkAfP4Ea0Vm7zubQR5JDd/vgYl7C45VKvQ8nDO/
+         IOMoML5iIOj/2eBzqgJhojkXPb50jWqMvU30E9qaFE9vLd/YzPCg6ObW/vORnqEgSSY7
+         SbgA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=lKTcFEgW;
-       spf=pass (google.com: domain of 3cknwxgkkalezexcfizfexffxcv.tfd@flex--inglorion.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3CKnWXgkKALEZeXcfiZfeXffXcV.Tfd@flex--inglorion.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=Y97cQnPw;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=qRbm7k9cD56dy8PleRplHUv3floZVtzYs4q8HJRCDiE=;
-        b=gMzl5NNQuIedcN/SzsFL77+xyN7wtLlPyM3bEbyXNTanE2aPXPOCEmKJwh1tB1ZR4d
-         IuQhdgfRTvEHUbaFae5zuaKmfjFwQ42Gpm5VTN11bW0O35yPHMvEYWnKBnz2wLnvRC80
-         IQU9vzczcHIlgYx9Z1ZE/sDvehKxAGo6Kb5juG9sjW5Pipl/t4xIpDIVpE7mrTDCywLT
-         A2Qny0eQLf2Xcm/bfm+a/oRC8rihDVxyKZ4bmdVIg+m0RdZ9Bajd4hnMmukXd9+zAzq8
-         oQE8/SfdveQmjru+v+qFTAflob4h3DbFeUcZ4wEuTZprAFnvsOS+XjeVP6xsW7FI0XkW
-         xm7Q==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=piqQGSlrQW1lc3NHLk3kdJwLzLBpZuvIetk5yrObX8A=;
+        b=KFr6AZ/Nf1ca4zqJgyCh5BwHYj2yVbrjuIqapIhV6mmmjW1d/uITAj1tchwhU2ZzAK
+         dOLXEoQ6l5HrCPTxEno1NPRtGUXGJRhVLAfmT4GNRW6ipLa26jLrqZ1ysDQNzG5O+R0p
+         7FX59eYmsIOqwRh/0RmgTRVW5nDnKUmMyInUdcnFHzf+PxCpc+JBsSUHC0+onC2nPPR2
+         8uEanHlb9koMT/f78yOXa1RD7V5326Z7ACEKuRAZ2x2GQ2bB7S34jxaFOwZwGc23M0NE
+         Ocrtitd7Pv6mW8BnE1eHbkUd3tFdRuXWOUcUZ+esjKE6HMSll/oOGllRTx6uGep/0Qzp
+         ji/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
-         :references:subject:from:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=qRbm7k9cD56dy8PleRplHUv3floZVtzYs4q8HJRCDiE=;
-        b=bR4+Gt0JB0172ti3BUxRn/LouevwjJP6LXOHbKJydUWvYo54f91ZxFaqv5rGMoJW0g
-         2NJ5CbTR7euwlfaVxQh2FVwWLTKLYscDv1GMm1UltW8tmX9nT5r01S1RJgC6jOIgns0f
-         PkXApvnNCYkWSMAD35J/llhb1N+lre0XYubNQop0404sKqrNpIc2Cite+iTkBkYlP0fj
-         TapO4Xtr4dMHD0mAGBhVdtyJ09ENyQjIEndArHDxCZkpoXVlakdO8BMPyqly16PXHRoL
-         zBv93FQjbeSeIBjwOa/RgPzF07WMSt/f3tZRYnIPvY386qMAUIizlc2+axOWZi7Tk3wE
-         JsHQ==
-X-Gm-Message-State: AOAM5333/Yr3OsTFRkLn0Bar2DoJ9sB5i1zZVty4KLicFx2JHPhc5GkF
-	VTMk4aDIHbpdvE+0cUTNGy4=
-X-Google-Smtp-Source: ABdhPJwA6SF6d0FAlfwlfobSTBXeJ9NFdJTs0v4Nr8ZS/KDWK4oFcq38JIXw8w9Ila8xJ3wV7NYaRA==
-X-Received: by 2002:a67:77cd:: with SMTP id s196mr10442749vsc.111.1591126281472;
-        Tue, 02 Jun 2020 12:31:21 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=piqQGSlrQW1lc3NHLk3kdJwLzLBpZuvIetk5yrObX8A=;
+        b=bVVNVJLMg6D0IE9JNwxIl1r0pihAkggiRA3JLpcPceCLYxlgPsntogzhrokILcJp3F
+         jlkj1UwClwr89kwdjb8BYk5Iz554tJscyhGa90ExuT5Qa7+7BD0lxjMQXH9YdUQ0dKiM
+         XisxBfx9E2KjVi51SZSkAQ4wzJS+7RGRsfMfloM/Jo4lQ0Z4bRP37h6MA0z0KIt6ZDMs
+         1z/0JawNBhEyV6m9hfcWIAi5DmrnHeDNU7iqTb8zW+gjtEadsUEl4gNLMumFhj8vsMW6
+         cuk3oNS2HIZWJb9I6QOwgPuaksOrC63wkgcQsXULFlFjeRxUxFJZpStsjcaaxuPadaVt
+         ooFw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM533qBjbBj1ChuRPZ5ETyYxUft1ecmWCWPdmcHAUTiKcAKYfzNJQi
+	eebqaCNLp8QHrwLfkcYVvTs=
+X-Google-Smtp-Source: ABdhPJx8FwtqMW7ZmwgHl1rs493HD2lD5b4bdR+YYZLAoE7dFNoP3JKlCSZc89o/KPBfRhS0Lx/fdQ==
+X-Received: by 2002:a6b:7515:: with SMTP id l21mr812992ioh.82.1591126743817;
+        Tue, 02 Jun 2020 12:39:03 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:fc16:: with SMTP id o22ls898vsq.3.gmail; Tue, 02 Jun
- 2020 12:31:21 -0700 (PDT)
-X-Received: by 2002:a67:79ce:: with SMTP id u197mr11174817vsc.17.1591126281059;
-        Tue, 02 Jun 2020 12:31:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591126281; cv=none;
+Received: by 2002:a05:6638:228b:: with SMTP id y11ls2488366jas.10.gmail; Tue,
+ 02 Jun 2020 12:39:03 -0700 (PDT)
+X-Received: by 2002:a05:6638:cb2:: with SMTP id x18mr27602889jad.6.1591126743460;
+        Tue, 02 Jun 2020 12:39:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591126743; cv=none;
         d=google.com; s=arc-20160816;
-        b=n92GjVVxUi4V6H4sR2zPdUhZEZ68bMaFFj1oiNPGZpUdc4yMly6jJ6/cr9ybdWpsq8
-         mde18v3zrY6CJNDhQY4oaXjvf1ycyL9Tt83NgkSviV1Y6dmoMgcmL363yFAo3AIldJEG
-         6iHYPD4CAAFJYl7Cxgfrupg+Igko0R9gIW1zgUN2mPU2zSjgDy60zSEaJSUI54CHxesD
-         tXq6l1mUAKxy8YCD+QLN6R+CztFUW30h7DAS5Z6FvNI9p+zMvEaeQHmou1Mp+GTMZlpb
-         U+pX1EMJZc4PdxU7FbH8XLgjs+rEpIEzl0HxLgsR5jtEJ5eLgs71JAEMlswnNp/cx4N+
-         KekA==
+        b=yxtdocqfcVlodm6DZdiRJxewxKoI5Yw2oXHvTDJ9l46DWlfOh8f1MU0gYPHz7m+Cws
+         7OCdlC+A1DhiNjGRSuH2QEoC+H8rAX+u7FmRogBKm1it6M5cdLhSPtbkMKoYezPW7tq/
+         1K63RzrfJiGoqaX86Nvy51fgxnDxaTKeG4Sq/XswN9uMi4JNqGwn+3sDFnV2fD9Tdc9U
+         tpHyu7YlNYGHpeok6KkrptqbcOqtCwW22plzzHRCbcLBKhgy/xx/XZVoZG7w2h+7eC/8
+         F+x1Mi9rIVaJAhtJR1a73I8qivdYK3VgqOVPd6aPi/1sf7AfLENGoXPXbUfJq/EhC8IC
+         H4rA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
-         :date:dkim-signature;
-        bh=rclZP01j1InoS/3XtOg/bC1dGPlx80uQ6aMTFnGzZ2w=;
-        b=x2louv3AkJkgpPjzgNfpZfpeNlG+C0QqSD/ioyXj0e1yhRUswoXSzihlxzFEEvc32E
-         sN4co7HBUkpgs0FGFivZkMkqbHx3PNkvPAFT57Eir0BUvgXEPnHSeO2M38P7Y/BgsUil
-         mhZHlwYpRFvWfVDytU1i5EGB9gx5WwiWDuduudKRn3VaLoE2q/IKUCpKFvxomFLjcZpZ
-         mgzACjGrzRlcYQHlP40POWcIXcdSfSmeF4CxxTmHxABqrsXulRYxSYGgzG4iP+YNW5aE
-         /hhN5mjntq+dm1xP0+HEySRcdKdrzJjxmLTlX/eOJhf7LWuMf5QKLCut+gXgeX6PA6gV
-         hmFQ==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=07uMamPsL7K8+1SyUHisvSOhlqTxoE0W90sdhD4QMmw=;
+        b=dOpiSHalD0ff2s75ZYRhrCRmQ+15zTEByEplQSis0jrodjE+qbBFrWcF337+Qd+nlY
+         JNTJHTfPxOa0z/sTteOHop3/QGPzABZ7O9Q8Z4sc0BddzG4SkOHhuIXfBigk3EYuEe6L
+         FrI/LtfNUO3m5oh14uUHGfhblxpPA2rOFDpP/QpUPykhRii6iPCUaH3vP0+M2ZnYyFHL
+         e0pVkEBNOTaBnLeQQbCXlPhP4OM0PXLs8ZKkBMqGMGK8NTrJ8LpCtaP88PhSIqlmBNSX
+         3EhN9sP/zU/QEOz7MuIGIYqJf/3hM74nDZrhaAffLeVSdGBJgOC73YuGO/lCScJIP0eE
+         JcWQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=lKTcFEgW;
-       spf=pass (google.com: domain of 3cknwxgkkalezexcfizfexffxcv.tfd@flex--inglorion.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3CKnWXgkKALEZeXcfiZfeXffXcV.Tfd@flex--inglorion.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-yb1-xb4a.google.com (mail-yb1-xb4a.google.com. [2607:f8b0:4864:20::b4a])
-        by gmr-mx.google.com with ESMTPS id a126si193144vsd.2.2020.06.02.12.31.21
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 02 Jun 2020 12:31:21 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3cknwxgkkalezexcfizfexffxcv.tfd@flex--inglorion.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) client-ip=2607:f8b0:4864:20::b4a;
-Received: by mail-yb1-xb4a.google.com with SMTP id u6so6395ybo.18
-        for <clang-built-linux@googlegroups.com>; Tue, 02 Jun 2020 12:31:21 -0700 (PDT)
-X-Received: by 2002:a25:c186:: with SMTP id r128mr46983177ybf.92.1591126280496;
- Tue, 02 Jun 2020 12:31:20 -0700 (PDT)
-Date: Tue,  2 Jun 2020 12:30:59 -0700
-In-Reply-To: <20200602132702.y3tjwvqdbww7oy5i@treble>
-Message-Id: <20200602193100.229287-1-inglorion@google.com>
-Mime-Version: 1.0
-References: <20200602132702.y3tjwvqdbww7oy5i@treble>
-X-Mailer: git-send-email 2.27.0.rc2.251.g90737beb825-goog
-Subject: [PATCH v2] x86_64: fix jiffies ODR violation
-From: "'Bob Haarman' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Andrew Morton <akpm@linux-foundation.org>, Josh Poimboeuf <jpoimboe@redhat.com>
-Cc: Bob Haarman <inglorion@google.com>, stable@vger.kernel.org, 
-	Nathan Chancellor <natechancellor@gmail.com>, Alistair Delva <adelva@google.com>, 
-	Fangrui Song <maskray@google.com>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Sami Tolvanen <samitolvanen@google.com>, Andi Kleen <ak@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, afzal mohammed <afzal.mohd.ma@gmail.com>, 
-	Kyung Min Park <kyung.min.park@intel.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Kees Cook <keescook@chromium.org>, Heiko Carstens <heiko.carstens@de.ibm.com>, 
-	Baoquan He <bhe@redhat.com>, Thomas Lendacky <Thomas.Lendacky@amd.com>, 
-	"H.J. Lu" <hjl.tools@gmail.com>, Ross Zwisler <zwisler@chromium.org>, 
-	Arvind Sankar <nivedita@alum.mit.edu>, Dmitry Safonov <0x7f454c46@gmail.com>, 
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=Y97cQnPw;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
+Received: from merlin.infradead.org (merlin.infradead.org. [2001:8b0:10b:1231::1])
+        by gmr-mx.google.com with ESMTPS id v16si315945ilj.1.2020.06.02.12.39.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Jun 2020 12:39:03 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) client-ip=2001:8b0:10b:1231::1;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
+	by merlin.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1jgCkQ-0003KJ-JB; Tue, 02 Jun 2020 19:38:54 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 1B30A30081A;
+	Tue,  2 Jun 2020 21:38:53 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 0EB462020B7BF; Tue,  2 Jun 2020 21:38:53 +0200 (CEST)
+Date: Tue, 2 Jun 2020 21:38:53 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Marco Elver <elver@google.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	Will Deacon <will@kernel.org>, Borislav Petkov <bp@alien8.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrey Konovalov <andreyknvl@google.com>,
+	kasan-dev <kasan-dev@googlegroups.com>,
+	LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH -tip 1/2] Kconfig: Bump required compiler version of
+ KASAN and UBSAN
+Message-ID: <20200602193853.GF2604@hirez.programming.kicks-ass.net>
+References: <20200602184409.22142-1-elver@google.com>
+ <CAKwvOd=5_pgx2+yQt=V_6h7YKiCnVp_L4nsRhz=EzawU1Kf1zg@mail.gmail.com>
+ <20200602191936.GE2604@hirez.programming.kicks-ass.net>
+ <CANpmjNP3kAZt3kXuABVqJLAJAW0u9-=kzr-QKDLmO6V_S7qXvQ@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: inglorion@google.com
+Content-Disposition: inline
+In-Reply-To: <CANpmjNP3kAZt3kXuABVqJLAJAW0u9-=kzr-QKDLmO6V_S7qXvQ@mail.gmail.com>
+X-Original-Sender: peterz@infradead.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=lKTcFEgW;       spf=pass
- (google.com: domain of 3cknwxgkkalezexcfizfexffxcv.tfd@flex--inglorion.bounces.google.com
- designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3CKnWXgkKALEZeXcfiZfeXffXcV.Tfd@flex--inglorion.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Bob Haarman <inglorion@google.com>
-Reply-To: Bob Haarman <inglorion@google.com>
+ header.i=@infradead.org header.s=merlin.20170209 header.b=Y97cQnPw;
+       spf=pass (google.com: best guess record for domain of
+ peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,134 +145,31 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-'jiffies' and 'jiffies_64' are meant to alias (two different symbols
-that share the same address).  Most architectures make the symbols alias
-to the same address via linker script assignment in their
-arch/<arch>/kernel/vmlinux.lds.S:
+On Tue, Jun 02, 2020 at 09:25:47PM +0200, Marco Elver wrote:
+> On Tue, 2 Jun 2020 at 21:19, Peter Zijlstra <peterz@infradead.org> wrote:
 
-jiffies = jiffies_64;
+> > Currently x86 only, but I know other arch maintainers are planning to
+> > have a hard look at their code based on our findings.
+> 
+> I've already spotted a bunch of 'noinstr' outside arch/x86 e.g. in
+> kernel/{locking,rcu}, and a bunch of these functions use atomic_*, all
+> of which are __always_inline. The noinstr uses outside arch/x86 would
+> break builds on all architecture with GCC <= 7 when using sanitizers.
+> At least that's what led me to conclude we need this for all
+> architectures.
 
-which is effectively a definition of jiffies.
+True; but !x86 could, probably, get away with not fully respecting
+noinstr at this time. But that'd make a mess of things again, so my
+preference is as you did, unilaterally raise the min version for *SAN.
 
-jiffies and jiffies_64 are both forward declared for all arch's in:
-include/linux/jiffies.h.
+That said; noinstr's __no_sanitize combined with atomic_t might be
+'interesting', because the regular atomic things have explicit
+annotations in them. That should give validation warnings for the right
+.config, I'll have to go try -- so far I've made sure to never enable
+the *SAN stuff.
 
-jiffies_64 is defined in kernel/time/timer.c for all arch's.
-
-x86_64 was peculiar in that it wasn't doing the above linker script
-assignment, but rather was:
-1. defining jiffies in arch/x86/kernel/time.c instead via linker script.
-2. overriding the symbol jiffies_64 from kernel/time/timer.c in
-arch/x86/kernel/vmlinux.lds.s via 'jiffies_64 = jiffies;'.
-
-As Fangrui notes:
-
-  In LLD, symbol assignments in linker scripts override definitions in
-  object files. GNU ld appears to have the same behavior. It would
-  probably make sense for LLD to error "duplicate symbol" but GNU ld
-  is unlikely to adopt for compatibility reasons.
-
-So we have an ODR violation (UB), which we seem to have gotten away
-with thus far. Where it becomes harmful is when we:
-
-1. Use -fno-semantic-interposition.
-
-As Fangrui notes:
-
-  Clang after LLVM commit 5b22bcc2b70d
-  ("[X86][ELF] Prefer to lower MC_GlobalAddress operands to .Lfoo$local")
-  defaults to -fno-semantic-interposition similar semantics which help
-  -fpic/-fPIC code avoid GOT/PLT when the referenced symbol is defined
-  within the same translation unit. Unlike GCC
-  -fno-semantic-interposition, Clang emits such relocations referencing
-  local symbols for non-pic code as well.
-
-This causes references to jiffies to refer to '.Ljiffies$local' when
-jiffies is defined in the same translation unit. Likewise, references
-to jiffies_64 become references to '.Ljiffies_64$local' in translation
-units that define jiffies_64.  Because these differ from the names
-used in the linker script, they will not be rewritten to alias one
-another.
-
-Combined with ...
-
-2. Full LTO effectively treats all source files as one translation
-unit, causing these local references to be produced everywhere.  When
-the linker processes the linker script, there are no longer any
-references to jiffies_64' anywhere to replace with 'jiffies'.  And
-thus '.Ljiffies$local' and '.Ljiffies_64$local' no longer alias
-at all.
-
-In the process of porting patches enabling Full LTO from arm64 to
-x86_64, we observe spooky bugs where the kernel appeared to boot, but
-init doesn't get scheduled.
-
-Instead, we can avoid the ODR violation by matching other arch's by
-defining jiffies only by linker script.  For -fno-semantic-interposition
-+ Full LTO, there is no longer a global definition of jiffies for the
-compiler to produce a local symbol which the linker script won't ensure
-aliases to jiffies_64.
-
-Link: https://github.com/ClangBuiltLinux/linux/issues/852
-Fixes: 40747ffa5aa8 ("asmlinkage: Make jiffies visible")
-Cc: stable@vger.kernel.org
-Reported-by: Nathan Chancellor <natechancellor@gmail.com>
-Reported-by: Alistair Delva <adelva@google.com>
-Suggested-by: Fangrui Song <maskray@google.com>
-Debugged-by: Nick Desaulniers <ndesaulniers@google.com>
-Debugged-by: Sami Tolvanen <samitolvanen@google.com>
-Signed-off-by: Bob Haarman <inglorion@google.com>
-Reviewed-by: Andi Kleen <ak@linux.intel.com>
-Reviewed-by: Josh Poimboeuf <jpoimboe@redhat.com>
----
-v2:
-* Changed commit message as requested by Josh Poimboeuf
-  (no code change)
-
----
- arch/x86/kernel/time.c        | 4 ----
- arch/x86/kernel/vmlinux.lds.S | 4 ++--
- 2 files changed, 2 insertions(+), 6 deletions(-)
-
-diff --git a/arch/x86/kernel/time.c b/arch/x86/kernel/time.c
-index 371a6b348e44..e42faa792c07 100644
---- a/arch/x86/kernel/time.c
-+++ b/arch/x86/kernel/time.c
-@@ -25,10 +25,6 @@
- #include <asm/hpet.h>
- #include <asm/time.h>
- 
--#ifdef CONFIG_X86_64
--__visible volatile unsigned long jiffies __cacheline_aligned_in_smp = INITIAL_JIFFIES;
--#endif
--
- unsigned long profile_pc(struct pt_regs *regs)
- {
- 	unsigned long pc = instruction_pointer(regs);
-diff --git a/arch/x86/kernel/vmlinux.lds.S b/arch/x86/kernel/vmlinux.lds.S
-index 1bf7e312361f..7c35556c7827 100644
---- a/arch/x86/kernel/vmlinux.lds.S
-+++ b/arch/x86/kernel/vmlinux.lds.S
-@@ -40,13 +40,13 @@ OUTPUT_FORMAT(CONFIG_OUTPUT_FORMAT)
- #ifdef CONFIG_X86_32
- OUTPUT_ARCH(i386)
- ENTRY(phys_startup_32)
--jiffies = jiffies_64;
- #else
- OUTPUT_ARCH(i386:x86-64)
- ENTRY(phys_startup_64)
--jiffies_64 = jiffies;
- #endif
- 
-+jiffies = jiffies_64;
-+
- #if defined(CONFIG_X86_64)
- /*
-  * On 64-bit, align RODATA to 2MB so we retain large page mappings for
--- 
-2.27.0.rc2.251.g90737beb825-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200602193100.229287-1-inglorion%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200602193853.GF2604%40hirez.programming.kicks-ass.net.
