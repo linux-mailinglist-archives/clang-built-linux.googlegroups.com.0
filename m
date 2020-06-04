@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBYUJ4T3AKGQEDVZEJZI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBEMN4T3AKGQEALNA4CQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x640.google.com (mail-pl1-x640.google.com [IPv6:2607:f8b0:4864:20::640])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7570D1EE6A0
-	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Jun 2020 16:27:47 +0200 (CEST)
-Received: by mail-pl1-x640.google.com with SMTP id o1sf4731545plk.22
-        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Jun 2020 07:27:47 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591280866; cv=pass;
+Received: from mail-qk1-x73a.google.com (mail-qk1-x73a.google.com [IPv6:2607:f8b0:4864:20::73a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 818C11EE6B3
+	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Jun 2020 16:34:59 +0200 (CEST)
+Received: by mail-qk1-x73a.google.com with SMTP id p7sf4691675qkf.21
+        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Jun 2020 07:34:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591281298; cv=pass;
         d=google.com; s=arc-20160816;
-        b=NxLnBEfPRIYX7f1hHZYo8+spV0l9i2MTlIZYmgxK5ZOqEhfEX2tA7fPRp6dVLxwPm5
-         Upu65BXSaWVMBTJFjgwvqIFOsfODspD2OpQ7MmAayT9f4/LkpMTu6gQPB22VHea6vRXz
-         gOf1Vwz4Z4nZ8tNEAVdPOHaUbTVQppTWo+F6DMtyKoKTQSELRUYXcWNdXXIeqwwyNhO+
-         UveUsO6M/rhrI6c/jZmHZW4fJtoCNEaGYIBD0vizMQgp2iFe+4U9Mxce5Aua/xLXFbQq
-         pmCSSc/h5t/LW2SHu/GjfZPN2cIdoSDOArZHrqHskItlY8iGSU7HKYyiOnIuTjpgRAfV
-         6J6g==
+        b=GvIVt2cmYYxV8ajHXxL23qP90Beb01lSIXZS+HpWIbYULZLoRfyD4aAuZkK+NIZnng
+         N5DiuTYDBJLFCrIOi8zJ6X6oIcB2PiAsXWvIFViP1O0r+o06J77ECEWT0gS42u5oK26L
+         EtIz4kvtU1//3vzJ4Hc/mq+ut7V369TSIxe8iS4qmiqh2J52HCIZtJ9vqnr+adFaa2ga
+         MmjCun7871TnZ9EkZQ8oMg6tKbbewO8TqowT6rw97MuP0EAYTLcJZlbL5HJGALMKOdY0
+         VGDSQ7O6q6nvMFndgCs5VK5csC2ytbvWNP67a/k1tPp8Y08SPF2oCK1WIgJKomS0fvW8
+         j4Vg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=cl1Qb4mjAQUBuxVrkMUfUWinh+cj2+W4AcmMcR2yYzA=;
-        b=Z77o4xnVhXYdWA9oobmQK+n+JkIbUKhwoFjNpeoAQMttOCq3OIweadh2F0KvT9TJiy
-         +syeKxtLiT6D4P59ICYFCktxPsgx7A/i9HI2zf93P7P7+JzPxDKBzWbc7CQER1yfXztZ
-         l6l6cWX4Zp2qAMjkV93rORzd/IIiS77hNDaugd6Vulc1dKKhhh1yQdpPcz2gaGWg4Bhg
-         L1JwaCNdQZInpSOiuLuL4kzbS5n22Ax3a58a5BgAeis9GgUa+Inh/aU56MIwecMhBedr
-         c+bGopmHmr7d086dgo1sUzePR27aRUAWblsOQaVh0hcT7xdpkW/1E++s5U6ISuFqtamZ
-         4UHg==
+        bh=ZcNWbJBhcG6Gx1hpqViqZRixPIbSWjQwWc/iTlMjVEY=;
+        b=yqvnWaU7zhh7XhnzCXJYY6WiUbkfpAoLqpebeal1LvOBlgYxjRk7xUkarPrmBAG2n2
+         WE6YKU++BBukCuU2Z0Rdy6ZWY6ZA3Jv7g0hYx4xGmx/mrqss9HHi7wcxmjstGcToNYRO
+         qOa4QM+zaS/8RXm7Lu2oXH8Om5lySyYveajNdPcBaHs632djZwq+xsM520uvIPh8vvDN
+         1vfzyFf42gZLq1b4Qn694L+9/PVHdjpRI6Gyz2jQwk/THI7Iwu47xLCh0tRYMsIP/c3u
+         QLwnjFwQdaLU/xjhpaSw5uH+ITiS9aBAoTgpsJg0c4KiNP1ctuKIVqlDvkqRt0Qp1AGm
+         6ouQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=e7eITrZA;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=TjCwc4Gl;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::641 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=cl1Qb4mjAQUBuxVrkMUfUWinh+cj2+W4AcmMcR2yYzA=;
-        b=iCVIutW0mPiqLZ0y/XSdTVT/2CH59zoJvmZ9LLjZ0O1s+ptRmA3Iij6llLd5FgdLJl
-         sDPJVc0GSRnPBdsiA32AE9dCKmEF8w6/M3h1Z/5mjW2ti0lr1nn7ug04V65FfIHKtKEJ
-         iP4fIchW/FbciFuOgsYh4zipE/a7hzge09dr1EfJTNARS05M4B/LR+aYmfVXAT6Yz4kA
-         roncgmKKatKLixrdOney08Nbml7iDdfAcAQRxOuvoOdR+VnZfOQi/52hX4tdIDg9/dfF
-         PXcIsnIazrU3Y+HX9mZW8UAH640LGjG/45LvLsTfDC785OFyLyPOmOxLGhbnADc4whmg
-         DZvQ==
+        bh=ZcNWbJBhcG6Gx1hpqViqZRixPIbSWjQwWc/iTlMjVEY=;
+        b=gEJ8lBmh8FiaeAa6wx9WBvHQOrd1pJXWObTYxwG4FKa5655ep8RqUEhkqhoI5Ai7bH
+         I4nqV5FKlrOX9DuTnDm6+z596quaOb5WJ1Gzc4oNL1W6aJgcLnRg/oB4rHTvKuW2uLSN
+         jSXOmTmm3nIMmaN1MRdwtFVP2GE+KcalA7aLefx7/D6pqncZDSqEy/R72Lg1ZzPONDr4
+         STzkgG55MsSv/ykOLocoIA+q8/XGugKHvJljwUW4JppW2qVQfKbR9XgPlKDdTXV+n+lo
+         +XH/ocBVIUN4RCz/9snyzP4gWd6pFIfOOS+AAO01iQE2S5Y6dmQck+vhZxADFpNUCPAP
+         lh1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,65 +50,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=cl1Qb4mjAQUBuxVrkMUfUWinh+cj2+W4AcmMcR2yYzA=;
-        b=Y13PG/3FTDMeQoJETsvrkH09hS+IB2bdOTg5GLNPjaQLnzySh+UMW0lO4urChMSVbz
-         HpVobfgF9b3VaWNfSGXmeI5BBfoRiQBcVQFbENFGds4JMmXCNwTTLMFhS6U53oPAhIpZ
-         mECVuz7jMjnEQT+e6IUkjQYwJg38FcQ3TDjwVXFcOvVORoX8C4vFLW4gTjCfqs86wn/s
-         GxFz1e+80dRES/3b8pLwo4ooYFqmUR6xkgmkyrnHAkrRbisbZoh65lEO0xgnwQeqAhH7
-         f6CmHhNtJBHU82vzAC+TC066fiUyjPkSdwQU+j/Z5fHj/MIrlhdXmV+YzB22USiVSX3y
-         88Sw==
+        bh=ZcNWbJBhcG6Gx1hpqViqZRixPIbSWjQwWc/iTlMjVEY=;
+        b=mZUAJExewahrkdGBT0gyDYmnok6TUBToo/t0SJaXYE0+p7gioNt4kSEelZB9HI6Jxf
+         eSkYk4zhIRi1nZRiQJu3shgXWlh/cQnnTg/sIlLvCwnmuiigdKEYTG/8MiN6SMomvtdA
+         Kj7flIcYTC/ETBFm74KDBib+NSS+FdPpZS9TGnoxbxV2BSF85OiHMorLlSRvlk71aIUL
+         OzhWMWsv0LxpzRz2XV6YkInBOexuyHuV+a8by4uzZKgGBUWdEHBOpoXvDAjHfxcbmwO2
+         E+2HkVln4Kj/qokCzc7/DRE18vHx9iQ9KDAY/HJ7Mu7yRAMnbRmu79AnAGLlBIQ4u08Z
+         4kSA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533Yi1+EfEY5XbWM/vtDhh1+TAIbVHV9AIrM0f4nbEInHxiJzAku
-	o5ACAcAINKxgJNLUdYfymVQ=
-X-Google-Smtp-Source: ABdhPJxqHmTGlBlff/MkKcKZagpfp7VYXq6ZET7vbsW+Fz12EJFbIPIFZag5/yumgS6cDltYkC6sng==
-X-Received: by 2002:a17:90a:df0f:: with SMTP id gp15mr6601257pjb.128.1591280866110;
-        Thu, 04 Jun 2020 07:27:46 -0700 (PDT)
+X-Gm-Message-State: AOAM532IWj+WmIHDewNhbAj2kwJmStemM2iOhlJwv0u9gN+a96LXI+sv
+	mhhvg/9nNpaG/aRbbRsezB0=
+X-Google-Smtp-Source: ABdhPJwyUFg5eQaS/cYf6JvW2cDMfV8TLp86IVfNhmA60Vs7lW464bdsh1zhjG6uajACOYMt2nW/Ng==
+X-Received: by 2002:ac8:2f7a:: with SMTP id k55mr4934312qta.34.1591281298130;
+        Thu, 04 Jun 2020 07:34:58 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:28c7:: with SMTP id o190ls1683196pgo.3.gmail; Thu, 04
- Jun 2020 07:27:45 -0700 (PDT)
-X-Received: by 2002:aa7:96b0:: with SMTP id g16mr4674492pfk.126.1591280865714;
-        Thu, 04 Jun 2020 07:27:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591280865; cv=none;
+Received: by 2002:a05:620a:5a3:: with SMTP id q3ls2773515qkq.2.gmail; Thu, 04
+ Jun 2020 07:34:57 -0700 (PDT)
+X-Received: by 2002:a37:64d8:: with SMTP id y207mr5047338qkb.2.1591281297745;
+        Thu, 04 Jun 2020 07:34:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591281297; cv=none;
         d=google.com; s=arc-20160816;
-        b=QlFUUyo3BJbbDwfB3m4ekd392yfLuAm7eYRCeKnc7WKq8vrS53Mg2Nv9GD/10HnfvH
-         d/mb1YcBVpZp7AlvsEJCXyMHWlU6m/1PDNlM1AUrRyfZ2Dqd8q4f86cGbpeexr9iMusT
-         fTQDm05FLQiLPXt11TDObkFaMtW3VnqScRQMwf/jCOOr371+kx4SRhGfLqsAmu2gCE0M
-         QU9MMpCfb4fKgdTS6DGQeyCcucjW4FgjckBjubXoF0qa+6de2/6exLZ+OqhPOsY71hY/
-         vRRcWJdEUlqRxGByzav2J3qeevN9CCW/QrUTs1X5aa7TLA4WVC4QLWqBBgAMGUkkYAZf
-         3hSQ==
+        b=YEQGYjPitQnN9RrStQa5r6Hr6nefWWaHy3lPDN07Ld0NiLUC0I+/Z+OD6P+UOdRBrL
+         tHOghdnhVuYdM/a3RCeIiAsE/v/eOPn+mZYnGxb4Qt/FixCVkdnvXWExC/2R9GjicUlO
+         XXVDfb4LScpo6uSwjMRP7VjrByPkH1joZ6I+Cndcn1sgvt7Cmnh3QWMwcaicYwd+Jrrz
+         02Ep9Z7W8V/bbC3H7FzJQvtReqCiX+zVpODvFa1LvAJZnRLadp4IopddJ5PL0XzdqoKw
+         HqaswR6ledFTB6CD3KvRaRvvJjzZjYVU/+ieH6TZN+Rkk8XV7By73OOXYClWklendPqq
+         feOQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=ELp8NKpDU/b4oaZzGkEuk3yIxekW0FfVsfMh0kEq3DQ=;
-        b=rBhmaWTfif1pTuYz2/xuyICgIXM41D0ECTkwNP9pFsfbUaGaoO4n5rIRVoW2BN4eRb
-         BvPpMfnnI1btLgnrdOuoYQdQWYqW8napOjBDy+LhTe7YZ9h2pVFUyLzBWVVOtdkbgN5F
-         M3kNT4/iyuhCZRUCil7qZhmlzW2W302yT0NRrForgXlpxs39Qi/LxYpbaLsj+0y01Wef
-         +XhAeXzE3MQEX1ShoAnHmitC6VifxtlIjXFaqENexbR8CZVSt51Wr0/4ey4ocUiMPohG
-         RjqzBZN2oF6remZr7zbxDTaxEJ4f+kjVf1/IQU01hut53PVhI6fgvltjNblZWKs/LsOt
-         lfsw==
+        bh=ove4i1/jldMZ8oj/uY7NqV8r09suzUfhCHwuSYH9N6k=;
+        b=TITVfwBgeWFj3r5Gs0gOoKZR61d4KacNg+EopTRNofk3TR/27DiF/yDKMh01hKlDPJ
+         lWkc8TfUg7fiiLoRTXi/h8tzaGvbe8Eym+4XzGZtmTsFCpwhZRYqmJwx3f88upWZ401I
+         21cFMfx76Hjs3M4I9l+SZ3HD7atLhE1irxS+vceYy7D2OYL4rRvMjvWuPj7HQPz12YA9
+         G4BCjnO900OwwJpVCxj455q+O/IcN2I/8RpZ+pxBgKWX11hYrAvOjc1IyOqbRWuTTMbk
+         3MiRKJGoe2jkEG692HK/JrsohvbbEU2S39vbbHQ6/SOjPWwSrIV4gDAfnN1UTX7+ILi9
+         NFag==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=e7eITrZA;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=TjCwc4Gl;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::641 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pl1-x642.google.com (mail-pl1-x642.google.com. [2607:f8b0:4864:20::642])
-        by gmr-mx.google.com with ESMTPS id m8si230915pgd.2.2020.06.04.07.27.45
+Received: from mail-pl1-x641.google.com (mail-pl1-x641.google.com. [2607:f8b0:4864:20::641])
+        by gmr-mx.google.com with ESMTPS id x74si340969qka.4.2020.06.04.07.34.57
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Jun 2020 07:27:45 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642 as permitted sender) client-ip=2607:f8b0:4864:20::642;
-Received: by mail-pl1-x642.google.com with SMTP id t7so2255994plr.0
-        for <clang-built-linux@googlegroups.com>; Thu, 04 Jun 2020 07:27:45 -0700 (PDT)
-X-Received: by 2002:a17:90b:188d:: with SMTP id mn13mr6391960pjb.84.1591280865425;
-        Thu, 04 Jun 2020 07:27:45 -0700 (PDT)
+        Thu, 04 Jun 2020 07:34:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::641 as permitted sender) client-ip=2607:f8b0:4864:20::641;
+Received: by mail-pl1-x641.google.com with SMTP id v24so2252534plo.6
+        for <clang-built-linux@googlegroups.com>; Thu, 04 Jun 2020 07:34:57 -0700 (PDT)
+X-Received: by 2002:a17:90a:950e:: with SMTP id t14mr5847304pjo.99.1591281296926;
+        Thu, 04 Jun 2020 07:34:56 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id j15sm5944936pjj.12.2020.06.04.07.27.43
+        by smtp.gmail.com with ESMTPSA id q8sm6069346pjj.51.2020.06.04.07.34.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jun 2020 07:27:44 -0700 (PDT)
-Date: Thu, 4 Jun 2020 07:27:42 -0700
+        Thu, 04 Jun 2020 07:34:55 -0700 (PDT)
+Date: Thu, 4 Jun 2020 07:34:54 -0700
 From: Kees Cook <keescook@chromium.org>
-To: Sedat Dilek <sedat.dilek@gmail.com>
-Cc: Nathan Chancellor <natechancellor@gmail.com>,
-	linux-kernel@vger.kernel.org,
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: linux-kernel@vger.kernel.org,
 	Linus Torvalds <torvalds@linux-foundation.org>,
 	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
 	Alexander Potapenko <glider@google.com>,
@@ -118,20 +117,19 @@ Cc: Nathan Chancellor <natechancellor@gmail.com>,
 	netdev@vger.kernel.org, linux-wireless@vger.kernel.org,
 	linux-ide@vger.kernel.org, linux-clk@vger.kernel.org,
 	linux-spi@vger.kernel.org, linux-mm@kvack.org,
-	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>
-Subject: Re: [PATCH 00/10] Remove uninitialized_var() macro
-Message-ID: <202006040727.265B0E586@keescook>
-References: <20200603233203.1695403-1-keescook@chromium.org>
- <20200604033347.GA3962068@ubuntu-n2-xlarge-x86>
- <CA+icZUU4Re5g3rRJ=WF3_KiCEc3CUmbH_PibTunuK_E1QskEjQ@mail.gmail.com>
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH 01/10] x86/mm/numa: Remove uninitialized_var() usage
+Message-ID: <202006040728.8797FAA4@keescook>
+References: <20200603233203.1695403-2-keescook@chromium.org>
+ <874krr8dps.fsf@nanos.tec.linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CA+icZUU4Re5g3rRJ=WF3_KiCEc3CUmbH_PibTunuK_E1QskEjQ@mail.gmail.com>
+In-Reply-To: <874krr8dps.fsf@nanos.tec.linutronix.de>
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=e7eITrZA;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642
+ header.i=@chromium.org header.s=google header.b=TjCwc4Gl;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::641
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
@@ -146,31 +144,108 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jun 04, 2020 at 09:26:58AM +0200, Sedat Dilek wrote:
-> On Thu, Jun 4, 2020 at 5:33 AM Nathan Chancellor
-> <natechancellor@gmail.com> wrote:
-> >
-> > On Wed, Jun 03, 2020 at 04:31:53PM -0700, Kees Cook wrote:
-> > > Using uninitialized_var() is dangerous as it papers over real bugs[1]
-> > > (or can in the future), and suppresses unrelated compiler warnings
-> > > (e.g. "unused variable"). If the compiler thinks it is uninitialized,
-> > > either simply initialize the variable or make compiler changes.
-> > >
-> > > As recommended[2] by[3] Linus[4], remove the macro.
-> > [...]
-> > For the series, consider it:
-> >
-> > Tested-by: Nathan Chancellor <natechancellor@gmail.com> [build]
-> [...]
+On Thu, Jun 04, 2020 at 09:58:07AM +0200, Thomas Gleixner wrote:
+> Kees Cook <keescook@chromium.org> writes:
+> > -#ifdef NODE_NOT_IN_PAGE_FLAGS
+> > -	pfn_align = node_map_pfn_alignment();
+> > -	if (pfn_align && pfn_align < PAGES_PER_SECTION) {
+> > -		printk(KERN_WARNING "Node alignment %LuMB < min %LuMB, rejecting NUMA config\n",
+> > -		       PFN_PHYS(pfn_align) >> 20,
+> > -		       PFN_PHYS(PAGES_PER_SECTION) >> 20);
+> > -		return -EINVAL;
+> > +	if (IS_ENABLED(NODE_NOT_IN_PAGE_FLAGS)) {
 > 
-> I tried with updated version (checkpatch) of your tree and see no
-> (new) warnings in my build-log.
+> Hrm, clever ...
 > 
-> Feel free to add my...
+> > +		unsigned long pfn_align = node_map_pfn_alignment();
+> > +
+> > +		if (pfn_align && pfn_align < PAGES_PER_SECTION) {
+> > +			pr_warn("Node alignment %LuMB < min %LuMB, rejecting NUMA config\n",
+> > +				PFN_PHYS(pfn_align) >> 20,
+> > +				PFN_PHYS(PAGES_PER_SECTION) >> 20);
+> > +			return -EINVAL;
+> > +		}
+> >  	}
+> > -#endif
+> >  	if (!numa_meminfo_cover_memory(mi))
+> >  		return -EINVAL;
+> >  
+> > diff --git a/include/linux/page-flags-layout.h b/include/linux/page-flags-layout.h
+> > index 71283739ffd2..1a4cdec2bd29 100644
+> > --- a/include/linux/page-flags-layout.h
+> > +++ b/include/linux/page-flags-layout.h
+> > @@ -100,7 +100,7 @@
+> >   * there.  This includes the case where there is no node, so it is implicit.
+> >   */
+> >  #if !(NODES_WIDTH > 0 || NODES_SHIFT == 0)
+> > -#define NODE_NOT_IN_PAGE_FLAGS
+> > +#define NODE_NOT_IN_PAGE_FLAGS 1
 > 
-> Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
+> but if we ever lose the 1 then the above will silently compile the code
+> within the IS_ENABLED() section out.
 
-Awesome! Thank you both! :)
+That's true, yes. I considered two other ways to do this:
+
+1) smallest patch, but more #ifdef:
+
+diff --git a/arch/x86/mm/numa.c b/arch/x86/mm/numa.c
+index 59ba008504dc..fbf5231a3d35 100644
+--- a/arch/x86/mm/numa.c
++++ b/arch/x86/mm/numa.c
+@@ -541,7 +541,9 @@ static void __init numa_clear_kernel_node_hotplug(void)
+ 
+ static int __init numa_register_memblks(struct numa_meminfo *mi)
+ {
+-	unsigned long uninitialized_var(pfn_align);
++#ifdef NODE_NOT_IN_PAGE_FLAGS
++	unsigned long pfn_align;
++#endif
+ 	int i, nid;
+ 
+ 	/* Account for nodes with cpus and no memory */
+
+2) medium size, weird style:
+
+diff --git a/arch/x86/mm/numa.c b/arch/x86/mm/numa.c
+index 59ba008504dc..0df7ba9b21b2 100644
+--- a/arch/x86/mm/numa.c
++++ b/arch/x86/mm/numa.c
+@@ -541,7 +541,6 @@ static void __init numa_clear_kernel_node_hotplug(void)
+ 
+ static int __init numa_register_memblks(struct numa_meminfo *mi)
+ {
+-	unsigned long uninitialized_var(pfn_align);
+ 	int i, nid;
+ 
+ 	/* Account for nodes with cpus and no memory */
+@@ -570,12 +569,15 @@ static int __init numa_register_memblks(struct numa_meminfo *mi)
+ 	 * whether its granularity is fine enough.
+ 	 */
+ #ifdef NODE_NOT_IN_PAGE_FLAGS
+-	pfn_align = node_map_pfn_alignment();
+-	if (pfn_align && pfn_align < PAGES_PER_SECTION) {
+-		printk(KERN_WARNING "Node alignment %LuMB < min %LuMB, rejecting NUMA config\n",
+-		       PFN_PHYS(pfn_align) >> 20,
+-		       PFN_PHYS(PAGES_PER_SECTION) >> 20);
+-		return -EINVAL;
++	{
++		unsigned long pfn_align = node_map_pfn_alignment();
++
++		if (pfn_align && pfn_align < PAGES_PER_SECTION) {
++			pr_warn("Node alignment %LuMB < min %LuMB, rejecting NUMA config\n",
++			       PFN_PHYS(pfn_align) >> 20,
++			       PFN_PHYS(PAGES_PER_SECTION) >> 20);
++			return -EINVAL;
++		}
+ 	}
+ #endif
+ 	if (!numa_meminfo_cover_memory(mi))
+
+and 3 is what I sent: biggest, but removes #ifdef
+
+Any preference?
+
+Thanks!
 
 -- 
 Kees Cook
@@ -178,4 +253,4 @@ Kees Cook
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202006040727.265B0E586%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202006040728.8797FAA4%40keescook.
