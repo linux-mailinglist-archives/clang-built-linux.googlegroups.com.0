@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBAGX4H3AKGQEWJUB7UQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBHWX4H3AKGQEAX72ADA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93f.google.com (mail-ua1-x93f.google.com [IPv6:2607:f8b0:4864:20::93f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2400C1EDBA4
-	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Jun 2020 05:33:21 +0200 (CEST)
-Received: by mail-ua1-x93f.google.com with SMTP id j26sf1667084uan.22
-        for <lists+clang-built-linux@lfdr.de>; Wed, 03 Jun 2020 20:33:21 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591241600; cv=pass;
+Received: from mail-qk1-x737.google.com (mail-qk1-x737.google.com [IPv6:2607:f8b0:4864:20::737])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1BF8B1EDBB0
+	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Jun 2020 05:33:52 +0200 (CEST)
+Received: by mail-qk1-x737.google.com with SMTP id 140sf3434343qko.23
+        for <lists+clang-built-linux@lfdr.de>; Wed, 03 Jun 2020 20:33:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591241630; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XYWYn1A6hgeOmwpfrrkO2BDtMtQHmGpTx7kKImQXwwx74oSyyE0lYbj51U1o2V8hi+
-         oBmi8G9FI8+SW14z58DZQH1HC0bwXx1rch8uqEQFB7UejKGB2WPne/mUhzbwkAFc6f7i
-         7izfG1qSA+8/dV9abtO1KBa+EGsnczBXRC1ToS9tFBZifpYtVNBC/RYuLoHnq0L/LX7H
-         tfLqLj8c3yuGQWI6gG/WDX7zOeqpwfllPnoWKVareBjM0kuWCueeZ69RW1PmClqbNCRq
-         BvmUk9eEViDeHEZCAaF3qIya0cvkHQTu8mQa1AvsaKHcU81OpDfnM422PP1rpRNZEPd4
-         uxiA==
+        b=B92zZ/QWloh+12hmEGwnusqVFBrrQM9CBbHlB7I3OBUbJhhK1U1ethEU2AGQvGDj7m
+         /jgfyTZa0LULiMGgh7pMWUHgVBG3WRkRXpUpdatpEdkA8w+mALToHKugtNAhWvjeH3bb
+         RSCnAhlR4fQO15qeVrWd75m45ryZDYl4CC2OaEMzBRR/TePFmJI1MqUs6+Xc/qoU81My
+         30pGE/5G3xPq9WG55DkD/CtLgOCm6+7ed5Iz6lghFfNpo9DiiAdcWa5zFlOgMdc7wQe3
+         zW4c+TRR2SHkvaUbobVKN6vhZ7DTNMQZf0coXxqB1nQt1yN66JXWCmshNiWliBQtMIqX
+         wTyw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature:dkim-signature;
-        bh=+lJggKTCxpIiYhfLjBQNgRagC+8aquGPAZG0BWItwLg=;
-        b=mVXKm8zndl1tQWvHcj8kuTs53kaUwFfkUcMGA/u4+PxhBxAoEdKfwgwKLiBbVBDGuy
-         x2RzokQWpY/zImxw2avchYi93VBDDNRFHsT3AMzTp3OM12hqWF4MIAqI9vdsytGkNBww
-         R53km0/QJ6cdYSqhAjpKvPnLe1KxcO8nOWhYOto9Mu/Ijjzxu4NTaKt3QCXTxaNi4xKG
-         aJimQRGWTMmWcs2aDaIx8xKOR6nAfx3sTkMv4uLwumW99DNWMSQKLHjaSjzNULaMno4R
-         IwIVkDWaVL1EimBVOgkppo1e+1dSZvbt2eTXPkdnJ82Vnqu6VSbw3zw1fyBfasbwHnzu
-         kvDw==
+        bh=bb8ScTpAN6tLliVhCSdzOBOxpXp3PC9Jy9Ow9zPT2/s=;
+        b=otTeyZHTpVzgiGpEun3ZgyBSmrHAkRjxQpGS57EU7/6RCc94nz8NjufZ4UB2zrPsni
+         40LYciaQQvc4JLLXG3ytEsFQClZTth1iqNABQxJVVmBYRC412Mo25tPAn9MDEFuXTAcF
+         FVeImrN1Tusl7mJR6d1FqWodXfr41hHidInyPhTzDOKdAKIHbo13EjXy+iWoribyElck
+         69ukLtTAW7Pjw5K+9JLIt6mCgD3uyoJgJDMSk4FiaDQha9jyis886OH00ALkJ3OQIDYg
+         9vOjgtVJn1HLJN8Vx7bd/im/d/ppb9MeavPiE22t7Rd2nOmJJIIG1ko/OzvdkGCShjdo
+         93xQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=An50kzaF;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=hAU6iC7S;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=+lJggKTCxpIiYhfLjBQNgRagC+8aquGPAZG0BWItwLg=;
-        b=qjJtR7hMT2QLVPfn9uhD4YRNneHxtGU659WobvRubnXV1zP9hOffVEqIGqgVgMMuQd
-         wbqfCmwddxuKMCGLBgEsB3UHvYz8CzTBKNkqR7fumYH7IVoMms7Ncr8fRSFsKEAV44Mm
-         U3F/71HqmGgODUeShOUeB8Hg1gYSkEn4wKVc/l2PjfECWJ65t3MGSGOFDuPHKmDOFrt2
-         ZuybywWB0gzR/8kO1tHP6AO2fw/Q5N9/ZyyzGiCOdbrOSvWUy/4YtJs7kIb3ZuTx0YwL
-         /H441Y1uN4ZSNiw/43tbKosYfNuw5Ejm83H92R0MN8+0lSKAKi8OLibdRh5TYWj7zfYP
-         y9EA==
+        bh=bb8ScTpAN6tLliVhCSdzOBOxpXp3PC9Jy9Ow9zPT2/s=;
+        b=T+ldzHw4ezDzr7zNGP2Mj4P0BSYjx/RwCsOpvWN3KRJcCTkHDRb6DaDfCKQjHOfewi
+         jJnpJgvllxiM96nINcOmSuShx0h+cjroBojmAtR6dY/I6pJ86nQEYgicgWTWDBdBnDd3
+         uW9iVwSdt/wSEuIrwzwkhP54zsHH1mr684VSCxondbG53gfbTv1iYAq5SLOtQQRwlfTb
+         gK0A1PYUbKCntfrpIvgqE7mG/O929BJUpQPR/Odbcgh44SP0lqoh7GGDT/EE6kaD7u3+
+         +Mc1TrBvtQj0uLRpXUEqSVS1Xae1awGjUVjVfkw94w4aUlwMdCHj1afMRyAM+pvmy+3a
+         U1PQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=+lJggKTCxpIiYhfLjBQNgRagC+8aquGPAZG0BWItwLg=;
-        b=AQ+YnxTD74/sT7M00Pyzrf/Wjk1+mdMBmoSCX+QWu8RuNeMcyXJxoJkO6iMbkq6hx5
-         Mac1RPBDo0XQQnyUoGxb/J9y53RMK8sMmj8jfeJj11rPopqbu4n/bUeMMl4PHubNtm5A
-         9r1BXDXyc6aVJaJLKVUAPRQMkNaOfdJL51aGhIVMRPp+Ot06eI+mhF1RMzGUVxqjQTA+
-         iX9ZxSno0Bjn+CA7gpkBSmUGbSR0ZGzP7rOoMgwVmKnLeU8LUDppOZd0gn9klwul6CX7
-         8+zu3DJGdIulSzOFsBp7Tw4CkgF0OVSeQL50dZu5DGbZzx43qL6EYaGZHQOrP74a7jWz
-         0Uhw==
+        bh=bb8ScTpAN6tLliVhCSdzOBOxpXp3PC9Jy9Ow9zPT2/s=;
+        b=c/j1ryDgWNTaRbYEIJ25tasESTN+zn4ZwoOUpiMPLv5OWebyFAUzKuxp38SFWL3+B2
+         0Ue9WJijlA6nGQhtBUXewjqA8n5SxiJxRLaOTcDaC8ydL+NcMw5pEKy4maeMuW/+JFfV
+         zyPBVWo10dcvoMxx1Qiylyg8O9Ucy5t6O0ueSRoNLSidf2GJrU4dunqFZi3tAUriGirh
+         8XElrIUuANxLOWfVBCBMKvSI6CzHLhb/Fr8DTn3vSuzzOG7rFJXf2kUsyOQj8kPAC8Li
+         BsQk4sYyL8aSYjzhwq5Ds/0jR9Zwe9GFhIJNM/liQQy6QcnhHCZJpL6zIYX+V/wpDjdd
+         gmTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -63,61 +63,61 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=+lJggKTCxpIiYhfLjBQNgRagC+8aquGPAZG0BWItwLg=;
-        b=UmCa1LUD3DdhAPUbZztmpFBlgppWa4yU9GTy163DJsulIQg5tsrcyXdE4yDrLlUzJz
-         Y04zeowYGHQV/gRquUHyQjWEUpzPrQdvhrH3dtDV9MJXleWpIkNkhTL06OdrF77VJr/6
-         ll2P7hNK3rV2H3bce0U6PiegkTY9AY7JTplMPtyHhnDuVieog/xmHF1aByPwX9td/Gx9
-         2f/Qg20Hu6+vcxx869rXZgy12ljZ1TbZksr2RMVjd8JCtzmDuddEbgyjxpyZDFjXf3rA
-         RN50GeOxNw2cPswDrtWMLxlA8ZVJkjDnpuaTIsnWYFTOtMFGQlbbZZQgY9Y8gzJp4fn3
-         Wziw==
+        bh=bb8ScTpAN6tLliVhCSdzOBOxpXp3PC9Jy9Ow9zPT2/s=;
+        b=qQhq0BtIuq2RyNe7ScEraOFgx/gpenpNztCAAukVeCkMyqagcOcQDeea1gDWb5c/Qe
+         Mn/rar3N+P9T/y8I9slTEGYQS7p+feQEjBWFXPJiWQx2U4rXUJV4HKUzROqLZ8VFTBoG
+         2UnFmp7o5Pe9cbI9KuWzAgylrSypq6qf4KiaIevBnZCS65IpFwEevY7YoYfzIIpcgNfA
+         drSk3BMSjOrqaT8mq8wXuq2UX7fV81I9ZSdcWUWe368M+KR5lzDMmlqwnQYUfVqGAZe1
+         1jfA5PSMY/JOfrRzgEO+uZWR6epnN91ykdoHd6gVadYPW70Dur6xGgSAzS4z//6bOqxH
+         Loyg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531CBAOFIuj8l+pZAtkVuSCAB1YAMfHH1kQ8qsHZqT6fbC/+uLaK
-	X3IuBLAhPIfuRiQX4npjTyk=
-X-Google-Smtp-Source: ABdhPJx2/RhTvEGDxFZHTXAHxwhKsDn7OBa49KnRyA4YuHjcAL3y7v7GWPB84WqLI2+0awggtnwxFg==
-X-Received: by 2002:a67:ac45:: with SMTP id n5mr1939337vsh.108.1591241600128;
-        Wed, 03 Jun 2020 20:33:20 -0700 (PDT)
+X-Gm-Message-State: AOAM531Uxow1And0kGxecZnUNlTfsfscDtnG/UUJv986206UeWgps92A
+	P5N5SrvQsTchH4ftxtwb7F4=
+X-Google-Smtp-Source: ABdhPJz6ct2ufUrS96r8OiCYEUinAGaJY7CGnxuKnWLuLFOR6NztaB6i6PYiEfcwwlc08AY3RtDuBA==
+X-Received: by 2002:a05:620a:534:: with SMTP id h20mr2884951qkh.293.1591241630684;
+        Wed, 03 Jun 2020 20:33:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:26d5:: with SMTP id m204ls174295vkm.7.gmail; Wed, 03 Jun
- 2020 20:33:19 -0700 (PDT)
-X-Received: by 2002:a1f:1209:: with SMTP id 9mr2061337vks.102.1591241599801;
-        Wed, 03 Jun 2020 20:33:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591241599; cv=none;
+Received: by 2002:aed:3fd5:: with SMTP id w21ls1342540qth.7.gmail; Wed, 03 Jun
+ 2020 20:33:50 -0700 (PDT)
+X-Received: by 2002:ac8:2fb0:: with SMTP id l45mr2501864qta.260.1591241630354;
+        Wed, 03 Jun 2020 20:33:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591241630; cv=none;
         d=google.com; s=arc-20160816;
-        b=cgU/g8BywyuXr4OPGuaVZvgdWmwOs+Ydfvg0M6ZvIp7Wuom9/TVzPGmI/JvMdueQmR
-         nUuoB8LBApXz46RoPkM7OrH6NjpMu0sj94ZzqulS6rHRzAp7EVJmrm6AZRPCMFboTGCp
-         bhmAUF85uDRopJl4fJ0Nag0hA/CtVVm5qP+MXdjKoKiKqftA4AESUtkFpwkEjxL8mEFQ
-         3YSPQwhYrIpYE0NZ1yCPyffcWFTudUtU1kbt1mr5s4OuMTXeuDAopz0L3AUTWiRetLOC
-         FX0oMtmurZVk1ZZWP69V1la1nib+1o59Bp+SoeFZwDOd1ztslEoqwyjnVFVy7cnaS1sh
-         8utg==
+        b=U64Cvzqfd9Juj7lQx2JvSM9tEfFNU65m4qsOkRrIQ5yL1Uii0YOzERuj4C3DA1xHcw
+         6qaz71XOBhGyQSTZ9O82lI9JLxXV6NKYB90KaxwxyQ6af31Y0OQFZdyPHtW+ExnKdqVf
+         tcM5MPnHV8TWL+wmiZDDcZ5PdJwbRh7ppCrbvcGMQsMqi4ugIANPF3q1n+a7tNEDzFc+
+         aXIXK1KuGPb88WxmpB8dJ+X5ayAYDsyP5d4Twnpu4WHiJdoEKxnahEoQKf+QQVbAoRnR
+         1DhupuCtFhQaUeeQ21fLoLk/GRNUa7qTkRrxP7tAwNnKGSk07QZi2+UOmUIGyjxYTC8T
+         H8Mw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=8Faii11PvSo51bdsAemmq3+A0d7oNRL4/GLZ67cBSMg=;
-        b=Oqwh+Pr9D84e+fwkcDl+DMzSdFkPjV8p8yGMKxpqpJZrpvHZCD/eXCrXVLs5qfjZ3O
-         KK1Oou4zSwLvuTKXwhcfFiTwkOIZBoSuMxZvG3JL39ysqmyv/7Kn9/+fz7LbLsj0Efcv
-         MfBcDbCuNgMUGYA5wjNVZAfUbiZquHBoYj0DdeDsZC30PoIefCRhlOqmfnQQrYMDFGnz
-         xcFn1QT036OnM9bBEhHy1tOQYsiknUUeaNSZMqSln5Udfdmod1yE7X93lSk1ajfS4tl/
-         91uF7w7PGvFFfBcqPOsl70YNJoM538k0bq9ZksbpjbiOjj2WOjfyC5DyiTcstWFD0f+6
-         2/dQ==
+        bh=MtysUER1l5a/zqtCZtWbYXE2kDcmWMdAVlNOZNySUKQ=;
+        b=KY0LAF/jCPUgnyzuG+6L2zg9SUhoLtLls+CKBvH9nIOyhkMs5uD71xjUXKj1B6pxC+
+         m74+mpc0MeA6Fojh6cVD0XtRmMPA4SSDeJydwl9VwU/3zcPg/YdP2mGx4rZXyNmOMCwv
+         gc+vEDMeysL5e60A1dR74rr95+g3zWUKHJQEqJaGb3yBdwZKww/hnpqODEyiKaTHl1Er
+         T+JfqdsWyqQMlPiMi3cRiz9/DhNOBBEVO/fuMiK6C1HsaJ9uFHiYIUU+E6heFEQAX5sZ
+         LS0Y3XziLzqOb6LlIUxfjr39NFa1LBSiDGb8imjF2lN9UFi1unClRoO0EoB8ojRbZqlU
+         Btjg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=An50kzaF;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=hAU6iC7S;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-oi1-x242.google.com (mail-oi1-x242.google.com. [2607:f8b0:4864:20::242])
-        by gmr-mx.google.com with ESMTPS id t9si231645vkb.1.2020.06.03.20.33.19
+Received: from mail-ot1-x344.google.com (mail-ot1-x344.google.com. [2607:f8b0:4864:20::344])
+        by gmr-mx.google.com with ESMTPS id v64si307435qka.5.2020.06.03.20.33.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 03 Jun 2020 20:33:19 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) client-ip=2607:f8b0:4864:20::242;
-Received: by mail-oi1-x242.google.com with SMTP id m67so3856343oif.4
-        for <clang-built-linux@googlegroups.com>; Wed, 03 Jun 2020 20:33:19 -0700 (PDT)
-X-Received: by 2002:aca:b707:: with SMTP id h7mr1938490oif.174.1591241599191;
-        Wed, 03 Jun 2020 20:33:19 -0700 (PDT)
+        Wed, 03 Jun 2020 20:33:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) client-ip=2607:f8b0:4864:20::344;
+Received: by mail-ot1-x344.google.com with SMTP id m2so3660087otr.12
+        for <clang-built-linux@googlegroups.com>; Wed, 03 Jun 2020 20:33:50 -0700 (PDT)
+X-Received: by 2002:a9d:7387:: with SMTP id j7mr2354350otk.157.1591241630021;
+        Wed, 03 Jun 2020 20:33:50 -0700 (PDT)
 Received: from ubuntu-n2-xlarge-x86 ([2604:1380:4111:8b00::3])
-        by smtp.gmail.com with ESMTPSA id n60sm327816otn.75.2020.06.03.20.33.17
+        by smtp.gmail.com with ESMTPSA id z13sm969120oom.3.2020.06.03.20.33.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jun 2020 20:33:17 -0700 (PDT)
-Date: Wed, 3 Jun 2020 20:33:15 -0700
+        Wed, 03 Jun 2020 20:33:49 -0700 (PDT)
+Date: Wed, 3 Jun 2020 20:33:47 -0700
 From: Nathan Chancellor <natechancellor@gmail.com>
 To: Kees Cook <keescook@chromium.org>
 Cc: linux-kernel@vger.kernel.org,
@@ -131,19 +131,18 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-ide@vger.kernel.org, linux-clk@vger.kernel.org,
 	linux-spi@vger.kernel.org, linux-mm@kvack.org,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 09/10] treewide: Remove uninitialized_var() usage
-Message-ID: <20200604033315.GA1131596@ubuntu-n2-xlarge-x86>
+Subject: Re: [PATCH 00/10] Remove uninitialized_var() macro
+Message-ID: <20200604033347.GA3962068@ubuntu-n2-xlarge-x86>
 References: <20200603233203.1695403-1-keescook@chromium.org>
- <20200603233203.1695403-10-keescook@chromium.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200603233203.1695403-10-keescook@chromium.org>
+In-Reply-To: <20200603233203.1695403-1-keescook@chromium.org>
 X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=An50kzaF;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=hAU6iC7S;       spf=pass
  (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+ 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -157,67 +156,52 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jun 03, 2020 at 04:32:02PM -0700, Kees Cook wrote:
+On Wed, Jun 03, 2020 at 04:31:53PM -0700, Kees Cook wrote:
 > Using uninitialized_var() is dangerous as it papers over real bugs[1]
 > (or can in the future), and suppresses unrelated compiler warnings
 > (e.g. "unused variable"). If the compiler thinks it is uninitialized,
 > either simply initialize the variable or make compiler changes.
 > 
-> I preparation for removing[2] the[3] macro[4], remove all remaining
-> needless uses with the following script:
+> As recommended[2] by[3] Linus[4], remove the macro.
 > 
-> git grep '\buninitialized_var\b' | cut -d: -f1 | sort -u | \
-> 	xargs perl -pi -e \
-> 		's/\buninitialized_var\(([^\)]+)\)/\1/g;
-> 		 s:\s*/\* (GCC be quiet|to make compiler happy) \*/$::g;'
+> Most of the 300 uses don't cause any warnings on gcc 9.3.0, so they're in
+> a single treewide commit in this series. A few others needed to actually
+> get cleaned up, and I broke those out into individual patches.
 > 
-> drivers/video/fbdev/riva/riva_hw.c was manually tweaked to avoid
-> pathological white-space.
-> 
-> No outstanding warnings were found building allmodconfig with GCC 9.3.0
-> for x86_64, i386, arm64, arm, powerpc, powerpc64le, s390x, mips, sparc64,
-> alpha, and m68k.
+> -Kees
 > 
 > [1] https://lore.kernel.org/lkml/20200603174714.192027-1-glider@google.com/
 > [2] https://lore.kernel.org/lkml/CA+55aFw+Vbj0i=1TGqCR5vQkCzWJ0QxK6CernOU6eedsudAixw@mail.gmail.com/
 > [3] https://lore.kernel.org/lkml/CA+55aFwgbgqhbp1fkxvRKEpzyR5J8n1vKT1VZdz9knmPuXhOeg@mail.gmail.com/
 > [4] https://lore.kernel.org/lkml/CA+55aFz2500WfbKXAx8s67wrm9=yVJu65TpLgN_ybYNv0VEOKA@mail.gmail.com/
 > 
-> Signed-off-by: Kees Cook <keescook@chromium.org>
+> Kees Cook (10):
+>   x86/mm/numa: Remove uninitialized_var() usage
+>   drbd: Remove uninitialized_var() usage
+>   b43: Remove uninitialized_var() usage
+>   rtlwifi: rtl8192cu: Remove uninitialized_var() usage
+>   ide: Remove uninitialized_var() usage
+>   clk: st: Remove uninitialized_var() usage
+>   spi: davinci: Remove uninitialized_var() usage
+>   checkpatch: Remove awareness of uninitialized_var() macro
+>   treewide: Remove uninitialized_var() usage
+>   compiler: Remove uninitialized_var() macro
 
-<snip>
+I applied all of these on top of cb8e59cc8720 and ran a variety of
+builds with clang for arm32, arm64, mips, powerpc, s390, and x86_64 [1]
+and only saw one warning pop up (which was about a variable being
+unused, commented on patch 9 about it). No warnings about uninitialized
+variables came up; clang's -Wuninitialized was not impacted by
+78a5255ffb6a ("Stop the ad-hoc games with -Wno-maybe-initialized") so it
+should have caught anything egregious.
 
-> diff --git a/arch/powerpc/kvm/book3s_pr.c b/arch/powerpc/kvm/book3s_pr.c
-> index a0f6813f4560..a71fa7204882 100644
-> --- a/arch/powerpc/kvm/book3s_pr.c
-> +++ b/arch/powerpc/kvm/book3s_pr.c
-> @@ -1829,7 +1829,7 @@ static int kvmppc_vcpu_run_pr(struct kvm_run *kvm_run, struct kvm_vcpu *vcpu)
->  {
->  	int ret;
->  #ifdef CONFIG_ALTIVEC
-> -	unsigned long uninitialized_var(vrsave);
-> +	unsigned long vrsave;
->  #endif
+[1]: https://github.com/nathanchance/llvm-kernel-testing
 
-This variable is actually unused:
+For the series, consider it:
 
-../arch/powerpc/kvm/book3s_pr.c:1832:16: warning: unused variable 'vrsave' [-Wunused-variable]
-        unsigned long vrsave;
-                      ^
-1 warning generated.
-
-It has been unused since commit 99dae3bad28d ("KVM: PPC: Load/save
-FP/VMX/VSX state directly to/from vcpu struct").
-
-$ git grep vrsave 99dae3bad28d8fdd32b7bfdd5e2ec7bb2d4d019d arch/powerpc/kvm/book3s_pr.c
-99dae3bad28d8fdd32b7bfdd5e2ec7bb2d4d019d:arch/powerpc/kvm/book3s_pr.c:  unsigned long uninitialized_var(vrsave);
-
-I would nuke the whole '#ifdef' block.
-
-Cheers,
-Nathan
+Tested-by: Nathan Chancellor <natechancellor@gmail.com> [build]
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200604033315.GA1131596%40ubuntu-n2-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200604033347.GA3962068%40ubuntu-n2-xlarge-x86.
