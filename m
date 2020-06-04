@@ -1,129 +1,141 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBFNN4X3AKGQEXF6U52A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBGVO4X3AKGQESN5CNSA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd40.google.com (mail-io1-xd40.google.com [IPv6:2607:f8b0:4864:20::d40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8534E1EEBA8
-	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Jun 2020 22:16:22 +0200 (CEST)
-Received: by mail-io1-xd40.google.com with SMTP id l204sf4308617ioa.4
-        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Jun 2020 13:16:22 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591301781; cv=pass;
+Received: from mail-pj1-x103f.google.com (mail-pj1-x103f.google.com [IPv6:2607:f8b0:4864:20::103f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 223A41EEBB6
+	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Jun 2020 22:18:36 +0200 (CEST)
+Received: by mail-pj1-x103f.google.com with SMTP id k4sf2931510pjo.0
+        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Jun 2020 13:18:36 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591301914; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HCqlO33kYgcOC+rPLeCydIF5WvW/m3RAmAPDLfqPQLsB3OPIAZVObdwLtU3IX10CWJ
-         zL0d9OFqfm5BK1yhON1QRGYiPSE7jX4t/lu30fJwZ2vbaEn+ZUvJKBl9HjiRdHMyVRO8
-         K5ydahW1y094/fTGHf7tnoPkAQM77y34M5Hf2YMJkZVMiy6Q8XqYfh++/nak0BokryEF
-         s6QUf0F2uSqT1AxUMK4I3S0qHEA+UdtfBYSMjsvAdHCsb1ZunsgRBhWgUTNzdnZZWUGJ
-         yZovmZZ74H8xqfbBc4FV9ZfL2xugWaw8sO4E60g79r1NoP+HLP4hoWoJTGMENTwvkrHo
-         yQLw==
+        b=DD1fhi6xnhI7XmtUYnnzlh5QrJ9d7oPf9XjcEPcLxI3trS1MlimA0qAldsqGyF31RS
+         kCyIIfKFGGBeGL37/EW/I8hcRxB8nBgdOQxul9KCPe71CquZmNIMWwjUMIuQf11s9dWL
+         o9aMi0id5aKxggVRQRp1o4IEmGgA22/p2+SO1wOigfXIHhQN/cV5yZxvfaMF0JbgDiDd
+         qGwNrr6crPy1vjIeNHqnBph8zNIakknLemE2EWmITPhPptmB36S2F/CeDFXv4pcH8SQL
+         ZnRuj4Krh2X3Doo6NNGCzf/Kru0YQffYWXua5ADGy7ZervEwiIL3RJltHnwNKcXmU+nI
+         1xPg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=2t5ENiBFVa+a2VcMsY3N/BPPNNVk1ZjDQmnvEtZ/WrM=;
-        b=ryrxbtkNeS1rHFASvSFcWnvUqybuj6m3zedPcZkzcD1u7EkTWYQMLC3ifGwFznIoGs
-         ML0t0t6aT7gioau1NKwbu5yDxa3YyrcsWKTnyyaLMFP8IAf3hM+rAvelp4GQjhF0Rm+a
-         SQVJAe125wFdgc2zNAbKJBxbWv6pspkrzAMu6Lx53CJwNkgwuo5vAlTGeu+GTe/tAGk6
-         ckryjplHkF6GACSzjG+4URR47V3G34SUF2f8JS90Ke1rI+S9Ts3okX2rZ+7YYugMLEq5
-         bEOCsqyiO27YgOwI1/gvHjZi7bBxm9MdUEYQXp1K1yV7LziOuVxA+5enCQN2BkaEqzqp
-         Nt6A==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=o24Gl/jHgJqURE0eiaNQxB5XlOMfzL0YYACOvX4v0iE=;
+        b=u2ajLRLlydIZZnyA3laDZ8+IUeBH0XiOTSvR+QythsPVBwFU1wlk1ema0YwmyzLzyx
+         S9UrqRuIUmMl+Ii9IpuuYE8y9k6DjALc5npTv3qAlb2qZtfA0nprQcw75hqb0riquK/j
+         5mDWnSDVylq/a4XqvNX0Ui+vi7QlL1bIaYb9DdQWO5cLS36dgu7CZ5RldecRy4isxFQ9
+         9tSjY075wJfp9FKk9fBGqC3RQS5SsLAqdl6ngQePlKkJONOfzZkNSVUN1StLMAemwh1y
+         YIyj0VCrMlvjKCtEYSluLwBPGmcQCtY35fJ8yybuylzgIgo8jWJnPsOVlomk5LhyNalK
+         VZGg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Ul9IqQ41;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@chromium.org header.s=google header.b=iwsRqxQE;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=2t5ENiBFVa+a2VcMsY3N/BPPNNVk1ZjDQmnvEtZ/WrM=;
-        b=QaZckT/wM3fp84701EOytY96YLs1eEGXJBOnZOy73hS+rfXmlPNqeTUUEKznsmYF2S
-         4kTCTHHQg2iwEiN05aWGg57eHYTEwtozJxd3c5L2qixYm60SNhkJMnrvNIdBbSjQNH3y
-         k5UP3PBSeAMCplbb4N3hGRzx5/WOpcR3FQwr7oVo5nnjoifp+XKI4pE66KIULYmkdDjc
-         AoI+iPK6vW3nMD0IUtb+pEzomOCfOXXkamgFTzAwLTB8x7ZLuunABfRl7SsE3vcz32F0
-         tVrm8xRIilEjEGFSnYKY/tHh0j+kfs2uQnRJyfJHGW37gqpWrXULv0L05uCc/yszCakm
-         4IYw==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=o24Gl/jHgJqURE0eiaNQxB5XlOMfzL0YYACOvX4v0iE=;
+        b=mHLeW5jYbwQSh9NQLtviFU0AuxnwAQPKSUs1I+XbcI2gLHC4xoI1odPwLJ+Sh2HFZT
+         Rg5g4Yp20PcKwlhxrRiugMIYEf57pPZzJGLVrQ5Fj9hpqfunZ1lcGl5SFURuEIo7YumO
+         Ep/Snv/a79LK8z//I6Txk9QAB9wt1wtBhojm70O+9ky3IoK/5kxBWnYaMNqwLNTdlyyM
+         ZlOnXExELPSwMy46Gfl2U9YHI1ZeIW6pewydmxSStADNWRrrnEOVNAenF3am19NBKydc
+         M1lmNlbNNhyiNffO0El+23aYvLDT/NcHzV2rWLSa5ptxXfKy85bcK5Ar4D1eHQl4HCXr
+         6tCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=2t5ENiBFVa+a2VcMsY3N/BPPNNVk1ZjDQmnvEtZ/WrM=;
-        b=DADQlqNAxrE4FMgO6U5zI1u9dEbP1icwjGJeKF33ppfIS8dd7tyakK39EyFbDNRcW3
-         Gd8ex89LJQ/kFrlw+w5fktRNM3YC9kxEILHaU0pV4EyOyGA09pq44PlPVRdCN+nhCTM1
-         fQot6qig5sxPuKoMN9k6VZ2PQi3/8mopm1vgipHgjs46mBp0CLqizRbVPEN04PKNiNGr
-         04cgutMVvGjS1sdIkO8dCa8qwWRKKca1t2JRRyO/LnPzpUCXoJxG6MxLcw0hy7HLIueN
-         k6qEtEL2K9VyCk3Se8Mf6buzKuGOJOIeL1ToQeDDd1fRhOp8NgR2dVWOZrQ18TCIPHjp
-         zpOg==
-X-Gm-Message-State: AOAM531YEtUEYEsgatJ+MP21FeImJ613YuCZWq3AqfgyqEMPrHLVb1G7
-	4Bng9wYZD+h+2T6cRVUthu0=
-X-Google-Smtp-Source: ABdhPJw1WHsDLUZTKLiNLU5LpwKNcEbCQ6lSAQp9xpadl3J+iRD6aWwrFWda90MBrBWf1rjAcXBw5A==
-X-Received: by 2002:a92:dacf:: with SMTP id o15mr5246886ilq.36.1591301781522;
-        Thu, 04 Jun 2020 13:16:21 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=o24Gl/jHgJqURE0eiaNQxB5XlOMfzL0YYACOvX4v0iE=;
+        b=FBOrQRcDDjq4FJ9Y/dcfP8wgV4J89oRmSLuVkiUKTnpnv7zXAgIGMRwkY3M59j2O4c
+         dstqWhQL8EV5bbNaYbF7vH9NnC+4fbYNqLevmcfpwosyqpHWSrcKardHhTyYTDMsX/ri
+         H2nazFpGjGkabj747IH9ZlIACX10tqqq7aCb6CBp+ACXCKFVNnY1zEqXmj4lqsOLqWID
+         DY3fdNBNy/Q+CpgK9A7f7BgLdq4ex72Ug1bKvdFk4CX2N9+j6fm+lGbQRRPexrjDuQNW
+         efN2Or36/SDVUudQQGXEO/62ebxcbDvcU/h+m+GfAETFmVpLbl5rb9kyp20l0JEcn8qH
+         Chlg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM5301YAOgBhYZYY9rrqtAS8y8pTooV+Bq/ndBuB8K/38eJw/6MoG1
+	+KniSkTkh3iZhlirKxfw78U=
+X-Google-Smtp-Source: ABdhPJycMelWY9pKQJyHjY6nGVtkgvrELErBgyXR6HXvGvWkJW1DD0v2LIIFYfNy8ovyDYZ71CjnNw==
+X-Received: by 2002:a63:f856:: with SMTP id v22mr6278016pgj.64.1591301914669;
+        Thu, 04 Jun 2020 13:18:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a6b:e216:: with SMTP id z22ls1148985ioc.5.gmail; Thu, 04 Jun
- 2020 13:16:21 -0700 (PDT)
-X-Received: by 2002:a5d:8ac8:: with SMTP id e8mr5673855iot.152.1591301781081;
-        Thu, 04 Jun 2020 13:16:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591301781; cv=none;
+Received: by 2002:a63:384f:: with SMTP id h15ls1909880pgn.0.gmail; Thu, 04 Jun
+ 2020 13:18:34 -0700 (PDT)
+X-Received: by 2002:a62:fccb:: with SMTP id e194mr6077012pfh.159.1591301914260;
+        Thu, 04 Jun 2020 13:18:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591301914; cv=none;
         d=google.com; s=arc-20160816;
-        b=m88KbJbz9a54l5dmHV3Q+OJEsMS8NPS2a7F1z22/JDTKGIVxShS3PaNBqhvkvEKM7c
-         E60u8XiRM+vQL1kaThV4UVCfnCJuEWBpPh0e26dKi9HLwZDf9Ft3GHXSHTmeKXnRwp5R
-         uyYtUUlVHaOpLjTC1/Od9kfzBLXAbsFg+PfLllHYTrCvhgPlz1iFJCzlTtSNVa7eEPAZ
-         JdHgPnZAphVuTiC4MT6Np43HjVNelyI1W8lPKj0XaFqm8uBmA9pH1Ev41oMZllxoGDEm
-         bWyvMfqWKyFeF3Uy9MnpZP7e4qR7h5AvenVOPfJYQeyBVQrx1riNc84JTtslfF/NVNIE
-         N2pA==
+        b=zoTS2YMr6dkYLOcxCEr5dztKxbP/Dt2VE5v0A6bX6znCQHIRUhkHgr9VjIcLqFGNRD
+         YmmdSjcRCEJrzKTHRIVDt3O/9nrwjpBZLjc7IpqZD+zJqcSBBfu1xbkaelrnuhpXZpKT
+         Ef/Km3WNVzfZKdlQYF01J3xTze6cES4952OpS8VWHnITeV+ijplBUx/QfZuycRgxvIbN
+         C3vNdX19FE2oR8sBPnPrhEiFAypXA1BnmDM2/fcV9udONmWa9t+MHgTx4TW/fnmwCNNT
+         dpNegDF8on92r+QHWjC7cAi7ZUNvXihCQzYI8sZgzkDnXQXfk+A7jKQAI8hpoSjKeM81
+         BPcA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=pCXmYsl76J0CAlxoPdk8mPZO/WOJwZ5J1IK/xTYSvtY=;
-        b=kjabRzPKG3tsueBFvgwUv1Qwg/+hCXvzccseJANI29+J9PLyIK3mD+SdA8iLwKPP6Z
-         e7a7GRlsjT8HuQ7NAgimYq0IQq47VJeZ1jq6GrlDHMCX8wD+9KrKYTwIHL1rHyBDVw+p
-         slgy8B8fpUHjUfWJrkBotTislWQAPuMbib3cF0NuQYhn98o5kbhkyeu2k54Z/0v00Npm
-         TfLfNWhRWkhOv5kSPfGzOkQ55maRAF3uzQC2yWMJ+4HLnHrARrwjRJ8QL+OSj1+EvOHL
-         781xMw0IJGRIS+DLXt3c1pweBiJ30Jcx5+N1NDDlttDx2g459lzjsL1+DOVzkKuQMzMP
-         M1PQ==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=KSgduwKhAGu1Me5hdrsNlT/LSTVts5IMrrdQbnnmgtM=;
+        b=Oay9iOhZdy7gR5xYVmvy4Sdpb/JJN2dxZjWfMNkSn8hRYJZpPMOJ4lMa4jBQB1lqUp
+         Go3oI8IytsofobTJZYoESI36EDjos4jimMpKCr9x5hcv8VY5Jr7RwZTteGv1IAC59Wd/
+         0yZS1uZNW5wmfak2Sc0Q4zoCR6ldjh0TGfHrCB//eAjcCGYhIwIjaVazBvGV4XAiBMRI
+         FWfGwote46A5SmXHD4kwGqQKBdSu1iPmKsOWCPZvkRKOj0chpE0bkTBXYT/lRDX0tG4a
+         tcLWQOEiPK6ZEmhues3yCiR6OofiBdnakDhFwIjQsW+k/XAb+yEX03G9z/4IyltR4N1l
+         eaKw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Ul9IqQ41;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x543.google.com (mail-pg1-x543.google.com. [2607:f8b0:4864:20::543])
-        by gmr-mx.google.com with ESMTPS id v16si163856ilj.1.2020.06.04.13.16.21
+       dkim=pass header.i=@chromium.org header.s=google header.b=iwsRqxQE;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-pf1-x441.google.com (mail-pf1-x441.google.com. [2607:f8b0:4864:20::441])
+        by gmr-mx.google.com with ESMTPS id i17si902185pjv.1.2020.06.04.13.18.34
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Jun 2020 13:16:21 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) client-ip=2607:f8b0:4864:20::543;
-Received: by mail-pg1-x543.google.com with SMTP id m1so4057035pgk.1
-        for <clang-built-linux@googlegroups.com>; Thu, 04 Jun 2020 13:16:21 -0700 (PDT)
-X-Received: by 2002:a63:4f09:: with SMTP id d9mr5970154pgb.10.1591301780211;
- Thu, 04 Jun 2020 13:16:20 -0700 (PDT)
+        Thu, 04 Jun 2020 13:18:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::441 as permitted sender) client-ip=2607:f8b0:4864:20::441;
+Received: by mail-pf1-x441.google.com with SMTP id 23so2896550pfw.10
+        for <clang-built-linux@googlegroups.com>; Thu, 04 Jun 2020 13:18:34 -0700 (PDT)
+X-Received: by 2002:a63:c58:: with SMTP id 24mr6232804pgm.246.1591301913875;
+        Thu, 04 Jun 2020 13:18:33 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+        by smtp.gmail.com with ESMTPSA id r5sm5581320pji.20.2020.06.04.13.18.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 04 Jun 2020 13:18:33 -0700 (PDT)
+Date: Thu, 4 Jun 2020 13:18:31 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Joe Perches <joe@perches.com>, Andy Whitcroft <apw@canonical.com>,
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+	drbd-dev@lists.linbit.com, linux-block@vger.kernel.org,
+	b43-dev@lists.infradead.org,
+	Network Development <netdev@vger.kernel.org>,
+	linux-wireless <linux-wireless@vger.kernel.org>,
+	linux-ide@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-spi@vger.kernel.org,
+	Linux Memory Management List <linux-mm@kvack.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH 03/10] b43: Remove uninitialized_var() usage
+Message-ID: <202006041316.A15D952@keescook>
+References: <20200603233203.1695403-1-keescook@chromium.org>
+ <20200603233203.1695403-4-keescook@chromium.org>
+ <CAKwvOdnNuFySqAMk7s_cXqFM=dPX4JfvqNVLCuj90Gn4tzciAw@mail.gmail.com>
 MIME-Version: 1.0
-References: <20200603233203.1695403-1-keescook@chromium.org> <20200603233203.1695403-5-keescook@chromium.org>
-In-Reply-To: <20200603233203.1695403-5-keescook@chromium.org>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 4 Jun 2020 13:16:08 -0700
-Message-ID: <CAKwvOdnd30bcqoNXF1ugadU=KbW3aXu07+T-891amO2_b7kQdg@mail.gmail.com>
-Subject: Re: [PATCH 04/10] rtlwifi: rtl8192cu: Remove uninitialized_var() usage
-To: Kees Cook <keescook@chromium.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, 
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, Alexander Potapenko <glider@google.com>, 
-	Joe Perches <joe@perches.com>, Andy Whitcroft <apw@canonical.com>, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, drbd-dev@lists.linbit.com, linux-block@vger.kernel.org, 
-	b43-dev@lists.infradead.org, Network Development <netdev@vger.kernel.org>, 
-	linux-wireless <linux-wireless@vger.kernel.org>, linux-ide@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-spi@vger.kernel.org, 
-	Linux Memory Management List <linux-mm@kvack.org>, clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <CAKwvOdnNuFySqAMk7s_cXqFM=dPX4JfvqNVLCuj90Gn4tzciAw@mail.gmail.com>
+X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=Ul9IqQ41;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@chromium.org header.s=google header.b=iwsRqxQE;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::441
+ as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,60 +148,84 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jun 3, 2020 at 4:32 PM Kees Cook <keescook@chromium.org> wrote:
->
-> Using uninitialized_var() is dangerous as it papers over real bugs[1]
-> (or can in the future), and suppresses unrelated compiler warnings (e.g.
-> "unused variable"). If the compiler thinks it is uninitialized, either
-> simply initialize the variable or make compiler changes. As a precursor
-> to removing[2] this[3] macro[4], just initialize this variable to NULL,
-> and avoid sending garbage by returning.
->
-> [1] https://lore.kernel.org/lkml/20200603174714.192027-1-glider@google.com/
-> [2] https://lore.kernel.org/lkml/CA+55aFw+Vbj0i=1TGqCR5vQkCzWJ0QxK6CernOU6eedsudAixw@mail.gmail.com/
-> [3] https://lore.kernel.org/lkml/CA+55aFwgbgqhbp1fkxvRKEpzyR5J8n1vKT1VZdz9knmPuXhOeg@mail.gmail.com/
-> [4] https://lore.kernel.org/lkml/CA+55aFz2500WfbKXAx8s67wrm9=yVJu65TpLgN_ybYNv0VEOKA@mail.gmail.com/
->
-> Signed-off-by: Kees Cook <keescook@chromium.org>
+On Thu, Jun 04, 2020 at 01:08:44PM -0700, Nick Desaulniers wrote:
+> On Wed, Jun 3, 2020 at 4:32 PM Kees Cook <keescook@chromium.org> wrote:
+> >
+> > Using uninitialized_var() is dangerous as it papers over real bugs[1]
+> > (or can in the future), and suppresses unrelated compiler warnings (e.g.
+> > "unused variable"). If the compiler thinks it is uninitialized, either
+> > simply initialize the variable or make compiler changes. As a precursor
+> > to removing[2] this[3] macro[4], just initialize this variable to NULL,
+> > and make the (unreachable!) code do a conditional test.
+> >
+> > [1] https://lore.kernel.org/lkml/20200603174714.192027-1-glider@google.com/
+> > [2] https://lore.kernel.org/lkml/CA+55aFw+Vbj0i=1TGqCR5vQkCzWJ0QxK6CernOU6eedsudAixw@mail.gmail.com/
+> > [3] https://lore.kernel.org/lkml/CA+55aFwgbgqhbp1fkxvRKEpzyR5J8n1vKT1VZdz9knmPuXhOeg@mail.gmail.com/
+> > [4] https://lore.kernel.org/lkml/CA+55aFz2500WfbKXAx8s67wrm9=yVJu65TpLgN_ybYNv0VEOKA@mail.gmail.com/
+> >
+> > Signed-off-by: Kees Cook <keescook@chromium.org>
+> > ---
+> >  drivers/net/wireless/broadcom/b43/phy_n.c | 10 +++++++---
+> >  1 file changed, 7 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/drivers/net/wireless/broadcom/b43/phy_n.c b/drivers/net/wireless/broadcom/b43/phy_n.c
+> > index d3c001fa8eb4..88cdcea10d61 100644
+> > --- a/drivers/net/wireless/broadcom/b43/phy_n.c
+> > +++ b/drivers/net/wireless/broadcom/b43/phy_n.c
+> > @@ -4222,7 +4222,7 @@ static void b43_nphy_tx_gain_table_upload(struct b43_wldev *dev)
+> 
+> The TODOs and `#if 0` in this function are concerning.  It looks like
+> `rf_pwr_offset_table` is only used when `phy->rev` is >=7 && < 19.
+> 
+> Further, the loop has a case for `phy->rev >= 19` but we would have
+> returned earlier if that was the case.
 
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-Fixes: dc0313f46664 ("rtlwifi: rtl8192cu: Add routine hw")
+Yeah, that's why I put the "(unreachable!)" note in the commit log. ;)
 
-> ---
->  drivers/net/wireless/realtek/rtlwifi/rtl8192cu/hw.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/net/wireless/realtek/rtlwifi/rtl8192cu/hw.c b/drivers/net/wireless/realtek/rtlwifi/rtl8192cu/hw.c
-> index f070f25bb735..5b071b70bc08 100644
-> --- a/drivers/net/wireless/realtek/rtlwifi/rtl8192cu/hw.c
-> +++ b/drivers/net/wireless/realtek/rtlwifi/rtl8192cu/hw.c
-> @@ -592,7 +592,7 @@ static void _rtl92cu_init_chipn_one_out_ep_priority(struct ieee80211_hw *hw,
->                                                     bool wmm_enable,
->                                                     u8 queue_sel)
->  {
-> -       u16 uninitialized_var(value);
-> +       u16 value;
->
->         switch (queue_sel) {
->         case TX_SELE_HQ:
-> @@ -606,7 +606,7 @@ static void _rtl92cu_init_chipn_one_out_ep_priority(struct ieee80211_hw *hw,
->                 break;
->         default:
->                 WARN_ON(1); /* Shall not reach here! */
-> -               break;
-> +               return;
->         }
->         _rtl92c_init_chipn_reg_priority(hw, value, value, value, value,
->                                         value, value);
+> 
+> >         u32 rfpwr_offset;
+> >         u8 pga_gain, pad_gain;
+> >         int i;
+> > -       const s16 *uninitialized_var(rf_pwr_offset_table);
+> > +       const s16 *rf_pwr_offset_table = NULL;
+> >
+> >         table = b43_nphy_get_tx_gain_table(dev);
+> >         if (!table)
+> > @@ -4256,9 +4256,13 @@ static void b43_nphy_tx_gain_table_upload(struct b43_wldev *dev)
+> >                         pga_gain = (table[i] >> 24) & 0xf;
+> >                         pad_gain = (table[i] >> 19) & 0x1f;
+> >                         if (b43_current_band(dev->wl) == NL80211_BAND_2GHZ)
+> > -                               rfpwr_offset = rf_pwr_offset_table[pad_gain];
+> > +                               rfpwr_offset = rf_pwr_offset_table
+> > +                                               ? rf_pwr_offset_table[pad_gain]
+> > +                                               : 0;
+> >                         else
+> > -                               rfpwr_offset = rf_pwr_offset_table[pga_gain];
+> > +                               rfpwr_offset = rf_pwr_offset_table
+> > +                                               ? rf_pwr_offset_table[pga_gain]
+> > +                                               : 0;
+> 
+> 
+> The code is trying to check `phy->rev >= 7 && phy->rev < 19` once
+> before the loop, then set `rf_pwr_offset_table`, so having another
+> conditional on `rf_pwr_offset_table` in the loop is unnecessary. I'm
+> ok with initializing it to `NULL`, but I'm not sure the conditional
+> check is necessary.  Do you get a compiler warning otherwise?
 
-Whew! Nothing like passing the same value 6 times! (Other callers do
-use distinct values though, just curious seeing this instance.)
+I mean, sort of the best thing to do is just remove nearly everything
+here since it's actually unreachable. But it is commented as "when
+supported ..." etc, so I figured I'd leave it. As part of that I didn't
+want to leave any chance of a NULL deref, so I added the explicit tests
+just for robustness.
+
+*shrug*
+
+-Kees
 
 -- 
-Thanks,
-~Nick Desaulniers
+Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnd30bcqoNXF1ugadU%3DKbW3aXu07%2BT-891amO2_b7kQdg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202006041316.A15D952%40keescook.
