@@ -1,144 +1,135 @@
-Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBG5F4H3AKGQEP3HFUFY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY3NC743AGBBJVF4H3AKGQEK6H2T6A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43c.google.com (mail-pf1-x43c.google.com [IPv6:2607:f8b0:4864:20::43c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 071C41EDAA4
-	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Jun 2020 03:47:09 +0200 (CEST)
-Received: by mail-pf1-x43c.google.com with SMTP id y16sf3720539pfp.11
-        for <lists+clang-built-linux@lfdr.de>; Wed, 03 Jun 2020 18:47:08 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591235227; cv=pass;
+Received: from mail-pl1-x63a.google.com (mail-pl1-x63a.google.com [IPv6:2607:f8b0:4864:20::63a])
+	by mail.lfdr.de (Postfix) with ESMTPS id E98B31EDAA8
+	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Jun 2020 03:47:19 +0200 (CEST)
+Received: by mail-pl1-x63a.google.com with SMTP id s7sf3454876plp.13
+        for <lists+clang-built-linux@lfdr.de>; Wed, 03 Jun 2020 18:47:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591235238; cv=pass;
         d=google.com; s=arc-20160816;
-        b=gKtckFtH3J+2IfZg5ZUGvcATPubhaWfgfyt7M2TLKFOl15SQMiEIHXeQUkDgfrLZPI
-         sn+/SqTybZwiVPafQS6A5J1E62j07goG2BFsbEfIxqvmdIVsySidAc/2mhjbIm3+JTTS
-         XOb7IV4t73Z3/jklk63pOzltG150gLb+SgAjuEtvFr31oXbjVubmXDEe0kBPD1OMZRiF
-         6hyEF/G7TuHI1B+y6NOdLpc8UeKDGE6L+20/pIBYaBHX/fHpD0QKEB0hMUWgrBwx5SmS
-         nrH9ti7G+3wmnEQGEYcICMhMdeawkPml+A445KDvM/fkz3Vh2GqWy0zv01OKAvhgYpiQ
-         sxLg==
+        b=IsOAl84/TFrpMFLvfknQJC3PkegLtxkeepk+2/gT+bQCnOGV9x8UghzfEoKRikJRd0
+         sWwfo//QeNAwdtvYCIcHO4OqVUdcbArjJkRT+UERskuw83ShrXB8ulfa/TKyk6goiwsp
+         vHnFs1JIJmIQ2EVnSmAx4gie/2n5uXcu4yaXg/DFS+aadeoSNmeviZfEOgkC+st2tXO9
+         tCssQIa9XcfjfEeExm2kL9B7dmYZmFxToUOzCA18TL/rYt1WEu20GX6iE5paLG50pU66
+         ZU8P2LMfD4koCLYGm6XWTYQ68lxc2c9T1Q6yYS8+kMwh8LC7PBCrK8NmDOfmVRWf4MQn
+         4NCw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:sender
          :dkim-signature;
-        bh=cDBcSfiUkQnGumMY/O2e90Owq21DcULC6Nfv3amNqvE=;
-        b=s44Nsq7HX4Be71y+qY9sDmXRGPQMtwAwBXDthME432irTE/rmB5EHglUfKsloZFNPJ
-         KbbECyD1fs2zBlf/lJiiDgV3cY8+lnEU2+IV6UkBO5FNh0c8gnj6rSZDTB+UBbM4GTtJ
-         D8FG6JBmQla5zgc1gAMygmNAzEpQp8yW89+39Jx3MombU26gfTkH7t0HW7lY5+DVBM0b
-         sXGSKOujt2hcZD7mmX7bhg0ny9xB7CZ9eYYXuQRo3l4uip5QSeNv/iR9LAf6Efj3+c8Q
-         hY+6+3d7wOnOOtVHMXV2Y0xwXPt35GLVH77vfpNxdgHoRbOeIhTW0iyMpVxgKVli6ICL
-         PrlA==
+        bh=iG4Cz/fV9shbtAcWvhGkXplXA43ify167MSEIBDkg18=;
+        b=UW1ZYmZiS60Aq8mGSlg17eGGEEuSvbYS7NFCLbK/tH2ecPefX8MRG0NOSmukIljHRm
+         lBwr5eiHoU69ZKRmD2PLHgq78wJq7/N4ZHIVPK8oeIynr5J885X2cGl/4O3Jmf9fT/A6
+         OzDateKWMvAJTXeo6bk8sIKCFU+FZlgBuiUhmPa9XlWb+6yxG82yu0kI26nOqUkZlgfF
+         s51eJuz+6JreAyBwIaVniGp/MveO4VBSfyU0BdeVvn2Aw7JzYHyeebFpl4eRPVciMNf8
+         5SFPAIdhRxM7V8iBulVzFq5N1km0OLhnza25zmy58eUOywvOCpoNwOOVFrD4XTeO/TY+
+         RaWQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=RiWcHHKI;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::144 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=neutral (google.com: 216.40.44.122 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=cDBcSfiUkQnGumMY/O2e90Owq21DcULC6Nfv3amNqvE=;
-        b=XAuJQJQiZDAD4kzdHqZab9iVgatucyW7265O2NF6qEbe4TF0kpxzWaOYzOCyWGfQnb
-         2NKtXDTF6yQQF/m1Kep/2xJkuO92YgcSdGDTX2Mk1i10Z5MBiBcx+sOkcfwsWk4ooCb5
-         3PQwtDLnYrz2BrEyJIjfofHQmLkmhdayvZuqrXbNuxl2rt3yOONfWjn/4wX4StRefLZN
-         QcceyblC5Jn534IdRHx439sZPI1bOXbbHg9A59B5ToTIiGh8NUWU3latufDXFZPfe6Iw
-         7BEeps52/iIKMMrO4BoQPYfJI6nG5tESDm1iZJ9HuiHMaXzlZcWyxhyy9Kqx8OB0HFez
-         OXvw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=cDBcSfiUkQnGumMY/O2e90Owq21DcULC6Nfv3amNqvE=;
-        b=H+P7pp0BhcJEn8/6acmLAARzi6HUvQr/TIw22yvdUdnDqrFZmdU/PeRU5J2jg0dgIv
-         9EdO/Q7/Qacabx+dHJqlJpk4fBLERg3sG0bMcB/Cu5kfFcSQhX6axqaumdIvghdrCbbs
-         xJihGkmXih5qCX6HbNLXrPMznR3YPyiU8trwR85V2cbs5SrRy6XFLpr+csWbd2YeM9PU
-         g2kYrlSYVjpccGajJPNyI8lJI99W2krx00f6SOflzaxewShqE2ZJnFpCP2/1YaWPITNn
-         //rQlVfBMmxcXqzmBUBWNZrdnBKs6npUbXuViJBB+S4OwbPwCBfMlVVcmioz5NLTelWA
-         Wbyg==
+        bh=iG4Cz/fV9shbtAcWvhGkXplXA43ify167MSEIBDkg18=;
+        b=Tk1SgZLSNP1cvdRrOuBpIr3VOPRb8zxuvRBqUzcRzmHIstUZdomLwtkEFTWXN6ba/v
+         xwgEZf+Cb3L585vxm9R9ZIKBDOQ/7C4/IRyBRFt1cQVnHWF9Ynlp5o2Ye0bjzSH3B6qI
+         XhzAUJ19c9ZNM56mbQwUmsltLN5UbI7BB+tLG+2UqTl85cK3r05LzfgsWOKpsFaULrBh
+         mdoA6bvlzCRIqJyP7f4/xyO3kH8Fzzyz7DdRMKDfi+2r5MHP/l4OAphqakWhoI8JcI6+
+         KfixH/ktmwvNZlDfSD/UAei8N7D/27XrjcVCR9OOl0/CW0O7WzibT23lD3YM/J9rMHnq
+         00kw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to
-         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=cDBcSfiUkQnGumMY/O2e90Owq21DcULC6Nfv3amNqvE=;
-        b=nVJCTfGDF+oSELMHUoZlBPfK/y9ohohDFIRYrznO+1W7BOboSK9AF2I6JVB0Hu3yo5
-         KoHBo/EuvKURpD0kPGZswyYAAcdRAb5z8iOzo4UgX8itBKlomCxO6q1BaLvHTqAAlLzJ
-         2ZxDrXhRTcNTjtDx/H9vJNIdefODeLKzoru5RoLbr1Ulx9v+PvvAZAiCsRIgrnqVvoFC
-         KB4j7SnV8t/IuImkDLfc5g3T3lzSaTyf/9gjXLxW08khgr/eImKeCnQd3LjRTqfntw6J
-         WO0kmtk7V+4+Dc2+OaufU1hmAkP9s9V9RbEaZY3FUvOHDuCE7HO1qaq70EQekz/FHp2H
-         EaPA==
+        bh=iG4Cz/fV9shbtAcWvhGkXplXA43ify167MSEIBDkg18=;
+        b=jqGvu+/KUtm76Tnhg1VsCJlzYSsarXh0wEkVwjHQgjso3e+h8fFOST1mydKHE/Q8u/
+         Up0QQbV8lcfdvhc8tNCguGjBOp0ishkNbAAsjDbfC7Pbz0kSkgDw1bCysuVZySkIILb+
+         m+EihgGUgJ7iH0uXc50+ftCAfNinF7NE7NRsgb8HSTG0DR+7PuhE1eFaf3RvcK1Me/j+
+         aJ+xqJlJcmGN+yMXiXWJYfDJsd7hAqSM8YsgHDlntuC3dvlhkE6oKi3Xk2K6j+ntLkLU
+         qeZU2om7W8aVlvod3jkfWcJu7ARSwZGGLUcRzS76SFHLc8lv2+DsY2pnHqr+P2lpB2Rq
+         UAqw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530cGxJKCzlcW63eEjL2CR/k9Z978++nPr7s01q4VBKCIvctx3hi
-	rPrhYCJfm7K2C96pR70EhYE=
-X-Google-Smtp-Source: ABdhPJxWIjXSZDKxzQ9aX64P7pFqGBmFNBRskHfCovIs7REYVZMOj3YoD0LOHB24qRDWagMTu2eiiA==
-X-Received: by 2002:a63:1460:: with SMTP id 32mr2185508pgu.334.1591235227689;
-        Wed, 03 Jun 2020 18:47:07 -0700 (PDT)
+X-Gm-Message-State: AOAM531drBWfpRQJdMsbLDujHWt8p881KTEksa5+XHxCk/h+cXd9Z/8d
+	i/upiKCBEV7AHvY4I6z2WPg=
+X-Google-Smtp-Source: ABdhPJy8nfKD6Wq8Q6/X8J5Rh05lOTbKwGZVpa8ut99ftlRRJq/SP0P0yetawcGeDfbsdZSZHPy4/w==
+X-Received: by 2002:a17:90b:2042:: with SMTP id ji2mr3228165pjb.68.1591235238558;
+        Wed, 03 Jun 2020 18:47:18 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:c70d:: with SMTP id o13ls2427976pjt.0.gmail; Wed, 03
- Jun 2020 18:47:07 -0700 (PDT)
-X-Received: by 2002:a17:902:8681:: with SMTP id g1mr2456670plo.161.1591235227248;
-        Wed, 03 Jun 2020 18:47:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591235227; cv=none;
+Received: by 2002:a63:1415:: with SMTP id u21ls1138324pgl.7.gmail; Wed, 03 Jun
+ 2020 18:47:18 -0700 (PDT)
+X-Received: by 2002:aa7:9599:: with SMTP id z25mr2010348pfj.176.1591235238049;
+        Wed, 03 Jun 2020 18:47:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591235238; cv=none;
         d=google.com; s=arc-20160816;
-        b=XXgWOP9t0NupTcDH2LbMKZIXW30iZOzH7/exgm+S6xthizSaQtAiR71KpMMhuJWwJr
-         8N3rBw5/pgR/z6s1K+214QLiWlK1k4GoPAVssSkIdgpBNiJXulD32GU6Bqyvo+N2BQLU
-         La8Dq4Jjt6kvmI6d8EFaleG3YDgnC7DMSgbwR/ChYnLCls1wUyqs4MkC6FhZkezxRjL3
-         BJCCGWYuJSiwEbVmo6qXtYF+oK7dAv388IEe71yclWyapwU5GnBp0ABKuf8/H0sUXkw4
-         OgmiEIwU5QGKoD7Y7pKEm4anxdFHKnuTGiZCAmHc3D7d4VdFayUcOHrrsByjd3+Qdv/O
-         Cpmg==
+        b=c8zOEpfwuiFqVKGN6+adanz0b0wzdzTaX6l6EReXZb+WDNzPBY38mYTCTSjVa9CymC
+         LtcAFDxIFUxikxor2bPhcmIo+DAOIeT+tZ0hCTn9KKnf8c6u93BzVf25QxIcdluwYHI4
+         dBJNvKmYHeJ8/gMENYbswzUSkIomJtjCLBRTZJEnVx4pitsC54GmUfybHxIG+qZZOjav
+         0go/DeQWtn3EBzXEaeEPD6zU2XxXMX8WAHLSTjS3PH61GULNqYZlYnLjwPudhyznMAer
+         SMRmXrL4i9WHT86VleTaLUv9BIrcAw3N0mV96M8pkZgf7CGByzqi7tRwIb3ESbCP6KgO
+         WTFw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=0zAwzlZ1ZoyuyLwQ6ZCqaX3xkKXNzrbPMJM4RJOKE8Y=;
-        b=B6cIvFOdQS1ximTN+Oi7ItIvJeH8ouhRgeyQjpCIZZnyjqeGafkqsR9+htEY7GSQcA
-         0MoWE2nuKveDtGMo9j/EshQ44PMSPQH7V6jWjy6Uojx9pCyPnR3UVHFwpfSD1dJiDprz
-         Hj40F+65ewwPCGCNdqJywpQF98sOW1PmVC23GKGBRrTmo7xHGGHqvvAbyvtmdijH0pAZ
-         O30/ScDNR26DfCv/NdZeLtz1/mARAzsE+JBfDl67YNKNT6JKFZ1vq38Sw9tN0Lpun5ix
-         QM9ubXQg+EbtodXFlOAFlDcoM9OvKdsYPkNODiOAWndZEXzQjfYifJFSdPkyWQ1Q+J/t
-         5mYg==
+        h=content-transfer-encoding:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id;
+        bh=Eesj35FWwmQfQqHTsi4/Tz1pJuctNgykv6ui1gaeo4A=;
+        b=CJxIOAfrPNXI+yNZX/18MXQt/posOt5/9fFO+QcfFouD9wy02l1meIXxI7HKkjCBnN
+         u9LapWvMAeHFo9ktdl+QnYh4N8AoWDvFpTlgZfU/YC8XQ8t7qBKfvH7Yl5dW1P9n9bGz
+         vtzvzrk+XXEkgnZiU/yNagasHTdsANJDo8xXWGvC4yFco4TAJtB5mtWvJ64Za5vz3SXW
+         JH4z1MeU0vxtjg3etgtid6sob8WVsHQ2VW/jDm12uAuffYlk7TP36sTWQ5MHyl8jp2uc
+         8kpWBaxf6RwfmFqRTJk9t7mCBkYIeXSR19S9jv8RXSSzjQ/AYegNVWdCKVDiSdzdzBGI
+         gPVQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=RiWcHHKI;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::144 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-il1-x144.google.com (mail-il1-x144.google.com. [2607:f8b0:4864:20::144])
-        by gmr-mx.google.com with ESMTPS id i15si274237pfd.2.2020.06.03.18.47.07
+       spf=neutral (google.com: 216.40.44.122 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Received: from smtprelay.hostedemail.com (smtprelay0122.hostedemail.com. [216.40.44.122])
+        by gmr-mx.google.com with ESMTPS id ds21si368274pjb.3.2020.06.03.18.47.17
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 03 Jun 2020 18:47:07 -0700 (PDT)
-Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::144 as permitted sender) client-ip=2607:f8b0:4864:20::144;
-Received: by mail-il1-x144.google.com with SMTP id z2so4551374ilq.0
-        for <clang-built-linux@googlegroups.com>; Wed, 03 Jun 2020 18:47:07 -0700 (PDT)
-X-Received: by 2002:a92:498d:: with SMTP id k13mr2205901ilg.226.1591235226690;
- Wed, 03 Jun 2020 18:47:06 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200603233203.1695403-1-keescook@chromium.org>
- <CA+icZUVZwjM9o7aNXAkYu8K2BQAajw=60varP4g+NizCqu5gRw@mail.gmail.com> <202006031840.E2F0D15D8B@keescook>
-In-Reply-To: <202006031840.E2F0D15D8B@keescook>
-Reply-To: sedat.dilek@gmail.com
-From: Sedat Dilek <sedat.dilek@gmail.com>
-Date: Thu, 4 Jun 2020 03:46:56 +0200
-Message-ID: <CA+icZUUsfZpuwfyEcbBKOf7AJF0-Ao8b1kUscpMJ+-ZdfZotsg@mail.gmail.com>
-Subject: Re: [PATCH 00/10] Remove uninitialized_var() macro
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Jun 2020 18:47:17 -0700 (PDT)
+Received-SPF: neutral (google.com: 216.40.44.122 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.122;
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
+	by smtprelay03.hostedemail.com (Postfix) with ESMTP id C6C99837F24C;
+	Thu,  4 Jun 2020 01:47:16 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 10,1,0,,d41d8cd98f00b204,joe@perches.com,,RULES_HIT:41:355:379:599:800:967:968:973:982:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1542:1593:1594:1711:1730:1747:1777:1792:2393:2525:2553:2566:2682:2685:2692:2828:2859:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3354:3622:3653:3865:3866:3868:3870:3871:3872:3873:3874:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4321:4362:4605:5007:6742:7903:8531:8957:9025:9040:10004:10400:11232:11658:11914:12043:12295:12296:12297:12438:12555:12740:12760:12895:12986:13149:13161:13229:13230:13439:14181:14659:14721:21080:21324:21611:21627:21811:21889:30054:30070:30090:30091,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:1,LUA_SUMMARY:none
+X-HE-Tag: actor89_4e0069c26d93
+X-Filterd-Recvd-Size: 3931
+Received: from XPS-9350.home (unknown [47.151.136.130])
+	(Authenticated sender: joe@perches.com)
+	by omf11.hostedemail.com (Postfix) with ESMTPA;
+	Thu,  4 Jun 2020 01:47:14 +0000 (UTC)
+Message-ID: <6f921002478544217903ee4bfbe3c400e169687f.camel@perches.com>
+Subject: Re: [PATCH 08/10] checkpatch: Remove awareness of
+ uninitialized_var() macro
+From: Joe Perches <joe@perches.com>
 To: Kees Cook <keescook@chromium.org>
-Cc: linux-kernel@vger.kernel.org, 
-	Linus Torvalds <torvalds@linux-foundation.org>, 
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, Alexander Potapenko <glider@google.com>, 
-	Joe Perches <joe@perches.com>, Andy Whitcroft <apw@canonical.com>, x86@kernel.org, 
-	drbd-dev@lists.linbit.com, linux-block@vger.kernel.org, 
-	b43-dev@lists.infradead.org, netdev@vger.kernel.org, 
-	linux-wireless@vger.kernel.org, linux-ide@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-spi@vger.kernel.org, linux-mm@kvack.org, 
-	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>
+Cc: linux-kernel@vger.kernel.org, Linus Torvalds
+ <torvalds@linux-foundation.org>,  Miguel Ojeda
+ <miguel.ojeda.sandonis@gmail.com>, Alexander Potapenko <glider@google.com>,
+ Andy Whitcroft <apw@canonical.com>, x86@kernel.org,
+ drbd-dev@lists.linbit.com,  linux-block@vger.kernel.org,
+ b43-dev@lists.infradead.org, netdev@vger.kernel.org, 
+ linux-wireless@vger.kernel.org, linux-ide@vger.kernel.org, 
+ linux-clk@vger.kernel.org, linux-spi@vger.kernel.org, linux-mm@kvack.org, 
+ clang-built-linux@googlegroups.com
+Date: Wed, 03 Jun 2020 18:47:13 -0700
+In-Reply-To: <202006031838.55722640DC@keescook>
+References: <20200603233203.1695403-1-keescook@chromium.org>
+	 <20200603233203.1695403-9-keescook@chromium.org>
+	 <ff9087b0571e1fc499bd8a4c9fd99bfc0357f245.camel@perches.com>
+	 <202006031838.55722640DC@keescook>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: sedat.dilek@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=RiWcHHKI;       spf=pass
- (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::144
- as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+User-Agent: Evolution 3.36.2-0ubuntu1
+MIME-Version: 1.0
+X-Original-Sender: joe@perches.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 216.40.44.122 is neither permitted nor denied by best guess
+ record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,33 +142,70 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jun 4, 2020 at 3:44 AM Kees Cook <keescook@chromium.org> wrote:
->
-> On Thu, Jun 04, 2020 at 03:23:28AM +0200, Sedat Dilek wrote:
-> > what is the base for your patchset?
->
-> Hi! This was actually on Linus's latest tree (which is basically -next),
-> mostly because I figured this might be a bit of an RFC but if it was
-> clean enough, it might actually make the merge window (I can dream).
->
-> > I would like to test on top of Linux v5.7.
-> >
-> > Can you place the series in your Git tree for easy fetching, please?
->
-> Sure! https://git.kernel.org/pub/scm/linux/kernel/git/kees/linux.git in
-> the kspp/uninit/v5.7/macro branch. There were three small differences.
-> I'm doing the "all my cross compilers allmodconfig" build run now, but
-> figured I'd push it for you now so you didn't have to wait.
->
+On Wed, 2020-06-03 at 18:40 -0700, Kees Cook wrote:
+> On Wed, Jun 03, 2020 at 05:02:29PM -0700, Joe Perches wrote:
+> > On Wed, 2020-06-03 at 16:32 -0700, Kees Cook wrote:
+> > > Using uninitialized_var() is dangerous as it papers over real bugs[1]
+> > > (or can in the future), and suppresses unrelated compiler warnings
+> > > (e.g. "unused variable"). If the compiler thinks it is uninitialized,
+> > > either simply initialize the variable or make compiler changes.
+> > > 
+> > > In preparation for removing[2] the[3] macro[4], effectively revert
+> > > commit 16b7f3c89907 ("checkpatch: avoid warning about uninitialized_var()")
+> > > and remove all remaining mentions of uninitialized_var().
+> > > 
+> > > [1] https://lore.kernel.org/lkml/20200603174714.192027-1-glider@google.com/
+> > > [2] https://lore.kernel.org/lkml/CA+55aFw+Vbj0i=1TGqCR5vQkCzWJ0QxK6CernOU6eedsudAixw@mail.gmail.com/
+> > > [3] https://lore.kernel.org/lkml/CA+55aFwgbgqhbp1fkxvRKEpzyR5J8n1vKT1VZdz9knmPuXhOeg@mail.gmail.com/
+> > > [4] https://lore.kernel.org/lkml/CA+55aFz2500WfbKXAx8s67wrm9=yVJu65TpLgN_ybYNv0VEOKA@mail.gmail.com/
+> > 
+> > nack.  see below.
+> > 
+> > I'd prefer a simple revert, but it shouldn't
+> > be done here.
+> 
+> What do you mean? (I can't understand this and "fine by me" below?)
 
-Hi Kees!
+I did write "other than that"...
 
-Thanks :-).
+I mean that the original commit fixed 2 issues,
+one with the uninitialized_var addition, and
+another with the missing void function declaration.
 
-Regards,
-- Sedat -
+I think I found the missing void function bit because
+the uninitialized_var use looked like a function so I
+fixed both things at the same time.
+
+If you change it, please just remove the bit that
+checks for uninitialized_var.
+
+Thanks, Joe
+
+> > > diff --git a/scripts/checkpatch.pl b/scripts/checkpatch.pl
+> > []
+> > > @@ -4075,7 +4074,7 @@ sub process {
+> > >  		}
+> > >  
+> > >  # check for function declarations without arguments like "int foo()"
+> > > -		if ($line =~ /(\b$Type\s*$Ident)\s*\(\s*\)/) {
+> > > +		if ($line =~ /(\b$Type\s+$Ident)\s*\(\s*\)/) {
+> > 
+> > This isn't right because $Type includes a possible trailing *
+> > where there isn't a space between $Type and $Ident
+> 
+> Ah, hm, that was changed in the mentioned commit:
+> 
+> -               if ($line =~ /(\b$Type\s+$Ident)\s*\(\s*\)/) {
+> +               if ($line =~ /(\b$Type\s*$Ident)\s*\(\s*\)/) {
+> 
+> > e.g.:	int *bar(void);
+> > 
+> > Other than that, fine by me...
+> 
+> Thanks for looking it over! I'll adjust it however you'd like. :)
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUUsfZpuwfyEcbBKOf7AJF0-Ao8b1kUscpMJ%2B-ZdfZotsg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/6f921002478544217903ee4bfbe3c400e169687f.camel%40perches.com.
