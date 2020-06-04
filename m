@@ -1,156 +1,132 @@
-Return-Path: <clang-built-linux+bncBD3JNNMDTMEBBJPT4D3AKGQE6ZFGTPA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY3NC743AGBBGXU4D3AKGQEDRYP2BQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x838.google.com (mail-qt1-x838.google.com [IPv6:2607:f8b0:4864:20::838])
-	by mail.lfdr.de (Postfix) with ESMTPS id 48AB41ED9B8
-	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Jun 2020 02:00:38 +0200 (CEST)
-Received: by mail-qt1-x838.google.com with SMTP id t24sf3415348qtj.15
-        for <lists+clang-built-linux@lfdr.de>; Wed, 03 Jun 2020 17:00:38 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591228837; cv=pass;
+Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1B47C1ED9C7
+	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Jun 2020 02:02:36 +0200 (CEST)
+Received: by mail-pf1-x43f.google.com with SMTP id o19sf3562264pfp.6
+        for <lists+clang-built-linux@lfdr.de>; Wed, 03 Jun 2020 17:02:36 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591228954; cv=pass;
         d=google.com; s=arc-20160816;
-        b=IAboB4qwieZMjK9HuvO0seRQrVLON0USDiDf3UACqXoezKMAiv/N4W6/ulBFdtDtDw
-         0pLIn6OwoX1QyVTlkBJpOfthCwDpwchg7jdkjrwsLoajwUaXL23u87Tmx9FCBJdfizr/
-         hlNMA6JUPtgQCkzrmhO+K0VYb9AllfmMj0Nbk7QjsBfu/hGsMQgqcU9WjArsuYFsRvO/
-         gVuSp0Q2HjeNNGpL14vU/QrSBmHoUtStmJALYW/PqVavbXPJS5bFJPNNBqcvjORRS8YJ
-         tLRc3xUIT+ciBx6QVnIfDV3xcT9EnNi7sV2KQDO4AD5AvBtY2Q8JS2QXyWBHjYjy30EM
-         b6Qg==
+        b=gJP+a2QtsjPJd5wx1fTvAdAjbvczuYCT3sKKo1mNMLI3P667WqzcJBiqUdu4Q4s2YV
+         2kcGq5eSKowIQJjvvdPF3W+APEY4NZdrbWRNextZbXt9FXqpcxQJeVI5YQtGKDL8KoSb
+         Xp/L9SQTWvYLD+UYHWUfCc6oyNRX3dqjBkppHzv/QLAEw0zHjiqUO2GVKzhGWeNdn0ow
+         F5njVQxYOswtZJVLMMUqsBkE1TXekKer2lTId3W2PeBMhdDdiiVINPPdhu0Wn9GyChJF
+         Hwnj8jWLkIIU67wy027Qgsffj9os2YURo7Do7JZ6oZevguKJZcSfcCAGtBby9InO5qWI
+         +QmA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:autocrypt:from:references
-         :cc:to:subject:sender:dkim-signature;
-        bh=tWLPOSc1dInX8qiSap0EMdh31EMznVlCxBD2UxmzD00=;
-        b=U/Xqyq5M8BnCQ2ZCHkMo48yKF+c0hzOzkjbUSaPIHVg+x74Cy1qCt5jAp1i/yYAksP
-         urMwRlNkk32MbGlGRAhWOAzUirq8J7tWCt3HsVzAgeZcPPKMjrL9O2Z59DZk/GCxcBrg
-         ivHpMSW8UO1gDbIc/cyr+7Vzwg+3SeyyiHHtfnqP7h655kL8yiRdnY5EpI7nH2ab7w41
-         bE16Cb6f1LzbTSYCJRNQRygBEEDClLsiQrw39znGRTUuwniXKbaoZ2ql7w2k4io/Ee8D
-         HQyWyzbdh8dKJgK7IwI6K7294UmB9OTs4jJo89UNX3Q00hAaWr50kIEWl/MVXxuqnCxk
-         eBJQ==
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :dkim-signature;
+        bh=4aODEYG20oaa/zXpfaS1sttWpkNMqH++/IG1XjUHabY=;
+        b=L6XNhQWmKd2hOhH0njYcq4QJkgxvvVvEi5plwzhWzHdA4Rb/oU7z4i48FeoFkHa2Ld
+         PBV97+XlJKQZ+U1o72bkhk4lnwBbWrDYxx6nXts9o/PeXCLQX9oHiBXlDRidYP3kajWV
+         hLHdK+IkUrRkA642u8fvZc8lYSzny+PfzZTYZk2ipKPsQOBlKn0mIt21H+eKGaKy4tj2
+         a002DOrUfIb/QLI14cXW3UR+blq8BcfNCaDr7UhkrjNnbODkFcDBFY2OiwaI1IzyuowM
+         qKdz0zXoe6wqbt/tEvVEkFJpRADP3dxgRJioSwPKtd6yiZe3kJ1kdqJoD9vcREBl/0kA
+         qCWA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of bart.vanassche@gmail.com designates 209.85.214.196 as permitted sender) smtp.mailfrom=bart.vanassche@gmail.com
+       spf=neutral (google.com: 216.40.44.148 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:autocrypt:message-id:date
-         :user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=tWLPOSc1dInX8qiSap0EMdh31EMznVlCxBD2UxmzD00=;
-        b=cXB+nZObN+9y9ht09Nqu3/2dJKwvwrl4+u+OqGoBnbJ9o/7jKMa1PVut5FLtk9H015
-         c3W3sku4bLV9I/pwkcorqPij7oWYJuJNn9Aa/2Y6U7sHKHUcUuNfj7Zos7YLItCaXdr/
-         PU2ZGxYPZw4LWl6YQ6n1RpWlJmikFq4gpHAItBPG+6eMk7WX2PbFliuVBaVJiOscXB9Y
-         C0M64uVIuLwd4fd3rn4GXsRkQe5anMcotPxKFmayzIbILiKWzO0x4Dc43CjovXpPrDlY
-         RYlN7AX8VC6jFkr1hI4Gfdtj1u2ZLgmZwgqZuukUNsdcmtMAEWzrge86Eq6FWR+Vuuck
-         JEyg==
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=4aODEYG20oaa/zXpfaS1sttWpkNMqH++/IG1XjUHabY=;
+        b=DDd5A+4luN2aXlXWwroFyvf7cVapudT0mNR5+Viq7HSuLY15zKQJ0ihY45L8xqYVHG
+         Co/3DgI4mzY2uNb5PanWvalYuvZmTTOC9736OC9r/efID9A14ReBgmUHzIRhcqiu4nDb
+         utnp8PTFvY5mMaUGM2bvQUD9zZpkOk55r0JhnEEsrVh+VrfkjisQ6suOt4Khvog6gV/2
+         jp1pXQ6Wm1FI8PTHfsqqbv95aIDrxUofaJTq4nnShKS6GEJjQ70+68uaqF7Xb/97RU6M
+         OnV9vYg1TvoReQvDzcgSw62UkVMJ7efdLbt5xw7esAtqvk2iAEeRCkjbqzquK1Ead1+U
+         W88g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:autocrypt
-         :message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=tWLPOSc1dInX8qiSap0EMdh31EMznVlCxBD2UxmzD00=;
-        b=p0mvdGQkx+2fq9ZMM2DF6voWqvHSC+jLDByuseKxoVQPtApm1ljdMyEwHxlYoVtCxZ
-         GbHRKal6ocKZZCAkwnb7lAO22SIUPqhJp68oOG49FyCa8ep6GllvmEPKnJZ8XhG9U4UL
-         QPSmDUnaRRYfM1E20Crw8FAxDpA2rUI8dWoYJwY8JC96fO/HYOMIoLJLd42LhFw7c0MY
-         aV9c9QxG/XlOsJGqDllmDqON9jtc25MfkYo0AhuLSypD8lvyikbjHoTR2Bi3U3DjpaD6
-         aiitYOr0aNnrVxH1NQUSqRj1fRE9/M9eBWLw9l7yKJSPa028sjb+7fTijjgouqdD8rL0
-         hf6Q==
+        bh=4aODEYG20oaa/zXpfaS1sttWpkNMqH++/IG1XjUHabY=;
+        b=OBLTdh2AxKMzZ63NqBoYPNtYRKapiTHVBYxHWjzYrGR2W8UOkLTjTctJl/bviG+JOg
+         wmS5oXmecwq5MjJO4lef8syca0LzyssBxhozKcxDn7yTQsPG9zbzRi6bPXSKB7hyBQgc
+         g/A2qljIrUbfHLCRq4Z2+uRfk7MSAraIdeF38QQx6k4bSRCVPN9l6wA8lfVK0tWFpUH4
+         2CoCg3UKdhs7erOxm+Sv6hlluNZ8RADPn15OdWxY5GzhfRyjfUyowMYI7wBPywBjABIT
+         YtnFh9GHamoBlbxCmoRwpywOTM9fTMfznw1FO/PLsALGssrA/+ivgn62ujscrfFebrJn
+         Ykjg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532b2IOrS2fL3p+jG/HfwdlrwTMfoUAryxBq/vr3lam75eovKwPZ
-	NkdtXKwpQAIhBjrDFJkQpFI=
-X-Google-Smtp-Source: ABdhPJxkAljIuAT0/67pB/Mdh4mD0DxF7HZrg9vyGzx6ctGYH1wOS41EJfjiy5kzUVXEWDsxtwUQgA==
-X-Received: by 2002:ac8:1b99:: with SMTP id z25mr1916111qtj.209.1591228837344;
-        Wed, 03 Jun 2020 17:00:37 -0700 (PDT)
+X-Gm-Message-State: AOAM53394L/cAX9mtY8ckYCbUACuO+E/vlqtLfGOycHJcnALwWCp5MTc
+	QUbtAsO3z7wH1AyfkThsPv4=
+X-Google-Smtp-Source: ABdhPJygU3B0DR0t+ypJgecJMwRmf+lMPLI36XdpIrUQqusTiWBOFElqLq0ehnm/7wLd0ksZ76Y24A==
+X-Received: by 2002:a17:902:aa0c:: with SMTP id be12mr2210323plb.241.1591228954655;
+        Wed, 03 Jun 2020 17:02:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:2978:: with SMTP id z53ls1168077qtz.1.gmail; Wed, 03 Jun
- 2020 17:00:37 -0700 (PDT)
-X-Received: by 2002:ac8:4c8d:: with SMTP id j13mr2049816qtv.38.1591228836941;
-        Wed, 03 Jun 2020 17:00:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591228836; cv=none;
+Received: by 2002:a17:90a:7143:: with SMTP id g3ls1763819pjs.1.gmail; Wed, 03
+ Jun 2020 17:02:34 -0700 (PDT)
+X-Received: by 2002:a17:90a:32ee:: with SMTP id l101mr2831252pjb.213.1591228954152;
+        Wed, 03 Jun 2020 17:02:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591228954; cv=none;
         d=google.com; s=arc-20160816;
-        b=MptuRl9pOHWCihOpe0pEZTXNZ6aDh3KcfGg3LuN+dfqXB1xIqywY8loR31MIIH9zWv
-         KdYP9QdXKLyKOGOMP89+apu8of78PIVK23AJsnpPgW48FqM1PbC68sclFldk7xy5WoAj
-         FixOhuKyiEbPqcQMoHLJVndsr8ZI77m1pZGjcZs96M6gTsv0RNjGSFuUj7FlfjKS8f9c
-         f0mhK3iciSBi7ow2Xodb8t2yuYujG5WqHP8VwIFd3jiY1u4HL6xZ6RslO36btN5OwaHh
-         G1ZfaKybB9LRz0D6r/W4u8nJIxNg/wG6I28qYxtrXWVY2jUKeC6TA10MtjGgcYDpBq5L
-         j1qA==
+        b=nniG4I2lNjD3C6Xbtqyvo3uWhVumRmGPgB3pvqM5bHsZVUKkAzcZwPqSbdzFTdi4XS
+         QzY/MTN2c5tTA79m9FTdKuMnY+w2h3c8pTttTtnFO9jwa75Tt0REpCi3wJMjseoRTTTu
+         1l7NOBPzYFe50/Vbg9M7PLWzHZKHsMm27/p8RziPW8YMTusznmEGi0wD1ERLDCSNOiEA
+         1FI/FL+QE1tevlFLGw4xV3dTdwDpTNiHJLR+QJVtMelTaMTyPJhWcz5dBssGNPlmfG5Z
+         W9jdEeGnD3gaA/PzfKCHlXXwlkmSDqTCjVAPinUoWqL34CzQ1VjXTyK+cO4wXEy5rJV7
+         7tBA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:autocrypt:from:references:cc:to:subject;
-        bh=hqnXIJZaSToxwE4bsbIxKQdnZSaxn/cLMp66RTiJkEo=;
-        b=BMlS7KKBkROvTZ+R+cEmlWp6Yk3EoYmZO9hG+lBDNqwI32Kwp/BLU0V0usUUfu/hK9
-         cCjMEiStCRLOrkPCOKusXatIeqA471ODHzT9H5e/zqinc7rM+i0CfIQzZQiRsMenHsjZ
-         wUxEST1H/82qn7Dx5fJjjfnicRZTJySi+WqG8Fgs/CgDQQrI7NIbLPNxYBwWh0OHKbql
-         Z3HMRUqOsCEM6NqqYo8faEIJJ7xH5Zw8aTpLelbnJcTWxN1peI6pmE2PAXzjw3eXu0pA
-         asXxnYqzJta/+eKx3GHS2Q8jHDprvLeNkxNqyUlhJDuw+Tkg9hgmgwxWMaOzgYUX64i1
-         F2Vg==
+        h=content-transfer-encoding:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id;
+        bh=ZM8F5IsPt+Dg4DebSNmaLx1cdU/Few/BZ8nMZ3NMUf0=;
+        b=rYvY/qhpeII0f6zYuuDQlmI5DknW+1WCpZszb3CCpj0p6CLwrvdzDMfQVaomyDYhT9
+         zeZMzeYIbEuB5QOp0Qsklr6GEVNfqJ2eCyTvS/qzbdrkIm4yHgKEENWBZtanTrLYpMOZ
+         U2BuM/6N+43x5yjB/cRGijGog8kAkR9mi4RZXBwcKSudO+ZrsM2XtrUKXf4sxUzNlvtS
+         75qYZHTOH6zuR25GU7wk7orGkXX6wt/j3or/KviRpqZ0ZM7BYtk9xh3J7zZfCTOsTFQp
+         TtZdofQBwVVO15bzG0yKvbaF53SPKcfLRfA3zE0Az1b193kIXvwOcTSTqhBVPS0hbeDp
+         KxaA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of bart.vanassche@gmail.com designates 209.85.214.196 as permitted sender) smtp.mailfrom=bart.vanassche@gmail.com
-Received: from mail-pl1-f196.google.com (mail-pl1-f196.google.com. [209.85.214.196])
-        by gmr-mx.google.com with ESMTPS id a78si243319qkb.1.2020.06.03.17.00.36
+       spf=neutral (google.com: 216.40.44.148 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Received: from smtprelay.hostedemail.com (smtprelay0148.hostedemail.com. [216.40.44.148])
+        by gmr-mx.google.com with ESMTPS id v197si280936pfc.0.2020.06.03.17.02.33
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 03 Jun 2020 17:00:36 -0700 (PDT)
-Received-SPF: pass (google.com: domain of bart.vanassche@gmail.com designates 209.85.214.196 as permitted sender) client-ip=209.85.214.196;
-Received: by mail-pl1-f196.google.com with SMTP id t16so1394984plo.7
-        for <clang-built-linux@googlegroups.com>; Wed, 03 Jun 2020 17:00:36 -0700 (PDT)
-X-Received: by 2002:a17:90b:605:: with SMTP id gb5mr2422811pjb.167.1591228835561;
-        Wed, 03 Jun 2020 17:00:35 -0700 (PDT)
-Received: from [192.168.50.147] (c-73-241-217-19.hsd1.ca.comcast.net. [73.241.217.19])
-        by smtp.gmail.com with ESMTPSA id 98sm3970139pjo.12.2020.06.03.17.00.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 03 Jun 2020 17:00:34 -0700 (PDT)
-Subject: Re: [PATCH 10/10] compiler: Remove uninitialized_var() macro
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Jun 2020 17:02:33 -0700 (PDT)
+Received-SPF: neutral (google.com: 216.40.44.148 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.148;
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
+	by smtprelay02.hostedemail.com (Postfix) with ESMTP id 3A9EC2C88;
+	Thu,  4 Jun 2020 00:02:33 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 10,1,0,,d41d8cd98f00b204,joe@perches.com,,RULES_HIT:41:355:379:599:800:967:968:973:982:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1541:1593:1594:1711:1730:1747:1777:1792:2393:2525:2566:2682:2685:2828:2859:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3352:3622:3653:3865:3866:3868:3870:3871:3872:3874:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4321:5007:6742:7903:8957:9025:10004:10400:10848:11232:11658:11914:12043:12295:12297:12438:12555:12740:12760:12895:12986:13069:13149:13230:13311:13357:13439:14181:14659:14721:14777:21080:21627:21811:21889:30054:30070:30091,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:1,LUA_SUMMARY:none
+X-HE-Tag: owner82_280dda526d92
+X-Filterd-Recvd-Size: 2813
+Received: from XPS-9350.home (unknown [47.151.136.130])
+	(Authenticated sender: joe@perches.com)
+	by omf03.hostedemail.com (Postfix) with ESMTPA;
+	Thu,  4 Jun 2020 00:02:30 +0000 (UTC)
+Message-ID: <ff9087b0571e1fc499bd8a4c9fd99bfc0357f245.camel@perches.com>
+Subject: Re: [PATCH 08/10] checkpatch: Remove awareness of
+ uninitialized_var() macro
+From: Joe Perches <joe@perches.com>
 To: Kees Cook <keescook@chromium.org>, linux-kernel@vger.kernel.org
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
- Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
- Alexander Potapenko <glider@google.com>, Joe Perches <joe@perches.com>,
- Andy Whitcroft <apw@canonical.com>, x86@kernel.org,
- drbd-dev@lists.linbit.com, linux-block@vger.kernel.org,
- b43-dev@lists.infradead.org, netdev@vger.kernel.org,
- linux-wireless@vger.kernel.org, linux-ide@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-spi@vger.kernel.org, linux-mm@kvack.org,
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, Miguel Ojeda
+ <miguel.ojeda.sandonis@gmail.com>, Alexander Potapenko <glider@google.com>,
+  Andy Whitcroft <apw@canonical.com>, x86@kernel.org,
+ drbd-dev@lists.linbit.com, linux-block@vger.kernel.org, 
+ b43-dev@lists.infradead.org, netdev@vger.kernel.org, 
+ linux-wireless@vger.kernel.org, linux-ide@vger.kernel.org, 
+ linux-clk@vger.kernel.org, linux-spi@vger.kernel.org, linux-mm@kvack.org, 
  clang-built-linux@googlegroups.com
+Date: Wed, 03 Jun 2020 17:02:29 -0700
+In-Reply-To: <20200603233203.1695403-9-keescook@chromium.org>
 References: <20200603233203.1695403-1-keescook@chromium.org>
- <20200603233203.1695403-11-keescook@chromium.org>
-From: Bart Van Assche <bvanassche@acm.org>
-Autocrypt: addr=bvanassche@acm.org; prefer-encrypt=mutual; keydata=
- mQENBFSOu4oBCADcRWxVUvkkvRmmwTwIjIJvZOu6wNm+dz5AF4z0FHW2KNZL3oheO3P8UZWr
- LQOrCfRcK8e/sIs2Y2D3Lg/SL7qqbMehGEYcJptu6mKkywBfoYbtBkVoJ/jQsi2H0vBiiCOy
- fmxMHIPcYxaJdXxrOG2UO4B60Y/BzE6OrPDT44w4cZA9DH5xialliWU447Bts8TJNa3lZKS1
- AvW1ZklbvJfAJJAwzDih35LxU2fcWbmhPa7EO2DCv/LM1B10GBB/oQB5kvlq4aA2PSIWkqz4
- 3SI5kCPSsygD6wKnbRsvNn2mIACva6VHdm62A7xel5dJRfpQjXj2snd1F/YNoNc66UUTABEB
- AAG0JEJhcnQgVmFuIEFzc2NoZSA8YnZhbmFzc2NoZUBhY20ub3JnPokBOQQTAQIAIwUCVI67
- igIbAwcLCQgHAwIBBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFcPTXFzhAJ8QkH/1AdXblKL65M
- Y1Zk1bYKnkAb4a98LxCPm/pJBilvci6boefwlBDZ2NZuuYWYgyrehMB5H+q+Kq4P0IBbTqTa
- jTPAANn62A6jwJ0FnCn6YaM9TZQjM1F7LoDX3v+oAkaoXuq0dQ4hnxQNu792bi6QyVdZUvKc
- macVFVgfK9n04mL7RzjO3f+X4midKt/s+G+IPr4DGlrq+WH27eDbpUR3aYRk8EgbgGKvQFdD
- CEBFJi+5ZKOArmJVBSk21RHDpqyz6Vit3rjep7c1SN8s7NhVi9cjkKmMDM7KYhXkWc10lKx2
- RTkFI30rkDm4U+JpdAd2+tP3tjGf9AyGGinpzE2XY1K5AQ0EVI67igEIAKiSyd0nECrgz+H5
- PcFDGYQpGDMTl8MOPCKw/F3diXPuj2eql4xSbAdbUCJzk2ETif5s3twT2ER8cUTEVOaCEUY3
- eOiaFgQ+nGLx4BXqqGewikPJCe+UBjFnH1m2/IFn4T9jPZkV8xlkKmDUqMK5EV9n3eQLkn5g
- lco+FepTtmbkSCCjd91EfThVbNYpVQ5ZjdBCXN66CKyJDMJ85HVr5rmXG/nqriTh6cv1l1Js
- T7AFvvPjUPknS6d+BETMhTkbGzoyS+sywEsQAgA+BMCxBH4LvUmHYhpS+W6CiZ3ZMxjO8Hgc
- ++w1mLeRUvda3i4/U8wDT3SWuHcB3DWlcppECLkAEQEAAYkBHwQYAQIACQUCVI67igIbDAAK
- CRBxXD01xc4QCZ4dB/0QrnEasxjM0PGeXK5hcZMT9Eo998alUfn5XU0RQDYdwp6/kMEXMdmT
- oH0F0xB3SQ8WVSXA9rrc4EBvZruWQ+5/zjVrhhfUAx12CzL4oQ9Ro2k45daYaonKTANYG22y
- //x8dLe2Fv1By4SKGhmzwH87uXxbTJAUxiWIi1np0z3/RDnoVyfmfbbL1DY7zf2hYXLLzsJR
- mSsED/1nlJ9Oq5fALdNEPgDyPUerqHxcmIub+pF0AzJoYHK5punqpqfGmqPbjxrJLPJfHVKy
- goMj5DlBMoYqEgpbwdUYkH6QdizJJCur4icy8GUNbisFYABeoJ91pnD4IGei3MTdvINSZI5e
-Message-ID: <8882ca16-5192-a519-d5a8-02371fbb28cb@acm.org>
-Date: Wed, 3 Jun 2020 17:00:31 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.8.0
-MIME-Version: 1.0
-In-Reply-To: <20200603233203.1695403-11-keescook@chromium.org>
+	 <20200603233203.1695403-9-keescook@chromium.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Original-Sender: bvanassche@acm.org
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of bart.vanassche@gmail.com designates 209.85.214.196 as
- permitted sender) smtp.mailfrom=bart.vanassche@gmail.com
+User-Agent: Evolution 3.36.2-0ubuntu1
+MIME-Version: 1.0
+X-Original-Sender: joe@perches.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 216.40.44.148 is neither permitted nor denied by best guess
+ record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -163,17 +139,44 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 2020-06-03 16:32, Kees Cook wrote:
+On Wed, 2020-06-03 at 16:32 -0700, Kees Cook wrote:
 > Using uninitialized_var() is dangerous as it papers over real bugs[1]
 > (or can in the future), and suppresses unrelated compiler warnings
 > (e.g. "unused variable"). If the compiler thinks it is uninitialized,
 > either simply initialize the variable or make compiler changes.
+> 
+> In preparation for removing[2] the[3] macro[4], effectively revert
+> commit 16b7f3c89907 ("checkpatch: avoid warning about uninitialized_var()")
+> and remove all remaining mentions of uninitialized_var().
+> 
+> [1] https://lore.kernel.org/lkml/20200603174714.192027-1-glider@google.com/
+> [2] https://lore.kernel.org/lkml/CA+55aFw+Vbj0i=1TGqCR5vQkCzWJ0QxK6CernOU6eedsudAixw@mail.gmail.com/
+> [3] https://lore.kernel.org/lkml/CA+55aFwgbgqhbp1fkxvRKEpzyR5J8n1vKT1VZdz9knmPuXhOeg@mail.gmail.com/
+> [4] https://lore.kernel.org/lkml/CA+55aFz2500WfbKXAx8s67wrm9=yVJu65TpLgN_ybYNv0VEOKA@mail.gmail.com/
 
-Thank you for having done this work!
+nack.  see below.
 
-Reviewed-by: Bart van Assche <bvanassche@acm.org>
+I'd prefer a simple revert, but it shouldn't
+be done here.
+
+> diff --git a/scripts/checkpatch.pl b/scripts/checkpatch.pl
+[]
+> @@ -4075,7 +4074,7 @@ sub process {
+>  		}
+>  
+>  # check for function declarations without arguments like "int foo()"
+> -		if ($line =~ /(\b$Type\s*$Ident)\s*\(\s*\)/) {
+> +		if ($line =~ /(\b$Type\s+$Ident)\s*\(\s*\)/) {
+
+This isn't right because $Type includes a possible trailing *
+where there isn't a space between $Type and $Ident
+
+e.g.:	int *bar(void);
+
+Other than that, fine by me...
+
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/8882ca16-5192-a519-d5a8-02371fbb28cb%40acm.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/ff9087b0571e1fc499bd8a4c9fd99bfc0357f245.camel%40perches.com.
