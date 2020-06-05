@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBTWA5L3AKGQECACLOYY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC7OBJGL2MHBBMWB5L3AKGQEY76LPQY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x338.google.com (mail-ot1-x338.google.com [IPv6:2607:f8b0:4864:20::338])
-	by mail.lfdr.de (Postfix) with ESMTPS id B945B1F007B
-	for <lists+clang-built-linux@lfdr.de>; Fri,  5 Jun 2020 21:43:11 +0200 (CEST)
-Received: by mail-ot1-x338.google.com with SMTP id 88sf5164817otw.21
-        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Jun 2020 12:43:11 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591386190; cv=pass;
+Received: from mail-qk1-x739.google.com (mail-qk1-x739.google.com [IPv6:2607:f8b0:4864:20::739])
+	by mail.lfdr.de (Postfix) with ESMTPS id B9CD61F007E
+	for <lists+clang-built-linux@lfdr.de>; Fri,  5 Jun 2020 21:44:51 +0200 (CEST)
+Received: by mail-qk1-x739.google.com with SMTP id p7sf8529527qkf.21
+        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Jun 2020 12:44:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591386290; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HYoOz0dEivh72vx7feg6hTxPGowj7OeESQSakRqjUeibq7wSH/HQAIOIVyIqku2U+i
-         rm38JOJhtLO+fd5yVf2AGaUT8Zp4+yMz/wQQvoX1dTfOZ7/s1PiZoNumao7Mlx63rZml
-         PnDAwdVL5wIuxEUjucFyKvBdPDOsrfx3IFVDjk7lsWxLccLVb92WPYdIm3MQVr4we+eW
-         kJMnF66eoAU2cJqdpGxar4BZ1ed2ldTWD7d1bpyUezwMG/NQOEU5o8lqj4EFG/7+OgtZ
-         FlUzKCgA8REbaAsAFTf6UPF2FSwH44L00HZ5XUr9/PLu5lVg2qD38tTCcOiL6vyuT0Tq
-         tNHw==
+        b=Ur57XGwzonzfqSIXPhz+sMYrJvaD8vEq87txWifirEnVE4nXrcdmvhiFhFFzXwvQG4
+         2afNkIktVKQ8qMgEdsYaYpLAUA+XEuNf5YvWKjcRM7fQ/uv4meGjiyEa7AaFjzp5f/1J
+         AYSXwLtt4bLuqgoE0dl6RAa9kUcb3FU4xy88vXTNkItxX7gKySNixyyJMAwoSi4dAHqR
+         +fOyb4hyE7IcwOjEgsoAJ2dmWGvc82EuFpM0o29VWarF3Stf5A4j7vEeWazUzYL8clji
+         Bw0ZpJ/5pC+e22TXWG3+lIGu6BzM5giAEr+gh83jrptqN/GVwSD/q+o1dBEDI8Pj08xI
+         R3xA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=BpI3l8fT+0TL6gvs5i30seYQkVjGqX6i/EODuiXj/aM=;
-        b=as1aATRdLn4nLJ+f/eu3i6DddC8siawUVrVgDEOTbrbX7xMTLW+tUnRwJUedOV+xdH
-         MntGHjTXs3AwYG6g4RYl3YHikhs6UUYvMjfyMv4leHne/J6WYa8xYBlU7bOd/aQYG7YQ
-         FzhAPSR2lKCIWdKW5GY6ZGtjmiy9RTa99wYmO2KhJZsQ9FgCR/acShDbxtOrOEb6C1cB
-         Zw9r/HXz2UL+CxLSCYcxoFyhwvvpexnB4QsSVRdcz+sSfRp0fVdjgigfZXFb5X1KD/Vs
-         w8uOsmIELtpf1zCdrXN4Z1ctsw47/LinV0F/iNi1cvaZzdUtu8MxNTwJESd0sL03VQSo
-         sB2Q==
+        bh=jauXL3xapFPNMhNhHNS787A6l3+WeY1Ag68LIitwYrk=;
+        b=jnv3w7GA4zy1h7MDi3mpb+V75QcdadBH6WZuMQYesykI9JlNl61jlW3TeH/L7DPVFB
+         zisPhjNehTr0xhx8/135incG0n26XIIXBdlyO910E9tdeiiJ8vaveAn8JBQw2Ot5NCur
+         rRMRwNTMw29bfQyz9Kf9720N9Ib35v+qAKMAKobscmrEDXKOjY9IrVfaj5FdOYf2m4GB
+         fL64J9IGVfGBjcS1idLM6IQiKSmVWxEwg7MgZflMdWl8C+1S5RLZ6lWAya/6s/K9zUPP
+         /XmgW3QpSFJ4bqIQyuPaEDgEic4RhDlorcUAGeNZjMx0NttTWx6sEB2KU0c2hqpqjx0R
+         CnZw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=KPHDxNjP;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=DerDVX0p;
+       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=elver@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=BpI3l8fT+0TL6gvs5i30seYQkVjGqX6i/EODuiXj/aM=;
-        b=bzoi3PKTJ0l/cpk8kgwYdbdAeTH5w05tyx2Brze13Wc6JnTeeZd5wYdCEIsdiKKP4E
-         LZ9MDcCugJLOUvac6WGhkTbB/a0NK9qjyuO9oCUg4jZay5R3HZ+jPz/SLjrHTYyUOtnf
-         20cvGCbpYHXzJgFfyF5NH8glbdLlZZe7/fdzMZDXjAOalq1VSvcZkjRzimrY06cPslf5
-         yZ+/XHQKd1C6fff3f4mfAXl+sAONTEtR4HHbVjWc2n69DQ469AOHkIUSeXSqwqFchMK9
-         6ItvbO+a+k/YDDWQJDYztde8vKtvMiw3F4MT9zqtE7p6xZiLMRCwK6mQx+A6P2XMH+0h
-         0Onw==
+        bh=jauXL3xapFPNMhNhHNS787A6l3+WeY1Ag68LIitwYrk=;
+        b=APWu8izFItOL8CEl1y4TOIpTBwS2kvnNmeKAbkHn8PuKlxFWjnHuVqZ/6ZRTXKtcQy
+         KfRtEnrunVIqwqdgq/eYON2eQaASTZ7As/Y+lEFLoof4xhtQn7T0BQVMQB9e/2imyA/C
+         ZKyOBuXDlViDHmsl6d8q/Co1xbloKy3zQBBHMcpw2kH+8svTMi+1OyiJe2slF6RbaqWm
+         eYyq+nyQuLAY1kf2co0kbjugz1Ns67vHTtIoLW+NBLldis9VLjfKF93Ojo9KujvwQ3De
+         DdQxqGcyEIbjBYhPS1MF6JAm6EKab8/XQKjutjcX+AbHVMNLymXUbHNK8zpXr8sSKSNn
+         O+ag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,78 +49,76 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=BpI3l8fT+0TL6gvs5i30seYQkVjGqX6i/EODuiXj/aM=;
-        b=X2oJcleWdyItDMDa9Dagzy6tVFoqjmnvCjuNC8+bny+2CldQAgsfwDsisnFA9Nlt5M
-         uOf635sc45R9SjZZv0+odjcZlsQtVua8envWLBthJhrZ00QZY3Mmkxkbk9VHvdDCzTbN
-         pmbH8pYsiv7SyEntYTTah1PymEe1MSpmlWMEIh7Dd+2gvV7h7SoHXCVumltjXjsZ14yU
-         WUQ186be2+ybZ4zsiXnhc1IYOoHRieCwjfJ4+sLEqjRpW6iC3lTsUXnWIdzYkqZKo0RA
-         YPP+2lXoX6W9TvTa/5dL3n0qSp7AuIV++CSH2R4S9RyM0RM1n0PhYGg7Z0giT+tnZadF
-         VmHg==
-X-Gm-Message-State: AOAM5328qzLHM1eK054hO9TGwW7h+iBUuPDZPtwE7UNgj4NPnH8eA1Ow
-	oyAsQxSh7WHi9kWusTGqgqU=
-X-Google-Smtp-Source: ABdhPJzWS7KqHjFDMPJpr9UUfLiivYNMjIdHx0ur7ZVmlkFWsX7IzMbvz5xm3nxFWHLmHhW3wj9jjQ==
-X-Received: by 2002:a9d:65c7:: with SMTP id z7mr8576859oth.291.1591386190716;
-        Fri, 05 Jun 2020 12:43:10 -0700 (PDT)
+        bh=jauXL3xapFPNMhNhHNS787A6l3+WeY1Ag68LIitwYrk=;
+        b=imxNceTFG8ZhGW06ugZec1F18mEDWQgjPOnlbFAU2Da6ydPcz9FtiEc7Ba+2/Cc+U1
+         lr4BsHkIa3n9FkY7lhErvRAUNzA2y+G059guiaUqHpihJjwvc4G6RmEzQ+F0BYxgCZLB
+         M65K6u9X+RsC3Eoyy+Dwa1aSkDQRz8MSe5inFoyZMUF1yRZnCuR39iseW/Jsgl5kb33I
+         Hkp05sk9gD3gsFGmfZPEnlsnvlqcHSkSOKdM/IGTTegL4zAFa/53YrCNTpVbUKV1J/YI
+         D+oAWk7nN5RJe2mQ9MORZJ0zI7AyCjWtxBNVfrd6k0XTLzqP5ylQRKnnV0M33kNFa3yT
+         xzug==
+X-Gm-Message-State: AOAM531ncz3DJwAYdJtW9hvCgtHcZjiwluNn57nGSwFVz/J7q5epciBN
+	lTZqm0wn33uF8f9tRWlgkvc=
+X-Google-Smtp-Source: ABdhPJyfmwmVuaqlXqk35rGuCZW+hOBOkSeK4bmbGFK9GCD/n0nsAT07OZPFPrIkfvV8O2nhpel7oQ==
+X-Received: by 2002:a37:64ca:: with SMTP id y193mr8810384qkb.367.1591386290592;
+        Fri, 05 Jun 2020 12:44:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:d80d:: with SMTP id f13ls55704oov.11.gmail; Fri, 05 Jun
- 2020 12:43:10 -0700 (PDT)
-X-Received: by 2002:a4a:7546:: with SMTP id g6mr5158949oof.51.1591386190408;
-        Fri, 05 Jun 2020 12:43:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591386190; cv=none;
+Received: by 2002:a37:9f89:: with SMTP id i131ls4503082qke.3.gmail; Fri, 05
+ Jun 2020 12:44:50 -0700 (PDT)
+X-Received: by 2002:a05:620a:2183:: with SMTP id g3mr11603298qka.254.1591386290198;
+        Fri, 05 Jun 2020 12:44:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591386290; cv=none;
         d=google.com; s=arc-20160816;
-        b=hqflBbp7NTZ/YV5KItMYJ7uIJekfa7JTGZJ6MGBz6yVkjHED0UJDl292UarYQBzEf6
-         vbWyUtmyGhx+Uqu7XW7thA31g23l7kRUBLSBgtLrXGgyH+F+bGJCe8XlKztftG3RVWKR
-         yOi0DzAGYlhxIpUydPWLxGPzfMsewtdDjlEd+T8S6piMn5vHABlTlZl43hBbYIn02z4d
-         fXlGVXdH8t5X4Oy63YljPt6Xmt6yzJZO00N5Y9FqPncu8sGIPPTFnVzZh5RSSuW1C/ZH
-         1RqQYINxExXe+haF9vcb5oNAL8gRq9YKta3oJtEibV4WXrH5fVEdvI2X2jzuPM+0I5jW
-         0I8A==
+        b=UD1PI3KJKvMaHg0NLvwh20O7FI57qOsdwQ/PuQJB7RhrjwAxzKBa5rmNxwU/8u7K8K
+         Rc2JPg0JPuAkLNZR9kJoNn+sjkuDi+XCZEB+iaU6PyBVM/g13Kc0ek4/3HKAn0o6eKI9
+         wZzm6vVjvEPk//urAuDv9i2eyWROksXtO+13K+O86XeNlRYrS9NsrrtR/TGJ6TlJqKfe
+         uSPffKsH2tyPkywgCbYk3JZt69hH4seVGwpLdqth50SmhgwPH2+tJ4Bs7E0waOLHs/KR
+         bwWG4GARfk8QcHp/G2ztWyIpE36wA+rTxTdgZWBW2LcDSONwS+SUdU94/v1Hl1wXEhdZ
+         PEkQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=shshfcQBD52T6SsMpXKmudFuukbhlBXLKFJ7VG5PWPA=;
-        b=h0vnVYvkYJgOLZhm+ARvxoHSjxyA5Jq4AVw4/uAi5J+fbik8jjOLUK08n6WPEvBrf5
-         Bsgd3ckdNYui85i92zH+QfjoIcCdBzhjTRg6lDTlbVhYm8++grs7qt++xWUMBCn13ak7
-         Tdu1okoZcCVjd9h1qUwxY+2wWlhSPk5sBbzjnXv1Tqz7zj5WZ9Y3Hp1gDfRGAaq9jtiO
-         0YoeFshY7kbjEHEne6Nt3d5IYExFcFz+ralQ505ywmhGMRI+Snay1cqbq4ulaQ0txpWA
-         KRXQaGK/bYG8aRjPBboG82epYBQj1OgsfJ494Fn4P+uYjnzgg+9LJx29tu1+YqRyqkFs
-         Q4FQ==
+        bh=7oOtED1j79XHZoDIuJQhicmo2zvGV1dbgp3b1vFZQ1M=;
+        b=C2eiRMz1+iIS+KIsJJEGbmS55tdNb0jIxsB9tIQZ3ODXvQKRKjzGZjmY/kHAqTBrYH
+         kyMteiv3fYrD0PcpjbC4sJlNPr/7LhHwyP+/u2eIhm9upPMq7NfWFDyZQ0CeooAAEMUO
+         2sr3r7yj5uNNC6p8E1N+ZiVihIRtxRsX7mUBG3ZminyNBeOyCNHpRaCPxVS3amUgneoO
+         2kVkPd5ty8IrD3DnziFy/Up78cX4lf7mxfQDbvSMPIpXi60fbF7ojpRyVpYP1ZUQenXo
+         OGFu0NGUPvSE0QH3/+rHYvrTSNE9BrB11JbQW9ezKkmX3eFyHDHWS98oOY/QiHNDzkwD
+         UcPA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=KPHDxNjP;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=DerDVX0p;
+       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=elver@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x543.google.com (mail-pg1-x543.google.com. [2607:f8b0:4864:20::543])
-        by gmr-mx.google.com with ESMTPS id o199si162868ooo.0.2020.06.05.12.43.10
+Received: from mail-oi1-x242.google.com (mail-oi1-x242.google.com. [2607:f8b0:4864:20::242])
+        by gmr-mx.google.com with ESMTPS id m1si35235qki.3.2020.06.05.12.44.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 05 Jun 2020 12:43:10 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) client-ip=2607:f8b0:4864:20::543;
-Received: by mail-pg1-x543.google.com with SMTP id p21so5634322pgm.13
-        for <clang-built-linux@googlegroups.com>; Fri, 05 Jun 2020 12:43:10 -0700 (PDT)
-X-Received: by 2002:a63:f00d:: with SMTP id k13mr11230799pgh.263.1591386189347;
- Fri, 05 Jun 2020 12:43:09 -0700 (PDT)
+        Fri, 05 Jun 2020 12:44:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::242 as permitted sender) client-ip=2607:f8b0:4864:20::242;
+Received: by mail-oi1-x242.google.com with SMTP id d67so9220393oig.6
+        for <clang-built-linux@googlegroups.com>; Fri, 05 Jun 2020 12:44:50 -0700 (PDT)
+X-Received: by 2002:aca:ebc5:: with SMTP id j188mr3024784oih.70.1591386289410;
+ Fri, 05 Jun 2020 12:44:49 -0700 (PDT)
 MIME-Version: 1.0
-References: <202006051725.63EW72i7%lkp@intel.com> <20200605145546.GA227721@google.com>
- <20200605160830.GB1373@sol.localdomain> <CAKwvOdm1Ew1dBVcmxDHtKWp383Dsrxjhaweek=-LDomfKnj7Qg@mail.gmail.com>
- <20200605193359.GK1373@sol.localdomain>
-In-Reply-To: <20200605193359.GK1373@sol.localdomain>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 5 Jun 2020 12:42:59 -0700
-Message-ID: <CAKwvOdmE_59v6-W+Sk8SGrrXJ4dx5ANWEpD5GL_hrw0ja0w1kg@mail.gmail.com>
-Subject: Re: [f2fs-dev] [f2fs:dev-test 48/48] fs/f2fs/super.c:3303:12:
- warning: stack frame size of 2064 bytes in function 'f2fs_fill_super'
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Jaegeuk Kim <jaegeuk@kernel.org>, kernel test robot <lkp@intel.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, kbuild-all@lists.01.org, 
-	linux-f2fs-devel@lists.sourceforge.net
+References: <202006060103.jSCpnV1g%lkp@intel.com> <CANpmjNPBxkBBnD-y9Hpvsne3o6JA0KYgyxZhbCN+kZv4CD4yWQ@mail.gmail.com>
+ <CAKwvOdk5MCxi7c-ANKYRggo1rVrpxbhR_-hWo5j9F4VSaLj18w@mail.gmail.com>
+In-Reply-To: <CAKwvOdk5MCxi7c-ANKYRggo1rVrpxbhR_-hWo5j9F4VSaLj18w@mail.gmail.com>
+From: "'Marco Elver' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Fri, 5 Jun 2020 21:44:37 +0200
+Message-ID: <CANpmjNPw55fDqXn0V=jAUaV4RGnPTN3pCHvkUzWvP_QDeF7VOA@mail.gmail.com>
+Subject: Re: [linux-next:master 10774/15793] kernel/kcsan/core.c:829:1:
+ warning: no previous prototype for function '__tsan_volatile_read1'
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Philip Li <philip.li@intel.com>, kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Borislav Petkov <bp@suse.de>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: elver@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=KPHDxNjP;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@google.com header.s=20161025 header.b=DerDVX0p;       spf=pass
+ (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::242 as
+ permitted sender) smtp.mailfrom=elver@google.com;       dmarc=pass (p=REJECT
+ sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Marco Elver <elver@google.com>
+Reply-To: Marco Elver <elver@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,82 +131,111 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jun 5, 2020 at 12:34 PM Eric Biggers <ebiggers@kernel.org> wrote:
+On Fri, 5 Jun 2020 at 21:13, Nick Desaulniers <ndesaulniers@google.com> wrote:
 >
-> On Fri, Jun 05, 2020 at 09:45:43AM -0700, Nick Desaulniers wrote:
-> > On Fri, Jun 5, 2020 at 9:08 AM Eric Biggers <ebiggers@kernel.org> wrote:
-> > >
-> > > On Fri, Jun 05, 2020 at 07:55:46AM -0700, Jaegeuk Kim wrote:
-> > > > Eric,
-> > > >
-> > > > Could you PTAL?
-> > > >
-> > > > On 06/05, kernel test robot wrote:
-> > > > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs.git dev-test
-> > > > > head:   adf3d3a53cf13d0998c699ba43d8582c875179e3
-> > > > > commit: adf3d3a53cf13d0998c699ba43d8582c875179e3 [48/48] f2fs: don't return vmalloc() memory from f2fs_kmalloc()
-> > > > > config: powerpc64-randconfig-r011-20200605 (attached as .config)
-> > > > > compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project ac47588bc4ff5927a01ed6fcd269ce86aba52a7c)
-> > > > > reproduce (this is a W=1 build):
-> > > > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> > > > >         chmod +x ~/bin/make.cross
-> > > > >         # install powerpc64 cross compiling tool for clang build
-> > > > >         # apt-get install binutils-powerpc64-linux-gnu
-> > > > >         git checkout adf3d3a53cf13d0998c699ba43d8582c875179e3
-> > > > >         # save the attached .config to linux build tree
-> > > > >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64
-> > > > >
-> > > > > If you fix the issue, kindly add following tag as appropriate
-> > > > > Reported-by: kernel test robot <lkp@intel.com>
-> > >
-> > > I don't know what's causing this.  It doesn't look at all related to my commit,
-> > > and I don't see what's using so much stack in f2fs_fill_super().
-> > >
-> > > @kernel test robot: the directions given above don't actually work.
-> > > First I got an error due to powerpc64-linux-gnu-elfedit not existing.
-> > > So I had to build binutils for powerpc64 myself.
-> > >
-> > > Then I still got an error:
-> > >
-> > >         make: *** No rule to make target 'arch/powerpc64/Makefile'.  Stop.
+> On Fri, Jun 5, 2020 at 10:58 AM 'Marco Elver' via Clang Built Linux
+> <clang-built-linux@googlegroups.com> wrote:
 > >
-> > If you have the config, then
-> > $ ARCH=powerpc CROSS_COMPILE=powerpc64-linux-gnu- make CC=clang -j71
-> > If you recompile with CONFIG_DEBUG_INFO, you can get the stack frame
-> > information. I wrote a tool to parse this for these cryptic warnings.
-> > https://github.com/ClangBuiltLinux/frame-larger-than
+> > On Fri, 5 Jun 2020 at 19:42, kernel test robot <lkp@intel.com> wrote:
+> > >
+> > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> > > head:   af30725c132e2e5c5369b60369ff0771fde7d4ff
+> > > commit: 4e23395b9e97562d12b87a330a2fca3bf10c8663 [10774/15793] kcsan: Support distinguishing volatile accesses
+> > > config: x86_64-randconfig-r013-20200605 (attached as .config)
+> > > compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 6dd738e2f0609f7d3313b574a1d471263d2d3ba1)
+> > > reproduce (this is a W=1 build):
+> > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> > >         chmod +x ~/bin/make.cross
+> > >         # install x86_64 cross compiling tool for clang build
+> > >         # apt-get install binutils-x86-64-linux-gnu
+> > >         git checkout 4e23395b9e97562d12b87a330a2fca3bf10c8663
+> > >         # save the attached .config to linux build tree
+> > >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
+> > >
+> > > If you fix the issue, kindly add following tag as appropriate
+> > > Reported-by: kernel test robot <lkp@intel.com>
+> > >
+> > > All warnings (new ones prefixed by >>, old ones prefixed by <<):
+> > >
+> > > DEFINE_TSAN_READ_WRITE(4);
+> > > ^
+> > > kernel/kcsan/core.c:757:7: note: expanded from macro 'DEFINE_TSAN_READ_WRITE'
+> > > void __tsan_read##size(void *ptr)                                                      ^
+> > > <scratch space>:92:1: note: expanded from here
+> > > __tsan_read4
+> > > ^
+> > > kernel/kcsan/core.c:776:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+> > > DEFINE_TSAN_READ_WRITE(4);
+> > > ^
+> > > static
+> > > kernel/kcsan/core.c:757:2: note: expanded from macro 'DEFINE_TSAN_READ_WRITE'
+> > > void __tsan_read##size(void *ptr)                                                 ^
+> > > kernel/kcsan/core.c:776:1: warning: no previous prototype for function '__tsan_write4' [-Wmissing-prototypes]
+> > > DEFINE_TSAN_READ_WRITE(4);
+> > > ^
+> > [...]
+> >
+> > In the case here (and for all other *SAN or compiler-based
+> > instrumentation), it's clearly fine since the compiler is the one
+> > emitting calls to them.
+
+I should have probably said "the compiler is the one emitting calls
+due to sanitizer instrumentation" to be clearer.
+
+> > How is one meant to act on W=1 reports like this? The kernel seems to
+> > be full of these. It seems wrong, just to shut up W=1, to start adding
+> > -Wno-missing-prototypes everywhere.
 >
-> I can build the file and get the warning now, but the frame_larger_than.py
-> script doesn't work:
+> + Philip, because the team is probably getting asked this a lot, and
+> should link to this response.
 >
-> $ ARCH=powerpc CROSS_COMPILE=powerpc64-linux-gnu- make CC=clang fs/f2fs/super.o
->   CALL    scripts/checksyscalls.sh
->   CALL    scripts/atomic/check-atomics.sh
->   CC [M]  fs/f2fs/super.o
-> fs/f2fs/super.c:3303:12: warning: stack frame size of 2064 bytes in function 'f2fs_fill_super' [-Wframe-larger-than=]
-> static int f2fs_fill_super(struct super_block *sb, void *data, int silent)
->            ^
-> 1 warning generated.
+> `make W=1` enabled -Wmissing-prototypes via scripts/Makfile.extrawarn.
 >
-> $ python3 ~/src/frame-larger-than/frame_larger_than.py fs/f2fs/super.o f2fs_fill_super
-> failed to parse elf: Unsupported relocation type: 1
+> Both GCC and Clang will warn for -Wmissing-prototypes when you define
+> a function without a previous declaration of it, for non-static
+> functions.  If the linkage is extern, and there was no previous
+> declaration, then callers may have the wrong signature.  Mostly, this
+> isn't a bug, which is why it's not an error. But sometimes the
+> signature has changed but the callers have not been updated, which is
+> an ABI breakage resulting in a bug.  Mostly this is not an issue due
+> to -Wimplicit-function-declaration being on by default, which also
+> helps in this case.
+>
+> See: https://godbolt.org/z/aYrYfS
+>
+> Functions with external linkage should have a forward declaration, or
+> be marked static if in a .c file, or be marked static inline if in a
+> header file.
+>
+> For this specific case, it looks like kcsan.h should forward declare
+> the functions defined by DEFINE_TSAN_READ_WRITE, to avoid any ABI
+> mismatch due to different call signatures between callers and callee.
+> Though I can't see where the callees are; if they're only within
+> kernel/kcsan/core.c, then defining them as static qualified may be
+> better. (Probably not, since they're exported via EXPORT_SYMBOL).
 
-Looks like the python library I'm using to parse the DWARF debug info
-doesn't understand some ppc64 specific relocation kind, and is
-throwing an ELFError.  Let me report it upstream.
+Thanks for the explanation. And I agree in the general case this is a
+fine warning.
 
-The hard part for these is inlining; it can be hard to tell which
-child has a large local allocation when looking at the warning about
-the parent.
+However, the functions here should not be forward declared anywhere,
+as they should *only* be emitted by the compiler due to sanitizer
+instrumentation. In the case here it's "-fsanitize=thread". Same thing
+for KASAN with "-fsanitize=kernel-address". Or UBSAN. None of them
+should be forward declared for access by other parts of the kernel
+explicitly. Forward declaring these also doesn't help prevent ABI
+breakage, since it's the compiler generating the calls.
 
-Then again, my script is just nicer output than `llvm-dwarfdump foo.o`
-or `readelf --debug-dump=info foo.o` for this specific issue.
+Let me rephrase my question: what is the idiomatic way to deal with
+the warnings for the sanitizers, where the functions are runtime
+functions only emitted by the compiler due to instrumentation? We can
+add forward declarations 1 line above where they are defined, just for
+the sake of shutting up the warning specifically for these functions.
+I can send a patch if that's what we want.
 
--- 
 Thanks,
-~Nick Desaulniers
+-- Marco
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmE_59v6-W%2BSk8SGrrXJ4dx5ANWEpD5GL_hrw0ja0w1kg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANpmjNPw55fDqXn0V%3DjAUaV4RGnPTN3pCHvkUzWvP_QDeF7VOA%40mail.gmail.com.
