@@ -1,122 +1,121 @@
-Return-Path: <clang-built-linux+bncBAABBYUW433AKGQEVSFAPQI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC7OBJGL2MHBBO4E5D3AKGQE2E4VUQY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x938.google.com (mail-ua1-x938.google.com [IPv6:2607:f8b0:4864:20::938])
-	by mail.lfdr.de (Postfix) with ESMTPS id B2CB81EEE92
-	for <lists+clang-built-linux@lfdr.de>; Fri,  5 Jun 2020 02:01:39 +0200 (CEST)
-Received: by mail-ua1-x938.google.com with SMTP id u10sf2561925uad.8
-        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Jun 2020 17:01:39 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591315298; cv=pass;
+Received: from mail-yb1-xb3d.google.com (mail-yb1-xb3d.google.com [IPv6:2607:f8b0:4864:20::b3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 04CC21EF30F
+	for <lists+clang-built-linux@lfdr.de>; Fri,  5 Jun 2020 10:28:45 +0200 (CEST)
+Received: by mail-yb1-xb3d.google.com with SMTP id k186sf10897434ybc.19
+        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Jun 2020 01:28:44 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591345723; cv=pass;
         d=google.com; s=arc-20160816;
-        b=L4TrbgKcoo2H5MAKgs8Ehh7t6zYARFC4vddFOs9F0T/4KR8ddjCQ6+sVZ5WPcQFOdO
-         JB13CaXOL6cKJGdzg1Yy7v7GZPvv+WLC6PYwEozr4MxtPNylJ9TPYQpwnQGHoNRuGb1B
-         aB6hrMpTcLvVWgHXMCJHB8zPI86QAk92Wu/wwVBObi11N1ZH/65EknZFYuJf3DVg7MEq
-         hJcDeEh2JpqIeWdXZ8TMiPMfpqH2sUosJZFXZk//A1s+QF0GTbop0Jz5ZnAXoWftKCw0
-         xrdOQr09/oH9FRViVP1Rds1dg5MKI00as/X5sdl1X02q2QcaJMdTA8Av/CBA+/02Y3XR
-         fejQ==
+        b=foj8pIFnDsrhy+Jk++P/eHPfJOQgEtJG1x6swGozxriCiJN1yGZfgSDgr3DTxfW4kd
+         yJFwqfy/YRdhve8epBhHZjWKTEjwIHsV8wAvWgnxRmWVBaLzuG7OQYhLm2T6Wvb86Axm
+         LNGFbiKo5EP5AjOyOEByQh/MguTQ6zFCFt6ruAEnpEcrBwZtTj+dQsJbIke/uxldfZ/i
+         TZK4YOpJgiyqDFc5l8s7VWrgi/AGvofbD2JIK8n0G9pa4B9WXoFsS4rzUX3xeEd3nDVF
+         A2OhXIRvpeaS5E0uL246yi2ZPI3Rh8Jo5OJZ+jlGO/lHbeC2p6jVNcYebPQ1G4guI1PC
+         MP3Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
-         :dkim-filter:mime-version:sender:dkim-signature;
-        bh=5vtc21FlKUx0gMpr8Fbdyf8U4ubLc+tFve5S4Ajsszc=;
-        b=eXOZkAOtDJGFNgfjWmQ9eSBR5ZMPusm4yBkdbnoRyB1gtGBGTiRaW9JCywwaaa4WCA
-         vudsbbDE1TE17EqnyBU/OkP0dmeL+28+Yzfvxh5vr6pqjIV2MQ8/ED1t/pfYEVt7EpOR
-         vzownUuTipYkm5kHCzj7ZCRmGLJemYF2xktGzilnv5dtrsdwbdsdYl51bDub2YA4ogRA
-         iv35EJl1z+hG4q4RdN3r9/HYlI1GD2OYyyE1RcaWMRhQkLb7l3ISuQSEa0YBtUvJpIBk
-         RXy/OS4d4jILKsa637vGYH59BWZd68PqjXFOf1E8V1kLgGuqsznBodLtWKgg/sQbCtDn
-         nToA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :mime-version:message-id:date:dkim-signature;
+        bh=qe5frytcO7rxoas01GIRAU7B5t0ETGlECFY/I4t2gl0=;
+        b=w+Prwl1k1emBKC855fConUmUtuoQmShMNAy739UWZd39RgiFbUaLlj6TzYry9sz81t
+         s4vGnWWyUBBwGawOpXYvihHfw+dzxs4AiNWS7Hajn6jYt63apv+M/Tvjc4Skcie60BDq
+         TimZTsZPfJDWznS9nSaJs74GymYYs90bkM07FKIlcp2eq6gBc6wtRhPxKQsLEjaM18RG
+         oq1l1MO54uUXLytKZYdbAyQKVPSZ3fdfEtXLHVSu4rmelxXpvr2UvZgjNldVvQ9cIPiH
+         eWSqV4HzO8rmWkVwplxkkciDw9jsj6QDU9cOy8IbtNYxhJcxNvPeJ69LhQWANbTfCrxJ
+         dZkA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linux.microsoft.com header.s=default header.b=fsyQpS9Y;
-       spf=pass (google.com: domain of vijayb@linux.microsoft.com designates 13.77.154.182 as permitted sender) smtp.mailfrom=vijayb@linux.microsoft.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linux.microsoft.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=NRNhyOkZ;
+       spf=pass (google.com: domain of 3oglaxgukeamhoyhujrrjoh.frpfodqj-exlow-olqxajrrjohjurxsv.frp@flex--elver.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3OgLaXgUKEaMHOYHUJRRJOH.FRPFODQJ-EXLOW-OLQXaJRRJOHJURXSV.FRP@flex--elver.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:dkim-filter:from:to:cc:subject:date:message-id
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=5vtc21FlKUx0gMpr8Fbdyf8U4ubLc+tFve5S4Ajsszc=;
-        b=LRmRqgb+Xir4OLgHjblAV6P/RACG6e5888BuU6j0hGaiF0TY2Qe5KYpWMNepd6UzRc
-         PKdw9fAMoHOB1y2AEs+RlDeUAqMUtA5FF4VrVP176ylH9p6AvhlXGWFwM7DJM3e6Jr/k
-         ybn+PkrCnvIoxmyPkrfA7DmGogYdfYayiNFXk+jJFT40sximrLZDPkcqLKQQF/aRkGH6
-         rMOqtfNdqUWY0iXjcnXi3M14rVqXQHdGS8FeSoFG6cCE9TCwtk1zQBgLzkEifR5cfFVG
-         TmoTB1tILBbsX1XpSnFvY6LxQNGxYAxE2hlY3TYOLi+pt70XLwuSBn+Ipy/g2qfUkAvX
-         ItJA==
+        h=date:message-id:mime-version:subject:from:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=qe5frytcO7rxoas01GIRAU7B5t0ETGlECFY/I4t2gl0=;
+        b=BCEGJGC0Ekn78AyINJNMH8exRomAG1uwNsxue9mQ49oRwDt3E3JR5FMGCf3UM1Uaw3
+         xWCOqdxePbu2wnffJ/DmN6QYY+PWAD3c4ZmRQyDK7uwfUwcA0dkooQp4xK8OW1pMrmVR
+         HcjMmV/wYjI2JclQvSYn/5kcqMDGOeab/cu1qYQcp6QT/fKFlQ6S4ZX5ybiGsJJvuXqm
+         eEfEdRPLUpY6Hwh4b5x7MetIluVg3x43s4lB08vJqUmTbL28Rqq5uFyI2nnHUPVxmguS
+         4KLvf29DQf72QyTFhePBrVkRlbrSvgdmsRxZznEOM5LbvK4dP2hcSRD0bhqVPcM91MxR
+         gfdQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:dkim-filter:from:to:cc
-         :subject:date:message-id:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=5vtc21FlKUx0gMpr8Fbdyf8U4ubLc+tFve5S4Ajsszc=;
-        b=ZUSUrHmBOt/+FRI7Vhw4tOOWNTWIU+7zOljwKWf9loR4CFHcfVmYWPRX6g/VhFxiII
-         EkHvPHMOOTa9oklRm2eCDza8UvEoVkZe965LbNPtrC+SOHYFUXBcfPrMW9PVTjZ4yGyB
-         pjBwEb6vTXzhjq6YMB8LT5hFUsVGD9oVMMBBnSLz6o5CeQbjRXv3Zh6KRUFoOXv8YeqF
-         aEoy1tb3z03Z9siV+A4XqpcBfimU1aUw1QovQd1g0glT4ZX1Zb1E0K8PgZ90xhbZhEr6
-         ifrL1wv4kGjLu2+wlQpm0X41e2oXl7SD4npChR1e39+ZHEvqg6wfjOhauI7JLvyFVrQR
-         1FfA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5334jjDvMoqhTeDKeOTJVMfKZDGZ9WunUx5hwIdDviTm0XF91FQM
-	Lcfl1ESCHq4UUzkfKYoh5RY=
-X-Google-Smtp-Source: ABdhPJzaFL5tjTEKjcqy+mVoGbPis/nYBqXRsaDmY7Np1u/X3smDgGDkYzaS6E/K4aavKOpyra/96g==
-X-Received: by 2002:a67:2fc9:: with SMTP id v192mr5267062vsv.151.1591315298311;
-        Thu, 04 Jun 2020 17:01:38 -0700 (PDT)
-MIME-Version: 1.0
+        h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=qe5frytcO7rxoas01GIRAU7B5t0ETGlECFY/I4t2gl0=;
+        b=Ae3RPCsioLi7U7tvA1UN+UKdk9urQ98oeyDlnR2ttZeSj/p3rq1DByrsoOTOmmH0TE
+         zplu268gNGWWJfVZbuJIVEBgRY0wgIsR62ZGzPaz0cMcka+/iLvRoaYJHZf88x5p0KoG
+         B7bycA6g/YYJZC/3XLIBlIMBVoEpyu32u/JIUf2mKvsp7ww9iDds4HdOSOmDGAPgNUzR
+         EMvQcTrqVl0UBvTGCgmdeGdTDbpJQswVj1+wDJ/ONy/HVFoTPB2WYrO2S2euE85ihm+e
+         m50p5wH4J2dNqtSt6wEIlVzS1GMAW/Rciuu8EfLHzsrQ2ZMxC+ZvNPzuPGQCW8e+JxMO
+         iktQ==
+X-Gm-Message-State: AOAM531ZnpynCws3h01lXr2w0YUxpd9oOkTdN2aROZJB8m0B8UiHiIko
+	FbNCMo01inP/z5k5xjYnXQ0=
+X-Google-Smtp-Source: ABdhPJzLddgbjaqorJWD4FLmmqJr8JWWRbwjXxMDXzN0cFa74a/juF5Jl9lFf25APEdR9I5SDKmVAg==
+X-Received: by 2002:a5b:408:: with SMTP id m8mr14091351ybp.315.1591345723749;
+        Fri, 05 Jun 2020 01:28:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:6e47:: with SMTP id j68ls913561vsc.1.gmail; Thu, 04 Jun
- 2020 17:01:38 -0700 (PDT)
-X-Received: by 2002:a05:6102:22ca:: with SMTP id a10mr5171668vsh.152.1591315298009;
-        Thu, 04 Jun 2020 17:01:38 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591315298; cv=none;
+Received: by 2002:a25:4192:: with SMTP id o140ls2913699yba.9.gmail; Fri, 05
+ Jun 2020 01:28:43 -0700 (PDT)
+X-Received: by 2002:a25:23d6:: with SMTP id j205mr14781600ybj.60.1591345723333;
+        Fri, 05 Jun 2020 01:28:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591345723; cv=none;
         d=google.com; s=arc-20160816;
-        b=or53QiPTfsNIshdB/ZA0Vx2Hx1aGYRx5jRd9dSZ7A/A+HMS8waoUJkCF2v0omV7KDd
-         9L+xvhBaeIQmebXYAxWQ50P7hHA+a0O2HUHzujll+/3CkCCrT4dNbXFiwuRp2RXFTImp
-         gvG7/+RWRxVU2fzAIdXnTlZzORnN4j5cnp2UCSJWqhQuKR/beOL0D5IDT/v8FkBzOc0b
-         ehICYFmPFLfneAg1+5hN/LuAJcZQ7/Cge9cTnPimZlwVQ1RG4wkbLM7RmffdN4dr+3OK
-         XyHGzj+4B4syNlv7mHNCj1zjP7UEBqV7DLX3vh2+yNYsmn+P+wMz+8bd5XvxPKDYVJbg
-         1lKA==
+        b=maVxDqP/Un8FvL7zuYKtx3mlx8uVbQUqmDNQEJhPsPXS0XdT//spbm5CPN2L9h3bTU
+         YISVTZRF0yW88/3D/EegLGu0AI1i8MP2aJdgR1yTlL7fxtdMcrHcrx/4WWX4JTWjB5Sm
+         wV55JXkkr2sOi2uMTnNXAnvHJTI9rhVcaX/UXSBzmh/vSt66gEswZyRRhlUj4XKNbwS3
+         HL/Y8NcPPwRpNBGGNn0L4BTv33ayJAdxRveS/205pU7OO7iot+e+LpWW/s4lJfjnY/cn
+         7PZ4xDb9+3ECxCKg1CYX7iL33HIdGQmqAlwKi//EEqxGqW0pUG92urInfLgL5gmlj84N
+         O6vQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:subject:cc:to:from:dkim-signature:dkim-filter;
-        bh=9JL8mvQwy+Q0hLJa7h0p6p7R2yQdcRE5qvZum3vex+Y=;
-        b=xLeKs5cgSRSNQ8wv7FgmM0DalbjtR2iIS2Cvw6zgtBPJwL0wII2A1XIqSfwu4spiUh
-         l/ZtzWnDPy4isF4FYtbqrPf6Nwh2WiWB1Flc6VFYh9Yssj7aYs6k2dzQdasEHJlGJ8Je
-         p+HQCrsNZtDhxoouda1no+wzJHaAAya6C0JHkFpMxFu7KCH2FVRI39q6PGN+PpDJLcBi
-         6oV7VuNdeKaVJ062YHrGUiil5nOVGZuyKuu17nT7nXTbblbsXFa/MwAHAQ3V+OYrXP3U
-         J/Eutdu8wM7jqwKh0UpCBVQskfeNE6LG+MckZ2QrMpc4ECEzwHwyKpoA5DX2cj9taOAR
-         cLYA==
+        h=cc:to:from:subject:mime-version:message-id:date:dkim-signature;
+        bh=q4xtHULh8K3VSLAHr6h+7DTr9q0n8BVN7sADFLbNyog=;
+        b=Yczdc3U45HyGFftodMfpICYd/zCvTi6v5zO9wQEB9uc4CFGk2eKZSFbO4KpvkARo7f
+         QjlHyIA5I4XaEeHwQGYTzI0fhDXK4LYO5TyQl5+4NwP3PQUyKmQ6x1lVhgYrios2Kzre
+         N3RmMSmM6mSJRik4Oyq/31XpbyGo3GuST81Cwz2xGJLUHGcQicGHoXqymPxJR1jCZfdm
+         Ba2KDgPU46cTtlfB0/Yz0I7ILt998nmey0VxW8ZBzDLslDbH66GYBRuMp02qMLjmr8Ot
+         HboHR8MkplkJdUr9b0uWf3iHYmxX+da8GMUNDPcvdT/Wpe34UTmVG/AAFUw5mK/lTp4/
+         HC2w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linux.microsoft.com header.s=default header.b=fsyQpS9Y;
-       spf=pass (google.com: domain of vijayb@linux.microsoft.com designates 13.77.154.182 as permitted sender) smtp.mailfrom=vijayb@linux.microsoft.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linux.microsoft.com
-Received: from linux.microsoft.com (linux.microsoft.com. [13.77.154.182])
-        by gmr-mx.google.com with ESMTP id t9si436019vkb.1.2020.06.04.17.01.37
-        for <clang-built-linux@googlegroups.com>;
-        Thu, 04 Jun 2020 17:01:37 -0700 (PDT)
-Received-SPF: pass (google.com: domain of vijayb@linux.microsoft.com designates 13.77.154.182 as permitted sender) client-ip=13.77.154.182;
-Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 1825120B7185;
-	Thu,  4 Jun 2020 17:01:37 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 1825120B7185
-From: Vijay Balakrishna <vijayb@linux.microsoft.com>
-To: Dave Young <dyoung@redhat.com>,
-	Baoquan He <bhe@redhat.com>
-Cc: Vivek Goyal <vgoyal@redhat.com>,
-	kexec@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Tyler Hicks <tyhicks@linux.microsoft.com>
-Subject: [PATCH][RFC] kdump: append kernel build-id string to VMCOREINFO
-Date: Thu,  4 Jun 2020 17:01:31 -0700
-Message-Id: <1591315291-66957-1-git-send-email-vijayb@linux.microsoft.com>
-X-Mailer: git-send-email 1.8.3.1
-X-Original-Sender: vijayb@linux.microsoft.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linux.microsoft.com header.s=default header.b=fsyQpS9Y;
-       spf=pass (google.com: domain of vijayb@linux.microsoft.com designates
- 13.77.154.182 as permitted sender) smtp.mailfrom=vijayb@linux.microsoft.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linux.microsoft.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=NRNhyOkZ;
+       spf=pass (google.com: domain of 3oglaxgukeamhoyhujrrjoh.frpfodqj-exlow-olqxajrrjohjurxsv.frp@flex--elver.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3OgLaXgUKEaMHOYHUJRRJOH.FRPFODQJ-EXLOW-OLQXaJRRJOHJURXSV.FRP@flex--elver.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-yb1-xb4a.google.com (mail-yb1-xb4a.google.com. [2607:f8b0:4864:20::b4a])
+        by gmr-mx.google.com with ESMTPS id k11si528659ybb.4.2020.06.05.01.28.43
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 05 Jun 2020 01:28:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3oglaxgukeamhoyhujrrjoh.frpfodqj-exlow-olqxajrrjohjurxsv.frp@flex--elver.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) client-ip=2607:f8b0:4864:20::b4a;
+Received: by mail-yb1-xb4a.google.com with SMTP id u186so11169979ybf.1
+        for <clang-built-linux@googlegroups.com>; Fri, 05 Jun 2020 01:28:43 -0700 (PDT)
+X-Received: by 2002:a25:b882:: with SMTP id w2mr14553588ybj.160.1591345722977;
+ Fri, 05 Jun 2020 01:28:42 -0700 (PDT)
+Date: Fri,  5 Jun 2020 10:28:38 +0200
+Message-Id: <20200605082839.226418-1-elver@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.27.0.278.ge193c7cf3a9-goog
+Subject: [PATCH -tip v3 1/2] kcov: Make runtime functions noinstr-compatible
+From: "'Marco Elver' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: elver@google.com
+Cc: peterz@infradead.org, bp@alien8.de, tglx@linutronix.de, mingo@kernel.org, 
+	clang-built-linux@googlegroups.com, paulmck@kernel.org, dvyukov@google.com, 
+	glider@google.com, andreyknvl@google.com, kasan-dev@googlegroups.com, 
+	linux-kernel@vger.kernel.org, x86@kernel.org, akpm@linux-foundation.org
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: elver@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=NRNhyOkZ;       spf=pass
+ (google.com: domain of 3oglaxgukeamhoyhujrrjoh.frpfodqj-exlow-olqxajrrjohjurxsv.frp@flex--elver.bounces.google.com
+ designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3OgLaXgUKEaMHOYHUJRRJOH.FRPFODQJ-EXLOW-OLQXaJRRJOHJURXSV.FRP@flex--elver.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Marco Elver <elver@google.com>
+Reply-To: Marco Elver <elver@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,136 +128,214 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Make kernel GNU build-id available in VMCOREINFO.  Having
-build-id in VMCOREINFO facilitates presenting appropriate kernel
-namelist image with debug information file to kernel crash dump
-analysis tools.  Currently VMCOREINFO lacks uniquely identifiable
-key for crash analysis automation.
+While we lack a compiler attribute to add to noinstr that would disable
+KCOV, make the KCOV runtime functions return if the caller is in a
+noinstr section, and mark them noinstr.
 
-Signed-off-by: Vijay Balakrishna <vijayb@linux.microsoft.com>
+Declare write_comp_data() as __always_inline to ensure it is inlined,
+which also reduces stack usage and removes one extra call from the
+fast-path.
+
+In future, our compilers may provide an attribute to implement
+__no_sanitize_coverage, which can then be added to noinstr, and the
+checks added in this patch can be guarded by an #ifdef checking if the
+compiler has such an attribute or not.
+
+Signed-off-by: Marco Elver <elver@google.com>
 ---
-Regarding if this patch is necessary or matching of linux_banner
-and OSRELEASE in VMCOREINFO employed by crash(8) meets the
-need -- IMO, build-id approach more foolproof, in most instances it
-is a cryptographic hash generated using internal code/ELF bits unlike
-kernel version string upon which linux_banner is based that is
-external to the code.  I feel each is intended for a different purpose.
-Also OSRELEASE is not suitable when two different kernel builds
-from same version with different features enabled.
+Applies to -tip only currently, because of the use of instrumentation.h
+markers.
 
-Currently for most linux (and non-linux) systems build-id can be
-extracted using standard methods for file types such as user mode crash
-dumps, shared libraries, loadable kernel modules etc.  This is an
-exception for linux kernel dump.  Having build-id in VMCOREINFO brings
-some uniformity for automation tools.
+v3:
+* Remove objtool hack, and instead properly mark __sanitizer_cov
+  functions as noinstr.
+* Add comment about .entry.text.
 
- include/linux/crash_core.h |  6 +++++
- kernel/crash_core.c        | 50 ++++++++++++++++++++++++++++++++++++++
- 2 files changed, 56 insertions(+)
+v2: https://lkml.kernel.org/r/20200604145635.21565-1-elver@google.com
+* Rewrite based on Peter's and Andrey's feedback -- v1 worked because we
+  got lucky. Let's not rely on luck, as it will be difficult to ensure the
+  same conditions remain true in future.
 
-diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
-index 525510a9f965..6594dbc34a37 100644
---- a/include/linux/crash_core.h
-+++ b/include/linux/crash_core.h
-@@ -38,6 +38,8 @@ phys_addr_t paddr_vmcoreinfo_note(void);
+v1: https://lkml.kernel.org/r/20200604095057.259452-1-elver@google.com
+
+Note: There are a set of KCOV patches from Andrey in -next:
+https://lkml.kernel.org/r/cover.1585233617.git.andreyknvl@google.com --
+Git cleanly merges this patch with those patches, and no merge conflict
+is expected.
+---
+ kernel/kcov.c | 59 +++++++++++++++++++++++++++++++++++++++------------
+ 1 file changed, 45 insertions(+), 14 deletions(-)
+
+diff --git a/kernel/kcov.c b/kernel/kcov.c
+index 8accc9722a81..84cdc30d478e 100644
+--- a/kernel/kcov.c
++++ b/kernel/kcov.c
+@@ -6,6 +6,7 @@
+ #include <linux/compiler.h>
+ #include <linux/errno.h>
+ #include <linux/export.h>
++#include <linux/instrumentation.h>
+ #include <linux/types.h>
+ #include <linux/file.h>
+ #include <linux/fs.h>
+@@ -24,6 +25,7 @@
+ #include <linux/refcount.h>
+ #include <linux/log2.h>
+ #include <asm/setup.h>
++#include <asm/sections.h>
  
- #define VMCOREINFO_OSRELEASE(value) \
- 	vmcoreinfo_append_str("OSRELEASE=%s\n", value)
-+#define VMCOREINFO_BUILD_ID(value) \
-+	vmcoreinfo_append_str("BUILD-ID=%s\n", value)
- #define VMCOREINFO_PAGESIZE(value) \
- 	vmcoreinfo_append_str("PAGESIZE=%ld\n", value)
- #define VMCOREINFO_SYMBOL(name) \
-@@ -64,6 +66,10 @@ extern unsigned char *vmcoreinfo_data;
- extern size_t vmcoreinfo_size;
- extern u32 *vmcoreinfo_note;
+ #define kcov_debug(fmt, ...) pr_debug("%s: " fmt, __func__, ##__VA_ARGS__)
  
-+/* raw contents of kernel .notes section */
-+extern const void __start_notes __weak;
-+extern const void __stop_notes __weak;
-+
- Elf_Word *append_elf_note(Elf_Word *buf, char *name, unsigned int type,
- 			  void *data, size_t data_len);
- void final_note(Elf_Word *buf);
-diff --git a/kernel/crash_core.c b/kernel/crash_core.c
-index 9f1557b98468..c094db478803 100644
---- a/kernel/crash_core.c
-+++ b/kernel/crash_core.c
-@@ -11,6 +11,8 @@
- #include <asm/page.h>
- #include <asm/sections.h>
- 
-+#include <crypto/sha.h>
-+
- /* vmcoreinfo stuff */
- unsigned char *vmcoreinfo_data;
- size_t vmcoreinfo_size;
-@@ -376,6 +378,53 @@ phys_addr_t __weak paddr_vmcoreinfo_note(void)
+@@ -172,20 +174,38 @@ static notrace unsigned long canonicalize_ip(unsigned long ip)
+ 	return ip;
  }
- EXPORT_SYMBOL(paddr_vmcoreinfo_note);
  
-+#define NOTES_SIZE (&__stop_notes - &__start_notes)
-+#define BUILD_ID_MAX SHA1_DIGEST_SIZE
-+#define NT_GNU_BUILD_ID 3
-+
-+struct elf_note_section {
-+	struct elf_note	n_hdr;
-+	u8 n_data[];
-+};
-+
-+/*
-+ * Add build ID from .notes section as generated by the GNU ld(1)
-+ * or LLVM lld(1) --build-id option.
-+ */
-+static void add_build_id_vmcoreinfo(void)
++/* Return true if @ip is within a noinstr section. */
++static __always_inline bool within_noinstr_section(unsigned long ip)
 +{
-+	char build_id[BUILD_ID_MAX * 2 + 1];
-+	int n_remain = NOTES_SIZE;
-+
-+	while (n_remain >= sizeof(struct elf_note)) {
-+		const struct elf_note_section *g_build_id =
-+			&__start_notes + NOTES_SIZE - n_remain;
-+		const u32 n_namesz = g_build_id->n_hdr.n_namesz;
-+
-+		if (g_build_id->n_hdr.n_type == NT_GNU_BUILD_ID &&
-+		    n_namesz != 0 &&
-+		    !strcmp((char *)&g_build_id->n_data[0], "GNU")) {
-+			if (g_build_id->n_hdr.n_descsz <= BUILD_ID_MAX) {
-+				const u32 n_descsz = g_build_id->n_hdr.n_descsz;
-+				const u8 *s = &g_build_id->n_data[n_namesz];
-+
-+				s = PTR_ALIGN(s, 4);
-+				bin2hex(build_id, s, n_descsz);
-+				build_id[2 * n_descsz] = '\0';
-+				VMCOREINFO_BUILD_ID(build_id);
-+				return;
-+			}
-+			pr_warn("Build ID is too large to include in vmcoreinfo: %lu > %lu\n",
-+				g_build_id->n_hdr.n_descsz,
-+				BUILD_ID_MAX);
-+			return;
-+		}
-+		n_remain -= sizeof(struct elf_note) +
-+			ALIGN(g_build_id->n_hdr.n_namesz, 4) +
-+			ALIGN(g_build_id->n_hdr.n_descsz, 4);
-+	}
++	/*
++	 * Note: .entry.text is also considered noinstr, but for now, since all
++	 * .entry.text code lives in .S files, these are never instrumented.
++	 */
++	return (unsigned long)__noinstr_text_start <= ip &&
++	       ip < (unsigned long)__noinstr_text_end;
 +}
 +
- static int __init crash_save_vmcoreinfo_init(void)
+ /*
+  * Entry point from instrumented code.
+  * This is called once per basic-block/edge.
+  */
+-void notrace __sanitizer_cov_trace_pc(void)
++void noinstr __sanitizer_cov_trace_pc(void)
  {
- 	vmcoreinfo_data = (unsigned char *)get_zeroed_page(GFP_KERNEL);
-@@ -394,6 +443,7 @@ static int __init crash_save_vmcoreinfo_init(void)
+ 	struct task_struct *t;
+ 	unsigned long *area;
+-	unsigned long ip = canonicalize_ip(_RET_IP_);
++	unsigned long ip;
+ 	unsigned long pos;
+ 
++	if (unlikely(within_noinstr_section(_RET_IP_)))
++		return;
++
++	instrumentation_begin();
++
+ 	t = current;
+ 	if (!check_kcov_mode(KCOV_MODE_TRACE_PC, t))
+-		return;
++		goto out;
++
++	ip = canonicalize_ip(_RET_IP_);
+ 
+ 	area = t->kcov_area;
+ 	/* The first 64-bit word is the number of subsequent PCs. */
+@@ -194,19 +214,27 @@ void notrace __sanitizer_cov_trace_pc(void)
+ 		area[pos] = ip;
+ 		WRITE_ONCE(area[0], pos);
  	}
++
++out:
++	instrumentation_end();
+ }
+ EXPORT_SYMBOL(__sanitizer_cov_trace_pc);
  
- 	VMCOREINFO_OSRELEASE(init_uts_ns.name.release);
-+	add_build_id_vmcoreinfo();
- 	VMCOREINFO_PAGESIZE(PAGE_SIZE);
+ #ifdef CONFIG_KCOV_ENABLE_COMPARISONS
+-static void notrace write_comp_data(u64 type, u64 arg1, u64 arg2, u64 ip)
++static __always_inline void write_comp_data(u64 type, u64 arg1, u64 arg2, u64 ip)
+ {
+ 	struct task_struct *t;
+ 	u64 *area;
+ 	u64 count, start_index, end_pos, max_pos;
  
- 	VMCOREINFO_SYMBOL(init_uts_ns);
++	if (unlikely(within_noinstr_section(ip)))
++		return;
++
++	instrumentation_begin();
++
+ 	t = current;
+ 	if (!check_kcov_mode(KCOV_MODE_TRACE_CMP, t))
+-		return;
++		goto out;
+ 
+ 	ip = canonicalize_ip(ip);
+ 
+@@ -229,61 +257,64 @@ static void notrace write_comp_data(u64 type, u64 arg1, u64 arg2, u64 ip)
+ 		area[start_index + 3] = ip;
+ 		WRITE_ONCE(area[0], count + 1);
+ 	}
++
++out:
++	instrumentation_end();
+ }
+ 
+-void notrace __sanitizer_cov_trace_cmp1(u8 arg1, u8 arg2)
++void noinstr __sanitizer_cov_trace_cmp1(u8 arg1, u8 arg2)
+ {
+ 	write_comp_data(KCOV_CMP_SIZE(0), arg1, arg2, _RET_IP_);
+ }
+ EXPORT_SYMBOL(__sanitizer_cov_trace_cmp1);
+ 
+-void notrace __sanitizer_cov_trace_cmp2(u16 arg1, u16 arg2)
++void noinstr __sanitizer_cov_trace_cmp2(u16 arg1, u16 arg2)
+ {
+ 	write_comp_data(KCOV_CMP_SIZE(1), arg1, arg2, _RET_IP_);
+ }
+ EXPORT_SYMBOL(__sanitizer_cov_trace_cmp2);
+ 
+-void notrace __sanitizer_cov_trace_cmp4(u32 arg1, u32 arg2)
++void noinstr __sanitizer_cov_trace_cmp4(u32 arg1, u32 arg2)
+ {
+ 	write_comp_data(KCOV_CMP_SIZE(2), arg1, arg2, _RET_IP_);
+ }
+ EXPORT_SYMBOL(__sanitizer_cov_trace_cmp4);
+ 
+-void notrace __sanitizer_cov_trace_cmp8(u64 arg1, u64 arg2)
++void noinstr __sanitizer_cov_trace_cmp8(u64 arg1, u64 arg2)
+ {
+ 	write_comp_data(KCOV_CMP_SIZE(3), arg1, arg2, _RET_IP_);
+ }
+ EXPORT_SYMBOL(__sanitizer_cov_trace_cmp8);
+ 
+-void notrace __sanitizer_cov_trace_const_cmp1(u8 arg1, u8 arg2)
++void noinstr __sanitizer_cov_trace_const_cmp1(u8 arg1, u8 arg2)
+ {
+ 	write_comp_data(KCOV_CMP_SIZE(0) | KCOV_CMP_CONST, arg1, arg2,
+ 			_RET_IP_);
+ }
+ EXPORT_SYMBOL(__sanitizer_cov_trace_const_cmp1);
+ 
+-void notrace __sanitizer_cov_trace_const_cmp2(u16 arg1, u16 arg2)
++void noinstr __sanitizer_cov_trace_const_cmp2(u16 arg1, u16 arg2)
+ {
+ 	write_comp_data(KCOV_CMP_SIZE(1) | KCOV_CMP_CONST, arg1, arg2,
+ 			_RET_IP_);
+ }
+ EXPORT_SYMBOL(__sanitizer_cov_trace_const_cmp2);
+ 
+-void notrace __sanitizer_cov_trace_const_cmp4(u32 arg1, u32 arg2)
++void noinstr __sanitizer_cov_trace_const_cmp4(u32 arg1, u32 arg2)
+ {
+ 	write_comp_data(KCOV_CMP_SIZE(2) | KCOV_CMP_CONST, arg1, arg2,
+ 			_RET_IP_);
+ }
+ EXPORT_SYMBOL(__sanitizer_cov_trace_const_cmp4);
+ 
+-void notrace __sanitizer_cov_trace_const_cmp8(u64 arg1, u64 arg2)
++void noinstr __sanitizer_cov_trace_const_cmp8(u64 arg1, u64 arg2)
+ {
+ 	write_comp_data(KCOV_CMP_SIZE(3) | KCOV_CMP_CONST, arg1, arg2,
+ 			_RET_IP_);
+ }
+ EXPORT_SYMBOL(__sanitizer_cov_trace_const_cmp8);
+ 
+-void notrace __sanitizer_cov_trace_switch(u64 val, u64 *cases)
++void noinstr __sanitizer_cov_trace_switch(u64 val, u64 *cases)
+ {
+ 	u64 i;
+ 	u64 count = cases[0];
 -- 
-2.26.2
+2.27.0.278.ge193c7cf3a9-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1591315291-66957-1-git-send-email-vijayb%40linux.microsoft.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200605082839.226418-1-elver%40google.com.
