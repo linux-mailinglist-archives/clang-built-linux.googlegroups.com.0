@@ -1,123 +1,129 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB3FS5L3AKGQEDR3X4BI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBKV45L3AKGQE5OP2T2I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13f.google.com (mail-il1-x13f.google.com [IPv6:2607:f8b0:4864:20::13f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4A0941F004D
-	for <lists+clang-built-linux@lfdr.de>; Fri,  5 Jun 2020 21:13:49 +0200 (CEST)
-Received: by mail-il1-x13f.google.com with SMTP id c29sf7068888ilf.20
-        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Jun 2020 12:13:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591384428; cv=pass;
+Received: from mail-ot1-x337.google.com (mail-ot1-x337.google.com [IPv6:2607:f8b0:4864:20::337])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9D2DE1F0070
+	for <lists+clang-built-linux@lfdr.de>; Fri,  5 Jun 2020 21:34:03 +0200 (CEST)
+Received: by mail-ot1-x337.google.com with SMTP id f21sf5188836otq.6
+        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Jun 2020 12:34:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591385642; cv=pass;
         d=google.com; s=arc-20160816;
-        b=VFwjJOaJUiZOvk4qh4bOpjtZ7rMiTAVMHQMFChilWfUFkZ0NX8V9/0tcOccfwHcb+l
-         xP4mWRIR9mLiaCqXM20WA63/medDzkpyFfiah6xRLqifGkdbz+McE8jrxgdrIxuf1OZp
-         NyxOaqM+my/FtywefzRcCNU7nLkBI/2zJdHNgpUmzQxzlW5hgq+z7qXJViHyPNo7PleZ
-         ASgu7bfqkJ0wrQIDpyh9otgvQhF7bZKH6iwoMwG40wRTzK7NCZ62NcJ6fKYGBV499m2n
-         8F8zR2znz62qmVEUCncRIuHHBFS/50qHQHMV8fhz+3+GLfZ5EopMfRrZyXjpWwqwiKjP
-         t05A==
+        b=k61RRJ/fDh9WJdfkXpTq/7YWAOFM9Y+Z2uDyZ609XPKKKIG7lChKWj4jU811eJ8h9i
+         uAo341qmBCwp3gPwVzVXwPnrWY1aokSrOUlHh5HQ4kqaOiLb3LWvNeU9Ml6HYIVfh3mf
+         8yCwJq5BttnQWRkDJZIGjPSl9ceG+Lj5bjsHBu4ZxAmpTIB2z2bg4XGre06+29mMJ/R2
+         RGQ25PTqPuRfUBKqpy6Yy8HRbANwCA9VKW26AREJmXcxnUBDVcu6pminK2X8wlnR1sjm
+         caBMU3iVAAgIIxcpko3bxjQdwk+2efnFhy5ncop7L3GcntioGzr7Gl8u0DrJY23XUoXE
+         zUbg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=uHRJsredUTQyoQxK4ai5MwXC2uDUdW/oBd9kd9AgN0I=;
-        b=wEHcEfDKHyklaCoZ+tvXl1d8pYmrZjchuBzN46iUZJhjzj3CzvfGQgBCE3jXjTXDO2
-         AInba+oZgbtYXFQVfjQgv2M3mkMMbaJk9XVATQwhmmu8KXPIUeIjxvdhaPfyu7B42OAh
-         FFrQyGAKMlgnloTuQ7c2zJ9QA4hatwd+WRLL7fwRyRs037AaupledVnP5BrovJPa//h9
-         zq2v8hxd5B/VIJbmjn0VepkyEvHudHlklEF0SeMt5bOr656PT3rRiH8Ql3oEpf+QU/9g
-         nGE88tvEOJn0YCvhx/4FTWTws60tk1OILIUYcGRx0owY+GX69QChAu2eaRBwPBQlDxC0
-         P75A==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=13wau4xTns0qaqsfE7JFQzQYbz2/55KofBRLsg1uebs=;
+        b=wz/WkZ6MvHCl7kIA6l3/4y6oFruK18YTUzWTvSUQhwA3LB/ChaQmcEsqyyv0GhQL4c
+         CsIkDAic0Wjv84oo+OIkKx1PMW4fOaUgluViOy3J1xKyX4hI/fYbi4MuHAY58UGo8EG/
+         LQvqD/6l29BIS3qskbpfWFh521fL+IewtFNh9yvTcL1NODP3QBBNpdSaLrQbTSey8xP0
+         JcYlpr9wBJREWPW8GL0IyllxIwtrZYhddB8o8PHievDt70jhoAwF96XQnEP23P5E4Sbr
+         t5X342qBgstW+4DYStNathE2rIWoaKGlXXn7L4CjSCAAESRKXr7ET2mP2EkCX3QPbppD
+         6GWw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=o4DGytFB;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=default header.b=Zxv98AJq;
+       spf=pass (google.com: domain of ebiggers@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ebiggers@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=uHRJsredUTQyoQxK4ai5MwXC2uDUdW/oBd9kd9AgN0I=;
-        b=hGecGva0LWo5Gg6VCj0/5tuYKSUqWTctUcdFcvNKb7643N5bDfjmtQadcix/jCGCX5
-         MAdndJPv1URORoTG0fuh1LI96jLbcSZwqMD0vltJNzSAd/r/Vkd4EGXSrPFO4zG1Bjiw
-         BBjXGYfLFjs5uqC/ajXy9mCvJzkyZjt24KZr6/TFE0ibIZ+kD2qt9NqDqnYVt62zYW5X
-         smBJIUNS+unpfDnGufYzmWxm6Aw9CzhhdxCyGTgJz+7lt+xc+s7l92uwDjEqJPE5nFUm
-         e98qJwR7QFTkYH/QxR2ZZCAL/Xh+DehLUZa3Fm9MkTXdgBuwbtbP5IvAS7NA7/6SBrgb
-         5MHA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=13wau4xTns0qaqsfE7JFQzQYbz2/55KofBRLsg1uebs=;
+        b=TfhFha2Jx1vG1xj2wMmIzwiWPp7lf7RcI1eEPewpS3ayCfTyQSaHdso7Fzo4RbdPYL
+         hoBsPupNQAWnKgNXHmqdFQryNZeFgyiS6qhOQc4RKlP/VnV8Sx9/SSiO0z3Fm6vgGBZh
+         6zWMC4pb3CKI+vVGtfrkmAmR8fuSZ3KFkQAzCAoMdx8YqWtrvNcwXQ+hFItxMUZJUAHW
+         b6cPTtcivsHMfhtXN/lgJxg4OTr9Am/w9E0yMQ51/jrff4pWmTGsQpGQGWX0wDHS/5W4
+         /weRU/l2hcm5V0p8PYw273OF2hs2VSpPpRfjUhzLGTYyB2YixrGqcoUjZeabJhgoJO/X
+         Rn/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=uHRJsredUTQyoQxK4ai5MwXC2uDUdW/oBd9kd9AgN0I=;
-        b=tlF3/TjQ68T0eCFFEya9hw08F4t3eXDXXyeAIYYiM7LMU1br4KU6843sg6EA43YA2T
-         mCS5an/DNk0PLd757/Ce6UD/DnNj2Ac6VLFyj48k6qPD94eretMsxWUGAmf8u53jdhUO
-         kAEJhxwaRbGXJYjlqu+v7DVJEHccxPZbiCYi2uvKCqLU2pjF7xOYk26Q5jUq0JHnHJn2
-         fo3TwdGNfApLZtWgZi+ycPPSXP/XJbaUW2outk1WI/M65U1RLbr1BxQSz64y25+1ub69
-         cGhsE0smJHHrLUYuYlXxhPLbk/BxRq/hG/7cGZgsKTImRHWCGo7WIySZtklvZBGk71gV
-         EaSQ==
-X-Gm-Message-State: AOAM5305G6zAC/H6PzFbpRnF72ecsaSdVhTVAoTFj+GKMnMdryQ1X0gt
-	3Vp71oCzYBnQyq3jxh2EH00=
-X-Google-Smtp-Source: ABdhPJw7rfSXEzEu/NVmWqEDZjI6oZA8Pvpoq1FB0SsZcMjCeU6Sa7wJO9Z4BiPxQgL5grH8K/fm3w==
-X-Received: by 2002:a02:390b:: with SMTP id l11mr10032911jaa.54.1591384428255;
-        Fri, 05 Jun 2020 12:13:48 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=13wau4xTns0qaqsfE7JFQzQYbz2/55KofBRLsg1uebs=;
+        b=JdDDPRd9Xuum73uTtSeJvT2OjT6dbxoIWRZtCr226IPxJHy6Hn6O1kuCtWMYdpRKUp
+         iDOFpKcUUlO8JG3htLW3fqR0WD5HuO7gMy8khouDcF6RqEPdcDIVQyE/O0EpeDJBOwjl
+         6ONU4PEmsuoREaswUQ5NH4zjOMxU0S0JBtGc8JXgyID06ky976hq8/OTUHW2h8Cilmi+
+         p2meoJVX6Rrg6WlKsZ3fG9t0qlvfXxCIdWqONAPXpPpgwda+NlmNT/r24vWz9ETWe121
+         n9f3u9RiQ1CAkaCE9T1U4dxOAsLFyqkC6c1kGfzuLll/Lr54OD9ixktEWO0+yCRoSqip
+         lhSQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530Ek6ADkbd30rWhMm+KmI01tyLLKW8Nz9xLaZAg8b/z6suUlP3q
+	nEZaRBOGSVRuCCdAfzjlhVc=
+X-Google-Smtp-Source: ABdhPJyLiKahXHahpuFfT5lqwXiTraaatdGSg2sgit9JOhYxSB4G3gnr3k1bIAn+qxFfBncj4Op3eQ==
+X-Received: by 2002:aca:8d1:: with SMTP id 200mr3045309oii.174.1591385642470;
+        Fri, 05 Jun 2020 12:34:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:5b11:: with SMTP id p17ls2729997ilb.0.gmail; Fri, 05 Jun
- 2020 12:13:47 -0700 (PDT)
-X-Received: by 2002:a92:cc8e:: with SMTP id x14mr9672815ilo.152.1591384427785;
-        Fri, 05 Jun 2020 12:13:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591384427; cv=none;
+Received: by 2002:aca:d656:: with SMTP id n83ls1997845oig.0.gmail; Fri, 05 Jun
+ 2020 12:34:02 -0700 (PDT)
+X-Received: by 2002:aca:4b4f:: with SMTP id y76mr3059020oia.34.1591385642131;
+        Fri, 05 Jun 2020 12:34:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591385642; cv=none;
         d=google.com; s=arc-20160816;
-        b=fZsSnjJiEvQAwQ+jnIgclA7RwagU8Kn00uc7H1xY4ZJ5pMiA3g+AFSALP5NDszSEVg
-         NRrEokKW3JpjbBNAMJp2y0CE44KDN63meHkKqTfAGPqIRVYLsZhlRL9A3H8EVWbwQChl
-         gHPw7U5ZVOhlngHdsiy8Z5GdGQ0X+Vi8LPJwezXI1F7k4Lip0m7/nD2GU3LVLDW5VyMx
-         w/9oGbjdWHfXiBlLHv2qNyqi5k5zDfKWVUf1DY/hQerYc2NZ9L+6M3aX1IFmG1/eyucx
-         S4Hp66h0p4cwCHSmI+Ho5gtk73Jh5q1ehyGa6lktexGyf41WPwusjgO+zZXYduZ/6xnG
-         hgZA==
+        b=PBkjdvSxcucbL6XLtKZIPuqeBxE0oTlaAGUinz1lobjsv+SjY9ZD+dqOwPAvkKJLKw
+         /n1mvXmi1lBAKOVi0Fim9k5DT3BnXiagQmKK2fX3Xw20s9Mju/LqcZN4eszGjZKdlcn4
+         f6lNEjRjO+yMBBsSQ1yvv6Hy3wmw9AzRQqPCvPjTNXQepuVFCE2eDDdWCf7PmOisji/u
+         YnRvVsuGaqRwD593TuiE6u2FCYBADtCvASOuZJ2Dlrur5AsyNzp8rCjSfx8FxHJDbpEA
+         tON6AqB8joSapDvL5FDpJSfq3HNVqusIKBFztkZst8lE2GHk9fq9GvCqGqE8sX/K8vWb
+         KIdw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=6WHiUyOIDHR4+bvFUXosn5rN3X+sqfDKa0rZNHtAmfs=;
-        b=ya6Uqod5hWej77Iu3jYh3ZrZpZxuw1vZK+UVB8D3R5nZOvmv/nWQoX5oTaVFFzjwBY
-         SJ0Ak2OoxdFXkLtR24Ah4zx1feyiSPPMriIgNwaCYYgVlZ6h7nbard9JSH4E2a/ojbA3
-         1RtoQxerxKurRosJGEriMiljbfy5E91XxKkoCLVHL4laUWeNeVQzod+Pi2V0MQKjaJ/Q
-         zn6SU14L7QfSZeGMzWj2vqXycES4YX3sxao0/VIqw33w9kubVLVRw+J6UgHALLQfL8cB
-         SiqgSNlfukQhjiHhEOnrVXl5P0rHpD9HTfEgJjtx4rgkMD7VjDyG830EESD5Ht5dKytP
-         95ug==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=RF7TJtY2ug5ZJSabo6o5Upal6psl5LvfgQuF/TuT+s0=;
+        b=ATPZIWv6jyQQGAN5xY5xgPN6JrD0FvnFPm6gTnp04Ksb32BPKotmXk9YIg/yx9Wmup
+         h7fyXpyMdaN6KaVIcjW76NZlI2rY0QhO4wMJFvl/l5y5KAOKb2/bBbkfj0BQWh8sPpid
+         NZ/FGYu52kUA0xjq0onwwguTGjc31K0M/MTZ7YmZZZnvfv0LQVpAGdSyQ1XNfBTXNDzQ
+         28TquaAzV5Fm5s2gN0EeZIvEuV0rqiInijTper6QBQhnoOwj/8XaL3Uz9DiJGB3OTP6w
+         SVnH9M3cMwTrTwYKYOsDeCw/nTY/h+J6ozzpa86WmdtJgta86RMOetAbB8+wUTztl8ij
+         AkWg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=o4DGytFB;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x443.google.com (mail-pf1-x443.google.com. [2607:f8b0:4864:20::443])
-        by gmr-mx.google.com with ESMTPS id b1si160583ilq.4.2020.06.05.12.13.47
+       dkim=pass header.i=@kernel.org header.s=default header.b=Zxv98AJq;
+       spf=pass (google.com: domain of ebiggers@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ebiggers@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id k69si206535oih.3.2020.06.05.12.34.02
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 05 Jun 2020 12:13:47 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) client-ip=2607:f8b0:4864:20::443;
-Received: by mail-pf1-x443.google.com with SMTP id s23so4093381pfh.7
-        for <clang-built-linux@googlegroups.com>; Fri, 05 Jun 2020 12:13:47 -0700 (PDT)
-X-Received: by 2002:a63:5644:: with SMTP id g4mr10427299pgm.381.1591384426680;
- Fri, 05 Jun 2020 12:13:46 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 05 Jun 2020 12:34:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ebiggers@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from sol.localdomain (c-107-3-166-239.hsd1.ca.comcast.net [107.3.166.239])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 29D40206FA;
+	Fri,  5 Jun 2020 19:34:01 +0000 (UTC)
+Date: Fri, 5 Jun 2020 12:33:59 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Jaegeuk Kim <jaegeuk@kernel.org>, kernel test robot <lkp@intel.com>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	kbuild-all@lists.01.org, linux-f2fs-devel@lists.sourceforge.net
+Subject: Re: [f2fs-dev] [f2fs:dev-test 48/48] fs/f2fs/super.c:3303:12:
+ warning: stack frame size of 2064 bytes in function 'f2fs_fill_super'
+Message-ID: <20200605193359.GK1373@sol.localdomain>
+References: <202006051725.63EW72i7%lkp@intel.com>
+ <20200605145546.GA227721@google.com>
+ <20200605160830.GB1373@sol.localdomain>
+ <CAKwvOdm1Ew1dBVcmxDHtKWp383Dsrxjhaweek=-LDomfKnj7Qg@mail.gmail.com>
 MIME-Version: 1.0
-References: <202006060103.jSCpnV1g%lkp@intel.com> <CANpmjNPBxkBBnD-y9Hpvsne3o6JA0KYgyxZhbCN+kZv4CD4yWQ@mail.gmail.com>
-In-Reply-To: <CANpmjNPBxkBBnD-y9Hpvsne3o6JA0KYgyxZhbCN+kZv4CD4yWQ@mail.gmail.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 5 Jun 2020 12:13:36 -0700
-Message-ID: <CAKwvOdk5MCxi7c-ANKYRggo1rVrpxbhR_-hWo5j9F4VSaLj18w@mail.gmail.com>
-Subject: Re: [linux-next:master 10774/15793] kernel/kcsan/core.c:829:1:
- warning: no previous prototype for function '__tsan_volatile_read1'
-To: Marco Elver <elver@google.com>, Philip Li <philip.li@intel.com>
-Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Borislav Petkov <bp@suse.de>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <CAKwvOdm1Ew1dBVcmxDHtKWp383Dsrxjhaweek=-LDomfKnj7Qg@mail.gmail.com>
+X-Original-Sender: ebiggers@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=o4DGytFB;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@kernel.org header.s=default header.b=Zxv98AJq;       spf=pass
+ (google.com: domain of ebiggers@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=ebiggers@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,88 +136,65 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jun 5, 2020 at 10:58 AM 'Marco Elver' via Clang Built Linux
-<clang-built-linux@googlegroups.com> wrote:
->
-> On Fri, 5 Jun 2020 at 19:42, kernel test robot <lkp@intel.com> wrote:
+On Fri, Jun 05, 2020 at 09:45:43AM -0700, Nick Desaulniers wrote:
+> On Fri, Jun 5, 2020 at 9:08 AM Eric Biggers <ebiggers@kernel.org> wrote:
 > >
-> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> > head:   af30725c132e2e5c5369b60369ff0771fde7d4ff
-> > commit: 4e23395b9e97562d12b87a330a2fca3bf10c8663 [10774/15793] kcsan: Support distinguishing volatile accesses
-> > config: x86_64-randconfig-r013-20200605 (attached as .config)
-> > compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 6dd738e2f0609f7d3313b574a1d471263d2d3ba1)
-> > reproduce (this is a W=1 build):
-> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> >         chmod +x ~/bin/make.cross
-> >         # install x86_64 cross compiling tool for clang build
-> >         # apt-get install binutils-x86-64-linux-gnu
-> >         git checkout 4e23395b9e97562d12b87a330a2fca3bf10c8663
-> >         # save the attached .config to linux build tree
-> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
+> > On Fri, Jun 05, 2020 at 07:55:46AM -0700, Jaegeuk Kim wrote:
+> > > Eric,
+> > >
+> > > Could you PTAL?
+> > >
+> > > On 06/05, kernel test robot wrote:
+> > > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs.git dev-test
+> > > > head:   adf3d3a53cf13d0998c699ba43d8582c875179e3
+> > > > commit: adf3d3a53cf13d0998c699ba43d8582c875179e3 [48/48] f2fs: don't return vmalloc() memory from f2fs_kmalloc()
+> > > > config: powerpc64-randconfig-r011-20200605 (attached as .config)
+> > > > compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project ac47588bc4ff5927a01ed6fcd269ce86aba52a7c)
+> > > > reproduce (this is a W=1 build):
+> > > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> > > >         chmod +x ~/bin/make.cross
+> > > >         # install powerpc64 cross compiling tool for clang build
+> > > >         # apt-get install binutils-powerpc64-linux-gnu
+> > > >         git checkout adf3d3a53cf13d0998c699ba43d8582c875179e3
+> > > >         # save the attached .config to linux build tree
+> > > >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64
+> > > >
+> > > > If you fix the issue, kindly add following tag as appropriate
+> > > > Reported-by: kernel test robot <lkp@intel.com>
 > >
-> > If you fix the issue, kindly add following tag as appropriate
-> > Reported-by: kernel test robot <lkp@intel.com>
+> > I don't know what's causing this.  It doesn't look at all related to my commit,
+> > and I don't see what's using so much stack in f2fs_fill_super().
 > >
-> > All warnings (new ones prefixed by >>, old ones prefixed by <<):
+> > @kernel test robot: the directions given above don't actually work.
+> > First I got an error due to powerpc64-linux-gnu-elfedit not existing.
+> > So I had to build binutils for powerpc64 myself.
 > >
-> > DEFINE_TSAN_READ_WRITE(4);
-> > ^
-> > kernel/kcsan/core.c:757:7: note: expanded from macro 'DEFINE_TSAN_READ_WRITE'
-> > void __tsan_read##size(void *ptr)                                                      ^
-> > <scratch space>:92:1: note: expanded from here
-> > __tsan_read4
-> > ^
-> > kernel/kcsan/core.c:776:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
-> > DEFINE_TSAN_READ_WRITE(4);
-> > ^
-> > static
-> > kernel/kcsan/core.c:757:2: note: expanded from macro 'DEFINE_TSAN_READ_WRITE'
-> > void __tsan_read##size(void *ptr)                                                 ^
-> > kernel/kcsan/core.c:776:1: warning: no previous prototype for function '__tsan_write4' [-Wmissing-prototypes]
-> > DEFINE_TSAN_READ_WRITE(4);
-> > ^
-> [...]
->
-> In the case here (and for all other *SAN or compiler-based
-> instrumentation), it's clearly fine since the compiler is the one
-> emitting calls to them.
->
-> How is one meant to act on W=1 reports like this? The kernel seems to
-> be full of these. It seems wrong, just to shut up W=1, to start adding
-> -Wno-missing-prototypes everywhere.
+> > Then I still got an error:
+> >
+> >         make: *** No rule to make target 'arch/powerpc64/Makefile'.  Stop.
+> 
+> If you have the config, then
+> $ ARCH=powerpc CROSS_COMPILE=powerpc64-linux-gnu- make CC=clang -j71
+> If you recompile with CONFIG_DEBUG_INFO, you can get the stack frame
+> information. I wrote a tool to parse this for these cryptic warnings.
+> https://github.com/ClangBuiltLinux/frame-larger-than
 
-+ Philip, because the team is probably getting asked this a lot, and
-should link to this response.
+I can build the file and get the warning now, but the frame_larger_than.py
+script doesn't work:
 
-`make W=1` enabled -Wmissing-prototypes via scripts/Makfile.extrawarn.
+$ ARCH=powerpc CROSS_COMPILE=powerpc64-linux-gnu- make CC=clang fs/f2fs/super.o
+  CALL    scripts/checksyscalls.sh
+  CALL    scripts/atomic/check-atomics.sh
+  CC [M]  fs/f2fs/super.o
+fs/f2fs/super.c:3303:12: warning: stack frame size of 2064 bytes in function 'f2fs_fill_super' [-Wframe-larger-than=]
+static int f2fs_fill_super(struct super_block *sb, void *data, int silent)
+           ^
+1 warning generated.
 
-Both GCC and Clang will warn for -Wmissing-prototypes when you define
-a function without a previous declaration of it, for non-static
-functions.  If the linkage is extern, and there was no previous
-declaration, then callers may have the wrong signature.  Mostly, this
-isn't a bug, which is why it's not an error. But sometimes the
-signature has changed but the callers have not been updated, which is
-an ABI breakage resulting in a bug.  Mostly this is not an issue due
-to -Wimplicit-function-declaration being on by default, which also
-helps in this case.
-
-See: https://godbolt.org/z/aYrYfS
-
-Functions with external linkage should have a forward declaration, or
-be marked static if in a .c file, or be marked static inline if in a
-header file.
-
-For this specific case, it looks like kcsan.h should forward declare
-the functions defined by DEFINE_TSAN_READ_WRITE, to avoid any ABI
-mismatch due to different call signatures between callers and callee.
-Though I can't see where the callees are; if they're only within
-kernel/kcsan/core.c, then defining them as static qualified may be
-better. (Probably not, since they're exported via EXPORT_SYMBOL).
--- 
-Thanks,
-~Nick Desaulniers
+$ python3 ~/src/frame-larger-than/frame_larger_than.py fs/f2fs/super.o f2fs_fill_super
+failed to parse elf: Unsupported relocation type: 1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdk5MCxi7c-ANKYRggo1rVrpxbhR_-hWo5j9F4VSaLj18w%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200605193359.GK1373%40sol.localdomain.
