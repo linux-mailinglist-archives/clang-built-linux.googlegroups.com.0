@@ -1,133 +1,129 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB2MJ7P3AKGQEVWH42KI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBHEK7P3AKGQE4ZVET7A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13f.google.com (mail-il1-x13f.google.com [IPv6:2607:f8b0:4864:20::13f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 088231F2257
-	for <lists+clang-built-linux@lfdr.de>; Tue,  9 Jun 2020 01:08:27 +0200 (CEST)
-Received: by mail-il1-x13f.google.com with SMTP id c29sf12953742ilf.20
-        for <lists+clang-built-linux@lfdr.de>; Mon, 08 Jun 2020 16:08:26 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591657705; cv=pass;
+Received: from mail-qv1-xf3c.google.com (mail-qv1-xf3c.google.com [IPv6:2607:f8b0:4864:20::f3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 728221F2282
+	for <lists+clang-built-linux@lfdr.de>; Tue,  9 Jun 2020 01:09:19 +0200 (CEST)
+Received: by mail-qv1-xf3c.google.com with SMTP id d5sf13776307qvo.3
+        for <lists+clang-built-linux@lfdr.de>; Mon, 08 Jun 2020 16:09:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591657757; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cCx5uyiA3xBaI1Ga9tVwFi9PXnnv77ouJcNDBxkEcmFiDf2lM9RuzBP1A03QzKrY6C
-         k/+FGNZsIY8cIri/ZA1D5EDHc65tvf43VKBfWWaLB9OeIs4p4tE7VlRrTdI9I0KUaMhq
-         5237cWEKmqUpikO58az5XYAs25/XTq50dHoVROnYu5FmhvLuYrsNrXNdeh2cFQSztHD4
-         W1aiQQdIJiZfaXlnPlt43ZEzHf+Syz6EdttB2xPncBiHun8y0iazacA0LBOWvkZaoaI+
-         djyRGMovLn/caOOiogSPZN1lndXnYVNeOJY2Mfze1udecMRHO6ULWVgzjwKjd6+tky7H
-         EdBg==
+        b=nC4ZM7yBnqTenT+ha9fkgwGahzNa9uRSmYkpJ1Szjj32Rjc4iEeoV3F9wURfyYxEzG
+         R7o2VuOY2GiJgP1BpsYdFjO+4H0ggplD28XRXutl5Okk11rZ7ZSW4qzdwhuOwsZ+uW+Z
+         oweR4hNYajnT8nWtP7E/g1RkihTkiLb4SMY9WhYS12j5Pvfgi4zgJZqlCrQ3hjoXkIsL
+         6yH+oDcrwgyNMBqt7q1KJq6e0PQeklZjOYgETnj08vzkog27swSI5werOvh1JA5bkPAG
+         JPtfzv8Cnjx0LRaCvlt69IJo6Uo3dmwqPiSy0ASHsMVT1E7QemhMzorbTAilWZKm3xUC
+         QBmA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:sender:dkim-signature;
-        bh=MGRoPzY8jdPNqlCemoQLwErViqoUb/daS3xgin+flSE=;
-        b=iJzVWOSBtyEr8cBEWaMt4iuBq28bGmMOg+htSzaqd30xDe5lihWBkh9G7Dm3Fe/kgm
-         xCc49hlRKUXjsV8qzdKGZeyJN9wwDARRDfKff50AX/YAh+fQKdNowcqL3VjWB6xsxFz+
-         tSQif+dWRD77wAI9KYoSneZIqQC3+HHJLYZ+6tDrdey8i6t7HOFsaymPlMtAe3sNwcbk
-         M2Yqnm2bbqUpFp3hDHd0TXo6JMzopT3xNs1B17Q+8Jmlawl/M9T1EFHXs9wS/4A8qMXE
-         ep+i49EG4kV/V1TDhzFHFtb3IAlpl+Nfk72sygaTGiGQqCtXu7Xcu7li1xcH6OTmc3ui
-         n4Wg==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=hZzRlimwD0CRG302r8gpX9JMA/J6EMZGptS38G5iN/I=;
+        b=bygTmVM2OO8AFKUQxwBhUjzVO1AzdNWcxL7a+fRE+8lEKUbTamMLIIg24FNHYLvswV
+         mi/JI34BD3UcwhgmzzfStY1CMNwZQLwnrZAnTCaAY+WO8M85hYEn7iziV0RQkriAEgbf
+         SBB8C/YILcjq4SNbjRTwhaef+Baff+vQ82CaEA8Kb6fyqXe8eHKqLubLobVDDKw5PJdR
+         QASbYsxTmPB99TungejORa0JECEkqJK1ispJfbUNZtY3DVMZRnHDzbWuflnzjxrKPWzl
+         02mWXBZK8EJHFP419aJIuo0XhDAyBQFy0z8h480l7EmJyfnMcfXF2YcsdLAUT7Wx51LB
+         6+tg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=DOrNsObr;
+       dkim=pass header.i=@kernel.org header.s=default header.b=iFs9iKl+;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=MGRoPzY8jdPNqlCemoQLwErViqoUb/daS3xgin+flSE=;
-        b=HeHcewIdqCH1R+/kFpZhBm+IbU9AF4EzgQLAKi6wqDflkoQ0RkvBZnhDO99k6cq7WT
-         MkAVFKPXhpo5xA1SOqHl+dCoHQZtH2wvebFdDiUAoCb00yd5plfE0IYITvmyHwBfS+Pf
-         TwbFHAS6jHWVATNPbtyQbtxqfhGnMydhHY1Jl2caPBwymCeTTAqyhc7Bt/gERxm8CO1v
-         6ET21qYqieCQXA/WyLXbvX2LAOWlGfC/Zm9SuOWWmCBPzIJ2ikc8GACt2RN0NybG7nm2
-         2OASJ+mMm/ITTmuSEI9HLN4RjoyGydXlLIYcIYJUiF3dOcK6PXAN1wH9gi5ciS66siEv
-         Uvfg==
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=hZzRlimwD0CRG302r8gpX9JMA/J6EMZGptS38G5iN/I=;
+        b=mwdH336FU29qwEReIcgzWVn7SR7m46xDiJFHHaXxHUIGcGI1Wyn3ZJBLviEN25oLUj
+         wJ6nMTLMPWKZU8BsvBXky4zgT19+bWMp51YUYai2P1hbdd3mmu6hik+OJ2zaHvo6Sx8H
+         i8bIHZL5ihfKkWDTMAQ8anu0T/WN8LEoFPJEW/72ad2AzvnbxCOFKmw6WOr0yCqvy4Ng
+         MiIUAZq+Yu75qm+fY3rY5oRjfXvTUyOQbGZHSLP8Lm9PlXo2tk7/hw1CMLlimYVrhLKa
+         yh1jCxwO3H7kiRnDWeXSlcnbbFtzR/Rw2Mi8sByIUVFGMddOxU1PfHHupxDBjFAelNrX
+         BAjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=MGRoPzY8jdPNqlCemoQLwErViqoUb/daS3xgin+flSE=;
-        b=c6jrXlp7WaUWlkL5AHCMZkYZTfT9OwOQ489O62cPXP6TX/cX600auFLq+KS7WpG1ZE
-         wDwWM7B8f05x8Uqiwygfb3eBZ9rwfdD6ep42Om5R2rZFxqoyqxzm65s2ahnJfclz6Ebk
-         NJwtH5a7aZLc9IMpACA9Rme52G9PAKcKpEgWOyZbasDv3CpCtJEjmqZXbn127UdedmN5
-         8FuX/Eijk0GIwFZHOpzVS1eQa79qpFTxejQfsF1tRoYp/t+x85TUwntBRxszs/dBqxhn
-         CXdkKPlXMXTxnfQcYvGuevvqZ35WcMFV/1i5JzaZ6hTN7o+pret+7khx4UwCDcLTqrfA
-         huOg==
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=hZzRlimwD0CRG302r8gpX9JMA/J6EMZGptS38G5iN/I=;
+        b=KRAjuRUuHsVlSc5hy16T0nq6twTjSCW3f1+QdmZq0q4HTHS5BTWhJkQxvadu8neTPN
+         snG7b8Ecn+Cz+BgM+L+axEafyh36VAm9/oSEXfNlPJj68jvtFoFOjF96FivoLk4ZteiJ
+         aaa9exsbMgu01EheoMvUAjxcefTn7/LWpe1oXKMgE7GFa+KfXBoSq3gpT7pRgiPEStkQ
+         iZGESm48XwwLQnm+tkPjdzu7GvLUZHg3FlSN21qMgmccTmmv0HZVXAXpy1FIdZLcBJux
+         gqqbVBHCuzMIKW+5anL0eXQfU/MxderyIS3XGbTSlTdFc2OZfrYmHFzmlsu3cqj5CJFh
+         TUng==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5307h+p8cCFi/6WtvEeM13VpwNbC+geRZ4lWVP65zzblGhd9bB28
-	IKND/niIZMCSxifcdLqkSIk=
-X-Google-Smtp-Source: ABdhPJy7YOEosdZHiVDoSmhcO1x2nl1b+hX+n4owGCqLyYKSRcJIUpRCJw5HU3qGuUx+YsID3fUu8A==
-X-Received: by 2002:a5e:8703:: with SMTP id y3mr12843853ioj.61.1591657705788;
-        Mon, 08 Jun 2020 16:08:25 -0700 (PDT)
+X-Gm-Message-State: AOAM532dHNNW8AExSlTmnBugXc62fSV6tlQy98AM66ppcsMfXAe9qOYK
+	BHUMwJeAYAIqzWFXiu9l5Fo=
+X-Google-Smtp-Source: ABdhPJxyRgCF0y2MG7AV2zl59QUM/ZUIp/0RBXbjDSf/Ap67JKVekV0g2aF+aHPoM3o4dnN8sSHikQ==
+X-Received: by 2002:a05:620a:1114:: with SMTP id o20mr11615393qkk.120.1591657756897;
+        Mon, 08 Jun 2020 16:09:16 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6602:1552:: with SMTP id h18ls1818505iow.1.gmail; Mon,
- 08 Jun 2020 16:08:25 -0700 (PDT)
-X-Received: by 2002:a6b:8dd0:: with SMTP id p199mr23537326iod.7.1591657705495;
-        Mon, 08 Jun 2020 16:08:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591657705; cv=none;
+Received: by 2002:ac8:4e56:: with SMTP id e22ls7035100qtw.3.gmail; Mon, 08 Jun
+ 2020 16:09:16 -0700 (PDT)
+X-Received: by 2002:ac8:4e2f:: with SMTP id d15mr26018826qtw.196.1591657756557;
+        Mon, 08 Jun 2020 16:09:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591657756; cv=none;
         d=google.com; s=arc-20160816;
-        b=zDlnUz9St873Ejb3nafqLkXgJ1/GBS1ni818ZSIDZgwsaR8mRaqhQgsSOwo3XNMSBn
-         S4wTuwEPq7iu+oBE8HDdBimzSxdMmZXXrB53jpjKEgxwOgkTZlafQ72aLBnI4sRriums
-         liBJzW+S7HhHbL05yKtVH/af/zi1vO/B34TyXUE9U4gmxNgwYoxH7pZammlUbtin6nI0
-         v9Kz7yoqCRVuzLtitT37ae4culiBzVg2ewFBIYsUCj71lVtRvFErzpzNVF01ov8bMlyE
-         VXvF3Bb632jlGOoqxcMXpi5yOqDzlSY/qj4MaZyb+rWAuyEm/Rpyn7ZJRMs+eSXo3mSD
-         X+dA==
+        b=muV5ia1DTdZyuSkhpLbjSla8TEeUG/WH733UT3/NOEc95ebTtbNY1Fel57xIOAcfHt
+         5yeFkLWGTiqr4SQseRY21MqKZ+Ip1Xwyo0wZA7Ibu/NIanZeZD5k1/iGFfBvfyUrNNuW
+         qbhEOS6MMpXO5KinLKxH/axXX1tU71sGg2w9WsYCG/qTBmenwR3pdFmVIejxZx3ePIi7
+         VdbWS61UKqMRIh1ROBwtiE9CzGnKzlP7GM+BWCTqCjzyRf2haPA8zQw4KuuR65Vm3TEv
+         u3kHdbwAI6cJrluCB3dhWQJt8SfXPp3z6yB5BHvfBtLyClcnMO29RIbktasgig28Spup
+         OaHQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=GR1UrV/tJAaUP6zo5a2daZFfLaAw9euWlkG8qgpI6qE=;
-        b=hOPLqXzUkot4UxlJnv3Ni2d0q8KvsoIwWgTxdGR/ogFWJNDNCF3MugpKc2UU0bUVE6
-         9zESIpRm05H0l3R2LAwMqdqr1rk+Y/dvmPtJ7seddOyCmsGE4fddESco/hVhsjoWiyAa
-         EpqTHIwnK9y7iCKYTB6EvRYZuGxmCbBqefFlU8LfaCmK16rJgTlHrUwBfHFiNrsMQf2d
-         LyR9vZ3HkC+rXZJZ3wOkODimmtt1vsHLgbR3AK5U6XL4OL8XQFrPlV99ffCeFr+YWsKv
-         545SPDr2ksEHJTCUjazoBJicoT2IjYI+WNA2hncoobu21EpwLm7t9Ej79N4ihwcL9nDz
-         uKZw==
+        bh=vlulF8haCBRq4xRq19eQFeilth61ttv7PowdOH//y4s=;
+        b=zZDZBh6FQeJzm53GdBs/GVPF4w8OiXReNusF81s1UXwWu3aPRseCdDEcx4XWFjo4+J
+         q4fTKWZ1WU+l4ByYNU8c86CLyWIXBcZPmUUxX8J6VinuKCWmQtZNGzMio9UhgF8x4Fgu
+         nhtKEQ1Oy/jXkOcrs6/hFctCjkGG8aKuz//bSjMlrurnihKgkSvvQLSr/gftsMw/xicT
+         sMGJoyIG7XOyVD+JXmGVRUV1VAQDPDG2AXZVmjYPyKqBxwrkr2AX5O73M16RI/zhGLSN
+         bpys9HAcQ8P0cBNXPE2dgCM9xYpmfgm/WZT6CM7X/oAmn6pXdhtVjV+a/mF21QS6P8iO
+         IvUA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=DOrNsObr;
+       dkim=pass header.i=@kernel.org header.s=default header.b=iFs9iKl+;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id z11si843817ilq.5.2020.06.08.16.08.25
+        by gmr-mx.google.com with ESMTPS id d3si428348qtg.0.2020.06.08.16.09.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 08 Jun 2020 16:08:25 -0700 (PDT)
+        Mon, 08 Jun 2020 16:09:16 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id EA14920842;
-	Mon,  8 Jun 2020 23:08:23 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id B1E2120890;
+	Mon,  8 Jun 2020 23:09:14 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Kees Cook <keescook@chromium.org>,
-	Aaron Brown <aaron.f.brown@intel.com>,
-	Jeff Kirsher <jeffrey.t.kirsher@intel.com>,
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+	Dmitry Golovin <dima@golovin.in>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
 	Sasha Levin <sashal@kernel.org>,
-	intel-wired-lan@lists.osuosl.org,
-	netdev@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.7 102/274] e1000: Distribute switch variables for initialization
-Date: Mon,  8 Jun 2020 19:03:15 -0400
-Message-Id: <20200608230607.3361041-102-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.7 141/274] lib/mpi: Fix 64-bit MIPS build with Clang
+Date: Mon,  8 Jun 2020 19:03:54 -0400
+Message-Id: <20200608230607.3361041-141-sashal@kernel.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20200608230607.3361041-1-sashal@kernel.org>
 References: <20200608230607.3361041-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 X-stable: review
 X-Patchwork-Hint: Ignore
-Content-Transfer-Encoding: quoted-printable
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=DOrNsObr;       spf=pass
+ header.i=@kernel.org header.s=default header.b=iFs9iKl+;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,74 +136,71 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Kees Cook <keescook@chromium.org>
+From: Nathan Chancellor <natechancellor@gmail.com>
 
-[ Upstream commit a34c7f5156654ebaf7eaace102938be7ff7036cb ]
+[ Upstream commit 18f1ca46858eac22437819937ae44aa9a8f9f2fa ]
 
-Variables declared in a switch statement before any case statements
-cannot be automatically initialized with compiler instrumentation (as
-they are not part of any execution flow). With GCC's proposed automatic
-stack variable initialization feature, this triggers a warning (and they
-don't get initialized). Clang's automatic stack variable initialization
-(via CONFIG_INIT_STACK_ALL=3Dy) doesn't throw a warning, but it also
-doesn't initialize such variables[1]. Note that these warnings (or silent
-skipping) happen before the dead-store elimination optimization phase,
-so even when the automatic initializations are later elided in favor of
-direct initializations, the warnings remain.
+When building 64r6_defconfig with CONFIG_MIPS32_O32 disabled and
+CONFIG_CRYPTO_RSA enabled:
 
-To avoid these problems, move such variables into the "case" where
-they're used or lift them up into the main function body.
+lib/mpi/generic_mpih-mul1.c:37:24: error: invalid use of a cast in a
+inline asm context requiring an l-value: remove the cast
+or build with -fheinous-gnu-extensions
+                umul_ppmm(prod_high, prod_low, s1_ptr[j], s2_limb);
+                ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lib/mpi/longlong.h:664:22: note: expanded from macro 'umul_ppmm'
+                 : "=d" ((UDItype)(w0))
+                         ~~~~~~~~~~^~~
+lib/mpi/generic_mpih-mul1.c:37:13: error: invalid use of a cast in a
+inline asm context requiring an l-value: remove the cast
+or build with -fheinous-gnu-extensions
+                umul_ppmm(prod_high, prod_low, s1_ptr[j], s2_limb);
+                ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lib/mpi/longlong.h:668:22: note: expanded from macro 'umul_ppmm'
+                 : "=d" ((UDItype)(w1))
+                         ~~~~~~~~~~^~~
+2 errors generated.
 
-drivers/net/ethernet/intel/e1000/e1000_main.c: In function =E2=80=98e1000_x=
-mit_frame=E2=80=99:
-drivers/net/ethernet/intel/e1000/e1000_main.c:3143:18: warning: statement w=
-ill never be executed [-Wswitch-unreachable]
- 3143 |     unsigned int pull_size;
-      |                  ^~~~~~~~~
+This special case for umul_ppmm for MIPS64r6 was added in
+commit bbc25bee37d2b ("lib/mpi: Fix umul_ppmm() for MIPS64r6"), due to
+GCC being inefficient and emitting a __multi3 intrinsic.
 
-[1] https://bugs.llvm.org/show_bug.cgi?id=3D44916
+There is no such issue with clang; with this patch applied, I can build
+this configuration without any problems and there are no link errors
+like mentioned in the commit above (which I can still reproduce with
+GCC 9.3.0 when that commit is reverted). Only use this definition when
+GCC is being used.
 
-Signed-off-by: Kees Cook <keescook@chromium.org>
-Tested-by: Aaron Brown <aaron.f.brown@intel.com>
-Signed-off-by: Jeff Kirsher <jeffrey.t.kirsher@intel.com>
+This really should have been caught by commit b0c091ae04f67 ("lib/mpi:
+Eliminate unused umul_ppmm definitions for MIPS") when I was messing
+around in this area but I was not testing 64-bit MIPS at the time.
+
+Link: https://github.com/ClangBuiltLinux/linux/issues/885
+Reported-by: Dmitry Golovin <dima@golovin.in>
+Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/net/ethernet/intel/e1000/e1000_main.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ lib/mpi/longlong.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/intel/e1000/e1000_main.c b/drivers/net/et=
-hernet/intel/e1000/e1000_main.c
-index 0d51cbc88028..05bc6e216bca 100644
---- a/drivers/net/ethernet/intel/e1000/e1000_main.c
-+++ b/drivers/net/ethernet/intel/e1000/e1000_main.c
-@@ -3136,8 +3136,9 @@ static netdev_tx_t e1000_xmit_frame(struct sk_buff *s=
-kb,
- 		hdr_len =3D skb_transport_offset(skb) + tcp_hdrlen(skb);
- 		if (skb->data_len && hdr_len =3D=3D len) {
- 			switch (hw->mac_type) {
-+			case e1000_82544: {
- 				unsigned int pull_size;
--			case e1000_82544:
-+
- 				/* Make sure we have room to chop off 4 bytes,
- 				 * and that the end alignment will work out to
- 				 * this hardware's requirements
-@@ -3158,6 +3159,7 @@ static netdev_tx_t e1000_xmit_frame(struct sk_buff *s=
-kb,
- 				}
- 				len =3D skb_headlen(skb);
- 				break;
-+			}
- 			default:
- 				/* do nothing */
- 				break;
---=20
+diff --git a/lib/mpi/longlong.h b/lib/mpi/longlong.h
+index 891e1c3549c4..afbd99987cf8 100644
+--- a/lib/mpi/longlong.h
++++ b/lib/mpi/longlong.h
+@@ -653,7 +653,7 @@ do {						\
+ 	**************  MIPS/64  **************
+ 	***************************************/
+ #if (defined(__mips) && __mips >= 3) && W_TYPE_SIZE == 64
+-#if defined(__mips_isa_rev) && __mips_isa_rev >= 6
++#if defined(__mips_isa_rev) && __mips_isa_rev >= 6 && defined(CONFIG_CC_IS_GCC)
+ /*
+  * GCC ends up emitting a __multi3 intrinsic call for MIPS64r6 with the plain C
+  * code below, so we special case MIPS64r6 until the compiler can do better.
+-- 
 2.25.1
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20200608230607.3361041-102-sashal%40kernel.org.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200608230607.3361041-141-sashal%40kernel.org.
