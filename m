@@ -1,124 +1,142 @@
-Return-Path: <clang-built-linux+bncBCC6FDHX24JBBQEQ7D3AKGQE2XG2UAA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBAVV7D3AKGQEOE7GBVA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3c.google.com (mail-io1-xd3c.google.com [IPv6:2607:f8b0:4864:20::d3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id AA5AB1F15B5
-	for <lists+clang-built-linux@lfdr.de>; Mon,  8 Jun 2020 11:43:29 +0200 (CEST)
-Received: by mail-io1-xd3c.google.com with SMTP id d20sf1702288iom.16
-        for <lists+clang-built-linux@lfdr.de>; Mon, 08 Jun 2020 02:43:29 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591609408; cv=pass;
+Received: from mail-il1-x13e.google.com (mail-il1-x13e.google.com [IPv6:2607:f8b0:4864:20::13e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9C6E91F1723
+	for <lists+clang-built-linux@lfdr.de>; Mon,  8 Jun 2020 13:01:23 +0200 (CEST)
+Received: by mail-il1-x13e.google.com with SMTP id j71sf11657515ilg.9
+        for <lists+clang-built-linux@lfdr.de>; Mon, 08 Jun 2020 04:01:23 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591614082; cv=pass;
         d=google.com; s=arc-20160816;
-        b=SrIYkhStjcId+ZpzrAk191m2bhJodVxRozA4DrCRUJTbxKerx+ZjdIiSjexfUMq70v
-         9I3UA2KSlsJWTQ/NCistmiXMMLaqm42hDG/nmAnEOW+piO/kkfNWQmjY2eyoyf3Pegxd
-         aqs7kSQHVhPCeNJxAJYOfNqIG1X+8bc6euuem4/kEa6YPMXmbFKbZ40XhcHMPiNlaAXe
-         si0bNiFq27PbwdDDnhAWsdPWILVX0Z9F2iSyV0jDtz7XENrFgqEI9aIL11G2ZfcOkLUE
-         5WImS6Xt84HyBDw7xXF1TzYabKSd+gJDLhkDVWR0AE3HFUTm9BE6w1TJTMImadmRlCyG
-         bKng==
+        b=t+YckkNUr/U98hO7/NaNh///RJY5COi0kEVx2uVCUybOuhrJlPaQGRRp8YZynDkG9j
+         trQ5oOHCujCOSgpJrNHY3lXsvkETvVqQc1qqKHpdhqQTCH+issicSjXZ+AFWCHYFoTID
+         gofwCw+cj1aUBTgMbC57OXLh5WM9wmupybXZ7I9fQuX3Z3wb8EtvnRhqnfx86GlRIbv2
+         /3S746qUHK/zMKgfRQccTQ5VDyTVMHetNaRdl+peNQ09z7nB3Z7gxkxPQ2pveNtF/keS
+         +K49U0FX6f6OfuWUrVTqsdiIGVeNcTakqkOy1W441C6o7fN3eU0Cd2avLkcY4PR2J+v9
+         R83Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=NPjESIKAL5LJqlAs2LmEaeBWCcxHsf5y1SMgHmkMrds=;
-        b=zykKyT6hmwtTi1OkYJFcL/B+QLMKoYmMQZ9JxuEyEnnwFsXviY9JuXxxOp8Lyv/7VS
-         c1ZNIcKEyQfpxfmEvYMU8NBsG/3pW8rRZN4I2YDK1/GTvjTEr2DpkL3wSMs/I5S83hD5
-         6KTeUKEAtvXELpAhVVgFb2BrSxLhQpATi1JGEZsUxfMra3OLSS/QZ6BUtkW04699cs6b
-         3LOrfQBY+03kxvCZESoF4fgnDGGR+0woM9QPJ2rvFq8dnmfaz69jfos1Uzt2ImRNav1F
-         QQpBrTQBTy2LKtK1mmjZbD35NLh2ozZ4t2ShDwGcFg5WsNd6m8/bQAtNtxnGbCp/eysP
-         +sIw==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=NaFM7ao/zW6n+Szvaza4C8Ye2Qk7i76CPp4aqjudjbg=;
+        b=nu2FGOO5l/vm9e1F0V7G+PhCwzOuXpjL7TgWFtSN7qIlusOzilRQr7/nSsnubOJbNe
+         rOOGr8QlDjkBw8cFfp4yAeYdfvB61MTueWax5N787u+RAqtkliUQn7E6MYhY+Wu3ZLa4
+         mx04+T3nHlav71IAtSpQjRTvo12z5UBKcemMsbwIWyVyHsfeRQy0mfdTdkVmzVtDP2A6
+         uKwKu4qYQk52sE9eJU1c6bDXdq0e6q3X4YMixQ8q2n0a7RNxKZcplq224bgGFhIsovQq
+         xgCUMKDp98AEaJ+cuQJ/wNg/oqhL8TF9lNuZYg6kGEMlntcY1zSXVfhpu9Fg5O5Y8WDr
+         my7g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@sartura-hr.20150623.gappssmtp.com header.s=20150623 header.b=mx5PE7c9;
-       spf=pass (google.com: domain of robert.marko@sartura.hr designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=robert.marko@sartura.hr
+       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=NV5cY9XI;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=NPjESIKAL5LJqlAs2LmEaeBWCcxHsf5y1SMgHmkMrds=;
-        b=lTD1gj8TYrUVVYLts3RINABgLKtEd94AxGVaFlOGz7uzZXEFp8EhBZMzE3RkXghVJE
-         7zaO+IfJFKjCL4SzzzKz4WfIlqtFQ+hnCPCF7PITF0CUrsixubUj+N8WhDQwH/80P4y/
-         Kcy2O8m8I4DHKBeemNzL3jbflsGesJ1QxT+RfV7th4vxK4MnAP+EncRmov3IZMrDqSGv
-         V4XV89T3oNnDs5GPh2H/IC3q2/Xefn4ECzuvPZZZ0qdACVltdDHz/NGD9C9YSyhkLlZk
-         HjGQmtDBk8f2yaSL0EKf5NNrxXUqNtT8OkpCiaMYVYykrwmu3WrvSGvHyzQZFzwRGbBc
-         S6Fg==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=NaFM7ao/zW6n+Szvaza4C8Ye2Qk7i76CPp4aqjudjbg=;
+        b=sG0m9L4Lo4NLuAbJUlN77g+hHbIJ5jA0BvycpcE5gJcGFWGoq7IiE6SqgqPtOlTE0y
+         Z7AzeGGHIPf/JCiZ/cp0hZUbPdel0tK3GUwGBtHaFnmySfnkYmBG5i7pSVW1tzRYLHZE
+         18Bc0RakLfdPg8fSt71Ca/BLOPf+7lDro3sFBJNrRe71W1QHR2reXiP2GkCNirhhOL1n
+         AGNrgH1nolCV+sLJPZXxbXXPufedxoqfzxdcPiIETU44RjNWS3yn5WbwXPQ22iuXjT/y
+         zHoeGmIRmRpiTPzc/Ps28BeDVvHcFUCuHKqpWrAZ38bQ4snNlUcEyG1nq1ksXc5dr00b
+         daZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=NPjESIKAL5LJqlAs2LmEaeBWCcxHsf5y1SMgHmkMrds=;
-        b=p9KA5NN3nO9910b/mrJi2PFPh+D1xrZiG2Utu1tj1xS/rQbZKFFi/H5ZDTUoWzYZjR
-         McRCyk98IO6E3ODzaXdzA/Zlq5qxIVY5Wsuex9rFL6sgiRgjfg8xoa8v87A11ItdeDDv
-         uvoX3x4xxOedlekW+lG9bHXAzJJ+CSrXdezuPV20xhVzrC0F4XCWVq5K6VrD0h0djSB+
-         9xG2MbIzA4WqH5Ks4+dJQgoNTvISwDvf5WAIeMGb3L8f3FsLq8639JcKSDqormpOobtr
-         P2QbCn+8fpJXI57JYgffsmUWaHTs0wbTQSKBCvQ5jpBoD16HXlhOGK8pfIe+O+FlSLhz
-         azQg==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=NaFM7ao/zW6n+Szvaza4C8Ye2Qk7i76CPp4aqjudjbg=;
+        b=VL7Vg9dZAy+gLzoaPxtqhpY3Obr4tooFenFJqlUflaZEcBZGpH1HY+1Do9/UJ4iOWf
+         bofGcWny5ZmkqICpPLpnjFohP/r0oOGbWGEx9701O8MfZNDuheCH1Fn2ftZ20HPpdzop
+         goYM6cl/fy5kdTl8Jk1IQzbQ0Y/xbOvaUCGyyVTzMfsSMKrB/dvxMOAbxBVjZI3YH6H8
+         msHhdZDCfdO8ibA+AO9Qg0WhaSpjW/k9wTuo77HkJOEfd/x7OT3YKIiTRo+N2RvsP5RR
+         HLY6PTGsYgZQM85nfAiTG2gw27wlv8HiCrlwAJcHTKAMp/o6rkGgAkLSKU0yDhFVAiR/
+         OuRw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5320g6WqcH9mFRDh/+7ZoFzivNAe7V0HxOMVb8wrFOG6ULYi93YG
-	z0wwlObWT0twkNFWn35isiU=
-X-Google-Smtp-Source: ABdhPJzK3BqPXmCNOj4WHEqD0KNTh1xzg9BQAMa7llaPTrRPSvdMH8gkmAbM4VkknM8kYHtG5ZvT8w==
-X-Received: by 2002:a6b:f117:: with SMTP id e23mr21030771iog.100.1591609408451;
-        Mon, 08 Jun 2020 02:43:28 -0700 (PDT)
+X-Gm-Message-State: AOAM5334XvLOh5U+TJOUwhMmjlOuj7j4Ye1+qjxVjmb1RzoguODNS91j
+	02dFFGZuDrsZu8FUi0eMW00=
+X-Google-Smtp-Source: ABdhPJwBL8yyohi56OzFjivEagkWBdcQGNcytaOD/ZJEBYrKbRV/2cK6R8RgUtbeZz/XND382KwzKg==
+X-Received: by 2002:a92:b111:: with SMTP id t17mr21558498ilh.241.1591614082549;
+        Mon, 08 Jun 2020 04:01:22 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:228b:: with SMTP id y11ls2031074jas.10.gmail; Mon,
- 08 Jun 2020 02:43:28 -0700 (PDT)
-X-Received: by 2002:a02:a91a:: with SMTP id n26mr21409164jam.104.1591609408033;
-        Mon, 08 Jun 2020 02:43:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591609408; cv=none;
+Received: by 2002:a92:c002:: with SMTP id q2ls3185609ild.4.gmail; Mon, 08 Jun
+ 2020 04:01:22 -0700 (PDT)
+X-Received: by 2002:a92:c650:: with SMTP id 16mr20543726ill.157.1591614082298;
+        Mon, 08 Jun 2020 04:01:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591614082; cv=none;
         d=google.com; s=arc-20160816;
-        b=jYeghRFQVqlFAE9jcKIBVHez5dzWAnkDruNOYq8hdvSAeJjI3aMhexQLD5sP2feZmc
-         kuVFkI3d9tiQu/Z3WMji3Car76JarOoJ5ptcyqIfK6gVIZ5xW+FhkT2Urw83lMMswmRN
-         GF+JI9dk3YNkSGTCNtCxw2AeX4GJWFlhNEOnuTQMJVvTS7m/K52hx/4vipvxOSagONIV
-         p7I0XIzkPKDx5N5wr3EoLsL0L4wbYNVAA62j+vgb8ebYTp8h+PHV+lWifwjWAEdTj89r
-         hdzxTz62di/e5GX2cRhNpTjvhFTXDy0CcnTF6dyKcoMymW8iKDVGdu3TM/OMWhTFpGtE
-         pWkg==
+        b=BrTOcI7oxe2+yyndXR5+dVtw9ZunuAf7X4Cj5LfItWx0OrEb1kGWcS4Q5mhdle+4Vb
+         RU2AftPLzLv5dVTbes8rUSerzClXuwjDxwAYBTe3IXszTFHRPyc6zmwH7kPfAxH3Ea3r
+         Qz71fjFBlmAwdhc2ZFFmqUnu5UA+mmRP33eZ4K0Yq2InZ/n5WUZS7JycBrlSJiR7xYPn
+         an3qtZUl+o/9lxwgBN1zB4EzV15sjyP9r6irx6n2iKOSaTZaA8B5xnvXQpJut01NRRpg
+         PFSxBfsxSvXGjP9+nc5hX24RjVVbgobFRnoQVB3vbNxutMvE2mesklCUlNTH+6fVgDIf
+         GdwQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=TYEy+8z/tFUxcc58fN1UDywpoBpG6q97Kp55SPoLlFQ=;
-        b=KCRS16WM2GPj+4lDlal+v1PoI0x/kh7w3S+luumx/valqnbtkqyyz+oeS9rE5x/THo
-         4FQZFQcA5CClq6yuZKsZWrf/fcca7TNZB5V8nnu6Iz4zWWgyXBXBWgoFr7y/JJWt8Nlv
-         21pGYDk3suNzbIqH5bAK+/PG9trN+MQhX9c0BGncCkmTfKcgL3jDxyrIITwTOLGr5IJS
-         XwRFYTq4gj1TWQVbQTVgz8Q5LB+hzaNOYPHDrdov7ZUa7mghXgz1DxM/7RjX9L6TgfQU
-         kHqGxsbUiSXfaDHFFQgXmmjSWTiaUN+kWPfdv95ZTrIA1KUAupqIt3uvmi5QPIwuB9X2
-         BgWQ==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=K/s5mZYe0D3JGCoeAasezBJ22Tds6PXDtFml58Tk67I=;
+        b=d7CEImbLzcS2LbuRw8u9hZQO+mXcS1p5L6FW6D38jLhw95mf0fDhj6yxW2XSyhtMp8
+         JHXJ3bMnCzJb8GK3gc/CZAbRyjjuveNEX6h7IXVRG333HgGXvlT9rwwEYflxDeEPVhOf
+         1M58mAN8meIjlmQTvCvLyKXACRaAtNhzhwJmUOGu2LdJr9XV2+SgI6xHqOIjzD9K1Ksr
+         shbRNfYuMl5hT1wswRhU2oD7HhBo4CPyi4MaGznIXyhYaBIpgymfDDbu2A1WEy0X+f8E
+         xX3uFgbSHgacMNNw5yOthiWKK0uorXvvX2maJh4iEv5D8NbROh/d98BMVqGmLT3+/Cno
+         YnlQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@sartura-hr.20150623.gappssmtp.com header.s=20150623 header.b=mx5PE7c9;
-       spf=pass (google.com: domain of robert.marko@sartura.hr designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=robert.marko@sartura.hr
-Received: from mail-ot1-x341.google.com (mail-ot1-x341.google.com. [2607:f8b0:4864:20::341])
-        by gmr-mx.google.com with ESMTPS id y22si620760ioc.0.2020.06.08.02.43.27
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 08 Jun 2020 02:43:27 -0700 (PDT)
-Received-SPF: pass (google.com: domain of robert.marko@sartura.hr designates 2607:f8b0:4864:20::341 as permitted sender) client-ip=2607:f8b0:4864:20::341;
-Received: by mail-ot1-x341.google.com with SMTP id k15so13125067otp.8
-        for <clang-built-linux@googlegroups.com>; Mon, 08 Jun 2020 02:43:27 -0700 (PDT)
-X-Received: by 2002:a05:6830:60d:: with SMTP id w13mr16894582oti.243.1591609407458;
- Mon, 08 Jun 2020 02:43:27 -0700 (PDT)
+       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=NV5cY9XI;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
+Received: from bombadil.infradead.org (bombadil.infradead.org. [2607:7c80:54:e::133])
+        by gmr-mx.google.com with ESMTPS id z11si704420ilq.5.2020.06.08.04.01.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Jun 2020 04:01:22 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) client-ip=2607:7c80:54:e::133;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
+	by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1jiFWh-0002iJ-Of; Mon, 08 Jun 2020 11:01:13 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 13313301A7A;
+	Mon,  8 Jun 2020 13:01:08 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id DB50A21A7523D; Mon,  8 Jun 2020 13:01:08 +0200 (CEST)
+Date: Mon, 8 Jun 2020 13:01:08 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Dmitry Vyukov <dvyukov@google.com>
+Cc: Marco Elver <elver@google.com>,
+	Andrey Konovalov <andreyknvl@google.com>,
+	Mark Rutland <mark.rutland@arm.com>, Borislav Petkov <bp@alien8.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Alexander Potapenko <glider@google.com>,
+	kasan-dev <kasan-dev@googlegroups.com>,
+	LKML <linux-kernel@vger.kernel.org>,
+	the arch/x86 maintainers <x86@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>
+Subject: Re: [PATCH -tip v3 1/2] kcov: Make runtime functions
+ noinstr-compatible
+Message-ID: <20200608110108.GB2497@hirez.programming.kicks-ass.net>
+References: <20200605082839.226418-1-elver@google.com>
+ <CACT4Y+ZqdZD0YsPHf8UFJT94yq5KGgbDOXSiJYS0+pjgYDsx+A@mail.gmail.com>
+ <20200605120352.GJ3976@hirez.programming.kicks-ass.net>
+ <CAAeHK+zErjaB64bTRqjH3qHyo9QstDSHWiMxqvmNYwfPDWSuXQ@mail.gmail.com>
+ <CACT4Y+Zwm47qs8yco0nNoD_hFzHccoGyPznLHkBjAeg9REZ3gA@mail.gmail.com>
+ <CANpmjNPNa2f=kAF6c199oYVJ0iSyirQRGxeOBLxa9PmakSXRbA@mail.gmail.com>
+ <CACT4Y+Z+FFHFGSgEJGkd+zCBgUOck_odOf9_=5YQLNJQVMGNdw@mail.gmail.com>
 MIME-Version: 1.0
-References: <20200604120905.1344074-1-robert.marko@sartura.hr>
- <202006050445.tiQi7ZvY%lkp@intel.com> <CA+HBbNFpHugbM6LDGAtJHj4ZAz-K5ojkovaVZ04V3QJS-hytUw@mail.gmail.com>
- <20200608090705.GA1597633@ubuntu-n2-xlarge-x86>
-In-Reply-To: <20200608090705.GA1597633@ubuntu-n2-xlarge-x86>
-From: Robert Marko <robert.marko@sartura.hr>
-Date: Mon, 8 Jun 2020 11:43:16 +0200
-Message-ID: <CA+HBbNFPtHK3AJBnY3TOG67tciW01rEoYaaAu+A7GP0pdcTsvw@mail.gmail.com>
-Subject: Re: [PATCH] clk: qcom: ipq4019: fix apss cpu overclocking
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: kernel test robot <lkp@intel.com>, Andy Gross <agross@kernel.org>, 
-	Bjorn Andersson <bjorn.andersson@linaro.org>, Michael Turquette <mturquette@baylibre.com>, sboyd@kernel.org, 
-	Abhishek Sahu <absahu@codeaurora.org>, linux-arm-msm <linux-arm-msm@vger.kernel.org>, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, 
-	Christian Lamparter <chunkeey@gmail.com>, John Crispin <john@phrozen.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: robert.marko@sartura.hr
+Content-Disposition: inline
+In-Reply-To: <CACT4Y+Z+FFHFGSgEJGkd+zCBgUOck_odOf9_=5YQLNJQVMGNdw@mail.gmail.com>
+X-Original-Sender: peterz@infradead.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@sartura-hr.20150623.gappssmtp.com header.s=20150623
- header.b=mx5PE7c9;       spf=pass (google.com: domain of robert.marko@sartura.hr
- designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=robert.marko@sartura.hr
+ header.i=@infradead.org header.s=bombadil.20170209 header.b=NV5cY9XI;
+       spf=pass (google.com: best guess record for domain of
+ peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,107 +149,18 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jun 8, 2020 at 11:07 AM Nathan Chancellor
-<natechancellor@gmail.com> wrote:
->
-> On Mon, Jun 08, 2020 at 10:54:34AM +0200, Robert Marko wrote:
-> > On Thu, Jun 4, 2020 at 10:25 PM kernel test robot <lkp@intel.com> wrote:
-> > >
-> > > Hi Robert,
-> > >
-> > > I love your patch! Perhaps something to improve:
-> > >
-> > > [auto build test WARNING on clk/clk-next]
-> > > [also build test WARNING on v5.7 next-20200604]
-> > > [if your patch is applied to the wrong git tree, please drop us a note to help
-> > > improve the system. BTW, we also suggest to use '--base' option to specify the
-> > > base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
-> > >
-> > > url:    https://github.com/0day-ci/linux/commits/Robert-Marko/clk-qcom-ipq4019-fix-apss-cpu-overclocking/20200605-002859
-> > > base:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-next
-> > > config: x86_64-allyesconfig (attached as .config)
-> > > compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project ac47588bc4ff5927a01ed6fcd269ce86aba52a7c)
-> > > reproduce (this is a W=1 build):
-> > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> > >         chmod +x ~/bin/make.cross
-> > >         # install x86_64 cross compiling tool for clang build
-> > >         # apt-get install binutils-x86-64-linux-gnu
-> > >         # save the attached .config to linux build tree
-> > >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
-> > >
-> > > If you fix the issue, kindly add following tag as appropriate
-> > > Reported-by: kernel test robot <lkp@intel.com>
-> > >
-> > > All warnings (new ones prefixed by >>, old ones prefixed by <<):
-> > >
-> > > >> drivers/clk/qcom/gcc-ipq4019.c:1247:24: warning: no previous prototype for function 'qcom_find_freq_close' [-Wmissing-prototypes]
-> > > const struct freq_tbl *qcom_find_freq_close(const struct freq_tbl *f,
-> > > ^
-> > > drivers/clk/qcom/gcc-ipq4019.c:1247:7: note: declare 'static' if the function is not intended to be used outside of this translation unit
-> > > const struct freq_tbl *qcom_find_freq_close(const struct freq_tbl *f,
-> > > ^
-> > > static
-> > > 1 warning generated.
-> > >
-> > > vim +/qcom_find_freq_close +1247 drivers/clk/qcom/gcc-ipq4019.c
-> > >
-> > >   1245
-> > >   1246
-> > > > 1247  const struct freq_tbl *qcom_find_freq_close(const struct freq_tbl *f,
-> > >   1248                                               unsigned long rate)
-> > >   1249  {
-> > >   1250          const struct freq_tbl *last = NULL;
-> > >   1251
-> > >   1252          for ( ; f->freq; f++) {
-> > >   1253                  if (rate == f->freq)
-> > >   1254                          return f;
-> > >   1255
-> > >   1256                  if (f->freq > rate) {
-> > >   1257                          if (!last ||
-> > >   1258                             (f->freq - rate) < (rate - last->freq))
-> > >   1259                                  return f;
-> > >   1260                          else
-> > >   1261                                  return last;
-> > >   1262                  }
-> > >   1263                  last = f;
-> > >   1264          }
-> > >   1265
-> > >   1266          return last;
-> > >   1267  }
-> > >   1268
-> > >
-> > > ---
-> > > 0-DAY CI Kernel Test Service, Intel Corporation
-> > > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> >
->
-> <moved post to the bottom>
->
-> > Sorry for asking, but are these warnings relevant?
-> > GCC9.3 does not throw them
-> >
-> > Regards
-> > Robert
-> >
->
-> It should if you are using make W=1, this is not a clang specific
-> warning (it just happens that clang was the compiler for this report).
+On Mon, Jun 08, 2020 at 09:57:39AM +0200, Dmitry Vyukov wrote:
 
-Thanks, W=1 does indeed show the warning along with a not evaluated return.
->
-> It looks like qcom_find_freq_close is only used in
-> drivers/clk/qcom/gcc-ipq4019.c, in which case it should be marked
-> static.
-Thanks, it does indeed solve the warning.
-I will send a v2 today.
+> As a crazy idea: is it possible to employ objtool (linker script?) to
+> rewrite all coverage calls to nops in the noinstr section? Or relocate
+> to nop function?
+> What we are trying to do is very static, it _should_ have been done
+> during build. We don't have means in existing _compilers_ to do this,
+> but maybe we could do it elsewhere during build?...
 
-Regards,
-Robert
->
-> Cheers,
-> Nathan
+Let me try and figure out how to make objtool actually rewrite code.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BHBbNFPtHK3AJBnY3TOG67tciW01rEoYaaAu%2BA7GP0pdcTsvw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200608110108.GB2497%40hirez.programming.kicks-ass.net.
