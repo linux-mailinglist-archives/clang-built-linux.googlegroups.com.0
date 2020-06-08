@@ -1,124 +1,126 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBTNE7L3AKGQESQZLWKQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBLGM7L3AKGQEMVQKCPI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x437.google.com (mail-pf1-x437.google.com [IPv6:2607:f8b0:4864:20::437])
-	by mail.lfdr.de (Postfix) with ESMTPS id B4F5B1F1FF5
-	for <lists+clang-built-linux@lfdr.de>; Mon,  8 Jun 2020 21:32:30 +0200 (CEST)
-Received: by mail-pf1-x437.google.com with SMTP id x123sf12686482pfc.13
-        for <lists+clang-built-linux@lfdr.de>; Mon, 08 Jun 2020 12:32:30 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591644749; cv=pass;
+Received: from mail-ot1-x340.google.com (mail-ot1-x340.google.com [IPv6:2607:f8b0:4864:20::340])
+	by mail.lfdr.de (Postfix) with ESMTPS id 21F4C1F210D
+	for <lists+clang-built-linux@lfdr.de>; Mon,  8 Jun 2020 22:57:18 +0200 (CEST)
+Received: by mail-ot1-x340.google.com with SMTP id 88sf8421211otw.21
+        for <lists+clang-built-linux@lfdr.de>; Mon, 08 Jun 2020 13:57:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591649836; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qZA0O0xypnF73dYINCE2ohIRkJluVN+gUXA9FKy1LMq9n5q3I/IY3NDn4NbmQR+3Kz
-         K05gZeXapSzPEhcHuwDVcrSmpnhFlNwTS5oLA5VfZ2Dm251x3TuE0wxT5es8ovJT1BV9
-         aKOP/bqsQnz6lbBXJEOFQH4twVYbRxOKVgdx0ZfugiKBi5iGJNfldGuhDlSuLfl3ePfG
-         Kz+kyeNk1MDbDPU7kYlAfqpxSt2tDoJsf5XpYma/TMNl7GARmlB9HYgQFjl6SJpnF67Q
-         5Oz1bnNSEoKQ9ICVLXyRHxoscOUuHor776xPSF633EHyKislEtNYwUZqSP3JPEdKsYLS
-         TcDQ==
+        b=OYDZs5hw1lcG7f11/xCRahlaBVN19SF+fGP2HQsIMYFXIXSeaQGi/Ro5UrwjnnVyq0
+         xgOdYBzGejBNrGc2JboZOwyYsVy11J46BDMZshbeuc/zlpXC5SxLjLXAu6zOWIHUC69h
+         6hut1alRS0+NnqdvwKB0bM81StzBU8fsWaVHmGCNXlTs6Aql2eOcNrNOdzMLIdApqfg5
+         KcByikBj5on9VMNs0sGaAjT6JJoNgfE2caEymVe+M8IqL3SfJuhR8ShvZHkT0rThqY4q
+         wI17zBq5cu1Np+UeazM/7YhI9k605kcxiDl1GEWPbZ8mIcUEla9+tgCWHbh2hB6BIVZ7
+         J7DA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=ahZBZahLRrlbliKtmujVYe33sYvTMNh9yvqlMMJOXL0=;
-        b=JGL36a3Z8C9YKo6XwIRjiFV/seJHu1J1B4SoQMeILI4Pjvo2jhcoAdWwGXcif0GW3C
-         +im8c1RilHiCv7srm+50b8Pi6NKOQ0j63QSjxR7bzmxzVufKyUxvunwmdac1jRgjauE9
-         qPdY6BHEvAYHkOFwT1Sh4RQmf/qRjTZK3L36KT99EgPUTLRjkYWgHxE8cSN4iI6m6VJj
-         qwc1nqqK/pfNuARoyEFud5kOnyXwpmXJvcxy9X7AnGHTu+PbpU3U4nAuTLqJdZNG6W9+
-         J44PcOixJlRfIvpodHSyQ7vYkXIlYikETfnimAtRPttV7gnJIwdoTu1XSghfc1MMvAjy
-         ObVQ==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
+        bh=jbmgU0KJgZbWl8kqY2Y1bRgTJG9kqtIE+pf+Pkmr360=;
+        b=gHCLassRsQ1PnyMPKdeJUCMaKBn1SwIsc5v5EpoK16EunHLkCkcUgNVgotopLtEU2f
+         01nSVgpqKNm+aVjq5Z2ZUBEWlrPkBnr1IFOCN05/StYABsBLc6a5ncHmbnM2HpSEmVo4
+         IOsSPBgd/GqzaZ4BjAqSYAFD1JokhcSdAgL47CwKUWnn6LawUL6jLevf4QW//ynxP6ka
+         NhI+QE+ykU+FSRJCOrtECHRmseO8iXuI43GXvNr6Mm5Mr/5PMDzLCjhuBEgVYsadvt3O
+         6JHjIGF5arNgQXPZ3aNLNFZ83s8lXK2fLJIPWFOb2u4GZZy1cLjvyHCN2w4X2VC3dl2s
+         isaw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=hx5uX0GO;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=oo1e6e+n;
+       spf=pass (google.com: domain of 3k6bexgwkao4dtuiqkbdyuhiweewbu.sec@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::f4a as permitted sender) smtp.mailfrom=3K6beXgwKAO4dTUiQkbdYUhiWeeWbU.Sec@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ahZBZahLRrlbliKtmujVYe33sYvTMNh9yvqlMMJOXL0=;
-        b=OEvz0ZJj2JQROnEZIXMvwswEsEX9S6Up6Yj4zWzE+jQdFoZQN7KmkDonyfZtiT9AwC
-         NavDK3EiW185/2vnz25Idrai6PU/ZCU3mSy0me/Bl7EBhtY30i9KvUJzCziw2qXRDvzU
-         jgpBBuL3icbkzjSBiynr3KzJCLPgJERgl9EIbBEozRMoEWDadw8DEYyF7qArrL/tjas3
-         Si//aL02lvD0B2FZaOzQ3sDPQP8ZpToW/6RabRDp5SuZVNoYQeT/tKA92rrL8bEI+Sgl
-         mtbAIikFEpyjuoq9HQIXXMoSKsMVB5mXOQCb6nxNi3p5/KoqasKLd/f93GBKGvlawORu
-         6Wjg==
+        bh=jbmgU0KJgZbWl8kqY2Y1bRgTJG9kqtIE+pf+Pkmr360=;
+        b=lTlxuriZbZNzhC/UwmP/PccjlnGafU6oPbMuTHXJ5Zl9Tn9LE+4YVQWrCc5peH/WvN
+         PIs0MXjjTyXTguTAjLcK0Qj3xpD2rlu3Fnv5E+DVNmdbQUMggtdle4q+1TCoGlIzMdV/
+         +CnhV33jw6VXnZ882z8ct+ns2qPNgxPdNwUmRfd7ZmYnyc8yGExi6XrB4lGbNPfLuxVD
+         S5zMNqMcLOgFM58uafWkJ6WzeJIhiQ0cyyc6pum9MFUyUqqqBvC0n/J8KGELQXocUAUc
+         3EQAKlSyCqHoJd2FrcCWs6ITB3COgKb/YNzx/uqRsspJbojoR0JBenK2BKEPk3qsCVZp
+         Ts7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
+         :references:subject:from:to:cc:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ahZBZahLRrlbliKtmujVYe33sYvTMNh9yvqlMMJOXL0=;
-        b=Hu7ueBSKi/NO6Ms34KO3f7iu41pqDeGK8nzsDM0DWTjuRdFYutUc4TXtFOSWs/l5Ia
-         IdIArdpLV02CArybScliuaiMg8tVRoj/uGm78/xCV4iaOQByMO4Vsf5nzbnc9alT6tli
-         DinoL5F+eoa/MucxPJmwWy25vc/m4ixswlqGvTBzMRxpaTs3X22Mt8azBSWApEPlF6Vs
-         QJgYaswm0nG2b0DpnaI5hbICi+yTprX5qaQ//NfvbiTtmHAGJzlu950m0iTsn/phlzvd
-         46h+Kc7Q+RRdskx5iE3V7KWnYyNr9qIzJLcg6Gph9Y5Z43/uwQf5nfuicMmpwui4oHF+
-         1dOw==
-X-Gm-Message-State: AOAM530tdRxJjE0Ux15BuLnFoD9CxlTVPiGrxelVc4UNXdcRiBAQD1jE
-	f/8KggExZctgDvAziQpNl14=
-X-Google-Smtp-Source: ABdhPJx2XtE0pyC7pu2/WFHKDPtPEgeoIDDoQblZ06XKo3nw28zNjFVNWc9ijUtNphRjHcXzpMotWw==
-X-Received: by 2002:a17:902:710e:: with SMTP id a14mr281093pll.199.1591644749415;
-        Mon, 08 Jun 2020 12:32:29 -0700 (PDT)
+        bh=jbmgU0KJgZbWl8kqY2Y1bRgTJG9kqtIE+pf+Pkmr360=;
+        b=uS+ZQQuY+pYovUPrDJTUjxP6/6K8nN0RqjvLeUjf4RZhma+kgXEXa5Vslz+vG3SEkm
+         9AB6X7ZkhWtpn6v9RU6ri37YurcUUvH5ylgmZUYOeDReW/4F8M2rCbluMfqjr49MyK2c
+         w7MoMvp9JUrV71cr9eCUJpX3QzleE7JG/o1O8JbLxDLJeldsmujuU0k9/ejyifCssZRy
+         5H8ZIGZPQwszmqt+BsEPBc8hUFcGmctj/2OSv/cMnI6z/JjIuhSxMfNdZPDk8WHX08RQ
+         z31Pm6T30/L9IrafXJ8u2pUIwhTR9KgR+hsh3ajyFpA//k3kR69Pt0hLJjvHFSGokVKP
+         SPFw==
+X-Gm-Message-State: AOAM532EKf0bOOeJ5NMbbUgpVGYMsvsLnrWb7cU9bgQnqtFckJQ8a1Au
+	7AGGupe+CIWErMLxDZwWhXs=
+X-Google-Smtp-Source: ABdhPJzgO8uLIJbsuRJV5q+AplJ9XOTZtikqwhvoZPhOqp5M7To+o4QtuzTpCV65QOj6+WZnj+sy5w==
+X-Received: by 2002:aca:3c07:: with SMTP id j7mr942789oia.156.1591649836567;
+        Mon, 08 Jun 2020 13:57:16 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:bc4a:: with SMTP id t10ls6492159plz.4.gmail; Mon, 08
- Jun 2020 12:32:29 -0700 (PDT)
-X-Received: by 2002:a17:90a:20a2:: with SMTP id f31mr903157pjg.34.1591644748957;
-        Mon, 08 Jun 2020 12:32:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591644748; cv=none;
+Received: by 2002:a05:6830:61a:: with SMTP id w26ls3810257oti.8.gmail; Mon, 08
+ Jun 2020 13:57:16 -0700 (PDT)
+X-Received: by 2002:a05:6830:243c:: with SMTP id k28mr19493914ots.111.1591649836139;
+        Mon, 08 Jun 2020 13:57:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591649836; cv=none;
         d=google.com; s=arc-20160816;
-        b=jthyul3Sweti9UCeUr+wQis72TO5r+q4An9OurwZ7L9E4/NxKw6Q/tIz65kv5Oaa5i
-         AFtj1AIp2tirG3kAdsf3rj9RnrcLJHXHCBQW8y/z25cXT9kILvkxQs6swirGn+4Tnv6S
-         KBV3tu0nCdPLI/lUWivdqcp0scIOB3XmpMRHUvUBoIFQk1toliA9VRlEku9ylLNzIwmw
-         CqC/ZhrHGSw5p371g7Zz4eVeQJnUvcK2zTzuKucrFFKrs57OgrMlhMmga9ATB3ThMypF
-         48mZZnQQC6jkdjT+5Hv/5w88kkqMyyozrcacwy3pVUsW128Wa1Aic87fwlfyG1OVTMVZ
-         jq7Q==
+        b=HofEu/Lrx2gQ07Q60hSlYcUwVDNNJSS2kMl1v5AMmiaLZU6oHM4ciA/KqgSKe17R+S
+         R6ZwMehEIH0bQWcPFRJ0IeAGU0ZHFtm7X9GJ9TdpxWfE2Cp3gZQjwVXRdQN2PSR9ILMW
+         8ZQjWN5TmO+cAYbNNYxW43Ky7McOlhx2u/tyDCrCsGvVdi7KHD6gkos4mdwNkff9dKTu
+         UGpur0t4IS15LwRXUrFXfBvg9HuiCuvPB+7jl/Y31JPu/7HpVGwLAZXybCBQnCRhQzSE
+         DZ5Ro1eOkm/wCQOXZIB5jIWaAHaXxrc4nhM7zzN0dJcPmYJ9ZLY+VR0uCOfZM07NXzuP
+         rOWw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=323ec8Wj5TktrH3HGRGVoazp/PSpRZRCk45QTvCE1Pc=;
-        b=jB5/tEaQmGIMCnbPnCUURjdBwsrz+YPQ56bUZdCXG3JwuIlEM3VcBSHulI5NT5hcO3
-         rzew+Pja09S/fyXeouQED6GjS2GB/VAF1OIG2SXJcPA+3rYt5l/QbcOviywNF3FGM9Kf
-         XTUo7M9OuRoktot7AZ54/ID6LO3OMl9I9znmIoEtoCDaeYYaWYFwnXeq8Y0vZ5rm83ca
-         LfdBiiCln+N1+7Slhes92mHnCNczwvN3+NeacZOFXro0tW76Z9WGzBlfFMjUCKFbaKB4
-         Wimd6O2M0KXRnMhwDM8JEvRfdXNpj6P3pB+a1zlLfisMySSif41Kx5gs/l1Kl4zzXlxp
-         1CGg==
+        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
+         :date:dkim-signature;
+        bh=n0Z0MVW9fjL11OJnRXmUnpTQPi7wV6ggXRGNscFMQpE=;
+        b=rC4QUbtgdRLGW+RLMzk08GL4ng+hXDLUIx8gvZbwrcbUanJRH7Y2pE8JE9kCe0hWVs
+         kppH7RVXnDVaLHRUaQX2yjigAZZngllPmT3xM7nVYkFJEnvPnCtfpzyYVSC+zueeNZEo
+         Bkyf3NC0YGdDBFMgst3oy6BgUU2UHiEIkd7UkXWWaywxkQeILxMmMieRDZwZzX1Z00kF
+         c6y0kl+J+Mk4fKd4HCGvOVKzBGcgvzerfTJGrpBXrJUQx6Pe4NFq00Y0NWslwINuBWY9
+         7Ctbbg0HaPt1C6fNzi2vzX94ufuonCq8ThliRhyiOARzXi3GCPVLhpaAP6PFhJsO6FFi
+         cuvg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=hx5uX0GO;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=oo1e6e+n;
+       spf=pass (google.com: domain of 3k6bexgwkao4dtuiqkbdyuhiweewbu.sec@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::f4a as permitted sender) smtp.mailfrom=3K6beXgwKAO4dTUiQkbdYUhiWeeWbU.Sec@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x442.google.com (mail-pf1-x442.google.com. [2607:f8b0:4864:20::442])
-        by gmr-mx.google.com with ESMTPS id v185si396007pfv.2.2020.06.08.12.32.28
+Received: from mail-qv1-xf4a.google.com (mail-qv1-xf4a.google.com. [2607:f8b0:4864:20::f4a])
+        by gmr-mx.google.com with ESMTPS id e23si688183oti.4.2020.06.08.13.57.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 08 Jun 2020 12:32:28 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) client-ip=2607:f8b0:4864:20::442;
-Received: by mail-pf1-x442.google.com with SMTP id j1so8819538pfe.4
-        for <clang-built-linux@googlegroups.com>; Mon, 08 Jun 2020 12:32:28 -0700 (PDT)
-X-Received: by 2002:a63:4f09:: with SMTP id d9mr20996380pgb.10.1591644748212;
- Mon, 08 Jun 2020 12:32:28 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200608060407.GX12456@shao2-debian> <202006081144.933995E4@keescook>
- <20200608192828.GB987@lca.pw>
-In-Reply-To: <20200608192828.GB987@lca.pw>
+        Mon, 08 Jun 2020 13:57:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3k6bexgwkao4dtuiqkbdyuhiweewbu.sec@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::f4a as permitted sender) client-ip=2607:f8b0:4864:20::f4a;
+Received: by mail-qv1-xf4a.google.com with SMTP id z7so15047118qve.0
+        for <clang-built-linux@googlegroups.com>; Mon, 08 Jun 2020 13:57:16 -0700 (PDT)
+X-Received: by 2002:a0c:f652:: with SMTP id s18mr597254qvm.96.1591649835537;
+ Mon, 08 Jun 2020 13:57:15 -0700 (PDT)
+Date: Mon,  8 Jun 2020 13:57:08 -0700
+In-Reply-To: <20200528072031.GA22156@willie-the-truck>
+Message-Id: <20200608205711.109418-1-ndesaulniers@google.com>
+Mime-Version: 1.0
+References: <20200528072031.GA22156@willie-the-truck>
+X-Mailer: git-send-email 2.27.0.278.ge193c7cf3a9-goog
+Subject: [PATCH v2] arm64: vdso32: add CONFIG_THUMB2_COMPAT_VDSO
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 8 Jun 2020 12:32:17 -0700
-Message-ID: <CAKwvOdn6EVkYkjgsg6VOamR-QUQGAiL6=LwvrxHZsQ3Oj+SyoQ@mail.gmail.com>
-Subject: Re: 0887a7ebc9 ("ubsan: add trap instrumentation option"): BUG:
- kernel hang in early-boot stage, last printk: early console in setup code
-To: Qian Cai <cai@lca.pw>
-Cc: Kees Cook <keescook@chromium.org>, kernel test robot <rong.a.chen@intel.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, LKP <lkp@lists.01.org>, 
-	"Linus, Torvalds," <torvalds@linux-foundation.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Linux Memory Management List <linux-mm@kvack.org>, LKML <linux-kernel@vger.kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, Stephen Boyd <swboyd@google.com>, 
+	Robin Murphy <robin.murphy@arm.com>, Dave Martin <Dave.Martin@arm.com>, 
+	Luis Lozano <llozano@google.com>, Manoj Gupta <manojgupta@google.com>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Naohiro Aota <naohiro.aota@wdc.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=hx5uX0GO;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+ header.i=@google.com header.s=20161025 header.b=oo1e6e+n;       spf=pass
+ (google.com: domain of 3k6bexgwkao4dtuiqkbdyuhiweewbu.sec@flex--ndesaulniers.bounces.google.com
+ designates 2607:f8b0:4864:20::f4a as permitted sender) smtp.mailfrom=3K6beXgwKAO4dTUiQkbdYUhiWeeWbU.Sec@flex--ndesaulniers.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
 Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
@@ -133,171 +135,93 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jun 8, 2020 at 12:28 PM Qian Cai <cai@lca.pw> wrote:
->
-> On Mon, Jun 08, 2020 at 12:00:11PM -0700, Kees Cook wrote:
-> > On Mon, Jun 08, 2020 at 02:04:08PM +0800, kernel test robot wrote:
-> > > The issue seems due to the lack of "-fsanitize-undefined-trap-on-error" in clang.
-> >
-> > Hm? No, that's supported in Clang (at least as far back as Clang 9.)
-> >
-> > > Greetings,
-> > >
-> > > 0day kernel testing robot got the below dmesg and the first bad commit is
-> > >
-> > > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> > >
-> > > commit 0887a7ebc97770c7870abf3075a2e8cd502a7f52
-> > > Author:     Kees Cook <keescook@chromium.org>
-> > > AuthorDate: Mon Apr 6 20:12:27 2020 -0700
-> > > Commit:     Linus Torvalds <torvalds@linux-foundation.org>
-> > > CommitDate: Tue Apr 7 10:43:44 2020 -0700
-> > >
-> > >     ubsan: add trap instrumentation option
-> >
-> > In the randconfig, I see CONFIG_UBSAN_TRAP is enabled with lots of other
-> > UBSAN options. If you're not expecting the results, it's very likely the
-> > false positives in UBSAN are going to do bad things. :) This is "working
-> > as expected", as noted in the commit log quoted below.
-> >
-> > >
-> > >     Patch series "ubsan: Split out bounds checker", v5.
-> > >
-> > >     This splits out the bounds checker so it can be individually used.  This
-> > >     is enabled in Android and hopefully for syzbot.  Includes LKDTM tests for
-> > >     behavioral corner-cases (beyond just the bounds checker), and adjusts
-> > >     ubsan and kasan slightly for correct panic handling.
-> > >
-> > >     This patch (of 6):
-> > >
-> > >     The Undefined Behavior Sanitizer can operate in two modes: warning
-> > >     reporting mode via lib/ubsan.c handler calls, or trap mode, which uses
-> > >     __builtin_trap() as the handler.  Using lib/ubsan.c means the kernel image
-> > >     is about 5% larger (due to all the debugging text and reporting structures
-> > >     to capture details about the warning conditions).  Using the trap mode,
-> > >     the image size changes are much smaller, though at the loss of the
-> > >     "warning only" mode.
-> > >
-> > >     In order to give greater flexibility to system builders that want minimal
-> > >     changes to image size and are prepared to deal with kernel code being
-> > >     aborted and potentially destabilizing the system, this introduces
-> > >     CONFIG_UBSAN_TRAP.  The resulting image sizes comparison:
-> > >
-> > >        text    data     bss       dec       hex     filename
-> > >     19533663   6183037  18554956  44271656  2a38828 vmlinux.stock
-> > >     19991849   7618513  18874448  46484810  2c54d4a vmlinux.ubsan
-> > >     19712181   6284181  18366540  44362902  2a4ec96 vmlinux.ubsan-trap
-> > >
-> > >     CONFIG_UBSAN=y:      image +4.8% (text +2.3%, data +18.9%)
-> > >     CONFIG_UBSAN_TRAP=y: image +0.2% (text +0.9%, data +1.6%)
-> > >
-> > >     Additionally adjusts the CONFIG_UBSAN Kconfig help for clarity and removes
-> > >     the mention of non-existing boot param "ubsan_handle".
-> >
-> > If you're trying to _boot_ a randconfig, I suspect there are going to be
-> > a lot of surprises with UBSAN (in any mode) enabled. Right now, likely the
-> > least noisy of them all is UBSAN_BOUNDS, which was split out for fuzzers.
-> >
-> > FWIW, the dmesg appears to be catching a NULL pointer dereference
-> > (enabled via CONFIG_UBSAN_MISC):
-> >
-> > [    0.047646] UBSAN: Undefined behaviour in drivers/acpi/acpica/tbfadt.c:459:37
-> > [    0.047650] member access within null pointer of type 'struct acpi_table_fadt'
-> > [    0.047655] CPU: 0 PID: 0 Comm: swapper Not tainted 5.6.0-11597-g7baf219982281 #1
-> > [    0.047659] Call Trace:
-> > [    0.047676]  dump_stack+0x88/0xb9
-> > [    0.047684]  ? ubsan_prologue+0x21/0x46
-> > [    0.047689]  ? ubsan_type_mismatch_common+0x188/0x19e
-> > [    0.047695]  ? __ubsan_handle_type_mismatch_v1+0x45/0x4a
-> > [    0.047701]  ? acpi_tb_create_local_fadt+0xaa/0x435
-> > [    0.047706]  ? acpi_tb_parse_fadt+0x54/0xd4
-> > [    0.047712]  ? acpi_tb_parse_root_table+0x192/0x1bf
-> > [    0.047717]  ? acpi_table_init+0x3b/0x56
-> > [    0.047721]  ? acpi_boot_table_init+0xf/0x6e
-> > [    0.047726]  ? setup_arch+0x459/0x520
-> > [    0.047732]  ? start_kernel+0x5e/0x3ba
-> > [    0.047737]  ? secondary_startup_64+0xa4/0xb0
-> >
-> > I'm not sure how ACPI defines acpi_gbl_FADT though? There's no
-> > dereference...
-> >
-> > 459:         if (acpi_gbl_FADT.header.length <= ACPI_FADT_V2_SIZE) {
-> >
-> >
-> > BTW, this report only contained 1 actual dmesg. There were two files with
-> > dmesg file names, but one of them was the gzipped reproduction steps again.
->
-> No, it does not complain about a NULL pointer dereference but rather a
-> member access within NULL pointer.
->
-> # ./scripts/faddr2line vmlinux acpi_tb_create_local_fadt+0x104/0x6ec
-> acpi_tb_create_local_fadt+0x104/0x6ec:
-> acpi_tb_convert_fadt at drivers/acpi/acpica/tbfadt.c:459
-> (inlined by) acpi_tb_create_local_fadt at drivers/acpi/acpica/tbfadt.c:388
+Allow the compat vdso (32b) to be compiled as either THUMB2 (default) or
+ARM.
 
-There's an issue with the use of ACPI_OFFSET w/ UBSAN (member access
-within NULL) that was previously reported; I'm working on patches now.
-(replacing the use of ACPI_OFFSET w/ offsetof from linux/stddef.h).
-Not sure if it's precisely the same issue, but looks quite like it.
-https://lore.kernel.org/lkml/20200601231805.207441-1-ndesaulniers@google.com/
+For THUMB2, the register r7 is reserved for the frame pointer, but
+code in arch/arm64/include/asm/vdso/compat_gettimeofday.h
+uses r7. Explicitly set -fomit-frame-pointer, since unwinding through
+interworked THUMB2 and ARM is unreliable anyways. See also how
+CONFIG_UNWINDER_FRAME_POINTER cannot be selected for
+CONFIG_THUMB2_KERNEL for ARCH=arm.
 
+This also helps toolchains that differ in their implicit value if the
+choice of -f{no-}omit-frame-pointer is left unspecified, to not error on
+the use of r7.
 
+2019 Q4 ARM AAPCS seeks to standardize the use of r11 as the reserved
+frame pointer register, but no production compiler that can compile the
+Linux kernel currently implements this.  We're actively discussing such
+a transition with ARM toolchain developers currently.
 
->
-> Clang would report several of those,
->
-> https://lore.kernel.org/lkml/CA6078C3-3489-40E4-B756-A0AF6DB3A3A5@lca.pw/
->
-> There are many examples how to "fix" those.
->
-> $ git log  --oneline --grep='member access within null pointer'
->
-> Anyway, this line,
->
->         if (acpi_gbl_FADT.header.length <= ACPI_FADT_V2_SIZE) {
->
-> acpi_gbl_FADT was defined in,
->
-> .//include/acpi/acpixf.h:266:ACPI_GLOBAL(struct acpi_table_fadt, acpi_gbl_FADT);
->
-> #ifdef DEFINE_ACPI_GLOBALS
-> #define ACPI_GLOBAL(type,name) \
->         extern type name; \
->         type name
->
->
->
-> #define ACPI_INIT_GLOBAL(type,name,value) \
->         type name=value
->
->
->
-> #else
-> #ifndef ACPI_GLOBAL
-> #define ACPI_GLOBAL(type,name) \
->         extern type name
-> #endif
->
->
->
-> #ifndef ACPI_INIT_GLOBAL
-> #define ACPI_INIT_GLOBAL(type,name,value) \
->         extern type name
-> #endif
-> #endif
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200608192828.GB987%40lca.pw.
+Link: https://static.docs.arm.com/ihi0042/i/aapcs32.pdf
+Link: https://bugs.chromium.org/p/chromium/issues/detail?id=1084372
+Cc: Stephen Boyd <swboyd@google.com>
+Cc: Robin Murphy <robin.murphy@arm.com>
+Cc: Dave Martin <Dave.Martin@arm.com>
+Reported-by: Luis Lozano <llozano@google.com>
+Tested-by: Manoj Gupta <manojgupta@google.com>
+Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+---
+Changes V1 -> V2:
+* add THUMB2_COMPAT_VDSO config, making -mthumb/-marm configurable
+  rather than hard coding.
+* Fixed https://reviews.llvm.org/D80828 in Clang, but still an issue.
+  Not due to implicit state of -marm vs -mthumb, but actually
+  -f{no-}omit-frame-pointer due to
+  https://source.chromium.org/chromiumos/chromiumos/codesearch/+/master:src/third_party/toolchain-utils/compiler_wrapper/config.go;l=110,
+  which prefixes -fno-omit-frame-pointer for all arches and projects.
+  Projects that don't set -f{no-}omit-frame-pointer thus don't overwrite
+  the prefixed -fno-omit-frame-pointer, which is an issue when inline
+  asm compiled as -mthumb uses r7.
+* I don't have a strong preference on the default state of this config.
 
+ arch/arm64/Kconfig                | 8 ++++++++
+ arch/arm64/kernel/vdso32/Makefile | 8 ++++++++
+ 2 files changed, 16 insertions(+)
 
-
---
-Thanks,
-~Nick Desaulniers
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 7f9d38444d6d..fe9e6b231cac 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1299,6 +1299,14 @@ config COMPAT_VDSO
+ 	  You must have a 32-bit build of glibc 2.22 or later for programs
+ 	  to seamlessly take advantage of this.
+ 
++config THUMB2_COMPAT_VDSO
++	bool "Compile the vDSO in THUMB2 mode"
++	depends on COMPAT_VDSO
++	default y
++	help
++	  Compile the compat vDSO with -mthumb -fomit-frame-pointer if y, otherwise
++	  as -marm.
++
+ menuconfig ARMV8_DEPRECATED
+ 	bool "Emulate deprecated/obsolete ARMv8 instructions"
+ 	depends on SYSCTL
+diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
+index 3964738ebbde..7ea1e827e505 100644
+--- a/arch/arm64/kernel/vdso32/Makefile
++++ b/arch/arm64/kernel/vdso32/Makefile
+@@ -105,6 +105,14 @@ VDSO_CFLAGS += -D__uint128_t='void*'
+ VDSO_CFLAGS += $(call cc32-disable-warning,shift-count-overflow)
+ VDSO_CFLAGS += -Wno-int-to-pointer-cast
+ 
++# Compile as THUMB2 or ARM. Unwinding via frame-pointers in THUMB2 is
++# unreliable.
++ifeq ($(CONFIG_THUMB2_COMPAT_VDSO), y)
++VDSO_CFLAGS += -mthumb -fomit-frame-pointer
++else
++VDSO_CFLAGS += -marm
++endif
++
+ VDSO_AFLAGS := $(VDSO_CAFLAGS)
+ VDSO_AFLAGS += -D__ASSEMBLY__
+ 
+-- 
+2.27.0.278.ge193c7cf3a9-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdn6EVkYkjgsg6VOamR-QUQGAiL6%3DLwvrxHZsQ3Oj%2BSyoQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200608205711.109418-1-ndesaulniers%40google.com.
