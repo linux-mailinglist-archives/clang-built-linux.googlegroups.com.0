@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBS4Q7P3AKGQECBD5BBY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBUMQ7P3AKGQEXMFIEVY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
-	by mail.lfdr.de (Postfix) with ESMTPS id F33D41F248B
-	for <lists+clang-built-linux@lfdr.de>; Tue,  9 Jun 2020 01:22:52 +0200 (CEST)
-Received: by mail-pg1-x537.google.com with SMTP id 21sf5633126pgk.9
-        for <lists+clang-built-linux@lfdr.de>; Mon, 08 Jun 2020 16:22:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591658571; cv=pass;
+Received: from mail-il1-x13f.google.com (mail-il1-x13f.google.com [IPv6:2607:f8b0:4864:20::13f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1BE811F248C
+	for <lists+clang-built-linux@lfdr.de>; Tue,  9 Jun 2020 01:22:58 +0200 (CEST)
+Received: by mail-il1-x13f.google.com with SMTP id a4sf12970984ilq.2
+        for <lists+clang-built-linux@lfdr.de>; Mon, 08 Jun 2020 16:22:58 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591658577; cv=pass;
         d=google.com; s=arc-20160816;
-        b=LjeYdGbHEFc1jRv3MkCZWC8Z0U/g5iXS+idv1cnXfELNqZW47DXh+TBE0BCHwVsm0h
-         tCZq9ngcgYu0wSCnbpPovIP4DaK55GjhV2wpbVew9/5rbu6OmxX6BWPlg73C8SK2CwUt
-         HiB+zmDgDov9XlR+6NXjGhFgSbz2Vy5UKBT4rhvabFg0vlElAG3blRSa3m9SNqKXsY9w
-         e6UliNID+GP1cJmbdFygyVyVvToX6eCXerceKMgsUSmpJ85gaOGDbL2VVAMPeQaRJ8To
-         eJVT3hnF1q6N4i1/Ql1UJB8xnzBZMbEeMgDj713eEeOMP8MfqWHvtClySWXbhMpbYI7b
-         tijQ==
+        b=CQFQlB4GzEsTXWpKf6/8rl1PXxf/JD7uiCKDQd3rCHmHhGj6AURbkuVTGif8OfrkfO
+         1ha61IOeGB09y7XzMGEBHLcLlRTI9gbXCjSfJAa2mSiYAdsubm31p6p+FGn5DaA2Y+E+
+         khPvnApsr9O6YNA2K2VjVLIx9Pcux8Po/D6KNltz6uNE2PM+OSWDmUVfNFwPuYWVB/e6
+         ExYgK5fm8X14FdKyrEBO8ea19+rfSAacL1gewkBO6Ki7Amh7s/ZMetBpprUnETcUOV2R
+         R0fXy0kfirRrqj66N7pk4VBg4beVWE2ZBnWuIvmKN5MudAwryvyIAM7cL8h8OVErzWOl
+         Jn+Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=QIWYb8Mpf2fljOykiGvGtqsKbL8B1/K/UsxDiV4nS6Y=;
-        b=l4kAKAm/OevZbk1OnvFc9vl6fByfQg3vbomJpneFeUwK5fEoviEdFYLC0vAdPxcQZz
-         j0CAKr+X/D3z4nQIqxMUfVVvrd637rikBoWoMtZYebp0JH6+4LQsvT7/FUMTjEN0RXHD
-         qAxaNSswlMjgwMn3+Qrbkk3w0NDw7VTg5YXU/BplHkwL+ifhbxjN0q/a2eTm6XMA19HZ
-         90ECoi/gZQ9SNhGISzGRDr9f2slVRbOF/7ZZ9pJr3L2x925qpJcqgLygyipwWXGAEG6J
-         SDA80yFZ0wlTpk6OlU/sOCH0VVD12j7z+X2U/eOqoTBWF5LbBqwcFyR2MCA6HKF5nO85
-         r42w==
+        bh=POHvE2qEiXmWAI2yui3x23uwzBLLisIFyCX595qyNX4=;
+        b=l8q80t4LvNh4Y469qUqOGtODUiNH0MKAiqGTeYuLL6aSXdwP0pze8QDCjtAFYbLCju
+         yGCy7Te1ZQ6rGvdCGqZX9xSUg/zJJ82L3WCcHD6S+mJkPF1mdQhdaWVPrL11tUnfjsns
+         fja4K7NajSQDndCPIfem3+eNvo5+Lu7g39VYt1DYk+AbnKkWJRAI+9r9cNe3xAvuVy/d
+         pkOGWLEWxsCnB8ZXaoR34YW8dXWigSSNxFoYSEg+BDygZgXsRCgx92HfbFEgAF+mwDCf
+         uVjtz/lpJszTinRbKqstS8Ov3gQ4TnGWECTPSZIdaB5XwuD0wlt3Cd3Fxy66UIub+zJ0
+         4Okg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=aFzj5DtN;
+       dkim=pass header.i=@kernel.org header.s=default header.b=q6mwnPbd;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QIWYb8Mpf2fljOykiGvGtqsKbL8B1/K/UsxDiV4nS6Y=;
-        b=hTOQ+oPWlPWwnOdVU8scpvexYZ9ac3sWxDVW3qAcxesc9YA0tdax2tw9ModdJKUGMA
-         LkbiddrJHnX/qMAa94ByuScgoIDHYBGga0DzJNf6YcoZk15koLprU6kclLZiwRNWWd71
-         W8JxtJV/TAJQw88RVVn5aje9Jp3RuuehOjt3dF+1zUf93BP1cPWFX1xslpIuCbR6AkQG
-         0Gm3dvTLX9q+ylDdYbJyEinnKTkxYaY+P1o1UAWxjamlpqSjEZeg4ncXZ/RRfeseNaWe
-         SdDRTBWAWSMvxvlvU5sQ6WeRA47Waty0lNbT7P3bKSBLGi2iWCCIYGE7/QzyJb7Vu/yi
-         oWSQ==
+        bh=POHvE2qEiXmWAI2yui3x23uwzBLLisIFyCX595qyNX4=;
+        b=SUFW+C/46/5U4hHO5rPPHERpCe6MmaGepipjqiE7zN8Jj2RnO7NLrXuRDJ93ZEmCyN
+         kHR29+yPpl5sshPM/OO1ESOsf3r0KAWya3wBfoiSB3Numu17bjXzL1Wtdt5HTW9hLfTj
+         UWHYSQeuYskLl3/QfAa93g52f285rR70l+7ci4xKAt21zAJUeksWNIJoNJwmCVEX6npg
+         UsuEEfw3W5q5irSOwnM+P5x48gO9Bq2EpLa+eJAEt5s68Aq2s6WO9omeGih668W7YSS5
+         bt//pz/LmMNoPL7gml3CxVOPvt1LSxoRpOJ+7k5vL4GmZweAJfCDRm5VlTWC7mbhWN16
+         DPhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,72 +49,71 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QIWYb8Mpf2fljOykiGvGtqsKbL8B1/K/UsxDiV4nS6Y=;
-        b=PRHjMhB66Viua4OsjXEyY0SM526MJEY7eVHkADoved5lMXWQXmQqRySGMV/x37tlGG
-         +YkF7MVdpXHAVcd4L2N677RChpGIyz7Eu9AQtWDRYm4CsfCJh/qep8IFozQ3G+zb1TdI
-         DccrdnkmjeuLixG/l31ZmVdXuJYiCWx8myB6NC3/ZfkANVVH0BgJp5TGuXF4AgB98wUY
-         3KbJdDWmH40g7Ge1D7xz3FozYu6eTSmWtpH5ZM4S7/aLn+0y41DgiifiPYle6NGj8I/P
-         TpO4Pu4nuZu3H6h9Hco7HH+CBKaNztC69OMT2N3XoXo1belaX5/5nK4WdARAVj+Fo5HB
-         vb2Q==
+        bh=POHvE2qEiXmWAI2yui3x23uwzBLLisIFyCX595qyNX4=;
+        b=JSb9yN619xc8UstCf3DXjhO2/xDa8oQ9tLIMVI5HsoJZ5TztvtBrcq0Cc8uoBCswC5
+         1iuuj3yRPI9rhzDC+ovcVWNyvOy27di1DZHVywd9wjmkU624EQ4kxOG3Wbh4BNJqjh83
+         tiqidqR7q34aCmi3Uo2uwQOx/bEd8A5eGLaNdDO1iw0v1QsBJT3Rwu+Qb9Agx6Bl81OW
+         b4sZYtM8RGlhUjnMvyeD+lzbEHikzzdmvYMEcWDUacRAaDqxzqtA35vAC8mVO4mFqugA
+         Vm6uJU69DkmfGi4XnrvJ5xxmabDlKuZqfH+1mcdFpkIBSvnFLju40YGz7sU610KKGvz/
+         bqMg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530UpNV4UBvpy8oOyhTE3HIGS/AjeRiRp3v9qqfR6KhxT/Mxdovn
-	RNWUGbz5MWho22qjc4GbWIM=
-X-Google-Smtp-Source: ABdhPJztMWmWsSP9IGINxwTgjaCWkiXmWDZVB+jG+ACyyZac3lHGxrCkSLkM1fOBGcHTxy/tmbXWIg==
-X-Received: by 2002:a17:902:bf02:: with SMTP id bi2mr919102plb.330.1591658571711;
-        Mon, 08 Jun 2020 16:22:51 -0700 (PDT)
+X-Gm-Message-State: AOAM533YfUdQfnEYhzVINIuzSN8e8DNPhkY2i4sYvJLwIY6zYiIvlI3r
+	am+8viyBdNJgl4WPw49Y0mQ=
+X-Google-Smtp-Source: ABdhPJwht43yWehkYAdjqRJ+A8xufH/tsY0jNPFfjdd4mr4+olWWXkUCHIWldrthS9YdP71Xg+fwzw==
+X-Received: by 2002:a02:9999:: with SMTP id a25mr23697520jal.129.1591658577112;
+        Mon, 08 Jun 2020 16:22:57 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:c253:: with SMTP id d19ls398446pjx.2.gmail; Mon, 08
- Jun 2020 16:22:51 -0700 (PDT)
-X-Received: by 2002:a17:90a:294f:: with SMTP id x15mr1545021pjf.97.1591658571395;
-        Mon, 08 Jun 2020 16:22:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591658571; cv=none;
+Received: by 2002:a05:6602:1584:: with SMTP id e4ls3249696iow.0.gmail; Mon, 08
+ Jun 2020 16:22:56 -0700 (PDT)
+X-Received: by 2002:a6b:39c3:: with SMTP id g186mr23371958ioa.91.1591658576707;
+        Mon, 08 Jun 2020 16:22:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591658576; cv=none;
         d=google.com; s=arc-20160816;
-        b=uQYE+iS+bjdLOBpnV8Fq0QsFRpf532bYynr89tbYpGDKX38rMYl2FLvnBlfby/pz2X
-         TUx+xnC0CmqQs5nbxhBd8AKmWsPSLvKmXKlehOUVvNkc3hc1mPm7NMOsBYJ/S2vX5AKs
-         72rjVofYY+AT/hr79XOeo9k7Q+6ReczFEHGOwdq9wuPnfDbkhow+uGvP2ZGCWIVTLToh
-         8N3OST9dfapGQ8OmKRtX9Rb+ujjpxuo1tpc1nRRM0ZYwESHzQwnMfQwxsi4n+ijnAPmX
-         lrqVknX40zGVJn5IsoeVLj6JM/NoHbGIic4X9sxLdtGupGcqJ0o2slfIO+gBVIXpceG8
-         6R0A==
+        b=BklLa5wHW+1vsIFB5UqGuKsmIuHN64YkHI6ou0MXDPnSVJ4mZXLj08qknciKMOOM/W
+         gsn1NcESzb92WKj5JjeG4+kx7tgom+9uXuVj7N8eStUk5Xg2AYG0OLXbwAJU+OifOBIv
+         fqIQyFLNiurcDfTHx0rPoyeJT0vz+g44MCCTvZGKw3zv1cZalRHiU4x/oEp7Zr8I07uD
+         bodQ9nIrX3wBCQoRBIfyzfADkAqT4dFa4TgpwkCXWPVm5qO6WygX99f92KEsBzHRowNk
+         PnEQZq81bqKC8Fx9Ao2NYMU8HbjS7camdd2pEw0DljZBZnagAUu+/SmNRxyWJjz2Kp9t
+         Z6zg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=m18DJ8qvpeI4oGEyO10/jHpQ0Fx6FO0SqxjPAKlXnE8=;
-        b=A4vY/K1rtw7loyWecXbp+LgeydRGY2hxsfbO8zHeI2BCcKeXvBcwR/kJTpGMw7w0fL
-         75K6UsKdbeAbw8jHRF+t1ZTcUmHw9tU0lNQoZQYHztOARbjocIRNwGdGFmy10urTmbxm
-         Jr5umrQco1F+sMek9an74GigdwfxyI6GNBDRAt/7/ZH5Alr9364mY0wv1jue22rkl8/U
-         scsu/8H9Jkdrs7t6IBESidCvcxYnqou+6vBbnTYQeY6zah2/xzFLgaVhXq6iUuC3yPnG
-         DBUkSoHMtLDIlVjFUEJAd2gvY23MEW2j95W43usM1T5s6kV6xPfR+W4VipBS9NBzWZsW
-         rAxQ==
+        bh=E3B8wU9dbyZL87UW/34GtWdukSVX2VWRj5mf9VkNX8M=;
+        b=zvKDs1AjNHXluJLSys2svciir5DHHdkqljfLOvCg66ocESew/DyWw5NJRmBOpHDr+n
+         uhysD0PFOAJ1q0o0+ra1bjAgtC6g7ZrQzSdc1z1TSyUmzV4R9Ykl6iv6q8J+G3VYHW0E
+         GYy5Fh1UX25Pwn14QDEoeaphJbqVe4F8JBaX2Vn9YRyBavCHFVaBkJoa9dsIHDdL0fnw
+         pEZcfqtr6wN+snAkFMTCM/eLeiddjGNQx9K9d8Vsba8A3R2zbeGbWHYX5kGsu1Cw+jMw
+         A/2N5x968zWu4GOfoDSqFJFEa3c2qXmlYGyGAGk8QRvQg5A8P9jEwARgYIRkndVsufTI
+         SFrw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=aFzj5DtN;
+       dkim=pass header.i=@kernel.org header.s=default header.b=q6mwnPbd;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id i17si62725pjv.1.2020.06.08.16.22.51
+        by gmr-mx.google.com with ESMTPS id x10si875160ila.3.2020.06.08.16.22.56
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 08 Jun 2020 16:22:51 -0700 (PDT)
+        Mon, 08 Jun 2020 16:22:56 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 129A2208C7;
-	Mon,  8 Jun 2020 23:22:49 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 0D02A20842;
+	Mon,  8 Jun 2020 23:22:54 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Ard Biesheuvel <ardb@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Peter Collingbourne <pcc@google.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Fangrui Song <maskray@google.com>,
+Cc: Luke Nelson <lukenels@cs.washington.edu>,
+	Will Deacon <will@kernel.org>,
+	Xi Wang <xi.wang@gmail.com>,
+	Luke Nelson <luke.r.nels@gmail.com>,
+	Marc Zyngier <maz@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	linux-efi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.19 010/106] efi/libstub/x86: Work around LLVM ELF quirk build regression
-Date: Mon,  8 Jun 2020 19:21:02 -0400
-Message-Id: <20200608232238.3368589-10-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.19 014/106] arm64: insn: Fix two bugs in encoding 32-bit logical immediates
+Date: Mon,  8 Jun 2020 19:21:06 -0400
+Message-Id: <20200608232238.3368589-14-sashal@kernel.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20200608232238.3368589-1-sashal@kernel.org>
 References: <20200608232238.3368589-1-sashal@kernel.org>
@@ -123,7 +122,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=aFzj5DtN;       spf=pass
+ header.i=@kernel.org header.s=default header.b=q6mwnPbd;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -140,53 +139,101 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Ard Biesheuvel <ardb@kernel.org>
+From: Luke Nelson <lukenels@cs.washington.edu>
 
-[ Upstream commit f77767ed5f4d398b29119563155e4ece2dfeee13 ]
+[ Upstream commit 579d1b3faa3735e781ff74aac0afd598515dbc63 ]
 
-When building the x86 EFI stub with Clang, the libstub Makefile rules
-that manipulate the ELF object files may throw an error like:
+This patch fixes two issues present in the current function for encoding
+arm64 logical immediates when using the 32-bit variants of instructions.
 
-    STUBCPY drivers/firmware/efi/libstub/efi-stub-helper.stub.o
-  strip: drivers/firmware/efi/libstub/efi-stub-helper.stub.o: Failed to find link section for section 10
-  objcopy: drivers/firmware/efi/libstub/efi-stub-helper.stub.o: Failed to find link section for section 10
+First, the code does not correctly reject an all-ones 32-bit immediate,
+and returns an undefined instruction encoding.
 
-This is the result of a LLVM feature [0] where symbol references are
-stored in a LLVM specific .llvm_addrsig section in a non-transparent way,
-causing generic ELF tools such as strip or objcopy to choke on them.
+Second, the code incorrectly rejects some 32-bit immediates that are
+actually encodable as logical immediates. The root cause is that the code
+uses a default mask of 64-bit all-ones, even for 32-bit immediates.
+This causes an issue later on when the default mask is used to fill the
+top bits of the immediate with ones, shown here:
 
-So force the compiler not to emit these sections, by passing the
-appropriate command line option.
+  /*
+   * Pattern: 0..01..10..01..1
+   *
+   * Fill the unused top bits with ones, and check if
+   * the result is a valid immediate (all ones with a
+   * contiguous ranges of zeroes).
+   */
+  imm |= ~mask;
+  if (!range_of_ones(~imm))
+          return AARCH64_BREAK_FAULT;
 
-[0] https://sourceware.org/bugzilla/show_bug.cgi?id=23817
+To see the problem, consider an immediate of the form 0..01..10..01..1,
+where the upper 32 bits are zero, such as 0x80000001. The code checks
+if ~(imm | ~mask) contains a range of ones: the incorrect mask yields
+1..10..01..10..0, which fails the check; the correct mask yields
+0..01..10..0, which succeeds.
 
-Cc: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Peter Collingbourne <pcc@google.com>
-Cc: Sami Tolvanen <samitolvanen@google.com>
-Reported-by: Arnd Bergmann <arnd@arndb.de>
-Suggested-by: Fangrui Song <maskray@google.com>
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+The fix for both issues is to generate a correct mask based on the
+instruction immediate size, and use the mask to check for all-ones,
+all-zeroes, and values wider than the mask.
+
+Currently, arch/arm64/kvm/va_layout.c is the only user of this function,
+which uses 64-bit immediates and therefore won't trigger these bugs.
+
+We tested the new code against llvm-mc with all 1,302 encodable 32-bit
+logical immediates and all 5,334 encodable 64-bit logical immediates.
+
+Fixes: ef3935eeebff ("arm64: insn: Add encoder for bitwise operations using literals")
+Suggested-by: Will Deacon <will@kernel.org>
+Co-developed-by: Xi Wang <xi.wang@gmail.com>
+Signed-off-by: Xi Wang <xi.wang@gmail.com>
+Signed-off-by: Luke Nelson <luke.r.nels@gmail.com>
+Reviewed-by: Marc Zyngier <maz@kernel.org>
+Link: https://lore.kernel.org/r/20200508181547.24783-2-luke.r.nels@gmail.com
+Signed-off-by: Will Deacon <will@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/firmware/efi/libstub/Makefile | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/kernel/insn.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-index d9845099635e..d3777d754984 100644
---- a/drivers/firmware/efi/libstub/Makefile
-+++ b/drivers/firmware/efi/libstub/Makefile
-@@ -28,6 +28,7 @@ KBUILD_CFLAGS			:= $(cflags-y) -DDISABLE_BRANCH_PROFILING \
- 				   -D__NO_FORTIFY \
- 				   $(call cc-option,-ffreestanding) \
- 				   $(call cc-option,-fno-stack-protector) \
-+				   $(call cc-option,-fno-addrsig) \
- 				   -D__DISABLE_EXPORTS
+diff --git a/arch/arm64/kernel/insn.c b/arch/arm64/kernel/insn.c
+index 3e6229e30109..cd37edbdedcb 100644
+--- a/arch/arm64/kernel/insn.c
++++ b/arch/arm64/kernel/insn.c
+@@ -1490,16 +1490,10 @@ static u32 aarch64_encode_immediate(u64 imm,
+ 				    u32 insn)
+ {
+ 	unsigned int immr, imms, n, ones, ror, esz, tmp;
+-	u64 mask = ~0UL;
+-
+-	/* Can't encode full zeroes or full ones */
+-	if (!imm || !~imm)
+-		return AARCH64_BREAK_FAULT;
++	u64 mask;
  
- GCOV_PROFILE			:= n
+ 	switch (variant) {
+ 	case AARCH64_INSN_VARIANT_32BIT:
+-		if (upper_32_bits(imm))
+-			return AARCH64_BREAK_FAULT;
+ 		esz = 32;
+ 		break;
+ 	case AARCH64_INSN_VARIANT_64BIT:
+@@ -1511,6 +1505,12 @@ static u32 aarch64_encode_immediate(u64 imm,
+ 		return AARCH64_BREAK_FAULT;
+ 	}
+ 
++	mask = GENMASK(esz - 1, 0);
++
++	/* Can't encode full zeroes, full ones, or value wider than the mask */
++	if (!imm || imm == mask || imm & ~mask)
++		return AARCH64_BREAK_FAULT;
++
+ 	/*
+ 	 * Inverse of Replicate(). Try to spot a repeating pattern
+ 	 * with a pow2 stride.
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200608232238.3368589-10-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200608232238.3368589-14-sashal%40kernel.org.
