@@ -1,140 +1,122 @@
-Return-Path: <clang-built-linux+bncBD26TVH6RINBBT7Q673AKGQEIYUZDUY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCC6FDHX24JBBVXZ673AKGQEEZ2FA2Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23e.google.com (mail-oi1-x23e.google.com [IPv6:2607:f8b0:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3FA051F1491
-	for <lists+clang-built-linux@lfdr.de>; Mon,  8 Jun 2020 10:35:29 +0200 (CEST)
-Received: by mail-oi1-x23e.google.com with SMTP id n67sf1387720oif.14
-        for <lists+clang-built-linux@lfdr.de>; Mon, 08 Jun 2020 01:35:29 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591605328; cv=pass;
+Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 829ED1F14C0
+	for <lists+clang-built-linux@lfdr.de>; Mon,  8 Jun 2020 10:54:47 +0200 (CEST)
+Received: by mail-pg1-x53c.google.com with SMTP id l25sf12633969pgn.8
+        for <lists+clang-built-linux@lfdr.de>; Mon, 08 Jun 2020 01:54:47 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591606486; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mlVEIdtxckLH7T4cnbeXP9nnFy2sxO1uDSLeg7Z1jKxTvDyfqMI8BZoRBhkLEUZ+8Y
-         g+3zLD8foMkolT2SYyM6RHaM8XkUa1rLn6PdpEdQuQJNQfbxTJecn1uYhHZ32itEEBJQ
-         nVRT6TUR/s/KQkl6/2hSKfb2d/nf85vLA3nZXwu6nMhrLvDWt2bSClbDKPO+EtOe2Ej0
-         uouVf9qhiGMniXRLa5ZSjc64vugo5DH7nAc+mvj/kodnerXZ0Rb3xNotqFioMo7h+u/9
-         n14Gizt00eat4rHOZLqCLD2WQvtTD+S9fL0sVtCjcLpGkflfESaQdU08CVVGp27Pjyqs
-         fr8g==
+        b=hK+oByyyilIuYa4uDiS/8WzPV9OLFGt3bzE5wMhNcvLeUcDcMbssSgpw88IQPn0ag7
+         QaDnhS11T940cdzjYccAp+coeUJSc9avB5XVGJByjjX4exozq3fA+MBo4BvfHh8eywtf
+         0+tIQnh88kHJfihgLNUisEPYtAmv5O4CO1A1Ouqw3cadnTNrlCuaUokynXa3PwhtTMi8
+         0UIFWmM3VtjpVjlZ85lU0enHQJjle3ItpN/O1D0gjGPQUQqbDNMsSTKr+4nwYy7b5bzE
+         WWG3vpQKd/zx22Zfff/zuzj0iu/qeb2kdvpPbkT5bUL7Dw0NwRlZu8Tf8dGPWS4ydeXY
+         eS3A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=E6MliVQ/7ShZNXM0xqmVhqqGC/BrhPdEeXYjrW8kO5Y=;
-        b=lcUEbUNdrp9xWY53+oFhfTnFG/yWVbRP9t2m/j8OF4r4qjkyqAJfk41Y64toa9jOKu
-         +sdx09QEQzvJjzxW0hNhnMM29LDV2NaeStDxy+tBnll65UJMmV/jwaYTbXgyaUjt+OoA
-         q3WK7X3JUHIQHSdLvoFmEJg3+5ZLqFUx/XlsxwE7KAYkr5HtSrEmOQsKw8Qep/WvOwM1
-         BM6smPiEDWbSuReqFI9frJepS1++R9xS+bGRejB43wYTTlAdxe4DuRofIvllLAHUalmi
-         mYOWzy3yJnq48KbeiUmMFYGD7iQbjHIB34aYEAIZfDaapCNBkb6xyTtWImgm8NFJe0iI
-         31RQ==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=PVN9qN/laVJBJve5GBbqO39hSqHyIDBevMM6D0ONNRE=;
+        b=Y6YPzF+xxruCmMgaPvF2thnPi3x2RayTwxDcApGZS7bEqk3UnMknOQ1eFEqo02mAJH
+         JV8SWEOH3CcMCSvbR0ojb1Hk/674Iv1oEm9ogEKieviE1EJQDf3CUQ6zN3JoVD3ZnQoK
+         XMLiAOvQd0KI5XjpaNJ3Z3jOEqzXpD5qw90SKRFeeXYakAiBS+bSDwn2i4Ju62eIyJnh
+         +c+CEnTa8Kj5Rz8r9NmeeY8PD+dSLkVTEMMxvEQWi1q1/YPnuMxsyEG3CCnoSWdbCVuF
+         L9NhrU5hA2lGxl12Cl9pI/vEWV5tNJybKsSLp3ReboGa9AFVlOWU1Ca4lfMQRDo6Y6y8
+         wzUQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@sartura-hr.20150623.gappssmtp.com header.s=20150623 header.b=oyN1beHn;
+       spf=pass (google.com: domain of robert.marko@sartura.hr designates 2607:f8b0:4864:20::243 as permitted sender) smtp.mailfrom=robert.marko@sartura.hr
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:subject:to:cc:references:from
-         :message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=E6MliVQ/7ShZNXM0xqmVhqqGC/BrhPdEeXYjrW8kO5Y=;
-        b=S8VlzZgyLLYHLTQcyERTO9B+SsOmfVExet+GGXWdCMPH10ZHSaNjt3Nb2CbwC8BufZ
-         SGAdikog6RSELIHc1KSuDshr1slSuVvonS+mN3vgVbpPQL8qbvzipiqwi0TrNjPeep2X
-         Url4HtiHKIEQO4kBXw9hgo9mFyI5EovxPRNAULz+vr5auil135ESEuTouYpbTnFBkwJU
-         pAmC/tnCVrFiL9d/D0/roXeaatdfwYbKUrK4I8UDmvggbGcdEQpgLr/GZuv2hLfu0FxT
-         B24UO4bbS0y5mfNltnrBT7q9aTcor/pvsQoZS62u5fZVBqPYmoVl0BOlpgdXXfVqemgp
-         8dIg==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=PVN9qN/laVJBJve5GBbqO39hSqHyIDBevMM6D0ONNRE=;
+        b=YsRLFVcoKSw+sUzg7faH7+23UBahMSwT4H1qHzmLYAmXfiUHNMIvRgEY1t/Z07jxoK
+         Fd9BL2NUF5XvDWR2tWdNchIXMBBrIVsUltM6uKsjjW5uwWBrWosRL8xl/g/XX5CU/TCr
+         0pZJJH9E7XeSg88DSKRrcsal3R6TRCkz2g18wkuuFBRcl447zdXXSWC+xC292j23RMpP
+         tIWMdFDuOnI/cCBD8QGm7ObezU83M9e0NJVffPrd1dZAsUmvli+hMqBSPnH/valdKGJb
+         uNKzZ7xFfGxu6fZRONK9gTu6pI4m/7svSHN5jvl9+RmpD2VVhRHzU+w9rqhDoA3UwKuw
+         of5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:subject:to:cc
-         :references:from:message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=E6MliVQ/7ShZNXM0xqmVhqqGC/BrhPdEeXYjrW8kO5Y=;
-        b=TqJj/l9jdvRyKyJLhaV5cLKI/GHFPgncj7oXrQoR6QR9YY3sJF8+Vc9PIocXyouvoc
-         v3QixrO3zJ3O5BoaUJ5uIP9pEvP3P6j5/V9WIsftUjGPkzeV7JOFWq0Qt3xuWnzsTBeg
-         OV3z2H2uihKJAzHR9Q6TWWjxlq9TxgyxNNSnrzTb75jhYt9klSvcbK+43GjqcamBwUIC
-         vlL2Fwup2ddzA1gLj58tiyvEg2Z6bGNEYk/kxeRTHoxy/oXDqWpX7VF+ySEqyItlyOpR
-         yTDsvaJJWC01AYIO1FmFJar5jzP467Af9pMQdmYaIihIMCC4pthcoZX72vdi+jx89Khj
-         IY4g==
+        bh=PVN9qN/laVJBJve5GBbqO39hSqHyIDBevMM6D0ONNRE=;
+        b=a46yAQvreUFPkQUdkHa2Am8TVdf31RFaOXMikbPqQ6Iqy3zo4ZvzfSTvTxmsPFo2VM
+         R8nsYSeoDhim8E199LCVfz6TglK01YKCotVyp5Gc/Y3+GfQMxDug8Lwq070yvERXE70y
+         mpExk28e0xkI1fgVaPAE+rGtPoBrBQmxpUcdKeaMW0DoMeM64ke5bI4JomQLMg/ih4w6
+         SKHI5E7utu/GgRp8yURoFiLeTzkz8ZYIqLOsYaYjvoOQw6vXQfSd4jku6NiyuYKo48nR
+         pNfyCRhUwdGIXs3dv1qtMLhqKQWIETfItzXgCHktN76a2FEuwIm2blupfiwljJQ/EmIA
+         lFCg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532934KGiaSNBPZzSVKWFV+tP3CczF4mVFOuaJhefHEc0s/MtlRf
-	DzpvkksMlxIQcGi5eJ5Jeo0=
-X-Google-Smtp-Source: ABdhPJydKdSyDBR3tLpzMH/bBGW2t1LGf3kLwQjJBh/luitEM+utsK93HIGJAUuhQuUV2IUG3RjGUQ==
-X-Received: by 2002:a9d:2d87:: with SMTP id g7mr17166814otb.186.1591605327899;
-        Mon, 08 Jun 2020 01:35:27 -0700 (PDT)
+X-Gm-Message-State: AOAM5338zjIcdjaYsR0pgBON4ZZ6et4IjSodI8w/fI8WMdxN3gIAKHoI
+	LFbxExhaUxJ00fr7S4A8rRs=
+X-Google-Smtp-Source: ABdhPJwN0msg4tCSQpxFQdf+dI9AkyXYUkOaXjRDUakNv6+TC5GlrQMPXZh3Gxtprm/da7YGlGm4Fw==
+X-Received: by 2002:a17:902:8f85:: with SMTP id z5mr20115110plo.152.1591606486195;
+        Mon, 08 Jun 2020 01:54:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:4810:: with SMTP id v16ls2979241oia.5.gmail; Mon, 08 Jun
- 2020 01:35:27 -0700 (PDT)
-X-Received: by 2002:aca:6008:: with SMTP id u8mr10276017oib.58.1591605327406;
-        Mon, 08 Jun 2020 01:35:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591605327; cv=none;
+Received: by 2002:a63:28c7:: with SMTP id o190ls4354882pgo.3.gmail; Mon, 08
+ Jun 2020 01:54:45 -0700 (PDT)
+X-Received: by 2002:a62:8cc7:: with SMTP id m190mr16619877pfd.174.1591606485739;
+        Mon, 08 Jun 2020 01:54:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591606485; cv=none;
         d=google.com; s=arc-20160816;
-        b=MiMV8WZUo6BQoqBRqF5b0rrYWjQdmf2gUem4A0H/ddbmsQODGtu5jpGpAw/h8gynWM
-         qfEkpuR0Vl3wLlx2eTxT6/+NFnX3+n6Xvwh1/UFNz7oJJqMzguRUMMIjFILjsS37iNuO
-         fN+9Wkjr28y1bKI1NTqJc5bNdNAQY48oyxI5SvSwRxezXKSs+ljjFapwnmeHU8mqo8JX
-         OODbF55NRckAocwGVn0Vv99rc135FJmkK4VKzSoPCQtrCRMBlv+ER+3MR7yq/BZRyCCT
-         lKUlqR05noiLx6uATnEmw/oNdbkeM63KGKjJSH4u00+V6R1x60fLzIElxw+NxXjP64+d
-         f8hg==
+        b=Wi+bnQyOTZyRVjJOwWZDi5VakZm8u2tBFSRgRZZj34ONCeXNC2wbzXNzy14QQ9kCeF
+         3F0GZU/sKVuZ6qr/ZIIstDGFUUYYuTQtOMvSnPWcyuWAwgojGZNgmeoYMFdsvFEs46Nn
+         E+s58yJOOcYjj4ZNhqqpTKGypNsXi1KVvaMvBkk5db20d9QsDYup0l0btGmJ6QsG4SSb
+         TRUFDxA5eFE7BtA9jslGXlqeB5JFWtxr+TnWGyYhi3Ut+onyBbkh4RF1BJdScdtawODx
+         THfGM67DAEk2yLImISRmh0XVtjPTzmi3ecaxJZB1N42HkiBrQet62D47NEEQ6SSwzeKg
+         0zow==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-language:content-transfer-encoding:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :ironport-sdr:ironport-sdr;
-        bh=jVLrB3Mr4JddczDkGBlnP7HplYRjjqJEr2CoQOTzxwA=;
-        b=uC8N6j+RHfS35d+ujmtDhNYmqNMaS3IF5RmZU3n04RA2A5Wz97vCUCZ1m19IwjCtxC
-         3KNBTavMq/ZyGcf4yGI9QIcERVH/VduKpwD8sw7Dqxx9x8Cx6FtdohrwHE/s3P1z8jYA
-         TfQSfLXMWD2IwDjZOqqWoYEaW2cggATS7EQyEVrEhjRck2Dmb0da2YSUt15arDAzX7BQ
-         Xtapk7nbny2hmKEUo/MggX6gAU5nQOBdt5nYUpQNkmg4mhDW1KgBtsHxUnUzsjfi4FVV
-         5ZAXvy0hJErJvdh1YvHaUJA1V5AveYpasXxWGGMMXy58GjJZrfv5ZoucwpYvu7DRkSMy
-         iP7w==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=ROtyPLWOkg3okEi0NwLW2pBM+z9aAMRVrxbgfI3b4pA=;
+        b=m9zz8iwrdygiVWE+2MSTB28bmzZSnCc/1PLivui1IB34XIaaKl+LJY6x/Q0afImGL2
+         ueC7WHQ4HqXLCHeibzQeRAd+rfHnSq5eGbc+cq13I9Ba0uFBJCvatVe4ua1HOpeP7Giu
+         E2A1xharwA+TFga8MjzE5tjXnTKhRV7JVqh4ZA2A4PzVyUpzHdPf4Xpl9f3pG2VHH7KG
+         SO/7PnyTVv856d8Z17+NXJk3jRIpPX3VbWt2meCeJD3adf+bwbhRic9a0KvwvdMNtw/D
+         fi88JQviQMEutUUWR8pVsgNtAmvFq0PnvqaS6nHGHQ/YODnEC9vbA+ueDrz8qpNlh1ii
+         Dr9w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
-        by gmr-mx.google.com with ESMTPS id d25si531621ooa.1.2020.06.08.01.35.26
+       dkim=pass header.i=@sartura-hr.20150623.gappssmtp.com header.s=20150623 header.b=oyN1beHn;
+       spf=pass (google.com: domain of robert.marko@sartura.hr designates 2607:f8b0:4864:20::243 as permitted sender) smtp.mailfrom=robert.marko@sartura.hr
+Received: from mail-oi1-x243.google.com (mail-oi1-x243.google.com. [2607:f8b0:4864:20::243])
+        by gmr-mx.google.com with ESMTPS id q19si286407plr.1.2020.06.08.01.54.45
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 08 Jun 2020 01:35:27 -0700 (PDT)
-Received-SPF: pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
-IronPort-SDR: 1g5aNuxd5BC2lwz2twlag3I0Y2wew8slTdc0fUAZR3Qqiop1DcEiYmkM0vVx7kkt3f2P1xydwI
- d/l9YJjBaRSQ==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jun 2020 01:35:24 -0700
-IronPort-SDR: yiKv2jE1Tn5+jZEFjQR1qkPbTFtDwMbAM7aZYa/eftYnIA8Uys/6CVX++rvOkcGsXcJYvpniAs
- UnImhoWccRew==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.73,487,1583222400"; 
-   d="scan'208";a="313820692"
-Received: from shao2-debian.sh.intel.com (HELO [10.239.13.3]) ([10.239.13.3])
-  by FMSMGA003.fm.intel.com with ESMTP; 08 Jun 2020 01:35:22 -0700
-Subject: Re: [linux-stable-rc:linux-4.19.y 2642/9999] FATAL:
- drivers/mfd/madera: sizeof(struct of_device_id)=200 is not a modulo of the
- size of section __mod_of__<identifier>_device_table=1504.
-To: Nathan Chancellor <natechancellor@gmail.com>,
- kernel test robot <lkp@intel.com>
-Cc: Daniel Gomez <dagmcr@gmail.com>, kbuild-all@lists.01.org,
- clang-built-linux@googlegroups.com,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Lee Jones <lee.jones@linaro.org>, Sasha Levin <alexander.levin@microsoft.com>
-References: <202006071903.heyMSUH7%lkp@intel.com>
- <20200608032958.GA1591794@ubuntu-n2-xlarge-x86>
-From: Rong Chen <rong.a.chen@intel.com>
-Message-ID: <8860ecbb-f562-e4e9-9e65-d4394499f23c@intel.com>
-Date: Mon, 8 Jun 2020 16:34:55 +0800
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.6.1
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 08 Jun 2020 01:54:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of robert.marko@sartura.hr designates 2607:f8b0:4864:20::243 as permitted sender) client-ip=2607:f8b0:4864:20::243;
+Received: by mail-oi1-x243.google.com with SMTP id p70so14552735oic.12
+        for <clang-built-linux@googlegroups.com>; Mon, 08 Jun 2020 01:54:45 -0700 (PDT)
+X-Received: by 2002:aca:a8c3:: with SMTP id r186mr9889996oie.173.1591606485156;
+ Mon, 08 Jun 2020 01:54:45 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20200608032958.GA1591794@ubuntu-n2-xlarge-x86>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: rong.a.chen@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of rong.a.chen@intel.com designates 192.55.52.43 as
- permitted sender) smtp.mailfrom=rong.a.chen@intel.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=intel.com
+References: <20200604120905.1344074-1-robert.marko@sartura.hr> <202006050445.tiQi7ZvY%lkp@intel.com>
+In-Reply-To: <202006050445.tiQi7ZvY%lkp@intel.com>
+From: Robert Marko <robert.marko@sartura.hr>
+Date: Mon, 8 Jun 2020 10:54:34 +0200
+Message-ID: <CA+HBbNFpHugbM6LDGAtJHj4ZAz-K5ojkovaVZ04V3QJS-hytUw@mail.gmail.com>
+Subject: Re: [PATCH] clk: qcom: ipq4019: fix apss cpu overclocking
+To: kernel test robot <lkp@intel.com>
+Cc: Andy Gross <agross@kernel.org>, Bjorn Andersson <bjorn.andersson@linaro.org>, 
+	Michael Turquette <mturquette@baylibre.com>, sboyd@kernel.org, 
+	Abhishek Sahu <absahu@codeaurora.org>, linux-arm-msm <linux-arm-msm@vger.kernel.org>, 
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, 
+	Christian Lamparter <chunkeey@gmail.com>, John Crispin <john@phrozen.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: robert.marko@sartura.hr
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@sartura-hr.20150623.gappssmtp.com header.s=20150623
+ header.b=oyN1beHn;       spf=pass (google.com: domain of robert.marko@sartura.hr
+ designates 2607:f8b0:4864:20::243 as permitted sender) smtp.mailfrom=robert.marko@sartura.hr
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,52 +129,82 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+Sorry for asking, but are these warnings relevant?
+GCC9.3 does not throw them
 
+Regards
+Robert
 
-On 6/8/20 11:29 AM, Nathan Chancellor wrote:
-> On Sun, Jun 07, 2020 at 07:58:06PM +0800, kernel test robot wrote:
->> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-4.19.y
->> head:   65151bf9f715983d62613a4d9196525eb64dda53
->> commit: 7b24a4a363a90d8708d6b59046843eddf3eee1a7 [2642/9999] mfd: madera: Add missing of table registration
->> config: x86_64-randconfig-a011-20200607 (attached as .config)
->> compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project e429cffd4f228f70c1d9df0e5d77c08590dd9766)
->> reproduce (this is a W=1 build):
->>          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->>          chmod +x ~/bin/make.cross
->>          # install x86_64 cross compiling tool for clang build
->>          # apt-get install binutils-x86-64-linux-gnu
->>          git checkout 7b24a4a363a90d8708d6b59046843eddf3eee1a7
->>          # save the attached .config to linux build tree
->>          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
->>
->> If you fix the issue, kindly add following tag as appropriate
->> Reported-by: kernel test robot <lkp@intel.com>
->>
->> All errors (new ones prefixed by >>, old ones prefixed by <<):
->>
->>>> FATAL: drivers/mfd/madera: sizeof(struct of_device_id)=200 is not a modulo of the size of section __mod_of__<identifier>_device_table=1504.
->> Fix definition of struct of_device_id in mod_devicetable.h
->>
->> ---
->> 0-DAY CI Kernel Test Service, Intel Corporation
->> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
->>
-> LLVM issue (as evidenced by the warning showing up on a patch that is
-> from a year ago), please add this to the list of warnings to only send
-> to our mailing list to avoid troubling kernel developers.
+On Thu, Jun 4, 2020 at 10:25 PM kernel test robot <lkp@intel.com> wrote:
 >
-> https://github.com/ClangBuiltLinux/linux/issues/1045
+> Hi Robert,
 >
-> https://reviews.llvm.org/D81346
-
-Hi Nathan,
-
-Thanks for the advice, we'll only send the warning to clang mailing list.
-
-Best Regards,
-Rong Chen
+> I love your patch! Perhaps something to improve:
+>
+> [auto build test WARNING on clk/clk-next]
+> [also build test WARNING on v5.7 next-20200604]
+> [if your patch is applied to the wrong git tree, please drop us a note to help
+> improve the system. BTW, we also suggest to use '--base' option to specify the
+> base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
+>
+> url:    https://github.com/0day-ci/linux/commits/Robert-Marko/clk-qcom-ipq4019-fix-apss-cpu-overclocking/20200605-002859
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-next
+> config: x86_64-allyesconfig (attached as .config)
+> compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project ac47588bc4ff5927a01ed6fcd269ce86aba52a7c)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install x86_64 cross compiling tool for clang build
+>         # apt-get install binutils-x86-64-linux-gnu
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
+>
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+>
+> All warnings (new ones prefixed by >>, old ones prefixed by <<):
+>
+> >> drivers/clk/qcom/gcc-ipq4019.c:1247:24: warning: no previous prototype for function 'qcom_find_freq_close' [-Wmissing-prototypes]
+> const struct freq_tbl *qcom_find_freq_close(const struct freq_tbl *f,
+> ^
+> drivers/clk/qcom/gcc-ipq4019.c:1247:7: note: declare 'static' if the function is not intended to be used outside of this translation unit
+> const struct freq_tbl *qcom_find_freq_close(const struct freq_tbl *f,
+> ^
+> static
+> 1 warning generated.
+>
+> vim +/qcom_find_freq_close +1247 drivers/clk/qcom/gcc-ipq4019.c
+>
+>   1245
+>   1246
+> > 1247  const struct freq_tbl *qcom_find_freq_close(const struct freq_tbl *f,
+>   1248                                               unsigned long rate)
+>   1249  {
+>   1250          const struct freq_tbl *last = NULL;
+>   1251
+>   1252          for ( ; f->freq; f++) {
+>   1253                  if (rate == f->freq)
+>   1254                          return f;
+>   1255
+>   1256                  if (f->freq > rate) {
+>   1257                          if (!last ||
+>   1258                             (f->freq - rate) < (rate - last->freq))
+>   1259                                  return f;
+>   1260                          else
+>   1261                                  return last;
+>   1262                  }
+>   1263                  last = f;
+>   1264          }
+>   1265
+>   1266          return last;
+>   1267  }
+>   1268
+>
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/8860ecbb-f562-e4e9-9e65-d4394499f23c%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BHBbNFpHugbM6LDGAtJHj4ZAz-K5ojkovaVZ04V3QJS-hytUw%40mail.gmail.com.
