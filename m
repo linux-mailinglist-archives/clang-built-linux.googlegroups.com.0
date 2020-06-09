@@ -1,30 +1,30 @@
 Return-Path: <clang-built-linux+bncBAABBRV47T3AKGQEVTII4XI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x339.google.com (mail-ot1-x339.google.com [IPv6:2607:f8b0:4864:20::339])
-	by mail.lfdr.de (Postfix) with ESMTPS id A6A161F336F
+Received: from mail-ot1-x33a.google.com (mail-ot1-x33a.google.com [IPv6:2607:f8b0:4864:20::33a])
+	by mail.lfdr.de (Postfix) with ESMTPS id B2C391F3370
 	for <lists+clang-built-linux@lfdr.de>; Tue,  9 Jun 2020 07:29:43 +0200 (CEST)
-Received: by mail-ot1-x339.google.com with SMTP id f21sf8972761otq.6
+Received: by mail-ot1-x33a.google.com with SMTP id z6sf8947214otq.8
         for <lists+clang-built-linux@lfdr.de>; Mon, 08 Jun 2020 22:29:43 -0700 (PDT)
 ARC-Seal: i=2; a=rsa-sha256; t=1591680582; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CpSDveM9uS5PYmP/B2YWRnwdWSxqz0QTxgsgl1XLtS64PjGzlpMgJlW+TUE2jQ5hbe
-         bjSDQjSR2QsgHMHRfSL3AaNH50VbiDjxXSop4LhmN7j1VH6b652jiUhPSDJmnjz50zZD
-         cjvUsotJ4M7jLD35kTwPY5t1g1y2eeTJaypm6K2OGlr/2Disa2gWoFX75KT9/nNt+8r+
-         H36EDG/py1hSHOqkfcermKo3OUdc0nWqlwtwmYpyarvU9xMxVWrsAInIyTuzFNYZRq7a
-         Vla3PYWA2H0YoZYuznF73Z2T71GiY/YFyBNXv1+onOZUs/jxai1bPfSDLmWqmLXYDH5B
-         W61w==
+        b=qvPCh4gJgqXlAzNZMrLjhNFqVyYM84LEVu3YUdcolO4/ZbEAZl6yesnms2ZHbteGG2
+         lrP9XNqUDBKNMVMFOCtAxXNDGwLhWwcJmjnM57Fjbe4alPT4a0CSOYOwKCLRN2I7ON8X
+         dfhTQzc4TbWAsGdevWyJlb2S4Yz/Sj8FSy72Vix8u27CgvAeyi9adHRLWWDAg870K5Ik
+         hayA3unPwANYtsLjcHE2QX3oot0VSU9s87t+O9QV/A2jcvtGv97IessYLPUwJPH94dae
+         Cs3iyxoGuLUqhXLXLgnpG4Y7RLjPQQoJa14LPOCGqy1NLHRcRiIhvx8nm8hyjxNgB1AN
+         OOug==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:date:message-id:subject:references
          :in-reply-to:cc:to:from:mime-version:sender:dkim-signature;
-        bh=4TacenDAM5OnW9Ub5t+7y54lBNUGDvRSaWcqZ+/zYhs=;
-        b=ca0p2bFr9rljHRl19pOCOXd/mdDiM1cKodEXlLx6QlR15vbSQikxQa8QZEecax6W0H
-         11AFEl3C0OCKW8hfAW8Lgta23SdfDXqD0GZ70j+581Cb8HfcyUA0UmT+tZ/XQSNY/WGg
-         4MRFs81jj6AvmFcaG5c15fCcobUPe2+Wqm3hoQ7vA7ZgkMRMw6jP0V+zOU4IEl0M69NU
-         1Qotm90dXlqy3pN2f2BH8Ns4O8XHSpv2z+WmhiJf+GehEhsOSYkEtIYt56ASZxmix2ze
-         iBy9MWSV4rraBtlY7EbQg+E/PXiOvFxP6jia8RRjYE/+uNMNcmqs8/rA63cbr25jPxHy
-         srQg==
+        bh=kxIt1gj87c4A1fm9YWwWxPp239BrbJKfINfPNOkEmy8=;
+        b=pE2DpXLjCnw7alS09a4/UfrPKo6eHhi7szDIKwpCpP0mSRpyzQbsMXXafOJh3JguiV
+         rSqylX/YsCdYmJKfEXC7WrkuFcuGnWpwznqqJtw22qdyraZ6vSfqCBcvCwmZldVxbzjg
+         RGGYBLHXLNLgLynekepgkUQu61g/VQYpCsJBRKn/cLpL2PnX3GOBkSbEou2Db7LWRENd
+         c9GFCFD+Ama8NVNhAY1eEN/F+utmQkqVe/Dvvt8NklARlD3X2e3VsNZFf9Vyr5OymgAl
+         HKilnI7z+Fi4pS+9r+N/jjCjNkIzkLgAUs25eAiS6ic7zqfPYHH67yUwRsWMCizhzoIL
+         esKA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of michael@ozlabs.org designates 2401:3900:2:1::2 as permitted sender) smtp.mailfrom=michael@ozlabs.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -33,13 +33,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :message-id:date:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=4TacenDAM5OnW9Ub5t+7y54lBNUGDvRSaWcqZ+/zYhs=;
-        b=FEMicGmRBotL67uLcGAXVGHq94PbUkM9y4kcgtRRW4gjko+UTjZMfkqgGsM0SkDiBV
-         gD7+U3a6MnaL30sPcMZwS1LZFfzzHVO+uvXybl6QyhvOhTNLOMa2aBJAeisP2XXX2L6I
-         JJRhZPkK/093eDWVqJIa4BM6CLQDWqZL35XLBNOG8iSQHUlCukcda0UqiRHSCMln+i/Z
-         fQYTQrhzlz0mXKGQhFjC9FKD4huAMCSlN+9PZCrV3+EYo4pWAgo0tx01Rn/q3vYdS6l9
-         mmxkUfivjI9hWxqELUIZnHDzTd/gyT8AEmK1r9j7FeVXVx0WKHyoguEi1qrLCAF8Xvep
-         SKRA==
+        bh=kxIt1gj87c4A1fm9YWwWxPp239BrbJKfINfPNOkEmy8=;
+        b=iVkIUcmg0jbY42MHhYTlMOrCCYpecOy+iSHX/OTmTZksXcTPJBfw2C+x7ZYDXzRbto
+         hV48DxXmLrFee8D0v/zunAqpoDDQuHDNKgI13lb7vgbyztyl8drxTRQ9O5W8ZHgXpyzi
+         dxqMIgLdR49ZMe0ss0XVw+xnnK6EZMbx3vlGV9Pe6BTVVtK3TxARGYxNujxlQPAbVpi9
+         NzLLEfqwY31t4thHMt4FFmBr/KGW6DsKHJIaU7xy1Mh1rgJuognRVbwLQm87fEVqCCae
+         O692guq/KNP4GmdU+ocOdfEPBWxaE+Ymfkjg5LQA9V1zIRQ9hUlopYoF5CHnlG6aiTa+
+         Po0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:from:to:cc:in-reply-to
@@ -47,60 +47,60 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=4TacenDAM5OnW9Ub5t+7y54lBNUGDvRSaWcqZ+/zYhs=;
-        b=Nd+Vh7se4C1hNHIrTinBstjaJpPzwpVxElzFmdVfLuKCUSURvxJz2UV3HIzC6c4NQS
-         FJ2ylxKPG223zFV89Cs/wNIWvv3+RW+RR1em0fGbQ3iF+RO1gBziJj2UPZZcJgJK3O+2
-         FwYRo95lSeLdgLdQj6IP06SPu713qaKVDp+Ls0xgokb4cKoSm3lZJwBhn9pjprvn3DHQ
-         1wbs00lj5Tm28revJVSzAUyBV+uGHYU2EHKENDHo3MmRm1LIvBVUHCGh99u805sbYwom
-         b0qtG6c4SB1fHoxQi7DztgBLmqt9DP1wt/pyBG9h+yZ5gKzAGdL7F/xfXmFinlfPyYYX
-         mDbg==
+        bh=kxIt1gj87c4A1fm9YWwWxPp239BrbJKfINfPNOkEmy8=;
+        b=oKqbL9EiM7BErPtV14pTFk9j55lMcbGV2zjA450MvBBfyQAmkWsTkLpm0GlE5ufzej
+         iQ9NBArTpg5zoDLaM7NnpHa/QqrtNGpRSSZMZXZFTwnSVSu/nDvXiykFaHIq+K/PMqMz
+         ko2i7lRUGZwOmGtINi+Fvo1QfGh4fKcamx6+MPVHAyfNmoeVMGgFd5NO10oXp0euKKml
+         IZu39y1WFyD6LjSvwg+IbatkmvNUeY0K87O4VmUxhb45oo07uwc2rMLdArB49GA7YeZS
+         jgpgaV5CUH/y0YqTWao4yJHgP8M/UYXxENpNg1BE4mSK1BuqM1PUuShTPgbRbhf+BPVo
+         AlcA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531ExNDCH5/uK2u3RCEBS/eNzhYTlCcTUv7eSS1477MXzNSo4J4p
-	Tu1nXAlViKFkyT8i++b29tM=
-X-Google-Smtp-Source: ABdhPJwr0zaGDdphv7HHmqJddJ1bBGVnNoGJR/lvSf5syjrdxs++p6AKmsAOTgorKBHrOugZDLR77Q==
-X-Received: by 2002:a05:6830:134d:: with SMTP id r13mr19990784otq.264.1591680582250;
+X-Gm-Message-State: AOAM5300goEKkFoYUWW4iZaegLDUWjZ0mttTK59/B6jYo6TyVgKg77Mj
+	x0are8LFwm1GwWIbfoWEV6E=
+X-Google-Smtp-Source: ABdhPJzjuZdWvzRrwJzoSSNnR8TNfITWYXThVYa5WNyUuVTWlV5IMcj+IksB0gkXY9p8FWLp4cYYVQ==
+X-Received: by 2002:a4a:9b87:: with SMTP id x7mr19723768ooj.61.1591680582554;
         Mon, 08 Jun 2020 22:29:42 -0700 (PDT)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:3116:: with SMTP id b22ls4023835ots.6.gmail; Mon,
- 08 Jun 2020 22:29:42 -0700 (PDT)
-X-Received: by 2002:a9d:544:: with SMTP id 62mr20985400otw.197.1591680581964;
-        Mon, 08 Jun 2020 22:29:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591680581; cv=none;
+Received: by 2002:aca:5788:: with SMTP id l130ls3650753oib.2.gmail; Mon, 08
+ Jun 2020 22:29:42 -0700 (PDT)
+X-Received: by 2002:aca:f4d3:: with SMTP id s202mr2155403oih.12.1591680582305;
+        Mon, 08 Jun 2020 22:29:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591680582; cv=none;
         d=google.com; s=arc-20160816;
-        b=HxSHpK1aGKFo745f1Y6BKbP67b8/ChS8jFc8EKhDKh6+fP/bwdStw7rVqf+CjVIYoa
-         V1/yjBiCsa6iiMsi85skZzqUKEw4V/ZACQlaJ4sHug63e3ZzL4yaQVURPf9d2y3SHJrM
-         4VzQR97gef+46XDyNFjVobb2ferNYsW6nu0NFvxI0ynhJyMwgihWMqXRHnfwQhH6vRZM
-         uq6tjGyW4CWjZsTc/s53ibhHZHJF03owKQKKHT5h+QOmrH8Fq0OHTcApSQ181CpkLayx
-         vtSZBDq2s6DT+aL+DiIeAEJDm+ARku1FPWBPls/KA4qGw9gLDRGAMpq0E5jAWJvuti5E
-         U72w==
+        b=Lh8OTyV7pttrwiX2Hyl2JVSiUXRPXg4nHy+eX/idxR/TY9r9P819QUY7GROfWdk5L2
+         BFapd83eCzGdEN+wNW5gxoXHtQMBSgw0yNFFTS4aT5tkVYyEw1iIADH10TQXkHa0Nf7w
+         JMtmh6uhXAWWjppY3Ad/XkPWDNlAjO3GruQwxw3OWqxJIpczP5J1umrUdWEMGK8j1cyF
+         e74PzVzUA2TQGh5XsXn0HdurB5GV2lR5nbdbKvWY/BFrCZVl224jK0TR41OnFXBWVVoc
+         3PFd+K1vJrBZETSYyPLDlxzMPv2vIlneni1JglAhu8owDOPDe2JkRQxRIiD7aKYfAoh1
+         6cWA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=date:message-id:subject:references:in-reply-to:cc:to:from;
-        bh=l+AlOuAUHQff+lEwuPfHCnCiG2PFZqU+Itz69g0/pN4=;
-        b=yNUNj6RuHbvl/AEA9YYZSONQMWrzBLtWNQw9NgabYeI7JYH/6mK4DwxvDyXze1+wBk
-         euHHsWcXfne96QyMYySqGQn2CIrovChtInxpELCFCmSVIkv+aoicbuT8XPXptcRj+4mP
-         Kqzyk7BODxITDv2C2fhbX1uxATT93Ge7uyZqzvB7Ytub2Nr4OUDBTMZjqNLNTEvlkmND
-         5Oreq/vHm6fFnCrpkZ5co/te9fs85KfEvar3OEi0HHRQSE826QSSU4xOx0QWCfnGnz5H
-         BM/XbvaoXs5AAP0hq9MNfwE1/HYZLTiqeCpIppIdpSwZmpWwFQFz1IfVVpaiM2KBxect
-         0EVA==
+        bh=djdJfu4HL0oNj30nR6VKFckClzfBk6tMcP50qEkmvu8=;
+        b=UOzjiMLXOryuRwS36W8Yo5JAfGgt//g/rIRug4/FrM0Sp5iVGeCkyEtnfkgEYN1SIA
+         FomuLDuoJS8IDHTnCtUnimkrFOjBRuXefBi1IddOdyRkansR1vBjmrJFJRT7W+dSG/4W
+         F9b5UofAKojHg5JnCXyJ8dL5zitm3tgWfFryYbismfAMQG5YID4pBow+oV8qIaTADQjW
+         9jOs8EaExY8+DhfWV4uR855IPMZ7zNwIJumsGpy80KK7VI821scsOEQHDQmNgKwsZZMu
+         Cg+MsMbfFPHmTZ8dNuN8kaE3Q9eJg6hCpWxS5uCE0gsH7/OP0dRVXZYPUTIAm2ykdt5T
+         YAxQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of michael@ozlabs.org designates 2401:3900:2:1::2 as permitted sender) smtp.mailfrom=michael@ozlabs.org
 Received: from ozlabs.org (bilbo.ozlabs.org. [2401:3900:2:1::2])
-        by gmr-mx.google.com with ESMTPS id g38si330556otg.2.2020.06.08.22.29.41
+        by gmr-mx.google.com with ESMTPS id y198si642021oie.1.2020.06.08.22.29.41
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Jun 2020 22:29:41 -0700 (PDT)
+        Mon, 08 Jun 2020 22:29:42 -0700 (PDT)
 Received-SPF: pass (google.com: domain of michael@ozlabs.org designates 2401:3900:2:1::2 as permitted sender) client-ip=2401:3900:2:1::2;
 Received: by ozlabs.org (Postfix, from userid 1034)
-	id 49gzFf057Gz9sTl; Tue,  9 Jun 2020 15:29:22 +1000 (AEST)
+	id 49gzFg2B7xz9sTH; Tue,  9 Jun 2020 15:29:26 +1000 (AEST)
 From: Michael Ellerman <patch-notifications@ellerman.id.au>
 To: Nathan Chancellor <natechancellor@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>
 Cc: clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org, Paul Mackerras <paulus@samba.org>, kbuild test robot <lkp@intel.com>, linuxppc-dev@lists.ozlabs.org
-In-Reply-To: <20200518181043.3363953-1-natechancellor@gmail.com>
-References: <87a7254bxd.fsf@mpe.ellerman.id.au> <20200518181043.3363953-1-natechancellor@gmail.com>
-Subject: Re: [PATCH] input: i8042: Remove special PowerPC handling
-Message-Id: <159168032784.1381411.6982899186952383628.b4-ty@ellerman.id.au>
-Date: Tue,  9 Jun 2020 15:29:22 +1000 (AEST)
+In-Reply-To: <20200413190644.16757-1-natechancellor@gmail.com>
+References: <20200413190644.16757-1-natechancellor@gmail.com>
+Subject: Re: [PATCH] powerpc/wii: Fix declaration made after definition
+Message-Id: <159168031335.1381411.13854674311774532181.b4-ty@ellerman.id.au>
+Date: Tue,  9 Jun 2020 15:29:23 +1000 (AEST)
 X-Original-Sender: patch-notifications@ellerman.id.au
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
  (google.com: domain of michael@ozlabs.org designates 2401:3900:2:1::2 as
@@ -118,29 +118,24 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, 18 May 2020 11:10:43 -0700, Nathan Chancellor wrote:
-> This causes a build error with CONFIG_WALNUT because kb_cs and kb_data
-> were removed in commit 917f0af9e5a9 ("powerpc: Remove arch/ppc and
-> include/asm-ppc").
+On Mon, 13 Apr 2020 12:06:45 -0700, Nathan Chancellor wrote:
+> A 0day randconfig uncovered an error with clang, trimmed for brevity:
 > 
-> ld.lld: error: undefined symbol: kb_cs
-> > referenced by i8042-ppcio.h:28 (drivers/input/serio/i8042-ppcio.h:28)
-> > input/serio/i8042.o:(__i8042_command) in archive drivers/built-in.a
-> > referenced by i8042-ppcio.h:28 (drivers/input/serio/i8042-ppcio.h:28)
-> > input/serio/i8042.o:(__i8042_command) in archive drivers/built-in.a
-> > referenced by i8042-ppcio.h:28 (drivers/input/serio/i8042-ppcio.h:28)
-> > input/serio/i8042.o:(__i8042_command) in archive drivers/built-in.a
+> arch/powerpc/platforms/embedded6xx/wii.c:195:7: error: attribute
+> declaration must precede definition [-Werror,-Wignored-attributes]
+>         if (!machine_is(wii))
+>              ^
 > 
 > [...]
 
 Applied to powerpc/next.
 
-[1/1] input: i8042 - Remove special PowerPC handling
-      https://git.kernel.org/powerpc/c/e4f4ffa8a98c24a4ab482669b1e2b4cfce3f52f4
+[1/1] powerpc/wii: Fix declaration made after definition
+      https://git.kernel.org/powerpc/c/91ffeaa7e5dd62753e23a1204dc7ecd11f26eadc
 
 cheers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/159168032784.1381411.6982899186952383628.b4-ty%40ellerman.id.au.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/159168031335.1381411.13854674311774532181.b4-ty%40ellerman.id.au.
