@@ -1,127 +1,142 @@
-Return-Path: <clang-built-linux+bncBDZYPUPHYEJBB7VX7P3AKGQES7NNRYI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABB5H37P3AKGQEVBHDGUI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x138.google.com (mail-lf1-x138.google.com [IPv6:2a00:1450:4864:20::138])
-	by mail.lfdr.de (Postfix) with ESMTPS id 038131F2EE6
-	for <lists+clang-built-linux@lfdr.de>; Tue,  9 Jun 2020 02:46:55 +0200 (CEST)
-Received: by mail-lf1-x138.google.com with SMTP id x27sf6280051lfq.14
-        for <lists+clang-built-linux@lfdr.de>; Mon, 08 Jun 2020 17:46:54 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591663614; cv=pass;
+Received: from mail-io1-xd38.google.com (mail-io1-xd38.google.com [IPv6:2607:f8b0:4864:20::d38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 705E81F3280
+	for <lists+clang-built-linux@lfdr.de>; Tue,  9 Jun 2020 05:11:49 +0200 (CEST)
+Received: by mail-io1-xd38.google.com with SMTP id c5sf12203263ioh.2
+        for <lists+clang-built-linux@lfdr.de>; Mon, 08 Jun 2020 20:11:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591672308; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QDXYf5JFEB5gCu9gIxVhqVi1Dsin7g2Gqr2adpPfDmbfLqiRBlaN5PuwZrBzDqw/CB
-         6cSePNVttrINhCLpumPzFNFTjj7IFgu+J0P4lDIGV1NPGSB2Ef19Fr0VlWCMfj32vpLA
-         QczfFQ6KedvDXNHorSK6+rCI8HRfTOtRa18XJx9sHYfsDECEJeKdClwNk8yNUqxn/F7m
-         yQucOSaqXCWP/YB8fIQYA9YJythG6eKUoNNSFHvpy6n45g/PT/QOfUCjkCTthve/zBWl
-         bFXhgmjuUkkkA6hVx3v9fncOslrSEjg12khWckEYhudI5Xe4ErxINV1MVO7zasOmV8bR
-         +9Lg==
+        b=pOVEnRpx4S8o2o4tz/diUEZ+UPZNIPvKvrOq6ItQDvu5s0w5iXjxKvDjtzBxQkRB7w
+         4xOZ3dCDz+M0nU38qsWFsRn+BNSZNznUEhSXZAKLheMh9cdWbDTjN2PSWBBcjfGaoYqO
+         i0/Lpe+ohqtRtkORN01cPHp+5cbGjsFOWqiYGYVarTrOXuq4XrC//htpAdj/Ai0x06eh
+         Q3HUzi7DRT85WVuRhQUmzJro+YCIbyH0gKxCQZCPc0Uv9SPQTHDyah251f4SLoc3kOa8
+         2ozuTmXO1wDijITIRoRqlcFd/HcFN7tcmw68ahwf+VM/8n/1QA6q7IEiwVAFKlbp90f7
+         4bQQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=ShlGXifNGPRx7xraBvMl69mmXLdAHRZPYIXQYNQB23o=;
-        b=n+MmL34eOl+2y++fPyS1DPbtN6S4SefaQvva0VS/bBA9xy8GZK5fSp6nxraULVubQv
-         ogkUTndlgW5xPP0ua7wS0TddHrqxQXBbYvKj/v5JCu+fQk9D4N1bIf/aPuzanxb+l949
-         gBQO8Zgj+A8FSWm9zKdvm6wmIIQv1Lq6dLGYbwoJdO+5TObj3DayiV+zUO+iH+Mjlhlt
-         /B6ppoc4P1HF7IGxdZkNFnCRwu+I+OqB+9f3AeI+4U39XmV5Gg0z/Ff/Gi0GpFyWySHY
-         XM1XGsAzimlv8rTZKXbnfG7rlsxq98t3lD25U6CzSAzmkyxgyf2gFN7QlqIPrgLA1+df
-         9N8g==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:reply-to:ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=GQDxosDabT+nXrMgENQqlf2fGWa0v537eo/PDcoUoA8=;
+        b=bPKxM/STMvCseqrMHmlM1fcWYl61X7qtrQHtnSdqaKKJqrTAUW/AJeAZl9N1V9MMcB
+         3U98mLe6sIX2EIVWvAvXTn94nLKMrF2fA3WbvsVVPGBj8NNtLkotGk1nI3zHNj5mmhiP
+         t5HVrb+IG6kf8Sl/MZCBeA0UpJ4oyqNctaEajKOtJou2/fpAwuU1HAHNSbBVqpOaBhLf
+         Mgr9lp3NdosxL4+qt4Uvx8O5wE+fIc5G+QCjvrY1tXgeeqsy4TtduzMiXhk0Yx04dU7F
+         pRc/PmPw981EEDC6HXSMa2NLkX0vZZn/DfdKcuDVJA5L6TzpX1lMLVkZH9dA9vzzc9D8
+         3VoA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@intel-com.20150623.gappssmtp.com header.s=20150623 header.b=Fq2WqHVe;
-       spf=pass (google.com: domain of dan.j.williams@intel.com designates 2a00:1450:4864:20::541 as permitted sender) smtp.mailfrom=dan.j.williams@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       spf=pass (google.com: best guess record for domain of vadivel.muruganx.ramuthevar@linux.intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=vadivel.muruganx.ramuthevar@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=ShlGXifNGPRx7xraBvMl69mmXLdAHRZPYIXQYNQB23o=;
-        b=n6FDb+LLSgJVuJnp31jB+YL6cMPOK74Z0oXy3ayfmR02Q9FkDjwLtp3kqhTb5wnFn3
-         ab3tVEI/66ZV62QfIQchn9u42AkduYfmZGSMqYtxFXxV2Ru9t/fYOSBRC2NtzAQKFGj/
-         tDAf2lkj4mD3vYFImnqBh7yvU1bfO2WRNDrTiu3vUjZnREeB1W7xkz+eIGuh/KULvUar
-         2c1TCJS+g0X44USjIaa81US6+6cnBU4wzORSUliCApjti/SLV2OWdDFRNo1n4b9WG+KH
-         SIIflT8o43eK9sZ7F8lBAt1qiF8CV6FnnYPGXG3r9Sa0U9TPP0T4Cm6a5jXOYeqJHo72
-         OUdw==
+        h=sender:ironport-sdr:ironport-sdr:reply-to:subject:to:cc:references
+         :from:message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=GQDxosDabT+nXrMgENQqlf2fGWa0v537eo/PDcoUoA8=;
+        b=JES73/uGa9wbc2V3aH+lSVs3OeiAKJBZVfiuQvxrwUB/rSUHpgQVDWqTRTbkPA9ZxG
+         kJ3LY9ND354y4CgEYtPbETvj1wnd1Oj7dbwykxAe82MubxH/W9MQJRdJ2eeY+vG3K8xu
+         Sf4OLSov/UDJLp2Q47MIrTETq+SbKMIl2KfhB2HxY8BtaQ0RGCe0iBjo8PgiK+54E/LR
+         cxlc5qDyXdVtdeV1Fri5NmG3aGHr9GGm3IecQDCo7AGy7aDCte0FJtc6+R7OvH+pG+Dm
+         CF3lQM5M8WkoKVFtRYxb/8xtT0k5LizbeHfUhSrLE3Cb0jIkcAIFyjiJjyoofn4m/X33
+         Etbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:reply-to
+         :subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ShlGXifNGPRx7xraBvMl69mmXLdAHRZPYIXQYNQB23o=;
-        b=jb8vbYwmcI1PYBJGzwmGyLe0ecGSTOr92oWMo842sl/HR2ABTstviHR1mfaOPf8tw7
-         u0Z2oMC0Nw03l5L7xttlFC8so3D4jEH4rEvz9ipArbi/D8ElHExZDPLvJiFDHBgvbsWd
-         CcvnUDmhEqND37aj/uY1AiBuhjuuXwgQFkT58xpGhFAjFFAPeC8gcEGfsjZhAcW5QBRu
-         C39tuzkUXOlJ+Ttb+CBSOyZRGb4IkQ5TlhGPYHJzs+SxpZUZC+oy9IEgKyWK0Rx3BeYe
-         T3bs2sMnCjxmoFxjFwVNngsXoaCCKnIWXwmuaoXoK1F42W+YwTEjgnWgvaFf8usLoq10
-         5+TA==
+        bh=GQDxosDabT+nXrMgENQqlf2fGWa0v537eo/PDcoUoA8=;
+        b=I9PhxciouUxsSZclyFhjBg9iXkil0mAlTMv9kKZUQTmJsieQyIRUS+vKhl1scMT47B
+         XM5y43lJWrwHrm4ig+AKIBOURcf/QbwLRadypB702uHRhviz84uMVvXOb+A1adtaQm8i
+         WLQW4WOhb5YKfjATdJ1Vf30yWrBMxTyQnEkDldyv0jQNjU3590ygIWpbBlOhQVH2AagT
+         OXBpo76pn6UtI5odUXPo5QrkSb6VNdlLrgUc6bxJihvIX6AXy2DkQ+sTSpCXhncwrPJn
+         E1J/EPuteX6evwHyRWgWJfIj/1Bm8UHz0rshhRcpsY0kIf121JHWOFHwt3irx9vNYYZD
+         RDYQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532mCXUFzjMpOdGQIzBPumyZ8A6/z827YDFk/jMZ2pZkGUe7vQgG
-	bThAHMvi2+xFKxn8O90Waoo=
-X-Google-Smtp-Source: ABdhPJxyjeRAW2Vomn8WRz5bRT8SR0ZLau4yQrdcAr41huF1IzFp3da9Uwv7fhicZDeQg2Y5WvFu+Q==
-X-Received: by 2002:ac2:55b2:: with SMTP id y18mr14068039lfg.55.1591663614433;
-        Mon, 08 Jun 2020 17:46:54 -0700 (PDT)
+X-Gm-Message-State: AOAM531fqwKgxTZ1A+u6p9by75VfCTTATPZ6+zY1mxXQeZTVSZwEkudx
+	DkBOs017arhRB6LZDnT1+/0=
+X-Google-Smtp-Source: ABdhPJyn+xxU6t4Nq4JoE+nVjKaGXJu3r5N6Eg8N7+F8Qa0/6uCRqr3HA7RL/c9JAD0M/KZj/wZebA==
+X-Received: by 2002:a05:6602:15c8:: with SMTP id f8mr24715964iow.183.1591672308433;
+        Mon, 08 Jun 2020 20:11:48 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:9597:: with SMTP id w23ls998604ljh.8.gmail; Mon, 08 Jun
- 2020 17:46:53 -0700 (PDT)
-X-Received: by 2002:a05:651c:1a2:: with SMTP id c2mr12432682ljn.299.1591663613700;
-        Mon, 08 Jun 2020 17:46:53 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591663613; cv=none;
+Received: by 2002:a05:6638:228b:: with SMTP id y11ls2405790jas.10.gmail; Mon,
+ 08 Jun 2020 20:11:48 -0700 (PDT)
+X-Received: by 2002:a02:cc49:: with SMTP id i9mr25354006jaq.52.1591672307758;
+        Mon, 08 Jun 2020 20:11:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591672307; cv=none;
         d=google.com; s=arc-20160816;
-        b=ifQ0V25J4I0QeBeOmDW19bj31MkwADsraSYUGOpmRFfq1MFzeXydrIF+kz2zquJM4I
-         8OujdPgi2pajGR1zZCnKe089d1u+XPHkfBW0AhpAyhnpkQ8JoRtCZn1WaF1P2y+kKsBv
-         VstK6cKzO1Pqtp0kgWJVY5vKT1bUcJfAl5BT7NPd/3Oa2ngweejJuZINZCMmXGTViDSf
-         0fvlZbwpgJ1wYNXd/nDPNCRn5UeEUv7HbpGEJs1ux0ry9RaPrIk+QGGFw4HaydzIq6qt
-         fXFyddME4HqlYHhBHwFvu7RmCvDHIhw3/B+Kptqte9cZMuVJ17w0FzGkIA3CebDfp06Q
-         aY2g==
+        b=k8EzUmunvoHj8STQhCHF8sBwJH+WKLpdBZgxkmvUJzZ0/K2S1KiCy4orqBa50aQxS6
+         63O5Pg5BRSyybpIjETGdW9YQnIhULlZC5/InDBx2K6igTMX5P+z3BBTqUm3zq4Bn3DBv
+         1QoCGv19jlBlHqF7bMOYWpA+sgThC5U8MIYkx9AkFHmjNR6wuFOnbHjZVSSjliI6+mwG
+         N2T/h4NLqhrYGDaY7yoUqlZ2Eg2jdtDFJyg3II6noawL2c1tWqKMWIUj7egTZf5us1Az
+         xUDTFLAmbJ+iA9ET8rtctUDDLTeYp+vafB8ZGBNoK9/17Ll4DV8KiaveugidLa1kGMjq
+         usmg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=6zCH4n2iYndxCImQUVO1t9gw8KAnucClc8TKaXcz6VE=;
-        b=jLt0gF5aK4XeHImjUps7Ka3U18FTxOAjBDmkf+j9epEjCZyCy9snO47/R12b/7a+Vj
-         ZZ8PxLILBI0D19F5TxQJRU+0a8qV1dVEJ5nNxu94B/81o6o1R/54nXUjol+LknasOReG
-         P1NUIMRKb72brW5mF02w2CS0Bs7Ptpms6MzquLkZUPr5AJJhXBzzDgLM9UWs5iqOIBi0
-         S6Rmmbcbe9TyKB/gqvW2H32jhfStPi5N9T8ypgJfVLbsNh2wOOGUzP3Op64tU2YysfB0
-         fghmBX2mRGedzVCpSafmGmQ6qgtzo0WJvfdzMY7VrDARNvMINU+rt81nitdR9k7l+0v0
-         aoCQ==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject:reply-to
+         :ironport-sdr:ironport-sdr;
+        bh=LdMKxjgbbXZXuKbmp0tBbgKRSkjN+kJ/yxcDU1sE4iA=;
+        b=YU9HnWSwzlEXXYZZ0iW2Dh/RCMs9AlOXq5IosvavpC2jgujInH3hmAJLfRF0xlYyl8
+         q+AaJbAU1fqyJuoWdgDYpTqCZ06Zzp1fz2zTfH0jgaXBLbTR3Miim5pt7ztOjM/9sfAu
+         OMyo4AuDoIFILDN0gsY1t7mV/C/8cknSNPeoxC1+KmgH5jsm0E7oDV+lnkeX+2okpi+p
+         MjJrMz1sLd8+/t0Nq5as4E4xbsZSyM7/l1nuCikGWSEFpIc5VB2N3jMkWejQHxcwaCKl
+         kcx+AnWpvCZr1Fv4jqD3maHQxciy/xGNfkTQAxmIQg5vanrFjsK/6qHAAzD74YCT0PGr
+         5fWw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@intel-com.20150623.gappssmtp.com header.s=20150623 header.b=Fq2WqHVe;
-       spf=pass (google.com: domain of dan.j.williams@intel.com designates 2a00:1450:4864:20::541 as permitted sender) smtp.mailfrom=dan.j.williams@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mail-ed1-x541.google.com (mail-ed1-x541.google.com. [2a00:1450:4864:20::541])
-        by gmr-mx.google.com with ESMTPS id 130si552855lfi.3.2020.06.08.17.46.53
+       spf=pass (google.com: best guess record for domain of vadivel.muruganx.ramuthevar@linux.intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=vadivel.muruganx.ramuthevar@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga17.intel.com (mga17.intel.com. [192.55.52.151])
+        by gmr-mx.google.com with ESMTPS id y22si853504ioc.0.2020.06.08.20.11.47
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 08 Jun 2020 17:46:53 -0700 (PDT)
-Received-SPF: pass (google.com: domain of dan.j.williams@intel.com designates 2a00:1450:4864:20::541 as permitted sender) client-ip=2a00:1450:4864:20::541;
-Received: by mail-ed1-x541.google.com with SMTP id m21so14920798eds.13
-        for <clang-built-linux@googlegroups.com>; Mon, 08 Jun 2020 17:46:53 -0700 (PDT)
-X-Received: by 2002:a50:eb0c:: with SMTP id y12mr23805262edp.165.1591663613143;
- Mon, 08 Jun 2020 17:46:53 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200607131339.476036-6-vaibhav@linux.ibm.com> <202006090059.o4CE5D9b%lkp@intel.com>
-In-Reply-To: <202006090059.o4CE5D9b%lkp@intel.com>
-From: Dan Williams <dan.j.williams@intel.com>
-Date: Mon, 8 Jun 2020 17:46:42 -0700
-Message-ID: <CAPcyv4iQo_xgRGPx_j+RPzgWGZaigGRbc_kRzKEFePfVHenx5g@mail.gmail.com>
-Subject: Re: [PATCH v11 5/6] ndctl/papr_scm,uapi: Add support for PAPR nvdimm
- specific methods
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 08 Jun 2020 20:11:47 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of vadivel.muruganx.ramuthevar@linux.intel.com designates 192.55.52.151 as permitted sender) client-ip=192.55.52.151;
+IronPort-SDR: ubj9M37PWwU9+WSRJdrzMtdli1OkRUdAydb5vL3jSkmYB/psoqpXs2Q2hKoz+N+A2si8CK3uFx
+ D97s39mixJUQ==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jun 2020 20:11:47 -0700
+IronPort-SDR: 41gQ4+UFJ1LwzdlsxqTdkKI9KQT7UgNLO+3RdRxfrxQgI3+2UblSq+sKyvzJmVtsKkAzmsz5sK
+ aITrlSyXvLtQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.73,490,1583222400"; 
+   d="scan'208";a="349380289"
+Received: from linux.intel.com ([10.54.29.200])
+  by orsmga001.jf.intel.com with ESMTP; 08 Jun 2020 20:11:46 -0700
+Received: from [10.213.44.24] (unknown [10.213.44.24])
+	by linux.intel.com (Postfix) with ESMTP id BEFB75805EF;
+	Mon,  8 Jun 2020 20:11:44 -0700 (PDT)
+Reply-To: vadivel.muruganx.ramuthevar@linux.intel.com
+Subject: Re: FATAL: drivers/phy/intel/phy-intel-emmc: sizeof(struct
+ of_device_id)=200 is not a modulo of the size of section
+ __mod_of__<identifier>_device_table=512.
 To: kernel test robot <lkp@intel.com>
-Cc: Vaibhav Jain <vaibhav@linux.ibm.com>, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
-	linux-nvdimm <linux-nvdimm@lists.01.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	"Oliver O'Halloran" <oohall@gmail.com>, Santosh Sivaraj <santosh@fossix.org>, 
-	Steven Rostedt <rostedt@goodmis.org>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: dan.j.williams@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@intel-com.20150623.gappssmtp.com header.s=20150623
- header.b=Fq2WqHVe;       spf=pass (google.com: domain of dan.j.williams@intel.com
- designates 2a00:1450:4864:20::541 as permitted sender) smtp.mailfrom=dan.j.williams@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+ linux-kernel@vger.kernel.org, Kishon Vijay Abraham I <kishon@ti.com>,
+ Andy Shevchenko <andriy.shevchenko@intel.com>
+References: <202006081031.R2VosrSx%lkp@intel.com>
+From: "Ramuthevar, Vadivel MuruganX"
+ <vadivel.muruganx.ramuthevar@linux.intel.com>
+Message-ID: <8fda2c12-a243-043f-3f56-b70fdb0fb033@linux.intel.com>
+Date: Tue, 9 Jun 2020 11:11:42 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.8.1
+MIME-Version: 1.0
+In-Reply-To: <202006081031.R2VosrSx%lkp@intel.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: vadivel.muruganx.ramuthevar@linux.intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: best guess record for domain of vadivel.muruganx.ramuthevar@linux.intel.com
+ designates 192.55.52.151 as permitted sender) smtp.mailfrom=vadivel.muruganx.ramuthevar@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,54 +149,47 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jun 8, 2020 at 5:16 PM kernel test robot <lkp@intel.com> wrote:
->
-> Hi Vaibhav,
->
-> Thank you for the patch! Perhaps something to improve:
->
-> [auto build test WARNING on powerpc/next]
-> [also build test WARNING on linus/master v5.7 next-20200605]
-> [cannot apply to linux-nvdimm/libnvdimm-for-next scottwood/next]
-> [if your patch is applied to the wrong git tree, please drop us a note to help
-> improve the system. BTW, we also suggest to use '--base' option to specify the
-> base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
->
-> url:    https://github.com/0day-ci/linux/commits/Vaibhav-Jain/powerpc-papr_scm-Add-support-for-reporting-nvdimm-health/20200607-211653
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux.git next
-> config: powerpc-randconfig-r016-20200607 (attached as .config)
+Hi,
+
+On 8/6/2020 10:23 am, kernel test robot wrote:
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+> head:   af7b4801030c07637840191c69eb666917e4135d
+> commit: 9227942383307f97fa6992416f73af4a23ef972c phy: intel-lgm-emmc: Add support for eMMC PHY
+> date:   5 months ago
+> config: x86_64-randconfig-a011-20200607 (attached as .config)
 > compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project e429cffd4f228f70c1d9df0e5d77c08590dd9766)
 > reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install powerpc cross compiling tool for clang build
->         # apt-get install binutils-powerpc-linux-gnu
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc
->
+>          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>          chmod +x ~/bin/make.cross
+>          # install x86_64 cross compiling tool for clang build
+>          # apt-get install binutils-x86-64-linux-gnu
+>          git checkout 9227942383307f97fa6992416f73af4a23ef972c
+>          # save the attached .config to linux build tree
+>          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
+> 
 > If you fix the issue, kindly add following tag as appropriate
 > Reported-by: kernel test robot <lkp@intel.com>
->
-> All warnings (new ones prefixed by >>, old ones prefixed by <<):
->
-> In file included from <built-in>:1:
-> >> ./usr/include/asm/papr_pdsm.h:69:20: warning: field 'hdr' with variable sized type 'struct nd_cmd_pkg' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
-> struct nd_cmd_pkg hdr;  /* Package header containing sub-cmd */
+> 
+> All errors (new ones prefixed by >>, old ones prefixed by <<):
+> 
+> WARNING: modpost: missing MODULE_LICENSE() in drivers/phy/intel/phy-intel-emmc.o
+> see include/linux/module.h for more information
+>>> FATAL: drivers/phy/intel/phy-intel-emmc: sizeof(struct of_device_id)=200 is not a modulo of the size of section __mod_of__<identifier>_device_table=512.
+> Fix definition of struct of_device_id in mod_devicetable.h
+Thanks for the report!
 
-Hi Vaibhav,
+Noted, will fix it.
 
-This looks like it's going to need another round to get this fixed. I
-don't think 'struct nd_pdsm_cmd_pkg' should embed a definition of
-'struct nd_cmd_pkg'. An instance of 'struct nd_cmd_pkg' carries a
-payload that is the 'pdsm' specifics. As the code has it now it's
-defined as a superset of 'struct nd_cmd_pkg' and the compiler warning
-is pointing out a real 'struct' organization problem.
+Regards
+Vadivel
 
-Given the soak time needed in -next after the code is finalized this
-there's no time to do another round of updates and still make the v5.8
-merge window.
+> 
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAPcyv4iQo_xgRGPx_j%2BRPzgWGZaigGRbc_kRzKEFePfVHenx5g%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/8fda2c12-a243-043f-3f56-b70fdb0fb033%40linux.intel.com.
