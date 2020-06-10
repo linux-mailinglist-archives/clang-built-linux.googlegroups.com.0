@@ -1,125 +1,120 @@
-Return-Path: <clang-built-linux+bncBDY3NC743AGBBOFJQT3QKGQEDRO2VRQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCO4HLFLUAOBBHNSQT3QKGQECRT3M2Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 135781F59C9
-	for <lists+clang-built-linux@lfdr.de>; Wed, 10 Jun 2020 19:13:31 +0200 (CEST)
-Received: by mail-pg1-x53c.google.com with SMTP id z187sf10873pgd.11
-        for <lists+clang-built-linux@lfdr.de>; Wed, 10 Jun 2020 10:13:31 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591809209; cv=pass;
+Received: from mail-lf1-x139.google.com (mail-lf1-x139.google.com [IPv6:2a00:1450:4864:20::139])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9049D1F5A89
+	for <lists+clang-built-linux@lfdr.de>; Wed, 10 Jun 2020 19:32:14 +0200 (CEST)
+Received: by mail-lf1-x139.google.com with SMTP id x27sf823910lfq.14
+        for <lists+clang-built-linux@lfdr.de>; Wed, 10 Jun 2020 10:32:14 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591810334; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PzlZ+RP79I0Q6WfGLoGMA5lXohd3wuSM2y6w5hJMe3aZgdiwe4XTPS2yG5QN3AClWq
-         Vzs5Bpjnw9ZkUMAk84OMBVpA7uvsUgsXAkZii0K53YS7AOrmJZ1SRXLTcSjT9R8SDwjK
-         13eWLkf/zLQcvujeiBtuVc0xqZEhWmKH/5+LXG0B7sMHz+RfpmDC4+UOfkmkhTLYOPbR
-         vpybYe0eilL65Xb1iEglNkkFTu4qr300uOmWk0RUalXlvI98hidzo3t+pOJO3co5aM7P
-         9cW54C8p5rejxPY5dKf+BBKnFWhIGpbQVNWsjmTxEQmBTUVuMENGrIAZTrNzwHr/HVgM
-         PWRA==
+        b=0URDv6orLJKv5YirkesgpxVfyTFeYwjjvpYtV8JrMEl5TYNW4fIsHaXeGBPXYGJE82
+         P/i/D0qKO2S9rMNvg7LkExIwJE4F6ASkrNBaJxfGnRMiIM73sprMQKcur+TgkcIPrQAm
+         LG+NX9dvxycDE5M/ebPfzxtNY4Y1rXWXmHiYZWxawfpMABIL6ev5198NFZkdyhSvUSWB
+         G+cw6LBe/RXOv3QZCutVxlMjJyKoqi/iKJ6DzqkMnwVnfOp3p8fhBxtX65IDPtx9za+a
+         5NCxR6UV2s2309saT5V91Jqvy+rrlwXa3wKdF/oh945kd5G9S06mKTGMAN5TntJNU3FV
+         0+RQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=mcEd4eh6+0WVpUCDfC/WoKMJaOHjJuK/A19zUtn6NIU=;
-        b=vZyfX75riUgRpqwttjAb/L+rcaZpJ1GwKqkon8fa2uHaigKv/+qA4wem73/qSqv7SN
-         WzS2NarnP3aqac9HrvcVDyIcawb/JjNxgTsQReU5uqgKAk188ROTdoarBMQTa8tkdr2P
-         gWxBAM5ttncLVF3Rk2+DrnVpnA9mXVhHQc7vWXmOEb4xyK3ann3O5nYtQRRAt9gCz+Ou
-         wG2cVcjhwQSMuWPYeHLLQCxV5SlSpYb2ki7y3bIrWkflVplyNcRJ2mie/UaARQVnUuga
-         pNGSUN5rOnMujKr+WMuhRbT6v5E8MzlpzxZPOIk5KnPEA3WH6+SQRMUi6r9G8vz2DwaR
-         uR1A==
+        bh=6RO6UbZkKCbF0GyAWVkid9YmacbMRMtsa7/nKVyyYaQ=;
+        b=EybGUHqeULAmL4fH6GGshL3CJSnGIJtRVHdRkzIKfnaB6KurRF6mmncLecz+KTh61i
+         pI4cQPv7ASbJmOb/pQdh1i+KzyCAwYHh92SHf8P9iml6gc+VAC2/HQTYN6xamADqiA1o
+         I3B0PNq3dVgQJium2ofb28Pu0n/Q+wpAQuZG17xCL0reic+FKnomW4Kl6fAEiovFsowv
+         NZ7n0Q5kGJJWibv7Wvs3Rd798lu3CNwXnjBLae/dE3z66HfbbbMcwjeXqzHzbBZr2Cz+
+         NlcHdv7SQPWi/L4f4KKb0MP1Cvv9+XQWVxXBPAkqdSb7eS0TGj7Zi4IWrFX4FKDdTzd3
+         6jSg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.28 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+       spf=neutral (google.com: 91.189.89.112 is neither permitted nor denied by best guess record for domain of christian.brauner@ubuntu.com) smtp.mailfrom=christian.brauner@ubuntu.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=mcEd4eh6+0WVpUCDfC/WoKMJaOHjJuK/A19zUtn6NIU=;
-        b=gzqjzJ0Yo+51yAi2tRwBpdcXbs50osb1gqWIcGRM6IQN+/X2SwRnVZe7NdiIjlxU2N
-         zgkgZdF0wiHcHdFSXPhxMr0JvW2yaXuPT/mki22l2b7fAP7yIsxfqTZV10dWkMZBkMUM
-         fAeOINcLj8KjZWzantsPOaRgkjk/VAWuJ08dgL0QKy++WyxQsUy4BgFrgmi2mvn8eo3G
-         nLdQv+JISNg5X2Zk7AHwkoP5bi9AgdQk1TxoxZVCRJhLDqHQDQcDnqoXxacNcv/7r5Ev
-         f39BYKe4ePG/ToSCjHoVWjiRvdGl4W9TvDn1OaD3JWK6WkU++hTTBwA6EQlBgV9mRwKk
-         qGFA==
+        bh=6RO6UbZkKCbF0GyAWVkid9YmacbMRMtsa7/nKVyyYaQ=;
+        b=T+kZMOr+eiNhW5a3O163l8bfYhXPmp8HFWHOsE/mMNXaz4pIdIHrLuhzUNtl44NFPb
+         vjaZX2ixdlVGErkHY5gzfeT0ncdWi6CyiopIoXSPOs/2tE+L3+AMEN6VNPb0GBrPOwuV
+         w1xPmb1pExhLy6Metnb3D5FeanNOVizSmrcaCPlcrFEp4cVflzxE3cSunujqsdP/wSlh
+         pXiINLsSPwGj1LKmQFGSwsFFimjZZg91UdAZqcfVaIKjZa1/HlAT1bHjpSl6dxAYhmGC
+         QMfgwp4YAl1RdriAnoYj22on3IQWnWczgcr9Krwu3pCB0NaTumx4qBBuODbAU45Qhp4H
+         QKjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=mcEd4eh6+0WVpUCDfC/WoKMJaOHjJuK/A19zUtn6NIU=;
-        b=Cys931GWTiuOG1R9F7UpKk9nWqD4yE55YJZd3nteT+yJOSY7U6ro10y5SR3RKRVwgv
-         vu93AJ/C/ldZL1RTEU5RtGxiV9L65JBYrRNae9pqf9XXK4T1c097o0kGbNEM0FmA4ZyE
-         g+eqNuy/fYSst6qsRWyiUHIY+0dILaknpLNJoPHzkTPHOgpDXir/mYtdlgrsQM8zYwbj
-         pGko0ZL2e+tARkJaerjE0K13iXKDh6OevWjzM4Y0tqvzoPCqQt8UsTYvn1BeHk5+Qe3s
-         IpdiSXM8HvltTScW7KqzCZt2OYcroT0gKftn4a5juhD++UUxADNFRIrpogHuw+celuDM
-         bAoA==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=6RO6UbZkKCbF0GyAWVkid9YmacbMRMtsa7/nKVyyYaQ=;
+        b=c+XBqQUi/8WuEjvawO1OefWaC5nofE/xC+kd3AwtZ+FOcofp+sghGGQS8GOD3s8ntv
+         1A6xr0CYbBCdFKzcOLPpdDnw4RYY7MTrteXMkvuZ9sSz7r0Vmz8ajH4rK5n8JjuDou4Q
+         2YFV0dsTafw+PQIRlMmv5wda2wAGBjzcKOa0/NkDzuNtrIiPAiIn3V5U45YvJ+X2WCap
+         IG0VV1YTNUv0DOfmFdS5/PTtM2Ec43GFj/oXUNgIhQ3UXa+DahREdtanX3rmVVXIFn++
+         jLyGV7t1Sn9MqKpAn+TJY2soG40XW1wwwaEfkJTIWWlOOAIv7wEI1+Vz8EeYLxlakYwR
+         rQrw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532kJQo4XALwhXB24NgIjSudPzMZPADueChonZut0vPzH6kJS+Dd
-	wpcpuhL2NLqeCDAI5p+Byb4=
-X-Google-Smtp-Source: ABdhPJwU1h5Wx5WfhhkRctFZGGL+v6xfkiT3Xe2d48pxIHMDc3fpBBoG+OaY07054YHYJJrsHux1sA==
-X-Received: by 2002:a17:902:a60d:: with SMTP id u13mr3905362plq.46.1591809209194;
-        Wed, 10 Jun 2020 10:13:29 -0700 (PDT)
+X-Gm-Message-State: AOAM533kcuUUEsTrCeJJjzGqEar1fSZ90Asgs7DQojPjImyKoTzqj7uJ
+	DenQCaFB//VWba/oYe4YeMI=
+X-Google-Smtp-Source: ABdhPJxL+7nyXfGSQKI6NGC699ucTK/1U6YoNYPiXVstgPqWxV+wegxo13grQAvCtmN/mnXSgmHPEQ==
+X-Received: by 2002:a2e:b5b9:: with SMTP id f25mr2421006ljn.50.1591810334029;
+        Wed, 10 Jun 2020 10:32:14 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:104a:: with SMTP id gq10ls1447144pjb.0.canary-gmail;
- Wed, 10 Jun 2020 10:13:28 -0700 (PDT)
-X-Received: by 2002:a17:90a:d17:: with SMTP id t23mr4182916pja.77.1591809208664;
-        Wed, 10 Jun 2020 10:13:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591809208; cv=none;
+Received: by 2002:a2e:89d8:: with SMTP id c24ls3254848ljk.2.gmail; Wed, 10 Jun
+ 2020 10:32:13 -0700 (PDT)
+X-Received: by 2002:a2e:3807:: with SMTP id f7mr2346049lja.234.1591810333431;
+        Wed, 10 Jun 2020 10:32:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591810333; cv=none;
         d=google.com; s=arc-20160816;
-        b=TbaitDYSOQppOsGL29xBVtT/WDg0vDtzuZmbyVm5ou6x/f1WNRMbepQtEcH1kxGY/5
-         +jGtmvgLa7cyqf1qJ+2fdPjJF4aBUKFxpnuTZQhradzH6m1g0XuCIe2VkVzBzyMtuNWR
-         GJKWq616KOole7Sv4uTrGk3xfI1wrCV78sB+JmKnvpEapT2G2r7GGmQ9Y/bIdWY1z5HT
-         eZ8Sj2XPE1vEq9mvqrW9KWgzTehxQmEtG9A8U1xpZK0wfgSRpnad2wzhh5pfyqW3ncg3
-         2BVFzsz3nkwyqYN+y4kjeIsqtLT8EqUl4bfMfzV0UUO1R+DXd3sPjS0Jfh9frAT/n9DI
-         f/jg==
+        b=ZDJaar4CDdmmyhc14ShHPRUdvTvMxH8G/X8HMQSesfUitsGFL8gs6Vf3i3TtY5Vm9G
+         EcNH4gUobOKB4WbcI1dm8ebBO6GGHmSEiiH3c7shMjcLRYfZVyTLC3+Kqfh3uCPSLbao
+         2YnF1OEulUd9A+fe7jkdMiQeyDjHFieEWUmXMnniLzSUiAOqgFjPCm0QE81Rb03cHCuE
+         omjKHScqK4902m2yqvc6o3A7sLE8V6GbjIiwf9zsE3WwPHyZP7mrVcfKtzKVxXI1A83C
+         BnCs3HtlUE0I3qGgrgx7k6y33mRMns2DsH4+n41grFG59aHX0q5AjYGZVkTC3OFutsqA
+         7nuQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id;
-        bh=o50fD+vp7LVfEAraSyWRzixGT53zXkwWP8QivA/nDec=;
-        b=mAeEeJLWzxPG4ur2tojp1EVkQCQhdpJU28ouJIDHEy/ZWvxMZ4Rwv6NexcNG5Jcq5B
-         9kmT+Q+g9PWxcrDu/DPH/9bs7/BFI2EbU8OuPZeLANMQXo/CEbyshcu+syN77yrdBYel
-         aW4Q/B07a/8XHAZs3mm7p7XkHvUFPkSWGkFZqJ54/N5nDUSDrpgFxwmQ/lvsCyrTmLvp
-         MG5Ul18mL28toiNmezYZpNrxfAapgaOKOeJ+6qJz7VI23wOSSoMFpBa/dR4qGxEh/Vhe
-         Czi6KEz5jRd3fJHL32mDI42Zg8psdUNejQQbS/3jU+RXMgQ0vrw3Nk/oSWmZ1NnIKWgy
-         wxsg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date;
+        bh=yi/43U3C8nLZO8ANXeiZd32sZHmYYYDquZgxJJvO/m4=;
+        b=WmTfnTwCymPXseSROvBv+Ko3aqQaMPifn12eJAUx/qX3dX5pCfkOOwtCTzRMe2iFVY
+         Zv3bEgQ4Q77e2mriptxC/m0fj7q9ZTOggmhR19K2MaHOddKX0v+tmaZ6fThxmOPiQFs0
+         cIPMZe2xR53yJThsCGAyI+e7KP7JW3eWq+lHgF7HXx+JZtJj4NBcqUXpYlTwdyHsYDXa
+         41igij5etR3cYHMJXw+LT1cIecCzZJkQr2lI2zIB+F2FDxTSYYXMC4qMqGbaE1fcD1rf
+         RukYOkz+oGT9HlimjrzAZzmw6y0PJz05ZvR+Q5P4KTnxk47CMeRrsOP5fRjtmsCf9A4I
+         oRYQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.28 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
-Received: from smtprelay.hostedemail.com (smtprelay0028.hostedemail.com. [216.40.44.28])
-        by gmr-mx.google.com with ESMTPS id e6si51295pgr.1.2020.06.10.10.13.28
+       spf=neutral (google.com: 91.189.89.112 is neither permitted nor denied by best guess record for domain of christian.brauner@ubuntu.com) smtp.mailfrom=christian.brauner@ubuntu.com
+Received: from youngberry.canonical.com (youngberry.canonical.com. [91.189.89.112])
+        by gmr-mx.google.com with ESMTPS id x20si22652ljh.1.2020.06.10.10.32.13
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Jun 2020 10:13:28 -0700 (PDT)
-Received-SPF: neutral (google.com: 216.40.44.28 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.28;
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
-	by smtprelay05.hostedemail.com (Postfix) with ESMTP id 59FF8180286EF;
-	Wed, 10 Jun 2020 17:13:27 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 2,0,0,,d41d8cd98f00b204,joe@perches.com,,RULES_HIT:41:355:379:599:800:960:973:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1540:1593:1594:1711:1730:1747:1777:1792:2393:2559:2562:2828:3138:3139:3140:3141:3142:3352:3622:3865:3867:3871:3872:3873:4321:5007:6691:8957:10004:10400:10848:11232:11658:11914:12043:12297:12438:12740:12760:12895:13069:13311:13357:13439:14181:14659:14721:21080:21451:21627:30054:30070:30091,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:1,LUA_SUMMARY:none
-X-HE-Tag: coat52_230528b26dcc
-X-Filterd-Recvd-Size: 1882
-Received: from XPS-9350.home (unknown [47.151.136.130])
-	(Authenticated sender: joe@perches.com)
-	by omf12.hostedemail.com (Postfix) with ESMTPA;
-	Wed, 10 Jun 2020 17:13:26 +0000 (UTC)
-Message-ID: <c8851256aa453461481233e8a7fea878f9580c5b.camel@perches.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 10 Jun 2020 10:32:13 -0700 (PDT)
+Received-SPF: neutral (google.com: 91.189.89.112 is neither permitted nor denied by best guess record for domain of christian.brauner@ubuntu.com) client-ip=91.189.89.112;
+Received: from ip5f5af183.dynamic.kabel-deutschland.de ([95.90.241.131] helo=wittgenstein)
+	by youngberry.canonical.com with esmtpsa (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128)
+	(Exim 4.86_2)
+	(envelope-from <christian.brauner@ubuntu.com>)
+	id 1jj4a9-00074z-Vi; Wed, 10 Jun 2020 17:32:10 +0000
+Date: Wed, 10 Jun 2020 19:32:09 +0200
+From: Christian Brauner <christian.brauner@ubuntu.com>
+To: Joe Perches <joe@perches.com>
+Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
+	Linus Torvalds <torvalds@linux-foundation.org>
 Subject: Re: [PATCH] .clang-format: update column limit
-From: Joe Perches <joe@perches.com>
-To: Christian Brauner <christian.brauner@ubuntu.com>, Miguel Ojeda
-	 <miguel.ojeda.sandonis@gmail.com>
-Cc: linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com, Linus
-	Torvalds <torvalds@linux-foundation.org>
-Date: Wed, 10 Jun 2020 10:13:24 -0700
-In-Reply-To: <20200610125147.2782142-1-christian.brauner@ubuntu.com>
+Message-ID: <20200610173209.otq4nxx3ya6j4pat@wittgenstein>
 References: <20200610125147.2782142-1-christian.brauner@ubuntu.com>
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.36.2-0ubuntu1
+ <c8851256aa453461481233e8a7fea878f9580c5b.camel@perches.com>
 MIME-Version: 1.0
-X-Original-Sender: joe@perches.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <c8851256aa453461481233e8a7fea878f9580c5b.camel@perches.com>
+X-Original-Sender: christian.brauner@ubuntu.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 216.40.44.28 is neither permitted nor denied by best guess
- record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+ (google.com: 91.189.89.112 is neither permitted nor denied by best guess
+ record for domain of christian.brauner@ubuntu.com) smtp.mailfrom=christian.brauner@ubuntu.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,34 +127,47 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, 2020-06-10 at 14:51 +0200, Christian Brauner wrote:
-> The provided clang-format file wraps at 80 chars. If noone minds I'd like
-> to adjust this limit to 100 similar to what checkpatch (cf. [1]) uses now.
+On Wed, Jun 10, 2020 at 10:13:24AM -0700, Joe Perches wrote:
+> On Wed, 2020-06-10 at 14:51 +0200, Christian Brauner wrote:
+> > The provided clang-format file wraps at 80 chars. If noone minds I'd like
+> > to adjust this limit to 100 similar to what checkpatch (cf. [1]) uses now.
+> > 
+> > [1]: commit bdc48fa11e46 ("checkpatch/coding-style: deprecate 80-column warning")
+> > Signed-off-by: Christian Brauner <christian.brauner@ubuntu.com>
+> []
+> > diff --git a/.clang-format b/.clang-format
+> []
+> > @@ -52,7 +52,7 @@ BreakConstructorInitializersBeforeComma: false
+> >  #BreakConstructorInitializers: BeforeComma # Unknown to clang-format-4.0
+> >  BreakAfterJavaFieldAnnotations: false
+> >  BreakStringLiterals: false
+> > -ColumnLimit: 80
+> > +ColumnLimit: 100
 > 
-> [1]: commit bdc48fa11e46 ("checkpatch/coding-style: deprecate 80-column warning")
-> Signed-off-by: Christian Brauner <christian.brauner@ubuntu.com>
-[]
-> diff --git a/.clang-format b/.clang-format
-[]
-> @@ -52,7 +52,7 @@ BreakConstructorInitializersBeforeComma: false
->  #BreakConstructorInitializers: BeforeComma # Unknown to clang-format-4.0
->  BreakAfterJavaFieldAnnotations: false
->  BreakStringLiterals: false
-> -ColumnLimit: 80
-> +ColumnLimit: 100
+> Ii think this is a not a good change.
+> 
+> If you read the commit log you provided, it ways
+> "staying withing 80 columns is certainly still _preferred_"
 
-Ii think this is a not a good change.
+I read it; that's why the "if noone minds" is there.
 
-If you read the commit log you provided, it ways
-"staying withing 80 columns is certainly still _preferred_"
+> 
+> With this change, clang would _always_ wrap to 100 columns.
+> 
+> clang would not make any reasonable attempt to use 80 when
+> it should.
 
-With this change, clang would _always_ wrap to 100 columns.
+You make it sounds like it caps all lines to 100 columns when really it
+just does it for corner cases where we run over the 80 anwyways. I at
+least don't regularly write lines of code that cross the 80 limit.
+So when clang-format is called it's usually when something needs to be
+reformatted at which point using the more lenient 100 char limit seems
+sensible. But I don't particulary care about this patch. I can just
+override the .clang-format file if this shakes the world too much.
 
-clang would not make any reasonable attempt to use 80 when
-it should.
-
+Christian
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/c8851256aa453461481233e8a7fea878f9580c5b.camel%40perches.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200610173209.otq4nxx3ya6j4pat%40wittgenstein.
