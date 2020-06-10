@@ -1,129 +1,125 @@
-Return-Path: <clang-built-linux+bncBDQ2L75W5QGBBQMZQT3QKGQETYYVOMI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY3NC743AGBBOFJQT3QKGQEDRO2VRQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x137.google.com (mail-il1-x137.google.com [IPv6:2607:f8b0:4864:20::137])
-	by mail.lfdr.de (Postfix) with ESMTPS id AA70E1F593F
-	for <lists+clang-built-linux@lfdr.de>; Wed, 10 Jun 2020 18:39:30 +0200 (CEST)
-Received: by mail-il1-x137.google.com with SMTP id c29sf1874636ilf.20
-        for <lists+clang-built-linux@lfdr.de>; Wed, 10 Jun 2020 09:39:30 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591807169; cv=pass;
+Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 135781F59C9
+	for <lists+clang-built-linux@lfdr.de>; Wed, 10 Jun 2020 19:13:31 +0200 (CEST)
+Received: by mail-pg1-x53c.google.com with SMTP id z187sf10873pgd.11
+        for <lists+clang-built-linux@lfdr.de>; Wed, 10 Jun 2020 10:13:31 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591809209; cv=pass;
         d=google.com; s=arc-20160816;
-        b=jHNW2N4M96VyqfiPAsrNbuwKp7yybpRRmXUT0R9uSiVPZC+O+MWPfv6qx6i1W3xlGg
-         g+4JFeJDJTo7Tn3/cQgcht70t58MZz8yu0+uod5RZ17IIl6pK6gHaxnuQWp7GBsjNJXc
-         PxfxCbxanE6F1XueZnAEaAz2cWRQleKcXhJhLJJdjj+HwTMj9xTPP06gEuRruQnTA03o
-         uVnSVs3iI1dXXyuEz9T58KhvDGlXRE56kzFYvutDU2v7yCJKQr9Tl3ytAfhKMB6cWs5I
-         wQB/1caZPLV/sgXlgDFqh3wi+LUqrKsp8ZAr6nG5xOarXDdyN8VkA4+6Q/yS5SwXJXzI
-         XDmA==
+        b=PzlZ+RP79I0Q6WfGLoGMA5lXohd3wuSM2y6w5hJMe3aZgdiwe4XTPS2yG5QN3AClWq
+         Vzs5Bpjnw9ZkUMAk84OMBVpA7uvsUgsXAkZii0K53YS7AOrmJZ1SRXLTcSjT9R8SDwjK
+         13eWLkf/zLQcvujeiBtuVc0xqZEhWmKH/5+LXG0B7sMHz+RfpmDC4+UOfkmkhTLYOPbR
+         vpybYe0eilL65Xb1iEglNkkFTu4qr300uOmWk0RUalXlvI98hidzo3t+pOJO3co5aM7P
+         9cW54C8p5rejxPY5dKf+BBKnFWhIGpbQVNWsjmTxEQmBTUVuMENGrIAZTrNzwHr/HVgM
+         PWRA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=UyR0pKS6CsjowWRHjv0fNmYjHR2feQA0o9Wd2275HQY=;
-        b=guxp3DuIzvKkAPvCmWNPH4YHnzHfkzdRPCgLxWhgHeXeWGF1GdbHKF3GuKR+kNs6Pb
-         CJqO6xWRBBncU8/837kTebeOWdCaKADshGd83LinhvblzAOG1noYXnuqI1I6ghVTzMBU
-         yZSaYkfw7SOJcJPJXKh4zCur3ITa14sXtEozATn0unVkGU0zWmQU9P0pX7E5EVHZ4Zpr
-         qRt4x3aFq4v3+uyQm9rSRd+/rJxO+9UR7SB08Twsqoj/6s12jyURBluEYBewjFv7rrtX
-         K3q3CZdK7QwOJHZUTvrjCut9wj5OrcXLQyHP3+MupJQySmV31vDdviiXpi9VxFWdXFix
-         iUFQ==
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :dkim-signature;
+        bh=mcEd4eh6+0WVpUCDfC/WoKMJaOHjJuK/A19zUtn6NIU=;
+        b=vZyfX75riUgRpqwttjAb/L+rcaZpJ1GwKqkon8fa2uHaigKv/+qA4wem73/qSqv7SN
+         WzS2NarnP3aqac9HrvcVDyIcawb/JjNxgTsQReU5uqgKAk188ROTdoarBMQTa8tkdr2P
+         gWxBAM5ttncLVF3Rk2+DrnVpnA9mXVhHQc7vWXmOEb4xyK3ann3O5nYtQRRAt9gCz+Ou
+         wG2cVcjhwQSMuWPYeHLLQCxV5SlSpYb2ki7y3bIrWkflVplyNcRJ2mie/UaARQVnUuga
+         pNGSUN5rOnMujKr+WMuhRbT6v5E8MzlpzxZPOIk5KnPEA3WH6+SQRMUi6r9G8vz2DwaR
+         uR1A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=kcMyQZXV;
-       spf=pass (google.com: domain of broonie@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=broonie@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=neutral (google.com: 216.40.44.28 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=UyR0pKS6CsjowWRHjv0fNmYjHR2feQA0o9Wd2275HQY=;
-        b=laWJKb3aRZ0lf0FA4Yb9vq1l/TluizxRHrhZxfEw9OIjvDfXG6mqqVKHnplhjiXMPv
-         dt879g4x1mssUaRgv13ZTzaKiHgrXzwqy/VhXNDPXtgGe7nTCwYnlks+s9zKecTDDmJP
-         g8T4RXcvvgZc6BJa+VrfNcIpBUoH0EIJfOjGGan8TcZhIJ/pf91r2KV/3d6k0onuMb91
-         5V7WxECslmrr9SEi7OVWnce2ZcipUNvGVyPpZMoG4WYlOVzZ4mwxotBCQBwds1gZzieY
-         GFcAW2OliavyBhwJ41ee4eht5DqWc2yuNpBJ/oOQByosoNARTUCH/C0KW3Dc7lv2tLBq
-         siLg==
+        bh=mcEd4eh6+0WVpUCDfC/WoKMJaOHjJuK/A19zUtn6NIU=;
+        b=gzqjzJ0Yo+51yAi2tRwBpdcXbs50osb1gqWIcGRM6IQN+/X2SwRnVZe7NdiIjlxU2N
+         zgkgZdF0wiHcHdFSXPhxMr0JvW2yaXuPT/mki22l2b7fAP7yIsxfqTZV10dWkMZBkMUM
+         fAeOINcLj8KjZWzantsPOaRgkjk/VAWuJ08dgL0QKy++WyxQsUy4BgFrgmi2mvn8eo3G
+         nLdQv+JISNg5X2Zk7AHwkoP5bi9AgdQk1TxoxZVCRJhLDqHQDQcDnqoXxacNcv/7r5Ev
+         f39BYKe4ePG/ToSCjHoVWjiRvdGl4W9TvDn1OaD3JWK6WkU++hTTBwA6EQlBgV9mRwKk
+         qGFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=UyR0pKS6CsjowWRHjv0fNmYjHR2feQA0o9Wd2275HQY=;
-        b=XPoXo+I9Ai6hzUhC2dw/ZE46oLW/z2xb6xmiZ04/Q5PgUk6Rrv0jY+w3fArFouAaVz
-         5Ui6iaLB+9CXJ3B3+UfRb5WxHYOQ49lc9Vq54njKr2v/Jj8nTWfwpshtaxcckq3PQxy4
-         DKDh/i7SNWQDWhLPddchvrhSfhMYykpgQCyfHPCDyea2u8LE4v2cYPkDwLfAELXJGHRD
-         Cy4EzUrbamWjLLm6JZUywyi2lKoXcXHR7K3DaNiJ1a0R8RjJdXp/Uj1yUrvXY5I6NM6l
-         IKIdynusVr8ApMcCnu+mwNg1U/14Kt716hAIyPNvbzKRkk2+fZwRFxsvGmhiuqaAnc5b
-         OovA==
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=mcEd4eh6+0WVpUCDfC/WoKMJaOHjJuK/A19zUtn6NIU=;
+        b=Cys931GWTiuOG1R9F7UpKk9nWqD4yE55YJZd3nteT+yJOSY7U6ro10y5SR3RKRVwgv
+         vu93AJ/C/ldZL1RTEU5RtGxiV9L65JBYrRNae9pqf9XXK4T1c097o0kGbNEM0FmA4ZyE
+         g+eqNuy/fYSst6qsRWyiUHIY+0dILaknpLNJoPHzkTPHOgpDXir/mYtdlgrsQM8zYwbj
+         pGko0ZL2e+tARkJaerjE0K13iXKDh6OevWjzM4Y0tqvzoPCqQt8UsTYvn1BeHk5+Qe3s
+         IpdiSXM8HvltTScW7KqzCZt2OYcroT0gKftn4a5juhD++UUxADNFRIrpogHuw+celuDM
+         bAoA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530hviUzr7ACcWd+hlBEoGRPAIN27sZGKncyL5nFa8cRp6ZL0VNv
-	X0iVelckMBceu//c+YYm7Y8=
-X-Google-Smtp-Source: ABdhPJykE2Z1H064h0rDV8SXfn1GTOlFV1CyMyUL1pc0nLq5cnIozXnKGklYXe2a1JppIaec5RmoaA==
-X-Received: by 2002:a02:a518:: with SMTP id e24mr3834506jam.72.1591807169653;
-        Wed, 10 Jun 2020 09:39:29 -0700 (PDT)
+X-Gm-Message-State: AOAM532kJQo4XALwhXB24NgIjSudPzMZPADueChonZut0vPzH6kJS+Dd
+	wpcpuhL2NLqeCDAI5p+Byb4=
+X-Google-Smtp-Source: ABdhPJwU1h5Wx5WfhhkRctFZGGL+v6xfkiT3Xe2d48pxIHMDc3fpBBoG+OaY07054YHYJJrsHux1sA==
+X-Received: by 2002:a17:902:a60d:: with SMTP id u13mr3905362plq.46.1591809209194;
+        Wed, 10 Jun 2020 10:13:29 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:c205:: with SMTP id j5ls6555208ilo.11.gmail; Wed, 10 Jun
- 2020 09:39:29 -0700 (PDT)
-X-Received: by 2002:a05:6e02:1242:: with SMTP id j2mr3728896ilq.303.1591807169328;
-        Wed, 10 Jun 2020 09:39:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591807169; cv=none;
+Received: by 2002:a17:90b:104a:: with SMTP id gq10ls1447144pjb.0.canary-gmail;
+ Wed, 10 Jun 2020 10:13:28 -0700 (PDT)
+X-Received: by 2002:a17:90a:d17:: with SMTP id t23mr4182916pja.77.1591809208664;
+        Wed, 10 Jun 2020 10:13:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591809208; cv=none;
         d=google.com; s=arc-20160816;
-        b=F095n4I0ZF8ibr2ZEqhJzI6NjD/jme+jS05Wq9mQqtshKMioMKmrnZMPIrEgBG91Wl
-         4DhYA6Txdel4ooTK+bz4CCnLYpimesRN+Zdg9yhMENXor3DCKDPbu/5bhk/Srfv66e7B
-         Tr95C/Z4Yxw+5ybtGUU1H63qQu8XAfduO7+xP6jGpb7LTzU2b+jBTJ/BdVlUD5WQIhlZ
-         0SchDj5zNggb5wBMYN+cCkooggGiylR9q9yGe5n3HkK+yt4fvWlpTQ8xOIvrZojPa4Dk
-         sTBbiTeeE2fZWQJ279C3u3a/Kf82iSMfvi9LDcg1jGy+bn+IeUJMFz/NnVmV/zSeamV/
-         Qokg==
+        b=TbaitDYSOQppOsGL29xBVtT/WDg0vDtzuZmbyVm5ou6x/f1WNRMbepQtEcH1kxGY/5
+         +jGtmvgLa7cyqf1qJ+2fdPjJF4aBUKFxpnuTZQhradzH6m1g0XuCIe2VkVzBzyMtuNWR
+         GJKWq616KOole7Sv4uTrGk3xfI1wrCV78sB+JmKnvpEapT2G2r7GGmQ9Y/bIdWY1z5HT
+         eZ8Sj2XPE1vEq9mvqrW9KWgzTehxQmEtG9A8U1xpZK0wfgSRpnad2wzhh5pfyqW3ncg3
+         2BVFzsz3nkwyqYN+y4kjeIsqtLT8EqUl4bfMfzV0UUO1R+DXd3sPjS0Jfh9frAT/n9DI
+         f/jg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=r1yGF+uQ2Nr9wUo6VujDIN/5HHhoEEnJjSUViFks9pI=;
-        b=UQsLbEgtZhuXIy/fnd1/g3c3ay7CKRLrJNfHDtdcFaeG3zccIjZBRD0qZdBUp7AuR/
-         n6Ym3MbmjYk//tigqn9ECJEUGdrKQ72PzuwR1/0HobvF2D0t1WaricOPe0yMo+1dyBfC
-         p9VAHAcwQw3WD3Pz5Kc84kar0kXE0UXhAaNlV9x4lmjHZlxkh2JN/1aJPs5MjRmgbgey
-         DD2jEmAK72NPlKa6S5gsUXTkh4U6yyygitBzQhioZTLIVXU4pC7JuEsksv79wYtVyEhb
-         MGlgzD2Sq8HtwCONyO9Kr+FbJd+wiBT08WoRPfbTolS/KXf+d/gaREtdpb8wUhcaz6ST
-         6SgA==
+        h=content-transfer-encoding:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id;
+        bh=o50fD+vp7LVfEAraSyWRzixGT53zXkwWP8QivA/nDec=;
+        b=mAeEeJLWzxPG4ur2tojp1EVkQCQhdpJU28ouJIDHEy/ZWvxMZ4Rwv6NexcNG5Jcq5B
+         9kmT+Q+g9PWxcrDu/DPH/9bs7/BFI2EbU8OuPZeLANMQXo/CEbyshcu+syN77yrdBYel
+         aW4Q/B07a/8XHAZs3mm7p7XkHvUFPkSWGkFZqJ54/N5nDUSDrpgFxwmQ/lvsCyrTmLvp
+         MG5Ul18mL28toiNmezYZpNrxfAapgaOKOeJ+6qJz7VI23wOSSoMFpBa/dR4qGxEh/Vhe
+         Czi6KEz5jRd3fJHL32mDI42Zg8psdUNejQQbS/3jU+RXMgQ0vrw3Nk/oSWmZ1NnIKWgy
+         wxsg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=kcMyQZXV;
-       spf=pass (google.com: domain of broonie@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=broonie@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id z11si37885ilq.5.2020.06.10.09.39.29
+       spf=neutral (google.com: 216.40.44.28 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Received: from smtprelay.hostedemail.com (smtprelay0028.hostedemail.com. [216.40.44.28])
+        by gmr-mx.google.com with ESMTPS id e6si51295pgr.1.2020.06.10.10.13.28
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 10 Jun 2020 09:39:29 -0700 (PDT)
-Received-SPF: pass (google.com: domain of broonie@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from localhost (fw-tnat.cambridge.arm.com [217.140.96.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 23F9120734;
-	Wed, 10 Jun 2020 16:39:27 +0000 (UTC)
-Date: Wed, 10 Jun 2020 17:39:26 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: kbuild test robot <lkp@intel.com>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
-Subject: Re: sound/soc/meson/t9015.c:315:34: warning: unused variable
- 't9015_ids'
-Message-ID: <20200610163926.GI5005@sirena.org.uk>
-References: <202005311147.iLK0hQoe%lkp@intel.com>
- <1jftb32b0o.fsf@starbuckisacylon.baylibre.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 Jun 2020 10:13:28 -0700 (PDT)
+Received-SPF: neutral (google.com: 216.40.44.28 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.28;
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
+	by smtprelay05.hostedemail.com (Postfix) with ESMTP id 59FF8180286EF;
+	Wed, 10 Jun 2020 17:13:27 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 2,0,0,,d41d8cd98f00b204,joe@perches.com,,RULES_HIT:41:355:379:599:800:960:973:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1540:1593:1594:1711:1730:1747:1777:1792:2393:2559:2562:2828:3138:3139:3140:3141:3142:3352:3622:3865:3867:3871:3872:3873:4321:5007:6691:8957:10004:10400:10848:11232:11658:11914:12043:12297:12438:12740:12760:12895:13069:13311:13357:13439:14181:14659:14721:21080:21451:21627:30054:30070:30091,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:1,LUA_SUMMARY:none
+X-HE-Tag: coat52_230528b26dcc
+X-Filterd-Recvd-Size: 1882
+Received: from XPS-9350.home (unknown [47.151.136.130])
+	(Authenticated sender: joe@perches.com)
+	by omf12.hostedemail.com (Postfix) with ESMTPA;
+	Wed, 10 Jun 2020 17:13:26 +0000 (UTC)
+Message-ID: <c8851256aa453461481233e8a7fea878f9580c5b.camel@perches.com>
+Subject: Re: [PATCH] .clang-format: update column limit
+From: Joe Perches <joe@perches.com>
+To: Christian Brauner <christian.brauner@ubuntu.com>, Miguel Ojeda
+	 <miguel.ojeda.sandonis@gmail.com>
+Cc: linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com, Linus
+	Torvalds <torvalds@linux-foundation.org>
+Date: Wed, 10 Jun 2020 10:13:24 -0700
+In-Reply-To: <20200610125147.2782142-1-christian.brauner@ubuntu.com>
+References: <20200610125147.2782142-1-christian.brauner@ubuntu.com>
+Content-Type: text/plain; charset="UTF-8"
+User-Agent: Evolution 3.36.2-0ubuntu1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="vs0rQTeTompTJjtd"
-Content-Disposition: inline
-In-Reply-To: <1jftb32b0o.fsf@starbuckisacylon.baylibre.com>
-X-Cookie: fortune: No such file or directory
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: broonie@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=kcMyQZXV;       spf=pass
- (google.com: domain of broonie@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=broonie@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+X-Original-Sender: joe@perches.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 216.40.44.28 is neither permitted nor denied by best guess
+ record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,46 +132,34 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Wed, 2020-06-10 at 14:51 +0200, Christian Brauner wrote:
+> The provided clang-format file wraps at 80 chars. If noone minds I'd like
+> to adjust this limit to 100 similar to what checkpatch (cf. [1]) uses now.
+> 
+> [1]: commit bdc48fa11e46 ("checkpatch/coding-style: deprecate 80-column warning")
+> Signed-off-by: Christian Brauner <christian.brauner@ubuntu.com>
+[]
+> diff --git a/.clang-format b/.clang-format
+[]
+> @@ -52,7 +52,7 @@ BreakConstructorInitializersBeforeComma: false
+>  #BreakConstructorInitializers: BeforeComma # Unknown to clang-format-4.0
+>  BreakAfterJavaFieldAnnotations: false
+>  BreakStringLiterals: false
+> -ColumnLimit: 80
+> +ColumnLimit: 100
 
---vs0rQTeTompTJjtd
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
+Ii think this is a not a good change.
 
-On Wed, Jun 10, 2020 at 05:31:03PM +0200, Jerome Brunet wrote:
+If you read the commit log you provided, it ways
+"staying withing 80 columns is certainly still _preferred_"
 
-> I'm not sure what to do with this report.
-> I tried to reproduce has instructed, the log is full of warnings and the
-> compilation eventually fails to link.
+With this change, clang would _always_ wrap to 100 columns.
 
-> It seems that most (if not all) drivers with a MODULE_DEVICE_TABLE() show
-> this warning with the provided .config (COMPILE_TEST).
+clang would not make any reasonable attempt to use 80 when
+it should.
 
-> When compiled with gcc, no such warning is shown.
-> I can remove COMPILE_TEST for this driver, it will make the warning go
-> away but I'm not sure it is appropriate.
-
-I'd just ignore it for now - it seems like there's lots of false
-positives from this warning which like you say are more global issues
-and only show up at W=1.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200610163926.GI5005%40sirena.org.uk.
-
---vs0rQTeTompTJjtd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl7hDL0ACgkQJNaLcl1U
-h9BxXgf7BwJQWORKeCwngQf1DmeQvUUe+nF+p9S6HjqN0eAe6pNQaOCjFUp2T2TV
-BdCBM1kFxSr1bQjpAErNa6mb8WijKyqlJQh0D5gDQNhRijQn4ay8lXDqQGuFi+NJ
-wFc2cWUjyxV24o865SQdVbw8r0nYQcz1snHw5UJnNHo9Mmi+rRixy1Kl5D8qXf/R
-kQi5Xvx/UDbvdIIhE6WnJGSzGf7M70hGb2zJ2q3bEmEVihdoOK+N+DNwHqYRMNny
-SRXG4Zaj9xPhnoJJuLWyBhpw53tHJlWBeUriLsQssKkshbYOPWMDhd5ifowxtDuG
-UgtRVEsCU+6KbkEWMTPIotbr4aOJXg==
-=Fp9y
------END PGP SIGNATURE-----
-
---vs0rQTeTompTJjtd--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/c8851256aa453461481233e8a7fea878f9580c5b.camel%40perches.com.
