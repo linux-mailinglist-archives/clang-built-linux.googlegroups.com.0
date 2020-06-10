@@ -1,138 +1,132 @@
-Return-Path: <clang-built-linux+bncBDAZZCVNSYPBBQV4QL3QKGQEIGXFWQA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDZ2FUU27AHRBGOBQL3QKGQEUZAKO4Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3e.google.com (mail-yb1-xb3e.google.com [IPv6:2607:f8b0:4864:20::b3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id CA9FE1F5083
-	for <lists+clang-built-linux@lfdr.de>; Wed, 10 Jun 2020 10:48:03 +0200 (CEST)
-Received: by mail-yb1-xb3e.google.com with SMTP id f16sf1452485ybp.5
-        for <lists+clang-built-linux@lfdr.de>; Wed, 10 Jun 2020 01:48:03 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591778882; cv=pass;
+Received: from mail-lf1-x137.google.com (mail-lf1-x137.google.com [IPv6:2a00:1450:4864:20::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id 779641F50A1
+	for <lists+clang-built-linux@lfdr.de>; Wed, 10 Jun 2020 10:58:02 +0200 (CEST)
+Received: by mail-lf1-x137.google.com with SMTP id l1sf502849lfj.3
+        for <lists+clang-built-linux@lfdr.de>; Wed, 10 Jun 2020 01:58:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591779482; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Ct2BxKVSCOOkAIdSkQgp3+12TwSAXMsuDiAcRu1m3CByqBBPMTCuvk7aKHOCc4sm0d
-         dkFRRQbsHMf1lsC1ySKWuZOcmwPkOa9gwu97b67faAe/t4Me8/u2IxF92pM1cXKk66r8
-         RpZrf8+Nv2I6P9ySRgt/6rgYW6OYd4ESPRiz0r9tQ2jNWJbXWqKzvyMW/G1UEBkXBpf4
-         hFwJpfGWZPOJdRaacnSKlJc0N1LoKFG8pERtiVOwg1NK0bYKViBU52DigjcbeOlhw4+H
-         OBx3rZ/X//ujBs/zOrwiLg+nHup9Ywsw1KSyr+/1G79EK/9v48JpTuuSiOIXUGcvGV5D
-         UkKA==
+        b=NHpjWdeQS+zcgpQBLxAiDjbBGocVc8V/RKKssbOwBmSqFJ1jc929RpLwBz466GzQom
+         Sut6gW53n34AcxNsIZyENiTKaapI2FXauUbbl5a0J1SWv9vSEYUK07M7DPK0ACsT5tGp
+         53+dT0emR3LTMdAqYdfDsRmXoFLIIckGxN75yB/6g4vs6o4fHu10JPgDOBagsLCKBvuC
+         df8L2f2H+88GqXMjdlt8Oi2DasZphJbiJqDy6+0qAtrr03qLmAjqXAjn3takNRnPr1cn
+         PFGE28ij/8stqtJII8JlLHnwzpWBsJ4rTmdl8T0pp57D6cTXKKSNI8+tQ6LQ6Kk2Kq71
+         5IdA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=G7ldojokNv52ibnV2WW47CQ5/l1cSWNbarjN7QnWJvM=;
-        b=iBqWsOiWSwbv6nKI9bB/4i/93++/ZSjQRuC1qFjNnjElbrzb/uxZRJbaITPsABNfZK
-         kzgB9wcJz9Im5eui0u1aUyXzXpsAROHn2HaoCWK5PoESqWH6+dhRaKcFJ/LzPJSas/PA
-         ad2UFMzP85d2ZjnoSJTxVa6xUn1wZQFsWIZoxa/RR09+Mg/7VBny1JcdZXR85157d7J9
-         TnsTZTqDnP07uByuPTWwjTUa8SyPaOvMXPgE8srIyMnFeTxRTqoDJ1uidXsyS+DBg4g5
-         VEFhiArGtapzNJhNevtYCcyBIStu8L9ZaMA83kYaFTZivaLbVC0i6pholeD07phrun+V
-         +7lg==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :mime-version:references:in-reply-to:message-id:date:subject:to:from
+         :sender:dkim-signature;
+        bh=b0n/eHlYdIvMlISltf43DN5pl/32OQXf71tsTeDSEiI=;
+        b=LG1WOrR9PzrYtlIpkHAqL/8IJEL5GY9bdY6m8WUTMx4ZlKIjC0fx4TCrfbn1jW4DQL
+         7bA5BwaZA0c2qJxC6YIeo4svqxY/cBS1kwvo3O8erHrazdXI34NRyL+R8mjWzKaIMgNI
+         anV0xA6Dc4bIhCZBv50/Jx0f8NxmxmeIa83sGBZMxmmOd8DxK8GdGOAHAuu4znH2wadD
+         +4dncE9HVgq4LaM1E9OvVbyOphCwUIy1PHgvUJQqKfoj/iWCuSR1mSM5LdHlm4rQNhr7
+         9kCJfLkXC+7ykWgzji+TVhimHvk2UNnBCJP03X+ts74+wyj6Enw9CXCP45OqNROrKopT
+         eipw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=yPQ0Gn3M;
-       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@kolabnow.com header.s=dkim20160331 header.b=t95kRWpI;
+       spf=pass (google.com: domain of federico.vaga@vaga.pv.it designates 95.128.36.40 as permitted sender) smtp.mailfrom=federico.vaga@vaga.pv.it
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:from:to:subject:date:message-id:in-reply-to:references
+         :mime-version:content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=G7ldojokNv52ibnV2WW47CQ5/l1cSWNbarjN7QnWJvM=;
-        b=QJchtGXDhcebEhBoljVyru3GrDqvL6lOllF2Cy2SRJBMPFZsuJrMB28qsMrI0xEEjT
-         FMuqL9+nrtV6Cc6cwoC77adclFLPJ8eCAO6mGXme6DU8zRfW4zlrCLe8Jf+MB9p9igBe
-         wXEbjemLmtJ8SP/CkPlTQqkrVYgF57TCfR6L/4JGaHkaTLTTfGn6HL9oUZML+aGjrYNc
-         wcTBJtMLV3/eBtfun24qM4rY88wYv1GuHsxdmNTWLvMGy5hlYj3+RNUrZmh15gCjLOOE
-         rQ35TIJACzVg1ECNQkWnAJNukSv/u7v1FkK4/EX/06gVs9o9kiCIQZbgz+sZipXV8f5z
-         sPzg==
+        bh=b0n/eHlYdIvMlISltf43DN5pl/32OQXf71tsTeDSEiI=;
+        b=PmgeyEbtezic1zGAZBFMLacWJU7zAfwBy4of4GKVuXtmAX+9GpQyi+VmeDevsQ1/qg
+         W6C9b8mH+ZlTwfJTNmh7KCUbxr4fz1/T4K3Qt1WNHhChgBILs9OUFC0y1HhNiljBQcBl
+         qjJfIKYzFoJ4WMxwPf2HZE4048xTvi6i/HBjCSV9FugMb3GLdwi+sjzhMy+6GEgoXJKd
+         Aj9W6NkSHEqnst0lRqqaBNA4Wpj9k91O+5p/jB1tFSrVVwyMTZKWwDtyu3exkKdc30ZT
+         ml0Rxv2ZEd4+mSEciBygc9tQZB10XiBg6g4fvmiqrWmotqOckfODBg2tvsvfp0Eyp8dM
+         kx0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
+        h=sender:x-gm-message-state:from:to:subject:date:message-id
+         :in-reply-to:references:mime-version:content-transfer-encoding
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=G7ldojokNv52ibnV2WW47CQ5/l1cSWNbarjN7QnWJvM=;
-        b=M3WhxGxan2MJWnOPZ3kR3GXxMLaEKmlKjjQLOuBg2S0kSIj/jquKvHsvW7bp99Gt8A
-         /RgaTCm3sPfunVJktD/qGqRvKmqX3WN7N1yljg+No0KxEvgSPK16MJmOBxUSsNLzbgpZ
-         IHkIueD16dL39X0btBXPHm0d1yT3ZURensRjWewVaglJEYu7vkHhPNZILCLWHJrGxP4I
-         QFtMtcV+FZVhBpUKHMBvG0hFH/d0+uXF8ah4rS0h+39gMAAW1ZDGXSKUb4ybhBeBkS3o
-         Id0e3tbOehM0gwzhabgkiNhBim2x8tSK3KrT9uunrK9vQxXfRrEolPR40onmdBQmnemw
-         vg+w==
+        bh=b0n/eHlYdIvMlISltf43DN5pl/32OQXf71tsTeDSEiI=;
+        b=tk0lGDdBDt8bfUvVZDGl4w4C2P7tx22sp3MXd0aXIe29rcBAocCCalVuJVp4T1Uvry
+         3P6+JfVB4BczAASzfJjuHSBSG78yHVTMHd75x05ltjxwrvXUtLD7oNITD+xJXBDYkadg
+         ub97+qEZtjBq/4Spor+PxL6FVMb9mjoinR03ASs7UFERN1melktmq0NW+rC8pDYtR39J
+         v9wS06is8sQZB95J5s7A7sjeMQV+0N3tIANnbG+UQVeDkLYMO2n/qZsYDJSQCghwqbkG
+         mRh59GyZFBWnJkTmG+LSqHUGOkTMTJgElrA2YlQu1qz2JvUlLAnX7kjksxkJQ7ZZ5cIF
+         gNDA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533jYPWmByY2drO9b3QhrQrBa5Xim9e6MqUBYKe4Wpis8REF8oLb
-	83wJPHNdtu64MJIWmFQw3hk=
-X-Google-Smtp-Source: ABdhPJwjT16hpWO4vJzW1GiQrZC8g3WTU+9cK0os1fP9jGNbMA25t0RYS6MpRd7O8GdQt5w8DiIFOA==
-X-Received: by 2002:a25:b98e:: with SMTP id r14mr3934717ybg.20.1591778882486;
-        Wed, 10 Jun 2020 01:48:02 -0700 (PDT)
+X-Gm-Message-State: AOAM530TdqH1ZeowkVTuQ4ziiEVAG0Zgp0rT9JsNtObj1FuYwj2Sy3+d
+	7Nwsu2GZPNJg6kQ54E8Qf/s=
+X-Google-Smtp-Source: ABdhPJx5q3Wt77ovyDtvWOQOfedvDZFrmww1zGJp47khQ/QAmoZhfcM8UsYZeI7nXTZ5sdlXGbnGqw==
+X-Received: by 2002:a2e:9eca:: with SMTP id h10mr1254728ljk.273.1591779481992;
+        Wed, 10 Jun 2020 01:58:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:d603:: with SMTP id n3ls2353246ybg.3.gmail; Wed, 10 Jun
- 2020 01:48:02 -0700 (PDT)
-X-Received: by 2002:a25:6b4d:: with SMTP id o13mr3904782ybm.496.1591778882198;
-        Wed, 10 Jun 2020 01:48:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591778882; cv=none;
+Received: by 2002:a19:c7d6:: with SMTP id x205ls4138832lff.0.gmail; Wed, 10
+ Jun 2020 01:58:01 -0700 (PDT)
+X-Received: by 2002:ac2:4a75:: with SMTP id q21mr1133514lfp.190.1591779481338;
+        Wed, 10 Jun 2020 01:58:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591779481; cv=none;
         d=google.com; s=arc-20160816;
-        b=WtwGchOx+2mgv4Uq6c4iXVPKV7NZNow73Qtzbm/Nk783WmaZrwq9daMiAQJHzmcA2l
-         VttXpK9IMxzHs9FZV0MrIRdm9hyylynMHSB+8X5256ocH0XsGA+psWnziG6ZdakPWnXx
-         kQlzeecFkEcDOe3woaMxepaEqkY2nQseyokTKWvpjvQBbhUbJdPxTab4nORaLoQ7yIF/
-         MMOcNYeHRyGmMHxIwj9jq9Cs9ov03Gs5KmjYb1vdqLjv6adPU1zwLJthfpHhsGwG9HGw
-         v38sj27svfLOS/ppvOVbVBe/geDA0tgXamakmNKd6K2UaEQVSVGB+VSG046ujZodr2sb
-         lDtQ==
+        b=Ch3pZ7fMf+umEN6KaO7Ue/blBkdh6Nj85Ep6eC/Cc7oJr0vMxcr9p5KdHVCwgrx9s4
+         OV1PopaOMgUPX+zhPFgDwtYPsLrx+Gg/SEJHHaUoM9LOdLAV/jk1q9kltx+e6puEdG0e
+         znN0ZqR9A/pcziUhDqeojS/M45Edr1Yh0UW8amdNxQ3wJaBoGWTbuavH7ilSwrqGyS+k
+         71INSUujlKz5T3e9wXwTEE+7gLzX8gGV+XiLzKNPFwM8BgFXqwcQ2Xpil7WhdI3EjXMq
+         HHM53jbGL8sAa5Y08e98kUSm4RZ5EvJ0CpyZ0WdPw5a05yQaLiEmWYGr0wFXWfzEyn0o
+         F68A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=P+vvU45MJMiDu6p0L8lu+2vQjc3zgE65BjIoqAuLI8k=;
-        b=MBZWaDNto/RhEtoXSxAkPOk94Dl9D05k12N4ev6KzU4rsE7NMDxwlMl2Shapo8olRG
-         +DDRG+IALb4npsd4rIcCKzx8S9cCyqY4cvueDESDdkZ4mgEL6uHLNY9DppMrMb11K1cd
-         P5bhXfkKg9REBhDTjlqeZkCf9ujMBd6UFULqyiuhTR5MO5lSP6M9P2cOccD2sNpuaBJJ
-         GXosYVUEuCiDiWaqG01vOVyN2azE6LL4TYEM1/XKpWNXX1MghtwPZWFbUpWhNI5wAcHb
-         C9iggy2Hr81PYrwwAUc+Y/3l9VQNbeoTFFnqBtAhkCsaRUKphYApK4a8i3VOvOOA3eQ1
-         rFLA==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:dkim-signature;
+        bh=ukQu5iHRn6B2xVjPeaJqvtM0JRMk3+0xuHbTRO+Q5Bo=;
+        b=Lxd54FjhCCUgh7+bF9v8dTjTVGRwQPoExk8ldxg6QaCwb9/LWpZmYm9H0RpKeVJJ2N
+         2XygpTeRnfGUeU3/w+yldtEIbLY14hYSzcSHAMR5wN+hqTh0QIWVTieCOMscX1KribGW
+         D+ygCtdRL4aUBHYPcLd0/ImJnDdneN8guEehzJS/zcsGRnlShU2cBeZDYB5aeAFJOtFj
+         6HXui0ULSskRvP0eTMr4z+DppoI74kfiigQIIqPyAdl+ATWbbD0w2aMQYtxOYEoMhmrD
+         N7SNDYWjxs9OvOSxwnrcNEWSBAalSIXeVCoZ2k+wu/IFcEfPBvHZlMUPX8tXK3VZikKq
+         oIsw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=yPQ0Gn3M;
-       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id n82si191432ybc.3.2020.06.10.01.48.02
+       dkim=pass header.i=@kolabnow.com header.s=dkim20160331 header.b=t95kRWpI;
+       spf=pass (google.com: domain of federico.vaga@vaga.pv.it designates 95.128.36.40 as permitted sender) smtp.mailfrom=federico.vaga@vaga.pv.it
+Received: from mx.kolabnow.com (mx.kolabnow.com. [95.128.36.40])
+        by gmr-mx.google.com with ESMTPS id 130si755414lfi.3.2020.06.10.01.58.00
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 10 Jun 2020 01:48:02 -0700 (PDT)
-Received-SPF: pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from willie-the-truck (236.31.169.217.in-addr.arpa [217.169.31.236])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id EDCFD2078C;
-	Wed, 10 Jun 2020 08:47:58 +0000 (UTC)
-Date: Wed, 10 Jun 2020 09:47:55 +0100
-From: Will Deacon <will@kernel.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Stephen Boyd <swboyd@google.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Dave Martin <Dave.Martin@arm.com>, Luis Lozano <llozano@google.com>,
-	Manoj Gupta <manojgupta@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Naohiro Aota <naohiro.aota@wdc.com>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Subject: Re: [PATCH v2] arm64: vdso32: add CONFIG_THUMB2_COMPAT_VDSO
-Message-ID: <20200610084755.GB17035@willie-the-truck>
-References: <20200528072031.GA22156@willie-the-truck>
- <20200608205711.109418-1-ndesaulniers@google.com>
- <20200609203502.GA21214@gaia>
- <CAKwvOdnDeYQ-tbyW8=tcKcbbFxtDzqk8dCUSzbBYP1amb9a2hg@mail.gmail.com>
+        Wed, 10 Jun 2020 01:58:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of federico.vaga@vaga.pv.it designates 95.128.36.40 as permitted sender) client-ip=95.128.36.40;
+Received: from localhost (unknown [127.0.0.1])
+	by ext-mx-out002.mykolab.com (Postfix) with ESMTP id 422B2A1D;
+	Wed, 10 Jun 2020 10:58:00 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at mykolab.com
+X-Spam-Flag: NO
+X-Spam-Score: -1.9
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.9 tagged_above=-10 required=5
+	tests=[BAYES_00=-1.9] autolearn=ham autolearn_force=no
+Received: from mx.kolabnow.com ([127.0.0.1])
+	by localhost (ext-mx-out002.mykolab.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id N5sj-GWGxziN; Wed, 10 Jun 2020 10:57:59 +0200 (CEST)
+Received: from int-mx003.mykolab.com (unknown [10.9.13.3])
+	by ext-mx-out002.mykolab.com (Postfix) with ESMTPS id 7722445E;
+	Wed, 10 Jun 2020 10:57:59 +0200 (CEST)
+Received: from ext-subm002.mykolab.com (unknown [10.9.6.2])
+	by int-mx003.mykolab.com (Postfix) with ESMTPS id ACAB0AF0;
+	Wed, 10 Jun 2020 10:57:58 +0200 (CEST)
+From: Federico Vaga <federico.vaga@vaga.pv.it>
+To: Jonathan Corbet <corbet@lwn.net>, "Alexander A. Klimov" <grandmaster@al2klimov.de>, Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, David Sterba <dsterba@suse.com>, Randy Dunlap <rdunlap@infradead.org>, Theodore Ts'o <tytso@mit.edu>, "Darrick J. Wong" <darrick.wong@oracle.com>, Pankaj Bharadiya <pankaj.laxminarayan.bharadiya@intel.com>, Kees Cook <keescook@chromium.org>, Jacob Huisman <jacobhuisman@kernelthusiast.com>, Jonathan =?ISO-8859-1?Q?Neusch=E4fer?= <j.neuschaefer@gmx.net>, Rob Herring <robh@kernel.org>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com, "Alexander A. Klimov" <grandmaster@al2klimov.de>
+Subject: Re: [PATCH] Replace HTTP links with HTTPS ones: Documentation/translations/it_IT
+Date: Wed, 10 Jun 2020 10:57:57 +0200
+Message-ID: <4235548.LvFx2qVVIh@harkonnen>
+In-Reply-To: <20200609201241.81518-1-grandmaster@al2klimov.de>
+References: <20200609201241.81518-1-grandmaster@al2klimov.de>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAKwvOdnDeYQ-tbyW8=tcKcbbFxtDzqk8dCUSzbBYP1amb9a2hg@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: will@kernel.org
+X-Original-Sender: federico.vaga@vaga.pv.it
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=yPQ0Gn3M;       spf=pass
- (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=will@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@kolabnow.com header.s=dkim20160331 header.b=t95kRWpI;
+       spf=pass (google.com: domain of federico.vaga@vaga.pv.it designates
+ 95.128.36.40 as permitted sender) smtp.mailfrom=federico.vaga@vaga.pv.it
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,47 +139,69 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jun 09, 2020 at 04:55:13PM -0700, Nick Desaulniers wrote:
-> On Tue, Jun 9, 2020 at 1:35 PM Catalin Marinas <catalin.marinas@arm.com> wrote:
-> >
-> > On Mon, Jun 08, 2020 at 01:57:08PM -0700, Nick Desaulniers wrote:
-> > > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > > index 7f9d38444d6d..fe9e6b231cac 100644
-> > > --- a/arch/arm64/Kconfig
-> > > +++ b/arch/arm64/Kconfig
-> > > @@ -1299,6 +1299,14 @@ config COMPAT_VDSO
-> > >         You must have a 32-bit build of glibc 2.22 or later for programs
-> > >         to seamlessly take advantage of this.
-> > >
-> > > +config THUMB2_COMPAT_VDSO
-> > > +     bool "Compile the vDSO in THUMB2 mode"
-> > > +     depends on COMPAT_VDSO
-> > > +     default y
-> > > +     help
-> > > +       Compile the compat vDSO with -mthumb -fomit-frame-pointer if y, otherwise
-> > > +       as -marm.
-> >
-> > Now that we understood the issue (I think), do we actually need this
-> > choice? Why not going for -mthumb -fomit-frame-pointer always for the
-> > compat vdso?
-> 
-> "Why should the compat vdso be configurable?" is a fair question.  I
-> don't have an answer, but maybe some of the folks on thread do?
-> 
-> Our problem is more so "if the vdso is built as thumb, we need it also
-> explicitly built with -fomit-frame-pointer."  Whether it should be
-> built as thumb, arm, or configurable (and which default to pick in
-> that case) are still an open questions.  Will asked for it to be
-> configurable, so I sent a patch making it configurable.
+On Tuesday, June 9, 2020 10:12:41 PM CEST Alexander A. Klimov wrote:
+> Rationale:
+> Reduces attack surface on kernel devs opening the links for MITM
+> as HTTPS traffic is much harder to manipulate.
+>=20
+> Deterministic algorithm:
+> For each file:
+>   For each line:
+>     If doesn't contain `\bxmlns\b`:
+>       For each link, `\bhttp://[^# \t\r\n]*(?:\w|/)`:
+>         If both the HTTP and HTTPS versions
+>         return 200 OK and serve the same content:
+>           Replace HTTP with HTTPS.
+>=20
+> Signed-off-by: Alexander A. Klimov <grandmaster@al2klimov.de>
+> ---
+>  .../translations/it_IT/admin-guide/README.rst      |  2 +-
+>  .../translations/it_IT/doc-guide/parse-headers.rst |  2 +-
+>  .../translations/it_IT/doc-guide/sphinx.rst        | 10 +++++-----
+>  .../translations/it_IT/process/2.Process.rst       | 12 ++++++------
+>  .../translations/it_IT/process/3.Early-stage.rst   |  2 +-
+>  .../translations/it_IT/process/4.Coding.rst        |  4 ++--
+>  .../it_IT/process/7.AdvancedTopics.rst             |  8 ++++----
+>  .../translations/it_IT/process/8.Conclusion.rst    | 14 +++++++-------
+>  .../translations/it_IT/process/adding-syscalls.rst |  4 ++--
+>  .../translations/it_IT/process/changes.rst         |  6 +++---
+>  .../translations/it_IT/process/clang-format.rst    |  2 +-
+>  .../translations/it_IT/process/coding-style.rst    |  2 +-
+>  Documentation/translations/it_IT/process/howto.rst |  2 +-
+>  .../it_IT/process/maintainer-pgp-guide.rst         |  2 +-
+>  .../it_IT/process/submitting-patches.rst           |  4 ++--
+>  .../it_IT/process/volatile-considered-harmful.rst  |  4 ++--
+>  16 files changed, 40 insertions(+), 40 deletions(-)
+>=20
 
-It's configurable for 32-bit arm, so I was just following that as it's
-hardly a maintenance burden to support both. I suppose you could have
-a toolchain that only supports one or the other, but it does seem a little
-esoteric if you're building a kernel for an arm64 CPU.
 
-Will
+> diff --git a/Documentation/translations/it_IT/doc-guide/sphinx.rst
+> b/Documentation/translations/it_IT/doc-guide/sphinx.rst index
+> f1ad4504b734..0aaeb0297661 100644
+> --- a/Documentation/translations/it_IT/doc-guide/sphinx.rst
+> +++ b/Documentation/translations/it_IT/doc-guide/sphinx.rst
+> @@ -14,7 +14,7 @@ Per generare la documentazione in HTML o PDF, usate
+> comandi ``make htmldocs`` o ``make pdfdocs``. La documentazione cos=C3=AC
+> generata sar=C3=A0 disponibile nella cartella ``Documentation/output``.
+>=20
+> -.. _Sphinx: http://www.sphinx-doc.org/
+> +.. _Sphinx: https://www.sphinx-doc.org/
+>  .. _reStructuredText: http://docutils.sourceforge.net/rst.html
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200610084755.GB17035%40willie-the-truck.
+It is not part of the deterministic algorithm but you may consider this as=
+=20
+well
+
+-.. _reStructuredText: http://docutils.sourceforge.net/rst.html
++.. _reStructuredText: https://docutils.sourceforge.io/rst.html
+
+
+
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/4235548.LvFx2qVVIh%40harkonnen.
