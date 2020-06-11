@@ -1,134 +1,124 @@
-Return-Path: <clang-built-linux+bncBAABBOE6RD3QKGQEY7U4J6I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBZNERD3QKGQEGIE6Y3Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33a.google.com (mail-wm1-x33a.google.com [IPv6:2a00:1450:4864:20::33a])
-	by mail.lfdr.de (Postfix) with ESMTPS id E3B2C1F6623
-	for <lists+clang-built-linux@lfdr.de>; Thu, 11 Jun 2020 13:02:16 +0200 (CEST)
-Received: by mail-wm1-x33a.google.com with SMTP id r1sf1202681wmh.7
-        for <lists+clang-built-linux@lfdr.de>; Thu, 11 Jun 2020 04:02:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1591873336; cv=pass;
+Received: from mail-qt1-x838.google.com (mail-qt1-x838.google.com [IPv6:2607:f8b0:4864:20::838])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1F75B1F6661
+	for <lists+clang-built-linux@lfdr.de>; Thu, 11 Jun 2020 13:15:51 +0200 (CEST)
+Received: by mail-qt1-x838.google.com with SMTP id q21sf4480209qtn.20
+        for <lists+clang-built-linux@lfdr.de>; Thu, 11 Jun 2020 04:15:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1591874150; cv=pass;
         d=google.com; s=arc-20160816;
-        b=iNa/PZEI2lJ2TARl+zVttnKclp0ZxTY7eo2U9Ie8TcJyASISZrs6cmkFwKiSipuk1N
-         tx2A42zz/f4hV1zJPlsGqFL5ZilcpJQLDKbnnKj9h0xE1B83jQYifgbiMNTKKqukvBRL
-         /KD3noYuJBXPZw2GzrhmtQ4uWymYurwjmNQiBeKIjTSsdbZeRctB0On7UT2C5aNb94rh
-         u8CZzVMXzK8kW37QxESe6oj1JdXaL0/UatMbHYqwwKBtoRH3CjKXmrvQR1/C2OyzaomY
-         uPHvTAeSYa1xsNunOl3enwv8Z5/Xs7k75JrEO5s1G8g0taq0PTUSE8FTPA/QA0iYHuuI
-         Aqwg==
+        b=jeShWbJQQGEJgQfXLa0ji2GZUIQa74LpH+IbV1U6atXnlmzL0oh9JAwQN3h8X+zs/b
+         ISI+Z3QRwaV4HyeuicbbbabXQu42TbV/P2LXvjicGKsFc+IYnQt1MuW9lrGcYrqB/IES
+         dpXjT0uzD9grjTUCOqIcTrf9g8nAVXhwN8vKTn00MEks/OabofQojFmQt7LKObisq0dc
+         9N71BfRpKCfBXctoDtVRqRXVvj+TiyZd61OnUnwCcpA2Mc1zhB6vToZBI/AFb06DVbwH
+         tL9WECPgUaumH2/dxO4qGNWmCCOYCjB260/8nHnoZ4Z4kp1jvUpXz4KGO9wTq73Cm5TO
+         X8xg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:date:message-id:from:references:cc:to:subject:sender
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=j33MVfKpFxmJ4T+XnZ/wVfidCtRf3OhZfDum7P/Fj0Y=;
-        b=eCUd079mXUXux6rLAqgeBNXoO1RUDTZ06bmeAtjjU0L4kxx/D1eW/UsDIacBBilPOs
-         W7Yy5IuRLPYsnASTp6JQUbB5o6rMANYYC6d4Yx7FDSAPMK97n+5oe85tEhWlV6VXA95O
-         atucclbv4+NNTfMS/PrD+2ePdwbR7d3E1zf9wz1NHjdvYV1z/DRi1k5zo5s3Z5yo44Go
-         xcIxQSsoYMS2M8FmB/zf+71EIISR1ahwYsisDDmiCWk6GK8RHrxPVd9VwADmlOgb/rDV
-         dJ9li5i5M6cshWSenbaz8k5mq5P6JPIvTi5EgGjXfuK8NNCWviXdNg3Mg2DzNfV5XPbN
-         tEjA==
+        bh=MgXmyhV0jhQvwC8+8KH34YUPn+maeUXPGhOGChOSMB0=;
+        b=G0ABthYUPLfxbVhOMiP64VHNnsqxtHvBDzD/qK6pKTueKxf1rS9pof/D8v5uRwartP
+         DRAuJhG7kDNlP3tO/+F3fXshcHF0L6sqPoG/kqF8DRVKQQ0vP4+jD7QJ/uwrGVXzzTcx
+         aqiL+MYjWnLZ7nO1frbnmgLRTeNfcPiZpDoPnVsFeEf6bBTw022iY+gTkgVKHxdsXYNi
+         8sIBKkkaZJiZhVOIwxizR95s8dD+f1JvmkgqN9KEIyDeHg4GpfmBXJmFKdn4K5Ri4JOA
+         YPGkgWD9XC1CPe55LCF+qNi9SR1GelPAP/UVMsfxNwo/u/ogMSWIldW0Jjh3U1yOcshP
+         DFRw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of grandmaster@al2klimov.de designates 78.46.175.9 as permitted sender) smtp.mailfrom=grandmaster@al2klimov.de
+       dkim=pass header.i=@kernel.org header.s=default header.b=E7DG2kuP;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:mime-version
-         :in-reply-to:content-language:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=j33MVfKpFxmJ4T+XnZ/wVfidCtRf3OhZfDum7P/Fj0Y=;
-        b=DxHXrF6AvXN2CIn1yRGXo9xbbhH79RT7hEgVjKaCoGD3yzXN0ZbTSQTBmbmnNdjnEA
-         8jGkf7HwslrY7jRRLoNzIOdFtGkvtsv+A6S7XmN1nEQVBxz2y9b7Zq1DE2Q+tUCQlAF1
-         WSU/h/xyVu8vB8Ri5yL2JUePN8cljUEt9RZjUp2s8zTLh65kn4/qhxcFKUovg3GmxpvM
-         evMZIMfLCx18GhRNFnooFqgTvryxQf1ZaAuozzBqbQPTcSuFhbDsK0/U3PnE8x8tAErx
-         vIhq3/pd6MykLSJi/jQQMYKHL6r5xa0MamwcYgTqNHK5NtbTH2fxEv+8dkZwAjTO72Bt
-         gP3w==
+        bh=MgXmyhV0jhQvwC8+8KH34YUPn+maeUXPGhOGChOSMB0=;
+        b=nrQ4fb/YtEkEVGa6m5DQsMZ+OUJvF6OG2WFuqyV7/341Kkisn/rMMjOHdq4zPotiiq
+         JgFk+zLjesKeHt8mY2dPHKreRlFndlf+ckRoiNWNOdorco1ujLL+4EmDgoFxTbwr8N88
+         BAWsoKUkRbN3d7kj02s+yhNOaA+eowod5YLje1uTp/PBTpEmBQY6E6OlIJYxAvOE/v8v
+         rXZyofeJYB0jHbebLM7+7Ve5k+7Hh54aL7CdiY2zfoatJt64urmfOzGI+Nc6dOqwZpaR
+         kv6swE4AQ1vN/b3c9hPREbwtM92ILm/jYfoLOyNmujgk6qATIWWXQM/sdJ8e04SZqcVV
+         flRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=j33MVfKpFxmJ4T+XnZ/wVfidCtRf3OhZfDum7P/Fj0Y=;
-        b=bmVr0wpsNg/ICraKSYqU9mVErrvNQXBrvOviIeHgZN/d5Ml3O53UwjevyN/Rm0VVV/
-         wVZS8EEkbujDqPI4AbLW4sHrptAH6fbrvCZiZMxitNFY67ZwNlos6U0n0NdJgNQfom0J
-         pWS34IadzmE/6kKkjk8IoPwmmIcaMHEhPG1RPrzvz0j+Gi4FhLcpV3JefiGvHln6WMkm
-         OSY8eX/ARiask3nLQn2tijMRUn8aAetnCGfQfPhJA5ODYoyj3HzL0TgGHAVGLX19kQmo
-         yb/Gze+KyGMplUnbfWe6SKXvLZI+fJIVm+jz7MrVZ19MvaaVZqokB10YzcyruHn5UL/d
-         f+qg==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=MgXmyhV0jhQvwC8+8KH34YUPn+maeUXPGhOGChOSMB0=;
+        b=jqLneCWSc6vodRpYtA4yCqp/JcKZuuAV7yddnZFYDBCiO/tWb0JhQPaHdhGTvMDEIy
+         +LEpuovXIylSY01DT1+AyuRrlzh/SFlJa5Zd9P7TEdKbHmEFVXekLYaKy/KaiF4PNdZ3
+         qH3B7VcOqt+5v3rUWojsYuV2bl5zustI6LEauGpVKqDWYLORiJpcASHJ1EGdP8UBkJGl
+         iNLYuWZpehBe6zn94iPMYn6vTJzqdAH2Og9kGYV0NqL5Wyhl78RaLXs8vm5ed5dS4MBz
+         IU8wlLD2ZRJ5yJw82T1F3j0BzDibRXj+6AhBIses2uPYHCOWRBfklXi7lJj1ZiSSvgRr
+         pAaQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530zPgKG4B3FfSwZsYC96VC+DRnjl3f46wpFsKWw/GJW+oCg+1XH
-	x6cypNoczrbMO80f9pEFfNI=
-X-Google-Smtp-Source: ABdhPJwTnrCfKOMVJmN6CQKMi2naZ5jMXIZbKtWGieuu0hvwyS0TKHq5VKSRoFNXHH42IcpC+zACCg==
-X-Received: by 2002:a1c:7f44:: with SMTP id a65mr8030574wmd.53.1591873336643;
-        Thu, 11 Jun 2020 04:02:16 -0700 (PDT)
+X-Gm-Message-State: AOAM530imvZSc9OcIr8Y6BgWevk3B7uRqqHRxA5AHJmw7CW6pB1OTbA3
+	mhQFTBti6RpAaXZ3wzvEZgk=
+X-Google-Smtp-Source: ABdhPJwGnbvQoNGhj64Ov0koHrynS0zuRVC8fE6zkifzCiAEjvAwHYQ874QvWZWU7AxpinioZcshWQ==
+X-Received: by 2002:ac8:1942:: with SMTP id g2mr8155738qtk.107.1591874150057;
+        Thu, 11 Jun 2020 04:15:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:82ce:: with SMTP id 72ls2098959wrc.1.gmail; Thu, 11 Jun
- 2020 04:02:16 -0700 (PDT)
-X-Received: by 2002:a5d:5389:: with SMTP id d9mr9570019wrv.77.1591873336264;
-        Thu, 11 Jun 2020 04:02:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1591873336; cv=none;
+Received: by 2002:ad4:56a7:: with SMTP id bd7ls380854qvb.6.gmail; Thu, 11 Jun
+ 2020 04:15:49 -0700 (PDT)
+X-Received: by 2002:a05:6214:b30:: with SMTP id w16mr7430353qvj.28.1591874149678;
+        Thu, 11 Jun 2020 04:15:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1591874149; cv=none;
         d=google.com; s=arc-20160816;
-        b=VieSJJS7tVLvu/FR8R6ncL75UqWPKiHeNBN9xAc7xi+idPtFgmRIUC6yVcPFK6CxoL
-         UtETMXFKWs4ZscJv4JaoTj41JLV+UOaVyKuPyNS/KJt9UqlvoDroFUd74U9izqxSBTNH
-         bilMXMsU+3TOs08YoAys7pPEaqVfxnRis2ljMeEfd/CcL3CMGQ0C52eXY9IU/hcdFB7c
-         1hqe8keI2qrynaOhsEF+MvQqIZmI4GUkKfou2yT5BFWw1YsXCwwIBhE9AGY4OQza3yWv
-         clcwxL0Mpn1d1r7nvECL4o9ftg2FEhETjcL4z3DxmhEs1A3G4KNRlnfScyY8H1d9+4eP
-         TBbw==
+        b=WVikDxOd7vQMF6y2sSH4O5ckUJI82ZWow8zp7vwjEZu0QBo8HPIdaynkZCZbaRR3GG
+         NdI/L+DMpl5kGrQbXlIB4f2vxiI+xftUQLCvOf4BouniQLX/+YuOyuH4mjne+3Tgcnos
+         j0sxszfRoa2rGv0GcPT86WlcUKUlxRoeX1MnWj9dSjO15m3II/4Reh9ZanPxVogHbGv9
+         jtsdCkQ1AsyEfnhJ+HxrBD5xKcPCX75dphO/W+P8C0LeFrLc6MFpBESzHeqQ7wb8L9GO
+         ncwnTnGmK4Na1kEq1jQPRJA4s3OeUtcc2taZMq2peTMFUV5LR/HpdyKEk5ILYbusbVo8
+         ZDqQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :date:message-id:from:references:cc:to:subject;
-        bh=e81E78CV0eppBREEwp7Y8TUR2fWIFHHFvtQNc4orIhs=;
-        b=BcnvXZ+vpZU2WTCsRFOeV6o25maHSwJul6i6J7SDduZCBPgN2P0MRy5usOJFOgytV0
-         vlL8D1oXBpa7MO21zBBVbYB+VwMam7lh0jS47QK2EPPvD75VjleDeV6bAW1Hajz4L4py
-         d8ZlcRh0eGIso2L+94RaBkxybsyQAriIFZ3j+evUN67jP/ayoE2NLP0B1B+mrZJgw4pf
-         fmiCAOst17JsAzBlrqFNrKnwF0MMmfM/lPGt+na1l8JRHtPVpocIYV26IA+5rD9AlSy4
-         B7Q2Y7YxJeElXexIecdypvXv4WWUiRbpNLZ/21v8nzJN+/yW2Db9u2FQmKFoIOyAcjPE
-         OD6Q==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=lAAD4el8sFBmJIpMawSA2OPFmzvicTWf8Li5y5ixdEU=;
+        b=duyjHp3MVToU7e/g0v4Luesjzix6ItOaT/PxjERihQBO8U/tzvsJljUWqhrDkmnx6N
+         3tZH6L+FNr9MYsfeH0lTfVEkmaF8N95+/QgSNo9y15ZApNQynPLbAUWDf3xihsiYRWXr
+         t1hJ6G9fZkq6gt82Bu0ign6rPt7eglBlIXVZMc2WpDXv7cj22bPZ84qKp+AzHYrQechg
+         QrCqc10Im6MSkwRFGPdBuv3J6oBeCcDXxgVK/Dfn3q6rCIa/iwtJfLUu7HIJ0/bi7AqA
+         XVjs6ByTdMYB2+HHtw/wHlmChlZqdFh0SZ11y3r6fqFwTGF0c5Vv2UFBCQSvtvYVT2q2
+         Gecg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of grandmaster@al2klimov.de designates 78.46.175.9 as permitted sender) smtp.mailfrom=grandmaster@al2klimov.de
-Received: from smtp.al2klimov.de (smtp.al2klimov.de. [78.46.175.9])
-        by gmr-mx.google.com with ESMTPS id o14si141179wrx.2.2020.06.11.04.02.16
+       dkim=pass header.i=@kernel.org header.s=default header.b=E7DG2kuP;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id x37si127834qtk.5.2020.06.11.04.15.49
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Jun 2020 04:02:16 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of grandmaster@al2klimov.de designates 78.46.175.9 as permitted sender) client-ip=78.46.175.9;
-Received: from authenticated-user (PRIMARY_HOSTNAME [PUBLIC_IP])
-	by smtp.al2klimov.de (Postfix) with ESMTPA id 7A959FD7E0;
-	Thu, 11 Jun 2020 11:02:11 +0000 (UTC)
-Subject: Re: [PATCH] Replace HTTP links with HTTPS ones:
- Documentation/translations/it_IT
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Kees Cook <keescook@chromium.org>,
- Federico Vaga <federico.vaga@vaga.pv.it>, Jonathan Corbet <corbet@lwn.net>,
- Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
- David Sterba <dsterba@suse.com>, Randy Dunlap <rdunlap@infradead.org>,
- Theodore Ts'o <tytso@mit.edu>, "Darrick J. Wong" <darrick.wong@oracle.com>,
- Pankaj Bharadiya <pankaj.laxminarayan.bharadiya@intel.com>,
- Jacob Huisman <jacobhuisman@kernelthusiast.com>,
- =?UTF-8?Q?Jonathan_Neusch=c3=a4fer?= <j.neuschaefer@gmx.net>,
- Rob Herring <robh@kernel.org>,
- Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- clang-built-linux <clang-built-linux@googlegroups.com>,
- Linus Torvalds <torvalds@linux-foundation.org>
-References: <20200609201241.81518-1-grandmaster@al2klimov.de>
- <4235548.LvFx2qVVIh@harkonnen>
- <cd260d03-27a4-7794-f58f-21e8e0be9755@al2klimov.de>
- <202006102009.CB14D7F@keescook>
- <8ee16c38-e28b-b4e6-ed30-55a59e216b49@al2klimov.de>
- <CANiq72n50OVRtFAQkAmqjaj=dJTP9VqYYHN7++8O_t4cbfaJgw@mail.gmail.com>
-From: "Alexander A. Klimov" <grandmaster@al2klimov.de>
-Message-ID: <3a6354fd-90ec-914f-b5df-0c4c219bd26e@al2klimov.de>
-Date: Thu, 11 Jun 2020 13:02:08 +0200
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 11 Jun 2020 04:15:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl [83.86.89.107])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 171342063A;
+	Thu, 11 Jun 2020 11:15:47 +0000 (UTC)
+Date: Thu, 11 Jun 2020 13:15:42 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Jian Cai <jiancai@google.com>
+Cc: sashal@kernel.org, stable@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Luis Lozano <llozano@google.com>,
+	Manoj Gupta <manojgupta@google.com>
+Subject: Re: Cherry pick 51da9dfb7f20911ae4e79e9b412a9c2d4c373d4b
+Message-ID: <20200611111542.GF3802953@kroah.com>
+References: <CA+SOCL+ntBRGoA2qttMo=bt_VVKJMm8GEq+bfEoVvgq-j-Y1KA@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <CANiq72n50OVRtFAQkAmqjaj=dJTP9VqYYHN7++8O_t4cbfaJgw@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Spamd-Bar: /
-X-Original-Sender: grandmaster@al2klimov.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: best guess record for domain of grandmaster@al2klimov.de
- designates 78.46.175.9 as permitted sender) smtp.mailfrom=grandmaster@al2klimov.de
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <CA+SOCL+ntBRGoA2qttMo=bt_VVKJMm8GEq+bfEoVvgq-j-Y1KA@mail.gmail.com>
+X-Original-Sender: gregkh@linuxfoundation.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=default header.b=E7DG2kuP;       spf=pass
+ (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,311 +131,29 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-
-
-Am 11.06.20 um 12:40 schrieb Miguel Ojeda:
-> On Thu, Jun 11, 2020 at 9:02 AM Alexander A. Klimov
-> <grandmaster@al2klimov.de> wrote:
->>
->> Is any of you familiar with Golang?
+On Wed, Jun 10, 2020 at 01:41:59PM -0700, Jian Cai wrote:
+> Hello,
 > 
-> Don't worry about that! I'd expect seasoned C programmers to be able
-> to read Go (or near languages) -- at least to have a general idea of
-> what an algorithm does.
+> @Nick Desaulniers <ndesaulniers@google.com>  made a patch
+> (51da9dfb7f20911ae4e79e9b412a9c2d4c373d4b) and it was accepted to mainline
+> as part of ClangBuiltLinux project to make the kernel compatible with
+> Clang's integrated assembler. Please consider cherry picking it back to 5.4
+> so that we can use Clang's integrated assembler to assemble ChromeOS' Linux
+> kernels.
 > 
-> It is not APL, after all :-)
-Fine.
-
-
-package main
-
-import (
-	"bufio"
-	"bytes"
-	"context"
-	"errors"
-	"fmt"
-	fatomic "github.com/natefinch/atomic"
-	"golang.org/x/sync/semaphore"
-	"io"
-	"io/ioutil"
-	"net/http"
-	"os"
-	"os/exec"
-	"regexp"
-	"runtime"
-	"sync"
-	"sync/atomic"
-	"time"
-)
-
-var fileSemaphore = semaphore.NewWeighted(int64(runtime.NumCPU()) * 16)
-var wg sync.WaitGroup
-
-var processingFiles = struct {
-	sync.RWMutex
-
-	files map[string]struct{}
-}{
-	files: map[string]struct{}{},
-}
-
-func main() {
-	cmd := exec.Command("git", "ls-files", "-sz")
-	cmd.Stderr = os.Stderr
-
-	out, errSP := cmd.StdoutPipe()
-	if errSP != nil {
-		fmt.Fprintln(os.Stderr, errSP.Error())
-		os.Exit(1)
-	}
-
-	if errSt := cmd.Start(); errSt != nil {
-		fmt.Fprintln(os.Stderr, errSt.Error())
-		os.Exit(1)
-	}
-
-	//go printProcessingFiles()
-
-	buf := bufio.NewReader(out)
-	for {
-		file, errRB := buf.ReadBytes(0)
-		if errRB != nil && errRB != io.EOF {
-			if errWt := cmd.Wait(); errWt != nil {
-				fmt.Fprintln(os.Stderr, errWt.Error())
-				wg.Wait()
-				os.Exit(1)
-			}
-
-			fmt.Fprintln(os.Stderr, errRB.Error())
-			wg.Wait()
-			os.Exit(1)
-		}
-
-		if bytes.HasPrefix(file, []byte{'1', '0', '0'}) {
-			if fields := bytes.SplitN(bytes.SplitN(file, []byte{0}, 2)[0], 
-[]byte{9}, 2); len(fields) == 2 {
-				_ = fileSemaphore.Acquire(context.Background(), 1)
-				wg.Add(1)
-				go processFile(string(fields[1]))
-			}
-		}
-
-		if errRB == io.EOF {
-			break
-		}
-	}
-
-	wg.Wait()
-
-	if errWt := cmd.Wait(); errWt != nil {
-		fmt.Fprintln(os.Stderr, errWt.Error())
-		os.Exit(1)
-	}
-}
-
-/*
-func printProcessingFiles() {
-	for {
-		time.Sleep(time.Second)
-
-		processingFiles.RLock()
-		fmt.Fprintln(os.Stderr, processingFiles.files)
-		processingFiles.RUnlock()
-	}
-}
-*/
-
-var httpLink = regexp.MustCompile(`\bhttp://[^# \t\r\n]*(?:\w|/)`)
-var xmlns = regexp.MustCompile(`\bxmlns\b`)
-
-func processFile(file string) error {
-	defer fileSemaphore.Release(1)
-	defer wg.Done()
-
-	processingFiles.Lock()
-	processingFiles.files[file] = struct{}{}
-	processingFiles.Unlock()
-
-	defer func() {
-		processingFiles.Lock()
-		delete(processingFiles.files, file)
-		processingFiles.Unlock()
-	}()
-
-	content, errRF := ioutil.ReadFile(file)
-	if errRF != nil {
-		return errRF
-	}
-
-	lines := bytes.Split(content, []byte{'\n'})
-	for i := range lines {
-		if !xmlns.Match(lines[i]) {
-			lines[i] = httpLink.ReplaceAllFunc(lines[i], processLink)
-		}
-	}
-
-	if modified := bytes.Join(lines, []byte{'\n'}); bytes.Compare(modified, 
-content) != 0 {
-		var buf bytes.Buffer
-		buf.Write(modified)
-		return fatomic.WriteFile(file, &buf)
-	}
-
-	return nil
-}
-
-type linkOk struct {
-	sync.Mutex
-
-	ok uint32
-}
-
-var links = map[string]*linkOk{}
-var linksLock sync.RWMutex
-var notsecure = http.Client{Timeout: 10 * time.Minute}
-var secure = http.Client{Timeout: 10 * time.Minute, CheckRedirect: 
-httpsRedirect}
-
-func processLink(link []byte) []byte {
-	linkStr := string(bytes.TrimPrefix(link, []byte("http://")))
-
-	linksLock.RLock()
-	lo, ok := links[linkStr]
-	linksLock.RUnlock()
-
-	if !ok {
-		linksLock.Lock()
-
-		lo, ok = links[linkStr]
-		if !ok {
-			lo = &linkOk{}
-			links[linkStr] = lo
-		}
-
-		linksLock.Unlock()
-	}
-
-	for {
-		switch atomic.LoadUint32(&lo.ok) {
-		case 0:
-			lo.Lock()
-
-			if atomic.LoadUint32(&lo.ok) == 0 {
-				if httpsAble(linkStr) {
-					atomic.StoreUint32(&lo.ok, 2)
-				} else {
-					atomic.StoreUint32(&lo.ok, 1)
-				}
-			}
-
-			lo.Unlock()
-
-			continue
-		case 2:
-			return bytes.Replace(link, []byte("http://"), []byte("https://"), 1)
-		default:
-			return link
-		}
-	}
-}
-
-func httpsAble(link string) bool {
-	resp, errGt := secure.Get("https://" + link)
-	if errGt != nil {
-		return false
-	}
-
-	defer resp.Body.Close()
-
-	if resp.StatusCode != 200 {
-		return false
-	}
-
-	resps, errGt := notsecure.Get("http://" + link)
-	if errGt != nil {
-		return false
-	}
-
-	defer resps.Body.Close()
-
-	if resps.StatusCode != 200 {
-		return false
-	}
-
-	var buf, bufs bytes.Buffer
-
-	if _, errCp := io.Copy(&buf, resp.Body); errCp != nil {
-		return false
-	}
-
-	if _, errCp := io.Copy(&bufs, resps.Body); errCp != nil {
-		return false
-	}
-
-	return bytes.Compare(buf.Bytes(), bufs.Bytes()) == 0
-}
-
-var insecure = errors.New("insecure")
-
-func httpsRedirect(req *http.Request, _ []*http.Request) error {
-	switch req.URL.Scheme {
-	case "", "https":
-		return nil
-	}
-
-	return insecure
-}
-
-
-
 > 
->>
->> @Maintainers Would any of you actually review like this? If yes, is the
->> pseudo-code not enough?
+> commit 51da9dfb7f20911ae4e79e9b412a9c2d4c373d4b
+> Author: Nick Desaulniers <ndesaulniers@google.com>
+> Date:   Thu Jun 4 16:50:49 2020 -0700
 > 
-> Well, Kees already mentioned he would like to see it :-) As he said,
-> it is usually the way for bulk patches to present the
-> algorithm/semantic patch/etc. that was used.
+>     elfnote: mark all .note sections SHF_ALLOC
 > 
-> It is also useful to have it around so that it can be reused/reapplied
-> later on, too.
-If you're going to reproduce one of my patches for reviewing, checkout 
-torvalds/master and travel back to the latest commit before I submitted 
-the patch. Then run the algo.
 
-> 
->> I didn't log that link-by-link. Maybe because I also didn't follow plain
->> HTTP redirects while opening HTTPS links. Maybe it even matched, but was
->> added after I made the changes.
-> 
-> It would be nice to have a list of links which cannot be converted,
-> since nowadays they are likely to be the exception rather than the
-> rule.
-Don't worry, (by typing this words right now) I've noted this TODO of 
-mine (after this patch round).
+Now queued up,t hanks.
 
-> 
->> * Linus *didn't even respond* (at least I didn't receive anything) to my
->> catch-them-all patch at all, not even like please not as .gz attachment
->> or please split by subsystem
-> 
-> Please take into account that LKML volume is huge and Linus (like
-> everybody else) only reads a small subset. Further, as a general rule,
-I've addressed Linus directly (CC LKML) and explicitly asked like will 
-you have a look at this or not.
-
-> Linus shouldn't be picking individual patches to begin with because
-> that skips the review tree.
-Who if not Linus shall review one huge patch spreading across lots of 
-subsystems?
-
-> 
-> Cheers,
-> Miguel
-> 
+greg k-h
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/3a6354fd-90ec-914f-b5df-0c4c219bd26e%40al2klimov.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200611111542.GF3802953%40kroah.com.
