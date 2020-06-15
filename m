@@ -1,193 +1,123 @@
-Return-Path: <clang-built-linux+bncBD747RFBYUPBBLWBT33QKGQE5CJVFGY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB2PGT33QKGQEA7KB74A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc38.google.com (mail-oo1-xc38.google.com [IPv6:2607:f8b0:4864:20::c38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 559381F9D38
-	for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jun 2020 18:24:15 +0200 (CEST)
-Received: by mail-oo1-xc38.google.com with SMTP id m10sf8267632oog.13
-        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jun 2020 09:24:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1592238254; cv=pass;
+Received: from mail-qv1-xf3a.google.com (mail-qv1-xf3a.google.com [IPv6:2607:f8b0:4864:20::f3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1D8541F9EBB
+	for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jun 2020 19:44:10 +0200 (CEST)
+Received: by mail-qv1-xf3a.google.com with SMTP id q5sf13575384qvp.23
+        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jun 2020 10:44:10 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1592243049; cv=pass;
         d=google.com; s=arc-20160816;
-        b=0IxhTWmj1WkWn+3wYxaW47nkmxqROCpvW+J9F20GfPCKFXT2/ybMvLiK19kpYz4P69
-         M6HLu0tmmaV7wblbMGMk2p2VMooK7I2jTapRhxDBcMn2q+88iaDGacJ0l4jXnfAgEhj8
-         lWfmBX0p5p56kka8M9HYRMHWszX8anD7h/xuUvBQUJCLz4Pe50s9yjiGBC6l1JjUeGRr
-         AT5JWHwXphJ7J+2qGVIG+OBiSW6Br03p+OTrmiakJbfDUqEiLLHG4pHVNeSCrCkQC7SL
-         hXZDV64rcHhoZNAfTSK2Gy+WtzQD021za3H1SfmJHtUG2M7zkOoR2rjCoL0ErqsxdTE4
-         uBHg==
+        b=l3jD82AwhIN3D36PrztVzja96nSaFB0tuZ/qbSirxdX/b6Dp3uThyTpvD3GpnrxPBv
+         NBZyDZwatss+n//B3C14T2U+RzDCu8aLqhmo8s6n5xd/I9FfqY/yjeKQ5sVxed1IGDAZ
+         fxhSGDrAO1qwRiP7OhUD7jpOh9ZRpf0PsYqhm8RS8NeLLkyLWapit4Wbj5u5ZE/zC8MB
+         GOnqShoTe0UiAV14i2eSi14GN0HTkCwzzQ+z4MrJkyZFzAg7AnKJ851/i23u7rBCdT7z
+         XV45lxkew28jUzvnvGOqu/DYs6ggsELYFhmPOhEKwgmoblnBh5/EwqgB0BxeDumvktJm
+         l/Lg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:references:cms-type
-         :content-language:thread-index:mime-version:message-id:date:subject
-         :in-reply-to:cc:to:from:dkim-filter:sender:dkim-signature;
-        bh=jwpCc+AM0/cELdCsPBN7OY+cXeTadomZ8CEnUXJ5fmU=;
-        b=RWw/+6V/2OTsZm4NtEDnwjJ2WNcTJd1G+5ix0tfZN8aJQWWRZaOULUq4eFeso3JOTW
-         DQgvrLQax43cksv6wusmpNWMW0WLJLbAQJ+Zg7ZrMgu2aPB8q0PiixPm4K9LyijX1GU5
-         52GfQmP8/tbJzInjMh2kYn6ADfS3lb8osJio8FQ6Su0isdx9FLWKDO+GCofvB693lBo3
-         w2toRTDEiGVDLo2NibOlMLswqIfVxtvniOgPmYX7Ve8mqbYf0M5ZYCtEiE3I8EcLFKz6
-         L2kMnmPM3smP5cr3mcoJgmRP8Q9Z3JJEtTJxEogeK3J+Or+P1CSyMIGjLF50U+e5HpwX
-         7eZA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=lvF1zNmUyHCq2t+AOuFKrL5Nq+Yjd1T5qlDznyBgeCE=;
+        b=D8l9McsY15lNXa+B5sqydsUmrAK3ZgYSn+kG7Cju4ecTDUAgSrL3cj3UfWwHiJnxv8
+         BZAkVL5FqBzP+/nS0BM75hzTk5yH4yF55RDFYe2I/lFlh7xRuHOI6GQT5/+Ast4UOnOV
+         DMRpFvmroyI7ClX11V1/i+fwEA2Qd+7s0xYzbpX29gAoR6pRGkDIxvioy7vIEtPIYjXw
+         nVtWD/uWsXbH9ZllvCz4UEbu/uIz0E5a34ynxoWsp0EplT+Bh5F4TX40p/Sy8RXzODx+
+         ThKup6XyTWkKFQbkWu7d6Px4xisgjemq0OkW+/7oyo9CBc8mTc86pi7CsjXtk/X+3Xiw
+         Z0fQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@samsung.com header.s=mail20170921 header.b=nk+CrK+q;
-       spf=pass (google.com: domain of alim.akhtar@samsung.com designates 203.254.224.34 as permitted sender) smtp.mailfrom=alim.akhtar@samsung.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=samsung.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b="uBOxov/3";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:from:to:cc:in-reply-to:subject:date:message-id
-         :mime-version:thread-index:content-language:cms-type:references
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=jwpCc+AM0/cELdCsPBN7OY+cXeTadomZ8CEnUXJ5fmU=;
-        b=gwHEL5QV91c7Xwu6T1OpNjf/8if+3OCE8A2Vzhrrt3hvcYrWUwwOdd/bUMdv637gG7
-         jvsPnUtWKSeSqKBafxaap7QwChWOgC36XmknGjwDJeMuGIQCCmxp7TGKLBQ2UagCTREN
-         NyPK78pOgZ6ormcrS31hZFM9qrSEnB3fJ2qM5hES638kDDR8ihIBQ1wzjPzDxTPRzLs4
-         HNHdBALggWkGwbvhAr+/tNRyX74z7jVdNtGtcNasddzrvpo1dKux2OtzpnABrexLFL5D
-         UrRwEJhJFRZSW4o7DyCo0/MiJJby4gBrqtrauhkrYWPwPKc/UP/T4qiU2I+46C1shiJm
-         hYRA==
+        bh=lvF1zNmUyHCq2t+AOuFKrL5Nq+Yjd1T5qlDznyBgeCE=;
+        b=EuWYB69jZhUQps69cdmplRU4Fje+0DGAbNaC1U1KpFWF0CJiEubqn0wbiq9rfdziua
+         dIjFUQIxF7JyUjyQgkxV87ljrW0hhOPJ+9Ne6PZNbuskCW8thLjtxjNEs7k8UPL6vpyU
+         GSe7Oz1VvAqv7vZopCAtSn2K7aXrebymki/6O/IagceChRcILLD7e9SAV2B1qfn6AfN6
+         8XnD+AivGjd6ISd+9G91RgXmEs6dReI7ghupEsYCLy8N1dxWmnkqqP8MEi7oWnp//vns
+         GnW/2dTbGzpR5f6i5tIDOMMMN9ZJHMYiN/d6SwzgzjyytAogoqnZcRKJWOYKL7hfcBWU
+         wCkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:from:to:cc:in-reply-to
-         :subject:date:message-id:mime-version:thread-index:content-language
-         :cms-type:references:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=jwpCc+AM0/cELdCsPBN7OY+cXeTadomZ8CEnUXJ5fmU=;
-        b=K1q8CUNaYJk9uM25i2eDqvXhQoZDRvY2Yq+roLfta7CljOYpSgf4XdhuQLkRacqHw9
-         jbPOpINOPGz0mTqUGjq0FkukJYcPg2zUcpEdVDoyJkOyEl/3fP2crsPHQKcHNyCSfOxp
-         bz+J3BbF/4QhjHMmSc2QnwXwhGEce36dM974LtrKFRqy358t7bH4AwppEDpuDH3mneoC
-         zLeXOjzM8Y7KIvwrXd4LSSqULMXkArJPrm9/FMdInWIhlIs3JXw8WVjNLrt49siuQ6DL
-         Gk12T0DOY+z9xTvPieIIhkf79Ef1BdUCt7v5EOsnZGAf5SCoqPOhozzZ0MeRQuREUCo7
-         8OiA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530IM0kWq6J/+j5NUFLKjttvFPhMsTmW1BXON7PYf24vj9X6+5zv
-	8s7zp8S1agx/l92v0SJ1nLs=
-X-Google-Smtp-Source: ABdhPJzIxd1xijQJ67mHgv2LUrfPUmOfBVk0dvuC0Z1s0S18GJM5LpzmO1WT8TVeVoRHEBW1gg3y6A==
-X-Received: by 2002:aca:849:: with SMTP id 70mr63906oii.153.1592238254289;
-        Mon, 15 Jun 2020 09:24:14 -0700 (PDT)
+        bh=lvF1zNmUyHCq2t+AOuFKrL5Nq+Yjd1T5qlDznyBgeCE=;
+        b=HERZKDKQ4PglJjm+6jQOSC1Gg0l9cGrW3ufxetfJzTcyuAEtxuueTCqxvdM8OyWB9L
+         H6N7L1GmvT+ktGLIssMDMBTNbEkj3M7Qq/XzElf8xdRhdPKgKGhBAzIKw6KDP4PeLT8h
+         JbEH9hKynUskYwBvGIznF3yi8L4dOq1su3FsgyhyJYhG6FDnEFOnP57bl14qqTvpk8T/
+         5tnxs2DCljrymvzKSctCSjTeJZ7uxPqrsfggMNIIDKx+6rAZzgkMFO/Gnw5Bm90s+FV+
+         7VnutPof9eQ8mZoa0GSazooL+GThPpEfVdmEl6uTyn3owaZX9Gklxk+Z368SQuic8SUb
+         rDXQ==
+X-Gm-Message-State: AOAM532HfNLSRhpuOvVETgOVrUb3BJlNYyZOZlL7EM7kfaU7JEsrTS0x
+	So++BcCtLQMr1Pj6WjYFChg=
+X-Google-Smtp-Source: ABdhPJzxUgR5eiBuKG3d6cYzlsVA4w4zLW3+j3swbovgpGBmEcl8nriW82Xo22Ec3B728m66uh9bFQ==
+X-Received: by 2002:a05:620a:4e5:: with SMTP id b5mr16258025qkh.341.1592243049106;
+        Mon, 15 Jun 2020 10:44:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:308c:: with SMTP id w134ls781347oiw.8.gmail; Mon, 15 Jun
- 2020 09:24:14 -0700 (PDT)
-X-Received: by 2002:a05:6808:2d0:: with SMTP id a16mr131997oid.52.1592238254006;
-        Mon, 15 Jun 2020 09:24:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1592238254; cv=none;
+Received: by 2002:ac8:4e56:: with SMTP id e22ls5674921qtw.3.gmail; Mon, 15 Jun
+ 2020 10:44:08 -0700 (PDT)
+X-Received: by 2002:ac8:44da:: with SMTP id b26mr17260167qto.232.1592243048685;
+        Mon, 15 Jun 2020 10:44:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592243048; cv=none;
         d=google.com; s=arc-20160816;
-        b=DFLxYi5awxMBxEotfzPYyq5/v//VKUFJ/kVLHrxOURhd+OP0VgMRUwhZQ0yaXUGAyX
-         fvUhuK7kIWbyGVWn89QZAmpu4mC4qUnHwxuxUpYXtUcDS42kpsmFZpz5t2q3nGVFX+nx
-         I5NmRmefaAC31aAVZjLsgClOmEusySuD2lrWhat/Idtz9GgW/am0MoqDcXhUjXrGaJkg
-         vo1WAwBw/cQKTXFf+KgOhM9+q+9ho7fTG/iIppu9vW1jjj80lW6c7n5qu0xS+wsjA+ZC
-         hJhYM1CFMHyddTPXhYsgZ8uR5ifkQ/tLtSWt/1vAGmEef8lZa/KRFzvvs6KOZznZlTjS
-         13Lg==
+        b=QJNb6dTJHmxd0YxzboerjMnA0Ri/zwTWaj1ztkhCMFnnXbU5rlXHGr8ZzYywHaxRLT
+         2YXuxLSZELhoQFA+IDFQte0oBN2WKg+olC535xBgv0t1rmOT42MkQQ7uvqQVsxyUj32r
+         a+bSsY9OkM6RQ0X7kYOcDIcmejqWGScqEhblFHZ77Tg9NpbaTNwuKe29L8BticTKXTtV
+         4vjautn3077dLscMy5i6w0Y9224CT2LfJ5h4nvGv/e0jQnjGyjuniESXinAGuW8KjuZw
+         m/0h5t3zJ1kIfqs74J3Si3Y5nKzhGozzbHT1ZipCXSmS1/5a0BWNxxVi+w/3RhYHh5sX
+         x6lA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=references:cms-type:content-language:thread-index
-         :content-transfer-encoding:mime-version:message-id:date:subject
-         :in-reply-to:cc:to:from:dkim-signature:dkim-filter;
-        bh=BEyEvCjpVeZ0zAtPUpZTgBK+qidw68l28PlKRvrd7jk=;
-        b=Boi817aqJSZk/Yn6xr8N9MzU0KYPUMn2QNED9L0LuOllBVXPCWr1SfytZMPXdtJlRn
-         TWVuSGPUaf+LkNVO8FT7OKHHDkp5c+lHl3cwydXXlWQ9NL1weQlUW9V0dE/FOZNiMDiy
-         /8ikJrl8rfAhAfwTmeTiiUWr/UrwE0j0NEu3Dk5bcetB20N9xopdUPaNEAuVndyf9odU
-         29iLThaML0xZeGFMxVL9wHa9ZrbGKqZAu53hNhZuvmpkkNlFq631WLfQrXwk0LV8WYzI
-         e/8dCoocZK6rc2/uwUP81Itu1HAoCTA9g/rA9cvunO1ApNZ6sfwI1dAvRhV1Lim1Mibh
-         nGTA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=wgm7Ev6xOl2QQEot2mfMM1wpkg4lvJ2QLEiwDn/B3jI=;
+        b=Atgnpyr/NWlrqd1QseBmOahhG8oeVvyEVcplcWGqGkZ/WfiNwOWSBSK66+W4FZJKDb
+         mm35M/9lA6BNo8Yl0zEXW04IHaC5SXxmdWAVWS+hfL0ql0nMxyl9XKHWRAgCIVTiSZ1e
+         sHUUBmReXJHEl6OpwhlS7YUaIVze5ZSgXiqN+kG2nfuc3vdenLUCxpeXkq7O6PnslbPj
+         vvmeYijbioqJT9PqKPMedrAHN60YTc8LXBDSScx1J5snM72fs7QuCO0twJS/4P9xBZQp
+         Zr0XpAg3ooGys0M90j2OaRflqxnJMDbj/fUo0JQRKGf/ViQJryi/wjGP4lNZjXVkCBVP
+         Oy0g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@samsung.com header.s=mail20170921 header.b=nk+CrK+q;
-       spf=pass (google.com: domain of alim.akhtar@samsung.com designates 203.254.224.34 as permitted sender) smtp.mailfrom=alim.akhtar@samsung.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=samsung.com
-Received: from mailout4.samsung.com (mailout4.samsung.com. [203.254.224.34])
-        by gmr-mx.google.com with ESMTPS id h13si1446198otk.1.2020.06.15.09.24.12
+       dkim=pass header.i=@google.com header.s=20161025 header.b="uBOxov/3";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pj1-x1042.google.com (mail-pj1-x1042.google.com. [2607:f8b0:4864:20::1042])
+        by gmr-mx.google.com with ESMTPS id b1si819859qte.1.2020.06.15.10.44.08
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 15 Jun 2020 09:24:13 -0700 (PDT)
-Received-SPF: pass (google.com: domain of alim.akhtar@samsung.com designates 203.254.224.34 as permitted sender) client-ip=203.254.224.34;
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20200615162410epoutp04aba934edc449cf309e6a4057a233204f~YxECsPjp80764407644epoutp04U
-	for <clang-built-linux@googlegroups.com>; Mon, 15 Jun 2020 16:24:10 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20200615162410epoutp04aba934edc449cf309e6a4057a233204f~YxECsPjp80764407644epoutp04U
-Received: from epsmges5p3new.samsung.com (unknown [182.195.42.75]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTP id
-	20200615162409epcas5p1076dad5980246b4ed9585b73bdd7d4d6~YxECOMLhF0740907409epcas5p1h;
-	Mon, 15 Jun 2020 16:24:09 +0000 (GMT)
-Received: from epcas5p1.samsung.com ( [182.195.41.39]) by
-	epsmges5p3new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	47.26.09475.9A0A7EE5; Tue, 16 Jun 2020 01:24:09 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20200615162408epcas5p3c8bfc7f248fa72fd01156d39851e628d~YxEBRa4iD0964309643epcas5p30;
-	Mon, 15 Jun 2020 16:24:08 +0000 (GMT)
-Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20200615162408epsmtrp1a573006830526845280bb8711ad00873~YxEBQlGE12292522925epsmtrp1F;
-	Mon, 15 Jun 2020 16:24:08 +0000 (GMT)
-X-AuditID: b6c32a4b-389ff70000002503-c3-5ee7a0a9c69e
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	9E.2E.08382.8A0A7EE5; Tue, 16 Jun 2020 01:24:08 +0900 (KST)
-Received: from alimakhtar02 (unknown [107.108.234.165]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20200615162405epsmtip19e7d7fb67d9663b3e7591a2ca5be9e08~YxD_UUEA-2560325603epsmtip1s;
-	Mon, 15 Jun 2020 16:24:05 +0000 (GMT)
-From: "Alim Akhtar" <alim.akhtar@samsung.com>
-To: <kishon@ti.com>
-Cc: <kbuild-all@lists.01.org>, <clang-built-linux@googlegroups.com>,
-	<devicetree@vger.kernel.org>, <linux-scsi@vger.kernel.org>,
-	<krzk@kernel.org>, <avri.altman@wdc.com>, <martin.petersen@oracle.com>,
-	<kwmad.kim@samsung.com>, <stanley.chu@mediatek.com>, <cang@codeaurora.org>,
-	<linux-samsung-soc@vger.kernel.org>, "'kernel test robot'" <lkp@intel.com>
-In-Reply-To: <202006131334.EEnoEaXS%lkp@intel.com>
-Subject: RE: [RESEND PATCH v10 07/10] phy: samsung-ufs: add UFS PHY driver
- for samsung SoC
-Date: Mon, 15 Jun 2020 21:54:03 +0530
-Message-ID: <000101d64331$65230260$2f690720$@samsung.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 15 Jun 2020 10:44:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) client-ip=2607:f8b0:4864:20::1042;
+Received: by mail-pj1-x1042.google.com with SMTP id a45so164526pje.1
+        for <clang-built-linux@googlegroups.com>; Mon, 15 Jun 2020 10:44:08 -0700 (PDT)
+X-Received: by 2002:a17:902:fe8b:: with SMTP id x11mr23019349plm.179.1592243047470;
+ Mon, 15 Jun 2020 10:44:07 -0700 (PDT)
 MIME-Version: 1.0
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQJxKJl1qzUofIPujdEacJl88XyIuwGkdPiqAy1Y4e2nfYD4sA==
-Content-Language: en-in
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrNKsWRmVeSWpSXmKPExsWy7bCmuu7KBc/jDK6c1bJ4+fMqm8Wn9ctY
-	LR68mc1mMf/IOVaLs93XGC0uPO1hszh/fgO7xc0tR1ksZpzfx2TRfX0Hm8Wr5kdsFsuP/2Oy
-	WLr1JqMDr8flvl4mjz0TT7J5LN7zkslj06pONo/u2f9YPFpO7mfx+Pj0FotH35ZVjB7Hb2xn
-	8vi8Sc6j/UA3UwB3FJdNSmpOZllqkb5dAlfGm7sLWAo6eSp2nnnF1MC4jKuLkYNDQsBE4t9d
-	6y5GLg4hgd2MEt0nZjBCOJ8YJW5vPssM4XxjlNi1YD9LFyMnWMfVKW+hEnsZJS41b2eDcN4w
-	Spw82cEMUsUmoCuxY3EbG4gtIiAssXnfW7AiZoHnTBLTnr5jAklwChhJvNrdwgpiCwvESOxs
-	fAzWzCKgKtH4bT2YzStgKXGv8QWULShxcuYTsDOYBeQltr+dwwxxkoLEz6fLWCGWOUmc3L2G
-	DaJGXOLozx6wUyUEvnBILP24jh2iwUXi+9wfUP8IS7w6vgUqLiXxsr+NHRIy2RI9u4whwjUS
-	S+cdgyq3lzhwZQ4LSAmzgKbE+l36EKv4JHp/P2GC6OSV6GgTgqhWlWh+dxWqU1piYnc3K4Tt
-	IbHp3jb2CYyKs5A8NgvJY7OQPDALYdkCRpZVjJKpBcW56anFpgXGeanlesWJucWleel6yfm5
-	mxjB6U/Lewfjowcf9A4xMnEwHmKU4GBWEuE9JP88Tog3JbGyKrUoP76oNCe1+BCjNAeLkjiv
-	0o8zcUIC6YklqdmpqQWpRTBZJg5OqQamQyffFsQIMrx4+vho23v5KzqOzB6vztp1fVlZLxl0
-	X/Nve0nRfpUilyL3fzumKBbHqWVOvlNvXX6bXWLv5tP27tdfnncq6ujiYY1bN2WGgI/Kef0c
-	Ycm96XcPs2RzHapYv+bg7G/lCfNnywuqGuqEu6UvjDY4MPexhqnah03KBtd23/S7FRFx3jss
-	d0pTAsM0ifA10ze2dwZovvRdv7WUJ/pdfdIhM72ij3MEW/1u/6+relC/NH3h+lP2V1R6jLss
-	/q0SWFJ4XjevaIGXyabcn0/FkkP7uZrvm8y+JCVbInAywcPv04I92eJ+t09ZG7ef+PdR8fq3
-	0zUpxr55Obuqn72r+dGuucr2WGryd0YlluKMREMt5qLiRAALl04q7gMAAA==
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrPIsWRmVeSWpSXmKPExsWy7bCSnO6KBc/jDDp3aFm8/HmVzeLT+mWs
-	Fg/ezGazmH/kHKvF2e5rjBYXnvawWZw/v4Hd4uaWoywWM87vY7Lovr6DzeJV8yM2i+XH/zFZ
-	LN16k9GB1+NyXy+Tx56JJ9k8Fu95yeSxaVUnm0f37H8sHi0n97N4fHx6i8Wjb8sqRo/jN7Yz
-	eXzeJOfRfqCbKYA7issmJTUnsyy1SN8ugSvjzd0FLAWdPBU7z7xiamBcxtXFyMkhIWAicXXK
-	W+YuRi4OIYHdjBIHXrxggkhIS1zfOIEdwhaWWPnvOTtE0StGid3LnzKCJNgEdCV2LG5jA7FF
-	gIo273vLBlLELPCVSWLisr+MEB1bGCXaPuxiBqniFDCSeLW7hRXEFhaIkmib+xFsHYuAqkTj
-	t/VgNbwClhL3Gl9A2YISJ2c+Yeli5ACaqifRthFsMbOAvMT2t3OYIa5TkPj5dBkrxBFOEid3
-	r2GDqBGXOPqzh3kCo/AsJJNmIUyahWTSLCQdCxhZVjFKphYU56bnFhsWGOallusVJ+YWl+al
-	6yXn525iBMexluYOxu2rPugdYmTiYDzEKMHBrCTCe0j+eZwQb0piZVVqUX58UWlOavEhRmkO
-	FiVx3huFC+OEBNITS1KzU1MLUotgskwcnFINTOfqeOY/EUhj+jbdVCjr3OQvTyP/5pelzf26
-	oVdz61H37Ovf2w/n89zlNm/+IRe280v6n8S+LV4bbh9LPcS3IbPT+yTL2T9lJTP/9F2W2dN9
-	WbuHZ5/46i8zPyuIPbh5+EOC+ZbT0nLWF7bPSC/Z7Hq77oJFnHkK0+szgt5Juow79aa5LShm
-	+MWg2rfO4GNqccrxzQef2779upQ/+8KNCT4zP/TGr9WNTJni7Lixsv/XqdaF3NO+BIlM65rP
-	nup7Pv+pyJmtO25vSNLV365/48N83fCTdzcqRP/OWq17/gLHg2114l9ffV3z++veyyd3bhfb
-	vylJeYPax8vvN52dfa7pWFbC3VkvFcsPB+hpd1nvUmIpzkg01GIuKk4EAJd1RTVSAwAA
-X-CMS-MailID: 20200615162408epcas5p3c8bfc7f248fa72fd01156d39851e628d
-X-Msg-Generator: CA
+References: <20200615062520.GK12456@shao2-debian> <CANn89i+s=oFTq6KFhT0z1CReQPZCGoEPShEFHVvXAmC9sUDH7g@mail.gmail.com>
+In-Reply-To: <CANn89i+s=oFTq6KFhT0z1CReQPZCGoEPShEFHVvXAmC9sUDH7g@mail.gmail.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 15 Jun 2020 10:43:56 -0700
+Message-ID: <CAKwvOdkv=L=QKQc7HtOi5ZNdao35m18PMr7ep+4sKv5iogVDLg@mail.gmail.com>
+Subject: Re: net/sched/sch_fq.c:966:12: warning: stack frame size of 1400
+ bytes in function 'fq_dump'
+To: Eric Dumazet <edumazet@google.com>
+Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-CMS-TYPE: 105P
-X-CMS-RootMailID: 20200613052521epcas5p140d979df19fae20c858c485409596a7a
-References: <20200613024706.27975-8-alim.akhtar@samsung.com>
-	<CGME20200613052521epcas5p140d979df19fae20c858c485409596a7a@epcas5p1.samsung.com>
-	<202006131334.EEnoEaXS%lkp@intel.com>
-X-Original-Sender: alim.akhtar@samsung.com
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@samsung.com header.s=mail20170921 header.b=nk+CrK+q;       spf=pass
- (google.com: domain of alim.akhtar@samsung.com designates 203.254.224.34 as
- permitted sender) smtp.mailfrom=alim.akhtar@samsung.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=samsung.com
+ header.i=@google.com header.s=20161025 header.b="uBOxov/3";       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -200,41 +130,125 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Kishon,
+On Mon, Jun 15, 2020 at 9:17 AM 'Eric Dumazet' via Clang Built Linux
+<clang-built-linux@googlegroups.com> wrote:
+>
+> On Sun, Jun 14, 2020 at 11:26 PM kernel test robot <lkp@intel.com> wrote:
+> >
+> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+> > head:   96144c58abe7ff767e754b5b80995f7b8846d49b
+> > commit: 39d010504e6b4485d7ceee167743620dd33f4417 net_sched: sch_fq: add horizon attribute
+> > date:   6 weeks ago
+> > :::::: branch date: 3 hours ago
+> > :::::: commit date: 6 weeks ago
+> > config: arm-randconfig-r006-20200614 (attached as .config)
+> > compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project c669a1ed6386d57a75a602b53266466dae1e1d84)
+> > reproduce (this is a W=1 build):
+> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> >         chmod +x ~/bin/make.cross
+> >         # install arm cross compiling tool for clang build
+> >         # apt-get install binutils-arm-linux-gnueabi
+> >         git checkout 39d010504e6b4485d7ceee167743620dd33f4417
+> >         # save the attached .config to linux build tree
+> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm
+> >
+> > If you fix the issue, kindly add following tag as appropriate
+> > Reported-by: kernel test robot <lkp@intel.com>
+> >
+> > All warnings (new ones prefixed by >>, old ones prefixed by <<):
+> >
+> > >> net/sched/sch_fq.c:966:12: warning: stack frame size of 1400 bytes in function 'fq_dump' [-Wframe-larger-than=]
+> > static int fq_dump(struct Qdisc *sch, struct sk_buff *skb)
+> > ^
+>
+>
+> This looks like a bug in CLANG on ARM, there is no way fq_dump() could
+> consume so much stack space.
 
-> -----Original Message-----
-> From: kernel test robot <lkp@intel.com>
-> All warnings (new ones prefixed by >>, old ones prefixed by <<):
-> 
-> >> drivers/phy/samsung/phy-samsung-ufs.c:47:5: warning: no previous
-> >> prototype for function 'samsung_ufs_phy_wait_for_lock_acq'
-> >> [-Wmissing-prototypes]
-> int samsung_ufs_phy_wait_for_lock_acq(struct phy *phy) ^
-> drivers/phy/samsung/phy-samsung-ufs.c:47:1: note: declare 'static' if the
-> function is not intended to be used outside of this translation unit int
-> samsung_ufs_phy_wait_for_lock_acq(struct phy *phy) ^ static
-> >> drivers/phy/samsung/phy-samsung-ufs.c:77:5: warning: no previous
-> >> prototype for function 'samsung_ufs_phy_calibrate'
-> >> [-Wmissing-prototypes]
-> int samsung_ufs_phy_calibrate(struct phy *phy) ^
-> drivers/phy/samsung/phy-samsung-ufs.c:77:1: note: declare 'static' if the
-> function is not intended to be used outside of this translation unit int
-> samsung_ufs_phy_calibrate(struct phy *phy) ^ static
-> 2 warnings generated.
-> 
-Not sure, how to handle this here, is this something that you can take care
-while applying this patch? Or
-Shell in send another patch to fix this warning reported by test robot?
-(Other patches in this series is already taken in respective tree)
+You can use
+https://github.com/ClangBuiltLinux/frame-larger-than
+to help debug these.  You might be surprised who's doing larger stack
+allocations than expected.
 
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://protect2.fireeye.com/url?k=9d5936bf-c0c2cadc-9d58bdf0-
-> 0cc47a31cdbc-
-> 6ed890c1e74d92a7&q=1&u=https%3A%2F%2Flists.01.org%2Fhyperkitty%2Flist
-> %2Fkbuild-all%40lists.01.org
+>
+>
+>
+> > 1 warning generated.
+> >
+> > # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=39d010504e6b4485d7ceee167743620dd33f4417
+> > git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+> > git remote update linus
+> > git checkout 39d010504e6b4485d7ceee167743620dd33f4417
+> > vim +/fq_dump +966 net/sched/sch_fq.c
+> >
+> > afe4fd062416b1 Eric Dumazet   2013-08-29   965
+> > afe4fd062416b1 Eric Dumazet   2013-08-29  @966  static int fq_dump(struct Qdisc *sch, struct sk_buff *skb)
+> > afe4fd062416b1 Eric Dumazet   2013-08-29   967  {
+> > afe4fd062416b1 Eric Dumazet   2013-08-29   968          struct fq_sched_data *q = qdisc_priv(sch);
+> > 48872c11b77271 Eric Dumazet   2018-11-11   969          u64 ce_threshold = q->ce_threshold;
+> > 39d010504e6b44 Eric Dumazet   2020-05-01   970          u64 horizon = q->horizon;
+> > afe4fd062416b1 Eric Dumazet   2013-08-29   971          struct nlattr *opts;
+> > afe4fd062416b1 Eric Dumazet   2013-08-29   972
+> > ae0be8de9a53cd Michal Kubecek 2019-04-26   973          opts = nla_nest_start_noflag(skb, TCA_OPTIONS);
+> > afe4fd062416b1 Eric Dumazet   2013-08-29   974          if (opts == NULL)
+> > afe4fd062416b1 Eric Dumazet   2013-08-29   975                  goto nla_put_failure;
+> > afe4fd062416b1 Eric Dumazet   2013-08-29   976
+> > 65c5189a2b57b9 Eric Dumazet   2013-11-15   977          /* TCA_FQ_FLOW_DEFAULT_RATE is not used anymore */
+> > 65c5189a2b57b9 Eric Dumazet   2013-11-15   978
+> > 48872c11b77271 Eric Dumazet   2018-11-11   979          do_div(ce_threshold, NSEC_PER_USEC);
+> > 39d010504e6b44 Eric Dumazet   2020-05-01   980          do_div(horizon, NSEC_PER_USEC);
+> > 48872c11b77271 Eric Dumazet   2018-11-11   981
+> > afe4fd062416b1 Eric Dumazet   2013-08-29   982          if (nla_put_u32(skb, TCA_FQ_PLIMIT, sch->limit) ||
+> > afe4fd062416b1 Eric Dumazet   2013-08-29   983              nla_put_u32(skb, TCA_FQ_FLOW_PLIMIT, q->flow_plimit) ||
+> > afe4fd062416b1 Eric Dumazet   2013-08-29   984              nla_put_u32(skb, TCA_FQ_QUANTUM, q->quantum) ||
+> > afe4fd062416b1 Eric Dumazet   2013-08-29   985              nla_put_u32(skb, TCA_FQ_INITIAL_QUANTUM, q->initial_quantum) ||
+> > afe4fd062416b1 Eric Dumazet   2013-08-29   986              nla_put_u32(skb, TCA_FQ_RATE_ENABLE, q->rate_enable) ||
+> > 76a9ebe811fb3d Eric Dumazet   2018-10-15   987              nla_put_u32(skb, TCA_FQ_FLOW_MAX_RATE,
+> > 76a9ebe811fb3d Eric Dumazet   2018-10-15   988                          min_t(unsigned long, q->flow_max_rate, ~0U)) ||
+> > f52ed89971adbe Eric Dumazet   2013-11-15   989              nla_put_u32(skb, TCA_FQ_FLOW_REFILL_DELAY,
+> > f52ed89971adbe Eric Dumazet   2013-11-15   990                          jiffies_to_usecs(q->flow_refill_delay)) ||
+> > 06eb395fa9856b Eric Dumazet   2015-02-04   991              nla_put_u32(skb, TCA_FQ_ORPHAN_MASK, q->orphan_mask) ||
+> > 77879147a3481b Eric Dumazet   2016-09-19   992              nla_put_u32(skb, TCA_FQ_LOW_RATE_THRESHOLD,
+> > 77879147a3481b Eric Dumazet   2016-09-19   993                          q->low_rate_threshold) ||
+> > 48872c11b77271 Eric Dumazet   2018-11-11   994              nla_put_u32(skb, TCA_FQ_CE_THRESHOLD, (u32)ce_threshold) ||
+> > 583396f4ca4d6e Eric Dumazet   2020-03-16   995              nla_put_u32(skb, TCA_FQ_BUCKETS_LOG, q->fq_trees_log) ||
+> > 39d010504e6b44 Eric Dumazet   2020-05-01   996              nla_put_u32(skb, TCA_FQ_TIMER_SLACK, q->timer_slack) ||
+> > 39d010504e6b44 Eric Dumazet   2020-05-01   997              nla_put_u32(skb, TCA_FQ_HORIZON, (u32)horizon) ||
+> > 39d010504e6b44 Eric Dumazet   2020-05-01   998              nla_put_u8(skb, TCA_FQ_HORIZON_DROP, q->horizon_drop))
+> > afe4fd062416b1 Eric Dumazet   2013-08-29   999                  goto nla_put_failure;
+> > afe4fd062416b1 Eric Dumazet   2013-08-29  1000
+> > d59b7d8059ddc4 Yang Yingliang 2014-03-12  1001          return nla_nest_end(skb, opts);
+> > afe4fd062416b1 Eric Dumazet   2013-08-29  1002
+> > afe4fd062416b1 Eric Dumazet   2013-08-29  1003  nla_put_failure:
+> > afe4fd062416b1 Eric Dumazet   2013-08-29  1004          return -1;
+> > afe4fd062416b1 Eric Dumazet   2013-08-29  1005  }
+> > afe4fd062416b1 Eric Dumazet   2013-08-29  1006
+> >
+> > :::::: The code at line 966 was first introduced by commit
+> > :::::: afe4fd062416b158a8a8538b23adc1930a9b88dc pkt_sched: fq: Fair Queue packet scheduler
+> >
+> > :::::: TO: Eric Dumazet <edumazet@google.com>
+> > :::::: CC: David S. Miller <davem@davemloft.net>
+> >
+> > ---
+> > 0-DAY CI Kernel Test Service, Intel Corporation
+> > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+> > _______________________________________________
+> > kbuild mailing list -- kbuild@lists.01.org
+> > To unsubscribe send an email to kbuild-leave@lists.01.org
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANn89i%2Bs%3DoFTq6KFhT0z1CReQPZCGoEPShEFHVvXAmC9sUDH7g%40mail.gmail.com.
+
+
+
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/000101d64331%2465230260%242f690720%24%40samsung.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkv%3DL%3DQKQc7HtOi5ZNdao35m18PMr7ep%2B4sKv5iogVDLg%40mail.gmail.com.
