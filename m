@@ -1,126 +1,137 @@
-Return-Path: <clang-built-linux+bncBDN3ZEGJT4NBBREDT73QKGQE7EXK3XA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBPEET73QKGQE3AY7IWI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x239.google.com (mail-oi1-x239.google.com [IPv6:2607:f8b0:4864:20::239])
-	by mail.lfdr.de (Postfix) with ESMTPS id 394601F9F9B
-	for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jun 2020 20:45:25 +0200 (CEST)
-Received: by mail-oi1-x239.google.com with SMTP id l197sf9432645oih.11
-        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jun 2020 11:45:25 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1592246724; cv=pass;
+Received: from mail-qv1-xf3e.google.com (mail-qv1-xf3e.google.com [IPv6:2607:f8b0:4864:20::f3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 970801F9F9D
+	for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jun 2020 20:47:25 +0200 (CEST)
+Received: by mail-qv1-xf3e.google.com with SMTP id ba13sf13717834qvb.15
+        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jun 2020 11:47:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1592246844; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZiqbJpkj3WUH7ei25TcE8cn0OWskuRq5iGMOfS5rpyYCZfo1lpeLapwSNmt/AIKgsW
-         j6hPDL2I5CFvRRL5gzLCc4aCGU+rMQXTZrdRHAFumKFxZoz4RJv/JoMs/swUrbD0JZIU
-         cWhYCLerBlO752U9+kGAyfnFv/atU6Oqb5xBbF7mtpSctaqWkwbbZaO2Y0H9j7jfjrBM
-         2raLTc+BJe4ck0ezWw0X0IZSkKqbRsQ8957pGtfIKRG4+AsEhUD1WsAIUBAnXHIi2J8x
-         imr9G75drXtsGYRXVYl9Od6z28vxQkI0tSYDHuH8n86cRJkwbILfo+2Bx1jqXUETyCgU
-         sknQ==
+        b=IAQCAISKs9b4wMEhHqeCYQir+h+mYOMqUlowX0yDqRYSOqIslv/drtc/bMHE+TfOwe
+         sqRrLJH7XfE7KVyQCwaCTU/t2SnYWuX4O0OsFUXqLwPQAEKvmR4PJzBlJzvkWcT3M1Sa
+         IIgjhXj+1F9lyp2Ixw3Otedvfzpzjtbpot7TX14cjKs6eRRCi0Yo8V7qHKOoflANJ9Fz
+         oKqhvvrCBxRvgs3gr9aDhk4YrcQdK2XBC/H3+4FR4M/YvMqOQY/nClQtkhRNqT1P95M5
+         RL89w1yvbVWO6BcwTz6g5xZ9JTUbjycYIZON0DNfR1JzU/RH9Yupd7oQIJ6jWL3gmIfm
+         gS8Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=NQs1y2khNUW8JuQttHzmhLf5C6KdwjQn32vVMEx9rvs=;
-        b=qwF/B16IyI7eqOfAy9DU2vg6rtofy3ayPNRXUqWj/FWUwn0RTlqn7CCP92Hys5lxMG
-         3KQaLyJKE96BJDzqvcxZGTY1tQUmxgC8TrQoBt/kt0TsO8miB0sapmRrBvdO6+Z97dWL
-         EfsObt9MC4F8hKCO9c1zPay1XmgNfcbCK0qNyrfukumVvoXRuYQ+ds/ORTm7oLCCfPoH
-         RBtIIv0JcM7QcWaLe8oBGhY2+SIssaYZ288DGwnVfwCePnWCkiC6rQa8W8/utMCZ/q5/
-         kD2tDzFWEu68qfEDU1gpA5LvRGg+zbSZCKHpqhcS9Z8wMY483H90WKj30JloTSafimlq
-         d94Q==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=Ca33CRpCWwePvn9lhTAlSa6gIN8Rs0yL58HAGMjgRGY=;
+        b=KScBXNw7myWgY1kb+k50xTy7Cm14oLgsGlXjp6WrbCM2OsJpLg+b14Pp6fY4QrD1UF
+         9RV1NN/tX8iuYavsSPFHUNgYOwRkRGC4b+pNq2EoZ/aeVenz6djRxZLSxadDzqUiOWhc
+         tPIGGjSF50t49pVRRWOzYkoLGh9w+Ni1IQ5AfbERCetDdJTtvm8xP6/lSLgoZYQBWwQX
+         iXbDmCR0abzYXnntHLPieEdoCR6qRYaArKlRXmeiD9TKx+wZygmq7DTPmQccqDxOcMVW
+         djIN/WVYW1J55snFYERa1deAnE3EkRqxtHVTuko9rO1h+pqF/CY7hf//Ym4+HQx7nmy9
+         Ko3g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="bXk/Ld0B";
-       spf=pass (google.com: domain of edumazet@google.com designates 2607:f8b0:4864:20::b41 as permitted sender) smtp.mailfrom=edumazet@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@chromium.org header.s=google header.b=gdHCBuPr;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=NQs1y2khNUW8JuQttHzmhLf5C6KdwjQn32vVMEx9rvs=;
-        b=F30oMRcT3iUUDS+KDvM9pZvSUopiVIAGdgCUKT0VCZ3o6RAaKM0Uiqs89oLidH+xwm
-         QiRLhE9XDX3z9u/IL38sFaRt3GNeDNR7vg++9aIFzpT3C+yVZ2ZFd2UDOY5tcUcxYTXk
-         rjKKSJdIqFxD80eHHyL5StVXQ4l6IyCUBYwv9sG6puoHtRkWjBsUND7mehZVI01YFyQN
-         qJ4UsOkFHRQPqSp9cfcH9+hc/2BMyhBfjI+1aFuDjTbncNboojuoA9uhSERRK7mVxq/w
-         evuqJb1KI32dMygfsvovg3oQ6SGsxxSpqFSVNzodlRLAwlOhZ+0yOMLSU4abqqEvqMOb
-         k8fA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=Ca33CRpCWwePvn9lhTAlSa6gIN8Rs0yL58HAGMjgRGY=;
+        b=bf4j/XjVOUpvwsnai+jJxdSLtdbCg5FhgJxprbzazqApRAY9vGluga+gMWUVJKHJso
+         CT/sls2b6VkMIy0PyVTZ/McRHZQ236hb5FgKQWtQDot4q3ocdfaouImDc7XxPW8eWDQ8
+         eZgzIqpqYRstYmQHUP7P/1arVwNp/Z8aUmwjXLqZ73dE58aDcqhvjZjKxqVd1dTJUkl/
+         RvbPg1d7IxRxgNyZMmYoTETo8xkmszqwU6NNrWUTdsX4HOF96ryobaPqUYa58k/gJkPB
+         H9bFBqjiSpDnaaOiaI9YMUe1fz8LvMc+b7vBNM/UaWLOTyt8gtHDJZUzATx43T6SbwAn
+         IYGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=NQs1y2khNUW8JuQttHzmhLf5C6KdwjQn32vVMEx9rvs=;
-        b=Hw/sXdOE4iaBmiLndJBvvKr7cbztbqs7qSr12AgRl37idZS9u3MpkWaJ2xL5P8duNU
-         2cLucWZFKFmdJKeETeubIpgrnQLNZULQNBwVdI+ca1A2o5OntU3Dg+Mq1TctpAMz/gwi
-         pXuZemRFs0evM8t9WrevdZlnoy06EvpFsXaDAtaOC7yK8uNIAyzcVzeqJUsTDL8WDFhT
-         mOZDJ28iH8EP6I1g9RI4wqVRO+jZ++DK29JX6NRidaxDO8F9w7GrQtTJ2QNcThJih9KZ
-         FslwJhsJSSGQBIyUUsE5KMkmZjIh6P5MONTI8W1q06Ew5xLJrRvRBJ4Wa7QtHmiQc9hk
-         PXMg==
-X-Gm-Message-State: AOAM533tzFvYiurVdfpXpREnldGHauYxnx85JKLcfp0Y/5Vmd9V9ILA3
-	p00iZqybNWED9MfZG2Ovw+A=
-X-Google-Smtp-Source: ABdhPJxsyZk9D6Px1QUHLibkMidQrotT7+JTaMe3paDQ+0/ZLTk30kfgkEmzuBfOurIOyATenRdgXQ==
-X-Received: by 2002:a9d:5190:: with SMTP id y16mr22620454otg.68.1592246724075;
-        Mon, 15 Jun 2020 11:45:24 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=Ca33CRpCWwePvn9lhTAlSa6gIN8Rs0yL58HAGMjgRGY=;
+        b=riSVH+YFKIszBgzMMrPvEl5H7qTAVpNIfNWNjsAzErg2DQEDJSlyIfht7HasaQGhvh
+         9hYEPrmN+KtyO0NTWmk6wKeOD89vn5khHp8Q9Tl4e8LL3tEvM1yuKovA6JOCi8zoVAVE
+         Vzer2+mwcsryp7UFGHfyBM2D7VB4yp8rm/049V3eCNn73BxQg+pK7eDvp6aSOYYUhp2J
+         9hJHCcFEYkjNnB2ebbRdHLuChBH78VXYMhi0IdUmgHorwVSoEJxmFHwa21tK3PD3JdHR
+         5BafBoMR/L1Mtj22i4uUrLmkWGJmL1B89UIyAJpslPqVZLjvhcs/AvHC57meZJqLJlP7
+         86rw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531Wv2UMr5Zx9RlItjNtRt5EUM5AigO17LxnMLlYxQeDDw8X46u1
+	qV6W3RdEA2jKxHaCBMhgET0=
+X-Google-Smtp-Source: ABdhPJy/aXmQd8NYHoQwwRxetmSQzo/2/1gxQROwuVjPgdcAuSofE2Nv0SJIPdNld/41MMyCnpEpfw==
+X-Received: by 2002:ac8:4088:: with SMTP id p8mr17280291qtl.119.1592246844514;
+        Mon, 15 Jun 2020 11:47:24 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:3116:: with SMTP id b22ls3274558ots.6.gmail; Mon,
- 15 Jun 2020 11:45:23 -0700 (PDT)
-X-Received: by 2002:a9d:77ca:: with SMTP id w10mr23730110otl.34.1592246723629;
-        Mon, 15 Jun 2020 11:45:23 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1592246723; cv=none;
+Received: by 2002:a0c:cd07:: with SMTP id b7ls3244941qvm.10.gmail; Mon, 15 Jun
+ 2020 11:47:24 -0700 (PDT)
+X-Received: by 2002:a05:6214:922:: with SMTP id dk2mr26754995qvb.87.1592246844131;
+        Mon, 15 Jun 2020 11:47:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592246844; cv=none;
         d=google.com; s=arc-20160816;
-        b=YN1cw2N1xtHBHfHJKwDnkeg4v9z+Byv/tSVEF5EtK9pPXGzRMqYfpnD9bQheokdB5M
-         DPEVZPRVz6P1rHQYRay/NYATlBc+UoTKY7rnX096jeXHfqKoKr7A6fZJpeVwpgKciP5J
-         5B8s3I+iy0C2GEoxMQM5NnPjGjKbKlcOzFh1bLw2jomM081k3inDi0isn4GxVjPs0X3+
-         BTGKlpEjF6sUn008ItvJSOlfFIlzNfikrWxBC9zL+Gtx8rB8EqzLfViypvz5ZsZhKggW
-         07+ZvEJgoF+i+nKUdpZ1BG8PZdA/wpe+kXGGK90EyvYGhMjbrGvcuIZL3sj5qRJfALoK
-         4CJg==
+        b=Po+FUadogcPYQdVu/TrOOf+UkNYWCUU/pEukszUjUIF8sLFTMGvEb1TXgSOcX/HJj6
+         GJShzOtFJCbFrVlxqT6NpI/UME0Cr0/Uv1PfKdTwdMZFKcbINaV3JfVqpPZIUHwuk7Hn
+         OJZuqQBE5QyhxUHfiDJOxmfsigzlXxqYYLMOpsmdyI2jpsd3Ao+0MlKiI7m3kYiIN1hE
+         +JDm7Bb+Q1M74ODS5dA2lSY8FCxNtOJEbfNAIzNPVHCPgXOZT/+ve3K74Fyy2sL8D5NB
+         QFfdmWsUUY6kNeobuQhtWVPShRIYH1Sg/lNA7Eiw8/JXMJDQ2ABec8AYQrBeWbFDIDdN
+         d39w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Ohz8JkpHJ7j+N0VINUFzbzmPmSY4c151ZpB+6y7lrVQ=;
-        b=qu6MUOr2PPlFyqdzvaec8RTBrAL2v9+kZvJa3sirwaLYOFaZBgfXPI81yjnfumMpYM
-         LN7BYcDrIW4PrZHiRRvXKHF/oRh1B0E83VEid7ugo3uKIxwbWQ3dtz4kad4n9S+V5cd4
-         n1RQr3OXxQmwFbnHPREUlHutYYfccNNpL8yNChFVWjINibYUUBoaoU4+nJJxXY+E7+lO
-         2tXdiuXzoM//HueJKhU1Qq1IPk4XOLE3LSlThP6s8qa/NRNtYhAxoKOy+lNfBJ2YJnm6
-         oGa3+/N2cNbwB6oYfHyD6fw1dt+FmwenIM4Cs2NYQHq+2j5XBHH4YbuO2tI5jU1TO6lQ
-         AZuA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=z30H0Qxf7KSPQ6BN5/irrwQjH65QOzZKJjP0gLp4z7g=;
+        b=Z5Jms9xi1H/DhIz2g+nrV+S4jsMjkhEgw+whHaal+RGb2/AU6WQoOc1BGfVRdyaAgD
+         UlizYD8X7VV12EF53LXB3Oo6ApeanCiybAmxO72wlUugb6Y4gs+KhVSO7aopqPjTY2vk
+         c5G4Wix1/91A/t42R7QkyaF3xnXj4UlXpQt/834kOiaXVSQT5hso2Ee5s3+z1W2iY6eO
+         faS4o6EDX4fOd/Znx7VoeF1njeSmU320lDFUgr93MDybCE7KsEzbVAsjsRTiuW82m0ed
+         D2TKBLBARvRHoWJ88G0Alx9RqgUQoxq39OLHLwWRu6wcQNme+NH+siZ/iQj7dzgI4ub4
+         R+SA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="bXk/Ld0B";
-       spf=pass (google.com: domain of edumazet@google.com designates 2607:f8b0:4864:20::b41 as permitted sender) smtp.mailfrom=edumazet@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-yb1-xb41.google.com (mail-yb1-xb41.google.com. [2607:f8b0:4864:20::b41])
-        by gmr-mx.google.com with ESMTPS id k69si901627oih.3.2020.06.15.11.45.23
+       dkim=pass header.i=@chromium.org header.s=google header.b=gdHCBuPr;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-pj1-x1044.google.com (mail-pj1-x1044.google.com. [2607:f8b0:4864:20::1044])
+        by gmr-mx.google.com with ESMTPS id a72si804394qkb.0.2020.06.15.11.47.24
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 15 Jun 2020 11:45:23 -0700 (PDT)
-Received-SPF: pass (google.com: domain of edumazet@google.com designates 2607:f8b0:4864:20::b41 as permitted sender) client-ip=2607:f8b0:4864:20::b41;
-Received: by mail-yb1-xb41.google.com with SMTP id j202so9495737ybg.6
-        for <clang-built-linux@googlegroups.com>; Mon, 15 Jun 2020 11:45:23 -0700 (PDT)
-X-Received: by 2002:a25:941:: with SMTP id u1mr49091006ybm.274.1592246722953;
- Mon, 15 Jun 2020 11:45:22 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200615062520.GK12456@shao2-debian> <CANn89i+s=oFTq6KFhT0z1CReQPZCGoEPShEFHVvXAmC9sUDH7g@mail.gmail.com>
- <CAKwvOdkv=L=QKQc7HtOi5ZNdao35m18PMr7ep+4sKv5iogVDLg@mail.gmail.com>
- <CANn89iJYCHqvCTvzommOL4RHtKLT5wyXMzpWKNfrBFTgs4kNAw@mail.gmail.com>
- <CANn89iLnmKaa30tPoyK_GrJr-_ALYBwjcJ0pBcvmckA9PAvrgA@mail.gmail.com> <CAKwvOd=shEiDQZxZPyUCC=CJLrzmP5FHr04cE-KVN_-6+qz1jQ@mail.gmail.com>
-In-Reply-To: <CAKwvOd=shEiDQZxZPyUCC=CJLrzmP5FHr04cE-KVN_-6+qz1jQ@mail.gmail.com>
-From: "'Eric Dumazet' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 15 Jun 2020 11:45:11 -0700
-Message-ID: <CANn89i+sQTXxvMOujdCO_dUb06AXPns8EcLN6OjnccwaFm+M3A@mail.gmail.com>
-Subject: Re: net/sched/sch_fq.c:966:12: warning: stack frame size of 1400
- bytes in function 'fq_dump'
+        Mon, 15 Jun 2020 11:47:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1044 as permitted sender) client-ip=2607:f8b0:4864:20::1044;
+Received: by mail-pj1-x1044.google.com with SMTP id ne5so208373pjb.5
+        for <clang-built-linux@googlegroups.com>; Mon, 15 Jun 2020 11:47:24 -0700 (PDT)
+X-Received: by 2002:a17:90a:ea05:: with SMTP id w5mr672654pjy.37.1592246843289;
+        Mon, 15 Jun 2020 11:47:23 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+        by smtp.gmail.com with ESMTPSA id x77sm14582163pfc.4.2020.06.15.11.47.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Jun 2020 11:47:22 -0700 (PDT)
+Date: Mon, 15 Jun 2020 11:47:21 -0700
+From: Kees Cook <keescook@chromium.org>
 To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>
+Cc: Sami Tolvanen <samitolvanen@google.com>,
+	James Morris <jamorris@linux.microsoft.com>,
+	David Howells <dhowells@redhat.com>,
+	"Eric W. Biederman" <ebiederm@xmission.com>,
+	KP Singh <kpsingh@google.com>,
+	Casey Schaufler <casey@schaufler-ca.com>,
+	Thomas Cedeno <thomascedeno@google.com>,
+	Anders Roxell <anders.roxell@linaro.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH] security: fix the key_permission LSM hook function type
+Message-ID: <202006151144.C9E5EA2C76@keescook>
+References: <20200615181232.119491-1-samitolvanen@google.com>
+ <202006151113.7A2F638A7@keescook>
+ <CAKwvOdkdy10K+6Jw=Sd4PxrvQgc=HssoJqJN9q8NVWkWiuZtRQ@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: edumazet@google.com
+Content-Disposition: inline
+In-Reply-To: <CAKwvOdkdy10K+6Jw=Sd4PxrvQgc=HssoJqJN9q8NVWkWiuZtRQ@mail.gmail.com>
+X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="bXk/Ld0B";       spf=pass
- (google.com: domain of edumazet@google.com designates 2607:f8b0:4864:20::b41
- as permitted sender) smtp.mailfrom=edumazet@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Eric Dumazet <edumazet@google.com>
-Reply-To: Eric Dumazet <edumazet@google.com>
+ header.i=@chromium.org header.s=google header.b=gdHCBuPr;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1044
+ as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,193 +144,50 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jun 15, 2020 at 11:07 AM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> On Mon, Jun 15, 2020 at 10:59 AM 'Eric Dumazet' via Clang Built Linux
-> <clang-built-linux@googlegroups.com> wrote:
+On Mon, Jun 15, 2020 at 11:23:44AM -0700, Nick Desaulniers wrote:
+> On Mon, Jun 15, 2020 at 11:21 AM Kees Cook <keescook@chromium.org> wrote:
 > >
-> > On Mon, Jun 15, 2020 at 10:54 AM Eric Dumazet <edumazet@google.com> wrote:
+> > On Mon, Jun 15, 2020 at 11:12:32AM -0700, Sami Tolvanen wrote:
+> > > Commit 8c0637e950d6 ("keys: Make the KEY_NEED_* perms an enum rather than
+> > > a mask") changed the type of the key_permission callback functions, but
+> > > didn't change the type of the hook, which trips indirect call checking with
+> > > Control-Flow Integrity (CFI). This change fixes the issue by changing the
+> > > hook type to match the functions.
 > > >
-> > > On Mon, Jun 15, 2020 at 10:44 AM Nick Desaulniers
-> > > <ndesaulniers@google.com> wrote:
-> > > >
-> > > > On Mon, Jun 15, 2020 at 9:17 AM 'Eric Dumazet' via Clang Built Linux
-> > > > <clang-built-linux@googlegroups.com> wrote:
-> > > > >
-> > > > > On Sun, Jun 14, 2020 at 11:26 PM kernel test robot <lkp@intel.com> wrote:
-> > > > > >
-> > > > > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> > > > > > head:   96144c58abe7ff767e754b5b80995f7b8846d49b
-> > > > > > commit: 39d010504e6b4485d7ceee167743620dd33f4417 net_sched: sch_fq: add horizon attribute
-> > > > > > date:   6 weeks ago
-> > > > > > :::::: branch date: 3 hours ago
-> > > > > > :::::: commit date: 6 weeks ago
-> > > > > > config: arm-randconfig-r006-20200614 (attached as .config)
-> > > > > > compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project c669a1ed6386d57a75a602b53266466dae1e1d84)
-> > > > > > reproduce (this is a W=1 build):
-> > > > > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> > > > > >         chmod +x ~/bin/make.cross
-> > > > > >         # install arm cross compiling tool for clang build
-> > > > > >         # apt-get install binutils-arm-linux-gnueabi
-> > > > > >         git checkout 39d010504e6b4485d7ceee167743620dd33f4417
-> > > > > >         # save the attached .config to linux build tree
-> > > > > >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm
-> > > > > >
-> > > > > > If you fix the issue, kindly add following tag as appropriate
-> > > > > > Reported-by: kernel test robot <lkp@intel.com>
-> > > > > >
-> > > > > > All warnings (new ones prefixed by >>, old ones prefixed by <<):
-> > > > > >
-> > > > > > >> net/sched/sch_fq.c:966:12: warning: stack frame size of 1400 bytes in function 'fq_dump' [-Wframe-larger-than=]
-> > > > > > static int fq_dump(struct Qdisc *sch, struct sk_buff *skb)
-> > > > > > ^
-> > > > >
-> > > > >
-> > > > > This looks like a bug in CLANG on ARM, there is no way fq_dump() could
-> > > > > consume so much stack space.
-> > > >
-> > > > You can use
-> > > > https://github.com/ClangBuiltLinux/frame-larger-than
-> > > > to help debug these.  You might be surprised who's doing larger stack
-> > > > allocations than expected.
-> > >
-> > > What is wrong with scripts/checkstack.pl  ?
+> > > Fixes: 8c0637e950d6 ("keys: Make the KEY_NEED_* perms an enum rather than a mask")
+> > > Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
 > >
-> > After using CLANG on x86 I get :
+> > Thanks for fixing this!
 > >
-> > $ objdump -d net/sched/sch_fq.o | scripts/checkstack.pl
-> > 0x00001136 fq_change [sch_fq.o]: 192
-> > 0x00000016 __direct_call_Qdisc_enqueue1 [sch_fq.o]: 112
-> > 0x000019e0 fq_dump_stats [sch_fq.o]: 112
-> > 0x00001b43 fq_dump_stats [sch_fq.o]: 112
+> > Acked-by: Kees Cook <keescook@chromium.org>
 > >
-> > So CLANG on x86 seems fine.
+> > I wonder if there is any compiler option we can turn on to catch the
+> > implicit enum/int casting that would help for these kinds of things
+> > without absolutely exploding the build warnings.
 > >
-> > I said : " this looks like a bug in CLANG on ARM"
->
-> This is a randconfig, so some option is turning on something that's
-> causing excessive stack usage with your patch on ARM.  Building who
-> knows what config with x86 and claiming it works doesn't really cut
-> it.  You looked at fq_dump and claimed it should be fine.  Did you
-> verify each called function that was inlined?
-
-Nick, my patch added exactly _one_ u64 variable in the stack.
-That's a whooping  8 bytes, right ?
-
-We should be able to use as many nla_put_u32() calls in a function,
-without changing stack sizes.
-
-If CLANG can not do that, then this is a CLANG problem, I have no
-intention of fixing it,
-I hope this is very clear ;)
-
->
->
-> And the issue with checkstack is it tells you the depth, but not *what
-> variables* and from which inlined function may be the cause.
-
-
-OK. Thank you.
-
-
->
->
+> > I see -Wenum-conversion, but that seems to be between enums, not between
+> > int.
 > >
-> >
-> >
-> > >
-> > > >
-> > > > >
-> > > > >
-> > > > >
-> > > > > > 1 warning generated.
-> > > > > >
-> > > > > > # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=39d010504e6b4485d7ceee167743620dd33f4417
-> > > > > > git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-> > > > > > git remote update linus
-> > > > > > git checkout 39d010504e6b4485d7ceee167743620dd33f4417
-> > > > > > vim +/fq_dump +966 net/sched/sch_fq.c
-> > > > > >
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29   965
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29  @966  static int fq_dump(struct Qdisc *sch, struct sk_buff *skb)
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29   967  {
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29   968          struct fq_sched_data *q = qdisc_priv(sch);
-> > > > > > 48872c11b77271 Eric Dumazet   2018-11-11   969          u64 ce_threshold = q->ce_threshold;
-> > > > > > 39d010504e6b44 Eric Dumazet   2020-05-01   970          u64 horizon = q->horizon;
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29   971          struct nlattr *opts;
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29   972
-> > > > > > ae0be8de9a53cd Michal Kubecek 2019-04-26   973          opts = nla_nest_start_noflag(skb, TCA_OPTIONS);
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29   974          if (opts == NULL)
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29   975                  goto nla_put_failure;
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29   976
-> > > > > > 65c5189a2b57b9 Eric Dumazet   2013-11-15   977          /* TCA_FQ_FLOW_DEFAULT_RATE is not used anymore */
-> > > > > > 65c5189a2b57b9 Eric Dumazet   2013-11-15   978
-> > > > > > 48872c11b77271 Eric Dumazet   2018-11-11   979          do_div(ce_threshold, NSEC_PER_USEC);
-> > > > > > 39d010504e6b44 Eric Dumazet   2020-05-01   980          do_div(horizon, NSEC_PER_USEC);
-> > > > > > 48872c11b77271 Eric Dumazet   2018-11-11   981
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29   982          if (nla_put_u32(skb, TCA_FQ_PLIMIT, sch->limit) ||
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29   983              nla_put_u32(skb, TCA_FQ_FLOW_PLIMIT, q->flow_plimit) ||
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29   984              nla_put_u32(skb, TCA_FQ_QUANTUM, q->quantum) ||
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29   985              nla_put_u32(skb, TCA_FQ_INITIAL_QUANTUM, q->initial_quantum) ||
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29   986              nla_put_u32(skb, TCA_FQ_RATE_ENABLE, q->rate_enable) ||
-> > > > > > 76a9ebe811fb3d Eric Dumazet   2018-10-15   987              nla_put_u32(skb, TCA_FQ_FLOW_MAX_RATE,
-> > > > > > 76a9ebe811fb3d Eric Dumazet   2018-10-15   988                          min_t(unsigned long, q->flow_max_rate, ~0U)) ||
-> > > > > > f52ed89971adbe Eric Dumazet   2013-11-15   989              nla_put_u32(skb, TCA_FQ_FLOW_REFILL_DELAY,
-> > > > > > f52ed89971adbe Eric Dumazet   2013-11-15   990                          jiffies_to_usecs(q->flow_refill_delay)) ||
-> > > > > > 06eb395fa9856b Eric Dumazet   2015-02-04   991              nla_put_u32(skb, TCA_FQ_ORPHAN_MASK, q->orphan_mask) ||
-> > > > > > 77879147a3481b Eric Dumazet   2016-09-19   992              nla_put_u32(skb, TCA_FQ_LOW_RATE_THRESHOLD,
-> > > > > > 77879147a3481b Eric Dumazet   2016-09-19   993                          q->low_rate_threshold) ||
-> > > > > > 48872c11b77271 Eric Dumazet   2018-11-11   994              nla_put_u32(skb, TCA_FQ_CE_THRESHOLD, (u32)ce_threshold) ||
-> > > > > > 583396f4ca4d6e Eric Dumazet   2020-03-16   995              nla_put_u32(skb, TCA_FQ_BUCKETS_LOG, q->fq_trees_log) ||
-> > > > > > 39d010504e6b44 Eric Dumazet   2020-05-01   996              nla_put_u32(skb, TCA_FQ_TIMER_SLACK, q->timer_slack) ||
-> > > > > > 39d010504e6b44 Eric Dumazet   2020-05-01   997              nla_put_u32(skb, TCA_FQ_HORIZON, (u32)horizon) ||
-> > > > > > 39d010504e6b44 Eric Dumazet   2020-05-01   998              nla_put_u8(skb, TCA_FQ_HORIZON_DROP, q->horizon_drop))
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29   999                  goto nla_put_failure;
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29  1000
-> > > > > > d59b7d8059ddc4 Yang Yingliang 2014-03-12  1001          return nla_nest_end(skb, opts);
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29  1002
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29  1003  nla_put_failure:
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29  1004          return -1;
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29  1005  }
-> > > > > > afe4fd062416b1 Eric Dumazet   2013-08-29  1006
-> > > > > >
-> > > > > > :::::: The code at line 966 was first introduced by commit
-> > > > > > :::::: afe4fd062416b158a8a8538b23adc1930a9b88dc pkt_sched: fq: Fair Queue packet scheduler
-> > > > > >
-> > > > > > :::::: TO: Eric Dumazet <edumazet@google.com>
-> > > > > > :::::: CC: David S. Miller <davem@davemloft.net>
-> > > > > >
-> > > > > > ---
-> > > > > > 0-DAY CI Kernel Test Service, Intel Corporation
-> > > > > > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> > > > > > _______________________________________________
-> > > > > > kbuild mailing list -- kbuild@lists.01.org
-> > > > > > To unsubscribe send an email to kbuild-leave@lists.01.org
-> > > > >
-> > > > > --
-> > > > > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> > > > > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> > > > > To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANn89i%2Bs%3DoFTq6KFhT0z1CReQPZCGoEPShEFHVvXAmC9sUDH7g%40mail.gmail.com.
-> > > >
-> > > >
-> > > >
-> > > > --
-> > > > Thanks,
-> > > > ~Nick Desaulniers
-> >
-> > --
-> > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> > To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANn89iLnmKaa30tPoyK_GrJr-_ALYBwjcJ0pBcvmckA9PAvrgA%40mail.gmail.com.
->
->
->
-> --
-> Thanks,
-> ~Nick Desaulniers
+> > I see this, but it's external:
+> > https://noamlewis.wordpress.com/2017/10/05/type-safe-enums-in-c-using-a-clang-plugin/
+> 
+> Unfortunately, using a looser integral type is the typical workaround
+> for -Wenum-conversion warnings (which is on by default, GCC recently
+> added that flag, too).  For warning on enum to int, the kernel would
+> probably blow up with warnings. I don't know of any such existing
+> warning flag.
+
+Yeah, I couldn't find anything either. The closest I could find to avoid
+one of the common classes of enum -> int conversion is the bitwise
+operations, which is covered by __attribute__((flag_enum)):
+https://clang.llvm.org/docs/AttributeReference.html#flag-enum
+
+Ah well. We'll let CFI find them. ;)
+
+-- 
+Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANn89i%2BsQTXxvMOujdCO_dUb06AXPns8EcLN6OjnccwaFm%2BM3A%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202006151144.C9E5EA2C76%40keescook.
