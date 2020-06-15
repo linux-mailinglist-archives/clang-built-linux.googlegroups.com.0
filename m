@@ -1,146 +1,142 @@
-Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBYVDT33QKGQEHMHUESI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDF5JWWZ6YKRBZNGT33QKGQEPSCKUQA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13a.google.com (mail-il1-x13a.google.com [IPv6:2607:f8b0:4864:20::13a])
-	by mail.lfdr.de (Postfix) with ESMTPS id C652D1F9BD3
-	for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jun 2020 17:21:07 +0200 (CEST)
-Received: by mail-il1-x13a.google.com with SMTP id s4sf12319929ilc.7
-        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jun 2020 08:21:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1592234466; cv=pass;
+Received: from mail-il1-x13f.google.com (mail-il1-x13f.google.com [IPv6:2607:f8b0:4864:20::13f])
+	by mail.lfdr.de (Postfix) with ESMTPS id D8BB41F9BF5
+	for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jun 2020 17:27:34 +0200 (CEST)
+Received: by mail-il1-x13f.google.com with SMTP id v14sf12306520ilo.19
+        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jun 2020 08:27:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1592234854; cv=pass;
         d=google.com; s=arc-20160816;
-        b=tRX7ObmkTEgpke+35n21QhBCMWPn58EuWKp3YYh27km5BtX5jFFInOpgwMOiDE/hzU
-         H4XgCbytz+EUQWYH+Z/lqAHsD/50XtAxlKS1Nd+Mr7QhRSl0+cC2WtxFTXjsVE0HRX+Y
-         5zOgeOreQCm0gmb7H/xeJoHRuVo73v5WKuF9uTuy7QKIn+ikWoVxSrju55jzJCxR8hBa
-         Mj2Dfa50uNUx0Qd2Pzi96UjpoKDmzKiMnx9bXGeePtgVbomlTikO5/I6HtjVe2SfBnUh
-         PP5k61KVZAT5SD86gTB84IjCMdZcWjAZ+1wdHwkvghbHmgwFfzjGujVekLKPbKXiToSe
-         oQ+Q==
+        b=X+nSiTLLkLJynCLiNDrAFg4oU8GSrLCpl1i+nSXMbMFoNZGPc6OGEsEvtdvLx51yqI
+         m0fnMV9nMUf3sva3aN/ZDZ3FQqMmREaAV5KmEC5TWMTRrolnztW7L/1oIIFfe6mneHAG
+         CatPN3Rgj9yUoK4VnuPs8HdxZ2cf+SS9xmSri8FbJb50gb1nacEhZ0/N0XsJItHCEExK
+         KuyRyfA3JWKC3+mAVAhB7LVR0TA4ygK54t1gvASoUGx8hvN9X995f/jX+d/HBkIHUDEK
+         elx6Xpc9DIApzZBVwFMHvLZvh/of5yiC837sBF+VfhBLW8iMhhOdF2ZVilGKy+Hkpkal
+         hSXg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=rl98/nL7DzL79gJ5QVInfsdfGF/Dc4GdWurcabq1fvI=;
-        b=Wn6Dyq40/p1XEWF1ZvQ8bjdPdY+zr+CEwXuxlBnDt7/rW698gm3N5KJeet/Q3DORru
-         n31wjast33h3104PW9GlTdT5x58M5poCsHVYnUTWY4bd3d4THGCciW8VPP6r//1nCmL/
-         1pGYll3WfKeTrxrE02x7QiLJ5VtsFj4GbudlUEh1Tm6irWBbZPJPdRGpwUrg6ZjaN8VH
-         L+PFS1zduHS1av4stA+m7i94ozT2TXFRHgHPuF0hgmK60Gg4EXKWUqXHoJtrY2ZmE0qH
-         1CA9sYQIPNhRhuKQOFtFs+ogrifAPeaCVqmUl6jZi/XwhNaoVmpZhMOY7xVupTj7Zx/v
-         xung==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature:dkim-signature;
+        bh=UGXNB9QW0OiHnXYJ1+6Ac/POY9HAD9aJfokP23KtTZc=;
+        b=ku7tLr7KFOzDYznZXVT1nWEqpY6YViK55WNXs09wIztPtAHAUgkl9opLhAN54WEjq8
+         HIj/q8HVOJPGeSpmhbi9TEdS/z/0hSh9rl73jb+tH6xa2G0treaE0De68+zUm7wzZF5M
+         rAzkhmYvlO5gaZ59eJoYZAD1RlQrSI5e3UZUC1RE3XTgKsPVFEz7RPAnjJy8cgmMqRUE
+         rS2gN5LVAhNxhhStk1FEwVv0BUzhOIE6tzKExy93ecyQJDUSCbcRPV5OLvAk+jorB1sf
+         rihTHQyA22F5rpU1zt5A/j9iDCLeQhH3TbVm54zwbghSFuv8iM+MI3E4kOHcEhjKQDZk
+         g0aw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=H52QNX2j;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=RSrzRSdV;
+       spf=pass (google.com: domain of zhengdejin5@gmail.com designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=zhengdejin5@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=rl98/nL7DzL79gJ5QVInfsdfGF/Dc4GdWurcabq1fvI=;
-        b=mXRB5wqcQYjYm79pYqWc4vnOYhPyptS9xaaV2cSJa9/wa7jaYbZXSbdAk3rYAhYLVk
-         jpAOvH1LzJCW6aw7jnBqJTlZ3h//jV1vux1mvbqzul6tdvCy9lEQDULVzrW71Bs6VVOZ
-         AIol4OTOirTcmhWlSyz2ORqyELhJSRA6JtU0pfxtViPfxnvtWOu2k3OJX9y5txmTQWF1
-         kvKHNraOWLcy8Avq9OenHHAeMBY+gb5UQcIhtx9auk+MYeGU1yk61IS5v0DU9ItUByZA
-         X2EjsmOxbVlsjHAdKajCZXbsmHqQvZCxpp5YPDIKJYf/4YS0CF8moNwNhgQjCr4O77Kn
-         CvNg==
+        bh=UGXNB9QW0OiHnXYJ1+6Ac/POY9HAD9aJfokP23KtTZc=;
+        b=BxBlpXqQJFYuUuMy8xlKHfWVUTnnJhWlQI/U7kQqCqa7JXGDN6q6kdvCV8mxZ+hrV5
+         WzdOTzl4Okp2/0mRvKUd/AftALWUVjudAt8JKfmC7UygLuYtw44Ny8PUTyiFntTkmlU4
+         KfxbdBPAEtYPGbHtk9qu326yqNpEqo7X6W91HJXpsCebVrHfcOIq1VK9cCTpg3jk9/yj
+         Sg1pv8/fe6ZzfgJNuY3xyDzeR/mW9FVMMM1+6qSbYWA+oMhA/5a/xLZkKAV2cHkeLGwW
+         yjmoKXTCF5G5YS0VaT0JCXVh/8Mtx5Fv603dHknG4YL1CXD9NjSmJO1V0EgFbOGklrKD
+         CU+A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=UGXNB9QW0OiHnXYJ1+6Ac/POY9HAD9aJfokP23KtTZc=;
+        b=MpRvsXY6nKroAyuY1wgKCj13vOldJyoq4VsxrQwvnByEteFX8GuY3ROX36w0hKWgr+
+         aTb9PWIFK+ZTsWrSvmzrvjmNBGJio3o3De7Yf6zuT21wUF3mW+91r6wdZPz+UwpVUCpD
+         YBI1MGhKDx8ZALp5GeUiWUuIZboxPUNhsfcTQdRJF3uk54V/xlBtQJfwrKnmgvE5c2Hp
+         xd9ZvU7z7gSTjxD64Mtc523vzQAybBQvyIhZhgNjJzC9I+xftQqMM2iw4qFlIl1oCu14
+         bzV2SOp7kXrdFGcjfkmuVj++TDm82AEJXRyb1eq1cb68SsDjmsHFRHaqM3pizOkanvO4
+         4mSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+         :references:mime-version:content-disposition:in-reply-to:user-agent
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=rl98/nL7DzL79gJ5QVInfsdfGF/Dc4GdWurcabq1fvI=;
-        b=WffK2zbT4IlAYq11YY6Ap/DFtJGsdBforOxcEvO+CB168I7r0J49wkFhRWH++BP71O
-         OyMkMPyXGLZzXLJSkzeK1P+NlYSq7XyW9ipfdsEzHYZ7urn2stG19BRMQVfBcGocsnre
-         WlaVLJEj03If0ulGSZ/OgARnwcgGk7jVSPFd/jz1JVsnHEh4TF/pyx3oyDWoHTOf0UDN
-         JEta+Br3FLifKdzef/U43fTEXA4vT4lZrYPFfZH8Um7HcttqgdPfiThfS5B5PE6CRXwV
-         s5mXkQL3ca2+dFQCGCZb7O4O2PPylZdDPOCb9uik+lq1s34ck0ownmWeMVHrr4jeWrSe
-         KG6g==
+        bh=UGXNB9QW0OiHnXYJ1+6Ac/POY9HAD9aJfokP23KtTZc=;
+        b=fqjC2etfy0UFlRkr7h4UHq+RmfziIavv6L2iTMFJiW5wzcP4Op52yWV4+JvHgscpwk
+         TXBQvEHOYCJ/o9V6fX0olbZ7JORyrCkdYXFHe0SfX6JZtodOgGpD08+aJrzZVLn0GsFb
+         ys5HaPjg8JnCH9OEuYzeuNtK3t9kEFfZ4U0adUffA/yLUyyy4oTHFjatZM3OWKrkNY+/
+         raAfWoqeMKiHClbgQ1wK21wy7Mk2RVr/5bpzwiF8S/yXuAco21i0PFPm4pmLaQ5DSbPi
+         Hmi8CUBnQ2U8pTPGcahul6SbRmDc5hLKrUUsiQRouBW1KcIbM/EI2d/6ojL/eJYVaDRT
+         vzlA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533qUsBxhGdOpHYiQaLmYuEMGMNtl9f03wCgGtDsVi3lMbwrgtxn
-	s5URBgBHJVCv+PCdJfNkCVI=
-X-Google-Smtp-Source: ABdhPJwjSm8rboDQOFAcV6Ok0RURBACA8LF93TqZMk1HNBMmZ8Dz7ezXMfFpNYuB7qQC/nKaMKYxKw==
-X-Received: by 2002:a6b:3e86:: with SMTP id l128mr26628353ioa.95.1592234466678;
-        Mon, 15 Jun 2020 08:21:06 -0700 (PDT)
+X-Gm-Message-State: AOAM5325QrtifmOg9BU76o2UUFUIkekr4pGPcnE9CkDBPDgnJzq4fYWU
+	rxYblXBnxrjYjW1Boxx+sIQ=
+X-Google-Smtp-Source: ABdhPJwMZkgP7sgWjHhm/KsjEJX18JVTkS0lK7vRS6/T0WeFun5VnyZVk3kuSIaX/FmmCbSWX7UI8A==
+X-Received: by 2002:a05:6638:112c:: with SMTP id f12mr21560023jar.98.1592234853767;
+        Mon, 15 Jun 2020 08:27:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6602:2106:: with SMTP id x6ls2687790iox.8.gmail; Mon, 15
- Jun 2020 08:21:06 -0700 (PDT)
-X-Received: by 2002:a6b:1487:: with SMTP id 129mr28340399iou.197.1592234466275;
-        Mon, 15 Jun 2020 08:21:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1592234466; cv=none;
+Received: by 2002:a05:6602:1584:: with SMTP id e4ls2627293iow.0.gmail; Mon, 15
+ Jun 2020 08:27:33 -0700 (PDT)
+X-Received: by 2002:a5d:9a81:: with SMTP id c1mr28127867iom.35.1592234853475;
+        Mon, 15 Jun 2020 08:27:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592234853; cv=none;
         d=google.com; s=arc-20160816;
-        b=JVsmdlGFYQQO47LJ1IC6q7pehC4tgYJzoVCUkGsQZoRoPZhHwHeJkoCytRIpAgTmkT
-         TUMuqvxbjvI6e2coBUknGGk67OksOg1UaFpBNzKNekgkFyL7sqCZ0sy5tiFKY/Orz68Q
-         uwXJyAO7uI9Ant/OxSngK5kRI28AoqF3su+HGpVkQGRBC/NtoWoZwOksfuHHWVRB+/uy
-         HRDNZfqTKV7axLXcjtf3IJd5PE17GxkjBi5hx2Hzo6yCGoaLi++A3bRzaHHDyNnt4aaJ
-         BHw3J65myJBoWR0O/FezxCovnmAe9sUDPSME8bMtKQF+JoMLGHQa0Bi0QIsUqrrI/i6I
-         UEVw==
+        b=uPIo5iLKikGwcMUF4+9xuNOwSsvnqyLgzne/aWF4ueUvsUloz84JFtpWk8Blrazz1k
+         i4WmZmL2TA70SbKGqVEtqR5uHGaJU3/pb7USY+c5kOYTkbCPYVIqUMa6ScKyRI4xYSw3
+         C7RU/GSWVSwkvIXZ47sJaYPVxjk2X/E+CjEk0D+VdNez/WWFQx4srj969mbJJKEAhMw4
+         vihAbOAwxdJjJBfZq4mK3HBM3x1fsIDLNYXZIJP3yhQQ0nxx3k//YLlXBON/+7Bmo6+B
+         Bq5zu87jJHW15D2ta5xHw3H40yLdCQGabp4M0dgd9OX3QA3HLODRejNkJNTLuJC2WrTJ
+         CpzQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=Udue+LwwMS7xIun8pCno4Qdzcnv4kfX0ri/1a/g6c/k=;
-        b=ek5R+jGXr/DrxOMdm0o1M/8HA9MjQCKWxzJjr1osW0su9RSlm+QFiYiftbCojvUKk5
-         bznMi8/+RJ+Tdw8i8YYzm4S2UNHDRAk05xWTLwYZefprBKe2BQHIqQ1/A+257gdupS5C
-         aqiagKgXMRrczb6tj1ix1gL64MjuD57f/OqdxhlzlCum0yNSj1GbHuB/DqAgX1NkpbYF
-         MzJroQVwXGogJav8B976btVJz9R83WUNEhqmC+YXF+NGmQt7F6Sk4HOkFhqqWUEpqj6a
-         CbX/k3dUZCekMA7a6pqXzrwI3ejKN4iGODwo/etdx+VLlK0soLlJCJehQm41T2gp8urf
-         o3zw==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=H0eZIb3dx86MseSJBS54PQAJPp88oPjLSYVP7aVWt7s=;
+        b=fUqlKOg2vBURCpA60CFRCEbT8tzacY4T+lMDWIy0Cy8u5Jxico69Z0l1Hr3S4YaBUN
+         FfvbvkPMDTqN8g80ajTfb2shz6jxvEKAr8RjRq3w/A3f47G0x9CmS07UicguNonOTFoE
+         EZ6QRmSRmDUSpI9/zmd/BvU2rXiR0dJIBu3SsEgi8T1n8/U008ueC2JJxZJwZVmnVuKz
+         jiZPSmznAql0DhyG1DVy3ThuUJq/t1dn0nlKAnyOGgt6Z/TwNduPqAHr9fVc6v8XePcB
+         6zNFcKX65D36A3SaLBlskgKaQx8P5A43fdT+SgerK/zBkVH3fVgz3D52hFrpZERja5bP
+         MGGA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=H52QNX2j;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
-Received: from bombadil.infradead.org (bombadil.infradead.org. [2607:7c80:54:e::133])
-        by gmr-mx.google.com with ESMTPS id i20si235761iow.2.2020.06.15.08.21.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jun 2020 08:21:06 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) client-ip=2607:7c80:54:e::133;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
-	by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jkquv-00053R-UE; Mon, 15 Jun 2020 15:20:58 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 4EC123003E1;
-	Mon, 15 Jun 2020 17:20:56 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 3535C203C3762; Mon, 15 Jun 2020 17:20:56 +0200 (CEST)
-Date: Mon, 15 Jun 2020 17:20:56 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Marco Elver <elver@google.com>
-Cc: Dmitry Vyukov <dvyukov@google.com>,
-	Andrey Konovalov <andreyknvl@google.com>,
-	Mark Rutland <mark.rutland@arm.com>, Borislav Petkov <bp@alien8.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Alexander Potapenko <glider@google.com>,
-	kasan-dev <kasan-dev@googlegroups.com>,
-	LKML <linux-kernel@vger.kernel.org>,
-	the arch/x86 maintainers <x86@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Josh Poimboeuf <jpoimboe@redhat.com>
-Subject: Re: [PATCH -tip v3 1/2] kcov: Make runtime functions
- noinstr-compatible
-Message-ID: <20200615152056.GF2554@hirez.programming.kicks-ass.net>
-References: <CACT4Y+Z+FFHFGSgEJGkd+zCBgUOck_odOf9_=5YQLNJQVMGNdw@mail.gmail.com>
- <20200608110108.GB2497@hirez.programming.kicks-ass.net>
- <20200611215538.GE4496@worktop.programming.kicks-ass.net>
- <CACT4Y+aKVKEp1yoBYSH0ebJxeqKj8TPR9MVtHC1Mh=jgX0ZvLw@mail.gmail.com>
- <20200612114900.GA187027@google.com>
- <CACT4Y+bBtCbEk2tg60gn5bgfBjARQFBgtqkQg8VnLLg5JwyL5g@mail.gmail.com>
- <CANpmjNM+Tcn40MsfFKvKxNTtev-TXDsosN+z9ATL8hVJdK1yug@mail.gmail.com>
- <20200615142949.GT2531@hirez.programming.kicks-ass.net>
- <20200615145336.GA220132@google.com>
- <20200615150327.GW2531@hirez.programming.kicks-ass.net>
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=RSrzRSdV;
+       spf=pass (google.com: domain of zhengdejin5@gmail.com designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=zhengdejin5@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-pf1-x442.google.com (mail-pf1-x442.google.com. [2607:f8b0:4864:20::442])
+        by gmr-mx.google.com with ESMTPS id b1si854099ilq.4.2020.06.15.08.27.33
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 15 Jun 2020 08:27:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of zhengdejin5@gmail.com designates 2607:f8b0:4864:20::442 as permitted sender) client-ip=2607:f8b0:4864:20::442;
+Received: by mail-pf1-x442.google.com with SMTP id 23so7944192pfw.10
+        for <clang-built-linux@googlegroups.com>; Mon, 15 Jun 2020 08:27:33 -0700 (PDT)
+X-Received: by 2002:a62:7610:: with SMTP id r16mr23328944pfc.70.1592234852837;
+        Mon, 15 Jun 2020 08:27:32 -0700 (PDT)
+Received: from localhost ([216.24.184.172])
+        by smtp.gmail.com with ESMTPSA id j123sm8454252pfd.160.2020.06.15.08.27.31
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Mon, 15 Jun 2020 08:27:32 -0700 (PDT)
+Date: Mon, 15 Jun 2020 23:27:27 +0800
+From: Dejin Zheng <zhengdejin5@gmail.com>
+To: kernel test robot <lkp@intel.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+	linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+Subject: Re: drivers/reset/reset-intel-gw.c:18:9: warning: 'REG_OFFSET' macro
+ redefined
+Message-ID: <20200615152727.GA11811@nuc8i5>
+References: <202006152207.BGQiLOS0%lkp@intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200615150327.GW2531@hirez.programming.kicks-ass.net>
-X-Original-Sender: peterz@infradead.org
+In-Reply-To: <202006152207.BGQiLOS0%lkp@intel.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Original-Sender: zhengdejin5@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=bombadil.20170209 header.b=H52QNX2j;
-       spf=pass (google.com: best guess record for domain of
- peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
+ header.i=@gmail.com header.s=20161025 header.b=RSrzRSdV;       spf=pass
+ (google.com: domain of zhengdejin5@gmail.com designates 2607:f8b0:4864:20::442
+ as permitted sender) smtp.mailfrom=zhengdejin5@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,47 +149,63 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jun 15, 2020 at 05:03:27PM +0200, Peter Zijlstra wrote:
+On Mon, Jun 15, 2020 at 10:33:12PM +0800, kernel test robot wrote:
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+> head:   b3a9e3b9622ae10064826dccb4f7a52bd88c7407
+> commit: e44ab4e14d6f4c448ae555132090c1a116b19e5c regmap: Simplify implementation of the regmap_read_poll_timeout() macro
+> date:   8 weeks ago
+> config: arm-randconfig-r022-20200615 (attached as .config)
+> compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 3d8149c2a1228609fd7d7c91a04681304a2f0ca9)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install arm cross compiling tool for clang build
+>         # apt-get install binutils-arm-linux-gnueabi
+>         git checkout e44ab4e14d6f4c448ae555132090c1a116b19e5c
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm 
+> 
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+>
+Hi
 
-> Yes, I think so. x86_64 needs lib/memcpy_64.S in .noinstr.text then. For
-> i386 it's an __always_inline inline-asm thing.
+I sent a patch to fix it, and now the patch is currently under review.
+https://lkml.org/lkml/2020/6/4/606
 
-Bah, I tried writing it without memcpy, but clang inserts memcpy anyway
-:/
+BR,
+Dejin
 
----
-diff --git a/arch/x86/kernel/traps.c b/arch/x86/kernel/traps.c
-index af75109485c26..d74fd6313a4ed 100644
---- a/arch/x86/kernel/traps.c
-+++ b/arch/x86/kernel/traps.c
-@@ -686,17 +686,17 @@ struct bad_iret_stack *fixup_bad_iret(struct bad_iret_stack *s)
- 	 * just below the IRET frame) and we want to pretend that the
- 	 * exception came from the IRET target.
- 	 */
--	struct bad_iret_stack tmp, *new_stack =
-+	struct bad_iret_stack tmp = *s, *new_stack =
- 		(struct bad_iret_stack *)__this_cpu_read(cpu_tss_rw.x86_tss.sp0) - 1;
-+	unsigned long *p = (unsigned long *)s->regs.sp;
- 
--	/* Copy the IRET target to the temporary storage. */
--	memcpy(&tmp.regs.ip, (void *)s->regs.sp, 5*8);
-+	tmp.regs.ip	= p[0];
-+	tmp.regs.cs	= p[1];
-+	tmp.regs.flags	= p[2];
-+	tmp.regs.sp	= p[3];
-+	tmp.regs.ss	= p[4];
- 
--	/* Copy the remainder of the stack from the current stack. */
--	memcpy(&tmp, s, offsetof(struct bad_iret_stack, regs.ip));
--
--	/* Update the entry stack */
--	memcpy(new_stack, &tmp, sizeof(tmp));
-+	*new_stack = tmp;
- 
- 	BUG_ON(!user_mode(&new_stack->regs));
- 	return new_stack;
+> All warnings (new ones prefixed by >>, old ones prefixed by <<):
+> 
+> >> drivers/reset/reset-intel-gw.c:18:9: warning: 'REG_OFFSET' macro redefined [-Wmacro-redefined]
+> #define REG_OFFSET      GENMASK(31, 16)
+> ^
+> arch/arm/mach-ixp4xx/include/mach/platform.h:25:9: note: previous definition is here
+> #define REG_OFFSET      3
+> ^
+> 1 warning generated.
+> 
+> vim +/REG_OFFSET +18 drivers/reset/reset-intel-gw.c
+> 
+> c9aef213e38cde Dilip Kota 2020-01-03  17  
+> c9aef213e38cde Dilip Kota 2020-01-03 @18  #define REG_OFFSET	GENMASK(31, 16)
+> c9aef213e38cde Dilip Kota 2020-01-03  19  #define BIT_OFFSET	GENMASK(15, 8)
+> c9aef213e38cde Dilip Kota 2020-01-03  20  #define STAT_BIT_OFFSET	GENMASK(7, 0)
+> c9aef213e38cde Dilip Kota 2020-01-03  21  
+> 
+> :::::: The code at line 18 was first introduced by commit
+> :::::: c9aef213e38cde27d4689a5cbe25a7c1b1db9fad reset: intel: Add system reset controller driver
+> 
+> :::::: TO: Dilip Kota <eswara.kota@linux.intel.com>
+> :::::: CC: Philipp Zabel <p.zabel@pengutronix.de>
+> 
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200615152056.GF2554%40hirez.programming.kicks-ass.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200615152727.GA11811%40nuc8i5.
