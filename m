@@ -1,262 +1,122 @@
-Return-Path: <clang-built-linux+bncBD3M5JPEVAFRBDVWUP3QKGQEQKMIOZI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBXPIUP3QKGQEDBCRYHA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13f.google.com (mail-il1-x13f.google.com [IPv6:2607:f8b0:4864:20::13f])
-	by mail.lfdr.de (Postfix) with ESMTPS id BEC711FB4CB
-	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Jun 2020 16:45:35 +0200 (CEST)
-Received: by mail-il1-x13f.google.com with SMTP id q14sf14613255ils.18
-        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Jun 2020 07:45:35 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1592318734; cv=pass;
+Received: from mail-qk1-x737.google.com (mail-qk1-x737.google.com [IPv6:2607:f8b0:4864:20::737])
+	by mail.lfdr.de (Postfix) with ESMTPS id D821B1FBBCE
+	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Jun 2020 18:33:34 +0200 (CEST)
+Received: by mail-qk1-x737.google.com with SMTP id g72sf17198316qke.18
+        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Jun 2020 09:33:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1592325213; cv=pass;
         d=google.com; s=arc-20160816;
-        b=MdZaLM4AbQaOClUwPYjjtZITMJlQM642XEisav9NORaPdKHCEqCr2VPrB61QCo7RkO
-         83h40LXeIImukdmT/CBzREl7Z8K3yOmptA6KLjEXbC5ai+roW+dMFYbeARdXfGlp/24V
-         PGTYh17UVz7cf5UCWBUu72zuA0jllRgUGTBWZo0/ba9lIXSaSZtu9sFpHXe29mEERP/Z
-         S6fCTdhOLxFtPVwG3irGUSI91Kcj4NL3DJg3Qs630T++JXovK4+GdblP8dEz4+mAumZq
-         02Xq67IINWl0H+bV+6JvJzgVPXbCh8YeXqqo7zM9LOCW9C8aaVFshGJU8AMMf5WV1UXL
-         I/mg==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=0ZZPyzS3ANK+Libv5P+zyCtrbxspN0/VWRE/lzOeV73q1Ae5ozCKaAgVoprYTxlmv9
+         JYXZCX2JajJAYujVYVtcNTwRNqrk5yNTF5YU1/4s+pRZrPMxnTlB/3yl8xWNyP+FWdCN
+         zvZcfBjTCaoqzrEjD+gFK4+F/Xh7zw7Xtf4BAAx43kYIzrcet9x1pj2VazHaU56VFO0S
+         Hn+6dXKA0OGT7QL7aRfx4yVeDaV9XdBpZk7g9kzGAIqVYJv4XVLVNp7FoYkttsWFhjw+
+         WNOHit349KaPehdRi4QQsqmZCmD466qqkIP92jKkHA/Mz3P731m9CWTzgwtk8n7vuM7j
+         K7sA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:autocrypt:from:references
-         :cc:to:subject:sender:dkim-signature;
-        bh=5tPTl1Cv9WDBGqycuGEc0ua7ea1HU+jr/GIoiQLijfk=;
-        b=Y8pFsakFI+jvnqJz5UEKGyn2D4KoibPoJ86rrE9QXvYeU+xnGZW/aeS0dpgn/kmueq
-         gTkMl4HkAKhrKrbUV6VNXuCf4ML7NWhJOb8v2yO3o1rqGbZjgfceBmI2voVG3G4i5+aR
-         xuj6cvQmlUG3uUSfz2l5VQilsvIHWHYcK8ivB0Gb65sFzfu1amPrZL+UoYMPql1kmb/c
-         TIT/2nsLbmvrtx8MMDm1MDLTh1KwBC3eWjYphD3DqPnhxT+NX4S3i7KEpv1yAqfFduiF
-         kYZD0l3O/W2ruYz0isvLFYwc4Jz/AO+pXb9jC6xRZ1Xwghq630a6NfwuOlrYI0HC/nsC
-         OQsw==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@xilinx.onmicrosoft.com header.s=selector2-xilinx-onmicrosoft-com header.b=ERZt4uRT;
-       arc=pass (i=1 spf=pass spfdomain=xilinx.com);
-       spf=pass (google.com: domain of michals@xilinx.com designates 40.107.237.45 as permitted sender) smtp.mailfrom=michals@xilinx.com
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=uIyDYFfLBIusqcVPXo3/Np/uGpHiU7alkG7NPHzvxjQ=;
+        b=qjO+jguMn6bYkOD2CUiXzQixNK8QN/ZUWbIMeY0osXJeqZT+aaUuO6PCLfLGhWvttj
+         ehrMRlDTFSlPlAGgGnguFB7OuIGNfJx58MyaIfS+rk5g4yyL52d7hgrsqerKTfNvMX7g
+         gHrzjZGbkIS1bbLa+cVL4mMG1EJb/GcjRsIvcm5zkxAm6s2u0ncP8AeM+yMA2r8+NY1E
+         u/G4O+uhS5T1d+NgryLgt8XSj+fQxCf4CgZ8IDCp1cm63hqXeGvD2Ix1KXApmPIXOYIt
+         8PbgRKq4GsyBlCbAVe99xXTWmNds6dR0eE3pG+iToWWi61lPRmijgnqN64czk+HGP/aM
+         xmGA==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="Wf/qCJxo";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42c as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:autocrypt:message-id:date
-         :user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5tPTl1Cv9WDBGqycuGEc0ua7ea1HU+jr/GIoiQLijfk=;
-        b=j9SSeg9tuwEK3Nvzlrwjc5JDRwxT6YIdDNoNjJLnpYdojb0348/0kSP54ptPcHn7bZ
-         BVcxscXg5q/xokN3RjrSE/E4BWlVWatgNnLOJ+14JyFgNyNNFp5Aic9kxBkJVPUcdfpK
-         fZh84zvANbDy9k5AmpGvivjIVqornvkDcvefFq46I7Q8DSRUB85+0vPHsIMPxNSjit7/
-         hTG8a+mlL5QG1/ANkbOq3YhWxrgCvpwWxTiJLbivvFzhxGCAVE27viXHk/mQjg2TLPRa
-         iAWSKeNfNnUxAIdZvyXeTdD6SznEJ3maaNB/g8zkrhBeSOrnHH7vr9PkBilNsWjiap8L
-         0R3A==
+        bh=uIyDYFfLBIusqcVPXo3/Np/uGpHiU7alkG7NPHzvxjQ=;
+        b=MgrAWkYkIpoosnYfiKbhV5SEcGy2DQRvc80eo4vQ1D9+nJNV3d6hk/YBA5IkLbgtNj
+         irIF96B4ZT+zpJkoq2uQmriWvBynBVbGt4jXnoDoIuxK4rG1siUfJyxCpC41ZBOn8I4O
+         GZ1k3gwMnxW1Cs0tD7WJuRV/Na46OFX+tWotpxfdWusKId9JAXDB7gu/X0MdsA1sFwUX
+         rrsL6z8IK1rjxnbgraDEVgJYh2H6llvquSGxlniH/pbuSOP82LUlccT6pFMHaWNTIadp
+         /yNWY+r1N2JqJepy+n3bwNO3zneNs3NWE7lxFp0goOC1U0zXgFNzqF3yQghSgsd3l43r
+         yj/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:autocrypt
-         :message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5tPTl1Cv9WDBGqycuGEc0ua7ea1HU+jr/GIoiQLijfk=;
-        b=XmMULEBy6Zq2t8UbvufYFemclB5vEdo3jW8eOHtB4sZCYSITEbH6bazCnIHCB+rhmT
-         g/7I/02mX1qujlcPQrUPuZF9rfR4i8Qw8Y0CmS8nKK0fgrbCvPcNBucdVs1eQPBwnovM
-         Y1eJ0mFXwIdTb84vEjH/P0ifZockZakEhFjYBElTH2ym8KqaXbQ7/3qFepPWutjisFkM
-         r/X67optdYgypgQArqwEmC0AAi0bJ269hIolvkgCAsxEmN3+jBVZUMnWErOuqKiBnFLf
-         UvsPR6AagCaFwk95Pmcyat0R2mFm4wsYlrb43v/CtzEtCl3m3wF37MJ11lIIPCg1Zo+M
-         BDYQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532Ut8SAriU7bDf/A6KUro6ZAjp59vt4MgM/ZlGo3GhUW4KvoALT
-	rw4Q2/E5+zsV0Xa6O4f5xuc=
-X-Google-Smtp-Source: ABdhPJxye8Ve1A0ewNdN2nqi5ta4QeSz7zYLzZj1ZWFhse1DcNvgGbr5QJZTFFaEEG4k4mHVYMbTaA==
-X-Received: by 2002:a92:7104:: with SMTP id m4mr3574607ilc.87.1592318734771;
-        Tue, 16 Jun 2020 07:45:34 -0700 (PDT)
+        bh=uIyDYFfLBIusqcVPXo3/Np/uGpHiU7alkG7NPHzvxjQ=;
+        b=M4Hj1SXCx7HlcSl0TALm0e3mjrXsX1tsS68h61LkaEwfuwtRnOhZqIlnKHmRA/JT9k
+         x3IjKG7W+cuTwwWP52dAd0eaWlSCdvb00LFPhOEqE8pVRsob26+b7XDXgDy1GkEogXYX
+         Pw2eYV3BMFpcN1dS7kGgyvtuuoqEh/bw6uhpvS58p8fS/xCarnvXle8J7zNDfuj9i2/R
+         Om//B24sEi66OB6xou5Xu9IoPQIGFM7l9VPmSKBbBb9mEx9eOkal6lAK5ENb7WToEy3K
+         j3c9esdUmkw/PKafXzh3h0db76kEIRlyNMZxbC4HaBB7hunyx7TceWnUT2xh41e5yJG2
+         LoyA==
+X-Gm-Message-State: AOAM530TPNETZbaL+Bc30oayNgtkbaua7qjT+lb6ViorAs/W6fJmNfQd
+	skwJ415f6OH2cgQUaYfw9EU=
+X-Google-Smtp-Source: ABdhPJycl/lnNmOYXc4wzvvIJ8CdHSVwzSJtTjB3ZhY5ODAJPPfhvKcavdt53LZwJmuN+8d+DG8XLg==
+X-Received: by 2002:a0c:f887:: with SMTP id u7mr3193061qvn.217.1592325213719;
+        Tue, 16 Jun 2020 09:33:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6602:2dc6:: with SMTP id l6ls3298940iow.4.gmail; Tue, 16
- Jun 2020 07:45:34 -0700 (PDT)
-X-Received: by 2002:a05:6602:491:: with SMTP id y17mr3421671iov.72.1592318734389;
-        Tue, 16 Jun 2020 07:45:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1592318734; cv=pass;
+Received: by 2002:aed:3f02:: with SMTP id p2ls6977706qtf.8.gmail; Tue, 16 Jun
+ 2020 09:33:33 -0700 (PDT)
+X-Received: by 2002:ac8:7182:: with SMTP id w2mr22324870qto.115.1592325213310;
+        Tue, 16 Jun 2020 09:33:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592325213; cv=none;
         d=google.com; s=arc-20160816;
-        b=jqdqTGYWA/6TnjqhtUfxyeWaxDSpntKOC9QTR7Bco/fFHik6mFlqSMVHA2NHlDD2hz
-         TV/ntAJ1YuCVmJD4tU5/LDHoSDlga8DqX+pGyWLolz5HiTSYUTD7GZqjO0jFKlPhdHf+
-         gPD9QEfjJhmMnu4Ai47Y9yH7orwI/tn8Xr0QHfM6L5Mi5EadHrMputrhDDM3FBhQSRy6
-         QtOB88SvgGqThLDsVZvFHa+A6hv5x9XSaluCy4JQTN6zAHj2CxHpNKOLYgWxOFQWjGhc
-         hsKpCy6AhAfCssAmVHTjDKJ5mhtcUy2eYnbHxCEAWCTN0Vts/Un6g7WkI281wTMjh/zG
-         HW1g==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:autocrypt:from:references:cc:to:subject
-         :dkim-signature;
-        bh=NYrsnbDZNDdGBgjs2xWWepP+KRBIhDw3zJrDd7hV2QQ=;
-        b=DriUy+FY6KaBCk6LlM9fGtVWuFIHkzXZqKqfXEgClfesenLkhIiGfj/UaWUpKVSETo
-         SVDXXAMvsrV6LSqo2Uesql4Ep/++jxIbtbsg87RIddPhcdzYL962COzsyJ+TDvWU9LZy
-         Sx2hCw8x/YQNEb0+XlQHCX5/3LfYqOtHGR/eggylhlL4d2Znh+RmZ+TBn28wNqv/JTwW
-         Ca2hDBbmtrM8LB8vp0JSIu7Xqo0LdI+qnYr3cchY1dOpAJ4MDZjhHh9xkWRTIILVJX6t
-         GVo+tw23tfrFuofPtswImcKyUlYZzfOy4Asn8O+x4oGKoRxk57TlpmcDWYBn/Xf1RIPa
-         vStQ==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@xilinx.onmicrosoft.com header.s=selector2-xilinx-onmicrosoft-com header.b=ERZt4uRT;
-       arc=pass (i=1 spf=pass spfdomain=xilinx.com);
-       spf=pass (google.com: domain of michals@xilinx.com designates 40.107.237.45 as permitted sender) smtp.mailfrom=michals@xilinx.com
-Received: from NAM12-BN8-obe.outbound.protection.outlook.com (mail-bn8nam12on2045.outbound.protection.outlook.com. [40.107.237.45])
-        by gmr-mx.google.com with ESMTPS id c7si738858ilf.2.2020.06.16.07.45.34
+        b=yuP8kkmoUO1YTEz4dFsnzxAJXLunGnYCs5s9wSuF9B7yvGkvV0v2C7G4Clj9uTbGZ7
+         sOKcPFt34UkxBJoGUngbFoufvwnxiKiqMdVppp3PcDVLWKkJGklROgqj/FnCOjIq8Jic
+         ErW+eclKid/IYYNQhoF602PnBlB1fvSGQfx828KNgAMW4Qz8Lf4un3HUmPnScp/j+KGl
+         jpW66Tnf/sfSxbA9j24PXjtz43gwphOC09AypJt6LktNtwENHIubPx9mm9UelTpZbwb7
+         TXH0Cav5Lr1IhcWH0yZtLQKeaz3fOHf9q9qTSmzeaa6uhp2fZcDqGKJ878h33+bZBu13
+         zqjA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=4RbD/EmKX2/juxAGhro8IRMsx1DrPYzX7CYgvJtw7aQ=;
+        b=yLrq1RSbN2bXFkpfEybqOWCAcO7BJUXJnqsYHZaqlNv9K4JrBtrbLL/16k6ITaPRc+
+         RGv0gqXGpgiUD3f05DCpx4XAGUPMlsuNGWAhTHOVUXVEhzOdajySYknAAlyEtCqCxYV/
+         B5TMzT8spg10BCOloX5v+UIXDDFbmMJ49hQq114w+z68HhWPsD15AWXPp8meUmRGQdMk
+         ChYO5mEzRI/QPZPqhKOVfgyxQeGs53vQDlOtUfKEQq+HpTEQxnZgp/YEXPe0a7PtuHJe
+         4KsSFxxH8vTqXK5oJ/l650bSo7lzy13DGjtqlAamNIG7mUSxAFoABnrSYmDIYCkEPe2z
+         XjHA==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="Wf/qCJxo";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42c as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pf1-x42c.google.com (mail-pf1-x42c.google.com. [2607:f8b0:4864:20::42c])
+        by gmr-mx.google.com with ESMTPS id z202si779917qka.6.2020.06.16.09.33.33
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 16 Jun 2020 07:45:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of michals@xilinx.com designates 40.107.237.45 as permitted sender) client-ip=40.107.237.45;
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=CLcuR5EB2OL7dyxosu655tuNn77aZ+3IWj3WZQUHuqA2H8XkJv+QPPuurcPzw3xO8oiz0ajAeccX/mXFZ5tozLIus+aA6bFM84BnfGZ74fJg/98GL9zuLj0XUWb3aFqC0796YP9IzqJBSsC6EA1DBM8wVtUCHgwODzPp5gtug/rO6a+bVmAcoNiKc59wOH1OaaEon1UsEb0xjvK9MzbYIk4L4MeDPnyjlhoox+m5/JJOUo9B2p2ntCgvHe3VnriUG8V2md6TO+CJlK6Pg/3nP1l/UsLk9CWu6O2vVa7+5A6qslW0dVAHRjUFOzgYKWF1YST6/chq7cAs2jRBrV5l1Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NYrsnbDZNDdGBgjs2xWWepP+KRBIhDw3zJrDd7hV2QQ=;
- b=k2HffWQ4ZK9lDKd31aagpMScR8ajQjv57crZw+9NBZ6LjqXYA+i+Uik9kThiTv2qmgSBrn9bHK/MFznS30Wm1uI3a+/28f8/CZE9ib10kBs9jPWIwcMAxbcB5lQfqHEQr2jf3+01PDRBlFaRC092GsHsC8f1dwLA60qpRXBcExSv9otbygSiY/pP3tLz/STrbgk9E4KhLqcHsNghFmrKx+2C0w6U/h4Cec8KSmh+jsWPo1USLICfr7MmjvGNLAFnULeZ3Vtx0IsoyjE2+1L1Alxiatncp2bjypLz/3SmfctrILCtvGW4IFHxll4ch2zkPKF66H2myz+gefU7Em6IJQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 149.199.60.83) smtp.rcpttodomain=gmail.com smtp.mailfrom=xilinx.com;
- dmarc=bestguesspass action=none header.from=xilinx.com; dkim=none (message
- not signed); arc=none
-Received: from MN2PR01CA0061.prod.exchangelabs.com (2603:10b6:208:23f::30) by
- BN6PR02MB3249.namprd02.prod.outlook.com (2603:10b6:405:64::13) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.3088.25; Tue, 16 Jun 2020 14:45:32 +0000
-Received: from BL2NAM02FT041.eop-nam02.prod.protection.outlook.com
- (2603:10b6:208:23f:cafe::e6) by MN2PR01CA0061.outlook.office365.com
- (2603:10b6:208:23f::30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3109.21 via Frontend
- Transport; Tue, 16 Jun 2020 14:45:32 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 149.199.60.83)
- smtp.mailfrom=xilinx.com; gmail.com; dkim=none (message not signed)
- header.d=none;gmail.com; dmarc=bestguesspass action=none
- header.from=xilinx.com;
-Received-SPF: Pass (protection.outlook.com: domain of xilinx.com designates
- 149.199.60.83 as permitted sender) receiver=protection.outlook.com;
- client-ip=149.199.60.83; helo=xsj-pvapsmtpgw01;
-Received: from xsj-pvapsmtpgw01 (149.199.60.83) by
- BL2NAM02FT041.mail.protection.outlook.com (10.152.77.122) with Microsoft SMTP
- Server id 15.20.3088.18 via Frontend Transport; Tue, 16 Jun 2020 14:45:32
- +0000
-Received: from [149.199.38.66] (port=34005 helo=xsj-pvapsmtp01)
-	by xsj-pvapsmtpgw01 with esmtp (Exim 4.90)
-	(envelope-from <michal.simek@xilinx.com>)
-	id 1jlCpA-0002fd-WF; Tue, 16 Jun 2020 07:44:29 -0700
-Received: from [127.0.0.1] (helo=localhost)
-	by xsj-pvapsmtp01 with smtp (Exim 4.63)
-	(envelope-from <michal.simek@xilinx.com>)
-	id 1jlCqC-0001L9-5A; Tue, 16 Jun 2020 07:45:32 -0700
-Received: from xsj-pvapsmtp01 (mailhub.xilinx.com [149.199.38.66])
-	by xsj-smtp-dlp2.xlnx.xilinx.com (8.13.8/8.13.1) with ESMTP id 05GEjNCm027530;
-	Tue, 16 Jun 2020 07:45:24 -0700
-Received: from [172.30.17.109]
-	by xsj-pvapsmtp01 with esmtp (Exim 4.63)
-	(envelope-from <michals@xilinx.com>)
-	id 1jlCq3-0001E7-FD; Tue, 16 Jun 2020 07:45:23 -0700
-Subject: Re: [PATCH v5 01/13] powerpc: Remove Xilinx PPC405/PPC440 support
-To: Nathan Chancellor <natechancellor@gmail.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-        Paul Mackerras <paulus@samba.org>,
-        Michael Ellerman <mpe@ellerman.id.au>, michal.simek@xilinx.com,
-        arnd@arndb.de, linuxppc-dev@lists.ozlabs.org,
-        linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-References: <cover.1590079968.git.christophe.leroy@csgroup.eu>
- <8c593895e2cb57d232d85ce4d8c3a1aa7f0869cc.1590079968.git.christophe.leroy@csgroup.eu>
- <20200616002720.GA1307277@ubuntu-n2-xlarge-x86>
-From: Michal Simek <michal.simek@xilinx.com>
-Autocrypt: addr=michals@xilinx.com; keydata=
- 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
- 0Z1MQlmNcq2bhOMzTxuXX2NDzUZs4aqEyZQ=
-Message-ID: <68503e5e-7456-b81c-e43d-27cb331a4b72@xilinx.com>
-Date: Tue, 16 Jun 2020 16:45:20 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.9.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 16 Jun 2020 09:33:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42c as permitted sender) client-ip=2607:f8b0:4864:20::42c;
+Received: by mail-pf1-x42c.google.com with SMTP id a127so9739903pfa.12
+        for <clang-built-linux@googlegroups.com>; Tue, 16 Jun 2020 09:33:33 -0700 (PDT)
+X-Received: by 2002:a63:5644:: with SMTP id g4mr2605983pgm.381.1592325212118;
+ Tue, 16 Jun 2020 09:33:32 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20200616002720.GA1307277@ubuntu-n2-xlarge-x86>
+References: <7ho8q77i1t.fsf@baylibre.com> <18306.1590738124792037023@groups.io>
+In-Reply-To: <18306.1590738124792037023@groups.io>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Tue, 16 Jun 2020 09:33:20 -0700
+Message-ID: <CAKwvOdnaoaZPLqcn6yiFEpEVx=HmpRe1ExhLZfzLhHs7e7Atww@mail.gmail.com>
+Subject: Re: kci_build proposal
+To: mathieu.acher@irisa.fr
+Cc: Kevin Hilman <khilman@baylibre.com>, kernelci@groups.io, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-RCIS-Action: ALLOW
-X-TM-AS-Product-Ver: IMSS-7.1.0.1224-8.2.0.1013-23620.005
-X-TM-AS-User-Approved-Sender: Yes;Yes
-X-EOPAttributedMessage: 0
-X-MS-Office365-Filtering-HT: Tenant
-X-Forefront-Antispam-Report: CIP:149.199.60.83;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:xsj-pvapsmtpgw01;PTR:unknown-60-83.xilinx.com;CAT:NONE;SFTY:;SFS:(136003)(346002)(376002)(39860400002)(396003)(46966005)(8936002)(356005)(26005)(2616005)(8676002)(31696002)(186003)(36756003)(31686004)(9786002)(44832011)(81166007)(82310400002)(478600001)(82740400003)(426003)(2906002)(5660300002)(47076004)(316002)(70586007)(70206006)(110136005)(54906003)(83380400001)(336012)(4326008)(43740500002);DIR:OUT;SFP:1101;
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: ddf18013-62d5-4563-dbb6-08d81203ebd6
-X-MS-TrafficTypeDiagnostic: BN6PR02MB3249:
-X-Microsoft-Antispam-PRVS: <BN6PR02MB324953E0D9B05FAAD0C37D76C69D0@BN6PR02MB3249.namprd02.prod.outlook.com>
-X-Auto-Response-Suppress: DR, RN, NRN, OOF, AutoReply
-X-MS-Oob-TLC-OOBClassifiers: OLM:2043;
-X-Forefront-PRVS: 04362AC73B
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 3/pw+YmyGQJWR1Bx8Hed0/lDCQHam4EHheiUBVDlNhVg59gaherbp3S2rKDUErpPUXSa58FbKzTWwLjBBTUQ9r86zNf+72JhEjTm/MQHIDIZpUfLD/1nKoil1cELGXwtYqVPP/hKX0a26EI9MnysUD0udjaRDU+b9BATmziYBaA7jRzbCb3g3grjIDn3c8wC8KT6i/eoH+p02DIy850iRIDY/0HRHKFp1cRjI9i0d4VrxDo5tjXMYyu9TMTtsaar5IMoD7TTe2OOPZteJG9hJHDalK1BXXH3nDAbTxozbVX4EzKWIZB4xvOb6KCrNqj0jy0+egw0vvAzFYd6vWDSNJPWbyM3oHjvU/Yhfhrhia7hitDy32nlzIJ+kVFvworvg5u7StK3U5tuvz9dj6Khpa72jFv3tOws3YmiD02HpGOf57ST64leU247FuXJBNTV
-X-OriginatorOrg: xilinx.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2020 14:45:32.3713
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ddf18013-62d5-4563-dbb6-08d81203ebd6
-X-MS-Exchange-CrossTenant-Id: 657af505-d5df-48d0-8300-c31994686c5c
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=657af505-d5df-48d0-8300-c31994686c5c;Ip=[149.199.60.83];Helo=[xsj-pvapsmtpgw01]
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN6PR02MB3249
-X-Original-Sender: michal.simek@xilinx.com
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@xilinx.onmicrosoft.com header.s=selector2-xilinx-onmicrosoft-com
- header.b=ERZt4uRT;       arc=pass (i=1 spf=pass spfdomain=xilinx.com);
-       spf=pass (google.com: domain of michals@xilinx.com designates
- 40.107.237.45 as permitted sender) smtp.mailfrom=michals@xilinx.com
+ header.i=@google.com header.s=20161025 header.b="Wf/qCJxo";       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42c
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -269,42 +129,77 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
++ clang-built-linux
+
+On Fri, May 29, 2020 at 12:42 AM Mathieu Acher <mathieu.acher@irisa.fr> wrote:
+>
+> Dear all,
+>
+> I'm glad to hear the ongoing effort about containerization (Docker + Python 3) of KernelCI.
+> I didn't know the existence of tuxbuild and I'm as curious as Kevin for having more details.
+>
+> As an academic, we have some use cases that can further motivate the use of a "cloud-based solution".
+> In 2017, we have developed TuxML (https://github.com/TuxML/ProjetIrma) which a solution with Docker and Python 3 for massively compiling kernel configurations.
+> The "ml" part stands for statistical learning. So far, we have collected 200K+ configurations with a distributed computing infrastructure (a kind of cloud).
+> Our focus is to explore the configuration space of the Linux kernel in the large; we fed several config files (mainly with randconfig and some pre-set options) and then perform some "tests" (in a broad sense).
+>
+> We have two major use cases:
+>  * bug-finding related to configurations: we are able to locate faulty (combinations of) options and even prevent/fix some failures at the Kconfig level (more details here: https://hal.inria.fr/hal-02147012)
+>  * size prediction of a configuration (without compiling it) and identificaton of options that influence size (more details here: https://hal.inria.fr/hal-02314830)
+
+Hi Mathieu,
+I'm focused on building the Linux kernel with Clang.  One of the
+issues we're running into is long tail bug reports from configs beyond
+defconfigs or the defconfigs from major Linux distros.  In particular,
+randconfig builds tend to dig up all kinds of issues for us.  It can
+also take time to differentiate whether this issue is
+toolchain-agnostic or specific to Clang.
+
+From your presentation
+https://static.sched.com/hosted_files/osseu19/ca/TuxML-OSS2019-v3.pdf
+the slides on classification trees have me curious.  I suppose if you
+had data from builds with GCC+Clang, you could help us spot what
+configs are still problematic just for Clang and not for GCC?  That
+kind of pattern analysis would be invaluable in trying to automate bug
+finding.  Already the configuration space is unfathomable, and adding
+yet another label (toolchain) doesn't help, but it is something that
+could have a quantifiable impact and really help.
+
+If it's something that you have capacity for, let's chat more?
+
+>
+> In both cases, we need an infrastructure capable of compiling *any* configuration of the kernel.
+> For measuring the size, we need to control all factors, like gcc version and so forth. Docker was helpful here to have a canonical environment.
+> One issue we found is to build the right Docker image: some configurations of the kernel require specific tools and anticipating all can be tricky, leading to some false-positive failures.
+> Have you encountered this situation?
+>
+> In general, my colleagues at University of Rennes 1/Inria and I are really interested to be part of this new effort through discussions or technical contributions.
+> We plan to modernize TuxML with KernelCI toolchain, especially if it's possible to deploy it on several distributed machines.
+>
+> Can I somehow participate in the next call? Mainly to learn and as a first step to contribute in this very nice project.
+>
+> Best,
+>
+> Mathieu Acher
+>
+>
+>
+> -=-=-=-=-=-=-=-=-=-=-=-
+> Groups.io Links: You receive all messages sent to this group.
+>
+> View/Reply Online (#767): https://groups.io/g/kernelci/message/767
+> Mute This Topic: https://groups.io/mt/73153442/1813933
+> Group Owner: kernelci+owner@groups.io
+> Unsubscribe: https://groups.io/g/kernelci/unsub  [ndesaulniers@google.com]
+> -=-=-=-=-=-=-=-=-=-=-=-
+>
 
 
-On 16. 06. 20 2:27, Nathan Chancellor wrote:
-> On Thu, May 21, 2020 at 04:55:52PM +0000, Christophe Leroy wrote:
->> From: Michal Simek <michal.simek@xilinx.com>
->>
->> The latest Xilinx design tools called ISE and EDK has been released in
->> October 2013. New tool doesn't support any PPC405/PPC440 new designs.
->> These platforms are no longer supported and tested.
->>
->> PowerPC 405/440 port is orphan from 2013 by
->> commit cdeb89943bfc ("MAINTAINERS: Fix incorrect status tag") and
->> commit 19624236cce1 ("MAINTAINERS: Update Grant's email address and maintainership")
->> that's why it is time to remove the support fot these platforms.
->>
->> Signed-off-by: Michal Simek <michal.simek@xilinx.com>
->> Acked-by: Arnd Bergmann <arnd@arndb.de>
->> Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-> 
-> This patch causes qemu-system-ppc to fail to load ppc44x_defconfig:
-> 
-> $ make -skj"$(nproc)" ARCH=powerpc CROSS_COMPILE=powerpc-linux- O=out/ppc distclean ppc44x_defconfig zImage
-> 
-> $ timeout --foreground 30s unbuffer \
-> qemu-system-ppc \
-> -machine bamboo \
-
-Did you bisect it that you found that this patch is causing problem for
-you on any bamboo machine?
-
-Or this was caused by the whole series?
-
+-- 
 Thanks,
-Michal
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/68503e5e-7456-b81c-e43d-27cb331a4b72%40xilinx.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnaoaZPLqcn6yiFEpEVx%3DHmpRe1ExhLZfzLhHs7e7Atww%40mail.gmail.com.
