@@ -1,133 +1,149 @@
-Return-Path: <clang-built-linux+bncBDAZZCVNSYPBBDMPUT3QKGQEYXZFC7A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCH6BRHDXYLRBCEWUT3QKGQERJEAOII@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103a.google.com (mail-pj1-x103a.google.com [IPv6:2607:f8b0:4864:20::103a])
-	by mail.lfdr.de (Postfix) with ESMTPS id C11491FBD5F
-	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Jun 2020 19:55:26 +0200 (CEST)
-Received: by mail-pj1-x103a.google.com with SMTP id ge4sf2782988pjb.7
-        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Jun 2020 10:55:26 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1592330125; cv=pass;
+Received: from mail-qv1-xf38.google.com (mail-qv1-xf38.google.com [IPv6:2607:f8b0:4864:20::f38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9C4DE1FBD99
+	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Jun 2020 20:10:17 +0200 (CEST)
+Received: by mail-qv1-xf38.google.com with SMTP id p18sf16149243qvy.11
+        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Jun 2020 11:10:17 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1592331016; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mR84fXgdJCPleR8BQeU33Zq3tb5EL1w8JDktA7A+E7g/+/Diu/TRjmWoXgcIihru/i
-         M5rdRuZPiIBxl4wsxr+WQ1CEo9cA2gn2yo8GtrOHPz5rwVI3WY/7oi6E1YxBtLIFG/ah
-         50dzjKjgnkmhjNgFjyPRWmS3RjtxGCuIaIT2HpMslO8dvCQOjJ0CNKbB9VbAi9zpFvqC
-         xdHf9WcQuW/vY8eN2gGgX4EIlo4/krZWfypWgfmEhR8vcoPJfpodbK9Le4t0aK4UQYmF
-         bZQhTyX2cEBoRaQx/1w40wpR6eK5dHwCLqGBLlqaZLINbT+yqh4T+T5MFyVhj4pd2zwD
-         SNfQ==
+        b=INa9OlLlDF2AaikFJQpB+B9vdZJ6SdXr5eglZb9YuNU7adcy0VAT3kWOdkp8XS4tN/
+         mM7eUvAOQMRTRvpsQQ+RntewIIN1dZSIMZYH5wz5aHMFxapDKMTFAVk9K1CkVw2dblLO
+         dW0parApjKTtXTnEK4H/tfa5BqXBLhcVhybFAb67D7dZPANxLbH8TSVEiYoY+xKXdDQO
+         w1SHqiyvkpxgEz89WtYDM2XROmNOrNByyHKYAJxLPRFDn6AgsD2Dts07+FX4LDz0nZbd
+         /14N7LFWJcOJcT+mm2mbolt360+oA+IfvEFCzLmtiL+INcBg+JJ8mmLOElI9Pd4JKBSp
+         EtmA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=bFIE5oRLw7CB2WEPe4RSzSb5cHTY4BdLE8SUJ87eu/c=;
-        b=x2GFLpH2Gf+UcfiBb9fEkOTwG5yvjf69hCAz42OmNtDxeycTBX+iNZa4aNUwM0ROfs
-         e6GU/P6wnmLnIGlLn7GsEN7p2gDYOrr66xoMQdALqRlQ9qrUwCkotjr1Y/lBzX0/0r0V
-         pc0Ialx7XXWnHF9TryhMD4XeC1Ic+FlDw/J9AYUhs2B+S2W6cpmIeiyqg5Wux5intJSj
-         ie25lD51yyDo19s92FQ4K7XQEwRMF295GwqcpF2zJDVWfd4bvRqfLHkU6E1bkqzq4cwD
-         KOBVO25ZIaw1ycifw9wR8x1uhdGSa+qfvm4+DW5/KSDMYj+yvdD1spttX2ZOJHUjGuHr
-         iAEA==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:organization:from
+         :references:cc:to:subject:reply-to:sender:dkim-signature;
+        bh=JWge06gXu8XFW+pXzZTjSPHaZgpFRfjex95PS0Lmz/A=;
+        b=GxtEU/T3iXEkicAp2xwvhcNhsH/J+QsSEy+0m7OMF7yp4+h4iIdfbApIXAbKxIwjwD
+         43NZ/8w/KkGUnhjhEfA7tV6Fizkr788RZDkbk23MksiMXpgOIiDAsmaF3cYTOZ6IewGb
+         GDKWI0TTEe03A4C+PhtsoQTkpp00FxzmIzCQAeuyscbmVd/yJYny9LuUUPyDRb+rGOr8
+         v5nRV/dWD04v/wG89X2bKnMOJSdekdm0ZlenxbDSOV6Z5dBe7UonkDK78r6QbbN15NSL
+         2Ub/YHL7zAvo7lITUwhtgtv8m76hsfwq0o34FTd1IsSz7d1HtfIRjL7Ox+TUM+BoG+f1
+         BagQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=qx46rYZ3;
-       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=iDoi3OM+;
+       spf=pass (google.com: domain of tstellar@redhat.com designates 205.139.110.120 as permitted sender) smtp.mailfrom=tstellar@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:reply-to:subject:to:cc:references:from:organization
+         :message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=bFIE5oRLw7CB2WEPe4RSzSb5cHTY4BdLE8SUJ87eu/c=;
-        b=nH8IhyUSm314ZAJCAasoEFF7b3AvpVy5DQiB9cR5Rw2nAwQSX2QDdlIdcpqPUmxr3u
-         zHgGOVGXVlcHwPx+7hBR9iWsfCmyRafJ8tv9u7FWDArnwsJdY/OujKgs0dQof5tKC9rt
-         l16YynHA6gnuqxQUIvwSnVRg8DlqS5o09eGYdQLIrLkg/uRXmkKt6I/p88YF3fP2VDKD
-         4i/SSzvfZgeBiYfWjQhgMAB9Es/uxIk9jlTMqjIbbiNwdGk7SLGHgg//a/PHCS5g57uV
-         Z3pEQvcyVGmUD2zCgNh3hjHtGHvsCWPW3NHw6Ab4EfpcTdAUfX2HkAA09Zsgmi3BScqA
-         TQyQ==
+        bh=JWge06gXu8XFW+pXzZTjSPHaZgpFRfjex95PS0Lmz/A=;
+        b=mV7U/t++VJYkfHPpC9RJEu6Xu3FIZ78d2IwugrNKKj3l4PKcRczaGKt5l9Y4M7ZrrS
+         vx7vJOaZCCjmh7fC9VCyb3h3rrtuGvHfiB/IhqknbuowmbpZPWXQww5JwyNTvQBIM+E3
+         SpqMqcgn10pJ6KFsZWtx079s8PBRwEffn++cxrm7iyOGW5dmBz36ljicL+cynesON+P+
+         hb+kIboMnwb4w4dUXzcbvkL57KpNCNpXQKqNq7Hq/vJJuGe398K6dRziB+Z67lOOlV+i
+         QqHilmbijqkc4yza47bxTmJm6HQhW0VLVVtqog90/48T0+VPJ1YFjzuT6hH0wZuyEidv
+         v4YA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=bFIE5oRLw7CB2WEPe4RSzSb5cHTY4BdLE8SUJ87eu/c=;
-        b=CfgUWSYQWEuMf7/rcb2wpi6QIqunZ13j61kDRC+D8GFJnoVxbLN66hUnZYCe2ChQAl
-         7HzG4peY8WzePtki/JDrRIJaWm7UraLs0bItIh1dxCFsaHaLTKGop7nKhivtap2dVf/C
-         4UkCMsL1HhW57hA38qRjXDEAC/ZUBPg0SqkNCpomRimEgQOLcqzyhtJfzIT8MsGR1SEZ
-         q2PChvToQsOV4Wx85Rg3fN7OnAQ3hSendSMyuibMTeOng6TDnjIbxeGVTiudwMB4qHl/
-         zNAuCMm9JIlU8cmcHAOhRk+pq0CirxfPlbgx/TjW+Oy+y3q+BlvT19GdFohJcF9yEmGG
-         PgeA==
+        h=sender:x-gm-message-state:reply-to:subject:to:cc:references:from
+         :organization:message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=JWge06gXu8XFW+pXzZTjSPHaZgpFRfjex95PS0Lmz/A=;
+        b=BJlIiHSYmxZlpns/+nGQLiyMvenIX6u+O/NLcQj6tkOBU5+szIEzt4gHe158/RDXJK
+         G2LHg8/6jQsNaXRjELQ57IrEAyPxqzZysBT7UG1GvQaAwq4cGZ9W+z8ChVlT8/+6gXG1
+         f4i7Hko4YRc9iLAspc2wWLgyr4FlkBL/ulQJh4QvoTr+m5QzMylgHtUFn8B1SCyAi2hl
+         xNmbFWAGksBAdojddpvIU/lsQ27reWNR7C2VswKFy78MaPorHKMUTKnvVBqPaIFbn13F
+         cqV1wmCfotHSYl+hNoM0qvsnZ2kh9R49ziEzEgryh1V2UKg5Gt38rfAqSPG+CeBkFq/C
+         cAPA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531aJzfMKV0drSZ2mEwHn1f6gf77Pa3TTG4dbNvhDaLcoWogD6w4
-	zwlkuxPSP1P4NTIR2pTYgJ8=
-X-Google-Smtp-Source: ABdhPJzLBo/wK33ezLKOk0t5AVkfVkhC6rf3pxPbn0bLtoHxek/8FAGG32jqgGj/vk3eUqz+3E3kvw==
-X-Received: by 2002:a63:d04f:: with SMTP id s15mr2878087pgi.449.1592330125377;
-        Tue, 16 Jun 2020 10:55:25 -0700 (PDT)
+X-Gm-Message-State: AOAM531nnH6HKX1iI9losyG/AcO8IDVA3OaN86KIQB7xITHKo3gfqiMf
+	bLMO8LLQAOPl8iDvGEIh+D0=
+X-Google-Smtp-Source: ABdhPJyRK8cV6+oWkwkewq9pPW1i3ZzK5ZA1dAaSlH41Ad8Ou7dV0U+vZ1apXKNo00CahgyRj1pMvw==
+X-Received: by 2002:a05:6214:a72:: with SMTP id ef18mr3677271qvb.239.1592331016698;
+        Tue, 16 Jun 2020 11:10:16 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:e312:: with SMTP id g18ls5343676pfh.9.gmail; Tue, 16 Jun
- 2020 10:55:25 -0700 (PDT)
-X-Received: by 2002:a63:2246:: with SMTP id t6mr3016246pgm.211.1592330124857;
-        Tue, 16 Jun 2020 10:55:24 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1592330124; cv=none;
+Received: by 2002:aed:3f02:: with SMTP id p2ls7093664qtf.8.gmail; Tue, 16 Jun
+ 2020 11:10:16 -0700 (PDT)
+X-Received: by 2002:ac8:34d0:: with SMTP id x16mr22860571qtb.300.1592331016301;
+        Tue, 16 Jun 2020 11:10:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592331016; cv=none;
         d=google.com; s=arc-20160816;
-        b=aCXTMDvt/lbdkLTxUDK/Sk4FK6C2ISVHpEYF6XDCoj3j1URJ5Xr4aLGhDOw/cYVZEE
-         G1/DpWMFbluRUWUAFRmL8efk9zK84bxEynQ0r//BmvD6QfCMbtPIViYrq6+3UD2YgM1E
-         iIc89am+pL1K7cpcFYFEm1jCVy2c5yxBB8rt3NU7JlFkDypDbqOooK0+hMqjoQ5fj19v
-         Ft9vjZYXx1bQPhpblRdddporxGHNwmKphnLXJwJ7H2gxe4Dky65FHdGZuK0SfjGCWesh
-         0pwXebnwh1Yyg7MOW91H+w0vRIx0SAQvNvjQRl6vNsdGpTr5nMRfJgXb/oocfPxRqWN9
-         Dz0g==
+        b=m4TzMskz2vQk1/p3XrO+14qnVNegBlywla0LADBBt4T9Nie1D+M2gD2mnhAhOdFx+E
+         /sQfGfd51ffV37CkZnX3HhBoOiSThlXE2aGmnz7hoX56mglmiTTdT8KHty9wOi8HWlOW
+         9orHKM1KaoH+gHy4+bMEryUJDlzEygag16Mn8KP3By5bQZI3u1Ll8K+OXeWatdzXoCEV
+         WvKaGrpAZVlcM9VabZrvHPssR+x/7Mjfgb4SChCqy+4U16Ryn8gMP6D8S9PWhySPBMHo
+         xkPKx9ScOnPy0nRnOmQrBiKYpUlUcXm5Nb4JmSqzIhHleD4BG+OkGsezlCR+fD9nI6jq
+         miEA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=fYr5oA41DSoNUhZcZ7g4BWdiZhpAFUeGrUW/IfBUjrY=;
-        b=zxZ9JJcYJttvE0SbQzlPS/xL7U9ydWoaXu0p3MKUsc1vzeviv7X5kbrGYLK+wuf5+J
-         m2qWwmnBsF9M/N7y6HS/K5ioombB9TEgYKHvkacwVkUnt7DNt5kerV6JhPSBqRIjQEmk
-         7VNBkSDSH1/e8Of/9ZujR+e3GhC0/TlUfRcmEb8phug+IqrUKMcQ/lz30oiPgvyEr8Ar
-         u6+TYnIymfuiH1K9TJ/tPKATGqvQ7utT0YMfTRd5IkrrMtiBUcWpWh6p3BHuSi4CcFT0
-         eMIVEZVUj8S2q5De4sIJxn8h9kzgI9A/CdTNB+P6pr6GlCpcsmFTl10XHAuLME0sr4UN
-         fSuA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:organization:from:references:cc:to
+         :subject:reply-to:dkim-signature;
+        bh=oqaQTeVHl80IMLUCBReUNYaEacSD+Olo81M0TlaOSA4=;
+        b=keORNIYdcgDq0UScHQz8w2VwEh1hXPwShKQF9oLuUfrv8bOLGPhnhYCN4TI0p1wT+Q
+         Xh/ddo8NTiarPwUHm7Q7qf3Zl7h6J196ADdmGigvi61QiJN7YKKo+VuvAP2+iWXq10dY
+         uu4OLw6Xcmf4Ocur0IIrx6ExdJeV3CCMHi0+hNXG10XeA5hkpPlFj3aq4FHu1q1DBVhN
+         D0UtpXXnFNgOHrWeYZEPlQRtWCBY4J1NPq8Sa/yY9d33WlaAbM72w9CBmc6rPcjAJXL4
+         3mtyfz3MwJfAIse3sR3N9ZBduvKPQUT5hODamEoKGdfhpjsK4ychEMEZCSx2gXDa2qMc
+         Pl5g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=qx46rYZ3;
-       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id h9si493916pls.2.2020.06.16.10.55.24
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=iDoi3OM+;
+       spf=pass (google.com: domain of tstellar@redhat.com designates 205.139.110.120 as permitted sender) smtp.mailfrom=tstellar@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
+        by gmr-mx.google.com with ESMTPS id y21si1370090qka.2.2020.06.16.11.10.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 16 Jun 2020 10:55:24 -0700 (PDT)
-Received-SPF: pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from willie-the-truck (236.31.169.217.in-addr.arpa [217.169.31.236])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+        Tue, 16 Jun 2020 11:10:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of tstellar@redhat.com designates 205.139.110.120 as permitted sender) client-ip=205.139.110.120;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-44-3YH0IQ8OP3G-bpJpOeov-Q-1; Tue, 16 Jun 2020 14:10:02 -0400
+X-MC-Unique: 3YH0IQ8OP3G-bpJpOeov-Q-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id DA87820776;
-	Tue, 16 Jun 2020 17:55:22 +0000 (UTC)
-Date: Tue, 16 Jun 2020 18:55:19 +0100
-From: Will Deacon <will@kernel.org>
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Mark Brown <broonie@kernel.org>, ndesaulniers@google.com,
-	clang-built-linux@googlegroups.com,
-	linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com,
-	catalin.marinas@arm.com, android-kvm@google.com,
-	daniel.kiss@arm.com, tstellar@redhat.com
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 399B980F5DA;
+	Tue, 16 Jun 2020 18:10:00 +0000 (UTC)
+Received: from tstellar.remote.csb (ovpn-114-27.phx2.redhat.com [10.3.114.27])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 4596119C71;
+	Tue, 16 Jun 2020 18:09:59 +0000 (UTC)
+Reply-To: tstellar@redhat.com
 Subject: Re: Clang miscompiling arm64 kernel with BTI and PAC?
-Message-ID: <20200616175519.GD2129@willie-the-truck>
+To: Nathan Chancellor <natechancellor@gmail.com>,
+ Will Deacon <will@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>, ndesaulniers@google.com,
+ clang-built-linux@googlegroups.com, linux-arm-kernel@lists.infradead.org,
+ mark.rutland@arm.com, catalin.marinas@arm.com, android-kvm@google.com,
+ daniel.kiss@arm.com
 References: <20200615105524.GA2694@willie-the-truck>
  <20200615115337.GG4447@sirena.org.uk>
  <20200615120223.GC2694@willie-the-truck>
  <20200615143105.GA2283265@ubuntu-n2-xlarge-x86>
  <20200616173728.GC2129@willie-the-truck>
  <20200616174904.GA3403100@ubuntu-n2-xlarge-x86>
+From: Tom Stellard <tstellar@redhat.com>
+Organization: Red Hat
+Message-ID: <892a98da-2119-a6f5-629c-a93a3f993aba@redhat.com>
+Date: Tue, 16 Jun 2020 11:09:58 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
+ Thunderbird/52.2.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
 In-Reply-To: <20200616174904.GA3403100@ubuntu-n2-xlarge-x86>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: will@kernel.org
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: tstellar@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=qx46rYZ3;       spf=pass
- (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=will@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@redhat.com header.s=mimecast20190719 header.b=iDoi3OM+;
+       spf=pass (google.com: domain of tstellar@redhat.com designates
+ 205.139.110.120 as permitted sender) smtp.mailfrom=tstellar@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,52 +156,72 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jun 16, 2020 at 10:49:04AM -0700, Nathan Chancellor wrote:
+On 06/16/2020 10:49 AM, Nathan Chancellor wrote:
 > On Tue, Jun 16, 2020 at 06:37:28PM +0100, Will Deacon wrote:
-> > On Mon, Jun 15, 2020 at 07:31:05AM -0700, Nathan Chancellor wrote:
-> > > On Mon, Jun 15, 2020 at 01:02:23PM +0100, Will Deacon wrote:
-> > > > On Mon, Jun 15, 2020 at 12:53:37PM +0100, Mark Brown wrote:
-> > > > > ([AArch64] Fix BTI instruction emission) should fix this, it's been
-> > > > > reviewed so should be merged shortly.
-> > > > 
-> > > > Cheers, that's good to hear. Shall we have a guess at the clang release
-> > > > that will get the fix, or just disable in-kernel BTI with clang for now?
-> > > > 
-> > > 
-> > > This will be in clang 11 for sure. Tom, would it be too late to get this
-> > > in to clang 10.0.1? If it is not, I can open a PR.
-> > 
-> > Any update on this, please? I'd like to get the kernel fixed this week.
-> > 
+>> On Mon, Jun 15, 2020 at 07:31:05AM -0700, Nathan Chancellor wrote:
+>>> [+ Tom, the clang 10 release manager]
+>>>
+>>> On Mon, Jun 15, 2020 at 01:02:23PM +0100, Will Deacon wrote:
+>>>> On Mon, Jun 15, 2020 at 12:53:37PM +0100, Mark Brown wrote:
+>>>>> On Mon, Jun 15, 2020 at 11:55:24AM +0100, Will Deacon wrote:
+>>>>>
+>>>>>> Here, the switch statement has been replaced by a jump table which we *tail
+>>>>>> call* into. The register dump shows we're going to 0xffffd68929392e14:
+>>>>>
+>>>>>> ffff800010032e14:       d503233f        paciasp
+>>>>>> ffff800010032e18:       a9bf7bfd        stp     x29, x30, [sp, #-16]!
+>>>>>> ffff800010032e1c:       910003fd        mov     x29, sp
+>>>>>> ffff800010032e20:       aa0803e0        mov     x0, x8
+>>>>>> ffff800010032e24:       940017c0        bl      ffff800010038d24 <kvm_vm_ioctl_check_extension>
+>>>>>> ffff800010032e28:       93407c00        sxtw    x0, w0
+>>>>>> ffff800010032e2c:       a8c17bfd        ldp     x29, x30, [sp], #16
+>>>>>> ffff800010032e30:       d50323bf        autiasp
+>>>>>> ffff800010032e34:       d65f03c0        ret
+>>>>>
+>>>>>> The problem is that the paciasp instruction is not BTYPE-compatible with BR;
+>>>>>> it expects to be called with a branch-and-link, and so we panic. I think you
+>>>>>> need to emit a 'bti j' here prior to the paciasp.
+>>>>>
+>>>>> I checked with our internal teams and they actually ran into this
+>>>>> recently with some other code, the patch:
+>>>>>
+>>>>>    https://reviews.llvm.org/D81746
+>>>>>
+>>>>> ([AArch64] Fix BTI instruction emission) should fix this, it's been
+>>>>> reviewed so should be merged shortly.
+>>>>
+>>>> Cheers, that's good to hear. Shall we have a guess at the clang release
+>>>> that will get the fix, or just disable in-kernel BTI with clang for now?
+>>>>
+>>>> Will
+>>>>
+>>>
+>>> This will be in clang 11 for sure. Tom, would it be too late to get this
+>>> in to clang 10.0.1? If it is not, I can open a PR.
+>>
+>> Any update on this, please? I'd like to get the kernel fixed this week.
+>>
+>> Cheers,
+>>
+>> Will
+> 
 > The AArch64 backend owner said it should be okay to add to 10.0.1:
 > https://llvm.org/pr46327
 > 
 > Tom just needs to pick it, I see no reason to believe that won't happen
 > this week.
+> 
 
-Brill, then I'll tentatively queue the diff below...
+I have this in the list of fixes I'm working through.  I'm trying to
+get everything done by Thursday.
 
-Thanks,
+-Tom
 
-Will
-
---->8
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 31380da53689..4ae2419c14a8 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1630,6 +1630,8 @@ config ARM64_BTI_KERNEL
-        depends on CC_HAS_BRANCH_PROT_PAC_RET_BTI
-        # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=94697
-        depends on !CC_IS_GCC || GCC_VERSION >= 100100
-+       # https://reviews.llvm.org/rGb8ae3fdfa579dbf366b1bb1cbfdbf8c51db7fa55
-+       depends on !CC_IS_CLANG || CLANG_VERSION >= 100001
-        depends on !(CC_IS_CLANG && GCOV_KERNEL)
-        depends on (!FUNCTION_GRAPH_TRACER || DYNAMIC_FTRACE_WITH_REGS)
-        help
+> Cheers,
+> Nathan
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200616175519.GD2129%40willie-the-truck.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/892a98da-2119-a6f5-629c-a93a3f993aba%40redhat.com.
