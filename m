@@ -1,124 +1,125 @@
-Return-Path: <clang-built-linux+bncBAABBX77UP3QKGQESH6EQMY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCIO53XE7YHBBGUEUT3QKGQEZKPTPDY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x737.google.com (mail-qk1-x737.google.com [IPv6:2607:f8b0:4864:20::737])
-	by mail.lfdr.de (Postfix) with ESMTPS id 24CC71FBCB9
-	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Jun 2020 19:22:40 +0200 (CEST)
-Received: by mail-qk1-x737.google.com with SMTP id 16sf17328563qka.15
-        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Jun 2020 10:22:40 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1592328159; cv=pass;
+Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6DDFE1FBD01
+	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Jun 2020 19:32:12 +0200 (CEST)
+Received: by mail-pg1-x539.google.com with SMTP id p8sf901196pgj.14
+        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Jun 2020 10:32:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1592328731; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GwhykHGq9f6KooKOPtcVGATRycXJmwCAQxxqRrJ0n4m6fJ4DJ6pD/NxdD9Tzlh+Zd4
-         r7Ga4C1/SavTnH1hQjacEODzl8EvBITQ7o8ZNQD1/jt03+4CfBw9pppWRrrwfeqFg7Zt
-         gs99oGE+aP7Ywutvwl82/hODdG8+K0iMK54/V2Mjq2ZfU1csvaz6mE4YOlOWz/rPju5R
-         CYoBJ4uV287Clnn2i3GoqGE9muxRsrgu6fcOX1tDoSo3/t2Yd0xtCn7nJf0D2bIL9L2h
-         1YdCCRVN99nZShqnDXQPtajmSokf7HGvq7nhQeZPZjAvEamuJ48KbtEFdjyV+zbpFDY2
-         fxjA==
+        b=tUMhxCS98sySNqWqI4OjBpyU7p7btOfGuexGBYaHlwObEVfSMR1hBEnznJS7hiA44i
+         uWqobzH3eNCKXBLlKdPl4dSTM/9CqOxmIFYOYd5Zvbzw2dkGM8zPwI+vzTWyDqrY5GFK
+         vEIqyZYLn/5ZdllBj77SSr3gvIzsP//bjLYTzhWa0pjiXPXj6tA2kKYN6U6SBvFkQVce
+         2MfLgsqp48+W9/y7lbZBfN153Mtqfv1YAwriEp+nVj+AlrUqtAPzizY+RS5oEKRBAIBz
+         4IBZjRDlF6eIRyEDA8NkNmEDDBSilJycG9aojIwe2LMMV3NX9EvJj03qS4ch0awPDxUC
+         ogJQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :dkim-filter:sender:dkim-signature;
-        bh=Zv7s4Ic6A4z8ZtH6kwP+3CYRmtXx7VrezUhQqUGTy9w=;
-        b=maTJDXXoXDoUcqEg8bYVMHDqMPnNhfDkWLfEsRaVEYo3RVhRHozJ3oU8uxwM3VRmR/
-         ZzIzFn9HACOV9p7QkEqWnKgppw997p7EcNcdmWvQec7V7Xe1w2YmK+Rc35MjK44/L6hs
-         MsdD4UjXZ243dNdVB8jSuWgbhMoB+FtmW6xAIRg1wQr6E2ZeJcCBdmvg55VK0p2ZCtIy
-         fIhpA2CGrL8KWr5/CJrYvLIz5Fy+xGmNCvmvCl+0ZYQaeRnTulWwYRWxxWGMoC+ecfcf
-         1iy1FsNnZmi5GM7tFgD/m3xSNIz3fOkWXoFCyioBJFh8qcK3uCc0z5lQYfbQhmKaAyX8
-         Xkkw==
+         :mime-version:references:message-id:subject:cc:to:date:from:sender
+         :dkim-signature;
+        bh=rpw0+QdYeKQvBE0qJwUMN6esDEo0371xhoUDiUGIK64=;
+        b=El+UWqheABsn2SQy8k2yHq1KItC4PHLxJJMMakNUCK+ueqwQR17S0ssbqD7spk6/Lg
+         t8x0adUf7Giz/00XfPYpMG6uegdREtkYeCwyjghNOngs1FKl5GuuQSvMRiBLo18AgVT1
+         qOJOVMb8v766EIV7Fj0OZwYcxAWcPkXv458tbT7VOuEQugR8OAAxjWCTU6+2B206+lXO
+         wGwlI34w5Ez5bc/PXnJgkb85zbNL/JFt3iSYlhONrmLe562T081oSHIsp2CYQkMH+RFa
+         vsauDqbIcucSWXkv+87pxgI0Y9TeC6AF6k0v9GgHAoB3kLYMAKGQfm9VqaRlloqtjIY1
+         wm1Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linux.microsoft.com header.s=default header.b=CuUemv0O;
-       spf=pass (google.com: domain of tyhicks@linux.microsoft.com designates 13.77.154.182 as permitted sender) smtp.mailfrom=tyhicks@linux.microsoft.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linux.microsoft.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NxuO4Bzh;
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f41 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to:x-original-sender
+        d=gmail.com; s=20161025;
+        h=sender:from:date:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Zv7s4Ic6A4z8ZtH6kwP+3CYRmtXx7VrezUhQqUGTy9w=;
-        b=SC+9VDGvrSCVLgn5WnOX5+8216sFJy3WmoIlyD4E2wwrqmrNCe4TqnJZm9oUOwxYPo
-         tYEIKxXqbZWkPxjrJc5L99vB7e2DJYZtO0JM6RCeAQDQTpPh0cTnZWxU0/beJ0BAp9o4
-         bHI5ir3ctFV/LarO4BF50cTM6gUNkepDB2fgtCFMaIYhb8KooTxrh/O6EL67ZOQdRJDI
-         snBUtBztWgAgS3p1HxsOv8PhEerU3Uspc4iRsmAfl5AgdyBiJ0JFoSGz64Ss8aTO6H9E
-         oREa9wEz+NPZiWGLbBHg7mTJYGDjTkUyrmXxrxR5qA9i4a6YF275EOcWQvmMX59GKKL3
-         /O5w==
+        bh=rpw0+QdYeKQvBE0qJwUMN6esDEo0371xhoUDiUGIK64=;
+        b=k7mzb3OjGOJk7FNx4GlFcYIEdxA5AtIG0nyXcmTeZmjP8KFNMNKA3dVCh1/0yh0jk+
+         nnKR9ylDHj5JSTd6mOe0T13iICsT3MBaVhb3knmkPBnyYD+e++5K4YJlhGrKM1RP1keW
+         Utz+yfWl+oKwMe1Vh9htYU777h41hsEBa0WeY9aIp+WxgTucIMB1I1XxJmyDa2qaFyAH
+         a+yB+Wi1PVWxlJ5G5Akc2isWIamJsbcAnYXOLSqEzUiRXnOpHnh1UwYb4/p14cQroS3g
+         /1lUIkyCOEHRcjItxPR0+++aare3PXNNAmYG5oipFV23wRrEvTr6wh/7BFDdngGr/XWr
+         9wog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:date:from:to:cc:subject
-         :message-id:references:mime-version:content-disposition:in-reply-to
+        h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=Zv7s4Ic6A4z8ZtH6kwP+3CYRmtXx7VrezUhQqUGTy9w=;
-        b=g8M2ioMk4sJtt2UzD7IDkLkgghzGKL4qqLgGWw/GMZQKkv0mebSnktFv2bHgdMCMr7
-         A/ocECt63EU2axhlrnE6RwK1RFRbCcpwt82LWi2D1xlFaQZvh8a7IDc8UFw07pnpBTW4
-         nqBUD6718YrI+h7BNDxNaFdzO/nwA8vrODlYS2pno+6rrNEspM9x0/Yx+eIAPW/zSwGC
-         5nYTD42ZeGj0EDhTTHCCuyCIx8aFNSwmkvDmhU3n9eJtnqJVLaCYrYPMdkupVvfvHI8O
-         8OCaRP5ZPT1kBFdvMVeb+fyqoC/SeOPJA1HBtDti3fu7oP84ZDlvfoJALXmFT9lOTN+k
-         mj/w==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530mtcpfJIR5Q/HQvhQMlFQQabnhg3LQell28gfJQV+xF3BCWfA/
-	nh4KCuFgO8WbSg+RCe6YdTE=
-X-Google-Smtp-Source: ABdhPJxxTlPsMIVdpEp9I9hq0/8uvSa0lU4iLJOaqJtqCXHVUDAV0it0u3NPVJgfceE/RzSDmwt73g==
-X-Received: by 2002:a37:674d:: with SMTP id b74mr21698503qkc.108.1592328159184;
-        Tue, 16 Jun 2020 10:22:39 -0700 (PDT)
+        bh=rpw0+QdYeKQvBE0qJwUMN6esDEo0371xhoUDiUGIK64=;
+        b=FSM4gTT+jnh91cLIfq3f7rwGzm1q+Z+LdfRczLJ2j2ua4A8z2SRdokqYa2h49UwAFc
+         aOVFebu81GX4pW0kwIB80jeUYiCra22j4HLJap8sRpcHO0XLCo0gJRHTV+Zqu7FEoLNX
+         duQ7qJC09015pmVmgNvdyWeiO38D+fRqL9rjDk3eJSrItLUYAkLbL537ZuDrqSHsgLyk
+         L+nWU7VVJm6QHfHEg1XKqVddGuJ26wWFcqxNN3/iPVyQcz+xKzXA2PfJCLfyXNzb0OkR
+         izYa7liJQ4zxxwBKiY1TafQp3rm3a40Gv1BLaRC4NTCyglkusSPGvHydBwXB1gNhcMTC
+         8vvg==
+X-Gm-Message-State: AOAM530nAtb8/kker4ZdIDFIO5f9K0oFy5ksOIFtaUk7rYWXFiVwf+Mr
+	HfZdQCeyy3DHdEypmOwWJzM=
+X-Google-Smtp-Source: ABdhPJzT3FErTwCPanvIxKWEh/mRNZVE2n18H+4x1Bwc8Sei9lhhFgTkOHgbcDghnlL3/mrflNi2zw==
+X-Received: by 2002:a17:90a:d244:: with SMTP id o4mr4029728pjw.186.1592328731086;
+        Tue, 16 Jun 2020 10:32:11 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aed:3384:: with SMTP id v4ls7054730qtd.6.gmail; Tue, 16 Jun
- 2020 10:22:38 -0700 (PDT)
-X-Received: by 2002:ac8:1308:: with SMTP id e8mr22781469qtj.24.1592328158892;
-        Tue, 16 Jun 2020 10:22:38 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1592328158; cv=none;
+Received: by 2002:a63:730d:: with SMTP id o13ls2001604pgc.1.gmail; Tue, 16 Jun
+ 2020 10:32:10 -0700 (PDT)
+X-Received: by 2002:a63:d918:: with SMTP id r24mr2936197pgg.119.1592328730487;
+        Tue, 16 Jun 2020 10:32:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592328730; cv=none;
         d=google.com; s=arc-20160816;
-        b=xyDrmUZ4zWk7f9CQoNQgpJhnksWBN3+8cFOi2JKzOI6xLpoKeiF8DmUNTDy3Sho+GL
-         MNDm9SQlzrXe/7uEoar4DNbNAIlKzWwgm0BCS3PE9GDz86XYRpqYjTlIqacTkTa6hZC4
-         MFNCXTS8g6HlWy94qRH4UnmG2gY8QaoEtDOsFN0zkdTifTyTHv5NzBStNfQ3/G66OF8Q
-         h9bWTUmx5kTYPft8Fmsi6aVUT/m9iyGYnc7vaDWkY6P2hzCh9+u1/LKTDK+F3QGAQj4i
-         +1czI68tmfk/RSEnpG0N9Tp+pFrou9AIF3IwwxGYfA7oRwVykgvYbF+6hkdmufJQlQuz
-         qoYQ==
+        b=cbxU3B/CbbX/vNV+S0cwUS9PTh+9auy22RpLmLlzKUgQ2+P5sCuILnXzPvlTSKCnun
+         ndQZArcZGVW+zBc7uaxoNR1IDX1X/Xcs9fYbG+bF8m+jmwyTgA3NxQsr2oSxetbL+bFN
+         XsfoOjPabud3LtikZ1131vHT7RVOGBTSVjXYTbfo4mvZTcdyT7bWq7cvHgSsz000gFh7
+         aTIhPNbDSvqIjiYYYMn1wJ4w/8QqvHvPtoTRNr6oPHfJNPGOZAwwGMRo/JI4oprd3P+z
+         RxJ+jFUF+UL6LKINxrf5eGO3gGpdeoj8EJ0JOxU1cbuXWyPzjQcOVnmSLuBXP+Rd2Cpo
+         RyQw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature:dkim-filter;
-        bh=Va/z/RCQjkwx4GMOEW6jvTREyv5bVvF1H/LITP0NJyY=;
-        b=p/QVf8/weo5j94q2me7S6CSg3QB138CH2Bb1HUNFX71YQ/1Vo3Tb94FM2wPQzZ90SF
-         d1Umu2ZRHhvA24MsDz3re+k6h7H0Y39kU9APZ+DUtncvVlJdbTb9+iOrVK59NC+UiCR8
-         6Z8mOGNgYsB8Pdupm8oi83D6o7yUpkzzJPHsrZDBEiNH1qr0H32uNa5gKK0WgY3/oO8e
-         2m+JW0pdXKcom5/bAHtkwtLZ8g4PX0AXyFywtRbp9uR2klW/witTNSZdL+geF04R7OUj
-         9wdtnCVsNokjzEyF8E4B02JCtIPWmC88YNmF3BnFhZ7/xr7bpTiZz1GApqrd1BYolMlV
-         sWqw==
+         :subject:cc:to:date:from:sender:dkim-signature;
+        bh=pdKXx2HvHZVn9QrDQaDhZwHF4KE1L75ld3FlRX9mLos=;
+        b=xp/l9MxvIKoUb0x/+NjdkCAqbX/IbtokBWEfa4CN5EXk6VdUk42JHj8kIbdv2kYT+n
+         uGnWiBQaBaCWPqiA4MRIh/jrx24+Qgpguu+EAjBVQNH7P9GXwBbA+5OYa1IiqIZ1nf0W
+         ZGaYcl0GWGuNspVSBewQlziH7AQ61IFLwvYZUFtpDEtZJ3aGxnPAKttRRvc+TduOJsw/
+         mtUY332FmJ0QVFZEMOgOImpTnBewIUzGAJ6XxyJObeX5ltVgIe8pHF13E8Vwr6ssWzlw
+         ZNzRpbAOHlfXMh8LtlFeDWkElibDLNYas8eOP4jCrbrk0XgLOqmlL5c2b+30cSs3I0aV
+         cWJw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linux.microsoft.com header.s=default header.b=CuUemv0O;
-       spf=pass (google.com: domain of tyhicks@linux.microsoft.com designates 13.77.154.182 as permitted sender) smtp.mailfrom=tyhicks@linux.microsoft.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linux.microsoft.com
-Received: from linux.microsoft.com (linux.microsoft.com. [13.77.154.182])
-        by gmr-mx.google.com with ESMTP id v199si1157660qka.5.2020.06.16.10.22.38
-        for <clang-built-linux@googlegroups.com>;
-        Tue, 16 Jun 2020 10:22:38 -0700 (PDT)
-Received-SPF: pass (google.com: domain of tyhicks@linux.microsoft.com designates 13.77.154.182 as permitted sender) client-ip=13.77.154.182;
-Received: from sequoia (162-237-133-238.lightspeed.rcsntx.sbcglobal.net [162.237.133.238])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 8467D20B4780;
-	Tue, 16 Jun 2020 10:22:37 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 8467D20B4780
-Date: Tue, 16 Jun 2020 12:22:35 -0500
-From: Tyler Hicks <tyhicks@linux.microsoft.com>
-To: Vijay Balakrishna <vijayb@linux.microsoft.com>
-Cc: Dave Young <dyoung@redhat.com>, Baoquan He <bhe@redhat.com>,
-	Vivek Goyal <vgoyal@redhat.com>, kexec@lists.infradead.org,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v2][RFC] kdump: append kernel build-id string to
- VMCOREINFO
-Message-ID: <20200616172235.GB1409697@sequoia>
-References: <1591849672-34104-1-git-send-email-vijayb@linux.microsoft.com>
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NxuO4Bzh;
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f41 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+Received: from mail-qv1-xf41.google.com (mail-qv1-xf41.google.com. [2607:f8b0:4864:20::f41])
+        by gmr-mx.google.com with ESMTPS id f28si777965pgn.2.2020.06.16.10.32.10
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 16 Jun 2020 10:32:10 -0700 (PDT)
+Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f41 as permitted sender) client-ip=2607:f8b0:4864:20::f41;
+Received: by mail-qv1-xf41.google.com with SMTP id x16so9874548qvr.3
+        for <clang-built-linux@googlegroups.com>; Tue, 16 Jun 2020 10:32:10 -0700 (PDT)
+X-Received: by 2002:a0c:d442:: with SMTP id r2mr3274162qvh.59.1592328729589;
+        Tue, 16 Jun 2020 10:32:09 -0700 (PDT)
+Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
+        by smtp.gmail.com with ESMTPSA id r77sm14755313qke.6.2020.06.16.10.32.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Jun 2020 10:32:09 -0700 (PDT)
+Sender: Arvind Sankar <niveditas98@gmail.com>
+From: Arvind Sankar <nivedita@alum.mit.edu>
+Date: Tue, 16 Jun 2020 13:32:07 -0400
+To: Sedat Dilek <sedat.dilek@gmail.com>
+Cc: clang-built-linux@googlegroups.com,
+	Masahiro Yamada <masahiroy@kernel.org>
+Subject: Re: LLVM/Clang: Integrated assembler: DWARF version 4 and passing
+ assembler option
+Message-ID: <20200616173207.GA1497519@rani.riverdale.lan>
+References: <CA+icZUUWh=NzBwAa3hff6yOxY0ZirKmzOLz=a2eZUbW_cD5ECg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <1591849672-34104-1-git-send-email-vijayb@linux.microsoft.com>
-X-Original-Sender: tyhicks@linux.microsoft.com
+In-Reply-To: <CA+icZUUWh=NzBwAa3hff6yOxY0ZirKmzOLz=a2eZUbW_cD5ECg@mail.gmail.com>
+X-Original-Sender: nivedita@alum.mit.edu
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linux.microsoft.com header.s=default header.b=CuUemv0O;
-       spf=pass (google.com: domain of tyhicks@linux.microsoft.com designates
- 13.77.154.182 as permitted sender) smtp.mailfrom=tyhicks@linux.microsoft.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linux.microsoft.com
+ header.i=@gmail.com header.s=20161025 header.b=NxuO4Bzh;       spf=pass
+ (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f41
+ as permitted sender) smtp.mailfrom=niveditas98@gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,166 +132,84 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 2020-06-10 21:27:52, Vijay Balakrishna wrote:
-> Make kernel GNU build-id available in VMCOREINFO.  Having
-> build-id in VMCOREINFO facilitates presenting appropriate kernel
-> namelist image with debug information file to kernel crash dump
-> analysis tools.  Currently VMCOREINFO lacks uniquely identifiable
-> key for crash analysis automation.
+On Tue, Jun 16, 2020 at 01:21:46PM +0200, Sedat Dilek wrote:
+> Hi Arvind,
 > 
-> Regarding if this patch is necessary or matching of linux_banner
-> and OSRELEASE in VMCOREINFO employed by crash(8) meets the
-> need -- IMO, build-id approach more foolproof, in most instances it
-> is a cryptographic hash generated using internal code/ELF bits unlike
-> kernel version string upon which linux_banner is based that is
-> external to the code.  I feel each is intended for a different purpose.
-> Also OSRELEASE is not suitable when two different kernel builds
-> from same version with different features enabled.
+> when experimenting with LLVM_IAS=1 (and later using LLVM tools via
+> LLVM=1) I saw that we need DWARF version 4 for debug.
 > 
-> Currently for most linux (and non-linux) systems build-id can be
-> extracted using standard methods for file types such as user mode crash
-> dumps, shared libraries, loadable kernel modules etc.,  This is an
-> exception for linux kernel dump.  Having build-id in VMCOREINFO brings
-> some uniformity for automation tools.
+> In [4] I saw you simplified the kbuild info detection for
+> CONFIG_DEBUG_INFO_COMPRESSED=y.
 > 
-> Signed-off-by: Vijay Balakrishna <vijayb@linux.microsoft.com>
-
-I think this is a nice improvement over today's linux_banner approach
-for correlating vmlinux to a kernel dump.
-
-The elf notes parsing in this patch lines up with what is described in
-in the "Notes (Nhdr)" section of the elf(5) man page.
-
-BUILD_ID_MAX is sufficient to hold a sha1 build-id, which is the default
-build-id type today in GNU ld(2). It is also sufficient to hold the
-"fast" build-id, which is the default build-id type today in LLVM
-lld(2).
-
-Therefore,
-
- Reviewed-by: Tyler Hicks <tyhicks@linux.microsoft.com>
-
-Thanks!
-
-Tyler
-
-> ---
-> Changes since v2:
-> -----------------
-> - v1 was sent out as a single patch which can be seen here:
->   http://lists.infradead.org/pipermail/kexec/2020-June/025202.html
-> - moved justification to commit commit log
-> - renamed 'g_build_id' to 'note_sec'
-> - fixed format specifier in pr_warn() from '%lu' to '%u' (failed to
->   catch warning in v1)
+> As I know you are working in the x86/boot/build area I wanted to
+> kindly ask what do you think of these changes:
 > 
->  include/linux/crash_core.h |  6 +++++
->  kernel/crash_core.c        | 50 ++++++++++++++++++++++++++++++++++++++
->  2 files changed, 56 insertions(+)
+> [ kbuild: Silence dwarf-2 warning when LLVM_IAS=1 ]
+
+Cc clang-built-linux/Yamada-san.
+
+I'm by no means an expert at this stuff :) I've only been contributing
+to the kernel for a few months and am learning as I go.
+
+Regarding these changes, for gcc I would say that given we invoke the
+gcc driver for assembler files, KBUILD_AFLAGS could just be
+-g/-gsplit-dwarf, and additionally -gdwarf-4 if DEBUG_INFO_DWARF4 is
+configured, i.e.  basically just do KBUILD_AFLAGS += $(DEBUG_CFLAGS)
+once DEBUG_CFLAGS have been fully set (maybe excepting the -f options,
+though those don't appear to cause any errors even if passed for
+assembler input).
+
+Eg, right now it appears that assembler files don't have split dwo
+output with gcc, only C files do.
+
+I would assume that should also work for clang and allow clang to invoke
+its built-in assembler with whatever flags it thinks are appropriate,
+and hence should avoid the problems you get now?
+
 > 
-> diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
-> index 525510a9f965..6594dbc34a37 100644
-> --- a/include/linux/crash_core.h
-> +++ b/include/linux/crash_core.h
-> @@ -38,6 +38,8 @@ phys_addr_t paddr_vmcoreinfo_note(void);
->  
->  #define VMCOREINFO_OSRELEASE(value) \
->  	vmcoreinfo_append_str("OSRELEASE=%s\n", value)
-> +#define VMCOREINFO_BUILD_ID(value) \
-> +	vmcoreinfo_append_str("BUILD-ID=%s\n", value)
->  #define VMCOREINFO_PAGESIZE(value) \
->  	vmcoreinfo_append_str("PAGESIZE=%ld\n", value)
->  #define VMCOREINFO_SYMBOL(name) \
-> @@ -64,6 +66,10 @@ extern unsigned char *vmcoreinfo_data;
->  extern size_t vmcoreinfo_size;
->  extern u32 *vmcoreinfo_note;
->  
-> +/* raw contents of kernel .notes section */
-> +extern const void __start_notes __weak;
-> +extern const void __stop_notes __weak;
-> +
->  Elf_Word *append_elf_note(Elf_Word *buf, char *name, unsigned int type,
->  			  void *data, size_t data_len);
->  void final_note(Elf_Word *buf);
-> diff --git a/kernel/crash_core.c b/kernel/crash_core.c
-> index 9f1557b98468..64ac359cd17e 100644
-> --- a/kernel/crash_core.c
-> +++ b/kernel/crash_core.c
-> @@ -11,6 +11,8 @@
->  #include <asm/page.h>
->  #include <asm/sections.h>
->  
-> +#include <crypto/sha.h>
-> +
->  /* vmcoreinfo stuff */
->  unsigned char *vmcoreinfo_data;
->  size_t vmcoreinfo_size;
-> @@ -376,6 +378,53 @@ phys_addr_t __weak paddr_vmcoreinfo_note(void)
->  }
->  EXPORT_SYMBOL(paddr_vmcoreinfo_note);
->  
-> +#define NOTES_SIZE (&__stop_notes - &__start_notes)
-> +#define BUILD_ID_MAX SHA1_DIGEST_SIZE
-> +#define NT_GNU_BUILD_ID 3
-> +
-> +struct elf_note_section {
-> +	struct elf_note	n_hdr;
-> +	u8 n_data[];
-> +};
-> +
-> +/*
-> + * Add build ID from .notes section as generated by the GNU ld(1)
-> + * or LLVM lld(1) --build-id option.
-> + */
-> +static void add_build_id_vmcoreinfo(void)
-> +{
-> +	char build_id[BUILD_ID_MAX * 2 + 1];
-> +	int n_remain = NOTES_SIZE;
-> +
-> +	while (n_remain >= sizeof(struct elf_note)) {
-> +		const struct elf_note_section *note_sec =
-> +			&__start_notes + NOTES_SIZE - n_remain;
-> +		const u32 n_namesz = note_sec->n_hdr.n_namesz;
-> +
-> +		if (note_sec->n_hdr.n_type == NT_GNU_BUILD_ID &&
-> +		    n_namesz != 0 &&
-> +		    !strcmp((char *)&note_sec->n_data[0], "GNU")) {
-> +			if (note_sec->n_hdr.n_descsz <= BUILD_ID_MAX) {
-> +				const u32 n_descsz = note_sec->n_hdr.n_descsz;
-> +				const u8 *s = &note_sec->n_data[n_namesz];
-> +
-> +				s = PTR_ALIGN(s, 4);
-> +				bin2hex(build_id, s, n_descsz);
-> +				build_id[2 * n_descsz] = '\0';
-> +				VMCOREINFO_BUILD_ID(build_id);
-> +				return;
-> +			}
-> +			pr_warn("Build ID is too large to include in vmcoreinfo: %u > %u\n",
-> +				note_sec->n_hdr.n_descsz,
-> +				BUILD_ID_MAX);
-> +			return;
-> +		}
-> +		n_remain -= sizeof(struct elf_note) +
-> +			ALIGN(note_sec->n_hdr.n_namesz, 4) +
-> +			ALIGN(note_sec->n_hdr.n_descsz, 4);
-> +	}
-> +}
-> +
->  static int __init crash_save_vmcoreinfo_init(void)
->  {
->  	vmcoreinfo_data = (unsigned char *)get_zeroed_page(GFP_KERNEL);
-> @@ -394,6 +443,7 @@ static int __init crash_save_vmcoreinfo_init(void)
->  	}
->  
->  	VMCOREINFO_OSRELEASE(init_uts_ns.name.release);
-> +	add_build_id_vmcoreinfo();
->  	VMCOREINFO_PAGESIZE(PAGE_SIZE);
->  
->  	VMCOREINFO_SYMBOL(init_uts_ns);
-> -- 
-> 2.26.2
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -803,8 +803,10 @@ DEBUG_CFLAGS       += -gsplit-dwarf
+>  else
+>  DEBUG_CFLAGS   += -g
+>  endif
+> +ifndef LLVM_IAS
+>  KBUILD_AFLAGS  += -Wa,-gdwarf-2
+>  endif
+> +endif
+>  ifdef CONFIG_DEBUG_INFO_DWARF4
+>  DEBUG_CFLAGS   += -gdwarf-4
+>  endif
+> 
+> [ kbuild: Add dwarf-4 assembler option when LLVM_IAS=1 ]
+> 
+> diff --git a/Makefile b/Makefile
+> index 4d796ce78888..c3bc1ff0d900 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -809,6 +809,9 @@ endif
+>  endif
+>  ifdef CONFIG_DEBUG_INFO_DWARF4
+>  DEBUG_CFLAGS   += -gdwarf-4
+> +ifdef LLVM_IAS
+> +KBUILD_AFLAGS  += -Wa,-gdwarf-4
+> +endif
+>  endif
+> 
+> Does passing  "-Wa,-gdwarf-4" makes sense here or is mandatory?
+> Is indendent of CONFIG_DEBUG_INFO_DWARF4=y even?
+> 
+> Thanks in advance.
+> 
+> Regards,
+> - Sedat -
+> 
+> [1] https://github.com/ClangBuiltLinux/linux/issues/1049
+> [2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/kbuild/llvm.rst#n47
+> [3] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/kbuild/llvm.rst#n62
+> [4] https://git.kernel.org/pub/scm/linux/kernel/git/masahiroy/linux-kbuild.git/commit/?h=fixes&id=7b16994437c7359832dd51d66c5c387995a91438
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200616172235.GB1409697%40sequoia.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200616173207.GA1497519%40rani.riverdale.lan.
