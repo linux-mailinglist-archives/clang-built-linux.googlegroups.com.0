@@ -1,130 +1,123 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBF54VH3QKGQEN5V4J4I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCT4XGV33UIBBXHFVH3QKGQEE5MWSJI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1040.google.com (mail-pj1-x1040.google.com [IPv6:2607:f8b0:4864:20::1040])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0D9641FD431
-	for <lists+clang-built-linux@lfdr.de>; Wed, 17 Jun 2020 20:16:57 +0200 (CEST)
-Received: by mail-pj1-x1040.google.com with SMTP id v3sf2129384pjy.7
-        for <lists+clang-built-linux@lfdr.de>; Wed, 17 Jun 2020 11:16:56 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1592417815; cv=pass;
+Received: from mail-il1-x138.google.com (mail-il1-x138.google.com [IPv6:2607:f8b0:4864:20::138])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4B8521FD587
+	for <lists+clang-built-linux@lfdr.de>; Wed, 17 Jun 2020 21:45:34 +0200 (CEST)
+Received: by mail-il1-x138.google.com with SMTP id x63sf2295377ilk.8
+        for <lists+clang-built-linux@lfdr.de>; Wed, 17 Jun 2020 12:45:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1592423133; cv=pass;
         d=google.com; s=arc-20160816;
-        b=w9DWjyDPwRFohgwxEmW4SKMKdeh0cNwaXkEhyvw8YSs4bwkNWk4gkAeOGtPzGg1P4P
-         dVCVcPA14wQ3aYf+Kn9+6yOrIXTZbotElexOf/0Xpa9re3E5QvPeBGNK2haGMkhvnCnB
-         FfW3FSV1LlY3HiIMDh9+yrueA+Cp9YV3L9/6wTrBz3Rcm/3ZeX0tsixBwGf0YfBU0Y8R
-         dInugp+krBg8MM23x3db21UU7t2F0n4QILM0DXqq7WAd1jYsTUZ0JAiA+P9MfxI8NR8O
-         jlW3DFQsSnpxyYw3Y8JxrdNxco9gD1KLwgTbxgUxvd2B1uJtmZRRhJwU4LQN2SyBAElF
-         XeaA==
+        b=J+TVT4Csj5QLqJnOa0hn1c+86Q1F0fJPzg7yea7V5yoI4YjWkTue2QOM40y1Dg4/gG
+         jdkgOpJ/vbyecqFRH9hAVrsh9uYOnV9EVfzWO82EospcdCBFipPPwDgnOMAQcsGfs+TQ
+         YXRq10+DcmOzC4OvKs0qGN6u65bETCxbvTtlu9hW1rksUy1Dv5mYvlqnkv5vn1HqZiP3
+         DgQLKeZ/SB6mWdYrVQ+p64EYKawTEIAzZYmQEU5RyU0J44vPkCq2eMYt9hFPMVgEtylf
+         M7KRzmpZPGsJlHu8THgd7QLlcPE1GGCvE7X6gmU7BvUmDx6vB0e8iGh7hZ9F7tm5WSAW
+         qavQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=wr2uEMmhrLVzyovXGY6nai2GfPt34qzdj/eYkpWvOOU=;
-        b=zqGhrIp+w7Z5P9086eneTS3HIEqRH27H7cJKKz73zmLAWiqu2cA7IiNX4KI+VP/TRE
-         VHYEEIg82XkvloR4m4In3+E6AfTPrQupOo1ROfUdAJGjYD5bX44HTh+97SLD7ZG5AKhl
-         fRBQMjOQSlvFtFRPFhFf0UKwx88gpGl5ng2LLHyhCHtmatMcDvSiZsKSU0ksekfe2Ugg
-         qgL0lz9Zs3/uTigS2b+kThKs1dewq97iW7ydkQ+7+H23jaZdZvvTCnf/bTDVpIZnKQom
-         wF1aRriWr3Pm4InIoSoIbzJC9h4TLk81HCUprLsVZHnnHMPl6922CEx5dm/ef7jZOWPU
-         m1cQ==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=ZqX8UNq5ep0ekh9PL2fjImhzKu2rwhU/i9jBdq03pYk=;
+        b=yXD6uX0OTOpFrOm+Ay+aj0q/RDN3u0cJlEjqOofIXMSd4GvSplnpmvYG3RcYOtAWQo
+         uIZcO9UIEDmEha8S0eWcc4vlF4rDYfXlYt3Ipgr3GlStWc1a4ntXlReWae/DNEgPGdDQ
+         EF8IpHLZlD5m15kqa0qzhpuhjcF3c/EPC9FeBYlc5UWYzQps0pchjJgJ9aridz97EcPJ
+         UMfYhr0VvxwAkKFhFpXrLlayjqNJVVrcGuO9n4U0VKGTMTTHjAizz2kF5cU9kpe7mvTo
+         vkUZ4l1W1iZ4apOHTSdSrD07jf9CmeHAWHkms1pdoBjIc2XQjGr+3JlD8ceH9OoUjiDc
+         LGHw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=gMJvLtSi;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=default header.b=vWuJpvkS;
+       spf=pass (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=akpm@linux-foundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=wr2uEMmhrLVzyovXGY6nai2GfPt34qzdj/eYkpWvOOU=;
-        b=PHhUiGRc793ezFJE9bMfwKsGy1BNRnhVDQ7IUIFoPSGX5KKDdCPIAubBCwLIb1KRzU
-         Wv6EoEBycbSnZOw2oSpGxPLkNAO4u0EnFEL/+CE8rWBqw0cLHdZ/6cjkhZIc9581Oqyx
-         huqW+VpYKX+/zeEaBhwUQ1ygyOLgwPvcpxluIwdOWQtWy0rFoF7MspFjnjqkrCDjfhhF
-         5YDRuniBnDCP0/gnnsK8WZqKEJKIOgL/21UT6zeBXukdzC23izo99w2SaTEcjX0scLNQ
-         H/ur57FYzr1ZwBval1gysDo1P1z5KDGB4v6QzFJ8sE/GhTOcVJmzxsYTC5zlEdqm4fDe
-         BgAg==
+        bh=ZqX8UNq5ep0ekh9PL2fjImhzKu2rwhU/i9jBdq03pYk=;
+        b=kuQh1kqPUsWieLU5R9QK/PSUczoC9u/gK9OVGB25JvPC+vw/6usBLAkMsHecy5d2Qc
+         YZ3yVAwugtAEmYdT5TvIO7R6X/ugYb6bvzh/RIPpSicfLp8enPZIR7k1dUZNvmuCE+RR
+         5SbgRQlVmFJf3u69PSuaW5GhvlyCHyqb6e39YX02Vvc1PPfAP8EsrYa+C9/qqHPnsUnM
+         b0sEuU588WwScvSZHYJq9ItQgCOzPkMM6Q+q0pBRm8DHQ/bSuzclUzxY/dwaTuRwEJOG
+         LiJ27eKhwfj2kYOkIwuz01zuZxfX8V1mR+hXdU5nrQmALWuoz1ptSWJVHBn/zCxLXQyZ
+         b14w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=wr2uEMmhrLVzyovXGY6nai2GfPt34qzdj/eYkpWvOOU=;
-        b=f3CHvnWAOeM7mzu0R7+Cd9ONwPrppPRcsjl4yJBE1h39RjLG4swarNFBimX+WJQXmA
-         mgSS/KaJ3cIEpYn7CaDGSGSE1i/iiRbpwyRNf7ZtUji+Bi2jzxL5FQUk2pil/OlpWuj3
-         1snBVPM2xHNQ5UXw4cv+BfIHIQveiWN09KospwbOEUwOt7Y7I8fBep8gn7Llu32TDs+y
-         aNy8Dskz3obOWex1tzZHZnYQ6ixJKzZLKWaP0/H0XamyIS3XQPQR7SUihCicS2CeqKBq
-         v8oNeXqSX94Q9kfLfALVf4nwJrtmkeD0tUVRCPZmoYylGK53gHOJw2E5dBCYi8Hxs7dQ
-         8gng==
-X-Gm-Message-State: AOAM530wF/HeunnU3humfTLBOunJadWFWL/bHjaKnUaFhnwOpLnggdwi
-	AwE454OtOPyRg/NGOKrVk1c=
-X-Google-Smtp-Source: ABdhPJyWjBDv0yQRKvfD5c6CvgEjLf+p5MAZepBUtmY2QD/8xxnPvymtVZya4gUoVr0EBS0RFKbBtA==
-X-Received: by 2002:a63:d958:: with SMTP id e24mr104277pgj.348.1592417815294;
-        Wed, 17 Jun 2020 11:16:55 -0700 (PDT)
+        bh=ZqX8UNq5ep0ekh9PL2fjImhzKu2rwhU/i9jBdq03pYk=;
+        b=TilkwFYN4gSh+gMBCg/6UuG0MY/v0WIzM6656hIAb0LRHMqPX1EAOgiK+S7aua/UhR
+         RxZXK+xS9miODjZm/uiUtquF99gn3TgyQa7OltptQeieQMdqpLGVy2zjyXIQlvoh5AKH
+         G3IqkHsAekx1hstsPn6JydijXnsbmSxAkW7qSdl/02PnM4Vb/gxd6MoOesQIexaZZcaq
+         7cpCp1JHnJTaVXvwCqiwSxsNUOYHu/1ZaGKecua3D/hkTEMP98fziuSQ3vxZ9+lMEDZd
+         o424d/72hq87+F+5+mseOxl7eT66+uwW7xM93lKMWlgGyswEulwqtTfpuPMzoXRWWlE0
+         D5iw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531bW1L0y3IlRFINkJaLSmhWL0OY+wNf5gm+cddqTKcpyi3tmNl2
+	gMcH+YHN/USASFtjZ6FqmMs=
+X-Google-Smtp-Source: ABdhPJxjIcUN0a7kZgr+HrngWABDTy2/e4WBFt18cxUTgp7JqvTw+a7D9bz6yWqDRzYdMni+HWAPQQ==
+X-Received: by 2002:a05:6638:d89:: with SMTP id l9mr865117jaj.139.1592423133070;
+        Wed, 17 Jun 2020 12:45:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:7143:: with SMTP id g3ls1269067pjs.1.gmail; Wed, 17
- Jun 2020 11:16:54 -0700 (PDT)
-X-Received: by 2002:a17:902:8c84:: with SMTP id t4mr262278plo.315.1592417814848;
-        Wed, 17 Jun 2020 11:16:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1592417814; cv=none;
+Received: by 2002:a92:d28a:: with SMTP id p10ls959655ilp.5.gmail; Wed, 17 Jun
+ 2020 12:45:32 -0700 (PDT)
+X-Received: by 2002:a92:9603:: with SMTP id g3mr564523ilh.204.1592423132638;
+        Wed, 17 Jun 2020 12:45:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592423132; cv=none;
         d=google.com; s=arc-20160816;
-        b=VnZg3/doVp9wCovteGzCTMWhJSCo4iRzxg9Lo/hgmDZJWNE6zRgcVMZI0HSaAuKVAq
-         0yuY7rOKkIJ3gmznCT9gfic0n6VqXibv4lwYuiHuM+zylf8kUC/u4w9pKHVkbFpWivjw
-         GvqfBdLwtzpqwRukDpgT8AnCRes1r57dOjIFysh+63mXjofKj61IpvtDKU7S2tFRWafI
-         j/+T+pRTw+5PMjVf7Op+I73NmuirtM8lYrwpbN6RkoKkDP3k2JJee84fXnVTvcV2Cmbn
-         v4BWp3+3d/76uEJi4YKZzRfaUiM2XoSF3r55ldOQtQ49SeyRnNIgJ193mm7pITIlxUMO
-         VYog==
+        b=otTMvOJzG6nqVX/DwP/x5DJfRcwlguX7YgaLlY0vqbqr1A7b1PFzGyGiAWlDSNZCvT
+         vnQ1snttZPts4NijuAIkOy2KTXy8vLrV02h2BPxx+5Mk3zECOxPl9ta5YSctTTEEL+dU
+         G1RFkKi1d6cV81lW6354+IDJdRq7U9wooPTTGBAsWLqqNFhrOKb+xxErPSieRLoAHWKm
+         4l9c3DlVPDKZFwNbPPpVCjdBZjp98Ff24zIbCnnpqJA3fnWrSSwDOcs3El5JDHyqzY4h
+         vmNARhUkAebpm9Zc/a/rz35F2DHRvt3o38xsTCGmn8Ajn+fevGaaw6YicRFliIFgdFo+
+         Jylw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=9iHpdxTSsJV8Zk3XZ13SNgoX2KXs00CS5Ze28gN8oq4=;
-        b=cBS013FnNfpyGnOqGtJeDzt71nSWhrlA/dH+wKbnFNy56jAf2/ulKB2FKJnS6IvFUN
-         u/JS+qr+/sfWLXvKdaIjWjw8zudAYURJapuyQ8UwlScfxZs57RhN7dXegaxt5xfWz6Uf
-         3XSr+SntbhhGf0ZyMzTjsr4gNiJCFMmqlfQvEv9SVp9JJPTxZziiYXgs9TFxAdsPNWu4
-         8hyR+Qrha244stAVxknShIOrWvFPTfSpwg6jtLRygcbM4BTFPuzrg+05LU6hY66qouuq
-         kWbHmCf2ht65ezTHRgrivzI/v2D8aazdY1BAyk577HMpb1Qs8aLOuFgVtnhdKj4Z1BSe
-         xgZA==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=qADYA2qj90jik85EOfe0wcbi2OTtYq5pESPP/YDUUA8=;
+        b=pcJzJtdlLoI+4qBs5mLTFIkNK1mBkmyp39OkHmWs9eKUtoP1J1zmaUio570Khm5w3J
+         D7/sBrW2g2TuHqLGrkw/TC67y/eWid7zcChAAd9iFORC9G5UpTlZlqeRXO3kEXpZd1h1
+         w+KRQnIMAehRomWpIBNE9iA0zj5D6pwHlUqEKo0QXBsClAls/EWwurfzSp2/sHS4N9At
+         mNhtc7N+vxO8lfqMuwHcAD5n4dhy5cdy2vkuK/Uo4nV9HfLoaiwbExAJaq3F4YyiwaZ1
+         c7AxnLpx53PGj/TUxJeSG6N0YhsT1zyZjM4Q4/iHYF9HamDB7CG1BWlyiQCc1TzUugz8
+         W4kA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=gMJvLtSi;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x444.google.com (mail-pf1-x444.google.com. [2607:f8b0:4864:20::444])
-        by gmr-mx.google.com with ESMTPS id v197si47237pfc.0.2020.06.17.11.16.54
+       dkim=pass header.i=@kernel.org header.s=default header.b=vWuJpvkS;
+       spf=pass (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=akpm@linux-foundation.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id d3si46888iow.4.2020.06.17.12.45.32
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 17 Jun 2020 11:16:54 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) client-ip=2607:f8b0:4864:20::444;
-Received: by mail-pf1-x444.google.com with SMTP id h185so1543271pfg.2
-        for <clang-built-linux@googlegroups.com>; Wed, 17 Jun 2020 11:16:54 -0700 (PDT)
-X-Received: by 2002:a05:6a00:15ca:: with SMTP id o10mr247pfu.169.1592417814250;
- Wed, 17 Jun 2020 11:16:54 -0700 (PDT)
-MIME-Version: 1.0
-References: <cover.1590079968.git.christophe.leroy@csgroup.eu>
- <8c593895e2cb57d232d85ce4d8c3a1aa7f0869cc.1590079968.git.christophe.leroy@csgroup.eu>
- <20200616002720.GA1307277@ubuntu-n2-xlarge-x86> <68503e5e-7456-b81c-e43d-27cb331a4b72@xilinx.com>
- <20200616181630.GA3403678@ubuntu-n2-xlarge-x86> <50fb2dd6-4e8f-a550-6eda-073beb86f2ff@xilinx.com>
- <87bllidmk4.fsf@mpe.ellerman.id.au> <878sgmdmcv.fsf@mpe.ellerman.id.au>
-In-Reply-To: <878sgmdmcv.fsf@mpe.ellerman.id.au>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 17 Jun 2020 11:16:42 -0700
-Message-ID: <CAKwvOdnkcjLGay0jdQ77kHTmKhE56F9jvzh01XWwEE8rjbhLAA@mail.gmail.com>
-Subject: Re: [PATCH v5 01/13] powerpc: Remove Xilinx PPC405/PPC440 support
-To: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Michal Simek <michal.simek@xilinx.com>, Nathan Chancellor <natechancellor@gmail.com>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>, 
-	Arnd Bergmann <arnd@arndb.de>, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 17 Jun 2020 12:45:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from X1 (nat-ab2241.sltdut.senawave.net [162.218.216.4])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id A9646207DD;
+	Wed, 17 Jun 2020 19:45:31 +0000 (UTC)
+Date: Wed, 17 Jun 2020 12:45:31 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Vijay Balakrishna <vijayb@linux.microsoft.com>
+Cc: Dave Young <dyoung@redhat.com>, Baoquan He <bhe@redhat.com>, Vivek Goyal
+ <vgoyal@redhat.com>, kexec@lists.infradead.org,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com, Tyler
+ Hicks <tyhicks@linux.microsoft.com>
+Subject: Re: [PATCH v2][RFC] kdump: append kernel build-id string to
+ VMCOREINFO
+Message-Id: <20200617124531.753b42152682219f267b75a1@linux-foundation.org>
+In-Reply-To: <1591849672-34104-1-git-send-email-vijayb@linux.microsoft.com>
+References: <1591849672-34104-1-git-send-email-vijayb@linux.microsoft.com>
+X-Mailer: Sylpheed 3.5.1 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: akpm@linux-foundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=gMJvLtSi;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@kernel.org header.s=default header.b=vWuJpvkS;       spf=pass
+ (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=akpm@linux-foundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,56 +130,101 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jun 17, 2020 at 3:20 AM Michael Ellerman <mpe@ellerman.id.au> wrote:
->
-> Michael Ellerman <mpe@ellerman.id.au> writes:
-> > Michal Simek <michal.simek@xilinx.com> writes:
-> <snip>
->
-> >> Or if bamboo requires uImage to be built by default you can do it via
-> >> Kconfig.
-> >>
-> >> diff --git a/arch/powerpc/platforms/44x/Kconfig
-> >> b/arch/powerpc/platforms/44x/Kconfig
-> >> index 39e93d23fb38..300864d7b8c9 100644
-> >> --- a/arch/powerpc/platforms/44x/Kconfig
-> >> +++ b/arch/powerpc/platforms/44x/Kconfig
-> >> @@ -13,6 +13,7 @@ config BAMBOO
-> >>         select PPC44x_SIMPLE
-> >>         select 440EP
-> >>         select FORCE_PCI
-> >> +       select DEFAULT_UIMAGE
-> >>         help
-> >>           This option enables support for the IBM PPC440EP evaluation board.
-> >
-> > Who knows what the actual bamboo board used. But I'd be happy to take a
-> > SOB'ed patch to do the above, because these days the qemu emulation is
-> > much more likely to be used than the actual board.
->
-> I just went to see why my CI boot of 44x didn't catch this, and it's
-> because I don't use the uImage, I just boot the vmlinux directly:
->
->   $ qemu-system-ppc -M bamboo -m 128m -display none -kernel build~/vmlinux -append "console=ttyS0" -display none -nodefaults -serial mon:stdio
->   Linux version 5.8.0-rc1-00118-g69119673bd50 (michael@alpine1-p1) (gcc (Ubuntu 9.3.0-10ubuntu2) 9.3.0, GNU ld (GNU Binutils for Ubuntu) 2.34) #4 Wed Jun 17 20:19:22 AEST 2020
->   Using PowerPC 44x Platform machine description
->   ioremap() called early from find_legacy_serial_ports+0x690/0x770. Use early_ioremap() instead
->   printk: bootconsole [udbg0] enabled
->
->
-> So that's probably the simplest solution?
+On Wed, 10 Jun 2020 21:27:52 -0700 Vijay Balakrishna <vijayb@linux.microsoft.com> wrote:
 
-If the uImage or zImage self decompresses, I would prefer to test that as well.
+> Make kernel GNU build-id available in VMCOREINFO.  Having
+> build-id in VMCOREINFO facilitates presenting appropriate kernel
+> namelist image with debug information file to kernel crash dump
+> analysis tools.  Currently VMCOREINFO lacks uniquely identifiable
+> key for crash analysis automation.
+> 
+> Regarding if this patch is necessary or matching of linux_banner
+> and OSRELEASE in VMCOREINFO employed by crash(8) meets the
+> need -- IMO, build-id approach more foolproof, in most instances it
+> is a cryptographic hash generated using internal code/ELF bits unlike
+> kernel version string upon which linux_banner is based that is
+> external to the code.  I feel each is intended for a different purpose.
+> Also OSRELEASE is not suitable when two different kernel builds
+> from same version with different features enabled.
+> 
+> Currently for most linux (and non-linux) systems build-id can be
+> extracted using standard methods for file types such as user mode crash
+> dumps, shared libraries, loadable kernel modules etc.,  This is an
+> exception for linux kernel dump.  Having build-id in VMCOREINFO brings
+> some uniformity for automation tools.
+> 
+> ...
+>
+> --- a/kernel/crash_core.c
+> +++ b/kernel/crash_core.c
+> @@ -11,6 +11,8 @@
+>  #include <asm/page.h>
+>  #include <asm/sections.h>
+>  
+> +#include <crypto/sha.h>
+> +
+>  /* vmcoreinfo stuff */
+>  unsigned char *vmcoreinfo_data;
+>  size_t vmcoreinfo_size;
+> @@ -376,6 +378,53 @@ phys_addr_t __weak paddr_vmcoreinfo_note(void)
+>  }
+>  EXPORT_SYMBOL(paddr_vmcoreinfo_note);
+>  
+> +#define NOTES_SIZE (&__stop_notes - &__start_notes)
+> +#define BUILD_ID_MAX SHA1_DIGEST_SIZE
+> +#define NT_GNU_BUILD_ID 3
+> +
+> +struct elf_note_section {
+> +	struct elf_note	n_hdr;
+> +	u8 n_data[];
+> +};
+> +
+> +/*
+> + * Add build ID from .notes section as generated by the GNU ld(1)
+> + * or LLVM lld(1) --build-id option.
+> + */
+> +static void add_build_id_vmcoreinfo(void)
+> +{
+> +	char build_id[BUILD_ID_MAX * 2 + 1];
+> +	int n_remain = NOTES_SIZE;
+> +
+> +	while (n_remain >= sizeof(struct elf_note)) {
+> +		const struct elf_note_section *note_sec =
+> +			&__start_notes + NOTES_SIZE - n_remain;
+> +		const u32 n_namesz = note_sec->n_hdr.n_namesz;
+> +
+> +		if (note_sec->n_hdr.n_type == NT_GNU_BUILD_ID &&
+> +		    n_namesz != 0 &&
+> +		    !strcmp((char *)&note_sec->n_data[0], "GNU")) {
 
-> That means previously arch/powerpc/boot/zImage was just a hardlink to
-> the uImage:
+Is it guaranteed that n_data[] is null-terminated?
 
-It sounds like we can just boot the zImage, or is that no longer
-created with the uImage?
--- 
-Thanks,
-~Nick Desaulniers
+> +			if (note_sec->n_hdr.n_descsz <= BUILD_ID_MAX) {
+> +				const u32 n_descsz = note_sec->n_hdr.n_descsz;
+> +				const u8 *s = &note_sec->n_data[n_namesz];
+> +
+> +				s = PTR_ALIGN(s, 4);
+> +				bin2hex(build_id, s, n_descsz);
+> +				build_id[2 * n_descsz] = '\0';
+> +				VMCOREINFO_BUILD_ID(build_id);
+> +				return;
+> +			}
+> +			pr_warn("Build ID is too large to include in vmcoreinfo: %u > %u\n",
+> +				note_sec->n_hdr.n_descsz,
+> +				BUILD_ID_MAX);
+> +			return;
+> +		}
+> +		n_remain -= sizeof(struct elf_note) +
+> +			ALIGN(note_sec->n_hdr.n_namesz, 4) +
+> +			ALIGN(note_sec->n_hdr.n_descsz, 4);
+> +	}
+> +}
+> +
+>  static int __init crash_save_vmcoreinfo_init(void)
+>  {
+>  	vmcoreinfo_data = (unsigned char *)get_zeroed_page(GFP_KERNEL);
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnkcjLGay0jdQ77kHTmKhE56F9jvzh01XWwEE8rjbhLAA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200617124531.753b42152682219f267b75a1%40linux-foundation.org.
