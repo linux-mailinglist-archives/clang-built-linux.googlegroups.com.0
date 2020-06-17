@@ -1,172 +1,135 @@
-Return-Path: <clang-built-linux+bncBC55ZZVF24PRBHOTU33QKGQE4VG3PRI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCS7XUWOUULBBWXMU33QKGQEJ5DWNLQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x337.google.com (mail-wm1-x337.google.com [IPv6:2a00:1450:4864:20::337])
-	by mail.lfdr.de (Postfix) with ESMTPS id 688BF1FC59E
-	for <lists+clang-built-linux@lfdr.de>; Wed, 17 Jun 2020 07:26:54 +0200 (CEST)
-Received: by mail-wm1-x337.google.com with SMTP id b65sf381107wmb.5
-        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Jun 2020 22:26:54 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1592371614; cv=pass;
+Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
+	by mail.lfdr.de (Postfix) with ESMTPS id AE13D1FC61B
+	for <lists+clang-built-linux@lfdr.de>; Wed, 17 Jun 2020 08:21:15 +0200 (CEST)
+Received: by mail-pl1-x63d.google.com with SMTP id w8sf812777plq.10
+        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Jun 2020 23:21:15 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1592374874; cv=pass;
         d=google.com; s=arc-20160816;
-        b=KYl72H9rf/8W2fZZKkIvfqw1c0lyM5WlyLoBBTkcjvRPNToVDgccB4ocBUsKt1121R
-         eMQds/XdXf8hSdrr7lWDQrfZOfjKijANMWzIiSmvaEtyvtln50VoYjHYJ7x+kC5r4kVR
-         cUSSqI+wVgRTukes1ZHq+Syd3h//Q2qbH+Ep5a6QQTXPQykVAo4fA+ONia8S3zEtC7eD
-         TXQbtUE0zvksShargMCpmq7eOVHGZOtUO1O5FwO5k92IVWrIcoyv/MCgNhcC2YTjQwZ4
-         0yI1ibvw4uPLH5rJiCLrnY9rJpW3AxUUU4rhCA7MaKngdbpLbDio7UC3AYo5MYgYO/4D
-         UG8Q==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=Gnx9N4o7iggrTTLPd5g8vVo4Qf2s1+C+qn7qji2J6GDlvvhCIVkiI6uXCTgIjERVAD
+         XlubpwqYR7cIwR2PkYk571xAkH2Miv1AWbG9DF7Y4yuhdxjTB3P1OgKg+vkkZktYVSbI
+         v1zHo+EmS0sCxQQYmKHXbbIrOn/vRZimGjQGiUJoUzwDYIz8a+Y413TiqmMFX00WeMmZ
+         Ed1p9sCkTet7gbfFgjDQW54+7sWY1mrTRi9g6TtrT3kC4HSU8eabf+tUZL7xY5na1JlB
+         MxCnMDckbDKlh8pT5ICQrHNUwt7qN2OCT2bhZ/fNpTSMpseVXUvskMyXh0FbsWzP5rN/
+         TYvg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:in-reply-to
-         :content-disposition:references:message-id:subject:cc:to:from:date
-         :sender:dkim-signature;
-        bh=pFbMXsZNN0HbqKXoefd2EDtQKFsW1kxPHvbVX7zW4gA=;
-        b=k5eCb7Exz/U/pmNbxC27XeqXVdWteYL5F7hmt3dsNvtho0/hMAV65jf2wENArOopyj
-         a65do2yTYD/TKzZV7aB66DJ0Z9P1PGt80C3jC/byiB/Ii0oGM7xQVEjGq25C5fyazwHi
-         X1t+fLgJusQbzkJgHniGi9Z1PhIKRbz+ui94XJjpmz7c4Q+VYizOZGViImVQOuzj0tFn
-         ofjK6zyDE61Xy8hrNjMH1K8Dbk2oSTkkcaFIbxV0Jd0P0ZiLPigIWOqkK4Pmb1O5qch1
-         XjK0tJER22zmr6+MIoVsRi6ERvn6duA4BkLpJepRbg1VnMBO13aS1xhhIqUFu/VAm1Va
-         CEcw==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@Mellanox.com header.s=selector1 header.b=bYkuYPd2;
-       arc=pass (i=1 spf=pass spfdomain=mellanox.com dkim=pass dkdomain=mellanox.com dmarc=pass fromdomain=mellanox.com);
-       spf=pass (google.com: domain of jiri@mellanox.com designates 40.107.6.73 as permitted sender) smtp.mailfrom=jiri@mellanox.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mellanox.com
+         :list-id:mailing-list:precedence:reply-to:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=PWoJcM9nRtJE8SsylxxZSsc3ydhz70S1wr+MUjy2R0c=;
+        b=c0Mu1jvBtLNwjZWNoa45kNR0jTZYY/uduXfEMmDcy3X5wvAYcPRAw3IC+ZjMg+A29t
+         PhH6W+nbl6EnTiQpE0FszcNdtAkHmzK5ltmTRTquhVqNanBajzJvU9fTiDFIAjBWtrqf
+         f6v9wyqgOFan8iYWldCjgQmxAZ6GED6oYseYHV9PefQdo2C3Gwe0hViDf/DQXdgqf3q0
+         /jmMlm+pXuMvODbDIlf4ZYOPtn0vrTSv9+iP8FHPCr7klMGEdomQN+iaKhfL2axXdrff
+         BJVy9w5NZjz7F6v7gx8MLx+h1uon2vauNVhg3xX5eomMlTt5KyDShVPQLnGU2Rj38w2N
+         OnlA==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=thMbzNPd;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references
-         :content-disposition:in-reply-to:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=pFbMXsZNN0HbqKXoefd2EDtQKFsW1kxPHvbVX7zW4gA=;
-        b=tkTOAM0nYIeC28maYgDK7T/sSXfwzZ0Wo2H7RnkYzyLVnpfxBcXf37a/zcXZC/xY78
-         b/9S/iqv/m/97+u0xDcbXbLdlFfzYBDkeLcVY3dpShkr6Ue+iUYvnmQXA1/Dwh6m37VJ
-         6737NoHLV2nyEM/VZaeo3450iSOsWMRdQZz1Gobup5EBNHoq7hi7NqlnSOL6djDCrHfq
-         IXKOv5lLOAKVjkBj5pBDM+9Wp4IoEkjGth7k8ANxY5MMYwKPL734PqDJLl/t4PIrsVgX
-         8qf7r/AAlONMHHRxYTFrzhOJuH/lBHcT8qtGmzn0iYIMGw3wrz3DGyfOwIEhf1FH+z5O
-         Oogg==
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=PWoJcM9nRtJE8SsylxxZSsc3ydhz70S1wr+MUjy2R0c=;
+        b=bDP3Ch2BsURvQ8V5XgLzT0xs5UxdRrbI9OXLrGxzqrRDQabOMOTNfUIfP+fxykwT8g
+         lIOqJcMILRpcE5RNBHlqNgSJzye8eU/bKMfKchsSGyE/YPTO+lsT+ZF11cvUv/dAsR2P
+         IpgvFU6E/xfdchiPW57e6jRM1x+DmH8TSfzyQtLh62w7sRRqA6fjk5mlFikD0O/mz0Jh
+         a4f9uq5bW1NcwHGPibze3COiXSc1rZOdOQbjOCVcvu80jvDRK9UEevItBDvNvokQaBIm
+         SWR2FQdN2t6IcYu8s4oHkP2rr9xxCKFqUJySK1pfvtU2hxJeAgXE0Xeiw7yWhexTHMRL
+         stYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:content-disposition:in-reply-to:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=pFbMXsZNN0HbqKXoefd2EDtQKFsW1kxPHvbVX7zW4gA=;
-        b=HpywxwfUPWP/pjJ82jwS6GEBAq8DcPHidS5Z1QOsk2pc4YkckhKM+fJDUSGSqC7B9C
-         zdcyoq20ab9w8YrGqxc11SAx4N7ezJ7XReajSH++QaTjr8L0pI4be6xepGGoM5om7fdn
-         N1KAAdSpAPfwK4J2Bo+bgxQ/HlWN524r46RfgOU8zkDvb/8IS5brwKTqUM1/10sdU9MD
-         igAyfOP9mRyRfP/KECfhGxsPo8Py3Y0FOcCKun4ZRTqgFVdHwv0OpsNPaA3iwCkQ2doR
-         l1SOM4QQ4MOzoC1ewGAMiXnONlJDuR6giQpFq7Upgj6+72w3cXaepSY+tTrbxxW5SMY1
-         M6rA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530E+MBmuDx7yqs2PQ9HDeLKl9CEAqiM90ftZYOdmCUC73OcjQ+9
-	U3o6fqALZ2G5UQm51KaO3u4=
-X-Google-Smtp-Source: ABdhPJwu4NkStSoHwDfwlH31DCI5fb4WUo6Zavn5DuwHR++YVhxbtRh6OpKgWedpTuI8HLDGIYm2CQ==
-X-Received: by 2002:a1c:c916:: with SMTP id f22mr873977wmb.1.1592371614021;
-        Tue, 16 Jun 2020 22:26:54 -0700 (PDT)
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=PWoJcM9nRtJE8SsylxxZSsc3ydhz70S1wr+MUjy2R0c=;
+        b=fo8YCh2TpTUeNc18Jj7fSt+KnONRMVpa/FPE4XCmyZpSzK5/hfx4YFDO848G4AO67W
+         Zy+flZy/8eNZy0Skfoau2XfzILU3zYjv+CGJxS7+7+9IkyQnmfQmf4krflo8upcA2rvq
+         EDtkISOnImoxIYsdOWi54wgr0yTk/+c/yhggvdbAi02FI91OkjuOHtSNEPrAkCSMySCI
+         0c61rbEezZCxqs2NfVE10OzNZNXpMc2g9seWX7cEijuVJwqDvEsKeefqf2fON1cJGStq
+         tEaTmE5J423xgaN9I4ReB8TAzsj5WRQlavLftoFY8psZrx5fN37e1EARXJTpzO0drNvO
+         5s1Q==
+X-Gm-Message-State: AOAM532x+T+xYVI651R36MI6KrdM0+oEvB0+/Wzbrtwa1qxcpwb1agXT
+	m1hYusdRkQsq+BtaIdNytFE=
+X-Google-Smtp-Source: ABdhPJyYL58aQnHJx4AIaL0IUZzHGf4Qu37Y6OzbzvfqMEsnWhk5NmL4WcZMUVKgicHFDfzK4WEuCQ==
+X-Received: by 2002:a17:902:fe95:: with SMTP id x21mr5427454plm.17.1592374874340;
+        Tue, 16 Jun 2020 23:21:14 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:aace:: with SMTP id i14ls980088wrc.3.gmail; Tue, 16 Jun
- 2020 22:26:53 -0700 (PDT)
-X-Received: by 2002:adf:828b:: with SMTP id 11mr406098wrc.58.1592371613431;
-        Tue, 16 Jun 2020 22:26:53 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1592371613; cv=pass;
+Received: by 2002:a65:63d0:: with SMTP id n16ls342620pgv.6.gmail; Tue, 16 Jun
+ 2020 23:21:13 -0700 (PDT)
+X-Received: by 2002:a63:2246:: with SMTP id t6mr5130264pgm.211.1592374873873;
+        Tue, 16 Jun 2020 23:21:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592374873; cv=none;
         d=google.com; s=arc-20160816;
-        b=oEoMSpb4Yp/hFA++5VVGI+dhOfEAqlqtD8PuITyhyhEzidn9goa6nt1B5SVw8lFhvE
-         HPYjsEiBIjHrC5WWlHn63NM/9fe6m68n177lKjxNXf9d9wYPl9ji9Vzyk2KsdX8IfMvb
-         BS4voxxz4Iu+edzgEbzv02BKlKFHkzB/NV/0GK7TS7v1HT5XHdlAfAcYWfV4jth2h9T5
-         EvKb6WO5KazIHW0mRFxzDWphhncvG7W3Ho3Z1ppwFg3TO0GJgVwDHuoT/a1GZhYMJ06S
-         2uLNT/hwTSE7w+fP/iDNC5pwmX8hMeWTNuUDhm/lExRDV5p6kzWix+BNBop3Ozx2O8aE
-         wBdQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:in-reply-to:content-disposition:references:message-id
+        b=VtrDwFXcluTwXrAQnhtBWDuXqgW9KIxXeqKZXHg8bH/7TvjwplJMalSDLJWHgmekqk
+         NNHIAKFb25kMIyLbb1tu0ra/rnk4/XjsqP68gPw5+Zohsb46pb4Kcu+k0m1WtZ0uNwYR
+         fkGnG/mt1VjR/tqan2/5HZuW8ejRVxFirXIS0nsYt4z1Z8jr73RvenH9hJC42iQ8oitS
+         tQlOE/als36DGV+HvvnECNcd136p+z7x7hjmx+fq3lku9LH/GoM3CvGJjRT8CwlEIHLH
+         wEgUijBNPxekqJ5KwMU1w2cSWXWLkqyikSflvaZOtDcjccaGAUBmn0RPrJts28FkOwUX
+         CPvg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=AL7J/t22Ue1zUYJ/Q6V5LLSgYFDWRHzmAj4AtIyqL+w=;
-        b=Xbrabwhn1nw5N+oR8tFQciVwwIxs2aDOw1gH1Krb38hsW6ofRJqQ5EYCbfLudWH7s7
-         yReQtygIj5T1SOWgGF97Hvicmasm2Hn4HDc3mUsFVeQFG4tihc9EsbW9d7/f5MMPxXTx
-         EsIafOFAI3MRa57Dp/aZeVw+/ETpI9ykNEPz2zHhqH6mNn69phaF6uAoLTUVA7Jaz6tu
-         PJQDtvvZGU83SeQ+7Zv522ogL3FvdH+tYHmo0fhAxpwryz4/0pabFypZpOgyWHzgldrY
-         z4vB65uPy4atMW9SeTshf/pn5yoGx1YS9a0uRdvEzchiER3XgVGHhyaTGT61Lv7PToI7
-         UIgQ==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@Mellanox.com header.s=selector1 header.b=bYkuYPd2;
-       arc=pass (i=1 spf=pass spfdomain=mellanox.com dkim=pass dkdomain=mellanox.com dmarc=pass fromdomain=mellanox.com);
-       spf=pass (google.com: domain of jiri@mellanox.com designates 40.107.6.73 as permitted sender) smtp.mailfrom=jiri@mellanox.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mellanox.com
-Received: from EUR04-DB3-obe.outbound.protection.outlook.com (mail-eopbgr60073.outbound.protection.outlook.com. [40.107.6.73])
-        by gmr-mx.google.com with ESMTPS id m16si320785wmg.2.2020.06.16.22.26.53
+        bh=RY0sI1g/LD72PH9iZpGuqFn39rpjPBN9D+rFSGGQFmA=;
+        b=d3pWwueOUTCrKbTH4tSw0JO1EyuN4kI2pHaaZ5ohFobpR0LS+Bbu1TPkatCuPYVwk4
+         M0bNN/N2pSC/sOqTFzU3Qs8AjYCdbRet2jDNriexl3hFerfjg2ouM5d2WaUOCh4jiYeU
+         9sTLTWEGqYgWLXaObJChUIMlAKZ7ZnGt4MblvkxaP/tVPBkSCbPoE5/KN6d+C3xbBYXi
+         DaHyfrF/dmP4s69Py4h0oTX6AtmRQP+GVJ4iGlWuLsg9fzCkzU6PdQ5Nu9uehs1T5ezy
+         SjL/ZTp/yhH/5WGBqZNwPFv5/cqhXgyWUHIZ88aKl3uwJo3/eDTWjDHNRXWTQ++MFQ3p
+         HCOw==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=thMbzNPd;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pj1-x1042.google.com (mail-pj1-x1042.google.com. [2607:f8b0:4864:20::1042])
+        by gmr-mx.google.com with ESMTPS id l9si176318pjw.2.2020.06.16.23.21.13
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 16 Jun 2020 22:26:53 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jiri@mellanox.com designates 40.107.6.73 as permitted sender) client-ip=40.107.6.73;
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Bg6M+55O7rpOVbq38oVCUKtDBFDcIDK6ksZm64xifss40A9VnB1i+FRAN1b27VzbPJKNbDli5b1w+SddmzezpNjXU6uXJGGSNuL0TK3TarfmqTG4UI+n9M4wqwRRWIAzlzlEHo/mss22WdKMaBllYPi/0HmtQV+eefjzxFBPAH6bT4qUwf2YjYMbAlkH2xJgv1xckXxd+akjRkT0kiFLQN5H1cDWCqjlqNWaKqOvhT1yApnDfr0E3AtasMZdwCRK1FnheTx2OopHCsm5r9r7KoJvdIsV+o2mV4rYu1KIhren4tI/W0FyOawiUrgiTg+aFU9ATYWpsEBhJ9PEy1kk7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AL7J/t22Ue1zUYJ/Q6V5LLSgYFDWRHzmAj4AtIyqL+w=;
- b=N0MluOi9+QEFbk0AYhsTyWKuUQ8ky+NRo6o0hc2U6vazSIUltl78NlOHyxnQJQcK92PQl7b9jLApWgsaUfYlAppixB/y23cw+ymJDujBg4khWxzQb/tr/z8WfdCoL+mkT5gZBmeE8e+5oxhrSwCCQFBc52wgcMDR2FoJu8UuyJ081fyipKOckzkeSbeWGVXiRDcawaOCzRH/p5sztI4Ai7FSm/wOdzRNscSISxB/EKmxemeb3guqodipUJOp+xuMiK29ijbaT6DyaD+mBVkMhX+LtFPxV4MmWT6ppgAE/T8rSpeWYbY8Sp2fRo5O1OVSJ4Uv8kZUJhMiiKnGrgs2kA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mellanox.com; dmarc=pass action=none header.from=mellanox.com;
- dkim=pass header.d=mellanox.com; arc=none
-Received: from VI1PR05MB6365.eurprd05.prod.outlook.com (2603:10a6:803:f3::18)
- by VI1PR05MB6176.eurprd05.prod.outlook.com (2603:10a6:803:d6::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3109.22; Wed, 17 Jun
- 2020 05:26:51 +0000
-Received: from VI1PR05MB6365.eurprd05.prod.outlook.com
- ([fe80::1906:9c7f:bde0:96f]) by VI1PR05MB6365.eurprd05.prod.outlook.com
- ([fe80::1906:9c7f:bde0:96f%6]) with mapi id 15.20.3109.021; Wed, 17 Jun 2020
- 05:26:51 +0000
-Date: Wed, 17 Jun 2020 07:26:49 +0200
-From: Jiri Pirko <jiri@mellanox.com>
-To: kernel test robot <lkp@intel.com>
-Cc: Danielle Ratson <danieller@mellanox.com>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com,
-	Ido Schimmel <idosch@mellanox.com>
-Subject: Re: [jpirko-mlxsw:net_next_queue 21/27] net/core/devlink.c:7388:23:
- warning: address of array 'attrs->switch_id.id' will always evaluate to
- 'true'
-Message-ID: <20200617052649.GO2262@nanopsycho.orion>
-References: <202006170421.A2AvMIPA%lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202006170421.A2AvMIPA%lkp@intel.com>
-X-ClientProxiedBy: AM0PR10CA0128.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:208:e6::45) To VI1PR05MB6365.eurprd05.prod.outlook.com
- (2603:10a6:803:f3::18)
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 16 Jun 2020 23:21:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) client-ip=2607:f8b0:4864:20::1042;
+Received: by mail-pj1-x1042.google.com with SMTP id jz3so508496pjb.0
+        for <clang-built-linux@googlegroups.com>; Tue, 16 Jun 2020 23:21:13 -0700 (PDT)
+X-Received: by 2002:a17:902:ac97:: with SMTP id h23mr5532904plr.64.1592374873225;
+        Tue, 16 Jun 2020 23:21:13 -0700 (PDT)
+Received: from google.com ([2620:15c:2ce:0:9efe:9f1:9267:2b27])
+        by smtp.gmail.com with ESMTPSA id t22sm4121927pjy.32.2020.06.16.23.21.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Jun 2020 23:21:12 -0700 (PDT)
+Date: Tue, 16 Jun 2020 23:21:09 -0700
+From: "'Fangrui Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Sedat Dilek <sedat.dilek@gmail.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	Arvind Sankar <nivedita@alum.mit.edu>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Masahiro Yamada <masahiroy@kernel.org>
+Subject: Re: LLVM/Clang: Integrated assembler: DWARF version 4 and passing
+ assembler option
+Message-ID: <20200617062109.woy2uyefdplw3pst@google.com>
+References: <CA+icZUUWh=NzBwAa3hff6yOxY0ZirKmzOLz=a2eZUbW_cD5ECg@mail.gmail.com>
+ <20200616173207.GA1497519@rani.riverdale.lan>
+ <CAKwvOd=XH47E4GzKGw_LLVXzskJ_Z8=jf2k=ebG-o7nXFAqzjg@mail.gmail.com>
+ <CA+icZUWm8SRiNLGsu+SXszOSOge2yfvkaBGTXLPKLTKKtFFuDQ@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from nanopsycho.orion (84.16.102.26) by AM0PR10CA0128.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:208:e6::45) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3088.21 via Frontend Transport; Wed, 17 Jun 2020 05:26:51 +0000
-X-Originating-IP: [84.16.102.26]
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-HT: Tenant
-X-MS-Office365-Filtering-Correlation-Id: ffbc4820-3da1-4473-3592-08d8127f0a3c
-X-MS-TrafficTypeDiagnostic: VI1PR05MB6176:
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <VI1PR05MB6176828845D2EA19A8C3ECCBBD9A0@VI1PR05MB6176.eurprd05.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:138;
-X-Forefront-PRVS: 04371797A5
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: Ogyt08iRb4IiNcCroh/JvG20IFDf7SF5+xl6SRmPMYeAlJie/SkloJVhF/S3sGaZRp2+M627NUcabIrJyrY8yPVEWnm9IdlutQMI+yCv87dHrDyBmdKUlt0nbJLCnO+BbPpKszuAyRxNzS01Ve2ri51bPgZwubH40o09Ifi40nlEa5jyM2TPYOSbM7dcfXI1Jz4g4mgRjUxjWm19A0a9q87JnJ4UTs3D4JRCekWJ7/lden00gEiMDkwUsPmrItJYKnMtqB595x/XXjAbGnbiM2fuz7PI8TmvaNTovEb+dbRhMz1ZonsXJudQQbIG04cOD6H3Q3m8af6yy3MacxFUfBtZjCyjaVQrz7CCRNtewLa19yxnuhtu/TE/tv1xXO67Z8Sz3+0V2VQvuKUVxKc2lw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR05MB6365.eurprd05.prod.outlook.com;PTR:;CAT:NONE;SFTY:;SFS:(4636009)(396003)(346002)(39850400004)(136003)(366004)(376002)(5660300002)(316002)(26005)(107886003)(83380400001)(2906002)(6506007)(478600001)(86362001)(33656002)(8936002)(66946007)(7696005)(186003)(52116002)(4326008)(66476007)(956004)(966005)(1076003)(83080400001)(54906003)(16526019)(6916009)(55016002)(9686003)(8676002)(66556008);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData: ruizIs0FhJdPG6H3cArrL+BY0DbAy7nvP7x/NWQGxNwaUvUnOhX9CogGVPCc6iydc7WoPzYEfHBESkkCRR+oeO1cExzMjdodS5AEPe3+3koJl0KOj8Pq+xJ5TXInggo+NESM7LUAbWcsgYea6GeiccYA5nUZPW+EPt8nmjdJmYjaQh5GFv9+++QFi6PiQ2Du6P+xqu49g76KpKxudgbz7Mp1tyTeogcr7Qw/tmfpBwlqUstkK9Q9mh3m/weYJPkSeXKHaTTIg1Fu6031wxlptODTAJJ4mMsrcO7M0O8T6mKakOqC7VDQ3jVkXGi8ISN7MGXg/MT8COaHLTuXEgBsmx7dQu7H/eCixMXWProzlK9GXJG5ZWEzmquSv8cBySYX1gnpEYykmi2xbfm9nalsoUVNLC1zI9wVXOSjHKBkUU2e5TVoFcE6Xn2bXTUwqMZkvCSwWkSUK73978y1sNJdphK6S0I+GbYiN3Tl6ySSeLE=
-X-OriginatorOrg: Mellanox.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ffbc4820-3da1-4473-3592-08d8127f0a3c
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jun 2020 05:26:51.6938
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: a652971c-7d2e-4d9b-a6a4-d149256f461b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pvlwlN1WN8RWuxTrhFgEh0UKzu+fxy5YRg2UK2QpQq00v63LZfRnFDbQ4x47YC62aHLbI6VtKaVUqDRRygyJ8A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR05MB6176
-X-Original-Sender: jiri@mellanox.com
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Disposition: inline
+In-Reply-To: <CA+icZUWm8SRiNLGsu+SXszOSOge2yfvkaBGTXLPKLTKKtFFuDQ@mail.gmail.com>
+X-Original-Sender: maskray@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@Mellanox.com header.s=selector1 header.b=bYkuYPd2;       arc=pass
- (i=1 spf=pass spfdomain=mellanox.com dkim=pass dkdomain=mellanox.com
- dmarc=pass fromdomain=mellanox.com);       spf=pass (google.com: domain of
- jiri@mellanox.com designates 40.107.6.73 as permitted sender)
- smtp.mailfrom=jiri@mellanox.com;       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mellanox.com
+ header.i=@google.com header.s=20161025 header.b=thMbzNPd;       spf=pass
+ (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1042
+ as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Fangrui Song <maskray@google.com>
+Reply-To: Fangrui Song <maskray@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -179,64 +142,157 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Tue, Jun 16, 2020 at 10:21:24PM CEST, lkp@intel.com wrote:
->tree:   https://github.com/jpirko/linux_mlxsw net_next_queue
->head:   f57f2148543db358708e16537ab5c87f5da6abba
->commit: 9cc195db08f0779fe92deac4da99879d95d8fe96 [21/27] devlink: Replace devlink_port_attrs_set parameters with a struct
->config: x86_64-allyesconfig (attached as .config)
->compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 487ca07fcc75d52755c9fe2ee05bcb3b6eeeec44)
->reproduce (this is a W=1 build):
->        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->        chmod +x ~/bin/make.cross
->        # install x86_64 cross compiling tool for clang build
->        # apt-get install binutils-x86-64-linux-gnu
->        git checkout 9cc195db08f0779fe92deac4da99879d95d8fe96
->        # save the attached .config to linux build tree
->        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
->
->If you fix the issue, kindly add following tag as appropriate
->Reported-by: kernel test robot <lkp@intel.com>
->
->All warnings (new ones prefixed by >>, old ones prefixed by <<):
->
->>> net/core/devlink.c:7388:23: warning: address of array 'attrs->switch_id.id' will always evaluate to 'true' [-Wpointer-bool-conversion]
->if (attrs->switch_id.id) {
->~~  ~~~~~~~~~~~~~~~~~^~
->1 warning generated.
->
->vim +7388 net/core/devlink.c
->
->  7378	
->  7379	static int __devlink_port_attrs_set(struct devlink_port *devlink_port,
->  7380					    enum devlink_port_flavour flavour)
->  7381	{
->  7382		struct devlink_port_attrs *attrs = &devlink_port->attrs;
->  7383	
->  7384		if (WARN_ON(devlink_port->registered))
->  7385			return -EEXIST;
->  7386		devlink_port->attrs_set = true;
->  7387		attrs->flavour = flavour;
->> 7388		if (attrs->switch_id.id) {
+I have only subscribed to clang-built-linux@ so I might miss some
+context. Just wanted to clarify what -Wa,-gdwarf-5 does
 
-Ha, I missed this during review. You need to check id_len
-
-
->  7389			devlink_port->switch_port = true;
->  7390			if (WARN_ON(attrs->switch_id.id_len > MAX_PHYS_ITEM_ID_LEN))
->  7391				attrs->switch_id.id_len = MAX_PHYS_ITEM_ID_LEN;
->  7392		} else {
->  7393			devlink_port->switch_port = false;
->  7394		}
->  7395		return 0;
->  7396	}
->  7397	
+On 2020-06-17, Sedat Dilek wrote:
+>On Tue, Jun 16, 2020 at 10:35 PM Nick Desaulniers
+><ndesaulniers@google.com> wrote:
+>>
+>> On Tue, Jun 16, 2020 at 10:32 AM Arvind Sankar <nivedita@alum.mit.edu> wrote:
+>> >
+>> > On Tue, Jun 16, 2020 at 01:21:46PM +0200, Sedat Dilek wrote:
+>> > > Hi Arvind,
+>> > >
+>> > > when experimenting with LLVM_IAS=1 (and later using LLVM tools via
+>> > > LLVM=1) I saw that we need DWARF version 4 for debug.
+>> > >
+>> > > In [4] I saw you simplified the kbuild info detection for
+>> > > CONFIG_DEBUG_INFO_COMPRESSED=y.
+>> > >
+>> > > As I know you are working in the x86/boot/build area I wanted to
+>> > > kindly ask what do you think of these changes:
+>> > >
+>> > > [ kbuild: Silence dwarf-2 warning when LLVM_IAS=1 ]
+>> >
+>> > Cc clang-built-linux/Yamada-san.
+>> >
+>> > I'm by no means an expert at this stuff :) I've only been contributing
+>> > to the kernel for a few months and am learning as I go.
+>> >
+>> > Regarding these changes, for gcc I would say that given we invoke the
+>> > gcc driver for assembler files, KBUILD_AFLAGS could just be
+>> > -g/-gsplit-dwarf, and additionally -gdwarf-4 if DEBUG_INFO_DWARF4 is
+>> > configured, i.e.  basically just do KBUILD_AFLAGS += $(DEBUG_CFLAGS)
+>> > once DEBUG_CFLAGS have been fully set (maybe excepting the -f options,
+>> > though those don't appear to cause any errors even if passed for
+>> > assembler input).
+>> >
+>> > Eg, right now it appears that assembler files don't have split dwo
+>> > output with gcc, only C files do.
+>> >
+>> > I would assume that should also work for clang and allow clang to invoke
+>> > its built-in assembler with whatever flags it thinks are appropriate,
+>> > and hence should avoid the problems you get now?
+>>
+>> I have a patch that cleans this up as part of adding support for
+>> -gdwarf-5, please sit tight and keep an eye out for that. (I'll try to
+>> remember to cc folks)
+>>
 >
->---
->0-DAY CI Kernel Test Service, Intel Corporation
->https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+>Please CC me, thanks.
+>
+>- Sedat -
+>
+>> >
+>> > >
+>> > > --- a/Makefile
+>> > > +++ b/Makefile
+>> > > @@ -803,8 +803,10 @@ DEBUG_CFLAGS       += -gsplit-dwarf
+>> > >  else
+>> > >  DEBUG_CFLAGS   += -g
+>> > >  endif
+>> > > +ifndef LLVM_IAS
+>> > >  KBUILD_AFLAGS  += -Wa,-gdwarf-2
+>> > >  endif
+>> > > +endif
+>> > >  ifdef CONFIG_DEBUG_INFO_DWARF4
+>> > >  DEBUG_CFLAGS   += -gdwarf-4
+>> > >  endif
+>> > >
+>> > > [ kbuild: Add dwarf-4 assembler option when LLVM_IAS=1 ]
+>> > >
+>> > > diff --git a/Makefile b/Makefile
+>> > > index 4d796ce78888..c3bc1ff0d900 100644
+>> > > --- a/Makefile
+>> > > +++ b/Makefile
+>> > > @@ -809,6 +809,9 @@ endif
+>> > >  endif
+>> > >  ifdef CONFIG_DEBUG_INFO_DWARF4
+>> > >  DEBUG_CFLAGS   += -gdwarf-4
+>> > > +ifdef LLVM_IAS
+>> > > +KBUILD_AFLAGS  += -Wa,-gdwarf-4
+>> > > +endif
+>> > >  endif
+>> > >
+>> > > Does passing  "-Wa,-gdwarf-4" makes sense here or is mandatory?
+>> > > Is indendent of CONFIG_DEBUG_INFO_DWARF4=y even?
+>> > >
+>> > > Thanks in advance.
+>> > >
+>> > > Regards,
+>> > > - Sedat -
 
+-Wa,-gdwarf-4 tells the compiler driver to pass -gdwarf-4 to the
+assembler (most common: GNU as, clang integrated assembly).
+
+In GNU as, as -g a.s does very little:
+
+0x0000000b: DW_TAG_compile_unit
+               DW_AT_stmt_list   (0x00000000)
+               DW_AT_low_pc      (0x0000000000000000)
+               DW_AT_high_pc     (0x000000000000000b)
+               DW_AT_name        ("a.s")
+               DW_AT_comp_dir    ("/tmp/c")
+               DW_AT_producer    ("GNU AS 2.34")
+               DW_AT_language    (DW_LANG_Mips_Assembler)
+
+Basically it just tells the debugger an address range corresponds to a.s
+
+clang integrated assembly additionally synthesizes DW_TAG_label:
+
+0x0000000b: DW_TAG_compile_unit
+               DW_AT_stmt_list   (0x00000000)
+               DW_AT_low_pc      (0x0000000000000000)
+               DW_AT_high_pc     (0x000000000000000b)
+               DW_AT_name        ("a.s")
+               DW_AT_comp_dir    ("/tmp/c")
+               DW_AT_producer    ("clang version 11.0.0 ")
+               DW_AT_language    (DW_LANG_Mips_Assembler)
+
+0x00000043:   DW_TAG_label
+                 DW_AT_name      ("foo")
+                 DW_AT_decl_file ("/tmp/c/a.s")
+                 DW_AT_decl_line (6)
+                 DW_AT_low_pc    (0x0000000000000000)
+
+It emits a bit more, but DW_TAG_label may not be useful. gdb knows the line number of 'foo' by
+searching the address of 'foo' (from symbol table) in .debug_line
+
+The DWARF version of assembly files matters very little.
+
+>> > > [1] https://github.com/ClangBuiltLinux/linux/issues/1049
+>> > > [2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/kbuild/llvm.rst#n47
+>> > > [3] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/kbuild/llvm.rst#n62
+>> > > [4] https://git.kernel.org/pub/scm/linux/kernel/git/masahiroy/linux-kbuild.git/commit/?h=fixes&id=7b16994437c7359832dd51d66c5c387995a91438
+>> >
+>> > --
+>> > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+>> > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+>> > To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200616173207.GA1497519%40rani.riverdale.lan.
+>>
+>>
+>>
+>> --
+>> Thanks,
+>> ~Nick Desaulniers
+>
+>-- 
+>You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+>To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+>To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUWm8SRiNLGsu%2BSXszOSOge2yfvkaBGTXLPKLTKKtFFuDQ%40mail.gmail.com.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200617052649.GO2262%40nanopsycho.orion.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200617062109.woy2uyefdplw3pst%40google.com.
