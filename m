@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBPMDVP3QKGQELUAYS5A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBO4EVP3QKGQEYPNTXNQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x639.google.com (mail-pl1-x639.google.com [IPv6:2607:f8b0:4864:20::639])
-	by mail.lfdr.de (Postfix) with ESMTPS id 17ADB1FDCC2
-	for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jun 2020 03:22:07 +0200 (CEST)
-Received: by mail-pl1-x639.google.com with SMTP id x8sf2762533pll.19
-        for <lists+clang-built-linux@lfdr.de>; Wed, 17 Jun 2020 18:22:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1592443326; cv=pass;
+Received: from mail-vk1-xa39.google.com (mail-vk1-xa39.google.com [IPv6:2607:f8b0:4864:20::a39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2D4431FDCE5
+	for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jun 2020 03:24:12 +0200 (CEST)
+Received: by mail-vk1-xa39.google.com with SMTP id x187sf1062632vke.8
+        for <lists+clang-built-linux@lfdr.de>; Wed, 17 Jun 2020 18:24:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1592443451; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XFBFFZHoqKW+TMplsA3pAmidcgdCzovQxPDpdqWDcNs11h5VqucZjjI7M33Twr6Wg3
-         ESkyhUT4SHRdshIwOFucIL7dXePn7CA22VwDG0QBfxIr0D0IvmQl6eD40zQvCJY7OExk
-         KQsVj228L8YTUhoC0UzA3qw8pFJAYKheonfemSyR+xRd61ZFcecKNjR/4e6v5ue9JS4f
-         jK1nJn4++VUcix8Us5LIFhKtXh3L8TCOdwvM0my6KvbrUWLGXyRsT+mDWP8gGmy1ZFNd
-         tXqi1C7MK+ygyXcKtyqgj30qHipFVI5dsrl/rILbAs3chXH3MYct2kV3eMD0l33Lqyi9
-         r1Gg==
+        b=DFDG7WpYNpcYvVPrjP63HFZyLfX41JqeCR0u56EHu0eV6MYaMDBv64Py5Ur2kV63x1
+         ukrcYFcDsHeSPhYHaSaIfQY0z/gXJ3n5GWX+z7ZDEcZwPOFQyNATwDsnCRVhAF5vn6lC
+         EwAQOWyO/TJA2fROSVjQH3lrF2JXlhrE60okSd/StQLcyOhUav2Psk/de+V3OeyKqjuE
+         3GY6vt1ozmZK2mQBJuXuZXCmJP70o57+zfjFt8uXZ46Z6tA+fFIyCZkoaA2fFxQ9CZfq
+         sp3IGSReZij2KdAoH5REc+pt1/LsXLOEjQdU8D56zgu001k9LN525JwdN+OvX4trJ4TM
+         LWAg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=uCR/iRZt6ls6oyEFlSIilEX0Mir1eXb8FCoEf7kuRr4=;
-        b=hgrjzjgUJxWfukto801zbYYtE4A+ghulaajky/fK4Zr8WOpG7poYP88e5aVSFRGEFH
-         C+D9ZYOXRXK+9oDpPbjDI83alcB0MvrK+qOQvQ4U9pjKmNGylIZBv6O2DZ2kwYbuOFXw
-         fOoLmMyd+wxtqCMbTZ0GOCQPezDzKog3lD9Dzzvz697wtFRitsSdmvR0lRUENGH/ldBx
-         8nyK/N3B6B01gUGwXZJrpwhTX8dtpACe4ARfl8AKCMtMYRV8uviFGGAixi5z3aFxKDh0
-         D1sDlLMNny5NCbHD9zpu7dAyPsP/rirUMz5zr74LSSGIsNUkaeMGitv6Nm802LUXg4+1
-         ZdlQ==
+        bh=OcgoDsuudVINYV1a+8Cl7nxQSHuWcSmjP3eCCM/FBZY=;
+        b=grdoSRs7Thux1F/lX+NrBYhuC1XUZ5mKJHAAVpMAKXzhhvg4nWlx49qetgaUClaxiN
+         cN/ZZoq7ft1wHkfahaAl3pERuXVhCOM/2kMEAaZ75uAkRnh68eX8r7SEoaWjv4Ht0bB4
+         nYWKQbatRdhLLjIKgZFXQo6rZgGiRs0CXW/+S/tWBOLPc+Z+5yrZgR9OVYr77YXTwXfT
+         uuRhmqGynZ+xU/Yy7t6lWJBX50j8NHZS/2GgvOXM3+pUWVubp0VDqe8NG62PaRFtZ4US
+         eoHdBdeMbtVZWQ/25UUKA68PpBnHWLfwdcgEbG4CXVFKZWvpylULHO1BBmgl9yxm7XE1
+         HxYw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=xZCvwK+1;
+       dkim=pass header.i=@kernel.org header.s=default header.b=GBNbbqGD;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=uCR/iRZt6ls6oyEFlSIilEX0Mir1eXb8FCoEf7kuRr4=;
-        b=dBJvss3QlflXrS91vFdKZTgX+TZGyiQbUpfsnr5Io0OoesKDHvUjSBwkw/v0nMGs6d
-         2iWAt2+wpQQYcNM3iRspK5FCPaBCTp+7SaFO7Y3cJYl9yWIxSL0SKbxiOPTJRT18lZFK
-         QjtkcrPmoJ5u4j8fXZVBeLMdotUJIgFhgjKpCOWrSXkCeBtN+tqo0F8CBq03lg15oQAN
-         HlJWbBVdcg9uc+tSdWnV698IDAHZPZzYq4FyjN54fQRv6mwv6T7npB5dv7FK7BLSYiaR
-         xW+xZKGf5wYgovtVc+iRySeH7bcELJYXm00Wri2q67hfnq7M353vmEL2aiVOu+u9xijw
-         iAIA==
+        bh=OcgoDsuudVINYV1a+8Cl7nxQSHuWcSmjP3eCCM/FBZY=;
+        b=H4RRamoXkU85e1dzbSjTuCiIlCzLArTslAcRc+ElruZGuqRq4h6JUZiGL0B6vqa1Be
+         OKENX46fz1MLv9wjrcwQtVyWPETPoMuoByqWz18TWcDfY3tOMVvOcvrl6TIracmp7XXi
+         Vp46PnF1AFgXZXvj6ujwT1apfHp19IlFvJAn4BYn9lARMdGaNnp+gRABBRvUR2guIk/Z
+         pdL0yuWTRsvvPqYmGuL3Nr1JKNqi+LSdZSE++ViB7Qiaviv+ioA+RxRViW/EkFdh/oOY
+         HAwUDbVtXjgQcPbOyuw/cPmc8ikGAz9I+lJA66G/KJeAJcmLeMIDZr+i0YIZm+3fW8Ph
+         YVpw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,79 +49,78 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=uCR/iRZt6ls6oyEFlSIilEX0Mir1eXb8FCoEf7kuRr4=;
-        b=FQtM4GqFBr/o0Z4Knv+n85uYpDz+YvwDXYqAVaM0FjamG0s4rD/LdxZzvByilKOld/
-         nboD1y6GdB3jaT6a+y9QA4G/1ngasIGLBJUM3hvYAi/zCNTbVZ/zm7WChRWPHjXUO9J5
-         dVbkZxO9YESJRHOEgH6ZCnZBU9/ck6dgQOT/Gg876fBT9xkNd4zaIU3DxQ2LmNvKzcSX
-         kRMrHDIrEBHGkxxxKfxy59ATIbndOvzejVUKRQuLlgUr/PCofvxqwVytdHPzFGePSMPA
-         gBumX2SDa1sYkIjDZMeQuq8RdZYeTb5x1vousIScHIpv7mNe7LdId48FGsVH1CJEoxgz
-         D3DQ==
+        bh=OcgoDsuudVINYV1a+8Cl7nxQSHuWcSmjP3eCCM/FBZY=;
+        b=cpwyXS7mRZowfCZuegyi5DQYjAX7XbBxtLtoUVjEJVFzY7+TnKh9K0SpWlrQurnEn8
+         ES2sXc/WbTA3SRfgZQasm29PTj3K+untwEwn+TjuzsyaZaksf1z71T9U8NH66NVgylql
+         ClEuP7we37FktzPrtnlS6OISVXLT1Bin1aVARjyc/Cjm+7A6vF4SkpuWN7W0rXKQvMda
+         jkuWjgIW96zmQ7MGZLtHXTtvgwIlnkET1LsHQwjNbwOEH8LroOEsfLw/8hyZgWpeAUzX
+         XsT8Kl5qLSq2aPA6778ujrtbqRlrtA7HzeqnHMs8ylyZPLiKqPDrr40E97e6V0PFw/jq
+         jaMw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532wygPRmaeswTZSolyj1UusTfBL4wX6r2L5jQa6Fr2xRpP6+k1B
-	J3E1uR00kB+s0SL9QMd3NG8=
-X-Google-Smtp-Source: ABdhPJzRfbVZ1iscuozK4tTL9zLrFPodDNoXUtP1s0mG3e4tHe0UnAPFywngJYS9rctpAABaCdZwTQ==
-X-Received: by 2002:a17:90a:b013:: with SMTP id x19mr1780313pjq.229.1592443325789;
-        Wed, 17 Jun 2020 18:22:05 -0700 (PDT)
+X-Gm-Message-State: AOAM5339/beP3Avn7Fsk04FrI84rMttxGgMS7AETozaimjCT3MKb9+j9
+	wzzphaKknFolLB0lKidVYWM=
+X-Google-Smtp-Source: ABdhPJxonIKvwmOkalkE/2JreKd7FYUYklJ3RpjeiUEBzabxmvyEjXcQ30OH7C8N20ieM14lmSgFLg==
+X-Received: by 2002:a1f:2c0d:: with SMTP id s13mr1755692vks.9.1592443451199;
+        Wed, 17 Jun 2020 18:24:11 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:e28d:: with SMTP id d13ls1607580pjz.3.gmail; Wed, 17
- Jun 2020 18:22:05 -0700 (PDT)
-X-Received: by 2002:a17:902:6b86:: with SMTP id p6mr1654580plk.47.1592443325399;
-        Wed, 17 Jun 2020 18:22:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1592443325; cv=none;
+Received: by 2002:ab0:74c8:: with SMTP id f8ls286235uaq.1.gmail; Wed, 17 Jun
+ 2020 18:24:10 -0700 (PDT)
+X-Received: by 2002:a9f:2e09:: with SMTP id t9mr1342725uaj.118.1592443450827;
+        Wed, 17 Jun 2020 18:24:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592443450; cv=none;
         d=google.com; s=arc-20160816;
-        b=FVb4kpLtUVUAZA8ws660lJm7ykKVu7Ys/PEiWWkV8eFNX/GlXxc7Reo+ZXclfM6gFd
-         SWmU7YdinNEFWMGl8zsQaBhMtL/YL6a6F2Gj+GJ2CpuBJdhMi9Bf010gXrVX35+TiQnu
-         mhPLwe/Kd8dQXy2mN5I3B8kkAyMxUNI7hOjoJ+E0lM+2ok5wZVRzJtdwDZg2YSwmA80l
-         VC6b6afUbsmm9SlB5nWEV32thAkqGGAvdbZZknP+y8DAyPJvrEnB2+rZARR9+ThCb3cl
-         HIj4SRKVflg/Er8AMK1WMfm1pJCDUbWf8hRU05V/W52O9EzWa0ueRX5gJf/13p5N4R61
-         dQFg==
+        b=E204WHeEpXHurlKithvYkTQ0x99fkUSPiB6uIiJOSMh3XzEm9I+9SAcG05P/r/C1Xt
+         DcY58zajx6U/1Qyc2rNLdxyOeyzQ8UQm/xL3SqSEagchzzrtuYj4USQEtEOicesYczyq
+         iVd2udaqesMhu+2Ho+GABDdVmosRexFbSQ4qNoQCVWUpvJ6H84DAD4sSudaneTdC4x/O
+         oFiQmI1Ku6qPhWDfRwCXOiEZjK2gEJQMGNw1vanh7ii2KrQNYZNtuj3DpW4LF8+nZw/x
+         Y/mExJQhLrg15SDnAQf9rcT0OLmbdh1xokTlLH35Jl5NHBxVXx3uqSeBGL0Bum2OoIix
+         PqKw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=FEa0pH/xKiDnzm0A8ib2FNjjsqZYRdDKhc/ZVbxrInc=;
-        b=wQAsrhWOLCUWLS1qzh3hbtp3ewlauzB8dHYo+M4jYv0xp0CaI6ZFNr76aHF4u01Di2
-         0MaaFP2vIwwqbmZ6QgJVwnFWk+AzMXqZ50XgzAtrzQ2gNWveD9r2/H1Cc4sLHw4NR5nV
-         r0qcoxGrayVsaqmptS5juSE/YFMs7qgYYY3QkJnB30vK7hNf0iQB/SKRN62/1Dvsp0Pp
-         jbCCpVEsQrIhCrSKxGRK96jUCXFD0V6x2VVlb/IGqRzpD8hUgvcKdF3KKPirVG9y4+ht
-         RGCFYVgRQFtoqyAfbFzAQGfqi4ZrVjNKBdSyV7WoNoCIzAc1PDbB2MvuXoUHZ8HKNMkF
-         V66g==
+        bh=3S5i5oTGVCWzldRrADH1Y5uamNwgqYM/VOwzFi6ZP9g=;
+        b=MzXFU8K/eroBSB05zmwnjjO8KY7VLiEUt2lO6YphMS2tzzo1hU06JXSWwVjxY0zr4/
+         olXMVbV7efRQ0hw08SCavabZKGT8QZYP8QX5h/YXs2MHU0C9ovD2w2EpmV50GchvDVdL
+         FzBn9daQ4wi/QL0ygqiWLJlcYPjeBGnz80IQr92A1G/k5xXaiIZ33/51f+GLeMMgSzEq
+         Znl5Bvw6WMS4O6WuEMrz5Bt5gN9eZUgxBpuNT0JrgFcmcmYA7lJ+/cqBL+imiS8aVJOS
+         mWh/UPZgBV2CvTyhT/DXhRDNX5wN8FaXfgpBvbEFDuX2wEv7lhjEe6tLf0EbTx0mVP0N
+         9KnQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=xZCvwK+1;
+       dkim=pass header.i=@kernel.org header.s=default header.b=GBNbbqGD;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id j3si55661pjy.1.2020.06.17.18.22.05
+        by gmr-mx.google.com with ESMTPS id y7si120820vko.5.2020.06.17.18.24.10
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 17 Jun 2020 18:22:05 -0700 (PDT)
+        Wed, 17 Jun 2020 18:24:10 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 31A3221974;
-	Thu, 18 Jun 2020 01:22:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 09DD1221EE;
+	Thu, 18 Jun 2020 01:24:08 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Andrii Nakryiko <andriin@fb.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Josh Poimboeuf <jpoimboe@redhat.com>,
+	clang-built-linux@googlegroups.com,
+	David Teigland <teigland@redhat.com>,
 	Sasha Levin <sashal@kernel.org>,
-	netdev@vger.kernel.org,
-	bpf@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.4 258/266] libbpf: Handle GCC noreturn-turned-volatile quirk
-Date: Wed, 17 Jun 2020 21:16:23 -0400
-Message-Id: <20200618011631.604574-258-sashal@kernel.org>
+	cluster-devel@redhat.com
+Subject: [PATCH AUTOSEL 4.19 085/172] dlm: remove BUG() before panic()
+Date: Wed, 17 Jun 2020 21:20:51 -0400
+Message-Id: <20200618012218.607130-85-sashal@kernel.org>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20200618011631.604574-1-sashal@kernel.org>
-References: <20200618011631.604574-1-sashal@kernel.org>
+In-Reply-To: <20200618012218.607130-1-sashal@kernel.org>
+References: <20200618012218.607130-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=xZCvwK+1;       spf=pass
+ header.i=@kernel.org header.s=default header.b=GBNbbqGD;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -138,110 +137,53 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Andrii Nakryiko <andriin@fb.com>
+From: Arnd Bergmann <arnd@arndb.de>
 
-[ Upstream commit 32022fd97ed34f6812802bf1288db27c313576f4 ]
+[ Upstream commit fe204591cc9480347af7d2d6029b24a62e449486 ]
 
-Handle a GCC quirk of emitting extra volatile modifier in DWARF (and
-subsequently preserved in BTF by pahole) for function pointers marked as
-__attribute__((noreturn)). This was the way to mark such functions before GCC
-2.5 added noreturn attribute. Drop such func_proto modifiers, similarly to how
-it's done for array (also to handle GCC quirk/bug).
+Building a kernel with clang sometimes fails with an objtool error in dlm:
 
-Such volatile attribute is emitted by GCC only, so existing selftests can't
-express such test. Simple repro is like this (compiled with GCC + BTF
-generated by pahole):
+fs/dlm/lock.o: warning: objtool: revert_lock_pc()+0xbd: can't find jump dest instruction at .text+0xd7fc
 
-  struct my_struct {
-      void __attribute__((noreturn)) (*fn)(int);
-  };
-  struct my_struct a;
+The problem is that BUG() never returns and the compiler knows
+that anything after it is unreachable, however the panic still
+emits some code that does not get fully eliminated.
 
-Without this fix, output will be:
+Having both BUG() and panic() is really pointless as the BUG()
+kills the current process and the subsequent panic() never hits.
+In most cases, we probably don't really want either and should
+replace the DLM_ASSERT() statements with WARN_ON(), as has
+been done for some of them.
 
-struct my_struct {
-    voidvolatile  (*fn)(int);
-};
+Remove the BUG() here so the user at least sees the panic message
+and we can reliably build randconfig kernels.
 
-With the fix:
-
-struct my_struct {
-    void (*fn)(int);
-};
-
-Fixes: 351131b51c7a ("libbpf: add btf_dump API for BTF-to-C conversion")
-Reported-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
-Signed-off-by: Andrii Nakryiko <andriin@fb.com>
-Signed-off-by: Daniel Borkmann <daniel@iogearbox.net>
-Tested-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
-Link: https://lore.kernel.org/bpf/20200610052335.2862559-1-andriin@fb.com
+Fixes: e7fd41792fc0 ("[DLM] The core of the DLM for GFS2/CLVM")
+Cc: Josh Poimboeuf <jpoimboe@redhat.com>
+Cc: clang-built-linux@googlegroups.com
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Signed-off-by: David Teigland <teigland@redhat.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- tools/lib/bpf/btf_dump.c | 33 ++++++++++++++++++++++++---------
- 1 file changed, 24 insertions(+), 9 deletions(-)
+ fs/dlm/dlm_internal.h | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/tools/lib/bpf/btf_dump.c b/tools/lib/bpf/btf_dump.c
-index 87f27e2664c5..d9e386b8f47e 100644
---- a/tools/lib/bpf/btf_dump.c
-+++ b/tools/lib/bpf/btf_dump.c
-@@ -1141,6 +1141,20 @@ static void btf_dump_emit_mods(struct btf_dump *d, struct id_stack *decl_stack)
- 	}
+diff --git a/fs/dlm/dlm_internal.h b/fs/dlm/dlm_internal.h
+index 748e8d59e611..cb287df13a7a 100644
+--- a/fs/dlm/dlm_internal.h
++++ b/fs/dlm/dlm_internal.h
+@@ -99,7 +99,6 @@ do { \
+                __LINE__, __FILE__, #x, jiffies); \
+     {do} \
+     printk("\n"); \
+-    BUG(); \
+     panic("DLM:  Record message above and reboot.\n"); \
+   } \
  }
- 
-+static void btf_dump_drop_mods(struct btf_dump *d, struct id_stack *decl_stack)
-+{
-+	const struct btf_type *t;
-+	__u32 id;
-+
-+	while (decl_stack->cnt) {
-+		id = decl_stack->ids[decl_stack->cnt - 1];
-+		t = btf__type_by_id(d->btf, id);
-+		if (!btf_is_mod(t))
-+			return;
-+		decl_stack->cnt--;
-+	}
-+}
-+
- static void btf_dump_emit_name(const struct btf_dump *d,
- 			       const char *name, bool last_was_ptr)
- {
-@@ -1239,14 +1253,7 @@ static void btf_dump_emit_type_chain(struct btf_dump *d,
- 			 * a const/volatile modifier for array, so we are
- 			 * going to silently skip them here.
- 			 */
--			while (decls->cnt) {
--				next_id = decls->ids[decls->cnt - 1];
--				next_t = btf__type_by_id(d->btf, next_id);
--				if (btf_is_mod(next_t))
--					decls->cnt--;
--				else
--					break;
--			}
-+			btf_dump_drop_mods(d, decls);
- 
- 			if (decls->cnt == 0) {
- 				btf_dump_emit_name(d, fname, last_was_ptr);
-@@ -1274,7 +1281,15 @@ static void btf_dump_emit_type_chain(struct btf_dump *d,
- 			__u16 vlen = btf_vlen(t);
- 			int i;
- 
--			btf_dump_emit_mods(d, decls);
-+			/*
-+			 * GCC emits extra volatile qualifier for
-+			 * __attribute__((noreturn)) function pointers. Clang
-+			 * doesn't do it. It's a GCC quirk for backwards
-+			 * compatibility with code written for GCC <2.5. So,
-+			 * similarly to extra qualifiers for array, just drop
-+			 * them, instead of handling them.
-+			 */
-+			btf_dump_drop_mods(d, decls);
- 			if (decls->cnt) {
- 				btf_dump_printf(d, " (");
- 				btf_dump_emit_type_chain(d, decls, fname, lvl);
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200618011631.604574-258-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200618012218.607130-85-sashal%40kernel.org.
