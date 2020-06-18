@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBXMEVP3QKGQEDE3FMNI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBBMFVP3QKGQED6C6R4I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3f.google.com (mail-oo1-xc3f.google.com [IPv6:2607:f8b0:4864:20::c3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id DA6B91FDD2A
-	for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jun 2020 03:24:46 +0200 (CEST)
-Received: by mail-oo1-xc3f.google.com with SMTP id r12sf1917484oom.21
-        for <lists+clang-built-linux@lfdr.de>; Wed, 17 Jun 2020 18:24:46 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1592443486; cv=pass;
+Received: from mail-ot1-x33a.google.com (mail-ot1-x33a.google.com [IPv6:2607:f8b0:4864:20::33a])
+	by mail.lfdr.de (Postfix) with ESMTPS id DFCD61FDD3A
+	for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jun 2020 03:25:26 +0200 (CEST)
+Received: by mail-ot1-x33a.google.com with SMTP id w20sf1844142oth.20
+        for <lists+clang-built-linux@lfdr.de>; Wed, 17 Jun 2020 18:25:26 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1592443526; cv=pass;
         d=google.com; s=arc-20160816;
-        b=SGPATU+ouaZJedz+2il+rwwolXr4GM5mdaVwbjf1g3U6jbBRbqS0I2FxTPNkAuYrCP
-         SZg+1WbpRtREeTpIpeU6v0b9zWwo2uCYx/tcAKwqoD3An9I4Vnx0TwdBgG0m3mfKJ5QB
-         /tTlay/1o7MkXzICH2YA+5h2QEoRXt3JrBu8wUZExazinCLCJqQmtkVjNhyushJCF3LD
-         JOn7YGtRIbdazM2MMFBgmNAai2jzUbBL2P0gf1Lxe22g1MLiK3NjZl0IEkMyeWkJTFSF
-         j9i8h3d7j6rqBn4eog8NiK3BU8yNFBqARLmRD1/RCkUndnvWH2uwyDswqQ063cUS2s8L
-         dgEQ==
+        b=v/zkuBVUTLm2zDP7JQr4STSYZDZRQm4ueUmJO5aB0NnLeHSzo0Kfp2VqNHuhopdSSs
+         StGdjfb8qo/XaAKZmS+R8BJT6fiMZNEMhPBX9ydPjqbF4UWobAaFZh/rys2KkQFDQfDA
+         C4sINLPrSpBn0L9cB525OTCaW+2gzWhTb+rnYRhsgeYyrHS9293eLZIaLe3RMTnAe6LM
+         I+0d3Lg+L1JZomW7qN5dnQvg8Gem9Y+rtOmNRj6mFvbff5upcw7tV1ER64bZcTLVLYhl
+         6g6qsSe+ajJWrIm9Cug2s7VBjYN88EC9y/bRCqnu8IrKYSnT0Zz/F19KJNFb+NywNsBv
+         r71A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=shnYZE+mLrbd8GvNPi0ASTCpTxak34t9dZGshjda2BI=;
-        b=o4/db/p6xq9b/F1wkPfIs3Im2LRZFssXVywy71vYlPmBDNGAb9BVgr7Ho6o9OrcleX
-         vrBXz8Op+a1WVv2pQx99NldE3a/OyXC+KfOhs5bblEFnGjJzUCpasSKeEWjpoiH7CjWO
-         +86eNVsgtKsdSWoMnhJOn1PDH6YvpZdRti7v0ZdoFuzVWzt1R0UgR4o7+xdZmlbjYn/t
-         KMIdGDgE+oNyoXCxzpD2+tw0SVysJxNQwn3PAHiB6yyoKSe8B53YRx4ankwtCwDbIOLX
-         pOO9e1H8Vkfd0s0O3/+xkzwcimez/J8UvuY1+/BeWtN2wRO32tSq9aHmr8k8QoYCm+Dh
-         ZnPw==
+        bh=8vLVtVC55Mr669gklN4M35/+4ZpTOECb7Otv1kBsuh0=;
+        b=lM6aJU7BzcP9sy6NokJKk82CGT8kTuuDFiLikcGOiIlo1qfHXIHS9/vp/sKjhWF7y7
+         rmJVRtYlZjjLGf7neD4H7o7s0kt/yq6Q1OSzkPUsPoMwsNZW1pRK2F0qAG8fgj9vDfu5
+         Q+QetGyU92PdcZlzJOfsVw0o9TpGbEdXrdXIUWw4xlz7r7WvDjCKmFccj+kPnTeBZomh
+         TyW6vWm4mzHm92QQmAj5zVOAimrKmKs5cYkX2enWcIZyr2C4gWqgmMkhBdD0+L6Z2mO3
+         i5j87agLnRZ0Fu41WXti34TwoW91FuCvTC5SDSGCwSA65ie+rc9HkWzG+Ej6udwJ1FAM
+         9Qcw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="RV2Oo/Tx";
+       dkim=pass header.i=@kernel.org header.s=default header.b=lkTDQ7Rf;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=shnYZE+mLrbd8GvNPi0ASTCpTxak34t9dZGshjda2BI=;
-        b=cnNxGHLqjX8falg8wjMK+MGNYDya/KiDXiewqeIeGn3jZSWqSKAsFjmxbhPrur7boH
-         bUfY7N97NoLAh0jR+LRRuRWKdBJyIN5px0H98Yv3CY3b5FFDGlYoLDVRZjTr8Fl6fuIO
-         ETwBqg51skilcQlRX552BP99OaqW9FaF0QQrPbo2mALacGer/Mtve/F0naw1L22fiGln
-         1eluxfJt/bbR1bYuBT9u6qsxT8ZYVG6ptY7J5cZFkWuUWacmry+O7JtpLVPccAilM/o8
-         +8OH9E91ZQHaH/Ex9awXW6Y6J2x/JjHewcq5JNtKDRXOL+g0eM519p3dsJHGmk4VNvxS
-         IJjw==
+        bh=8vLVtVC55Mr669gklN4M35/+4ZpTOECb7Otv1kBsuh0=;
+        b=i0EjniUgfv7SprI9lJYFBeFIMxU+em/Wndkighfb/rQs51q9KQLPBTNOgB9CCKi78J
+         /F2vBhrEDm2ierLg1BBF39jRIDrkMKL1fQ4a9wRIzYP/D6wqMOMbBZIzkVDB9eu3Ws16
+         48ss1faN5BHgm80jUNrAXMR74XJeZbjvSQOnytECMjSvLY4KbakrI1m9GBv1kCXCME6J
+         V9pwgjGxi8h47VLiTnZDut0Duah4qVjKumEDL0TEHFRlVjXu3q1G0bjptFyHGu+q7s3P
+         EShH41BsNtmO4wNWrKlbYRtaLKT93H/HGyFgVScRKlrq6S4REXNNtl5JXkSW7kU/A0zL
+         uEKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,70 +49,73 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=shnYZE+mLrbd8GvNPi0ASTCpTxak34t9dZGshjda2BI=;
-        b=bpzF8wNEJaE+uuHx3xy6cV32tUo3JMUNVIlaQu+PgkWff7wGPCMxNnRkHMF/pV9vHm
-         2McI93ttiXV4kBbrOKgAM6HHFyC8v0zm/PqbF+tih1UjdpzI68gl0gnQHlW2c7fE9W/5
-         rq88oBVIoSXdVL9bIvx3VaIdO+pNZH7ZcbG4oUYNAr1UsDTyoL06Opb7nRe+yDt0w4qC
-         ABRdqgNHkh/UcGm0ZSJsVUrojeHnk3xcqQmKLyL03NJRrkiApuH0QVK5uuANZBNK0hHx
-         2f5TgC2a2w222S3QA7Zf4yxNdgbvg3vXiNaL1M1m43i7LRXVzbecVBeZotWoj2ocAj65
-         psZA==
+        bh=8vLVtVC55Mr669gklN4M35/+4ZpTOECb7Otv1kBsuh0=;
+        b=ZeCz10vhx3ZZK4see5ua17kjfCxjnYgo74BXKQHBt5dL0t/JACFfPxro0EUv50D0+b
+         VrueJ/XNrXrTTQxyRL0Te07qk7BfejbX9MLAGJGHSEZkRM6xttFdMyVU39koJSMWWmny
+         +l0bHsLYbGEcwb/g943/uKxXxwC2FNOpMKnzSTfmq4FTMDRz/oSG8qq269IJZG3vmdoZ
+         fMhgng/x9rJiXx2FwZ0Ax3Hva3P+oVKlq/k7HZkuj9rPckBEa1K6atmQUujXm9hDtC4g
+         NIiMJD0g9SttjYOoy/KP4c3HbIXu/ORG4qZkMgX6pj1jb1Vd9ocOWJDhybzliCa8RRaa
+         GpRA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532gQ2yKdidY2MP5wWK3GpwV364i0mN++BqLEevAYII7MEYRNq5v
-	mwKJAY5xuDyzpBLss70IC6A=
-X-Google-Smtp-Source: ABdhPJxv42sdXTSKdjJX1A3er2pS/QVlhe0ujFCvYSzFDDdErIQIC0MxmobkGIvVsuU73DixhrOR5A==
-X-Received: by 2002:a05:6808:8ce:: with SMTP id k14mr1133726oij.141.1592443485884;
-        Wed, 17 Jun 2020 18:24:45 -0700 (PDT)
+X-Gm-Message-State: AOAM531nAv8kv8g0aGpt8vlomOq4v9qHooeYIpZotxcCAf8MUTpVeplg
+	FV0f/XVwyvy4b2ZkVG/zxR0=
+X-Google-Smtp-Source: ABdhPJyIgdex10V/IVouYCkKN7NXmNkKseYjW9sjBPdr3SHnwd78T0lKtYDCs/4rUj5dEoZDBQDxYg==
+X-Received: by 2002:a05:6830:3104:: with SMTP id b4mr1566884ots.192.1592443525866;
+        Wed, 17 Jun 2020 18:25:25 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:c38e:: with SMTP id t136ls819240oif.10.gmail; Wed, 17
- Jun 2020 18:24:45 -0700 (PDT)
-X-Received: by 2002:aca:4c15:: with SMTP id z21mr1226220oia.85.1592443485522;
-        Wed, 17 Jun 2020 18:24:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1592443485; cv=none;
+Received: by 2002:aca:4fc3:: with SMTP id d186ls829423oib.1.gmail; Wed, 17 Jun
+ 2020 18:25:25 -0700 (PDT)
+X-Received: by 2002:aca:f48c:: with SMTP id s134mr1239198oih.57.1592443525552;
+        Wed, 17 Jun 2020 18:25:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592443525; cv=none;
         d=google.com; s=arc-20160816;
-        b=CO7ISoVHBoEQwDHgFcj8Vf53O+5F8nzb4kGo/tY60yhD2chlpdqE50H/fWlQUn9GLx
-         kc7i0Hfe5UzsSW1kDaF+zBAzLszqiGpyTn+LKHnCzZagYCCgLrtHEKs7EdpA1NmANrO8
-         bdzuyNZH3bj1H1CIVMBvafXaZY+JUJLXv6pTtCArLEq/WAMsyjpraREH+tyzAwp0AoEp
-         6AmvX8+skIt8h/SXsmcdCDRPal9kQHK6QgBIs3QuAtMDT9tWiQxnY06xVVMkymODvP52
-         adG9T/X1tgDQQy/Qf1hsPFwfZoR42BBi3/QrkU4L9Oq6srxRXLQZRPMpOqbcXnmKC6ca
-         PStw==
+        b=x/dFrhju/fTih1baz196oljPn2MG33L53+gHv7FDrISktdlr9V3qpkmVgiTMp0lA/J
+         Y6y9DofEnzF9lUDOE10cK5KRhiq8hX56T07dwPGiSqJJvJUWSpo8kE3+Yjy211utJn0j
+         vRbYRnMR8F/6QOow3PrvYhUPq0Bc70Vin/lVVn+zx8nki955BqQnQ04sgJUey/ZD0J5w
+         Q51PdLETZ4BrziZawbEqgh8o6IM0ANn2l8bFAEeMkwQP5OL7OjdEnqDYfBSTXTqzkHZc
+         lThzuODEfmT7k+dO32vjQQAgmly/+k7vWEe1RVbXDpcCZeKxm/JCBhsr1f9bjs87Rin/
+         mezA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=w78PXgLa8iunO//PxBAC69wait0v/qvM2p+aIdrc66o=;
-        b=KsNCbAhhPXAZW5QRJdKoJCbJE7s+vG33BaaTOGxO1bPiZ63S2GyaONXsKG08rKOD9y
-         NAZycYjCppniR09PFRmsiPRn2qVESp2C0t6QwwwvxTcJGFHhbIvW4KrIRWADTZBMDXRa
-         Ls4btkzA8rnO4jaJIQb3DLgEltbuKYUISPLyyy/IczTfagMzOsLCjC4QnnRcBZCoe6BT
-         UyESb1Me4ZxLrMn3N4XbmsNkUuWTeomgHwRfNdFT4YfcPO0tmCleBV833v+E0YpmvyYh
-         JROtui19fBcAUXOHKI3Agh7dLZ6ueQZwpuc0nzjsAc0dg70e+2gMMBAJXQM+f/+cRTeu
-         M8DA==
+        bh=mxFx6W5aBo2YXeRDyIYtsP32jmdSekfY1F2pfuiCY+E=;
+        b=kQQxi1bnexmC0oO7jAg6KVLxQvSOY0JY0/x1TAONV1vi9/mmGq30aCDpL6gOGCMZSy
+         yfX+M6lfe8QKTUcFAg35LAia6QQ4EM7dnUxFAtlWAiWWk+zCOXHnWD+WjNuV01Q3wLwU
+         dxYFxu56i64DCf6HWkJalxRbSTR2mlhc8e7M7kel562tMqNYcKmqWZJCtSN17AVyzNig
+         cM1QSnlhgqJxVZUSs+Y86IAa0skVjHR1Zq9xbsZrIFlJJYmLfVl9RwGzVAciG9YQs7G4
+         eyEfRZtlRxPRDFwCV29wNZheCq1SewO9GpBuN3m2ThVgDP/nJNZ8lOHhaEjDGxn6TQRF
+         BBuA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="RV2Oo/Tx";
+       dkim=pass header.i=@kernel.org header.s=default header.b=lkTDQ7Rf;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id l9si67681oig.0.2020.06.17.18.24.45
+        by gmr-mx.google.com with ESMTPS id l18si84892oil.2.2020.06.17.18.25.25
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 17 Jun 2020 18:24:45 -0700 (PDT)
+        Wed, 17 Jun 2020 18:25:25 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id CE68C214DB;
-	Thu, 18 Jun 2020 01:24:43 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 97C9F2083B;
+	Thu, 18 Jun 2020 01:25:23 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Nathan Chancellor <natechancellor@gmail.com>,
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Christian Brauner <christian.brauner@ubuntu.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Josh Poimboeuf <jpoimboe@redhat.com>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	kbuild test robot <lkp@intel.com>,
-	Felipe Balbi <balbi@kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
 	Sasha Levin <sashal@kernel.org>,
-	linux-usb@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.19 113/172] USB: gadget: udc: s3c2410_udc: Remove pointless NULL check in s3c2410_udc_nuke
-Date: Wed, 17 Jun 2020 21:21:19 -0400
-Message-Id: <20200618012218.607130-113-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.19 146/172] include/linux/bitops.h: avoid clang shift-count-overflow warnings
+Date: Wed, 17 Jun 2020 21:21:52 -0400
+Message-Id: <20200618012218.607130-146-sashal@kernel.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20200618012218.607130-1-sashal@kernel.org>
 References: <20200618012218.607130-1-sashal@kernel.org>
@@ -121,7 +124,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b="RV2Oo/Tx";       spf=pass
+ header.i=@kernel.org header.s=default header.b=lkTDQ7Rf;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -138,58 +141,67 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nathan Chancellor <natechancellor@gmail.com>
+From: Arnd Bergmann <arnd@arndb.de>
 
-[ Upstream commit 7a0fbcf7c308920bc6116b3a5fb21c8cc5fec128 ]
+[ Upstream commit bd93f003b7462ae39a43c531abca37fe7073b866 ]
 
-Clang warns:
+Clang normally does not warn about certain issues in inline functions when
+it only happens in an eliminated code path. However if something else
+goes wrong, it does tend to complain about the definition of hweight_long()
+on 32-bit targets:
 
-drivers/usb/gadget/udc/s3c2410_udc.c:255:11: warning: comparison of
-address of 'ep->queue' equal to a null pointer is always false
-[-Wtautological-pointer-compare]
-        if (&ep->queue == NULL)
-             ~~~~^~~~~    ~~~~
-1 warning generated.
+  include/linux/bitops.h:75:41: error: shift count >= width of type [-Werror,-Wshift-count-overflow]
+          return sizeof(w) == 4 ? hweight32(w) : hweight64(w);
+                                                 ^~~~~~~~~~~~
+  include/asm-generic/bitops/const_hweight.h:29:49: note: expanded from macro 'hweight64'
+   define hweight64(w) (__builtin_constant_p(w) ? __const_hweight64(w) : __arch_hweight64(w))
+                                                  ^~~~~~~~~~~~~~~~~~~~
+  include/asm-generic/bitops/const_hweight.h:21:76: note: expanded from macro '__const_hweight64'
+   define __const_hweight64(w) (__const_hweight32(w) + __const_hweight32((w) >> 32))
+                                                                             ^  ~~
+  include/asm-generic/bitops/const_hweight.h:20:49: note: expanded from macro '__const_hweight32'
+   define __const_hweight32(w) (__const_hweight16(w) + __const_hweight16((w) >> 16))
+                                                  ^
+  include/asm-generic/bitops/const_hweight.h:19:72: note: expanded from macro '__const_hweight16'
+   define __const_hweight16(w) (__const_hweight8(w)  + __const_hweight8((w)  >> 8 ))
+                                                                         ^
+  include/asm-generic/bitops/const_hweight.h:12:9: note: expanded from macro '__const_hweight8'
+            (!!((w) & (1ULL << 2))) +     \
 
-It is not wrong, queue is not a pointer so if ep is not NULL, the
-address of queue cannot be NULL. No other driver does a check like this
-and this check has been around since the driver was first introduced,
-presumably with no issues so it does not seem like this check should be
-something else. Just remove it.
+Adding an explicit cast to __u64 avoids that warning and makes it easier
+to read other output.
 
-Commit afe956c577b2d ("kbuild: Enable -Wtautological-compare") exposed
-this but it is not the root cause of the warning.
-
-Fixes: 3fc154b6b8134 ("USB Gadget driver for Samsung s3c2410 ARM SoC")
-Link: https://github.com/ClangBuiltLinux/linux/issues/1004
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-Reported-by: kbuild test robot <lkp@intel.com>
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Signed-off-by: Felipe Balbi <balbi@kernel.org>
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+Acked-by: Christian Brauner <christian.brauner@ubuntu.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Rasmus Villemoes <linux@rasmusvillemoes.dk>
+Cc: Josh Poimboeuf <jpoimboe@redhat.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>
+Link: http://lkml.kernel.org/r/20200505135513.65265-1-arnd@arndb.de
+Signed-off-by: Linus Torvalds <torvalds@linux-foundation.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/usb/gadget/udc/s3c2410_udc.c | 4 ----
- 1 file changed, 4 deletions(-)
+ include/linux/bitops.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/usb/gadget/udc/s3c2410_udc.c b/drivers/usb/gadget/udc/s3c2410_udc.c
-index 8bf5ad7a59ad..6cc63e317aba 100644
---- a/drivers/usb/gadget/udc/s3c2410_udc.c
-+++ b/drivers/usb/gadget/udc/s3c2410_udc.c
-@@ -264,10 +264,6 @@ static void s3c2410_udc_done(struct s3c2410_ep *ep,
- static void s3c2410_udc_nuke(struct s3c2410_udc *udc,
- 		struct s3c2410_ep *ep, int status)
+diff --git a/include/linux/bitops.h b/include/linux/bitops.h
+index e02cbca3cfaf..5c1522ed2d7c 100644
+--- a/include/linux/bitops.h
++++ b/include/linux/bitops.h
+@@ -50,7 +50,7 @@ static inline int get_bitmask_order(unsigned int count)
+ 
+ static __always_inline unsigned long hweight_long(unsigned long w)
  {
--	/* Sanity check */
--	if (&ep->queue == NULL)
--		return;
--
- 	while (!list_empty(&ep->queue)) {
- 		struct s3c2410_request *req;
- 		req = list_entry(ep->queue.next, struct s3c2410_request,
+-	return sizeof(w) == 4 ? hweight32(w) : hweight64(w);
++	return sizeof(w) == 4 ? hweight32(w) : hweight64((__u64)w);
+ }
+ 
+ /**
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200618012218.607130-113-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200618012218.607130-146-sashal%40kernel.org.
