@@ -1,105 +1,106 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBS4FW33QKGQEVOZPR2Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBTMFW33QKGQE73UNJHI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa38.google.com (mail-vk1-xa38.google.com [IPv6:2607:f8b0:4864:20::a38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8A43020204A
-	for <lists+clang-built-linux@lfdr.de>; Sat, 20 Jun 2020 05:30:20 +0200 (CEST)
-Received: by mail-vk1-xa38.google.com with SMTP id b67sf2932214vkh.14
-        for <lists+clang-built-linux@lfdr.de>; Fri, 19 Jun 2020 20:30:20 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1592623819; cv=pass;
+Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 620BF202050
+	for <lists+clang-built-linux@lfdr.de>; Sat, 20 Jun 2020 05:30:22 +0200 (CEST)
+Received: by mail-yb1-xb3a.google.com with SMTP id e82sf12286723ybh.12
+        for <lists+clang-built-linux@lfdr.de>; Fri, 19 Jun 2020 20:30:22 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1592623821; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Zg+HqHXt65+UE9usb00hwaOr6v/FILhG43zWoYaJVYsYfw13dkNXE4TqUr+LZhWr9v
-         xuXMG/XeDggI8WhZtyPWhcLYVnLMvY+qMhaCgWc84RCpnew+1o0gjE4xO5+1llaiMFKw
-         RvIMS9vycb3L1gtx2ZqWoIQH/aY/o73efaKc46ocUhITwv2oSYA5+F/T0ia09ayRlQSt
-         RcgeHoTFYJFR23XVfbbslnH60BRCYb/aP0bSm/TJhX6KfOBqFFh5HW18PyFfsoCSdkbD
-         rVOQ3tT+x13lfswgyqhTKYF6WDvH4GQO0pTQd6v3cyEHLvHPWd7+cpZfreghynSw7Q++
-         1hlw==
+        b=j2zRjcxigyQIrrmaWkuguWFtezZsLL8Q9ZSaW2vztru5e5XjN66Gfg0z1yfcyda0Vh
+         ZBO3o97oRweR0pb+19ovTRqvDWbrdDwGUdIeFKCGkChCFAfYGwqqMlWjJpRcXlnG8cmo
+         F4H5/7m8iMfHxJcuiZRV0QsJd+Ol49/Vc1/km2vndwMROT007X2DLs9SqG8jFf449Toz
+         2fzxGasWcA7Uoa5D9nWzK18MxnQ8MASi6kytqYGrwM2jilFaeNfp86LvG4wvMSPF0mhU
+         OsDYSxXUglgqK2a8ZYCvTyILa+POX6MPu4jG5fsp8yC1D/xavmbI7ABCFr3WOpZe0kNj
+         wZcw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=mnsJQOTZnUUv6n8i++0wE4cXXOVzkkbLRbotJBYAHfs=;
-        b=bZK8C9DmI0ED7P5LDN0zUngbJR84pykdrhzcUotg3M21BZVjnswkP7I3T449Xg7TyK
-         Fwur+YUOPAL0vV9dD4nef43OTllLxpxJ2p3AcnS2dkz+2zwcbRyV2P5VHCmishz8sFTb
-         2ZwU2agdSLsOX9ELkzKABfmqXbybURfeR8APE72ZJ34/OplPlVowf9NLWlEPPWlG7taU
-         fdEh7IrOcjlcTTrkXQchEzskAiz89fxmqbBfM9Be91W21eC281p1mjy4PhuUvwGoU1JR
-         S7rjJiJVjC2W84kUSJFvRqzSAO+Gu3vHUVkKD/4W3D0YnOVM0HldUWgk37eSehyh7Z+a
-         TXHg==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=MX4gY5vwOJlhMINIxdoUIrcntVdE3CaUIf9WQjMjyik=;
+        b=HEghFmRhtqW/8Nb1EPGm5cIOenYuX7SDdBoBOm1XXyPAIxrlrlgmZ7ccpv8gTR4h2q
+         uv/eHQVcbiSQ3udVSITWDiGHY7+19KOuoDu+/1iEA/qK3/ljHfvqnuipNAKQOdCQIX6r
+         TyRtOuIv5P2WhUnV3ZsBNDM1hM4zp9JskpEre/zRJWc2wz9yLlUpndN02iv7gmjA7zMY
+         BvwDggcC+W1V175xkzWBeO67RQV7YCzIgyq2nZqomj+IWQszRkUt1ySlY+TnN4oqEaqk
+         Q8Qqc8teJMfn6/fdcZ2Oquc4k19Vv8wAUI8UEu8GY60OYc8O3UsQofGU8kN5lMTlApdm
+         NwKA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=J7aP7EGO;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=j8nQ3B7F;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=mnsJQOTZnUUv6n8i++0wE4cXXOVzkkbLRbotJBYAHfs=;
-        b=Q42ZTL4JwQ0W1JYr6WXQCbpnAMQNqY38UTjf8NQAFsNZlLXRucK91AuZcRL2DTIRSQ
-         jdSNt3MkHZ+osSdI6YZ0d6XPcduGwhm/wbh826Srza08CtIyHzVlpvyV9pT6Ep75Cbyt
-         +Oa9Ffg8eT2s6V10r3Eil0P91dB2O2y8nc2fexXRo30+YIo4Zjp7X+SyMJBzHlhxslHB
-         MNMW7r3bcj65qT2lSm22p2KCIEYQbonYTm8S4e/JCsGqnuxoW6BVWOIg2YdyyyOF08TM
-         BslSOu83zcPrd3rVYnu9qgPEbVjI5Etq9xftY0BAAffYsnBlO0PaVYX4g+CWd5n1JEfd
-         9TbA==
+        bh=MX4gY5vwOJlhMINIxdoUIrcntVdE3CaUIf9WQjMjyik=;
+        b=LAw8EoRid9SpXH6efNYpZ6qvnkXUnd4UKzG/tro7/G1KMYrFyVjDL7Q/S2TciBR/mF
+         r8IkBCSVqXQgcstbDoTOGyYHE1NlEIiynpboqQy/2BEazZ/sttaE7j0prMKhpLokNW8a
+         Ru989zvT913O1QQa4HaLwpJT70NT+KhRtU8kmOGNJGjngH0Zxsam0FLbpQKL8apiYVVR
+         X9jMhHdVOZcC2luWRjUOIvBTb5iEZZCPehDOTLQljORyWNL8S21GCbq7FIJVRYZPeG6W
+         C0cE5hj7tBo52s0xWtQd8uDTa5H1fLi4hJj7XJ5kr2MDoRwbQaomwGmdC4Tc3zsb+7Sh
+         +mfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=mnsJQOTZnUUv6n8i++0wE4cXXOVzkkbLRbotJBYAHfs=;
-        b=RbBg19VoflVaQ/d1thPxLcDhXcQ1B1ZQ+1v8EcqDfGbTFk2T4+J2Jy5rAVm+IQo0Wd
-         DOYjPOI1GJZY2/t+8sB+P3nTn7Bu0Z+BFSUe6Ykbs1reU9lkC1FwarmoyfxX1qQmf6uM
-         JIpD+dnIAfofK3HG4Q7jXrAhTIz84KSjMkOas3HDIvKrcjkrU+Gej0wMyvAFzfNEFif/
-         aPVNWCTjbSVdMN0YPgZU8xJQva/04LbzL9PDlUV9MKn3cvqvOZLYuDJyFxQL37LV9u50
-         Kn3KzZZ+F5iMi6c5LdNjdagj0HXnwoszfbO7vT04LBxXSiCBn5sWt8bcEmX7FKGpD/mw
-         N38g==
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=MX4gY5vwOJlhMINIxdoUIrcntVdE3CaUIf9WQjMjyik=;
+        b=XFcNjhur7eU4YWI7/Qp5+TTNl6fcm6Zz45lcpziWmwCLkJOLQlosRdiIt9tROJHGeD
+         +Brgv4hGxQ4dGkJTIHfYzwKvkRWTw+Ve9mNkQZscdQYYkjUbvUA8/uP+YeGaVpaxZxBw
+         FU40mjrCeSnDFpnk9mGGNFP3TxjmX57901V44winKgyfsZREL0xxVey2xNye/KEMuVGu
+         OX8tiSjbpYOxejtlTKMKe93whNHhv/ZUKtoMNz+oiE0emYixrVDzSLKQ+dSzQnyNl7ov
+         6P8WqW8KlRzsDaIK2Wd+SlHEhtaVGL0mq5UVlHBwKPcC5d6AvRxVkfrJtq8dVOV6eDAr
+         Czug==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531vC/WhUqXyAg9eGyZ/wS6Vre++bpVPX2IHQk5yohKG6PjtpH17
-	eV+K8Z8r9RpRYsh3fxkaXZg=
-X-Google-Smtp-Source: ABdhPJz1ffYq3bUKUknmdouawnsmKRN8me/9WinGpGvIGsLTwMeTu9V0QK+TilG+VUOoMsqO7wNiQg==
-X-Received: by 2002:ab0:991:: with SMTP id x17mr2824255uag.90.1592623819535;
-        Fri, 19 Jun 2020 20:30:19 -0700 (PDT)
+X-Gm-Message-State: AOAM531+HYgAwK608uktjgApiFBSrUFszBMEQzX0uKbl50POzD6/8Xee
+	9nn6egqk7I+SQzkBX8dwXxc=
+X-Google-Smtp-Source: ABdhPJxDjWCr1cZPAU0ChKwPlByKzro0Ms3vHGtTWi+i4LQXQ07n3IwH+ieDy2WfLQKw6PppwWLg0Q==
+X-Received: by 2002:a5b:cc9:: with SMTP id e9mr10342382ybr.287.1592623821199;
+        Fri, 19 Jun 2020 20:30:21 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:74c8:: with SMTP id f8ls794152uaq.1.gmail; Fri, 19 Jun
- 2020 20:30:19 -0700 (PDT)
-X-Received: by 2002:ab0:6e8e:: with SMTP id b14mr5604371uav.0.1592623819209;
-        Fri, 19 Jun 2020 20:30:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1592623819; cv=none;
+Received: by 2002:a25:ccd6:: with SMTP id l205ls4335227ybf.10.gmail; Fri, 19
+ Jun 2020 20:30:20 -0700 (PDT)
+X-Received: by 2002:a5b:14f:: with SMTP id c15mr10594658ybp.469.1592623820829;
+        Fri, 19 Jun 2020 20:30:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592623820; cv=none;
         d=google.com; s=arc-20160816;
-        b=TWrpZcMCMLt0DJvFG9i0eJV31SESg+0160rNaAWoA8vCmT7mqsgHmmXSnein29U0fG
-         fC2F1woEiM11Tq2Y4O9glU27Rc5OA5gcH4CPWE097i+TiC8vAqCXfYkCw0LpbzY0dgwU
-         02TVf7TwxZRulvv1uEtZyFR8LMd98SmleB69oS4T6LzdXRVoocEgnoje+A2WICo8iQ+R
-         /caLDHhM8rvNBbGIX92OwoYi+PUHvQV2lCpQZzRjnGVx4XryRjSu65JpgbpnLqLM2Syl
-         Abm3JhFLIhiOAICPYagJtD67yRlddT3xlLLXdp5dmmOxrL29kKh3LbKCveiG/rEdOD35
-         Ja/g==
+        b=AJ3LMHtfPIC5upCt+UdIHTvuzQJo0xut80evHbt/BInS8QzyX+S3TZTKcLhDleqZPy
+         ybBG9HPcD9Dtbk6wDnwbMZwemG+aT9L2YUzX0JVlDm8Hai5MwPafzLYnsnlwmgFotb5R
+         nnhHQTau4CssjGmM3lmBApDthFH+795JNZlsQY82pfMe9Ba5gvsV71gON6KIqOUFHAYP
+         1pU49o0vewCOj+BQxxFuTpB7gpU6l/mVFEAjzCBDuHVeoWEDg0Cb1zg6B/LZ09V2zOa8
+         FFFpecypGMDSC3sUTbOXfdWdMf88/Bnxe793rFByw6e4rMqDLGEmtmfCXEo1Ir3OtPX4
+         qgQg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=LZz2PxXMfhCtZUNpoQsiyyHZgxbk7VacySF4LzvmsE8=;
-        b=VcmyUhVyyVdkNXWoTZ3QFvqcvwjMbtJASRMRP22QmM9tVCbpeyyX658WMu0n76/3zn
-         om4+1Q9MtXIcD3Mjcu7qXjXJGl94N9qVM4/qBzStxdO9Tmj5joqe/gWcTo6ANdDmrtcP
-         8ok2wc6xyXkMmrQRHIMPSuyRb9fTDTE+GwFWwNpuUvV4ll4CtPlT9pzmbmBtpuWHccpI
-         tEzM2dDWE/AHIwYRTbfL9D5dpIQ8Z+C2awvqxA2QnKhDJS62QLGcT8lwAIuvd5BU3ifN
-         LwCWrqpH3Xjicwfj0LV1I74aWHdnoQNl+HBX65172V86jts+VBjKpcQFWNy6uyoMbuG3
-         unUQ==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=Fi8ab2CkfvIdd/5P+r0S5dxyJT2k4tSVWykkUvi99fU=;
+        b=GjoBhO52uKOAzOoPf/495c7J48YIo96S//pT0H88LcLk36IINySCTKL15oqeNT/fRV
+         fRN4BJxJK0YByEYCdRppzfkcdQS6VorNmgEku1JlKyd9QWQgIJWnioWd8BSPb8M4cw8b
+         yNN44runh52aa+9sZWRsdouNaYBYkZhm4hYgW4MmvHBNRVIcg5h5isvBqLvwVte4VreZ
+         n13OGHNRGXrT3kBGSUr8tqI7WVKJkpDFvbCvgLVxeVYUAcKFsrqyyFkt5MujjucupZ/C
+         tj8abqFdpNrVq4hUFwOurWFvZ6QEG1hYta+in0VO9KRCn/XyU21VQ66XZE7GHajYIMeA
+         dNvQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=J7aP7EGO;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=j8nQ3B7F;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pl1-x642.google.com (mail-pl1-x642.google.com. [2607:f8b0:4864:20::642])
-        by gmr-mx.google.com with ESMTPS id i11si679234vkk.2.2020.06.19.20.30.19
+Received: from mail-pl1-x644.google.com (mail-pl1-x644.google.com. [2607:f8b0:4864:20::644])
+        by gmr-mx.google.com with ESMTPS id u126si547225ybg.0.2020.06.19.20.30.20
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 19 Jun 2020 20:30:19 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642 as permitted sender) client-ip=2607:f8b0:4864:20::642;
-Received: by mail-pl1-x642.google.com with SMTP id j4so4814814plk.3
-        for <clang-built-linux@googlegroups.com>; Fri, 19 Jun 2020 20:30:19 -0700 (PDT)
-X-Received: by 2002:a17:90a:634a:: with SMTP id v10mr7009331pjs.50.1592623818248;
-        Fri, 19 Jun 2020 20:30:18 -0700 (PDT)
+        Fri, 19 Jun 2020 20:30:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::644 as permitted sender) client-ip=2607:f8b0:4864:20::644;
+Received: by mail-pl1-x644.google.com with SMTP id s14so717023plq.6
+        for <clang-built-linux@googlegroups.com>; Fri, 19 Jun 2020 20:30:20 -0700 (PDT)
+X-Received: by 2002:a17:90b:3614:: with SMTP id ml20mr6333214pjb.41.1592623820052;
+        Fri, 19 Jun 2020 20:30:20 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id n2sm7140090pfd.125.2020.06.19.20.30.16
+        by smtp.gmail.com with ESMTPSA id p19sm7198155pff.116.2020.06.19.20.30.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Fri, 19 Jun 2020 20:30:17 -0700 (PDT)
 From: Kees Cook <keescook@chromium.org>
@@ -122,18 +123,20 @@ Cc: Kees Cook <keescook@chromium.org>,
 	linux-spi@vger.kernel.org,
 	linux-mm@kvack.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH v2 00/16] Remove uninitialized_var() macro
-Date: Fri, 19 Jun 2020 20:29:51 -0700
-Message-Id: <20200620033007.1444705-1-keescook@chromium.org>
+Subject: [PATCH v2 01/16] docs: deprecated.rst: Add uninitialized_var()
+Date: Fri, 19 Jun 2020 20:29:52 -0700
+Message-Id: <20200620033007.1444705-2-keescook@chromium.org>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20200620033007.1444705-1-keescook@chromium.org>
+References: <20200620033007.1444705-1-keescook@chromium.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=J7aP7EGO;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642
+ header.i=@chromium.org header.s=google header.b=j8nQ3B7F;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::644
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,254 +149,47 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-v2:
-- more special-cased fixes
-- add reviews
-v1: https://lore.kernel.org/lkml/20200603233203.1695403-1-keescook@chromium.org
+Nothing should be using this macro, and the entire idea of tricking the
+compiler into silencing such warnings is a mistake.
 
-Using uninitialized_var() is dangerous as it papers over real bugs[1]
-(or can in the future), and suppresses unrelated compiler warnings
-(e.g. "unused variable"). If the compiler thinks it is uninitialized,
-either simply initialize the variable or make compiler changes.
+Signed-off-by: Kees Cook <keescook@chromium.org>
+---
+ Documentation/process/deprecated.rst | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-As recommended[2] by[3] Linus[4], remove the macro.
-
-Most of the 300 uses don't cause any warnings on gcc 9.3.0, so they're in
-a single treewide commit in this series. A few others needed to actually
-get cleaned up, and I broke those out into individual patches.
-
-The tree is:
-https://git.kernel.org/pub/scm/linux/kernel/git/kees/linux.git/log/?h=kspp/uninit/macro
-
--Kees
-
-[1] https://lore.kernel.org/lkml/20200603174714.192027-1-glider@google.com/
-[2] https://lore.kernel.org/lkml/CA+55aFw+Vbj0i=1TGqCR5vQkCzWJ0QxK6CernOU6eedsudAixw@mail.gmail.com/
-[3] https://lore.kernel.org/lkml/CA+55aFwgbgqhbp1fkxvRKEpzyR5J8n1vKT1VZdz9knmPuXhOeg@mail.gmail.com/
-[4] https://lore.kernel.org/lkml/CA+55aFz2500WfbKXAx8s67wrm9=yVJu65TpLgN_ybYNv0VEOKA@mail.gmail.com/
-
-Jason Yan (1):
-  f2fs: Eliminate usage of uninitialized_var() macro
-
-Kees Cook (15):
-  docs: deprecated.rst: Add uninitialized_var()
-  x86/mm/numa: Remove uninitialized_var() usage
-  drbd: Remove uninitialized_var() usage
-  b43: Remove uninitialized_var() usage
-  rtlwifi: rtl8192cu: Remove uninitialized_var() usage
-  ide: Remove uninitialized_var() usage
-  clk: st: Remove uninitialized_var() usage
-  spi: davinci: Remove uninitialized_var() usage
-  clk: spear: Remove uninitialized_var() usage
-  KVM: PPC: Book3S PR: Remove uninitialized_var() usage
-  media: sur40: Remove uninitialized_var() usage
-  checkpatch: Remove awareness of uninitialized_var() macro
-  treewide: Remove uninitialized_var() usage
-  compiler: Remove uninitialized_var() macro
-  mm/debug_vm_pgtable: Remove uninitialized_var() usage
-
- Documentation/process/deprecated.rst           | 18 ++++++++++++++++++
- arch/arm/mach-sa1100/assabet.c                 |  2 +-
- arch/arm/mm/alignment.c                        |  2 +-
- arch/ia64/kernel/process.c                     |  2 +-
- arch/ia64/mm/discontig.c                       |  2 +-
- arch/ia64/mm/tlb.c                             |  2 +-
- arch/mips/lib/dump_tlb.c                       |  2 +-
- arch/mips/mm/init.c                            |  2 +-
- arch/mips/mm/tlb-r4k.c                         |  6 +++---
- arch/powerpc/kvm/book3s_64_mmu_radix.c         |  2 +-
- arch/powerpc/kvm/book3s_pr.c                   |  3 ---
- arch/powerpc/kvm/powerpc.c                     |  2 +-
- arch/powerpc/platforms/52xx/mpc52xx_pic.c      |  2 +-
- arch/s390/kernel/smp.c                         |  2 +-
- arch/x86/kernel/quirks.c                       | 10 +++++-----
- arch/x86/kvm/mmu/mmu.c                         |  2 +-
- arch/x86/kvm/mmu/paging_tmpl.h                 |  2 +-
- arch/x86/kvm/x86.c                             |  2 +-
- arch/x86/mm/numa.c                             | 18 +++++++++---------
- block/blk-merge.c                              |  2 +-
- drivers/acpi/acpi_pad.c                        |  2 +-
- drivers/ata/libata-scsi.c                      |  2 +-
- drivers/atm/zatm.c                             |  2 +-
- drivers/block/drbd/drbd_nl.c                   |  6 +++---
- drivers/block/drbd/drbd_state.c                |  2 +-
- drivers/block/rbd.c                            |  2 +-
- drivers/clk/clk-gate.c                         |  2 +-
- drivers/clk/spear/clk-vco-pll.c                |  2 +-
- drivers/clk/st/clkgen-fsyn.c                   |  1 -
- drivers/firewire/ohci.c                        | 14 +++++++-------
- drivers/gpu/drm/bridge/sil-sii8620.c           |  2 +-
- drivers/gpu/drm/drm_edid.c                     |  2 +-
- drivers/gpu/drm/exynos/exynos_drm_dsi.c        |  6 +++---
- drivers/gpu/drm/i915/display/intel_fbc.c       |  2 +-
- drivers/gpu/drm/i915/gt/intel_lrc.c            |  2 +-
- drivers/gpu/drm/i915/intel_uncore.c            |  2 +-
- .../gpu/drm/rockchip/dw-mipi-dsi-rockchip.c    |  4 ++--
- drivers/i2c/busses/i2c-rk3x.c                  |  2 +-
- drivers/ide/ide-acpi.c                         |  2 +-
- drivers/ide/ide-atapi.c                        |  2 +-
- drivers/ide/ide-io-std.c                       |  4 ++--
- drivers/ide/ide-io.c                           |  8 ++++----
- drivers/ide/ide-sysfs.c                        |  2 +-
- drivers/ide/ide-taskfile.c                     |  1 -
- drivers/ide/umc8672.c                          |  2 +-
- drivers/idle/intel_idle.c                      |  2 +-
- drivers/infiniband/core/uverbs_cmd.c           |  4 ++--
- drivers/infiniband/hw/cxgb4/cm.c               |  2 +-
- drivers/infiniband/hw/cxgb4/cq.c               |  2 +-
- drivers/infiniband/hw/mlx4/qp.c                |  6 +++---
- drivers/infiniband/hw/mlx5/cq.c                |  6 +++---
- drivers/infiniband/hw/mlx5/devx.c              |  2 +-
- drivers/infiniband/hw/mlx5/wr.c                |  2 +-
- drivers/infiniband/hw/mthca/mthca_qp.c         | 10 +++++-----
- drivers/infiniband/sw/siw/siw_qp_rx.c          |  2 +-
- drivers/input/serio/serio_raw.c                |  2 +-
- drivers/input/touchscreen/sur40.c              |  4 +---
- drivers/iommu/intel/iommu.c                    |  2 +-
- drivers/md/dm-io.c                             |  2 +-
- drivers/md/dm-ioctl.c                          |  2 +-
- drivers/md/dm-snap-persistent.c                |  2 +-
- drivers/md/dm-table.c                          |  2 +-
- drivers/md/dm-writecache.c                     |  2 +-
- drivers/md/raid5.c                             |  2 +-
- drivers/media/dvb-frontends/rtl2832.c          |  2 +-
- drivers/media/tuners/qt1010.c                  |  4 ++--
- drivers/media/usb/gspca/vicam.c                |  2 +-
- drivers/media/usb/uvc/uvc_video.c              |  8 ++++----
- drivers/memstick/host/jmb38x_ms.c              |  2 +-
- drivers/memstick/host/tifm_ms.c                |  2 +-
- drivers/mmc/host/sdhci.c                       |  2 +-
- drivers/mtd/nand/raw/nand_ecc.c                |  2 +-
- drivers/mtd/nand/raw/s3c2410.c                 |  2 +-
- drivers/mtd/parsers/afs.c                      |  4 ++--
- drivers/mtd/ubi/eba.c                          |  2 +-
- drivers/net/can/janz-ican3.c                   |  2 +-
- drivers/net/ethernet/broadcom/bnx2.c           |  4 ++--
- .../ethernet/mellanox/mlx5/core/pagealloc.c    |  4 ++--
- drivers/net/ethernet/neterion/s2io.c           |  2 +-
- drivers/net/ethernet/qlogic/qla3xxx.c          |  2 +-
- drivers/net/ethernet/sun/cassini.c             |  2 +-
- drivers/net/ethernet/sun/niu.c                 |  6 +++---
- drivers/net/wan/z85230.c                       |  2 +-
- drivers/net/wireless/ath/ath10k/core.c         |  2 +-
- drivers/net/wireless/ath/ath6kl/init.c         |  2 +-
- drivers/net/wireless/ath/ath9k/init.c          |  2 +-
- drivers/net/wireless/broadcom/b43/debugfs.c    |  2 +-
- drivers/net/wireless/broadcom/b43/dma.c        |  2 +-
- drivers/net/wireless/broadcom/b43/lo.c         |  2 +-
- drivers/net/wireless/broadcom/b43/phy_n.c      |  4 ++--
- drivers/net/wireless/broadcom/b43/xmit.c       | 12 ++++++------
- .../net/wireless/broadcom/b43legacy/debugfs.c  |  2 +-
- drivers/net/wireless/broadcom/b43legacy/main.c |  2 +-
- drivers/net/wireless/intel/iwlegacy/3945.c     |  2 +-
- drivers/net/wireless/intel/iwlegacy/4965-mac.c |  2 +-
- .../wireless/realtek/rtlwifi/rtl8192cu/hw.c    |  8 ++++----
- drivers/pci/pcie/aer.c                         |  2 +-
- drivers/platform/x86/hdaps.c                   |  4 ++--
- drivers/scsi/dc395x.c                          |  2 +-
- drivers/scsi/pm8001/pm8001_hwi.c               |  2 +-
- drivers/scsi/pm8001/pm80xx_hwi.c               |  2 +-
- drivers/spi/spi-davinci.c                      |  1 -
- drivers/ssb/driver_chipcommon.c                |  4 ++--
- drivers/tty/cyclades.c                         |  2 +-
- drivers/tty/isicom.c                           |  2 +-
- drivers/usb/musb/cppi_dma.c                    |  2 +-
- drivers/usb/storage/sddr55.c                   |  4 ++--
- drivers/vhost/net.c                            |  6 +++---
- drivers/video/fbdev/matrox/matroxfb_maven.c    |  6 +++---
- drivers/video/fbdev/pm3fb.c                    |  6 +++---
- drivers/video/fbdev/riva/riva_hw.c             |  3 +--
- drivers/virtio/virtio_ring.c                   |  6 +++---
- fs/afs/dir.c                                   |  2 +-
- fs/afs/security.c                              |  2 +-
- fs/dlm/netlink.c                               |  2 +-
- fs/erofs/data.c                                |  4 ++--
- fs/erofs/zdata.c                               |  2 +-
- fs/f2fs/data.c                                 |  4 +---
- fs/fat/dir.c                                   |  2 +-
- fs/fuse/control.c                              |  4 ++--
- fs/fuse/cuse.c                                 |  2 +-
- fs/fuse/file.c                                 |  2 +-
- fs/gfs2/aops.c                                 |  2 +-
- fs/gfs2/bmap.c                                 |  2 +-
- fs/gfs2/lops.c                                 |  2 +-
- fs/hfsplus/unicode.c                           |  2 +-
- fs/isofs/namei.c                               |  4 ++--
- fs/jffs2/erase.c                               |  2 +-
- fs/nfsd/nfsctl.c                               |  2 +-
- fs/ocfs2/alloc.c                               |  4 ++--
- fs/ocfs2/dir.c                                 | 14 +++++++-------
- fs/ocfs2/extent_map.c                          |  4 ++--
- fs/ocfs2/namei.c                               |  2 +-
- fs/ocfs2/refcounttree.c                        |  2 +-
- fs/ocfs2/xattr.c                               |  2 +-
- fs/omfs/file.c                                 |  2 +-
- fs/overlayfs/copy_up.c                         |  2 +-
- fs/ubifs/commit.c                              |  6 +++---
- fs/ubifs/dir.c                                 |  2 +-
- fs/ubifs/file.c                                |  4 ++--
- fs/ubifs/journal.c                             |  4 ++--
- fs/ubifs/lpt.c                                 |  2 +-
- fs/ubifs/tnc.c                                 |  6 +++---
- fs/ubifs/tnc_misc.c                            |  4 ++--
- fs/udf/balloc.c                                |  2 +-
- fs/xfs/xfs_bmap_util.c                         |  2 +-
- include/linux/compiler-clang.h                 |  2 --
- include/linux/compiler-gcc.h                   |  6 ------
- include/linux/page-flags-layout.h              |  4 +++-
- include/net/flow_offload.h                     |  2 +-
- kernel/async.c                                 |  4 ++--
- kernel/audit.c                                 |  2 +-
- kernel/debug/kdb/kdb_io.c                      |  2 +-
- kernel/dma/debug.c                             |  2 +-
- kernel/events/core.c                           |  2 +-
- kernel/events/uprobes.c                        |  2 +-
- kernel/exit.c                                  |  2 +-
- kernel/futex.c                                 | 14 +++++++-------
- kernel/locking/lockdep.c                       | 16 ++++++++--------
- kernel/trace/ring_buffer.c                     |  2 +-
- lib/radix-tree.c                               |  2 +-
- lib/test_lockup.c                              |  2 +-
- mm/debug_vm_pgtable.c                          |  2 +-
- mm/frontswap.c                                 |  2 +-
- mm/ksm.c                                       |  2 +-
- mm/memcontrol.c                                |  2 +-
- mm/memory.c                                    |  2 +-
- mm/mempolicy.c                                 |  4 ++--
- mm/page_alloc.c                                |  2 +-
- mm/percpu.c                                    |  2 +-
- mm/slub.c                                      |  4 ++--
- mm/swap.c                                      |  4 ++--
- net/dccp/options.c                             |  2 +-
- net/ipv4/netfilter/nf_socket_ipv4.c            |  6 +++---
- net/ipv6/ip6_flowlabel.c                       |  2 +-
- net/ipv6/netfilter/nf_socket_ipv6.c            |  2 +-
- net/netfilter/nf_conntrack_ftp.c               |  2 +-
- net/netfilter/nfnetlink_log.c                  |  2 +-
- net/netfilter/nfnetlink_queue.c                |  4 ++--
- net/sched/cls_flow.c                           |  2 +-
- net/sched/sch_cake.c                           |  2 +-
- net/sched/sch_cbq.c                            |  2 +-
- net/sched/sch_fq_codel.c                       |  2 +-
- net/sched/sch_fq_pie.c                         |  2 +-
- net/sched/sch_hfsc.c                           |  2 +-
- net/sched/sch_htb.c                            |  2 +-
- net/sched/sch_sfq.c                            |  2 +-
- net/sunrpc/svcsock.c                           |  4 ++--
- net/sunrpc/xprtsock.c                          | 10 +++++-----
- net/tls/tls_sw.c                               |  2 +-
- scripts/checkpatch.pl                          | 16 +++++-----------
- sound/core/control_compat.c                    |  2 +-
- sound/isa/sb/sb16_csp.c                        |  2 +-
- sound/usb/endpoint.c                           |  2 +-
- tools/include/linux/compiler.h                 |  2 --
- tools/virtio/linux/kernel.h                    |  2 --
- 196 files changed, 321 insertions(+), 330 deletions(-)
-
+diff --git a/Documentation/process/deprecated.rst b/Documentation/process/deprecated.rst
+index 652e2aa02a66..943a926ecbbb 100644
+--- a/Documentation/process/deprecated.rst
++++ b/Documentation/process/deprecated.rst
+@@ -51,6 +51,24 @@ to make sure their systems do not continue running in the face of
+ "unreachable" conditions. (For example, see commits like `this one
+ <https://git.kernel.org/linus/d4689846881d160a4d12a514e991a740bcb5d65a>`_.)
+ 
++uninitialized_var()
++-------------------
++For any compiler warnings about uninitialized variables, just add
++an initializer. Using the uninitialized_var() macro (or similar
++warning-silencing tricks) is dangerous as it papers over `real bugs
++<https://lore.kernel.org/lkml/20200603174714.192027-1-glider@google.com/>`_
++(or can in the future), and suppresses unrelated compiler warnings
++(e.g. "unused variable"). If the compiler thinks it is uninitialized,
++either simply initialize the variable or make compiler changes. Keep in
++mind that in most cases, if an initialization is obviously redundant,
++the compiler's dead-store elimination pass will make sure there are no
++needless variable writes.
++
++As Linus has said, this macro
++`must <https://lore.kernel.org/lkml/CA+55aFw+Vbj0i=1TGqCR5vQkCzWJ0QxK6CernOU6eedsudAixw@mail.gmail.com/>`_
++`be <https://lore.kernel.org/lkml/CA+55aFwgbgqhbp1fkxvRKEpzyR5J8n1vKT1VZdz9knmPuXhOeg@mail.gmail.com/>`_
++`removed <https://lore.kernel.org/lkml/CA+55aFz2500WfbKXAx8s67wrm9=yVJu65TpLgN_ybYNv0VEOKA@mail.gmail.com/>`_.
++
+ open-coded arithmetic in allocator arguments
+ --------------------------------------------
+ Dynamic size calculations (especially multiplication) should not be
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200620033007.1444705-1-keescook%40chromium.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200620033007.1444705-2-keescook%40chromium.org.
