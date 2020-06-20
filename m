@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBU4FW33QKGQE5ZG6YPI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBVEFW33QKGQEXAB7FJY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33b.google.com (mail-ot1-x33b.google.com [IPv6:2607:f8b0:4864:20::33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6772020205B
-	for <lists+clang-built-linux@lfdr.de>; Sat, 20 Jun 2020 05:30:28 +0200 (CEST)
-Received: by mail-ot1-x33b.google.com with SMTP id v26sf5073854ote.11
-        for <lists+clang-built-linux@lfdr.de>; Fri, 19 Jun 2020 20:30:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1592623827; cv=pass;
+Received: from mail-qv1-xf3e.google.com (mail-qv1-xf3e.google.com [IPv6:2607:f8b0:4864:20::f3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 81DD620205D
+	for <lists+clang-built-linux@lfdr.de>; Sat, 20 Jun 2020 05:30:29 +0200 (CEST)
+Received: by mail-qv1-xf3e.google.com with SMTP id w10sf738819qvs.1
+        for <lists+clang-built-linux@lfdr.de>; Fri, 19 Jun 2020 20:30:29 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1592623828; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hYOAJvWsHmfvF5cdtgTJ+ThU0Xlawb1YuQ8isQ6/GejQ6j/LGbpFMjwxp1QdGWEaog
-         w044kqzPdVSLL5kcYCkWf5qfu1xNxA1UtDkgDoHu1Mp9uJohyFV1oORAKkjHIdphDj9O
-         tQXNUkYcROlLd9cF3lm25u8PG8qDbYNR7bI//32y6TqJOz12sOv4S/rAsHxS7LXGT+qk
-         SvQjWKnTePNNVPrd1Y9hfo28yc3dh40fo9HxT5iucw0yuYsaYWb/6TqL4Y1vkqSMQpy7
-         pC4BJUAXP2o9BnTo5KIK7T6Bn49iFThdBuREASHlFCFe6t21awEPaJ3j6vu9f3BE+KYQ
-         cFpg==
+        b=ANbtepihDTNUDMXNX2D1CLvrmIQtYBQ0lhbSWZiTHBe4tHQpnhTWgRI1g+8+au8JID
+         uMVxuky0u9jnlN11ZdJv/rVVmZESHxaQpfGNosx2Z+1URcDnMriK1yL0TfmJ+IR4tJ0W
+         mXioWASkSaFY9j5g6VEHpN84xqsTPc63I+OK9HydluPwCbCqwp4i6OxYFFHbAzj3Kc2/
+         jO8YnOuFBdx9/BPTONbIeGE+d/iuy59YvO2k+A5sRwIACuy4tFT4nNqBAJM5AjSagPVW
+         fVs819VikIIUzKeLXF7dWTjkO5spbPPjvGuq2KwPzOP16xJA7NBBrw66mY3RVxblOATe
+         689Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=CzPHEmnG71ybluNlLi9Njo8n/tX+SAs/wzDjXwRhXeo=;
-        b=oLEQpwsecrOweOpGzydY0SGpIjtoH/pfKlUuuIBYPGSxwKCW3AHQR+y1YBM3Blult4
-         ZmA0X2qG6oITquvbigO1KpBKblOr7TMo+YWmLpV027+g3zeAiAMzzJskk+e8/aHPQq+X
-         jFATjNL8z/4+Vm49JoPf+Hb8jaWJSqYWy005nrfex8XHQLXLiZg0kNMDwwZ/xwwIKdlA
-         Kjv5rmGNUulptdtKAsRD5omU8P5PXyWtWG+3VJ2dxod68Cg7xHlAgIfOKa5Xt6ovnvri
-         53wVBYispup+MS4enaOhuVpH6VwZjjl1kFMPcjh0UEP8+1kSzeH43FioQtVkmatKKb74
-         gWOg==
+        bh=/bUXnEj5u1xm5wndcxbwoXHIod64siEIo7DB62g1ZV4=;
+        b=FiWlDeaUn/8LL1C14uxz073symHHon0OEFuyK++1UKw18n0cBr+aUCmWoiAfG4yHf3
+         WS3CQCp5H56tu9kcZD1KfaWisquvurb63uGUx9lSkPHpULEJifMfgWFd/380NGLpDnap
+         tym/xvGH71HIEbvaUuB0idnu383YVRFzp7zJgpbrXSWrMTEtB+VVVzHFvshuxpr2cwQA
+         iHDazJg3bHF1psBxieZg7UbYnH9J//lDb+d+nBA0SlEvvFqphOqmrra7p93XCfvH59qK
+         VDd64waFCjOUU5VkLNI7ZLA9sWMFm2/OKnS8dejH6zqgJD1KsdDKrTVZFFg3UmnBV79H
+         aUjg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=Rutn4YPk;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1041 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=MihGMYKd;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CzPHEmnG71ybluNlLi9Njo8n/tX+SAs/wzDjXwRhXeo=;
-        b=BZe4yC/uyvPxMUeIzZyNGOndY4XJ08q9r87qRxRZlTWi5FJZEI2RxEgeInDCw0W9+q
-         ZcM7VjwkaUJBLAC8hcjunqfTuEScnWYDr+TVbnyXyX3UgHmod4ryuqbwUGj858E/ENUI
-         RdtryqTdps1Ll8PcOf5Fpp1R/Vb2jdviNwZ7zHJ/reRomjBPEtI3PwinxzEFQ3OrR5BX
-         nw9dS8DPUtIv9fP/RbnqU1Y6M3B92dY84Bb5NCt/BjCSth0J6/WtnL3i2Ji7Me5ydnt5
-         V31YcE331d6N98y95po4gUdqPaYVhEaL8ynAf0+5/iviwZVdfurZk3o0UdQx0Ooef1Kj
-         q3Xg==
+        bh=/bUXnEj5u1xm5wndcxbwoXHIod64siEIo7DB62g1ZV4=;
+        b=H+7bTYMTgPXnppI4noGoO6vJ5Sgn0tQFQ7a7VcMnu9Iq934JqYXcttqG2I7RDp9fFQ
+         Rg0OYiRTiVUj6NKnkXduk9giG6p2zRLRCgRGOnfbiZv3hFeg1jsSGE+iVvVYpq0Kqs3H
+         V7eO0qy4+Ni4rpP4dTV3ghOa5wKDlruDupIa9w4mAIpOWcnjwRjHe7mQ03DWcIsKbFml
+         oRNTbFstjb0mcIXiD0QXg+EVfQNiav4x+gvRKhrKPPwwp1ymInXhH4ooXkiCgha4vn0y
+         MfnMwXmuvtyXnZy9jBmh35I5weEn9FZqiRMIX3bupOnisM3VgQfCx4sceuLDBC2FzTjX
+         4QRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,65 +49,63 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CzPHEmnG71ybluNlLi9Njo8n/tX+SAs/wzDjXwRhXeo=;
-        b=HJG7YyQLgIHHzdLLBx00wH7Q3YNEKGO/PxS24iL4FKszD5PNItMcifnMrJ1rJbY0ZL
-         Qk6SBXXcJpWISaweJcsNxr4HX03DdB0H5kRXz+cMaWvOvgQad1NovIDDGULh+R8m04dz
-         L5mVWS9kFhIShNPWog1taEuZA1MrsOLjUu94s+qBH9+xrENECLAalyFpiBwrgMgFFXzo
-         Yw686lYsMQ/C9KyCgFDl0hOByrL8kop/kiEKhA/hqRZg3ghQ3hjqggTrJsrMUpRVedFq
-         RBUb3LRmLPakB3TROvejpRX0m7D3NvFsQNP2TO2/U6LRUAVFhunJpeLq+CqVB6eyPT9o
-         1Lcw==
+        bh=/bUXnEj5u1xm5wndcxbwoXHIod64siEIo7DB62g1ZV4=;
+        b=sV+LcQZJfEksL/KC163ihx7F2mna2HqI0521KyJHrUi+tTESFSNsqBAmt6DcRz7b7w
+         DUkmmYS40oPnwUKIwgq8in9UKmy4Rkc+ex9crQ96jFddZtlJHjd/6S88thTqiCGbsLe5
+         Lg3r4ru/bLtqkjZV9TFEkQSYEnXUf3x8U1yD/NNr9CYm2hGDcjX/q1nDp9xx0dBSyrhy
+         LAc/0ZWpX8wMyKdbUpnxFUHevWXWcwGTKJyMCLaRWxghfXkM+l0AHYIA25UOfnPnHqsK
+         wIyCIA26uv+IQmexiAuwvA3QTeosH5c3PEARmU9BFVflp6IGDnvIS2ZAN8A5iyTm7TPc
+         sLNQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533kaEb3hQyvNvS7EsWbKAKtGrBEOVHAsA/8Ptrze2N1wSCVsKCi
-	LuFA4uyED3ydSyjUMenkwaI=
-X-Google-Smtp-Source: ABdhPJzLK8Ah8YQvt3ncG2HBhmker5NhR7ZUAtuWfCqbrVBCpZ7rCoJSZXR5m/9EjymD0K21QHdcWg==
-X-Received: by 2002:a9d:6a0a:: with SMTP id g10mr5615778otn.105.1592623827082;
-        Fri, 19 Jun 2020 20:30:27 -0700 (PDT)
+X-Gm-Message-State: AOAM531rN3GiWs6GfM/EuYGkS+2JMX1X11ddS0BhUkgTrYYtrETLKeHB
+	uquNBZrsFPN8s7Fg6d6/kwo=
+X-Google-Smtp-Source: ABdhPJyeLKnpxHxZc4B+u7uQ9ZiAqQzL5VMCkUKBvo+R5jIvPpeZESGDyQDfFRJUVwPThSr4G0e2YA==
+X-Received: by 2002:a37:bb43:: with SMTP id l64mr6436938qkf.271.1592623828585;
+        Fri, 19 Jun 2020 20:30:28 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:3116:: with SMTP id b22ls2485764ots.6.gmail; Fri,
- 19 Jun 2020 20:30:26 -0700 (PDT)
-X-Received: by 2002:a05:6830:1df6:: with SMTP id b22mr5574121otj.98.1592623826715;
-        Fri, 19 Jun 2020 20:30:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1592623826; cv=none;
+Received: by 2002:a0c:cd07:: with SMTP id b7ls2582411qvm.10.gmail; Fri, 19 Jun
+ 2020 20:30:28 -0700 (PDT)
+X-Received: by 2002:a0c:a9db:: with SMTP id c27mr161098qvb.204.1592623828290;
+        Fri, 19 Jun 2020 20:30:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592623828; cv=none;
         d=google.com; s=arc-20160816;
-        b=V/rksko0y0Giq+TZAk10TuMIZ7fzsetbo5m8RBlvTQwS2Ge84dp6Z5m4l/KIHvbdfy
-         i5qvWt88rRFZ/M4B+AL/GUAgI7d/FkAFUyerQ6EnZ6GEdHadg/4BWmg4FTrl31QAiyZZ
-         EBxYObWu8v2ElWAIyCon6CTq239+OkN5FTf3A+PHdWXY+TL5YSWT+6tANOqFlzcQ6CeU
-         nH1cxJhPuR62HCH/DbxqxZgt2/4T3HL+a3REw0oeYoiIse4laf3S3DYlufR6KSM/uNi2
-         i7wJE5Q7ZdQB5zddz6qlvMpd8sRu6QwscLyahu0rDkrW6vgJAx5zU9ObZ8XszEEBJ4KB
-         Xv8g==
+        b=bLl5sTNjN6Ug20YN/ZpJfcwwlxy7It4Ook0TaUVTfs3DFtmBLXhtH0K8t5vi242NKb
+         CXq7bjQq8xXPHSRI7emVnojGp776HYrd0JiJB1P3UgjQu+9kXoNA0mNLYG8lNW9BNR/G
+         GNxDgtTMimW5FsSFTvkx9xcT5gyQf25Y3u/YUwvL/Cisup6GELm1s2cv+nmJZuGiOTC4
+         R1OzQIVhfwCSqqywunmOWEwLdsBKNrF0k55baNtd3T0TnoKqfDxIdoUOYyR9XHpqD2gl
+         BrVA/W+9eweFpRb6y1ZBq5nTdPxjkrBLvDvKq4sFpF5drCRW1tVU9+WWEtQr8QluBq+b
+         sKlA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=I53/n5ydJ9yzbnxtmoDriMZB814XLzfic4sznaesD40=;
-        b=plkLUHD5LWlwh1tq9Duh05PmBRKP6Pok5PI8WlAqtN5aTIWR9DiMaETrPl2+QRaNWW
-         g/F72/wbxXR8hplp1+VbPmN9Ekr00W1ggEW5M7HhersLGZvXBxjqHxh/vxOeHchogHmi
-         Xq+NwseJxFJim8aru3GY4itN5WOQ2tFBlgFzde10bDJyvaAEebMYhEQXRohD9RzNFrvH
-         rpnzEzyxc/JvU2h+kL8LbEyyxGsUwyzqB90WptoZZq49LRLy9WgsaIJJ2RT8lyTyJl8l
-         qU8OvdiPoWEsg0kBZgz64OraHOaN2OrB7y1cWMMiLFOq1LQoB0+Y7E9k1UYe2rX4FDSq
-         DmOw==
+        bh=dfh/vw+ddjlYh9CDRFRkQhWgDe6VpIaXph6iMJk9GA8=;
+        b=ftUTrTPR4cVShCq0SxmD2Eh31jeGg4IpdSW0mtPnLXNPZ672DTFO74d8zjWsOFdHoN
+         3zPs10T7qt8c28vkumkNtZsF1zM7nu/2G3c4WuB8O/hmpzO74j7JQ4HbK8ybulyC38d9
+         hbIzaxvo+BOGoR7S9MP/mcnhnwidCSuC1h4AMiWp2mi96B4lklCf7vYe2cD8jKc7UEvX
+         YN2EfHyiMNeGro+awxon5cYEWzZ49jdAysOJvqcpPYwJPheKDnPfoEwqY7+PxIX2PAMG
+         JFtabD1n+DeiCmS4KleW0HYXIM8GBEzIdr12RP+bacu5h2S4Gfruqh1pKjM5yj0FXlUY
+         PIOA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=Rutn4YPk;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1041 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=MihGMYKd;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pj1-x1041.google.com (mail-pj1-x1041.google.com. [2607:f8b0:4864:20::1041])
-        by gmr-mx.google.com with ESMTPS id a13si368367otl.0.2020.06.19.20.30.26
+Received: from mail-pf1-x442.google.com (mail-pf1-x442.google.com. [2607:f8b0:4864:20::442])
+        by gmr-mx.google.com with ESMTPS id x78si383197qka.4.2020.06.19.20.30.28
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 19 Jun 2020 20:30:26 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1041 as permitted sender) client-ip=2607:f8b0:4864:20::1041;
-Received: by mail-pj1-x1041.google.com with SMTP id s88so5282601pjb.5
-        for <clang-built-linux@googlegroups.com>; Fri, 19 Jun 2020 20:30:26 -0700 (PDT)
-X-Received: by 2002:a17:902:ff06:: with SMTP id f6mr10351618plj.22.1592623826055;
-        Fri, 19 Jun 2020 20:30:26 -0700 (PDT)
+        Fri, 19 Jun 2020 20:30:28 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::442 as permitted sender) client-ip=2607:f8b0:4864:20::442;
+Received: by mail-pf1-x442.google.com with SMTP id 10so5373000pfx.8
+        for <clang-built-linux@googlegroups.com>; Fri, 19 Jun 2020 20:30:28 -0700 (PDT)
+X-Received: by 2002:aa7:9569:: with SMTP id x9mr10876864pfq.308.1592623827680;
+        Fri, 19 Jun 2020 20:30:27 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id 17sm7373750pfn.19.2020.06.19.20.30.20
+        by smtp.gmail.com with ESMTPSA id i63sm6601330pje.34.2020.06.19.20.30.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Jun 2020 20:30:20 -0700 (PDT)
+        Fri, 19 Jun 2020 20:30:26 -0700 (PDT)
 From: Kees Cook <keescook@chromium.org>
 To: linux-kernel@vger.kernel.org
 Cc: Kees Cook <keescook@chromium.org>,
-	Jason Yan <yanaijie@huawei.com>,
-	Chao Yu <yuchao0@huawei.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>,
 	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
 	Alexander Potapenko <glider@google.com>,
@@ -125,17 +123,17 @@ Cc: Kees Cook <keescook@chromium.org>,
 	linux-spi@vger.kernel.org,
 	linux-mm@kvack.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH v2 12/16] f2fs: Eliminate usage of uninitialized_var() macro
-Date: Fri, 19 Jun 2020 20:30:03 -0700
-Message-Id: <20200620033007.1444705-13-keescook@chromium.org>
+Subject: [PATCH v2 14/16] checkpatch: Remove awareness of uninitialized_var() macro
+Date: Fri, 19 Jun 2020 20:30:04 -0700
+Message-Id: <20200620033007.1444705-14-keescook@chromium.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20200620033007.1444705-1-keescook@chromium.org>
 References: <20200620033007.1444705-1-keescook@chromium.org>
 MIME-Version: 1.0
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=Rutn4YPk;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1041
+ header.i=@chromium.org header.s=google header.b=MihGMYKd;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::442
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Content-Type: text/plain; charset="UTF-8"
@@ -151,60 +149,73 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Jason Yan <yanaijie@huawei.com>
+Using uninitialized_var() is dangerous as it papers over real bugs[1]
+(or can in the future), and suppresses unrelated compiler warnings
+(e.g. "unused variable"). If the compiler thinks it is uninitialized,
+either simply initialize the variable or make compiler changes.
 
-This is an effort to eliminate the uninitialized_var() macro[1].
+In preparation for removing[2] the[3] macro[4], partially revert
+commit 16b7f3c89907 ("checkpatch: avoid warning about uninitialized_var()")
+and remove all remaining mentions of uninitialized_var().
 
-The use of this macro is the wrong solution because it forces off ANY
-analysis by the compiler for a given variable. It even masks "unused
-variable" warnings.
+[1] https://lore.kernel.org/lkml/20200603174714.192027-1-glider@google.com/
+[2] https://lore.kernel.org/lkml/CA+55aFw+Vbj0i=1TGqCR5vQkCzWJ0QxK6CernOU6eedsudAixw@mail.gmail.com/
+[3] https://lore.kernel.org/lkml/CA+55aFwgbgqhbp1fkxvRKEpzyR5J8n1vKT1VZdz9knmPuXhOeg@mail.gmail.com/
+[4] https://lore.kernel.org/lkml/CA+55aFz2500WfbKXAx8s67wrm9=yVJu65TpLgN_ybYNv0VEOKA@mail.gmail.com/
 
-Quoted from Linus[2]:
-
-"It's a horrible thing to use, in that it adds extra cruft to the
-source code, and then shuts up a compiler warning (even the _reliable_
-warnings from gcc)."
-
-Fix it by remove this variable since it is not needed at all.
-
-[1] https://github.com/KSPP/linux/issues/81
-[2] https://lore.kernel.org/lkml/CA+55aFz2500WfbKXAx8s67wrm9=yVJu65TpLgN_ybYNv0VEOKA@mail.gmail.com/
-
-Suggested-by: Chao Yu <yuchao0@huawei.com>
-Signed-off-by: Jason Yan <yanaijie@huawei.com>
-Reviewed-by: Chao Yu <yuchao0@huawei.com>
-Link: https://lore.kernel.org/r/20200615085132.166470-1-yanaijie@huawei.com
 Signed-off-by: Kees Cook <keescook@chromium.org>
 ---
- fs/f2fs/data.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ scripts/checkpatch.pl | 16 +++++-----------
+ 1 file changed, 5 insertions(+), 11 deletions(-)
 
-diff --git a/fs/f2fs/data.c b/fs/f2fs/data.c
-index 326c63879ddc..3753ba06531b 100644
---- a/fs/f2fs/data.c
-+++ b/fs/f2fs/data.c
-@@ -2856,7 +2856,6 @@ static int f2fs_write_cache_pages(struct address_space *mapping,
- 	};
- #endif
- 	int nr_pages;
--	pgoff_t uninitialized_var(writeback_index);
- 	pgoff_t index;
- 	pgoff_t end;		/* Inclusive */
- 	pgoff_t done_index;
-@@ -2875,8 +2874,7 @@ static int f2fs_write_cache_pages(struct address_space *mapping,
- 		clear_inode_flag(mapping->host, FI_HOT_DATA);
+diff --git a/scripts/checkpatch.pl b/scripts/checkpatch.pl
+index 4c820607540b..60b737e222fe 100755
+--- a/scripts/checkpatch.pl
++++ b/scripts/checkpatch.pl
+@@ -840,7 +840,6 @@ our $FuncArg = qr{$Typecast{0,1}($LvalOrFunc|$Constant|$String)};
+ our $declaration_macros = qr{(?x:
+ 	(?:$Storage\s+)?(?:[A-Z_][A-Z0-9]*_){0,2}(?:DEFINE|DECLARE)(?:_[A-Z0-9]+){1,6}\s*\(|
+ 	(?:$Storage\s+)?[HLP]?LIST_HEAD\s*\(|
+-	(?:$Storage\s+)?${Type}\s+uninitialized_var\s*\(|
+ 	(?:SKCIPHER_REQUEST|SHASH_DESC|AHASH_REQUEST)_ON_STACK\s*\(
+ )};
  
- 	if (wbc->range_cyclic) {
--		writeback_index = mapping->writeback_index; /* prev offset */
--		index = writeback_index;
-+		index = mapping->writeback_index; /* prev offset */
- 		end = -1;
- 	} else {
- 		index = wbc->range_start >> PAGE_SHIFT;
+@@ -6330,8 +6329,7 @@ sub process {
+ 			if (defined $cond) {
+ 				substr($s, 0, length($cond), '');
+ 			}
+-			if ($s =~ /^\s*;/ &&
+-			    $function_name ne 'uninitialized_var')
++			if ($s =~ /^\s*;/)
+ 			{
+ 				WARN("AVOID_EXTERNS",
+ 				     "externs should be avoided in .c files\n" .  $herecurr);
+@@ -6350,17 +6348,13 @@ sub process {
+ 		}
+ 
+ # check for function declarations that have arguments without identifier names
+-# while avoiding uninitialized_var(x)
+ 		if (defined $stat &&
+-		    $stat =~ /^.\s*(?:extern\s+)?$Type\s*(?:($Ident)|\(\s*\*\s*$Ident\s*\))\s*\(\s*([^{]+)\s*\)\s*;/s &&
+-		    (!defined($1) ||
+-		     (defined($1) && $1 ne "uninitialized_var")) &&
+-		     $2 ne "void") {
+-			my $args = trim($2);
++		    $stat =~ /^.\s*(?:extern\s+)?$Type\s*(?:$Ident|\(\s*\*\s*$Ident\s*\))\s*\(\s*([^{]+)\s*\)\s*;/s &&
++		    $1 ne "void") {
++			my $args = trim($1);
+ 			while ($args =~ m/\s*($Type\s*(?:$Ident|\(\s*\*\s*$Ident?\s*\)\s*$balanced_parens)?)/g) {
+ 				my $arg = trim($1);
+-				if ($arg =~ /^$Type$/ &&
+-					$arg !~ /enum\s+$Ident$/) {
++				if ($arg =~ /^$Type$/ && $arg !~ /enum\s+$Ident$/) {
+ 					WARN("FUNCTION_ARGUMENTS",
+ 					     "function definition argument '$arg' should also have an identifier name\n" . $herecurr);
+ 				}
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200620033007.1444705-13-keescook%40chromium.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200620033007.1444705-14-keescook%40chromium.org.
