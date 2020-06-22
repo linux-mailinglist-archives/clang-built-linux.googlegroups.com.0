@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBRU6YX3QKGQEOHV2ZYA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBR46YX3QKGQEPABOZ3A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x640.google.com (mail-pl1-x640.google.com [IPv6:2607:f8b0:4864:20::640])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1C1902045CE
-	for <lists+clang-built-linux@lfdr.de>; Tue, 23 Jun 2020 02:39:36 +0200 (CEST)
-Received: by mail-pl1-x640.google.com with SMTP id 31sf13009989plc.0
+Received: from mail-ua1-x937.google.com (mail-ua1-x937.google.com [IPv6:2607:f8b0:4864:20::937])
+	by mail.lfdr.de (Postfix) with ESMTPS id 063A92045CF
+	for <lists+clang-built-linux@lfdr.de>; Tue, 23 Jun 2020 02:39:37 +0200 (CEST)
+Received: by mail-ua1-x937.google.com with SMTP id p11sf5374416uaq.0
         for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jun 2020 17:39:36 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1592872775; cv=pass;
+ARC-Seal: i=2; a=rsa-sha256; t=1592872776; cv=pass;
         d=google.com; s=arc-20160816;
-        b=INsYgasxZ+IDCRMeGaAt9fkVuWzIydgC74O3TuPs59guq3VKuwZQmJeu6QRSxFhAqO
-         yak3iFy/U1I7qUgruUYBfw6/QKx7ym7kxizClgniaHJMR9jFJpeP3u0HNUb2z50D0IIW
-         ZNsRklA+tEWfjURaOxo8xQBivcXhHnHiIR2qsRh9070shjXO/v3trFRgIwugQeVNWgH7
-         rnr9iNvIb/XsLBTBH9q1lS0sONiM1/AffAVQklWJgwGwqSsk65nGOSAG4PyGEwcqvkEB
-         6vX6Pe7La4q1bWIM9F3T8FzIw+ZC1PtbpDqS7QgorzjqPr6hKI5DlGBQfKzOch95RUH4
-         ZVoQ==
+        b=aI+Ti+bIsPkKAwZ+3NiRDmUALnmABYVIKSwzotgJdsU+NyTcptDZKtz3AbKBWNDACS
+         A1T5bo39+7nz46tkoCaZmJOmEP944JoXp+zhv0DMxKyoCfJUuWb9m5q7/OKJzSoe2hGY
+         egwuIZ90tEWA3yIE/rKxMAqaoHAxlkQaJcS5l5nrGjTm5eyTc/vqmzoCzihOIop6CWhW
+         8UsliQHNV2AuEQv7jWIADGl7sh9V6qOk5oqgyQfukyMXw77LFDfAtAhkrsPNLUkGT606
+         NsQLrON9rHsr/H0mH0a/cTB2elZnSGTknRNdVVdtyGNs99xbg9DWYEQmnJYJ00iXu8ub
+         EYLA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature
          :dkim-signature;
-        bh=98VHO6deFOZ/PtuurT8llniuNYRAeOTfymdXAjuAmXU=;
-        b=vsscFmuFpNChM+sfxx7rPjrqhl4YD5GXOshvQGx9j6HO13g49HPCHPr6yjnWj2MGLD
-         yPAKmAXxN6+DlH6Zc9+FI2O42tK8+oJ0T3i4Qirj/1mL0UXlUNW1mgIc8me+MbNUxbKZ
-         ZlqLjmIdl2L7Ey/LA7hisIvvmHo+hQm5Pkxbgdm9KDoVq5POmfAXCiE7nUwfS7QJbUgh
-         gRk2StyR9SBI34bd27CZi9iDnQvCzyFNYs/9ywtRMA33FhnUiTem6IA1ydQrpGWrju3/
-         C6HyztpLFRLIH6/zmPqkW1ghTeaJtlZs3J8MSxn8/2EkhHIXKQd66fN4Wa6IyYgcFQCL
-         ahVw==
+        bh=hjyQZjyXjsHrNWZKWXzn9z+evQ47vSA1TfFjyTK8C4U=;
+        b=Sm1Y6r/4yDyZnGq6Dc2zRD4G4bLHB2D3ZoMPsycT4GapdAfbrlLtHeKdwzXgz2F0yu
+         exhY2G0mMssFJvK08atUfvSE2e39hvBbr3MsNz8yt6amfQBmilPZ0s+hPB047gdKbVMv
+         e1u4Nnw/y7HspJ69P9mqhbpXsa6GCIcknJ9gIM1PTwh7RlnxX7wdReQ9jVZWL/sUzGlp
+         4460M7wKdoR4WfX6tpX/laHeEysqsrGBEIDHXszBMZIAYetxvMikQWtZxEO47CEXYtM/
+         QjhWj6xfz/rgQfBUGtH7Zr2oevHo50ShNuy4TICkWtiPoKW66BlWr+fJaqzcA81jDVDD
+         OsAg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="gmta/vZG";
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=M4LHMsDw;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::244 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=98VHO6deFOZ/PtuurT8llniuNYRAeOTfymdXAjuAmXU=;
-        b=e5yX34fH8S4HRYeiAVKRbDFJeEQWpzJHsdXwjb8/r44jbs2uUgmV7Hkw5bJs9mKao6
-         WEMwgv194COnL7Df/CD2mkH7oRRAZlONTz2vnximle6183iwQvDf0j6O6z4eOGBFCt2x
-         tXt6Eyl9fB7cDW96vQaVmLy4SZvmnwfdfbn+LxyQL255vnvwFgExgeNj1ylwUnEGQwtY
-         aHkkt+poQ3/PZyHfYS+AM7y/tB3wepb7FkyS+kdn9g4gtICTK0uFuzfwSktAY4hfVSiN
-         wk54wt67cdvZ4x4Tt7TTv70YBkKM+kVpL5hY+24LKkY2lhRLlByjA9HNVJ/jCTT3tGo7
-         gE9w==
+        bh=hjyQZjyXjsHrNWZKWXzn9z+evQ47vSA1TfFjyTK8C4U=;
+        b=cgMU/lj//0zzqUG/Lb13vwOU20PZgCcIGxGFtt8OI6ErmaiG2BUa6s7Li6gX59Sf6Q
+         D9wdXJKhQfk2C088FJeijbZvHPyFib1JlKfM4u//NWut9KQ9OS5doEltpGTQgYvFEf1d
+         sE063Kst+hY++9GUiVOR7hYXLcouXQ/Wq1v7lSjNLDbdDNdAyh02JXR3xW6+WCtZFm/m
+         seVZJlKgi5ns9qDygW9KiMeco5bAwcWWnqauKHfHrbryfL62S0jf8J14II4y/Rj+f7Ns
+         t5FWDlqcDfkEN5g/DzocudQ0S/kqca5n0UeJiM/ixlQLDhsDiKvcDfO3GuUsLFzrJ+ea
+         y1Pg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=98VHO6deFOZ/PtuurT8llniuNYRAeOTfymdXAjuAmXU=;
-        b=Hd/Mju07F7AhUy/eSx/2+b6e6nqHtmQgclzWLwRY+aNCnUsMdPglEyXjR7ir0NT6mi
-         C2bmZ4KgJDyBdiu3dVwzzNMHueB/GjPhVRdltgbl6l5ITrn+jcQqTUyHZbHyBqaparAd
-         a6BSC6QwSoSSeGbW1iF597U72pdm/jPtuFDuXnDEsG6DHoLWeBi5dZjxaLvOR1SgxDfD
-         FREW73/YQ5bwlSWwllDE6wpSmIhu53Ek2Vj+d1KwwtNdG3Y8ntjS3AwiYoa2BNsjkgXL
-         E/lphYVbuO9N4VjoDQP9UDF+aW9Mzqe5PpFSujQ6rPXliVmomGcU1IlvGUWSSBHf4FDg
-         ubSg==
+        bh=hjyQZjyXjsHrNWZKWXzn9z+evQ47vSA1TfFjyTK8C4U=;
+        b=HPHqUujLiHlfjhejhr5VWPukzZh/dt7qf+eFI7qIHwThRnOJWD5FqT6Wt6gfb6N6N0
+         6ZJ8p65G2gQC/k9F8M26inSNkE/Ovqrv5wg2l0PasjVQmZK065+m/h991qZZPanl+3Wx
+         +ScIHqFS6NkvArX2n3a+mlGZb5BU726xLlYF4q/CEyOsNl/Q0CxOBqbRfkxeDQHYLl/6
+         i3cHABxn32TzYEmgw/xJ6Fhy5ZSzt6RMi/2w6rNrCafYRNfTkzpnevRrBgNbXd/VtEwy
+         LbAFgWKQKttFo908OyxxdJIx7ZAYAy/Ihg/joLarx3jHncorR2UPfFYXGrTjhmKQ0ZGm
+         NcAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -63,60 +63,60 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=98VHO6deFOZ/PtuurT8llniuNYRAeOTfymdXAjuAmXU=;
-        b=Ty2p5ASPieemUq7HapSMQWuBZ3AIq/IS4IleUzkcswjNukq6wT1LlwoIMMdogH0pRz
-         HoNRfPyG31oMgMl2LJ3oi4NhWhXYiMCJq/a15qlX8bNTMNMQTqU/1cM9os7jA051VtIZ
-         HXwsPJHT+lxst3uUwDaa9VyX/JQrpz6GtlxTlsZpGueyJHuXR0nLhN2SGNzK6LjsgqcQ
-         +h3gvMvPpOkh5s9vPmklfgJrOoeXGyr/VcED6EPPncPVUP9YAGXc6huhK4yJVG3k9En5
-         yoRa2nvGlCXgzYSwBH8wj6BArzOn7HRUxqYdTm/MLBGDvQzByv6IOjnQ8IpZW+2Ed/yM
-         HBkA==
+        bh=hjyQZjyXjsHrNWZKWXzn9z+evQ47vSA1TfFjyTK8C4U=;
+        b=ckAGf/AFl/swAtPwJpT2C2aSUOShyWaqhmPSd1gRllKlYMaO4SKs3IArlVVq021sv0
+         cr4WA2rT99fgf72S3Pybhx80HyfNiYE+HANo1hshpHO1aeva3itcys6RdIDqFjgSmEsd
+         PE20nqGFsgJ9Jc3kqazpWTLg+Ob38uEpw/9t/PfQkosjme2S3bZ19SA915nIPOvMepGK
+         whT0C+dGygyp1mGJxa9zgBVguu3gVIJiGsAPz3/770YIJw9uMpHnFq4NqdcDVpYsJhUQ
+         XVxLrhg4z5+beM3/r+xFSPZAFtAgHqKx1k1efzPUgewm/dA9RxX2plj56nvvOCbsaETo
+         D1+g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531wb49yI6IjiCWCpcqG7eaELMSZsBiNA+Hc4OTJ1gBC+vYmxJRC
-	ZrmBo2+1L1unORn5btYuth4=
-X-Google-Smtp-Source: ABdhPJxsPSoWA+riISGIc56HcHJyhSCI3Ax7bF6vQxFJrqDxaYyQX2L05mjddyEHCddu2OUhBEyrDg==
-X-Received: by 2002:a17:90a:d487:: with SMTP id s7mr20546177pju.37.1592872774780;
-        Mon, 22 Jun 2020 17:39:34 -0700 (PDT)
+X-Gm-Message-State: AOAM531y6Rd9ApYLxJYUk92dk8vNRjVOQYhdMP8mt1sd1qMpT7WvNDo6
+	iJymdjArEnZAPyrLx8vTbkQ=
+X-Google-Smtp-Source: ABdhPJwpTdTjrWNGpKFniu6pDztUkWC5XvXqkKiocXf91FnGBL6iEze4PO2aZrqcKJRi5WjQSsLtaA==
+X-Received: by 2002:ab0:5498:: with SMTP id p24mr13422860uaa.123.1592872776029;
+        Mon, 22 Jun 2020 17:39:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:fcd6:: with SMTP id e205ls6014545pfh.10.gmail; Mon, 22
- Jun 2020 17:39:34 -0700 (PDT)
-X-Received: by 2002:a62:3c3:: with SMTP id 186mr22132408pfd.119.1592872774394;
-        Mon, 22 Jun 2020 17:39:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1592872774; cv=none;
+Received: by 2002:ab0:565a:: with SMTP id z26ls447154uaa.2.gmail; Mon, 22 Jun
+ 2020 17:39:35 -0700 (PDT)
+X-Received: by 2002:ab0:2559:: with SMTP id l25mr13032680uan.143.1592872775649;
+        Mon, 22 Jun 2020 17:39:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592872775; cv=none;
         d=google.com; s=arc-20160816;
-        b=NfQstsLDhpeez14iao5/tef4LXoBKpKC/pqWt2d6wKXYAf/QA8BO5StbrLKkQ4bhMe
-         fJ574waucqWJobY4q3BN5aqw6Jdvk0+wSfkc3Tr+n1TLi05KCzbE1YdXH0DR5DRVIZZU
-         1DgZ08seTHQYclKeTwh2f7uSZYZLdonkcl8tyHHS5fzNZaTiQlNnPyHD6NzkhFVIMNMl
-         93MKCtOOUhw/5EBmD58SJUH3YDwV5ghFLuQdSf9SwivFvN7QtbKMaqfcizQjIXb4y2gf
-         2UC2hUTBcrHvJVBAO5OCL+P5qx+8kNtWUAhccRnFm3bEkyyqLIndkXnX8gktWmu+m/5D
-         ozbw==
+        b=uJHwt2nqwez5pG7lXe/OoDmHE7t7PHJAF8zJcAFgqhtE5MGJ/d0i2xtjtr3d5NIiUl
+         lG9T4b/XzinWjxwh6FmHp9VOa+oWc536O1XuEqOUpWEl4QgteaizwG6ISh42qbTRpi8N
+         u02acVgY0ZaTKJ5lkWBd3NFI1R8na2wpxjX+l8HcOQxD6YN1GNF2s0F5IlHNPtCNhVNL
+         BBhy9+h5lxW/zrUE1JOWjZSATFfR+gpjUZ9GmVYdB8J8nk0YoeMnuG5A17dMcX5nCdU5
+         Pzj9BhG/K/VmV6qg3uDXq6GQlhq5PtQMi7XMP0GN4cyrwSAkvYg6ny+tjndR+PnILOy+
+         MfoA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=68GP117GFRUsx6QpEeOc82reTKVBWwmz16vEIsvU5G4=;
-        b=LG8kUpuoJn3HnigAoSyUz/A8Nf7Ecs90R3l1sq10r1vCcOvvk5OOyAYvQiCkjualxb
-         DtbNLjeWE3r7U/tPcGnQMKenSnSv1QrmZp8lWgQY1Gca9qtglCvmnPfdyPmJ6tQn1L4o
-         YrU8q1ru9DMo4+dFPtFs8EwKX3P0AWzo6z+R+FDGgQihUiRey/SiyZcJwlAMxh5eTAkl
-         AtbW3qgHKL5AUnnGc2kcJgVesYkZPnt5vWNC3++YgQuSaJtye+VV72TWaEG8lhq+th5a
-         S4cnUqTEHSJjF9zwxpJIqO+FeCo0AcPqu929e+6d2ks4nJB8fBNGXwxa6Z2cDQtQ9ypv
-         zFzA==
+        bh=d5frG9PhqG81tC9AD8peh3y6lnck0h80KeA34w2QTi0=;
+        b=guSbMeWPcpf/HVciK0Trc04+Rn3qgyy/Y8Tdda+Py6Ew0a8WDYU8SpFBLX8hdLaB7V
+         0HU7aNzVsFfFQ2i1xI6HHVNqH+DMPi4DKoJhSlYSV2uDoStL1E75L31AYfSFtq8MY1/7
+         9J2LT3VIdp8KsmCxj0az071DuNIWXlj7y5HTf7pEzp9mqxtKZNUoTZB+pcKJLtmTP+Ru
+         CdjZM3BOOY4a/3Y1ctsAPrxJKP+sLyM7HbaPw8133ICDaRIcRdYOAEwwG9pOyKZbHrPE
+         JF3ATM1q5SoufAWH1tPRxgglB2QJMdaVz8ViGD5rN2Sf/CkcvlEcwz6WkTYR/3zwa3zk
+         rcDg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="gmta/vZG";
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=M4LHMsDw;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::244 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-oi1-x242.google.com (mail-oi1-x242.google.com. [2607:f8b0:4864:20::242])
-        by gmr-mx.google.com with ESMTPS id t72si1014316pfc.5.2020.06.22.17.39.34
+Received: from mail-oi1-x244.google.com (mail-oi1-x244.google.com. [2607:f8b0:4864:20::244])
+        by gmr-mx.google.com with ESMTPS id q20si1684843uas.1.2020.06.22.17.39.35
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 22 Jun 2020 17:39:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) client-ip=2607:f8b0:4864:20::242;
-Received: by mail-oi1-x242.google.com with SMTP id x202so17407587oix.11
-        for <clang-built-linux@googlegroups.com>; Mon, 22 Jun 2020 17:39:34 -0700 (PDT)
-X-Received: by 2002:aca:5c1:: with SMTP id 184mr13713429oif.119.1592872773768;
-        Mon, 22 Jun 2020 17:39:33 -0700 (PDT)
+        Mon, 22 Jun 2020 17:39:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::244 as permitted sender) client-ip=2607:f8b0:4864:20::244;
+Received: by mail-oi1-x244.google.com with SMTP id s21so17361134oic.9
+        for <clang-built-linux@googlegroups.com>; Mon, 22 Jun 2020 17:39:35 -0700 (PDT)
+X-Received: by 2002:aca:4ec3:: with SMTP id c186mr13675944oib.64.1592872775112;
+        Mon, 22 Jun 2020 17:39:35 -0700 (PDT)
 Received: from localhost.localdomain ([2604:1380:4111:8b00::3])
-        by smtp.gmail.com with ESMTPSA id y31sm3677828otb.41.2020.06.22.17.39.32
+        by smtp.gmail.com with ESMTPSA id y31sm3677828otb.41.2020.06.22.17.39.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Jun 2020 17:39:32 -0700 (PDT)
+        Mon, 22 Jun 2020 17:39:34 -0700 (PDT)
 From: Nathan Chancellor <natechancellor@gmail.com>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
@@ -129,18 +129,18 @@ Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
 	linux-arch@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Nathan Chancellor <natechancellor@gmail.com>
-Subject: [PATCH 1/2] media: omap3isp: Remove cacheflush.h
-Date: Mon, 22 Jun 2020 16:47:39 -0700
-Message-Id: <20200622234740.72825-2-natechancellor@gmail.com>
+Subject: [PATCH 2/2] asm-generic: Make cacheflush.h self-contained
+Date: Mon, 22 Jun 2020 16:47:40 -0700
+Message-Id: <20200622234740.72825-3-natechancellor@gmail.com>
 X-Mailer: git-send-email 2.27.0
 In-Reply-To: <20200622234740.72825-1-natechancellor@gmail.com>
 References: <20200622234740.72825-1-natechancellor@gmail.com>
 MIME-Version: 1.0
 X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b="gmta/vZG";       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=M4LHMsDw;       spf=pass
  (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+ 2607:f8b0:4864:20::244 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
@@ -155,58 +155,51 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-After mm.h was removed from the asm-generic version of cacheflush.h,
-s390 allyesconfig shows several warnings of the following nature:
+Currently, cacheflush.h has to be included after mm.h to avoid several
+-Wvisibility warnings:
 
-In file included from ./arch/s390/include/generated/asm/cacheflush.h:1,
-                 from drivers/media/platform/omap3isp/isp.c:42:
-./include/asm-generic/cacheflush.h:16:42: warning: 'struct mm_struct'
-declared inside parameter list will not be visible outside of this
-definition or declaration
+$ clang -Wvisibility -fsyntax-only include/asm-generic/cacheflush.h
+include/asm-generic/cacheflush.h:16:42: warning: declaration of 'struct
+mm_struct' will not be visible outside of this function [-Wvisibility]
+static inline void flush_cache_mm(struct mm_struct *mm)
+                                         ^
+...
+include/asm-generic/cacheflush.h:28:45: warning: declaration of 'struct
+vm_area_struct' will not be visible outside of this function
+[-Wvisibility]
+static inline void flush_cache_range(struct vm_area_struct *vma,
+                                            ^
+...
 
-As Geert and Laurent point out, this driver does not need this header in
-the two files that include it. Remove it so there are no warnings.
+Add a few forward declarations should that there are no warnings and the
+ordering of the includes does not matter.
 
 Fixes: e0cf615d725c ("asm-generic: don't include <linux/mm.h> in cacheflush.h")
-Suggested-by: Geert Uytterhoeven <geert@linux-m68k.org>
-Suggested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
 ---
- drivers/media/platform/omap3isp/isp.c      | 2 --
- drivers/media/platform/omap3isp/ispvideo.c | 1 -
- 2 files changed, 3 deletions(-)
+ include/asm-generic/cacheflush.h | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/drivers/media/platform/omap3isp/isp.c b/drivers/media/platform/omap3isp/isp.c
-index a4ee6b86663e..b91e472ee764 100644
---- a/drivers/media/platform/omap3isp/isp.c
-+++ b/drivers/media/platform/omap3isp/isp.c
-@@ -39,8 +39,6 @@
-  *	Troy Laramy <t-laramy@ti.com>
-  */
+diff --git a/include/asm-generic/cacheflush.h b/include/asm-generic/cacheflush.h
+index 907fa5d16494..093b743da596 100644
+--- a/include/asm-generic/cacheflush.h
++++ b/include/asm-generic/cacheflush.h
+@@ -2,6 +2,11 @@
+ #ifndef _ASM_GENERIC_CACHEFLUSH_H
+ #define _ASM_GENERIC_CACHEFLUSH_H
  
--#include <asm/cacheflush.h>
--
- #include <linux/clk.h>
- #include <linux/clkdev.h>
- #include <linux/delay.h>
-diff --git a/drivers/media/platform/omap3isp/ispvideo.c b/drivers/media/platform/omap3isp/ispvideo.c
-index 10c214bd0903..1ac9aef70dff 100644
---- a/drivers/media/platform/omap3isp/ispvideo.c
-+++ b/drivers/media/platform/omap3isp/ispvideo.c
-@@ -18,7 +18,6 @@
- #include <linux/sched.h>
- #include <linux/slab.h>
- #include <linux/vmalloc.h>
--#include <asm/cacheflush.h>
- 
- #include <media/v4l2-dev.h>
- #include <media/v4l2-ioctl.h>
-
-base-commit: 27f11fea33608cbd321a97cbecfa2ef97dcc1821
++struct address_space;
++struct mm_struct;
++struct page;
++struct vm_area_struct;
++
+ /*
+  * The cache doesn't need to be flushed when TLB entries change when
+  * the cache is mapped to physical memory, not virtual memory
 -- 
 2.27.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200622234740.72825-2-natechancellor%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200622234740.72825-3-natechancellor%40gmail.com.
