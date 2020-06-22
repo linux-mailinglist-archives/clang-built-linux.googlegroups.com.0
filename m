@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBDRZHGH43YJRBHHBX73QKGQEMFPZF3I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDRZHGH43YJRBYHKX73QKGQEXUMTMAA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53c.google.com (mail-ed1-x53c.google.com [IPv6:2a00:1450:4864:20::53c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 62AD0202DB4
-	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jun 2020 01:43:24 +0200 (CEST)
-Received: by mail-ed1-x53c.google.com with SMTP id v7sf168829ede.15
-        for <lists+clang-built-linux@lfdr.de>; Sun, 21 Jun 2020 16:43:24 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1592783004; cv=pass;
+Received: from mail-wm1-x338.google.com (mail-wm1-x338.google.com [IPv6:2a00:1450:4864:20::338])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7B399202DC8
+	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jun 2020 02:03:44 +0200 (CEST)
+Received: by mail-wm1-x338.google.com with SMTP id v24sf8610014wmh.3
+        for <lists+clang-built-linux@lfdr.de>; Sun, 21 Jun 2020 17:03:44 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1592784224; cv=pass;
         d=google.com; s=arc-20160816;
-        b=dq5231Vo7TMH9gPuzEI4QEityAWEKQU774auBvxjbs+V6hLJvm6D3I/JG+HRt8sNs3
-         sY9Ii0V0mAzRFgzakxv4kfoTui+eqk7MlCCIqfxnWDU6pCLUNimpkyA/njCLQUfd3/Ql
-         1x7nq3tXGaTOprjMVrSiVEjTJk3A/wjoAI8Xr/rNSEzXve5s8bTLEghRGS00r0ih09cs
-         pj2YIOWeEcaOaz7IKMmeXVKw9CLKF0J3kqFodV+Mo+SDCgG9V54D5OtfJX3wAiwB0XRY
-         FfMG6OhR+bQO8AQXODNVLuvKnQ4eY0tDlWSe7Uh4FGqmHs99UBwkOkA1yj11Hr4p+Hrg
-         X9Pg==
+        b=Cp1h9ez/sD3vJdD/mPLbLDutstOyATtF4YDo3bmBwKLCIh6jBWOimatfkGnh4RkLnl
+         hoOBI3y3J5ZIlLUVvfJCMZSVsOyg7/V3d/pOKOYrzLRZOVmwsFjcsLHu0e5EMp3JO++H
+         ag7eUaAqzE2cbhEN5L3zT0lmRS3NI31NPm9Becck5zVwopzzZQWE03+xlbDZGNI7RRN4
+         p9DAtl+UOtQPd91Z9Rq7ajQbbkgcH4g7hRfc8YY9kydD2qWtEIZ0Z1drPIadU5nCB3Cf
+         Mx9ahNcBCFGJj8spsAeEyTpO2EfPZVDPtC168KvlmQmPgZmLIgSyIhPyGnsloh2m4IO3
+         97nA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=qSdAnmLddDTE5zW21Zem2VLFIj7baVTZ/WCx7UU4H+M=;
-        b=msa4SdfynyOCv6788M9VOPBb5oqFEKMw+3i5Vtk+JssE3ZdLMGpd/7tn1ORIH/w5MM
-         un2a1fYnLWmucecinyTiFWC0OnN2+K5IkOGe/Zhg0cYUlPolkFYQUuKsZfHRDfeCf5T6
-         sBJnICB2PdEjMfYWxO0zRqtjN6nA+HCBkTc6KyaKzeGMk7bghXrJXEDS22WvFgVK1Zbg
-         aheCBd/M8fFPLgmTTX36Aaa2TUHA/TJyi40Asnfl0AMwVnDk+t7vIYwhIbdidxn3GIJD
-         q0Y3eGQLE2h0Db1c4mh1bUmkAS2JPx1Yv+9fui0b6ifZLEWpFLGBzz3vVR/ii+Ac9ISm
-         yf0A==
+        bh=GVrEg7hk2BA541dvomLfncj0y9a2NaMYjbqbv2ol7A8=;
+        b=stiaTL7K5O4uT+/zkB50TEkiCWSedm0Fux+5NLmJIadTrg2tavS7wSxeN80GC4VCGY
+         vhVA/K9Ukqktm3znjrmNieM85ALnpp67Vus0axPvJ8D9qHWZ2L0CnxI0BhZDJn7e942F
+         sUWhjUth1lqehNU+DWU7EfOrN10UgdumNIVvFc9s8Udor2lmAj1ITp1dX/SjjWhkLsPc
+         uZ7k9ExWJAqXU6BZWqqsDr/iCsc0EjdKXKjpSQMN2TMiSYphW6owNfeQnPJTrpuIIpPE
+         vIvgSdLCUdDp8984XjBYJe8FisvG7152SyV2PPhohJ1m8SA4eaX+cFy3D91EK42CFXR5
+         d5sA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=hNJtisAx;
-       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::143 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=gWkqkt7i;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::234 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=qSdAnmLddDTE5zW21Zem2VLFIj7baVTZ/WCx7UU4H+M=;
-        b=VLt19MpagdWlSiMubecnjovJdF/0UlT4yZacrmPRpSY3QV6U6+5eIjG2RTFYNKIaM+
-         hI5Lxn/tBe2yBQpj5wfonJactp2ppl7aLqjokQI1DV2GMv+sPf5e8zk38KpJrwdDSfph
-         HclTxtcJjQngXDFFiW42EkGaCht6bDVwS+/EB7dGyklCWapk0GFxZCUGqRhE5mLRR0Ti
-         PQ1SxHQOdTP3x6hrFTvf5WoocNN+i3k3AwV7Egau7IEEeG3bi8VPxDIdoPRPzRMEpzM3
-         zhquShjAeUETCRnbg1edhFYcnIuoFCD6oMQc9LpWiRMh/+HgTMFBhC06mFNcnCsoj9kM
-         xK5A==
+        bh=GVrEg7hk2BA541dvomLfncj0y9a2NaMYjbqbv2ol7A8=;
+        b=Pb2Xy4TqUMQBdHscWMI3x2WG4ZOGNVPoofbhXTfbRsCRM0XJ1XMDoB5m9xEiz67MI+
+         xMAV7ENP+J9FTFrM0McZcj4AajsifvPNIHVXVnbgEAwdNABaNR8DvXAjP1IUv2HpVNsL
+         zTUQmdnxfHRNx3NSnCCd7zGY18n+YYCJJ/V5WGg/CIH064PGojxwnSfDml6FK004lBep
+         Pp3oKQvKohkcHUKRxcCVoO+fccv6LZ1ZLgTnY464S7mPSfYB2UUp9RYAB69yjrOzjzyu
+         f2uUUJ2zF1mguNq+XUw5SpnrbPERAl01VsBxUevoNKNJo3CxFl4bXWGf+zCxgmOOs2Lq
+         qN+w==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
          :cc:x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=qSdAnmLddDTE5zW21Zem2VLFIj7baVTZ/WCx7UU4H+M=;
-        b=nOeoPJZPKxDzVWcOtwLHEoVMDf0VYYvN72612sE7+S6qyqXJFW/GT9F8Ur34Vm5Toj
-         2RiEDaQkqHWTqg2Y/BJuz44mxn9wcSTq7953nz60GA7jwrzx3X1lRRtH818AYbTEr6qg
-         DD5xHNQiCNCaxjbfx1DyELID5m97R0qS9+C2stfsiT9p5mEmdEUeaSDNnPdHnwQke0Qh
-         cSUs14vQYbP/v2htlEL1eZJjryWBCNlDOz0ZH33BMkD50YwQFntQ7KCW9kNNVgaUcen5
-         xNOlNF4lR8IBYZM7CIehanPI+8Deh4pvXfkEMH5mW6uHS3rOJwZj6lnkMTYRFWypfHAG
-         /Mdw==
+        bh=GVrEg7hk2BA541dvomLfncj0y9a2NaMYjbqbv2ol7A8=;
+        b=dw3RQU5scGhSF4ZSzu5KHlFB8gyatW3ZhBF4wxEnIwn4CZzmy4OlqDAIvg8G62GXyA
+         MImIUhBmObNc8FmLKuUpdwaB65ZJR+C6Yyy2ma4BSELc1+4ty1VyYueWX2TTmZUHl8YE
+         9j/tq3E7fWiRgHiTQRZvS82XZZlDHTeykk00JTdJBW9eOrUv9Vb45qvQ3Pvzf6XvXbk3
+         On9R/pEkNz7PmoSY2yAnl5AqRi8d6LHuo1m5H3SWXBZiJmQQjAcD18pL/IGpn63Z5vMs
+         SKDxhxwvov0UKRGBRFrZN/aTCgYcapMsrp2OGKQIItUpi92p242qx0aiPrgkpedOQkIo
+         agTw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -63,84 +63,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=qSdAnmLddDTE5zW21Zem2VLFIj7baVTZ/WCx7UU4H+M=;
-        b=hF/LnACklmqbpLIlfxyXAr9/fKelnm9Zl3uNECuhoc7gyNvb2oPug97/ic0fSTgsaU
-         DUqD52OC/S1ZUMQHJxh4C0w0YvcdETDQzE+iKR78MiG0DxHhN7NwOTLa7Tk9NHsgg778
-         jo93qDmwhZzORCvdaTioIx3hGUIxPj5gPtVGrOBHHdz5bNe3+TqfmGqyra1jhidTAQpi
-         A0LPmQLc+LtsBifcsSxTLJVw1VwBUhpw4UiHbndfp/xgOglQyITlY8xV0myfp0VnUh1E
-         CQzBdDwX+Igw9bZdhSa0aSVRi/OVH73kZXOGrsn9EV8sL35t3sgC+YU6l63AtmqOvWZX
-         Hswg==
+        bh=GVrEg7hk2BA541dvomLfncj0y9a2NaMYjbqbv2ol7A8=;
+        b=MEAXubdqif23eNIJn+7GkhQzCIuwN8mD0zlFX/Rlp+BdYn4fXDlH9vbo3KOzz7gtiz
+         zLWabXlFux3GZ9kkB6qZI67GN7HIKtA5pDZg0mfbkEGdfY1aTjiLrlrP3XIU3a0UuCw2
+         yQYcuWAT++nPa7EgjeCenTrO+6p96fumuTI/StNfZpXW92YWV5wkWYqDGsd9f29joPS5
+         5ILMd/y71tnQEakEzqEICWBYiVl92Du3BACMIBJqALq9wmnoRbrwJOP6IrYEbw+fVNT6
+         YGLu22Fj7kseELlJBSKPFr9UiPh73XdXM/NRQixyR5em1YA67KEZsYU071ObUZlXO3Tk
+         LAlQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532JqXgTXjxspP99l3BSKGYHBqbF/SzlxdIO1hzRkywKXeSaBUSq
-	eZ5TmhYqkfjcz7Fp+3066cs=
-X-Google-Smtp-Source: ABdhPJzxOJBjq3PVIL6hfsORzKAfeslZdxzZYPYMzZeAQ87FXDhL9ToojNJDpLfn1ccsrpWNocah2Q==
-X-Received: by 2002:a17:906:4155:: with SMTP id l21mr6542143ejk.438.1592783004070;
-        Sun, 21 Jun 2020 16:43:24 -0700 (PDT)
+X-Gm-Message-State: AOAM533aIErxYD2be4+CdVfwxo8orwp8sOlLCMfoQsRUM+Fz5kb2dkl0
+	gBrI/BAd37bQPITapiDi/yY=
+X-Google-Smtp-Source: ABdhPJx1pOUyNcCTEDqbmBJJfXn3rpd6LO7dc8nDHCmcPggVCpJakeMeq6o73QuVQ6Mb0NZVI0hy4A==
+X-Received: by 2002:a1c:e355:: with SMTP id a82mr4229155wmh.165.1592784224207;
+        Sun, 21 Jun 2020 17:03:44 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:df16:: with SMTP id c22ls4073622edy.3.gmail; Sun, 21 Jun
- 2020 16:43:23 -0700 (PDT)
-X-Received: by 2002:aa7:c3d3:: with SMTP id l19mr14984816edr.126.1592783003476;
-        Sun, 21 Jun 2020 16:43:23 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1592783003; cv=none;
+Received: by 2002:adf:82ca:: with SMTP id 68ls3058812wrc.2.gmail; Sun, 21 Jun
+ 2020 17:03:43 -0700 (PDT)
+X-Received: by 2002:adf:b608:: with SMTP id f8mr15223272wre.363.1592784223691;
+        Sun, 21 Jun 2020 17:03:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592784223; cv=none;
         d=google.com; s=arc-20160816;
-        b=FrLlCrYElB2mghId5+aAl0m8OUTkP4/n1XfUKxC8gOUm0GSMYba71CsmLYgZgqgo46
-         ReQ6EYqK86+ImTtZ/4tnn4GbynT6qf1NBHAkqNvtq8ZU1Nhfp8a1GMwl6HEzhoKT9aQA
-         7MCykpMNTGF/USwpH/WQXIiZGSg35l1j0+s+cpJmNMR8dfsIoaj4sQoplv+1FrJHejI2
-         3nFLT+htd1pvXOubsvePlyrwU1C/RB+EKpFhZNb0opGAPXJ/eBPdjfZx4Zmb/mab4uX+
-         Jbq2RFMdQrNWiqtZM56/EU1wYKQ0xT6O0O19u3khVsrWwlKsBexl9qQXncHrMon28ZH+
-         4Uqg==
+        b=TpBW2vDSu1eMEbkT49FlTmLJFE5WODpxl+OYkcH9a5XP31URWRj8RD6aZ22dlK/KDi
+         qEPooqCkM+ZwhLXxecCgsdibB0xQnfn+EVoX9rRcdGsKKQjDRP/dwWZCZ2EVQfkmpF80
+         f2vCKXuRa2yXENslI+T0XbC5XETefhqZ6MoL4WMbWs80MSyPrQ4xt1+thP5V1HNrEM8D
+         d3A8dJtEWOQ5FRAm8+s2z1eyzo+WH3rigyHeBKTweNTficKJmdKex9NC0ul1H053yzzk
+         CXPzpUfwL1XLpLUHdZbHaWIvHsU2VIb+AFrnw9RNtMx88ZZNX2xFJ2JYefIB4BlcTCuf
+         ZItg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=UWYK99IQmZVG/8JvsyPASoCIo4JVfhtAHl2NOeIaFVA=;
-        b=x6Kml3HsXbv/1UqAJg8ynABvylJHtZgAcweB3yrdL+W9kDVpQsA+Vs2fte8tYSvKZL
-         pUFrf2wTaS1xDvF41WwFR6ndlDSeSRGuwCIkDbJcmseM6vcvud7vsxO+82ymnQlg9QUm
-         fXNjAa07U+av2mkktbFsks31AOV02+Xxmi996L6/tETidsulLPavKxn2Oecbaq89Qwp7
-         AKgSWkkoh5nSjKSMYIcO6zIpoIPtSqrWrJh8g5SChgeDIaGph2N65dWLKN+jeC5bfamu
-         Lq0l8iHzGOIRDZwazWmk+74wP8LWwTbzFotk0zchDrTonSBOqFjwBzH/YAlbx5MN9ZhS
-         GaDg==
+        bh=8iQjccibNsODBxIPRVwtnty0pnVq+FPlTnqtaVf/zvo=;
+        b=HPBx3IMrNVEtO5zDYkjPR6N+OWqcRNst+Qxql7d59XcUKaiV402ktNhoiZbfuHgG1K
+         vKVWhOdKqE7psHSaIy+z1OIRI0S1+kXDUkKkmudffGU0HKWyNn/Fj8EUQqB2k8DBzBEP
+         rAAzU+e3dZfoSOiYRXEOi9o+Kb0+LHG8NTY7QullqrczhACinvnInBnSijF29N/aXfCq
+         b8okFGqTi7djBqfTrVfrvXxh6Q0n8OZkHSh3rYTiKO1MppBAgXcnJGTWTxm9kRgV7oL6
+         M/YloieELjuHBKe9DQzHkgZTfaqhUBpf6J3PtbBVtzOVwsA5VR1JPE7rCnOXGhxWB7ep
+         5lcQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=hNJtisAx;
-       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::143 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=gWkqkt7i;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::234 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-lf1-x143.google.com (mail-lf1-x143.google.com. [2a00:1450:4864:20::143])
-        by gmr-mx.google.com with ESMTPS id b6si453094edr.3.2020.06.21.16.43.23
+Received: from mail-lj1-x234.google.com (mail-lj1-x234.google.com. [2a00:1450:4864:20::234])
+        by gmr-mx.google.com with ESMTPS id g141si284551wmg.0.2020.06.21.17.03.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 21 Jun 2020 16:43:23 -0700 (PDT)
-Received-SPF: pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::143 as permitted sender) client-ip=2a00:1450:4864:20::143;
-Received: by mail-lf1-x143.google.com with SMTP id y13so8548510lfe.9
-        for <clang-built-linux@googlegroups.com>; Sun, 21 Jun 2020 16:43:23 -0700 (PDT)
-X-Received: by 2002:a19:22d6:: with SMTP id i205mr8200290lfi.50.1592783003103;
- Sun, 21 Jun 2020 16:43:23 -0700 (PDT)
+        Sun, 21 Jun 2020 17:03:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::234 as permitted sender) client-ip=2a00:1450:4864:20::234;
+Received: by mail-lj1-x234.google.com with SMTP id n23so17241615ljh.7
+        for <clang-built-linux@googlegroups.com>; Sun, 21 Jun 2020 17:03:43 -0700 (PDT)
+X-Received: by 2002:a2e:a544:: with SMTP id e4mr7716310ljn.264.1592784223211;
+ Sun, 21 Jun 2020 17:03:43 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200621133630.46435-1-grandmaster@al2klimov.de>
- <CANiq72kA==S-G481VHx2qrKkJmaVK7ZOuYmin4xVr3XKB8x8ug@mail.gmail.com> <b7ba0047-8993-d3bf-327c-1fb70bc0282c@al2klimov.de>
-In-Reply-To: <b7ba0047-8993-d3bf-327c-1fb70bc0282c@al2klimov.de>
+References: <20200610125147.2782142-1-christian.brauner@ubuntu.com>
+ <c8851256aa453461481233e8a7fea878f9580c5b.camel@perches.com>
+ <CANiq72=BbGqXmiG8+1QuJnLXMTwNjUg9WuWR9eJcLMHZ=k5hQw@mail.gmail.com>
+ <4c6f8d63817cbc51765fd0b3046f81dccbd17ec7.camel@perches.com>
+ <CANiq72nOaDo9LQ3JoZk6VH-ZYErHpvD1O=DyVngs3xno5e9W7Q@mail.gmail.com>
+ <b4646ed22573568c0953d272514ab3b701e54faa.camel@perches.com>
+ <CANiq72=58t3T0VckOOm7jAnwaxdEK2zbrWeQw-bXifmOq86BCA@mail.gmail.com> <42da4b47dd3aaee77e65550df30e548dd23580cd.camel@perches.com>
+In-Reply-To: <42da4b47dd3aaee77e65550df30e548dd23580cd.camel@perches.com>
 From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Mon, 22 Jun 2020 01:43:12 +0200
-Message-ID: <CANiq72=Y+beqZ8Dmieo_GKbyaLN8Nf1n3bVntj_o90Cn-nADRQ@mail.gmail.com>
-Subject: Re: [PATCH] Replace HTTP links with HTTPS ones: Documentation/process
-To: "Alexander A. Klimov" <grandmaster@al2klimov.de>
-Cc: Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, 
-	Tony Fischetti <tony.fischetti@gmail.com>, 
-	Chris Packham <chris.packham@alliedtelesis.co.nz>, 
-	Mauro Carvalho Chehab <mchehab+samsung@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	"Jason A. Donenfeld" <Jason@zx2c4.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Andrew Morton <akpm@linux-foundation.org>, Borislav Petkov <bp@suse.de>, Will Deacon <will@kernel.org>, 
-	"Chang S. Bae" <chang.seok.bae@intel.com>, Joe Perches <joe@perches.com>, 
-	Pankaj Bharadiya <pankaj.laxminarayan.bharadiya@intel.com>, Kees Cook <keescook@chromium.org>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Jacob Huisman <jacobhuisman@kernelthusiast.com>, 
-	Federico Vaga <federico.vaga@vaga.pv.it>, =?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
-	Konstantin Ryabitsev <konstantin@linuxfoundation.org>, 
-	Linux Doc Mailing List <linux-doc@vger.kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+Date: Mon, 22 Jun 2020 02:03:32 +0200
+Message-ID: <CANiq72m1E1=7yVz=jrDJWBtLZzDsi0ygFvZaHrOk_EbKdbf38A@mail.gmail.com>
+Subject: Re: [PATCH] .clang-format: update column limit
+To: Joe Perches <joe@perches.com>
+Cc: Christian Brauner <christian.brauner@ubuntu.com>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Linus Torvalds <torvalds@linux-foundation.org>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: miguel.ojeda.sandonis@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=hNJtisAx;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=gWkqkt7i;       spf=pass
  (google.com: domain of miguel.ojeda.sandonis@gmail.com designates
- 2a00:1450:4864:20::143 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+ 2a00:1450:4864:20::234 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -154,70 +150,46 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Alexander,
+Hi Joe,
 
-On Sun, Jun 21, 2020 at 4:30 PM Alexander A. Klimov
-<grandmaster@al2klimov.de> wrote:
+I didn't forget about this -- I was playing the other day with
+`ColumnLimit: 0` and the new options up to LLVM 11 to see what we
+could do... See below.
+
+On Thu, Jun 11, 2020 at 9:26 PM Joe Perches <joe@perches.com> wrote:
 >
-> Which discussion? 93431e0607e5 ? IMAO the patches don't depend on each
-> other.
-
-The one we had the other day. It does not matter that the patches
-depend on each other. It is information for whoever sees this commit.
-
-> IMAO:
+> Hey again Miguel:
 >
-> * The script should not be neccessary once all of my changes[1] arrive
-> in torvalds/master. Instead reviewers should say like C'mon dude, what's
-> this new plain-HTTP link doing in your patch? We have 2020! Look at e.g.
-> 93431e0607e5 .
-
-In an ideal world, yes, but that won't happen unless enforced somehow.
-
-Nevertheless, even in such a case, it would be best to have a script
-to check the entire tree from time to time.
-
-> * The program language agnostic algo description of mine should be
-> enough. If it's not enough, I shall improve the description.
-
-Then you are asking the next person to re-do the work.
-
-> * Today I've added "If not .svg:". Imagine Torvalds merges the script,
-> closes the merge window *and then* someone runs it on a random subsystem
-> and discovers a missing condition. Do they have to patch the script,
-> wait for the patch to arrive in torvalds/master *and then* patch the
-> (other) subsystem, so they can refer to the now patched script? W/o a
-> such central "rule on how to HTTPSify links" they'd just describe
-> *their* algo. Or (even better) there wouldn't be much more insecure
-> links, so the algo could be omitted.
-
-I don't follow. They can patch the script if they want (or not), but
-even if they do patch it, they don't need to wait for the patch to land.
-
-> After all please show me one of the big bosses (Torvalds, K-H, ...)
-> who'd tolerate to have a...
+> A little script and some statistics:
 >
-> * written w/o focus on maintainability
-> * not documented at all
-> * *Golang* file
+> Today about 6% of all code lines are > 80 columns
 >
-> ... in the kernel tree.
-
-It is a script, not part of the kernel building process. We already
-have Perl, Python, C++, Makefile, Coccinelle...
-
-But yes, it would be better to write it in a language that we already
-have rather than add another. In particular, there is no need for a
-compiled language for a script.
-
-> If I correctly understand, you kernel devs write code so that if even
-> the maintainer leaves the project, another one could just take over.
+> Oddities like the ~3% of all lines with 113 and 121 columns
+> are machine generated.
 >
-> How many kernel devs would read and understand (all of them I guess)
-> *and maintain that Go script* of mine?
+> So realistically, < 3% of code is > 80 columns.
 
-What is the problem reading and maintaining a Go script
-(notwithstanding the point above)?
+The data you show is very useful, thanks! Of course, the current set
+of lines tends to be < 80 columns given the previous strongly
+preferred limit, but I would expect that % to grow in the future.
+
+By the way, the 20% figure I mentioned was w.r.t. the previous set of
+lines that were already over 80 columns (not w.r.t. the total set).
+
+Regarding the changes: `ColumnLimit: 0` could be a good compromise
+(which makes `clang-format` respect as much as possible the current
+line breaks) to let developers have more leeway. They would still get
+warnings from your `checkpatch` etc. On the other hand, making
+formatting dependent on the previous state is not something I am a fan
+of, particularly for long-term efforts to move to `clang-format`
+"completely".
+
+I guess users of `clang-format` should speak up (w.r.t. `ColumnLimit:
+100`, `ColumnLimit: 0` or no change). At the end of the day, this is
+still just a tool and not enforced, and they can still override it, so
+if people start submitting code with 200-wide lines, well, they still
+can :-) Otherwise, let's leave it as it is for the moment and see what
+is the output of the script in, say, a year.
 
 Cheers,
 Miguel
@@ -225,4 +197,4 @@ Miguel
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANiq72%3DY%2BbeqZ8Dmieo_GKbyaLN8Nf1n3bVntj_o90Cn-nADRQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANiq72m1E1%3D7yVz%3DjrDJWBtLZzDsi0ygFvZaHrOk_EbKdbf38A%40mail.gmail.com.
