@@ -1,136 +1,113 @@
-Return-Path: <clang-built-linux+bncBDIPVEX3QUMRBU6ZYL3QKGQEXCU35FQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDDNDZNP7UOBBI5GYP3QKGQEAK6B2IY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23a.google.com (mail-oi1-x23a.google.com [IPv6:2607:f8b0:4864:20::23a])
-	by mail.lfdr.de (Postfix) with ESMTPS id D0C28203773
-	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jun 2020 15:06:28 +0200 (CEST)
-Received: by mail-oi1-x23a.google.com with SMTP id m6sf8029291oie.7
-        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jun 2020 06:06:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1592831187; cv=pass;
+Received: from mail-lf1-x137.google.com (mail-lf1-x137.google.com [IPv6:2a00:1450:4864:20::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4B3CD203B7C
+	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jun 2020 17:49:56 +0200 (CEST)
+Received: by mail-lf1-x137.google.com with SMTP id y12sf1550413lfh.1
+        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jun 2020 08:49:56 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1592840995; cv=pass;
         d=google.com; s=arc-20160816;
-        b=AAqCHC75Qodm0rPGmMBzQSBOYKhJGh4wAJK+ryr2ZqVQqyrnSSD1npXGN9IsYbAR4J
-         /ujN8/bAGs47WE9hKkhxoqL9mXrtHEEU/UXx9F02Tk2TzygSHpNQDnD0Q0jR776tiCnX
-         MuIzquqiNo8YyMbmq9axr0Kccg2w+gLCq3ZdniH44LNP6KCx5jUaVG4sofUo4HNRtUVH
-         KG5InoXE6fcIFBAU67gyXQnHHUHPCW7lYJalKFh7yrQWPixOS4w1Mfw0D+ferQtNLYan
-         QZ/O43UNPxcKZ+dsAj9jzZyGAg2MGwH01PJ0U4yiTQrYPkqF3ckDyVMY8XChgBZGk0rD
-         F21A==
+        b=oWwDukFiYVJlHWGu4dFjn8Tbr4Rkc59odeBbVbhm0WWG9jh4nMho8Y7dAXzxuQ2stl
+         evek0xlBes1Xx8hnD7TeV3+C5n+bth8848+yZZWWvjDK/ehdZFGOAxjStUONxYddB2o/
+         BsAUeyyDT4K6pMwZtgP2mhzGqIkRg4SQnuqShLp9s0trM3HvZNrBYvQPUdo5XeSbOz2F
+         s0xxnv6aER9Cn1o+0on5kfHJTn1LV35KvsFSvPeQezcz38wJSBBOKcE5oZlUlEwxs1n8
+         OOhLOhcZJf2+8+fJuF8ofov11KGkkYXyTBCV0YYxDmsLykOyV3C44WkF6spsKXVY/IH3
+         rXAQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=ehFpQqqZcAuka4L81avEHCc1M7oGvds30mznW9Xbw4M=;
-        b=a74/oR+EdDQprQvYRhFsl22GDjKcOuBjIfdcBUtZONvcglMDK6mmmG06ve+9bBy7BM
-         ZX/cEboY4jl4OryNrf9KH+NbIzULelRaLsOQ0jp4DHge5sarlaVe6O4knnl4Tj/CM1mt
-         rZb+AP59P8IbqUbeKr5MbAg8zXQKUlePaP4/baXQa3Nr63lc5ziqKYIjxB6dr35uRLSX
-         +vkHre9UxTB0onj3+q82wzFTmazWQbNgGIXet08vzu/9a02DqHqvsjfZPHQXJ+FXzzAf
-         qV8+507RoVx1xe4LveZLf25XhYydajUEgRmvI0jxGwxOb9w4g71Q0cgu+uC1ykUN4elQ
-         fkLA==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=pOaHqHwDwV5WUl3FE62EF1bpQKYe8z7UwWN2JXSbCVc=;
+        b=hxJ2xr3lqLUWn4X3lvTpsCISto6I/G0CaeWVOVYN2j8XdIkG68F9dbSQCjNqLdSm9S
+         30GQBQmN8LBFSMNKTjM5yo4v70o01tfRzKa+2Yix3lpLRcUTHpkPxpeO2+PIPwH55cQo
+         9//v2klkYUqqpmtRpL21Wdk4UuqksqLOKUpVhbBWxKYP/S+XvIAxkfwP7NZ0d0ZX2Etn
+         6CxlstJEa6gO0i1uP73g4PE4n77DC8zMAyzsFfQPOtfGSctpooP6cZU40A8vjQJ11eHT
+         73gviwYWv8Fgs9Zlry8zgoA5WapKXkxNeIzbSZ3YtLd4jc+ggvXZBxSAeyogxo4QNUFB
+         J8ZQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of corbet@lwn.net designates 2600:3c01:e000:3a1::42 as permitted sender) smtp.mailfrom=corbet@lwn.net
+       spf=pass (google.com: domain of rjw@rjwysocki.net designates 79.96.170.134 as permitted sender) smtp.mailfrom=rjw@rjwysocki.net
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
-         :organization:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ehFpQqqZcAuka4L81avEHCc1M7oGvds30mznW9Xbw4M=;
-        b=k1qwByqqXDI2wEFf1bmxdIjCN0B8LIM9h8Q2vvGfCjrSn2cQm5rkaXhn6/ENl27WyU
-         bFSNAhKnUFD6stNug6yJYZ/hxqXDkNgpE5RsBUkWUEHNNxx9BpAfQFfi/5ClgetsZBan
-         6t1PbTTflXPE0m59pgS0xuM3hi9KwpTNQg50KMWtGfv8T/U5hwxZVVGJhJDBW8nTO7gT
-         ijmTIKqiQ4x1PctLA93MhM+op3czO2XjK1PIzGAbDRXPWHsmuZ3BhG/Epz6T4myNavCz
-         dB4VDzCvu12zHab7hYxFgcLgMVbZ3H0xCgCzMEtESRK1kW58VizXv7a5EoSTyfNCr/Nx
-         FvAg==
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=pOaHqHwDwV5WUl3FE62EF1bpQKYe8z7UwWN2JXSbCVc=;
+        b=XGgLzrhDmhI1/i1Onwny3R48ORSldPiXnur7iU2G6nXdfGgIufxiGhcoS4op+QY9qC
+         KtwCdr/sR40B6m24DfeTEi9Nw4yN9Sm9garAJF3evC6YjymDQCgPD7PMqxWE6sQYgA+U
+         IkRGZOM5YzAxdf3531H8rvArM/Tn9RKS6egEelOOhNf/sfq5TTBy+pvsY8aUTJL53db4
+         2KPjmya2QlsilLLfMWW7dUOjSA9wxe+my0n6WP14iasctV8mCoPc+L1QKXkYkI/1WFKw
+         8j+PqvNHXneILlncWpBIa2Mmwwfo/no9gNFH7fY8cJEaPG88o81/NS9U2Oks2gW/sC9D
+         jQ2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :in-reply-to:references:organization:mime-version:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ehFpQqqZcAuka4L81avEHCc1M7oGvds30mznW9Xbw4M=;
-        b=BKcmXPb/s4svsklX0SyXGMbpkme6Z2l+fjNruulF911OY4/IuBDmUH7/7CnVAD40jb
-         5pL0Pma6icBhuw7YbFlPBoTzdthdfYm98LzRjVwNQfW4NABtItYJSduwhpazLR0TUmSw
-         1ftw1clexKwyQu1RzrvpK0kVODCyduZADEcJCePjkCXkFJjRq/DMa/f3Mi3CArCFgjTs
-         quC4c5J+vWBJGhQjJpsyeu04OPqijw9TDU4Edv2unTqQhQLrXooOwdtfb03ggo5Od4GG
-         RpaT1yXzF33Ej7CIfv5DIFjt7/ijw8LKENGHqci9OmupBAgTiQOPgMyI/Xr6p8Z2FPaX
-         rcCw==
+        bh=pOaHqHwDwV5WUl3FE62EF1bpQKYe8z7UwWN2JXSbCVc=;
+        b=TZ4diOebghVMEyr/ByJX2riuT256qiCZ89vi+BOSIqvWekHfXsdDVRsfWQtz1U7QEs
+         b3sv6hfn1uptVJ90brt/343Fs5DwYOklZp4lLGxWJBUb6bYsAhHd8qWmVfaouWw11B9a
+         BNyQrAc3JsUdFM5oHXXYXvU3U5Uv4luskO0N+TmLUyxnqD5WXGL4nMP8H5BzMc8Hvz1b
+         hCnNNPgKL7+8cu+eOEt1pn0RjDsFLPy1qcob07sDCUibvqsAGinEIhXRpMZ+Y0ermwwI
+         jqqv9PGCE8tIE7Lq1qSB6g5D6g7fqEjIe7r3uXEIFllm7hO+cOZ91agsVPn1JhoAjraN
+         qzeQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533LBeH3O+TJ8TJPE3J4iAvawbBIkGnia6fZwYtqjdWoLnb5LitX
-	3WlRl0dxYacSMKoOXm0OH+I=
-X-Google-Smtp-Source: ABdhPJymhU6Azs2PsxBp3/nsMj17WJtnCn1QGYQFM+YJXp4cN27ST+17U/B9TiwKGCEARimjFKfOMw==
-X-Received: by 2002:a05:6808:6d9:: with SMTP id m25mr11568128oih.111.1592831187667;
-        Mon, 22 Jun 2020 06:06:27 -0700 (PDT)
+X-Gm-Message-State: AOAM533QOkqrghCbGumXEvSfW3aBDfYyLct0pOqXTPxHLv9KisIxXKiR
+	J23SYDEhJMW9g5LCz7sN74s=
+X-Google-Smtp-Source: ABdhPJyn44N11T8fSKp7mt30nXXWxZSdicxn8M/w1Y076Lcmi5Yq3femX1HIv5lNGdWfSaHRbCRKZg==
+X-Received: by 2002:ac2:5629:: with SMTP id b9mr1752449lff.208.1592840995706;
+        Mon, 22 Jun 2020 08:49:55 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:308c:: with SMTP id w134ls3218962oiw.8.gmail; Mon, 22
- Jun 2020 06:06:27 -0700 (PDT)
-X-Received: by 2002:aca:58c3:: with SMTP id m186mr12590153oib.5.1592831187298;
-        Mon, 22 Jun 2020 06:06:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1592831187; cv=none;
+Received: by 2002:a05:6512:3047:: with SMTP id b7ls2336114lfb.1.gmail; Mon, 22
+ Jun 2020 08:49:55 -0700 (PDT)
+X-Received: by 2002:a19:e05d:: with SMTP id g29mr10037002lfj.217.1592840995113;
+        Mon, 22 Jun 2020 08:49:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592840995; cv=none;
         d=google.com; s=arc-20160816;
-        b=0MQwSYWByliznJStpKuLuYoIj6VH2qnCkHDp4Hqe7pn7zBwQ2Yta7+PepN5//SAi8j
-         7dwTpShUG0fFVKhUi5pyqYR8f9ttl67iEY8GzV8CWC9PDA9BnwbljDL+c1XcPm2sLXlC
-         f2cwp5woWKza411K7wbF/Yl9l3GCtAnnSzBB65Mw/64AwVzI8s+NXkJOAsT18XO5jqYU
-         pQLZfqDW+TqVS2/9iy6jJ7PXvgUGdHl+qw47Ml2/K6KFiCvHPDwztM9lp0U0cv6bdZ2j
-         JlMiSXq9EzHcVBqwcubsx6auuoEkseDIab7Zrwk0v3M9IpiOkqMfOdYBQVmhKAhgLlsm
-         ubeQ==
+        b=aWeunsFPCxZNJvHbINeBcNTQ6LrLOsY6DmbEO356hXkD4f4Mzf9FyuzXcBXhNCjTJr
+         5qJXR0qWrvpCss29ENgbAAg1SOcBfl3obvDlHLrxY0Vlzk96IkSp9BMS9zHU4dyClN+F
+         wiAnT/2BGZYh33C3MHBnP/YGafqMajoAkA/IwiGOERifuYEijgR4X/yz3E34mPWpBi3Z
+         DhUyM2N4t2Us+Tdl/bO69mUO5EfGVKNaryTgzMZHh24fWry+AwROFBDQRiM3b7SMp/ze
+         Ij3u2tKPwwbkmR+u7NYpUZeRzimkBZHKJdi9KdY4/YTtEFb1szDfyFouI4YtEKEjMr2T
+         815g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:organization:references
-         :in-reply-to:message-id:subject:cc:to:from:date;
-        bh=6DKyL7XcQA9d7NibRIYlCRA3JbNL/3s+c2i1I9MXpWo=;
-        b=lroQZxXI+y1ySuor0z6a545qeY0g2f2DmQKwoq9JTbdUA7uu/MubhSe5ltfmdCZwgs
-         8skzYH3szjnzH70tGYh1wfrknMwShrw08K+yrYBbLuPssbyO13k+8TZQhULQnRwQ5EcZ
-         Q5jm76YUxBeeuQe0OIS7jPl1rGmAIyPlTMZuUfSzA3DT1jBLzE7XPKBOewGmjAggUeue
-         7HGNYeFYJDKollQvZ38efvGrBwPH3/NCyvv4mT04jvTU1smbjUsdfCxhT0Jk86yTfc+8
-         EgAedI5c68Lo+r00IQ8h1V6489WYLDhnft3NAx+BhlZNMwYiF49y8QLAwU0lAQx2F1Hk
-         RUvw==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from;
+        bh=eq7fsE7n1T+WQ13j540qHpHaV9B5Q0wtavo96rGdWxg=;
+        b=ER7HybRgI1Vr/Li1wrzqW3Qq8Ed/j05vBQHPkNgCHqrOC18mFMgo6NMIvzVdTEBMm5
+         +n7iR4a4BK+bGt5J5yiFk28Xhn3/pRdBa8UVux7fPOTT25bxpk7lHzGwHBQpqknPgrfy
+         ONQ/OLggQ+4exYm97AUm7YR/jBPEv6dwuvVdhfgu7Bpy/k0lGyxax/wvu3TWiqEvbQhI
+         BZRn0smCKdaDYq7PX560Q45VdS/pTDalFw6sQHNG0kFGzbkA8IdvuTSrYzH7weJPOo34
+         CRhcCWjYSHGtI7DYtba682zHm+UrMjfRkreS647JfUrFK7lOboPkC9tOQqUJLm5fTJuU
+         MPMQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of corbet@lwn.net designates 2600:3c01:e000:3a1::42 as permitted sender) smtp.mailfrom=corbet@lwn.net
-Received: from ms.lwn.net (ms.lwn.net. [2600:3c01:e000:3a1::42])
-        by gmr-mx.google.com with ESMTPS id c26si945021otn.4.2020.06.22.06.06.27
+       spf=pass (google.com: domain of rjw@rjwysocki.net designates 79.96.170.134 as permitted sender) smtp.mailfrom=rjw@rjwysocki.net
+Received: from cloudserver094114.home.pl (cloudserver094114.home.pl. [79.96.170.134])
+        by gmr-mx.google.com with ESMTPS id 7si325808lfk.0.2020.06.22.08.49.54
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 22 Jun 2020 06:06:27 -0700 (PDT)
-Received-SPF: pass (google.com: domain of corbet@lwn.net designates 2600:3c01:e000:3a1::42 as permitted sender) client-ip=2600:3c01:e000:3a1::42;
-Received: from lwn.net (localhost [127.0.0.1])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ms.lwn.net (Postfix) with ESMTPSA id 3576D2C8;
-	Mon, 22 Jun 2020 13:06:25 +0000 (UTC)
-Date: Mon, 22 Jun 2020 07:06:23 -0600
-From: Jonathan Corbet <corbet@lwn.net>
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: "Alexander A. Klimov" <grandmaster@al2klimov.de>, Randy Dunlap
- <rdunlap@infradead.org>, Tony Fischetti <tony.fischetti@gmail.com>, Chris
- Packham <chris.packham@alliedtelesis.co.nz>, Mauro Carvalho Chehab
- <mchehab+samsung@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>,
- "Jason A. Donenfeld" <Jason@zx2c4.com>, Arnd Bergmann <arnd@arndb.de>,
- Andrew Morton <akpm@linux-foundation.org>, Borislav Petkov <bp@suse.de>,
- Will Deacon <will@kernel.org>, "Chang S. Bae" <chang.seok.bae@intel.com>,
- Joe Perches <joe@perches.com>, Pankaj Bharadiya
- <pankaj.laxminarayan.bharadiya@intel.com>, Kees Cook
- <keescook@chromium.org>, Geert Uytterhoeven <geert@linux-m68k.org>, Jacob
- Huisman <jacobhuisman@kernelthusiast.com>, Federico Vaga
- <federico.vaga@vaga.pv.it>, Jonathan =?UTF-8?B?TmV1c2Now6RmZXI=?=
- <j.neuschaefer@gmx.net>, Konstantin Ryabitsev
- <konstantin@linuxfoundation.org>, Linux Doc Mailing List
- <linux-doc@vger.kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>,
- clang-built-linux <clang-built-linux@googlegroups.com>
-Subject: Re: [PATCH] Replace HTTP links with HTTPS ones:
- Documentation/process
-Message-ID: <20200622070623.086f1623@lwn.net>
-In-Reply-To: <CANiq72=Y+beqZ8Dmieo_GKbyaLN8Nf1n3bVntj_o90Cn-nADRQ@mail.gmail.com>
-References: <20200621133630.46435-1-grandmaster@al2klimov.de>
-	<CANiq72kA==S-G481VHx2qrKkJmaVK7ZOuYmin4xVr3XKB8x8ug@mail.gmail.com>
-	<b7ba0047-8993-d3bf-327c-1fb70bc0282c@al2klimov.de>
-	<CANiq72=Y+beqZ8Dmieo_GKbyaLN8Nf1n3bVntj_o90Cn-nADRQ@mail.gmail.com>
-Organization: LWN.net
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Mon, 22 Jun 2020 08:49:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of rjw@rjwysocki.net designates 79.96.170.134 as permitted sender) client-ip=79.96.170.134;
+Received: from 89-64-85-91.dynamic.chello.pl (89.64.85.91) (HELO kreacher.localnet)
+ by serwer1319399.home.pl (79.96.170.134) with SMTP (IdeaSmtpServer 0.83.415)
+ id dd0acf60019f7936; Mon, 22 Jun 2020 17:49:53 +0200
+From: "Rafael J. Wysocki" <rjw@rjwysocki.net>
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com, Kees Cook <keescook@chromium.org>, Sami Tolvanen <samitolvanen@google.com>, yuu ichii <byahu140@heisei.be>
+Subject: Re: [PATCH] ACPI: sysfs: Fix pm_profile_attr type
+Date: Mon, 22 Jun 2020 17:49:52 +0200
+Message-ID: <6575630.DxmDRdjBXZ@kreacher>
+In-Reply-To: <20200612045149.1837-1-natechancellor@gmail.com>
+References: <20200612045149.1837-1-natechancellor@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: corbet@lwn.net
+X-Original-Sender: rjw@rjwysocki.net
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of corbet@lwn.net designates 2600:3c01:e000:3a1::42 as
- permitted sender) smtp.mailfrom=corbet@lwn.net
+ (google.com: domain of rjw@rjwysocki.net designates 79.96.170.134 as
+ permitted sender) smtp.mailfrom=rjw@rjwysocki.net
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,28 +120,100 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, 22 Jun 2020 01:43:12 +0200
-Miguel Ojeda <miguel.ojeda.sandonis@gmail.com> wrote:
-
-> > * The script should not be neccessary once all of my changes[1] arrive
-> > in torvalds/master. Instead reviewers should say like C'mon dude, what's
-> > this new plain-HTTP link doing in your patch? We have 2020! Look at e.g.
-> > 93431e0607e5 .  
+On Friday, June 12, 2020 6:51:50 AM CEST Nathan Chancellor wrote:
+> When running a kernel with Clang's Control Flow Integrity implemented,
+> there is a violation that happens when accessing
+> /sys/firmware/acpi/pm_profile:
 > 
-> In an ideal world, yes, but that won't happen unless enforced somehow.
+> $ cat /sys/firmware/acpi/pm_profile
+> 0
 > 
-> Nevertheless, even in such a case, it would be best to have a script
-> to check the entire tree from time to time.
+> $ dmesg
+> ...
+> [   17.352564] ------------[ cut here ]------------
+> [   17.352568] CFI failure (target: acpi_show_profile+0x0/0x8):
+> [   17.352572] WARNING: CPU: 3 PID: 497 at kernel/cfi.c:29 __cfi_check_fail+0x33/0x40
+> [   17.352573] Modules linked in:
+> [   17.352575] CPU: 3 PID: 497 Comm: cat Tainted: G        W         5.7.0-microsoft-standard+ #1
+> [   17.352576] RIP: 0010:__cfi_check_fail+0x33/0x40
+> [   17.352577] Code: 48 c7 c7 50 b3 85 84 48 c7 c6 50 0a 4e 84 e8 a4 d8 60 00 85 c0 75 02 5b c3 48 c7 c7 dc 5e 49 84 48 89 de 31 c0 e8 7d 06 eb ff <0f> 0b 5b c3 00 00 cc cc 00 00 cc cc 00 85 f6 74 25 41 b9 ea ff ff
+> [   17.352577] RSP: 0018:ffffaa6dc3c53d30 EFLAGS: 00010246
+> [   17.352578] RAX: 331267e0c06cee00 RBX: ffffffff83d85890 RCX: ffffffff8483a6f8
+> [   17.352579] RDX: ffff9cceabbb37c0 RSI: 0000000000000082 RDI: ffffffff84bb9e1c
+> [   17.352579] RBP: ffffffff845b2bc8 R08: 0000000000000001 R09: ffff9cceabbba200
+> [   17.352579] R10: 000000000000019d R11: 0000000000000000 R12: ffff9cc947766f00
+> [   17.352580] R13: ffffffff83d6bd50 R14: ffff9ccc6fa80000 R15: ffffffff845bd328
+> [   17.352582] FS:  00007fdbc8d13580(0000) GS:ffff9cce91ac0000(0000) knlGS:0000000000000000
+> [   17.352582] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+> [   17.352583] CR2: 00007fdbc858e000 CR3: 00000005174d0000 CR4: 0000000000340ea0
+> [   17.352584] Call Trace:
+> [   17.352586]  ? rev_id_show+0x8/0x8
+> [   17.352587]  ? __cfi_check+0x45bac/0x4b640
+> [   17.352589]  ? kobj_attr_show+0x73/0x80
+> [   17.352590]  ? sysfs_kf_seq_show+0xc1/0x140
+> [   17.352592]  ? ext4_seq_options_show.cfi_jt+0x8/0x8
+> [   17.352593]  ? seq_read+0x180/0x600
+> [   17.352595]  ? sysfs_create_file_ns.cfi_jt+0x10/0x10
+> [   17.352596]  ? tlbflush_read_file+0x8/0x8
+> [   17.352597]  ? __vfs_read+0x6b/0x220
+> [   17.352598]  ? handle_mm_fault+0xa23/0x11b0
+> [   17.352599]  ? vfs_read+0xa2/0x130
+> [   17.352599]  ? ksys_read+0x6a/0xd0
+> [   17.352601]  ? __do_sys_getpgrp+0x8/0x8
+> [   17.352602]  ? do_syscall_64+0x72/0x120
+> [   17.352603]  ? entry_SYSCALL_64_after_hwframe+0x44/0xa9
+> [   17.352604] ---[ end trace 7b1fa81dc897e419 ]---
+> 
+> When /sys/firmware/acpi/pm_profile is read, sysfs_kf_seq_show is called,
+> which in turn calls kobj_attr_show, which gets the ->show callback
+> member by calling container_of on attr (casting it to struct
+> kobj_attribute) then calls it.
+> 
+> There is a CFI violation because pm_profile_attr is of type
+> struct device_attribute but kobj_attr_show calls ->show expecting it
+> to be from struct kobj_attribute. CFI checking ensures that function
+> pointer types match when doing indirect calls. Fix pm_profile_attr to
+> be defined in terms of kobj_attribute so there is no violation or
+> mismatch.
+> 
+> Fixes: 362b646062b2 ("ACPI: Export FADT pm_profile integer value to userspace")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1051
+> Reported-by: yuu ichii <byahu140@heisei.be>
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> ---
+>  drivers/acpi/sysfs.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/acpi/sysfs.c b/drivers/acpi/sysfs.c
+> index 3a89909b50a6..76c668c05fa0 100644
+> --- a/drivers/acpi/sysfs.c
+> +++ b/drivers/acpi/sysfs.c
+> @@ -938,13 +938,13 @@ static void __exit interrupt_stats_exit(void)
+>  }
+>  
+>  static ssize_t
+> -acpi_show_profile(struct device *dev, struct device_attribute *attr,
+> +acpi_show_profile(struct kobject *kobj, struct kobj_attribute *attr,
+>  		  char *buf)
+>  {
+>  	return sprintf(buf, "%d\n", acpi_gbl_FADT.preferred_profile);
+>  }
+>  
+> -static const struct device_attribute pm_profile_attr =
+> +static const struct kobj_attribute pm_profile_attr =
+>  	__ATTR(pm_profile, S_IRUGO, acpi_show_profile, NULL);
+>  
+>  static ssize_t hotplug_enabled_show(struct kobject *kobj,
+> 
+> base-commit: b791d1bdf9212d944d749a5c7ff6febdba241771
+> 
 
-As has been noted elsewhere, checkpatch.pl seems like the appropriate
-place to make this check.  As for "the entire tree"...if this job gets
-completed, "git grep" should be a fine way to do that.
+Applied as 5.8-rc material, thanks!
 
-Thanks,
 
-jon
+
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200622070623.086f1623%40lwn.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/6575630.DxmDRdjBXZ%40kreacher.
