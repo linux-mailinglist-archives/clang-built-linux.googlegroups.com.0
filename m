@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB6U2ZH3QKGQEEYD254Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBHFLZH3QKGQE7CFD4PI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id CF514205B00
-	for <lists+clang-built-linux@lfdr.de>; Tue, 23 Jun 2020 20:44:11 +0200 (CEST)
-Received: by mail-yb1-xb3a.google.com with SMTP id o84sf25304301ybg.0
-        for <lists+clang-built-linux@lfdr.de>; Tue, 23 Jun 2020 11:44:11 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1592937851; cv=pass;
+Received: from mail-pl1-x640.google.com (mail-pl1-x640.google.com [IPv6:2607:f8b0:4864:20::640])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9DC3B205BAD
+	for <lists+clang-built-linux@lfdr.de>; Tue, 23 Jun 2020 21:18:53 +0200 (CEST)
+Received: by mail-pl1-x640.google.com with SMTP id i6sf5863plt.4
+        for <lists+clang-built-linux@lfdr.de>; Tue, 23 Jun 2020 12:18:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1592939932; cv=pass;
         d=google.com; s=arc-20160816;
-        b=si3Q03QH0Db5G71yTu9SrbrYJHlaMx/MdDJBsak/3RPQ8iLcsi2R5TExhN9bhtlmsB
-         UEbX+c79Xob3wTCPd1fISwFMRsqrOc//rorOD7gGL0RaYITB2em71O2zvI8qlWA3/mla
-         C9owQHP/SboPVjXnp37xfA7ZRsh0a6buuYV+T+18kvVfaubY2IaHxcjO/IgJFu9MOEe9
-         rmSrBVhdqnHS/dZfeFgtTa60nA056rLjw2vAwFm9akW2BDHY2SoQLSolWjfBclMbyd6a
-         jB/cqbzCNriauBiNPhQ+zeZDGPBd9xGQFS/Eyu8QPZaYBpM3aPGAVO0vdwiqMxHZX97L
-         mO/g==
+        b=u0DfNotZdUkATRXZEDiLz/FzHMpNHFkvqB++Tq86Pgwxj/QCfkZGe4jzJKuDsPN95e
+         MaRoETiJJeBWjtolTt8EsrxxVfudpRXiCR7+9pGmAfOrtu7idq68arey2WonPLvNvY0i
+         pNKYg/vVIeZfv1I4gMiHSNd8xggigDYmuKfrqvrNZNRBQMHPTSpjMe/N0G6sy++/xaW2
+         2T2E8j7fjxer0UEnCm+dqVH1djW2gCoGo2kpssjePZW5JVhxI7LEuYzkEQDw97uSH9Ve
+         ToqPfUgjEro1qMRPiRf3FGXNt8LkD/5AJZWhLYNK9cwOLksQ4VYOs81/V68qEcGLhHpa
+         wu8w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=dx1tb7eMcAuvkzaDpAjQ2MVYjjBxtxvLum35t9p7Efo=;
-        b=rwxecqhOZty3k92pZR6nAu9Hz6CF0dQURT1u+3iTJwuQbEkAWzugRrdZ7+Et9JBdB4
-         0rnOZcG6rqt8dm2S6kSOZe81RtevriDVUjreFAOUgRKpcF/F+dAtd5TJjynKnYEsD6PA
-         c1bkfdKRsKYU36Hlxc8FtWoWePP15GEPAjUI9XnPvUF6dO1YsMCIeH4uBbS4QzdQUDgU
-         hX24znxudQW/J6NbTHYfEXXm6CedNG6JVbh2NIFTrXyyZbtvC939FLqR0aFdi3qJsvkP
-         +3/lVOfKWIQsgODQv8qK7ngxUeEuPBF7gbFDyh8ZBSxQzwUx3Gf16GXyqsh/KNMGG/qj
-         nETA==
+        bh=rJWKjknVWc9HpEzzraQ8VoxwSq49P7vpI9EL/lyL8qU=;
+        b=Vfe7eY+OCjpUI+9zFz+X5fI5vBZ43TFKMeBmEF4CLQm8NZokWYEktx4xBSAKB9yGmu
+         /Ojjsgt9pQ7K4nLW54CZiX6TKDaC6xs0RbSHBNBVtfYaECNmoi6LAmXjr2ZPmIKXxgL5
+         ncOy3qS4vTTZO+nT3yAgphR5lCKn/l/18VAUmFCmZbPMFJYBtiQ/X/yJocbNAqQu59ON
+         iAJCUpckFwINlzPqWUfApj9fDNSVwBP11QRcgJjyoyhRYBShFKRNVLZxjQ0xjE2tKNPT
+         7SbQYkKSyvH7XTTNmE7UEq3o00ChBmo6qCquw/I8kef4n4SU4ItSQmLtWbXlBhPLeJYA
+         POOw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=EEtuDPY1;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=MWwQozrA;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=dx1tb7eMcAuvkzaDpAjQ2MVYjjBxtxvLum35t9p7Efo=;
-        b=m9YEKtInhzF40vDz/n+lM7jgU/JXPYYWA9zsZy61DcZiZG93ZJSAsHAF0kD0UsFGfn
-         9tygDL1r+3xdNMoSobqRQYIT5mBFabVcxuqcA3N5DyspAp9g84wqLLx35oSPsoLUGeHX
-         n8J3gK/rk7394Y/3xRCIFpuIP0t+kEzK/1LL0ogM16m0rVlCggMQ7J4yo7dRnGkaBZbc
-         5c8eqm14qEsbV7olL3SwnC0O95qwQMVpRCPH2BWmI4bqsbxE3OMZkH0jF1/Dimu2kI0n
-         yrr+oB+T08uhRf+d8LSVgrg8Bh2Rg+MDha96MLLMGjzRsZRV86pRDqeX/18kZcIAaAoF
-         7ygQ==
+        bh=rJWKjknVWc9HpEzzraQ8VoxwSq49P7vpI9EL/lyL8qU=;
+        b=JXx5+kCnHESVDPb5iG9ttanFLrJ25w5CfK3xOmueyMK/7+qYocPM6THaplftUAcxj9
+         806ekBqndGJ4Pi77UuD5s+7N2W0CJ4ESeoxmDXsLVFiC1Il59k83YX+4qpHUCwv2/6Jm
+         px8sL0VrfZyOTwyCtsQlqP/bzH9ohm7t6oB9G7cHAilntuSvWbD0pLALp3na53Xwphok
+         du9JWJ1MfvswA6v2m+JXC2cLNN+iORuPvr9/AF5SzPNmiOn88nnFVSiy36bErE328dwR
+         NtNbu2mCfrUDxMbvFYdB7VeNbtywEJEfqy4Tw8uX0G35kC8YvrJgryG9GeIM57GycRiv
+         zE2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,74 +49,77 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=dx1tb7eMcAuvkzaDpAjQ2MVYjjBxtxvLum35t9p7Efo=;
-        b=SGvuXWxkwyqTME1cHVzzo+dhxLEjKl0Ty9fl8epeWp2wfb0IniDVM1VmuJOjCk2vSo
-         iFj6SLVPVzg87AS2B8AAzu5zXpd80YD27bNaOmwqol2D5h0WXUZhhOXxQe2ixuVWNcHb
-         Agq9BRWR/3dSxjnjXZFBfyl7A8dQq1bDQVUd8+7ygq3JYs5KEx+gfyJxifVbzRdhYg1s
-         n+eFHsNwUNPNJS2V44CgbsNtAisR9N4/mPk+qFiSYYU/uNRx2ixxV5oeV1Nmx2rFo7Ye
-         LOdRAl360TQxBb/OmZCNQyI7PVUnELsQHkNrk7SDiOTASW08Ptfrr6NEC4DabQuy8Tq/
-         v0Cw==
-X-Gm-Message-State: AOAM532tiIZ5sKv4ae5Q9BD+YDQLCBfjgn33NreyyIrpDazKiF/1CyaR
-	zZmkfbjRsmSsw9vwlI7LDWc=
-X-Google-Smtp-Source: ABdhPJxspJeL19o+6iiFY9yBSs+FKJ26VH5ghxCgCvDz3GChDtxoFIux1W0GSjESCXigp/ybA0c5QA==
-X-Received: by 2002:a25:bd4c:: with SMTP id p12mr40496797ybm.471.1592937850746;
-        Tue, 23 Jun 2020 11:44:10 -0700 (PDT)
+        bh=rJWKjknVWc9HpEzzraQ8VoxwSq49P7vpI9EL/lyL8qU=;
+        b=JOOPc5XDngOd/VxPGjlLliqBPhNv/B8a+n/qDjLf5OgSDeMmeHMSc1h8nhGHiLa9BW
+         vTbwjPPyYO0u158c6JNuCc3yxkHXTLLcd/IFkgkU4RY/+/xx7ZpuxhQA88hxuUdszNQC
+         SfVTEWrgVWte5UIm7bQTcSohTKcoZo1Xjq83ETcF8bAWon68Q5wpukSmYSeaRwBuS+d4
+         LA+UG8qhpdpXpv+POoyEWzLrfMB5bog/nLK43tc1hmeeWikFmQ0ofex8w46ExC74iRCZ
+         wHkPxmDRpH4Se6dZAow0LyiXVIIyeWvA6xOUIrp9PH7NyRZ5Ob7DGCoa2/M0z9P++CLP
+         Yd9w==
+X-Gm-Message-State: AOAM532pYuw9t8ar/BCnptF8zBkF15ROxFmdNm8lbGdt3Vi13yfKmYaG
+	KwiULfX4l/Kliabts7Rz6Ds=
+X-Google-Smtp-Source: ABdhPJym9oX2/IJxgV2GtujH3nl7DpHj4+IuGqtz74bdxrz7MG8K7//oId9U1NwM0HvjhLozq8LNUw==
+X-Received: by 2002:a63:6643:: with SMTP id a64mr15746351pgc.246.1592939932245;
+        Tue, 23 Jun 2020 12:18:52 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:d603:: with SMTP id n3ls8166511ybg.3.gmail; Tue, 23 Jun
- 2020 11:44:10 -0700 (PDT)
-X-Received: by 2002:a25:2d53:: with SMTP id s19mr41003966ybe.172.1592937850170;
-        Tue, 23 Jun 2020 11:44:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1592937850; cv=none;
+Received: by 2002:a17:90a:c253:: with SMTP id d19ls1680474pjx.2.gmail; Tue, 23
+ Jun 2020 12:18:51 -0700 (PDT)
+X-Received: by 2002:a17:90b:3612:: with SMTP id ml18mr25900474pjb.153.1592939931835;
+        Tue, 23 Jun 2020 12:18:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1592939931; cv=none;
         d=google.com; s=arc-20160816;
-        b=NNw2eUp2OCx6KHRtPL/VmYhn40Encm5t9bazaFguHNeEPCVxPIOIJrYWDyqnjO3nzm
-         ttnltAGuZlIF2IaDPDY4BBLMUoTD/SuGeS1IdbuEQeJ+Dwlz2NeGFKIla5XRCaIHaJXn
-         zEm8eXDZLqmMvB+G4KDNxTU9Fcv9f8yTUN9Wq6Dfx9Wb+tBniWRTkiGPsa98hpDdTxs/
-         zHBXbqpUPJdWV8UYhTsEkOzAwGn7RObqa7VlSci5FgZTcedSQG798Rg2vJR1Mx9vqBBA
-         +SVKGMPeJa1y87a5FzwnIIs4Z1tRCSjOl24hDn2fsXtU4AvxUABS48WhxXKMQ+Pfh/f4
-         6kSA==
+        b=DO9I1kRDMczHa4FdAKiOVytdjGNyzBqqojGomkn43ttXDVHKvXs7RXIVZMn4eE+OH1
+         x0gqJ2p2KBJEeyz0u0T1seeSXeYFLsbLtlODhSC9fwTqQ5KuF8n2V456O43H1TduqpLh
+         hhNQUiwoUsI1RnmoIdaGXQfYB5Ap8laEVvOPeIhxY5hX6dsl9MLFCD4khUdGtclLUDqh
+         xgsGCdeA8vALf3Mq2bajmsyBfqjoySqAyWRgQzDY3X6yR/7Se+b1WkmMfjcVkvuiE1+T
+         3b6BRQCF7Y1iQXHYnj17a5qGgdfrIfQrMNB4mLACnRB1w4Xhk40dMpLeVWURdYFLx8SI
+         eH8w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=tVAIyD3Q99J/GMICmIeAkqQ2ozy/kJogio/DjqwTxd4=;
-        b=mZA0aS4wSVWNWYH2jQl1SsZWdStQYU12zvMBO8atpil1d/xGZY/LZtgDNGTAIQcrZp
-         vcz7Imm03Uphex42EyBqjh9aQlJJmlgn5D40EqQPa1m7aYyxKEhs6QoX2NTIHBGyE1Yw
-         xfdcFAn7XO/8srBwJ9bWMRKsbrb2+DegzUxrnDNE0pcJs+zY5HKr5cUutNExhsq9FQqY
-         MivrshlYZN6bw5RGWFVXWbEEw7D2m6vOVsc/o6ggdqNKT5mtr3+4XNBGAmQlcGPfTu8R
-         lkR06mwV6gTHufHGPtUOCWvEpzdL/be+IhB690b3cDf5bNu5ppVXGTxKFIoiVPfLCNoT
-         ofrQ==
+        bh=JfKvbarsGZfb2E+mqEclhl4xXUNIs4ydQ/HWpkkQqp0=;
+        b=vrJqi+Kc/umitAU6/ziYjLW/ch0hr8xoGLwn14Q3/ubB9iJVJl+co7pvz+J4rl80jP
+         xsy/J+wW1lHvSzktfOiy5i+32m4obRKS0U6SHuVs4aZzRAPZVPREWlAKLujVJrgYvs96
+         0OljLzwMxIw2xi10XQp3pNUIHl8y2YlnTAUuex/l3/3b3224Vk6Yz7XVDnUb7x61xFIJ
+         XAk+4cQR3Tg3sKUH+nUN2Uk5Y1JLi+EY+/iI6WA0R1CIYKm/1w82Cjpu+S/pC4Qd8OfN
+         fwvdXHaQjGZd5xFN+j6WRomxJtG5dTxQgt9IbmVbUf+6XouNhCs1332Zs3sSPxm3XKwv
+         MWlw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=EEtuDPY1;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=MWwQozrA;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x644.google.com (mail-pl1-x644.google.com. [2607:f8b0:4864:20::644])
-        by gmr-mx.google.com with ESMTPS id k75si631128ybk.0.2020.06.23.11.44.10
+Received: from mail-pf1-x444.google.com (mail-pf1-x444.google.com. [2607:f8b0:4864:20::444])
+        by gmr-mx.google.com with ESMTPS id f3si1089789pgg.3.2020.06.23.12.18.51
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 23 Jun 2020 11:44:10 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644 as permitted sender) client-ip=2607:f8b0:4864:20::644;
-Received: by mail-pl1-x644.google.com with SMTP id 35so9507427ple.0
-        for <clang-built-linux@googlegroups.com>; Tue, 23 Jun 2020 11:44:10 -0700 (PDT)
-X-Received: by 2002:a17:90b:949:: with SMTP id dw9mr25483894pjb.101.1592937848930;
- Tue, 23 Jun 2020 11:44:08 -0700 (PDT)
+        Tue, 23 Jun 2020 12:18:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) client-ip=2607:f8b0:4864:20::444;
+Received: by mail-pf1-x444.google.com with SMTP id 136so940081pfv.3
+        for <clang-built-linux@googlegroups.com>; Tue, 23 Jun 2020 12:18:51 -0700 (PDT)
+X-Received: by 2002:a63:5644:: with SMTP id g4mr17857821pgm.381.1592939931153;
+ Tue, 23 Jun 2020 12:18:51 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200623025628.18467-1-sedat.dilek@gmail.com>
-In-Reply-To: <20200623025628.18467-1-sedat.dilek@gmail.com>
+References: <20200622205815.2988115-1-keescook@chromium.org>
+ <20200622205815.2988115-3-keescook@chromium.org> <20200623145218.GC4336@willie-the-truck>
+ <CAMj1kXEPe10EY1uE1vberVMXv9sx4ZRHgmssOypYm5ya5G9KoA@mail.gmail.com>
+In-Reply-To: <CAMj1kXEPe10EY1uE1vberVMXv9sx4ZRHgmssOypYm5ya5G9KoA@mail.gmail.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 23 Jun 2020 11:43:58 -0700
-Message-ID: <CAKwvOdmR10E2uzKnq2Jt0DSw9+3uvjSfqidxppCoYmhNZPLx5Q@mail.gmail.com>
-Subject: Re: [PATCH 5.7 v2] x86/crypto: aesni: Fix build with LLVM_IAS=1
-To: Sedat Dilek <sedat.dilek@gmail.com>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, 
-	"open list:HARDWARE RANDOM NUMBER GENERATOR CORE" <linux-crypto@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Craig Topper <craig.topper@intel.com>, 
-	Craig Topper <craig.topper@gmail.com>
+Date: Tue, 23 Jun 2020 12:18:40 -0700
+Message-ID: <CAKwvOdkeW6Ynvkcg0bd9Q9A-9tT=B6bfwO=mDHt9j9E2=sgj-A@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] arm64/build: Warn on orphan section placement
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Kees Cook <keescook@chromium.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Peter Collingbourne <pcc@google.com>, James Morse <james.morse@arm.com>, 
+	Nathan Chancellor <natechancellor@gmail.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=EEtuDPY1;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644
+ header.i=@google.com header.s=20161025 header.b=MWwQozrA;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -133,123 +136,65 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jun 22, 2020 at 7:56 PM Sedat Dilek <sedat.dilek@gmail.com> wrote:
+On Tue, Jun 23, 2020 at 7:59 AM Ard Biesheuvel <ardb@kernel.org> wrote:
 >
-> When building with LLVM_IAS=1 means using Clang's Integrated Assembly (IAS)
-> from LLVM/Clang >= v10.0.1-rc1+ instead of GNU/as from GNU/binutils
-> I see the following breakage in Debian/testing AMD64:
->
-> <instantiation>:15:74: error: too many positional arguments
->  PRECOMPUTE 8*3+8(%rsp), %xmm1, %xmm2, %xmm3, %xmm4, %xmm5, %xmm6, %xmm7,
->                                                                          ^
->  arch/x86/crypto/aesni-intel_asm.S:1598:2: note: while in macro instantiation
->  GCM_INIT %r9, 8*3 +8(%rsp), 8*3 +16(%rsp), 8*3 +24(%rsp)
->  ^
-> <instantiation>:47:2: error: unknown use of instruction mnemonic without a size suffix
->  GHASH_4_ENCRYPT_4_PARALLEL_dec %xmm9, %xmm10, %xmm11, %xmm12, %xmm13, %xmm14, %xmm0, %xmm1, %xmm2, %xmm3, %xmm4, %xmm5, %xmm6, %xmm7, %xmm8, enc
->  ^
-> arch/x86/crypto/aesni-intel_asm.S:1599:2: note: while in macro instantiation
->  GCM_ENC_DEC dec
->  ^
-> <instantiation>:15:74: error: too many positional arguments
->  PRECOMPUTE 8*3+8(%rsp), %xmm1, %xmm2, %xmm3, %xmm4, %xmm5, %xmm6, %xmm7,
->                                                                          ^
-> arch/x86/crypto/aesni-intel_asm.S:1686:2: note: while in macro instantiation
->  GCM_INIT %r9, 8*3 +8(%rsp), 8*3 +16(%rsp), 8*3 +24(%rsp)
->  ^
-> <instantiation>:47:2: error: unknown use of instruction mnemonic without a size suffix
->  GHASH_4_ENCRYPT_4_PARALLEL_enc %xmm9, %xmm10, %xmm11, %xmm12, %xmm13, %xmm14, %xmm0, %xmm1, %xmm2, %xmm3, %xmm4, %xmm5, %xmm6, %xmm7, %xmm8, enc
->  ^
-> arch/x86/crypto/aesni-intel_asm.S:1687:2: note: while in macro instantiation
->  GCM_ENC_DEC enc
->
-> Craig Topper suggested me in ClangBuiltLinux issue #1050:
->
-> > I think the "too many positional arguments" is because the parser isn't able
-> > to handle the trailing commas.
+> On Tue, 23 Jun 2020 at 16:52, Will Deacon <will@kernel.org> wrote:
 > >
-> > The "unknown use of instruction mnemonic" is because the macro was named
-> > GHASH_4_ENCRYPT_4_PARALLEL_DEC but its being instantiated with
-> > GHASH_4_ENCRYPT_4_PARALLEL_dec I guess gas ignores case on the
-> > macro instantiation, but llvm doesn't.
+> > On Mon, Jun 22, 2020 at 01:58:15PM -0700, Kees Cook wrote:
+> > > We don't want to depend on the linker's orphan section placement
+> > > heuristics as these can vary between linkers, and may change between
+> > > versions. All sections need to be explicitly named in the linker
+> > > script.
+> > >
+> > > Explicitly include debug sections when they're present. Add .eh_frame*
+> > > to discard as it seems that these are still generated even though
+> > > -fno-asynchronous-unwind-tables is being specified. Add .plt and
+> > > .data.rel.ro to discards as they are not actually used. Add .got.plt
+> > > to the image as it does appear to be mapped near .data. Finally enable
+> > > orphan section warnings.
+> >
+> > Can you elaborate a bit on what .got.plt is being used for, please? I
+> > wonder if there's an interaction with an erratum workaround in the linker
+> > or something.
+> >
 >
-> First, I removed the trailing comma in the PRECOMPUTE line.
->
-> Second, I substituted:
-> 1. GHASH_4_ENCRYPT_4_PARALLEL_DEC -> GHASH_4_ENCRYPT_4_PARALLEL_dec
-> 2. GHASH_4_ENCRYPT_4_PARALLEL_ENC -> GHASH_4_ENCRYPT_4_PARALLEL_enc
->
-> With these changes I was able to build with LLVM_IAS=1 and boot on bare metal.
->
-> I confirmed that this works with Linux-kernel v5.7.5 final.
->
-> NOTE: This patch is on top of Linux v5.7 final.
+> .got.plt is not used at all, but it has three magic entries at the
+> start that the dynamic linker uses for lazy dispatch, so it turns up
+> as a non-empty section of 0x18 bytes.
 
-Thanks for the note, still applies cleanly on top of linux-next today for me.
+Interesting; is there a way to dump those entries? `--dynamic-reloc`
+flag to objdump? (I suspect the answer might be hexdump...)
 
->
-> Thanks to Craig and especially Nick for double-checking and his comments.
->
-> Suggested-by: Craig Topper <craig.topper@intel.com>
-> Suggested-by: Craig Topper <craig.topper@gmail.com>
-> Suggested-by: Nick Desaulniers ndesaulniers@google.com
+> We should be able to discard it afaict, but given that it does not
+> actually take up any space, it doesn't really matter either way.
 
-^ oh, may have missed <> around email addr.
+True, but I would prefer to explicitly discard it if we know we're not
+using it, that way something explicitly breaks if someone tries to
+make use of it in the future.  Then we can consider not discarding it,
+only if necessary.  Modules on arm64 use .got.plt, IIRC? But they have
+their own linker script so irrelevant I guess.
 
-> Cc: "ClangBuiltLinux" <clang-built-linux@googlegroups.com>
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1050
-> Signed-off-by: Sedat Dilek <sedat.dilek@gmail.com>
+> > > --- a/arch/arm64/kernel/vmlinux.lds.S
+> > > +++ b/arch/arm64/kernel/vmlinux.lds.S
+> > > @@ -94,7 +94,8 @@ SECTIONS
+> > >       /DISCARD/ : {
+> > >               *(.interp .dynamic)
+> > >               *(.dynsym .dynstr .hash .gnu.hash)
+> > > -             *(.eh_frame)
+> > > +             *(.plt) *(.data.rel.ro)
+> > > +             *(.eh_frame) *(.init.eh_frame)
+> >
+> > Do we need to include .eh_frame_hdr here too?
+> >
+>
+> It would be better to build with -fno-unwind-tables, in which case
+> these sections should not even exist.
 
-Following the same testing methodology from V1
-(https://lore.kernel.org/patchwork/comment/1456822/) I verified for
-GCC+GAS this is no functional change.
-
-$ wget https://lore.kernel.org/patchwork/patch/1261340/mbox/ -O sedat_v3.patch
-$ git am sedat_v3.patch
-$ make -j71 arch/x86/crypto/aesni-intel_asm.o
-$ llvm-objdump -dr arch/x86/crypto/aesni-intel_asm.o > postpatch_v3.txt
-$ diff -u <(cat prepatch.txt | tr -s ' ' | cut -d '    ' -f 2-) <(cat
-postpatch_v3.txt| tr -s ' ' | cut -d '   ' -f 2-) | less
-(no output)
-
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-
-> ---
->  arch/x86/crypto/aesni-intel_asm.S | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/x86/crypto/aesni-intel_asm.S b/arch/x86/crypto/aesni-intel_asm.S
-> index cad6e1bfa7d5..c216de287742 100644
-> --- a/arch/x86/crypto/aesni-intel_asm.S
-> +++ b/arch/x86/crypto/aesni-intel_asm.S
-> @@ -266,7 +266,7 @@ ALL_F:      .octa 0xffffffffffffffffffffffffffffffff
->         PSHUFB_XMM %xmm2, %xmm0
->         movdqu %xmm0, CurCount(%arg2) # ctx_data.current_counter = iv
->
-> -       PRECOMPUTE \SUBKEY, %xmm1, %xmm2, %xmm3, %xmm4, %xmm5, %xmm6, %xmm7,
-> +       PRECOMPUTE \SUBKEY, %xmm1, %xmm2, %xmm3, %xmm4, %xmm5, %xmm6, %xmm7
->         movdqu HashKey(%arg2), %xmm13
->
->         CALC_AAD_HASH %xmm13, \AAD, \AADLEN, %xmm0, %xmm1, %xmm2, %xmm3, \
-> @@ -978,7 +978,7 @@ _initial_blocks_done\@:
->  * arg1, %arg3, %arg4 are used as pointers only, not modified
->  * %r11 is the data offset value
->  */
-> -.macro GHASH_4_ENCRYPT_4_PARALLEL_ENC TMP1 TMP2 TMP3 TMP4 TMP5 \
-> +.macro GHASH_4_ENCRYPT_4_PARALLEL_enc TMP1 TMP2 TMP3 TMP4 TMP5 \
->  TMP6 XMM0 XMM1 XMM2 XMM3 XMM4 XMM5 XMM6 XMM7 XMM8 operation
->
->         movdqa    \XMM1, \XMM5
-> @@ -1186,7 +1186,7 @@ aes_loop_par_enc_done\@:
->  * arg1, %arg3, %arg4 are used as pointers only, not modified
->  * %r11 is the data offset value
->  */
-> -.macro GHASH_4_ENCRYPT_4_PARALLEL_DEC TMP1 TMP2 TMP3 TMP4 TMP5 \
-> +.macro GHASH_4_ENCRYPT_4_PARALLEL_dec TMP1 TMP2 TMP3 TMP4 TMP5 \
->  TMP6 XMM0 XMM1 XMM2 XMM3 XMM4 XMM5 XMM6 XMM7 XMM8 operation
->
->         movdqa    \XMM1, \XMM5
-> --
+Interesting, so we have -fno-asynchronous-unwind-tables and
+-fno-unwind-tables.  Is your suggestion for -fno-unwind-tables a
+global KBUILD_CFLAG (vs limited to a particular arch)?  Interestingly,
+there a few users of -fasynchronous-unwind-tables in the kernel.
+vdso's make sense, I think, less sure about the rest.
 
 -- 
 Thanks,
@@ -258,4 +203,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmR10E2uzKnq2Jt0DSw9%2B3uvjSfqidxppCoYmhNZPLx5Q%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkeW6Ynvkcg0bd9Q9A-9tT%3DB6bfwO%3DmDHt9j9E2%3Dsgj-A%40mail.gmail.com.
