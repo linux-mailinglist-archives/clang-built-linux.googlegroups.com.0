@@ -1,138 +1,142 @@
-Return-Path: <clang-built-linux+bncBCINLKMVUUKRBXVTZ33QKGQEZDOLGUY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD63HSEZTUIBBFVUZ33QKGQECQR6EXY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33c.google.com (mail-ot1-x33c.google.com [IPv6:2607:f8b0:4864:20::33c])
-	by mail.lfdr.de (Postfix) with ESMTPS id A027E207B69
-	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jun 2020 20:22:23 +0200 (CEST)
-Received: by mail-ot1-x33c.google.com with SMTP id z16sf1908480otj.11
-        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jun 2020 11:22:23 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1593022942; cv=pass;
+Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 95034207B6C
+	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jun 2020 20:23:19 +0200 (CEST)
+Received: by mail-pf1-x43d.google.com with SMTP id r12sf1979624pfr.16
+        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jun 2020 11:23:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1593022998; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cJotDO7RgyWbruj1Wj7nyliuENRMPzDu85yoSuyXGjNPQTFCdWXQaCsD6xwmhkiu5V
-         OmIDgmpmVgt8qZJzYL5yxPAVu3ojJ3WFIHPoDz/YKSiYzusvsjU5Us1WhDCJlxS/OwCI
-         rLLOs6uY+xzSkSgLEzr5kj6pEHxdcEEzRIJSkfoSyV8OeQueAUJid5jSZXUTCXWacIMS
-         2Xz+zLcj/5Q5Cmzr3UpA10+V1MtOr7xbJXubFkXFj/o97Si+FSteLYmsTipnFf8c71aL
-         yaw73uBxxlD4UbRs8fz34Q5+fouyarWSxgVf5e5wzKDgd1iHq3HXOU9O0bPY3XWZp4IE
-         k5zQ==
+        b=H5zISsoyM9f+2tNO6SS+tEQv1r8pHLzqilyjs3VFWsTJR0vU18Gkva98DS8qGz6olx
+         dhMLG5EUtW2S30J6KA7JMJ32hpju798BG8Q6wHCOfrKJb7OdyEr427oQEvVGS6nMVZcf
+         TE+lRITLaqesCtu54Dj77s5gU6BreXbi+r3tIdvZ27bacOi3tF5aMoy7bptkAcwK3YCx
+         6QSz588CombbWjWMwc7/yFakC3M1F2W4bGisXVQqGfin0DHqe1ydbmpg+fWV8gjIXohF
+         Gj8le/mIeekEjB8nIAx1LKM10fvFTzxFFzSPs4mpQJUk6ziSmXRTQrFGvdHdELuCSlOU
+         3SaQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=xm8UwOcgZ9zOcboFPQvW9Xv9Ipj5pJ7gw4BGSzaSusA=;
-        b=wedPDMR5TbWOByZTtVtWuuyJT+SZwtxb3Q5kdGifeI1jrpkpe8PL31Nrb7d2ueq5ak
-         x3C29kb8OaYcjVoETUjNtbTZz2ZBLC/eoHc8IjQk0WdbWzcO3YR8zitmFq7IrdcU2K2P
-         LRRxzznzDUVBkJ1+E7OptHCR5+QB0d/6pdE6c/X9tc3DbJnBdrZrx04L4ga35IAWFagu
-         AIEhF58BhDEtHAfv57gCHbx8q85SHSiw7VkyXYsSLs1tabkh296nFNzRZiU5K5jbXtBG
-         8qkjaQ4LLVLdas/R1NsDftl0UY8z05cnSEwlbkrwcDtXtoT2dznXJoxNSiXf8uPsFKkG
-         dukQ==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=6jl2U+YrlsM2h/5lLJX+gaZ3fh3KV3/rVWc2kD0g14E=;
+        b=Aq+YqqLSsO0mIhhVqSsp3rDJtKBgcmVub23HAVAnwUMxjXt7MT5cvTQJhj0puUm/7R
+         uxp9rLe8BNKzwif0lwoeit9TkKYI9WvgAbKVGhrn83RX6lXs1zE0OPIRGUsUwQhZ31na
+         w54CTWjbxDx3wEozvDIBoajQg242cTCGsbqmYs0sfOM4/J91yvgBDYa3JdcSi1QxYVM6
+         8e7Y0SBifP180BUvUgAvcjilmZbZ8//+ZDaJbW/NszaNY5r3OR04kRkMecMocOtfatEQ
+         258cVM3aN/eFcNCUTnIQE6UN9tLBLJIS9qAQf+NK1yZsJLDZYvwDsJ3NjNP9/VCAsM3s
+         M73g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of dennis.dalessandro@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=dennis.dalessandro@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@kernel.org header.s=default header.b=bRtaoBxn;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:subject:to:cc:references:from
-         :message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=xm8UwOcgZ9zOcboFPQvW9Xv9Ipj5pJ7gw4BGSzaSusA=;
-        b=kUFPhIRW8vG+eYW4TQUuTnM/Oji6p74sH7r0Jaget0Ndx16PoFvhvRkv4PrD6AiJSH
-         0nj0ExPuXU8XSpMAkrjGFSUGuX35+tMw5BPfj2BWrilG3egStYRGY7bGH3d+cDnHb1tT
-         KtBuGR4eY2NXhQsxiDBUL9FOgsT4Nudl7bcqU3Gn/uMP7GnIa1Rvn054X9H3M3tWXjpI
-         M85X81jRrLXCDG2aNcn0H8SyUxxrV1W3wazY1e85avbHLLXmoGPgU2GN3JK/z5yDb94s
-         xOCKBIQSRkUXPMnHQnWFzzCntL3vJAZuaCnE3bDY+uWMvFNR7DzjuWmFJSthAw5I/ftd
-         IFSQ==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=6jl2U+YrlsM2h/5lLJX+gaZ3fh3KV3/rVWc2kD0g14E=;
+        b=cn4UbZ+ZRnkOCiLuUMTQYSOUUQQieT6ihjqJoz4Jo7UdSydrCC0U4IwmdKQesh/u6a
+         gLtC960KuGX2lxxdWMmkTn2MfWEEJWSR+DLNeVkK7+ytiSuel3ml6qI250e1+KVB3WVx
+         182x+jnW1GTceWIlM+4yva9XDmL1jt88aZjd3gFAfYVbGsNnRfJrUYKgSezGhvlpZQWK
+         uP42u7Gsl53+BTV6XL2LnxhNQx3X8vzuskpdv5HMDrpI3BZwFRCGt2jGaAB1Z/0GsyaE
+         Y/8bpCnyNwu3IgCoKr51wlN6zM78C69QCoUzyrDxez2rWlD2IZ4Ila4+gIQy6vdptIC1
+         5xZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:subject:to:cc
-         :references:from:message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=xm8UwOcgZ9zOcboFPQvW9Xv9Ipj5pJ7gw4BGSzaSusA=;
-        b=fGQtuYkWINpjuT9c5xMATYJMIXWWFZd25oT29dwNrDxjrm6Hf2sMe4QtCHC4ya3LpF
-         DNqOi+YGzaJCnoB6cfZNRsWTlNre+JsRiW7sbK4di2LpgNFLA+1C3Cofdc19KpXAIn6/
-         YVnYgBudwGUr7HvYPaXGUS6yxXI277GEN6hLhrUJVDH3u9cLa56+KCJiSRxKm9OuuKdt
-         ulsnEqJujN/UpNAuZ2qCHEieiXvXcjn24gU/2yKm1hDusjBFyGS6Occt3G/J2LxSWK1F
-         PNz2AtMhH8mTOcBVtHdg9vZU9WywH5fj0QBOJxEwvN0fBXOpgIrzBl3ZDo5QeVcuItrX
-         eSYw==
+        bh=6jl2U+YrlsM2h/5lLJX+gaZ3fh3KV3/rVWc2kD0g14E=;
+        b=pnKNz6nNdJwQxX++WMHb6PV0BL3cG7zXp1YcH6E9mV1a/067icVHFYtJfcIWDNdLbd
+         fAvtb5sJn+yFdwGVFgjfN1q8Gi+bgT0rEv0oeM3hAw2YTJdI5Z2gAvq1eYI8xguOaOVY
+         swgGUFVipXdx3i4jasgaiFRjXIarieK62ZGPREAL7Iqw9g1tOQuEUL6HznaAUhgi+yf/
+         qjZ8dxLt0ZDirNrsVCgReFWTJiDQPz3ZIdJO7NrTqIbLJIhA3CIe9uvQDILuYS4NXL9V
+         hkWPfc7Y2lMnOXeSU5rp1iwoDGwUGVJkPJniDAnbvC/3y++ri99iB80u063z7MEdxNur
+         ODxg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532qVAGFJ+wkYpDalu5mCoXtVkDK34IewYh7yt9eXVkZszxv5sgK
-	sdR5Nx9tIFxf03qwoNk3V3w=
-X-Google-Smtp-Source: ABdhPJySX2XfxXR6gM8anegCE0uqwsu0o01VsPkeZAx5aCwXbCgbutRNePzDgMO2JjSvZ2gdOZzv6A==
-X-Received: by 2002:aca:3050:: with SMTP id w77mr193983oiw.0.1593022942233;
-        Wed, 24 Jun 2020 11:22:22 -0700 (PDT)
+X-Gm-Message-State: AOAM531XOxy9sMAf6/2h5rmyC8/kcP21VfXSawdJmkvj1w57n1DtSFdJ
+	oII+SWIt6Joujyo71nEAYps=
+X-Google-Smtp-Source: ABdhPJwMN3qAabapAqjdtsSLnPwoFutUgDtAxYMeAkGUk7/GnNny6yFOUuNKtq/lDuT4z6+fPBrV/g==
+X-Received: by 2002:a65:5a0f:: with SMTP id y15mr11088553pgs.6.1593022998266;
+        Wed, 24 Jun 2020 11:23:18 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:bd16:: with SMTP id n22ls181629oop.10.gmail; Wed, 24 Jun
- 2020 11:22:21 -0700 (PDT)
-X-Received: by 2002:a4a:3744:: with SMTP id r65mr11738682oor.82.1593022941814;
-        Wed, 24 Jun 2020 11:22:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1593022941; cv=none;
+Received: by 2002:a17:902:7b91:: with SMTP id w17ls1225015pll.10.gmail; Wed,
+ 24 Jun 2020 11:23:17 -0700 (PDT)
+X-Received: by 2002:a17:90a:de1:: with SMTP id 88mr30717059pjv.124.1593022997046;
+        Wed, 24 Jun 2020 11:23:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593022997; cv=none;
         d=google.com; s=arc-20160816;
-        b=VMSHGLhS7vjJ4NLtN66WPACc3r7Pn70StB363rOiMCSro3V0ANbUF9JudFeXpNaBrj
-         1l5Neit1x1qlD5m26pzY5WpAwmJ9XhH1G36WtPjKqM0wrsN0Uy0qmAe+WLvQo3ljhZvG
-         2swSaM0Xj253pA+YZtuP4YJ9XRreIDEzteasQi7R7+4TuVRATYhKmmE8frrNUBLdbSEm
-         daPwfDrRARD/AZHh2muU+wlYjyPTc1Zzgqk6mNGyOXQliyIn6tZ9Vs2Nyn85mAHfIKLN
-         ef9IO/yNlZIUe3RQQ1lPJ5s8IhQMez2u3pY1VW6rGlbLbRIDKfJQ6+klJXWH9b5i4GG0
-         7lFw==
+        b=DtppRgSw3vPBcQ9xC1kwR7Y6fVGfLFNcGcG8ecU/0wGf3bfqVjC9QQL9LqYU8ngMZi
+         txc346AxRgx9Pm875jlxa8oe8Z5O5+/5k+0Q+71WPspVjMbp47gKmArXgHdKGDuZLQom
+         aRFzoAIKc4aTZCCtMgwBKcZ3ljzqw+B5HbidnuYUIXy78MmqjjhTCjofrajH40yoVLGz
+         cLTa8TrtO616rZm8IYHm932YWRBK0XijYre1so1YIDGmYa9NA77ksoflQyqFQvKOEkDg
+         ZUWsxVBVkPw64ch09+DQ2HJOf/I13SuIkOxR6Z3i8LvHgKVvaLanKq2M6k44s0vWK+N7
+         H87A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :ironport-sdr:ironport-sdr;
-        bh=gWxxdeFKKAulVzAObtZrsDIaDFXdGnrnCEaRHnabQxs=;
-        b=tgIrKK26qGXqeWW48D99lzjkc0EKlOLPYaugZHyFFe2c7EIuhxptcavwAI8iuw+glz
-         /pLSCrMqakO9MXj0m84j6n+8m3MavRAhqvRIvf8XyMERJCKoEJ6ttaTygMkpOtLrXhJr
-         KHJO11t0JL6v4t3EDLSIbX9Mte8m/CzrK2K9BzfefVJLCni8A14yPW9MQsXYYblg+JO+
-         d6Z5Hrkc87auYeBiNOHlhqcVcfU9DyHD0of4onJ0f3V+vtUAahotWVF2Gw2KJeAgZaQl
-         +olq64cpV9rXKlbk18xcYgrcqhsey0bGEzagPahNYIqb0flsm9MNT6FJhbxyMZ4Rs4Ax
-         TAHA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=QMzkwj2wsknevPPq60SbMcXJOGOru8KLNDodk/beSis=;
+        b=srD7ZTYLxTFzzFgc+7Raq9jtn6MlInY42Sfxj5tJ4hGFAKfKdh47b6WsfwK8caQRnh
+         D5V1+lKq9HPkIg48CU31iJBPOSqYzdAhp94frAA1qEo9fDk7JByN0+XK5EVgvmy1bfcD
+         kPn7i9/so3cOCQOCeYXX7uDLe5KmbVrNEgBTaPxGWdYO/hdXUpLQpAo6lyIG8cKDaDdk
+         Oupp99DG7HT7bTOHZ5WJJnIgq+u45/tgKRoMs1HqpOFjrPFjVXDSXn8f8qdQz2TW1sCZ
+         CBYjic4IM/72W2JvAzEDsXEeLs0QuDuI8zNBg2+n4ylu6eC5N2NW+I8hRi4Ciu9RAhuU
+         zpOg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of dennis.dalessandro@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=dennis.dalessandro@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
-        by gmr-mx.google.com with ESMTPS id c26si1468443otn.4.2020.06.24.11.22.21
+       dkim=pass header.i=@kernel.org header.s=default header.b=bRtaoBxn;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id w13si332171pll.2.2020.06.24.11.23.17
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 24 Jun 2020 11:22:21 -0700 (PDT)
-Received-SPF: pass (google.com: domain of dennis.dalessandro@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
-IronPort-SDR: bmcAhtKocdbAEOB/411OSfLltfIKXmTDjDXBINmWy4b8rG1/mlIKpvU3PhhmXGQeHXZ7Qb/eft
- tj2Cf2QcJNUQ==
-X-IronPort-AV: E=McAfee;i="6000,8403,9662"; a="206106233"
-X-IronPort-AV: E=Sophos;i="5.75,276,1589266800"; 
-   d="scan'208";a="206106233"
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from orsmga005.jf.intel.com ([10.7.209.41])
-  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jun 2020 11:22:12 -0700
-IronPort-SDR: y8XjN9L8Jlc0bMzZwbEmAZINkkyOuX0uT/0lYOcJzyHC8FVKJZtmplyNK7NDePdZVcRGZMyjKv
- pR9tQrlvVliw==
-X-IronPort-AV: E=Sophos;i="5.75,276,1589266800"; 
-   d="scan'208";a="452733692"
-Received: from ddalessa-mobl.amr.corp.intel.com (HELO [10.254.202.60]) ([10.254.202.60])
-  by orsmga005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jun 2020 11:22:11 -0700
-Subject: Re: [PATCH] IB/hfi1: Add explicit cast OPA_MTU_8192 to 'enum ib_mtu'
-To: Nathan Chancellor <natechancellor@gmail.com>,
- Mike Marciniszyn <mike.marciniszyn@intel.com>,
- Doug Ledford <dledford@redhat.com>, Jason Gunthorpe <jgg@ziepe.ca>
-Cc: linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org,
- clang-built-linux@googlegroups.com
-References: <20200623005224.492239-1-natechancellor@gmail.com>
-From: Dennis Dalessandro <dennis.dalessandro@intel.com>
-Message-ID: <5f98c547-1bac-bb05-1c75-cefb8616964a@intel.com>
-Date: Wed, 24 Jun 2020 14:22:08 -0400
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.9.0
+        Wed, 24 Jun 2020 11:23:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from mail-ot1-f43.google.com (mail-ot1-f43.google.com [209.85.210.43])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id A272E20767
+	for <clang-built-linux@googlegroups.com>; Wed, 24 Jun 2020 18:23:16 +0000 (UTC)
+Received: by mail-ot1-f43.google.com with SMTP id t6so2821354otk.9
+        for <clang-built-linux@googlegroups.com>; Wed, 24 Jun 2020 11:23:16 -0700 (PDT)
+X-Received: by 2002:a4a:b34b:: with SMTP id n11mr24365561ooo.41.1593022995076;
+ Wed, 24 Jun 2020 11:23:15 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20200623005224.492239-1-natechancellor@gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: dennis.dalessandro@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of dennis.dalessandro@intel.com designates 134.134.136.31
- as permitted sender) smtp.mailfrom=dennis.dalessandro@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+References: <20200624033142.cinvg6rbg252j46d@google.com> <202006232143.66828CD3@keescook>
+ <20200624104356.GA6134@willie-the-truck> <CAMj1kXHBT4ei0xhyL4jD7=CNRsn1rh7w6jeYDLjVOv4na0Z38Q@mail.gmail.com>
+ <202006240820.A3468F4@keescook> <CAMj1kXHck12juGi=E=P4hWP_8vQhQ+-x3vBMc3TGeRWdQ-XkxQ@mail.gmail.com>
+ <202006240844.7BE48D2B5@keescook> <CAMj1kXHqBs44uukRSdFwA_hcmX_yKVfjqdv9RoPbbu-6Wz+RaA@mail.gmail.com>
+ <20200624162919.GH25945@arm.com> <CAMj1kXE1zWCjVt8iS4fv2gQHzrTF6=Ggd16nm+4TNWAG3zSWAQ@mail.gmail.com>
+ <20200624171613.GJ25945@arm.com>
+In-Reply-To: <20200624171613.GJ25945@arm.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Wed, 24 Jun 2020 20:23:03 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXG+Xh=a1exFXuRJ9EYbT+0xnC=votGGX1dmzBgZgEaC-w@mail.gmail.com>
+Message-ID: <CAMj1kXG+Xh=a1exFXuRJ9EYbT+0xnC=votGGX1dmzBgZgEaC-w@mail.gmail.com>
+Subject: Re: [PATCH v3 3/9] efi/libstub: Remove .note.gnu.property
+To: Dave Martin <Dave.Martin@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, linux-efi <linux-efi@vger.kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Arvind Sankar <nivedita@alum.mit.edu>, 
+	Will Deacon <will@kernel.org>, Nathan Chancellor <natechancellor@gmail.com>, 
+	linux-arch <linux-arch@vger.kernel.org>, Fangrui Song <maskray@google.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, X86 ML <x86@kernel.org>, 
+	Russell King <linux@armlinux.org.uk>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@suse.de>, Kees Cook <keescook@chromium.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Thomas Gleixner <tglx@linutronix.de>, Peter Collingbourne <pcc@google.com>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, James Morse <james.morse@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ardb@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=default header.b=bRtaoBxn;       spf=pass
+ (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,35 +149,111 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 6/22/2020 8:52 PM, Nathan Chancellor wrote:
-> Clang warns:
-> 
-> drivers/infiniband/hw/hfi1/qp.c:198:9: warning: implicit conversion from
-> enumeration type 'enum opa_mtu' to different enumeration type 'enum
-> ib_mtu' [-Wenum-conversion]
->                  mtu = OPA_MTU_8192;
->                      ~ ^~~~~~~~~~~~
-> 1 warning generated.
-> 
-> enum opa_mtu extends enum ib_mtu. There are typically two ways to deal
-> with this:
-> 
-> * Remove the expected types and just use 'int' for all parameters and
->    types.
-> 
-> * Explicitly cast the enums between each other.
-> 
-> This driver chooses to do the later so do the same thing here.
-> 
-> Fixes: 6d72344cf6c4 ("IB/ipoib: Increase ipoib Datagram mode MTU's upper limit")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1062
-> Link: https://lore.kernel.org/linux-rdma/20200527040350.GA3118979@ubuntu-s3-xlarge-x86/
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> ---
+On Wed, 24 Jun 2020 at 19:16, Dave Martin <Dave.Martin@arm.com> wrote:
+>
+> On Wed, Jun 24, 2020 at 06:40:48PM +0200, Ard Biesheuvel wrote:
+> > On Wed, 24 Jun 2020 at 18:29, Dave Martin <Dave.Martin@arm.com> wrote:
+> > >
+> > > On Wed, Jun 24, 2020 at 05:48:41PM +0200, Ard Biesheuvel wrote:
+> > > > On Wed, 24 Jun 2020 at 17:45, Kees Cook <keescook@chromium.org> wrote:
+> > > > >
+> > > > > On Wed, Jun 24, 2020 at 05:31:06PM +0200, Ard Biesheuvel wrote:
+> > > > > > On Wed, 24 Jun 2020 at 17:21, Kees Cook <keescook@chromium.org> wrote:
+> > > > > > >
+> > > > > > > On Wed, Jun 24, 2020 at 12:46:32PM +0200, Ard Biesheuvel wrote:
+> > > > > > > > I'm not sure if there is a point to having PAC and/or BTI in the EFI
+> > > > > > > > stub, given that it runs under the control of the firmware, with its
+> > > > > > > > memory mappings and PAC configuration etc.
+> > > > > > >
+> > > > > > > Is BTI being ignored when the firmware runs?
+> > > > > >
+> > > > > > Given that it requires the 'guarded' attribute to be set in the page
+> > > > > > tables, and the fact that the UEFI spec does not require it for
+> > > > > > executables that it invokes, nor describes any means of annotating
+> > > > > > such executables as having been built with BTI annotations, I think we
+> > > > > > can safely assume that the EFI stub will execute with BTI disabled in
+> > > > > > the foreseeable future.
+> > > > >
+> > > > > yaaaaaay. *sigh* How long until EFI catches up?
+> > > > >
+> > > > > That said, BTI shouldn't _hurt_, right? If EFI ever decides to enable
+> > > > > it, we'll be ready?
+> > > > >
+> > > >
+> > > > Sure. Although I anticipate that we'll need to set some flag in the
+> > > > PE/COFF header to enable it, and so any BTI opcodes we emit without
+> > > > that will never take effect in practice.
+> > >
+> > > In the meantime, it is possible to build all the in-tree parts of EFI
+> > > for BTI, and just turn it off for out-of-tree EFI binaries?
+> > >
+> >
+> > Not sure I understand the question. What do you mean by out-of-tree
+> > EFI binaries? And how would the firmware (which is out of tree itself,
+> > and is in charge of the page tables, vector table, timer interrupt etc
+> > when the EFI stub executes) distinguish such binaries from the EFI
+> > stub?
+>
+> I'm not an EFI expert, but I'm guessing that you configure EFI with
+> certain compiler flags and build it.
 
-Acked-by: Dennis Dalessandro <dennis.dalessandro@intel.com>
+'EFI' is not something you build. It is a specification that describes
+how a conformant firmware implementation interfaces with a conformant
+OS.
+
+Sorry to be pedantic, but that is really quite relevant. By adhering
+to the EFI spec rigorously, we no longer have to care about who
+implements the opposite side, and how.
+
+So yes, of course there are ways to build the opposite side with BTI
+enabled, in a way that all its constituent pieces keep working as
+expected. A typical EDK2 based implementation of EFI consists of
+50-100 individual PE/COFF executables that all get loaded, relocated
+and started like ordinary user space programs.
+
+What we cannot do, though, is invent our own Linux specific way of
+decorating the kernel's PE/COFF header with an annotation that
+instructs a Linux specific EFI loader when to enable the GP bit for
+the .text pages.
+
+> Possibly some standalone EFI
+> executables are built out of the same tree and shipped with the
+> firmware from the same build, but I'm speculating.  If not, we can just
+> run all EFI executables with BTI off.
+>
+> > > If there's no easy way to do this though, I guess we should wait for /
+> > > push for a PE/COFF flag to describe this properly.
+> > >
+> >
+> > Yeah good point. I will take this to the forum.
+>
+> In the interim, we could set the GP bit in EFI's page tables for the
+> executable code from the firmware image if we want this protection, but
+> turn it off in pages mapping the executable code of EFI executables.
+> This is better than nothing.
+>
+
+We need to distinguish between the EFI stub and the EFI runtime services here.
+
+The EFI stub consists of kernel code that executes in the context of
+the firmware, at which point the loader has no control whatsoever over
+page tables, vector tables, etc. This is the stage where the loading
+and starting of PE/COFF images takes place. If we want to enable BTI
+for code running in this context, we need PE/COFF annotations, as
+discussed above.
+
+The EFI runtime services are firmware code that gets invoked by the OS
+at runtime. Whether or not such code is emitted with BTI annotations
+is a separate matter (but should also be taken to the forum
+nonetheless), and does not need any changes at the PE/COFF level.
+However, for this code, I'd like the sandboxing to be much more
+rigorous than it is today, to the point where the security it provides
+doesn't even matter deeply to the OS itself. (I had some patches a
+while ago that reused the KPTI infrastructure to unmap the entire
+kernel while EFI runtime services are in progress. There was also an
+intern in the team that implemented something similar on top of KVM)
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/5f98c547-1bac-bb05-1c75-cefb8616964a%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXG%2BXh%3Da1exFXuRJ9EYbT%2B0xnC%3DvotGGX1dmzBgZgEaC-w%40mail.gmail.com.
