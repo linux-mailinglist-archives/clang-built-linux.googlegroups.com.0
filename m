@@ -1,145 +1,138 @@
-Return-Path: <clang-built-linux+bncBCIO53XE7YHBBUE5Z33QKGQEAEKTGFI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCINLKMVUUKRBXVTZ33QKGQEZDOLGUY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53a.google.com (mail-pg1-x53a.google.com [IPv6:2607:f8b0:4864:20::53a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 48DAA207A5C
-	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jun 2020 19:35:14 +0200 (CEST)
-Received: by mail-pg1-x53a.google.com with SMTP id z187sf2243257pgd.11
-        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jun 2020 10:35:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1593020113; cv=pass;
+Received: from mail-ot1-x33c.google.com (mail-ot1-x33c.google.com [IPv6:2607:f8b0:4864:20::33c])
+	by mail.lfdr.de (Postfix) with ESMTPS id A027E207B69
+	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jun 2020 20:22:23 +0200 (CEST)
+Received: by mail-ot1-x33c.google.com with SMTP id z16sf1908480otj.11
+        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jun 2020 11:22:23 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1593022942; cv=pass;
         d=google.com; s=arc-20160816;
-        b=n9c0nWDaYLn5HakhvRQtiORDhmzZ05qnLEQTwOWSeGW/wkG9cP6IRItGOnHZSZd0dG
-         Wus1mFx9zeYXladL0Xic0Vz8XHvh3O5ryZwygOkOIQvDcqgdtvU/6vzjxTla8RNxIIOR
-         ukT3qX3npYIutnvzmtN4xHkbrESVnA2+8bzze2363oAZiXW7ReVV8VzvEABZTtLUA2D/
-         ekkjbTD73mzGbq5SJpjS1XgjmEgMr9GH1reFS6B4QCutCRywJnwPVceabN59Ogdl18yt
-         3iiEBBdCJSO6L8D5MH+AzKWXoaXeNYDCXljGSPBhwJR+T8Da5RGclyaXVA5+OB7IGjwL
-         BhAQ==
+        b=cJotDO7RgyWbruj1Wj7nyliuENRMPzDu85yoSuyXGjNPQTFCdWXQaCsD6xwmhkiu5V
+         OmIDgmpmVgt8qZJzYL5yxPAVu3ojJ3WFIHPoDz/YKSiYzusvsjU5Us1WhDCJlxS/OwCI
+         rLLOs6uY+xzSkSgLEzr5kj6pEHxdcEEzRIJSkfoSyV8OeQueAUJid5jSZXUTCXWacIMS
+         2Xz+zLcj/5Q5Cmzr3UpA10+V1MtOr7xbJXubFkXFj/o97Si+FSteLYmsTipnFf8c71aL
+         yaw73uBxxlD4UbRs8fz34Q5+fouyarWSxgVf5e5wzKDgd1iHq3HXOU9O0bPY3XWZp4IE
+         k5zQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:sender
-         :dkim-signature;
-        bh=3+kWkq1Y3OG45P7mPLZFXMFCvNZ8lwEYyWVXxO0bXP0=;
-        b=NzixquItFASShECBvkpXolVKNUuE/pu+cFNWLkOu9g2hrXpDQYrkmcHgSOxN8aPQgz
-         63FeuP9FuLV3B30yyu/NBHAdNtJLqy5hTHtzHNa4xRp5BJVz2a7DfzdXrCj5wTCv3JU1
-         jxWFvoq6O3UBTlWxLiqTt/QJJNcf2+nThh1qSkMj/cCpdlI3pZuPKDNPO+YENaQUAB4a
-         eVioozRZvuIyz2M7VVrzflE+JwYIQhD0jBRCetHZkbBN0qZjSzGYtygdCpU1KwvPQLLs
-         NHdwUrBA/xyuCBHX+B7ahLYZ5K3Sga0nU74W2Mcy841YC4luu5ruwLaNllQwRegE69Bg
-         BwUA==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=xm8UwOcgZ9zOcboFPQvW9Xv9Ipj5pJ7gw4BGSzaSusA=;
+        b=wedPDMR5TbWOByZTtVtWuuyJT+SZwtxb3Q5kdGifeI1jrpkpe8PL31Nrb7d2ueq5ak
+         x3C29kb8OaYcjVoETUjNtbTZz2ZBLC/eoHc8IjQk0WdbWzcO3YR8zitmFq7IrdcU2K2P
+         LRRxzznzDUVBkJ1+E7OptHCR5+QB0d/6pdE6c/X9tc3DbJnBdrZrx04L4ga35IAWFagu
+         AIEhF58BhDEtHAfv57gCHbx8q85SHSiw7VkyXYsSLs1tabkh296nFNzRZiU5K5jbXtBG
+         8qkjaQ4LLVLdas/R1NsDftl0UY8z05cnSEwlbkrwcDtXtoT2dznXJoxNSiXf8uPsFKkG
+         dukQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=GKxzqjwI;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::843 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+       spf=pass (google.com: domain of dennis.dalessandro@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=dennis.dalessandro@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=sender:from:date:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        d=googlegroups.com; s=20161025;
+        h=sender:ironport-sdr:ironport-sdr:subject:to:cc:references:from
+         :message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=3+kWkq1Y3OG45P7mPLZFXMFCvNZ8lwEYyWVXxO0bXP0=;
-        b=LiBQaSwDdlozdqcyCew5HmZsqpTxLXX1w9cd1QhpvJ60/vR0/HRKNh37eaoqGwHWuf
-         bQzoecs08XeuG4mXFwpSvGC0q7Qv3yrelA7PnXZdBwLHPU+DERFYbaXLqR7oWmjr40ec
-         NLgVGr4SE29eEezOSdyY8eZjvZfuWmVoMnzOwA1wGzHckgI8zpWTM3RNXsSi5Dg89QQc
-         RIvrPNgJI0WxlsYls2gxjC9Fb28hZnX/cqdvgfZKYEEIcd7YkjL61X7qs5A5oRnM8una
-         dcpWTCI9kp/ewZ0rwZjXGNykE9FxjQh/s2WS/HHbIoilTKozYwZAdC6sL0+qKfS2IfyE
-         vlew==
+        bh=xm8UwOcgZ9zOcboFPQvW9Xv9Ipj5pJ7gw4BGSzaSusA=;
+        b=kUFPhIRW8vG+eYW4TQUuTnM/Oji6p74sH7r0Jaget0Ndx16PoFvhvRkv4PrD6AiJSH
+         0nj0ExPuXU8XSpMAkrjGFSUGuX35+tMw5BPfj2BWrilG3egStYRGY7bGH3d+cDnHb1tT
+         KtBuGR4eY2NXhQsxiDBUL9FOgsT4Nudl7bcqU3Gn/uMP7GnIa1Rvn054X9H3M3tWXjpI
+         M85X81jRrLXCDG2aNcn0H8SyUxxrV1W3wazY1e85avbHLLXmoGPgU2GN3JK/z5yDb94s
+         xOCKBIQSRkUXPMnHQnWFzzCntL3vJAZuaCnE3bDY+uWMvFNR7DzjuWmFJSthAw5I/ftd
+         IFSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=3+kWkq1Y3OG45P7mPLZFXMFCvNZ8lwEYyWVXxO0bXP0=;
-        b=rIu7hnGSzKMnB9lB6tVhXbebYpeBiYhd/unAZgno69lIQNjwra5UWZL6Cfy98SeK9E
-         T5Rh3Rvh14oJ/O3sZBr6VDRHFrTWUpOEkaXdvw/AiJIcv35LfDsTSYujqyEVGjs37xlt
-         cvkiR1JopR+yCThxj2TY+fWAUcvb8DAfqhY4HkGUdx/J9l0ZJkwAgr5aEWvKOWaxgR1M
-         l7MCVQGaQRO/pQ07zRp28dffpIR+l4OA4/G397ATzc79aMR1rI/gihVBi7uaW2xV/TKD
-         tWkKIZfZXjhurZiPO40TaudkwYZv8EKjP+qADL5SUUHgltDOmZ7hqg2Ikp/67gFVQFP/
-         Vg0g==
-X-Gm-Message-State: AOAM5334r/ki3GSHJmbxTYceq2d4VLkuEYdGTsGA51Okye0HhUbvqlrK
-	EbtKrMbHI/ggZfRh8Pad4qM=
-X-Google-Smtp-Source: ABdhPJwGyspYw+YA+FbC8veiNZCLMcRsN3oPVFJs1FOXTdPRE6q+TWH4xcNjXnJPTxzCkS6tGFrISQ==
-X-Received: by 2002:a17:902:c082:: with SMTP id j2mr28991105pld.70.1593020112950;
-        Wed, 24 Jun 2020 10:35:12 -0700 (PDT)
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:subject:to:cc
+         :references:from:message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=xm8UwOcgZ9zOcboFPQvW9Xv9Ipj5pJ7gw4BGSzaSusA=;
+        b=fGQtuYkWINpjuT9c5xMATYJMIXWWFZd25oT29dwNrDxjrm6Hf2sMe4QtCHC4ya3LpF
+         DNqOi+YGzaJCnoB6cfZNRsWTlNre+JsRiW7sbK4di2LpgNFLA+1C3Cofdc19KpXAIn6/
+         YVnYgBudwGUr7HvYPaXGUS6yxXI277GEN6hLhrUJVDH3u9cLa56+KCJiSRxKm9OuuKdt
+         ulsnEqJujN/UpNAuZ2qCHEieiXvXcjn24gU/2yKm1hDusjBFyGS6Occt3G/J2LxSWK1F
+         PNz2AtMhH8mTOcBVtHdg9vZU9WywH5fj0QBOJxEwvN0fBXOpgIrzBl3ZDo5QeVcuItrX
+         eSYw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM532qVAGFJ+wkYpDalu5mCoXtVkDK34IewYh7yt9eXVkZszxv5sgK
+	sdR5Nx9tIFxf03qwoNk3V3w=
+X-Google-Smtp-Source: ABdhPJySX2XfxXR6gM8anegCE0uqwsu0o01VsPkeZAx5aCwXbCgbutRNePzDgMO2JjSvZ2gdOZzv6A==
+X-Received: by 2002:aca:3050:: with SMTP id w77mr193983oiw.0.1593022942233;
+        Wed, 24 Jun 2020 11:22:22 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:5982:: with SMTP id p2ls1195907pli.4.gmail; Wed, 24
- Jun 2020 10:35:12 -0700 (PDT)
-X-Received: by 2002:a17:90a:db87:: with SMTP id h7mr3302475pjv.159.1593020112438;
-        Wed, 24 Jun 2020 10:35:12 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1593020112; cv=none;
+Received: by 2002:a4a:bd16:: with SMTP id n22ls181629oop.10.gmail; Wed, 24 Jun
+ 2020 11:22:21 -0700 (PDT)
+X-Received: by 2002:a4a:3744:: with SMTP id r65mr11738682oor.82.1593022941814;
+        Wed, 24 Jun 2020 11:22:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593022941; cv=none;
         d=google.com; s=arc-20160816;
-        b=DD6cMk0+0d4H8BujCWohgSrl4cviAC7OcXs9Eb9fymcGv6l1xWmxdovWaFyxDy73SL
-         CmW6barL/Xe5o3G3P+LYPa/eVvo52c1RWU26r9i5TQZDkhmLDWeR+FiMKjmBYCKmPGLM
-         r6JYWIUqxOETgnfcJQa0JiD0BY84lzFJjJdRFb4dz1oUk4mc7Zshv2MluAS26R7JiA0Z
-         Vk4bjr/mTqnwqjTUtJtlwFe2imnpqsYPTe6Onm4QSXERwCcSsVMP0FO1VnlIimFslnWy
-         Eu/VWChZLRJwEEq1nsNuZbXdUgrJRHNd8HfbsL4lskNwBz4I1HZOf3h0WehNhw8id8qk
-         zD2Q==
+        b=VMSHGLhS7vjJ4NLtN66WPACc3r7Pn70StB363rOiMCSro3V0ANbUF9JudFeXpNaBrj
+         1l5Neit1x1qlD5m26pzY5WpAwmJ9XhH1G36WtPjKqM0wrsN0Uy0qmAe+WLvQo3ljhZvG
+         2swSaM0Xj253pA+YZtuP4YJ9XRreIDEzteasQi7R7+4TuVRATYhKmmE8frrNUBLdbSEm
+         daPwfDrRARD/AZHh2muU+wlYjyPTc1Zzgqk6mNGyOXQliyIn6tZ9Vs2Nyn85mAHfIKLN
+         ef9IO/yNlZIUe3RQQ1lPJ5s8IhQMez2u3pY1VW6rGlbLbRIDKfJQ6+klJXWH9b5i4GG0
+         7lFw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:sender:dkim-signature;
-        bh=u71VLQWbO5DL23Y8K+qb6PrSXQwJENiQAs1O7511XBM=;
-        b=ZfHPUfhGixXeLg83+0aOo62gkNb6XUBHj0liGv2YvbRgCKaVB1dH7PNIv6c9PYKQ+u
-         f8SDutDgI1k4G9Ac1fjPpoClrX+G+nnuwHAplmTpZs/0AiHpyWufXtzmdHXmB5nq+0Qo
-         gzXUdRJpxms9Wjvbnhh33PJn93VlPB8JtHXkiXYF0c59NET7LR88zFvJRv44gDG7LIBz
-         f5oJBhc+YAV6edy/R1hwx8FMG6eCUurcVBE4fdsxmSazXrXQLjiC3q+vrGg9TvE0fSHC
-         eu1s+bzYnQe1sonVe0KKLg4P5OoMtEbvznUInREOlUAmp3ASzHg4um0eIUK9TI80UEB6
-         2Smw==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :ironport-sdr:ironport-sdr;
+        bh=gWxxdeFKKAulVzAObtZrsDIaDFXdGnrnCEaRHnabQxs=;
+        b=tgIrKK26qGXqeWW48D99lzjkc0EKlOLPYaugZHyFFe2c7EIuhxptcavwAI8iuw+glz
+         /pLSCrMqakO9MXj0m84j6n+8m3MavRAhqvRIvf8XyMERJCKoEJ6ttaTygMkpOtLrXhJr
+         KHJO11t0JL6v4t3EDLSIbX9Mte8m/CzrK2K9BzfefVJLCni8A14yPW9MQsXYYblg+JO+
+         d6Z5Hrkc87auYeBiNOHlhqcVcfU9DyHD0of4onJ0f3V+vtUAahotWVF2Gw2KJeAgZaQl
+         +olq64cpV9rXKlbk18xcYgrcqhsey0bGEzagPahNYIqb0flsm9MNT6FJhbxyMZ4Rs4Ax
+         TAHA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=GKxzqjwI;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::843 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
-Received: from mail-qt1-x843.google.com (mail-qt1-x843.google.com. [2607:f8b0:4864:20::843])
-        by gmr-mx.google.com with ESMTPS id j3si238404pjy.1.2020.06.24.10.35.12
+       spf=pass (google.com: domain of dennis.dalessandro@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=dennis.dalessandro@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id c26si1468443otn.4.2020.06.24.11.22.21
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 24 Jun 2020 10:35:12 -0700 (PDT)
-Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::843 as permitted sender) client-ip=2607:f8b0:4864:20::843;
-Received: by mail-qt1-x843.google.com with SMTP id u12so2325141qth.12
-        for <clang-built-linux@googlegroups.com>; Wed, 24 Jun 2020 10:35:12 -0700 (PDT)
-X-Received: by 2002:ac8:691:: with SMTP id f17mr7816140qth.60.1593020111983;
-        Wed, 24 Jun 2020 10:35:11 -0700 (PDT)
-Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
-        by smtp.gmail.com with ESMTPSA id c191sm3620105qke.114.2020.06.24.10.35.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jun 2020 10:35:11 -0700 (PDT)
-Sender: Arvind Sankar <niveditas98@gmail.com>
-From: Arvind Sankar <nivedita@alum.mit.edu>
-Date: Wed, 24 Jun 2020 13:35:09 -0400
-To: Fangrui Song <maskray@google.com>
-Cc: Arvind Sankar <nivedita@alum.mit.edu>,
-	Kees Cook <keescook@chromium.org>, Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Peter Collingbourne <pcc@google.com>,
-	James Morse <james.morse@arm.com>, Borislav Petkov <bp@suse.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>, x86@kernel.org,
-	clang-built-linux@googlegroups.com, linux-arch@vger.kernel.org,
-	linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/9] vmlinux.lds.h: Add .symtab, .strtab, and
- .shstrtab to STABS_DEBUG
-Message-ID: <20200624173509.GA1460341@rani.riverdale.lan>
-References: <20200624014940.1204448-1-keescook@chromium.org>
- <20200624014940.1204448-3-keescook@chromium.org>
- <20200624153930.GA1337895@rani.riverdale.lan>
- <20200624161643.73x6navnwryckuit@google.com>
- <20200624171121.GA1377921@rani.riverdale.lan>
- <20200624172620.654hhjetiyzpgoxw@google.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 24 Jun 2020 11:22:21 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dennis.dalessandro@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+IronPort-SDR: bmcAhtKocdbAEOB/411OSfLltfIKXmTDjDXBINmWy4b8rG1/mlIKpvU3PhhmXGQeHXZ7Qb/eft
+ tj2Cf2QcJNUQ==
+X-IronPort-AV: E=McAfee;i="6000,8403,9662"; a="206106233"
+X-IronPort-AV: E=Sophos;i="5.75,276,1589266800"; 
+   d="scan'208";a="206106233"
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jun 2020 11:22:12 -0700
+IronPort-SDR: y8XjN9L8Jlc0bMzZwbEmAZINkkyOuX0uT/0lYOcJzyHC8FVKJZtmplyNK7NDePdZVcRGZMyjKv
+ pR9tQrlvVliw==
+X-IronPort-AV: E=Sophos;i="5.75,276,1589266800"; 
+   d="scan'208";a="452733692"
+Received: from ddalessa-mobl.amr.corp.intel.com (HELO [10.254.202.60]) ([10.254.202.60])
+  by orsmga005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jun 2020 11:22:11 -0700
+Subject: Re: [PATCH] IB/hfi1: Add explicit cast OPA_MTU_8192 to 'enum ib_mtu'
+To: Nathan Chancellor <natechancellor@gmail.com>,
+ Mike Marciniszyn <mike.marciniszyn@intel.com>,
+ Doug Ledford <dledford@redhat.com>, Jason Gunthorpe <jgg@ziepe.ca>
+Cc: linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org,
+ clang-built-linux@googlegroups.com
+References: <20200623005224.492239-1-natechancellor@gmail.com>
+From: Dennis Dalessandro <dennis.dalessandro@intel.com>
+Message-ID: <5f98c547-1bac-bb05-1c75-cefb8616964a@intel.com>
+Date: Wed, 24 Jun 2020 14:22:08 -0400
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.9.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200624172620.654hhjetiyzpgoxw@google.com>
-X-Original-Sender: nivedita@alum.mit.edu
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=GKxzqjwI;       spf=pass
- (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::843
- as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+In-Reply-To: <20200623005224.492239-1-natechancellor@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: dennis.dalessandro@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of dennis.dalessandro@intel.com designates 134.134.136.31
+ as permitted sender) smtp.mailfrom=dennis.dalessandro@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,67 +145,35 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jun 24, 2020 at 10:26:20AM -0700, Fangrui Song wrote:
+On 6/22/2020 8:52 PM, Nathan Chancellor wrote:
+> Clang warns:
 > 
-> On 2020-06-24, Arvind Sankar wrote:
-> >On Wed, Jun 24, 2020 at 09:16:43AM -0700, Fangrui Song wrote:
-> >>
-> >> On 2020-06-24, Arvind Sankar wrote:
-> >> >On Tue, Jun 23, 2020 at 06:49:33PM -0700, Kees Cook wrote:
-> >> >> When linking vmlinux with LLD, the synthetic sections .symtab, .strtab,
-> >> >> and .shstrtab are listed as orphaned. Add them to the STABS_DEBUG section
-> >> >> so there will be no warnings when --orphan-handling=warn is used more
-> >> >> widely. (They are added above comment as it is the more common
-> >> >
-> >> >Nit 1: is "after .comment" better than "above comment"? It's above in the
-> >> >sense of higher file offset, but it's below in readelf output.
-> >>
-> >> I mean this order:)
-> >>
-> >>    .comment
-> >>    .symtab
-> >>    .shstrtab
-> >>    .strtab
-> >>
-> >> This is the case in the absence of a linker script if at least one object file has .comment (mostly for GCC/clang version information) or the linker is LLD which adds a .comment
-> >>
-> >> >Nit 2: These aren't actually debugging sections, no? Is it better to add
-> >> >a new macro for it, and is there any plan to stop LLD from warning about
-> >> >them?
-> >>
-> >> https://reviews.llvm.org/D75149 "[ELF] --orphan-handling=: don't warn/error for unused synthesized sections"
-> >> described that .symtab .shstrtab .strtab are different in GNU ld.
-> >> Since many other GNU ld synthesized sections (.rela.dyn .plt ...) can be renamed or dropped
-> >> via output section descriptions, I don't understand why the 3 sections
-> >> can't be customized.
-> >
-> >So IIUC, lld will now warn about .rela.dyn etc only if they're non-empty?
+> drivers/infiniband/hw/hfi1/qp.c:198:9: warning: implicit conversion from
+> enumeration type 'enum opa_mtu' to different enumeration type 'enum
+> ib_mtu' [-Wenum-conversion]
+>                  mtu = OPA_MTU_8192;
+>                      ~ ^~~~~~~~~~~~
+> 1 warning generated.
 > 
-> HEAD and future 11.0.0 will not warn about unused synthesized sections
-> like .rela.dyn
+> enum opa_mtu extends enum ib_mtu. There are typically two ways to deal
+> with this:
 > 
-> For most synthesized sections, empty = unused.
+> * Remove the expected types and just use 'int' for all parameters and
+>    types.
 > 
-> >>
-> >> I created a feature request: https://sourceware.org/bugzilla/show_bug.cgi?id=26168
-> >> (If this is supported, it is a consistent behavior to warn for orphan
-> >> .symtab/.strtab/.shstrtab
-> >>
-> >> There may be 50% chance that the maintainer decides that "LLD diverges"
-> >> I would disagree: there is no fundamental problems with .symtab/.strtab/.shstrtab which make them special in output section descriptions or orphan handling.)
-> >>
-> >
-> >.shstrtab is a little special in that it can't be discarded if the ELF
-> >file contains any sections at all. But yeah, there's no reason they
-> >can't be renamed or placed in a custom location in the file.
+> * Explicitly cast the enums between each other.
 > 
-> https://sourceware.org/pipermail/binutils/2020-March/000179.html
-> proposes -z nosectionheader. With this option, I believe .shstrtab is
-> not needed. /DISCARD/ : { *(.shstrtab) }  should achieve a similar effect.
+> This driver chooses to do the later so do the same thing here.
+> 
+> Fixes: 6d72344cf6c4 ("IB/ipoib: Increase ipoib Datagram mode MTU's upper limit")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1062
+> Link: https://lore.kernel.org/linux-rdma/20200527040350.GA3118979@ubuntu-s3-xlarge-x86/
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> ---
 
-oh wow.
+Acked-by: Dennis Dalessandro <dennis.dalessandro@intel.com>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200624173509.GA1460341%40rani.riverdale.lan.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/5f98c547-1bac-bb05-1c75-cefb8616964a%40intel.com.
