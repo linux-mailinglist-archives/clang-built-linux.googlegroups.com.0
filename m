@@ -1,139 +1,139 @@
-Return-Path: <clang-built-linux+bncBDV2D5O34IDRBP4D2P3QKGQETVEJH6Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRBO422P3QKGQE465DN6Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ej1-x640.google.com (mail-ej1-x640.google.com [IPv6:2a00:1450:4864:20::640])
-	by mail.lfdr.de (Postfix) with ESMTPS id 238FF20A1D8
-	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jun 2020 17:24:48 +0200 (CEST)
-Received: by mail-ej1-x640.google.com with SMTP id b14sf4863224ejv.14
-        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jun 2020 08:24:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1593098687; cv=pass;
+Received: from mail-pg1-x53a.google.com (mail-pg1-x53a.google.com [IPv6:2607:f8b0:4864:20::53a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 257C620A2B0
+	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jun 2020 18:13:49 +0200 (CEST)
+Received: by mail-pg1-x53a.google.com with SMTP id x184sf4433426pgb.7
+        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jun 2020 09:13:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1593101627; cv=pass;
         d=google.com; s=arc-20160816;
-        b=IB1rKnO8krpsaj24GS6rk+OOp9M4AnXzLLAl8Jl3Z9CRu5I3Cumm6aSjQpDiUagDYR
-         to8236BoyXc+QZ0mNe9EX+/vFzcRSVjNaAFg7DXCjy88LFro68N/bN0xh8sS3opjsWMZ
-         q5fwvw4/Vkxj5W2HvrMrCrarW1LtrRuR+TSFJ/HvL/zA3Pkoxm+kbua7FSkMdXEHgbeS
-         zRDGrh2gkxc5Q/hzQhOE7A22O7xLw6jX5628VpZDiLw6tMKPMFEVti+Nii4DrjlVgNGn
-         fvXxRE39a4nrSoCCz1nrh/ZnywngnkIBFiv/oFzxP+LEYBNKMA78Ow5yl5jBme7LtfjQ
-         qfvw==
+        b=S7pL+GWwQY4jSCcokHW9CQhxnSpYLBXpfDnygdZ5PpFDL2QnpUvzV/VnHfG9bG1Bwp
+         Ue6cCjQ2GqIjJC/Z+Nmkz1HWFsbgcRn9gGUSENcdvnWTlykwgiw5vQ7JgjDigbHrCbv8
+         fq/AwdcR4enQSj0LeCTBoQSYyjOjXXvzDGhmSQBvZZ4UR0paGiczvT8wuhC7UZX7EW2C
+         K9DMoD2nISH5FfnDqwfufvJ03bmjVWaONwsB1qabtOQNs9NdC2b9KANBcVSjrS/Lum8X
+         81mGFj90XD2Aa+LF+Ff2RsSxLDVXZG7sj7wMl9UNmgTl0WxEgSY8gD3DA0REJJ8feFV9
+         ijJA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :content-language:in-reply-to:mime-version:user-agent:date
-         :message-id:from:references:cc:to:subject:sender:dkim-signature;
-        bh=QBDapGTCDBGB0UvuvuxIL2qgtRmC4C3taXt/0XMkO4c=;
-        b=AMARGy5C9vJ9gh9WcYZwAajBy7xbQFLg77bEeW5O9VZaMUeuRTE/4H/6XUG73Qy9Gb
-         bhjYw7BjczWbNFhuXZni7kumyZzNep6did0xbeNVHyMu9z+riqcZvOpOiGDGi+jlMgWx
-         OfA8LMTjf+GkKaJGow/Hz3GwnmHApZ7AOeSfd1lkgUzj4iZWnqfqGhWuYL/rgy6A0fKi
-         nV+pWFrY29NeEaKAV41Ingnr+zDXtQUeG+AgMRsqiCkN+/fxn03WShWyWVU80Hx2ipfp
-         bn0Ot1bttTOYFWUhjycLEX2o1deEyj+uDA2FFhzv12w93cTQ3CskykN2f2XjQ3Q9UroD
-         YhjA==
+         :list-id:mailing-list:precedence:reply-to:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=biGA60CZTM+I6N1aN9glvmrB11C5eMY+F8u3cCaV4yE=;
+        b=RnfZyISi1V3nRzZ8frWkFN+mRKNWkCshbRcO9ClmOxwZOQDSnTOjxDwAQ58mjfDGJp
+         Dyu8fsArZy8NIN5oUM0GiLPHcBbKkctHJ/TzeDFp1v6FRUnODOpyPhjimoeRyg5XHikr
+         KJu2uL8Ha5DRCI88nuQdg/Utu2X0jNY4iZTHYHrpEGBt1jdyUF51IHVeet12UfOSxwJj
+         3nEAhOV3L3LhTD0QOgkVqGusWVUAxEbyt47dHQy45QiSXjZra7xMQgP5BUkdK2Yn5Mpe
+         QvLTKx0jxfMJcCAuBDk5d0rfjoBMpoox7dN/JbSSJ+JSzsuXQ4wfcM2nazMs9OLNjEIE
+         vChA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=eSELIPPN;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b="FNy/7DFb";
+       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=QBDapGTCDBGB0UvuvuxIL2qgtRmC4C3taXt/0XMkO4c=;
-        b=DLVX2ZKpj3ROvKOgAvF5TKOddZqYySI5Qew3K5yXWG9ENjvABGw6VGaX2wEYnOfXjH
-         PQeaGpiXDcdC+37rdSYoMMwiOxZYx0RYqaIdsC8iJhxbmsWzdvxPf4RpTOJKUG7Lk5dE
-         YfMFELQ8ImExDtoAVrIC7j5ernLCu6CuW3JH6Re5crJffmKuRclxQL0vD2qZKDush9vR
-         EXYmmJrP8QbCU40wSjh12yciTnChQ8MpognSBCjkY4t+nfLdErqd/qgD+pyoGDvNB0Eb
-         NXMSAIegcEDkKjZArUOYce40EgE7q/bb8Iy9BnKDreQGG3G05+FUswXdLg7ebU0qjtms
-         AIGg==
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=biGA60CZTM+I6N1aN9glvmrB11C5eMY+F8u3cCaV4yE=;
+        b=ilMT6dWOyRbjE3PqcTRrnA+j1vTNLD6WkHnhVW4Yn5SaYmZ0Wt4uKYNa1iZuKodsyK
+         vOZ5/w3bqhDm5NjRql2Be4ZNt8XFcUgbb8bExCC/rX9hAl50c5DMwAyZ+ZjJo1mLjaJi
+         gRV2yJI3G0iuwKh1d1dx2wMFxK85p6tRmfoPhHUo6LnIDFjxC3rrjhXXrlx4lph5i1IE
+         LfGIN2C0e1UOyLFEwXg7UfJ+td+dPFSi0+symKBRljoe7IXVX2G4nhvNGb2mli+X1En3
+         CghJ4jMsczVDvvAiDa3PJ3+ozx99tTWI/H0rmP45fmBA9eLRxl22uT0T3N1UzkIfSICQ
+         9ARQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QBDapGTCDBGB0UvuvuxIL2qgtRmC4C3taXt/0XMkO4c=;
-        b=e9t/fzI+rrI6/qrcz0Zp3ZfEJ4zgolE8rf9zP4lQLY/Y6cIm7JmMiJrYbudVGh7LxM
-         gZwYlZV2RPdY3CY8yfjtPU9GFW0STEHGEBw+NlBNCPadBGSSo7D8KwVAbuRFOWIa94t/
-         u/P2ktSEmz1vqv/pIQG8GvtPX35O2KZMKOdULarYetAH0Xuz6xpzIsaHqzQTayEIYNB0
-         x0W8KvoQtmxDdQPvM8LTXqEisD3xXIZIvyQ501YYn/PnDVoDa445a/qtVMN1vuQFuhsc
-         gbvcW7MBSFdPzOOAsuIafP3xwgWdLmht6IRlzbWJWmxvdsfAlpyRWe+fxikgUxQ+hFT0
-         uDaw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530+MaqCUpfSZn4mcc7kmDB5yvBzmLNpS1QH/E3paP1OU8jrk3nR
-	YQvmT9NIR7AtU61R+tISkHY=
-X-Google-Smtp-Source: ABdhPJwd2m6OExz4s7fQqEdTh7+CXaZn1aSq2BbomKWN18yZDht93aR8Egsq6ciLYi9jJnukUnc31g==
-X-Received: by 2002:a17:906:3945:: with SMTP id g5mr21743004eje.549.1593098687815;
-        Thu, 25 Jun 2020 08:24:47 -0700 (PDT)
+        bh=biGA60CZTM+I6N1aN9glvmrB11C5eMY+F8u3cCaV4yE=;
+        b=V/LEspy6wn1Fi+ZSRJnU9rcDDLPp7kM+EGops/aU4QxgHMS/Krn30sgk9imPDbgVLv
+         v17OimPopdluxU1SaWSR2VryiqxVYqzt5pU9246aafTQD17yDawNOSo3bKitW4vNUQi3
+         sBjxKxRZ8Wdf7Er8yI7Ez/KblphgqI73kYCM1v+ZGuXJRpJMM+UAvjKjuJEEUCNbXWvV
+         /eHAirIq5Kg6Zq7hrorQp0CGFrgLdOwUsT4KI1R0YXcdmRLAxhuUur9zzqPptBv/cxG9
+         ErpgjRNHAWHvuK7FNzhedNpfzmZcPj+T0HMCpdCFqefAjIuWqiVxRvEUZCtt54nAgLLM
+         XRaQ==
+X-Gm-Message-State: AOAM531/DyjMMILINWU9HdibByAno/5Ny/ziMThu2FyDGU8G1IDxHIhp
+	q6bP5ByD6yRI1Y1T1z6a4gs=
+X-Google-Smtp-Source: ABdhPJwSv7p0wJBOuqNE7RocXMxHHraXbXcKNW/D1I3p5SlMal/aXWVfK8IRrIE78S41KZT2UyJHew==
+X-Received: by 2002:a63:8f46:: with SMTP id r6mr27529554pgn.257.1593101627546;
+        Thu, 25 Jun 2020 09:13:47 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:1b1b:: with SMTP id o27ls351521ejg.3.gmail; Thu, 25
- Jun 2020 08:24:47 -0700 (PDT)
-X-Received: by 2002:a17:906:40d6:: with SMTP id a22mr21421627ejk.133.1593098687295;
-        Thu, 25 Jun 2020 08:24:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1593098687; cv=none;
+Received: by 2002:a17:90a:7143:: with SMTP id g3ls2723445pjs.1.gmail; Thu, 25
+ Jun 2020 09:13:47 -0700 (PDT)
+X-Received: by 2002:a17:90a:ef8b:: with SMTP id m11mr4134359pjy.143.1593101627029;
+        Thu, 25 Jun 2020 09:13:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593101627; cv=none;
         d=google.com; s=arc-20160816;
-        b=lYPJDExQSZR4fJxgIoB9VtjeqZJA7QyIlZ/hmCuzQdesQQFgYS3n8VGXfuCAKMQl+s
-         r8kLW5R/DyoCtmLqcDtPl1qxYFA33WH37yfPU4Fzemg2i1DKx2ze37VgC0JnUrWvww7L
-         YscBR/zM8M/CrhPcNPICHG3NUxGpm8C98umaUyUxLsotShET1vMsESs+6R0rJA07CJ1R
-         z/OWCZUUpApXVeT4etAcOJ9ablOKoWeghAVxjFAfzpeS99vAeyjiMacST5U+IHJI3LPc
-         /DJQfCaGyn+hTH+kKtWPxYhpVhbcpjoxhFsoh8PcmV7fqSMgZiBU7PkS8kIOvsXmQ9eL
-         ni9w==
+        b=s8eUStwg/l5LRtz1vH9rclrKnh31ggZiqI4sdB90i7NaIsvhIom/LWy23LgqSPDkJA
+         L2pWYcKEM69NQFDBx1xMCE6zFxEMnq1h2XUYOCcEy88/W1CSxwgXAbnNGFSHHvKH8FwU
+         0C7mmMUCBU2U/S+nszp7en34Xe/vILL4BtFKjc6ymOO5rVP/ibiEsXXDL9CeP5XbLOEo
+         w1AZ/iog4JiUFmpu5v8niGH04ijYp7/Exry6CZa4GWhBbQ35Naa97Jl3Ey5VTWLqofDd
+         hIg2odnU0Ov08GBQH8wSBQSkIALuOJH47b2QpdsJ9xdXHw1KnoU7R6mzerQH/3N2+FKW
+         HSKw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=a41XB4ki3PuYJQxiFFnzrHyY1AyEU1gPv8dZhWlqlVY=;
-        b=QIaKi/bQua6KQ+7COWc3sl7H1jRZ9Y613SkavgsfYDKgvVjaGmCvrjoXlcKNw8bTzw
-         V8HJkc3FmbQ/bwJJiQHjWgK4hi6mI332wQAR9ejGUt0pKWemdrdyyL/M9bH1Vfkc1vKV
-         dbOYDhJhNhGU81X3g3qX9aQhAFqlnwn5P7CUMkAqGoE66B2rtEZvHupdRTCSNZGiq5vk
-         uthYnhi/UM584zq5BGk8O3p2tP0J2jG4vECWFFUdjAguYsz+s1TIlOAhoE7Uyov4BImv
-         6GGSFjLoLalk0R5hlaNh9oEXznTmlXtjAvM3e0X8VXzLPQQhIFDnv8qEqDbJHTiXYcU3
-         iCLA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=tN3RRFkW8H40rA8SGu1JDOigZLSzT5qVO0+D16XtuLc=;
+        b=ilpC/zqBbhv6dRelIXFm/Cvb5QWdABTJC8gnM2pjQrO7SWa55nXi38NGHr5eBizZ6U
+         ZyJz6oDwe1arBJAvESDfeOPgvql6L/gDSEe1VlP75qvII5zf98qBvFny78qpI/ovo82R
+         6eMg2ohwNu72rlkVNiflN51+Vkz3zwXzZHZepDg3Y+kBHGKn0wfexWnn7KWj9tH8O+Qk
+         TueSMP3yAonEEoaFEJwdFl4vcmRRcF+xMja0IrQm8u0u/b1w1qcitkawNmIN9ghE3IfA
+         oP5hlbE/uz5H1D0pwrcKfnRZnt9+psSGg2J+IzbIG8PK3F1vkQze9TIlDYwODUID0D16
+         eKUA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=eSELIPPN;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
-Received: from merlin.infradead.org (merlin.infradead.org. [2001:8b0:10b:1231::1])
-        by gmr-mx.google.com with ESMTPS id v16si158722eda.5.2020.06.25.08.24.47
+       dkim=pass header.i=@google.com header.s=20161025 header.b="FNy/7DFb";
+       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pl1-x644.google.com (mail-pl1-x644.google.com. [2607:f8b0:4864:20::644])
+        by gmr-mx.google.com with ESMTPS id q13si98585pfc.6.2020.06.25.09.13.47
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 25 Jun 2020 09:13:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::644 as permitted sender) client-ip=2607:f8b0:4864:20::644;
+Received: by mail-pl1-x644.google.com with SMTP id j4so2993482plk.3
+        for <clang-built-linux@googlegroups.com>; Thu, 25 Jun 2020 09:13:47 -0700 (PDT)
+X-Received: by 2002:a17:90a:7c4e:: with SMTP id e14mr4310401pjl.52.1593101626297;
+        Thu, 25 Jun 2020 09:13:46 -0700 (PDT)
+Received: from google.com ([2620:15c:201:2:ce90:ab18:83b0:619])
+        by smtp.gmail.com with ESMTPSA id v7sm22710119pfn.147.2020.06.25.09.13.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 25 Jun 2020 08:24:47 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) client-ip=2001:8b0:10b:1231::1;
-Received: from [2601:1c0:6280:3f0::19c2]
-	by merlin.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1joTk4-0003Hw-5Y; Thu, 25 Jun 2020 15:24:44 +0000
-Subject: Re: [PATCH drivers/misc 0/4] lkdtm: Various clean ups
-To: Richard Weinberger <richard@nod.at>, Kees Cook <keescook@chromium.org>
-Cc: Richard Weinberger <richard.weinberger@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Prasad Sodagudi <psodagud@codeaurora.org>,
- Sami Tolvanen <samitolvanen@google.com>,
- Amit Daniel Kachhap <amit.kachhap@arm.com>,
- linux-kselftest <linux-kselftest@vger.kernel.org>,
- clang-built-linux <clang-built-linux@googlegroups.com>,
- linux-kernel <linux-kernel@vger.kernel.org>
-References: <20200529200347.2464284-1-keescook@chromium.org>
- <202006241335.2C0FB5DF90@keescook>
- <b97853f0-c4be-7039-1d4c-96b3ab802472@infradead.org>
- <CAFLxGvxiyyX9s=y4phGxvWh-vonS1WPOUbRZr9mgq-B+wY+2nQ@mail.gmail.com>
- <10f7c20a-0a32-f5cf-7fdf-761db22afcd9@infradead.org>
- <03486f13-b138-2fc6-4d90-2737d86add2f@infradead.org>
- <80f501f4-d4fb-1f22-5603-57b5490a695d@infradead.org>
- <202006242300.145D555@keescook>
- <1916262186.58280.1593066248850.JavaMail.zimbra@nod.at>
-From: Randy Dunlap <rdunlap@infradead.org>
-Message-ID: <65cfbfa8-bbfe-e0d3-0255-cd3550ff09c8@infradead.org>
-Date: Thu, 25 Jun 2020 08:24:38 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.9.0
+        Thu, 25 Jun 2020 09:13:45 -0700 (PDT)
+Date: Thu, 25 Jun 2020 09:13:39 -0700
+From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Masahiro Yamada <masahiroy@kernel.org>, Will Deacon <will@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Kees Cook <keescook@chromium.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux@googlegroups.com,
+	kernel-hardening@lists.openwall.com, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH 02/22] kbuild: add support for Clang LTO
+Message-ID: <20200625161339.GA173089@google.com>
+References: <20200624203200.78870-1-samitolvanen@google.com>
+ <20200624203200.78870-3-samitolvanen@google.com>
+ <20200625022647.GB2871607@ubuntu-n2-xlarge-x86>
 MIME-Version: 1.0
-In-Reply-To: <1916262186.58280.1593066248850.JavaMail.zimbra@nod.at>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: rdunlap@infradead.org
+Content-Disposition: inline
+In-Reply-To: <20200625022647.GB2871607@ubuntu-n2-xlarge-x86>
+X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=merlin.20170209 header.b=eSELIPPN;
-       spf=pass (google.com: best guess record for domain of
- rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+ header.i=@google.com header.s=20161025 header.b="FNy/7DFb";       spf=pass
+ (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::644
+ as permitted sender) smtp.mailfrom=samitolvanen@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Sami Tolvanen <samitolvanen@google.com>
+Reply-To: Sami Tolvanen <samitolvanen@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,44 +146,153 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 6/24/20 11:24 PM, Richard Weinberger wrote:
-> ----- Urspr=C3=BCngliche Mail -----
->> Von: "Kees Cook" <keescook@chromium.org>
->> An: "Randy Dunlap" <rdunlap@infradead.org>
->> CC: "Richard Weinberger" <richard.weinberger@gmail.com>, "richard" <rich=
-ard@nod.at>, "Greg Kroah-Hartman"
->> <gregkh@linuxfoundation.org>, "Prasad Sodagudi" <psodagud@codeaurora.org=
->, "Sami Tolvanen" <samitolvanen@google.com>,
->> "Amit Daniel Kachhap" <amit.kachhap@arm.com>, "linux-kselftest" <linux-k=
-selftest@vger.kernel.org>, "clang-built-linux"
->> <clang-built-linux@googlegroups.com>, "linux-kernel" <linux-kernel@vger.=
-kernel.org>
->> Gesendet: Donnerstag, 25. Juni 2020 08:06:18
->> Betreff: Re: [PATCH drivers/misc 0/4] lkdtm: Various clean ups
->=20
->> On Wed, Jun 24, 2020 at 06:45:47PM -0700, Randy Dunlap wrote:
->>> Looks like lkdtm/bugs.c needs to get/use arch/x86/include/asm/processor=
-.h
->>> but it actually uses arch/x86/um/asm/processor*.h, which does not have =
-the
->>> needed structs etc.
->>
->> Should I just test for !UML in bugs.c? (This is all for the
->> lkdtm_DOUBLE_FAULT() test.) I already do those kinds of checks for the
->> lkdtm_UNSET_SMEP() test. e.g.:
->=20
-> Just had a look. Yes, this sounds good to me. UML has CONFIG_X86_32=3Dy b=
-ut no GDT. :-)
+On Wed, Jun 24, 2020 at 07:26:47PM -0700, Nathan Chancellor wrote:
+> Hi Sami,
+> 
+> On Wed, Jun 24, 2020 at 01:31:40PM -0700, 'Sami Tolvanen' via Clang Built Linux wrote:
+> > This change adds build system support for Clang's Link Time
+> > Optimization (LTO). With -flto, instead of ELF object files, Clang
+> > produces LLVM bitcode, which is compiled into native code at link
+> > time, allowing the final binary to be optimized globally. For more
+> > details, see:
+> > 
+> >   https://llvm.org/docs/LinkTimeOptimization.html
+> > 
+> > The Kconfig option CONFIG_LTO_CLANG is implemented as a choice,
+> > which defaults to LTO being disabled. To use LTO, the architecture
+> > must select ARCH_SUPPORTS_LTO_CLANG and support:
+> > 
+> >   - compiling with Clang,
+> >   - compiling inline assembly with Clang's integrated assembler,
+> >   - and linking with LLD.
+> > 
+> > While using full LTO results in the best runtime performance, the
+> > compilation is not scalable in time or memory. CONFIG_THINLTO
+> > enables ThinLTO, which allows parallel optimization and faster
+> > incremental builds. ThinLTO is used by default if the architecture
+> > also selects ARCH_SUPPORTS_THINLTO:
+> > 
+> >   https://clang.llvm.org/docs/ThinLTO.html
+> > 
+> > To enable LTO, LLVM tools must be used to handle bitcode files. The
+> > easiest way is to pass the LLVM=1 option to make:
+> > 
+> >   $ make LLVM=1 defconfig
+> >   $ scripts/config -e LTO_CLANG
+> >   $ make LLVM=1
+> > 
+> > Alternatively, at least the following LLVM tools must be used:
+> > 
+> >   CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm
+> > 
+> > To prepare for LTO support with other compilers, common parts are
+> > gated behind the CONFIG_LTO option, and LTO can be disabled for
+> > specific files by filtering out CC_FLAGS_LTO.
+> > 
+> > Note that support for DYNAMIC_FTRACE and MODVERSIONS are added in
+> > follow-up patches.
+> > 
+> > Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+> > ---
+> >  Makefile                          | 16 ++++++++
+> >  arch/Kconfig                      | 66 +++++++++++++++++++++++++++++++
+> >  include/asm-generic/vmlinux.lds.h | 11 ++++--
+> >  scripts/Makefile.build            |  9 ++++-
+> >  scripts/Makefile.modfinal         |  9 ++++-
+> >  scripts/Makefile.modpost          | 24 ++++++++++-
+> >  scripts/link-vmlinux.sh           | 32 +++++++++++----
+> >  7 files changed, 151 insertions(+), 16 deletions(-)
+> > 
+> > diff --git a/Makefile b/Makefile
+> > index ac2c61c37a73..0c7fe6fb2143 100644
+> > --- a/Makefile
+> > +++ b/Makefile
+> > @@ -886,6 +886,22 @@ KBUILD_CFLAGS	+= $(CC_FLAGS_SCS)
+> >  export CC_FLAGS_SCS
+> >  endif
+> >  
+> > +ifdef CONFIG_LTO_CLANG
+> > +ifdef CONFIG_THINLTO
+> > +CC_FLAGS_LTO_CLANG := -flto=thin $(call cc-option, -fsplit-lto-unit)
+> > +KBUILD_LDFLAGS	+= --thinlto-cache-dir=.thinlto-cache
+> > +else
+> > +CC_FLAGS_LTO_CLANG := -flto
+> > +endif
+> > +CC_FLAGS_LTO_CLANG += -fvisibility=default
+> > +endif
+> > +
+> > +ifdef CONFIG_LTO
+> > +CC_FLAGS_LTO	:= $(CC_FLAGS_LTO_CLANG)
+> > +KBUILD_CFLAGS	+= $(CC_FLAGS_LTO)
+> > +export CC_FLAGS_LTO
+> > +endif
+> > +
+> >  # arch Makefile may override CC so keep this after arch Makefile is included
+> >  NOSTDINC_FLAGS += -nostdinc -isystem $(shell $(CC) -print-file-name=include)
+> >  
+> > diff --git a/arch/Kconfig b/arch/Kconfig
+> > index 8cc35dc556c7..e00b122293f8 100644
+> > --- a/arch/Kconfig
+> > +++ b/arch/Kconfig
+> > @@ -552,6 +552,72 @@ config SHADOW_CALL_STACK
+> >  	  reading and writing arbitrary memory may be able to locate them
+> >  	  and hijack control flow by modifying the stacks.
+> >  
+> > +config LTO
+> > +	bool
+> > +
+> > +config ARCH_SUPPORTS_LTO_CLANG
+> > +	bool
+> > +	help
+> > +	  An architecture should select this option if it supports:
+> > +	  - compiling with Clang,
+> > +	  - compiling inline assembly with Clang's integrated assembler,
+> > +	  - and linking with LLD.
+> > +
+> > +config ARCH_SUPPORTS_THINLTO
+> > +	bool
+> > +	help
+> > +	  An architecture should select this option if it supports Clang's
+> > +	  ThinLTO.
+> > +
+> > +config THINLTO
+> > +	bool "Clang ThinLTO"
+> > +	depends on LTO_CLANG && ARCH_SUPPORTS_THINLTO
+> > +	default y
+> > +	help
+> > +	  This option enables Clang's ThinLTO, which allows for parallel
+> > +	  optimization and faster incremental compiles. More information
+> > +	  can be found from Clang's documentation:
+> > +
+> > +	    https://clang.llvm.org/docs/ThinLTO.html
+> > +
+> > +choice
+> > +	prompt "Link Time Optimization (LTO)"
+> > +	default LTO_NONE
+> > +	help
+> > +	  This option enables Link Time Optimization (LTO), which allows the
+> > +	  compiler to optimize binaries globally.
+> > +
+> > +	  If unsure, select LTO_NONE.
+> > +
+> > +config LTO_NONE
+> > +	bool "None"
+> > +
+> > +config LTO_CLANG
+> > +	bool "Clang's Link Time Optimization (EXPERIMENTAL)"
+> > +	depends on CC_IS_CLANG && CLANG_VERSION >= 110000 && LD_IS_LLD
+> 
+> I am curious, what is the reason for gating this at clang 11.0.0?
+> 
+> Presumably this? https://github.com/ClangBuiltLinux/linux/issues/510
+> 
+> It might be nice to notate this so that we do not have to wonder :)
 
-Sounds good to me also. Thanks.
+Yes, that's the reason. I'll add a note about it. Thanks!
 
---=20
-~Randy
+Sami
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/65cfbfa8-bbfe-e0d3-0255-cd3550ff09c8%40infradead.org.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200625161339.GA173089%40google.com.
