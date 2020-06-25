@@ -1,139 +1,144 @@
-Return-Path: <clang-built-linux+bncBDV2D5O34IDRBVED2D3QKGQEHBLDRYY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBZUU2D3QKGQE3WTE4EQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf37.google.com (mail-qv1-xf37.google.com [IPv6:2607:f8b0:4864:20::f37])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0F73A209848
-	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jun 2020 03:45:58 +0200 (CEST)
-Received: by mail-qv1-xf37.google.com with SMTP id q5sf2988272qvq.18
-        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jun 2020 18:45:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1593049557; cv=pass;
+Received: from mail-yb1-xb3b.google.com (mail-yb1-xb3b.google.com [IPv6:2607:f8b0:4864:20::b3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 06BE9209870
+	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jun 2020 04:22:32 +0200 (CEST)
+Received: by mail-yb1-xb3b.google.com with SMTP id f130sf4374422yba.9
+        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jun 2020 19:22:31 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1593051751; cv=pass;
         d=google.com; s=arc-20160816;
-        b=pzsw+x2rqi9bWraFeGb/avkK/Syixl7Mwdx8yoAvEzMPg0EyKLPNBdvn0erW8fO0+w
-         WIYmEb7ITfX2aXsmDSkNib/bGrQmJGLi83FTx1HTlbtW4TTg47PD9kPPSjhMr7JZY92C
-         Hh5szQTTEqk4i7Stz6PWR9QKrGlya32SCS2oXqlMhDGYRrrHo6WAOqlA5qD4at4r0U6/
-         tlF52/bGmfxZ0VGAny6eP1wZzkRzE2y4Zd6/937mStWxFDy/3JCtOwpc96oNyAXaAbaa
-         C0lv6btY48HvXcTbISsME1dAqktA+fuTau7yXmoRITxWFTTwJHy5+jQPuLlMwNQQcv36
-         rLmA==
+        b=Pto27zs3YLJxPbst4HzWxVqsQU6T33u0pag1A2ZMSzPTuoNjrk9RaAvByidnBgJp81
+         fxJsFVUHEEgDg/Q+sjMYqDLHPeCd8ErvnSuZVip+QXTQqbF1UdfrC2lCQNBOXJWPFU2c
+         17EtZBrdT9asEtCi+nmsIdq6B8KWQnEIgvAILvxawLg2k9ADdM/AKZcfzzpOe6hj3DKs
+         ovmSildkCO8GZuRdv2pBUmz5CLkuqtHkXpofrS05f4PQW3T1Qxhd9s6VhtaSGIquqpCq
+         L5a0RXI6C2YxT2uFouzOR7fuHTDo09Aa1yZ4om0zeBxufGWXgdTHMO4Dpg6Xo7R048IO
+         jNuw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :content-language:in-reply-to:mime-version:user-agent:date
-         :message-id:references:cc:to:from:subject:sender:dkim-signature;
-        bh=pGe5KMDNTNCxqsyC4qL2pDy3dtoYQZOrQVXjIfF26uM=;
-        b=o8vMN4DOON42d75zVFelXAk/NKdCUY8liJzOoCPTEWssprlkmz3IfOUwSUtSDk6DjP
-         ik/qseCfSIU7xT+Ycey25eh7VkkWWTeOUiPA5anVHU19oq7gb+QZ2QGqiRXc6H/g4e1g
-         jgiwWH93onIpFX2guMfp8maQBDftlfVBQcYkl1qhl18G6UlIQGguCATLoC/p8Wa8cOeH
-         B3yB4Gq18BbcTWf22RgKq3tzCGGgknkKbDsWrTCh8Aaf0qpv5v7X9UFnabO0nRVJ814q
-         pOM1HHOaTG359WDsGBOZBjOtVsgm4oQFbzBeOVLdwmHe+wD7Yi08YhiCwUhZ8x2TMcF2
-         +mjQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature:dkim-signature;
+        bh=wxICbLRZyJiCmiMAmZjsURIgxWHTlLwxK4tDmG/ajSk=;
+        b=F7WOKp7D7K2ebHQCL7FKzwNnIfrqz64hn7kXmKYJQ2I7S5QhG46KFLiTgc8hFTn5q2
+         b7zxksedfIbCpTk3TEPqaQrOtUhPfrd0CM2orDva22dp7FBBIF9AFrUMWxMw5kmXy8Z+
+         kXrug0mNeEqy3552QIxLotgEwGN7alVi20anhWYCovmEM0/jKvffGKNQ2DxalPPu7DH3
+         R9GHp6WzIIRoP09mYaOl5NQQ2/qor2rRvGN4Y9tnWol50tdtevYNrwdOclAEOOQkq23y
+         NRxe5NTFE9cA/tTFp9oJVaY5/RkbHLQP+3DRbfIlawCIDy+JMIpjMAYLU+oJ9U/EQB6b
+         beKQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=cXl7H9JB;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=PzlzzsXi;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:from:to:cc:references:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=pGe5KMDNTNCxqsyC4qL2pDy3dtoYQZOrQVXjIfF26uM=;
-        b=U+iCDMDWBbrGyAfTACxaVoIlZZv/NZREodYiz0AWYk8RIv0Hs67AWlTtzzI9HTzDfO
-         9NJhLr6E8Ul8G+wqs7rrnxCtwfLye8Ci/5jC2vkA/9fJfLPbqeydGs9NwkSfGHksg7mR
-         vttR+8qKymtjOYxRt6bQjQFuAgNKv4Ebhz3BKucRFJp0m6NSJeJZ5gbcY++PAMlNz+Ft
-         Uq5Jbz61WllBPZv6KGylexe5fpucbxU2vHFkWvSu0hzQuxrnD8XV5v7pVzWlDy1LBkC6
-         yragaGOt9OAMQtE9ctViDg+lId8JLdEEq39Jge6Jmz6HKF1R/FqAx7XLbBzVyVq3bFuC
-         DHZQ==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=wxICbLRZyJiCmiMAmZjsURIgxWHTlLwxK4tDmG/ajSk=;
+        b=ZOKTv6f5fklBHdu5NMI8WMDOkupDq+RPnVd7sKD163rXdxWPPTU+FVJYnKwlnefdIl
+         ZuF7CjUXRt9yec9pblhI8yO1gcpEBGrfIhHcbfBUMakkRpeHAFWxo5/o2DcPcGSFpUH3
+         39osG78XRs8451Q8Oe/sXYn2dh6ZPkKoGS9FqnOoOJGFRkqv4qXyGaaRvk3vYkKgresO
+         CGUIWEioetShqG1gt7HTlaDGMs/Hto67HQdyQxH5F1ZGBdZihum9Yhr2yvwk5ZfPeD3a
+         uqyx7uEJuJ/28QRJ+TsNpFBMMyCGGUIthMFmRfIWGqEeyHSvhHBBd/rN+vstsKWuCwvz
+         GaeQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=wxICbLRZyJiCmiMAmZjsURIgxWHTlLwxK4tDmG/ajSk=;
+        b=l/DblILdBAjVwRs1oyHc2W+pB1t0pnlziTlIitQ3Z0Taf8lrUm4IfXsisA5+kV3EIx
+         1iRE9ifTwk+aLYm8kXtvrAHD/4eL9mUT8vwAo3N48pJRlj3W0yjcO2et5W7WNtEtxw/5
+         vz/aIC9rnLNT4KBF3pQv/qx4CbbvwgTffpC6aVs9UCcLfJtAic8LInHxPYFBGp3xiGkF
+         riKXl5WUC6usY5vrW6vC2uonqA8WsnjtuJYlxDeMR4nJtkX91L9j+f76r/As8PakGB/e
+         1Or58qwGlAA5oqVcJksSZgAuJ6pBaLgTYGlQzsReMHfX3J9mcsd7Zon0Hw4cQU0yM6QG
+         TqEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:from:to:cc:references:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=pGe5KMDNTNCxqsyC4qL2pDy3dtoYQZOrQVXjIfF26uM=;
-        b=GIK+oRXs2vM+ZAK+kCg+kPfFtiZM87tplQbaYCt1FA/4ng99iwKfz+o4VY3PwM55Al
-         TQ0REfV0UJZ/p8EftgNDiL9Qk3hnLHHmxSuW8fL+eAiB/vbA2P9uxxUQ006xrRQYnckl
-         kvNEMvcoA/Ee8zqyq+fPdnMU33uwWIbMLn0t20FXmqlvBFtUyVtUBNL5slwQoKgPl7n2
-         uGdfqg5OZUGPcNj5HGi9jvGDexaTA13iYN0V/tetwbRzx9YcTYxi5fnJ9LqOmm4b43Cr
-         MaJqrS925aTOccWIkytLXAWdkyMvUknRDxMnpZmSt3G01GhQ/fkcmtqrjGoO+8YKG4vq
-         VYbQ==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=wxICbLRZyJiCmiMAmZjsURIgxWHTlLwxK4tDmG/ajSk=;
+        b=GUMbwMVMfEMonGKrNjnASdNYI8tjF+E3EmkdXk0cWAToBAwd9bFBp3KffqWd4AaQem
+         ytZJ7yUCP1IdgXAa5glp75UlA11a3vxP8fb7qiEwMsRnh3s5ia0bseemuBQ2BXPu57Ti
+         iZH7DiFlz0COMkVAGGrVz2oO0rJZ54DA6BwEI3g2E+6oLDP6xAaLv9pB9WD9nOrYJMU0
+         fNlq2LkbHZClqPVTPuR42NVIcWyWJPts8lSLPV9S5ZYgp4m6R9YhFdyU1IS12qtdd/87
+         upt9pjNL+kWAVVm0x43t4P1ctoUpAi9g/pNtGSZy1ZENIPSFpFObKoXbmTNtJrb65stW
+         /tXw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532AMOIp2EaAZp1UiYj3wd7OH32wCcm0QN1bS5BLCwN5khMi3p4V
-	2tX6cteJWgaPR0TM+yjWJQs=
-X-Google-Smtp-Source: ABdhPJyd546j2Uw+J79jz6gBsyOXA1xgEQAQyWXzLIGznaMvIm3udV40ozLkAj9Tpc7nlh65nUJ5hg==
-X-Received: by 2002:a37:5d83:: with SMTP id r125mr28298612qkb.50.1593049557046;
-        Wed, 24 Jun 2020 18:45:57 -0700 (PDT)
+X-Gm-Message-State: AOAM533ZH1SwPq+HipBlGcipbKLdfUauX4LdNzv/elZwZBRpbia1bU2F
+	Uu72VSdKclvS4/TqPvfHhww=
+X-Google-Smtp-Source: ABdhPJxdvm8tLJR6NOofLUJYoG27VBJOXgIkjYRau64FLBq9DAvGiDwAUXFBWCEP14vyh39vJrymgw==
+X-Received: by 2002:a25:d08c:: with SMTP id h134mr51170184ybg.513.1593051750761;
+        Wed, 24 Jun 2020 19:22:30 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:6809:: with SMTP id d9ls1969468qkc.3.gmail; Wed, 24 Jun
- 2020 18:45:56 -0700 (PDT)
-X-Received: by 2002:a37:7086:: with SMTP id l128mr26451264qkc.172.1593049556517;
-        Wed, 24 Jun 2020 18:45:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1593049556; cv=none;
+Received: by 2002:a25:c785:: with SMTP id w127ls1498464ybe.7.gmail; Wed, 24
+ Jun 2020 19:22:30 -0700 (PDT)
+X-Received: by 2002:a25:bf8c:: with SMTP id l12mr52175636ybk.447.1593051750486;
+        Wed, 24 Jun 2020 19:22:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593051750; cv=none;
         d=google.com; s=arc-20160816;
-        b=BdhZ1eToy4IPClScvkqt5WXwLdGOQ09zZ83vgeOW6AMH2Dm9BBFjA8Z4tBvB69RcrM
-         rhlMPWnZ72mVjXV/ExwC9f4h+9PoPifeZokEizcLGhTFvg0n3k08XFfDwzC4fm3ZnRtu
-         Z4pISzrgCyETBuD+rcPOqw6UnFJT9WxBZp2CHPGnzGa+EZYw/i05GH5+KSZUySbNDzFD
-         1Sg/Bqk0qcy+unjEsOY8OyV/74QMIMPjNz0G/YamDdqwghIHQ03aYW1Wt3qqkp8Tq3yf
-         RXap4w7fLCjjE9Q+XPFUkcT9xCC3xvzJUU1qgeYPkIuGJyf7bd9EvbgBZSaJaoHaEIye
-         mH6Q==
+        b=UY6+8jPXg4zXhB/I+o4CxM3gJK/NdQd7SKFgLWhu2gJxggqeUQaQsr1AZzU7Qi/BJW
+         X1cl33yejTgnMNStPRanrcXBTG8tQDIjOO4mNbo/YVchTjjOWk3teLRf01ZNFqCNeodY
+         12Sf/a5b8obYbdCSe2IKLSBaWgY27CFpmidqN9NHfcezPfyq38GW1+b46NXPSehxsWor
+         yUldICQrMrPQgDJnZiS5jVFOpGNwOBVJxum7zfsWT5bID74MPazs2ItLYWsW6ZZn97KC
+         G7aqgsB7K7GuTpGauCxv/BtOsaYWKdcQvd4IbMGGSlThUdvJJvLPGmNh7/xXnKZucEA0
+         YB+A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:references:cc:to:from:subject
-         :dkim-signature;
-        bh=NCWiNmIOvXFRmSsuJI33xCe+sMXLvcNiaaT5Vwwk2zY=;
-        b=JY+RgCe7t5KQwhPc6dbO/KCQCB9I4p0pM/Jb8BW1QSptsgIFLECINUTHDK+m7j5qn7
-         tesreCe/4t8bHLyNLywd6lnWMsFSorKiUjyt7nagTkrjsBDtNAlZCkztS/sYxzIPr4ao
-         1Mu3/ZfxVmro/+IKxXCGl9TkdmtV5WyKOy2uSoluJiYTCxe0abnHMCDemuyDmMv73FS/
-         dYkK8kdBXIDc6vWlJrH9/rbbCdSracZt67FAhGMO9pOZjod2kaSeeQM8Xe+mYSEmxbnp
-         duZJg6pl5BT57vNEgpsxUd3zfsaseLzKX9eHRRpRJ9JF1gCt7Od4tFF6QWXx/LfVIDHt
-         rzAA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=xdH2xoOfsMc7dLXOy11ch04mvWFiqfyRgGDX8RhsAdM=;
+        b=jY9SKh6yhNulqL4MDbf4zo4t+R+Trg+TD1s2Hdn0JNkYMQnv2+P37npajYadvtzUdu
+         0yAmV1ebIRjVNQeRBIt9dEC2+gb/ClMasDicyasxVBQJqkIxbPBLxZwGDbZp4jF5IZAg
+         5jUfY7bNMKSuJ1TsITGPGzRy3Wq+eYwmlWnz8LmS/+qeC4EdgTzWzjwGs3G6sOK0ZRWc
+         hBzg1gedQZUX99thdJ17zNrEA8UNtd1dveBBUWFrAsgL1mSbSTd70o/+hEBYNr23aArt
+         S9mFdrW6xQTsHJ6lTeh7STrcp4fw/s0Z/MTfulv2Syl5DE7QjyN+eA4SwbNjJvckPPsW
+         ChrA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=cXl7H9JB;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
-Received: from merlin.infradead.org (merlin.infradead.org. [2001:8b0:10b:1231::1])
-        by gmr-mx.google.com with ESMTPS id x3si338616qtk.0.2020.06.24.18.45.56
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=PzlzzsXi;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-ot1-x341.google.com (mail-ot1-x341.google.com. [2607:f8b0:4864:20::341])
+        by gmr-mx.google.com with ESMTPS id k11si1680208ybb.4.2020.06.24.19.22.30
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 24 Jun 2020 19:22:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) client-ip=2607:f8b0:4864:20::341;
+Received: by mail-ot1-x341.google.com with SMTP id t6so3866842otk.9
+        for <clang-built-linux@googlegroups.com>; Wed, 24 Jun 2020 19:22:30 -0700 (PDT)
+X-Received: by 2002:a4a:b791:: with SMTP id a17mr25742894oop.48.1593051750035;
+        Wed, 24 Jun 2020 19:22:30 -0700 (PDT)
+Received: from ubuntu-n2-xlarge-x86 ([2604:1380:4111:8b00::3])
+        by smtp.gmail.com with ESMTPSA id h17sm2801127oor.18.2020.06.24.19.22.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jun 2020 18:45:56 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) client-ip=2001:8b0:10b:1231::1;
-Received: from [2601:1c0:6280:3f0:897c:6038:c71d:ecac]
-	by merlin.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1joGxc-0000WM-3w; Thu, 25 Jun 2020 01:45:52 +0000
-Subject: Re: [PATCH drivers/misc 0/4] lkdtm: Various clean ups
-From: Randy Dunlap <rdunlap@infradead.org>
-To: Richard Weinberger <richard.weinberger@gmail.com>
-Cc: Kees Cook <keescook@chromium.org>, Richard Weinberger <richard@nod.at>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Prasad Sodagudi <psodagud@codeaurora.org>,
- Sami Tolvanen <samitolvanen@google.com>,
- Amit Daniel Kachhap <amit.kachhap@arm.com>,
- "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
- clang-built-linux@googlegroups.com,
- linux-kernel <linux-kernel@vger.kernel.org>
-References: <20200529200347.2464284-1-keescook@chromium.org>
- <202006231610.4993DC5@keescook>
- <2356a78c-750b-538f-3d64-b9c78aff89cb@infradead.org>
- <903628180.54697.1592983405305.JavaMail.zimbra@nod.at>
- <202006241335.2C0FB5DF90@keescook>
- <b97853f0-c4be-7039-1d4c-96b3ab802472@infradead.org>
- <CAFLxGvxiyyX9s=y4phGxvWh-vonS1WPOUbRZr9mgq-B+wY+2nQ@mail.gmail.com>
- <10f7c20a-0a32-f5cf-7fdf-761db22afcd9@infradead.org>
- <03486f13-b138-2fc6-4d90-2737d86add2f@infradead.org>
-Message-ID: <80f501f4-d4fb-1f22-5603-57b5490a695d@infradead.org>
-Date: Wed, 24 Jun 2020 18:45:47 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.9.0
+        Wed, 24 Jun 2020 19:22:29 -0700 (PDT)
+Date: Wed, 24 Jun 2020 19:22:28 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Geoff Levand <geoff@infradead.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Paul Mackerras <paulus@samba.org>, linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
+	Joel Stanley <joel@jms.id.au>
+Subject: Re: [PATCH] powerpc/boot: Use address-of operator on section symbols
+Message-ID: <20200625022228.GA2871607@ubuntu-n2-xlarge-x86>
+References: <20200624035920.835571-1-natechancellor@gmail.com>
+ <1bbb6956-d9de-e0c8-5b45-20b6fecc2189@infradead.org>
 MIME-Version: 1.0
-In-Reply-To: <03486f13-b138-2fc6-4d90-2737d86add2f@infradead.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: rdunlap@infradead.org
+Content-Disposition: inline
+In-Reply-To: <1bbb6956-d9de-e0c8-5b45-20b6fecc2189@infradead.org>
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=merlin.20170209 header.b=cXl7H9JB;
-       spf=pass (google.com: best guess record for domain of
- rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+ header.i=@gmail.com header.s=20161025 header.b=PzlzzsXi;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,197 +151,28 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 6/24/20 3:35 PM, Randy Dunlap wrote:
-> On 6/24/20 3:23 PM, Randy Dunlap wrote:
->> On 6/24/20 3:01 PM, Richard Weinberger wrote:
->>> On Wed, Jun 24, 2020 at 11:29 PM Randy Dunlap <rdunlap@infradead.org> w=
-rote:
->>>>
->>>> On 6/24/20 1:36 PM, Kees Cook wrote:
->>>>> On Wed, Jun 24, 2020 at 09:23:25AM +0200, Richard Weinberger wrote:
->>>>>> ----- Urspr=C3=BCngliche Mail -----
->>>>>>>>> Regardless, it seems arch/x86/um/asm/desc.h is not needed any mor=
-e?
->>>>>>>
->>>>>>>> True that, we can rip the file.
->>>>>>>
->>>>>>> Has anyone fixed the uml build errors?
->>>>>>
->>>>>> I didn't realize that this is a super urgent issue. ;-)
->>>>>>
->>>>>> Kees, if you want you can carry a patch in your series, I'll ack it.
->>>>>> Otherwise I can also do a patch and bring it via the uml tree upstre=
-am
->>>>>> as soon more fixes queued up.
->>>>>
->>>>> I think the lkdtm change will tweak this bug, so I'm happy to carry t=
-he
->>>>> patch (I just haven't had time to create and test one). Is it really
->>>>> just as simple as removing arch/x86/um/asm/desc.h?
->>>>>
->>>>
->>>> I just tried that and the build is still failing, so No, it's not that=
- simple.
->>>>
->>>> But thanks for offering.
->>>>
->>>> I'll just ignore the UML build errors for now.
->>>
->>> This is a allyesconfig?
->>> I just gave CONFIG_LKDTM=3Dy a try, builds fine here.
->>>
->>
->> I'm building linux-next and it fails.
->=20
-> More specifically, uml for i386 fails. x86_64 is OK.
-> The problem is with the <asm/desc.h> file.
-> I'm tampering with it...
+Hi Geoff,
 
-I'm not getting anywhere with this. Too many mazes of tiny twisty passages.
+On Wed, Jun 24, 2020 at 06:18:48PM -0700, Geoff Levand wrote:
+> Hi Nathan,
+> 
+> On 6/23/20 8:59 PM, Nathan Chancellor wrote:
+> > These are not true arrays, they are linker defined symbols, which are
+> > just addresses.  Using the address of operator silences the warning
+> > and does not change the resulting assembly with either clang/ld.lld
+> > or gcc/ld (tested with diff + objdump -Dr).
+> 
+> Thanks for your patch.  I tested this patch applied to v5.8-rc2 on a
+> PS3 and it seems OK.
+> 
+> Tested-by: Geoff Levand <geoff@infradead.org>
 
->>> But the desc.h in uml is still in vain and can be deleted AFAICT.
+Thanks a lot for the quick response and testing, I really appreciate it!
 
-Looks like lkdtm/bugs.c needs to get/use arch/x86/include/asm/processor.h
-but it actually uses arch/x86/um/asm/processor*.h, which does not have the
-needed structs etc.
+Cheers,
+Nathan
 
-
-Here are the build errors and warnings that I am seeing with allmodconfig:
-
-
-  CC [M]  drivers/misc/lkdtm/bugs.o
-In file included from ../arch/x86/include/asm/desc.h:11:0,
-                 from ../drivers/misc/lkdtm/bugs.c:17:
-../arch/x86/include/asm/cpu_entry_area.h:65:42: error: invalid application =
-of =E2=80=98sizeof=E2=80=99 to incomplete type =E2=80=98struct x86_hw_tss=
-=E2=80=99
-  unsigned long stack[(PAGE_SIZE - sizeof(struct x86_hw_tss)) / sizeof(unsi=
-gned long)];
-                                          ^~~~~~
-../arch/x86/include/asm/cpu_entry_area.h:66:20: error: field =E2=80=98tss=
-=E2=80=99 has incomplete type
-  struct x86_hw_tss tss;
-                    ^~~
-../arch/x86/include/asm/cpu_entry_area.h:89:26: error: field =E2=80=98entry=
-_stack_page=E2=80=99 has incomplete type
-  struct entry_stack_page entry_stack_page;
-                          ^~~~~~~~~~~~~~~~
-../arch/x86/include/asm/cpu_entry_area.h:100:20: error: field =E2=80=98tss=
-=E2=80=99 has incomplete type
-  struct tss_struct tss;
-                    ^~~
-In file included from ../drivers/misc/lkdtm/bugs.c:17:0:
-../arch/x86/include/asm/desc.h:45:25: error: =E2=80=98GDT_ENTRIES=E2=80=99 =
-undeclared here (not in a function); did you mean =E2=80=98LDT_ENTRIES=E2=
-=80=99?
-  struct desc_struct gdt[GDT_ENTRIES];
-                         ^~~~~~~~~~~
-                         LDT_ENTRIES
-../arch/x86/include/asm/desc.h: In function =E2=80=98__set_tss_desc=E2=80=
-=99:
-../arch/x86/include/asm/desc.h:186:10: error: =E2=80=98__KERNEL_TSS_LIMIT=
-=E2=80=99 undeclared (first use in this function); did you mean =E2=80=98__=
-KERNEL__=E2=80=99?
-          __KERNEL_TSS_LIMIT);
-          ^~~~~~~~~~~~~~~~~~
-          __KERNEL__
-../arch/x86/include/asm/desc.h:186:10: note: each undeclared identifier is =
-reported only once for each function it appears in
-../arch/x86/include/asm/desc.h: In function =E2=80=98native_set_ldt=E2=80=
-=99:
-../arch/x86/include/asm/desc.h:202:40: error: =E2=80=98GDT_ENTRY_LDT=E2=80=
-=99 undeclared (first use in this function); did you mean =E2=80=98GDT_ENTR=
-Y_INIT=E2=80=99?
-   write_gdt_entry(get_cpu_gdt_rw(cpu), GDT_ENTRY_LDT,
-                                        ^
-../arch/x86/include/asm/desc.h:123:75: note: in definition of macro =E2=80=
-=98write_gdt_entry=E2=80=99
- #define write_gdt_entry(dt, entry, desc, type) native_write_gdt_entry(dt, =
-entry, desc, type)
-                                                                           =
-^~~~~
-../arch/x86/include/asm/desc.h: In function =E2=80=98native_load_tr_desc=E2=
-=80=99:
-../arch/x86/include/asm/desc.h:259:31: error: =E2=80=98GDT_ENTRY_TSS=E2=80=
-=99 undeclared (first use in this function); did you mean =E2=80=98GDT_ENTR=
-IES=E2=80=99?
-  asm volatile("ltr %w0"::"q" (GDT_ENTRY_TSS*8));
-                               ^~~~~~~~~~~~~
-                               GDT_ENTRIES
-../arch/x86/include/asm/desc.h: In function =E2=80=98native_load_tls=E2=80=
-=99:
-../arch/x86/include/asm/desc.h:278:33: error: =E2=80=98struct thread_struct=
-=E2=80=99 has no member named =E2=80=98tls_array=E2=80=99
-   gdt[GDT_ENTRY_TLS_MIN + i] =3D t->tls_array[i];
-                                 ^~
-In file included from ../arch/x86/include/asm/string.h:3:0,
-                 from ../include/linux/string.h:20,
-                 from ../arch/x86/um/asm/processor_32.h:9,
-                 from ../arch/x86/um/asm/processor.h:10,
-                 from ../include/linux/rcupdate.h:30,
-                 from ../include/linux/rculist.h:11,
-                 from ../include/linux/pid.h:5,
-                 from ../include/linux/sched.h:14,
-                 from ../drivers/misc/lkdtm/bugs.c:10:
-../arch/x86/include/asm/desc.h: In function =E2=80=98force_reload_TR=E2=80=
-=99:
-../arch/x86/include/asm/desc.h:288:18: error: =E2=80=98GDT_ENTRY_TSS=E2=80=
-=99 undeclared (first use in this function); did you mean =E2=80=98GDT_ENTR=
-IES=E2=80=99?
-  memcpy(&tss, &d[GDT_ENTRY_TSS], sizeof(tss_desc));
-                  ^
-../arch/x86/include/asm/string_32.h:182:45: note: in definition of macro =
-=E2=80=98memcpy=E2=80=99
- #define memcpy(t, f, n) __builtin_memcpy(t, f, n)
-                                             ^
-In file included from ../include/linux/kernel.h:11:0,
-                 from ../drivers/misc/lkdtm/lkdtm.h:7,
-                 from ../drivers/misc/lkdtm/bugs.c:8:
-../arch/x86/include/asm/desc.h: In function =E2=80=98invalidate_tss_limit=
-=E2=80=99:
-../arch/x86/include/asm/desc.h:327:32: error: =E2=80=98TIF_IO_BITMAP=E2=80=
-=99 undeclared (first use in this function); did you mean =E2=80=98CONFIG_S=
-BITMAP=E2=80=99?
-  if (unlikely(test_thread_flag(TIF_IO_BITMAP)))
-                                ^
-../include/linux/compiler.h:78:42: note: in definition of macro =E2=80=98un=
-likely=E2=80=99
- # define unlikely(x) __builtin_expect(!!(x), 0)
-                                          ^
-../arch/x86/include/asm/desc.h:327:15: note: in expansion of macro =E2=80=
-=98test_thread_flag=E2=80=99
-  if (unlikely(test_thread_flag(TIF_IO_BITMAP)))
-               ^~~~~~~~~~~~~~~~
-In file included from ../drivers/misc/lkdtm/bugs.c:17:0:
-../arch/x86/include/asm/desc.h: At top level:
-../arch/x86/include/asm/desc.h:334:0: warning: "LDT_empty" redefined
- #define LDT_empty(info)     \
-=20
-In file included from ../arch/um/include/asm/mmu.h:10:0,
-                 from ../include/linux/mm_types.h:18,
-                 from ../include/linux/sched/signal.h:13,
-                 from ../drivers/misc/lkdtm/bugs.c:11:
-../arch/x86/um/asm/mm_context.h:65:0: note: this is the location of the pre=
-vious definition
- #define LDT_empty(info) (_LDT_empty(info))
-=20
-In file included from ../drivers/misc/lkdtm/bugs.c:17:0:
-../arch/x86/include/asm/desc.h: In function =E2=80=98get_cpu_gdt_rw=E2=80=
-=99:
-../arch/x86/include/asm/desc.h:54:1: warning: control reaches end of non-vo=
-id function [-Wreturn-type]
- }
- ^
-
-
---=20
-~Randy
-Reported-by: Randy Dunlap <rdunlap@infradead.org>
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/80f501f4-d4fb-1f22-5603-57b5490a695d%40infradead.org.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200625022228.GA2871607%40ubuntu-n2-xlarge-x86.
