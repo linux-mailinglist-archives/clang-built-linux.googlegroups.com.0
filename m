@@ -1,133 +1,134 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB54V2T3QKGQERJDXWRI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBJM62T3QKGQE3Z3DDVQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63a.google.com (mail-pl1-x63a.google.com [IPv6:2607:f8b0:4864:20::63a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 62F1420A6D6
-	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jun 2020 22:37:13 +0200 (CEST)
-Received: by mail-pl1-x63a.google.com with SMTP id x6sf4474247plb.9
-        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jun 2020 13:37:13 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1593117432; cv=pass;
+Received: from mail-io1-xd38.google.com (mail-io1-xd38.google.com [IPv6:2607:f8b0:4864:20::d38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8B23420A721
+	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jun 2020 22:55:07 +0200 (CEST)
+Received: by mail-io1-xd38.google.com with SMTP id z65sf3461641iof.13
+        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jun 2020 13:55:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1593118501; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HnDskGz38Cu7aZOTx9fG2JwH+wA24fdB8IYIE6dYWfwTekk5eSmEZ2jnRO98QJJnYT
-         0b28xpVnHoAUjcq9XF76EhrSis2RvHELTu1Qu6bFZdhBHz4q+cD9kowSB2MjtlaWKN3l
-         A/O4Zi1kVP+mtGEbxvCdpnwX5DF+G/XEkEaIpBZoUkCO8b+WzU5qwbJQdMovX8Q5ijRk
-         3l84iWGl5+P0az3ff0X7qrSVyUcawJ78MqsoqIRLbQ/ij8e6qxh6nKr/YOABadvFaxZa
-         IOzl/ygE6O17za9C9GCdxIDXcNQaclAA9N2ifmVm152IzeiF102WyKAKo/zeHYc7iVnH
-         /7Qg==
+        b=1G9RHThPRAc+6kjp+2vJCba40d5jI7/cOwl32pELSfvPuDrX6DqxyPT2ZLZY14psQO
+         bx5rY74SVqj0037r7Wrp1UHubIUBsARY7RCiBpNHoQR7RLuVS0qLAt18FKm+zXN+KG3e
+         1rN80x8YlGrMB0XlTpmD6Cp6ArtyBY+NqeNnAhL++ytVKktIJT1qdk9veMMaOssTi6Nn
+         HFxysg8UbvH4aXMZvYWkfPRSqUySB25WbJ9Uplcw1hk1KGfgi0VcDipqjOApOWfmjNpZ
+         ncJahfuaZa6dVqvBVNLHj8tZFisjCP9gwg2SgIqpVOfKHXe4zMfoEMRgCUihvq9RmiSO
+         viGQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=ETJOtgCv4Vqgfc668sXqc6edDhrCwS+GAp21zp2yc74=;
-        b=xRMGzg6O8Q0PTQI3+Z30iZ2bFY8/4kIYOFMiHh+h/pUN6DUYvovr556i0zI/kFCsIq
-         jOMf/X82ILaMv5xKnN9eKkVr8pqMW425Qwh5pgM9u3PIHTU+l87XRjhKrle3Hh+OH4Ch
-         RmTwyqe0lddoUJa1hvORFgBrlSavszB/E10Kerc94calM53R/+KVeTlL2cH7VqlEF8in
-         NtCBuWEeCmhbVn+NiM7SySi7HEoc6fP0+I89sikJrXSnhEYF2d8PxJc5Swd9hOiEfad8
-         uY02+dPajY1vWuL3MwrBVJLgNDx8DiOYz6NqANHl0gfg0azh5Lz4gL57KMjRQSJv+kqq
-         6Rmg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=l2AOa6LaXD7R2CSaV+AZv9J5bTJBrp6bO6iv+Ax2ktE=;
+        b=HZGIDamB1OYBtHU+2jxtWcu12g5LQ7748jwn6e3lfj1G6+DlzPAku9iQgBJUAc+OtD
+         XOE/btUcneTkVP2iFMaYwyTIDlsygIJQ44+DUh/DlVkGtYaJzUs2zBbXU9q6qh87nHDS
+         oRWi3HxPcJhDHG2x8sn+dTQ8P5kiX63QGvYmCCuK7mJXw9V6fHhuO0b1YTM83OnLWxU0
+         8qEvKyO9lZoxCRdjAxokSyjriFG+ts2bJ2DsokYZID6RiyWTcdsofA5HScZVpdTRkA/G
+         I8uNqurOsOeaI1K9MoJ+YrBNoOTmencLo4FQ2fRvBO3wEd1WSKElnnd+uhaf+SzyrNOF
+         rWng==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=P+XqKwc+;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=EpzjcATf;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1041 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ETJOtgCv4Vqgfc668sXqc6edDhrCwS+GAp21zp2yc74=;
-        b=dQFA6VCXExewl3HUzAW/n8dr+zVGPzuBeiDJYOXmfBZVV39vBRoGd7pDhJVUqobqIM
-         zDXgLjschbCNSizSdummkuXmPkgtBN3dSiOqfsG8x87lsB8kYnfy9YswyicV17EepnP+
-         1PnhWZJDuwa0IbzgTWR3JtPS5FRkVuCgcFvAKs2aDdy+OBSt/2J9KzznB+VnQ/eDnOl5
-         +spCnzG5JimfcnV2swgIBbmSWE2t/dSqDdUOKrxn5EkglhKzEgwsMEvQgm8QrfOjnpBF
-         l4K+9DvpKhgv5MVxrw0V12rVNR04kDqFkr1pTXF2o8hm+SOzcyJQKhOOeflw2YD3L1sQ
-         oZWw==
+        bh=l2AOa6LaXD7R2CSaV+AZv9J5bTJBrp6bO6iv+Ax2ktE=;
+        b=mxcRE3rrZi8BBRnsmAf2Z2LfTwRpMgSxvbVUeW+NvmCSp88lQfEGs54zJAJ3uc2AH4
+         cyQRe88PblyARrdd0INCMHoStx7issFtSg0baw3vQl+SUaGVuFTypi50zdgMIGCEnm3f
+         zcmN5LxutpKnSs+YMRObS+hCOYsbUZA7ruN1dFWPqe1Yz1KQjCV8Ehjv9VpojIoW7Fkb
+         hl6fzELmGweQV442WFF+vILkF0FrGaWwO8Mo1jcjt6pOynuk/QfI9I1+JghmpfNuo7ha
+         yxdCGffHDsiDlzsUWhDdHbY199hjF60DLvuLBObgVuW8F+BUlgm2O067/V3p+1hePuVp
+         +RmQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ETJOtgCv4Vqgfc668sXqc6edDhrCwS+GAp21zp2yc74=;
-        b=Ug4+mGJWAl4iUgHWT1dAhK5G7JtgSd6+MPBQFk84n5h3pRq7EqmHsuZAgQ5x5BsMBJ
-         sx644rJDIctNS0n4u9XQ1dMFu5FOp1F8R1LnprSAxAYVQPIkr6cS5Dyu5UnLMZqQLmYu
-         LQML+e02lfQbcoQPptRG9CG0LLRcXxUWW3MTEP/jA0pEkQ2DNQb3TT8rl3TP7sG/Y9OK
-         SD76jLzMvEwh0BARTN0Q2EkT376KQwBMfv3qfHox3cGo3fBkhAPHRnigLeW/CCzsiLGF
-         Uj0pyH5yNVjjf3m9cWJ7MSNfPSROChXV3Yvg93apBzx4yoRk+q8fWsGPGxbNX5GOWTO+
-         bEeA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531CvQJZmeB014vnMDUierkQYybW/PDZc1sSUs7tJbM521V+Qs9R
-	VDGUzjEz31aSyiB6RyqDcKo=
-X-Google-Smtp-Source: ABdhPJzVPGvCZoC0VoytGTVTVjau3P+H5QPAGstTYM4Be6oc9qDdwO0tdkIWVBmmL39NrHtF0HDW8g==
-X-Received: by 2002:a17:90b:3612:: with SMTP id ml18mr5471547pjb.153.1593117431904;
-        Thu, 25 Jun 2020 13:37:11 -0700 (PDT)
+        bh=l2AOa6LaXD7R2CSaV+AZv9J5bTJBrp6bO6iv+Ax2ktE=;
+        b=Uzhht8YR5/nnJPogOF5uA+h/sgTujolBKEldol7zAC/DZ0i+Lb+N8WRs4djwU0+nzA
+         j7I0hvgbYRsIO2k3zR+sysqo24abM48rD2VWFNgxUdxWChBwEvuuQMpgIHPPbYpDebt5
+         JkhVqKVX1TS7k2+rbMax/jgmrDqFtAYWIDaae0lOQKdku8rvnwRqYhjT8wemqitAonYu
+         sIK2zwzh9RPYULN0NobOewn+8ajyhFCfKpCDqtul99AgTB/OykfFVJlfsIB3l1d2BhPs
+         M6pjA7DT1GIxNc7hEUGwxzIuK1Tx5Nbf4qn2IGsI0kEAgAyrZKGLE0F1FQ8cbJmL94ux
+         ZHJg==
+X-Gm-Message-State: AOAM532ZDVqs3fONlOzz55nBSUQ7VA8yDvQ3673S/KDzxgpUx2qR0xm7
+	DkSKofLU4dsbZtpysZ0uuPw=
+X-Google-Smtp-Source: ABdhPJye5v2IR1FYk2K+FU8Z67tjZQOk8yZrb6NLfFBq9Ofko3QX1pKSVdhB/Ol4MtYuB35ZUASbKw==
+X-Received: by 2002:a92:5898:: with SMTP id z24mr24643360ilf.242.1593118501509;
+        Thu, 25 Jun 2020 13:55:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:ea0e:: with SMTP id w14ls2966715pjy.3.canary-gmail;
- Thu, 25 Jun 2020 13:37:11 -0700 (PDT)
-X-Received: by 2002:a17:90a:930a:: with SMTP id p10mr4840813pjo.203.1593117431219;
-        Thu, 25 Jun 2020 13:37:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1593117431; cv=none;
+Received: by 2002:a6b:5b18:: with SMTP id v24ls1427223ioh.10.gmail; Thu, 25
+ Jun 2020 13:55:01 -0700 (PDT)
+X-Received: by 2002:a6b:6b18:: with SMTP id g24mr24362ioc.8.1593118501236;
+        Thu, 25 Jun 2020 13:55:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593118501; cv=none;
         d=google.com; s=arc-20160816;
-        b=CQS3b8YJkh+29kPNf9Ihn0LRZ1YSfYgoFB3EBPajFUrK5BPrskQCMbdM/2Lv3opNwl
-         WZV/mCNQGBsZoiURVZEOV8k2XyteZtGsoZ2pbH8+rQEs7/ObCPhaXP9WRq3ErgEyxrUM
-         atNCWjFgoAKE1S1eNW8KJ3TZUmXks09TrQxqP2WEntY3iPvbpbXiSglVjwZqykoIKlsT
-         bWc/jpp5Ibm+b7fBkNw3/iZODKHZgLBfUeBf2I7swEuwWVJTP3wI+IQVwYLVeetNt1MM
-         941FlZBA0ld1puvwQ6r2e01r+U7qYpODDY/JoeN6o0yrSz6ilfkJQ+AXCbH7euaq7evn
-         H6Gg==
+        b=q35wY5eon5plM3r7F9um4pD+LhhtGwXNM8rW6dAIyG+BYfWhC11jvsZPKwQwR4QyJZ
+         fPBXrRrYJWvUui6GMTzdBxLn78ukU105xKkmuQ1BeTdzxHHg5JEK3EQ3EAIROVVYxyiY
+         9ij/m0CV2HJyVCo5RfPRrNROrylZKj/0XcWhGLyRZKMWZ/U/473cDnWIskWDqt2JuOQf
+         feHJgFO78KQelP/Fbo7J+saJTKCdZIKVqNQSv2IEJEoCYQyehh/AspBqdwVCIWKop5vr
+         N7/qmwCZyB+UnLhyR5G+ry4bV1QVGtAkaF47CmoofEsUFrJGmeHRs1prFdZ5hn4TZWcg
+         jZbw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=BfbOYxKLeIPqE6ZPzW8hgon31KuqJHQqU6xvmcaKi7A=;
-        b=nC3aMA8kg9IAWPYJJR1iHuTZZdKZRSc3HzoAabXrezaPVm/Pi1o/UZ9Lm9twqc3sgM
-         k7/J4fItBlgAj+WMw6UGzfp0vy9TGyJPAbvjryN1jBW8qRGTBDcm24WNEdZo+WOhh8Ns
-         wv2K/qy2fXodeNqoeFM3JSPoV7ZBwJIq6Ra++KvvMcu44ItTJuQCchUzP0ht1BUZuZ6A
-         cVZSbuV4X9RBOcvswHRFCyEuKhla6UnLJXPAoYv0UoqOL/nKj/Ky/CXjOrbEwCDtyU1c
-         ehs2pohreFBPkvPNdeASKye9twlkmgblXxOImKttp3kzMduGzfY3f5FivSXk/q+ulwic
-         6Hmg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=HCV92AuRvbw80BHFaZCrTSuoE9qKbEHrDwHHj8qVbjk=;
+        b=tWmXKyLlGYW2sPiXb41VpCQAZge46GCgiFgHIrq+w20/VmLTrW4Ykd7bfdZFVSzIHY
+         bwA3EdW6FzRw2qRUcTwu3F66sKsFKNgBbRZsDCUntbCPn8ymWfDOBvqxFhNvtDNEM2ct
+         bT8b+t9phSC6GDF+x3jDa6OVlUKiAzi787pWqgn8HtIawaCKnP3YnmQYQ18uCYXwo5i8
+         hZGZ9NSd6ufQ0shkXOKGnlwZ1N+H9S9W8UGrUSafRAbSchObVBo8v1dmfs08j2a0Isxp
+         iP2eGE4cTBmE+J6WGhGgcTnEVfDVzEV0GLwsnDnvv7maGtpcmNq9B+T3OTQePbkynAj6
+         kOTA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=P+XqKwc+;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pg1-x541.google.com (mail-pg1-x541.google.com. [2607:f8b0:4864:20::541])
-        by gmr-mx.google.com with ESMTPS id t23si1063967plr.4.2020.06.25.13.37.11
+       dkim=pass header.i=@google.com header.s=20161025 header.b=EpzjcATf;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1041 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pj1-x1041.google.com (mail-pj1-x1041.google.com. [2607:f8b0:4864:20::1041])
+        by gmr-mx.google.com with ESMTPS id c7si1463453ilf.2.2020.06.25.13.55.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 25 Jun 2020 13:37:11 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::541 as permitted sender) client-ip=2607:f8b0:4864:20::541;
-Received: by mail-pg1-x541.google.com with SMTP id o13so903913pgf.0
-        for <clang-built-linux@googlegroups.com>; Thu, 25 Jun 2020 13:37:11 -0700 (PDT)
-X-Received: by 2002:a63:7246:: with SMTP id c6mr27896788pgn.422.1593117430937;
-        Thu, 25 Jun 2020 13:37:10 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id y12sm24064569pfm.158.2020.06.25.13.37.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 25 Jun 2020 13:37:07 -0700 (PDT)
-From: Kees Cook <keescook@chromium.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Kees Cook <keescook@chromium.org>,
-	Prasad Sodagudi <psodagud@codeaurora.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Amit Daniel Kachhap <amit.kachhap@arm.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	linux-kselftest@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH drivers/misc v2 4/4] lkdtm: Make arch-specific tests always available
-Date: Thu, 25 Jun 2020 13:37:04 -0700
-Message-Id: <20200625203704.317097-5-keescook@chromium.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20200625203704.317097-1-keescook@chromium.org>
-References: <20200625203704.317097-1-keescook@chromium.org>
+        Thu, 25 Jun 2020 13:55:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1041 as permitted sender) client-ip=2607:f8b0:4864:20::1041;
+Received: by mail-pj1-x1041.google.com with SMTP id k71so446824pje.0
+        for <clang-built-linux@googlegroups.com>; Thu, 25 Jun 2020 13:55:01 -0700 (PDT)
+X-Received: by 2002:a17:902:ab8d:: with SMTP id f13mr23724588plr.119.1593118500279;
+ Thu, 25 Jun 2020 13:55:00 -0700 (PDT)
 MIME-Version: 1.0
-X-Original-Sender: keescook@chromium.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=P+XqKwc+;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::541
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+References: <20200624203200.78870-1-samitolvanen@google.com>
+ <20200624203200.78870-5-samitolvanen@google.com> <20200624212737.GV4817@hirez.programming.kicks-ass.net>
+ <20200624214530.GA120457@google.com> <20200625074530.GW4817@hirez.programming.kicks-ass.net>
+ <20200625161503.GB173089@google.com> <20200625200235.GQ4781@hirez.programming.kicks-ass.net>
+In-Reply-To: <20200625200235.GQ4781@hirez.programming.kicks-ass.net>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Thu, 25 Jun 2020 13:54:48 -0700
+Message-ID: <CAKwvOdmToWTaiaw0iX56FLeezW30k3S=pZLf97N2Ta7zJkSL0w@mail.gmail.com>
+Subject: Re: [RFC][PATCH] objtool,x86_64: Replace recordmcount with objtool
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Sami Tolvanen <samitolvanen@google.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Will Deacon <will@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Kees Cook <keescook@chromium.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Kernel Hardening <kernel-hardening@lists.openwall.com>, 
+	linux-arch <linux-arch@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	linux-pci@vger.kernel.org, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, Josh Poimboeuf <jpoimboe@redhat.com>, mhelsley@vmware.com
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=EpzjcATf;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1041
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,132 +141,274 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-I'd like arch-specific tests to XFAIL when on a mismatched architecture
-so that we can more easily compare test coverage across all systems.
-Lacking kernel configs or CPU features count as a FAIL, not an XFAIL.
+On Thu, Jun 25, 2020 at 1:02 PM Peter Zijlstra <peterz@infradead.org> wrote:
+>
+> On Thu, Jun 25, 2020 at 09:15:03AM -0700, Sami Tolvanen wrote:
+> > On Thu, Jun 25, 2020 at 09:45:30AM +0200, Peter Zijlstra wrote:
+>
+> > > At least for x86_64 I can do a really quick take for a recordmcount pass
+> > > in objtool, but I suppose you also need this for ARM64 ?
+> >
+> > Sure, sounds good. arm64 uses -fpatchable-function-entry with clang, so we
+> > don't need recordmcount there.
+>
+> This is on top of my local pile:
+>
+>   git://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.git master
+>
+> which notably includes the static_call series.
+>
+> Not boot tested, but it generates the required sections and they look
+> more or less as expected, ymmv.
+>
+> ---
+>  arch/x86/Kconfig              |  1 -
+>  scripts/Makefile.build        |  3 ++
+>  scripts/link-vmlinux.sh       |  2 +-
+>  tools/objtool/builtin-check.c |  9 ++---
+>  tools/objtool/builtin.h       |  2 +-
+>  tools/objtool/check.c         | 81 +++++++++++++++++++++++++++++++++++++++++++
+>  tools/objtool/check.h         |  1 +
+>  tools/objtool/objtool.h       |  1 +
+>  8 files changed, 91 insertions(+), 9 deletions(-)
+>
+> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+> index a291823f3f26..189575c12434 100644
+> --- a/arch/x86/Kconfig
+> +++ b/arch/x86/Kconfig
+> @@ -174,7 +174,6 @@ config X86
+>         select HAVE_EXIT_THREAD
+>         select HAVE_FAST_GUP
+>         select HAVE_FENTRY                      if X86_64 || DYNAMIC_FTRACE
+> -       select HAVE_FTRACE_MCOUNT_RECORD
+>         select HAVE_FUNCTION_GRAPH_TRACER
+>         select HAVE_FUNCTION_TRACER
+>         select HAVE_GCC_PLUGINS
+> diff --git a/scripts/Makefile.build b/scripts/Makefile.build
+> index 2e8810b7e5ed..c774befc57da 100644
+> --- a/scripts/Makefile.build
+> +++ b/scripts/Makefile.build
+> @@ -227,6 +227,9 @@ endif
+>  ifdef CONFIG_X86_SMAP
+>    objtool_args += --uaccess
+>  endif
+> +ifdef CONFIG_DYNAMIC_FTRACE
+> +  objtool_args += --mcount
+> +endif
+>
+>  # 'OBJECT_FILES_NON_STANDARD := y': skip objtool checking for a directory
+>  # 'OBJECT_FILES_NON_STANDARD_foo.o := 'y': skip objtool checking for a file
+> diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
+> index 92dd745906f4..00c6e4f28a1a 100755
+> --- a/scripts/link-vmlinux.sh
+> +++ b/scripts/link-vmlinux.sh
+> @@ -60,7 +60,7 @@ objtool_link()
+>         local objtoolopt;
+>
+>         if [ -n "${CONFIG_VMLINUX_VALIDATION}" ]; then
+> -               objtoolopt="check"
+> +               objtoolopt="check --vmlinux"
+>                 if [ -z "${CONFIG_FRAME_POINTER}" ]; then
+>                         objtoolopt="${objtoolopt} --no-fp"
+>                 fi
+> diff --git a/tools/objtool/builtin-check.c b/tools/objtool/builtin-check.c
+> index 4896c5a89702..a6c3a3fba67d 100644
+> --- a/tools/objtool/builtin-check.c
+> +++ b/tools/objtool/builtin-check.c
+> @@ -18,7 +18,7 @@
+>  #include "builtin.h"
+>  #include "objtool.h"
+>
+> -bool no_fp, no_unreachable, retpoline, module, backtrace, uaccess, stats, validate_dup, vmlinux, fpu;
+> +bool no_fp, no_unreachable, retpoline, module, backtrace, uaccess, stats, validate_dup, vmlinux, fpu, mcount;
+>
+>  static const char * const check_usage[] = {
+>         "objtool check [<options>] file.o",
+> @@ -36,12 +36,13 @@ const struct option check_options[] = {
+>         OPT_BOOLEAN('d', "duplicate", &validate_dup, "duplicate validation for vmlinux.o"),
+>         OPT_BOOLEAN('l', "vmlinux", &vmlinux, "vmlinux.o validation"),
+>         OPT_BOOLEAN('F', "fpu", &fpu, "validate FPU context"),
+> +       OPT_BOOLEAN('M', "mcount", &mcount, "generate __mcount_loc"),
+>         OPT_END(),
+>  };
+>
+>  int cmd_check(int argc, const char **argv)
+>  {
+> -       const char *objname, *s;
+> +       const char *objname;
+>
+>         argc = parse_options(argc, argv, check_options, check_usage, 0);
+>
+> @@ -50,9 +51,5 @@ int cmd_check(int argc, const char **argv)
+>
+>         objname = argv[0];
+>
+> -       s = strstr(objname, "vmlinux.o");
+> -       if (s && !s[9])
+> -               vmlinux = true;
+> -
+>         return check(objname, false);
+>  }
+> diff --git a/tools/objtool/builtin.h b/tools/objtool/builtin.h
+> index 7158e09d4cc9..b51d883ec245 100644
+> --- a/tools/objtool/builtin.h
+> +++ b/tools/objtool/builtin.h
+> @@ -8,7 +8,7 @@
+>  #include <subcmd/parse-options.h>
+>
+>  extern const struct option check_options[];
+> -extern bool no_fp, no_unreachable, retpoline, module, backtrace, uaccess, stats, validate_dup, vmlinux, fpu;
+> +extern bool no_fp, no_unreachable, retpoline, module, backtrace, uaccess, stats, validate_dup, vmlinux, fpu, mcount;
+>
+>  extern int cmd_check(int argc, const char **argv);
+>  extern int cmd_orc(int argc, const char **argv);
+> diff --git a/tools/objtool/check.c b/tools/objtool/check.c
+> index 6647a8d1545b..ee99566bdae9 100644
+> --- a/tools/objtool/check.c
+> +++ b/tools/objtool/check.c
+> @@ -533,6 +533,65 @@ static int create_static_call_sections(struct objtool_file *file)
+>         return 0;
+>  }
+>
+> +static int create_mcount_loc_sections(struct objtool_file *file)
+> +{
+> +       struct section *sec, *reloc_sec;
+> +       struct reloc *reloc;
+> +       unsigned long *loc;
+> +       struct instruction *insn;
+> +       int idx;
+> +
+> +       sec = find_section_by_name(file->elf, "__mcount_loc");
+> +       if (sec) {
+> +               INIT_LIST_HEAD(&file->mcount_loc_list);
+> +               WARN("file already has __mcount_loc section, skipping");
+> +               return 0;
+> +       }
+> +
+> +       if (list_empty(&file->mcount_loc_list))
+> +               return 0;
+> +
+> +       idx = 0;
+> +       list_for_each_entry(insn, &file->mcount_loc_list, mcount_loc_node)
+> +               idx++;
+> +
+> +       sec = elf_create_section(file->elf, "__mcount_loc", 0, sizeof(unsigned long), idx);
+> +       if (!sec)
+> +               return -1;
+> +
+> +       reloc_sec = elf_create_reloc_section(file->elf, sec, SHT_RELA);
+> +       if (!reloc_sec)
+> +               return -1;
+> +
+> +       idx = 0;
+> +       list_for_each_entry(insn, &file->mcount_loc_list, mcount_loc_node) {
+> +
+> +               loc = (unsigned long *)sec->data->d_buf + idx;
+> +               memset(loc, 0, sizeof(unsigned long));
+> +
+> +               reloc = malloc(sizeof(*reloc));
+> +               if (!reloc) {
+> +                       perror("malloc");
+> +                       return -1;
+> +               }
+> +               memset(reloc, 0, sizeof(*reloc));
 
-Additionally fixes a build failure under 32-bit UML.
+calloc(1, sizeof(*reloc))?
 
-Fixes: b09511c253e5 ("lkdtm: Add a DOUBLE_FAULT crash type on x86")
-Fixes: cea23efb4de2 ("lkdtm/bugs: Make double-fault test always available")
-Fixes: 6cb6982f42cb ("lkdtm: arm64: test kernel pointer authentication")
-Signed-off-by: Kees Cook <keescook@chromium.org>
----
- drivers/misc/lkdtm/bugs.c               | 38 ++++++++++++++-----------
- drivers/misc/lkdtm/lkdtm.h              |  2 --
- tools/testing/selftests/lkdtm/tests.txt |  1 +
- 3 files changed, 22 insertions(+), 19 deletions(-)
+> +
+> +               reloc->sym = insn->sec->sym;
+> +               reloc->addend = insn->offset;
+> +               reloc->type = R_X86_64_64;
+> +               reloc->offset = idx * sizeof(unsigned long);
+> +               reloc->sec = reloc_sec;
+> +               elf_add_reloc(file->elf, reloc);
+> +
+> +               idx++;
+> +       }
+> +
+> +       if (elf_rebuild_reloc_section(file->elf, reloc_sec))
+> +               return -1;
+> +
+> +       return 0;
+> +}
+> +
+>  /*
+>   * Warnings shouldn't be reported for ignored functions.
+>   */
+> @@ -892,6 +951,22 @@ static int add_call_destinations(struct objtool_file *file)
+>                         insn->type = INSN_NOP;
+>                 }
+>
+> +               if (mcount && !strcmp(insn->call_dest->name, "__fentry__")) {
+> +                       if (reloc) {
+> +                               reloc->type = R_NONE;
+> +                               elf_write_reloc(file->elf, reloc);
+> +                       }
+> +
+> +                       elf_write_insn(file->elf, insn->sec,
+> +                                      insn->offset, insn->len,
+> +                                      arch_nop_insn(insn->len));
+> +
+> +                       insn->type = INSN_NOP;
+> +
+> +                       list_add_tail(&insn->mcount_loc_node,
+> +                                     &file->mcount_loc_list);
+> +               }
+> +
+>                 /*
+>                  * Whatever stack impact regular CALLs have, should be undone
+>                  * by the RETURN of the called function.
+> @@ -3004,6 +3079,7 @@ int check(const char *_objname, bool orc)
+>         INIT_LIST_HEAD(&file.insn_list);
+>         hash_init(file.insn_hash);
+>         INIT_LIST_HEAD(&file.static_call_list);
+> +       INIT_LIST_HEAD(&file.mcount_loc_list);
+>         file.c_file = !vmlinux && find_section_by_name(file.elf, ".comment");
+>         file.ignore_unreachables = no_unreachable;
+>         file.hints = false;
+> @@ -3056,6 +3132,11 @@ int check(const char *_objname, bool orc)
+>                 goto out;
+>         warnings += ret;
+>
+> +       ret = create_mcount_loc_sections(&file);
+> +       if (ret < 0)
+> +               goto out;
+> +       warnings += ret;
+> +
+>         if (orc) {
+>                 ret = create_orc(&file);
+>                 if (ret < 0)
+> diff --git a/tools/objtool/check.h b/tools/objtool/check.h
+> index cd95fca0d237..01f11b5da5dd 100644
+> --- a/tools/objtool/check.h
+> +++ b/tools/objtool/check.h
+> @@ -24,6 +24,7 @@ struct instruction {
+>         struct list_head list;
+>         struct hlist_node hash;
+>         struct list_head static_call_node;
+> +       struct list_head mcount_loc_node;
+>         struct section *sec;
+>         unsigned long offset;
+>         unsigned int len;
+> diff --git a/tools/objtool/objtool.h b/tools/objtool/objtool.h
+> index 9a7cd0b88bd8..f604b22d22cc 100644
+> --- a/tools/objtool/objtool.h
+> +++ b/tools/objtool/objtool.h
+> @@ -17,6 +17,7 @@ struct objtool_file {
+>         struct list_head insn_list;
+>         DECLARE_HASHTABLE(insn_hash, 20);
+>         struct list_head static_call_list;
+> +       struct list_head mcount_loc_list;
+>         bool ignore_unreachables, c_file, hints, rodata;
+>  };
+>
 
-diff --git a/drivers/misc/lkdtm/bugs.c b/drivers/misc/lkdtm/bugs.c
-index 08c70281c380..10338800f6be 100644
---- a/drivers/misc/lkdtm/bugs.c
-+++ b/drivers/misc/lkdtm/bugs.c
-@@ -13,7 +13,7 @@
- #include <linux/uaccess.h>
- #include <linux/slab.h>
- 
--#ifdef CONFIG_X86_32
-+#if IS_ENABLED(CONFIG_X86_32) && !IS_ENABLED(CONFIG_UML)
- #include <asm/desc.h>
- #endif
- 
-@@ -418,7 +418,7 @@ void lkdtm_UNSET_SMEP(void)
- 
- void lkdtm_DOUBLE_FAULT(void)
- {
--#ifdef CONFIG_X86_32
-+#if IS_ENABLED(CONFIG_X86_32) && !IS_ENABLED(CONFIG_UML)
- 	/*
- 	 * Trigger #DF by setting the stack limit to zero.  This clobbers
- 	 * a GDT TLS slot, which is okay because the current task will die
-@@ -453,38 +453,42 @@ void lkdtm_DOUBLE_FAULT(void)
- #endif
- }
- 
--#ifdef CONFIG_ARM64_PTR_AUTH
-+#ifdef CONFIG_ARM64
- static noinline void change_pac_parameters(void)
- {
--	/* Reset the keys of current task */
--	ptrauth_thread_init_kernel(current);
--	ptrauth_thread_switch_kernel(current);
-+	if (IS_ENABLED(CONFIG_ARM64_PTR_AUTH)) {
-+		/* Reset the keys of current task */
-+		ptrauth_thread_init_kernel(current);
-+		ptrauth_thread_switch_kernel(current);
-+	}
- }
-+#endif
- 
--#define CORRUPT_PAC_ITERATE	10
- noinline void lkdtm_CORRUPT_PAC(void)
- {
-+#ifdef CONFIG_ARM64
-+#define CORRUPT_PAC_ITERATE	10
- 	int i;
- 
-+	if (!IS_ENABLED(CONFIG_ARM64_PTR_AUTH))
-+		pr_err("FAIL: kernel not built with CONFIG_ARM64_PTR_AUTH\n");
-+
- 	if (!system_supports_address_auth()) {
--		pr_err("FAIL: arm64 pointer authentication feature not present\n");
-+		pr_err("FAIL: CPU lacks pointer authentication feature\n");
- 		return;
- 	}
- 
--	pr_info("Change the PAC parameters to force function return failure\n");
-+	pr_info("changing PAC parameters to force function return failure...\n");
- 	/*
--	 * Pac is a hash value computed from input keys, return address and
-+	 * PAC is a hash value computed from input keys, return address and
- 	 * stack pointer. As pac has fewer bits so there is a chance of
- 	 * collision, so iterate few times to reduce the collision probability.
- 	 */
- 	for (i = 0; i < CORRUPT_PAC_ITERATE; i++)
- 		change_pac_parameters();
- 
--	pr_err("FAIL: %s test failed. Kernel may be unstable from here\n", __func__);
--}
--#else /* !CONFIG_ARM64_PTR_AUTH */
--noinline void lkdtm_CORRUPT_PAC(void)
--{
--	pr_err("FAIL: arm64 pointer authentication config disabled\n");
--}
-+	pr_err("FAIL: survived PAC changes! Kernel may be unstable from here\n");
-+#else
-+	pr_err("XFAIL: this test is arm64-only\n");
- #endif
-+}
-diff --git a/drivers/misc/lkdtm/lkdtm.h b/drivers/misc/lkdtm/lkdtm.h
-index 601a2156a0d4..8878538b2c13 100644
---- a/drivers/misc/lkdtm/lkdtm.h
-+++ b/drivers/misc/lkdtm/lkdtm.h
-@@ -31,9 +31,7 @@ void lkdtm_CORRUPT_USER_DS(void);
- void lkdtm_STACK_GUARD_PAGE_LEADING(void);
- void lkdtm_STACK_GUARD_PAGE_TRAILING(void);
- void lkdtm_UNSET_SMEP(void);
--#ifdef CONFIG_X86_32
- void lkdtm_DOUBLE_FAULT(void);
--#endif
- void lkdtm_CORRUPT_PAC(void);
- 
- /* lkdtm_heap.c */
-diff --git a/tools/testing/selftests/lkdtm/tests.txt b/tools/testing/selftests/lkdtm/tests.txt
-index 92ca32143ae5..9d266e79c6a2 100644
---- a/tools/testing/selftests/lkdtm/tests.txt
-+++ b/tools/testing/selftests/lkdtm/tests.txt
-@@ -14,6 +14,7 @@ STACK_GUARD_PAGE_LEADING
- STACK_GUARD_PAGE_TRAILING
- UNSET_SMEP CR4 bits went missing
- DOUBLE_FAULT
-+CORRUPT_PAC
- UNALIGNED_LOAD_STORE_WRITE
- #OVERWRITE_ALLOCATION Corrupts memory on failure
- #WRITE_AFTER_FREE Corrupts memory on failure
+
 -- 
-2.25.1
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200625203704.317097-5-keescook%40chromium.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmToWTaiaw0iX56FLeezW30k3S%3DpZLf97N2Ta7zJkSL0w%40mail.gmail.com.
