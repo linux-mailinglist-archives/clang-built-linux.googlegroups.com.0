@@ -1,126 +1,124 @@
-Return-Path: <clang-built-linux+bncBCAJTS5ZVEJRBLOL2L3QKGQEWA7WFWA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDMODYUV7YCRBJ652L3QKGQE2FZNMZI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x438.google.com (mail-wr1-x438.google.com [IPv6:2a00:1450:4864:20::438])
-	by mail.lfdr.de (Postfix) with ESMTPS id AD6B7209FC3
-	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jun 2020 15:25:01 +0200 (CEST)
-Received: by mail-wr1-x438.google.com with SMTP id y13sf6795134wrp.13
-        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jun 2020 06:25:01 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1593091501; cv=pass;
+Received: from mail-pl1-x63a.google.com (mail-pl1-x63a.google.com [IPv6:2607:f8b0:4864:20::63a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3AC9020A08D
+	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jun 2020 16:03:21 +0200 (CEST)
+Received: by mail-pl1-x63a.google.com with SMTP id b5sf3748405pls.17
+        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jun 2020 07:03:21 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1593093799; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HpnPNlQaNAmZ4+PTvAm5wKPUK/uyS5xEN6YNLULLtOHA/GDkqyGOxr6K2mQ8/Vpwfp
-         OYsdlVNzfoPihemiNLqnUO6Fvb2899UjYaCkaP+K7ENSMExNXJEFI/OAx3oIf6/Q9V++
-         Ssm+fyKarXXaDaOV0Jt8DzKb2/+Kdu/nweGmbVcKNPPXA5ct7uPXxZHv4G6+MnLnoIfR
-         sVPTxaysH50EMhM9oAhsoRIKETc7EypR/S6paSdum9M3eCSwuN+Tfwxh/jJBHP9SzpU+
-         zZElmgWe7vaKRD4f3c0U93VHyLj3n045EUtjXFJJ2US8m3t1unur3JQW5KWk7JnjxweA
-         9CpQ==
+        b=dRXl+DLnY29KNeD0IuExYYeOYEVKLYDEXaa99AFaoOuo2g1eCeIpwcTWVYS9/HP+Qv
+         Uh6kQGT9FHIM39KMsVmgBXxBSzpldt/WfxVqNTnwrovS8HhcIoveSYjyCwfb+dM1SiA4
+         VyOMktN9WUi+xwKcA5gRI7UbA3SK6cD11TIFKu8C99/c+SsOq2XZ4zRv/UH2/5qNm+8S
+         VFuhm7OuefUSujK/T2UULuF2ttmSevN+pV44EpNMEOHZSIC8DrkGeRj/e/EiOD2jdSOz
+         BrWMRl4fYJbnzGQHzrjydB3YjkXc9kse5QiO+kchdjuIM2JdSYJumxqt49AUKGUm+KKM
+         0OKA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:thread-index:thread-topic
-         :content-transfer-encoding:mime-version:subject:references
-         :in-reply-to:message-id:cc:to:from:date:sender:dkim-signature;
-        bh=3K49z1VxHa+6Et++oQh4Qk3UjridjvkxoVrjjFlP2Zg=;
-        b=jc3cW7alHxJIErkr5q2vV8J7F5u4tkQUWpRIaNaVAj3QRSrDuofM7bvUtQDRPZp32H
-         lewty7rdJvy2P3CIqzilQ+GidqUlSuHoOCxcSLgfMrLvT2RgqlsgwcuiBruQ2d6WYohH
-         cJb7NMmTit2kItlJPLTUpM8Glx3pCEWY/1njHfBs8s3f2V1kZn95un0sh9e+kSOafdDJ
-         HP3hw6l2wh/tKSKw+UVbDkrE/32Gw3kevvapC7dBoMXkvD+02LX4qWeqQQbNPon6Nv2A
-         1OPCjjtWbkaGURhDXN3xYmLZt9AJG/Vwatoufz4J3UZrpwogtQY/ozmGnufvaw9LIk2J
-         GCkQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=X07CrpxNaniqFSxz1Ww98aknLLSBbNiXmagziBDGHyY=;
+        b=rNlML6duPBKIIBlQYagyQoCEbZfZviQw8VmzquIPJnzTHv1nyPoLCKmpjH5Tlx5DQU
+         8fbAWxvhF0Fu4IsFfI/upDdWqSp93VQvDUjyE0hzFQWuSH3GMUj0fV78/8s9rwEQIpXX
+         Zmz3oVOuJKoMV7VB7nkb/pAzcFKH/XRkZeOghjP2MlnJF79FNq0AL5ajCYn4WQjrYsfM
+         Q/6rfYEc26n/13a2eT/DIFCIApTLOXcZ0gLd7dJMO0xnB7XwBttjuaeMazdXwS4Zz4Ar
+         FA067JYWujvBLJnu7JTkSb0rTUcI163iIDmIyvf6WEalzeefEDsDAyQ10NM/+YGwQJLY
+         rFww==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of mathieu.acher@irisa.fr designates 192.134.164.83 as permitted sender) smtp.mailfrom=mathieu.acher@irisa.fr
+       dkim=pass header.i=@joelfernandes.org header.s=google header.b=jf8zHeXk;
+       spf=pass (google.com: domain of joel@joelfernandes.org designates 2607:f8b0:4864:20::842 as permitted sender) smtp.mailfrom=joel@joelfernandes.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:message-id:in-reply-to:references:subject
-         :mime-version:content-transfer-encoding:thread-topic:thread-index
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=3K49z1VxHa+6Et++oQh4Qk3UjridjvkxoVrjjFlP2Zg=;
-        b=Q+twzL+XYJYsqVf0s9/p9UIRlqO4HH8/Tex/nctOJvNqGavSALI8WWyNU8BUYpJZkN
-         DFir5tzBYFyQ4pNSENQQa+tNrdUqhfWcyCpafPxMeMcXIukptjiNfZXhDxJ/puSuyExy
-         ahv+fZqZrWOPp4iYkG0cy+5hbRfkqdyMjlx9W8JntZiNrlFM2yJCLBuUspM4mmye+EWU
-         CLC1S3G65f3BIv6WgxORF3l8ZyntOMmh7l8eWel858gfGt1KshfnZrjrDZcCDwq6MAUx
-         OnlERmgw9ITYYfvIrttDD35DbxXQ2dWHU4qr5b+CRchB1IU0uRde4VgO9nuY9nMX3liV
-         5NGg==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=X07CrpxNaniqFSxz1Ww98aknLLSBbNiXmagziBDGHyY=;
+        b=h5j/bzdBnopxTX846KwpyWV1K1Df60/XR890Wbt4I8iIheOJMcRMB1l1vupSL74VpZ
+         ahBNApQKomd8LH9+tcJmZHghGBTrxfqWcQdp1g7Q7AnMEyUWUMuVIx3JcVWlfSroUriG
+         9iq63kjqfEETMreFusGgq+t8WAyaaUvAg54jAnv5otQ/3xcX5RMv3rmPdAWic9q9bWJ2
+         7mtV56+9bmlsL4M06jCpCfetyO6ceoaZDHQo82TRVQbMzrGJFyXVWdgNZHR7DvSFyCn6
+         5iBibkz8tMf0ZU6b3y5Y4Mhb/AmlLNBxM1kuSU9gIKJcMApqVQIiE1hWxa426ysS3l/s
+         ntuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:message-id:in-reply-to
-         :references:subject:mime-version:content-transfer-encoding
-         :thread-topic:thread-index:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=3K49z1VxHa+6Et++oQh4Qk3UjridjvkxoVrjjFlP2Zg=;
-        b=g7Iso/Kr7s1v6Ez3NNpkys84rW9scKl/KisoZAoHeinGrcW1CQ/w8HOmHiyU5diKEW
-         qMy/rl6UOblv3SztANLMPIZuRPWvFFHdAGMICQUT4nraUgJ0Ad7LiYJ7HQaI2HfwfmzX
-         6oBMS2oH+68rSEjFdtbmXEWy4sGFU6eAPWOVB84FqqwILl6mxYZArHdEXBWZslqcXwTQ
-         1AtsMsfl/D/zvETYTEFKgR9MDaIi1x6Xc9P2kbFc93JPib9OfOPcEcOeBvOGXkhc/cj/
-         r6YEe22cfv23/rx27a6KFwQ3bxOyuTCAdKRfQqcs9eQtsORMO3WZQeR1ALO+CwaMXyn6
-         Mw8w==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=X07CrpxNaniqFSxz1Ww98aknLLSBbNiXmagziBDGHyY=;
+        b=g6DIaADrqPbxnrLKOq0baDtnENUqntC2ZBQqgCQRc7pl8lAJIRjCnX87dw6qCMNRVI
+         gOEq9bf4aOm8S5EOZjinxV7cT00hl9BmYa4MElDV7Ybjwlawddeh/YbLX/s2qQP4M8xR
+         K6991HG7qG1GKR/heqXem8TkdDLAYbhbRuNmq2+zQ5duGpHF/A78wCZhUvG1mnggFDTG
+         w79+RfgWARIroNjlQwwF71D9IbM0t0XXC8bvz2RM/r7bOhXW+vC3dOfbRgWN956+KTPG
+         dSVhi2WQ8aza5uikurC2a1MuVGSGcB3sneAO4W97jB0nhAMXRs72yqpG0QKUtBe1UG2g
+         VuHA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533J/BWGjYXqPa+wwpOKeN03IyZoN4wO294eEK7fB9F770PNO87z
-	FjQjDAL/3ym8KpVVIxzooj0=
-X-Google-Smtp-Source: ABdhPJzSNium+e+BjSx28ZpheSbUc0szkiJvQULNEOjGje7v2a/gi+4be8qP12K6MWS2oJKNzt6RLQ==
-X-Received: by 2002:adf:f751:: with SMTP id z17mr27468220wrp.114.1593091501347;
-        Thu, 25 Jun 2020 06:25:01 -0700 (PDT)
+X-Gm-Message-State: AOAM532IrrsFpwWvDoT0HtuVAotdy482qCe68iCac5FUnxMgDSjU1CeJ
+	DDGc43dsTjklkGmLioDurYE=
+X-Google-Smtp-Source: ABdhPJzy9JLYqOoPYUFhDacTE125YU/j3Z1G8mfdEPqQtztp6GC2A++fFtto3nZ1aduATvcTb6bzgg==
+X-Received: by 2002:a17:90a:f8e:: with SMTP id 14mr3714355pjz.172.1593093799407;
+        Thu, 25 Jun 2020 07:03:19 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:aace:: with SMTP id i14ls360102wrc.3.gmail; Thu, 25 Jun
- 2020 06:25:00 -0700 (PDT)
-X-Received: by 2002:a5d:54c9:: with SMTP id x9mr38674543wrv.247.1593091500702;
-        Thu, 25 Jun 2020 06:25:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1593091500; cv=none;
+Received: by 2002:a17:902:7686:: with SMTP id m6ls2331827pll.1.gmail; Thu, 25
+ Jun 2020 07:03:19 -0700 (PDT)
+X-Received: by 2002:a17:90a:7bc3:: with SMTP id d3mr3380172pjl.98.1593093798927;
+        Thu, 25 Jun 2020 07:03:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593093798; cv=none;
         d=google.com; s=arc-20160816;
-        b=mO9HFmcGOz5lJ8neyv02qrs4hWO6un+g7W0JHXWzrluF9HhcNhU4t4jUgdRo3eQSbe
-         Stl8LMm6meufv5kHrV+GGsUR/hQALm4Wk3f0RvtsFjWMIHc71CAje4eTbxyWR/v3YjbV
-         pxlBQ+XaXhRmyASexIKkJf2oI2ABk0Yt0aBEoeCnPlamE3ioVlbAQWah9p8twvH0Tffr
-         rU0cgmtU9GZkGhBH4Qt3Qc0caAFBPHxPzcoeSCZo7kl4i00atX9yCNyURzEDeUnC1y/u
-         nGtSxkOnWw4E/P2qWKrAMRGTyxHkmKBVrPNgATlInU5ZBua9x6NUDnVw/4nbknw6Z3Lj
-         277g==
+        b=TKDdU5F8F3IvozcDt3E9z2L9Gs+PlTD1IVgT7a58qI6zg2PgLU9hnFBcGf5er/Z0VT
+         bfvBWCYJj4AwgwEJH8tqxQ4zsV/C3szGqkaHPXKocRo/7rvC0wmQ7/OY9EYZrdbsuWMK
+         VsXIGJpaQBsBj9HGIniBZSpKYXolPSYDJ2jD+8KfOJCed7mQWgRVH8/yX7QE6q3Gtayc
+         ajzay/9O31oP4kV8GJ7QP5wyqxUKvwvDIT4hbucsKJvYi2Mwmf4U34g4slbkkdFActBb
+         pej8XHm8U5gB/6YmIUBu3BxYu7sNDOX+aiWXSDWj1wvp9d11yRHjrFXKiVgGFi+lQ3l0
+         wIMw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=thread-index:thread-topic:content-transfer-encoding:mime-version
-         :subject:references:in-reply-to:message-id:cc:to:from:date;
-        bh=BJjCsd5fo+7bT7J4sbhtpBBg59MHMDPJ0/ceSR8Pa3c=;
-        b=Ut4rutZD1/ilFXe2fOdNsE0LMvbt+OfxYRNqMe+YnGjV4G+aw1EbI8uoDk9kCb17ET
-         IAIlQYTzzGRnblkSnU4Gru+yRxnc1OpZcgNg9jozEYTj5GmzbFzZAt/u7gPJ3zItVVgA
-         OpLuZuJ5EFAL5bPrTqcKZM/0CKeRa/8Fm71K4cRZsz37r7yq0ar0idSWKIgXr2RbAjPq
-         aNUv5hHxWbnR/zlN/LLn6mlyjMUHbu9KofGwYLOJx9rkjN8ArbG1sfcgezeyU7PONap8
-         z8sgo3nyUVrAmu5urSSsTCUiY135ismAiVDbw1h4PuaYb1qYLl1xr4N1fzcll6EA9VnC
-         QH0w==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=XxFnzRIjxSAChIaHCVuKvTP+mQOz1IqICoegudiUYZs=;
+        b=L9xYgS+6Wc+01LNEDzBC3TF0bCvxDR4ePj5XTNfMvFd+6gajgG5Xlf1Y5CvbaEl5yp
+         w83IyaKa6pA0oy6jzE9af0KXh58OX69GbkhKUgLlEYDR51f2zQ8i9NWLW0rvk32s80nS
+         g1J8R8BT48WaaG6kztpIS8kelQz9xmy5u7bnhVZCAQ1ItQrZP+oR4rBELLaW0d52HFfT
+         r5jjTRmHSTqdAK3sexLJ2/Lcrj3MHprSm2QtIHzbL5XilslEhu2OxCenxDFPXbDx5fzf
+         VHmXYMaPlbS6achGHtlLz6W/6AO+bK2dj1c6mReu/u/u/s8KZQydf4EROH9ckPCb7Nvw
+         /ACA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of mathieu.acher@irisa.fr designates 192.134.164.83 as permitted sender) smtp.mailfrom=mathieu.acher@irisa.fr
-Received: from mail2-relais-roc.national.inria.fr (mail2-relais-roc.national.inria.fr. [192.134.164.83])
-        by gmr-mx.google.com with ESMTPS id m16si680497wmg.2.2020.06.25.06.25.00
+       dkim=pass header.i=@joelfernandes.org header.s=google header.b=jf8zHeXk;
+       spf=pass (google.com: domain of joel@joelfernandes.org designates 2607:f8b0:4864:20::842 as permitted sender) smtp.mailfrom=joel@joelfernandes.org
+Received: from mail-qt1-x842.google.com (mail-qt1-x842.google.com. [2607:f8b0:4864:20::842])
+        by gmr-mx.google.com with ESMTPS id w13si446669pll.2.2020.06.25.07.03.18
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 25 Jun 2020 06:25:00 -0700 (PDT)
-Received-SPF: pass (google.com: domain of mathieu.acher@irisa.fr designates 192.134.164.83 as permitted sender) client-ip=192.134.164.83;
-X-IronPort-AV: E=Sophos;i="5.75,279,1589234400"; 
-   d="scan'208";a="456679271"
-X-MGA-submission: =?us-ascii?q?MDHrRDxiZemLWFGkRdLbSv0xDgyoG8u0Dvx4IU?=
- =?us-ascii?q?gRRGFYneNZ3rmW6lsMUH6TOUZcbV05ix9sKgVflpOF2jhHPanvXCdP/E?=
- =?us-ascii?q?a0uEkv0/+9+IAcXVVe+IPE9xCwlzR9KfAL/9WlAzk1k2rDVHh9ovAz1i?=
- =?us-ascii?q?V1s+MDD1ziTkhk3G14WCiD8Q=3D=3D?=
-Received: from zcs-store7.inria.fr ([128.93.142.34])
-  by mail2-relais-roc.national.inria.fr with ESMTP; 25 Jun 2020 15:25:00 +0200
-Date: Thu, 25 Jun 2020 15:25:00 +0200 (CEST)
-From: Mathieu Acher <mathieu.acher@irisa.fr>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: clang-built-linux <clang-built-linux@googlegroups.com>
-Message-ID: <546249396.1205166.1593091500255.JavaMail.zimbra@irisa.fr>
-In-Reply-To: <CAKwvOd=3qs9TLkzNE+uPH-fY=+u=P2Abz0sZxroauEDdr=jLJw@mail.gmail.com>
-References: <CAKwvOdnaoaZPLqcn6yiFEpEVx=HmpRe1ExhLZfzLhHs7e7Atww@mail.gmail.com> <31688.1592897284383266895@groups.io> <CAKwvOd=3qs9TLkzNE+uPH-fY=+u=P2Abz0sZxroauEDdr=jLJw@mail.gmail.com>
-Subject: Re: kci_build proposal
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 25 Jun 2020 07:03:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of joel@joelfernandes.org designates 2607:f8b0:4864:20::842 as permitted sender) client-ip=2607:f8b0:4864:20::842;
+Received: by mail-qt1-x842.google.com with SMTP id e12so4628063qtr.9
+        for <clang-built-linux@googlegroups.com>; Thu, 25 Jun 2020 07:03:18 -0700 (PDT)
+X-Received: by 2002:ac8:19ad:: with SMTP id u42mr11898814qtj.168.1593093798315;
+        Thu, 25 Jun 2020 07:03:18 -0700 (PDT)
+Received: from localhost ([2620:15c:6:12:9c46:e0da:efbf:69cc])
+        by smtp.gmail.com with ESMTPSA id 21sm5232150qkj.56.2020.06.25.07.03.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 25 Jun 2020 07:03:17 -0700 (PDT)
+Date: Thu, 25 Jun 2020 10:03:17 -0400
+From: Joel Fernandes <joel@joelfernandes.org>
+To: kernel test robot <lkp@intel.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
+Subject: Re: [jfern:rcu-segcb 3/10] kernel/rcu/tree_plugin.h:792:57: error:
+ too few arguments to function call, expected 4, have 3
+Message-ID: <20200625140317.GB22079@google.com>
+References: <202006250242.s2Nd0kvk%lkp@intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [128.93.181.138]
-X-Mailer: Zimbra 8.7.11_GA_3800 (ZimbraWebClient - GC79 (Linux)/8.7.11_GA_3800)
-Thread-Topic: kci_build proposal
-Thread-Index: UYnNDzT4QkMxe1l+dlvUEWx2oCqaAA==
-X-Original-Sender: mathieu.acher@irisa.fr
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of mathieu.acher@irisa.fr designates 192.134.164.83 as
- permitted sender) smtp.mailfrom=mathieu.acher@irisa.fr
+Content-Disposition: inline
+In-Reply-To: <202006250242.s2Nd0kvk%lkp@intel.com>
+X-Original-Sender: joel@joelfernandes.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@joelfernandes.org header.s=google header.b=jf8zHeXk;       spf=pass
+ (google.com: domain of joel@joelfernandes.org designates 2607:f8b0:4864:20::842
+ as permitted sender) smtp.mailfrom=joel@joelfernandes.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,73 +131,92 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Nick,=20
+Hmm, so this branch is deleted. Can we drop testing of it?
 
-Sure I can attend the meeting and present our work. 10 minutes is OK!=20
-And then discussions ;)=20
+thanks,
 
-1st july is the next meeting but when exactly? it seems 12PM in France (I g=
-uess 6PM somewhere in USA), why not I just wanted to be sure.=20
+ - Joel
 
-Thanks,=20
+On Thu, Jun 25, 2020 at 02:54:50AM +0800, kernel test robot wrote:
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/jfern/linux.git rcu-segcb
+> head:   039f56b3996656cf3a0bdc306fcd09fc02fe3fbb
+> commit: 94e6141197fc434bf1fcccfa862129e4958fb6e0 [3/10] rcu/trace: Add name of the source for gp_seq
+> config: x86_64-allyesconfig (attached as .config)
+> compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 1d4c87335d5236ea1f35937e1014980ba961ae34)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install x86_64 cross compiling tool for clang build
+>         # apt-get install binutils-x86-64-linux-gnu
+>         git checkout 94e6141197fc434bf1fcccfa862129e4958fb6e0
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
+> 
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+> 
+> All errors (new ones prefixed by >>):
+> 
+>    In file included from kernel/rcu/tree.c:4456:
+> >> kernel/rcu/tree_plugin.h:792:57: error: too few arguments to function call, expected 4, have 3
+>                                   __this_cpu_read(rcu_data.gp_seq), TPS("cpuqs"));
+>                                                                                 ^
+>    include/trace/events/rcu.h:69:1: note: 'trace_rcu_grace_period' declared here
+>    TRACE_EVENT_RCU(rcu_grace_period,
+>    ^
+>    include/trace/events/rcu.h:11:25: note: expanded from macro 'TRACE_EVENT_RCU'
+>    #define TRACE_EVENT_RCU TRACE_EVENT
+>                            ^
+>    include/linux/tracepoint.h:512:2: note: expanded from macro 'TRACE_EVENT'
+>            DECLARE_TRACE(name, PARAMS(proto), PARAMS(args))
+>            ^
+>    include/linux/tracepoint.h:376:2: note: expanded from macro 'DECLARE_TRACE'
+>            __DECLARE_TRACE(name, PARAMS(proto), PARAMS(args),              \
+>            ^
+>    include/linux/tracepoint.h:232:21: note: expanded from macro '__DECLARE_TRACE'
+>            static inline void trace_##name(proto)                          \
+>                               ^
+>    <scratch space>:15:1: note: expanded from here
+>    trace_rcu_grace_period
+>    ^
+>    1 error generated.
+> 
+> vim +792 kernel/rcu/tree_plugin.h
+> 
+> f41d911f8c49a5 kernel/rcutree_plugin.h  Paul E. McKenney          2009-08-22  779  
+> 45975c7d21a1c0 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-07-02  780  /*
+> 90326f0521a880 kernel/rcu/tree_plugin.h Sebastian Andrzej Siewior 2019-10-15  781   * Note a quiescent state for PREEMPTION=n.  Because we do not need to know
+> 45975c7d21a1c0 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-07-02  782   * how many quiescent states passed, just if there was at least one since
+> 45975c7d21a1c0 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-07-02  783   * the start of the grace period, this just sets a flag.  The caller must
+> 45975c7d21a1c0 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-07-02  784   * have disabled preemption.
+> 45975c7d21a1c0 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-07-02  785   */
+> 45975c7d21a1c0 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-07-02  786  static void rcu_qs(void)
+> d28139c4e96713 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-06-28  787  {
+> 45975c7d21a1c0 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-07-02  788  	RCU_LOCKDEP_WARN(preemptible(), "rcu_qs() invoked with preemption enabled!!!");
+> 45975c7d21a1c0 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-07-02  789  	if (!__this_cpu_read(rcu_data.cpu_no_qs.s))
+> 45975c7d21a1c0 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-07-02  790  		return;
+> 45975c7d21a1c0 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-07-02  791  	trace_rcu_grace_period(TPS("rcu_sched"),
+> 45975c7d21a1c0 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-07-02 @792  			       __this_cpu_read(rcu_data.gp_seq), TPS("cpuqs"));
+> 45975c7d21a1c0 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-07-02  793  	__this_cpu_write(rcu_data.cpu_no_qs.b.norm, false);
+> 45975c7d21a1c0 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-07-02  794  	if (!__this_cpu_read(rcu_data.cpu_no_qs.b.exp))
+> 45975c7d21a1c0 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-07-02  795  		return;
+> 45975c7d21a1c0 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-07-02  796  	__this_cpu_write(rcu_data.cpu_no_qs.b.exp, false);
+> 63d4c8c97948b0 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-07-03  797  	rcu_report_exp_rdp(this_cpu_ptr(&rcu_data));
+> d28139c4e96713 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-06-28  798  }
+> d28139c4e96713 kernel/rcu/tree_plugin.h Paul E. McKenney          2018-06-28  799  
+> 
+> :::::: The code at line 792 was first introduced by commit
+> :::::: 45975c7d21a1c0aba97e3d8007e2a7c123145748 rcu: Define RCU-sched API in terms of RCU for Tree RCU PREEMPT builds
+> 
+> :::::: TO: Paul E. McKenney <paulmck@linux.vnet.ibm.com>
+> :::::: CC: Paul E. McKenney <paulmck@linux.vnet.ibm.com>
+> 
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
-Mathieu
 
---
-Dr. Mathieu ACHER, Associate Professor
-Univ Rennes, Inria, CNRS, IRISA, France (DiverSE team)
-http://www.mathieuacher.com/
-
------ Mail original -----
-> De: "Nick Desaulniers" <ndesaulniers@google.com>
-> =C3=80: "Mathieu Acher" <mathieu.acher@irisa.fr>
-> Cc: "clang-built-linux" <clang-built-linux@googlegroups.com>
-> Envoy=C3=A9: Mercredi 24 Juin 2020 01:48:04
-> Objet: Re: kci_build proposal
-
-> bcc: kernelci
-> cc: clangbuiltlinux
->=20
-> On Tue, Jun 23, 2020 at 12:28 AM Mathieu Acher <mathieu.acher@irisa.fr> w=
-rote:
->>
->> Hi Nick,
->>
->> Thanks for your interest.
->> We didn't target and gather data about Clang, but it was only a technica=
-l
->> limitation at that time.
->> Right now, it seems possible to build kernel configurations with Clang (=
-thanks
->> to kernelci tool chain) and we are very interested to invest some
->> resources/time here.
->>
->> Indeed, we could differentiate GCC and Clang build and see what's going =
-on.
->> We can also pinpoint combinations of options that lead to failures: it c=
-an be
->> useful to indicate the root cause of the issues and investigate whether =
-it's
->> specific to Clang.
->>
->> I'm available to have a chat
->>
->=20
-> Cool, we have a bi-weekly (every other week) public meeting:
-> https://calendar.google.com/calendar/embed?src=3Dgoogle.com_bbf8m6m4n8nq5=
-p2bfjpele0n5s%40group.calendar.google.com
-> IDK if that works for you, but I think if you gave a 10 minute demo
-> that would be neat, then we could discuss more?  Otherwise happy to
-> stick to email, too?
-> --
-> Thanks,
-> ~Nick Desaulniers
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/546249396.1205166.1593091500255.JavaMail.zimbra%40irisa.f=
-r.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200625140317.GB22079%40google.com.
