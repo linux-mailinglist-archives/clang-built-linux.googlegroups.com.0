@@ -1,101 +1,124 @@
-Return-Path: <clang-built-linux+bncBDCIDJ4RTAOBBO4U3H3QKGQERZ572EY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB3VG3H3QKGQECE2QR6Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53e.google.com (mail-ed1-x53e.google.com [IPv6:2a00:1450:4864:20::53e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 157AA20B93D
-	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Jun 2020 21:19:24 +0200 (CEST)
-Received: by mail-ed1-x53e.google.com with SMTP id v7sf8335618ede.15
-        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Jun 2020 12:19:24 -0700 (PDT)
+Received: from mail-oi1-x237.google.com (mail-oi1-x237.google.com [IPv6:2607:f8b0:4864:20::237])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7936520B986
+	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Jun 2020 21:58:39 +0200 (CEST)
+Received: by mail-oi1-x237.google.com with SMTP id i139sf2934973oib.9
+        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Jun 2020 12:58:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1593201518; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=fyhLy3SIZuqqBRzcnLJU5p7Ks18Bi+8BKHzKP2K47a+7ZxXubMvMs3fw+c3MpVm98R
+         +xXCkx5ovzb4Gm5P2jmCvsW4JlIRXWAeT8dUwkbrNGc0G6aLCywYYiI/LlEBgD4vG3Wn
+         /bD/yO9Ehq100/tXKwc7IURzA/4v+nuMKiON0dRJvtuFpV/rRg6J6qldrAV4AIvLyU0q
+         sBZtbOwtkPYK4ZlXQ/HOM3R7vAC+NRNfNLn/hWLmkxeXxAjIAtOitJFbg4fywI2nUUnA
+         pUz6RJVBowM6K7LpjPI7/fz4+6x/qCRm8wavZPwvwdGbDf4wk+ed7f6fZGPCvcMvTrzP
+         TB+Q==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=1yNm/19W0DYzvP4TLcyIFruY21J5K2YLNhT+rbO5OWA=;
+        b=NS8KohwqsDbtVszWjMdo5qm867zbaXbVgEnL8z1ceBDVcJZhjdzGHAihyPbxe3EzEc
+         0RcpWCTdOLUZfkgAc0lH7E9Ra3Jqf5NPFf7Y8qOHIfhYmzIw27URLYLRnTmjC4KbYKMC
+         b13oBIYKHafmkky1gCdOeQ7VcklqyiVck/EBXw3iq7s+TQx1IV8qM+uktrkzI7dCctGu
+         hy7wBuWTNBhktfVknbHb3GE+e/6oHNEdR3lXrU/Qm1XIN2+AzoCMOuis5mkNPR5c7MoK
+         qVp+ehjVkJoy+ExMg7DlGQYpzUo2TbXXZVZ950g4eVgayMGK2PgKbW2l1/FFltEm0iik
+         7EBw==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=asziHWfJ;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:message-id:to:cc:subject:from:in-reply-to:references
-         :mime-version:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=dU3cDDWl9rPh4ttuT16fxubeuroN9EVC61WrN8+OHdY=;
-        b=gKzlf1yrFiV57/mEaZc7ykUoLwYvpQdMA+INvwBIW5NXQLZzOr7AxNC19TCl8xf5A9
-         iMpASgWRan79/nQhLNsMu5e2A0uBJ92HTu1sBRoW+UBq5BN5WKVMoioVcEAr09D1EFE2
-         5eCaJpstZAyat9OTilBKkxtuORvLSD7PgfZN2K2MMRz8ZUzdQJ+6YQghSeWPGvAM5fi9
-         Ow7jf6qH8pmzXPVriEQfjxHYO87IjR+oAUb1aM/DkSewigD5SGH1uepyr/hh0KkV2UfR
-         tOE8MMBFyemHM4Zh60cyEAOc7Ailb0JfRLM06S5Llxa6WyObxsOu3mvJIyhc1QwAgPxo
-         Zjug==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=1yNm/19W0DYzvP4TLcyIFruY21J5K2YLNhT+rbO5OWA=;
+        b=pfo9gJBKSJZPmyi0z/I61AEN5lFJwrEtU9U1NGaeEhZtnuWBP0HZWEaBZZucZX2goT
+         x4YCxA53zoPqTLfLNH0OONoA1DmTbhBHCIYKeULc/P0xPtuArvGMSoEtKiF8pqYp5sA/
+         3l9i9Py/St5bUFuxvS/x8ecLF65ZNwhAkOHi4+vhZOAjV6ePoqhC8VuyMweiIyGw8E9c
+         v3urGGgCV/5S3d8ASqVyFEdyM8ingTOWfJCuQ5ytxJEEW8jhbsvd0g4234ZkxBFDVP2n
+         TkIxr1K0vyGuaQFcaRph5wZU/dD+0WDbwcjun5jS2s9o4OyMbgFu/XqBVLUjXRwPJlNC
+         9mxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:message-id:to:cc:subject:from
-         :in-reply-to:references:mime-version:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=dU3cDDWl9rPh4ttuT16fxubeuroN9EVC61WrN8+OHdY=;
-        b=hi6q+VUNymftCF/5sMgYG+Cn+r/oKfE2eyYmqI3yeiHwKABXAvSTz0hujsYkygPZkI
-         hKHSUENOUDFkM/1k1kwZBAFnbXyNRwpQDwW25QUlrIm8ACu9bzsfLf53FZVIKJoSz8Q5
-         ygmn884gE0F6EknpAT5Rhd+hL3wiuJZQLwxYL1gHW8rxNdB7IAZaf3DZqAZOJ91mYlFt
-         llcJfw1tAP2ufqdyeBtmRffVRhGcFjlGhkAwxRBnNDKPPlseIRHW12oGR2SdKx7Tdo5W
-         Abzh+8aKwFRkcRvY/KQVxeT20V5IdeL3BFKkfEymDoafZAm9xbvqipv77j+5b6anBQJ+
-         mxDQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5310UhmK9EwJzW0MFbz5AFCEt2gFUtrvY2/BQZfxNa9bHGwp+GCN
-	kpGNhuyEbgGIBrrSOKXR51I=
-X-Google-Smtp-Source: ABdhPJxV9uoJoL1bRfHiqeXl3TavnOYgy/5brOXUY40bCqhlZ7kjvi4xjt8RqlD6duUyliMScNLIsA==
-X-Received: by 2002:a17:906:1394:: with SMTP id f20mr4039107ejc.114.1593199163795;
-        Fri, 26 Jun 2020 12:19:23 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=1yNm/19W0DYzvP4TLcyIFruY21J5K2YLNhT+rbO5OWA=;
+        b=PyL2HelPXdogv8yqTMLrGH8jGAsxx//D4z/J5yWms4Ovuv7nirYiBGgQjZNV+DdOpO
+         CuK0n4iRGmi/5yoYMDUJyGBsv+GSp1x+8fVSUqAMJjeNpFxfbYI3zUgNmW6gQ8gzcO3q
+         Rre3QcThOPatQzLUi0wGW8WOtDnc0azqVP05pIVsP9D1FhH3gjahBtEyFK8cXaEozIh6
+         Krxo6QWX2vvIdGRo5X9wgHYqfj6Cad2qjnN+bRVGUqJFaADv9SG6dmukgAANuye+AfjY
+         +OF+rweCx6iCkdD8DR2GVumfw0Xb0UGYuXTejWsQWViVKsnqhqo1vGUPyyKejRJs2PtK
+         eRhQ==
+X-Gm-Message-State: AOAM53020fB8X7QBAlvCPrjPi0kh599Fsj91rS1XLuiassAcMkzMUvCC
+	UgqMk5Ecr5gwoB+wv9LdAp0=
+X-Google-Smtp-Source: ABdhPJwRJ/FlJ8IrUi32RIOJja4zP+f2chuG6iCFrbGsjUUljaR8ArD1qd7MRAwCAaQf/tt6MUKcMg==
+X-Received: by 2002:aca:804:: with SMTP id 4mr3933676oii.105.1593201518449;
+        Fri, 26 Jun 2020 12:58:38 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:c142:: with SMTP id dp2ls2122039ejc.5.gmail; Fri, 26
- Jun 2020 12:19:23 -0700 (PDT)
-X-Received: by 2002:a17:906:f104:: with SMTP id gv4mr4081429ejb.485.1593199163299;
-        Fri, 26 Jun 2020 12:19:23 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1593199163; cv=none;
+Received: by 2002:aca:f30a:: with SMTP id r10ls1175440oih.2.gmail; Fri, 26 Jun
+ 2020 12:58:37 -0700 (PDT)
+X-Received: by 2002:aca:5c54:: with SMTP id q81mr3734546oib.53.1593201517716;
+        Fri, 26 Jun 2020 12:58:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593201517; cv=none;
         d=google.com; s=arc-20160816;
-        b=znRta8RsTiudkN8e1OhZfmbraYnhubj5EA0SYcXZZAR5VwBZ1oHH6kBg/Jrprs/s//
-         GrOEoi05wBpqE9DGh7GaaIEXOa3Gxyhwh+28kgZCRBoBqhcuTCNUGHuJzFsELFBWs27t
-         ZpyUNrrqME6bJ7Rc6RMGe/BSxJV3PDgdXz/9xwhDx4597sw19uw+sUNeDJlx+Xldk2mW
-         pzWL1H4+t7KNYWotc+wo3u0/NvxrsdufsXAkSdBcX6s3I+REdxH9Gg2nvT080Vuc2i2U
-         8hCNSu5HmjGfT9rQRGkT/K3ZkwYHLRUjXP5uMy1PSkQctkMpwvLX+oeCTGNFAvP2T+kE
-         7FRA==
+        b=leuh2WoLj5U+3drPjjVbF/civ1SBhFlGvdwK2pGHI94HknhyXKH1NQi8PMOv9LZ3j+
+         ePArT4aXSk9yhGfqM2pvDpqIYVfZC0r3QVqS8tPe7yHwPH+1ZBcIqwb7SFxGsbJ2QqZu
+         6Zn+3zUSgD730K5IAqTiMFumxakS+WiKHpw98SHlLe2a/w11qolQIdHo+HBytwt+DzgC
+         1sT5uen1vygGFjWdWQhUAl7w01aJJ/D995oQZoRU7E33zOPbCq9Hj53OCH3gADESe/F4
+         UCKp9Ou7bqHreogebTh9poirWhK4Eh18O8oxG6BIsPJriewb2LLQu+GKSsDTLHV/hLrY
+         sqOw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:from
-         :subject:cc:to:message-id:date;
-        bh=dU3cDDWl9rPh4ttuT16fxubeuroN9EVC61WrN8+OHdY=;
-        b=CQAYSwQfiSZKInIpHh9O3XJmtDY/1GkBBNXoIDjtmNSy4fXcIY0Tz5IxxT8WSXbEsj
-         GCRHhBcy8NRXVdSVq2TXT69TW2hpli5IrMAgtzrF6hAR94J/gWXNWVrC6LjyrrWW9a/u
-         gUrmEEN/gL2hI+708GXT05a/8G4JX1LS7AiXvljJUZ36BthcQhEG3YscUpIv7lNU9to1
-         i5bqP/HlXxs82Yc8x8Y11CS7W7PkeOkFBLBcmQywwKptZ9vfTFe4tEdJlLiOfwodKQZt
-         fN152V1LpRXodDQqbCrl4GNu6IK444mZDFcGvNgoeHfjhobItGrd5N6H1kJrqRYkkJH/
-         K1tQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=taJpkHjbit6GSnXY6CgYGxPxu2VnJV0zi6VGm2eT+v0=;
+        b=R702RJk3Plt4onvtiZ9G8JwDmDOI9maOf0egNbDtmQaOLsw9tYkKwjfYTYr2NJvtv8
+         Ow/F2UKXntW4tWgmVKSsBk4JFj3mXTFebBORwL9VDfxCiJAMvrbTf2rqmKPK8G5YleII
+         a2JIwPCA5xCmdAzgyIql8xaad/ccfx8YtpNYu16vKjK2Amo+Q/BLe0cMsvj3kHYOKn6R
+         v0jB2VyDIeL6x7rvarWbe6YgiE7zjpLc9osdRsJZSJWiMctRW7B/fdHa1Q+Y4vO9bDhB
+         Z85eb0tIu0v12qDLxIEAx/xL3loqRSavKStPxJQjMcAql0jodJyOAIn1BuBfu31y6pAp
+         kq5w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 2620:137:e000::1:9 is neither permitted nor denied by best guess record for domain of davem@davemloft.net) smtp.mailfrom=davem@davemloft.net
-Received: from shards.monkeyblade.net (shards.monkeyblade.net. [2620:137:e000::1:9])
-        by gmr-mx.google.com with ESMTPS id 63si43434edj.3.2020.06.26.12.19.23
+       dkim=pass header.i=@google.com header.s=20161025 header.b=asziHWfJ;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pj1-x1042.google.com (mail-pj1-x1042.google.com. [2607:f8b0:4864:20::1042])
+        by gmr-mx.google.com with ESMTPS id j145si458916oib.5.2020.06.26.12.58.37
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 26 Jun 2020 12:19:23 -0700 (PDT)
-Received-SPF: neutral (google.com: 2620:137:e000::1:9 is neither permitted nor denied by best guess record for domain of davem@davemloft.net) client-ip=2620:137:e000::1:9;
-Received: from localhost (unknown [IPv6:2601:601:9f00:477::3d5])
-	(using TLSv1 with cipher AES256-SHA (256/256 bits))
-	(Client did not present a certificate)
-	(Authenticated sender: davem-davemloft)
-	by shards.monkeyblade.net (Postfix) with ESMTPSA id 0E602120F19CB;
-	Fri, 26 Jun 2020 12:19:21 -0700 (PDT)
-Date: Fri, 26 Jun 2020 12:19:20 -0700 (PDT)
-Message-Id: <20200626.121920.1999662353247081439.davem@davemloft.net>
-To: natechancellor@gmail.com
-Cc: kuba@kernel.org, j.vosburgh@gmail.com, vfalico@gmail.com,
- andy@greyhouse.net, jarod@redhat.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH net-next] bonding: Remove extraneous parentheses in
- bond_setup
-From: David Miller <davem@davemloft.net>
-In-Reply-To: <20200626041001.1194928-1-natechancellor@gmail.com>
-References: <20200626041001.1194928-1-natechancellor@gmail.com>
-X-Mailer: Mew version 6.8 on Emacs 26.3
-Mime-Version: 1.0
-Content-Type: Text/Plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
-X-Greylist: Sender succeeded SMTP AUTH, not delayed by milter-greylist-4.5.12 (shards.monkeyblade.net [149.20.54.216]); Fri, 26 Jun 2020 12:19:21 -0700 (PDT)
-X-Original-Sender: davem@davemloft.net
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 2620:137:e000::1:9 is neither permitted nor denied by best guess
- record for domain of davem@davemloft.net) smtp.mailfrom=davem@davemloft.net
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 26 Jun 2020 12:58:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) client-ip=2607:f8b0:4864:20::1042;
+Received: by mail-pj1-x1042.google.com with SMTP id b92so5361739pjc.4
+        for <clang-built-linux@googlegroups.com>; Fri, 26 Jun 2020 12:58:37 -0700 (PDT)
+X-Received: by 2002:a17:902:7208:: with SMTP id ba8mr3909663plb.179.1593201516722;
+ Fri, 26 Jun 2020 12:58:36 -0700 (PDT)
+MIME-Version: 1.0
+References: <20200626185913.92890-1-masahiroy@kernel.org> <20200626185913.92890-2-masahiroy@kernel.org>
+In-Reply-To: <20200626185913.92890-2-masahiroy@kernel.org>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Fri, 26 Jun 2020 12:58:24 -0700
+Message-ID: <CAKwvOdnPN0=32R=35oJ-WmJwwCtJ-NqAFsp57KXW6Cb2NgUDFg@mail.gmail.com>
+Subject: Re: [PATCH 2/2] kbuild: remove cc-option test of -ffreestanding
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, linux-efi <linux-efi@vger.kernel.org>, 
+	Kees Cook <keescook@chromium.org>, LKML <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=asziHWfJ;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -108,28 +131,94 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nathan Chancellor <natechancellor@gmail.com>
-Date: Thu, 25 Jun 2020 21:10:02 -0700
+On Fri, Jun 26, 2020 at 11:59 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
+>
+> Some Makefiles already pass -ffreestanding unconditionally.
+> For example, arch/arm64/lib/Makefile, arch/x86/purgatory/Makefile.
+> No problem report so far about hard-coding this option. So, we can
+> assume all supported compilers know -ffreestanding.
+>
+> I confirmed GCC 4.8 and Clang manuals document this option.
+>
+> Get rid of cc-option from -ffreestanding.
+>
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 
-> Clang warns:
-> 
-> drivers/net/bonding/bond_main.c:4657:23: warning: equality comparison
-> with extraneous parentheses [-Wparentheses-equality]
->         if ((BOND_MODE(bond) == BOND_MODE_ACTIVEBACKUP))
->              ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
-> 
-> drivers/net/bonding/bond_main.c:4681:23: warning: equality comparison
-> with extraneous parentheses [-Wparentheses-equality]
->         if ((BOND_MODE(bond) == BOND_MODE_ACTIVEBACKUP))
->              ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
-> 
-> This warning occurs when a comparision has two sets of parentheses,
-> which is usually the convention for doing an assignment within an
-> if statement. Since equality comparisons do not need a second set of
-> parentheses, remove them to fix the warning.
-> 
-> Fixes: 18cb261afd7b ("bonding: support hardware encryption offload to slaves")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1066
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
 
-Applied, thank you.
+> ---
+>
+>  arch/s390/Makefile                    | 2 +-
+>  arch/x86/Makefile                     | 2 +-
+>  arch/x86/boot/compressed/Makefile     | 2 +-
+>  drivers/firmware/efi/libstub/Makefile | 2 +-
+>  4 files changed, 4 insertions(+), 4 deletions(-)
+>
+> diff --git a/arch/s390/Makefile b/arch/s390/Makefile
+> index 8dfa2cf1f05c..ba94b03c8b2f 100644
+> --- a/arch/s390/Makefile
+> +++ b/arch/s390/Makefile
+> @@ -27,7 +27,7 @@ KBUILD_CFLAGS_DECOMPRESSOR := $(CLANG_FLAGS) -m64 -O2
+>  KBUILD_CFLAGS_DECOMPRESSOR += -DDISABLE_BRANCH_PROFILING -D__NO_FORTIFY
+>  KBUILD_CFLAGS_DECOMPRESSOR += -fno-delete-null-pointer-checks -msoft-float
+>  KBUILD_CFLAGS_DECOMPRESSOR += -fno-asynchronous-unwind-tables
+> -KBUILD_CFLAGS_DECOMPRESSOR += $(call cc-option,-ffreestanding)
+> +KBUILD_CFLAGS_DECOMPRESSOR += -ffreestanding
+>  KBUILD_CFLAGS_DECOMPRESSOR += $(call cc-disable-warning, address-of-packed-member)
+>  KBUILD_CFLAGS_DECOMPRESSOR += $(if $(CONFIG_DEBUG_INFO),-g)
+>  KBUILD_CFLAGS_DECOMPRESSOR += $(if $(CONFIG_DEBUG_INFO_DWARF4), $(call cc-option, -gdwarf-4,))
+> diff --git a/arch/x86/Makefile b/arch/x86/Makefile
+> index 89c3cdfba753..edc68538a04e 100644
+> --- a/arch/x86/Makefile
+> +++ b/arch/x86/Makefile
+> @@ -36,7 +36,7 @@ REALMODE_CFLAGS       := $(M16_CFLAGS) -g -Os -DDISABLE_BRANCH_PROFILING \
+>                    -fno-strict-aliasing -fomit-frame-pointer -fno-pic \
+>                    -mno-mmx -mno-sse
+>
+> -REALMODE_CFLAGS += $(call __cc-option, $(CC), $(REALMODE_CFLAGS), -ffreestanding)
+> +REALMODE_CFLAGS += -ffreestanding
+
+See also
+commit 032a2c4f65a2 ("x86/build: Use __cc-option for boot code
+compiler options")
+for additional context (to fellow reviewers).
+
+>  REALMODE_CFLAGS += -fno-stack-protector
+>  REALMODE_CFLAGS += $(call __cc-option, $(CC), $(REALMODE_CFLAGS), -Wno-address-of-packed-member)
+>  REALMODE_CFLAGS += $(call __cc-option, $(CC), $(REALMODE_CFLAGS), $(cc_stack_align4))
+> diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
+> index c88a31569a5e..b7beabecef8a 100644
+> --- a/arch/x86/boot/compressed/Makefile
+> +++ b/arch/x86/boot/compressed/Makefile
+> @@ -35,7 +35,7 @@ cflags-$(CONFIG_X86_32) := -march=i386
+>  cflags-$(CONFIG_X86_64) := -mcmodel=small
+>  KBUILD_CFLAGS += $(cflags-y)
+>  KBUILD_CFLAGS += -mno-mmx -mno-sse
+> -KBUILD_CFLAGS += $(call cc-option,-ffreestanding)
+> +KBUILD_CFLAGS += -ffreestanding
+>  KBUILD_CFLAGS += -fno-stack-protector
+>  KBUILD_CFLAGS += $(call cc-disable-warning, address-of-packed-member)
+>  KBUILD_CFLAGS += $(call cc-disable-warning, gnu)
+> diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+> index f8418763cd79..296b18fbd7a2 100644
+> --- a/drivers/firmware/efi/libstub/Makefile
+> +++ b/drivers/firmware/efi/libstub/Makefile
+> @@ -28,7 +28,7 @@ cflags-$(CONFIG_EFI_GENERIC_STUB) += -I$(srctree)/scripts/dtc/libfdt
+>  KBUILD_CFLAGS                  := $(cflags-y) -Os -DDISABLE_BRANCH_PROFILING \
+>                                    -include $(srctree)/drivers/firmware/efi/libstub/hidden.h \
+>                                    -D__NO_FORTIFY \
+> -                                  $(call cc-option,-ffreestanding) \
+> +                                  -ffreestanding \
+>                                    -fno-stack-protector \
+>                                    $(call cc-option,-fno-addrsig) \
+>                                    -D__DISABLE_EXPORTS
+> --
+
+-- 
+Thanks,
+~Nick Desaulniers
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnPN0%3D32R%3D35oJ-WmJwwCtJ-NqAFsp57KXW6Cb2NgUDFg%40mail.gmail.com.
