@@ -1,124 +1,143 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB7MP3H3QKGQE52CONVA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBI4T3H3QKGQERQDAQRI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 78AA020B917
-	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Jun 2020 21:09:51 +0200 (CEST)
-Received: by mail-pl1-x63c.google.com with SMTP id b5sf6420176pls.17
-        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Jun 2020 12:09:51 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1593198590; cv=pass;
+Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5D0B320B932
+	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Jun 2020 21:16:53 +0200 (CEST)
+Received: by mail-yb1-xb39.google.com with SMTP id e82sf10776540ybh.12
+        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Jun 2020 12:16:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1593199012; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nvxxfG9t+NfEgiANdsGLgSHEgNhOXSccn8Kzg1yTwuxv0o4ocXwYuklA8fIwB2u6WT
-         q6XToGHSOBmp4797hfWTBoHG6PFp4bM0NuWYFt4fPIdr9sbgcNI5IFzzktNtEfBXqyP4
-         BKg8OItf+p1pHR5tsjknZ+tYwQn88p04jcFZjv8xo70v1z+68u5O34Ny4bSZHPQV5q/+
-         tGOmTwYVVbqG9IewggfwSCK9lcaE+9yT/ems1B7zRBzYjT9IDqBO4TAa9Yw7Ip09JCBs
-         61fLQr6D9hzgxYfDCF1buLTZpbpB4JkWwGXVU891Y7eYl0uMzXM//aEqqG211SS+fYcO
-         /i8A==
+        b=HD3gh/ugdOUAC+DldcrpnXYi3tfcyBP2c4O1jkXALlc93SCpxGaq9VMiF8SjJxnyQa
+         hOyuOPDdtFrggTcnir0NcuNHRvqb32vbslFpHdFZHjJPkwO+d8r7u5M7F8WBvWdMf2Ho
+         l/bH4XKIHQNXJI8BZqjuDbNDYG8YRkXuNfUqYY9eCepxqPKZHVJtuGcOc+q9zAl+TyFX
+         Byi1HguHmai2gBQD31q0N2IfelMZjOHpJc+mTMMgBgnEJdrrfCAFkb8V79XQpuz9kygr
+         XViZ1bMus8tGVCtAldti6L+q9uobimGi7pi81hSsRviKwPErDGInI/n8THnoeuGtBXnt
+         dgTw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=P60TojNIZ74EesryytKqaWPYR5Xu5+S78BwJuV4rKEw=;
-        b=hhEn3yHxE73p8SmtsK8sGNLqo7Cp1JpsmIbipQhQ3DTPHhWfBmYAZ4nfvyys8Vrpky
-         w7vRtbt+4XWdzJXUAMLGKFA2922bmd+PH3EV2fX2BFbO76v1T75QYM/S+4zCM0id42yb
-         GPtL6a9etNRPkfyzqIUA3c6Vv8yL5KbMMgqQSDvl/e2f9v4zUA3tHzkQfYtp5Vvqs1rj
-         Sz4aGYw4ynfvWl1lfktjbaqdQkcTqttQZGznfwyM+K2163kKgoD6MD416UwvB7LzTP55
-         olF0qTIH6cvADjzfv0usf41R9pYNW2aNtop8jOwSv8O48m1sPkFUpsgKStZ6KNgfij4/
-         hmsg==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=vwC/IPIsU/T5HfmuHLvwJRFVX7QBjNlbeuC2Kctu+xo=;
+        b=Kms2dbPvOMz02GQdrhQyHt/Sf6oX/VEkW3RVRdxv3BjgV/uEbK3uGH2uQvHfJG5Slc
+         eHFkTBcvxEtkjpkCmY0Vrn5jPTQE06wuZJtIOvfr96s0Mn9mrNrddCpInSCx8kYV0gak
+         +vSt/C1sX31MnqjZok+07JiQc22t5XWUNvxqlk7BKF97mDN5FfDwky2GDrGBkwYlilVO
+         i0bID6y6fjmWdJxGWoMFAwTIGEL8NExOmRwEJ66vSm7mllpIqkUvHNxDyb4j4XtJICMQ
+         ZZUvt9rKw+3jUf0DrHTTXTHNtqzb1S+mahaONOK6aaikFKOI2rO4ap0L6EtcgRV4Ehyw
+         hLeg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Nv13wLEC;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=P60TojNIZ74EesryytKqaWPYR5Xu5+S78BwJuV4rKEw=;
-        b=mHbcvHUpBgp9gsAIi7phgGn5Yqn35NCcevQ4fNg/gwe4Hn4ExxJX79XTNkKbusrsLd
-         iYh3NXGz2Hcqpu7QoMrSMZJGFYs8elX8TIy/qUxDrs9He05Ikmpm2jQKnb7k+2z5OnT2
-         dYrmGFRR+PkgOw6zBIt9pHeXesNeOHXfQkEoMcuRea58D6o9cRKMVXabHRpdzotF25iL
-         lxsa8Ci6CHLdIImfDLN4522Iuz/h07n5tw9ThaZJjSDlcDL3LocLRh9p+h8EKSWczVdT
-         R8lJ/DJIKj4/oBOkquQLR3H2x1+/Eb3219d0JPVYd7fuqj+pbtcS0kVHfvMFmnvwchiK
-         YNug==
+        bh=vwC/IPIsU/T5HfmuHLvwJRFVX7QBjNlbeuC2Kctu+xo=;
+        b=Ca/fsTOVho9/j7lE+zNtQsMW+rmE5nTvZdiUDKUtE9Y3XSbcllBHMMMYGFcNn8mJ9M
+         2GxFQHaN5zNg/xN+tWJ2guEPevTW2aFW2CCRiG2DNzU8nR5vZNZN1T8j+j9GJ+2UUzX5
+         /LzYzQm4yXvk07Ni3zsSjIFLE7eZ6AzMToA2IxL6qOHuFlh9UCkcknrnUlkH3WZRV2hh
+         WLUUUNl675b9MVkElu5GsqpH3gZ5IUFS/Tg7l+p45Tye/riNRKEXuQQzOMl378VIrbFa
+         vbUndblNviYS9bigXPCOPbGZu+f1EWMzhc0k8MtdrR2vxfj6G8fKTGhaU6LYwX5F9Dae
+         5afg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
+         :subject:message-id:references:mime-version:content-disposition
+         :in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=P60TojNIZ74EesryytKqaWPYR5Xu5+S78BwJuV4rKEw=;
-        b=Kenn3wyQjc7OairdluCMU6/2MGEblOaCO20iOZTzjoQvmWGhZql5bEngpPeUhmN1h3
-         B0fYkgmx0AEifc4TfL+uAZXZUOGvyD/jPe0oJgJAYQofj7FieMDMUqHBhAAz/BtQnBMK
-         3zhyECY4hlQKZVyfxeYjxFGJ9CTltt7E41mX9RmIDCMsgPlpdNKsDhh303h4qp6D+Eca
-         m51Bje7TpPTAgsvI8brotPyRd5HKGraqqUO1T9G0W8iOon9A7nCbv3vfpjT59QQvkyGj
-         laJKYsh9kSsVyZJyTTxtkb3MkEqwL6BO0DnFnSayVOif/iD36BkZ1UP/yr8TD5eSOGpn
-         H9WA==
-X-Gm-Message-State: AOAM532JUrYr+8SF8bTT5oWp6Bgsha3Xmp3mBl00nQmNDT1S2L4wCz9u
-	k3G0wBOr9yWVdkXJftWgOZQ=
-X-Google-Smtp-Source: ABdhPJzi7pG+11ZNEl3KPWMVHKYISn8hDdN5ogCOf9rYobf1guXMp/w9N2eQUha4U1sagxOc5+lAzA==
-X-Received: by 2002:a63:9d87:: with SMTP id i129mr162992pgd.412.1593198589814;
-        Fri, 26 Jun 2020 12:09:49 -0700 (PDT)
+        bh=vwC/IPIsU/T5HfmuHLvwJRFVX7QBjNlbeuC2Kctu+xo=;
+        b=lNVJLGNouAvh8AbqJEGjbEaBbGToccEbDuwSVKUv7WAfALvkWwtRmxRi1oUjSByRt9
+         CkqB6+Msba3jg0P7a/Ti597sVyiKYqKss+4tnr78EUhUkNA4KbG3CqgcWnNveJmyNaJc
+         TlreRWCcdN6D2k+tQp0v2Br6TfsitEvUde1orT8dcMQz2u2eYt2iZj0f9LYNMg5U+EZg
+         TgTXsNWbpXX0DwP14bPOw2dtprzNy81dlu/j1YVKQfYTXdaSuwPpxOJKlZBgphboBb4Y
+         kfDROr1GELvAJJa2Q3/QuwE5uSSN9L9ipnalaVAYyCoNcyLijIyOHvfLCCY6KL3a3Vzu
+         vNVA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM533Sh38pOYYpT1VeBxIjtDjqRJyZY0GcfNVWzYF+Sh5qo5eStX6f
+	C7n9ekC2Wfcu7QB163fY4N8=
+X-Google-Smtp-Source: ABdhPJzf0IiblCrRfwZwoG8dfZ5vrMcC30bSz57fCu9iZsJOeh3evMZKMSMiEP5ZPPVGNWc5E42Ptw==
+X-Received: by 2002:a25:38c5:: with SMTP id f188mr7541700yba.332.1593199012025;
+        Fri, 26 Jun 2020 12:16:52 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:565:: with SMTP id 92ls3821518plf.2.gmail; Fri, 26
- Jun 2020 12:09:49 -0700 (PDT)
-X-Received: by 2002:a17:90a:e283:: with SMTP id d3mr5282014pjz.170.1593198589359;
-        Fri, 26 Jun 2020 12:09:49 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1593198589; cv=none;
+Received: by 2002:a25:b18b:: with SMTP id h11ls3641531ybj.4.gmail; Fri, 26 Jun
+ 2020 12:16:51 -0700 (PDT)
+X-Received: by 2002:a25:6403:: with SMTP id y3mr7640155ybb.229.1593199011633;
+        Fri, 26 Jun 2020 12:16:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593199011; cv=none;
         d=google.com; s=arc-20160816;
-        b=F/MZIjKW35fE/wjVMl7hhwHfgwB7UeMSMwgITTgut8FkPTrtFsd/wXwWB+eZAdrNf6
-         yK/Bjg+Z7+Iy9ehORVJKAkjmzeKfketmpHxmLTRv6wRcH6KrVNJIqlPemjVy2rihVdar
-         v9rDg4mVm2tbwZSpUzYSD8p8E5iBGOko503J1k51yi1a4eI+/pLYuXNoosjO+lItMkUp
-         cTy8xg+Cyp/bqluQ0P3V+P2jgCYEKeLsoGUAtv2ub/9rUhAI8KxceIzmA2J2k2BTpGhj
-         JUWb/XUHNJ8bHMW31wRWdRfbyis0705xinNPrJBMYDk81tmxMAaXiROHP/nmzjcO/2rr
-         uQFQ==
+        b=wNRZGM+J2IZhsW7KfmVXWFGqLnz8Asxxw3eNTboKNh5VG3EmbDrhDTLeaC010aSYYK
+         SsQlyOyD1UNfMECVsMaBvroaB/yhoi1uwLLJwDeaH+qqG+Ea8eF4wM11IpC1LkWKovaE
+         2fV9MekzF/MTYLUyrDVDhT1U49U0KVj+VhAVNXQrOqdVYOxON/cTUDTywi4CSU59zXrN
+         7pwY7qmujwwt8quupRN6Wa5jqkiuX0fT+1Yx0XBeVl7z14FGk10ozSPSNP3Ak0bbs1a6
+         FEwUiitlJaBMcLxoB7LjpjH2YZK6DTk6tsv6BP+dwAJ7AcYbMiBY6Bkbyw6Bi5EdO/QS
+         X80Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=XZcFCeJCh8+hTufNOqUdyvF9uO8D4rYXwyZaYpA63AE=;
-        b=egoKqcitaiUQYdt1W21qnlS7qYSOme2MeRprynfwtVLWU4zcneqb3QQpBihnuYp3We
-         O12b2NetsSnEs0paM0Ptb7k7bHUjWB4wKaqH7q0ySMgpBByaUaJQxJYXqrsRFexg3M+S
-         YsrZShL6ru9T/W5SqqspVAExnlYTIpS1eBUIP+09diKtarE5rlf5xT8ZmC+XLiRb8YOs
-         oCtcL1XcVP0wsMzVyuURBUCknvGB339acxf8yUq/+eciNpw3WIgzICtqkrQyGXmQkdL0
-         YZGii7nZZlrolOtWunPOrN1rhCPzj1kqfzW0TtGVzMn079vwFT0JTuV4pY4mt6MUOVr6
-         aUkw==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
+        bh=f0JctZb+GbYlB0Gt2AtDWe1r/68lS1xiQauTlZzTgkI=;
+        b=B+t0S9ukdDO+OQ+Ha63YIi3yOF8nkbvA6ceTq/kgLGU9cMIx2Meeu6/tIG9/OkcoNl
+         2JDTy1x46sKsYUy2R9E3HZAoLx473CGn1GdP1orwTaUTMjv6qntMLBzMnM1lLzsOgmYo
+         lMLtfnpsmrwlrBR0mIXngZTxufgS1x0f8K3ugau4mcmfCiyYjBd8uPgbtVgph6TtuN7x
+         uTW6oT3/QeTgbRDiX3kOR+EJ5yTlpx2/C8ks480e+xBtVJOixT0X3K22njpF10N7VRVj
+         YjtJa6ZjOH01aXpCNB2OEhnsmoQ6Jxfq8sMoPuA5sN+Bo6+kv6QbMoeLV4dbveQttUni
+         8TnQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Nv13wLEC;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x443.google.com (mail-pf1-x443.google.com. [2607:f8b0:4864:20::443])
-        by gmr-mx.google.com with ESMTPS id c1si579459pfb.1.2020.06.26.12.09.49
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
+        by gmr-mx.google.com with ESMTPS id l126si118899ybf.4.2020.06.26.12.16.51
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 26 Jun 2020 12:09:49 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) client-ip=2607:f8b0:4864:20::443;
-Received: by mail-pf1-x443.google.com with SMTP id f9so5037896pfn.0
-        for <clang-built-linux@googlegroups.com>; Fri, 26 Jun 2020 12:09:49 -0700 (PDT)
-X-Received: by 2002:a63:a119:: with SMTP id b25mr185439pgf.10.1593198588417;
- Fri, 26 Jun 2020 12:09:48 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 26 Jun 2020 12:16:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
+IronPort-SDR: saUwwBct24t2HMX0KDY7eW1L4Cv7sX/GVfHv9WN7F5lZxzmyoSogv2wA7bXkwbE1kt7goBzUDw
+ O4Coxu8PZxug==
+X-IronPort-AV: E=McAfee;i="6000,8403,9664"; a="163482552"
+X-IronPort-AV: E=Sophos;i="5.75,284,1589266800"; 
+   d="gz'50?scan'50,208,50";a="163482552"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+X-Amp-File-Uploaded: False
+Received: from fmsmga003.fm.intel.com ([10.253.24.29])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jun 2020 12:16:49 -0700
+IronPort-SDR: DT8LsoIJup9Hj6JMYgXqyMPMeMLuaTO3jLphzZx3oWSyiW6KgLCnErkmcoXXQArQc0vQgKAn+x
+ PDx2TMh40Kbg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.75,284,1589266800"; 
+   d="gz'50?scan'50,208,50";a="320083128"
+Received: from lkp-server01.sh.intel.com (HELO 538b5e3c8319) ([10.239.97.150])
+  by FMSMGA003.fm.intel.com with ESMTP; 26 Jun 2020 12:16:47 -0700
+Received: from kbuild by 538b5e3c8319 with local (Exim 4.92)
+	(envelope-from <lkp@intel.com>)
+	id 1jotqA-0002Pd-Cq; Fri, 26 Jun 2020 19:16:46 +0000
+Date: Sat, 27 Jun 2020 03:16:15 +0800
+From: kernel test robot <lkp@intel.com>
+To: Guenter Roeck <linux@roeck-us.net>, Ingo Molnar <mingo@redhat.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	linux-kernel@vger.kernel.org, Guenter Roeck <linux@roeck-us.net>
+Subject: Re: [PATCH] sched: Declare sched_rt_bandwidth_account() in include
+ file
+Message-ID: <202006270351.lVmaZ420%lkp@intel.com>
+References: <20200626140253.141358-1-linux@roeck-us.net>
 MIME-Version: 1.0
-References: <20200626185913.92890-1-masahiroy@kernel.org>
-In-Reply-To: <20200626185913.92890-1-masahiroy@kernel.org>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 26 Jun 2020 12:09:37 -0700
-Message-ID: <CAKwvOdnK4KZaE=D40UyKHN-nB1Y-oXXJUcVv08cGJNsExOs-Pw@mail.gmail.com>
-Subject: Re: [PATCH 1/2] kbuild: remove cc-option test of -fno-stack-protector
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, linux-efi <linux-efi@vger.kernel.org>, 
-	Kees Cook <keescook@chromium.org>, LKML <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=Nv13wLEC;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+Content-Type: multipart/mixed; boundary="3MwIy2ne0vdjdPXF"
+Content-Disposition: inline
+In-Reply-To: <20200626140253.141358-1-linux@roeck-us.net>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: lkp@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
+ sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,430 +150,307 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jun 26, 2020 at 12:00 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
->
-> Some Makefiles already pass -fno-stack-protector unconditionally.
-> For example, arch/arm64/kernel/vdso/Makefile, arch/x86/xen/Makefile.
-> No problem report so far about hard-coding this option. So, we can
-> assume all supported compilers know -fno-stack-protector.
->
-> GCC 4.8 and Clang support this option (https://godbolt.org/z/_HDGzN)
->
-> Get rid of cc-option from -fno-stack-protector.
->
-> Remove CONFIG_CC_HAS_STACKPROTECTOR_NONE, which should always be 'y'.
->
-> Note:
-> arch/mips/vdso/Makefile adds -fno-stack-protector twice, first
-> unconditionally, and second conditionally. I removed the second one.
->
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-> ---
->
->  Documentation/kbuild/kconfig-language.rst | 4 ++--
->  Makefile                                  | 2 +-
->  arch/Kconfig                              | 3 ---
->  arch/arm/boot/compressed/Makefile         | 3 +--
->  arch/mips/vdso/Makefile                   | 3 +--
->  arch/powerpc/kernel/Makefile              | 2 +-
->  arch/powerpc/platforms/powermac/Makefile  | 2 +-
->  arch/sparc/vdso/Makefile                  | 4 ++--
->  arch/um/Makefile                          | 3 +--
->  arch/x86/Makefile                         | 2 +-
->  arch/x86/boot/compressed/Makefile         | 2 +-
->  arch/x86/entry/vdso/Makefile              | 4 ++--
->  arch/x86/kernel/cpu/Makefile              | 3 +--
->  arch/x86/lib/Makefile                     | 2 +-
->  arch/x86/mm/Makefile                      | 7 +++----
->  arch/x86/power/Makefile                   | 3 +--
->  arch/x86/purgatory/Makefile               | 2 +-
->  arch/x86/um/vdso/Makefile                 | 2 +-
->  arch/x86/xen/Makefile                     | 5 ++---
->  drivers/firmware/efi/libstub/Makefile     | 2 +-
->  drivers/xen/Makefile                      | 3 +--
->  kernel/kcsan/Makefile                     | 3 +--
->  lib/Makefile                              | 4 ++--
->  mm/kasan/Makefile                         | 2 +-
->  24 files changed, 30 insertions(+), 42 deletions(-)
->
-> diff --git a/Documentation/kbuild/kconfig-language.rst b/Documentation/kbuild/kconfig-language.rst
-> index a1601ec3317b..2538e7cb08e6 100644
-> --- a/Documentation/kbuild/kconfig-language.rst
-> +++ b/Documentation/kbuild/kconfig-language.rst
-> @@ -540,8 +540,8 @@ followed by a test macro::
->  If you need to expose a compiler capability to makefiles and/or C source files,
->  `CC_HAS_` is the recommended prefix for the config option::
->
-> -  config CC_HAS_STACKPROTECTOR_NONE
-> -       def_bool $(cc-option,-fno-stack-protector)
-> +  config CC_HAS_ASM_GOTO
-> +       def_bool $(success,$(srctree)/scripts/gcc-goto.sh $(CC))
->
->  Build as module only
->  ~~~~~~~~~~~~~~~~~~~~
-> diff --git a/Makefile b/Makefile
-> index 5496a32dffa6..73948798ce3f 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -762,7 +762,7 @@ ifneq ($(CONFIG_FRAME_WARN),0)
->  KBUILD_CFLAGS += -Wframe-larger-than=$(CONFIG_FRAME_WARN)
->  endif
->
-> -stackp-flags-$(CONFIG_CC_HAS_STACKPROTECTOR_NONE) := -fno-stack-protector
-> +stackp-flags-y                                    := -fno-stack-protector
->  stackp-flags-$(CONFIG_STACKPROTECTOR)             := -fstack-protector
->  stackp-flags-$(CONFIG_STACKPROTECTOR_STRONG)      := -fstack-protector-strong
->
-> diff --git a/arch/Kconfig b/arch/Kconfig
-> index 8cc35dc556c7..1ea61290900a 100644
-> --- a/arch/Kconfig
-> +++ b/arch/Kconfig
-> @@ -478,9 +478,6 @@ config HAVE_STACKPROTECTOR
->           An arch should select this symbol if:
->           - it has implemented a stack canary (e.g. __stack_chk_guard)
->
-> -config CC_HAS_STACKPROTECTOR_NONE
-> -       def_bool $(cc-option,-fno-stack-protector)
-> -
->  config STACKPROTECTOR
->         bool "Stack Protector buffer overflow detection"
->         depends on HAVE_STACKPROTECTOR
-> diff --git a/arch/arm/boot/compressed/Makefile b/arch/arm/boot/compressed/Makefile
-> index 00602a6fba04..cb7a56c6723c 100644
-> --- a/arch/arm/boot/compressed/Makefile
-> +++ b/arch/arm/boot/compressed/Makefile
-> @@ -84,9 +84,8 @@ endif
->
->  # -fstack-protector-strong triggers protection checks in this code,
->  # but it is being used too early to link to meaningful stack_chk logic.
-> -nossp-flags-$(CONFIG_CC_HAS_STACKPROTECTOR_NONE) := -fno-stack-protector
->  $(foreach o, $(libfdt_objs) atags_to_fdt.o, \
-> -       $(eval CFLAGS_$(o) := -I $(srctree)/scripts/dtc/libfdt $(nossp-flags-y)))
-> +       $(eval CFLAGS_$(o) := -I $(srctree)/scripts/dtc/libfdt -fno-stack-protector))
->
->  # These were previously generated C files. When you are building the kernel
->  # with O=, make sure to remove the stale files in the output tree. Otherwise,
-> diff --git a/arch/mips/vdso/Makefile b/arch/mips/vdso/Makefile
-> index 2e64c7600eea..57fe83235281 100644
-> --- a/arch/mips/vdso/Makefile
-> +++ b/arch/mips/vdso/Makefile
-> @@ -35,8 +35,7 @@ cflags-vdso := $(ccflags-vdso) \
->         -O3 -g -fPIC -fno-strict-aliasing -fno-common -fno-builtin -G 0 \
->         -mrelax-pic-calls $(call cc-option, -mexplicit-relocs) \
->         -fno-stack-protector -fno-jump-tables -DDISABLE_BRANCH_PROFILING \
-> -       $(call cc-option, -fno-asynchronous-unwind-tables) \
-> -       $(call cc-option, -fno-stack-protector)
-> +       $(call cc-option, -fno-asynchronous-unwind-tables)
->  aflags-vdso := $(ccflags-vdso) \
->         -D__ASSEMBLY__ -Wa,-gdwarf-2
->
-> diff --git a/arch/powerpc/kernel/Makefile b/arch/powerpc/kernel/Makefile
-> index 244542ae2a91..3a83f2b876a5 100644
-> --- a/arch/powerpc/kernel/Makefile
-> +++ b/arch/powerpc/kernel/Makefile
-> @@ -16,7 +16,7 @@ CFLAGS_prom_init.o += $(DISABLE_LATENT_ENTROPY_PLUGIN)
->  CFLAGS_btext.o += $(DISABLE_LATENT_ENTROPY_PLUGIN)
->  CFLAGS_prom.o += $(DISABLE_LATENT_ENTROPY_PLUGIN)
->
-> -CFLAGS_prom_init.o += $(call cc-option, -fno-stack-protector)
-> +CFLAGS_prom_init.o += -fno-stack-protector
->  CFLAGS_prom_init.o += -DDISABLE_BRANCH_PROFILING
->  CFLAGS_prom_init.o += -ffreestanding
->
-> diff --git a/arch/powerpc/platforms/powermac/Makefile b/arch/powerpc/platforms/powermac/Makefile
-> index f4247ade71ca..cf85f0662d0d 100644
-> --- a/arch/powerpc/platforms/powermac/Makefile
-> +++ b/arch/powerpc/platforms/powermac/Makefile
-> @@ -1,6 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0
->  CFLAGS_bootx_init.o            += -fPIC
-> -CFLAGS_bootx_init.o            += $(call cc-option, -fno-stack-protector)
-> +CFLAGS_bootx_init.o            += -fno-stack-protector
->
->  KASAN_SANITIZE_bootx_init.o := n
->
-> diff --git a/arch/sparc/vdso/Makefile b/arch/sparc/vdso/Makefile
-> index 708cb6304c2d..f44355e46f31 100644
-> --- a/arch/sparc/vdso/Makefile
-> +++ b/arch/sparc/vdso/Makefile
-> @@ -54,7 +54,7 @@ $(obj)/vdso-image-%.c: $(obj)/vdso%.so.dbg $(obj)/vdso%.so $(obj)/vdso2c FORCE
->  # optimize sibling calls.
->  #
->  CFL := $(PROFILING) -mcmodel=medlow -fPIC -O2 -fasynchronous-unwind-tables -m64 \
-> -       $(filter -g%,$(KBUILD_CFLAGS)) $(call cc-option, -fno-stack-protector) \
-> +       $(filter -g%,$(KBUILD_CFLAGS)) -fno-stack-protector \
->         -fno-omit-frame-pointer -foptimize-sibling-calls \
->         -DDISABLE_BRANCH_PROFILING -DBUILD_VDSO
->
-> @@ -93,7 +93,7 @@ KBUILD_CFLAGS_32 := $(filter-out -fno-pic,$(KBUILD_CFLAGS_32))
->  KBUILD_CFLAGS_32 := $(filter-out $(GCC_PLUGINS_CFLAGS),$(KBUILD_CFLAGS_32))
->  KBUILD_CFLAGS_32 := $(filter-out $(SPARC_REG_CFLAGS),$(KBUILD_CFLAGS_32))
->  KBUILD_CFLAGS_32 += -m32 -msoft-float -fpic
-> -KBUILD_CFLAGS_32 += $(call cc-option, -fno-stack-protector)
-> +KBUILD_CFLAGS_32 += -fno-stack-protector
->  KBUILD_CFLAGS_32 += $(call cc-option, -foptimize-sibling-calls)
->  KBUILD_CFLAGS_32 += -fno-omit-frame-pointer
->  KBUILD_CFLAGS_32 += -DDISABLE_BRANCH_PROFILING
-> diff --git a/arch/um/Makefile b/arch/um/Makefile
-> index 3f27aa3ec0a6..1cea46ff9bb7 100644
-> --- a/arch/um/Makefile
-> +++ b/arch/um/Makefile
-> @@ -121,8 +121,7 @@ LINK-$(CONFIG_LD_SCRIPT_STATIC) += -static
->  LINK-$(CONFIG_LD_SCRIPT_DYN) += -Wl,-rpath,/lib $(call cc-option, -no-pie)
->
->  CFLAGS_NO_HARDENING := $(call cc-option, -fno-PIC,) $(call cc-option, -fno-pic,) \
-> -       $(call cc-option, -fno-stack-protector,) \
-> -       $(call cc-option, -fno-stack-protector-all,)
-> +       -fno-stack-protector $(call cc-option, -fno-stack-protector-all)
 
-Just curious, looks like we could do the same for
-`-fno-stack-protector-all`, here or tree-wide, right?  Wait, what
-compiler recognizes -fno-stack-protector-all?
-https://godbolt.org/z/QFQKE_
+--3MwIy2ne0vdjdPXF
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
 
->
->  # Options used by linker script
->  export LDS_START      := $(START)
-> diff --git a/arch/x86/Makefile b/arch/x86/Makefile
-> index 00e378de8bc0..89c3cdfba753 100644
-> --- a/arch/x86/Makefile
-> +++ b/arch/x86/Makefile
-> @@ -37,7 +37,7 @@ REALMODE_CFLAGS       := $(M16_CFLAGS) -g -Os -DDISABLE_BRANCH_PROFILING \
->                    -mno-mmx -mno-sse
->
->  REALMODE_CFLAGS += $(call __cc-option, $(CC), $(REALMODE_CFLAGS), -ffreestanding)
-> -REALMODE_CFLAGS += $(call __cc-option, $(CC), $(REALMODE_CFLAGS), -fno-stack-protector)
-> +REALMODE_CFLAGS += -fno-stack-protector
->  REALMODE_CFLAGS += $(call __cc-option, $(CC), $(REALMODE_CFLAGS), -Wno-address-of-packed-member)
->  REALMODE_CFLAGS += $(call __cc-option, $(CC), $(REALMODE_CFLAGS), $(cc_stack_align4))
->  export REALMODE_CFLAGS
-> diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
-> index 7619742f91c9..c88a31569a5e 100644
-> --- a/arch/x86/boot/compressed/Makefile
-> +++ b/arch/x86/boot/compressed/Makefile
-> @@ -36,7 +36,7 @@ cflags-$(CONFIG_X86_64) := -mcmodel=small
->  KBUILD_CFLAGS += $(cflags-y)
->  KBUILD_CFLAGS += -mno-mmx -mno-sse
->  KBUILD_CFLAGS += $(call cc-option,-ffreestanding)
-> -KBUILD_CFLAGS += $(call cc-option,-fno-stack-protector)
-> +KBUILD_CFLAGS += -fno-stack-protector
->  KBUILD_CFLAGS += $(call cc-disable-warning, address-of-packed-member)
->  KBUILD_CFLAGS += $(call cc-disable-warning, gnu)
->  KBUILD_CFLAGS += -Wno-pointer-sign
-> diff --git a/arch/x86/entry/vdso/Makefile b/arch/x86/entry/vdso/Makefile
-> index 04e65f0698f6..215376d975a2 100644
-> --- a/arch/x86/entry/vdso/Makefile
-> +++ b/arch/x86/entry/vdso/Makefile
-> @@ -82,7 +82,7 @@ $(obj)/vdso-image-%.c: $(obj)/vdso%.so.dbg $(obj)/vdso%.so $(obj)/vdso2c FORCE
->  # optimize sibling calls.
->  #
->  CFL := $(PROFILING) -mcmodel=small -fPIC -O2 -fasynchronous-unwind-tables -m64 \
-> -       $(filter -g%,$(KBUILD_CFLAGS)) $(call cc-option, -fno-stack-protector) \
-> +       $(filter -g%,$(KBUILD_CFLAGS)) -fno-stack-protector \
->         -fno-omit-frame-pointer -foptimize-sibling-calls \
->         -DDISABLE_BRANCH_PROFILING -DBUILD_VDSO
->
-> @@ -151,7 +151,7 @@ KBUILD_CFLAGS_32 := $(filter-out -mfentry,$(KBUILD_CFLAGS_32))
->  KBUILD_CFLAGS_32 := $(filter-out $(GCC_PLUGINS_CFLAGS),$(KBUILD_CFLAGS_32))
->  KBUILD_CFLAGS_32 := $(filter-out $(RETPOLINE_CFLAGS),$(KBUILD_CFLAGS_32))
->  KBUILD_CFLAGS_32 += -m32 -msoft-float -mregparm=0 -fpic
-> -KBUILD_CFLAGS_32 += $(call cc-option, -fno-stack-protector)
-> +KBUILD_CFLAGS_32 += -fno-stack-protector
->  KBUILD_CFLAGS_32 += $(call cc-option, -foptimize-sibling-calls)
->  KBUILD_CFLAGS_32 += -fno-omit-frame-pointer
->  KBUILD_CFLAGS_32 += -DDISABLE_BRANCH_PROFILING
-> diff --git a/arch/x86/kernel/cpu/Makefile b/arch/x86/kernel/cpu/Makefile
-> index dba6a83bc349..93792b457b81 100644
-> --- a/arch/x86/kernel/cpu/Makefile
-> +++ b/arch/x86/kernel/cpu/Makefile
-> @@ -17,8 +17,7 @@ KCOV_INSTRUMENT_perf_event.o := n
->  KCSAN_SANITIZE_common.o := n
->
->  # Make sure load_percpu_segment has no stackprotector
-> -nostackp := $(call cc-option, -fno-stack-protector)
-> -CFLAGS_common.o                := $(nostackp)
-> +CFLAGS_common.o                := -fno-stack-protector
->
->  obj-y                  := cacheinfo.o scattered.o topology.o
->  obj-y                  += common.o
-> diff --git a/arch/x86/lib/Makefile b/arch/x86/lib/Makefile
-> index 6110bce7237b..d46fff11f06f 100644
-> --- a/arch/x86/lib/Makefile
-> +++ b/arch/x86/lib/Makefile
-> @@ -24,7 +24,7 @@ ifdef CONFIG_FUNCTION_TRACER
->  CFLAGS_REMOVE_cmdline.o = -pg
->  endif
->
-> -CFLAGS_cmdline.o := $(call cc-option, -fno-stack-protector)
-> +CFLAGS_cmdline.o := -fno-stack-protector
->  endif
->
->  inat_tables_script = $(srctree)/arch/x86/tools/gen-insn-attr-x86.awk
-> diff --git a/arch/x86/mm/Makefile b/arch/x86/mm/Makefile
-> index f7fd0e868c9c..5864219221ca 100644
-> --- a/arch/x86/mm/Makefile
-> +++ b/arch/x86/mm/Makefile
-> @@ -22,10 +22,9 @@ obj-y                                :=  init.o init_$(BITS).o fault.o ioremap.o extable.o mmap.o \
->  obj-y                          += pat/
->
->  # Make sure __phys_addr has no stackprotector
-> -nostackp := $(call cc-option, -fno-stack-protector)
-> -CFLAGS_physaddr.o              := $(nostackp)
-> -CFLAGS_setup_nx.o              := $(nostackp)
-> -CFLAGS_mem_encrypt_identity.o  := $(nostackp)
-> +CFLAGS_physaddr.o              := -fno-stack-protector
-> +CFLAGS_setup_nx.o              := -fno-stack-protector
-> +CFLAGS_mem_encrypt_identity.o  := -fno-stack-protector
->
->  CFLAGS_fault.o := -I $(srctree)/$(src)/../include/asm/trace
->
-> diff --git a/arch/x86/power/Makefile b/arch/x86/power/Makefile
-> index 37923d715741..6907b523e856 100644
-> --- a/arch/x86/power/Makefile
-> +++ b/arch/x86/power/Makefile
-> @@ -3,8 +3,7 @@ OBJECT_FILES_NON_STANDARD_hibernate_asm_$(BITS).o := y
->
->  # __restore_processor_state() restores %gs after S3 resume and so should not
->  # itself be stack-protected
-> -nostackp := $(call cc-option, -fno-stack-protector)
-> -CFLAGS_cpu.o   := $(nostackp)
-> +CFLAGS_cpu.o   := -fno-stack-protector
->
->  obj-$(CONFIG_PM_SLEEP)         += cpu.o
->  obj-$(CONFIG_HIBERNATION)      += hibernate_$(BITS).o hibernate_asm_$(BITS).o hibernate.o
-> diff --git a/arch/x86/purgatory/Makefile b/arch/x86/purgatory/Makefile
-> index 088bd764e0b7..183ac60e5990 100644
-> --- a/arch/x86/purgatory/Makefile
-> +++ b/arch/x86/purgatory/Makefile
-> @@ -34,7 +34,7 @@ KCOV_INSTRUMENT := n
->  PURGATORY_CFLAGS_REMOVE := -mcmodel=kernel
->  PURGATORY_CFLAGS := -mcmodel=large -ffreestanding -fno-zero-initialized-in-bss
->  PURGATORY_CFLAGS += $(DISABLE_STACKLEAK_PLUGIN) -DDISABLE_BRANCH_PROFILING
-> -PURGATORY_CFLAGS += $(call cc-option,-fno-stack-protector)
-> +PURGATORY_CFLAGS += -fno-stack-protector
->
->  # Default KBUILD_CFLAGS can have -pg option set when FTRACE is enabled. That
->  # in turn leaves some undefined symbols like __fentry__ in purgatory and not
-> diff --git a/arch/x86/um/vdso/Makefile b/arch/x86/um/vdso/Makefile
-> index 0caddd6acb22..5943387e3f35 100644
-> --- a/arch/x86/um/vdso/Makefile
-> +++ b/arch/x86/um/vdso/Makefile
-> @@ -42,7 +42,7 @@ $(obj)/%.so: $(obj)/%.so.dbg FORCE
->  # optimize sibling calls.
->  #
->  CFL := $(PROFILING) -mcmodel=small -fPIC -O2 -fasynchronous-unwind-tables -m64 \
-> -       $(filter -g%,$(KBUILD_CFLAGS)) $(call cc-option, -fno-stack-protector) \
-> +       $(filter -g%,$(KBUILD_CFLAGS)) -fno-stack-protector \
->         -fno-omit-frame-pointer -foptimize-sibling-calls
->
->  $(vobjs): KBUILD_CFLAGS += $(CFL)
-> diff --git a/arch/x86/xen/Makefile b/arch/x86/xen/Makefile
-> index 084de77a109e..5f1db522d06b 100644
-> --- a/arch/x86/xen/Makefile
-> +++ b/arch/x86/xen/Makefile
-> @@ -9,9 +9,8 @@ CFLAGS_REMOVE_irq.o = -pg
->  endif
->
->  # Make sure early boot has no stackprotector
-> -nostackp := $(call cc-option, -fno-stack-protector)
-> -CFLAGS_enlighten_pv.o          := $(nostackp)
-> -CFLAGS_mmu_pv.o                        := $(nostackp)
-> +CFLAGS_enlighten_pv.o          := -fno-stack-protector
-> +CFLAGS_mmu_pv.o                        := -fno-stack-protector
->
->  obj-y                          += enlighten.o
->  obj-y                          += mmu.o
-> diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-> index 75daaf20374e..f8418763cd79 100644
-> --- a/drivers/firmware/efi/libstub/Makefile
-> +++ b/drivers/firmware/efi/libstub/Makefile
-> @@ -29,7 +29,7 @@ KBUILD_CFLAGS                 := $(cflags-y) -Os -DDISABLE_BRANCH_PROFILING \
->                                    -include $(srctree)/drivers/firmware/efi/libstub/hidden.h \
->                                    -D__NO_FORTIFY \
->                                    $(call cc-option,-ffreestanding) \
-> -                                  $(call cc-option,-fno-stack-protector) \
-> +                                  -fno-stack-protector \
->                                    $(call cc-option,-fno-addrsig) \
->                                    -D__DISABLE_EXPORTS
->
-> diff --git a/drivers/xen/Makefile b/drivers/xen/Makefile
-> index 0d322f3d90cd..c25c9a699b48 100644
-> --- a/drivers/xen/Makefile
-> +++ b/drivers/xen/Makefile
-> @@ -5,8 +5,7 @@ obj-y   += mem-reservation.o
->  obj-y  += events/
->  obj-y  += xenbus/
->
-> -nostackp := $(call cc-option, -fno-stack-protector)
-> -CFLAGS_features.o                      := $(nostackp)
-> +CFLAGS_features.o                      := -fno-stack-protector
->
->  dom0-$(CONFIG_ARM64) += arm-device.o
->  dom0-$(CONFIG_PCI) += pci.o
-> diff --git a/kernel/kcsan/Makefile b/kernel/kcsan/Makefile
-> index d4999b38d1be..d111f32bd5fd 100644
-> --- a/kernel/kcsan/Makefile
-> +++ b/kernel/kcsan/Makefile
-> @@ -7,8 +7,7 @@ CFLAGS_REMOVE_core.o = $(CC_FLAGS_FTRACE)
->  CFLAGS_REMOVE_debugfs.o = $(CC_FLAGS_FTRACE)
->  CFLAGS_REMOVE_report.o = $(CC_FLAGS_FTRACE)
->
-> -CFLAGS_core.o := $(call cc-option,-fno-conserve-stack,) \
-> -       $(call cc-option,-fno-stack-protector,)
-> +CFLAGS_core.o := $(call cc-option,-fno-conserve-stack,) -fno-stack-protector
->
->  obj-y := core.o debugfs.o report.o
->  obj-$(CONFIG_KCSAN_SELFTEST) += test.o
-> diff --git a/lib/Makefile b/lib/Makefile
-> index b1c42c10073b..0cda70649f1c 100644
-> --- a/lib/Makefile
-> +++ b/lib/Makefile
-> @@ -22,7 +22,7 @@ KCOV_INSTRUMENT_fault-inject.o := n
->  ifdef CONFIG_AMD_MEM_ENCRYPT
->  KASAN_SANITIZE_string.o := n
->
-> -CFLAGS_string.o := $(call cc-option, -fno-stack-protector)
-> +CFLAGS_string.o := -fno-stack-protector
->  endif
->
->  # Used by KCSAN while enabled, avoid recursion.
-> @@ -300,7 +300,7 @@ endif
->  UBSAN_SANITIZE_ubsan.o := n
->  KASAN_SANITIZE_ubsan.o := n
->  KCSAN_SANITIZE_ubsan.o := n
-> -CFLAGS_ubsan.o := $(call cc-option, -fno-stack-protector) $(DISABLE_STACKLEAK_PLUGIN)
-> +CFLAGS_ubsan.o := -fno-stack-protector $(DISABLE_STACKLEAK_PLUGIN)
->
->  obj-$(CONFIG_SBITMAP) += sbitmap.o
->
-> diff --git a/mm/kasan/Makefile b/mm/kasan/Makefile
-> index d532c2587731..370d970e5ab5 100644
-> --- a/mm/kasan/Makefile
-> +++ b/mm/kasan/Makefile
-> @@ -16,7 +16,7 @@ CFLAGS_REMOVE_tags_report.o = $(CC_FLAGS_FTRACE)
->  # Function splitter causes unnecessary splits in __asan_load1/__asan_store1
->  # see: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63533
->  CC_FLAGS_KASAN_RUNTIME := $(call cc-option, -fno-conserve-stack)
-> -CC_FLAGS_KASAN_RUNTIME += $(call cc-option, -fno-stack-protector)
-> +CC_FLAGS_KASAN_RUNTIME += -fno-stack-protector
->  # Disable branch tracing to avoid recursion.
->  CC_FLAGS_KASAN_RUNTIME += -DDISABLE_BRANCH_PROFILING
->
-> --
-> 2.25.1
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200626185913.92890-1-masahiroy%40kernel.org.
+Hi Guenter,
 
+I love your patch! Yet something to improve:
 
+[auto build test ERROR on tip/sched/core]
+[also build test ERROR on tip/auto-latest linux/master linus/master v5.8-rc2 next-20200626]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use  as documented in
+https://git-scm.com/docs/git-format-patch]
 
--- 
-Thanks,
-~Nick Desaulniers
+url:    https://github.com/0day-ci/linux/commits/Guenter-Roeck/sched-Declare-sched_rt_bandwidth_account-in-include-file/20200626-220544
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git 01e377c539ca52a6c753d0fdbe93b3b8fcd66a1c
+config: x86_64-allnoconfig (attached as .config)
+compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 6e11ed52057ffc39941cb2de6d93cae522db4782)
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # install x86_64 cross compiling tool for clang build
+        # apt-get install binutils-x86-64-linux-gnu
+        # save the attached .config to linux build tree
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
+
+If you fix the issue, kindly add following tag as appropriate
+Reported-by: kernel test robot <lkp@intel.com>
+
+All errors (new ones prefixed by >>):
+
+>> kernel/sched/deadline.c:1315:7: error: implicit declaration of function 'sched_rt_bandwidth_account' [-Werror,-Wimplicit-function-declaration]
+                   if (sched_rt_bandwidth_account(rt_rq))
+                       ^
+   1 error generated.
+
+vim +/sched_rt_bandwidth_account +1315 kernel/sched/deadline.c
+
+c52f14d384628d Luca Abeni      2017-05-18  1213  
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1214  /*
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1215   * Update the current task's runtime statistics (provided it is still
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1216   * a -deadline task and has not been removed from the dl_rq).
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1217   */
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1218  static void update_curr_dl(struct rq *rq)
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1219  {
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1220  	struct task_struct *curr = rq->curr;
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1221  	struct sched_dl_entity *dl_se = &curr->dl;
+07881166a892fa Juri Lelli      2017-12-04  1222  	u64 delta_exec, scaled_delta_exec;
+07881166a892fa Juri Lelli      2017-12-04  1223  	int cpu = cpu_of(rq);
+6fe0ce1eb04f99 Wen Yang        2018-02-06  1224  	u64 now;
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1225  
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1226  	if (!dl_task(curr) || !on_dl_rq(dl_se))
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1227  		return;
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1228  
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1229  	/*
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1230  	 * Consumed budget is computed considering the time as
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1231  	 * observed by schedulable tasks (excluding time spent
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1232  	 * in hardirq context, etc.). Deadlines are instead
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1233  	 * computed using hard walltime. This seems to be the more
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1234  	 * natural solution, but the full ramifications of this
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1235  	 * approach need further study.
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1236  	 */
+6fe0ce1eb04f99 Wen Yang        2018-02-06  1237  	now = rq_clock_task(rq);
+6fe0ce1eb04f99 Wen Yang        2018-02-06  1238  	delta_exec = now - curr->se.exec_start;
+48be3a67da7413 Peter Zijlstra  2016-02-23  1239  	if (unlikely((s64)delta_exec <= 0)) {
+48be3a67da7413 Peter Zijlstra  2016-02-23  1240  		if (unlikely(dl_se->dl_yielded))
+48be3a67da7413 Peter Zijlstra  2016-02-23  1241  			goto throttle;
+734ff2a71f9e6a Kirill Tkhai    2014-03-04  1242  		return;
+48be3a67da7413 Peter Zijlstra  2016-02-23  1243  	}
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1244  
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1245  	schedstat_set(curr->se.statistics.exec_max,
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1246  		      max(curr->se.statistics.exec_max, delta_exec));
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1247  
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1248  	curr->se.sum_exec_runtime += delta_exec;
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1249  	account_group_exec_runtime(curr, delta_exec);
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1250  
+6fe0ce1eb04f99 Wen Yang        2018-02-06  1251  	curr->se.exec_start = now;
+d2cc5ed6949085 Tejun Heo       2017-09-25  1252  	cgroup_account_cputime(curr, delta_exec);
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1253  
+794a56ebd9a57d Juri Lelli      2017-12-04  1254  	if (dl_entity_is_special(dl_se))
+794a56ebd9a57d Juri Lelli      2017-12-04  1255  		return;
+794a56ebd9a57d Juri Lelli      2017-12-04  1256  
+07881166a892fa Juri Lelli      2017-12-04  1257  	/*
+07881166a892fa Juri Lelli      2017-12-04  1258  	 * For tasks that participate in GRUB, we implement GRUB-PA: the
+07881166a892fa Juri Lelli      2017-12-04  1259  	 * spare reclaimed bandwidth is used to clock down frequency.
+07881166a892fa Juri Lelli      2017-12-04  1260  	 *
+07881166a892fa Juri Lelli      2017-12-04  1261  	 * For the others, we still need to scale reservation parameters
+07881166a892fa Juri Lelli      2017-12-04  1262  	 * according to current frequency and CPU maximum capacity.
+07881166a892fa Juri Lelli      2017-12-04  1263  	 */
+07881166a892fa Juri Lelli      2017-12-04  1264  	if (unlikely(dl_se->flags & SCHED_FLAG_RECLAIM)) {
+07881166a892fa Juri Lelli      2017-12-04  1265  		scaled_delta_exec = grub_reclaim(delta_exec,
+07881166a892fa Juri Lelli      2017-12-04  1266  						 rq,
+07881166a892fa Juri Lelli      2017-12-04  1267  						 &curr->dl);
+07881166a892fa Juri Lelli      2017-12-04  1268  	} else {
+07881166a892fa Juri Lelli      2017-12-04  1269  		unsigned long scale_freq = arch_scale_freq_capacity(cpu);
+8ec59c0f5f4966 Vincent Guittot 2019-06-17  1270  		unsigned long scale_cpu = arch_scale_cpu_capacity(cpu);
+07881166a892fa Juri Lelli      2017-12-04  1271  
+07881166a892fa Juri Lelli      2017-12-04  1272  		scaled_delta_exec = cap_scale(delta_exec, scale_freq);
+07881166a892fa Juri Lelli      2017-12-04  1273  		scaled_delta_exec = cap_scale(scaled_delta_exec, scale_cpu);
+07881166a892fa Juri Lelli      2017-12-04  1274  	}
+07881166a892fa Juri Lelli      2017-12-04  1275  
+07881166a892fa Juri Lelli      2017-12-04  1276  	dl_se->runtime -= scaled_delta_exec;
+48be3a67da7413 Peter Zijlstra  2016-02-23  1277  
+48be3a67da7413 Peter Zijlstra  2016-02-23  1278  throttle:
+48be3a67da7413 Peter Zijlstra  2016-02-23  1279  	if (dl_runtime_exceeded(dl_se) || dl_se->dl_yielded) {
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1280  		dl_se->dl_throttled = 1;
+34be39305a77b8 Juri Lelli      2017-12-12  1281  
+34be39305a77b8 Juri Lelli      2017-12-12  1282  		/* If requested, inform the user about runtime overruns. */
+34be39305a77b8 Juri Lelli      2017-12-12  1283  		if (dl_runtime_exceeded(dl_se) &&
+34be39305a77b8 Juri Lelli      2017-12-12  1284  		    (dl_se->flags & SCHED_FLAG_DL_OVERRUN))
+34be39305a77b8 Juri Lelli      2017-12-12  1285  			dl_se->dl_overrun = 1;
+34be39305a77b8 Juri Lelli      2017-12-12  1286  
+1019a359d3dc4b Peter Zijlstra  2014-11-26  1287  		__dequeue_task_dl(rq, curr, 0);
+a649f237db1845 Peter Zijlstra  2015-06-11  1288  		if (unlikely(dl_se->dl_boosted || !start_dl_timer(curr)))
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1289  			enqueue_task_dl(rq, curr, ENQUEUE_REPLENISH);
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1290  
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1291  		if (!is_leftmost(curr, &rq->dl))
+8875125efe8402 Kirill Tkhai    2014-06-29  1292  			resched_curr(rq);
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1293  	}
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1294  
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1295  	/*
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1296  	 * Because -- for now -- we share the rt bandwidth, we need to
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1297  	 * account our runtime there too, otherwise actual rt tasks
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1298  	 * would be able to exceed the shared quota.
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1299  	 *
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1300  	 * Account to the root rt group for now.
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1301  	 *
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1302  	 * The solution we're working towards is having the RT groups scheduled
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1303  	 * using deadline servers -- however there's a few nasties to figure
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1304  	 * out before that can happen.
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1305  	 */
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1306  	if (rt_bandwidth_enabled()) {
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1307  		struct rt_rq *rt_rq = &rq->rt;
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1308  
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1309  		raw_spin_lock(&rt_rq->rt_runtime_lock);
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1310  		/*
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1311  		 * We'll let actual RT tasks worry about the overflow here, we
+faa5993736d9b4 Juri Lelli      2014-02-21  1312  		 * have our own CBS to keep us inline; only account when RT
+faa5993736d9b4 Juri Lelli      2014-02-21  1313  		 * bandwidth is relevant.
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1314  		 */
+faa5993736d9b4 Juri Lelli      2014-02-21 @1315  		if (sched_rt_bandwidth_account(rt_rq))
+faa5993736d9b4 Juri Lelli      2014-02-21  1316  			rt_rq->rt_time += delta_exec;
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1317  		raw_spin_unlock(&rt_rq->rt_runtime_lock);
+1724813d9f2c7f Peter Zijlstra  2013-12-17  1318  	}
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1319  }
+aab03e05e8f7e2 Dario Faggioli  2013-11-28  1320  
+
+---
+0-DAY CI Kernel Test Service, Intel Corporation
+https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnK4KZaE%3DD40UyKHN-nB1Y-oXXJUcVv08cGJNsExOs-Pw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202006270351.lVmaZ420%25lkp%40intel.com.
+
+--3MwIy2ne0vdjdPXF
+Content-Type: application/gzip
+Content-Disposition: attachment; filename=".config.gz"
+Content-Transfer-Encoding: base64
+
+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
+H+7BPpn+awAA
+
+--3MwIy2ne0vdjdPXF--
