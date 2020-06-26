@@ -1,132 +1,124 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBYFN3H3QKGQEOUJ77WY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB3NN3H3QKGQERQZCLWQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe39.google.com (mail-vs1-xe39.google.com [IPv6:2607:f8b0:4864:20::e39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1C67620BA0C
-	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Jun 2020 22:13:22 +0200 (CEST)
-Received: by mail-vs1-xe39.google.com with SMTP id s18sf3328436vsj.4
-        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Jun 2020 13:13:22 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1593202401; cv=pass;
+Received: from mail-pf1-x43c.google.com (mail-pf1-x43c.google.com [IPv6:2607:f8b0:4864:20::43c])
+	by mail.lfdr.de (Postfix) with ESMTPS id CFB7720BA10
+	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Jun 2020 22:13:35 +0200 (CEST)
+Received: by mail-pf1-x43c.google.com with SMTP id y69sf6949778pfg.9
+        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Jun 2020 13:13:35 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1593202414; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GzH76MZYeipQWpoVvIOvo3vbn32wVGJLvL5bLwfFoxwKTHG3FjygtaxOVxTil0SzaZ
-         hyD83nxOduq3I8B7iEUYxVfN59z+WyJRYn/7F93XkgbfY3ryb9oERMeXW47vPT5VIo0c
-         P8GUrIUIejrfAQusc1o1RuGyAss+njE2MJBJpPUOb4U0VLLoSbiISKH5DAXpAzsHhQiu
-         vh4upZye/5tYyWztmUD9bWlSwlLeZ0jHjnzB6eqTa25qWIxAopjgdCNPRErO7iK+QlwS
-         vqDDP6Pb4jJ41hJkM5y1zCLcVFpjL3Fu+nW1yrx0dwO0u5HEe6m2YFSAM7rgXz0D8irS
-         pEPw==
+        b=usY7atslfwglhLcoIby+bSa0Z+S7os2D/1mdqCWeSXsAcSF4EckgDa0Lk5NQ0w2gVM
+         irY1E0bCeDH4dFJfqyYKEC2snOdiJ7CnAk2H6sXNNqukcMCQuudKRRMOxUzGbA0Uq1cE
+         m5ayT/u9DuSUDUSD+kN/qdtoo9/IiT23ebehybiOg6APox11P2kzpYQQxj/tMpBI0Ij/
+         DQHCwNK3MeBC+TjhULqL1uY1PTeI+7ac+e9t6/W1HdP888gwW8+oi5JqWQRyKCSBD32m
+         c+tdFPDzXOQEpI99gIAy1weLjnh3jRfVzHwcBke9bud+ZiaP4ABBRJRam7v5bZKutA5E
+         NgUQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=ihC7P4GzTeWmysHK5tmjs+fUfGirRgU/WRVvQ0XEAFk=;
-        b=wOAkhkzRp/DiY7Kct9c/2Kw58tMB6UNcgNL8+OCn/0LlMJNyOHfiwEPoGcV4114/0H
-         yU5e/gZkn6D5JR1TrdT6HYDob7QwjAgIGOgfVZ6RKQq92tbagVdWtIJabeWKOsvCSP42
-         Lno1vk3Bn4LfDSXF5jmycoThTsVe5lxCsceMydOklS9i2sBV44WABUCCQG1WgdWfZEon
-         kXP8Qm2Q7HtvBQYb44WtiYRI4/YzDX8wo/M2dWF7dOWXhVoLbi54EqHOumxx6KGzs4lL
-         khglot6k2TxuApje2/rcfRlt/HW5Pd6hbyQ5qTS0uHdjKjqV29dh+B3RjgmZWNyWS1/R
-         lnKw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=0pPCSQ1T8idwD3Y0kpxvy5A0VVVT4VSPNXw2aO3+YCI=;
+        b=eL9TsCmRgc+Ra3jqjTiERPV2wDaZSqNv7l1Ho49zQt5lF9pmTu4p+jqv1k54cT8Tw8
+         Zl31SKSYwZ7t3OkmDdrCGWztpE8LacxwLeMouryTd/3QT0c9+z2bGM7TG7vNYEt3CX71
+         sPdKZo4GmMaYz/sZc0tyy/R9OwbFOI/7j9vougQZUm4we5YslhJaoCpGheTNhnnM6T+p
+         F9yynY9Rj6BMccUztTE9KSNuaows6q0XFdvDG/9vX/QaspSGN6sX0cUYjdzMnAmAq6ro
+         Nw6jlFzBhGp5vdxiEa3CTYbUouXbEDPeV3dBRRC3w/65fHNgUzLKm8MWIk8ZAwqdxFbu
+         gXJA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=kaoCNqPS;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1041 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=EYPVsthQ;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ihC7P4GzTeWmysHK5tmjs+fUfGirRgU/WRVvQ0XEAFk=;
-        b=bK2jtJroymZZ8U7z3bPZFlk98kt77S2VSECXXSthmSdBwSYwpEuzARbQC0NzLR87v6
-         GtPk0CTVKo28UMqRza9FNf3AoqAUkd3xb85ruf9bqXGPWERHTLEXLtW+ibaDgF+/oaY1
-         ZpQE5c60abAJsINmKsJBxG5jBV4E1j9WoZOwryEeAP+en1Ag4c6Yl5rWdSWnU31iiXyY
-         JqL9zthmDniTrISEUng8wVKKkDXMoVzmQuPdG7J8Lo9Ih399ASPRwrs4B0wi7FHz4N5g
-         72cKBLFMNFajXWPKWPte6WWA6/LyTVbtK45DvdKsf/zIGrAITtwzj4znUs9KC9z2c7sx
-         urpQ==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=0pPCSQ1T8idwD3Y0kpxvy5A0VVVT4VSPNXw2aO3+YCI=;
+        b=kqRDZNbZ4wT1tFACPBb+mWvxs3qRrIK/gDsC3H68tQJN2lveKjvUWWNyEjQY2kq4yv
+         d5GUNAxwto6SH8J9QTEBsCPGfqBUpQF5Y59khb+H7zsHr+wZjv6cuNTVcjq9FQTECXGW
+         iXHYuD9uzplSNJI5OfCd7l99ZeaZ6vaK8+dKXE6erh1/duRnzjEevd4Azq/gf1AuHEbZ
+         WDbNN7Kl4lT4V0pOhBZ0mrWU2m/jKXD5hTeOrMBxsJ4tZBEL5oCRqi8jUQUDlPW72Gi+
+         DQIjQx0i1/8ypsyIAMuKbYNfcC+3DVDs+gy4IRaQLdJUQe2G/SA4PqNgJXXgNTELhTkp
+         Dv4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=ihC7P4GzTeWmysHK5tmjs+fUfGirRgU/WRVvQ0XEAFk=;
-        b=ObrvvduTqUMyCZfjWBlg0FQMQpQtK+5vbQXwalS2p0b66WhqK7dSEhchEKFoG6dBYt
-         TrpQGd6yLTOYcByCWBkvJh/sAXkIggYApgLtVC8ScMXvZra5O2j9/nfazKEL7BXvUDCy
-         ra9L+io/vbjFsJA+SN7K+K63YM6wIZG/4Xjexq+LyOfYfHpCOB/daVClJ/IVlCAiy0kN
-         czcNNg3VUmjWr2SvFzDF929kucbCSbIJBiL1+xZlkThHA/imOU9ULEZHfBL6y4B0CgZv
-         VvQ6mq67uwv6wKoBJxc9VL1YliMpVG6p047/tk2JPRk9usK6t1tJJUKzBaRQi8RqlRNz
-         IOYQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5305VaoEqz1/xX9UIrhrT/5yRXVckO4BYJY0ZSBu8R4Up6YrgFVa
-	6Y3zYsniAuvaNinoPvVEzaw=
-X-Google-Smtp-Source: ABdhPJxin/q66KFj6eO114gxDCJ7hnDgd1G4xKXRJkPpPps9ZpMnUbJy/5m4spKi1KqvV94EUdfwUQ==
-X-Received: by 2002:ab0:63da:: with SMTP id i26mr3870809uap.68.1593202401066;
-        Fri, 26 Jun 2020 13:13:21 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=0pPCSQ1T8idwD3Y0kpxvy5A0VVVT4VSPNXw2aO3+YCI=;
+        b=fxNE/gOFIsSVGrYd5k5NWiz4gT/yiQ67GUOXG7VNUQRrnBKxywm5M+PL/yT0p5fG2f
+         x7z3/xd/v+Feac1Iib/NraBnsTl06uJRBQ4K8346Xb+sLn5e/XBtR7jDu8+vbHS7KDCK
+         xua65KG+6IInS34towRWi3y+p88YbXuJUiwyeJHCZ7EiVa8ODh239EDXqewgitM2rHZG
+         B7UrSMiC/YI5IBITGomWDcA/0ZJkqmRb1MbBgXIj4zDrtIWcAK8KTm4px/lFITt8aZnK
+         M+cDV0ST9KpHJyPAqnQVhNu0FPSkitKI2fBHRwMvm2uZ2JF5Dfqfoo0AL6133dIH8S9T
+         INPQ==
+X-Gm-Message-State: AOAM5335v7y0XtPL758JM6yuAylpe2KPGsIiTpmSr4z1UmiXPhbYuCLC
+	Cv54SVq0dZwiKUqKOf2GziM=
+X-Google-Smtp-Source: ABdhPJyMEFXHZDqQSFjgnhQBZeHn7GFAqfZpSRxcSTa1jix6MIVq2VAJhZYN2fqEgGiTJOo2MEcbhw==
+X-Received: by 2002:a63:7246:: with SMTP id c6mr393372pgn.422.1593202414020;
+        Fri, 26 Jun 2020 13:13:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:9c01:: with SMTP id f1ls517804vke.9.gmail; Fri, 26 Jun
- 2020 13:13:20 -0700 (PDT)
-X-Received: by 2002:a1f:6084:: with SMTP id u126mr3559855vkb.56.1593202400751;
-        Fri, 26 Jun 2020 13:13:20 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1593202400; cv=none;
+Received: by 2002:a62:7e97:: with SMTP id z145ls1310298pfc.4.gmail; Fri, 26
+ Jun 2020 13:13:33 -0700 (PDT)
+X-Received: by 2002:a63:ec44:: with SMTP id r4mr386984pgj.11.1593202413610;
+        Fri, 26 Jun 2020 13:13:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593202413; cv=none;
         d=google.com; s=arc-20160816;
-        b=pWcEPOZc9zVHL53RM/YGieXAWWr2hhJlXuPMhAyh9M6jLKUqK42HZ9dsKTgqX4JfWl
-         JY0SS33T/Zm0W82e/CntGj3Z0CxoMppP8phFa9ErNRQKTFkN0dNRZp/H3TURa5B0Cwui
-         +bwBGnVkhdcGQaAxCuWsfgnoSg+y+W3TRcMYhWr6H3AZDLREQmv65PJMM11PIdM1pjxU
-         N8qq+CPX/KwTuY4owb0E8XSxIUjti7J7aTPM+gYT/kk6Y4ZoDQi7r2O0IUJP/LFYtkyd
-         C8FsoPpxzcROHSjfbP3ofKP2XSlqlgA5bn+QmAdLeH71rb1sDWw8IioQiM4rmrrsYCX8
-         W1wQ==
+        b=cXyM9mf/OmuvFJdperNGC0m22YaUOJScgn99eC+Svv9i1iB8eOmqS+M72YzIjDZdH4
+         kRwojB9Lyuf+70Pc9E3Tf0P+8Y4ag3g6Ze9EGzMokxC9nugWuZ0sDqEKbzolgNiv/wGF
+         cWQBHizJqJPK18mYNKr+u4EYaCTfpqgtqZpUCYZ4wQzuev/bddWk5LZT4TdxNYPZ/BBF
+         +OVEdRaqQqU8ePLUAIJQdVG5fRXezLSl9tMgS+4CmLBwLtiPNTzHpCOsU1MYoN7wH0e0
+         8p0WNz0fsDiB3mMnpYocJoj3aHsICIz7jWtpj+orXJ0J6epG/em1rEHD91UtxoZYy0em
+         F9UQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=Az9RFFYtn5C7TmV4P2ySXpJMS+ldXmIwmwoLtzgDuS8=;
-        b=XWSY8srlFCkCuNtGCC2rVe4Qt1r8N0YAwVl+e1RGMPirnuzoSXZ16NKQn7Agvtmmq0
-         +ozzB7sCtjmgEfRkszBvm8dov2HwblXCdJ6HYc3erIW4xVSxIGz/jiNUKEQ8i64rOqPs
-         lnG7DiB/1lGhy3uOQ0L+dTRbwLgJeWn48NGNwxF/03YlC6KO+DiAlzJEj3RjWwHGD32/
-         R12ygRUbq0g+OanyqtkfCjCmUXVXSf2nZbUmV4YaQx9+Wx24OAc2mizoZWH0y8iNJDkq
-         m5WuGe5ALJ6JDwXK+HQabjaBqISAOE1KzdKeJOh1yfl5kH2mcuGWQgZsVc5WwNOvsi7s
-         2oKg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=yGisdtxxFp3T7VMipcsjhMIgCPsLwdC4J4cYpudsJpI=;
+        b=sXFTGX4FoZsONZfu7IWaZkFzrO9fKTWf5tbn81Bw1LodRvet5J/4CEi7OqY1kZs73B
+         eZ++XM5va7+jzI2Sh8wDI6RSDa0acBHgBqLbJbGGcR9/2nxnm8MFzRdo5C0qW11aluvD
+         V4CB9+VjdR8yte8sWAkEyjd4qj4fDqm8zZ5gP8fw/K/Z1Ww3zVcHPjoqjRtaE5I+la+3
+         c1Vypt2NZYv//XOdc1XLjgviWeTlvplqnsyleNFR2FJotc+RMgnurE/tryeheuAxAfwe
+         ca5SRkOIDxzP+fONtF9JSjjX3LVhVPqdp0zpW74ceEJfrket8Tb0H0mf4csmObo5Cjyq
+         07Fw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=kaoCNqPS;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1041 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pj1-x1041.google.com (mail-pj1-x1041.google.com. [2607:f8b0:4864:20::1041])
-        by gmr-mx.google.com with ESMTPS id y197si749372vky.3.2020.06.26.13.13.20
+       dkim=pass header.i=@google.com header.s=20161025 header.b=EYPVsthQ;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pf1-x444.google.com (mail-pf1-x444.google.com. [2607:f8b0:4864:20::444])
+        by gmr-mx.google.com with ESMTPS id q1si1563495pgg.5.2020.06.26.13.13.33
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 26 Jun 2020 13:13:20 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1041 as permitted sender) client-ip=2607:f8b0:4864:20::1041;
-Received: by mail-pj1-x1041.google.com with SMTP id d6so5378180pjs.3
-        for <clang-built-linux@googlegroups.com>; Fri, 26 Jun 2020 13:13:20 -0700 (PDT)
-X-Received: by 2002:a17:90a:aa88:: with SMTP id l8mr5328566pjq.145.1593202400000;
-        Fri, 26 Jun 2020 13:13:20 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id y187sm26950121pfb.46.2020.06.26.13.13.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Jun 2020 13:13:19 -0700 (PDT)
-Date: Fri, 26 Jun 2020 13:13:18 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Masahiro Yamada <masahiroy@kernel.org>,
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
-	linux-efi <linux-efi@vger.kernel.org>,
-	LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/2] kbuild: remove cc-option test of -fno-stack-protector
-Message-ID: <202006261312.560B045E@keescook>
-References: <20200626185913.92890-1-masahiroy@kernel.org>
- <CAKwvOdnK4KZaE=D40UyKHN-nB1Y-oXXJUcVv08cGJNsExOs-Pw@mail.gmail.com>
+        Fri, 26 Jun 2020 13:13:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) client-ip=2607:f8b0:4864:20::444;
+Received: by mail-pf1-x444.google.com with SMTP id u185so3053899pfu.1
+        for <clang-built-linux@googlegroups.com>; Fri, 26 Jun 2020 13:13:33 -0700 (PDT)
+X-Received: by 2002:a63:a119:: with SMTP id b25mr410970pgf.10.1593202412594;
+ Fri, 26 Jun 2020 13:13:32 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200626185913.92890-1-masahiroy@kernel.org>
+In-Reply-To: <20200626185913.92890-1-masahiroy@kernel.org>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Fri, 26 Jun 2020 13:13:20 -0700
+Message-ID: <CAKwvOd=V_M43CP7G87K3TqSsxua2NcXPz6BnDt-z6167O2WAzQ@mail.gmail.com>
+Subject: Re: [PATCH 1/2] kbuild: remove cc-option test of -fno-stack-protector
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, linux-efi <linux-efi@vger.kernel.org>, 
+	Kees Cook <keescook@chromium.org>, LKML <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAKwvOdnK4KZaE=D40UyKHN-nB1Y-oXXJUcVv08cGJNsExOs-Pw@mail.gmail.com>
-X-Original-Sender: keescook@chromium.org
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=kaoCNqPS;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1041
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+ header.i=@google.com header.s=20161025 header.b=EYPVsthQ;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,25 +131,446 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jun 26, 2020 at 12:09:37PM -0700, Nick Desaulniers wrote:
-> On Fri, Jun 26, 2020 at 12:00 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
-> >  CFLAGS_NO_HARDENING := $(call cc-option, -fno-PIC,) $(call cc-option, -fno-pic,) \
-> > -       $(call cc-option, -fno-stack-protector,) \
-> > -       $(call cc-option, -fno-stack-protector-all,)
-> > +       -fno-stack-protector $(call cc-option, -fno-stack-protector-all)
-> 
-> Just curious, looks like we could do the same for
-> `-fno-stack-protector-all`, here or tree-wide, right?  Wait, what
-> compiler recognizes -fno-stack-protector-all?
-> https://godbolt.org/z/QFQKE_
+On Fri, Jun 26, 2020 at 12:00 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
+>
+> Some Makefiles already pass -fno-stack-protector unconditionally.
+> For example, arch/arm64/kernel/vdso/Makefile, arch/x86/xen/Makefile.
+> No problem report so far about hard-coding this option. So, we can
+> assume all supported compilers know -fno-stack-protector.
+>
+> GCC 4.8 and Clang support this option (https://godbolt.org/z/_HDGzN)
+>
+> Get rid of cc-option from -fno-stack-protector.
+>
+> Remove CONFIG_CC_HAS_STACKPROTECTOR_NONE, which should always be 'y'.
+>
+> Note:
+> arch/mips/vdso/Makefile adds -fno-stack-protector twice, first
+> unconditionally, and second conditionally. I removed the second one.
+>
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 
-That is from ancient times, IIRC. -fno-stack-protector should be
-sufficient.
+Generally looks pretty good, just a few more questions before adding
+my tag explicitly.
+
+> ---
+>
+>  Documentation/kbuild/kconfig-language.rst | 4 ++--
+>  Makefile                                  | 2 +-
+>  arch/Kconfig                              | 3 ---
+>  arch/arm/boot/compressed/Makefile         | 3 +--
+>  arch/mips/vdso/Makefile                   | 3 +--
+>  arch/powerpc/kernel/Makefile              | 2 +-
+>  arch/powerpc/platforms/powermac/Makefile  | 2 +-
+>  arch/sparc/vdso/Makefile                  | 4 ++--
+>  arch/um/Makefile                          | 3 +--
+>  arch/x86/Makefile                         | 2 +-
+>  arch/x86/boot/compressed/Makefile         | 2 +-
+>  arch/x86/entry/vdso/Makefile              | 4 ++--
+>  arch/x86/kernel/cpu/Makefile              | 3 +--
+>  arch/x86/lib/Makefile                     | 2 +-
+>  arch/x86/mm/Makefile                      | 7 +++----
+>  arch/x86/power/Makefile                   | 3 +--
+>  arch/x86/purgatory/Makefile               | 2 +-
+>  arch/x86/um/vdso/Makefile                 | 2 +-
+>  arch/x86/xen/Makefile                     | 5 ++---
+>  drivers/firmware/efi/libstub/Makefile     | 2 +-
+>  drivers/xen/Makefile                      | 3 +--
+>  kernel/kcsan/Makefile                     | 3 +--
+>  lib/Makefile                              | 4 ++--
+>  mm/kasan/Makefile                         | 2 +-
+>  24 files changed, 30 insertions(+), 42 deletions(-)
+>
+> diff --git a/Documentation/kbuild/kconfig-language.rst b/Documentation/kbuild/kconfig-language.rst
+> index a1601ec3317b..2538e7cb08e6 100644
+> --- a/Documentation/kbuild/kconfig-language.rst
+> +++ b/Documentation/kbuild/kconfig-language.rst
+> @@ -540,8 +540,8 @@ followed by a test macro::
+>  If you need to expose a compiler capability to makefiles and/or C source files,
+>  `CC_HAS_` is the recommended prefix for the config option::
+>
+> -  config CC_HAS_STACKPROTECTOR_NONE
+> -       def_bool $(cc-option,-fno-stack-protector)
+> +  config CC_HAS_ASM_GOTO
+> +       def_bool $(success,$(srctree)/scripts/gcc-goto.sh $(CC))
+>
+>  Build as module only
+>  ~~~~~~~~~~~~~~~~~~~~
+> diff --git a/Makefile b/Makefile
+> index 5496a32dffa6..73948798ce3f 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -762,7 +762,7 @@ ifneq ($(CONFIG_FRAME_WARN),0)
+>  KBUILD_CFLAGS += -Wframe-larger-than=$(CONFIG_FRAME_WARN)
+>  endif
+>
+> -stackp-flags-$(CONFIG_CC_HAS_STACKPROTECTOR_NONE) := -fno-stack-protector
+> +stackp-flags-y                                    := -fno-stack-protector
+>  stackp-flags-$(CONFIG_STACKPROTECTOR)             := -fstack-protector
+>  stackp-flags-$(CONFIG_STACKPROTECTOR_STRONG)      := -fstack-protector-strong
+
+So it looks like the previous behavior always added
+`-fno-stack-protector` (since CONFIG_CC_HAS_STACKPROTECTOR_NONE was
+always true), but then we append either `-fstack-protector` or
+`-fstack-protector-strong` based on configs.  While that's ok, and you
+patch doesn't change that behavior, and it's good to be explicit to
+set the stack protector or not...it seems weird to have
+`-fno-stack-protector -fstack-protector` in the command line flags.  I
+would prefer if we checked for not having CONFIG_STACKPROTECTOR or
+CONFIG_STACKPROTECTOR_STRONG before adding `-fno-stack-protector`.
+That doesn't have to be done in this patch, per se.
+
+>
+> diff --git a/arch/Kconfig b/arch/Kconfig
+> index 8cc35dc556c7..1ea61290900a 100644
+> --- a/arch/Kconfig
+> +++ b/arch/Kconfig
+> @@ -478,9 +478,6 @@ config HAVE_STACKPROTECTOR
+>           An arch should select this symbol if:
+>           - it has implemented a stack canary (e.g. __stack_chk_guard)
+>
+> -config CC_HAS_STACKPROTECTOR_NONE
+> -       def_bool $(cc-option,-fno-stack-protector)
+> -
+>  config STACKPROTECTOR
+>         bool "Stack Protector buffer overflow detection"
+>         depends on HAVE_STACKPROTECTOR
+> diff --git a/arch/arm/boot/compressed/Makefile b/arch/arm/boot/compressed/Makefile
+> index 00602a6fba04..cb7a56c6723c 100644
+> --- a/arch/arm/boot/compressed/Makefile
+> +++ b/arch/arm/boot/compressed/Makefile
+> @@ -84,9 +84,8 @@ endif
+>
+>  # -fstack-protector-strong triggers protection checks in this code,
+>  # but it is being used too early to link to meaningful stack_chk logic.
+> -nossp-flags-$(CONFIG_CC_HAS_STACKPROTECTOR_NONE) := -fno-stack-protector
+>  $(foreach o, $(libfdt_objs) atags_to_fdt.o, \
+> -       $(eval CFLAGS_$(o) := -I $(srctree)/scripts/dtc/libfdt $(nossp-flags-y)))
+> +       $(eval CFLAGS_$(o) := -I $(srctree)/scripts/dtc/libfdt -fno-stack-protector))
+>
+>  # These were previously generated C files. When you are building the kernel
+>  # with O=, make sure to remove the stale files in the output tree. Otherwise,
+> diff --git a/arch/mips/vdso/Makefile b/arch/mips/vdso/Makefile
+> index 2e64c7600eea..57fe83235281 100644
+> --- a/arch/mips/vdso/Makefile
+> +++ b/arch/mips/vdso/Makefile
+> @@ -35,8 +35,7 @@ cflags-vdso := $(ccflags-vdso) \
+>         -O3 -g -fPIC -fno-strict-aliasing -fno-common -fno-builtin -G 0 \
+>         -mrelax-pic-calls $(call cc-option, -mexplicit-relocs) \
+>         -fno-stack-protector -fno-jump-tables -DDISABLE_BRANCH_PROFILING \
+> -       $(call cc-option, -fno-asynchronous-unwind-tables) \
+> -       $(call cc-option, -fno-stack-protector)
+> +       $(call cc-option, -fno-asynchronous-unwind-tables)
+>  aflags-vdso := $(ccflags-vdso) \
+>         -D__ASSEMBLY__ -Wa,-gdwarf-2
+>
+> diff --git a/arch/powerpc/kernel/Makefile b/arch/powerpc/kernel/Makefile
+> index 244542ae2a91..3a83f2b876a5 100644
+> --- a/arch/powerpc/kernel/Makefile
+> +++ b/arch/powerpc/kernel/Makefile
+> @@ -16,7 +16,7 @@ CFLAGS_prom_init.o += $(DISABLE_LATENT_ENTROPY_PLUGIN)
+>  CFLAGS_btext.o += $(DISABLE_LATENT_ENTROPY_PLUGIN)
+>  CFLAGS_prom.o += $(DISABLE_LATENT_ENTROPY_PLUGIN)
+>
+> -CFLAGS_prom_init.o += $(call cc-option, -fno-stack-protector)
+> +CFLAGS_prom_init.o += -fno-stack-protector
+>  CFLAGS_prom_init.o += -DDISABLE_BRANCH_PROFILING
+>  CFLAGS_prom_init.o += -ffreestanding
+>
+> diff --git a/arch/powerpc/platforms/powermac/Makefile b/arch/powerpc/platforms/powermac/Makefile
+> index f4247ade71ca..cf85f0662d0d 100644
+> --- a/arch/powerpc/platforms/powermac/Makefile
+> +++ b/arch/powerpc/platforms/powermac/Makefile
+> @@ -1,6 +1,6 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  CFLAGS_bootx_init.o            += -fPIC
+> -CFLAGS_bootx_init.o            += $(call cc-option, -fno-stack-protector)
+> +CFLAGS_bootx_init.o            += -fno-stack-protector
+>
+>  KASAN_SANITIZE_bootx_init.o := n
+>
+> diff --git a/arch/sparc/vdso/Makefile b/arch/sparc/vdso/Makefile
+> index 708cb6304c2d..f44355e46f31 100644
+> --- a/arch/sparc/vdso/Makefile
+> +++ b/arch/sparc/vdso/Makefile
+> @@ -54,7 +54,7 @@ $(obj)/vdso-image-%.c: $(obj)/vdso%.so.dbg $(obj)/vdso%.so $(obj)/vdso2c FORCE
+>  # optimize sibling calls.
+>  #
+>  CFL := $(PROFILING) -mcmodel=medlow -fPIC -O2 -fasynchronous-unwind-tables -m64 \
+> -       $(filter -g%,$(KBUILD_CFLAGS)) $(call cc-option, -fno-stack-protector) \
+> +       $(filter -g%,$(KBUILD_CFLAGS)) -fno-stack-protector \
+>         -fno-omit-frame-pointer -foptimize-sibling-calls \
+>         -DDISABLE_BRANCH_PROFILING -DBUILD_VDSO
+>
+> @@ -93,7 +93,7 @@ KBUILD_CFLAGS_32 := $(filter-out -fno-pic,$(KBUILD_CFLAGS_32))
+>  KBUILD_CFLAGS_32 := $(filter-out $(GCC_PLUGINS_CFLAGS),$(KBUILD_CFLAGS_32))
+>  KBUILD_CFLAGS_32 := $(filter-out $(SPARC_REG_CFLAGS),$(KBUILD_CFLAGS_32))
+>  KBUILD_CFLAGS_32 += -m32 -msoft-float -fpic
+> -KBUILD_CFLAGS_32 += $(call cc-option, -fno-stack-protector)
+> +KBUILD_CFLAGS_32 += -fno-stack-protector
+>  KBUILD_CFLAGS_32 += $(call cc-option, -foptimize-sibling-calls)
+>  KBUILD_CFLAGS_32 += -fno-omit-frame-pointer
+>  KBUILD_CFLAGS_32 += -DDISABLE_BRANCH_PROFILING
+> diff --git a/arch/um/Makefile b/arch/um/Makefile
+> index 3f27aa3ec0a6..1cea46ff9bb7 100644
+> --- a/arch/um/Makefile
+> +++ b/arch/um/Makefile
+> @@ -121,8 +121,7 @@ LINK-$(CONFIG_LD_SCRIPT_STATIC) += -static
+>  LINK-$(CONFIG_LD_SCRIPT_DYN) += -Wl,-rpath,/lib $(call cc-option, -no-pie)
+>
+>  CFLAGS_NO_HARDENING := $(call cc-option, -fno-PIC,) $(call cc-option, -fno-pic,) \
+> -       $(call cc-option, -fno-stack-protector,) \
+> -       $(call cc-option, -fno-stack-protector-all,)
+> +       -fno-stack-protector $(call cc-option, -fno-stack-protector-all)
+>
+>  # Options used by linker script
+>  export LDS_START      := $(START)
+> diff --git a/arch/x86/Makefile b/arch/x86/Makefile
+> index 00e378de8bc0..89c3cdfba753 100644
+> --- a/arch/x86/Makefile
+> +++ b/arch/x86/Makefile
+> @@ -37,7 +37,7 @@ REALMODE_CFLAGS       := $(M16_CFLAGS) -g -Os -DDISABLE_BRANCH_PROFILING \
+>                    -mno-mmx -mno-sse
+>
+>  REALMODE_CFLAGS += $(call __cc-option, $(CC), $(REALMODE_CFLAGS), -ffreestanding)
+> -REALMODE_CFLAGS += $(call __cc-option, $(CC), $(REALMODE_CFLAGS), -fno-stack-protector)
+> +REALMODE_CFLAGS += -fno-stack-protector
+>  REALMODE_CFLAGS += $(call __cc-option, $(CC), $(REALMODE_CFLAGS), -Wno-address-of-packed-member)
+>  REALMODE_CFLAGS += $(call __cc-option, $(CC), $(REALMODE_CFLAGS), $(cc_stack_align4))
+>  export REALMODE_CFLAGS
+> diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
+> index 7619742f91c9..c88a31569a5e 100644
+> --- a/arch/x86/boot/compressed/Makefile
+> +++ b/arch/x86/boot/compressed/Makefile
+> @@ -36,7 +36,7 @@ cflags-$(CONFIG_X86_64) := -mcmodel=small
+>  KBUILD_CFLAGS += $(cflags-y)
+>  KBUILD_CFLAGS += -mno-mmx -mno-sse
+>  KBUILD_CFLAGS += $(call cc-option,-ffreestanding)
+> -KBUILD_CFLAGS += $(call cc-option,-fno-stack-protector)
+> +KBUILD_CFLAGS += -fno-stack-protector
+>  KBUILD_CFLAGS += $(call cc-disable-warning, address-of-packed-member)
+>  KBUILD_CFLAGS += $(call cc-disable-warning, gnu)
+>  KBUILD_CFLAGS += -Wno-pointer-sign
+> diff --git a/arch/x86/entry/vdso/Makefile b/arch/x86/entry/vdso/Makefile
+> index 04e65f0698f6..215376d975a2 100644
+> --- a/arch/x86/entry/vdso/Makefile
+> +++ b/arch/x86/entry/vdso/Makefile
+> @@ -82,7 +82,7 @@ $(obj)/vdso-image-%.c: $(obj)/vdso%.so.dbg $(obj)/vdso%.so $(obj)/vdso2c FORCE
+>  # optimize sibling calls.
+>  #
+>  CFL := $(PROFILING) -mcmodel=small -fPIC -O2 -fasynchronous-unwind-tables -m64 \
+> -       $(filter -g%,$(KBUILD_CFLAGS)) $(call cc-option, -fno-stack-protector) \
+> +       $(filter -g%,$(KBUILD_CFLAGS)) -fno-stack-protector \
+>         -fno-omit-frame-pointer -foptimize-sibling-calls \
+>         -DDISABLE_BRANCH_PROFILING -DBUILD_VDSO
+>
+> @@ -151,7 +151,7 @@ KBUILD_CFLAGS_32 := $(filter-out -mfentry,$(KBUILD_CFLAGS_32))
+>  KBUILD_CFLAGS_32 := $(filter-out $(GCC_PLUGINS_CFLAGS),$(KBUILD_CFLAGS_32))
+>  KBUILD_CFLAGS_32 := $(filter-out $(RETPOLINE_CFLAGS),$(KBUILD_CFLAGS_32))
+>  KBUILD_CFLAGS_32 += -m32 -msoft-float -mregparm=0 -fpic
+> -KBUILD_CFLAGS_32 += $(call cc-option, -fno-stack-protector)
+> +KBUILD_CFLAGS_32 += -fno-stack-protector
+>  KBUILD_CFLAGS_32 += $(call cc-option, -foptimize-sibling-calls)
+>  KBUILD_CFLAGS_32 += -fno-omit-frame-pointer
+>  KBUILD_CFLAGS_32 += -DDISABLE_BRANCH_PROFILING
+> diff --git a/arch/x86/kernel/cpu/Makefile b/arch/x86/kernel/cpu/Makefile
+> index dba6a83bc349..93792b457b81 100644
+> --- a/arch/x86/kernel/cpu/Makefile
+> +++ b/arch/x86/kernel/cpu/Makefile
+> @@ -17,8 +17,7 @@ KCOV_INSTRUMENT_perf_event.o := n
+>  KCSAN_SANITIZE_common.o := n
+>
+>  # Make sure load_percpu_segment has no stackprotector
+> -nostackp := $(call cc-option, -fno-stack-protector)
+> -CFLAGS_common.o                := $(nostackp)
+> +CFLAGS_common.o                := -fno-stack-protector
+
+Any time I see `:=` assignment to a CFLAGS variable, it's a red flag
+for overwriting existing CFLAGS, which is a common source of bugs.  I
+recognize the kernel is current a mix and match for:
+
+CFLAGS_<file>.o
+
+rules to either use `+=` or `:=`, but I wish we were consistent, and
+consistent in our use of `+=`.  For those rules, is there a difference
+between the use of `+=` and `:=` like there is for the more general
+case of appending to KBUILD_CFLAGS?  If not, it's ok to match the
+existing style, but it's curious to me in this patch to see a mixed
+use of `+=` and `:=`.
+
+>
+>  obj-y                  := cacheinfo.o scattered.o topology.o
+>  obj-y                  += common.o
+> diff --git a/arch/x86/lib/Makefile b/arch/x86/lib/Makefile
+> index 6110bce7237b..d46fff11f06f 100644
+> --- a/arch/x86/lib/Makefile
+> +++ b/arch/x86/lib/Makefile
+> @@ -24,7 +24,7 @@ ifdef CONFIG_FUNCTION_TRACER
+>  CFLAGS_REMOVE_cmdline.o = -pg
+>  endif
+>
+> -CFLAGS_cmdline.o := $(call cc-option, -fno-stack-protector)
+> +CFLAGS_cmdline.o := -fno-stack-protector
+>  endif
+>
+>  inat_tables_script = $(srctree)/arch/x86/tools/gen-insn-attr-x86.awk
+> diff --git a/arch/x86/mm/Makefile b/arch/x86/mm/Makefile
+> index f7fd0e868c9c..5864219221ca 100644
+> --- a/arch/x86/mm/Makefile
+> +++ b/arch/x86/mm/Makefile
+> @@ -22,10 +22,9 @@ obj-y                                :=  init.o init_$(BITS).o fault.o ioremap.o extable.o mmap.o \
+>  obj-y                          += pat/
+>
+>  # Make sure __phys_addr has no stackprotector
+> -nostackp := $(call cc-option, -fno-stack-protector)
+> -CFLAGS_physaddr.o              := $(nostackp)
+> -CFLAGS_setup_nx.o              := $(nostackp)
+> -CFLAGS_mem_encrypt_identity.o  := $(nostackp)
+> +CFLAGS_physaddr.o              := -fno-stack-protector
+> +CFLAGS_setup_nx.o              := -fno-stack-protector
+> +CFLAGS_mem_encrypt_identity.o  := -fno-stack-protector
+>
+>  CFLAGS_fault.o := -I $(srctree)/$(src)/../include/asm/trace
+>
+> diff --git a/arch/x86/power/Makefile b/arch/x86/power/Makefile
+> index 37923d715741..6907b523e856 100644
+> --- a/arch/x86/power/Makefile
+> +++ b/arch/x86/power/Makefile
+> @@ -3,8 +3,7 @@ OBJECT_FILES_NON_STANDARD_hibernate_asm_$(BITS).o := y
+>
+>  # __restore_processor_state() restores %gs after S3 resume and so should not
+>  # itself be stack-protected
+> -nostackp := $(call cc-option, -fno-stack-protector)
+> -CFLAGS_cpu.o   := $(nostackp)
+> +CFLAGS_cpu.o   := -fno-stack-protector
+>
+>  obj-$(CONFIG_PM_SLEEP)         += cpu.o
+>  obj-$(CONFIG_HIBERNATION)      += hibernate_$(BITS).o hibernate_asm_$(BITS).o hibernate.o
+> diff --git a/arch/x86/purgatory/Makefile b/arch/x86/purgatory/Makefile
+> index 088bd764e0b7..183ac60e5990 100644
+> --- a/arch/x86/purgatory/Makefile
+> +++ b/arch/x86/purgatory/Makefile
+> @@ -34,7 +34,7 @@ KCOV_INSTRUMENT := n
+>  PURGATORY_CFLAGS_REMOVE := -mcmodel=kernel
+>  PURGATORY_CFLAGS := -mcmodel=large -ffreestanding -fno-zero-initialized-in-bss
+>  PURGATORY_CFLAGS += $(DISABLE_STACKLEAK_PLUGIN) -DDISABLE_BRANCH_PROFILING
+> -PURGATORY_CFLAGS += $(call cc-option,-fno-stack-protector)
+> +PURGATORY_CFLAGS += -fno-stack-protector
+>
+>  # Default KBUILD_CFLAGS can have -pg option set when FTRACE is enabled. That
+>  # in turn leaves some undefined symbols like __fentry__ in purgatory and not
+> diff --git a/arch/x86/um/vdso/Makefile b/arch/x86/um/vdso/Makefile
+> index 0caddd6acb22..5943387e3f35 100644
+> --- a/arch/x86/um/vdso/Makefile
+> +++ b/arch/x86/um/vdso/Makefile
+> @@ -42,7 +42,7 @@ $(obj)/%.so: $(obj)/%.so.dbg FORCE
+>  # optimize sibling calls.
+>  #
+>  CFL := $(PROFILING) -mcmodel=small -fPIC -O2 -fasynchronous-unwind-tables -m64 \
+> -       $(filter -g%,$(KBUILD_CFLAGS)) $(call cc-option, -fno-stack-protector) \
+> +       $(filter -g%,$(KBUILD_CFLAGS)) -fno-stack-protector \
+>         -fno-omit-frame-pointer -foptimize-sibling-calls
+>
+>  $(vobjs): KBUILD_CFLAGS += $(CFL)
+> diff --git a/arch/x86/xen/Makefile b/arch/x86/xen/Makefile
+> index 084de77a109e..5f1db522d06b 100644
+> --- a/arch/x86/xen/Makefile
+> +++ b/arch/x86/xen/Makefile
+> @@ -9,9 +9,8 @@ CFLAGS_REMOVE_irq.o = -pg
+>  endif
+>
+>  # Make sure early boot has no stackprotector
+> -nostackp := $(call cc-option, -fno-stack-protector)
+> -CFLAGS_enlighten_pv.o          := $(nostackp)
+> -CFLAGS_mmu_pv.o                        := $(nostackp)
+> +CFLAGS_enlighten_pv.o          := -fno-stack-protector
+> +CFLAGS_mmu_pv.o                        := -fno-stack-protector
+>
+>  obj-y                          += enlighten.o
+>  obj-y                          += mmu.o
+> diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+> index 75daaf20374e..f8418763cd79 100644
+> --- a/drivers/firmware/efi/libstub/Makefile
+> +++ b/drivers/firmware/efi/libstub/Makefile
+> @@ -29,7 +29,7 @@ KBUILD_CFLAGS                 := $(cflags-y) -Os -DDISABLE_BRANCH_PROFILING \
+>                                    -include $(srctree)/drivers/firmware/efi/libstub/hidden.h \
+>                                    -D__NO_FORTIFY \
+>                                    $(call cc-option,-ffreestanding) \
+> -                                  $(call cc-option,-fno-stack-protector) \
+> +                                  -fno-stack-protector \
+>                                    $(call cc-option,-fno-addrsig) \
+>                                    -D__DISABLE_EXPORTS
+>
+> diff --git a/drivers/xen/Makefile b/drivers/xen/Makefile
+> index 0d322f3d90cd..c25c9a699b48 100644
+> --- a/drivers/xen/Makefile
+> +++ b/drivers/xen/Makefile
+> @@ -5,8 +5,7 @@ obj-y   += mem-reservation.o
+>  obj-y  += events/
+>  obj-y  += xenbus/
+>
+> -nostackp := $(call cc-option, -fno-stack-protector)
+> -CFLAGS_features.o                      := $(nostackp)
+> +CFLAGS_features.o                      := -fno-stack-protector
+>
+>  dom0-$(CONFIG_ARM64) += arm-device.o
+>  dom0-$(CONFIG_PCI) += pci.o
+> diff --git a/kernel/kcsan/Makefile b/kernel/kcsan/Makefile
+> index d4999b38d1be..d111f32bd5fd 100644
+> --- a/kernel/kcsan/Makefile
+> +++ b/kernel/kcsan/Makefile
+> @@ -7,8 +7,7 @@ CFLAGS_REMOVE_core.o = $(CC_FLAGS_FTRACE)
+>  CFLAGS_REMOVE_debugfs.o = $(CC_FLAGS_FTRACE)
+>  CFLAGS_REMOVE_report.o = $(CC_FLAGS_FTRACE)
+>
+> -CFLAGS_core.o := $(call cc-option,-fno-conserve-stack,) \
+> -       $(call cc-option,-fno-stack-protector,)
+> +CFLAGS_core.o := $(call cc-option,-fno-conserve-stack,) -fno-stack-protector
+>
+>  obj-y := core.o debugfs.o report.o
+>  obj-$(CONFIG_KCSAN_SELFTEST) += test.o
+> diff --git a/lib/Makefile b/lib/Makefile
+> index b1c42c10073b..0cda70649f1c 100644
+> --- a/lib/Makefile
+> +++ b/lib/Makefile
+> @@ -22,7 +22,7 @@ KCOV_INSTRUMENT_fault-inject.o := n
+>  ifdef CONFIG_AMD_MEM_ENCRYPT
+>  KASAN_SANITIZE_string.o := n
+>
+> -CFLAGS_string.o := $(call cc-option, -fno-stack-protector)
+> +CFLAGS_string.o := -fno-stack-protector
+>  endif
+>
+>  # Used by KCSAN while enabled, avoid recursion.
+> @@ -300,7 +300,7 @@ endif
+>  UBSAN_SANITIZE_ubsan.o := n
+>  KASAN_SANITIZE_ubsan.o := n
+>  KCSAN_SANITIZE_ubsan.o := n
+> -CFLAGS_ubsan.o := $(call cc-option, -fno-stack-protector) $(DISABLE_STACKLEAK_PLUGIN)
+> +CFLAGS_ubsan.o := -fno-stack-protector $(DISABLE_STACKLEAK_PLUGIN)
+>
+>  obj-$(CONFIG_SBITMAP) += sbitmap.o
+>
+> diff --git a/mm/kasan/Makefile b/mm/kasan/Makefile
+> index d532c2587731..370d970e5ab5 100644
+> --- a/mm/kasan/Makefile
+> +++ b/mm/kasan/Makefile
+> @@ -16,7 +16,7 @@ CFLAGS_REMOVE_tags_report.o = $(CC_FLAGS_FTRACE)
+>  # Function splitter causes unnecessary splits in __asan_load1/__asan_store1
+>  # see: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63533
+>  CC_FLAGS_KASAN_RUNTIME := $(call cc-option, -fno-conserve-stack)
+> -CC_FLAGS_KASAN_RUNTIME += $(call cc-option, -fno-stack-protector)
+> +CC_FLAGS_KASAN_RUNTIME += -fno-stack-protector
+>  # Disable branch tracing to avoid recursion.
+>  CC_FLAGS_KASAN_RUNTIME += -DDISABLE_BRANCH_PROFILING
+>
+> --
 
 -- 
-Kees Cook
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202006261312.560B045E%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DV_M43CP7G87K3TqSsxua2NcXPz6BnDt-z6167O2WAzQ%40mail.gmail.com.
