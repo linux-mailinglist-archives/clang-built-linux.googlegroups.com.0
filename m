@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBTGC5H3QKGQEM54KNWQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBG635H3QKGQE4QZCWHQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3f.google.com (mail-io1-xd3f.google.com [IPv6:2607:f8b0:4864:20::d3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id A825C20DD2E
-	for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jun 2020 23:46:53 +0200 (CEST)
-Received: by mail-io1-xd3f.google.com with SMTP id h15sf11820463ioj.11
-        for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jun 2020 14:46:53 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1593467212; cv=pass;
+Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 325BC20E894
+	for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jun 2020 00:39:25 +0200 (CEST)
+Received: by mail-pg1-x53b.google.com with SMTP id s1sf13551406pge.16
+        for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jun 2020 15:39:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1593470364; cv=pass;
         d=google.com; s=arc-20160816;
-        b=pjiBEfThgF8I9pz/q3Lo6Fj4nJ1DHSI91uvE8OAeW7k4BUfCWshjZzneP/u+RiFzS8
-         5aJQSDT5s1hYkyyaWjziA8qJlyma6ANokXLu3G3V9312Wi8MsSpJfQsT7HuocZNZFcQx
-         rbqj+E6c5fsed3dWTsC/k1fAMCl2O+t+E8+6gBX/oz1rsX1MxILvedGgcHfResDY0RdZ
-         D4AlubZpJthSlI5O6F0z2f1xbwX3GG6Ik7UG4NEjEX/gOWHO99rOLdGO4fxqEigsHw5b
-         n/4H6tkbkpguxP4hBf12+1wwghZd9KL6lBqX9kS+RIGQsM7HLuvfLOQYKfM/KgyIy3rE
-         yVyA==
+        b=VvVC3HTakEz0mw4VbImho/miSYC6q+mhmCHrarcJ624477Lla9flzERRB6xSFfSaKc
+         X55+VnvDK+JqyTR0G0SwOMaqEXPLLtUstvhgO1Sg6+xL64UUZBZ5GRIt4l4pYbDUQFsz
+         Khea2mvHA5q0yzQB1tP5V6bZ/NQJjs7z/OJRVY9flNA2wVcdHhiTBxLFq2SHOLnWdVBD
+         /YRHSNzVtyCAsBt/jJPD4CP/wOpcNWc2RVr2FHp7GK+xvQRuzhel0tyubF22HCs8BHWZ
+         13B6Qv6L+VJvHcfBSlsioF1RaIvb+ukUDoRzNbmxp4vy5c6Jz+TPyexfdRnAtmIuJ1xg
+         rZLQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=gybNJasPsNOGoKQQA+ALa4S6N3mMz3TrA5Ge/y/+4xU=;
-        b=s+GB+sDBqqriBE59heeccNa471VUXUvHihhEFAiHL2U1wtjD0w37Lwu+y9zIXn8Lrg
-         mo9VLkv1RjdLkcMdpxIAdTm8IJVxYPl/vIee1rv02IM6cvSxqiUoTzR5TnOutJ/fYK1D
-         wqUtHI9kaRIyJFuV2VqxK84vZxslaXxcdI9f1CKRsaLjUBxqA5G7m40f5dPUuu9BeR37
-         o9UuffpPJ0+0zsb9MOV5v8zll3VllyGNTgzo6XXLlu62h4Mas6Ko++dSLcv3nm1+WuIF
-         l+/H9dRq5aY415jfrjt11DdzTGgzxbC4yh/SrqAgZYVT+JC62VPDGtc35OiXANMMXaYp
-         Azrw==
+        bh=YMFuihueFOE85xpj6ZnbLcmP9oSdR8r8bucAQObVj5o=;
+        b=v3zJf4ueEWMiaGSXZ3MLA8wZKsDzmaYPnot4Kf14tpPV/UMgil0OO2fhn95dP1jBun
+         bIwG1yhoeAf8Hw7B/JSyaa/p6Lf4pFppyEzNB9avkh5JXYayzbPp3KeDrTxUjmoCFUuK
+         81hfjuliXLldwKxU58MzqyozJm5Z/hpIKbRm7IF/gwQblgIX2haXU8axEaX3iDXz6ptI
+         fEBuJjI99jyneriy74Xx0IU4gAlX38w5dXvHs2YOl0y4nuqj5XMZAkycZJrnPkKPUXuh
+         oRY3rZwYNvV3iDJjBx70vrTK7recVOVK3xeQyRYn7beevbN8NuaM5JhaIUPXtK/32BQF
+         RkIg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=VRvSW+Uk;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Wvv6Dtah;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=gybNJasPsNOGoKQQA+ALa4S6N3mMz3TrA5Ge/y/+4xU=;
-        b=Zj7CCD7CE13p0DyRBEmAE+mRjOOnuUe/l3Dvn7tAcUsCZr85nSuaBrb0qG1Rl9Dq6F
-         iNcU04HBauGbLbcCKhS9V8pUf1fkcgkvJlzKCGev6tiYoW1dUur6t+bRTJvRJN17tQM/
-         BF/yi58Wmu+cWm1wD/reVkBwvpB5k5I59Nk8R+DYVQtapi6gDfI1sXRyOZq6dBVuevbW
-         vuyn9cQn6Xq4CaEX4tXyQzwsriPt9pcPjwYoFmi+kYFbSuC2Q2eQTHMUw+HOetUmyj1z
-         4h7A6/j33tYA2p0uBCQEApJ0pYVXUgwEN79WAEpTDN2AeHyLnowic2n0a1pTnXA835cY
-         LNEw==
+        bh=YMFuihueFOE85xpj6ZnbLcmP9oSdR8r8bucAQObVj5o=;
+        b=SfPIxYGVOW0zqQiVc6IopM9gr/8qotoi6m932as7kEQKIBmzo+YG6YW3kCMzeqeLb5
+         Jns4WXtRQVdeSmOhuansQryIaGyUlSxBzY+YKsk5XWCdONvHWuvT3tZdo+t9sWde0tot
+         Iv5fD7QH0PpxsyGzwZNJkjbNINkSVS3EZEbnaeDMTRYMpHapSEPHwe0wXqSU7yaALvAu
+         jNVbCXkk529pmj/INU14mItQU0Tweb+9NcIVKqvSC/4IHrPg+sKyPVSu9l04J1L56CUB
+         N9wYbLvVhpN1Dg4T7rq4b5T8yBGqHV1FFJbLE3K98OwVMSwxxUPJtvTEKi8XFHn07IOT
+         hKmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,73 +49,73 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=gybNJasPsNOGoKQQA+ALa4S6N3mMz3TrA5Ge/y/+4xU=;
-        b=kUH4RoxC7C7mJ/d+rVSbnad7IofydXy7Flplh7EZOTe0pTeWLF/GyhdHg3qExdPNkY
-         eIfCRGcd/x1uXZvUPWqqbQwot/YJzVNFwxI7ByDxAFbkDc9D9lwW0K7eLZmMT1AFATfZ
-         z35rvgLp18hT1UOjTGkYDB9lficyfzmd73T3/n6EIvdgOVZjsg0rrhfJ3gmzTahV6QBj
-         Co3qul92qicEijbJYHihwtwUflErIhDGQohUgSBlvdnOfSsiC+80nk9+vsyHXNjh1ayu
-         ofpt+SdQnwKyk3s6TDLFewysaW/FD+g5ekHGke9I9TH0CHKdIhgI5FSPdXyQcUBobtIk
-         K+jg==
-X-Gm-Message-State: AOAM5328OBkz5ZGIm6qT8otWd20LxSbXRBiRIryEs8iYecZ42X6jcjC/
-	zjVekbb025XJbtYrz9x+Ex0=
-X-Google-Smtp-Source: ABdhPJwZzu0qefYSGCgM5IPg7qfsIsxJI8xTJIjiO8s8uBkUHWcL/1oLCyW4xFdIzpf415m6RZ0DaA==
-X-Received: by 2002:a92:db01:: with SMTP id b1mr17541193iln.249.1593467212177;
-        Mon, 29 Jun 2020 14:46:52 -0700 (PDT)
+        bh=YMFuihueFOE85xpj6ZnbLcmP9oSdR8r8bucAQObVj5o=;
+        b=JjsyjzvUomrOEPW9d1RBFp4JfORkJXH2g2bZ1M+J/V//poQFNc4oY0YjqMT8NFCI+Q
+         gRH9tgPqb9E2X8n9onbx/qHD3e8SXgaZqMgkpyAzg9yRw86kuYX3vs5gnGW/r9+MWHDQ
+         U+RAIpekfBmjaYJSMgBLLRe27SuwCnBhEB3ZhQJbabWx+4hE8QfP1MmASkcCZLTw/cZJ
+         PFgCdwi5cehQfikkOTjKIXnG4f/bcip0HXyN7QPF6lqZdohEWT3kH7VNw27yGYL5Zbha
+         tXhwkmJXyVZ0RblZgVmX/YJj08X8Bi3X5LoX9bwxPZ/hxSF63se0nr+NZ0F3GwkfHKyX
+         zNQQ==
+X-Gm-Message-State: AOAM530mxiOQz85k35Ko08I7aAhNVZnARlHb5oRcBP/a2Ocntggz59xB
+	v5tfaVpgNySJNS/e5ZEmxsg=
+X-Google-Smtp-Source: ABdhPJxTUaev8+fsTwyw/qi+y8mND+1WZ2XiPKcduCBrslsxFycFWyuuVE/gGKtYc6Ghquf+wCU0xQ==
+X-Received: by 2002:aa7:871a:: with SMTP id b26mr10092988pfo.294.1593470363886;
+        Mon, 29 Jun 2020 15:39:23 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:5812:: with SMTP id m18ls4910793ilb.2.gmail; Mon, 29 Jun
- 2020 14:46:51 -0700 (PDT)
-X-Received: by 2002:a05:6e02:1070:: with SMTP id q16mr16909210ilj.221.1593467211749;
-        Mon, 29 Jun 2020 14:46:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1593467211; cv=none;
+Received: by 2002:a17:90a:ea0e:: with SMTP id w14ls320429pjy.3.canary-gmail;
+ Mon, 29 Jun 2020 15:39:23 -0700 (PDT)
+X-Received: by 2002:a17:90b:11d8:: with SMTP id gv24mr1820158pjb.131.1593470363423;
+        Mon, 29 Jun 2020 15:39:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593470363; cv=none;
         d=google.com; s=arc-20160816;
-        b=IG1ESaQp14QDacpaPghaJ1nUFICJqqoF98UCxvVHHFIAZRsCAMccxhONwsFYMMfZv/
-         i11Js77SORo5OLSIWqII5mtB4VLT4tM4zYUw9KbcdHV/Csf8FzJ/ITt4KsJBw1UQpsUb
-         sBjTWkEiblZeBIEX4B8tdTBKHpcyXT4geU1N479TKNPSZbTleLkvvXLd5rbmX2TibdHh
-         sV13jIx5JfXGUDS/kS3aTgJ2mN1v34QcONLNkQ3ku0rSuSgCPW+yjQk/6vg9GaH7utQq
-         D/BpRtY/GDvASt9M3Yn/lBchzUJHOhdrA89ayellFx5epZjvMUs5m/ckpMPIGaPxL3s6
-         4pmQ==
+        b=jahj1puRF2cKDRy/biQ3Txogsmee1O0PsafTtCwaCLpRFstHOfrdtLOebRwfE/Yerc
+         ldVHgmMkwZHE5X7xNxiQWeWB1tRmoTA9S5WQsYYEuvA8OowlgRM7XDlYcDpx3uMwUreL
+         hTFu3eX/1WriWQDiwXU7ZSHKfikxFsay531GG2CB2mtCHvNM8LhwceH2jdTlj2AXhk5T
+         es6l152ilVi473gARwfdfCUtmhbblpDy+IpJzqd+Y/V40lgaUcnwtkUa4t8ww9c6Z2Uj
+         GcIVZMPfvc6kz1ci4pv7A3EKHPEkfTClUQGObX15ML9slm2zQv2yyTc4grRVjg2ubrF9
+         MirA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=xDU696YPFQFByaDgj4TaIBYY7b7GogdeGS2pZGLrlCo=;
-        b=WoDBCslmXYOuH8UMmLrrOcOxdnvttKa/VlRLwNiV+YdoWaw8EvXzOMhhxuea7CGaRW
-         Y4XBFA813ui3xuxPFj+B/ipHc/YBi/5Y3ajEJU18IL5lcKv5gtTJBRHwC/7F1XCu8LVD
-         Ynj+Hz4i4MEGEXGncgPCEmG6djFtK8Ua++9+Kop0OdqTmiOEeaLkm5i33YlA9QnFS2h2
-         /u7a7W1TwrXaPJyBLQ1jxYMZoBmQwWTIontiycMcpAkzU/KvZbes6O/HaNrRyGgwN0iy
-         Qglhi7VC2Ba9spCvjHgOz+S0e7opbHvQSYx8iUm4Xc1DLh3IZv2nUqbws31gdKIDOyXI
-         6Z0Q==
+        bh=Zapdhd5wOeOGPDdB4uAKBeHEzFOq3zrNgTJZIPqzsqk=;
+        b=egakyHuNqbXLcITRceBCBx7lUOs8y3EiXWLFwYzau336Ukb1v4Edc6vyN/rbBC2x7V
+         Wo5ZzjiNuW2On5TWOlHZOEZbipu5xP2g0BrOjQ/nnl7pQTWrwswXAeFMYFkUByqXvMiT
+         ZFQGhSImYFZEGi3IGkw7tXlFMpxc/1+CPZmpccIT+pseDzkOLWDER4lEzvN4Va/29+pV
+         UljTWDpDNm4S4Q81v3txQ+VBzCz8AFJKiGuaKgmXGLKyPH+AMrQCzLgbjPPUxwnHzKCu
+         1AZFg44VnB1MYjviM/bGQc3ZnI7ASyKFtrvjSBOlUppkZG43DMlYxbrzbXJg//URGkhn
+         5LUA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=VRvSW+Uk;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Wvv6Dtah;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x642.google.com (mail-pl1-x642.google.com. [2607:f8b0:4864:20::642])
-        by gmr-mx.google.com with ESMTPS id q80si87129iod.0.2020.06.29.14.46.51
+Received: from mail-pj1-x1042.google.com (mail-pj1-x1042.google.com. [2607:f8b0:4864:20::1042])
+        by gmr-mx.google.com with ESMTPS id d3si1039284pjw.0.2020.06.29.15.39.23
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 29 Jun 2020 14:46:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642 as permitted sender) client-ip=2607:f8b0:4864:20::642;
-Received: by mail-pl1-x642.google.com with SMTP id d10so7612340pls.5
-        for <clang-built-linux@googlegroups.com>; Mon, 29 Jun 2020 14:46:51 -0700 (PDT)
-X-Received: by 2002:a17:90a:21ef:: with SMTP id q102mr20001058pjc.101.1593467210715;
- Mon, 29 Jun 2020 14:46:50 -0700 (PDT)
+        Mon, 29 Jun 2020 15:39:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) client-ip=2607:f8b0:4864:20::1042;
+Received: by mail-pj1-x1042.google.com with SMTP id c1so1370821pja.5
+        for <clang-built-linux@googlegroups.com>; Mon, 29 Jun 2020 15:39:23 -0700 (PDT)
+X-Received: by 2002:a17:902:7208:: with SMTP id ba8mr15114728plb.179.1593470362777;
+ Mon, 29 Jun 2020 15:39:22 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200627190230.1191796-1-luca.stefani.ge1@gmail.com>
-In-Reply-To: <20200627190230.1191796-1-luca.stefani.ge1@gmail.com>
+References: <20200626185913.92890-1-masahiroy@kernel.org> <CAKwvOd=V_M43CP7G87K3TqSsxua2NcXPz6BnDt-z6167O2WAzQ@mail.gmail.com>
+ <CAK7LNATcwGkSWV7NSgwG_WqzvTPphT9=KK+qvT3FK_7y1UCzTA@mail.gmail.com> <CAKwvOdntZw2k8ZZ7txPC-FD+50cPpMwctGYTW0j2zw+FVj9SgA@mail.gmail.com>
+In-Reply-To: <CAKwvOdntZw2k8ZZ7txPC-FD+50cPpMwctGYTW0j2zw+FVj9SgA@mail.gmail.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 29 Jun 2020 14:46:39 -0700
-Message-ID: <CAKwvOdk5_tq6hrBMEwssksGniMyAWSMKOSaWbiBsX_bssmmztA@mail.gmail.com>
-Subject: Re: [PATCH] ntfs: Fix ntfs_test_inode and ntfs_init_locked_inode
- function type
-To: Luca Stefani <luca.stefani.ge1@gmail.com>
-Cc: clang-built-linux <clang-built-linux@googlegroups.com>, 
-	freak07 <michalechner92@googlemail.com>, Anton Altaparmakov <anton@tuxera.com>, 
-	linux-ntfs-dev@lists.sourceforge.net, LKML <linux-kernel@vger.kernel.org>, 
-	Sami Tolvanen <samitolvanen@google.com>
+Date: Mon, 29 Jun 2020 15:39:11 -0700
+Message-ID: <CAKwvOd=JbEJNdWzk_xdMiy9QewbU3ESOHcokAXKkARrgm-ibEg@mail.gmail.com>
+Subject: Re: [PATCH 1/2] kbuild: remove cc-option test of -fno-stack-protector
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, linux-efi <linux-efi@vger.kernel.org>, 
+	Kees Cook <keescook@chromium.org>, LKML <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=VRvSW+Uk;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642
+ header.i=@google.com header.s=20161025 header.b=Wvv6Dtah;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -132,235 +132,130 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Jun 27, 2020 at 12:02 PM Luca Stefani
-<luca.stefani.ge1@gmail.com> wrote:
+On Mon, Jun 29, 2020 at 11:26 AM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
 >
-> If the kernel is built with CFI we hit a __cfi_check_fail
-> while mounting a partition
-
-Luca,
-Since CFI is not yet upstream (is downstream in Android, blocked on
-LTO patches currently working their way through upstreaming+code
-review), it might help explain to reviewers what CFI *even is*.
-Something like:
-
-"""
-Clang's Control Flow Integrity (CFI) is a security mechanism that can
-help prevent JOP chains, deployed extensively in downstream kernels
-used in Android.
-
-It's deployment is hindered by mismatches in function signatures.  For
-this case, we make callbacks match their intended function signature,
-and cast parameters within them rather than casting the callback when
-passed as a parameter.
-
-When running `mount -t ntfs ...` we observe the following trace:
-"""
-
-I also always recommend setting an explicit `--to=` when sending
-patches; some maintainers only know to take a look at patches if
-they're in the To: list.  Maybe they have email filters on this.  You
-can you `./script/get_maintainer.pl` on your patch file, or manually
-check MAINTAINERS.  In this case, it looks like Anton is cc'ed at
-least.
-
-Since this patch modifies the type signature of callbacks to the
-expected type, casting the callback's parameters instead; I'm happy
-with this patch.  The callbacks never get invoked directly (not
-explicitly called, only invoked indirectly), there is no argument for
-loss of type safety (the interfaces are already lossy in that the
-interface uses void* parameters).  I just would like the commit
-message beefed up before I sign off.  Are you comfortable sending a
-V2?
-
-More on JOP/CFI:
-https://www.comp.nus.edu.sg/~liangzk/papers/asiaccs11.pdf
-> CFI has not seen wide deployment, likely due to concerns over performance, especially in the case of real-time enforcement.
-
+> On Sat, Jun 27, 2020 at 4:59 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
+> >
+> > On Sat, Jun 27, 2020 at 5:13 AM Nick Desaulniers
+> > <ndesaulniers@google.com> wrote:
+> > >
+> > > On Fri, Jun 26, 2020 at 12:00 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
+> > > >
+> > > > diff --git a/arch/x86/kernel/cpu/Makefile b/arch/x86/kernel/cpu/Makefile
+> > > > index dba6a83bc349..93792b457b81 100644
+> > > > --- a/arch/x86/kernel/cpu/Makefile
+> > > > +++ b/arch/x86/kernel/cpu/Makefile
+> > > > @@ -17,8 +17,7 @@ KCOV_INSTRUMENT_perf_event.o := n
+> > > >  KCSAN_SANITIZE_common.o := n
+> > > >
+> > > >  # Make sure load_percpu_segment has no stackprotector
+> > > > -nostackp := $(call cc-option, -fno-stack-protector)
+> > > > -CFLAGS_common.o                := $(nostackp)
+> > > > +CFLAGS_common.o                := -fno-stack-protector
+> > >
+> > > Any time I see `:=` assignment to a CFLAGS variable, it's a red flag
+> > > for overwriting existing CFLAGS, which is a common source of bugs.  I
+> > > recognize the kernel is current a mix and match for:
+> > >
+> > > CFLAGS_<file>.o
+> > >
+> > > rules to either use `+=` or `:=`, but I wish we were consistent, and
+> > > consistent in our use of `+=`.  For those rules, is there a difference
+> > > between the use of `+=` and `:=` like there is for the more general
+> > > case of appending to KBUILD_CFLAGS?  If not, it's ok to match the
+> > > existing style, but it's curious to me in this patch to see a mixed
+> > > use of `+=` and `:=`.
+> >
+> >
+> > I think Kees mostly answered your question.
+> >
+> > Let me add some comments.
+> >
+> >
+> > '+=' is the most used in kernel Makefiles, but
+> > ':=' and '=' are also used.
+> >
+> > So, you are right, we are inconsistent.
+> > This applies to not only CFLAGS_<file>.o, but also obj-y, etc.
+> >
+> > For example,
+> > https://github.com/torvalds/linux/blob/v5.7/arch/arm64/kernel/Makefile#L15
+> > 'obj-y :=' works since it is the first assignment to obj-y in that file.
+> > 'obj-y +=' also works, of course.
+> >
+> > We can consistently use '+=' everywhere, but I do not send
+> > patches for churn.
+> >
+> >
+> > You can use any assignment operator to CFLAGS_<file>.o
+> > if it is the first assignment in the Makefile.
+> > Using '+=' is robust for future code insertion/removal, though.
+> >
+> >
+> > If the right-hand side contains variable references,
+> > there is important difference in the behavior.
+> >
+> > You may know two flavors in variables
+> > (https://www.gnu.org/software/make/manual/make.html#Flavors)
 >
-> Call trace:
-> __cfi_check_fail+0x1c/0x24
-> name_to_dev_t+0x0/0x404
-> iget5_locked+0x594/0x5e8
-> ntfs_fill_super+0xbfc/0x43ec
-> mount_bdev+0x30c/0x3cc
-> ntfs_mount+0x18/0x24
-> mount_fs+0x1b0/0x380
-> vfs_kern_mount+0x90/0x398
-> do_mount+0x5d8/0x1a10
-> SyS_mount+0x108/0x144
-> el0_svc_naked+0x34/0x38
+> Cool, thanks for all the info.  With that, I'm happy with this patch.
 >
-> Fixing iget5_locked and ilookup5 callers seems enough
+> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
 >
-> Signed-off-by: Luca Stefani <luca.stefani.ge1@gmail.com>
-> Tested-by: freak07 <michalechner92@googlemail.com>
-> ---
->  fs/ntfs/dir.c   |  2 +-
->  fs/ntfs/inode.c | 23 ++++++++++++-----------
->  fs/ntfs/inode.h |  4 +---
->  fs/ntfs/mft.c   |  4 ++--
->  4 files changed, 16 insertions(+), 17 deletions(-)
 >
-> diff --git a/fs/ntfs/dir.c b/fs/ntfs/dir.c
-> index 3c4811469ae8..e278bfc5ee7f 100644
-> --- a/fs/ntfs/dir.c
-> +++ b/fs/ntfs/dir.c
-> @@ -1503,7 +1503,7 @@ static int ntfs_dir_fsync(struct file *filp, loff_t start, loff_t end,
->         na.type = AT_BITMAP;
->         na.name = I30;
->         na.name_len = 4;
-> -       bmp_vi = ilookup5(vi->i_sb, vi->i_ino, (test_t)ntfs_test_inode, &na);
-> +       bmp_vi = ilookup5(vi->i_sb, vi->i_ino, ntfs_test_inode, &na);
+> > CFLAGS_foo.o := $(call cc-option,-fno-stack-protector)
+> > The cc-option is expanded immediately when this line is parsed.
+> > (So, the compiler is invoked for 'make clean' too)
+> >
+> >
+> > CFLAGS_foo.o += $(call cc-option,-fno-stack-protector)
+> > If this is the first assignment in the file,
+> > '+=' act as '=', so the evaluation of cc-option
+> > is delayed until $(CFLAGS_foo.o) is expanded.
+> > (So, the compiler is NOT invoked for 'make clean')
+>
+> Ah, I think that may explain: I've been seeing the occasional warning
+> from $(NM) when running `make clean` for ARCH=arm, I'll bet that's
+> where this is coming from then.  Next time I reproduce it, I'll try to
+> find maybe where we're using `:=` or `=` with `$(NM)`.
+>
+> Maybe arch/arm/boot/compressed/Makefile, KBSS_SZ is evaluated for
+> `make clean`? (If you start an arm build, but kill it before vmlinux
+> is created, then `make clean` I suspect that KBSS_SZ is evaluated?)
 
-Looks like the signature of ilookup5 is:
+$ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make LLVM=1 -j71
+$ rm vmlinux
+$ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make LLVM=1 -j71 clean
+llvm-nm: error: arch/arm/boot/compressed/../../../../vmlinux: No such
+file or directory.
 
-struct inode *ilookup5(struct super_block *sb, unsigned long hashval,
-     int (*test)(struct inode *, void *), void *data)
+I suspect I see this from doing an ARCH=arm build, then building a
+different ARCH and killing the build before vmlinux is produced or
+`make clean` for a different ARCH, then run a `make clean` for
+ARCH=arm.
 
-while ntfs_test_inode is:
+Is the above (regarding lazy evaluation) not true for LDFLAGS_vmlinux?
+I would have thought this would work:
 
-int ntfs_test_inode(struct inode *vi, ntfs_attr *na)
+diff --git a/arch/arm/boot/compressed/Makefile
+b/arch/arm/boot/compressed/Makefile
+index 00602a6fba04..9e7343ccc279 100644
+--- a/arch/arm/boot/compressed/Makefile
++++ b/arch/arm/boot/compressed/Makefile
+@@ -113,10 +113,9 @@ ccflags-y := -fpic $(call
+cc-option,-mno-single-pic-base,) -fno-builtin \
+ asflags-y := -DZIMAGE
 
-while test_t is defined way below to:
-
-typedef int (*test_t)(struct inode *, void *);
-
-
->         if (bmp_vi) {
->                 write_inode_now(bmp_vi, !datasync);
->                 iput(bmp_vi);
-> diff --git a/fs/ntfs/inode.c b/fs/ntfs/inode.c
-> index d4359a1df3d5..a5d3bebe7a85 100644
-> --- a/fs/ntfs/inode.c
-> +++ b/fs/ntfs/inode.c
-> @@ -30,7 +30,7 @@
->  /**
->   * ntfs_test_inode - compare two (possibly fake) inodes for equality
->   * @vi:                vfs inode which to test
-> - * @na:                ntfs attribute which is being tested with
-> + * @data:              data which is being tested with
->   *
->   * Compare the ntfs attribute embedded in the ntfs specific part of the vfs
->   * inode @vi for equality with the ntfs attribute @na.
-> @@ -43,8 +43,9 @@
->   * NOTE: This function runs with the inode_hash_lock spin lock held so it is not
->   * allowed to sleep.
->   */
-> -int ntfs_test_inode(struct inode *vi, ntfs_attr *na)
-> +int ntfs_test_inode(struct inode *vi, void *data)
->  {
-> +       ntfs_attr *na = (ntfs_attr *)data;
->         ntfs_inode *ni;
->
->         if (vi->i_ino != na->mft_no)
-> @@ -72,7 +73,7 @@ int ntfs_test_inode(struct inode *vi, ntfs_attr *na)
->  /**
->   * ntfs_init_locked_inode - initialize an inode
->   * @vi:                vfs inode to initialize
-> - * @na:                ntfs attribute which to initialize @vi to
-> + * @data:              data which to initialize @vi to
->   *
->   * Initialize the vfs inode @vi with the values from the ntfs attribute @na in
->   * order to enable ntfs_test_inode() to do its work.
-> @@ -87,8 +88,9 @@ int ntfs_test_inode(struct inode *vi, ntfs_attr *na)
->   * NOTE: This function runs with the inode->i_lock spin lock held so it is not
->   * allowed to sleep. (Hence the GFP_ATOMIC allocation.)
->   */
-> -static int ntfs_init_locked_inode(struct inode *vi, ntfs_attr *na)
-> +static int ntfs_init_locked_inode(struct inode *vi, void *data)
->  {
-> +       ntfs_attr *na = (ntfs_attr *)data;
->         ntfs_inode *ni = NTFS_I(vi);
->
->         vi->i_ino = na->mft_no;
-> @@ -131,7 +133,6 @@ static int ntfs_init_locked_inode(struct inode *vi, ntfs_attr *na)
->         return 0;
->  }
->
-> -typedef int (*set_t)(struct inode *, void *);
->  static int ntfs_read_locked_inode(struct inode *vi);
->  static int ntfs_read_locked_attr_inode(struct inode *base_vi, struct inode *vi);
->  static int ntfs_read_locked_index_inode(struct inode *base_vi,
-> @@ -164,8 +165,8 @@ struct inode *ntfs_iget(struct super_block *sb, unsigned long mft_no)
->         na.name = NULL;
->         na.name_len = 0;
->
-> -       vi = iget5_locked(sb, mft_no, (test_t)ntfs_test_inode,
-> -                       (set_t)ntfs_init_locked_inode, &na);
-> +       vi = iget5_locked(sb, mft_no, ntfs_test_inode,
-> +                       ntfs_init_locked_inode, &na);
->         if (unlikely(!vi))
->                 return ERR_PTR(-ENOMEM);
->
-> @@ -225,8 +226,8 @@ struct inode *ntfs_attr_iget(struct inode *base_vi, ATTR_TYPE type,
->         na.name = name;
->         na.name_len = name_len;
->
-> -       vi = iget5_locked(base_vi->i_sb, na.mft_no, (test_t)ntfs_test_inode,
-> -                       (set_t)ntfs_init_locked_inode, &na);
-> +       vi = iget5_locked(base_vi->i_sb, na.mft_no, ntfs_test_inode,
-> +                       ntfs_init_locked_inode, &na);
->         if (unlikely(!vi))
->                 return ERR_PTR(-ENOMEM);
->
-> @@ -280,8 +281,8 @@ struct inode *ntfs_index_iget(struct inode *base_vi, ntfschar *name,
->         na.name = name;
->         na.name_len = name_len;
->
-> -       vi = iget5_locked(base_vi->i_sb, na.mft_no, (test_t)ntfs_test_inode,
-> -                       (set_t)ntfs_init_locked_inode, &na);
-> +       vi = iget5_locked(base_vi->i_sb, na.mft_no, ntfs_test_inode,
-> +                       ntfs_init_locked_inode, &na);
->         if (unlikely(!vi))
->                 return ERR_PTR(-ENOMEM);
->
-> diff --git a/fs/ntfs/inode.h b/fs/ntfs/inode.h
-> index 98e670fbdd31..363e4e820673 100644
-> --- a/fs/ntfs/inode.h
-> +++ b/fs/ntfs/inode.h
-> @@ -253,9 +253,7 @@ typedef struct {
->         ATTR_TYPE type;
->  } ntfs_attr;
->
-> -typedef int (*test_t)(struct inode *, void *);
-> -
-> -extern int ntfs_test_inode(struct inode *vi, ntfs_attr *na);
-> +extern int ntfs_test_inode(struct inode *vi, void *data);
->
->  extern struct inode *ntfs_iget(struct super_block *sb, unsigned long mft_no);
->  extern struct inode *ntfs_attr_iget(struct inode *base_vi, ATTR_TYPE type,
-> diff --git a/fs/ntfs/mft.c b/fs/ntfs/mft.c
-> index fbb9f1bc623d..0d62cd5bb7f8 100644
-> --- a/fs/ntfs/mft.c
-> +++ b/fs/ntfs/mft.c
-> @@ -958,7 +958,7 @@ bool ntfs_may_write_mft_record(ntfs_volume *vol, const unsigned long mft_no,
->                  * dirty code path of the inode dirty code path when writing
->                  * $MFT occurs.
->                  */
-> -               vi = ilookup5_nowait(sb, mft_no, (test_t)ntfs_test_inode, &na);
-> +               vi = ilookup5_nowait(sb, mft_no, ntfs_test_inode, &na);
->         }
->         if (vi) {
->                 ntfs_debug("Base inode 0x%lx is in icache.", mft_no);
-> @@ -1019,7 +1019,7 @@ bool ntfs_may_write_mft_record(ntfs_volume *vol, const unsigned long mft_no,
->                 vi = igrab(mft_vi);
->                 BUG_ON(vi != mft_vi);
->         } else
-> -               vi = ilookup5_nowait(sb, na.mft_no, (test_t)ntfs_test_inode,
-> +               vi = ilookup5_nowait(sb, na.mft_no, ntfs_test_inode,
->                                 &na);
->         if (!vi) {
->                 /*
-> --
-> 2.26.2
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200627190230.1191796-1-luca.stefani.ge1%40gmail.com.
-
-
+ # Supply kernel BSS size to the decompressor via a linker symbol.
+-KBSS_SZ = $(shell echo $$(($$($(NM) $(obj)/../../../../vmlinux | \
++LDFLAGS_vmlinux = --defsym _kernel_bss_size=$(shell echo $$(($$($(NM)
+$(obj)/../../../../vmlinux | \
+                sed -n -e 's/^\([^ ]*\) [AB] __bss_start$$/-0x\1/p' \
+-                      -e 's/^\([^ ]*\) [AB] __bss_stop$$/+0x\1/p') )) )
+-LDFLAGS_vmlinux = --defsym _kernel_bss_size=$(KBSS_SZ)
++                                        -e 's/^\([^ ]*\) [AB]
+__bss_stop$$/+0x\1/p') )) )
 
 -- 
 Thanks,
@@ -369,4 +264,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdk5_tq6hrBMEwssksGniMyAWSMKOSaWbiBsX_bssmmztA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DJbEJNdWzk_xdMiy9QewbU3ESOHcokAXKkARrgm-ibEg%40mail.gmail.com.
