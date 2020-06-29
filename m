@@ -1,131 +1,138 @@
-Return-Path: <clang-built-linux+bncBCSPV64IYUKBBU635D3QKGQEGZGMZMA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD63HSEZTUIBB4O55D3QKGQEC73OAYY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-f60.google.com (mail-wr1-f60.google.com [209.85.221.60])
-	by mail.lfdr.de (Postfix) with ESMTPS id C845020D084
-	for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jun 2020 20:07:15 +0200 (CEST)
-Received: by mail-wr1-f60.google.com with SMTP id z3sf16905096wrr.7
-        for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jun 2020 11:07:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1593454035; cv=pass;
+Received: from mail-pj1-x1038.google.com (mail-pj1-x1038.google.com [IPv6:2607:f8b0:4864:20::1038])
+	by mail.lfdr.de (Postfix) with ESMTPS id 37B9920D085
+	for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jun 2020 20:12:03 +0200 (CEST)
+Received: by mail-pj1-x1038.google.com with SMTP id h93sf14276214pjb.2
+        for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jun 2020 11:12:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1593454321; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nvJIo/r9qE0FvT90kCi5zU/vXMDAwGrkCU8m0eF2fJCHPv5t0jONEMy9W65FamWcxU
-         JSbtUUquW3nYTOK1nCbx03tFc6nKr1uuV9lvTEorMz6h/zNvEpK6dVbqylMkO42V+j03
-         JHN6SbZsdN4T9VYTzmmO4oLf6wb/PDBPQjyacUyxRToo0X7+Le3GDokf6ea4A+qqDpn0
-         5I+g2Xd+NEpHxxH6T48bqMyiFyQW2R9ImLbjfqk+MS3xd2FdImChuzVwQLMvxEHLGQD4
-         bmSsdy9wXU29zOsD3w+3Cbt0NUfIKvPeTPzgYilOgIaazmxfjuCVwFz8thMo8pbYb9l1
-         uNXQ==
+        b=UNgMRgjsbCfjTNIIgoOS8hpFMwzF8WXdUU2yeIewB5+PFrfY/4OwqTgn3v2ljd/8iy
+         KmoCwL55oh8SBKeLBLax0744wGkiOnqbhyuWSbQV4ienHHAQLu/OVvp+noW/C78MZwiH
+         Qd1wpUra8VVFXlPdFgegLYwQsRaCC0yn0O/C0ZHQiVGsvUqjKLcSy+NljCA6j9XrtEMp
+         MUfmoerDAnz6lsdaqaXJAtocaPgEPpya8S6oNZYZ4+ArfEl1tAcZa/HB6+S1UBk2x9i/
+         U3v3PQ7j5BgQfOk3/kBqTfaLS03yUfaxKFS4WyOrjpUK8Wd5s57CUYA8H+ZcUm1hSyqK
+         hGCA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:sender:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date;
-        bh=GD0khECaNrUIzBzJWUAc/sFiA2GwYx0CdWykEU9zSaI=;
-        b=U/ip6Iy4ff85xLoMZAITarhrtDJdUNy0r7NEhZdjE2T29l78ceKCF/93D3NFU0j3fs
-         1XZvjhXMjh5uHQRnfRozq6wr4XvKrp5vulIADisoidpwU8muena8i8K7A5rzeKzMSwTR
-         52rz/lhH8Dp1mkLRyN52pqDQ+ALikRYCKUUVnmIRvzMadJ4I2CLxPAc2p4GKMJ+GUYhS
-         TCdcLvZaMluYqBz2L96tWkHWgFuEDsVkTv+34hb4mm4R30PMOUGeZpC9a689l2BMreHG
-         JRZ12Ctt5D0y8A9ge8vybPca8U7DFHjLWEV8xr+fhjH62UrSuPA4uGx1lj5cPmDLDvvM
-         X6uQ==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=ysQ4cfFqFm2sSjIZ4a3Ut9VCjbjitP3hhUvlLqPvwUw=;
+        b=XmFilYHKvUfE2lOEeIv+fTKnPs5UGD9fXE393Gkb8mmUqdRIRkGNvmM7I3MxwQ3Eoq
+         5ow/gayEaC4dNNuNXdvMcwxfULZ9/Q9WPRHjHk+nlBmFYkBgkO050AInY3cuDQ1N64p5
+         jW/heBrCAVBC0UNGiGkWqfcmGYtzvtwRcRymZ4RHHJwSevPVPKwgT4sDK0d1OFXmVRpN
+         RAkEaOZDLxFA49zGpsdJlw+TsMbol76j/tu1zqFXMbFmdeDk0Ipjsc6QXjALoAc2MN+n
+         3P3nAAjtSr8o2iJ04Qknuyo3pQLs7KAOVYi5c19MGQQ7SkDB4ixByKUF2339zTsm7vdm
+         vZ9A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass (test mode) header.i=@armlinux.org.uk header.s=pandora-2019 header.b=CgyZRCI4;
-       spf=pass (google.com: best guess record for domain of linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates 2001:4d48:ad52:32c8:5054:ff:fe00:142 as permitted sender) smtp.mailfrom="linux+clang-built-linux=googlegroups.com@armlinux.org.uk";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=armlinux.org.uk
+       dkim=pass header.i=@kernel.org header.s=default header.b=DiNV0rrk;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20161025;
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ysQ4cfFqFm2sSjIZ4a3Ut9VCjbjitP3hhUvlLqPvwUw=;
+        b=R//6ICEPnrFz1Vu0z/MaTjAUE1PiNuDQq6ty/mmk0TRvhQC7Z+nrjihcY23Ma4U7SO
+         yy/70ZFB4KRmB4DhrDsg+9LqBYc0JpZQKoElD5jifXVz4T6w+594khAM/emm2HRX/Mb9
+         E2U9PAL5/CqKnKWq3k7oiTqB5xgzYvVhjVlcjQK2vbu2Bqc09JJph0WBjlm4+nh2WXpF
+         R30XQdLex6vJ56T64FEV/7fuw9wYuQQpfwQQx1ucO2gdLC21KFNu7MqbjA0P+mpTeXnH
+         Pn5oY3R345vhjWObvdUbUi9R4sFggKJ9ZXe9m/fhbuhJN2zkJyVtfLU/tP33UhEm+Nq8
+         Lwmw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to:user-agent:sender
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=GD0khECaNrUIzBzJWUAc/sFiA2GwYx0CdWykEU9zSaI=;
-        b=QNYOh6WEpfDNpKxPsrqASF+MnQD5c6p9E+YPJ9iKZopsfAgRz1w9swXWh483Z+5kbp
-         6C4fj1XMP2Cur+KpsoUJke3jedgtyrHpYnifQHD22tUJ4+IRowq/3YUlNMr6us5A78fg
-         AHaCUZ8935+KCasghSOruTmnDGRS1kV8w4oCbQGgSQZWQ3xJ8yUHD5y+l5Rh8ooj14vq
-         VDCylY4aZyH5ePmxKapJSgKc9/SWpQu/T5zXwX+Q0MzjBO2Olf8IXLpX1T+9yahOZPue
-         IRIG4626mqRhGvjD2cDNfKhEHgtoejaJWFqekhbFKqe2IBw8mYwrhJ6/okkajgYwWs5X
-         g0GQ==
-X-Gm-Message-State: AOAM531JLThZFFSES3B7N9sZ2+AyUqQpOOv8Qxi4pmUw86Y7VwQygazE
-	08BTbT5KxCzAp2HA2anRK+s=
-X-Google-Smtp-Source: ABdhPJw3pvNbYqEv7J6dRJ/eaKkWzM02ewsu+FqR+rV69wod94loqRvD1ZGqsXXDPpRcMFlp1NB63g==
-X-Received: by 2002:adf:a491:: with SMTP id g17mr19166035wrb.132.1593454035515;
-        Mon, 29 Jun 2020 11:07:15 -0700 (PDT)
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ysQ4cfFqFm2sSjIZ4a3Ut9VCjbjitP3hhUvlLqPvwUw=;
+        b=EvrRSRXHg6nWZgMnw4BRQ72sGle2+GmRPItW6mJvIdRc8a5fQL3qqbNR2D9iyoTjBX
+         qQU+KoZGzp+Fv+Sn3AuU596WgxIpvDTzVwWvHgZweD3s77Gns3vjwWwat1TPglun8Dcr
+         qL9oSGI4TjPdlH8aYQv+db9cnebEbacaNY9oEKyTB+/TOskvaHVkDjsoMl/5JL0Z0tU3
+         1O1xozaW2sAyGpwghst19dZ+5cTb0gysQV/OJcUuDWHyoNAvBlFGwSgVV8GJe0AsMu+u
+         t70Ila/mc0c751O/hn1i2xB3Kqhp2f3LRpez13QS7as6bgcOiPVmk1vxZn097mFCJvqu
+         lvmQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM532PZs5xGGJblYJu1AQIX+CvX4vORVQArjizs0I8yEr1RM47k6m8
+	TsXVgI4qUQtRg4Io2G38+Ko=
+X-Google-Smtp-Source: ABdhPJxoFW8TY2VDHEk1OnrCgFtxJ1rKjGUq3HR7nxF4f72xai/dBl0q0PyYP/AKN3lFo5wNKmDNOg==
+X-Received: by 2002:a17:902:9f84:: with SMTP id g4mr14707452plq.146.1593454321621;
+        Mon, 29 Jun 2020 11:12:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:a94e:: with SMTP id s75ls157609wme.3.canary-gmail; Mon,
- 29 Jun 2020 11:07:15 -0700 (PDT)
-X-Received: by 2002:a1c:1bc4:: with SMTP id b187mr18843164wmb.105.1593454035001;
-        Mon, 29 Jun 2020 11:07:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1593454034; cv=none;
+Received: by 2002:a63:582:: with SMTP id 124ls4746669pgf.6.gmail; Mon, 29 Jun
+ 2020 11:12:01 -0700 (PDT)
+X-Received: by 2002:a62:404:: with SMTP id 4mr16147299pfe.133.1593454321248;
+        Mon, 29 Jun 2020 11:12:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593454321; cv=none;
         d=google.com; s=arc-20160816;
-        b=DvuC62j5wXxx64H4tKiA3sPmIGO0iHSIfg/qPPl9hhH8y+DoO6Q3N49OLtonM43N8I
-         NNnQ8QBHmUZZZwmGZffUpVXHGXq3WXADFtEm4Guux6N/A3RC4b/5mknWCyoxwP8Hn5Vi
-         ATGqwM2hMRvvilHCFNLz56k6Z03UJ1caDRtjiZlUnKuHJXfkBjWJyhLsQNxb+BSPflof
-         vwy/nlzf2WBJ4PxgTOhNMUEWFz6FppiQ+4I5AQXVQuuQqoxVoGeHy+pjk7y+NWjukRQD
-         uueuE89t03dlYKXS16wUAl8pSAHFfCZUbET34YPJRVgdwOLQMh35ko8djhBFuUeNWG11
-         9QdQ==
+        b=IQltCpjElIXmSeJPsubK/O+WX/RdbGQnnFyh/22CGHWDlXsxzS9dafjwLN87Rx2Xkq
+         t89nJPiZR4ibKqoJOza+eknGjHb4OhNWQtsPgOpQiGryqzVgs+W235P7YSzn/zyroGvg
+         BLZrnpD7nvi8G5o8qqnp15klDCMbnk3eGUdshcv4nGSXGbSAMphYQF86EJ+9plh9fBeR
+         8ly0HCAXOmCw/wS//SXlOtNARHvx71T4XMjVKwmR3I/ePQs28/rfV0uW8WC+Y32pCdNZ
+         TjPc/6Vc+LEp0kihlxOqb+vWYcmkoN1/uaJjniej8J2QzQwtl460/RF0RAC4YJyOiiHj
+         4dyg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=sender:user-agent:in-reply-to:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:dkim-signature;
-        bh=5qVKDp30/o2rhfTCB6YKi/X0MnGqhZlFhKf1/sMhnOc=;
-        b=IS7OwElqhkuh+vBXp8XoTrXQu7JFAghc9AU7VvHJw4S0N+Db6JDRF+9DaSHSpJbLde
-         OMp6hRkqOkGoVSZDu/Xb2BX3LnSBl8w2esYX7TLSseromti/LIeE7D2g3a+k9+I/ONCH
-         LUFwbgK+fM1x28kdpsyk5kPtjqPhfhlhgJ5M4Ol241lmvaSghlymkYCBCVT495EcGvHw
-         fTkSZ9/ggY2ZxJwI36928w9ZejskxxKT+1xKkUYmitwntGwKUCO0ZMYGgpaFa5phSK6t
-         Tirsnzn9fAUN8j7LJbCQuL6ZZmtFvJDnSCaXFINGHHNWBqFEOpqGoIH1vYaTHKHSvWLw
-         KKWg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=XPqVKxCTxbefqR5O5kGm6jHUHovR95wFNbmfjLVaZJo=;
+        b=eRpRbxsUp/ouTw/NzbrznsE0l1vCNWJg/KShjG6xu3En1Z1lOJf0SwwWErrrgHBslw
+         nyvp1nQTr66o20wvBPBTVqeEEESAF2XIuVPSI/4h0mZlkz2rjke8kfHoOeVlV7veeAf5
+         MgchvdWEfCDw2MnHFCIDibzw8uEOmQcKEWN+Qde9tp01JRL+x5Cw5NjQTipCy/atXhim
+         /7WnazzKxatueeiVMWXXuB9Lh7Bco5u4qIycAyMOKc9MbfryKw4EGg9J8gWyz0jPrg8i
+         OpeNQ4VWjqkcYbTPEvTDaIhQqQuJX0lEOsqjJZe6aWf+AqjZ8VP2PdXUXne+BfSxyJXe
+         NhqQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass (test mode) header.i=@armlinux.org.uk header.s=pandora-2019 header.b=CgyZRCI4;
-       spf=pass (google.com: best guess record for domain of linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates 2001:4d48:ad52:32c8:5054:ff:fe00:142 as permitted sender) smtp.mailfrom="linux+clang-built-linux=googlegroups.com@armlinux.org.uk";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=armlinux.org.uk
-Received: from pandora.armlinux.org.uk (pandora.armlinux.org.uk. [2001:4d48:ad52:32c8:5054:ff:fe00:142])
-        by gmr-mx.google.com with ESMTPS id u17si38610wrq.1.2020.06.29.11.07.14
+       dkim=pass header.i=@kernel.org header.s=default header.b=DiNV0rrk;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id y20si16551plb.2.2020.06.29.11.12.01
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2020 11:07:14 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates 2001:4d48:ad52:32c8:5054:ff:fe00:142 as permitted sender) client-ip=2001:4d48:ad52:32c8:5054:ff:fe00:142;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33188)
-	by pandora.armlinux.org.uk with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1jpyBO-00086P-1w; Mon, 29 Jun 2020 19:07:06 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.92)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1jpyBM-0007KD-3O; Mon, 29 Jun 2020 19:07:04 +0100
-Date: Mon, 29 Jun 2020 19:07:04 +0100
-From: Russell King - ARM Linux admin <linux@armlinux.org.uk>
-To: Arvind Sankar <nivedita@alum.mit.edu>
-Cc: Kees Cook <keescook@chromium.org>, Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Peter Collingbourne <pcc@google.com>,
-	James Morse <james.morse@arm.com>, Borislav Petkov <bp@suse.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>, x86@kernel.org,
-	clang-built-linux@googlegroups.com, linux-arch@vger.kernel.org,
-	linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 14/17] arm/build: Warn on orphan section placement
-Message-ID: <20200629180703.GX1551@shell.armlinux.org.uk>
-References: <20200629061840.4065483-1-keescook@chromium.org>
- <20200629061840.4065483-15-keescook@chromium.org>
- <20200629155401.GB900899@rani.riverdale.lan>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 29 Jun 2020 11:12:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from mail-ot1-f48.google.com (mail-ot1-f48.google.com [209.85.210.48])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id D0B80255CF
+	for <clang-built-linux@googlegroups.com>; Mon, 29 Jun 2020 18:12:00 +0000 (UTC)
+Received: by mail-ot1-f48.google.com with SMTP id t18so3553123otq.5
+        for <clang-built-linux@googlegroups.com>; Mon, 29 Jun 2020 11:12:00 -0700 (PDT)
+X-Received: by 2002:a9d:4a8f:: with SMTP id i15mr15291584otf.77.1593454320102;
+ Mon, 29 Jun 2020 11:12:00 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200629140928.858507-1-nivedita@alum.mit.edu>
+ <20200629140928.858507-8-nivedita@alum.mit.edu> <202006290907.E5EF18A@keescook>
+ <CAMj1kXFge5aWL2BY8Y1=m1TonB+SrDq6p7TQWuO5JkzcR2dhjQ@mail.gmail.com>
+ <202006290919.93C759C62@keescook> <20200629165603.GD900899@rani.riverdale.lan>
+ <20200629173735.l3ssrj7m3q5swfup@google.com>
+In-Reply-To: <20200629173735.l3ssrj7m3q5swfup@google.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 29 Jun 2020 20:11:49 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXHaXzYFkW_H=w36vMb1qPpuZXsnTd_giq4vsh0bw3S3eA@mail.gmail.com>
+Message-ID: <CAMj1kXHaXzYFkW_H=w36vMb1qPpuZXsnTd_giq4vsh0bw3S3eA@mail.gmail.com>
+Subject: Re: [PATCH v3 7/7] x86/boot: Check that there are no runtime relocations
+To: Fangrui Song <maskray@google.com>
+Cc: Kees Cook <keescook@chromium.org>, Arvind Sankar <nivedita@alum.mit.edu>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	"H. Peter Anvin" <hpa@zytor.com>, X86 ML <x86@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Dmitry Golovin <dima@golovin.in>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Daniel Kiper <daniel.kiper@oracle.com>, Sedat Dilek <sedat.dilek@gmail.com>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
+	"H . J . Lu" <hjl@sourceware.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200629155401.GB900899@rani.riverdale.lan>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-Sender: Russell King - ARM Linux admin <linux@armlinux.org.uk>
-X-Original-Sender: linux@armlinux.org.uk
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass (test
- mode) header.i=@armlinux.org.uk header.s=pandora-2019 header.b=CgyZRCI4;
-       spf=pass (google.com: best guess record for domain of
- linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates
- 2001:4d48:ad52:32c8:5054:ff:fe00:142 as permitted sender) smtp.mailfrom="linux+clang-built-linux=googlegroups.com@armlinux.org.uk";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=armlinux.org.uk
+X-Original-Sender: ardb@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=default header.b=DiNV0rrk;       spf=pass
+ (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,36 +145,90 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jun 29, 2020 at 11:54:01AM -0400, Arvind Sankar wrote:
-> On Sun, Jun 28, 2020 at 11:18:37PM -0700, Kees Cook wrote:
-> > We don't want to depend on the linker's orphan section placement
-> > heuristics as these can vary between linkers, and may change between
-> > versions. All sections need to be explicitly named in the linker
-> > script.
-> > 
-> > Specifically, this would have made a recently fixed bug very obvious:
-> > 
-> > ld: warning: orphan section `.fixup' from `arch/arm/lib/copy_from_user.o' being placed in section `.fixup'
-> > 
-> > Discard unneeded sections .iplt, .rel.iplt, .igot.plt, and .modinfo.
-> > 
-> > Add missing text stub sections .vfp11_veneer and .v4_bx.
-> > 
-> > Add debug sections explicitly.
-> > 
-> > Finally enable orphan section warning.
-> 
-> This is unrelated to this patch as such, but I noticed that ARM32/64 places
-> the .got section inside .text -- is that expected on ARM?
+On Mon, 29 Jun 2020 at 19:37, Fangrui Song <maskray@google.com> wrote:
+>
+> On 2020-06-29, Arvind Sankar wrote:
+> >On Mon, Jun 29, 2020 at 09:20:31AM -0700, Kees Cook wrote:
+> >> On Mon, Jun 29, 2020 at 06:11:59PM +0200, Ard Biesheuvel wrote:
+> >> > On Mon, 29 Jun 2020 at 18:09, Kees Cook <keescook@chromium.org> wrote:
+> >> > >
+> >> > > On Mon, Jun 29, 2020 at 10:09:28AM -0400, Arvind Sankar wrote:
+> >> > > > Add a linker script check that there are no runtime relocations, and
+> >> > > > remove the old one that tries to check via looking for specially-named
+> >> > > > sections in the object files.
+> >> > > >
+> >> > > > Drop the tests for -fPIE compiler option and -pie linker option, as they
+> >> > > > are available in all supported gcc and binutils versions (as well as
+> >> > > > clang and lld).
+> >> > > >
+> >> > > > Signed-off-by: Arvind Sankar <nivedita@alum.mit.edu>
+> >> > > > Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+> >> > > > Reviewed-by: Fangrui Song <maskray@google.com>
+> >> > > > ---
+> >> > > >  arch/x86/boot/compressed/Makefile      | 28 +++-----------------------
+> >> > > >  arch/x86/boot/compressed/vmlinux.lds.S |  8 ++++++++
+> >> > > >  2 files changed, 11 insertions(+), 25 deletions(-)
+> >> > >
+> >> > > Reviewed-by: Kees Cook <keescook@chromium.org>
+> >> > >
+> >> > > question below ...
+> >> > >
+> >> > > > diff --git a/arch/x86/boot/compressed/vmlinux.lds.S b/arch/x86/boot/compressed/vmlinux.lds.S
+> >> > > > index a4a4a59a2628..a78510046eec 100644
+> >> > > > --- a/arch/x86/boot/compressed/vmlinux.lds.S
+> >> > > > +++ b/arch/x86/boot/compressed/vmlinux.lds.S
+> >> > > > @@ -42,6 +42,12 @@ SECTIONS
+> >> > > >               *(.rodata.*)
+> >> > > >               _erodata = . ;
+> >> > > >       }
+> >> > > > +     .rel.dyn : {
+> >> > > > +             *(.rel.*)
+> >> > > > +     }
+> >> > > > +     .rela.dyn : {
+> >> > > > +             *(.rela.*)
+> >> > > > +     }
+> >> > > >       .got : {
+> >> > > >               *(.got)
+> >> > > >       }
+> >> > >
+> >> > > Should these be marked (INFO) as well?
+> >> > >
+> >> >
+> >> > Given that sections marked as (INFO) will still be emitted into the
+> >> > ELF image, it does not really make a difference to do this for zero
+> >> > sized sections.
+> >>
+> >> Oh, I misunderstood -- I though they were _not_ emitted; I see now what
+> >> you said was not allocated. So, disk space used for the .got.plt case,
+> >> but not memory space used. Sorry for the confusion!
+> >>
+> >> -Kees
+>
+> About output section type (INFO):
+> https://sourceware.org/binutils/docs/ld/Output-Section-Type.html#Output-Section-Type
+> says "These type names are supported for backward compatibility, and are
+> rarely used."
+>
+> If all input section don't have the SHF_ALLOC flag, the output section
+> will not have this flag as well. This type is not useful...
+>
+> If .got and .got.plt were used, they should be considered dynamic
+> relocations which should be part of the loadable image. So they should
+> have the SHF_ALLOC flag. (INFO) will not be applicable anyway.
+>
 
-Do you mean in general, in the kernel vmlinux, in the decompressor
-vmlinux or ... ?
+I don't care deeply either way, but Kees indicated that he would like
+to get rid of the 24 bytes of .got.plt magic entries that we have no
+need for.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
+In fact, a lot of this mangling is caused by the fact that the linker
+is creating a relocatable binary, and assumes that it is a hosted
+binary that is loaded by a dynamic loader. It would actually be much
+better if the compiler and linker would take -ffreestanding into
+account, and suppress GOT entries, PLTs, dynamic program headers for
+shared libraries altogether.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200629180703.GX1551%40shell.armlinux.org.uk.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXHaXzYFkW_H%3Dw36vMb1qPpuZXsnTd_giq4vsh0bw3S3eA%40mail.gmail.com.
