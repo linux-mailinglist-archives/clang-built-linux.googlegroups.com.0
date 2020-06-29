@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB6FB5D3QKGQEYPNEEWY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB4NC5D3QKGQENQC465Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73c.google.com (mail-qk1-x73c.google.com [IPv6:2607:f8b0:4864:20::73c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3867520CFF5
-	for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jun 2020 18:04:09 +0200 (CEST)
-Received: by mail-qk1-x73c.google.com with SMTP id u186sf12588670qka.4
-        for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jun 2020 09:04:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1593446648; cv=pass;
+Received: from mail-qv1-xf3a.google.com (mail-qv1-xf3a.google.com [IPv6:2607:f8b0:4864:20::f3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id D9C6E20CFFA
+	for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jun 2020 18:06:10 +0200 (CEST)
+Received: by mail-qv1-xf3a.google.com with SMTP id v20sf12083394qvt.15
+        for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jun 2020 09:06:10 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1593446770; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XuSIxRfErWvkt/uCdzfp0hYObU9kV0q5YnnsR1dx95cR+G8ZuB7jYaYgrSrjHrsuNY
-         +7VOKNw9PdsdbTQEpB/2s02Eai9KJ6k8troZaycCxgcMSb7wN0zn39QdDeUUv/RER8ln
-         4FKkDJJ5ZHerD3ZIgbBdU7R1MPGFqpVSH8urRFm6gb9wt03crQKxRaaUS7ll4ig94Lx/
-         Qd+59DCT0xNCnpTpopi8WBoZjIv4OmkhRmAaBThW0PrIdbwMXo9LqZWCaN80+crmwbRW
-         EDOrZdkywNZbHlEYSWJrpBzWiOAn8MkryxYY/3585kL1DwLlPk72Wb6i9+iCdtnlKykH
-         CZ0Q==
+        b=FibLiq73/W4qD0oCrkuLe0LiZj80NyD1RpBWTWXbI08InZNbc2boMZisK+9UU7/vzs
+         Cs2KQj/NPFxD8dkJQqC8VHPJJwgghrDSSoyetTvX5rU9ExuJ7TB0jlgdeY204ch+trJq
+         LJJQ0Wwz0SBuY5ze0ke5H+TwwfWpsSTpp7ioZB6WbigfVUYnFcc5Zvv0FedsjIgo6GRS
+         ba076oMKFVo5BNdzCbQJ80eCx61fza9oWtjZYy6IewuSv9ZhICcePmXl+q0HceER9E3l
+         mCHvcKIs1UuS96JCsU7Ay4ebKih9eAoGz5DpgPpDbEioBwvFVnWdoCQK00mToVXSVBQB
+         EU9Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=hj1qhO92jevlAfj3AadnDVUbtn/aUGuxTodHHvYOT5w=;
-        b=yrsNvURWovgo66dvedcAwVUUef5oqiOupmjPniLFHEzkDZwTOOWTLupmJytq1/qtB4
-         yNAsSvr/9oBf8Wwd+Zroyn5yXFL044LPArdI+FIWI+DrEOEvlGcRWmQz1R6C5M6FN72/
-         f9l+aLly6eBxykHv0Q+PnXy53/TtMdBZrkkMrwj8gK7TlaChfIhMpZSGWhc2LvYExyxT
-         XIds66pIfAl8lO6Fch0lI0/KFQYssXfVV14EEf3pLBsGMIvt41CIGqJARjP/qCCgwD7N
-         u9o0uFYEwqjqUZwGtOBOO07Xz7cyWhbXOgGGKB9EKMjeLpQ+w2iQixRUFP1YLcRhH9Sn
-         vYuQ==
+        bh=KnDWKGUiJmEPmm77AiYo+COQ6TkK4D6QQsR+7mMJGqw=;
+        b=zKxTc3Uf7neB7TxrHIhJnX2VWmacekY/6WBPtldsSvaiJM4ydTcrWn/Q9SntNkRdk2
+         QW4JZVTUoxbTFTad95IwMRugmS7ZAxKQiyVayATMQwTj348k1D1CQvHCgzcpSLfmIOkI
+         11qVVC86tD8VuXTg7SkZlUFn9VE5xVfX3BNMHd8YJvgECEJBEp7Y2orMXvbSRSIa/kdu
+         MOPtLg1PFlvGvPo46xhbZq55mmBYBwSsEeSwVaaUMJdU+pjxuLJKmA09bcFpYtaDM/Pt
+         JqVZ/qfDx9zRgm68xne8epWXBkyM7MkGhYnpHbJ4gdNlYo3VcabHZC2VzdHIF4K0Jo1v
+         QlSw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=YYrun5Zs;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b="oByy/EXs";
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=hj1qhO92jevlAfj3AadnDVUbtn/aUGuxTodHHvYOT5w=;
-        b=VxK1s7FFPlXiGTZmn/fyflrGUcBWGw9gPMochVJs44wDzFRQDDXKkZrEykiIsN0DDX
-         cS5vyF0c+Wu6O+SnTBZ1m828k9lZ4rjuJkh1w8BwOzVRR0rp+2xBccXLw1anP6RTJnbJ
-         MHRINudP6GPuywWxNW50g4ceP4st2hltchY5yo8RXGbK+JSCDdl8MMrgeBG/ajTNTyaO
-         fRq4dKiBVfcUna/+yMoR5GXUsyECoslHWgaRogONWp6uFW07UWovlAiXQUN+CRcqbFuQ
-         Ztw1tg5Pi9GrVC+MKwRqAgojcJM3rDGYc/nrmKeJpZgzD3uQZsYZ9ejF3XAQQ9WqJMry
-         EVEg==
+        bh=KnDWKGUiJmEPmm77AiYo+COQ6TkK4D6QQsR+7mMJGqw=;
+        b=XL22plt8RcLf6Low72za3cFzFeme+yfWuymyzDRLxKJ7q8fhpJptc7ex9imAe0ZgxV
+         hVXPzA10RMotKCFVOvIg/VR28L4e7F3gw5sZq7JsoIjsfER+Fo8fooTkSJc7qLi7kxqf
+         HmvKK3z0K0OnauxDTzV9LUUoCDZNrWfWxS7nLlh/UMTGMj1ZmWokL87xJ+cbn/CyqpFT
+         8fkP3wVdjD/cogtCRT0Q8bX5jCstIwEKsYDZXXc05yhiX2vSAm4fG/ZIHf/6sYjxdJXB
+         WtdGpOPCho1xt0a0rYFb9js48bWfsVhG/4VyRkRyxMTFHvE1cVo0xaZZKQp5WjG9vRz/
+         tskg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,61 +50,61 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=hj1qhO92jevlAfj3AadnDVUbtn/aUGuxTodHHvYOT5w=;
-        b=UYk3IPKfCxr+QCbs13Jrk70T+4ntdXeThSSOcBD98CPF9vJonv46fSaBNM13zXQdDK
-         1aWvRdadtQL1w3+/FR8FLEi4RS4V5x94rYtbPHEoP847c/MvrwrSLTOxQl7dnyTpAOPm
-         BeEJH66ZPqJhX7Ka2e/djh8Tv++mI0+YPdkSmNDPj9AyFRfFn0X9Ul3QL3n+RCw0ty3z
-         Q49r8ER9H/RGNiKNZWU+Q0SUicvWH5WQj9H3nYHTOfp/f83Z3GlZgD3WOS1VlyQti4OL
-         8+KHnt55WeubofjsrGwNeGBDhv44JDQ7Ng4TwZNBHRoeSGXfnMslroHJN7asCOU26vVt
-         JQ9Q==
+        bh=KnDWKGUiJmEPmm77AiYo+COQ6TkK4D6QQsR+7mMJGqw=;
+        b=md9Iw2v8KkV7II/EHtnXlpeVptYJORRNt9HC4LVehaam/EgMxO2lj6HR/pKpisgi7+
+         5/hHoi26PLKaoozFxy7jCp0zuDiKperV97oiiOb5WD/DqeKtwUg0bSMWVmv60WbrjqRs
+         w/Fx7FpuTyCpaD7dL2uA4MyiZpsILt9hL4FpkusT6sv904Y5+zu2L8WYXoC9HGeykfk4
+         YZOe7U8hfX6m79UXw8/zDt7iWKUFaSC6JHB26X9R8O7Iwz1E3Uyl95v0Oy6qeRhXKsEn
+         HosASGoLe1YHoLFAem47zHk5f6CRzQij96WNm6hcsUuEb35WcK14dJhCWUnndUG8KnOT
+         qZwA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530roIEdwty5PaTuTF4TfKYAjY2jmd80vau/NGecC9KZBt9WaU34
-	00iiFw8q26Xdhnt/OeZT81w=
-X-Google-Smtp-Source: ABdhPJwyXHGj6jWlOOuYMpvLzljbrr71+5pNKWDCifmHzsPWwTi+6blXnU9j3xDCGvvl+uh13u64YA==
-X-Received: by 2002:a05:620a:1587:: with SMTP id d7mr6639138qkk.228.1593446648212;
-        Mon, 29 Jun 2020 09:04:08 -0700 (PDT)
+X-Gm-Message-State: AOAM532s0UeSUDpX1fUn0gFKbX3/6AsdYur+M4ylOliiQeY3kJibBqGx
+	65UugnSA3bXyzBTOg4suXJ0=
+X-Google-Smtp-Source: ABdhPJykwtliK2pszm+cSXuP7/QLnBYAPalgK0vnXBwwMBFxm4HTqA7lEfu2L0RMoAZmVZi/lm233w==
+X-Received: by 2002:ac8:19c6:: with SMTP id s6mr13089364qtk.269.1593446769928;
+        Mon, 29 Jun 2020 09:06:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ae9:e415:: with SMTP id q21ls4675088qkc.9.gmail; Mon, 29 Jun
- 2020 09:04:07 -0700 (PDT)
-X-Received: by 2002:a37:a20d:: with SMTP id l13mr16290171qke.296.1593446647708;
-        Mon, 29 Jun 2020 09:04:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1593446647; cv=none;
+Received: by 2002:ae9:e415:: with SMTP id q21ls4678826qkc.9.gmail; Mon, 29 Jun
+ 2020 09:06:09 -0700 (PDT)
+X-Received: by 2002:a37:af82:: with SMTP id y124mr15759125qke.254.1593446769534;
+        Mon, 29 Jun 2020 09:06:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593446769; cv=none;
         d=google.com; s=arc-20160816;
-        b=Ty7Kq33N/i1pzXQ+wZ7p0fqb8Q4Tg7Oc3l6hzoAONHHMd1OG10BFHgCXBF8m2PCNV0
-         S9eKOvwUep/N6qcnbG90IKI4sLxOBRDApKL4+OHZYlSGfADSxwXWatDR76yt5JH57bUf
-         lLEA5bPlOJVnOiwTUFrTZ59QuaabiqO8E1ZEgNaRjp9QtMcd9iwRXEMyVF/dNQ3yTJY7
-         ubsW7BjP5jCY4rcLMjrdld9aw9M0675KEfbKRUnKHOME0jCNNJu83cH2J+st0VJLWol5
-         Ol2b+CQoBZWX5rvQbenfYg+JBvM4s3Y673cYIC2VQd5ioBQDuEQgC9XibmuXy297S/9z
-         Cttw==
+        b=Q4Pt56vWYk2+aiYfilPfh4Dupe504RtfA/vmgRJLL8m1bomggf3I9nEO8cbq9lelLe
+         jUFVrafj4rwDtjKuu4KjVULtq+pGRbsOaC0HemHDvbGI2NJBQg2RJojp3paXPHlkWNzO
+         l+72W+Isbu0FoJHwJfZQsSAtl3fK4PhGC0ApxjgcPgZxe2Q6fGIMldAc0zwWEZveVWHU
+         xryljDbTVKZWBwuJB8i2G/eMta59xs+YjiDqDHcJzUM69X2B+vMAOTTLevFJxysdxqjj
+         AKRSeGR/tZZDg41+WJgJSbcek53ZDv8mREQDiM1sPChMJbGRaBWxOBPgaPM8LJZhuss9
+         VOOQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=bCcUKUF5r6yaBuJR+zxqwfyemuV81g4EzykEAUFhIxY=;
-        b=dUQLpTIOpwzJvf6RrYrKvBIO8ShuPbPWSU3nw/upB7UoQRziV7muV8heki8Kei1rFh
-         1BbY9L4lfxY2tJ5cn6eylshtc/wou3gncwJsIzim1aY4OTfbIfuUVeqBCf3CCO7uHSoa
-         B6bG/UKSFXSkhKe/yY+y25Q4kUvZ4R37d9KUL2OC09MEEtC7DRnnbICH8Rw+xERQHRNx
-         gHcDRRQRJ+rZFmC0FwQnyiAY/9eWtJUz/5C6jYvnWFEWJ8yNm9q+3EVGCUJWGB+WX3/Z
-         vhqPSpYr2sGuLZJrklE3ehiPIleJioFzxo3wAMKYDGfTVWG+YvjaF8Wspk5S6vbZW2in
-         gNmw==
+        bh=Hd2ztXk1vCQk2wKYG462cRN4nuwUe31pLKUP0eS2DPs=;
+        b=fk3zYXS7HnEtSIfLQToATCQwIojqz/RqTYTz9YrNuM3ngH6OgwxIgkt6NkvyOLs2L/
+         vEcq8bP4tPUX/tG3NmrAGIxWrnrRs7AnftNJWfXQmbVwY06xPL5iYkuCphYewp2m0I/h
+         k6k4HoznY/a/yCbXFt3UpIYkXpBSKA4C6JLr5eWR3Rq1QgB11o8HZL5JaOceO5AAfYLK
+         Bgy/nOBxUitdzJV6B9mjbOPTBL913R5vfEn7o8zLXuIJC2Y1hr+HQ6CJzaIXVvX1XsnC
+         xFYZ0ppxDV2XcRQxuS/1rW5apGTV0RQj4i1QeODsRTV2ZZonaIV6ITdu5RbGqVfOAeim
+         A4qg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=YYrun5Zs;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b="oByy/EXs";
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pg1-x541.google.com (mail-pg1-x541.google.com. [2607:f8b0:4864:20::541])
-        by gmr-mx.google.com with ESMTPS id y21si7728qka.2.2020.06.29.09.04.07
+Received: from mail-pf1-x444.google.com (mail-pf1-x444.google.com. [2607:f8b0:4864:20::444])
+        by gmr-mx.google.com with ESMTPS id f2si8483qkk.3.2020.06.29.09.06.09
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 29 Jun 2020 09:04:07 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::541 as permitted sender) client-ip=2607:f8b0:4864:20::541;
-Received: by mail-pg1-x541.google.com with SMTP id e9so8489447pgo.9
-        for <clang-built-linux@googlegroups.com>; Mon, 29 Jun 2020 09:04:07 -0700 (PDT)
-X-Received: by 2002:a63:3005:: with SMTP id w5mr10723200pgw.441.1593446646832;
-        Mon, 29 Jun 2020 09:04:06 -0700 (PDT)
+        Mon, 29 Jun 2020 09:06:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::444 as permitted sender) client-ip=2607:f8b0:4864:20::444;
+Received: by mail-pf1-x444.google.com with SMTP id u185so6057922pfu.1
+        for <clang-built-linux@googlegroups.com>; Mon, 29 Jun 2020 09:06:09 -0700 (PDT)
+X-Received: by 2002:a63:6dc1:: with SMTP id i184mr10942111pgc.345.1593446768762;
+        Mon, 29 Jun 2020 09:06:08 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id m7sm220299pgg.69.2020.06.29.09.04.05
+        by smtp.gmail.com with ESMTPSA id gk5sm62829pjb.4.2020.06.29.09.06.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2020 09:04:05 -0700 (PDT)
-Date: Mon, 29 Jun 2020 09:04:04 -0700
+        Mon, 29 Jun 2020 09:06:07 -0700 (PDT)
+Date: Mon, 29 Jun 2020 09:06:07 -0700
 From: Kees Cook <keescook@chromium.org>
 To: Arvind Sankar <nivedita@alum.mit.edu>
 Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
@@ -119,19 +119,19 @@ Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
 	Nathan Chancellor <natechancellor@gmail.com>,
 	Arnd Bergmann <arnd@arndb.de>, "H . J . Lu" <hjl@sourceware.org>,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 5/7] x86/boot: Remove run-time relocations from
- .head.text code
-Message-ID: <202006290859.14DD408A29@keescook>
+Subject: Re: [PATCH v3 6/7] x86/boot: Remove runtime relocations from
+ head_{32,64}.S
+Message-ID: <202006290905.7531731A@keescook>
 References: <20200629140928.858507-1-nivedita@alum.mit.edu>
- <20200629140928.858507-6-nivedita@alum.mit.edu>
+ <20200629140928.858507-7-nivedita@alum.mit.edu>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200629140928.858507-6-nivedita@alum.mit.edu>
+In-Reply-To: <20200629140928.858507-7-nivedita@alum.mit.edu>
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=YYrun5Zs;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::541
+ header.i=@chromium.org header.s=google header.b="oByy/EXs";       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::444
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
@@ -146,67 +146,31 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jun 29, 2020 at 10:09:26AM -0400, Arvind Sankar wrote:
-> The assembly code in head_{32,64}.S, while meant to be
-> position-independent, generates run-time relocations because it uses
-> instructions such as
-> 	leal	gdt(%edx), %eax
-> which make the assembler and linker think that the code is using %edx as
-> an index into gdt, and hence gdt needs to be relocated to its run-time
-> address.
+On Mon, Jun 29, 2020 at 10:09:27AM -0400, Arvind Sankar wrote:
+> The BFD linker generates runtime relocations for z_input_len and
+> z_output_len, even though they are absolute symbols.
 > 
-> On 32-bit, with lld Dmitry Golovin reports that this results in a
-> link-time error with default options (i.e. unless -z notext is
-> explicitly passed):
->   LD      arch/x86/boot/compressed/vmlinux
-> ld.lld: error: can't create dynamic relocation R_386_32 against local
-> symbol in readonly segment; recompile object files with -fPIC or pass
-> '-Wl,-z,notext' to allow text relocations in the output
+> This is fixed for binutils-2.35 [1]. Work around this for earlier
+> versions by defining two variables input_len and output_len in addition
+> to the symbols, and use them via position-independent references.
 > 
-> With the BFD linker, this generates a warning during the build, if
-> --warn-shared-textrel is enabled, which at least Gentoo enables by
-> default:
->   LD      arch/x86/boot/compressed/vmlinux
-> ld: arch/x86/boot/compressed/head_32.o: warning: relocation in read-only section `.head.text'
-> ld: warning: creating a DT_TEXTREL in object
+> This eliminates the last two runtime relocations in the head code and
+> allows us to drop the -z noreloc-overflow flag to the linker.
 > 
-> On 64-bit, it is not possible to link the kernel as -pie with lld, and
-> it is only possible with a BFD linker that supports -z noreloc-overflow,
-> i.e. versions >2.26. This is because these instructions cannot really be
-> relocated: the displacement field is only 32-bits wide, and thus cannot
-> be relocated for a 64-bit load address. The -z noreloc-overflow option
-> simply overrides the linker error, and results in R_X86_64_RELATIVE
-> relocations that apply a 64-bit relocation to a 32-bit field anyway.
-> This happens to work because nothing will process these run-time
-> relocations.
-
-Are any of Thomas Garnier's PIE fixes useful here too? He had a lot of
-fixes to make changes for PC-relative addressing in the various
-assembly bits:
-https://lore.kernel.org/lkml/20200228000105.165012-9-thgarnie@chromium.org/
-
-> 
-> Start fixing this by removing relocations from .head.text:
-> - On 32-bit, use a base register that holds the address of the GOT and
->   reference symbol addresses using @GOTOFF, i.e.
-> 	leal	gdt@GOTOFF(%edx), %eax
-> - On 64-bit, most of the code can (and already does) use %rip-relative
->   addressing, however the .code32 bits can't, and the 64-bit code also
->   needs to reference symbol addresses as they will be after moving the
->   compressed kernel to the end of the decompression buffer.
->   For these cases, reference the symbols as an offset to startup_32 to
->   avoid creating relocations, i.e.
->   	leal	(gdt-startup_32)(%bp), %eax
->   This only works in .head.text as the subtraction cannot be represented
->   as a PC-relative relocation unless startup_32 is in the same section
->   as the code. Move efi32_pe_entry into .head.text so that it can use
->   the same method to avoid relocations.
+> [1] https://sourceware.org/bugzilla/show_bug.cgi?id=25754
 > 
 > Signed-off-by: Arvind Sankar <nivedita@alum.mit.edu>
 > Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
 > Reviewed-by: Fangrui Song <maskray@google.com>
+> ---
+>  arch/x86/boot/compressed/Makefile  |  8 --------
+>  arch/x86/boot/compressed/head_32.S | 17 ++++++++---------
+>  arch/x86/boot/compressed/head_64.S |  4 ++--
+>  arch/x86/boot/compressed/mkpiggy.c |  6 ++++++
+>  4 files changed, 16 insertions(+), 19 deletions(-)
 
-Nice.
+I continue to really enjoy the smaller code. Anything that makes
+mkpiggy.c smaller is a win. :)
 
 Reviewed-by: Kees Cook <keescook@chromium.org>
 
@@ -216,4 +180,4 @@ Kees Cook
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202006290859.14DD408A29%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202006290905.7531731A%40keescook.
