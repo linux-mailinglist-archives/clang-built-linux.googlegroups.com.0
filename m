@@ -1,133 +1,148 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBMEE533QKGQEGPUWSZY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBQGI533QKGQE5TI47WQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3b.google.com (mail-yb1-xb3b.google.com [IPv6:2607:f8b0:4864:20::b3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id F12ED20FB91
-	for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jun 2020 20:19:29 +0200 (CEST)
-Received: by mail-yb1-xb3b.google.com with SMTP id k127sf18981740ybk.11
-        for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jun 2020 11:19:29 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1593541169; cv=pass;
+Received: from mail-ua1-x940.google.com (mail-ua1-x940.google.com [IPv6:2607:f8b0:4864:20::940])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0C25620FDE9
+	for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jun 2020 22:44:50 +0200 (CEST)
+Received: by mail-ua1-x940.google.com with SMTP id b37sf4916008uae.5
+        for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jun 2020 13:44:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1593549889; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZZMG39PFGI+438ZLnuYn/Dol4m/Z5KqR7nZ9eIVbOadoWawHPX1NSdnVvxxxv3/+Vd
-         B8TrgaNIg5gBcZBPPoIhBB4tirPI/EV2Phl0wR99Jqsmk0tDJzFUQ5H9STc9iVcofv+e
-         Q4AScZBBMyNW+83Kop1l3EVk7ale/kwvRbkmP6/vMlljMikiq3Mnb1+PcOyqjm9o+HPO
-         WD+0x6X7PPeGezVI3C/TFXDHhuLcmB07cay+wMXlOErR0XwcxQ3KAGuIQMrtcgYJXhgG
-         EORrUiGEYT08IR5X7uu1MHM2KYM5T6GrCN9YXvkSTEhjrhRUh/vxC1Mn6ILZFOxIB1gq
-         Zc9w==
+        b=QIz+3HQCEusVJDFaBKXdIX5AthQw/Bgz/7xb1nF+G0jwiTFmD6B/9YdXJKaevPknc7
+         ZR2D7t/BOr0ROCktaM/SBaj4rISSlwhSEABAOhUQTs1zjRbM2wSclCqSM0N0i8yNw9QN
+         TSbUtlzpAAdPm1E33k0sUy0IAjqUk0k28cYV93/uoKytfqKntxtiUKGYdawusUaWO/1Z
+         yvvilsOxuJVkmsE281I5VlFuvP7NipbI0vpP9WHQHq06ojdTXkNzoUQf1p83RD5SZbU6
+         PwIfepD0LWRv8Sq1OyLtBz/IUOQgO+xJ4jHma8FKmjGpZ/MmqGCUD+Iled1fnusK3G+l
+         stuA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=4XbOL4vwwzIWg1ON6EGABeXABkBaBY6FqF8/RVVNeuA=;
-        b=Gda6T+jXs04NPt91DywfIkkMOMCNRmBl8JdlLRP7gpJKA8HFFzk9T3vl3XDNp154XU
-         oXAKk3aovVraGZMWcnQblJiy/+JeGpjnTRiD1GA0z06yK+hximcI+IrESi5sukJs2CS5
-         p77l4ngEGQCK+kh+k+reFmka8Gbofo+RBu2VEXAK5c+byFGZNSTd9aX9mTmSslswcKIe
-         hEfyhVZXvXdEkJNhKLEidjempxLt2LUxz4Jj40xKrFZ9OzkRh48gbTgDRaxtfFRrqmq8
-         0u7CKtUh0l0r8necuGSINks+fpZAHOE785+bwi8wK60PVZPGl5IeJyMbvFWefuJ+fq8J
-         HUGA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:reply-to:message-id
+         :subject:cc:to:from:date:sender:dkim-signature;
+        bh=jaQMLKfd9PTdZdDURGdRCwvVxVxHSG1fFERGUUo8FPc=;
+        b=08f/68qjbhpKK946aqDWH1YnIm/Lqy6YxvrCzRd3U1uVXgRVKKXbJRQxrw2EYBBAIv
+         HXTf2Emo7VCzrvd23O7FtzZMiW0ddv//AtjrQdRBzGmY6GzVw0aIyR3tvSrEqJxLaP6y
+         E/SZ2tFGg5aTn9jhl/3wUoiP0CP1f1s4d+NGJT/SbSSkIBEA1VOaL2dKtX9+FR+8HxK3
+         3uvBId0jbfHIiFiHLAlZIQNZunbTGAtvh/oHQnpT7GIneblIXjHWJ6KSi0pdz1UXBCdJ
+         ZqHNJ1Rm7b2D8o5XmvX7vG9F90BW2PlERCYLktJSkoaRjHDJLgBv2SYNZFIfJ06k1Zhp
+         +xdw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=KpDrOoEw;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@kernel.org header.s=default header.b=DZWNcctV;
+       spf=pass (google.com: domain of srs0=gtay=al=paulmck-thinkpad-p72.home=paulmck@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=gtay=AL=paulmck-ThinkPad-P72.home=paulmck@kernel.org";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=4XbOL4vwwzIWg1ON6EGABeXABkBaBY6FqF8/RVVNeuA=;
-        b=hqjNCSFtXj04cCPRFQg7RKBfMlTCIOJmQYCulUhZamGRrf7+rMx1EGX1nS3wEGJWyO
-         0q5AeGTZwKZtj/Swre86wAkyrjnvMmnp+ZOh6UlaPtpdfKB7qajuyzIixZq8nOtpvPy8
-         AFruQyQmlbcwad4bVFXB1OggUpnXouBwDGG1/mRTcrLkncG0HwiglSBfBlNm7kKn4TuH
-         vLB+a9s3zV3lvWSg9ediUFIbs44oVJs4SlYA92GFlWQ/0OoUYnWAumg3ky/JTrEhuGr5
-         92/Q4+ypzkC4FUamBRj/lv8KzRew/orv+vqLoD4m+wHSbyDFv0J0xPVkevfjoqwX00pL
-         B08w==
+        h=sender:date:from:to:cc:subject:message-id:reply-to:references
+         :mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=jaQMLKfd9PTdZdDURGdRCwvVxVxHSG1fFERGUUo8FPc=;
+        b=pRsyBe54y/GDpZyt0+KRk2f95HsRCTkw/XBLn3hzrNjaHtslzeAXxZY8iCFHJV7sqU
+         uH+PDDsi1ZD6wHVcms3KRxart1cvhuDiBunzLb86TvvpnTE3vUcI9ofDh8YeYLvRgdIv
+         gg4cH4tPe53jszTI5DzQNnxlxwAjJkhB+x+0/duEcKqXDGdrx2g47O4yAa6lciQX61Ds
+         zG3dmEk1s5qTeEVTJYNAeZ6hB7/FizyTbpGjC6/enBeR3Ym773KUoasfE18wXLhDDxpg
+         wQpJiKGzuyCkM4aKKc+zHtoG+GXPeNk+62EWssq0IkB8E7039GGgIq5Xo84QTZK5stUY
+         Ofyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=4XbOL4vwwzIWg1ON6EGABeXABkBaBY6FqF8/RVVNeuA=;
-        b=Mvvd/V6xFfOMyiAd0UCuLJe1XU59zwYw20ZbmYFbs5EnVtng5T6D8BN+8zK7xIIQDC
-         kaUtD4YGY/dutusMW7tpawLh1vmVx8lvxHsuPVw5tz8xdrGELJT+PSSEbqKGzmVmLn9r
-         rWF8ZT7zEXd5SjFQD635q3Dab0Dev4gY1HijyQWuaULcoaRCa+FEa/VdtkOKkitedtpl
-         VpDGNmSZFMj7hrMntv3M51g+M3x5ywVKFCPEWRetv6eXYC5gKZPrXjSTcVNFXm7N+ust
-         d+IuOF2+UtB2E+gwNwkA5mqwVBKQbVax1EvcJNvt2oO72OW+A2JYxm1bnZ/VDY1ZCyoM
-         vt9w==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :reply-to:references:mime-version:content-disposition:in-reply-to
+         :user-agent:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=jaQMLKfd9PTdZdDURGdRCwvVxVxHSG1fFERGUUo8FPc=;
+        b=ddwik9ZMbXjk6MZqiCa71ez5d539rtw/Iw+3wxUEimHXU173QLZHRKIIXPpfAro8R2
+         EYexIWjSeZw46acZM/vKQxpn0XFWNtfGLtuxM6nq9hQxdxwSijpNOJjJgi85/KHZ6Hzy
+         p6+BhBLa2zFsc9WNZO/22mSwMwhp0USoao62uGrDepFHpygWyj280os1GQWEgtTmODtn
+         xbyQCWVTCT9Zeuvp0pq1DrS8YdopcPVEH7jntnBg9NcCAz8ejnkR4uLbh6MFXZ01PduJ
+         0XaouVUSLk7JG81No68KxxlxpFMV94bF96GWKmD2g5XrjAOjW4r0X7qQYT4jO2LkXDmx
+         Bakg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532IxPTgIpo2G77Tm68r16baF73lfzioZdYA3aJClW2tBlZuUlZF
-	NahQBMGKSrtmQsKgyETEmWA=
-X-Google-Smtp-Source: ABdhPJwserl2wbDZPGK5mLPBDajkFKXrVLTOK6hSjYoBbDRlJPxjvV5FI8YR69NOi734kOHsrsMJaQ==
-X-Received: by 2002:a25:c342:: with SMTP id t63mr35791627ybf.122.1593541168824;
-        Tue, 30 Jun 2020 11:19:28 -0700 (PDT)
+X-Gm-Message-State: AOAM532iEpjiwP1fta4gh9GdEGcfE3jA7lGOazPvZsikA72+jQXCmF1a
+	s3+QvZ9BF/WHfi17pCG5aWg=
+X-Google-Smtp-Source: ABdhPJw7nW+1i52cKq2dMV+Cg+wdNm0/zB4Xt5UaM0CxWxAz0k3OqAltER2oVdjNu0s7p/J40D8SoA==
+X-Received: by 2002:a9f:35e4:: with SMTP id u33mr16478097uad.115.1593549888788;
+        Tue, 30 Jun 2020 13:44:48 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:c785:: with SMTP id w127ls1528717ybe.7.gmail; Tue, 30
- Jun 2020 11:19:27 -0700 (PDT)
-X-Received: by 2002:a05:6902:514:: with SMTP id x20mr37531706ybs.160.1593541167163;
-        Tue, 30 Jun 2020 11:19:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1593541167; cv=none;
+Received: by 2002:a1f:a04a:: with SMTP id j71ls11692vke.3.gmail; Tue, 30 Jun
+ 2020 13:44:48 -0700 (PDT)
+X-Received: by 2002:a62:ee17:: with SMTP id e23mr20438414pfi.291.1593549016602;
+        Tue, 30 Jun 2020 13:30:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593549016; cv=none;
         d=google.com; s=arc-20160816;
-        b=YXDmTJDay+VqwDQPUGS+UO8E3WfXiRNDBGGTNshHvoiA9LUjNebWaY46PwunOfRxuR
-         qE3hF7VgI4Ytz5MxTzHpQO2eRqOmr9z90Q8VaFsqwSTqUxVgZW2HXzCvNKiiiC3p83Wn
-         Sgc7rxyJYuqK+NPNxbachrOcBRiSkIfHB9gA9j51y3yNNCfe32LKnQ7ZSDIF4b0TwYA5
-         jkmXKzJqC0deKiaC6Sd61+kGR9NObOQePTDf0LX/cZYfqrmns/deIWQNXNt+O91QOYar
-         0KfHxTYqjKIcDM9LG2hkwHHsGfIwzeoPmZGLoL2NVnk8iC0kx6H08pKFNgRa85+YZYz5
-         IkzQ==
+        b=ZdUttWtGrvoQNtyI89gvnHTkOve9wQoUHpeZ7hF85u47OnAk+p22q8K2ajJz7HhkM5
+         f8vDsL97bbc5ujIrFj/P3EQum+GDDBgyFIQuMY650taKVnfpIIHHeIHMYZ5ZjUzUl14Z
+         Q70jk/f8/hDkt+Tww3S4yZmndfG/0uCB5MFoXP8A6+SRfS0gV8zbk3lrhInZlSYVraVo
+         fMoXNEUnqbwpsI/qPSbr9Mor/M0L0o2YuMACgFK08izuO31EhL42OvM65j6b03+hGQpP
+         1Ea7Xeie4ZMM2NdjA1OCzezpgN7bl2p1auwJweuXbPQhHLTlBvmWBRDQbG9lQPwNEsSG
+         Lc/g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=nuIrJNssJvUSsVaRNApdroyqPo/OAvlKGRbXB/qKIrg=;
-        b=yZdQei846knn4Izy9c7bj1w2FH6n8r4nOUmYeiJh+KLeouOtFDb2/xli8Eu4cl7ODB
-         +usS2xXuhBY3bGZw35lmEwJXwHZsGNefDxVC53+GUJPW+crTB32rTDLl3FwRIbE+Cuzx
-         ZrzSjuoMYgB6BiYswftVVwQPPEeoUzluTHz2puvEZrkU2KvEC6WMWSf3W+B96dgkC4nv
-         LhA4IY/BhSKtmdWBBwI1KCr+7IMu+GzMx1B+ccZYPHGj90KNKZ/kOqp0TWBz8PkQbsLi
-         jv20XaQQpnnivG6uBAKiK7b3T+HAd4SeZdF5Dqrrxt4WOMXX+Nq0dQxP0Td+I+gG1fkg
-         +edA==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :reply-to:message-id:subject:cc:to:from:date:dkim-signature;
+        bh=GwbPJhwjEmwQaRlDqxUD6cazWBukR6PojL/uHNUr1tM=;
+        b=exbi5+qeoYVDPJN780Pb9EU8chufw4Egx+d/1UZrqdX6dUeUaefQ/PmfIxWjBYDS9G
+         X+wyujns7JUgsjFbK2eidL8GybgarxWJdprOzuwxNF45nUVHLYhOG27Lc14MDVfqqjvw
+         Pj1QnQrMS0he84nlEREA+YumGZ6V3uS3Csh9PlnxswHwTtEngKyCKvocvXgN8mupR7Vk
+         Ni9/Aloc2+jDK/ZzykHXKLNOQ4OPdrck67CrctijRRQ3weBPAsFFZ3kjMhD+b3S2Pc0U
+         aKIzAv1ZrChYuYotBipQScqYuBtTQ7760g6TybwjoAxLIN4bAAgHUi1YVcT2rwVc/Hxy
+         s/yA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=KpDrOoEw;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-01.nifty.com (conssluserg-01.nifty.com. [210.131.2.80])
-        by gmr-mx.google.com with ESMTPS id v16si195052ybe.2.2020.06.30.11.19.26
+       dkim=pass header.i=@kernel.org header.s=default header.b=DZWNcctV;
+       spf=pass (google.com: domain of srs0=gtay=al=paulmck-thinkpad-p72.home=paulmck@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=gtay=AL=paulmck-ThinkPad-P72.home=paulmck@kernel.org";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id mz9si291097pjb.3.2020.06.30.13.30.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 30 Jun 2020 11:19:27 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) client-ip=210.131.2.80;
-Received: from mail-vs1-f43.google.com (mail-vs1-f43.google.com [209.85.217.43]) (authenticated)
-	by conssluserg-01.nifty.com with ESMTP id 05UIJBLJ000566
-	for <clang-built-linux@googlegroups.com>; Wed, 1 Jul 2020 03:19:12 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-01.nifty.com 05UIJBLJ000566
-X-Nifty-SrcIP: [209.85.217.43]
-Received: by mail-vs1-f43.google.com with SMTP id r5so11718980vso.11
-        for <clang-built-linux@googlegroups.com>; Tue, 30 Jun 2020 11:19:12 -0700 (PDT)
-X-Received: by 2002:a67:694d:: with SMTP id e74mr16669112vsc.155.1593541150808;
- Tue, 30 Jun 2020 11:19:10 -0700 (PDT)
+        Tue, 30 Jun 2020 13:30:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=gtay=al=paulmck-thinkpad-p72.home=paulmck@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from paulmck-ThinkPad-P72.home (50-39-105-78.bvtn.or.frontiernet.net [50.39.105.78])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 45D9D20768;
+	Tue, 30 Jun 2020 20:30:16 +0000 (UTC)
+Received: by paulmck-ThinkPad-P72.home (Postfix, from userid 1000)
+	id 31AE13522640; Tue, 30 Jun 2020 13:30:16 -0700 (PDT)
+Date: Tue, 30 Jun 2020 13:30:16 -0700
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Marco Elver <elver@google.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Kees Cook <keescook@chromium.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Kernel Hardening <kernel-hardening@lists.openwall.com>,
+	linux-arch <linux-arch@vger.kernel.org>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>, linux-pci@vger.kernel.org,
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>
+Subject: Re: [PATCH 00/22] add support for Clang LTO
+Message-ID: <20200630203016.GI9247@paulmck-ThinkPad-P72>
+Reply-To: paulmck@kernel.org
+References: <20200624203200.78870-1-samitolvanen@google.com>
+ <20200624211540.GS4817@hirez.programming.kicks-ass.net>
+ <CAKwvOdmxz91c-M8egR9GdR1uOjeZv7-qoTP=pQ55nU8TCpkK6g@mail.gmail.com>
+ <20200625080313.GY4817@hirez.programming.kicks-ass.net>
+ <20200625082433.GC117543@hirez.programming.kicks-ass.net>
+ <20200625085745.GD117543@hirez.programming.kicks-ass.net>
+ <20200630191931.GA884155@elver.google.com>
+ <20200630201243.GD4817@hirez.programming.kicks-ass.net>
 MIME-Version: 1.0
-References: <20200626185913.92890-1-masahiroy@kernel.org> <CAKwvOd=V_M43CP7G87K3TqSsxua2NcXPz6BnDt-z6167O2WAzQ@mail.gmail.com>
- <CAK7LNATcwGkSWV7NSgwG_WqzvTPphT9=KK+qvT3FK_7y1UCzTA@mail.gmail.com>
- <CAKwvOdntZw2k8ZZ7txPC-FD+50cPpMwctGYTW0j2zw+FVj9SgA@mail.gmail.com> <CAKwvOd=JbEJNdWzk_xdMiy9QewbU3ESOHcokAXKkARrgm-ibEg@mail.gmail.com>
-In-Reply-To: <CAKwvOd=JbEJNdWzk_xdMiy9QewbU3ESOHcokAXKkARrgm-ibEg@mail.gmail.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Wed, 1 Jul 2020 03:18:33 +0900
-X-Gmail-Original-Message-ID: <CAK7LNAQhGVm9ZBYOSosPx3DZvY020LTy+MZr3LUbvDaa0j19RQ@mail.gmail.com>
-Message-ID: <CAK7LNAQhGVm9ZBYOSosPx3DZvY020LTy+MZr3LUbvDaa0j19RQ@mail.gmail.com>
-Subject: Re: [PATCH 1/2] kbuild: remove cc-option test of -fno-stack-protector
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        clang-built-linux <clang-built-linux@googlegroups.com>,
-        "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
-        linux-efi <linux-efi@vger.kernel.org>,
-        Kees Cook <keescook@chromium.org>, LKML <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
+Content-Disposition: inline
+In-Reply-To: <20200630201243.GD4817@hirez.programming.kicks-ass.net>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Original-Sender: paulmck@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=KpDrOoEw;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@kernel.org header.s=default header.b=DZWNcctV;       spf=pass
+ (google.com: domain of srs0=gtay=al=paulmck-thinkpad-p72.home=paulmck@kernel.org
+ designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=gtay=AL=paulmck-ThinkPad-P72.home=paulmck@kernel.org";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,153 +155,117 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jun 30, 2020 at 7:39 AM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> On Mon, Jun 29, 2020 at 11:26 AM Nick Desaulniers
-> <ndesaulniers@google.com> wrote:
-> >
-> > On Sat, Jun 27, 2020 at 4:59 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
-> > >
-> > > On Sat, Jun 27, 2020 at 5:13 AM Nick Desaulniers
-> > > <ndesaulniers@google.com> wrote:
-> > > >
-> > > > On Fri, Jun 26, 2020 at 12:00 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
-> > > > >
-> > > > > diff --git a/arch/x86/kernel/cpu/Makefile b/arch/x86/kernel/cpu/Makefile
-> > > > > index dba6a83bc349..93792b457b81 100644
-> > > > > --- a/arch/x86/kernel/cpu/Makefile
-> > > > > +++ b/arch/x86/kernel/cpu/Makefile
-> > > > > @@ -17,8 +17,7 @@ KCOV_INSTRUMENT_perf_event.o := n
-> > > > >  KCSAN_SANITIZE_common.o := n
-> > > > >
-> > > > >  # Make sure load_percpu_segment has no stackprotector
-> > > > > -nostackp := $(call cc-option, -fno-stack-protector)
-> > > > > -CFLAGS_common.o                := $(nostackp)
-> > > > > +CFLAGS_common.o                := -fno-stack-protector
-> > > >
-> > > > Any time I see `:=` assignment to a CFLAGS variable, it's a red flag
-> > > > for overwriting existing CFLAGS, which is a common source of bugs.  I
-> > > > recognize the kernel is current a mix and match for:
-> > > >
-> > > > CFLAGS_<file>.o
-> > > >
-> > > > rules to either use `+=` or `:=`, but I wish we were consistent, and
-> > > > consistent in our use of `+=`.  For those rules, is there a difference
-> > > > between the use of `+=` and `:=` like there is for the more general
-> > > > case of appending to KBUILD_CFLAGS?  If not, it's ok to match the
-> > > > existing style, but it's curious to me in this patch to see a mixed
-> > > > use of `+=` and `:=`.
-> > >
-> > >
-> > > I think Kees mostly answered your question.
-> > >
-> > > Let me add some comments.
-> > >
-> > >
-> > > '+=' is the most used in kernel Makefiles, but
-> > > ':=' and '=' are also used.
-> > >
-> > > So, you are right, we are inconsistent.
-> > > This applies to not only CFLAGS_<file>.o, but also obj-y, etc.
-> > >
-> > > For example,
-> > > https://github.com/torvalds/linux/blob/v5.7/arch/arm64/kernel/Makefile#L15
-> > > 'obj-y :=' works since it is the first assignment to obj-y in that file.
-> > > 'obj-y +=' also works, of course.
-> > >
-> > > We can consistently use '+=' everywhere, but I do not send
-> > > patches for churn.
-> > >
-> > >
-> > > You can use any assignment operator to CFLAGS_<file>.o
-> > > if it is the first assignment in the Makefile.
-> > > Using '+=' is robust for future code insertion/removal, though.
-> > >
-> > >
-> > > If the right-hand side contains variable references,
-> > > there is important difference in the behavior.
-> > >
-> > > You may know two flavors in variables
-> > > (https://www.gnu.org/software/make/manual/make.html#Flavors)
-> >
-> > Cool, thanks for all the info.  With that, I'm happy with this patch.
-> >
-> > Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-> >
-> >
-> > > CFLAGS_foo.o := $(call cc-option,-fno-stack-protector)
-> > > The cc-option is expanded immediately when this line is parsed.
-> > > (So, the compiler is invoked for 'make clean' too)
-> > >
-> > >
-> > > CFLAGS_foo.o += $(call cc-option,-fno-stack-protector)
-> > > If this is the first assignment in the file,
-> > > '+=' act as '=', so the evaluation of cc-option
-> > > is delayed until $(CFLAGS_foo.o) is expanded.
-> > > (So, the compiler is NOT invoked for 'make clean')
-> >
-> > Ah, I think that may explain: I've been seeing the occasional warning
-> > from $(NM) when running `make clean` for ARCH=arm, I'll bet that's
-> > where this is coming from then.  Next time I reproduce it, I'll try to
-> > find maybe where we're using `:=` or `=` with `$(NM)`.
-> >
-> > Maybe arch/arm/boot/compressed/Makefile, KBSS_SZ is evaluated for
-> > `make clean`? (If you start an arm build, but kill it before vmlinux
-> > is created, then `make clean` I suspect that KBSS_SZ is evaluated?)
->
-> $ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make LLVM=1 -j71
-> $ rm vmlinux
-> $ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make LLVM=1 -j71 clean
-> llvm-nm: error: arch/arm/boot/compressed/../../../../vmlinux: No such
-> file or directory.
+On Tue, Jun 30, 2020 at 10:12:43PM +0200, Peter Zijlstra wrote:
+> On Tue, Jun 30, 2020 at 09:19:31PM +0200, Marco Elver wrote:
+> > I was asked for input on this, and after a few days digging through some
+> > history, thought I'd comment. Hope you don't mind.
+> 
+> Not at all, being the one that asked :-)
+> 
+> > First of all, I agree with the concerns, but not because of LTO.
+> > 
+> > To set the stage better, and summarize the fundamental problem again:
+> > we're in the unfortunate situation that no compiler today has a way to
+> > _efficiently_ deal with C11's memory_order_consume
+> > [https://lwn.net/Articles/588300/]. If we did, we could just use that
+> > and be done with it. But, sadly, that doesn't seem possible right now --
+> > compilers just say consume==acquire.
+> 
+> I'm not convinced C11 memory_order_consume would actually work for us,
+> even if it would work. That is, given:
+> 
+>   https://lore.kernel.org/lkml/20150520005510.GA23559@linux.vnet.ibm.com/
+> 
+> only pointers can have consume, but like I pointed out, we have code
+> that relies on dependent loads from integers.
 
-yeah, I had noticed this noise, but
-I did not get around to digging into it.
+I agree that C11 memory_order_consume is not normally what we want,
+given that it is universally promoted to memory_order_acquire.
 
+However, dependent loads from integers are, if anything, more difficult
+to defend from the compiler than are control dependencies.  This applies
+doubly to integers that are used to index two-element arrays, in which
+case you are just asking the compiler to destroy your dependent loads
+by converting them into control dependencies.
 
-> I suspect I see this from doing an ARCH=arm build, then building a
-> different ARCH and killing the build before vmlinux is produced or
-> `make clean` for a different ARCH, then run a `make clean` for
-> ARCH=arm.
->
-> Is the above (regarding lazy evaluation) not true for LDFLAGS_vmlinux?
-> I would have thought this would work:
+> > Will suggests doing the same in the
+> > kernel: https://lkml.kernel.org/r/20200630173734.14057-19-will@kernel.org
+> 
+> PowerPC would need a similar thing, it too will not preserve causality
+> for control dependecies.
+> 
+> > What we're most worried about right now is the existence of compiler
+> > transformations that could break data dependencies by e.g. turning them
+> > into control dependencies.
+> 
+> Correct.
+> 
+> > If this is a real worry, I don't think LTO is the magical feature that
+> > will uncover those optimizations. If these compiler transformations are
+> > real, they also exist in a normal build! 
+> 
+> Agreed, _however_ with the caveat that LTO could make them more common.
+> 
+> After all, with whole program analysis, the compiler might be able to
+> more easily determine that our pointer @ptr is only ever assigned the
+> values of &A, &B or &C, while without that visibility it would not be
+> able to determine this.
+> 
+> Once it knows @ptr has a limited number of determined values, the
+> conversion into control dependencies becomes much more likely.
 
+Which would of course break dependent loads.
 
-No, this does not work.
+> > And if we are worried about them, we need to stop relying on dependent
+> > load ordering across the board; or switch to -O0 for everything.
+> > Clearly, we don't want either.
+> 
+> Agreed.
+> 
+> > Why do we think LTO is special?
+> 
+> As argued above, whole-program analysis would make it more likely. But I
+> agree the fundamental problem exists independent from LTO.
+> 
+> > But as far as we can tell, there is no evidence of the dreaded "data
+> > dependency to control dependency" conversion with LTO that isn't there
+> > in non-LTO builds, if it's even there at all. Has the data to control
+> > dependency conversion been encountered in the wild? If not, is the
+> > resulting reaction an overreaction? If so, we need to be careful blaming
+> > LTO for something that it isn't even guilty of.
+> 
+> It is mostly paranoia; in a large part driven by the fact that even if
+> such a conversion were to be done, it could go a very long time without
+> actually causing problems, and longer still for such problems to be
+> traced back to such an 'optimization'.
+> 
+> That is, the collective hurt from debugging too many ordering issues.
+> 
+> > So, we are probably better off untangling LTO from the story:
+> > 
+> > 1. LTO or no LTO does not matter. The LTO series should not get tangled
+> >    up with memory model issues.
+> > 
+> > 2. The memory model question and problems need to be answered and
+> >    addressed separately.
+> > 
+> > Thoughts?
+> 
+> How hard would it be to creates something that analyzes a build and
+> looks for all 'dependent load -> control dependency' transformations
+> headed by a volatile (and/or from asm) load and issues a warning for
+> them?
+> 
+> This would give us an indication of how valuable this transformation is
+> for the kernel. I'm hoping/expecting it's vanishingly rare, but what do
+> I know.
+> 
 
-LDFLAGS_vmlinux is assigned by '=',
-so it already has the lazy expansion flavor.
+This could be quite useful!
 
-
-Unexporting LDFLAGS_vmlinux will fix it.
-(I may write a better patch, though)
-
-
-
-diff --git a/arch/arm/boot/compressed/Makefile
-b/arch/arm/boot/compressed/Makefile
-index 00602a6fba04..fab54b1c39aa 100644
---- a/arch/arm/boot/compressed/Makefile
-+++ b/arch/arm/boot/compressed/Makefile
-@@ -131,6 +131,8 @@ LDFLAGS_vmlinux += -X
- # Next argument is a linker script
- LDFLAGS_vmlinux += -T
-
-+unexport LDFLAGS_vmlinux
-+
- # For __aeabi_uidivmod
- lib1funcs = $(obj)/lib1funcs.o
-
-
-
-
--- 
-Best Regards
-Masahiro Yamada
+							Thanx, Paul
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAQhGVm9ZBYOSosPx3DZvY020LTy%2BMZr3LUbvDaa0j19RQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200630203016.GI9247%40paulmck-ThinkPad-P72.
