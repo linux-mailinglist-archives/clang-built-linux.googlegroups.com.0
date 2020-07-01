@@ -1,119 +1,128 @@
-Return-Path: <clang-built-linux+bncBC7JPD5NQEBBBOEB6T3QKGQEGY5PKUY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBCEM6T3QKGQEPYCN3GI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x140.google.com (mail-il1-x140.google.com [IPv6:2607:f8b0:4864:20::140])
-	by mail.lfdr.de (Postfix) with ESMTPS id 126AC211529
-	for <lists+clang-built-linux@lfdr.de>; Wed,  1 Jul 2020 23:31:38 +0200 (CEST)
-Received: by mail-il1-x140.google.com with SMTP id y3sf6083048ily.1
-        for <lists+clang-built-linux@lfdr.de>; Wed, 01 Jul 2020 14:31:38 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1593639097; cv=pass;
+Received: from mail-oi1-x239.google.com (mail-oi1-x239.google.com [IPv6:2607:f8b0:4864:20::239])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4AB3E211570
+	for <lists+clang-built-linux@lfdr.de>; Wed,  1 Jul 2020 23:54:17 +0200 (CEST)
+Received: by mail-oi1-x239.google.com with SMTP id k188sf4632022oih.5
+        for <lists+clang-built-linux@lfdr.de>; Wed, 01 Jul 2020 14:54:17 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1593640456; cv=pass;
         d=google.com; s=arc-20160816;
-        b=wqhmMS6bFWrtdetJ/lhMC3NFNjnsLOFiOIRZB+AwaPLyv/tTAGrcxtUiCRuybhD4Tx
-         Io15Pg+6EdxrNZInxYaFM9FwJAOD/OVMXFiPqYvMaWPe1r5JWjGngbZveO8xxJk2PwHr
-         yx+SlhUzFZDEjafmhMVKeXzz4zRQXXbBPTGYIUdevCKWOzHLB3ywIz91/faEt1Qu5mAo
-         zy43WKPL2adQWoMBqaa7nkbaLi0oYfEMt4l7AaBvhZ+0BK4z9AnRxjiYi9nYAnYwfm/o
-         xheF70GEOdJxgEurA1vbZjRgilK6p+XzmXrSBEB5s57rp5+SwjwJSN+VVfU5MSqIhlhR
-         lzEQ==
+        b=dsMbP57WWNTSirkDtq9IyJZAE2s81kNZmjid8rJRpcorCsooqEF1oDnc9u88osxhrP
+         mrhv23tkCEg+Wle3HxcMH4W79qMayL5tS3P2b5ZBXtrfYAsQz/wauXLpVkn0Ff6acT8M
+         fisnEiyOdKE+hjDOUaJqrezvmAg7p7+HwV0HR3z8lA/+JuhAjXc+q2QInbIwM6yF1/z3
+         4M5sqB7cuRjVdFiyJxfcfP+wd3QNxy6gV6uo8TzG9d9U2q5EADvNJRLJFEpu+Oaod9Dy
+         4HY3lXcjrUuXrhlDUMDUg2ZrOZ0yUe1qAxEY+fL+9QEDIEqHAQOs7FG3JawnYGYyl8at
+         NAeQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:subject:message-id:date
-         :from:mime-version:dkim-signature;
-        bh=Ad2dEr8LgQQwkF2zdIMA1cp4R8S/Ql01WHfKOJBe1X4=;
-        b=yJ21GH0holS7VmrNm0LN6TShLiqlLHxW9d/6Y9b1ZYmF7vdzDt0W2hHq7/vguKevOX
-         4+6w+rnr7cVzHbezz3LcDLm4mtp/Qs+KOH+cbvr3RNQttnDL6qHPRmBqzNOKKlOk5r9S
-         1PvnAsdDJyGScPhwuDImwU9R3J6PQmnnaIh5SbJWLnAxmQ3nxr8kPDqW7Mqkcu2613+Z
-         CIC86JzBpmPEU1ZiC0hGwbwPT14x97vmsiPUhlyQ5KjxSUHhrAmaXYI7E1UMK5WBJdao
-         y9DC3nS27rZ1me1ZgUOME7Nl3fSDemlAPrYgb6unygQtllk2OzjuMxGT0PdMJ5QHWpyj
-         gWHg==
+         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
+         :cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=JIQIWWOT2lBTZRomxpyTqF2JYeF48kzxveWSLP4NPus=;
+        b=qkVIZNAqBExkjKLHVL290B6FLuYGtLwkWwYjcQvdJGDbPIfP8Fzjbsgegz41b+Gn1H
+         brEDU7NqfQD6WW4jPiRpv1hHBD0KKK+aIbX1MDCA6kN3EnkqJiOvqlpGfOoIWqpeLyEH
+         bGLpxdQxMU6ZVbJPD1iRwlZ1Q8bbNnj1x0iUqdRl44Xa+Zh+WfNK6MBEmUNB7WX8Ast4
+         L0/mYHSyT7ar0o4g52eu6NoN9B0cm6lTMKA5o73h+SL97/H9i16V90aW9JxPL69pWKLP
+         ziojZHZ2d3SIu8EsMOTCoP83nJkGTE24v1Hr3xiNdmq+0kpllgZG1dU0Zr8FWZPB3zIB
+         /r7Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=GKh+sIVS;
-       spf=pass (google.com: domain of nhuck@google.com designates 2607:f8b0:4864:20::841 as permitted sender) smtp.mailfrom=nhuck@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="do3tiN8/";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:from:date:message-id:subject:cc:x-original-sender
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:content-transfer-encoding:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:list-post:list-help:list-archive:list-subscribe
          :list-unsubscribe;
-        bh=Ad2dEr8LgQQwkF2zdIMA1cp4R8S/Ql01WHfKOJBe1X4=;
-        b=rufX2fzQzZg1GRKMfQ4+fXSwpTwExnmlMnXqFC5mjU9UiyYTDPkNBdDl4M3/Ii8WZe
-         9DbNwCTN3hqYYm4J0r8cb072RKqM2Y9a4kmWAdz9Ng6nwb5FBCmfhj1tR0oD5zQW99fH
-         yvz1cyVPos/S/5ZwQbK2zOTXL1mpmDjE6aepfMjp6svb8SQqHY1xnlq+8OJ6DdHvXr2L
-         neC97Gd+2mcMs+eQ1tRkOSadaQ5s6xgaPnC+LIvlULUVkS815rw4sryVVrx/DxEwbjs3
-         3/dOmwV5EffUQW19/3s9NFZit0lU+u2JUXiXJRp4lCCGZ6Pv49j9POr6wuanm/2SNfp2
-         jFwA==
+        bh=JIQIWWOT2lBTZRomxpyTqF2JYeF48kzxveWSLP4NPus=;
+        b=Pah3vDd3gPnXOtQrb/yuUIIKz0kuWEdmcpFACuNeJYgmkgR7zQSmWnwKAGHERY7YCN
+         BbrjGboRasy4vg3wYuSWLf3AaMnawSlGwkSx7Hw+5H8e6/OceZyMq8gxQyZcVZTpQGXW
+         XNu0MdCfVw5tSAVMi1sj9QPnBSnObjZRL5yAhT9xhuZ9qUtsrph42ReSct75Ct/dF8Ej
+         g4BTQEp/jCdYqN5Z1tU/i4b9nyoZFd7SXl0LLZu6sm4K7jWpNpC6+yJCJjqtXfJ4ZOz9
+         nerXUQXUKP5NgBrFY+eOragKoPoY+fqG3InNMfLACCK6q7JHhnPzGybIKpE0sAUFTvTT
+         PZlg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:from:date:message-id:subject:cc
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:content-transfer-encoding
          :x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Ad2dEr8LgQQwkF2zdIMA1cp4R8S/Ql01WHfKOJBe1X4=;
-        b=R3BrnkRnpAcVRu5PeeyDBj1FKiegokanlrAVekwNA8WSYZQaSt/vDZAgPgloT5SP8G
-         Q2tZKmPbjRspow1lMC6/j+JtDyKcqmmmy4a3j1f330Wsy9FNrBFrvef05xH74nHmw1CT
-         jIm0SOsqaG2mEVeyXJGskayyQ5KQd0Djr9z+MnHc8p+8c1YFhsw5NRj5D/oJQQD1P7op
-         O4Ooy6TPXSn3dGpp8pmsa3xk5qoJujTARQIOjWfmiWQw3HMg/BOJ1e8DFYE2ByMBX3H/
-         Kb8csB5jR8zM71SX+MpF7JowSsdCnuPAZfqAOHFCQhHvvui/+CRZKtls2UVRMX8Vxzfk
-         0Elg==
-X-Gm-Message-State: AOAM531wXIIl0rC8n19Y7EO7M2pF9GIP563tiGEozWASsUIGPUfuHNkM
-	dQMnvFpLR+/RkZfcGk1NgWI=
-X-Google-Smtp-Source: ABdhPJw8yNn8DwzEoLTZIJvwGvfhU6nOnV0w4ET/78RDYy0Fnlb1wi+O+YInNy8Ah9lKlNrUojLEMw==
-X-Received: by 2002:a02:5806:: with SMTP id f6mr31030396jab.136.1593639096980;
-        Wed, 01 Jul 2020 14:31:36 -0700 (PDT)
+        bh=JIQIWWOT2lBTZRomxpyTqF2JYeF48kzxveWSLP4NPus=;
+        b=uJaecfU44FCsEC8L4mqG+8TmbYDcuYs70v0/nkR2UY0mWVyxB0r6LQUt6pptIz+uWB
+         zN5J1N9OcmY8ZPggtNlGfPI1Wn85s20rYmnJQksZvM32fbLiTwdHWUSd65qpT9enpxzG
+         dZfaOGIp8hQqdWxKBTNQOvgXZXz2lSYRBnLqR545Qyk1Iai0z8eiT8RFwvlmAW09Uyhc
+         sTm9tl7NwpG0OUGzv5bb0rlnh0WVESJfqbvzgZN9+BKAltLC7JqRHWUvHRol38gECTZt
+         ZZ51tVPTh0hBgy0JHZOSM9RKLVVmYMuKmTMJIhSfpx0imqg4Le/g8Aw7DyGb90SEsZ0y
+         Cj5w==
+X-Gm-Message-State: AOAM533LTWSwLky5i3xC0ZqloBtc9qSVkcSfUVONTACn0DY/fKllDOgz
+	cMelaHBV+7cENyO4ghPgsQM=
+X-Google-Smtp-Source: ABdhPJx60Q/oALuR4grIlUR3pX8Qltz17XuHk4qKC9G8fIbaN8WSqUfKUokVG4gYZ6qHX/HGsKwbtg==
+X-Received: by 2002:a05:6830:45a:: with SMTP id d26mr22161961otc.252.1593640456192;
+        Wed, 01 Jul 2020 14:54:16 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6602:1584:: with SMTP id e4ls828822iow.0.gmail; Wed, 01
- Jul 2020 14:31:36 -0700 (PDT)
-X-Received: by 2002:a05:6602:2e0e:: with SMTP id o14mr4335053iow.164.1593639096638;
-        Wed, 01 Jul 2020 14:31:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1593639096; cv=none;
+Received: by 2002:a9d:20c2:: with SMTP id x60ls856498ota.7.gmail; Wed, 01 Jul
+ 2020 14:54:15 -0700 (PDT)
+X-Received: by 2002:a05:6830:1292:: with SMTP id z18mr25373904otp.292.1593640455887;
+        Wed, 01 Jul 2020 14:54:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593640455; cv=none;
         d=google.com; s=arc-20160816;
-        b=uJ57g5aVfZkQLdkq7WhkSDEABGva24HyjDyM5Vga6LXQV3GOVRBpFN8f4H3t0HOMsK
-         AfjZSyJHzVqL5vU5oIWHxGKNLPbzamL2AvXqdqxxhuqyLAN0fCZezzMuTuO11H0hBUZ6
-         o5tDK4aEN9xbgjqoRh1vk72JU+aL7n4hZkcMDu6E+7P9GzBirpFjfw0Ykgk3NfvdyRYq
-         mJlSrb7V3DXx5MLBznXgKmnsZQ10cdhcO1FefvoZgSBHMChgYRtxk1MFPqDU2sbMKFJ5
-         SSKMbQqIo6X5vwO3yX9p/aczvqICvzafv0ex6cHBgGXHzmjCdAXs2B+NxzEb5TIFLcQP
-         +pYQ==
+        b=OIwwNOKNpIIVIjDCtS5chGEIx3Bz6L6XxI09NuPlszwqw+PlVrInXXZWv5xaZi4IHh
+         tclIOC1ARpZel6rbCNscs5QGoBqXry+xNL/BhbFZ/4kq1OwwdaEH86JT1Q8K6MGfnD4I
+         qJPaguoqxduflMyJNneIdRSH6xjQ4toMKZUGEHiREmXvpaTDpHaile90Ge3zDlSJbfXA
+         W19LGum3iK+Yq+YDFN6YAWmgr8FmiUZ09XV0UtSeopgZKDxIxwcldw21phaPWeUM3uGC
+         54w8MqaSWWzpxgzFyMP28KOQ7iefp6KJIS27ZV7e+qFJAKoFHEu7+LaYpT2wM/6yc/+v
+         IP0w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=wyzowyx7uQOEM7mNX5vpM7cpgKtRoBkaGUwdftAt4dU=;
-        b=j6+bOTCNnUaBCuOfLZZ3Bmsk4hCY7Pytj7C1QtuIoU6euIM+aVWky9Z7yH/kH5HD5a
-         bT5ypFmbEy9FnlKPVEwkdIT+gRUW8XpBXDZOP8rSTgU2iV+wGT2PogPNPEkCmTFZM+kt
-         UXs7wK/5gScm3qnReJBmAnksUnlhZTrFgIgCFDoJQ53arTMFfyhUHN97rnCqVz91fO6w
-         StOnYbHe6gB6MD9QaRRLBYFWYwGRuURoabeK1NUkwu7Bgw+2DhmdKikxwWAPelUV+4cH
-         R4oyKTPHIhyQzgAdmCHBFCxHCh1fHempzNoPC4m636rtddL5q0gwnP97HEwnHqmsOazV
-         WXLg==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=v5zVZ/qvFqC9c5KWODDkon7op7M6c9UcQbidcfKUSJo=;
+        b=CmWSu7CB5t1K4C+mGXWoenJSswl55hNIgRaTvP6WOpUEHpBoidu1gvHuyANXXV+mK4
+         Yy0ZxEkp46PfG4SsaseLRj/DPl5DnxF/97258p5ag3nXKg9b2T3dDygPPlp1Bm+TFUMi
+         Jt52e67ofx7JGdPM96w9wOH7ACfq1hZiXZ3eZmRWWh1oQPofUSWu0Oy2vhEAuy7YLXxT
+         PDCsgar+zQ5m+FzmiH6KQFDrFPJKagoQMaQNU7HqWISnfoGUO7NV5QruCsOjbDA+0+WB
+         ItaZlbBj3QpWOcqVD3kbGd0hvZDABgiaTrjepcjp5k+CQ98EmE/UG229rPJUr1x+EBnT
+         1Dzw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=GKh+sIVS;
-       spf=pass (google.com: domain of nhuck@google.com designates 2607:f8b0:4864:20::841 as permitted sender) smtp.mailfrom=nhuck@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="do3tiN8/";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-qt1-x841.google.com (mail-qt1-x841.google.com. [2607:f8b0:4864:20::841])
-        by gmr-mx.google.com with ESMTPS id p1si553667ioh.3.2020.07.01.14.31.36
+Received: from mail-pg1-x541.google.com (mail-pg1-x541.google.com. [2607:f8b0:4864:20::541])
+        by gmr-mx.google.com with ESMTPS id l18si551131oil.2.2020.07.01.14.54.15
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 01 Jul 2020 14:31:36 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nhuck@google.com designates 2607:f8b0:4864:20::841 as permitted sender) client-ip=2607:f8b0:4864:20::841;
-Received: by mail-qt1-x841.google.com with SMTP id o38so19670572qtf.6
-        for <clang-built-linux@googlegroups.com>; Wed, 01 Jul 2020 14:31:36 -0700 (PDT)
-X-Received: by 2002:ac8:4ccb:: with SMTP id l11mt29054058qtv.18.1593639095888;
- Wed, 01 Jul 2020 14:31:35 -0700 (PDT)
+        Wed, 01 Jul 2020 14:54:15 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) client-ip=2607:f8b0:4864:20::541;
+Received: by mail-pg1-x541.google.com with SMTP id p3so12381702pgh.3
+        for <clang-built-linux@googlegroups.com>; Wed, 01 Jul 2020 14:54:15 -0700 (PDT)
+X-Received: by 2002:a63:a119:: with SMTP id b25mr21262941pgf.10.1593640455007;
+ Wed, 01 Jul 2020 14:54:15 -0700 (PDT)
 MIME-Version: 1.0
-From: "'Nathan Huckleberry' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 1 Jul 2020 16:30:00 -0500
-Message-ID: <CAJkfWY48=q1JBFDt2agjTOSNbYYeuxsQaD7RyjkvcesKtJhARg@mail.gmail.com>
-Subject: [RFC] Instrumenting Clang/LLVM with Perfetto
-Cc: llvm-dev@lists.llvm.org, cfe-dev@lists.llvm.org, 
-	android-llvm@googlegroups.com, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Nick Desaulniers <ndesaulniers@google.com>
+References: <20200622231536.7jcshis5mdn3vr54@google.com> <20200625184752.73095-1-ndesaulniers@google.com>
+In-Reply-To: <20200625184752.73095-1-ndesaulniers@google.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 1 Jul 2020 14:54:02 -0700
+Message-ID: <CAKwvOd=cum+BNHOk2djXx5JtAcCBwq2Bxy=j5ucRd2RcLWwDZQ@mail.gmail.com>
+Subject: Re: [PATCH v2] vmlinux.lds: add PGO and AutoFDO input sections
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: =?UTF-8?B?RsSBbmctcnXDrCBTw7JuZw==?= <maskray@google.com>, 
+	"# 3.4.x" <stable@vger.kernel.org>, Jian Cai <jiancai@google.com>, 
+	Luis Lozano <llozano@google.com>, Manoj Gupta <manojgupta@google.com>, 
+	linux-arch <linux-arch@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: nhuck@google.com
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=GKh+sIVS;       spf=pass
- (google.com: domain of nhuck@google.com designates 2607:f8b0:4864:20::841 as
- permitted sender) smtp.mailfrom=nhuck@google.com;       dmarc=pass (p=REJECT
- sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nathan Huckleberry <nhuck@google.com>
-Reply-To: Nathan Huckleberry <nhuck@google.com>
+ header.i=@google.com header.s=20161025 header.b="do3tiN8/";       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -126,159 +135,114 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Instrumenting Clang/LLVM with Perfetto
+Hi Arnd,
+I usually wait longer to bump threads for review, but we have a
+holiday in the US so we're off tomorrow and Friday.
+scripts/get_maintainer.pl recommend you for this patch.  Would you
+take a look at it for us, please?
+
+On Thu, Jun 25, 2020 at 11:48 AM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
+>
+> Basically, consider .text.{hot|unlikely|unknown}.* part of .text, too.
+>
+> When compiling with profiling information (collected via PGO
+> instrumentations or AutoFDO sampling), Clang will separate code into
+> .text.hot, .text.unlikely, or .text.unknown sections based on profiling
+> information. After D79600 (clang-11), these sections will have a
+> trailing `.` suffix, ie.  .text.hot., .text.unlikely., .text.unknown..
+>
+> When using -ffunction-sections together with profiling infomation,
+> either explicitly (FGKASLR) or implicitly (LTO), code may be placed in
+> sections following the convention:
+> .text.hot.<foo>, .text.unlikely.<bar>, .text.unknown.<baz>
+> where <foo>, <bar>, and <baz> are functions.  (This produces one section
+> per function; we generally try to merge these all back via linker script
+> so that we don't have 50k sections).
+>
+> For the above cases, we need to teach our linker scripts that such
+> sections might exist and that we'd explicitly like them grouped
+> together, otherwise we can wind up with code outside of the
+> _stext/_etext boundaries that might not be mapped properly for some
+> architectures, resulting in boot failures.
+>
+> If the linker script is not told about possible input sections, then
+> where the section is placed as output is a heuristic-laiden mess that's
+> non-portable between linkers (ie. BFD and LLD), and has resulted in many
+> hard to debug bugs.  Kees Cook is working on cleaning this up by adding
+> --orphan-handling=3Dwarn linker flag used in ARCH=3Dpowerpc to additional
+> architectures. In the case of linker scripts, borrowing from the Zen of
+> Python: explicit is better than implicit.
+>
+> Also, ld.bfd's internal linker script considers .text.hot AND
+> .text.hot.* to be part of .text, as well as .text.unlikely and
+> .text.unlikely.*. I didn't see support for .text.unknown.*, and didn't
+> see Clang producing such code in our kernel builds, but I see code in
+> LLVM that can produce such section names if profiling information is
+> missing. That may point to a larger issue with generating or collecting
+> profiles, but I would much rather be safe and explicit than have to
+> debug yet another issue related to orphan section placement.
+>
+> Cc: stable@vger.kernel.org
+> Link: https://sourceware.org/git/?p=3Dbinutils-gdb.git;a=3Dcommitdiff;h=
+=3Dadd44f8d5c5c05e08b11e033127a744d61c26aee
+> Link: https://sourceware.org/git/?p=3Dbinutils-gdb.git;a=3Dcommitdiff;h=
+=3D1de778ed23ce7492c523d5850c6c6dbb34152655
+> Link: https://reviews.llvm.org/D79600
+> Link: https://bugs.chromium.org/p/chromium/issues/detail?id=3D1084760
+> Reported-by: Jian Cai <jiancai@google.com>
+> Debugged-by: Luis Lozano <llozano@google.com>
+> Suggested-by: F=C4=81ng-ru=C3=AC S=C3=B2ng <maskray@google.com>
+> Tested-by: Luis Lozano <llozano@google.com>
+> Tested-by: Manoj Gupta <manojgupta@google.com>
+> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+> ---
+> Changes V1 -> V2:
+> * Add .text.unknown.*.  It's not strictly necessary for us yet, but I
+>   really worry that it could become a problem for us. Either way, I'm
+>   happy to drop for a V3, but I'm suggesting we not.
+> * Beef up commit message.
+> * Drop references to LLD; the LLVM change had nothing to do with LLD.
+>   I've realized I have a Pavlovian-response to changes from F=C4=81ng-ru=
+=C3=AC
+>   that I associate with LLD.  I'm seeking professional help for my
+>   ailment. Forgive me.
+> * Add link to now public CrOS bug.
+>
+>  include/asm-generic/vmlinux.lds.h | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+>
+> diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmli=
+nux.lds.h
+> index d7c7c7f36c4a..245c1af4c057 100644
+> --- a/include/asm-generic/vmlinux.lds.h
+> +++ b/include/asm-generic/vmlinux.lds.h
+> @@ -560,7 +560,10 @@
+>   */
+>  #define TEXT_TEXT                                                      \
+>                 ALIGN_FUNCTION();                                       \
+> -               *(.text.hot TEXT_MAIN .text.fixup .text.unlikely)       \
+> +               *(.text.hot .text.hot.*)                                \
+> +               *(TEXT_MAIN .text.fixup)                                \
+> +               *(.text.unlikely .text.unlikely.*)                      \
+> +               *(.text.unknown .text.unknown.*)                        \
+>                 NOINSTR_TEXT                                            \
+>                 *(.text..refcount)                                      \
+>                 *(.ref.text)                                            \
+> --
+> 2.27.0.111.gc72c7da667-goog
+>
 
 
-Overview
+--=20
+Thanks,
+~Nick Desaulniers
 
-    Perfetto is an event based tracer designed to replace chrome://tracing. It
-    allows for fine-grained control over trace data and is currently in use by
-    Chrome and Android.
-
-    Instrumentation of Clang with Perfetto would give nicely formatted traces
-    that are easily shareable by link. Compile time regression bugs could be
-    filed with Perfetto links that clearly show the regression.
-
-    Perfetto exposes a C++ library that allows arbitrary applications to record
-    app-specific events. Trace events can be added to Clang by calling macros
-    exposed by Perfetto.
-
-    The trace events are sent to an in-process tracing service and are kept in
-    memory until the trace is written to disk. The trace is written as a
-    protobuf and can be opened by the Perfetto trace processor
-(https://ui.perfetto.dev/).
-
-    The Perfetto trace processor allows you to vizualize traces as flamegraphs.
-    The view can be scrolled with "WASD" keys. There is also a query engine
-    built into the processor that can run queries by pressing CTRL+ENTER.
-
-    The benefits of Perfetto:
-
-    Shareable Perfetto links
-        Traces can be easily shared without sending the trace file
-    Traces can be easily aggregated with UNIX cat
-    Fine-grained Tracing Control
-        Trace events can span across function boundaries  (Start a trace in one
-        function, end it in another)
-        Finer granularity than function level that you would see with Linux perf
-    Less tracing overhead
-        Trace events are buffered in memory, not sent directly to disk
-        Perfetto macros are optimized to prevent overhead
-    Smaller trace sizes
-        Strings and other reused data is interned
-        Traces are stored as protobufs instead of JSON
-    3x smaller than -ftrace-time traces
-    SQL queries for traces
-        The Perfetto UI has a query language built in for data aggregation
-    Works on Linux/MacOS/Windows
-
-
-Example Trace
-
-    This is an example trace on a Linux kernel source file.
-    https://ui.perfetto.dev/#!/?s=c7942d5118f3ccfe16f46d166b05a66d077eb61ef8e22184a7d7dfe87ba8ea
-
-    This is an example trace on the entire Linux kernel.
-    Recorded with:
-      make CC="clang-9" KCFLAGS="-perfetto" -j72
-      find /tmp -name "*pftrace" -exec cat {} \; > trace.pftrace
-    https://ui.perfetto.dev/#!/?s=10556b46b46aba46188a51478102a6ce21a9c767c218afa5b8429eac4cb9d4
-
-
-Current Implementation
-
-    These changes are behind a CMake flag (-DPERFETTO). When building Clang with
-    the CMake flag enabled, the Perfetto GitHub is cloned into the
-build folder and
-    linked against any code that uses Perfetto macros.
-
-    The -ftime-trace and Perfetto trace events have been combined into one
-    macro that expands to trace events for both. The behavior of -ftime-trace
-    is unchanged.
-
-    To run a Perfetto trace, pass the flag -perfetto to Clang (built with
-    -DPERFETTO). The trace output file follows the convention set by
-    -ftime-trace and uses the filename passed to -o to determine the trace
-    filename.
-
-    For example:
-    clang -perfetto -c foo.c -o foo.o
-    would generate foo.pftrace.
-
-    Link to implementation: https://reviews.llvm.org/D82994
-
-
-Tracing documentation
-
-    LLVM_TRACE_BEGIN(name, detail)
-    Begins a tracing slice if Perfetto or -ftime-trace is enabled.
-      name : constexpr String
-        This is what will be displayed on the tracing UI.
-      detail : StringRef
-        Additional detail to add to the trace slice. This expands to a lambda
-        and will be evaluated lazily only if Perfetto or -ftime-trace are
-        enabled.
-
-    LLVM_TRACE_END()
-    Ends the most recently started slice.
-
-    LLVM_TRACE_SCOPE(name, detail)
-    Begins a tracing slice and initializes an anonymous struct if Perfetto or
-    -ftime-trace is enabled. When the struct goes out of scope, the tracing
-    slice will end.
-      name : constexpr String
-        This is what will be displayed on the tracing UI.
-      detail : StringRef
-        Additional detail to add to the trace slice. This expands to a lambda
-        and will be evaluated lazily only if Perfetto or -ftime-trace are
-        enabled.
-
-    Perfetto Documentation: https://perfetto.dev/
-
-
-FAQs
-
-    Why not use Linux Perf?
-      Perfetto's event based model allows for much finer grained control over
-      the trace.
-      Linux Perf is only available on Linux.
-      Visualization requires post processing with separate tools.
-      Requires kernel version specific dependencies.
-
-
-    Why not use -ftime-trace?
-      Perfetto has almost the same functionality as -ftime-trace, but with a
-      few added benefits.
-
-      Shareable links.
-      Traces can be aggregated easily with UNIX cat.
-      The query engine for trace analysis.
-      The Perfetto UI is browser agnostic and could be used the same way as
-        godbolt.
-      The resulting trace files are ~3x smaller.
-A trace of the Linux kernel is 50MB with Perfetto and 139MB with
--ftime-trace.
-
-
-Extra Notes
-
-    Perfetto also has a system-mode that interacts with Linux ftrace.  It can
-    record things like process scheduling, syscalls, memory usage and CPU
-    usage.
-
-    This type of trace probably records way more data than we need,
-but I recorded
-    a sample trace anyway while testing.
-    https://ui.perfetto.dev/#!/?s=18de7feb4f84ecd29519cb4ac136613ba891e4fd5e88a9e6511412ccfd210
-
-
-Known Issues
-
-    When no-integrated-as is enabled, traces are outputted to /tmp/. This is a
-    bug with the current implementation of -ftime-trace. When the Perfetto
-    change is applied, the bug also applies to Perfetto.
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAJkfWY48%3Dq1JBFDt2agjTOSNbYYeuxsQaD7RyjkvcesKtJhARg%40mail.gmail.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/CAKwvOd%3Dcum%2BBNHOk2djXx5JtAcCBwq2Bxy%3Dj5ucRd2RcLWwDZQ=
+%40mail.gmail.com.
