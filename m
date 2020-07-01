@@ -1,146 +1,128 @@
-Return-Path: <clang-built-linux+bncBCIO53XE7YHBBAUV573QKGQEI73FWOQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD66FMGZA4IKBJ7P64CRUBBSFMC4S@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3e.google.com (mail-io1-xd3e.google.com [IPv6:2607:f8b0:4864:20::d3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3CF62210065
-	for <lists+clang-built-linux@lfdr.de>; Wed,  1 Jul 2020 01:28:04 +0200 (CEST)
-Received: by mail-io1-xd3e.google.com with SMTP id i204sf14139114ioa.2
-        for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jun 2020 16:28:04 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1593559683; cv=pass;
+Received: from mail-pg1-x540.google.com (mail-pg1-x540.google.com [IPv6:2607:f8b0:4864:20::540])
+	by mail.lfdr.de (Postfix) with ESMTPS id CD0E02100D7
+	for <lists+clang-built-linux@lfdr.de>; Wed,  1 Jul 2020 02:06:57 +0200 (CEST)
+Received: by mail-pg1-x540.google.com with SMTP id z187sf16393064pgd.11
+        for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jun 2020 17:06:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1593562016; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cR6rDu5Ny76yHtH1pqCu6X5UgVXF83E1iDGFEBxJWbs8UOvaq79QGe2xKfjYCHCa+5
-         cfKdJ8zaiR12nvymqRzPfzjhPfi1OG+9TI078broSLgGWVwTHoj1yS8WwoEQmjK+6AVR
-         tHskXpuTgaleiNKlNCUFI19omUtP8lriuZIswoswTmXmMgCagKdZ5BLAAFtqjMIqaXlc
-         2TGwUhZDICM8QxSVgZ4NvjiU16R/0YOEMvDFyubU0j8bAHAdlDA9Q5IvLxhXkm2YusOM
-         1YZKmzP52GPxUen99UV3s4EHrCxypNFD/KQnDM2JnuJB6LhmhkTZSTus/Atlt25oJG9N
-         jDow==
+        b=K6Dc/0OjteZageRpiGLVKD3Hv4FG8WVmoadAiZ00oGj+i29Six64FhJB48py4BhGsS
+         YYfbM6e4124ZhcyuO3dFwNqqtUUpY1Zms+8RMW51On/dnsFsOt+KeTH2rHb9fSE4qxYf
+         n9MbXSFC3kyLHJrOjEjKWSrjN2hQI45+W+VBLb0s+AXN4o0aXbOn0eOeknJGQAhb18bC
+         MeBvO2uIl5LBcX+dkgL0nflmEzs+iZw4MPxX/KytkoRn4cWN+m0cXJgBbfu5UpFM2Aaz
+         4R//YNIBBKz/OG71HiUy8j+JVEHHnT0ygA3pkMc9C10cU6QPT9YVXz/QZS7ke8ylYrMd
+         2h7Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:sender
-         :dkim-signature;
-        bh=ahLKqqtn82wwN5QMTjIdYgHYaKe1mMQi2KyC18Lty5Y=;
-        b=M3oHfvGkKOF8nba0vDlL6k9LVJVHZlKxP+Uxju8t5l6J7ZDZtAJy4nMddnZUjkQxDR
-         tg2OJZjIG+QPlWshNk1cEDx9OUplYoMVS0dDG4kuHRoq8uCCrU/huFrSkFWtsgVm7PO8
-         PKovryquJXWdsB5jIqaLiBkk/O7VKAbFlOJjmJwpboDLRUigCLSCp8Gc/Hr/gyydh6+Y
-         i6on6S6cVYs87XOWfropy7D0G491qARJy4qfoDurEw1TSlw+swd0CNoXMVEwJDfvOyOr
-         mMvrenRXihyS6kQD95Cn7YkoX3rSC/ILO1ryp9TjOwMX7sDCrDmLyPLsc9sygf/GjX28
-         qE/Q==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=wYzo9EYe4GBA7HQoUpDgC9rMTxMwm3+Oe8UR0L6Fq6g=;
+        b=rmF66MFUSnYsdADsY0vzRoWxG7h0Wa1VM3re9qutXaFRPeBhjMUC5GOiGGFxurxcfk
+         IbYGkNzarOFczXntpc9wbXYVbHlBR9aZGlIgf/1K+D3R6FJJNglJXXHQL/R+yuvBEJGf
+         UVR40ySdKXl2rwfm9LToAZjAeHz7+1Ya2nHz4jWdjZAxfmNctorprZqixlt9oAb7RY5g
+         hOu1N9OPkbQgvLMfgtnI3qIHwtZ31O0/OyLDtIJvIGTci/VDcflh8cweK9NZSbbs5cxw
+         wQkrqAWtyRMOu0ZWqjyBKMgEfhaz9N5wC/LA89djMThMye6pvFXYgEhU6WIVgXlZe9h1
+         VzHA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=D+w4anAV;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::742 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=oIi2JFEv;
+       spf=pass (google.com: domain of morbo@google.com designates 2607:f8b0:4864:20::e44 as permitted sender) smtp.mailfrom=morbo@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=sender:from:date:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ahLKqqtn82wwN5QMTjIdYgHYaKe1mMQi2KyC18Lty5Y=;
-        b=b+b2Lgixc+FRNMZlsbgh7G6HJNe17OJsBJkHNsBiQ0jr+OPDQMgS9jIwi0bNhbhgMp
-         410IHLqLiI0rvyjptrsdO2RPwsiZBwGj/DlxyJNBYgz136Bi8hJoayrHg5SRxQLFcop4
-         T8k5kCyBA+G1IkB7K4kucM3ux6qwyquQaFkUDAGTATyedymQMCSWHLT7TOhzsmCZCryn
-         d4XAuu11Cu1oYL4qLL6gUt6/SpCSIWcxLjfyUfg1YZHxdd2qn7vf3i5MZCr0yEf7Ybu3
-         wSlg3gSBBMAgxuWhxXHUMnp/1+bdzAgOTjEc3MhHpMsxqTDadJcUaYRgqWT/6d6CKv9N
-         ZYzA==
+        d=googlegroups.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=wYzo9EYe4GBA7HQoUpDgC9rMTxMwm3+Oe8UR0L6Fq6g=;
+        b=h7xsnDQZ0KeNdRWa4KjzSKUQ1qYxh6WnjAElvuTn6CgTVB6cmiCe9NQRRfjnqTD3c4
+         Hrzrpnc4mdyjzkvu3o6Yujf/73Jd/Zsfytv8EKL46IbHpY2L5P8II8CftsZ9OdW97k6H
+         YuLqj3veu8npMUflvBBpX1RSTE13rnhZOH3NhRWNcf9Tb2RoYmsuAU6EWEK9X7vmH17k
+         K6aHYb6Kbv2nzJYbv0D5HtoAYw/frswOqzGHCTls+tW+kT3Tua33brsiHQzEIE+eucb8
+         p4U88vhOCjhZgjBJMM1igu9nY4m/mN7+d0lihUlmCD7qcK36IyKvGb81JXbmwBOKKHRa
+         iBOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=ahLKqqtn82wwN5QMTjIdYgHYaKe1mMQi2KyC18Lty5Y=;
-        b=nJ7UlWPUYyrrZUJFrG6snB7ZMil9ZlD6Hjyt7+RbtggVtvGmyUrQsFquAiXVrEba2r
-         vhPVM55+ga6h0KHbDq7fZ3P0hzdMSeG7vISaAy5LZIrnA0Ba4AU0NeGqvtoICOzeTJKR
-         hBh3ji2vXoZjo7wTFs6000OigNDMMHoFRq9xILtmCFbJHV83ttP6GltXV04cVcfiEF2u
-         v2cNVLte5Bnc4WUxX8lP8KUBJ0Q9KZahiHmmfSE/PE+wM0TN/xA6dfBoaiaAu2ChC+Cw
-         Ac+XGahLTL+ARBDDTGpHLm1W+G6vmQdDwp6zoAxi8z92f5eo/vRGsAfGLCJ7WB6jXPD/
-         ChUw==
-X-Gm-Message-State: AOAM530Sq+vFBLaMV6m4SexJhAvUPI5FkbR+c8/kUuwYEXZg3kR5tQuC
-	zrQYwMOUYGBT3YBOD0gj/zY=
-X-Google-Smtp-Source: ABdhPJzT8cX1hkgWJJuFSGoV9FnGq0/0mLVPA1CP2vyh6JUbM/WvsSpOruzR4OqW/Pd/LVG4P0pQ9g==
-X-Received: by 2002:a92:5b5d:: with SMTP id p90mr5392861ilb.45.1593559682748;
-        Tue, 30 Jun 2020 16:28:02 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=wYzo9EYe4GBA7HQoUpDgC9rMTxMwm3+Oe8UR0L6Fq6g=;
+        b=bxp25FEOzHt+5UFVttAZ6QvQQ7PRc6+xx9LzDi63PDACJbIT/SR/uhobNbbgMXaI+9
+         x9+HlIkCtTiinqsfubam9GF+ab6MzI4RJsUH2NXslXebxX3Im0fEbB4NzkBNHEFDg8zY
+         2lQgIAtuSiw4WYPhy9CDy7I5hEe/COIS9TMdADVN9IpJHFrkui0IdQbyQfC626X2o+Zq
+         JjmT3DCBta6pkQpB0Dy90duAzIjeFTFpgKGIt43HXFTQPR/U0TKiqqSR+G+jLduTBbd9
+         hDB7+uih2CG25EQERFiokeBAO7n4JV2bIVgPt45usRpUO5tinQpIz0kHHazDMSh94/Aj
+         Rewg==
+X-Gm-Message-State: AOAM531x2Zv0hHSd8OhrVc/ez4PUPZMwNG6l7y39UjfS9OvLU37QxTQq
+	Nt+azfLCYvA2L94xkGxp+RY=
+X-Google-Smtp-Source: ABdhPJw6W42MYF43ye9r4wMe3n/vI3ekrvEQNWMeAN0Wu1rOlX0T9AhkyJK3+f9et2xu1eap1S8Cyw==
+X-Received: by 2002:a17:902:8302:: with SMTP id bd2mr19854786plb.110.1593562016126;
+        Tue, 30 Jun 2020 17:06:56 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6e02:11a6:: with SMTP id 6ls102014ilj.5.gmail; Tue, 30
- Jun 2020 16:28:02 -0700 (PDT)
-X-Received: by 2002:a92:d843:: with SMTP id h3mr5379579ilq.255.1593559682446;
-        Tue, 30 Jun 2020 16:28:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1593559682; cv=none;
+Received: by 2002:a62:7e97:: with SMTP id z145ls77336pfc.4.gmail; Tue, 30 Jun
+ 2020 17:06:55 -0700 (PDT)
+X-Received: by 2002:a62:640b:: with SMTP id y11mr20988258pfb.195.1593562015716;
+        Tue, 30 Jun 2020 17:06:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593562015; cv=none;
         d=google.com; s=arc-20160816;
-        b=zKSNzOJIz/cO+y87y0ksxwvetWZlZoiBAtOVeuf1vRg+qiVh7vTH4JogTmqOJM9mmP
-         FrzqASGxGt8PqO6zRZRZnqPrJq9edxmg/hDq10HB9JZ9oLEnRqs7poVzMELZZIon+8wU
-         m7HYNu2fC5PapI/EsMOhCuKSfdzKUywbzY/hJPC0tMKGysnzmwhtxMFWfDPzUqAI4Zmd
-         oT/txT0WI9Eyb9uphKe0Nllgtc/gHEqSyzF3m7O5/mcuelI1MA3yJUiuCxfJfz0gdS8v
-         ZujgGeDsl/VSxVYzpx5cPMFA20Kr6j7A+3xOOFH41oI9UZszDRuFGqPMyylNW/XOuBUV
-         omKA==
+        b=QxFiqCbg5mCnRA6FAUbG5cH55PQUq7/CP2C9yJfYyLiHNRoxeJ6nd7ppNXZ2aS51ra
+         firYMXDcs+soD3iHczuY8hx+4M8IIX07u+MtrjiRg2jdfvoTG+PO3OPUn1FsKIC6aXUo
+         GblxSBmQJ3UrEOkGv+HQX8cSbaHP4hMFDqhPRmAk017F8wLPi6LVryV6iDE0YIA56eZ+
+         qSzbulXv7osKv8oOszjqMH1FHIrQw0fMDhoZ7McIgGJ6s2SfXrRmgEbJlofcCs0rd1N+
+         rIGU6l3beeWru9fNFJsN94LW16/yRu3jkXH5e71RxLu/K3gJZnBnAltMHD/9LLnQ1M/J
+         FlTA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:sender:dkim-signature;
-        bh=iirypFBp2xtegwS2Iq4B1iPUgMABexUaf6RMKakBSKI=;
-        b=EKePYAnP0pQFWSHHlMpjEEdFVqVpyc/oP57bG4GUUhjIIaCg6/aC/1UVE3IGj7MCBx
-         03SaUs7vpMLtw3FCLlxKTlAjTT8D0Atqz50VSujIYF+1G/IwZeWFfmQkp6xC7Vv8oMLn
-         a9LAe1/hGClzwjmwONO4u16RMkqZShHrysgJP8yvJ+zJRWR4GGA8iUpzXperF5DR4FA0
-         dLG9UJ95H1VTXmYU9Luai052348czHjKGVG+9YHGUzVeS/dZuoGyotbbhKWF+OSnNukE
-         UB69KufR1UHGRhrQ/5OgTScDIN/FFg11cOwtWMHWusXtvBZ0+4FbnZ6cRR2Smt5UJ2kN
-         ldSQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=ljeanCVomM9pm7YqGsm40u2yOhEfwYZjVfL5sMIeFvE=;
+        b=w11qVt9u79SCuAsbYNqOvohfZFNffNGALJ97IDgq2M+XCMMI87BHmIkveMQR526DR/
+         MZOYTFLFkLHfwTGgCPEb5iI0B0ICV39hXCMCn2WQubANGp03mVJV7VZOSD6tCGydIFxN
+         OMpg3hI8PYSayVAH1pqSJJop5wgy8EP5IDeMlUejdNrjiMjf2FqNcVODCkx90YRat+ip
+         f+gkbRNh9TpWmI1ajCs/NYqq0XiQxxZohxa8aV35A0Dgg1t7EN90eFMZNl3O8mGt+BP0
+         344csJ+jUlRk9NXE15wAs2Ao2fk2CwLlFfwWHu+CpaS4cubZG5dGjsa7vS99di/+x2ZX
+         5b2g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=D+w4anAV;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::742 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
-Received: from mail-qk1-x742.google.com (mail-qk1-x742.google.com. [2607:f8b0:4864:20::742])
-        by gmr-mx.google.com with ESMTPS id d3si230262iow.4.2020.06.30.16.28.02
+       dkim=pass header.i=@google.com header.s=20161025 header.b=oIi2JFEv;
+       spf=pass (google.com: domain of morbo@google.com designates 2607:f8b0:4864:20::e44 as permitted sender) smtp.mailfrom=morbo@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-vs1-xe44.google.com (mail-vs1-xe44.google.com. [2607:f8b0:4864:20::e44])
+        by gmr-mx.google.com with ESMTPS id a6si302493pgw.3.2020.06.30.17.06.55
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 30 Jun 2020 16:28:02 -0700 (PDT)
-Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::742 as permitted sender) client-ip=2607:f8b0:4864:20::742;
-Received: by mail-qk1-x742.google.com with SMTP id l6so20463449qkc.6
-        for <clang-built-linux@googlegroups.com>; Tue, 30 Jun 2020 16:28:02 -0700 (PDT)
-X-Received: by 2002:a37:4c0d:: with SMTP id z13mr21851974qka.170.1593559681849;
-        Tue, 30 Jun 2020 16:28:01 -0700 (PDT)
-Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
-        by smtp.gmail.com with ESMTPSA id x13sm3868567qkx.10.2020.06.30.16.28.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Jun 2020 16:28:01 -0700 (PDT)
-Sender: Arvind Sankar <niveditas98@gmail.com>
-From: Arvind Sankar <nivedita@alum.mit.edu>
-Date: Tue, 30 Jun 2020 19:27:59 -0400
-To: Fangrui Song <maskray@google.com>
-Cc: Arvind Sankar <nivedita@alum.mit.edu>, Ard Biesheuvel <ardb@kernel.org>,
-	Kees Cook <keescook@chromium.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	"H. Peter Anvin" <hpa@zytor.com>, X86 ML <x86@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Dmitry Golovin <dima@golovin.in>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Daniel Kiper <daniel.kiper@oracle.com>,
-	Sedat Dilek <sedat.dilek@gmail.com>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>, "H . J . Lu" <hjl@sourceware.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 7/7] x86/boot: Check that there are no runtime
- relocations
-Message-ID: <20200630232759.GA2641539@rani.riverdale.lan>
-References: <202006290907.E5EF18A@keescook>
- <CAMj1kXFge5aWL2BY8Y1=m1TonB+SrDq6p7TQWuO5JkzcR2dhjQ@mail.gmail.com>
- <202006290919.93C759C62@keescook>
- <20200629165603.GD900899@rani.riverdale.lan>
- <20200629173735.l3ssrj7m3q5swfup@google.com>
- <CAMj1kXHaXzYFkW_H=w36vMb1qPpuZXsnTd_giq4vsh0bw3S3eA@mail.gmail.com>
- <20200629233405.n56yb4xwlgxrt3fn@google.com>
- <CAMj1kXGTOdNiuU70pFB74UJ6z43AM-UViTSd3=ATV=94W+f1RA@mail.gmail.com>
- <20200630175408.GA2301688@rani.riverdale.lan>
- <20200630220043.4snabunhgvfdktte@google.com>
+        Tue, 30 Jun 2020 17:06:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of morbo@google.com designates 2607:f8b0:4864:20::e44 as permitted sender) client-ip=2607:f8b0:4864:20::e44;
+Received: by mail-vs1-xe44.google.com with SMTP id x13so7564371vsx.13
+        for <clang-built-linux@googlegroups.com>; Tue, 30 Jun 2020 17:06:55 -0700 (PDT)
+X-Received: by 2002:a67:f04:: with SMTP id 4mr17254670vsp.112.1593562014487;
+ Tue, 30 Jun 2020 17:06:54 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200630184922.455439-1-haoluo@google.com> <49df8306-ecc7-b979-d887-b023275e4842@fb.com>
+ <CA+khW7iJu2tzcz36XzL6gBq4poq+5Qt0vbrmPRdYuvC-c5U4_A@mail.gmail.com>
+In-Reply-To: <CA+khW7iJu2tzcz36XzL6gBq4poq+5Qt0vbrmPRdYuvC-c5U4_A@mail.gmail.com>
+From: "'Bill Wendling' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Tue, 30 Jun 2020 17:06:43 -0700
+Message-ID: <CAGG=3QWo9J4LVePVH4JVD+Y364q-R-BwpR5rxemXzBR6SqbnVg@mail.gmail.com>
+Subject: Re: [PATCH bpf-next] selftests/bpf: Switch test_vmlinux to use hrtimer_range_start_ns.
+To: Hao Luo <haoluo@google.com>
+Cc: Yonghong Song <yhs@fb.com>, Networking <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, linux-kselftest@vger.kernel.org, 
+	Stanislav Fomichev <sdf@google.com>, Shuah Khan <shuah@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
+	Andrii Nakryiko <andriin@fb.com>, Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <kafai@fb.com>, 
+	Song Liu <songliubraving@fb.com>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@chromium.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200630220043.4snabunhgvfdktte@google.com>
-X-Original-Sender: nivedita@alum.mit.edu
+X-Original-Sender: morbo@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=D+w4anAV;       spf=pass
- (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::742
- as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+ header.i=@google.com header.s=20161025 header.b=oIi2JFEv;       spf=pass
+ (google.com: domain of morbo@google.com designates 2607:f8b0:4864:20::e44 as
+ permitted sender) smtp.mailfrom=morbo@google.com;       dmarc=pass (p=REJECT
+ sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Bill Wendling <morbo@google.com>
+Reply-To: Bill Wendling <morbo@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,39 +135,55 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jun 30, 2020 at 03:00:43PM -0700, Fangrui Song wrote:
-> * Ard Biesheuvel
-> > On Tue, 30 Jun 2020 at 01:34, Fangrui Song <maskray@google.com> wrote:
-> 
-> If the executable is purely static, it does not need to have PLT. All
-> calls to a PLT can be redirected to the function itself.  Some range
-> extension thunks (other terms: stub groups, veneers, etc) may still be
-> needed if the distance is too large.
-> 
-> There are cases where a GOT cannot be avoided, e.g.
-> 
-> extern char foo[] __attribute__((weak, visibility("hidden")));
-> char *fun() { return foo; }
-> 
-> If foo is a SHN_ABS, `movq foo@GOTPCREL(%rip), %rax` can't be optimized
-> by GOTPCRELX (https://sourceware.org/bugzilla/show_bug.cgi?id=25749 binutils>=2.35 will be good)
-> Many other architectures don't even have a GOT optimization.
-
-Urk -- the example given in that bug report isn't even weak. Are you
-guys proposing to pessimize every access to a global symbol, regardless
-of visibility, by going through the GOT on the off chance that somebody
-might define one of them as SHN_ABS? Can we at least gate it behind
-something like __attribute__((might_be_shn_abs))?
-
-> 
-> >I don't think it's really relevant for the kernel build -- all we get is
-> >ld -static --no-dynamic-linker, all -static does is prevent searching
-> >shared libraries, and we already pass --no-dynamic-linker if it's
-> >supported.
+On Tue, Jun 30, 2020 at 3:48 PM Hao Luo <haoluo@google.com> wrote:
+>
+> On Tue, Jun 30, 2020 at 1:37 PM Yonghong Song <yhs@fb.com> wrote:
 > >
-> >[0] https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81498
+> > On 6/30/20 11:49 AM, Hao Luo wrote:
+> > > The test_vmlinux test uses hrtimer_nanosleep as hook to test tracing
+> > > programs. But it seems Clang may have done an aggressive optimization,
+> > > causing fentry and kprobe to not hook on this function properly on a
+> > > Clang build kernel.
+> >
+> > Could you explain why it does not on clang built kernel? How did you
+> > build the kernel? Did you use [thin]lto?
+> >
+> > hrtimer_nanosleep is a global function who is called in several
+> > different files. I am curious how clang optimization can make
+> > function disappear, or make its function signature change, or
+> > rename the function?
+> >
+>
+> Yonghong,
+>
+> We didn't enable LTO. It also puzzled me. But I can confirm those
+> fentry/kprobe test failures via many different experiments I've done.
+> After talking to my colleague on kernel compiling tools (Bill, cc'ed),
+> we suspected this could be because of clang's aggressive inlining. We
+> also noticed that all the callsites of hrtimer_nanosleep() are tail
+> calls.
+>
+> For a better explanation, I can reach out to the people who are more
+> familiar to clang in the compiler team to see if they have any
+> insights. This may not be of high priority for them though.
+>
+Hi Yonghong,
+
+Clang is generally more aggressive at inlining than gcc. So even
+though hrtimer_nanosleep is a global function, clang goes ahead and
+inlines it into the "nanosleep" syscall, which is in the same file.
+(We're not currently using {Thin}LTO, so this won't happen in
+functions outside of kernel/time/hrtimer.c.) Note that if gcc were to
+change it's inlining heuristics so that it inlined more aggressively,
+you would be faced with a similar issue.
+
+If you would like to test that it calls hrtimer_nanosleep() and not
+another function, it might be best to call a syscall not defined in
+hrtimer.c, e.g. clock_nanosleep().
+
+-bw
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200630232759.GA2641539%40rani.riverdale.lan.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAGG%3D3QWo9J4LVePVH4JVD%2BY364q-R-BwpR5rxemXzBR6SqbnVg%40mail.gmail.com.
