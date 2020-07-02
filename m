@@ -1,131 +1,137 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBUEG7D3QKGQEUOLHSSY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB4UH7D3QKGQE6UVPQVY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3E1B72128BE
-	for <lists+clang-built-linux@lfdr.de>; Thu,  2 Jul 2020 17:54:57 +0200 (CEST)
-Received: by mail-oi1-x23b.google.com with SMTP id w125sf2358841oie.22
-        for <lists+clang-built-linux@lfdr.de>; Thu, 02 Jul 2020 08:54:57 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1593705296; cv=pass;
+Received: from mail-qk1-x73c.google.com (mail-qk1-x73c.google.com [IPv6:2607:f8b0:4864:20::73c])
+	by mail.lfdr.de (Postfix) with ESMTPS id BDD832128CC
+	for <lists+clang-built-linux@lfdr.de>; Thu,  2 Jul 2020 17:57:39 +0200 (CEST)
+Received: by mail-qk1-x73c.google.com with SMTP id l19sf7405474qke.6
+        for <lists+clang-built-linux@lfdr.de>; Thu, 02 Jul 2020 08:57:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1593705458; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hC0uUIDHgdlGwvlxllkrh4kE6LChPS0Bmwu3bQGxHuQPQIWBVZ6zIISmih20lumeFq
-         OWW71A+BKMcThcO/gt8uKrGqWOtiJfILaJjFoFV4+Uds/ddnOxOWrn4hyznK56d3qf+s
-         0odamfSUi/JRNp83Qq1cvHV8lF7TqtGFRSOK18S0xk0gEc8UyRoY5T632IHg724cCKdg
-         I8mBM7iB/XlAXPVK0eHco1YESZEvQnF2LpPOXQEio7fGMvv0rR4YXnsQZyuFSiYfy8Zb
-         ZpYeJ1uNqeLZboheWSbANXmFNzA0JBKFdT2y3WL0RgZojiJVlbWVxVw2bNirHIu0HZRY
-         nbDA==
+        b=FKtjg/OaUxKGUTO4msVT0TnULzSZEOy0FJCqIif8nj+SYH4NrUlfFs2PZUaKxHp1ya
+         YAwCa15U6foRMRoLfZPBMe6Lx10n+DRcYhPOv2O9/4rpnP9eBoS9KGjazpFcHmJUi5eN
+         /yDmNSK7tNuuG9VjUENtA1oFAp4YDe1RZaduFnSNMP5Jgwoh/f6bDbAdpJtuL5L/n4QO
+         3+JUCdqHWiGy7DLLBQIO9azm4Wy3O0psjw0h97xuNixLEekRHMt1kz/QTgRhoKeccFZW
+         oxK/7RYM8mDuF/O/Crtp08zuHxuJnehSUXCI6a1bFBvKT13z3uBIbooX5pUg+4AHPm9q
+         1wXg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=oqDgfYnRqGn788KeUOe/71Z+/+3A33XIXUEXcCs49jE=;
-        b=m1kjpC4uuSinwJza4pgbiVdKDjZzE98kjc/5hw1kB/UV+SERqzpTrkrDRO72lfWlth
-         vffxqhZNeo5iydLpKJJGo6eW0Be3KAYlyT651J19dE/ioNBLnY7IuIUJ/sBxfulrKt1w
-         h2XNTjrhfyn+7JzIKBmx/Y78wLG1bb5XtKVTD4yBROpHIR/HErSBvwZg13FElLj18wHr
-         NZ8u2wfDugCbiLK9wDjOE+6CTatXnoamYf3K3/QDHiVWHii0Kwez+aY51YCKSH9wtxB6
-         xPibR7eOjiTsujDtweTHynjPK3fNV+2XVvuFel0xaN54JxAbiT+a1DyJXov5W+PBexlx
-         +QyQ==
+         :list-id:mailing-list:precedence:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=k92MLyl0GcA6eOoDvrvR96mTs7HK9+i7dzHWEnIlt9Q=;
+        b=rL4liWMtZkwXvuTMOTzv+cx83ujrCP2GG4TYuywSfC0b4MpgvxOSX/X1xeXgq+mTyI
+         mACzua5qbecRZBev8CSYj7JGJITurfOy6bk3nIWk/ozOlQGyU3nd1v9U/1h3V3LQLZUf
+         UokiS09Ogqg/f/WqXC2MtS6AnchtZpnQPYZRcyVK9uz4tdC9a4AHw87vrqnWW//RZvnC
+         kf2D8epfihBHkDnCSETC3a3VJR1ZrW89vmBrd3HdXKPUKywEC/nf4Wsf9PMvf/+VWgAF
+         hRBh8hVqY/c3o4goRey4SIoxsn1spXPP+ZLolJWX+/jpzETGcvvXR/2oY1TAB5ws+/jr
+         Q66g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=E231RZrQ;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=jwLT0yOQ;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=oqDgfYnRqGn788KeUOe/71Z+/+3A33XIXUEXcCs49jE=;
-        b=FT+wkhyLguM018vpMRM4AzcZtjSkGbHekiBlqKlIbvk2iv88KxRxsQgISwUk5XXDff
-         s51wWQ275Lgf2yvhhpE4GqUfERjiT8trzxlOC+2ePwB0U7gwGIa7cNpOZcc1svLUDWBG
-         uk+dtQs/7gpax3b5H7lJ93EXZmp1NpAAmQ/kJzQaWCf/+QTec1fVq+XdDK1U0eca/YtK
-         OPNeVSz47jt4ilVSSsCmeqacJf2SDfTcApBykOkKAidmWcS9KTxX5z8kzQLTV41USuRQ
-         3vDTmxPSHWQSJbThsAuOXOK3eQgBL0WG4RToN4PBMt4c9SLmWxu0vVXTogWb/dDQ2U7Z
-         wwzw==
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=k92MLyl0GcA6eOoDvrvR96mTs7HK9+i7dzHWEnIlt9Q=;
+        b=Y4RjSrWu3BinWYQLvmdT8wLaxLDTCj18hxELxsGzo++pCasNCZ/aJYuG3lvT4D4elv
+         jbgmYYSw1sZdcYtaF+oG4eA3ZdNhIgJZMPYo/AFpTVOlCUe6h472Op/LkzlaFceoz66G
+         zOMTKUMxMFYLjg8zFAPH44dcooi5THSiZmplklFGj0uEczpNDDUre25ZlGazmD5C0Ga0
+         +GZjkCSE72NXzNOJ4fx1SmzTpku3cpTjaouHkS9EbusE70hyFEH94nSKqUq086mll9sF
+         hBLVcvFo9xpb77L0icLWf90hmUbrApPGy4w9Xouzw9Sm7CqZaNjSTcK0/xX8feOki6tk
+         FpNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=oqDgfYnRqGn788KeUOe/71Z+/+3A33XIXUEXcCs49jE=;
-        b=n6SDw3vW7rgnJgQEERm/OibPqU8QbHA34c3Pscj43PFkW6zOPTvFs86F4JTLz50ukl
-         9GQnMfNsqPzyie3u2hwdfCGBd6u1WDwVLj9XwpMrf2MN7ALYYcQ3CdWFwQCkACy+gpik
-         XXeZTRSR/wQeb8BdGqjZKQeaG6uizh5Pw25JVkE86RjmW8uniz6REnhmIjsPegi6l+gC
-         dDEEE6iZSrrSbRgzAQXea+2dQjPQISRXQczmXEGdbWzHDtQ8oL+xiyiEqtOBq7h5PU/l
-         Az5PdkbOzjXPRzogRHalNdF3wNk2UEWmPMz+5ejoU+359PxSG8Ml485XqdyNNSV81wEv
-         eFYA==
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=k92MLyl0GcA6eOoDvrvR96mTs7HK9+i7dzHWEnIlt9Q=;
+        b=O89Mij1i9YJDBks3s5t1p9pr8VVqM/12NZEkzzaQ1qqxVCDdzES4DnuoB9YQcTj2aL
+         p33plCZsDDNYYPV1MzeltpMTiLrTJKJzndzUdN+tSMgLoYBtyFabC5W8mXaFFgJTJdeR
+         bd68m39kTh9KsdW3cuL0bVbxsr1/8E/K10C6bXCPmdVvzg9teZoxgcqVjh7wQFyEeIZW
+         mSd3xqrJc5LvqezdlL9xVLjG0OtoQZUnk/n0QtnTkV1j3hW2Kzj2PmzWAcmQCLYC4U4S
+         uzzEL4EGxHPQPuJHYmTUsqC1ZcNqruuQe0oP0Mj8NSV9PPoTdfMHA7QrxQG/E4Zhj3QM
+         oQ1Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530sBaV6CDKHMSM3OSf2+xZBNUQQTTFUSh/BMoAu3Whmj3g85xqh
-	+ArNBpK+Qr/ZyXKut6bLOvg=
-X-Google-Smtp-Source: ABdhPJzx4/vVZ0UhfS1AsvgNMKrNmZIvGlKyI5RhTCjYE6vk5kcg6rX6eLwKm2QJzeA0s8xifZp4OQ==
-X-Received: by 2002:a4a:98c8:: with SMTP id b8mr5542931ooj.42.1593705296234;
-        Thu, 02 Jul 2020 08:54:56 -0700 (PDT)
+X-Gm-Message-State: AOAM531cpUQrZjw5g+iWMmciNPP0kGLPD+FUpKNXwih+8xIN6xo9a5Ri
+	HAdDrtsLGdMyrRDkpe4nw4Q=
+X-Google-Smtp-Source: ABdhPJw1lNcfeyms29V1S2P7hLrKQQVVZo69yn+G6tCg33FWBIFXMipGmesIlQjvJ66s3gguf5dXVg==
+X-Received: by 2002:ac8:24c6:: with SMTP id t6mr32010198qtt.39.1593705458522;
+        Thu, 02 Jul 2020 08:57:38 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:4d14:: with SMTP id n20ls1431130otf.4.gmail; Thu, 02 Jul
- 2020 08:54:55 -0700 (PDT)
-X-Received: by 2002:a05:6830:1be2:: with SMTP id k2mr24001359otb.199.1593705295823;
-        Thu, 02 Jul 2020 08:54:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1593705295; cv=none;
+Received: by 2002:a37:38f:: with SMTP id 137ls2942830qkd.2.gmail; Thu, 02 Jul
+ 2020 08:57:38 -0700 (PDT)
+X-Received: by 2002:a37:c4b:: with SMTP id 72mr31741353qkm.359.1593705458079;
+        Thu, 02 Jul 2020 08:57:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593705458; cv=none;
         d=google.com; s=arc-20160816;
-        b=pW6/Frpdn8mb9YItjSM0T9dEg4YAVfDGZ/GRdrsDZKY7hMxaTwFg21hGQAQVU3QFRv
-         3xh1qaV8Jxnq1/g21anmiSt1cSuWuvbR42HRNUOYXliLqK5SPnj4quPeW4L8fBAX18sg
-         14eDsTMcECgDiF4b0LmU1VjNaiqqORUHQqHFpx+ZYKPaqFT4eiJVX3a2PY3KdGpIWtRc
-         TwNDlxm/dE7KF22vhd7Pc0B5hhHdUM1iN79trsWBVi3mXw3NYcmhV4tFBXH2e3bTW1OP
-         PMAQgGY6JLoVtExPFWCbsq82Jo6yFRFmL7imYy5dOi/dsjpDk02fVj8WK4Cwh99mO+ws
-         exZg==
+        b=f1khmA97f0WSnu0/ajPfVOZ5uOv70gFT/rNhh/CxMrN6un0RB9qjDUMoLc/A1TFNgF
+         LFSRwm0mfo2uGsaeXMV4kh6z21LrCfazS/U4DsE4I7awFaBixXvzuC71FY4WZ/8yZlAp
+         oDyo9Qe9VrTR9bu9qGpVDFdXQ5sL3P3d5QF5zoM6PsEbFIVy+8lDos9AwmDejRw06v/3
+         8qEGVPHkP/2tuP/3LwLfWHLRVjRKt1MxMAVH1qLVhuiIf07Btb941kv5MU3WzC9ug+4u
+         pQdVCtXlL/Bs6+OW7KZ9c9F0hQDyKIZoAGb/2G707yNZLLKz9YnF4WsvmBxQd/8hF38Q
+         t9Dg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=MeAooFE7BzOJmYHcj5OvJQ3TIg8iS0KIUniqk0qo5RE=;
-        b=0DGyBcId2TlVwRDHY2zO6BurjLgq23Sf75u+lN+xCgSQTXLkAE+hi2tyYUrL2A9TnC
-         CKjskSobRgPLeUgwUMa4NRHij7wz2ZAw7sa0+xinSrFNJkMbsuJek+jlMiE6Le4R3r0G
-         EEyIwNpGwBFCNjxUJPWLQ2t2gkLtsgmYShy5VtKPdkHZ3WJhaP03XbmEjlJTgDlu/56q
-         rRLqhpB04o1NdssXYGJYXoLpvcLhKwUNe8i7qTiLNT0R3Swv8mdaulAuqHdV1h4q99gz
-         EEqO8LDaHnPyT1Vnitzuh1dpKbDo4+28Qj4CnTJMKsjhTy8whzRTdo2eX9MlNFyUFO8i
-         kBiw==
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :dkim-signature;
+        bh=YgPSxrVcL5/+2trP8Y9tIB9bY9o4biAaserhf1XxerA=;
+        b=inssOeBP7ZTljCO1So2NofnQFORPzQPklKEqey/MLCJaKMAWHYUzedzADNbz2dtlpd
+         4wUafzpy2cMbVQK9k+7U3EUjSQWj6bUKOF40WwhFLlbx5imZ/BxgPJ4SVhsfWSlnQtEh
+         D8yhZFql/+J3kwldRZr+4MTCuzk7nXyhjE9nXRE7u+upL/FttQCbORsctihbKHz2V5xT
+         YV1Gs4g5ptGL+pjvM8WFMmt1BZsyla7x7ni2Z9WZ6wkxb9uT4kKCMzYvMzfwq/gEOtcD
+         LYkNE2nh0nb7puA9eeI+2hcA9YZSqvs0w4x0OC71yhQ+/y4PPVKBbt/mUyN65tDzL2NM
+         If7A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=E231RZrQ;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=jwLT0yOQ;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pj1-x1044.google.com (mail-pj1-x1044.google.com. [2607:f8b0:4864:20::1044])
-        by gmr-mx.google.com with ESMTPS id i189si50603oib.0.2020.07.02.08.54.55
+Received: from mail-pl1-x642.google.com (mail-pl1-x642.google.com. [2607:f8b0:4864:20::642])
+        by gmr-mx.google.com with ESMTPS id q22si487870qtp.0.2020.07.02.08.57.38
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 02 Jul 2020 08:54:55 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1044 as permitted sender) client-ip=2607:f8b0:4864:20::1044;
-Received: by mail-pj1-x1044.google.com with SMTP id l6so9530901pjq.1
-        for <clang-built-linux@googlegroups.com>; Thu, 02 Jul 2020 08:54:55 -0700 (PDT)
-X-Received: by 2002:a17:902:bb95:: with SMTP id m21mr26850948pls.111.1593705295142;
-        Thu, 02 Jul 2020 08:54:55 -0700 (PDT)
+        Thu, 02 Jul 2020 08:57:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642 as permitted sender) client-ip=2607:f8b0:4864:20::642;
+Received: by mail-pl1-x642.google.com with SMTP id u9so7864811pls.13
+        for <clang-built-linux@googlegroups.com>; Thu, 02 Jul 2020 08:57:38 -0700 (PDT)
+X-Received: by 2002:a17:902:6b45:: with SMTP id g5mr27320510plt.3.1593705457169;
+        Thu, 02 Jul 2020 08:57:37 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id n65sm9219269pfn.17.2020.07.02.08.54.54
+        by smtp.gmail.com with ESMTPSA id k100sm8517452pjb.57.2020.07.02.08.57.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jul 2020 08:54:54 -0700 (PDT)
-Date: Thu, 2 Jul 2020 08:54:53 -0700
+        Thu, 02 Jul 2020 08:57:36 -0700 (PDT)
+Date: Thu, 2 Jul 2020 08:57:35 -0700
 From: Kees Cook <keescook@chromium.org>
-To: Danny Lin <danny@kdrag0n.dev>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Fangrui Song <maskray@google.com>, linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] vmlinux.lds.h: Coalesce transient LLVM dead code
- elimination sections
-Message-ID: <202007020853.5F15B5DDD@keescook>
-References: <20200702085400.2643527-1-danny@kdrag0n.dev>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	=?utf-8?B?RsSBbmctcnXDrCBTw7JuZw==?= <maskray@google.com>,
+	Jian Cai <jiancai@google.com>, Luis Lozano <llozano@google.com>,
+	Manoj Gupta <manojgupta@google.com>,
+	linux-arch <linux-arch@vger.kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH v2] vmlinux.lds: add PGO and AutoFDO input sections
+Message-ID: <202007020856.78DDE23F4A@keescook>
+References: <20200622231536.7jcshis5mdn3vr54@google.com>
+ <20200625184752.73095-1-ndesaulniers@google.com>
+ <CAKwvOd=cum+BNHOk2djXx5JtAcCBwq2Bxy=j5ucRd2RcLWwDZQ@mail.gmail.com>
+ <CAK8P3a1mBCC=hBMzxZVukHhrWhv=LiPOfV6Mgnw1QpNg=MpONg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200702085400.2643527-1-danny@kdrag0n.dev>
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <CAK8P3a1mBCC=hBMzxZVukHhrWhv=LiPOfV6Mgnw1QpNg=MpONg@mail.gmail.com>
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=E231RZrQ;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1044
+ header.i=@chromium.org header.s=google header.b=jwLT0yOQ;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
@@ -140,71 +146,163 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jul 02, 2020 at 01:54:00AM -0700, Danny Lin wrote:
-> A recent LLVM 11 commit [1] made LLD stop implicitly coalescing some
-> temporary LLVM sections, namely .{data,bss}..compoundliteral.XXX:
-> 
->   [30] .data..compoundli PROGBITS         ffffffff9ac9a000  19e9a000
->        000000000000cea0  0000000000000000  WA       0     0     32
->   [31] .rela.data..compo RELA             0000000000000000  40965440
->        0000000000001d88  0000000000000018   I      2238    30     8
->   [32] .data..compoundli PROGBITS         ffffffff9aca6ea0  19ea6ea0
->        00000000000033c0  0000000000000000  WA       0     0     32
->   [33] .rela.data..compo RELA             0000000000000000  409671c8
->        0000000000000948  0000000000000018   I      2238    32     8
->   [...]
->   [2213] .bss..compoundlit NOBITS           ffffffffa3000000  1d85c000
->        00000000000000a0  0000000000000000  WA       0     0     32
->   [2214] .bss..compoundlit NOBITS           ffffffffa30000a0  1d85c000
->        0000000000000040  0000000000000000  WA       0     0     32
->   [...]
-> 
-> While these extra sections don't typically cause any breakage, they do
-> inflate the vmlinux size due to the overhead of storing metadata for
-> thousands of extra sections.
-> 
-> It's also worth noting that for some reason, some downstream Android
-> kernels can't boot at all if these sections aren't coalesced.
-> 
-> This issue isn't limited to any specific architecture; it affects arm64
-> and x86 if CONFIG_LD_DEAD_CODE_DATA_ELIMINATION is forced on.
-> 
-> Example on x86 allyesconfig:
->     Before: 2241 sections, 1170972 KiB
->     After:    56 sections, 1171169 KiB
-> 
-> [1] https://github.com/llvm/llvm-project/commit/9e33c096476ab5e02ab1c8442cc3cb4e32e29f17
-> 
-> Link: https://github.com/ClangBuiltLinux/linux/issues/958
-> Cc: stable@vger.kernel.org # v4.4+
-> Suggested-by: Fangrui Song <maskray@google.com>
-> Signed-off-by: Danny Lin <danny@kdrag0n.dev>
-> ---
->  include/asm-generic/vmlinux.lds.h | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-> index db600ef218d7..18968cba87c7 100644
-> --- a/include/asm-generic/vmlinux.lds.h
-> +++ b/include/asm-generic/vmlinux.lds.h
-> @@ -94,10 +94,10 @@
->   */
->  #ifdef CONFIG_LD_DEAD_CODE_DATA_ELIMINATION
->  #define TEXT_MAIN .text .text.[0-9a-zA-Z_]*
-> -#define DATA_MAIN .data .data.[0-9a-zA-Z_]* .data..LPBX*
-> +#define DATA_MAIN .data .data.[0-9a-zA-Z_]* .data..LPBX* .data..compoundliteral*
->  #define SDATA_MAIN .sdata .sdata.[0-9a-zA-Z_]*
->  #define RODATA_MAIN .rodata .rodata.[0-9a-zA-Z_]*
-> -#define BSS_MAIN .bss .bss.[0-9a-zA-Z_]*
-> +#define BSS_MAIN .bss .bss.[0-9a-zA-Z_]* .bss..compoundliteral*
+On Thu, Jul 02, 2020 at 10:19:40AM +0200, Arnd Bergmann wrote:
+> On Wed, Jul 1, 2020 at 11:54 PM 'Nick Desaulniers' via Clang Built
+> Linux <clang-built-linux@googlegroups.com> wrote:
+> >
+> > Hi Arnd,
+> > I usually wait longer to bump threads for review, but we have a
+> > holiday in the US so we're off tomorrow and Friday.
+> > scripts/get_maintainer.pl recommend you for this patch.  Would you
+> > take a look at it for us, please?
+>=20
+> Hi Nick
+>=20
+> While I'm listed as the maintainer for include/asm-generic, linker script=
+s
+> are really not my expertise and I have no way of knowing whether the
+> change is good or not.
+>=20
+> Your description looks very reasonable of course and I have no problem
+> with having someone else pick it up. You mentioned that Kees is already
+> looking at some related work and he's already done more changes to
+> this file than anyone else. If he can provide an Ack for this patch,
+> you can add mine as well to send it to akpm, or I can pick it up in the
+> asm-generic tree.
 
-Are there .data.. and .bss.. sections we do NOT want to collect? i.e.
-why not include .data..* and .bss..* ?
+This looks good to me. Do you want me to carry it as part of the orphan
+series? (It doesn't look like it'll collide, so that's not needed, but I
+can if that makes things easier.)
 
--- 
+Acked-by: Kees Cook <keescook@chromium.org>
+
+-Kees
+
+>=20
+>        Arnd
+>=20
+> > On Thu, Jun 25, 2020 at 11:48 AM Nick Desaulniers
+> > <ndesaulniers@google.com> wrote:
+> > >
+> > > Basically, consider .text.{hot|unlikely|unknown}.* part of .text, too=
+.
+> > >
+> > > When compiling with profiling information (collected via PGO
+> > > instrumentations or AutoFDO sampling), Clang will separate code into
+> > > .text.hot, .text.unlikely, or .text.unknown sections based on profili=
+ng
+> > > information. After D79600 (clang-11), these sections will have a
+> > > trailing `.` suffix, ie.  .text.hot., .text.unlikely., .text.unknown.=
+.
+> > >
+> > > When using -ffunction-sections together with profiling infomation,
+> > > either explicitly (FGKASLR) or implicitly (LTO), code may be placed i=
+n
+> > > sections following the convention:
+> > > .text.hot.<foo>, .text.unlikely.<bar>, .text.unknown.<baz>
+> > > where <foo>, <bar>, and <baz> are functions.  (This produces one sect=
+ion
+> > > per function; we generally try to merge these all back via linker scr=
+ipt
+> > > so that we don't have 50k sections).
+> > >
+> > > For the above cases, we need to teach our linker scripts that such
+> > > sections might exist and that we'd explicitly like them grouped
+> > > together, otherwise we can wind up with code outside of the
+> > > _stext/_etext boundaries that might not be mapped properly for some
+> > > architectures, resulting in boot failures.
+> > >
+> > > If the linker script is not told about possible input sections, then
+> > > where the section is placed as output is a heuristic-laiden mess that=
+'s
+> > > non-portable between linkers (ie. BFD and LLD), and has resulted in m=
+any
+> > > hard to debug bugs.  Kees Cook is working on cleaning this up by addi=
+ng
+> > > --orphan-handling=3Dwarn linker flag used in ARCH=3Dpowerpc to additi=
+onal
+> > > architectures. In the case of linker scripts, borrowing from the Zen =
+of
+> > > Python: explicit is better than implicit.
+> > >
+> > > Also, ld.bfd's internal linker script considers .text.hot AND
+> > > .text.hot.* to be part of .text, as well as .text.unlikely and
+> > > .text.unlikely.*. I didn't see support for .text.unknown.*, and didn'=
+t
+> > > see Clang producing such code in our kernel builds, but I see code in
+> > > LLVM that can produce such section names if profiling information is
+> > > missing. That may point to a larger issue with generating or collecti=
+ng
+> > > profiles, but I would much rather be safe and explicit than have to
+> > > debug yet another issue related to orphan section placement.
+> > >
+> > > Cc: stable@vger.kernel.org
+> > > Link: https://sourceware.org/git/?p=3Dbinutils-gdb.git;a=3Dcommitdiff=
+;h=3Dadd44f8d5c5c05e08b11e033127a744d61c26aee
+> > > Link: https://sourceware.org/git/?p=3Dbinutils-gdb.git;a=3Dcommitdiff=
+;h=3D1de778ed23ce7492c523d5850c6c6dbb34152655
+> > > Link: https://reviews.llvm.org/D79600
+> > > Link: https://bugs.chromium.org/p/chromium/issues/detail?id=3D1084760
+> > > Reported-by: Jian Cai <jiancai@google.com>
+> > > Debugged-by: Luis Lozano <llozano@google.com>
+> > > Suggested-by: F=C4=81ng-ru=C3=AC S=C3=B2ng <maskray@google.com>
+> > > Tested-by: Luis Lozano <llozano@google.com>
+> > > Tested-by: Manoj Gupta <manojgupta@google.com>
+> > > Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+> > > ---
+> > > Changes V1 -> V2:
+> > > * Add .text.unknown.*.  It's not strictly necessary for us yet, but I
+> > >   really worry that it could become a problem for us. Either way, I'm
+> > >   happy to drop for a V3, but I'm suggesting we not.
+> > > * Beef up commit message.
+> > > * Drop references to LLD; the LLVM change had nothing to do with LLD.
+> > >   I've realized I have a Pavlovian-response to changes from F=C4=81ng=
+-ru=C3=AC
+> > >   that I associate with LLD.  I'm seeking professional help for my
+> > >   ailment. Forgive me.
+> > > * Add link to now public CrOS bug.
+> > >
+> > >  include/asm-generic/vmlinux.lds.h | 5 ++++-
+> > >  1 file changed, 4 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/=
+vmlinux.lds.h
+> > > index d7c7c7f36c4a..245c1af4c057 100644
+> > > --- a/include/asm-generic/vmlinux.lds.h
+> > > +++ b/include/asm-generic/vmlinux.lds.h
+> > > @@ -560,7 +560,10 @@
+> > >   */
+> > >  #define TEXT_TEXT                                                   =
+   \
+> > >                 ALIGN_FUNCTION();                                    =
+   \
+> > > -               *(.text.hot TEXT_MAIN .text.fixup .text.unlikely)    =
+   \
+> > > +               *(.text.hot .text.hot.*)                             =
+   \
+> > > +               *(TEXT_MAIN .text.fixup)                             =
+   \
+> > > +               *(.text.unlikely .text.unlikely.*)                   =
+   \
+> > > +               *(.text.unknown .text.unknown.*)                     =
+   \
+> > >                 NOINSTR_TEXT                                         =
+   \
+> > >                 *(.text..refcount)                                   =
+   \
+> > >                 *(.ref.text)                                         =
+   \
+> > > --
+> > > 2.27.0.111.gc72c7da667-goog
+> > >
+
+--=20
 Kees Cook
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202007020853.5F15B5DDD%40keescook.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/202007020856.78DDE23F4A%40keescook.
