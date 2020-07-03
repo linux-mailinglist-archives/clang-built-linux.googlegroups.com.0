@@ -1,133 +1,146 @@
-Return-Path: <clang-built-linux+bncBC4L7W46U4GBBRHG7T3QKGQE4UFP3YI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRB5UC7X3QKGQEJHWS7BA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x54f.google.com (mail-pg1-x54f.google.com [IPv6:2607:f8b0:4864:20::54f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 73B19213B08
-	for <lists+clang-built-linux@lfdr.de>; Fri,  3 Jul 2020 15:31:50 +0200 (CEST)
-Received: by mail-pg1-x54f.google.com with SMTP id s8sf5507922pgs.9
-        for <lists+clang-built-linux@lfdr.de>; Fri, 03 Jul 2020 06:31:50 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1593783109; cv=pass;
+Received: from mail-wr1-x43a.google.com (mail-wr1-x43a.google.com [IPv6:2a00:1450:4864:20::43a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2EB9A213BD5
+	for <lists+clang-built-linux@lfdr.de>; Fri,  3 Jul 2020 16:32:23 +0200 (CEST)
+Received: by mail-wr1-x43a.google.com with SMTP id y16sf31662004wrr.20
+        for <lists+clang-built-linux@lfdr.de>; Fri, 03 Jul 2020 07:32:23 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1593786743; cv=pass;
         d=google.com; s=arc-20160816;
-        b=KSaTIpzOQRI9NE5LhiSbPdQ9SA1gtzjoaEWXwvjr6IiLHFtypS5rzpUL9ajYwsDr5z
-         ZbLVCosVIMM3UO8LuBSBzKYVyGLAzLQguH9cYPSKONet0LrWgSzFBlRUYqc8hm/R3xZU
-         uuTBt9mFMGGCOMzlQWb3OQBBx5ilkScONaU+1VpBIZ/M3e4OUpj0dfRz9XGqffwSfGi6
-         ttMo8pa/a5G08CZNHjp/BfgA+xfNco0nE+lEkvS3Zci/JoEQshkq10B2JSZNkKvI4x6L
-         NMLqshhnDsxKuRQ6490HDc/wtBChZScB5I+z66SK/XxT25C8rXxW0UxoTul1/4gLA2hE
-         2V7g==
+        b=DuFjf2VICXaWJguZ+MN6QqcVOnV3xxtThKVxvuVlCcC+IJC+iC6TTdZuogEKiI/gyA
+         wcHXIC3wEeQ7FOYKI2MBm7GMS1xSE8zL8cInSWOOSAFdTmosnPDJY9tMHvfSwxdD/bsx
+         givKvySSJOMqn4qESh5jQrJ0p+9LSoC0VIhUFQmfhyjyOlY+1UaMX4LIq0wlWlXRPhl8
+         UoxUR6giZvKrXKV7SFkgKx4yJy4z3wj3cSz4X3i+vkUYOV8yyKvS0F7ECFBV/k/Z02tW
+         woCj4VbvHLeZc+tKg8PUfealM+BmYDrtA4C3IcnV3QWAGThWTOi0IGuy9VGnA4+uR7lS
+         NGTA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:references:mime-version:subject
-         :message-id:reply-to:from:date:sender:dkim-signature;
-        bh=LM1QBa3lS6ejISrm/KfIoZDQp+3V7Zy+fZxdY/ZRA8A=;
-        b=SgeM+ARlKpjQedC60ah1sq9bIQ7IwEB0FxeSJe9eG+/1jUrotv0l9M3lYBzIAuHfmw
-         1GESbqAeBs5M67KDm1wlVmfwVCEUctdATRAe5ezAb0PMQl3z8iBC9LENcy7nSoqEo8pm
-         cOD0os5WGLVbIln0KnG82I1/L61BLe+JiUnhZ9forcN3gVOAN5cODfefkiECcLgHqc4P
-         KcZjChAyJrWvhUL0z0+eNpBKvcNpwCDUOzTCEwednwDlKTTxnp8LGUYkd9Szl/bLWNoJ
-         Es+tyluKzoDD81+/P3s6EmglyzW6WOq/RSv4G8nktoLePX5lRApn4qU1o7qEu9eY2Grr
-         FYXw==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature:dkim-signature;
+        bh=ACEu3fzGkWI5E/MMj1pW5da5KJ6eoby+fMYxJtbeyH8=;
+        b=xWMAiwCYAOFbMR4vpjg8QAliU2eumdyC8oGqO47f4YG6weyonsfJVusG7DeaFu7mSE
+         kmhk15SDlIM6sLh7j+tJWqtVvUnSC6JSvbrhnUXt5DHMJX9jTb5M4huBUEaf8pQK2dNK
+         Akav7HOtrLyeChlcQtjqb4TU7KEeKdBW/0f8Rmqp555zbEnMW/KdmZUy6ElGPg4zZ1yz
+         WKuDCRDoKOa1vJ14HF/4aRO/GSQiiulVqAfSd8RHAI+y/bsC64YMTPQuq2m0bWBeQ0Ph
+         Lc6C8kfuGz40J1RT1Lo8Vv+iEAKKGxAcUi0xSLEwfObTscyh8F9qiNwtJN9APWqXd4py
+         iwvQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@yahoo.com header.s=s2048 header.b=RAzEgtQY;
-       spf=fail (google.com: domain of richard.l.boa.offica@barid.com does not designate 74.6.129.81 as permitted sender) smtp.mailfrom=richard.l.boa.offica@barid.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="RQPqUTY/";
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:reply-to:message-id:subject:mime-version
-         :references:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=LM1QBa3lS6ejISrm/KfIoZDQp+3V7Zy+fZxdY/ZRA8A=;
-        b=j0qLumrfMsueMLNZKE6X8Y1zi6xB9PcVD0qA6v9LGP6igmXKUU4AaJGxgudAGc+Yx5
-         ShTg3HoSM1E2b45K6JkNgAG172/r5HlerKhcjqakMFnikETqJM4xLDzzqEK99jqW7WUF
-         8vFV+70BKQWBSdnvo/I2nbcBlNsS3JLrCnCRXw3m3selDPJmS+nbTHlc8CtQa1wpKOMq
-         7F+D0/+aLgxTDgE4wnrW1OPPVVAbWeWV+riTe012uiZUkDAoELUgC2HXRxfR70Vr0ReS
-         K1IUNFJquEFcrUuezQDjcwp21XgvtE1Z3fJcYS1hJfjzxzX0aGSYfGXlD231TWDZgTYB
-         ShoA==
+        bh=ACEu3fzGkWI5E/MMj1pW5da5KJ6eoby+fMYxJtbeyH8=;
+        b=OJJGwBh9U1Qq/qHG2IQAeq3TD8E6q2ptn/XHFgsWXLy22cns9IJubTwT1hwKxYb0uG
+         /vR1qUm5zpVpgw5tc5wqT1VhPVYiKSp08bOuC9aJbClBxa7Lxbq7Qtn0sjWALfe1UP8T
+         UKUoVLTB+JfTElsIO6Z3f/8sDbW5Cc0cTFSom0DiPdlW4DHqmZYO/c/xJAF+okK7CBto
+         c1mL8eN86rLTeNGNCPCnHNktXJ3ATZISqZ+56ZtCv/RGebKQItrYkA/ANNPY87cJuSHq
+         5K7fcPEHxdniZO4ormziGq3RqdhObiG44OWvW54QYcsdqKt3ja81cQNNm14figZ0QZo9
+         zjQw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ACEu3fzGkWI5E/MMj1pW5da5KJ6eoby+fMYxJtbeyH8=;
+        b=dAT/TexLiL5U7Ira6cUhzJWog2tLepU9fFI567bB8FDHKW8i5ZSCtO16W7ZeNaSwxE
+         h6nUAVGljTr7vyoQ5WvgWXDzDlKYtmcPL8se6r7i0CL0ckPZhKMsuEjL6FZHPZJGrrjV
+         UWXphlDb9T+C+hMEyTtnoqEGmE5HE1NUIRD7zDyzDoeR8JVnmrB1c+98yykwCkMlUvvb
+         sHs055a9Vy2cKTyYm/g0Snej2z+0QKGUiDJXDKORNHQ7CuVLhxQTcAu96igIK1xW/PuN
+         yVDXnIs/+xA2uoPVFWaskaD/VDs1qaajtggkIJauNImIR9+3FcX8XEG81+7OFYSJFllz
+         s+3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:reply-to:message-id:subject
-         :mime-version:references:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=LM1QBa3lS6ejISrm/KfIoZDQp+3V7Zy+fZxdY/ZRA8A=;
-        b=cA+OpYeCWiluWfpApgQowCiog/VOuLylecsAsjg6PR2p1ipCpMxKw6kn/l0V4KBCkR
-         cpGO2fVIR6ZNngMfsDQt+ADRyXxc6ATV8I0j3lurOYktQcdz9rH7HKVYWkoE9ttSeAmW
-         yRwx4fVYd9Djcc3sVIrrdU6/byyF66E0rtTkRgYUcmkcQ+dt+kILVzHvJOQm84sZSQJw
-         pIlWUDYiM4kBeYffW+lLuJplbZJ6vojxfDsIHbln4NtfNPu7EEWd3WR6gYoseZZ/xymq
-         2LBTTZe5OHLZosRU4c77iHmwVFX5SL5Y1irpC3tsAddmwT7iRPSYEMWgxyMcJfozONHl
-         a3Jw==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ACEu3fzGkWI5E/MMj1pW5da5KJ6eoby+fMYxJtbeyH8=;
+        b=E5bX+COa4AwJC699DWgr1kFCHw9jvqfjY7L0MagU+gN+GwJA0kEy5QTOyFGWcLS2j2
+         4ykfoWL4CAFmY/WXtkjSPPbEKuq3Vgl3rzd7S41JN+tPcybnfhG5USKqx0BZTtBKi7Wf
+         z0ZzvBm8ueCwvTGNXDWAxKbLcUR1UKPjICL1BnrEhxjYnpWMKc3w+jr/i5Ck/8FaNPsW
+         a7+Kgap1sECqufyOo4OBifAX8RalxPYvHBA7V15khIbcWNODW1TbfWbxevviziTl50IX
+         AVEmlowtzotkuMhkS8akWcY0CsNzCTFtzTNf0QrkKAvEhIYuuze2Fym6YdsENVoDrP1r
+         A2Gg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5314rgMMTt7iIk+WEee4PFgCXGFXRjd67DbeQRy7sMaWvwXW3Q/w
-	C9ZrJl6XwMtqW3EmtSxLyAA=
-X-Google-Smtp-Source: ABdhPJw1buW6MQXWYajAgFFKy+QwUJ3QdCQPfLL0+pjGHsPPs1tNWWaB4PVS2JJXBPg7Y5NoQSGggw==
-X-Received: by 2002:a17:902:6908:: with SMTP id j8mr30779410plk.124.1593783108948;
-        Fri, 03 Jul 2020 06:31:48 -0700 (PDT)
+X-Gm-Message-State: AOAM530UXG1hLGLaGTdWtQQgQXmK5HdHQMs4MowE2+w0g5T+yxENTPWm
+	X2jkiO93yL8rReeVn/IUfuo=
+X-Google-Smtp-Source: ABdhPJze2VTc8ap9iYlwx2c7f5bl0z/ASIcLU+wNfLqJnwx5tMk4flEkmOuw5KF5Dn1W6BcVHzpzgw==
+X-Received: by 2002:a1c:2183:: with SMTP id h125mr39337999wmh.83.1593786742899;
+        Fri, 03 Jul 2020 07:32:22 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a65:52ca:: with SMTP id z10ls3100016pgp.10.gmail; Fri, 03
- Jul 2020 06:31:48 -0700 (PDT)
-X-Received: by 2002:a63:4b1d:: with SMTP id y29mr29684987pga.264.1593783108595;
-        Fri, 03 Jul 2020 06:31:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1593783108; cv=none;
+Received: by 2002:adf:82ca:: with SMTP id 68ls1571388wrc.2.gmail; Fri, 03 Jul
+ 2020 07:32:22 -0700 (PDT)
+X-Received: by 2002:a5d:55cf:: with SMTP id i15mr40414509wrw.204.1593786742306;
+        Fri, 03 Jul 2020 07:32:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593786742; cv=none;
         d=google.com; s=arc-20160816;
-        b=ofQPNQ/r8/Z5bbPp/KadopaFDIXtczsJw1gVtU1MuZIsPORecVMRpBe0g2u6YIbsg2
-         HLZZ3mlIj/Ii5MM0myyfeSvTp436sPtim8ArnZWRdbRcnIzk0S9bKkZPBAP9NgSuboTr
-         ACwy24rEaZ2jajAdL/aon4xRYVoVjpZOndh3mokhL1rhfeZZrv+QSDeawkzXVk1Sprch
-         /ANOIBQ0jA6x2BsZjTWnI6dnHxpLSKarqLqPpq9MU8Zr90H0FZv9TvVEd0X8696LwgLF
-         1ZaoSf3WaWvXYIFpbveRnG2NDCmE9/Iu8faEkzUhk6VJLGHhfFx0tRrtFXr7qd5V1eFI
-         d6jA==
+        b=BCGBwZFsLapETL8bpRlPZ++TwNadIX5cceEWcEg+2o/X4phWqz4lz18Jht1uNB34aH
+         tELJpjldFHpL7JWWIqOaNuHpZfG+URjegiIisdB4V9qHFe6nPTJKfq4VopWDSO8Qd8Ns
+         zhDlVm26xWaP08+fil7L/lbavysH631LHm+LpqVArzFttpljmkrF+DLzxlzOb3vwu11U
+         tK9Pfyk5nLSZIqrg+Rj/DmcEHhjZ5e9XELG1QIu+j/ZutJlbnZQ4qabsVMegoyoLl2ml
+         aJZFPxtXxDnMy1FzQEBIn28UA5pnANQsUOSH1kEnNm7FSR2x4ttjLe4SLGV2eBG2qsf8
+         l1CA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=references:mime-version:subject:message-id:reply-to:from:date
-         :dkim-signature;
-        bh=6dvbpFw4hKJa+86MXbLmy0+NGgPmrViERFQ+a3vHaB8=;
-        b=mcuusKegf9XMjlsPbIJTHdNBr9sm5h57/QiYIEOta18desiaXpV9OwbSnOiaonvZ9m
-         4ghrmau6+g3PGhSACyeXil2WqOwJ8vBO+YMtRMFplUKfz/o8MJq3TUrRsBXWK2f4Ok2D
-         GFdU0N4jd8OG5T1XfsUNp76j4KiXUcchQKA8cXGuV+rwfDthjNx2EiWpFbMgNDBiWK+M
-         nGNkfvmrKvdczAevAlimMNyK3QTr8NdNaBH8JmtULI4DzwgX0WznxSsRNLV4mocfc9Hm
-         s0iI+HltuJcBKrWI4zVCPA2KCfntJ31Jlyz/wGg134Ez4hMiR1mw4sRvlT0IIbRUya4G
-         Kytw==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=aBK4xIyiQPwE9WexL/fXXMXlCGSw5m4ZqDOwI6txEYA=;
+        b=W5uFrVFd4lc2Oqm6jBN3LLJH6VweaFpXXfkrjxj6ESdnAyHtEnCzD5qD80EOpqD1iR
+         J1sERZ5CYsgurN6ULqJbMkjiK38xgsD8iXVmIM32SOyLpcvyXI01Fvd846H/6RpoReR4
+         5mfcxXRSRwTCgN23u9a4eTyX/SbFKYanAK7PIs6Yy+TpL3hdhQJRe8cReQB6fLTeyuZE
+         A1ed6fkMJDz6HFxce9u1rPLmhclwXEtBsyXCdyew34BmnD6YsbbDLpUp+MEUUT4aN1KY
+         5JDs4QF9i5RNr7CrzGSFZTPdKP4iPFbuAM6Decmjrhg/RD+3gPrW8F1E9u7j309+q2xb
+         I+2g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@yahoo.com header.s=s2048 header.b=RAzEgtQY;
-       spf=fail (google.com: domain of richard.l.boa.offica@barid.com does not designate 74.6.129.81 as permitted sender) smtp.mailfrom=richard.l.boa.offica@barid.com
-Received: from sonic317-26.consmr.mail.bf2.yahoo.com (sonic317-26.consmr.mail.bf2.yahoo.com. [74.6.129.81])
-        by gmr-mx.google.com with ESMTPS id d16si638616pgk.2.2020.07.03.06.31.48
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="RQPqUTY/";
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wr1-x444.google.com (mail-wr1-x444.google.com. [2a00:1450:4864:20::444])
+        by gmr-mx.google.com with ESMTPS id 14si670769wmk.1.2020.07.03.07.32.22
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 03 Jul 2020 06:31:48 -0700 (PDT)
-Received-SPF: fail (google.com: domain of richard.l.boa.offica@barid.com does not designate 74.6.129.81 as permitted sender) client-ip=74.6.129.81;
-X-YMail-OSG: kwHxVdwVM1kGdEDGXt6Ae85EC3OArOilCJzl7xjkjv4THexpQp_X4OhAD3.YAEw
- 6nrN4CpONU3rFdq_zm6cK4KN0Db8ZkqNdOsHfoLilLuvkJLVT5fTOvvtBJlFJ_ldOy.rzjyzV64u
- xPhycQiXxIsasvLCJ3nGSZKAynTFD2UMYWqI_4.lyvFMaM2_4VilMfUjI74MteJaJd_gRUAcanHr
- HRjOdqg4Esba34BIFcVp3Nk6ZRAMBKbHcD70iJCLuBBsnU4bMVN7kvLIty1bnLgbVfVL0SmjuhDD
- pktCQ9unpSHuq6tvbo4Hq2EFESygGWprXoYfsO6rO9JRyD5G8YOuUJtH1I5mlcl4.9.K.fzW9nWT
- 1tAAoeUMlacLhGQyG5ZlkguOm7SAGqQCSTTkXW8iGn_AidNWj9AAb0X2J53NBH6o6tvihFj4EzaE
- fyqqethDTidnY1nMqJ5FmUFp1Ul6f.10jr.3lr_w7aSY9wlLG.HB.93i8YheqZ58YDrxG5PrJ30G
- D_anohZ9p8v6MsE7V4U7X9Y0L74t2ScTFKWQHk1BnblSKRyMa5GlbZnUcgWIOmDjTMAPHxz6qvL5
- dxMBLaWQUrntWWxMhfEppqgelaQ7eWc7y7s8IEOeA1j3sigUDl14wm8L4U8Rg1uKjL3SQ70WqY.s
- vUsmhaCR87CgwNJXFlYbh93X_YUhJo.__E4Oq.s4WD6lI11DvRSB4GXeWLyUwnTFBDqRlIThLviz
- AXFKjy7_XfM5NFZGmytBUlkKTu4ZDEuxYfJWinvibenHxye7n4EpJENqPFEHuYWUIW3C9dVjb18X
- FT_i45xw6NisgZh4Y7JqoL9jOg8PJOg5aiUgwqnbYFgtcXUxGQ7GDUi93Ew.Y9HgH7f6q0JhOKqh
- D7g17KJhSsILdKjOfhVQqPN3YC35CGc60zL7K6kU.RFf3DgSOBxvRZNLCoRFijy6sk9mCs8mhkRt
- xFc3ZrGD7DSS6ev4pjbz.opO7X7nEWv1NUjehakN5sCWSJq7_mGBnMS3D1E8khpGTiKSleLXL3TV
- FzV5yayR3q2u2k1mLqDjEKOv.rhyiaI_muv3qVHK1Cr91jI._qsgSfSl8or9yxio8A.f_AnDSFPx
- b_fteNM1n2X6._k4f0VGRut7tL5qP4Ll7GF7qZ9p4k1hWRiBlUMjlrnvYa0N7Ul4W9kNMa1qmpj9
- Isxk3FvJOkUddDd5x8UOlM.kyIN_LJwlKfUuRIAjGZNu59Akye0RTH6UpRXgN6ODhZX_cLhjq8Kg
- Q2b9QYQhHjMCl9Kgv2zaJUSOIr4eMtVlpHLCYz36WCk_lUPwdqmoRgOpMJQ0G0i5JSw8tel3OEQ-
- -
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic317.consmr.mail.bf2.yahoo.com with HTTP; Fri, 3 Jul 2020 13:31:47 +0000
-Date: Fri, 3 Jul 2020 13:31:45 +0000 (UTC)
-From: "Dr. Chami Alireza" <richard.l.boa.offica@barid.com>
-Reply-To: "Dr. Chami Alireza" <chamialirezadr@gmail.com>
-Message-ID: <901664606.592298.1593783105356@mail.yahoo.com>
-Subject: Your urgent respond is needed immediately.
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 03 Jul 2020 07:32:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::444 as permitted sender) client-ip=2a00:1450:4864:20::444;
+Received: by mail-wr1-x444.google.com with SMTP id z2so10664032wrp.2
+        for <clang-built-linux@googlegroups.com>; Fri, 03 Jul 2020 07:32:22 -0700 (PDT)
+X-Received: by 2002:a05:6000:1006:: with SMTP id a6mr35476948wrx.332.1593786741925;
+        Fri, 03 Jul 2020 07:32:21 -0700 (PDT)
+Received: from localhost.localdomain ([46.114.106.37])
+        by smtp.gmail.com with ESMTPSA id z16sm14116810wrr.35.2020.07.03.07.32.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Jul 2020 07:32:21 -0700 (PDT)
+From: Sedat Dilek <sedat.dilek@gmail.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Cc: Sedat Dilek <sedat.dilek@gmail.com>,
+	Craig Topper <craig.topper@intel.com>,
+	Craig Topper <craig.topper@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>
+Subject: [PATCH v5] x86/crypto: aesni: Fix build with LLVM_IAS=1
+Date: Fri,  3 Jul 2020 16:32:06 +0200
+Message-Id: <20200703143206.3994-1-sedat.dilek@gmail.com>
+X-Mailer: git-send-email 2.27.0
 MIME-Version: 1.0
-Content-Type: multipart/alternative; 
-	boundary="----=_Part_592297_798996761.1593783105354"
-References: <901664606.592298.1593783105356.ref@mail.yahoo.com>
-X-Mailer: WebService/1.1.16197 YMailNorrin Mozilla/5.0 (Windows NT 6.1; ) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36
-X-Original-Sender: richard.l.boa.offica@barid.com
+X-Original-Sender: sedat.dilek@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@yahoo.com header.s=s2048 header.b=RAzEgtQY;       spf=fail
- (google.com: domain of richard.l.boa.offica@barid.com does not designate
- 74.6.129.81 as permitted sender) smtp.mailfrom=richard.l.boa.offica@barid.com
+ header.i=@gmail.com header.s=20161025 header.b="RQPqUTY/";       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::444
+ as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,165 +153,122 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_592297_798996761.1593783105354
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+When building with LLVM_IAS=1 means using Clang's Integrated Assembly (IAS)
+from LLVM/Clang >= v10.0.1-rc1+ instead of GNU/as from GNU/binutils
+I see the following breakage in Debian/testing AMD64:
 
-Greetings My Dear Friend,
+<instantiation>:15:74: error: too many positional arguments
+ PRECOMPUTE 8*3+8(%rsp), %xmm1, %xmm2, %xmm3, %xmm4, %xmm5, %xmm6, %xmm7,
+                                                                         ^
+ arch/x86/crypto/aesni-intel_asm.S:1598:2: note: while in macro instantiation
+ GCM_INIT %r9, 8*3 +8(%rsp), 8*3 +16(%rsp), 8*3 +24(%rsp)
+ ^
+<instantiation>:47:2: error: unknown use of instruction mnemonic without a size suffix
+ GHASH_4_ENCRYPT_4_PARALLEL_dec %xmm9, %xmm10, %xmm11, %xmm12, %xmm13, %xmm14, %xmm0, %xmm1, %xmm2, %xmm3, %xmm4, %xmm5, %xmm6, %xmm7, %xmm8, enc
+ ^
+arch/x86/crypto/aesni-intel_asm.S:1599:2: note: while in macro instantiation
+ GCM_ENC_DEC dec
+ ^
+<instantiation>:15:74: error: too many positional arguments
+ PRECOMPUTE 8*3+8(%rsp), %xmm1, %xmm2, %xmm3, %xmm4, %xmm5, %xmm6, %xmm7,
+                                                                         ^
+arch/x86/crypto/aesni-intel_asm.S:1686:2: note: while in macro instantiation
+ GCM_INIT %r9, 8*3 +8(%rsp), 8*3 +16(%rsp), 8*3 +24(%rsp)
+ ^
+<instantiation>:47:2: error: unknown use of instruction mnemonic without a size suffix
+ GHASH_4_ENCRYPT_4_PARALLEL_enc %xmm9, %xmm10, %xmm11, %xmm12, %xmm13, %xmm14, %xmm0, %xmm1, %xmm2, %xmm3, %xmm4, %xmm5, %xmm6, %xmm7, %xmm8, enc
+ ^
+arch/x86/crypto/aesni-intel_asm.S:1687:2: note: while in macro instantiation
+ GCM_ENC_DEC enc
 
-Before I introduce myself, I wish to inform you that this letter is not a h=
-oax mail and I urge you to treat it serious.This letter must come to you as=
- a big surprise, but I believe it is only a day that people meet and become=
- great friends and business partners. Please I want you to read this letter=
- very carefully and I must apologize for barging this message into your mai=
-l box without any formal introduction due to the urgency and confidentialit=
-y of this business and I know that this message will come to you as a surpr=
-ise. Please this is not a joke and I will not like you to joke with it ok,W=
-ith due respect to your person and much sincerity of purpose, I make this c=
-ontact with you as I believe that you can be of great assistance to me. My =
-name is Dr. Chami Alireza, from Burkina Faso, West Africa. I work in Bank O=
-f Africa (BOA) as telex manager, please see this as a confidential message =
-and do not reveal it to another person and let me know whether you can be o=
-f assistance regarding my proposal below because it is top secret.
+Craig Topper suggested me in ClangBuiltLinux issue #1050:
 
-I am about to retire from active Banking service to start a new life but I =
-am skeptical to reveal this particular secret to a stranger. You must assur=
-e me that everything will be handled confidentially because we are not goin=
-g to suffer again in life. It has been 10 years now that most of the greedy=
- African Politicians used our bank to launder money overseas through the he=
-lp of their Political advisers. Most of the funds which they transferred ou=
-t of the shores of Africa were gold and oil money that was supposed to have=
- been used to develop the continent. Their Political advisers always inflat=
-ed the amounts before transferring to foreign accounts, so I also used the =
-opportunity to divert part of the funds hence I am aware that there is no o=
-fficial trace of how much was transferred as all the accounts used for such=
- transfers were being closed after transfer. I acted as the Bank Officer to=
- most of the politicians and when I discovered that they were using me to s=
-ucceed in their greedy act; I also cleaned some of their banking records fr=
-om the Bank files and no one cared to ask me because the money was too much=
- for them to control. They laundered over $50.5 Million Dollars during the =
-process.
+> I think the "too many positional arguments" is because the parser isn't able
+> to handle the trailing commas.
+>
+> The "unknown use of instruction mnemonic" is because the macro was named
+> GHASH_4_ENCRYPT_4_PARALLEL_DEC but its being instantiated with
+> GHASH_4_ENCRYPT_4_PARALLEL_dec I guess gas ignores case on the
+> macro instantiation, but llvm doesn't.
 
-Before I send this message to you, I have already diverted ($50.5 Million D=
-ollars) to an escrow account belonging to no one in the bank. The bank is a=
-nxious now to know who the beneficiary to the funds is because they have ma=
-de a lot of profits with the funds. It is more than Eight years now and mos=
-t of the politicians are no longer using our bank to transfer funds oversea=
-s. The ($50.5 Million Dollars) has been laying waste in our bank and I don=
-=E2=80=99t want to retire from the bank without transferring the funds to a=
- foreign account to enable me share the proceeds with the receiver (a forei=
-gner). The money will be shared 60% for me and 40% for you. There is no one=
- coming to ask you about the funds because I secured everything. I only wan=
-t you to assist me by providing a reliable bank account where the funds can=
- be transferred.
+First, I removed the trailing comma in the PRECOMPUTE line.
 
-You are not to face any difficulties or legal implications as I am going to=
- handle the transfer personally. If you are capable of receiving the funds,=
- do let me know immediately to enable me give you a detailed information on=
- what to do. For me, I have not stolen the money from anyone because the ot=
-her people that took the whole money did not face any problems. This is my =
-chance to grab my own life opportunity but you must keep the details of the=
- funds secret to avoid any leakages as no one in the bank knows about my pl=
-ans.Please get back to me if you are interested and capable to handle this =
-project, I shall intimate you on what to do when I hear from your confirmat=
-ion and acceptance.If you are capable of being my trusted associate, do dec=
-lare your consent to me I am looking forward to hear from you immediately f=
-or further information.
+Second, I substituted:
+1. GHASH_4_ENCRYPT_4_PARALLEL_DEC -> GHASH_4_ENCRYPT_4_PARALLEL_dec
+2. GHASH_4_ENCRYPT_4_PARALLEL_ENC -> GHASH_4_ENCRYPT_4_PARALLEL_enc
 
+With these changes I was able to build with LLVM_IAS=1 and boot on bare metal.
 
-Thanks with my best regards.
-Dr.Chami Alireza.
-Telex Manager
-Bank Of Africa (BOA)
-Burkina Faso.
+I confirmed that this works with Linux-kernel v5.7.5 final.
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/901664606.592298.1593783105356%40mail.yahoo.com.
+NOTE: This patch is on top of Linux v5.7 final.
 
-------=_Part_592297_798996761.1593783105354
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Thanks to Craig and especially Nick for double-checking and his comments.
 
-<html><head></head><body><div class=3D"yahoo-style-wrap" style=3D"font-fami=
-ly:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;"><div dir=
-=3D"ltr" data-setdir=3D"false"><div><div>Greetings My Dear Friend,</div><di=
-v><br></div><div><br></div><div>Before I introduce myself, I wish to inform=
- you that this letter is not a hoax mail and I urge you to treat it serious=
-.This letter must come to you as a big surprise, but I believe it is only a=
- day that people meet and become great friends and business partners. Pleas=
-e I want you to read this letter very carefully and I must apologize for ba=
-rging this message into your mail box without any formal introduction due t=
-o the urgency and confidentiality of this business and I know that this mes=
-sage will come to you as a surprise. Please this is not a joke and I will n=
-ot like you to joke with it ok,With due respect to your person and much sin=
-cerity of purpose, I make this contact with you as I believe that you can b=
-e of great assistance to me. My name is Dr. Chami Alireza, from Burkina Fas=
-o, West Africa. I work in Bank Of Africa (BOA) as telex manager, please see=
- this as a confidential message and do not reveal it to another person and =
-let me know whether you can be of assistance regarding my proposal below be=
-cause it is top secret.</div><div><br></div><div><br></div><div>I am about =
-to retire from active Banking service to start a new life but I am skeptica=
-l to reveal this particular secret to a stranger. You must assure me that e=
-verything will be handled confidentially because we are not going to suffer=
- again in life. It has been 10 years now that most of the greedy African Po=
-liticians used our bank to launder money overseas through the help of their=
- Political advisers. Most of the funds which they transferred out of the sh=
-ores of Africa were gold and oil money that was supposed to have been used =
-to develop the continent. Their Political advisers always inflated the amou=
-nts before transferring to foreign accounts, so I also used the opportunity=
- to divert part of the funds hence I am aware that there is no official tra=
-ce of how much was transferred as all the accounts used for such transfers =
-were being closed after transfer. I acted as the Bank Officer to most of th=
-e politicians and when I discovered that they were using me to succeed in t=
-heir greedy act; I also cleaned some of their banking records from the Bank=
- files and no one cared to ask me because the money was too much for them t=
-o control. They laundered over $50.5 Million Dollars during the process.</d=
-iv><div><br></div><div><br></div><div>Before I send this message to you, I =
-have already diverted ($50.5 Million Dollars) to an escrow account belongin=
-g to no one in the bank. The bank is anxious now to know who the beneficiar=
-y to the funds is because they have made a lot of profits with the funds. I=
-t is more than Eight years now and most of the politicians are no longer us=
-ing our bank to transfer funds overseas. The ($50.5 Million Dollars) has be=
-en laying waste in our bank and I don=E2=80=99t want to retire from the ban=
-k without transferring the funds to a foreign account to enable me share th=
-e proceeds with the receiver (a foreigner). The money will be shared 60% fo=
-r me and 40% for you. There is no one coming to ask you about the funds bec=
-ause I secured everything. I only want you to assist me by providing a reli=
-able bank account where the funds can be transferred.</div><div><br></div><=
-div><br></div><div>You are not to face any difficulties or legal implicatio=
-ns as I am going to handle the transfer personally. If you are capable of r=
-eceiving the funds, do let me know immediately to enable me give you a deta=
-iled information on what to do. For me, I have not stolen the money from an=
-yone because the other people that took the whole money did not face any pr=
-oblems. This is my chance to grab my own life opportunity but you must keep=
- the details of the funds secret to avoid any leakages as no one in the ban=
-k knows about my plans.Please get back to me if you are interested and capa=
-ble to handle this project, I shall intimate you on what to do when I hear =
-from your confirmation and acceptance.If you are capable of being my truste=
-d associate, do declare your consent to me I am looking forward to hear fro=
-m you immediately for further information.</div><div><br></div><div><br></d=
-iv><div><br></div><div>Thanks with my best regards.</div><div><br></div><di=
-v>Dr.Chami Alireza.</div><div><br></div><div>Telex Manager</div><div><br></=
-div><div>Bank Of Africa (BOA)</div><div><br></div><div>Burkina Faso.</div><=
-/div><br></div></div></body></html>
+Suggested-by: Craig Topper <craig.topper@intel.com>
+Suggested-by: Craig Topper <craig.topper@gmail.com>
+Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Cc: "ClangBuiltLinux" <clang-built-linux@googlegroups.com>
+Link: https://github.com/ClangBuiltLinux/linux/issues/1050
+Link: https://bugs.llvm.org/show_bug.cgi?id=24494
+Signed-off-by: Sedat Dilek <sedat.dilek@gmail.com>
+---
+Changes v4->v5:
+- Drop "5.7" tag from subject line as requested by Herbert Xu
+- Add Link to LLVM bug #24494 (thanks Nick)
 
-<p></p>
+Changes v3->v4:
+- Add <> around email address as desired by Nick
+- Add Nick's Reviewed-by
 
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/901664606.592298.1593783105356%40mail.yahoo.co=
-m?utm_medium=3Demail&utm_source=3Dfooter">https://groups.google.com/d/msgid=
-/clang-built-linux/901664606.592298.1593783105356%40mail.yahoo.com</a>.<br =
-/>
+Changes v2->v3:
+- Add this Changelog
 
-------=_Part_592297_798996761.1593783105354--
+Changes v1->v2:
+- Replace Cc by Suggested-by for Craig
+- Replace Cc by Suggested-by for Nick (dropped Cc as desired)
+- Really follow the suggestions of Craig
+- Drop unneeded comments for my build-environment and Links
+
+ arch/x86/crypto/aesni-intel_asm.S | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/arch/x86/crypto/aesni-intel_asm.S b/arch/x86/crypto/aesni-intel_asm.S
+index cad6e1bfa7d5..c216de287742 100644
+--- a/arch/x86/crypto/aesni-intel_asm.S
++++ b/arch/x86/crypto/aesni-intel_asm.S
+@@ -266,7 +266,7 @@ ALL_F:      .octa 0xffffffffffffffffffffffffffffffff
+ 	PSHUFB_XMM %xmm2, %xmm0
+ 	movdqu %xmm0, CurCount(%arg2) # ctx_data.current_counter = iv
+ 
+-	PRECOMPUTE \SUBKEY, %xmm1, %xmm2, %xmm3, %xmm4, %xmm5, %xmm6, %xmm7,
++	PRECOMPUTE \SUBKEY, %xmm1, %xmm2, %xmm3, %xmm4, %xmm5, %xmm6, %xmm7
+ 	movdqu HashKey(%arg2), %xmm13
+ 
+ 	CALC_AAD_HASH %xmm13, \AAD, \AADLEN, %xmm0, %xmm1, %xmm2, %xmm3, \
+@@ -978,7 +978,7 @@ _initial_blocks_done\@:
+ * arg1, %arg3, %arg4 are used as pointers only, not modified
+ * %r11 is the data offset value
+ */
+-.macro GHASH_4_ENCRYPT_4_PARALLEL_ENC TMP1 TMP2 TMP3 TMP4 TMP5 \
++.macro GHASH_4_ENCRYPT_4_PARALLEL_enc TMP1 TMP2 TMP3 TMP4 TMP5 \
+ TMP6 XMM0 XMM1 XMM2 XMM3 XMM4 XMM5 XMM6 XMM7 XMM8 operation
+ 
+ 	movdqa	  \XMM1, \XMM5
+@@ -1186,7 +1186,7 @@ aes_loop_par_enc_done\@:
+ * arg1, %arg3, %arg4 are used as pointers only, not modified
+ * %r11 is the data offset value
+ */
+-.macro GHASH_4_ENCRYPT_4_PARALLEL_DEC TMP1 TMP2 TMP3 TMP4 TMP5 \
++.macro GHASH_4_ENCRYPT_4_PARALLEL_dec TMP1 TMP2 TMP3 TMP4 TMP5 \
+ TMP6 XMM0 XMM1 XMM2 XMM3 XMM4 XMM5 XMM6 XMM7 XMM8 operation
+ 
+ 	movdqa	  \XMM1, \XMM5
+-- 
+2.27.0
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200703143206.3994-1-sedat.dilek%40gmail.com.
