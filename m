@@ -1,146 +1,141 @@
-Return-Path: <clang-built-linux+bncBDHYDDNWVUNRB5UC7X3QKGQEJHWS7BA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBT4D7X3QKGQEVQ5444Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43a.google.com (mail-wr1-x43a.google.com [IPv6:2a00:1450:4864:20::43a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2EB9A213BD5
-	for <lists+clang-built-linux@lfdr.de>; Fri,  3 Jul 2020 16:32:23 +0200 (CEST)
-Received: by mail-wr1-x43a.google.com with SMTP id y16sf31662004wrr.20
-        for <lists+clang-built-linux@lfdr.de>; Fri, 03 Jul 2020 07:32:23 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1593786743; cv=pass;
+Received: from mail-qt1-x83b.google.com (mail-qt1-x83b.google.com [IPv6:2607:f8b0:4864:20::83b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 40D28213BD9
+	for <lists+clang-built-linux@lfdr.de>; Fri,  3 Jul 2020 16:33:52 +0200 (CEST)
+Received: by mail-qt1-x83b.google.com with SMTP id o11sf21852472qti.23
+        for <lists+clang-built-linux@lfdr.de>; Fri, 03 Jul 2020 07:33:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1593786831; cv=pass;
         d=google.com; s=arc-20160816;
-        b=DuFjf2VICXaWJguZ+MN6QqcVOnV3xxtThKVxvuVlCcC+IJC+iC6TTdZuogEKiI/gyA
-         wcHXIC3wEeQ7FOYKI2MBm7GMS1xSE8zL8cInSWOOSAFdTmosnPDJY9tMHvfSwxdD/bsx
-         givKvySSJOMqn4qESh5jQrJ0p+9LSoC0VIhUFQmfhyjyOlY+1UaMX4LIq0wlWlXRPhl8
-         UoxUR6giZvKrXKV7SFkgKx4yJy4z3wj3cSz4X3i+vkUYOV8yyKvS0F7ECFBV/k/Z02tW
-         woCj4VbvHLeZc+tKg8PUfealM+BmYDrtA4C3IcnV3QWAGThWTOi0IGuy9VGnA4+uR7lS
-         NGTA==
+        b=HBLu18R7I/PvnixaVw+ry01V1Rfu9dt4Lo4P+WsewrBWld5Ye+4eCwx+slLtv+8wcS
+         ADsALWndkdnuf5+kxeDHWJr1tn6GO5CoUX9VomEX37wVRqDZpPMxcTcfbqPK/A2Z6MPJ
+         prsuDpM1NrsnYv9qdy56ZjjkROxPqTGJccGH5RKxbrimseZR5MOeUPTwNi2yViVCN+mY
+         ZYzLFoVF2d4dASE9sbeTtLYL2oi+4G+XtwJ8XvZeOIgcJkF+L6Qb8enSfoWmCz34fH2r
+         xbmg1pMF5sbRlnR45+KajEVBv4+iXq6h+bMq2kVFls3o0Gd68whXhJLA4ocfZ+/81uVf
+         uE+g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature:dkim-signature;
-        bh=ACEu3fzGkWI5E/MMj1pW5da5KJ6eoby+fMYxJtbeyH8=;
-        b=xWMAiwCYAOFbMR4vpjg8QAliU2eumdyC8oGqO47f4YG6weyonsfJVusG7DeaFu7mSE
-         kmhk15SDlIM6sLh7j+tJWqtVvUnSC6JSvbrhnUXt5DHMJX9jTb5M4huBUEaf8pQK2dNK
-         Akav7HOtrLyeChlcQtjqb4TU7KEeKdBW/0f8Rmqp555zbEnMW/KdmZUy6ElGPg4zZ1yz
-         WKuDCRDoKOa1vJ14HF/4aRO/GSQiiulVqAfSd8RHAI+y/bsC64YMTPQuq2m0bWBeQ0Ph
-         Lc6C8kfuGz40J1RT1Lo8Vv+iEAKKGxAcUi0xSLEwfObTscyh8F9qiNwtJN9APWqXd4py
-         iwvQ==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=TxIC0oTHs9M3dI4L0TvduPpe2Lif4MLGpXkkC65nsso=;
+        b=htNd0NZiqGQtxSRp/wsvGbFH+2F4XDclDEYO/Y42qv4EIq/rOOEz6UXVb2AyvYEI6P
+         arcuLo2wmGJ/crhPa0eor/8LUGBx1qe0s+4zNA2v9VtRea8GZmARCGwXl0ZneXCxQD3z
+         esm7ZcZYzEGL/lOFE/bnYlWJD/gvQMYumFXXSLyFWkDqvofGC73SMzT8DAR3WYJpZdsx
+         HsZ8BkzucupYBppVVN5c3NPUTaIywmuvG/XNV3DAYeMCRjwzHXxr5apMGs+I+XWmDG67
+         DP0zqzfydS4Aosu+QcpF7PrMnQMF+89KDcsLN5f3DZT0MHywYPLlMZ9/MBPl7NVfAvpk
+         M8ew==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="RQPqUTY/";
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=piHoVbQo;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::143 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=ACEu3fzGkWI5E/MMj1pW5da5KJ6eoby+fMYxJtbeyH8=;
-        b=OJJGwBh9U1Qq/qHG2IQAeq3TD8E6q2ptn/XHFgsWXLy22cns9IJubTwT1hwKxYb0uG
-         /vR1qUm5zpVpgw5tc5wqT1VhPVYiKSp08bOuC9aJbClBxa7Lxbq7Qtn0sjWALfe1UP8T
-         UKUoVLTB+JfTElsIO6Z3f/8sDbW5Cc0cTFSom0DiPdlW4DHqmZYO/c/xJAF+okK7CBto
-         c1mL8eN86rLTeNGNCPCnHNktXJ3ATZISqZ+56ZtCv/RGebKQItrYkA/ANNPY87cJuSHq
-         5K7fcPEHxdniZO4ormziGq3RqdhObiG44OWvW54QYcsdqKt3ja81cQNNm14figZ0QZo9
-         zjQw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
+        h=sender:mime-version:references:in-reply-to:reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ACEu3fzGkWI5E/MMj1pW5da5KJ6eoby+fMYxJtbeyH8=;
-        b=dAT/TexLiL5U7Ira6cUhzJWog2tLepU9fFI567bB8FDHKW8i5ZSCtO16W7ZeNaSwxE
-         h6nUAVGljTr7vyoQ5WvgWXDzDlKYtmcPL8se6r7i0CL0ckPZhKMsuEjL6FZHPZJGrrjV
-         UWXphlDb9T+C+hMEyTtnoqEGmE5HE1NUIRD7zDyzDoeR8JVnmrB1c+98yykwCkMlUvvb
-         sHs055a9Vy2cKTyYm/g0Snej2z+0QKGUiDJXDKORNHQ7CuVLhxQTcAu96igIK1xW/PuN
-         yVDXnIs/+xA2uoPVFWaskaD/VDs1qaajtggkIJauNImIR9+3FcX8XEG81+7OFYSJFllz
-         s+3A==
+        bh=TxIC0oTHs9M3dI4L0TvduPpe2Lif4MLGpXkkC65nsso=;
+        b=tXCWTDV3Fn4tghffkVt80HHb8JwCnqcx68mflUt8OSkRtBTEkWrrUfJcp32bqacfgi
+         7lLUvpsNvhBo/5IBSkYWR5nXfsWr+jIVf0qaR2Hx5bpNAQHOLw5v5aPU2w+wD5kOkJSs
+         CTJkTnB/hBtQ+q4utYLQkJnucfx6unqdK07WPdTIVupzoHk42UC8BN+R0rVBO7EFWM4U
+         RTUxxGsaPwUuJOJaHfVFo98WIRiqUYNJKjHldMM0SYMnxNjivr4few2DT9CnMmW2CyJB
+         BPxoww3HSHU2jrjYNxP9QolnYrsnqhEJ5uX7IsVSccvazSrzf0ZFaDeJO+68whQ/R2Zq
+         uKeA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=TxIC0oTHs9M3dI4L0TvduPpe2Lif4MLGpXkkC65nsso=;
+        b=rtotsBLzyVGQ1YSh3ZvufNWRFWwddxDpLzRJ6Ze5H0DerdFSSIUGgbr6IDz7NMdL+2
+         g1q6WcfBl/sGKOTVXC0S0H+5NmWeGxcPWWd7/TQi/f9n1ibeQk4vpAQjhcUqBwWpp9/v
+         pLypA6wZPfprPZzDRexWoOV3GxOxhqXsATt2n6ksnspHrdOIAd/jN8YspoYz4TvZ/KEj
+         DkagFAymGL1wp8JuMmrA9OvFpe99u5HFjE1zxMTr7TkSdbFM5fxSMvKWfU2LDS+PZ6QK
+         YMUkizoKVNvu3DdLfUQ9Puv0I3vO6yfYKQ8w8ZmwxgsZ4wTg60Mgk3Yey58pcJC8/tbC
+         YeSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ACEu3fzGkWI5E/MMj1pW5da5KJ6eoby+fMYxJtbeyH8=;
-        b=E5bX+COa4AwJC699DWgr1kFCHw9jvqfjY7L0MagU+gN+GwJA0kEy5QTOyFGWcLS2j2
-         4ykfoWL4CAFmY/WXtkjSPPbEKuq3Vgl3rzd7S41JN+tPcybnfhG5USKqx0BZTtBKi7Wf
-         z0ZzvBm8ueCwvTGNXDWAxKbLcUR1UKPjICL1BnrEhxjYnpWMKc3w+jr/i5Ck/8FaNPsW
-         a7+Kgap1sECqufyOo4OBifAX8RalxPYvHBA7V15khIbcWNODW1TbfWbxevviziTl50IX
-         AVEmlowtzotkuMhkS8akWcY0CsNzCTFtzTNf0QrkKAvEhIYuuze2Fym6YdsENVoDrP1r
-         A2Gg==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to
+         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=TxIC0oTHs9M3dI4L0TvduPpe2Lif4MLGpXkkC65nsso=;
+        b=ZF80cCzwcVkhk7P4PsXLZqxunzIwQ3PYQ+5+DPbN7+AyMJ43Xm7dePRbYnUHqbdTTw
+         hQrOn6h3y0C4ir0N3SR7YeW803gY5onoWPCA5BzXhTgyQ5PZwELInGA3ddfeD1KgNSBo
+         o/5Yjngsyxo6Fg4cT0EJsU4+WwtW6FOXWi6fL5zgCH+VsuQfqm0OdFonQcIayzZ3cVl1
+         doOb4ytnDsuNmyP5/DLbAHvc2R39GH+HGV+HrkXAtCp7+slcg3vzT2jzvOEizF+jgah3
+         pwxNfbw5cACb0nG0kDoBYauMsazg5M3czWEho2/KkAoWYrNTDp0AW8QbbEhFWkZUqwYc
+         ESew==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530UXG1hLGLaGTdWtQQgQXmK5HdHQMs4MowE2+w0g5T+yxENTPWm
-	X2jkiO93yL8rReeVn/IUfuo=
-X-Google-Smtp-Source: ABdhPJze2VTc8ap9iYlwx2c7f5bl0z/ASIcLU+wNfLqJnwx5tMk4flEkmOuw5KF5Dn1W6BcVHzpzgw==
-X-Received: by 2002:a1c:2183:: with SMTP id h125mr39337999wmh.83.1593786742899;
-        Fri, 03 Jul 2020 07:32:22 -0700 (PDT)
+X-Gm-Message-State: AOAM533rtCY+yt/WfPoaNly2qnMpiYi386chzgADmNlyCYc9QnZH9jIX
+	Imzl3Z7KwRBrKx7eZ0Hv7Fk=
+X-Google-Smtp-Source: ABdhPJxIVsQHSTY0d+GOfgoZegqQnCEhlDkx0raqks6Ryc9Jj6+hFuLf1Cq41tcuI16qu79kgtKCGQ==
+X-Received: by 2002:a0c:b88d:: with SMTP id y13mr29783068qvf.82.1593786831102;
+        Fri, 03 Jul 2020 07:33:51 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:82ca:: with SMTP id 68ls1571388wrc.2.gmail; Fri, 03 Jul
- 2020 07:32:22 -0700 (PDT)
-X-Received: by 2002:a5d:55cf:: with SMTP id i15mr40414509wrw.204.1593786742306;
-        Fri, 03 Jul 2020 07:32:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1593786742; cv=none;
+Received: by 2002:a05:620a:248:: with SMTP id q8ls4422723qkn.5.gmail; Fri, 03
+ Jul 2020 07:33:50 -0700 (PDT)
+X-Received: by 2002:a37:4f0e:: with SMTP id d14mr36304439qkb.8.1593786830760;
+        Fri, 03 Jul 2020 07:33:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593786830; cv=none;
         d=google.com; s=arc-20160816;
-        b=BCGBwZFsLapETL8bpRlPZ++TwNadIX5cceEWcEg+2o/X4phWqz4lz18Jht1uNB34aH
-         tELJpjldFHpL7JWWIqOaNuHpZfG+URjegiIisdB4V9qHFe6nPTJKfq4VopWDSO8Qd8Ns
-         zhDlVm26xWaP08+fil7L/lbavysH631LHm+LpqVArzFttpljmkrF+DLzxlzOb3vwu11U
-         tK9Pfyk5nLSZIqrg+Rj/DmcEHhjZ5e9XELG1QIu+j/ZutJlbnZQ4qabsVMegoyoLl2ml
-         aJZFPxtXxDnMy1FzQEBIn28UA5pnANQsUOSH1kEnNm7FSR2x4ttjLe4SLGV2eBG2qsf8
-         l1CA==
+        b=q8cH9wx65C2RD2OjbVHIOsKxHU2673qOgLsjVFuniUzvPMwdErY1b4/W0z/bM/Tk3T
+         xdiOW3pOqn1lkFVWZ69G72OF5cnaX8PAqbXCUMIJjpQFoqrwHYUdREkh61X3Gs7FYDtw
+         smXaecrJnBYFkYFH77yUrW7UlaC3PS6gy8Zq7uepnxKKIeLffe/YPjOIpBErCuMMHXMA
+         vCoAOD/JSOu+mZeQQwh52F+4x/62Js6IcE+hnFJDg9Fp9AzC6YOwtuvFQHzp8EDOjiag
+         xh6KhhBP7desruxjUwBljuSp/uThOXJMxIsuFanH8Y3pOz34Hrr0H4LcUPZPys/w4yw4
+         L1fw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=aBK4xIyiQPwE9WexL/fXXMXlCGSw5m4ZqDOwI6txEYA=;
-        b=W5uFrVFd4lc2Oqm6jBN3LLJH6VweaFpXXfkrjxj6ESdnAyHtEnCzD5qD80EOpqD1iR
-         J1sERZ5CYsgurN6ULqJbMkjiK38xgsD8iXVmIM32SOyLpcvyXI01Fvd846H/6RpoReR4
-         5mfcxXRSRwTCgN23u9a4eTyX/SbFKYanAK7PIs6Yy+TpL3hdhQJRe8cReQB6fLTeyuZE
-         A1ed6fkMJDz6HFxce9u1rPLmhclwXEtBsyXCdyew34BmnD6YsbbDLpUp+MEUUT4aN1KY
-         5JDs4QF9i5RNr7CrzGSFZTPdKP4iPFbuAM6Decmjrhg/RD+3gPrW8F1E9u7j309+q2xb
-         I+2g==
+        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=TEiqJa9+FS+SQXQKIC7/ALNi4cJmrJm7CDMMd+hF6lk=;
+        b=ZJqMavyS5psUoSS1PMEJwTnIYMPlW8yAEdqVkAuIgQJ74WtrOdn2dP/ybk9iewQUUN
+         xs6RD+rBsq9OO4043ArRFNgyilGyA1nULzLKlDtTcVpx2m4CNCPJXRNxP0LIvd1KAFC0
+         XXezNsMoSX4XYvZOcjUIARdzlycP9teUY6y9NGecJKThteYdpLqxAtpi5gajC6UTLd0O
+         3dEFVWgfSBdFxQ9C4ZOvOMBk8HWHsB2qPlPLKqsDctEDLGWpiF3v05hU05VrwzkUhFem
+         ESoPXx/80exPKp1qwdBbOeUEjMKPJn0ny9HG0ioTKN8ZC/SNtnGjKqq4CrjdH+E/cMyC
+         pOvg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="RQPqUTY/";
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=piHoVbQo;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::143 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wr1-x444.google.com (mail-wr1-x444.google.com. [2a00:1450:4864:20::444])
-        by gmr-mx.google.com with ESMTPS id 14si670769wmk.1.2020.07.03.07.32.22
+Received: from mail-il1-x143.google.com (mail-il1-x143.google.com. [2607:f8b0:4864:20::143])
+        by gmr-mx.google.com with ESMTPS id j9si456650qkg.6.2020.07.03.07.33.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 03 Jul 2020 07:32:22 -0700 (PDT)
-Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::444 as permitted sender) client-ip=2a00:1450:4864:20::444;
-Received: by mail-wr1-x444.google.com with SMTP id z2so10664032wrp.2
-        for <clang-built-linux@googlegroups.com>; Fri, 03 Jul 2020 07:32:22 -0700 (PDT)
-X-Received: by 2002:a05:6000:1006:: with SMTP id a6mr35476948wrx.332.1593786741925;
-        Fri, 03 Jul 2020 07:32:21 -0700 (PDT)
-Received: from localhost.localdomain ([46.114.106.37])
-        by smtp.gmail.com with ESMTPSA id z16sm14116810wrr.35.2020.07.03.07.32.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jul 2020 07:32:21 -0700 (PDT)
-From: Sedat Dilek <sedat.dilek@gmail.com>
-To: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Cc: Sedat Dilek <sedat.dilek@gmail.com>,
-	Craig Topper <craig.topper@intel.com>,
-	Craig Topper <craig.topper@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>
-Subject: [PATCH v5] x86/crypto: aesni: Fix build with LLVM_IAS=1
-Date: Fri,  3 Jul 2020 16:32:06 +0200
-Message-Id: <20200703143206.3994-1-sedat.dilek@gmail.com>
-X-Mailer: git-send-email 2.27.0
+        Fri, 03 Jul 2020 07:33:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::143 as permitted sender) client-ip=2607:f8b0:4864:20::143;
+Received: by mail-il1-x143.google.com with SMTP id o3so10072915ilo.12
+        for <clang-built-linux@googlegroups.com>; Fri, 03 Jul 2020 07:33:50 -0700 (PDT)
+X-Received: by 2002:a92:d843:: with SMTP id h3mr18966003ilq.255.1593786830335;
+ Fri, 03 Jul 2020 07:33:50 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200622232434.162730-1-caij2003@gmail.com> <20200703044832.GD23200@gondor.apana.org.au>
+ <CA+icZUWwpY9rnfgyy81-78fH+PH4wmAS-+yZFBDCjBbARabQfg@mail.gmail.com> <20200703125949.GA28373@gondor.apana.org.au>
+In-Reply-To: <20200703125949.GA28373@gondor.apana.org.au>
+Reply-To: sedat.dilek@gmail.com
+From: Sedat Dilek <sedat.dilek@gmail.com>
+Date: Fri, 3 Jul 2020 16:33:39 +0200
+Message-ID: <CA+icZUU=OvtLpzgQyCckCJ-LJ5asGAJgCnVQF9f+Fn-7tKn5mQ@mail.gmail.com>
+Subject: Re: [PATCH] crypto, x86: aesni: add compatibility with IAS
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: Jian Cai <caij2003@gmail.com>, jiancai@google.com, 
+	Nick Desaulniers <ndesaulniers@google.com>, manojgupta@google.com, maskray@google.com, 
+	"David S. Miller" <davem@davemloft.net>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: sedat.dilek@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b="RQPqUTY/";       spf=pass
- (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::444
+ header.i=@gmail.com header.s=20161025 header.b=piHoVbQo;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::143
  as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
  (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,122 +148,37 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-When building with LLVM_IAS=1 means using Clang's Integrated Assembly (IAS)
-from LLVM/Clang >= v10.0.1-rc1+ instead of GNU/as from GNU/binutils
-I see the following breakage in Debian/testing AMD64:
-
-<instantiation>:15:74: error: too many positional arguments
- PRECOMPUTE 8*3+8(%rsp), %xmm1, %xmm2, %xmm3, %xmm4, %xmm5, %xmm6, %xmm7,
-                                                                         ^
- arch/x86/crypto/aesni-intel_asm.S:1598:2: note: while in macro instantiation
- GCM_INIT %r9, 8*3 +8(%rsp), 8*3 +16(%rsp), 8*3 +24(%rsp)
- ^
-<instantiation>:47:2: error: unknown use of instruction mnemonic without a size suffix
- GHASH_4_ENCRYPT_4_PARALLEL_dec %xmm9, %xmm10, %xmm11, %xmm12, %xmm13, %xmm14, %xmm0, %xmm1, %xmm2, %xmm3, %xmm4, %xmm5, %xmm6, %xmm7, %xmm8, enc
- ^
-arch/x86/crypto/aesni-intel_asm.S:1599:2: note: while in macro instantiation
- GCM_ENC_DEC dec
- ^
-<instantiation>:15:74: error: too many positional arguments
- PRECOMPUTE 8*3+8(%rsp), %xmm1, %xmm2, %xmm3, %xmm4, %xmm5, %xmm6, %xmm7,
-                                                                         ^
-arch/x86/crypto/aesni-intel_asm.S:1686:2: note: while in macro instantiation
- GCM_INIT %r9, 8*3 +8(%rsp), 8*3 +16(%rsp), 8*3 +24(%rsp)
- ^
-<instantiation>:47:2: error: unknown use of instruction mnemonic without a size suffix
- GHASH_4_ENCRYPT_4_PARALLEL_enc %xmm9, %xmm10, %xmm11, %xmm12, %xmm13, %xmm14, %xmm0, %xmm1, %xmm2, %xmm3, %xmm4, %xmm5, %xmm6, %xmm7, %xmm8, enc
- ^
-arch/x86/crypto/aesni-intel_asm.S:1687:2: note: while in macro instantiation
- GCM_ENC_DEC enc
-
-Craig Topper suggested me in ClangBuiltLinux issue #1050:
-
-> I think the "too many positional arguments" is because the parser isn't able
-> to handle the trailing commas.
+On Fri, Jul 3, 2020 at 3:00 PM Herbert Xu <herbert@gondor.apana.org.au> wrote:
 >
-> The "unknown use of instruction mnemonic" is because the macro was named
-> GHASH_4_ENCRYPT_4_PARALLEL_DEC but its being instantiated with
-> GHASH_4_ENCRYPT_4_PARALLEL_dec I guess gas ignores case on the
-> macro instantiation, but llvm doesn't.
+> On Fri, Jul 03, 2020 at 10:36:43AM +0200, Sedat Dilek wrote:
+> >
+> > Can you please apply my patch, too?
+>
+> Please repost your patch without the 5.7 tag.
+>
 
-First, I removed the trailing comma in the PRECOMPUTE line.
+Sent out a v5:
 
-Second, I substituted:
-1. GHASH_4_ENCRYPT_4_PARALLEL_DEC -> GHASH_4_ENCRYPT_4_PARALLEL_dec
-2. GHASH_4_ENCRYPT_4_PARALLEL_ENC -> GHASH_4_ENCRYPT_4_PARALLEL_enc
-
-With these changes I was able to build with LLVM_IAS=1 and boot on bare metal.
-
-I confirmed that this works with Linux-kernel v5.7.5 final.
-
-NOTE: This patch is on top of Linux v5.7 final.
-
-Thanks to Craig and especially Nick for double-checking and his comments.
-
-Suggested-by: Craig Topper <craig.topper@intel.com>
-Suggested-by: Craig Topper <craig.topper@gmail.com>
-Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-Cc: "ClangBuiltLinux" <clang-built-linux@googlegroups.com>
-Link: https://github.com/ClangBuiltLinux/linux/issues/1050
-Link: https://bugs.llvm.org/show_bug.cgi?id=24494
-Signed-off-by: Sedat Dilek <sedat.dilek@gmail.com>
----
 Changes v4->v5:
 - Drop "5.7" tag from subject line as requested by Herbert Xu
 - Add Link to LLVM bug #24494 (thanks Nick)
 
-Changes v3->v4:
-- Add <> around email address as desired by Nick
-- Add Nick's Reviewed-by
+Thanks.
 
-Changes v2->v3:
-- Add this Changelog
+- Sedat -
 
-Changes v1->v2:
-- Replace Cc by Suggested-by for Craig
-- Replace Cc by Suggested-by for Nick (dropped Cc as desired)
-- Really follow the suggestions of Craig
-- Drop unneeded comments for my build-environment and Links
-
- arch/x86/crypto/aesni-intel_asm.S | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/arch/x86/crypto/aesni-intel_asm.S b/arch/x86/crypto/aesni-intel_asm.S
-index cad6e1bfa7d5..c216de287742 100644
---- a/arch/x86/crypto/aesni-intel_asm.S
-+++ b/arch/x86/crypto/aesni-intel_asm.S
-@@ -266,7 +266,7 @@ ALL_F:      .octa 0xffffffffffffffffffffffffffffffff
- 	PSHUFB_XMM %xmm2, %xmm0
- 	movdqu %xmm0, CurCount(%arg2) # ctx_data.current_counter = iv
- 
--	PRECOMPUTE \SUBKEY, %xmm1, %xmm2, %xmm3, %xmm4, %xmm5, %xmm6, %xmm7,
-+	PRECOMPUTE \SUBKEY, %xmm1, %xmm2, %xmm3, %xmm4, %xmm5, %xmm6, %xmm7
- 	movdqu HashKey(%arg2), %xmm13
- 
- 	CALC_AAD_HASH %xmm13, \AAD, \AADLEN, %xmm0, %xmm1, %xmm2, %xmm3, \
-@@ -978,7 +978,7 @@ _initial_blocks_done\@:
- * arg1, %arg3, %arg4 are used as pointers only, not modified
- * %r11 is the data offset value
- */
--.macro GHASH_4_ENCRYPT_4_PARALLEL_ENC TMP1 TMP2 TMP3 TMP4 TMP5 \
-+.macro GHASH_4_ENCRYPT_4_PARALLEL_enc TMP1 TMP2 TMP3 TMP4 TMP5 \
- TMP6 XMM0 XMM1 XMM2 XMM3 XMM4 XMM5 XMM6 XMM7 XMM8 operation
- 
- 	movdqa	  \XMM1, \XMM5
-@@ -1186,7 +1186,7 @@ aes_loop_par_enc_done\@:
- * arg1, %arg3, %arg4 are used as pointers only, not modified
- * %r11 is the data offset value
- */
--.macro GHASH_4_ENCRYPT_4_PARALLEL_DEC TMP1 TMP2 TMP3 TMP4 TMP5 \
-+.macro GHASH_4_ENCRYPT_4_PARALLEL_dec TMP1 TMP2 TMP3 TMP4 TMP5 \
- TMP6 XMM0 XMM1 XMM2 XMM3 XMM4 XMM5 XMM6 XMM7 XMM8 operation
- 
- 	movdqa	  \XMM1, \XMM5
--- 
-2.27.0
+> Thanks,
+> --
+> Email: Herbert Xu <herbert@gondor.apana.org.au>
+> Home Page: http://gondor.apana.org.au/~herbert/
+> PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200703125949.GA28373%40gondor.apana.org.au.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200703143206.3994-1-sedat.dilek%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUU%3DOvtLpzgQyCckCJ-LJ5asGAJgCnVQF9f%2BFn-7tKn5mQ%40mail.gmail.com.
