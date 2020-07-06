@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBIEIR34AKGQEFNE5DBQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBRVMR34AKGQEEVETN2Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3c.google.com (mail-vk1-xa3c.google.com [IPv6:2607:f8b0:4864:20::a3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5C962215FE0
-	for <lists+clang-built-linux@lfdr.de>; Mon,  6 Jul 2020 22:05:53 +0200 (CEST)
-Received: by mail-vk1-xa3c.google.com with SMTP id d188sf7338716vka.21
-        for <lists+clang-built-linux@lfdr.de>; Mon, 06 Jul 2020 13:05:53 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1594065952; cv=pass;
+Received: from mail-qk1-x73e.google.com (mail-qk1-x73e.google.com [IPv6:2607:f8b0:4864:20::73e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 46F702160EF
+	for <lists+clang-built-linux@lfdr.de>; Mon,  6 Jul 2020 23:23:19 +0200 (CEST)
+Received: by mail-qk1-x73e.google.com with SMTP id 13sf15296545qkk.10
+        for <lists+clang-built-linux@lfdr.de>; Mon, 06 Jul 2020 14:23:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1594070598; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qYgfq81ZZbQB28IB6SIJXRwMeL9JfBR4TWhD4NDnk+d1SPCVQ1anfttYvR7WJO/XUI
-         Grd9uXpEQLL+lhH6K2+lwuztUSl8UeuSU6uqUtQHP7afVmZO4RQsWzqAekljn3RpwzKu
-         uke9Lmae1gmwnkqp9rtR77l835i7Tw1wHyeSj4knPVz8ozAYQXv3NFkqKdPhvg7Jfdgu
-         UTXu0Qhk7wlAta/leoQptRpZMJDjmn2PR0iNu0IkVvPxXNeQUFIVrsR7hVEzJ0ZDKiTS
-         AiU83H/hxxmL/bevmQ5hGCuMsdTqH+Tk/Vn4JhAyjeyCZEDyrQRtxk5G+hetaLxPecsW
-         ZeQQ==
+        b=pn0YTdfpl1x53ZLhNgGdxLab5/ucCAemtt098ubB5DBeCAvg2MrcANAlJ66PaLUJgk
+         s+JI4cWfDvliL1vBKQUZJHS1Kb57N5Iw9VWH+4d6FH1tTfOh3ttGmfgwskl01uopvUfF
+         f7UEa8w1njxuEddtJswBFIsj7Dz7ANatggdeGUAWXfiLTK6ucG580RIZaDFnk7ea00O9
+         ZYM8PAI3ZJ4W19cckAZs04p3zcnG8hZEiTuwj2S+GQFT1q5kRa6GnYn78QP6zzDUfOmj
+         ny/k1VdTf8GgeIWb7Gov/VfC4tzTxBn673R0hLlv2XV9rSTwLrWKcgi9PQMEivpCC4g8
+         v+PA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=dkZrcjb0tn9YfxPKpxtOEbQo9ar+vkHCHcUPYv48D2Y=;
-        b=QwPycVaYnt92H9CGW9S8Y8uuVAbGWCq2cLNbzgv7EIfpYlO3bAP/0/NGZyDGUj6NJM
-         tKcShnpkLjsLtrCGtca8HIrh/V5qm+QjAIeCyGcF4M1xgoMXD4hFTRFLtZtaTGC+JE0h
-         gyh98TjR4aVba3nx/sfhbsxQdDeE2bDEuWnSUu5cXju/oXMa8A1paZ4woQtUTZf/QTle
-         v6OaR7eiakMcxn3ciuqEFePRqx6nCmEWK+5TJHmuJLhikRhUAbxU1yQRzPsRUyQsJxMt
-         jTD9ewhbPa24ksPUWtk/WK5UCA5ize2kiu9VZCTLRmL+/o1BdvFrDFuecCT9egkZdPeo
-         E7JQ==
+        bh=gD9k4POfM5CmIa9IJ6kA04FERoiZqY3qGWwBuZQoVfg=;
+        b=QQNfvjbeYyDHcj8DzGHNCEETOf2wCWCDgGT33R4T++N6wYhoKtBtHf5wd+m0/u+pl4
+         +X2vTlHkSh806B+Jh2BIIyLuEGxdCdpCzUvUFovvrSEPjETxcEgHbE8RrG++I8+6EU5J
+         WB8ceJVh6FXRk3zxrFS3BMyuAOypptUJj8AvzaaOIYfvXwEqODxMr4szsuWHqbH7SheZ
+         s7L9lkL1jEdmQrEn9PCnCQ7ofCU5lWYL0e/ZnIwDWSuapcftIBOlOblBG753YmowRhjI
+         32rnRvPg9/10OYY4hfM46MKqcBVXKIOeCxF+4M32TdBulRHp0jstTmQSEWBa1DB1C6qk
+         Mbuw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=dkZrcjb0tn9YfxPKpxtOEbQo9ar+vkHCHcUPYv48D2Y=;
-        b=RUmFr3Xn1kSlLxMSoJV5QJy1lyh6lmGDf9UVgIGwY8lRSWUaKiGYJK/hXAd9UfVkM3
-         KEvznefx4T7QusyurrFFcA368qRLpICBXqnbmRL3jpprsMOG4nTgXqkeRDt941PjktZF
-         cgJAQySCXK3j0+uh8SaYS5/HlHYgqW/FwBvwQVREBD2dTlziopwYEMm/yryChJlw+W45
-         50EEMzDVv4G+xycySUjDKxE2nedXiehR4kZ3KLBbgCm8Op6mFj4Py5sPBfKymsNhw5zr
-         vA7m6O4/cbAFPdSxWJJM1kfDZ0ZkSc8995Lb+ytQ1B5Rj/EXcHVxJVaXjRwNvmCaenKg
-         EZxA==
+        bh=gD9k4POfM5CmIa9IJ6kA04FERoiZqY3qGWwBuZQoVfg=;
+        b=ABwU0dSeCuNgNcuN+zu6Sve5dMmSWf7vRO5ffHbLat1j4CiGQzAfuTks2IVGVGVZ01
+         4KBsYlVHrw0BRx+jKqKYD8aTMgeD7kAHqkIoQRBfXj/nx1t7Xac+ebgcUJwYtlMkfKKu
+         pgyoLubkk2FMjWc3Amw/aphdKbCDjnxHc6wZpu2c4HqFnldQ8Yveb9wT5hUFjqZINYB/
+         sPw0NwrGJD+jdGLqH45Sy/1U0V95liewPR07Tjtq3E0ThsyJ5fFqGsvyNQ+eqnyaW2aq
+         oZfCsP8F/1inb9WDwDh3F4NOs8uNBuGaLrEHKf1JdGP6VdzQqYPcP6yco7+aC2jveQpH
+         XpKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,86 +49,86 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=dkZrcjb0tn9YfxPKpxtOEbQo9ar+vkHCHcUPYv48D2Y=;
-        b=PSvB3w1YFxEqadr8vxaLDfRHZdjlT8EgWljHVAJA6SQkFA/oigtPn9hDRbyMvRjcgG
-         RKonavy3F1lbfbsn4/4QjoOPAP8z4mgFxGtahKMlWGNTP6+3tB4lNsqoLFORMy/W/1me
-         HJOo274PfmeO0ukh0I6rNPNRiVN2NdgH7qPFNJE3zvb3Ju/RLQ6wICE5CljG7B8cs1hl
-         MCAqRA/zZAgimXbT+YTvgdmdoexdhEzpo95Yy91HlVpZ4X3joKPj6yJK6C4Ibb5hsfog
-         1OtB7/ZoEnsmtd+gOq71t1QcnkqVgoOoUj1ZNkbrs4dWURO1VwaUa6cF1BuEVXyd5Tpu
-         4JaA==
+        bh=gD9k4POfM5CmIa9IJ6kA04FERoiZqY3qGWwBuZQoVfg=;
+        b=jJtSCmWrZwiUAedIIir9HMoTyICpBolxp/W6OdIMcxKzmyrl7iRykegBiyFVDO9fYv
+         p/CJwcwMvErV/eW3wCbwd/+yrSlVG79IddOsowP4sUat8iX4ZdcXzLucbX3bYvsqC+Vr
+         PGZMIL4wSMOL/aRV8G3nxCDkNywN7hHxJPUW3P0ZsFfzGConf/0b7R4Blv8G9NRcxFnR
+         46CpPeL3a3HTJ+n/pjaooJZ0rrhhPbgKfnCxTcbNX2YF2ShOpuwEJb+5wvUW+K48x4Qp
+         0lEGHNsiIDlLbUZTG8ihZCyZP0yo5mZ+9DeBGwZ+pNKAr2MTPCaaULYSyyaE5FNOl8gT
+         ISHw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5312DFb1gsmJk38Hsiz+bLpHg7Bt79Tj8JCCRzNMWrPlXJ/c2LmP
-	TsbGLQV8wPgsakELsCn/Ytw=
-X-Google-Smtp-Source: ABdhPJypZCkhP74FOu21KNIK/BWYD4wFmE4/Ns9C7+2RVEKBncAxiwTp5u7QcarEuMWe+r6X4J3dEw==
-X-Received: by 2002:a1f:add1:: with SMTP id w200mr30864591vke.22.1594065952260;
-        Mon, 06 Jul 2020 13:05:52 -0700 (PDT)
+X-Gm-Message-State: AOAM532gKOb+locion0QCx8HKWKy27yuuf8u7BFpdaox1scwDH9bIXEM
+	GD5PuMUsKjeknob3osJOwZs=
+X-Google-Smtp-Source: ABdhPJwq6rFYup0QgerpZK1jWoJExLgtzAqBuT8wPW+v3NfuuWJ2VuKR25CT3pNCijIJA96lIST1VQ==
+X-Received: by 2002:ac8:de:: with SMTP id d30mr19741415qtg.382.1594070598125;
+        Mon, 06 Jul 2020 14:23:18 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:15eb:: with SMTP id j40ls1213904uae.9.gmail; Mon, 06 Jul
- 2020 13:05:52 -0700 (PDT)
-X-Received: by 2002:ab0:3a1:: with SMTP id 30mr36972440uau.29.1594065951797;
-        Mon, 06 Jul 2020 13:05:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1594065951; cv=none;
+Received: by 2002:ac8:507:: with SMTP id u7ls7228513qtg.10.gmail; Mon, 06 Jul
+ 2020 14:23:17 -0700 (PDT)
+X-Received: by 2002:ac8:430b:: with SMTP id z11mr51213475qtm.73.1594070597610;
+        Mon, 06 Jul 2020 14:23:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1594070597; cv=none;
         d=google.com; s=arc-20160816;
-        b=S6yqMLP3u5+TYsSJH1W3dXQTki/5SsSo4pBc35Gjq5tiCGxPlrGxJhY2OK9pOCMrqa
-         TArL/F606z0bbrxyBRIohl5LuJzUGcR++dK/XAONe39bjXhE/n46EfLqNX8fwTMogzc/
-         rRz4OLHoVsej1wP93gdwi7L5Y9wuDQls3uAfnixD3QIHDf7vj9gjrpRgf4piFkw2y2y7
-         4/BaQyefBkAUcl4Dry5Q2Su0e2uZIajequh8GE6+GvdKOc+wPoCezvh0/yF35Mru7Wgn
-         QHDe/F4FU/49Axxi1qlgn6VEM1Vp3AWTFYZjOpmT5KhKSzmvbCb2NwB5P1Mt4ubvI9Zo
-         2itA==
+        b=yRIeIZyUrOI0CDExkkrru94IF7zd+NGEk8OxvT46aI6laY8tkAH+hUr0dG2lrIw4Kv
+         9JwXY4TAltVxdSHk1rj63BcRYGGWsh/afT982U+d4jJinkCDsKCU3xW0uXufVLrRduk7
+         ExZiJjlMfY2MKEOrYBirqiG5HOevHfy0r9+n/RCB4heHTX1Tf8ZN3DfDljxJ5bboMN8e
+         3UlgzKV3nW8wo99M8HAmuF7HwKXGHAe71FJ9kuiqZHuJR8yPL48YTbHm2pJaqmDb7XoE
+         uD2jGgBrGUgzRzE69tsCSj/zr1tDRfTBmD+HA1Y/6hg98S6YCYOOGCp/V3n+Ylhunc2T
+         fqQQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=9VGW7crrSFmcq+QdAKI9G4fejRyHN0xyp5loZoJA0FY=;
-        b=O755PlvYA4O1QxgdJAd9LLewoYjebkcJzKHZdstEW9AyQL3bmMTZ+bYFWwmN9AZrKq
-         WR37g4DRDfka97CGj3fYzvbL0+7L9+mqNn8mdj2X0xKNvfYNkw0demfFkYMGtec0/Liz
-         hLfE0F/o7WzZdZIIfCqq3L/bdEomVYoI/82+u5+JNfJdWwTNZAmvQGD9YcgDCjFz79s9
-         Ss0EsXY8W+hpl8MjH3JOIbbXCHXJWwTfxOYc90EdhQqnmJDJn3qO3U6a5zjd3FjO/ba5
-         UdvTmfBF4LNJvdT27+C4jl6oyjWT1RC6wWJFAVKSDZgtCOLuDKhCi/m9wQBmxi3GkyNL
-         Q2aw==
+        bh=/S4c6NacgNK0J7+ox4XZK5eNy4oG4xQov9ZEW8eC+Yc=;
+        b=xtYqENmX4Rr57zY+bZ0SIhuIf2EWlQpnggT1MRCb1QCqk87C0MmYwLJq/Sb/rzCRpr
+         CD1otRrNKq8FQLPiDzLBbeV0zMY6cz5ujH2jajjQD74o4U70hNAPbRVwaRSiuW6iGhZp
+         YaApbN2kqiRK+dZAArM+1lRFcQeuH+rL0SB3MOXtWBcQnYNAHLMGpbb6jxkocRRFw7Sm
+         Z/No8EQSdu6peg4DiP4sABbvk5h0cUj2pFTCqBFcLXCfR433F9Zeir6ix0VkW4X97rTk
+         l6AnRiZD2LfSFKH/wautUH+ZhSjBWlERbXFFsuZYwP5NR58iliMdZFFlJ8vNHptUgVRd
+         KtEw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
-        by gmr-mx.google.com with ESMTPS id o66si1442516vkc.0.2020.07.06.13.05.50
+Received: from mga07.intel.com (mga07.intel.com. [134.134.136.100])
+        by gmr-mx.google.com with ESMTPS id w64si604007qkb.7.2020.07.06.14.23.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 06 Jul 2020 13:05:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
-IronPort-SDR: fj4SH0bUfIJzqOFT7njmh4QWeeIjTBl/10s+Xcg1WzNOFbmvTH9DC5NNBcuTXmKdTzoXVw0Paw
- 0s5xmb9pPFig==
-X-IronPort-AV: E=McAfee;i="6000,8403,9674"; a="165567924"
+        Mon, 06 Jul 2020 14:23:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) client-ip=134.134.136.100;
+IronPort-SDR: uOWpByNjGlLfoxZzAbeasCLeQM9B290y068bENi5nIOzuZu0U37VIAg+8lTER8YLTCXUER8rB1
+ d5mvtfibisOA==
+X-IronPort-AV: E=McAfee;i="6000,8403,9674"; a="212480496"
 X-IronPort-AV: E=Sophos;i="5.75,321,1589266800"; 
-   d="gz'50?scan'50,208,50";a="165567924"
+   d="gz'50?scan'50,208,50";a="212480496"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga004.jf.intel.com ([10.7.209.38])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Jul 2020 13:05:49 -0700
-IronPort-SDR: UtppPgZ+zpEx1UpPQa7OC0ClUFxCodEG9a1zIeeWyLhBdONA1EIOnZRok5WsTHSdo4MF1Bv6eX
- lp+ZAYJo4adQ==
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Jul 2020 14:23:15 -0700
+IronPort-SDR: nSlO91L+/vap32dIUNRXqqOqK5hghXjo8gAEPX1Qy6l1HDkaAonuF9UrPExBLQCSLh2HUZCu1N
+ Gz8cRw2ENsww==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.75,321,1589266800"; 
-   d="gz'50?scan'50,208,50";a="427212060"
+   d="gz'50?scan'50,208,50";a="279398788"
 Received: from lkp-server01.sh.intel.com (HELO 82346ce9ac16) ([10.239.97.150])
-  by orsmga004.jf.intel.com with ESMTP; 06 Jul 2020 13:05:46 -0700
+  by orsmga003.jf.intel.com with ESMTP; 06 Jul 2020 14:23:13 -0700
 Received: from kbuild by 82346ce9ac16 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1jsXN4-0000MN-0F; Mon, 06 Jul 2020 20:05:46 +0000
-Date: Tue, 7 Jul 2020 04:04:47 +0800
+	id 1jsYa0-0000Od-Nk; Mon, 06 Jul 2020 21:23:12 +0000
+Date: Tue, 7 Jul 2020 05:22:58 +0800
 From: kernel test robot <lkp@intel.com>
 To: Thomas Gleixner <tglx@linutronix.de>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
 	Alexandre Chartre <alexandre.chartre@oracle.com>
-Subject: [tglx-devel:kvm 2/7] arch/x86/kvm/vmx/vmx.c:6776:2: error: implicit
+Subject: [tglx-devel:kvm 3/7] arch/x86/kvm/svm/svm.c:3444:2: error: implicit
  declaration of function 'trace_hardirqs_off_prepare'
-Message-ID: <202007070445.rFaM4xSS%lkp@intel.com>
+Message-ID: <202007070555.UJgQBq08%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="n8g4imXOkfNTN/H1"
+Content-Type: multipart/mixed; boundary="TB36FDmn/VVEgNH/"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -144,13 +144,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---n8g4imXOkfNTN/H1
+--TB36FDmn/VVEgNH/
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/tglx/devel.git kvm
 head:   d7d7aa7cdcda59b53f97b9dffcc01bde96110313
-commit: b2c3be4393505b9906fbd5419df2080a99d6807f [2/7] x86/kvm/vmx: Add hardirq tracing to guest enter/exit
+commit: c0f9bfaffe9c84ae1d282ac0f6646432b435c4a7 [3/7] x86/kvm/svm: Add hardirq tracing on guest enter/exit
 config: x86_64-allyesconfig (attached as .config)
 compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project a378c0449507e00e96534ff9ce9034e185425182)
 reproduce (this is a W=1 build):
@@ -158,7 +158,7 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install x86_64 cross compiling tool for clang build
         # apt-get install binutils-x86-64-linux-gnu
-        git checkout b2c3be4393505b9906fbd5419df2080a99d6807f
+        git checkout c0f9bfaffe9c84ae1d282ac0f6646432b435c4a7
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
 
@@ -167,171 +167,105 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> arch/x86/kvm/vmx/vmx.c:6776:2: error: implicit declaration of function 'trace_hardirqs_off_prepare' [-Werror,-Wimplicit-function-declaration]
+>> arch/x86/kvm/svm/svm.c:3444:2: error: implicit declaration of function 'trace_hardirqs_off_prepare' [-Werror,-Wimplicit-function-declaration]
            trace_hardirqs_off_prepare();
            ^
-   arch/x86/kvm/vmx/vmx.c:6776:2: note: did you mean 'trace_hardirqs_on_prepare'?
+   arch/x86/kvm/svm/svm.c:3444:2: note: did you mean 'trace_hardirqs_on_prepare'?
    include/linux/irqflags.h:34:15: note: 'trace_hardirqs_on_prepare' declared here
      extern void trace_hardirqs_on_prepare(void);
                  ^
    1 error generated.
 
-vim +/trace_hardirqs_off_prepare +6776 arch/x86/kvm/vmx/vmx.c
+vim +/trace_hardirqs_off_prepare +3444 arch/x86/kvm/svm/svm.c
 
-  6656	
-  6657	static fastpath_t vmx_vcpu_run(struct kvm_vcpu *vcpu)
-  6658	{
-  6659		fastpath_t exit_fastpath;
-  6660		struct vcpu_vmx *vmx = to_vmx(vcpu);
-  6661		unsigned long cr3, cr4;
-  6662	
-  6663	reenter_guest:
-  6664		/* Record the guest's net vcpu time for enforced NMI injections. */
-  6665		if (unlikely(!enable_vnmi &&
-  6666			     vmx->loaded_vmcs->soft_vnmi_blocked))
-  6667			vmx->loaded_vmcs->entry_time = ktime_get();
-  6668	
-  6669		/* Don't enter VMX if guest state is invalid, let the exit handler
-  6670		   start emulation until we arrive back to a valid state */
-  6671		if (vmx->emulation_required)
-  6672			return EXIT_FASTPATH_NONE;
-  6673	
-  6674		if (vmx->ple_window_dirty) {
-  6675			vmx->ple_window_dirty = false;
-  6676			vmcs_write32(PLE_WINDOW, vmx->ple_window);
-  6677		}
-  6678	
-  6679		/*
-  6680		 * We did this in prepare_switch_to_guest, because it needs to
-  6681		 * be within srcu_read_lock.
-  6682		 */
-  6683		WARN_ON_ONCE(vmx->nested.need_vmcs12_to_shadow_sync);
-  6684	
-  6685		if (kvm_register_is_dirty(vcpu, VCPU_REGS_RSP))
-  6686			vmcs_writel(GUEST_RSP, vcpu->arch.regs[VCPU_REGS_RSP]);
-  6687		if (kvm_register_is_dirty(vcpu, VCPU_REGS_RIP))
-  6688			vmcs_writel(GUEST_RIP, vcpu->arch.regs[VCPU_REGS_RIP]);
-  6689	
-  6690		cr3 = __get_current_cr3_fast();
-  6691		if (unlikely(cr3 != vmx->loaded_vmcs->host_state.cr3)) {
-  6692			vmcs_writel(HOST_CR3, cr3);
-  6693			vmx->loaded_vmcs->host_state.cr3 = cr3;
-  6694		}
-  6695	
-  6696		cr4 = cr4_read_shadow();
-  6697		if (unlikely(cr4 != vmx->loaded_vmcs->host_state.cr4)) {
-  6698			vmcs_writel(HOST_CR4, cr4);
-  6699			vmx->loaded_vmcs->host_state.cr4 = cr4;
-  6700		}
-  6701	
-  6702		/* When single-stepping over STI and MOV SS, we must clear the
-  6703		 * corresponding interruptibility bits in the guest state. Otherwise
-  6704		 * vmentry fails as it then expects bit 14 (BS) in pending debug
-  6705		 * exceptions being set, but that's not correct for the guest debugging
-  6706		 * case. */
-  6707		if (vcpu->guest_debug & KVM_GUESTDBG_SINGLESTEP)
-  6708			vmx_set_interrupt_shadow(vcpu, 0);
-  6709	
-  6710		kvm_load_guest_xsave_state(vcpu);
-  6711	
-  6712		pt_guest_enter(vmx);
-  6713	
-  6714		atomic_switch_perf_msrs(vmx);
-  6715	
-  6716		if (enable_preemption_timer)
-  6717			vmx_update_hv_timer(vcpu);
-  6718	
-  6719		if (lapic_in_kernel(vcpu) &&
-  6720			vcpu->arch.apic->lapic_timer.timer_advance_ns)
-  6721			kvm_wait_lapic_expire(vcpu);
-  6722	
-  6723		/*
-  6724		 * If this vCPU has touched SPEC_CTRL, restore the guest's value if
-  6725		 * it's non-zero. Since vmentry is serialising on affected CPUs, there
-  6726		 * is no need to worry about the conditional branch over the wrmsr
-  6727		 * being speculatively taken.
-  6728		 */
-  6729		x86_spec_ctrl_set_guest(vmx->spec_ctrl, 0);
-  6730	
-  6731		/*
-  6732		 * VMENTER enables interrupts (host state), but the kernel state is
-  6733		 * interrupts disabled when this is invoked. Also tell RCU about
-  6734		 * it. This is the same logic as for exit_to_user_mode().
-  6735		 *
-  6736		 * This ensures that e.g. latency analysis on the host observes
-  6737		 * guest mode as interrupt enabled.
-  6738		 *
-  6739		 * guest_enter_irqoff() informs context tracking about the
-  6740		 * transition to guest mode and if enabled adjusts RCU state
-  6741		 * accordingly.
-  6742		 */
-  6743		trace_hardirqs_on_prepare();
-  6744		lockdep_hardirqs_on_prepare(CALLER_ADDR0);
-  6745		guest_enter_irqoff();
-  6746		lockdep_hardirqs_on(CALLER_ADDR0);
-  6747	
-  6748		/* L1D Flush includes CPU buffer clear to mitigate MDS */
-  6749		if (static_branch_unlikely(&vmx_l1d_should_flush))
-  6750			vmx_l1d_flush(vcpu);
-  6751		else if (static_branch_unlikely(&mds_user_clear))
-  6752			mds_clear_cpu_buffers();
-  6753	
-  6754		if (vcpu->arch.cr2 != read_cr2())
-  6755			write_cr2(vcpu->arch.cr2);
-  6756	
-  6757		vmx->fail = __vmx_vcpu_run(vmx, (unsigned long *)&vcpu->arch.regs,
-  6758					   vmx->loaded_vmcs->launched);
-  6759	
-  6760		vcpu->arch.cr2 = read_cr2();
-  6761	
-  6762		/*
-  6763		 * VMEXIT disables interrupts (host state), but tracing and lockdep
-  6764		 * have them in state 'on' as recorded before entering guest mode.
-  6765		 * Same as enter_from_user_mode().
-  6766		 *
-  6767		 * guest_exit_irqoff() restores host context and reinstates RCU if
-  6768		 * enabled and required.
-  6769		 *
-  6770		 * This needs to be done before the below as native_read_msr()
-  6771		 * contains a tracepoint and x86_spec_ctrl_restore_host() calls
-  6772		 * into world and some more.
-  6773		 */
-  6774		lockdep_hardirqs_off(CALLER_ADDR0);
-  6775		guest_exit_irqoff();
-> 6776		trace_hardirqs_off_prepare();
-  6777	
-  6778		/*
-  6779		 * We do not use IBRS in the kernel. If this vCPU has used the
-  6780		 * SPEC_CTRL MSR it may have left it on; save the value and
-  6781		 * turn it off. This is much more efficient than blindly adding
-  6782		 * it to the atomic save/restore list. Especially as the former
-  6783		 * (Saving guest MSRs on vmexit) doesn't even exist in KVM.
-  6784		 *
-  6785		 * For non-nested case:
-  6786		 * If the L01 MSR bitmap does not intercept the MSR, then we need to
-  6787		 * save it.
-  6788		 *
-  6789		 * For nested case:
-  6790		 * If the L02 MSR bitmap does not intercept the MSR, then we need to
-  6791		 * save it.
-  6792		 */
-  6793		if (unlikely(!msr_write_intercepted(vcpu, MSR_IA32_SPEC_CTRL)))
-  6794			vmx->spec_ctrl = native_read_msr(MSR_IA32_SPEC_CTRL);
-  6795	
-  6796		x86_spec_ctrl_restore_host(vmx->spec_ctrl, 0);
-  6797	
-  6798		/* All fields are clean at this point */
-  6799		if (static_branch_unlikely(&enable_evmcs))
-  6800			current_evmcs->hv_clean_fields |=
-  6801				HV_VMX_ENLIGHTENED_CLEAN_FIELD_ALL;
-  6802	
-  6803		if (static_branch_unlikely(&enable_evmcs))
-  6804			current_evmcs->hv_vp_id = vcpu->arch.hyperv.vp_index;
-  6805	
-  6806		/* MSR_IA32_DEBUGCTLMSR is zeroed on vmexit. Restore it if needed */
-  6807		if (vmx->host_debugctlmsr)
-  6808			update_debugctlmsr(vmx->host_debugctlmsr);
-  6809	
+  3429	
+  3430		/*
+  3431		 * VMEXIT disables interrupts (host state), but tracing and lockdep
+  3432		 * have them in state 'on' as recorded before entering guest mode.
+  3433		 * Same as enter_from_user_mode().
+  3434		 *
+  3435		 * guest_exit_irqoff() restores host context and reinstates RCU if
+  3436		 * enabled and required.
+  3437		 *
+  3438		 * This needs to be done before the below as native_read_msr()
+  3439		 * contains a tracepoint and x86_spec_ctrl_restore_host() calls
+  3440		 * into world and some more.
+  3441		 */
+  3442		lockdep_hardirqs_off(CALLER_ADDR0);
+  3443		guest_exit_irqoff();
+> 3444		trace_hardirqs_off_prepare();
+  3445	
+  3446		/*
+  3447		 * We do not use IBRS in the kernel. If this vCPU has used the
+  3448		 * SPEC_CTRL MSR it may have left it on; save the value and
+  3449		 * turn it off. This is much more efficient than blindly adding
+  3450		 * it to the atomic save/restore list. Especially as the former
+  3451		 * (Saving guest MSRs on vmexit) doesn't even exist in KVM.
+  3452		 *
+  3453		 * For non-nested case:
+  3454		 * If the L01 MSR bitmap does not intercept the MSR, then we need to
+  3455		 * save it.
+  3456		 *
+  3457		 * For nested case:
+  3458		 * If the L02 MSR bitmap does not intercept the MSR, then we need to
+  3459		 * save it.
+  3460		 */
+  3461		if (unlikely(!msr_write_intercepted(vcpu, MSR_IA32_SPEC_CTRL)))
+  3462			svm->spec_ctrl = native_read_msr(MSR_IA32_SPEC_CTRL);
+  3463	
+  3464		reload_tss(vcpu);
+  3465	
+  3466		x86_spec_ctrl_restore_host(svm->spec_ctrl, svm->virt_spec_ctrl);
+  3467	
+  3468		vcpu->arch.cr2 = svm->vmcb->save.cr2;
+  3469		vcpu->arch.regs[VCPU_REGS_RAX] = svm->vmcb->save.rax;
+  3470		vcpu->arch.regs[VCPU_REGS_RSP] = svm->vmcb->save.rsp;
+  3471		vcpu->arch.regs[VCPU_REGS_RIP] = svm->vmcb->save.rip;
+  3472	
+  3473		if (unlikely(svm->vmcb->control.exit_code == SVM_EXIT_NMI))
+  3474			kvm_before_interrupt(&svm->vcpu);
+  3475	
+  3476		kvm_load_host_xsave_state(vcpu);
+  3477		stgi();
+  3478	
+  3479		/* Any pending NMI will happen here */
+  3480		exit_fastpath = svm_exit_handlers_fastpath(vcpu);
+  3481	
+  3482		if (unlikely(svm->vmcb->control.exit_code == SVM_EXIT_NMI))
+  3483			kvm_after_interrupt(&svm->vcpu);
+  3484	
+  3485		sync_cr8_to_lapic(vcpu);
+  3486	
+  3487		svm->next_rip = 0;
+  3488		if (is_guest_mode(&svm->vcpu)) {
+  3489			sync_nested_vmcb_control(svm);
+  3490			svm->nested.nested_run_pending = 0;
+  3491		}
+  3492	
+  3493		svm->vmcb->control.tlb_ctl = TLB_CONTROL_DO_NOTHING;
+  3494	
+  3495		/* if exit due to PF check for async PF */
+  3496		if (svm->vmcb->control.exit_code == SVM_EXIT_EXCP_BASE + PF_VECTOR)
+  3497			svm->vcpu.arch.apf.host_apf_flags =
+  3498				kvm_read_and_reset_apf_flags();
+  3499	
+  3500		if (npt_enabled) {
+  3501			vcpu->arch.regs_avail &= ~(1 << VCPU_EXREG_PDPTR);
+  3502			vcpu->arch.regs_dirty &= ~(1 << VCPU_EXREG_PDPTR);
+  3503		}
+  3504	
+  3505		/*
+  3506		 * We need to handle MC intercepts here before the vcpu has a chance to
+  3507		 * change the physical cpu
+  3508		 */
+  3509		if (unlikely(svm->vmcb->control.exit_code ==
+  3510			     SVM_EXIT_EXCP_BASE + MC_VECTOR))
+  3511			svm_handle_mce(svm);
+  3512	
+  3513		mark_all_clean(svm->vmcb);
+  3514		return exit_fastpath;
+  3515	}
+  3516	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -340,14 +274,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202007070445.rFaM4xSS%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202007070555.UJgQBq08%25lkp%40intel.com.
 
---n8g4imXOkfNTN/H1
+--TB36FDmn/VVEgNH/
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICEt6A18AAy5jb25maWcAlDzLdtu4kvv+Cp30pnvRacmx3e6Z4wVIghIikmAAUJay4fF1
+H4sICO6MA18AAy5jb25maWcAlDzLdtu4kvv+Cp30pnvRacmx3e6Z4wVIghIikmAAUJay4fF1
 5LRnHDtXtvsmfz9VAB8FEHJnskjCqsK7UG/o559+nrGX58cv1893N9f3999nn/cP+8P18/7T
 7Pbufv/fs0zOKmlmPBPmLRAXdw8v337/dnHenp/Ozt5evJ3/drg5na33h4f9/Sx9fLi9+/wC
 7e8eH376+adUVrlYtmnabrjSQlat4Vtz+ebm/vrh8+zv/eEJ6GaLxdv52/nsl893z//1++/w
@@ -1744,4 +1678,4 @@ dLsTTT8AgAy9eip+17r8lJ0mYu6a314xbl5yeAnkcYRvMG2FAY4dLtotuX6pwqt4lRWRgHou
 p8wkjbMQtnVy4KTJLi61mQpPSlpItYXBI87EEQBx5kE3GREgwCJ02VuYHLtW+nwkZ1Fn11nH
 qSF/3qIPM3W8ePRtV4RaMuIU/H9HZxkdANQEAA==
 
---n8g4imXOkfNTN/H1--
+--TB36FDmn/VVEgNH/--
