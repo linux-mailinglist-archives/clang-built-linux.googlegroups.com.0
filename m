@@ -1,119 +1,132 @@
-Return-Path: <clang-built-linux+bncBC7JPD5NQEBBBLU5TD4AKGQE4NCUJ6Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB6E4TD4AKGQESGJNNAA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x439.google.com (mail-pf1-x439.google.com [IPv6:2607:f8b0:4864:20::439])
-	by mail.lfdr.de (Postfix) with ESMTPS id 82782218F9E
-	for <lists+clang-built-linux@lfdr.de>; Wed,  8 Jul 2020 20:21:36 +0200 (CEST)
-Received: by mail-pf1-x439.google.com with SMTP id r12sf31875976pfr.16
-        for <lists+clang-built-linux@lfdr.de>; Wed, 08 Jul 2020 11:21:36 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1594232495; cv=pass;
+Received: from mail-qv1-xf3d.google.com (mail-qv1-xf3d.google.com [IPv6:2607:f8b0:4864:20::f3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8A07B218F9C
+	for <lists+clang-built-linux@lfdr.de>; Wed,  8 Jul 2020 20:20:50 +0200 (CEST)
+Received: by mail-qv1-xf3d.google.com with SMTP id v10sf19627134qvm.17
+        for <lists+clang-built-linux@lfdr.de>; Wed, 08 Jul 2020 11:20:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1594232449; cv=pass;
         d=google.com; s=arc-20160816;
-        b=X8g0I0hNP1OpRPVC1oAcskbOl+D2ugS6ntnOtc3e6PXBdzzWRPkckdJYQG5FYrFEsd
-         ZAF5FpfKx5VQ6IFEwjprg9hrJaeF2+LJWJDtV18ksyegB6NrtU6FU+A/kJ6J5/1QMFbY
-         XtXGV90GlPQgw2Fcaha8+xtrbDiEbxk+BHjvF/Mh5hrwvxBHGwA2Q8zSvCUWwbg4GsQN
-         1MpyXHqNxFxsXhvYvXJwMOzXzgsWA0n4agls4uGO3tIKQ8KDvCnhpKqE6Xm3lYXHH8gb
-         bX0H6dj0edesfbHgvv3UqusDSy4DYnfPpbmfqBIwi9egYJaqnCxTHxG8HX6YCYnoja4V
-         WZPA==
+        b=urg1dRRJM2x8SI/0dKbOin719IavVTxLBAPHASO+rDv8JRhjaVA1mBHXg0queIp4tu
+         F5XODh4J2cMfl1pNIl6KJx5yaAyW3V1sbeIfJdFchnlBKSaVNTXkum0i1/SfkyzWodmF
+         tyvwpvWQuwJZATRNg8lGlYVvVBDqNJ4NbYS4Q9Z+rIMuADFBFUZGnZmgQxYLFhRiYs8U
+         /LmPkxk6UUzq088OB78lZp/8fplQlr3Iia4u09sMcDiq9ftrl8iu8a6iBnI2wS1PL5+u
+         mcSR13W7rDI4G2kypjG8A27D+up1OQASjYxZKhjYeIr0qUskZo6XGGtwIW/DZWMPm9uZ
+         6PIw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
-         :mime-version:message-id:date:dkim-signature;
-        bh=gV7xnLpgekhiU+JfY/yDEZzUKNJyurhLqB+Kvu9H26A=;
-        b=AGldjsnoxCAS5R3ij+rKktRIFb45OT7wzzQFWlEteFu6z0+aZ3SdWXt+UFDus4WdrV
-         pdrmVai8a5xtGlSRgYyXJZ8XKnd45vkMlNfCiyaRpCR3T/A9DhoE+0XPRh8EDCPh6w30
-         lxOAl1Aupv7QJyFAaaEvkxaF2kdMcIt1IK31Nk0u89MIi066YtpThk6yF+HtlsYRZKTG
-         1IxOGDaAl2pnlatzO4aqwPxyGeuRFO4KyDO9DTgURUKkHBt5Cp5F9tmBi8nHrgKDuq6/
-         LgHrkmsp3+JiJ9r4AMwG5zOfngY0AyOXP2Ju7k5KZo/OnLn199zawiF6SnMJXWNqBTMw
-         KBwg==
+         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
+         :cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=YvLUxFhlDt9Cg9fid+lMU6AdzQF8LQFJXQF1xXlf8bg=;
+        b=0FzXU/Fb95Q2/IB0L+FYkPn2jnh9xRz/UEKHyxcv3qKGt+uP/jd9LpVh/gOSflbWYN
+         C4VvOW47/In9eS4XN3ucgwrfPh/Z+OBmZ1wc790R6imzRc2mMTQXLO/NzbRHdsn2mvkW
+         oL+d2C+wI7oD07jJPXBXKUVMBIlz+wXwOtZLgWIjHeLFqzp61wZXuAU9NWbqmV7iK6pR
+         sv8Brd+eKxaV8bQtZz5c0y/IsTtOu7/HScgVtMXkgiNgeYDI/L1Spimopu8TB0BE0az3
+         0qZ5pCY+Y3QCMGwc/5I4rQXYZfS79yA0kAFh7e/V/U9icIUZcCr5K55aHy3wZPMgE5yr
+         uWeA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="WSGD7z/Q";
-       spf=pass (google.com: domain of 3rq4gxwukeeapjwemiqqing.eqoencpi-dwknv-nkpwziqqingitqwru.eqo@flex--nhuck.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3rQ4GXwUKEeAPJWEMIQQING.EQOENCPI-DWKNV-NKPWZIQQINGITQWRU.EQO@flex--nhuck.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=cqWBkcez;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:message-id:mime-version:subject:from:to:cc:x-original-sender
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:content-transfer-encoding:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:list-post:list-help:list-archive:list-subscribe
          :list-unsubscribe;
-        bh=gV7xnLpgekhiU+JfY/yDEZzUKNJyurhLqB+Kvu9H26A=;
-        b=FOgYJeXa3RSsJIlb+Q8JKto5aL/PjAc6VPpdWIcxn4yyGOSdul3e9Unwpp6dLEM+xR
-         3bbr3CIYcRk9FOItQNlXZ9eJMl8hEYxK+fXsonO1EzNqqd4YBw2yG4B0BrxgKa369U6l
-         AR+eS9+lMYTOPQGmpU+7cfthez1qbT3SAN/JFeOMRLcgRONooMbNxweOz4Vb+6YbiiaS
-         mN7gE1jfNitQfH2MMnK5LO0sjmAG9/tvGXq9a016CxeArZWcLo8Ro4pFd+/s0eQssJ9P
-         BnEu4oRSsZvj7ETuxZ4Ny4fCQZUvzFHcfLhre49NtOBdsvJGaT3e+1XVrBVEHVKVsvFR
-         Ii2g==
+        bh=YvLUxFhlDt9Cg9fid+lMU6AdzQF8LQFJXQF1xXlf8bg=;
+        b=cn0FwgBhE0yCifWiu+pNqho4iIneftxYcPcIfRsa+gYdKEtzHuWyiNIIka1yKqk1nm
+         fRvSbHUODfIZVfI7BaPAqdg3zBkBItexbyN/dJzDhbSQd5zzmJnkGFAj8R+pa15NvmWx
+         JM+jjmQgrGroa/u9TVBT5WoIzGb+TO0hoviTbOolZfy7G9lfdDdAkmqVqzX2kB+gtixl
+         HkZZ0ydbcmZyQJ1wfosVk128zrwYABgCQg1yVbz3gWb/b7udHQNjLQt9IMP5aibg2o1r
+         baEne5KKQ74YsuyuLKgpjIZV6zwSjH5Gbl/D/RmSXUaRmYBm2vfTyo631cxS4rPKxx2L
+         Kpww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:content-transfer-encoding
          :x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=gV7xnLpgekhiU+JfY/yDEZzUKNJyurhLqB+Kvu9H26A=;
-        b=fJ1YbmFf2OGj4MimE0rsBi7O9vSSR5WlBNpFnMMk0sy0j9JDlb0D5OJMggpBKniy4U
-         DlPy8/k3RwyTWCRNTfVqTcwke06UkaMNIzxWGAmkH+k5nv3OYBDIJgOYHs/Gmg3e6syO
-         zQpts9X+y3mId2vwwEOazTUvc+iTFy09xXaqlBui6yZeOsj/3cdcsjUJK00lkWOJal2U
-         Mu3ucZcCxAQJwi64PaOUe7fcR67XYqJwskabBaTqcQ7vucRYXFJ4Pall9PsQKda5SdHW
-         TQSv4Yn/JHwsrR5lMS5LPe2SCn1OM+mOPa1W+yBLckKi/aSiQLhmxT5j/5yyeLPiA+GE
-         MWLg==
-X-Gm-Message-State: AOAM533f28JMx8ewoBMPJVtHR506miDNwceXYC62HVPD69tUsl9s0hsI
-	GuexIiGdMxE4VopR71qPDLg=
-X-Google-Smtp-Source: ABdhPJzyDZUiBhVd9mRoellrnLLRXWj2hOUacrx8eExmsEl5jIk8i9ZYoO19N7tLtlBlNmdY5HRpoA==
-X-Received: by 2002:a62:e30f:: with SMTP id g15mr40504925pfh.203.1594232495083;
-        Wed, 08 Jul 2020 11:21:35 -0700 (PDT)
+        bh=YvLUxFhlDt9Cg9fid+lMU6AdzQF8LQFJXQF1xXlf8bg=;
+        b=ddHoL30tCjxbf7OL4rKKhzaE2pVp1/zXqUOqgBzQbDVWMNYzR2/M4TFd1N7A9zvUwm
+         fNFEisZlm3K7+vy3acmLXr7h0Sq4BL33aVfEm7wnMfR8g/qcyzoS7tDZV2NRwnET+DAk
+         N21kpaDNXBiVBBo1hL1VkyGp7i4gZA1Ov7pKKdtranspFiVuQt+W2wqabEQ2eEnC3rQh
+         VtRIy7mT9CCB9vU5eHsuIOxj59pzkgOP1O+Q10VMHRg3egMwwnJYZqJVBAxJ9sWuoG1A
+         oklAMMdoecm1ebSvGryJ1ey8ChOqciWSPafq8LBbg4z02KNxhih5bHQi2PfK7rq2eftv
+         XAlg==
+X-Gm-Message-State: AOAM531AUZgtlfi3M+tNSJe+P35E6PPf0eBTrWQP0pg3f24befyAYiSw
+	QUxWaPe9F4zyblPb2JDrHH0=
+X-Google-Smtp-Source: ABdhPJwRzaUZOmDivKUAg3bXBgcBlCZ7SejXUcV/QEt03nWG/VaQrr6Kf0ZQWSaGIt9kMUJPoC8AQg==
+X-Received: by 2002:a0c:d44e:: with SMTP id r14mr26168308qvh.105.1594232449253;
+        Wed, 08 Jul 2020 11:20:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:e59:: with SMTP id 25ls939558pgo.9.gmail; Wed, 08 Jul
- 2020 11:21:34 -0700 (PDT)
-X-Received: by 2002:a63:3fc2:: with SMTP id m185mr52281108pga.426.1594232494607;
-        Wed, 08 Jul 2020 11:21:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1594232494; cv=none;
+Received: by 2002:a0c:fa05:: with SMTP id q5ls713517qvn.0.gmail; Wed, 08 Jul
+ 2020 11:20:40 -0700 (PDT)
+X-Received: by 2002:a0c:d84d:: with SMTP id i13mr12495941qvj.167.1594232440236;
+        Wed, 08 Jul 2020 11:20:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1594232440; cv=none;
         d=google.com; s=arc-20160816;
-        b=o0O2GSpmLLoxKuDdE2ao+lWTxxNiQ3P8sbTZGdw+TOuX/qabWiPf6/w2oQO7/n3OWL
-         z7X3R24dPGdjw5kdIEP1EdCVQf55fLf8MRBHt14klyVDGzKgUVAtY6xRZ1gGDSHfEf9o
-         YyoVqcrtDOtMLPi5+FfjozMgR3OIMMes2GwUVPgisesga4o6sI69Hx8Bod/+II6d5GTS
-         60i4BzCnt5oGWUXTx0+v5a1gHSpcyq0u4ZnLp77qc/oQs/OIhgUzz1DJGCRWXtJenk4g
-         IAAWIGSraZq8x0cRXQSO8Mx3sOZbFSprDtshpUYWnbpTUgQ8kqrQcOisj68Ohi5z6jGT
-         J4ow==
+        b=zXMy3FyjgNiS38wViydZr+XftjHy4RB3++GLL4Efi7l7yVIHMxNZhZrCjhbXARFfEV
+         JU+lxAot3FU/0NrM2ZYi0PQdMmvZ2QwHaSADBw9w1idbg0FfxXRRdbyU1Z/Jckln2RRf
+         YciZhdBH2lKtpVidLEXEEX4opZLzJw+L17QZQpTvfTe2tvf28FIxjNN7uD9aNZvvHyeX
+         cK8MdnDsp3TYxFzjd90bDsV/ah+6mSn3YKnmMKUYUvrMXHm/+SuKj1F2jUneKy4hkv1h
+         gtKKRqC2My9C9Vkv22IWUFO7Vki4E5dKcmaxPH2q2HroGAF2vEr7hHVeAcRxwf2/ZvMm
+         Excg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:from:subject:mime-version:message-id:date:dkim-signature;
-        bh=bX/pTo268FT8rnIA4NrPsVndCGHaVKOkE/vDxa6Exek=;
-        b=UvTqCo//wdVsREPLDkdeyEiEzD4RYT5Jq7Y2GKlvf55ycFEql693IY4WVWyE9nifGp
-         ZutT1fQzg9BE0A2aOF8mPJ8afZdnRFqnhAyuJyXPbz6QlZykPmhE8JgeApw3If78nFlI
-         1NF39iTN/r/bskxpy4fs8CwXHUYCuzfEtga7wFvmUOOlRtdJlHqLSKmeYrxnxPBzcDXz
-         /mHG53XgrYlN3Pb4LQoSbxRMei+LFmfGXXDAxL5eRswYVo5tgk4O8B/LdoV4egn/UseE
-         M9loy4KIko8LaVTaNefLwfcmBeQZN7cLjcfk2twP4Q6rowe0JoCPjxkcqxTRPqwtVuvv
-         0iqA==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=bEkWcEKwBD8xzZaF4VqK8c5iBK1OXZVpxV6HiO0m7tM=;
+        b=v8z3SwtyfLg5UK6S9jPNq6OkfzXLfS0+j23otzTpGAghxvZCZp6E8iaUijgvj6YJZJ
+         Qo/8Ze3HYclO63nmMWI2c53+Ot2lxus8hNE2jxMFqlIyr/VJsPZNBXqHyGtMo4B9CZuq
+         kPXOpqjaeRq90IpfEN/W8H/dYUGq7u09QZpvB6OtINAZg/uF4q+3S46ziktsc6wU60bm
+         xOPLGyfVRQHwcl6R4UlrSSEJKbllP0cTBa2r23r5F+ed/RKW29jgKl/y44g0VVxvJxdh
+         Ij7u0QW5/k0NOSuSwZxz+qpZv1gaaWwpe8uHnr97k6DXR5FkuJiNRWYoui0WZ38fiEZi
+         BpZg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="WSGD7z/Q";
-       spf=pass (google.com: domain of 3rq4gxwukeeapjwemiqqing.eqoencpi-dwknv-nkpwziqqingitqwru.eqo@flex--nhuck.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3rQ4GXwUKEeAPJWEMIQQING.EQOENCPI-DWKNV-NKPWZIQQINGITQWRU.EQO@flex--nhuck.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=cqWBkcez;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-yb1-xb49.google.com (mail-yb1-xb49.google.com. [2607:f8b0:4864:20::b49])
-        by gmr-mx.google.com with ESMTPS id y197si19166pfc.4.2020.07.08.11.21.34
+Received: from mail-pj1-x1044.google.com (mail-pj1-x1044.google.com. [2607:f8b0:4864:20::1044])
+        by gmr-mx.google.com with ESMTPS id w64si32946qkb.7.2020.07.08.11.20.40
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 08 Jul 2020 11:21:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3rq4gxwukeeapjwemiqqing.eqoencpi-dwknv-nkpwziqqingitqwru.eqo@flex--nhuck.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) client-ip=2607:f8b0:4864:20::b49;
-Received: by mail-yb1-xb49.google.com with SMTP id w35so2512583ybi.16
-        for <clang-built-linux@googlegroups.com>; Wed, 08 Jul 2020 11:21:34 -0700 (PDT)
-X-Received: by 2002:a5b:1c4:: with SMTP id f4mr16966937ybp.472.1594232493688;
- Wed, 08 Jul 2020 11:21:33 -0700 (PDT)
-Date: Wed,  8 Jul 2020 18:19:09 +0000
-Message-Id: <20200708181905.257691-1-nhuck@google.com>
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.27.0.383.g050319c2ae-goog
-Subject: [PATCH v2] Makefile: Add clang-tidy and static analyzer support to makefile
-From: "'Nathan Huckleberry' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: masahiroy@kernel.org, michal.lkml@markovi.net
-Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	clang-built-linux@googlegroups.com, Nathan Huckleberry <nhuck@google.com>
+        Wed, 08 Jul 2020 11:20:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) client-ip=2607:f8b0:4864:20::1044;
+Received: by mail-pj1-x1044.google.com with SMTP id b92so1540375pjc.4
+        for <clang-built-linux@googlegroups.com>; Wed, 08 Jul 2020 11:20:40 -0700 (PDT)
+X-Received: by 2002:a17:90a:30ea:: with SMTP id h97mr10935924pjb.32.1594232437416;
+ Wed, 08 Jul 2020 11:20:37 -0700 (PDT)
+MIME-Version: 1.0
+References: <20200630021436.43281-1-richard.weiyang@linux.alibaba.com>
+ <202007010217.Rut2zTnF%lkp@intel.com> <20200701115816.GB4979@L-31X9LVDL-1304.local>
+ <MN2PR11MB4064B0104312A3D22F1698F3E5670@MN2PR11MB4064.namprd11.prod.outlook.com>
+In-Reply-To: <MN2PR11MB4064B0104312A3D22F1698F3E5670@MN2PR11MB4064.namprd11.prod.outlook.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 8 Jul 2020 11:20:26 -0700
+Message-ID: <CAKwvOdkVqY8WAfdTtHbgnJ2jafvsJCUgx2Rx4PCeNiX7HjLLow@mail.gmail.com>
+Subject: Re: [PATCH] mm/sparse: only sub-section aligned range would be populated
+To: "Xia, Hui" <hui.xia@intel.com>, Wei Yang <richard.weiyang@linux.alibaba.com>, 
+	Philip Li <philip.li@intel.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: lkp <lkp@intel.com>, "Williams, Dan J" <dan.j.williams@intel.com>, 
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>, 
+	"kbuild-all@lists.01.org" <kbuild-all@lists.01.org>, 
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>, 
+	"linux-mm@kvack.org" <linux-mm@kvack.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: nhuck@google.com
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="WSGD7z/Q";       spf=pass
- (google.com: domain of 3rq4gxwukeeapjwemiqqing.eqoencpi-dwknv-nkpwziqqingitqwru.eqo@flex--nhuck.bounces.google.com
- designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3rQ4GXwUKEeAPJWEMIQQING.EQOENCPI-DWKNV-NKPWZIQQINGITQWRU.EQO@flex--nhuck.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nathan Huckleberry <nhuck@google.com>
-Reply-To: Nathan Huckleberry <nhuck@google.com>
+ header.i=@google.com header.s=20161025 header.b=cqWBkcez;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1044
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -126,207 +139,726 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-This patch adds clang-tidy and the clang static-analyzer as make
-targets. The goal of this patch is to make static analysis tools
-usable and extendable by any developer or researcher who is familiar
-with basic c++.
+On Wed, Jul 8, 2020 at 12:23 AM Xia, Hui <hui.xia@intel.com> wrote:
+>
+>
+>
+> >-----Original Message-----
+> >From: Wei Yang <richard.weiyang@linux.alibaba.com>
+> >Sent: 2020=E5=B9=B47=E6=9C=881=E6=97=A5 19:58
+> >To: lkp <lkp@intel.com>
+> >Cc: Wei Yang <richard.weiyang@linux.alibaba.com>; Williams, Dan J
+> ><dan.j.williams@intel.com>; akpm@linux-foundation.org; kbuild-all@lists.=
+01.org;
+> >clang-built-linux@googlegroups.com; linux-mm@kvack.org; linux-
+> >kernel@vger.kernel.org
+> >Subject: Re: [PATCH] mm/sparse: only sub-section aligned range would be
+> >populated
+> >
+> >On Wed, Jul 01, 2020 at 02:11:10AM +0800, kernel test robot wrote:
+> >>Hi Wei,
+> >>
+> >>Thank you for the patch! Perhaps something to improve:
+> >>
+> >>[auto build test WARNING on mmotm/master]
+> >>
+> >>url:    https://github.com/0day-ci/linux/commits/Wei-Yang/mm-sparse-onl=
+y-
+> >sub-section-aligned-range-would-be-populated/20200630-101713
+> >>base:   git://git.cmpxchg.org/linux-mmotm.git master
+> >>config: x86_64-allnoconfig (attached as .config)
 
-The current static analysis tools require intimate knowledge of the internal
-workings of the static analysis.  Clang-tidy and the clang static analyzers
-expose an easy to use api and allow users unfamiliar with clang to
-write new checks with relative ease.
+Another issue was that this was an allnoconfig x86_64 build with
+Clang.  While ARCH=3Dx86_64 defconfigs set:
+CONFIG_64BIT=3Dy
+CONFIG_X86_64=3Dy
 
-===Clang-tidy===
+allnoconfig turns those off, making it a 32b x86 build.  We cannot yet
+build an ARCH=3Di386 build yet with Clang, so that means this target is
+not green to begin with.
 
-Clang-tidy is an easily extendable 'linter' that runs on the AST.
-Clang-tidy checks are easy to write and understand. A check consists of
-two parts, a matcher and a checker. The matcher is created using a
-domain specific language that acts on the AST
-(https://clang.llvm.org/docs/LibASTMatchersReference.html).  When AST
-nodes are found by the matcher a callback is made to the checker. The
-checker can then execute additional checks and issue warnings.
++ Arnd
+There might be a way for us to disable maybe CONFIG_X86_32 when
+building with Clang?  or make it so that randconfig can't dig this up?
 
-Here is an example clang-tidy check to report functions that have calls
-to local_irq_disable without calls to local_irq_enable and vice-versa.
-Functions flagged with __attribute((annotation("ignore_irq_balancing")))
-are ignored for analysis. (https://reviews.llvm.org/D65828)
++Philip
+I'm not sure if it's easy to disable `allnoconfig` x86 builds with
+Clang?  Also, I feel like we're asking for a bunch of special cases
+while we work through all the issues.  We would like to revert these
+special cases once we're in better shape.  Are you tracking a list of
+exceptions, so that we can estimate the work to fix on our side, and
+that we know to re-enable test coverage once fixed?
 
-===Clang static analyzer===
+> >>compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project
+> >>cf1d04484344be52ada8178e41d18fd15a9b880c)
+> >>reproduce (this is a W=3D1 build):
+> >>        wget https://raw.githubusercontent.com/intel/lkp-
+> >tests/master/sbin/make.cross -O ~/bin/make.cross
+> >>        chmod +x ~/bin/make.cross
+> >>        # install x86_64 cross compiling tool for clang build
+> >>        # apt-get install binutils-x86-64-linux-gnu
+> >>        # save the attached .config to linux build tree
+> >>        COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cross
+> >>ARCH=3Dx86_64
+> >>
+> >>If you fix the issue, kindly add following tag as appropriate
+> >>Reported-by: kernel test robot <lkp@intel.com>
+> >>
+> >
+> >Sorry, I don't follow up with this error report.
+> >
+> >It looks like a build error, while I just removes some check and the bui=
+ld pass from
+> >my side. Confused with this error report.
+> It is false positive. Please ignore. Sorry for inconvenience.
+> The report complains about " warning: no previous prototype for function =
+'devkmsg_sysctl_set_loglvl'" which is not caused by commit in this report. =
+We will investigate and fix in 0-day side.
+>
+> >
+> >>All warnings (new ones prefixed by >>):
+> >>
+> >>   include/linux/signal.h:137:2: note: expanded from macro '_SIG_SET_BI=
+NOP'
+> >>   case 1: ^
+> >>   include/linux/signal.h:177:1: warning: unannotated fall-through betw=
+een
+> >switch labels
+> >>   _SIG_SET_OP(signotset, _sig_not)
+> >>   ^
+> >>   include/linux/signal.h:167:2: note: expanded from macro '_SIG_SET_OP=
+'
+> >>   case 2: =3D ^
+> >>   include/linux/signal.h:177:1: warning: unannotated fall-through betw=
+een
+> >switch labels
+> >>   include/linux/signal.h:169:2: note: expanded from macro '_SIG_SET_OP=
+'
+> >>   case 1: =3D ^
+> >>   include/linux/signal.h:190:2: warning: unannotated fall-through betw=
+een
+> >switch labels
+> >>   case 1: =3D 0;
+> >>   ^
+> >>   include/linux/jhash.h:95:2: note: insert '__attribute__((fallthrough=
+));' to silence
+> >this warning
+> >>   case 6: b +=3D /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cep=
+hfs /dev /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var fall through arch/ block/ certs/ crypto/ drivers/ fs/ include/ init=
+/ ipc/ kernel/
+> >lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt/
+> >>   ^
+> >>   __attribute__((fallthrough));
+> >>   include/linux/jhash.h:95:2: note: insert 'break;' to avoid fall-thro=
+ugh
+> >>   case 6: b +=3D /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cep=
+hfs /dev /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var fall through arch/ block/ certs/ crypto/ drivers/ fs/ include/ init=
+/ ipc/ kernel/
+> >lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt/
+> >>   ^
+> >>   break;
+> >>   include/linux/jhash.h:96:2: warning: unannotated fall-through betwee=
+n switch
+> >labels
+> >>   case 5: b +=3D /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cep=
+hfs /dev /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var fall through arch/ block/ certs/ crypto/ drivers/ fs/ include/ init=
+/ ipc/ kernel/
+> >lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt/
+> >>   ^
+> >>   15include/linux/signal.h:190:2: note: insert '__attribute__((fallthr=
+ough));' to
+> >silence this warning
+> >>   case 1: =3D 0;
+> >>   ^
+> >>   __attribute__((fallthrough));
+> >>   include/linux/signal.h:190:2: note: insert 'break;' to avoid fall-th=
+rough
+> >>   case 1: =3D 0;
+> >>   ^
+> >>   break;
+> >>   include/linux/signal.h:203:2: warninginclude/linux/jhash.h:96:2: not=
+e: insert
+> >'__attribute__((fallthrough));' to silence this warning
+> >>   case 5: b +=3D /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cep=
+hfs /dev /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var fall through arch/ block/ certs/ crypto/ drivers/ fs/ include/ init=
+/ ipc/ kernel/
+> >lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt/
+> >>   ^
+> >>   __attribute__((fallthrough));
+> >>   include/linux/jhash.h:96:2: note: insert 'break;' to avoid fall-thro=
+ugh
+> >>   case 5: b +=3D /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cep=
+hfs /dev /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var fall through arch/ block/ certs/ crypto/ drivers/ fs/ include/ init=
+/ ipc/ kernel/
+> >lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt/
+> >>   ^
+> >>   break;
+> >>   include/linux/jhash.h:97:2: warning: unannotated fall-through betwee=
+n switch
+> >labels
+> >>   case 4: a +=3D /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cep=
+hfs /dev /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var fall through arch/ block/ certs/ crypto/ drivers/ fs/ include/ init=
+/ ipc/ kernel/
+> >lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt/
+> >>   ^
+> >>   : unannotated fall-through between switch labels
+> >>   case 1: =3D -1;
+> >>   ^
+> >>   warnings generated.
+> >>   include/linux/signal.h:203:2: note: insert '__attribute__((fallthrou=
+gh));' to
+> >silence this warning
+> >>   case 1: =3D -1;
+> >>   ^
+> >>   __attribute__((fallthrough));
+> >>   include/linux/signal.h:15203:2: note: insert 'break;' to avoid fall-=
+through
+> >>   case 1: =3D -1;
+> >>   ^
+> >>   break;
+> >>   include/linux/jhash.h:97:2: note: insert '__attribute__((fallthrough=
+));' to silence
+> >this warning
+> >>   case 4: a +=3D /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cep=
+hfs /dev /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var fall through arch/ block/ certs/ crypto/ drivers/ fs/ include/ init=
+/ ipc/ kernel/
+> >lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt/
+> >>   ^
+> >>   __attribute__((fallthrough));
+> >>   include/linux/jhash.h:97:2: note: insert 'break;' to avoid fall-thro=
+ugh
+> >>   case 4: a +=3D /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cep=
+hfs /dev /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var fall through arch/ block/ certs/ crypto/ drivers/ fs/ include/ init=
+/ ipc/ kernel/
+> >lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt/
+> >>   ^
+> >>   break;
+> >>   include/linux/jhash.h:98:2: warning: unannotated fall-through betwee=
+n switch
+> >labels
+> >>   case 3: a +=3D /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cep=
+hfs /dev /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var fall through arch/ block/ certs/ crypto/ drivers/ fs/ include/ init=
+/ ipc/ kernel/
+> >lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt/
+> >>   ^
+> >>   include/linux/signal.h:233:2: warning: unannotated fall-through betw=
+een
+> >switch labels
+> >>   case 1: ;
+> >>   ^
+> >>   warnings generated.
+> >>   In file included from kernel/printk/printk.c:61:
+> >>   kernel/printk/internal.h:54:20: warninginclude/linux/jhash.h:98:2: n=
+ote: insert
+> >'__attribute__((fallthrough));' to silence this warning
+> >>   case 3: a +=3D /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cep=
+hfs /dev /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var fall through arch/ block/ certs/ crypto/ drivers/ fs/ include/ init=
+/ ipc/ kernel/
+> >lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt/
+> >>   ^
+> >>   __attribute__((fallthrough));
+> >>   include/linux/jhash.h:98:2: note: no previous prototype for function
+> >'vprintk_func'
+> >>   __printf(1, 0) int vprintk_func(const char va_list args) { return 0;=
+ }
+> >>   ^
+> >>   kernel/printk/internal.h: insert 'break;' to avoid fall-through
+> >>   case 3: a +=3D /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cep=
+hfs /dev /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var fall through arch/ block/ certs/ crypto/ drivers/ fs/ include/ init=
+/ ipc/ kernel/
+> >lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt/
+> >>   ^
+> >>   break;
+> >>   include/linux/jhash.h:99:2: warning: unannotated fall-through betwee=
+n switch
+> >labels
+> >>   case 2: a +=3D /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cep=
+hfs /dev /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var fall through arch/ block/ certs/ crypto/ drivers/ fs/ include/ init=
+/ ipc/ kernel/
+> >lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt/
+> >>   ^
+> >>   :54:16: note: declare 'static' if the function is not intended to be=
+ used outside
+> >of this translation unit
+> >>   __printf(1, 0) int vprintk_func(const char va_list args) { return 0;=
+ }
+> >>   ^
+> >>   static
+> >>   kernel/printk/printk.cinclude/linux/signal.h:233:2: note: insert
+> >'__attribute__((fallthrough));' to silence this warning
+> >>   case 1: ;
+> >>   ^
+> >>   __attribute__((fallthrough));
+> >>   include/linux/signal.h:233:2: note: insert 'break;' to avoid fall-th=
+rough
+> >>   case 1: ;
+> >>   ^
+> >>   break;
+> >>   include/linux/signal.h:245:2: warning: unannotated fall-through betw=
+een
+> >switch labels
+> >>   case 1: ;
+> >>   ^
+> >>>> :165:5: warning: no previous prototype for function
+> >'devkmsg_sysctl_set_loglvl'
+> >>   int devkmsg_sysctl_set_loglvl(struct ctl_table int write,
+> >>   ^
+> >>   kernel/printk/printk.c:165:1: note: declare 'static' if the function=
+ is not
+> >intended to be used outside of this translation unit
+> >>   int devkmsg_sysctl_set_loglvl(struct ctl_table int write,
+> >>   ^
+> >>   static
+> >>   include/linux/jhash.h:99:2: note: insert '__attribute__((fallthrough=
+));' to silence
+> >this warning
+> >>   case 2: a +=3D /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cep=
+hfs /dev /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var fall through arch/ block/ certs/ crypto/ drivers/ fs/ include/ init=
+/ ipc/ kernel/
+> >lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt/
+> >>   ^
+> >>   __attribute__((fallthrough));
+> >>   include/linux/jhash.h:99:2: note: insert 'break;' to avoid fall-thro=
+ugh
+> >>   case 2: a +=3D /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cep=
+hfs /dev /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var fall through arch/ block/ certs/ crypto/ drivers/ fs/ include/ init=
+/ ipc/ kernel/
+> >lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt/
+> >>   ^
+> >>   break;
+> >>   include/linux/jhash.h:100:2: warning: unannotated fall-through betwe=
+en
+> >switch labels
+> >>   case 1: a +=3D
+> >>   ^
+> >>   include/linux/signal.h:245:2: note: insert '__attribute__((fallthrou=
+gh));' to
+> >silence this warning
+> >>   case 1: ;
+> >>   ^
+> >>   __attribute__((fallthrough));
+> >>   include/linux/signal.h:245:2: note: insert 'break;' to avoid fall-th=
+rough
+> >>   case 1: ;
+> >>   ^
+> >>   break;
+> >>   kernel/printk/printk.cinclude/linux/jhash.h:100:2: note: insert
+> >'__attribute__((fallthrough));' to silence this warning
+> >>   case 1: a +=3D
+> >>   ^
+> >>   __attribute__((fallthrough));
+> >>   include/linux/jhash.h:100:2: note: insert 'break;' to avoid fall-thr=
+ough
+> >>   case 1: a +=3D
+> >>   ^
+> >>   break;
+> >>   include/linux/jhash.h:102:2: warning: unannotated fall-through betwe=
+en
+> >switch labels
+> >>   case 0: /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cephfs /de=
+v /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var Nothing left to add arch/ block/ certs/ crypto/ drivers/ fs/ includ=
+e/ init/ ipc/
+> >kernel/ lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt=
+/
+> >>   ^
+> >>   include/linux/jhash.h:102:2: note: insert 'break;' to avoid fall-thr=
+ough
+> >>   case 0: /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cephfs /de=
+v /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var Nothing left to add arch/ block/ certs/ crypto/ drivers/ fs/ includ=
+e/ init/ ipc/
+> >kernel/ lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt=
+/
+> >>   ^
+> >>   break;
+> >>   :2406:10: warning: 'sprintf' will always overflow; destination buffe=
+r has size 0,
+> >but format string expands to at least 33
+> >>   len =3D sprintf(text,
+> >>   ^
+> >>   include/linux/jhash.h:136:2: warning: unannotated fall-through betwe=
+en
+> >switch labels
+> >>   case 2: b +=3D /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cep=
+hfs /dev /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var fall through arch/ block/ certs/ crypto/ drivers/ fs/ include/ init=
+/ ipc/ kernel/
+> >lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt/
+> >>   ^
+> >>   include/linux/jhash.h:136:2: note: insert '__attribute__((fallthroug=
+h));' to
+> >silence this warning
+> >>   case 2: b +=3D /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cep=
+hfs /dev /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var fall through arch/ block/ certs/ crypto/ drivers/ fs/ include/ init=
+/ ipc/ kernel/
+> >lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt/
+> >>   ^
+> >>   __attribute__((fallthrough));
+> >>   include/linux/jhash.h:136:2: note: insert 'break;' to avoid fall-thr=
+ough
+> >>   case 2: b +=3D /Dockerfile /Gemfile /Gemfile.lock /bin /boot /c /cep=
+hfs /dev /etc
+> >/home /htmldocs /include /kbuild /lib /lib32 /lib64 /libx32 /lkp-cloud /=
+lkp-src
+> >/media /mnt /opt /patch /pkg /proc /root /run /sbin /share /srv /sys /tm=
+p /usr
+> >/var fall through arch/ block/ certs/ crypto/ drivers/ fs/ include/ init=
+/ ipc/ kernel/
+> >lib/ mm/ net/ scripts/ security/ sound/ source/ tools/ usr/ virt/
+> >>   ^
+> >>   break;
+> >>   include/linux/jhash.h:137:2: warning: unannotated fall-through betwe=
+en
+> >switch labels
+> >>   case 1: a +=3D
+> >>   ^
+> >>   In file included from kernel/capability.c:13:
+> >>   In file included from include/linux/audit.h:13:
+> >>   In file included from include/linux/ptrace.h:7:
+> >>   In file included from include/linux/sched/signal.h:6:
+> >>   include/linux/signal.h:147:1: warning: unannotated fall-through betw=
+een
+> >switch labels
+> >>   _SIG_SET_BINOP(sigorsets, _sig_or)
+> >>   ^
+> >>   include/linux/signal.h:133:2: note: expanded from macro '_SIG_SET_BI=
+NOP'
+> >>   case 2: ^
+> >>   include/linux/signal.h:147:1: warning: unannotated fall-through betw=
+een
+> >switch labels
+> >>   include/linux/signal.h:137:2: note: expanded from macro '_SIG_SET_BI=
+NOP'
+> >>   case 1: ^
+> >>   include/linux/signal.h:150:1: warning: unannotated fall-through betw=
+een
+> >switch labels
+> >>   _SIG_SET_BINOP(sigandsets, _sig_and)
+> >>   ^
+> >>   include/linux/signal.h:133:2:In file included from note: expanded fr=
+om macro
+> >'_SIG_SET_BINOP'
+> >>   case 2: ^
+> >>   include/linux/signal.h:150:1: warning: unannotated fall-through betw=
+een
+> >switch labels
+> >>   include/linux/signal.h:137:2: note: expanded from macro '_SIG_SET_BI=
+NOP'
+> >>   case 1: ^
+> >>   include/linux/signal.h:153:1: warning: unannotated fall-through betw=
+een
+> >switch labels
+> >>   _SIG_SET_BINOP(sigandnsets, _sig_andn)
+> >>   ^
+> >>   include/linux/signal.h:133:2: note: expanded from macro '_SIG_SET_BI=
+NOP'
+> >>   case 2: kernel/sysctl_binary.c:15:
+> >>   In file included from include/linux/netdevice.h:37:
+> >>   In file included from include/linux/ethtool.h:18:
+> >>   In file included from include/uapi/linux/ethtool.h:19:
+> >>   In file included from include/linux/if_ether.h:19:
+> >>   include/linux/skbuff.h:3690:2: warning: unannotated fall-through bet=
+ween
+> >switch labels
+> >>   case 24: diffs |=3D __it_diff(a, b, 64);
+> >>   ^
+> >>--
+> >>           ^
+> >>           __attribute__((fallthrough));
+> >>   include/linux/mm.h:166:2: note: insert 'break;' to avoid fall-throug=
+h
+> >>           case 56:
+> >>           ^
+> >>           break;
+> >>   In file included from kernel/printk/printk.c:36:
+> >>   In file included from include/linux/syscalls.h:76:
+> >>   include/linux/signal.h:147:1: warning: unannotated fall-through betw=
+een
+> >switch labels [-Wimplicit-fallthrough]
+> >>   _SIG_SET_BINOP(sigorsets, _sig_or)
+> >>   ^
+> >>   include/linux/signal.h:133:2: note: expanded from macro '_SIG_SET_BI=
+NOP'
+> >>           case 2:                                                     =
+    \
+> >>           ^
+> >>   include/linux/signal.h:147:1: warning: unannotated fall-through betw=
+een
+> >switch labels [-Wimplicit-fallthrough]
+> >>   include/linux/signal.h:137:2: note: expanded from macro '_SIG_SET_BI=
+NOP'
+> >>           case 1:                                                     =
+    \
+> >>           ^
+> >>   include/linux/signal.h:150:1: warning: unannotated fall-through betw=
+een
+> >switch labels [-Wimplicit-fallthrough]
+> >>   _SIG_SET_BINOP(sigandsets, _sig_and)
+> >>   ^
+> >>   include/linux/signal.h:133:2: note: expanded from macro '_SIG_SET_BI=
+NOP'
+> >>           case 2:                                                     =
+    \
+> >>           ^
+> >>   include/linux/signal.h:150:1: warning: unannotated fall-through betw=
+een
+> >switch labels [-Wimplicit-fallthrough]
+> >>   include/linux/signal.h:137:2: note: expanded from macro '_SIG_SET_BI=
+NOP'
+> >>           case 1:                                                     =
+    \
+> >>           ^
+> >>   include/linux/signal.h:153:1: warning: unannotated fall-through betw=
+een
+> >switch labels [-Wimplicit-fallthrough]
+> >>   _SIG_SET_BINOP(sigandnsets, _sig_andn)
+> >>   ^
+> >>   include/linux/signal.h:133:2: note: expanded from macro '_SIG_SET_BI=
+NOP'
+> >>           case 2:                                                     =
+    \
+> >>           ^
+> >>   include/linux/signal.h:153:1: warning: unannotated fall-through betw=
+een
+> >switch labels [-Wimplicit-fallthrough]
+> >>   include/linux/signal.h:137:2: note: expanded from macro '_SIG_SET_BI=
+NOP'
+> >>           case 1:                                                     =
+    \
+> >>           ^
+> >>   include/linux/signal.h:177:1: warning: unannotated fall-through betw=
+een
+> >switch labels [-Wimplicit-fallthrough]
+> >>   _SIG_SET_OP(signotset, _sig_not)
+> >>   ^
+> >>   include/linux/signal.h:167:2: note: expanded from macro '_SIG_SET_OP=
+'
+> >>           case 2: set->sig[1] =3D op(set->sig[1]);                    =
+      \
+> >>           ^
+> >>   include/linux/signal.h:177:1: warning: unannotated fall-through betw=
+een
+> >switch labels [-Wimplicit-fallthrough]
+> >>   include/linux/signal.h:169:2: note: expanded from macro '_SIG_SET_OP=
+'
+> >>           case 1: set->sig[0] =3D op(set->sig[0]);                    =
+      \
+> >>           ^
+> >>   include/linux/signal.h:190:2: warning: unannotated fall-through betw=
+een
+> >switch labels [-Wimplicit-fallthrough]
+> >>           case 1: set->sig[0] =3D 0;
+> >>           ^
+> >>   include/linux/signal.h:190:2: note: insert '__attribute__((fallthrou=
+gh));' to
+> >silence this warning
+> >>           case 1: set->sig[0] =3D 0;
+> >>           ^
+> >>           __attribute__((fallthrough));
+> >>   include/linux/signal.h:190:2: note: insert 'break;' to avoid fall-th=
+rough
+> >>           case 1: set->sig[0] =3D 0;
+> >>           ^
+> >>           break;
+> >>   include/linux/signal.h:203:2: warning: unannotated fall-through betw=
+een
+> >switch labels [-Wimplicit-fallthrough]
+> >>           case 1: set->sig[0] =3D -1;
+> >>           ^
+> >>   include/linux/signal.h:203:2: note: insert '__attribute__((fallthrou=
+gh));' to
+> >silence this warning
+> >>           case 1: set->sig[0] =3D -1;
+> >>           ^
+> >>           __attribute__((fallthrough));
+> >>   include/linux/signal.h:203:2: note: insert 'break;' to avoid fall-th=
+rough
+> >>           case 1: set->sig[0] =3D -1;
+> >>           ^
+> >>           break;
+> >>   include/linux/signal.h:233:2: warning: unannotated fall-through betw=
+een
+> >switch labels [-Wimplicit-fallthrough]
+> >>           case 1: ;
+> >>           ^
+> >>   include/linux/signal.h:233:2: note: insert '__attribute__((fallthrou=
+gh));' to
+> >silence this warning
+> >>           case 1: ;
+> >>           ^
+> >>           __attribute__((fallthrough));
+> >>   include/linux/signal.h:233:2: note: insert 'break;' to avoid fall-th=
+rough
+> >>           case 1: ;
+> >>           ^
+> >>           break;
+> >>   include/linux/signal.h:245:2: warning: unannotated fall-through betw=
+een
+> >switch labels [-Wimplicit-fallthrough]
+> >>           case 1: ;
+> >>           ^
+> >>   include/linux/signal.h:245:2: note: insert '__attribute__((fallthrou=
+gh));' to
+> >silence this warning
+> >>           case 1: ;
+> >>           ^
+> >>           __attribute__((fallthrough));
+> >>   include/linux/signal.h:245:2: note: insert 'break;' to avoid fall-th=
+rough
+> >>           case 1: ;
+> >>           ^
+> >>           break;
+> >>   In file included from kernel/printk/printk.c:61:
+> >>   kernel/printk/internal.h:54:20: warning: no previous prototype for f=
+unction
+> >'vprintk_func' [-Wmissing-prototypes]
+> >>   __printf(1, 0) int vprintk_func(const char *fmt, va_list args) { ret=
+urn 0; }
+> >>                      ^
+> >>   kernel/printk/internal.h:54:16: note: declare 'static' if the functi=
+on is not
+> >intended to be used outside of this translation unit
+> >>   __printf(1, 0) int vprintk_func(const char *fmt, va_list args) { ret=
+urn 0; }
+> >>                  ^
+> >>                  static
+> >>>> kernel/printk/printk.c:165:5: warning: no previous prototype for
+> >>>> function 'devkmsg_sysctl_set_loglvl' [-Wmissing-prototypes]
+> >>   int devkmsg_sysctl_set_loglvl(struct ctl_table *table, int write,
+> >>       ^
+> >>   kernel/printk/printk.c:165:1: note: declare 'static' if the function=
+ is not
+> >intended to be used outside of this translation unit
+> >>   int devkmsg_sysctl_set_loglvl(struct ctl_table *table, int write,
+> >>   ^
+> >>   static
+> >>   kernel/printk/printk.c:2406:10: warning: 'sprintf' will always overf=
+low;
+> >destination buffer has size 0, but format string expands to at least 33 =
+[-Wfortify-
+> >source]
+> >>                           len =3D sprintf(text,
+> >>                                 ^
+> >>   18 warnings generated.
+> >>
+> >>---
+> >>0-DAY CI Kernel Test Service, Intel Corporation
+> >>https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+> >
+> >
+> >
+> >--
+> >Wei Yang
+> >Help you, Help me
+>
+> --
+> You received this message because you are subscribed to the Google Groups=
+ "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an=
+ email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgi=
+d/clang-built-linux/MN2PR11MB4064B0104312A3D22F1698F3E5670%40MN2PR11MB4064.=
+namprd11.prod.outlook.com.
 
-The clang static analyzer is a more powerful static analysis tool that
-uses symbolic execution to find bugs. Currently there is a check that
-looks for potential security bugs from invalid uses of kmalloc and
-kfree. There are several more general purpose checks that are useful for
-the kernel.
 
-The clang static analyzer is well documented and designed to be
-extensible.
-(https://clang-analyzer.llvm.org/checker_dev_manual.html)
-(https://github.com/haoNoQ/clang-analyzer-guide/releases/download/v0.1/clang-analyzer-guide-v0.1.pdf)
 
-The main draw of the clang tools is how accessible they are. The clang
-documentation is very nice and these tools are built specifically to be
-easily extendable by any developer. They provide an accessible method of
-bug-finding and research to people who are not overly familiar with the
-kernel codebase.
+--=20
+Thanks,
+~Nick Desaulniers
 
-Signed-off-by: Nathan Huckleberry <nhuck@google.com>
----
-Changes V1 -> V2:
-* Remove dependencies on GNU Parallel
-* * Clang-tidy/analyzer now invoked directly from python
-Link: https://lkml.org/lkml/2019/8/6/941
-
- Makefile                                      |  3 +
- scripts/clang-tools/Makefile.clang-tools      | 23 ++++++
- .../{ => clang-tools}/gen_compile_commands.py |  0
- scripts/clang-tools/run-clang-tools.py        | 77 +++++++++++++++++++
- 4 files changed, 103 insertions(+)
- create mode 100644 scripts/clang-tools/Makefile.clang-tools
- rename scripts/{ => clang-tools}/gen_compile_commands.py (100%)
- create mode 100755 scripts/clang-tools/run-clang-tools.py
-
-diff --git a/Makefile b/Makefile
-index fe0164a654c7..3e2df010b342 100644
---- a/Makefile
-+++ b/Makefile
-@@ -747,6 +747,7 @@ KBUILD_CFLAGS	+= $(call cc-option,-fno-allow-store-data-races)
- 
- include scripts/Makefile.kcov
- include scripts/Makefile.gcc-plugins
-+include scripts/clang-tools/Makefile.clang-tools
- 
- ifdef CONFIG_READABLE_ASM
- # Disable optimizations that make assembler listings hard to read.
-@@ -1543,6 +1544,8 @@ help:
- 	@echo  '  export_report   - List the usages of all exported symbols'
- 	@echo  '  headerdep       - Detect inclusion cycles in headers'
- 	@echo  '  coccicheck      - Check with Coccinelle'
-+	@echo  '  clang-analyzer  - Check with clang static analyzer'
-+	@echo  '  clang-tidy      - Check with clang-tidy'
- 	@echo  ''
- 	@echo  'Tools:'
- 	@echo  '  nsdeps          - Generate missing symbol namespace dependencies'
-diff --git a/scripts/clang-tools/Makefile.clang-tools b/scripts/clang-tools/Makefile.clang-tools
-new file mode 100644
-index 000000000000..e09dc1a8efff
---- /dev/null
-+++ b/scripts/clang-tools/Makefile.clang-tools
-@@ -0,0 +1,23 @@
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Copyright (C) Google LLC, 2020
-+#
-+# Author: Nathan Huckleberry <nhuck@google.com>
-+#
-+PHONY += clang-tidy
-+clang-tidy:
-+ifdef CONFIG_CC_IS_CLANG
-+	$(PYTHON3) scripts/clang-tools/gen_compile_commands.py
-+	$(PYTHON3) scripts/clang-tools/run-clang-tools.py clang-tidy compile_commands.json
-+else
-+	$(error Clang-tidy requires CC=clang)
-+endif
-+
-+PHONY += clang-analyzer
-+clang-analyzer:
-+ifdef CONFIG_CC_IS_CLANG
-+	$(PYTHON3) scripts/clang-tools/gen_compile_commands.py
-+	$(PYTHON3) scripts/clang-tools/run-clang-tools.py static-analyzer compile_commands.json
-+else
-+	$(error Clang-analyzer requires CC=clang)
-+endif
-diff --git a/scripts/gen_compile_commands.py b/scripts/clang-tools/gen_compile_commands.py
-similarity index 100%
-rename from scripts/gen_compile_commands.py
-rename to scripts/clang-tools/gen_compile_commands.py
-diff --git a/scripts/clang-tools/run-clang-tools.py b/scripts/clang-tools/run-clang-tools.py
-new file mode 100755
-index 000000000000..d429a150e23a
---- /dev/null
-+++ b/scripts/clang-tools/run-clang-tools.py
-@@ -0,0 +1,77 @@
-+#!/usr/bin/env python
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Copyright (C) Google LLC, 2020
-+#
-+# Author: Nathan Huckleberry <nhuck@google.com>
-+#
-+"""A helper routine run clang-tidy and the clang static-analyzer on
-+compile_commands.json."""
-+
-+import argparse
-+import json
-+import logging
-+import multiprocessing
-+import os
-+import re
-+import subprocess
-+
-+def parse_arguments():
-+  """Set up and parses command-line arguments.
-+  Returns:
-+    args: Dict of parsed args
-+      Has keys 'file' and 'type'
-+  """
-+  usage = """Run clang-tidy or the clang static-analyzer on a
-+  compilation database."""
-+  parser = argparse.ArgumentParser(description=usage)
-+
-+  type_help = ('Type of analysis to be performed')
-+  parser.add_argument('type', choices=['clang-tidy', 'static-analyzer'],
-+                      help=type_help)
-+  file_path_help = ('Path to the compilation database to parse')
-+  parser.add_argument('file',  type=str, help=file_path_help)
-+
-+  args = parser.parse_args()
-+
-+  return args
-+
-+def init(l,t):
-+  global lock
-+  global analysis_type
-+  lock = l
-+  analysis_type = t
-+
-+def run_analysis(entry):
-+  filename = entry['file']
-+  p = None
-+  if(analysis_type == "clang-tidy"):
-+    p = subprocess.run(["clang-tidy", "-p", os.getcwd(),
-+                        "-checks=-*,linuxkernel-*", filename],
-+                       stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-+  if(analysis_type == "static-analyzer"):
-+    p = subprocess.run(["clang-tidy", "-p", os.getcwd(),
-+                        "-checks=-*,clang-analyzer-*", filename],
-+                       stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-+  lock.acquire()
-+  print(entry['file'])
-+  os.write(1, p.stdout)
-+  os.write(2, p.stderr)
-+  lock.release()
-+
-+
-+def main():
-+  args = parse_arguments()
-+  filename = args.file
-+
-+  #Read JSON data into the datastore variable
-+  if filename:
-+    with open(filename, 'r') as f:
-+      datastore = json.load(f)
-+
-+      lock = multiprocessing.Lock()
-+      pool = multiprocessing.Pool(initializer=init, initargs=(lock,args.type,))
-+      pool.map(run_analysis,datastore)
-+
-+if __name__ == '__main__':
-+    main()
--- 
-2.27.0.383.g050319c2ae-goog
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200708181905.257691-1-nhuck%40google.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/CAKwvOdkVqY8WAfdTtHbgnJ2jafvsJCUgx2Rx4PCeNiX7HjLLow%40mai=
+l.gmail.com.
