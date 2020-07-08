@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBMHRTD4AKGQERI5JG2Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBJMVTH4AKGQE7TL7LZI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
 Received: from mail-pf1-x439.google.com (mail-pf1-x439.google.com [IPv6:2607:f8b0:4864:20::439])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0B409219271
-	for <lists+clang-built-linux@lfdr.de>; Wed,  8 Jul 2020 23:20:50 +0200 (CEST)
-Received: by mail-pf1-x439.google.com with SMTP id c2sf14048670pfj.5
-        for <lists+clang-built-linux@lfdr.de>; Wed, 08 Jul 2020 14:20:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1594243248; cv=pass;
+	by mail.lfdr.de (Postfix) with ESMTPS id DE73A21938F
+	for <lists+clang-built-linux@lfdr.de>; Thu,  9 Jul 2020 00:37:26 +0200 (CEST)
+Received: by mail-pf1-x439.google.com with SMTP id v25sf8067934pfm.15
+        for <lists+clang-built-linux@lfdr.de>; Wed, 08 Jul 2020 15:37:26 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1594247845; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YWoEde+EcSwA4JWbK/pPd28wwkjat0BXfHeYzxK1Cbr2xDYqOURDmpBzIfD0igA44x
-         b9Se3xbzF56m/WWf1i2S4ZGzkKTaLqJG7mGnsAMCTFJhDARSywE6P5dS+Vf2NcW9R/X7
-         poGNBgAyAv4+Jh8faLu46PY0IqilYRhlTCxZCmyJV5SnECfMPPFBQNpmk6PjMj3/GQqq
-         rp80Vikr5efcGkYArAuVCwNpY19Uh1svS8mNHVbDwfR5vEBkEFef7PAqWUIi3Qquq08p
-         CNVB127rf9+KaO5RHMpQ/FMxGgZ/pQ19uQzbuHB14SFI63jBDbHcsBBdKquqnXpM0QeQ
-         GmBw==
+        b=HJwttzfZCT0v1E7Yx0p36+Cj9jaGSFkWcZtKEd2MUJj9RFYObvQQz8x6PRwD+NHHvY
+         ZeL+3MrI4FP2CEFcI6SsfFmFX6wiayefz8lrcULbsN5dwwd4DsU5++XSv+LBZvq1QDa+
+         bbxoYznxc+WDA+kDacMdAG4Oo/lYj4rsArIH6BU5mXkkYaEdzG1iFIMNthKhPYqG4dFV
+         vdbWqbzen6y5mhqA8+cy7QGFHvcmul9jVQc7N+V01+YhzyHk2tDDNElU5YckXpcXgFVi
+         eT1mjiylnjR/5BzBvc6b2J4o9lyy99eR2R60ObjXkEJbPMY+zEua1PPPxMSIQOHHGe+n
+         JZAQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=77WWnxr6oMp0B3bDvERRviGGPvxkKWq148ifoMq7GDE=;
-        b=NFuwNfNOdKl3BSY1UnyfQ5Sel0kfyWEUf1ThJbJUYUSsd5UsSo/rxAnqCGKF63HnRS
-         hGuuQK1U65mwqofQVFSrpddzExmu/UOH8FvED71SzO+zuB1SrylD3h6lwdRLfYveGZs/
-         1sEcPrDowJYxYlXWtP9zJu4Bp7sj5wmQY0pAGukLVD69eMGNdwT+9m9u7civrpfj13x5
-         5pi+Aq6DTCM0IuYX8J0mn9eBsuEUvwj1zqRbb2SkumX3j9jDAj9O1zkTgLVNHAgndtze
-         rxc8VZXbRBKaEJPvnYucrXxUYz0AnNAZUKhJ7927fDstl6goi4QDnkr5U4JjxAx6iJ5D
-         8Jjg==
+        bh=aY/cWkggyuEU95mtS97qLbwGRjjRWxNRSmgVm7I0S/U=;
+        b=emFFg5gbuJPApFFqo7pjkcFu5hgrTzQ+Jb8oAZbdvma97Kg/139x6XQN8WfU2QnNX5
+         afmOQhu5yU1Amb1uPf9sSqiXlfWOzsyj2gya2sB0M8WE5Cr4Yg3uLcDYlBIS34VFwqq7
+         k/vt2cSuzEtfembZsdMXS2Y3/4zeiw1Fehy/j9D1E3rW7FRlSJyjESlVys8/mhQ4bixI
+         Lk+n3/JpVeRzpI5FYgbUbIPLU0eCzSBQGMOhPOnWARoLCpnMIbwnrFX80RGO3ZfCnhnm
+         UGMr4HBiAX2J0cFjbN/s39yzwtNo7H+8eKq6NY+C4s9Ikf25OX+RRfDRKVGrzB8+w9iu
+         LK9A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=77WWnxr6oMp0B3bDvERRviGGPvxkKWq148ifoMq7GDE=;
-        b=LkkHcAKcbz6XhJaomosrdzpmjLdgSLU1MpOAnU/ckzWtu2FG8Q4V8s0UIGgG0xO4ZY
-         FblnOybjT5r2XdrayX6c6Ue/k9w6YgqcFzphQIXVFfPETFghVq1HzpLN5CxDhAA1drDX
-         83YanJpeUJiRKR2wZCMXPQ3IqsBMOAkAnH+g+i1+nQIa7mSx9HlYkiYNhtrSpSCTTGs3
-         0iPv9GrCtzYrApiZOdmeYoTD+K9GosN7kUwiStha3GaEM4/OULlOP3CkCCoa+6FcijVm
-         LLNQhjeT+YdLTNGac+qkUVC+KaJC8b/TMnqRjVDvwWW9ujh4qsvl/RALj3z6icxEzrt8
-         3fqA==
+        bh=aY/cWkggyuEU95mtS97qLbwGRjjRWxNRSmgVm7I0S/U=;
+        b=H/7UkLYQLFf+JCgBDwMziPEkHNXxiNveYpz4o3FWHiKMDb/xqNRPiaHqHALR51hX13
+         laYJhsbKTS1SP0JnJUBanCgeMcB1y6TqQ55HIK92GeEUdOUySrsq3IF00K5STvXKmbKy
+         +i6tQmbSS1bwSOKKNBTyJIdUUtWMc8EYpiVrDLHl4dcgtfVXxv4nhzP+2hh8/kkGRWZm
+         70L7i1sgkwM3KClP6sZXdIYMEMZ3V0nHqTjfEi1T12nT0mb0Gjqg7D8ekVFrgLdGIiaT
+         ESnNcmS/zl3g3ppKgFcUIn+oujgRRi2KSGiTJybftNidXgzBCUgO5kUPIlArMM/cvwpj
+         19nA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,85 +49,87 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=77WWnxr6oMp0B3bDvERRviGGPvxkKWq148ifoMq7GDE=;
-        b=Rn6uXvuf85vHYZKPymIFZGBwc1wwBGEji8yuLnYFq2Lx3lnFkdezk/pSRhRc/6vJaK
-         prTFjemiu59tj6NhosytCq+uvn8P8ZogEmtzlLb7mOC8ERZVzWIW2RcmF3bOvcy8bu6y
-         mrZvstAWKJHqYpm6hEvL4yPJ3tTdGP5QF45acr77Yqde+6XHqUoDdwUR08N5rccy/jfZ
-         UPmao1IxiTcy5rQENbnaY8PzoaYuXE7BZSUA15xtGt2HjJu7xeZKfaqeHgM1pHC2pO6Z
-         tAO0PjQb6KZ1YYPWtMPMzzphr9XRRQr9ORT6TqQWj+MhNBHwS5pEuf+mev0ufKoDdsoJ
-         vv5A==
+        bh=aY/cWkggyuEU95mtS97qLbwGRjjRWxNRSmgVm7I0S/U=;
+        b=ohPZFJWNoCw9CJ34Bfrgmn5t58YYgtwL1Q85F5ImD2qQ32+lmvUfVv+C+ZwRQ79M0z
+         HWAf2V5vlG6/Xviwu5L+zvUsZVS5ITfq3hMvReqYGSw691REvRe0FgHvhI/gyHCMJgyw
+         P4p9Mq7VEv+C+5p6Ca1vBmu6/NSWSeENQ44gKFw8sMF2D+ggyvBz8FpD3U6BoJcpVqdi
+         56FOre8YXMscYsDol1e1M8wQW/fR+h0AoLq437cVoQbeuDjA7cOu8cLuuN4H7mQsLF6+
+         mSN1Yf29B8J7dVQkv+JC9A4zlQEj/5CZVGWHV2KdPsnbBOAGzorz3bbewSFNC/0xRAU0
+         umPg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531vbyAKm6HEL7+usr36WxpZiSYdYi1pr8Nmmj4d6Mg1DaOLJZiy
-	mWVP+bHlSbLx10F2ovqgSfg=
-X-Google-Smtp-Source: ABdhPJw6MTsFwki1NXzsgmvCz8YykuXMQ6zDi0UGXGLbI7Dk59eftHczFCTT+iC5ePT1dW0ogJaDtw==
-X-Received: by 2002:a17:902:c142:: with SMTP id 2mr53161328plj.222.1594243248435;
-        Wed, 08 Jul 2020 14:20:48 -0700 (PDT)
+X-Gm-Message-State: AOAM5335yEW/7HK4pZaFLoR8324BHCf1opDxQokKnuOsGm2vm1h6S8gt
+	pi7EVSZvGpe4BkoCI85DiEQ=
+X-Google-Smtp-Source: ABdhPJwCpKQOx8cwNnIgmUJWMQmWWFFsoLWM0g7Oyqk8pdslnr/WEhLnXlDJeXVr/bqPy99pm8vV/Q==
+X-Received: by 2002:a17:90b:94f:: with SMTP id dw15mr12063475pjb.199.1594247845355;
+        Wed, 08 Jul 2020 15:37:25 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:1b4d:: with SMTP id q71ls1476543pjq.2.gmail; Wed, 08
- Jul 2020 14:20:48 -0700 (PDT)
-X-Received: by 2002:a17:90a:b891:: with SMTP id o17mr11193704pjr.202.1594243247812;
-        Wed, 08 Jul 2020 14:20:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1594243247; cv=none;
+Received: by 2002:a62:ce4d:: with SMTP id y74ls1186270pfg.3.gmail; Wed, 08 Jul
+ 2020 15:37:25 -0700 (PDT)
+X-Received: by 2002:a62:768d:: with SMTP id r135mr31633394pfc.198.1594247844784;
+        Wed, 08 Jul 2020 15:37:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1594247844; cv=none;
         d=google.com; s=arc-20160816;
-        b=rFcWythQ23/nJ2MjYQCIL6+O5HDDu8i02e59m/tode+CaMoaGKhIGaEKOF+MPCNJX7
-         Dc8+V+t6VMQrXh7NTOOIXwfeQ2yMYffau2B3B3K4fI1E89z2+jHSDgvVKSJ+zae5axeo
-         wYAfiXuwtN++YseYAmsbBNX5WNTVt5VJLMW338b4sq4BAZTNeNwjX33lCuDfBn+GyRTK
-         bGGITFAqcMAH+b+0oSiiXC/hCM4eBMAJP5LD+I/xgbAKMUn3ven1e06kbLlyJKNN9Sd/
-         z1YhfX2oT6T9V5sLCwzmmojGzn5BFcpnWooDPvyg2eWpggLLBNhc3xJizN0SYvY8tphs
-         1lXw==
+        b=V9ObgjcMwmulxRDvkZnyOqmmEi3wdYg4V91r/+Z2A42yiypizeSnwHQptqhWTD6fJt
+         nfR6VMwXjdDpLNJExpq3jZLD3A2WsQnYQOomTxxseJiDoz3FOGtzxe3YHuoyDqnxC7iD
+         utZwBSJGgvZ4Trxpr4gl3tSeuACYtny7HHHRXCQYTTtai0PA9TfdnUp0s5FJCm8a/RDD
+         0jdHwLtqe2yPC1T3aBQIvAIKNtKu7qSAhnvqNa1ihGc+J00B68gnCRk3A9SrrkotMk4e
+         Si+bkdis34GrjeiR6VuuLxffMtUHsLxwyl8LVqs9eVDOZrUlDO6QrcQI4b56WahcJxxL
+         ma9g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=Bsc+m4ItUi75396M3m4iZnnIXu4RWlkwKUUfyFbPe38=;
-        b=Wx7L3oJpKqcsKyJRgDQ475oHmoVHu+c5+w7QdIgzxUcvl7lHX2UFixgQn3BaARcDMA
-         9+YrdOO/LK8xV9j8hpnXTbahq5NADqSISBsffJsPJOF7qoSJYmoc1wql0NNnoTQsZIk2
-         mPHhzhrdPkmIWwJ+6NaVR9LcsFo+3Rl7SpxTDPHr1Kec+/qIZnT/BUJB7nTgD5eFc6+5
-         fGpveL4HVtWzzG/kRCIgD4Sy6Yx+qtHa/8K3Eqt5aGxtG5He7qqVZPXkLvBUHUWmtckS
-         vQrmIA4Ihm3DMlRX8NTt3vuxOlvvqGGxLpvnvPMZ1d3IC7/aTmluIszRgg0vYEZHp/4l
-         aHeQ==
+        bh=4+aP5el+r7B3JkXPCgRabcv6DT8aAjlsIz+EfZHwVtc=;
+        b=nAY+Ewp/4+hTvm10PMuDxEYQOUEuKLCIfG06XSStc+vYtOB3eklxRCLUHqWstM6pIs
+         Phfq7lcxeqQp+Uf44z3blxvqa2rEK6MNBSWF0O49WVMMVdcjvpS9cwNoIE11FSOuXLLv
+         Z26R37EkrMMN/Gifxx6kuFx8gb2fPdDQ4yCNpvtNY4e1nWmr9+BItVIZsvDJUr0NAkJw
+         2pmXR6EHG5wPVvlWBy5DicK4sGH4ur8KM1CSCLCED0lNf/6xNJQhU7Yk/167iEKdPS4t
+         +sn62JLN9axeFM7sgwPz+OmxDNHrwU86TdhfL6p8MYGrzhXCT6FgWGwBi+gOrm55OJTC
+         wiLw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
-        by gmr-mx.google.com with ESMTPS id ng5si281225pjb.3.2020.07.08.14.20.47
+Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
+        by gmr-mx.google.com with ESMTPS id n68si88721pgn.1.2020.07.08.15.37.24
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 08 Jul 2020 14:20:47 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
-IronPort-SDR: BoApkz+RnPSEnDaDuSSrpu2iZXwjbVT5qhEa4/zRW1JeS7Xl1dUmsFEtyxq1VHa5sr68GS9/ZQ
- 9Pa1di1gkHQg==
-X-IronPort-AV: E=McAfee;i="6000,8403,9676"; a="145995979"
+        Wed, 08 Jul 2020 15:37:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
+IronPort-SDR: f/HWikTXzLl6b6XJYGygffbVNmIj+Sv3QsZtLmElxNaWVr9t5H4pGEeesFto02eBn3ba3rLYpG
+ T39AzpXoR77g==
+X-IronPort-AV: E=McAfee;i="6000,8403,9676"; a="149403359"
 X-IronPort-AV: E=Sophos;i="5.75,329,1589266800"; 
-   d="gz'50?scan'50,208,50";a="145995979"
+   d="gz'50?scan'50,208,50";a="149403359"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jul 2020 14:20:46 -0700
-IronPort-SDR: MNqlwVTtzltCCfNTsML7ZsnNsbQSR+b91VG384GKQrlO6gMRkyq4R4Vq/YUOWbeEVCh2cuNs4R
- pKnzZt8JmdIA==
+Received: from orsmga002.jf.intel.com ([10.7.209.21])
+  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jul 2020 15:37:22 -0700
+IronPort-SDR: oUoN008KJKgpD8jZMpZ13Mnj/oIqTZsaL6mepywxa6+si4o1GwwZdX8yHDqG9+fHuAe1z/GI2o
+ Hc6GDWybdnkQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.75,329,1589266800"; 
-   d="gz'50?scan'50,208,50";a="306174463"
+   d="gz'50?scan'50,208,50";a="297866323"
 Received: from lkp-server01.sh.intel.com (HELO 6136dd46483e) ([10.239.97.150])
-  by fmsmga004.fm.intel.com with ESMTP; 08 Jul 2020 14:20:44 -0700
+  by orsmga002.jf.intel.com with ESMTP; 08 Jul 2020 15:37:20 -0700
 Received: from kbuild by 6136dd46483e with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1jtHUh-0000I1-Pk; Wed, 08 Jul 2020 21:20:43 +0000
-Date: Thu, 9 Jul 2020 05:20:32 +0800
+	id 1jtIgp-0000Ju-F8; Wed, 08 Jul 2020 22:37:19 +0000
+Date: Thu, 9 Jul 2020 06:36:42 +0800
 From: kernel test robot <lkp@intel.com>
-To: Joerg Roedel <jroedel@suse.de>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: [joro:sev-es-client-v5.8-rc4 47/75] arch/x86/kernel/traps.c:681:46:
- warning: no previous prototype for function 'vc_switch_off_ist'
-Message-ID: <202007090530.3uyXJbhY%lkp@intel.com>
+To: Tom Lendacky <thomas.lendacky@amd.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+	Joerg Roedel <jroedel@suse.de>
+Subject: [joro:sev-es-client-v5.8-rc4 48/75] arch/x86/kernel/sev-es.c:484:1:
+ warning: no previous prototype for function
+ 'safe_stack_exc_vmm_communication'
+Message-ID: <202007090640.MR1zEuyh%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="+QahgC5+KEYLbs62"
+Content-Type: multipart/mixed; boundary="nFreZHaLTZJo0R7j"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -143,13 +145,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---+QahgC5+KEYLbs62
+--nFreZHaLTZJo0R7j
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/joro/linux.git sev-es-client-v5.8-rc4
 head:   7ee5e0ddab7fa6efbf0937f175a5688a375d55b8
-commit: ba5a7a670ef6e070d2db31d286e1073e609311e1 [47/75] x86/entry/64: Add entry code for #VC handler
+commit: 5a65bee572d9fb041b77c5b034f75cc513dc5235 [48/75] x86/sev-es: Add Runtime #VC Exception Handler
 config: x86_64-allyesconfig (attached as .config)
 compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 02946de3802d3bc65bc9f2eb9b8d4969b5a7add8)
 reproduce (this is a W=1 build):
@@ -157,7 +159,7 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install x86_64 cross compiling tool for clang build
         # apt-get install binutils-x86-64-linux-gnu
-        git checkout ba5a7a670ef6e070d2db31d286e1073e609311e1
+        git checkout 5a65bee572d9fb041b77c5b034f75cc513dc5235
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
 
@@ -166,68 +168,150 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
->> arch/x86/kernel/traps.c:681:46: warning: no previous prototype for function 'vc_switch_off_ist' [-Wmissing-prototypes]
-   asmlinkage __visible noinstr struct pt_regs *vc_switch_off_ist(struct pt_regs *eregs)
-                                                ^
-   arch/x86/kernel/traps.c:681:30: note: declare 'static' if the function is not intended to be used outside of this translation unit
-   asmlinkage __visible noinstr struct pt_regs *vc_switch_off_ist(struct pt_regs *eregs)
-                                ^
-                                static 
-   1 warning generated.
+>> arch/x86/kernel/sev-es.c:484:1: warning: no previous prototype for function 'safe_stack_exc_vmm_communication' [-Wmissing-prototypes]
+   DEFINE_IDTENTRY_VC_SAFE_STACK(exc_vmm_communication)
+   ^
+   arch/x86/include/asm/idtentry.h:362:32: note: expanded from macro 'DEFINE_IDTENTRY_VC_SAFE_STACK'
+           DEFINE_IDTENTRY_RAW_ERRORCODE(safe_stack_##func)
+                                         ^
+   <scratch space>:508:1: note: expanded from here
+   safe_stack_exc_vmm_communication
+   ^
+   arch/x86/kernel/sev-es.c:484:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   arch/x86/include/asm/idtentry.h:362:2: note: expanded from macro 'DEFINE_IDTENTRY_VC_SAFE_STACK'
+           DEFINE_IDTENTRY_RAW_ERRORCODE(safe_stack_##func)
+           ^
+   arch/x86/include/asm/idtentry.h:169:19: note: expanded from macro 'DEFINE_IDTENTRY_RAW_ERRORCODE'
+   __visible noinstr void func(struct pt_regs *regs, unsigned long error_code)
+                     ^
+>> arch/x86/kernel/sev-es.c:584:1: warning: no previous prototype for function 'ist_exc_vmm_communication' [-Wmissing-prototypes]
+   DEFINE_IDTENTRY_VC_IST(exc_vmm_communication)
+   ^
+   arch/x86/include/asm/idtentry.h:372:32: note: expanded from macro 'DEFINE_IDTENTRY_VC_IST'
+           DEFINE_IDTENTRY_RAW_ERRORCODE(ist_##func)
+                                         ^
+   <scratch space>:23:1: note: expanded from here
+   ist_exc_vmm_communication
+   ^
+   arch/x86/kernel/sev-es.c:584:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   arch/x86/include/asm/idtentry.h:372:2: note: expanded from macro 'DEFINE_IDTENTRY_VC_IST'
+           DEFINE_IDTENTRY_RAW_ERRORCODE(ist_##func)
+           ^
+   arch/x86/include/asm/idtentry.h:169:19: note: expanded from macro 'DEFINE_IDTENTRY_RAW_ERRORCODE'
+   __visible noinstr void func(struct pt_regs *regs, unsigned long error_code)
+                     ^
+   2 warnings generated.
 
-vim +/vc_switch_off_ist +681 arch/x86/kernel/traps.c
+vim +/safe_stack_exc_vmm_communication +484 arch/x86/kernel/sev-es.c
 
-   679	
-   680	#ifdef CONFIG_AMD_MEM_ENCRYPT
- > 681	asmlinkage __visible noinstr struct pt_regs *vc_switch_off_ist(struct pt_regs *eregs)
-   682	{
-   683		unsigned long sp, *stack;
-   684		struct stack_info info;
-   685		struct pt_regs *regs;
-   686	
-   687		/*
-   688		 * In the SYSCALL entry path the RSP value comes from user-space - don't
-   689		 * trust it and switch to the current kernel stack
-   690		 */
-   691		if (eregs->ip >= (unsigned long)entry_SYSCALL_64 &&
-   692		    eregs->ip <  (unsigned long)entry_SYSCALL_64_safe_stack) {
-   693			sp = this_cpu_read(cpu_current_top_of_stack);
-   694			goto sync;
-   695		}
-   696	
-   697		/*
-   698		 * From here on the the RSP value is trusted - more RSP sanity checks
-   699		 * need to happen above.
-   700		 *
-   701		 * Check whether entry happened from a safe stack.
-   702		 */
-   703		sp    = eregs->sp;
-   704		stack = (unsigned long *)sp;
-   705		get_stack_info_noinstr(stack, current, &info);
-   706	
-   707		/*
-   708		 * Don't sync to entry stack or other unknown stacks - use the fall-back
-   709		 * stack instead.
-   710		 */
-   711		if (info.type == STACK_TYPE_UNKNOWN || info.type == STACK_TYPE_ENTRY ||
-   712		    info.type >= STACK_TYPE_EXCEPTION_LAST)
-   713			sp = __this_cpu_ist_top_va(VC2);
-   714	
-   715	sync:
-   716		/*
-   717		 * Found a safe stack - switch to it as if the entry didn't happen via
-   718		 * IST stack. The code below only copies pt_regs, the real switch happens
-   719		 * in assembly code.
-   720		 */
-   721		sp = ALIGN_DOWN(sp, 8) - sizeof(*regs);
-   722	
-   723		regs = (struct pt_regs *)sp;
-   724		*regs = *eregs;
-   725	
-   726		return regs;
-   727	}
-   728	#endif
-   729	
+   483	
+ > 484	DEFINE_IDTENTRY_VC_SAFE_STACK(exc_vmm_communication)
+   485	{
+   486		struct sev_es_runtime_data *data = this_cpu_read(runtime_data);
+   487		struct ghcb_state state;
+   488		struct es_em_ctxt ctxt;
+   489		enum es_result result;
+   490		struct ghcb *ghcb;
+   491	
+   492		lockdep_assert_irqs_disabled();
+   493		instrumentation_begin();
+   494	
+   495		/*
+   496		 * This is invoked through an interrupt gate, so IRQs are disabled. The
+   497		 * code below might walk page-tables for user or kernel addresses, so
+   498		 * keep the IRQs disabled to protect us against concurrent TLB flushes.
+   499		 */
+   500	
+   501		ghcb = sev_es_get_ghcb(&state);
+   502		if (!ghcb) {
+   503			/*
+   504			 * Mark GHCBs inactive so that panic() is able to print the
+   505			 * message.
+   506			 */
+   507			data->ghcb_active        = false;
+   508			data->backup_ghcb_active = false;
+   509	
+   510			panic("Unable to handle #VC exception! GHCB and Backup GHCB are already in use");
+   511		}
+   512	
+   513		vc_ghcb_invalidate(ghcb);
+   514		result = vc_init_em_ctxt(&ctxt, regs, error_code);
+   515	
+   516		if (result == ES_OK)
+   517			result = vc_handle_exitcode(&ctxt, ghcb, error_code);
+   518	
+   519		sev_es_put_ghcb(&state);
+   520	
+   521		/* Done - now check the result */
+   522		switch (result) {
+   523		case ES_OK:
+   524			vc_finish_insn(&ctxt);
+   525			break;
+   526		case ES_UNSUPPORTED:
+   527			pr_err_ratelimited("Unsupported exit-code 0x%02lx in early #VC exception (IP: 0x%lx)\n",
+   528					   error_code, regs->ip);
+   529			goto fail;
+   530		case ES_VMM_ERROR:
+   531			pr_err_ratelimited("Failure in communication with VMM (exit-code 0x%02lx IP: 0x%lx)\n",
+   532					   error_code, regs->ip);
+   533			goto fail;
+   534		case ES_DECODE_FAILED:
+   535			pr_err_ratelimited("Failed to decode instruction (exit-code 0x%02lx IP: 0x%lx)\n",
+   536					   error_code, regs->ip);
+   537			goto fail;
+   538		case ES_EXCEPTION:
+   539			vc_forward_exception(&ctxt);
+   540			break;
+   541		case ES_RETRY:
+   542			/* Nothing to do */
+   543			break;
+   544		default:
+   545			pr_emerg("Unknown result in %s():%d\n", __func__, result);
+   546			/*
+   547			 * Emulating the instruction which caused the #VC exception
+   548			 * failed - can't continue so print debug information
+   549			 */
+   550			BUG();
+   551		}
+   552	
+   553	out:
+   554		instrumentation_end();
+   555	
+   556		return;
+   557	
+   558	fail:
+   559		if (user_mode(regs)) {
+   560			/*
+   561			 * Do not kill the machine if user-space triggered the
+   562			 * exception. Send SIGBUS instead and let user-space deal with
+   563			 * it.
+   564			 */
+   565			force_sig_fault(SIGBUS, BUS_OBJERR, (void __user *)0);
+   566		} else {
+   567			pr_emerg("PANIC: Unhandled #VC exception in kernel space (result=%d)\n",
+   568				 result);
+   569	
+   570			/* Show some debug info */
+   571			show_regs(regs);
+   572	
+   573			/* Ask hypervisor to sev_es_terminate */
+   574			sev_es_terminate(GHCB_SEV_ES_REASON_GENERAL_REQUEST);
+   575	
+   576			/* If that fails and we get here - just panic */
+   577			panic("Returned from Terminate-Request to Hypervisor\n");
+   578		}
+   579	
+   580		goto out;
+   581	}
+   582	
+   583	/* This handler runs on the #VC fall-back stack. It can cause further #VC exceptions */
+ > 584	DEFINE_IDTENTRY_VC_IST(exc_vmm_communication)
+   585	{
+   586		instrumentation_begin();
+   587		panic("Can't handle #VC exception from unsupported context\n");
+   588		instrumentation_end();
+   589	}
+   590	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -236,14 +320,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202007090530.3uyXJbhY%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202007090640.MR1zEuyh%25lkp%40intel.com.
 
---+QahgC5+KEYLbs62
+--nFreZHaLTZJo0R7j
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICNQvBl8AAy5jb25maWcAlDxbe9S4ku/nV/THvMw8DJOEkIHdjwfZlrtF25aR5E43L/pC
+H4sICJ1BBl8AAy5jb25maWcAlDxbe9S4ku/nV/THvMw8DJOEkIHdjwfZlrtF25aR5E43L/pC
 0jDZDQknlznw77dK8qUkqzMsD4CrSvdS3dW//OuXBXt6vPt68Xh9eXFz82PxZX+7v7943F8t
 Pl/f7P97UchFI82CF8K8BOLq+vbp+x/f35zZs9PF65dvXh79fn95uljv72/3N4v87vbz9Zcn
 aH99d/uvX/6Vy6YUS5vndsOVFrKxhm/NuxeXNxe3XxZ/7+8fgG5xfPzy6OXR4tcv14//9ccf
@@ -1640,4 +1724,4 @@ RbSGkiiQpRdGN2YMXWWnhm+LjkfoHGwP9jmqzwa013CRRLmSCD6Z2BT6hm53oukHAJChV0/F
 2cWlNlPhSUkLqbYweMSZOAIgzjzoJiMCBFiELnsLk2PXSp+P5Czq7DrrODXkz1v0YaaOAY++
 7YpQS0acgv8PzRP4GvXTBAA=
 
---+QahgC5+KEYLbs62--
+--nFreZHaLTZJo0R7j--
