@@ -1,136 +1,142 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBYNFUL4AKGQERMYL5BI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDFN76WSRIGBBOVOUL4AKGQE4QSJAGQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe3c.google.com (mail-vs1-xe3c.google.com [IPv6:2607:f8b0:4864:20::e3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2B57B21BA60
-	for <lists+clang-built-linux@lfdr.de>; Fri, 10 Jul 2020 18:10:11 +0200 (CEST)
-Received: by mail-vs1-xe3c.google.com with SMTP id a203sf1806769vsd.5
-        for <lists+clang-built-linux@lfdr.de>; Fri, 10 Jul 2020 09:10:11 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1594397410; cv=pass;
+Received: from mail-io1-xd3f.google.com (mail-io1-xd3f.google.com [IPv6:2607:f8b0:4864:20::d3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id CC74321BAE2
+	for <lists+clang-built-linux@lfdr.de>; Fri, 10 Jul 2020 18:28:43 +0200 (CEST)
+Received: by mail-io1-xd3f.google.com with SMTP id g11sf3923395ioc.20
+        for <lists+clang-built-linux@lfdr.de>; Fri, 10 Jul 2020 09:28:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1594398522; cv=pass;
         d=google.com; s=arc-20160816;
-        b=I4OC2dTYkAbMQmk+9MhFDP/B93iEoJ0Ckj13G/cKzGJFtNwjRUBOW5kvHbGgi09xGT
-         C2Z4nxxZJekbiezXZFaydl7+9Mi7EhtwkhCP2uHElFyEodEDACkfkeEdFtfwi2P9GU3p
-         AONt3lKRNjY3u3j4C5XfKHEi7xvr3hJORyD1WNWDfFNmMEO6hZGD8QPPmhUlbFrisTtA
-         7QxnKbDwfupAcyjFxBkPXpOjxLHEJHFgdZ7stEL/JlZPBXeL8xi+ZFszvQcilFOaqZ0+
-         O88Q7NsQTZtmxUM1IMiWfQsRpLQkmDnUAwoTO5gpqh/ZvxSEgULIr/mUykfK2coyB4aS
-         q1cA==
+        b=dVtKtb/SuV+x7/lrCpnPoE9pHanpDs0+DsXNtNUho45dpcDvuTNs9zAAYlweS+yFv8
+         3IitxzcCW68mlWYhUNbuB7UseSFJI7UB/HYzBgGJBKzwEFowz5B50iIZSNhuYRqPw/8F
+         axt5tq9i6+GjxOGMw2x55Q9bTgob4MkrpD04KtZQJC68fmjEIF97UlbtYHZel4AS5596
+         5/BveWGPM/2NHP1bg8nu1pEiB2KzSNwLIGkJMMl5N0tBbpd5QUwURozwL+zr2C+Sp91D
+         wuHs4PKrF4Yq2rBSRMxK6s/kJALLoxSCI5ED7PcmmHtj2HqoJu9U23C1pDa28go8S1Du
+         AP0g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=u8g9vCdKG7kaFlePtvisHpPDyb3YJDbLPpiPrj8U9Ps=;
-        b=CY7dBbIfGX9qplKV2c6kdTZXWRyR+Qh5KpnRnRU7AEKELkpZHsRhxR1F1zWGuZDUnO
-         9kwDUGdU04cUEdUngWH1BW1KpOX//Zl2InPh2dWIOcgDpJalCaduRrSn2JlHMVHv/xy0
-         2z/PR+1kjnjshaGCCwbDCX/nwqc3PADIpHGLJrbYF7XftNuKkU5GLgovEQUcnbY6idfJ
-         g8ab1V3QNMzAPa1ijuCx8XVw9NECM6fKf2F7F3VNVhVV3w8Bd6jXVt8BDzXdZBuHkUt2
-         1fzj2ZrYhfCyaOxh42FPTiADEOZD8V/x965x5cmdScmI+d1C3BoIJ1hdCxVQ7VnVOPb7
-         MsJQ==
+        bh=Eh1786ajorq51+IZ7zbCEpk/kgn73dJU2zwDRvR+Vu4=;
+        b=NOqy7oLVqYhRrBrdGzvXNZceKtR4STKgHYioceTILYXZjzRdCrC2pLYiHGp/5VufEX
+         g8gVF0wjjjtSYQKa7DZyhxXhMZscmpcWr7A5lDidgOvNXLVMLMcXVgkyL++JYVO1UlVq
+         e1/IM4tloS8KCviAerIB/t1jwapGsPpeINH7792lw8mE7eskxzbzab2cnWb0TzkwbkGf
+         ldyYEA3mbcbPWC+3zsdou3lS9K5VAdOWZRcNMkf0Gj2uYcE6hFpr/QYf5uR8IRSRLXRh
+         8Pnz2KV19iJcPXKEhP2VM8PpKvBvL/jeC39oUB1JcbAHG+/z7GsQTJhMqLE0Ai0YfxXb
+         qtmg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=eMbg0eTO;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=WwmTb1+s;
+       spf=pass (google.com: domain of alex.gaynor@gmail.com designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=alex.gaynor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=u8g9vCdKG7kaFlePtvisHpPDyb3YJDbLPpiPrj8U9Ps=;
-        b=RI7T8XaN4cIBSF3/s4BMUWSCNTfHSHc3p2jV/l+nGQM52yVDJlpXhhLoCPDY2nNmDh
-         luEeVHCIvOpLhlzwjfyExwmfQhm8EwpkS9ZkCnn5ZUDRHEI+1qZ6YNvdF0gaSMgnlcpl
-         DE5Nh8N5YGgaa0F3LV/wjxs0Uki3/9TEnKMUnNIaFNrORee2qZJgTHROZGG5GcHlNmNa
-         uDwNSdhdE0v7Ev882VAfDzThQ7ncgYuhC37tQKvV29Dcv6/mfWQTa/OZQBBUkgS6dsUs
-         3K8+PTC6pXZ7/bEUlcceGyACTBzFMYWvkpKLA6qeYtuOFukbOQw2OhA2zX8/BsRF/KmX
-         Wb+w==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Eh1786ajorq51+IZ7zbCEpk/kgn73dJU2zwDRvR+Vu4=;
+        b=n7huNLdhG1TF3cgZW2gRBSNwEs0BJlWyOrpd6wnf61jrmAdfX2f8au4Tr3IBE7JAdI
+         nF0CENnxrE+c/NphjmBVCft87npV4UOo0IYZAQh40Ub3PcnXMNV6xMOtk8Yjbz1ggZyF
+         hG5p3/GFH2edx7j9xQXxRd6mE175H5oXfZYeTSFnJuCE4Y0NKb3KzdKKhgUeIR2Zn5MR
+         Fq11RQCFvhNKFCAj3mN5DpEVUCFn7PUnFbCEbis8ru3QWl/vv/dA5IhdNv+FQg8fMkLL
+         qYK55qweNYISoN+fG+MMsr3ol9F+eCvN42OB3G5ckfRH/EUSWtkbOEMBe1zhdxV66wb1
+         WKwg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Eh1786ajorq51+IZ7zbCEpk/kgn73dJU2zwDRvR+Vu4=;
+        b=bRNRuMk8hOwuyoo5WejpeftxEYEyUJio1QEZ/ro/XkS/yoDLmunjmI70SZH7jSxXWR
+         b+NbWxgB4wCV5QtAaVsdXc8LqKwRwzdGq0M1Un98QKErN8gsXCsrzktaICHB/vldBGdk
+         JORqIZlG0y3gqjtUoGvd6mMBKhBYbvnxAKoSLr6Lt837IkwCooV/BXGkeRzVWpZcuELW
+         MswSuya9i/yEEhzrhCPVySIwFYzLQyiE+U7cIM0cn3UxHKAcfgjoWQhkftAXy20NU4eS
+         CQ4aQo1K/vRwY+At4fEqlFeAVkc7n9elKeTuXbSlHRG9ELRVYQtFNAXFX++pcl7EztwX
+         lfhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=u8g9vCdKG7kaFlePtvisHpPDyb3YJDbLPpiPrj8U9Ps=;
-        b=WeK9phLp5pij6uDv1s1yco7QrUEV+FGj2UJ+7Cdbq/sFaFqvRJ8HxHG1TqvCf6qXaV
-         Go2XShaW6PJWk5MvD7c1YmUd4sv7rlvckkpX6UrUTT5ZXcZv4gwy7JYQUjJan/FxgxI2
-         Krxju28SttBeRkoVKO/7HQPmBgwV7qpGteBZesQ7SiFc4F3RTXzAAYMFF/ATgEwg17Rh
-         M1PoYDBH+6BckHZhNwIinSXv8A0IXQRmaHMjGYUDVaPMUEH3lCjD8ttnakmFE2FSYAnA
-         GsBcONEW5zKi14xxKiYahlhDjf+3vavXcXWA2skWUxRIrHgsDx1lbKNuvFxhfkYK+oGz
-         0hmg==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Eh1786ajorq51+IZ7zbCEpk/kgn73dJU2zwDRvR+Vu4=;
+        b=aFoTeywlbLwmTucS5D/w5Rezn9ATP+LtTK0Yo1NHj3jLpUpVSOPlXXSn1iePROCcWk
+         GK+fLsi7asyFCn7af3fou9uv3h1K4SQzMLcpCAnmbLeIzSfaQS+eDy5h0wZdw9HUFPMg
+         fPcSj7WW7RXrXoxL8VmeFChlQmB+O3SRzyEMKUosRrHw7/df8uOWnTQfRP25IR9vF2MF
+         tB1MwgJAF7PRKlsJQJ8cxCpAgwrzMByZSxOIdX+yDW+b/lKSvtbMCjYj8aAFjkWeBtkO
+         cAYra3Y/W3fjkYGkBM/afK0yTT91/s+xAdYjRYk/xo/AKarwWtCK29YUrKgxij4e7QMw
+         MOcQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533j8J9N3vj0tjvPufiF6I2JNK74LrAtMe4IYg0FmwXqizvBHZLu
-	BBKe8crl+rmwIe9U0IElH1g=
-X-Google-Smtp-Source: ABdhPJwdqq9t8EI6RfkG2w13GSdTijOn0qR5ujdfm/GAHNc4HQ692BkqOEPWGHU7r0XTyCTbIUGyNQ==
-X-Received: by 2002:a1f:c783:: with SMTP id x125mr52559470vkf.2.1594397410048;
-        Fri, 10 Jul 2020 09:10:10 -0700 (PDT)
+X-Gm-Message-State: AOAM530TccX7XuH46fbwphbyOilgr839SDETLNO2yNQiupHT4bu+TQMm
+	u8KHyHrTfPtqACBI1LIGZ9g=
+X-Google-Smtp-Source: ABdhPJwKTAkB4pq0Amv26vyk4Et4URuBvlmhsfIS7g6o6aazAG+wdMn5XB36gQNATI4OcyufD0Lhig==
+X-Received: by 2002:a92:c8c5:: with SMTP id c5mr53005294ilq.47.1594398522730;
+        Fri, 10 Jul 2020 09:28:42 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:5515:: with SMTP id t21ls697323uaa.1.gmail; Fri, 10 Jul
- 2020 09:10:09 -0700 (PDT)
-X-Received: by 2002:ab0:568b:: with SMTP id a11mr50625744uab.136.1594397409621;
-        Fri, 10 Jul 2020 09:10:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1594397409; cv=none;
+Received: by 2002:a5d:87d1:: with SMTP id q17ls1746308ios.1.gmail; Fri, 10 Jul
+ 2020 09:28:42 -0700 (PDT)
+X-Received: by 2002:a5e:c311:: with SMTP id a17mr18913829iok.12.1594398522347;
+        Fri, 10 Jul 2020 09:28:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1594398522; cv=none;
         d=google.com; s=arc-20160816;
-        b=WVmBbi7Y8JbwE/K1OHx4UiCKJSRPMjazLWoNrwLEof22PMhCAI9kI82DVuWpufp92s
-         4TFaA39sruSrJgnwf/se2tlhYxg4qisgCzXPIwwK6drLOHhwgPZ1o51UPnOoFpb3I5xA
-         uxYLc+D6LHok2w/oSY1byoegZfyVEkB/RFeD+Aj0c+ll2Zmt2qnb8yLs+kb1AVJFw0y3
-         sfDcqeW0CYHnwld8xS+4yUxlkCxzbjiaaqkLlfcLmE/zL2z9VJoQHFQ3mGPEd3cjGuPm
-         2/7fJ0K9Cqx+3RbMOxM+7CEoSJGFgzYMEDdTHrF6d7Cz99d74pEVrJXNTTbD2qTd6lwv
-         4zoQ==
+        b=0cROlfuA8XM/t3PF88EY9OXOTuVF4UXHOA8vGU3h2CSaC6W0XGUpoS3SZxjgfTkNmh
+         KoPZK2hOZLTvCuOYdM4QExarQOgLIXb4NEMTQhOAFg8KC4ouRU2V9uT1EQT6ygE0v0JO
+         S6uEODxZEifIJk1h2XIkfDLItd7QSqm5mWGMcqploUSY6AMOsjGgDo0DP94RPERFsnNl
+         kVPtqzacGrUcho9OupH93+AYvKb4b9zsUXA4Nx/6PHt5VOK/pBdw/PX3pyKBMhI9qkGb
+         PVTqI8TowCp+Qp8AfQ6etx0gGPh6u55RBJyHpwDrQHycqN2YZ4TDk0alUDvhq+P/5FUQ
+         cTPw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=zmW8ec5Dt+lImhfBII8mb3lOzcmhvKNb+zPkMO/QQ5Q=;
-        b=RukwadObnoCqzHxiI5yH15iiKDUJYx/niqAxlBOSitlaUXkc5u8NqtGMcEL8y5cHkm
-         3dAiYm8QIg3ttNj0hnCVOTfvXWq8Lk2I3EAzSIiO4yPraglrvEYMkSDjGKzxkI8xzRmn
-         oEZwbw/qhnp4oKXRX08/8m9sqIu/q0oDZpu3+tPEWHV5mFW3SjZkh6LHRI8p6CRoL8dh
-         HnwOZkb1z1QmpjJBxZNjAn1e3Cb8P06cFLCfdZYQpL8dimQch4dtFhI5TuJkRxxFQbKd
-         wrADnXWdOObDWXnEWfbSyMf8hwu4JS4LWAACRYdUknsrsArnr0AxxH58Wz5lXnVEozfa
-         8nZw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=nKaOX+NRBrBq3XevXwuk7E5e3fIHOyY+CTvFL+ebfA0=;
+        b=VhWWOZoWr9Q33ysjOErKIXSNDlbP4HdmeE2XeTYpwbO9eNVOljsW0wnDPMgt7/FeNN
+         ma62pngzIZIR8Cx7eUGPu2Vmtwtj/fhjxh7bCL2gk+Yzir7fLUzBPeBXUIk2HAm58HHH
+         cOXVPyfkF1PAajwhuHO5isnCn15Cw5fNbe/c9tVtmAZc7LvVWYJ112mH6xrXatL//YD4
+         CVnN4rJ5/5JDX6PHf9zui8wgyI5KHUfC7u8WqxCUrTnbXL36qV5OCw4wnj8xKGBohMg0
+         rGaa9nnm1Mi4T6fTEQoJqtn4IdlWc35QwTZF/8Szaa7oW8A2wsM3y4LDSwYdHXlFckEO
+         KEow==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=eMbg0eTO;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pj1-x1042.google.com (mail-pj1-x1042.google.com. [2607:f8b0:4864:20::1042])
-        by gmr-mx.google.com with ESMTPS id e10si401949vkp.4.2020.07.10.09.10.09
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=WwmTb1+s;
+       spf=pass (google.com: domain of alex.gaynor@gmail.com designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=alex.gaynor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-pj1-x102e.google.com (mail-pj1-x102e.google.com. [2607:f8b0:4864:20::102e])
+        by gmr-mx.google.com with ESMTPS id d3si75008iow.4.2020.07.10.09.28.42
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 10 Jul 2020 09:10:09 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1042 as permitted sender) client-ip=2607:f8b0:4864:20::1042;
-Received: by mail-pj1-x1042.google.com with SMTP id md7so2819206pjb.1
-        for <clang-built-linux@googlegroups.com>; Fri, 10 Jul 2020 09:10:09 -0700 (PDT)
-X-Received: by 2002:a17:902:9f96:: with SMTP id g22mr15261428plq.306.1594397408754;
-        Fri, 10 Jul 2020 09:10:08 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id lx9sm1412890pjb.52.2020.07.10.09.10.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jul 2020 09:10:07 -0700 (PDT)
-Date: Fri, 10 Jul 2020 09:10:06 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Christian Brauner <christian.brauner@ubuntu.com>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, alex.gaynor@gmail.com,
-	Greg KH <gregkh@linuxfoundation.org>, geofft@ldpreload.com,
-	jbaublitz@redhat.com, Masahiro Yamada <masahiroy@kernel.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Subject: Re: Linux kernel in-tree Rust support
-Message-ID: <202007100905.94A79A7A76@keescook>
-References: <CAKwvOdmuYc8rW_H4aQG4DsJzho=F+djd68fp7mzmBp3-wY--Uw@mail.gmail.com>
- <20200710062803.GA1071395@kroah.com>
- <20200710125022.alry7wkymalmv3ge@wittgenstein>
+        Fri, 10 Jul 2020 09:28:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of alex.gaynor@gmail.com designates 2607:f8b0:4864:20::102e as permitted sender) client-ip=2607:f8b0:4864:20::102e;
+Received: by mail-pj1-x102e.google.com with SMTP id gc9so2836923pjb.2
+        for <clang-built-linux@googlegroups.com>; Fri, 10 Jul 2020 09:28:42 -0700 (PDT)
+X-Received: by 2002:a17:902:bd97:: with SMTP id q23mr55568673pls.251.1594398521801;
+ Fri, 10 Jul 2020 09:28:41 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200710125022.alry7wkymalmv3ge@wittgenstein>
-X-Original-Sender: keescook@chromium.org
+References: <CAKwvOdmuYc8rW_H4aQG4DsJzho=F+djd68fp7mzmBp3-wY--Uw@mail.gmail.com>
+ <20200710062803.GA1071395@kroah.com> <20200710125022.alry7wkymalmv3ge@wittgenstein>
+ <202007100905.94A79A7A76@keescook>
+In-Reply-To: <202007100905.94A79A7A76@keescook>
+From: Alex Gaynor <alex.gaynor@gmail.com>
+Date: Fri, 10 Jul 2020 12:28:30 -0400
+Message-ID: <CAFRnB2WNo45J8h3-ncopLKENvcO0rf7J3xsy_eRKwFSpDD-5sQ@mail.gmail.com>
+Subject: Re: Linux kernel in-tree Rust support
+To: Kees Cook <keescook@chromium.org>
+Cc: Christian Brauner <christian.brauner@ubuntu.com>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Greg KH <gregkh@linuxfoundation.org>, 
+	Geoffrey Thomas <geofft@ldpreload.com>, jbaublitz@redhat.com, 
+	Masahiro Yamada <masahiroy@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, Josh Triplett <josh@joshtriplett.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Content-Type: multipart/alternative; boundary="00000000000085c1f805aa18d50e"
+X-Original-Sender: alex.gaynor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=eMbg0eTO;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1042
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+ header.i=@gmail.com header.s=20161025 header.b=WwmTb1+s;       spf=pass
+ (google.com: domain of alex.gaynor@gmail.com designates 2607:f8b0:4864:20::102e
+ as permitted sender) smtp.mailfrom=alex.gaynor@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,47 +149,158 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jul 10, 2020 at 02:50:22PM +0200, Christian Brauner wrote:
-> On Fri, Jul 10, 2020 at 08:28:03AM +0200, Greg KH wrote:
-> > On Thu, Jul 09, 2020 at 11:41:47AM -0700, Nick Desaulniers wrote:
-> > > Hello folks,
-> > > I'm working on putting together an LLVM "Micro Conference" for the
-> > > upcoming Linux Plumbers Conf
-> > > (https://www.linuxplumbersconf.org/event/7/page/47-attend).  It's not
-> > > solidified yet, but I would really like to run a session on support
-> > > for Rust "in tree."  I suspect we could cover technical aspects of
-> > > what that might look like (I have a prototype of that, was trivial to
-> > > wire up KBuild support), but also a larger question of "should we do
-> > > this?" or "how might we place limits on where this can be used?"
-> > > 
-> > > Question to folks explicitly in To:, are you planning on attending plumbers?
-> > > 
-> > > If so, would this be an interesting topic that you'd participate in?
-> > 
-> > Yes, I'll be there.
-> 
-> We actually had this dicussion a while back and there were some more
-> people interested in this. I'd be interested to attend this and I've
-> spoken with Kees and a few others about this topic at last Plumbers (I
-> think Greg might have been around for this informal discussion as well.
-> But I might be imagining things.).
+--00000000000085c1f805aa18d50e
+Content-Type: text/plain; charset="UTF-8"
 
-I'm quite interested in this topic still, yes. :) (And will be attending
-Plumbers.)
+:wave:,
 
-We had interesting discussions with the LSS 2019 "Rust in the kernel"[1]
-speakers, and I know Nick has reviewed their work[2] too. Perhaps we should
-reach out to them as well?
+Hey Kees, that's Geoffrey Thomas and I, we're both on this thread :-)
 
--Kees
+Alex
 
-[1] https://ldpreload.com/p/kernel-modules-in-rust-lssna2019.pdf
-[2] https://github.com/fishinabarrel/linux-kernel-module-rust
+On Fri, Jul 10, 2020 at 12:10 PM Kees Cook <keescook@chromium.org> wrote:
+
+> On Fri, Jul 10, 2020 at 02:50:22PM +0200, Christian Brauner wrote:
+> > On Fri, Jul 10, 2020 at 08:28:03AM +0200, Greg KH wrote:
+> > > On Thu, Jul 09, 2020 at 11:41:47AM -0700, Nick Desaulniers wrote:
+> > > > Hello folks,
+> > > > I'm working on putting together an LLVM "Micro Conference" for the
+> > > > upcoming Linux Plumbers Conf
+> > > > (https://www.linuxplumbersconf.org/event/7/page/47-attend).  It's
+> not
+> > > > solidified yet, but I would really like to run a session on support
+> > > > for Rust "in tree."  I suspect we could cover technical aspects of
+> > > > what that might look like (I have a prototype of that, was trivial to
+> > > > wire up KBuild support), but also a larger question of "should we do
+> > > > this?" or "how might we place limits on where this can be used?"
+> > > >
+> > > > Question to folks explicitly in To:, are you planning on attending
+> plumbers?
+> > > >
+> > > > If so, would this be an interesting topic that you'd participate in?
+> > >
+> > > Yes, I'll be there.
+> >
+> > We actually had this dicussion a while back and there were some more
+> > people interested in this. I'd be interested to attend this and I've
+> > spoken with Kees and a few others about this topic at last Plumbers (I
+> > think Greg might have been around for this informal discussion as well.
+> > But I might be imagining things.).
+>
+> I'm quite interested in this topic still, yes. :) (And will be attending
+> Plumbers.)
+>
+> We had interesting discussions with the LSS 2019 "Rust in the kernel"[1]
+> speakers, and I know Nick has reviewed their work[2] too. Perhaps we should
+> reach out to them as well?
+>
+> -Kees
+>
+> [1] https://ldpreload.com/p/kernel-modules-in-rust-lssna2019.pdf
+> [2] https://github.com/fishinabarrel/linux-kernel-module-rust
+>
+> --
+> Kees Cook
+>
+
 
 -- 
-Kees Cook
+All that is necessary for evil to succeed is for good people to do nothing.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202007100905.94A79A7A76%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAFRnB2WNo45J8h3-ncopLKENvcO0rf7J3xsy_eRKwFSpDD-5sQ%40mail.gmail.com.
+
+--00000000000085c1f805aa18d50e
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">:wave:,<div><br></div><div>Hey Kees, that&#39;s Geoffrey T=
+homas and I, we&#39;re both on this thread :-)</div><div><br></div><div>Ale=
+x</div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail=
+_attr">On Fri, Jul 10, 2020 at 12:10 PM Kees Cook &lt;<a href=3D"mailto:kee=
+scook@chromium.org">keescook@chromium.org</a>&gt; wrote:<br></div><blockquo=
+te class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px =
+solid rgb(204,204,204);padding-left:1ex">On Fri, Jul 10, 2020 at 02:50:22PM=
+ +0200, Christian Brauner wrote:<br>
+&gt; On Fri, Jul 10, 2020 at 08:28:03AM +0200, Greg KH wrote:<br>
+&gt; &gt; On Thu, Jul 09, 2020 at 11:41:47AM -0700, Nick Desaulniers wrote:=
+<br>
+&gt; &gt; &gt; Hello folks,<br>
+&gt; &gt; &gt; I&#39;m working on putting together an LLVM &quot;Micro Conf=
+erence&quot; for the<br>
+&gt; &gt; &gt; upcoming Linux Plumbers Conf<br>
+&gt; &gt; &gt; (<a href=3D"https://www.linuxplumbersconf.org/event/7/page/4=
+7-attend" rel=3D"noreferrer" target=3D"_blank">https://www.linuxplumberscon=
+f.org/event/7/page/47-attend</a>).=C2=A0 It&#39;s not<br>
+&gt; &gt; &gt; solidified yet, but I would really like to run a session on =
+support<br>
+&gt; &gt; &gt; for Rust &quot;in tree.&quot;=C2=A0 I suspect we could cover=
+ technical aspects of<br>
+&gt; &gt; &gt; what that might look like (I have a prototype of that, was t=
+rivial to<br>
+&gt; &gt; &gt; wire up KBuild support), but also a larger question of &quot=
+;should we do<br>
+&gt; &gt; &gt; this?&quot; or &quot;how might we place limits on where this=
+ can be used?&quot;<br>
+&gt; &gt; &gt; <br>
+&gt; &gt; &gt; Question to folks explicitly in To:, are you planning on att=
+ending plumbers?<br>
+&gt; &gt; &gt; <br>
+&gt; &gt; &gt; If so, would this be an interesting topic that you&#39;d par=
+ticipate in?<br>
+&gt; &gt; <br>
+&gt; &gt; Yes, I&#39;ll be there.<br>
+&gt; <br>
+&gt; We actually had this dicussion a while back and there were some more<b=
+r>
+&gt; people interested in this. I&#39;d be interested to attend this and I&=
+#39;ve<br>
+&gt; spoken with Kees and a few others about this topic at last Plumbers (I=
+<br>
+&gt; think Greg might have been around for this informal discussion as well=
+.<br>
+&gt; But I might be imagining things.).<br>
+<br>
+I&#39;m quite interested in this topic still, yes. :) (And will be attendin=
+g<br>
+Plumbers.)<br>
+<br>
+We had interesting discussions with the LSS 2019 &quot;Rust in the kernel&q=
+uot;[1]<br>
+speakers, and I know Nick has reviewed their work[2] too. Perhaps we should=
+<br>
+reach out to them as well?<br>
+<br>
+-Kees<br>
+<br>
+[1] <a href=3D"https://ldpreload.com/p/kernel-modules-in-rust-lssna2019.pdf=
+" rel=3D"noreferrer" target=3D"_blank">https://ldpreload.com/p/kernel-modul=
+es-in-rust-lssna2019.pdf</a><br>
+[2] <a href=3D"https://github.com/fishinabarrel/linux-kernel-module-rust" r=
+el=3D"noreferrer" target=3D"_blank">https://github.com/fishinabarrel/linux-=
+kernel-module-rust</a><br>
+<br>
+-- <br>
+Kees Cook<br>
+</blockquote></div><br clear=3D"all"><div><br></div>-- <br><div dir=3D"ltr"=
+ class=3D"gmail_signature"><div dir=3D"ltr"><div><div dir=3D"ltr">All that =
+is necessary for evil to succeed is for good people to do nothing.<br></div=
+></div></div></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/CAFRnB2WNo45J8h3-ncopLKENvcO0rf7J3xsy_eRKwFSpD=
+D-5sQ%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://grou=
+ps.google.com/d/msgid/clang-built-linux/CAFRnB2WNo45J8h3-ncopLKENvcO0rf7J3x=
+sy_eRKwFSpDD-5sQ%40mail.gmail.com</a>.<br />
+
+--00000000000085c1f805aa18d50e--
