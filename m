@@ -1,133 +1,129 @@
-Return-Path: <clang-built-linux+bncBC3ZPIWN3EFBBSHHVX4AKGQECMFA72I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCDJ7PUVRQGRBU7MVX4AKGQEE34RZKA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23d.google.com (mail-lj1-x23d.google.com [IPv6:2a00:1450:4864:20::23d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 75D9D21CB55
-	for <lists+clang-built-linux@lfdr.de>; Sun, 12 Jul 2020 22:34:17 +0200 (CEST)
-Received: by mail-lj1-x23d.google.com with SMTP id y16sf10088311ljh.22
-        for <lists+clang-built-linux@lfdr.de>; Sun, 12 Jul 2020 13:34:17 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1594586057; cv=pass;
+Received: from mail-lf1-x13c.google.com (mail-lf1-x13c.google.com [IPv6:2a00:1450:4864:20::13c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7E00021CB63
+	for <lists+clang-built-linux@lfdr.de>; Sun, 12 Jul 2020 22:45:08 +0200 (CEST)
+Received: by mail-lf1-x13c.google.com with SMTP id i22sf12015371lfj.5
+        for <lists+clang-built-linux@lfdr.de>; Sun, 12 Jul 2020 13:45:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1594586708; cv=pass;
         d=google.com; s=arc-20160816;
-        b=clgZouyApE+hiHfi+vIaGQXTL97RPPIQSsf9fddBm9xPhWhwG9BGJpQNihC0NIeBxT
-         EWcaC4Xfhw5OFbaiD3zuiEufBLomnHokOB7ygeko3EzlXSZ/IiFKIfwJ1u13GNo+RI91
-         485XLKmhchadbiMJwa3MiObSuGsq5vw0jQ5IBvEfB2yyUkrX4geqwOhTkHVk2m/Kzufm
-         GCxZqz4kqqbrapgAh5xiwadl1/bOmTjhGTiztte20uyWiA/C293x40NRA0r+oboET3vH
-         mTgDpMq/2giQJpRQniXn6hAkSeb12HKG4T+VPWK1csgtd9hOlhsrpl0G0YRLkaSf0Dbr
-         bylQ==
+        b=FDgxB9Ib+AsbFxxKmAQInzeMzMzOjDuyo69a9P7CPbym1B+re7yveAwAb7HvNqAfBb
+         sXU7yJhtf6+Nr7cZomDcTGFOOyxLW8OIwf6O3q+5ianHc8Z6wNwztCl0zcT/8GgdrRAX
+         hUWKlvcDKUIQojGYwNF7b9P8Kp9zlfqRgTRh7d9X58uAIOZsrT0jS92F7V9rYHDtaCgP
+         lL+1RKLeK3rWFBozCuuXKRFDK6bBgGdYDd6IRvKJGj39lr0TvB3WpNiktb+nNne1w9sc
+         0TTuNwO9SSQrcOEQbj66jV0KGZitAIi2mdBphFixDFXUx35Ni5y4Vjd7K3KeBzJo8DCl
+         eRmg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=UsHUT56f7JwvowZX5/PtHsZcdz+ckX2Mzdmnn8Dmb4M=;
-        b=LrZsXrXxKDdPgEl6UgCpFqeFUqNQtlda+hPui0PR5t5BM9jT9YuZvm3ul81hEXXoho
-         Oq1j1DFX90ePRhSZ2pEAuOZPPeniXEhVo1z8fOvcJbww8syDNAApvmD1Q4uxwHzyDj4I
-         M8l9rbgA9kRaP6AkplTdlxfIh1mVJzqXMOL3IUW7ocPLQvT3dpuLPiNEqYWdZHM93QFW
-         QHBLd12ZNwTtr3RZV5MHvLmEbWBJTxlwrbZmUc5OfUDJYePqV09wWynuek7ufKfp0iGO
-         Oei+57wFsZreDd0IUoiwXgXZIEpiETdetpGZPuCgPWgcdUHygHcIEIjEoDggoyQ4J/7c
-         KF5Q==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=dJLMCX4jZehD2wrTKHqJsNhhs9f6SXRyPgne+Qck8AM=;
+        b=U4QKWJWTp6ORwqGVWG4OQm3/rEUw8WPyghkxa7rFg0+IelcgAhISeXjUNr8x+lsI5U
+         JF224tL3T4RkjqBYqxTIeAMbhVFHfnsJS9WlZXjK1sSQEOZ9gWra0hkwtZo40kcdFbMc
+         RBvEWl1XH9PsfGT5/bcE60nVZrSBWy+rwMHJt24PrPtIlEqDak+DWmPuadYsUY3wlbQH
+         vgqpMeF7R338fVxuYErjgRstTxZq4e58ZnVeTMIae2DwT0d5h47nJRHbcKC7QmpymBTN
+         l6j3SMYbwPoPecNdDOKKJMB3ii9OMIl8LrDzFQRQL2vb0jobGM1S7icKaPIpslxn4NfW
+         X+fw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linux-foundation.org header.s=google header.b=YMyGELxA;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::234 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
+       spf=pass (google.com: domain of srs0=4kgv=ax=stusta.de=bunk@stusta.mhn.de designates 2001:4ca0:200:3:200:5efe:8d54:4505 as permitted sender) smtp.mailfrom="SRS0=4kGv=AX=stusta.de=bunk@stusta.mhn.de";
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=UsHUT56f7JwvowZX5/PtHsZcdz+ckX2Mzdmnn8Dmb4M=;
-        b=gGnjFjgE1JtU/cMRjNIY92syu+WhrlLzaefeIs32qP5zY3Fbdv9y8u1dqRJU9F4GJA
-         QwX3qqZZPuDpSNSec6lUTf3t/wwwR63FbCU63tnBWTyfRxPFMNr9lN7FYmhHVXLsb8z+
-         +FAWoaLpMXI44Pg4/K3+olyt+AUrTS6sfLM726D+GZ71olg5bgFfD1yVT0/9mc5ubMi+
-         5A5+eqIxARpWnzumZGe//up5RNivbt0ex7TyYb7jiC7Khy69N4fAUVa1nEl3JWcbN+dw
-         fQCyq5Nd8jCmmidSo0oYxS/srZyCgwruMgg1gdBT13+SR4Nt52RM9wS0SZIF4o1ScZqx
-         GYqg==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=dJLMCX4jZehD2wrTKHqJsNhhs9f6SXRyPgne+Qck8AM=;
+        b=aXe5eYv7rVDiEBu5M0Bp3aDaW8Qwf/3OKEwTOnGstV5NvMtkJVj8iTruX/87CAp28k
+         xrcif63x6bIEMUvHIv+vAfAx42w/a9R4/i6IJEH8xxmpniNtTopEA6cBHZCD4aDrJqDg
+         A2tD5ZLkdMmj4fPPP1e2K+njKuyfuzgfb7Kn+qJ70js+q1b2lTfLovTWD3i1Ln0nNMvb
+         riA4h+Si109i9Rak8xPseH16TCYF/0InZbep+bHs1lHhDN9uTDGNlwJRAwDTTWArFoIs
+         N9aacZ9JTORXgZU1pNQrVAPc53/v8lp7ABRfi4XNgLlRJyyLiUlK54PVxoYYoqmEXsi2
+         utzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=UsHUT56f7JwvowZX5/PtHsZcdz+ckX2Mzdmnn8Dmb4M=;
-        b=ddyrmslPfpaHsdwMwT1a7TdwyRjBiDm48wAEdJn+kqYar8U1p65b71g2CrYBa5XPFJ
-         orqXWILiToXUqAtAapDov3Cgvvh+Z069gqDD19atRca6XrgGZheov0cdJyqkt5vUIgw0
-         if+5A8QFBYN21eebQ5LhYUg4iV4EdysGO6slQrHK3jIEcFDAcoQMs7kQ6z+04yEjsEoM
-         NxjWY6qsUt09pygvJOY3AYLBfGBPPKagg5tKZNv1IbOQgZ3bh0WDMoRKMYglgZQtkdgm
-         kQ1pRVmqTp/wBPth9hSl650GF4wFq6lTqczXW6+lYYw1yNPaM+9C8wzbnY7HY/tUuJgq
-         qnQQ==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=dJLMCX4jZehD2wrTKHqJsNhhs9f6SXRyPgne+Qck8AM=;
+        b=pB6bZTxIpgGy2ieEtSXx6ADnlDvk+02aUnqkkXjz8Ev7flOJf3rTsruLd/cNJBMNi/
+         u5OadT/1qhkxIDpzWTQtEr7hFTD90j19BhNTri/JmzLxJoNTo1YjZOKT704OwUzG38+u
+         hirc3YbEF9MGWT8IpZGQIH0y5hFhuF809WUo5Gida0DL0Mb2xyAay+8M2yyUaUBp9hvz
+         gxaxDXF19P4AxNzdNDmJHnrGy+XQlI0WJvdpwgFVXVv1jJO/cxnGsY492seApSX+NMry
+         EIw4WmVEJUt70+YMBIV0G/e3xQ3TQbkfdr0NPMaCHdizbYyWYqRP1VcrmrFmFGnwTa92
+         m9DA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530StOu0Ktw9+tBTgEcqOTRha5GM/KJHUVvyK/riLAGu6IGOBk8V
-	BbVb98GW5hYmVu8Sk90w6wk=
-X-Google-Smtp-Source: ABdhPJzGIkxvJwHuc7plx3LebUXMDskFrUio6qfS2QK7aBLHp0FSoYWFIO5Aq8R8EKqakSCnSBJKdA==
-X-Received: by 2002:a05:651c:502:: with SMTP id o2mr45412065ljp.434.1594586056969;
-        Sun, 12 Jul 2020 13:34:16 -0700 (PDT)
+X-Gm-Message-State: AOAM532/809mXSZfmtgSiKDgHPYeXqP/HGRJsO9rRQivAAEmZeSiix7L
+	YdKDr3A7ayf4EqFB7FPIbMQ=
+X-Google-Smtp-Source: ABdhPJxCNcLsJrfsuR2GFPXlmlyO6LG62dudvrKF2QMC4Mt6/HpOynQuDhx38j4VEsK7/k2pafLHGg==
+X-Received: by 2002:a2e:8890:: with SMTP id k16mr43917850lji.113.1594586708077;
+        Sun, 12 Jul 2020 13:45:08 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:81c4:: with SMTP id s4ls2674178ljg.10.gmail; Sun, 12 Jul
- 2020 13:34:16 -0700 (PDT)
-X-Received: by 2002:a2e:8855:: with SMTP id z21mr43021618ljj.325.1594586056203;
-        Sun, 12 Jul 2020 13:34:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1594586056; cv=none;
+Received: by 2002:a2e:9190:: with SMTP id f16ls2677758ljg.11.gmail; Sun, 12
+ Jul 2020 13:45:07 -0700 (PDT)
+X-Received: by 2002:a2e:9cd6:: with SMTP id g22mr40833087ljj.429.1594586707469;
+        Sun, 12 Jul 2020 13:45:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1594586707; cv=none;
         d=google.com; s=arc-20160816;
-        b=XXl8/Xy/NZnj6xvCjT9hjHIZWrOTDXvZPMbADptv0u1wjAS/NwYvftT5C3wasu/hWh
-         lS3DOuHkMMWjvJWtgoMfeFAtsBVs16goI7hFGG3lwsQLOakwzoGDqhPGhDgWFol7zLbi
-         161Evi73MqpVSsAGoJjkf1Rasf71cIlPEHC7LMUtmGVXHk5g6d37DKom/YBovuJyYiLT
-         UNpVyZfrFW4NmQ+qU4TNl8nyUXysvvzQJRdW8aqq0hVeRDPnUSce2AyFWDx8hIMkbsbx
-         0G/KCQTefnMAftK1v73bAZf+jPgo3e5mjAsqkuIogRVlAusl6QgMjNNk+BwJquWx5n3I
-         TXzA==
+        b=lj5TKuLafqzN7lSvJ1crtrJ8bG7K1aAYdwsS5vnUPggyn5DctXIPc4Jhi6G4Nb1303
+         qMbp5ABPsSDLYCgWtyEYKkze3Rh3bAKz9DCaf6GjBIVlCQ6PDob7B9KlQi8zU1TmATdP
+         2wqaWOcfJAtj1wKzixUWbSn3/bRH+0uTUnPPam8vyrGevTTpn+3aR/GBVZavAFqhGnOz
+         oI12SayBh2JlX8/c+s/ua5GTkOsY8eZyIl3SBX06CX0KadDG8ehImlfPtSSctWfV3RB8
+         My6PjqiRqKT1VyxWdFPfSuuUb0iP82RUeoqCnvbNBT4I9eoqxt8cGBvNqpgIrxnWn36i
+         cuuw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=M5WjRrnyhLOSbHqzwifF7Te2n7vimCY08qC27XUzpXI=;
-        b=fW2F1Ujvfma1jrvLLgPelbjMzhOflCTPGXOCpSDUfhwZL2yRYtJr/tWuVKFwi8QpcY
-         L8o3jRqMeCaw+rTiMw9mz/S/CdECWYX+bky2rQtqeml5OKZ7MTxHQt4fh7jXrRr19UYs
-         uzCC33oT558iA8+W7yieQNY19vlvZQ26Tgol9RRdH0qy0VrXaW4sG0snv+kdPWsmYsar
-         K2oiEmqQcAXlPIKdPaCn9XVny41MggvgXqOBzXvHhVqckB9Y5ZD3lEFYmRQ6EriJ/qHQ
-         rsjbU/2pUA8MVgDGrOj0AZegJKXRG4A0cuPKFlkZSzZUn2AhwoeRz7OJpWv7Ct97pfpo
-         /2Ug==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=ywQWcik91c0C99yUlp3jj80J+yy25pTO8d09JUAfClk=;
+        b=nypnpt3j/C0Jn5rBnpeqOAs1i6sPLgFk9wdjwPOCkDQeA9PTtJiWr8w+WGA7EZqcSR
+         wsiQZCg3jtJkhQ9hdytvWTbkHyMGM1rnUSoOiOWc3n/cmT+v7nQ5Xov0jYNot9zRK63S
+         0LIZraBV8ac9QIaYanjtT0MCcjQOaTYijiPaWEILnTTx+WqEdAojRg2IGsr0GNn6dUXf
+         UWHLnMMAQC4qHSdZDT490GOkrdSyEnHSJOC0O2jpmE35IRW4GOqgy4h+JodAnZhtBi7S
+         vb8D3yOCa82qVYQbtOdv5H24/TEzGTClkGKnvf7expu5xTzbkJheEcan1hKBvVR9C+LC
+         8EdA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linux-foundation.org header.s=google header.b=YMyGELxA;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::234 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
-Received: from mail-lj1-x234.google.com (mail-lj1-x234.google.com. [2a00:1450:4864:20::234])
-        by gmr-mx.google.com with ESMTPS id u11si767504ljg.6.2020.07.12.13.34.16
+       spf=pass (google.com: domain of srs0=4kgv=ax=stusta.de=bunk@stusta.mhn.de designates 2001:4ca0:200:3:200:5efe:8d54:4505 as permitted sender) smtp.mailfrom="SRS0=4kGv=AX=stusta.de=bunk@stusta.mhn.de";
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.stusta.mhn.de (mail.stusta.mhn.de. [2001:4ca0:200:3:200:5efe:8d54:4505])
+        by gmr-mx.google.com with ESMTPS id i10si650086ljj.4.2020.07.12.13.45.07
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 12 Jul 2020 13:34:16 -0700 (PDT)
-Received-SPF: pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::234 as permitted sender) client-ip=2a00:1450:4864:20::234;
-Received: by mail-lj1-x234.google.com with SMTP id s9so13142333ljm.11
-        for <clang-built-linux@googlegroups.com>; Sun, 12 Jul 2020 13:34:16 -0700 (PDT)
-X-Received: by 2002:a2e:8783:: with SMTP id n3mr42749596lji.317.1594586055676;
-        Sun, 12 Jul 2020 13:34:15 -0700 (PDT)
-Received: from mail-lj1-f182.google.com (mail-lj1-f182.google.com. [209.85.208.182])
-        by smtp.gmail.com with ESMTPSA id s7sm3661423ljc.86.2020.07.12.13.34.13
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 12 Jul 2020 13:34:13 -0700 (PDT)
-Received: by mail-lj1-f182.google.com with SMTP id r19so13140631ljn.12
-        for <clang-built-linux@googlegroups.com>; Sun, 12 Jul 2020 13:34:13 -0700 (PDT)
-X-Received: by 2002:a2e:9c92:: with SMTP id x18mr40262320lji.70.1594586052886;
- Sun, 12 Jul 2020 13:34:12 -0700 (PDT)
-MIME-Version: 1.0
-References: <CAKwvOdmuYc8rW_H4aQG4DsJzho=F+djd68fp7mzmBp3-wY--Uw@mail.gmail.com>
- <20200712123151.GB25970@localhost> <20200712193944.GA81641@localhost>
-In-Reply-To: <20200712193944.GA81641@localhost>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Sun, 12 Jul 2020 13:33:57 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wi=xTmhnL4go0v5BaYRz_81kranLvniA5X8_zq_uCkaOA@mail.gmail.com>
-Message-ID: <CAHk-=wi=xTmhnL4go0v5BaYRz_81kranLvniA5X8_zq_uCkaOA@mail.gmail.com>
-Subject: Re: Linux kernel in-tree Rust support
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 12 Jul 2020 13:45:07 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=4kgv=ax=stusta.de=bunk@stusta.mhn.de designates 2001:4ca0:200:3:200:5efe:8d54:4505 as permitted sender) client-ip=2001:4ca0:200:3:200:5efe:8d54:4505;
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	by mail.stusta.mhn.de (Postfix) with ESMTPSA id 4B4f0v3T5Cz29;
+	Sun, 12 Jul 2020 22:45:03 +0200 (CEST)
+Date: Sun, 12 Jul 2020 23:45:01 +0300
+From: Adrian Bunk <bunk@kernel.org>
 To: Josh Triplett <josh@joshtriplett.org>
-Cc: Adrian Bunk <bunk@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, alex.gaynor@gmail.com, 
-	geofft@ldpreload.com, jbaublitz@redhat.com, 
-	Masahiro Yamada <masahiroy@kernel.org>, Greg KH <gregkh@linuxfoundation.org>, 
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	LKML <linux-kernel@vger.kernel.org>, 
+Cc: Nick Desaulniers <ndesaulniers@google.com>, alex.gaynor@gmail.com,
+	geofft@ldpreload.com, jbaublitz@redhat.com,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	LKML <linux-kernel@vger.kernel.org>,
 	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: Linux kernel in-tree Rust support
+Message-ID: <20200712204501.GC25970@localhost>
+References: <CAKwvOdmuYc8rW_H4aQG4DsJzho=F+djd68fp7mzmBp3-wY--Uw@mail.gmail.com>
+ <20200712123151.GB25970@localhost>
+ <20200712193944.GA81641@localhost>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: torvalds@linux-foundation.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linux-foundation.org header.s=google header.b=YMyGELxA;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates
- 2a00:1450:4864:20::234 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
+Content-Disposition: inline
+In-Reply-To: <20200712193944.GA81641@localhost>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: bunk@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of srs0=4kgv=ax=stusta.de=bunk@stusta.mhn.de designates
+ 2001:4ca0:200:3:200:5efe:8d54:4505 as permitted sender) smtp.mailfrom="SRS0=4kGv=AX=stusta.de=bunk@stusta.mhn.de";
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,30 +136,52 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, Jul 12, 2020 at 12:39 PM Josh Triplett <josh@joshtriplett.org> wrote:
->
+On Sun, Jul 12, 2020 at 12:39:44PM -0700, Josh Triplett wrote:
+> On Sun, Jul 12, 2020 at 03:31:51PM +0300, Adrian Bunk wrote:
+> > On Thu, Jul 09, 2020 at 11:41:47AM -0700, Nick Desaulniers wrote:
+> > >...
+> > > but also a larger question of "should we do
+> > > this?" or "how might we place limits on where this can be used?"
+> > >...
+> > 
+> > I won't attend, but I do have a topic that should be covered:
+> > 
+> > Firefox always depends on recent Rust, which forces distributions to 
+> > update Rust in stable releases.
+> > 
+> > As an example:
+> > Ubuntu LTS releases upgrade to a new Rust version every 1-2 months.
+> > Ubuntu 16.04 started with Rust 1.7.0 and is now at Rust 1.41.0.
+> > 
+> > It would not sound good to me if security updates of distribution
+> > kernels might additionally end up using a different version of the
+> > Rust compiler - the toolchain for the kernel should be stable.
+> > 
+> > Would Rust usage in the kernel require distributions to ship
+> > a "Rust for Firefox" and a "Rust for the kernel"?
+> 
 > Rust has hard stability guarantees when upgrading from one stable
-> version to the next.
+> version to the next. If code compiles with a given stable version of
+> Rust, it'll compile with a newer stable version of Rust. Given that, a
+> stable distribution will just need a single sufficiently up-to-date Rust
+> that meets the minimum version requirements of both Firefox and Linux.
+>...
 
-I think the worry is more about actual compiler bugs, not the set of
-exposed features.
+API stability avoids problems that are visible early as build errors.
 
-That's always been the biggest pain point. Compiler bugs are very
-rare, but they are so incredibly hard to debug when they happen that
-they end up being extra special.
+Rust cannot offer a hard stability guarantee that there will never be 
+a code generation regression on any platform.
 
-Random "we need this compiler for this feature" is actually fairly
-rare. Yes, the most recent case of me just saying "let's use 4.9
-rather than 4.8" was due to that, but honestly, that's the exception
-rather than the rule, and is to occasionally simplify the code (and
-the test coverage).
+Rust gets updated frequently.
+Sometimes this also changes the LLVM version used by Rust.
+Debian stable supports targets like ARMv5 and 32bit MIPS.
+Distribution kernel updates are often automatically installed
+on user hardware.
 
-The most common case of compiler version checks are due to "compiler
-XYZ is known to mis-compile ABC on target IDK".
-
-                    Linus
+cu
+Adrian
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHk-%3Dwi%3DxTmhnL4go0v5BaYRz_81kranLvniA5X8_zq_uCkaOA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200712204501.GC25970%40localhost.
