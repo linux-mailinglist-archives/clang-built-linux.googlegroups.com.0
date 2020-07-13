@@ -1,126 +1,133 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBIVXWP4AKGQE75FOWIY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCIO53XE7YHBBBF3WP4AKGQEM54APTI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13b.google.com (mail-il1-x13b.google.com [IPv6:2607:f8b0:4864:20::13b])
-	by mail.lfdr.de (Postfix) with ESMTPS id BA90721E2D9
-	for <lists+clang-built-linux@lfdr.de>; Tue, 14 Jul 2020 00:09:39 +0200 (CEST)
-Received: by mail-il1-x13b.google.com with SMTP id l17sf10610913ilj.17
-        for <lists+clang-built-linux@lfdr.de>; Mon, 13 Jul 2020 15:09:39 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1594678178; cv=pass;
+Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
+	by mail.lfdr.de (Postfix) with ESMTPS id AB8A921E2E3
+	for <lists+clang-built-linux@lfdr.de>; Tue, 14 Jul 2020 00:17:41 +0200 (CEST)
+Received: by mail-pg1-x53c.google.com with SMTP id e22sf11069303pgl.6
+        for <lists+clang-built-linux@lfdr.de>; Mon, 13 Jul 2020 15:17:41 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1594678660; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ehPDv7q/R2XNYh/pSjv/EY13ik8HzkBxCqfhXOmolz4s3lEJTGxWzDciuvKgUFsNoo
-         VlZ7TkwBnhERjrWwmV9PSyUTPx2ePoc3iT5qAAFWsLMRJVaQdE8kAHayBj7Sm6duaFVt
-         mwL+indGTNnQbN398g1rDGNzKgNWT2/IBMJ7pgGVuuUfKmHbqglrpymA3mrnb3VTAc7X
-         /ZsIpc6dgz9ijZUHH3Ux5CjeVvhA5dNzjrsEgz5QVc/JGkWqeb7yhbSJGctS3hBiBNGB
-         Lub4CPMpfFbXy4DM1Lm//KcoTHbKW4AZCj0OpuT00HNkoXt6PSYqiBh0dxqJVcjCkkJj
-         48BQ==
+        b=c/wX2kywwSG4JBCEtuG2LCEy0jo0O/r9xGynpjVJ6k+8gTFMSnsrBiBCGn/XHnQpqf
+         xx2jO4Gx+OebA4FViZ8CBDN64GwU/K00ewG1k8ozB2TjpOeNJAxR/vI8YBk3HJb/wB2E
+         pSDKgT8CT4p3J+r4ITemaIF+qBrq0bH7fHoJAZsmu36QPEEro6LXnkPOL3CWT9TZobAF
+         FHq++MSDbXd/3O1vs/c0fUm9NpjiiuY41cPCjFd4A8u+izwT+Xml2EjqXN3PPDdLEjGI
+         Vou2Ie/Ml5CLgUNFB2YDwpmKTTszjMPT47/ltrHB7CjovSh5PSaS6fzjqyQyTvqKlupo
+         tBXg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=iJ8pI5uDpE2jf2drIPGySu1W0fme7HJB/rs77Kdw9Jk=;
-        b=FVDfNYq3N+u2B6ghKb1pWnTeUEBaIUpt9+hXodPjdBEbMjYwmgfam7tR38WbVLCpLY
-         UxPPNkDAqdsXHUUoTThE4761rc1Dqo71Pc77K8XZbAZ4PvSr28RRvgxXbMKxPqBC2zh+
-         7QeSy/s7uVmSXgA5jdoovF87MydaOiE7MwCgvrGxYeUrrw1RABvuWnsBb/RSVImuZsXn
-         TACjk/THtqhh70TDbVISiDxUAKsYWpoq2EDIpYOD/8GAUspLkmuf4fneK3AJvTyRnZ3U
-         p8YnGINPMuwYHHx262dgpwnTeLy8XjZYM+PjuvmOcAsTNlhicTxkm9THTKH9lH09zI2Q
-         16Qg==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:sender
+         :dkim-signature;
+        bh=vgW4qMB9IPyCZeGAoVVaVZGdQETzDOq5frtWnQbWC7E=;
+        b=bQwNByHI4VXKn5lr0bBUASe3enOahgUqrjwp5xQRin89e++HRnefiCNfEAE/SB4gQn
+         hsmKELpdrVc9slZYzkL1Y0Zk1O4CgT4c+g+0aT3eYGiL6vdAyGHj0CJRJ5bIdnKHDK61
+         /VRtyzgWKxfOXujnYiBqTpRWL7tzv29F6mHnmJ+kVMQ/sTExhkHIPH+y4VfPvTugtY/o
+         NcxQsFQ3aQWUkOlJkpBy1kHjJ3qKkcO5JxPA7Z0wc6678MxkaBNhTKTvU3qWH6DKrLPy
+         1tzfaRxTbbqZT2+dPBjGckJ+aaz1i4cQwjDTpZK1PRvtb9A4LcENC3cMOOosvvnBmZz5
+         frAw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=JyJazunc;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=eOzwig1M;
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=iJ8pI5uDpE2jf2drIPGySu1W0fme7HJB/rs77Kdw9Jk=;
-        b=LU02qVEagLjHXUya4WYnkdylazv9j+bgUa3RnSYmcbEo7BIWqwOQSwcFBu7m1Jd7H8
-         fUHj2E2saKqOWhkW7M0RUFS00UX+xMrp5YJfihDGsfkjnE2s+/9EKPYh6zPyJ/ueSssR
-         Lps/RvIJMdXqDV1NWNnZWEk/T/vUetwck58suLbiULeXWiDQMD4xQqzDIuarzKh/elLJ
-         v9cYmPXcbsMiFunPiI4AVFavgcwfeX8QJ550q2xiU3zLzdpMmBN6/mUrm6r0vLqgKfjL
-         I/gIOSVl8pug2KOe5vlY1sX05zGJQycV6w9/48ZhjD0gvgBtS1FQRvwp3I/sZzJEB0v7
-         QzYw==
+        d=gmail.com; s=20161025;
+        h=sender:from:date:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=vgW4qMB9IPyCZeGAoVVaVZGdQETzDOq5frtWnQbWC7E=;
+        b=Mxk6m94gFiPuBg/I6XJ8xPlS/YN4q1sB3zUY9KcIcLT9Mu2ym4J0HDJtXJ2LfA2vjv
+         V94e1CelcfX5GyxaM960akJTq2zjySHEmAoXkRvLjv+zV2+TwLabjgqNusdmtwEUCWXi
+         yZkBJLP3xETBTjl91OtSqNTEkWjeZQ84FYRBPo85HY0YCwf5TFvPpWiWsIMAgmLvji3D
+         LvneQAmCodu61mnRc85vjU9TD8yfKVWp6ItiioHU1Avf36QHN+BuMrpYPOCuN1wXnl0B
+         BHmdpTr35UGgVlk+jyiS+Z2OVuQCx6RUbX4oiFiVUpO5hLlxr4RRmzW3WvYTsQQi/iGL
+         h4Og==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=iJ8pI5uDpE2jf2drIPGySu1W0fme7HJB/rs77Kdw9Jk=;
-        b=JDC0I3Yfg/lKVqhOcUgFEePVnVL/H8l6Qm98srSo5pZ6N+HqbHj414yfqI8lHVJ6WW
-         gnI4WlI8/+cFuC0mfLjhUUU02SS36XQz5IUR8pubaLgy8wQBXmG4jWipiLAoej/tUaga
-         U8vSYSgd5/TqkkjlpMK3+4SNxEpw00UVPOQeZfq7pha+rUbuJ1XWsh4AwzRvUXwevy1p
-         +xcDimDLhGkjh+jnW4yp97+ZIex5Zcg7pbBjLV70QWiVDiYUn589kqy9NTdv4GM00yfH
-         wDHSsI6Ekv+BqC6W4e9+3VGOzLnpGsC1SisKE+cWu589YDLP+LECHcfiRl2avkG2kDfF
-         bUrg==
-X-Gm-Message-State: AOAM532zudW+oXX+NEPybraH3jOTMbnP5bJIqQa6zECR/9jSIKj2gEcW
-	iAO70gUp7nzYTUQi8I/pXUY=
-X-Google-Smtp-Source: ABdhPJwnftu/AmyEDBiouoUah5IS9j8rF+Rv7OCe01Kwde+TybvPfoJXuIMzGzO01Ev0RfQOqTe/2A==
-X-Received: by 2002:a05:6e02:dc4:: with SMTP id l4mr2023094ilj.134.1594678178455;
-        Mon, 13 Jul 2020 15:09:38 -0700 (PDT)
+        h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=vgW4qMB9IPyCZeGAoVVaVZGdQETzDOq5frtWnQbWC7E=;
+        b=gubcEkVzAWomPsHosmzlaG1gfZYKzTEPhkrnKrf0m2oedCw7/N73TfH1yxCD+y/1R9
+         zRV1eN4GDvb0CFFCj5ayFs8cMOb/5XNh3oXGlXe51n+Wu53Nw0rmfBGgKN4kZCIeSObv
+         UGtXMcijs79+KM9ImHJQtVubHcLQemTuecmrZEsTqYfutBMfLnXYek7Fqx2PBCLPkc22
+         gPmD8CNdqIDuIr6ahxcZxNVLxBQ39Cbs3bWREeSGQU8XZxqv/A0O08EKyFtW4WYjPZSs
+         F8uVyg71bjqN/V8qRd5LNGyy9nabLdISuPn8zQcNcbjMnwzxSecDa9Op36zSxGXcFLJ1
+         fACQ==
+X-Gm-Message-State: AOAM5301xJD8GlALP9sb0q936AWXFd/7JC2EILITYykzYNd5D4gFpGOa
+	DR1ZN6EP89YME6S3kRyEw2U=
+X-Google-Smtp-Source: ABdhPJztJSDF3JovVauJCacUsFjeqt3a0JzLQfBBgNwgr01YqPhdhF1dOPxpVRujzfIF7RCJa8sQdA==
+X-Received: by 2002:a63:fc01:: with SMTP id j1mr1065922pgi.0.1594678660326;
+        Mon, 13 Jul 2020 15:17:40 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:5812:: with SMTP id m18ls4619114ilb.2.gmail; Mon, 13 Jul
- 2020 15:09:38 -0700 (PDT)
-X-Received: by 2002:a05:6e02:1346:: with SMTP id k6mr2072166ilr.0.1594678178050;
-        Mon, 13 Jul 2020 15:09:38 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1594678178; cv=none;
+Received: by 2002:a63:730d:: with SMTP id o13ls5015758pgc.1.gmail; Mon, 13 Jul
+ 2020 15:17:39 -0700 (PDT)
+X-Received: by 2002:a63:8b42:: with SMTP id j63mr1044245pge.131.1594678659886;
+        Mon, 13 Jul 2020 15:17:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1594678659; cv=none;
         d=google.com; s=arc-20160816;
-        b=hTDl5atED093wYjMkWYDN1QRjxcQzYcXarq/Q3kfXYNtChRtY07XAaQLeCly0zlspW
-         uEPiV/asM7eqoG0f6PWguvshsy0LrqCko/3UorBaXaayLYdy5edOW1+mV8Gfaf0EU6vY
-         a087T8eMI33FPOSc2rhZ3AvgU6ImdQM7ZPBwtUtnfoPwnWkEuKg293KwXU5+BjpRUSIR
-         87NwtNi7NMLHS9Vl4tLWC6Lhxlk9zvVUwoYqTzv8w2uTbb9lk18w6boN7NUDM34Vkpx6
-         OzCyURF+jB+OhNEEiUnAia+y02N9ZK7LcisfkPMgKiuX21LuMIhzZZwIJTfCngV7/kfY
-         Eybg==
+        b=c/h7r6EWzIkkye94S9Ha86azqqlYCXHoWHxScqkKweAMsp5NKhcx3U7nxYQ+gbBseO
+         YpwSdPfRTJ4MGJN2WlK5VYnRbnP4ErniyfzZL/jSDMfkbPlT25bq7NS/htvKATlndpxi
+         bZRM9ajImley5p1etmqhkKhDtYKdJgFtminJ7Nagtc8FIqbeFw2PmiyfcXrkAXo2URBJ
+         FHPrMEDw662M1oluEBVLUkTxcSUxXWonuVn+7KDrFlq3m6GDtvVAkN1ic94m4tXsd9fx
+         BXdtcA3tDZw7l6R7XbZCUEltyHJVwHaQeJvfytmPVww/fZsfdbDlZw7rza0vkh0UTeDr
+         R6Vw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=ii9mc3yCq8mIv2xeGZGNAM8723q3fkKzZkvXtrPuIp4=;
-        b=oVMGUTci51tQgKppYeh3X0Ie+8PhkmPugE+jgnw6q9UWH7S4bLnBc25ucEed/TQ668
-         6iQbZPGczCDn2xuYa4wfxQEBgaSAJxVktT8TNiyHKISTZ6iExchiPSZy1qhdqktoN+B+
-         xG1NLn221jW7HE0mj2txcI+ccxboa+iALyv8A/lN/uoJyrvTF3KXGZvksXEgHZ9B301p
-         m7mQVr7U5RGMtXte9xNW2b2ObwnL2gAqsr/RsFh3u1mOu2aaTeb+M4BMgyN6bfNC3CMz
-         3fudFU6xBol2GX+NQs+/YHeG6+hkisKrO0uXnYc13kAckSQJouhTRaiRNUvfk0c/LTi6
-         sL3A==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:sender:dkim-signature;
+        bh=8mP0/ymvYdWX4Ld0g89D/EXAhNhPehRLoxYuTMnOItM=;
+        b=kKvKBXChEQhXsp3dxloaI8bhO+FzqSBzijnwLidDGkeJqDHJxnjLTYyjBkNVYRJeTa
+         ePfstw1/zNhR/vOChVAvf8CGVGSPkOs2rQqU7X2qrbmLZ3g5xWxbRoHGBZLPRYeJX0QG
+         9VVojM+DahaqWbCC2hB8j3/gw3wmgPNu+IBtkfsg7uVLNpG+RPV1z0zPx3dBhk3noHnX
+         RZ2IOlxawDrKzwISy8Iiq049Fsx4covM/ugRO6T0sJ97fPLHYJ/fvFnZv6riuGE2bs+N
+         KA6h+iuSKDR40xu/XjsvBQWKtlrWsVynsgBWrM4sAL5cb6m/VjCI8DWFJ2Njb4rrzgyx
+         uJlg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=JyJazunc;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x442.google.com (mail-pf1-x442.google.com. [2607:f8b0:4864:20::442])
-        by gmr-mx.google.com with ESMTPS id v16si1014378iol.1.2020.07.13.15.09.38
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=eOzwig1M;
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+Received: from mail-qk1-x741.google.com (mail-qk1-x741.google.com. [2607:f8b0:4864:20::741])
+        by gmr-mx.google.com with ESMTPS id i6si667038pgj.5.2020.07.13.15.17.39
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Jul 2020 15:09:38 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) client-ip=2607:f8b0:4864:20::442;
-Received: by mail-pf1-x442.google.com with SMTP id 207so6663326pfu.3
-        for <clang-built-linux@googlegroups.com>; Mon, 13 Jul 2020 15:09:38 -0700 (PDT)
-X-Received: by 2002:a63:7e55:: with SMTP id o21mr997132pgn.263.1594678177107;
- Mon, 13 Jul 2020 15:09:37 -0700 (PDT)
+        Mon, 13 Jul 2020 15:17:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::741 as permitted sender) client-ip=2607:f8b0:4864:20::741;
+Received: by mail-qk1-x741.google.com with SMTP id c139so13847101qkg.12
+        for <clang-built-linux@googlegroups.com>; Mon, 13 Jul 2020 15:17:39 -0700 (PDT)
+X-Received: by 2002:a05:620a:24cc:: with SMTP id m12mr1779104qkn.318.1594678659036;
+        Mon, 13 Jul 2020 15:17:39 -0700 (PDT)
+Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
+        by smtp.gmail.com with ESMTPSA id d14sm20694364qti.41.2020.07.13.15.17.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2020 15:17:38 -0700 (PDT)
+Sender: Arvind Sankar <niveditas98@gmail.com>
+From: Arvind Sankar <nivedita@alum.mit.edu>
+Date: Mon, 13 Jul 2020 18:17:36 -0400
+To: Jian Cai <caij2003@gmail.com>
+Cc: jiancai@google.com, ndesaulniers@google.com, manojgupta@google.com,
+	sedat.dilek@gmail.com, Brian Gerst <brgerst@gmail.com>,
+	Arvind Sankar <nivedita@alum.mit.edu>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Alexandre Chartre <alexandre.chartre@oracle.com>,
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] x86/entry: add compatibility with IAS
+Message-ID: <20200713221736.GA1904448@rani.riverdale.lan>
+References: <20200713012428.1039487-1-caij2003@gmail.com>
+ <20200713213803.1274795-1-caij2003@gmail.com>
 MIME-Version: 1.0
-References: <20200708181905.257691-1-nhuck@google.com> <CAKwvOdmKsCedU=Vt_SBSGnf4gKc9Ae4sknn_Lj+kw9f0HY5MMA@mail.gmail.com>
- <CAJkfWY58JwBqxjHcaQDwpUMrfG_hLiBkskrTfC4EeQvDrz5Q1g@mail.gmail.com>
-In-Reply-To: <CAJkfWY58JwBqxjHcaQDwpUMrfG_hLiBkskrTfC4EeQvDrz5Q1g@mail.gmail.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 13 Jul 2020 15:09:25 -0700
-Message-ID: <CAKwvOdnJmREByYq_RxfjxhQLMZi2RFk03a+e2GTWsz_VQFfbQA@mail.gmail.com>
-Subject: Re: [PATCH v2] Makefile: Add clang-tidy and static analyzer support
- to makefile
-To: Nathan Huckleberry <nhuck@google.com>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, Michal Marek <michal.lkml@markovi.net>, 
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Tom Roeder <tmroeder@google.com>, 
-	Bill Wendling <morbo@google.com>, Pirama Arumuga Nainar <pirama@google.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <20200713213803.1274795-1-caij2003@gmail.com>
+X-Original-Sender: nivedita@alum.mit.edu
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=JyJazunc;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=eOzwig1M;       spf=pass
+ (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::741
+ as permitted sender) smtp.mailfrom=niveditas98@gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,200 +140,41 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-(bumping a few points for v3)
+On Mon, Jul 13, 2020 at 02:38:01PM -0700, Jian Cai wrote:
+> Clang's integrated assembler does not allow symbols with non-absolute
+> values to be reassigned. This patch allows the affected code to be
+> compatible with IAS.
+> 
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1043
+> Reported-by: Nick Desaulniers <ndesaulniers@google.com>
+> Reported-by: Sedat Dilek <sedat.dilek@gmail.com>
+> Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
+> Suggested-by: Brian Gerst <brgerst@gmail.com>
+> Suggested-by: Arvind Sankar <nivedita@alum.mit.edu>
+> Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
+> Signed-off-by: Jian Cai <caij2003@gmail.com>
+> ---
+>  arch/x86/include/asm/idtentry.h | 16 +++++++---------
+>  1 file changed, 7 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/x86/include/asm/idtentry.h b/arch/x86/include/asm/idtentry.h
+> index f3d70830bf2a..7d22684eafdf 100644
+> --- a/arch/x86/include/asm/idtentry.h
+> +++ b/arch/x86/include/asm/idtentry.h
+> @@ -469,16 +469,15 @@ __visible noinstr void func(struct pt_regs *regs,			\
+>  	.align 8
+>  SYM_CODE_START(irq_entries_start)
+>      vector=FIRST_EXTERNAL_VECTOR
+> -    pos = .
+>      .rept (FIRST_SYSTEM_VECTOR - FIRST_EXTERNAL_VECTOR)
+> +0 :
+>  	UNWIND_HINT_IRET_REGS
 
-On Thu, Jul 9, 2020 at 10:56 AM Nathan Huckleberry <nhuck@google.com> wrote:
->
-> On Wed, Jul 8, 2020 at 2:11 PM Nick Desaulniers <ndesaulniers@google.com> wrote:
-> >
-> > On Wed, Jul 8, 2020 at 11:21 AM 'Nathan Huckleberry' via Clang Built
-> > Linux <clang-built-linux@googlegroups.com> wrote:
-> > >
-> > I think we should add scripts/clang-tools/ to MAINTAINERS under
-> > CLANG/LLVM SUPPORT:
-> > ```
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index c87b94e6b2f6..42602231929c 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -4211,6 +4211,7 @@ W:        https://clangbuiltlinux.github.io/
-> >  B:     https://github.com/ClangBuiltLinux/linux/issues
-> >  C:     irc://chat.freenode.net/clangbuiltlinux
-> >  F:     Documentation/kbuild/llvm.rst
-> > +F:     scripts/clang-tools/
-> >  K:     \b(?i:clang|llvm)\b
-> >
-> >  CLEANCACHE API
-> > ```
-> > that way we get cc'ed properly on proposed changes (should folks use
-> > scripts/get_maintainer.pl).
-
-bump
-
-> > > --- /dev/null
-> > > +++ b/scripts/clang-tools/run-clang-tools.py
-> > > @@ -0,0 +1,77 @@
-> > > +#!/usr/bin/env python
-> > > +# SPDX-License-Identifier: GPL-2.0
-> > > +#
-> > > +# Copyright (C) Google LLC, 2020
-> > > +#
-> > > +# Author: Nathan Huckleberry <nhuck@google.com>
-> > > +#
-> > > +"""A helper routine run clang-tidy and the clang static-analyzer on
-> > > +compile_commands.json."""
-> > > +
-> > > +import argparse
-> > > +import json
-> > > +import logging
-> > > +import multiprocessing
-> > > +import os
-> > > +import re
-
-Is `re` being used anywhere?
-
-> > > +import subprocess
-> > > +
-> > > +def parse_arguments():
-> > > +  """Set up and parses command-line arguments.
-> > > +  Returns:
-> > > +    args: Dict of parsed args
-> > > +      Has keys 'file' and 'type'
-> > > +  """
-> > > +  usage = """Run clang-tidy or the clang static-analyzer on a
-> > > +  compilation database."""
-> > > +  parser = argparse.ArgumentParser(description=usage)
-> > > +
-> > > +  type_help = ('Type of analysis to be performed')
-> > > +  parser.add_argument('type', choices=['clang-tidy', 'static-analyzer'],
-> > > +                      help=type_help)
-> > > +  file_path_help = ('Path to the compilation database to parse')
-> > > +  parser.add_argument('file',  type=str, help=file_path_help)
-> >
-> > I don't know if the kernel has a preferred style for Python, but I
-> > think it would be good to be consistent in the use of single vs double
-> > quotes for strings.  My preference is for double quotes, but I don't
-> > know enough about the various PEPs for style or if the kernel has a
-> > preferred style for these.
-
-double quotes.
-
-> > > +
-> > > +  args = parser.parse_args()
-> > > +
-> > > +  return args
-> > > +
-> > > +def init(l,t):
-> > > +  global lock
-> > > +  global analysis_type
-> > > +  lock = l
-> > > +  analysis_type = t
-> >
-> > Is this canonical Python?  Maybe wrap these functions into methods of
-> > an object you construct, that way you can assign these as instance
-> > variables against `self`, rather than using global variables.
->
-> I did this to allow shared locks between processes, see
-> https://stackoverflow.com/questions/25557686/python-sharing-a-lock-between-processes
-
-Ah, ok, I see the problem.  In that case, I'm less worried about this.
-`global` just sets off red flags unless there is a very good reason to
-use it.
-
->
-> >
-> > > +
-> > > +def run_analysis(entry):
-> > > +  filename = entry['file']
-> > > +  p = None
-> > > +  if(analysis_type == "clang-tidy"):
-> > > +    p = subprocess.run(["clang-tidy", "-p", os.getcwd(),
-> > > +                        "-checks=-*,linuxkernel-*", filename],
-> > > +                       stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-> > > +  if(analysis_type == "static-analyzer"):
-> > > +    p = subprocess.run(["clang-tidy", "-p", os.getcwd(),
-> > > +                        "-checks=-*,clang-analyzer-*", filename],
-
-Is it worthwhile to NOT run `-*` passes and only run
-`clang-analyzer-*`? Otherwise `make clang-analyzer` and `make
-clang-tidy` contain a ton of duplicate info.
-
-> > > +                       stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-> >
-> > When you have a fair amount of duplication between two branches of an
-> > if/else (for instance, same method invocation and number of
-> > parameters, just slight differences in parameter values), consider if
-> > you can use a ternary to simplify or make the code more concise. That
-> > would also help avoid initializing `p` to `None`:
-> >
-> > checks = "-checks=-*,linuxkernel-*" if analysis_type == "clang-tidy"
-> > else "-checks=-*,clang-analyzer-*"
-> > p = subprocess.run(["clang-tidy", "-p", os.getcwd(), checks,
-> >     stdout=subprocess.PIPE, stderr=subprocess.PIPE]
-> >
-> > then maybe do some validation of the analysis_type when validating
-> > command line arguments earlier.
->
-> Argparse should already handle validation of the analysis type.
-
-Cool, I still think the ternary can simplify a v3.
-
->
-> >
-> > > +  lock.acquire()
-> > > +  print(entry['file'])
-> > > +  os.write(1, p.stdout)
-> > > +  os.write(2, p.stderr)
-> >
-> > Please use sys.stdout and sys.stderr rather than magic constants for
-> > their file descriptors.
-
-Also, I'm not a fan of how clang-tidy writes the errors to stdout.
-
-$ make LLVM=1 -j71 defconfig clang-tidy 2> log.txt
-write part of the log, and spews to stdout.  Do you think it would
-make sense to redirect stdout from clang-tidy to stderr for this
-script?
-
-$ grep error: log.txt | sort -u
-$ grep clang-analyzer log.txt | sort -u
-Checking some of the clang-tidy warnings, some seem harmless.
-linux-next/net/core/devlink.c:9527:6: error: redefinition of
-'devlink_compat_running_version' [clang-diagnostic-error]
-looks legit, though not terribly important to fix ASAP.  So that's cool.
-The clang-analyzer report is a little beefier, once the traces start
-getting long they become fairly hard to follow. Is it possible to dump
-the html report of these? I guess the issue with that is that we
-wouldn't be able to join them in the python script.
-
-$ grep clang-analyzer log.txt | sort -u | cut -d '[' -f 2 | sort -u
-clang-analyzer-core.CallAndMessage]
-clang-analyzer-core.DivideZero]
-clang-analyzer-core.NonNullParamChecker]
-clang-analyzer-core.NullDereference]
-clang-analyzer-core.StackAddressEscape]
-clang-analyzer-core.UndefinedBinaryOperatorResult]
-clang-analyzer-core.uninitialized.ArraySubscript]
-clang-analyzer-core.uninitialized.Assign]
-clang-analyzer-core.uninitialized.Branch]
-clang-analyzer-core.uninitialized.UndefReturn]
-clang-analyzer-deadcode.DeadStores]
-clang-analyzer-optin.performance.Padding]
-clang-analyzer-optin.portability.UnixAPI]
-clang-analyzer-security.insecureAPI.bcmp]
-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
-clang-analyzer-security.insecureAPI.strcpy]
-clang-analyzer-unix.cstring.NullArg]
-clang-analyzer-unix.Malloc]
-clang-analyzer-valist.Uninitialized]
-
-interesting. I like how clang-analyzer warns about bcmp and yet llvm
-will generate calls to bcmp...
---
-Thanks,
-~Nick Desaulniers
+I know I had it this way, but I think it may be slightly safer to put
+the label immediately after UNWIND_HINT_IRET_REGS instead of before,
+just in case anyone adds a 0: inside that macro.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnJmREByYq_RxfjxhQLMZi2RFk03a%2Be2GTWsz_VQFfbQA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200713221736.GA1904448%40rani.riverdale.lan.
