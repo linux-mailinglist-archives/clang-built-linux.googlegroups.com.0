@@ -1,123 +1,155 @@
-Return-Path: <clang-built-linux+bncBC7JPD5NQEBBBIP5XD4AKGQEQZIIIOA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTIRUHU4QLBBVEAXH4AKGQEDUOX46Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x337.google.com (mail-ot1-x337.google.com [IPv6:2607:f8b0:4864:20::337])
-	by mail.lfdr.de (Postfix) with ESMTPS id D7E79220103
-	for <lists+clang-built-linux@lfdr.de>; Wed, 15 Jul 2020 01:24:18 +0200 (CEST)
-Received: by mail-ot1-x337.google.com with SMTP id i4sf62812otr.22
-        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Jul 2020 16:24:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1594769057; cv=pass;
+Received: from mail-pj1-x1038.google.com (mail-pj1-x1038.google.com [IPv6:2607:f8b0:4864:20::1038])
+	by mail.lfdr.de (Postfix) with ESMTPS id 51F3922010C
+	for <lists+clang-built-linux@lfdr.de>; Wed, 15 Jul 2020 01:31:34 +0200 (CEST)
+Received: by mail-pj1-x1038.google.com with SMTP id jx16sf354083pjb.6
+        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Jul 2020 16:31:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1594769493; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ID2uYt+Dg5vHeaarTQbPRilgNGq5+ImXfaFiJVlw3IvO5tIavnAbnAUNOtu6ApYxwA
-         zMU7ZVI5JBBXG8PMwAvUR0DAehGYMqyqywI9CnfUwakqySBDbMr5x9sZl1Lvc7/JOHfr
-         O/c+HKOhwhw/MsUZjpafS1lXnfRJXc86ZoaRlikvuZ26mzWxp41StRG2FoJV7ppncan5
-         259GxnBgzP4O0nBxKEBbFz9SiP0BnD72qEevmOijQWGFHArrcPlOevFIiip0Yn9qbJb6
-         A+cweGsCzgZFfwm/USzgK5e1U1YvWvVX8ONSZKdCMrlmYw4A0oOoifp/fNov7v6HyU3j
-         /yzg==
+        b=O9j/rnJj+ooC1EnfuJw4gm3utc2aATctES59uSdlvqpaCoxkYcvSGchk9LpXNb1vPn
+         mZ6lKAdyDzAM0LFINEfV8r9pENC3kmFHEHDsM1rIryvvhD7rnMNWK+zxzLjJJJw+wxU3
+         s05s6sTkCIGm1GrOZB+yoZWnosZBYH8DzB0kJ1wP8pmW8HwH3TweHTQisqk1isSPThsv
+         sq0sPxJcGCxk8rDkLQFT2KWGuPGg16fw03gV3/OMeCVhVopSsONIQzj4zlFHenUpDX3w
+         ywjZYkzi5IBofvyHyK1IJlzev4V/mbbyNNloxHwDGNv1Zwm6HWdkMUDcY0J2HpuTdHlP
+         +EKg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
-         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=axBLNVOadlXju7Oem5vfgiROhqtkrhukOidFB9v4hH4=;
-        b=ret13LAE0WaWVtw/CydV6vrTercELvXRM6CcWjHLMkrGlHR48SoDWfJzHw7a0JvZja
-         gU+x8O7GXCRNs6zrDxmvvzBlskYcDxaXOouM6fxKNqvi1Zjg/Hup6T93egDRwbmP2tXT
-         VvSo2eBILvBk0OFsi4LGaJCa3e0MiXWiEG1EBDreLymksie+XOSRsV6NPJ0KXpolmMPH
-         Hu2dm6MkGsKwSBp3wmC3bk8ETklgZdgSuLQKpDlYSs1TrxAxgeaZjvIRoUWIYHbPpymH
-         mMh0gbB3/ScSDAVPvtQg064b2kr+lmPais1OqWC2A81MH18Hb1cXMafRHQvpyzQkgBVw
-         ZwKQ==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature
+         :dkim-signature;
+        bh=g/cf53Y4EZwUQphNxQiJ63KvDWQEnXvkyV7U8luJKd8=;
+        b=AG3736dJWVRqoA4HD8HSH8+2/2Z9oLpGs4DmcNLToaLjbBdLe6bceBuaH5TrUH1guU
+         SFYzbZmx1RoKU1oMOjrpxAXpwxdWtz3PeuY8Pk6hzQ3q2twJMi7qQChUsbm7zueFsD5I
+         e6Z2Llf5SWLDuz9gSkvItO5WUbhwQhwt/eqeukJIl3AxW4noEQnZY0zRY1XB+rttQRuV
+         vmueCjs7ctNNL5AJXrWsQhk1J3Bf4Khj6AMBTLcE727ltPtPX6oUap1vJTSPh94GxrdR
+         FOv8wjgy7GsZ7X/GHfasA6ytf93a232Fnw0FU/7RClA6GpJl7c6WtlO98yks7ccrFs32
+         jsKg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=dOfVLO3j;
-       spf=pass (google.com: domain of 3od4oxwukevua4hz73bb381.zb9z8xa3-yh58g-85ahk3bb3813ebhcf.zb9@flex--nhuck.bounces.google.com designates 2607:f8b0:4864:20::14a as permitted sender) smtp.mailfrom=3oD4OXwUKEVUA4Hz73BB381.zB9z8xA3-yH58G-85AHK3BB3813EBHCF.zB9@flex--nhuck.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=taP7IgzG;
+       spf=pass (google.com: domain of caij2003@gmail.com designates 2607:f8b0:4864:20::d42 as permitted sender) smtp.mailfrom=caij2003@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=axBLNVOadlXju7Oem5vfgiROhqtkrhukOidFB9v4hH4=;
-        b=loEObVE5lMw0BaNHdRr8SgRpRaxIo1BT1TMNGRn6J2CxP6wB/qCh8G3bCCdGVtqYd5
-         bgR8lRwZQTDfM3/x4te1kQ6ZpJvgKttmhic8jKbM6tRJcRvr2dQGm7+TKjzX2bKSasOk
-         g/g9UDeHuKz2v5InEPKvcsRYduJe5gDl9vbj4e8JRkRApUjHo7Xh36JIx7O+qmAjE2uS
-         loKvVAB5mhkBjTigoSq6uWINt+G0wywtDN9hJ3j8uGPex6LcaRRnJnLHrOroncHYzITH
-         O0zvG9euoINkOOoMZ5KDMSRyYOwhxCh/T/JSpzxKwD7CPBxTUAwh3KeSRPyV6m32nw4V
-         Oxgg==
+        bh=g/cf53Y4EZwUQphNxQiJ63KvDWQEnXvkyV7U8luJKd8=;
+        b=N+VuZz35x2d3i0QoFVVQ5lGqc9Jt4LOsgCWTSCT83EOH7dZD8wsSg9qVgIOLOF2Fbu
+         onmGzb0oMXe5Kr85u3f7pggpCx/xf0eS1SmmH7L3M2iq5UCSvvHzIwMcVnquJ+1CiflU
+         nzKVzXuXEJ/Ne3I6r81hl5q8RzU0rsL4RDakseiMYzgCK6rK1X/3xIHVpt2fvVZrDQNs
+         Cs4cOMIgzR5r1Fi+zKfAohIiDVKNK3IEUa3Mkyv7n4Y6jvTOaPVXAJ0jlRDaevEVzUUz
+         VFEvJsqs+vurcVwDMbks1lyf3WkxUDP9y7leudI9vyZhT5FjosVF3ZDWzLGw9fUuAFIl
+         1AIA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=g/cf53Y4EZwUQphNxQiJ63KvDWQEnXvkyV7U8luJKd8=;
+        b=RHoM6Xul9eTvO47eps/2NddmRsVq27nVNsFsNfe2UvTfyN56RPB1C+Nhew6ksiQCER
+         IlKoUnJ/Ru5bA3dtkIRDowKOeRd2xt730x+NXu1s8kScP9jIIIVm19gsQU/CuJeEVsWp
+         ucbJE6T568HorzU3xak5oBuhfaKYfUUc36FqFmsF/3LXuOUk0pyalW92YipxIZahcMQD
+         sfL+dFLrQOvmwzMWLcMObTFTf4M9+LoJ61kuSDhUHdTaNElhXkwb4brArHK+8KRb/g26
+         hmaGPP5NlQJj2i4Pjo1YnWxIcNwgfeg6HmWQ/ziD0Qarndk5xKGSoJITkL3WAz5E2xnk
+         ddCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
-         :references:subject:from:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=axBLNVOadlXju7Oem5vfgiROhqtkrhukOidFB9v4hH4=;
-        b=qaOQ2IyxLdFj5nb9/t2IIH1FLk4rKElkUKxiY9HZuXsF4VyPIbPMWn/ptjbTAxbY1T
-         5Th/y+24XOWGjX2q6q0o/pz/sJkXG/1ncnKf6QBxiq9XDAfr/A3QJLHEPmEtj2lSSck+
-         kwHoyx3JkAg5Avi/d7HvwT9o5xMdNed4gZVwbIF91cjnIxnI2djQatnUkPH3KGTf9SaH
-         pTOvqqNeJXzESFcdS9haEKjesrM/DugjHKLGWwdn/8mpnFjsxxgw+TmV72F2P+pFT+D9
-         GpRWW5s022jxrunaHZOdH/L53POFQenXc05RoDRfckbgRbY9t2KPcMCSLKYKsP1t3jaO
-         e00g==
-X-Gm-Message-State: AOAM531/XbpSUa/+slqdeZB1ttPbtaAp3fXL7yNr1beEIe7Ta6pwoY8r
-	oLtNRkfWn72FGeV+DtBIKkE=
-X-Google-Smtp-Source: ABdhPJzE/n/4i3pEY9mgesqZv+/RjeKoCNGzNY0VIBV8TjnM4iNEwmkRy6tcsZMg3J1CBL/RA1voqA==
-X-Received: by 2002:aca:c492:: with SMTP id u140mr5464759oif.114.1594769057319;
-        Tue, 14 Jul 2020 16:24:17 -0700 (PDT)
+        bh=g/cf53Y4EZwUQphNxQiJ63KvDWQEnXvkyV7U8luJKd8=;
+        b=op2C1TokIAI9PUYZJucasuQPyCj4x822UqlPlUI8R8sWH4w/Bf5TOxghYLv0l2Uj8O
+         iqKmL+pe/wkiWfsppReJVDYHq7d3b/A0S2j2liHI8TR+F7KK9dtv7snno58X3YU8foTt
+         qy4WmJjc7o4mnzGF9lIt4xF6KFNTS0dtLbptNpDuzTrkP2raSFphoU4gZjj+9o8kYpdH
+         k3jm3XK5HS5ocCIEXGPX2hvjZBKEgDakgqGDBrw9SH+TUcXouhWn9UascaUqTguasXlq
+         G8iRVuqVSG3BGkZSoqTVcDXPR4rINBF/kuIHUSXtKfAUBCrt2gjU5HeynPkIBPk8VDdl
+         AV5g==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM5310C8QwwX0tLDwyOWDnmRSqE0iWoC+ebCoaGJ4nJ3nO/PZuOY53
+	mzYSTuphVhU+Mk+FJbGmeak=
+X-Google-Smtp-Source: ABdhPJxQRXnuAZiSa/5ewNOBIDleEo4uBtO23u5TeD8dbqxFBwPHlftqNZl7udyqevC+vB5ZOm1q9Q==
+X-Received: by 2002:a65:6703:: with SMTP id u3mr5227965pgf.254.1594769492981;
+        Tue, 14 Jul 2020 16:31:32 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:18c5:: with SMTP id v5ls47698ote.10.gmail; Tue, 14
- Jul 2020 16:24:17 -0700 (PDT)
-X-Received: by 2002:a05:6830:1451:: with SMTP id w17mr6286891otp.250.1594769056989;
-        Tue, 14 Jul 2020 16:24:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1594769056; cv=none;
+Received: by 2002:aa7:8421:: with SMTP id q1ls38920pfn.8.gmail; Tue, 14 Jul
+ 2020 16:31:32 -0700 (PDT)
+X-Received: by 2002:a62:1ccb:: with SMTP id c194mr6389769pfc.277.1594769492512;
+        Tue, 14 Jul 2020 16:31:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1594769492; cv=none;
         d=google.com; s=arc-20160816;
-        b=r5XfKasVHzpPEAlyTk49GlpkPv/EtkltWq6bueWmTv1PKmv3yt2yS+dbjtTsMGpSvF
-         3r8yEO0KdNkKjquhGNa76KmByY458HDuXM2ac3yH05t6vLP+eIHz+DDePhdDodTqidAL
-         sVgFOU7fojb1q7V1ZAOP8EswvkA39HiI/UfgvGBSST8XCWRrz6iQ2wjB5tWJbggfJzek
-         lH7IZRIFvpvCA/tH9Vsr3vf2I2zzQECPtVouLU9cCDMXa9WyH2aRyiVp7RLQOI+4XJIi
-         uutO5bo1UIgcVDwwxSqZyc5a0fctvU6UQ0DoKdfaYMyVinO7LoH45GjjjafYxML1Ub85
-         XS6w==
+        b=GfU/9/3+g4wwGBpu4pDMSN327MvQyVTB7jJssZiRfm1cHo/umlULsZcNLIiZSdWtF+
+         vqfudwHIiOvjqEiq5oMRQC3y87U/7OZ47e6ormr6WXz/mNSjnQ25ZdUlf7e3OVlmbQfk
+         ICflw8iUG3FrXjyl5Qnds+NkwJK4i8Q2Hf2yihU1CRqiFvMTH8sYDO8Y01jXLKnUHK8T
+         cwSpEQLWMq8pJ9B1EWwMfy1sFh/H7YxBtnmdIs8eZRby2v2XPArYFKev5ijdN6mzSrfj
+         oro7tHDSks8TW978vXirRkmHdYAoRgPbUDdl91PtW0+1JxVnKm7pWZWhFqTTaMwnulOE
+         eQfQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
-         :date:dkim-signature;
-        bh=2MgCYW3UINne2osnWjKqpbw5LUhaGCf3Xmk9thEs7q4=;
-        b=0D5xe3HFXwHMQMZdWUXDUD19AZoW+BMPJZJEZLFuo+c0QNcM/Nf00FGzYcTNmh9oAB
-         XJYyKSPGXJgVcEzU1QnY+8h1mTpYyp1I2fBBbEHQqyWMKEt+i0CLNTAMb51mGi6s19gn
-         exIAj5evT0uBZbF2/DlsETUkMCitwnZuioNAWRlJLNfUgUjk4eoBj/GML3qno81Un5WD
-         J0BKTYiulZy9SnMBo73RgaFUExN5kfssI5609qo16PHWL5z5hrzXglsTH1YNqP5vEk3G
-         6k+31HAjqM3LGYHQAuICa7VrOXtsU6u8mKeimOI6Qri0pboYvSVd5Hf9AKp4yQLW5H7f
-         aFUg==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=fsTQrOCCM6yA1JojsplBwI6Qpm1eIbU6tWKRrhNq0L8=;
+        b=XJGOLrtqy5lB8znNwYpDS6zyv/pN/TKB/tikshs1ZwFTw4/gyEVAuSxhJ/1Ir4eblx
+         /mI178jz/2eKzE0aiPUyLu606+DVF9YG8uxjt1nHdyDLeUw+igTKWz/t6XNCK70dMfc3
+         NUOc+D2zDUU7yKVtfcojMd0OTyQ5Fjm57tJ5ajuJ2XTJIm5qXAkEIXIBC01EC1cv6+J1
+         7P82nr39XBfmvwggLTL/FilXZ75qnSt1bN81oq/M7Iz1iS0XQ8xLuWOMS4iBB3NnpTX3
+         llEqaTce/AUuwGldGPPT5h9/SxPfBE7byqvdkNOP0p11UesrSaMKnJXdqZJELo9msj/9
+         3Aog==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=dOfVLO3j;
-       spf=pass (google.com: domain of 3od4oxwukevua4hz73bb381.zb9z8xa3-yh58g-85ahk3bb3813ebhcf.zb9@flex--nhuck.bounces.google.com designates 2607:f8b0:4864:20::14a as permitted sender) smtp.mailfrom=3oD4OXwUKEVUA4Hz73BB381.zB9z8xA3-yH58G-85AHK3BB3813EBHCF.zB9@flex--nhuck.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-il1-x14a.google.com (mail-il1-x14a.google.com. [2607:f8b0:4864:20::14a])
-        by gmr-mx.google.com with ESMTPS id a65si28056oib.1.2020.07.14.16.24.16
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=taP7IgzG;
+       spf=pass (google.com: domain of caij2003@gmail.com designates 2607:f8b0:4864:20::d42 as permitted sender) smtp.mailfrom=caij2003@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-io1-xd42.google.com (mail-io1-xd42.google.com. [2607:f8b0:4864:20::d42])
+        by gmr-mx.google.com with ESMTPS id y197si22468pfc.4.2020.07.14.16.31.32
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Jul 2020 16:24:16 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3od4oxwukevua4hz73bb381.zb9z8xa3-yh58g-85ahk3bb3813ebhcf.zb9@flex--nhuck.bounces.google.com designates 2607:f8b0:4864:20::14a as permitted sender) client-ip=2607:f8b0:4864:20::14a;
-Received: by mail-il1-x14a.google.com with SMTP id t19so147791ili.3
-        for <clang-built-linux@googlegroups.com>; Tue, 14 Jul 2020 16:24:16 -0700 (PDT)
-X-Received: by 2002:a05:6638:3aa:: with SMTP id z10mr8679368jap.54.1594769056604;
- Tue, 14 Jul 2020 16:24:16 -0700 (PDT)
-Date: Tue, 14 Jul 2020 23:23:49 +0000
-In-Reply-To: <20200713225103.GA1095851@google.com>
-Message-Id: <20200714232349.2198114-1-nhuck@google.com>
-Mime-Version: 1.0
-References: <20200713225103.GA1095851@google.com>
+        Tue, 14 Jul 2020 16:31:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of caij2003@gmail.com designates 2607:f8b0:4864:20::d42 as permitted sender) client-ip=2607:f8b0:4864:20::d42;
+Received: by mail-io1-xd42.google.com with SMTP id p205so246999iod.8
+        for <clang-built-linux@googlegroups.com>; Tue, 14 Jul 2020 16:31:32 -0700 (PDT)
+X-Received: by 2002:a05:6638:2601:: with SMTP id m1mr7526051jat.141.1594769491880;
+        Tue, 14 Jul 2020 16:31:31 -0700 (PDT)
+Received: from jiancai.svl.corp.google.com ([2620:15c:2ce:0:f693:9fff:fef4:238b])
+        by smtp.googlemail.com with ESMTPSA id l13sm252256iob.28.2020.07.14.16.31.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jul 2020 16:31:31 -0700 (PDT)
+From: Jian Cai <caij2003@gmail.com>
+To: 
+Cc: caij2003@gmail.com,
+	jiancai@google.com,
+	ndesaulniers@google.com,
+	manojgupta@google.com,
+	sedat.dilek@gmail.com,
+	Brian Gerst <brgerst@gmail.com>,
+	Arvind Sankar <nivedita@alum.mit.edu>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Alexandre Chartre <alexandre.chartre@oracle.com>,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH v2] x86/entry: add compatibility with IAS
+Date: Tue, 14 Jul 2020 16:30:21 -0700
+Message-Id: <20200714233024.1789985-1-caij2003@gmail.com>
 X-Mailer: git-send-email 2.27.0.389.gc38d7665816-goog
-Subject: [PATCH v3] Makefile: Add clang-tidy and static analyzer support to makefile
-From: "'Nathan Huckleberry' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: masahiroy@kernel.org, michal.lkml@markovi.net
-Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	clang-built-linux@googlegroups.com, Nathan Huckleberry <nhuck@google.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: nhuck@google.com
+In-Reply-To: <20200713012428.1039487-1-caij2003@gmail.com>
+References: <20200713012428.1039487-1-caij2003@gmail.com>
+MIME-Version: 1.0
+X-Original-Sender: caij2003@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=dOfVLO3j;       spf=pass
- (google.com: domain of 3od4oxwukevua4hz73bb381.zb9z8xa3-yh58g-85ahk3bb3813ebhcf.zb9@flex--nhuck.bounces.google.com
- designates 2607:f8b0:4864:20::14a as permitted sender) smtp.mailfrom=3oD4OXwUKEVUA4Hz73BB381.zB9z8xA3-yH58G-85AHK3BB3813EBHCF.zB9@flex--nhuck.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nathan Huckleberry <nhuck@google.com>
-Reply-To: Nathan Huckleberry <nhuck@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=taP7IgzG;       spf=pass
+ (google.com: domain of caij2003@gmail.com designates 2607:f8b0:4864:20::d42
+ as permitted sender) smtp.mailfrom=caij2003@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,213 +162,80 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-This patch adds clang-tidy and the clang static-analyzer as make
-targets. The goal of this patch is to make static analysis tools
-usable and extendable by any developer or researcher who is familiar
-with basic c++.
+Clang's integrated assembler does not allow symbols with non-absolute
+values to be reassigned. This patch allows the affected code to be
+compatible with IAS.
 
-The current static analysis tools require intimate knowledge of the
-internal
-workings of the static analysis.  Clang-tidy and the clang static
-analyzers
-expose an easy to use api and allow users unfamiliar with clang to
-write new checks with relative ease.
-
-===Clang-tidy===
-
-Clang-tidy is an easily extendable 'linter' that runs on the AST.
-Clang-tidy checks are easy to write and understand. A check consists of
-two parts, a matcher and a checker. The matcher is created using a
-domain specific language that acts on the AST
-(https://clang.llvm.org/docs/LibASTMatchersReference.html).  When AST
-nodes are found by the matcher a callback is made to the checker. The
-checker can then execute additional checks and issue warnings.
-
-Here is an example clang-tidy check to report functions that have calls
-to local_irq_disable without calls to local_irq_enable and vice-versa.
-Functions flagged with __attribute((annotation("ignore_irq_balancing")))
-are ignored for analysis. (https://reviews.llvm.org/D65828)
-
-===Clang static analyzer===
-
-The clang static analyzer is a more powerful static analysis tool that
-uses symbolic execution to find bugs. Currently there is a check that
-looks for potential security bugs from invalid uses of kmalloc and
-kfree. There are several more general purpose checks that are useful for
-the kernel.
-
-The clang static analyzer is well documented and designed to be
-extensible.
-(https://clang-analyzer.llvm.org/checker_dev_manual.html)
-(https://github.com/haoNoQ/clang-analyzer-guide/releases/download/v0.1/clang-analyzer-guide-v0.1.pdf)
-
-The main draw of the clang tools is how accessible they are. The clang
-documentation is very nice and these tools are built specifically to be
-easily extendable by any developer. They provide an accessible method of
-bug-finding and research to people who are not overly familiar with the
-kernel codebase.
-
-Signed-off-by: Nathan Huckleberry <nhuck@google.com>
+Link: https://github.com/ClangBuiltLinux/linux/issues/1043
+Reported-by: Nick Desaulniers <ndesaulniers@google.com>
+Reported-by: Sedat Dilek <sedat.dilek@gmail.com>
+Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
+Suggested-by: Brian Gerst <brgerst@gmail.com>
+Suggested-by: Arvind Sankar <nivedita@alum.mit.edu>
+Tested-by: Sedat Dilek <sedat.dilek@gmail.com> #
+Compile-/Assemble-tested against Linux v5.8-rc5 with LLVM/Clang
+v11.0.0-git
+Signed-off-by: Jian Cai <caij2003@gmail.com>
 ---
-Changes v2 -> v3
-* Redirect clang-tidy output to stderr
-* Style fixes
-* Add directory to MAINTAINERS
- MAINTAINERS                                   |  1 +
- Makefile                                      |  3 +
- scripts/clang-tools/Makefile.clang-tools      | 23 +++++++
- .../{ => clang-tools}/gen_compile_commands.py |  0
- scripts/clang-tools/run-clang-tools.py        | 69 +++++++++++++++++++
- 5 files changed, 96 insertions(+)
- create mode 100644 scripts/clang-tools/Makefile.clang-tools
- rename scripts/{ => clang-tools}/gen_compile_commands.py (100%)
- create mode 100755 scripts/clang-tools/run-clang-tools.py
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 1d4aa7f942de..a444564e5572 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -4198,6 +4198,7 @@ W:	https://clangbuiltlinux.github.io/
- B:	https://github.com/ClangBuiltLinux/linux/issues
- C:	irc://chat.freenode.net/clangbuiltlinux
- F:	Documentation/kbuild/llvm.rst
-+F:	scripts/clang-tools/
- K:	\b(?i:clang|llvm)\b
+Thanks Nick and Sedat for explaining the process of submitting patches.
+Include the changelog as follows,
+
+Changes v1 -> v2:
+ Update the patch based on Arvind Sankar <nivedita@alum.mit.edu>'s
+ comments. Also include addtional information in the Tested-by tag.
+
+ arch/x86/include/asm/idtentry.h | 14 ++++++--------
+ 1 file changed, 6 insertions(+), 8 deletions(-)
+
+diff --git a/arch/x86/include/asm/idtentry.h b/arch/x86/include/asm/idtentry.h
+index f3d70830bf2a..5efaaed34eda 100644
+--- a/arch/x86/include/asm/idtentry.h
++++ b/arch/x86/include/asm/idtentry.h
+@@ -469,16 +469,15 @@ __visible noinstr void func(struct pt_regs *regs,			\
+ 	.align 8
+ SYM_CODE_START(irq_entries_start)
+     vector=FIRST_EXTERNAL_VECTOR
+-    pos = .
+     .rept (FIRST_SYSTEM_VECTOR - FIRST_EXTERNAL_VECTOR)
+ 	UNWIND_HINT_IRET_REGS
++0 :
+ 	.byte	0x6a, vector
+ 	jmp	asm_common_interrupt
+ 	nop
+ 	/* Ensure that the above is 8 bytes max */
+-	. = pos + 8
+-    pos=pos+8
+-    vector=vector+1
++	. = 0b + 8
++	vector = vector+1
+     .endr
+ SYM_CODE_END(irq_entries_start)
  
- CLEANCACHE API
-diff --git a/Makefile b/Makefile
-index fe0164a654c7..3e2df010b342 100644
---- a/Makefile
-+++ b/Makefile
-@@ -747,6 +747,7 @@ KBUILD_CFLAGS	+= $(call cc-option,-fno-allow-store-data-races)
- 
- include scripts/Makefile.kcov
- include scripts/Makefile.gcc-plugins
-+include scripts/clang-tools/Makefile.clang-tools
- 
- ifdef CONFIG_READABLE_ASM
- # Disable optimizations that make assembler listings hard to read.
-@@ -1543,6 +1544,8 @@ help:
- 	@echo  '  export_report   - List the usages of all exported symbols'
- 	@echo  '  headerdep       - Detect inclusion cycles in headers'
- 	@echo  '  coccicheck      - Check with Coccinelle'
-+	@echo  '  clang-analyzer  - Check with clang static analyzer'
-+	@echo  '  clang-tidy      - Check with clang-tidy'
- 	@echo  ''
- 	@echo  'Tools:'
- 	@echo  '  nsdeps          - Generate missing symbol namespace dependencies'
-diff --git a/scripts/clang-tools/Makefile.clang-tools b/scripts/clang-tools/Makefile.clang-tools
-new file mode 100644
-index 000000000000..7ad3308c1937
---- /dev/null
-+++ b/scripts/clang-tools/Makefile.clang-tools
-@@ -0,0 +1,23 @@
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Copyright (C) Google LLC, 2020
-+#
-+# Author: Nathan Huckleberry <nhuck@google.com>
-+#
-+PHONY += clang-tidy
-+clang-tidy:
-+ifdef CONFIG_CC_IS_CLANG
-+	$(PYTHON3) scripts/clang-tools/gen_compile_commands.py
-+	$(PYTHON3) scripts/clang-tools/run-clang-tools.py clang-tidy compile_commands.json
-+else
-+	$(error clang-tidy requires CC=clang)
-+endif
-+
-+PHONY += clang-analyzer
-+clang-analyzer:
-+ifdef CONFIG_CC_IS_CLANG
-+	$(PYTHON3) scripts/clang-tools/gen_compile_commands.py
-+	$(PYTHON3) scripts/clang-tools/run-clang-tools.py static-analyzer compile_commands.json
-+else
-+	$(error clang-analyzer requires CC=clang)
-+endif
-diff --git a/scripts/gen_compile_commands.py b/scripts/clang-tools/gen_compile_commands.py
-similarity index 100%
-rename from scripts/gen_compile_commands.py
-rename to scripts/clang-tools/gen_compile_commands.py
-diff --git a/scripts/clang-tools/run-clang-tools.py b/scripts/clang-tools/run-clang-tools.py
-new file mode 100755
-index 000000000000..00b8532c1729
---- /dev/null
-+++ b/scripts/clang-tools/run-clang-tools.py
-@@ -0,0 +1,69 @@
-+#!/usr/bin/env python
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Copyright (C) Google LLC, 2020
-+#
-+# Author: Nathan Huckleberry <nhuck@google.com>
-+#
-+"""A helper routine run clang-tidy and the clang static-analyzer on
-+compile_commands.json."""
-+
-+import argparse
-+import json
-+import logging
-+import multiprocessing
-+import os
-+import subprocess
-+import sys
-+
-+def parse_arguments():
-+  """Set up and parses command-line arguments.
-+  Returns:
-+    args: Dict of parsed args
-+      Has keys "file" and "type"
-+  """
-+  usage = """Run clang-tidy or the clang static-analyzer on a
-+  compilation database."""
-+  parser = argparse.ArgumentParser(description=usage)
-+
-+  type_help = ("Type of analysis to be performed")
-+  parser.add_argument("type", choices=["clang-tidy", "static-analyzer"],
-+                      help=type_help)
-+  file_path_help = ("Path to the compilation database to parse")
-+  parser.add_argument("file",  type=str, help=file_path_help)
-+
-+  args = parser.parse_args()
-+
-+  return args
-+
-+def init(l,t):
-+  global lock
-+  global analysis_type
-+  lock = l
-+  analysis_type = t
-+
-+def run_analysis(entry):
-+  filename = entry["file"]
-+  checks = "-checks=-*,linuxkernel-*" if (analysis_type == "clang-tidy") else "-checks=-*,clang-analyzer-*"
-+  p = subprocess.run(["clang-tidy", "-p", os.getcwd(),
-+                    checks, filename],
-+                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-+  lock.acquire()
-+  print(filename, file=sys.stderr)
-+  sys.stderr.buffer.write(p.stdout)
-+  lock.release()
-+
-+
-+def main():
-+  args = parse_arguments()
-+  filename = args.file
-+
-+  #Read JSON data into the datastore variable
-+  with open(filename, "r") as f:
-+    datastore = json.load(f)
-+    lock = multiprocessing.Lock()
-+    pool = multiprocessing.Pool(initializer=init, initargs=(lock, args.type))
-+    pool.map(run_analysis,datastore)
-+
-+if __name__ == "__main__":
-+    main()
+@@ -486,16 +485,15 @@ SYM_CODE_END(irq_entries_start)
+ 	.align 8
+ SYM_CODE_START(spurious_entries_start)
+     vector=FIRST_SYSTEM_VECTOR
+-    pos = .
+     .rept (NR_VECTORS - FIRST_SYSTEM_VECTOR)
+ 	UNWIND_HINT_IRET_REGS
++0 :
+ 	.byte	0x6a, vector
+ 	jmp	asm_spurious_interrupt
+ 	nop
+ 	/* Ensure that the above is 8 bytes max */
+-	. = pos + 8
+-    pos=pos+8
+-    vector=vector+1
++	. = 0b + 8
++	vector = vector+1
+     .endr
+ SYM_CODE_END(spurious_entries_start)
+ #endif
 -- 
 2.27.0.389.gc38d7665816-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200714232349.2198114-1-nhuck%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200714233024.1789985-1-caij2003%40gmail.com.
