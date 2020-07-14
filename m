@@ -1,45 +1,45 @@
-Return-Path: <clang-built-linux+bncBCIO53XE7YHBBMNVWT4AKGQEVDXXZEY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCIO53XE7YHBBMVVWT4AKGQEAUJAQHA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73d.google.com (mail-qk1-x73d.google.com [IPv6:2607:f8b0:4864:20::73d])
-	by mail.lfdr.de (Postfix) with ESMTPS id C8A4E21E5C3
-	for <lists+clang-built-linux@lfdr.de>; Tue, 14 Jul 2020 04:38:42 +0200 (CEST)
-Received: by mail-qk1-x73d.google.com with SMTP id 204sf12195056qki.20
-        for <lists+clang-built-linux@lfdr.de>; Mon, 13 Jul 2020 19:38:42 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1594694322; cv=pass;
+Received: from mail-il1-x140.google.com (mail-il1-x140.google.com [IPv6:2607:f8b0:4864:20::140])
+	by mail.lfdr.de (Postfix) with ESMTPS id 391B421E5C4
+	for <lists+clang-built-linux@lfdr.de>; Tue, 14 Jul 2020 04:38:44 +0200 (CEST)
+Received: by mail-il1-x140.google.com with SMTP id d18sf11013496ill.21
+        for <lists+clang-built-linux@lfdr.de>; Mon, 13 Jul 2020 19:38:44 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1594694323; cv=pass;
         d=google.com; s=arc-20160816;
-        b=dBRAnRACrStoPb1gXgOjmkRsyXtHv9OZac5Z19hNRiMs4rfA9PkSGq1eCwsD7Vh6L+
-         KY2hot9sH6ejpeDQmnq9lbMBg4vdHcxQTEp7c7COkpTbklEnNH2NajnLosDtagO8W54s
-         /jZkmPB8CdQ/6y3U7vp132gKkaeTaBpJmtGeEPCOzik53T662008beVbmFOw9B8/Dexm
-         x5sAPwLCRUb/vhNM/YuU8TlDzI2ClaAYAiCsxnPBMnn69qLNBI8xb64VzQVug8xwF4ft
-         ADY1iIJEjvrB6PPlQmh2nArCLiBmM5gD0ccVvbUrsZ9Ro8MDFx3ETGzYpCYHCfld/CLb
-         0mTw==
+        b=akiOSKlREgXql+CEc8QNRAPRYjaVVw5wSlpNylu75bppY/idGzyEOemce0b1BK3WTW
+         8YeOUe9a9fiE1At+qr6oDYq3ovY8EiZ/KDe2bMOllbmfW3tnYUU06ZWA2TfpP4YxVlN7
+         YsnpbQqmmAvfHFcpqDv5xAIqzHxFEYhtDFObdVWyvZwuaYMHMUmZFkiLZyhIkxip8/xN
+         j6Rutg50GYgjFab1BusiDu2MFpcAgfqgwsHmu7xlTmuefr7IYC19ctLvIt3dLHeE+eXx
+         aTqO3Ia2oBXCIf4a6K1zcPq3Uy5utmUxscE6u5qWEvEHc4pcJqf3V5ekXt05dAwpOrLU
+         0Ytg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=QMUHKhivdzFFxhAl/IcGQ81Y29z+q4KPIEdw5WoHYRI=;
-        b=TQm++T38M5GRTglh8g5dbb1WmZZem/ucwO/S2bUlaZDq2PI32MVnerTlzP5ywrW8Fp
-         kfJPiKQqagCnzjaOa2IqpXombmNQU16Is7/ryeX2IXNKyxLDq/9DJkjVosA/kRL5bXos
-         CJOnsDzUZyqsRWv3CsVjSmBvQ6pV2ZA2uAZ0xvf8TBmieCszIONukBttczPYSQlzrsgg
-         +hisXYOPGiMgEyo0OdRfwFUuTrfqLkxiajQYSOOy7+4vNlkOY5ESGcWrDP+qrLGLWFqs
-         +BfsA4JmVyXtqtPDbxw0u8k1DesT7xFiN06GLLtkqvJDU94E1HEih9uJQUV6fIYaWpwn
-         QXdQ==
+        bh=8o94QdJfz5QKYYmu27FfzQzyDp2pMLLWzVQuYXg0C7E=;
+        b=rkvsEBCP1bdGHqB3iBE/xtMETgEH4GtunRE8DbwibDEf/rdGu0eu0shKi+96sq8PnC
+         ilWEjIBp9riwfAv1dKIsSBXGZA1k0F1V2gqXzEH/IG6Q3wxl1tJwkXrJhq2DpsqWvD5L
+         7HERSoeX8ucQt5abIKPOrugHkZjgiZFZsvb5qhTK06ratCLKCAIU/3uoNeBJbMDViURg
+         0cukc0Et3oHY/1D0vlg14LaxLyr8agkj/L8C24GwIVoIdJUVOF/moIc0NOKB/mbXiKkQ
+         93Pm3kaH56jExsibyFZ2NbdICwVsqfHLE+i+KWS9++s+26WB1r4RJkn6zLnXXtx/nwSH
+         ABZA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 209.85.222.193 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 209.85.222.194 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QMUHKhivdzFFxhAl/IcGQ81Y29z+q4KPIEdw5WoHYRI=;
-        b=TKiJch46yB6PrdNIVgGQgLYvrDy+Ct45xDx/W57kU3f6Rmnxkll2mptRAaNJqjAduc
-         MIu1h3FBQXgf0VnkolD1Howuh3hsRIiu3C+yqAPCXH0JZMNjpjF1kXZI/0hBbzptdcoo
-         vPQcF0XyMTaillS+UEOEwPy72HpJFHfM2yuCKpnbM0KgxxKBUBXk1oNTOwHJpzZDmgXE
-         rRC9o6UyHyukyI/GPUh08FsvYWP5ehhD2M39Zg0ajnRhgHsN1p4iNrVp5gZUhp3IFXmQ
-         gDNuFyRG5lAGgOWT7ODOKsh/ZqVq0ZSNA653u8U5lpASm5kQo+yJxhkYfzqPoC4aVhxJ
-         qj3w==
+        bh=8o94QdJfz5QKYYmu27FfzQzyDp2pMLLWzVQuYXg0C7E=;
+        b=P81GMSKmy0tg4KylI8okh4PlQgxc4I5vFRglFlqTYglXsE7eeiJuP6KyDQ5ikE78Kz
+         Cawdslyml6Gt/20ARABNsu1cl7Ep7qAM/kXwYuor7EhJYynvQj6VbWnbly6/OKIiJD8C
+         SB7FAUqdphxEUTwSuAopkwn9ja9zV+zjaDE4fnZM7KIInKAY2jx3Zy+NSc3LisFANEhr
+         oRYmR7/Faz/KkJ9wE4t5xm7D/BOEidZ1AFKXlxIsl7u6/rgbbs829jqo/daGtpIPgJQV
+         /om7sOGftFBueNopMMEuVcCykRd9Bg7ViPeoRarw50B6KGnlPfe39c2wM5nzXBqPAwJ9
+         pTZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -47,58 +47,58 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QMUHKhivdzFFxhAl/IcGQ81Y29z+q4KPIEdw5WoHYRI=;
-        b=ZtujFhZroyQciPmHf50PldS9cj6lASq42ze5POBgaCmUGJy8lztn1ZjgvJI3YY4rv4
-         hBNAtWVX3Jp6EJAuCRCDqCdnGYGPvbKf98aJJYvH6Iu39eWR8hWJiw+nn/agUhns3uqW
-         hoWAEfuDs/+KqQJ/pu792DZ/ExzimYkkA/dovPUfMuef/9hsg390Ct9V1GtrukY68cIZ
-         5cRbmQluC34+jThs9uuvdcZ2lTJx0tpBLK5aoOly1uHDYKuK/B+QEnsKfIQQJK57Jbam
-         /VClPITL6c7o8TxdzlVdnYV9or+q/kTHRK9K16y+HMrhKmbZ9RkmSiKqdjp47TbObE3a
-         BxDQ==
+        bh=8o94QdJfz5QKYYmu27FfzQzyDp2pMLLWzVQuYXg0C7E=;
+        b=MKU0eMLHcwtgsC1/3yWuFQda65pQpNjSk45FKvmKVOKTyjMMmLOD64HeMhavdUA9a+
+         IRZRuyVShgtfmvyXwtnU9f5LarU0loHWULp4kJGaWVSP8ZCo0mFTi2QmJ/LiRvHF1uMK
+         C1ZCj8ksjZNEvbIIqjZhQ02J+LTb2Kjp0wjABUP2OJC7ZaBurAnGeKC17SLyyVhpL3iZ
+         4BO2Mn7CyXwLtjI3E7NkVi39X3OBg4EXeKz7o1iFjYsD5jT4zsXDisuBqLZCa93TbNyO
+         z8ryiDOBoeubpVLrjZ3pgXfAevxebtpzLq4ONocHuTNp4rnXA8cwGUD9/wumZ9NA8ZaF
+         Uc2g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532mvDMxt4/rjbZnfWSE02uRMuG3HwIUwDsGMOJjUTp26of08N61
-	i3GrDkygMyEtswWGuedKQ8E=
-X-Google-Smtp-Source: ABdhPJx/LExjn6g+ulps0Z2NS89IReoMtEA53UnTwr0ju8+sKu8Ue8EFC/QhdWi9BUuIDu7IqbMmWA==
-X-Received: by 2002:ac8:748a:: with SMTP id v10mr2498029qtq.19.1594694321681;
-        Mon, 13 Jul 2020 19:38:41 -0700 (PDT)
+X-Gm-Message-State: AOAM531sPKuiw/vRsJskN0iarymauA5y+4qHF8L2/thD1AOzGUUepoNi
+	53S95whWra2GS08p/a6fULk=
+X-Google-Smtp-Source: ABdhPJxy1/HxQeba6MHfMijaHF1Dyl5Qk8ioBwrIxvx+U01L/WA7CTWIcwkXKXmJyUVmpUkyn4NZyg==
+X-Received: by 2002:a05:6e02:1250:: with SMTP id j16mr2730631ilq.293.1594694323139;
+        Mon, 13 Jul 2020 19:38:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:38f:: with SMTP id 137ls9170161qkd.2.gmail; Mon, 13 Jul
- 2020 19:38:41 -0700 (PDT)
-X-Received: by 2002:a37:9046:: with SMTP id s67mr2574438qkd.275.1594694321309;
-        Mon, 13 Jul 2020 19:38:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1594694321; cv=none;
+Received: by 2002:a92:bb4d:: with SMTP id w74ls4779158ili.6.gmail; Mon, 13 Jul
+ 2020 19:38:42 -0700 (PDT)
+X-Received: by 2002:a92:58d6:: with SMTP id z83mr2769032ilf.186.1594694322678;
+        Mon, 13 Jul 2020 19:38:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1594694322; cv=none;
         d=google.com; s=arc-20160816;
-        b=doPs3XfdH+yI1NuYoucWjsMHStZPcJm8+ILjP9wT9Tje5uWacTSsXCL00SUtVwtNnM
-         UyTh7Lem1JnJUBQyHuCxx9/vo0Izk7BvJFl2WL4lWfBeSaVRxiSxti8NNVE/kqQbRb2N
-         jPhHfs5TVylOM0j8FSSIFQVidPZscMDnFpjGscx8EhBAK5vzx+SQm+KdMNz8ChvtT2KT
-         RHOrp09Au7Di44So5yzbV3FOBv7/AsF/OS7+GcQPJsMqwAMD835kpctzDpLqE49q6ew3
-         7eUW2XZOuIm5NiwwCm/PL54WNLxdi09LK4eEqlSyup5Gl9iNN7ouzMmuAXJfV8NfLDg7
-         UNew==
+        b=UQlJsjhhMkPkPrYkg3EZ8pThSlfF1T69laHCQCqKk6SUOlYYQi0ue7t8cv/tdhQgFV
+         vA0Uu0vFFYPzvwdAW2QYfxndWyj88jiFGSgJF2dg5berTsHlnSyc6pQH7FJeTosHCzok
+         9pyyT+diIwRLgMxEIyP3+QPailKzJV7J2AP/pyA7ERUS7onjQUZlGn7nZLYJ7JsNDN/y
+         zQWRBzSJm/xuR/EICMEtTjscBCIump7Dn5Ns40oKYZp8ajtQqgu67WyPu/IYQK6I3XN4
+         ccDw10Sh+l2aAp0jeE2QMVAzZ+Z0UKwcuvJF/r+BLLpevyED3OlvKKukbQd6RUlzVFci
+         JRKQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from;
-        bh=OKhnBxItrBTpXf+LwQ8W3IeeewHkHEBu9msI4n5LC4M=;
-        b=o5TKNbhROFawVz+nFdPii5ES18qM+5GqMgr92P3gXDCfbNruB0N7Pzp1QF2DDRc6Jm
-         YaN7v+6mLxESBYP10d2vZV0WeNukVQ5fdVoGozp4X3GUd06GTdc9s4Hh7A14ysoDkAjF
-         s+SE6yUEUIDVH5XLW7sQHNM4OyOtNFSdQS4SkgBsRykLsXXLaLvrth0gOkZwlaFK5AD8
-         kh5aualnpC7C4M354GP9rBEeEJYDxBDcW/J49GcZfob+5jn8YEjXQ/N7QRjzJEovLOZ6
-         ONgY890H9OIWNhdZ0dG01dBE/unaS1+PWn/kd0DbhXoi1cCqTsSx8b8jk34+W4+3oapO
-         hl/w==
+        bh=hjflrgJ1nEMfvu6o0sT4KLViapV2UjMMsYBLgsk/fRo=;
+        b=OoC7DsNxnHH9+AjgyUR3ThCRenM7BJczr/lPIU/p/RI29kcNWdTmsE4p24GFHNZql2
+         o7G5OK5KpxbCsllaW+2ac90zvLxW8dIzZE6YfXe4WKHwjrNgep8Klnl2AXvSTjv+4wTD
+         fyMzFfqRlfQeWEvNoK/FQblRqKWkuiJnLdphrdwyBTZh1YGN2WcI2xBcw1+hxvozT5Ck
+         P8cV+SZNH/5ani5Sy0A2byKu/pF7/Wel28YJ2jj8td60xUnKTm6J8tbDCA5tg9LWBe/y
+         wYv35n8OXgAGsvbA7oK3mzt8Xv7p8YY19l/5r8drJWnVYm228CoM8aIPSz7cLoh/fQXf
+         qZsg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 209.85.222.193 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
-Received: from mail-qk1-f193.google.com (mail-qk1-f193.google.com. [209.85.222.193])
-        by gmr-mx.google.com with ESMTPS id b26si944516qtq.3.2020.07.13.19.38.41
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 209.85.222.194 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+Received: from mail-qk1-f194.google.com (mail-qk1-f194.google.com. [209.85.222.194])
+        by gmr-mx.google.com with ESMTPS id o15si889691ilg.3.2020.07.13.19.38.42
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 13 Jul 2020 19:38:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 209.85.222.194 as permitted sender) client-ip=209.85.222.194;
+Received: by mail-qk1-f194.google.com with SMTP id r22so14292294qke.13
+        for <clang-built-linux@googlegroups.com>; Mon, 13 Jul 2020 19:38:42 -0700 (PDT)
+X-Received: by 2002:a37:444c:: with SMTP id r73mr2523232qka.141.1594694321988;
         Mon, 13 Jul 2020 19:38:41 -0700 (PDT)
-Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 209.85.222.193 as permitted sender) client-ip=209.85.222.193;
-Received: by mail-qk1-f193.google.com with SMTP id e13so14338072qkg.5
-        for <clang-built-linux@googlegroups.com>; Mon, 13 Jul 2020 19:38:41 -0700 (PDT)
-X-Received: by 2002:a37:8b01:: with SMTP id n1mr2609967qkd.370.1594694320996;
-        Mon, 13 Jul 2020 19:38:40 -0700 (PDT)
 Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
-        by smtp.gmail.com with ESMTPSA id a22sm21046291qka.64.2020.07.13.19.38.40
+        by smtp.gmail.com with ESMTPSA id a22sm21046291qka.64.2020.07.13.19.38.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2020 19:38:40 -0700 (PDT)
+        Mon, 13 Jul 2020 19:38:41 -0700 (PDT)
 From: Arvind Sankar <nivedita@alum.mit.edu>
 To: Thomas Gleixner <tglx@linutronix.de>,
 	Ingo Molnar <mingo@redhat.com>,
@@ -118,16 +118,16 @@ Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	Arnd Bergmann <arnd@arndb.de>,
 	"H . J . Lu" <hjl@sourceware.org>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 2/7] x86/boot/compressed: Force hidden visibility for all symbol references
-Date: Mon, 13 Jul 2020 22:38:31 -0400
-Message-Id: <20200714023836.2310569-3-nivedita@alum.mit.edu>
+Subject: [PATCH v4 3/7] x86/boot/compressed: Get rid of GOT fixup code
+Date: Mon, 13 Jul 2020 22:38:32 -0400
+Message-Id: <20200714023836.2310569-4-nivedita@alum.mit.edu>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200629140928.858507-1-nivedita@alum.mit.edu>
 References: <20200629140928.858507-1-nivedita@alum.mit.edu>
 MIME-Version: 1.0
 X-Original-Sender: nivedita@alum.mit.edu
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of niveditas98@gmail.com designates 209.85.222.193 as
+ (google.com: domain of niveditas98@gmail.com designates 209.85.222.194 as
  permitted sender) smtp.mailfrom=niveditas98@gmail.com
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
@@ -144,111 +144,179 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Eliminate all GOT entries in the decompressor binary, by forcing hidden
-visibility for all symbol references, which informs the compiler that
-such references will be resolved at link time without the need for
-allocating GOT entries.
+In a previous patch, we have eliminated GOT entries from the decompressor
+binary and added an assertion that the .got section is empty. This means
+that the GOT fixup routines that exist in both the 32-bit and 64-bit
+startup routines have become dead code, and can be removed.
 
-To ensure that no GOT entries will creep back in, add an assertion to
-the decompressor linker script that will fire if the .got section has
-a non-zero size.
-
-[Arvind: move hidden.h to include/linux instead of making a copy]
+While at it, drop the KEEP() from the linker script, as it has no effect
+on the contents of output sections that are created by the linker itself.
 
 Reviewed-by: Kees Cook <keescook@chromium.org>
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 Acked-by: Arvind Sankar <nivedita@alum.mit.edu>
 Signed-off-by: Arvind Sankar <nivedita@alum.mit.edu>
 From: Ard Biesheuvel <ardb@kernel.org>
-Link: https://lore.kernel.org/r/20200523120021.34996-3-ardb@kernel.org
+Link: https://lore.kernel.org/r/20200523120021.34996-4-ardb@kernel.org
 ---
- arch/x86/boot/compressed/Makefile      |  1 +
- arch/x86/boot/compressed/vmlinux.lds.S |  1 +
- drivers/firmware/efi/libstub/Makefile  |  2 +-
- drivers/firmware/efi/libstub/hidden.h  |  6 ------
- include/linux/hidden.h                 | 19 +++++++++++++++++++
- 5 files changed, 22 insertions(+), 7 deletions(-)
- delete mode 100644 drivers/firmware/efi/libstub/hidden.h
- create mode 100644 include/linux/hidden.h
+ arch/x86/boot/compressed/head_32.S     | 24 ++---------
+ arch/x86/boot/compressed/head_64.S     | 57 --------------------------
+ arch/x86/boot/compressed/vmlinux.lds.S |  4 +-
+ 3 files changed, 5 insertions(+), 80 deletions(-)
 
-diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
-index 7619742f91c9..c829d874dcac 100644
---- a/arch/x86/boot/compressed/Makefile
-+++ b/arch/x86/boot/compressed/Makefile
-@@ -42,6 +42,7 @@ KBUILD_CFLAGS += $(call cc-disable-warning, gnu)
- KBUILD_CFLAGS += -Wno-pointer-sign
- KBUILD_CFLAGS += $(call cc-option,-fmacro-prefix-map=$(srctree)/=)
- KBUILD_CFLAGS += -fno-asynchronous-unwind-tables
-+KBUILD_CFLAGS += -include $(srctree)/include/linux/hidden.h
+diff --git a/arch/x86/boot/compressed/head_32.S b/arch/x86/boot/compressed/head_32.S
+index 03557f2174bf..39f0bb43218f 100644
+--- a/arch/x86/boot/compressed/head_32.S
++++ b/arch/x86/boot/compressed/head_32.S
+@@ -49,16 +49,13 @@
+  * Position Independent Executable (PIE) so that linker won't optimize
+  * R_386_GOT32X relocation to its fixed symbol address.  Older
+  * linkers generate R_386_32 relocations against locally defined symbols,
+- * _bss, _ebss, _got, _egot and _end, in PIE.  It isn't wrong, just less
+- * optimal than R_386_RELATIVE.  But the x86 kernel fails to properly handle
+- * R_386_32 relocations when relocating the kernel.  To generate
+- * R_386_RELATIVE relocations, we mark _bss, _ebss, _got, _egot and _end as
+- * hidden:
++ * _bss, _ebss and _end, in PIE.  It isn't wrong, just less optimal than
++ * R_386_RELATIVE.  But the x86 kernel fails to properly handle R_386_32
++ * relocations when relocating the kernel.  To generate R_386_RELATIVE
++ * relocations, we mark _bss, _ebss and _end as hidden:
+  */
+ 	.hidden _bss
+ 	.hidden _ebss
+-	.hidden _got
+-	.hidden _egot
+ 	.hidden _end
  
- KBUILD_AFLAGS  := $(KBUILD_CFLAGS) -D__ASSEMBLY__
- GCOV_PROFILE := n
+ 	__HEAD
+@@ -192,19 +189,6 @@ SYM_FUNC_START_LOCAL_NOALIGN(.Lrelocated)
+ 	shrl	$2, %ecx
+ 	rep	stosl
+ 
+-/*
+- * Adjust our own GOT
+- */
+-	leal	_got(%ebx), %edx
+-	leal	_egot(%ebx), %ecx
+-1:
+-	cmpl	%ecx, %edx
+-	jae	2f
+-	addl	%ebx, (%edx)
+-	addl	$4, %edx
+-	jmp	1b
+-2:
+-
+ /*
+  * Do the extraction, and jump to the new kernel..
+  */
+diff --git a/arch/x86/boot/compressed/head_64.S b/arch/x86/boot/compressed/head_64.S
+index 97d37f0a34f5..bf1ab30acc5b 100644
+--- a/arch/x86/boot/compressed/head_64.S
++++ b/arch/x86/boot/compressed/head_64.S
+@@ -40,8 +40,6 @@
+  */
+ 	.hidden _bss
+ 	.hidden _ebss
+-	.hidden _got
+-	.hidden _egot
+ 	.hidden _end
+ 
+ 	__HEAD
+@@ -353,25 +351,6 @@ SYM_CODE_START(startup_64)
+ 	/* Set up the stack */
+ 	leaq	boot_stack_end(%rbx), %rsp
+ 
+-	/*
+-	 * paging_prepare() and cleanup_trampoline() below can have GOT
+-	 * references. Adjust the table with address we are running at.
+-	 *
+-	 * Zero RAX for adjust_got: the GOT was not adjusted before;
+-	 * there's no adjustment to undo.
+-	 */
+-	xorq	%rax, %rax
+-
+-	/*
+-	 * Calculate the address the binary is loaded at and use it as
+-	 * a GOT adjustment.
+-	 */
+-	call	1f
+-1:	popq	%rdi
+-	subq	$1b, %rdi
+-
+-	call	.Ladjust_got
+-
+ 	/*
+ 	 * At this point we are in long mode with 4-level paging enabled,
+ 	 * but we might want to enable 5-level paging or vice versa.
+@@ -464,21 +443,6 @@ trampoline_return:
+ 	pushq	$0
+ 	popfq
+ 
+-	/*
+-	 * Previously we've adjusted the GOT with address the binary was
+-	 * loaded at. Now we need to re-adjust for relocation address.
+-	 *
+-	 * Calculate the address the binary is loaded at, so that we can
+-	 * undo the previous GOT adjustment.
+-	 */
+-	call	1f
+-1:	popq	%rax
+-	subq	$1b, %rax
+-
+-	/* The new adjustment is the relocation address */
+-	movq	%rbx, %rdi
+-	call	.Ladjust_got
+-
+ /*
+  * Copy the compressed kernel to the end of our buffer
+  * where decompression in place becomes safe.
+@@ -556,27 +520,6 @@ SYM_FUNC_START_LOCAL_NOALIGN(.Lrelocated)
+ 	jmp	*%rax
+ SYM_FUNC_END(.Lrelocated)
+ 
+-/*
+- * Adjust the global offset table
+- *
+- * RAX is the previous adjustment of the table to undo (use 0 if it's the
+- * first time we touch GOT).
+- * RDI is the new adjustment to apply.
+- */
+-.Ladjust_got:
+-	/* Walk through the GOT adding the address to the entries */
+-	leaq	_got(%rip), %rdx
+-	leaq	_egot(%rip), %rcx
+-1:
+-	cmpq	%rcx, %rdx
+-	jae	2f
+-	subq	%rax, (%rdx)	/* Undo previous adjustment */
+-	addq	%rdi, (%rdx)	/* Apply the new adjustment */
+-	addq	$8, %rdx
+-	jmp	1b
+-2:
+-	ret
+-
+ 	.code32
+ /*
+  * This is the 32-bit trampoline that will be copied over to low memory.
 diff --git a/arch/x86/boot/compressed/vmlinux.lds.S b/arch/x86/boot/compressed/vmlinux.lds.S
-index b17d218ccdf9..4bcc943842ab 100644
+index 4bcc943842ab..a4a4a59a2628 100644
 --- a/arch/x86/boot/compressed/vmlinux.lds.S
 +++ b/arch/x86/boot/compressed/vmlinux.lds.S
-@@ -81,6 +81,7 @@ SECTIONS
- 	DISCARDS
- }
- 
-+ASSERT(SIZEOF(.got) == 0, "Unexpected GOT entries detected!")
- #ifdef CONFIG_X86_64
- ASSERT(SIZEOF(.got.plt) == 0 || SIZEOF(.got.plt) == 0x18, "Unexpected GOT/PLT entries detected!")
- #else
-diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-index 4cce372edaf4..609157a40493 100644
---- a/drivers/firmware/efi/libstub/Makefile
-+++ b/drivers/firmware/efi/libstub/Makefile
-@@ -27,7 +27,7 @@ cflags-$(CONFIG_ARM)		:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
- cflags-$(CONFIG_EFI_GENERIC_STUB) += -I$(srctree)/scripts/dtc/libfdt
- 
- KBUILD_CFLAGS			:= $(cflags-y) -Os -DDISABLE_BRANCH_PROFILING \
--				   -include $(srctree)/drivers/firmware/efi/libstub/hidden.h \
-+				   -include $(srctree)/include/linux/hidden.h \
- 				   -D__NO_FORTIFY \
- 				   $(call cc-option,-ffreestanding) \
- 				   $(call cc-option,-fno-stack-protector) \
-diff --git a/drivers/firmware/efi/libstub/hidden.h b/drivers/firmware/efi/libstub/hidden.h
-deleted file mode 100644
-index 3493b041f419..000000000000
---- a/drivers/firmware/efi/libstub/hidden.h
-+++ /dev/null
-@@ -1,6 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--/*
-- * To prevent the compiler from emitting GOT-indirected (and thus absolute)
-- * references to any global symbols, override their visibility as 'hidden'
-- */
--#pragma GCC visibility push(hidden)
-diff --git a/include/linux/hidden.h b/include/linux/hidden.h
-new file mode 100644
-index 000000000000..49a17b6b5962
---- /dev/null
-+++ b/include/linux/hidden.h
-@@ -0,0 +1,19 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * When building position independent code with GCC using the -fPIC option,
-+ * (or even the -fPIE one on older versions), it will assume that we are
-+ * building a dynamic object (either a shared library or an executable) that
-+ * may have symbol references that can only be resolved at load time. For a
-+ * variety of reasons (ELF symbol preemption, the CoW footprint of the section
-+ * that is modified by the loader), this results in all references to symbols
-+ * with external linkage to go via entries in the Global Offset Table (GOT),
-+ * which carries absolute addresses which need to be fixed up when the
-+ * executable image is loaded at an offset which is different from its link
-+ * time offset.
-+ *
-+ * Fortunately, there is a way to inform the compiler that such symbol
-+ * references will be satisfied at link time rather than at load time, by
-+ * giving them 'hidden' visibility.
-+ */
-+
-+#pragma GCC visibility push(hidden)
+@@ -43,9 +43,7 @@ SECTIONS
+ 		_erodata = . ;
+ 	}
+ 	.got : {
+-		_got = .;
+-		KEEP(*(.got))
+-		_egot = .;
++		*(.got)
+ 	}
+ 	.got.plt : {
+ 		*(.got.plt)
 -- 
 2.26.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200714023836.2310569-3-nivedita%40alum.mit.edu.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200714023836.2310569-4-nivedita%40alum.mit.edu.
