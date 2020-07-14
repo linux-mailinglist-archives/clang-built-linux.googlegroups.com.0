@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBMFBXD4AKGQEYEJPMSI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBMVCXD4AKGQECCTH7IQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb38.google.com (mail-yb1-xb38.google.com [IPv6:2607:f8b0:4864:20::b38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 12DE021FE34
-	for <lists+clang-built-linux@lfdr.de>; Tue, 14 Jul 2020 22:08:18 +0200 (CEST)
-Received: by mail-yb1-xb38.google.com with SMTP id u12sf97196ybj.0
-        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Jul 2020 13:08:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1594757297; cv=pass;
+Received: from mail-pj1-x103f.google.com (mail-pj1-x103f.google.com [IPv6:2607:f8b0:4864:20::103f])
+	by mail.lfdr.de (Postfix) with ESMTPS id DBC8D21FE37
+	for <lists+clang-built-linux@lfdr.de>; Tue, 14 Jul 2020 22:10:27 +0200 (CEST)
+Received: by mail-pj1-x103f.google.com with SMTP id 8sf3304084pjk.5
+        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Jul 2020 13:10:27 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1594757426; cv=pass;
         d=google.com; s=arc-20160816;
-        b=JI/ZfSVwYaIKS0/eHeL+si7E3g+pQzhEEDC/BU+W4cEE33WyJH14DxptUZDje5YrO4
-         EjVyXM/TqaWKzfNUDPqiUKo48M578tQwGVO793lDGdrUhIoQZUZkQ2C2htxSRdPCIb6g
-         w16Ex+L4SrLCUwwOROr6g7WCC/CZPS2PAkKDBFsZRit2xq5y+aCMs0MnwbWlVa8o9eXP
-         sx2YjpI0dRmeg0qfhmUuuUBk3MzAdzlvVMXEmLYA90VnGTnz+RiJRlA7L6RvWyFRrB2d
-         ED9o+tWqufJMh5kSlkdRxO1U2Z203pB+xPWjDzIUKhP7T+0yKhhCYgzxaiJlBRy9ljom
-         gmyA==
+        b=mB8EZSnkWZ/acPXNEpaOI5uk6/OMOCRDfyhbAIS4dkp7B7Yo0Gps5jcTWTYUq6u4Dd
+         uzR3gRaQCDJfp2QxNNj2FOXjkE7Jvab17HNGBGLNoY3GeRdv8VVO5IqtHeCbFu4XeFaV
+         H8OkusLXdLtNrXf0smxv/3HSwgfnAu7z2c77L5WSr9IBTRxBcDClq3U3G1qv6+qLqU+I
+         pb5m1yczTDO87AHQrNy6Vps/PE2aBTlmB1JGk+H5lkGu/VWC/ZWuJrlfVK6AqoIY1mEi
+         yYelpDSGErdaV0tX8hSAp3DzWAe3brst1mhG4YLBKh+BbBllTM+bhGOrRwyN7VJ2qPD7
+         +3CA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=KkPjsMcUjzwCQrewk5MQ6QN3lHr1Y37G7hDw6BhIKuY=;
-        b=aiPXbmnuUwyZwt+yd/OwUYiy+eLjnrftl74B+DboolPUhoduwjI1l2+sJ0b2ng7bfC
-         OsnGRyMV/zUSX+EaSrmSGBufa3bxZ6G/epiLC40WR5rk48w4P7Lxn5Fv+BiX4BNJ+Fa2
-         dS0noWErV3o9B++TFXQkk+52dRAaeAhXqzyVXhjhFKUeU9lyuWHmYsTvnXh0xnxt08yU
-         XXD/w+Bc/nwtLB2npFGIihqNjtPQFZZm19KoySgrxGfNWwgOQOu3xYUgbK/tyCYTCuLe
-         1qpXxB7DGJysWKlNA6RlxQomRqX6vdGUDDhzZbLnwvGMmBO55Ik7JXWnZzWPtmlCy1//
-         AWQw==
+        bh=RauaHqIgE0mvNPGwOEbBGJfS8PYzYkakgC2QLOx1TFU=;
+        b=QQw4z4NAKXzSRsInaudAN2hoAyJqo/Ho29A81UIR4xyX5mQqwkECbp402TgDgqOg5x
+         3JJqyhlzgv00ikSqmxhu1TjwumxnIxGrVxG9wqTXH1jugWIm+F5wzn3PIfbcd7skezYw
+         UDvFfzKhMYGIrRWF1yyPp3zGpld7M8NUUSHLVVJ0Gop0OSAGG2nWukmdPX2S73WQWKaR
+         LvmmEo/5I/n4Q+saXz9xgSCfQ0iah8lo7CjVNuKdT/Wg3GFWNrKb0M8fMQv8EZbkBtsL
+         6xIYJsVlGCrrmFXfrc/BoqY6X9cBBLlIKVJkrLYC0o6bhNiHjJWj5OW2Rl/blJ7iD6do
+         FAGg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=qa5xbbgS;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d41 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NwWt2Olm;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::143 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=KkPjsMcUjzwCQrewk5MQ6QN3lHr1Y37G7hDw6BhIKuY=;
-        b=M5ft1IhtqoGaCxACMfxpDZpsIpuJZMd+ov7qa8lFBo/mnUkNDTkWAom+f7JxkIShZy
-         vnsRy9fJh/IfdcmRiH7ZVyRq6MN4l7ItT/+PyXoRgnJFtEFx0HQt8E3Kuswv2WI9IXyz
-         FtUu0vssstLk2uOOgbt0rKYUKtFyYmBoi2ipKsaSiOohl81g0V/0FBI9WbACkoNVhS90
-         xte90/USQvNW0BU2wIaCtOTSYgBq2eW9ritxBB4dT2pCbyZIepEXDmp48S0zDGwbDqrA
-         gVHxklchn8mygymC6sPOkzGRV+lUhswL9XtwrDepOPTgmjDHyIdHi8A6GEkLkgIi00vn
-         W6xA==
+        bh=RauaHqIgE0mvNPGwOEbBGJfS8PYzYkakgC2QLOx1TFU=;
+        b=NkRr+g+McOjhkaF7dkcl2bpqxLTnqwYApOA+3n0tTjXKDrDR2D/FHk6/TzHtsWmUKA
+         I9QlsCnsqY1g50lQdQCcqBS/sb9sjlwiuBilHGgdAZC+Kui5FMLAjrc2PukCwLZ8vPAI
+         4BI8OaUqk0MxS0VA32tf7nM+ZyYHziIZHEFSId1UppXYdlhwwezkCsFXuXJiyIGB0B1J
+         med6XGJLZsYWyM5s9uaGmP8IkNMQOA6WW6PZhnSZDc+VQqCMphE3TxtFxvA+2T9hAN7P
+         dSZwmzOkAhafC/7fDtT5jo1w0oL3rxq0juS1At9YrUbnl0uRvUGaHQP7RqnGnaZNHEHB
+         sQwg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=mime-version:references:in-reply-to:reply-to:from:date:message-id
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=KkPjsMcUjzwCQrewk5MQ6QN3lHr1Y37G7hDw6BhIKuY=;
-        b=fkVMkE7nAM7MOiS0gPGuYm/p41ICIbDXyzpzBpOj83jbGHicaYOkfpv/MqxFrH7Dsv
-         vWaXOVs2yJFjoKhQnT0MIyoN9eOSp/qq2HifCYLIxDjRQdz1Gl7jLjIki1XNUP5f8AT4
-         pX0I9QDr9RvAv3ltuEd4q0guK14oL7Y2fpntLWoF8HcjTYGDxhU9reSRmsDoGkCARASr
-         hll4oyl3t1gpGTaRJUlhQjfbhy5I7IYIL0fx97YuidzkiFmU5N2K3il5ukW3Cf+2umKZ
-         IazqtHOK2qFJT1JJG6t8kaPYqea/G82XgwWPRoVCbghi0dnlG+6tCxnu/4dlI6Org75m
-         o17Q==
+        bh=RauaHqIgE0mvNPGwOEbBGJfS8PYzYkakgC2QLOx1TFU=;
+        b=Swc8d6J1MjSziIlCT3mVP45O/wexn0lFDp1eivlaMW/KghC8jb9Xnm295rPKPOFQO+
+         TNaL3hN2XOctpNgsZaa0mBkCzOdIKYgOg+XgebJjk54mJZRwZd8SD+4nPCpRVUBG9Kht
+         gSO6xDFeVG1tjtYANNsxUegrvTGAEi+UJsbBEifFb41k/w/C1AsUfGw5ethGfkZDJzVQ
+         +gaplMaXTwd5gdnN5pIr6yfBDeDsmms+FTXRwDtUd4whn3TryX9JOu5WhDKp64H2yErg
+         H8dk61DNaVJRKwrrXCwPuKTO7j+pfm+XKu3Kkf4GmwyejCEfkJGHGPkZIqXzgMpyGgqz
+         dT6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to
@@ -63,67 +63,68 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=KkPjsMcUjzwCQrewk5MQ6QN3lHr1Y37G7hDw6BhIKuY=;
-        b=NVevilATSgIcilxBzY9lfkDi4sRjakQwPeLiH2DIR7GQwwz4vXB7VoHW5GupgqPRtG
-         dyeRQmLE8/EhdqcEhAlVtyXEVqAQp9aTpu31qKU4wWbPHJRZHbRJVuS+rKD6nsXlmbGL
-         zfOUob2UeJ4209bK6syG9A1UJ9c9qPlyxTcIBmGYzI5q4rXAvOHEdxhK5S99b96QbOUm
-         BOxMoPvO873URNqknv77koa3LE+gsYAI7kf0JFSpOlB1l7uCt0OxcWABGr6ZDBLY/V4g
-         U++3qe1VHh3xk7kdNhjQgQEwuQJ3WA7y8I7zWPmUQjCJA3mZ5tFuhI8ii/SKR/OxaR7d
-         ESUw==
+        bh=RauaHqIgE0mvNPGwOEbBGJfS8PYzYkakgC2QLOx1TFU=;
+        b=p3+aUmeOQKJO7dAj3jxlnoYihNMMY/tf4qqG7HEImQqY0bQw2TGvKTx+1FgrG9YW12
+         1WcEf/On2OCUD2r0qs9fuJWr1xQsQeQ38sh3smnfh8iTQ51aE7v4zZbR6DkZHr7+avxF
+         ud3y8PGItNNHPLAYSKgEVSRBoD7oi9FkPxMTe8YDb/EvUTCjOnWyMm8dA1YltWnX/PcS
+         fH3f/0mCA8pUglPHdEFF3R+qt0qXZpl+MCxQKO12iYxSwuRi3MYxPgl22pmETYVV0s3A
+         n3hX4JT58nASBT40JLQV6ggTxjPXTQ2Y5QxUdw1A6mwq48KPwkoV7L6AmiFK1UZmva2N
+         n/zg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531mf18n6k1yDvi0LXgG1soz8y9/6W9FyM2jxKxbVOlWHK24frCB
-	4/iL6Jkpgaci/9TbPerZaLw=
-X-Google-Smtp-Source: ABdhPJwUsz5oxJqNeL/C127faV71ExLS5/9Nsc9I34DuG/nNexfMLhyNWtNOicu+J1nPR9AC8bJX8g==
-X-Received: by 2002:a25:a226:: with SMTP id b35mr10726893ybi.356.1594757297034;
-        Tue, 14 Jul 2020 13:08:17 -0700 (PDT)
+X-Gm-Message-State: AOAM533XtCTd7HUDKryP/2Z9iMTWDzWukU/+zSg8VNVZRR/+8gWrj6OD
+	nzwFUQcrjFzNYc/Y+HxN7ck=
+X-Google-Smtp-Source: ABdhPJyIVojXzO4I0W+P7JfoiSYUiR8Bhh9/2lCCj1WLXybztys1qDK/c/Pa+UGuBTNnhPaPNeXsZQ==
+X-Received: by 2002:a63:6e4c:: with SMTP id j73mr4585713pgc.182.1594757426538;
+        Tue, 14 Jul 2020 13:10:26 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:6087:: with SMTP id u129ls8176390ybb.10.gmail; Tue, 14
- Jul 2020 13:08:16 -0700 (PDT)
-X-Received: by 2002:a25:3f81:: with SMTP id m123mr11421670yba.476.1594757296686;
-        Tue, 14 Jul 2020 13:08:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1594757296; cv=none;
+Received: by 2002:aa7:864e:: with SMTP id a14ls6876630pfo.7.gmail; Tue, 14 Jul
+ 2020 13:10:26 -0700 (PDT)
+X-Received: by 2002:a05:6a00:2bc:: with SMTP id q28mr5751704pfs.250.1594757426026;
+        Tue, 14 Jul 2020 13:10:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1594757426; cv=none;
         d=google.com; s=arc-20160816;
-        b=y/2fy2qi62qF36s/+A5gsuAx0QqITnD2UNriz1z1NP+0NQyXgnsZQkxlqtQJAcRM+/
-         njdvLsGq+FO1ibPTExDO01YEJXdTlO2yED0MsWmcyT536gHt6NcaNL37ciIczDmylRxR
-         +cUaP+Wg4L2+vE4q8QhK2PhLg4Usv1AU2IrQSghMYlNJXAfMi9Fo7DX6bPoq1mw+Axzf
-         r3dO0R34W+AjBmsHTlxw0yidnBA2tDYoU0WzoTcySnXF/DNHYwAmwHbcQmnFh7SLRz2y
-         NPqLUjLC8zF/OgpfIl7NP1ze7AWt5paKxn+oZeYU/rQstF90Cr83oM+OK0YOVyeShI4w
-         rOlQ==
+        b=BQYFc06qCaEBP5rx7y/TdIEPupDBh1eUjlo4eefX/kl3vckti1IvNRSyqV8JmDBIVk
+         B2hy6hML25R98N8lqAslOAKuZmdV4eOOrxCNHW+nmOoKxmk9PiC8x+vueBbT36p/HGP7
+         PtDynMBsRIUANkQSeIcVe/lBJqb3kCucPf1JaSmTw0V5yW6dKvYGkJvjWLUvvDZONTeT
+         5JCjmGuXhvIq5OgxSlx7BL4JqvAScEGOcaDgDfb3HF5ZznnlbI/PJs+v8/R9/ZYBn7pS
+         TAvHwr3r8PiSmFfkGyjm1J+0w60+bkPKELZx0VEawamFNRf/3EeLBChi2cqm0Xkp4JhG
+         ZIWg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=7R3dCXqsSoyh387FNpg7of+Vy2Uow0OshGTXM3A59Lo=;
-        b=ODH/HmTLXSpMTV0j3o8gVxzHkLB/GEBHHYEL4bRvCM4ojFb5FyzwSP3TNDdp6MvDNz
-         essyTDBVlJYSBZ/bsgT1UQ7ar+YVYYS10Xx/e5G2w0tXFlCtqWvyO39dJOfwpKw2wri+
-         Y+3g+ZJD6f7magnmEd98FD1dXgUyePVTcZN+/soUq4vTpv3V1f6kQaomDt6f8aHukPk1
-         nVuCZAHGeAWLZPzDnhVmvQzBqD7+OrkxN4z4F8LClLvH+KZxK/8UUX0RrOWF5jnHausb
-         fDXZkjYzVGNV7fPHwqz9ZNutO79ES6TvVxyappFjE1DN8Wcec0T1oB76iHisx8O7IKro
-         tBrQ==
+        bh=/s7mXKyDFtdZcyZoCObU9RfK9Dh7wLJ8B6HW6u/J2Dc=;
+        b=QsWfbvDQD6uanOMkXFKWmhGD8sV0CxeEFOZ2lDpGf7eJwJ82pnNBSOTNrqYFGs5ptP
+         DqZsE6XPw1lQ1kzTulvCcF7dWLmRlHh4WLUt1Yfw0eJrdVlSlJhsd0Ukbo8BpOK22SpD
+         t+rKpo8r7Ju9oD46ukNnv5CCesxdmrtzxiXNP+EPcjs7uGFJ/5wqnxgiGQeonzJSNdK1
+         SExA42QzHjCNgRvKSZUeFfGzUfcd6rx2SpRIz+MsQFHHT7j/kMjfy2FsrvL1nc1bLWNO
+         ZCn72cVQZQe/+UnfjVoO+WhCxmtPyhIOHL4bMj1ebwEgE9mHEnoKtS3kLsQyQ0jn8TRb
+         TCNA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=qa5xbbgS;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d41 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NwWt2Olm;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::143 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-io1-xd41.google.com (mail-io1-xd41.google.com. [2607:f8b0:4864:20::d41])
-        by gmr-mx.google.com with ESMTPS id l126si2475ybf.4.2020.07.14.13.08.16
+Received: from mail-il1-x143.google.com (mail-il1-x143.google.com. [2607:f8b0:4864:20::143])
+        by gmr-mx.google.com with ESMTPS id e22si138146pjr.0.2020.07.14.13.10.26
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Jul 2020 13:08:16 -0700 (PDT)
-Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d41 as permitted sender) client-ip=2607:f8b0:4864:20::d41;
-Received: by mail-io1-xd41.google.com with SMTP id y2so18675580ioy.3
-        for <clang-built-linux@googlegroups.com>; Tue, 14 Jul 2020 13:08:16 -0700 (PDT)
-X-Received: by 2002:a05:6638:2591:: with SMTP id s17mr7925053jat.23.1594757296233;
- Tue, 14 Jul 2020 13:08:16 -0700 (PDT)
+        Tue, 14 Jul 2020 13:10:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::143 as permitted sender) client-ip=2607:f8b0:4864:20::143;
+Received: by mail-il1-x143.google.com with SMTP id o3so15286156ilo.12
+        for <clang-built-linux@googlegroups.com>; Tue, 14 Jul 2020 13:10:25 -0700 (PDT)
+X-Received: by 2002:a92:290a:: with SMTP id l10mr6797006ilg.204.1594757425513;
+ Tue, 14 Jul 2020 13:10:25 -0700 (PDT)
 MIME-Version: 1.0
 References: <20200629140928.858507-1-nivedita@alum.mit.edu>
  <20200714023836.2310569-1-nivedita@alum.mit.edu> <CA+icZUXSPfybFtzQB3wKn9spQmEPnQu_iGPWkRisAmRQbJLWXA@mail.gmail.com>
  <20200714141550.GA329060@rani.riverdale.lan> <CA+icZUU88wYmyycthW7AQUZ72HGa9RWPZmxVS5Gm6UW=6ES9kA@mail.gmail.com>
  <CA+icZUWHdsk9+wkTZOdDghM7pRZyk2vHgxpYx62vPooqohzbYw@mail.gmail.com>
  <20200714192956.GA689174@rani.riverdale.lan> <CA+icZUXoZzhUMRsVVexazd=oFK4vKa1KJN5=_KXz+fcYxcA4Rw@mail.gmail.com>
-In-Reply-To: <CA+icZUXoZzhUMRsVVexazd=oFK4vKa1KJN5=_KXz+fcYxcA4Rw@mail.gmail.com>
+ <20200714200728.GA894572@rani.riverdale.lan>
+In-Reply-To: <20200714200728.GA894572@rani.riverdale.lan>
 Reply-To: sedat.dilek@gmail.com
 From: Sedat Dilek <sedat.dilek@gmail.com>
-Date: Tue, 14 Jul 2020 22:08:04 +0200
-Message-ID: <CA+icZUXBggJtwtWmyXEwgu1WztrcTiLrZCW1_QqSw2SiThOkfQ@mail.gmail.com>
+Date: Tue, 14 Jul 2020 22:10:14 +0200
+Message-ID: <CA+icZUV9_ox9q+yANQQ-6X41fRb5K7mMn3NSh0_E9R1hO4oC4g@mail.gmail.com>
 Subject: Re: [PATCH v4 0/7] x86/boot: Remove runtime relocations from
  compressed kernel
 To: Arvind Sankar <nivedita@alum.mit.edu>
@@ -137,8 +138,8 @@ Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borisl
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: sedat.dilek@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=qa5xbbgS;       spf=pass
- (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d41
+ header.i=@gmail.com header.s=20161025 header.b=NwWt2Olm;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::143
  as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
  (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
@@ -153,74 +154,33 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jul 14, 2020 at 9:53 PM Sedat Dilek <sedat.dilek@gmail.com> wrote:
+On Tue, Jul 14, 2020 at 10:07 PM Arvind Sankar <nivedita@alum.mit.edu> wrote:
 >
-> On Tue, Jul 14, 2020 at 9:29 PM Arvind Sankar <nivedita@alum.mit.edu> wrote:
+> On Tue, Jul 14, 2020 at 09:53:19PM +0200, Sedat Dilek wrote:
 > >
-> > On Tue, Jul 14, 2020 at 08:30:14PM +0200, Sedat Dilek wrote:
-> > > > I did a full new build...
-> > > >
-> > > > ...and it fails with ld.lld-11 as linker:
-> > > >
-> > > > ld.lld-11 -m elf_x86_64 -pie  --no-dynamic-linker -r -o
-> > > > arch/x86/boot/compressed/.tmp_misc.o arch/x86/boot/compressed/misc.o
-> > > > -T arch/x86/boot/compressed/.tmp_misc.ver; mv -f
-> > > > arch/x86/boot/compressed/.tmp_misc.o arch/x86/boot/compressed/misc.o;
-> > > > rm -f arch/x86/boot/compressed/.tmp_misc.ver; fi
-> > > > *** ld.lld-11: error: -r and -pie may not be used together ***
-> > > > make[5]: *** [scripts/Makefile.build:281:
-> > > > arch/x86/boot/compressed/misc.o] Error 1
-> > > >
-> > > > It's annoying to fail on the last minutes of a build.
-> > > > Sorry for being very honest.
-> > > >
-> > >
-> > > I applied this diff...
-> > >
-> > > $ git diff arch/x86/boot/compressed/Makefile
-> > > diff --git a/arch/x86/boot/compressed/Makefile
-> > > b/arch/x86/boot/compressed/Makefile
-> > > index 789d5d14d8b0..9ba52a656838 100644
-> > > --- a/arch/x86/boot/compressed/Makefile
-> > > +++ b/arch/x86/boot/compressed/Makefile
-> > > @@ -51,7 +51,10 @@ UBSAN_SANITIZE :=n
-> > >  KBUILD_LDFLAGS := -m elf_$(UTS_MACHINE)
-> > >  # Compressed kernel should be built as PIE since it may be loaded at any
-> > >  # address by the bootloader.
-> > > +# LLD linker does not allow -r and -pie options to be used together.
-> > > +ifndef CONFIG_LD_IS_LLD
-> > >  KBUILD_LDFLAGS += -pie $(call ld-option, --no-dynamic-linker)
-> > > +endif
-> > >  LDFLAGS_vmlinux := -T
-> > >
-> > >  hostprogs      := mkpiggy
-> > >
-> > > ...and was able to build, assemble, link arch/x86/boot/compressed/*.
-> > >
-> > > - Sedat -
+> > Hmm, you might be right with moving to LDFLAGS_vmlinux.
 > >
-> > Thanks for the test.
+> > Attached are my linux-config and dmesg-output.
 > >
-> > Can you share your .config? The error messages look like they're coming
-> > from running modversions on misc.o, which is unexpected as it shouldn't
-> > have any exported symbols, and it doesn't in my builds.
-> >
-> > In any case, I think the right fix here would be to add -pie and
-> > --no-dynamic-linker to LDFLAGS_vmlinux instead of KBUILD_LDFLAGS.
+> > - Sedat -
 >
-> Hmm, you might be right with moving to LDFLAGS_vmlinux.
+> Which tree are you building against? I notice you have KERNEL_ZSTD
+> enabled, which hasn't been merged yet.
 >
+> Are you using Nick's series [v7]?
+>
+> Also from the naming -- are you using LLVM_IAS=1 with some patches to
+> make it work?
+>
+> [v7] https://lore.kernel.org/lkml/20200708185024.2767937-1-nickrterrell@gmail.com/
 
-We will need the "ifndef CONFIG_LD_IS_LLD" as -r and -pie cannot be
-used together.
-Is that the or not the fact when moving to LDFLAGS_vmlinux?
-
-I cannot test as I modified my local Git and re-invoking my
-build-script is doing a whole new build-dance.
+Sorry for not telling you the full story.
+Yes, I have some additional patches like Nick T. "zstd-v7" which
+should IMHO not touch this area.
 
 - Sedat -
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUXBggJtwtWmyXEwgu1WztrcTiLrZCW1_QqSw2SiThOkfQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUV9_ox9q%2ByANQQ-6X41fRb5K7mMn3NSh0_E9R1hO4oC4g%40mail.gmail.com.
