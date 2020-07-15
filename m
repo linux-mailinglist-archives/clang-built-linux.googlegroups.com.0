@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB3P6XT4AKGQEE6NA7MQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBJVKXX4AKGQEYORSVAQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x338.google.com (mail-ot1-x338.google.com [IPv6:2607:f8b0:4864:20::338])
-	by mail.lfdr.de (Postfix) with ESMTPS id 19128221394
-	for <lists+clang-built-linux@lfdr.de>; Wed, 15 Jul 2020 19:39:59 +0200 (CEST)
-Received: by mail-ot1-x338.google.com with SMTP id w9sf1317436oti.18
-        for <lists+clang-built-linux@lfdr.de>; Wed, 15 Jul 2020 10:39:59 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1594834798; cv=pass;
+Received: from mail-ua1-x93a.google.com (mail-ua1-x93a.google.com [IPv6:2607:f8b0:4864:20::93a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7DBD22214E5
+	for <lists+clang-built-linux@lfdr.de>; Wed, 15 Jul 2020 21:12:39 +0200 (CEST)
+Received: by mail-ua1-x93a.google.com with SMTP id h19sf712191uac.14
+        for <lists+clang-built-linux@lfdr.de>; Wed, 15 Jul 2020 12:12:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1594840358; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EfEd96r/TvJSONF/bnBBol4xTbUPuTdy9HYxCCD8VDN6orXdqfTCwnvihDkqshRKqt
-         dNME2PhjWgZ5HutyX0yd74rvTRSIZjSpGAg71LiiQU5/AZ+ZC2HbiTXVs24rI3DLg8Fv
-         woOkrw+rlv7lPFhiqAoLePwOFAyZVAq9G/mNKeRkFdy0ytD+Lx1R2RaqLa9dk5M32vHR
-         eRVAswbslxVLlIfWFrF+Ji+luvG3ScmB/xkuyiAGX1vW/RtzeyBd+PSVjySvC1C3hpzG
-         fmD/UgL4tDzUvlSK2qIQvDdmtwJrY+b4G3W5515nrSwPMZpqNjoNhwukOPT2F6RtRXlN
-         1wiw==
+        b=IeEeoHhot47kKY/7+THWyFL9fMSniJJcnIW5vEtuVcbRthVKE8VETnXKJSGxMNec/V
+         jfBJfWq+wQbEbPjWoLRmhBKEOASd9NWjTcZHpr8bLGKahfWnQVvHEnqno8ATRkonk/ff
+         2awueE3gXYZWan+c3rUvANGhqu04AjqGrn7AMXmH8n8gh5Ep3SurvjE4eq3AQkMje1lh
+         RrZ7T1r+4KJ9Z2VUdK7dwKTCqpYnMCj6qewfVfByr/E7dq4/165iyUQZEceTpGtz7GWO
+         98MzY8k//XbjJozfhndU7E8YUQqup99B0yaQBGt+Dza/AcByzWS+blyAP7HscNvp4K5U
+         zCzQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=0NNsp6qTsrrRrTogpO1y04PBzQ9jn2nXkrI/45lJI5M=;
-        b=DPlJxImOIdVDUVehB+2ZkV6+yPdV+Fs5KQRMx+Nhsjbcpj7nfWpisGID/3UaEWUinn
-         Ee/wP6nmaRy5MZ+5fAmiX4sQ9x4S9RxYo7FcDWB8hNrvOxAeAPMqeGqh6xqQXwcaKWUP
-         tRYaAyrzrCpTwnqHBzf7Fudpz3M630cn6cjzxvnSuzj6X8IJSKc9AcIyv3vEmgePlSTK
-         wPbNcgzpmRbmAOUmh2JLuQXbAErUMNKgkXIymhzdSgI5eoSKoc//tK9R/OB9YFClkJTo
-         Rc2UFDZaK+CkeFrUxZXCQ2sVdsRlzOVk1uemU20dUbieS3a1t+kDyWMafmlfXz5Jd4/o
-         Ei9g==
+        bh=ZecnrmKI57FXfitQG2Vp2UaA8k77x1k6RewzIUPJ5YY=;
+        b=0GkdU/K6OlL6H0h1Pc+K6AAq1gl2c8Zq0kXebqzfPebGNVJTWAWvsWNisEaODVJnWw
+         euthk2vw6odPj52LSKCceDQsbyE6+zFiKR5KNYHM0qWvoSQC1GmXMciGFXl12ZEWp2U7
+         ZTcgJROlpuRyVGRCoEieJJDMIq98Hq6GnieMkcnnj0SmV5OQHNFAdd0dN+sGKwPspO3c
+         MzPNn8TpsP9/pKri8cw8zNAjVVsKwKbXqL4j1fLMTMYXNoazC37TttBL9wEfqafrbjQl
+         2mQeHTc/8lqaX7lAwOt0yjjOhiGf7vz0P5g4opM6UoYoXzYFZOAGehamy8Vl4AZzXfsb
+         Pl0A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=0NNsp6qTsrrRrTogpO1y04PBzQ9jn2nXkrI/45lJI5M=;
-        b=fNEAr2sSt4YuhCo8MC6yJWT5avVjFIhlNvVOpBchT3ZyABe75gks0ZNOYa6TgMoNMH
-         iNvX3s5auGEJeKQgEzU/0AyJyCvjko+AoKHAZjj//ipT7VxGN8drH0TVNh0TXF2A+cs3
-         8ypvqlBmUy0qlfHynePHipbM0wt3INec66r5erw63r/AwO8xRaJ7swuNlVLml0uTW0tB
-         w0HYLg0JAAD2Nh3cvKH4l5rpzzvAWesCzSYlSNBUNHCBdjsOqkLRep0XY2TsKV15Qoi5
-         Ec23S3uSk86/DyLCEoeW8eN17ZNVU/bqlv2ibK9Jr4BXGpdTRXT4VSuegYncmFM11iZK
-         XyWA==
+        bh=ZecnrmKI57FXfitQG2Vp2UaA8k77x1k6RewzIUPJ5YY=;
+        b=KQtR2AqLbuuOogH6SJtOtZQkT13N6p0XwkJwNuExgsDn3TYY65WdzOHs847uDRZRcD
+         VmH3HT4dG4dw36KM1fEOrfhgzStc70AlfGiK7zVclhfNr0H4uy12QY5aEIwac/mZhwLM
+         JgtDG8zey8i+iF/QLRRLP6Yj/lmTvMoTokNGXE4fs6rKe8ezCvnM9xlUL6/CQUU4jemz
+         2LPnNGkTkDQ1SqRnW+VoqW6qHdH7zmYsRKfV7iscatBgcpg2DGrOTkKADaUyWWEX1zye
+         bOoY48ch+CrKVt6wIPv91WHXCHXPGjSAyJYBG0u3o1vDeHM9JjQxe6psuAwqczz8KcC5
+         3Aqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -51,88 +51,87 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=0NNsp6qTsrrRrTogpO1y04PBzQ9jn2nXkrI/45lJI5M=;
-        b=ePuxCSnGVZaroKtw5MgMqAsiM+MDBzbw/Mu4GDEVVsApj5oI3OaCTdkXiwEtMLgHoG
-         /f4pfJbO0m8JXr2WZLl2viwjkWQIlGXxabpOf8pYfzStD6GrV0u6BMEcmK1t+2SYKgBx
-         POlCJNqYAkyNVQDvoWbS6hVaoMhkaINBK5L5TsG9tZUvWKlzwXqVIqd2g40QGHmoQ8lK
-         6pyyWjEFvuu5PwlI4q5OeAKkEH7q4weOtFQMzBYIDggD/iF0xrta6BYAFrjoDMK3QfOZ
-         k6+Liu2VVAV+2tL6B+JbWpudkqHz9GWHrr8NAP0rz0Di1BX1BErztm5ryHwRdPaQAdRR
-         +0QA==
+        bh=ZecnrmKI57FXfitQG2Vp2UaA8k77x1k6RewzIUPJ5YY=;
+        b=nsV4mG2Xq20m+Wv7Zyxqli/ltAbJSJGTHlDVaX0BjN9aog/HmeqYUoqS6L2ZJZMstG
+         KoMQwURS6tK1pWdj7dmU0s31h1LViD36i+6vh5OUtojyXIHhr+KSRRAAPMrZZuf6RHrS
+         FgDWDXF4dIS93pmCxn7yxEZBp3kP9vF6eBG3t/TTSTvrarq709+JUmwu2sOQcShGwuyg
+         Opd4YYI0/BqW8nlwGtJ706vZN2H4SQEDrULbD+0J38VLerL5P2jCzqIyU0gpOeCNyci8
+         INGrPIFPvXUHRnbBiTz+uUJt/4TG4u6U4D0YhBkx6dEEyqhd9nmRL7JkZ9/Q1Wckt20B
+         W+Rg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532xPRz9igmC6V12tcDz4gcf7a1FsaoZAq8TxMNdmvqS72/aFVBl
-	EirpMaTjznsON7WssMQowxs=
-X-Google-Smtp-Source: ABdhPJzLn2B6U82m5PnOSi2Wx2bnvklUbxEBTjg0noXP9kHIOoU/UgO1OOLZuy2q2u2A6FR+x3LR/g==
-X-Received: by 2002:a05:6830:4aa:: with SMTP id l10mr698872otd.214.1594834797854;
-        Wed, 15 Jul 2020 10:39:57 -0700 (PDT)
+X-Gm-Message-State: AOAM531/o5uktHK3aHjaajn+1O0DtiyuEw7AAfExa+LnZ6/mYlTYrSjf
+	Wo6jxHDcJFuKrdl8Ee9NLvs=
+X-Google-Smtp-Source: ABdhPJxjEPMbD3WPmH/IFWKKMzDJ4xpExGlfMxD+NkCdDrBC3x0LNIlBPr23p1QQE/9ltuWxCxYqLg==
+X-Received: by 2002:a05:6102:3188:: with SMTP id c8mr609585vsh.61.1594840358328;
+        Wed, 15 Jul 2020 12:12:38 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:92d0:: with SMTP id j16ls34109ooh.9.gmail; Wed, 15 Jul
- 2020 10:39:57 -0700 (PDT)
-X-Received: by 2002:a4a:d63d:: with SMTP id n29mr297485oon.74.1594834797368;
-        Wed, 15 Jul 2020 10:39:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1594834797; cv=none;
+Received: by 2002:a67:3244:: with SMTP id y65ls412055vsy.10.gmail; Wed, 15 Jul
+ 2020 12:12:38 -0700 (PDT)
+X-Received: by 2002:a05:6102:3233:: with SMTP id x19mr587095vsf.112.1594840357812;
+        Wed, 15 Jul 2020 12:12:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1594840357; cv=none;
         d=google.com; s=arc-20160816;
-        b=y8FCtUdEonolMHhPQrX0dmDCsbKfwSwiIW1bbR6AWmMr8RpUJAUVfXUy3r2ade/ELL
-         f8+Vv+wFlCF+s3qzP8wigUP8Zcnh3lJQCY1rUa1dA0isITjxpqDG/hrMBTnJ1gKdvaTI
-         6+Ib5F9wEz2pRU75kGXHpyn+cUWHh8dCP38LL661I1B72Pip0nNeL3XViO3tfM4Wp6YH
-         hSoL5p02LSPB8+USeuUooZD/K7T+Feqw0tdoBSy+G1mmH6RrkFap/D0a+MMMwM4+MK+L
-         +RxdKAvWW0aWYMx1/aLaw9fL8RClg55xzC2CurJyIRBPlQUWJtKoKbZkEin+Z/0+xU4f
-         XVMQ==
+        b=Nd4RU6kUytqX60ylzsODAboVsu9WzARErtgD0uZU26Oc8Hd8X1/NFl+qasQrS+ulgB
+         oV6IybwPJpxi+e7V7Fpx89mxwvVPVe4dRVpkwdbvSM2S8fBBEKedWzrZcl5ng+o4VZNw
+         gIEA+cbFKHqvSwkFD1b5+/VM4dqVQny84n/016jxo/Pfdnbj0DLM5+sS/aLopeRanblO
+         tF8W6CbP4XQknRW+uaPzc9UGySQQ4uJWliWLvEyLj5gl6h9hw6lO9kDcngfg3W+Dy4n1
+         9EVs/m4uEl+E/K+h5X65qFM1p94mRzS+dmBfgtly/2dlx61Ldv5E4aXDQHIWAOl6qtDt
+         1S0g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=D2YIU8haO/3A4Xn2cTcdjrP1pjN85QMQA0hRsHvSFxk=;
-        b=tPMP07s5yGKmLhuLZJlu9R5k5BOWK4O/Ob8vCQakFTbZjShMeuNI1RnxJCobbeXgea
-         pWIPw++fYtw/O57uT6CRj5qQ8fUE+BWBeKaLHDbKqN3f0G1EpC4MaSirtx6C28f+OKxA
-         FdaSTnCGJPOmX5NethWoUwEdqrmA4eAzCZHpn9UiBh6b2iW2hqCgIVFU0I5AZm1IzwGE
-         NYU8T2y+/+pamKcBAWIbd5eWPjXEvDS+n6+ucKhjt29txQlKfkhvInQvyFqZbe/ffzcX
-         2dLgqjoJ8Nii6BDOJrwy1nHsqqOcElK/6Bcix/ZEkB0jRC+P7lkI8NucYxv0049M1yoG
-         7rUQ==
+        bh=r5tYQ+1KNQr+j67r3ElHHzoZ4DDlejk1KmaAAxVO6z4=;
+        b=HMZjAKzsa5V69a9CjVjl78P1EIC1iN/tnv1KgAl+/gXjuNFLyjyn4yBFuUsMzNpk6m
+         6WoRuWUhsp2tRUxxzF7M0SXgFys5GbZyRY2K7ZKE0uvxQTbk5hBPgPrftCt727/mEsm9
+         K5+7Y75GIVE0Y1baXcmqEK+PShtiWQUhbJ6sHeZGwC2/NBZlGME+ENPttKEGUP1b//SU
+         H7/ohfH0LoLnqa6hMOtfwf1Q7XMuqESku7HCd6WqJnwwjBitCj4akWWQwyPzYCUzkeVq
+         BaXle42Rm3b+KZDd7sr4GjNh7oFq/NKjJRsqhHsICCslm7wBcWjmX5ZawIyrkw/Uhmbh
+         gd0Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
-        by gmr-mx.google.com with ESMTPS id j2si133589otr.0.2020.07.15.10.39.56
+Received: from mga17.intel.com (mga17.intel.com. [192.55.52.151])
+        by gmr-mx.google.com with ESMTPS id t26si196065uap.0.2020.07.15.12.12.36
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 15 Jul 2020 10:39:57 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
-IronPort-SDR: ykzGiD0wSI4clgw9WNjoAeW1sM/0RyjGy01SZDbYiSFAoMHVa2GVSkq5lDZPnHpRcq02D6t51/
- L4H0ewYGdlOA==
-X-IronPort-AV: E=McAfee;i="6000,8403,9683"; a="148375297"
+        Wed, 15 Jul 2020 12:12:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) client-ip=192.55.52.151;
+IronPort-SDR: k+2y9yoFn+d2nOGa3mAug2qXGwXmLO35RpySAA0sz1pwReWbRXZWP+0xU0LETQWfFjtAlbn2yc
+ wPROJkgkMbuw==
+X-IronPort-AV: E=McAfee;i="6000,8403,9683"; a="129323369"
 X-IronPort-AV: E=Sophos;i="5.75,356,1589266800"; 
-   d="gz'50?scan'50,208,50";a="148375297"
+   d="gz'50?scan'50,208,50";a="129323369"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2020 10:39:55 -0700
-IronPort-SDR: J8H5JducbhjsvCz7jzxe8deoM84bV2RWiuPSKrv0kMZY2qVLMYQ0RvBJYvanAw8KCPgu/2Us7o
- bucZfUZ5BCiA==
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2020 12:12:34 -0700
+IronPort-SDR: D2CvU8E943akEtwIuXGRA/QlYPYUhUtOL7tC5KnhsYUcPJOhNAkzYJ3xqINyWKXAV/oZ0Q5Ute
+ v2ar4BGE73mA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.75,356,1589266800"; 
-   d="gz'50?scan'50,208,50";a="286180802"
+   d="gz'50?scan'50,208,50";a="360801719"
 Received: from lkp-server01.sh.intel.com (HELO e5b4d2dd85a6) ([10.239.97.150])
-  by orsmga006.jf.intel.com with ESMTP; 15 Jul 2020 10:39:52 -0700
+  by orsmga001.jf.intel.com with ESMTP; 15 Jul 2020 12:12:31 -0700
 Received: from kbuild by e5b4d2dd85a6 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1jvlNo-00003w-04; Wed, 15 Jul 2020 17:39:52 +0000
-Date: Thu, 16 Jul 2020 01:39:32 +0800
+	id 1jvmpS-00005F-HR; Wed, 15 Jul 2020 19:12:30 +0000
+Date: Thu, 16 Jul 2020 03:11:59 +0800
 From: kernel test robot <lkp@intel.com>
 To: Nikolay Borisov <nborisov@suse.com>, linux-btrfs@vger.kernel.org
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
 	Nikolay Borisov <nborisov@suse.com>
-Subject: Re: [PATCH 2/5] btrfs: Factor out loop logic from
- btrfs_free_extra_devids
-Message-ID: <202007160110.Zhoqzwph%lkp@intel.com>
-References: <20200715104850.19071-3-nborisov@suse.com>
+Subject: Re: [PATCH 5/5] btrfs: Switch seed device to list api
+Message-ID: <202007160321.5RmSoWEQ%lkp@intel.com>
+References: <20200715104850.19071-6-nborisov@suse.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="Q68bSM7Ycu6FN28Q"
+Content-Type: multipart/mixed; boundary="3MwIy2ne0vdjdPXF"
 Content-Disposition: inline
-In-Reply-To: <20200715104850.19071-3-nborisov@suse.com>
+In-Reply-To: <20200715104850.19071-6-nborisov@suse.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -148,16 +147,17 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---Q68bSM7Ycu6FN28Q
+--3MwIy2ne0vdjdPXF
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 Hi Nikolay,
 
-Thank you for the patch! Perhaps something to improve:
+Thank you for the patch! Yet something to improve:
 
-[auto build test WARNING on kdave/for-next]
-[also build test WARNING on v5.8-rc5 next-20200715]
+[auto build test ERROR on kdave/for-next]
+[also build test ERROR on next-20200715]
+[cannot apply to v5.8-rc5]
 [If your patch is applied to the wrong git tree, kindly drop us a note.
 And when submitting patch, we suggest to use '--base' as documented in
 https://git-scm.com/docs/git-format-patch]
@@ -177,83 +177,62 @@ reproduce (this is a W=1 build):
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
-All warnings (new ones prefixed by >>):
+All errors (new ones prefixed by >>):
 
-   In file included from fs/btrfs/volumes.c:17:
+   In file included from fs/btrfs/super.c:30:
+   In file included from fs/btrfs/delayed-inode.h:17:
    fs/btrfs/ctree.h:2271:8: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
    size_t __const btrfs_get_num_csums(void);
           ^~~~~~~~
-   In file included from fs/btrfs/volumes.c:28:
+   In file included from fs/btrfs/super.c:46:
    fs/btrfs/sysfs.h:16:14: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
    const char * const btrfs_feature_set_name(enum btrfs_feature_set set);
                 ^~~~~~
->> fs/btrfs/volumes.c:1029:6: warning: no previous prototype for function '__btrfs_free_extra_devids' [-Wmissing-prototypes]
-   void __btrfs_free_extra_devids(struct btrfs_fs_devices *fs_devices, int step,
-        ^
-   fs/btrfs/volumes.c:1029:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
-   void __btrfs_free_extra_devids(struct btrfs_fs_devices *fs_devices, int step,
-   ^
-   static 
-   3 warnings generated.
+>> fs/btrfs/super.c:2404:30: error: no member named 'seed' in 'struct btrfs_fs_devices'
+                   cur_devices = cur_devices->seed;
+                                 ~~~~~~~~~~~  ^
+   2 warnings and 1 error generated.
 
-vim +/__btrfs_free_extra_devids +1029 fs/btrfs/volumes.c
+vim +2404 fs/btrfs/super.c
 
-  1026	
-  1027	
-  1028	
-> 1029	void __btrfs_free_extra_devids(struct btrfs_fs_devices *fs_devices, int step,
-  1030				       struct btrfs_device **latest_dev)
-  1031	{
-  1032		struct btrfs_device *device, *next;
-  1033	
-  1034		/* This is the initialized path, it is safe to release the devices. */
-  1035		list_for_each_entry_safe(device, next, &fs_devices->devices, dev_list) {
-  1036			if (test_bit(BTRFS_DEV_STATE_IN_FS_METADATA,
-  1037				     &device->dev_state)) {
-  1038				if (!test_bit(BTRFS_DEV_STATE_REPLACE_TGT,
-  1039					      &device->dev_state) &&
-  1040				    !test_bit(BTRFS_DEV_STATE_MISSING,
-  1041					      &device->dev_state) &&
-  1042				    (!*latest_dev ||
-  1043				     device->generation > (*latest_dev)->generation)) {
-  1044					*latest_dev = device;
-  1045				}
-  1046				continue;
-  1047			}
-  1048	
-  1049			if (device->devid == BTRFS_DEV_REPLACE_DEVID) {
-  1050				/*
-  1051				 * In the first step, keep the device which has
-  1052				 * the correct fsid and the devid that is used
-  1053				 * for the dev_replace procedure.
-  1054				 * In the second step, the dev_replace state is
-  1055				 * read from the device tree and it is known
-  1056				 * whether the procedure is really active or
-  1057				 * not, which means whether this device is
-  1058				 * used or whether it should be removed.
-  1059				 */
-  1060				if (step == 0 || test_bit(BTRFS_DEV_STATE_REPLACE_TGT,
-  1061							  &device->dev_state)) {
-  1062					continue;
-  1063				}
-  1064			}
-  1065			if (device->bdev) {
-  1066				blkdev_put(device->bdev, device->mode);
-  1067				device->bdev = NULL;
-  1068				fs_devices->open_devices--;
-  1069			}
-  1070			if (test_bit(BTRFS_DEV_STATE_WRITEABLE, &device->dev_state)) {
-  1071				list_del_init(&device->dev_alloc_list);
-  1072				clear_bit(BTRFS_DEV_STATE_WRITEABLE, &device->dev_state);
-  1073				if (!test_bit(BTRFS_DEV_STATE_REPLACE_TGT,
-  1074					      &device->dev_state))
-  1075					fs_devices->rw_devices--;
-  1076			}
-  1077			list_del_init(&device->dev_list);
-  1078			fs_devices->num_devices--;
-  1079			btrfs_free_device(device);
-  1080		}
-  1081	
+9e7cc91a6d18a4 Wang Xiaoguang  2016-08-01  2377  
+9c5085c147989d Josef Bacik     2012-06-05  2378  static int btrfs_show_devname(struct seq_file *m, struct dentry *root)
+9c5085c147989d Josef Bacik     2012-06-05  2379  {
+9c5085c147989d Josef Bacik     2012-06-05  2380  	struct btrfs_fs_info *fs_info = btrfs_sb(root->d_sb);
+9c5085c147989d Josef Bacik     2012-06-05  2381  	struct btrfs_fs_devices *cur_devices;
+9c5085c147989d Josef Bacik     2012-06-05  2382  	struct btrfs_device *dev, *first_dev = NULL;
+9c5085c147989d Josef Bacik     2012-06-05  2383  	struct list_head *head;
+9c5085c147989d Josef Bacik     2012-06-05  2384  
+88c14590cdd6f3 David Sterba    2018-03-16  2385  	/*
+88c14590cdd6f3 David Sterba    2018-03-16  2386  	 * Lightweight locking of the devices. We should not need
+88c14590cdd6f3 David Sterba    2018-03-16  2387  	 * device_list_mutex here as we only read the device data and the list
+88c14590cdd6f3 David Sterba    2018-03-16  2388  	 * is protected by RCU.  Even if a device is deleted during the list
+88c14590cdd6f3 David Sterba    2018-03-16  2389  	 * traversals, we'll get valid data, the freeing callback will wait at
+52042d8e82ff50 Andrea Gelmini  2018-11-28  2390  	 * least until the rcu_read_unlock.
+88c14590cdd6f3 David Sterba    2018-03-16  2391  	 */
+88c14590cdd6f3 David Sterba    2018-03-16  2392  	rcu_read_lock();
+9c5085c147989d Josef Bacik     2012-06-05  2393  	cur_devices = fs_info->fs_devices;
+9c5085c147989d Josef Bacik     2012-06-05  2394  	while (cur_devices) {
+9c5085c147989d Josef Bacik     2012-06-05  2395  		head = &cur_devices->devices;
+88c14590cdd6f3 David Sterba    2018-03-16  2396  		list_for_each_entry_rcu(dev, head, dev_list) {
+e6e674bd4d54fe Anand Jain      2017-12-04  2397  			if (test_bit(BTRFS_DEV_STATE_MISSING, &dev->dev_state))
+aa9ddcd4b55571 Josef Bacik     2012-08-02  2398  				continue;
+0aeb8a6e67cdde Anand Jain      2014-06-30  2399  			if (!dev->name)
+0aeb8a6e67cdde Anand Jain      2014-06-30  2400  				continue;
+9c5085c147989d Josef Bacik     2012-06-05  2401  			if (!first_dev || dev->devid < first_dev->devid)
+9c5085c147989d Josef Bacik     2012-06-05  2402  				first_dev = dev;
+9c5085c147989d Josef Bacik     2012-06-05  2403  		}
+9c5085c147989d Josef Bacik     2012-06-05 @2404  		cur_devices = cur_devices->seed;
+9c5085c147989d Josef Bacik     2012-06-05  2405  	}
+9c5085c147989d Josef Bacik     2012-06-05  2406  
+672d599041c862 Misono Tomohiro 2018-08-02  2407  	if (first_dev)
+672d599041c862 Misono Tomohiro 2018-08-02  2408  		seq_escape(m, rcu_str_deref(first_dev->name), " \t\n\\");
+672d599041c862 Misono Tomohiro 2018-08-02  2409  	else
+9c5085c147989d Josef Bacik     2012-06-05  2410  		WARN_ON(1);
+88c14590cdd6f3 David Sterba    2018-03-16  2411  	rcu_read_unlock();
+9c5085c147989d Josef Bacik     2012-06-05  2412  	return 0;
+9c5085c147989d Josef Bacik     2012-06-05  2413  }
+9c5085c147989d Josef Bacik     2012-06-05  2414  
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -262,14 +241,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202007160110.Zhoqzwph%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202007160321.5RmSoWEQ%25lkp%40intel.com.
 
---Q68bSM7Ycu6FN28Q
+--3MwIy2ne0vdjdPXF
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICHcyD18AAy5jb25maWcAlDxbe9S4ku/nV/THvMw8DJOEkIHdjwfZlrtF25aR5E43L/pC
+H4sICHlJD18AAy5jb25maWcAlDxbe9S4ku/nV/THvMw8DJOEkIHdjwfZlrtF25aR5E43L/pC
 0jDZDQknlznw77dK8qUkqzMsD4CrSvdS3dW//OuXBXt6vPt68Xh9eXFz82PxZX+7v7943F8t
 Pl/f7P97UchFI82CF8K8BOLq+vbp+x/f35zZs9PF65dvXh79fn95uljv72/3N4v87vbz9Zcn
 aH99d/uvX/6Vy6YUS5vndsOVFrKxhm/NuxeXNxe3XxZ/7+8fgG5xfPzy6OXR4tcv14//9ccf
@@ -1666,4 +1645,4 @@ Fb9rXX7KThNxdM1vrxg3Lzm8BPI4wjeYtsIAxw4X7ZZcv1ThVbzIikhAPZdTZpLGWQjbOjlw
 0mQXl9pMhSclLaTawuARZ+IIgDjzoJuMCBBgEbrsNUyOXSt9PpOzqJPrrOPUkD9v0YeZOgY8
 +rYrQi0ZcQr+P7WqSxPf0wQA
 
---Q68bSM7Ycu6FN28Q--
+--3MwIy2ne0vdjdPXF--
