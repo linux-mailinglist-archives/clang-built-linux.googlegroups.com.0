@@ -1,136 +1,146 @@
-Return-Path: <clang-built-linux+bncBDLPBFGXVMCRBXUGXL4AKGQEBMD7U5Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD26TVH6RINBBTE6XL4AKGQEIENOGWA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3e.google.com (mail-oo1-xc3e.google.com [IPv6:2607:f8b0:4864:20::c3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id D3D08220345
-	for <lists+clang-built-linux@lfdr.de>; Wed, 15 Jul 2020 06:17:35 +0200 (CEST)
-Received: by mail-oo1-xc3e.google.com with SMTP id j13sf330295ooe.22
-        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Jul 2020 21:17:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1594786654; cv=pass;
+Received: from mail-pg1-x53d.google.com (mail-pg1-x53d.google.com [IPv6:2607:f8b0:4864:20::53d])
+	by mail.lfdr.de (Postfix) with ESMTPS id E74CB220437
+	for <lists+clang-built-linux@lfdr.de>; Wed, 15 Jul 2020 07:08:29 +0200 (CEST)
+Received: by mail-pg1-x53d.google.com with SMTP id o34sf1875996pgm.18
+        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Jul 2020 22:08:29 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1594789708; cv=pass;
         d=google.com; s=arc-20160816;
-        b=SlX/MIjKAD4G+40UjovmUDeNRIMgj9Cc98iR5LviCWjtVuIdPB0SEqyWbEkq2+ucFq
-         gdw++rbKXunMq19xcljnNl1qW7wneZSCz+HDByf6rPxSxCHpFulcIjfrF7LF2Aq1JiBu
-         qY2EmPQh3BVOYm9hk0yrxYb0YX1a8j//rBxmjNsDe0H8xLqfWLA5sH0AoAaGFZX+LC0m
-         LRIeyyVDtWOcEepMbbot62uWUfuNjIgqALUemobeBknfKewer0kUi0cyZUwiKOwilfcp
-         GdfWib0jGobpF1smo5RiSkI/dSpGtzkosHvb2jGFc9cOpvhkAZsVfSXFgDnvobntH4ZQ
-         RIaw==
+        b=d2nHohT2FNawgFMOxSoOwqRjtvHGBrW5ED43pVXMHvAFHXTwXA3Z5yXzKlZY6edMZ4
+         yTICUrulb8BX8uMVC4/lOZpOb6MKDiblrq1pnQ4Ay2coOCJyfEbUnoWqFnyIoTicl4ZW
+         OxkeFb9eYnegVSjJ7R/RN9pWSs4uo7D04NOdEbt1PZ+WK13fdW2Li0Ut8TxnMfR9hFqv
+         Zvchrz5WOKaD4FQvXa92djPZAro4QWvoXfoiZBAtLcO55gsiV5L/5cLwnyzdNFtRCsoa
+         QWDHIKNST8grN9BfW4JUJQk8hh/PQAlwjg4mk7vu+DUmfMzuVVxdh7LHR12C3Pyl8yCE
+         9HNA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=K6VNIQZqpTEWp15ReV527o5INwITNZFm9zSr5sR0frg=;
-        b=zjzYxv+0qqldhq0CQ4Q3hLqzE5WxGU24LU1U6cGd0a7KIp/3Kq3R8vPK5tvNr+H4LJ
-         m6J1QwWz7zWI81mi/85qJqL5pFY2fKeZHFTxJe1wDjaYnGzvtrAzYxR2MZGBRs7r01SE
-         XETOPu8srr7UKWJHhTpK3YoiOMKxXf4oYV2K3+8eI7hggfowNHX2nSaz4BfQnfh+ADqX
-         42iH9FPqcGgk+HD3fnLGh5/Ne9muTHhz+EUhEM3k5/Ssadhe7zT1DA5Rb4HXLZ+vaZNm
-         6Bq6PjBoEeM+MoVwiHcI6WxcZKPlD1gb989CqkZsRERwKdE4/mmpg7gqbfB+apmpHiFY
-         2LMA==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=83hUOLLVNKD5XdjKdAPjabhmIQw1ReGN9Fv7FNGGGuc=;
+        b=Cje6P2ffPpMzaZ1cx5c6V0MYPI5FIm5YXp/jn2g9vU98yZCtQDdiK3gihIqkJi+3GF
+         17HLY6YqUUHty9Z6f50gAH4JKh+chq3fHBVWX/4dh+UPHAyLfXDbjDKefGw/wpBcNzdZ
+         y2kp7Cz+z88rG0LkL7WIU10dtwptSD7QwKfU7Rbc4nMQdGGz5ydDcwOQ9t7exh0kfxZy
+         LSenCCPfFt4XdP6UQslowkKfe+ljDTkwps/VLfO5imVeGSXlYSOP6YDQ6tTuGulwG/YW
+         CrDTWgN9zyGV6gIK6xFxJ9hfGBZq8nYZ2ZkEdyWrYhdRTCAp2x6XSfLC1lQGwsFW2rOV
+         ND0g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=HvI0gTSp;
-       spf=pass (google.com: domain of smfrench@gmail.com designates 2607:f8b0:4864:20::b43 as permitted sender) smtp.mailfrom=smfrench@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of rong.a.chen@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=K6VNIQZqpTEWp15ReV527o5INwITNZFm9zSr5sR0frg=;
-        b=VHvolhZpD9aqerrOBh5A+zrTGxG17GEgdg22iCYFetle1Q2/lYXhT4eyrEncDeprI2
-         rXaVXBCBH6ZsTQ4RzduvKZBc+aCS9E3jLvWNtu7kNt48+KAY+rEnXZXL+eZb37643f+j
-         gBHLEVRmkGlao7aKJC9GDaAJP3ISro07HMQur4Ok7D32S6ockeMZrctfOWMk6oYCq0Lu
-         xjst3MeuS0qKkHfiGh5kAaIZAHr0maMAypJuFIB4Rqsky6Yb8FCeLku6yqY6GOGX6s3f
-         EgUUCDXb7VNWQGBjWJpdFk/40WV5HdG7izyzszCnGpgbaYg9Ouy8sh4REa88LRZSQ9vK
-         fyXA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=K6VNIQZqpTEWp15ReV527o5INwITNZFm9zSr5sR0frg=;
-        b=iddTt0HoKqEtyEhuDujb8BZAnT5SfgR4lnEWuVZxpSmBUu2EarOv6ODDOwR76Kj2Cl
-         r/hIrfSNGhG4XeYtwVAzNAHhuUTLBl6qamoLKswA83XNTARYNuS/IeKRxKAtIGlMoEDo
-         +Af+MWkt40VFUvYrSQoInwUMpNxqd9hrBOwycx+aEg4q1EE1xyCmQH0UVQTTCzXdKKZe
-         JxcXSX8MrXjl6lBrZ8YCEiY0CbsVmtjDQPbtNe5ygBMUAtZRHYifZTe6HbNJINvaqi60
-         wOaBjU540QCfTv+nDE16sc0PIqVRCNKjmDfRIapE0eDLckhdlHsHiu4JvMdEd+9rN21F
-         iuow==
+        h=sender:ironport-sdr:ironport-sdr:subject:to:cc:references:from
+         :message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=83hUOLLVNKD5XdjKdAPjabhmIQw1ReGN9Fv7FNGGGuc=;
+        b=StFtI2SENOJZPGGUQnGXF5ih4A0g4GcmU1+G/JvhqFqCjXbLuJ1nGlbH1hlAZyJ+p9
+         y+vqOHmbahb+h3cBtSx2RPmplKusKbU4AAPLL0W9qYRT56hLvONKLHL7GuOWIkv12FJV
+         1PT6jm57WJQ5Lb1p3V7KnfZB8dFursCKhCcKT4YuVItpmRFX3i14eWeZ7aN7kZ7goEbD
+         bnXjgTz12o0ykGzVhCbsQneb3Vd/xihYu/w3oX8V5sgxlxzT3Pfv3/Mvoc46oSyedx9b
+         JGy40oVNjhtuMBNQx8iWlUhIwpUGAjHMy4EmmkiYMu9TFudCmCGYJuB+2c9B4IvR/YmG
+         jOow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:subject:to:cc
+         :references:from:message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=K6VNIQZqpTEWp15ReV527o5INwITNZFm9zSr5sR0frg=;
-        b=SGONR6Qfrz5nAEL9/FlRAb94o4l8UoONgq/S3NRd3iG5yNVXfitVIit8UZkhs3acyA
-         D1XiKEfRgwo/Bb0IxrK0BZG1BuOXaGdO0+lwmCwCwY05rdMBokSdyUbb6Izd932CHGev
-         u2IhjI6sqg1LNFOragYzd6GjevGwSmzJ1idkEuAgA43I/v8/mwVhKJbLIgSJZjF4YwF0
-         gZ3VH5Dsreh7F4psbKn6tjD+J7pE7gvDRYq4Wrde0c3lBhypbWUNk0uUi421ybwa/QS0
-         EewsehKmEEKntoXRH1sOIMm4YKDuTB2clCLsXwzAgeVyM1wJkOqOzNWoa+m8cUXD5cFZ
-         N55g==
+        bh=83hUOLLVNKD5XdjKdAPjabhmIQw1ReGN9Fv7FNGGGuc=;
+        b=Nv/Hxz8BhCJH+YcHt21uuBfqMyXsb313siQO4AJYCR29VgLW+Ei+0uFzKgpOBSQcFT
+         NjTlBe0btN8qvmxEdotNNjgCZNsvnHDCjl8cgojB5Jta7ECgHaR8BAK+E6nuF1QNoZb4
+         6Lccnxg0UzfvLUqdrHyBqzYVROB3Ja1YqmwKgwtTj4nJ5DCVzPYV+vbLNhrOS7l/kKUJ
+         DIf+yTzCRGW5KzOOoC2yIp/XsZIXaK0FZa4b60dnsjk+wjmH0jbnHtl/cwAerxdnD+28
+         nJzjdE2zWVNkFX8nFoZl7IORGj9lVCusnV9V2HxYvLaLnuq8kN5lIdEmAq25fp1p0FN1
+         WYIQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532J4MzIyz5ppTQ4m5XKgcir11zF79iUD2eI8h/RH9cvc1fa2Lac
-	pwl1uVMpkudDt9udUcush7s=
-X-Google-Smtp-Source: ABdhPJz/ZPK3Q8TVD7Ohlle4P+18ML5eqnI0mgGnV5KM3CUIWYzG67kIAh38RRz+fCCwH4/lFZPVOA==
-X-Received: by 2002:aca:5347:: with SMTP id h68mr6495441oib.168.1594786654534;
-        Tue, 14 Jul 2020 21:17:34 -0700 (PDT)
+X-Gm-Message-State: AOAM531mIE6vrTPcAfRYqB4YKXpVa6Kb/Yu81+3pVq1iynuiESnK498M
+	SR0s463spTX81o3BjsmaJtU=
+X-Google-Smtp-Source: ABdhPJxCBy5RSKufyBS51VyuQAF1pSi1rvlOObGXHKCSeC0CTUBkYL6IGpAkrK59SC5S1JfPRrKcKw==
+X-Received: by 2002:a63:4f1f:: with SMTP id d31mr6438987pgb.241.1594789708485;
+        Tue, 14 Jul 2020 22:08:28 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:1e4d:: with SMTP id e13ls193772otj.5.gmail; Tue, 14
- Jul 2020 21:17:34 -0700 (PDT)
-X-Received: by 2002:a05:6830:ca:: with SMTP id x10mr7517614oto.61.1594786654201;
-        Tue, 14 Jul 2020 21:17:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1594786654; cv=none;
+Received: by 2002:aa7:864e:: with SMTP id a14ls326908pfo.7.gmail; Tue, 14 Jul
+ 2020 22:08:28 -0700 (PDT)
+X-Received: by 2002:a63:5b55:: with SMTP id l21mr6661262pgm.348.1594789708093;
+        Tue, 14 Jul 2020 22:08:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1594789708; cv=none;
         d=google.com; s=arc-20160816;
-        b=sP2wbm4yl5ZxTeiPlQl6qBWxQcRnVdEuKS2byVN+K0FODbYmue9Yh7tmYHRHO+3gXb
-         y4Y7BO7whBDyE5oC5zaTx2V37/0PxHa2eIxs9HhSDYcDLN3pfIy/S0H1+YtNTSAf050p
-         7hZ/0moV6Ko82znsDPaeoGDbiF76Q1zF6xLPy22RtbNZJI4QfujDsZbDRFrbSm4E+E1q
-         JSvJK+K/ipFGixDPaHq7AT7n8uTQGwO4qKHsvD4nXodpHXJbv9nrZEtoolq2MUVc8inT
-         4tW3CPQ2cxBOYmj0EowiyCs8Z13KMcqV0djf9AQNVbI6lVF1TX+J8hrzUQ5fP74N+46T
-         RWIg==
+        b=BnLeJVIyYfXHcdISs/CqsFrrf9fPHm2QA3fx8jcK4j9nNhfa2tDXkBSKqpqdfkpfu2
+         lxdgSiNBmN7v/0d9pCIkbP+95CiOyQebZD8VeZPcdcp0OQVx+jE3bDW02OAZFpVwmqP/
+         N+grDoQc90fbZzAiXtraQFPjrt0ssGYqtO1pKyoD0afvDWV7e/3Pa6NqxW5xwlfE4Cl6
+         fYmsmqjoofoVeY6lJM0DreTOyOObmarhhIBr+uUN32YX86SZKh2jgL5gVBzbIObBuSAa
+         1BBGV44cc1eUoyL70wpTKoTofrsw68mVMcrLAfNZd6vkKjVw5QtPuTD2FbkZHJoC5ye1
+         rOtg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=aIUoX/lfRA4O2oRe87PMq1zQU6cl+9JxK87frUvGag0=;
-        b=bZNviY1DMLxPU6y5fkS4YRKWXJZz6O72cw1KTbCHXLD3e8tpDdQk2a2Ur8FlU3fhX1
-         mJBWbYMxAgcuKeNQR03xtMVBTlnbDLL1JAV18C47qO3PciFbCn9hUJ+m9xLPhcZb+J+W
-         ei+GYehTpXNGAxV/kXSZ6nI/vC3xUIbeaq9TjLdRikWW/HoSNsqBOTxehtz+za2Vo92S
-         sYnL2vKGOHc+XqSv9NiAmMb+fkTlnx67614JEUvWygyH5i/CcRBzOXcwJiQ23pNE5mIT
-         3p7gmw0jxmbtYhqOG8ZlLiRpp2ecoXFp9q0v4kHSGzUy41GYXHbPtS4yYsRV2qte7yOq
-         GqDg==
+        h=content-language:content-transfer-encoding:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :ironport-sdr:ironport-sdr;
+        bh=7RmBkolg1AHVlXiarZaX4M7LVy1+PBA1RuPld8eE2jY=;
+        b=QIas2Um/YZ7r4RjtKXsblDT8D3XFd9g0l67DeDnvi0Ldt1uiswsH8GiT5C/6o3foRq
+         pjNsaSH4JAiiBxcZuNYBC4Eo52P0qKXQXT4VOo0p8QMEVUal5w+K/Qh2FRHbBiv4nqM6
+         pDXsiXwHk8IFgdpeJYmpsaMgn4Ybw4bN++2jrveH/KkksPzozWxekY326NpzwYa2e0cS
+         RRI9t2qMRZD4ZzUgSl1YRHzxPGm599UOnF54tgAOIILfQOLfcLEebRqon5w/g1I7Pqnc
+         1Q3B0/WgqMRyeU1SPPyVvXWd2pvvUn/VHkcsXteh87YMi1xFlALf1FrnZpTUJOilMG7w
+         KinQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=HvI0gTSp;
-       spf=pass (google.com: domain of smfrench@gmail.com designates 2607:f8b0:4864:20::b43 as permitted sender) smtp.mailfrom=smfrench@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-yb1-xb43.google.com (mail-yb1-xb43.google.com. [2607:f8b0:4864:20::b43])
-        by gmr-mx.google.com with ESMTPS id n25si77695otf.2.2020.07.14.21.17.34
+       spf=pass (google.com: domain of rong.a.chen@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
+        by gmr-mx.google.com with ESMTPS id g22si21426plq.1.2020.07.14.22.08.28
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Jul 2020 21:17:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of smfrench@gmail.com designates 2607:f8b0:4864:20::b43 as permitted sender) client-ip=2607:f8b0:4864:20::b43;
-Received: by mail-yb1-xb43.google.com with SMTP id l19so519826ybl.1
-        for <clang-built-linux@googlegroups.com>; Tue, 14 Jul 2020 21:17:34 -0700 (PDT)
-X-Received: by 2002:a25:afd1:: with SMTP id d17mr13713909ybj.91.1594786653573;
- Tue, 14 Jul 2020 21:17:33 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 14 Jul 2020 22:08:28 -0700 (PDT)
+Received-SPF: pass (google.com: domain of rong.a.chen@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
+IronPort-SDR: j0AjNM9rohhokeVMJUjWFUP2qah1cSMBzwmMyKBG6In7WY+KkSDRUCVJ6y1niY4aVFz3h1QJfx
+ ivwomp5xDeIA==
+X-IronPort-AV: E=McAfee;i="6000,8403,9682"; a="136540146"
+X-IronPort-AV: E=Sophos;i="5.75,354,1589266800"; 
+   d="scan'208";a="136540146"
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2020 22:08:27 -0700
+IronPort-SDR: LZhQ+qMpJtEo0lPkDl+RGTPwPU60E4CRWbeLXyFKxDr0BUeMbitUl6vWvCORcNzgt6q6ok3O7o
+ WyVKfXF0lGMw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.75,354,1589266800"; 
+   d="scan'208";a="429998184"
+Received: from shao2-debian.sh.intel.com (HELO [10.239.13.3]) ([10.239.13.3])
+  by orsmga004.jf.intel.com with ESMTP; 14 Jul 2020 22:08:18 -0700
+Subject: Re: [kbuild-all] Re: [PATCH 1/2] sched/core: Rename and move
+ schedutil_cpu_util to core.c
+To: Viresh Kumar <viresh.kumar@linaro.org>, kernel test robot <lkp@intel.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Vincent Guittot <vincent.guittot@linaro.org>, Zhang Rui
+ <rui.zhang@intel.com>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Juri Lelli <juri.lelli@redhat.com>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, kbuild-all@lists.01.org,
+ clang-built-linux@googlegroups.com
+References: <83d42cb2e589235750d68c9beada882ec93aeedd.1594707424.git.viresh.kumar@linaro.org>
+ <202007142126.cce7w0AU%lkp@intel.com>
+ <20200715035030.sktx5oecvihhs5ct@vireshk-i7>
+From: Rong Chen <rong.a.chen@intel.com>
+Message-ID: <e4fb05d3-5105-48f5-8d10-ab5bd3b3d5a7@intel.com>
+Date: Wed, 15 Jul 2020 13:07:51 +0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.6.1
 MIME-Version: 1.0
-References: <20200714221805.3459-1-lsahlber@redhat.com> <202007150917.me5MHt9a%lkp@intel.com>
-In-Reply-To: <202007150917.me5MHt9a%lkp@intel.com>
-From: Steve French <smfrench@gmail.com>
-Date: Tue, 14 Jul 2020 23:17:22 -0500
-Message-ID: <CAH2r5msN7gPvma9GFriSCYVVhWO3+ACBXeK9HW-e2TBvpxSFwg@mail.gmail.com>
-Subject: Re: [PATCH] cifs: smb1: Try failing back to SetFileInfo if
- SetPathInfo fails
-To: kernel test robot <lkp@intel.com>
-Cc: Ronnie Sahlberg <lsahlber@redhat.com>, linux-cifs <linux-cifs@vger.kernel.org>, 
-	kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: smfrench@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=HvI0gTSp;       spf=pass
- (google.com: domain of smfrench@gmail.com designates 2607:f8b0:4864:20::b43
- as permitted sender) smtp.mailfrom=smfrench@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+In-Reply-To: <20200715035030.sktx5oecvihhs5ct@vireshk-i7>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: rong.a.chen@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of rong.a.chen@intel.com designates 134.134.136.126 as
+ permitted sender) smtp.mailfrom=rong.a.chen@intel.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,108 +153,34 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-patch updated - and merged into cifs-2.6.git for-next pending additional review
-
-On Tue, Jul 14, 2020 at 8:30 PM kernel test robot <lkp@intel.com> wrote:
->
-> Hi Ronnie,
->
-> Thank you for the patch! Perhaps something to improve:
->
-> [auto build test WARNING on cifs/for-next]
-> [also build test WARNING on v5.8-rc5 next-20200714]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use  as documented in
-> https://git-scm.com/docs/git-format-patch]
->
-> url:    https://github.com/0day-ci/linux/commits/Ronnie-Sahlberg/cifs-smb1-Try-failing-back-to-SetFileInfo-if-SetPathInfo-fails/20200715-061927
-> base:   git://git.samba.org/sfrench/cifs-2.6.git for-next
-> config: arm64-randconfig-r005-20200714 (attached as .config)
-> compiler: clang version 11.0.0 (https://github.com/llvm/llvm-project 02946de3802d3bc65bc9f2eb9b8d4969b5a7add8)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install arm64 cross compiling tool for clang build
->         # apt-get install binutils-aarch64-linux-gnu
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All warnings (new ones prefixed by >>):
->
-> >> fs/cifs/cifssmb.c:5917:1: warning: no previous prototype for function 'CIFSSMBSetPathInfoFB' [-Wmissing-prototypes]
->    CIFSSMBSetPathInfoFB(const unsigned int xid, struct cifs_tcon *tcon,
->    ^
->    fs/cifs/cifssmb.c:5916:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
->    int
->    ^
->    static
->    1 warning generated.
-> --
->    In file included from fs/cifs/cifssmb.c:40:
->    In file included from fs/cifs/cifsglob.h:32:
->    fs/cifs/smb2pdu.h:28:10: error: 'cifsacl.h' file not found with <angled> include; use "quotes" instead
->    #include <cifsacl.h>
->             ^~~~~~~~~~~
->             "cifsacl.h"
-> >> fs/cifs/cifssmb.c:5917:1: warning: no previous prototype for function 'CIFSSMBSetPathInfoFB' [-Wmissing-prototypes]
->    CIFSSMBSetPathInfoFB(const unsigned int xid, struct cifs_tcon *tcon,
->    ^
->    fs/cifs/cifssmb.c:5916:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
->    int
->    ^
->    static
->    1 warning and 1 error generated.
->
-> vim +/CIFSSMBSetPathInfoFB +5917 fs/cifs/cifssmb.c
->
->   5915
->   5916  int
-> > 5917  CIFSSMBSetPathInfoFB(const unsigned int xid, struct cifs_tcon *tcon,
->   5918                       const char *fileName, const FILE_BASIC_INFO *data,
->   5919                       const struct nls_table *nls_codepage,
->   5920                       struct cifs_sb_info *cifs_sb)
->   5921  {
->   5922          int oplock = 0;
->   5923          struct cifs_open_parms oparms;
->   5924          struct cifs_fid fid;
->   5925          int rc;
->   5926
->   5927          oparms.tcon = tcon;
->   5928          oparms.cifs_sb = cifs_sb;
->   5929          oparms.desired_access = GENERIC_WRITE;
->   5930          oparms.create_options = cifs_create_options(cifs_sb, 0);
->   5931          oparms.disposition = FILE_OPEN;
->   5932          oparms.path = fileName;
->   5933          oparms.fid = &fid;
->   5934          oparms.reconnect = false;
->   5935
->   5936          rc = CIFS_open(xid, &oparms, &oplock, NULL);
->   5937          if (rc)
->   5938                  goto out;
->   5939
->   5940          rc = CIFSSMBSetFileInfo(xid, tcon, data, fid.netfid, current->tgid);
->   5941          CIFSSMBClose(xid, tcon, fid.netfid);
->   5942  out:
->   5943
->   5944          return rc;
->   5945  }
->   5946
->
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
 
+On 7/15/20 11:50 AM, Viresh Kumar wrote:
+> On 14-07-20, 21:05, kernel test robot wrote:
+>> Hi Viresh,
+>>
+>> I love your patch! Yet something to improve:
+>>
+>> [auto build test ERROR on tip/sched/core]
+>> [cannot apply to tip/auto-latest pm/linux-next linus/master v5.8-rc5 next-20200713]
+>> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> Yeah, I based it on tip/master.
+Hi Viresh,
 
--- 
-Thanks,
+Thanks for the feedback, we'll take a look.
 
-Steve
+>
+>> And when submitting patch, we suggest to use  as documented in
+> I think you are missing something between "use" and "as" here ? --base
+> ?
+>
+
+yes, we have fixed it but it may take a while to effect.
+
+Best Regards,
+Rong Chen
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAH2r5msN7gPvma9GFriSCYVVhWO3%2BACBXeK9HW-e2TBvpxSFwg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/e4fb05d3-5105-48f5-8d10-ab5bd3b3d5a7%40intel.com.
