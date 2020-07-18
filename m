@@ -1,149 +1,144 @@
-Return-Path: <clang-built-linux+bncBDM2X4EI2MPBB5WZZL4AKGQESUVJHEQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBYH2ZL4AKGQEBXUNU6I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53e.google.com (mail-pg1-x53e.google.com [IPv6:2607:f8b0:4864:20::53e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2EF4C2249C2
-	for <lists+clang-built-linux@lfdr.de>; Sat, 18 Jul 2020 10:04:08 +0200 (CEST)
-Received: by mail-pg1-x53e.google.com with SMTP id k186sf9604832pgd.0
-        for <lists+clang-built-linux@lfdr.de>; Sat, 18 Jul 2020 01:04:08 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1595059446; cv=pass;
+Received: from mail-wm1-x337.google.com (mail-wm1-x337.google.com [IPv6:2a00:1450:4864:20::337])
+	by mail.lfdr.de (Postfix) with ESMTPS id 08AB2224A0B
+	for <lists+clang-built-linux@lfdr.de>; Sat, 18 Jul 2020 11:14:09 +0200 (CEST)
+Received: by mail-wm1-x337.google.com with SMTP id g124sf11593989wmg.6
+        for <lists+clang-built-linux@lfdr.de>; Sat, 18 Jul 2020 02:14:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1595063648; cv=pass;
         d=google.com; s=arc-20160816;
-        b=f1Hd19WXt9Ob26BH3yAlCPj8MKB69Cgx1xqhk46K+ztHC40Qn+cytuzIdqRBS895o0
-         lz5tEKgKEWqtK2xPLnpK75utI9hM4BhK8zkzU2bq0ECgFdhmUuMNeUnPgAmnR/IErbaI
-         7XelFprRAbnf6x+RKV3GHBZ8c8rv+CBFXFkij0Jb5+jEaBSAcqttgYIxhMuOECy8KaFp
-         EK4f3cqRiHHsW6lwDZQ6JoKX9jBztULIfFUvzCG4vjFG0idzGblMcnbghD4BMqiaBF8k
-         wk8fWgjA8WuDnWROECdMpiM1BwtsybarMlLH0SKFTD4WGz/TNlYKy61tvcXXn1ktTYAe
-         d2AA==
+        b=uhxvaeunkkM9Yy5ECk6u/sAoybaerFqjILYwAfYrQ/6tocxjcgvw0k6ofVYeDLUCaA
+         8ynn3vmrXkcPM43TkGjrxeQg8TpOZ4IWcpGF0X5BGqu5IktOpRphMXfFT9DSuvW6deym
+         12DBHX5cfDA/5UYs1M+rCzlfcMf76RFAGAgPUqjY0Ngf2+YPqaqpIjRtVtwJ4GfyD6M1
+         MoRc7BNpR+TribTZN6XY9buX7m3m8zf2SXMF6lug2T55wCVA+IUjVc0YXMYDrQRITRUE
+         SRVoWnJr+g26syQJJqF2F8NBUUCh6pIhTPp6mjUTByN3XoWugBvHisZ1G2JXJH5EMgLI
+         kjCA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=E1hWZTUYpwGXbNdOEyxDjl6GK1KjviSOCIS3IUrDDoA=;
-        b=we7idLA3LGcYXHC0MDvD858kG93hWWAlwbCn7scHGLF1mQWeeopoM+9i/zNJWerK+n
-         LuYYKihS66yFDMUjRniks2MbkFmSi74QxLaajtVMBRhOhu29XK+0H3lnugudBlr+g3Fe
-         5mtaANWhChsqxGC+nfTSsUw1I40ccFbyJVGPCY4cqFiQpSCR9y+cnWARRDG5WU2ZbjN9
-         RzEJmSQ5KDbcTx+4htrUOHNrzAl1wAI9elMfEcMmnf96yX1HPTfb54uzKEKYhICSf8rl
-         MRXKRtzZoHoJX3iU0NSwGmubodAvLSH7z1dCYf10Oq/B1fTAbLOs3hvNdOt9PWm7V8iQ
-         JjVg==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=H+gCBvTUiGG5PAteFqxIGidoCKEQ08kY7Utf0a94fjE=;
+        b=nECmLc+6DtA36oo0/r4UAM2su7odt2qcBOWlIV2AMFY2KZfikugXWKl/Nrw9mjwPPE
+         78Pzg6X3LmiqioAj+EwBSiA2eMdLAmULrWYrsDC85QEP+i1UdW6POcMzSvKThc19R5cj
+         x6LMfnRdwv5uIUSedF3+jjvjAVdynTCDSq8sY0Lfgv36LYK5Gyx8SLWHnQWQtig/vG6s
+         obVP7qW/ISc9/C0bbNO313OWf902m3Bl+jqSczNgYgD7XQGtHqVMYbGUZyJzdQ1ti/lp
+         cqlFQVmy0PKHW5ogwM9DjLrgsUKq2UgCkyK0KL7Lh0jrZv6RbzfcNZHhRYzIAyOgxan3
+         /ikg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=MXun0RQo;
-       spf=pass (google.com: domain of vaibhavgupta40@gmail.com designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=vaibhavgupta40@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=E1hWZTUYpwGXbNdOEyxDjl6GK1KjviSOCIS3IUrDDoA=;
-        b=sGq0MCA3I2JidSqkoJg+NvyMC3P5IngPWijuqG0u4qBVgDKMIWlhiFqFVO3x7ZHmxA
-         x9i6Twbz4pYI/WkryegOCu0VnxTBXLAxr4lWz288xIU0t0G5WgFJ4c1WPfxgBJM8DuYc
-         R+XbXXVJKG1TGyyj3TLIlWSnmNpY2aHSKa9QdK303anbxLydMvNlHpWexAufh1AkO0Hu
-         bHr2t0Qnr0lmA1wrpmvK2GgZsCbfIo9wILQ3OTM/4rH+C5QnBFv4LIIYLh0c6SKKn0Bm
-         DheiTEvSe+t97DkwZ4p8sm+TPB6Hgs6fMz8OIaMtYP9KgaZ5nf/zVh/FkqkpGsf8I8bh
-         AvZA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=E1hWZTUYpwGXbNdOEyxDjl6GK1KjviSOCIS3IUrDDoA=;
-        b=AAn2yDKchr1sRB7O9gEDbrnWRSTMG0zafgbu8UqZAcdoSVDfF5oLl2KAOPUxedZGvC
-         bcpWln0gQdEt+vQt3PkuETwMGghHFRUqxV9+eOWoM0efB2IjHd2Gj/M3I4MWCIVfZptI
-         rtRCNQ3VBf/sZHIJDxEgSlyd/p9E0GIKLmNEWoXt64vRy7NYF71ODVRJX/TcKFmvenJY
-         INiBTC3tWYlQHjwSW0sI9QiikKls+/98uj5FH59lkFUz1wd4SKgB9ekke1po44ES1fKl
-         ub80Lo9GQd2o8GBu5tO7VFtcQkX1DYZHoVm6KfmsnGK7IiWUhRwLpJGCdwv5SHs0d6W4
-         cXWQ==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=H+gCBvTUiGG5PAteFqxIGidoCKEQ08kY7Utf0a94fjE=;
+        b=E9MaeP+xqJX6oU5b+h9H0/efmmrVliAlR0uO+6zHBZ3cr1CC8fw9oGatkEx2kx8DnV
+         J8+BDmbmt+zyx5uHvnL+lSsuKbaVnnt9FKgkDw8hbJvhnrvgBsUPa05yGeNAEao/a4zB
+         frcVepLn4SA5LP0vbzXaRE2kxzfkoGuodZUB7fnWMY709rHRSTAI5uSfyAD4LNcBup0H
+         d1qWL1/vu8JSRLOE6VvQJjKhXDvnu4PoqQUBe2wRcBgyhwn6lxAvMJOftEUM3j4hq/N9
+         jfbWVWZLC8b2YJQnhIde9dVDtQElKwfNmOTH8cBs6LwCiBHlqPVsHY9YsQIla9WnNXOF
+         OM9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=E1hWZTUYpwGXbNdOEyxDjl6GK1KjviSOCIS3IUrDDoA=;
-        b=s5BEm6pXdLpSy9FvVNalLKwvHoZKsytG1bI6zMGAj58yPIfWEaKAH/MC2EHaB00xqB
-         9kaYPgJIRlEfD/oPsgML/nMMO3UvWUEw74j52MYq3CVKh7Tq2aKz25yx/FTzhIqTCUsF
-         UfX5zbQUIEXVcQEl/hMmBTOcCBs4RSjfPHPxMtYDCiDJ7F1godov2/CeWz5/oNUlrOyN
-         v0QZtgWMG3plBx4iOD1/nYP19Twp3aGnDX5LJoLkl14MLQnuYC18I3hffhjHUptqjsLH
-         tk+D07L5xiTXTsycLPDJv04PLOcU8SFtBkcq92QEAFN4ZCwD62nztchxQtaPBKhUhYqT
-         nU5w==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=H+gCBvTUiGG5PAteFqxIGidoCKEQ08kY7Utf0a94fjE=;
+        b=fVLrfj9Mkpod03Zw7Js4JaWMMMae6jq6qBd4eObH6ic3n5Jyr0Lm/22NyOk4713q3A
+         3EiHmjMkzb/sL9+J35z6buQSA2Mr3F8TJdhgIB78ef8kixwZiVz9b5RP1MHtFzNPV97T
+         +VpqjK2F91/kU09r3ksx5KpNGgLd643Yogn9zIRxhTZ7aJZ/Iv/6mpFsOIwAvZsY5zG/
+         eQOGxj8DPekUAUtNCLFXbyA9tj5V+QehcuizrQivufwY1ID+PJMJcTpaNWzWzEDRFgn+
+         E8nEk1+qSCvL7GnZEuAvS4rA9InAHmCYjfn9Xd6pMk3XxzcPPtDinmJGEg6OWFE+KCos
+         L2SA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530BrE3Ub2pDZn+rjTVhKubS2+XTavm+7K8wesONzybCpDukFRfH
-	G+hob4im406cv98xUl9oc58=
-X-Google-Smtp-Source: ABdhPJykyaPmVUQPYkle7TCh5fQ6W8UkCZ5dxwSeAiKvo79MEMVtGbDz8ZUUEitZKXi7a1J11VyxHw==
-X-Received: by 2002:a17:90a:db17:: with SMTP id g23mr14124919pjv.180.1595059446680;
-        Sat, 18 Jul 2020 01:04:06 -0700 (PDT)
+X-Gm-Message-State: AOAM530v8Az3Gef7lQFIodYuj8VeiBIKB5q4LQ/Fl/jQOwhvVi413yHW
+	hjmjSWqTXsJfsdC/YYOlxmc=
+X-Google-Smtp-Source: ABdhPJw+sfXhT2xXmBajnFAvKc6njCy1fUrejKRbzMApwKJ09pgYlplddjSYmMNFInyJYFIn5BVteA==
+X-Received: by 2002:a1c:59c2:: with SMTP id n185mr13526167wmb.104.1595063648730;
+        Sat, 18 Jul 2020 02:14:08 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:38d:: with SMTP id 135ls574978pgd.0.gmail; Sat, 18 Jul
- 2020 01:04:06 -0700 (PDT)
-X-Received: by 2002:a62:7657:: with SMTP id r84mr10797580pfc.130.1595059446191;
-        Sat, 18 Jul 2020 01:04:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1595059446; cv=none;
+Received: by 2002:a1c:a94e:: with SMTP id s75ls4902614wme.3.canary-gmail; Sat,
+ 18 Jul 2020 02:14:08 -0700 (PDT)
+X-Received: by 2002:a7b:cd09:: with SMTP id f9mr13556801wmj.160.1595063648257;
+        Sat, 18 Jul 2020 02:14:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1595063648; cv=none;
         d=google.com; s=arc-20160816;
-        b=LSo//O6FyVXRbt0ZSpJJwmzXvF2CW+VzFnBhyvYglFCA39Dfb66OfeFObjeNV0hKks
-         fJGYUhM1Brl8j/+8l7kSw2HjfseREkkkwXVMdxBRkECXA2uugfjarqTz3yeKDaFlkrdL
-         LjPCwNOhza7WGwmvOj3WRQJh/zHIgOj3Ni0X+0uik+sNZR/Kt1ta39evoMXmDaSmIjYL
-         G/1bQDk/XpVdLQLlobtx0n4zkkxAiBBgKKJIuGzoJbMCBp+mQGQKv7+wZCMA/J1szVuN
-         kPIwqbW6Hf/96AYS56NdGG9y9YDjSb/i94qypiscwL9xj17HxdyLc9h+ygmmsmptrrkD
-         HNOw==
+        b=MA99WvvqGUNsnR94vLFoJ0KMEJnI1L5PVo4H6QVnnLDobUHnYaASwdHhArzR5OYlg0
+         kWCRZQVJBNsqIbu/HYz/5hLvEayHXcO0MJRfYfwGptt8/uEZozfrTIxV0ttwuWmFHVaC
+         0J690hf/3Xt7SzKSnv7+axNaAcoDrGd8lzRzQtSvhlfVu2z5kj8+IwsOQ6+aAg7tkbHA
+         MBCs253aK8Idv/N1+rLQ9XlavuHibc/Q7se4jd/KS1VIAdSN0I4dAr9oYFVvPdAFDpGO
+         kkVsMrUmZNEcPzpgzG13n5hRyYuo2adPDNiGNeYFvzJeP7SYSCs2jbufPZ9xLUMGjN0T
+         jQ0Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=rW9rGw5QorrYiXjPU4V7lqATz536xiq/7LgrDV20T0U=;
-        b=QbA9lu7CSBhCPFSHFjv80kahjuavfYTR3KaQuhP/KpWWG4IJCgHJcKfniX5FTzMx7e
-         uZ/T36k3utkqfh98wSgt/R7sDvozwoFOzyvna0IR5DO9UPsbhyDTtAyNVkzHbk3jEdwN
-         whBENutu2/Pvl+wOOs8zR+UucN+nZfaRa3lt7WlJOhiCdfYrENOMa2cHWWVn+AYBTNnh
-         65K59/CwZKeRwQAzoATWvuGar1Tc19aMW6DRTKP6uewCkITEGAFtD9sac0kTj65xGAaV
-         KT70hXktFcPC4ufz2Vk+NO+MpusVYb2On+N3Anc5LQT//33AcIgOt9XA+YwUkvx8mxp5
-         0ndA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version;
+        bh=QdKdIFIquV/ToRz1CvGW0W/6ncNUtQ1+wXbCAUrSn0U=;
+        b=lruD60c0CnJiLvdpea4Ae//IbEgk6G4Aisx084JwaxmwaT/dLjrTYf0B3pB7bXH1AP
+         eU3wnId2zgeEfshAr4yVNLntVe9R7yIGiFp1WVgS8bA1PRqxgXHVOW4HEWRIecufL/Q0
+         vwVA9AZk06x4C/fDJHmaxpjteNbzu2P4wpCq5pE4jCvYaF4gZB8YC/fys5DTJ+zvDijj
+         no0WKOTPSSVZVlgwY/vUBnwkCG2AfkLACPKuwe/jWzMosOS01LfjdzhWl0fgeirH23hF
+         I7E68E3BCPrR8AmWlgSxteYr82eG3AmzD3JAW+vt8HaU9nI8Yg1jnLGwATPD8fTubECB
+         13Zw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=MXun0RQo;
-       spf=pass (google.com: domain of vaibhavgupta40@gmail.com designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=vaibhavgupta40@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-pl1-x644.google.com (mail-pl1-x644.google.com. [2607:f8b0:4864:20::644])
-        by gmr-mx.google.com with ESMTPS id i6si633269pgj.5.2020.07.18.01.04.06
+       spf=neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Received: from mout.kundenserver.de (mout.kundenserver.de. [217.72.192.74])
+        by gmr-mx.google.com with ESMTPS id l4si599124wrw.2.2020.07.18.02.14.08
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 18 Jul 2020 01:04:06 -0700 (PDT)
-Received-SPF: pass (google.com: domain of vaibhavgupta40@gmail.com designates 2607:f8b0:4864:20::644 as permitted sender) client-ip=2607:f8b0:4864:20::644;
-Received: by mail-pl1-x644.google.com with SMTP id k5so6377056plk.13
-        for <clang-built-linux@googlegroups.com>; Sat, 18 Jul 2020 01:04:06 -0700 (PDT)
-X-Received: by 2002:a17:90a:c003:: with SMTP id p3mr13518190pjt.120.1595059445683;
-        Sat, 18 Jul 2020 01:04:05 -0700 (PDT)
-Received: from gmail.com ([103.105.153.67])
-        by smtp.gmail.com with ESMTPSA id y6sm9992063pfp.7.2020.07.18.01.03.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 18 Jul 2020 01:04:05 -0700 (PDT)
-Date: Sat, 18 Jul 2020 13:32:36 +0530
-From: Vaibhav Gupta <vaibhavgupta40@gmail.com>
-To: kernel test robot <lkp@intel.com>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, Adam Radford <aradford@gmail.com>,
-	"James E.J. Bottomley" <jejb@linux.ibm.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Adaptec OEM Raid Solutions <aacraid@microsemi.com>,
-	Hannes Reinecke <hare@suse.com>,
-	Bradley Grove <linuxdrivers@attotech.com>,
-	John Garry <john.garry@huawei.com>,
-	Don Brace <don.brace@microsemi.com>,
-	James Smart <james.smart@broadcom.com>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v1 15/15] scsi: pmcraid: use generic power management
-Message-ID: <20200718080158.GA244114@gmail.com>
-References: <20200717063438.175022-16-vaibhavgupta40@gmail.com>
- <202007181531.ItorFuzB%lkp@intel.com>
+        Sat, 18 Jul 2020 02:14:08 -0700 (PDT)
+Received-SPF: neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=217.72.192.74;
+Received: from mail-qk1-f179.google.com ([209.85.222.179]) by
+ mrelayeu.kundenserver.de (mreue107 [212.227.15.145]) with ESMTPSA (Nemesis)
+ id 1MaIGB-1kK6nK2jO1-00WErl for <clang-built-linux@googlegroups.com>; Sat, 18
+ Jul 2020 11:14:07 +0200
+Received: by mail-qk1-f179.google.com with SMTP id b4so10958059qkn.11
+        for <clang-built-linux@googlegroups.com>; Sat, 18 Jul 2020 02:14:07 -0700 (PDT)
+X-Received: by 2002:a05:620a:1654:: with SMTP id c20mr12589219qko.138.1595063646520;
+ Sat, 18 Jul 2020 02:14:06 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200624035920.835571-1-natechancellor@gmail.com>
+ <1bbb6956-d9de-e0c8-5b45-20b6fecc2189@infradead.org> <CAKwvOd=5nE6fkwp8iw0JqwQFp5KcUaC7RyEf2L6+tkbp9smsvg@mail.gmail.com>
+In-Reply-To: <CAKwvOd=5nE6fkwp8iw0JqwQFp5KcUaC7RyEf2L6+tkbp9smsvg@mail.gmail.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Sat, 18 Jul 2020 11:13:50 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a1JjQCB9HdRE6chvA5ekOGWUVpSDdPkgqQ+RGz=y06ong@mail.gmail.com>
+Message-ID: <CAK8P3a1JjQCB9HdRE6chvA5ekOGWUVpSDdPkgqQ+RGz=y06ong@mail.gmail.com>
+Subject: Re: [PATCH] powerpc/boot: Use address-of operator on section symbols
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Geoff Levand <geoff@infradead.org>, Nathan Chancellor <natechancellor@gmail.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
+	Paul Mackerras <paulus@samba.org>, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Joel Stanley <joel@jms.id.au>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202007181531.ItorFuzB%lkp@intel.com>
-X-Original-Sender: vaibhavgupta40@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=MXun0RQo;       spf=pass
- (google.com: domain of vaibhavgupta40@gmail.com designates
- 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=vaibhavgupta40@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+X-Provags-ID: V03:K1:cB/vT1+yDf7L1dYEI/L1urdyveL25NMuFIW5pcUxy+lxoXn5LvK
+ YSSJ5n8AbDEG9pAJMXK49Wrfic5KOdo5+kP5ecYQq/zoSob6vnttotNWv31kuBe5Gzio9PK
+ FmoBlssGeqsbmUAZU8kPaOeZVM2DXxhZHngxkfo4H+nDhhinioTgjojlGmrAaW7REMNJgHb
+ BYzO+r/pEVmgB4QVt4CkA==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:z5vbQTFMtYw=:LNf0O0r+FakYD3cxvL/16K
+ T9q14DjB/VTeGJKIW7l6RuHZ0AtIYzYAwF+iUdisXMnNlJsUTsNYi3qJC1N0a5uCrD36YdryE
+ YQqISnXe8pgWstlLmnMm+Bo0c8TAfyr0E/mWycNbsFba74tE3kYZJnqIMiftiundqsBHVcG4X
+ yBaaZ3Q+9N5IoHq2bDaGgG6p2zXX8Z3wqeH0pjhH5d6l4s7gcnDIrHpvfKrzKEJgsEWFVjQ4Z
+ tDQGyaK0tZOdgSvmhxiwGPflj45PHzinDj+G6OyjmNEvetvrazdehcMdRZ3/8iBXndOQwto1z
+ Q7rnVQX23ZMI4oPHd1K+U0/wddZx8vixJiviUw+W7Fu9bual/Y64ZvpU1AxVd8GTvoB63vcHo
+ IKO2EPi2ETs6d6bqc6TyqtwREZm0oGH2hTtLofgfAxaN8T1/IQwuBIuzsV/PltDFs4Ed/NJov
+ Hq+c25KyJp0MNiDNjD6poP05pz6fKDGhDWNlS2XQCyIKM+NNJnMse2+20w2ljbH0q5omt7gei
+ foP6EipgqUe4agCVqJF9bsy5C0upU//+R5dmq+4M7qKHFSeP/4/yD4uIa2q5ig8o94ZhfUIXT
+ K4L/BeTuy5lvHzdFTCmTbRQuDayxk46POtNcTJP32ab2t33Z2alKPdOJTT/APq7+4gxf0C5kX
+ iL3p2X4s4Kru2c4H8aZYX69UlAI/gL84OXXZ9pjEGrbUFwNDrtuKkw+ilb9g/NL2zZESmLLTT
+ lxIMe4t9IX/ZE/atl/SUDOk39/fsiAXNrBZ1YwFzASbEvnBimf5WmxKEz555Oy/dgMtud4Oz1
+ X+dBWNBd3l9a7yzN8jHIjvHNGWLA5/PzLjp/IdBDj4W/XdqKhDQ73RHzED1OIO/OVYHP62hdp
+ kyg6K48BwMSwAZKgIZpY0pBe2ftYjwdl4z4Yl7dS1CtK0z0CU+yTr7ptrzHc8IBx0upfQEFrj
+ bcGuN9DtaqnpEFVD1dMrH8N3IvB/tN733WsHFT3NBjyDgC+huI33C
+X-Original-Sender: arnd@arndb.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 217.72.192.74 is neither permitted nor denied by best guess
+ record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -156,135 +151,35 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Jul 18, 2020 at 03:25:59PM +0800, kernel test robot wrote:
-> Hi Vaibhav,
-> 
-> Thank you for the patch! Perhaps something to improve:
-> 
-> [auto build test WARNING on v5.8-rc5]
-> [cannot apply to scsi/for-next mkp-scsi/for-next next-20200717]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch]
-> 
-> url:    https://github.com/0day-ci/linux/commits/Vaibhav-Gupta/scsi-use-generic-power-management/20200717-144215
-> base:    11ba468877bb23f28956a35e896356252d63c983
-> config: x86_64-allyesconfig (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project ed6b578040a85977026c93bf4188f996148f3218)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install x86_64 cross compiling tool for clang build
->         # apt-get install binutils-x86-64-linux-gnu
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All warnings (new ones prefixed by >>):
-> 
-> >> drivers/scsi/pmcraid.c:5274:6: warning: variable 'rc' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
->            if (sizeof(dma_addr_t) == 4 ||
->                ^~~~~~~~~~~~~~~~~~~~~~~~~~
->    drivers/scsi/pmcraid.c:5278:6: note: uninitialized use occurs here
->            if (rc == 0)
->                ^~
->    drivers/scsi/pmcraid.c:5274:2: note: remove the 'if' if its condition is always true
->            if (sizeof(dma_addr_t) == 4 ||
->            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    drivers/scsi/pmcraid.c:5270:8: note: initialize the variable 'rc' to silence this warning
->            int rc;
->                  ^
->                   = 0
->    1 warning generated.
-> 
-> vim +5274 drivers/scsi/pmcraid.c
-> 
-> 89a36810415077 Anil Ravindranath 2009-08-25  5258  
-> 89a36810415077 Anil Ravindranath 2009-08-25  5259  /**
-> 89a36810415077 Anil Ravindranath 2009-08-25  5260   * pmcraid_resume - driver resume entry point PCI power management
-> 7e38e77fcc9088 Vaibhav Gupta     2020-07-17  5261   * @dev: Device structure
-> 89a36810415077 Anil Ravindranath 2009-08-25  5262   *
-> 89a36810415077 Anil Ravindranath 2009-08-25  5263   * Return Value - 0 in case of success. Error code in case of any failure
-> 89a36810415077 Anil Ravindranath 2009-08-25  5264   */
-> 7e38e77fcc9088 Vaibhav Gupta     2020-07-17  5265  static int __maybe_unused pmcraid_resume(struct device *dev)
-> 89a36810415077 Anil Ravindranath 2009-08-25  5266  {
-> 7e38e77fcc9088 Vaibhav Gupta     2020-07-17  5267  	struct pci_dev *pdev = to_pci_dev(dev);
-> 89a36810415077 Anil Ravindranath 2009-08-25  5268  	struct pmcraid_instance *pinstance = pci_get_drvdata(pdev);
-> 89a36810415077 Anil Ravindranath 2009-08-25  5269  	struct Scsi_Host *host = pinstance->host;
-> 89a36810415077 Anil Ravindranath 2009-08-25  5270  	int rc;
-> 89a36810415077 Anil Ravindranath 2009-08-25  5271  
-> 7e38e77fcc9088 Vaibhav Gupta     2020-07-17  5272  	device_wakeup_disable(dev);
-> 89a36810415077 Anil Ravindranath 2009-08-25  5273  
-> 371a6c328ad423 Christoph Hellwig 2018-10-18 @5274  	if (sizeof(dma_addr_t) == 4 ||
-> 371a6c328ad423 Christoph Hellwig 2018-10-18  5275  	    dma_set_mask(&pdev->dev, DMA_BIT_MASK(64)))
-> 371a6c328ad423 Christoph Hellwig 2018-10-18  5276  		rc = dma_set_mask(&pdev->dev, DMA_BIT_MASK(32));
-> 89a36810415077 Anil Ravindranath 2009-08-25  5277  
-> 89a36810415077 Anil Ravindranath 2009-08-25  5278  	if (rc == 0)
-> 371a6c328ad423 Christoph Hellwig 2018-10-18  5279  		rc = dma_set_coherent_mask(&pdev->dev, DMA_BIT_MASK(32));
-> 89a36810415077 Anil Ravindranath 2009-08-25  5280  
-> 89a36810415077 Anil Ravindranath 2009-08-25  5281  	if (rc != 0) {
-> 348764024f1cd6 Anil Ravindranath 2009-09-09  5282  		dev_err(&pdev->dev, "resume: Failed to set PCI DMA mask\n");
-> 89a36810415077 Anil Ravindranath 2009-08-25  5283  		goto disable_device;
-> 89a36810415077 Anil Ravindranath 2009-08-25  5284  	}
-> 89a36810415077 Anil Ravindranath 2009-08-25  5285  
-> c20c426732a5a5 Anil Ravindranath 2010-06-08  5286  	pmcraid_disable_interrupts(pinstance, ~0);
-> 89a36810415077 Anil Ravindranath 2009-08-25  5287  	atomic_set(&pinstance->outstanding_cmds, 0);
-> 89a36810415077 Anil Ravindranath 2009-08-25  5288  	rc = pmcraid_register_interrupt_handler(pinstance);
-> 89a36810415077 Anil Ravindranath 2009-08-25  5289  
-> 89a36810415077 Anil Ravindranath 2009-08-25  5290  	if (rc) {
-> 348764024f1cd6 Anil Ravindranath 2009-09-09  5291  		dev_err(&pdev->dev,
-> 348764024f1cd6 Anil Ravindranath 2009-09-09  5292  			"resume: couldn't register interrupt handlers\n");
-> 89a36810415077 Anil Ravindranath 2009-08-25  5293  		rc = -ENODEV;
-> 89a36810415077 Anil Ravindranath 2009-08-25  5294  		goto release_host;
-> 89a36810415077 Anil Ravindranath 2009-08-25  5295  	}
-> 89a36810415077 Anil Ravindranath 2009-08-25  5296  
-> 89a36810415077 Anil Ravindranath 2009-08-25  5297  	pmcraid_init_tasklets(pinstance);
-> 89a36810415077 Anil Ravindranath 2009-08-25  5298  	pmcraid_enable_interrupts(pinstance, PMCRAID_PCI_INTERRUPTS);
-> 89a36810415077 Anil Ravindranath 2009-08-25  5299  
-> 89a36810415077 Anil Ravindranath 2009-08-25  5300  	/* Start with hard reset sequence which brings up IOA to operational
-> 89a36810415077 Anil Ravindranath 2009-08-25  5301  	 * state as well as completes the reset sequence.
-> 89a36810415077 Anil Ravindranath 2009-08-25  5302  	 */
-> 89a36810415077 Anil Ravindranath 2009-08-25  5303  	pinstance->ioa_hard_reset = 1;
-> 89a36810415077 Anil Ravindranath 2009-08-25  5304  
-> 89a36810415077 Anil Ravindranath 2009-08-25  5305  	/* Start IOA firmware initialization and bring card to Operational
-> 89a36810415077 Anil Ravindranath 2009-08-25  5306  	 * state.
-> 89a36810415077 Anil Ravindranath 2009-08-25  5307  	 */
-> 89a36810415077 Anil Ravindranath 2009-08-25  5308  	if (pmcraid_reset_bringup(pinstance)) {
-> 348764024f1cd6 Anil Ravindranath 2009-09-09  5309  		dev_err(&pdev->dev, "couldn't initialize IOA\n");
-> 89a36810415077 Anil Ravindranath 2009-08-25  5310  		rc = -ENODEV;
-> 89a36810415077 Anil Ravindranath 2009-08-25  5311  		goto release_tasklets;
-> 89a36810415077 Anil Ravindranath 2009-08-25  5312  	}
-> 89a36810415077 Anil Ravindranath 2009-08-25  5313  
-> 89a36810415077 Anil Ravindranath 2009-08-25  5314  	return 0;
-> 89a36810415077 Anil Ravindranath 2009-08-25  5315  
-> 89a36810415077 Anil Ravindranath 2009-08-25  5316  release_tasklets:
-> c20c426732a5a5 Anil Ravindranath 2010-06-08  5317  	pmcraid_disable_interrupts(pinstance, ~0);
-> 89a36810415077 Anil Ravindranath 2009-08-25  5318  	pmcraid_kill_tasklets(pinstance);
-> 89a36810415077 Anil Ravindranath 2009-08-25  5319  	pmcraid_unregister_interrupt_handler(pinstance);
-> 89a36810415077 Anil Ravindranath 2009-08-25  5320  
-> 89a36810415077 Anil Ravindranath 2009-08-25  5321  release_host:
-> 89a36810415077 Anil Ravindranath 2009-08-25  5322  	scsi_host_put(host);
-> 89a36810415077 Anil Ravindranath 2009-08-25  5323  
-> 89a36810415077 Anil Ravindranath 2009-08-25  5324  disable_device:
-> 89a36810415077 Anil Ravindranath 2009-08-25  5325  
-> 89a36810415077 Anil Ravindranath 2009-08-25  5326  	return rc;
-> 89a36810415077 Anil Ravindranath 2009-08-25  5327  }
-> 89a36810415077 Anil Ravindranath 2009-08-25  5328  
-> 
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+On Thu, Jun 25, 2020 at 6:32 PM 'Nick Desaulniers' via Clang Built
+Linux <clang-built-linux@googlegroups.com> wrote:
+>
+> On Wed, Jun 24, 2020 at 6:19 PM Geoff Levand <geoff@infradead.org> wrote:
+> >
+> > Hi Nathan,
+> >
+> > On 6/23/20 8:59 PM, Nathan Chancellor wrote:
+> > > These are not true arrays, they are linker defined symbols, which are
+> > > just addresses.  Using the address of operator silences the warning
+> > > and does not change the resulting assembly with either clang/ld.lld
+> > > or gcc/ld (tested with diff + objdump -Dr).
+> >
+> > Thanks for your patch.  I tested this patch applied to v5.8-rc2 on a
+> > PS3 and it seems OK.
+>
+> PS3?  Folks still have ones that can boot Linux?  Those ****ers took
+> my Yellow Dog Linux away from me; I enjoyed depositing that settlement
+> check!  Hopefully by now, folks have figured out how to roll back the
+> system firmware?
 
-Yes, I detected this while fixing [PATCH v1 06/15]. Already fixed in v2.
-Will shortly float v2 on mailing list.
+I still have the PS3 from Hong Kong with original 1.5 (IIRC) firmware
+that I demoed at LCA2006. Haven't booted it in at least 12 years, and
+never used it for games or movies other than the free "Casino Royale"
+they sent everyone.
 
-Thanks for reporting.
-
---Vaibhav Gupta
+      Arnd
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200718080158.GA244114%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a1JjQCB9HdRE6chvA5ekOGWUVpSDdPkgqQ%2BRGz%3Dy06ong%40mail.gmail.com.
