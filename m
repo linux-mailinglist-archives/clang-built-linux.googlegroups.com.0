@@ -1,131 +1,118 @@
-Return-Path: <clang-built-linux+bncBCDJ7PUVRQGRBL452L4AKGQEKLVBJHQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDD5ZFHSSQARBA6G2L4AKGQEIBBCUNQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x240.google.com (mail-lj1-x240.google.com [IPv6:2a00:1450:4864:20::240])
-	by mail.lfdr.de (Postfix) with ESMTPS id A4D74225378
-	for <lists+clang-built-linux@lfdr.de>; Sun, 19 Jul 2020 20:19:27 +0200 (CEST)
-Received: by mail-lj1-x240.google.com with SMTP id n24sf4327712lji.11
-        for <lists+clang-built-linux@lfdr.de>; Sun, 19 Jul 2020 11:19:27 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1595182767; cv=pass;
+Received: from mail-lf1-x13f.google.com (mail-lf1-x13f.google.com [IPv6:2a00:1450:4864:20::13f])
+	by mail.lfdr.de (Postfix) with ESMTPS id DB8862253BA
+	for <lists+clang-built-linux@lfdr.de>; Sun, 19 Jul 2020 21:46:11 +0200 (CEST)
+Received: by mail-lf1-x13f.google.com with SMTP id c9sf6905982lfr.6
+        for <lists+clang-built-linux@lfdr.de>; Sun, 19 Jul 2020 12:46:11 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1595187971; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CdmwGVogDvibg3I2uNIn/vnc6v2paTYNmwr03UpdSsX9HEPegpuowIXIZi7BKjYsYe
-         o41FG2A3/ZZ0euu9xbAfuS9foXXe0ak6N2mHioiWPBB1D1/SYk//o0e600UKrOg+due2
-         mOh/azN+XMeJpKBPpf8PSEoUXE0HB98hHDapTG8Zqaq0VFqkNfpqr9+x2tLa3F1EYKsQ
-         c23Z1LcU7XNjibB0puqJQtp1UpkoUYq2xZ4YKWWkuJMmOvfRJ1f9ow0tGrQuR+Uh/Svh
-         KbTpMCWc7rfnaZNXej7e7AjDc7KVfWXwpMoXExrecuTw4YhiINcz44m2nH7D00Htu+e4
-         Rt4Q==
+        b=sWyeomRtg8KSZRLpxZtMgOGFpTlDjQ0X696QE8/bNBzT3QseNW4nmKMNALwYmKwo+0
+         RNOAMJcAJ6Pnz+QLkC8w62jzvk80HORKF36z4GZIyp3IXAXDNJ4RwiJOWXsqwCnWVYYO
+         5QPDBL3QDaeMQm8BbE7yk7Ie5nUC6v1tuu94Gr9Sj4dJKI81icnMEHDeDTDqD4yQfIKu
+         YdvWJG1yWJiS0IS4xSr1DKP5/xQH/2qdQsOitf9HV01EuP3eOi3zzERcVRvr9jdUIrtr
+         eX47tqArkDLUfw1vI4BbboRScfEHkbdwXwRrSdPNuW5Gq5Qtdc8M9lnjOtdIBwP45qmn
+         e0jg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=oci4HObIYA/DBsq3vOia+N1y6UDsjkVF/tk9iO2jS8w=;
-        b=XnvwRpZ6dVNWRmRbX7J1HBUqL0gA0s3iQPguU20kNOcW/BLvry5U0/TB1LlMgjPslO
-         tmqZLp8n2a26LOeQtdgkNizAPzpNWpwBlzqsdD6eyVTTxcTM025jsobd39ZegLgZXPBH
-         TwzVhi5jjm+Hprs3mp8kmk8cTDE5ociKjyyPXx0ucItYvjRGvAtBIrBXsUEVBE0Aa3Xw
-         mlwDWyyElcvAU6er0V7mT3dp4ZH43G0El7mRAqGzM04+fC0mcHEttRRCCe1g3YRusyKA
-         T55iJoU8ebgJeyana640fzqnX/NthqhlyCGnJXN+lKwGEXTj0NWIJpefR+OELFTXqzdL
-         QWqg==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=zgPXAmkv9lBCtsmBwhhg+/HQQowoSgA999GnZvl4Bn4=;
+        b=LTjzBVGVeUQ3TYfu88GagQOhix47wI1DnYucVbjVb7LoKHpZy9N8Oj5PKkvQ6AfBp+
+         lG97MnMFkZaHxmn+DgCvqlayHjfp8PAtWIqkDqVDx5tAeujUeIweardX9C2PlTexMl1P
+         guTQx+WGrilzPtgUj59tpfT/MOpb0S+A/LG1qxJd98xAyFTG1D3KNjTeLa5B0LnhATWh
+         +BvWHXVttkDkeI+ZGj5baIrqwBBx+CflvyQOLjxf6dXl64uheBmkC3q4y3TW/oO3BCjI
+         +2ETl0Zq9Y/qWCZMuoCR+fNQBBHgxT/iwXa6pCYPp2BUUkdDKrG9H0VcQJl+mi8JweGg
+         OidQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of srs0=vwyo=a6=stusta.de=bunk@stusta.mhn.de designates 141.84.69.5 as permitted sender) smtp.mailfrom="SRS0=VwYo=A6=stusta.de=bunk@stusta.mhn.de";
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: best guess record for domain of grandmaster@al2klimov.de designates 2a01:4f8:c0c:1465::1 as permitted sender) smtp.mailfrom=grandmaster@al2klimov.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=oci4HObIYA/DBsq3vOia+N1y6UDsjkVF/tk9iO2jS8w=;
-        b=r6IT8HDmNxzk2kMPG9I91IX4vVZxPzxuvG+toImiVdT2Vz5hyYdEQqz3Zl32ltrpqW
-         Cqqyl/Gj9AjlTfyvLbMd9R8tgrEhf3XXA4WmMhFs0RPMHws4zUZ+OskvGB8F0U85ovc9
-         myL9qG0Z3bfkE7H0sxtlaIbRGeU6hHnOyV+j0zB6CZ6FJl5X0ca4SzGFw1Y6iW+jRxd2
-         o1KjR4MOFQG6v+WkA/CeRQPRXxcpyDB5Iro1qeGClrOu/yGHPSKDsDXgXZAoMiCxATbZ
-         NCz2IDrYfZ8Mtq1Rm/+ZjepSd8z5j3YPmpYTiRL+CdnOQqO7TF1M/1d2sBanzy81Ul5I
-         qUcw==
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=zgPXAmkv9lBCtsmBwhhg+/HQQowoSgA999GnZvl4Bn4=;
+        b=Swv+IBZU9hGNh7pED8V8yF+IF8+kMblRYjL5VvwHhTiZlZtIj1GQ49h90tO+CzHBQR
+         gUd9ov68m8zxItuGKctrU2MJrA8dBQ778PkxzzU/8C5vMpGB+/X0etNlu7EWH4/bm/Yq
+         1FHdXqdBA7jN/eACNJVaYOF3aLspNkdHKnSC4RWWnI2DSg/fPBOpGSfkF5gDDKPpfRWI
+         t8HCeSHd9Lf9dsFj/eXVLddGBTshD9rPXv8DuXcbTkicQwEnhTWsdfuOeKz7rcA/x41i
+         xKHg40edhjgJgIo9rcF5OsSlYxqvT1k+wo+ReNW/UZlipcmroJ/m5cQ4lthLMlX4g46X
+         +DkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=oci4HObIYA/DBsq3vOia+N1y6UDsjkVF/tk9iO2jS8w=;
-        b=TgEYP2yVpWT727K/W0zMvEq035tduQf90Y+nzDBzRSA8MON0Wl/O4KSn/KQNuE6ZUl
-         b3C57fWSGIiICgr9LeoYrHEpW3wQ0xzyepnd1UnEZaMH4rooEU6Iv8TmeUFjIDOGc3bS
-         My1ABYlVuGjg7PuSHJz/FeLyZJUjOpmHYjj/bFeWJS6zxLrr37V1xYr/6iBCb5VN6U0D
-         chC+Ib11tW1Cx2SGcgtTIWBtbzUSt1QW0mcql+f2xl0aJjvQptSH1pByYe61+3LCpb+u
-         zU8eaGwfzSvSxeIDSVgXdZqDQruvNkYhWe1qRuykQ5WQA4Ym31QamaaXVSoI9ObS3hV9
-         V/kw==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=zgPXAmkv9lBCtsmBwhhg+/HQQowoSgA999GnZvl4Bn4=;
+        b=HpKEqIB4pSuWqfT2i3bGmMe2GoPPTuhWgK9f8NIziuY9EtERLXly6Qm6sqmnC55qum
+         Z4G/oJyM4lf5gyUPiUFYkMqdgy8uwgPF0k7zMCr7Jj+QSeIMfesAm0wdlUgb42nCmM4b
+         yd5iIt2ZV8zWQu4FGaP82Wi/6OhyAIvdl+OhM27AZjkRDuonrG/ZgFiKlDF+MqUuvxhn
+         CAl7gemlD7dM9qR0IJgY4LXZ83QLNm5KCJZnRm2WA3LXvecv/wf3gauiXMdk3zQg0KbY
+         KiRMiBEqyrsV4NLNeaXCCRFHYGHczrCnOwAa91Jo1CKl0SESVydQygkX8t4qI0yoo55i
+         aeRQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530skMZ+D4Dkj8gjj/H7nEMjhqG7Jx1PDRnmoN/IbSuUnURjRctW
-	luakfkpMfh32UwO+eZbeolE=
-X-Google-Smtp-Source: ABdhPJxZBdWQdnyuOi3mr9XSS2Re1cWEs3S5BmtNaoFNq2323LnJraIhtdI6GVvXe9DoizikDSb3Xg==
-X-Received: by 2002:a2e:991:: with SMTP id 139mr8362001ljj.314.1595182767071;
-        Sun, 19 Jul 2020 11:19:27 -0700 (PDT)
+X-Gm-Message-State: AOAM532SQRVtwSSfG06T7paxKaOcEJKycRELM3Z+csaFww/8ikqqsY1s
+	mlQtxHqZTnf00p49XpuCqkA=
+X-Google-Smtp-Source: ABdhPJzviRd+Z6ODdXT3iUmJR2hwkNMIdnDFiDXv4pPaQVzZWVzbJ16eUB3z01ci9RwWEfKecbHX5w==
+X-Received: by 2002:a05:6512:70e:: with SMTP id b14mr2882532lfs.64.1595187971363;
+        Sun, 19 Jul 2020 12:46:11 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:8610:: with SMTP id a16ls2166520lji.8.gmail; Sun, 19 Jul
- 2020 11:19:26 -0700 (PDT)
-X-Received: by 2002:a2e:81d5:: with SMTP id s21mr9216483ljg.362.1595182766549;
-        Sun, 19 Jul 2020 11:19:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1595182766; cv=none;
+Received: by 2002:a2e:8592:: with SMTP id b18ls2203452lji.0.gmail; Sun, 19 Jul
+ 2020 12:46:10 -0700 (PDT)
+X-Received: by 2002:a05:651c:323:: with SMTP id b3mr8185879ljp.318.1595187970743;
+        Sun, 19 Jul 2020 12:46:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1595187970; cv=none;
         d=google.com; s=arc-20160816;
-        b=XQHQ/M3BSU2rU3u5T0LrpClhDtRMUVvJCXNTAOjcnJhLXB8E1cDN1NxpXNHWQ2z964
-         ZJzXhg1yO3yNhH9RGbb3mrhkVii9JqFJLVpupX6vhpMKZLMjgj25jHh2p8+UM+mrTvw6
-         ihoOblpxGJBGnyf6xVBHyRJmtLW8BLNO8fc54l2SRvXMCB9LTAXZHsILrJBqK2iER/uW
-         47GjFVcYNy4PTim1H/yl3elK7BOcMhTP1NxAM1V4wT9wo9NoiRv8SosU8UzYG5iQ0EOI
-         oY7xp4nP9CzOdgonrkck7h4SkuRpkJ/Rh7LUxMvBkqK7mJLxqqTsx4uHMNvNK4kcWC4w
-         6AKQ==
+        b=yStv3Dhsz/0IruaCJ4bJSd4+NKFH7An02zcSDw4qgZw/JSK0L63wpMNWrSZlJoaTqj
+         1tv5aH+6jXdkP+556taKXHU9ypYR6HFlThg/0ZF6xiStLWjgv5esCtWoOFgcS84taWOZ
+         PCeTI+zlM5kS5hcDrp1rCyNdS7ATjtB6EydUO3awItB1rDb1gM+vphZxDtk+SvnTsdjU
+         3/RnRe5nCxnDDbYrMzMSk6pUt7wxnrJJcXmjZBZDNghzX7Qv3S1eMG87vE1cUFlpIFK4
+         Iw6DVOUbVRa9sQ+M3VCsMBn4HnxrjHFt0jCmW3QVPjNX5uYnlA+USgg9UMJu1L9GYhlB
+         0S1Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date;
-        bh=9zf/JTEFb4MmsfNgvPGgzAwyWiU9bGoQC8P9fPV+n6I=;
-        b=WPLRUZMZu+OAcKZ1dPQ419HYp7oYxeOTC4g75miDAunZW/bcKm+gfkm0TwaN3A+QUS
-         pHNYlRM//6CIj5g9o5TW5hSbh6z4mPMLozMVN5JzAtd924QyFQESq8/5MFUWASKNDZgp
-         IKb5x8NU7tEPMehw7zQI4rV3fhflNzZ4rgXqNh1cdhQDmov+hpwa/2l3kweTuBxV7Qpc
-         V5DmxZYSkwhLSuB72oK1vAlUW2E/hg5B8q/TdwJ82nGEbPNuwF4jKdxdqHO+SSN0ZvYH
-         pP2Y1sZBmGjNhlfplhHwsXa1PzKVt6ercld/2DS2uzvU77DIE8s4OPLtptYz5MQsT5K0
-         GeNA==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from;
+        bh=QbkSqcZFbuvy164ZkgfA6jcoCfEXnktipVZ+4E7wirE=;
+        b=vROJZlPRLcT/lIHPg2tqrdxyMDxwWwtyxTJJUjwKsMBsFY5rsBFdNqzaUI0bCtUDl6
+         Pd4u/6q1H6BqywI0TXikdTrojTEHEXpNdkwSwOhDCan7rARg33wkiemRKQobPwXe2mLe
+         F8OT+/F3T8w+GOveOQwUPjbzXHMgsRbvNrN65eLvVE8jJuAxtiEUSA8CHAmq9Bvqp13v
+         3RHD1mL8RR/e6TUS/vHbrBZvEIO9Goi2Wb/2DTyp5f83zK4Mu8H2zOz/WETYEJUzCEoi
+         93PMoUUcLW3pI4Js1dbn4l2eTXXO4rzNHahr+eyXrDH7YCjFbT/rIDDIKEo2vP2k0MHe
+         WkFw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of srs0=vwyo=a6=stusta.de=bunk@stusta.mhn.de designates 141.84.69.5 as permitted sender) smtp.mailfrom="SRS0=VwYo=A6=stusta.de=bunk@stusta.mhn.de";
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.stusta.mhn.de (mail.stusta.mhn.de. [141.84.69.5])
-        by gmr-mx.google.com with ESMTPS id p10si531026ljj.7.2020.07.19.11.19.26
+       spf=pass (google.com: best guess record for domain of grandmaster@al2klimov.de designates 2a01:4f8:c0c:1465::1 as permitted sender) smtp.mailfrom=grandmaster@al2klimov.de
+Received: from smtp.al2klimov.de (smtp.al2klimov.de. [2a01:4f8:c0c:1465::1])
+        by gmr-mx.google.com with ESMTPS id e2si838336ljg.8.2020.07.19.12.46.10
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 19 Jul 2020 11:19:26 -0700 (PDT)
-Received-SPF: pass (google.com: domain of srs0=vwyo=a6=stusta.de=bunk@stusta.mhn.de designates 141.84.69.5 as permitted sender) client-ip=141.84.69.5;
-Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by mail.stusta.mhn.de (Postfix) with ESMTPSA id 4B8tRZ0r2bz3H;
-	Sun, 19 Jul 2020 20:19:21 +0200 (CEST)
-Date: Sun, 19 Jul 2020 21:19:19 +0300
-From: Adrian Bunk <bunk@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Josh Triplett <josh@joshtriplett.org>,
-	Nick Desaulniers <ndesaulniers@google.com>, alex.gaynor@gmail.com,
-	geofft@ldpreload.com, jbaublitz@redhat.com,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Subject: Re: Linux kernel in-tree Rust support
-Message-ID: <20200719181919.GA4179@localhost>
-References: <CAKwvOdmuYc8rW_H4aQG4DsJzho=F+djd68fp7mzmBp3-wY--Uw@mail.gmail.com>
- <20200712123151.GB25970@localhost>
- <20200712193944.GA81641@localhost>
- <CAK8P3a20UQvQO0U=p1kBEUvRdwm8VFBa31aCe7C70hwTzcu_yw@mail.gmail.com>
+        Sun, 19 Jul 2020 12:46:10 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of grandmaster@al2klimov.de designates 2a01:4f8:c0c:1465::1 as permitted sender) client-ip=2a01:4f8:c0c:1465::1;
+Received: from authenticated-user (PRIMARY_HOSTNAME [PUBLIC_IP])
+	by smtp.al2klimov.de (Postfix) with ESMTPA id 594B4BC086;
+	Sun, 19 Jul 2020 19:46:08 +0000 (UTC)
+From: "Alexander A. Klimov" <grandmaster@al2klimov.de>
+To: masahiroy@kernel.org,
+	michal.lkml@markovi.net,
+	corbet@lwn.net,
+	linux-kbuild@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Cc: "Alexander A. Klimov" <grandmaster@al2klimov.de>
+Subject: [PATCH for v5.9] kbuild: Replace HTTP links with HTTPS ones
+Date: Sun, 19 Jul 2020 21:46:02 +0200
+Message-Id: <20200719194602.61387-1-grandmaster@al2klimov.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAK8P3a20UQvQO0U=p1kBEUvRdwm8VFBa31aCe7C70hwTzcu_yw@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: bunk@kernel.org
+X-Spamd-Bar: +++++
+X-Spam-Level: *****
+X-Original-Sender: grandmaster@al2klimov.de
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of srs0=vwyo=a6=stusta.de=bunk@stusta.mhn.de designates
- 141.84.69.5 as permitted sender) smtp.mailfrom="SRS0=VwYo=A6=stusta.de=bunk@stusta.mhn.de";
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ (google.com: best guess record for domain of grandmaster@al2klimov.de
+ designates 2a01:4f8:c0c:1465::1 as permitted sender) smtp.mailfrom=grandmaster@al2klimov.de
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,80 +125,141 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jul 16, 2020 at 03:06:01PM +0200, Arnd Bergmann wrote:
-> 
-> I would expect we'd want a fairly tight coupling between kernel
-> releases and minimum rust releases at first. Whatever is the latest
-> stable rust version during the kernel's merge window might be
-> assumed to be the minimum version for the life of that kernel, but
-> an LTS release would not suddenly start relying on features
-> from a newer compiler (thought it might warn about known bugs).
-> 
-> This might mean that linux-next requires a beta version of rust, if
-> the release is expected before the merge window and it contains
-> an important change.
+Rationale:
+Reduces attack surface on kernel devs opening the links for MITM
+as HTTPS traffic is much harder to manipulate.
 
-I would expect this is absolutely not wanted,
-it would make testing recent kernels very hard.
+Deterministic algorithm:
+For each file:
+  If not .svg:
+    For each line:
+      If doesn't contain `\bxmlns\b`:
+        For each link, `\bhttp://[^# \t\r\n]*(?:\w|/)`:
+	  If neither `\bgnu\.org/license`, nor `\bmozilla\.org/MPL\b`:
+            If both the HTTP and HTTPS versions
+            return 200 OK and serve the same content:
+              Replace HTTP with HTTPS.
 
-If you want to keep a tool that tightly to the kernel,
-please bundle it with the kernel and build it as part
-of the kernel build.
+Signed-off-by: Alexander A. Klimov <grandmaster@al2klimov.de>
+---
+ Continuing my work started at 93431e0607e5.
+ See also: git log --oneline '--author=Alexander A. Klimov <grandmaster@al2klimov.de>' v5.7..master
+ (Actually letting a shell for loop submit all this stuff for me.)
 
-I would suggest to start with a proper design/specification what the 
-kernel wants to use, so that you are confident that a compiler 
-implementing this will be sufficient for the next 5 years.
+ If there are any URLs to be removed completely
+ or at least not (just) HTTPSified:
+ Just clearly say so and I'll *undo my change*.
+ See also: https://lkml.org/lkml/2020/6/27/64
 
-As a secondary benefit, starting with a proper design often brings
-a better result than adding permanent features piece by piece.
+ If there are any valid, but yet not changed URLs:
+ See: https://lkml.org/lkml/2020/6/26/837
 
-As a tertiary benefit, it would avoid tying the kernel to one specific 
-compiler implementation. A compiler like mrustc or a hypothetical Rust 
-frontend for gcc could then implement a superset of what the kernel 
-needs.
+ If you apply the patch, please let me know.
 
-> Staying with fairly recent versions of clang
-> certainly helped in getting clang and the kernel to co-evolve and
-> get to the point we are now in using it as an alternative to gcc.
+ Sorry again to all maintainers who complained about subject lines.
+ Now I realized that you want an actually perfect prefixes,
+ not just subsystem ones.
+ I tried my best...
+ And yes, *I could* (at least half-)automate it.
+ Impossible is nothing! :)
 
-The main difference is between an alternative to an existing tool,
-and a mandatory new tool.
 
-> While Linux used to build with 12 year old compilers (4.1 until
-> 2018), we now require a 6 year old gcc (4.9) or 1 year old
-> clang/llvm. I don't know whether these will fully converge over
-> time but it seems sensible that the minimum rust frontend version
-> we require for a new kernel release would eventually also fall
-> in that range, requiring a compiler that is no more than a few
-> years old, but not requiring the latest stable release.
+ Documentation/kbuild/Kconfig.recursion-issue-02 |  2 +-
+ Documentation/kbuild/kconfig-language.rst       | 14 +++++++-------
+ Documentation/kbuild/llvm.rst                   |  2 +-
+ scripts/package/mkdebian                        |  2 +-
+ scripts/package/mkspec                          |  2 +-
+ 5 files changed, 11 insertions(+), 11 deletions(-)
 
-The correct range for a mandatory tool are the 6 to 12 years for gcc.
-
-Debian stable and Ubuntu LTS are providing (different) mechanisms
-for installing the kernel from the next stable/LTS release 2 years
-later[1] for supporting new hardware.
-If kernel 5.12 LTS cannot be compiled on Ubuntu 20.04 LTS with
-the 2019 gcc 9 there would be pain downstream.
-
-In the embedded world spreads far wider than these 3 years are common.
-I would currently have a real-life usecase for compiling a recent
-kernel with a gcc 4.0 (sic) toolchain.
-Properly supporting 15 year old toolchains would be painful upstream,
-supporting 6 year old toolchains is a reasonable compromise between
-not being too painful upstream while rarely causing pain downstream.
-
-What applies to gcc does also apply to other external tools used
-during the kernel build.
-
->       Arnd
-
-cu
-Adrian
-
-[1] following a new upstream kernel stable branch every 6 months (Ubuntu)
-    or the latest upstream stable kernels (Debian) until this is reached
+diff --git a/Documentation/kbuild/Kconfig.recursion-issue-02 b/Documentation/kbuild/Kconfig.recursion-issue-02
+index b9fd56c4b57e..df245fd7670d 100644
+--- a/Documentation/kbuild/Kconfig.recursion-issue-02
++++ b/Documentation/kbuild/Kconfig.recursion-issue-02
+@@ -42,7 +42,7 @@
+ # "select FW_LOADER" [0], in the end the simple alternative solution to this
+ # problem consisted on matching semantics with newly introduced features.
+ #
+-# [0] http://lkml.kernel.org/r/1432241149-8762-1-git-send-email-mcgrof@do-not-panic.com
++# [0] https://lkml.kernel.org/r/1432241149-8762-1-git-send-email-mcgrof@do-not-panic.com
+ 
+ mainmenu "Simple example to demo cumulative kconfig recursive dependency implication"
+ 
+diff --git a/Documentation/kbuild/kconfig-language.rst b/Documentation/kbuild/kconfig-language.rst
+index a1601ec3317b..41bee6a171e3 100644
+--- a/Documentation/kbuild/kconfig-language.rst
++++ b/Documentation/kbuild/kconfig-language.rst
+@@ -688,10 +688,10 @@ and real world requirements were not well understood. As it stands though
+ only reverse engineering techniques have been used to deduce semantics from
+ variability modeling languages such as Kconfig [3]_.
+ 
+-.. [0] http://www.eng.uwaterloo.ca/~shshe/kconfig_semantics.pdf
+-.. [1] http://gsd.uwaterloo.ca/sites/default/files/vm-2013-berger.pdf
+-.. [2] http://gsd.uwaterloo.ca/sites/default/files/ase241-berger_0.pdf
+-.. [3] http://gsd.uwaterloo.ca/sites/default/files/icse2011.pdf
++.. [0] https://www.eng.uwaterloo.ca/~shshe/kconfig_semantics.pdf
++.. [1] https://gsd.uwaterloo.ca/sites/default/files/vm-2013-berger.pdf
++.. [2] https://gsd.uwaterloo.ca/sites/default/files/ase241-berger_0.pdf
++.. [3] https://gsd.uwaterloo.ca/sites/default/files/icse2011.pdf
+ 
+ Full SAT solver for Kconfig
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@@ -710,10 +710,10 @@ such efforts somehow on Kconfig. There is enough interest from mentors of
+ existing projects to not only help advise how to integrate this work upstream
+ but also help maintain it long term. Interested developers should visit:
+ 
+-http://kernelnewbies.org/KernelProjects/kconfig-sat
++https://kernelnewbies.org/KernelProjects/kconfig-sat
+ 
+-.. [4] http://www.cs.cornell.edu/~sabhar/chapters/SATSolvers-KR-Handbook.pdf
+-.. [5] http://gsd.uwaterloo.ca/sites/default/files/vm-2013-berger.pdf
++.. [4] https://www.cs.cornell.edu/~sabhar/chapters/SATSolvers-KR-Handbook.pdf
++.. [5] https://gsd.uwaterloo.ca/sites/default/files/vm-2013-berger.pdf
+ .. [6] https://cados.cs.fau.de
+ .. [7] https://vamos.cs.fau.de
+ .. [8] https://undertaker.cs.fau.de
+diff --git a/Documentation/kbuild/llvm.rst b/Documentation/kbuild/llvm.rst
+index c776b6eee969..2aac50b97921 100644
+--- a/Documentation/kbuild/llvm.rst
++++ b/Documentation/kbuild/llvm.rst
+@@ -76,7 +76,7 @@ Getting Help
+ Getting LLVM
+ -------------
+ 
+-- http://releases.llvm.org/download.html
++- https://releases.llvm.org/download.html
+ - https://github.com/llvm/llvm-project
+ - https://llvm.org/docs/GettingStarted.html
+ - https://llvm.org/docs/CMake.html
+diff --git a/scripts/package/mkdebian b/scripts/package/mkdebian
+index df1adbfb8ead..48fbd3d0284a 100755
+--- a/scripts/package/mkdebian
++++ b/scripts/package/mkdebian
+@@ -175,7 +175,7 @@ Section: kernel
+ Priority: optional
+ Maintainer: $maintainer
+ Build-Depends: bc, rsync, kmod, cpio, bison, flex | flex:native $extra_build_depends
+-Homepage: http://www.kernel.org/
++Homepage: https://www.kernel.org/
+ 
+ Package: $packagename
+ Architecture: $debarch
+diff --git a/scripts/package/mkspec b/scripts/package/mkspec
+index 8640c278f1aa..7c477ca7dc98 100755
+--- a/scripts/package/mkspec
++++ b/scripts/package/mkspec
+@@ -46,7 +46,7 @@ sed -e '/^DEL/d' -e 's/^\t*//' <<EOF
+ 	License: GPL
+ 	Group: System Environment/Kernel
+ 	Vendor: The Linux Community
+-	URL: http://www.kernel.org
++	URL: https://www.kernel.org
+ $S	Source: kernel-$__KERNELRELEASE.tar.gz
+ 	Provides: $PROVIDES
+ 	%define __spec_install_post /usr/lib/rpm/brp-compress || :
+-- 
+2.27.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200719181919.GA4179%40localhost.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200719194602.61387-1-grandmaster%40al2klimov.de.
