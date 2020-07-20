@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBF4H3D4AKGQE5S7EERA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBHEH3D4AKGQEHCUVEOI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43a.google.com (mail-pf1-x43a.google.com [IPv6:2607:f8b0:4864:20::43a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6ED9C22700B
-	for <lists+clang-built-linux@lfdr.de>; Mon, 20 Jul 2020 22:50:33 +0200 (CEST)
-Received: by mail-pf1-x43a.google.com with SMTP id h75sf13466856pfe.23
-        for <lists+clang-built-linux@lfdr.de>; Mon, 20 Jul 2020 13:50:33 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1595278232; cv=pass;
+Received: from mail-qk1-x73b.google.com (mail-qk1-x73b.google.com [IPv6:2607:f8b0:4864:20::73b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0848722700E
+	for <lists+clang-built-linux@lfdr.de>; Mon, 20 Jul 2020 22:50:38 +0200 (CEST)
+Received: by mail-qk1-x73b.google.com with SMTP id 3sf2120915qkv.13
+        for <lists+clang-built-linux@lfdr.de>; Mon, 20 Jul 2020 13:50:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1595278237; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Q+3Fk1TTDc8d+BsViQvS5fYubuB9XxYnWBq3usJ+pbCJsgMXFOKGQzuHCdsH2EvmlG
-         OyT7ZUQ/ovCwM4oF4WC/YgItqkzCm0nictei5QIywSZHflnaOOvmN4rHHiH7H7FPLemz
-         jeZebusvnBvLHSmk2yknc1hwO1E5Rzqn4M8MCcThehBtEBPnRLvEznlKD917k4/0ARdw
-         VQh2upAJMC30g4jQzbPLOVxbCHM3d9nCIWUKQXs/CdJnVZkAVInu71kZq6fjv8MJ0Hpm
-         moa8S7IJx8Xb8McUEVxzouPs8MZp7/Sa0Y3zL+amTunnW0SVFCcVnKGMwu4OTLmWEVVB
-         GHBw==
+        b=R1WqpYRdNsQK/y0DI9zXe2JPAdaHAqZquO1Tj27yy1JN3xT2IauamW0fWXNsffdURp
+         8xP1OvI3fqkGmj51iM3bnHVcl6rKYgnDkk+pJIesQLLHgUtCTtjX2jF1uiDpbR8Y6Jsg
+         k+rMaS5tLPlFSRvp+otkiMw65bWTZBtVA1FnRIc/p1gnL9R4zustSpbpBZK9j/SYRxhN
+         npxPI35yaEAjF0nnSQ/nZK+qKB8pXG0/yks7zLN5f2DV7eF2Xny2mNsoswxzOsFcdjxY
+         wyVhqraJXfvwPVnoU4qIfLDtwK08cWYODGYrXpompeAvSWu4pbU24ieJ8WXbhnajwBqW
+         0xYA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=b6orHtifOzKEWXAQiSD1YEZ2H2vBfkbvNr0HPqV07AA=;
-        b=eyzF+E+zZh8v96d3Nx5zO6tgulUz4Ka1YS3arRdbUeRHNmAJq7BZtL9wFci5iczJsy
-         ER1TDd29hS2hn8WyEGfO2lI+0knSq5ixmPoiPiA4Bp3D+FY9uVVz0v0uMkVAX2lIYYXQ
-         LHfHud8r/o4JGYmC9gCp856wRu4AU8KIYw8ccPD9DRbF0DECCtmC6l92vtNzgG17Tbfn
-         3gOLbbzBZ5BZyrc1q5fCRGAcg1vx/tE579iQYb5ec5zUlUPr1vMRN8G/PBOH36FfEfdR
-         3b+c6e5vJEzk7CQyS4ciLLuBSJIg4t+4i03F1fvqAMPj1D8MfgqZRNgj8xBeBZViqOEK
-         ZEYQ==
+        bh=O6/sHjTqG4+0lpgGLskQ7vsKsipjBrKED3wBW7LJN7I=;
+        b=HVun2ovu96f4UpFtUCnxhdgINzbpbvsg9Y6hY3PWT8OCq3sIQIlRKesh3CZNYevraS
+         ZuwKc6UeZw2qYutAKE+CyHafPDcLEBPnK0ljfLM00jn6Yfbcdlira3cH6FRsJ0Xa5XhP
+         JNmdmBXQleJGGMD/TeMf4TmPjbAdz41vtqZGZkpQDcOu3Yqe6Y3e3bXCJ2otaSP6uhXq
+         YvlN49uKmioFoKaJ09i6cLCDLALcXlXyPWLqdro47kG1IFIfZplPMJdtlPTCQ+ckKNG1
+         7GSqRdB6GRbzTWUOcOyGItIlJkzybRRFZ/uA3drY/MdBBZxYeLvjWS4gB6Wc7WBha/K8
+         RiYA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=G0oYaHUj;
-       spf=pass (google.com: domain of 3lgmwxwwkapmiyznvpgidzmnbjjbgz.xjh@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3lgMWXwwKAPMiYZnVpgidZmnbjjbgZ.Xjh@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Ut+dWC7S;
+       spf=pass (google.com: domain of 3mwmwxwwkapgsijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::104a as permitted sender) smtp.mailfrom=3mwMWXwwKAPgsijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=b6orHtifOzKEWXAQiSD1YEZ2H2vBfkbvNr0HPqV07AA=;
-        b=rrMLtjz4jvLMZhn4WOFkuOwBbNh0p3LmjTm9641xa2v/zgCIb5Gsq3q8F1oOJVXxUP
-         i8L5aauRMhmmhYC3TSAMNbqcRN/C80q8enUt9cQN8m65vEq33EQUnX2xGXwtq2IJ5xpl
-         KJkDQcNHDwS6CziFH6Kmf5S60kLfvaBrEXPM46Ls2a1OJAAyG0IaDQgwIClsbircCxYr
-         UyEwbqYo0iEXW5XWQK8yW7yJ1vF6Fr7wtRSf+GdbfeEi+y28ZL9tNMXTQq9fUT/VTqbc
-         VFe7pNV+L99pjb0b/sPQRoMoLsQeyyyfKNU7w0WoQqOhJhNuoSqWU40lbQuXQnnrhKuz
-         loqw==
+        bh=O6/sHjTqG4+0lpgGLskQ7vsKsipjBrKED3wBW7LJN7I=;
+        b=M7/CrYQPO6Juk2zGRzyblToF0tvXQYykeiUvWMVj9ieC0zdxz5K6fQ8NV1E4y6MBlt
+         +4rh7r8ydChiruT24V8W7y9Uz4TPJEI/RW+XdRRsjViMYO8mJ3CVmAMCzo4qpk5QKFsA
+         4Hqbn7idrAQeQgDC1jylBrEcoloS1G8HOwdqSI3zLf8GQYBpD8nvvTnD6NBsM8sf1W26
+         xm2tnRUUyVavPwBVpmP12Ubg33No4HSIhuFhK1pIcDLyQDWsyZ7Zq3DwF0+uqBUJ1UcX
+         ChhPDx8CEdVCwA5FvrwmSeKe73Qdh8jLUBPLvbkuBU5JSjqmpUUDDShblRB1xm5Ps9V9
+         75Gw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:in-reply-to:message-id:mime-version
@@ -49,62 +49,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=b6orHtifOzKEWXAQiSD1YEZ2H2vBfkbvNr0HPqV07AA=;
-        b=mRWG/bwr2kK/2Zv9tDfzr7qXnLmqWUivyeco7Z8siXfavHZCmjGWXYn40H+V0+XouS
-         qVXtwd/s7xox7wSC+J59v0ZUBJnZacOTZbPjMrOrlZ/a5iH7jBA1QVjK1cc8I/MIBCdV
-         XKjyPz1czmsd9+6tTwdnD/f4thRqVJ0NrBgNZqzNl741TXQzql/4A202enSpKwmmS1Rb
-         lTn7zMwuFhAOklO4Il3y+oHQFaMEAOUcdP3XMhuqctO4x1nxErCxBg2SWkkbE8pNF+ib
-         C4YzXbELUAY4A7PFN9NEPy5MHm9aQLhOgxWWdYJuJaBLOqse2N6WL+Sc2f/F0qeLX5Dy
-         44KQ==
-X-Gm-Message-State: AOAM533r6Jjpg+AkXfoUoyPIyOv8VUSzDuERy5Ouq+MvEejqzvzL6Q+l
-	coJ9ts4gYrN035QXNlmREWM=
-X-Google-Smtp-Source: ABdhPJxYZuMnLLpn1Rx4TuiF+KEUG4KY9YLqBhmnRnypL6sw8V/eX54ow/RHuy410WWTIiViEwuoKQ==
-X-Received: by 2002:a62:cdc4:: with SMTP id o187mr21649595pfg.200.1595278232098;
-        Mon, 20 Jul 2020 13:50:32 -0700 (PDT)
+        bh=O6/sHjTqG4+0lpgGLskQ7vsKsipjBrKED3wBW7LJN7I=;
+        b=WnR/Gi+2w+CCaB7wGjikhF52nH5b7rYSf6vHtG00DHL1kG652IcTeXR8dNuXQ96eXV
+         2038bL1df7SCupet8HVJfHhsFNuAYyVCLXPKSY3/8NisSSkUvRwi4adcRSNbHgYonaUr
+         gnUR+G1bL6w8KNRA8yLjUIxAoYqeCy1vFsTxLloAamjcuu8aYKt8qZZjoPn+Vjd5Gfh5
+         PqIgaDsvQYL4xkOLI8FIwbUV75yTvJzI0VZ9aSgnjLsAuJRVbwmejc24y1jKr0JI3L0i
+         qI0bIPIRXaRUdS3pToH+e3WhyV9/WdagPpMbo69/3Aa3vXyBBT+Z3EfOuMxDagJEl7NM
+         VoUw==
+X-Gm-Message-State: AOAM531U7QP6nA5l+/kh5X964bOZuBHJxl3filLmxrgQrMZxSFN7IFCp
+	eA20VzHxbzQhIyguxreHzoY=
+X-Google-Smtp-Source: ABdhPJwp3p1aKc7QGca2GO1Mf8/AKPohNuxk0zT8i95VpVZXn+Z0DVRVC2QiI1svcte2AyMkY8Nz3Q==
+X-Received: by 2002:ac8:6743:: with SMTP id n3mr2559055qtp.7.1595278236982;
+        Mon, 20 Jul 2020 13:50:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:f450:: with SMTP id p16ls2160480pgk.5.gmail; Mon, 20 Jul
- 2020 13:50:31 -0700 (PDT)
-X-Received: by 2002:a62:7a07:: with SMTP id v7mr20886223pfc.172.1595278231457;
-        Mon, 20 Jul 2020 13:50:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1595278231; cv=none;
+Received: by 2002:ac8:1ac1:: with SMTP id h1ls3494072qtk.4.gmail; Mon, 20 Jul
+ 2020 13:50:36 -0700 (PDT)
+X-Received: by 2002:aed:37a6:: with SMTP id j35mr25421439qtb.322.1595278236722;
+        Mon, 20 Jul 2020 13:50:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1595278236; cv=none;
         d=google.com; s=arc-20160816;
-        b=DIZ3vBG3f9G6L9CwQzc72XsKs/1UKor/sIuvugVEFq17WGkWVeE7Ot7fU+aBIFpjYk
-         NJpa9lBEue7CIzdgSv3cNnGiTVrK6jsMMKr/xomCFI9rebBpe0xSsPkaMWy7K4knpCPJ
-         4FBkYiEY3NG5rkwGA6wgAdgnSTCiH9Gy7HMAM4rAuzDOpnX2nY2mdZogDaw7yplcscaU
-         OLmxx8AUnU2vRjTIzF8zyj9qO0x54FSsLut8o3963y7cVrMvPACVjBzsfTbPsAoB8RJp
-         l0SUPrrlf1lLtYmb6c5Qzy89a7KG2Iub9QHz3Gv1w7OfaM41AsAUeg8SeO7Up46TgLbT
-         wwew==
+        b=EODbJVaI4TFXSCaJJZwH3ki+uzys/3jdDKeg+Ss6dZgLjrJ0b6PIY8d164iVuhiEIC
+         WaJOGUAtCdG3lNoQOrYu2zqB5g7monYAyitCoNOEi9asD8GZQnqxs1Xe3NKDla0YrXtO
+         vSNNTGH6qqIVV6gHnGHxuHn6PtEh3goqZ8gucMnEwWmnRzk7AI2mDOaXEKmTo+myFO5P
+         jnd5qfminOB1yZsatrfVycr4g7Q5zNgcreyZUuwKFST2NB0wyaKhZ5dI36grYDZsU7bm
+         lyiJabH9JOFpipcMQEwfQxI4SG/3TiqD6Y3Pj2cv3UwEiUsqFj5HkOr2I9L9skJ7Kb8P
+         G1tw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:dkim-signature;
-        bh=t/rXoQERR5pj1vBkNrq0HXWlaSRuz2vmMuIwif9Ddok=;
-        b=YKb6nap8kFdb9k8i+x3gBUwQ7ls0Wsbqe+TLNeYnDOwwc9jVA8SbrtecsJS9zcMlcx
-         a1DQSC9B2a2OTrPn8J/HqQ0SjnBmVJDZX/dqhIloGR2W3R7l8fQlyoYIaTd+lsem4AmL
-         /oBxzkfIg+69Qe4CjFt/ZslL+4wu4afgbC1eR3ZcsM4rzfLeZ8D0/99wOUI8ef3pM38l
-         /2TyVDF9yGNbyHPIUIf+s4FVrsX5zoByOy5uTX9nGwD+E+nq4Pq7gaX7ZXLMd8T/2nb2
-         K9Op4v/DYeGNG4uoi3nZpadVDu7SCuF133cmaTGqWWpo0Z2D+7u7WBmfF3uvZdL4uoR+
-         HOWA==
+        bh=+s/g7aIJprAPntFnrImPLRWCyu/2UEeG13Ydv/LyQTw=;
+        b=HxqaUHw5AOg+fz1783KIdgrLq+XPvwV6LtB9VYX2MZquhcyL7HDJcCZfP15geH/nvY
+         Aa4kqE3J4BT+oVdGlyYbqY1DCqCrsmFaoGh4HAQPmxAZm9tIdnqG4JOAW1gAwhy3fXYe
+         XMRTtpBVplwRyhmeb4I4y1DV6frVv83PiwEX8mkEPssS8yeGv2DpP28wlwTKxXLJSx9K
+         uOUtDHTXfHDRbSk1VHvpbLrh+UNS/RHonxxkwZ1pEg9DEFsIZGhiyKpEuxzdLpgGmnXF
+         OR2sxMWCtDVxgnQ7B8ipTbsGpxjioAtkwxdcnYYo3gLBAlJFVD7CuXVabXnp9n9vflMR
+         5yNg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=G0oYaHUj;
-       spf=pass (google.com: domain of 3lgmwxwwkapmiyznvpgidzmnbjjbgz.xjh@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3lgMWXwwKAPMiYZnVpgidZmnbjjbgZ.Xjh@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Ut+dWC7S;
+       spf=pass (google.com: domain of 3mwmwxwwkapgsijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::104a as permitted sender) smtp.mailfrom=3mwMWXwwKAPgsijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-yb1-xb49.google.com (mail-yb1-xb49.google.com. [2607:f8b0:4864:20::b49])
-        by gmr-mx.google.com with ESMTPS id a6si1003739pgw.3.2020.07.20.13.50.31
+Received: from mail-pj1-x104a.google.com (mail-pj1-x104a.google.com. [2607:f8b0:4864:20::104a])
+        by gmr-mx.google.com with ESMTPS id t55si942396qtb.5.2020.07.20.13.50.36
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Jul 2020 13:50:31 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3lgmwxwwkapmiyznvpgidzmnbjjbgz.xjh@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) client-ip=2607:f8b0:4864:20::b49;
-Received: by mail-yb1-xb49.google.com with SMTP id e81so22937914ybb.3
-        for <clang-built-linux@googlegroups.com>; Mon, 20 Jul 2020 13:50:31 -0700 (PDT)
-X-Received: by 2002:a25:dc84:: with SMTP id y126mr37614831ybe.350.1595278230622;
- Mon, 20 Jul 2020 13:50:30 -0700 (PDT)
-Date: Mon, 20 Jul 2020 13:49:23 -0700
+        Mon, 20 Jul 2020 13:50:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3mwmwxwwkapgsijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::104a as permitted sender) client-ip=2607:f8b0:4864:20::104a;
+Received: by mail-pj1-x104a.google.com with SMTP id q70so487115pjb.0
+        for <clang-built-linux@googlegroups.com>; Mon, 20 Jul 2020 13:50:36 -0700 (PDT)
+X-Received: by 2002:a17:90a:bf09:: with SMTP id c9mr1119491pjs.221.1595278235781;
+ Mon, 20 Jul 2020 13:50:35 -0700 (PDT)
+Date: Mon, 20 Jul 2020 13:49:24 -0700
 In-Reply-To: <20200720204925.3654302-1-ndesaulniers@google.com>
-Message-Id: <20200720204925.3654302-10-ndesaulniers@google.com>
+Message-Id: <20200720204925.3654302-11-ndesaulniers@google.com>
 Mime-Version: 1.0
 References: <20200720204925.3654302-1-ndesaulniers@google.com>
 X-Mailer: git-send-email 2.28.0.rc0.105.gf9edc3c819-goog
-Subject: [PATCH v3 09/11] x86/percpu: Clean up percpu_stable_op()
+Subject: [PATCH v3 10/11] x86/percpu: Remove unused PER_CPU() macro
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>
 Cc: Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@linux.com>, x86@kernel.org, 
@@ -116,9 +116,9 @@ Cc: Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>, Christoph Lamete
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=G0oYaHUj;       spf=pass
- (google.com: domain of 3lgmwxwwkapmiyznvpgidzmnbjjbgz.xjh@flex--ndesaulniers.bounces.google.com
- designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3lgMWXwwKAPMiYZnVpgidZmnbjjbgZ.Xjh@flex--ndesaulniers.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=Ut+dWC7S;       spf=pass
+ (google.com: domain of 3mwmwxwwkapgsijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com
+ designates 2607:f8b0:4864:20::104a as permitted sender) smtp.mailfrom=3mwMWXwwKAPgsijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
 Reply-To: Nick Desaulniers <ndesaulniers@google.com>
@@ -136,89 +136,60 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Brian Gerst <brgerst@gmail.com>
 
-Use __pcpu_size_call_return() to simplify this_cpu_read_stable().
-Also remove __bad_percpu_size() which is now unused.
+Also remove now unused __percpu_mov_op.
 
 Tested-by: Nick Desaulniers <ndesaulniers@google.com>
 Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-Acked-by: Linus Torvalds <torvalds@linux-foundation.org>
 Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Acked-by: Linus Torvalds <torvalds@linux-foundation.org>
 Signed-off-by: Brian Gerst <brgerst@gmail.com>
 Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
 ---
- arch/x86/include/asm/percpu.h | 41 ++++++++++-------------------------
- 1 file changed, 12 insertions(+), 29 deletions(-)
+ arch/x86/include/asm/percpu.h | 18 ------------------
+ 1 file changed, 18 deletions(-)
 
 diff --git a/arch/x86/include/asm/percpu.h b/arch/x86/include/asm/percpu.h
-index 7efc0b5c4ff0..cf2b9c2a241e 100644
+index cf2b9c2a241e..a3c33b79fb86 100644
 --- a/arch/x86/include/asm/percpu.h
 +++ b/arch/x86/include/asm/percpu.h
-@@ -85,7 +85,6 @@
+@@ -4,33 +4,15 @@
  
- /* For arch-specific code, we can use direct single-insn ops (they
-  * don't give an lvalue though). */
--extern void __bad_percpu_size(void);
+ #ifdef CONFIG_X86_64
+ #define __percpu_seg		gs
+-#define __percpu_mov_op		movq
+ #else
+ #define __percpu_seg		fs
+-#define __percpu_mov_op		movl
+ #endif
  
- #define __pcpu_type_1 u8
- #define __pcpu_type_2 u16
-@@ -167,33 +166,13 @@ do {									\
- 	(typeof(_var))(unsigned long) pfo_val__;			\
- })
+ #ifdef __ASSEMBLY__
  
--#define percpu_stable_op(op, var)			\
--({							\
--	typeof(var) pfo_ret__;				\
--	switch (sizeof(var)) {				\
--	case 1:						\
--		asm(op "b "__percpu_arg(P1)",%0"	\
--		    : "=q" (pfo_ret__)			\
--		    : "p" (&(var)));			\
--		break;					\
--	case 2:						\
--		asm(op "w "__percpu_arg(P1)",%0"	\
--		    : "=r" (pfo_ret__)			\
--		    : "p" (&(var)));			\
--		break;					\
--	case 4:						\
--		asm(op "l "__percpu_arg(P1)",%0"	\
--		    : "=r" (pfo_ret__)			\
--		    : "p" (&(var)));			\
--		break;					\
--	case 8:						\
--		asm(op "q "__percpu_arg(P1)",%0"	\
--		    : "=r" (pfo_ret__)			\
--		    : "p" (&(var)));			\
--		break;					\
--	default: __bad_percpu_size();			\
--	}						\
--	pfo_ret__;					\
-+#define percpu_stable_op(size, op, _var)				\
-+({									\
-+	__pcpu_type_##size pfo_val__;					\
-+	asm(__pcpu_op2_##size(op, __percpu_arg(P[var]), "%[val]")	\
-+	    : [val] __pcpu_reg_##size("=", pfo_val__)			\
-+	    : [var] "p" (&(_var)));					\
-+	(typeof(_var))(unsigned long) pfo_val__;			\
- })
+-/*
+- * PER_CPU finds an address of a per-cpu variable.
+- *
+- * Args:
+- *    var - variable name
+- *    reg - 32bit register
+- *
+- * The resulting address is stored in the "reg" argument.
+- *
+- * Example:
+- *    PER_CPU(cpu_gdt_descr, %ebx)
+- */
+ #ifdef CONFIG_SMP
+-#define PER_CPU(var, reg)						\
+-	__percpu_mov_op %__percpu_seg:this_cpu_off, reg;		\
+-	lea var(reg), reg
+ #define PER_CPU_VAR(var)	%__percpu_seg:var
+ #else /* ! SMP */
+-#define PER_CPU(var, reg)	__percpu_mov_op $var, reg
+ #define PER_CPU_VAR(var)	var
+ #endif	/* SMP */
  
- /*
-@@ -258,7 +237,11 @@ do {									\
-  * per-thread variables implemented as per-cpu variables and thus
-  * stable for the duration of the respective task.
-  */
--#define this_cpu_read_stable(var)	percpu_stable_op("mov", var)
-+#define this_cpu_read_stable_1(pcp)	percpu_stable_op(1, "mov", pcp)
-+#define this_cpu_read_stable_2(pcp)	percpu_stable_op(2, "mov", pcp)
-+#define this_cpu_read_stable_4(pcp)	percpu_stable_op(4, "mov", pcp)
-+#define this_cpu_read_stable_8(pcp)	percpu_stable_op(8, "mov", pcp)
-+#define this_cpu_read_stable(pcp)	__pcpu_size_call_return(this_cpu_read_stable_, pcp)
- 
- #define raw_cpu_read_1(pcp)		percpu_from_op(1, , "mov", pcp)
- #define raw_cpu_read_2(pcp)		percpu_from_op(2, , "mov", pcp)
 -- 
 2.28.0.rc0.105.gf9edc3c819-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200720204925.3654302-10-ndesaulniers%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200720204925.3654302-11-ndesaulniers%40google.com.
