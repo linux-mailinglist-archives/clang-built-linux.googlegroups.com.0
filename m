@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB6UG3D4AKGQE2APMHWQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBAMH3D4AKGQEABG43HQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73e.google.com (mail-qk1-x73e.google.com [IPv6:2607:f8b0:4864:20::73e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 75A40226FFE
-	for <lists+clang-built-linux@lfdr.de>; Mon, 20 Jul 2020 22:50:03 +0200 (CEST)
-Received: by mail-qk1-x73e.google.com with SMTP id s5sf12283861qkj.1
-        for <lists+clang-built-linux@lfdr.de>; Mon, 20 Jul 2020 13:50:03 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1595278202; cv=pass;
+Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
+	by mail.lfdr.de (Postfix) with ESMTPS id ACD98227002
+	for <lists+clang-built-linux@lfdr.de>; Mon, 20 Jul 2020 22:50:10 +0200 (CEST)
+Received: by mail-pl1-x638.google.com with SMTP id y24sf5484270plp.18
+        for <lists+clang-built-linux@lfdr.de>; Mon, 20 Jul 2020 13:50:10 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1595278209; cv=pass;
         d=google.com; s=arc-20160816;
-        b=wW4pb7eXIin+7AvfoLCEp4KKCSsl3gLfVJIgq/XmB0hm+6nYrbM7wOZSVuY6Q5Pt03
-         rIXLVV4kmxIRQ9ORX7AByPilOYuo1Xln9fT3DeIsTKfrN5d7yP+2gAyUvDTmb7K3Jo4a
-         oRB1UWghcCmoZo7ZLDOUS7dA/Uh98AB/XgADbzH7nQCQoMcE+mrWUw3y98uLvvO+7+of
-         qK09vmZnt5A6E+3NroDuUO7ZPNcNLCOGaN5IIXIutrQznqnJ2lGIrW/nS2P4LELA3Gbg
-         XuVwC1cBRap5YdoML7fBNch9LVxnBDNCa+XREoy3x6ne4cQieYJnX66KLhTvx4rctBz0
-         o5EQ==
+        b=lIDfynXDgpQFeOSHgIbfWbOIAsjXRIku2D1GH2gMedrm3hJdU3ZsgXFE2QdSYv2nrt
+         PToR/ZLstrpiLmh8o5/RB5Ej5qOiaxc+eVgWwWz6wpRou1GrklbersP8jQnRVL/fo5TV
+         v5Wwkn4ehQ3OXt3qrV9ndL8zlcnozZv1kQZaRIhUzPDhDtjfXl9230vdrAdJLpqxYufj
+         iwqSjUtHSAyrHEWVUvsJD+TYXI3vbaCRvWGMF5BjM82N4+TQKdwStJfFdaT05Qhoq2g6
+         JsoZ/3SDd83NVIPbETnge0S2HOkyhg4Uk32/FNQkYS5+PAUjYXWdpsvzCvoXsLvknBxu
+         /+LQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=QXHRe1HtgtjC2vN+5unsN7F5mnVsAxltN4p6dBdx2G0=;
-        b=Og8VWyY6VEBf9YjhQ4kGRXMBYPO99MQ7GCjy5AfZw8Akh5CfYsZsKXwi6DHtCSEN+a
-         C9EJL+hEl61rE5AFYHLKYdrR9lm9KnMphkRuPG1tJ5MeiyMk2lDmQLt/Krk5EMnzeUIc
-         KxeYGMFvNhuDRHh2GF8TePmlQ4Mpomvx5NQoK6CtC6vIPeVMTPYqEGL96+yHEsAqH++u
-         /8zU2htWEjoMQ/nEKoKqdexeiPDUMP7s+NPde2Rtp385CNhHaL7SXkqiJCMe1M75/s8N
-         LqxTI9SjnV4P1crIiPU+srRpJwPimGupi3WsRpzu3xEc9KZNer6EaMgIkRqctHyJ7fFn
-         c8yA==
+        bh=ll/L9c050PZWCv3nQmbsqz737vyneD4h11eitiJFuPY=;
+        b=efh8skyOBq1VTCutVzCNh6YmX6iWJjuk6OssA9v7Dmf4s+PKnkJ1S0nvIp/Kxg125R
+         bhcq5BI4FT98m6QHLmjs2o19WGH0xm6HmdTU9RVySQIng9ax3Lk5KY2KeLBUYKv6Yv/1
+         bdYZ5itKzJskuF7gCkxPgKPusCnzwwJOndXber5WSLiSq6I6Gz+l1bKE5sjyBJDUyRcN
+         CPNne9bbNfUnNOADdLJ+wfDQGaUeF9MfLRk0/jnVLjceSHV3+GqpZHq7bhspWKPnNklv
+         i2cXtmAFP/o6Ygsfu8eKcfg/sXI8RG8H+IiatdB4tU8waYpS0ADIVECs8fTqVHnAdoay
+         YK2Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=PynqyNO2;
-       spf=pass (google.com: domain of 3eqmwxwwkanyf56k2mdfa6jk8gg8d6.4ge@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3eQMWXwwKANYF56K2MDFA6JK8GG8D6.4GE@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=XD68lI7x;
+       spf=pass (google.com: domain of 3gamwxwwkan0mcdr9tkmhdqrfnnfkd.bnl@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3gAMWXwwKAN0MCDR9TKMHDQRFNNFKD.BNL@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QXHRe1HtgtjC2vN+5unsN7F5mnVsAxltN4p6dBdx2G0=;
-        b=UcMGzYAN7K+PCWAISUmuL6QbbfjDE/sGZhLG3/9d+GJJI03HcbteJD9HJI5HyMvXWf
-         +++r7pjjKTOIn58KoLriGW6QA3fJkM9E84jkqjc6/Fin0BgSHJORSQuSvCKfFy2poq8G
-         VCyKrXV/CzhZvhnW13SfTGFLR+qH+OnIeiH39Vu20Dj5zTcYEp09IBrsc2zXZ41d+741
-         ImvZwgYkFMkI+hubYjos/39ZYjOcXOBe+BbpGmQ+UUMFcFGLvXdb3bczLfPRkHO+TsHr
-         McoS9Ot7TK+SovG9RCZSpA/9haOx+m0Xhi+0PbEmOFmZug9gOroJ8e6vHEUsXvqJeap4
-         zXnA==
+        bh=ll/L9c050PZWCv3nQmbsqz737vyneD4h11eitiJFuPY=;
+        b=nVSW85h7A5jnqDDjsJXBNLXEPTkVuHx+ffmPd8p6qK/hrXSxWogIe2iGxKy8qvpE7b
+         8i/qSr6fsinjowR/LjYE0HEJ2TnXdmTYHow/O+ojotuUMhpX9SHZUQP/F7VIBKN2o5IX
+         nI10UsZKrLuxHHEaWb5ZEbOdWW9eaVQDIdr2l0FTAvNCf9OGW7QxwsdmNkhBYQXPhrqE
+         71HQsasf9XqvIqGZbj0iVAze0w5KNzz9WSb3pa9cHqWSN/FkbrfP82n3rLAoZbB/BRKy
+         mpNSj6HtpGlWab2FZKSA9JeY7oX/TUaw4Z7XvljbjgDWX5xkTFpd9k6chcy6VEpMrd28
+         iBOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:in-reply-to:message-id:mime-version
@@ -49,62 +49,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QXHRe1HtgtjC2vN+5unsN7F5mnVsAxltN4p6dBdx2G0=;
-        b=QPIACQ67UNAeho7g65LPYnB6fk+pOAE7vxGEo6JP5FDv7y9uVnhF9S3/fadRXkCL1L
-         3Lq8dE37/f8VtJ68Ls8Bv0uZXRNMyuGRX+yjzH1zxjkLP3miZbOts24+k/2KC3FULy9I
-         LVnfm/iOa//+gwL9Vnb1ddBRJLm371HvBUMaRQKJcpGY+XAMa9YcJp75aZJUn9IXRAAJ
-         CfvChXiuBskESWnmJLIgjTTAwUrPYMoHVvMM4q+SVEjMmga+nmdoZW4x0lQBsV1hBNde
-         YvjIG0KS3lIUTpAlTYdiz9RhvFwnLlDiFPMRa3jxK4zU/TlyMrt5nqtyRlg/EZwnTp4p
-         9DaA==
-X-Gm-Message-State: AOAM532RyN7jI/wFiJ/6AaDvyH1wbyVOEqW+WOpgYsCUVP6vQcIkfESD
-	SH98x6VquVN4iC8mkUOPQkI=
-X-Google-Smtp-Source: ABdhPJwinlvlbgw1KDfuYzqXnd4ZbkxSasGM8+LSklMNZ2Uq5BR7FZMjHncmJs/bkIQXeqkF5xbjwA==
-X-Received: by 2002:a05:620a:7d6:: with SMTP id 22mr23578476qkb.311.1595278202239;
-        Mon, 20 Jul 2020 13:50:02 -0700 (PDT)
+        bh=ll/L9c050PZWCv3nQmbsqz737vyneD4h11eitiJFuPY=;
+        b=iGtegiC2QBvkuM3wXKWDI/pW3+8QxZBQSZyy02jpwW/EOg4YIIL3am67lCmKIZC7VZ
+         95IlVvzqMgVYhzX8Cn5eah7HJbYiEDZk6FZd6y8+T0L9r3wZ07bUmS3/0dDvjZeum+U8
+         oWmVDjQRi6Po8UESwT8Cy/RS4hQwGETVqKMcdQPWA1AZGII7kez56dZdppP63uc8nJdd
+         l0nKlCoPHWgSjtFhTIqN61z5xQ9/4NsyrAmkaTL4KC4KPKFZvrdW9CUWJ+754Bj4/Qbb
+         551W3+V7bjnKdj3SvI2PDMJvp4DBfRm+ckIu7vP/tjx11aWbLPi1FUHZXHafDCtc+XGJ
+         MRLQ==
+X-Gm-Message-State: AOAM53008qRhToIouLSxvRlIfRVTPUblJFE8082gBTB89J9DhJE6ceeb
+	95VSP1AGgZsdnosvPqfn/EU=
+X-Google-Smtp-Source: ABdhPJy8GMN2IY+ao5D6sgpJkjl9RBMrFYWAhYr8YxuI8CVkORwFax0JldBmdIIFmEXRWFhyBPsusQ==
+X-Received: by 2002:a17:902:7d86:: with SMTP id a6mr20414918plm.215.1595278209363;
+        Mon, 20 Jul 2020 13:50:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ae9:e415:: with SMTP id q21ls4217876qkc.9.gmail; Mon, 20 Jul
- 2020 13:50:01 -0700 (PDT)
-X-Received: by 2002:a37:b342:: with SMTP id c63mr24209338qkf.436.1595278201879;
-        Mon, 20 Jul 2020 13:50:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1595278201; cv=none;
+Received: by 2002:a17:90a:86c3:: with SMTP id y3ls245991pjv.0.gmail; Mon, 20
+ Jul 2020 13:50:09 -0700 (PDT)
+X-Received: by 2002:a17:90b:4ac7:: with SMTP id mh7mr1258898pjb.158.1595278208945;
+        Mon, 20 Jul 2020 13:50:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1595278208; cv=none;
         d=google.com; s=arc-20160816;
-        b=xY+Ml7EqpcaMvLeWKUrQrFAlQPe+xg/YAGUme+3q+zxsKHceOZS+2zUjbG6m7ShEQi
-         73/dSc3N34dJCFha4+kxk9Yna+wIG3dVikn6/QkwaGzIdzt36pGYr+8AUuiNzZCYhE0c
-         ihD8mRcofBofxH06H7Uo4qDjh/G/GsAsFfYOfQwyvKeztAWAkg6OqBiv0VtZ6FbW6d03
-         lQL1YA2rQCA5HBrqYTWpItI9nPAp1+6Kw/lgfhjdHtMeptn13UVmX0rcX5dGJsDt3xmV
-         b4uNIxpmgiXpeBTy+Z5jD0NekkeFJqLW6W1uLLNZmrI1rjoQAwqmFA/5OaNgAJaiZj5N
-         PmJg==
+        b=wGNwEeuJe0SZfXGH8jxRMP1I6w0CYoqkTo33z5RM3eomVfmc1g1BGEC/8shub+P3AS
+         7GtNbO3EII4INrIykBwXw/bdc+gyviN7D7cGnkt2QLWY17ygf4ekJY3GH5NCu5iFxHIL
+         +SU6yoiXpX9i7xO7Z+7BUMTdy/+NhicWmAaM54FwUm58IDPkyUOHm1gqoeFyDGoBiYap
+         KZYitcOFDk/AcI9On2j1BCiRPMFn7j75dL7QsAva5yY+bCF6VleAS9s0KVPL2aQQAGol
+         wPOw1DFRUq3r2+qRQ6a+AWzrdkajcVK57/csrYbDNbEFoAyzA3qrRnPzU9oIbciGpu3V
+         6fkw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:dkim-signature;
-        bh=moMBrUya8+f11J0lfoG20VXlS54zFWp92IgRf7/2Gwk=;
-        b=yYoPQ3VU3xSmjs+CB1ZPcBFOKlRO5/UhiHKSv6WlsI+439AXENLZm3lQXYYS/xW0So
-         brTyfaZSnZH2Q5QgarfErXX/mRx/jRuz60cQZKV9Pu/Z9NMz99T5dZa0c7V5hyukQ9Kg
-         4tMs4zEWr5GcwaxREYi7G796eoCfKRMI46/rfxxlg7D1VtJx4RfJnI5GTFpOKuGWWtkS
-         +HKMwaGidF7HboAlp5prjuIELzLW7V+ku83DlkMl6ohkCx715uoHrgOaEnp8SFoCexTj
-         8DXMZqUM0+TAz4FY7HnHfQppFe4dReJcWfKEEhW8MP9XbGHSgaZ22VaDc8jcK81kvoHh
-         LXYw==
+        bh=H8n8NlDA+XqQVjoji1oNapNAeXpu2S6QN9jGft1e7uI=;
+        b=rXXmbculc+AkJrzMo268+6pnrzBaZvGNynH5KZ+Xqz53QX/Vd9iC7qsm31TTjmPE7U
+         LqvhqptTNcqasKUKrRmyt1ab7FvUHGfSBXfdKYLQYQKe4L6NWu627CIDnXYKl8MuDtHz
+         FP4DaDcL7o3+eQZuBy61U0oIg2HzkNinAOLfZ9zUISIp8GamVYodQqqLt9vocmW62UYI
+         tShVMsjvprgdC7em3Gojk5qTwrQ5rh8Z7GYxkUMrbGJZKUDDuaCRZJo+aFZOwcM8KO72
+         JSklHYjWP73Iko82nUMnGD8u4pFerog3dYVaJajlxjsX3nZJczOuta6ZmGQzdMVwjE+s
+         IxMA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=PynqyNO2;
-       spf=pass (google.com: domain of 3eqmwxwwkanyf56k2mdfa6jk8gg8d6.4ge@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3eQMWXwwKANYF56K2MDFA6JK8GG8D6.4GE@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=XD68lI7x;
+       spf=pass (google.com: domain of 3gamwxwwkan0mcdr9tkmhdqrfnnfkd.bnl@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3gAMWXwwKAN0MCDR9TKMHDQRFNNFKD.BNL@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 Received: from mail-yb1-xb4a.google.com (mail-yb1-xb4a.google.com. [2607:f8b0:4864:20::b4a])
-        by gmr-mx.google.com with ESMTPS id d27si795303qtw.1.2020.07.20.13.50.01
+        by gmr-mx.google.com with ESMTPS id v5si808006plo.4.2020.07.20.13.50.08
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Jul 2020 13:50:01 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3eqmwxwwkanyf56k2mdfa6jk8gg8d6.4ge@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) client-ip=2607:f8b0:4864:20::b4a;
-Received: by mail-yb1-xb4a.google.com with SMTP id k127so22911544ybk.11
-        for <clang-built-linux@googlegroups.com>; Mon, 20 Jul 2020 13:50:01 -0700 (PDT)
-X-Received: by 2002:a25:138a:: with SMTP id 132mr36725992ybt.334.1595278201430;
- Mon, 20 Jul 2020 13:50:01 -0700 (PDT)
-Date: Mon, 20 Jul 2020 13:49:17 -0700
+        Mon, 20 Jul 2020 13:50:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3gamwxwwkan0mcdr9tkmhdqrfnnfkd.bnl@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) client-ip=2607:f8b0:4864:20::b4a;
+Received: by mail-yb1-xb4a.google.com with SMTP id w35so23158595ybi.16
+        for <clang-built-linux@googlegroups.com>; Mon, 20 Jul 2020 13:50:08 -0700 (PDT)
+X-Received: by 2002:a25:641:: with SMTP id 62mr36056360ybg.484.1595278208076;
+ Mon, 20 Jul 2020 13:50:08 -0700 (PDT)
+Date: Mon, 20 Jul 2020 13:49:18 -0700
 In-Reply-To: <20200720204925.3654302-1-ndesaulniers@google.com>
-Message-Id: <20200720204925.3654302-4-ndesaulniers@google.com>
+Message-Id: <20200720204925.3654302-5-ndesaulniers@google.com>
 Mime-Version: 1.0
 References: <20200720204925.3654302-1-ndesaulniers@google.com>
 X-Mailer: git-send-email 2.28.0.rc0.105.gf9edc3c819-goog
-Subject: [PATCH v3 03/11] x86/percpu: Clean up percpu_from_op()
+Subject: [PATCH v3 04/11] x86/percpu: Clean up percpu_add_op()
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>
 Cc: Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@linux.com>, x86@kernel.org, 
@@ -116,9 +116,9 @@ Cc: Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>, Christoph Lamete
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=PynqyNO2;       spf=pass
- (google.com: domain of 3eqmwxwwkanyf56k2mdfa6jk8gg8d6.4ge@flex--ndesaulniers.bounces.google.com
- designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3eQMWXwwKANYF56K2MDFA6JK8GG8D6.4GE@flex--ndesaulniers.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=XD68lI7x;       spf=pass
+ (google.com: domain of 3gamwxwwkan0mcdr9tkmhdqrfnnfkd.bnl@flex--ndesaulniers.bounces.google.com
+ designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3gAMWXwwKAN0MCDR9TKMHDQRFNNFKD.BNL@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
 Reply-To: Nick Desaulniers <ndesaulniers@google.com>
@@ -149,102 +149,170 @@ Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 Signed-off-by: Brian Gerst <brgerst@gmail.com>
 Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
 ---
- arch/x86/include/asm/percpu.h | 50 +++++++++++------------------------
- 1 file changed, 15 insertions(+), 35 deletions(-)
+ arch/x86/include/asm/percpu.h | 99 ++++++++---------------------------
+ 1 file changed, 22 insertions(+), 77 deletions(-)
 
 diff --git a/arch/x86/include/asm/percpu.h b/arch/x86/include/asm/percpu.h
-index fb280fba94c5..a40d2e055f58 100644
+index a40d2e055f58..2a24f3c795eb 100644
 --- a/arch/x86/include/asm/percpu.h
 +++ b/arch/x86/include/asm/percpu.h
-@@ -190,33 +190,13 @@ do {									\
- 	}								\
+@@ -130,64 +130,32 @@ do {									\
+ 	    : [val] __pcpu_reg_imm_##size(pto_val__));			\
  } while (0)
  
--#define percpu_from_op(qual, op, var)			\
++#define percpu_unary_op(size, qual, op, _var)				\
++({									\
++	asm qual (__pcpu_op1_##size(op, __percpu_arg([var]))		\
++	    : [var] "+m" (_var));					\
++})
++
+ /*
+  * Generate a percpu add to memory instruction and optimize code
+  * if one is added or subtracted.
+  */
+-#define percpu_add_op(qual, var, val)					\
++#define percpu_add_op(size, qual, var, val)				\
+ do {									\
+-	typedef typeof(var) pao_T__;					\
+ 	const int pao_ID__ = (__builtin_constant_p(val) &&		\
+ 			      ((val) == 1 || (val) == -1)) ?		\
+ 				(int)(val) : 0;				\
+ 	if (0) {							\
+-		pao_T__ pao_tmp__;					\
++		typeof(var) pao_tmp__;					\
+ 		pao_tmp__ = (val);					\
+ 		(void)pao_tmp__;					\
+ 	}								\
+-	switch (sizeof(var)) {						\
+-	case 1:								\
+-		if (pao_ID__ == 1)					\
+-			asm qual ("incb "__percpu_arg(0) : "+m" (var));	\
+-		else if (pao_ID__ == -1)				\
+-			asm qual ("decb "__percpu_arg(0) : "+m" (var));	\
+-		else							\
+-			asm qual ("addb %1, "__percpu_arg(0)		\
+-			    : "+m" (var)				\
+-			    : "qi" ((pao_T__)(val)));			\
+-		break;							\
+-	case 2:								\
+-		if (pao_ID__ == 1)					\
+-			asm qual ("incw "__percpu_arg(0) : "+m" (var));	\
+-		else if (pao_ID__ == -1)				\
+-			asm qual ("decw "__percpu_arg(0) : "+m" (var));	\
+-		else							\
+-			asm qual ("addw %1, "__percpu_arg(0)		\
+-			    : "+m" (var)				\
+-			    : "ri" ((pao_T__)(val)));			\
+-		break;							\
+-	case 4:								\
+-		if (pao_ID__ == 1)					\
+-			asm qual ("incl "__percpu_arg(0) : "+m" (var));	\
+-		else if (pao_ID__ == -1)				\
+-			asm qual ("decl "__percpu_arg(0) : "+m" (var));	\
+-		else							\
+-			asm qual ("addl %1, "__percpu_arg(0)		\
+-			    : "+m" (var)				\
+-			    : "ri" ((pao_T__)(val)));			\
+-		break;							\
+-	case 8:								\
+-		if (pao_ID__ == 1)					\
+-			asm qual ("incq "__percpu_arg(0) : "+m" (var));	\
+-		else if (pao_ID__ == -1)				\
+-			asm qual ("decq "__percpu_arg(0) : "+m" (var));	\
+-		else							\
+-			asm qual ("addq %1, "__percpu_arg(0)		\
+-			    : "+m" (var)				\
+-			    : "re" ((pao_T__)(val)));			\
+-		break;							\
+-	default: __bad_percpu_size();					\
+-	}								\
++	if (pao_ID__ == 1)						\
++		percpu_unary_op(size, qual, "inc", var);		\
++	else if (pao_ID__ == -1)					\
++		percpu_unary_op(size, qual, "dec", var);		\
++	else								\
++		percpu_to_op(size, qual, "add", var, val);		\
+ } while (0)
+ 
+ #define percpu_from_op(size, qual, op, _var)				\
+@@ -228,29 +196,6 @@ do {									\
+ 	pfo_ret__;					\
+ })
+ 
+-#define percpu_unary_op(qual, op, var)			\
 -({							\
--	typeof(var) pfo_ret__;				\
 -	switch (sizeof(var)) {				\
 -	case 1:						\
--		asm qual (op "b "__percpu_arg(1)",%0"	\
--		    : "=q" (pfo_ret__)			\
--		    : "m" (var));			\
+-		asm qual (op "b "__percpu_arg(0)	\
+-		    : "+m" (var));			\
 -		break;					\
 -	case 2:						\
--		asm qual (op "w "__percpu_arg(1)",%0"	\
--		    : "=r" (pfo_ret__)			\
--		    : "m" (var));			\
+-		asm qual (op "w "__percpu_arg(0)	\
+-		    : "+m" (var));			\
 -		break;					\
 -	case 4:						\
--		asm qual (op "l "__percpu_arg(1)",%0"	\
--		    : "=r" (pfo_ret__)			\
--		    : "m" (var));			\
+-		asm qual (op "l "__percpu_arg(0)	\
+-		    : "+m" (var));			\
 -		break;					\
 -	case 8:						\
--		asm qual (op "q "__percpu_arg(1)",%0"	\
--		    : "=r" (pfo_ret__)			\
--		    : "m" (var));			\
+-		asm qual (op "q "__percpu_arg(0)	\
+-		    : "+m" (var));			\
 -		break;					\
 -	default: __bad_percpu_size();			\
 -	}						\
--	pfo_ret__;					\
-+#define percpu_from_op(size, qual, op, _var)				\
-+({									\
-+	__pcpu_type_##size pfo_val__;					\
-+	asm qual (__pcpu_op2_##size(op, __percpu_arg([var]), "%[val]")	\
-+	    : [val] __pcpu_reg_##size("=", pfo_val__)			\
-+	    : [var] "m" (_var));					\
-+	(typeof(_var))(unsigned long) pfo_val__;			\
- })
- 
- #define percpu_stable_op(op, var)			\
-@@ -401,9 +381,9 @@ do {									\
+-})
+-
+ /*
+  * Add return operation
   */
- #define this_cpu_read_stable(var)	percpu_stable_op("mov", var)
- 
--#define raw_cpu_read_1(pcp)		percpu_from_op(, "mov", pcp)
--#define raw_cpu_read_2(pcp)		percpu_from_op(, "mov", pcp)
--#define raw_cpu_read_4(pcp)		percpu_from_op(, "mov", pcp)
-+#define raw_cpu_read_1(pcp)		percpu_from_op(1, , "mov", pcp)
-+#define raw_cpu_read_2(pcp)		percpu_from_op(2, , "mov", pcp)
-+#define raw_cpu_read_4(pcp)		percpu_from_op(4, , "mov", pcp)
- 
+@@ -388,9 +333,9 @@ do {									\
  #define raw_cpu_write_1(pcp, val)	percpu_to_op(1, , "mov", (pcp), val)
  #define raw_cpu_write_2(pcp, val)	percpu_to_op(2, , "mov", (pcp), val)
-@@ -433,9 +413,9 @@ do {									\
- #define raw_cpu_xchg_2(pcp, val)	raw_percpu_xchg_op(pcp, val)
- #define raw_cpu_xchg_4(pcp, val)	raw_percpu_xchg_op(pcp, val)
- 
--#define this_cpu_read_1(pcp)		percpu_from_op(volatile, "mov", pcp)
--#define this_cpu_read_2(pcp)		percpu_from_op(volatile, "mov", pcp)
--#define this_cpu_read_4(pcp)		percpu_from_op(volatile, "mov", pcp)
-+#define this_cpu_read_1(pcp)		percpu_from_op(1, volatile, "mov", pcp)
-+#define this_cpu_read_2(pcp)		percpu_from_op(2, volatile, "mov", pcp)
-+#define this_cpu_read_4(pcp)		percpu_from_op(4, volatile, "mov", pcp)
+ #define raw_cpu_write_4(pcp, val)	percpu_to_op(4, , "mov", (pcp), val)
+-#define raw_cpu_add_1(pcp, val)		percpu_add_op(, (pcp), val)
+-#define raw_cpu_add_2(pcp, val)		percpu_add_op(, (pcp), val)
+-#define raw_cpu_add_4(pcp, val)		percpu_add_op(, (pcp), val)
++#define raw_cpu_add_1(pcp, val)		percpu_add_op(1, , (pcp), val)
++#define raw_cpu_add_2(pcp, val)		percpu_add_op(2, , (pcp), val)
++#define raw_cpu_add_4(pcp, val)		percpu_add_op(4, , (pcp), val)
+ #define raw_cpu_and_1(pcp, val)		percpu_to_op(1, , "and", (pcp), val)
+ #define raw_cpu_and_2(pcp, val)		percpu_to_op(2, , "and", (pcp), val)
+ #define raw_cpu_and_4(pcp, val)		percpu_to_op(4, , "and", (pcp), val)
+@@ -419,9 +364,9 @@ do {									\
  #define this_cpu_write_1(pcp, val)	percpu_to_op(1, volatile, "mov", (pcp), val)
  #define this_cpu_write_2(pcp, val)	percpu_to_op(2, volatile, "mov", (pcp), val)
  #define this_cpu_write_4(pcp, val)	percpu_to_op(4, volatile, "mov", (pcp), val)
-@@ -488,7 +468,7 @@ do {									\
-  * 32 bit must fall back to generic operations.
-  */
+-#define this_cpu_add_1(pcp, val)	percpu_add_op(volatile, (pcp), val)
+-#define this_cpu_add_2(pcp, val)	percpu_add_op(volatile, (pcp), val)
+-#define this_cpu_add_4(pcp, val)	percpu_add_op(volatile, (pcp), val)
++#define this_cpu_add_1(pcp, val)	percpu_add_op(1, volatile, (pcp), val)
++#define this_cpu_add_2(pcp, val)	percpu_add_op(2, volatile, (pcp), val)
++#define this_cpu_add_4(pcp, val)	percpu_add_op(4, volatile, (pcp), val)
+ #define this_cpu_and_1(pcp, val)	percpu_to_op(1, volatile, "and", (pcp), val)
+ #define this_cpu_and_2(pcp, val)	percpu_to_op(2, volatile, "and", (pcp), val)
+ #define this_cpu_and_4(pcp, val)	percpu_to_op(4, volatile, "and", (pcp), val)
+@@ -470,7 +415,7 @@ do {									\
  #ifdef CONFIG_X86_64
--#define raw_cpu_read_8(pcp)			percpu_from_op(, "mov", pcp)
-+#define raw_cpu_read_8(pcp)			percpu_from_op(8, , "mov", pcp)
+ #define raw_cpu_read_8(pcp)			percpu_from_op(8, , "mov", pcp)
  #define raw_cpu_write_8(pcp, val)		percpu_to_op(8, , "mov", (pcp), val)
- #define raw_cpu_add_8(pcp, val)			percpu_add_op(, (pcp), val)
+-#define raw_cpu_add_8(pcp, val)			percpu_add_op(, (pcp), val)
++#define raw_cpu_add_8(pcp, val)			percpu_add_op(8, , (pcp), val)
  #define raw_cpu_and_8(pcp, val)			percpu_to_op(8, , "and", (pcp), val)
-@@ -497,7 +477,7 @@ do {									\
- #define raw_cpu_xchg_8(pcp, nval)		raw_percpu_xchg_op(pcp, nval)
- #define raw_cpu_cmpxchg_8(pcp, oval, nval)	percpu_cmpxchg_op(, pcp, oval, nval)
+ #define raw_cpu_or_8(pcp, val)			percpu_to_op(8, , "or", (pcp), val)
+ #define raw_cpu_add_return_8(pcp, val)		percpu_add_return_op(, pcp, val)
+@@ -479,7 +424,7 @@ do {									\
  
--#define this_cpu_read_8(pcp)			percpu_from_op(volatile, "mov", pcp)
-+#define this_cpu_read_8(pcp)			percpu_from_op(8, volatile, "mov", pcp)
+ #define this_cpu_read_8(pcp)			percpu_from_op(8, volatile, "mov", pcp)
  #define this_cpu_write_8(pcp, val)		percpu_to_op(8, volatile, "mov", (pcp), val)
- #define this_cpu_add_8(pcp, val)		percpu_add_op(volatile, (pcp), val)
+-#define this_cpu_add_8(pcp, val)		percpu_add_op(volatile, (pcp), val)
++#define this_cpu_add_8(pcp, val)		percpu_add_op(8, volatile, (pcp), val)
  #define this_cpu_and_8(pcp, val)		percpu_to_op(8, volatile, "and", (pcp), val)
+ #define this_cpu_or_8(pcp, val)			percpu_to_op(8, volatile, "or", (pcp), val)
+ #define this_cpu_add_return_8(pcp, val)		percpu_add_return_op(volatile, pcp, val)
 -- 
 2.28.0.rc0.105.gf9edc3c819-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200720204925.3654302-4-ndesaulniers%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200720204925.3654302-5-ndesaulniers%40google.com.
