@@ -1,147 +1,132 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBDGG4H4AKGQELCXF6CA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCU73AEHRQBBBIX34H4AKGQER535SPY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83e.google.com (mail-qt1-x83e.google.com [IPv6:2607:f8b0:4864:20::83e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2B1AC229CA6
-	for <lists+clang-built-linux@lfdr.de>; Wed, 22 Jul 2020 18:02:22 +0200 (CEST)
-Received: by mail-qt1-x83e.google.com with SMTP id a52sf1638373qtk.22
-        for <lists+clang-built-linux@lfdr.de>; Wed, 22 Jul 2020 09:02:22 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1595433741; cv=pass;
+Received: from mail-qt1-x838.google.com (mail-qt1-x838.google.com [IPv6:2607:f8b0:4864:20::838])
+	by mail.lfdr.de (Postfix) with ESMTPS id DA7C0229EC8
+	for <lists+clang-built-linux@lfdr.de>; Wed, 22 Jul 2020 19:55:47 +0200 (CEST)
+Received: by mail-qt1-x838.google.com with SMTP id x6sf1907221qtf.2
+        for <lists+clang-built-linux@lfdr.de>; Wed, 22 Jul 2020 10:55:47 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1595440547; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hVENHkp4Cmjty7Vm1tb5cSjI/kfxIUQZHnS2TIOZEFKvsotKTMJ1G+mruHoc5CJ1Cg
-         fAd5xIg4LVfaKN5YnXQ5ZDe1LADBAYZPQHKwnb9WJu/RNuA26m9ZB0peBLy4wp/gdpWQ
-         qKtAkqNyYncpduhNcIC4nwhbVtXTOlqlEEulpI3r/HQbcs2HHrnQG8Dlg+gx/SZjFvgM
-         6vO9QtV2c1RHw8AMnjlq8NI88Ai6NlS4HtwJbhBmTJbPMG3gJ2fP3INQ+nQO1rT7eZq/
-         Cle/zeAz40D00nbv3/bakkbIw9n8m0KNSICZ2zy0VNaeJpcDmqXV4UVMVOWAYht8MjIz
-         tuZQ==
+        b=QUm05djuQfhAFs3xCHtmfVe/T+jO+lM5UQKO/lDQTeP3mrNvsp2LQ2GaYONo87m5px
+         +uATn/QeBnFJJCYeiZpouT/SrLe7aTODHzkoNL8dayKVHRnrL+l/zZHzL5yMCA9G4e86
+         xboeCxv5k4pyLpc5A2FxMlSkXsssyJssHmypr/VTVHPX9eHpdQLholrRlOOteQva2rJx
+         QAYFoInEukWrAxUrivNPCH7YTHLOX8IocmBM++ssVImfMAPBIGqOrlV2uAQzGULdkgwi
+         iux3LUH2pzIi8RQNfr6rADyMOWhI7T45t+rOxN2kb3+wzB4113+eC3a1w2g+mRSmTgyl
+         1UIQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=RJedUR0Amk0FbPvTvmdbpnB3CMOAmRMRds35Clvql30=;
-        b=m6cEKh1AtTHvyKLGMrLqhrqTZkUiphLFwpuJVaoDKpG+aIbyV/awnic14mze69C7dB
-         gAygY45pY0iTzeK4cvOZE3AnODmPyJpsJ0e63XDKpFy+U2D2T8xLEGEYI0DoqRyJ4nkJ
-         eiAPW9bMSlqsJyYdlnyrW5mVVueWtket9CBAlYAnbOwnvJkLmUSIdK20rwwPTmDLOlog
-         mXCDwMYEtzLQA2n5iZZrz5E25rhSaJ5KZvSSjcvoJu1wngvvt/CwIYazijeIdE0X8nsv
-         oknU0+KKM68q/83UkUWmKItEN0wKD8Ep0jFJ2FinlJOaJDeI77Ym5vyhGS1/vzg4OZKN
-         CauA==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=0Mj0Ymn09/Y2+luQC4rFBwhEDrsYeb+IYkkuqmiuuOc=;
+        b=EV+Jd9SzIZRIaCa65gXXnFVcSmJAVUD70s8dlPKhYTzp7EPV5GTkrkf3CsZi2FP1dB
+         RJQniIk2H99ecldEWRU2CnU2bmLL0fiSg1SCYBCfpbeTyfE4a/Efbi+ak0Fih8kTNgSN
+         5yWl3PcKZeAL4nxOc6rOVDHmJcPErAP0WRHH3FOvFiSe1VU37tSugHwpxNmkAEbWYMk/
+         mYou6cAzEDUp1Ztl3v6W8WsUc5jhNYItVEwsG4lH/QtUr5PqOfb0AQATEGgmLcmZbqbH
+         rf0vpHCQ77bJIOzbvxpyJDP7HcW0QJhjVM/wbwOFGFoCBYtyk1SJFjaGW7K8ZyqfKhtM
+         JfaQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NxFwb6bR;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of srs0=kbms=bb=goodmis.org=rostedt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=kBmS=BB=goodmis.org=rostedt@kernel.org"
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=RJedUR0Amk0FbPvTvmdbpnB3CMOAmRMRds35Clvql30=;
-        b=XVD/MauD0O7AnTf8MRa30IRBCfdj3EMoYBnWQg4KOEtbVZ+x7/pCxEaip4icpBDK70
-         vFNHDTQ2yHsjjZVr/iMkob3n+UtWZWMv7f7ufNb2Nrfr34fQ5tCfdvGnduHrRxFbMOY5
-         6dUQus9c48VdCliYd2ExvO+n98YhU9zR2b/I3MnHDSPGGBhMw226mlRcZHHsHZ9QOMm2
-         kdYCksQiXCr4xdGA9GUuHguNjzDO5qaJ/0hdtXtEIW7Zg9AcG2SNDP2Up3pmW2pHGgXj
-         pMiGQb7bvtSeyvDHRyUUfI8phjx28z8U8LUqiydOX23Td4ud/SiDZ58kPX/z0iVWf2iw
-         Z00w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=RJedUR0Amk0FbPvTvmdbpnB3CMOAmRMRds35Clvql30=;
-        b=j5GZFaUeZMSjwfxUu1ArMKzOkxqm9d2Ttdy9NgBDAjb1i5S+yH2JpbuvOV/BE+bvLT
-         pz/BaF7rGnv/S7VQ+OXAzISjXyruXR68zzyYvthePdLL5Ka/shoX3ktXtgAn8aSxaii1
-         tno8jNMGC+DGs36eTATHbrYBwck5OOYHut1dQXEdePHKIgMr/eyzZ1h35Jcz0SbsAF9W
-         r4S1jZp93OVKcsF111L4SZaovkGnBpYrB1j5e15f+XGdtO14PrdynXxq3URlNzsuaAvA
-         Tt1gV8M5S997GYfTq4bd7IkbJLi8yGNUlSZdZmEGQhrF/yG5dZ1vHeGeZWiEqTZrpisf
-         Ohmw==
+        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=0Mj0Ymn09/Y2+luQC4rFBwhEDrsYeb+IYkkuqmiuuOc=;
+        b=tdoptEeYAjqgcCmGVdsW3I/rkgOIjXFyhbMQZLpkiAmN/B0yNvdWygl9diU+aDe46d
+         N4ZH3Fw1LAfrgbhjLhaUhTi39jRGIju1lLdlFhZL+10smUBPm5PkG0ooh5UjTwGnwQ+g
+         T0rpxOdwOMX8pF13jh/rxpEhNtbjkD/6SH0YaOkoTjc6DBylUgO15OuyyHGocIZ5KwE1
+         fUhRsIqMSKsnl5Nn2wG/RCr8KiCg5O2AXZUNFpYSvmx8UrzHhj/63afhuv4SIOWOqTSG
+         Sv6Z/y2z4DoAHaBbM1kpiTJ/RTDNlcKtTGcYL0HY+GQnZaN0sJFBX7oqLqEt6uL+bbgy
+         ckMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=RJedUR0Amk0FbPvTvmdbpnB3CMOAmRMRds35Clvql30=;
-        b=C7lZlZX8g7VivXjPiR/h2XqWU4vN5aKdc1vNIvVbhkzVeDylxtLiCVw7RoadPP0aTp
-         eYk3+1B1eqFe632c48vrK370PbaiiFR2fwsGwtanrKEvYf8Vi0+IUp7MeSVm0n40vLca
-         X9TWTXdpsBkCqKvQ8Wi8YwQdoLFDfljH6TINpR0Y31/2HRh9ol0pZkX/A/2yEz7ZJAZz
-         6dnu6mIbCo8L+ZFgKvaun5R9YhC3h5uqtOJOGIPR6WODs1pGnVVXKDpUhQyuLXt/Y0FP
-         Yu55inF0ZwiinfN7Upaie4SquUEHbZGUM40RFwIkPfaB+gqCiH1AZ5qyFfnvC1LGpjyB
-         A0sg==
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=0Mj0Ymn09/Y2+luQC4rFBwhEDrsYeb+IYkkuqmiuuOc=;
+        b=MZ9OBCKJFAgHB8ZIx7fGgA3UmQyNHg05jnABJTJs5FKUgsJDB9GGm22AfrN/DBgkp7
+         h8eGWjsz/pVE521Rl4xbcyOnOlyHKcSfJKfQxQynNt47hegqPw4poi9GCCgkMAF0DTUX
+         zx7b7NC0QnsBI05OvFF1tXx6eNIonkmdwz3OZQrch9iM8OEzhkqfWBNzFFMPPQpNhIZ6
+         PNMSJVAQ9ZBtkkWwKNC8hbc/8l/a1IMzCARh5RKMWJDZIMB2JhLqCwvmya6/4VjS4tpA
+         WenND/wJKR3n4KHaO4Bk8kM0J+rXqAznPi45G+l+Wq2ym9WnpN8U3OYkNq6fBTZgbeIH
+         i+hA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532lU2ynsPZ45khMTdiicqKy0pTZlGcZwt18pDzkgdgUeu8J5gvC
-	nmSQUjfD7ZXqAEHEv9wOpzk=
-X-Google-Smtp-Source: ABdhPJyvnRFibq7eZO+Ti+bmCv1gZ6iBB4m4ChNOcgfe3FVGSDH/9HXql/QYS7NoA7wpREr/gM1mAQ==
-X-Received: by 2002:a37:a906:: with SMTP id s6mr659231qke.320.1595433740975;
-        Wed, 22 Jul 2020 09:02:20 -0700 (PDT)
+X-Gm-Message-State: AOAM5312OfotYVDQ5/yLx4EniYB70ugElDnMSKvTWHXhv407HFJIalZq
+	EGErQiXdg68JG7CFUulTGZs=
+X-Google-Smtp-Source: ABdhPJyP5RGhI/GptOdWqcs3pegSTDS4WnZL4X0z3lFuUtSSSbT4ffEDy7T//TfYSofHR8zSpvc1iw==
+X-Received: by 2002:ac8:4251:: with SMTP id r17mr551130qtm.372.1595440546885;
+        Wed, 22 Jul 2020 10:55:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:4e4b:: with SMTP id e11ls997125qtw.4.gmail; Wed, 22 Jul
- 2020 09:02:20 -0700 (PDT)
-X-Received: by 2002:aed:20e5:: with SMTP id 92mr15435qtb.388.1595433740499;
-        Wed, 22 Jul 2020 09:02:20 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1595433740; cv=none;
+Received: by 2002:ac8:3612:: with SMTP id m18ls1177041qtb.9.gmail; Wed, 22 Jul
+ 2020 10:55:46 -0700 (PDT)
+X-Received: by 2002:ac8:6d01:: with SMTP id o1mr506522qtt.277.1595440546575;
+        Wed, 22 Jul 2020 10:55:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1595440546; cv=none;
         d=google.com; s=arc-20160816;
-        b=ZgoMuU16E3lOKk27NJBs9++lpWgQeyuhJNgFLo6W2gpp+JT7m8O5cC2zBBMew6CFUs
-         KMKgWJ8wthzLtH9Nm1Oztc7P2wmrck2KL5CQ9Jm3Exm9wiV5iqaPKcIXGzG4lu+dIXGQ
-         s5FCq+IigNNNsmYR56TUqoomJbP4cuj/98uSHofDsbbgKGNy3hi+jEgF+LyRtY1M2F5k
-         23qZzvNlXpRDBuG+P0IBeJOS9hCFqFgdhzhhWEZOsW8b4w3tsPHXljQ1Rt/coQJ3uQpP
-         e0+pMzEuAF6R4PV/ONFW0fn2wrhQUdNrZ6ClYCrfV7b30lQM7qWemdHITABScwt/G5Jr
-         qAqg==
+        b=K4Paz0N8QhMSOsWQpHTQBZ6m0VoKTlnCYl0PO3NIxGm37iJpgypoy27Z12sMZB5bhn
+         MtypNNdZiKkvl2YbazDGT0LBUf8hxD/qm+BqXTCVN2k+t3WE547pF+D0guwkVNaCWMn+
+         o29b7mcED9AQsBGZ4ZmtsnqAGqdtBAqwXOZbdFZxbxvXS0TUBbPVf6cCujfjSFxboMfC
+         WTdDJILfMalR5svZQMt4hPUFFF/HeyQqp3wVeE/m7CZlql70SgCdaoU8kO5JrZimuieL
+         9giKf8UlXzprraGOzaiswn/Fu6t+OdsI5MX4a7mnuw/ccYz/QR2z1YjcPIir2VTZ1TzO
+         Pujw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=cQAs5qWYH5tvFyAjJQPeK6Pr6MnPPzszHXb7DwOUV/Q=;
-        b=WzhYxVNYwoTwfbKjcEZaMeCxCM9K1NgWw7Ibx1UM7kqbJ5rc0ZQ3ugQxEV/iLgvyus
-         MYNHCKNQt+OiVscqnX8Aj0oFNdD2M9wMUhgL6vmqxgJprNRUlBFNMEXSehNJLfVaK4Wh
-         hdE1YQ6faTQOzdsWUpbOsGtfMF7QskdZ2hcRsb0kzguAT+GZufyoDYSrHTKQNkqCA0QW
-         uH4ubOw9Le6VoPqA+bLeibCfieFznQNrKhSD/WltiSQ+oy5dHqhiTwfEonlLY0IPwFu0
-         h0+3Tk5Dhp2ZoboT4/dz4s4xLyalQ9Vxt66XmGUQVQHTNwzH0ODPumgJ/xpGxcThePYC
-         BirA==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date;
+        bh=sreSaOjpe0y9g3aq0WkeiFP2xot8icvfRBXFnyjVfQw=;
+        b=kAzr0TvVqytil1MtwXDIErYVeYWR5heGjFADmSx4Y0Whl24Zuua3If/WjwnVqYw9nz
+         5A/WQiVkEF7BHEYBDxdITR1EraQXlwJIS4vCg2kI9vLTEmPWsaDyvvoBLUGAVFNOa5YB
+         HjpDtqNQZLI4AkHTD2etZ9p6r3491pXAUdlHjoywFl2xktHg8+Y2dB18qvCy8tMOSDH5
+         Fp0KVkzxUnM9qDE095Ql7YHFnLJyUIaNrpCjjaaeYFJLRUnU28jr7ibNRsFu6+n+Fo7/
+         hR2icpUBtmTARCJ4GK9dq0fSP69dtWwboCKubYSCDwn0geqY7Wf7XH5jZ4kTVuSmbjTg
+         ohGg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NxFwb6bR;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qk1-x743.google.com (mail-qk1-x743.google.com. [2607:f8b0:4864:20::743])
-        by gmr-mx.google.com with ESMTPS id q14si7554qtn.4.2020.07.22.09.02.20
+       spf=pass (google.com: domain of srs0=kbms=bb=goodmis.org=rostedt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=kBmS=BB=goodmis.org=rostedt@kernel.org"
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id z19si25409qkz.2.2020.07.22.10.55.46
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Jul 2020 09:02:20 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::743 as permitted sender) client-ip=2607:f8b0:4864:20::743;
-Received: by mail-qk1-x743.google.com with SMTP id e13so2460465qkg.5
-        for <clang-built-linux@googlegroups.com>; Wed, 22 Jul 2020 09:02:20 -0700 (PDT)
-X-Received: by 2002:a37:66d7:: with SMTP id a206mr603185qkc.495.1595433740138;
-        Wed, 22 Jul 2020 09:02:20 -0700 (PDT)
-Received: from ubuntu-n2-xlarge-x86 ([2604:1380:45d1:2600::1])
-        by smtp.gmail.com with ESMTPSA id z60sm80601qtc.30.2020.07.22.09.02.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2020 09:02:19 -0700 (PDT)
-Date: Wed, 22 Jul 2020 09:02:18 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-Cc: Peter Robinson <pbrobinson@gmail.com>,
-	linux-rpi-kernel@lists.infradead.org,
-	clang-built-linux@googlegroups.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: Issues attempting to use Raspberry Pi 4 serial console on
- mainline
-Message-ID: <20200722160218.GA1016797@ubuntu-n2-xlarge-x86>
-References: <20200721225724.GA1005852@ubuntu-n2-xlarge-x86>
- <63244277a1c8989f87906746742141eba01d8bb5.camel@suse.de>
- <CALeDE9NCjMzzhdwR=oMh4wYjZXf8ekTCi8t_DVq0PLw5xD+8aQ@mail.gmail.com>
- <afe9b10adee7b6085d0e880be84bfa8446b2a6a6.camel@suse.de>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 22 Jul 2020 10:55:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=kbms=bb=goodmis.org=rostedt@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from oasis.local.home (cpe-66-24-58-225.stny.res.rr.com [66.24.58.225])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id F362F20787;
+	Wed, 22 Jul 2020 17:55:43 +0000 (UTC)
+Date: Wed, 22 Jul 2020 13:55:42 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Sami Tolvanen <samitolvanen@google.com>, Masahiro Yamada
+ <masahiroy@kernel.org>, Will Deacon <will@kernel.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, "Paul E. McKenney" <paulmck@kernel.org>, Kees
+ Cook <keescook@chromium.org>, Nick Desaulniers <ndesaulniers@google.com>,
+ clang-built-linux@googlegroups.com, kernel-hardening@lists.openwall.com,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org, x86@kernel.org, Josh Poimboeuf
+ <jpoimboe@redhat.com>, mhelsley@vmware.com
+Subject: Re: [RFC][PATCH] objtool,x86_64: Replace recordmcount with objtool
+Message-ID: <20200722135542.41127cc4@oasis.local.home>
+In-Reply-To: <20200626112931.GF4817@hirez.programming.kicks-ass.net>
+References: <20200624203200.78870-1-samitolvanen@google.com>
+	<20200624203200.78870-5-samitolvanen@google.com>
+	<20200624212737.GV4817@hirez.programming.kicks-ass.net>
+	<20200624214530.GA120457@google.com>
+	<20200625074530.GW4817@hirez.programming.kicks-ass.net>
+	<20200625161503.GB173089@google.com>
+	<20200625200235.GQ4781@hirez.programming.kicks-ass.net>
+	<20200625224042.GA169781@google.com>
+	<20200626112931.GF4817@hirez.programming.kicks-ass.net>
+X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <afe9b10adee7b6085d0e880be84bfa8446b2a6a6.camel@suse.de>
-X-Original-Sender: natechancellor@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=NxFwb6bR;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+X-Original-Sender: rostedt@goodmis.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of srs0=kbms=bb=goodmis.org=rostedt@kernel.org designates
+ 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=kBmS=BB=goodmis.org=rostedt@kernel.org"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -154,80 +139,83 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jul 22, 2020 at 05:46:22PM +0200, Nicolas Saenz Julienne wrote:
-> Hi Nathan, Peter,
-> 
-> On Wed, 2020-07-22 at 15:41 +0100, Peter Robinson wrote:
-> 
-> [...]
-> 
-> > On Wed, Jul 22, 2020 at 2:27 PM Nicolas Saenz Julienne
-> > > For reference I just booted linux-next with this setup:
-> > > 
-> > > boot partition:
-> > >         ...Latest firmware files taken from the RPi firmware repo [1]...
-> 
-> Natan, it seems I lied here and been using an outdated firmware version. I've
-> just validated what Peter comments below, and the last working firmware release
-> with this setup is Feb12[1]. Given your use case I'd just use that and forget
-> about it.
+On Fri, 26 Jun 2020 13:29:31 +0200
+Peter Zijlstra <peterz@infradead.org> wrote:
 
-Excellent, that worked perfectly with the settings that I had initially.
-
-> > >         Image                   #Copied from linux build
-> > >         bcm2711-rpi-4-b.dtb     #Copied from linux build
-> > >         config.txt
-> > >         cmdline.txt
-> > > 
-> > > config.txt:
-> > >         kernel=Image
-> > >         enable_uart=1
-> > >         arm_64bit=1
-> > > 
-> > > cmdline.txt:
-> > >          console=tty console=ttyS1,115200 text root=/dev/nfs
-> > >          nfsroot=10.42.0.1:/home/nico/netboot/root,vers=3 rw ip=dhcp
-> > > rootwait
-> > >          elevator=deadline
-> > > 
+> On Thu, Jun 25, 2020 at 03:40:42PM -0700, Sami Tolvanen wrote:
 > 
-> [...]
+> > > Not boot tested, but it generates the required sections and they look
+> > > more or less as expected, ymmv.  
 > 
-> > > 
-> > > The issue with the mini UART is its clock, which is derived from VPU's, which
-> > > is itself controlled by RPi's firmware. Changes might happen behind the
-> > > kernel's back, and the mini UART divisors will not be updated accordingly.
-> > > This is an area the we could do better, but no one found a good solution yet.
-> > > That said, for now, when using the upstream kernel, VPU's clock should be
-> > > stable as we forbid the firmware from performing frequency scaling on that
-> > > clock.
+> > > diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+> > > index a291823f3f26..189575c12434 100644
+> > > --- a/arch/x86/Kconfig
+> > > +++ b/arch/x86/Kconfig
+> > > @@ -174,7 +174,6 @@ config X86
+> > >  	select HAVE_EXIT_THREAD
+> > >  	select HAVE_FAST_GUP
+> > >  	select HAVE_FENTRY			if X86_64 || DYNAMIC_FTRACE
+> > > -	select HAVE_FTRACE_MCOUNT_RECORD
+> > >  	select HAVE_FUNCTION_GRAPH_TRACER
+> > >  	select HAVE_FUNCTION_TRACER
+> > >  	select HAVE_GCC_PLUGINS  
 > > 
-> > There has actually been a regression in the firmware here, prior to
-> > mid April if the enable_uart=1 I always had clean output on the serial
-> > console, since that date on the rpi3/3b+/4 I get a whole bunch of
-> > junk, revert to an older firmware (I've been using April 1st ) and it
-> > all goes back to being fine. I've not had time to actually report it
-> > yet, and it's still a problem with the latest firmware but a quick
-> > look it likes similar to this issue reported in late April:
+> > This breaks DYNAMIC_FTRACE according to kernel/trace/ftrace.c:
 > > 
-> > https://github.com/raspberrypi/firmware/issues/1376
+> >   #ifndef CONFIG_FTRACE_MCOUNT_RECORD
+> >   # error Dynamic ftrace depends on MCOUNT_RECORD
+> >   #endif
+> > 
+> > And the build errors after that seem to confirm this. It looks like we might
+> > need another flag to skip recordmcount.  
 > 
-> Thanks for pointing it out! I missed that bug report. I'll try to get the gist
-> of it.
-> 
-> Regards,
-> Nicolas
-> 
-> [1] https://github.com/raspberrypi/firmware/releases
-> 
+> Hurm, Steve, how you want to do that?
 
-Same goes for me as Peter, let me know if you need any information or
-debugging info.
+That was added when we removed that dangerous daemon that did the
+updates, and was added to make sure it didn't come back.
 
-Cheers,
-Nathan
+We can probably just get rid of it.
+
+
+> 
+> > Anyway, since objtool is run before recordmcount, I just left this unchanged
+> > for testing and ignored the recordmcount warnings about __mcount_loc already
+> > existing. Something is a bit off still though, I see this at boot:
+> > 
+> >   ------------[ ftrace bug ]------------
+> >   ftrace failed to modify
+> >   [<ffffffff81000660>] __tracepoint_iter_initcall_level+0x0/0x40
+> >    actual:   0f:1f:44:00:00
+> >   Initializing ftrace call sites
+> >   ftrace record flags: 0
+> >    (0)
+> >    expected tramp: ffffffff81056500
+> >   ------------[ cut here ]------------
+> > 
+> > Otherwise, this looks pretty good.  
+> 
+> Ha! it is trying to convert the "CALL __fentry__" into a NOP and not
+> finding the CALL -- because objtool already made it a NOP...
+> 
+> Weird, I thought recordmcount would also write NOPs, it certainly has
+> code for that. I suppose we can use CC_USING_NOP_MCOUNT to avoid those,
+> but I'd rather Steve explain this before I wreck things further.
+
+The reason for not having recordmcount insert all the nops, is because
+x86 has more than one optimal nop which is determined by the machine it
+runs on, and not at compile time. So we figured just updated it then.
+
+We can change it to be a nop on boot, and just modify it if it's not
+the optimal nop already. 
+
+That said, Andi Kleen added an option to gcc called -mnop-mcount which
+will have gcc do both create the mcount section and convert the calls
+into nops. When doing so, it defines CC_USING_NOP_MCOUNT which will
+tell ftrace to expect the calls to already be converted.
+
+-- Steve
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200722160218.GA1016797%40ubuntu-n2-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200722135542.41127cc4%40oasis.local.home.
