@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBAABBQXH734AKGQEJXKMOYY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBTHH734AKGQEF32JD3Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93f.google.com (mail-ua1-x93f.google.com [IPv6:2607:f8b0:4864:20::93f])
-	by mail.lfdr.de (Postfix) with ESMTPS id BAAC023012B
-	for <lists+clang-built-linux@lfdr.de>; Tue, 28 Jul 2020 07:12:35 +0200 (CEST)
-Received: by mail-ua1-x93f.google.com with SMTP id u13sf5924534uap.7
-        for <lists+clang-built-linux@lfdr.de>; Mon, 27 Jul 2020 22:12:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1595913154; cv=pass;
+Received: from mail-ua1-x93a.google.com (mail-ua1-x93a.google.com [IPv6:2607:f8b0:4864:20::93a])
+	by mail.lfdr.de (Postfix) with ESMTPS id D35F5230131
+	for <lists+clang-built-linux@lfdr.de>; Tue, 28 Jul 2020 07:12:45 +0200 (CEST)
+Received: by mail-ua1-x93a.google.com with SMTP id m19sf1292413uab.11
+        for <lists+clang-built-linux@lfdr.de>; Mon, 27 Jul 2020 22:12:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1595913165; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ab3WyjuVTJTAOTFUUyeax9PxYfKGHjIzosx6EZxGCRtR4ATX86YmPiVbUiIIihw1NQ
-         fTuDBpDXb5huf/MIFHdQYj+X/bm3NhyAsoNCgPXhWAe10KMgCr9Mx3DukIZ6SXu9zHdt
-         CNOgZmawA31aLcc1en4H78x/aFARDZs0L74ea/eUPaHz1414fYAor5hDfAcrGdzHHDaO
-         PRzgm/xkHrIpXHlqP3dg97ezDfKgnNraoPJjM262At04cSTtTQ4MTmOCxuPTZS/AvuNX
-         Kexv/ERsjRX5L9AxZ+s0x9XnOXPDMohh7u8kKt73yBt3/0xBdFo0AUdrpKD8vAVLXNbu
-         LB1g==
+        b=sf6NUeYOE6YlTq+VO7ncAYo2eWGjbbRtBdu0njpY56dUs/fWbvL8znrZ2lc8Yyku2J
+         aCJt1bCxk6tv2my7NV7zBnQDoD6pFwxnbp7NKxL+3oAUKAmuRjVFkMcVdElL97wMY4+x
+         nxydSMgUb08x6WBKRzNhv+RRV/DoQgO9cPjnjl52nkcFR9pcUkfWVzvDBNBVEaknG7N9
+         4kBku8hk76bo/SfmSluhv85kR5TnFvEBZm1v9jWzt0Wubr1bPQG8Hyjs2/3zvUhv6tqg
+         2RuH5euModzzM8F0PQ8mpKA4Tp3JsHFCmUfTe4D6LvqK5zd8rMIA5de/qrXCwglh1K4u
+         Gr1Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=8fXrlFlGMFnVWwBPc7r4qKX9+vj/UosvUZIFegucf9A=;
-        b=AyhmU6TWrBOKMXPmWOddsfcbxnHJ6emc2gKiktCBPlguhzlrKXnGQII93DN6wQRbwe
-         dhWrIa81pzRiuL0fpCgmACZqWnU6snV4vv4+RbU7xkEXfs+q3SoCSphyX0CBQoRWDmtH
-         5o/5h6t0xNJtUAzPhr4LFKRh7l8Hj3Bd30WL+UhUYILXRRQuj+JoVaRk8tnuNm3+lyKz
-         EgWAtsWSBFxhvznL1ax3XLNg+F6yLe9sJPu7fIhPAE7VEfrb8rK9ZQuWk7TLatWtauU8
-         CTiJ3WEvhu+JSBFhk6FCobcGoKIIapI0XUE1NO1IyJkUOY1xQ0/CkmfqQXANwlMxvVhw
-         3GMQ==
+        bh=coeA1eVXpf5v5pikjfXtD3/Czz7JoSxlrZtTPeBtoDc=;
+        b=zCrzTOun8bZ6jvdtV/V5tsL6j1o90eLMIXhrZN85gWhE7KUbqx9p3BADyL2u3P3Jv4
+         EChqCoQBIUXlcmfeqxMI6KtC7WCrgQCIibV/NU3RJmjUrPEzATfu7r/6rSU8o8pmW1Ml
+         HRZ+cvRW56JM/Nio/3eLpOkHWt/DtbtDH5MVM6T10scVy0v6xO7K5C7BgGu76a8LKROr
+         +K42Yz+UyzG4hU1HtGgdNQzNWOrsBnwnbwc56W2kIzjxI9cc27yvwvJH3ONhR0uukBn6
+         rfSmg1JEzhhKC/1okvoRnFXr3B6RtbsoC0STg8dc4XvB3UpgjmbFPqGv9V1d+3uT2Dt1
+         vukw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=m3WIeA90;
+       dkim=pass header.i=@kernel.org header.s=default header.b=x+PwdBnF;
        spf=pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=rppt@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=8fXrlFlGMFnVWwBPc7r4qKX9+vj/UosvUZIFegucf9A=;
-        b=qTjTj4lndSBNL8A6CKrISoKko/5l8cd47Dgsq8p+r8YE+fJIaTpIvRFSt9+ec3aI7x
-         jN8GyiznSZyJC2tjqDs+1CKi9iyJEAOQDTRvdWpZyldHBvgERyFLtLL4htRXTb8gBXLc
-         DAu3vB1rU1DWEEwVS2GRuLAShD8gZKNuwC5DaHFEWKQTOt5pdfJDjyBm7zBFHya/f3b4
-         2KP4bMSRgRk7TrUbA5Ctfb3yH/gHsQZ4dKuLezZqQdKM0Nc9FtUCLkAcylTSDBthiXgH
-         IwNoQ1B42VIOL0gFlyjzVrC7zqhrGNXUQ/xic9Ma93tflIbTNf757UdCDGz2gbq6qcWT
-         7xLg==
+        bh=coeA1eVXpf5v5pikjfXtD3/Czz7JoSxlrZtTPeBtoDc=;
+        b=kX1gFUl/8+iYotJfsbauWLeBJA4yGs1D3fRevqmnFp12QxlO3tEpDcjgguUWK4h7Xk
+         nkTcFV3vYKPrNryjg9wx+G+Yws30CDkUGubbfsDuSj9ucTwZocUg3cXKyG2f0gsRUT7U
+         v+NktQCvqoPDOeYW5mR3tYjTHullPVYi+u1odjG+ss/AkkdrNRt1SUIkK325c8kKGL+w
+         qriV0ISQBs1v1mmLRxseC2YUnsqzSDxeZoohtWq7Sp4cH7Hs7Zcrf/lNM7h7cRs9cYqs
+         jXvqZNsfxM9vkhoDy8qMfphCjKOrKYGZhYhdSx0OIDXk8ChWu7hjjwtcpLGD1jjPYAtM
+         Of0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,57 +49,57 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=8fXrlFlGMFnVWwBPc7r4qKX9+vj/UosvUZIFegucf9A=;
-        b=cSLhn7aVzHXk7VwdaQVEgtspveCTbcCJtSZXGIPC2IhEQV8R9h91GgsLHVmuXqeIXA
-         6SLrIVPfZkogZjTtKLXfVyZKYGphOPPTtwxuNKYnNUfaBeCGdfvWTyTy8egnfoHgnozG
-         lw2nbUAxqQ85AdYJJxRRV31DS7xKlU72ZpiKoSAVYDrzl0Lll+SGIwpvnm9V8j+fMhAr
-         u1yNv/wgfZHsUmIwO4f9rIOucVqxJI434ESNpTW3vvbiqV43OK0f8GN2slcDIk9+27AL
-         amhrYBKFcwsFCzYDxX829Jn3lxFahcghqs14rYCAVuSZWzNPKB5njHeKwG7MfZs6Gjtt
-         hABA==
+        bh=coeA1eVXpf5v5pikjfXtD3/Czz7JoSxlrZtTPeBtoDc=;
+        b=Q5cfJVfGtsa9Y2csLQK6mSsV/M72SHakWV5QqdPWS7khCbETVjfY2Sdr+yO1D8R+nG
+         QRMGn4bMq2U3e0HjBoc/DTGef9Uy3fNVa3c/IhTiDA2ifu4XK/gn8Q8iWsLiz6GRpwav
+         90caXafdemKAD0BRN8Fjg+tBGg48edXN2KtfM6Fc/FKshymeoPLDdZSD/kVv5rnFYan2
+         BbH3hm4Mr6ov8Ndlk/U2MBgtL1LXgjpP0OzpC3IvANNj8ugDHCc5C7P0mZyoaBvDE+sq
+         wq6q22zdqPu+GR9L2wHJxoEEXlCFH66dgF5dP50Q5GF7AvLqOlsv+enaBB2W3IMcekQo
+         br1A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533av6z46ry0JiP53JMfTS/P4R2qV+UsADz1zZKvyiU1Pvc1YXh8
-	FQQcbn26PX3p3ZMsS+SH3rs=
-X-Google-Smtp-Source: ABdhPJyMncANndXfcnjdGcV2Qp9Hv2Ft+O1mnIIekS2OFaUwbyV1zx6QjmydrWMl1dJ/rVa0RYglrw==
-X-Received: by 2002:ab0:2b08:: with SMTP id e8mr18358738uar.119.1595913154753;
-        Mon, 27 Jul 2020 22:12:34 -0700 (PDT)
+X-Gm-Message-State: AOAM533Negd2NeV8IMSAdCDQyXCOPpMXvlTLxtopawpcGJ3MuH9NkTIs
+	kpxPhKv65tzcu5HVXZtU7oo=
+X-Google-Smtp-Source: ABdhPJzja3HmK2wC8OQ1aUpVgChqVXxhK3GW3NS2G2bs/aHOJkqvXMOCykcjmiRZhQjo2kOM4B/L8Q==
+X-Received: by 2002:a1f:1ec6:: with SMTP id e189mr2889134vke.32.1595913164839;
+        Mon, 27 Jul 2020 22:12:44 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:6008:: with SMTP id j8ls288517ual.11.gmail; Mon, 27 Jul
- 2020 22:12:34 -0700 (PDT)
-X-Received: by 2002:ab0:6905:: with SMTP id b5mr8954588uas.110.1595913154469;
-        Mon, 27 Jul 2020 22:12:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1595913154; cv=none;
+Received: by 2002:ab0:3354:: with SMTP id h20ls1281929uap.10.gmail; Mon, 27
+ Jul 2020 22:12:44 -0700 (PDT)
+X-Received: by 2002:a9f:3806:: with SMTP id p6mr18762730uad.101.1595913164594;
+        Mon, 27 Jul 2020 22:12:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1595913164; cv=none;
         d=google.com; s=arc-20160816;
-        b=ZEwOPC2txCNPe6c+NBOUlmmxRWpa5+JUQhBB/znt11l/wekbGiXGh0H3x65E3jUGiy
-         iyfo8U+rRHluYov9e65CJSxs7vH+iEGz3oc8r77y8ZbB7Gl4jOuc7NfJQlFljINdlv1l
-         Z8VL2AH0diIGxd5i24gICKJLUHahrByaMWCKmkDxcoWVs87RWqHMwSnR9RlH5T3e49sl
-         cvL+Uaik7duIIiHqgunJCvvAWSqgB375pwxlL/kegu+jj2dEggTPRs7ChY7m0KGrpmFB
-         xCBk/edvFqIBxZHkxWGNfMLvMzdhCjCWi6QBeKA0mK7LpihB4KPfY3Piiv71W6YpFdCO
-         y+kQ==
+        b=jNGGbmVnpvdYp4NOdZ2F0MeHwxNElWlAczCkmpMaMU/dlvQXixxE5fEdnhc0QuT9tm
+         n0ii3fme6Pjy3amE1SznwNUoZZGN3sZdQzPZEVMdeiMjbND7MfamH2srKLPivfEj/goE
+         lyQHzYouJAFVg3B4PUyFuDzTI3Lvh0GAWjqPvj5yZaVL1TVb2viT/IsyvF4JX+Kaikk0
+         +yu2Wo4wGtMVBqqMUjzQMfMdwUJfn1HRxH1s5/H93UrSVvLeR7O7USJ1E6twBOANrHfI
+         vKeo95dqL0j6agQ4fZsZyizawZn9mVA3EDxBSqK6sjPf2M+pz5Ira2eDKfML7ebCMQFS
+         P4CA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=Qkk+OMktZIthkDXOfjZWi6RElp7feVCMSjnjOdAFhp0=;
-        b=LeeILjlJL8AuhpaeSJA7CSQHfMxv1NaM56Sai0vBa30TdTFS0oLWZb/oqJZK3Eet4Q
-         HAh+3dgtcoYxUWpNGmfpYJcchAY+1Jn0deeYxvU1gNfAYA5OEjb6QClz5ZRoCKoLs2ap
-         g9TozGG0aXwp6lbBe+W3JgKeiDQorUeYLvHNX9v33hvyvzl3fj6f9S3hvPkN7Lw2aH3+
-         /xCcSfCZpzL/08Y3+8dYSO4wtFjsxeFexcwUZBdxkltnYwdIE/d86QFdgK/Jm1T7n0LJ
-         50G3Oj0JIgDQs6h/CBzrP0Hoy2Wpy/qm02Zk81aKAIDE+9fHeM1pm6BE3PoTXRoOOG2G
-         LGMQ==
+        bh=g31UF4NnU2coH8tkDWR20tNCoHrZ7Zy1ZtkCH1uo6o4=;
+        b=ZvNk8qG57iaTknaGsRC93OHXE5oc/hkQe2Yb0zJf+b9GqXJKSSctb8n7nrHHhf63qA
+         L/s1NX1o+hWH1cKSUH6J31sVFeusnx9dJ2c60WE+NP+yWu+sMpoK1+hDRGEVJ8CUnoah
+         WRNiHRHDukdAKNq5Eh+paVv7JTVS0QzXZNFijQHdfTYqycZIPLf+SKCnjMT2FuYoDF3C
+         g1aVze5oEM11IM4UN1OQW5urg7Lx5zfdzQlxqS7cIIcXQFeScQhsLZf5LV0cYEqDZhYf
+         gdEQYkZGELcyhOsJCGax8TmNzIH1HMoS8qj4chV5m27iNjeVDWQK3cnox/TdmI4OE3I2
+         9X1g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=m3WIeA90;
+       dkim=pass header.i=@kernel.org header.s=default header.b=x+PwdBnF;
        spf=pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=rppt@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id t13si659491vsn.2.2020.07.27.22.12.34
+        by gmr-mx.google.com with ESMTPS id o66si535771vkc.0.2020.07.27.22.12.44
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 27 Jul 2020 22:12:34 -0700 (PDT)
+        Mon, 27 Jul 2020 22:12:44 -0700 (PDT)
 Received-SPF: pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 2B6452070A;
-	Tue, 28 Jul 2020 05:12:23 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 062C32177B;
+	Tue, 28 Jul 2020 05:12:33 +0000 (UTC)
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Andy Lutomirski <luto@kernel.org>,
@@ -140,16 +140,16 @@ Cc: Andy Lutomirski <luto@kernel.org>,
 	sparclinux@vger.kernel.org,
 	uclinux-h8-devel@lists.sourceforge.jp,
 	x86@kernel.org
-Subject: [PATCH 02/15] dma-contiguous: simplify cma_early_percent_memory()
-Date: Tue, 28 Jul 2020 08:11:40 +0300
-Message-Id: <20200728051153.1590-3-rppt@kernel.org>
+Subject: [PATCH 03/15] arm, xtensa: simplify initialization of high memory pages
+Date: Tue, 28 Jul 2020 08:11:41 +0300
+Message-Id: <20200728051153.1590-4-rppt@kernel.org>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200728051153.1590-1-rppt@kernel.org>
 References: <20200728051153.1590-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-Original-Sender: rppt@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=m3WIeA90;       spf=pass
+ header.i=@kernel.org header.s=default header.b=x+PwdBnF;       spf=pass
  (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=rppt@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -168,47 +168,179 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-The memory size calculation in cma_early_percent_memory() traverses
-memblock.memory rather than simply call memblock_phys_mem_size(). The
-comment in that function suggests that at some point there should have been
-call to memblock_analyze() before memblock_phys_mem_size() could be used.
-As of now, there is no memblock_analyze() at all and
-memblock_phys_mem_size() can be used as soon as cold-plug memory is
-registerd with memblock.
+The function free_highpages() in both arm and xtensa essentially open-code
+for_each_free_mem_range() loop to detect high memory pages that were not
+reserved and that should be initialized and passed to the buddy allocator.
 
-Replace loop over memblock.memory with a call to memblock_phys_mem_size().
+Replace open-coded implementation of for_each_free_mem_range() with usage
+of memblock API to simplify the code.
 
 Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 ---
- kernel/dma/contiguous.c | 11 +----------
- 1 file changed, 1 insertion(+), 10 deletions(-)
+ arch/arm/mm/init.c    | 48 +++++++------------------------------
+ arch/xtensa/mm/init.c | 55 ++++++++-----------------------------------
+ 2 files changed, 18 insertions(+), 85 deletions(-)
 
-diff --git a/kernel/dma/contiguous.c b/kernel/dma/contiguous.c
-index 15bc5026c485..1992afd8ca7b 100644
---- a/kernel/dma/contiguous.c
-+++ b/kernel/dma/contiguous.c
-@@ -73,16 +73,7 @@ early_param("cma", early_cma);
- 
- static phys_addr_t __init __maybe_unused cma_early_percent_memory(void)
- {
--	struct memblock_region *reg;
--	unsigned long total_pages = 0;
--
--	/*
--	 * We cannot use memblock_phys_mem_size() here, because
--	 * memblock_analyze() has not been called yet.
--	 */
--	for_each_memblock(memory, reg)
--		total_pages += memblock_region_memory_end_pfn(reg) -
--			       memblock_region_memory_base_pfn(reg);
-+	unsigned long total_pages = PHYS_PFN(memblock_phys_mem_size());
- 
- 	return (total_pages * CONFIG_CMA_SIZE_PERCENTAGE / 100) << PAGE_SHIFT;
+diff --git a/arch/arm/mm/init.c b/arch/arm/mm/init.c
+index 01e18e43b174..626af348eb8f 100644
+--- a/arch/arm/mm/init.c
++++ b/arch/arm/mm/init.c
+@@ -352,61 +352,29 @@ static void __init free_unused_memmap(void)
+ #endif
  }
+ 
+-#ifdef CONFIG_HIGHMEM
+-static inline void free_area_high(unsigned long pfn, unsigned long end)
+-{
+-	for (; pfn < end; pfn++)
+-		free_highmem_page(pfn_to_page(pfn));
+-}
+-#endif
+-
+ static void __init free_highpages(void)
+ {
+ #ifdef CONFIG_HIGHMEM
+ 	unsigned long max_low = max_low_pfn;
+-	struct memblock_region *mem, *res;
++	phys_addr_t range_start, range_end;
++	u64 i;
+ 
+ 	/* set highmem page free */
+-	for_each_memblock(memory, mem) {
+-		unsigned long start = memblock_region_memory_base_pfn(mem);
+-		unsigned long end = memblock_region_memory_end_pfn(mem);
++	for_each_free_mem_range(i, NUMA_NO_NODE, MEMBLOCK_NONE,
++				&range_start, &range_end, NULL) {
++		unsigned long start = PHYS_PFN(range_start);
++		unsigned long end = PHYS_PFN(range_end);
+ 
+ 		/* Ignore complete lowmem entries */
+ 		if (end <= max_low)
+ 			continue;
+ 
+-		if (memblock_is_nomap(mem))
+-			continue;
+-
+ 		/* Truncate partial highmem entries */
+ 		if (start < max_low)
+ 			start = max_low;
+ 
+-		/* Find and exclude any reserved regions */
+-		for_each_memblock(reserved, res) {
+-			unsigned long res_start, res_end;
+-
+-			res_start = memblock_region_reserved_base_pfn(res);
+-			res_end = memblock_region_reserved_end_pfn(res);
+-
+-			if (res_end < start)
+-				continue;
+-			if (res_start < start)
+-				res_start = start;
+-			if (res_start > end)
+-				res_start = end;
+-			if (res_end > end)
+-				res_end = end;
+-			if (res_start != start)
+-				free_area_high(start, res_start);
+-			start = res_end;
+-			if (start == end)
+-				break;
+-		}
+-
+-		/* And now free anything which remains */
+-		if (start < end)
+-			free_area_high(start, end);
++		for (; start < end; start++)
++			free_highmem_page(pfn_to_page(start));
+ 	}
+ #endif
+ }
+diff --git a/arch/xtensa/mm/init.c b/arch/xtensa/mm/init.c
+index a05b306cf371..ad9d59d93f39 100644
+--- a/arch/xtensa/mm/init.c
++++ b/arch/xtensa/mm/init.c
+@@ -79,67 +79,32 @@ void __init zones_init(void)
+ 	free_area_init(max_zone_pfn);
+ }
+ 
+-#ifdef CONFIG_HIGHMEM
+-static void __init free_area_high(unsigned long pfn, unsigned long end)
+-{
+-	for (; pfn < end; pfn++)
+-		free_highmem_page(pfn_to_page(pfn));
+-}
+-
+ static void __init free_highpages(void)
+ {
++#ifdef CONFIG_HIGHMEM
+ 	unsigned long max_low = max_low_pfn;
+-	struct memblock_region *mem, *res;
++	phys_addr_t range_start, range_end;
++	u64 i;
+ 
+-	reset_all_zones_managed_pages();
+ 	/* set highmem page free */
+-	for_each_memblock(memory, mem) {
+-		unsigned long start = memblock_region_memory_base_pfn(mem);
+-		unsigned long end = memblock_region_memory_end_pfn(mem);
++	for_each_free_mem_range(i, NUMA_NO_NODE, MEMBLOCK_NONE,
++				&range_start, &range_end, NULL) {
++		unsigned long start = PHYS_PFN(range_start);
++		unsigned long end = PHYS_PFN(range_end);
+ 
+ 		/* Ignore complete lowmem entries */
+ 		if (end <= max_low)
+ 			continue;
+ 
+-		if (memblock_is_nomap(mem))
+-			continue;
+-
+ 		/* Truncate partial highmem entries */
+ 		if (start < max_low)
+ 			start = max_low;
+ 
+-		/* Find and exclude any reserved regions */
+-		for_each_memblock(reserved, res) {
+-			unsigned long res_start, res_end;
+-
+-			res_start = memblock_region_reserved_base_pfn(res);
+-			res_end = memblock_region_reserved_end_pfn(res);
+-
+-			if (res_end < start)
+-				continue;
+-			if (res_start < start)
+-				res_start = start;
+-			if (res_start > end)
+-				res_start = end;
+-			if (res_end > end)
+-				res_end = end;
+-			if (res_start != start)
+-				free_area_high(start, res_start);
+-			start = res_end;
+-			if (start == end)
+-				break;
+-		}
+-
+-		/* And now free anything which remains */
+-		if (start < end)
+-			free_area_high(start, end);
++		for (; start < end; start++)
++			free_highmem_page(pfn_to_page(start));
+ 	}
+-}
+-#else
+-static void __init free_highpages(void)
+-{
+-}
+ #endif
++}
+ 
+ /*
+  * Initialize memory pages.
 -- 
 2.26.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200728051153.1590-3-rppt%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200728051153.1590-4-rppt%40kernel.org.
