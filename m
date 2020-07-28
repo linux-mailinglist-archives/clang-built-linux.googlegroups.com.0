@@ -1,164 +1,129 @@
-Return-Path: <clang-built-linux+bncBCKPFB7SXUERBBXKQD4QKGQEG2XLQYY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCT6537ZTEKRBMPPQD4QKGQEKNO7CSA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63b.google.com (mail-pl1-x63b.google.com [IPv6:2607:f8b0:4864:20::63b])
-	by mail.lfdr.de (Postfix) with ESMTPS id DA199230C51
-	for <lists+clang-built-linux@lfdr.de>; Tue, 28 Jul 2020 16:24:07 +0200 (CEST)
-Received: by mail-pl1-x63b.google.com with SMTP id bf1sf11944205plb.11
-        for <lists+clang-built-linux@lfdr.de>; Tue, 28 Jul 2020 07:24:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1595946246; cv=pass;
+Received: from mail-oi1-x23f.google.com (mail-oi1-x23f.google.com [IPv6:2607:f8b0:4864:20::23f])
+	by mail.lfdr.de (Postfix) with ESMTPS id AB3DE230C85
+	for <lists+clang-built-linux@lfdr.de>; Tue, 28 Jul 2020 16:35:30 +0200 (CEST)
+Received: by mail-oi1-x23f.google.com with SMTP id d185sf10558161oia.21
+        for <lists+clang-built-linux@lfdr.de>; Tue, 28 Jul 2020 07:35:30 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1595946929; cv=pass;
         d=google.com; s=arc-20160816;
-        b=0Zb76YayexkJ2nR7MBqqZTQqX91FcSryWaVhia6L6GMQhzvpW23dwYn3zCl7S+eGGp
-         NQTCyqEJYJgBRWk0fqkAfmkwr4nVebJ7uQ8tIBWVVVMyOTHq5oZyDvYbH9K9AyJ457TK
-         +1NnCXgiJGc9c2gYhL8dqODGEtDbD1jEKCospz0Q1cXrGofRqpZGHF7vrCo7l0CKNBSx
-         H36iKwzCJl1GNg82hjh5xsbuhUH/HkxigRAF6XyFDS+oP9w02MhwDLNwBzNweXarMUfn
-         L5KuplfAJwZPXr8v6uKpslwZDTmJpUf/B/WB6WzBJnPHXohaM9k9WNvpvCXqcp6Ha/FS
-         Mu7A==
+        b=N8LSbmXrEgRX3QXSCDaBw1HrpFOBg3koupOwzi8Eoj1BP2mOOZQIi0rrdagBcbsWv3
+         wnf9V5bXmKs6cGss21QdFDFd8Vr3uahSYDNIS14KOvzPalzwl6T/e36VxnOkDccww0Yo
+         B5mcNHOqwlZYza9Zn7cPoF/q8osYdg+/NcEOe4PP+PqM9x9OQPq9FEjGQt37g+J2vcy4
+         5YIAdELPWIhJRntbChpM+6w5Clk0xeapojGAYMu3YSX/Pn9gxRcuNid51FpTuDYPONOx
+         CfPbgXWiyCtNUCaj2fiaVJoFLOodt0Dw8qauWisZEa2VZVuXPUUd3IqIEfuFAFjT9ZtC
+         i4wQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=uPIoajmdQZhfNHGHlGEk3rOHmGzWhefMi3JyOgTMPbk=;
-        b=zUoCMt8AeWRNaUJws5QO/zaiFCUhGBxyDwbMydcSmD+4EOtAB5tHtOGhP3I8G0Xx56
-         7UqthJDVT1b51pY21F+m+r24+nPD/FMWMMDu7U2vCWV3Uj+aMb486qpac1/eBulZ4MlI
-         Xqauywblmi29rGposhQzrtI2Zv9IG0cYEaHnddaeSRMEnyJ/vC5NcXCd62d7WrQL+3vc
-         cK+iL/ZURnXSSrfxMEow2yv3g+itxcHHnYDpBL0f2o4N0Zw4tMucdCduwtOPz8FDInMX
-         rEYxOXAhwSf9kUDrzjBTg9YpfBj09Lvd0UN69LwnsQ1YdExWRL37qI9f9yDFR0p2hFRe
-         tMdg==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=S8SpqxpL05VACSA3MX+IOv7zME2kKYUfJOiHIqSphk0=;
+        b=deTaZY0N9xKiAyscOz+UDt3SjW73tj8uykCT5ar8GVj06nyR0J+F0h5/kzp5pThEUJ
+         n/JI8+9CFGkLpRUG+3SmuR9RtnC7hbUfukAYPUgkixvi7ZMonZDtzCD/mgff+c+nLa0I
+         WtMRXZKn12qXwCav9tOa1keHl1xpq3WRU6SKL5AJEz68E3w6yOIDXhehfrPu7z/i67su
+         t5om9aYP2cY7Qi+lnSWAe/1n0Uw1M0cs5zAFhLifqUC+ihCqJ0xlFzl7XQL6Sp/V4lTW
+         oWb0EbRBsCwtikFsAyEiNnmluEfz8CS3S0gs+nmsQk/SQ48MCxLOe/DO93TXpjzm4GO0
+         Om4Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=hmlhlf1k;
-       spf=pass (google.com: domain of bhe@redhat.com designates 205.139.110.61 as permitted sender) smtp.mailfrom=bhe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@linaro.org header.s=google header.b=LhfgIFjP;
+       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2607:f8b0:4864:20::d42 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=uPIoajmdQZhfNHGHlGEk3rOHmGzWhefMi3JyOgTMPbk=;
-        b=ZvKoJ5R5u+n2uv7WhqQJd545Lb+UaL8dMSrgKjrHWqrW7PZhXgXfi4aVqu7iv0qGVC
-         VnM97EUO85JFAeM820jh7yZRecx9VoQMWsCDTnrJGR41vJfSUmkeDBDY91xxMM5V6JVU
-         mdDfixWHzwF2Sk8xKV01lKu204XV8iyhJcKTH4CGARgY0aQ9d++2mpDdui7F8vBPcIxz
-         Y/Mk9ETXsAI9LwqiG619y18+EFfzaeH36t5OTp6nHkNNqhQYCjlF2h8AuXqIKyudqAFC
-         8R2C2IH26mqIZR39eWcvCNpyi6n+xnBdlsH8ekSlM5DU/9FswxwuEQJRsUlv52TYuDbZ
-         MOuw==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=S8SpqxpL05VACSA3MX+IOv7zME2kKYUfJOiHIqSphk0=;
+        b=clNSJ3vPxx65bypejR98JKGC4Hw2lqjILTnZN+yo4qkXlhXOQ87oY8Jk14ZfDEE9qe
+         FUx8fsO1/o0gaN2F8Lo91R88hzKsONJv3RWy4Z9YBiynWBsQOM/TjuGj9H/Lga6JdgoZ
+         sLgzGvXEVd3R4222UMVDmijRHW1oMPnm/UnPUvdSm34X7fei9NHY5GwYYPUYaiGFFnJ5
+         paoNXOu7qDL/kKzpsNWxA+DIKKXskE0SAM9wjVmdnFVsgN9auZwHJWn0egImQgPz4W9J
+         DlzG6iiOzyJ51a5OhbRrtfoKiZ2JzyR6X/YjO7Xhc4KfdYVPsCx9JIroUSyM339qmOjg
+         H6Tg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=uPIoajmdQZhfNHGHlGEk3rOHmGzWhefMi3JyOgTMPbk=;
-        b=nVbCY8J/BUHtlXbQ+j6wmahzCs1dOFZpDsq/K6ZWiRZweoYf6av2qATfTrfr8EMQGd
-         WMnCcC2yDAHMO6en1P6UBqnWsJMJUSUgjBN1DHPAETdY93LQ0ASVFh1Wq6EvlhgxROuw
-         LQSsE18NTPFTvP4bj0TNKZXEHkjMMDPQG+jZETuXdfuW6To7W+DmjyfES4UxWblWusyc
-         DBQ1raeCQCvl2RCjfcz5ZCEkQeJ1eQuoKlVklXlghhf0vrLF84lerQxhMDte24sfR6XQ
-         QEAEKf34KB98Vx0eM1HNv4Wp9Kyg9Wvtnsu6UQBOhNib7O9JCMElpnBeyphvIXzx/FPE
-         kZnA==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=S8SpqxpL05VACSA3MX+IOv7zME2kKYUfJOiHIqSphk0=;
+        b=C2p6roPuhGt2f9tLoF5H9l+REIbr3PvY95Le78Yf1G1z2pz/wI8dT0JmIobeqrz5OU
+         94SIDu5ANbfB4bd/e78vDAeJRtIiYXCDiGJowS/BcNBDZ2lDD3euQtkIXmtAPTwFrm9y
+         gMrSgLnEFc7CRqojh+Ij9Ame52fmB9O60l3CRiICmO2hsBpCo6z4sYb1OmRVK97NaJM6
+         wmMhpcsvg6npSVgU8XrabIIiqJ4nmGD2orrslY6wYpnfOLgwJHJxGqfRlFpuOn1OnCXw
+         GSrChjJsj8B2bD46u4VANNUc2KSxAWvQupz2euaKvYAskeMfojSxDcHIGz2oQBCam6hT
+         C6Ag==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5324avhjYTTHj2+fUQye9RwvFvZGCDvfkudH+/47yOUUgQtZYZY2
-	IM2V3QiYOrFgF4dF98Djr0o=
-X-Google-Smtp-Source: ABdhPJwRsbxZ25PLF4+AxrlBvrtlg+BEKl0N9McRPeLAwYQlflYBac3/GTL/KUDS8ebaGaPLdGBPjg==
-X-Received: by 2002:a17:90b:1249:: with SMTP id gx9mr4769094pjb.149.1595946246119;
-        Tue, 28 Jul 2020 07:24:06 -0700 (PDT)
+X-Gm-Message-State: AOAM530/lxiHp6wdInz9qfXeZKtuEShr3Xn/1S/mDXl+1uKWzsUQPImB
+	Bu7Jo5fpPOfNreFeiaEiGqQ=
+X-Google-Smtp-Source: ABdhPJzY1u/d72tgRXcwLSYo/Z1tmX1oGR+X/bz6qQ2Yf+nNGBBqeLXpgmjuNYIWypa53OEQpDP4Kw==
+X-Received: by 2002:aca:309:: with SMTP id 9mr3843232oid.131.1595946929424;
+        Tue, 28 Jul 2020 07:35:29 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:3785:: with SMTP id mz5ls1468574pjb.1.gmail; Tue, 28
- Jul 2020 07:24:05 -0700 (PDT)
-X-Received: by 2002:a17:90a:2207:: with SMTP id c7mr5158552pje.206.1595946245754;
-        Tue, 28 Jul 2020 07:24:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1595946245; cv=none;
+Received: by 2002:a05:6830:2103:: with SMTP id i3ls166474otc.3.gmail; Tue, 28
+ Jul 2020 07:35:29 -0700 (PDT)
+X-Received: by 2002:a9d:6b88:: with SMTP id b8mr16808528otq.258.1595946929008;
+        Tue, 28 Jul 2020 07:35:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1595946929; cv=none;
         d=google.com; s=arc-20160816;
-        b=Zy+w/WI59wBx9gzVO41pt4NhmkGyUWz6yiI3DpJpvzoV0odiF6QzG42iqokcTi65PB
-         XgP2B6Rsf4BP3f5jYIxV7MECRQkZyIfqZccCw6LMq2Vd/7RChoQpmaoM1JSy6+TxpqH7
-         mNP2hqQTjaBqVum+eTtha+omEEHDC8wELb9IatuiN9HFb8KcoZpG+8ucRRh6mbLmooZ3
-         hEVo9aUvEFspF5mGcxDG/KzuBmJf4xPdO6pYB2wpvji0hoHPZ8AxrVmjWRRnONQVqCy3
-         AAe9A5xhP0VQsI3WAUWiT1u3bQFP/TcNd4gVYmdO+mVQRRCQv+REGVB0/7CSQdhvJzB8
-         bjYw==
+        b=wpFyvXOgW7DEIIfPmHNkb4gHLwUbIGX9lhWIvwb9hI/PPerS8FoBljuhi8mNdVZh2w
+         pyG0Afkw7CExWunE6J+KMhKVXSRfdP1S16Qt8f+CBgMjkrob1uUFtjYvVBmwdcQ6Iqhq
+         6pmQt2rltOt/XcVq4SIytmEzXpOq5oG5pQbGxQmeXs/c6LguUDTNjGCixvQfJtXLuEQF
+         jfXXvCsX01iiKBnSN+f6O+Y5fKHtosi0IOHkPaomEEIhMiny9B4bdYVgdjWvTHq2TS3P
+         yax+4kczFk30SF54cGU/PWorlo4iCjSU8alsUxTXry3B+QrU3hw4JQnGFG2IhqiAWn/0
+         t5Ng==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=06rCqpwu1j4S1S47vgUTPXYPKKso17TGQwzOaoYSYfs=;
-        b=d5ZsN9USPoQj1VgCHODfnS64KQj5wuYg2fzKXfjF25CYQ6a+pQgyHJjNMpp2Euu8/Z
-         xK+f5JLxhOoWNamUxMOPFzl2fQf/A7GF/EugVcuwMbeQEya/9Uu1kO2hzoEkYnivz8Nw
-         5i5l5wjb2dTgY0RhMxqqYB2IKDohprSl6urGFQmcPf7t7kQ0LytS4KrlEBQgSMFcQ1In
-         wtX697mlBji5CkL2+Isn8Isx0pwXFz/UKLP7L5DZbpIGe+b2Kv+mBQ4Fk1dp62prT3QO
-         4QSemCqox/G+npVS1XFvswPcO/bZfHtWTYL7UWzJZ/IwoXsYFHEvsqzKay6ju9Ailofy
-         FDzw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=wE63hykpdOWCKf+hJ+uo4tJ4NmzeI9PTAqJH7wvSMlc=;
+        b=WSkgbju2ZG7D7Um4/1YS8EWzYun3k+6v7e6w1YWxlnQAgy1+/b2RByc1vepGAwVnWg
+         oCANi4F/jQnYCDLOHj2JCwxEF1Kx9Vosp+WXPdoi52oHcJSA025fwpDQXLNBloB+IRCv
+         9YmfD1nfw41wbSF2Ltfh8mKsdHIDsYMV4DDxtPjDm6bcx62dbSqivq8SRAlOFv5G/GZP
+         kA4hg71NSkAOojjBOwFaRhymc2kqH+KsRxppGtFAfe+E2FWhmjKNruzK8m7AeK7Pz5Gj
+         yt8pTrM5PVZJORDfQWNs8ztSxSzn4EfPNjaEew+dRlCVcqt2qRRmB0q6rlP+2aBXYERW
+         nkjA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=hmlhlf1k;
-       spf=pass (google.com: domain of bhe@redhat.com designates 205.139.110.61 as permitted sender) smtp.mailfrom=bhe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-1.mimecast.com. [205.139.110.61])
-        by gmr-mx.google.com with ESMTPS id c4si83014pjo.0.2020.07.28.07.24.05
+       dkim=pass header.i=@linaro.org header.s=google header.b=LhfgIFjP;
+       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2607:f8b0:4864:20::d42 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-io1-xd42.google.com (mail-io1-xd42.google.com. [2607:f8b0:4864:20::d42])
+        by gmr-mx.google.com with ESMTPS id l6si465942oib.5.2020.07.28.07.35.28
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 28 Jul 2020 07:24:05 -0700 (PDT)
-Received-SPF: pass (google.com: domain of bhe@redhat.com designates 205.139.110.61 as permitted sender) client-ip=205.139.110.61;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-166-XL5fGaBiOsyWEWGpA51xEg-1; Tue, 28 Jul 2020 10:24:02 -0400
-X-MC-Unique: XL5fGaBiOsyWEWGpA51xEg-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 8B54D1B18BC1;
-	Tue, 28 Jul 2020 14:23:54 +0000 (UTC)
-Received: from localhost (ovpn-12-117.pek2.redhat.com [10.72.12.117])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 303B41010427;
-	Tue, 28 Jul 2020 14:23:51 +0000 (UTC)
-Date: Tue, 28 Jul 2020 22:23:48 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christoph Hellwig <hch@lst.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>, Mike Rapoport <rppt@linux.ibm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Mackerras <paulus@samba.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Stafford Horne <shorne@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	clang-built-linux@googlegroups.com,
-	iommu@lists.linux-foundation.org,
-	linux-arm-kernel@lists.infradead.org, linux-c6x-dev@linux-c6x.org,
-	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-mm@kvack.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	linux-xtensa@linux-xtensa.org, linuxppc-dev@lists.ozlabs.org,
-	openrisc@lists.librecores.org, sparclinux@vger.kernel.org,
-	uclinux-h8-devel@lists.sourceforge.jp, x86@kernel.org
-Subject: Re: [PATCH 14/15] x86/numa: remove redundant iteration over
- memblock.reserved
-Message-ID: <20200728142348.GE10792@MiWiFi-R3L-srv>
-References: <20200728051153.1590-1-rppt@kernel.org>
- <20200728051153.1590-15-rppt@kernel.org>
- <20200728110254.GA14854@MiWiFi-R3L-srv>
- <20200728141504.GC3655207@kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 28 Jul 2020 07:35:28 -0700 (PDT)
+Received-SPF: pass (google.com: domain of naresh.kamboju@linaro.org designates 2607:f8b0:4864:20::d42 as permitted sender) client-ip=2607:f8b0:4864:20::d42;
+Received: by mail-io1-xd42.google.com with SMTP id z6so21003329iow.6
+        for <clang-built-linux@googlegroups.com>; Tue, 28 Jul 2020 07:35:28 -0700 (PDT)
+X-Received: by 2002:a05:6638:134a:: with SMTP id u10mr6463616jad.35.1595946928305;
+ Tue, 28 Jul 2020 07:35:28 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200727134914.312934924@linuxfoundation.org> <CA+G9fYvBRONMYwX36Hcju4JA5TwstkT2Afyuy2DB1zQcBcc1CA@mail.gmail.com>
+ <CAMZfGtVV-u7K+Z0vFLkoKv1UOTfk=a9+r_6G4PYfGLywwnkm3Q@mail.gmail.com>
+In-Reply-To: <CAMZfGtVV-u7K+Z0vFLkoKv1UOTfk=a9+r_6G4PYfGLywwnkm3Q@mail.gmail.com>
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Tue, 28 Jul 2020 20:05:16 +0530
+Message-ID: <CA+G9fYs__nNa-090Cm8j_EPYGRfh+y+VTX3ZqR_W1Jcu2suNEQ@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH 4.19 00/86] 4.19.135-rc1 review
+To: Muchun Song <songmuchun@bytedance.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, open list <linux-kernel@vger.kernel.org>, 
+	Linus Torvalds <torvalds@linux-foundation.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Guenter Roeck <linux@roeck-us.net>, Shuah Khan <shuah@kernel.org>, patches@kernelci.org, 
+	Ben Hutchings <ben.hutchings@codethink.co.uk>, linux- stable <stable@vger.kernel.org>, 
+	Hugh Dickins <hughd@google.com>, Christoph Lameter <cl@linux.com>, Roman Gushchin <guro@fb.com>, 
+	Joonsoo Kim <iamjoonsoo.kim@lge.com>, linux-mm <linux-mm@kvack.org>, mm-commits@vger.kernel.org, 
+	Pekka Enberg <penberg@kernel.org>, David Rientjes <rientjes@google.com>, 
+	Shakeel Butt <shakeelb@google.com>, Vlastimil Babka <vbabka@suse.cz>, Arnd Bergmann <arnd@arndb.de>, 
+	lkft-triage@lists.linaro.org, clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200728141504.GC3655207@kernel.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
-X-Original-Sender: bhe@redhat.com
+X-Original-Sender: naresh.kamboju@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=hmlhlf1k;
-       spf=pass (google.com: domain of bhe@redhat.com designates
- 205.139.110.61 as permitted sender) smtp.mailfrom=bhe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@linaro.org header.s=google header.b=LhfgIFjP;       spf=pass
+ (google.com: domain of naresh.kamboju@linaro.org designates
+ 2607:f8b0:4864:20::d42 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -171,66 +136,36 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 07/28/20 at 05:15pm, Mike Rapoport wrote:
-> On Tue, Jul 28, 2020 at 07:02:54PM +0800, Baoquan He wrote:
-> > On 07/28/20 at 08:11am, Mike Rapoport wrote:
-> > > From: Mike Rapoport <rppt@linux.ibm.com>
-> > > 
-> > > numa_clear_kernel_node_hotplug() function first traverses numa_meminfo
-> > > regions to set node ID in memblock.reserved and than traverses
-> > > memblock.reserved to update reserved_nodemask to include node IDs that were
-> > > set in the first loop.
-> > > 
-> > > Remove redundant traversal over memblock.reserved and update
-> > > reserved_nodemask while iterating over numa_meminfo.
-> > > 
-> > > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-> > > ---
-> > >  arch/x86/mm/numa.c | 26 ++++++++++----------------
-> > >  1 file changed, 10 insertions(+), 16 deletions(-)
-> > > 
-> > > diff --git a/arch/x86/mm/numa.c b/arch/x86/mm/numa.c
-> > > index 8ee952038c80..4078abd33938 100644
-> > > --- a/arch/x86/mm/numa.c
-> > > +++ b/arch/x86/mm/numa.c
-> > > @@ -498,31 +498,25 @@ static void __init numa_clear_kernel_node_hotplug(void)
-> > >  	 * and use those ranges to set the nid in memblock.reserved.
-> > >  	 * This will split up the memblock regions along node
-> > >  	 * boundaries and will set the node IDs as well.
-> > > +	 *
-> > > +	 * The nid will also be set in reserved_nodemask which is later
-> > > +	 * used to clear MEMBLOCK_HOTPLUG flag.
-> > > +	 *
-> > > +	 * [ Note, when booting with mem=nn[kMG] or in a kdump kernel,
-> > > +	 *   numa_meminfo might not include all memblock.reserved
-> > > +	 *   memory ranges, because quirks such as trim_snb_memory()
-> > > +	 *   reserve specific pages for Sandy Bridge graphics.
-> > > +	 *   These ranges will remain with nid == MAX_NUMNODES. ]
-> > >  	 */
-> > >  	for (i = 0; i < numa_meminfo.nr_blks; i++) {
-> > >  		struct numa_memblk *mb = numa_meminfo.blk + i;
-> > >  		int ret;
-> > >  
-> > >  		ret = memblock_set_node(mb->start, mb->end - mb->start, &memblock.reserved, mb->nid);
-> > > +		node_set(mb->nid, reserved_nodemask);
-> > 
-> > Really? This will set all node id into reserved_nodemask. But in the
-> > current code, it's setting nid into memblock reserved region which
-> > interleaves with numa_memoinfo, then get those nid and set it in
-> > reserved_nodemask. This is so different, with my understanding. Please
-> > correct me if I am wrong.
-> 
-> You are right, I've missed the intersections of numa_meminfo with
-> memblock.reserved.
-> 
-> x86 interaction with membock is so, hmm, interesting...
+On Tue, 28 Jul 2020 at 18:33, Muchun Song <songmuchun@bytedance.com> wrote:
+>
+> Thanks for your test. I have reviewed the patch:
+>
+> [PATCH 4.19 76/86] mm: memcg/slab: fix memory leak at non-root
+> kmem_cache destroy
+>
+> There is a backport problem and I have pointed out the problem in that email.
 
-Yeah, numa_clear_kernel_node_hotplug() intends to find out any memory node
-which has reserved memory, then make it as unmovable. Setting all node
-id into reserved_nodemask will break the use case of hot removing hotpluggable
-boot memory after system bootup.
+Thanks for your suggestions on the other email thread.
+I have made changes as you said and boot test pass on x86 now.
+
+diff --git a/mm/slab_common.c b/mm/slab_common.c
+index 9c5eb4b08fc3..65bc49f19504 100644
+--- a/mm/slab_common.c
++++ b/mm/slab_common.c
+@@ -842,9 +842,7 @@ static int shutdown_memcg_caches(struct kmem_cache *s)
+
+ static void memcg_set_kmem_cache_dying(struct kmem_cache *s)
+ {
+-       mutex_lock(&slab_mutex);
+        s->memcg_params.dying = true;
+-       mutex_unlock(&slab_mutex);
+ }
+
+ static void flush_memcg_workqueue(struct kmem_cache *s)
+
+- Naresh
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200728142348.GE10792%40MiWiFi-R3L-srv.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BG9fYs__nNa-090Cm8j_EPYGRfh%2By%2BVTX3ZqR_W1Jcu2suNEQ%40mail.gmail.com.
