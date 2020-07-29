@@ -1,132 +1,143 @@
-Return-Path: <clang-built-linux+bncBCYIBK4PW4CRB5FQQT4QKGQEAZGJH7Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDJILRGJQEERB77HQT4QKGQENZXUCQI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43b.google.com (mail-wr1-x43b.google.com [IPv6:2a00:1450:4864:20::43b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0E36D2319A0
-	for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jul 2020 08:34:29 +0200 (CEST)
-Received: by mail-wr1-x43b.google.com with SMTP id b13sf3507251wrq.19
-        for <lists+clang-built-linux@lfdr.de>; Tue, 28 Jul 2020 23:34:29 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596004468; cv=pass;
+Received: from mail-ej1-x637.google.com (mail-ej1-x637.google.com [IPv6:2a00:1450:4864:20::637])
+	by mail.lfdr.de (Postfix) with ESMTPS id 87C1F231B36
+	for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jul 2020 10:31:59 +0200 (CEST)
+Received: by mail-ej1-x637.google.com with SMTP id l7sf2607566ejr.7
+        for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jul 2020 01:31:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596011519; cv=pass;
         d=google.com; s=arc-20160816;
-        b=puITJ2FWSBl7PDqFYrRBe0miQFH8dLwD5jFxq7GhSSEwPOdgeS3Vu+49x3af4rbSk/
-         ZixGBgNQxx0PhjmWi1uXJ+y0D+0HnZFil+mbg6sZgogl3p/iNv9Ld6BDo8DS+ZhYNr/t
-         e9dw8rmyetpMsmaSSsOrp+wlrOsOVzS4TFeTZxMx2AftOoGrVquB24UBOLUD4WMywe0e
-         kUB+wlB/8TN70PWD3k7eF1ICzx4XzPdjLQ95ONUiouvpBoHZMdApNUlO+sWVrNKKDjHI
-         3K2JaoGEYWH3h90u47vUovp+PoTDLOeCqdmQ6yDsUe6IzF7Pf0MDVlMei9OSYLmlyqBY
-         4qYA==
+        b=gV3kfH73BKfkQGDYcDm6YW83FTZQx/iTCna8I32q3xfYk/qgroYma1d5baDwSQhfRf
+         udnnAWJm4pGmU0B/o1rWPhQER9v822gPeSfjA2nPRkICQDWhoSf7aPFIVm1hG9kY3Dmc
+         XSdNaJ8HQIIWjRJWCF4zYpVrPupPh9uaR3C1bmZWdpSqxjRjLGqc+mlvaL6qFoDJc4XK
+         ZKj6odFZKvn2H5O3+YV8rQjN/xhwADPJFyCLeXHwlgtLrQVbDS3vmzhOgYXHh3RWhbik
+         txOuuLA1CP7l7yxn25tK3es0ax+qlWrQAa2sFTYmcTFmJDXbUHJtGye1nQaUFLQ5Dino
+         mD6g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=vkXx8mx9h2mAdH57/u/Q+2ffjpCAYwjFkkOT6XTYscY=;
-        b=MHt+R368zHHc4a6stQ8w4XR3LDLEWnybqWwSJ1tuCDO8iJPPgYCcHMCSbjWinDUlk0
-         8U6maG/ilWA41MS2erT5t6h9/DGWVojw6OqFjSIdOavKnOxiJfOyIG6PF8Xv3uKNIr/Q
-         CLmHi5LZm44kIHDnP4zoKqWzs5R4uoXLMuPTuhsAV/ZnHlMgWYkc1A5pz70Jenx8j0Zv
-         fj4f0cx9RWC1rmm23k5F3Ho/JOY7H+vutAZjsXM3jiUx8htLBwKmE47hBS2WBVgfvd+M
-         dlaKFa03Kxmt2GPvZYMBa4L7Aza2my5Xleizjr/HwU5ummeEW1orJc6e0v5SysQOfIgY
-         YIMQ==
+        bh=dlg/2hG/57ALqel6kX3WJJ45APd1loe/FjFe5ag00ME=;
+        b=yS7GOeefRAd3+MiKN5HD26UTtOrZNotatDeBK1D1xVi4I3qqZO6MKQ/hgxGaGuiLSQ
+         xo/BDDYT3rzTgET4OODOK1TsHTyQqMljyB9kSiKjaXuvGWYlFg4EgeujGKWO8Bb29eoe
+         JuumHkU8m0vw2ZhSdBF5yJLDR/62Ch2jiOoNQ9jpuUrrNDLsyUZopvftFui4NhfAYjIa
+         cMK8aQ8YP93npyjiMobz6PerOzqmrqtA1xNj7rxNccz6Vu/t1/5JcxkhOCeD1FLTa7Pg
+         pgWzNUjZ5Rg4IFMs4sc42bwxwr/sPFLZr8f/N5kDj1iEAVM3bAiHoqRvBktkSEGaV0+G
+         fbJg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of josh@joshtriplett.org designates 217.70.183.193 as permitted sender) smtp.mailfrom=josh@joshtriplett.org
+       spf=pass (google.com: domain of jonathan.cameron@huawei.com designates 185.176.76.210 as permitted sender) smtp.mailfrom=jonathan.cameron@huawei.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
+         :organization:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=vkXx8mx9h2mAdH57/u/Q+2ffjpCAYwjFkkOT6XTYscY=;
-        b=JqCdEuDxwyzxARKS/XnXKO8+oesvaJ9rFovNHucxPC9QFvShs/ynX7GL1BJ/Ey0aZc
-         kNqIyyBP+Q/mdNtYPbBB7jArrxGfnJPIehWnZJMVnMHcULgOvcXQH/y9h2iKatWDE4sG
-         xFgzGCFXDi/F5W2ooAuw6UBFFt9iNlMjWT4vPtspL5gKkq9RrhqjOpb/LLZgmiDrhRhD
-         ++x9Qy1PNaPtTceP53PXvaOKo2SxS9+UY01ixOlLUnw8lF+oJIqEB3vOUopzuk9kgp8g
-         4ztSSRpD380aSXlYtpOhXdTc9KdCCfHFKLa6XaGRTaq+kqGInGFZJzyviN2Knwe3ayEs
-         24vA==
+        bh=dlg/2hG/57ALqel6kX3WJJ45APd1loe/FjFe5ag00ME=;
+        b=lRBDYvfgWjRB/cKGDho58lvmzxi8YMA1huY2JXQ84DyobpV4k4QYqq6oJLaUaPaaqq
+         WAnFCXv5JaNFFXyR5AHe25cGJkK5wujoPdhZtBBhDPrHmaUqmEmTcQLk2qge4cF1p7bl
+         cMyx6dG+Zkxva3LPO/7THv5GC5vqZm9ob7KHTRdWAHgEO6Cx8WA0UgK98l5jeef4R2mH
+         lZGwwFS5LwzYmdFmwwy1P+S+EzWXlbVQJfkF7HbIuDiY1Tl2xQ9tWwiPu/UCOFyydYVH
+         /UECfjezM/Rj0pfRYEYdioKPsCyfXAavMoipdMVCf7dKBXWLdWoG8JokQbYpysrOTGJB
+         cIZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=vkXx8mx9h2mAdH57/u/Q+2ffjpCAYwjFkkOT6XTYscY=;
-        b=qnyHbO4CJNR//I5HT56ORSVOL2x9FmRlivFog0T5C7ShWLIyIsn8Mj7B867aLb+8yA
-         MslzLYd2HyrNalzAL739lw3tPxybkhViVDO3Ij7X9j6Kt9k3duHlfk96ymE2wrGbVL34
-         ipzxUKt+0OS6AllycgWNxvywLkNrswikYOntqTBsFCXMlCDJeBDJv9rxrg9rUwvwTA6p
-         GA/QhSngF7WEpMavgxVVavlo2NFpCFFHVz9/sfA9C6AZ3DAuwm2fwZHEadHlAl+hB32r
-         4c76zCp2a/PpKN6NA38d2VbneETyEARAiIH1hGyT3z7xnMzxxfcYaoGVBXOyTgTuelPi
-         J3FA==
+         :in-reply-to:references:organization:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=dlg/2hG/57ALqel6kX3WJJ45APd1loe/FjFe5ag00ME=;
+        b=ddVgiy/GRsAm5ANEG36274XmOHuC0yE0dxo50Te00UMpy1HxuaZdFxe12QA3wqN36Q
+         Ky7tvJBmojBwfKlsa61d8XsGxvixZ/1KXSl+kZdDTmyANIG/UKQJz9BDgKzqg8HHuA+8
+         7e+65ylzRyN3wkDsOVG6upxFnpHxjvddPIKSxJEd0MFd11dLySO7Z0FGxbmMqxJb27fN
+         pQsOIUIBn0phvvQo+SZG8RBb48Xq6Rqf1g4eIUxqMZowE10BX2C8XNquzrD1BjUfmAbJ
+         QI92T46YVC8sJayDp0P1nad/1X6m7Mhqln8DknXQhVrDN2zwU7cnkLEcQdMgvja8SWqP
+         k9cg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532PObDpusfxzbH844IOq/8KlGipFTwJqzMAqlRsKZ4YWFQqijwu
-	uzetiDzXRAJ1abDJ5sxfs2o=
-X-Google-Smtp-Source: ABdhPJxlpf1unOB81AfvpfKKXBO7fU1u8xPaIzXzIFe2hJ4dXQWi76bYs1JTmz8dSPIatP4fmQG4Lg==
-X-Received: by 2002:adf:e94a:: with SMTP id m10mr16434619wrn.249.1596004468774;
-        Tue, 28 Jul 2020 23:34:28 -0700 (PDT)
+X-Gm-Message-State: AOAM532gOXqL49semALgcK+ENIBJkrv5NMUpKpZrQd6xh8dOOiflbSYK
+	qe5AVT7KozlItrSZ36gnvAg=
+X-Google-Smtp-Source: ABdhPJzyQfbMUg4Pr915dOURX9VKW/dbpB5B0fVqCopwME8HNPS10si1Tu8bti3FDMffvGGSFj2gfQ==
+X-Received: by 2002:a05:6402:1643:: with SMTP id s3mr3827230edx.185.1596011519189;
+        Wed, 29 Jul 2020 01:31:59 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:9ece:: with SMTP id h197ls424387wme.1.canary-gmail; Tue,
- 28 Jul 2020 23:34:28 -0700 (PDT)
-X-Received: by 2002:a05:600c:22cb:: with SMTP id 11mr7445462wmg.66.1596004468353;
-        Tue, 28 Jul 2020 23:34:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596004468; cv=none;
+Received: by 2002:aa7:d6da:: with SMTP id x26ls1220620edr.2.gmail; Wed, 29 Jul
+ 2020 01:31:58 -0700 (PDT)
+X-Received: by 2002:a05:6402:354:: with SMTP id r20mr31351240edw.32.1596011518531;
+        Wed, 29 Jul 2020 01:31:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596011518; cv=none;
         d=google.com; s=arc-20160816;
-        b=PaPLNXJFM9gq3iOQ7aZXW57FOHMF1WjR3aNflwiNRxje8pznpQCp9QyHjHIQUOLiVC
-         QEaaG8WOSnDTfv7Q92jYZ7tceuEWLNMs8V8Gpg5qM+oc8ou51t6ra4foLI2JeWkmeAmj
-         UInZ1bCsyEw6fLYYwnzf8vCjX1j5k+WmqS5GG8cjLcuPb4F1FayRBdV13XvbPF1B5gzM
-         f9tm4TAhCW5sa5CzHl3dhsutXyC6f7XEfaa9hq2AiBVt2RHqpUFBNscYr5re4cG/F2w8
-         tVyMWkhae7PYygEQWI45vybfHT/cT+7WlB+NjE1ey0tCUDptQ0+HSwcCF3napMTB9fRU
-         XJIw==
+        b=K+DPuulhTXP5ahOJeR8sJwgzx5lYNhe0V40LllrVFGtwN9Md15xez6XNMFEUbU0Pdn
+         XHZEYowKv76x4s7/jbUn+MFFf5Vv5S3CF3m+8BbIXxFPdaCzE4PCMJhQFi9wj5nx69DJ
+         GclBskShUtV4XZpgo960ZDZbW08AdmRRPArwRUWheZuA1U84HViTY0KsUBYPp5nkEmiv
+         S0+kL4L+NSITdhV0eTNKRltZ/h0q8iM5Hk/GKmI5PuOdis+l/tUhiaIumu6MBMZn3jIZ
+         XEt9DBDkOaUq6NhbOhgJD0kyJvaFWGCmv7aPWUiWuF6gnVF+73SGxe/C0z/eOGx6Xonp
+         KGww==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date;
-        bh=XIlV4Q6P2hxyTbpTmIfkxHinx5NVBW4nTQ0DNENriYg=;
-        b=mp0KphizL1UmW8tnLM+jlkvCUAVkKGYSRBAWx1IseRGsQQRXp7YOp7CiUsnpBq/C2d
-         TXTMNv8UmfUhN1uOHhyc4j3eSn84v2wGlnZXjRQcvF57pbqqq/vOACed2SSiJyeqHi8i
-         yj8lliH591SSsKCgwOxDlFzwD6yPqluqLnilJcc06AlIQIqWwzMZ+t3O99tAzAuRiKSq
-         kMXrG2xTeXXNs01cpc7sf9JyURUkrhrYvOevgQfODZ0N/rNusGzEDs2nmCoft0qGE2TK
-         dlFAjz4JXLYTVgd2ppj/BcXTxECLyzCmZ7OpSsl7rrp8WwQGSuk+FFh2sdeWP/1SxqMX
-         BMZw==
+        h=content-transfer-encoding:mime-version:organization:references
+         :in-reply-to:message-id:subject:cc:to:from:date;
+        bh=sVXs/TbLH42dNE8thYPlFWa4ITfZSFIcpI77VMuf5tI=;
+        b=1KzZ3L7qpKntlsS6t4pbupbcq5JThKTX5PZOIrI4IExbXFiXhDmE/LBeKh2JrV7E4V
+         qgjqR84t2r+Zut0s6sOUaF1covXTGji3kY5BpviiFBMCf2XLewAsm/NontASzwmJV/by
+         MckcK0EOImGBLb00fzeK/lF5WWmvKJOH2Pv4QCPkBLZaTcBKNPv+lsXTLwcANcCK61xb
+         PzGcdU3m+dkD8bzpZZXM1NS1C5ppUJyEXKmRa6GG2BiBKilqipknKzC/jrz3wqE1qnbo
+         0Lmxs0KGmARLvCuXV+RLJRyQk52ryXPM2UvQ0EWZhjqdP8uGv765t7L07o38tjNXg3Ip
+         83sw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of josh@joshtriplett.org designates 217.70.183.193 as permitted sender) smtp.mailfrom=josh@joshtriplett.org
-Received: from relay1-d.mail.gandi.net (relay1-d.mail.gandi.net. [217.70.183.193])
-        by gmr-mx.google.com with ESMTPS id w6si90888wmk.2.2020.07.28.23.34.28
+       spf=pass (google.com: domain of jonathan.cameron@huawei.com designates 185.176.76.210 as permitted sender) smtp.mailfrom=jonathan.cameron@huawei.com
+Received: from huawei.com (lhrrgout.huawei.com. [185.176.76.210])
+        by gmr-mx.google.com with ESMTPS id q9si75181ejj.1.2020.07.29.01.31.58
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Tue, 28 Jul 2020 23:34:28 -0700 (PDT)
-Received-SPF: pass (google.com: domain of josh@joshtriplett.org designates 217.70.183.193 as permitted sender) client-ip=217.70.183.193;
-X-Originating-IP: 50.39.163.217
-Received: from localhost (50-39-163-217.bvtn.or.frontiernet.net [50.39.163.217])
-	(Authenticated sender: josh@joshtriplett.org)
-	by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id E3C58240003;
-	Wed, 29 Jul 2020 06:34:20 +0000 (UTC)
-Date: Tue, 28 Jul 2020 23:34:17 -0700
-From: Josh Triplett <josh@joshtriplett.org>
-To: Pavel Machek <pavel@ucw.cz>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	Christian Brauner <christian.brauner@ubuntu.com>,
-	Nick Desaulniers <ndesaulniers@google.com>, alex.gaynor@gmail.com,
-	Greg KH <gregkh@linuxfoundation.org>, geofft@ldpreload.com,
-	jbaublitz@redhat.com, Masahiro Yamada <masahiroy@kernel.org>,
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Kees Cook <keescook@chromium.org>
-Subject: Re: Linux kernel in-tree Rust support
-Message-ID: <20200729063417.GD286933@localhost>
-References: <CAKwvOdmuYc8rW_H4aQG4DsJzho=F+djd68fp7mzmBp3-wY--Uw@mail.gmail.com>
- <20200710062803.GA1071395@kroah.com>
- <20200710125022.alry7wkymalmv3ge@wittgenstein>
- <20200710225934.GA16881@localhost>
- <CAHk-=wipXqemHbVnK1kQsFzGOOZ8FUXn3PKrZb5WC=KkgAjRRw@mail.gmail.com>
- <20200711210317.GA60425@localhost>
- <20200728204037.GC1012@bug>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 29 Jul 2020 01:31:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jonathan.cameron@huawei.com designates 185.176.76.210 as permitted sender) client-ip=185.176.76.210;
+Received: from lhreml710-chm.china.huawei.com (unknown [172.18.7.106])
+	by Forcepoint Email with ESMTP id 2439AD46260FB3D2AD69;
+	Wed, 29 Jul 2020 09:31:58 +0100 (IST)
+Received: from localhost (10.52.120.141) by lhreml710-chm.china.huawei.com
+ (10.201.108.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1913.5; Wed, 29 Jul
+ 2020 09:31:56 +0100
+Date: Wed, 29 Jul 2020 09:30:31 +0100
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: Mike Rapoport <rppt@kernel.org>
+CC: Andrew Morton <akpm@linux-foundation.org>, <linux-sh@vger.kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>, Benjamin Herrenschmidt
+	<benh@kernel.crashing.org>, Dave Hansen <dave.hansen@linux.intel.com>,
+	<linux-mips@vger.kernel.org>, Max Filippov <jcmvbkbc@gmail.com>, "Paul
+ Mackerras" <paulus@samba.org>, <sparclinux@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Will Deacon <will@kernel.org>, "Stafford
+ Horne" <shorne@gmail.com>, <linux-s390@vger.kernel.org>,
+	<linux-c6x-dev@linux-c6x.org>, Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Michael Ellerman <mpe@ellerman.id.au>, <x86@kernel.org>, Russell King
+	<linux@armlinux.org.uk>, Mike Rapoport <rppt@linux.ibm.com>,
+	<clang-built-linux@googlegroups.com>, Ingo Molnar <mingo@redhat.com>, Catalin
+ Marinas <catalin.marinas@arm.com>, <uclinux-h8-devel@lists.sourceforge.jp>,
+	<linux-xtensa@linux-xtensa.org>, <openrisc@lists.librecores.org>, Borislav
+ Petkov <bp@alien8.de>, "Andy Lutomirski" <luto@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
+	<linux-arm-kernel@lists.infradead.org>, Michal Simek <monstr@monstr.eu>,
+	<linux-mm@kvack.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux-foundation.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Christoph Hellwig <hch@lst.de>
+Subject: Re: [PATCH 04/15] arm64: numa: simplify dummy_numa_init()
+Message-ID: <20200729093031.0000316b@Huawei.com>
+In-Reply-To: <20200728051153.1590-5-rppt@kernel.org>
+References: <20200728051153.1590-1-rppt@kernel.org>
+	<20200728051153.1590-5-rppt@kernel.org>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; i686-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200728204037.GC1012@bug>
-X-Original-Sender: josh@joshtriplett.org
+X-Originating-IP: [10.52.120.141]
+X-ClientProxiedBy: lhreml738-chm.china.huawei.com (10.201.108.188) To
+ lhreml710-chm.china.huawei.com (10.201.108.61)
+X-CFilter-Loop: Reflected
+X-Original-Sender: jonathan.cameron@huawei.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of josh@joshtriplett.org designates 217.70.183.193 as
- permitted sender) smtp.mailfrom=josh@joshtriplett.org
+ (google.com: domain of jonathan.cameron@huawei.com designates 185.176.76.210
+ as permitted sender) smtp.mailfrom=jonathan.cameron@huawei.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,30 +150,156 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jul 28, 2020 at 10:40:38PM +0200, Pavel Machek wrote:
-> > We just need to make sure that any kernel CI infrastructure tests that
-> > right away, then, so that failures don't get introduced by a patch from
-> > someone without a Rust toolchain and not noticed until someone with a
-> > Rust toolchain tests it.
-> 
-> So... I'm fan of Rust, but while trying to use it one thing was obvious: it
-> takes _significantly_ longer than C to compile and needs gigabyte a lot of RAM.
-> 
-> Kernel is quite big project, can CI infrastructure handle additional load?
-> 
-> Will developers see significantly longer compile times when Rust is widespread?
+On Tue, 28 Jul 2020 08:11:42 +0300
+Mike Rapoport <rppt@kernel.org> wrote:
 
-I wouldn't expect the addition of Rust to the kernel to substantially
-impact overall build time; on balance, I'd expect the major bottleneck
-in kernel builds to continue to be linking and other serialized steps,
-not compiling and other highly parallel steps.
+> From: Mike Rapoport <rppt@linux.ibm.com>
+> 
+> dummy_numa_init() loops over memblock.memory and passes nid=0 to
+> numa_add_memblk() which essentially wraps memblock_set_node(). However,
+> memblock_set_node() can cope with entire memory span itself, so the loop
+> over memblock.memory regions is redundant.
+> 
+> Replace the loop with a single call to memblock_set_node() to the entire
+> memory.
 
-There are also *many* things that can be done to improve Rust build time
-in a project. And I don't expect that in-kernel Rust will have many
-dependencies on third-party crates (since they'd need to be checked into
-the tree).
+Hi Mike,
+
+I had a similar patch I was going to post shortly so can add a bit more
+on the advantages of this one.
+
+Beyond cleaning up, it also fixes an issue with a buggy ACPI firmware in which the SRAT
+table covers some but not all of the memory in the EFI memory map.  Stealing bits
+from the draft cover letter I had for that...
+
+> This issue can be easily triggered by having an SRAT table which fails
+> to cover all elements of the EFI memory map.
+> 
+> This firmware error is detected and a warning printed. e.g.
+> "NUMA: Warning: invalid memblk node 64 [mem 0x240000000-0x27fffffff]"
+> At that point we fall back to dummy_numa_init().
+> 
+> However, the failed ACPI init has left us with our memblocks all broken
+> up as we split them when trying to assign them to NUMA nodes.
+> 
+> We then iterate over the memblocks and add them to node 0.
+> 
+> for_each_memblock(memory, mblk) {
+> 	ret = numa_add_memblk(0, mblk->base, mblk->base + mblk->size);
+> 	if (!ret)
+> 		continue;
+> 	pr_err("NUMA init failed\n");
+> 	return ret;
+> }
+> 
+> numa_add_memblk() calls memblock_set_node() which merges regions that
+> were previously split up during the earlier attempt to add them to different
+> nodes during parsing of SRAT.
+> 
+> This means elements are moved in the memblock array and we can end up
+> in a different memblock after the call to numa_add_memblk().
+> Result is:
+> 
+> Unable to handle kernel paging request at virtual address 0000000000003a40
+> Mem abort info:
+>   ESR = 0x96000004
+>   EC = 0x25: DABT (current EL), IL = 32 bits
+>   SET = 0, FnV = 0
+>   EA = 0, S1PTW = 0
+> Data abort info:
+>   ISV = 0, ISS = 0x00000004
+>   CM = 0, WnR = 0
+> [0000000000003a40] user address but active_mm is swapper
+> Internal error: Oops: 96000004 [#1] PREEMPT SMP
+> 
+> ...
+> 
+> Call trace:
+>   sparse_init_nid+0x5c/0x2b0
+>   sparse_init+0x138/0x170
+>   bootmem_init+0x80/0xe0
+>   setup_arch+0x2a0/0x5fc
+>   start_kernel+0x8c/0x648
+> 
+> As an illustrative example:
+> EFI table has one block of memory.
+> memblks[0] = [0...0x2f]  so we start with a single memblock.
+> 
+> SRAT has
+> [0x00...0x0f] in node 0
+> [0x10...0x1f] in node 1
+> but no entry covering 
+> [0x20...0x2f].
+> 
+> Whilst parsing SRAT the single memblock is broken into 3.
+> memblks[0] = [0x00...0x0f] in node 0
+> memblks[1] = [0x10...0x1f] in node 1
+> memblks[2] = [0x20...0x2f] in node MAX_NUM_NODES (invalid value)
+> 
+> A sanity check parse then detects the invalid section and acpi_numa_init
+> fails.  We then fall back to the dummy path.
+> 
+> That iterates over the memblocks.  We'll use i an index in the array of memblocks
+> 
+> i = 0;
+> memblks[0] = [0x00...0x0f] set to node0.
+>    merge doesn't do anything because the neighbouring memblock is still in node1.
+> 
+> i = 1
+> memblks[1] = [0x10...0x1f] set to node 0.
+>    merge combines memblock 0 and 1 to give a new set of memblocks.
+> 
+> memblks[0] = [0x00..0x1f] in node 0
+> memblks[1] = [0x20..0x2f] in node MAX_NUM_NODES.
+> 
+> i = 2 off the end of the now reduced array of memblocks, so exit the loop.
+> (if we restart the loop here everything will be fine).
+> 
+> Later sparse_init_nid tries to use the node of the second memblock to index
+> somethings and boom.
+
+
+> 
+> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+
+Acked-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+
+> ---
+>  arch/arm64/mm/numa.c | 13 +++++--------
+>  1 file changed, 5 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/numa.c b/arch/arm64/mm/numa.c
+> index aafcee3e3f7e..0cbdbcc885fb 100644
+> --- a/arch/arm64/mm/numa.c
+> +++ b/arch/arm64/mm/numa.c
+> @@ -423,19 +423,16 @@ static int __init numa_init(int (*init_func)(void))
+>   */
+>  static int __init dummy_numa_init(void)
+>  {
+> +	phys_addr_t start = memblock_start_of_DRAM();
+> +	phys_addr_t end = memblock_end_of_DRAM();
+>  	int ret;
+> -	struct memblock_region *mblk;
+>  
+>  	if (numa_off)
+>  		pr_info("NUMA disabled\n"); /* Forced off on command line. */
+> -	pr_info("Faking a node at [mem %#018Lx-%#018Lx]\n",
+> -		memblock_start_of_DRAM(), memblock_end_of_DRAM() - 1);
+> -
+> -	for_each_memblock(memory, mblk) {
+> -		ret = numa_add_memblk(0, mblk->base, mblk->base + mblk->size);
+> -		if (!ret)
+> -			continue;
+> +	pr_info("Faking a node at [mem %#018Lx-%#018Lx]\n", start, end - 1);
+>  
+> +	ret = numa_add_memblk(0, start, end);
+> +	if (ret) {
+>  		pr_err("NUMA init failed\n");
+>  		return ret;
+>  	}
+
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200729063417.GD286933%40localhost.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200729093031.0000316b%40Huawei.com.
