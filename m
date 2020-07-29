@@ -1,144 +1,141 @@
-Return-Path: <clang-built-linux+bncBD26TVH6RINBBWXZQT4QKGQESGEA44Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDA7X7F2WUEBBXMXQX4QKGQEMQHOD3A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6E1D7231BD7
-	for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jul 2020 11:09:47 +0200 (CEST)
-Received: by mail-yb1-xb3a.google.com with SMTP id a14sf19580111ybm.13
-        for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jul 2020 02:09:47 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596013786; cv=pass;
+Received: from mail-lj1-x23b.google.com (mail-lj1-x23b.google.com [IPv6:2a00:1450:4864:20::23b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3A731231C8D
+	for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jul 2020 12:13:50 +0200 (CEST)
+Received: by mail-lj1-x23b.google.com with SMTP id z6sf2659592ljc.12
+        for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jul 2020 03:13:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596017629; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RgReOOo8D2zmpsY6ZLGSAfB2nlw4E0xKaDOO3zhEn3tM19cmDSA3154ix4Wk+WotPF
-         x+I/PpzaQ9fCBZd7o7Pr8Z9RrI5gYPyFltdkDRVd8LTdzW6EcDXC3ucbX5gudWVlShAD
-         LI3uWfEFcuwBFxQ9ownxoT8Afpij2akzxrQsVZ2UstEBVPqkDbZxtBRrjWr9zcnAT4q8
-         e4jbAZYMUMUyksG1mKBFMtF2H02Bt/3oZQJW2TVBJ03+t6gp9maW0JH4LoksNOJQDDUS
-         tGPRrH9CxRHVoMfUYqdGYTkbaPPWwEmE1Kvg9zYFZ3sU1waG4H0JcGLl54DMgbGGAiy0
-         1f7A==
+        b=WmmcCpokIOCC3TY6S+3QJ/VRDh9AKkmHo9rOHyVpjpQba+xvT6CFZoS1YwWBr3w3hi
+         8l2j3dRj2qq1+gorWiyDOIRmEqVrq/j/1nvXsfzfadw1AqXSsOHsO4OoXLios0Xgia/K
+         oQIFPyMOCcxlhQft83b/VVSQ2SO155Ty04oeQc0/BK4Rlgxm+933PpNPIcWGNNW0gxQ4
+         fNoC8ioXmtvMStMxFzKkjXzSOhSB7VXcpF0syOff1JK9XzAPH1QSnJbbDssBMzt2aoGx
+         VVnG8SB2tzeyP63DQt1XXCc2LJDjdbthcJXGiTRuQT0n4zZID6HSUz4IjkKZJ5zRHnlo
+         6VkA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language
-         :content-transfer-encoding:in-reply-to:mime-version:user-agent:date
-         :message-id:from:references:cc:to:subject:ironport-sdr:ironport-sdr
-         :sender:dkim-signature;
-        bh=NAPH9WN0caXa6zrR9a+MZdGh8cDFNYffB7J+Fr/CDpM=;
-        b=C0hYVppUAwhv58m3NfU04bVX5P6UOJONaff8SqcCzGn5C0azfHNFBqUy++LNBKGv6z
-         zix5w45gTnPrTZvKrKleDN7iDPPid4yV9cNsmF3sqG8k0+nQXdY/6bF93SgJpXz78Nhc
-         6ez2jWBd1l5PPwPeD99/M03U84NsVTPLWG9qtvqMV2HGHcm4n6NJqBvKfD2bau2QVRmN
-         tnClAXd6pIpNll+mNRGkJMFyKVU+QeVKwD2vutOpwo4oud5IlotiFI/Ezo94Sq/YezW4
-         KQsTxHVeqTEarEfaysEQlYt6bhheNrD9KO+SNq5tiFnb5/ZvuQbyNyncE0dmHyGnEVJY
-         4qTA==
+         :list-id:mailing-list:precedence:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=71ZRpCDcmDGlp1sHcgGVLe/q2mxLW5WpJcdcpP//4jg=;
+        b=zaBzppYQ1Dtt4m2t0AJW8Wh4sezAW2nWXFI1PDfp0NERrk/Ag/zIUhW5hBumITlQc9
+         5Pxzh1WQbYELFpjPHZZFG06RgCmuRVj2jedHhHpTzwXzKbN/ip3+HIdnd0ncGnXXAGPZ
+         fLWZteeRFPbyphVNrh1PbRuruf41aeRsaoUikPXElJQkTuPLfycC7WUxeEg/8WinE648
+         ledDEkZhb9nQc9p6PUzTp3X0MpsLOiY0MHT3lGXw1zUo1hMzkrqSTDKtb+NaL2LDm5Bt
+         uEx55vqG5VFnYJ1yXAvYU+udWhcJ/XNLHe2PTIP2jqh0mX3nFwVZ5ry09V4uk/+D6i7m
+         HuPQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@linaro.org header.s=google header.b=WXGNAqEa;
+       spf=pass (google.com: domain of lee.jones@linaro.org designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=lee.jones@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:subject:to:cc:references:from
-         :message-id:date:user-agent:mime-version:in-reply-to
-         :content-transfer-encoding:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=NAPH9WN0caXa6zrR9a+MZdGh8cDFNYffB7J+Fr/CDpM=;
-        b=V+vuqvz/pnodfrggxvny2+1z/zLIWfV/OGUN8L61gpU6xUuC8xJFRgkJ5CWiGlTf0l
-         RBHSmOWsqt8ikB/uE4ymRik+5cQo5cFhK259fzya1XdKdbo3bQJzxR/ze37643Ufs4lF
-         2MGqaj7C65D5dk/ZXgsXNF+yyd2FRlf0HmHw/GkiehYMcRrvoQTeXbdsbu+PKPJJOJhY
-         1EVl8lLRdDpjyJVITzYvXezdMmrKZdSl47yGL9MaUH6tVEK5qZ5y2dLPYgSnhcmENZ62
-         OGOJqu967nVhPn5465j8VaIRShyM/ePB+/qPxuXsPpMDtXK0ISAlTXa8+jkAvztsDwhF
-         2z/w==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=71ZRpCDcmDGlp1sHcgGVLe/q2mxLW5WpJcdcpP//4jg=;
+        b=NSek1Yxxdgzjy2JN5PvRQvZlcrjiBCyDzx9oVaIwax7s0NEUJaC7LgcCgfB4VYBg7h
+         EARWIO8SMxZpliRr4j95iXZCPIncPB2sbaGkbELyMQcDtuLQnBnO0+r0XE3sUZsHlIbd
+         Cwc7LTQkwcOYLR8ufrqWM1TCm/Rd9rOv+KOqXxjspf6YvzqVF/MfeGvZPparFfKi+bEE
+         161PwaypiKt+OvO54qWMe4W48pxdIDCc4KpuumcL5N6WyeeiIsmEoctA7bmQlUOvR7Xc
+         Pz2OhCSQWpD3lbVPK1WIEWn8oRFHiNZJ6dmSAYNn0MHPJ8FoIeWIUdXIC2/LhcHH2M6I
+         BX2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:subject:to:cc
-         :references:from:message-id:date:user-agent:mime-version:in-reply-to
-         :content-transfer-encoding:content-language:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=NAPH9WN0caXa6zrR9a+MZdGh8cDFNYffB7J+Fr/CDpM=;
-        b=oG/XADTBhB3sdlio9VBf2TOraLTGEMAmDIUqtJF/SMqQ9mrAI6wpR0Onp5VPXWXUxu
-         HACGf9zKT60snT0ii62KHx1oMM0EV6kTJD2TfjWyYTUHhWj4ZeHh/dkcrVoCQXmH5Tn4
-         0Lml+Sog02uzi9whpW5jTzQRZwPb73b1wUZ1FlH/izNoA1pAQZPE39Hbwvs4CPhMdl2W
-         Gf8DsLVUV+twsiHWK8wdOF2FIf7R1rgxUzL9c2NY7i+7Mx4p180NsbIRHAla2oBpip4t
-         F4CtIRZzv1AcXJGVfgctH6Y/P9VcpuzWlRvJlvu5Qteqa6eLRAHkPxIPQWgzEYiNqdFK
-         TASg==
+        bh=71ZRpCDcmDGlp1sHcgGVLe/q2mxLW5WpJcdcpP//4jg=;
+        b=S5st5+XGNU11XW5iAN+0dX7mThdz152DlktGLCwv1itPn7Jk2oyAD2oYGc8Y7jOfm3
+         4JJ6hidVMAGXSTzRNXn/7K6GCnVDB4sDHoc4WQ4HDJneHfDU/MzX/jpX4gA9HtsA42JP
+         UaGjabk7yOEbP3hSiJysBnomMEuwKvonZ/tUndWZfhdkYHnahynrCc2b3mQLJfv/skYT
+         /kWueykUMQaw5CeXCdClGnTSX80nojjvVDR3Llrq3JjyZcWQDEPsGmUsmS1B8DPsNUBO
+         z2xDRcEXOiQV+MoefwWlg7e6nkdd6MSgUtRHIHBjxmqlcDFzAEv+HMnV73+4Ic57dYwP
+         TEAg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533tQQzBAUFn5knyHizYQUbqVsqNBTthlmZYe6znF62wAgrf9IUB
-	3qzw55AmFLhdMEWD/+oX1rQ=
-X-Google-Smtp-Source: ABdhPJxdSwg6l35GDN9dJh7Ydl/Z0Y0lIqouhFqGhUzKuQcr7FRIXxaFTFRA5Q4QQZN9nek13sdxXw==
-X-Received: by 2002:a25:aa86:: with SMTP id t6mr17378826ybi.213.1596013786212;
-        Wed, 29 Jul 2020 02:09:46 -0700 (PDT)
+X-Gm-Message-State: AOAM531ndcnf7J6WM6ZEXgWjygoA2YaxOeCJkPGl1s2xH7GJpa5ODU9+
+	EWHo1rpB8fDDhBkSmrTrLcM=
+X-Google-Smtp-Source: ABdhPJxhhv5/if+2X9c33d8GLdj5pCB+qPvGZszGCmoykhYh6eVA5WROMsAbambJAYQNHFncuXNPxA==
+X-Received: by 2002:a2e:9644:: with SMTP id z4mr14809713ljh.333.1596017629694;
+        Wed, 29 Jul 2020 03:13:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:2c46:: with SMTP id s67ls581046ybs.1.gmail; Wed, 29 Jul
- 2020 02:09:45 -0700 (PDT)
-X-Received: by 2002:a25:aa08:: with SMTP id s8mr52792269ybi.282.1596013785904;
-        Wed, 29 Jul 2020 02:09:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596013785; cv=none;
+Received: by 2002:a05:651c:1182:: with SMTP id w2ls275089ljo.2.gmail; Wed, 29
+ Jul 2020 03:13:49 -0700 (PDT)
+X-Received: by 2002:a2e:999a:: with SMTP id w26mr9670993lji.242.1596017629113;
+        Wed, 29 Jul 2020 03:13:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596017629; cv=none;
         d=google.com; s=arc-20160816;
-        b=ZOWK4Q57ulnQVCfoIc+JINPb7AOsMXe0VmpjAzFAiKSETrkFrcaxazVODHWG4Mudqr
-         BDjmG4RWVMfbuWAtd/ffVJNMjAPbk1F/GB2R5bksf8Fk4QfJYe8DhJ25EjTYnPXnBoWm
-         wB+zNY7MDJmaCpTgnN91pBH2SAkEjFX4V49e6pedVLu6phIZ0S7sk2XZHnI+72I3NluE
-         0/8t6RwbcnfJrFFyksZ0Of/Jc3ai+JDc+S5QLDbpnUt3QWCbwh204u2fwgSKN9AvgQ7I
-         TpScqyk1z29ANdT4H+QsDUCXurY6yuwG1oOK26JJ1kx8Kf3oqM4Ns7s3zsePwWTUxCq5
-         nfsg==
+        b=ZO8JspZct8uptAQRvUoOYGB5EGng6IvQzPdrhb/RQJXwi1m7bg1zpWf2pN2MOlYLDr
+         NsBQ2+6cNQpYadIB1Vk/hvv9Zo8x0ZteHexTrl6/HWK1Cy7X35HkmT4ygUGPYldkWjIQ
+         FJW3AgIXZ0wxUKQSK7kjw3rC4UCBTXnZKjdSnD6jj882YaOjfmboY0HFSqqCA716roIh
+         YFMMIjvD9hNxjjmNP1s0xff+jDRPBEm2nTq0xG7Qr8N6n2zpMW40hue5i2oZ7w+sokjo
+         4igucfwDLcJkF2JB1CAsexbz7Kwtzb1BRn3/BX0QNadQrHzdW78elEdfCQmdKM6traNc
+         NkEw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-language:content-transfer-encoding:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :ironport-sdr:ironport-sdr;
-        bh=3adGWkZHZPaDncYIsHRTB6WLWJKupgHW2LPY1rt9Ttg=;
-        b=rSsn2QE5X6bQaRwRVwwkBaRb4B9X+Bbca9Az76qoBsd2EB29PRKyyb33ZQx+HXl31X
-         3qVcKiVbPDrCi5jzPW8vnJyafz+teUvjf49iMZQxMMdZzoj4Wo2MrqB1k1rSEh5RARo2
-         6Mf6YAj0oEuTuoSe6j1KVTz5C3OB97Rky+X5oWUh7N1aIAGXH2HfD9rCblSu4MlIrvkN
-         iO461vbzYwrdevb2vmxSmrGkO5lrVo24E4Lmt2XEPW7GUr6+GTQSEMiKOihLTbb/NsWQ
-         qr7LxbmhLCOXudXjIy/rPzLeuIcsCmQyL2N/BV0pStxBfp7p0en7Fl99zvGf0zoRz8GY
-         tOlQ==
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :dkim-signature;
+        bh=siT58MPt5BpfzeyFnUlE1tIcuaBu2dcyDRMbQqlOxU8=;
+        b=CqmFY9jPNSIu+PbyVQm9C/Obv9lIe+BAx83rVRrPUrORP9GF7IRHEWuNbR3hJwyoPN
+         3NGXlR88rk0kaEy8iYgHatRrlezMBP7rfNwCKYYma6IfrCk7bALOaqZIKErXqMDhyr/t
+         PE66nJFBf0vlkSxVbqdIYq/ZPwjz+VG1nyKylNlG3r/DGCSylLhwvXXGJUrsxqy/VxiW
+         uYSSEoE3eiArSmUhFV/5rh54w68qb2aGjJcc3AqIFtfscyqe4tQk2jGjbJaj6kqEgOen
+         kskeVyavwROQAAcqQBaMV9hhdO2sNk2MLBbi1hnu3uCVne9VIb6rANFXQkvaH4HNfkxf
+         NVoQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
-        by gmr-mx.google.com with ESMTPS id k2si112745ybb.0.2020.07.29.02.09.45
+       dkim=pass header.i=@linaro.org header.s=google header.b=WXGNAqEa;
+       spf=pass (google.com: domain of lee.jones@linaro.org designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=lee.jones@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-wm1-x344.google.com (mail-wm1-x344.google.com. [2a00:1450:4864:20::344])
+        by gmr-mx.google.com with ESMTPS id c27si103650ljn.3.2020.07.29.03.13.49
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 29 Jul 2020 02:09:45 -0700 (PDT)
-Received-SPF: pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
-IronPort-SDR: topD2cAtUEZqJ2NR6pLizw4SbLuOwI7yZv6KyVHP3BOnEbYUVw4Evy+biGJVaE4wS8jME1Scnq
- Uy82IuRr7XyA==
-X-IronPort-AV: E=McAfee;i="6000,8403,9696"; a="148841379"
-X-IronPort-AV: E=Sophos;i="5.75,409,1589266800"; 
-   d="scan'208";a="148841379"
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from orsmga005.jf.intel.com ([10.7.209.41])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jul 2020 02:09:44 -0700
-IronPort-SDR: /m3pAEXEXuVGY0dScPyN7i01FGdSnq64E6scWJVqtCDDaRRzIK978etrq4YOctO858O/GqLdcj
- RNJmRx/Nz4FA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.75,409,1589266800"; 
-   d="scan'208";a="464798377"
-Received: from shao2-debian.sh.intel.com (HELO [10.239.13.3]) ([10.239.13.3])
-  by orsmga005.jf.intel.com with ESMTP; 29 Jul 2020 02:09:42 -0700
-Subject: Re: [kbuild-all] Re: Adding branches for testing
-To: Lee Jones <lee.jones@linaro.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Jul 2020 03:13:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lee.jones@linaro.org designates 2a00:1450:4864:20::344 as permitted sender) client-ip=2a00:1450:4864:20::344;
+Received: by mail-wm1-x344.google.com with SMTP id x5so2195639wmi.2
+        for <clang-built-linux@googlegroups.com>; Wed, 29 Jul 2020 03:13:49 -0700 (PDT)
+X-Received: by 2002:a1c:7ecb:: with SMTP id z194mr7515075wmc.12.1596017628568;
+        Wed, 29 Jul 2020 03:13:48 -0700 (PDT)
+Received: from dell ([2.27.167.73])
+        by smtp.gmail.com with ESMTPSA id j24sm4943226wrb.49.2020.07.29.03.13.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Jul 2020 03:13:47 -0700 (PDT)
+Date: Wed, 29 Jul 2020 11:13:46 +0100
+From: Lee Jones <lee.jones@linaro.org>
+To: Rong Chen <rong.a.chen@intel.com>
 Cc: Nathan Chancellor <natechancellor@gmail.com>,
- kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org,
- clang-built-linux@googlegroups.com
-References: <202007180528.vD5KVnHi%lkp@intel.com> <20200722180319.GH3533@dell>
- <20200723035548.GA363815@ubuntu-n2-xlarge-x86> <20200723063243.GJ3533@dell>
- <19e886f4-f4de-2605-d2fe-b6009ce97aa0@intel.com> <20200723064625.GK3533@dell>
- <440716db-2411-e4a6-6e6b-0f8d679e558b@intel.com> <20200723080844.GM3533@dell>
+	kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org,
+	clang-built-linux@googlegroups.com
+Subject: Re: [kbuild-all] Re: Adding branches for testing
+Message-ID: <20200729101346.GI2419169@dell>
+References: <202007180528.vD5KVnHi%lkp@intel.com>
+ <20200722180319.GH3533@dell>
+ <20200723035548.GA363815@ubuntu-n2-xlarge-x86>
+ <20200723063243.GJ3533@dell>
+ <19e886f4-f4de-2605-d2fe-b6009ce97aa0@intel.com>
+ <20200723064625.GK3533@dell>
+ <440716db-2411-e4a6-6e6b-0f8d679e558b@intel.com>
+ <20200723080844.GM3533@dell>
  <20200728092524.GF2419169@dell>
-From: Rong Chen <rong.a.chen@intel.com>
-Message-ID: <f31f204a-1663-fc9f-868d-34f2d3bf3057@intel.com>
-Date: Wed, 29 Jul 2020 17:09:09 +0800
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.6.1
+ <f31f204a-1663-fc9f-868d-34f2d3bf3057@intel.com>
 MIME-Version: 1.0
-In-Reply-To: <20200728092524.GF2419169@dell>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Content-Language: en-US
-X-Original-Sender: rong.a.chen@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of rong.a.chen@intel.com designates 192.55.52.120 as
- permitted sender) smtp.mailfrom=rong.a.chen@intel.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=intel.com
+In-Reply-To: <f31f204a-1663-fc9f-868d-34f2d3bf3057@intel.com>
+X-Original-Sender: lee.jones@linaro.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@linaro.org header.s=google header.b=WXGNAqEa;       spf=pass
+ (google.com: domain of lee.jones@linaro.org designates 2a00:1450:4864:20::344
+ as permitted sender) smtp.mailfrom=lee.jones@linaro.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,41 +148,51 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Wed, 29 Jul 2020, Rong Chen wrote:
 
+>=20
+>=20
+> On 7/28/20 5:25 PM, Lee Jones wrote:
+> > > > We have updated it: https://github.com/intel/lkp-tests/commit/c0286=
+b0f24d04bf11f83e253df7e237a49858243
+> > > Excellent.  You are a star, thank you.
+> > >=20
+> > > I have added one more repo:
+> > >=20
+> > >    https://github.com/intel/lkp-tests/pull/73
+> > >=20
+> > > Please see to it at your convenience.
+> > Any idea why I am not receiving results for the following please?
+> >=20
+> >    https://github.com/intel/lkp-tests/blob/master/repo/linux/lee-linaro
+> >=20
+> > As far as I'm aware, LKP should be testing all branches.
+> >=20
+> > What am I missing?  Did I do something wrong in the config?
+> >=20
+>=20
+> Hi Lee,
+>=20
+> It's a network problem, the bot can't clone the repo successfully,
+> I'm downloading it but it still very slow.
+>=20
+> $ git clone https://git.linaro.org/people/lee.jones/linux.git lee-linaro
+> Cloning into bare repository 'lee-linaro'...
+> remote: Enumerating objects: 884266, done.
+> remote: Counting objects: 100% (884266/884266), done.
+> remote: Compressing objects: 100% (14993/14993), done.
+> Receiving objects:=C2=A0=C2=A0 3% (99547/2967293), 42.67 MiB | 32.00 KiB/=
+s
 
-On 7/28/20 5:25 PM, Lee Jones wrote:
->>> We have updated it: https://github.com/intel/lkp-tests/commit/c0286b0f2=
-4d04bf11f83e253df7e237a49858243
->> Excellent.  You are a star, thank you.
->>
->> I have added one more repo:
->>
->>    https://github.com/intel/lkp-tests/pull/73
->>
->> Please see to it at your convenience.
-> Any idea why I am not receiving results for the following please?
->
->    https://github.com/intel/lkp-tests/blob/master/repo/linux/lee-linaro
->
-> As far as I'm aware, LKP should be testing all branches.
->
-> What am I missing?  Did I do something wrong in the config?
->
+Thanks for looking into this.
 
-Hi Lee,
+I guess that this will only need to be done once, right?
 
-It's a network problem, the bot can't clone the repo successfully,
-I'm downloading it but it still very slow.
-
-$ git clone https://git.linaro.org/people/lee.jones/linux.git lee-linaro
-Cloning into bare repository 'lee-linaro'...
-remote: Enumerating objects: 884266, done.
-remote: Counting objects: 100% (884266/884266), done.
-remote: Compressing objects: 100% (14993/14993), done.
-Receiving objects:=C2=A0=C2=A0 3% (99547/2967293), 42.67 MiB | 32.00 KiB/s
-
-Best Regards,
-Rong Chen
+--=20
+Lee Jones [=E6=9D=8E=E7=90=BC=E6=96=AF]
+Senior Technical Lead - Developer Services
+Linaro.org =E2=94=82 Open source software for Arm SoCs
+Follow Linaro: Facebook | Twitter | Blog
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -193,4 +200,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/f31f204a-1663-fc9f-868d-34f2d3bf3057%40intel.com.
+clang-built-linux/20200729101346.GI2419169%40dell.
