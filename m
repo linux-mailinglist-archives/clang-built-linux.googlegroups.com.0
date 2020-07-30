@@ -1,162 +1,140 @@
-Return-Path: <clang-built-linux+bncBCKPFB7SXUERBYW5RD4QKGQE6BCNF5Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBMHFRD4QKGQEQHHHQUY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
-	by mail.lfdr.de (Postfix) with ESMTPS id 189B42329DE
-	for <lists+clang-built-linux@lfdr.de>; Thu, 30 Jul 2020 04:22:28 +0200 (CEST)
-Received: by mail-pf1-x440.google.com with SMTP id i10sf10090095pfq.14
-        for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jul 2020 19:22:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596075746; cv=pass;
+Received: from mail-qv1-xf37.google.com (mail-qv1-xf37.google.com [IPv6:2607:f8b0:4864:20::f37])
+	by mail.lfdr.de (Postfix) with ESMTPS id ACEAD232A1E
+	for <lists+clang-built-linux@lfdr.de>; Thu, 30 Jul 2020 04:38:41 +0200 (CEST)
+Received: by mail-qv1-xf37.google.com with SMTP id d1sf2151792qvs.21
+        for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jul 2020 19:38:41 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596076720; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Ji+uBFFeV8DmgWPjfmJYG5oN3uIYA0+zeTc++iiNGrYNI/qxI9p+Nqutbjyvef5VXZ
-         gv5ey4QfG2WJSD6G7r99l2GJ70eCVZ+4Ao1j28u5+K1zqaU9QoVowifuKsqF73qKKeEM
-         tphasmaF5tXg26AFjWZrT0C7IoqpW/QcNToLBNG+oxt/ppx/P0aDmo8y9KCydT0fA6wu
-         PE1YrOZfHZ2wBdgp9XTPqbUc3mgWciuO+qT6JNdrLb1hAcJPFPkj+naPK7mJ6TyOniTB
-         jHTttEcUKHANil0o/i9e6UnfesCxrlr7drdP4LLmrrVnW1AY5d7ojbBAzs0xS4CkiM60
-         nfwA==
+        b=R3spqJVlh6lOVjNWd9Y6OcSnWS9fkyFzDwIOH2gElpJPpKdhxeKgUvKz8nK9ngckCZ
+         gD7oYhjwBCC60sb3QyUYnnQ5haZr+Yg91xAo1AsXLpJFTRcqkDGL9N58770SSpz82r1c
+         M7PlX8AKf7lO0huS+dbsAkxpzJMyTv26yv8wHixRP+MNtF5ScEn5w572Ejva4IO1GR35
+         FeY7GpcvoJ5/zhBcxcx0nAWDB8HX9A1XcvSdLuCIN4bbDBqVXBLGkjhzf8Qi6qCQjUkn
+         oxo1NPPZdQt3vfkbK/6aHJ3XfT5vDTtU6UXugge/9cVMiG5OaHW4bhhOOS5o74G2qCkW
+         oyfQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=kIFz7JllKCGubuSVu/uCfOHwlOyAPQDty27+oLMuPXs=;
-        b=tyufFLN0POz/7m8xhnDyrPxDJPMZIV7SRBz2iQLbq4lY4mx6Pm971cdZ5LcMYzxjJa
-         FGNrIYcAYS+3d0v0feFTOVzFh/CQWOdrzt6FVu0TZW1s9nly8Sk/n1dCg7i7oMjkvO5f
-         aWvwUV/P87X3ydzVg0slzJ7PKmVMETbLIqJseI101yR+n1sSp5W0S1K9neYpidZ+kGjG
-         yGJtRaCsrTbU0ith8AvgUc2j1a0TaUyn0l+uzHEobnoIv36kE3bevz4kKmqLgpl3Vu3P
-         7U8bDZkbhfrTdl1zGT8SPz+/npJ9LWiSm/LzxThVvaoSfyNoEFK4+64kKkPKySGXebje
-         BoCA==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=24Arxkl1OSQO50nQfLMnMwAJOLxVSZdOMSMZmfRpA3o=;
+        b=NJKcu/WV52BELaaWJaARUM0BychS3YUN6Jgc4EISiWbi5DBGd/9jwxZ/avQfpIi0gU
+         B4SZh2fZzeylRFi/XBSBQcfhEOfq0dOGBLiFdrN8Gi59UdLaVccminihDEycbMxXdyKB
+         vC+ZjZ6J6Fi4uZ8xhqP/qDfAqWiMNwRI6gSFkCjT/SKxYeQDiUI2anehfYnD4EHAdZuZ
+         rJICLHDJYUQduEZondzaqr6YNBqqNgscpeIBcSN38W6iV4vWheuA+W+6xOK212jOcX7Q
+         coQclTDEUtbrIeH+EaXWvEOZ3u25Ipma30kzVlLTRPqh5l+GmIq7zJoSnAnLCgDyRBEM
+         OEeg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=GpU16cbj;
-       spf=pass (google.com: domain of bhe@redhat.com designates 205.139.110.120 as permitted sender) smtp.mailfrom=bhe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@chromium.org header.s=google header.b=EOzMxx4m;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=kIFz7JllKCGubuSVu/uCfOHwlOyAPQDty27+oLMuPXs=;
-        b=d3D7/LqNNvqJp/f2EwwcXpJHE8qqyTDjCxmZ1MjaAr8AL/NBgdTB+fatQkXeYDEzS5
-         etAk2lewJeoaOMSjQY8PZCypRHDDfETw8Ezd23IjDkG8mxFmrwtlBvBfl8ttON8zwxT8
-         GqhYqhUzDunyZLOmxHlMzxc7gMbXpa2blZVx1rQbyLTJ8wt9p1ptMZ2n2YApGJZH2f1r
-         192qR81GLmoM0neBgLDtR5nnwXKzy5lItpcVf7RFO3z7J/fm8XFiGgGpa82IGElQ2iiF
-         NHdMV2TxH21JKiy6H1xZwTS7nJDjJtjbzkZ+r+yynq/SaPHCpbYgCfmi15z1O5KZ77NT
-         vj7A==
+        bh=24Arxkl1OSQO50nQfLMnMwAJOLxVSZdOMSMZmfRpA3o=;
+        b=MxMW2FFAJHFGd7mL8bW1beirVbYYxa84kHCBRQsP6Z094TumlQLQUZHR5qVyCnL6Tq
+         ed0uxeQNocdYwrsN87mAzu5joFBnWfror3xWY74K4ckIkBuCuR4qDJS5fVin9KV7ZYo3
+         j/i2aIsXdvyLbnPMa4VISp1pUfHWIKx1K/HEuhSdc67WjV/vPDwPe6+ILmyYLvHqGQm/
+         0ddmkLaVtiMAQvLXZF274vhd4L1M/lM7AL4c2CGukvrQKBNYjtALvpX96BWo7ytFrEtx
+         s5PNTVBHkBFeo2pSC4n5+EaxBDX36PoaUPHWJyI5gxIQwfD45h8ZzJfozKnhX0vwKjkA
+         btEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=kIFz7JllKCGubuSVu/uCfOHwlOyAPQDty27+oLMuPXs=;
-        b=eemumZpveJpD+1S2O1edrOiPNd2BDnmO36oiqobHv5m00l/OG0y9ZVVBZ8hAygycH2
-         D+J5toD9nJjXAak4lbTySIJLHsAbfPrUaHjbs7OENQsjZ3qzM0LagYeIWpwonSUgYJNJ
-         lPS8BafbJVUFbbX46BuQR94OCFEOm3LrvrRuLAciu0PAt3HCrGddy53YfWq3TwNZw9kl
-         9Mbyq1SS/hvOL/bmdHwbvKsjhDR8ENPBwItO9VKtHiFvEhWyg3Hp2PuqiND96VcGsXco
-         aSeB1eU309iifaKqWZyvzmNrooXXEyJJsfXego5LcXRFilRgi11zr8PDBcKlPh5+P5v5
-         jwIQ==
+        bh=24Arxkl1OSQO50nQfLMnMwAJOLxVSZdOMSMZmfRpA3o=;
+        b=uf+kxYyr9DfhFbvwOcVCI5xkYMnLMiJWhwHyp9J7cZvd4jTN/fjRa7jslA1NIJt7T4
+         LKnmoAjBBcEg9/yXmN1EzTlvoEiNqzE93Dt83FC873mzvpF2mFrMnQJfdUXeM5ZS7sJn
+         s+JEn0nRNT1ZfBGR3vOynwkhqeK5NvYmXhnjDbIZqQlsQI/+t+yJklsI9wmqm5mK699b
+         oWDee0Ureudc1rRqLGdujKlLLIwEHSQPRmVgYgaGeNSzJBLfCmAe/9gX8/Ff4RJ5XGY5
+         1AQWQDQW50NkNiPKF/EXgacTG3gz06tN6K+c56JC93kbrTuydcmB3pKnrqTXd1YDBKF0
+         ZDqw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5338NYzD3cZIo2kGoPpLsZnxmgYlzjz5LPTRXkszpGlTLTw840u8
-	b1EdiHYGi0Ks38Tyikzdo/s=
-X-Google-Smtp-Source: ABdhPJyYmwgrr5xpq+3ZTjgCHUmzKLCt/WgAW2o67V8OCZrECJXWtXP/V/WrjYLPtTPkWWsieDWX4Q==
-X-Received: by 2002:a62:7bc9:: with SMTP id w192mr962782pfc.255.1596075746447;
-        Wed, 29 Jul 2020 19:22:26 -0700 (PDT)
+X-Gm-Message-State: AOAM5303UTavKcSVS3oql2XiAEfM0hNmIBi1k6f4/yC0TR2Bgs+0Uv5q
+	gweD8V8/m1HYVMIkcnOn5AM=
+X-Google-Smtp-Source: ABdhPJwgWdl/V7XmmW2KCDX/f1MQiFjmr+mBETisXTmWvnjhX2LGCtEeIY/ZFhPfh+pbdrqa/5EKuw==
+X-Received: by 2002:a37:649:: with SMTP id 70mr4897282qkg.318.1596076720255;
+        Wed, 29 Jul 2020 19:38:40 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:bf04:: with SMTP id c4ls1623511pjs.3.gmail; Wed, 29
- Jul 2020 19:22:26 -0700 (PDT)
-X-Received: by 2002:a17:90a:2207:: with SMTP id c7mr860187pje.206.1596075746028;
-        Wed, 29 Jul 2020 19:22:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596075746; cv=none;
+Received: by 2002:a05:620a:13c9:: with SMTP id g9ls160539qkl.4.gmail; Wed, 29
+ Jul 2020 19:38:40 -0700 (PDT)
+X-Received: by 2002:a37:47d5:: with SMTP id u204mr32958135qka.487.1596076719981;
+        Wed, 29 Jul 2020 19:38:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596076719; cv=none;
         d=google.com; s=arc-20160816;
-        b=uSBnBbYsDxMb04n8KQdCrY8aTjNxN1pmrDKVB1e7hIpkmd0oxZxNtcK0EmWyMT3HPI
-         Pb43RRYc+ocmnS9n6Nk1Nl0CFpX8lvlHJNx7inTCt7SZIqFSS/YyP/FesFZz1sLd3Oy1
-         WEEVI18rexXuAkuQu/59GawKj+UpDUOHc3IPPJyWbFxM7O81SQB3Nn2t7eYweUpaS59X
-         mukyiBJqonys5S8bZtLoI+ZZYwp1iSH2GGPMYQAznuYQFUiboFY9zEEFHPyqcFW5jjS9
-         hmTwr2QCBZ12X5Ha8V2wQe9Tifv36T595QKtE5HitWtr8U9ay+rHaT+t5zrkuqTxwPYf
-         Hagw==
+        b=jNFzdd0Cs+otk63SeUZEA6VIXlqcH/aJy4IxGk6ttPHM8g0jYhpwgNBc/NLqJB/38E
+         tONX4MXZqTazhR37Mdh7jtBzRRmY2QFwzOtGDbPqFdUjH/P9LKNV12HRx9gtTW6P0YzR
+         vvcxlsgfEnamZsBcth+zbeLdGbcvSYmYKPFiKQBGU0S0lHMlVUEon3zy5hxqh3AIgQbw
+         qtVHFu43/vY3KlqVlwSIRm74lIROLO1LiORZZQ3iJbx0IANbOXK86bIMdLnDgKYGjp6E
+         Yp9IL0wAyepARwwD8WTRSEtt7RdE5BkEjgYOsL2m2Es7pHsGLueZgw1XGFHGM9otJMhQ
+         idlg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=KXlCZQMZEmyQ5Mo2+6vJS9lY2Q4U/rCj7yYVDEkdTyE=;
-        b=rzaankxcubYFw4sVPuOBOOewW9ZiAtrJM+/Zqp/ZyK8BB+n4wR9xIByY9AttGStWbO
-         hwxpGtuaxss+dI5S+DK+0MnW1y9DW0c1t1yapWWP83JYCjtaCKVmzdSIrvMhKD9mShsz
-         /Pp9mklBIJgNelixxsLssgtNEGbq6xBw2Ig6JNlX7u4CMFoksXZXr2LsqMS7mocdD5Xs
-         VbFWbzX8YYZycAmeAQsveoi9SaUNWZjmdBsyxeogIKLHwQ7TkV7n8INA1alEJ+EeXccV
-         7OUl4fX0YX1Fu9dRj0P5Ox+39VJ6Qt6fvp5K8X9HporZSv8S160zw4g0y6++bMBaDs3i
-         WKzA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=tcmPGs7MKumNVJXJtJmYK47UvkeMX0T9PRyhLwXMI88=;
+        b=mYV7ez63BdO5wGkZpxFqlQ3jlivmyvu6Cxx7DdijRUgxDCzFoMU+0lD+5VIqUUB2yJ
+         +mtQDwpSIjZAofZAVp7ekKOBdiQe+kGSaknQzCJeT9Ezz+Y9dJccEYHyxFR6htSDwubE
+         dhUM+HbD/I4sQZ+cCL7ErfOW8KgTH9hL/RejL1/d0n6JdU0/RCNlzr2yBqvmuV9NSadY
+         MOrNSlgO1GqBmxV9u/lAb5rmHZVY1vV1AqcbJR66KKqzxDNtbS5Y8wrK0CyPPfKJLAHi
+         mAh3NQRaz2/M+865w+gJEzuauXK/0+1Cm0DeoyWftQxMQRJ7NBhDtf/3YWCOOrsrcars
+         Mf3Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=GpU16cbj;
-       spf=pass (google.com: domain of bhe@redhat.com designates 205.139.110.120 as permitted sender) smtp.mailfrom=bhe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
-        by gmr-mx.google.com with ESMTPS id c4si254104pjo.0.2020.07.29.19.22.25
+       dkim=pass header.i=@chromium.org header.s=google header.b=EOzMxx4m;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-pf1-x442.google.com (mail-pf1-x442.google.com. [2607:f8b0:4864:20::442])
+        by gmr-mx.google.com with ESMTPS id b26si268802qtq.3.2020.07.29.19.38.39
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 29 Jul 2020 19:22:26 -0700 (PDT)
-Received-SPF: pass (google.com: domain of bhe@redhat.com designates 205.139.110.120 as permitted sender) client-ip=205.139.110.120;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-450-x5Uy2qT2P5q-DIcPrk6VSQ-1; Wed, 29 Jul 2020 22:22:21 -0400
-X-MC-Unique: x5Uy2qT2P5q-DIcPrk6VSQ-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 90479801504;
-	Thu, 30 Jul 2020 02:22:16 +0000 (UTC)
-Received: from localhost (ovpn-13-67.pek2.redhat.com [10.72.13.67])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 62E1519D82;
-	Thu, 30 Jul 2020 02:22:15 +0000 (UTC)
-Date: Thu, 30 Jul 2020 10:22:09 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christoph Hellwig <hch@lst.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>, Mike Rapoport <rppt@linux.ibm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Mackerras <paulus@samba.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Stafford Horne <shorne@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Jul 2020 19:38:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::442 as permitted sender) client-ip=2607:f8b0:4864:20::442;
+Received: by mail-pf1-x442.google.com with SMTP id r11so6281528pfl.11
+        for <clang-built-linux@googlegroups.com>; Wed, 29 Jul 2020 19:38:39 -0700 (PDT)
+X-Received: by 2002:a63:165c:: with SMTP id 28mr2409576pgw.453.1596076719167;
+        Wed, 29 Jul 2020 19:38:39 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+        by smtp.gmail.com with ESMTPSA id r7sm2164264pfl.186.2020.07.29.19.38.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Jul 2020 19:38:38 -0700 (PDT)
+Date: Wed, 29 Jul 2020 19:38:37 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Arvind Sankar <nivedita@alum.mit.edu>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>,
+	x86@kernel.org, Nick Desaulniers <ndesaulniers@google.com>,
+	Fangrui Song <maskray@google.com>, Dmitry Golovin <dima@golovin.in>,
 	clang-built-linux@googlegroups.com,
-	iommu@lists.linux-foundation.org,
-	linux-arm-kernel@lists.infradead.org, linux-c6x-dev@linux-c6x.org,
-	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-mm@kvack.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	linux-xtensa@linux-xtensa.org, linuxppc-dev@lists.ozlabs.org,
-	openrisc@lists.librecores.org, sparclinux@vger.kernel.org,
-	uclinux-h8-devel@lists.sourceforge.jp, x86@kernel.org
-Subject: Re: [PATCH 11/15] memblock: reduce number of parameters in
- for_each_mem_range()
-Message-ID: <20200730022209.GK14854@MiWiFi-R3L-srv>
-References: <20200728051153.1590-1-rppt@kernel.org>
- <20200728051153.1590-12-rppt@kernel.org>
+	Ard Biesheuvel <ardb@kernel.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Sedat Dilek <sedat.dilek@gmail.com>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>, "H . J . Lu" <hjl@sourceware.org>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH-next v5 0/7] x86/boot: Remove run-time relocations from
+ compressed kernel
+Message-ID: <202007291937.061A4FE76@keescook>
+References: <CAKwvOdnTbatx8VB-rJSzyFPwfYnkMYK28yLBn1G+hUu8dyfYRA@mail.gmail.com>
+ <20200717201801.3661843-1-nivedita@alum.mit.edu>
+ <202007291502.18DC4C0F@keescook>
+ <20200729222341.GA684483@rani.riverdale.lan>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200728051153.1590-12-rppt@kernel.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
-X-Original-Sender: bhe@redhat.com
+In-Reply-To: <20200729222341.GA684483@rani.riverdale.lan>
+X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=GpU16cbj;
-       spf=pass (google.com: domain of bhe@redhat.com designates
- 205.139.110.120 as permitted sender) smtp.mailfrom=bhe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@chromium.org header.s=google header.b=EOzMxx4m;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::442
+ as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -169,166 +147,38 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 07/28/20 at 08:11am, Mike Rapoport wrote:
-> From: Mike Rapoport <rppt@linux.ibm.com>
+On Wed, Jul 29, 2020 at 06:23:41PM -0400, Arvind Sankar wrote:
+> On Wed, Jul 29, 2020 at 03:04:43PM -0700, Kees Cook wrote:
+> > On Fri, Jul 17, 2020 at 04:17:54PM -0400, Arvind Sankar wrote:
+> > > Same as v5 previously posted, but rebased onto next-20200717.
+> > > 
+> > > v5: https://lore.kernel.org/lkml/20200715004133.1430068-1-nivedita@alum.mit.edu/
+> > 
+> > BTW, some bits of feedback on process:
+> > 
+> > - please don't re-use version numbers, this is confusing :)
 > 
-> Currently for_each_mem_range() iterator is the most generic way to traverse
-> memblock regions. As such, it has 8 parameters and it is hardly convenient
-> to users. Most users choose to utilize one of its wrappers and the only
-> user that actually needs most of the parameters outside memblock is s390
-> crash dump implementation.
-> 
-> To avoid yet another naming for memblock iterators, rename the existing
-> for_each_mem_range() to __for_each_mem_range() and add a new
-> for_each_mem_range() wrapper with only index, start and end parameters.
-> 
-> The new wrapper nicely fits into init_unavailable_mem() and will be used in
-> upcoming changes to simplify memblock traversals.
-> 
-> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-> ---
->  .clang-format                          |  1 +
->  arch/arm64/kernel/machine_kexec_file.c |  6 ++----
->  arch/s390/kernel/crash_dump.c          |  8 ++++----
->  include/linux/memblock.h               | 18 ++++++++++++++----
->  mm/page_alloc.c                        |  3 +--
->  5 files changed, 22 insertions(+), 14 deletions(-)
+> This was a special case as there were no actual changes in this version.
 
-Reviewed-by: Baoquan He <bhe@redhat.com>
+It ended up missing some review tags, etc.
 
+> > - please fix whatever is happening with the "In-Reply-To:" headers, the
+> >   threading is extremely hard to understand (each patch isn't a reply to
+> >   the cover letter, and everything is a reply to a single earlier email)
 > 
-> diff --git a/.clang-format b/.clang-format
-> index a0a96088c74f..52ededab25ce 100644
-> --- a/.clang-format
-> +++ b/.clang-format
-> @@ -205,6 +205,7 @@ ForEachMacros:
->    - 'for_each_memblock_type'
->    - 'for_each_memcg_cache_index'
->    - 'for_each_mem_pfn_range'
-> +  - '__for_each_mem_range'
->    - 'for_each_mem_range'
->    - 'for_each_mem_range_rev'
->    - 'for_each_migratetype_order'
-> diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
-> index 361a1143e09e..5b0e67b93cdc 100644
-> --- a/arch/arm64/kernel/machine_kexec_file.c
-> +++ b/arch/arm64/kernel/machine_kexec_file.c
-> @@ -215,8 +215,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
->  	phys_addr_t start, end;
->  
->  	nr_ranges = 1; /* for exclusion of crashkernel region */
-> -	for_each_mem_range(i, &memblock.memory, NULL, NUMA_NO_NODE,
-> -					MEMBLOCK_NONE, &start, &end, NULL)
-> +	for_each_mem_range(i, &start, &end)
->  		nr_ranges++;
->  
->  	cmem = kmalloc(struct_size(cmem, ranges, nr_ranges), GFP_KERNEL);
-> @@ -225,8 +224,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
->  
->  	cmem->max_nr_ranges = nr_ranges;
->  	cmem->nr_ranges = 0;
-> -	for_each_mem_range(i, &memblock.memory, NULL, NUMA_NO_NODE,
-> -					MEMBLOCK_NONE, &start, &end, NULL) {
-> +	for_each_mem_range(i, &start, &end) {
->  		cmem->ranges[cmem->nr_ranges].start = start;
->  		cmem->ranges[cmem->nr_ranges].end = end - 1;
->  		cmem->nr_ranges++;
-> diff --git a/arch/s390/kernel/crash_dump.c b/arch/s390/kernel/crash_dump.c
-> index f96a5857bbfd..e28085c725ff 100644
-> --- a/arch/s390/kernel/crash_dump.c
-> +++ b/arch/s390/kernel/crash_dump.c
-> @@ -549,8 +549,8 @@ static int get_mem_chunk_cnt(void)
->  	int cnt = 0;
->  	u64 idx;
->  
-> -	for_each_mem_range(idx, &memblock.physmem, &oldmem_type, NUMA_NO_NODE,
-> -			   MEMBLOCK_NONE, NULL, NULL, NULL)
-> +	__for_each_mem_range(idx, &memblock.physmem, &oldmem_type, NUMA_NO_NODE,
-> +			     MEMBLOCK_NONE, NULL, NULL, NULL)
->  		cnt++;
->  	return cnt;
->  }
-> @@ -563,8 +563,8 @@ static void loads_init(Elf64_Phdr *phdr, u64 loads_offset)
->  	phys_addr_t start, end;
->  	u64 idx;
->  
-> -	for_each_mem_range(idx, &memblock.physmem, &oldmem_type, NUMA_NO_NODE,
-> -			   MEMBLOCK_NONE, &start, &end, NULL) {
-> +	__for_each_mem_range(idx, &memblock.physmem, &oldmem_type, NUMA_NO_NODE,
-> +			     MEMBLOCK_NONE, &start, &end, NULL) {
->  		phdr->p_filesz = end - start;
->  		phdr->p_type = PT_LOAD;
->  		phdr->p_offset = start;
-> diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-> index e6a23b3db696..d70c2835e913 100644
-> --- a/include/linux/memblock.h
-> +++ b/include/linux/memblock.h
-> @@ -142,7 +142,7 @@ void __next_reserved_mem_region(u64 *idx, phys_addr_t *out_start,
->  void __memblock_free_late(phys_addr_t base, phys_addr_t size);
->  
->  /**
-> - * for_each_mem_range - iterate through memblock areas from type_a and not
-> + * __for_each_mem_range - iterate through memblock areas from type_a and not
->   * included in type_b. Or just type_a if type_b is NULL.
->   * @i: u64 used as loop variable
->   * @type_a: ptr to memblock_type to iterate
-> @@ -153,7 +153,7 @@ void __memblock_free_late(phys_addr_t base, phys_addr_t size);
->   * @p_end: ptr to phys_addr_t for end address of the range, can be %NULL
->   * @p_nid: ptr to int for nid of the range, can be %NULL
->   */
-> -#define for_each_mem_range(i, type_a, type_b, nid, flags,		\
-> +#define __for_each_mem_range(i, type_a, type_b, nid, flags,		\
->  			   p_start, p_end, p_nid)			\
->  	for (i = 0, __next_mem_range(&i, nid, flags, type_a, type_b,	\
->  				     p_start, p_end, p_nid);		\
-> @@ -182,6 +182,16 @@ void __memblock_free_late(phys_addr_t base, phys_addr_t size);
->  	     __next_mem_range_rev(&i, nid, flags, type_a, type_b,	\
->  				  p_start, p_end, p_nid))
->  
-> +/**
-> + * for_each_mem_range - iterate through memory areas.
-> + * @i: u64 used as loop variable
-> + * @p_start: ptr to phys_addr_t for start address of the range, can be %NULL
-> + * @p_end: ptr to phys_addr_t for end address of the range, can be %NULL
-> + */
-> +#define for_each_mem_range(i, p_start, p_end) \
-> +	__for_each_mem_range(i, &memblock.memory, NULL, NUMA_NO_NODE,	\
-> +			     MEMBLOCK_NONE, p_start, p_end, NULL)
-> +
->  /**
->   * for_each_reserved_mem_region - iterate over all reserved memblock areas
->   * @i: u64 used as loop variable
-> @@ -287,8 +297,8 @@ int __init deferred_page_init_max_threads(const struct cpumask *node_cpumask);
->   * soon as memblock is initialized.
->   */
->  #define for_each_free_mem_range(i, nid, flags, p_start, p_end, p_nid)	\
-> -	for_each_mem_range(i, &memblock.memory, &memblock.reserved,	\
-> -			   nid, flags, p_start, p_end, p_nid)
-> +	__for_each_mem_range(i, &memblock.memory, &memblock.reserved,	\
-> +			     nid, flags, p_start, p_end, p_nid)
->  
->  /**
->   * for_each_free_mem_range_reverse - rev-iterate through free memblock areas
-> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-> index e028b87ce294..95af111d69d3 100644
-> --- a/mm/page_alloc.c
-> +++ b/mm/page_alloc.c
-> @@ -6972,8 +6972,7 @@ static void __init init_unavailable_mem(void)
->  	 * Loop through unavailable ranges not covered by memblock.memory.
->  	 */
->  	pgcnt = 0;
-> -	for_each_mem_range(i, &memblock.memory, NULL,
-> -			NUMA_NO_NODE, MEMBLOCK_NONE, &start, &end, NULL) {
-> +	for_each_mem_range(i, &start, &end) {
->  		if (next < start)
->  			pgcnt += init_unavailable_range(PFN_DOWN(next),
->  							PFN_UP(start));
-> -- 
-> 2.26.2
-> 
-> 
+> I think this is because I'm passing --in-reply-to to format-patch.
+> Seems like I should specify that in send-email instead, hopefully that
+> will fix the threading.
+
+Ah yes, I think would do it -- it overrides the normal threading that
+send-email does. Usually --in-reply-to is for a single email.
+
+Thanks for checking!
+
+-- 
+Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200730022209.GK14854%40MiWiFi-R3L-srv.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202007291937.061A4FE76%40keescook.
