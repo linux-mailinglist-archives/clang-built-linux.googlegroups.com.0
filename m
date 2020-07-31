@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB4OISL4QKGQEQ53X57Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB5GISL4QKGQEL7BAL2I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53f.google.com (mail-pg1-x53f.google.com [IPv6:2607:f8b0:4864:20::53f])
-	by mail.lfdr.de (Postfix) with ESMTPS id D1E8A234DE1
-	for <lists+clang-built-linux@lfdr.de>; Sat,  1 Aug 2020 01:08:34 +0200 (CEST)
-Received: by mail-pg1-x53f.google.com with SMTP id 37sf7100448pgx.17
-        for <lists+clang-built-linux@lfdr.de>; Fri, 31 Jul 2020 16:08:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596236913; cv=pass;
+Received: from mail-il1-x13c.google.com (mail-il1-x13c.google.com [IPv6:2607:f8b0:4864:20::13c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 55EDD234DE5
+	for <lists+clang-built-linux@lfdr.de>; Sat,  1 Aug 2020 01:08:37 +0200 (CEST)
+Received: by mail-il1-x13c.google.com with SMTP id u3sf4337153ilj.19
+        for <lists+clang-built-linux@lfdr.de>; Fri, 31 Jul 2020 16:08:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596236916; cv=pass;
         d=google.com; s=arc-20160816;
-        b=X/602lasJe1TzZd/RTtv2/uBA3oJk2vCBCITZ26Rly0iLQAA6wns21hcuzY044aqlP
-         RSDj5dPGxmi35jLTti0IHUWEDYofLLU+8yhiFyyhLyiI6dKSKsoCAXmI7UKzJQ3oNuCi
-         riinYmOAvLngv17oKQ42HjTMpljUqa5se3bXPx7+AshjbLLSkFW2cFWyi3AmFHTpOt2n
-         dedsbZUhx8N5wdjRWD7wJqTujxIx2lmKmYDfP/k7Coeq0vGgQmHq7mzoMGqQYaaCzpo7
-         UznMn9fDChJScFdQpPwtGM/NhAUrOIYjC1ZKeKGTjcxZRf+PdAfMwfGsriyFCwBOq2Lt
-         uECA==
+        b=SnD0cqI7SLXq8X7qggdyUwZOGUsH2dkKfrHUVOZU8MT6ay/w/txAcQNr/l1qiL8TtG
+         JhFDZP2AHNsoe25gRI6DkLGPNgHmHa8uOarLBEO8J8DHUL/p8Y+Qirzc38cvIbaVOayI
+         k162QA4sNeTTUB4nLD0u9UEPvdqiFqVbv3+tW8e195U2WJKMF2Gy15e/IEj8SyLVw0za
+         hpEBNtWjAOwCav+AnyA37m2+M09GPFXObUqQLONtEw411ID29Q2NfzglEh02aOkP4LL2
+         c5uc0xdqYl02XXciNffzm6EdiUuU0fmJNuy9DCVVphTGFgfYtP3FGDevcR+sEnne1VY8
+         Vz0Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=b0o3aWZpkP5e/zg5T1TSxY1Q7joNi9VPkT88LcqHVsI=;
-        b=mfYP9pSDXcGuwxgUK8z0P1gZNXvqUz3OFc++nz/nGa1rVeQKM3RYBVDFBgi9X4PGNU
-         2FTVf/TA2T9JJ1c6CnEzd6D6uvq2JUrpiVb0+Sf1jc8krrZ5nj+qCSX319uMnByM3gxC
-         iEBfkghgLah0JlFDgA/rKKDjYJPobGya+HVr9ihOAUahBBM7o/QyAc1XW9O5CoQ0Jn7s
-         9WYpsm/VJjH6YGlhNS6Jh5J5Dsu8o9fb6iHNnaVNY296ewzVCgFd9KbWLxi9LriUrXu5
-         55qi/LCO2kPxiDovdPgxgoU56j3aPj7xvhsPcxPCDjXBduwTvI1Nqq/OxiU3ZKgPvHt9
-         X1oQ==
+        bh=U6Lv4b+4XbMS6UfofrPDoShw6AdQrgS49wNUVbkGYSc=;
+        b=QD4zWBStM0LeNFVFr/QlZZBlre+h6z16c0JO9zVLXHSejgNPvU2YaDEIPzTbQPsLtd
+         yzh4E6/hgiblqobI1mXyR3hffidvjCOAcDOpYN7n5Qvhv4jNAiR0LRR+4jofnmb8yg10
+         F28UlHXjTNSK/Oq5tyXCGIraEl1dBb9a239iA87/yXBepLYNHtMUiJ+IZCuiIuIiayiW
+         jmVxHyGmlOUeDw0fYLWXZuM4ejAZJcKLQvjGJkLUgeMAue7pTB0HcMlZ3GGWw1Z7iuA3
+         mD05jQ4JeOJh0uDGGZGiHZB2hnOfoCnEA0Xq3Wer0HOW9jejiCJFikBEwvRxpggR9r8z
+         P8tQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=I2t5q3EB;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=hrQvkFF6;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=b0o3aWZpkP5e/zg5T1TSxY1Q7joNi9VPkT88LcqHVsI=;
-        b=rNU5U9X7MnfkqQXNq1Xv3ds2/xE7lYYQdBuhFzr0Zo5r2beMfxDqm9ExNtbL4em4/8
-         X1YYjCrX8yVuKf3FXhty4LxOBPgx9mZZmpfjqDDbOxWZOZYTXhGL122QTFTHdm+pZZSX
-         zLKTHgLaoQDpi7bT19YCimZLJigdaku1J1ONjIL5S0g5gx4IY3ZyGaitFSaeKqDUhop6
-         GoY5vUNUvUNmr6xLs5FxAY22Nx/Xmns877zU5+C09RqhvpKvtKWGsfQq+FjkF35Y7F64
-         vSIchNYwJHGf/4fSLUNjh5yYEdYioLNqbDgbOMYCvTqLCMpMzcUBRq/pTh86NTGkM1lk
-         n51Q==
+        bh=U6Lv4b+4XbMS6UfofrPDoShw6AdQrgS49wNUVbkGYSc=;
+        b=dgsguFyBQQvIwGLw9BmjTSKZB7MNz+ixrzI2dt2OqJj+mn12JW54SUHG1YHPJLNgwR
+         1b/0BlO4ZOSmB+Ybghb9pN2cEpl3Uaiec/hhBYY6zL+iPqrQ/b7ywnUmuBo0DL6XY/JB
+         2N2KLcTeCVifWoVC1lAt2Iehgx8yVqvi8BmP2SF3W2XSktDzOSgnqv9dy4juTmDSa2Pv
+         Ith+ubMKV+KPjeUZUYp/RTwbMONPnmIA5l3OGkKB86yeXGHu9b3qmDgnol4iPVAe9t0Y
+         tV6TMwpDN3p/mBSXfoiGpX9PXyJMX3Z6/W4iWqfmJsBESxNAFlEShoqa9AXdKOzZfMtG
+         JHXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,58 +49,58 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=b0o3aWZpkP5e/zg5T1TSxY1Q7joNi9VPkT88LcqHVsI=;
-        b=KEQaygBJo+40bXipcaF4W+HW7KnN7qzzViuOQRsIZqp7lDJ/+IjUQc+tW1ylJhXTuR
-         fNHmEJKx70on/x11lJP2WS7uZue4B7An74FFQmC1bm6llpRXN5II5PBDJHLqbJsohirg
-         Mj25ZPZqMCXHQLnZi6UROh1BFcg7/Q5jdHHeTjiMSEZUgGi9laW1r5dVxiJEwiTQpf/9
-         Hhm1j6FONTi2qvwE2VZJKVxt7ZEOamKN4SuNlnJlJ4XySluC7e3sGxog3lQql7D5ZKnz
-         3sigIa9ruVcgdw8Meg951aKH04MtXGq7upQAmmYUVnrr+Wfit9oMzjVOtIumwEE4wNBs
-         1cXA==
+        bh=U6Lv4b+4XbMS6UfofrPDoShw6AdQrgS49wNUVbkGYSc=;
+        b=BRr8rANQJncC0HmNlc4MnLjFeEk0LT67DmcHlExWTiv+ijsJ6+ra48lTexXMpRW1DI
+         XTAKhr63+k6Eg61usbHkhaoSbTjajT2QdrAILvjCBxpFu1pwKryvzwM1U7B59iVsG+XO
+         rvrFkmdKEk4RWgIRUXcCu0Xgx2d/YuDMudJhBC2m8i762K5VxvrHc6pKnmdnwaHIIOGN
+         zHHKJLkP2vMEDHJnSjhDBylvLaZWuKSBAr9WdVOKcf/rUz1qd9CdEnotMUIs6wyWH3s5
+         t7zww1gTlab6sWWWYi2bGtfN9CsAtyaDRL9mDXB4w2Cdz2cnihtTeV45BGf7HmVbpEEG
+         6bDw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530evNkPHEsyZxT5vyXK0dvAu1n58TiPCx9ogcyIoywMp1SQ3ICs
-	rH8f0icOw6bYEp7hu/cVfSQ=
-X-Google-Smtp-Source: ABdhPJyc0BbB0W4vrjcbxf8Ydh06tXWouklVPyLOecgQrtAwlLJfvj95IcWyl0h8N2rtrBcraylIdw==
-X-Received: by 2002:a17:90b:c87:: with SMTP id o7mr6062666pjz.184.1596236913100;
-        Fri, 31 Jul 2020 16:08:33 -0700 (PDT)
+X-Gm-Message-State: AOAM531UURAYM1o/J03jYgOzfRfqyO86RcV4sXRQdS3ak0V2UkMqE2oB
+	pjiTfEdEoVYRRGuwujAWiGs=
+X-Google-Smtp-Source: ABdhPJwoVrh3lOba9HFEJRvNZGgY4DItQxG5WyLiQ01nq7Z7m+DmNMHjudLOPY84HkoQQbQBr3LHtw==
+X-Received: by 2002:a05:6e02:143:: with SMTP id j3mr5457079ilr.97.1596236916316;
+        Fri, 31 Jul 2020 16:08:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:3785:: with SMTP id mz5ls4270760pjb.1.gmail; Fri, 31
- Jul 2020 16:08:32 -0700 (PDT)
-X-Received: by 2002:a17:90a:2170:: with SMTP id a103mr6414070pje.198.1596236912665;
-        Fri, 31 Jul 2020 16:08:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596236912; cv=none;
+Received: by 2002:a6b:7308:: with SMTP id e8ls134221ioh.6.gmail; Fri, 31 Jul
+ 2020 16:08:36 -0700 (PDT)
+X-Received: by 2002:a6b:ba89:: with SMTP id k131mr5679289iof.133.1596236915922;
+        Fri, 31 Jul 2020 16:08:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596236915; cv=none;
         d=google.com; s=arc-20160816;
-        b=l4Hp/z49k6m62brSMuduuwSDGUw/PJt+LTb09dL70Zq3oFpsLtwscH1Scg8S+TkLnC
-         MJDchQNNf8j67wjielD3YeXSVgDVmyXOmqAaTl6VuXfy/JusPQOQ3qf1ICL0Q9fiN98a
-         8guOj+A5EYU9CLZAe8oLtmoPRMCn1T1GwokcLNcW9k6Io4vwMLmCwF72FzrywcJUoh1I
-         umqn1jyR+SeQBeg118XvATBQLaTKigqnD1D9SiVMH90ubCTo8cYtQIVjtbANWwwhosQw
-         8lDXnB5r197bb3vxrzTWp5p8qbC2J2el57Dgq9rIBYy2ZIZT6KP9Q5UfMpxXmF0pvain
-         J1og==
+        b=GArZjN7DuHoR5K4rPSyyy6mQY5xJW0o4PAgzF+MmFpTLlTDKFzK9By3Jar68dgkxQW
+         F7bG/Hl3H8u6s74DHGeZa8PShtLYMZbWKil2oToKfCbgxUMWWLeIAWw1pxlGXVqXQmwe
+         X/nMD5rLsPP85d5fhYaT3VXgBA/IYHI63x/fFoeVeL9OOab18rmQYiYVsZ2q7Nnobore
+         a6wV32p0nWnUd96wFkLCBl27WMu1rLi49DzCX6RoSAErhL/kzajc1b5rPg/cNDES7uAD
+         OuQSCtD62rwcsw4qlMDb/eF1VgSViJEY31vvb4Ab2nTImT/FO5E3xdoenEexI0tgp2wN
+         QT4Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=Oj0JTp0iqi1GihJzW9z0GKQvDoXirBrdmVyY4Bh4CEw=;
-        b=fQqd9l7zxxwt7yRWOqTwVV8dsruWGWgnyslhETz/+kdC/WsF991NVH0OTgAxXQfrtW
-         IDyG3ZtEqjxgzTpQbhgGvpzGGNGmp4lE7ryFxwej2iHOhkqaH7QxDBoJLB0L32diKuo+
-         D+V6K5MvRY0mMPkthyjrqP7D8KBKewYqbdpnPzA2OchNZFgfCmkwHpVaaOD3dTx1Fpbt
-         YlssKfIn/HcFMUpvESEFFQSfEZDd0UjMj6NpdwxgI8aIwZ1WJnISKoRIOIWTDlftdhnb
-         9a40ybhXCM6MusZYe8z7v6EyWJMYrtekbHXiKICOL2m4Rv/y2s57kzFkhZYYSueeCxn7
-         qpsA==
+        bh=G4Uyil/3RLKWyY67hAynjAiMWq2oklcnh8xSnmDcb3o=;
+        b=m27FOffRiS5m8LGp1F1+yCylEqCNFCOHGuYx+U5dG1UB7U/URIq0R3ZOe+pgKv2yBA
+         JoCtsAS2X+CmURw2Qpuoux5DOTojQFQ8SIp5MzX514MNCaSSarsmPiw4ZRcV8qAKL5OB
+         571AxzWpgy0WFCxEJ4JMkVAoi2A8VVDEJEZL94ahCfG3laJNdpzysvqV94BEXgQDq7Ha
+         dXlXi7hTWl9WMYY+t9sgP8a1slujY/WE6mw+swNH3JUFDq70tTCG+iyEHcImMsoifMk8
+         e6Rmc0m06ZWr5y7V8GUxnye4fXCFXZ0iPouPC3Pb8af3ERBjZhRlTM3Ohg32iuCwqSEG
+         dEOw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=I2t5q3EB;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=hrQvkFF6;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pl1-x642.google.com (mail-pl1-x642.google.com. [2607:f8b0:4864:20::642])
-        by gmr-mx.google.com with ESMTPS id g18si649023pfi.1.2020.07.31.16.08.32
+Received: from mail-pj1-x1042.google.com (mail-pj1-x1042.google.com. [2607:f8b0:4864:20::1042])
+        by gmr-mx.google.com with ESMTPS id z6si522161ioj.0.2020.07.31.16.08.35
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 31 Jul 2020 16:08:32 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642 as permitted sender) client-ip=2607:f8b0:4864:20::642;
-Received: by mail-pl1-x642.google.com with SMTP id d1so18093544plr.8
-        for <clang-built-linux@googlegroups.com>; Fri, 31 Jul 2020 16:08:32 -0700 (PDT)
-X-Received: by 2002:a17:902:b489:: with SMTP id y9mr5166444plr.99.1596236912355;
-        Fri, 31 Jul 2020 16:08:32 -0700 (PDT)
+        Fri, 31 Jul 2020 16:08:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1042 as permitted sender) client-ip=2607:f8b0:4864:20::1042;
+Received: by mail-pj1-x1042.google.com with SMTP id c6so8077837pje.1
+        for <clang-built-linux@googlegroups.com>; Fri, 31 Jul 2020 16:08:35 -0700 (PDT)
+X-Received: by 2002:a17:902:b18b:: with SMTP id s11mr5649581plr.152.1596236915282;
+        Fri, 31 Jul 2020 16:08:35 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id b185sm11019488pfa.148.2020.07.31.16.08.30
+        by smtp.gmail.com with ESMTPSA id m9sm10186094pjs.18.2020.07.31.16.08.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Fri, 31 Jul 2020 16:08:30 -0700 (PDT)
 From: Kees Cook <keescook@chromium.org>
@@ -127,17 +127,17 @@ Cc: Kees Cook <keescook@chromium.org>,
 	linux-efi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 02/36] x86/boot/compressed: Force hidden visibility for all symbol references
-Date: Fri, 31 Jul 2020 16:07:46 -0700
-Message-Id: <20200731230820.1742553-3-keescook@chromium.org>
+Subject: [PATCH v5 03/36] x86/boot/compressed: Get rid of GOT fixup code
+Date: Fri, 31 Jul 2020 16:07:47 -0700
+Message-Id: <20200731230820.1742553-4-keescook@chromium.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20200731230820.1742553-1-keescook@chromium.org>
 References: <20200731230820.1742553-1-keescook@chromium.org>
 MIME-Version: 1.0
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=I2t5q3EB;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642
+ header.i=@chromium.org header.s=google header.b=hrQvkFF6;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1042
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Content-Type: text/plain; charset="UTF-8"
@@ -155,112 +155,181 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Eliminate all GOT entries in the decompressor binary, by forcing hidden
-visibility for all symbol references, which informs the compiler that
-such references will be resolved at link time without the need for
-allocating GOT entries.
+In a previous patch, we have eliminated GOT entries from the decompressor
+binary and added an assertion that the .got section is empty. This means
+that the GOT fixup routines that exist in both the 32-bit and 64-bit
+startup routines have become dead code, and can be removed.
 
-To ensure that no GOT entries will creep back in, add an assertion to
-the decompressor linker script that will fire if the .got section has
-a non-zero size.
+While at it, drop the KEEP() from the linker script, as it has no effect
+on the contents of output sections that are created by the linker itself.
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 Tested-by: Nick Desaulniers <ndesaulniers@google.com>
 Reviewed-by: Kees Cook <keescook@chromium.org>
 Acked-by: Arvind Sankar <nivedita@alum.mit.edu>
-Link: https://lore.kernel.org/r/20200523120021.34996-3-ardb@kernel.org
-[Arvind: move hidden.h to include/linux instead of making a copy]
+Link: https://lore.kernel.org/r/20200523120021.34996-4-ardb@kernel.org
 Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
 Signed-off-by: Arvind Sankar <nivedita@alum.mit.edu>
 Signed-off-by: Kees Cook <keescook@chromium.org>
 ---
- arch/x86/boot/compressed/Makefile      |  1 +
- arch/x86/boot/compressed/vmlinux.lds.S |  1 +
- drivers/firmware/efi/libstub/Makefile  |  2 +-
- drivers/firmware/efi/libstub/hidden.h  |  6 ------
- include/linux/hidden.h                 | 19 +++++++++++++++++++
- 5 files changed, 22 insertions(+), 7 deletions(-)
- delete mode 100644 drivers/firmware/efi/libstub/hidden.h
- create mode 100644 include/linux/hidden.h
+ arch/x86/boot/compressed/head_32.S     | 24 ++---------
+ arch/x86/boot/compressed/head_64.S     | 57 --------------------------
+ arch/x86/boot/compressed/vmlinux.lds.S |  4 +-
+ 3 files changed, 5 insertions(+), 80 deletions(-)
 
-diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
-index 5a828fde7a42..489fea16bcfb 100644
---- a/arch/x86/boot/compressed/Makefile
-+++ b/arch/x86/boot/compressed/Makefile
-@@ -42,6 +42,7 @@ KBUILD_CFLAGS += $(call cc-disable-warning, gnu)
- KBUILD_CFLAGS += -Wno-pointer-sign
- KBUILD_CFLAGS += $(call cc-option,-fmacro-prefix-map=$(srctree)/=)
- KBUILD_CFLAGS += -fno-asynchronous-unwind-tables
-+KBUILD_CFLAGS += -include $(srctree)/include/linux/hidden.h
+diff --git a/arch/x86/boot/compressed/head_32.S b/arch/x86/boot/compressed/head_32.S
+index 03557f2174bf..39f0bb43218f 100644
+--- a/arch/x86/boot/compressed/head_32.S
++++ b/arch/x86/boot/compressed/head_32.S
+@@ -49,16 +49,13 @@
+  * Position Independent Executable (PIE) so that linker won't optimize
+  * R_386_GOT32X relocation to its fixed symbol address.  Older
+  * linkers generate R_386_32 relocations against locally defined symbols,
+- * _bss, _ebss, _got, _egot and _end, in PIE.  It isn't wrong, just less
+- * optimal than R_386_RELATIVE.  But the x86 kernel fails to properly handle
+- * R_386_32 relocations when relocating the kernel.  To generate
+- * R_386_RELATIVE relocations, we mark _bss, _ebss, _got, _egot and _end as
+- * hidden:
++ * _bss, _ebss and _end, in PIE.  It isn't wrong, just less optimal than
++ * R_386_RELATIVE.  But the x86 kernel fails to properly handle R_386_32
++ * relocations when relocating the kernel.  To generate R_386_RELATIVE
++ * relocations, we mark _bss, _ebss and _end as hidden:
+  */
+ 	.hidden _bss
+ 	.hidden _ebss
+-	.hidden _got
+-	.hidden _egot
+ 	.hidden _end
  
- KBUILD_AFLAGS  := $(KBUILD_CFLAGS) -D__ASSEMBLY__
- GCOV_PROFILE := n
+ 	__HEAD
+@@ -192,19 +189,6 @@ SYM_FUNC_START_LOCAL_NOALIGN(.Lrelocated)
+ 	shrl	$2, %ecx
+ 	rep	stosl
+ 
+-/*
+- * Adjust our own GOT
+- */
+-	leal	_got(%ebx), %edx
+-	leal	_egot(%ebx), %ecx
+-1:
+-	cmpl	%ecx, %edx
+-	jae	2f
+-	addl	%ebx, (%edx)
+-	addl	$4, %edx
+-	jmp	1b
+-2:
+-
+ /*
+  * Do the extraction, and jump to the new kernel..
+  */
+diff --git a/arch/x86/boot/compressed/head_64.S b/arch/x86/boot/compressed/head_64.S
+index 97d37f0a34f5..bf1ab30acc5b 100644
+--- a/arch/x86/boot/compressed/head_64.S
++++ b/arch/x86/boot/compressed/head_64.S
+@@ -40,8 +40,6 @@
+  */
+ 	.hidden _bss
+ 	.hidden _ebss
+-	.hidden _got
+-	.hidden _egot
+ 	.hidden _end
+ 
+ 	__HEAD
+@@ -353,25 +351,6 @@ SYM_CODE_START(startup_64)
+ 	/* Set up the stack */
+ 	leaq	boot_stack_end(%rbx), %rsp
+ 
+-	/*
+-	 * paging_prepare() and cleanup_trampoline() below can have GOT
+-	 * references. Adjust the table with address we are running at.
+-	 *
+-	 * Zero RAX for adjust_got: the GOT was not adjusted before;
+-	 * there's no adjustment to undo.
+-	 */
+-	xorq	%rax, %rax
+-
+-	/*
+-	 * Calculate the address the binary is loaded at and use it as
+-	 * a GOT adjustment.
+-	 */
+-	call	1f
+-1:	popq	%rdi
+-	subq	$1b, %rdi
+-
+-	call	.Ladjust_got
+-
+ 	/*
+ 	 * At this point we are in long mode with 4-level paging enabled,
+ 	 * but we might want to enable 5-level paging or vice versa.
+@@ -464,21 +443,6 @@ trampoline_return:
+ 	pushq	$0
+ 	popfq
+ 
+-	/*
+-	 * Previously we've adjusted the GOT with address the binary was
+-	 * loaded at. Now we need to re-adjust for relocation address.
+-	 *
+-	 * Calculate the address the binary is loaded at, so that we can
+-	 * undo the previous GOT adjustment.
+-	 */
+-	call	1f
+-1:	popq	%rax
+-	subq	$1b, %rax
+-
+-	/* The new adjustment is the relocation address */
+-	movq	%rbx, %rdi
+-	call	.Ladjust_got
+-
+ /*
+  * Copy the compressed kernel to the end of our buffer
+  * where decompression in place becomes safe.
+@@ -556,27 +520,6 @@ SYM_FUNC_START_LOCAL_NOALIGN(.Lrelocated)
+ 	jmp	*%rax
+ SYM_FUNC_END(.Lrelocated)
+ 
+-/*
+- * Adjust the global offset table
+- *
+- * RAX is the previous adjustment of the table to undo (use 0 if it's the
+- * first time we touch GOT).
+- * RDI is the new adjustment to apply.
+- */
+-.Ladjust_got:
+-	/* Walk through the GOT adding the address to the entries */
+-	leaq	_got(%rip), %rdx
+-	leaq	_egot(%rip), %rcx
+-1:
+-	cmpq	%rcx, %rdx
+-	jae	2f
+-	subq	%rax, (%rdx)	/* Undo previous adjustment */
+-	addq	%rdi, (%rdx)	/* Apply the new adjustment */
+-	addq	$8, %rdx
+-	jmp	1b
+-2:
+-	ret
+-
+ 	.code32
+ /*
+  * This is the 32-bit trampoline that will be copied over to low memory.
 diff --git a/arch/x86/boot/compressed/vmlinux.lds.S b/arch/x86/boot/compressed/vmlinux.lds.S
-index b17d218ccdf9..4bcc943842ab 100644
+index 4bcc943842ab..a4a4a59a2628 100644
 --- a/arch/x86/boot/compressed/vmlinux.lds.S
 +++ b/arch/x86/boot/compressed/vmlinux.lds.S
-@@ -81,6 +81,7 @@ SECTIONS
- 	DISCARDS
- }
- 
-+ASSERT(SIZEOF(.got) == 0, "Unexpected GOT entries detected!")
- #ifdef CONFIG_X86_64
- ASSERT(SIZEOF(.got.plt) == 0 || SIZEOF(.got.plt) == 0x18, "Unexpected GOT/PLT entries detected!")
- #else
-diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-index 75daaf20374e..b4f8c80cc591 100644
---- a/drivers/firmware/efi/libstub/Makefile
-+++ b/drivers/firmware/efi/libstub/Makefile
-@@ -26,7 +26,7 @@ cflags-$(CONFIG_ARM)		:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
- cflags-$(CONFIG_EFI_GENERIC_STUB) += -I$(srctree)/scripts/dtc/libfdt
- 
- KBUILD_CFLAGS			:= $(cflags-y) -Os -DDISABLE_BRANCH_PROFILING \
--				   -include $(srctree)/drivers/firmware/efi/libstub/hidden.h \
-+				   -include $(srctree)/include/linux/hidden.h \
- 				   -D__NO_FORTIFY \
- 				   $(call cc-option,-ffreestanding) \
- 				   $(call cc-option,-fno-stack-protector) \
-diff --git a/drivers/firmware/efi/libstub/hidden.h b/drivers/firmware/efi/libstub/hidden.h
-deleted file mode 100644
-index 3493b041f419..000000000000
---- a/drivers/firmware/efi/libstub/hidden.h
-+++ /dev/null
-@@ -1,6 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--/*
-- * To prevent the compiler from emitting GOT-indirected (and thus absolute)
-- * references to any global symbols, override their visibility as 'hidden'
-- */
--#pragma GCC visibility push(hidden)
-diff --git a/include/linux/hidden.h b/include/linux/hidden.h
-new file mode 100644
-index 000000000000..49a17b6b5962
---- /dev/null
-+++ b/include/linux/hidden.h
-@@ -0,0 +1,19 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * When building position independent code with GCC using the -fPIC option,
-+ * (or even the -fPIE one on older versions), it will assume that we are
-+ * building a dynamic object (either a shared library or an executable) that
-+ * may have symbol references that can only be resolved at load time. For a
-+ * variety of reasons (ELF symbol preemption, the CoW footprint of the section
-+ * that is modified by the loader), this results in all references to symbols
-+ * with external linkage to go via entries in the Global Offset Table (GOT),
-+ * which carries absolute addresses which need to be fixed up when the
-+ * executable image is loaded at an offset which is different from its link
-+ * time offset.
-+ *
-+ * Fortunately, there is a way to inform the compiler that such symbol
-+ * references will be satisfied at link time rather than at load time, by
-+ * giving them 'hidden' visibility.
-+ */
-+
-+#pragma GCC visibility push(hidden)
+@@ -43,9 +43,7 @@ SECTIONS
+ 		_erodata = . ;
+ 	}
+ 	.got : {
+-		_got = .;
+-		KEEP(*(.got))
+-		_egot = .;
++		*(.got)
+ 	}
+ 	.got.plt : {
+ 		*(.got.plt)
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200731230820.1742553-3-keescook%40chromium.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200731230820.1742553-4-keescook%40chromium.org.
