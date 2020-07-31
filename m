@@ -1,106 +1,111 @@
 Return-Path: <clang-built-linux+bncBDJJN2O66QEBB7OJSH4QKGQEOGERZ6Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x938.google.com (mail-ua1-x938.google.com [IPv6:2607:f8b0:4864:20::938])
-	by mail.lfdr.de (Postfix) with ESMTPS id 15BCC234B2C
-	for <lists+clang-built-linux@lfdr.de>; Fri, 31 Jul 2020 20:37:50 +0200 (CEST)
-Received: by mail-ua1-x938.google.com with SMTP id f32sf1374268uae.18
-        for <lists+clang-built-linux@lfdr.de>; Fri, 31 Jul 2020 11:37:50 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596220669; cv=pass;
+Received: from mail-qk1-x737.google.com (mail-qk1-x737.google.com [IPv6:2607:f8b0:4864:20::737])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0F2AD234B2D
+	for <lists+clang-built-linux@lfdr.de>; Fri, 31 Jul 2020 20:37:51 +0200 (CEST)
+Received: by mail-qk1-x737.google.com with SMTP id d131sf21470764qke.3
+        for <lists+clang-built-linux@lfdr.de>; Fri, 31 Jul 2020 11:37:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596220670; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cHJYewfVlgvOF8yKNGmVszAawRj1mT0s6k3jD4s05b8T20rwfIYnwLmzwNzHXy3HKC
-         rCjAb7tEnHLIV8zt705xOkbYUAgohqEHc9PjVrGaph+LzcprqLAR+8UDcKs/JNsPPpDv
-         wLbR0+Fu3oIWm9ju583Tw997h6rkA+QVwBppuldFmIk93hQzafCeS2pmqiR9pISq6H/M
-         SHaQyf/+2WcHi47mGvjLytjm9pjIalANY84y+fdphys1u9N6Ct+kAHdSZNDU5IDQ+4g5
-         3idZHW4HBQO5ZCy4eScO2jvwQzDR3BEa7Tl8DWZnL4hf9ZxAETCrpEtOluq14P9I7oie
-         Tsiw==
+        b=sETYSFhNXvGgWlPOI/7I2U5218Sw5u205OQKbW971WtJn6Fsmfg2/+496mJJZhnbhm
+         UsNEFsAQn73+2JVXn84q8tKjnf4rl0DLEzVCZaj3gZHW+nxNQmZ9pAdDo5d4DR5EPwM3
+         WBk5EGqLGFpKIxY1e5rtsPtZokzoFrLY2+nYRd8Q8z/qYcPrYrcBZu5SwhO10BvUKkyA
+         Io7KwVahs/9hvuxCQGDTqMXCHPgibDCvKetOWQ0aaFSN3KSpCVdGCKJY2zf60hhFTUP8
+         th42kTLovKpghiYow7eF4pKCue4osoGLfPwOitdWsBPRlxZi1QoS9npMfuWs2mxIBgwF
+         I4Cw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
-         :mime-version:message-id:date:dkim-signature;
-        bh=fHNvszaMz5xnLTPH0l6SkH3VRYJZiFQPU312H2ARZ1Y=;
-        b=lDTiK1j6Jp7F+IR34YZlzlFqB6DU+cCsusn4qsN1ab9SxHFWGQsp3wtyT+NUw+7LLN
-         uQnVpJc2da3f0DQuBxYycsgxIUIgT/wbb2fqXhSGUoQ3c+KRChoGyOFcE7FHlAuVIk7H
-         ePKwCrlO06E4OV85NuBPkI0u5WYN+Xeua8JioM+LBUpfu3wHImXHtVUE03YBUJQDiTzV
-         HVk9NFevDq3F3z/mmC4kR1Kum+Iga8wxrjGTeKlQV36Gcvs6+uBiwGj6qmcDg8YtBE6R
-         Xnlcz5wFx6jm/Hi6C3ILXY1WvYAuieIS6LghF0wfPzUA1mhlRdvMKAHYtmZXYdv6y9/s
-         L3HA==
+         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
+        bh=tkcb7lWon+ozHO979sLk3aCEMSpQ3BuFU99EyXsQe1c=;
+        b=S6hgJn1U0sltc0C5ciStjPFvkme4swWNQuu6QG4gaxji9HRK7OcDBv8hvTppn2ZNvF
+         nAyxkYurwZ0F21pLn6+dHtimixYjx4lkTc+21NG4yrFJmcDit9qa6XN8MRdkm5z7BTit
+         uKaiuGNrCJOcU3Ns5CP609wlPL8AreFVCvdilmla92vfmhQoIQIjFyc1SriXVzhZPTh+
+         4+wT76FCrkTHW2NBs3pT94GGAXwbkDgVw45EsX9CWRIA/v9gXXoYYTtVaDoSKT1Krxd7
+         9zO3GrJxG6FijxqXuIj+8/sqH3SKJgHfceEnFbzOrSTMZVcDHwf9Y0Eu5D81MNcMRE19
+         K0xg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=UHl+j2V9;
-       spf=pass (google.com: domain of 3_gqkxwkkafc193cc3aan5dd5a3.1db@flex--ckennelly.bounces.google.com designates 2607:f8b0:4864:20::f4a as permitted sender) smtp.mailfrom=3_GQkXwkKAFc193CC3AAN5DD5A3.1DB@flex--ckennelly.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=BFtthBoR;
+       spf=pass (google.com: domain of 3_wqkxwkkafg2a4dd4bbo6ee6b4.2ec@flex--ckennelly.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3_WQkXwkKAFg2A4DD4BBO6EE6B4.2EC@flex--ckennelly.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:message-id:mime-version:subject:from:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=fHNvszaMz5xnLTPH0l6SkH3VRYJZiFQPU312H2ARZ1Y=;
-        b=m4RdM+VsCalqwyPMtkQbYKc5rRkFySh6iYoMmrwgAMUWQIB2M+5Qqv5aZ+MKW7PTH4
-         RQ3tWAokPn567NYJMjyKGEsp8HUYUUtUkjAFEYVDaOXa0p3vsOkmsqv3Qv8FJRDtN0AP
-         jIICCdBq6NCNxPLQP6TR/kmeA9e9RZUC8bj7nc78jGYy5F+4QLw4nVVYjB8UumdrpVz/
-         GM5OpqIeKLoUyvckrIvUYA3K4S6oAmh790UiIyPOzFstvJZMKmNs0ZLLj1jTyQ+fdAw8
-         6aj8IeIRttHIQOLukUVOQxCu5N3dgY8Kc4DwEGENrlmNHZdA7at09HIXXV/zB1lp8Ybt
-         Tg4g==
+        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=tkcb7lWon+ozHO979sLk3aCEMSpQ3BuFU99EyXsQe1c=;
+        b=ke9HVe9w7ghqmMwnV6/lu9/qKF3IzOSxRtRkr6QkRZCfMJ4wG3WcjRiHPlLWRBVe+E
+         1xmU2KFpU4ytTq7qhIbb00jWlgb8YcaotrXrsxiI93lKs8OtSctUjaj6SiB48Jbk8ruP
+         DYaOf1zhWFvV/QYX59DOCmT5T3mTfHcG0xwMfxwx48lVveCbJ0zZHyvdQJBOAAqPYvpa
+         gn7gwADt2B7XtsDxb5ER8V+tv+e47Vr7DTnfR/fSMl10lJjZeFcbm8l/mUPXXVCJk+3E
+         VeK2ItvtrppPybg9i1qX/5stXo2OoemxlDLcgWQYW93HQZ4gho6/5jOlTlVipy3EDo+0
+         f/jg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=fHNvszaMz5xnLTPH0l6SkH3VRYJZiFQPU312H2ARZ1Y=;
-        b=CUQZHG9kA3uiPajthAvvgnOV0uVr3ZnNad/QKvQ+kAnUpvOxwMBD7Lfe+4oChS5cg2
-         /xw2LMF6TzoJWGifPjRA9wSeFYBF8IjHkT5Nuzblum1LEAv0xrnBFNaJVLvyw0gxegNa
-         OoSF5DDvwFsDVaxCncfxpcQN5uGAo+APsKCx+hbQBTXSbQyFpjRWQGr6w4YE5UiClNuD
-         GStl80RcRKgAXcSdattOlf5JDN7qHmcAuVXfK0nszlNF2XaqJcDo7hSVYui4Jqp8CWOv
-         GXgIbsQdwNvj1NvvOw5vgCJrYP2aqZA/4c+sXEshUhrkujcIAriMK9HiUVNV2dD2unX/
-         alDA==
-X-Gm-Message-State: AOAM5328YgK1x2sIKnHACrBgbudJJYyaVpnEFy7bYn7we6W2aprejGo1
-	TJHetYfDDdW9hbDXhZ4ygVw=
-X-Google-Smtp-Source: ABdhPJy7yRz61m8RjpmqiIp0q3PqdQ6n4//rvjafpbL+iMUXm+8TIpGi7gOi/KnrE4WBHLOWCoUSjw==
-X-Received: by 2002:a67:7fc8:: with SMTP id a191mr4204060vsd.85.1596220669077;
+        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
+         :references:subject:from:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=tkcb7lWon+ozHO979sLk3aCEMSpQ3BuFU99EyXsQe1c=;
+        b=bc50mwVHcDvDXqfnUyiDffCQiF4QkzbFlf82h0j0AUvnhhl2xXg4CcTzenVqTo66Qj
+         JoK/l4SPCBmmnvlyPy6rTw5/VH0iDQr8EFvhghlR4Ll8gkIbErbuGVBNkGpkQNHFl1Vv
+         Nwb8rWQXGbwdJoks8JGp0BFKeJFL3i+W7bipGeJwhVCNxHTeYItQHrjuthv2jmiNXM0F
+         avg4F2UsF38bjgm0MberQEcpnxLtoE9C69weXC9ESLeNVcA1znIzXz4zKUlOCLrj5gC6
+         b7QkjG1rNrRExV3kvSJhEVlyobH+3WM6TE+1PaTJGI2KvvUEqVUGTVEqF4Z9EmhJldzo
+         KJSw==
+X-Gm-Message-State: AOAM530OENmETcbVuBa5BWHe3ODGu/v7cp5St0BtBiBChyn5abljX+RF
+	Dw0OhUk/BcxcTZ0lwVCAkFs=
+X-Google-Smtp-Source: ABdhPJww+otcS3OWglZXp1uQJQmjA7ZT2UETPU+tXcHlcTOSq9xH/G+NTc5K7KyUsPguD9MOyq0Ifw==
+X-Received: by 2002:ac8:564f:: with SMTP id 15mr5105712qtt.54.1596220669963;
         Fri, 31 Jul 2020 11:37:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6102:904:: with SMTP id x4ls1219403vsh.5.gmail; Fri, 31
- Jul 2020 11:37:48 -0700 (PDT)
-X-Received: by 2002:a05:6102:232f:: with SMTP id b15mr4175351vsa.233.1596220668751;
-        Fri, 31 Jul 2020 11:37:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596220668; cv=none;
+Received: by 2002:ae9:ee18:: with SMTP id i24ls4592652qkg.10.gmail; Fri, 31
+ Jul 2020 11:37:49 -0700 (PDT)
+X-Received: by 2002:ae9:c20a:: with SMTP id j10mr5433754qkg.254.1596220669496;
+        Fri, 31 Jul 2020 11:37:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596220669; cv=none;
         d=google.com; s=arc-20160816;
-        b=o7XcsTPwHGtga4oKG7LkCdmsmpj4PBTG0oetQ1k+opxUcwg9DpIjpnX5OY43OfVbUL
-         VhWPVaUma5u2DrtaRCZ4Qjgv2rQr7gXyOKBmHmGW+PgiX6snq94Avv5AxN76WWkX6oxM
-         MErlp/4UrK3JNYhNBp0GTazflTWIkgSSbtKH+Z21dn5EhGpJVJKSFLuRTwN3bce1Pf3g
-         +5eExbb5u0XdtaVQM+tP36OnvOEWNKu2SoaOQGXW3DUNfdyXshPYsGe5n5U1ZqiQnmFL
-         M4p9nhr2nbLDxwTroyRSrgVOTJ6rLxZrFACtRYXeGmCfOeIwoZ6G6D3qYL/LisyuNP3c
-         Y3Dg==
+        b=Us4SNa752hSEqUezsjzkEnauQ7yw45fnXVhikcyM/iw60zlgJlTT1+TRN3f/PV0/zl
+         X/p+0hS13ZKKQzay0obLu/2I324S/oCEHit9HSjaDRxAJ/ttOo1jHelJbyMHyUuLcIQq
+         L/5U9oIQL8wkdlWeYTZJ+raelK/e/ZGgWy5hxqrm4SwdHTWJI+AUnb2sq2uJjep9u03E
+         rFoZpsyNxF1O1Xb3O8gYnhT0sWbBYEN5vtcitgkgSr5Q5DjLrs4mayC/Pd9Xe+DMv7Dz
+         ReHQPPBj4rtWTRyYkOUsYtA9WdsSwAz/LB5mbmY4x62QCXBwlqnoJVkwgB62zOFp2tCE
+         gl7Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:from:subject:mime-version:message-id:date:dkim-signature;
-        bh=xWSYjHc+nNdSzqwJCR0Bklwg1NIcyWlbe0Z3kPyxnWY=;
-        b=O0/+buVjvlpaUm7cyMnXnNogPeS152esP86jOWOfw3JiGSnPx4IU3WFX74ORyMqlDj
-         6yGllb4xoXw4EBynJ9KUNB0cxW+bN59oDIUOX9EpMqUGDrAGcMKSAxmFNzad7opv7ZLS
-         fqE0bzv44/f5ILPfKWTDhhmfv7sbhoyM2kSIH8E4AvMHDHjJUORGGpw1pxedW0zMsstq
-         4JfJJa33eDSBWZq9wLPKkeIJklWc4wFtG0tomU59jR/lBgxMxCDJJjA62ecc1JX/BPjn
-         qrXCbwZbXAxc8bCXUtKJN+zYE8lZVjrUILtpzqXEnr2xFc5mduynJ5V/xFYjUo64WQol
-         aHtQ==
+        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
+         :date:dkim-signature;
+        bh=zM3dgZxHGwtay7ZIQFv5BfEN+wOLWmAIUQFsf0Z3VmM=;
+        b=BUsdGUtB6rarTWtMfX3d2k1jdc4czYOD4Sa3X5SbpdXNhsScAAVM1oVtNU2LI/uDlh
+         SUAq0v7nZPlYRb85NabZfhXedxj7RHZVDz9y2AzLPgEDr1D0c1u4toUr2AJUDK6qwvai
+         rDPngIqB0cen2/DoiZAnm2Fg4oCYjqICFJkxQBqwNTqyRBdqnBFeCRF+Ktr0V/+cPFN/
+         I6/RSPw/9L00hsFTRXzoCWzMY27l//3VRaqNleKlkFZlsbq6m3UNAhzYUaMCjHxmfI8X
+         q79YzAPsu1hsipCb4SxvM5ma2amKQbxdXv4p/SkmkUbmkootIw3whsrQXODwlSEo9g3u
+         laBA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=UHl+j2V9;
-       spf=pass (google.com: domain of 3_gqkxwkkafc193cc3aan5dd5a3.1db@flex--ckennelly.bounces.google.com designates 2607:f8b0:4864:20::f4a as permitted sender) smtp.mailfrom=3_GQkXwkKAFc193CC3AAN5DD5A3.1DB@flex--ckennelly.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=BFtthBoR;
+       spf=pass (google.com: domain of 3_wqkxwkkafg2a4dd4bbo6ee6b4.2ec@flex--ckennelly.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3_WQkXwkKAFg2A4DD4BBO6EE6B4.2EC@flex--ckennelly.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-qv1-xf4a.google.com (mail-qv1-xf4a.google.com. [2607:f8b0:4864:20::f4a])
-        by gmr-mx.google.com with ESMTPS id g19si482142uab.1.2020.07.31.11.37.48
+Received: from mail-qt1-x849.google.com (mail-qt1-x849.google.com. [2607:f8b0:4864:20::849])
+        by gmr-mx.google.com with ESMTPS id s124si335848qke.3.2020.07.31.11.37.49
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 31 Jul 2020 11:37:48 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3_gqkxwkkafc193cc3aan5dd5a3.1db@flex--ckennelly.bounces.google.com designates 2607:f8b0:4864:20::f4a as permitted sender) client-ip=2607:f8b0:4864:20::f4a;
-Received: by mail-qv1-xf4a.google.com with SMTP id l10so10670538qvw.22
-        for <clang-built-linux@googlegroups.com>; Fri, 31 Jul 2020 11:37:48 -0700 (PDT)
-X-Received: by 2002:a0c:d44e:: with SMTP id r14mr5459448qvh.105.1596220668284;
- Fri, 31 Jul 2020 11:37:48 -0700 (PDT)
-Date: Fri, 31 Jul 2020 14:37:42 -0400
-Message-Id: <20200731183745.1669355-1-ckennelly@google.com>
+        Fri, 31 Jul 2020 11:37:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3_wqkxwkkafg2a4dd4bbo6ee6b4.2ec@flex--ckennelly.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) client-ip=2607:f8b0:4864:20::849;
+Received: by mail-qt1-x849.google.com with SMTP id m13so2775457qth.16
+        for <clang-built-linux@googlegroups.com>; Fri, 31 Jul 2020 11:37:49 -0700 (PDT)
+X-Received: by 2002:a0c:fa85:: with SMTP id o5mr5404015qvn.91.1596220669093;
+ Fri, 31 Jul 2020 11:37:49 -0700 (PDT)
+Date: Fri, 31 Jul 2020 14:37:43 -0400
+In-Reply-To: <20200731183745.1669355-1-ckennelly@google.com>
+Message-Id: <20200731183745.1669355-2-ckennelly@google.com>
 Mime-Version: 1.0
+References: <20200731183745.1669355-1-ckennelly@google.com>
 X-Mailer: git-send-email 2.28.0.163.g6104cc2f0b6-goog
-Subject: [PATCH 0/2 v2] Selecting Load Addresses According to p_align
+Subject: [PATCH 1/2 v2] fs/binfmt_elf: Use PT_LOAD p_align values for suitable
+ start address.
 From: "'Chris Kennelly' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Alexander Viro <viro@zeniv.linux.org.uk>, Alexey Dobriyan <adobriyan@gmail.com>, 
 	Song Liu <songliubraving@fb.com>
@@ -113,9 +118,9 @@ Cc: David Rientjes <rientjes@google.com>, Ian Rogers <irogers@google.com>,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ckennelly@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=UHl+j2V9;       spf=pass
- (google.com: domain of 3_gqkxwkkafc193cc3aan5dd5a3.1db@flex--ckennelly.bounces.google.com
- designates 2607:f8b0:4864:20::f4a as permitted sender) smtp.mailfrom=3_GQkXwkKAFc193CC3AAN5DD5A3.1DB@flex--ckennelly.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=BFtthBoR;       spf=pass
+ (google.com: domain of 3_wqkxwkkafg2a4dd4bbo6ee6b4.2ec@flex--ckennelly.bounces.google.com
+ designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3_WQkXwkKAFg2A4DD4BBO6EE6B4.2EC@flex--ckennelly.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Chris Kennelly <ckennelly@google.com>
 Reply-To: Chris Kennelly <ckennelly@google.com>
@@ -135,34 +140,69 @@ The current ELF loading mechancism provides page-aligned mappings.  This
 can lead to the program being loaded in a way unsuitable for
 file-backed, transparent huge pages when handling PIE executables.
 
-While specifying -z,max-page-size=0x200000 to the linker will generate
-suitably aligned segments for huge pages on x86_64, the executable needs
-to be loaded at a suitably aligned address as well.  This alignment
-requires the binary's cooperation, as distinct segments need to be
-appropriately paddded to be eligible for THP.
-
 For binaries built with increased alignment, this limits the number of
 bits usable for ASLR, but provides some randomization over using fixed
 load addresses/non-PIE binaries.
 
-Changes V1 -> V2:
-* Added test
+Tested: verified program with -Wl,-z,max-page-size=0x200000 loading
+Signed-off-by: Chris Kennelly <ckennelly@google.com>
+---
+ fs/binfmt_elf.c | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-Chris Kennelly (2):
-  fs/binfmt_elf: Use PT_LOAD p_align values for suitable start address.
-  Add self-test for verifying load alignment.
-
- fs/binfmt_elf.c                             | 24 ++++++++
- tools/testing/selftests/exec/.gitignore     |  1 +
- tools/testing/selftests/exec/Makefile       |  9 ++-
- tools/testing/selftests/exec/load_address.c | 68 +++++++++++++++++++++
- 4 files changed, 100 insertions(+), 2 deletions(-)
- create mode 100644 tools/testing/selftests/exec/load_address.c
-
+diff --git a/fs/binfmt_elf.c b/fs/binfmt_elf.c
+index 9fe3b51c116a6..24e80302b497d 100644
+--- a/fs/binfmt_elf.c
++++ b/fs/binfmt_elf.c
+@@ -421,6 +421,25 @@ static int elf_read(struct file *file, void *buf, size_t len, loff_t pos)
+ 	return 0;
+ }
+ 
++static unsigned long maximum_alignment(struct elf_phdr *cmds, int nr)
++{
++	unsigned long alignment = 0;
++	int i;
++
++	for (i = 0; i < nr; i++) {
++		if (cmds[i].p_type == PT_LOAD) {
++			/* skip non-power of two alignments */
++			if (cmds[i].p_align & (cmds[i].p_align - 1))
++				continue;
++			if (cmds[i].p_align > alignment)
++				alignment = cmds[i].p_align;
++		}
++	}
++
++	/* ensure we align to at least one page */
++	return ELF_PAGEALIGN(alignment);
++}
++
+ /**
+  * load_elf_phdrs() - load ELF program headers
+  * @elf_ex:   ELF header of the binary whose program headers should be loaded
+@@ -1008,6 +1027,7 @@ static int load_elf_binary(struct linux_binprm *bprm)
+ 		int elf_prot, elf_flags;
+ 		unsigned long k, vaddr;
+ 		unsigned long total_size = 0;
++		unsigned long alignment;
+ 
+ 		if (elf_ppnt->p_type != PT_LOAD)
+ 			continue;
+@@ -1086,6 +1106,10 @@ static int load_elf_binary(struct linux_binprm *bprm)
+ 				load_bias = ELF_ET_DYN_BASE;
+ 				if (current->flags & PF_RANDOMIZE)
+ 					load_bias += arch_mmap_rnd();
++				alignment = maximum_alignment(
++					elf_phdata, elf_ex->e_phnum);
++				if (alignment)
++					load_bias &= ~(alignment - 1);
+ 				elf_flags |= MAP_FIXED;
+ 			} else
+ 				load_bias = 0;
 -- 
 2.28.0.163.g6104cc2f0b6-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200731183745.1669355-1-ckennelly%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200731183745.1669355-2-ckennelly%40google.com.
