@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBDP5SP4QKGQERFMATYQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBFH6SP4QKGQEJFBGCHQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x137.google.com (mail-il1-x137.google.com [IPv6:2607:f8b0:4864:20::137])
-	by mail.lfdr.de (Postfix) with ESMTPS id CB2B12350A3
-	for <lists+clang-built-linux@lfdr.de>; Sat,  1 Aug 2020 07:33:02 +0200 (CEST)
-Received: by mail-il1-x137.google.com with SMTP id a17sf1407842ilb.21
-        for <lists+clang-built-linux@lfdr.de>; Fri, 31 Jul 2020 22:33:02 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596259981; cv=pass;
+Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
+	by mail.lfdr.de (Postfix) with ESMTPS id 542D42350AB
+	for <lists+clang-built-linux@lfdr.de>; Sat,  1 Aug 2020 07:35:18 +0200 (CEST)
+Received: by mail-pl1-x638.google.com with SMTP id a8sf23784597plm.7
+        for <lists+clang-built-linux@lfdr.de>; Fri, 31 Jul 2020 22:35:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596260117; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Qvv8uajJ34kJjJPbBUFRxiDOcpD6Tq8UA5yxowU+nrz/l3/7dWKiAdw+EFg6iD/e9/
-         2YLrGfcqW+/wvWR3HOsGt4nz0WWZZROeSjMfJTeNXw3Btzt2FUXrLuq34BtXfl5u8MmH
-         /loCq03cCMvJwomZg7GlKwM0C7gxrZplqweho1+04FfkfTthului3AS+WC1nhU5l3CYd
-         GutZTKpXhcSFHTpOEsfzBxDjs/VDQ02/lNpOOoLKMDDDMoplQd1Co99f23Q+QG7knKBM
-         GxVmmxBC2bK7i+eBMz8jtjNS/U5gvq5Tb5kacWps0rg8IKLxAJ1qQ7ibB7OqoFBefvOw
-         fcMQ==
+        b=N9BfTaHA6mL7NXYVoOYQ1769a6Ecf+0Aej6YOyhE7R8BIfxqPQvxTDn5krBjgcRnUe
+         hwI2OUH+JLQI+IF12IAFxXHuZhi86Wp9TmFiqrRHaw+9thB5h0dzcPCcRWUNmR8Kc3Xc
+         ARxUdmc0yDl2Si/5MIoUvpVJ+WD51PTfU3TBOS9ffAo0CjWDODd7QNi7bqzNAvLlYXt8
+         GJ08ODeap1fueylrR+tefd7LM3G2LOSazT3nPlgqRmaTw3qzWTZJO+EO55jSAzn/95Pj
+         aSlunStVrw0T4t4MW94P18Rt/fhfBEJ+gpdcX/LwdDMGpTakKTGMSIdqagcVRSDzBtDo
+         iJdw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=QGwevosQMIaCoVTQ6K1I3j52qAjVoWM6QzSSB1+Jyoc=;
-        b=WA03X2TrNITX+8MObpuWg58ThWU0E6hccExs4Vfvwjeg2C5P6phZV2eySrLMX5qdW0
-         lJy9/wJOiB1QDRQF0N2KcYkC0kY8iBmCeXCWErDwXRhfXPanyJHdU4Wlgko/gS7+egzT
-         Yf2+K9eanl6+lY7/3IuwSKozWZSPYDWdwfG9NFG34dLHDV3iAYRz2RkF+aczVpjGn3aO
-         D1oZDOTcyXQW1QFMe8ejOxbj1rUWxslBeef/+d/Oddq37/MldEdttWZBxwj6R+U1x4qt
-         o4sIfawrgVB5M088CUyLvPJzAdTWBs3tN7C4MnBY9xSt7vCvQ0Kz8+/13u8/1gJVzBqY
-         orgg==
+        bh=MMUxynPMBwh2DZOY0SNtEmuZqXyv/ywSF/8bS0D7JgQ=;
+        b=rQ5xoT5SyZ817KYl8ksb53CZou2M3ObnJCq27GbAtnWzlobTFFgg2jYQn5eAj5upEz
+         LvrVF0NyzLIFhl0/gGHWH+5m3/DR0PEBe7JyYz3brePelt/gY8MxMpwHWxGXZLhhPBLT
+         4wdWOGGNluoKmn075asUwP/3AieW6B0DnZPCn24OrfeJ8Z4saqNFYQy1vf/foU4A7W2v
+         5xl/+nM+e9U1HBU/RatTrGGeRRAkwxaP//KtCEwmh6MWRcjp2uTvrwnaRAOBSXZvpyPx
+         ppHOrd1puF6LLxVZEBHYi6baXaTqSJacayUOJNmmHhLrj/CRmHJ7PF3YZtenlD9skjz0
+         TPBA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=lsTcCKnk;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=cFCUN8WX;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=QGwevosQMIaCoVTQ6K1I3j52qAjVoWM6QzSSB1+Jyoc=;
-        b=Jz+6l8GIkaS4RsXLrnNd9MtRrV6p03M6Nm4FMYcddqx5pwNs7jVSVDD6NUvAsf7P+V
-         VbNVpDbD+NU2stHkDt+MyFxB8/Ry3TmrcjbnNwntGXO0Jb9kwXON052jqM74eg5mCJK1
-         1XWMsbjpfa1effDNFddOj74edBK+zBm0Q7E4b8JzDmglnoEGy/8kfpb7VmGY0Drjp3Jh
-         zJjM7J1rsgbEHivTcfaHqzeYV85iasxzzfxnDyDrkhV8BiFbQ0Cf0nPZ21Sh0qgku5hJ
-         BjGKQJj06BLyvU7WFdAAtwWajriKHQ99XSvSk2fUaGo9+kZSctD5UqUQ47xwi7pWi1Xo
-         wQmQ==
+        bh=MMUxynPMBwh2DZOY0SNtEmuZqXyv/ywSF/8bS0D7JgQ=;
+        b=ilqGrg5lqK5hLoSmpLt2kEcXLOCyYnTisEIMSmel2ghRViCPUvy4ci87lQofuYcLbE
+         jm/bGRe+CC2Hv1g4yeXM1m30RaVLOqCzoz2ZDqcAMODM/HvRzpO9TDObcah/C/Vp3y6V
+         nOGIdctIViI8U9MemyleZY/i1L9lWS96fEOamyea5WUyedwWtUqokncuQPJugGsOCowC
+         QvE66Xfu1lbd9c30lHNhMvRuZHnQwIMxYw1T0YmHVnHho32jlhMLyB5OG4dCbHm2DWLr
+         RoIDiuWropHm10g/o4POu7v2bViXf/nVvRracswnAax79bG43MX5Zp8FaMy6DYy47oub
+         aZ6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,61 +50,61 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=QGwevosQMIaCoVTQ6K1I3j52qAjVoWM6QzSSB1+Jyoc=;
-        b=MeEtnn6iltGmCMR8vJQVTnsAePmC6S8ifHT339lU9YGADGAJOtyOdjgFyfICYLzrHX
-         LcMbm7ALAMFFizHERkvDP9f/50wUVupXQwTASZj77oNTCkBSDR21kYkEUEKatwP0OORc
-         EI57n9tEFfPk0LE/1mUeI2rNo8bSiAmAlx7nSF3JtjYjbept2Au/ucSCvt5qFEdA1c59
-         u8XY+wWV1+gmrh3ZpUWA/EGU+mIF7G4MPWVb8K+nzY26cL3JKWGx8PGHxEtgJ/uzedDU
-         1JCIa0r2mJPFtkeQueSo3fqwkB3G98E66uLhAzFFsnjpUhUZR6kYfY+GTuOyewTUVjqL
-         2epw==
+        bh=MMUxynPMBwh2DZOY0SNtEmuZqXyv/ywSF/8bS0D7JgQ=;
+        b=KV6HlDJ1MdTLhUiWu2eYdyEZ5Q0km8Mrzx+9Z/Q6G/q0sQIppXO6Q5QZJGuK0M2EKF
+         iWGwYCT8wkw6JCbAWrOoJrg1lDwNlFcv2fYaDt139S9xyDc10Jzv6BRpGuMZiPS7J5xI
+         syaZUTurUHK1DgFdSxOZVkGoYdcn3/za4nQyEbuwzWNyUVyapW77Mqlonyrs44LCnlAc
+         6nkIVxG5/07khXIEq3qe4vBZUfPdGKa/p24JdYQubTJqSr2XCtKehryD1xrH/0A48oGh
+         O/iZY8TzKOBhCwnzJvhSkbF4oAAOsZ+z/wxJZTRUx7PGrHZU1mM/0Z3dlBLX92bQmKw7
+         ej2Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532ddvjq5JAPdot7QnmuEiqTPl5rylPLJz2eLyY/ATaKB1PtKdEF
-	TXvqZTddoNDc40OzsZs4Y8Y=
-X-Google-Smtp-Source: ABdhPJzzZyghxKB7//y5WOFGSXFzf277bs5yWHI/aUsi34iLwGwQpNm4UNokllipI8u5fPsn5HBiJQ==
-X-Received: by 2002:a6b:7e41:: with SMTP id k1mr6989872ioq.130.1596259981496;
-        Fri, 31 Jul 2020 22:33:01 -0700 (PDT)
+X-Gm-Message-State: AOAM530vvOCR3CAfAyyLnYBazXA01N5rcIbrs2gFFfbqn3EGP8YCmKh9
+	/gssxtK3c0ZuYINNHSK8DaQ=
+X-Google-Smtp-Source: ABdhPJypolwE7qN+saKdBHaQm+oHTD4s0snrckK9RIS7XhuPu8rvruwQ5DSonvrmgFHjjj8WCVtr3Q==
+X-Received: by 2002:a17:90a:db87:: with SMTP id h7mr7551848pjv.51.1596260116702;
+        Fri, 31 Jul 2020 22:35:16 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:89d8:: with SMTP id w85ls3057928ilk.9.gmail; Fri, 31 Jul
- 2020 22:33:01 -0700 (PDT)
-X-Received: by 2002:a92:5e9c:: with SMTP id f28mr7568702ilg.167.1596259981237;
-        Fri, 31 Jul 2020 22:33:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596259981; cv=none;
+Received: by 2002:a17:902:442:: with SMTP id 60ls4558457ple.4.gmail; Fri, 31
+ Jul 2020 22:35:16 -0700 (PDT)
+X-Received: by 2002:a17:902:a418:: with SMTP id p24mr6749584plq.55.1596260116266;
+        Fri, 31 Jul 2020 22:35:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596260116; cv=none;
         d=google.com; s=arc-20160816;
-        b=gMVG4Fbi61qXkkEKF4KZINrX/kgDQlbyyNDgRybSc73CPiCIX2avdeMF8FV5Ej/n/U
-         lgyp1hCaVOLyO+A3BYwymenX0goQN3ufNFz8oSSUzM9SoG8+K2ZE5ttT2obJ4Dl98mrj
-         vIlNXSTC4kqXuxp0aeucmEH7BSxpdIARoaj+DufyKmblx+15F6ft+ThaEE2acXi6EOlW
-         yEhNB0DwvhaDG/S3mUegfmCf/ZWcWqDx/JeffOP2oyUL04B87KrgrIDjVyRwAI+DiyOs
-         XiPNOjKe8UqqWln/T6S6AzYWODDnNFp15dYGVvrMlIkhFRYwswFPfIyqaVzBo3WC8TUb
-         mmrw==
+        b=T4/TIt9ookEnIgtdkz0/zpkxLi0N9Skq1Z8z3HwJJQioICtWVN4ObwXhPqrddNReUS
+         spjYm992TUPXNv04Fc05pppQloCStJyToiaHbfrYyXvNF8gtaUGRbRwJGn0JdJPKH3mv
+         M+9N1nBJCBaqODqemN5UHLF1NQJHqZ0KBniDCiJRl03NSQ5n6PY0hN1dRM3fryjRSxsI
+         zpx7mY2VyEOGyaaQyEGgF2UmvossiC0g4QTbYaNWGh/TCORzPAeLEocJ4W+PDlFi2EaU
+         4CzuOa7b8Fkv4D4eFDCrIh/YMj6+9wC9wvwvztPg2NWHLnmB4kHmbK2YQEdI4Ar/9k2W
+         yfBA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=gffroDgUnFtt8A2AavQiebLwAg263HkbnMzJiVCWfkA=;
-        b=pq1J9R9vUDobnZM/RhnPD4BQcIuytJsrEcN2NMbbovfHZfvsGjxZTCv8X/Vxr8/LsV
-         nUPJiQTRcjd4zg3doiT83Jsxq9ig7I244BZfGU0kD4bixJhv4+82utVYPuxrmfsnw+7i
-         RRu29zzVwipoH0H5ho5bRfadlRBtZe77uSv4x+aE3pUKcO+o5OyEOOp/Sxg7K2DVv21j
-         KETpnbBy978fvv6naP6FOEngV4izn58brIMDERpl7UBqhyGdWn1iHGCW2JlQjIf+rDXL
-         PQL8eeiK/kpTE/TlSEhG+fpFCI43wV+sLhDF0N03AMIyGmKv2/t7YxAa65BCSp6FExzO
-         2QoA==
+        bh=sBcnbrjbFajVyHxfld/Fszj/ZWv73cYyddExdUQ2/uM=;
+        b=WyYN3xcy5HnKGecxcu7OyrBKyZHq/x81YjN5Ex1YoREZNf3O5CDz3Z6X7jUEtVJcwh
+         fUXOVKVC3jK06EHEb3lKm62EvY6rXMbNYUATHq+8QxAie7Fjjf8BNkcZS/dxptclzLd3
+         rEoH233h+EAi9+vcJtmWw5aojUc0vJY9Ahs5yDMwP1+C3z5bzLgAYTjMBSEFRBpj+orZ
+         hJIUTfNoqmr0TxB8Be/rD1OO+sn2YfDXmcY1Yc7RXwB2ETnjTBj+QWyTDXWotKfRgMX3
+         lL6HXi4uE08c6tvjfvAX4d98LmxTkg3RLy0yN/euJUpsslxS1NomsZU0h2SvBZzciGNO
+         xjxg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=lsTcCKnk;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=cFCUN8WX;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pf1-x441.google.com (mail-pf1-x441.google.com. [2607:f8b0:4864:20::441])
-        by gmr-mx.google.com with ESMTPS id d2si511685ill.1.2020.07.31.22.33.01
+Received: from mail-pf1-x444.google.com (mail-pf1-x444.google.com. [2607:f8b0:4864:20::444])
+        by gmr-mx.google.com with ESMTPS id lw11si106662pjb.1.2020.07.31.22.35.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 31 Jul 2020 22:33:01 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::441 as permitted sender) client-ip=2607:f8b0:4864:20::441;
-Received: by mail-pf1-x441.google.com with SMTP id b186so5198941pfb.9
-        for <clang-built-linux@googlegroups.com>; Fri, 31 Jul 2020 22:33:01 -0700 (PDT)
-X-Received: by 2002:a65:5604:: with SMTP id l4mr6920746pgs.268.1596259980678;
-        Fri, 31 Jul 2020 22:33:00 -0700 (PDT)
+        Fri, 31 Jul 2020 22:35:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::444 as permitted sender) client-ip=2607:f8b0:4864:20::444;
+Received: by mail-pf1-x444.google.com with SMTP id u185so15495054pfu.1
+        for <clang-built-linux@googlegroups.com>; Fri, 31 Jul 2020 22:35:16 -0700 (PDT)
+X-Received: by 2002:a62:164a:: with SMTP id 71mr6825401pfw.266.1596260115966;
+        Fri, 31 Jul 2020 22:35:15 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id y6sm12228821pfr.61.2020.07.31.22.32.59
+        by smtp.gmail.com with ESMTPSA id i21sm12412582pfa.18.2020.07.31.22.35.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Jul 2020 22:32:59 -0700 (PDT)
-Date: Fri, 31 Jul 2020 22:32:58 -0700
+        Fri, 31 Jul 2020 22:35:15 -0700 (PDT)
+Date: Fri, 31 Jul 2020 22:35:14 -0700
 From: Kees Cook <keescook@chromium.org>
 To: Arvind Sankar <nivedita@alum.mit.edu>
 Cc: Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
@@ -122,19 +122,20 @@ Cc: Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
 	clang-built-linux@googlegroups.com, linux-arch@vger.kernel.org,
 	linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 29/36] x86/build: Enforce an empty .got.plt section
-Message-ID: <202007312231.60719F7C4@keescook>
+Subject: Re: [PATCH v5 32/36] x86/boot/compressed: Reorganize zero-size
+ section asserts
+Message-ID: <202007312233.1BA0E2EFC@keescook>
 References: <20200731230820.1742553-1-keescook@chromium.org>
- <20200731230820.1742553-30-keescook@chromium.org>
- <20200801021248.GB2700342@rani.riverdale.lan>
+ <20200731230820.1742553-33-keescook@chromium.org>
+ <20200801014755.GA2700342@rani.riverdale.lan>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200801021248.GB2700342@rani.riverdale.lan>
+In-Reply-To: <20200801014755.GA2700342@rani.riverdale.lan>
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=lsTcCKnk;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::441
+ header.i=@chromium.org header.s=google header.b=cFCUN8WX;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::444
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
@@ -149,33 +150,36 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jul 31, 2020 at 10:12:48PM -0400, Arvind Sankar wrote:
-> On Fri, Jul 31, 2020 at 04:08:13PM -0700, Kees Cook wrote:
-> > The .got.plt section should always be zero (or filled only with the
-> > linker-generated lazy dispatch entry). Enforce this with an assert and
-> > mark the section as NOLOAD. This is more sensitive than just blindly
-> > discarding the section.
+On Fri, Jul 31, 2020 at 09:47:55PM -0400, Arvind Sankar wrote:
+> On Fri, Jul 31, 2020 at 04:08:16PM -0700, Kees Cook wrote:
+> > For readability, move the zero-sized sections to the end after DISCARDS
+> > and mark them NOLOAD for good measure.
 > > 
 > > Signed-off-by: Kees Cook <keescook@chromium.org>
 > > ---
-> >  arch/x86/kernel/vmlinux.lds.S | 14 +++++++++++++-
-> >  1 file changed, 13 insertions(+), 1 deletion(-)
+> >  arch/x86/boot/compressed/vmlinux.lds.S | 42 +++++++++++++++-----------
+> >  1 file changed, 25 insertions(+), 17 deletions(-)
 > > 
-> > diff --git a/arch/x86/kernel/vmlinux.lds.S b/arch/x86/kernel/vmlinux.lds.S
-> > index 0cc035cb15f1..7faffe7414d6 100644
-> > --- a/arch/x86/kernel/vmlinux.lds.S
-> > +++ b/arch/x86/kernel/vmlinux.lds.S
-> > @@ -414,8 +414,20 @@ SECTIONS
-> >  	ELF_DETAILS
-> >  
-> >  	DISCARDS
-> > -}
-> >  
-> > +	/*
-> > +	 * Make sure that the .got.plt is either completely empty or it
-> > +	 * contains only the lazy dispatch entries.
-> > +	 */
-> > +	.got.plt (NOLOAD) : { *(.got.plt) }
+> > diff --git a/arch/x86/boot/compressed/vmlinux.lds.S b/arch/x86/boot/compressed/vmlinux.lds.S
+> > index 3c2ee9a5bf43..42dea70a5091 100644
+> > --- a/arch/x86/boot/compressed/vmlinux.lds.S
+> > +++ b/arch/x86/boot/compressed/vmlinux.lds.S
+> > @@ -42,18 +42,16 @@ SECTIONS
+> >  		*(.rodata.*)
+> >  		_erodata = . ;
+> >  	}
+> > -	.rel.dyn : {
+> > -		*(.rel.*)
+> > -	}
+> > -	.rela.dyn : {
+> > -		*(.rela.*)
+> > -	}
+> > -	.got : {
+> > -		*(.got)
+> > -	}
+> >  	.got.plt : {
+> >  		*(.got.plt)
+> >  	}
 > > +	ASSERT(SIZEOF(.got.plt) == 0 ||
 > > +#ifdef CONFIG_X86_64
 > > +	       SIZEOF(.got.plt) == 0x18,
@@ -183,22 +187,58 @@ On Fri, Jul 31, 2020 at 10:12:48PM -0400, Arvind Sankar wrote:
 > > +	       SIZEOF(.got.plt) == 0xc,
 > > +#endif
 > > +	       "Unexpected GOT/PLT entries detected!")
-> > +}
 > >  
-> >  #ifdef CONFIG_X86_32
-> >  /*
+> >  	.data :	{
+> >  		_data = . ;
+> > @@ -85,13 +83,23 @@ SECTIONS
+> >  	ELF_DETAILS
+> >  
+> >  	DISCARDS
+> > -}
+> >  
+> > -ASSERT(SIZEOF(.got) == 0, "Unexpected GOT entries detected!")
+> > -#ifdef CONFIG_X86_64
+> > -ASSERT(SIZEOF(.got.plt) == 0 || SIZEOF(.got.plt) == 0x18, "Unexpected GOT/PLT entries detected!")
+> > -#else
+> > -ASSERT(SIZEOF(.got.plt) == 0 || SIZEOF(.got.plt) == 0xc, "Unexpected GOT/PLT entries detected!")
+> > -#endif
+> > +	/*
+> > +	 * Sections that should stay zero sized, which is safer to
+> > +	 * explicitly check instead of blindly discarding.
+> > +	 */
+> > +	.got (NOLOAD) : {
+> > +		*(.got)
+> > +	}
+> > +	ASSERT(SIZEOF(.got) == 0, "Unexpected GOT entries detected!")
+> >  
+> > -ASSERT(SIZEOF(.rel.dyn) == 0 && SIZEOF(.rela.dyn) == 0, "Unexpected run-time relocations detected!")
+> > +	/* ld.lld does not like .rel* sections being made "NOLOAD". */
+> > +	.rel.dyn : {
+> > +		*(.rel.*)
+> > +	}
+> > +	ASSERT(SIZEOF(.rel.dyn) == 0, "Unexpected run-time relocations (.rel) detected!")
+> > +	.rela.dyn : {
+> > +		*(.rela.*)
+> > +	}
+> > +	ASSERT(SIZEOF(.rela.dyn) == 0, "Unexpected run-time relocations (.rela) detected!")
+> > +}
 > > -- 
 > > 2.25.1
 > > 
 > 
-> Is this actually needed? vmlinux is a position-dependent executable, and
-> it doesn't get linked with any shared libraries, so it should never have
-> a .got or .got.plt at all I think? Does it show up as an orphan without
-> this?
+> There's no point in marking zero-size sections NOLOAD -- if the ASSERT's
+> passed, they won't be present in the file at all anyway.
 
-When I switched from DISCARD to 0-assert, I tested all of these, but given
-so many combinations, perhaps I made a mistake. I will double-check and
-report back.
+I did not find that universally true. I found some sections be written
+out with a 0 size. Some I could remove from disk with NOLOAD, others did
+not like that so much.
+
+> The only section for which there might be a point is .got.plt, which is
+> non-empty on 32-bit, and only if it is first moved to the end. That
+> saves a few bytes.
+
+What do you mean about "only if it is first moved to the end"? Would it
+be zero-sized if it was closer to .text?
 
 -- 
 Kees Cook
@@ -206,4 +246,4 @@ Kees Cook
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202007312231.60719F7C4%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202007312233.1BA0E2EFC%40keescook.
