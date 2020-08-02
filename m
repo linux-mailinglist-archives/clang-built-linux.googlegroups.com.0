@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBAABBN6XTP4QKGQE6TN5MSA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBQ6XTP4QKGQE5ZJ6WAY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe40.google.com (mail-vs1-xe40.google.com [IPv6:2607:f8b0:4864:20::e40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 11DA92358A7
-	for <lists+clang-built-linux@lfdr.de>; Sun,  2 Aug 2020 18:37:13 +0200 (CEST)
-Received: by mail-vs1-xe40.google.com with SMTP id 7sf7796496vsr.3
-        for <lists+clang-built-linux@lfdr.de>; Sun, 02 Aug 2020 09:37:13 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596386232; cv=pass;
+Received: from mail-vs1-xe3a.google.com (mail-vs1-xe3a.google.com [IPv6:2607:f8b0:4864:20::e3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0553A2358AD
+	for <lists+clang-built-linux@lfdr.de>; Sun,  2 Aug 2020 18:37:24 +0200 (CEST)
+Received: by mail-vs1-xe3a.google.com with SMTP id m25sf3752542vso.20
+        for <lists+clang-built-linux@lfdr.de>; Sun, 02 Aug 2020 09:37:23 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596386243; cv=pass;
         d=google.com; s=arc-20160816;
-        b=oIivK7Y+4H87Rw5AzBE3ed/NvrpjZAAf+TR66PnS/gaqtMBP3KKpQjOz5COjmxu6g3
-         Dc9I9JMl8T6TgIICHn+GPkWhqOA2XCp3xni6EYsUkrcbbw3erYHaAqZv8oAuRXW+HX9L
-         +ul+UjJlart6ZOmgOqgb9v9EKyM92YsBVcMv7l4Qu/wgfYRJQ0PvCK2rb0O27iExPgJ4
-         T3bkpSG2btU0QA5ZCvV6ewCIPsJ22R8WA0QlvHuaL6AabonyQAgCHuUbjVIvmJ8eR7TJ
-         OWUPZ9UXeujIr7GY+lDJCgKp8O+mNrbN3GSOnh+PRmXoR9UZWXHSTKfJT70PfUzD/WYs
-         AArw==
+        b=yDFZD6MM/yOvouoN697lx4c1vLjlpff/8X5HasOj6biUhOYNDE6urwrjihvLBhJ+0m
+         Xl+7hNvNXwsouJh1xU5yMKs5jgnH1m8tJLrU+WCTF+KgQjNQNF9PdxpOyf6W05C7CLeT
+         E1rQZJmW7PeoDAKnqfaY49aaz0JJPt5oaGZLSdwWZBudb6zo//caDc3p7GWSZBRgyLA/
+         kB2mR+TWLWaYAU+TY0Ip9kUVr5IHUNsZjhJ+9cdJQ6fkJwIT/62CCqqwWfY50wK0y/80
+         hsqXPjHOapS6fBABmXb2QIi2hSiGVqFaouQ7G+tfX5rJDBlEgn/vGJfzyGYB5hDoBG6N
+         daZQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=QLymQbbGxTAGGOSrU9RrWRqlGV0VNBCI7YM/3sp1z8g=;
-        b=jQw5gEnd5fLjVk9DIS3EnStAKxyTso+ctFtcmyf4+MLzwze71M0QKb1nRQj0J4tFBM
-         iQFGEBoPPLjOtmpq3FVV3hk8qvdmFipFtF8fDQ0i3Bb9w1YBLSdNt3DzAxlEZlqChdWh
-         fgnufBrN6SZhP+W7pMPdhLS3KcujUiQ2s6LUyIW5ee769IJP+HRpLrrFUpYFab78TMUr
-         10vEF61oFpkEw/KC7EyQVl97hV+aboTRbS9cBQxiODIh4f5oUDhtsnjeNHw1qwhozAmV
-         1h/TmcOWUvbvXY6J1xwo+aVyJuDDNIw3MNw1G2DR52a2NYyAqh/tDTVZVmTQUfUD2PjG
-         ZfXg==
+        bh=0Bp+l7wLIdDrx8Mldw8KA7Ct6RCua8HDQHnnZ+iaKxY=;
+        b=fi4PI0vT4fqRvu6dXgj2lg3hJuGdY+JaPGuo6X5SqTbFaWlgadNitEFH/vK6O+SRWc
+         PB745r1OxYWCQlrWzGnSqEslcMCBccx56RRr8djYQZYPxx5630FBp0h1le0bCw6rYN6Q
+         ey5E7vttlWKxRJrmTJTezX3CQFN21EhotXI7aWr9SXAdDyll0f3+Xm9xmYCsV27mMWpC
+         dUAvXA1cUJ06ClHydtN4yNtC2tWOyW0aAIOL+WyoW5i51guMrsp3BsnFDpiRUWDc4ots
+         TevDi7N5wU1nxw2ZhTkEhFB2Ngc2ssA4hm7nXy/v0QlBbpNW+pH1ZSNZjrVpeDa3z0zJ
+         3edg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=XkobRDns;
+       dkim=pass header.i=@kernel.org header.s=default header.b=FwMLBSAm;
        spf=pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=rppt@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QLymQbbGxTAGGOSrU9RrWRqlGV0VNBCI7YM/3sp1z8g=;
-        b=l1zRfYklCbOl5xABNOzIMNF8tL685S2ZjPFZTDXusp+I5Am9TMa0d8tcP8Sfh7ZEip
-         yBZXp7ir+i0qkDyJJSUcOdQHF3GHGekMFt29EJs1zUMBlOKwhDE9hvk4S+GEMOVRWSx5
-         k4RJ5vFQK/u3wc0BYG6GmWDvOttiUuLvzj9NuZGfYgCjQCabJsA35aBPVmUmBw8XpINC
-         Q8dsIzTFCJ8s/UdgApR06Ly1Pt5mRjjKF5y+diCYOpG4kzhFspPEeYyv7d9/FOa7P0Wj
-         ORUvPrFIALHVCkVnCXygT1QzwDyD9wbW77lGyhhVa7NBpZFbw3SL7OkJ8kCCzdj1xynX
-         44Ew==
+        bh=0Bp+l7wLIdDrx8Mldw8KA7Ct6RCua8HDQHnnZ+iaKxY=;
+        b=C/EJwGPC9oGDokrmNY7r5ujeMTYHIjQDPKnYnttr+/LOYsWOm31wIQ4cWEQh0o9s7R
+         a0Y7rnb6FlM/E94rMqjStxNzmQXsuEquCR6s4u4jrpx5b6fnTHDnORZIWNiYhaKAYxWu
+         zqCmBrFCjmcHspUKd1zaYeC1epTGQZPWWbPxqt1C8iWW5JFumVqYtarwXAD4boSEhiMc
+         rkjIcWEwzEu0pbsx3t72mAcATBBtQoVex5Z56mYADDJ2Zp43Mjg3iUpAXQTC0Xu4psrN
+         9FH5C3tAVICLehUQEkz7HJb8bOJkeHPRc/8yfexKxtpNJuq/nMgHt+mZekr7cM8d5fK0
+         LBXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,57 +49,57 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QLymQbbGxTAGGOSrU9RrWRqlGV0VNBCI7YM/3sp1z8g=;
-        b=cqgBbpSeGTCqFtyVkSa8ZXlfOYVjH3kh/ebgiLhz/c+2rqUuKJZcpwNrl6MbFtUd5i
-         wxEgsVtewZOv7oja1AlxFUbQd2Zl+1TceIz8B4fabQZCatr80pBQmdwP8K0MjPkCYAmn
-         vr9ZaSHmnSAtqrj3cj6pGRxvccHr0PUTuW53AJLiuNSAWmpdCMCIANtsTkhSuEjkY553
-         odwMZOquXZNRU9K43EL/dnS5pQiIYSSpSnCIoNaaLBTm0yROr2bRWmcNN98HY0BkdLnR
-         rAhyIN+BTLLK4A+OgRK0yB7D9ySHnqrcXpwF0IdOK+p0njrYwe6Yp6++EriAHkvYHOXD
-         MapA==
+        bh=0Bp+l7wLIdDrx8Mldw8KA7Ct6RCua8HDQHnnZ+iaKxY=;
+        b=esNR9dNYGTeN2qrsGrbA29RzKU87mhYkeYXJ1gRLefaCq6XSib45F9MGNqlxgoo29v
+         1ZeGmYMpMlZiTTPXJDWdQVolp+E0lTKo4HjCHxXB61nA8Q2VTOtSQo50f4P8RcWrUGk0
+         U2xjc559ey0V9WrXyAUU+tUj1GnZSfBl4ybYcEICI8FvBZPVM9ycuHIS1lNAdr+1qmcD
+         hnGrNxxcmNP3PZkdC778PEmhUAbhIiB6khEnHtDPfhy8D7Jq4OlGjxa8BeEdqHUEfoVy
+         loj+bTnI4GWCqFKHhfl+h5R6QpBBcgsQnruHICdLh74bRrKy2SClpN5qhOw/UjXMcowq
+         4GTw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5338XaTRUNPCW1FOh7SzxuX9pM/wZrl81uxrOvhERucChpLJMxD5
-	fHlxtSwetHuTle72nZRENNI=
-X-Google-Smtp-Source: ABdhPJxkTRsFBXLh2nFlKyJWWbf3g6c9H0ACGR6oT3U7dsVO1WAd2CZDrjuhKLlIIp0sx3H5c895mA==
-X-Received: by 2002:ac5:c845:: with SMTP id g5mr445317vkm.0.1596386232127;
-        Sun, 02 Aug 2020 09:37:12 -0700 (PDT)
+X-Gm-Message-State: AOAM533xaQg6NtJqF7M4/9WeaiHlGJTHq5rEopeOhNsxhI4XdhQrmaMP
+	5+TuVdiVJubLmvHNRiCsz6I=
+X-Google-Smtp-Source: ABdhPJx8Ruu0qHUiNp7EIp/CQv/ua6bSvKrrSVLRt4x3IuQ7lsSWXdQnOxKOvRUNj2n2kZv2DaRE1w==
+X-Received: by 2002:ab0:222:: with SMTP id 31mr1597684uas.127.1596386243061;
+        Sun, 02 Aug 2020 09:37:23 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6102:21d0:: with SMTP id r16ls1619977vsg.0.gmail; Sun,
- 02 Aug 2020 09:37:11 -0700 (PDT)
-X-Received: by 2002:a67:eb91:: with SMTP id e17mr8953031vso.7.1596386231741;
-        Sun, 02 Aug 2020 09:37:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596386231; cv=none;
+Received: by 2002:a1f:6686:: with SMTP id a128ls98456vkc.0.gmail; Sun, 02 Aug
+ 2020 09:37:22 -0700 (PDT)
+X-Received: by 2002:a1f:5c17:: with SMTP id q23mr8781646vkb.75.1596386242634;
+        Sun, 02 Aug 2020 09:37:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596386242; cv=none;
         d=google.com; s=arc-20160816;
-        b=A2LpqqDXIwSdW4sJI693anrglx+q9RHYm1ryx64UMwJODg1V20D8VAcAFDLzouABuD
-         mOlC50Z4Sz/HqVBHBr96Ct7wIFngn6tLK9CJIlTFj0R644Bmgyj/U7yRh1CMe9xfi8sn
-         GWFTbGonhGlPyApz20HYfiJ09976J/NnMqX7wgNUkwMme8F7FimmzMPuFOuzNzuTB7YT
-         pHb4qYetEJeO+r0R2lMYXQG9SYV2aNMCsyp0DkEhFP/lUK5aOjy5pfySTJcl4r/yx7Ih
-         VD1KV/fRIA1YErvutexP+c+KBCGmnfBfckbQ1L3u/FI9DAk6AzKukfDmJ1kLKeSL8A15
-         0gjA==
+        b=WQK/JjxbrqDdLChhPl4mqcWFlMjtrneDW4/nibBJ7YGXJmIEoUKaRQ2n57ghKTtXEs
+         f6YsES3fXr9Nf65g8+cneL4m55Or4QcM4+DC/sNkl4MXP7pV5HlTrAEZrl2408/KUgbv
+         wExjXWX7+6eXM5FmSkjjlerWab4K899K7zIAqreGWRIddLvn5MHATVHuxr/762GIrb0m
+         Rinfms8b/URLkP4FsIR0FRGapwEPMDsI9a5vVFGhdFhnZus3N/tWYM4ceN37jn3lmqHE
+         pxBI/GN0YOU16YrcAQ1avUtU+rPtE8p6ebCzI4Khtq6L6ySuPZxvei9Wzx+Affnj6W3k
+         Bchg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=XPEZ+bCBr5XEGYr8n6e4PH4pxJuqKuJ9IdZawD0vcHg=;
-        b=VWJTt23SSqUG9S4xymTmVzBiYmh5xH49QA9JPLTWumUKlE0m/dxMCBLU6UsO3ASWv/
-         eeE12LPKm0wE/PzRh14z4EA9E+441tjNHspP/4ycIwJk2o2mhElV4KiYkQUCxorDBy+R
-         MDVpUUzhV8RTnNn9drDDmcRaNsrvvdhYxJUxrfE1Vdwi4ACcrmrYNHz1GOe2F5VD/wLr
-         JlD7MLmGkdVOT+iJY00iERx5GR+Cd2OBl/7oTMWbV6CiecuuST2ME7dzy4RMNUZzuusm
-         vwmsDHwoGao/cyQG/joJ/jH75ZkZ5O9cQCSbll+odhLz6IZFDg8SE+vTxpDJHbFfrtnz
-         xeKQ==
+        bh=Clz9jqKNUXv+X/HA1+cnKmg8P4giP0bEAa6bb8dn+JA=;
+        b=nBZr7rBBCGTg68YhXfVY9ztw86clrx6HQ1ao/yUYgYieNdzMIGEWzZqS6ySonGjmRp
+         9lT/p9BRn7SUjU4ruv2SYc/Jx27VWUeyCyLUUnhcSK/aAuIg/4HbeGLuOVilQmHfZypk
+         HdRa/MJj+lDiNosapOjP+NX1JrNKGXehZAjiEucsl6N261rGiYEI0N31BFYtHDGhgKYp
+         NaKcP5X3OmSs+kd/qwxwCXUbNdVuv4zxlK6yEpsne4Xl5yNsyTczfXljnzcHmDwkdSJL
+         XjyJwNeeYq+gJ+3YUEMFLCCJYk4HJMxCeyOBcnhw82fxxHM345J/587I61XVNdrjKlGQ
+         BGeA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=XkobRDns;
+       dkim=pass header.i=@kernel.org header.s=default header.b=FwMLBSAm;
        spf=pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=rppt@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id c186si1094762vke.3.2020.08.02.09.37.11
+        by gmr-mx.google.com with ESMTPS id x16si513299uaq.0.2020.08.02.09.37.22
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 02 Aug 2020 09:37:11 -0700 (PDT)
+        Sun, 02 Aug 2020 09:37:22 -0700 (PDT)
 Received-SPF: pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 79B9E20759;
-	Sun,  2 Aug 2020 16:37:00 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 5601320829;
+	Sun,  2 Aug 2020 16:37:11 +0000 (UTC)
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Andy Lutomirski <luto@kernel.org>,
@@ -144,16 +144,16 @@ Cc: Andy Lutomirski <luto@kernel.org>,
 	sparclinux@vger.kernel.org,
 	uclinux-h8-devel@lists.sourceforge.jp,
 	x86@kernel.org
-Subject: [PATCH v2 05/17] h8300, nds32, openrisc: simplify detection of memory extents
-Date: Sun,  2 Aug 2020 19:35:49 +0300
-Message-Id: <20200802163601.8189-6-rppt@kernel.org>
+Subject: [PATCH v2 06/17] riscv: drop unneeded node initialization
+Date: Sun,  2 Aug 2020 19:35:50 +0300
+Message-Id: <20200802163601.8189-7-rppt@kernel.org>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200802163601.8189-1-rppt@kernel.org>
 References: <20200802163601.8189-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-Original-Sender: rppt@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=XkobRDns;       spf=pass
+ header.i=@kernel.org header.s=default header.b=FwMLBSAm;       spf=pass
  (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=rppt@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -172,89 +172,41 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-Instead of traversing memblock.memory regions to find memory_start and
-memory_end, simply query memblock_{start,end}_of_DRAM().
+RISC-V does not (yet) support NUMA  and for UMA architectures node 0 is
+used implicitly during early memory initialization.
+
+There is no need to call memblock_set_node(), remove this call and the
+surrounding code.
 
 Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-Acked-by: Stafford Horne <shorne@gmail.com>
 ---
- arch/h8300/kernel/setup.c    | 8 +++-----
- arch/nds32/kernel/setup.c    | 8 ++------
- arch/openrisc/kernel/setup.c | 9 ++-------
- 3 files changed, 7 insertions(+), 18 deletions(-)
+ arch/riscv/mm/init.c | 9 ---------
+ 1 file changed, 9 deletions(-)
 
-diff --git a/arch/h8300/kernel/setup.c b/arch/h8300/kernel/setup.c
-index 28ac88358a89..0281f92eea3d 100644
---- a/arch/h8300/kernel/setup.c
-+++ b/arch/h8300/kernel/setup.c
-@@ -74,17 +74,15 @@ static void __init bootmem_init(void)
- 	memory_end = memory_start = 0;
- 
- 	/* Find main memory where is the kernel */
--	for_each_memblock(memory, region) {
--		memory_start = region->base;
--		memory_end = region->base + region->size;
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 79e9d55bdf1a..7440ba2cdaaa 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -191,15 +191,6 @@ void __init setup_bootmem(void)
+ 	early_init_fdt_scan_reserved_mem();
+ 	memblock_allow_resize();
+ 	memblock_dump_all();
+-
+-	for_each_memblock(memory, reg) {
+-		unsigned long start_pfn = memblock_region_memory_base_pfn(reg);
+-		unsigned long end_pfn = memblock_region_memory_end_pfn(reg);
+-
+-		memblock_set_node(PFN_PHYS(start_pfn),
+-				  PFN_PHYS(end_pfn - start_pfn),
+-				  &memblock.memory, 0);
 -	}
-+	memory_start = memblock_start_of_DRAM();
-+	memory_end = memblock_end_of_DRAM();
+ }
  
- 	if (!memory_end)
- 		panic("No memory!");
- 
- 	/* setup bootmem globals (we use no_bootmem, but mm still depends on this) */
- 	min_low_pfn = PFN_UP(memory_start);
--	max_low_pfn = PFN_DOWN(memblock_end_of_DRAM());
-+	max_low_pfn = PFN_DOWN(memory_end);
- 	max_pfn = max_low_pfn;
- 
- 	memblock_reserve(__pa(_stext), _end - _stext);
-diff --git a/arch/nds32/kernel/setup.c b/arch/nds32/kernel/setup.c
-index a066efbe53c0..c356e484dcab 100644
---- a/arch/nds32/kernel/setup.c
-+++ b/arch/nds32/kernel/setup.c
-@@ -249,12 +249,8 @@ static void __init setup_memory(void)
- 	memory_end = memory_start = 0;
- 
- 	/* Find main memory where is the kernel */
--	for_each_memblock(memory, region) {
--		memory_start = region->base;
--		memory_end = region->base + region->size;
--		pr_info("%s: Memory: 0x%x-0x%x\n", __func__,
--			memory_start, memory_end);
--	}
-+	memory_start = memblock_start_of_DRAM();
-+	memory_end = memblock_end_of_DRAM();
- 
- 	if (!memory_end) {
- 		panic("No memory!");
-diff --git a/arch/openrisc/kernel/setup.c b/arch/openrisc/kernel/setup.c
-index 8aa438e1f51f..c5706153d3b6 100644
---- a/arch/openrisc/kernel/setup.c
-+++ b/arch/openrisc/kernel/setup.c
-@@ -48,17 +48,12 @@ static void __init setup_memory(void)
- 	unsigned long ram_start_pfn;
- 	unsigned long ram_end_pfn;
- 	phys_addr_t memory_start, memory_end;
--	struct memblock_region *region;
- 
- 	memory_end = memory_start = 0;
- 
- 	/* Find main memory where is the kernel, we assume its the only one */
--	for_each_memblock(memory, region) {
--		memory_start = region->base;
--		memory_end = region->base + region->size;
--		printk(KERN_INFO "%s: Memory: 0x%x-0x%x\n", __func__,
--		       memory_start, memory_end);
--	}
-+	memory_start = memblock_start_of_DRAM();
-+	memory_end = memblock_end_of_DRAM();
- 
- 	if (!memory_end) {
- 		panic("No memory!");
+ #ifdef CONFIG_MMU
 -- 
 2.26.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200802163601.8189-6-rppt%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200802163601.8189-7-rppt%40kernel.org.
