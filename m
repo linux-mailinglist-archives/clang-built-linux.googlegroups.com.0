@@ -1,104 +1,105 @@
-Return-Path: <clang-built-linux+bncBAABBAGXTP4QKGQEO6Q7N2A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBDGXTP4QKGQEAMSRYAQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
-	by mail.lfdr.de (Postfix) with ESMTPS id 12A1923587C
-	for <lists+clang-built-linux@lfdr.de>; Sun,  2 Aug 2020 18:36:18 +0200 (CEST)
-Received: by mail-pg1-x537.google.com with SMTP id h5sf24517687pgq.4
-        for <lists+clang-built-linux@lfdr.de>; Sun, 02 Aug 2020 09:36:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596386176; cv=pass;
+Received: from mail-qv1-xf3d.google.com (mail-qv1-xf3d.google.com [IPv6:2607:f8b0:4864:20::f3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3EF95235884
+	for <lists+clang-built-linux@lfdr.de>; Sun,  2 Aug 2020 18:36:29 +0200 (CEST)
+Received: by mail-qv1-xf3d.google.com with SMTP id z10sf1133163qvm.0
+        for <lists+clang-built-linux@lfdr.de>; Sun, 02 Aug 2020 09:36:29 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596386188; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rsepdXNVgFUmtg4FFF6u8J6fq8vRVMP/9DOd+e5i6WwoQ5J6nMp7S26VbPPX9jfNG5
-         tLa97wKrICG/0u3STG5XftkPKTeRRA+StqW+7FUaaB9iydVYElIcFMGqlelVtApZVZS2
-         Tq12XxanX7RuQZdqDw8wblBk/37kdmTTU8LJnggPOZ34Fs7V80XatjHvssRo0j8tYM3C
-         v8hHDVKxso8wNwTYQqlEx5sX+Gi6/dqCWOFajEXG3FRwlgq4MDuP01iMShCbJytg0DSG
-         SkrR+2bvdSKhyfcM2y+xZcrGOM+tdj73ABr8+IH5vnx3pvlPPgxVbvslWvLqneHWSrsg
-         LqVQ==
+        b=R3nTuf12Fpn1x8ta6nANj4a09oTinD/VxvBPhpuZVLS1yYoFzaUC61xYHEeIYUDB+2
+         EtiS0sJBSm1m1PxemOFT6Nf9g7RY5eC8q5F/6YvbAi/8Cjd7QMGCBYwliRo9IvgSHmjN
+         NHX1Fq8dT8DYoNnaehxQ98V9l8n3HjjCd98gPAD2B8eHb93Sr1g7fQryfQ+vmMfpyLBr
+         OPxYCXcPUSsgXs97cTTwLuEhl+5HqSFCk1+3A4b3G2WP8XQNFZo0OoJ23V+78AoKhFpN
+         W4DYFJjl6cUF1kMJqn6NVbldRW0/B3EfUjznTajNQ/aFOpEhV6UEPwkUjs447wIjPLFh
+         RAVA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=j0qjWyy4BhX67QIgBS/Zhc5PyKocatqRje2OiCCuUn4=;
-        b=kLPhjDRF86ptdlQkIFHEV0WUk8joelwjzv4hy1KHwyndW8B2bY0LZerg3PfO1vpFRk
-         Aj/z6V2C3FeLSaQkVpJV8neSuv8B7HjXjYmrup9FIonlmvzMCrRXJSV0u7EGlVwxv7NY
-         SfveDcZuBqZwgyX17tV36uqiU3LRuCjOOY0g7vIQLo8ozELh0ggmD1aCL8dBsrA6Sln/
-         h6Tj9mDk/0Qw/W9jOUjlPOumpdOY/PpyVZYByastg4hkwitW4SDSVISFs4VmsMZlzGna
-         kqW0QGa3pENxMWMOk9QuFXX9lW2NojTjMfkIIvDJkYgaHv+/0SsDEUcxMWC8VG67mZOH
-         x4aA==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=j3RpqFiFygasaDpeHRRbNiL5Gvk7MClMF7WE08yFvB0=;
+        b=wePA9Rbn18yG6Ba0QQWBSEzJHtElWJm4lkItJEwO4g3hp9NNWMAcFKyy4vJlULVCN+
+         ftZlue9Q8EMdnFCHsDMl5kh0OxynhWqeSU3BISW7N1gZjhIDwtorxRGRoIA0XoKEbNv6
+         pR2xWLipp0cW2ymQ6tHrv/mCZHu67jK8/bJovMtEywbCs8rnjoL2L943styCgsqs83pt
+         P7eMXIULtHdvkEFYxLLVUg/8Jl4DlvDIBeHXWuLgnZTy2F9/+Q/Mk9IMdAaGHuExX4z9
+         Lt996vg9Hx8bK1+5k8v+IrMICAwi7kiR1+U2uxj2MSpY6R7Rt135ZQ3uthWSojAiDS5a
+         na9A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=LIo4s4fR;
+       dkim=pass header.i=@kernel.org header.s=default header.b=LCVbBqUy;
        spf=pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=rppt@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=j0qjWyy4BhX67QIgBS/Zhc5PyKocatqRje2OiCCuUn4=;
-        b=BO4/j75vkxMg/WOGeuuxw0f0iaG3N68rd6QIQ6iPhmL61du2vjaWpmRm45WVTdCLPd
-         E9ru4mDB7obfEXl+KQkfBecmKBcdcs1PxCpTUrxTv90UtD2/J5Dxtf81YmDEG07VA5Xw
-         q1IhCNck1fFDcICI+q+cDE4lGVxDWDBtadz5q+viL0aG7P5w9ybhx+Axd8u9fwj2/AZW
-         jLQnmRgMEEIsFUqF/FLeurcpGc8C+eHoZUaY2KMJ1A8DkaLVDzjV36xZoxCsIsfki2kl
-         1gi9CC+/cIoMFIcx+EO+saGXcK7k/syJCyO+X5ERjsnlKxd7koIJiehZuf7rLURjJ4Jz
-         TTaw==
+        bh=j3RpqFiFygasaDpeHRRbNiL5Gvk7MClMF7WE08yFvB0=;
+        b=GVYjUqlhK3yUJIEdrrlXUYqQjaHneaO5nTmKdQW+LYJONbUMZcdkdJje4iRmP7hTUb
+         EC+0ebO/yeiBbkYXt5cpAfI6LOjpZUdqr199zzSWY7lwqB6ywFlG90oNe/LzEVRRnI/2
+         i6WJGxd7j/F6NF6mASUzuQ7YO7SkFRR18dwWw7qnjiLqUtqFHWfpH5J2Rot75gG4VfFC
+         cIW03JDpkjspo+rOcvd98Yu0VFPI2fvmKc8xKFHcMMdl3jHGY2wXnIqhC1CMPG+xWgn3
+         lAsR1nzkn2aQcood8XPZUfpqB8JWh+3EA+j4prnpwyIjLPxU1oOirLpHkEzinT74ErFy
+         CPow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=j0qjWyy4BhX67QIgBS/Zhc5PyKocatqRje2OiCCuUn4=;
-        b=oQ66dwdw/iA6m4j3hDpsBjSsTMALk5XuHwvHGKfnUpdQN8aJoN4PfTAsiB6qT/Fgk8
-         EFyxHiEnjt9xFVHph+4LbyutLgxNYAy6pfnYZyAdr4lT8jYyeRuxGweZBa2WWq/mDp4W
-         OaogW1Fanfg5mp9/QWOw7QfquttZj9SUp3rYWXsFzq6BSWp4Vlk5TSAZ1XkflxiHtA3f
-         A03nhJuKsgqLsrKZ+WuFa0rPWs621HsARDq2p1EqURJeqAZ5bfwP/ifexdZI5Sqx7rpP
-         9xRVL85nzfk6iA/oqZmZ+8xYJ3jRswd+NcCqJhqWodOjvBT3rr6JJrwTkc7x/aL95nSB
-         c6GQ==
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=j3RpqFiFygasaDpeHRRbNiL5Gvk7MClMF7WE08yFvB0=;
+        b=Y2neB/QRtRSVsGba37B1/oyT4YgjBieBPE1xu96FS946JM4eAzlImBcoOiyBKAbR/B
+         0QArvOlXLniNflhi9/XQWs8u/Sa0hJKctpPkU5VoZeagkWcUjNqMcBD0PW+zYgAr3cta
+         ZYKiws7xHFH1oWvz07fCaMZVuvWfGlMO57O2J/Cx7GoJosv5M1LmNoi6sDfhbElVLa6n
+         G95654kNgCxvJmDJfGLM0x4Jh6cj+OSAmb/zvZrZxHW1jKg+UxGlVZHTMfUNXtVgqD6s
+         qTChPuoWuKuEvfPkE4LRxmD6XH+vFyADghyBte0bT3U3ocMQerB/z2yqrwvL+lhT0snk
+         7czg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532vIa6/9ItzwLpj4F+EQMPHbHjgjBsQFUSQqKAFVvNRIZp5mRst
-	s5dOTcx6wxzAa+MT2x7Ld3o=
-X-Google-Smtp-Source: ABdhPJxkKmXz81xd/nW7+Anqjbm8Jc+Httwj4UbqX0prrh8MsxBLxx5M7Pl3LmFHYkZHN2iFrYritw==
-X-Received: by 2002:a17:90a:3aa6:: with SMTP id b35mr4971316pjc.69.1596386176664;
-        Sun, 02 Aug 2020 09:36:16 -0700 (PDT)
+X-Gm-Message-State: AOAM530rn1DuibkYyEGo8oI2d0XTcu5/hw61FFI8hSILZsC79nbYslRt
+	1v+9uWWKTzexplRmR/tcE5o=
+X-Google-Smtp-Source: ABdhPJwMCYgKkaewSKEhTsOORf/mP5Vmpw0sktSI3bFtlK6u188KzVK1J4yiupZ4cGde5RH7JEe4tw==
+X-Received: by 2002:a0c:ac4c:: with SMTP id m12mr13498848qvb.218.1596386188169;
+        Sun, 02 Aug 2020 09:36:28 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:e59:: with SMTP id 25ls4460877pgo.9.gmail; Sun, 02 Aug
- 2020 09:36:16 -0700 (PDT)
-X-Received: by 2002:a63:504a:: with SMTP id q10mr1386013pgl.355.1596386176303;
-        Sun, 02 Aug 2020 09:36:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596386176; cv=none;
+Received: by 2002:ac8:7390:: with SMTP id t16ls3461545qtp.10.gmail; Sun, 02
+ Aug 2020 09:36:27 -0700 (PDT)
+X-Received: by 2002:ac8:6b84:: with SMTP id z4mr12793947qts.279.1596386187907;
+        Sun, 02 Aug 2020 09:36:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596386187; cv=none;
         d=google.com; s=arc-20160816;
-        b=ZUOCYU5ttt70sWpPxdXoJZISS+GySgHAKXzyy2tPsEgdEsv8NJpSQMRlwsRAsvww8a
-         cEpzNnaRlQYqSz2ZovCAUMAHLj7etclzSGHv+VCltdnraM/kOJUamRTUj82p23w9UJUf
-         OhB6LoRl63cFcqCgZOoFOulvK5vmFYzgVI+a4FPHrlrh/ptcQPgfpWQQFnaoesgmBNLI
-         aFqeUZEF3xLMSaCwJVpA+sRBkddO70+ZMl0SdGBha0VNC1Nqr34nizPN5r5yLyud3pRT
-         Uo8WjAQjU/4ow66S/5dXyAlKQi3bB4X9r1nnDQGAg73I4yCVhdwb+9J5rQF5PFGZecZy
-         aULw==
+        b=bymynzyNzSrBJM9B1QKPcZtiOEdQ7cYb7tPdf/sY8uxF+6XNk6Cfv8BJUumPm/ZBJX
+         TBWNvMiVwqT2cx424yq+/tlMG1SJztkYCITb+KsoMxJp2IDvAFAov2Wy7zlMtx3UO+08
+         e7kY0W/r7RznL7KUCMw4jR78p0/UyV9sJ0Wjg+wgCidTWSoLDCK0+FzesNRbZzXotqDx
+         oaprzbldQ4JDbiwdGY96IzH9XRzDycbwbNooNxErrITRx756YSt30qrtqsiwGwf3PPkm
+         OrSWRggpb0hf6M7H1oivnAAv39qAV1SaP3V26+7T1okSCD2PPukPfzOQ3ZdLPRKrEreV
+         qmCg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=1rMlp2SuXg8dvk653C42OiZiY3troU2YpRpyHDVF6iU=;
-        b=erWZ/Og7UzGNEEGnCn1wFJhGlNN/8+O2IYfhqALVRnxKXjIwJMIZjOvw2IRMaRYE9m
-         wnu4JZdhY+pxo2K2+AV7C6TNRBjWTgtQxtVAjrHR/Qwpsns201I95D9Tg4+e5mSxL8x+
-         zi3rPqlE+wM3Z54gB/f1IKU8d7FL0rRJDYvSoaaIpS6WRp1vkYyueyHO0H8J0dkC1ViZ
-         gqz+IGq2D9r5HYyNHsvBPowWb+QFXotMdMPxbAPDs6eA4b97hl/nOoYKFAlycFpCtkxz
-         XCkwAW26yY/c7UC8t5YkA7AdS2+FDpaghExDu1oFv25b3OAAAvDvBlylj4dyomDgVd6S
-         Wcvg==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=cTsMNGVz/6FnfILPoy4BCnh+qoVojN51Hm/njwANGhM=;
+        b=rPTyUDZqJ3WymPpSK5r2r30LovnkyLqXcX2lOoSa47UqBi6zVs85hZZNLa0HUcY5ow
+         dpunnd/nPYogekKfInx9R3FaySfpG6TyRBcIz32qY8uYQFn2e7OK58cWt9IOEKk4GDN6
+         nmd9GZwK2v1CbyURjFfzqLRJy7IGiTvH5x7trSTAGjDrtAjAv6OjjNYMZi2SVPTJOoWj
+         NkRyqpxW06pMuRL6eUlx0R4IVLDczWUDbTnVhGUaQ00NKmpKhQK+i5kZJHWTLs6J7h35
+         dX/Ki25hLewhELMmTCmgiFmsTd2oOMVHFT0wZGC0s8SVS/lH6ReAnxHDVVuY8KpPmV6z
+         2ZKg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=LIo4s4fR;
+       dkim=pass header.i=@kernel.org header.s=default header.b=LCVbBqUy;
        spf=pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=rppt@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id x18si128993pgx.2.2020.08.02.09.36.16
+        by gmr-mx.google.com with ESMTPS id m13si867803qtn.0.2020.08.02.09.36.27
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 02 Aug 2020 09:36:16 -0700 (PDT)
+        Sun, 02 Aug 2020 09:36:27 -0700 (PDT)
 Received-SPF: pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id A84AE20738;
-	Sun,  2 Aug 2020 16:36:05 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 8CB07208B3;
+	Sun,  2 Aug 2020 16:36:16 +0000 (UTC)
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Andy Lutomirski <luto@kernel.org>,
@@ -143,14 +144,16 @@ Cc: Andy Lutomirski <luto@kernel.org>,
 	sparclinux@vger.kernel.org,
 	uclinux-h8-devel@lists.sourceforge.jp,
 	x86@kernel.org
-Subject: [PATCH v2 00/17] memblock: seasonal cleaning^w cleanup
-Date: Sun,  2 Aug 2020 19:35:44 +0300
-Message-Id: <20200802163601.8189-1-rppt@kernel.org>
+Subject: [PATCH v2 01/17] KVM: PPC: Book3S HV: simplify kvm_cma_reserve()
+Date: Sun,  2 Aug 2020 19:35:45 +0300
+Message-Id: <20200802163601.8189-2-rppt@kernel.org>
 X-Mailer: git-send-email 2.26.2
+In-Reply-To: <20200802163601.8189-1-rppt@kernel.org>
+References: <20200802163601.8189-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-Original-Sender: rppt@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=LIo4s4fR;       spf=pass
+ header.i=@kernel.org header.s=default header.b=LCVbBqUy;       spf=pass
  (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=rppt@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -169,103 +172,54 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-Hi,
+The memory size calculation in kvm_cma_reserve() traverses memblock.memory
+rather than simply call memblock_phys_mem_size(). The comment in that
+function suggests that at some point there should have been call to
+memblock_analyze() before memblock_phys_mem_size() could be used.
+As of now, there is no memblock_analyze() at all and
+memblock_phys_mem_size() can be used as soon as cold-plug memory is
+registerd with memblock.
 
-These patches simplify several uses of memblock iterators and hide some of
-the memblock implementation details from the rest of the system.
+Replace loop over memblock.memory with a call to memblock_phys_mem_size().
 
-The patches are on top of v5.8-rc7 + cherry-pick of "mm/sparse: cleanup the
-code surrounding memory_present()" [1] from mmotm tree.
+Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+---
+ arch/powerpc/kvm/book3s_hv_builtin.c | 11 ++---------
+ 1 file changed, 2 insertions(+), 9 deletions(-)
 
-v2 changes:
-* replace for_each_memblock() with two versions, one for memblock.memory
-  and another one for memblock.reserved
-* fix overzealous cleanup of powerpc fadamp: keep the traversal over the
-  memblocks, but use better suited iterators
-* don't remove traversal over memblock.reserved in x86 numa cleanup but
-  replace for_each_memblock() with new for_each_reserved_mem_region()
-* simplify ramdisk and crash kernel allocations on x86
-* drop more redundant and unused code: __next_reserved_mem_region() and
-  memblock_mem_size()
-* add description of numa initialization fix on arm64 (thanks Jonathan)
-* add Acked and Reviewed tags
-
-[1] http://lkml.kernel.org/r/20200712083130.22919-1-rppt@kernel.org 
-
-Mike Rapoport (17):
-  KVM: PPC: Book3S HV: simplify kvm_cma_reserve()
-  dma-contiguous: simplify cma_early_percent_memory()
-  arm, xtensa: simplify initialization of high memory pages
-  arm64: numa: simplify dummy_numa_init()
-  h8300, nds32, openrisc: simplify detection of memory extents
-  riscv: drop unneeded node initialization
-  mircoblaze: drop unneeded NUMA and sparsemem initializations
-  memblock: make for_each_memblock_type() iterator private
-  memblock: make memblock_debug and related functionality private
-  memblock: reduce number of parameters in for_each_mem_range()
-  arch, mm: replace for_each_memblock() with for_each_mem_pfn_range()
-  arch, drivers: replace for_each_membock() with for_each_mem_range()
-  x86/setup: simplify initrd relocation and reservation
-  x86/setup: simplify reserve_crashkernel()
-  memblock: remove unused memblock_mem_size()
-  memblock: implement for_each_reserved_mem_region() using __next_mem_region()
-  memblock: use separate iterators for memory and reserved regions
-
- .clang-format                            |  4 +-
- arch/arm/kernel/setup.c                  | 18 +++--
- arch/arm/mm/init.c                       | 59 ++++------------
- arch/arm/mm/mmu.c                        | 39 ++++-------
- arch/arm/mm/pmsa-v7.c                    | 20 +++---
- arch/arm/mm/pmsa-v8.c                    | 17 +++--
- arch/arm/xen/mm.c                        |  7 +-
- arch/arm64/kernel/machine_kexec_file.c   |  6 +-
- arch/arm64/kernel/setup.c                |  4 +-
- arch/arm64/mm/init.c                     | 11 ++-
- arch/arm64/mm/kasan_init.c               | 10 +--
- arch/arm64/mm/mmu.c                      | 11 +--
- arch/arm64/mm/numa.c                     | 15 ++---
- arch/c6x/kernel/setup.c                  |  9 +--
- arch/h8300/kernel/setup.c                |  8 +--
- arch/microblaze/mm/init.c                | 24 ++-----
- arch/mips/cavium-octeon/dma-octeon.c     | 12 ++--
- arch/mips/kernel/setup.c                 | 31 +++++----
- arch/mips/netlogic/xlp/setup.c           |  2 +-
- arch/nds32/kernel/setup.c                |  8 +--
- arch/openrisc/kernel/setup.c             |  9 +--
- arch/openrisc/mm/init.c                  |  8 ++-
- arch/powerpc/kernel/fadump.c             | 57 ++++++++--------
- arch/powerpc/kvm/book3s_hv_builtin.c     | 11 +--
- arch/powerpc/mm/book3s64/hash_utils.c    | 16 ++---
- arch/powerpc/mm/book3s64/radix_pgtable.c | 11 ++-
- arch/powerpc/mm/kasan/kasan_init_32.c    |  8 +--
- arch/powerpc/mm/mem.c                    | 33 +++++----
- arch/powerpc/mm/numa.c                   |  7 +-
- arch/powerpc/mm/pgtable_32.c             |  8 +--
- arch/riscv/mm/init.c                     | 34 +++-------
- arch/riscv/mm/kasan_init.c               | 10 +--
- arch/s390/kernel/crash_dump.c            |  8 +--
- arch/s390/kernel/setup.c                 | 31 +++++----
- arch/s390/mm/page-states.c               |  6 +-
- arch/s390/mm/vmem.c                      | 16 +++--
- arch/sh/mm/init.c                        |  9 +--
- arch/sparc/mm/init_64.c                  | 12 ++--
- arch/x86/kernel/setup.c                  | 56 +++++-----------
- arch/x86/mm/numa.c                       |  2 +-
- arch/xtensa/mm/init.c                    | 55 +++------------
- drivers/bus/mvebu-mbus.c                 | 12 ++--
- drivers/irqchip/irq-gic-v3-its.c         |  2 +-
- drivers/s390/char/zcore.c                |  9 +--
- include/linux/memblock.h                 | 65 +++++++++---------
- kernel/dma/contiguous.c                  | 11 +--
- mm/memblock.c                            | 85 ++++++++----------------
- mm/page_alloc.c                          | 11 ++-
- mm/sparse.c                              | 10 ++-
- 49 files changed, 366 insertions(+), 561 deletions(-)
-
+diff --git a/arch/powerpc/kvm/book3s_hv_builtin.c b/arch/powerpc/kvm/book3s_hv_builtin.c
+index 7cd3cf3d366b..56ab0d28de2a 100644
+--- a/arch/powerpc/kvm/book3s_hv_builtin.c
++++ b/arch/powerpc/kvm/book3s_hv_builtin.c
+@@ -95,22 +95,15 @@ EXPORT_SYMBOL_GPL(kvm_free_hpt_cma);
+ void __init kvm_cma_reserve(void)
+ {
+ 	unsigned long align_size;
+-	struct memblock_region *reg;
+-	phys_addr_t selected_size = 0;
++	phys_addr_t selected_size;
+ 
+ 	/*
+ 	 * We need CMA reservation only when we are in HV mode
+ 	 */
+ 	if (!cpu_has_feature(CPU_FTR_HVMODE))
+ 		return;
+-	/*
+-	 * We cannot use memblock_phys_mem_size() here, because
+-	 * memblock_analyze() has not been called yet.
+-	 */
+-	for_each_memblock(memory, reg)
+-		selected_size += memblock_region_memory_end_pfn(reg) -
+-				 memblock_region_memory_base_pfn(reg);
+ 
++	selected_size = PHYS_PFN(memblock_phys_mem_size());
+ 	selected_size = (selected_size * kvm_cma_resv_ratio / 100) << PAGE_SHIFT;
+ 	if (selected_size) {
+ 		pr_debug("%s: reserving %ld MiB for global area\n", __func__,
 -- 
 2.26.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200802163601.8189-1-rppt%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200802163601.8189-2-rppt%40kernel.org.
