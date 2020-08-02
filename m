@@ -1,158 +1,134 @@
-Return-Path: <clang-built-linux+bncBD7LZ45K3ECBBXP7TP4QKGQEBULNKII@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBQUGTX4QKGQERAUUSXA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23e.google.com (mail-lj1-x23e.google.com [IPv6:2a00:1450:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6FEF32359A5
-	for <lists+clang-built-linux@lfdr.de>; Sun,  2 Aug 2020 20:03:10 +0200 (CEST)
-Received: by mail-lj1-x23e.google.com with SMTP id q15sf682466ljp.2
-        for <lists+clang-built-linux@lfdr.de>; Sun, 02 Aug 2020 11:03:10 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596391390; cv=pass;
+Received: from mail-ot1-x338.google.com (mail-ot1-x338.google.com [IPv6:2607:f8b0:4864:20::338])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3CEAF239CE3
+	for <lists+clang-built-linux@lfdr.de>; Mon,  3 Aug 2020 00:50:44 +0200 (CEST)
+Received: by mail-ot1-x338.google.com with SMTP id z10sf11303193oto.11
+        for <lists+clang-built-linux@lfdr.de>; Sun, 02 Aug 2020 15:50:44 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596408643; cv=pass;
         d=google.com; s=arc-20160816;
-        b=pGEUUNxZMFVZ2cCAzLP50qIC8qMdnFtBAVfIqLbj9iOov32qaM728gEGC0VvINBbm8
-         UzZANqIsF3f8gbde1D7GN8ulbynD1ahFlX18bzbIh5A9Au4khzvU1T3o/fxjMxP3+2tG
-         oGJNlnqASX7a8jqFBifLhgwNZQYiaWvxpvhFiBNQED/ZKeic+hzGJy4oaULaidMDKaFU
-         YkZ+Y+ZRENUuCbnxC/33PZR3sH9uIJdI+kdjwqWrL4Dg8a42sxvfoRFmKJeotWI8bPMN
-         nUWsfxhevYHzZHLbpLOsD9Xs5O3vdT0JENayDdut0vapWu915laIQNLtaTEtu0C5LA/D
-         1lOw==
+        b=mo4b7dYJ4SQRlqKg94FCgSzLQUT0YSjlhVzwP1GvF2B4GoEd0m13AA54N4q4zUWqX/
+         poql75gtLmlijtB8rGN8HMW2TljyqyICNTA6emlECPt00+/SmVzW+kF5IW4f4WapSLPA
+         Ob7W4sVsRQu3FYN3t0sVkr/tjSd8aAy7kuDwISdeCBDS2Y1woBUyxTKdsqGrQiEE2yPp
+         zKUGE2v71EXgEU49g8cElQTytX4vZ7aXVJBb7Hn7O1GEf3kpEEj3sPhNosimwbzMr5Ud
+         JSW4THG9XqS2K1wER3guJ2h5PgQmR6d6Rlse6x8g2ONr8qQhZ0EB6bbz6VuguIogGW/B
+         P3NA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=imQY6mceUc+ky4LMocBmdASq7ZUV+1BbIGbphdSqea4=;
-        b=EhroLFmRoDxMitIwJylx6nOEWkh+gva7GUDo2K0gPEZQjL9jioAOPWqTVg9p8j/BBm
-         pVM7femVoV19ynbvSAi9hYtsLy8mTNWRrWlg9171g26oou62va+gigz3IeQ8Y2+qVCd5
-         T4ioyjS+03aFXmJc4Jm/0tZ7aoLi6os95y+KORoaIJkKg49FE/xpI9Bw5XghQIgj0ggL
-         l6zC+odwqDespqcz0Sl0Rl3qMLu7yAUoIBFUeBCPWhSagNyDKrmU8gLNLF/gyXXaut2O
-         tAncIhfsoKj0wz+x+pNOeLBFQ+T53mrOxEuOVSf2BNZRfZtyr7jJj9mtcMkRpiymKNS6
-         oY4A==
+         :list-id:mailing-list:precedence:user-agent:content-disposition
+         :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
+         :ironport-sdr:sender:dkim-signature;
+        bh=dxX3UEQF8x1NEVLTlWH+PX0UJZJgSmlxSL+UuJhAHoM=;
+        b=DfXzUuFNGp2WsiilBTBeJwlaePiHT+OyU4Pd+C1MCYSPr1/bFbFSnaCaVsznayuDHM
+         mjuZk9vKLJpFGbQ6wbk2KiEhIlCxt5o2MMUe296yDeqLHbCPQDjy1+FTcKT9BtIW3ViH
+         HZiE9nQvrfTYLzVzGJk7jZKNoLHBSaSrjO8d+tyRF5ZuN58LgiPsscnvxrCfO9ioSoIV
+         ti8zjBczMKzF7xO4+om76kfi7drXeSonVP7alwD6OzNj3t4xny3/uUvRZjK4xXYJKJcD
+         yavag90XcY5QZUCalHZYoWpCEH3+DfmTHXFpXkOmLMbQ5GiewawdB3hWJhB7ptvyq6Di
+         6gUQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NClt20d7;
-       spf=pass (google.com: domain of mingo.kernel.org@gmail.com designates 2a00:1450:4864:20::642 as permitted sender) smtp.mailfrom=mingo.kernel.org@gmail.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        d=googlegroups.com; s=20161025;
+        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
+         :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=imQY6mceUc+ky4LMocBmdASq7ZUV+1BbIGbphdSqea4=;
-        b=PJb9VlEC31b4RbP6dIm2NlII82FjgAlJ7speJAqjPUrXTVaPtKiWC2qmDSYDEervjL
-         BDzuJc66S1PVlcKVldPINzndgK5bazzR7fnbV0j5JsiSAAXIfE2or9Av+KNChdUimaT5
-         1/RY87JHRQuvCmCnTSt+7qTW1nCJc6C7txrEFpFyYtUpLM9ZralvTtkqHP6jEO1Cjce+
-         IidRhj4FYo0JwNzGl0bbrjJ8E4NXkuAUux00NiUU6mMeCG5LXE1FM7bfVHGgwj8IGhEp
-         T2SQbO7LtcpgVtZHJ4GJ6u+Qdm4nClwGnLJ9F+rhRUmEzyY4MHW67NZtTYb0uZ9JEn2i
-         fhWw==
+        bh=dxX3UEQF8x1NEVLTlWH+PX0UJZJgSmlxSL+UuJhAHoM=;
+        b=TaV+/ZA8AM8LEvnqI6zqO/yCRBQc8K/GJYqiy/7rit3LERkneZTKlBJH33jiPOpQaK
+         0TLnIcji+Q5CyCr97Gr+PK9o1q+iFRmGOsMvL4YLHuip6cjliCk6vQDzjLyTB1l4GkWA
+         6niUigX9UryE656WvxtqWueRS6pzyyT/asypCBLAGwys22dq9L9ad605hNuh6lYwDcwA
+         DR/V3qJCuZ8EJAzpEh/+F75Kex5RlHWZX4tGQp8Y+m01rSHwwZzjjClNGygUxBLhfaza
+         OVq1RGS8bvoPbcHLyEBqysjj2Ye6xS9NiTP13xReLrSsNse2tZYXmm0Jm4CToWR7EJoV
+         q//g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
+         :subject:message-id:mime-version:content-disposition:user-agent
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=imQY6mceUc+ky4LMocBmdASq7ZUV+1BbIGbphdSqea4=;
-        b=emQfRjmQH1vp7ykRlCB6kHoLZaeVGHRhbzUXuisgUkFjcmNJjUhnnCwfKOTx6AqtH7
-         QKn4m6ejlDoQIOhR3TFRx64rBMcdLNV8W6Q65UyYcWagZZSrWfL4sSA1M8qpcJfATHl5
-         sBtFkND79zRKo66k6n3vKYBM9oG81MwCHNDVgPIPUlSL1gXMgspSzDBY7NMrfhI4Ab6U
-         97IU8smRm/yx7RvbB3Dv158dtuOf8NYpfzozq5wP6yNHqVn1vzihUI1s9MrLsfwedgVO
-         mrejIadvUKk1j9+5TxCmJpCGHQMvfx8uERcM7qIUutAQ+TPCYfEbihoP9qhgPT6NNDlM
-         L44A==
-X-Gm-Message-State: AOAM532RqyVfeaVV0taZzYLtBc8N4vPP7meDazAUdxDQ0vYztZNpk0Jr
-	/tROVKBoWq2T0QQinlCIOtQ=
-X-Google-Smtp-Source: ABdhPJxF0Gl5tvAFr3eMjDNLMDQpOxL9S+6Qr3k2+/vYYNx9wAzfLaniDSmpk+pCzqacYX91zGsbAw==
-X-Received: by 2002:a2e:7308:: with SMTP id o8mr6347036ljc.414.1596391389955;
-        Sun, 02 Aug 2020 11:03:09 -0700 (PDT)
+        bh=dxX3UEQF8x1NEVLTlWH+PX0UJZJgSmlxSL+UuJhAHoM=;
+        b=i43kuYeMn0XTTND2ILI5Qeee4hNr6MB/5QuGnvKt9VmzNWst3yA+vDT5VkRM9jhoGY
+         uNzyek1gyqF0ZSNwBGd78rlYn619zYVgZz3Ep9FGD5xH5RS8LfmJZzxkgxS9MwqEOcXn
+         hdM3zMU/3NjkdWeBGUYLNy23+E/Qi/5oZoiYAj6xq4PCUk1U3dEXvj6cnLkxXul/ud7O
+         U+n1YUK3almkvVyK2j3hytrbBP6kWArfnnApatsCVVe42CyXgRmgHJY7z10hKN5r5w07
+         edahhrBgbX+LhFQ46po9QkJ5pz+Zm6lrF70hw6IXi+bPL5Vyb9/7HHCY0YQY4kVSwFNC
+         IV9g==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM532CcVUAtYTOjBELwyCQlv6J2h7rFbHMTnMd1tpUJHcT74ZGbq9P
+	iI9uM3WFHyNXQIjjbHWiHJg=
+X-Google-Smtp-Source: ABdhPJzsdomsIifN8S66MhDNUwAn1XedvE5QMxn/+Dmp/1HAjRd1NAxgAbdC6EI0g05TFf1LSKKjug==
+X-Received: by 2002:a05:6830:cc:: with SMTP id x12mr5194644oto.54.1596408642918;
+        Sun, 02 Aug 2020 15:50:42 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:4845:: with SMTP id 5ls4099136lfy.2.gmail; Sun, 02 Aug
- 2020 11:03:09 -0700 (PDT)
-X-Received: by 2002:a19:4c57:: with SMTP id z84mr6830616lfa.92.1596391389092;
-        Sun, 02 Aug 2020 11:03:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596391389; cv=none;
+Received: by 2002:a9d:66d7:: with SMTP id t23ls1198840otm.1.gmail; Sun, 02 Aug
+ 2020 15:50:42 -0700 (PDT)
+X-Received: by 2002:a9d:1919:: with SMTP id j25mr11707490ota.321.1596408642543;
+        Sun, 02 Aug 2020 15:50:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596408642; cv=none;
         d=google.com; s=arc-20160816;
-        b=PR7Ql0SzpXYRLdytXqIAGdhdvEsQSPAtvTCNIFM+R+gyo6Nqpzg+03UIs/rXepHCN4
-         l3cp7Rqfp/LDrCdwCUsFAwqQXQDq3UT3Pmqc+6h/PSlx0VTEJeemoyyntZizT0IF6EI6
-         PEcP1HQlRziUML3l86B2v28OEOAc5P9O9yqPVluEi37LVlttDJximfKIQSIe+KEkYViL
-         XENINMss/sWC3c1dRDTvfOykIb3/CNACOWuGOokDo+su3Z2bwD2sr/LstE1MlUxH9QfY
-         Dj4iAiwjM5a++iYaepKVReGoStsBdQ/6QmE0IqMSgdG4CG6wFqNKneyUUtaZUvY5nebM
-         IXTA==
+        b=kqmsrCGr4hbUcg9HKDBGJVRjQgHOG2IT2e2jZwrhQ4SNhBNBDt4PZC+vB/S7YahOCI
+         5jAEG7ANJAsHAH4wuf21XCR6R/3TFIg3Dhbd2Yl/sTVUqLvlgeee3l3DuhWsqIxvgupZ
+         HsMYJe5GcVNn2KZDS/a/ck3O5Wiur6OGrKttakoEnk7zT1NXxhgioh/j18kk39quuiSH
+         HtjvOLKZ+aNWNYmrfnlXtv+P0WJyfgqymh0DlYFUeT93tg8Rb/0rxGUqNc3/YK4UQDvF
+         dBvz0jHXH1Ar8yo+X2yFJ13c2SySZs45KBpTfjrvOV/Je9oDSjxfk9QY7gtZ/AszqlLA
+         hu3g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:dkim-signature;
-        bh=fQZKbY0rONiHjM83HibQy63AEJaxpKeGQhQtY04gDSU=;
-        b=FeLjFPUbP84nfmwEHQafPI5YZCR4Bj+bbl6qFZyZ1afpDE2DQ59+oOHLjus/rdgrRL
-         RA6GHoqcj6mxZww4wbE7Y5l8GbgCBa5zsMhGW3JNmGAjtck2tZIuU8BQnhl27wyVleoF
-         U1Ns1IZJlSL69Eg5bWn+YqcGlM/IzSqr6yhNb7ILmHTRDWZ4L8XPkAEqxmUK1UluHIDF
-         hdVxS1fmYs9PaKH9EHGdi4K0hsB5QgzYOZM0f7pI8ax4Hq5PU/WRO0lun4NAEt7lvhBV
-         70ycoO3PYi08PPU35+DiO4KPn4gu9KszKPX0wtLJ10KDMdnfR0m/JV8LGWXMOFXXparq
-         0VLw==
+        h=user-agent:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date:ironport-sdr:ironport-sdr;
+        bh=BO0TUxfUFUq3Dz/LaqgkY8lXQMUn7JxBHCcYVpbNjhU=;
+        b=V+l/HiqtmM+ahHmDjPZEEqv2aEp3hEM35DkrgDYd7zpdOpENj3KrL94fZCIXq59eSQ
+         HTzaCO0Ug8jm6AP8HAwmSHaVkgSule6uFchuGvwh54gt9zH1OG/RSKLBXxoGErN01SRn
+         josnoZd9N+YPoAXbBdFNfs5zwNzfoma2vvr6FR3R8S6nXbI88oC7jUmfsT9R8Nb8mxwv
+         y9sYqpJi2SKdbO7w/C5Er8gyMoSgHFtsBwszYrG8AZPGyE+zSC4YBAEpc8isqctIDyBd
+         TBMWsijKtA80cSlXi1K30FNXcG0l3B8QMEf8IkwJzkVPdiQZZGpkGlciLWOgl9lU+VEP
+         IJCA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NClt20d7;
-       spf=pass (google.com: domain of mingo.kernel.org@gmail.com designates 2a00:1450:4864:20::642 as permitted sender) smtp.mailfrom=mingo.kernel.org@gmail.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail-ej1-x642.google.com (mail-ej1-x642.google.com. [2a00:1450:4864:20::642])
-        by gmr-mx.google.com with ESMTPS id b13si723319lji.7.2020.08.02.11.03.09
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id x2si502609oto.3.2020.08.02.15.50.41
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 02 Aug 2020 11:03:09 -0700 (PDT)
-Received-SPF: pass (google.com: domain of mingo.kernel.org@gmail.com designates 2a00:1450:4864:20::642 as permitted sender) client-ip=2a00:1450:4864:20::642;
-Received: by mail-ej1-x642.google.com with SMTP id w9so36319038ejc.8
-        for <clang-built-linux@googlegroups.com>; Sun, 02 Aug 2020 11:03:09 -0700 (PDT)
-X-Received: by 2002:a17:907:94ce:: with SMTP id dn14mr12944760ejc.351.1596391388538;
-        Sun, 02 Aug 2020 11:03:08 -0700 (PDT)
-Received: from gmail.com (54033286.catv.pool.telekom.hu. [84.3.50.134])
-        by smtp.gmail.com with ESMTPSA id x1sm13599477ejc.119.2020.08.02.11.03.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 02 Aug 2020 11:03:07 -0700 (PDT)
-Sender: Ingo Molnar <mingo.kernel.org@gmail.com>
-Date: Sun, 2 Aug 2020 20:03:04 +0200
-From: Ingo Molnar <mingo@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>, Baoquan He <bhe@redhat.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christoph Hellwig <hch@lst.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Ingo Molnar <mingo@redhat.com>,
-	Hari Bathini <hbathini@linux.ibm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>, Mike Rapoport <rppt@linux.ibm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Mackerras <paulus@samba.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Stafford Horne <shorne@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	clang-built-linux@googlegroups.com,
-	iommu@lists.linux-foundation.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-c6x-dev@linux-c6x.org,
-	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-mm@kvack.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	linux-xtensa@linux-xtensa.org, linuxppc-dev@lists.ozlabs.org,
-	openrisc@lists.librecores.org, sparclinux@vger.kernel.org,
-	uclinux-h8-devel@lists.sourceforge.jp, x86@kernel.org
-Subject: Re: [PATCH v2 17/17] memblock: use separate iterators for memory and
- reserved regions
-Message-ID: <20200802180304.GC86614@gmail.com>
-References: <20200802163601.8189-1-rppt@kernel.org>
- <20200802163601.8189-18-rppt@kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 02 Aug 2020 15:50:41 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+IronPort-SDR: cmkewfmlPqmmJjGJYAoyXMmFlq9hzkrVf7lvJdWZvfSKiHr29sAT/kFPsmwT/vZKuFZV9dKDt1
+ e5GmgGWG54zg==
+X-IronPort-AV: E=McAfee;i="6000,8403,9701"; a="213558087"
+X-IronPort-AV: E=Sophos;i="5.75,427,1589266800"; 
+   d="scan'208";a="213558087"
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from fmsmga003.fm.intel.com ([10.253.24.29])
+  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Aug 2020 15:50:40 -0700
+IronPort-SDR: ZS+q+k/MVMlP+JMzgVFLXtMND5CqaB7bwT0TNP3uP02hBuFM5BPdDw62pFFECjwgH0Pkrf7AjC
+ zu3syYvpZPGg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.75,427,1589266800"; 
+   d="scan'208";a="329836109"
+Received: from lkp-server01.sh.intel.com (HELO e21119890065) ([10.239.97.150])
+  by FMSMGA003.fm.intel.com with ESMTP; 02 Aug 2020 15:50:39 -0700
+Received: from kbuild by e21119890065 with local (Exim 4.92)
+	(envelope-from <lkp@intel.com>)
+	id 1k2MoQ-0001kg-KJ; Sun, 02 Aug 2020 22:50:38 +0000
+Date: Mon, 3 Aug 2020 06:49:44 +0800
+From: kernel test robot <lkp@intel.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
+Subject: [lunn:v5.8-rc6-net-next-phy-subdirs-v2 4/5] drivers/net/Kconfig:474:
+ can't open file "drivers/net/mdio/Kconfig"
+Message-ID: <202008030639.nD6aMF6M%lkp@intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200802163601.8189-18-rppt@kernel.org>
-X-Original-Sender: mingo@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=NClt20d7;       spf=pass
- (google.com: domain of mingo.kernel.org@gmail.com designates
- 2a00:1450:4864:20::642 as permitted sender) smtp.mailfrom=mingo.kernel.org@gmail.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: lkp@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
+ sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -165,39 +141,72 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+tree:   https://github.com/lunn/linux.git v5.8-rc6-net-next-phy-subdirs-v2
+head:   5707f27690213281b666b03e9cd74b68b726aa54
+commit: 2e2ddd4ea9b8b95b657641febb7343038f4a0840 [4/5] net: mdio: Move MDIO drivers into a new subdirectory
+config: x86_64-randconfig-a013-20200802
+compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 25af353b0e74907d5d50c8616b885bd1f73a68b3)
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # install x86_64 cross compiling tool for clang build
+        # apt-get install binutils-x86-64-linux-gnu
+        git checkout 2e2ddd4ea9b8b95b657641febb7343038f4a0840
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64  randconfig
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
 
-* Mike Rapoport <rppt@kernel.org> wrote:
+If you fix the issue, kindly add following tag as appropriate
+Reported-by: kernel test robot <lkp@intel.com>
 
-> From: Mike Rapoport <rppt@linux.ibm.com>
-> 
-> for_each_memblock() is used to iterate over memblock.memory in
-> a few places that use data from memblock_region rather than the memory
-> ranges.
-> 
-> Introduce separate for_each_mem_region() and for_each_reserved_mem_region()
-> to improve encapsulation of memblock internals from its users.
-> 
-> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-> ---
->  .clang-format                  |  3 ++-
->  arch/arm64/kernel/setup.c      |  2 +-
->  arch/arm64/mm/numa.c           |  2 +-
->  arch/mips/netlogic/xlp/setup.c |  2 +-
->  arch/x86/mm/numa.c             |  2 +-
->  include/linux/memblock.h       | 19 ++++++++++++++++---
->  mm/memblock.c                  |  4 ++--
->  mm/page_alloc.c                |  8 ++++----
->  8 files changed, 28 insertions(+), 14 deletions(-)
+All errors (new ones prefixed by >>):
 
-The x86 part:
+>> drivers/net/Kconfig:474: can't open file "drivers/net/mdio/Kconfig"
+   make[2]: *** [scripts/kconfig/Makefile:71: oldconfig] Error 1
+   make[1]: *** [Makefile:607: oldconfig] Error 2
+   make: *** [Makefile:185: __sub-make] Error 2
+   make: Target 'oldconfig' not remade because of errors.
+--
+>> drivers/net/Kconfig:474: can't open file "drivers/net/mdio/Kconfig"
+   make[2]: *** [scripts/kconfig/Makefile:71: olddefconfig] Error 1
+   make[1]: *** [Makefile:607: olddefconfig] Error 2
+   make: *** [Makefile:185: __sub-make] Error 2
+   make: Target 'olddefconfig' not remade because of errors.
 
-Acked-by: Ingo Molnar <mingo@kernel.org>
+vim +474 drivers/net/Kconfig
 
-Thanks,
+   449	
+   450	config NET_SB1000
+   451		tristate "General Instruments Surfboard 1000"
+   452		depends on PNP
+   453		help
+   454		  This is a driver for the General Instrument (also known as
+   455		  NextLevel) SURFboard 1000 internal
+   456		  cable modem. This is an ISA card which is used by a number of cable
+   457		  TV companies to provide cable modem access. It's a one-way
+   458		  downstream-only cable modem, meaning that your upstream net link is
+   459		  provided by your regular phone modem.
+   460	
+   461		  At present this driver only compiles as a module, so say M here if
+   462		  you have this card. The module will be called sb1000. Then read
+   463		  <file:Documentation/networking/device_drivers/cable/sb1000.rst> for
+   464		  information on how to use this module, as it needs special ppp
+   465		  scripts for establishing a connection. Further documentation
+   466		  and the necessary scripts can be found at:
+   467	
+   468		  <http://www.jacksonville.net/~fventuri/>
+   469		  <http://home.adelphia.net/~siglercm/sb1000.html>
+   470		  <http://linuxpower.cx/~cable/>
+   471	
+   472		  If you don't have this card, of course say N.
+   473	
+ > 474	source "drivers/net/mdio/Kconfig"
+   475	
 
-	Ingo
+---
+0-DAY CI Kernel Test Service, Intel Corporation
+https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200802180304.GC86614%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202008030639.nD6aMF6M%25lkp%40intel.com.
