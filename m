@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBAABBY6XTP4QKGQEYO2LTMA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABB3OXTP4QKGQEUA4XNLQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23d.google.com (mail-oi1-x23d.google.com [IPv6:2607:f8b0:4864:20::23d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 694582358C4
-	for <lists+clang-built-linux@lfdr.de>; Sun,  2 Aug 2020 18:37:56 +0200 (CEST)
-Received: by mail-oi1-x23d.google.com with SMTP id e126sf5595629oif.6
-        for <lists+clang-built-linux@lfdr.de>; Sun, 02 Aug 2020 09:37:56 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596386275; cv=pass;
+Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0E0FD2358CC
+	for <lists+clang-built-linux@lfdr.de>; Sun,  2 Aug 2020 18:38:07 +0200 (CEST)
+Received: by mail-pg1-x53b.google.com with SMTP id j37sf963055pgi.16
+        for <lists+clang-built-linux@lfdr.de>; Sun, 02 Aug 2020 09:38:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596386285; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZviQ5C/UwtmyWTWlBsYOgikrJViXcLG3Ryq51wqpP5NcZeL4Tsun+fJYMK+cFUdiZg
-         At4zqMwS7NyXwYlmiIwrdTkEAA6KDz2YdpQRI6dr98VXlqegRjOc59i062DOK4rmjDvG
-         n7aOFpLGclkmm2L+XUg3PaZMl9HGb9VyMLOdp+W6mdH3L5xox2RCyoFcShKdM8XwHYin
-         YEVrQx2LPYd1ooBiH7htKUuWuvS6RiQxhovNOtBo8f6HMB2LnkK8eh3YB1bxBS0KN7iB
-         00QnPxiImS4zr3Kun5ro7x7YzhPMhHP7HlJT/s5vUuGRMt35hCEmYDlwjxdphadQhDFd
-         aUMQ==
+        b=fI9NEooAEPRw7PLKEmVocTn3hKUZX6W8XZ/soESi5inenbTN9AV4DfZQ+5blBpYkwh
+         ZZKLUCTlV5RQ/Tx/gxFKH19qmLo+tJI65AUWgYZMYPTXZvVDQyl6gkqH2W4YFjr3DNv5
+         Ik+aALKUaBn89/hbw48xhVD/L8bDHAoc2zFcxDko4CXSwj7bnlPlkmJDQDxd1a5kRULm
+         RqdSepl7G24Xyb93Xr5fztXujvuebfr7rna7Nb6qThRNcBj1P1eDoP4P2JextwHaGE3/
+         79nkYSuegpjyplF09nxmagVIHmlDkp6wb6L0Vj7iDH3h4ud3Q8xjweInlr5XZr5Lqah6
+         Qthw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=K6Z3TzQNStAXJ4bdA/kAETAlD2guNDhRQbF44d+w0tU=;
-        b=ktWI+4XqTQQeXLZWl/HqcTn4nKgSz+6dw1sqGloLS0R6n4t6CQ0pajsufoN29dXtmV
-         udZd0a8xU/iM+CrU3f5meLNPTXZTHwNvv+Y2gMegeTRoZ24xyGerPAOzLkkOJE0HK8fz
-         uAShtSnVtcxTqcqjgCj1E5ztwihDbi0Pw6pJ7jjLI8iNYy61QMYd1l65By3+IRkrcqTS
-         s13IERzG8wwSywCbEfxCjZDrFuYrZO0HSB3JCNaAldl5YCwWnm+Mm/TPyhdVaF8g1wHw
-         QDjc8xR2B129oSrV2SMy/0WTzgzq+ddhZrzlhYD66ocmwNHULIrt7gW1pr6nD4uOq9+5
-         6Juw==
+        bh=wtzO777DlMjM+QgTpbbCjkwkzeEUh24bQyV0blbTkwo=;
+        b=K6zgGs+dkdEY91IZZM8i/bVfy+RtqWhBMdri1dGfFjMxL9GVpXuIZpbW040UxndSpo
+         m8MyIu5xZ+Qruf9svI15nQJ3Zs+8050w0+m0BMo60sUgFrMdAOrawkN//druRpixFu3N
+         KkEoKp6CH7MwlV89yERma4Sq4ZPpgeoRpl4Rm6SxMb5qoHefHPsFekvdQfm7p+zUPQ2i
+         EOO5MDt8Nt+rM+xEWN4u5Cc6fqzlbt0Xd5EVYuWmvU+GgzDhKo3ha2dWDvi8mY5h01Y+
+         urflZ3OVpX3Sz3ab0MPRNAlsy82tIb0BWGZ8/2agCoJkoopj7hNNX/CYncasImmXUSCP
+         +ASA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=URJX7ELs;
+       dkim=pass header.i=@kernel.org header.s=default header.b=VSqQxV0O;
        spf=pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=rppt@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=K6Z3TzQNStAXJ4bdA/kAETAlD2guNDhRQbF44d+w0tU=;
-        b=WJT89QUycxH2mQYMXkq+P2wSxVM6smxKHsqN53i2b3J4hnHPfVyHJKvxma2Hb2CxF8
-         MugYtq5cnZsXnPcAbqMqxfstPwXYMfxpDjZduSgVdKC8QuybQu3S+s33abm4w7DKBRB6
-         w3w/r755m1NJzoVnrS/SNaIBlW08dQzn/+6D6NTwAj6FgJPPYnDuvslZmgSxbwXrBdwG
-         iHWA3rTtQQ2e48kNYJjzpOcO22BVnQxtNouFXOGFvtRmsN5Y9jS+dJ3x4mH0xpJAnkP0
-         CvW/Lcr1ckHrHqloD431S8YklpCdW7QLIKtnjwfzBGfp84i2DYkCik2r0lx4ASZTRzy2
-         7Aaw==
+        bh=wtzO777DlMjM+QgTpbbCjkwkzeEUh24bQyV0blbTkwo=;
+        b=ng+Hfo8ZZuJsqZhngRh3Q7tcPyArQJImZ2GXxQda581DuQ+SFhBqbYyMdmDjOsuXOL
+         6nDO6mL/v8GUK8ST/02+L8RSwO8W2GJC3pzCUm31A84h/ZcU5BCfkDimTwNDJmX34Zi6
+         5mJrjXkty52/LXzG4PoxZLCA93eWJrJ0UYxLoyV0ACo//PK6ObkT0QtNI60plr8pRYPE
+         OZkl8PsEFu29sNIw5/1MXLRgA2YeKS/NJgKqxAA67/Gc1jNWdrgd/Ffu5L0viWE739qw
+         IUdtM1Uo5YH2vMrlMVCX8uVZ1xP+B/1Y+zKHN6MDKHY5DK06kjbxYfcqb3SwXVVyoW8R
+         RJig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,57 +49,57 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=K6Z3TzQNStAXJ4bdA/kAETAlD2guNDhRQbF44d+w0tU=;
-        b=gmvmOU+RTxvwkWA8p0903kT9tJvYubofeloKH1e5T249VZ+DNqKPrKVBc/YLl61Tzw
-         wSSl6CahvwAo9sSJk/Rx5xWlK1sFmsZuvGQ6kqS6wkAyvLa7PxnoniHyIC92uyVCCo0w
-         jdgvmkQaBTWU6xaNYUZKWTlxa2auY9cP2qaL6rO7uOlsacW35yTg1UDU75TAd0K2RQl4
-         3fkUWVXh2ZzNoXLkR4Ol/S8YPW3DmyUlzSc5sQJkuP8BQ95Nr9jY0YOolY2FdI09u00R
-         9+p3YbjVvh54jLrMUe+6vs/WDxjnlXKFKqjpv35vhFKDZ2FSE34yaadO47hGsC5g1e3e
-         /zUw==
+        bh=wtzO777DlMjM+QgTpbbCjkwkzeEUh24bQyV0blbTkwo=;
+        b=GxR7CtJhvdxyT9dI2R6q6X59vH/GNTMADnLWlfmhTo4FFJtOr0jCp02u8RsWV1pjvl
+         QdYl+y3S6z4oJevazhdGDZx+2+uO0YlKQ5SwPzeIsKmNODNCev/AdLHeqjwyOVFht/xh
+         2EB6v/KC8C8Rl9wr0trpq5Ou1seuKdGQgeJ9dMwmLVI0PUYUM05FtEWxjcppHSgIwp7B
+         geseosTUKCFKjA4Zw/r+Gsm1mf8w8XPc0PMKqMRMZcaRQUaMdhPhsQbUavucA6nq4PUA
+         toIYHbA/mspDOhx9bjEsvXh7izVv4ouekMSM5XwGp2n00rEe4BKOmQmEgukcKAi71xq8
+         s6Dg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533II6v62txyMrox97F1tzZoJMgNXM1fOEpSOJztQvAmJygSJTy7
-	lNOsoa5DVH4iw2+toOjKHUw=
-X-Google-Smtp-Source: ABdhPJxb+cOrDCxifqeMCIiPQS8xBxw3VeONti8zwy/5FZr9R/9aCcJk1oruABqQMnYHz1JMtfbXNQ==
-X-Received: by 2002:aca:bfc6:: with SMTP id p189mr9389222oif.55.1596386275392;
-        Sun, 02 Aug 2020 09:37:55 -0700 (PDT)
+X-Gm-Message-State: AOAM530Vd9q/PTRbfJ6Wqc7wtv8mwpLl8N7Difd5wPRNrDruuvy51mZk
+	bW7skcFKoe6QQbjzw4rW89w=
+X-Google-Smtp-Source: ABdhPJzDckt46sAsMcYM9xayLH4brXdVacxKgDO2qgLt2IHOCQWDj1WjHpAgmz+ZRD+deEoo/BiuTA==
+X-Received: by 2002:a17:902:7688:: with SMTP id m8mr11488029pll.12.1596386285724;
+        Sun, 02 Aug 2020 09:38:05 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:7ad9:: with SMTP id m25ls2140742otn.11.gmail; Sun, 02
- Aug 2020 09:37:55 -0700 (PDT)
-X-Received: by 2002:a9d:5e19:: with SMTP id d25mr8622810oti.325.1596386274939;
-        Sun, 02 Aug 2020 09:37:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596386274; cv=none;
+Received: by 2002:a65:52ca:: with SMTP id z10ls4463325pgp.10.gmail; Sun, 02
+ Aug 2020 09:38:05 -0700 (PDT)
+X-Received: by 2002:a65:610f:: with SMTP id z15mr4263130pgu.123.1596386285344;
+        Sun, 02 Aug 2020 09:38:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596386285; cv=none;
         d=google.com; s=arc-20160816;
-        b=BHK82tK+LGcoWR8BNt+6HgSV1kk+SofgxemSqvlBC11benOXhzPYspYTGSqa9nB32j
-         2S+SoiEdlHW/zbt3miLWkmtjK+6/MnEBkjWTX2L61BQKalQsIQRFm542zaTLZT6vm/tL
-         JTQmo7x57Cft3G80Lk1Ex1nR9cWD70sRk+QB4o2JEgYwulL6cpsB6tLosaYdzrvcrJ1H
-         qVGx2HZAen2X4/RsvVnY9QpJUTEUmGEb8j0so9xZRx1uTa6/2FtEgAqLFUsHpxSLiW/b
-         xAepW0xkMeRf4U3MlN+YJ/JsVj9WZsaa+DX1zYiLKU2H7IhRw2XQEwonyeUjPiezE7cT
-         Y2sQ==
+        b=RtFjc0+PAwB41L/Jw+SHBwxnOJ9ol3vC0LMdQ/RyOAnqg+WAIXRqjeXk1BbJA2YSXo
+         0kdtpYZQkLcPr1iaJntWJKvyuuwu/9DUZf2Wef6R9CslflzfVzEJTAG0HEKwJblh0Ory
+         SH7PmHnW/ibHLA6ejt3udreCO72G8wXXBzzUdEJzpqqUR6cvwXP4SnoEU+Z7q6edwhwb
+         Nxp+bTlWjvfK4B6rk3t8TKwruRCdbIhiWV1bGX7Iv8X4MipxgxhXs8fDm75CMkuMI9b2
+         51YKh+6i4gQFnF6qaEvhpSzuZJtzNMl3qdBV/P7RKl+FhEJZbXhayyNmjdkIoNcJ30H/
+         xMIQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=uRLIWt++D6v3SV3N6MRA1Kmpkt/JgdCl3CqDUpVUXsk=;
-        b=mkunVfVWyJsJXkzo16KWkTU2kh32F2USXguTO2tWiCagjSczTycF1NjdBYk39XM7rN
-         0IMsEkoyDH5V2GGZhLXWnBBZrobhCWOUjtppCCx4gPTzpWQRh3mgUcloTro0GpOHi1zi
-         9Hh7NxaOiLgIK/R0YNrrLuXuCnmCgiEFlBu+pq9fbxlas3v6ICyNLkH3bDnYFv1zFjet
-         7AGJtwzhgAdS9lQxd5P2h/IxDcMJJEKWdEJoH7vCCI6QC9MvsDvfQn2qfvgaqrPVY5UE
-         1qkijtPy7vTDhL5E3wUuOdQYH7OXMdYJH9xZNbvJUYOsLN5cMqeNpj0FiJ9XCt4eINv6
-         oXdg==
+        bh=W+HPL0FqtEmpoGyhlugGPrDAtyFjmrVH+VIrQms4t2w=;
+        b=0e69VJxDZauqFGAC02s+rVV7qbNKaxk2Oz7OFqaY7bn6scw94xwlVZfUyKTOadzgLe
+         kYWBXuN1yJkmx8DSdutQ+5rH+mzNjWqI2k1Rr/GByTFJCazdaofPOQ36gL51pJ9ixSEc
+         mWoY55cplAo/OO2vRoa93OrIe4rz3zs7y+zvTd5B1bLkhC6gRvAC0ONyADJveOJIJC/h
+         cvoMZ4UqEWrB8+ji6dDyuIurSkSxLNmm355Q+HQRaArHInAE3o4JWbfvXXcU00FiyKEN
+         SNWnyoUuqmRKVmYAGhGwQXmXCzGWIkNQ7S90OPRRpIcqse9IdS/CKosjWwY1e6pxm2lB
+         Vr0w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=URJX7ELs;
+       dkim=pass header.i=@kernel.org header.s=default header.b=VSqQxV0O;
        spf=pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=rppt@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id n22si1056867otf.2.2020.08.02.09.37.54
+        by gmr-mx.google.com with ESMTPS id z72si928857pfc.5.2020.08.02.09.38.05
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 02 Aug 2020 09:37:54 -0700 (PDT)
+        Sun, 02 Aug 2020 09:38:05 -0700 (PDT)
 Received-SPF: pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id E71AE20759;
-	Sun,  2 Aug 2020 16:37:43 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id C503520829;
+	Sun,  2 Aug 2020 16:37:54 +0000 (UTC)
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Andy Lutomirski <luto@kernel.org>,
@@ -144,16 +144,16 @@ Cc: Andy Lutomirski <luto@kernel.org>,
 	sparclinux@vger.kernel.org,
 	uclinux-h8-devel@lists.sourceforge.jp,
 	x86@kernel.org
-Subject: [PATCH v2 09/17] memblock: make memblock_debug and related functionality private
-Date: Sun,  2 Aug 2020 19:35:53 +0300
-Message-Id: <20200802163601.8189-10-rppt@kernel.org>
+Subject: [PATCH v2 10/17] memblock: reduce number of parameters in for_each_mem_range()
+Date: Sun,  2 Aug 2020 19:35:54 +0300
+Message-Id: <20200802163601.8189-11-rppt@kernel.org>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200802163601.8189-1-rppt@kernel.org>
 References: <20200802163601.8189-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-Original-Sender: rppt@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=URJX7ELs;       spf=pass
+ header.i=@kernel.org header.s=default header.b=VSqQxV0O;       spf=pass
  (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=rppt@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -172,113 +172,159 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-The only user of memblock_dbg() outside memblock was s390 setup code and it
-is converted to use pr_debug() instead.
-This allows to stop exposing memblock_debug and memblock_dbg() to the rest
-of the kernel.
+Currently for_each_mem_range() iterator is the most generic way to traverse
+memblock regions. As such, it has 8 parameters and it is hardly convenient
+to users. Most users choose to utilize one of its wrappers and the only
+user that actually needs most of the parameters outside memblock is s390
+crash dump implementation.
+
+To avoid yet another naming for memblock iterators, rename the existing
+for_each_mem_range() to __for_each_mem_range() and add a new
+for_each_mem_range() wrapper with only index, start and end parameters.
+
+The new wrapper nicely fits into init_unavailable_mem() and will be used in
+upcoming changes to simplify memblock traversals.
 
 Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 Reviewed-by: Baoquan He <bhe@redhat.com>
 ---
- arch/s390/kernel/setup.c |  4 ++--
- include/linux/memblock.h | 12 +-----------
- mm/memblock.c            | 13 +++++++++++--
- 3 files changed, 14 insertions(+), 15 deletions(-)
+ .clang-format                          |  1 +
+ arch/arm64/kernel/machine_kexec_file.c |  6 ++----
+ arch/s390/kernel/crash_dump.c          |  8 ++++----
+ include/linux/memblock.h               | 18 ++++++++++++++----
+ mm/page_alloc.c                        |  3 +--
+ 5 files changed, 22 insertions(+), 14 deletions(-)
 
-diff --git a/arch/s390/kernel/setup.c b/arch/s390/kernel/setup.c
-index 07aa15ba43b3..8b284cf6e199 100644
---- a/arch/s390/kernel/setup.c
-+++ b/arch/s390/kernel/setup.c
-@@ -776,8 +776,8 @@ static void __init memblock_add_mem_detect_info(void)
- 	unsigned long start, end;
- 	int i;
+diff --git a/.clang-format b/.clang-format
+index a0a96088c74f..52ededab25ce 100644
+--- a/.clang-format
++++ b/.clang-format
+@@ -205,6 +205,7 @@ ForEachMacros:
+   - 'for_each_memblock_type'
+   - 'for_each_memcg_cache_index'
+   - 'for_each_mem_pfn_range'
++  - '__for_each_mem_range'
+   - 'for_each_mem_range'
+   - 'for_each_mem_range_rev'
+   - 'for_each_migratetype_order'
+diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
+index 361a1143e09e..5b0e67b93cdc 100644
+--- a/arch/arm64/kernel/machine_kexec_file.c
++++ b/arch/arm64/kernel/machine_kexec_file.c
+@@ -215,8 +215,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
+ 	phys_addr_t start, end;
  
--	memblock_dbg("physmem info source: %s (%hhd)\n",
--		     get_mem_info_source(), mem_detect.info_source);
-+	pr_debug("physmem info source: %s (%hhd)\n",
-+		 get_mem_info_source(), mem_detect.info_source);
- 	/* keep memblock lists close to the kernel */
- 	memblock_set_bottom_up(true);
- 	for_each_mem_detect_block(i, &start, &end) {
+ 	nr_ranges = 1; /* for exclusion of crashkernel region */
+-	for_each_mem_range(i, &memblock.memory, NULL, NUMA_NO_NODE,
+-					MEMBLOCK_NONE, &start, &end, NULL)
++	for_each_mem_range(i, &start, &end)
+ 		nr_ranges++;
+ 
+ 	cmem = kmalloc(struct_size(cmem, ranges, nr_ranges), GFP_KERNEL);
+@@ -225,8 +224,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
+ 
+ 	cmem->max_nr_ranges = nr_ranges;
+ 	cmem->nr_ranges = 0;
+-	for_each_mem_range(i, &memblock.memory, NULL, NUMA_NO_NODE,
+-					MEMBLOCK_NONE, &start, &end, NULL) {
++	for_each_mem_range(i, &start, &end) {
+ 		cmem->ranges[cmem->nr_ranges].start = start;
+ 		cmem->ranges[cmem->nr_ranges].end = end - 1;
+ 		cmem->nr_ranges++;
+diff --git a/arch/s390/kernel/crash_dump.c b/arch/s390/kernel/crash_dump.c
+index f96a5857bbfd..e28085c725ff 100644
+--- a/arch/s390/kernel/crash_dump.c
++++ b/arch/s390/kernel/crash_dump.c
+@@ -549,8 +549,8 @@ static int get_mem_chunk_cnt(void)
+ 	int cnt = 0;
+ 	u64 idx;
+ 
+-	for_each_mem_range(idx, &memblock.physmem, &oldmem_type, NUMA_NO_NODE,
+-			   MEMBLOCK_NONE, NULL, NULL, NULL)
++	__for_each_mem_range(idx, &memblock.physmem, &oldmem_type, NUMA_NO_NODE,
++			     MEMBLOCK_NONE, NULL, NULL, NULL)
+ 		cnt++;
+ 	return cnt;
+ }
+@@ -563,8 +563,8 @@ static void loads_init(Elf64_Phdr *phdr, u64 loads_offset)
+ 	phys_addr_t start, end;
+ 	u64 idx;
+ 
+-	for_each_mem_range(idx, &memblock.physmem, &oldmem_type, NUMA_NO_NODE,
+-			   MEMBLOCK_NONE, &start, &end, NULL) {
++	__for_each_mem_range(idx, &memblock.physmem, &oldmem_type, NUMA_NO_NODE,
++			     MEMBLOCK_NONE, &start, &end, NULL) {
+ 		phdr->p_filesz = end - start;
+ 		phdr->p_type = PT_LOAD;
+ 		phdr->p_offset = start;
 diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-index 220b5f0dad42..e6a23b3db696 100644
+index e6a23b3db696..d70c2835e913 100644
 --- a/include/linux/memblock.h
 +++ b/include/linux/memblock.h
-@@ -90,7 +90,6 @@ struct memblock {
- };
- 
- extern struct memblock memblock;
--extern int memblock_debug;
- 
- #ifndef CONFIG_ARCH_KEEP_MEMBLOCK
- #define __init_memblock __meminit
-@@ -102,9 +101,6 @@ void memblock_discard(void);
- static inline void memblock_discard(void) {}
- #endif
- 
--#define memblock_dbg(fmt, ...) \
--	if (memblock_debug) printk(KERN_INFO pr_fmt(fmt), ##__VA_ARGS__)
--
- phys_addr_t memblock_find_in_range(phys_addr_t start, phys_addr_t end,
- 				   phys_addr_t size, phys_addr_t align);
- void memblock_allow_resize(void);
-@@ -456,13 +452,7 @@ bool memblock_is_region_memory(phys_addr_t base, phys_addr_t size);
- bool memblock_is_reserved(phys_addr_t addr);
- bool memblock_is_region_reserved(phys_addr_t base, phys_addr_t size);
- 
--extern void __memblock_dump_all(void);
--
--static inline void memblock_dump_all(void)
--{
--	if (memblock_debug)
--		__memblock_dump_all();
--}
-+void memblock_dump_all(void);
+@@ -142,7 +142,7 @@ void __next_reserved_mem_region(u64 *idx, phys_addr_t *out_start,
+ void __memblock_free_late(phys_addr_t base, phys_addr_t size);
  
  /**
-  * memblock_set_current_limit - Set the current allocation limit to allow
-diff --git a/mm/memblock.c b/mm/memblock.c
-index a5b9b3df81fc..824938849f6d 100644
---- a/mm/memblock.c
-+++ b/mm/memblock.c
-@@ -134,7 +134,10 @@ struct memblock memblock __initdata_memblock = {
- 	     i < memblock_type->cnt;					\
- 	     i++, rgn = &memblock_type->regions[i])
+- * for_each_mem_range - iterate through memblock areas from type_a and not
++ * __for_each_mem_range - iterate through memblock areas from type_a and not
+  * included in type_b. Or just type_a if type_b is NULL.
+  * @i: u64 used as loop variable
+  * @type_a: ptr to memblock_type to iterate
+@@ -153,7 +153,7 @@ void __memblock_free_late(phys_addr_t base, phys_addr_t size);
+  * @p_end: ptr to phys_addr_t for end address of the range, can be %NULL
+  * @p_nid: ptr to int for nid of the range, can be %NULL
+  */
+-#define for_each_mem_range(i, type_a, type_b, nid, flags,		\
++#define __for_each_mem_range(i, type_a, type_b, nid, flags,		\
+ 			   p_start, p_end, p_nid)			\
+ 	for (i = 0, __next_mem_range(&i, nid, flags, type_a, type_b,	\
+ 				     p_start, p_end, p_nid);		\
+@@ -182,6 +182,16 @@ void __memblock_free_late(phys_addr_t base, phys_addr_t size);
+ 	     __next_mem_range_rev(&i, nid, flags, type_a, type_b,	\
+ 				  p_start, p_end, p_nid))
  
--int memblock_debug __initdata_memblock;
-+#define memblock_dbg(fmt, ...) \
-+	if (memblock_debug) printk(KERN_INFO pr_fmt(fmt), ##__VA_ARGS__)
++/**
++ * for_each_mem_range - iterate through memory areas.
++ * @i: u64 used as loop variable
++ * @p_start: ptr to phys_addr_t for start address of the range, can be %NULL
++ * @p_end: ptr to phys_addr_t for end address of the range, can be %NULL
++ */
++#define for_each_mem_range(i, p_start, p_end) \
++	__for_each_mem_range(i, &memblock.memory, NULL, NUMA_NO_NODE,	\
++			     MEMBLOCK_NONE, p_start, p_end, NULL)
 +
-+static int memblock_debug __initdata_memblock;
- static bool system_has_some_mirror __initdata_memblock = false;
- static int memblock_can_resize __initdata_memblock;
- static int memblock_memory_in_slab __initdata_memblock = 0;
-@@ -1919,7 +1922,7 @@ static void __init_memblock memblock_dump(struct memblock_type *type)
- 	}
- }
+ /**
+  * for_each_reserved_mem_region - iterate over all reserved memblock areas
+  * @i: u64 used as loop variable
+@@ -287,8 +297,8 @@ int __init deferred_page_init_max_threads(const struct cpumask *node_cpumask);
+  * soon as memblock is initialized.
+  */
+ #define for_each_free_mem_range(i, nid, flags, p_start, p_end, p_nid)	\
+-	for_each_mem_range(i, &memblock.memory, &memblock.reserved,	\
+-			   nid, flags, p_start, p_end, p_nid)
++	__for_each_mem_range(i, &memblock.memory, &memblock.reserved,	\
++			     nid, flags, p_start, p_end, p_nid)
  
--void __init_memblock __memblock_dump_all(void)
-+static void __init_memblock __memblock_dump_all(void)
- {
- 	pr_info("MEMBLOCK configuration:\n");
- 	pr_info(" memory size = %pa reserved size = %pa\n",
-@@ -1933,6 +1936,12 @@ void __init_memblock __memblock_dump_all(void)
- #endif
- }
- 
-+void __init_memblock memblock_dump_all(void)
-+{
-+	if (memblock_debug)
-+		__memblock_dump_all();
-+}
-+
- void __init memblock_allow_resize(void)
- {
- 	memblock_can_resize = 1;
+ /**
+  * for_each_free_mem_range_reverse - rev-iterate through free memblock areas
+diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+index e028b87ce294..95af111d69d3 100644
+--- a/mm/page_alloc.c
++++ b/mm/page_alloc.c
+@@ -6972,8 +6972,7 @@ static void __init init_unavailable_mem(void)
+ 	 * Loop through unavailable ranges not covered by memblock.memory.
+ 	 */
+ 	pgcnt = 0;
+-	for_each_mem_range(i, &memblock.memory, NULL,
+-			NUMA_NO_NODE, MEMBLOCK_NONE, &start, &end, NULL) {
++	for_each_mem_range(i, &start, &end) {
+ 		if (next < start)
+ 			pgcnt += init_unavailable_range(PFN_DOWN(next),
+ 							PFN_UP(start));
 -- 
 2.26.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200802163601.8189-10-rppt%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200802163601.8189-11-rppt%40kernel.org.
