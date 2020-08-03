@@ -1,119 +1,119 @@
-Return-Path: <clang-built-linux+bncBCQJP74GSUDRBNWDT74QKGQEHAGCXAI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCR5PSMFZYORB5XAT74QKGQECNF7RGI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33b.google.com (mail-ot1-x33b.google.com [IPv6:2607:f8b0:4864:20::33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id BB99323A27A
-	for <lists+clang-built-linux@lfdr.de>; Mon,  3 Aug 2020 12:06:47 +0200 (CEST)
-Received: by mail-ot1-x33b.google.com with SMTP id g7sf1422823otn.13
-        for <lists+clang-built-linux@lfdr.de>; Mon, 03 Aug 2020 03:06:47 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596449206; cv=pass;
+Received: from mail-oi1-x237.google.com (mail-oi1-x237.google.com [IPv6:2607:f8b0:4864:20::237])
+	by mail.lfdr.de (Postfix) with ESMTPS id C6BE723A31E
+	for <lists+clang-built-linux@lfdr.de>; Mon,  3 Aug 2020 13:09:43 +0200 (CEST)
+Received: by mail-oi1-x237.google.com with SMTP id r9sf13007602oie.9
+        for <lists+clang-built-linux@lfdr.de>; Mon, 03 Aug 2020 04:09:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596452982; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YyqhwbI3Jco0wMPChrNro6RC8pmlrCZINAgoEaVhBGxqvmgSvOo3lRdFDzceQz4nMj
-         Z+TXTzd0ltkx0s7NUqR2Wm11i8RybZWBbUy2YdSkWcKXXg9ZYpSFOfkArxjqFtxH2D4q
-         goeKeta0Bnlhigk+mexnT6MCdgz/M2yzqk20BJ/fTZy0cPJYz/BLs5OLjudm5wBOXfiz
-         itcPw5Vk8J1GDg4jpzC5WV0zOBrThpQLGHhtOgxUOzh//sqemBh/0gZXE+2Q03Q1P+f5
-         kPILt8MXTwZw6FP8UrNbsyBOIqo4ItGGjHv45aFgo2y4k3gUxBPHNa+d+/fGTh6RyrKU
-         dAtA==
+        b=JuAZTCDl/kJEoUo8BEp7gtqhrwWVevpXfnB5Xg7+22ZzLpEjLfaXx744oqHGaCcit/
+         GV1HhbgQXE1XQgxLldo1OU6O2nrFuZEdmr3eFmBYd1QMSw35HXdrTThnZy7wotMs1wCy
+         1X9qEIDIzzpGlwCnpxUTbeJW0lYbxAkZIoliCJMgstY4cXtI+4PMxrZ5Ju8yl3NkonSy
+         on1HJJxUiFbukEqMU0u/Fm2swSuhdU3giWTqak1LV2XfsvEGITx/lNI6pNPqeIz+0iaE
+         mxcdSBEfQtY2+PFAeh70UFbd/zIWIrw5+kF6Qq1hxQrbNPz9PLibeM4cF/SiComBshw1
+         SOWQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=oHMm7hr7UoQngwelZ7Qp3Naq4eVOzboUN6lHwwXzzZM=;
-        b=Jw3uJxQwtymsp6USf/I42JrS7QhEugMf1U3jeHattNZHMjZnLNtGlh7heG8DJRIZHi
-         /pmDWfvtJxHf2UaTLG6IaskHNVoid0op+NfJWV+HZdh7mNCJoS1U/9fajj9wesDGrJRp
-         P18A5dFB9SwiU8WBdXSms7XLDKB2sno58wdJFBa8WH9Pf4MKKAdtMO0c16LDvG0oAQXX
-         3kcZCDSzGsvJXVmgtJdI4bpDJ0sBdDkE9rt/Zb67YTdNTMMxTHedDzqoN9ce47U3BMXT
-         c1DJXbZuFfbFuGhvzoBPJqDTGLvRbNtaf2PMCbNa0dx/0j9a6Lweo7PPLAF5C2Vfhjnc
-         WlVQ==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
+        bh=mk8cy7uoBOf4PRlpgn9TzHfu2GvBRU2jgVtgl1H+HmE=;
+        b=Uajmrp8vtoK1k2MA84lvskalQybYngzejl5hs3FfQ3a2Mgz8rjUxfVPGVrt3pezxQE
+         7E5fYGK/k9A/408W72iBbSHyvU1C3JfE29cMqsfqevB9GdnXAtK8wyceoO5jRCvkT+vr
+         bsUovDXyDUE9AmLSyuiiCEbpZkE1MCGoNKJlB88gKec40+7E7qVqJukS8VlPx/7b+lRe
+         /XaxpZooyTbNilFIxZ69W9t3VXjvduaFMZh0uSWUNnHOSucjjABHBCqKsrCD5Fm3jyuJ
+         EMAg4rY89iGVO5lCLH6KKBzEaOEkQp84M4+4Zdc0ugMDVljUj0yBVmdNQFrNgMisodyK
+         ZCLA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.210.68 as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
+       dkim=pass header.i=@ellerman.id.au header.s=201909 header.b=ecphZuxZ;
+       spf=pass (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted sender) smtp.mailfrom=mpe@ellerman.id.au
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=oHMm7hr7UoQngwelZ7Qp3Naq4eVOzboUN6lHwwXzzZM=;
-        b=SbyWRQ9v1lf42xUDKFi3Ap+g5V2X+jerY4gxz5S/PEwJ08on2CdnzEKAQyqhqhShGa
-         fQROO1rlgy+MbjrR1T9auLDC4MHoZIXEM0DA+ZZei11AZ9S+lRXeVdUmCr3kazTvznzw
-         OhL4rLvky66UidiiMj4v+x1N+42YB2Q++ncVEu5D+4hc0iCiqrV7hzcNQtlHVzzraIc3
-         sH7/kUpVOe58EYtH5OtWwxwS+1/6AUVJjD3dlkhwHnqYJ3MUCD6BG7Tyv5zHQWrYzg3N
-         UBI5NiYVyrC9HkqNtG8GPLgO6SBFjuE/tRA9StFgnY0eD4h9y3jAyFr6wpTdD4yGGTA+
-         +USg==
+        bh=mk8cy7uoBOf4PRlpgn9TzHfu2GvBRU2jgVtgl1H+HmE=;
+        b=XmlTcYJVCInRWHCHjYw/dw88MnwzvSflOqVYaQ4TAb4B9BIDrpBWLqmw/cuCzU9Fl6
+         27tvb0cceS0LLiFw7Pgzjvjdb5/ML4cBBOI4jiq7HwbYmMGA5KegVEImWHSlMB1wsdYp
+         h/Vv8hOSgm36iexXNU4R5muzjaOM7Sv3ausiZqaFdiz5q2Dd1qxd4nqzuTX+u6eMSMVj
+         Ap+UUhX2TebUdYuaaIs3C0PUfETZVX0eBQooV+5imvIQQXsXXByTTSASO9sAKc62MAT8
+         FbZZeRyWP9Awg5W8LG/H7jfAy+k+bdY0qr19tRAMQdWkVpz27SIST12wKlKJA8O9YSCX
+         mgvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
+         :date:message-id:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=oHMm7hr7UoQngwelZ7Qp3Naq4eVOzboUN6lHwwXzzZM=;
-        b=fbrxfvbQzNSi7VIoPdw+8U/oEM10Tc9BqQI4bumH78zB2s9haUI+osbFcA8oIpKXhi
-         PV54HtRw4IBwNl6jL+aX2JAMxAI2sWspKCD9grRI9wnAGmWY9K8wmg2QKgxc4wdAWbOX
-         sJ5VZxkQgzhZ4mbKvBqwuFytIim4nSoTcI9DSxA3pwBfHXS1e0A4U9U/lLtkGM5kZsfw
-         PpV2YqcrGFhB45eNrBnSCLi2isVP8w/YoDVwNJ0RGCc0sIW2NAKOuuTPVyH9W1wKznF6
-         bUwyUzuImmrN54/pG5Pg6260Dr84ALQtetG6HHcvpg8jamlQ1Y8czBN73iEXbfV/K0k/
-         p7Bw==
+        bh=mk8cy7uoBOf4PRlpgn9TzHfu2GvBRU2jgVtgl1H+HmE=;
+        b=CmzvRXmvQQiXCN0x/3H3Kh1NTrO2ejr7sAh0FI80u7Pc7VvmiiuR56N3OIA0eWLEOX
+         HIAiNJ8PtzqM7HKFEKvUT6+D5MhxOg4ZGpnizLvurXY18ww4bLKlUofBBdwtgSBdKbup
+         4YQIrmrMG3oy8mhpq+nerPhF61UWPT0QvD1NeYmSVCRJ4m7ex3w81isSEY2QHF+bpAry
+         D2GxVjqxUPyqLIxoiFw9nwBiO7pasLoS3RmPGpO+gcMOwxdk5JZslJEHArhDHVeIs2D8
+         Dyo3AqgR88KpOr27qLfIls0lVMFSUxbyXZ+i/YZR6iRusDW55W9qr9E1WRgmQE2T0dZ/
+         mltg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533icoMRJEWkrZV4xi0X28V+cgOOftKb9P47ZOdQEJ41Xgjum29s
-	w0KUGf0R3Ua/QYFmsxgs4q0=
-X-Google-Smtp-Source: ABdhPJw4CIAfrZcbibvobfj0bucxAXJ+Mxkrnr1TEWhYeiM11genHDsZFAf7j+lRTCF9pzgvEHBBzQ==
-X-Received: by 2002:a9d:6b0e:: with SMTP id g14mr13041255otp.171.1596449206434;
-        Mon, 03 Aug 2020 03:06:46 -0700 (PDT)
+X-Gm-Message-State: AOAM532ac6zaL+S7lr5yzlYKN83q/uOIHTmaPaBPgrQxvKlOmwQN0VB6
+	CsPWRYvcBhdiHCl+rcIlrhg=
+X-Google-Smtp-Source: ABdhPJwl+0s36gKmR8ZgJMLrTPWb5d2dYVViDMqWlFDBux5OMmZTKbYdq/oD2j0KJXmlY+/pungqCA==
+X-Received: by 2002:a9d:5e18:: with SMTP id d24mr12605513oti.88.1596452982336;
+        Mon, 03 Aug 2020 04:09:42 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:2103:: with SMTP id i3ls3242762otc.3.gmail; Mon, 03
- Aug 2020 03:06:46 -0700 (PDT)
-X-Received: by 2002:a05:6830:3196:: with SMTP id p22mr13843332ots.102.1596449206060;
-        Mon, 03 Aug 2020 03:06:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596449206; cv=none;
+Received: by 2002:aca:c38e:: with SMTP id t136ls3090158oif.10.gmail; Mon, 03
+ Aug 2020 04:09:42 -0700 (PDT)
+X-Received: by 2002:a05:6808:204:: with SMTP id l4mr11140515oie.16.1596452982084;
+        Mon, 03 Aug 2020 04:09:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596452982; cv=none;
         d=google.com; s=arc-20160816;
-        b=gtA8fR1Dy3Q2VKB40cWDaokywgMoqd33s8zZ1WiCXCiyaH4xVR62BsFVPm59benypu
-         JjegvBSFF/Az3eS0HtcBjiTkFpj93IfSQC1P80bSRhqDiD6S+fkFpVvBmnZKKM834dUz
-         VXzCHsPsoR3OVzGfkJG5rMPPn/yy9mv0G+EooN9kDQ+zSx+becxTCwzpxW0Dfaj/YsnK
-         vSQhpPOne+29aLB+S8kV5VgsNYnh2B8Uoio3UHM6xZEnO3NEfzjyBDP/ZLsPPZLAoKDb
-         DnfBXI+aydNSSKLOcWr8TS/CAlyKgbDWiWlcHUfnT5RPn5mgNb3bPr9COoWhZU0vFlIe
-         ZMpQ==
+        b=lIQMuNpKjCUm435lHZ+RaES4FYS4lD3xJFWMpCvEwvSVOdsA9jhQXEpqGCqbntOCSe
+         TYSpOHiy/HP5q0atCA30ssFTgRaLe633AGS0K7cEOfbaEenYxHBH7+jCyh0GzNUCA8Fr
+         TuosUPyoI0byyfS08HMSuCcu7kzTnCJmbZ4HGIlDcEw/UwZsL92iSg24FOlJtqKcSnc0
+         jx5sQzAyGXBqyty8Wb5mnC9o8jSt0yAXjiixQbeJB+yxCSPCqhXiNrk1MZWkX0LSr6Co
+         HWfETrmGg+vbdiahz7eU8fG48Y2hAiq3xbPYiVB3WKg7MEcdcUWZJC3520czU8HcwG9I
+         seMA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=OpbEohH8OUi/epyUcg1f5tBFIW7tKev1cp8OSm9Qyi4=;
-        b=y3xuGrLJN5BLe8ThAbsoXb1qNzFYmFolCX5LWUAHohZE4nq3BzWji46UHZ18v3ekee
-         FHiZyC0FCknGsl579UlVDpcmNow3uYpVfz6k5SAoXNlbNFyCAVGYRzj7G7gEmq1bRc6h
-         ma1Z5eEurmCHf0DYzb2QACgmM9/QnaVBae3Y1ajzRIJfPZeDFgq7fQ/ola+qHpe+5z2+
-         MViJmGWG9pTTsymsk9WJx2n6NTUog6lR5fZvAawcpwOJi3OEjst8Hot+hjR+Yb3GshEY
-         NgvCHAUA/gC+P7ADFofHuMwMc9FXKwhMEmE3D2HGoCUZnFHvOMqjbesXgm7R/eqP+pct
-         uQFA==
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:dkim-signature;
+        bh=xPRqWhmiTOnIG39R/K1Z1cwGIqNyiPow0RTWLH+/BBQ=;
+        b=pUFN6CPc/xnBsMt2uv20pnlV/J2b4fGyCWI+YqZTodtkDiixxBnWF77TK0jANq1mI4
+         SzAthPGAF470QxuOGKe0S4poLlH6aahre0w4kR53u+sLPMY2c/s/yNSU4qQVkkXUfv7Y
+         FJLNarALj4xQ7iUta7Z0DXdputqihovPuTRHIcZmXMC6QduqPtsWRMqnbDTB42F5O/7m
+         5YSU/lBKxxYss4rD07Lmy9Gr7LChf6Ozhc36yJbiZfBCyvE/bTym7pRk2nSywG4xkTmx
+         XfS9HS2u8GwsJ65kqECrJF+ko6Jy6a83ayxE7eLKz7W6i6LvhOyDqrIUKNuMFZiSfV5A
+         80yw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.210.68 as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
-Received: from mail-ot1-f68.google.com (mail-ot1-f68.google.com. [209.85.210.68])
-        by gmr-mx.google.com with ESMTPS id l16si976396oie.1.2020.08.03.03.06.46
+       dkim=pass header.i=@ellerman.id.au header.s=201909 header.b=ecphZuxZ;
+       spf=pass (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted sender) smtp.mailfrom=mpe@ellerman.id.au
+Received: from ozlabs.org (bilbo.ozlabs.org. [203.11.71.1])
+        by gmr-mx.google.com with ESMTPS id r64si719703oor.2.2020.08.03.04.09.41
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Aug 2020 03:06:46 -0700 (PDT)
-Received-SPF: pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.210.68 as permitted sender) client-ip=209.85.210.68;
-Received: by mail-ot1-f68.google.com with SMTP id z18so7017472otk.6
-        for <clang-built-linux@googlegroups.com>; Mon, 03 Aug 2020 03:06:46 -0700 (PDT)
-X-Received: by 2002:a9d:7d8c:: with SMTP id j12mr13074211otn.250.1596449205821;
- Mon, 03 Aug 2020 03:06:45 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200624035920.835571-1-natechancellor@gmail.com>
- <CAMuHMdU_KfQ-RT_nev5LgN=Vj_P97Fn=nwRoC6ZREFLa3Ysj7w@mail.gmail.com> <20200720210252.GO30544@gate.crashing.org>
-In-Reply-To: <20200720210252.GO30544@gate.crashing.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 3 Aug 2020 12:06:34 +0200
-Message-ID: <CAMuHMdUmHE-KVQuo=b2rn9EPgmnqSDi4i16NPbL5rXLLSCoyKg@mail.gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Aug 2020 04:09:41 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted sender) client-ip=203.11.71.1;
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4BKwBn2Nw4z9s1x;
+	Mon,  3 Aug 2020 21:09:37 +1000 (AEST)
+From: Michael Ellerman <mpe@ellerman.id.au>
+To: Geert Uytterhoeven <geert@linux-m68k.org>, Segher Boessenkool <segher@kernel.crashing.org>
+Cc: Nathan Chancellor <natechancellor@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Geoff Levand <geoff@infradead.org>, Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>, Paul Mackerras <paulus@samba.org>, Joel Stanley <joel@jms.id.au>, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
 Subject: Re: [PATCH] powerpc/boot: Use address-of operator on section symbols
-To: Segher Boessenkool <segher@kernel.crashing.org>
-Cc: Nathan Chancellor <natechancellor@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Geoff Levand <geoff@infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Paul Mackerras <paulus@samba.org>, 
-	Joel Stanley <joel@jms.id.au>, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
+In-Reply-To: <CAMuHMdUmHE-KVQuo=b2rn9EPgmnqSDi4i16NPbL5rXLLSCoyKg@mail.gmail.com>
+References: <20200624035920.835571-1-natechancellor@gmail.com> <CAMuHMdU_KfQ-RT_nev5LgN=Vj_P97Fn=nwRoC6ZREFLa3Ysj7w@mail.gmail.com> <20200720210252.GO30544@gate.crashing.org> <CAMuHMdUmHE-KVQuo=b2rn9EPgmnqSDi4i16NPbL5rXLLSCoyKg@mail.gmail.com>
+Date: Mon, 03 Aug 2020 21:09:36 +1000
+Message-ID: <87zh7cyoi7.fsf@mpe.ellerman.id.au>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: geert@linux-m68k.org
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.210.68
- as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
+X-Original-Sender: mpe@ellerman.id.au
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@ellerman.id.au header.s=201909 header.b=ecphZuxZ;       spf=pass
+ (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted
+ sender) smtp.mailfrom=mpe@ellerman.id.au
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -126,61 +126,54 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Segher,
-
-On Mon, Jul 20, 2020 at 11:03 PM Segher Boessenkool
-<segher@kernel.crashing.org> wrote:
-> On Sat, Jul 18, 2020 at 09:50:50AM +0200, Geert Uytterhoeven wrote:
-> > On Wed, Jun 24, 2020 at 6:02 AM Nathan Chancellor
-> > <natechancellor@gmail.com> wrote:
-> > >         /* If we have an image attached to us, it overrides anything
-> > >          * supplied by the loader. */
-> > > -       if (_initrd_end > _initrd_start) {
-> > > +       if (&_initrd_end > &_initrd_start) {
-> >
-> > Are you sure that fix is correct?
-> >
-> >     extern char _initrd_start[];
-> >     extern char _initrd_end[];
-> >     extern char _esm_blob_start[];
-> >     extern char _esm_blob_end[];
-> >
-> > Of course the result of their comparison is a constant, as the addresses
-> > are constant.  If clangs warns about it, perhaps that warning should be moved
-> > to W=1?
-> >
-> > But adding "&" is not correct, according to C.
+Geert Uytterhoeven <geert@linux-m68k.org> writes:
+> On Mon, Jul 20, 2020 at 11:03 PM Segher Boessenkool
+> <segher@kernel.crashing.org> wrote:
+>> On Sat, Jul 18, 2020 at 09:50:50AM +0200, Geert Uytterhoeven wrote:
+>> > On Wed, Jun 24, 2020 at 6:02 AM Nathan Chancellor
+>> > <natechancellor@gmail.com> wrote:
+>> > >         /* If we have an image attached to us, it overrides anything
+>> > >          * supplied by the loader. */
+>> > > -       if (_initrd_end > _initrd_start) {
+>> > > +       if (&_initrd_end > &_initrd_start) {
+>> >
+>> > Are you sure that fix is correct?
+>> >
+>> >     extern char _initrd_start[];
+>> >     extern char _initrd_end[];
+>> >     extern char _esm_blob_start[];
+>> >     extern char _esm_blob_end[];
+>> >
+>> > Of course the result of their comparison is a constant, as the addresses
+>> > are constant.  If clangs warns about it, perhaps that warning should be moved
+>> > to W=1?
+>> >
+>> > But adding "&" is not correct, according to C.
+>>
+>> Why not?
+>>
+>> 6.5.3.2/3
+>> The unary & operator yields the address of its operand.  [...]
+>> Otherwise, the result is a pointer to the object or function designated
+>> by its operand.
+>>
+>> This is the same as using the name of an array without anything else,
+>> yes.  It is a bit clearer if it would not be declared as array, perhaps,
+>> but it is correct just fine like this.
 >
-> Why not?
+> Thanks, I stand corrected.
 >
-> 6.5.3.2/3
-> The unary & operator yields the address of its operand.  [...]
-> Otherwise, the result is a pointer to the object or function designated
-> by its operand.
->
-> This is the same as using the name of an array without anything else,
-> yes.  It is a bit clearer if it would not be declared as array, perhaps,
-> but it is correct just fine like this.
+> Regardless, the comparison is still a comparison between two constant
+> addresses, so my fear is that the compiler will start generating
+> warnings for that in the near or distant future, making this change
+> futile.
 
-Thanks, I stand corrected.
+They're not constant at compile time though. So I don't think the
+compiler could (sensibly) warn about that? (surely!)
 
-Regardless, the comparison is still a comparison between two constant
-addresses, so my fear is that the compiler will start generating
-warnings for that in the near or distant future, making this change
-futile.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+cheers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMuHMdUmHE-KVQuo%3Db2rn9EPgmnqSDi4i16NPbL5rXLLSCoyKg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87zh7cyoi7.fsf%40mpe.ellerman.id.au.
