@@ -1,149 +1,121 @@
-Return-Path: <clang-built-linux+bncBDS5JPEL3IIRBPHHUH4QKGQEOZPJXGA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4LX4523YGBB6XVUH4QKGQEXTICLBI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x340.google.com (mail-wm1-x340.google.com [IPv6:2a00:1450:4864:20::340])
-	by mail.lfdr.de (Postfix) with ESMTPS id 030F023AE1B
-	for <lists+clang-built-linux@lfdr.de>; Mon,  3 Aug 2020 22:29:49 +0200 (CEST)
-Received: by mail-wm1-x340.google.com with SMTP id p23sf237070wmc.2
-        for <lists+clang-built-linux@lfdr.de>; Mon, 03 Aug 2020 13:29:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596486588; cv=pass;
+Received: from mail-pl1-x63a.google.com (mail-pl1-x63a.google.com [IPv6:2607:f8b0:4864:20::63a])
+	by mail.lfdr.de (Postfix) with ESMTPS id ECB9723AEA5
+	for <lists+clang-built-linux@lfdr.de>; Mon,  3 Aug 2020 23:00:45 +0200 (CEST)
+Received: by mail-pl1-x63a.google.com with SMTP id x20sf20646901plm.15
+        for <lists+clang-built-linux@lfdr.de>; Mon, 03 Aug 2020 14:00:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596488444; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mNGB5dhclKnQDBY57ose7LD+5eUgjC8NBasdMz/ipgHKJ+APUW24yGsHFheEQfBcyh
-         C5hve6oEFtLO8lOCuJ+nnJc5qWHHozIqq2QHgXC83gRpRK5r93Np/w2t9O9X8pHAPOc1
-         U2n5wHrITsnsNmseyAbjmHSSqAhJF6jFXXxbzDmI/t+SlrjMaZUSK3k/DhaQ8+NSvJBd
-         yiIpEOFsExFrLajOnFtSIv3bJvdPrxu+1JWH7aqmt37rsQG+6IF4KFqr9aqfhPuXaDkh
-         ttrRkH7S1OtFddoHFjEAxCINt/Z+SKgTXqcDFe/HaMeQlv/d+r3fioDBhjsGK6La0ziA
-         fpRA==
+        b=gult6bufde+LC04KrtL8TAiQLSVZ5Lnti+Yo4T28SJZ0ox6SgT0KIrj1c+RHf61BQ/
+         raMimPfoKQoHA7JuMreGLyhwZZvWLX4EkL4OoaFjzo8/j45JvWY6KYQEIEad6TT+Kayw
+         yWOouYaDN0KHa1cGaHUHEjZvqRHUbHbCdDS3oB0RdeHFiI0icET7QzHCljfgNGu0sKGx
+         29ZTKkSFSDwppcEgDaX6p49/KiFZ/XTbAF9hKdJs2xwM0e0F6Vz7pMUZgHmQwhdax9aI
+         mUUjigUwOxZEFcZNzk/ONNPsh4VbSGw2CXa1b/g+MBxE3zRG9jeNG6EVf3WjynljH/EY
+         vlkw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :message-id:in-reply-to:subject:cc:to:date:from:sender
-         :dkim-signature:dkim-signature;
-        bh=2ZlBn4itmybNqpcn/O9pcOkWjc5SKuwtHm/FNyKIOK4=;
-        b=JP4PLrQSdbZxz0w9iURV3khVOMLP9Vf9yXhWo+VKhzBjWP6rrXBey4NtGnKDGo7QR2
-         3u6M6DBmPgSjfTHSekK7cFdwdT49jvbUKYyrDERd41m7bnecikthCxeRcebnMnEGxBZi
-         Jqza0OCCX/3ZTuhxgc2Y/yES4Mhr2gSLNxHTDGta3stKhEc3iTs6p3bj5mADCpvcoQM0
-         9uMz6zcwKbFg5RO4+fRPD1/h3hr/g3PeuM/g+xpKybnjrthxJO4KWBlIJzqKcNpGkOGW
-         3qNXHeMMfySzd42soyHxnJ5WWkpNosM+X0L1PgJiXF731BHvo8w1kss4z4jIf4fc7SqV
-         f+gw==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=13kqsczdunJou7hdTQl98W6x9ObwBrn92Xn/ww6x7IY=;
+        b=bhp3DREWlJasTcrEwf2ow9oaqNdiJ6Cgt0mKEqEUm0h0XJO/aCyUfsqiwAtQz4A15e
+         0ANThGm0CzwSb1GQBcl+9quRrlDyYaPVuZ8P7yg01fQEWBy3KY1xEfpIb7ttBuTza3Ua
+         DuBzTt3msVGThmKYlhTHXqoAYkTt1x2TVWxlT8jIbv2qlcaDKXOl+MjOv/IaauSlrAfY
+         kmhk8iQGdD+7y3Imx84klRMGY9p4uS0rd/L6JKvaVVc3t/omJcO14w3pRzj8CKehTTbH
+         0cuLaYDyeMEWKR2UAWHgyUxfoA2VbbJpYGKZAw9MQWxCTns/XMwKUoX0HqgZepdfDvsx
+         MufQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=A2pYtwPq;
-       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::32e as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) smtp.mailfrom=segher@kernel.crashing.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:cc:subject:in-reply-to:message-id:references
-         :user-agent:mime-version:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=2ZlBn4itmybNqpcn/O9pcOkWjc5SKuwtHm/FNyKIOK4=;
-        b=XBk/7VjFm98yYsm2YSftZWvx0AEL7TCX1LQAbbHM4xO8/idYBUyIyCpxEFe9VPzxnG
-         n6bt3vFxt8H5hl4V8tHDcO37MrvfGG/HCrbbYzAyOVJyYw2wqA7py+gmdq3RK5KorN5a
-         h+uFqK/wA53XqZ48dwPJd8rX1+3lieGkzcPVARQqJ34RnWbhR6VVfb0APCrEhZAB3zD/
-         VzffWhH5b4eL5BCV5HsyxP0sXRKLGrUV6ginIahfRlqfv8iX7KQFN/8S4eM93twF+1Ri
-         wN6dsOQV50m51ReV1bkA8e/T/uxEa9QIPBYM7UF1njllzm+AXwrlX6lISbkrL9oZgIEV
-         WzOw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:date:to:cc:subject:in-reply-to:message-id:references
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=2ZlBn4itmybNqpcn/O9pcOkWjc5SKuwtHm/FNyKIOK4=;
-        b=NFiNBysF4TBMLA9HEaubvx/y+ubGZgtjgrfHkr/H5PyQImivhO7URKY6upR2uHo9Gz
-         M97tskQh0oI1W8va2B7HXZEoMuC8Fy74etsGmqHUvfbSJOoMFdLW8lGYp2j1fB40RQ7N
-         OSRvhburx6BvkMZ+PeXd8+6jN4fEyXVdk6qTbKJgumRPstG+ATRUhz2lhU9dnc6PfVpB
-         YH8ktZuBMmAT0+oDPqlKEav3Y90NMjRF7V4FRAOYe9laZ1otZjQFIdRUMgV0ZnbWWQzu
-         H+iXNqpHmCBzRVTHLduSqXf0gOoK39THyoAA7dy6GSW4QK+GIgo7w+p5Ozc6dJjens9M
-         GT7w==
+        bh=13kqsczdunJou7hdTQl98W6x9ObwBrn92Xn/ww6x7IY=;
+        b=nsuw0QInG3GaGWUx4/Y87GijByapr0pfMthYKSd5eHLwuAUPDI52GowO1rShrhze9X
+         EfZ3NQZisIl4GG5WhnuZERGwJwdugEg0c7n4ay9XVRSST3rhTdVUCWA3ebza0nrAT45n
+         NUiSg59WHE9QuHd5tkDusGtCfSA1JB6NEn6alYWl/7qkqbjE+Sv3Wgc+ngBmvYM1lphd
+         SA5K3oinQix9fCirt33oyuWtYYRegg8TKdlcPdbQnZmC2JGqc9sB2EvyMELthfCmLC/K
+         g/1rLPzo6IuJOCV6MUtwMMJvkRjBsz1V3ytotm15pV+RoTstggahIyU6RmApAsvSeBNq
+         K5tQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:cc:subject:in-reply-to
-         :message-id:references:user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=2ZlBn4itmybNqpcn/O9pcOkWjc5SKuwtHm/FNyKIOK4=;
-        b=Xs+Ho4AP5PiSpjoLdZxT6UT9bq7wM/0AJQa8wGT241Omb72f8NGldN6kjzdtmzhStN
-         k/IL1b5FwJShBelwUwX3aslsO/XG3obeGQtmS9C1pGTZ01Rum1x8wgkLhDkD8kA/GMS7
-         wklFWZa3Pkl2zlGTgt+t9UFp/JCilEmOjRZGSdMTwy82C5RCqQSrTrUNzoZlU1IP8Vaw
-         QJbQTPfJvzYK5lVoBYYrgqr7gMlwF5RZRwXMY89vY+4+7/Mi4jPC8KGEOG7cTofl86q2
-         dcGiAxwuvO9PeHOETMq4hFq4cltmmtw2+drOXwEoviRCZrNHr9YyxlWRqVH5nGf7dtbH
-         zH5g==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=13kqsczdunJou7hdTQl98W6x9ObwBrn92Xn/ww6x7IY=;
+        b=GDKy8RtHOnB7Ng2rhGGOjf4Qzg2Uljg5SxMxApRIqBtjlzJ7mCq6f7JymejjNR4IJ7
+         N5WvQZhE3RmD0VA7z45REQOuoYrNATjshmQjW8aWwiB9SfTMbNBsBJCE4PcIk37T2ZGa
+         Gy6MFXXdHUa0uFJqXbB+WqfEg+nC1tdNIJcVe3GVz29MBDlGLpaVabZVqeSBeG35PmCR
+         TXfY1BB5aAsrjvI7tu5qImStwaxwwi8ljqVjdQOlb5yGz/PNMc5PI0LE2IYCM9f86oDJ
+         /gaViQ+bL5IRXNGXYPpXWIYJOFNwolasF/6AKBdGvk5xIyQ5Dn13dj7p9Xy0gpN5kOv1
+         5f3g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532UbfxNTSU+3wSJBCy1Rv/EsNLZV6Q8nVu17mH0kzE5jbdSO84m
-	5uWJtcIBD1IlMBE0yG23odU=
-X-Google-Smtp-Source: ABdhPJxImIQ8uFT5Fjyiewgc3WWsVXxxsCgATvRsQIlK1UWtmByPz8xzhufNmLg45evfI1FWkSb4Vg==
-X-Received: by 2002:a5d:4746:: with SMTP id o6mr17644722wrs.410.1596486588472;
-        Mon, 03 Aug 2020 13:29:48 -0700 (PDT)
+X-Gm-Message-State: AOAM532lfLMypuPV7QUyHX1dkmoJ0A4LBm/yMCL4dYiWwap3+XLiHRcy
+	vV76P3cefDWF69hLJrDOQCc=
+X-Google-Smtp-Source: ABdhPJytU1QtqTpAHhpWt+RpcEDICER0tQ4i5uHEx2Cs4zUdd0JswtMI2sXUQmM+Fs/m95eipHhTmA==
+X-Received: by 2002:a05:6102:21a4:: with SMTP id i4mr13309066vsb.24.1596488443703;
+        Mon, 03 Aug 2020 14:00:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:804f:: with SMTP id b76ls318824wmd.2.gmail; Mon, 03 Aug
- 2020 13:29:47 -0700 (PDT)
-X-Received: by 2002:a1c:2350:: with SMTP id j77mr857140wmj.31.1596486587833;
-        Mon, 03 Aug 2020 13:29:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596486587; cv=none;
+Received: by 2002:a67:7241:: with SMTP id n62ls2030222vsc.2.gmail; Mon, 03 Aug
+ 2020 14:00:42 -0700 (PDT)
+X-Received: by 2002:a67:eb18:: with SMTP id a24mr4976577vso.71.1596488442352;
+        Mon, 03 Aug 2020 14:00:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596488442; cv=none;
         d=google.com; s=arc-20160816;
-        b=DE6uNpAt2aAC8GFMMjg2mnmK/gghGh8E1sS3QH5mtfUIYZ/7QeTk93zAGCcjRIPE0N
-         VRSI55aFM88D1dbclmVZ42GMy+LmncmHBZ+sLP9cVShhHEC+pyd3JWSLMW3KfFTmf15l
-         wnGKN6l8bmr/uS9DEdPVCvxPFcaRVCjkw6pZ3pMkPsrTtMD7SpdG4xdz1woxIHXQNy+y
-         ZWtQUiOF6Hx6ZY7H0Sb1P0QjADaWBzm3eVhlFbibK2nqVEo2r+szipNIHt2/3VYp/BXG
-         0DXHnonYUvYaPsy3LhILjDsf92FtuftQf8WVaHUr4kYzSALZOQ4zPWIiZ8tEUAUbYCgN
-         OrjQ==
+        b=iqS3qnMCVvLqy7vkF0820hJwifksuInHyAXlDmrYJqCx/kUf6lwrG6otzflbUpUfvD
+         xwqdLeq8FMQ/UqoJon+eqhKdabOlhJlMsEXsG9Ix0AyJLtim5QFe2RT52erMZCn/8IAG
+         jZKxXYcVQOFysch+bzG9eWjvWd1Y6DEpgpoy/XwINiEQZVIhQm6bBeMYsrv2MvBVa9D5
+         7pUNEYzpeionWY9l/ajbRYxL3kfIzAl2rR/X274RYhchI641wimsaMISEPZTVqS27ShI
+         k9IXEpNnqwnCxX4UPpOBYwkBHxPqAMxEc6QPsZjPT+Ds9Oj7gk0f//syonvvRz6o8UBa
+         9xyQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:user-agent:references:message-id:in-reply-to:subject
-         :cc:to:date:from:dkim-signature;
-        bh=rx326n8kqvmqtDBZg2KJuCvQxOiqLWGvh0q5L2Syl5A=;
-        b=oTHFuApbDZuyY+7d3LpvpXD6OLpUuf80b1fZFuYBhRU3moho44r0kyqCiBKnMDgjKl
-         5AGLGy00q80z7ZdBsF3Y+0NEkiOmQ+abozdnmjRWXqvhAddoL6R4DKF7++L8//PvrAya
-         kcUltLODOoo2pQW/ociDjnhrx4ENKrx/431JO6ynaXDiTIVo1IeOIykk3deiFwsKuUlR
-         YUS+Hy22/lFkUJssb2DTGBGidJVMXdjx2Ss4CugJSxOuQVhwCpmOWztE6rP/zVT1Vju5
-         OIV9GBQskh+RbW6LKy07+eplpigLFwfMM7dsfcyJOhLZEuKXOYhsk6AzYHtD8SI0C4F2
-         8WCQ==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=jvfC2Eg+cBTY/P8RKNwovqpLuef2LEBqirr48/I2UUY=;
+        b=XjTmduPGyttKnRRt2jjA0kzamtjQ3/gb/qsc0BhCcXJBu+jepK6nR1st5PhiE1FP82
+         IVs/UO6xHehi3ECvH99vqo9bH27p4EPjTp9IwTofnl1S5bYTuRMWpcYlplMrxoY9WQy8
+         4ylkLjE2hHbQMD6jlmLINw27PjdB6RTNNTys1F0CgzNVM8/QCJlIKAjE/kOlsO7SfMIo
+         RmKYG8lw7lwVeYap7UaWrtr8epsvvQc+RmVlroWypukPhIK0xHyc/UnfYSxq9vYKhz5y
+         Q8RN5XsDMpiTqq+rozpRGZznK0wpJuGWeCanER2yuSkDlCP9M58vQB4AIJMIKM4qylKN
+         F1nQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=A2pYtwPq;
-       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::32e as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wm1-x32e.google.com (mail-wm1-x32e.google.com. [2a00:1450:4864:20::32e])
-        by gmr-mx.google.com with ESMTPS id y12si1095788wrt.1.2020.08.03.13.29.47
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Aug 2020 13:29:47 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::32e as permitted sender) client-ip=2a00:1450:4864:20::32e;
-Received: by mail-wm1-x32e.google.com with SMTP id g8so731356wmk.3
-        for <clang-built-linux@googlegroups.com>; Mon, 03 Aug 2020 13:29:47 -0700 (PDT)
-X-Received: by 2002:a1c:1904:: with SMTP id 4mr775421wmz.119.1596486587182;
-        Mon, 03 Aug 2020 13:29:47 -0700 (PDT)
-Received: from felia ([2001:16b8:2dc4:9300:551e:9193:4727:1515])
-        by smtp.gmail.com with ESMTPSA id v29sm27887294wrv.51.2020.08.03.13.29.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2020 13:29:46 -0700 (PDT)
-From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
-Date: Mon, 3 Aug 2020 22:29:39 +0200 (CEST)
-X-X-Sender: lukas@felia
-To: Nick Desaulniers <ndesaulniers@google.com>
-cc: Lukas Bulwahn <lukas.bulwahn@gmail.com>, 
-    Nathan Huckleberry <nhuck@google.com>, 
-    Masahiro Yamada <masahiroy@kernel.org>, 
-    Michal Marek <michal.lkml@markovi.net>, 
-    Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
-    LKML <linux-kernel@vger.kernel.org>, 
-    clang-built-linux <clang-built-linux@googlegroups.com>, 
-    Pirama Arumuga Nainar <pirama@google.com>, 
-    Bill Wendling <morbo@google.com>
-Subject: Re: [PATCH v7] Makefile: Add clang-tidy and static analyzer support
- to makefile
-In-Reply-To: <CAKwvOd=V6-p1H1F65gFAQm+h4Qgt_98-XJeUSNaONmPE9yZciA@mail.gmail.com>
-Message-ID: <alpine.DEB.2.21.2008032138070.9503@felia>
-References: <CAKwvOdnni_G2tw+0eCLQQvvdcz97Fy1-cBjzPvLwbBNDu1-KqQ@mail.gmail.com> <20200728004736.3590053-1-nhuck@google.com> <alpine.DEB.2.21.2008012031540.14646@felia> <CAKwvOd=V6-p1H1F65gFAQm+h4Qgt_98-XJeUSNaONmPE9yZciA@mail.gmail.com>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
-MIME-Version: 1.0
+       spf=pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) smtp.mailfrom=segher@kernel.crashing.org
+Received: from gate.crashing.org (gate.crashing.org. [63.228.1.57])
+        by gmr-mx.google.com with ESMTP id u18si566089vsq.0.2020.08.03.14.00.39
+        for <clang-built-linux@googlegroups.com>;
+        Mon, 03 Aug 2020 14:00:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) client-ip=63.228.1.57;
+Received: from gate.crashing.org (localhost.localdomain [127.0.0.1])
+	by gate.crashing.org (8.14.1/8.14.1) with ESMTP id 073L0W3B017027;
+	Mon, 3 Aug 2020 16:00:32 -0500
+Received: (from segher@localhost)
+	by gate.crashing.org (8.14.1/8.14.1/Submit) id 073L0Vo5017020;
+	Mon, 3 Aug 2020 16:00:31 -0500
+X-Authentication-Warning: gate.crashing.org: segher set sender to segher@kernel.crashing.org using -f
+Date: Mon, 3 Aug 2020 16:00:31 -0500
+From: Segher Boessenkool <segher@kernel.crashing.org>
+To: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+        "Oliver O'Halloran" <oohall@gmail.com>, linuxppc-dev@lists.ozlabs.org,
+        clang-built-linux@googlegroups.com
+Subject: Re: [PATCH v2 15/16] powerpc/powernv/sriov: Make single PE mode a per-BAR setting
+Message-ID: <20200803210031.GD6753@gate.crashing.org>
+References: <20200722065715.1432738-1-oohall@gmail.com> <20200722065715.1432738-15-oohall@gmail.com> <20200801061823.GA1203340@ubuntu-n2-xlarge-x86> <87r1sp19ag.fsf@mpe.ellerman.id.au> <20200803044609.GB195@Ryzen-9-3900X.localdomain> <87k0yg1dc8.fsf@mpe.ellerman.id.au>
+Mime-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: lukas.bulwahn@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=A2pYtwPq;       spf=pass
- (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::32e
- as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Disposition: inline
+In-Reply-To: <87k0yg1dc8.fsf@mpe.ellerman.id.au>
+User-Agent: Mutt/1.4.2.3i
+X-Original-Sender: segher@kernel.crashing.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as
+ permitted sender) smtp.mailfrom=segher@kernel.crashing.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -156,339 +128,69 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-
-
-On Mon, 3 Aug 2020, Nick Desaulniers wrote:
-
-> On Sat, Aug 1, 2020 at 12:23 PM Lukas Bulwahn <lukas.bulwahn@gmail.com> wrote:
-> >
-> > Hi Nathan, Hi Nick,
-> >
-> > I have been busy with other topics around the kernel and static analysis;
-> > but then, I read clang and static analysis in my mailbox in this patch.
-> >
-> > So, I thought let me give this patch a try on the weekend.
-> >
-> > I applied the patch on next-2020729; that worked.
-> >
-> > Then:
-> > $ make clang-tidy
-> > scripts/clang-tools/Makefile.clang-tools:13: *** clang-tidy requires
-> > CC=clang.  Stop.
-> >
-> > Okay, that is a good and clear error message.
-> >
-> > Then:
-> >
-> > $ make CC=clang-10 defconfig
-> > $ make CC=clang-10 clang-tidy
-> >
-> > python3 scripts/clang-tools/gen_compile_commands.py
-> > WARNING: Found 8 entries. Have you compiled the kernel?
-> > python3 scripts/clang-tools/run-clang-tools.py clang-tidy
-> > compile_commands.json
-> >
-> > Then actually an error in clang-tidy.
-> > Error: no checks enabled.
-> > USAGE: clang-tidy [options] <source0> [... <sourceN>]
-> > ...
-> >
-> > I will get to that later how I fixed that for my setup.
-> >
-> > Okay, good, that is clear... I need to compile it first, got it.
+On Mon, Aug 03, 2020 at 03:57:11PM +1000, Michael Ellerman wrote:
+> > I would assume the function should still be generated since those checks
+> > are relevant, just the return value is bogus.
 > 
-> Hi Lukas,
-> Thank you so much for taking the time to apply the patch and help test it.
+> Yeah, just sometimes missing warnings boil down to the compiler eliding
+> whole sections of code, if it can convince itself they're unreachable.
+
+Including when the compiler considers they must be unreachable because
+they would perform undefined behaviour, like, act on uninitialised
+values.  Such code is removed by cddce ("control dependence dead code
+elimination", enabled by -ftree-dce at -O2 or above).
+
+> AFAICS there's nothing weird going on here that should confuse GCC, it's
+> about as straight forward as it gets.
+
+Yes.  Please open a bug?
+
+> Actually I can reproduce it with:
 > 
-> For the case of not doing a build first: gen_compile_commands.py
-> parses the .*.d files to build the compilation database and warns if
-> not many were found.  I think it might be interesting for it to just
-> invoke a build if it sees that, or maybe for the clang-tidy and
-> clang-analyzer targets to somehow invoke the default make target.  The
-> issue there might be that you need to invoke `make clang-tidy` with
-> `make CC=clang LD=ld.lld ... clang-tidy` in order to trigger a build
-> successfully.
->
-
-I think the workflow is good as it is.
-
-This already indicates to me that the clang-tidy result will depend on the 
-kernel config and the build, which is helpful to know.
-
-The coccicheck target, e.g., ignores the kernel config; other basic 
-'syntactic' checks in the Makefile, such as make includecheck, seem also 
-to be config-independent, but you cannot run it without having a config...
-that is a bit inconsistent in that case.
- 
-> Also, I wonder if gen_compile_commands.py should set a return code in
-> that case so that callers can handle such an exceptional case?  In
-> that case, I'd consider that a papercut or potential improvement to
-> scripts/get_compile_commands.py orthogonal to this patch.
->
-
-I cannot see the immediate use case yet, but maybe I can provide a 
-specific use case once I try using clang-tidy in my attempt to work with 
-Ericsson's CodeChecker Web UI. It is still a very investigation for me 
-here with that.
-
-> >
-> > $ make CC=clang-10
-> > $ make CC=clang-10 clang-tidy
-> >
-> > Okay, I run except for the fix I needed.
-> >
-> > Where is the output from clang-tidy?
-> >
-> > It prints:
-> >
-> > python3 scripts/clang-tools/gen_compile_commands.py
-> > python3 scripts/clang-tools/run-clang-tools.py clang-tidy compile_commands.json
-> >
-> > That is it. Does that mean 0 warnings, or where do I find the output?
-> > The script suggests it should be in stderr once all the parallel runs
-> > collected it, right?
-> >
-> > I was confused; maybe a short summary output might help here.
+> $ cat > test.c <<EOF
+> int foo(void *p)
+> {
+>         unsigned align;
 > 
-> I was also caught by this; for x86 defconfig, the kernel is actually
-> clean of instances of linuxkernel-* clang-tidy checks (there was also
-> an issue with the CWD for x86 in v6, but was resolved in v7 of this
-> patch).  I had to add a case that should fail to make clang-tidy have
-> output, and the check only checks for unchecked "ERR_PTR", "PTR_ERR",
-> "IS_ERR", "IS_ERR_OR_NULL", "ERR_CAST", "PTR_ERR_OR_ZERO".
-> (Documentation for that should be improved.) So if you add a function
-> that just constructs an `ERR_PTR(0)` and call it from code that gets
-> compiled in, then you'll start to see warnings from clang-tidy for x86
-> defconfig.  For aarch64 and arm, you'll see there are some unchecked
-> cases that look like low hanging fruit to fix.
->
-> It probably can be improved to note that there was no output, but that
-> will require more machinery to track how much output there was.  I'd
-> prefer to follow up with additional polish on top of this once this
-> lands.
->
-
-Agree, it is somehow unfortunate that clang-tidy cannot provide such 
-summary. No big issue, though. You will just have further developers 
-asking the same question when more developers are attracted...
- 
-> >
-> > Then, I ran
-> >
-> > $ make CC=clang-10 clang-analyzer
-> >
-> > And I see a lot of warnings... I guess that is intended.
-> >
-> > There is a lot of:
-> >
-> > Suppressed XX warnings (XX in non-user code).
-> > Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
-> >
-> > To an outsider, it is unclear if that is intended or if the tool is broken
-> > in this setup.
-> >
-> > Is there are way to silent that meta-warning? Or is my setup broken?
+>         if (!p)
+>                 return align;
 > 
-> See also my comment about disabling the clang-diagnostic-* analyzer
-> checks. We haven't had time to sort out the cause of them yet, and for
-> now they just look like noise.
->
-
-Okay, good to know. So, my setup is not broken and the tool works :)
-
-So, then I guess I finished with this result:
-
-Tested-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
-
-
-> >
-> > In summary, it is pretty clear how to run clang-tidy and clang-analyzer
-> > and it was a pretty smooth experience, even with no documentation at hand.
-> >
-> > It was fun for me. Keep up the good work!
-> >
-> > Just one issue... see below.
-> >
-> > > +    p = subprocess.run(["clang-tidy", "-p", args.path, checks, entry["file"]],
-> >
-> > You hardcoded here: clang-tidy
-> >
-> > But in my Ubuntu 18.04 setup, I got multiple versions of clang and
-> > clang-tidy installed; yeah, maybe my setup is broken, but maybe those from
-> > others are similar.
-> >
-> > When I run:
-> >
-> >   make CC=clang-10 clang-tidy
-> >
-> > it picks up the "wrong" clang-tidy version...
-> >
-> > My setup is:
-> >
-> > $ which clang-tidy
-> > /usr/bin/clang-tidy
-> >
-> > $ which clang-tidy-10
-> > /usr/bin/clang-tidy-10
-> >
-> > $ clang-tidy --version
-> > LLVM (http://llvm.org/):
-> >   LLVM version 6.0.0
-> >
-> >   Optimized build.
-> >   Default target: x86_64-pc-linux-gnu
-> >   Host CPU: znver1
-> >
-> > $ clang-tidy-10 --version
-> > LLVM (http://llvm.org/):
-> >   LLVM version 10.0.1
-> >
-> >   Optimized build.
-> >   Default target: x86_64-pc-linux-gnu
-> >   Host CPU: znver1
-> >
-> > When I run make CC=clang-10 clang-tidy, I would expect it to use
-> > clang-tidy-10, not clang-tidy. (clang-tidy errors just because it is too
-> > old; I guess it does have the linuxkernel-* options.)
-> >
-> > Now, I cannot fix that without touching your script. There is no way I can
-> > tell the build target to use clang-tidy-10.
-> >
-> > With a quick touch:
-> >
-> > -    p = subprocess.run(["clang-tidy", "-p", args.path, checks, entry["file"]],
-> > +    p = subprocess.run(["clang-tidy-10", "-p", args.path, checks, entry["file"]],
-> >
-> > I got it to work.
-> >
-> > Maybe you have a good idea how to get make clang-tidy to pick
-> > up the intended version without touching the python script itself?
-> >
-> > It is a minor issue, but it would be nice if that setting would work
-> > somehow.
+>         return 0;
+> }
+> EOF
 > 
-> Ah right, sorry, I tend to forget about the use case of having
-> multiple versions of clang installed.
+> $ gcc -Wall -Wno-maybe-uninitialized -c test.c
+> $
 > 
-> I think the best approach here might be for the user (you, in this
-> case) to ensure that list of PATHs in the path list has the path to
-> the intended version of clang-tidy you'd like to run listed before
-> others.  That is similar to the recommendation for the LLVM=1 patch
-> set. ie.
-> commit a0d1c951ef08e ("kbuild: support LLVM=1 to switch the default
-> tools to Clang/LLVM")
-> specifically this part of the commit message:
-> 
-> > the suffixed versions in /usr/bin/ are symlinks to binaries in
-> > /usr/lib/llvm-#/bin/, so this can also be handled by PATH.
-> 
-> If `clang-tidy` on your system points to an old version of clang-tidy,
-> it may be worthwhile to uninstall the old version, and update the
-> symlink to point to a newer version.  That may be simpler than trying
-> to support invoking `make clang-tidy` for arbitrary versions or binary
-> names of clang-tidy.  I can understand having multiple versions of a
-> compiler installed for quickly checking compatibility (though these
-> days I prefer godbolt.org for that) or if a particular codebase is
-> stuck on an old version of a toolchain for whatever reason; but having
-> multiple versions of clang-tidy installed and supporting all of them
-> is a little harder to justify.
+> No warning.
 
-I can live with that. I can modify the script or modify the symbolic link 
-of clang-tidy. No need to support arbitrary broken setups :)
+The whole if() is deleted pretty early.
 
+===
+static int foo(void *p)
+{
+        unsigned align;
 
-Other question I came across while playing around with clang-tidy on the 
-kernel sources.
+        if (!p)
+                return align;
 
-Is it possible to simply have a .clang-tidy in the repository root to 
-configure the clang-tidy invocation rather than having it in the python 
-script? If not, why?
+        return 42;
+}
+int bork(void) { return foo(0); }
+===
 
-I tried it, but I could not really figure out what I really needed to do 
-to get the same output behavior than Nathan's command-line invocation 
-from the python script.
+doesn't warn either, although that always uses the uninitialised var
+(actually, that code is *removed*, and it always does that "return 42").
 
-Here is my .clang-tidy attempt:
+> But I guess that's behaving as documented. The compiler can't prove that
+> foo() will be called with p == NULL, so it doesn't warn.
 
-$ cat .clang-tidy 
-Checks:		'-*,linuxkernel-*'
-
-$ clang-tidy -dump-config
----
-Checks:          'clang-diagnostic-*,clang-analyzer-*,-*,linuxkernel-*'
-WarningsAsErrors: ''
-HeaderFilterRegex: ''
-AnalyzeTemporaryDtors: false
-FormatStyle:     none
-User:            lukas
-CheckOptions:    
-  - key:             
-google-readability-braces-around-statements.ShortStatementLines
-    value:           '1'
-  - key:             google-readability-function-size.StatementThreshold
-    value:           '800'
-  - key:             
-google-readability-namespace-comments.ShortNamespaceLines
-    value:           '10'
-  - key:             
-google-readability-namespace-comments.SpacesBeforeComments
-    value:           '2'
-  - key:             modernize-loop-convert.MaxCopySize
-    value:           '16'
-  - key:             modernize-loop-convert.MinConfidence
-    value:           reasonable
-  - key:             modernize-loop-convert.NamingStyle
-    value:           CamelCase
-  - key:             modernize-pass-by-value.IncludeStyle
-    value:           llvm
-  - key:             modernize-replace-auto-ptr.IncludeStyle
-    value:           llvm
-  - key:             modernize-use-nullptr.NullMacros
-    value:           'NULL'
-...
-
-I could not understand why 'clang-diagnostic-*,clang-analyzer-*' is still 
-there when running clang-tidy. I think that actually leads to more 
-(unwanted) findings, when I run for example:
-
-$ find ./kernel/trace/ -name '*.c' -exec clang-tidy {} +
-
-such as:
-
-./arch/x86/include/asm/apic.h:107:2: error: expected '(' after 'asm' 
-[clang-diagnostic-error]
-        alternative_io("movl %0, %P1", "xchgl %0, %P1", X86_BUG_11AP,
-        ^
-./arch/x86/include/asm/alternative.h:240:2: note: expanded from macro 
-'alternative_io'
-        asm_inline volatile (ALTERNATIVE(oldinstr, newinstr, feature)   \
-        ^
-./include/linux/compiler_types.h:239:24: note: expanded from macro 
-'asm_inline'
-#define asm_inline asm __inline
-                       ^
-
-Is there no way to completely override the standard clang-tidy 
-configuration with .clang-tidy file?
-
-I expected that ',-*' deactivates everything that was activated to the 
-left of this checks expression, but it seems not to be the case. 
-
-Did you also try that and hence then settled for passing that checks as 
-command-line argument because there is no way to have a sane .clang-tidy 
-file in the root? Or did I stumble on some .clang-tidy file 
-misunderstanding and we can actually place a .clang-tidy file for simple 
-use cases as the example, find ... -exec clang-tidy {} +, above?
+-Wmaybe-uninitialized doesn't warn for this either, btw.
 
 
-Lukas
-
-> -- 
-> Thanks,
-> ~Nick Desaulniers
-> 
+Segher
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/alpine.DEB.2.21.2008032138070.9503%40felia.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200803210031.GD6753%40gate.crashing.org.
