@@ -1,134 +1,144 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBQUGTX4QKGQERAUUSXA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBE5NT34QKGQECYBYZLI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x338.google.com (mail-ot1-x338.google.com [IPv6:2607:f8b0:4864:20::338])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3CEAF239CE3
-	for <lists+clang-built-linux@lfdr.de>; Mon,  3 Aug 2020 00:50:44 +0200 (CEST)
-Received: by mail-ot1-x338.google.com with SMTP id z10sf11303193oto.11
-        for <lists+clang-built-linux@lfdr.de>; Sun, 02 Aug 2020 15:50:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596408643; cv=pass;
+Received: from mail-pl1-x63f.google.com (mail-pl1-x63f.google.com [IPv6:2607:f8b0:4864:20::63f])
+	by mail.lfdr.de (Postfix) with ESMTPS id E759D239E6B
+	for <lists+clang-built-linux@lfdr.de>; Mon,  3 Aug 2020 06:46:12 +0200 (CEST)
+Received: by mail-pl1-x63f.google.com with SMTP id f4sf26886805plo.3
+        for <lists+clang-built-linux@lfdr.de>; Sun, 02 Aug 2020 21:46:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596429971; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mo4b7dYJ4SQRlqKg94FCgSzLQUT0YSjlhVzwP1GvF2B4GoEd0m13AA54N4q4zUWqX/
-         poql75gtLmlijtB8rGN8HMW2TljyqyICNTA6emlECPt00+/SmVzW+kF5IW4f4WapSLPA
-         Ob7W4sVsRQu3FYN3t0sVkr/tjSd8aAy7kuDwISdeCBDS2Y1woBUyxTKdsqGrQiEE2yPp
-         zKUGE2v71EXgEU49g8cElQTytX4vZ7aXVJBb7Hn7O1GEf3kpEEj3sPhNosimwbzMr5Ud
-         JSW4THG9XqS2K1wER3guJ2h5PgQmR6d6Rlse6x8g2ONr8qQhZ0EB6bbz6VuguIogGW/B
-         P3NA==
+        b=MolZFf4XZwOZ8murDhwTRrhyzILKuq6qGcG/8qtsvF0HxPK2dv637VuKrs1YonhF9b
+         AMRAEPgQvLVBKieQitZee/5+LMgXCRULai1dxHn0LH5aIzspq9abRZFhSubpwZat7G84
+         VXaJi0w97nfCX0iiBPzaVehzF13LZ2HJPyIrwL2KhNv/TyIWsiOpCAGM+q8PXURz7MdM
+         XWYJwKcCn8fMGAOMM1IhGYQSzzYVcve0cbBLApHO6V9TrUjYEc8FkuDWittUPTnuZBv6
+         L96smY2rPxW0S5WfqUp1MFwW6xAJTZJebYms/5e+Sv2A3pm+Wa+Uv0d1Xc9HJxNo8W+m
+         IaAw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
-         :ironport-sdr:sender:dkim-signature;
-        bh=dxX3UEQF8x1NEVLTlWH+PX0UJZJgSmlxSL+UuJhAHoM=;
-        b=DfXzUuFNGp2WsiilBTBeJwlaePiHT+OyU4Pd+C1MCYSPr1/bFbFSnaCaVsznayuDHM
-         mjuZk9vKLJpFGbQ6wbk2KiEhIlCxt5o2MMUe296yDeqLHbCPQDjy1+FTcKT9BtIW3ViH
-         HZiE9nQvrfTYLzVzGJk7jZKNoLHBSaSrjO8d+tyRF5ZuN58LgiPsscnvxrCfO9ioSoIV
-         ti8zjBczMKzF7xO4+om76kfi7drXeSonVP7alwD6OzNj3t4xny3/uUvRZjK4xXYJKJcD
-         yavag90XcY5QZUCalHZYoWpCEH3+DfmTHXFpXkOmLMbQ5GiewawdB3hWJhB7ptvyq6Di
-         6gUQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature:dkim-signature;
+        bh=/JPWOzef1OulT7IcKW/TKuQq1kH+7XCwLBePAHfEp/Q=;
+        b=Lv/VJIU8IcquV4uRDccywmdFSr35MBupOqm6MVYLwlD2M9ARs75pGbKHMmKhw3UKVT
+         +LCCQVP3KpTYL7+PITsgvhOMnYzfFoPaPSFcTtWzBqKhejh2YiGgcgHGXjo44cq5AlY/
+         g46My7ZlAglrsxCMiPcrDalTE8SMJ2GcrYEUksOGHXBRLdv2XMS1PuVX1YbZLKN6+6mm
+         RCReXOTT0Fgx95SL0y6GEexpsafaFsAt8ffEIUTwk/hZz1kgwtao14SxyzRwBpeiv32a
+         ntjC5eMQ/raYHL28SjNusQDsyoXd9SjGrtfGK7GP57PA4lL1wtNcp7wTF1n9CADWz1G9
+         zEhA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=jPM8pxVG;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:user-agent:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=dxX3UEQF8x1NEVLTlWH+PX0UJZJgSmlxSL+UuJhAHoM=;
-        b=TaV+/ZA8AM8LEvnqI6zqO/yCRBQc8K/GJYqiy/7rit3LERkneZTKlBJH33jiPOpQaK
-         0TLnIcji+Q5CyCr97Gr+PK9o1q+iFRmGOsMvL4YLHuip6cjliCk6vQDzjLyTB1l4GkWA
-         6niUigX9UryE656WvxtqWueRS6pzyyT/asypCBLAGwys22dq9L9ad605hNuh6lYwDcwA
-         DR/V3qJCuZ8EJAzpEh/+F75Kex5RlHWZX4tGQp8Y+m01rSHwwZzjjClNGygUxBLhfaza
-         OVq1RGS8bvoPbcHLyEBqysjj2Ye6xS9NiTP13xReLrSsNse2tZYXmm0Jm4CToWR7EJoV
-         q//g==
+        bh=/JPWOzef1OulT7IcKW/TKuQq1kH+7XCwLBePAHfEp/Q=;
+        b=kjSupnsXON+Fhsc60B0P3Zg9zOTrXP/J+CqDsB6XL8fLuAuwEuD6Gi8j68sJK3pCmX
+         3XFCFgbqwmu79P6dlbMlljncksijUZgiV0jqgsiojM5OTfvZP8avk7h9KP50mPIUUymq
+         pDZfX/kqB86Hn0pCVJcBgigwl+JdHoCHYwRlwGyTawz9foCg7MtL6Dl31SqGvI2LlDR0
+         TRv1QYlmNLXCKHDkzQFmMzS6DECboWlDRy8H0VQRHrRK/4JbOliQVuzZd/z8pbq3ahhs
+         EBW/Wz+q1IN7H5dwgYuthFgIUKJOFYKV9rClA8/QAfOuCJ18WTZLSuVdlNOQuiOFyuyJ
+         X6zQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=/JPWOzef1OulT7IcKW/TKuQq1kH+7XCwLBePAHfEp/Q=;
+        b=Hk8DVCNNgQq48/cDCRELCMXkrj+vadKW/aRvPth9503Bte661mUlr3buc2hPqcTYJY
+         UJRwwjvAzjII3cq8VvuAw3R/SX4GxRO1InvQQvOAuLZ75QZFUM3JIAEFScBx7ojktxFq
+         hqGBbRzwYVUSbXtvpObtWNj017FVXRe99S1Aij5dVjrMqsXL2Fs4ywcPtAE3DkuHmzaB
+         I7hYVVWhucGFuS+ysU6bTOIHNJR1En7OFpPypBZqrbyw2fv1w2hwpFfct+6jB/YOYx9B
+         XeJBItBCnqpV1nVGV9S+6wOTGPSGknPQK5Nc+SPwHj1hRn1b3B09alPnXrunEhil3b+y
+         PmmQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:mime-version:content-disposition:user-agent
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=dxX3UEQF8x1NEVLTlWH+PX0UJZJgSmlxSL+UuJhAHoM=;
-        b=i43kuYeMn0XTTND2ILI5Qeee4hNr6MB/5QuGnvKt9VmzNWst3yA+vDT5VkRM9jhoGY
-         uNzyek1gyqF0ZSNwBGd78rlYn619zYVgZz3Ep9FGD5xH5RS8LfmJZzxkgxS9MwqEOcXn
-         hdM3zMU/3NjkdWeBGUYLNy23+E/Qi/5oZoiYAj6xq4PCUk1U3dEXvj6cnLkxXul/ud7O
-         U+n1YUK3almkvVyK2j3hytrbBP6kWArfnnApatsCVVe42CyXgRmgHJY7z10hKN5r5w07
-         edahhrBgbX+LhFQ46po9QkJ5pz+Zm6lrF70hw6IXi+bPL5Vyb9/7HHCY0YQY4kVSwFNC
-         IV9g==
+        bh=/JPWOzef1OulT7IcKW/TKuQq1kH+7XCwLBePAHfEp/Q=;
+        b=Fc1H4nt1SU7v+Wej4q00TfgGmmj7dNiCRhtQTzkSXwvmK2pGDDrCPLcjEhdNP8l6OQ
+         ZV4bxBgX0I2Wu2rP81LwUSJjzMXD86TGUEpIE3o6iF+QNjI/2R5MI4yea6x/h1nCOFJ1
+         q3aMUDT821LaBrHjDK7KUkP8twENKALFHqHqvhO9CbKvoRCEkRbGy7wMZ1/N3jxRfZQb
+         AhpDKg1wmlZ+qR0AotVB5s6kerY4/bqgFv5xXBZHgkoygIBr+3215xY8HRkBVgZVEbd5
+         okNiSHOo5L7d9kDvfFwvC/whbevSwbIH6dYzPqVqSq2zts8ZCeWqMBTbKU2/yuDtIeWV
+         8Oww==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532CcVUAtYTOjBELwyCQlv6J2h7rFbHMTnMd1tpUJHcT74ZGbq9P
-	iI9uM3WFHyNXQIjjbHWiHJg=
-X-Google-Smtp-Source: ABdhPJzsdomsIifN8S66MhDNUwAn1XedvE5QMxn/+Dmp/1HAjRd1NAxgAbdC6EI0g05TFf1LSKKjug==
-X-Received: by 2002:a05:6830:cc:: with SMTP id x12mr5194644oto.54.1596408642918;
-        Sun, 02 Aug 2020 15:50:42 -0700 (PDT)
+X-Gm-Message-State: AOAM530S05dDkrPOWEYYpnqmjud1UGZ0YIOkRp8eSYezdnwRBd4WarUx
+	PC2/lg650vRox95KcjrtM9I=
+X-Google-Smtp-Source: ABdhPJx4eO+v5KUbBDHX0OimTpPFwp9N2sNOhg15miS2VpRo9/mkZ68Ngavp/GMDhGyPZlq7jhHVJg==
+X-Received: by 2002:a17:902:8f95:: with SMTP id z21mr3761944plo.32.1596429971125;
+        Sun, 02 Aug 2020 21:46:11 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:66d7:: with SMTP id t23ls1198840otm.1.gmail; Sun, 02 Aug
- 2020 15:50:42 -0700 (PDT)
-X-Received: by 2002:a9d:1919:: with SMTP id j25mr11707490ota.321.1596408642543;
-        Sun, 02 Aug 2020 15:50:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596408642; cv=none;
+Received: by 2002:a17:902:142:: with SMTP id 60ls4071832plb.9.gmail; Sun, 02
+ Aug 2020 21:46:10 -0700 (PDT)
+X-Received: by 2002:a17:90b:816:: with SMTP id bk22mr15686351pjb.185.1596429970695;
+        Sun, 02 Aug 2020 21:46:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596429970; cv=none;
         d=google.com; s=arc-20160816;
-        b=kqmsrCGr4hbUcg9HKDBGJVRjQgHOG2IT2e2jZwrhQ4SNhBNBDt4PZC+vB/S7YahOCI
-         5jAEG7ANJAsHAH4wuf21XCR6R/3TFIg3Dhbd2Yl/sTVUqLvlgeee3l3DuhWsqIxvgupZ
-         HsMYJe5GcVNn2KZDS/a/ck3O5Wiur6OGrKttakoEnk7zT1NXxhgioh/j18kk39quuiSH
-         HtjvOLKZ+aNWNYmrfnlXtv+P0WJyfgqymh0DlYFUeT93tg8Rb/0rxGUqNc3/YK4UQDvF
-         dBvz0jHXH1Ar8yo+X2yFJ13c2SySZs45KBpTfjrvOV/Je9oDSjxfk9QY7gtZ/AszqlLA
-         hu3g==
+        b=BUK/SF3FaFUHn2eTAlYailbSvK9+CgTfGfLbW70leND/x2FVXFLnSpKQDWwh7qRFbj
+         wXcboXJ+yfCVYfByNLeJ8VGXruYyb9zohFT4AxTwHUrqQv92brsI+vpRcUHtnl9SP5Qm
+         eoK6YekgPMsu6di7voUmPXjlGEo/NM25vohCzxO55Su9Ih2tS6Cse5mhhx+ZaPnQgwX3
+         DdIB2b/IgvNMmjyRFwpUacXs68+fFun1LV5qbU6ZLGRF7dgbovR0Kr4v+oUeiNejSKSj
+         G7IIw/WGE+480laTa3wWdhRBRlrZn7ZxJBIv5soinmBN0TvX7sBdGlGkuEKpctfwZkyN
+         iwWA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:ironport-sdr:ironport-sdr;
-        bh=BO0TUxfUFUq3Dz/LaqgkY8lXQMUn7JxBHCcYVpbNjhU=;
-        b=V+l/HiqtmM+ahHmDjPZEEqv2aEp3hEM35DkrgDYd7zpdOpENj3KrL94fZCIXq59eSQ
-         HTzaCO0Ug8jm6AP8HAwmSHaVkgSule6uFchuGvwh54gt9zH1OG/RSKLBXxoGErN01SRn
-         josnoZd9N+YPoAXbBdFNfs5zwNzfoma2vvr6FR3R8S6nXbI88oC7jUmfsT9R8Nb8mxwv
-         y9sYqpJi2SKdbO7w/C5Er8gyMoSgHFtsBwszYrG8AZPGyE+zSC4YBAEpc8isqctIDyBd
-         TBMWsijKtA80cSlXi1K30FNXcG0l3B8QMEf8IkwJzkVPdiQZZGpkGlciLWOgl9lU+VEP
-         IJCA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=M0EXqVvvU7EURtyvH7wo3HHy7rzmVEpMvCzVpEfbXzU=;
+        b=twHp+8S+HEJWFzE7/61lK7gFdtHULG4V2mTF4JUJsldMyWEBNLYRTikbmfk5iLYize
+         kIb3FfBQm3NshdnHja72lM1IrE2dd9xBsST5rpq+Jv+zzzTl08JVrZ4HmQGz/YXr6HV5
+         p5DFI9nhLhrhgXYo0I1W21vbv+9aCMotxl88U0PIJZ71mR2+xlWS116RdEwxZt6eQEi6
+         /CWOdAa1RqVchrwXK2gpcUKv/sJ7FC2YvsjNNXu3v4o0jDkFh57piuVtfSR4/dIX5mxP
+         AIqO8zR3xsV3hK5VWsSvS9OoTXITfa1j/J9msXwftKpOwQ/uStDy4+6fhPEzCMX8rnuE
+         IXcg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
-        by gmr-mx.google.com with ESMTPS id x2si502609oto.3.2020.08.02.15.50.41
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=jPM8pxVG;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-pf1-x444.google.com (mail-pf1-x444.google.com. [2607:f8b0:4864:20::444])
+        by gmr-mx.google.com with ESMTPS id x17si667006pll.0.2020.08.02.21.46.10
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 02 Aug 2020 15:50:41 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
-IronPort-SDR: cmkewfmlPqmmJjGJYAoyXMmFlq9hzkrVf7lvJdWZvfSKiHr29sAT/kFPsmwT/vZKuFZV9dKDt1
- e5GmgGWG54zg==
-X-IronPort-AV: E=McAfee;i="6000,8403,9701"; a="213558087"
-X-IronPort-AV: E=Sophos;i="5.75,427,1589266800"; 
-   d="scan'208";a="213558087"
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Aug 2020 15:50:40 -0700
-IronPort-SDR: ZS+q+k/MVMlP+JMzgVFLXtMND5CqaB7bwT0TNP3uP02hBuFM5BPdDw62pFFECjwgH0Pkrf7AjC
- zu3syYvpZPGg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.75,427,1589266800"; 
-   d="scan'208";a="329836109"
-Received: from lkp-server01.sh.intel.com (HELO e21119890065) ([10.239.97.150])
-  by FMSMGA003.fm.intel.com with ESMTP; 02 Aug 2020 15:50:39 -0700
-Received: from kbuild by e21119890065 with local (Exim 4.92)
-	(envelope-from <lkp@intel.com>)
-	id 1k2MoQ-0001kg-KJ; Sun, 02 Aug 2020 22:50:38 +0000
-Date: Mon, 3 Aug 2020 06:49:44 +0800
-From: kernel test robot <lkp@intel.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: [lunn:v5.8-rc6-net-next-phy-subdirs-v2 4/5] drivers/net/Kconfig:474:
- can't open file "drivers/net/mdio/Kconfig"
-Message-ID: <202008030639.nD6aMF6M%lkp@intel.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 02 Aug 2020 21:46:10 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::444 as permitted sender) client-ip=2607:f8b0:4864:20::444;
+Received: by mail-pf1-x444.google.com with SMTP id r11so9621704pfl.11
+        for <clang-built-linux@googlegroups.com>; Sun, 02 Aug 2020 21:46:10 -0700 (PDT)
+X-Received: by 2002:a62:387:: with SMTP id 129mr14750803pfd.187.1596429970262;
+        Sun, 02 Aug 2020 21:46:10 -0700 (PDT)
+Received: from Ryzen-9-3900X.localdomain ([89.46.114.147])
+        by smtp.gmail.com with ESMTPSA id v77sm15947707pfc.137.2020.08.02.21.46.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 02 Aug 2020 21:46:09 -0700 (PDT)
+Date: Sun, 2 Aug 2020 21:46:09 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Oliver O'Halloran <oohall@gmail.com>, linuxppc-dev@lists.ozlabs.org,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH v2 15/16] powerpc/powernv/sriov: Make single PE mode a
+ per-BAR setting
+Message-ID: <20200803044609.GB195@Ryzen-9-3900X.localdomain>
+References: <20200722065715.1432738-1-oohall@gmail.com>
+ <20200722065715.1432738-15-oohall@gmail.com>
+ <20200801061823.GA1203340@ubuntu-n2-xlarge-x86>
+ <87r1sp19ag.fsf@mpe.ellerman.id.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: lkp@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
- sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=intel.com
+In-Reply-To: <87r1sp19ag.fsf@mpe.ellerman.id.au>
+X-Original-Sender: natechancellor@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=jPM8pxVG;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,72 +151,83 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-tree:   https://github.com/lunn/linux.git v5.8-rc6-net-next-phy-subdirs-v2
-head:   5707f27690213281b666b03e9cd74b68b726aa54
-commit: 2e2ddd4ea9b8b95b657641febb7343038f4a0840 [4/5] net: mdio: Move MDIO drivers into a new subdirectory
-config: x86_64-randconfig-a013-20200802
-compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 25af353b0e74907d5d50c8616b885bd1f73a68b3)
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # install x86_64 cross compiling tool for clang build
-        # apt-get install binutils-x86-64-linux-gnu
-        git checkout 2e2ddd4ea9b8b95b657641febb7343038f4a0840
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64  randconfig
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
+On Sun, Aug 02, 2020 at 11:12:23PM +1000, Michael Ellerman wrote:
+> Nathan Chancellor <natechancellor@gmail.com> writes:
+> > On Wed, Jul 22, 2020 at 04:57:14PM +1000, Oliver O'Halloran wrote:
+> >> Using single PE BARs to map an SR-IOV BAR is really a choice about what
+> >> strategy to use when mapping a BAR. It doesn't make much sense for this to
+> >> be a global setting since a device might have one large BAR which needs to
+> >> be mapped with single PE windows and another smaller BAR that can be mapped
+> >> with a regular segmented window. Make the segmented vs single decision a
+> >> per-BAR setting and clean up the logic that decides which mode to use.
+> >> 
+> >> Signed-off-by: Oliver O'Halloran <oohall@gmail.com>
+> >> ---
+> >> v2: Dropped unused total_vfs variables in pnv_pci_ioda_fixup_iov_resources()
+> >>     Dropped bar_no from pnv_pci_iov_resource_alignment()
+> >>     Minor re-wording of comments.
+> >> ---
+> >>  arch/powerpc/platforms/powernv/pci-sriov.c | 131 ++++++++++-----------
+> >>  arch/powerpc/platforms/powernv/pci.h       |  11 +-
+> >>  2 files changed, 73 insertions(+), 69 deletions(-)
+> >> 
+> >> diff --git a/arch/powerpc/platforms/powernv/pci-sriov.c b/arch/powerpc/platforms/powernv/pci-sriov.c
+> >> index ce8ad6851d73..76215d01405b 100644
+> >> --- a/arch/powerpc/platforms/powernv/pci-sriov.c
+> >> +++ b/arch/powerpc/platforms/powernv/pci-sriov.c
+> >> @@ -260,42 +256,40 @@ void pnv_pci_ioda_fixup_iov(struct pci_dev *pdev)
+> >>  resource_size_t pnv_pci_iov_resource_alignment(struct pci_dev *pdev,
+> >>  						      int resno)
+> >>  {
+> >> -	struct pnv_phb *phb = pci_bus_to_pnvhb(pdev->bus);
+> >>  	struct pnv_iov_data *iov = pnv_iov_get(pdev);
+> >>  	resource_size_t align;
+> >>  
+> >> +	/*
+> >> +	 * iov can be null if we have an SR-IOV device with IOV BAR that can't
+> >> +	 * be placed in the m64 space (i.e. The BAR is 32bit or non-prefetch).
+> >> +	 * In that case we don't allow VFs to be enabled since one of their
+> >> +	 * BARs would not be placed in the correct PE.
+> >> +	 */
+> >> +	if (!iov)
+> >> +		return align;
+> >> +	if (!iov->vfs_expanded)
+> >> +		return align;
+> >> +
+> >> +	align = pci_iov_resource_size(pdev, resno);
+> 
+> That's, oof.
+> 
+> > I am not sure if it has been reported yet but clang points out that
+> > align is initialized after its use:
+> >
+> > arch/powerpc/platforms/powernv/pci-sriov.c:267:10: warning: variable 'align' is uninitialized when used here [-Wuninitialized]
+> >                 return align;
+> >                        ^~~~~
+> > arch/powerpc/platforms/powernv/pci-sriov.c:258:23: note: initialize the variable 'align' to silence this warning
+> >         resource_size_t align;
+> >                              ^
+> >                               = 0
+> > 1 warning generated.
+> 
+> But I can't get gcc to warn about it?
+> 
+> It produces some code, so it's not like the whole function has been
+> elided or something. I'm confused.
+> 
+> cheers
 
-If you fix the issue, kindly add following tag as appropriate
-Reported-by: kernel test robot <lkp@intel.com>
+-Wmaybe-uninitialized was disabled in commit 78a5255ffb6a ("Stop the
+ad-hoc games with -Wno-maybe-initialized") upstream so GCC won't warn on
+stuff like this anymore.
 
-All errors (new ones prefixed by >>):
+I would assume the function should still be generated since those checks
+are relevant, just the return value is bogus.
 
->> drivers/net/Kconfig:474: can't open file "drivers/net/mdio/Kconfig"
-   make[2]: *** [scripts/kconfig/Makefile:71: oldconfig] Error 1
-   make[1]: *** [Makefile:607: oldconfig] Error 2
-   make: *** [Makefile:185: __sub-make] Error 2
-   make: Target 'oldconfig' not remade because of errors.
---
->> drivers/net/Kconfig:474: can't open file "drivers/net/mdio/Kconfig"
-   make[2]: *** [scripts/kconfig/Makefile:71: olddefconfig] Error 1
-   make[1]: *** [Makefile:607: olddefconfig] Error 2
-   make: *** [Makefile:185: __sub-make] Error 2
-   make: Target 'olddefconfig' not remade because of errors.
-
-vim +474 drivers/net/Kconfig
-
-   449	
-   450	config NET_SB1000
-   451		tristate "General Instruments Surfboard 1000"
-   452		depends on PNP
-   453		help
-   454		  This is a driver for the General Instrument (also known as
-   455		  NextLevel) SURFboard 1000 internal
-   456		  cable modem. This is an ISA card which is used by a number of cable
-   457		  TV companies to provide cable modem access. It's a one-way
-   458		  downstream-only cable modem, meaning that your upstream net link is
-   459		  provided by your regular phone modem.
-   460	
-   461		  At present this driver only compiles as a module, so say M here if
-   462		  you have this card. The module will be called sb1000. Then read
-   463		  <file:Documentation/networking/device_drivers/cable/sb1000.rst> for
-   464		  information on how to use this module, as it needs special ppp
-   465		  scripts for establishing a connection. Further documentation
-   466		  and the necessary scripts can be found at:
-   467	
-   468		  <http://www.jacksonville.net/~fventuri/>
-   469		  <http://home.adelphia.net/~siglercm/sb1000.html>
-   470		  <http://linuxpower.cx/~cable/>
-   471	
-   472		  If you don't have this card, of course say N.
-   473	
- > 474	source "drivers/net/mdio/Kconfig"
-   475	
-
----
-0-DAY CI Kernel Test Service, Intel Corporation
-https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202008030639.nD6aMF6M%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200803044609.GB195%40Ryzen-9-3900X.localdomain.
