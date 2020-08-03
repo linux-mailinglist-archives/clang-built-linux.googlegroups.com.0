@@ -1,119 +1,122 @@
-Return-Path: <clang-built-linux+bncBCR5PSMFZYORBQWOT34QKGQEK5YKJUA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBHXGT34QKGQE6HMMSSY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe3a.google.com (mail-vs1-xe3a.google.com [IPv6:2607:f8b0:4864:20::e3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id A1E8C239F59
-	for <lists+clang-built-linux@lfdr.de>; Mon,  3 Aug 2020 07:57:23 +0200 (CEST)
-Received: by mail-vs1-xe3a.google.com with SMTP id x20sf6825352vsp.7
-        for <lists+clang-built-linux@lfdr.de>; Sun, 02 Aug 2020 22:57:23 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596434242; cv=pass;
+Received: from mail-qt1-x83e.google.com (mail-qt1-x83e.google.com [IPv6:2607:f8b0:4864:20::83e])
+	by mail.lfdr.de (Postfix) with ESMTPS id E5947239FC1
+	for <lists+clang-built-linux@lfdr.de>; Mon,  3 Aug 2020 08:47:59 +0200 (CEST)
+Received: by mail-qt1-x83e.google.com with SMTP id r9sf26293868qtp.7
+        for <lists+clang-built-linux@lfdr.de>; Sun, 02 Aug 2020 23:47:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596437278; cv=pass;
         d=google.com; s=arc-20160816;
-        b=DINfrPlLbG2LxtVkFMDWJUqGlOh1eYCOpGzEUUiRNG23+p6VzYXZnkz4k865MCExPS
-         FcZIJvQAtuFPxjRjGgrNC7BRauPziHYO4B9oxhhbVp5ooI2NTjQbpTVJhLG00qTl4qLU
-         v9Rr43DAZrlee2rkn6Xcp31n7Eufk18CNaTjcA3bhRlHlpthh0C3qfhu/R7WHLxaZoa8
-         CEea2Dj2ueqDJWob7Rf47lY99Hdn48/4Xyt7hkzDlK8WWF8IeZ0Ekxm0nxfz9kjsQZgp
-         6RD+J4BvU7Kdux21+PMUb4TX2yTjCv82rk2eXoF5kU1y598cIbKHRUedledOnGfjHmnz
-         RkYQ==
+        b=edmAJ9tvN6fmxAy9iEKFnxzb6rfcCjYxAdgeRVk24/84G53iz7z4TWODL1WEjuj7jL
+         XIplrG/Mxi0eTU6wLs7P1NbSkfWLtQI+hWWfgxuitO9iTiKd1lUiJt7ch4yzd4sIv6dg
+         Ejv+dzj6WP4rHPbgIPRoR8LNmLO2t6Gwc80guQxnqLKUSl+qhlAI5CGfU64DALWy8Vby
+         d1b06ELkx8nT81KX1y7XYQ6ee0NM1oUOKqICamrVxhtT369jwurPkcXAKle0K0EAyahh
+         XSWo0QjrMBAZwcUN7rVeCzfSRc7/LzXt7qmTS5m5LXWCxNGmhC7qUkZvzOU+FRVgO8NO
+         eJ0A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
-        bh=7Yqcn7Y23396Ie9y7F0XWZu4ae3vgVz0gRRuWyf1tK8=;
-        b=YRAs/Bp8qSw5LfBPjToPTC9ozIo4KazQ7cmf7vfjVsUWShhcbSwpjxkcm20LXGUVyd
-         eiNbwnD0837V7jJUI/IwpIzqFviLT1paPzzPuO5LYX3I0mwK9NlFesP5Ngs9ldKdeHCs
-         y12fbH8hCEoG3PsF2V3PbTro/aNunYZ3gxxeGr7uUzdZXQlb8lQAO5blTrISjy8HN+6X
-         G4RXk218kX0uePmZ/t56vWHBuqiyZcvkRlWoyP4e6574YQMbgXgpod+/4aWSoFmF0Qwd
-         mTVrYf5RA14hzjnQde/8rUqVQSwoodb/PYH4NC1EvNcWcHPHHPvx7LZai5rFez0rIoiq
-         brBg==
+         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
+         :mime-version:sender:dkim-signature;
+        bh=P+dO4e+GJ/dnc5INUKZn1STKUOmhoLndzQ2wRUCxglM=;
+        b=OkteN7jY8LhrmEmGMPI0BLjww9e/67Esut15wTwImDFaOszfsZBL2pyd/H0vbAxMii
+         INq46kww7mE111hOpXmvmuInmeD3HN5q9DB2R5guaaIh+6OS2eoJ1UIz/1daA/J853Qa
+         wz9L1TQKNgdDWLRge1tySjWEvkN2zxDdlovnXSM3wLxhEUJpkGs8zO5BBbQAWX+G8L+x
+         de7gR9+NluqSBsD7Wb5Ndq5tIx1fdO2APt3J22KiI139ELR0XUI+ezYjegLHjZrO4k+e
+         dUFU2B+xv5/qwYCJuRLVgtNpBFp4w7GJtibkQHY7x/LenV7BOZguPdKZxZv5SBhU37Py
+         E2+A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ellerman.id.au header.s=201909 header.b=a7mlrlG8;
-       spf=pass (google.com: domain of mpe@ellerman.id.au designates 2401:3900:2:1::2 as permitted sender) smtp.mailfrom=mpe@ellerman.id.au
+       spf=pass (google.com: domain of wenhu.wang@vivo.com designates 103.129.252.23 as permitted sender) smtp.mailfrom=wenhu.wang@vivo.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:from:to:cc:subject:date:message-id
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=7Yqcn7Y23396Ie9y7F0XWZu4ae3vgVz0gRRuWyf1tK8=;
-        b=RoMbqm1GD0YSJxvFD9cd+LwCulEaL4ll2pE9MN2FIy5jrO+cYF2MMmhlqDfcYpjozm
-         /WvygMsXOrLyVW1/XCbjmmbUItI23fT2ZyxuusldApJ/DYf+eSamIyBYu0zvWtnodXhs
-         Zks9qj60wpqEVV2XZx2W9bATlG3OOvkPVwUdybICaDud0KAHzYHcAHZB2kgR4Jxek4c+
-         wWMpzh7Gd0ekObCS5D+fKcoBHsfP4k4ABCByWPbTnEJ/NPrVdquq/1R/47GsJwRCqokW
-         hojXs9kZdd6nB4BsI1WbQZ3VboOcZe0ifJEMBghcwsOmGa5ZYDB+DvtZjF8oKFLJlOnG
-         padg==
+        bh=P+dO4e+GJ/dnc5INUKZn1STKUOmhoLndzQ2wRUCxglM=;
+        b=X38J4qEv3lGWkGu8nDIck/kUoPbwlKDQkO+ieUfDB5ip47+OY4PHfiE365rhdNnZBK
+         qdgZZy8nLeMf4haSvyKFAAhZdvsqCp2FsLIdefLlgzoQj6LziGn9CmOS5pSmT8YN7JCX
+         L3n8OFnZBb7jchwd16wK/k4PyGBPsPC6cy+LdRSV64CHEjQL1jVGF13m03n5LbCfNM3F
+         vRvpdOdYqnr/Sel2P6SvHy+h0budFvQxXE1y+usBHFfvxcjziFBjW7E2ysQeB9wjcwUF
+         w/0HgwFiXO5YuFzz8XjpC2Q9f5z6N091A+758uG0SJUnbz3JZQx8YxYw1ecsYMKbS0jj
+         8zAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
-         :date:message-id:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=7Yqcn7Y23396Ie9y7F0XWZu4ae3vgVz0gRRuWyf1tK8=;
-        b=MU8cMAUWCRqPrFHyuK/f2icMjY1fe9N1G+Za/jk1/5mmFcdVb1x9sk9WTCLt+JxWRp
-         lYHws7Bd2YHKBjnFJ4uwUi0yAZwb/yaopyNnMfK4dvgOGAreNnF6E8S87DPVwmQfTZRF
-         LxsqgvuJEag9d/n3KzwDmZfzhDePHjPYkzYpRvPeKa/nvlLvr9ZZeHQnBjFloIwYNlAO
-         Sc39C1P9fVZOpgKrpHH7o+kBhEmmdLL9sr3PsLqfm7zHJf1rB6qUOJPgIAZpK17VEcHs
-         qa745MUhbwEBxlUKTr2zm+v8QIs1pvqeJQ2VQ+Ok8E5PSToh2GH+YRBwxPR6LWq7NLXM
-         vRNg==
+        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
+         :message-id:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=P+dO4e+GJ/dnc5INUKZn1STKUOmhoLndzQ2wRUCxglM=;
+        b=HYSHXLAMG35kEkfTusMMUwVAaqebruGmf/+9REJxS3VUMBQ78eme0ylHLA1HytYp6D
+         g+WOYp4dpWsQEDNGNQz7tOaxZc4ECSeXgEsJkp/vr/b8LF266CVCjSNRriwwgTAL67Iu
+         imw7ekGHN16rK6iGtrpDVlb9cEwCyPu5/N5Ped1yJhyGugkGM5cmqQ87EBvashSOoVjL
+         S7SiIgaU00axRhIZ7tH0S/TUxwXznBTiR+e0uY2thtR+MeeKPQcd5or58r/Div2ip7GX
+         dePwq9IyMa/G5VQRcSXEll4ShuhcE6xmy2RlSCYZNsaOupO2zBjrqXapsYk0QPlLO45V
+         yPjA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5334qW6U1TFd37K23ZIuLWFiQLhRdXRKkeaIYEHCEyhE5ZHfJy7Y
-	TS5TD7urWvTXlmEKLtWZDSM=
-X-Google-Smtp-Source: ABdhPJyxBj0+JdtHJm3Fj6BD/mZ8fa202/GKNOws5lUTk/9R207un6UWG6RNhE7ClViM/G8xY76RMQ==
-X-Received: by 2002:a1f:de81:: with SMTP id v123mr9967264vkg.92.1596434242284;
-        Sun, 02 Aug 2020 22:57:22 -0700 (PDT)
-X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6102:31a5:: with SMTP id d5ls1723102vsh.4.gmail; Sun, 02
- Aug 2020 22:57:22 -0700 (PDT)
-X-Received: by 2002:a67:334e:: with SMTP id z75mr72390vsz.146.1596434241940;
-        Sun, 02 Aug 2020 22:57:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596434241; cv=none;
-        d=google.com; s=arc-20160816;
-        b=zuFhbWBD4nHoHU9SmeGjBw9c4EgbwBsMBygjl8sKyJAc1If7RRvDRCi2i7LZY6iWeT
-         yFOvpRcFz0c44uhtdr8HRDgFVBN+3wJeJmZEY5FK+f7Fv9pV0vIwY0xHKMkutCD4E82v
-         KlXr8hW6lZ7GQp5M4NiG6Zf85VpCbDDOvCQVZmb+Upqqj74VFXPne5J0i/cGYu+U2HfO
-         dLwlGl2iy2FqKQRilhUwVS7GUuXpWUyU4q85DY61UZUzNPUlvdqETzGJQWeRuWaXaJ3P
-         X2TKWDl0QKBgxWGva8/Qudsi7oAXz1Pqzkge44b9WvuXI1Ll2vAxDTFlBY8Ub3Nx4IgF
-         TSfg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:dkim-signature;
-        bh=a937DOTmpA6P0raq2UNN38ZadWAp1RYe6W0/Q7RSs9I=;
-        b=a+Zs/sF8mIje5ft0MjDQEUw+lVeQ4dX9VU4FjF5i4wF7TSMG7U6cdL0zjHe1fhnyk8
-         v7n9+kk7RL8BD7WLHHcYfT1JF987YlthyjLOsMdce4V5x3z1i5sERzV9hePWg52pL3sh
-         BOTDK0T64MkfthhIZiotE14Yfl3Vx/DGwccwDtflAGzO44G8+w1c3Wt1qtXQse3HO5ZM
-         2/dtVsNbi9QgysnnkDyG3yB8DUdJvfu4opimQ+FvTqOIBs7dm6hfqzUQBlMHkptmKjWt
-         EkDkEmqEy7LVSlVL5gy4zm2BFqE/S3qXosTutAf6neAt1Ree0ttkfdXp/qAJd8Tiom4V
-         TC8g==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ellerman.id.au header.s=201909 header.b=a7mlrlG8;
-       spf=pass (google.com: domain of mpe@ellerman.id.au designates 2401:3900:2:1::2 as permitted sender) smtp.mailfrom=mpe@ellerman.id.au
-Received: from ozlabs.org (bilbo.ozlabs.org. [2401:3900:2:1::2])
-        by gmr-mx.google.com with ESMTPS id x6si680977vko.1.2020.08.02.22.57.20
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 02 Aug 2020 22:57:21 -0700 (PDT)
-Received-SPF: pass (google.com: domain of mpe@ellerman.id.au designates 2401:3900:2:1::2 as permitted sender) client-ip=2401:3900:2:1::2;
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4BKnGN4mkNz9sTb;
-	Mon,  3 Aug 2020 15:57:16 +1000 (AEST)
-From: Michael Ellerman <mpe@ellerman.id.au>
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Oliver O'Halloran <oohall@gmail.com>, linuxppc-dev@lists.ozlabs.org, clang-built-linux@googlegroups.com, Segher Boessenkool <segher@kernel.crashing.org>
-Subject: Re: [PATCH v2 15/16] powerpc/powernv/sriov: Make single PE mode a per-BAR setting
-In-Reply-To: <20200803044609.GB195@Ryzen-9-3900X.localdomain>
-References: <20200722065715.1432738-1-oohall@gmail.com> <20200722065715.1432738-15-oohall@gmail.com> <20200801061823.GA1203340@ubuntu-n2-xlarge-x86> <87r1sp19ag.fsf@mpe.ellerman.id.au> <20200803044609.GB195@Ryzen-9-3900X.localdomain>
-Date: Mon, 03 Aug 2020 15:57:11 +1000
-Message-ID: <87k0yg1dc8.fsf@mpe.ellerman.id.au>
+X-Gm-Message-State: AOAM532Uw0wlYbzxhr9Codw2Nf4Ig3DmFmaGcLsyTaNBoCjCjT26asDj
+	7SlkUUER6JQUGnwANx9DG00=
+X-Google-Smtp-Source: ABdhPJwgrm9BO4xrdlcbYLtGX3aT3zXm2v1HIxVW7PC9bezCfDfGdFwcYgbrIkPC0NEj5ECdE//MRA==
+X-Received: by 2002:a37:2d04:: with SMTP id t4mr14382049qkh.382.1596437278651;
+        Sun, 02 Aug 2020 23:47:58 -0700 (PDT)
 MIME-Version: 1.0
+X-BeenThere: clang-built-linux@googlegroups.com
+Received: by 2002:ad4:4aa2:: with SMTP id i2ls870725qvx.10.gmail; Sun, 02 Aug
+ 2020 23:47:58 -0700 (PDT)
+X-Received: by 2002:ad4:49a1:: with SMTP id u1mr15141281qvx.245.1596437278332;
+        Sun, 02 Aug 2020 23:47:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596437278; cv=none;
+        d=google.com; s=arc-20160816;
+        b=gLTrAmFlafk1DgamnqQPEBLLJkmPE2IZnPWRfqgXHKkZ4FyujiEmy+/QE5z3K3jsPV
+         8Fiw2XbCxEh9IeO7XSnPvo0Rzds68h92Bgw8Q+Ei6Upb0rwoZOY+R+nYvZU1bfzaloFy
+         4VYkxb9ThzbqtNv6zv2DGJJvoXOKhqv9WWQ5XEXnilBSN6b7XNlpYJyZxTfNpACAmcBN
+         7ZHkhciavvnUXvfQc/Kutziny0QrWV5C+jm6nySUKlECHRTGwlebWOWlZksuoREIqceZ
+         WB2Sqqbayh/cWrAZHVpR1mpENlIthAnWfBpVzSPzFaj8t+S/83W/WdUrdXLc568aNyTh
+         ITIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:date:subject:cc:to:from;
+        bh=YsOUs1nuiWDcyrMgW/htuREcmf3p+5QnFvAu2GQ/Nac=;
+        b=Sfbs3D1CPQjYBUOsWW1AiO1U8q6s3ITDmQq5hAE9q815fip9d/VbuK+Ul5XwbocnKI
+         BS6TweHZgfcUa5E/ofK5Ga2KA1BbGZjaRypExDEIwnUQRmjcySfwNXDW3Ta79ga/Y7ya
+         LaiAGfmNpSbcet8oNI9l+ZrIRsJqSn7qoZmiA8MkFjNmtpyEaH9/Lpi7S8msB4nCLWdK
+         lnpdekYKB0TMdniP8UdGCGEQywT2SxmoVbNzwoM29mNDfh4+KGDs5Wkd2+Pbz0RvYL9N
+         XgMElTvLaO7EK+N9wkKzdWu4xYT10povTfidMxElT3g46vrzRob7CsehNq8rZnP0yvZk
+         7ixw==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       spf=pass (google.com: domain of wenhu.wang@vivo.com designates 103.129.252.23 as permitted sender) smtp.mailfrom=wenhu.wang@vivo.com
+Received: from mail-proxy25224.qiye.163.com (mail-proxy25223.qiye.163.com. [103.129.252.23])
+        by gmr-mx.google.com with ESMTPS id o2si768273qkj.4.2020.08.02.23.47.58
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 02 Aug 2020 23:47:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of wenhu.wang@vivo.com designates 103.129.252.23 as permitted sender) client-ip=103.129.252.23;
+Received: from wwh-vos.localdomain (unknown [58.251.74.226])
+	by m17616.mail.qiye.163.com (Hmail) with ESMTPA id AB959108499;
+	Mon,  3 Aug 2020 14:45:48 +0800 (CST)
+From: Wang Wenhu <wenhu.wang@vivo.com>
+To: Marco Elver <elver@google.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	kasan-dev@googlegroups.com,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Cc: Wang Wenhu <wenhu.wang@vivo.com>
+Subject: [PATCH] doc: kcsan: add support info of gcc for kcsan
+Date: Mon,  3 Aug 2020 14:45:12 +0800
+Message-Id: <20200803064512.85589-1-wenhu.wang@vivo.com>
+X-Mailer: git-send-email 2.17.1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgYFAkeWUFZS1VLWVdZKFlBSE83V1ktWUFJV1kPCR
+	oVCBIfWUFZGkJPSB4dHUlITB5CVkpOQk1PSExKT0JLQkpVEwETFhoSFyQUDg9ZV1kWGg8SFR0UWU
+	FZT0tIVUpKS09ISFVKS0tZBg++
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PFE6FRw4Cz8eDwEjIQMxCT4T
+	Dx5PC01VSlVKTkJNT0hMSk9CTU5JVTMWGhIXVQweFRMOVQwaFRw7DRINFFUYFBZFWVdZEgtZQVlO
+	Q1VJTkpVTE9VSUlNWVdZCAFZQUpMQ0s3Bg++
+X-HM-Tid: 0a73b311b53f9374kuwsab959108499
+X-Original-Sender: wenhu.wang@vivo.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of wenhu.wang@vivo.com designates 103.129.252.23 as
+ permitted sender) smtp.mailfrom=wenhu.wang@vivo.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: mpe@ellerman.id.au
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ellerman.id.au header.s=201909 header.b=a7mlrlG8;       spf=pass
- (google.com: domain of mpe@ellerman.id.au designates 2401:3900:2:1::2 as
- permitted sender) smtp.mailfrom=mpe@ellerman.id.au
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -126,111 +129,32 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Nathan Chancellor <natechancellor@gmail.com> writes:
-> On Sun, Aug 02, 2020 at 11:12:23PM +1000, Michael Ellerman wrote:
->> Nathan Chancellor <natechancellor@gmail.com> writes:
->> > On Wed, Jul 22, 2020 at 04:57:14PM +1000, Oliver O'Halloran wrote:
->> >> Using single PE BARs to map an SR-IOV BAR is really a choice about what
->> >> strategy to use when mapping a BAR. It doesn't make much sense for this to
->> >> be a global setting since a device might have one large BAR which needs to
->> >> be mapped with single PE windows and another smaller BAR that can be mapped
->> >> with a regular segmented window. Make the segmented vs single decision a
->> >> per-BAR setting and clean up the logic that decides which mode to use.
->> >> 
->> >> Signed-off-by: Oliver O'Halloran <oohall@gmail.com>
->> >> ---
->> >> v2: Dropped unused total_vfs variables in pnv_pci_ioda_fixup_iov_resources()
->> >>     Dropped bar_no from pnv_pci_iov_resource_alignment()
->> >>     Minor re-wording of comments.
->> >> ---
->> >>  arch/powerpc/platforms/powernv/pci-sriov.c | 131 ++++++++++-----------
->> >>  arch/powerpc/platforms/powernv/pci.h       |  11 +-
->> >>  2 files changed, 73 insertions(+), 69 deletions(-)
->> >> 
->> >> diff --git a/arch/powerpc/platforms/powernv/pci-sriov.c b/arch/powerpc/platforms/powernv/pci-sriov.c
->> >> index ce8ad6851d73..76215d01405b 100644
->> >> --- a/arch/powerpc/platforms/powernv/pci-sriov.c
->> >> +++ b/arch/powerpc/platforms/powernv/pci-sriov.c
->> >> @@ -260,42 +256,40 @@ void pnv_pci_ioda_fixup_iov(struct pci_dev *pdev)
->> >>  resource_size_t pnv_pci_iov_resource_alignment(struct pci_dev *pdev,
->> >>  						      int resno)
->> >>  {
->> >> -	struct pnv_phb *phb = pci_bus_to_pnvhb(pdev->bus);
->> >>  	struct pnv_iov_data *iov = pnv_iov_get(pdev);
->> >>  	resource_size_t align;
->> >>  
->> >> +	/*
->> >> +	 * iov can be null if we have an SR-IOV device with IOV BAR that can't
->> >> +	 * be placed in the m64 space (i.e. The BAR is 32bit or non-prefetch).
->> >> +	 * In that case we don't allow VFs to be enabled since one of their
->> >> +	 * BARs would not be placed in the correct PE.
->> >> +	 */
->> >> +	if (!iov)
->> >> +		return align;
->> >> +	if (!iov->vfs_expanded)
->> >> +		return align;
->> >> +
->> >> +	align = pci_iov_resource_size(pdev, resno);
->> 
->> That's, oof.
->> 
->> > I am not sure if it has been reported yet but clang points out that
->> > align is initialized after its use:
->> >
->> > arch/powerpc/platforms/powernv/pci-sriov.c:267:10: warning: variable 'align' is uninitialized when used here [-Wuninitialized]
->> >                 return align;
->> >                        ^~~~~
->> > arch/powerpc/platforms/powernv/pci-sriov.c:258:23: note: initialize the variable 'align' to silence this warning
->> >         resource_size_t align;
->> >                              ^
->> >                               = 0
->> > 1 warning generated.
->> 
->> But I can't get gcc to warn about it?
->> 
->> It produces some code, so it's not like the whole function has been
->> elided or something. I'm confused.
->
-> -Wmaybe-uninitialized was disabled in commit 78a5255ffb6a ("Stop the
-> ad-hoc games with -Wno-maybe-initialized") upstream so GCC won't warn on
-> stuff like this anymore.
+KCSAN is also supported in GCC version 7.3.0 or later.
+For Clang, the supported versions are 7.0.0 and later.
 
-Seems so. Just that there's no "maybe" here, it's very uninitialised.
+Signed-off-by: Wang Wenhu <wenhu.wang@vivo.com>
+---
+ Documentation/dev-tools/kcsan.rst | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-> I would assume the function should still be generated since those checks
-> are relevant, just the return value is bogus.
-
-Yeah, just sometimes missing warnings boil down to the compiler eliding
-whole sections of code, if it can convince itself they're unreachable.
-
-AFAICS there's nothing weird going on here that should confuse GCC, it's
-about as straight forward as it gets.
-
-Actually I can reproduce it with:
-
-$ cat > test.c <<EOF
-int foo(void *p)
-{
-        unsigned align;
-
-        if (!p)
-                return align;
-
-        return 0;
-}
-EOF
-
-$ gcc -Wall -Wno-maybe-uninitialized -c test.c
-$
-
-No warning.
-
-But I guess that's behaving as documented. The compiler can't prove that
-foo() will be called with p == NULL, so it doesn't warn.
-
-cheers
+diff --git a/Documentation/dev-tools/kcsan.rst b/Documentation/dev-tools/kcsan.rst
+index b38379f06194..05a4578839cf 100644
+--- a/Documentation/dev-tools/kcsan.rst
++++ b/Documentation/dev-tools/kcsan.rst
+@@ -8,7 +8,8 @@ approach to detect races. KCSAN's primary purpose is to detect `data races`_.
+ Usage
+ -----
+ 
+-KCSAN requires Clang version 11 or later.
++KCSAN is supported in both GCC and Clang. With GCC it requires version 7.3.0
++or later. With Clang it requires version 7.0.0 or later.
+ 
+ To enable KCSAN configure the kernel with::
+ 
+-- 
+2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87k0yg1dc8.fsf%40mpe.ellerman.id.au.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200803064512.85589-1-wenhu.wang%40vivo.com.
