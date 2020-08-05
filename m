@@ -1,109 +1,116 @@
-Return-Path: <clang-built-linux+bncBAABBPEVVH4QKGQEJSDNNHI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCKPFB7SXUERBBMWVH4QKGQELORGZIA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63f.google.com (mail-pl1-x63f.google.com [IPv6:2607:f8b0:4864:20::63f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5AA4323C565
-	for <lists+clang-built-linux@lfdr.de>; Wed,  5 Aug 2020 07:59:25 +0200 (CEST)
-Received: by mail-pl1-x63f.google.com with SMTP id y10sf4274710plp.6
-        for <lists+clang-built-linux@lfdr.de>; Tue, 04 Aug 2020 22:59:25 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596607164; cv=pass;
+Received: from mail-ot1-x338.google.com (mail-ot1-x338.google.com [IPv6:2607:f8b0:4864:20::338])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5B46623C576
+	for <lists+clang-built-linux@lfdr.de>; Wed,  5 Aug 2020 08:00:38 +0200 (CEST)
+Received: by mail-ot1-x338.google.com with SMTP id l28sf9715477oti.18
+        for <lists+clang-built-linux@lfdr.de>; Tue, 04 Aug 2020 23:00:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596607237; cv=pass;
         d=google.com; s=arc-20160816;
-        b=DzndZYousoEea9hDnCVxSYVD32fgUV0kKPTHbV/z0mL9ANlLcvaovqVFG9oFPLAo28
-         xs1w0a/X3cY4604dn6QaHi4UpUHJWTBgFXX35PH7a7COYxV0GqdcBfwFmNjybaKJyYLe
-         4EYmgRBUav0UFNv6Nno3EpZ4thy68yLSX/6bisttxRd0QoFiyOmpfH+mvlusrSxt3ydV
-         fGLqlej2DvR1dhMstY+LQzOn0FzKFyRqrXaBJvOFkERH71IBYzcpicaaZRQUxXJ0FS3H
-         kWtXUexezV6Gbe1935V+PHi40O6aANBRUKS0KwQu+yuFsj2DhM0a8NrZ/sQIBS7YT+wZ
-         nzIg==
+        b=OF9nd+HIsDxNHAIQHM0b+UDlaoZ6rJkJleB99smylBnJtC95eDwVRNI9qEvn3yEfHH
+         AiEz6g/qkKxMNpCDxypAalvxtlRux9EfvjSKWY15roT9ZPWTYq0Yi9jlxqUI4HcvwfbS
+         PnlTHttWYbqSVGd65DIH3kkRGLjgGoJ3XJnPiCuBT1RcMOJDD4jXEeu6+ueA21dvXl+A
+         VmjfOFSzeccqXK25teNqGWsbP6Y/zSefCf1WSuJnLQP/Q5OFzLn1O+9F2td0FTLMT10c
+         FcuvgIUR5OPZDf5h9DB6+SZ254fSIdm12lKcNN1mUweY07lkxIAyPJ3sGvhrsEAPiXs5
+         vFMg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=y4Dst7SOiNT90hrpET2ZslMnrALhm9fKLbgRmp17wUY=;
-        b=hx0eaZzm/6bqYlBc/Tb113UCvOWHhhLn3tLi9HkNAwaA7sI/owKbpoWD5DAcusinJz
-         EUCni1o5YPmWhX79JutJOIhySVY4zQ3JViwPHERToK7aD+H6hF92+UWaKkTn/+ttuFlw
-         NJewwMycRQpMNmxmxFkuWBT9sIJbnxg3mZUrBsp1RagbkrADq0be+9d4UI1KVptUiHbc
-         n+WDO0GZQX/Hfa9SvcJR9+pXjKsmW0jO5I95XGmxFnKl55s5knlC7IOP3+/Z2Hs0wmUu
-         GAB+ANetsGquJpOgETOosUIl6+8xE1Tji06COclPEwv9garvgPCy1rxP9KzdciaHBF9A
-         Hj3Q==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=Cqdep/FZw4lzwYnIImK3c3BhQdPLNaEVq5hx1E/tyrQ=;
+        b=qP66pU4/mqmtiYZIhdtbP1ELiG1BBOue+ouDO0n3iQmSuYSDcYPfP4xcq8ozITpHsi
+         2bwCw1j6IS+gbeRjNgPweQKcQbGiSM2JZR0h3zsi3MU29tUFi4RA2nu9ztmeEBgA48CC
+         PamWCPp6pMFPoQJem8DGDs9iLYFAJdYKxkBtaYLnYVR7trJ0msVwxkOavSMzULQ+ENkP
+         Yw0MYoRP8oatwqmff0FfO8GmecoKpeMmm4nm/MuShwgEZBeLgEzMMQjLgDNKiIkztvYI
+         pCQowX+0WTr7aEbkNSURqby1p81QcilwHwSP5Y++gzLbFUeBZviMP2DOI7tYVpdF3ueK
+         q+1g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=bFmzYj+z;
-       spf=pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=rppt@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=RlPgVbbf;
+       spf=pass (google.com: domain of bhe@redhat.com designates 205.139.110.61 as permitted sender) smtp.mailfrom=bhe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=y4Dst7SOiNT90hrpET2ZslMnrALhm9fKLbgRmp17wUY=;
-        b=i9GgCJ71MaGhxm0sIY55hdcrOdbHgSGv6hjSEMUbF9nvbKJRisY8ZiL7UsqQBo/J4l
-         vABV9GNFSi6j9abwPAD9dBIyHXpRn0Wi8pqwVT85wP+KItv8kBArV1ye8P/b8Vs+ECb4
-         MeaVifAyp8BJ6h1sc+1aO3hNiez0x4kvOU3YuQnDRAmAqXXwp08AyMytOiaENZzh3uMx
-         NBWKFTpveI8vYGQxSDdSMccevFhe7OOyOkP/ccxNXXFalYzELa7ZhtD2X30OBahaPNui
-         Y9bpqXWjt8UWWG/xQrPoxF2O+QqcKKjyvyPFJ0O1TUvHa4ej1MT5PgUYyjtUchiMfGKo
-         H99g==
+        bh=Cqdep/FZw4lzwYnIImK3c3BhQdPLNaEVq5hx1E/tyrQ=;
+        b=O+8cuKDCmdefbozSMikTfdbk4MJ3kP1ScqWyvBLgioGjAnlDEcD4bNlknHdWtKfhdA
+         HbYNaFAALN3oCaCqQLJXZOPhIa45ZBbRgF2M8gr09ZKMxJZksXJzW5TwtN4mm1lFIIX7
+         B+mFVNjG3TZgP6ER92gPjKB1iEvC6s57rIIRihmoDvrZrMmrVHToJJPCH+Iqdz5PxC6b
+         vHhAYGgedIxSBundpkl3HlzG5u6d5SRfWKyQvnBs+OnIHiVzYIIAOsHA5fM+L/WmzP+t
+         M8gUSWRGv/XfPKHC0CP7MlMaVc028zvipkNA4OOAg8wFQTaACIRYxbv2j/rgw2umfzl2
+         9dfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+         :references:mime-version:content-disposition:in-reply-to:user-agent
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=y4Dst7SOiNT90hrpET2ZslMnrALhm9fKLbgRmp17wUY=;
-        b=EO1alnDx93UySn1qRVrejzY20fAj1ctS8XfHeBU4KsmFeHQXR47ax+6pRrjlknqWA3
-         FFQZvGd7YcxwDwKBsE0pXI59TxiwDApy3Kd7sC+g0yF5o1lMjC7aaT5zcGBu0zf7h84v
-         0IGpvtZZrejHtAbvUR7r9Y86DV8YcWR8QDEog30uLMH6/+YAT5QV3CdA0CkTPLMbmHlZ
-         uLjbxR7FM2/xm/yCzh82jA+X4ru/4QiDpsaguo1vAEXBi5cjc5dkBRlQPtK4t1mAzcpn
-         x2BQJUChZsBxbH9275eYrxOVMGO/GQ4r3f6+X4rE/5YBgO2unplG2rMBFd4LEFrBuQhS
-         croQ==
+        bh=Cqdep/FZw4lzwYnIImK3c3BhQdPLNaEVq5hx1E/tyrQ=;
+        b=XNWSoSBkkcuRh2RYyRZwqjf4bdCvfkJnlqyP+9W5KV2oZ/enc3094IEamWQtbtHcQQ
+         g4dW9vmGXHWIo7fdja6p7SfedWo4MQmWqYOpbrM8AO0QzfeWE4CZ05RDLd7NwrZTrvJp
+         DTCllua0BBuqO37/ydlI0Bi8vEnUk98dMtVjUIM3Is0fSkpnFqvA84tepB8Rx8rmLzD5
+         x1K/XhivM807RHT8v1v/oUG7/lpuqFVRRgysQTB9DHRSnQHO/a6GZcFoA3/oAu0G3B8C
+         FANZrTNeF+JXRwHb+6WJlMfA1vLq8wDJSyExiztrVxeBTH1BWyqrZbvKXCdKqKWFUSOb
+         /sJg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531MAarmJmZH6N6EE4mgH/NriDBWyPmKXt5E+E4T0eZwwu79VLG6
-	G2pfNw0Yr77xGEe/abPkzl4=
-X-Google-Smtp-Source: ABdhPJytVWzuP9n5HPuyrHmx4/FHkYZfR069vPxC75imdouUAwhxJaTp6YI3bfrBX/iSrxALvHqFQA==
-X-Received: by 2002:a17:90a:b386:: with SMTP id e6mr1696079pjr.57.1596607164064;
-        Tue, 04 Aug 2020 22:59:24 -0700 (PDT)
+X-Gm-Message-State: AOAM532y8g6GiKGfhTU0NCUEbyExI/H5rdJkY7tW9GgQqNcx7FsiclJJ
+	rCKh9i3Aw013xB1R5iSzCdU=
+X-Google-Smtp-Source: ABdhPJxcOLbS1dnopXJbSRBvK5P8b1fWeXMC2ygwNZO7eUA/ckwqodKp9ieb5OlhVKGVQtuSkJ+ufw==
+X-Received: by 2002:aca:f4c7:: with SMTP id s190mr1438666oih.51.1596607237157;
+        Tue, 04 Aug 2020 23:00:37 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:bf04:: with SMTP id c4ls484799pjs.3.gmail; Tue, 04
- Aug 2020 22:59:23 -0700 (PDT)
-X-Received: by 2002:a17:90a:e390:: with SMTP id b16mr1715254pjz.20.1596607163726;
-        Tue, 04 Aug 2020 22:59:23 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596607163; cv=none;
+Received: by 2002:a05:6830:1d90:: with SMTP id y16ls223716oti.10.gmail; Tue,
+ 04 Aug 2020 23:00:36 -0700 (PDT)
+X-Received: by 2002:a05:6830:148f:: with SMTP id s15mr1368024otq.323.1596607236776;
+        Tue, 04 Aug 2020 23:00:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596607236; cv=none;
         d=google.com; s=arc-20160816;
-        b=OJaWNaCjOsIyMEzSBbCVAptIN3fHU2wuqv0GMQfSWKbg6GNTseY+WIjW3aMf4PN4Az
-         NQCC4qSlzOhJX9XTNO3CbFnczoFAUeLbHJpU5bi+KS4PsV+ext1uqUql0OX2ayiQaZXq
-         cFdP50NGFlr7EnZmpu10SByDdv6SNV/NGhNJTJQcOO605Nnru0IDykL7/GXBUnNc64Ii
-         p+PQe66GKOp7jHn7YtdZRigt9LZf8BJwZuLVNTpXAs2oSTr6Idd3PArbrbH2XAb6yUpf
-         apbRzPgf3yF+TV+x9G34Zek3XnMpkh7PhOd4EbRyuq9b9C0xLtl738R0NBoj50pLLsz+
-         OPlA==
+        b=LNzc9FiYV0S659Yru/0jih/SiqUaRmxuplEFFaDaLLc+oYv/4AmBLvIbSqdYf4EWSM
+         2L7CQlSgxjSsjkA8pn9sSD2yi4pPpriq2w4u2lG92qWARnMZjY8tpjLX+NzbI8aL4BSg
+         t5BXsUgTTedBNaRayydgyYk0YYEJ0l/QmJl1/15KO2FUV1pHJ4MafdfMzKFG9A0wg7D4
+         EZ0xeodN1zeh1iYN7sOP1w+c/bAodo4JnmWXv7lHbA+gicRpqnKBcUn79M1ZRVerm/Tg
+         NIFO3E5AjmvHPDUbWffRmkX0BTBc/bmb8R6AcmaE50mbxqPu3pHSKO1hPxTCLlbnNcKs
+         2jaA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=xHsKhWJahONxwPrfGzQoRsoTq3Umu5QX7WGZyJyr2MQ=;
-        b=tHYhN3QyhvCL/hn05GQQYkOaRrRHMFrj3eASASQo2tfvQUGB8/qLo+IR7XCVEygBnq
-         f6LtN7l9fz6kzymK68O5VzMR/KlabI2EcDsV7C+0VPQbk1v84U90qZdMhITZ507AHSwI
-         QG0E3jWe+n8yeN2ILxRABXMVdciLwGdemKySPWr4z4jmle64xykIgXkbDoK0sDjLud+I
-         PZmlWEHjukNCZxkUlZw2QrYUXuJCaBSjUP5hjtTRSPB6pnrk+cIKWzBM1GoWnbf8aPaU
-         /PoviKKJ1LzuqTOJZX31JzvF2z/fGyHqjZW/z47AThXh6kUYzYheebwXNmdtnitrCZK9
-         Sjfg==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=GMI2VHEJj5qxJst+Mnz2rfpYmYwR7lvZPX1P81/rYkI=;
+        b=dHcGtvDDC/3jEhhjKsNMxMzBKJQK5OpsogxPB6P1jaIarNcEq9pt/QlpkCtwe0j1b6
+         tacFAAWMjFuzBTxwI9WlufCjPT35w48/PvyVemGY8TXJfaf4KsjU4g/Qw0To4V5fn/YI
+         67Y7bwD6Ctpus0D0JUL2hKNSetEvhNSbNctxmeavGWJlLUBipn6uEgZGz29ntP2Ab93O
+         gcalQLLOXP8MWOxTcC2rdquIdAfy8jl1tRv9E/MQaLwujZZzBSKl4nmyznDrssorYbYf
+         +/g9nnNTy2MgxsMdpPd75uQjBrmE3siXUUTYVYNakPR6GIKzhJK5VhLAk3zPwFcirgOt
+         BS6A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=bFmzYj+z;
-       spf=pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=rppt@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id h18si80821plr.5.2020.08.04.22.59.23
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=RlPgVbbf;
+       spf=pass (google.com: domain of bhe@redhat.com designates 205.139.110.61 as permitted sender) smtp.mailfrom=bhe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com. [205.139.110.61])
+        by gmr-mx.google.com with ESMTPS id x2si54692oto.3.2020.08.04.23.00.36
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 04 Aug 2020 22:59:23 -0700 (PDT)
-Received-SPF: pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from kernel.org (unknown [87.70.91.42])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+        Tue, 04 Aug 2020 23:00:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bhe@redhat.com designates 205.139.110.61 as permitted sender) client-ip=205.139.110.61;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-72-i88hwEKrNImuiQFvk1P0-w-1; Wed, 05 Aug 2020 02:00:30 -0400
+X-MC-Unique: i88hwEKrNImuiQFvk1P0-w-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 2F6D52245C;
-	Wed,  5 Aug 2020 05:59:13 +0000 (UTC)
-Date: Wed, 5 Aug 2020 08:59:09 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Baoquan He <bhe@redhat.com>
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 8D7338064AC;
+	Wed,  5 Aug 2020 06:00:13 +0000 (UTC)
+Received: from localhost (ovpn-12-71.pek2.redhat.com [10.72.12.71])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E5810726A3;
+	Wed,  5 Aug 2020 06:00:08 +0000 (UTC)
+Date: Wed, 5 Aug 2020 14:00:06 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Mike Rapoport <rppt@kernel.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
 	Andy Lutomirski <luto@kernel.org>,
 	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
@@ -135,22 +142,22 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	linux-xtensa@linux-xtensa.org, linuxppc-dev@lists.ozlabs.org,
 	openrisc@lists.librecores.org, sparclinux@vger.kernel.org,
 	uclinux-h8-devel@lists.sourceforge.jp, x86@kernel.org
-Subject: Re: [PATCH v2 13/17] x86/setup: simplify initrd relocation and
- reservation
-Message-ID: <20200805055909.GD8243@kernel.org>
+Subject: Re: [PATCH v2 14/17] x86/setup: simplify reserve_crashkernel()
+Message-ID: <20200805060006.GU10792@MiWiFi-R3L-srv>
 References: <20200802163601.8189-1-rppt@kernel.org>
- <20200802163601.8189-14-rppt@kernel.org>
- <20200805042024.GT10792@MiWiFi-R3L-srv>
+ <20200802163601.8189-15-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200805042024.GT10792@MiWiFi-R3L-srv>
-X-Original-Sender: rppt@kernel.org
+In-Reply-To: <20200802163601.8189-15-rppt@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Original-Sender: bhe@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=bFmzYj+z;       spf=pass
- (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=rppt@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@redhat.com header.s=mimecast20190719 header.b=RlPgVbbf;
+       spf=pass (google.com: domain of bhe@redhat.com designates
+ 205.139.110.61 as permitted sender) smtp.mailfrom=bhe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -163,22 +170,122 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Aug 05, 2020 at 12:20:24PM +0800, Baoquan He wrote:
-> On 08/02/20 at 07:35pm, Mike Rapoport wrote:
-> > From: Mike Rapoport <rppt@linux.ibm.com>
-> > 
-> > Currently, initrd image is reserved very early during setup and then it
-> > might be relocated and re-reserved after the initial physical memory
-> > mapping is created. The "late" reservation of memblock verifies that mapped
-> > memory size exceeds the size of initrd, the checks whether the relocation
->                                           ~ then?
+On 08/02/20 at 07:35pm, Mike Rapoport wrote:
+> From: Mike Rapoport <rppt@linux.ibm.com>
+> 
+> * Replace magic numbers with defines
+> * Replace memblock_find_in_range() + memblock_reserve() with
+>   memblock_phys_alloc_range()
+> * Stop checking for low memory size in reserve_crashkernel_low(). The
+>   allocation from limited range will anyway fail if there is no enough
+>   memory, so there is no need for extra traversal of memblock.memory
+> 
+> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> ---
+>  arch/x86/kernel/setup.c | 40 ++++++++++++++--------------------------
+>  1 file changed, 14 insertions(+), 26 deletions(-)
 
-Right, thanks!
+Applied this patch on top of 5.8, crashkernel reservation works well.
+And the code change looks good.
 
-> > required and, if yes, relocates inirtd to a new memory allocated from
-> > memblock and frees the old location.
+Reviewed-by: Baoquan He <bhe@redhat.com>
+
+> 
+> diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
+> index d8de4053c5e8..d7ced6982524 100644
+> --- a/arch/x86/kernel/setup.c
+> +++ b/arch/x86/kernel/setup.c
+> @@ -419,13 +419,13 @@ static int __init reserve_crashkernel_low(void)
+>  {
+>  #ifdef CONFIG_X86_64
+>  	unsigned long long base, low_base = 0, low_size = 0;
+> -	unsigned long total_low_mem;
+> +	unsigned long low_mem_limit;
+>  	int ret;
+>  
+> -	total_low_mem = memblock_mem_size(1UL << (32 - PAGE_SHIFT));
+> +	low_mem_limit = min(memblock_phys_mem_size(), CRASH_ADDR_LOW_MAX);
+>  
+>  	/* crashkernel=Y,low */
+> -	ret = parse_crashkernel_low(boot_command_line, total_low_mem, &low_size, &base);
+> +	ret = parse_crashkernel_low(boot_command_line, low_mem_limit, &low_size, &base);
+>  	if (ret) {
+>  		/*
+>  		 * two parts from kernel/dma/swiotlb.c:
+> @@ -443,23 +443,17 @@ static int __init reserve_crashkernel_low(void)
+>  			return 0;
+>  	}
+>  
+> -	low_base = memblock_find_in_range(0, 1ULL << 32, low_size, CRASH_ALIGN);
+> +	low_base = memblock_phys_alloc_range(low_size, CRASH_ALIGN, 0, CRASH_ADDR_LOW_MAX);
+>  	if (!low_base) {
+>  		pr_err("Cannot reserve %ldMB crashkernel low memory, please try smaller size.\n",
+>  		       (unsigned long)(low_size >> 20));
+>  		return -ENOMEM;
+>  	}
+>  
+> -	ret = memblock_reserve(low_base, low_size);
+> -	if (ret) {
+> -		pr_err("%s: Error reserving crashkernel low memblock.\n", __func__);
+> -		return ret;
+> -	}
+> -
+> -	pr_info("Reserving %ldMB of low memory at %ldMB for crashkernel (System low RAM: %ldMB)\n",
+> +	pr_info("Reserving %ldMB of low memory at %ldMB for crashkernel (low RAM limit: %ldMB)\n",
+>  		(unsigned long)(low_size >> 20),
+>  		(unsigned long)(low_base >> 20),
+> -		(unsigned long)(total_low_mem >> 20));
+> +		(unsigned long)(low_mem_limit >> 20));
+>  
+>  	crashk_low_res.start = low_base;
+>  	crashk_low_res.end   = low_base + low_size - 1;
+> @@ -503,13 +497,13 @@ static void __init reserve_crashkernel(void)
+>  		 * unless "crashkernel=size[KMG],high" is specified.
+>  		 */
+>  		if (!high)
+> -			crash_base = memblock_find_in_range(CRASH_ALIGN,
+> -						CRASH_ADDR_LOW_MAX,
+> -						crash_size, CRASH_ALIGN);
+> +			crash_base = memblock_phys_alloc_range(crash_size,
+> +						CRASH_ALIGN, CRASH_ALIGN,
+> +						CRASH_ADDR_LOW_MAX);
+>  		if (!crash_base)
+> -			crash_base = memblock_find_in_range(CRASH_ALIGN,
+> -						CRASH_ADDR_HIGH_MAX,
+> -						crash_size, CRASH_ALIGN);
+> +			crash_base = memblock_phys_alloc_range(crash_size,
+> +						CRASH_ALIGN, CRASH_ALIGN,
+> +						CRASH_ADDR_HIGH_MAX);
+>  		if (!crash_base) {
+>  			pr_info("crashkernel reservation failed - No suitable area found.\n");
+>  			return;
+> @@ -517,19 +511,13 @@ static void __init reserve_crashkernel(void)
+>  	} else {
+>  		unsigned long long start;
+>  
+> -		start = memblock_find_in_range(crash_base,
+> -					       crash_base + crash_size,
+> -					       crash_size, 1 << 20);
+> +		start = memblock_phys_alloc_range(crash_size, SZ_1M, crash_base,
+> +						  crash_base + crash_size);
+>  		if (start != crash_base) {
+>  			pr_info("crashkernel reservation failed - memory is in use.\n");
+>  			return;
+>  		}
+>  	}
+> -	ret = memblock_reserve(crash_base, crash_size);
+> -	if (ret) {
+> -		pr_err("%s: Error reserving crashkernel memblock.\n", __func__);
+> -		return;
+> -	}
+>  
+>  	if (crash_base >= (1ULL << 32) && reserve_crashkernel_low()) {
+>  		memblock_free(crash_base, crash_size);
+> -- 
+> 2.26.2
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200805055909.GD8243%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200805060006.GU10792%40MiWiFi-R3L-srv.
