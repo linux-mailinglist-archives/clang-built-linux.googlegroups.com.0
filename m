@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCKPFB7SXUERBOXPVH4QKGQEJFLBLQI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCKPFB7SXUERBHHYVH4QKGQE6EG7RWQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53d.google.com (mail-pg1-x53d.google.com [IPv6:2607:f8b0:4864:20::53d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 77A5623C8B3
-	for <lists+clang-built-linux@lfdr.de>; Wed,  5 Aug 2020 11:11:23 +0200 (CEST)
-Received: by mail-pg1-x53d.google.com with SMTP id k32sf1315474pgm.15
-        for <lists+clang-built-linux@lfdr.de>; Wed, 05 Aug 2020 02:11:23 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596618682; cv=pass;
+Received: from mail-pl1-x637.google.com (mail-pl1-x637.google.com [IPv6:2607:f8b0:4864:20::637])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7264923C927
+	for <lists+clang-built-linux@lfdr.de>; Wed,  5 Aug 2020 11:30:05 +0200 (CEST)
+Received: by mail-pl1-x637.google.com with SMTP id y10sf4603117plp.6
+        for <lists+clang-built-linux@lfdr.de>; Wed, 05 Aug 2020 02:30:05 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596619804; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Tv2K5dq0YRhU0Zp+MYOLBsI3EE3gRzHBYxL8FEni/skAsuYVOX8/yz1Ydtm76l0ELo
-         i3L9gxjhoKfukbVnY5GPcW8Ujagzh6OSLI8P42sN/R2vnCVfvNh9gO/WFfZOPs7ZNKqz
-         HCYPxpurjOiWZXgrBjfNRrdHaztZ3odr0KlC7q+9iK52Cyx+11klYVCSTNLJWn1MSmLh
-         TymZyxT6aPKhtGn3cBf05ReHZliNn0mE+Ei8D+q8Vwhqzbiqd35thOfOhKV6EliMjpe2
-         NlKS0vw+1iQ3QLecTF9gF+84uAhaEZyHEDv+Jti1C0Heg/GaAp5zxvauEuIh7tUgPHwm
-         7dBQ==
+        b=u7Ol3WufgNcX/HpnMZFYi41N9aL8i7IWvqxP7OwjoVtwvwtV9HKr30ofsjLLenRPDm
+         7NwTXfXb74qH59ac5ySl0dI1xjWiNj9DVDDkE8hapHeewMWm0dYOcq6PsFbcGqPNKSgB
+         WRKeEvo9NbdvVBslFO7ID9OjjQi21+8owbjqmXo7q5lO43j9FQICTAFS5TyD+ivaTC1q
+         4NuREO/yJWNx2YgiDsf/kCBgaouj2hsUNGNrOTBIM2y6A8HPDAtFsma6F/pV1snI0+D3
+         vkUCqCYf0PNisgJgsvu6DyG0tAyhIBfkML8kFeB0nvLpDpzS7oASWJzfSSP12tmG8ar0
+         XMLA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature;
-        bh=m/CYBBOTzFGmD0jbBSll2KwGlAwmmJ73uDh/IaQ+kAs=;
-        b=dqJrcYgt41ZP98xmF+s/KHEWmxAImJlvf2ohL00z9bUQ1CMAO/IlJr37jJQ0nYosYT
-         EKBfk5/NKXFeBEAPA131HQJ7YcAM43He44ThDbxlBrRANAo9jUPqWmgvkGXM/7k3Pn1l
-         F0BD9nntTKSf9DIvi+yZQj1E3jMBgUQy/SztZBB1c07/9BpZeOEzWENfbzZE/6XaFe+1
-         Rib+3fpSwcjpPZrGy+m5JVUVDOOxNFihaSjRbYg4DfgF1si6aAXnUAYS7UvkbIHbi0LR
-         uNX4q3pg3/BNyYFKlfK2T7Z2GqiKGJ8Ia8YWqjVuMUpkFC5wlpdFFhuVttfbaIIX2kpJ
-         j9Pw==
+        bh=pEcqDMcprqSwfXV77xfFPVm8d8UkqRzaw2CpSCvGJp8=;
+        b=OUnoRaUw2CMbmi5T4/6knTD/jsQwrXiGD8zDVuRuHMdLC4A+5CxvBxsQ7RPo1+ttTp
+         3VPf2tsmSB+D8vAwTp9aQClR1hd12UWKk3fq+OgE22MQnFV5lKirAqzp1H+l2tx0mK96
+         ExBMuwFOrHhz+Rf3kcI3KXPDiakR+h7Uzzj2kIyNGpILL6DRtYkOEHVYg5A1dBxBUAN7
+         lCVHXz6k/i9LhsNYZBZ4WWr29tJnY2oUJa9i/o1SO36DQYRL1p3XyAPPuyWnE/hIxie3
+         josCx06OChlkFekUJhAU5aOvzxGYpS00Rng62QY6xIFH5vCmnZYayUbD0/KPGSD26+w3
+         WDrA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=PKa1vVZ2;
-       spf=pass (google.com: domain of bhe@redhat.com designates 205.139.110.61 as permitted sender) smtp.mailfrom=bhe@redhat.com;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=aUOxTUPp;
+       spf=pass (google.com: domain of bhe@redhat.com designates 205.139.110.120 as permitted sender) smtp.mailfrom=bhe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=m/CYBBOTzFGmD0jbBSll2KwGlAwmmJ73uDh/IaQ+kAs=;
-        b=Hy7w3AuoawdUTPfs2yXVo7gXx6DrO7zcvQVH4S9w6wEUrZ02FLNGYtmlaxHLir16zX
-         8VJUTmcamTXY/L3nCTuy+qqvIMmsv5wKnd9unSKFuwUC2a8cPxfgoK3rcB39L6nyfOaU
-         8fqFacskT7KApyePU7aCZN1xcKgZVCEQDfxpy/6ngCGtaoW5d3RoGKSyeUx4Rm4NbY7n
-         ilnCd26Z829lbLyWYThmjN+cr5EI6IKzdpu39hURs/0yIhi/LVnlgLBkupfc4IpEXFPr
-         TQ7bZHd7iIYWanS6UWCQBJkm2mwaU+j/gAhhFJ7y0WNXXxEofuNdxNUdYP6eupBRkBLj
-         E00A==
+        bh=pEcqDMcprqSwfXV77xfFPVm8d8UkqRzaw2CpSCvGJp8=;
+        b=JS0e3MfDDsAVhCRa8exVUI9tQ/ILhrRbvsb7F7Epy5rH0eq+6KEEGLVnXSFWcRc9pu
+         Q67MDLqCLq4NipbkxUMCisW1LAZk0eF2JMsvcVGmB0HdW5g9E1HDQHup7l1GxbqtYzoG
+         wB3tnytWd49wq1B2DdeRCoSh1czrB3c0pxceu2utlA2nVGoj9vGFPKrgiA0qZBJQG1Mh
+         cY2X5BGcT4+imswkOUDL4RdaYUvTUGIrJPspuw5NXObYRuUmUKn4+QmR/CAzvVEgI6Dv
+         urymXtGEX4ISloKCI2mMlza+8aMuFyC/L5wqNtZC4rudpakuA1wc+KEl3L4DyK3A1t6c
+         pBSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,65 +50,65 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=m/CYBBOTzFGmD0jbBSll2KwGlAwmmJ73uDh/IaQ+kAs=;
-        b=ek/Yy9yLdDV/RztwcvKmaQ0T3c0TgXDR360xE0wco9pccsnefx94HsD0M8EFqXKHsS
-         F1McmPaUQKcEA5vc/ZJKOgtyuqG3G2kzD6GgM6gX7qxC+/kbyqtjCqO+fhgf44rK2en1
-         AOk5i/5Jq90SRk4/DvqXAudB8tKcMLAG7oGViZhnVKEoKJMR6+m7GsBRpt0+s4sjhQr/
-         K9FfsU+ZMC+j+ly6PQUu1+jotqF1ygP0MRhwPUEIlyz5ma7X3z5cfUTWy4tW+ci+VsRg
-         ReRHti5qJ/vqTf+GCSrYikmtOIi2ZFJvXK616MUHIQKf5UqrdHCmsjIYjkTr0GHhwudP
-         pQlw==
+        bh=pEcqDMcprqSwfXV77xfFPVm8d8UkqRzaw2CpSCvGJp8=;
+        b=WSM75Q4jWYcO29CqXQ1xjwZyl/2zbgDnqDg7KOTwBc5UaorH1DH5R1XhV+rsFrfL4N
+         9Ttr75V2WTgcZr8JKvcJAcuxWYhebuDZ6vyWMCcI7wfg/AIq3z/MS49WPKyQB/GAz1zc
+         nXXZLNtC+G6YIWWoaAj77j4ZeRpQm4nsxpd0uyPMarqzSHS+UjwjHYj7Q31h07UcLEtw
+         7LtmqJrU8Ky0q43zDs+qP9pJwLZxwfZNGU7/fB0yy//DcMne1t4zUWgG1q7bS1MEmK01
+         mvKQM/uyMEu/XtoRvch4W3a+V8QcHwpqPBzMJSsC2qlBVs/INpicCS6Y2uv0diqtvwKm
+         vyyQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531i1J7ZmXAQ1qzUpdupTuCkit7+29q5Cf70xl+q28M+Wj6RDfRe
-	f8Eso/0QG2vzPlXesWVQPBk=
-X-Google-Smtp-Source: ABdhPJzZ6/yXxyyAhtf4EzdFXiZCuz5u2Fp4JFAhN3AsBpAsRZG/UspWOJw8OR9ytU4fRc0VtDfYrg==
-X-Received: by 2002:a17:90a:7f02:: with SMTP id k2mr2313241pjl.196.1596618682201;
-        Wed, 05 Aug 2020 02:11:22 -0700 (PDT)
+X-Gm-Message-State: AOAM5339gTAlALCqOqbkDooKbHmRV9KKoaaG27FXuMAt/D3juMDnMugj
+	K03/zGSNVv3J3IcVjoNFJwI=
+X-Google-Smtp-Source: ABdhPJyqas64sgyuLw2e6T8xm5Mm2OJmlqC3zLonlhq6MMwO2wwqi3UCOhfUxI+c3K9O7E0v3YevUA==
+X-Received: by 2002:a63:5613:: with SMTP id k19mr2322776pgb.424.1596619804055;
+        Wed, 05 Aug 2020 02:30:04 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a65:534d:: with SMTP id w13ls508850pgr.8.gmail; Wed, 05 Aug
- 2020 02:11:21 -0700 (PDT)
-X-Received: by 2002:a65:6243:: with SMTP id q3mr2175970pgv.57.1596618681780;
-        Wed, 05 Aug 2020 02:11:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596618681; cv=none;
+Received: by 2002:a17:90a:ca88:: with SMTP id y8ls739349pjt.1.gmail; Wed, 05
+ Aug 2020 02:30:03 -0700 (PDT)
+X-Received: by 2002:a17:90a:2170:: with SMTP id a103mr2481195pje.198.1596619803655;
+        Wed, 05 Aug 2020 02:30:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596619803; cv=none;
         d=google.com; s=arc-20160816;
-        b=kYLQA+YoXl+1ZZMyPCo9x15Nm4S3qV11k2yBptTluhIjDyHe53+CqaIFSla62qUwNW
-         Vi+WLsvzK0jsR8ADhuSuF6v8LNYUu9jRX48z/UsL40olmHJ9013DChue0AwU/spiY1LQ
-         0oSTj/lMsy47DetdJ7P4rVHcy4kxJ4rkwDqtj+/TndBZhd9/83aWL9lxrxm6Tx52+0gD
-         cARVaR/sDSeshDslkM7e+0x/XVB7lOjKSQgBdedJTXIHFBtPfP3DF96nlbcoVxd0MjAk
-         ckWATuGvNSQ2VSnIHMTbcTlAHB5JuKzHxSSbyepfRPgYybQi+geskMGaoKk574euqCXj
-         wzWg==
+        b=tLZra7Pasrw3q15U3LQ27IjIRdDpjLNN7+blSnM8QkoT66VBiiFpAtjjmOK7/5a30o
+         SyoJygUmEFxWzLR4ANi7xkooSkxS5EPFV2MN/ilLWfmL6fHbw6wEPzBe0rF4ECjUAjmR
+         FuJ4RUTfTdSPlmf5tEZ8TuGqz3BFdmXZvo2HnaV7LAJtNPi71bbK07RCs5M6jT0TOUWv
+         T3bZ2M37+bhmXKe1d+uFNgCZf2e5U6HlDx9XOwEajRFQlrHlJs99LarXO/GSohVZ7vVI
+         GmCHgCmc4KgykIgcDDScA9X88XOcX6aD/2w7KH4/bbpaOTvHWGlvGjbCQKLwt9USltuM
+         yVqg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=4ozBDa1/xPHY8DQkaA9JqUMmSyVVQ14zD1Crd0znMso=;
-        b=06zNOVGBlzINIiKBdncOsdlJ/RpwE6h5H+DZD5sKDPiwEVsPd5tdQ8M3MUssWxKmZx
-         SN1OY6DxE6ozqbUi4Gvrd4c3XckkgTRyvRgwicY4/lr2OXC1yzf4n4ubaDk+wgD9Y/z0
-         Bl9EM0w7yp35iqTGd+CiDeAgnU3+GXZsMXjJw4mRpgTEDdlWaRKvs/wvH86ea0ds4HaL
-         /7/F1HVKJXjG8NxNYeH9g1WbzzW99M/fjq5HjhAdDVbtqwdJARwXEfufvOf1mF+mbWNo
-         CdXDTGZTXGervSIUh/TDYlVswK2wEtPycIXl9eUpe7qHnDNYJztGrw6jMTtGP2IoEJ7s
-         vG2g==
+        bh=KGrNYVry5FOInRW/Xy0yFMiPNeyHmg20qhVD8oGfJJ4=;
+        b=wOacBN44CnCNsD/jExo/N4GuWokPXIvAoAjUWAiHkvXG02GnXk6FI4/sLB5cMJsIpg
+         X9QC8lRYmupyuNUNy+mv+e4tAvMAxkufjwf2NnF8eVRI1oKk39hrZuJW+pdDNA5gTHV+
+         pm6PV7vvqrpMus4s43+QBcdYjbvze8FrEWbaotBbTa8NlhL5dbqI12mevjW5vRIZNw5B
+         iZXFKO+K7PdPKEO9mtM4JPPy7HiGFCqcsk5Fq4MZ2rqD/FRHuhCO3RpSOJzoSh8jcWWW
+         Uh8OVl+zAphT7Z+6cMBEcVzvhKazGLfusV1L0uJZ8jBUMfOsWHBI1ibpduw/cKH43JQU
+         RdbQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=PKa1vVZ2;
-       spf=pass (google.com: domain of bhe@redhat.com designates 205.139.110.61 as permitted sender) smtp.mailfrom=bhe@redhat.com;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=aUOxTUPp;
+       spf=pass (google.com: domain of bhe@redhat.com designates 205.139.110.120 as permitted sender) smtp.mailfrom=bhe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com. [205.139.110.61])
-        by gmr-mx.google.com with ESMTPS id t16si78935pgv.4.2020.08.05.02.11.21
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
+        by gmr-mx.google.com with ESMTPS id n68si85568pgn.1.2020.08.05.02.30.03
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 05 Aug 2020 02:11:21 -0700 (PDT)
-Received-SPF: pass (google.com: domain of bhe@redhat.com designates 205.139.110.61 as permitted sender) client-ip=205.139.110.61;
+        Wed, 05 Aug 2020 02:30:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bhe@redhat.com designates 205.139.110.120 as permitted sender) client-ip=205.139.110.120;
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-16-yG35Dv0sMVyPaqKEAb-z_A-1; Wed, 05 Aug 2020 05:11:16 -0400
-X-MC-Unique: yG35Dv0sMVyPaqKEAb-z_A-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-470-ZnwKN9E9NxSzYumJ2rNNrw-1; Wed, 05 Aug 2020 05:29:58 -0400
+X-MC-Unique: ZnwKN9E9NxSzYumJ2rNNrw-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id DB37818C63C1;
-	Wed,  5 Aug 2020 09:11:11 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 24BE680183C;
+	Wed,  5 Aug 2020 09:29:53 +0000 (UTC)
 Received: from localhost (ovpn-12-71.pek2.redhat.com [10.72.12.71])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E2D2772E4F;
-	Wed,  5 Aug 2020 09:11:07 +0000 (UTC)
-Date: Wed, 5 Aug 2020 17:11:05 +0800
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 068AF726A5;
+	Wed,  5 Aug 2020 09:29:51 +0000 (UTC)
+Date: Wed, 5 Aug 2020 17:29:48 +0800
 From: Baoquan He <bhe@redhat.com>
 To: Mike Rapoport <rppt@kernel.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -142,22 +142,22 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	linux-xtensa@linux-xtensa.org, linuxppc-dev@lists.ozlabs.org,
 	openrisc@lists.librecores.org, sparclinux@vger.kernel.org,
 	uclinux-h8-devel@lists.sourceforge.jp, x86@kernel.org
-Subject: Re: [PATCH v2 16/17] memblock: implement
- for_each_reserved_mem_region() using __next_mem_region()
-Message-ID: <20200805091105.GW10792@MiWiFi-R3L-srv>
+Subject: Re: [PATCH v2 17/17] memblock: use separate iterators for memory and
+ reserved regions
+Message-ID: <20200805092948.GX10792@MiWiFi-R3L-srv>
 References: <20200802163601.8189-1-rppt@kernel.org>
- <20200802163601.8189-17-rppt@kernel.org>
+ <20200802163601.8189-18-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200802163601.8189-17-rppt@kernel.org>
+In-Reply-To: <20200802163601.8189-18-rppt@kernel.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 X-Original-Sender: bhe@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=PKa1vVZ2;
+ header.i=@redhat.com header.s=mimecast20190719 header.b=aUOxTUPp;
        spf=pass (google.com: domain of bhe@redhat.com designates
- 205.139.110.61 as permitted sender) smtp.mailfrom=bhe@redhat.com;
+ 205.139.110.120 as permitted sender) smtp.mailfrom=bhe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -174,28 +174,49 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 On 08/02/20 at 07:36pm, Mike Rapoport wrote:
 > From: Mike Rapoport <rppt@linux.ibm.com>
 > 
-> Iteration over memblock.reserved with for_each_reserved_mem_region() used
-> __next_reserved_mem_region() that implemented a subset of
-> __next_mem_region().
+> for_each_memblock() is used to iterate over memblock.memory in
+> a few places that use data from memblock_region rather than the memory
+> ranges.
 > 
-> Use __for_each_mem_range() and, essentially, __next_mem_region() with
-> appropriate parameters to reduce code duplication.
-> 
-> While on it, rename for_each_reserved_mem_region() to
-> for_each_reserved_mem_range() for consistency.
+> Introduce separate for_each_mem_region() and for_each_reserved_mem_region()
+> to improve encapsulation of memblock internals from its users.
 > 
 > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 > ---
->  .clang-format                    |  2 +-
->  arch/arm64/kernel/setup.c        |  2 +-
->  drivers/irqchip/irq-gic-v3-its.c |  2 +-
->  include/linux/memblock.h         | 12 +++------
->  mm/memblock.c                    | 46 +++++++-------------------------
->  5 files changed, 17 insertions(+), 47 deletions(-)
+>  .clang-format                  |  3 ++-
+>  arch/arm64/kernel/setup.c      |  2 +-
+>  arch/arm64/mm/numa.c           |  2 +-
+>  arch/mips/netlogic/xlp/setup.c |  2 +-
+>  arch/x86/mm/numa.c             |  2 +-
+>  include/linux/memblock.h       | 19 ++++++++++++++++---
+>  mm/memblock.c                  |  4 ++--
+>  mm/page_alloc.c                |  8 ++++----
+>  8 files changed, 28 insertions(+), 14 deletions(-)
+> 
+...
+
+> diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+> index 9e51b3fd4134..a6970e058bd7 100644
+> --- a/include/linux/memblock.h
+> +++ b/include/linux/memblock.h
+> @@ -522,9 +522,22 @@ static inline unsigned long memblock_region_reserved_end_pfn(const struct memblo
+>  	return PFN_UP(reg->base + reg->size);
+>  }
+>  
+> -#define for_each_memblock(memblock_type, region)					\
+> -	for (region = memblock.memblock_type.regions;					\
+> -	     region < (memblock.memblock_type.regions + memblock.memblock_type.cnt);	\
+> +/**
+> + * for_each_mem_region - itereate over registered memory regions
+                                          ~~~~~~~~~~~~~~~~~
+
+Wonder why emphasize 'registered' memory.
+
+Other than this confusion to me, this patch looks good.
 
 Reviewed-by: Baoquan He <bhe@redhat.com>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200805091105.GW10792%40MiWiFi-R3L-srv.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200805092948.GX10792%40MiWiFi-R3L-srv.
