@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCKPFB7SXUERBKW4VD4QKGQE7LH7R7I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCKPFB7SXUERBFPHVD4QKGQELKIGJWA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43e.google.com (mail-pf1-x43e.google.com [IPv6:2607:f8b0:4864:20::43e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9770423C431
-	for <lists+clang-built-linux@lfdr.de>; Wed,  5 Aug 2020 05:57:32 +0200 (CEST)
-Received: by mail-pf1-x43e.google.com with SMTP id t11sf18827485pfq.21
-        for <lists+clang-built-linux@lfdr.de>; Tue, 04 Aug 2020 20:57:32 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596599851; cv=pass;
+Received: from mail-oo1-xc40.google.com (mail-oo1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 36F3A23C453
+	for <lists+clang-built-linux@lfdr.de>; Wed,  5 Aug 2020 06:20:39 +0200 (CEST)
+Received: by mail-oo1-xc40.google.com with SMTP id a19sf11617489oob.19
+        for <lists+clang-built-linux@lfdr.de>; Tue, 04 Aug 2020 21:20:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596601238; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XtEAJIzlfgE46mn9Es0AYinPZALOnXy92S2dHcyRnf9z1S3hccXISK2aEWC0UeYbdh
-         4ptQaBRjsExmqMMXl7AzvI6p+q+PLYADZHAGr+gVleuMslICKMzI89yYACY3AyWhRAh/
-         j0TBqn2u4vBK2Pi2QeXmkYvWnngy4fo5o+N6sk6sPlyPRyarApubAcwSLDIijIH9s4m7
-         bd/tXqusbHjQz43Arekd23icbjdGrN8Zz+zqoKLDpbKlglxWxMNaPTXSTnqsnwKHxQp2
-         u2AOyTNRKcJzpdRQYBdGi+4uYqDJP4bOg2jknRXGHwprf9AgEYNNFBE+EfgHJmn0rFd3
-         upug==
+        b=1JAt9IOiucemjFVOrIgf4PfKGWRZ6Yadt2uYvEJDDN2FADvpPHNiq6gKwcDYnU1l1E
+         l0N2FCOuY8yoE/hrqy3TNHO6bRcXzzpNnUdYiI4rHXfiemtIWAoTemQ3jQfCT9Yj5cTo
+         TMz1UtGTX3uMH/LfO48cPPFl1zjPBgm+j/TBOySgAkgwuNczS03YJpV88SGHYS2eJZke
+         yUT5FUsF/7C6dsfZSVj60uH1Gs67aojdLW1AhnmO+Zj2KMlkwIOAMobKOYM8T8P22zM0
+         OCDUOM0AaHa3YQxEe4ZGZV933AEjYevTuYyixO6I6UvPhwv7U/0+21oLskh5qLRCOmjT
+         h4hQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature;
-        bh=hs/u6UxRs2M2vKrLKCuocpJzV5axOcK+f7Cm/neMeUY=;
-        b=N28Y0E0uxMGaa8QfkuDyDSaA7d+tSqpts2Ddx41CI1qEmTpuq3h/QGKJxIyo4aauyx
-         zsSTxZw1RAIJub0IkCIaUvLNN/6W5khGb+CPPbk21A0/CYsZWsJhFRh8IzzJ7xFYpUFh
-         2W1v7CJkxJ5aOZIv/BwMz5Gk3ahUQO3Kuhex1vKoAW3yeixeBSlfpAu/UrY3KMoqT7n5
-         k12u94ZCn+W0M++B0/qgwySqVwd5BhKPKH+s97ni43/Qy367iB1gjhWrWZf15fEizXXy
-         czZ1sDrUp74d7Cc6nWPnil5kCJORZ4YDPeAns1EczMiAS/J13tk3I6PC2Go8x838juDj
-         GYIQ==
+        bh=9GSeEz9ALm0I1+13Vl6HlEREL1JQ9tkhtaI15fx1oiI=;
+        b=rZ+wSDc2KVeVKfvESWAr0zNxXGNFjOBLE+I+h5MWX7gg99FAVVVBaoFunncYvY2JLY
+         v3+SJp5+2KUHqaJ/CtFZZKvzI0tpDlAz8WKDFu/7LJcPRslqKHEVGiC0oU6qIHXDNEXj
+         Nk965XcL54yf0AMge+iLhU7HOekNgiGwtJ/BdlXHQN3w1zGTHH0cnHLFdHGD82J8UjdJ
+         KFuU9oHzb3USjojRW+IEp1TE2fvydcj5Y8BMNxaf0P1rMTcekr/CER/41ggY0aPLJmZz
+         MuEkic3HAoVfevAg9W3myBHCDIIjGOBWzmp9aRGVDeThaOtCH33lqme+n4+mOcWVYhy4
+         Q4gg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=Xr2voHUY;
-       spf=pass (google.com: domain of bhe@redhat.com designates 207.211.31.120 as permitted sender) smtp.mailfrom=bhe@redhat.com;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=RhB7tJrW;
+       spf=pass (google.com: domain of bhe@redhat.com designates 205.139.110.120 as permitted sender) smtp.mailfrom=bhe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=hs/u6UxRs2M2vKrLKCuocpJzV5axOcK+f7Cm/neMeUY=;
-        b=oS9cKHPi1dvVLuZyOEbhEEH4Auf1Ly4LeWjvf6xkPWAHZfD9CiOTqTMv1T9Wpou4a2
-         rshl6z3ac9pUMX4B8Tq1QAEwIAbh7IeeRp6SoHsWqi6VxCjtA3WPzqITiUv1GE1CVrv7
-         LoDLF4Nc340Ji6o6bhmcUwPGP8A+3H6QljdgwQY6+0rStBlPf26kln/VW84rcCEhUZ/9
-         RKv2hayWklfx7APiwiaOLhwAy6BtdPAR+qSoTn0BhlDd9q44lInP5OF2zc1TGiUSEv0G
-         ayIbsUWQWaVd2O5VE7l+5bZZiyObcXbVaZGt+Os1sMivtE3j9/9e5L/mZhyPnmViEO5Y
-         DbgQ==
+        bh=9GSeEz9ALm0I1+13Vl6HlEREL1JQ9tkhtaI15fx1oiI=;
+        b=bxK6t38Fahqirto6lMtgg/Q+6cFvA9EDjBhMZ4ak2lzaIp2BNPuHqNqzwdozNMCqQv
+         Pp0TDtVyY/aIkHuwZC2+oFe26BAVUzprFYNlfPpKRjdYsuBq/pmf/Lkkw7FJSP/g44Zw
+         As04hVwPzdh4n7wP49WLlEWd5vQoRuUrpfsgJObdt8atUTPt619walb0XljxNuCne/KQ
+         harpnBy/OM0AFuKV0OOqsZhJr6Q84o/syHevrz0vZRyNXlNi+qq4UnpS//IkEt8NC5zN
+         fx5O8eLZwExqpL0JUEhJsmSx/yeHFP16e01FBayskeqBhLEvk5ViB1nYQxNnU25dAIHz
+         EU0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,65 +50,65 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=hs/u6UxRs2M2vKrLKCuocpJzV5axOcK+f7Cm/neMeUY=;
-        b=UdGiMQZnioIkSVFJ1wgjYfh/P2wMDDUJhteGtFU2WY42W5yxkPm/K+IIL6rCqQQIy8
-         b/9Ob+a1OFd1pRJXHZzNLBFWd9CP+8FHgBvbc70tyKCxspbIlb6QOy1rn0wpJD3FP+ZC
-         K33wqCqjEkgKTEEJMyzMrbqRb/HyNl8yMKzrEMb6nyUVvG+mxpB+i2gOyX5dwoiKSOtY
-         NoQVxkc3pI6lhD6mAiaU30KL3Kqa40EyWw0ut9PgRIHREw+fsrrMxMX9nTDXbivyIQaH
-         IUPUArQZ3e/MtgWF346ICNzy94cYjaa9cc5QCQSM/jblJuA2nVtVccxIbbba99EddmFK
-         SN0w==
+        bh=9GSeEz9ALm0I1+13Vl6HlEREL1JQ9tkhtaI15fx1oiI=;
+        b=FkhtNWDs14HnVUqvr83DOsffkGXCmR8u4eoJQJQchSBEbP1kgEEZkW0dxagUrlG7Hc
+         ojQh+XKlD6PunEY26dYKgdZ4wpgG8bV66AMNocBVIY8gKspNgio1ZQGeWUkDTIKYL3Yw
+         gZEhBtXHkKfxq8hYCMe1ZuWgnfdSqvT904XXg4GxCcBi/cPlrI+/jpxXlzKZgeBHUo3G
+         V/pZExDRGs2jtRnndJwYegmcXRqnAkf8ytyGPAtObg9jsDQ9dQWeN/vJoMN1dNC83gOT
+         VwFZWNFnTy7h4xPQojrvPD2uwWgHJGpzu/bcIz89ow24l6qicfgrDgPukKH23Fe6Gnxi
+         MkmQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531ypygmnjrlbOFYCzSaKTmiaVSnon99mGbYhqazaMZQgFPuWV9F
-	Ab3wg3f4+11LwUVovtZltXM=
-X-Google-Smtp-Source: ABdhPJwEoqahxBRHMDHU6Lbkz7WshDkh+ESLgnah0V9GauWHOUi8JwegRnpKzMj9wL0q9+XleBrurQ==
-X-Received: by 2002:a63:4a4c:: with SMTP id j12mr1345165pgl.115.1596599850957;
-        Tue, 04 Aug 2020 20:57:30 -0700 (PDT)
+X-Gm-Message-State: AOAM533i+G4cOTZXXTxZG9sxdRSnA6Iyj+asLdgIjbqMyKFPVtiBbMUY
+	0TM++hNrkUIYFPCsNbY3qUk=
+X-Google-Smtp-Source: ABdhPJz91goTwq+YKwE+pKJK8JhMbzQEvD1g9umuXU2/JbsVXxJNmdwYcqq3rzR5T5M/HH5pdeSIrw==
+X-Received: by 2002:aca:ac04:: with SMTP id v4mr1291778oie.63.1596601237886;
+        Tue, 04 Aug 2020 21:20:37 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:f158:: with SMTP id o24ls250121pgk.4.gmail; Tue, 04 Aug
- 2020 20:57:30 -0700 (PDT)
-X-Received: by 2002:a65:67d0:: with SMTP id b16mr1392737pgs.60.1596599850590;
-        Tue, 04 Aug 2020 20:57:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596599850; cv=none;
+Received: by 2002:aca:d658:: with SMTP id n85ls157909oig.7.gmail; Tue, 04 Aug
+ 2020 21:20:37 -0700 (PDT)
+X-Received: by 2002:aca:190c:: with SMTP id l12mr1351495oii.147.1596601237593;
+        Tue, 04 Aug 2020 21:20:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596601237; cv=none;
         d=google.com; s=arc-20160816;
-        b=BiwGSPnfPdeqgZAjfC8zpVndm+sA7/eC6ASazEVrirpsTI6yukBYiBo3ir8Z50V3ap
-         YdGqagLjVgark4ulptnDtCGr3YKjGtO3s/bTcozSwnNMURf6bzXrtpZwxyhJKGYkwxap
-         pSbyjpP3FtB47GMhkW9rz3Me5gIim9PZBLhh1HLYVYMnRiliRCvEZdOM4E4snmdRS43P
-         t9Tva9XA+3/lTDmILtbxBVhFtbC18v37iMeVNtzrU7BZGKn87R5u9HZYUhZUBQidb+2x
-         Sy/feMxrldWguqZNHkFfyxivIYoaRftL1p4N9A3g23gjPmdI/d/dgi+l1zLeqOgMp04i
-         nu/A==
+        b=cV6btl6OcQicOEFNjGOZYn6UXA/rcmIoSdhVzHuBV16EoMNO4T1V4hGScGdDLDpL5V
+         4rQMRRfJxoI0n2ZzufsQQNK587JXCd4yDqP9RzlB0ZrQZrueKjDHKIjiiD17DUMSJI/G
+         inTtCnlr0flGjXEv1zfZ0kHvBrAqmlxxmcIcd7aQ9GqQrxoIVOY620NOAgxsvbRWoq89
+         Vgb74XEmTHnoqfS4JphzAvRc7CX1Pu+nZgh4d0IUgvJeAIGi98m+fmA//Gqk1md5iCGk
+         k5mLQOhJ8I/F0Pxh8F0C8V6QPd3SmuuSDiR4wqaYZ+EWUbTd6auxUfDWdf4v3+dO1wb3
+         y49g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=TYHMWO+/kd/xb1BEqnZIo41jyaK7ZhQvyZqkmGc35KI=;
-        b=nyHh8qN3UarVCP0kzRuK8tb/P+6XepQr8fisHbghKsr96FOTIdadyXFrduAMGZnV+j
-         5kitPfw8FDwflEAmL3NlyWZqrCHKvSTJaXVrQHSDVw8WoyankNojQMMnEjHnw+c/fNK+
-         fSAzo5xSuy4EI0PbsElAzzhTV8EljTqCK63CuiECIC1gJT/rBNKX+4yETn88ezN/xgkl
-         1gQY8hnbz37beB67ABswIUpxrvSiTtPvCcmzCG2r23c2Ymrd5sxy4AHd6/OSYiz8MKHH
-         eGIgirZLDpezJk3FWpSBohP+vilvY9xsW+drH+Xz36wgh1BTn8t/82IhoN1fQVh2jgFL
-         UIbQ==
+        bh=twertatwzUrM7ldiTnLyq8dIY3NouOKQbE23vgZibYc=;
+        b=qtgTc8BLKAk1IHIJL7ot+zp1ckua4cTviiQ4lY2QJe+JoOoLU/4+7VnjDJ/SNVkdcA
+         5FZC4gfj16G4Eb3IZSeLL4m0lM5fBz6iPZP+VYtMV3x2a+yRvNBaSJypmOFR0SNwPxi5
+         Jscy9K5mteKKJ+3BU/RpfQoVe43KESVB+514gEhzsmxbZ8iBRoUs4thiRFlObkQV8dJe
+         NZNcKOjRBIAA5KRkPu+Qo6Q1kzkVSkQDoqLgIxuhpIR9hWUpl+FMZ8xLFR2oeN2DABBe
+         IqCh679f1BiCrGWyrdn4KUm6J0xho4NTKYa/Mv2ZI5ndCOtMtxIpssoKA/iDIuhl+Ja6
+         EwFg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=Xr2voHUY;
-       spf=pass (google.com: domain of bhe@redhat.com designates 207.211.31.120 as permitted sender) smtp.mailfrom=bhe@redhat.com;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=RhB7tJrW;
+       spf=pass (google.com: domain of bhe@redhat.com designates 205.139.110.120 as permitted sender) smtp.mailfrom=bhe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [207.211.31.120])
-        by gmr-mx.google.com with ESMTPS id a24si31153pfk.6.2020.08.04.20.57.30
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
+        by gmr-mx.google.com with ESMTPS id w28si76475oti.1.2020.08.04.21.20.37
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 04 Aug 2020 20:57:30 -0700 (PDT)
-Received-SPF: pass (google.com: domain of bhe@redhat.com designates 207.211.31.120 as permitted sender) client-ip=207.211.31.120;
+        Tue, 04 Aug 2020 21:20:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bhe@redhat.com designates 205.139.110.120 as permitted sender) client-ip=205.139.110.120;
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-301-qwjgBZnQPM-_Txp2UuCA1g-1; Tue, 04 Aug 2020 23:57:25 -0400
-X-MC-Unique: qwjgBZnQPM-_Txp2UuCA1g-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-14-pdUQtGUaN4iDPq52ne80Vw-1; Wed, 05 Aug 2020 00:20:34 -0400
+X-MC-Unique: pdUQtGUaN4iDPq52ne80Vw-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7FD12800138;
-	Wed,  5 Aug 2020 03:57:20 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id B26651009600;
+	Wed,  5 Aug 2020 04:20:29 +0000 (UTC)
 Received: from localhost (ovpn-12-71.pek2.redhat.com [10.72.12.71])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id B719C87B38;
-	Wed,  5 Aug 2020 03:57:18 +0000 (UTC)
-Date: Wed, 5 Aug 2020 11:57:15 +0800
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2C71071765;
+	Wed,  5 Aug 2020 04:20:27 +0000 (UTC)
+Date: Wed, 5 Aug 2020 12:20:24 +0800
 From: Baoquan He <bhe@redhat.com>
 To: Mike Rapoport <rppt@kernel.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -142,22 +142,22 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	linux-xtensa@linux-xtensa.org, linuxppc-dev@lists.ozlabs.org,
 	openrisc@lists.librecores.org, sparclinux@vger.kernel.org,
 	uclinux-h8-devel@lists.sourceforge.jp, x86@kernel.org
-Subject: Re: [PATCH v2 11/17] arch, mm: replace for_each_memblock() with
- for_each_mem_pfn_range()
-Message-ID: <20200805035715.GS10792@MiWiFi-R3L-srv>
+Subject: Re: [PATCH v2 13/17] x86/setup: simplify initrd relocation and
+ reservation
+Message-ID: <20200805042024.GT10792@MiWiFi-R3L-srv>
 References: <20200802163601.8189-1-rppt@kernel.org>
- <20200802163601.8189-12-rppt@kernel.org>
+ <20200802163601.8189-14-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200802163601.8189-12-rppt@kernel.org>
+In-Reply-To: <20200802163601.8189-14-rppt@kernel.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 X-Original-Sender: bhe@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=Xr2voHUY;
+ header.i=@redhat.com header.s=mimecast20190719 header.b=RhB7tJrW;
        spf=pass (google.com: domain of bhe@redhat.com designates
- 207.211.31.120 as permitted sender) smtp.mailfrom=bhe@redhat.com;
+ 205.139.110.120 as permitted sender) smtp.mailfrom=bhe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -174,36 +174,85 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 On 08/02/20 at 07:35pm, Mike Rapoport wrote:
 > From: Mike Rapoport <rppt@linux.ibm.com>
 > 
-> There are several occurrences of the following pattern:
+> Currently, initrd image is reserved very early during setup and then it
+> might be relocated and re-reserved after the initial physical memory
+> mapping is created. The "late" reservation of memblock verifies that mapped
+> memory size exceeds the size of initrd, the checks whether the relocation
+                                          ~ then?
+> required and, if yes, relocates inirtd to a new memory allocated from
+> memblock and frees the old location.
 > 
-> 	for_each_memblock(memory, reg) {
-> 		start_pfn = memblock_region_memory_base_pfn(reg);
-> 		end_pfn = memblock_region_memory_end_pfn(reg);
+> The check for memory size is excessive as memblock allocation will anyway
+> fail if there is not enough memory. Besides, there is no point to allocate
+> memory from memblock using memblock_find_in_range() + memblock_reserve()
+> when there exists memblock_phys_alloc_range() with required functionality.
 > 
-> 		/* do something with start_pfn and end_pfn */
-> 	}
-> 
-> Rather than iterate over all memblock.memory regions and each time query
-> for their start and end PFNs, use for_each_mem_pfn_range() iterator to get
-> simpler and clearer code.
+> Remove the redundant check and simplify memblock allocation.
 > 
 > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 > ---
->  arch/arm/mm/init.c           | 11 ++++-------
->  arch/arm64/mm/init.c         | 11 ++++-------
->  arch/powerpc/kernel/fadump.c | 11 ++++++-----
->  arch/powerpc/mm/mem.c        | 15 ++++++++-------
->  arch/powerpc/mm/numa.c       |  7 ++-----
->  arch/s390/mm/page-states.c   |  6 ++----
->  arch/sh/mm/init.c            |  9 +++------
->  mm/memblock.c                |  6 ++----
->  mm/sparse.c                  | 10 ++++------
->  9 files changed, 35 insertions(+), 51 deletions(-)
+>  arch/x86/kernel/setup.c | 16 +++-------------
+>  1 file changed, 3 insertions(+), 13 deletions(-)
 > 
+> diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
+> index a3767e74c758..d8de4053c5e8 100644
+> --- a/arch/x86/kernel/setup.c
+> +++ b/arch/x86/kernel/setup.c
+> @@ -262,16 +262,12 @@ static void __init relocate_initrd(void)
+>  	u64 area_size     = PAGE_ALIGN(ramdisk_size);
+>  
+>  	/* We need to move the initrd down into directly mapped mem */
+> -	relocated_ramdisk = memblock_find_in_range(0, PFN_PHYS(max_pfn_mapped),
+> -						   area_size, PAGE_SIZE);
+> -
+> +	relocated_ramdisk = memblock_phys_alloc_range(area_size, PAGE_SIZE, 0,
+> +						      PFN_PHYS(max_pfn_mapped));
+>  	if (!relocated_ramdisk)
+>  		panic("Cannot find place for new RAMDISK of size %lld\n",
+>  		      ramdisk_size);
+>  
+> -	/* Note: this includes all the mem currently occupied by
+> -	   the initrd, we rely on that fact to keep the data intact. */
+> -	memblock_reserve(relocated_ramdisk, area_size);
+>  	initrd_start = relocated_ramdisk + PAGE_OFFSET;
+>  	initrd_end   = initrd_start + ramdisk_size;
+>  	printk(KERN_INFO "Allocated new RAMDISK: [mem %#010llx-%#010llx]\n",
+> @@ -298,13 +294,13 @@ static void __init early_reserve_initrd(void)
+>  
+>  	memblock_reserve(ramdisk_image, ramdisk_end - ramdisk_image);
+>  }
+> +
+>  static void __init reserve_initrd(void)
+>  {
+>  	/* Assume only end is not page aligned */
+>  	u64 ramdisk_image = get_ramdisk_image();
+>  	u64 ramdisk_size  = get_ramdisk_size();
+>  	u64 ramdisk_end   = PAGE_ALIGN(ramdisk_image + ramdisk_size);
+> -	u64 mapped_size;
+>  
+>  	if (!boot_params.hdr.type_of_loader ||
+>  	    !ramdisk_image || !ramdisk_size)
+> @@ -312,12 +308,6 @@ static void __init reserve_initrd(void)
+>  
+>  	initrd_start = 0;
+>  
+> -	mapped_size = memblock_mem_size(max_pfn_mapped);
+> -	if (ramdisk_size >= (mapped_size>>1))
+> -		panic("initrd too large to handle, "
+> -		       "disabling initrd (%lld needed, %lld available)\n",
+> -		       ramdisk_size, mapped_size>>1);
 
 Reviewed-by: Baoquan He <bhe@redhat.com>
+
+> -
+>  	printk(KERN_INFO "RAMDISK: [mem %#010llx-%#010llx]\n", ramdisk_image,
+>  			ramdisk_end - 1);
+>  
+> -- 
+> 2.26.2
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200805035715.GS10792%40MiWiFi-R3L-srv.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200805042024.GT10792%40MiWiFi-R3L-srv.
