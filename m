@@ -1,123 +1,136 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB2NHWH4QKGQE32CJIVQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRBQVOWH4QKGQEGSMVZXA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93e.google.com (mail-ua1-x93e.google.com [IPv6:2607:f8b0:4864:20::93e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 52C0A23E1AA
-	for <lists+clang-built-linux@lfdr.de>; Thu,  6 Aug 2020 21:03:07 +0200 (CEST)
-Received: by mail-ua1-x93e.google.com with SMTP id p12sf8170845uak.21
-        for <lists+clang-built-linux@lfdr.de>; Thu, 06 Aug 2020 12:03:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596740586; cv=pass;
+Received: from mail-ot1-x340.google.com (mail-ot1-x340.google.com [IPv6:2607:f8b0:4864:20::340])
+	by mail.lfdr.de (Postfix) with ESMTPS id 83CC123E1F4
+	for <lists+clang-built-linux@lfdr.de>; Thu,  6 Aug 2020 21:17:24 +0200 (CEST)
+Received: by mail-ot1-x340.google.com with SMTP id 33sf4001537otd.16
+        for <lists+clang-built-linux@lfdr.de>; Thu, 06 Aug 2020 12:17:24 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596741443; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fDP1jxq3IpZE41fOjoPoKLz01drENnQSIdMOfWQH+T+0CAdhiul7aKidElalAQJ1TU
-         bjBrZ/5fpW4EuyVs1Gr7r2PyRY/KHrd0njmQSs5VgdhZZj+XOucWcXw9Dz4cEI+cZDqw
-         phFO7zzsMZRUoaaOBhjGX+2/Nca1cMNTy2rEnMCMuPDhcSH1WklUYG036a34P3Zx2bj0
-         YCxSfpWvFbyRs7Z64MMCkyDVXeauR2RL32a8VIwfvR9OuUrPHci1balZxu1g8lVwvPiw
-         gJUhxxvnBtvdk9cS6AMN4byL6fJ/fTBnQM5Blw3ZqgcMlpM0Bd7fDdYxDGt7ZI+44vYn
-         TqtQ==
+        b=wOn8ubVpPDv4N5uJrF7Cxrn0pqCS9HHtwoJDW2Xxs9DemqFJIapl0NRjhkQGxifC+/
+         Pmk1+X3EUfmtn+wNZl5yCTN1jPIFBOTJNsVPwMnD+bLPBZKUeCwh3aUtXcPdXagSj+ne
+         X0XmR74ZTNdDptBJ6Cz4QN/qgItmLrK8xsSeeaF4wYZZWy9vzfl0ZNEcpwD0MlewPmE/
+         qGg2xP6zgfpLhavheueL1yw2nqXts/wYQXXE+N6iTdJ+5CIIvnsUstJ9pqZl58N+qqzj
+         wpQXnW9X/mCxtPRKiID/IdDu1YQTRM65PX/cI32s6NPlFB4Upk/tr0Am5b/iDWZGPvIW
+         NRsw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=3Zwcr0dRb+pIIAahR7XMnpXUIv3mmeRVmRUJJxgFSjo=;
-        b=U26fled7naQSqnGbPP7A0Y/KHGTPzQKzCwRgPqRtlknK+4H60jIUsx5Sk0+6Q93DmF
-         9pyVAsdJFlfrCSTjZymgTmxa7PWOlmOauXaAYGpY81c7xNXwlI1vzLN92vLUGFuq0F7O
-         Lpnw7Vf63KoDTG2RhuSRoyheeAdo/Ksj3AN4+5CZ7BJOq5fPChRuXS0x3umBMC3InTT8
-         sZx+IzDHt8Rg5tY9qR3LlnqgTvGAd8bnwPSencux/gOiM33rU5vrlrUpewPV/rBDzxjH
-         KrxKyQ5vajDlnbqPVPhzSQaWIGPAabMTrx6oVmjUVQZKktH/i8C0h3D2RCKm5HmBfbRt
-         rS3Q==
+         :list-id:mailing-list:precedence:reply-to:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=LjP6Sk9c0FDFA4yCteHM4rex7O3i44o7XkBnkTW2tT8=;
+        b=SlvS5cvHp9/D1SVbuujifMwW9zQAmK1lj2rwn63v69w3aasWaEf+gZMFWFv+1t0M+i
+         oaplYIxTRrW3AhhFpcXAe0GUFOkR9mUhwZPpqrKcdeZv7yTUR31M0JsmqdY1XYdyxYHD
+         DqPNHsPIyyr+Mlt9PbtsoPkj2olPicMI8hCMT9+ZvcNw+QiZ+dd1WEjNSXLqzznUanNV
+         ab0tK0EAZxJEfl8Hf4BbwAFfHZm/wJW7M/gE9bCQ47tw+HdJsBNMVYAXUm7QIR/mCVhe
+         f9Ac+ypgHQwGerhElM1oqxxIJes9XClPOQy7QYzxAwOU3CdSmRYC4tbjx9o6QoyFXVIR
+         8sDg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=sByt28GX;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::435 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=DFW9zqFU;
+       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=3Zwcr0dRb+pIIAahR7XMnpXUIv3mmeRVmRUJJxgFSjo=;
-        b=ieBtYiyeaIZHORZrN//hZV8lKVwTaWKOgwJGCumdfVQjAaYO7e/xlPC2qVG4rAvMpz
-         p14EVoAmSzdAxtvhFmyxa9Et0/70XL6cUH0bpbFrmbldIVxBBDJR7vCiisycT7qefJ5i
-         6k9QV8JHWWP9DKrozjpbUeHZZWpOT25CKmEpj6XmXqDhKSbKzxm15okE5aUchPCUIOcg
-         81MuyKs1BdEbjKBhT1s9Ixj5VwTdZAZ3pl23q0eh3JgNxRqOYUk0XFhkHl4wT5z4mYNb
-         NLFOurqkRulsnvnqOef9TZquwaGK2y/IuJuYkaZkDPX4ux5WjwuZLH8VmPY09u0ACPLq
-         O9rQ==
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=LjP6Sk9c0FDFA4yCteHM4rex7O3i44o7XkBnkTW2tT8=;
+        b=SH9kAM12Vrk2iBfuVxtbRkpc1zcRKxLjnldieR5NIDhUhIYh5iOz6SLhDaVjGy2/41
+         y+CCX9qKVD2XtnlA6mQqxSdELzAJmx/Lv2z4vXw+dCn13TIirC2CnlFsSi4LIUq0jJsF
+         8IfQava/pjnhhRUGHI9N6BtA0U3EsR3gfckI26BikONyznXVLYIe4ZZo/dX4FwwfJGhF
+         U+dI4NokLdfM6x9UtxVoi7ExhueuFTjdXcIMldf7IJHXMYHMQeaJ6oqTZxqHpAJkGDYk
+         6wqGX83y0xRf9EdLRxA5aaAaXW7U25lA6KyPgvz+LXLjZmNl5Rxd1XvkVCrOBVKK7Lnu
+         ilYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=3Zwcr0dRb+pIIAahR7XMnpXUIv3mmeRVmRUJJxgFSjo=;
-        b=cGjXrX3PR3c5Mfrk0BZfYZfVOFk/HsqWcunxrz0sa8ovvaExJleIpzAG7RORfLQcUj
-         i0itH181QRMpaYh2ME7IkddQAryZ1ydqPJTh9oO2fuS6SyQWUj9f0eaGurObvFE4ykfT
-         4RyEK3b/BT9I7PHvUZbaxWrZLv16+xeLhfEX3nnq6UD7uEmAZQ/S1QL9AL7n9OGeKmkY
-         arwkj+TnRb0TaL6x8ETF/cvmKq4yd12oXBzmT+NvIQKjkGCV9/cOWnixpWIqitpdJ8CF
-         l9Cj9PMrYQhN2xBuvRB1+w5P0I4/vwpijUuJMPFNPaNpW8a6oNIcXH86XZlIyE1nSCsw
-         JPhA==
-X-Gm-Message-State: AOAM533Z5dssra23VsHM3RMVXVFU1Y9aSDUfcbbn/OdEhq9FkJM+VQq6
-	qfBiYq2GHApiKc8cvnFaQZg=
-X-Google-Smtp-Source: ABdhPJxoMat41/FQrpqorkc3Ik0PdAyTY2VQ5PWynR9citwkTglSivN3QoDCm5a3mroOt87uKOFTtg==
-X-Received: by 2002:ab0:7841:: with SMTP id y1mr7565659uaq.102.1596740585871;
-        Thu, 06 Aug 2020 12:03:05 -0700 (PDT)
+        bh=LjP6Sk9c0FDFA4yCteHM4rex7O3i44o7XkBnkTW2tT8=;
+        b=p/CTndf0ifPM18Oxvk/Avvh6PurgdZnlgmcZLStcKm4Rto6tu0Z/Wm5jnZg71ue6fb
+         Xx1HZnhXS5KmsWl5jGsPlti3ywkV7aK2lAPaWEgZmRcXfEthxANY5GSc1PCvmHH09O6R
+         RbJbEZ2b2S4+VSg2LhTmKji2Z4/NCrCtv7gc5FTP0X9VtUfIHOTSZRRGbp1CfXiX96i+
+         6/YnPvPJ5C6q9NDeJuC9eu3MC2oF6+daqylNj7yXNQ18thr48ewdcwVyvGfOFPl18dMX
+         1qEv5Xk843oH9NF8hmUc1g8q0x54dg//K2ELuMxsqbRIINGpgw7CercuTEx+uC1IiUs/
+         7odQ==
+X-Gm-Message-State: AOAM531Bj8wJd76li/AE0aggoJTN5d3X5eg4HOnW9XVsozlF0TLI7A5/
+	omMaPD5KjHb3JfBlkdSnLsM=
+X-Google-Smtp-Source: ABdhPJzTSe3KpVQEALb1Z0Vfw9glyyeFpt582HojxEQDlf0flRbuo8YSZr09OTv7kRynPkPP+4iz9Q==
+X-Received: by 2002:a4a:9fd1:: with SMTP id b17mr9156545oom.29.1596741442930;
+        Thu, 06 Aug 2020 12:17:22 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:f28f:: with SMTP id m15ls615950vsk.0.gmail; Thu, 06 Aug
- 2020 12:03:05 -0700 (PDT)
-X-Received: by 2002:a67:87d0:: with SMTP id j199mr8315770vsd.190.1596740585511;
-        Thu, 06 Aug 2020 12:03:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596740585; cv=none;
+Received: by 2002:a05:6830:1c78:: with SMTP id s24ls1613278otg.9.gmail; Thu,
+ 06 Aug 2020 12:17:22 -0700 (PDT)
+X-Received: by 2002:a9d:7f89:: with SMTP id t9mr8809170otp.278.1596741442333;
+        Thu, 06 Aug 2020 12:17:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596741442; cv=none;
         d=google.com; s=arc-20160816;
-        b=h2grhsLnwXeDSS5MwHdAOTEpAHuvJF0qOAzu7jMkUmVRnV0XcHV3abRrQpuHv+zkcH
-         Agz70QFyeiK5u/Xx8YnJRot0g0vQjajoiTpZhwdgVfqdWqzNsaSSlborjrqMhVYd4hub
-         HVfeo28A5Hh8FCN34liEFsTH5IZm5l/RJRXd4VaWPEkdVaVfMcoz9r8zPj18mpQEEdcK
-         aOBEEXt9lY0HCx7SRexAWH+wF1KrNtLNrqH6yhO9LHUCrIfgeNUwZ4lhYa2f141dBB67
-         dGwvbU8KxRPx6+Hz3P6ALfonb+UiAPSHmk6Hp9kz/pQZ1eiWNokGavkOO99AWKxb4LSu
-         ppPA==
+        b=zilfKWIUXQigkN9NFZfsQb81yZef582X+eUfjpUZ0lz4oZMaEv48YgPI4V/mo8UTWb
+         q325QKab8naTouKoIMzj4qjBui4KyvAdni0rEhQ82zdyhYZLrRlIyAhoIY0fQAafXMvZ
+         1Uom5zyOcFKeS6oVfYD4+K/Bzt8iPL4gj8t0CQFwUKIsgInTkCAvt9xiR1gGt2Mfgnrl
+         zZGbh3RiW2ba37QRU8+IxZnJo9h27JSYD4fAXJ+ZLcZgpNt56T8Uz+D9r8pJ7bchDeId
+         1Brr5OY6qsZBeEbv+iwm4wPn4hjkb+T7ieJWQ6+boV1jCrA3Yum9G0V6i5Qcq6Z6+3sO
+         L0dA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=qhR0m982Es3MI21ruXSJXbz1Iy4lmeilbsfCyAfMJxo=;
-        b=SdShJysJhZc+V2MqmtPVW8tRt9mgx2c2fi14iJCPgEtlpx/kMETcedFO7+mjElSEwg
-         irFZDq2HwWVzSOW1SdsGB/cMjkrscfu4gf7yrJqtwJaexegHRiaP2M2mD9FkoWNh7FJb
-         /kGmyDIZpcC2oVF/+9mcVlT9UGAVD+k+qW/zcHNgoEn4cuWOZwcD2gNarDGtam6vfQC4
-         kwY9nm+R7EW35lwBwiGsj+RGH1qfpvB0to/UBjBlqsAiIw1o4J+03KrV3iDvXUk7QHiM
-         UShHERRTAqqBXiUpctBAaCTeKQJxK84gjC0PLFeNJFnqNTNRUo5lz6wWO3ZRuaQgMDRP
-         cJdw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=UGw36nAvKdWXoAUWiTJPP1buT7PpTyoMWVcd5KcuaEY=;
+        b=YW1+Q8ewoiFzUy+2oScJp+7pwuOqmkWcJbB+C4KQUS2C0Us2FYuCknkkosbkcXwQPI
+         A9/n7m1lKK9cA8GnWGA9guG8AYqULPPGcWkYn8RxdBtLQQzcVOzVx7z4A0sSK8iZnWvj
+         X6llmoGxPVYD0PWgetTjquplKvkRLLu0sm2qq7bjLr9UNP6jSWswCaGYfoO0Or9Xn+tZ
+         N+1T5hJuoSQTOW0CWAFDM8fKl64HEl78CY7C+Ei6CnrjwIsJfAPMxjeXOd1HJHc6EBfc
+         CUkGJ9ppBFC2T299cjIalvFwKpD6VH802uBVkoCRdCEA9l9kRQWpCUGaOuxoR8fUks9w
+         zLDg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=sByt28GX;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::435 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=DFW9zqFU;
+       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x435.google.com (mail-pf1-x435.google.com. [2607:f8b0:4864:20::435])
-        by gmr-mx.google.com with ESMTPS id p19si444503vsn.2.2020.08.06.12.03.05
+Received: from mail-pg1-x542.google.com (mail-pg1-x542.google.com. [2607:f8b0:4864:20::542])
+        by gmr-mx.google.com with ESMTPS id c142si338883oig.2.2020.08.06.12.17.22
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 06 Aug 2020 12:03:05 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::435 as permitted sender) client-ip=2607:f8b0:4864:20::435;
-Received: by mail-pf1-x435.google.com with SMTP id f193so15208196pfa.12
-        for <clang-built-linux@googlegroups.com>; Thu, 06 Aug 2020 12:03:05 -0700 (PDT)
-X-Received: by 2002:aa7:96e5:: with SMTP id i5mr9578554pfq.108.1596740584269;
- Thu, 06 Aug 2020 12:03:04 -0700 (PDT)
+        Thu, 06 Aug 2020 12:17:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::542 as permitted sender) client-ip=2607:f8b0:4864:20::542;
+Received: by mail-pg1-x542.google.com with SMTP id x6so12278974pgx.12
+        for <clang-built-linux@googlegroups.com>; Thu, 06 Aug 2020 12:17:22 -0700 (PDT)
+X-Received: by 2002:a63:cc49:: with SMTP id q9mr8350589pgi.390.1596741441391;
+        Thu, 06 Aug 2020 12:17:21 -0700 (PDT)
+Received: from google.com ([2620:15c:201:2:f693:9fff:fef4:1b6d])
+        by smtp.gmail.com with ESMTPSA id d5sm7709517pju.15.2020.08.06.12.17.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Aug 2020 12:17:20 -0700 (PDT)
+Date: Thu, 6 Aug 2020 12:17:14 -0700
+From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Zhenyu Ye <yezhenyu2@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Kees Cook <keescook@chromium.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] arm64: tlb: fix ARM64_TLB_RANGE with LLVM's integrated
+ assembler
+Message-ID: <20200806191714.GA1980587@google.com>
+References: <20200805181920.4013059-1-samitolvanen@google.com>
+ <20200806120109.GD23785@gaia>
 MIME-Version: 1.0
-References: <CAKwvOdn-2E=v_7Uie71pz2jjYCKnk98K1Ly8EkpxzvC6M5pXFA@mail.gmail.com>
- <20200716112840.GC8484@osiris> <your-ad-here.call-01596030682-ext-1369@work.hours>
-In-Reply-To: <your-ad-here.call-01596030682-ext-1369@work.hours>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 6 Aug 2020 12:02:52 -0700
-Message-ID: <CAKwvOd=1E+90VHwzh9cYGz9YKy_ECMJuK6gZhzLqBFw9kS4Cww@mail.gmail.com>
-Subject: Re: linux plumbers + clang + s390 virtualized testing
-To: Vasily Gorbik <gor@linux.ibm.com>
-Cc: Heiko Carstens <hca@linux.ibm.com>, linux-s390 <linux-s390@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <20200806120109.GD23785@gaia>
+X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=sByt28GX;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::435
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ header.i=@google.com header.s=20161025 header.b=DFW9zqFU;       spf=pass
+ (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::542
+ as permitted sender) smtp.mailfrom=samitolvanen@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+X-Original-From: Sami Tolvanen <samitolvanen@google.com>
+Reply-To: Sami Tolvanen <samitolvanen@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,62 +143,142 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jul 29, 2020 at 6:51 AM Vasily Gorbik <gor@linux.ibm.com> wrote:
->
-> > > We were very excited to see your patches going by for enabling Clang
-> > > support for s390.  Since then, we've added s390 builds to our
-> > > continuous integration setup.
-> > >
-> > > We've been running into a few issues with doing virtualized boot tests
-> > > of our kernels on s390.
-> > >
-> > > I was curious if you'll both be attending Linux plumbers conf?  If we
-> > > carve out time for an s390+clang talk, would this be of interest to
-> > > you to attend?
-> I will attend and it would surely be interesting to me and other
-> s390 folks. Your efforts are greatly appreciated!
+On Thu, Aug 06, 2020 at 01:01:09PM +0100, Catalin Marinas wrote:
+> On Wed, Aug 05, 2020 at 11:19:20AM -0700, Sami Tolvanen wrote:
+> > diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> > index d493174415db..66c2aab5e9cb 100644
+> > --- a/arch/arm64/include/asm/tlbflush.h
+> > +++ b/arch/arm64/include/asm/tlbflush.h
+> > @@ -16,6 +16,16 @@
+> >  #include <asm/cputype.h>
+> >  #include <asm/mmu.h>
+> >  
+> > +/*
+> > + * Enable ARMv8.4-TLBI instructions with ARM64_TLB_RANGE. Note that binutils
+> > + * doesn't support .arch_extension tlb-rmi, so use .arch armv8.4-a instead.
+> > + */
+> > +#ifdef CONFIG_ARM64_TLB_RANGE
+> > +#define __TLBI_PREAMBLE	".arch armv8.4-a\n"
+> > +#else
+> > +#define __TLBI_PREAMBLE
+> > +#endif
+> > +
+> >  /*
+> >   * Raw TLBI operations.
+> >   *
+> > @@ -28,14 +38,16 @@
+> >   * not. The macros handles invoking the asm with or without the
+> >   * register argument as appropriate.
+> >   */
+> > -#define __TLBI_0(op, arg) asm ("tlbi " #op "\n"				       \
+> > +#define __TLBI_0(op, arg) asm (__TLBI_PREAMBLE				       \
+> > +			       "tlbi " #op "\n"				       \
+> >  		   ALTERNATIVE("nop\n			nop",		       \
+> >  			       "dsb ish\n		tlbi " #op,	       \
+> >  			       ARM64_WORKAROUND_REPEAT_TLBI,		       \
+> >  			       CONFIG_ARM64_WORKAROUND_REPEAT_TLBI)	       \
+> >  			    : : )
+> >  
+> > -#define __TLBI_1(op, arg) asm ("tlbi " #op ", %0\n"			       \
+> > +#define __TLBI_1(op, arg) asm (__TLBI_PREAMBLE				       \
+> > +			       "tlbi " #op ", %0\n"			       \
+> >  		   ALTERNATIVE("nop\n			nop",		       \
+> >  			       "dsb ish\n		tlbi " #op ", %0",     \
+> >  			       ARM64_WORKAROUND_REPEAT_TLBI,		       \
+> 
+> A potential problem here is that for gas (not sure about the integrated
+> assembler), .arch overrides any other .arch. So if we end up with two
+> preambles included in the same generated .S files in the future, it will
+> lead to some random behaviour.
+> 
+> Does the LLVM integrated assembler have the same behaviour on .arch
+> overriding a prior .arch?
 
-Cool, so our MC has been approved:
-https://www.linuxplumbersconf.org/event/7/page/80-accepted-microconferences#llvm-cr
+I would assume so, but each inline assembly block is independent in
+LLVM, so unless there are .arch changes within the block, that shouldn't
+be an issue for the integrated assembler.
 
-But we're super tight on time and probably won't be able to do a
-session on s390 at the MC.  That said, I have just submitted a BoF
-proposal since we have more topics internal to our group we'd like to
-have more time to discuss.  I've added s390 testing to the list of
-potential topics, too.  I'll re-ping this thread once I hear back
-about whether it gets approved or not.
+> Maybe a better solution is for all inline asm on arm64 to have a
+> standard preamble which is the maximum supported architecture version.
+> We can add individual .arch_extension as those are not overriding.
 
-That said, we do meet once every other week virtually online, see
-links: https://clangbuiltlinux.github.io/.
+Sure, that works. How would you feel about something like this, so we can
+keep the preamble in sync with future -Wa,-march changes? I'm not sure if
+asm/compiler.h is the correct place for the definition though.
 
->
-> BTW I believe basic Clang support for s390 came earlier in 5.2 with
-> a lot of efforts from Arnd Bergmann.
->
-> My part was fixing recent breakages and bugging our s390 clang team
-> (which did all the great work) to get kernel specific features support
-> in clang 10 and 11 to reach features parity with gcc. And eventually
-> doing few adjustments so that features which came with clang 10 and
-> 11 are working smoothly. That is s390 "asm goto" support and specific
-> compiler flags for ftrace support and stack packing.
+diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+index 55bc8546d9c7..0dd07059beaa 100644
+--- a/arch/arm64/Makefile
++++ b/arch/arm64/Makefile
+@@ -82,8 +82,8 @@ endif
+ # compiler to generate them and consequently to break the single image contract
+ # we pass it only to the assembler. This option is utilized only in case of non
+ # integrated assemblers.
+-ifneq ($(CONFIG_AS_HAS_ARMV8_4), y)
+-branch-prot-flags-$(CONFIG_AS_HAS_PAC) += -Wa,-march=armv8.3-a
++ifeq ($(CONFIG_AS_HAS_PAC), y)
++asm-arch := armv8.3-a
+ endif
+ endif
+ 
+@@ -91,7 +91,12 @@ KBUILD_CFLAGS += $(branch-prot-flags-y)
+ 
+ ifeq ($(CONFIG_AS_HAS_ARMV8_4), y)
+ # make sure to pass the newest target architecture to -march.
+-KBUILD_CFLAGS	+= -Wa,-march=armv8.4-a
++asm-arch := armv8.4-a
++endif
++
++ifdef asm-arch
++KBUILD_CFLAGS	+= -Wa,-march=$(asm-arch) \
++		   -DARM64_ASM_ARCH='"$(asm-arch)"'
+ endif
+ 
+ ifeq ($(CONFIG_SHADOW_CALL_STACK), y)
+diff --git a/arch/arm64/include/asm/compiler.h b/arch/arm64/include/asm/compiler.h
+index 51a7ce87cdfe..6fb2e6bcc392 100644
+--- a/arch/arm64/include/asm/compiler.h
++++ b/arch/arm64/include/asm/compiler.h
+@@ -2,6 +2,12 @@
+ #ifndef __ASM_COMPILER_H
+ #define __ASM_COMPILER_H
+ 
++#ifdef ARM64_ASM_ARCH
++#define ARM64_ASM_PREAMBLE ".arch " ARM64_ASM_ARCH "\n"
++#else
++#define ARM64_ASM_PREAMBLE
++#endif
++
+ /*
+  * The EL0/EL1 pointer bits used by a pointer authentication code.
+  * This is dependent on TBI0/TBI1 being enabled, or bits 63:56 would also apply.
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index d493174415db..cc3f5a33ff9c 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -28,14 +28,16 @@
+  * not. The macros handles invoking the asm with or without the
+  * register argument as appropriate.
+  */
+-#define __TLBI_0(op, arg) asm ("tlbi " #op "\n"				       \
++#define __TLBI_0(op, arg) asm (ARM64_ASM_PREAMBLE			       \
++			       "tlbi " #op "\n"				       \
+ 		   ALTERNATIVE("nop\n			nop",		       \
+ 			       "dsb ish\n		tlbi " #op,	       \
+ 			       ARM64_WORKAROUND_REPEAT_TLBI,		       \
+ 			       CONFIG_ARM64_WORKAROUND_REPEAT_TLBI)	       \
+ 			    : : )
+ 
+-#define __TLBI_1(op, arg) asm ("tlbi " #op ", %0\n"			       \
++#define __TLBI_1(op, arg) asm (ARM64_ASM_PREAMBLE			       \
++			       "tlbi " #op ", %0\n"			       \
+ 		   ALTERNATIVE("nop\n			nop",		       \
+ 			       "dsb ish\n		tlbi " #op ", %0",     \
+ 			       ARM64_WORKAROUND_REPEAT_TLBI,		       \
 
-That's awesome; I'd love to get the chance to meet your s390 LLVM
-team; in general it can take a while to get bugs routed to folks most
-empowered to fix them until you know who they are.
-
-Would you, any fellow s390 kernel and LLVM folks be interested in
-attending one of our virtual meetings, even if it's just to say "hi"
-quickly? Next one is next Wednesday.
-
-Usually we go over whatever firedrills we've been running the past two
-weeks, but sometimes have presentations of folks projects and
-research.  I think it would be cool to get more background on s390 and
-work out the issues we're running into with testing.
--- 
-Thanks,
-~Nick Desaulniers
+Sami
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3D1E%2B90VHwzh9cYGz9YKy_ECMJuK6gZhzLqBFw9kS4Cww%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200806191714.GA1980587%40google.com.
