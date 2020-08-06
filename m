@@ -1,126 +1,134 @@
-Return-Path: <clang-built-linux+bncBAABBTO5V34QKGQEGVACQ3Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBBMGV74QKGQEVHU4N4A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5141723D738
-	for <lists+clang-built-linux@lfdr.de>; Thu,  6 Aug 2020 09:18:39 +0200 (CEST)
-Received: by mail-pf1-x43d.google.com with SMTP id c125sf1605761pfc.3
-        for <lists+clang-built-linux@lfdr.de>; Thu, 06 Aug 2020 00:18:39 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1596698318; cv=pass;
+Received: from mail-pf1-x43a.google.com (mail-pf1-x43a.google.com [IPv6:2607:f8b0:4864:20::43a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7F86823D81D
+	for <lists+clang-built-linux@lfdr.de>; Thu,  6 Aug 2020 10:44:55 +0200 (CEST)
+Received: by mail-pf1-x43a.google.com with SMTP id y13sf10122429pfp.5
+        for <lists+clang-built-linux@lfdr.de>; Thu, 06 Aug 2020 01:44:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1596703494; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hEZcPV/OZy2M1N1BTp8iv74kPzWZU4lGhMFX6Uir0Zi63qLLBdCvjI9e/ToOyP50en
-         etKUgTi6DZQchwDQ1wux2bLNiDl2P+Hb7lvGi+ra1e7YbbF1kitBrMKjwUHTAfTM2gKd
-         0U+Klq0Ocr5Ee7H9/DOBZmz9lFGKBH4h38jxFKNNvJoZZQO5KrRzGFVMPzueIL+bv3ee
-         RrLK7jdFhvQLBMb1L5hXM8vFjbJwm1VqEHgQzZOF6sHH+fB6tF/dA6/XGXOtfWKDI3md
-         RgcuTMXAZhhf0xmoUuhfBz/J8rzvzAz2q2Rh5miw540ytbdvsBDBpe5ohtUPAzr2F5go
-         oD8w==
+        b=kfnUwY+lcAf3/mS8XGkGxCOroXoKwzCTJS6f05NMz+CLAvFHUVe4x3tGWTEcBl4hDe
+         c2XT/ZTW8/VI1c8+9izs1febuWHFvqn8OVgQpRNzBx0rUgg9F+6FR2YsTzVZnGMw3AiT
+         +LL6iJqhrAR5/joEMZD/AvdBadFkMSr+WZsLjRh0kAMo2yfPdxH0SkXjH/TVAQhC9dvn
+         yrcAwZODQmZ4jaSHeUfttdvp4WU6ohPoQMb8mOeqJeuGyrg5cX6NtVaIHKpw2GdPO+7J
+         lFS92j05D0/Z86y16lGiPUPL7nFRJBD9x+lHG8xsR8y9H5+H+puz7SwnSeKvI6fxVgQ1
+         2lXg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:mime-version:user-agent
-         :date:message-id:from:references:cc:to:subject:sender:dkim-signature;
-        bh=6zi4AxVjDHva1YfGXnJ+2q/wQBrIM32o/DUSRavNJII=;
-        b=cMD9gMt4t9oy5dhtKbKB+8HAHhDOlLUNou2Xrx+d/GFuqa4DxMzW5FuSg/Ycs8/gnZ
-         KXcWs8NGabxvbu0T0oC3G4F1qqPzWNgyU5NgTInJj0ycLzfd9c8xY5crstRCJTMlO4Nn
-         9Sv6Z6k9mmQq5hBFDv+sifEbfPD3HZ4ilRLMXWE8bPyGb1hXnvY0OMfx7GbP48W7otHg
-         p1rd7kq0v9xx9U7pHvpPO6Tkuh4VOdPGHQLtp2E87gxXAnSwwBu7DFC12KS4ht94BDNv
-         k2x8P9hTJx3db29DyEDib2DhHvqiKljfDxKgfKlJucBSnZn1SsyZqACG8rAmoexM3Xi6
-         Fwuw==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-filter:sender
+         :dkim-signature;
+        bh=0apc05PVHxfIgT3byawiobL4Ts2n45olMt+NC1j69TI=;
+        b=JSg+kjre6GB1JJp1aJMAE84sP1xiLFh4xPl/unE4QMuRFrG6dYn6JMSWF1wPvchgcX
+         7v5TPFrOwLq1NrhcUYYdLRexQthK7EXEhEOmqz6GGvSrhfdT8kKV3HYDVmyksmIUfmp9
+         OEs8s9G1NVOTqd89j3dpTz4FwWIOQ6D6kiCJ7cZoVZRHgie4cI26CHIpL0zaWRfUtB6B
+         eqSi7VtkDxMrI5ewUAF6GiwhBnPpCt+uG9SlCyGxLt3DnQt4KwAKIBbglYWVmZzh0z/K
+         NPz6/ZYyvAfFyB2F0CaTfawM9MshzVJLom/p83niAFgedsBFtMB9lFX0Cey6sjtzrsbT
+         LVvg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of yezhenyu2@huawei.com designates 45.249.212.191 as permitted sender) smtp.mailfrom=yezhenyu2@huawei.com
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=vp+LFRXI;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:x-original-sender
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=6zi4AxVjDHva1YfGXnJ+2q/wQBrIM32o/DUSRavNJII=;
-        b=p7BL/PQlAllR8qIw737sLAqzeRkj0echl0B3hmkuSZeYjmNV215OeWk2R47E0GpOlo
-         qrW9vDpg4cjcwQf1VtuCF/1yUhyh/TfEJiDY+c0x2WkPCXpTIm6FU+k1ELBBSzfGH0VX
-         fkGhKJfrYRK+r7Q5FGuHHv4uzfDDJDxB/uJXMeItM17s3QiWHBCXUYTSfwhCFb7ghDR6
-         CXxgH2Q/tzeiuRGL+OiWQNceMwviHOJxmHFY1uUbNlrsiL7yoDScVfYQVwrQLgt21DjD
-         Gq9s6UDAGz9vU5Y+xbCmI/PcxvnKCtk8NW6bXzKqgqDs04xf4ym6NP//ZBsGzomInWeE
-         GBLQ==
+        bh=0apc05PVHxfIgT3byawiobL4Ts2n45olMt+NC1j69TI=;
+        b=H2yIf0QzfqlXNHtQ7mFmywsct2OYC/xb+bmyokueXtM/deGqLPpXRnu6SMEzTJ6Bw4
+         DAA5LvDpClAKSd4JuTbb4+fHRiEJ/Hu7xHXhoBHg4YpR5MswNt6LNxlprZvZWQI3BpsK
+         jexqoU5JR2gItk2vv468Js0rDmHfeeY0ppdUyGyESyYbD0X7DQqpuG0AI8jeQRAV2ztk
+         2OwQNtdJhkl2YclEK4w3QhRzEKenYfWripQ5Czw3MqbU8/WAmdXEOMMpgd735pOveWV3
+         yF0hYvwMgVP36lFoG5oeldbW4fQbDATUIzAc3BqDtpBUEUvdSdM5cRMEXkzD0uwsuXhb
+         D7Yw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:x-original-sender
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=6zi4AxVjDHva1YfGXnJ+2q/wQBrIM32o/DUSRavNJII=;
-        b=m4k+LJmbuemiE71nL/ou4TulpeSMOw7SqrZUH6k54DYdnodS1yLOC162RjIQG8TW31
-         c92pA7tbsixlSJsj2Bk5l7nsHJhhT2wYEj2FAp+qVbovoSKZ8bcSXBeOkzyi3xHV0oMY
-         VIs8CEiAlxMVEoPPfTX63SGXn03mDUZ2U/xqZO2KYEWegAbOwjwDE4m/cCrCE57N35R1
-         C4mMTu/jqGVeMcOSl4wwhU1rN/LyQbMvgybHcnnuWxE5XXS7nRt+WjDvAvf2PbqeUxlX
-         nXdN1XbwoxftHhQPgNVww/ncwvhEPBouepM1YlgaLlrLwW/ssV4RVjUN4anF1RfBZlhb
-         3I6g==
+        bh=0apc05PVHxfIgT3byawiobL4Ts2n45olMt+NC1j69TI=;
+        b=s3RSTk4OCpTHrBwt2tzcvXoll+gS6N0C9ZDpPpVNrw08bRKwepmr9h1uISq6RtcxVO
+         HKI5US4fkh/xJPUQ8EBhPLHPUotz1eQqH3p40BEsfSC5obDkIGfRB3gRHgCNhO2XsQqV
+         wXQFPhlQnF/JzNZr25dA/Z/V1XICTk4lvcAHLEPvCnDJ/AFN7hAOagEEAz3GIXqNhIWv
+         jphD4gmtsh1bwAwUVPfiC1GQgG5NJVCLQIbsNTzQvb2of2E1nnjc+td5D8JoeQUu3RUH
+         v5vyOHNwwMC4wTlNClkYzmzydnppkENp+qli9lUbzV5AyU6yUHegid0HM1bZGikGLdGE
+         iHWA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533v0lXlPG5xleBpHfFmU72Kibg9+T/y2T0DK6lLmRd8PU87vD17
-	eZHWtAWvMM7aj8VmgQhMj/g=
-X-Google-Smtp-Source: ABdhPJzeujoRdXGLb1b9AkUeqZAskkeQwjM+nevjFAwBiT0YE77WZH21teR6qlr7BnjiVxsglpAKXw==
-X-Received: by 2002:a17:90b:4ac9:: with SMTP id mh9mr6832275pjb.40.1596698317832;
-        Thu, 06 Aug 2020 00:18:37 -0700 (PDT)
+X-Gm-Message-State: AOAM530uxOJeCfKrBqp4gKs1xTelFOPZ15xEM28+ryIYrUV8hnxCu5jC
+	7gdlM4CAsC3NHzxysYEgFm8=
+X-Google-Smtp-Source: ABdhPJzSkMRNk9nVsPCqbOuiu5ZdxeKvAGbeFRKYoL1waVCy4n4kkAFQcQgoAU9+9DVkLlIjizFDVA==
+X-Received: by 2002:a62:520b:: with SMTP id g11mr7408703pfb.168.1596703493987;
+        Thu, 06 Aug 2020 01:44:53 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:b602:: with SMTP id b2ls2166388pls.11.gmail; Thu, 06
- Aug 2020 00:18:37 -0700 (PDT)
-X-Received: by 2002:a17:90b:c98:: with SMTP id o24mr7160924pjz.31.1596698317506;
-        Thu, 06 Aug 2020 00:18:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1596698317; cv=none;
+Received: by 2002:a62:ab10:: with SMTP id p16ls1885800pff.3.gmail; Thu, 06 Aug
+ 2020 01:44:53 -0700 (PDT)
+X-Received: by 2002:a65:428d:: with SMTP id j13mr6478562pgp.211.1596703493617;
+        Thu, 06 Aug 2020 01:44:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596703493; cv=none;
         d=google.com; s=arc-20160816;
-        b=xvwHM1pZnW8xBc2bY3Q8D3AuAlqWJ/PfomObly8Cgant9QWkyg0htNnJmiZttxQBbi
-         PeDQxPCA99dP3JQx0UMLAT53dpwYTPuuIE3EqLt04Zf7uhu77faF0eua+NKR+NvFzEQK
-         oWHYEAQa2sPs4BaKKlCIepTJffxUs/z2zhfTnSgg/EpjU/vRnue9f/WP5K3bv+WVZ1ml
-         MmgNnwr92zFb2FxnuyNWrex7bb6Y5skeZzM6s7QUdfRRAGDeETihniLcWsl2PAMJL8Je
-         RcRVX2OGn6NHzovhJXdHLp0cF1l1zRZ9btNUDCMmpuRGrb1cB52dafBBPzAoW95mBz1/
-         x0jA==
+        b=JainslZgdnXFy6KAGu2D86vstHqGIjPGrksJCf2slGTahSvgnO/HhQLwNpXKzfbVYD
+         Q4JwwQM8eVtyerHtx6HHlEnsaJPft5lvvRkeocBzki4YNoXITdrXiLEtEwDZt/LtycIW
+         +bhj22YN3ioVpaWxxxicjK9CMW6iVxwA/Q1aMT5TDGUS7IfCstnHVYjXoV5v82arPqy2
+         zmmlL94Zf0Vp/vUQtassMTcxF3yKpHGh4ej9Dfj8GcmrQY5TU4B/UNWlMsShiW/KYxhq
+         0W2Ilu7C34yoSPgqsvB1ec1gqA9A6pMOT+bS7IOJF66v1+x+iIuJGOrVTIcgxilxqXhm
+         5LyQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:in-reply-to:mime-version:user-agent:date
-         :message-id:from:references:cc:to:subject;
-        bh=hQVNbyM1EWhSnFiZue72B+jShlyhrtWvm+0bywRPPVg=;
-        b=AeQ4UariJqoXPd3fKbQDWae85p5WI6+pcdiNjBFCCvEneU5uzMafY3m4k5HfLQIRje
-         Zw6rvSYSiELh3qGAL4uj/ayu02lvXF0p7bjAaEOD1gb7obX8LACEWeBzLBLmQJX1nUOZ
-         /GLUzOGJmdRPcNDxDA/oMIAtyT+l+vLljgufryhavAojcuMNqg/V6UdzLsjV5MA27YRe
-         JYifE8Ca42iYjDKcTBPbEqqX6YuwKHlTw1eUDsUld2aSOcCmanQEUhk74lRsiCw9JLZ5
-         gdzQ4ivb3WwIGt3MlBmoKYifmmqKmnWTaJITgNxfDerAq2KuXNJSjc0R9bliFmGurXCY
-         /esQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:dkim-filter;
+        bh=iLRyjLHDiM1j11Hh0Jt/NFe8uSNpgWQk85B8WTb/cO0=;
+        b=l/xet4DMB5Wut176O5Owu82muFCp3ka6Li5sK5xSkTsNmcSHRbmwVhy2kAu/NZo/u+
+         HF197vkkIYIw8sp7cZfDo5mE7TnoFAyoV3YLy1xNPoMsQeVMpw77pN3VQE5fFFQTvrQt
+         f1dyL0qn6L0P26ZhpD5ssu8goEeRVSCsCcMoDtwetF57MKrKJhX9ulTD88T/2fM+f+SY
+         68pwd9nGvAsqH+2fQHmJMxwNsh4oi+13aYNSR1my9twojiNqb7KnlXbWGeWYmK0/2gcI
+         tjZ/9E2BUmaO+b+ARuCQxGcdN9IpuYCzLChdhfJnxA7v7ms+K9Omj9TsR/0xlWHsutxI
+         SUtA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of yezhenyu2@huawei.com designates 45.249.212.191 as permitted sender) smtp.mailfrom=yezhenyu2@huawei.com
-Received: from huawei.com (szxga05-in.huawei.com. [45.249.212.191])
-        by gmr-mx.google.com with ESMTPS id i6si231471pgj.5.2020.08.06.00.18.37
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=vp+LFRXI;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conssluserg-01.nifty.com (conssluserg-01.nifty.com. [210.131.2.80])
+        by gmr-mx.google.com with ESMTPS id i18si227394pju.2.2020.08.06.01.44.53
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 06 Aug 2020 00:18:37 -0700 (PDT)
-Received-SPF: pass (google.com: domain of yezhenyu2@huawei.com designates 45.249.212.191 as permitted sender) client-ip=45.249.212.191;
-Received: from DGGEMS402-HUB.china.huawei.com (unknown [172.30.72.59])
-	by Forcepoint Email with ESMTP id 07FD0DE76A8B34F94D7E;
-	Thu,  6 Aug 2020 15:18:03 +0800 (CST)
-Received: from [127.0.0.1] (10.174.186.173) by DGGEMS402-HUB.china.huawei.com
- (10.3.19.202) with Microsoft SMTP Server id 14.3.487.0; Thu, 6 Aug 2020
- 15:17:59 +0800
-Subject: Re: [PATCH] arm64: tlb: fix ARM64_TLB_RANGE with LLVM's integrated
- assembler
-To: Sami Tolvanen <samitolvanen@google.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-CC: Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, "Nick
- Desaulniers" <ndesaulniers@google.com>, Nathan Chancellor
-	<natechancellor@gmail.com>, Kees Cook <keescook@chromium.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<clang-built-linux@googlegroups.com>
-References: <20200805181920.4013059-1-samitolvanen@google.com>
-From: Zhenyu Ye <yezhenyu2@huawei.com>
-Message-ID: <95156879-d76e-65cc-1469-ae3096aa95e4@huawei.com>
-Date: Thu, 6 Aug 2020 15:17:40 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.3.0
+        Thu, 06 Aug 2020 01:44:53 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) client-ip=210.131.2.80;
+Received: from mail-ua1-f53.google.com (mail-ua1-f53.google.com [209.85.222.53]) (authenticated)
+	by conssluserg-01.nifty.com with ESMTP id 0768iVlL020575
+	for <clang-built-linux@googlegroups.com>; Thu, 6 Aug 2020 17:44:32 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-01.nifty.com 0768iVlL020575
+X-Nifty-SrcIP: [209.85.222.53]
+Received: by mail-ua1-f53.google.com with SMTP id q68so11516826uaq.0
+        for <clang-built-linux@googlegroups.com>; Thu, 06 Aug 2020 01:44:32 -0700 (PDT)
+X-Received: by 2002:ab0:41:: with SMTP id 59mr4940875uai.40.1596703471156;
+ Thu, 06 Aug 2020 01:44:31 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20200805181920.4013059-1-samitolvanen@google.com>
+References: <CAKwvOdnni_G2tw+0eCLQQvvdcz97Fy1-cBjzPvLwbBNDu1-KqQ@mail.gmail.com>
+ <20200728004736.3590053-1-nhuck@google.com>
+In-Reply-To: <20200728004736.3590053-1-nhuck@google.com>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Thu, 6 Aug 2020 17:43:54 +0900
+X-Gmail-Original-Message-ID: <CAK7LNAT-AO9_Y-qunRvPbBYf7GZnoE6bxYKFNtcdKAKV8d_A+w@mail.gmail.com>
+Message-ID: <CAK7LNAT-AO9_Y-qunRvPbBYf7GZnoE6bxYKFNtcdKAKV8d_A+w@mail.gmail.com>
+Subject: Re: [PATCH v7] Makefile: Add clang-tidy and static analyzer support
+ to makefile
+To: Nathan Huckleberry <nhuck@google.com>
+Cc: Michal Marek <michal.lkml@markovi.net>,
+        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        Pirama Arumuga Nainar <pirama@google.com>,
+        Bill Wendling <morbo@google.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Originating-IP: [10.174.186.173]
-X-CFilter-Loop: Reflected
-X-Original-Sender: yezhenyu2@huawei.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of yezhenyu2@huawei.com designates 45.249.212.191 as
- permitted sender) smtp.mailfrom=yezhenyu2@huawei.com
+X-Original-Sender: masahiroy@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@nifty.com header.s=dec2015msa header.b=vp+LFRXI;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,57 +141,314 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi,
+On Tue, Jul 28, 2020 at 9:47 AM Nathan Huckleberry <nhuck@google.com> wrote:
+>
+> This patch adds clang-tidy and the clang static-analyzer as make
+> targets. The goal of this patch is to make static analysis tools
+> usable and extendable by any developer or researcher who is familiar
+> with basic c++.
+>
+> The current static analysis tools require intimate knowledge of the
+> internal workings of the static analysis. Clang-tidy and the clang
+> static analyzers expose an easy to use api and allow users unfamiliar
+> with clang to write new checks with relative ease.
+>
+> ===Clang-tidy===
+>
+> Clang-tidy is an easily extendable 'linter' that runs on the AST.
+> Clang-tidy checks are easy to write and understand. A check consists of
+> two parts, a matcher and a checker. The matcher is created using a
+> domain specific language that acts on the AST
+> (https://clang.llvm.org/docs/LibASTMatchersReference.html).  When AST
+> nodes are found by the matcher a callback is made to the checker. The
+> checker can then execute additional checks and issue warnings.
+>
+> Here is an example clang-tidy check to report functions that have calls
+> to local_irq_disable without calls to local_irq_enable and vice-versa.
+> Functions flagged with __attribute((annotation("ignore_irq_balancing")))
+> are ignored for analysis. (https://reviews.llvm.org/D65828)
+>
+> ===Clang static analyzer===
+>
+> The clang static analyzer is a more powerful static analysis tool that
+> uses symbolic execution to find bugs. Currently there is a check that
+> looks for potential security bugs from invalid uses of kmalloc and
+> kfree. There are several more general purpose checks that are useful for
+> the kernel.
+>
+> The clang static analyzer is well documented and designed to be
+> extensible.
+> (https://clang-analyzer.llvm.org/checker_dev_manual.html)
+> (https://github.com/haoNoQ/clang-analyzer-guide/releases/download/v0.1/clang-analyzer-guide-v0.1.pdf)
+>
+> The main draw of the clang tools is how accessible they are. The clang
+> documentation is very nice and these tools are built specifically to be
+> easily extendable by any developer. They provide an accessible method of
+> bug-finding and research to people who are not overly familiar with the
+> kernel codebase.
+>
+> Signed-off-by: Nathan Huckleberry <nhuck@google.com>
+> ---
+> Changes v6->v7
+> * Fix issues with relative paths
+> * Additional style fixes
+>  MAINTAINERS                                   |  1 +
+>  Makefile                                      |  3 +
+>  scripts/clang-tools/Makefile.clang-tools      | 23 ++++++
+>  .../{ => clang-tools}/gen_compile_commands.py |  0
+>  scripts/clang-tools/run-clang-tools.py        | 74 +++++++++++++++++++
+>  5 files changed, 101 insertions(+)
+>  create mode 100644 scripts/clang-tools/Makefile.clang-tools
+>  rename scripts/{ => clang-tools}/gen_compile_commands.py (100%)
+>  create mode 100755 scripts/clang-tools/run-clang-tools.py
+>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 1d4aa7f942de..a444564e5572 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -4198,6 +4198,7 @@ W:        https://clangbuiltlinux.github.io/
+>  B:     https://github.com/ClangBuiltLinux/linux/issues
+>  C:     irc://chat.freenode.net/clangbuiltlinux
+>  F:     Documentation/kbuild/llvm.rst
+> +F:     scripts/clang-tools/
+>  K:     \b(?i:clang|llvm)\b
+>
+>  CLEANCACHE API
+> diff --git a/Makefile b/Makefile
+> index fe0164a654c7..3e2df010b342 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -747,6 +747,7 @@ KBUILD_CFLAGS       += $(call cc-option,-fno-allow-store-data-races)
+>
+>  include scripts/Makefile.kcov
+>  include scripts/Makefile.gcc-plugins
+> +include scripts/clang-tools/Makefile.clang-tools
+>
+>  ifdef CONFIG_READABLE_ASM
+>  # Disable optimizations that make assembler listings hard to read.
+> @@ -1543,6 +1544,8 @@ help:
+>         @echo  '  export_report   - List the usages of all exported symbols'
+>         @echo  '  headerdep       - Detect inclusion cycles in headers'
+>         @echo  '  coccicheck      - Check with Coccinelle'
+> +       @echo  '  clang-analyzer  - Check with clang static analyzer'
+> +       @echo  '  clang-tidy      - Check with clang-tidy'
+>         @echo  ''
+>         @echo  'Tools:'
+>         @echo  '  nsdeps          - Generate missing symbol namespace dependencies'
+> diff --git a/scripts/clang-tools/Makefile.clang-tools b/scripts/clang-tools/Makefile.clang-tools
+> new file mode 100644
+> index 000000000000..5c9d76f77595
+> --- /dev/null
+> +++ b/scripts/clang-tools/Makefile.clang-tools
+> @@ -0,0 +1,23 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +#
+> +# Copyright (C) Google LLC, 2020
+> +#
+> +# Author: Nathan Huckleberry <nhuck@google.com>
+> +#
+> +PHONY += clang-tidy
+> +clang-tidy:
+> +ifdef CONFIG_CC_IS_CLANG
+> +       $(PYTHON3) scripts/clang-tools/gen_compile_commands.py
+> +       $(PYTHON3) scripts/clang-tools/run-clang-tools.py clang-tidy compile_commands.json
+> +else
+> +       $(error clang-tidy requires CC=clang)
+> +endif
+> +
+> +PHONY += clang-analyzer
+> +clang-analyzer:
+> +ifdef CONFIG_CC_IS_CLANG
+> +       $(PYTHON3) scripts/clang-tools/gen_compile_commands.py
+> +       $(PYTHON3) scripts/clang-tools/run-clang-tools.py clang-analyzer compile_commands.json
+> +else
+> +       $(error clang-analyzer requires CC=clang)
+> +endif
 
-On 2020/8/6 2:19, Sami Tolvanen wrote:
-> Commit 7c78f67e9bd9 ("arm64: enable tlbi range instructions") breaks
-> LLVM's integrated assembler, because -Wa,-march is only passed to
-> external assemblers and therefore, the new instructions are not enabled
-> when IAS is used.
-> 
-
-I have looked through the discussion on Github issues. The best way to
-solve this problem is try to pass the "-Wa,-march" parameter to clang
-even when IAS is enabled, which may need the cooperation of compilation
-tool chains :(
-
-Currently, I think we can solve the problem by passing
-the '-march=armv8.4-a' when using the integrated assembler, just like:
-
-diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-index 55bc8546d9c7..e5ce184e98c2 100644
---- a/arch/arm64/Makefile
-+++ b/arch/arm64/Makefile
-@@ -91,8 +91,12 @@ KBUILD_CFLAGS += $(branch-prot-flags-y)
-
- ifeq ($(CONFIG_AS_HAS_ARMV8_4), y)
- # make sure to pass the newest target architecture to -march.
-+ifneq ($(LLVM),)
-+KBUILD_CFLAGS  += -march=armv8.4-a
-+else
- KBUILD_CFLAGS  += -Wa,-march=armv8.4-a
- endif
-+endif
-
- ifeq ($(CONFIG_SHADOW_CALL_STACK), y)
 
 
-No need to worry about that this might generate instructions that are not
-supported on older hardware, because the 'TLB range' feature is only
-enabled when the hardware support ARMv8.4.
+You can unify the almost same two rules.
 
-> As binutils doesn't support .arch_extension tlb-rmi, this change adds
-> .arch armv8.4-a to __TLBI_0 and __TLBI_1 to fix the issue with both LLVM
-> IAS and binutils.
-> 
-> Fixes: 7c78f67e9bd9 ("arm64: enable tlbi range instructions")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1106
-> Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+PHONY += clang-tidy clang-analyzer
+clang-tidy clang-analyzer:
+ifdef CONFIG_CC_IS_CLANG
+        $(PYTHON3) scripts/clang-tools/gen_compile_commands.py
+        $(PYTHON3) scripts/clang-tools/run-clang-tools.py $@
+compile_commands.json
+else
+        $(error $@ requires CC=clang)
+endif
 
-Thanks,
-Zhenyu
+
+
+
+But, before we proceed, please tell me
+what this check is intended for.
+
+
+
+
+
+Case 1)
+Build the kernel with CC=clang,
+and then run clang-tidy without CC=clang.
+
+$ make CC=clang defconfig
+$ make CC=clang -j$(nproc)
+$ make clang-tidy
+
+scripts/clang-tools/Makefile.clang-tools:13: *** clang-tidy requires
+CC=clang.  Stop.
+
+
+
+
+Case 2)
+Build the kernel using GCC,
+and then run clang-tidy with CC=clang.
+
+$ make defconfig
+$ make -j$(nproc)
+$ make CC=clang clang-tidy
+
+This patch happily runs clang-tidy
+although compile_commands.json
+contains GCC commands.
+
+
+
+
+
+So, it checks if you have passed CC=clang
+to "make clang-tidy", where I do not see
+any user of the $(CC) variable.
+
+It does not care whether you have built
+the kernel with GCC or Clang.
+
+
+
+What happens if you run clang-tidy against
+compile_commands.json that contains GCC
+commands?
+
+
+I also care about stale commands
+in compile_commands.json.
+
+
+gen_compile_commands.py creates compile_commands.json
+based on *.cmd files it found.
+
+If you rebuild the kernel for various settings
+using GCC/clang without "make clean",
+stale .*.cmd files will grow.
+
+compile_commands.json will pick up commands
+from older compilation, i.e. the end up with
+the mixture of GCC/Clang commands.
+
+So, I'd like to know how clang-tidy handles
+the GCC commands from compile_commands.json
+
+
+
+
+
+> diff --git a/scripts/gen_compile_commands.py b/scripts/clang-tools/gen_compile_commands.py
+> similarity index 100%
+> rename from scripts/gen_compile_commands.py
+> rename to scripts/clang-tools/gen_compile_commands.py
+> diff --git a/scripts/clang-tools/run-clang-tools.py b/scripts/clang-tools/run-clang-tools.py
+> new file mode 100755
+> index 000000000000..fa7655c7cec0
+> --- /dev/null
+> +++ b/scripts/clang-tools/run-clang-tools.py
+> @@ -0,0 +1,74 @@
+> +#!/usr/bin/env python
+> +# SPDX-License-Identifier: GPL-2.0
+> +#
+> +# Copyright (C) Google LLC, 2020
+> +#
+> +# Author: Nathan Huckleberry <nhuck@google.com>
+> +#
+> +"""A helper routine run clang-tidy and the clang static-analyzer on
+> +compile_commands.json.
+> +"""
+> +
+> +import argparse
+> +import json
+> +import multiprocessing
+> +import os
+> +import subprocess
+> +import sys
+> +
+> +
+> +def parse_arguments():
+> +    """Set up and parses command-line arguments.
+> +    Returns:
+> +        args: Dict of parsed args
+> +        Has keys: [path, type]
+> +    """
+> +    usage = """Run clang-tidy or the clang static-analyzer on a
+> +        compilation database."""
+> +    parser = argparse.ArgumentParser(description=usage)
+> +
+> +    type_help = "Type of analysis to be performed"
+> +    parser.add_argument("type",
+> +                        choices=["clang-tidy", "clang-analyzer"],
+> +                        help=type_help)
+> +    path_help = "Path to the compilation database to parse"
+> +    parser.add_argument("path", type=str, help=path_help)
+> +
+> +    return parser.parse_args()
+> +
+> +
+> +def init(l, a):
+> +    global lock
+> +    global args
+> +    lock = l
+> +    args = a
+> +
+> +
+> +def run_analysis(entry):
+> +    # Disable all checks, then re-enable the ones we want
+> +    checks = "-checks=-*,"
+> +    if args.type == "clang-tidy":
+> +        checks += "linuxkernel-*"
+> +    else:
+> +        checks += "clang-analyzer-*"
+> +    p = subprocess.run(["clang-tidy", "-p", args.path, checks, entry["file"]],
+> +                       stdout=subprocess.PIPE,
+> +                       stderr=subprocess.STDOUT,
+> +                       cwd=entry["directory"])
+> +    with lock:
+> +        sys.stderr.buffer.write(p.stdout)
+> +
+> +
+> +def main():
+> +    args = parse_arguments()
+> +
+> +    lock = multiprocessing.Lock()
+> +    pool = multiprocessing.Pool(initializer=init, initargs=(lock, args))
+> +    # Read JSON data into the datastore variable
+> +    with open(args.path, "r") as f:
+> +        datastore = json.load(f)
+> +        pool.map(run_analysis, datastore)
+> +
+> +
+> +if __name__ == "__main__":
+> +    main()
+> --
+> 2.28.0.rc0.142.g3c755180ce-goog
+>
+
+
+-- 
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/95156879-d76e-65cc-1469-ae3096aa95e4%40huawei.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAT-AO9_Y-qunRvPbBYf7GZnoE6bxYKFNtcdKAKV8d_A%2Bw%40mail.gmail.com.
