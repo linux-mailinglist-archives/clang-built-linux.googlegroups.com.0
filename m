@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBDEWY74QKGQEA5VBZFI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBPUWY74QKGQEPPJZWBA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1040.google.com (mail-pj1-x1040.google.com [IPv6:2607:f8b0:4864:20::1040])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5835B24133E
-	for <lists+clang-built-linux@lfdr.de>; Tue, 11 Aug 2020 00:32:46 +0200 (CEST)
-Received: by mail-pj1-x1040.google.com with SMTP id jm22sf712693pjb.5
-        for <lists+clang-built-linux@lfdr.de>; Mon, 10 Aug 2020 15:32:46 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1597098764; cv=pass;
+Received: from mail-qk1-x73d.google.com (mail-qk1-x73d.google.com [IPv6:2607:f8b0:4864:20::73d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 26681241340
+	for <lists+clang-built-linux@lfdr.de>; Tue, 11 Aug 2020 00:33:36 +0200 (CEST)
+Received: by mail-qk1-x73d.google.com with SMTP id d131sf8055327qke.3
+        for <lists+clang-built-linux@lfdr.de>; Mon, 10 Aug 2020 15:33:36 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1597098815; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sgUsAuqLxi+vB3tQthBOR7KNje/xRsYBB69chtKiaWmRGEkMr1QhtU3yxIF2jxwe2e
-         jp7vH30h5K8bkumyFYZZWUMsZaRcXTdARJhLInqyDcWeFN/jfph83u/eBQ7uM6fkn0fL
-         Amc2KbyQGBI02aRNQ9IcNSqu3EZCe8+tK0HYSY3vC5b/F4fndrHuPI1OtMMSJPX4fuzr
-         cg0QWgPrKUJuWdoVGKWqlYI70i4VUpySgZiJbn9qJtQrYeKD1rc2CtNe3C1DWdtCHeix
-         6HW2s03JbWXZIQX9Y8d695QPiPohugiWjj1fMG02Wg7TU7nK1dK0RmTkcZG3X7BEVCYm
-         9GUw==
+        b=MIuXqRoQ8vmZ70OSKl1FgCJs/u54LNhJy/CMyO+m0pC2IHuB7aLTT/up//vECcraBw
+         6fJFAuEbNgbpTSGScuHxLGvF5kb+e9mnheA6XSFSzdrup2YkWkyErBbuzulklkVIq2rA
+         3L3ZjYFzDMz0v8p2wCrav40xklZdqOYpSrLigpYzA9JwHj38TkhxTT6Io4nLX4m/mwQV
+         XEhB8daRSvy7scQyyoVzilp2+F1PCjxJU399CLXbuTdZLhEVUzjczsKa+EPwWbR7xY1/
+         anBxd6v0rAPgE+r2ptjBVqWduh8N8vY7T3hdM3SPBaPqcPjVFVuS7oX6knRCXLmLcpaD
+         Mqjw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=Z77QUWtSkPFgQpa/ILlkv+HZE3D3T/lqMPXkvUBxDX8=;
-        b=x5H1BrAWxJwKB+YfVfXum4X/IQLNy2Qh4fTzIybFBh24aXm97VQwVVxE147QEKYQ66
-         8LasdPFx9X7kzna85ugZ7isAl3cUAhfk69ztmABkYI+R6jhcwdvAj8wW/EXZIkclb9t2
-         6QLoarpZSNh95Wz+EnUps2jtPq1MFHOOYYpgAOmJE55SNOQtzY7xtUXhiWBt4KlcKSIe
-         V2o3H5j/n7X6tbZcVSGkif9pNsyC3HlWeW/D8b04fq7FxNqvk+aft4gXv0UemP98/cAe
-         AfxgsqTnJXKhPiG4E5BaxUaFqx9qksFjemLTw3jQH9IE5czdniWzGjbAPKHlZtrlSWSG
-         KPJA==
+        bh=1qU9jTWRSKgeY0034mNk4df06xFe8WNrCZVJTCLz6y4=;
+        b=T0NcVxw3lwd4yx0zex/Xn2cOmEUJRV0dCFnTRPOg4bm1PV31t5+LtKc3+xBANwmiOl
+         ge7hlaadpbQeIBlPpLtdV7AcTEaR6kLUn83lb6C7Nv5JUeiYkH879E30pH2AsbCPPrZe
+         F2KmLal237kgtmzJgr4b7NBqBkQEJY7xiB0iECO1CFprxtraBKUAeRxcN9IYDPfKlkMb
+         HqIZ0ZY0nLWEgNAKgOEnFF2rE4s+vIGZ5UuRWGbw1u6w7AdDoCvn6h9c1yW567o0yEsC
+         01rN6QXlWSZpt3mGCrwtladcOXfUl2jM96IGy88Mb3qcKnjpLtZyTuxk+PKF8RI1KsCz
+         zNrg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=A5gGDmYj;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::641 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=mhtQBufT;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Z77QUWtSkPFgQpa/ILlkv+HZE3D3T/lqMPXkvUBxDX8=;
-        b=GZkckqXcWq+RstEFqa65j6Wo0Y/MlgpQcMBxACUAL2NSvEfio9QfKLj4zeqZLjMMQS
-         aCW4331vDzTulo9qn09HcSY02sGwW8woVPOT5Sm+k2qvka1E0su4+vquwQmNM4CbkG6/
-         j4l0Omu5j8YmyHvJVuRHvgHvvOq0y/WrvOZt+vq/ea/xemdtUS8ECT4sUwOjRMhHSId6
-         tuJ3arfbKW3MehSdp5zoPg/msNGQcfw+GX5YDUTSjbBY2sG/bR+XbHGMDkRIvPZFdPUc
-         lOXcDgLKQ+qZA0Y1pFu23FDmhAd5WQPFGlxsAwczzfhd8asGXSganS5HREP2GHRsXU6t
-         vIaw==
+        bh=1qU9jTWRSKgeY0034mNk4df06xFe8WNrCZVJTCLz6y4=;
+        b=qBWEaVtwmpv1vrtWDEArp/5E1B20Yl7gbkkb1keYp4o8mPzM0YkzUNqftmF18pceKO
+         z37eAnOGcUtGWQTOE8PIisv1ZI2zzer/ceGyu91phdSJZ4pxaLZchAPpUewa66mSCU5v
+         joqnyx3+4rpzG7xUjhHSfz0pHNTcCRmvpqy6vJuHL3Y0Did6oDsLjA+pagIoPl/OIALt
+         oVklEsMt4aKU6pfgO4/lCL+2k2DNSdbJ5t472d6/CZzpYHPUhiZr08Th2ouwm2QHjNib
+         J6AH1eL6eL1Svlf8YsOhxZ9xK7VSfQkw3ZRxkDu4bZo9G3GKVSkNBcraOL0ebcudjZlI
+         BL8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,63 +49,63 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Z77QUWtSkPFgQpa/ILlkv+HZE3D3T/lqMPXkvUBxDX8=;
-        b=pICmFOkkd/a4SFZrgcbtz4iuhmg0jyzpWGqcn1BjlD+DEkpoGOT+tRaY7mvf6feXhC
-         2pOp3qb8nk30shvcfMj9Im2f43jKWhm7uKTRe7D+SZA+QIYKXzpDr46IxWBalej1kXU/
-         HKzGt6+gCAMqBqMwsOQWbqYjTxShcyWxC6PhhwVRZioCDWCqbAPZDaMR+hMyhfHBW7ew
-         mM/I+fPSYR0AI0Y2ftVFWUU97xiu13wxwARp+f2hf60i+mmNUyyZc6pMOwXZb+pttj6m
-         Rhq5CTFmEQOZAb3nNdrSdkZsQRmh0d8UiclPWZtkqFDDaueac/g4eDr2nSR8wXDdk24R
-         eLOQ==
-X-Gm-Message-State: AOAM533qn5JEOgZlzx/wi8HxwbrbEp64BsFGeMxOi0Om/GZBz52W9LSw
-	UJJYZKqKLy+rTzGZVHIzWTQ=
-X-Google-Smtp-Source: ABdhPJw7reOH9aQzPLsD4V7bx3bzheMF2qYoLz5zqC8x5SxjlXNhN8GDNWVrH/GTN4f0dv+5q6JpZg==
-X-Received: by 2002:aa7:972f:: with SMTP id k15mr3321358pfg.209.1597098764736;
-        Mon, 10 Aug 2020 15:32:44 -0700 (PDT)
+        bh=1qU9jTWRSKgeY0034mNk4df06xFe8WNrCZVJTCLz6y4=;
+        b=pGfLF4cowG8C2q049pQOgP296wWuZiHHUN/SQ+IY4XNAZbIY7xmtQc+v58RIoNuEnw
+         SfOEh9QU7zpZEpQIpnNXgtyUYf3cNTnyYmZvPe2vhw55SSuhn66+aDU3iHU5/1yztURI
+         5jPfDJRYCdVCvE69NcbJFA71oVjujIKjIQBYFl/1xgFE7uwrLZHK+y20yTMfMsTuJibP
+         ghg5yH2arGoqdhkujXPypCZ91VF6j8Eecxw5bv3/gB8v9lSUcf+CWAtWtEf5E5cLhwKb
+         xDFbLLS441ZCWI8C+/Pzl8jxBILY9zJ6IkmJm4UyqJilEGgr+uNTqIWmRHz1wAlvF31P
+         hlSQ==
+X-Gm-Message-State: AOAM530KX0H8pkJW8LS/pI9e3lB6cnAQ+d/fHC5EMiX5Lk1vtXjztK2f
+	7Uv5mcLchO46HIYrh/utWB4=
+X-Google-Smtp-Source: ABdhPJytzoe8wkCdvr2Lz/noWDoGMnNNnjFbCAPFn3Kwk/l+C4S5Qo411nWQsdIcTwDJnI2ErovZ3Q==
+X-Received: by 2002:a05:620a:149a:: with SMTP id w26mr27722041qkj.432.1597098814786;
+        Mon, 10 Aug 2020 15:33:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:9b93:: with SMTP id y19ls7419351plp.6.gmail; Mon, 10
- Aug 2020 15:32:44 -0700 (PDT)
-X-Received: by 2002:a17:90a:ea13:: with SMTP id w19mr1604312pjy.18.1597098764329;
-        Mon, 10 Aug 2020 15:32:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1597098764; cv=none;
+Received: by 2002:a37:62d7:: with SMTP id w206ls8764383qkb.8.gmail; Mon, 10
+ Aug 2020 15:33:34 -0700 (PDT)
+X-Received: by 2002:a05:620a:1325:: with SMTP id p5mr29296656qkj.357.1597098814441;
+        Mon, 10 Aug 2020 15:33:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1597098814; cv=none;
         d=google.com; s=arc-20160816;
-        b=kye6eylHATmv4PEP35SAW7vvuJ6gzDCKlCxgUwbj28eLKqiAC3MYQpddnafYqP2iLB
-         lWNOBeeUiOP9PhGIduJaPbNB6b/fXeZ9QKUUGIYofZ3yztafgmN+S9QG0McPMP3IxxVs
-         1s0WVas/0/8rIiQu9djpIoT31baEZ+BDYgU/qt17bwgv5yApHk3HVmCclb+4rLchtMqc
-         viKJ8FRtATtspNX7uC88hEzRYKs5hgD5G+H/4B40jjE2vPDT8C2zTWDw8yZNgPKnIXQr
-         4pqUHoUZV+yt7gyVnnL0Ma/GyOWI5tOwdskV4CZAm7PBiK30NlB87i4QfxxVJVsTPb1z
-         Yucw==
+        b=ZvLZzkXnKKoR5iy5mEMlP/KzbEo1dSIUjF5Epci4qYiEh0dpJCH273EidlArUzNNyc
+         6cdPeG3CSRWJ2EHNv7MZ4OQ30wpZuVQlKv6aT2khPEvYXsu3CMqJmNMFETZDnWpvfnW2
+         Y+Mki0RcMbe/rPxBs/4OyA7UEIkDAG3pv+g/5Y1821oHNQhy17HVq6rykeNe+xVTfjOf
+         S3vaWJk4euJe07Z6JAq74mYxf/jNDmHi17ylOOCQBiSg/Pn4WfDiifbQAGJFsM95W76D
+         fORdmsxqeaZA+r8WPxhVivwkvXbgREAbcJeyMPbM0Fle0CmpEK4oM5Bwq93iEco4geVl
+         sNHA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=XXQVV8QzuLxMQgNKr0LaFyD2ve8ZpOBor9lL6l9h4Ds=;
-        b=IPZWKN6FZfVqWyX+K5MbV+6JLdrCnt+QW1IBd1UVtcUyUnV4UwD6jTtauCISJIRz2y
-         VmvSHAXZjm9Lpn8yfv7iC5oYV5ed8SUd1vRB2T5Qd4//lKMPnT4kmd4KQEpgJssYR8kO
-         KavxCIsfn1u0fcYLIgc979gft5w8ZZn/z5ifJHPtccRLccOGF5vUrUnSALeK/sPGs8ZN
-         tiUx20gnDg1Si+Y0jtjUyatMvvK0qq3ISrqglf6vR+PMsve3E5htllkC2yyzCf2p7RjJ
-         9nOrQ5HvMyRzYR9A/9q8EMGG8af8WnF/XlBkBi6Q5zAqDrHRAoNt5hoL/holD/hT4xba
-         rqpg==
+        bh=i7ZfdynehOdybqijT/Iim3hOWf1+yvwIpK/H7v550UQ=;
+        b=AtQGsdZwVkoTuaJnE+h6bPqs1xW7yeL4JaOTAJqf4r+r61sLtDJkaAU5C1pP0d34vK
+         PQIoO3zoxOs93fVfoFL+HmuORnLcixGmpJu+8hDgmREcgqi2tV7jSvGD2aVQGnO0xkk5
+         TyloaDm0MCIDg8bwySv0WJbbXh14Bz13WAK3mWvirbqCh9Ky4lDgx2NuJCkD26oWb3yZ
+         BNJpv12vmjtTMGRN/2cL4GS6jgOkdVl6w9C568/3kbrEWTxnEfA+iFbJXbjLDUfOa+T7
+         Kth5R9RyWqSX78tLG2eVkas23nnOznvxmeYh18B9Gom54Pz+ueR4f28Q13iHZkoeDP0W
+         YNWw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=A5gGDmYj;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::641 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=mhtQBufT;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x641.google.com (mail-pl1-x641.google.com. [2607:f8b0:4864:20::641])
-        by gmr-mx.google.com with ESMTPS id q18si179379pls.2.2020.08.10.15.32.44
+Received: from mail-pf1-x442.google.com (mail-pf1-x442.google.com. [2607:f8b0:4864:20::442])
+        by gmr-mx.google.com with ESMTPS id m13si973472qtn.0.2020.08.10.15.33.34
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Aug 2020 15:32:44 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::641 as permitted sender) client-ip=2607:f8b0:4864:20::641;
-Received: by mail-pl1-x641.google.com with SMTP id bh1so5842705plb.12
-        for <clang-built-linux@googlegroups.com>; Mon, 10 Aug 2020 15:32:44 -0700 (PDT)
-X-Received: by 2002:a17:902:8509:: with SMTP id bj9mr11421853plb.179.1597098763680;
- Mon, 10 Aug 2020 15:32:43 -0700 (PDT)
+        Mon, 10 Aug 2020 15:33:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) client-ip=2607:f8b0:4864:20::442;
+Received: by mail-pf1-x442.google.com with SMTP id r11so6513082pfl.11
+        for <clang-built-linux@googlegroups.com>; Mon, 10 Aug 2020 15:33:34 -0700 (PDT)
+X-Received: by 2002:a63:4e56:: with SMTP id o22mr8537935pgl.381.1597098813343;
+ Mon, 10 Aug 2020 15:33:33 -0700 (PDT)
 MIME-Version: 1.0
 References: <20200730205112.2099429-1-ndesaulniers@google.com>
- <20200730205112.2099429-4-ndesaulniers@google.com> <CAN=-RxstJBjJUcOf9iuAxEcxYUhJTdF9JhPVWwQuefnE+3s52w@mail.gmail.com>
-In-Reply-To: <CAN=-RxstJBjJUcOf9iuAxEcxYUhJTdF9JhPVWwQuefnE+3s52w@mail.gmail.com>
+ <20200730205112.2099429-3-ndesaulniers@google.com> <CAN=-Rxty=Ux5rj-VQSZH-ryj1RiNJvy7mRE7uyx_YAndGtcq7Q@mail.gmail.com>
+In-Reply-To: <CAN=-Rxty=Ux5rj-VQSZH-ryj1RiNJvy7mRE7uyx_YAndGtcq7Q@mail.gmail.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 10 Aug 2020 15:32:32 -0700
-Message-ID: <CAKwvOdn+MGgYf8k9uAUT55vBL+ERTjv+jx+t8SD9HO98-h2c0w@mail.gmail.com>
-Subject: Re: [PATCH 3/4] ARM: backtrace-clang: give labels more descriptive names
+Date: Mon, 10 Aug 2020 15:33:22 -0700
+Message-ID: <CAKwvOdkNLK2cRfY+DA0u3KuY5PuEss5Qox6X3zzpL053pARfrA@mail.gmail.com>
+Subject: Re: [PATCH 2/4] ARM: backtrace-clang: add fixup for lr dereference
 To: Nathan Huckleberry <nhuck15@gmail.com>
 Cc: Russell King <linux@armlinux.org.uk>, Andrew Morton <akpm@linux-foundation.org>, 
 	Chunyan Zhang <zhang.lyra@gmail.com>, 
@@ -113,12 +113,12 @@ Cc: Russell King <linux@armlinux.org.uk>, Andrew Morton <akpm@linux-foundation.o
 	Linux ARM <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>, 
 	linux-mediatek@lists.infradead.org, Lvqiang Huang <lvqiang.huang@unisoc.com>, 
 	Matthias Brugger <matthias.bgg@gmail.com>, Miles Chen <miles.chen@mediatek.com>, 
-	Nathan Huckleberry <nhuck@google.com>
+	"# 3.4.x" <stable@vger.kernel.org>, Nathan Huckleberry <nhuck@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=A5gGDmYj;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::641
+ header.i=@google.com header.s=20161025 header.b=mhtQBufT;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -137,107 +137,79 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 On Thu, Aug 6, 2020 at 3:39 PM Nathan Huckleberry <nhuck15@gmail.com> wrote:
 >
-> The style cleanup looks great. I just have one extra thing that
-> can probably be thrown into this patch.
+> Mostly looks good to me. Just a minor nit.
 >
 > On Thu, Jul 30, 2020 at 3:51 PM Nick Desaulniers
 > <ndesaulniers@google.com> wrote:
 > >
-> > Removes the 1004 label; it was neither a control flow target, nor an
-> > instruction we expect to produce a fault.
+> > If the value of the link register is not correct (tail call from asm
+> > that didn't set it, stack corruption, memory no longer mapped), then
+> > using it for an address calculation may trigger an exception.  Without a
+> > fixup handler, this will lead to a panic, which will unwind, which will
+> > trigger the fault repeatedly in an infinite loop.
 > >
-> > Gives the labels slightly more readable names. The `b` suffixes are
-> > handy to disambiguate between labels of the same identifier when there's
-> > more than one. Since these labels are unique, let's just give them
-> > names.
+> > We don't observe such failures currently, but we have. Just to be safe,
+> > add a fixup handler here so that at least we don't have an infinite
+> > loop.
 > >
+> > Cc: stable@vger.kernel.org
+> > Fixes: commit 6dc5fd93b2f1 ("ARM: 8900/1: UNWINDER_FRAME_POINTER implementation for Clang")
+> > Reported-by: Miles Chen <miles.chen@mediatek.com>
 > > Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
 > > ---
-> >  arch/arm/lib/backtrace-clang.S | 22 ++++++++++------------
-> >  1 file changed, 10 insertions(+), 12 deletions(-)
+> >  arch/arm/lib/backtrace-clang.S | 10 +++++++++-
+> >  1 file changed, 9 insertions(+), 1 deletion(-)
 > >
 > > diff --git a/arch/arm/lib/backtrace-clang.S b/arch/arm/lib/backtrace-clang.S
-> > index 40eb2215eaf4..7dad2a6843a5 100644
+> > index 5388ac664c12..40eb2215eaf4 100644
 > > --- a/arch/arm/lib/backtrace-clang.S
 > > +++ b/arch/arm/lib/backtrace-clang.S
-> > @@ -121,8 +121,8 @@ for_each_frame:     tst     frame, mask             @ Check for address exceptions
-> >   * start. This value gets updated to be the function start later if it is
-> >   * possible.
-> >   */
-> > -1001:          ldr     sv_pc, [frame, #4]      @ get saved 'pc'
-> > -1002:          ldr     sv_fp, [frame, #0]      @ get saved fp
-> > +load_pc:       ldr     sv_pc, [frame, #4]      @ get saved 'pc'
-> > +load_fp:       ldr     sv_fp, [frame, #0]      @ get saved fp
-> >
-> >                 teq     sv_fp, mask             @ make sure next frame exists
-> >                 beq     no_frame
-> > @@ -142,7 +142,7 @@ for_each_frame:     tst     frame, mask             @ Check for address exceptions
-> >   * registers for the current function, but the stacktrace is still printed
-> >   * properly.
-> >   */
-> > -1003:          ldr     sv_lr, [sv_fp, #4]      @ get saved lr from next frame
-> > +load_lr:       ldr     sv_lr, [sv_fp, #4]      @ get saved lr from next frame
+> > @@ -146,7 +146,7 @@ for_each_frame:     tst     frame, mask             @ Check for address exceptions
 > >
 > >                 tst     sv_lr, #0               @ If there's no previous lr,
 > >                 beq     finished_setup          @ we're done.
-> > @@ -166,8 +166,7 @@ finished_setup:
-> >  /*
-> >   * Print the function (sv_pc) and where it was called from (sv_lr).
-> >   */
-> > -1004:          mov     r0, sv_pc
-> > -
-> > +               mov     r0, sv_pc
-> >                 mov     r1, sv_lr
-> >                 mov     r2, frame
-> >                 bic     r1, r1, mask            @ mask PC/LR for the mode
-> > @@ -182,7 +181,7 @@ finished_setup:
-> >   * pointer the comparison will fail and no registers will print. Unwinding will
-> >   * continue as if there had been no registers stored in this frame.
-> >   */
-> > -1005:          ldr     r1, [sv_pc, #0]         @ if stmfd sp!, {..., fp, lr}
-> > +load_stmfd:    ldr     r1, [sv_pc, #0]         @ if stmfd sp!, {..., fp, lr}
-> >                 ldr     r3, .Lopcode            @ instruction exists,
-> >                 teq     r3, r1, lsr #11
-> >                 ldr     r0, [frame]             @ locals are stored in
-> > @@ -201,7 +200,7 @@ finished_setup:
-> >                 mov     frame, sv_fp            @ above the current frame
-> >                 bhi     for_each_frame
-> >
-> > -1006:          adr     r0, .Lbad
-> > +bad_frame:     adr     r0, .Lbad
-> >                 mov     r1, loglvl
+> > -               ldr     r0, [sv_lr, #-4]        @ get call instruction
+> > +prev_call:     ldr     r0, [sv_lr, #-4]        @ get call instruction
+> >                 ldr     r3, .Lopcode+4
+> >                 and     r2, r3, r0              @ is this a bl call
+> >                 teq     r2, r3
+> > @@ -206,6 +206,13 @@ finished_setup:
 > >                 mov     r2, frame
 > >                 bl      printk
-> > @@ -216,11 +215,10 @@ bad_lr:           mov     sv_fp, #0
+> >  no_frame:      ldmfd   sp!, {r4 - r9, fp, pc}
+> > +/*
+> > + * Accessing the address pointed to by the link register triggered an
+> > + * exception, don't try to unwind through it.
+> > + */
+> > +bad_lr:                mov     sv_fp, #0
+>
+> It might be nice to emit a warning here since we'll
+> only hit this case if something fishy is going on
+> with the saved lr.
+
+Yeah, something fishy is going on if that ever happens.  Let me create
+a V2 with an additional print.
+
+>
+> > +               mov     sv_lr, #0
+> > +               b       finished_setup
 > >  ENDPROC(c_backtrace)
 > >                 .pushsection __ex_table,"a"
 > >                 .align  3
-> > -               .long   1001b, 1006b
-> > -               .long   1002b, 1006b
-> > -               .long   1003b, 1006b
-> > -               .long   1004b, 1006b
-> > -               .long   1005b, 1006b
-> > +               .long   load_pc, bad_frame
-> > +               .long   load_fp, bad_frame
-> > +               .long   load_lr, bad_frame
-> > +               .long   load_stmfd, bad_frame
->
-> Load_stmfd should get its own fixup
-> handler since it should emit errors about a bad
-> pc, not a bad frame pointer.
-
-Yeah, I can add that.  It's a little orthogonal though to this patch
-that renames labels. I'd consider more so a pre-existing bug.  Let me
-add a patch to the series that gives it a new fixup handler, separate
-from the label renaming, in a v2 of the series.
-
->
-> >                 .long   prev_call, bad_lr
+> > @@ -214,6 +221,7 @@ ENDPROC(c_backtrace)
+> >                 .long   1003b, 1006b
+> >                 .long   1004b, 1006b
+> >                 .long   1005b, 1006b
+> > +               .long   prev_call, bad_lr
 > >                 .popsection
 > >
+> >  .Lbad:         .asciz  "%sBacktrace aborted due to bad frame pointer <%p>\n"
 > > --
 > > 2.28.0.163.g6104cc2f0b6-goog
 > >
+>
+> Thanks,
+> Huck
 
 
 
@@ -248,4 +220,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdn%2BMGgYf8k9uAUT55vBL%2BERTjv%2Bjx%2Bt8SD9HO98-h2c0w%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkNLK2cRfY%2BDA0u3KuY5PuEss5Qox6X3zzpL053pARfrA%40mail.gmail.com.
