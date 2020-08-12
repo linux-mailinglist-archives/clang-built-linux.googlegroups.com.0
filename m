@@ -1,123 +1,133 @@
-Return-Path: <clang-built-linux+bncBAABBQV7Z34QKGQEEN6HFFI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC5JPJ45Q4MRBOPHZ34QKGQEUBFLOLA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
-	by mail.lfdr.de (Postfix) with ESMTPS id B0592242650
-	for <lists+clang-built-linux@lfdr.de>; Wed, 12 Aug 2020 09:52:35 +0200 (CEST)
-Received: by mail-pf1-x440.google.com with SMTP id k12sf1169439pfu.19
-        for <lists+clang-built-linux@lfdr.de>; Wed, 12 Aug 2020 00:52:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1597218754; cv=pass;
+Received: from mail-ot1-x340.google.com (mail-ot1-x340.google.com [IPv6:2607:f8b0:4864:20::340])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6B4B7242752
+	for <lists+clang-built-linux@lfdr.de>; Wed, 12 Aug 2020 11:17:46 +0200 (CEST)
+Received: by mail-ot1-x340.google.com with SMTP id f23sf595670ots.2
+        for <lists+clang-built-linux@lfdr.de>; Wed, 12 Aug 2020 02:17:46 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1597223865; cv=pass;
         d=google.com; s=arc-20160816;
-        b=TssNYbZLuzpFG+5EJlrXZj1oeYFEX11k2tBwhWJuhWUT7eXj6ehU+5lYtKLt7eYcRX
-         386t+yBZ/azTLUdOoRvkbzHNg+/mCVMgd2/ddsF57HWSoCMrYTRI0ajyKVrn+h0OxadR
-         Ds8zx9sg34n0WKoGUsXJL+bSkCcr3Jq5I5lbWTDdGTBSKTSstJ632IfxYlzPUD02EQgY
-         KzLPNnm+n/T0r8ghncpkViGWvooJQrGlwttM3izcFjfXjD0UogXsuThUorPsh+oEhm6B
-         YWWlC0pXTgziPjhyapuobi25tCaycfXiAeloXJYpnC/A174fcQmkKWRsUS7vhYztbIXL
-         a94g==
+        b=mbVw3Z6LeMWjEBTG63zTR13VMx7nFWIkH2+28wQI2bfUEQn2hbTyN8vYtaIfdfi3sq
+         MtWZQCj6y0Kb7mCOMbuuHoa8kPJKcwgUyMwj/Ac3AIb37RWVzWUM1MsD8ZkmXMRkJpxT
+         7t57GnnQC7/GZm4KTVFxJZ7s+FfeW0Z1zGRWcexXeHY9qs4opUEaBpYp1wpUPvaA24BR
+         yassbug5IYMh7QhhV8l9EfeWshwCdVm4w84wKKJIH7co1lTRo8YAbJTz1i2437fBy16/
+         3YaEzAX4Xz2tI5DfVpKjsREhG32vRNvhlRGOfpBxomiBSeaynKL7fboKNaDx5mO4zKGr
+         1CDg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:message-id:date:to:cc
-         :from:subject:references:in-reply-to:mime-version:sender
-         :dkim-signature;
-        bh=jZI0mSxFeqeu1bQkw5FGrZDqOfxcwJY8dx2ylDxOzR4=;
-        b=GLpaccFBEBZRsoQCz1UeXccpHU1ZYug2G6nzlr97yH+pTmy+Kbr+YTalolKUBAUiOP
-         MUcuO3QhW1/Oi509qopiMqnC030dV5ObS+UT9pEvMh8hyzaBd1j2Db4NkTd+K6WRYH4+
-         YA7Ig0jE1nL896L/afgx4B11EeeZIk6urARxqdktldxN5dqcvbBBfdxbIXPCvp2VeuPX
-         0t7zWKvrKE4385ILZKMFUvGah5JrbqeS1G/xhnaqNyLE2F3Mktm8S4r/VQFn+FvB0n8F
-         AwTKfJfhJFTxbc+63GaCuM0xmoIOXeyKDe5jEERX5vAyUARJWi0ptCM3DwfPGXBbYCQr
-         nhCg==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :date:cc:to:from:subject:message-id:sender:dkim-signature;
+        bh=1OZhrIKwhc2jqP2hEPPVkvh2YyfY2IlGsE6sEBO+wEQ=;
+        b=iZBrEB0zQQWuBLNJX2Q3n50RiUuL/AMBNdVMkDh+3U8uJDklGc5tqVBbaccT08TiMt
+         lZjvU593lS9Mcit/WYHfyClVVQjwlTlKCuslxeqRBhuj172lOjEjkWDZlN2/6CLfT+Vf
+         Pl6jFnNWY0Gq/8KxH5H1GQS6349IQWzQ5zjsBa+XPM/TInNZ97ITRvwrVs5xd0oVwRys
+         +MnpGioogrTCQspEGWANsf9R0aJDECHN7ASiga0deRYEimlZREJVJ7dRzdAPWjWu6d+e
+         JykSmlUopvLoqcy5cGC9dh1oJxuyyLjivOsqL1V/o4sQh7d3Fz6CxERYBuhnObJDaWuf
+         4GPQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=1p4LHA72;
-       spf=pass (google.com: domain of sboyd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sboyd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@mediatek.com header.s=dk header.b=bR8KKaZI;
+       spf=pass (google.com: domain of miles.chen@mediatek.com designates 210.61.82.183 as permitted sender) smtp.mailfrom=miles.chen@mediatek.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:in-reply-to:references:subject:from:cc:to:date
-         :message-id:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=jZI0mSxFeqeu1bQkw5FGrZDqOfxcwJY8dx2ylDxOzR4=;
-        b=hhXRu1f0fvsNUQF3ttNMcz6kAqWTwvJKUQ7a4gIFfHdTkVMVkcKmjVCcL8kF90lZ0n
-         yFTIdEgEx0eU5JoBTy9ech6sUHHDs7qtZhGBZwZujuT/gf6o5oKYLewwiqOF7wZokJ0s
-         X2Zd4NKFoRO/sz4HzLJ1bjWn9x3F8Nb8vHy+zsyBbjCwxM5vnNrL1Z5iKQIq8S5eHfo8
-         WsVfr8nOOtAJ3597O55SStSPKskSR/qlqRDtGrYLElle7wrxDQ8GiER0FeXfWkihm9e6
-         YkTxFUTZj8zHIuqU2J7IR1QborI8tHd1P8EiG3YLYp1VxDMHQOxAG/3xI/pGeKMrxtVC
-         3lBw==
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=1OZhrIKwhc2jqP2hEPPVkvh2YyfY2IlGsE6sEBO+wEQ=;
+        b=TENr0H1yne16lKkfGKyaoWbf8O1uVfwOtgpjHDJMhbZPZ8R9t83pqxOBVbLkcIBbyT
+         UbVZ0c6eyXGXU/1ktF2wQe6ZzCX4WeaySTeFCWpoCMEqMnB5WtXWPRemMlJ5FY33QZNZ
+         aYv12xOOnIAlUNZtfyH8VLp5KZ/QbMCkKsnalNp5uA9hS5mGT0PYSIJM504yOwYnsYDa
+         fMGB1gY46ZV3ypu0Pq3npFNodpOOWTJ3iRs2Mm68cw9oV1qSKnYKMifQj97Pk/cZyDGX
+         KKAJVQBjmS5dycGwdq9GidziqCGrGWfMqqUX8hmYWnCXDh41U3sF43RMsz9nq03lX5mu
+         TTiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:in-reply-to:references
-         :subject:from:cc:to:date:message-id:user-agent:x-original-sender
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=jZI0mSxFeqeu1bQkw5FGrZDqOfxcwJY8dx2ylDxOzR4=;
-        b=Pr1lsxO8jtsKnXsW0ZaUy77O8UuhSw3yPMeCo895OshliGE3yjGOX8dBeIPHNzazZ5
-         IqXU8W6M+0bev3PMpROl3C/t8FhobSD1mtNcoanLeb7DlAFSYLlGhxyRjPwcIv4sp5sK
-         d+toRXI51F7bhxZFGJuWuE2pJh4Nu1eHAmo9D3I6fzbcc/CkbPx9XIqOohfHcOYCJS5i
-         V6IZXYheLylekiA+5EqtISZEV7vtBSU2tYi0A3325VY7coiDE9DrRhReOFSWE+PiM7ta
-         Eg+0XY3amKg1ICb9a3SBTcMzRmecdltUnOqGaHIHH3W2nRcbM8vB7o//vLNv/dk9SP3c
-         UJ/g==
+        bh=1OZhrIKwhc2jqP2hEPPVkvh2YyfY2IlGsE6sEBO+wEQ=;
+        b=U5TsbVZnFyk4ftF4KWdS4/4m3YuPSDUoCv+1uc9QJzK67m9vElHpacu4wBEtaNZXGf
+         5MzjmTN4Qn3RS5wAaeH/kLxg3HOInt21NqzEXgtfncORPo/ruJeAloQOwKyo/U5Z6ANA
+         EbQ8yYZKG/trSETV8z2ba5tk2s1izHKm/1eRrSvQ328Wtttfn93qNLQrPyv4m41Ci5Js
+         bShBy6PLJ3b7dOmM4DXZkWp60DGUW7YUjsWdzR7H5LUHTZ4ZfVaw16gsudiidYxqD2Ib
+         EZ/hZdC0pjQFybTiU6g9A1dvS15RsYkrUb3d4btUT4YyUp3/wCa5wZW4HCbKvk29pVPR
+         J/Gg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530Mw/zakvcbQYpjDgl/GqvwFzkbNdM5foip6P924a4l0eaubdfz
-	wDZbCrJWG93zubHzwsXQSos=
-X-Google-Smtp-Source: ABdhPJwOclodmvVvJk7lGuFjf3nTGSM2Twg/y5wuSmkEqEch1/UoiBRmYc7RJNY2J4T3UF9L/pKM7A==
-X-Received: by 2002:a62:7546:: with SMTP id q67mr9997657pfc.210.1597218754136;
-        Wed, 12 Aug 2020 00:52:34 -0700 (PDT)
+X-Gm-Message-State: AOAM531hdfkryfh49CTidXEQ9v3GfqqZITE/TiO12tnz5EdM3oo9v2Kb
+	6IWfU83n8I3RKDWfv4qQrtg=
+X-Google-Smtp-Source: ABdhPJxYcZ56/c+/Lm+afoCa+2+DDTSkEXaAHGPI8lB1hyt2Lztr1W+uROJKNG2SttdpHMVtdJKdJg==
+X-Received: by 2002:a05:6830:1090:: with SMTP id y16mr8045606oto.365.1597223865124;
+        Wed, 12 Aug 2020 02:17:45 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:2fc1:: with SMTP id v184ls466434pgv.5.gmail; Wed, 12 Aug
- 2020 00:52:33 -0700 (PDT)
-X-Received: by 2002:a62:1803:: with SMTP id 3mr10514913pfy.198.1597218753799;
-        Wed, 12 Aug 2020 00:52:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1597218753; cv=none;
+Received: by 2002:a9d:7ad9:: with SMTP id m25ls301663otn.11.gmail; Wed, 12 Aug
+ 2020 02:17:44 -0700 (PDT)
+X-Received: by 2002:a05:6830:82b:: with SMTP id t11mr8591572ots.104.1597223864777;
+        Wed, 12 Aug 2020 02:17:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1597223864; cv=none;
         d=google.com; s=arc-20160816;
-        b=CTlbQ3y5Xv+Jchus1vZTDhKC2kx0SEbL5zHDfvr6hrAmVQcDESvho7EW9mwNbb3qcs
-         KqMNOcaDzulq8ciZtbldxU9TOsF1+/0yErKIYBsmWoDh3+0VhXDZQqzp7+z9OQXlaWDU
-         qFWiow4otTz8SbElnvsBeX69+OrOVaqWpA6bXl+Sf08IKQAvgeX2naOJ3/G2PpnksiD9
-         CA5c13v1JTbqMDC6ot/VgORQft1s5wpprC/+hurEAc5uzDSXTrGoYEbCVTTUizm0OmcU
-         jjhlR6oYzn73f6oayEf7Jwb7BIv0rThvVVVFFfQ5WXSu3yKo+qp2vVquT7A+CmKDRGE7
-         xDSQ==
+        b=mVFD/+NjW9q491Hc9Txd2OfjvkPUZKsK1R9/CifhaG4c7XV2HoO7Xewu3T/uf2IB26
+         1C9ff0gVvTWqTKnvoT9rcCAb5N4UBFBC0PSTKa/MnrGef2acsHZDeH+sNCqo2gZOdx/d
+         KwSSpPvCEAufX6jzYOUwMqkY0nhy+EHSIyqcclBrnQEjzB/zsEFUhMYAU7ro9Mmdr6D7
+         aVI60mDeuqe15i7oZcdo4AE7Czw/FylXGKHbE3SMdq+t0DDG5bzzE7Inf46Ex5xeQT9F
+         nVF3Td3Ii1O5GetJJsbSeQh0bzwgJymEDt/9h6wpuL7dmaAh1zrujUKaQyI6EIZJnomT
+         P8vg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:message-id:date:to:cc:from:subject:references
-         :in-reply-to:content-transfer-encoding:mime-version:dkim-signature;
-        bh=0YBAazjaAYW+pyQfLNNMqDjBaoZApGvdcp/gaGkIjOw=;
-        b=t6B1mBdR0yyiJrWpG6dAgr9zV/dqt7kiv3CkhKtbh+OTWtrNLIgfho46XaRxRZIqkH
-         RCYl+I4l0dunRC1/Yx0aLPfN+S5/Z4tcF5QUwyPZRHoWd/oy1O4Grdn+nchx9KHdaxvZ
-         EhVgmj8kYPVkD/lncO0DyBnLPuQjqOVdVI9V2d6LZec/WG9G5wOk7HomdO5OcDz57sYw
-         buABCxKs13ib6q7hPBzIohB6SCBx40DEEjEvQC1Gl23oL4xpNM9aeDoWHl7Qv+Rw+gmk
-         RwEoyFPLyWUlSFzNoNMvF9N3zcKl/SQ1Vxt2fEl5RWoDhJUY5FoU9ZNR1LRNM2+6dwtP
-         vTOQ==
+        h=content-transfer-encoding:mime-version:references:in-reply-to:date
+         :cc:to:from:subject:message-id:dkim-signature;
+        bh=UqdzDWD86OrCp6wEU2YB9Bwu97TCSXyPz6lXG6Qwo4U=;
+        b=EXEs4or5qXQq4j/doafDf04jHVVm7v4gl0QXV1zxCl2+xscWHhzRQqpiWq4l9cR/Mq
+         OpjkTvsG/5wK6YoNy5w6PYHOx9tlYZEfrZM0zJI6q9+JF1GDDcyziYyQWNGwNefiTzlR
+         S81xbCTyTIuBWfNGHuo+JW9n3SBzIGZAbzLxscpFoMCnaaOtmZf4PFiF+yfxNOP1/jr1
+         S0zd5SdWG2nPoRnMmDR12K/Ls3fM5XttMrkCtyJm0qLaUtnW3EiTqZ1wtRNROgGlmPo1
+         4BKzjC8fogzGiqBZ0UHe+OSi/GE7ZL03XgIbEvfS1db40uwsiYzIworzvDTWuchT9pxY
+         KCwQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=1p4LHA72;
-       spf=pass (google.com: domain of sboyd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sboyd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id bx1si269356pjb.1.2020.08.12.00.52.33
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 12 Aug 2020 00:52:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of sboyd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from kernel.org (unknown [104.132.0.74])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 65F02206B5;
-	Wed, 12 Aug 2020 07:52:33 +0000 (UTC)
+       dkim=pass header.i=@mediatek.com header.s=dk header.b=bR8KKaZI;
+       spf=pass (google.com: domain of miles.chen@mediatek.com designates 210.61.82.183 as permitted sender) smtp.mailfrom=miles.chen@mediatek.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
+Received: from mailgw01.mediatek.com ([210.61.82.183])
+        by gmr-mx.google.com with ESMTP id w1si63200otm.5.2020.08.12.02.17.44
+        for <clang-built-linux@googlegroups.com>;
+        Wed, 12 Aug 2020 02:17:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of miles.chen@mediatek.com designates 210.61.82.183 as permitted sender) client-ip=210.61.82.183;
+X-UUID: 25e573d41ef8423a8439bfebe68ac62f-20200812
+X-UUID: 25e573d41ef8423a8439bfebe68ac62f-20200812
+Received: from mtkcas10.mediatek.inc [(172.21.101.39)] by mailgw01.mediatek.com
+	(envelope-from <miles.chen@mediatek.com>)
+	(Cellopoint E-mail Firewall v4.1.10 Build 0809 with TLS)
+	with ESMTP id 1663623647; Wed, 12 Aug 2020 17:17:38 +0800
+Received: from MTKCAS06.mediatek.inc (172.21.101.30) by
+ mtkmbs01n1.mediatek.inc (172.21.101.68) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.2; Wed, 12 Aug 2020 17:17:29 +0800
+Received: from [172.21.77.33] (172.21.77.33) by MTKCAS06.mediatek.inc
+ (172.21.101.73) with Microsoft SMTP Server id 15.0.1497.2 via Frontend
+ Transport; Wed, 12 Aug 2020 17:17:29 +0800
+Message-ID: <1597223851.5467.12.camel@mtkswgap22>
+Subject: Re: [PATCH] net: untag pointer in sockptr_is_kernel
+From: Miles Chen <miles.chen@mediatek.com>
+To: kernel test robot <lkp@intel.com>
+CC: Christoph Hellwig <hch@lst.de>, "David S . Miller" <davem@davemloft.net>,
+	<kbuild-all@lists.01.org>, <clang-built-linux@googlegroups.com>,
+	<linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
+	<wsd_upstream@mediatek.com>
+Date: Wed, 12 Aug 2020 17:17:31 +0800
+In-Reply-To: <202008112018.fpLyWmTj%lkp@intel.com>
+References: <20200811102704.17875-1-miles.chen@mediatek.com>
+	 <202008112018.fpLyWmTj%lkp@intel.com>
 Content-Type: text/plain; charset="UTF-8"
+X-Mailer: Evolution 3.2.3-0ubuntu6
 MIME-Version: 1.0
-In-Reply-To: <20200810044020.2063350-1-natechancellor@gmail.com>
-References: <20200810044020.2063350-1-natechancellor@gmail.com>
-Subject: Re: [PATCH] clk: rockchip: Fix initialization of mux_pll_src_4plls_p
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: Heiko Stuebner <heiko@sntech.de>, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com, Nathan Chancellor <natechancellor@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>, Nathan Chancellor <natechancellor@gmail.com>
-Date: Wed, 12 Aug 2020 00:52:32 -0700
-Message-ID: <159721875227.33733.9237826555988566719@swboyd.mtv.corp.google.com>
-User-Agent: alot/0.9.1
-X-Original-Sender: sboyd@kernel.org
+X-MTK: N
+X-Original-Sender: miles.chen@mediatek.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=1p4LHA72;       spf=pass
- (google.com: domain of sboyd@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=sboyd@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@mediatek.com header.s=dk header.b=bR8KKaZI;       spf=pass
+ (google.com: domain of miles.chen@mediatek.com designates 210.61.82.183 as
+ permitted sender) smtp.mailfrom=miles.chen@mediatek.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,34 +140,87 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Quoting Nathan Chancellor (2020-08-09 21:40:20)
-> A new warning in Clang points out that the initialization of
-> mux_pll_src_4plls_p appears incorrect:
+On Tue, 2020-08-11 at 20:28 +0800, kernel test robot wrote:
+> Hi Miles,
 > 
-> ../drivers/clk/rockchip/clk-rk3228.c:140:58: warning: suspicious
-> concatenation of string literals in an array initialization; did you
-> mean to separate the elements with a comma? [-Wstring-concatenation]
-> PNAME(mux_pll_src_4plls_p)      = { "cpll", "gpll", "hdmiphy" "usb480m" };
->                                                               ^
->                                                              ,
-> ../drivers/clk/rockchip/clk-rk3228.c:140:48: note: place parentheses
-> around the string literal to silence warning
-> PNAME(mux_pll_src_4plls_p)      = { "cpll", "gpll", "hdmiphy" "usb480m" };
->                                                     ^
-> 1 warning generated.
+> Thank you for the patch! Yet something to improve:
 > 
-> Given the name of the variable and the same variable name in rv1108, it
-> seems that this should have been four distinct elements. Fix it up by
-> adding the comma as suggested.
-> 
-> Fixes: 307a2e9ac524 ("clk: rockchip: add clock controller for rk3228")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1123
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> ---
+> [auto build test ERROR on net-next/master]
+> [also build test ERROR on linus/master]
+> [cannot apply to net/master hch-configfs/for-next sparc-next/master v5.8 next-20200811]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch]
 
-Looks good to me. I can pick it up for clk-fixes if Heiko agrees.
+hi test robot,
+
+thanks for the report.
+
+6d04fe15f78a ("net: optimize the sockptr_t for unified kernel/user
+address spaces") has been reverted, so I will not sent patch v2 for this
+build error.
+
+Miles
+
+> url:    https://github.com/0day-ci/linux/commits/Miles-Chen/net-untag-pointer-in-sockptr_is_kernel/20200811-18303
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git bfdd5aaa54b0a44d9df550fe4c9db7e1470a11b8
+> config: x86_64-randconfig-a013-20200811 (attached as .config)
+> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 4f2ad15db535873dda9bfe248a2771023b64a43c)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install x86_64 cross compiling tool for clang build
+>         # apt-get install binutils-x86-64-linux-gnu
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
+> 
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+> 
+> All errors (new ones prefixed by >>):
+> 
+>    In file included from net/ipv6/af_inet6.c:29:
+>    In file included from include/linux/net.h:24:
+> >> include/linux/sockptr.h:23:24: error: implicit declaration of function 'untagged_addr' [-Werror,-Wimplicit-function-declaration]
+>            return (unsigned long)untagged_addr(sockptr.kernel) >= TASK_SIZE;
+>                                  ^
+>    1 error generated.
+> --
+>    In file included from net/ipv6/udp.c:24:
+>    In file included from include/linux/net.h:24:
+> >> include/linux/sockptr.h:23:24: error: implicit declaration of function 'untagged_addr' [-Werror,-Wimplicit-function-declaration]
+>            return (unsigned long)untagged_addr(sockptr.kernel) >= TASK_SIZE;
+>                                  ^
+>    net/ipv6/udp.c:1029:30: warning: no previous prototype for function 'udp_v6_early_demux' [-Wmissing-prototypes]
+>    INDIRECT_CALLABLE_SCOPE void udp_v6_early_demux(struct sk_buff *skb)
+>                                 ^
+>    net/ipv6/udp.c:1029:25: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    INDIRECT_CALLABLE_SCOPE void udp_v6_early_demux(struct sk_buff *skb)
+>                            ^
+>                            static 
+>    net/ipv6/udp.c:1070:29: warning: no previous prototype for function 'udpv6_rcv' [-Wmissing-prototypes]
+>    INDIRECT_CALLABLE_SCOPE int udpv6_rcv(struct sk_buff *skb)
+>                                ^
+>    net/ipv6/udp.c:1070:25: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    INDIRECT_CALLABLE_SCOPE int udpv6_rcv(struct sk_buff *skb)
+>                            ^
+>                            static 
+>    2 warnings and 1 error generated.
+> 
+> vim +/untagged_addr +23 include/linux/sockptr.h
+> 
+>     20	
+>     21	static inline bool sockptr_is_kernel(sockptr_t sockptr)
+>     22	{
+>   > 23		return (unsigned long)untagged_addr(sockptr.kernel) >= TASK_SIZE;
+>     24	}
+>     25	
+> 
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/159721875227.33733.9237826555988566719%40swboyd.mtv.corp.google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1597223851.5467.12.camel%40mtkswgap22.
