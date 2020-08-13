@@ -1,133 +1,136 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBTXI2X4QKGQEEHQFL6I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCIO53XE7YHBBZPM2X4QKGQEBE55QYQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe3e.google.com (mail-vs1-xe3e.google.com [IPv6:2607:f8b0:4864:20::e3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id CE27B243E0D
-	for <lists+clang-built-linux@lfdr.de>; Thu, 13 Aug 2020 19:11:43 +0200 (CEST)
-Received: by mail-vs1-xe3e.google.com with SMTP id 185sf1350390vsl.22
-        for <lists+clang-built-linux@lfdr.de>; Thu, 13 Aug 2020 10:11:43 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1597338703; cv=pass;
+Received: from mail-ua1-x93c.google.com (mail-ua1-x93c.google.com [IPv6:2607:f8b0:4864:20::93c])
+	by mail.lfdr.de (Postfix) with ESMTPS id C2767243E2B
+	for <lists+clang-built-linux@lfdr.de>; Thu, 13 Aug 2020 19:20:38 +0200 (CEST)
+Received: by mail-ua1-x93c.google.com with SMTP id m13sf1838778ual.0
+        for <lists+clang-built-linux@lfdr.de>; Thu, 13 Aug 2020 10:20:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1597339237; cv=pass;
         d=google.com; s=arc-20160816;
-        b=DInkbAG5H7QldI8EeF7vTkHLlT+keGgiBsNHg6z77YgG2/dPQjtkkBJ9aTMy7eRbP8
-         IGH76WWyGERh6GcYOROG4i8TdHhXLby/vJl0/NbLXOFA0eC5MwOEp+M07Z5m2bYxnHdh
-         YoENXY6VQdEaADhsG/EoUs9Otr7B4qgLn50Is5xCJZOTTEquxseLL13iaN1mTbaDok51
-         pk8qkuGzf5OiTb416umM++Q6Kr9mxlb2yZZ7ODZepchQzvUdE46QaOdMM+ImelZ2mzZO
-         wntKMJcQ4zezzKD7GR+2uZleE75RxfkZ7M6gqIyNuwgE8uxG/Cqln68Libx4AxakTd29
-         9J6Q==
+        b=V62A97gdfg5BQvbjNjv8p6ha1HUY3nCXDc2vLj6YLCLMPBkfyneyfw55hCLU75DsyU
+         l/o6/PivRbgU695Zq8qRMpa9mouKuWXVOasekiFXoA0+usgj1PjBJcSMR67tcPkhQvUd
+         DBkM1Y4KC7nEy9PTt0/hH3BFfS8Y9a0oOVKGxbU3mf4Cf3OFtIT+MAnWbyrLvc7i7M1M
+         PPv6ZKmNi1a2jySYD4qCkfU85V3D75dwY5Sj2+yxSLwyL95xn9MEYztrhR25Vcxus/Sj
+         c8sv0wVrFlxHMVPzSuaNK2EyH1GKK1gjxHLRsJPHq66bH/3gAqyRl7cKiLMY7LJPDh7Y
+         LELA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:sender
          :dkim-signature;
-        bh=HxyCpV0q5m3vjQ53QGIcloLMf0lKFQeWMlVL2+8pc3w=;
-        b=a73qbYV8YBqvNodfpQtJ+4MQa0rvOTlM/CiXX6ISW887xTY5VlbBhwwqL0O3fnB67c
-         ZLUUA7UQ5CLqg6VidbjiUCI5eRTk9DdQZMN8aozYcJrcjxOih+iZW+ytQkW2SnMyU5r6
-         52eN8Uc7q1GLLJVCNxzgIxKn+V1lHUzcD4Vd3w0tmGacvjykED1Gyveicq5+4uTl1Yme
-         swJABZAubkWRm6BMxdDKSAEPWJwMGd8T1yR3omzEpdzKWfs2Ko0uVE4ti4cJA/8ot8bF
-         NQoABAjX3LL0d5lIzK0wKJw9YfpIcppUtEo7475wQWPAHPxoS1K1XxjUsaxSBKk3FoYC
-         dtTA==
+        bh=asiDhEoCFxZvf24tb8mhc1fpmuqsV0dniJf/48J8rYs=;
+        b=QrCNk2hZVZKKXqptSU6egJDz3cZpqxpeSoF7/L1cYPpFsn4UMBWWSpm7OieC9EyyAp
+         ex5/xkCDefSlkkERREJRIY0T2FpYjNSwjJ5gfJk6qQ4vYwNfCqDdGo54kzKo5oCw1Ye/
+         lpHYxL/D6IYqCRy1/rkIsIL781ckayhUHeM8UTmHQM7DXq37yfbs52y9UH0UiLKKlDqU
+         8XmzTF4AcKR9HGQXm6ynelCG3og0fmzL/v3U9uvjjVUtiCR7dsnE1YyPeF7CpLteM84i
+         16/hQHvZTbnaabilh9S2t5oA798lUCOpLK+vurjyK482SFFogYrDttUchgY/36hGfIul
+         Y3Vg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=j9c4vOj6;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.90 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Y+gd0VU0;
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f41 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        d=gmail.com; s=20161025;
+        h=sender:from:date:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=HxyCpV0q5m3vjQ53QGIcloLMf0lKFQeWMlVL2+8pc3w=;
-        b=Ykr/kHW8AGUP4xBJwEQxvr04eIiALBokSaAi7Z9O2g7eLY6Lt4whSYE58hIqZo17fq
-         jDNncdDYfziH3yXgpFwOjJX3j3oWAnlfwcviG93Ig2VKUOg6TgYF/dz9UgijqACcI6fV
-         BGUIBCffhRJ2UlxHKEyG6e3W8ZX/kPK6Pog5m5ysMYejDUgfZ7/68SbQfINN6mc5zgv7
-         4xSh/ZkdWQOKiUfejrPoczxZubpVFtfSJdDythM4xuPREeZBNSb0VYYs5cramAjr7DO3
-         /Mb8bpGv7B3hTzb/o1S+fzjqO9GE2jB9I5iqcIt6gZxyHjcF0wle2rLUrpSTV+ZgzHlM
-         gN6A==
+        bh=asiDhEoCFxZvf24tb8mhc1fpmuqsV0dniJf/48J8rYs=;
+        b=bAnRY8ATtooiNjH0kDuNcbHrADvUSMozLpTRqce2eHQ2LpmWSpBCObHYYF4gSxtc3U
+         Hm5CeCWQlBgo9Q0BMrw0ArWEqtpgHB2b/KfbhYvaLDSaaYIGMMm52V6YT0ZmWtLU2kia
+         0JrmUfCkdWVmFpBSkLLId6cSDaDMv2lAQLpWp+XO2hByQuiW1iqu9h4bcsT6AavQZSpe
+         yeMRS8Yv0nGcZjUttyo/x0exFbNgoMJHfu8IZDaRQg6mlkgmQvNFlIEJTjlw4gOlb/2l
+         84qViyHtfNI6qNH7VaqWiZoUYPsGrBPcNIBu4gjXbZNuv6gD/eJmOc2rHoV6wfyMPMiS
+         LAng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=HxyCpV0q5m3vjQ53QGIcloLMf0lKFQeWMlVL2+8pc3w=;
-        b=HM7HyLgmESMmWUgSAHmwxlKFcAEP4wQ772ekrUSEnfWwoFQYwJ3gdb+xsb5Pv+2Beo
-         UbZJjyiXguyKlZx+wj8wfjhjzev3JFRrNcJBAYKTRhTAjPtI+UThIIsGJehAdxCnN8RE
-         YOaR6I/cufQP8QgvYY8WnaflKm7AmTGt0JUy6Ld/EyR7m0g9l/nBlz20jotOXI5yQasa
-         oJVfENl7AxsQfP0/3ua4rZFvnMk1xdFnuv/v86Kz7aGGvo0o8xYbA+ZNMFSAvYcRXuGd
-         33twM5mq3WCYEFX31SSqqdSWZAy/iM1bGTiRvOOW4yylQ5E9MDo6lh45cwMsbhvbG1zS
-         rGyA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531VY8+S2TR2GY/S0daVJ2MxGOiJip/7Ak7teh9XFiGOCjgwCOwT
-	0yX+RxTwFLxrUYsHtxy8fwE=
-X-Google-Smtp-Source: ABdhPJxl1Le+A603ttPVO4kj5ARH8kARCr0+Jsyx66SpMVlFFtnxy9+fv0yAfT8KYk1ts68LYYZlRg==
-X-Received: by 2002:a05:6102:538:: with SMTP id m24mr4456906vsa.40.1597338702769;
-        Thu, 13 Aug 2020 10:11:42 -0700 (PDT)
+        h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=asiDhEoCFxZvf24tb8mhc1fpmuqsV0dniJf/48J8rYs=;
+        b=sXOlENvz6NJ/eq1Wv8psT3eN+hLpdHNZpqmwnG5z2urNcfKW/jKm6KKO1hW6Zm0cm9
+         dKvb3tV39apiMZaOuChOGL2s1bMjPSMk9V4V4Euj4xi4Isby5Mplzqw1OkRlPfXA1RW3
+         GAv2NCyLk/k5J7IkmznmTwmQ9v7jthl9pMSz+xmIu+hrlON2xeNFhqnl+GkkSNJMUHse
+         F55nRh7T91wmiTPs9sXsCilUNkph/nR0iR2rBskTiXZpUJtd3+lpWN4jk3jtIOMHP3nV
+         JS1JoVqqR4lSM7yJDAS8rrS8aD6VbAvPZNB4+OogsivCDUs47WbT1WSaEMrFPfN2eR5z
+         Jfvw==
+X-Gm-Message-State: AOAM530qdtv1Iq9djM5Lmo8iYUwyhOcvmOfn8qIxwTW33mUBQ6zEQ3Km
+	J2EQ9WxMeyN/aDFGUIfUmN4=
+X-Google-Smtp-Source: ABdhPJxQs4UXgr/i0Y+eztjOXZmbwOtMyF74+yKY8bkocRfQtI4+24/7OpfXHaeECGRII34c51LBFA==
+X-Received: by 2002:a05:6102:311a:: with SMTP id e26mr4474308vsh.86.1597339237679;
+        Thu, 13 Aug 2020 10:20:37 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:fc0c:: with SMTP id o12ls761034vsq.9.gmail; Thu, 13 Aug
- 2020 10:11:42 -0700 (PDT)
-X-Received: by 2002:a05:6102:1049:: with SMTP id h9mr4177120vsq.183.1597338702248;
-        Thu, 13 Aug 2020 10:11:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1597338702; cv=none;
+Received: by 2002:a05:6102:153:: with SMTP id a19ls763062vsr.11.gmail; Thu, 13
+ Aug 2020 10:20:37 -0700 (PDT)
+X-Received: by 2002:a05:6102:9ca:: with SMTP id g10mr4257701vsi.231.1597339237274;
+        Thu, 13 Aug 2020 10:20:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1597339237; cv=none;
         d=google.com; s=arc-20160816;
-        b=th1bcAoQvYTN9djvghfRNkK0pe1vutlQ8qhg4zHN9f/oMLRRDyMOCNXR/GypdKbZjx
-         mBeSptdKBdRPlWInfGQTgbthKNsrLiwQjsfZHNpyziI0Ny6+DVxzsx1zp9J9Xeib+ZaV
-         HEhyAXA6Brc1h4vgjHZ3gLwZ5lTVdHwKzaGxGNr3lWllDARS14ik0ksv2C9z3CfXGEdp
-         mu8b+2tC/C+Lroct8tlok6pID7JoI/nyYMUukREi6RNNZPQipE6QvZtj7llsK6I2U57s
-         YmRFuoFar+d9OPjMM6Z5CKeuhCOucLeHv8mbjqgSVmmBeNHQlnv43QXAgaKiFdv3wqly
-         /kDA==
+        b=Z9jrb1guWek6BS+z/ldQYG1sZ3KNdRe6N46ZzbHiS/QUofi4zE6GbVcZ/w8ppM/e3x
+         qVrmxr9hEN35uuE2gTNKRFU83H/QVhU9R3e9m7jxcrBaU+l5aE+BlePHz6rfmCI9eoGU
+         kk0K0srAe7rdE0EnOYtpd9bJiWI52/HJ6B5wfKCdZRF5tPwhxgEYkpf7a1sbNRxWL1WA
+         /ySSmOksqZhoAlygx9oIneJn1siAM/m/aLV+IQiPFF9NTEhaWEHd+jaJ/v6Uh+pdB2xy
+         UKSwiKL+07wvxT1g09BSIkXj3ZNZOWlom3RAF7mR6ryUtTLgSH+i/t9qOd3IO9wlkfFj
+         neXw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=COmQxRVtKoK6go1MGbVESX1DsQBEwLsqKClULz5PF3M=;
-        b=JURPIUC96bEF/RpHYk5rFISbkmlpQjruxzRh9MXOETCSINXIeA4W4MjlxYdY6ZeHqq
-         j/aIrxIPLJ/iHvLQoweAUdV/tDr6s0p0aiOM4AN3scG3w5gx7KO1HW+I7VP3nWnEPcwi
-         79TXxOfV/r0HzFn6gP+8AmIopAuEdDfC9+uFjUUkHcX4uvCdCLYCoADveTdc4zGsyvDk
-         6x4PCCX9JY/2fBvgr4nqd8/vxFQWCClK9soTw4o8T8pu5ia6Bg27CyMwtz4Kl80JMAuV
-         7EvEyKYQsvf/pPRAuaPgAh6k+45YkC8tHOHZ/D5BNjFFnJS2dScfItD5mmU61GdZf+db
-         PzIw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:sender:dkim-signature;
+        bh=Kye36mnZDsF2A6OcubUre0+uzmNqlOm7WRuMdcfkesA=;
+        b=hWw5x9vLqaE9WtOfBKgazdYXY9+euuiG6VHG1Ivc/8WSgWJvjG2npoj6jJI3N7g4So
+         m7+GkEPsdJcPlExpBOBjxHQIopvE+fiPzQd1JoCw5NZRsQBf+hYyx4SEvtSg+fSRnL9m
+         XB/VT4WAdfksHPulpjmulOp4Uf2/s5zjPrruB94JlGaHH05Tgdb4Q+SCx0LEMxSof5ni
+         W8zpBaJjTFwe749yoq+sEPHLSBJcLw5BImImKNHXnTcU5HClGTmsVpk3CEvOfg0so30I
+         5JXy1pq5+5oalGva6HrJk4zkstKgNs81jVRvp2Q+LrjG3Gebc+LPVCiCv2HFtEetgchq
+         iIKw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=j9c4vOj6;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.90 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-05.nifty.com (conssluserg-05.nifty.com. [210.131.2.90])
-        by gmr-mx.google.com with ESMTPS id t72si419407vkd.5.2020.08.13.10.11.41
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Y+gd0VU0;
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f41 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+Received: from mail-qv1-xf41.google.com (mail-qv1-xf41.google.com. [2607:f8b0:4864:20::f41])
+        by gmr-mx.google.com with ESMTPS id s126si410892vkd.1.2020.08.13.10.20.37
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 13 Aug 2020 10:11:42 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.90 as permitted sender) client-ip=210.131.2.90;
-Received: from mail-vs1-f46.google.com (mail-vs1-f46.google.com [209.85.217.46]) (authenticated)
-	by conssluserg-05.nifty.com with ESMTP id 07DHBOeS031362
-	for <clang-built-linux@googlegroups.com>; Fri, 14 Aug 2020 02:11:24 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-05.nifty.com 07DHBOeS031362
-X-Nifty-SrcIP: [209.85.217.46]
-Received: by mail-vs1-f46.google.com with SMTP id j188so3305406vsd.2
-        for <clang-built-linux@googlegroups.com>; Thu, 13 Aug 2020 10:11:24 -0700 (PDT)
-X-Received: by 2002:a67:7c11:: with SMTP id x17mr4663305vsc.155.1597338683304;
- Thu, 13 Aug 2020 10:11:23 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200812173958.2307251-1-masahiroy@kernel.org>
- <20200812173958.2307251-3-masahiroy@kernel.org> <CAKwvOdkL=667+cw_Rxq_5zaOKeTTptsMaxkkSXBic9QxozOWVg@mail.gmail.com>
-In-Reply-To: <CAKwvOdkL=667+cw_Rxq_5zaOKeTTptsMaxkkSXBic9QxozOWVg@mail.gmail.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Fri, 14 Aug 2020 02:10:46 +0900
-X-Gmail-Original-Message-ID: <CAK7LNAS4EjGchNzqhEcTPTU0mOUqAk8nF9QYW3qwfOp572uCHA@mail.gmail.com>
-Message-ID: <CAK7LNAS4EjGchNzqhEcTPTU0mOUqAk8nF9QYW3qwfOp572uCHA@mail.gmail.com>
-Subject: Re: [PATCH 2/3] gen_compile_commands: wire up build rule to Makefile
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 Aug 2020 10:20:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f41 as permitted sender) client-ip=2607:f8b0:4864:20::f41;
+Received: by mail-qv1-xf41.google.com with SMTP id cs12so2989140qvb.2
+        for <clang-built-linux@googlegroups.com>; Thu, 13 Aug 2020 10:20:37 -0700 (PDT)
+X-Received: by 2002:ad4:438f:: with SMTP id s15mr5884726qvr.164.1597339236714;
+        Thu, 13 Aug 2020 10:20:36 -0700 (PDT)
+Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
+        by smtp.gmail.com with ESMTPSA id k5sm6197671qke.18.2020.08.13.10.20.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Aug 2020 10:20:36 -0700 (PDT)
+Sender: Arvind Sankar <niveditas98@gmail.com>
+From: Arvind Sankar <nivedita@alum.mit.edu>
+Date: Thu, 13 Aug 2020 13:20:34 -0400
 To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        Nathan Huckleberry <nhuck@google.com>,
-        Tom Roeder <tmroeder@google.com>,
-        clang-built-linux <clang-built-linux@googlegroups.com>,
-        Michal Marek <michal.lkml@markovi.net>,
-        LKML <linux-kernel@vger.kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	Zhenzhong Duan <zhenzhong.duan@oracle.com>,
+	Kees Cook <keescook@chromium.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juergen Gross <jgross@suse.com>, Andy Lutomirski <luto@kernel.org>,
+	Andrew Cooper <andrew.cooper3@citrix.com>,
+	LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH] x86: work around clang IAS bug referencing __force_order
+Message-ID: <20200813172034.GA500410@rani.riverdale.lan>
+References: <20200527135329.1172644-1-arnd@arndb.de>
+ <878serh1b9.fsf@nanos.tec.linutronix.de>
+ <CAKwvOdnOh3H3ga2qpTktywvcgfXW5QJaB7r4XMhigmDzLhDNeA@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
+Content-Disposition: inline
+In-Reply-To: <CAKwvOdnOh3H3ga2qpTktywvcgfXW5QJaB7r4XMhigmDzLhDNeA@mail.gmail.com>
+X-Original-Sender: nivedita@alum.mit.edu
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=j9c4vOj6;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.90 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@gmail.com header.s=20161025 header.b=Y+gd0VU0;       spf=pass
+ (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f41
+ as permitted sender) smtp.mailfrom=niveditas98@gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,379 +143,109 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Aug 13, 2020 at 7:30 AM 'Nick Desaulniers' via Clang Built
-Linux <clang-built-linux@googlegroups.com> wrote:
->
-> On Wed, Aug 12, 2020 at 10:40 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
+On Wed, Aug 12, 2020 at 05:12:34PM -0700, Nick Desaulniers wrote:
+> On Thu, Aug 6, 2020 at 3:11 PM Thomas Gleixner <tglx@linutronix.de> wrote:
 > >
-> > Currently, you need to explicitly run scripts/gen_compile_commands.py
-> > to create compile_commands.json. It traverses the object tree
-> > (you need to pass the -d option to deal with a separate output tree),
-> > and parses all the .*.cmd file found.
+> > Arnd Bergmann <arnd@arndb.de> writes:
+> > > When using the clang integrated assembler, we get a reference
+> > > to __force_order that should normally get ignored in a few
+> > > rare cases:
+> > >
+> > > ERROR: modpost: "__force_order" [drivers/cpufreq/powernow-k6.ko] undefined!
+> > >
+> > > Add a 'static' definition so any file in which this happens can
+> > > have a local copy.
 > >
-> > If you rebuild the kernel over again without 'make clean', stale
-> > .*.cmd files from older builds will create invalid entries in
-> > compile_commands.json.
->
-> Definitely a problem; happy to see compile_commands.json added to
-> `make clean` target, too.
->
+> > That's a horrible hack.
+> 
+> Agreed.  And static means everyone gets their own copy, rather than
+> sharing one memory address.  I guess no one actually writes to it, so
+> it doesn't really matter, but __force_order just seems so strange to
+> me.
+> 
+> > And the only reason why it does not trigger -Wunused-variable warnings
+> > all over the place is because it's "referenced" in unused inline
+> > functions and then optimized out along with the unused inlines.
 > >
-> > This commit wires up the compile_commands.json rule to the top
-> > Makefile, and makes it parse .*.cmd files only from the current build
-> > to avoid stale entries.
+> > >   * It is not referenced from the code, but GCC < 5 with -fPIE would fail
+> > >   * due to an undefined symbol. Define it to make these ancient GCCs
+> > >   work.
 > >
-> > It is possible to extract only relevant .*.cmd files by checking
-> > $(KBUILD_VMLINUX_OBJS), $(KBUILD_VMLINUX_LIBS), and modules.order.
-> > The objects or archives linked to vmlinux are listed in
-> > $(KBUILD_VMLINUX_OBJS) or $(KBUILD_VMLINUX_LIBS). All the modules are
-> > listed in modules.order.
+> > Bah, we really should have moved straight to GCC5 instead of upping it
+> > just to 4.9
 > >
-> > You can create compile_commands.json from Make:
+> > > + *
+> > > + * Clang sometimes fails to kill the reference to the dummy variable, so
+> > > + * provide an actual copy.
 > >
-> >   $ make -j$(nproc) CC=clang compile_commands.json
+> > Can that compiler be fixed instead?
+> 
+> I don't think so. The logic in the compiler whether to emit an
+> "address is significant" assembler directive is based on whether the
+> variable is "used."  The "use" of `__force_order` is as output of all
+> of these control register read/write functions' inline asm, even
+> though the inline asm doesn't actually write to them.  We'd have to
+> peek inside of the inline asm and build "use/def chains" for the
+> inline asm, to see that you don't actually use the output variable.
+> Best we can do is see it listed as an output to the inline asm
+> statement.  And if you reference an `extern` variable, it should be no
+> wonder that you can get undefined symbol linkage failures.
+> 
+> I'd much rather remove all of __force_order.
+> 
 > >
-> > Of course, you can build vmlinux, modules, and compile_commands.json
-> > all together in a single command:
-> >
-> >   $ make -j$(nproc) CC=clang all compile_commands.json
-> >
-> > It works also for M= builds. In this case, compile_commands.json
-> > is created in the top directory of the external module.
-> >
-> > I hope this will be overall improvements, but it has a drawback;
-> > the coverage of the compile_commands.json is reduced because only
-> > the objects linked to vmlinux or modules are handled. For example,
-> > the following C files are not included in compile_commands.json:
-> >
-> >  - Decompressor source files (arch/*/boot/compressed/)
-> >  - VDSO source files
-> >  - C files used to generate intermediates (e.g. kernel/bounds.c)
-> >  - standalone host programs
->
-> Oof, for an x86_64 defconfig, the difference in line count of
-> compile_commands.json
-> before: 12826
-
-
-I think some lines of 'before'
-are not so important.
-
-Files suffixed with *.mod.c
-are generated sources for modules.
-There is no point to check them by Clang tools.
-
-
-Some entries appear twice:
-
-For example, 'before' contains two entries of
-"file": "lib/cmdline.c"
-Which entry is used by 'clang-tidy lib/cmdline.c',
-the first one, the second one, or both?
-
-
-
-Having said that, there is still a loss of more than 3%, yes.
-
-
-> after: 12351
->
-> That's a loss of 475 (3.7% of 12826) coverage. Is there something more
-> we can do to preserve this functionality, while avoiding stale .cmd
-> files?
-
-
-I have no idea how to do this correctly.
-
-> Is it that those aren't specified by `$(KBUILD_VMLINUX_OBJS)
-> $(KBUILD_VMLINUX_LIBS)` ?
-
-These variables contain only objects and archives
-linked to vmlinux.
-
-
-
-
-For example, VDSO is built as a prerequisite of
-another object that wraps it.
-
-See line 61 of arch/arm64/kernel/vdso/Makefile:
-$(obj)/vdso.o : $(obj)/vdso.so
-
-
-I do not know how to get the full list of active objects,
-some of which are built on demand
-in the dependency chain.
-
-
-Idea 1)
-Merge this series, and accept the loss.
-
-
-Idea 2)
-Add Makefile targets,
-and also keep the previous work-flow.
-
-When you run it from Make,
-only objects for vmlinux and modules are handled.
-
-When you need the full coverage, including non-kernel-space
-sources, run scripts manually:
-
-$ scripts/clang-tools/gen_compile_commands.py
-$ scripts/clang-tools/run-clang-tools.py clang-tidy
-
-
-Idea 3)
-Give up supporting it from Makefile.
-Instead, improve gen_scripts_commands.py
-as a standalone program.
-
-
-Maybe we can check whether the compiler is Clang or not.
-We can run '<compiler> --version' and drop the
-entry if it is GCC.
-
-Usually, the compiler is the first word of
-the "command" field in compile_commands.json,
-but there are exceptions because
-people may do CC="ccache clang".
-
-
-If there are still stale entries causing troubles,
-you need to run 'make clean', and rebuild the tree.
-
-
-We were trying to have separate scripts,
-gen_compile_commands.py and run-clang-tools.py,
-and to add Makefile targets to run them in a row.
-
-I think unifying the two scripts
-might be handier.
-
-
-Add two options, -t, -a,
-to scripts/gen_compile_commands.py
-
-If they are given,
-scripts/gen_compilile_commands.py
-generates compile_commands.json,
-and immediately runs clang-tidy against it.
-
-
--t, --tidy
-   Run 'clang-tidy -checks=-*,linuxkernel-*' after generating
-compilation database
--a, --analyzer
-   Run 'clang-tidy -checks=-*,clang-analyzer-*' after generating
-compilation database
-
-
-Both -a and -t are given,
-it runs
-'clang-tidy -checks=-*,linuxkernel-*,clang-analyzer-*'
-
-This works more efficiently
-if you want to check everything.
-
-
-'make clang-tidy clang-analyzer'
-will invoke clang-tidy twice for each file,
-which is not very efficient.
-
-
-
-
-> >  clean-dirs := $(KBUILD_EXTMOD)
-> > -clean: rm-files := $(KBUILD_EXTMOD)/Module.symvers $(KBUILD_EXTMOD)/modules.nsdeps
-> > +clean: rm-files := $(KBUILD_EXTMOD)/Module.symvers $(KBUILD_EXTMOD)/modules.nsdeps \
-> > +       $(KBUILD_EXTMOD)/compile_commands.json
->
-> So the `clean` target doesn't make use of `CLEAN_FILES`? It looks like
-> there's some duplication there?  Oh, this is dependent on
-> !KBUILD_EXTMOD, and is a new `clean` target. Do I understand that
-> correctly?
-
-Correct.
-
-We can move CLEAN_FILES to a common part
-so external module builds can use it.
-
-> >      """
-> >      usage = 'Creates a compile_commands.json database from kernel .cmd files'
-> >      parser = argparse.ArgumentParser(description=usage)
-> >
-> > -    directory_help = ('Path to the kernel source directory to search '
-> > -                      '(defaults to the working directory)')
-> > -    parser.add_argument('-d', '--directory', type=str, help=directory_help)
-> > +    ar_help = 'command used for parsing .a archives'
-> > +    parser.add_argument('-a', '--ar', type=str, default='ar', help=ar_help)
->
-> Might be nice to warn if run with no arguments? In case someone does:
-> $ ./scripts/clang-tools/gen_compile_commands.py
-
-Right.
-
-nargs='+' seems to work.
-
-
-
-> > +    # Collect objects compiled for vmlinux or modules
-> > +    objects = []
-> > +    for file in files:
-> > +        if file.endswith('.o'):
-> > +            # Some objects (head-y) are linked to vmlinux directly
-> > +            objects.append(file)
-> > +        elif file.endswith('.a'):
-> > +            # Most of built-in objects are linked via built-in.a or lib.a.
-> > +            # Use 'ar -t' to get the list of the contained objects.
-> > +            objects += subprocess.check_output([ar, '-t', file]).decode().split()
-> > +        elif file.endswith('modules.order'):
-> > +           # modules.order lists all the modules.
-> > +            with open(file) as f:
->
-> `file` is another builtin (or at least was in Python2), perhaps `filename`?
->
-> > +                for line in f:
-> > +                    ko = line.rstrip()
-> > +                    base, ext = os.path.splitext(ko)
-> > +                    if ext != '.ko':
-> > +                        sys.exit('{}: mobule path must end with .ko'.format(ko))
-> > +                    mod = base + '.mod'
-> > +                   # The first line of *.mod lists the objects that
-> > +                   # compose the module.
->
-> This comment and the one above it uses tabs for indentation vs spaces
-> for the rest of the file.  I use
-> https://github.com/nickdesaulniers/dotfiles/blob/a90865a9ea48bbefa0082f7508607fdeb361e801/.vimrc#L37-L43
-> to help me catch these.
-
-Awesome. Copied to mine.
-
-
-
-> > +                    with open(mod) as mod_f:
-> > +                        objects += mod_f.readline().split()
-> > +        else:
-> > +            sys.exit('{}: unknown file type'.format(file))
->
-> Consider breaking up this one long function into multiple, perhaps the
-> above could just return `objects`?
-
-
-
-I thought that returning a big list causes needless memory-copy.
-If we do not need to be worried too much,
-I can make it a helper function.
-
-
->
-> >
-> >      compile_commands = []
-> > -    for dirpath, _, filenames in os.walk(directory):
-> > -        for filename in filenames:
-> > -            if not filename_matcher.match(filename):
-> > -                continue
-> > -            filepath = os.path.join(dirpath, filename)
-> > -
-> > -            with open(filepath, 'rt') as f:
-> > -                line = f.readline()
-> > -                result = line_matcher.match(line)
-> > -                if result:
-> > -                    try:
-> > -                        entry = process_line(directory, dirpath,
-> > -                                             result.group(1), result.group(2))
-> > -                        compile_commands.append(entry)
-> > -                    except ValueError as err:
-> > -                        logging.info('Could not add line from %s: %s',
-> > -                                     filepath, err)
-> > +    cwd = os.getcwd()
-> > +    for object in objects:
-> > +        dir, notdir = os.path.split(object)
->
-> `object` is a builtin Class in python.  I'm not sure if it's quite
-> considered a keyword, but maybe a different identifier would be nicer,
-> like `object_file` or something?
-
-
-Not a keyword, but 'object' is a class, yes.
-Not sure about 'file'.
-
-
-$ python
-Python 3.8.2 (default, Jul 16 2020, 14:00:26)
-[GCC 9.3.0] on linux
-Type "help", "copyright", "credits" or "license" for more information.
->>> import keyword
->>> keyword.iskeyword("import")
-True
->>> keyword.iskeyword("if")
-True
->>> keyword.iskeyword("file")
-False
->>> keyword.iskeyword("object")
-False
->>> object
-<class 'object'>
->>> file
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'file' is not defined
->>>
-
-
-If this is a problem, I can rename it.
-
-
-
-
-> > +        cmd_file = os.path.join(dir, '.' + notdir + '.cmd')
-> > +        with open(cmd_file, 'rt') as f:
-> > +            line = f.readline()
-> > +            result = line_matcher.match(line)
->
-> ^ combine statements.
-
-OK.
-
-
-> > +            if result:
-> > +                entry = process_line(cwd, result.group(1), result.group(2))
-> > +                compile_commands.append(entry)
-> >
-> >      with open(output, 'wt') as f:
-> >          json.dump(compile_commands, f, indent=2, sort_keys=True)
-> >
-> > -    count = len(compile_commands)
-> > -    if count < _LOW_COUNT_THRESHOLD:
-> > -        logging.warning(
-> > -            'Found %s entries. Have you compiled the kernel?', count)
-> > -
-> > -
-> >  if __name__ == '__main__':
-> >      main()
-> > --
-> > 2.25.1
-> >
->
-> Thank you for your assistance and help enabling these tools.
->
-> --
-> Thanks,
-> ~Nick Desaulniers
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkL%3D667%2Bcw_Rxq_5zaOKeTTptsMaxkkSXBic9QxozOWVg%40mail.gmail.com.
-
-
-
---
-Best Regards
-Masahiro Yamada
+> > Aside of that is there a reason to make this 'static' thing wrapped in
+> > #ifdeffery? A quick check with GCC8.3 just works. But maybe 4.9 gets
+> > unhappy. Can't say due to: -ENOANCIENTCOMPILER :)
+> 
+> >From the comment in arch/x86/boot/compressed/pgtable_64.c, there's a
+> hint that maybe gcc < 5 and -pie (CONFIG_RANDOMIZE_BASE?) would fail
+> due to undefined symbol, though I'm not sure which symbol the comment
+> is referring to.  If it's __force_order, then removing outright likely
+> fixes that issue.
+
+Yes, it's __force_order. Compressed kernel is always -fPIE, and gcc <5
+and clang will generate mov instructions with GOTPCREL relocations to
+load the address of __force_order into a register for use by the inline
+asm. gcc-5+ works because it doesn't use GOTPCREL for global variables,
+instead relying on the linker inserting copy relocations if necessary.
+
+> 
+> Not sure about the comment in arch/x86/include/asm/special_insns.h
+> either; smells fishy like a bug with a compiler from a long time ago.
+> It looks like it was introduced in:
+> commit d3ca901f94b32 ("x86: unify paravirt parts of system.h")
+> Lore has this thread:
+> https://lore.kernel.org/lkml/4755A809.4050305@qumranet.com/
+> Patch 4: https://lore.kernel.org/lkml/11967844071346-git-send-email-gcosta@redhat.com/
+> It seems like there was a discussion about %cr8, but no one asked
+> "what's going on here with __force_order, is that right?"
+> Latest GCC release on December 4 2007 would have been GCC 4.2.2 according to:
+> https://gcc.gnu.org/releases.html
+> 
+> Quick boot test of the below works for me, though I should probably
+> test hosting a virtualized guest since d3ca901f94b32 refers to
+> paravirt.  Thoughts?
+
+It's unclear if there was a real problem this fixes, but if there was
+I'd expect it on native, not paravirt, given it's native that has this
+__force_order hack?
+
+gcc's documentation of volatile extended asm includes a caveat.
+
+https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html#Volatile
+
+Near the end of 6.47.2.1:
+"Note that the compiler can move even volatile asm instructions relative
+to other code, including across jump instructions."
+
+and it provides an example of unexpected code motion, with the fix being
+adding an artificial dependency to the asm.
+
+So it might do something silly like reversing the order of two
+%crn writes, maybe?
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAS4EjGchNzqhEcTPTU0mOUqAk8nF9QYW3qwfOp572uCHA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200813172034.GA500410%40rani.riverdale.lan.
