@@ -1,136 +1,119 @@
-Return-Path: <clang-built-linux+bncBCIO53XE7YHBBZPM2X4QKGQEBE55QYQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDAMN6NI5EERBW7Q2X4QKGQELGEV7TA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93c.google.com (mail-ua1-x93c.google.com [IPv6:2607:f8b0:4864:20::93c])
-	by mail.lfdr.de (Postfix) with ESMTPS id C2767243E2B
-	for <lists+clang-built-linux@lfdr.de>; Thu, 13 Aug 2020 19:20:38 +0200 (CEST)
-Received: by mail-ua1-x93c.google.com with SMTP id m13sf1838778ual.0
-        for <lists+clang-built-linux@lfdr.de>; Thu, 13 Aug 2020 10:20:38 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1597339237; cv=pass;
+Received: from mail-lf1-x13a.google.com (mail-lf1-x13a.google.com [IPv6:2a00:1450:4864:20::13a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 17DFC243E4C
+	for <lists+clang-built-linux@lfdr.de>; Thu, 13 Aug 2020 19:29:00 +0200 (CEST)
+Received: by mail-lf1-x13a.google.com with SMTP id h10sf1402467lfp.14
+        for <lists+clang-built-linux@lfdr.de>; Thu, 13 Aug 2020 10:29:00 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1597339739; cv=pass;
         d=google.com; s=arc-20160816;
-        b=V62A97gdfg5BQvbjNjv8p6ha1HUY3nCXDc2vLj6YLCLMPBkfyneyfw55hCLU75DsyU
-         l/o6/PivRbgU695Zq8qRMpa9mouKuWXVOasekiFXoA0+usgj1PjBJcSMR67tcPkhQvUd
-         DBkM1Y4KC7nEy9PTt0/hH3BFfS8Y9a0oOVKGxbU3mf4Cf3OFtIT+MAnWbyrLvc7i7M1M
-         PPv6ZKmNi1a2jySYD4qCkfU85V3D75dwY5Sj2+yxSLwyL95xn9MEYztrhR25Vcxus/Sj
-         c8sv0wVrFlxHMVPzSuaNK2EyH1GKK1gjxHLRsJPHq66bH/3gAqyRl7cKiLMY7LJPDh7Y
-         LELA==
+        b=1G14IR3WaZ9xjAsKR7WvB2yxN8vEFUfuxo+b31Pju+mJxRDCVVgBEYQ5C4UTuT1dM2
+         rwd0GWEhufR92bB5+s4VDp7qwEmBYrA7gEtC4D6NibBjDoGMAETDfolkABMc9jiOEFBt
+         5jrsMj20WBfPmWmLT+181hlT6bp0ADJ2Hq24zmHsqr08hbnCudpZ0WQxW/m/s2Ld1Wxr
+         aPUCmnHm8uvOX5MdJN+OlEmnSJ+wgOqqq+fmNl7ZIeDuTvG/G7UwQXA8NAW9CPRa2n1o
+         DBGPcvIYLjL8D50qOYwggNWnz6Zb62CYD0VpG7XlJtxKR/8LHfV0+160lOCu+3Erl9KS
+         u4rw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:sender
-         :dkim-signature;
-        bh=asiDhEoCFxZvf24tb8mhc1fpmuqsV0dniJf/48J8rYs=;
-        b=QrCNk2hZVZKKXqptSU6egJDz3cZpqxpeSoF7/L1cYPpFsn4UMBWWSpm7OieC9EyyAp
-         ex5/xkCDefSlkkERREJRIY0T2FpYjNSwjJ5gfJk6qQ4vYwNfCqDdGo54kzKo5oCw1Ye/
-         lpHYxL/D6IYqCRy1/rkIsIL781ckayhUHeM8UTmHQM7DXq37yfbs52y9UH0UiLKKlDqU
-         8XmzTF4AcKR9HGQXm6ynelCG3og0fmzL/v3U9uvjjVUtiCR7dsnE1YyPeF7CpLteM84i
-         16/hQHvZTbnaabilh9S2t5oA798lUCOpLK+vurjyK482SFFogYrDttUchgY/36hGfIul
-         Y3Vg==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
+        bh=LyyrLNF14i5FUA+xwRKeIdaWCK6g3HCYiAGsgJsBfAc=;
+        b=UcnQJ2B1rFRrehsFuAoAp0muvgmqsjNUGFsuDoEtVKZj3Neh9VEwjYt2LWBG43OdGG
+         pgfn6QgzE4ndnp3m1R3X+7h1eDeN6+Tt3jHSQNwQDQApAA43UQBbXEB1Be3iyCjGGEZJ
+         qMNgPkvJfxEaiv9zyfm3cLml9UGsNkRCUyPA7bFrOYLiEEpCt41SgazGr5Q0L1LeJP3D
+         A2+MGiUzfOyeVBWRyQ5E59cWlbhsxmzOapnGk8piHR9jazvXBektkdmqZBAPCnrdVQxy
+         NbUMbIag2n2AjziqgK2BeAGkS/B/vDel4u9loYcRqeQe+WLTAgCF0D9PAM1cQ1j6RT/z
+         t0fg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Y+gd0VU0;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f41 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+       dkim=pass header.i=@linutronix.de header.s=2020 header.b=QVk6G8vB;
+       dkim=neutral (no key) header.i=@linutronix.de header.s=2020e;
+       spf=pass (google.com: domain of tglx@linutronix.de designates 193.142.43.55 as permitted sender) smtp.mailfrom=tglx@linutronix.de;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=linutronix.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=sender:from:date:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=asiDhEoCFxZvf24tb8mhc1fpmuqsV0dniJf/48J8rYs=;
-        b=bAnRY8ATtooiNjH0kDuNcbHrADvUSMozLpTRqce2eHQ2LpmWSpBCObHYYF4gSxtc3U
-         Hm5CeCWQlBgo9Q0BMrw0ArWEqtpgHB2b/KfbhYvaLDSaaYIGMMm52V6YT0ZmWtLU2kia
-         0JrmUfCkdWVmFpBSkLLId6cSDaDMv2lAQLpWp+XO2hByQuiW1iqu9h4bcsT6AavQZSpe
-         yeMRS8Yv0nGcZjUttyo/x0exFbNgoMJHfu8IZDaRQg6mlkgmQvNFlIEJTjlw4gOlb/2l
-         84qViyHtfNI6qNH7VaqWiZoUYPsGrBPcNIBu4gjXbZNuv6gD/eJmOc2rHoV6wfyMPMiS
-         LAng==
+        d=googlegroups.com; s=20161025;
+        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=LyyrLNF14i5FUA+xwRKeIdaWCK6g3HCYiAGsgJsBfAc=;
+        b=Ju0FO/2h+iFoSDB94R0sW9r0fPUw0flkiaSdaC/DL9ki0XbVDhnP2Xe53yJx0lyZ5D
+         ou2alZm9U0IKJSA7Ih/h7+GcGRWY0Vc0SmDWcNfCiawm4XSfLACcMt6yLGZr7mklPhri
+         DntdUrIiZbWF8sCqaOBWqc7ietTcTPBfmlJW6dDzwCKdREsU9x0MPpdrr7MD5cyP5XyL
+         qN3cnWtAX2zFE8KpCjqOCqsusGzGCDqrij//SEgIxJRGUG5l7/4r1IYuJneVCev7tKJk
+         gpMRUhyWaXl5QywNOppCRGm+7WDglHSYjknKiMCYvryZLQ4Mob427LMXqx+9c7N7fGjg
+         ca6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=asiDhEoCFxZvf24tb8mhc1fpmuqsV0dniJf/48J8rYs=;
-        b=sXOlENvz6NJ/eq1Wv8psT3eN+hLpdHNZpqmwnG5z2urNcfKW/jKm6KKO1hW6Zm0cm9
-         dKvb3tV39apiMZaOuChOGL2s1bMjPSMk9V4V4Euj4xi4Isby5Mplzqw1OkRlPfXA1RW3
-         GAv2NCyLk/k5J7IkmznmTwmQ9v7jthl9pMSz+xmIu+hrlON2xeNFhqnl+GkkSNJMUHse
-         F55nRh7T91wmiTPs9sXsCilUNkph/nR0iR2rBskTiXZpUJtd3+lpWN4jk3jtIOMHP3nV
-         JS1JoVqqR4lSM7yJDAS8rrS8aD6VbAvPZNB4+OogsivCDUs47WbT1WSaEMrFPfN2eR5z
-         Jfvw==
-X-Gm-Message-State: AOAM530qdtv1Iq9djM5Lmo8iYUwyhOcvmOfn8qIxwTW33mUBQ6zEQ3Km
-	J2EQ9WxMeyN/aDFGUIfUmN4=
-X-Google-Smtp-Source: ABdhPJxQs4UXgr/i0Y+eztjOXZmbwOtMyF74+yKY8bkocRfQtI4+24/7OpfXHaeECGRII34c51LBFA==
-X-Received: by 2002:a05:6102:311a:: with SMTP id e26mr4474308vsh.86.1597339237679;
-        Thu, 13 Aug 2020 10:20:37 -0700 (PDT)
+        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
+         :date:message-id:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=LyyrLNF14i5FUA+xwRKeIdaWCK6g3HCYiAGsgJsBfAc=;
+        b=Lc89cJcslnb3J40pCYYKoQHTV5BU1kKgzqJx/Nx26SZ3da9j9KAJTmIafCATZgaTp1
+         nOC1SsxLOKNgAfoZQfhGMMSEJ1Sru3afn81I/NQoNLaulNy7LJQkPx1VILerxQd6t4gR
+         zjWPAC+nepEO5cU3NSUsN6ybRcQ1t+VzgdJKvqkK9G8Lgg0Eptdh7Mdn0MzwsahhZy7u
+         usHNeNfPq1VXh3IgVIMKT8dlbGi7OG7MGUzvK5ib2+V+cYeUK2qQb/Fi5ITTWeatbjGA
+         2q1ivBbUFnTk4/aAcecUWzFNP+vSSNLjFnz0zjjhdA1W2sw5d9iKzVhz46cMlDrNmSpG
+         890A==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM532P0asXVIEDHzAOmctaLfDKxgpYp3sF9DGa/JK0MR/xKJPJrD+a
+	0bQ138aqmMJYI3QrTbcsSI4=
+X-Google-Smtp-Source: ABdhPJzKCjzJMZ8m2h8T6RsE8geLV1Bt6aKGsEuhCH/1cv6k33Rx+o8g5rfKbVNS5grJ8EYAYMXWrw==
+X-Received: by 2002:a19:7d04:: with SMTP id y4mr2776277lfc.51.1597339739602;
+        Thu, 13 Aug 2020 10:28:59 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6102:153:: with SMTP id a19ls763062vsr.11.gmail; Thu, 13
- Aug 2020 10:20:37 -0700 (PDT)
-X-Received: by 2002:a05:6102:9ca:: with SMTP id g10mr4257701vsi.231.1597339237274;
-        Thu, 13 Aug 2020 10:20:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1597339237; cv=none;
+Received: by 2002:ac2:5e33:: with SMTP id o19ls312258lfg.1.gmail; Thu, 13 Aug
+ 2020 10:28:59 -0700 (PDT)
+X-Received: by 2002:ac2:5e3a:: with SMTP id o26mr2821218lfg.78.1597339738946;
+        Thu, 13 Aug 2020 10:28:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1597339738; cv=none;
         d=google.com; s=arc-20160816;
-        b=Z9jrb1guWek6BS+z/ldQYG1sZ3KNdRe6N46ZzbHiS/QUofi4zE6GbVcZ/w8ppM/e3x
-         qVrmxr9hEN35uuE2gTNKRFU83H/QVhU9R3e9m7jxcrBaU+l5aE+BlePHz6rfmCI9eoGU
-         kk0K0srAe7rdE0EnOYtpd9bJiWI52/HJ6B5wfKCdZRF5tPwhxgEYkpf7a1sbNRxWL1WA
-         /ySSmOksqZhoAlygx9oIneJn1siAM/m/aLV+IQiPFF9NTEhaWEHd+jaJ/v6Uh+pdB2xy
-         UKSwiKL+07wvxT1g09BSIkXj3ZNZOWlom3RAF7mR6ryUtTLgSH+i/t9qOd3IO9wlkfFj
-         neXw==
+        b=0xumdd/ooOwS1o1bZDt2c284YnBfqOJf22dVoAboNFqeA9quk5d9+HjF1yBGhvMxqm
+         Ij8m+ViFKINt0RDgo3cwK2LxKBzkkyMEAFJYbkRxU632ymcxpucPCbSbt9q4teRD8mg5
+         G1MnfBww+/BLFZzMsuV8qWI3TgB3KsmcFlpwog4F6kpyLsCZJSrjXaME1BJF284B+6vq
+         1dsVxeZ8EKoHOGqWWUT3l3C0980L3BL5e3hFMV2RalKCjebx2SLqRAj4p/arVDY39D+O
+         /PMLNnaWVgbH4ad6DDGR0O1jPJ962eVBGOVDVYeAsWEExV5V5Tu/tN0odB794blPyv20
+         eq1Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:sender:dkim-signature;
-        bh=Kye36mnZDsF2A6OcubUre0+uzmNqlOm7WRuMdcfkesA=;
-        b=hWw5x9vLqaE9WtOfBKgazdYXY9+euuiG6VHG1Ivc/8WSgWJvjG2npoj6jJI3N7g4So
-         m7+GkEPsdJcPlExpBOBjxHQIopvE+fiPzQd1JoCw5NZRsQBf+hYyx4SEvtSg+fSRnL9m
-         XB/VT4WAdfksHPulpjmulOp4Uf2/s5zjPrruB94JlGaHH05Tgdb4Q+SCx0LEMxSof5ni
-         W8zpBaJjTFwe749yoq+sEPHLSBJcLw5BImImKNHXnTcU5HClGTmsVpk3CEvOfg0so30I
-         5JXy1pq5+5oalGva6HrJk4zkstKgNs81jVRvp2Q+LrjG3Gebc+LPVCiCv2HFtEetgchq
-         iIKw==
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :dkim-signature:dkim-signature:from;
+        bh=11fDOoD89XYwtAI0PHZUjX+Yj9I0KxTiJv3RjtEDo3E=;
+        b=WJ4EBosoVXbtkNgYuuqs+YdSLtIVeF60tLBl8j6Xs2vb8qznruYVT8uBYoAPUu/VhS
+         K9ZHbsuMWB+xHajoxL4lbDmpuwPZmmyc3Gnr26ZRqkAM6ZyVzC/bqN4jwExEg0YCDIOG
+         t0Vr+hgQ9N+lqLPN9XcyUlYG/MxnSjTaJQY8ebaAcUNy6Gb1eM/7hzyuocNddYSKzSI7
+         cLKcPAod2TjV43ExHgL0ZUZN6oprQOXFGV40LCnDWyMbtUDoQtfQaDmUvFwmsdq9Ti8z
+         T2LB/QgDhlwspsHLVHZzxfBtwG+aKdMkBj2hdyd6KAJqakmdUp53xXLjrFVHPekZfCb8
+         ytwQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Y+gd0VU0;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f41 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
-Received: from mail-qv1-xf41.google.com (mail-qv1-xf41.google.com. [2607:f8b0:4864:20::f41])
-        by gmr-mx.google.com with ESMTPS id s126si410892vkd.1.2020.08.13.10.20.37
+       dkim=pass header.i=@linutronix.de header.s=2020 header.b=QVk6G8vB;
+       dkim=neutral (no key) header.i=@linutronix.de header.s=2020e;
+       spf=pass (google.com: domain of tglx@linutronix.de designates 193.142.43.55 as permitted sender) smtp.mailfrom=tglx@linutronix.de;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=linutronix.de
+Received: from galois.linutronix.de (Galois.linutronix.de. [193.142.43.55])
+        by gmr-mx.google.com with ESMTPS id c27si420260ljn.3.2020.08.13.10.28.58
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Aug 2020 10:20:37 -0700 (PDT)
-Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f41 as permitted sender) client-ip=2607:f8b0:4864:20::f41;
-Received: by mail-qv1-xf41.google.com with SMTP id cs12so2989140qvb.2
-        for <clang-built-linux@googlegroups.com>; Thu, 13 Aug 2020 10:20:37 -0700 (PDT)
-X-Received: by 2002:ad4:438f:: with SMTP id s15mr5884726qvr.164.1597339236714;
-        Thu, 13 Aug 2020 10:20:36 -0700 (PDT)
-Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
-        by smtp.gmail.com with ESMTPSA id k5sm6197671qke.18.2020.08.13.10.20.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Aug 2020 10:20:36 -0700 (PDT)
-Sender: Arvind Sankar <niveditas98@gmail.com>
-From: Arvind Sankar <nivedita@alum.mit.edu>
-Date: Thu, 13 Aug 2020 13:20:34 -0400
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Zhenzhong Duan <zhenzhong.duan@oracle.com>,
-	Kees Cook <keescook@chromium.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Juergen Gross <jgross@suse.com>, Andy Lutomirski <luto@kernel.org>,
-	Andrew Cooper <andrew.cooper3@citrix.com>,
-	LKML <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>
+        Thu, 13 Aug 2020 10:28:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of tglx@linutronix.de designates 193.142.43.55 as permitted sender) client-ip=193.142.43.55;
+From: Thomas Gleixner <tglx@linutronix.de>
+To: Nick Desaulniers <ndesaulniers@google.com>, Ingo Molnar <mingo@redhat.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, "maintainer\:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, Zhenzhong Duan <zhenzhong.duan@oracle.com>, Kees Cook <keescook@chromium.org>, Peter Zijlstra <peterz@infradead.org>, Juergen Gross <jgross@suse.com>, Andy Lutomirski <luto@kernel.org>, Andrew Cooper <andrew.cooper3@citrix.com>, LKML <linux-kernel@vger.kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>,"Paul E. McKenney" <paulmck@kernel.org>,Will Deacon <will@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>
 Subject: Re: [PATCH] x86: work around clang IAS bug referencing __force_order
-Message-ID: <20200813172034.GA500410@rani.riverdale.lan>
-References: <20200527135329.1172644-1-arnd@arndb.de>
- <878serh1b9.fsf@nanos.tec.linutronix.de>
- <CAKwvOdnOh3H3ga2qpTktywvcgfXW5QJaB7r4XMhigmDzLhDNeA@mail.gmail.com>
+In-Reply-To: <CAKwvOdnOh3H3ga2qpTktywvcgfXW5QJaB7r4XMhigmDzLhDNeA@mail.gmail.com>
+References: <20200527135329.1172644-1-arnd@arndb.de> <878serh1b9.fsf@nanos.tec.linutronix.de> <CAKwvOdnOh3H3ga2qpTktywvcgfXW5QJaB7r4XMhigmDzLhDNeA@mail.gmail.com>
+Date: Thu, 13 Aug 2020 19:28:57 +0200
+Message-ID: <87h7t6tpye.fsf@nanos.tec.linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAKwvOdnOh3H3ga2qpTktywvcgfXW5QJaB7r4XMhigmDzLhDNeA@mail.gmail.com>
-X-Original-Sender: nivedita@alum.mit.edu
+X-Original-Sender: tglx@linutronix.de
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=Y+gd0VU0;       spf=pass
- (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f41
- as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+ header.i=@linutronix.de header.s=2020 header.b=QVk6G8vB;       dkim=neutral
+ (no key) header.i=@linutronix.de header.s=2020e;       spf=pass (google.com:
+ domain of tglx@linutronix.de designates 193.142.43.55 as permitted sender)
+ smtp.mailfrom=tglx@linutronix.de;       dmarc=pass (p=NONE sp=QUARANTINE
+ dis=NONE) header.from=linutronix.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,74 +126,22 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Aug 12, 2020 at 05:12:34PM -0700, Nick Desaulniers wrote:
+Nick Desaulniers <ndesaulniers@google.com> writes:
 > On Thu, Aug 6, 2020 at 3:11 PM Thomas Gleixner <tglx@linutronix.de> wrote:
-> >
-> > Arnd Bergmann <arnd@arndb.de> writes:
-> > > When using the clang integrated assembler, we get a reference
-> > > to __force_order that should normally get ignored in a few
-> > > rare cases:
-> > >
-> > > ERROR: modpost: "__force_order" [drivers/cpufreq/powernow-k6.ko] undefined!
-> > >
-> > > Add a 'static' definition so any file in which this happens can
-> > > have a local copy.
-> >
-> > That's a horrible hack.
-> 
-> Agreed.  And static means everyone gets their own copy, rather than
-> sharing one memory address.  I guess no one actually writes to it, so
-> it doesn't really matter, but __force_order just seems so strange to
-> me.
-> 
-> > And the only reason why it does not trigger -Wunused-variable warnings
-> > all over the place is because it's "referenced" in unused inline
-> > functions and then optimized out along with the unused inlines.
-> >
-> > >   * It is not referenced from the code, but GCC < 5 with -fPIE would fail
-> > >   * due to an undefined symbol. Define it to make these ancient GCCs
-> > >   work.
-> >
-> > Bah, we really should have moved straight to GCC5 instead of upping it
-> > just to 4.9
-> >
-> > > + *
-> > > + * Clang sometimes fails to kill the reference to the dummy variable, so
-> > > + * provide an actual copy.
-> >
-> > Can that compiler be fixed instead?
-> 
+>> > + *
+>> > + * Clang sometimes fails to kill the reference to the dummy variable, so
+>> > + * provide an actual copy.
+>>
+>> Can that compiler be fixed instead?
+>
 > I don't think so. The logic in the compiler whether to emit an
-> "address is significant" assembler directive is based on whether the
-> variable is "used."  The "use" of `__force_order` is as output of all
-> of these control register read/write functions' inline asm, even
-> though the inline asm doesn't actually write to them.  We'd have to
-> peek inside of the inline asm and build "use/def chains" for the
-> inline asm, to see that you don't actually use the output variable.
-> Best we can do is see it listed as an output to the inline asm
-> statement.  And if you reference an `extern` variable, it should be no
-> wonder that you can get undefined symbol linkage failures.
-> 
+
+Forget that I asked. Heat induced brain damaged.
+
 > I'd much rather remove all of __force_order.
-> 
-> >
-> > Aside of that is there a reason to make this 'static' thing wrapped in
-> > #ifdeffery? A quick check with GCC8.3 just works. But maybe 4.9 gets
-> > unhappy. Can't say due to: -ENOANCIENTCOMPILER :)
-> 
-> >From the comment in arch/x86/boot/compressed/pgtable_64.c, there's a
-> hint that maybe gcc < 5 and -pie (CONFIG_RANDOMIZE_BASE?) would fail
-> due to undefined symbol, though I'm not sure which symbol the comment
-> is referring to.  If it's __force_order, then removing outright likely
-> fixes that issue.
 
-Yes, it's __force_order. Compressed kernel is always -fPIE, and gcc <5
-and clang will generate mov instructions with GOTPCREL relocations to
-load the address of __force_order into a register for use by the inline
-asm. gcc-5+ works because it doesn't use GOTPCREL for global variables,
-instead relying on the linker inserting copy relocations if necessary.
+Right.
 
-> 
 > Not sure about the comment in arch/x86/include/asm/special_insns.h
 > either; smells fishy like a bug with a compiler from a long time ago.
 > It looks like it was introduced in:
@@ -220,32 +151,24 @@ instead relying on the linker inserting copy relocations if necessary.
 > Patch 4: https://lore.kernel.org/lkml/11967844071346-git-send-email-gcosta@redhat.com/
 > It seems like there was a discussion about %cr8, but no one asked
 > "what's going on here with __force_order, is that right?"
-> Latest GCC release on December 4 2007 would have been GCC 4.2.2 according to:
-> https://gcc.gnu.org/releases.html
-> 
+
+Correct and the changelog is uselss in this regard.
+
 > Quick boot test of the below works for me, though I should probably
 > test hosting a virtualized guest since d3ca901f94b32 refers to
 > paravirt.  Thoughts?
 
-It's unclear if there was a real problem this fixes, but if there was
-I'd expect it on native, not paravirt, given it's native that has this
-__force_order hack?
+Let me ask (hopefully) useful questions this time:
 
-gcc's documentation of volatile extended asm includes a caveat.
+  Is a compiler allowed to reorder two 'asm volatile()'?
 
-https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html#Volatile
+  Are there compilers (gcc >= 4.9 or other supported ones) which do that?
 
-Near the end of 6.47.2.1:
-"Note that the compiler can move even volatile asm instructions relative
-to other code, including across jump instructions."
+Thanks,
 
-and it provides an example of unexpected code motion, with the fix being
-adding an artificial dependency to the asm.
-
-So it might do something silly like reversing the order of two
-%crn writes, maybe?
+        tglx
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200813172034.GA500410%40rani.riverdale.lan.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87h7t6tpye.fsf%40nanos.tec.linutronix.de.
