@@ -1,133 +1,147 @@
-Return-Path: <clang-built-linux+bncBDY3NC743AGBBMFT3X4QKGQEIJRLDTQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBFNX334QKGQEXLC66TQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3b.google.com (mail-vk1-xa3b.google.com [IPv6:2607:f8b0:4864:20::a3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6010C245073
-	for <lists+clang-built-linux@lfdr.de>; Sat, 15 Aug 2020 05:42:41 +0200 (CEST)
-Received: by mail-vk1-xa3b.google.com with SMTP id h68sf3003391vka.8
-        for <lists+clang-built-linux@lfdr.de>; Fri, 14 Aug 2020 20:42:41 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1597462960; cv=pass;
+Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
+	by mail.lfdr.de (Postfix) with ESMTPS id 284B72450C6
+	for <lists+clang-built-linux@lfdr.de>; Sat, 15 Aug 2020 10:23:51 +0200 (CEST)
+Received: by mail-pg1-x537.google.com with SMTP id d1sf7086735pgn.11
+        for <lists+clang-built-linux@lfdr.de>; Sat, 15 Aug 2020 01:23:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1597479829; cv=pass;
         d=google.com; s=arc-20160816;
-        b=f+n0PGaEmY+Nh2UiY/vQ4AqEt2yDTbO+vVJWGFIIPDmogTc3ntC6VG8+qFSrm5Z0mZ
-         OyPfzdzB81d2gLYF7LGg8hknSSZyDAbc2dZKWvNnZGTY6H5JnekBOKy71ol2zMIlVS42
-         ot79HfWK7ze7fdo54fkCPEbSOw8YBjcjV76pHp29fQ1fO+n91YJ4tFqr5YJUsLlIduKf
-         dD28/qwFMUB803mD/wW0ONvWuyw9Ggzx3Ubps1QeH/qLhAJjOK4AKFZogwpCtAerXSs/
-         hcNOk0I70mRik3DxMPJiQ/f9/uyoENoYITuX4dz9Tuc1aVlamsWAO0xobAqFtDuratR6
-         TR6Q==
+        b=sB5BdmoPM3KKyuVAjosJ0yXkGEAQ+9Jb9TpJ03Cr0MGkUQaZPiygzVCI22x3zYFNxa
+         JLWhKRMP7sbRwsWMvFEuByyVzyj5QybZ1Ia4XL2t60f9TU3lzexsQAl9ubqhKXtI8CpS
+         6YhwI8xoj4mOVhjsifzEbvXm8REKgAHdl/bh5W+y8D/V3bVOZY5mVsajI82iupnvJpF0
+         ArNdZYRpp7Ew0FrAq+MswoC2+VkeQcfpt28xT5HqL/zRByjLiBXM3E0X0CofxU2Oor5X
+         JVV+XLXmnM5rnMriSKz1XZRdzYmDumImqxJEbi20UA+S9A9w/Ge07R4tbORh8FNqFgWr
+         P/lg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=uFi3lAn6W35Ddj0oYupWCubhkSljkaKYcW4o6CPvnu8=;
-        b=olUlYttj36P2df5uyjg/VSOwDNERMUeIIvPf60E0LMAtVCQr67ZtlxluD22zzUwViC
-         A9Zbd8SrzU8wNjyxAboodNjO2RVJdifMyPnI53jrzn+c4cc2tivWpVLpQ2hgLFox+d5k
-         HR4f+6bUDxS3KEDbQTgUFg6ttm9ZcexHI37YKkq2mzpxkOXV1ZGnZfESO5+LtcIUWFmf
-         eosLOxXHYcpd/PUzAB0bYhcBsMDMgv95Ua1t3dpmsDyVwBXqVJRKd12duJ+C4C5AChqC
-         Z4ONDSSVdP+oaIoxTqYbcw+ZF41SK91ZrX2oFkZ+bkoaVRIOVQ/ld6JaSAvm658+IT8N
-         I0gg==
+        bh=cG+MeXQg3ugE8WZKV/QTGb2yKj/gaEs6MVtliafXFZM=;
+        b=ArAwkI9SoAaKxVXJ51JhSg2V4Y3TwO8LqrUAimPUeVbEkOhzJqg7AdV0RR5v9xhvTZ
+         TrRsZoSS4P029X0yooqhS4I000X1XSBHfwXwyUgRUenalBsqTsKXImtznnefn8WSyP6t
+         sL8YNbK1ak+icSTi8KbNU4nUwoqInpOWNUsb7tgj+cnKz9XHViRpTw1vMWnogSDNR5ho
+         GUuJlZ+Te3N0MS+dDZNvPZTAJm86UDTihcEV+1jdxeIortIrc5QxaoNBAOSpz8+shpZW
+         MLFE3ShzvSVECfeDGdeMDIwriAzRwj5oc9IImVL7VNyrxvAUlc60egBz9Uduyj6TeHcV
+         UGQw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.135 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="XiE/mrB9";
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
+        h=sender:mime-version:references:in-reply-to:reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=uFi3lAn6W35Ddj0oYupWCubhkSljkaKYcW4o6CPvnu8=;
-        b=DD+yoQetT42BGhgvJKM9Bng/6PpOPHjp6QppPqkwOM21+BsFT4539CH1im4MUOO8MN
-         QeIQGynIGFOpVRgsEVi10NveFeEZAHMVsAXZqZGE5+UzCPpnJczu+byUWVeMp9jwI9K4
-         RFLG5jrczWlIkqoxu6z5ONnC50PNgKvEVOptBXaV5OT5rOD5ePxcuP5x7SmZDd0XHmeg
-         x72W5oTNIJafJIu24hAZMDWVb94JYxPg+gOWhMChC9QpFjANMgc549fw5kp08/khFSwS
-         4RJbevMiCAW9UPvpJzAAkM0k8zmt0fY2BOPbVonkoaLl8U05KCKbiaJhUnBfAmaqeNXZ
-         yzWw==
+        bh=cG+MeXQg3ugE8WZKV/QTGb2yKj/gaEs6MVtliafXFZM=;
+        b=AAIA71g0HAt/nstQFd07wzaBf9ScE2ytI9v+33c6to0tPjAWfQYGTlgY83N61Oo6+6
+         xK5tdSA6bTJhjRoc9pIUvzUcTmaYXTcdE9mG8HDoLA/cjnv5Bd44Gn7Jp9ESB737l+Us
+         a1uFV4vQnO38vx/HyX7vUZEBgk++43jP3RvF2TroK2Xd+hFLBVd9Aykx51JZzWXnCw2z
+         DRIj5VghKa0S6FzKq2UcdmIBOBmDjJwKLqV/Mty14fkHji1sbriAOCkUAJ1FqFCUokGc
+         3lW3fDh9A+NbDf7hdabjeeDJA5EXXPrHFHZ28DW7ORPmeeib3eeCRcdLxllz32aCk+sZ
+         fjbQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=cG+MeXQg3ugE8WZKV/QTGb2yKj/gaEs6MVtliafXFZM=;
+        b=hRvZGxxFyZIrWEKH31Zw+ABHR9qfm09gCbCn/dl+C6EMG5CByacd1xWrC4Jfc6mZrO
+         xWyccMRQcXk6nogkzt79SI7BIw73XHx1b1LJAUAZJDI6ZYjHXvzo3HAAZ1EBQKkLs9F9
+         m+8wOWz4frsw9tOzKK9jTTKvQsutbqUM8L6qIC+RZAQ3xPQv4/R0rn2eDoX6C6fOmGqT
+         yB203xq3TZJMw0bEPxNzDXjSqV4RwF62DQ0s+eJ+t+bjTdcRvLInpvzVY+vOJhs2iYK+
+         XbRbxcszlgekXRZEOnHlMVDN6GSfOEHTCJCSu6HjpcGpnj//ke4jUufVHd9ubMH79QKu
+         142Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to
+         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=uFi3lAn6W35Ddj0oYupWCubhkSljkaKYcW4o6CPvnu8=;
-        b=G/DH+TFHjzDGeIAUIoYPiZIiqlh3u59xM0UjGcJZmoKEwGzGdBoC9A7Tmr0vfSTau6
-         AbheLXHAYS6smanB1SO3Rp7RnhJPz4Gmm0bP3HlaqxxvYE7PyMKyfKylyHY1ssvWZs4M
-         04e7TMDhysS1r+o7ek5aXfpnM9cX6JuUal+lwephGJseouvfP7dKkU8OMdCH8xEL6P7r
-         B4Je1FjPt2J8BTfrPqvvFQwx5EYFzoJjmDVrDUN8tCFodtjKz4A+wFV7ZlkQNfjD982V
-         1WI72gptAY2v/7P1HUn34QbVrNr5Yak7/iUPfiiet147wjOCSoki+FtlSq9JOJI2CxJd
-         spoA==
+        bh=cG+MeXQg3ugE8WZKV/QTGb2yKj/gaEs6MVtliafXFZM=;
+        b=GQCmUoKSQ5CYDj/ZADeEWIKnieVngJUa3Tv+XLSYkag6xMJY6/XX98x6oV4a4G+vJt
+         dn8s1LhYO71tM9tn1VJMeIkqRtf0HhURjVZWNKZrBjJmfUoCZTx2+pnLAMYTSIi4I2YO
+         p/TO599L7kVTQ29iZOYpB0Ab25wuU7HdscMMgJBUrWTdvYd71oDcxdyuctv2Oex6PL9j
+         T81S3gattWQlToHvSIVBoQSVSADNZPwEbFDV/7fpY5Xm4IEVnw8xdEIGX4llMPT9cFnm
+         l4o3vC7ZnRpVvsuRHhuOb+QFscgu0DcGRW29q0l3EYuL+BNtXkqEFvVqO+xaXmZuhtES
+         2fxA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530QklYDPwHEfvTvKtEgdKcBrjy6qZduxyRa+Ay7YkAUYEAl5I/l
-	qCUgRnVv90nvqZFS6Gvh4pc=
-X-Google-Smtp-Source: ABdhPJwi6q2JQfHV3f02Njp7d0xF938pOkA8ZbQfXzBHlJNGeVg9wWQ4DHD+Ed+Csn32xy1z3l5+ng==
-X-Received: by 2002:a1f:a845:: with SMTP id r66mr3310052vke.23.1597462960428;
-        Fri, 14 Aug 2020 20:42:40 -0700 (PDT)
+X-Gm-Message-State: AOAM532NdDgRKdt5+Juujg7kwzOlMtNkE80YZdg6d+Uulzr4vkFn7MHI
+	Gnljrhy7otKPE3lqb5WxbMc=
+X-Google-Smtp-Source: ABdhPJxG1pmN7gFc8uDCbsg839EX9e09ERPjG2ZzIdftdtSA9AF8RHswVEFE3JjBZKkuvxPcXTMp8Q==
+X-Received: by 2002:a17:90a:36ee:: with SMTP id t101mr5550121pjb.47.1597479829351;
+        Sat, 15 Aug 2020 01:23:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:7f0b:: with SMTP id a11ls1320920vsd.1.gmail; Fri, 14 Aug
- 2020 20:42:40 -0700 (PDT)
-X-Received: by 2002:a67:e914:: with SMTP id c20mr3082467vso.144.1597462960101;
-        Fri, 14 Aug 2020 20:42:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1597462960; cv=none;
+Received: by 2002:a17:90a:ca88:: with SMTP id y8ls4530684pjt.1.gmail; Sat, 15
+ Aug 2020 01:23:48 -0700 (PDT)
+X-Received: by 2002:a17:902:b584:: with SMTP id a4mr1569755pls.341.1597479828894;
+        Sat, 15 Aug 2020 01:23:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1597479828; cv=none;
         d=google.com; s=arc-20160816;
-        b=DmdsBBHAZClAMcOaZifCnadJM0fr5q/jOAbDqV4YyFMPiTwcL8xwwRXslu/XA0H5T1
-         3E6bmaKj7mqTqzSbV3lTuTM+b22cf04dNTc91kOLOXu41BS9TFtiMGuX4kZOs9ze11VI
-         5RBhAwulxXQYfLLGuQ8U0oH5ar9i7KuomOibBuydgqUNirfGDaibUz7yS59BI/huuW/T
-         TC9M3bej5a5UF9prOB4ChusySl5rjkmT4X8M1zFxgLw7jmSYJ/TQmz7svp9nQY3lCQCf
-         6sXxXCR4aVdOeyp3kNyv2wHGXrUPU9ktqtu4Z0jLIjPka2gl+SZ+g8s2ej4042Ay9xeQ
-         5i+g==
+        b=DK8aIu6u4bJ4EJkIYQiv2g1d6BbdcdRFngI30oNnL13P6l4FWXYq0pK55FIQPUeDAy
+         mcGeabYVvf5eHeD/WenFLmSqwrEkgJu9nHLMJDXNz27kWOTvMnMUcXaYouB4Z9TbOsQJ
+         ofh3zC8szRo1mllwBJFPTT5MSapjy6HhO1WsScD7qjsxdweb3SV3C5/POa5VT42Y84ER
+         CRawPRlJ8/Te6MY17c8NPLQs0C/nr2wOAGFtZrFkJZh4gNKxGCXRuZ6GQdTZFox40Rs7
+         jZ67PHCslBPWqLVT+A4AG1KuDQdNgaT73/AnvaVYgK0VZtsWdmVpakG7ndEuvcuBzYuM
+         UYBQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id;
-        bh=C2bVMBUkL5265T+UV8/4730aaHGwoYUrnE5Luj92Myc=;
-        b=cn0WZwLfu5B9L4THCMTFCTrXrQ8ukW5i67lWRW6/1Hb2c7CiGoHam63OrKE90UIAUC
-         ogMuzaXFbojtjgC18zQV41DEdKHDUHB6FTI0F8ldvqGt50q6nCZTiv6yuK/l62dY+RP1
-         YniDZDrBfgTZqiN4ZiiYA4tjag703AJhaOpyMPlkX2HMXcpE1IZEyPv6lgz223y965PE
-         5HIhG7GsO4JhM+T2cELRhyQERsYBbb9fbHCoR5BB5rF0U4BUNgneBrlJYmcvTtLEExuP
-         5Ov7sVgCKu0mhZqzN5CW2YaO0iQb01McBgR8MJw/EQMPEkU7NDvVpbuhJzVoYMvKs8er
-         1bjw==
+        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=5ZdA3YbzFyuiBEZEvu/DHmwuAZEanF9AbrLkGxCCiGY=;
+        b=ypvxxoF4UhBE7VajPp9M+d+mnx6F9ZVhhXHdT1+IYGpYWfP2dZL4r+7kPj8a3tEHUX
+         XlzfzK1ly/Mhp2sndrtmvT4+vd5N18JUFe9ShOq/GxpBsNjYdbusy73mYr93/DFyRFFs
+         7KSPaaB6x8nMF9OzXBtXNBKFl/U9HlF4jnlDf0ADx98TaBl214ZShCkiGVVb/cEdi/ha
+         gW84a9K1o0Q/wXbRuZavp4DxGXCmjuOZi/VVDd8oAme9it79JphBcPuW5bZeieBeVXxm
+         JnnyvZbTI6RzuBmTdh66tLGFmjErc6kCHuLP4e3A3TumMUg0J7rQpLyVJwf8zAfpB/8G
+         4ytA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.135 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
-Received: from smtprelay.hostedemail.com (smtprelay0135.hostedemail.com. [216.40.44.135])
-        by gmr-mx.google.com with ESMTPS id t72si643273vkd.5.2020.08.14.20.42.39
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="XiE/mrB9";
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-ot1-x343.google.com (mail-ot1-x343.google.com. [2607:f8b0:4864:20::343])
+        by gmr-mx.google.com with ESMTPS id s76si513273pfc.1.2020.08.15.01.23.48
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Aug 2020 20:42:40 -0700 (PDT)
-Received-SPF: neutral (google.com: 216.40.44.135 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.135;
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
-	by smtprelay01.hostedemail.com (Postfix) with ESMTP id 4721B100E7B6F;
-	Sat, 15 Aug 2020 03:42:39 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 2,0,0,,d41d8cd98f00b204,joe@perches.com,,RULES_HIT:41:355:379:599:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1541:1593:1594:1711:1730:1747:1777:1792:2393:2559:2562:2828:3138:3139:3140:3141:3142:3352:3622:3865:3866:3867:3868:3870:3871:3872:3873:3874:4321:5007:6117:6742:7875:7903:10004:10400:10848:11026:11232:11473:11658:11914:12297:12740:12760:12895:13069:13311:13357:13439:14093:14097:14659:21080:21451:21524:21627:21809:21939:21990:30051:30054:30091,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:1,LUA_SUMMARY:none
-X-HE-Tag: cry93_3b1331b27002
-X-Filterd-Recvd-Size: 2703
-Received: from XPS-9350.home (unknown [47.151.133.149])
-	(Authenticated sender: joe@perches.com)
-	by omf13.hostedemail.com (Postfix) with ESMTPA;
-	Sat, 15 Aug 2020 03:42:36 +0000 (UTC)
-Message-ID: <af38bf7d8e2615c2f065a2f208d67209246f7a74.camel@perches.com>
-Subject: Re: [PATCH v2] lib/string.c: implement stpcpy
-From: Joe Perches <joe@perches.com>
-To: Nick Desaulniers <ndesaulniers@google.com>, Andrew Morton
-	 <akpm@linux-foundation.org>
-Cc: =?ISO-8859-1?Q?D=E1vid_Bolvansk=FD?= <david.bolvansky@gmail.com>, Eli
- Friedman <efriedma@quicinc.com>, stable@vger.kernel.org, Arvind Sankar
- <nivedita@alum.mit.edu>,  Sami Tolvanen <samitolvanen@google.com>, Vishal
- Verma <vishal.l.verma@intel.com>, Dan Williams <dan.j.williams@intel.com>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,  "Joel Fernandes
- (Google)" <joel@joelfernandes.org>, Daniel Axtens <dja@axtens.net>, Kees
- Cook <keescook@chromium.org>, Ingo Molnar <mingo@kernel.org>, Yury Norov
- <yury.norov@gmail.com>, Alexandru Ardelean <alexandru.ardelean@analog.com>,
-  linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Date: Fri, 14 Aug 2020 20:42:35 -0700
-In-Reply-To: <20200815020946.1538085-1-ndesaulniers@google.com>
-References: <20200815014006.GB99152@rani.riverdale.lan>
-	 <20200815020946.1538085-1-ndesaulniers@google.com>
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.36.4-0ubuntu1
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 15 Aug 2020 01:23:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::343 as permitted sender) client-ip=2607:f8b0:4864:20::343;
+Received: by mail-ot1-x343.google.com with SMTP id c4so9401684otf.12
+        for <clang-built-linux@googlegroups.com>; Sat, 15 Aug 2020 01:23:48 -0700 (PDT)
+X-Received: by 2002:a9d:48d:: with SMTP id 13mr4914607otm.9.1597479828223;
+ Sat, 15 Aug 2020 01:23:48 -0700 (PDT)
 MIME-Version: 1.0
-X-Original-Sender: joe@perches.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 216.40.44.135 is neither permitted nor denied by best guess
- record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+References: <20200527135329.1172644-1-arnd@arndb.de> <CAKwvOdmA29WzTd7APsQCsG_a=NVWuR53Z2h8NTLza5sisnV2PA@mail.gmail.com>
+ <CA+icZUUjtu3fCNTngY52h3uRL+eUaimNJb0UNwj5v-QwKggs5A@mail.gmail.com>
+ <CA+icZUWH5f4B_6eYy2_OOi45VjUkE_kN9akqvcOxxmmmM3TSrg@mail.gmail.com>
+ <CAKwvOdnj6ObdpsdVYkDxWp-dVTTg=xMkBm84y419SNtLuAqfMg@mail.gmail.com>
+ <CAKwvOdnahyqQQMdWhzpaYkJNi21Ux=8qyBmRnPidiT_RAn0YFw@mail.gmail.com> <CA+icZUVKBsp4cJV5V=ZtywEi=Ary5w-fNSijkNknU+U9xiKRRg@mail.gmail.com>
+In-Reply-To: <CA+icZUVKBsp4cJV5V=ZtywEi=Ary5w-fNSijkNknU+U9xiKRRg@mail.gmail.com>
+Reply-To: sedat.dilek@gmail.com
+From: Sedat Dilek <sedat.dilek@gmail.com>
+Date: Sat, 15 Aug 2020 10:23:36 +0200
+Message-ID: <CA+icZUV5m+kPWpk0ovoWD+DK0Tn8=c0MdWnr2XTxStwXf_VF0g@mail.gmail.com>
+Subject: Re: [PATCH] x86: work around clang IAS bug referencing __force_order
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Peter Collingbourne <pcc@google.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, 
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
+	Zhenzhong Duan <zhenzhong.duan@oracle.com>, Kees Cook <keescook@chromium.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Juergen Gross <jgross@suse.com>, 
+	Andy Lutomirski <luto@kernel.org>, Andrew Cooper <andrew.cooper3@citrix.com>, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: sedat.dilek@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b="XiE/mrB9";       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::343
+ as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,37 +154,104 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, 2020-08-14 at 19:09 -0700, Nick Desaulniers wrote:
-> LLVM implemented a recent "libcall optimization" that lowers calls to
-> `sprintf(dest, "%s", str)` where the return value is used to
-> `stpcpy(dest, str) - dest`. This generally avoids the machinery involved
-> in parsing format strings.  Calling `sprintf` with overlapping arguments
-> was clarified in ISO C99 and POSIX.1-2001 to be undefined behavior.
-> 
-> `stpcpy` is just like `strcpy` except it returns the pointer to the new
-> tail of `dest`. This allows you to chain multiple calls to `stpcpy` in
-> one statement.
-[]
-> diff --git a/include/linux/string.h b/include/linux/string.h
-[]
-> @@ -31,6 +31,9 @@ size_t strlcpy(char *, const char *, size_t);
->  #ifndef __HAVE_ARCH_STRSCPY
->  ssize_t strscpy(char *, const char *, size_t);
->  #endif
-> +#ifndef __HAVE_ARCH_STPCPY
-> +extern char *stpcpy(char *__restrict__, const char *__restrict__);
+On Sat, Aug 15, 2020 at 5:28 AM Sedat Dilek <sedat.dilek@gmail.com> wrote:
+>
+> On Sat, Aug 15, 2020 at 2:27 AM Nick Desaulniers
+> <ndesaulniers@google.com> wrote:
+> >
+> > On Fri, Aug 14, 2020 at 3:57 PM Nick Desaulniers
+> > <ndesaulniers@google.com> wrote:
+> > >
+> > > On Fri, Aug 14, 2020 at 2:19 PM Sedat Dilek <sedat.dilek@gmail.com> wrote:
+> > > >
+> > > > On Fri, Aug 14, 2020 at 7:29 PM Sedat Dilek <sedat.dilek@gmail.com> wrote:
+> > > > >
+> > > > > Thanks for the proposal.
+> > > > >
+> > > > > I have adapted it to fit my patchset against Linux v5.8.
+> > > > >
+> > > > > Both Debian's GCC-10 and a snapshot version of LLVM toolchain
+> > > > > v11.0.0-rc1+ seems to be OK.
+> > > > >
+> > > >
+> > > > Yupp, OK.
+> > > >
+> > > > I was able to boot FreeDOS 1.2 VM in VirtualBox GUI.
+> > >
+> > > Hi Sedat,
+> > > Apologies, but it's not clear to me precisely which patch you tested.
+> > > Can you please confirm whether you tested:
+> > > 1. Arnd's patch that started this thread.
+> > > 2. My proposed diff adding -fno-addrsig to CFLAGS_powernow-k6.o.
+> > > 3. My proposed diff removing __force_order from the kernel.
+> > >
+> > > I'm hoping you were referring to testing 3., but it's not clear to me.
+> >
+> > Ah, sorry, I missed your comment on github:
+> > https://github.com/ClangBuiltLinux/linux/issues/1120#issuecomment-674282107
+> >
+> > Ok, I will look at more disassembly next week and hopefully have a
+> > patch ready, with your tested by tag.
+> >
+>
+> Sorry for not being precise - I tested with solution (3.).
+> Later I added the diff I used as mentioned in your above comment.
+>
+> See [1]:
+>
+> > In a 2nd run building with a selfmade clang-11 and LLVM "bin"utils is fine, too.
+>
+> I cannot say much to older versions of GCC and/or LLVM/Clang if
+> removing "__force_order" works fine.
+>
+> Another (4.) solution:
+> Sami tried successfully by adding "__weak" declaration with
+> CONFIG_LKDTM=m (see [2]).
+> I am OK if this works, too.
+>
+> Please, see my attachments.
+>
+> - Sedat -
+>
+> [1] https://github.com/ClangBuiltLinux/linux/issues/1120#issuecomment-674340760
+> [2] https://github.com/ClangBuiltLinux/linux/issues/1120#issuecomment-674182703
 
-If __restrict__ is used, perhaps it should follow the
-kernel style used by attributes like __iomem and __user
+Unfortunately, the diff from Sami does not work together with Arvind's
+patchset...
 
-extern char *stpcpy(char __restrict *dest, const char __restrict *src);
+x86/boot: Remove run-time relocations from compressed kernel
 
-(though I would lose the extern too)
+...which got included in <tip.git#x86/boot> recently.
 
-char *stpcpy(char __restrict *dest, const char __restrict *src);
+I see the following:
 
+  ld.lld-11 -m elf_x86_64  -pie  --no-dynamic-linker -T
+arch/x86/boot/compressed/vmlinux.lds
+arch/x86/boot/compressed/kernel_info.o
+arch/x86/boot/compressed/head_64.o arch/x86/boot/compressed/misc.o
+arch/x86/boot/compressed/string.o arch/x86/boot/compressed/cmdline.o
+arch/x86/boot/compressed/error.o arch/x86/boot/compressed/piggy.o
+arch/x86/boot/compressed/cpuflags.o
+arch/x86/boot/compressed/early_serial_console.o
+arch/x86/boot/compressed/kaslr.o arch/x86/boot/compressed/kaslr_64.o
+arch/x86/boot/compressed/mem_encrypt.o
+arch/x86/boot/compressed/pgtable_64.o arch/x86/boot/compressed/acpi.o
+arch/x86/boot/compressed/efi_thunk_64.o
+drivers/firmware/efi/libstub/lib.a -o arch/x86/boot/compressed/vmlinux
+ld.lld-11: error: Unexpected GOT entries detected!
+ld.lld-11: error: Unexpected run-time relocations detected!
+ld.lld-11: error: Unexpected GOT entries detected!
+ld.lld-11: error: Unexpected run-time relocations detected!
+make[5]: *** [arch/x86/boot/compressed/Makefile:91:
+arch/x86/boot/compressed/vmlinux] Error 1
+
+When you need further informations, please let me know.
+
+- Sedat -
+
+[1] https://github.com/ClangBuiltLinux/linux/issues/1120#issuecomment-674182703
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/af38bf7d8e2615c2f065a2f208d67209246f7a74.camel%40perches.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUV5m%2BkPWpk0ovoWD%2BDK0Tn8%3Dc0MdWnr2XTxStwXf_VF0g%40mail.gmail.com.
