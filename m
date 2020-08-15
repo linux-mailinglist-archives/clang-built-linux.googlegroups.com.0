@@ -1,47 +1,47 @@
-Return-Path: <clang-built-linux+bncBCIO53XE7YHBBWPW3T4QKGQE3FQDZ3I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCIO53XE7YHBB6PZ3T4QKGQE4IPRZKQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23f.google.com (mail-oi1-x23f.google.com [IPv6:2607:f8b0:4864:20::23f])
-	by mail.lfdr.de (Postfix) with ESMTPS id E32DB24505A
-	for <lists+clang-built-linux@lfdr.de>; Sat, 15 Aug 2020 03:33:14 +0200 (CEST)
-Received: by mail-oi1-x23f.google.com with SMTP id f197sf4881649oib.16
-        for <lists+clang-built-linux@lfdr.de>; Fri, 14 Aug 2020 18:33:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1597455193; cv=pass;
+Received: from mail-qk1-x73c.google.com (mail-qk1-x73c.google.com [IPv6:2607:f8b0:4864:20::73c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8097C24505B
+	for <lists+clang-built-linux@lfdr.de>; Sat, 15 Aug 2020 03:40:10 +0200 (CEST)
+Received: by mail-qk1-x73c.google.com with SMTP id q18sf7169163qkq.11
+        for <lists+clang-built-linux@lfdr.de>; Fri, 14 Aug 2020 18:40:10 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1597455609; cv=pass;
         d=google.com; s=arc-20160816;
-        b=UvCfgjkMhF41XqnRlPOShFp0TBfmPX67tkkYLbqMmpeFVu3x6cmQhA8SfEDtLUuh4b
-         dy6BTUMVDH49blxJsQPCje0TSw/mjYcE5CAQ/NjVbk038KQffNRniU19HhNPBmv6vV7Y
-         LQg/oRbWyA5Dnmat0cGb15Q+rMO8Ei1/tjWaf8/heQUy09U5mhl00xianC6lI8N0Bfjs
-         3L5gvpwcPF7wrZ74Lgh6+1fqTp5QQ+fw3WO4oIe28MunKsl4qp01Eav3dgKyzpiLVRce
-         IyXFSe9XAiric2SG0WpXlFC2vpWq5HEdu/H5ICnYLktwQ/9o9hUEslA0SDiDKoXsUdBG
-         o9ug==
+        b=zr+FZpgSpRIgtHo3DZBwt/0Jqun3EPo5E+iE7EoglHxXnjjFdqPHZVfaGoJDjn8qVd
+         EwmX81gzu+XiKeGFJaIfMGmsvfGX65EyILbqRSL6sGGeYv80M4Snw++uL9/V8kmqNuSD
+         /1HK8fBEhuYhpJwc+gVVywraBXZtvubtF3bTwsCZ7fZbhaeoO7GTRQJmjghIM7ID8e1t
+         tOcdmFpX+MvpsMczwf5V96AwEhrGv9Vm2wgwH5BCUZPw0cZKMuwa/p4BLtU4nVzSr5Kt
+         1OD3UmJwjIV4Tam7XkCoT53R3rp7b1k71ytiWOl43Psmjo/xG/1wEVh1WarPgjdX5a8N
+         FI0Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:date:from:sender
          :dkim-signature;
-        bh=e4OVamimJ/KSErAq3ieXarda5uw6ns+vJiT46cOR0Ro=;
-        b=sqkP9rNI4ylarVc7kzYGHwN2Qv1wFFl3E0hrED+1Sv3RGkNy7CISbOvYlQ7nUxkVje
-         5AfWlXJ3rdSI/2sz33s4BaTTJQ6LxwqFNdgvOF/Gangh9jIG83uPh9DP55v9N/Z0r2Xt
-         zQi3SyuWhIWz2b2BSRFwbUvx6eTL3e0794BRrs13T6HaI5rHrsdcCHmo72YXUsiiyIIu
-         J+wvIcypCLkhKQDXdt3O0PQ+v4X8zoCNaHRS4KgdQP+COm9pnjCsMXNRG8WYYQXhmwM3
-         Kx5KIYBryJ0WMQBRyBto2eH8h3nR0A0V+MSlL3m77TQKklv0jDav90W9LHmlloO/by4l
-         jiKg==
+        bh=xeSnTRMa4bYuKD/SKqG1j0Tlf21/Ddj35fMRyx31G+o=;
+        b=wY01nVd4GmLzjhMfDRV7rnJbSV37rH88ebx+oKqUG4H244ZKUG0bbsIBfufMBvxOOs
+         E6tBMDZhRSBy+4EQ/YLjAQnTkoBFrUJaU6FGAYfszFif7xiT8YpJLJBZLc6biD6IDwjB
+         J8ZoawW+Z2vV2S+sYjD8Ipm95k2NqVitLtqcFAuMItrna1SJvXPawIMP7PD50B93leiL
+         4MU6MeM37BCKsLop7DKWjF4SalRSUSHLQ1U1AcVUf6mbBX+bntwoCPdWPHKnGOfT/udN
+         1ehj2QeH5AnKaVEuX0dcYVCIxuoUAF2nehVVTS/0lmSVM9Aa4+lH00ip1pRqwDULOZcA
+         K/Ug==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=bI9yTul+;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::829 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=nLw79+rm;
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::841 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=sender:from:date:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=e4OVamimJ/KSErAq3ieXarda5uw6ns+vJiT46cOR0Ro=;
-        b=mR9WiZ7Co+fJPmcL7ucylvrY/KJtxumiC9j+5QSgFJ9MURu6zNDe0FPMFmB2vdjwOG
-         EYijMifwjANMoPAP1xPU5B5P0O7T9ZdGBpyQWBbVw2QyK0Deom6wyYHyRxK5H9FoEsHh
-         P6BJZLNhYH+l+fh+7RNaa3F7z04G72oYpz74AzUy8osAyN+0XJTAjgMl6NIf7GXuIWtF
-         q3CcixUJ7MlYUU0vu7ItbYWATtY0vkGvgZwAGVuWm0Sif9Fa3Rgj0m3zfmja+NlG1Cai
-         t1fg/zNf1hGM+DJC+UDQRiV4404dvakSQygv9I/KU7NjIWKpmsDlKLUNTCvmyypIjrh3
-         7xIA==
+        bh=xeSnTRMa4bYuKD/SKqG1j0Tlf21/Ddj35fMRyx31G+o=;
+        b=XJB92EpZKA8CpDSxQc2mBJDHG2fhZvBOqdy04n8oIQeCMFHjoczvJiao9QUVJ8STUg
+         1moGKdvzO67aCMMiVSBq8wVI1wqr7LN3nAGMoDrWtipjr5c1MunUtVoX7CY/nBpQ7Doq
+         9NcUmFQJtJ8Q2BMdiV4AyEl1bBNHZa2H6IDo6fhNr8o7FZtsYXtMq0l/z5umgcMkPrma
+         30e2m8w5iPN9U2ocFO/FR3LLs9bw+3qET0Oe2t0fjebFPVX+YJThN900yV7WA2Q5BitX
+         nmwQUHv/sO4fm3EF/6cQEpcxX/4xUJ3VPnyOpllOtCPW6WYMzJBnNHoJ/qsgPKyXsu9b
+         L36Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
@@ -49,69 +49,69 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=e4OVamimJ/KSErAq3ieXarda5uw6ns+vJiT46cOR0Ro=;
-        b=EVscQkYJbhShyiMS7ljPQ6EIJltqt5a45sIq+xccrYmJ9TX4ZCod/fAyJsvhWpXY9n
-         8wUdi202XhvZc6J4vlgYyf0eOgg7cf1U7p4CIq+QhoriOUjHXwWW/g/QuRP9yUHlMRK3
-         dgkfH1F0p10rCkrYmSagTWL6nhYT0pGJ8i1cz+PLr8o5vs5FCYtXySp6KlevI/iY+Lvj
-         h3UcsUxPD3/J+SD2od2BDl1OOTn61ovIqxLaRmtcKbAL4Ef28Lo1pPryRwkHt5QLSzDe
-         +TSKEuPf0XVMlpZ6trCuIa1NfgoJWnyuq/D2uLTAmOOEIYDetRJampLMlLPJ0NDpvUil
-         8ccA==
-X-Gm-Message-State: AOAM530octIpc9hWQ5Bo+MkCe6E2wS92/cFg5TE4uOHqz9qCD6OQUF/u
-	Kk8xBPGZzR5+QRYV0A7Fpi4=
-X-Google-Smtp-Source: ABdhPJxP1yH6okkiqgtSKATDbzFX/+P5Uw6J9oJYQhWRcY+yU+0pwhLDIPzzffBiuvWzByOLf2aRnA==
-X-Received: by 2002:a9d:2787:: with SMTP id c7mr3958851otb.29.1597455193642;
-        Fri, 14 Aug 2020 18:33:13 -0700 (PDT)
+        bh=xeSnTRMa4bYuKD/SKqG1j0Tlf21/Ddj35fMRyx31G+o=;
+        b=RLHbWqRHsaS34V72VT+vef09W+tEp+b5TWesJUbQSTygb5C5YnbJMEBQdRigefJ1fM
+         lJ32nZj5S6jQZJ1zId1BYdnhevAmhFMK2SS4W5Zc+tJ7azy9EDT3HqdPpXx3+4vjFo/L
+         PaagD0rQRGjIhvloUSZutJpq/l2FeX91bmYCI5ibV2bXLgkicBS30y6VNnPNpxX2uwnI
+         nz2HNAjftO7DL2bGVrE5aCsD0gNHidAFPq3wZp0mPFF8zpGtEdHYEBBbYf2V7UYK6hRd
+         AiwHUZ5fhco8m77BxGXWIIs5rK9+84qW7mox0Nde41se79xtmBYFOXDAXQpIjKjhUc9G
+         1dyQ==
+X-Gm-Message-State: AOAM530HTir5ZehNJ9sCG1iU4pcLTKAEeOq/DnU6K/5gpejbXKvWyScV
+	BeOGZsYKnoX8ROXdH4eGQkY=
+X-Google-Smtp-Source: ABdhPJwpVwNzbQ+ndqOGVfCkzMHPMlPwR70FIUK8Zq33bOYmLb12JGdEa/fFu55i/idYC85RvisHOQ==
+X-Received: by 2002:a05:620a:102c:: with SMTP id a12mr4411482qkk.47.1597455609378;
+        Fri, 14 Aug 2020 18:40:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:2103:: with SMTP id i3ls2400492otc.3.gmail; Fri, 14
- Aug 2020 18:33:13 -0700 (PDT)
-X-Received: by 2002:a9d:7684:: with SMTP id j4mr3970888otl.266.1597455193344;
-        Fri, 14 Aug 2020 18:33:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1597455193; cv=none;
+Received: by 2002:a05:620a:120e:: with SMTP id u14ls4983492qkj.3.gmail; Fri,
+ 14 Aug 2020 18:40:09 -0700 (PDT)
+X-Received: by 2002:a37:a851:: with SMTP id r78mr4406035qke.419.1597455609049;
+        Fri, 14 Aug 2020 18:40:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1597455609; cv=none;
         d=google.com; s=arc-20160816;
-        b=He5UwF9FEvp3T78nWFYUOKOp2JkPpvAIM+licviD/8nS5QqF6jZNOoORYBWKd72M5F
-         28t7fycllcAjBdD0Yweb+LXoQHgddUpVwFH5Cc4tPRYX8ZQ71wG7DB5Ss7Ed9GrN+qtZ
-         dn9Ga4z0FM72wjLYtw7yS7EVpGsp4MKeE8FfwInbkNOlij5BvNVzxMznoIsEpiNuuHiR
-         zmD5ZYpHLAVrMPM3ebxgd4nfC8WLrpOg+Vj3sMlW2QBM5DefidyKChbdrAYChtBjLHl7
-         bVHGKY9B1Y3PpzAGsZnCipqI8EKaB6fTb0MHp9L9EW8zpK9I+4o+mHTByIZ8MZf8vO8u
-         yUKQ==
+        b=vX1QFeLd6Dcith7Bf+S9Dm2y2uFf6d9weYIAa88gWBn4koWrKFJajnUP+7PHvkJSA9
+         ayJ3GPuHM8YvuUY+ACHVdm0tIe8zkNDvzkNZRqwwwGt24Ja7dfMXVY/vYb/6BDdNmyLL
+         cfH9ByzPritQTyHoEag4lKE0cZYOHbzKoNSP63imjBTVYJQA3bzENfd6BQDYAX0MiGXM
+         V/nGdWhpkYpie8q3vzUiO9uayPn7KGqsYS1MICnCr7Z8no8yawg9AHye3R643XyOWNGH
+         0tY1/zAI7F7YIh1qXxmttqteg3B9qOTWge0UdrRj2lU+FEYOsjhQkfnDhrEhBaNFv6EM
+         9RWg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:date:from:sender:dkim-signature;
-        bh=vJ/jVWhGTXG1e9E+PiLPXFME4LoN6xMadImJ1YD9YHU=;
-        b=APlhojP7Ps8DDHfa6kdJfEml8Pxenb7Jw9VG1BeASlC9LPFs3hLrL/kpSnQWu+139I
-         dIDY+2bZkt3W+P4bHIkUbbXGJsSuBn6T87+r3kMOv7djEdclx5iyZs5qt+kAW/B71/lz
-         QR0aIh9wCnjw4BjCudvQ7g5WfYoq0xf7tg+0m8NKpCaMPMP+mZzduSdMnGI66Y19TqpF
-         At5XmUe1YHrg2M46gi14pLtlGmyh28tK0Dqpu7+a7CWzvT+kZvffrXsJwuHcDnl8fZvl
-         oF+08KqtNQ0DeR5ssZQkBZIAOfxVgAzwyawG0wyfPJey8Snq61HZgmjsDBZN1en1VDb1
-         O7JQ==
+        bh=/LJPODsukhk9ilKQ5Nhku7oJFNIdXYTCpu7/+RHvulw=;
+        b=t1sY4RdHvlfl2/3iLDyziPOkxiWtVs+5a4G40Xx8ZZEYFHd+yB49H4k1atJk8HaFC/
+         I9gCqqOrzYbVxafd3B5CN//QqXqnuf9I2ggUc0enqGc1kyXNCIHJI0aJPthzMc6A8v0u
+         MkThvs2nbPYH10kVMlc8VMCywch8VHxdepV6FPvtIuHbTtwZgRe3PWJ85EIbrHGP8/P7
+         r+Xr6uBeEJA5rFH8Se5zBh9SbOIQwdI+IZWGweC6ZK6wYjU5ZXIXDTw3nhDsmZkprdPR
+         T57GAMR3wKcU/PaVX15+a5Hta0DezCxl/F3Z6kueEEgvmD958WiOOnXFY5wYEYydpNZ7
+         sF4Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=bI9yTul+;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::829 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
-Received: from mail-qt1-x829.google.com (mail-qt1-x829.google.com. [2607:f8b0:4864:20::829])
-        by gmr-mx.google.com with ESMTPS id m19si695395otn.1.2020.08.14.18.33.13
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=nLw79+rm;
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::841 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+Received: from mail-qt1-x841.google.com (mail-qt1-x841.google.com. [2607:f8b0:4864:20::841])
+        by gmr-mx.google.com with ESMTPS id z19si499665qkz.2.2020.08.14.18.40.09
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 14 Aug 2020 18:33:13 -0700 (PDT)
-Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::829 as permitted sender) client-ip=2607:f8b0:4864:20::829;
-Received: by mail-qt1-x829.google.com with SMTP id d27so8366468qtg.4
-        for <clang-built-linux@googlegroups.com>; Fri, 14 Aug 2020 18:33:13 -0700 (PDT)
-X-Received: by 2002:ac8:7405:: with SMTP id p5mr4604950qtq.308.1597455192803;
-        Fri, 14 Aug 2020 18:33:12 -0700 (PDT)
+        Fri, 14 Aug 2020 18:40:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::841 as permitted sender) client-ip=2607:f8b0:4864:20::841;
+Received: by mail-qt1-x841.google.com with SMTP id e5so8367913qth.5
+        for <clang-built-linux@googlegroups.com>; Fri, 14 Aug 2020 18:40:09 -0700 (PDT)
+X-Received: by 2002:aed:3789:: with SMTP id j9mr4809739qtb.251.1597455608719;
+        Fri, 14 Aug 2020 18:40:08 -0700 (PDT)
 Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
-        by smtp.gmail.com with ESMTPSA id t69sm10061523qka.73.2020.08.14.18.33.11
+        by smtp.gmail.com with ESMTPSA id d124sm9846309qkg.65.2020.08.14.18.40.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Aug 2020 18:33:12 -0700 (PDT)
+        Fri, 14 Aug 2020 18:40:08 -0700 (PDT)
 Sender: Arvind Sankar <niveditas98@gmail.com>
 From: Arvind Sankar <nivedita@alum.mit.edu>
-Date: Fri, 14 Aug 2020 21:33:10 -0400
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
+Date: Fri, 14 Aug 2020 21:40:06 -0400
+To: Arvind Sankar <nivedita@alum.mit.edu>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
 	=?utf-8?B?RMOhdmlkIEJvbHZhbnNrw70=?= <david.bolvansky@gmail.com>,
 	Eli Friedman <efriedma@quicinc.com>, stable@vger.kernel.org,
 	Sami Tolvanen <samitolvanen@google.com>,
 	Joe Perches <joe@perches.com>, Tony Luck <tony.luck@intel.com>,
 	Yury Norov <yury.norov@gmail.com>, Daniel Axtens <dja@axtens.net>,
-	Arvind Sankar <nivedita@alum.mit.edu>,
 	Dan Williams <dan.j.williams@intel.com>,
 	"Joel Fernandes (Google)" <joel@joelfernandes.org>,
 	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
@@ -119,16 +119,17 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	Alexandru Ardelean <alexandru.ardelean@analog.com>,
 	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
 Subject: Re: [PATCH] lib/string.c: implement stpcpy
-Message-ID: <20200815013310.GA99152@rani.riverdale.lan>
+Message-ID: <20200815014006.GB99152@rani.riverdale.lan>
 References: <20200815002417.1512973-1-ndesaulniers@google.com>
+ <20200815013310.GA99152@rani.riverdale.lan>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200815002417.1512973-1-ndesaulniers@google.com>
+In-Reply-To: <20200815013310.GA99152@rani.riverdale.lan>
 X-Original-Sender: nivedita@alum.mit.edu
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=bI9yTul+;       spf=pass
- (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::829
+ header.i=@gmail.com header.s=20161025 header.b=nLw79+rm;       spf=pass
+ (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::841
  as permitted sender) smtp.mailfrom=niveditas98@gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -142,38 +143,42 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Aug 14, 2020 at 05:24:15PM -0700, Nick Desaulniers wrote:
-> +#ifndef __HAVE_ARCH_STPCPY
-> +/**
-> + * stpcpy - copy a string from src to dest returning a pointer to the new end
-> + *          of dest, including src's NULL terminator. May overrun dest.
-> + * @dest: pointer to end of string being copied into. Must be large enough
-> + *        to receive copy.
-> + * @src: pointer to the beginning of string being copied from. Must not overlap
-> + *       dest.
-> + *
-> + * stpcpy differs from strcpy in two key ways:
-> + * 1. inputs must not overlap.
-> + * 2. return value is the new NULL terminated character. (for strcpy, the
-> + *    return value is a pointer to src.
-> + */
-> +#undef stpcpy
-> +char *stpcpy(char *__restrict__ dest, const char *__restrict__ src)
-> +{
-> +	while ((*dest++ = *src++) != '\0')
-> +		/* nothing */;
-> +	return dest;
-> +}
-> +#endif
-> +
+On Fri, Aug 14, 2020 at 09:33:10PM -0400, Arvind Sankar wrote:
+> On Fri, Aug 14, 2020 at 05:24:15PM -0700, Nick Desaulniers wrote:
+> > +#ifndef __HAVE_ARCH_STPCPY
+> > +/**
+> > + * stpcpy - copy a string from src to dest returning a pointer to the new end
+> > + *          of dest, including src's NULL terminator. May overrun dest.
+> > + * @dest: pointer to end of string being copied into. Must be large enough
+> > + *        to receive copy.
+> > + * @src: pointer to the beginning of string being copied from. Must not overlap
+> > + *       dest.
+> > + *
+> > + * stpcpy differs from strcpy in two key ways:
+> > + * 1. inputs must not overlap.
+> > + * 2. return value is the new NULL terminated character. (for strcpy, the
+> > + *    return value is a pointer to src.
+> > + */
+> > +#undef stpcpy
+> > +char *stpcpy(char *__restrict__ dest, const char *__restrict__ src)
+> > +{
+> > +	while ((*dest++ = *src++) != '\0')
+> > +		/* nothing */;
+> > +	return dest;
+> > +}
+> > +#endif
+> > +
+> 
+> Won't this return a pointer that's one _past_ the terminating NUL? I
+> think you need the increments to be inside the loop body, rather than as
+> part of the condition.
+> 
+> Nit: NUL is more correct than NULL to refer to the string terminator.
 
-Won't this return a pointer that's one _past_ the terminating NUL? I
-think you need the increments to be inside the loop body, rather than as
-part of the condition.
-
-Nit: NUL is more correct than NULL to refer to the string terminator.
+Also, strcpy (at least the one in the C standard) is undefined if the
+strings overlap, so that's not really a difference.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200815013310.GA99152%40rani.riverdale.lan.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200815014006.GB99152%40rani.riverdale.lan.
