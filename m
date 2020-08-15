@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBA4U4H4QKGQE34ICKYQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBHMY4H4QKGQE372TP3Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103c.google.com (mail-pj1-x103c.google.com [IPv6:2607:f8b0:4864:20::103c])
-	by mail.lfdr.de (Postfix) with ESMTPS id CF74B2451D0
-	for <lists+clang-built-linux@lfdr.de>; Sat, 15 Aug 2020 22:48:05 +0200 (CEST)
-Received: by mail-pj1-x103c.google.com with SMTP id t13sf8292588pjd.0
-        for <lists+clang-built-linux@lfdr.de>; Sat, 15 Aug 2020 13:48:05 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1597524484; cv=pass;
+Received: from mail-pg1-x538.google.com (mail-pg1-x538.google.com [IPv6:2607:f8b0:4864:20::538])
+	by mail.lfdr.de (Postfix) with ESMTPS id 304762451D2
+	for <lists+clang-built-linux@lfdr.de>; Sat, 15 Aug 2020 22:57:03 +0200 (CEST)
+Received: by mail-pg1-x538.google.com with SMTP id x15sf7698691pgx.17
+        for <lists+clang-built-linux@lfdr.de>; Sat, 15 Aug 2020 13:57:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1597525021; cv=pass;
         d=google.com; s=arc-20160816;
-        b=TxWfyE6GK52jTYHO1INKRnNYT6LwEP7OlBqMSTQbeSFQRsW5MRRxV5iUY1v3pGqpnE
-         l+i28LUjzdKC9saFCPX7Iee4lvhHY53H49ZVor8o5hSMMAPSuSWzopZwxFAVf67us7Qm
-         yPETj4HJAadtm+K83w1WXVLVJ0tTF9dvnUD+zXGYznwQ/M36dOGfSqDQBEj4f+EUA9li
-         KhEtoUAZEmuB1gqb+jqIG/oJv4kTD3AJMTIOOe4Qadl5MIK/9p4RVYeb/Aq80P05VqjT
-         jZsC8msZgqucjxvp59M9nAa4kx16zqNQlBQEGcwgMydagV6aFsLX+4/tYGsCgLt2SHz3
-         pqaA==
+        b=tfh8dh//mxNsC+Jq+NXQfxGSia/UxqMvTUUzeLnMFsAXr8QcvdOEdHwNMt+2mS/6zA
+         m4vzLX4dKmMmhCdkgbdxpvsAt6bmYyN0P56ChXbV5JGLSfBTn8ldH7sOJcgcyqj9YysB
+         EbHT2OEvxppcIQzp9V1xs9yBTOtcw2CsDasLWwMtBGdVddmwgGBv/C1eZcaqdJ2+jxN8
+         rF4PZhbZHo3y7bnB+PpUtxygvxw0gAHD1ldV3VycI+/4S+UsqMzSawcXuIhG+L5LMOEy
+         LdRms0yYfSNsIVINuPnYwbOE8ew+lmcmIjVB7uxvrltM5rnJkIoAyKPpjEBanMUCDCkp
+         snMA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=bj23NT0jBGyKOJRO5MHTkRC5GtedCLFhj5/C7JkkUSI=;
-        b=rJk7YIY9/vn/8L136rDiDBslVp4GCxX2tgCQHuFk6tGINhPuhr3nhiK8S0lQbNgIye
-         7A/VwPsQ672ZRqAF5MWBSmXPgeG3CgfK3KD/5pPylF0/y9JvMSNj5GqX7coP+8wMnTEg
-         Oc58bPFEYQnlyFVeEXhoGhwgddfN35VPdByifwf0cZHZ3wPREos1eWHnq984cT+SRstC
-         yGgDT4zbv1sMzmuFLWaJUB6FHcbnWHLmqhzcHXYo/z9FdKBrhUN8QD3Blc9T9mGlxAED
-         T6596y5ssmdZ2c0670MiLEflwpPThcd9NTOgVaCkmy8Xz7wgVx4S25aBBP5EYjPWCr1P
-         +eGw==
+        bh=LuYK9EgpMJiddtgqueoXal0H7kVZxq1STqbaBQsANJ8=;
+        b=Yz2SlV6kFVPPkw7Kc24ydeWm2MrJ7lpUYc8TSzyRQChJ2bhh8GGVyizEKovm/+Bvhi
+         1ulEO/Nw0UxCA/fYfy8u9b8VSzTq9PS8Spq3OAHyiHEsBsdu0JrcP+Xxj51E8opMu4iX
+         F5coRyfi/YXADaK5Y00QHYx/sGL5W2z8edKgENd8B1c6TN2eGH97SKHyUZjK0UKJG47W
+         fDB+7lz9Js+kW3OdhOSS19Wpux6+cucARc+ZO3n+N3Mwfa937EDbMxZr3xgvf0Voiiv4
+         pY9L99uJtGCKHDQsMDCzhbxXhZPv2HBpf4EquB9g2cKY3IPVZz8GkeZ4/TrW6GTT/C4b
+         eYHw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="wKBjH/2Z";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=ALUgM3Fc;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=bj23NT0jBGyKOJRO5MHTkRC5GtedCLFhj5/C7JkkUSI=;
-        b=VdPeKSSXxENotbS/FLTgYJdQsBHXF682LQ6XAqXZcNj4X+ABU/5MABWoHx85WFp4iR
-         2moCGY3Bq9u71adt80OWDhp+AIp/+I5XMyp5jah+uYaAOTKRsPDYJGXrR0o/cWfrCfrI
-         bPuetHAzwrc1p47CzvDra0bwbAfoQd94ODd8xbcBz8tu/rQRu/rVLPWpuTTBZQJQt85P
-         7QMr6qF8HEqh6npg2Z/xTVbwtUfy03Wll+dREnqjToEuE4xs2p+pmkcKwRnPb6naCovi
-         Koc+vOe1djlKKFLjPxE9sNupp7sbbQu3i/wHxSxszlYbXfP8cbNlGea3YSqRaY+d7D6w
-         gRFg==
+        bh=LuYK9EgpMJiddtgqueoXal0H7kVZxq1STqbaBQsANJ8=;
+        b=J5sM1gB+BThxvXxn1o6nl53wrR5uVSMAPFf4UJtSZJC4P7j6mWgA42J7Px/s4hhWbn
+         mYDN79HJI3zhr3sn8NPUMuhbLbvvgEINy5cJf2qIucXYO24Y7mh1Hb8ii7m+unCtik9V
+         1/IeFObqQsd/6ceV/jFNfAJcy3Bsxn3lsBaE2dQLzUT1/2pVci+6AYh7TDUgNsnol/AB
+         rUwvj4ih2rDd5qiVaOPb5QDkBAJWA+5daHNm2qsXjlyHOxAB84XzYZQ8NUZUlbGbXo2k
+         7lLuGVE+GUp0IApSjhTrcj3K8d4M0lqqfbPpQrBl1viH3PZsvr2EsKnWvGmK3Hb291zH
+         OUfg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,81 +49,75 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=bj23NT0jBGyKOJRO5MHTkRC5GtedCLFhj5/C7JkkUSI=;
-        b=FEXUETLUcgQ7A94yEcaADL6sZoWPwKeHLPpCjrg0bIwGb8IhWdhidQJe2IFLjzcWGJ
-         24TnmJm45DtLO3A8f1EDpOZflN0OiEa9lFRwK8fb5AXqjD9pSDQtZiHS2Nh9n1OheXGk
-         pbTa54RhI+iw64sh31coWg8dSCpjMne7EnUW22QEv5G4n1AePYVlsB3qZP6nQj3ikunp
-         AFCYbit6b7AaVNo810LN//ij/eVYmbtIGJ/au7Xj0KfMrggLNjzYpKOtuxrjoWP2+w0J
-         CMw1HALks/VaK5q0D7uPMYP2q4uN8eYw8U65iQeB10I8x+alBdJU0ax7LGw7YRV3UXvT
-         jdvg==
-X-Gm-Message-State: AOAM5306M69jPoK5JKe76og7eeOv9s2KOgpj2os4WxKE9GHKTR0FcrVn
-	eFIaJp32LrXxR0evmlZZSHw=
-X-Google-Smtp-Source: ABdhPJxtbmfKm7jZ6T1BneiF8iTNBbtIB3MAbdylLUC7YSTDhmqNf9Jr7Cqd74i3ZuWmXIHoWoi2nQ==
-X-Received: by 2002:a63:e312:: with SMTP id f18mr5746059pgh.216.1597524483696;
-        Sat, 15 Aug 2020 13:48:03 -0700 (PDT)
+        bh=LuYK9EgpMJiddtgqueoXal0H7kVZxq1STqbaBQsANJ8=;
+        b=E3/jcxyz7bNCxfjZqWOdO/kAwa7Yqv/Z+qAomKSLjoEiVznWX6gpoSOObEmebtc1II
+         nTZDC2FVYzvz/S5RMB7mAUIZH6OuKLriX7JqSeHdfgSDYbJzXjnL+oTU+/xNGXD+Vdxb
+         dZAjIB/CSSvzHTtXT1iVVAeW9iKpIud8aoaP6dzRNsF0eE5Iml7J7DSsuXb3xOcZiQM3
+         4El7CXy0NEx4zDyaPV0FWK2BCX+wf04jMpqVWrPJX0t4BPNozGsWayFaH2/fo78pseXM
+         As6FW/5STiFlHBtFHE9fCxu8BiitcmlHUcXETBgN+H2JHfeAYh09GPaYN0YQt1IzPUvZ
+         Y/zg==
+X-Gm-Message-State: AOAM532lqK1GnaCrjXZESpKRcn7vvJWnXeMRU65uQE2O+9t7980Uuh2f
+	9AhPyVLLVwMpIkn0UYOwMhI=
+X-Google-Smtp-Source: ABdhPJxckqOMXOGUOeF6x6PS4ghxH6S2XCDsUxiRckXq/X69TwHq0gbyOeCOPl6eAEubvk6O98+BQQ==
+X-Received: by 2002:a17:90b:a45:: with SMTP id gw5mr6976432pjb.80.1597525021304;
+        Sat, 15 Aug 2020 13:57:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:88c4:: with SMTP id l187ls4257726pfd.6.gmail; Sat, 15
- Aug 2020 13:48:03 -0700 (PDT)
-X-Received: by 2002:a62:f904:: with SMTP id o4mr6448450pfh.14.1597524483258;
-        Sat, 15 Aug 2020 13:48:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1597524483; cv=none;
+Received: by 2002:a17:902:bb8f:: with SMTP id m15ls5049063pls.5.gmail; Sat, 15
+ Aug 2020 13:57:00 -0700 (PDT)
+X-Received: by 2002:a17:902:780f:: with SMTP id p15mr6524096pll.56.1597525020842;
+        Sat, 15 Aug 2020 13:57:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1597525020; cv=none;
         d=google.com; s=arc-20160816;
-        b=ZWKnaavDKdaTW7rpubz6dszy9tdF7AVR0y3ryLCsAqxuuMsEH9GTH3RfDINbOsyCxt
-         Sq9CdCeBu5qHR8gGVR+bAQLm4L7yXLJuFp15tJ6+4q0yCnkLIbTLZLdvr6EYZinOa00v
-         6+L20YMPaJr+Qyo9i7zNFoD4rKkuQGb5UV9qiQEBtGiL01ffOHsqHUqbBGrFMmdotYs7
-         jm7tLRjmenAXjBSEtRSYkOXg7pxnsPE6P26K/xrcB2avIHoMCKjCQBigjsZjEsK4kTLY
-         1nzOeZrzfUb9szyZBAZN53bch2eQEksPYtSIovtIdRXXlic6xLJntjWvjHmRDhpz15dX
-         zJDA==
+        b=eutz/3s6Bu3+GbCTJ9jIvmKDu8+2npDyaV3pNZ6A4rDDschAfr4tvkEEgQK/l2y6Fu
+         N6WZgqWyojFsjqDbjB1l2iENLsYIwxuvjq7bR6gyIwVogYpFnHEeFvstfODekdY19omZ
+         191K/pAf/L2S63viT1Y6VXiG8qa5rWHob+XqB3EDMWRODv4J4DxrV2pgQZfEAP6ZdYeR
+         1A7dz/TtExJ6EVl10bZ9ur9YT2jtVgiVSwLf6b99TExOTLKDcIT573Ht+4gV4c4CgCJz
+         nUQZMNqAvp2Be7DGC6vVLkd37zlDtCYD9oe1ff6KBu6NU+/Q82sH8Mb/GYuGL1g9J9H5
+         Ky5g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=+4XEEilZNC5EnENDZHqsdd6uXJXrwqlhHae+qHfSvbQ=;
-        b=iaLWM0XnkVr5lQqFYJLohoZjbSLtKr8/qsw7ModbmcMn9mYf+YS0t5o/dal5Jb3EBB
-         /OHS9W3ZO74vbaoP9IydLPEUDskh7m+E7rEXmGz0aYVN7QtvuACDe8OywHAUWYc4QrQj
-         QNSTueYgFciLIwnLvBhlaU0jeyxgI1eIe3CNVd6ibAKVOiXPDyANRHIONRbQpwe71n+u
-         SVJf68p85776sg+a4oIqoMyGwVL9JQrRVmXdAgllIuxK4moFEuUu7BHzs8AuxtIMrHQa
-         7ZDgphJ0RAQl5wS5G4U1MU4T1X8qUd1R8aegly224JziVcFzk4vzjVO6JZlg4QCvPPXp
-         rvNg==
+        bh=UtBjDqPvO0XxPgS4w2mz5FIgUERc0EMLvaI4Ab10ZQQ=;
+        b=F9wgJSQOKVyVpLsdGExROJvvUZuLkcOQ4DdGFmSf3Ly7LPbJu3Da0xESEQ/V+oQ5Ww
+         sIM9g/D0+ab+Ewm2oOuS88XCIcaAQ5+JBSISDVR26Eq8vHOmTDbuBOg5BmApHKFrKUqg
+         mI9YjpXWtf/lx4a1LR2pZqKkHBxZkHDib7H1Tyr9Me43DiuTeNs2mQNcQMBWB8PcAwTL
+         3hUjmN4Cky57ZLXR5mFYYkJr0RFlE0qIOg5agODwLZK1bPpHSEPNu+omwniZMyh8uJG6
+         c/UcqSwC6FnGIc/9SYAXpN+a0pAnxEPgonn4uw035u/YkNTezUD2ZuPHI17nzM34n/Ph
+         rK5A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="wKBjH/2Z";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=ALUgM3Fc;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x541.google.com (mail-pg1-x541.google.com. [2607:f8b0:4864:20::541])
-        by gmr-mx.google.com with ESMTPS id t13si683953plr.0.2020.08.15.13.48.03
+Received: from mail-pf1-x444.google.com (mail-pf1-x444.google.com. [2607:f8b0:4864:20::444])
+        by gmr-mx.google.com with ESMTPS id t13si684645plr.0.2020.08.15.13.57.00
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 15 Aug 2020 13:48:03 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) client-ip=2607:f8b0:4864:20::541;
-Received: by mail-pg1-x541.google.com with SMTP id i10so613380pgk.1
-        for <clang-built-linux@googlegroups.com>; Sat, 15 Aug 2020 13:48:03 -0700 (PDT)
-X-Received: by 2002:a63:7d8:: with SMTP id 207mr5716072pgh.263.1597524482737;
- Sat, 15 Aug 2020 13:48:02 -0700 (PDT)
+        Sat, 15 Aug 2020 13:57:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) client-ip=2607:f8b0:4864:20::444;
+Received: by mail-pf1-x444.google.com with SMTP id k18so6213947pfp.7
+        for <clang-built-linux@googlegroups.com>; Sat, 15 Aug 2020 13:57:00 -0700 (PDT)
+X-Received: by 2002:a62:8303:: with SMTP id h3mr6288262pfe.169.1597525020265;
+ Sat, 15 Aug 2020 13:57:00 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200815014006.GB99152@rani.riverdale.lan> <20200815020946.1538085-1-ndesaulniers@google.com>
- <202008150921.B70721A359@keescook>
-In-Reply-To: <202008150921.B70721A359@keescook>
+References: <20200812004158.GA1447296@rani.riverdale.lan> <20200812004308.1448603-1-nivedita@alum.mit.edu>
+ <CA+icZUVdTT1Vz8ACckj-SQyKi+HxJyttM52s6HUtCDLFCKbFgQ@mail.gmail.com>
+In-Reply-To: <CA+icZUVdTT1Vz8ACckj-SQyKi+HxJyttM52s6HUtCDLFCKbFgQ@mail.gmail.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Sat, 15 Aug 2020 13:47:51 -0700
-Message-ID: <CAKwvOdnyHfx6ayqEoOr3pb_ibKBAG9vj31LuKE+f712W=7LFKA@mail.gmail.com>
-Subject: Re: [PATCH v2] lib/string.c: implement stpcpy
-To: Kees Cook <keescook@chromium.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	=?UTF-8?B?RMOhdmlkIEJvbHZhbnNrw70=?= <david.bolvansky@gmail.com>, 
-	Eli Friedman <efriedma@quicinc.com>, "# 3.4.x" <stable@vger.kernel.org>, 
-	Arvind Sankar <nivedita@alum.mit.edu>, Joe Perches <joe@perches.com>, 
-	Sami Tolvanen <samitolvanen@google.com>, Vishal Verma <vishal.l.verma@intel.com>, 
-	Dan Williams <dan.j.williams@intel.com>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	"Joel Fernandes (Google)" <joel@joelfernandes.org>, Daniel Axtens <dja@axtens.net>, Ingo Molnar <mingo@kernel.org>, 
-	Yury Norov <yury.norov@gmail.com>, Alexandru Ardelean <alexandru.ardelean@analog.com>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>
+Date: Sat, 15 Aug 2020 13:56:49 -0700
+Message-ID: <CAKwvOdmHxsLzou=6WN698LOGq9ahWUmztAHfUYYAUcgpH1FGRA@mail.gmail.com>
+Subject: Re: [PATCH v2] x86/boot/compressed: Disable relocation relaxation
+To: Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Thomas Gleixner <tglx@linutronix.de>
+Cc: Arvind Sankar <nivedita@alum.mit.edu>, Fangrui Song <maskray@google.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, e5ten.arch@gmail.com, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Ard Biesheuvel <ardb@kernel.org>, Kees Cook <keescook@chromium.org>, 
+	LKML <linux-kernel@vger.kernel.org>, "# 3.4.x" <stable@vger.kernel.org>, 
+	Sedat Dilek <sedat.dilek@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="wKBjH/2Z";       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541
+ header.i=@google.com header.s=20161025 header.b=ALUgM3Fc;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -140,57 +134,105 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Aug 15, 2020 at 9:34 AM Kees Cook <keescook@chromium.org> wrote:
+Hi Ingo,
+I saw you picked up Arvind's other series into x86/boot.  Would you
+mind please including this, as well?  Our CI is quite red for x86...
+
+EOM
+
+On Sat, Aug 15, 2020 at 8:49 AM Sedat Dilek <sedat.dilek@gmail.com> wrote:
 >
-> On Fri, Aug 14, 2020 at 07:09:44PM -0700, Nick Desaulniers wrote:
-> > LLVM implemented a recent "libcall optimization" that lowers calls to
-> > `sprintf(dest, "%s", str)` where the return value is used to
-> > `stpcpy(dest, str) - dest`. This generally avoids the machinery involved
-> > in parsing format strings.  Calling `sprintf` with overlapping arguments
-> > was clarified in ISO C99 and POSIX.1-2001 to be undefined behavior.
+> On Wed, Aug 12, 2020 at 2:43 AM Arvind Sankar <nivedita@alum.mit.edu> wrote:
 > >
-> > `stpcpy` is just like `strcpy` except it returns the pointer to the new
-> > tail of `dest`. This allows you to chain multiple calls to `stpcpy` in
-> > one statement.
+> > The x86-64 psABI [0] specifies special relocation types
+> > (R_X86_64_[REX_]GOTPCRELX) for indirection through the Global Offset
+> > Table, semantically equivalent to R_X86_64_GOTPCREL, which the linker
+> > can take advantage of for optimization (relaxation) at link time. This
+> > is supported by LLD and binutils versions 2.26 onwards.
+> >
+> > The compressed kernel is position-independent code, however, when using
+> > LLD or binutils versions before 2.27, it must be linked without the -pie
+> > option. In this case, the linker may optimize certain instructions into
+> > a non-position-independent form, by converting foo@GOTPCREL(%rip) to $foo.
+> >
+> > This potential issue has been present with LLD and binutils-2.26 for a
+> > long time, but it has never manifested itself before now:
+> > - LLD and binutils-2.26 only relax
+> >         movq    foo@GOTPCREL(%rip), %reg
+> >   to
+> >         leaq    foo(%rip), %reg
+> >   which is still position-independent, rather than
+> >         mov     $foo, %reg
+> >   which is permitted by the psABI when -pie is not enabled.
+> > - gcc happens to only generate GOTPCREL relocations on mov instructions.
+> > - clang does generate GOTPCREL relocations on non-mov instructions, but
+> >   when building the compressed kernel, it uses its integrated assembler
+> >   (due to the redefinition of KBUILD_CFLAGS dropping -no-integrated-as),
+> >   which has so far defaulted to not generating the GOTPCRELX
+> >   relocations.
+> >
+> > Nick Desaulniers reports [1,2]:
+> >   A recent change [3] to a default value of configuration variable
+> >   (ENABLE_X86_RELAX_RELOCATIONS OFF -> ON) in LLVM now causes Clang's
+> >   integrated assembler to emit R_X86_64_GOTPCRELX/R_X86_64_REX_GOTPCRELX
+> >   relocations. LLD will relax instructions with these relocations based
+> >   on whether the image is being linked as position independent or not.
+> >   When not, then LLD will relax these instructions to use absolute
+> >   addressing mode (R_RELAX_GOT_PC_NOPIC). This causes kernels built with
+> >   Clang and linked with LLD to fail to boot.
+> >
+> > Patch series [4] is a solution to allow the compressed kernel to be
+> > linked with -pie unconditionally, but even if merged is unlikely to be
+> > backported. As a simple solution that can be applied to stable as well,
+> > prevent the assembler from generating the relaxed relocation types using
+> > the -mrelax-relocations=no option. For ease of backporting, do this
+> > unconditionally.
+> >
+> > [0] https://gitlab.com/x86-psABIs/x86-64-ABI/-/blob/master/x86-64-ABI/linker-optimization.tex#L65
+> > [1] https://lore.kernel.org/lkml/20200807194100.3570838-1-ndesaulniers@google.com/
+> > [2] https://github.com/ClangBuiltLinux/linux/issues/1121
+> > [3] https://reviews.llvm.org/rGc41a18cf61790fc898dcda1055c3efbf442c14c0
+> > [4] https://lore.kernel.org/lkml/20200731202738.2577854-1-nivedita@alum.mit.edu/
+> >
+> > Signed-off-by: Arvind Sankar <nivedita@alum.mit.edu>
+> > Reported-by: Nick Desaulniers <ndesaulniers@google.com>
+> > Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+> > Tested-by: Nick Desaulniers <ndesaulniers@google.com>
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Arvind Sankar <nivedita@alum.mit.edu>
 >
-> O_O What?
+> Thanks for the patch.
 >
-> No; this is a _terrible_ API: there is no bounds checking, there are no
-> buffer sizes. Anything using the example sprintf() pattern is _already_
-> wrong and must be removed from the kernel. (Yes, I realize that the
-> kernel is *filled* with this bad assumption that "I'll never write more
-> than PAGE_SIZE bytes to this buffer", but that's both theoretically
-> wrong ("640k is enough for anybody") and has been known to be wrong in
-> practice too (e.g. when suddenly your writing routine is reachable by
-> splice(2) and you may not have a PAGE_SIZE buffer).
+> Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
 >
-> But we cannot _add_ another dangerous string API. We're already in a
-> terrible mess trying to remove strcpy[1], strlcpy[2], and strncpy[3]. This
-> needs to be addressed up by removing the unbounded sprintf() uses. (And
-> to do so without introducing bugs related to using snprintf() when
-> scnprintf() is expected[4].)
-
-Well, everything (-next, mainline, stable) is broken right now (with
-ToT Clang) without providing this symbol.  I'm not going to go clean
-the entire kernel's use of sprintf to get our CI back to being green.
-
-Thoughts on not exposing the declaration in the header, and changing
-the comment to be to the effect of:
-"Exists only for optimizing compilers to replace calls to sprintf
-with; generally unsafe as bounds checks aren't performed, do not use."
-It's still a worthwhile optimization to have, even if the use that
-generated it didn't do any bounds checking.
-
+> - Sedat -
 >
-> -Kees
+> [1] https://github.com/ClangBuiltLinux/linux/issues/1120#issuecomment-674409705
 >
-> [1] https://github.com/KSPP/linux/issues/88
-> [2] https://github.com/KSPP/linux/issues/89
-> [3] https://github.com/KSPP/linux/issues/90
-> [4] https://lore.kernel.org/lkml/20200810092100.GA42813@2f5448a72a42/
->
-> --
-> Kees Cook
+> > ---
+> >  arch/x86/boot/compressed/Makefile | 2 ++
+> >  1 file changed, 2 insertions(+)
+> >
+> > diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
+> > index 3962f592633d..ff7894f39e0e 100644
+> > --- a/arch/x86/boot/compressed/Makefile
+> > +++ b/arch/x86/boot/compressed/Makefile
+> > @@ -43,6 +43,8 @@ KBUILD_CFLAGS += -Wno-pointer-sign
+> >  KBUILD_CFLAGS += $(call cc-option,-fmacro-prefix-map=$(srctree)/=)
+> >  KBUILD_CFLAGS += -fno-asynchronous-unwind-tables
+> >  KBUILD_CFLAGS += -D__DISABLE_EXPORTS
+> > +# Disable relocation relaxation in case the link is not PIE.
+> > +KBUILD_CFLAGS += $(call as-option,-Wa$(comma)-mrelax-relocations=no)
+> >
+> >  KBUILD_AFLAGS  := $(KBUILD_CFLAGS) -D__ASSEMBLY__
+> >  GCOV_PROFILE := n
+> > --
+> > 2.26.2
+> >
+> > --
+> > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> > To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200812004308.1448603-1-nivedita%40alum.mit.edu.
 
 
 
@@ -201,4 +243,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnyHfx6ayqEoOr3pb_ibKBAG9vj31LuKE%2Bf712W%3D7LFKA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmHxsLzou%3D6WN698LOGq9ahWUmztAHfUYYAUcgpH1FGRA%40mail.gmail.com.
