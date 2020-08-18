@@ -1,130 +1,135 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBQXN534QKGQE6V654NQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBQ4A574QKGQEIFEP6DY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf40.google.com (mail-qv1-xf40.google.com [IPv6:2607:f8b0:4864:20::f40])
-	by mail.lfdr.de (Postfix) with ESMTPS id CBF09248393
-	for <lists+clang-built-linux@lfdr.de>; Tue, 18 Aug 2020 13:08:51 +0200 (CEST)
-Received: by mail-qv1-xf40.google.com with SMTP id l18sf12967975qvq.16
-        for <lists+clang-built-linux@lfdr.de>; Tue, 18 Aug 2020 04:08:51 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1597748930; cv=pass;
+Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 38291248422
+	for <lists+clang-built-linux@lfdr.de>; Tue, 18 Aug 2020 13:49:25 +0200 (CEST)
+Received: by mail-yb1-xb39.google.com with SMTP id a14sf21571222ybm.13
+        for <lists+clang-built-linux@lfdr.de>; Tue, 18 Aug 2020 04:49:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1597751364; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RwPMWs0ScqNMi5f/AKhZNNoz2XMUaQho4j1pAQRrzSgrlANZPCCajZNLK+I65Q2vBA
-         hOmQObM+AbtI0s1SdXCTSls9a3jQ1UnIAirVZfy/npLg/5+q7UwdmXHSiF3tNilpcjs8
-         LYe8CBryyVlQMjhS9uOsff35z/tEsk7wew3HJ7uLRLnzUJEMwVVzyxU7N9y6OjkcO78N
-         +3uSoH1wCz9ncPspzFUP5zqJNHnKLn6YBWVnfp+Ik53lUuDRJH0iBnizTY2JRdACCWCI
-         8P0On16/7FvvK3UmzyirF2sHe8F0VS3SDR3UPsnAKVNbxtTpTNv+GHXYecrXy5G3fWPf
-         8haA==
+        b=qN3jt5fTw2bAsTo+0e6SLbTfOLjcLjW/uNaO0/fhYlw+BO/TIbvkwGc8NRhNuDftSr
+         Kadq+Vk1A+6RwbS+3emJKatU3BwURGiyE4y48VK6SeAjmkiG5wUSJsZ9DrIwq1Xz6INR
+         ZI9734x7TUvYJUi/d6frCRd3xHiLA3jUTE1DE5lFG6SJngAfr1obXcIiZTDODoDBQPzK
+         gOQsYL4g9nPFBXSCb8A/4DmysPYBHobxBQ5VEXRSOgvjyTZYYcRnitZEHcLuftyVX2TS
+         IZ7Y+3fvDBp0pm3HK9T7027od7cRWveLij6KXNCXo4SHlnlyHWyC6FxyDdg22JeKmM4x
+         rUeg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
-         :ironport-sdr:sender:dkim-signature;
-        bh=vehvwqQOVwZVkSrtbD2m16Rtq1WNQjrXnqDeVjhgfb0=;
-        b=lAVwTacIdsc53eRv3CntJS8VyH6SHORfR70y5EbXoYOj3/+dDK+Qd940lpdCRIpkwM
-         V0ndHLPPXbiozoqkSG3L6CO718X+96IHUzaVeaYWW0UpAiqSMZA79g4Iwd+DRLpIwd+g
-         VsOCSAa9a7J1MNOqKejNHfCNc38Doto0mnHyU9ffz5Qh6HuRKKcIiuxoywnsh7ibH1Dw
-         Wt6j+JO5MhbaJP/fFyU/X90qV+UZM+ykxx9Jgf2i8P/TrDDfDotiM4/N+QCPYkkd95SM
-         TO3kEjMFpI0QMa8heCn4yW7GoCqKo2HXYZbNb9m1vw8YawoMV1wuxUc3R9Rs2jHCa8aa
-         o8rQ==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=W+iK95S+NUohKaGY0uzgKw0+uZ7oTxchGaTwrR8tzY8=;
+        b=XEGElyOgVovFYNYI0BUKzHfRksugqaC79esmppk7F0N5g1H7eGvUH0bIQ32QqmZ9ee
+         hq8F/6XsvwqRbDwxhbJTJoIg9/fg0JokqjZ1O9eq8uvOeS8jx5PuM2VoBcsoWhehSaYJ
+         ytnZ1mg6c7mDrWYSsGtBh94xqJUp+t57CZeoLPiPExh/Cb0fo0VFj/txKi4pHiJYUbAk
+         f6PEV8FmksHbvrTcVH0Fk3BfJh4030mJ4JHiEBOBLo/Jju2U11beQB2zZ46sVoeieQCV
+         +cnLjHeVho2dFqWXbIJAfIYi+ImgceRlwsDAuzsAcDnIdyO8BSbwW2n3Y1EyGyJBuvC5
+         5PVw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=vehvwqQOVwZVkSrtbD2m16Rtq1WNQjrXnqDeVjhgfb0=;
-        b=eKsrp+RFojrjvXHHyMb2gPg+sQJuDN3gfHbTlOLZvnQxipyuMs3WHEJfmpZuu503ol
-         JaZf8zSGakA7mV3LvjDPmcCSpxIGVxXQ8AsTxquudAUIWjLieH4Wq9QA/sp4wmlThF7z
-         u6cbEozexxhZkW9BfnwymWferDVbui53NqMH1jL+r/VZwMV2BK6KYZ49Ih4ngSXM5AgO
-         riWZkw19RhNnctpkTTVTjdTm/VykqHjYMVnKPf2rFfrGqEy1namoRdtrikOZ7H4CX5/U
-         OFCEBfuq00KjZbSkVI5cUilqF0dypDutfVBDbebNzcRWpDT8Uy0RsXWV9DJ802UNWYbB
-         7Few==
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=W+iK95S+NUohKaGY0uzgKw0+uZ7oTxchGaTwrR8tzY8=;
+        b=nOQ7H333WxxY+1sqwjQd5CM2h2fG0j1zcYzrlc0lszBgLxE1YppBUmcpzPNuIl75hS
+         GxdK+/XkLAr3JE3xDXdpwaXb3uuT+AWeUtSPz6P71aYgJA3ChPTIg1QtCTvWkucrCKie
+         LurhjReR4DkEJL0IHYjyypTFfbH9oHUD/juBBBZsGMHBMe+Yk9pxBICzbfSPGqg1koPd
+         7ult2oYS8SKSQ5Zk91TbLVehRyDSbAuTGw6FYoMeWAmTFtAYBBLvwbs44iS0NDZ+m/jY
+         m+SvBZA7T1OtRETulOEj79pEICAXGF5zx8VXzvEldDDvMAiMUbPOlb/ljE7mvcOzbTRX
+         aZpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:mime-version:content-disposition:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=vehvwqQOVwZVkSrtbD2m16Rtq1WNQjrXnqDeVjhgfb0=;
-        b=N1qsN5EdIZWb8KdNwFKMly4UH0j0PQK3lpLTKMQ7UsNILVpfgx0/kiD6f74+S1gDBX
-         rji/PBb8WQV1j/yjxX6rhG0GCPUMBoLxJrJaj4LpeoqKnRVfrxqjHS0akycwNfgAOOGY
-         vBNGbjVY1CLrNQEUdW2A71PD8QaxctEukvH6Arf/yZQI2jdrBvMXqX1qWP2OXxc7ooum
-         qUKzoh3CZqacDtyfIPnPvcjqa0DIpwiXABkHhSyNlkOvjODJbUfurgOKUXCz6evgbuCj
-         n26XPfvHGp8lPke6DStzRiirMaGPTptJuEse5GcX1H8venxZsv0Ubi2FkpJ5VEmcQjkS
-         uyEg==
+         :subject:message-id:references:mime-version:content-disposition
+         :in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=W+iK95S+NUohKaGY0uzgKw0+uZ7oTxchGaTwrR8tzY8=;
+        b=WO9f4sfbFJTs3U1u0f4i8mzbtuwHSmWhY2DKODguiXy7z8i56hBx8fJZjmEj5jCKdn
+         pFop0+NMaZeDhLKVH7NhlnC6S5eW2zyzxN8m387g7iLQXOvkjG9iWMqKMuulzW0NhnJm
+         tvzuALzF1CVRy+67JrUv6FMN7Gc+qjSLSLT45to8PoyVZ8j7RnWna7svfcyZ7G0LNJAx
+         CSmSOfp4PS0v9OCK06bq/iVcVXL/lN9uyUZR8M93mk/oAwBik0Umq5pgmd4V8qgxH3x/
+         cut7C6+8YRMZ5QZOIM9mdNgF4WLp0RChhV/Xxg8L6VIl47XPRD8EGGe8MAV2x3dbsthn
+         FGFw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530PnOVaxH8n++bkmAuoIWtjJHfZX9Uv0jukfGwzzH1rEPUjNL4R
-	ATl8AOGUaSBwzruVSTKXNN0=
-X-Google-Smtp-Source: ABdhPJyuJvjm4lxE3HBKnHC4JgFmMUqt1QEAmPNRNHW5gyfIq9WQNiI+ov74wCxPSVQ19usZjLNOvA==
-X-Received: by 2002:a37:6583:: with SMTP id z125mr16739018qkb.297.1597748930704;
-        Tue, 18 Aug 2020 04:08:50 -0700 (PDT)
+X-Gm-Message-State: AOAM531z4w7h00RWBb69JGSsMGgGrr2N1kRT8afUDujlDMQE91wfLykf
+	t9iIcXy3IiD5RmHNPgN8Uvc=
+X-Google-Smtp-Source: ABdhPJxfjSzBF5JOGODjw4s/T5ibpTYdG9C5wdmgr49nldHlyCzkQrsdtgasdCas7b6VdtxSvhSBcQ==
+X-Received: by 2002:a25:6901:: with SMTP id e1mr26221245ybc.192.1597751364036;
+        Tue, 18 Aug 2020 04:49:24 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ae9:c20d:: with SMTP id j13ls285055qkg.2.gmail; Tue, 18 Aug
- 2020 04:08:50 -0700 (PDT)
-X-Received: by 2002:a37:5646:: with SMTP id k67mr16585712qkb.476.1597748930061;
-        Tue, 18 Aug 2020 04:08:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1597748930; cv=none;
+Received: by 2002:a25:840a:: with SMTP id u10ls8118049ybk.0.gmail; Tue, 18 Aug
+ 2020 04:49:23 -0700 (PDT)
+X-Received: by 2002:a25:9843:: with SMTP id k3mr26887654ybo.466.1597751363562;
+        Tue, 18 Aug 2020 04:49:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1597751363; cv=none;
         d=google.com; s=arc-20160816;
-        b=vHr/0Bt494Qx/MIqq6FXCWYmE8rufgPYZQroy93e9tJk2FPIZoYi7b1AdCxMuWFAp8
-         hXl2JI6OA/EgtZRFsLrbLsWJ75GWehc96CXvzYqsoCem5ymwGqwt8BIZgOmi51aVozTb
-         1DT9jhJWV2jBMX8HKmjpHWJCIqBkdFsT/rED4yGu4kF3KzGhNCrebPHrn4EXiBSbApCJ
-         FHMWr5FJ0rs8Ue7fpHht/8SuZUf7Exe7MSnfCoPNhK1jC1ChE17Vd6XRirWYPk3VGaWo
-         n8lQM4YurtAbl64XRiZJ+i+EyMr2gxlliPSseFjgsjEtPmwqZhWfGYIGxQPvjGq1pN+A
-         7ZNA==
+        b=IjyRyQj1n7I7h7AQuDbknuyM6ea1UuazuK/hWzR09kAh5xZY6pfEpxDU9cBu4TLElO
+         xbmgoUGw/w/r46QU28t9eoLDid5T4VAvFCGj94FR1qoZdGxQxLIEBLc2PluaOO4Ec1/L
+         nxshZjzS8bDBRzYRxKdNXqxBv3yh6Nyn4Q+bIKI26FOBxaN2Q9c7TwnWIrgJCq4t4vyI
+         6LxRB7j0Vow2lXDOYoJBhuFSds+9//Qbz8Lrs/8bav86g6g9bQL4ILGAGj3UItzSvDE5
+         tmLmJSg2vTmWeiDvPxNxcpFKywX+D68nyaBk37Rb2eENRsF+6Ttl67jN/RxlWzg6MYYa
+         xriA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:ironport-sdr:ironport-sdr;
-        bh=X7HQJ2JqqOCyO5Ped8dl82n/qWtJmlLD0dI0ZLZlHnY=;
-        b=ufnCiuD05YPzG3leHIjWiWhhGwOrZTcIOpNraCZNcLwAnWfZGD5+Y2CfUNZZ8mzVSK
-         dQRs5zybUp1as/jMUftn8koECkSrHUv9oFz+uT6uVI416hMy5OrK4KTxUJ5JSSP/aq1z
-         UuhRMSK73AcZmxPyRvQf8dXirGJhP+yRzsjyddkWh3wFJKWPJ1iYJ9lSyafW9TA/VH07
-         3OqeqycMiUYjU1RsxXS19GT1C4JY3wWvgtFBbRyOgBH1Gr3GBD7wQpmH29tBQdhUvvfr
-         5Ow/nEGzFocFE98IuUwpSmdZKE1Ocz8Jsh3qjP3pgOWeCb1k5r/xoMEKgytr5Ywf/JgM
-         L5iA==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
+        bh=qpxQt+q78AgwxSuqEZWSd0FC0kwkpBRDtalnLDFaWNM=;
+        b=Aoe9X68EUR3POOojSYcwIqg90XmeZ0OUxTTgS2EIk90F9SuYQoBT0J7ZIkO05UoKZ2
+         JxZgwznHOUVXo0/6MI+/ywi4I51rcL+EKhzV08+/CiARRmYpRf52thXkrJ70jg97nKEH
+         9x7ZFdatHmQneyE2Zac/97P/bd+z5aDYY+Ijf9Znoyw0aqpu4QcaY30u//AlKumlHDbl
+         D6MCkGF+sKGj+MbE3BK7pu0BRboFcwY2Y6NvNOEu2nBgKJwvHYgcjgKgpU/Rh6h8wnuJ
+         SA/RbPQg3a2CDezThWlJ7/l/Ve+DbPDqseTD9TcDSRJQ9CwHhZiBEkbG3S6vL5LFSD7q
+         OLrw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
-        by gmr-mx.google.com with ESMTPS id o24si1187730qki.7.2020.08.18.04.08.49
+        by gmr-mx.google.com with ESMTPS id i144si1084010yba.4.2020.08.18.04.49.23
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 18 Aug 2020 04:08:50 -0700 (PDT)
+        Tue, 18 Aug 2020 04:49:23 -0700 (PDT)
 Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
-IronPort-SDR: jIjRlznzA01MxnaMF1oWvok2BOAsdLnhXriRurjcz6y9ObNoWyFYUYOBdBVR38VI0ulmj+q1fx
- 9oVpjsEBRHXg==
-X-IronPort-AV: E=McAfee;i="6000,8403,9716"; a="155961504"
+IronPort-SDR: y9ZC1RVnHZY0IOr+XeQY/D6ibut80OkZ4qR3hQ+/hKt2ouNl1XuGb4fQDCzht5iTj6W5AlfVls
+ dJyjlQOuhoWw==
+X-IronPort-AV: E=McAfee;i="6000,8403,9716"; a="155965532"
 X-IronPort-AV: E=Sophos;i="5.76,327,1592895600"; 
-   d="gz'50?scan'50,208,50";a="155961504"
+   d="gz'50?scan'50,208,50";a="155965532"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Aug 2020 04:08:47 -0700
-IronPort-SDR: EsGEmYsP4F5fsfpvoOk+RTAzWuTXW5euZoIZd8K6Y+vD7zq4VKeozgQazPE+S4CehHg/F5lrTe
- oDLf51cOopyw==
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Aug 2020 04:49:21 -0700
+IronPort-SDR: Xo0GGePhXw1QxsMYUqOIzqbt4QmRA2ZdZ0Md+QJkP5fSC6/7jujixfwNg1U5FieW91eSGp5p0Q
+ 6LKfczniUzZA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.76,327,1592895600"; 
-   d="gz'50?scan'50,208,50";a="334342594"
+   d="gz'50?scan'50,208,50";a="292740433"
 Received: from lkp-server02.sh.intel.com (HELO 2f0d8b563e65) ([10.239.97.151])
-  by FMSMGA003.fm.intel.com with ESMTP; 18 Aug 2020 04:08:45 -0700
+  by orsmga003.jf.intel.com with ESMTP; 18 Aug 2020 04:49:18 -0700
 Received: from kbuild by 2f0d8b563e65 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1k7zTx-000190-4S; Tue, 18 Aug 2020 11:08:45 +0000
-Date: Tue, 18 Aug 2020 19:08:39 +0800
+	id 1k807C-0001Ab-8o; Tue, 18 Aug 2020 11:49:18 +0000
+Date: Tue, 18 Aug 2020 19:48:21 +0800
 From: kernel test robot <lkp@intel.com>
-To: Chanwoo Choi <cw00.choi@samsung.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: [chanwoo:devfreq-testing 1/15]
- drivers/devfreq/tegra30-devfreq.c:770:10: warning: initializer overrides
- prior initialization of this subobject
-Message-ID: <202008181936.OK40AMr2%lkp@intel.com>
+To: Ran Wang <ran.wang_1@nxp.com>, Li Yang <leoyang.li@nxp.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Ma <peng.ma@nxp.com>,
+	Ran Wang <ran.wang_1@nxp.com>
+Subject: Re: [PATCH v2] soc: fsl: enable acpi support
+Message-ID: <202008181926.spjb3mBf%lkp@intel.com>
+References: <20200818063945.40631-1-ran.wang_1@nxp.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="jI8keyz6grp/JLjh"
+Content-Type: multipart/mixed; boundary="+HP7ph2BbKc20aGI"
 Content-Disposition: inline
+In-Reply-To: <20200818063945.40631-1-ran.wang_1@nxp.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
@@ -144,13 +149,22 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---jI8keyz6grp/JLjh
+--+HP7ph2BbKc20aGI
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/chanwoo/linux.git devfreq-testing
-head:   7d7faea0f817c76423cf3620d31e4884c259912a
-commit: 0d66952a59482fa6c823e29d38ad5ddb0924ae9f [1/15] PM / devfreq: Add governor flags to clarify the features
+Hi Ran,
+
+Thank you for the patch! Perhaps something to improve:
+
+[auto build test WARNING on linus/master]
+[also build test WARNING on v5.9-rc1 next-20200818]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch]
+
+url:    https://github.com/0day-ci/linux/commits/Ran-Wang/soc-fsl-enable-acpi-support/20200818-144909
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git 06a4ec1d9dc652e17ee3ac2ceb6c7cf6c2b75cdd
 config: arm64-randconfig-r005-20200818 (attached as .config)
 compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 790878f291fa5dc58a1c560cb6cc76fd1bfd1c5a)
 reproduce (this is a W=1 build):
@@ -158,7 +172,6 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install arm64 cross compiling tool for clang build
         # apt-get install binutils-aarch64-linux-gnu
-        git checkout 0d66952a59482fa6c823e29d38ad5ddb0924ae9f
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64 
 
@@ -167,40 +180,24 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
->> drivers/devfreq/tegra30-devfreq.c:770:10: warning: initializer overrides prior initialization of this subobject [-Winitializer-overrides]
-           .flag = DEVFREQ_GOV_FLAG_IMMUTABLE
-                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
-   drivers/devfreq/governor.h:55:38: note: expanded from macro 'DEVFREQ_GOV_FLAG_IMMUTABLE'
-   #define DEVFREQ_GOV_FLAG_IMMUTABLE                      BIT(0)
-                                                           ^
-   include/vdso/bits.h:7:19: note: expanded from macro 'BIT'
-   #define BIT(nr)                 (UL(1) << (nr))
-                                   ^
-   drivers/devfreq/tegra30-devfreq.c:768:10: note: previous initialization is here
-           .flag = DEVFREQ_GOV_ATTR_COMMON
-                   ^~~~~~~~~~~~~~~~~~~~~~~
-   drivers/devfreq/governor.h:41:33: note: expanded from macro 'DEVFREQ_GOV_ATTR_COMMON'
-   #define DEVFREQ_GOV_ATTR_COMMON (DEVFREQ_GOV_ATTR_NAME                  \
-                                   ^
+>> drivers/soc/fsl/rcpm.c:144:36: warning: unused variable 'rcpm_imx_acpi_ids' [-Wunused-const-variable]
+   static const struct acpi_device_id rcpm_imx_acpi_ids[] = {
+                                      ^
    1 warning generated.
 
-# https://git.kernel.org/pub/scm/linux/kernel/git/chanwoo/linux.git/commit/?id=0d66952a59482fa6c823e29d38ad5ddb0924ae9f
-git remote add chanwoo https://git.kernel.org/pub/scm/linux/kernel/git/chanwoo/linux.git
-git fetch --no-tags chanwoo devfreq-testing
-git checkout 0d66952a59482fa6c823e29d38ad5ddb0924ae9f
-vim +770 drivers/devfreq/tegra30-devfreq.c
+# https://github.com/0day-ci/linux/commit/c6ed5f2017b1922f30f745a6a6330e1e53caea39
+git remote add linux-review https://github.com/0day-ci/linux
+git fetch --no-tags linux-review Ran-Wang/soc-fsl-enable-acpi-support/20200818-144909
+git checkout c6ed5f2017b1922f30f745a6a6330e1e53caea39
+vim +/rcpm_imx_acpi_ids +144 drivers/soc/fsl/rcpm.c
 
-   765	
-   766	static struct devfreq_governor tegra_devfreq_governor = {
-   767		.name = "tegra_actmon",
-   768		.flag = DEVFREQ_GOV_ATTR_COMMON
-   769			| DEVFREQ_GOV_ATTR_POLLING_INTERVAL,
- > 770		.flag = DEVFREQ_GOV_FLAG_IMMUTABLE
-   771			| DEVFREQ_GOV_FLAG_IRQ_DRIVEN,
-   772		.get_target_freq = tegra_governor_get_target,
-   773		.event_handler = tegra_governor_event_handler,
-   774	};
-   775	
+   143	
+ > 144	static const struct acpi_device_id rcpm_imx_acpi_ids[] = {
+   145		{"NXP0015",},
+   146		{ }
+   147	};
+   148	MODULE_DEVICE_TABLE(acpi, rcpm_imx_acpi_ids);
+   149	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -209,14 +206,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202008181936.OK40AMr2%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202008181926.spjb3mBf%25lkp%40intel.com.
 
---jI8keyz6grp/JLjh
+--+HP7ph2BbKc20aGI
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICICvO18AAy5jb25maWcAnDzZcuO2su/5CtXk5dyHTLRZ9txTfgBBUEJEEjRBSpZfWBpb
+H4sICBa4O18AAy5jb25maWcAnDzZcuO2su/5CtXk5dyHTLRZ9txTfgBBUEJEEjRBSpZfWBpb
 nvjGyxxZnmT+/nYDXAASpF1nqpIZdTe2RqPRG/jrL7+OyNvp5Wl/erjdPz7+HH07PB+O+9Ph
 bnT/8Hj498gXo1hkI+bz7DMQhw/Pb//8vj8+Leajs89fPo9/O95ORuvD8fnwOKIvz/cP396g
 +cPL8y+//kJFHPBlQWmxYankIi4ydp1dfrp93D9/G/04HF+BbjSZfh5/Ho/+9e3h9L+//w7/
@@ -1014,4 +1011,4 @@ sSriBwB6RDDK37+p7jRcZ3YsE0IwdHeBZ8+Y28vOaCuw6oWw9u1Yo5loCjDFedBfnaHzQHeD
 Y2qX79SteT+bgGa5ojow9bBzJqBPHuR9FR0c8RmbRnyCAQ2Y0dR1L33Tm19wM1xHHfwftxU9
 htOfAgA=
 
---jI8keyz6grp/JLjh--
+--+HP7ph2BbKc20aGI--
