@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBAABB67C574QKGQE2WGKH4I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBBXD574QKGQENZPX2EI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3d.google.com (mail-vk1-xa3d.google.com [IPv6:2607:f8b0:4864:20::a3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 04537248945
-	for <lists+clang-built-linux@lfdr.de>; Tue, 18 Aug 2020 17:19:25 +0200 (CEST)
-Received: by mail-vk1-xa3d.google.com with SMTP id n185sf7000425vkg.19
-        for <lists+clang-built-linux@lfdr.de>; Tue, 18 Aug 2020 08:19:24 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1597763964; cv=pass;
+Received: from mail-io1-xd37.google.com (mail-io1-xd37.google.com [IPv6:2607:f8b0:4864:20::d37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7697E24894A
+	for <lists+clang-built-linux@lfdr.de>; Tue, 18 Aug 2020 17:19:35 +0200 (CEST)
+Received: by mail-io1-xd37.google.com with SMTP id k4sf6169152iop.0
+        for <lists+clang-built-linux@lfdr.de>; Tue, 18 Aug 2020 08:19:35 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1597763974; cv=pass;
         d=google.com; s=arc-20160816;
-        b=FCQfqp3qDbZVlBXODg8Vy3C1rgIdqZVCMe0ISKtNFzrQnaBKUupUFT/YRx/qkVTBxP
-         7GebjIekeP+wYgsg1nOE/an8qUT/Bl1+nIgrJqnkmXoLn9Y6b5GoZCpbfH60IHVCHO0Z
-         MPs2QFcIBPkdhwFzi7JQZxgDeJaJedQXGLF8KuTq4YQiL9K3SM9lrgY2qr2VMAUZaUUx
-         Y/nYaKiCkQOPcxAHZeAtwCofvsPdQwJfB1LDSFtWw1sRHfsuMIO8/EMAZktT66Yhb/UO
-         pLfaMUk77WmqhQc7uBVouA65GhT+CLfCPzrewxL7RWhUCAhtqSv/w+Uy99fYrllHPet6
-         EJlw==
+        b=W79NjLEtMxUDdJoVopOuOm6sy+00+tcaMKAW13a6q0oYCH9Z90iwUplMVrF7qZ08uE
+         DTklKzTEeDijbBG/WmjvjoCuY4UaUuuRvtPDyzmcxHDUF82uotZLdmURgUCUQAb+ath9
+         igX5cTrMzEZ7IZ3cbqPdyR9cwp+fHBOWZ16USgNQTyD0kMhCrHWm4kvTAWrM1RTR1D19
+         osTTZzcD4CgIeysBQtmEm0EY8tqlX4kKdsVF5IrlVH97EcTNTi5YNdp/ywZlaZ12StNd
+         JHRJ9/HmOYCaxc2IQjGpznQVHEIvPLZp0SHq1MW4HiFUP0jJH9sDXr1AXavXKxOJXNye
+         6sQg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=bqwE0axRp2gdTvFegB5S8aHDdO9zBvtkhFMmpO9gmk0=;
-        b=TrHs9gv7T1hz6xsuJeRmoTjf9pSpHKQdGa078IhCw32epSDBPrPEqX7Cm/E126nu7y
-         cmqgNISbbIzzknnDFYjDWe2xFbXbx/KJfLjyvbXBRBs8aIYRjP9b2OwGy1k2oewTHN/g
-         +iMFVurynqg84v4seg4jde68rkLOW3S7vXxGzF/3kg3RU5Ild71Y1PsVmgsPzJGnRTXq
-         d+JokVcGdRiMpLvlL/tWrXIeKwlaWLxbcAco0Epxull3ZqVf+MvjVTs6h6Z6iOzWW+Y1
-         F1bqZsvEd/eO0PyzxW1QLDejgKxsfOChXKMOAX1/zIYQozK/5VK7ToBZwUXHFRTrPEs3
-         vyUg==
+        bh=laArkQLs8P4BkJYNju8yAGLSzb0Tbpn6f0/F24hioCI=;
+        b=Kyj97vkpVk0YIcgCr2E78DXiWCnfG55GrJTO3dpJ8WJZQ9+Ezbk4OO8BRDPvBHkk63
+         AxdXhFHQhun2uownrHhG4eUYr44/J2pcGYtB0tuoBS/tSbxx/3MXScasXxJglA7onC/p
+         JTNXnXZ1yk0oqXPtGapGM6dP9JG1t9Pf9usccXcaFqpwbjwUzPqnDaviCCrylHGvIc9p
+         ESDW3DI1YY79QOEOL5nA4HvOaKtFZMr2Te1ti+iXF4ttx8B1E7MyraVifaUEK3V8u9YZ
+         dM2wMh0GaSxn4dyqwRI8kwK/AQHJJCEQb36tMpwEEYfqjQWPZtaz91OX/+VnTu4IFYLu
+         9P5A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="W7/1L7PM";
+       dkim=pass header.i=@kernel.org header.s=default header.b=jJdwwbdM;
        spf=pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=rppt@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=bqwE0axRp2gdTvFegB5S8aHDdO9zBvtkhFMmpO9gmk0=;
-        b=YUFGlyzZWnBDPWeYVMrB/T3j8F6boo6Er7/BoS2GkSVkjueKd9rQEUdJ/TXPENDA6F
-         /ViqqSI2DOOtpzHdfBoc3gW6vbvlGZCiKFvwPUxtlDS/GcV8zesTGTcwnmowtV0Qozfx
-         +8RWckGmdrPOVVsN4RgRsQ+9PPzzYsdcieRhOmIOoSysxFIgezSV70RrA9bZph7r+1L+
-         vFQQ2bEzEfItquzIncMr44kEnTLhNB/tzST5MpVq36lz0u6tkzuNKul9weT13F8DZMvy
-         5c1/+nhp4ur7CTxMN5+tq9yYNMyFmlKvxLWphbCDSzDl87zlgzAuIrYLiCDY3gDHROjp
-         lCkw==
+        bh=laArkQLs8P4BkJYNju8yAGLSzb0Tbpn6f0/F24hioCI=;
+        b=nSNR5s1clHQLUaiG53/944NrDStrvzGdlXj82chzXkw9JH7TCv9uQKW9/TdKP6+D9L
+         bsuLxXzPquU6tVbg1xuHu6jrBcDQpF/6TPnjCBg/d5DWA2IJ6Ua0tZAIyDw0lE6KfoR3
+         pFejKmX8111+1amleBK22ceUXriVjd5G1GiUmbH/KiHF7PUPbNP03hZAqFNTGRCGu455
+         0hzRbriCa3TN/3eOytfgOrtXn2jHPplnAajz0G1Zctbjere3E888Cerjvq0LqxxDmWQw
+         uM3YGbeTJ/7RAUGeTJacpuuaA2LMUKl+kU4RvV385ZkAFFiDdFUt4rpgnEl7NQcQIYYO
+         p/LQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,57 +49,57 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=bqwE0axRp2gdTvFegB5S8aHDdO9zBvtkhFMmpO9gmk0=;
-        b=SzrcpnWlgxZGfotu9kE0DYkeVrrWrolacGPgohy4KFr4z6qUW0fFE/zUHhu6772SJP
-         YxW580n/N1ByIJsm3qc3n1lY8rb3JbSYkzr2MCWpXQCqUDooE/tn+PsmC9+em/v4vscu
-         2XQMK3heHDFyVIPuPHrdwk0aMtqycR6BMUTqbmfZfnsw3WmHftmSi+Nq815r4B+B1emZ
-         4H8tX7nYtwt9viYclkH2jsLn5YDjaO9+XSmJ6xRXmJjqyMCEhR9wYRbfsi4yE5vtUMGG
-         eQlrVeXeY9AIDNfUIPddc5QOiAcK2Lpn0kkl5CtsHr7mWSS8rQMfBgC+ttxFWzPW/7cO
-         Fl5A==
+        bh=laArkQLs8P4BkJYNju8yAGLSzb0Tbpn6f0/F24hioCI=;
+        b=XrPSCqHHkIn3f4yiNKn1kzX4Or3a7uAO2IeCgraJtZYYUXdmDgr8E5Nr5o4l1Qmzh/
+         hVxZvEadpRfbZSRMbZN+oKceJnnOOMxFOf6uDtHkkzR/DF9LqSpKfsG3iTO9V+YDwN5b
+         aZcbLuOQapTN462DgG958aE5h2Hmh8h5OW6CHzNWC/LxpnTWkijo5qT+k93Ju5r83fyI
+         XBXtefqHDW2GvwWKdSuMDHvE9DowL1nSQ3PqcvQL2K6qEHEuPuBSy31PSx3+fNH7oTFx
+         tTWKqbqouKrtIDGfcN1Ue3lJZxMFq9Uwqknkr3G+Y9PhIGaYWLJHW3rrJwvY2SqX7XNM
+         7vVQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533cBK/3FK+Epz+xWbMxiP3qlOAJVR+m85fuV/Pej0/m/yeSwaD4
-	El5YpG5FfVBt/F+IAxNMA/0=
-X-Google-Smtp-Source: ABdhPJxlq6UJfaAkcaYSTPHjqJQ0ngHz4Y2UKOp/UBPCkyRrwgE+szHTgJ/f4jtYinU/kbP/OV3aaA==
-X-Received: by 2002:ab0:2042:: with SMTP id g2mr11157001ual.51.1597763964018;
-        Tue, 18 Aug 2020 08:19:24 -0700 (PDT)
+X-Gm-Message-State: AOAM533JoI2SW9wXqOIRcNTCmd213iUxXdQYxiyD9DTvcjC1gxtmZ7FJ
+	x6mtfya8hkm41rkxSazuwi8=
+X-Google-Smtp-Source: ABdhPJx84uyOjlApJWisZi7Hh4ZwXpEPGymxLvXSxX23mu5FPx90cEcLg5t7rR1Ub5M08l2kGYx8zQ==
+X-Received: by 2002:a02:ccd7:: with SMTP id k23mr19899885jaq.73.1597763974286;
+        Tue, 18 Aug 2020 08:19:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:c416:: with SMTP id c22ls2382604vsk.4.gmail; Tue, 18 Aug
- 2020 08:19:23 -0700 (PDT)
-X-Received: by 2002:a67:fdca:: with SMTP id l10mr11939316vsq.175.1597763963459;
-        Tue, 18 Aug 2020 08:19:23 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1597763963; cv=none;
+Received: by 2002:a6b:5d03:: with SMTP id r3ls3233716iob.10.gmail; Tue, 18 Aug
+ 2020 08:19:34 -0700 (PDT)
+X-Received: by 2002:a6b:7f07:: with SMTP id l7mr16462906ioq.203.1597763973951;
+        Tue, 18 Aug 2020 08:19:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1597763973; cv=none;
         d=google.com; s=arc-20160816;
-        b=lhj7qwN9lpMwHnAdMIhU632/VNeBYTw7PBgt5T2wu6gXRpAXSBT62iG4g4SLs8xJJl
-         Og/pQXl65x9d7E/0V1J+oSKrpR1HJBnpPhbCWg/1phOMbHtHSbrAJdvxFp615bi0u9HT
-         lqeJ5KW/4BDevc++7LhCrAVUm23zNFoQ3ehViZmxF6/ETWijFtDdO/EjxYkVRrm02TlL
-         5EsOx2pDhmMRGG0JPyQJCbA4Shbg71/Li2wnU9+2I5veJSyHcMPzCAdQLtMd1b2Gtw3+
-         xMNoEZY/HtwTPScyQn+WMPUUWrefk5ks/tHn+yBIkSLKd/dBPIjJX+80cBz1Jjjbb3lV
-         VQfg==
+        b=hpND4/Ha5e9zCkngxK1kX2z4bQhhSLmKrrfmOVhZSqVEaXeKDTmMcfLsPIiBn8aYPJ
+         E2w+ST8n9Tqh4bYERFQrhSrPTFFR0DuGEfhHUkVBIxJqw2Cu9mEx9Y21i4smTmF/uEcg
+         f6/FHDkIjR+QtvKx4mbduGUt/QzK3TsMnif26bhXJPnAsBgsG9kj5ciIV52HUbyLeWxZ
+         Ky+qaKm9qhtKmAzeb80eRTBDFasLIvXXiUR4+oH0MsK+0NDkSNnun6r5xRRFhZZ3fbcU
+         DmMcP24lVMr1WnK8pYwux2oyZe4U7W9tdiRfdTzIfj9VLs7jkhfLnuoOxRcHQcJLogq7
+         E8UQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=m8NcckuLpLNDXDwdNLnxDyjRnzgEg9+XfGKjQvDdQjc=;
-        b=YFiOg+ZF1Tlq/mG8ZYOs3CbN8okBbjfqLXh+qpQGAsWKSq5O0yybvof1LfTTGrM4z1
-         Xu806qf8CTZe2S5IXlmreHp/ArkYXsRVjClN6vn1VGUthAA27Re/7eWgHEfWaYmT0zXa
-         YgBIOOE3vH7K9WtJNAGnADxGts/hLi3x0kwv4DuLvkpUh8XqFA2whoHGj9WuaJmHknW9
-         pOQzjPlZvfljNtylHMJ3sJDWw1lD3dW4LVFsdxjN8myTNMp9QEbSMqiaA9CihlCx4mg2
-         IGO+/s0jJlxEzyKWD/ONM2jQtJF5wno2vijen88JWh7pYmXoLRo/90yWeWYxUCY3T1sS
-         JaSg==
+        bh=fvwyw5Xp1BpWpZ9WbKQ9mdrr1/w0luQtVCgBu5KDRjY=;
+        b=To5nFRfcXUWKsakR63YzlpNFUiFkcPwrQVFR0upQbJBmhTKZpy21szybZeOaIdmTBC
+         2bBIkDYTJQH1HVi+er0g9fVT7HIu/IVorwLAmU04JuSPVSsv67cbPTu240dMBhx2noWO
+         B2Q+XKI8m+8t932MRqeoiQi7CwNLOsL6Z5xG86Vfir1NyIKzgm/276SBkxRB9jVImUtH
+         0dQvUFNgMDegi7100iuIONYyCGz2RuKqaSctCBz28qnExKxtb5PGm69egGpiMgyl9vmu
+         6PsfGCAYj6EGHRjk6O64/Clxr+3NP/GE12QDdZ0Exknv8yXa52qlGMUCet/mdWsOpf9L
+         3Fcg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="W7/1L7PM";
+       dkim=pass header.i=@kernel.org header.s=default header.b=jJdwwbdM;
        spf=pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=rppt@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id p197si1102503vkp.0.2020.08.18.08.19.23
+        by gmr-mx.google.com with ESMTPS id h11si686622ilh.1.2020.08.18.08.19.33
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 18 Aug 2020 08:19:23 -0700 (PDT)
+        Tue, 18 Aug 2020 08:19:33 -0700 (PDT)
 Received-SPF: pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id BA0A22076E;
-	Tue, 18 Aug 2020 15:19:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id CF31B2054F;
+	Tue, 18 Aug 2020 15:19:22 +0000 (UTC)
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Andy Lutomirski <luto@kernel.org>,
@@ -144,18 +144,17 @@ Cc: Andy Lutomirski <luto@kernel.org>,
 	openrisc@lists.librecores.org,
 	sparclinux@vger.kernel.org,
 	uclinux-h8-devel@lists.sourceforge.jp,
-	x86@kernel.org,
-	Ingo Molnar <mingo@kernel.org>
-Subject: [PATCH v3 14/17] x86/setup: simplify reserve_crashkernel()
-Date: Tue, 18 Aug 2020 18:16:31 +0300
-Message-Id: <20200818151634.14343-15-rppt@kernel.org>
+	x86@kernel.org
+Subject: [PATCH v3 15/17] memblock: remove unused memblock_mem_size()
+Date: Tue, 18 Aug 2020 18:16:32 +0300
+Message-Id: <20200818151634.14343-16-rppt@kernel.org>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200818151634.14343-1-rppt@kernel.org>
 References: <20200818151634.14343-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-Original-Sender: rppt@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b="W7/1L7PM";       spf=pass
+ header.i=@kernel.org header.s=default header.b=jJdwwbdM;       spf=pass
  (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=rppt@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -174,114 +173,58 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-* Replace magic numbers with defines
-* Replace memblock_find_in_range() + memblock_reserve() with
-  memblock_phys_alloc_range()
-* Stop checking for low memory size in reserve_crashkernel_low(). The
-  allocation from limited range will anyway fail if there is no enough
-  memory, so there is no need for extra traversal of memblock.memory
+The only user of memblock_mem_size() was x86 setup code, it is gone now and
+memblock_mem_size() funciton can be removed.
 
 Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-Acked-by: Ingo Molnar <mingo@kernel.org>
 Reviewed-by: Baoquan He <bhe@redhat.com>
 ---
- arch/x86/kernel/setup.c | 40 ++++++++++++++--------------------------
- 1 file changed, 14 insertions(+), 26 deletions(-)
+ include/linux/memblock.h |  1 -
+ mm/memblock.c            | 15 ---------------
+ 2 files changed, 16 deletions(-)
 
-diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
-index 2cac39ade2e3..52e83ba607b3 100644
---- a/arch/x86/kernel/setup.c
-+++ b/arch/x86/kernel/setup.c
-@@ -420,13 +420,13 @@ static int __init reserve_crashkernel_low(void)
- {
- #ifdef CONFIG_X86_64
- 	unsigned long long base, low_base = 0, low_size = 0;
--	unsigned long total_low_mem;
-+	unsigned long low_mem_limit;
- 	int ret;
+diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+index 27c3b84d1615..15ed119701c1 100644
+--- a/include/linux/memblock.h
++++ b/include/linux/memblock.h
+@@ -481,7 +481,6 @@ static inline bool memblock_bottom_up(void)
  
--	total_low_mem = memblock_mem_size(1UL << (32 - PAGE_SHIFT));
-+	low_mem_limit = min(memblock_phys_mem_size(), CRASH_ADDR_LOW_MAX);
+ phys_addr_t memblock_phys_mem_size(void);
+ phys_addr_t memblock_reserved_size(void);
+-phys_addr_t memblock_mem_size(unsigned long limit_pfn);
+ phys_addr_t memblock_start_of_DRAM(void);
+ phys_addr_t memblock_end_of_DRAM(void);
+ void memblock_enforce_memory_limit(phys_addr_t memory_limit);
+diff --git a/mm/memblock.c b/mm/memblock.c
+index 567e454ce0a1..eb4f866bea34 100644
+--- a/mm/memblock.c
++++ b/mm/memblock.c
+@@ -1657,21 +1657,6 @@ phys_addr_t __init_memblock memblock_reserved_size(void)
+ 	return memblock.reserved.total_size;
+ }
  
- 	/* crashkernel=Y,low */
--	ret = parse_crashkernel_low(boot_command_line, total_low_mem, &low_size, &base);
-+	ret = parse_crashkernel_low(boot_command_line, low_mem_limit, &low_size, &base);
- 	if (ret) {
- 		/*
- 		 * two parts from kernel/dma/swiotlb.c:
-@@ -444,23 +444,17 @@ static int __init reserve_crashkernel_low(void)
- 			return 0;
- 	}
- 
--	low_base = memblock_find_in_range(0, 1ULL << 32, low_size, CRASH_ALIGN);
-+	low_base = memblock_phys_alloc_range(low_size, CRASH_ALIGN, 0, CRASH_ADDR_LOW_MAX);
- 	if (!low_base) {
- 		pr_err("Cannot reserve %ldMB crashkernel low memory, please try smaller size.\n",
- 		       (unsigned long)(low_size >> 20));
- 		return -ENOMEM;
- 	}
- 
--	ret = memblock_reserve(low_base, low_size);
--	if (ret) {
--		pr_err("%s: Error reserving crashkernel low memblock.\n", __func__);
--		return ret;
+-phys_addr_t __init memblock_mem_size(unsigned long limit_pfn)
+-{
+-	unsigned long pages = 0;
+-	unsigned long start_pfn, end_pfn;
+-	int i;
+-
+-	for_each_mem_pfn_range(i, MAX_NUMNODES, &start_pfn, &end_pfn, NULL) {
+-		start_pfn = min_t(unsigned long, start_pfn, limit_pfn);
+-		end_pfn = min_t(unsigned long, end_pfn, limit_pfn);
+-		pages += end_pfn - start_pfn;
 -	}
 -
--	pr_info("Reserving %ldMB of low memory at %ldMB for crashkernel (System low RAM: %ldMB)\n",
-+	pr_info("Reserving %ldMB of low memory at %ldMB for crashkernel (low RAM limit: %ldMB)\n",
- 		(unsigned long)(low_size >> 20),
- 		(unsigned long)(low_base >> 20),
--		(unsigned long)(total_low_mem >> 20));
-+		(unsigned long)(low_mem_limit >> 20));
- 
- 	crashk_low_res.start = low_base;
- 	crashk_low_res.end   = low_base + low_size - 1;
-@@ -504,13 +498,13 @@ static void __init reserve_crashkernel(void)
- 		 * unless "crashkernel=size[KMG],high" is specified.
- 		 */
- 		if (!high)
--			crash_base = memblock_find_in_range(CRASH_ALIGN,
--						CRASH_ADDR_LOW_MAX,
--						crash_size, CRASH_ALIGN);
-+			crash_base = memblock_phys_alloc_range(crash_size,
-+						CRASH_ALIGN, CRASH_ALIGN,
-+						CRASH_ADDR_LOW_MAX);
- 		if (!crash_base)
--			crash_base = memblock_find_in_range(CRASH_ALIGN,
--						CRASH_ADDR_HIGH_MAX,
--						crash_size, CRASH_ALIGN);
-+			crash_base = memblock_phys_alloc_range(crash_size,
-+						CRASH_ALIGN, CRASH_ALIGN,
-+						CRASH_ADDR_HIGH_MAX);
- 		if (!crash_base) {
- 			pr_info("crashkernel reservation failed - No suitable area found.\n");
- 			return;
-@@ -518,19 +512,13 @@ static void __init reserve_crashkernel(void)
- 	} else {
- 		unsigned long long start;
- 
--		start = memblock_find_in_range(crash_base,
--					       crash_base + crash_size,
--					       crash_size, 1 << 20);
-+		start = memblock_phys_alloc_range(crash_size, SZ_1M, crash_base,
-+						  crash_base + crash_size);
- 		if (start != crash_base) {
- 			pr_info("crashkernel reservation failed - memory is in use.\n");
- 			return;
- 		}
- 	}
--	ret = memblock_reserve(crash_base, crash_size);
--	if (ret) {
--		pr_err("%s: Error reserving crashkernel memblock.\n", __func__);
--		return;
--	}
- 
- 	if (crash_base >= (1ULL << 32) && reserve_crashkernel_low()) {
- 		memblock_free(crash_base, crash_size);
+-	return PFN_PHYS(pages);
+-}
+-
+ /* lowest address */
+ phys_addr_t __init_memblock memblock_start_of_DRAM(void)
+ {
 -- 
 2.26.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200818151634.14343-15-rppt%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200818151634.14343-16-rppt%40kernel.org.
