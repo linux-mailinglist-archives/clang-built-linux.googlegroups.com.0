@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBAABB3HB574QKGQE26OANPQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABB57B574QKGQEJQ5Q64Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13f.google.com (mail-il1-x13f.google.com [IPv6:2607:f8b0:4864:20::13f])
-	by mail.lfdr.de (Postfix) with ESMTPS id E820B2488EE
-	for <lists+clang-built-linux@lfdr.de>; Tue, 18 Aug 2020 17:17:01 +0200 (CEST)
-Received: by mail-il1-x13f.google.com with SMTP id i66sf14588358ile.6
-        for <lists+clang-built-linux@lfdr.de>; Tue, 18 Aug 2020 08:17:01 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1597763821; cv=pass;
+Received: from mail-il1-x13c.google.com (mail-il1-x13c.google.com [IPv6:2607:f8b0:4864:20::13c])
+	by mail.lfdr.de (Postfix) with ESMTPS id A0DFD2488F5
+	for <lists+clang-built-linux@lfdr.de>; Tue, 18 Aug 2020 17:17:12 +0200 (CEST)
+Received: by mail-il1-x13c.google.com with SMTP id t79sf14611831ild.5
+        for <lists+clang-built-linux@lfdr.de>; Tue, 18 Aug 2020 08:17:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1597763831; cv=pass;
         d=google.com; s=arc-20160816;
-        b=xparlSYtC2TrVRSCA1FIBR/c1jh8K4TCN6uMAb44duykIuFNqib14+OlOhAQSMISBD
-         t8MGOu/kcm90WewXnfV8qPce+Ey4T22FzM3B/9eNYiLhEWPz/vfREB9gFpdPK0vrf2qP
-         6HkMPmAgxbTXHVJAeW4GiM1n1tyPZ1ipNb3bJ3byeKXqTF6x05rINTg7jBhCdomPl52f
-         iTj3VrMsqgDxzxDPhKIfAb2Lnsy5x6s/8LH/dBgfNKDxORGjMt4Ie12XFU0DfYv/Ni4w
-         fXmxLOtEqutxKd0yv3+5QEtsj8wWQr5rQXj0lA1j2eqMDnsE0OeY31j1pHWVyRL58MHD
-         uOYA==
+        b=H5YSAMAFAIAj8e5TIxsaiJCU93uv/Y9G96P2ghqz2kfPUqSKkvjl29Irn4PqCgsdoJ
+         jnNFBlmUkpu6KbUCAxFu9U3oc05DyfPSJYOHMouHTItre/HdbjDugfScxVYwhHX4VR19
+         WiZhxRxS/eF8Y4TtrZG7I4LPlktQA/fIvHLlonl/Cc5o/AllQ+DX03hds2TFBuoi7y9u
+         lUgx3FpCpSq5lyLwsBZAO2g1NVLVT7AYoEgH/6n6vyOS/y7hFZNuHe/m7K7jZ9TPZvAZ
+         +4ygNdsb5cO+mqazW2s88UpRHMKPNJ44l6FVtCyS9Z13QAVfK4vR54WtI9F3iqdL50+x
+         r/hw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=8vE/SrAfCsd2MFQ5pZA0sq86+vr2Xn4s5EcYu/QGNQw=;
-        b=Vx4aJpNMTRsRxs6KfxM88exnTrtAbjc4a9iix6hgDZyFNaQMhd9eypA7k3XzaOyAWk
-         t4faymZgDh9ENiAozxnQwUXaYRywxxtSv+SqvqqZoVpFYRBJsgj0yfaAtgd7zrAK49DE
-         ivRrcQBI1zthMOP3MzDlepkmBIDIbW4HUkYhFlL1NPChZ9gFVCRQ0TqYmFK78UujANuL
-         QClbOA5rkmRGKSPq6k60QLjKiCIflqz8Lr08anfTMljNU+kmxrH6+mXIeJfOuZ8Jvbyk
-         l+cfkOB4r9T3gbKI952eOmxhfRCujRUZrltaQPE+E+MR8XyUB8p1U+GnO8p7J45Fk6ht
-         5Ucw==
+        bh=fC+UO6+f9iekUkDm4WPq58Z8L4pDvZ5DTMKKSPB+CnY=;
+        b=fzrPlno28CzvZAh1iErpDsxeFxrR9Pt/ERF4Evp7YXXroMI4+ouc4BUsV2uqZ+8pU6
+         lzxMxqivbtYfMis+dBkXDGeuAG/UyCbPYYr7H0q57HdL3uusX8Ky4NHYBnOdOj1Pm3eK
+         dfqGaimk7pEkYKeNsNOWILWQtZx1HFQ6e2P3WCBd+S7FalHU9tUdYF8U66zMKVlkNxvo
+         4GYwkZJ9ZIMcvZ95CIsE7O50qU1InqEJvgBtvUKCiO+Yh6PGDdd+CW0h0Olik8toKxTy
+         54Nv/Ke1OFWSBYFRQJhouRceEzMgLLLoJRGlGiAo3GmobO5Fgazo2lx3auGTzxecmpys
+         Ah9A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=lVcTgt1q;
+       dkim=pass header.i=@kernel.org header.s=default header.b=LGeqCVGq;
        spf=pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=rppt@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=8vE/SrAfCsd2MFQ5pZA0sq86+vr2Xn4s5EcYu/QGNQw=;
-        b=JrPSuyKir+njPsZW4SJKZbse+9rpLEye8ke++KEueXp78MtILet1065Aqw0Yk55Om/
-         0v9bxWXQn9ccrVabgzmK8uDzmX3suxjJe0IYogF+iTSVfEiAAS9LQpppemq31mpXYALe
-         SJIgWngxH8R6grDDOfBVTF0f4Tyqszm22kIQ7pgOd4R6dROuXcxXD5BdYe+ZcdX8ggZI
-         s4GsbSv5GbZ2cVpN83FGHOYodwZ4L1lAob2lPMQISfdXPxhNOR4cN5Il7I/BSWf02D9k
-         0Ks8Vy8JXyDEJBnccLdQDYQvsZfAno/LGC/eOmr7tk+O5y7GRIg8vdztS6IqKOXFO3cN
-         yHaA==
+        bh=fC+UO6+f9iekUkDm4WPq58Z8L4pDvZ5DTMKKSPB+CnY=;
+        b=Cl8irAjvANpfJVYah/l9LL+KYJ+PGuICPW82/Y3lPPduGlpFDeSsdxLdHMLMyHPjYC
+         T9i8JboQYfL5jcRfx4VoEft7ukDDENA0F9RTh6D2hgn8sKBNfnJxdKSngehSqyZnTTn9
+         VQ2Oe/HPNtxbZ7JjFYAHH714IHuYgKSULi3RKL8+rr3oVBFb+qQmD+OULXFvhCqoXgRY
+         X/IZ3WjfWTyxKpaxdh9DL4U6eReQhM0rove4p5pzHNyJnqizul4vwAzR6AM92wVB0ZuY
+         naCb1t0MNYXVSraAJIrP98BHwvZd8+qyo8XrndILuYn9ETMAT0eIRPBAPqkMygAHvDC8
+         rzfg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,57 +49,57 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=8vE/SrAfCsd2MFQ5pZA0sq86+vr2Xn4s5EcYu/QGNQw=;
-        b=Dn1ag2Nc/i4rDGHpDlO5uMnVxqC4hoBDhtbmSOekx5oFnUqyWwqSOfXIP5ZKfH6xmm
-         pd+5p5mPbzp0fOykkRl3OHd9ZWBoQv3acCwO/QmRf2Yocn2R/DaRjEFIhA9f6cRZxBYw
-         3aCzvRbgefWUI3FW553/MmI9s5AdWBByrrIH5dG7Segq7GJY9mHNd2bMYu+0HUSgZYIk
-         K19xZeKD9dXi/2F+iZw3DOWRAO6pS3NVjZ95xMLA5uRED2H0W7uxoiA1I69WXEFTYLls
-         P0Y1Yqh3wMATXpaWyVzuF127Ohfx8iVN+O6e42SdoNX3t0a6fOqY2G6e4oPOroVBQXHl
-         QNAQ==
+        bh=fC+UO6+f9iekUkDm4WPq58Z8L4pDvZ5DTMKKSPB+CnY=;
+        b=it5U3uOtwXohzJnf8poiCt77bkNSNcEtr+O5yc10R2jl7NBeF8/drBril7jTA3x9Qo
+         N1KIGIrSY7nERYtNw54Nrjjs2A0CScSD/OViNhmqh+EmjVY0AwUyeowWg/i+xrRdgS9C
+         CcNzGdlj05jZAOpRgZRnUwUXYJJYOW7wuM2IXWiuGYcXrlPoOOPyH89q2BP+K5oyWbPn
+         P5y4chQMNxZwTM1PSoR3j5liOe9s/yKb492bbsUd6KrPOJU12MBP7Yw/ALuEMG7f8cIZ
+         KzzyCgEt/cf9Xnd5B8VcIgRT9prQtcYqUTlhxlOWsfRxGfH1em3jFlhGJpjOHcpZgtL8
+         ntxw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5327wh5aZX2l85Bzb0WzaHMPdh4/mJgEPOiBIUrWBYL8j2ZQVfaV
-	9D31MzaIdJO6Txw2qzs+50U=
-X-Google-Smtp-Source: ABdhPJy7ljMyoNYINJpqw2PsGh7EpQkpVNGZH0NzYjl2KVvxCGVN9hJVIJ24HYzvmeuF9Cu5FViULQ==
-X-Received: by 2002:a92:364f:: with SMTP id d15mr18227312ilf.89.1597763820833;
-        Tue, 18 Aug 2020 08:17:00 -0700 (PDT)
+X-Gm-Message-State: AOAM533JByX0NevX/NvTnr6pc66Kv24s+A1+dQtDrZRPW/0PZZw4RUbn
+	dVc9zcJA5UKeuPcnnWs7zZ0=
+X-Google-Smtp-Source: ABdhPJxx8mPFSsWRhiJWiEOVhCZBrtOpa4ShqMPwPbyRimyLc6j8ars+KIEog+IkKw7BsoxKb57QtA==
+X-Received: by 2002:a02:820b:: with SMTP id o11mr19889912jag.136.1597763831495;
+        Tue, 18 Aug 2020 08:17:11 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a02:9a0c:: with SMTP id b12ls2683730jal.10.gmail; Tue, 18
- Aug 2020 08:17:00 -0700 (PDT)
-X-Received: by 2002:a02:cc53:: with SMTP id i19mr19866937jaq.33.1597763820478;
-        Tue, 18 Aug 2020 08:17:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1597763820; cv=none;
+Received: by 2002:a05:6638:1489:: with SMTP id j9ls2694595jak.4.gmail; Tue, 18
+ Aug 2020 08:17:11 -0700 (PDT)
+X-Received: by 2002:a02:82c3:: with SMTP id u3mr19607339jag.81.1597763831186;
+        Tue, 18 Aug 2020 08:17:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1597763831; cv=none;
         d=google.com; s=arc-20160816;
-        b=uRbMm16wmDmv1hu859cDFKqMaC0mltwxIjmRYrN+X68ag+FgTn9pP8i1Qg2RZ7Nth7
-         to20LFu5tkLZBUQzvf8wnVxfWAieRJKmcTJwZ7rvTQRRgbEoWucBxS/V7H6FMnLEiaRT
-         XNFFtV5rZzmVaXIwRpH0xziI3KgwJ9kWYacqimc0yIql86MwPO/IUeJCX89koC7viLeT
-         ledAqibL6F+aioKYspWhrVrozfWOhEKSgn7N8+bqjZwXDMD4RuVg9Uhfz6OeWp/aAfa5
-         wWYGTCx54jaavSBqAFVWaOvU4ZNKTFV5ZfQgWFseQKfvuJezQPoY9Cn8GiWIAkG4AUsp
-         iQWQ==
+        b=tgVelnZ7PFNt1+piP3i+tRofcMGFeYPbSIqtmrwtZLM74jSG9tBh5BIad47pTjUI9W
+         V00iHfMqDoen2CLOQZXSl8xbuxPAJRQttfX+xhqiECtvByJZ/y583UzLYRlYTDxkV3fA
+         BXbtWWjwiyraSJcjgv67mnbwqJ0HHrJsJWL1URjJU+MDc1pamfjFtcpxIdF4SiFVEk5u
+         9qCPFv6mKLFpboYEhOTPpe0Puus1K5lFF/amH2uN+w2IRbCN/FpT7EK2YVXy8cQyeG8M
+         rP741vtvtaT4evUVCJiszKwnRoPcSAPRxTnoWgm8nSd2UjANFTkh1X8nsW2Ds2moIzPi
+         6adw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=Cvs5jW45qvbPGw4w4a7sn58HyNnciyHCsroVRB9nXSs=;
-        b=0Cw49ahc5QfsGxWNZH3nFrdgBSC/zCVth6/yrkWCeWnkuczToT8RB5K01PBNT5Wkw6
-         h4Zmejn6LCPTSWh+MK4uIiE8o70ixvhorwD/698C3CQvDEJjgOOhODXVD/OimU5qC244
-         YTaSkSpIAncnsVeBoP93/YYufrMCUIsLXDy/w4u3zvpVtr43h6LDgluoH9RaUTZLOQL/
-         kvaLKjQ9agzTBhu7AZKQvqAhaMj6ZcuDXWxgHvTy65d/jjfUiY5E4NrK+rE2XLz6Td1d
-         wmalm0QF6NQqb+zz6QAigCQjLR4LljkiArdymnItja4O4sA/UOIi+FmidbKJWy3jmggS
-         tu8A==
+        bh=XPY2fbApRKaaHMlgperg95cW4EzjO/sE3QOYnkrxhEY=;
+        b=tdGBcfmxIdzs2J4vIYaEe22jdUrkgb6sQONy7LdQlt7Zp6kiyeST/168NB6E91qZ1T
+         MuSUCy9r/cpzQZGyL4kBoDdjhdsiUBpPl9dfu+xXxKD1A9tp10s2iqBdJjslOpXfIn9U
+         X55Ux4S6nJrO0xCDVODPkjSAxdYNDjJC595KGYaV4OL9WNo8XkDGtxwzG8v5Df3EhB7G
+         jmiVVU2PW1Exsr1dPuS3Znvnc2/xBYAR3+TfdQsNFVRBky9S+KyhcT9+KwE5WT+Me+oW
+         p2HbFQBC74iztginYButUyCESRzYq6+y1ULmav7XwVJAJMnteevxihBeZNaHmBsrdVI3
+         pDOw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=lVcTgt1q;
+       dkim=pass header.i=@kernel.org header.s=default header.b=LGeqCVGq;
        spf=pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=rppt@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id t7si1095165ilh.2.2020.08.18.08.17.00
+        by gmr-mx.google.com with ESMTPS id t6si1091852ioi.1.2020.08.18.08.17.11
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 18 Aug 2020 08:17:00 -0700 (PDT)
+        Tue, 18 Aug 2020 08:17:11 -0700 (PDT)
 Received-SPF: pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 263212076E;
-	Tue, 18 Aug 2020 15:16:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 3188A2054F;
+	Tue, 18 Aug 2020 15:16:59 +0000 (UTC)
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Andy Lutomirski <luto@kernel.org>,
@@ -145,16 +145,16 @@ Cc: Andy Lutomirski <luto@kernel.org>,
 	sparclinux@vger.kernel.org,
 	uclinux-h8-devel@lists.sourceforge.jp,
 	x86@kernel.org
-Subject: [PATCH v3 01/17] KVM: PPC: Book3S HV: simplify kvm_cma_reserve()
-Date: Tue, 18 Aug 2020 18:16:18 +0300
-Message-Id: <20200818151634.14343-2-rppt@kernel.org>
+Subject: [PATCH v3 02/17] dma-contiguous: simplify cma_early_percent_memory()
+Date: Tue, 18 Aug 2020 18:16:19 +0300
+Message-Id: <20200818151634.14343-3-rppt@kernel.org>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200818151634.14343-1-rppt@kernel.org>
 References: <20200818151634.14343-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-Original-Sender: rppt@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=lVcTgt1q;       spf=pass
+ header.i=@kernel.org header.s=default header.b=LGeqCVGq;       spf=pass
  (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=rppt@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -173,10 +173,10 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-The memory size calculation in kvm_cma_reserve() traverses memblock.memory
-rather than simply call memblock_phys_mem_size(). The comment in that
-function suggests that at some point there should have been call to
-memblock_analyze() before memblock_phys_mem_size() could be used.
+The memory size calculation in cma_early_percent_memory() traverses
+memblock.memory rather than simply call memblock_phys_mem_size(). The
+comment in that function suggests that at some point there should have been
+call to memblock_analyze() before memblock_phys_mem_size() could be used.
 As of now, there is no memblock_analyze() at all and
 memblock_phys_mem_size() can be used as soon as cold-plug memory is
 registerd with memblock.
@@ -184,44 +184,38 @@ registerd with memblock.
 Replace loop over memblock.memory with a call to memblock_phys_mem_size().
 
 Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+Reviewed-by: Christoph Hellwig <hch@lst.de>
+Reviewed-by: Baoquan He <bhe@redhat.com>
 ---
- arch/powerpc/kvm/book3s_hv_builtin.c | 12 ++----------
- 1 file changed, 2 insertions(+), 10 deletions(-)
+ kernel/dma/contiguous.c | 11 +----------
+ 1 file changed, 1 insertion(+), 10 deletions(-)
 
-diff --git a/arch/powerpc/kvm/book3s_hv_builtin.c b/arch/powerpc/kvm/book3s_hv_builtin.c
-index 073617ce83e0..8f58dd20b362 100644
---- a/arch/powerpc/kvm/book3s_hv_builtin.c
-+++ b/arch/powerpc/kvm/book3s_hv_builtin.c
-@@ -95,23 +95,15 @@ EXPORT_SYMBOL_GPL(kvm_free_hpt_cma);
- void __init kvm_cma_reserve(void)
- {
- 	unsigned long align_size;
--	struct memblock_region *reg;
--	phys_addr_t selected_size = 0;
-+	phys_addr_t selected_size;
+diff --git a/kernel/dma/contiguous.c b/kernel/dma/contiguous.c
+index cff7e60968b9..0369fd5fda8f 100644
+--- a/kernel/dma/contiguous.c
++++ b/kernel/dma/contiguous.c
+@@ -73,16 +73,7 @@ early_param("cma", early_cma);
  
- 	/*
- 	 * We need CMA reservation only when we are in HV mode
- 	 */
- 	if (!cpu_has_feature(CPU_FTR_HVMODE))
- 		return;
+ static phys_addr_t __init __maybe_unused cma_early_percent_memory(void)
+ {
+-	struct memblock_region *reg;
+-	unsigned long total_pages = 0;
+-
 -	/*
 -	 * We cannot use memblock_phys_mem_size() here, because
 -	 * memblock_analyze() has not been called yet.
 -	 */
 -	for_each_memblock(memory, reg)
--		selected_size += memblock_region_memory_end_pfn(reg) -
--				 memblock_region_memory_base_pfn(reg);
+-		total_pages += memblock_region_memory_end_pfn(reg) -
+-			       memblock_region_memory_base_pfn(reg);
++	unsigned long total_pages = PHYS_PFN(memblock_phys_mem_size());
  
--	selected_size = (selected_size * kvm_cma_resv_ratio / 100) << PAGE_SHIFT;
-+	selected_size = PAGE_ALIGN(memblock_phys_mem_size() * kvm_cma_resv_ratio / 100);
- 	if (selected_size) {
- 		pr_info("%s: reserving %ld MiB for global area\n", __func__,
- 			 (unsigned long)selected_size / SZ_1M);
+ 	return (total_pages * CONFIG_CMA_SIZE_PERCENTAGE / 100) << PAGE_SHIFT;
+ }
 -- 
 2.26.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200818151634.14343-2-rppt%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200818151634.14343-3-rppt%40kernel.org.
