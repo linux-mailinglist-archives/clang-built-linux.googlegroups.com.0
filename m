@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBAABBEPD574QKGQEKDZK3EA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBHPD574QKGQEWV7GJVI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3d.google.com (mail-vk1-xa3d.google.com [IPv6:2607:f8b0:4864:20::a3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 26AC6248952
-	for <lists+clang-built-linux@lfdr.de>; Tue, 18 Aug 2020 17:19:48 +0200 (CEST)
-Received: by mail-vk1-xa3d.google.com with SMTP id m3sf5804111vkl.6
-        for <lists+clang-built-linux@lfdr.de>; Tue, 18 Aug 2020 08:19:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1597763987; cv=pass;
+Received: from mail-qt1-x838.google.com (mail-qt1-x838.google.com [IPv6:2607:f8b0:4864:20::838])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1F59F248955
+	for <lists+clang-built-linux@lfdr.de>; Tue, 18 Aug 2020 17:19:58 +0200 (CEST)
+Received: by mail-qt1-x838.google.com with SMTP id n12sf14606524qtr.6
+        for <lists+clang-built-linux@lfdr.de>; Tue, 18 Aug 2020 08:19:58 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1597763997; cv=pass;
         d=google.com; s=arc-20160816;
-        b=N5A7vjYV8QzMNgje77Z5tzgAy3pNRPxJMCc1k7U2yz9VjDIHCJrS+WN4ySXBV/mcbZ
-         Up4GVS4q+YOp32eMcgv/IcKKBDjGL4p31zuFFKJd91hM48C9TRKYeqTmpVRcBDzIsjk2
-         ei+FWIbs4ww2YShUdr/LKSzCaVkybNhcpRwZCFzZ1AKd/3d+zRTpwc+R3nvnX0c6D0bo
-         Mxa/itrN2FrIDnLJgAstaygV63d684Y+QjHQRI0Eww6kKKoScroZaXD9XsCbIxTdzUJl
-         B/R6N9CDPUou7kd3C+RG77+0xv9zNRFN4wWBxH4Fy2mRDpTKp621o8dpv71BEybgo1wW
-         DoCQ==
+        b=pfhLNvRVcc1U+a8dq71w7ZwOVOOlUtV9ZG8kBVU4bRYwu7b5c69/4t0pb5yJzWIjAU
+         XaEN41S1vuchN6/MM+NVs+Ju9fwlwfugsjmAA86Uz//zxAxUnPCyFIDs4nrnFJPnn98Q
+         y16hahOAJHaZZcpaqPOHAAVxeIHWvRUbNmB6vR8xvTCdIK4vpA0Nkv6RdZntTMGO6Dod
+         PhxgrGSOrTngnDpQkV38ld30mdZFj2y7187X1r8TuvB9bH0r9kr+6NEf5ZCHIY0JO1Nk
+         Vr0CdwxGYJw3dQah9rkaElOsUwh6ETMdqo02Vz+f2rXoFjoYt/mvi8XEeXvGKlW3SKAP
+         PkZg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=FRMevT9uR3saQZJoP85uX7TQnj95Sg9z4EqYPKwrom4=;
-        b=OIXBdyEwI4q/xeMXayFbInyW02drxEUcLnWya9cM3F7paZcwO3Bi6lnoM5dewfe4tv
-         kbvDQQ1vjFmYHxi2TDJ0lxHhYnGrbsYQrvTpe5mVz9G4KmsiDXwX75A2NeRHpVoAsqxj
-         AkbHlejG/ugTUUnnT3IQ9KhkUp83M0IDVinAgn+V0ESyfwmjCp/cQEZavKO4PyAG06Kw
-         uClndqg5+PW23kYdrtY9c4kwAEmJJnwgAiKTgBsRM1WezmU6jm/9Uq1ovwN1ycfDP6p3
-         8uF3uOA1PPKD3Sk3GB5WeF2/NL3f9lIkbcQ8V4hUuEF5kIqiUukCvcpfF9Kl2j5+Z8EO
-         cT4g==
+        bh=DVeulg2i9PC+tXI8g8/7It4AEuDWfWg2FfGPp2ezbk0=;
+        b=ixHiXgwEPPksRR6VHLtm+nbwfk7fQ61XTa6sTrh/PIDb8G8NeIBwGQQX2nefM8gvV4
+         /AvwNAG+aZc1oj2yvV4bkFryv6ye5eHfRlT3LzG19aQ+TDBz/nHMEV0lObhR3vsTQRuI
+         H2iVe85aIwDO5wWqDs1VjH1m/Z8FL0362hLGrYQa0SGTvvKeq15aEZBDnopvOYFwuiDZ
+         NkuvIfQty2tgkigMS7g7zH0BVrCzx6G1lw4NHXdFnd75tRypgJgsaj1nEFs1jdDBQzd/
+         ezywlGUqAkmto0DZ7gK9wZ2T0X9hXdOTrtTGe9l/MEPzyHxpKsvCE1SOdsR0UHu93yba
+         UFmQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=EiIoYcde;
+       dkim=pass header.i=@kernel.org header.s=default header.b=Q2YllB9n;
        spf=pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=rppt@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=FRMevT9uR3saQZJoP85uX7TQnj95Sg9z4EqYPKwrom4=;
-        b=ZDvIL21aB+fvew2H37rhPot2MmtcA5/eEHdtDfqoD7eteYhH6dCuPirb8BNgVbxpjV
-         c2iCTTbLkZuqAdBK2XBK3FQblU97D1op0Yz3GYPZiYFhd80mXqU3TwObnYlMcKxGvC0H
-         2BlyDPYiSaEL6ZM8HZSldOOy96QO8Pw5OA7hXsGU8WkimblmZbp2EO/L9aCP+9dtEBqT
-         MhelBywKsMp2TiE0FZIcFnkBLmCsHartgoUj9H5BvK23jiziPkmWH7/Ld1EDeBQEtlLb
-         IvVOJmPXfpaUp8zaU/Pd9aqpcK7dlrlbYwyLYYvCo3uoWAc8JFd7Ys0nRRhlskCVv4BA
-         ncJg==
+        bh=DVeulg2i9PC+tXI8g8/7It4AEuDWfWg2FfGPp2ezbk0=;
+        b=oKBvM9mZqrrDEMiZEyMobo6dh2V6juvdHkIxZGKpbap+P36bDzUY662GiJ+3X9gbti
+         drE97W1vLg4Cs+BRBtO2nz09NosoVNqn9mo3/WtmaOKYjBDaD/NHOl4PZJy9K0m5k1rt
+         4miuNyjdB14gFxFIdgg02BhoA2tSwRSBfbqFPvu5Co2gbpSidmBEAl+vNaPRvyfRs4qD
+         Jco49sJVGLlSdcqyo6RqOKau6MgXyITsPn2OC2vTq+xGybLJtnT+EHv/Fq7Ndj9zHfU0
+         xUBF+CylsBq8jxSpkKVqj/gu72yVOWRpuoStX7vA02DIqGSW0MqI71sF0boSQSQZUKVn
+         5z0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,57 +49,57 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=FRMevT9uR3saQZJoP85uX7TQnj95Sg9z4EqYPKwrom4=;
-        b=CmAjRUumodKJWEHq/t11bL/xCND9C+cotSl9O2ftde14Kga26n5EgypMb0c/kH2oA2
-         QMQd4oVIDHhSs9TTvZl5nekrR+nq+Jm1yVw83tHehecYHqFCQmRJH23tCrnqSaVSy1QB
-         hUvu1a05TUbXCbnXFt4A6M6bzyyfweW6cYKW5uNccVOKrqj5u1vx/WgMnh3wtoar4ctz
-         K8YT2t8VBge1NmqVubM26ghbPb69RLy/nPqCh4E7MP0xCGFv9bYlzXMwzvBxS6k/rTqQ
-         D+TqLti8BF/f5m5UHhnV2eJ0J/cRivZBRhodUcbr6jDcNqAnBUKC1QKVFUg3o80ElvVU
-         dPjQ==
+        bh=DVeulg2i9PC+tXI8g8/7It4AEuDWfWg2FfGPp2ezbk0=;
+        b=q50xpZDbwmDURaEIsLPkfl8qTg4jg08MAL862r2eJDmwYGgMdzbj96ksPjdRbd/Ypu
+         PW9AUYHBeteG1ayZOsyUParT3UMvpbjm6YM3yPF2z4HfaOA3zzHENa4wAeXXphQ1d/Ks
+         WQKd+Em/tI28jN1OIBR8AlQvT7dfiLZ7xMKWs/TY9XydMqCX31Ps4KfjqZ7R+6VbZ86a
+         sHWdto4DafD04YTIHXYmrOARuYABLn2PHahOUFKOSczViAi+i3tSSgExs6SRAPoihz4o
+         EcVTfYurvo6Rhj6WBBeQq6naPPKIMAQbIo0HohLJzn3dv2yuSu2VpvUqscRipi80ps5U
+         OCtg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531KL2Y/RPhMaawi/NefzwHwZ08F4V78P9RDQjgMLlBoDgzNxvnG
-	iGfTBG0H3fq82K8aneE5Op8=
-X-Google-Smtp-Source: ABdhPJzCpRBAt1oO5MAFxVDSQsIhfJspYcJHx//qzA0rv6ryeyw2MGvb9ZCa/uD5REVgH2tByUUtoQ==
-X-Received: by 2002:a67:bb06:: with SMTP id m6mr11766556vsn.54.1597763985722;
-        Tue, 18 Aug 2020 08:19:45 -0700 (PDT)
+X-Gm-Message-State: AOAM531nkin0OzTxIgHtuUxjfNq5U1P00OksumGzl2317xfqhVsCorGb
+	LRN6XAmJUIkDyC7XfA3y2bA=
+X-Google-Smtp-Source: ABdhPJzlVV0AXk/bxwRzlklMiJKyrCDDHtyybH52LLir2GvD+N0VBWqMYeaYEKTICtvZzgTnFrxjnw==
+X-Received: by 2002:ac8:4815:: with SMTP id g21mr18709463qtq.148.1597763997166;
+        Tue, 18 Aug 2020 08:19:57 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:778c:: with SMTP id x12ls1391614uar.5.gmail; Tue, 18 Aug
- 2020 08:19:45 -0700 (PDT)
-X-Received: by 2002:ab0:681a:: with SMTP id z26mr11300836uar.91.1597763985372;
-        Tue, 18 Aug 2020 08:19:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1597763985; cv=none;
+Received: by 2002:ac8:141a:: with SMTP id k26ls8049922qtj.4.gmail; Tue, 18 Aug
+ 2020 08:19:56 -0700 (PDT)
+X-Received: by 2002:ac8:faf:: with SMTP id b44mr18476661qtk.190.1597763996832;
+        Tue, 18 Aug 2020 08:19:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1597763996; cv=none;
         d=google.com; s=arc-20160816;
-        b=kdxarE5DNUS3F5Vpy5iN804Z6KfOR0/XbV5xhvZUDzYewwPbjpcMpnFEkYhb/2keZB
-         IyeJNtIYll+RKGoxG/CICnsuZoBSDyZqAO0d29kgXqT0/uWfsU60WkxPPWCRdMoFTmtx
-         WlMvwk/q8zwNjkZMrIr8UUvCx2opavK+l1osD3QwrqK8A+WCqo3MEZwgd70JnvqTzeP7
-         fWKikKr++rYpneuHyJZsCfEsls+yJquqcfLyLMRlqfS/E3ab71hj2O/t1xJSIEUBtk71
-         9pxEq4freeotbVH/9ahZ8zQqxGQr5xm7pU5NTzxZqUtHzMrq9gW7JJIyP4d0VrK7u2aD
-         Ci0g==
+        b=tgl79coEdBIdZsi21FXrb/LFu7bK6HdYiixMgiz5wryhMGQ0adT+zpMqierVM8+Y3a
+         NqgEWA3wo0fjDlAetCJcjMdW0x+855KLKK4nRyU0/CDv+AEF3lYyfHxS09cYoXZsE+qM
+         GAfNk+B5WyIWjk5ig5UfrNw+XRVfhymkm+sMdaf/x22i3paGPSQrtsEi9+MqhQfyfoV+
+         fkIuGxt36s+ZOFcS0IGkkf7QF9unQg8moH73Hg1acO5hpbwih4A9JvmQYwYX8Dr0+Y8N
+         fuwOsLfYIkNwfHca02GjGJ+/ed4Qt+egkSIyqpD95RS600Moh0TsAuf71clKA4ys6KUv
+         QGYA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=QHq/Ewvu57zjhnE3QeuW6Kow4PFEvZy8FDuUpuicJwE=;
-        b=Vc74k8vaKGI12Dvw3TTEid+L95p317Prx0qfZSRaA3mEc7YtzFSNkJ9+u6MdLN/QrW
-         VHcima6+WHMfsO/k8gXpZuNMM1A2vuKYNL87NghyfWOvr0Fbrp5NvaveK6wXa9kEYwjV
-         n1Yuc06A+BKkhm+HUC/GpvvdNcW58eJ6BfABj8eessXzHYaGUTX+LOTQAocWPDc3ByMe
-         y/Nb1Mh4/k3okzKkmXLhqJU8TT7FC+BpD9wRIvuM+EnjxPw1+tCvKS2fTbHkT7Y3VfH0
-         +1grjf2faQqSDrceDdJDdLgxItAGPzcGNyRk1m1gmTupg93M/+aqnPA5dkeaDLtnIP33
-         aLwQ==
+        bh=J3bOghUUIf8BebmH8xu4/LZ8Kpet4JHQ2fk/dZHUBwI=;
+        b=MURU+zbTrEgjzzCLdIWMnHw5tlfXiokBnANKBiwtoT1uj7RRyQ5sxakKdhIe1LHarY
+         iu3nIlPvTNNV857GdgIYOLz+heisEFbBh13PHJrvbV08OCafT5idPxYiqyglYR0HUF9h
+         5xBJ57+9uD7b3Df9t/k73swtiBuOZfPMi0mFAyVt9m2avqPue7Jvc0HVmpzUptaJMVBO
+         vFZFUXXQm4OYF+UxgN+um6gWG1ha+g9ZfF5F4MOXYM1/yc3cPOE6y9ycZMpFumLY6PMi
+         GDN5O0rYjQL7/+IaU9qPtMoERsJZQ7Y8Ur5Vt7w/lGQ5gNmeKL/7D5rTduhjg7KuOpxA
+         uugA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=EiIoYcde;
+       dkim=pass header.i=@kernel.org header.s=default header.b=Q2YllB9n;
        spf=pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=rppt@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id s126si1120399vkd.1.2020.08.18.08.19.45
+        by gmr-mx.google.com with ESMTPS id m13si1191414qtn.0.2020.08.18.08.19.56
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 18 Aug 2020 08:19:45 -0700 (PDT)
+        Tue, 18 Aug 2020 08:19:56 -0700 (PDT)
 Received-SPF: pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id B392120825;
-	Tue, 18 Aug 2020 15:19:33 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id DD7D0207DE;
+	Tue, 18 Aug 2020 15:19:44 +0000 (UTC)
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Andy Lutomirski <luto@kernel.org>,
@@ -145,17 +145,19 @@ Cc: Andy Lutomirski <luto@kernel.org>,
 	sparclinux@vger.kernel.org,
 	uclinux-h8-devel@lists.sourceforge.jp,
 	x86@kernel.org,
+	Ingo Molnar <mingo@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
 	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Subject: [PATCH v3 16/17] memblock: implement for_each_reserved_mem_region() using __next_mem_region()
-Date: Tue, 18 Aug 2020 18:16:33 +0300
-Message-Id: <20200818151634.14343-17-rppt@kernel.org>
+Subject: [PATCH v3 17/17] memblock: use separate iterators for memory and reserved regions
+Date: Tue, 18 Aug 2020 18:16:34 +0300
+Message-Id: <20200818151634.14343-18-rppt@kernel.org>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200818151634.14343-1-rppt@kernel.org>
 References: <20200818151634.14343-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-Original-Sender: rppt@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=EiIoYcde;       spf=pass
+ header.i=@kernel.org header.s=default header.b=Q2YllB9n;       spf=pass
  (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=rppt@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -174,211 +176,212 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-Iteration over memblock.reserved with for_each_reserved_mem_region() used
-__next_reserved_mem_region() that implemented a subset of
-__next_mem_region().
+for_each_memblock() is used to iterate over memblock.memory in
+a few places that use data from memblock_region rather than the memory
+ranges.
 
-Use __for_each_mem_range() and, essentially, __next_mem_region() with
-appropriate parameters to reduce code duplication.
-
-While on it, rename for_each_reserved_mem_region() to
-for_each_reserved_mem_range() for consistency.
+Introduce separate for_each_mem_region() and for_each_reserved_mem_region()
+to improve encapsulation of memblock internals from its users.
 
 Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-Acked-by: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com> # .clang-format
+Reviewed-by: Baoquan He <bhe@redhat.com>
+Acked-by: Ingo Molnar <mingo@kernel.org>		   # x86
+Acked-by: Thomas Bogendoerfer <tsbogend@alpha.franken.de>  # MIPS
+Acked-by: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>   # .clang-format
 ---
- .clang-format                    |  2 +-
- arch/arm64/kernel/setup.c        |  2 +-
- drivers/irqchip/irq-gic-v3-its.c |  2 +-
- include/linux/memblock.h         | 12 +++----
- mm/memblock.c                    | 56 ++++++++++++--------------------
- 5 files changed, 27 insertions(+), 47 deletions(-)
+ .clang-format                  |  3 ++-
+ arch/arm64/kernel/setup.c      |  2 +-
+ arch/arm64/mm/numa.c           |  2 +-
+ arch/mips/netlogic/xlp/setup.c |  2 +-
+ arch/riscv/mm/init.c           |  2 +-
+ arch/x86/mm/numa.c             |  2 +-
+ include/linux/memblock.h       | 19 ++++++++++++++++---
+ mm/memblock.c                  |  4 ++--
+ mm/page_alloc.c                |  8 ++++----
+ 9 files changed, 29 insertions(+), 15 deletions(-)
 
 diff --git a/.clang-format b/.clang-format
-index 3e42a8e4df73..2b77cc419b97 100644
+index 2b77cc419b97..a118fdde25c1 100644
 --- a/.clang-format
 +++ b/.clang-format
-@@ -267,7 +267,7 @@ ForEachMacros:
-   - 'for_each_process_thread'
+@@ -201,7 +201,7 @@ ForEachMacros:
+   - 'for_each_matching_node'
+   - 'for_each_matching_node_and_match'
+   - 'for_each_member'
+-  - 'for_each_memblock'
++  - 'for_each_mem_region'
+   - 'for_each_memblock_type'
+   - 'for_each_memcg_cache_index'
+   - 'for_each_mem_pfn_range'
+@@ -268,6 +268,7 @@ ForEachMacros:
    - 'for_each_property_of_node'
    - 'for_each_registered_fb'
--  - 'for_each_reserved_mem_region'
-+  - 'for_each_reserved_mem_range'
+   - 'for_each_reserved_mem_range'
++  - 'for_each_reserved_mem_region'
    - 'for_each_rtd_codec_dais'
    - 'for_each_rtd_codec_dais_rollback'
    - 'for_each_rtd_components'
 diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-index 77c4c9bad1b8..a986c6f8ab42 100644
+index a986c6f8ab42..dcce72ac072b 100644
 --- a/arch/arm64/kernel/setup.c
 +++ b/arch/arm64/kernel/setup.c
-@@ -257,7 +257,7 @@ static int __init reserve_memblock_reserved_regions(void)
- 		if (!memblock_is_region_reserved(mem->start, mem_size))
- 			continue;
+@@ -217,7 +217,7 @@ static void __init request_standard_resources(void)
+ 	if (!standard_resources)
+ 		panic("%s: Failed to allocate %zu bytes\n", __func__, res_size);
  
--		for_each_reserved_mem_region(j, &r_start, &r_end) {
-+		for_each_reserved_mem_range(j, &r_start, &r_end) {
- 			resource_size_t start, end;
+-	for_each_memblock(memory, region) {
++	for_each_mem_region(region) {
+ 		res = &standard_resources[i++];
+ 		if (memblock_is_nomap(region)) {
+ 			res->name  = "reserved";
+diff --git a/arch/arm64/mm/numa.c b/arch/arm64/mm/numa.c
+index 8a97cd3d2dfe..5efdbd01a59c 100644
+--- a/arch/arm64/mm/numa.c
++++ b/arch/arm64/mm/numa.c
+@@ -350,7 +350,7 @@ static int __init numa_register_nodes(void)
+ 	struct memblock_region *mblk;
  
- 			start = max(PFN_PHYS(PFN_DOWN(r_start)), mem->start);
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 95f097448f97..ca5c470ed0d0 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -2192,7 +2192,7 @@ static bool gic_check_reserved_range(phys_addr_t addr, unsigned long size)
+ 	/* Check that valid nid is set to memblks */
+-	for_each_memblock(memory, mblk) {
++	for_each_mem_region(mblk) {
+ 		int mblk_nid = memblock_get_region_node(mblk);
  
- 	addr_end = addr + size - 1;
+ 		if (mblk_nid == NUMA_NO_NODE || mblk_nid >= MAX_NUMNODES) {
+diff --git a/arch/mips/netlogic/xlp/setup.c b/arch/mips/netlogic/xlp/setup.c
+index 1a0fc5b62ba4..6e3102bcd2f1 100644
+--- a/arch/mips/netlogic/xlp/setup.c
++++ b/arch/mips/netlogic/xlp/setup.c
+@@ -70,7 +70,7 @@ static void nlm_fixup_mem(void)
+ 	const int pref_backup = 512;
+ 	struct memblock_region *mem;
  
--	for_each_reserved_mem_region(i, &start, &end) {
-+	for_each_reserved_mem_range(i, &start, &end) {
- 		if (addr >= start && addr_end <= end)
- 			return true;
+-	for_each_memblock(memory, mem) {
++	for_each_mem_region(mem) {
+ 		memblock_remove(mem->base + mem->size - pref_backup,
+ 			pref_backup);
  	}
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 06355716d19a..1fb6a826c2fd 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -531,7 +531,7 @@ static void __init resource_init(void)
+ {
+ 	struct memblock_region *region;
+ 
+-	for_each_memblock(memory, region) {
++	for_each_mem_region(region) {
+ 		struct resource *res;
+ 
+ 		res = memblock_alloc(sizeof(struct resource), SMP_CACHE_BYTES);
+diff --git a/arch/x86/mm/numa.c b/arch/x86/mm/numa.c
+index aa76ec2d359b..b6246768479d 100644
+--- a/arch/x86/mm/numa.c
++++ b/arch/x86/mm/numa.c
+@@ -516,7 +516,7 @@ static void __init numa_clear_kernel_node_hotplug(void)
+ 	 *   memory ranges, because quirks such as trim_snb_memory()
+ 	 *   reserve specific pages for Sandy Bridge graphics. ]
+ 	 */
+-	for_each_memblock(reserved, mb_region) {
++	for_each_reserved_mem_region(mb_region) {
+ 		int nid = memblock_get_region_node(mb_region);
+ 
+ 		if (nid != MAX_NUMNODES)
 diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-index 15ed119701c1..354078713cd1 100644
+index 354078713cd1..ef131255cedc 100644
 --- a/include/linux/memblock.h
 +++ b/include/linux/memblock.h
-@@ -132,9 +132,6 @@ void __next_mem_range_rev(u64 *idx, int nid, enum memblock_flags flags,
- 			  struct memblock_type *type_b, phys_addr_t *out_start,
- 			  phys_addr_t *out_end, int *out_nid);
+@@ -553,9 +553,22 @@ static inline unsigned long memblock_region_reserved_end_pfn(const struct memblo
+ 	return PFN_UP(reg->base + reg->size);
+ }
  
--void __next_reserved_mem_region(u64 *idx, phys_addr_t *out_start,
--				phys_addr_t *out_end);
--
- void __memblock_free_late(phys_addr_t base, phys_addr_t size);
+-#define for_each_memblock(memblock_type, region)					\
+-	for (region = memblock.memblock_type.regions;					\
+-	     region < (memblock.memblock_type.regions + memblock.memblock_type.cnt);	\
++/**
++ * for_each_mem_region - itereate over memory regions
++ * @region: loop variable
++ */
++#define for_each_mem_region(region)					\
++	for (region = memblock.memory.regions;				\
++	     region < (memblock.memory.regions + memblock.memory.cnt);	\
++	     region++)
++
++/**
++ * for_each_reserved_mem_region - itereate over reserved memory regions
++ * @region: loop variable
++ */
++#define for_each_reserved_mem_region(region)				\
++	for (region = memblock.reserved.regions;			\
++	     region < (memblock.reserved.regions + memblock.reserved.cnt); \
+ 	     region++)
  
- #ifdef CONFIG_HAVE_MEMBLOCK_PHYS_MAP
-@@ -224,7 +221,7 @@ static inline void __next_physmem_range(u64 *idx, struct memblock_type *type,
- 				 MEMBLOCK_NONE, p_start, p_end, NULL)
- 
- /**
-- * for_each_reserved_mem_region - iterate over all reserved memblock areas
-+ * for_each_reserved_mem_range - iterate over all reserved memblock areas
-  * @i: u64 used as loop variable
-  * @p_start: ptr to phys_addr_t for start address of the range, can be %NULL
-  * @p_end: ptr to phys_addr_t for end address of the range, can be %NULL
-@@ -232,10 +229,9 @@ static inline void __next_physmem_range(u64 *idx, struct memblock_type *type,
-  * Walks over reserved areas of memblock. Available as soon as memblock
-  * is initialized.
-  */
--#define for_each_reserved_mem_region(i, p_start, p_end)			\
--	for (i = 0UL, __next_reserved_mem_region(&i, p_start, p_end);	\
--	     i != (u64)ULLONG_MAX;					\
--	     __next_reserved_mem_region(&i, p_start, p_end))
-+#define for_each_reserved_mem_range(i, p_start, p_end)			\
-+	__for_each_mem_range(i, &memblock.reserved, NULL, NUMA_NO_NODE,	\
-+			     MEMBLOCK_NONE, p_start, p_end, NULL)
- 
- static inline bool memblock_is_hotpluggable(struct memblock_region *m)
- {
+ extern void *alloc_large_system_hash(const char *tablename,
 diff --git a/mm/memblock.c b/mm/memblock.c
-index eb4f866bea34..d0be57acccf2 100644
+index d0be57acccf2..4eacfed872c4 100644
 --- a/mm/memblock.c
 +++ b/mm/memblock.c
-@@ -132,6 +132,14 @@ struct memblock_type physmem = {
- };
- #endif
+@@ -1664,7 +1664,7 @@ static phys_addr_t __init_memblock __find_max_addr(phys_addr_t limit)
+ 	 * the memory memblock regions, if the @limit exceeds the total size
+ 	 * of those regions, max_addr will keep original value PHYS_ADDR_MAX
+ 	 */
+-	for_each_memblock(memory, r) {
++	for_each_mem_region(r) {
+ 		if (limit <= r->size) {
+ 			max_addr = r->base + limit;
+ 			break;
+@@ -1834,7 +1834,7 @@ void __init_memblock memblock_trim_memory(phys_addr_t align)
+ 	phys_addr_t start, end, orig_start, orig_end;
+ 	struct memblock_region *r;
  
-+/*
-+ * keep a pointer to &memblock.memory in the text section to use it in
-+ * __next_mem_range() and its helpers.
-+ *  For architectures that do not keep memblock data after init, this
-+ * pointer will be reset to NULL at memblock_discard()
-+ */
-+static __refdata struct memblock_type *memblock_memory = &memblock.memory;
-+
- #define for_each_memblock_type(i, memblock_type, rgn)			\
- 	for (i = 0, rgn = &memblock_type->regions[0];			\
- 	     i < memblock_type->cnt;					\
-@@ -399,6 +407,8 @@ void __init memblock_discard(void)
- 				  memblock.memory.max);
- 		__memblock_free_late(addr, size);
- 	}
-+
-+	memblock_memory = NULL;
- }
- #endif
+-	for_each_memblock(memory, r) {
++	for_each_mem_region(r) {
+ 		orig_start = r->base;
+ 		orig_end = r->base + r->size;
+ 		start = round_up(orig_start, align);
+diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+index 12da56b1cf39..366982d1a1c2 100644
+--- a/mm/page_alloc.c
++++ b/mm/page_alloc.c
+@@ -5950,7 +5950,7 @@ overlap_memmap_init(unsigned long zone, unsigned long *pfn)
  
-@@ -949,42 +959,16 @@ int __init_memblock memblock_clear_nomap(phys_addr_t base, phys_addr_t size)
- 	return memblock_setclr_flag(base, size, 0, MEMBLOCK_NOMAP);
- }
+ 	if (mirrored_kernelcore && zone == ZONE_MOVABLE) {
+ 		if (!r || *pfn >= memblock_region_memory_end_pfn(r)) {
+-			for_each_memblock(memory, r) {
++			for_each_mem_region(r) {
+ 				if (*pfn < memblock_region_memory_end_pfn(r))
+ 					break;
+ 			}
+@@ -6535,7 +6535,7 @@ static unsigned long __init zone_absent_pages_in_node(int nid,
+ 		unsigned long start_pfn, end_pfn;
+ 		struct memblock_region *r;
  
--/**
-- * __next_reserved_mem_region - next function for for_each_reserved_region()
-- * @idx: pointer to u64 loop variable
-- * @out_start: ptr to phys_addr_t for start address of the region, can be %NULL
-- * @out_end: ptr to phys_addr_t for end address of the region, can be %NULL
-- *
-- * Iterate over all reserved memory regions.
-- */
--void __init_memblock __next_reserved_mem_region(u64 *idx,
--					   phys_addr_t *out_start,
--					   phys_addr_t *out_end)
--{
--	struct memblock_type *type = &memblock.reserved;
--
--	if (*idx < type->cnt) {
--		struct memblock_region *r = &type->regions[*idx];
--		phys_addr_t base = r->base;
--		phys_addr_t size = r->size;
--
--		if (out_start)
--			*out_start = base;
--		if (out_end)
--			*out_end = base + size - 1;
--
--		*idx += 1;
--		return;
--	}
--
--	/* signal end of iteration */
--	*idx = ULLONG_MAX;
--}
--
--static bool should_skip_region(struct memblock_region *m, int nid, int flags)
-+static bool should_skip_region(struct memblock_type *type,
-+			       struct memblock_region *m,
-+			       int nid, int flags)
- {
- 	int m_nid = memblock_get_region_node(m);
+-		for_each_memblock(memory, r) {
++		for_each_mem_region(r) {
+ 			start_pfn = clamp(memblock_region_memory_base_pfn(r),
+ 					  zone_start_pfn, zone_end_pfn);
+ 			end_pfn = clamp(memblock_region_memory_end_pfn(r),
+@@ -7129,7 +7129,7 @@ static void __init find_zone_movable_pfns_for_nodes(void)
+ 	 * options.
+ 	 */
+ 	if (movable_node_is_enabled()) {
+-		for_each_memblock(memory, r) {
++		for_each_mem_region(r) {
+ 			if (!memblock_is_hotpluggable(r))
+ 				continue;
  
-+	/* we never skip regions when iterating memblock.reserved or physmem */
-+	if (type != memblock_memory)
-+		return false;
-+
- 	/* only memory regions are associated with nodes, check it */
- 	if (nid != NUMA_NO_NODE && nid != m_nid)
- 		return true;
-@@ -1049,7 +1033,7 @@ void __next_mem_range(u64 *idx, int nid, enum memblock_flags flags,
- 		phys_addr_t m_end = m->base + m->size;
- 		int	    m_nid = memblock_get_region_node(m);
+@@ -7150,7 +7150,7 @@ static void __init find_zone_movable_pfns_for_nodes(void)
+ 	if (mirrored_kernelcore) {
+ 		bool mem_below_4gb_not_mirrored = false;
  
--		if (should_skip_region(m, nid, flags))
-+		if (should_skip_region(type_a, m, nid, flags))
- 			continue;
+-		for_each_memblock(memory, r) {
++		for_each_mem_region(r) {
+ 			if (memblock_is_mirror(r))
+ 				continue;
  
- 		if (!type_b) {
-@@ -1153,7 +1137,7 @@ void __init_memblock __next_mem_range_rev(u64 *idx, int nid,
- 		phys_addr_t m_end = m->base + m->size;
- 		int m_nid = memblock_get_region_node(m);
- 
--		if (should_skip_region(m, nid, flags))
-+		if (should_skip_region(type_a, m, nid, flags))
- 			continue;
- 
- 		if (!type_b) {
-@@ -1978,7 +1962,7 @@ static unsigned long __init free_low_memory_core_early(void)
- 
- 	memblock_clear_hotplug(0, -1);
- 
--	for_each_reserved_mem_region(i, &start, &end)
-+	for_each_reserved_mem_range(i, &start, &end)
- 		reserve_bootmem_region(start, end);
- 
- 	/*
 -- 
 2.26.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200818151634.14343-17-rppt%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200818151634.14343-18-rppt%40kernel.org.
