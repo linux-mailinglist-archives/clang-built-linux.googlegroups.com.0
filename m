@@ -1,129 +1,128 @@
-Return-Path: <clang-built-linux+bncBC3ZPIWN3EFBBZXL6H4QKGQEXDRSAUQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCIO53XE7YHBBTNN6L4QKGQESFVEULI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13a.google.com (mail-lf1-x13a.google.com [IPv6:2a00:1450:4864:20::13a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 23CAA2491E1
-	for <lists+clang-built-linux@lfdr.de>; Wed, 19 Aug 2020 02:44:23 +0200 (CEST)
-Received: by mail-lf1-x13a.google.com with SMTP id m13sf4918881lfr.18
-        for <lists+clang-built-linux@lfdr.de>; Tue, 18 Aug 2020 17:44:23 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1597797862; cv=pass;
+Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
+	by mail.lfdr.de (Postfix) with ESMTPS id B1A7E24932E
+	for <lists+clang-built-linux@lfdr.de>; Wed, 19 Aug 2020 05:04:47 +0200 (CEST)
+Received: by mail-pl1-x63c.google.com with SMTP id bg5sf13380402plb.18
+        for <lists+clang-built-linux@lfdr.de>; Tue, 18 Aug 2020 20:04:47 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1597806286; cv=pass;
         d=google.com; s=arc-20160816;
-        b=blkeuy0KIBkf2dr1SO+8VLDmUzS86ASCq+b5T8fgMdlyJ/6w8PROXFxf2e6e5m67aL
-         vhxaCpzSx6H1xyHF6QJpJwuXwR63MhpA7TvwnycVum5tOCzw5qnvOPgJmjBmakx/7dbH
-         yl9PCc7S6pzQ4lqW1AYOSy/YXx6Q67I/+gZt69hz24uWRoYFxFzcJpdLd1g5e0lYZpTO
-         xWi7zvQhNtH6j67Ji2g+4cw6NDzC0xoeFc4YDcw0INOxr97DdXOM8YP+JWdLODiaeusk
-         2GjhoxaLGUd1KQ/vK02wcy4CQcLX0fZUZwXhUDBDZ9A2DN8kcRYc7WnHUlmToOHuKXMG
-         pwCw==
+        b=ni1qVZQKAr3iptU5eyCRkFbP99+Ta6NQGyHzZ4CFXMu2V0PzK7xxfafqP7RFbWE4Zd
+         x7R525BFNBb+3cnDL1r4cMAdYw9vQyTVQKNOnKq2PKlbVA/U4kB1KjearCst6ipBVYvm
+         T3K4Ee8cXrGE9TO2O9CuMJbFDtzB1Zq4HQNNUoSwW28PD4yuTPdjYcBWCwEo0fxonMMs
+         1vQwkwLgOG5krMobF2CtoUtQG+E+LTm7jlh3W9yRJq5oAtkqdYqFJmrrYvqb6DaBfpDA
+         HyPBkVWOrS04qNqoE9UNVqL+CP2o6O9oRQIXZZhJ2R5TI6yhjeUXp0/UJ1oJIQQHdede
+         BlWQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=thn5PPvjO1vSi9IlQVL5V0vjdfCWY0Ot6XW9e/YJo/Y=;
-        b=XbkfLGh/TOURk44rrYywCjHGfc610zusTKLMRt1F/LRuSeDt+cnEezr4Tl1Fd7wEiw
-         RXmm3mPx7YfFmaZAem+E03t5nixTYN9JR+Mnh3hgrPjsFZ2Xr6o3WoINVBw7qeCghq3j
-         5zCegbBZvZXSzQKHXhiSimgeti5oRO6JSNieZODWVRP/M1oJnrwPuaoIU6tCvmk1ilDW
-         m0BEBPEqoDMHqdMbvJwI7+NKzyMNlnP6y3YUAQUC0hkhRmPkxm+Yctic2tbkGa0uM2Fn
-         Dg3nvrRRe3lJ+5wkppH1QFDbbHwX87LzZjQhC9kc17n4jfa2TqTrhmSgwrIoa8TTozss
-         ORww==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:sender
+         :dkim-signature;
+        bh=qKdf/CdsBurx3ng8qr5In5HzqVuSBcY8O6nnA0BBMvw=;
+        b=KaTy7gErTuFDgS5Qcz0bRzEhkbfj9BVezXTukm8ak2SDPpC76TwjoFnBCw8qZ5HJc5
+         JpmU6qI+/GPa+hZzI/1AJlD7nDihY0eCX384+jpBf8nN3ZCx7/PQalGgYyp/fLaTKb39
+         w8RZ6nBttbpf7sg9cTop6L/cCnrVF7zpG9xopS9k6sCxSHH/afFqRLa06yZty9ZyVjQz
+         E7JZIYi45LsO5OXbBdIqItABRHkLExsACupva6rxwDKcDUPuQIujpQlHe7Xz3PkXkKoy
+         KyzSKT/+qJmvxl1h0u01w036LNI1XxKz/e5tU8b0wwyKnjX+zXapm25SsGOGR4fIwXDI
+         TzZw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linux-foundation.org header.s=google header.b=ZWjTUpPq;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::244 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=jRBORFL4;
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::844 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=thn5PPvjO1vSi9IlQVL5V0vjdfCWY0Ot6XW9e/YJo/Y=;
-        b=cj4wCmFZXI6GPhfGzu/us57QI7JBB6bLzHyJjUttNxzyMYnx5q9CHJr1t5iDompIWi
-         lpkwqfH/nh+SzP7iBP/znwcsvLcYHSuidEoulqNds185NMokEbiPkyLiS0XmDZ2iQuAz
-         BHydZhOZ/aJ213zFKRrBqjM1wv1QzfYeYOyhS35PuTuVDMpJ/vvMCnBEEZlQh20zqIXN
-         +2XikAMkpQ9lxHJ8FvcEkJUC/k2IHm9AHhrX5p8TMVhg1/VQwBZ6I2cjIU6rYNs3KApg
-         TsnGFO1aqs+Z5V7gpVg55ur/tg3TAcmU441cRURwJc6/xoANHTKlqTUXURKRXAci/M8w
-         XKpA==
+        d=gmail.com; s=20161025;
+        h=sender:from:date:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=qKdf/CdsBurx3ng8qr5In5HzqVuSBcY8O6nnA0BBMvw=;
+        b=FspClA0F4aTrQjP5D0Rxm1Wp8h3Y9HnaEN9suWqMLPC83qOo9+eoCZ6RbJWRElctLJ
+         II9ghSzOweMiZh8iNgb1jgLtNAuLcog1nCPrWB/TL1PhZU5iDj+b7u2x7JN86nRJPrXh
+         1056kGm6D4a3UH//Ya3NvRYskXjvML1c/BTPCT5n3iBarHxD8ZuNnFWdS2pmAyQt5tmM
+         c3MsPYcw6Lxgih9f+TXMQBX36E/5Ht/xuKgcLTq37pb7mi5m6Sq1w3krLd16xae3AzhC
+         TNRX1lrbe5s3BSzmTy9FqxKWyv7x+lND9WZxM6stkT1H5XwGQrM0ywDxSqSJjY/P+NA8
+         cdjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=thn5PPvjO1vSi9IlQVL5V0vjdfCWY0Ot6XW9e/YJo/Y=;
-        b=EjSc699F81HlTvtJ4uuH5mvyhUkmGhEUSy+2bcElgAOHEc9130YjhghSlvo9XqSIyV
-         2V7I616zSt7sCzXjBG4ookQ64eB78MM5Ogrv0MqZRFK/Lnj7S+D5fDXFkBrlrlENkt6D
-         ogPD5tzh91eVrCPtXlRbSl51fRSz5kRcFzeskewN4oz4n6mc2rKa15rx8DuQMGZYdJ7M
-         fvXiV/Z1s+WdgYpljyvGzcErV7LNhy4cURseMs4ZEe2Nsd0OTeZP/zo7OuG+UCXiVcNb
-         g6qCXiqv8gkcducSnfi6HViTaPV9/EjnLXWLogA6/7Nc0P4uFmQrbPgMYfskHqbGBYDu
-         OQRw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532Pi5Q6lld+ntxyIgvwhv5QbwHwWBVgF1AbGd0p/7RgtalggELH
-	kqsCmjxkDoGDh4e8pVGQ6Uk=
-X-Google-Smtp-Source: ABdhPJzPIM7QXDkjXy3CmRFGKjRzdbKXgC7PXv2QbBUgUEhV1MM0a8QoIsYpJ7/5L5/SKy0VQG+ikA==
-X-Received: by 2002:a05:6512:3610:: with SMTP id f16mr10853992lfs.8.1597797862566;
-        Tue, 18 Aug 2020 17:44:22 -0700 (PDT)
+        h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=qKdf/CdsBurx3ng8qr5In5HzqVuSBcY8O6nnA0BBMvw=;
+        b=nTMbVmwCw9LVeWgUcogAdTWE97Izk/Ch3AWF56/Ap+p7TlLBq1xZxQlAn7gmWfr/41
+         pQGkKzv0pvH11NmeBnHZqyNtKb/Nfv2hN3xI4+DdEMznUBzYfLNK6x+8VqqtYF/BIo0t
+         A6P3/U3DpxqfxyRKnm+OXxR3kDA6Ah7Mh1NPUvaGm2oqExlxB/9FyYuwFTGplNwZyVS7
+         z7n7tSHPgheQKtqU1v8PvIH+LcXLoLogn+lP9+CstLyv9zG0vP90kTFKT5taTqvXNV7W
+         8VlwXO1XUA8B83T1qFKxr6EHvuiEuWeNJpIxKxtytS2EnnsS8hzI6H6/S6eE+lU2NguE
+         JiCQ==
+X-Gm-Message-State: AOAM5336DGgG+UHnfFB/SDXkD/HbQksNMxo8gYpnhLdZ9W9N3i4Pu9jx
+	DVK2UgYectBkiCDzmUIqyg4=
+X-Google-Smtp-Source: ABdhPJxsCB7t0ri7+JRCsZn7Jw4uR/jAxZG7lScKWwmm+ohIPvc/+mWgneMTVUvo3dX7qfLSI4RfdQ==
+X-Received: by 2002:a17:902:8347:: with SMTP id z7mr14203271pln.20.1597806286127;
+        Tue, 18 Aug 2020 20:04:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a19:60e:: with SMTP id 14ls608014lfg.0.gmail; Tue, 18 Aug
- 2020 17:44:21 -0700 (PDT)
-X-Received: by 2002:a19:f808:: with SMTP id a8mr11000413lff.62.1597797861601;
-        Tue, 18 Aug 2020 17:44:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1597797861; cv=none;
+Received: by 2002:a62:1b12:: with SMTP id b18ls5672825pfb.8.gmail; Tue, 18 Aug
+ 2020 20:04:45 -0700 (PDT)
+X-Received: by 2002:a63:4b21:: with SMTP id y33mr15507768pga.142.1597806285468;
+        Tue, 18 Aug 2020 20:04:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1597806285; cv=none;
         d=google.com; s=arc-20160816;
-        b=EZx2hl5Z9x8i/2KfPAJ2lX5l6LuL7gEn3FxpT3zitUxuc3gjPd/WFJ86MXsDu/MYwK
-         qWVhtImxBp2XvWz5onX9eqvo+DsdagG74hVIzJluLYqT/oQSCLCKziE348AAF2v4PyCZ
-         Rar9ymYUKr/vaaIqSLOEawZhfKqrlu9QBYfRQK+94O6O44eHwwXq3oOgoBQW/TKNwVFB
-         BLuOvrz9v04ZU3Y8WLNfR44ARwZikKwTud4LW6Pj4vQp6OWJ+fSdOFgWH1KmuLLyVDCF
-         QHjbp0Gn1hxtv28fAJWoIz0rvlo3/6CJreKzMqxobuvkL6F+v8Sl2FdEsjtQPU+ZcJAq
-         DVog==
+        b=xvq25HoNgGYo0WMXf3ukXuQS9zeC/OFrwOrjDDUCIhlWm20fyK1C/BxoQ5zNLTzyiJ
+         FJrqr23OaemRrqqLatpHVHF7AptZTAuQdhBmTcO2A/A06TLD2SWaq0iwhFlZryCVDVqw
+         vOyuylWX2ENUrrfZi2iv6aD8XR137Fe5oLVHUsiVuQDn7Aj95wqXwmoUPHuWSVTl1iF/
+         cAjHhWLNFEfzoNVXrq1arEcw34ZfD/UXP75S9OOgUwssFVcojTL8C+TTxv+H+75fChPz
+         F9zTGp8rA0iOptlED3qramJpHy0pKviAuYQ8WS+oxNcEXTqUHVTXzZQRnND7ncE6w07A
+         ZuxA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=z2DynlYRISsaYGNYsitlwb4+khyZlyAf5FIqSKM75Sw=;
-        b=J276J8RH2nytpZThN9HvyEDRkeQ92J2mZW6ofdRY+/1hM0hF3qFQiaTfIG5i0uoZyP
-         hFk9YvJ/LFpT9fvEOZHyvkZZOvJ1rmwUgY4ygrp6hO26FXRtOnh/jR40M0KbYLSA1XHy
-         0R8K6xLLvpFgJKzI7aVzx8R/r1IqzNhXP8MoFB0Rn7dveTHNp6MPdUfjPqgs6FcmWS0I
-         TzvSoOXKaDnlNXcsmnGlmf6S6fGaILg6MoEsvn8bbIW5+de+sQaaU5LV9Ry809oy/c7O
-         3wyDMj4FyQT2iAzcSfWVOEIxzcNDsL+Fi5uUOya4zheADcQq38mXQFID9CkSrN1eW7cB
-         u8Yw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:sender:dkim-signature;
+        bh=nOKL9LH+LsUrk/QCDVM6daNP5A1QGjvzKuwMZ1mFQmI=;
+        b=GlrQ6NH8827UHsVeTge/bRpgZFPxGb67peKe39uvBlzHTtlg0hrnnuUW5NlpH3lJxx
+         uWLvAs9LZfIkkBxCfYe7V+uBNk8Jxeu5eK2oPStnVGshdvEJEXYcfRCNmqrSWLvy8eZV
+         wuDtRdanmfo9Fq++ix1AjkLqy/tI2mcCy7aTgdnGo69pG5OBz70j/dTbzK6yzeEcx9yW
+         ij40L1Of4LC2uqno8D8qRB0OdBeQ9hKoAAQED9IjGO4n8f3mbHiTqkanYVyrKt4+IcGr
+         Uj1LaaXTwRIlBXhdirEVTf3wgrQiGtRooUWSaYgCjHVWqWFDUmVZ7+Y9kCdnSOztHrVb
+         2Sqw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linux-foundation.org header.s=google header.b=ZWjTUpPq;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::244 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
-Received: from mail-lj1-x244.google.com (mail-lj1-x244.google.com. [2a00:1450:4864:20::244])
-        by gmr-mx.google.com with ESMTPS id u9si1032616ljg.8.2020.08.18.17.44.21
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=jRBORFL4;
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::844 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+Received: from mail-qt1-x844.google.com (mail-qt1-x844.google.com. [2607:f8b0:4864:20::844])
+        by gmr-mx.google.com with ESMTPS id t75si1312986pfc.3.2020.08.18.20.04.45
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Aug 2020 17:44:21 -0700 (PDT)
-Received-SPF: pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::244 as permitted sender) client-ip=2a00:1450:4864:20::244;
-Received: by mail-lj1-x244.google.com with SMTP id w14so23473916ljj.4
-        for <clang-built-linux@googlegroups.com>; Tue, 18 Aug 2020 17:44:21 -0700 (PDT)
-X-Received: by 2002:a2e:7215:: with SMTP id n21mr11629794ljc.242.1597797860881;
-        Tue, 18 Aug 2020 17:44:20 -0700 (PDT)
-Received: from mail-lf1-f54.google.com (mail-lf1-f54.google.com. [209.85.167.54])
-        by smtp.gmail.com with ESMTPSA id a17sm4482671ljd.123.2020.08.18.17.44.19
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Aug 2020 17:44:20 -0700 (PDT)
-Received: by mail-lf1-f54.google.com with SMTP id s9so11186538lfs.4
-        for <clang-built-linux@googlegroups.com>; Tue, 18 Aug 2020 17:44:19 -0700 (PDT)
-X-Received: by 2002:ac2:46d0:: with SMTP id p16mr11162480lfo.142.1597797859441;
- Tue, 18 Aug 2020 17:44:19 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200818234307.3382306-1-nivedita@alum.mit.edu>
-In-Reply-To: <20200818234307.3382306-1-nivedita@alum.mit.edu>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Tue, 18 Aug 2020 17:44:03 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wik-oXnUpfZ6Hw37uLykc-_P0Apyn2XuX-odh-3Nzop8w@mail.gmail.com>
-Message-ID: <CAHk-=wik-oXnUpfZ6Hw37uLykc-_P0Apyn2XuX-odh-3Nzop8w@mail.gmail.com>
-Subject: Re: [PATCH] lib/string.c: Disable tree-loop-distribute-patterns
-To: Arvind Sankar <nivedita@alum.mit.edu>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+        Tue, 18 Aug 2020 20:04:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::844 as permitted sender) client-ip=2607:f8b0:4864:20::844;
+Received: by mail-qt1-x844.google.com with SMTP id w9so16800891qts.6
+        for <clang-built-linux@googlegroups.com>; Tue, 18 Aug 2020 20:04:45 -0700 (PDT)
+X-Received: by 2002:ac8:188:: with SMTP id x8mr20855686qtf.372.1597806284575;
+        Tue, 18 Aug 2020 20:04:44 -0700 (PDT)
+Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
+        by smtp.gmail.com with ESMTPSA id t25sm25136296qtp.22.2020.08.18.20.04.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Aug 2020 20:04:43 -0700 (PDT)
+Sender: Arvind Sankar <niveditas98@gmail.com>
+From: Arvind Sankar <nivedita@alum.mit.edu>
+Date: Tue, 18 Aug 2020 23:04:42 -0400
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Arvind Sankar <nivedita@alum.mit.edu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
 	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH] lib/string.c: Disable tree-loop-distribute-patterns
+Message-ID: <20200819030442.GA3396810@rani.riverdale.lan>
+References: <20200818234307.3382306-1-nivedita@alum.mit.edu>
+ <CAHk-=wik-oXnUpfZ6Hw37uLykc-_P0Apyn2XuX-odh-3Nzop8w@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: torvalds@linux-foundation.org
+Content-Disposition: inline
+In-Reply-To: <CAHk-=wik-oXnUpfZ6Hw37uLykc-_P0Apyn2XuX-odh-3Nzop8w@mail.gmail.com>
+X-Original-Sender: nivedita@alum.mit.edu
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linux-foundation.org header.s=google header.b=ZWjTUpPq;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates
- 2a00:1450:4864:20::244 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
+ header.i=@gmail.com header.s=20161025 header.b=jRBORFL4;       spf=pass
+ (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::844
+ as permitted sender) smtp.mailfrom=niveditas98@gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,29 +135,40 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Aug 18, 2020 at 4:43 PM Arvind Sankar <nivedita@alum.mit.edu> wrote:
->
-> This by itself is insufficient for gcc if the optimization was
-> explicitly enabled by CFLAGS, so also add a flag to explicitly disable
-> it.
+On Tue, Aug 18, 2020 at 05:44:03PM -0700, Linus Torvalds wrote:
+> On Tue, Aug 18, 2020 at 4:43 PM Arvind Sankar <nivedita@alum.mit.edu> wrote:
+> >
+> > This by itself is insufficient for gcc if the optimization was
+> > explicitly enabled by CFLAGS, so also add a flag to explicitly disable
+> > it.
+> 
+> Using -fno-tree-loop-distribute-patterns seems to really be a bit too
+> incestuous with internal compiler knowledge.
 
-Using -fno-tree-loop-distribute-patterns seems to really be a bit too
-incestuous with internal compiler knowledge.
+Fair enough -- you ok with just the -ffreestanding? That's what protects
+the memset in arch/x86/boot/compressed/string.c.
 
-That generic memcpy implementation is horrible anyway. It should never be used.
+I think this is worthwhile to be safe.
 
-So I'd rather see this either removed entirely, ot possibly rewritten
-to be a somewhat proper memcpy implementation, and in the process made
-to not be recognizable by the compiler (possibly by adding a dummy
-barrier() or something like that).
+> 
+> That generic memcpy implementation is horrible anyway. It should never be used.
+> 
+> So I'd rather see this either removed entirely, ot possibly rewritten
+> to be a somewhat proper memcpy implementation, and in the process made
+> to not be recognizable by the compiler (possibly by adding a dummy
+> barrier() or something like that).
+> 
+> Looking at the implementation of "strscpy()" in the same file, and
+> then comparing that to the ludicrously simplisting "memcpy()", I
+> really get the feeling that that memcpy() is not worth having.
+> 
+>               Linus
 
-Looking at the implementation of "strscpy()" in the same file, and
-then comparing that to the ludicrously simplisting "memcpy()", I
-really get the feeling that that memcpy() is not worth having.
-
-              Linus
+I don't think anything actually uses the generic memcpy, and I think
+only c6x uses the generic memset. Might be worth optimizing strnlen etc
+with the word-at-a-time thing though.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHk-%3Dwik-oXnUpfZ6Hw37uLykc-_P0Apyn2XuX-odh-3Nzop8w%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200819030442.GA3396810%40rani.riverdale.lan.
