@@ -1,129 +1,142 @@
-Return-Path: <clang-built-linux+bncBCIO53XE7YHBBLXQ6X4QKGQEFNONKNA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCT4XGV33UIBBWHY6X4QKGQEQMKECFI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc39.google.com (mail-oo1-xc39.google.com [IPv6:2607:f8b0:4864:20::c39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3C74924A686
-	for <lists+clang-built-linux@lfdr.de>; Wed, 19 Aug 2020 21:06:24 +0200 (CEST)
-Received: by mail-oo1-xc39.google.com with SMTP id d20sf11938426ooh.2
-        for <lists+clang-built-linux@lfdr.de>; Wed, 19 Aug 2020 12:06:24 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1597863983; cv=pass;
+Received: from mail-oi1-x23c.google.com (mail-oi1-x23c.google.com [IPv6:2607:f8b0:4864:20::23c])
+	by mail.lfdr.de (Postfix) with ESMTPS id E655724A6D5
+	for <lists+clang-built-linux@lfdr.de>; Wed, 19 Aug 2020 21:24:09 +0200 (CEST)
+Received: by mail-oi1-x23c.google.com with SMTP id r62sf9317206oif.0
+        for <lists+clang-built-linux@lfdr.de>; Wed, 19 Aug 2020 12:24:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1597865048; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mJDyRsrwAENZqm++PUVQpHgjC9i26/isEGKN8MxIVUr4we2z/gnYLhDaBwu8YoaRSK
-         kDzbs0H/eG+uDzk7savjPZbEnSh9veKsERA3zlVc++L8xkyHogB9eTla+VVeJZIfv2U+
-         bbioesxp431Q0xpAD3y9Zv2MZvQZLxSCKPWHB45jYToY6DTypqB6UwECfVSQg5xo1uzc
-         GUmsMW9n5X9UkQxpF9JNuDzOMkLrgO32S/BCkvIgPV+ZZr2UF3Z+CgOF3rHzUessnoRj
-         y0/ACjH57C/Z70y3O1WYHBUPHM/ysKS+gx6p1BRXrzxTf9R+WP7PVklpqE+mlGEXvbzc
-         KWxg==
+        b=lSvS0tsaoCpJgyE+QfSzOKOa8BZm6P2riVA/UFrRVf5INtaSdM2RxNiwNhOPbtHcBZ
+         OVCHpWFgUM3M6IFUmADnRyl9KFjqo3eCtxcZt9CshzCw5NIKdK9EoX6mFFtkSAt/bFRC
+         xm0fNMReHdG26HAP3nwRK9/XwYA1I03pCo9pQ6jBw6YvMXPeXgONxvSOUdJkHePwD7B2
+         97+4bEelFe6naKT0bN7XelvZfqHFrzLCXyvUQ6CDI3lIreLmXCRQHl83iCi8chqJ9J3+
+         P0hfVEh+Bzudn4pVf8i0/3HxMiuMf4CzYnXE9jB5XAH/kvuONUpYghiv3vUrVdPo6pcZ
+         iHuQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:sender
-         :dkim-signature;
-        bh=WhjTkxdvIjBqfytm0Ni11Oj7SQ8pRAPEKCbmUJnjvHU=;
-        b=LDZbMknSuLF5ViNbaLcvyapFyPYXshD0/Y64PC72rPyviDktdi+5DnuNoy0P2tPDkO
-         VKEZLGC/mzg4v34+qxljhAbOsopUe+sKandNaiQ6TcWvQNOUom2yTuEos3kmkPnkgLuv
-         xv4Ie+PFQb6aL1M6oowqlJEJo70adfsMGJrDLkIESxHj9lO2znvL2gAJnvNqfUyDNcYq
-         vZf5M8p9hswz7IODb+dCNjDfSDTBWaqrpER+5dOF+LBTTK4xms+jI+dRxBnBjX7fDp3M
-         yeSIeV7aSLfHgIHoC4mjyX2VZAw2o1XkPY0+2fKH88ZJppGX4kiRgtWuKxQSQCTfqxUK
-         4nDg==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=6VsgCu5sXVbYFUce72DIuGEkxsKu6Z1xEEIQBjUsKCc=;
+        b=BoC2IIK9b5LBmF1WlXFt5/BTadLfkfQg/bReWT03Fl4nVrIbpabbfyTd8aUNbFZ6Gp
+         do1T201bgBatginsQQ/yR6C02fRPXU1XWscqDEzynv/LevRJc1eHRegxRZTb4vGaH7A4
+         9eAUxWibEF3E0LubdTc24yfQhSHMDvHfPWFkTwvTbzWQDFpBeN2A3MFHyy+lY6Q/F17y
+         CwOiEovmqQAHbR5ruF6fjaAowq0elfBVcuzgj6iz7UN5tt0nvvDMfvGuSY/2x+9hi0GT
+         /IbU6+cVDSr6p0C2ekkB5F/0MNSCjzfyRZx5hRBD1vhk53aduMwG0plch15Ki29zUSJl
+         FRMQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=U0md1oG9;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::843 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+       dkim=pass header.i=@kernel.org header.s=default header.b=GeI8lPtK;
+       spf=pass (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=akpm@linux-foundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=sender:from:date:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=WhjTkxdvIjBqfytm0Ni11Oj7SQ8pRAPEKCbmUJnjvHU=;
-        b=srPDqyvebOzau7N3D+CR6ml+2yRpqcl/9buMLXz1ACBcMP2D0n2GdFVJNFItXkbcp4
-         E34fyNQgVbgkRLiBREfWcDlNaUVwfAQEIH1gb1NcMtHoPngJZghecLKJOJfodrSCicti
-         5uXWkxZdLYD6mqn78Qkm9czm2kw2SUNY/IrCaCxlhfcN3yWTZHLdDEvT8PuwHxjWVPo/
-         U8EQIE71TzIBcdPYritO6o0/0J4SFhJ5lknlQZ1o0D46tBYvYsXyAcjbSpJGhDt/Wx9U
-         Mga8JCc/nvNMZk9x9TceiTqu9wJUJJgJcAR4t5B4mlWlWi4yWG2drMhJPichRJNp9xdC
-         BqsQ==
+        d=googlegroups.com; s=20161025;
+        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=6VsgCu5sXVbYFUce72DIuGEkxsKu6Z1xEEIQBjUsKCc=;
+        b=jOx7NLD6gDDQly+AGujq0IK0nYblmzL1VKQ4gQFutt9mqq+RK7mEpU2CCG/N7Ywrbb
+         sfpzI9t+XlZ1JtXVQ8qzsT/ZaKGvpQBMJvTKuzvfiBJvQASUBCRaoB3O4mcVYQ5gjAdq
+         PJrMwiJbDgWlGjGHaXVKN/rhjRBbIvOpdJhIMHLpFFyvwi45s+yeoPLvTzlez/viRHsP
+         b/+Fdwu+1L4WWmUCtDzeJKxUn/3Sz79TNhdOr5YH45WalVjKTysrwCemIEesr0IwYtZE
+         6wv3YkqwykEE1h/UCHw7QDI/+gnoJPJ+qvM2a4Z493vnciqtTOQtGOnDIxgdiXrys0u8
+         lUEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=WhjTkxdvIjBqfytm0Ni11Oj7SQ8pRAPEKCbmUJnjvHU=;
-        b=OvCPN1tluSsG0ywLHFNe1xSbB9fzNqzaLZ65fRi2LNxviSP7MuRq3XXRKs+2fhCnRR
-         A1GE6ir3B7QN6zX4mtmMzzMtl8qVF569yP+lcmdys34njTrXt0yIRai6KhB7RAVuYXuV
-         YSo5ZApUBdOtcnOyPcx6o4+LeeCfhhECdogzkN89sLHtYa3LEyfZi0cgyS4azzU6jbHg
-         PcfMLdnjow5SzLpr7UFtN0I+HsH8xliYRIIh4ftSAbX7m/J8MMiYg+jh8C2Eqzy+8vpG
-         QyKJexvmCKUIFGVmY7Io+BgxKjT8AVgyegzQb7nDVQSCGXvhOxftJWxqKxrZRh8GMsfJ
-         yyVw==
-X-Gm-Message-State: AOAM533gDy93XdRsBf13gXhVXawjujMJoIaP5XJXtnLsD9bQ2CSUV/R9
-	m05tJ0Td47qLUmnvdi64pY4=
-X-Google-Smtp-Source: ABdhPJwRgVh5kRBEwhluhc3Svbb9hYvP8Z9pXZAoZMXQNGn5qmFIh7Kd8neiusl9N6ybh0+bfJ0Nvg==
-X-Received: by 2002:a9d:454d:: with SMTP id p13mr18886645oti.126.1597863982846;
-        Wed, 19 Aug 2020 12:06:22 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=6VsgCu5sXVbYFUce72DIuGEkxsKu6Z1xEEIQBjUsKCc=;
+        b=pBZYZhTEdNC1iI2ozJbdFp59vUy0vCkZSwKgDdssERz3FCbKxiJd/5EQq18E+2+qKz
+         vs635avlmznKYcbMuiFG7YekRppdIZmtm6e2BHW7KgsvF2IW0Oeb3JDYiTdRr+taA4Sg
+         qP9XXA5tBDS7fw9QgpgbYKWBNpRWJxMaIJkCg5jYaR34UlpbGs4OxZW0w9R7j9zLnDTb
+         o8I3LhW6k42aDWLjoqReV2IiN/DCepfKPUqQI4l4RzwkC5mROQFHtl9rOBT3jyEjCI5P
+         1fLv/UAHrp52KYHQ0GPfOiFPA8Opf9thXrtEZ6dYHyaPDOVZnXJFBcPGNaBCDBzmMvFa
+         rbzw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM532DaJVo7lEXlbIDqms8ZFlK2kjtu3wued5iNV+ok3vlP6VaM5XN
+	bqohyyiDIduNNYkUycTwCWE=
+X-Google-Smtp-Source: ABdhPJwQ4mFwOEsgUXYgAeHYXliVc5jnLvvjjb8Y/FbLR6cGDAvdDHsDk7BAFPW44QwBjnEYoJ1tzA==
+X-Received: by 2002:aca:c545:: with SMTP id v66mr4098009oif.66.1597865048644;
+        Wed, 19 Aug 2020 12:24:08 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:ea21:: with SMTP id y1ls1437280ood.10.gmail; Wed, 19 Aug
- 2020 12:06:22 -0700 (PDT)
-X-Received: by 2002:a4a:9cd6:: with SMTP id d22mr20143680ook.0.1597863982478;
-        Wed, 19 Aug 2020 12:06:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1597863982; cv=none;
+Received: by 2002:aca:d658:: with SMTP id n85ls5139504oig.7.gmail; Wed, 19 Aug
+ 2020 12:24:08 -0700 (PDT)
+X-Received: by 2002:aca:42c1:: with SMTP id p184mr4341246oia.3.1597865048205;
+        Wed, 19 Aug 2020 12:24:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1597865048; cv=none;
         d=google.com; s=arc-20160816;
-        b=ZLrKS+LDdDeMEF53RnOm+pcmUpfDUPSi8dd+fQplFPD82DpVYOxL7GgjUGarymjyDE
-         hceAmDrYmAlf81V+oknp/pnonuDRW7BO0uQubhmMCGwZcByWOEbvdc0iLR25ULMfEywm
-         7D6V4F11YesRCIN7NolAPY0upto4eSi9gOs2Huj1zcqdyvecMtdXNs4V0/qHgy4eiOjZ
-         ZYSpsDjZ5MHi2jRHqgq2rQGJcA0oi/Dtxeax6/cDqypFntbT1NPPwEt4yMi5PCXDlZ1s
-         U2vuoAi0Ze7FdS0MeYexsk/21s5Ya+XsnUfTA0+Y1Cb0mgy4JTmcwqUoLXjmJozUNQ/e
-         M+Yw==
+        b=ncxh3QcFqA4NGApZsTwtnVLJ7h/bixr8UW+vNPvrWjbMf7KTlkvfJZuUBtv9qrAxqa
+         bkwqiKC/Svkb3fNajEWEYPi6NBJadJQjiYz09VskaTbnCZ0DujmZgi54MxYyMuHBxpwG
+         9/IKN2Ap5v1ykRzLvN2kEr82TVLZrY1WYV3vmS9MnZ+gHtcXbbuvPNycTRfjMOas0g5H
+         3X+sYlGbtdwuRRyTYoC8snbFDh3XKMM4NXg6ZIFTsZ6pfL1amRuLlTsV05gCxuatiT79
+         z0rIeRjmZKuz3eAWQJauR4TlrtVeoIguRsCx789a+vN+t+VsjH2oXdjymhlrs5tAkTJh
+         t9eg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:sender:dkim-signature;
-        bh=nBo8PSBZeaGMeAMnr74jCiSvVKt1AfbKh1e/zCH2wlU=;
-        b=XZnpvY8AwXHXGf3xmgWwGxV0/YVFMppGbk6m2KLxT5sTc0+hZ4CdEyPidpjyDAC1RK
-         pLerIA3GzuJewMJCRWt+6UaDY6IC6yICi8ziAt+BXuHLrFz8mRYzQxjhDC8firzvLwtA
-         HAz1aqYyvfYTPmM4LyXLd008+3Wco3+Nc8lNhY98iRX6ZNBIYVrhoV/W+YUohfpR6QRt
-         3UB52NARIpmWt1ifGWnJyMZfE6ANqoNNo1G/BLXEPAarY1i+1rsu7ARiDHfiq/I4PacF
-         wYen55I91YR8FmiHu6igqQk18p+8TXXR0vRBXp8Cr19oCiXRs/LJm+C+gwsCpgrrXvag
-         DN5w==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=QJ1/+xq88LYlLcW4sXbhSkNSoCe9FeWKGvFGvnUP540=;
+        b=pmJUGmHbYRuh/jDeBBpXFaA88LdzVdeaEmcSx19I513IUtaMkNjnJkPTkmoIAlML5C
+         AluPXEun8VwGEVvbWpBCXu3KS2j4vPlrJ5x+reabA1CiAwag87o8LNAc90BOYzNfnf+w
+         4/6ST+X8dgpV1vP3vDObfcn/C2XoyLCytSk+qvCS477KhpXia86B9uCqgazv5/anHL7F
+         blU82ulaLJPYhxiC2aSy20x3PR9SOH+Ej0uJTjh7RfoGUR5R2BehbFDDTh+y+tn5uqfF
+         hq2Yz3zu7vgHlFhKi41JzNz4Cd2bMnPgpxvORG9gLLpkyopm9kd6DtGnn2IXvuwbss+3
+         aOHw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=U0md1oG9;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::843 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
-Received: from mail-qt1-x843.google.com (mail-qt1-x843.google.com. [2607:f8b0:4864:20::843])
-        by gmr-mx.google.com with ESMTPS id c199si1089932oob.1.2020.08.19.12.06.22
+       dkim=pass header.i=@kernel.org header.s=default header.b=GeI8lPtK;
+       spf=pass (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=akpm@linux-foundation.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id v18si1848808oor.0.2020.08.19.12.24.08
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Aug 2020 12:06:22 -0700 (PDT)
-Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::843 as permitted sender) client-ip=2607:f8b0:4864:20::843;
-Received: by mail-qt1-x843.google.com with SMTP id c12so18659795qtn.9
-        for <clang-built-linux@googlegroups.com>; Wed, 19 Aug 2020 12:06:22 -0700 (PDT)
-X-Received: by 2002:aed:2358:: with SMTP id i24mr24215013qtc.234.1597863981858;
-        Wed, 19 Aug 2020 12:06:21 -0700 (PDT)
-Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
-        by smtp.gmail.com with ESMTPSA id u21sm22927752qkk.1.2020.08.19.12.06.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Aug 2020 12:06:21 -0700 (PDT)
-Sender: Arvind Sankar <niveditas98@gmail.com>
-From: Arvind Sankar <nivedita@alum.mit.edu>
-Date: Wed, 19 Aug 2020 15:06:19 -0400
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Arvind Sankar <nivedita@alum.mit.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Subject: Re: [PATCH v2] lib/string.c: Use freestanding environment
-Message-ID: <20200819190619.GA4135577@rani.riverdale.lan>
-References: <CAHk-=wiJLvqS1_O+yAQSZr-Lj49HdJyLpt3J_nW=otHLfEN4RA@mail.gmail.com>
- <20200819140816.3807604-1-nivedita@alum.mit.edu>
- <CAKwvOdn-mv1D1GEk3pWnPYsyzQRRk5qZFhSi0CYn6tRDo1O_iw@mail.gmail.com>
-MIME-Version: 1.0
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 19 Aug 2020 12:24:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from localhost.localdomain (c-73-231-172-41.hsd1.ca.comcast.net [73.231.172.41])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 9402E2078D;
+	Wed, 19 Aug 2020 19:24:05 +0000 (UTC)
+Date: Wed, 19 Aug 2020 12:24:05 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andy Lutomirski <luto@kernel.org>, Baoquan He <bhe@redhat.com>, Benjamin
+ Herrenschmidt <benh@kernel.crashing.org>, Borislav Petkov <bp@alien8.de>,
+ Catalin Marinas <catalin.marinas@arm.com>, Christoph Hellwig <hch@lst.de>,
+ Daniel Axtens <dja@axtens.net>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Emil Renner Berthing <kernel@esmil.dk>, Ingo Molnar <mingo@redhat.com>,
+ Hari Bathini <hbathini@linux.ibm.com>, Marek Szyprowski
+ <m.szyprowski@samsung.com>, Max Filippov <jcmvbkbc@gmail.com>, Michael
+ Ellerman <mpe@ellerman.id.au>, Michal Simek <monstr@monstr.eu>, Mike
+ Rapoport <rppt@linux.ibm.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul
+ Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Peter Zijlstra <peterz@infradead.org>, Russell King
+ <linux@armlinux.org.uk>, Stafford Horne <shorne@gmail.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Will Deacon <will@kernel.org>, Yoshinori Sato
+ <ysato@users.sourceforge.jp>, clang-built-linux@googlegroups.com,
+ iommu@lists.linux-foundation.org, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-c6x-dev@linux-c6x.org,
+ linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-xtensa@linux-xtensa.org, linuxppc-dev@lists.ozlabs.org,
+ openrisc@lists.librecores.org, sparclinux@vger.kernel.org,
+ uclinux-h8-devel@lists.sourceforge.jp, x86@kernel.org
+Subject: Re: [PATCH v3 09/17] memblock: make memblock_debug and related
+ functionality private
+Message-Id: <20200819122405.88e9719e86ac7c3c44b4db32@linux-foundation.org>
+In-Reply-To: <20200818151634.14343-10-rppt@kernel.org>
+References: <20200818151634.14343-1-rppt@kernel.org>
+	<20200818151634.14343-10-rppt@kernel.org>
+X-Mailer: Sylpheed 3.5.1 (GTK+ 2.24.31; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAKwvOdn-mv1D1GEk3pWnPYsyzQRRk5qZFhSi0CYn6tRDo1O_iw@mail.gmail.com>
-X-Original-Sender: nivedita@alum.mit.edu
+X-Original-Sender: akpm@linux-foundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=U0md1oG9;       spf=pass
- (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::843
- as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+ header.i=@kernel.org header.s=default header.b=GeI8lPtK;       spf=pass
+ (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=akpm@linux-foundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,59 +149,72 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Aug 19, 2020 at 11:35:11AM -0700, Nick Desaulniers wrote:
-> On Wed, Aug 19, 2020 at 7:08 AM Arvind Sankar <nivedita@alum.mit.edu> wrote:
-> >
-> > gcc can transform the loop in a naive implementation of memset/memcpy
-> > etc into a call to the function itself. This optimization is enabled by
-> > -ftree-loop-distribute-patterns.
-> >
-> > This has been the case for a while (see eg [0]), but gcc-10.x enables
-> > this option at -O2 rather than -O3 as in previous versions.
-> >
-> > Add -ffreestanding, which implicitly disables this optimization with
-> > gcc. It is unclear whether clang performs such optimizations, but
-> > hopefully it will also not do so in a freestanding environment.
-> >
-> > [0] https://gcc.gnu.org/bugzilla/show_bug.cgi?id=56888
-> >
-> > Signed-off-by: Arvind Sankar <nivedita@alum.mit.edu>
-> 
-> For Clang:
-> For x86_64 defconfig:
-> This results in no change for the code generated.
-> 
-> For aarch64 defconfig:
-> This results in calls to bcmp being replaced with calls to memcmp in
-> strstr and strnstr.  I plan on adding -fno-built-bcmp then removing
-> bcmp anyways.  Not a bug either way, just noting the difference is
-> disassembly.
-> 
-> For arm defconfig:
-> This results in no change for the code generated.
-> 
-> I should check the other architectures we support, but my local build
-> doesn't have all backends enabled currently; we'll catch it once it's
-> being testing in -next if it's an issue, but I don't foresee it
-> (knocks on wood, famous last words, ...)
-> 
-> If it helps GCC not optimize these core functions into infinite
-> recursion, I'm for that, especially since I'd bet these get called
-> frequently and early on in boot, which is my least favorite time to
-> debug.
-> 
-> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-> Tested-by: Nick Desaulniers <ndesaulniers@google.com>
-> 
+On Tue, 18 Aug 2020 18:16:26 +0300 Mike Rapoport <rppt@kernel.org> wrote:
 
-I verified that arch/c6x with gcc-10 downloaded from kernel.org has the
-broken memset with CC_OPTIMIZE_FOR_PERFORMANCE and gets fixed with this
-patch. The default is optimize for size though, which doesn't seem to be
-busted.
+> From: Mike Rapoport <rppt@linux.ibm.com>
+> 
+> The only user of memblock_dbg() outside memblock was s390 setup code and it
+> is converted to use pr_debug() instead.
+> This allows to stop exposing memblock_debug and memblock_dbg() to the rest
+> of the kernel.
+> 
+> --- a/mm/memblock.c
+> +++ b/mm/memblock.c
+> @@ -137,7 +137,10 @@ struct memblock_type physmem = {
+>  	     i < memblock_type->cnt;					\
+>  	     i++, rgn = &memblock_type->regions[i])
+>  
+> -int memblock_debug __initdata_memblock;
+> +#define memblock_dbg(fmt, ...) \
+> +	if (memblock_debug) printk(KERN_INFO pr_fmt(fmt), ##__VA_ARGS__)
+> +
 
-Thanks.
+checkpatch doesn't like this much.
+
+ERROR: Macros starting with if should be enclosed by a do - while loop to avoid possible if/else logic defects
+#101: FILE: mm/memblock.c:140:
++#define memblock_dbg(fmt, ...) \
++	if (memblock_debug) printk(KERN_INFO pr_fmt(fmt), ##__VA_ARGS__)
+
+WARNING: Prefer [subsystem eg: netdev]_info([subsystem]dev, ... then dev_info(dev, ... then pr_info(...  to printk(KERN_INFO ...
+#102: FILE: mm/memblock.c:141:
++	if (memblock_debug) printk(KERN_INFO pr_fmt(fmt), ##__VA_ARGS__)
+
+ERROR: trailing statements should be on next line
+#102: FILE: mm/memblock.c:141:
++	if (memblock_debug) printk(KERN_INFO pr_fmt(fmt), ##__VA_ARGS__)
+
+
+The first one is significant:
+
+	if (foo)
+		memblock_dbg(...);
+	else
+		save_the_world();
+
+could end up inadvertently destroying the planet.
+
+This?
+
+--- a/mm/memblock.c~memblock-make-memblock_debug-and-related-functionality-private-fix
++++ a/mm/memblock.c
+@@ -137,8 +137,11 @@ struct memblock_type physmem = {
+ 	     i < memblock_type->cnt;					\
+ 	     i++, rgn = &memblock_type->regions[i])
+ 
+-#define memblock_dbg(fmt, ...) \
+-	if (memblock_debug) printk(KERN_INFO pr_fmt(fmt), ##__VA_ARGS__)
++#define memblock_dbg(fmt, ...)						\
++	do {								\
++		if (memblock_debug)					\
++			pr_info(fmt, ##__VA_ARGS__);			\
++	} while (0)
+ 
+ static int memblock_debug __initdata_memblock;
+ static bool system_has_some_mirror __initdata_memblock = false;
+_
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200819190619.GA4135577%40rani.riverdale.lan.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200819122405.88e9719e86ac7c3c44b4db32%40linux-foundation.org.
