@@ -1,154 +1,139 @@
-Return-Path: <clang-built-linux+bncBCDZTXMP2EPRB4437H4QKGQEWG2FM2Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD52NTUX6UGBB7M37H4QKGQEQDAZ4CI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103d.google.com (mail-pj1-x103d.google.com [IPv6:2607:f8b0:4864:20::103d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6DBCB24B504
-	for <lists+clang-built-linux@lfdr.de>; Thu, 20 Aug 2020 12:18:29 +0200 (CEST)
-Received: by mail-pj1-x103d.google.com with SMTP id mw8sf2821182pjb.1
-        for <lists+clang-built-linux@lfdr.de>; Thu, 20 Aug 2020 03:18:29 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1597918708; cv=pass;
+Received: from mail-wr1-x43a.google.com (mail-wr1-x43a.google.com [IPv6:2a00:1450:4864:20::43a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7F10E24B505
+	for <lists+clang-built-linux@lfdr.de>; Thu, 20 Aug 2020 12:18:38 +0200 (CEST)
+Received: by mail-wr1-x43a.google.com with SMTP id t3sf490483wrr.5
+        for <lists+clang-built-linux@lfdr.de>; Thu, 20 Aug 2020 03:18:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1597918718; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Vxlt94+1EIuaHtzWFvM3fZCkoOutmLD5PUOr4deQwEIDJm2sm4p93e7YzuVn+xux4H
-         jMcTSU7IRqO30uKpsXo4L46r4EJD1OZ9+m2FIgDaV3+iZLoTg2SAZPc6Bi96qNNu8c1H
-         uFULCE7wubE845cnr9LDk+R5CydAh4KpoSIA46hHdihgWl2QAoCJZumtZKanDPnzySZB
-         Nn8jxLViPbEAYz3HMcBUWCQm0a6od+2apUEFHB4KrbouptA9D1YJWVJwZ4PYPto5KhfG
-         u2FbUo8mv40As90BI1veUH3MPr97uzjYtdGx/c+PYXPEWlaJTjzdrNfZxKv/aY/n92Fm
-         UPtA==
+        b=m21O7p7QMEWGVh+e3eiNBbNKJcOK3pUz23lNvJ9llXLruKrWdRinWM3W6OkI2B9LeR
+         647JxakEM24l73qmXL2c1YC6YHLY1X5YEn4JQMcWNvk6D1VaGCAIhksetObuhVeyzO6t
+         ftF0OQI9BXY5Jy4IpG6giVsOnCZ6HN2gZaZa1SEAXnkmhypUZPHf8VJMdgBAj3bewIUl
+         QqwSme4q5SdkpWh7YF3Rw7OZSTkXqwpA39IgTsuScEJcBYSUAgeaIyD39fBWHvhe7jbW
+         1YqxkfkPNo4toJB/xxbvWREDKcunag4BVOqOkJn9hcvaKqrgCIy9+cxzHrKA+uQiQION
+         iYvg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to
-         :content-transfer-encoding:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=N5VEgrtmmNeIkXzFU5Spfp0niXn1dCVxTQFXnJTjy+8=;
-        b=Zy7ywtzcDwR2hYnjwX68ItISnRaVeRY9/ZHdwrc0IgOFzhlPaekA49eABWoTD1fgCw
-         tSWy8nvxCATnYDJ4i9EL0K/VYejfojIZ0srzAI1a9ipQn1T/4MNp47s57IDflk6CyHgo
-         m9VloJDUNNJYIG55wq8KVA0Aqc8pXDVPvST1VoMV6xIiOalfSbGPkuPhNDlD4kjptcit
-         ME8Ka2Lrk4MoRQMc1FAWwfOMqozCt5xl4xc19LfB3wzq8FP3d8O3IdMEED+r4A4in+CC
-         0USoWYafCjdoKem5YDSpuOpV7EubamzIg65/X8V8YHQ2Y4mDcaEBOqbvYw8lAyYuJhbq
-         xksw==
+         :list-id:mailing-list:precedence:mime-version
+         :content-transfer-encoding:references:in-reply-to:date:cc:to:from
+         :subject:message-id:sender:dkim-signature;
+        bh=3cihgokTfOoJ210Khd11e5neEC89JZYfVRsVYIb2dfM=;
+        b=T7cRJSfaITWgcQB/ZzhIYGVGwQg4gtKzaFt4xbIs5qP096Oy2ReAlPNkvXD/aY8Ff0
+         NWn1sbr9+BDIDKL0//b/pVIhIjMW4dkuzaYwJs+BdSmTUV8rThbEW/0hJpxEwmvIWoWe
+         cT9bKe70A9Lxjhs3bCWPmpNmgQSyqA7fZ8YbJYkqvKg0ruz0RfpCPzson+80QPgRwioG
+         RRYWqLektZe6+gFPi21F6Sl/pd68OmUWhbolyImlGQ1uv5u+zF03PdYMhhyb+/wzIiCK
+         etl7pNCl2YFGkx8DWHJPjaB9Q8iJSk5fuKHUd0lB0VDabGcXefRNbgQZLNaD5nJqZxOQ
+         IDLg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=If7bOfIj;
-       spf=pass (google.com: domain of jolsa@redhat.com designates 207.211.31.120 as permitted sender) smtp.mailfrom=jolsa@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       spf=pass (google.com: domain of mark@klomp.org designates 212.238.236.112 as permitted sender) smtp.mailfrom=mark@klomp.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:content-transfer-encoding:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=N5VEgrtmmNeIkXzFU5Spfp0niXn1dCVxTQFXnJTjy+8=;
-        b=ZuMty5qWaX/CXN3bV3qKoqx6ydRAwJ/lvQfCVX3mfj38EO5bTJ71KNoNvf6jOuwr7c
-         dnmfeW+jw8n9UN9EBVgUxGBv6cmRyH16wFDSz/I55keGYdqmOdBFe2zhNJAvId3MS5mD
-         gwZUGFsYM9eqDHqN2Frh2Gg66B0NCRFQGdGBesUO4UEcERBFoCG38sbVltiMpNbBH52u
-         hin2qe1c3mmd5/fP4swEPynZfoqwLS92SwYTmWTnnkq19I8R4kCqkWlKJwpZYDKkvIF4
-         qF5mVJsoT8I8OnSGubDgIBaoQta+d/podSoV9gNAqW+3zXpW/LIeZc8kZU35P++3D1E9
-         81cg==
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :content-transfer-encoding:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=3cihgokTfOoJ210Khd11e5neEC89JZYfVRsVYIb2dfM=;
+        b=HmTBnFP1sH7B7AEIXtCEovG3Wt956XsYKCJyEi2ayej4mNyfwJ/9pKUHUOQWpPJ9mo
+         iEt8RLBGCCeBpEbLYLT2UVVAJjhhUFOk9Ax1xPR7sQS4pY5fG1hZiyGveKpUs3iIrIIj
+         c3+fHQH+mjkRFU8cKNXOfR2FGcr55P13zwlgt98fXUEM1I49RJwc7pG8sDRqimu9rKPq
+         0RuirAjXl6dgW7Ion8v+nt8+kDs7CbS3dPT85vDq0txCUz6Mg0qgVDXfLCe50pz329hC
+         ZyaRyztY2fONNOdTrU99IJczhxg8aYz+znlvyPcqpO8bxkx+1zv0AuygoyykVxjt9XEy
+         q37g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition
-         :content-transfer-encoding:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=N5VEgrtmmNeIkXzFU5Spfp0niXn1dCVxTQFXnJTjy+8=;
-        b=oM6F+i2fjrQNO8uf/tMadA7ZzUhF2vk8jJTIqiK7My3OkdzyLr+V9bhC+9oOj3zaa1
-         aJlmNOCVPEvrDcR4KsKMJo/W+tgRd+K65C1n98c4jA+G97FUoqXo3FSnoObMb8463UWs
-         og7Y8bohEOW8uG+tzGIFHrOPGOV0dH3lxMq/MVmPQzMUbkLQlSmKv7GrT4ml81bTHbwP
-         Lt3wU/8w173qHqulzqEO6qhoAQAb4TE3DrGMjQuDvZursIFHP/VrO4I8cuc+DmJomU3N
-         VrEaMgA9i1X6UvNwCZAB+8sZM/OuQFwbZdYKZT9xVWbh4nj8uv0XzsRxF39pofU7ZB6b
-         oulg==
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:content-transfer-encoding:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=3cihgokTfOoJ210Khd11e5neEC89JZYfVRsVYIb2dfM=;
+        b=E1FJTeJDgQvxOaxc3QY96XCY7PxR+h+wrrj0hBHuA6MvTZiFJX420rjJbUirkn3oY9
+         OPDLOcgyizTp8Ti6Iy0A8rwPDnmHuQnkNMNQDD0LDGtAzhYtuKrn7vJHPiSHuxhw/bBJ
+         TLqKPFqXsIh6hktgtIOQwW/vlp1861FIKrCDpd+61yY3RjhOjrqUftxoLv8A9GAqd/Mw
+         uAkyYtzrAoxIHsBOy117I3rnKxbu9IYHMuknRfD9ZfUQhMhLo/2XG4f5QMiFIiy41NC2
+         7XiNzdDB08oU10TPLyIJyQgH4WbjLoXCOS3FQbAygsBWRSuFP8ZkAir4oPcVUNkigSwO
+         R4rQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5328qhk+L73Vbz9JwmAAm5t3RaMRnDYHHyC43zemfZwP82UinHoJ
-	E5+emKHH2jq0lQUjQeKNKYw=
-X-Google-Smtp-Source: ABdhPJyYU48/95RuT7mqQxXm6mGMDlgmCoME0JK/GSVnhtRY0YEPYU0DtGcLZpyfY8GC1yZC36npxA==
-X-Received: by 2002:a17:90a:d712:: with SMTP id y18mr1806991pju.79.1597918707832;
-        Thu, 20 Aug 2020 03:18:27 -0700 (PDT)
+X-Gm-Message-State: AOAM533Dq/bZaNUnnyLj+IONlzt2O7P9cwVQ7DjBXeTK1g90h7HVuLKW
+	nJMMYLCs20wTdxd9DNAvOlU=
+X-Google-Smtp-Source: ABdhPJzj7J+vEYLgxvc11IrGsD/8J9CvqsUforORuXFB69DAP0AhWQKzpHUVeoI2VCmvUh8koEVv4A==
+X-Received: by 2002:adf:92a1:: with SMTP id 30mr2704240wrn.56.1597918718221;
+        Thu, 20 Aug 2020 03:18:38 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:c252:: with SMTP id 18ls1025620plg.3.gmail; Thu, 20
- Aug 2020 03:18:27 -0700 (PDT)
-X-Received: by 2002:a17:90a:a590:: with SMTP id b16mr1999880pjq.131.1597918707235;
-        Thu, 20 Aug 2020 03:18:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1597918707; cv=none;
+Received: by 2002:adf:81f4:: with SMTP id 107ls1807163wra.2.gmail; Thu, 20 Aug
+ 2020 03:18:37 -0700 (PDT)
+X-Received: by 2002:a5d:54c7:: with SMTP id x7mr2636500wrv.39.1597918717500;
+        Thu, 20 Aug 2020 03:18:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1597918717; cv=none;
         d=google.com; s=arc-20160816;
-        b=UqswTVHeyPdeSOf+06Q3ALthI5YG2XMIkGvvgt11Xms+x668hTnjO6Ru3Zo0XWBoeT
-         L5NrGMRRL++vvXTuqqGj/mfbZjzi6x6PtMhb8y9e4N0zIY14B3NtMr+CuKC96etoI7uU
-         ZqWrMPVjFlTL134L4dNBDaRmcAb1OZw2ZawCBSgRZLmdW5zhdqJjVdDQiGt5DdEAcsm+
-         TCpbjWHl0HP1qwTbUtoo0x8CuQvvRa2MvNNM/ZyF2+EtIfVM11B09AlQxWELzH2g7lQh
-         bjJRgKm7/aiff+9TQOBwcwZGL8pW/Yw4I0MaVtaxSwe/aBBS09vVIIV7QuVgdlgMvWQB
-         hmSg==
+        b=jrwnkj6vMm/tyOFyl2puECaKHZBEuLd4Y3nt9oL6JW9uul7dnrAHzjvhP77nI7HDve
+         X2hVO/r+IRN4cUqp2VOfl1doxI5A32Vs8LUq2y03oAevRbVH3cTmchLVl9Zf+5jw2TlS
+         jiL425MU1tS3p9p6bqAruVvIgidZzRrYtgP6IxGbKNP3txGo6FHhGslHgmWzriMcVRou
+         pylH6s9UL9WaTshMf+DxpkywRB5JdYMD3f84k+SPOv+3pXJciO0VYm0FGsQr+LhDqGJB
+         BP0vKgyV26Fmpkxy667suZS5EQzglE20CAq6LD9a7UjNknH5F7+FMxVXeuhyE0cUi1tE
+         U0Jg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :dkim-signature;
-        bh=zVRgxsfepYzYkU+vpFAChRcrhAuOfHEv8LFvPPE6d28=;
-        b=bSFUhbvyIPOIoMtgKWaQIoeDwTLpCWYAmMgoTwt15MjRWtUmNxGOO7LLMuG1R3POwR
-         5Hj11f8InJBTStwMjIZ/U9ZQVBsydtAytSFKx0mflet5KSmYnVwNRuSBizv5c1Xt+QZ+
-         K/B5+tt1wWBmXfW0j3az9Hdof43JHdgcTbA1SVsy8JMUSXBWs2FJd3qhZmcIlO0Htcwk
-         ShE1tOhhYI4XIcAByN6kxQnFY8+h6FFTB7giHhYHMhU34bbUf/2Z21N5imRPWayNtoo0
-         vuZbmHhNM6RyyqJRUJgfY3k2aNfF5Z87+ChtgZx4/xaXbcBIgXW+GLpKDS5OevpOl7K4
-         bs4g==
+        h=mime-version:content-transfer-encoding:references:in-reply-to:date
+         :cc:to:from:subject:message-id;
+        bh=+FWDr+axhFghyHM0XYEvLEoJ4jLwqohxwNaW7rDK0DY=;
+        b=sl3bzCTHwfKtWzh8HnhE1uzYUXgqz9FeouDKT5ZIzztzUcrQv6Pig/c/BPp85qK6gb
+         sQXoIvbXSsQSabjruV2BwqY5uQqR8ERB7cZbpo9AmWNBGMd2uvLAbnxKLAcuX2vPNiYg
+         yJYJBOycgth4HZvnCOYItw59IBO4w6b6O5hIvptsyM6/EdLYcUh9mVeoyK8Ybe3jmRkd
+         BQ1s1KEGp2YMgwIoIG60AqcXyX0+XKFhJ6s6Uqppq8bpc3wl1WcBGXh4S1SB5BndN0wJ
+         VjBtAklpf0estpupm+gfqB5b0S+mtVayOl4JvRZj7hS2cV/kxwItcIiYUV4RelZY9pc3
+         1MKg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=If7bOfIj;
-       spf=pass (google.com: domain of jolsa@redhat.com designates 207.211.31.120 as permitted sender) smtp.mailfrom=jolsa@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [207.211.31.120])
-        by gmr-mx.google.com with ESMTPS id y9si97627pgv.0.2020.08.20.03.18.26
+       spf=pass (google.com: domain of mark@klomp.org designates 212.238.236.112 as permitted sender) smtp.mailfrom=mark@klomp.org
+Received: from gnu.wildebeest.org (wildebeest.demon.nl. [212.238.236.112])
+        by gmr-mx.google.com with ESMTPS id z23si210878wml.1.2020.08.20.03.18.36
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 20 Aug 2020 03:18:27 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jolsa@redhat.com designates 207.211.31.120 as permitted sender) client-ip=207.211.31.120;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-425-CakX2Xi6PCqH5-AxDXr1nQ-1; Thu, 20 Aug 2020 06:18:22 -0400
-X-MC-Unique: CakX2Xi6PCqH5-AxDXr1nQ-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+        Thu, 20 Aug 2020 03:18:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mark@klomp.org designates 212.238.236.112 as permitted sender) client-ip=212.238.236.112;
+Received: from tarox.wildebeest.org (tarox.wildebeest.org [172.31.17.39])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9EB2E807332;
-	Thu, 20 Aug 2020 10:18:20 +0000 (UTC)
-Received: from krava (unknown [10.40.194.187])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 5239319C66;
-	Thu, 20 Aug 2020 10:18:11 +0000 (UTC)
-Date: Thu, 20 Aug 2020 12:18:10 +0200
-From: Jiri Olsa <jolsa@redhat.com>
-To: Yonghong Song <yhs@fb.com>
-Cc: =?utf-8?B?RsSBbmctcnXDrCBTw7JuZw==?= <maskray@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Mark Wielaard <mjw@redhat.com>, Nick Clifton <nickc@redhat.com>,
-	Jesper Dangaard Brouer <brouer@redhat.com>,
-	Network Development <netdev@vger.kernel.org>,
-	bpf <bpf@vger.kernel.org>, Martin KaFai Lau <kafai@fb.com>,
-	Song Liu <songliubraving@fb.com>, Andrii Nakryiko <andriin@fb.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@chromium.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>
+	by gnu.wildebeest.org (Postfix) with ESMTPSA id 556A130278CD;
+	Thu, 20 Aug 2020 12:18:36 +0200 (CEST)
+Received: by tarox.wildebeest.org (Postfix, from userid 1000)
+	id 05DBC413CE8D; Thu, 20 Aug 2020 12:18:36 +0200 (CEST)
+Message-ID: <5ef90a283aa2f68018763258999fa66cd34cb3bb.camel@klomp.org>
 Subject: Re: [PATCH bpf-next] tools/resolve_btfids: Fix sections with wrong
  alignment
-Message-ID: <20200820101810.GA336489@krava>
-References: <20200819092342.259004-1-jolsa@kernel.org>
- <254246ed-1b76-c435-a7bd-0783a29094d9@fb.com>
- <20200819173618.GH177896@krava>
- <CAKwvOdnfy4ASdeVqPjMtALXOXgMKdEB8U0UzWDPBKVqdhcPaFg@mail.gmail.com>
- <2e35cf9e-d815-5cd7-9106-7947e5b9fe3f@fb.com>
- <CAFP8O3+mqgQr_zVS9pMXSpFsCm0yp5y5Vgx1jmDc+wi-8-HOVQ@mail.gmail.com>
- <ba7bbec7-9fb5-5f8f-131e-1e0aeff843fa@fb.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+From: Mark Wielaard <mark@klomp.org>
+To: Yonghong Song <yhs@fb.com>, =?UTF-8?Q?F=C4=81ng-ru=C3=AC_S=C3=B2ng?=
+	 <maskray@google.com>, Jiri Olsa <jolsa@kernel.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, Alexei Starovoitov
+ <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Nick Clifton
+ <nickc@redhat.com>, Jesper Dangaard Brouer <brouer@redhat.com>, Network
+ Development <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>, Martin
+ KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Andrii Nakryiko
+ <andriin@fb.com>, John Fastabend <john.fastabend@gmail.com>, KP Singh
+ <kpsingh@chromium.org>, clang-built-linux
+ <clang-built-linux@googlegroups.com>
+Date: Thu, 20 Aug 2020 12:18:35 +0200
 In-Reply-To: <ba7bbec7-9fb5-5f8f-131e-1e0aeff843fa@fb.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
-X-Original-Sender: jolsa@redhat.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=If7bOfIj;
-       spf=pass (google.com: domain of jolsa@redhat.com designates
- 207.211.31.120 as permitted sender) smtp.mailfrom=jolsa@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+References: <20200819092342.259004-1-jolsa@kernel.org>
+	 <254246ed-1b76-c435-a7bd-0783a29094d9@fb.com>
+	 <20200819173618.GH177896@krava>
+	 <CAKwvOdnfy4ASdeVqPjMtALXOXgMKdEB8U0UzWDPBKVqdhcPaFg@mail.gmail.com>
+	 <2e35cf9e-d815-5cd7-9106-7947e5b9fe3f@fb.com>
+	 <CAFP8O3+mqgQr_zVS9pMXSpFsCm0yp5y5Vgx1jmDc+wi-8-HOVQ@mail.gmail.com>
+	 <ba7bbec7-9fb5-5f8f-131e-1e0aeff843fa@fb.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Evolution 3.28.5 (3.28.5-8.el7)
+Mime-Version: 1.0
+X-Spam-Flag: NO
+X-Spam-Status: No, score=-2.9 required=5.0 tests=ALL_TRUSTED,BAYES_00
+	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on gnu.wildebeest.org
+X-Original-Sender: mark@klomp.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of mark@klomp.org designates 212.238.236.112 as permitted
+ sender) smtp.mailfrom=mark@klomp.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -161,80 +146,44 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Aug 19, 2020 at 08:23:10PM -0700, Yonghong Song wrote:
->=20
->=20
+Hi,
+
+On Wed, 2020-08-19 at 20:23 -0700, Yonghong Song wrote:
 > On 8/19/20 7:27 PM, F=C4=81ng-ru=C3=AC S=C3=B2ng wrote:
-> > > > >     section(36) .comment, size 44, link 0, flags 30, type=3D1
-> > > > >     section(37) .debug_aranges, size 45684, link 0, flags 800, ty=
-pe=3D1
-> > > > >      - fixing wrong alignment sh_addralign 16, expected 8
-> > > > >     section(38) .debug_info, size 129104957, link 0, flags 800, t=
-ype=3D1
-> > > > >      - fixing wrong alignment sh_addralign 1, expected 8
-> > > > >     section(39) .debug_abbrev, size 1152583, link 0, flags 800, t=
-ype=3D1
-> > > > >      - fixing wrong alignment sh_addralign 1, expected 8
-> > > > >     section(40) .debug_line, size 7374522, link 0, flags 800, typ=
-e=3D1
-> > > > >      - fixing wrong alignment sh_addralign 1, expected 8
-> > > > >     section(41) .debug_frame, size 702463, link 0, flags 800, typ=
-e=3D1
-> > > > >     section(42) .debug_str, size 1017571, link 0, flags 830, type=
-=3D1
-> > > > >      - fixing wrong alignment sh_addralign 1, expected 8
-> > > > >     section(43) .debug_loc, size 3019453, link 0, flags 800, type=
-=3D1
-> > > > >      - fixing wrong alignment sh_addralign 1, expected 8
-> > > > >     section(44) .debug_ranges, size 1744583, link 0, flags 800, t=
-ype=3D1
-> > > > >      - fixing wrong alignment sh_addralign 16, expected 8
-> > > > >     section(45) .symtab, size 2955888, link 46, flags 0, type=3D2
-> > > > >     section(46) .strtab, size 2613072, link 0, flags 0, type=3D3
-> >=20
+> > > > >=20
 > > I think this is resolve_btfids's bug. GNU ld and LLD are innocent.
 > > These .debug_* sections work fine if their sh_addralign is 1.
-> > When the section flag SHF_COMPRESSED is set, the meaningful alignment
+> > When the section flag SHF_COMPRESSED is set, the meaningful
+> > alignment
 > > is Elf64_Chdr::ch_addralign, after the header is uncompressed.
 > >=20
 > > On Wed, Aug 19, 2020 at 2:30 PM Yonghong Song <yhs@fb.com> wrote:
-> > >=20
-> > >=20
-> > >=20
-> > > On 8/19/20 11:16 AM, Nick Desaulniers wrote:
-> > > > On Wed, Aug 19, 2020 at 10:36 AM Jiri Olsa <jolsa@redhat.com> wrote=
-:
-> > > > >=20
-> > > > > On Wed, Aug 19, 2020 at 08:31:51AM -0700, Yonghong Song wrote:
-> > > > > >=20
-> > > > > >=20
-> > > > > > On 8/19/20 2:23 AM, Jiri Olsa wrote:
-> > > > > > > The data of compressed section should be aligned to 4
-> > > > > > > (for 32bit) or 8 (for 64 bit) bytes.
-> > > > > > >=20
-> > > > > > > The binutils ld sets sh_addralign to 1, which makes libelf
-> > > > > > > fail with misaligned section error during the update as
-> > > > > > > reported by Jesper:
-> > > > > > >=20
-> > > > > > >       FAILED elf_update(WRITE): invalid section alignment
->=20
-> Jiri,
->=20
 > Since Fangrui mentioned this is not a ld/lld bug, then changing
 > alighment from 1 to 4 might have some adverse effect for the binary,
 > I guess.
 
-not sure about that.. Mark? ;-)
+The bug isn't about a wrong ch_addralign, which seems to have been set
+correctly. But it is a bug about incorrectly setting the sh_addralign
+of the section. The sh_addralign indicates the alignment of the data in
+the section, which is the Elf32/64_Chdr plus compressed data, not the
+alignment of the uncompressed data. It helps the consumer make sure
+they lay out the data so that the ELF data structures can be read
+through their natural alignment.
 
->=20
-> Do you think we could skip these .debug_* sections somehow in elf parsing=
- in
-> resolve_btfids? resolve_btfids does not need to read
+In practice it often isn't a real issue, because consumers, including
+libelf, will correct the data alignment before usage anyway. But that
+doesn't mean it isn't a bug to set it wrongly.
+
+> Do you think we could skip these .debug_* sections somehow in elf=20
+> parsing in resolve_btfids? resolve_btfids does not need to read
 > these sections. This way, no need to change their alignment either.
 
-I'm don't think libelf interface allows for that, will check
+The issue is that elfutils libelf will not allow writing out the
+section when it notices the sh_addralign field is setup wrongly.
 
-jirka
+Cheers,
+
+Mark
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -242,4 +191,5 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20200820101810.GA336489%40krava.
+clang-built-linux/5ef90a283aa2f68018763258999fa66cd34cb3bb.camel%40klomp.or=
+g.
