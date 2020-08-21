@@ -1,140 +1,144 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBX47QH5AKGQE4L2ZIMA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCU77JVZ7MCBB5FCQH5AKGQEJTPVCVI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x138.google.com (mail-il1-x138.google.com [IPv6:2607:f8b0:4864:20::138])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2FB7A24E39D
-	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 00:51:12 +0200 (CEST)
-Received: by mail-il1-x138.google.com with SMTP id h6sf2409936ilq.17
-        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 15:51:12 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598050271; cv=pass;
+Received: from mail-wm1-x340.google.com (mail-wm1-x340.google.com [IPv6:2a00:1450:4864:20::340])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5700324E3AA
+	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 00:57:57 +0200 (CEST)
+Received: by mail-wm1-x340.google.com with SMTP id c186sf1521305wmd.9
+        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 15:57:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598050677; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EBVToHVWNAd03T/uFq0+j/YVuZdrWCfzIDg+2et2vVDnKjIMu6oGt4zFdsmXFdKx8F
-         CKSz5i7JkiFzrG9ndw/Oo509asX0rGKdIAHw96cJuBYrGML9nudCJYqgERsNBCqGPrB5
-         kApDPqs0NKpxkUPkZ9Rt7B64FyaRNMamToRJNzA6Jzc2GqoHlw7118Nf6Pefw5lMt7+v
-         7RdSNLXBNuaKjHNSxBr3BRqWKRIcBSeH113s62r26N/XcV59DMYuXL4YRw+cPkUSKSUu
-         ZJfh8QxnRXghVr2nVSBBpVE92rRoQJgJRoTlrpxbi+3A0SIOAwvrzGlM+8UVGb/zWQqj
-         Hq6Q==
+        b=uCNzwWPsjB/2ouhQwd2J8hwhEgKHGxdWgT0UJL6d3b89+USEni0d2k47Oo1hrObwQ6
+         TsWPw/m/fyiZSR7orvpovH4OKtu+zfCTEewLuGeLnOQEFYN9Vwn3Eqnu0vCj4wRUNUl+
+         mLMH0TJuCR3pJzAo3lL7Jhjp4ca4rW03mFzNdMGAwwj5WVWk4JQwU1fPkTF08YEd06i0
+         C1hRMj7Mv1jW+cWoRuDZ3fF3N/j5TEDDWf31fEBHN3kbLxU8iUY6r9hIpLB3RGrA4HBR
+         YbbV9k8loR/Zx0lvsHtBCZqrzMkD0vmGqAtRJHdHT1QUydLYYG1g8FOEP2080XuIWTO+
+         ulxw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature:dkim-signature;
-        bh=tv5mo7Nk9zxHBwcICiR1hbN/o1dWZHpqpzVgr/583Cg=;
-        b=iuQPBcghRG9LaXV2BxNQGFLfcaCSXLcbNnbZRBAzuNHQDwSAGXYikddeWxBtxBu31l
-         03vXGSgCwPNj4jfpTbihn/eqDxNAeQfrGIcOFgmdhv6qh2U6HrQGYphKwaTEgpVKrPbC
-         5raXVPdhOXjzMeDHXWmhJPHDktb8mD4rc2GPt99PA1U/HrBwmyl3szbMEljx7gYTDijI
-         byANEdFoj/QduzOazcY9si9HPEYyvh9mAf38akJmAZ3R0OHbYdkBIOXopff/4eFDeM3V
-         8qT1gxo2kLhGe/jy4WObGREplpNXuUvadMM31z5hUFDy5o6PWgElcNosB2QllBG0oDFB
-         En0g==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature:dkim-signature;
+        bh=3ntsSY8O7UjIYUvIcv98JtbXsna+SwV3E1IVJ/Q/Csg=;
+        b=lK+a2whTWhr0K8s5GZFCXoIqqxbxorq9uN0qMWuflexLWvXYIhbAnFrRd9ShjKQbG1
+         p0aBdYjOFVkisRy84WkwAiPdu0EGz04rNFIjF7PFld+4+IQ6n9ltXHooJvcNrKbDjC7Q
+         /HxN6xTACFU7kkKjqCfALSMRQrehekdf/ibYoryjzSBPja1SQ33WSOHgnxykHFQmzv2v
+         PtHD9wjQY+eSCgm5qo/eulGXa65M2kOEXrw2hpinxNuB+58d/kgFpeDy9vq6mgpFAMYr
+         /QydN697xEo98u/KdA0halX2rRdFUbdSUzbXAwKbDmyrSh9UKbw+wg0f5lYMubqqphzN
+         bcjg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="dcro/mrE";
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::843 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=LmYlBWlq;
+       spf=pass (google.com: domain of olteanv@gmail.com designates 2a00:1450:4864:20::544 as permitted sender) smtp.mailfrom=olteanv@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=tv5mo7Nk9zxHBwcICiR1hbN/o1dWZHpqpzVgr/583Cg=;
-        b=pMkymbVllKieOKB6EMR6NLDSI4BG+AqZ0v1bSUQs2CFU2SXnq2ALfy8U0QutSyONNb
-         nlhOzF4LSrgPi+oFgSxDYaTNN5N/5dX1wHWMx+mMsc3XsFnmrROyhdXl3boIdWHXqFxC
-         KXkcu2ucK7jbygR/E/gTAbxeOtXT6TS/74+r+uMhXPCxJp+wv3VqDWEA3pDnjhot6kI5
-         7kfFYsoF0WPnFnrbXIZ3KV+XAYl40csoQtXWnrNxUefn0CWxfCGPzJOzcC72nuY//ROP
-         DJJ3X1zjkU32JKhdO4qJzApBt+0ZDoA2ioPrgUkJIOLb+/yJhlToGgO7zVxx//CfF9M2
-         dmyA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=tv5mo7Nk9zxHBwcICiR1hbN/o1dWZHpqpzVgr/583Cg=;
-        b=lw3HiJEy3549FAJlj7bsCpkupjNVS8VLQuzpVAis+keWRxPVfEjXfQvo8j1OG+eC5x
-         3GLXv9g6EYf5xgj3Pnih4CwSEijZ5UB5vPCM7yNxEbZZjYggmKms5U4ypDDB89nM6hiW
-         xG3ge1k+4ZawTHHPqrC4KeK0iRYlEiHJsjyPXu2HyKrzObDyKXCVn4G93rASGWK7jkDI
-         UcBxay6Jizdq6QXwp/rUfRarQF2bCW2oS+usXITx1EnTBOf4t1ULDe5RajjYnin1MZqU
-         vlWq8l4V4P/PESQbZYRsmNZH2oY53l3yI8diMnaT2e2RXo8Yfk1iR+45nJAbRLWi4SDm
-         G1+A==
+        bh=3ntsSY8O7UjIYUvIcv98JtbXsna+SwV3E1IVJ/Q/Csg=;
+        b=PvmV5onP1snVSHBqLV/aIYacBASDZszz17/bx4wCwnv0avsEen6RrQUIZLmNbYrRdr
+         Hbf69PrajADM9fl/Ekq7noKcjajqktvSRgTV01jikDStVz6UgNVAZzAhGih6EOy2g98x
+         E/sq2N59sN2O6WFfF8BGl28p7Ee1dGWbKxt9alqDm5IuH3PFPT3gHj1+GtORoSyeDAHg
+         YViOyqqw0LU/Kqqm1M0il8IT6FkIHdqf3jntBKoEt02jCBD8pAFnqvsgufZbcSt6I4zT
+         drSfQc4CJwTIxv1v9KOKF2Q8GOd1BWrd0jAeGhXScwds0c8TsnLMpXpDEtOw9ZMaurlJ
+         Ucig==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=3ntsSY8O7UjIYUvIcv98JtbXsna+SwV3E1IVJ/Q/Csg=;
+        b=P4fLUAY0BTDt5/w3SwkHY0OYYjvmuLuT8nyK0y7rWD2qgwgGUcIcPnOv/mD+30U67G
+         rhPzXbsUcLPmVzyLWb+iLGoMw5VLq2zTBOJ13Ynce8tH5R+Ss7TkH0zTZfgQH6mQ3yqh
+         ml/SCr5y6IyV0LlHpfOMhiGX1Rh3o3na7c082zOpxJEXHj/XX+raDkdvsrRQJeuF39jS
+         /0pjXqoNXSa7oTnhKJToKyKY3j9yKBk8S4/RYhvNJ9CjH8F2DrWBXXzNakyncxb0fy/f
+         EoDz2FaAZYqrfFqQTuYTpzUW8qsYjqQ3RlDNftoMvpX83hquGPuNgOy4PaufgW+eLzke
+         /MYg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=tv5mo7Nk9zxHBwcICiR1hbN/o1dWZHpqpzVgr/583Cg=;
-        b=NKvlTmWwXtyYpAtmWyj4iheuQyuWKOqPnFdtxyk+Hi/1nvGQSVkGoLAHl/MYNCSdQF
-         /eEaXnYbuHoWUO/pSsduoUJb0r0QCKF7tqV7RQPt0kwBCQqwgxO2pM++TzVIEadwG8qZ
-         twwwkQ1Ih86BgosisHt2CtDb8zX3rQK5ftSM48nw0J+4H0QBMpQb3gHDv+DU330uJUSh
-         h9tCyCsCMp1hZkZYyMfm+xTeX8JQC0JKt0d4AjtskQhSem3HzlAiLeIotORfzOOn4Git
-         uBLiBi0Gi7ADyqb/aYRAEader+7Fvt0/GtyI4BqatLo92GNVrgidT28QXhJ1h4aHJ/gc
-         +APA==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=3ntsSY8O7UjIYUvIcv98JtbXsna+SwV3E1IVJ/Q/Csg=;
+        b=uecuceQcwtjtyG07ThRJ6tJCc26i1R3QqhXJ+FwgoFVGhAjHNwOdKZS15PV6eEbt21
+         FdHzgdkZd8cYMqqDpNFAKbbxQzVr3a7EsXFbXvPvsz7ZKcBvfH7x+DTPiRPaprbQ0xh7
+         yt1lBQDoOSxskhGc5NTbOQ/sv4UwXG4i5Lzdeh+sxn+l4snKUXePAjrt3JM0djKOciga
+         Nokiwiallzvr7qCUK9KR5+fVNqh7+DPSDE43uSb5/+tGMWHhjMJ9g6qnAIO3HHQSOhek
+         N/KMc3jOG7Exc/eshzSa+WYdGCFExnP7VkZOE+qbNyaong7BQ9NkaQy5IK1PLNqj8opD
+         goQw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5306gg2/FVVQPcAPPhwILrXI4GXhzJHfG95hxod6VUwlsvyM7C8q
-	C7O6BrN1waRSr8Sd8MuxXm0=
-X-Google-Smtp-Source: ABdhPJwwd6Ls9fxABLUfzDJQ3FNnmxBe5XpI0yBVAvE7xWyxOJ887aZyEX3OqnmR/6qospZkHN6D5w==
-X-Received: by 2002:a92:9996:: with SMTP id t22mr4081373ilk.216.1598050271159;
-        Fri, 21 Aug 2020 15:51:11 -0700 (PDT)
+X-Gm-Message-State: AOAM5311uKdgBIsYXGzvh99ZxsYrkHjVQFnCUtXdnLU456BFelmBxwA5
+	ouXTzcbPehDKdhdoFOa4xwM=
+X-Google-Smtp-Source: ABdhPJydYZeYpsu84FrSqJ3pIKa1urd0gj8XWmy8H7/FI/cxX/ok1dM3fLZvbiC+l//1PhC2iNKS6A==
+X-Received: by 2002:adf:edc3:: with SMTP id v3mr4544517wro.193.1598050676834;
+        Fri, 21 Aug 2020 15:57:56 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:a305:: with SMTP id a5ls18351ili.5.gmail; Fri, 21 Aug
- 2020 15:51:10 -0700 (PDT)
-X-Received: by 2002:a92:7d12:: with SMTP id y18mr4199546ilc.31.1598050270723;
-        Fri, 21 Aug 2020 15:51:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598050270; cv=none;
+Received: by 2002:adf:b1cf:: with SMTP id r15ls3517924wra.3.gmail; Fri, 21 Aug
+ 2020 15:57:56 -0700 (PDT)
+X-Received: by 2002:adf:a192:: with SMTP id u18mr5004629wru.158.1598050676161;
+        Fri, 21 Aug 2020 15:57:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598050676; cv=none;
         d=google.com; s=arc-20160816;
-        b=KA2iAZBm8G8w6Zw3wNoaI1+GWOYmaBTcZmZmE/tfzuqmEjwlVHJ1QCDY0fJgAABDau
-         fMnUfmAsjjfdjk9TZXXTz26iSnYkHEdiJnkhTWVq9apXgdW8dzlMBqt2B099uzoaP8BP
-         Jk6RaKwnUJFXVWFi0cT+875hdAP3Y0SHKuZvE40lXgWSruFZMKVHRKgCLNDcgGQ7zvsb
-         jKdkK0yI7d91iBXt5qgje+rgJ8df1SgYEfydueLRO3x0pOHKePJ41IhC+hgvz6FhP+R4
-         2LvvQtmufViQXuMwttZr3HIFcsK1F7+QVb7w1+Bm0f62SD7G4YhVjpmBui8ZSLK8CjYU
-         EROg==
+        b=kRL5pylvItUSN7xMYMdaNnu1sVilvscHyKkLuoRpAVfrbb9FhyuaXrVLaoCgVA5b3U
+         QaBmUlsFQnstM5wYNhbdtiChZavyAbup+Oms/F7DSkxjip/Xg8fA4xxRA5ebalIFcqVl
+         1IQl0lZy1ZZvSE/4Cugiz8jhJDaJRQm6xMKVJy9K2YaogFekEU438dxuHMbNY5AUvR9A
+         HqDKzu0cub9ZIwthp6HrHlTpiWVwmj+TczcKSKCH4yujAY6E7ChNotrKR0gfJ5Cdn756
+         TQZrVNI6wAjLkqRP9+f9Ahpfp93p8DQL9fSGEw/Ysl1FT0A0gwTjKcrWtDy0SLKhD3eW
+         RjJQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=m6ZztkKitApUlwV+ZX0Zt+Hf87PA0Zib6OW8N+QCBqM=;
-        b=QMf2hVLnLQ6GvbI9f/N1NLOnQAUggD2WpeHpD5rmq+QHJQc3mNQZxomUjrLgnXNEvm
-         YVeSu3VXqJe2etc1ojA8Rgd+0aY/Y4PY0kl8qhSLwBuxTaYsX387e7tOco4r+dyjZ5ZK
-         5dvzYGdkKxvpkNhEvUjW5nHy74RTjZWYjBEEexUz+T9sbVBWpjHIfSKbnWM4dkgd2ueQ
-         xTtVhg4KIFec+mDYNMeu5qu6o3Ee9EIvDcpanYZikAYKF9InUL4AN+f9PIvfK1Z+z4kC
-         qg/2mOUc8kl94wOBAiZWRG2YLxl410VaKXyoSXZ7vqg3WlAfKkdl4V3jbp/2SFnktfUn
-         3Rng==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=6Y3HAkrVgYNsW26WADT1OAHIAmh+irSetkJetEKSBLc=;
+        b=0tPWI6Y8RS/04Ig3Q/hKWZWUpmp81ZSPbRDNh33fGaCYMsxbc32XLSbJfQaLldDOnF
+         hd6rBm9Sbe5gfWK8SUaFBgftY0+Yy3HjGys5R6z+cj34IIBwCQG4dV1qzhIXUUzSyVJB
+         5xCqs3s+y/GdAs7mrLy1WA6yCJfvaUJKM+lS3ztUvCKU35T+jQ8QI9HNIloHQKHHN69l
+         sVITS5TUxy2MDz34ADFdXMMxyVyBbCLDh8veccnKpiIwBNmVWkUu5BadUrdPjZeHnhtG
+         Y79PX6h43SGOZsTEl1BIh7qoJ3nW2gu3WgH3OKyJ3kCXymmhSUubHiwC1367YXXc/j93
+         Jucg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="dcro/mrE";
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::843 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=LmYlBWlq;
+       spf=pass (google.com: domain of olteanv@gmail.com designates 2a00:1450:4864:20::544 as permitted sender) smtp.mailfrom=olteanv@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qt1-x843.google.com (mail-qt1-x843.google.com. [2607:f8b0:4864:20::843])
-        by gmr-mx.google.com with ESMTPS id n1si157793iom.0.2020.08.21.15.51.10
+Received: from mail-ed1-x544.google.com (mail-ed1-x544.google.com. [2a00:1450:4864:20::544])
+        by gmr-mx.google.com with ESMTPS id b198si141629wmd.0.2020.08.21.15.57.56
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Aug 2020 15:51:10 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::843 as permitted sender) client-ip=2607:f8b0:4864:20::843;
-Received: by mail-qt1-x843.google.com with SMTP id 6so2399686qtt.0
-        for <clang-built-linux@googlegroups.com>; Fri, 21 Aug 2020 15:51:10 -0700 (PDT)
-X-Received: by 2002:ac8:14a:: with SMTP id f10mr4828355qtg.232.1598050270120;
-        Fri, 21 Aug 2020 15:51:10 -0700 (PDT)
-Received: from localhost.localdomain ([2604:1380:45d1:2600::1])
-        by smtp.gmail.com with ESMTPSA id o17sm3367235qtr.13.2020.08.21.15.51.09
+        Fri, 21 Aug 2020 15:57:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of olteanv@gmail.com designates 2a00:1450:4864:20::544 as permitted sender) client-ip=2a00:1450:4864:20::544;
+Received: by mail-ed1-x544.google.com with SMTP id w2so2900926edv.7
+        for <clang-built-linux@googlegroups.com>; Fri, 21 Aug 2020 15:57:56 -0700 (PDT)
+X-Received: by 2002:aa7:da04:: with SMTP id r4mr5032282eds.265.1598050675861;
+        Fri, 21 Aug 2020 15:57:55 -0700 (PDT)
+Received: from skbuf ([86.126.22.216])
+        by smtp.gmail.com with ESMTPSA id d9sm1839906edt.20.2020.08.21.15.57.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2020 15:51:09 -0700 (PDT)
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: "Michael S. Tsirkin" <mst@redhat.com>,
-	Jason Wang <jasowang@redhat.com>,
-	Eli Cohen <eli@mellanox.com>
-Cc: virtualization@lists.linux-foundation.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Nathan Chancellor <natechancellor@gmail.com>
-Subject: [PATCH] vdpa/mlx5: Avoid warnings about shifts on 32-bit platforms
-Date: Fri, 21 Aug 2020 15:50:19 -0700
-Message-Id: <20200821225018.940798-1-natechancellor@gmail.com>
-X-Mailer: git-send-email 2.28.0
+        Fri, 21 Aug 2020 15:57:55 -0700 (PDT)
+Date: Sat, 22 Aug 2020 01:57:53 +0300
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Vivien Didelot <vivien.didelot@gmail.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] net: dsa: sja1105: Do not use address of compatible
+ member in sja1105_check_device_id
+Message-ID: <20200821225753.cfaclxay6zhq6swg@skbuf>
+References: <20200821222515.414167-1-natechancellor@gmail.com>
 MIME-Version: 1.0
-X-Patchwork-Bot: notify
-X-Original-Sender: natechancellor@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b="dcro/mrE";       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::843 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20200821222515.414167-1-natechancellor@gmail.com>
+X-Original-Sender: OlteanV@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=LmYlBWlq;       spf=pass
+ (google.com: domain of olteanv@gmail.com designates 2a00:1450:4864:20::544 as
+ permitted sender) smtp.mailfrom=olteanv@gmail.com;       dmarc=pass (p=NONE
+ sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,132 +151,53 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Clang warns several times when building for 32-bit ARM along the lines
-of:
+On Fri, Aug 21, 2020 at 03:25:16PM -0700, Nathan Chancellor wrote:
+> Clang warns:
+> 
+> drivers/net/dsa/sja1105/sja1105_main.c:3418:38: warning: address of
+> array 'match->compatible' will always evaluate to 'true'
+> [-Wpointer-bool-conversion]
+>         for (match = sja1105_dt_ids; match->compatible; match++) {
+>         ~~~                          ~~~~~~~^~~~~~~~~~
+> 1 warning generated.
+> 
+> We should check the value of the first character in compatible to see if
+> it is empty or not. This matches how the rest of the tree iterates over
+> IDs.
+> 
+> Fixes: 0b0e299720bb ("net: dsa: sja1105: use detected device id instead of DT one on mismatch")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1139
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> ---
+>  drivers/net/dsa/sja1105/sja1105_main.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/dsa/sja1105/sja1105_main.c b/drivers/net/dsa/sja1105/sja1105_main.c
+> index c3f6f124e5f0..5a28dfb36ec3 100644
+> --- a/drivers/net/dsa/sja1105/sja1105_main.c
+> +++ b/drivers/net/dsa/sja1105/sja1105_main.c
+> @@ -3415,7 +3415,7 @@ static int sja1105_check_device_id(struct sja1105_private *priv)
+>  
+>  	sja1105_unpack(prod_id, &part_no, 19, 4, SJA1105_SIZE_DEVICE_ID);
+>  
+> -	for (match = sja1105_dt_ids; match->compatible; match++) {
+> +	for (match = sja1105_dt_ids; match->compatible[0]; match++) {
+>  		const struct sja1105_info *info = match->data;
+>  
+>  		/* Is what's been probed in our match table at all? */
+> 
+> base-commit: 4af7b32f84aa4cd60e39b355bc8a1eab6cd8d8a4
+> -- 
+> 2.28.0
+> 
 
-drivers/vdpa/mlx5/net/mlx5_vnet.c:1462:31: warning: shift count >= width
-of type [-Wshift-count-overflow]
-                ndev->mvdev.mlx_features |= BIT(VIRTIO_F_VERSION_1);
-                                            ^~~~~~~~~~~~~~~~~~~~~~~
+Thanks, Nathan.
 
-This is related to the BIT macro, which uses an unsigned long literal,
-which is 32-bit on ARM so having a shift equal to or larger than 32 will
-cause this warning, such as the above, where VIRTIO_F_VERSION_1 is 32.
-To avoid this, use BIT_ULL, which will be an unsigned long long. This
-matches the size of the features field throughout this driver, which is
-u64 so there should be no functional change.
+Acked-by: Vladimir Oltean <olteanv@gmail.com>
 
-Fixes: 1a86b377aa21 ("vdpa/mlx5: Add VDPA driver for supported mlx5 devices")
-Link: https://github.com/ClangBuiltLinux/linux/issues/1140
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
----
- drivers/vdpa/mlx5/net/mlx5_vnet.c | 50 +++++++++++++++----------------
- 1 file changed, 25 insertions(+), 25 deletions(-)
-
-diff --git a/drivers/vdpa/mlx5/net/mlx5_vnet.c b/drivers/vdpa/mlx5/net/mlx5_vnet.c
-index 9df69d5efe8c..70676a6d1691 100644
---- a/drivers/vdpa/mlx5/net/mlx5_vnet.c
-+++ b/drivers/vdpa/mlx5/net/mlx5_vnet.c
-@@ -16,19 +16,19 @@
- #define to_mvdev(__vdev) container_of((__vdev), struct mlx5_vdpa_dev, vdev)
- 
- #define VALID_FEATURES_MASK                                                                        \
--	(BIT(VIRTIO_NET_F_CSUM) | BIT(VIRTIO_NET_F_GUEST_CSUM) |                                   \
--	 BIT(VIRTIO_NET_F_CTRL_GUEST_OFFLOADS) | BIT(VIRTIO_NET_F_MTU) | BIT(VIRTIO_NET_F_MAC) |   \
--	 BIT(VIRTIO_NET_F_GUEST_TSO4) | BIT(VIRTIO_NET_F_GUEST_TSO6) |                             \
--	 BIT(VIRTIO_NET_F_GUEST_ECN) | BIT(VIRTIO_NET_F_GUEST_UFO) | BIT(VIRTIO_NET_F_HOST_TSO4) | \
--	 BIT(VIRTIO_NET_F_HOST_TSO6) | BIT(VIRTIO_NET_F_HOST_ECN) | BIT(VIRTIO_NET_F_HOST_UFO) |   \
--	 BIT(VIRTIO_NET_F_MRG_RXBUF) | BIT(VIRTIO_NET_F_STATUS) | BIT(VIRTIO_NET_F_CTRL_VQ) |      \
--	 BIT(VIRTIO_NET_F_CTRL_RX) | BIT(VIRTIO_NET_F_CTRL_VLAN) |                                 \
--	 BIT(VIRTIO_NET_F_CTRL_RX_EXTRA) | BIT(VIRTIO_NET_F_GUEST_ANNOUNCE) |                      \
--	 BIT(VIRTIO_NET_F_MQ) | BIT(VIRTIO_NET_F_CTRL_MAC_ADDR) | BIT(VIRTIO_NET_F_HASH_REPORT) |  \
--	 BIT(VIRTIO_NET_F_RSS) | BIT(VIRTIO_NET_F_RSC_EXT) | BIT(VIRTIO_NET_F_STANDBY) |           \
--	 BIT(VIRTIO_NET_F_SPEED_DUPLEX) | BIT(VIRTIO_F_NOTIFY_ON_EMPTY) |                          \
--	 BIT(VIRTIO_F_ANY_LAYOUT) | BIT(VIRTIO_F_VERSION_1) | BIT(VIRTIO_F_ACCESS_PLATFORM) |      \
--	 BIT(VIRTIO_F_RING_PACKED) | BIT(VIRTIO_F_ORDER_PLATFORM) | BIT(VIRTIO_F_SR_IOV))
-+	(BIT_ULL(VIRTIO_NET_F_CSUM) | BIT_ULL(VIRTIO_NET_F_GUEST_CSUM) |                                   \
-+	 BIT_ULL(VIRTIO_NET_F_CTRL_GUEST_OFFLOADS) | BIT_ULL(VIRTIO_NET_F_MTU) | BIT_ULL(VIRTIO_NET_F_MAC) |   \
-+	 BIT_ULL(VIRTIO_NET_F_GUEST_TSO4) | BIT_ULL(VIRTIO_NET_F_GUEST_TSO6) |                             \
-+	 BIT_ULL(VIRTIO_NET_F_GUEST_ECN) | BIT_ULL(VIRTIO_NET_F_GUEST_UFO) | BIT_ULL(VIRTIO_NET_F_HOST_TSO4) | \
-+	 BIT_ULL(VIRTIO_NET_F_HOST_TSO6) | BIT_ULL(VIRTIO_NET_F_HOST_ECN) | BIT_ULL(VIRTIO_NET_F_HOST_UFO) |   \
-+	 BIT_ULL(VIRTIO_NET_F_MRG_RXBUF) | BIT_ULL(VIRTIO_NET_F_STATUS) | BIT_ULL(VIRTIO_NET_F_CTRL_VQ) |      \
-+	 BIT_ULL(VIRTIO_NET_F_CTRL_RX) | BIT_ULL(VIRTIO_NET_F_CTRL_VLAN) |                                 \
-+	 BIT_ULL(VIRTIO_NET_F_CTRL_RX_EXTRA) | BIT_ULL(VIRTIO_NET_F_GUEST_ANNOUNCE) |                      \
-+	 BIT_ULL(VIRTIO_NET_F_MQ) | BIT_ULL(VIRTIO_NET_F_CTRL_MAC_ADDR) | BIT_ULL(VIRTIO_NET_F_HASH_REPORT) |  \
-+	 BIT_ULL(VIRTIO_NET_F_RSS) | BIT_ULL(VIRTIO_NET_F_RSC_EXT) | BIT_ULL(VIRTIO_NET_F_STANDBY) |           \
-+	 BIT_ULL(VIRTIO_NET_F_SPEED_DUPLEX) | BIT_ULL(VIRTIO_F_NOTIFY_ON_EMPTY) |                          \
-+	 BIT_ULL(VIRTIO_F_ANY_LAYOUT) | BIT_ULL(VIRTIO_F_VERSION_1) | BIT_ULL(VIRTIO_F_ACCESS_PLATFORM) |      \
-+	 BIT_ULL(VIRTIO_F_RING_PACKED) | BIT_ULL(VIRTIO_F_ORDER_PLATFORM) | BIT_ULL(VIRTIO_F_SR_IOV))
- 
- #define VALID_STATUS_MASK                                                                          \
- 	(VIRTIO_CONFIG_S_ACKNOWLEDGE | VIRTIO_CONFIG_S_DRIVER | VIRTIO_CONFIG_S_DRIVER_OK |        \
-@@ -149,7 +149,7 @@ static bool mlx5_vdpa_debug;
- 
- #define MLX5_LOG_VIO_FLAG(_feature)                                                                \
- 	do {                                                                                       \
--		if (features & BIT(_feature))                                                      \
-+		if (features & BIT_ULL(_feature))                                                  \
- 			mlx5_vdpa_info(mvdev, "%s\n", #_feature);                                  \
- 	} while (0)
- 
-@@ -750,10 +750,10 @@ static bool vq_is_tx(u16 idx)
- 
- static u16 get_features_12_3(u64 features)
- {
--	return (!!(features & BIT(VIRTIO_NET_F_HOST_TSO4)) << 9) |
--	       (!!(features & BIT(VIRTIO_NET_F_HOST_TSO6)) << 8) |
--	       (!!(features & BIT(VIRTIO_NET_F_CSUM)) << 7) |
--	       (!!(features & BIT(VIRTIO_NET_F_GUEST_CSUM)) << 6);
-+	return (!!(features & BIT_ULL(VIRTIO_NET_F_HOST_TSO4)) << 9) |
-+	       (!!(features & BIT_ULL(VIRTIO_NET_F_HOST_TSO6)) << 8) |
-+	       (!!(features & BIT_ULL(VIRTIO_NET_F_CSUM)) << 7) |
-+	       (!!(features & BIT_ULL(VIRTIO_NET_F_GUEST_CSUM)) << 6);
- }
- 
- static int create_virtqueue(struct mlx5_vdpa_net *ndev, struct mlx5_vdpa_virtqueue *mvq)
-@@ -1439,13 +1439,13 @@ static u64 mlx_to_vritio_features(u16 dev_features)
- 	u64 result = 0;
- 
- 	if (dev_features & MLX5_VIRTIO_NET_F_GUEST_CSUM)
--		result |= BIT(VIRTIO_NET_F_GUEST_CSUM);
-+		result |= BIT_ULL(VIRTIO_NET_F_GUEST_CSUM);
- 	if (dev_features & MLX5_VIRTIO_NET_F_CSUM)
--		result |= BIT(VIRTIO_NET_F_CSUM);
-+		result |= BIT_ULL(VIRTIO_NET_F_CSUM);
- 	if (dev_features & MLX5_VIRTIO_NET_F_HOST_TSO6)
--		result |= BIT(VIRTIO_NET_F_HOST_TSO6);
-+		result |= BIT_ULL(VIRTIO_NET_F_HOST_TSO6);
- 	if (dev_features & MLX5_VIRTIO_NET_F_HOST_TSO4)
--		result |= BIT(VIRTIO_NET_F_HOST_TSO4);
-+		result |= BIT_ULL(VIRTIO_NET_F_HOST_TSO4);
- 
- 	return result;
- }
-@@ -1459,15 +1459,15 @@ static u64 mlx5_vdpa_get_features(struct vdpa_device *vdev)
- 	dev_features = MLX5_CAP_DEV_VDPA_EMULATION(mvdev->mdev, device_features_bits_mask);
- 	ndev->mvdev.mlx_features = mlx_to_vritio_features(dev_features);
- 	if (MLX5_CAP_DEV_VDPA_EMULATION(mvdev->mdev, virtio_version_1_0))
--		ndev->mvdev.mlx_features |= BIT(VIRTIO_F_VERSION_1);
--	ndev->mvdev.mlx_features |= BIT(VIRTIO_F_ACCESS_PLATFORM);
-+		ndev->mvdev.mlx_features |= BIT_ULL(VIRTIO_F_VERSION_1);
-+	ndev->mvdev.mlx_features |= BIT_ULL(VIRTIO_F_ACCESS_PLATFORM);
- 	print_features(mvdev, ndev->mvdev.mlx_features, false);
- 	return ndev->mvdev.mlx_features;
- }
- 
- static int verify_min_features(struct mlx5_vdpa_dev *mvdev, u64 features)
- {
--	if (!(features & BIT(VIRTIO_F_ACCESS_PLATFORM)))
-+	if (!(features & BIT_ULL(VIRTIO_F_ACCESS_PLATFORM)))
- 		return -EOPNOTSUPP;
- 
- 	return 0;
-
-base-commit: 8a7c3213db068135e816a6a517157de6443290d6
--- 
-2.28.0
+-Vladimir
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200821225018.940798-1-natechancellor%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200821225753.cfaclxay6zhq6swg%40skbuf.
