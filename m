@@ -1,135 +1,144 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB5NLQH5AKGQEXSV6QGI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBRFNQH5AKGQECCRL6JY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x138.google.com (mail-il1-x138.google.com [IPv6:2607:f8b0:4864:20::138])
-	by mail.lfdr.de (Postfix) with ESMTPS id D072824E3D1
-	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 01:17:10 +0200 (CEST)
-Received: by mail-il1-x138.google.com with SMTP id 2sf2459861ill.10
-        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 16:17:10 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598051830; cv=pass;
+Received: from mail-yb1-xb37.google.com (mail-yb1-xb37.google.com [IPv6:2607:f8b0:4864:20::b37])
+	by mail.lfdr.de (Postfix) with ESMTPS id CA5D524E3D5
+	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 01:20:37 +0200 (CEST)
+Received: by mail-yb1-xb37.google.com with SMTP id a75sf3731655ybg.15
+        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 16:20:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598052037; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ziVKWyzO26ukkiiA1XWu6lN3X9o2GSs8ypkB3ssqRIpR+mdI3eSDFj7B82UrXY9/lX
-         SqTqomEXE10PjQFvANTltl0ziCeAAxLKtDVZeztcsBe7lXIkKwwOl+uO7HbIhmht22c7
-         Qu12bJC5QMmv4+fUKA7maHsQ+hI4ey+xaxiChecUkpAfzvDHgmkZOZ6+9i27e8NQm3Th
-         UpDCTrZgxXFUwXsMSjbJvprqpRnR/dk/1R1GHY9Cl/MX91u9F0NYBlqGaNDpe+hIu477
-         w6TAEaNY8VquczLraIZ2LVHrGtwSq2jWakhaRkS1A2SXEtBG/SeXzW0LuTcnUtMn9KZs
-         GVnw==
+        b=0/BgkXYwO+cmZz99Lz5Unuu0wT7iRIMOk3DNz4wmPioBBnD/2cIWRdkuxzkkpHOjqI
+         x9dKpwYU+/3xqJgMPjXISnTmZZjmwfsQWTOESp35eguDhoLOXBcfVAmx5DhZjFMm+/+K
+         OvHEL6USeT62LouCcaW/7M3ajk1su4iMRKJTEBuzSqy7OmpsyDYknfQoIVDPtv//Ufet
+         RReXJQdlADuZsJVUwrHy7htUaPgwW9OX/dLmZFI4W3Nm+O7lGS5izpmgtxcB2HTZIJrZ
+         eiyGDHnwuWmPua5qTJ5tmkUMo1nSAWOP+8iqMwblKgaavyTxwZyXb/MTa2Ii47hAPxlb
+         mapA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=lcoVnNJo3gizLUmmDPNs4dcKqv6w97eZxJaLse7lrbk=;
-        b=fDvMy3QRTRNduNgsxhoF8HUjl6MLH8qagFSoYsqT5fgLnqmAbV6pyReT6qTz3a65te
-         reLQaApmhOmKnWBxMGC9LVITqpE5dmNTqrx2YRogEoBuivRSX0D68BHFwyW2k93TgXBh
-         OUArw9wPbwIav7raQn9tsSIdk4PvLPJvKZdOrsRG0raBzil6LSOFdGE74yuRKEgytPNE
-         UU0sbpTNqBjHpPWqImahgGgfxvbSAlNaYoxDByhswLznhB3zb4JOaHh6ilVYfhx5gPy/
-         uWZnIxkIfBuVHH7oZrGmWrh88bWG48MO7PKFuUjmTvN8ONf/qYHnlUDS0xml+qQtHUzJ
-         Mx5w==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature:dkim-signature;
+        bh=A+PSJxnMQHcgXWTqxR4q1PUCvOx3E4oLqfqz/aUKt5g=;
+        b=zwthpyhaaaUnh+wCXNreta/vtinQu5eF5wr7ClRx0TkFDksWW8yRRsWhahe22+2bAx
+         cKJ9z/c+pal86elncaVuI/GOYHkP+nDop0Mpl/Nq3xYOh/ISVWO+g9rSdYBdqawydxGY
+         FAGp2j98lJT9n5khV6ZJwEFAg2cMWbO/w4CZ6wXKJnzgtDv8tz5MfYKfyvInDQcfx3W0
+         a1in8RBI9PY1HPCCvWEzFxjfwSO7jvUbxTHuMlUIBVlDf1uEqweO2iKo0JSk/y7vBm6g
+         vG/VwU0zsjZVUxA88YuUXnaXEeWueWrn9HF7+mXZRWdnTR/ifPfe5sASlhQ9qGPJ4EaD
+         6KsQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=a0uDTwrK;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Tm5kzNOT;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=lcoVnNJo3gizLUmmDPNs4dcKqv6w97eZxJaLse7lrbk=;
-        b=cDfJiahhH615Qg0EIZeGdSYH9KB/AmD61uf+RjFFKrjE/6tPs1G0o34fktXWWKklZP
-         mUbTQEDsp5dzTTag3bKdZocC1qn67wrfAhK8JbQyngCnsfYUS7idqEHjGI39xbaRirwt
-         TP2W4tgd183Kl5y8VbHqh+VqU33HEzTBE/IwJVoDsxDbxeHk1OuiKMluJEplcrDDOqej
-         wGwUdcBF69yPWPef4DaUOzLqZZ/KxKs2Mv6ML5kBX9AcRU0RAsrMYRDgWxrZ4iKwSG/S
-         XVZyrPmEd8Cme3roZdrI7yaQ2M6oUBA7nJJwMYUNoM6EammN+lfoIvmfTPhzpPLhMUbG
-         yjbw==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=A+PSJxnMQHcgXWTqxR4q1PUCvOx3E4oLqfqz/aUKt5g=;
+        b=YORP1Oplu+AGhAsTRse49bIp8SQXDTEphmLX42F9NxUO7c6kMIQ7X6+aKkyusKMZ5n
+         r70EN5VRqNOmwKOM0o1mYCO7sPl3pxgOSeuGTf/WQd/6FL3pM+8P/z87o2M4EBR8VueB
+         SCv812PGd6JXibaLiCjpdvNClMiyDw8EYS4HCqQ1R1xsEB6Zb5idtP5R8tnavEQaNwTI
+         8zQkKs6CEKgk2TfE6DHBzca+0msKwsv/0LNP7Ce9gDJfHIyDZ+79OcCJQ1+P1oDy3JoL
+         EXo/UZsUBlTi/WCJ3Z/zqoK9WxkYir6jziU3sokfQojqi5mIfcoGg8B/CzwLvne/q8Mr
+         C5Ww==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=A+PSJxnMQHcgXWTqxR4q1PUCvOx3E4oLqfqz/aUKt5g=;
+        b=tiE8ZI6r6k/f43CIGRrwF7mo+XbIGr6uCir0UTh2JV1U6g1yoXa6mfFc6/ugUXpJ57
+         O9u7ZyYwyu3kQlZOhA5sELYJFnUW5uGL8lRjaBpDM7vuQXUcCHLNOWAYcllD1mNdtvlI
+         NTv6b0iesJlP0f6dTGwnTYG/pEnVz622adbRMQCGjX3u+3Cs3eqQJfK7IDivUWZ+oSlQ
+         Z8k7UJsiWUlsJwBtpIBw9aV7axZt+Yoh955mN9kl309Ishv2BoC8znDUsyByh7vPVKCf
+         M6SCusuXJ2W9jJEpQzDTMw/KYOZAyDiWS/zGOP2WzfXPpSpkK6WoE08BqTzqFIel7sVk
+         exdQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=lcoVnNJo3gizLUmmDPNs4dcKqv6w97eZxJaLse7lrbk=;
-        b=HZznbs1H9mM5Kp2Vpn23GOs5r4SyU9GyUArwhhngDOC4+ak1/yK/2z5DPrKtnvtoEq
-         6qdNGNlxBnZPHkwrLj4LIFbCJ58M+xObTYXPRIVSY8CnCGu89592x0WKmyEUpDr/5atK
-         Nt2eDGluCjJXi3f07WLMxVL1fzmB7rfYK8zoFEYXYT/NzExupFGwNzCvK1XF2XO3EmaZ
-         2c/PoYMHYXj27Zuy9C6QiqFiRILU6L7X2Luz0GdgGZZHpCuOayJzxVV5IlJepi4EUYQl
-         BM5OzmuRTQiT7559Z91dnQ5mDhencTvMtcN+ZznY6U2v0zK/MMWgsrNhoulB9KSN0hY0
-         cR7A==
-X-Gm-Message-State: AOAM530mBFWVljIyosNMXzb8+icsnm8FX9z2VgJqbV8gr0tmogFlkAvw
-	/k3RDN0WZu3JS/uRQPZcJmw=
-X-Google-Smtp-Source: ABdhPJwf6yp47dImGtqGVJ9vJsLJNQEAGArcC2u54nTJvYjX23XI7pysk5ktUo6yu4TM2BKOOmcXEw==
-X-Received: by 2002:a5d:9a86:: with SMTP id c6mr4213878iom.27.1598051829810;
-        Fri, 21 Aug 2020 16:17:09 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=A+PSJxnMQHcgXWTqxR4q1PUCvOx3E4oLqfqz/aUKt5g=;
+        b=LxIgq16bPGiY2GqDt2JZAJNqG09KYJPCR/07aH0xWBbp9nC1gL2sfOuMC5CqxBmrGs
+         LAJgVwEtHvnyImgcZNoN6QKWhwWAKMysTiumk0O7f8UiiwHc7r4fE7Za64zkb1qahfmw
+         utX1u2MLLAOJThh8nNKtF68CD6tgc8IUMsMvjQPnPY/+QtlTJdcqLTjaJ9QeLvcFT+oT
+         Kym1ds8FjxFgHquRvfzd8OWxj7cPQWL91QDI05Q1mKiQ4ij0lXtUZ8XCBpmW6WSdBWYd
+         SW1fMgqrJg07WBfQ9eXKZRdsrtN0hXDNnjrCo0qoldvqUw65WNNFfVXEf+5qdqmpVmGb
+         cZYw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM533UbDTg82vOroA+HJX4J82RsObjQzwr+qFJHtfGhisuHDMWNKz0
+	DLZRXOkMkzMraSMeTksuLfY=
+X-Google-Smtp-Source: ABdhPJwVlHYCyqpXPcGX6ZgKL+sdCnt0EeyxdDJS2dPKW1w6MevZf/MklLQR7Z6uzsVPGtr12ZgMDw==
+X-Received: by 2002:a25:ab87:: with SMTP id v7mr6528474ybi.216.1598052036853;
+        Fri, 21 Aug 2020 16:20:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:a305:: with SMTP id a5ls31225ili.5.gmail; Fri, 21 Aug
- 2020 16:17:09 -0700 (PDT)
-X-Received: by 2002:a05:6e02:f4e:: with SMTP id y14mr4457971ilj.255.1598051829286;
-        Fri, 21 Aug 2020 16:17:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598051829; cv=none;
+Received: by 2002:a25:cace:: with SMTP id a197ls1426371ybg.11.gmail; Fri, 21
+ Aug 2020 16:20:36 -0700 (PDT)
+X-Received: by 2002:a25:5556:: with SMTP id j83mr7497542ybb.385.1598052036450;
+        Fri, 21 Aug 2020 16:20:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598052036; cv=none;
         d=google.com; s=arc-20160816;
-        b=gjN6wBLThbFbvB630mw5/1Rxn879YCHvFpH3MLfp6pALrt9JYvAfgGimkohCBSv32/
-         L2W0/Ier3d0pLe/xtVVUG7ssSDIA/84gSDzxwAH5a56Jz5bN2mO8/M+94Mbmqb1f5Wkg
-         960Q2wazjmwqMNqUImsMQdxExB4bzM/9JPFe5j2CF8baeRnuQomducCexrtLY0aYyxPp
-         GnM9LnZL+be1kPxd/Z3IQ0xa8M9iDigURQmN8LAwFccgpbtkQAYdTDVyFneenpSapeyI
-         jlsC5XltkA+GCvSIlYnqnqvzFDKd+As4Yz/tWEIsXbYVYcnIjvr4FOGgfAXVHSnBfCKk
-         qU4Q==
+        b=dmRMNFomOxvkKUu2T07uJq4aHzS0TOkRRQwxu1Eggv7ZoblCQfAGx+OFEKLrBuExYh
+         8O7btKiqMQCLJFyjzfXPuhcRFB4V7HP/db/OT/JuTv92M3E5Jr/5E5dLiFNzZ8fKNdFX
+         9yHCPYpO16mts6Y2cMGGLjfxyaMY+dgbxOvjXk02WdRnZr4Bj+lJnc4Rkw0CNHKkSEh+
+         +qBrGbbb3/YIsI8/b2nYd+8/JM5al3/Q/9Jpqujlg9DXqKosUK3Xv/UFvJNnE1tHdqZp
+         Ao9CxkeIlk92rNhjRzAXOkXX3VeGNdfGnRu2dQVcdGMIQcMJYGassiDoVal+7jjoW1s3
+         xheA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=8fcxk4S/SS9+6U/sU5xiUTNNUcgHge8dj9UT33Hlegs=;
-        b=dvcCn/04IrqEJpj+i3B4w1mGZudpJcVlY4PCJtvMGY0gS2qvU+g9LwXZaPam3Idpam
-         gkWYGZM7sIo2Bjh2t7lU22GFPadMBRBZWNDE7jN0D7rk7Pt6sAS2bG43SEVmlwg+ZWmh
-         +s8RqgxFZKriRg2YtBkYLsm+8vMx+HGu5mCwoqkQIvdajKiIdKWDucxqmGK7M9VcoNGO
-         ThyiQYynC3qNFUk1PRnZfDKRDZ1eAlqv+N5mcW4WXWI8x59bUY/ZAceSAWI0QcQHXlCi
-         EMWLMK1dKmV7Dh/Aig/jEIFwGinDldCFM+nM+v+3je1FT4AuwnUJggbXtI5XBkJNS3HC
-         OhOw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=KFJW4fwydEfmjMeeoqasxgVUbALGDw4QHt512/+zZ8Y=;
+        b=vn7NbRqCiqwgv+dv3WDgQIoHsSD0ri3JeP2SbIM5ag+pHRGSf8xaEpn2w4ZekBrwix
+         w3p1GYQM1t718xKy02zJunsPqEkZKY1LBrw3p19Jhajc3CiLRu8SJ3/iuhOKiCFvF2A5
+         ioQ1j3DtLksRFDE/iz4j5jWrNny8Gb1WACXKr1bgfxxk5ZAA5TfSkvDFAlTu9j3Abmnr
+         LEwaRvVza1hD/C3HHgYN6LDnA+s+eZm20B15jB2bnE6GWl7kPddhpDN20Cag9d3Y6AdR
+         t8xk/19icI4R5gXu0NuxaWAKSq6H1yLJmbpyKHCKx8DsJYE81ChiATHYdXVqkj0OG2eO
+         xd8g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=a0uDTwrK;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x1044.google.com (mail-pj1-x1044.google.com. [2607:f8b0:4864:20::1044])
-        by gmr-mx.google.com with ESMTPS id j127si152201iof.4.2020.08.21.16.17.09
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Tm5kzNOT;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-qk1-x743.google.com (mail-qk1-x743.google.com. [2607:f8b0:4864:20::743])
+        by gmr-mx.google.com with ESMTPS id 7si237249ybc.0.2020.08.21.16.20.36
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Aug 2020 16:17:09 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) client-ip=2607:f8b0:4864:20::1044;
-Received: by mail-pj1-x1044.google.com with SMTP id n3so1337038pjq.1
-        for <clang-built-linux@googlegroups.com>; Fri, 21 Aug 2020 16:17:09 -0700 (PDT)
-X-Received: by 2002:a17:90a:a10c:: with SMTP id s12mr4283278pjp.32.1598051828324;
- Fri, 21 Aug 2020 16:17:08 -0700 (PDT)
+        Fri, 21 Aug 2020 16:20:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::743 as permitted sender) client-ip=2607:f8b0:4864:20::743;
+Received: by mail-qk1-x743.google.com with SMTP id 62so2846450qkj.7
+        for <clang-built-linux@googlegroups.com>; Fri, 21 Aug 2020 16:20:36 -0700 (PDT)
+X-Received: by 2002:a37:44b:: with SMTP id 72mr4993211qke.494.1598052036025;
+        Fri, 21 Aug 2020 16:20:36 -0700 (PDT)
+Received: from ubuntu-n2-xlarge-x86 ([2604:1380:45d1:2600::1])
+        by smtp.gmail.com with ESMTPSA id d196sm2964448qkg.96.2020.08.21.16.20.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Aug 2020 16:20:35 -0700 (PDT)
+Date: Fri, 21 Aug 2020 16:20:34 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowang@redhat.com>,
+	Eli Cohen <eli@mellanox.com>,
+	virtualization@lists.linux-foundation.org,
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] vdpa/mlx5: Avoid warnings about shifts on 32-bit
+ platforms
+Message-ID: <20200821232034.GA1472930@ubuntu-n2-xlarge-x86>
+References: <20200821225018.940798-1-natechancellor@gmail.com>
+ <1975c0a0-c19a-c91e-dc10-2918061cc4e7@infradead.org>
 MIME-Version: 1.0
-References: <20200527135329.1172644-1-arnd@arndb.de> <878serh1b9.fsf@nanos.tec.linutronix.de>
- <CAKwvOdnOh3H3ga2qpTktywvcgfXW5QJaB7r4XMhigmDzLhDNeA@mail.gmail.com>
- <87h7t6tpye.fsf@nanos.tec.linutronix.de> <20200813173701.GC4295@paulmck-ThinkPad-P72>
- <20200813180933.GA532283@rani.riverdale.lan> <875z9dioll.fsf@nanos.tec.linutronix.de>
- <20200820130641.GA536306@rani.riverdale.lan> <87zh6ohm03.fsf@nanos.tec.linutronix.de>
- <20200821230435.GA56974@rani.riverdale.lan>
-In-Reply-To: <20200821230435.GA56974@rani.riverdale.lan>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 21 Aug 2020 16:16:56 -0700
-Message-ID: <CAKwvOdkoB+fT9tt7vgg1R6J-NEr77EWP5X8nFat_L-HvEzWGzA@mail.gmail.com>
-Subject: Re: [PATCH] x86: work around clang IAS bug referencing __force_order
-To: Arvind Sankar <nivedita@alum.mit.edu>
-Cc: Thomas Gleixner <tglx@linutronix.de>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, 
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
-	Zhenzhong Duan <zhenzhong.duan@oracle.com>, Kees Cook <keescook@chromium.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Juergen Gross <jgross@suse.com>, 
-	Andy Lutomirski <luto@kernel.org>, Andrew Cooper <andrew.cooper3@citrix.com>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Will Deacon <will@kernel.org>, 
-	Linus Torvalds <torvalds@linux-foundation.org>
-Content-Type: multipart/mixed; boundary="0000000000008fd34e05ad6b6f20"
-X-Original-Sender: ndesaulniers@google.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <1975c0a0-c19a-c91e-dc10-2918061cc4e7@infradead.org>
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=a0uDTwrK;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1044
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=Tm5kzNOT;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,138 +151,161 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---0000000000008fd34e05ad6b6f20
-Content-Type: text/plain; charset="UTF-8"
+On Fri, Aug 21, 2020 at 04:13:19PM -0700, Randy Dunlap wrote:
+> On 8/21/20 3:50 PM, Nathan Chancellor wrote:
+> > Clang warns several times when building for 32-bit ARM along the lines
+> > of:
+> > 
+> > drivers/vdpa/mlx5/net/mlx5_vnet.c:1462:31: warning: shift count >= width
+> > of type [-Wshift-count-overflow]
+> >                 ndev->mvdev.mlx_features |= BIT(VIRTIO_F_VERSION_1);
+> >                                             ^~~~~~~~~~~~~~~~~~~~~~~
+> > 
+> > This is related to the BIT macro, which uses an unsigned long literal,
+> > which is 32-bit on ARM so having a shift equal to or larger than 32 will
+> > cause this warning, such as the above, where VIRTIO_F_VERSION_1 is 32.
+> > To avoid this, use BIT_ULL, which will be an unsigned long long. This
+> > matches the size of the features field throughout this driver, which is
+> > u64 so there should be no functional change.
+> > 
+> > Fixes: 1a86b377aa21 ("vdpa/mlx5: Add VDPA driver for supported mlx5 devices")
+> > Link: https://github.com/ClangBuiltLinux/linux/issues/1140
+> > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> 
+> Reported-by: Randy Dunlap <rdunlap@infradead.org>
+> on 2020-AUG-10 for i386:
+> https://lore.kernel.org/linux-next/5a7a0e6d-842a-78f6-aeac-c5b4c27b7186@infradead.org/
+> :(
 
-On Fri, Aug 21, 2020 at 4:04 PM Arvind Sankar <nivedita@alum.mit.edu> wrote:
->
-> On Fri, Aug 21, 2020 at 02:37:48AM +0200, Thomas Gleixner wrote:
-> > On Thu, Aug 20 2020 at 09:06, Arvind Sankar wrote:
-> > > I don't think that's an issue, or at least, not one where force_order
-> > > helps.
-> > >
-> > > If the source for foo() is not visible to the compiler, the only reason
-> > > force_order prevents the reordering is because foo() might have
-> > > references to it, but equally foo() might have volatile asm, so the
-> > > reordering isn't possible anyway.
-> > >
-> > > If the source is visible, force_order won't prevent any reordering
-> > > except across references to force_order, but the only references are
-> > > from the volatile asm's which already prevent reordering.
-> > >
-> > > I think force_order can only help with buggy compilers, and for those it
-> > > should really have been an input-output operand -- it wouldn't currently
-> > > do anything to prevent cr writes from being reordered.
+Sorry, I saw this in my own build tests and was not aware of the
+previous report since I have not really been paying attention to
+the mailing lists as of late :(
 
-I agree 100%.  From the link to GCC docs, the code in question doesn't
-even follow the pattern from the doc from informing the compiler of
-any dependency, it just looks like !@#$.
+Should I need to do a v2, I will be sure to include that tag; otherwise,
+it would be great if it could be picked up along with the below.
 
-> >
-> > Fair enough. Care to provide a patch which has the collected wisdom of
-> > this thread in the changelog?
-> >
-> > Thanks,
-> >
-> >         tglx
->
-> The gcc bug I linked to earlier is only fixed in gcc-6 onwards. Is that
+> Acked-by: Randy Dunlap <rdunlap@infradead.org> # build-tested
 
-(based on https://gcc.gnu.org/bugzilla/show_bug.cgi?id=82602#c14)
+Thank you for testing!
 
-> good enough to remove force_order? I can test gcc-4.9 and gcc-5 to check
-> if it would currently have any impact.
-
-I think checking the disassemblies with a pre-gcc-6 would be good
-enough then; that bug isn't specific to this particular case.
-
-> CBL guys, can you confirm that clang also will not reorder volatile asm?
-
-Full disassemblies of vmlinux pre vs post __force_order removal are
-the same.  That's pretty good actually; I was worried for a code base
-of this size whether two compiles would produce the exact same
-disassemblies; I know the version strings are timestamped, for
-instance, but I didn't compare data, just .text.  I should triple
-check i386, and some of the ko's that use modified functions.  I'd be
-happy to help provide a tested by tag for numerous configurations with
-Clang.
-
-Attaching the diff I was testing, feel free to add a commit message.
---
-Thanks,
-~Nick Desaulniers
+> Thanks.
+> 
+> > ---
+> >  drivers/vdpa/mlx5/net/mlx5_vnet.c | 50 +++++++++++++++----------------
+> >  1 file changed, 25 insertions(+), 25 deletions(-)
+> > 
+> > diff --git a/drivers/vdpa/mlx5/net/mlx5_vnet.c b/drivers/vdpa/mlx5/net/mlx5_vnet.c
+> > index 9df69d5efe8c..70676a6d1691 100644
+> > --- a/drivers/vdpa/mlx5/net/mlx5_vnet.c
+> > +++ b/drivers/vdpa/mlx5/net/mlx5_vnet.c
+> > @@ -16,19 +16,19 @@
+> >  #define to_mvdev(__vdev) container_of((__vdev), struct mlx5_vdpa_dev, vdev)
+> >  
+> >  #define VALID_FEATURES_MASK                                                                        \
+> > -	(BIT(VIRTIO_NET_F_CSUM) | BIT(VIRTIO_NET_F_GUEST_CSUM) |                                   \
+> > -	 BIT(VIRTIO_NET_F_CTRL_GUEST_OFFLOADS) | BIT(VIRTIO_NET_F_MTU) | BIT(VIRTIO_NET_F_MAC) |   \
+> > -	 BIT(VIRTIO_NET_F_GUEST_TSO4) | BIT(VIRTIO_NET_F_GUEST_TSO6) |                             \
+> > -	 BIT(VIRTIO_NET_F_GUEST_ECN) | BIT(VIRTIO_NET_F_GUEST_UFO) | BIT(VIRTIO_NET_F_HOST_TSO4) | \
+> > -	 BIT(VIRTIO_NET_F_HOST_TSO6) | BIT(VIRTIO_NET_F_HOST_ECN) | BIT(VIRTIO_NET_F_HOST_UFO) |   \
+> > -	 BIT(VIRTIO_NET_F_MRG_RXBUF) | BIT(VIRTIO_NET_F_STATUS) | BIT(VIRTIO_NET_F_CTRL_VQ) |      \
+> > -	 BIT(VIRTIO_NET_F_CTRL_RX) | BIT(VIRTIO_NET_F_CTRL_VLAN) |                                 \
+> > -	 BIT(VIRTIO_NET_F_CTRL_RX_EXTRA) | BIT(VIRTIO_NET_F_GUEST_ANNOUNCE) |                      \
+> > -	 BIT(VIRTIO_NET_F_MQ) | BIT(VIRTIO_NET_F_CTRL_MAC_ADDR) | BIT(VIRTIO_NET_F_HASH_REPORT) |  \
+> > -	 BIT(VIRTIO_NET_F_RSS) | BIT(VIRTIO_NET_F_RSC_EXT) | BIT(VIRTIO_NET_F_STANDBY) |           \
+> > -	 BIT(VIRTIO_NET_F_SPEED_DUPLEX) | BIT(VIRTIO_F_NOTIFY_ON_EMPTY) |                          \
+> > -	 BIT(VIRTIO_F_ANY_LAYOUT) | BIT(VIRTIO_F_VERSION_1) | BIT(VIRTIO_F_ACCESS_PLATFORM) |      \
+> > -	 BIT(VIRTIO_F_RING_PACKED) | BIT(VIRTIO_F_ORDER_PLATFORM) | BIT(VIRTIO_F_SR_IOV))
+> > +	(BIT_ULL(VIRTIO_NET_F_CSUM) | BIT_ULL(VIRTIO_NET_F_GUEST_CSUM) |                                   \
+> > +	 BIT_ULL(VIRTIO_NET_F_CTRL_GUEST_OFFLOADS) | BIT_ULL(VIRTIO_NET_F_MTU) | BIT_ULL(VIRTIO_NET_F_MAC) |   \
+> > +	 BIT_ULL(VIRTIO_NET_F_GUEST_TSO4) | BIT_ULL(VIRTIO_NET_F_GUEST_TSO6) |                             \
+> > +	 BIT_ULL(VIRTIO_NET_F_GUEST_ECN) | BIT_ULL(VIRTIO_NET_F_GUEST_UFO) | BIT_ULL(VIRTIO_NET_F_HOST_TSO4) | \
+> > +	 BIT_ULL(VIRTIO_NET_F_HOST_TSO6) | BIT_ULL(VIRTIO_NET_F_HOST_ECN) | BIT_ULL(VIRTIO_NET_F_HOST_UFO) |   \
+> > +	 BIT_ULL(VIRTIO_NET_F_MRG_RXBUF) | BIT_ULL(VIRTIO_NET_F_STATUS) | BIT_ULL(VIRTIO_NET_F_CTRL_VQ) |      \
+> > +	 BIT_ULL(VIRTIO_NET_F_CTRL_RX) | BIT_ULL(VIRTIO_NET_F_CTRL_VLAN) |                                 \
+> > +	 BIT_ULL(VIRTIO_NET_F_CTRL_RX_EXTRA) | BIT_ULL(VIRTIO_NET_F_GUEST_ANNOUNCE) |                      \
+> > +	 BIT_ULL(VIRTIO_NET_F_MQ) | BIT_ULL(VIRTIO_NET_F_CTRL_MAC_ADDR) | BIT_ULL(VIRTIO_NET_F_HASH_REPORT) |  \
+> > +	 BIT_ULL(VIRTIO_NET_F_RSS) | BIT_ULL(VIRTIO_NET_F_RSC_EXT) | BIT_ULL(VIRTIO_NET_F_STANDBY) |           \
+> > +	 BIT_ULL(VIRTIO_NET_F_SPEED_DUPLEX) | BIT_ULL(VIRTIO_F_NOTIFY_ON_EMPTY) |                          \
+> > +	 BIT_ULL(VIRTIO_F_ANY_LAYOUT) | BIT_ULL(VIRTIO_F_VERSION_1) | BIT_ULL(VIRTIO_F_ACCESS_PLATFORM) |      \
+> > +	 BIT_ULL(VIRTIO_F_RING_PACKED) | BIT_ULL(VIRTIO_F_ORDER_PLATFORM) | BIT_ULL(VIRTIO_F_SR_IOV))
+> >  
+> >  #define VALID_STATUS_MASK                                                                          \
+> >  	(VIRTIO_CONFIG_S_ACKNOWLEDGE | VIRTIO_CONFIG_S_DRIVER | VIRTIO_CONFIG_S_DRIVER_OK |        \
+> > @@ -149,7 +149,7 @@ static bool mlx5_vdpa_debug;
+> >  
+> >  #define MLX5_LOG_VIO_FLAG(_feature)                                                                \
+> >  	do {                                                                                       \
+> > -		if (features & BIT(_feature))                                                      \
+> > +		if (features & BIT_ULL(_feature))                                                  \
+> >  			mlx5_vdpa_info(mvdev, "%s\n", #_feature);                                  \
+> >  	} while (0)
+> >  
+> > @@ -750,10 +750,10 @@ static bool vq_is_tx(u16 idx)
+> >  
+> >  static u16 get_features_12_3(u64 features)
+> >  {
+> > -	return (!!(features & BIT(VIRTIO_NET_F_HOST_TSO4)) << 9) |
+> > -	       (!!(features & BIT(VIRTIO_NET_F_HOST_TSO6)) << 8) |
+> > -	       (!!(features & BIT(VIRTIO_NET_F_CSUM)) << 7) |
+> > -	       (!!(features & BIT(VIRTIO_NET_F_GUEST_CSUM)) << 6);
+> > +	return (!!(features & BIT_ULL(VIRTIO_NET_F_HOST_TSO4)) << 9) |
+> > +	       (!!(features & BIT_ULL(VIRTIO_NET_F_HOST_TSO6)) << 8) |
+> > +	       (!!(features & BIT_ULL(VIRTIO_NET_F_CSUM)) << 7) |
+> > +	       (!!(features & BIT_ULL(VIRTIO_NET_F_GUEST_CSUM)) << 6);
+> >  }
+> >  
+> >  static int create_virtqueue(struct mlx5_vdpa_net *ndev, struct mlx5_vdpa_virtqueue *mvq)
+> > @@ -1439,13 +1439,13 @@ static u64 mlx_to_vritio_features(u16 dev_features)
+> >  	u64 result = 0;
+> >  
+> >  	if (dev_features & MLX5_VIRTIO_NET_F_GUEST_CSUM)
+> > -		result |= BIT(VIRTIO_NET_F_GUEST_CSUM);
+> > +		result |= BIT_ULL(VIRTIO_NET_F_GUEST_CSUM);
+> >  	if (dev_features & MLX5_VIRTIO_NET_F_CSUM)
+> > -		result |= BIT(VIRTIO_NET_F_CSUM);
+> > +		result |= BIT_ULL(VIRTIO_NET_F_CSUM);
+> >  	if (dev_features & MLX5_VIRTIO_NET_F_HOST_TSO6)
+> > -		result |= BIT(VIRTIO_NET_F_HOST_TSO6);
+> > +		result |= BIT_ULL(VIRTIO_NET_F_HOST_TSO6);
+> >  	if (dev_features & MLX5_VIRTIO_NET_F_HOST_TSO4)
+> > -		result |= BIT(VIRTIO_NET_F_HOST_TSO4);
+> > +		result |= BIT_ULL(VIRTIO_NET_F_HOST_TSO4);
+> >  
+> >  	return result;
+> >  }
+> > @@ -1459,15 +1459,15 @@ static u64 mlx5_vdpa_get_features(struct vdpa_device *vdev)
+> >  	dev_features = MLX5_CAP_DEV_VDPA_EMULATION(mvdev->mdev, device_features_bits_mask);
+> >  	ndev->mvdev.mlx_features = mlx_to_vritio_features(dev_features);
+> >  	if (MLX5_CAP_DEV_VDPA_EMULATION(mvdev->mdev, virtio_version_1_0))
+> > -		ndev->mvdev.mlx_features |= BIT(VIRTIO_F_VERSION_1);
+> > -	ndev->mvdev.mlx_features |= BIT(VIRTIO_F_ACCESS_PLATFORM);
+> > +		ndev->mvdev.mlx_features |= BIT_ULL(VIRTIO_F_VERSION_1);
+> > +	ndev->mvdev.mlx_features |= BIT_ULL(VIRTIO_F_ACCESS_PLATFORM);
+> >  	print_features(mvdev, ndev->mvdev.mlx_features, false);
+> >  	return ndev->mvdev.mlx_features;
+> >  }
+> >  
+> >  static int verify_min_features(struct mlx5_vdpa_dev *mvdev, u64 features)
+> >  {
+> > -	if (!(features & BIT(VIRTIO_F_ACCESS_PLATFORM)))
+> > +	if (!(features & BIT_ULL(VIRTIO_F_ACCESS_PLATFORM)))
+> >  		return -EOPNOTSUPP;
+> >  
+> >  	return 0;
+> > 
+> > base-commit: 8a7c3213db068135e816a6a517157de6443290d6
+> > 
+> 
+> 
+> -- 
+> ~Randy
+> 
+> -- 
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1975c0a0-c19a-c91e-dc10-2918061cc4e7%40infradead.org.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkoB%2BfT9tt7vgg1R6J-NEr77EWP5X8nFat_L-HvEzWGzA%40mail.gmail.com.
-
---0000000000008fd34e05ad6b6f20
-Content-Type: application/octet-stream; name="force_order.patch"
-Content-Disposition: attachment; filename="force_order.patch"
-Content-Transfer-Encoding: base64
-Content-ID: <f_ke4uosxj0>
-X-Attachment-Id: f_ke4uosxj0
-
-ZGlmZiAtLWdpdCBhL2FyY2gveDg2L2Jvb3QvY29tcHJlc3NlZC9wZ3RhYmxlXzY0LmMgYi9hcmNo
-L3g4Ni9ib290L2NvbXByZXNzZWQvcGd0YWJsZV82NC5jCmluZGV4IGM4ODYyNjk2YTQ3Yi4uN2Qw
-Mzk0ZjRlYmY5IDEwMDY0NAotLS0gYS9hcmNoL3g4Ni9ib290L2NvbXByZXNzZWQvcGd0YWJsZV82
-NC5jCisrKyBiL2FyY2gveDg2L2Jvb3QvY29tcHJlc3NlZC9wZ3RhYmxlXzY0LmMKQEAgLTUsMTUg
-KzUsNiBAQAogI2luY2x1ZGUgInBndGFibGUuaCIKICNpbmNsdWRlICIuLi9zdHJpbmcuaCIKIAot
-LyoKLSAqIF9fZm9yY2Vfb3JkZXIgaXMgdXNlZCBieSBzcGVjaWFsX2luc25zLmggYXNtIGNvZGUg
-dG8gZm9yY2UgaW5zdHJ1Y3Rpb24KLSAqIHNlcmlhbGl6YXRpb24uCi0gKgotICogSXQgaXMgbm90
-IHJlZmVyZW5jZWQgZnJvbSB0aGUgY29kZSwgYnV0IEdDQyA8IDUgd2l0aCAtZlBJRSB3b3VsZCBm
-YWlsCi0gKiBkdWUgdG8gYW4gdW5kZWZpbmVkIHN5bWJvbC4gRGVmaW5lIGl0IHRvIG1ha2UgdGhl
-c2UgYW5jaWVudCBHQ0NzIHdvcmsuCi0gKi8KLXVuc2lnbmVkIGxvbmcgX19mb3JjZV9vcmRlcjsK
-LQogI2RlZmluZSBCSU9TX1NUQVJUX01JTgkJMHgyMDAwMFUJLyogMTI4SywgbGVzcyB0aGFuIHRo
-aXMgaXMgaW5zYW5lICovCiAjZGVmaW5lIEJJT1NfU1RBUlRfTUFYCQkweDlmMDAwVQkvKiA2NDBL
-LCBhYnNvbHV0ZSBtYXhpbXVtICovCiAKZGlmZiAtLWdpdCBhL2FyY2gveDg2L2luY2x1ZGUvYXNt
-L3NwZWNpYWxfaW5zbnMuaCBiL2FyY2gveDg2L2luY2x1ZGUvYXNtL3NwZWNpYWxfaW5zbnMuaApp
-bmRleCA1OWEzZTEzMjA0YzMuLmQyZTBkNTNiMGY2OSAxMDA2NDQKLS0tIGEvYXJjaC94ODYvaW5j
-bHVkZS9hc20vc3BlY2lhbF9pbnNucy5oCisrKyBiL2FyY2gveDg2L2luY2x1ZGUvYXNtL3NwZWNp
-YWxfaW5zbnMuaApAQCAtMTAsNDYgKzEwLDM3IEBACiAjaW5jbHVkZSA8bGludXgvaXJxZmxhZ3Mu
-aD4KICNpbmNsdWRlIDxsaW51eC9qdW1wX2xhYmVsLmg+CiAKLS8qCi0gKiBWb2xhdGlsZSBpc24n
-dCBlbm91Z2ggdG8gcHJldmVudCB0aGUgY29tcGlsZXIgZnJvbSByZW9yZGVyaW5nIHRoZQotICog
-cmVhZC93cml0ZSBmdW5jdGlvbnMgZm9yIHRoZSBjb250cm9sIHJlZ2lzdGVycyBhbmQgbWVzc2lu
-ZyBldmVyeXRoaW5nIHVwLgotICogQSBtZW1vcnkgY2xvYmJlciB3b3VsZCBzb2x2ZSB0aGUgcHJv
-YmxlbSwgYnV0IHdvdWxkIHByZXZlbnQgcmVvcmRlcmluZyBvZgotICogYWxsIGxvYWRzIHN0b3Jl
-cyBhcm91bmQgaXQsIHdoaWNoIGNhbiBodXJ0IHBlcmZvcm1hbmNlLiBTb2x1dGlvbiBpcyB0bwot
-ICogdXNlIGEgdmFyaWFibGUgYW5kIG1pbWljIHJlYWRzIGFuZCB3cml0ZXMgdG8gaXQgdG8gZW5m
-b3JjZSBzZXJpYWxpemF0aW9uCi0gKi8KLWV4dGVybiB1bnNpZ25lZCBsb25nIF9fZm9yY2Vfb3Jk
-ZXI7Ci0KIHZvaWQgbmF0aXZlX3dyaXRlX2NyMCh1bnNpZ25lZCBsb25nIHZhbCk7CiAKIHN0YXRp
-YyBpbmxpbmUgdW5zaWduZWQgbG9uZyBuYXRpdmVfcmVhZF9jcjAodm9pZCkKIHsKIAl1bnNpZ25l
-ZCBsb25nIHZhbDsKLQlhc20gdm9sYXRpbGUoIm1vdiAlJWNyMCwlMFxuXHQiIDogIj1yIiAodmFs
-KSwgIj1tIiAoX19mb3JjZV9vcmRlcikpOworCWFzbSB2b2xhdGlsZSgibW92ICUlY3IwLCUwXG5c
-dCIgOiAiPXIiICh2YWwpKTsKIAlyZXR1cm4gdmFsOwogfQogCiBzdGF0aWMgX19hbHdheXNfaW5s
-aW5lIHVuc2lnbmVkIGxvbmcgbmF0aXZlX3JlYWRfY3IyKHZvaWQpCiB7CiAJdW5zaWduZWQgbG9u
-ZyB2YWw7Ci0JYXNtIHZvbGF0aWxlKCJtb3YgJSVjcjIsJTBcblx0IiA6ICI9ciIgKHZhbCksICI9
-bSIgKF9fZm9yY2Vfb3JkZXIpKTsKKwlhc20gdm9sYXRpbGUoIm1vdiAlJWNyMiwlMFxuXHQiIDog
-Ij1yIiAodmFsKSk7CiAJcmV0dXJuIHZhbDsKIH0KIAogc3RhdGljIF9fYWx3YXlzX2lubGluZSB2
-b2lkIG5hdGl2ZV93cml0ZV9jcjIodW5zaWduZWQgbG9uZyB2YWwpCiB7Ci0JYXNtIHZvbGF0aWxl
-KCJtb3YgJTAsJSVjcjIiOiA6ICJyIiAodmFsKSwgIm0iIChfX2ZvcmNlX29yZGVyKSk7CisJYXNt
-IHZvbGF0aWxlKCJtb3YgJTAsJSVjcjIiOiA6ICJyIiAodmFsKSk7CiB9CiAKIHN0YXRpYyBpbmxp
-bmUgdW5zaWduZWQgbG9uZyBfX25hdGl2ZV9yZWFkX2NyMyh2b2lkKQogewogCXVuc2lnbmVkIGxv
-bmcgdmFsOwotCWFzbSB2b2xhdGlsZSgibW92ICUlY3IzLCUwXG5cdCIgOiAiPXIiICh2YWwpLCAi
-PW0iIChfX2ZvcmNlX29yZGVyKSk7CisJYXNtIHZvbGF0aWxlKCJtb3YgJSVjcjMsJTBcblx0IiA6
-ICI9ciIgKHZhbCkpOwogCXJldHVybiB2YWw7CiB9CiAKIHN0YXRpYyBpbmxpbmUgdm9pZCBuYXRp
-dmVfd3JpdGVfY3IzKHVuc2lnbmVkIGxvbmcgdmFsKQogewotCWFzbSB2b2xhdGlsZSgibW92ICUw
-LCUlY3IzIjogOiAiciIgKHZhbCksICJtIiAoX19mb3JjZV9vcmRlcikpOworCWFzbSB2b2xhdGls
-ZSgibW92ICUwLCUlY3IzIjogOiAiciIgKHZhbCkpOwogfQogCiBzdGF0aWMgaW5saW5lIHVuc2ln
-bmVkIGxvbmcgbmF0aXZlX3JlYWRfY3I0KHZvaWQpCkBAIC02NCwxMCArNTUsMTAgQEAgc3RhdGlj
-IGlubGluZSB1bnNpZ25lZCBsb25nIG5hdGl2ZV9yZWFkX2NyNCh2b2lkKQogCWFzbSB2b2xhdGls
-ZSgiMTogbW92ICUlY3I0LCAlMFxuIgogCQkgICAgICIyOlxuIgogCQkgICAgIF9BU01fRVhUQUJM
-RSgxYiwgMmIpCi0JCSAgICAgOiAiPXIiICh2YWwpLCAiPW0iIChfX2ZvcmNlX29yZGVyKSA6ICIw
-IiAoMCkpOworCQkgICAgIDogIj1yIiAodmFsKSA6ICIwIiAoMCkpOwogI2Vsc2UKIAkvKiBDUjQg
-YWx3YXlzIGV4aXN0cyBvbiB4ODZfNjQuICovCi0JYXNtIHZvbGF0aWxlKCJtb3YgJSVjcjQsJTBc
-blx0IiA6ICI9ciIgKHZhbCksICI9bSIgKF9fZm9yY2Vfb3JkZXIpKTsKKwlhc20gdm9sYXRpbGUo
-Im1vdiAlJWNyNCwlMFxuXHQiIDogIj1yIiAodmFsKSk7CiAjZW5kaWYKIAlyZXR1cm4gdmFsOwog
-fQpkaWZmIC0tZ2l0IGEvYXJjaC94ODYva2VybmVsL2NwdS9jb21tb24uYyBiL2FyY2gveDg2L2tl
-cm5lbC9jcHUvY29tbW9uLmMKaW5kZXggYzVkNmYxN2Q5YjlkLi5kYzYyYWVhOGM5ZTEgMTAwNjQ0
-Ci0tLSBhL2FyY2gveDg2L2tlcm5lbC9jcHUvY29tbW9uLmMKKysrIGIvYXJjaC94ODYva2VybmVs
-L2NwdS9jb21tb24uYwpAQCAtMzU5LDcgKzM1OSw3IEBAIHZvaWQgbmF0aXZlX3dyaXRlX2NyMCh1
-bnNpZ25lZCBsb25nIHZhbCkKIAl1bnNpZ25lZCBsb25nIGJpdHNfbWlzc2luZyA9IDA7CiAKIHNl
-dF9yZWdpc3RlcjoKLQlhc20gdm9sYXRpbGUoIm1vdiAlMCwlJWNyMCI6ICIrciIgKHZhbCksICIr
-bSIgKF9fZm9yY2Vfb3JkZXIpKTsKKwlhc20gdm9sYXRpbGUoIm1vdiAlMCwlJWNyMCI6ICIrciIg
-KHZhbCkpOwogCiAJaWYgKHN0YXRpY19icmFuY2hfbGlrZWx5KCZjcl9waW5uaW5nKSkgewogCQlp
-ZiAodW5saWtlbHkoKHZhbCAmIFg4Nl9DUjBfV1ApICE9IFg4Nl9DUjBfV1ApKSB7Cg==
---0000000000008fd34e05ad6b6f20--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200821232034.GA1472930%40ubuntu-n2-xlarge-x86.
