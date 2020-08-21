@@ -1,143 +1,143 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB7EPQH5AKGQE5MYFG5A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBDEUQH5AKGQEC5Z5MJA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x637.google.com (mail-pl1-x637.google.com [IPv6:2607:f8b0:4864:20::637])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4F36924E316
-	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 00:17:34 +0200 (CEST)
-Received: by mail-pl1-x637.google.com with SMTP id f17sf1878803plj.16
-        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 15:17:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598048253; cv=pass;
+Received: from mail-yb1-xb37.google.com (mail-yb1-xb37.google.com [IPv6:2607:f8b0:4864:20::b37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 65CF924E346
+	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 00:26:21 +0200 (CEST)
+Received: by mail-yb1-xb37.google.com with SMTP id b127sf3573915ybh.21
+        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 15:26:21 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598048780; cv=pass;
         d=google.com; s=arc-20160816;
-        b=d6j6LcUfejZyoHpZm98vMp3kUfQnXwsz0sey1PewaSWhPrAxJC7HVVAF5EWQjKiDFW
-         IsmpasID2J1WLBQK4EiMNacQXdw7Dl3ytmCnoO5GPZms92htZhNSJkg8BS0itqtDcXox
-         WAEJixM6glHe8k1ujtBkBoOSzM+CycGbYXLpRb3K9DEUCvzJDE6oKbYjGFAQIwzQRkh2
-         ThU5ho9zxQj09Z6IylpYjvjzFO649+qu6wmhmd4gW9U6pvnAAXhx17daArZZy5DxuUgd
-         PRNAv4aZXQdZQ+DisXcEP5A9ErzH1noa/I8OWgw52kGzNft96hB8YIzDO8aH0mWExcTc
-         kyfg==
+        b=0FLbxi20jb2ThuTCi21pR8AOn66xB5kR0QtEpfkhAZJXNt4xe6oyhz4cgT4ucz7HXU
+         tBBAZbs8ewmjEyTPwpKBgXKxZI95lLjSo3KvTHOBDX++YsH2j5OCida3h5kf0FlKhejJ
+         Qi81TpZ8DOPO8jXJ2aovh5TlxrmibiV5TUCvgBGRHyiZ19EZzGBP56tRCYQdEgmoD5ho
+         S8WVHc7YIgQYA+LJhyrD1/fIzTkmkJKRj0WBDlXgFSRu3DCBNMYKtnhWPh9I26pIRdyH
+         nxBRFQCaXnjtkHm8FavJVbMa6gvFxaAOcNUXU/8esBGHCMZuEvLcMxkSBXb0Lxma7Yq8
+         ho7Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=+nAZDJu/Kj6ANdSkJKPD/17Fv2NdFHcoqcr9oewanhw=;
-        b=rSe33Qdd8ob3XuFnlp3/yNxOwSAR7GnIGi5+wUCnEukOgrCbblJm9kTp/JI8l2KiRs
-         6j72nOQ3sbQ4y63O3yZJn0von84lVjuTSXcVV+GBnAYA3MQo7XW/7nIAhDIYESB34jhA
-         5kIlg3+dGnwlBhCcngKDhzf7m+Zmsiy55ogP9NKNNtYuNM371ZGYNflI3t1fZgmb73sh
-         oNYl3DY4/+C5qRSF0SktivNEtO5Gc6rTLJHKSxHD62QiqWXn22nqUrKZ0iCuYphsaGf1
-         4k3Nil2Q8rvHUOtcz/DP8WlgNGw3kNbft5wSJ0fJRnhIIOW8R5EGd1G5Pw45PyYZ7fzB
-         XTFA==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature:dkim-signature;
+        bh=kCL6L2dj8L+66KTN80zRuyw2jMQObSyAYKo7MIRTsW8=;
+        b=0yjY8ohsOl5UVv3MR7+hF49YLiCFHRKmT9KmYedT5ZKTcuYZMOaRpjhcK7yH8imPkr
+         BdYpcS6lEkNegv+0kgSP11ys63EymWnGFt4lxFkbowCdECzycTkyG8EgPHbo1pzpP4sW
+         lLCO6lD1t4RVvJmzWvBqGR1DiVL5O4dktfcNqEH1I3fhl7Ctys6nWYZt93EUZItMUwxr
+         W1q9lnmOLusnk5RORBFyPFTjZxbbJqgUspMXizcTL4BMHtl0Er2CepnnOLL/g7tfvMQs
+         8CWTScm2EceAdUjodfVV3aEaxG+6jNolYlxdDt7kcROnJtMnZvgtpO1BSa0DH02v/ila
+         e2pg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=sPOAK9D7;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=huthoZKn;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::f43 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=+nAZDJu/Kj6ANdSkJKPD/17Fv2NdFHcoqcr9oewanhw=;
-        b=g/04rhi/rAmrYBRIfKJYRhdLfQdnG8KQTN5XUmjuSE3sr2pNAtCT1gU9+Ak0/Oxark
-         NSTkrZsfqy78RaTG7wKkQ0ggfuvM3Z2b9u+ik+oQo9YJew4sgbz/vHumQSOpZr5WKvmh
-         Zjlx+/Gtnn19u/7qcyOu14WY/V7KW3tlg+c3T1SWHiy8pjuVZXapAMI14LqIYOA2L2LG
-         puEvX2vfR93d2SyjEeRuPFi9vyT6azQnzvaQlC7fHqkfVrjNMXt+CynIi9bpPZZiHBEI
-         q0FtZQ+98HDdJT1IPjeYkkIn6UrDfYoDV5P6GTVefOD+dvmVXSkyfPbd+TrwF9DNd93k
-         JyUw==
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=kCL6L2dj8L+66KTN80zRuyw2jMQObSyAYKo7MIRTsW8=;
+        b=IZg0b1bLm9eBfArlmUPDl4mfTxx8dEWAL1KIKeDShqGIUfiEexHqq0UC4gR4Hm1gEr
+         UlDKPzKZ8Z7EsHeqA2LmzBLESgKunOaO4J6N/KT8NL+ymTHtMW4mKTIJDOD8HiV1Qjxd
+         yEXAlSvZ37rKu4nQ7Yu5XwvCXFOuqwSFFVUeLiWgCFiqSiqEGsf99fyfw1AxVKDQVj2o
+         dX4kN3+IAHSVNx9j6VcPeL3LzY1UrrcOmw6qYD3OKiNo2V3KKBtZKOveZC9e5DqtZU9Y
+         hm4ueET9a78bIL8fe+U1SSkOMJGU43PujFsKZDskOr6R3SpGnKBfluBqUkEZxxt605xl
+         GMiQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=+nAZDJu/Kj6ANdSkJKPD/17Fv2NdFHcoqcr9oewanhw=;
-        b=iX2PG6Ppvq08n1HiZbBNjLBKPPrcMilFa7ogp+p/oBqNT6PWGDpum6zJiJW0JrmnfH
-         UzypdjkCkdTWqGp0FTUCnvpMR0hWat/3vwa+v3em9wwTzlxcIdf5rDaX1LAoyDjAKM6W
-         PDlqULJDVNJj2L85zkHGg3bS6rMiNTl/rsdiReA/4McA6BYkIlfMgukqTXIPn7jY+caW
-         o92EdRI469rti5v67oQd2nkSKkbaUNYKjs5y/nx+/X8Cfoa+pj7U848m7xmuBkfLD8zq
-         oy5wumorCDVqX3YiWIN2ErcpKX1UFtIxvlzXaFBE/SZc2z/h4Y3td/pW8iYNsqt+OLhf
-         WwJw==
+        bh=kCL6L2dj8L+66KTN80zRuyw2jMQObSyAYKo7MIRTsW8=;
+        b=CDgpBltWWIg8as4i/psPNP3NTxrFF2MFNve+0YyLqp86P9XRz3tjcw4XqCckTSrEsO
+         RDrN4kN1E6dJNWj9aIoThtBwtdtq5m1P1jxIQOLi1ANhv0XqIkpcaXpX470wvAP+bIgr
+         GY9MySmjddEEM+yX8X6q026OlG38UJgoVHpU/VJjCfoMEUTnfmM+ZW610ZGZpjovT2aj
+         2EpsXLGq9VdVMJlAULGq3+atOcp/ZFy1VtgYQehN1yWah7GCdMuPg2xd3k3UUrdNH7Cf
+         XqxeZgj9aS5uCurjeXumZSEa+9xwQ00oJKBB8pMdVzPYCDhc2v09n8Ivt3mq83BByNjw
+         b6Bg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=+nAZDJu/Kj6ANdSkJKPD/17Fv2NdFHcoqcr9oewanhw=;
-        b=a/VPkNRLFfZYSWE3O5Ee1sJCp+4eB7ozJPjL/H5QUdAX8fxM9DU10C7zsdAyNzr7Nc
-         ZZqdvshBg+BqxpXxOqYpHUXnC1KQRRzso7DbV7waRhGAHRnFN0AG6I9zZEc81cJXInQV
-         1lTdSqM/ziyjfxeAvpWzlw7K3cyhkIM+47EiUgkMYphWBUcH1dzfqKY+JAS4gdKRZPOw
-         uyCxROaFlUMYqLb7tnmeLuLMQ8R4PGmW4GXpzrsFq8gHFQFXi85iDRb7Oi9kAH7SdLYI
-         JPVT9n9DPiz1/tU6tK5DHIRTDJe+Bk+mfIuNYqHysooC3T2me03tx2F8HPILPjuPVwOt
-         Aq+A==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=kCL6L2dj8L+66KTN80zRuyw2jMQObSyAYKo7MIRTsW8=;
+        b=DZt2LkS6Vmi1iTI6ZmI8nZSVVmGdSGs2BJqhC2ASqp0yOBTsO0ouwvVUVeRin1mVyg
+         Lu2zV7nvFwnAjtLhyPXra3Qwlln6GuYzJ693D5QDQPzM2WiqDmYwmmSnfKyeLXGXmVRc
+         M0theDFQD+4GrXTqJtuhbiyTPSW6NyiotxWMdWj6LBE9Kap9A1upmsOAY49j2+NF98uk
+         sfkenmSyvEYYkocnNqBVTC7RcIf0eFNMTRSo9V5t8uK4kiBhDJ+A/b8iAbBjiQL2jxXK
+         jvGn0YRLCMzbKZERoaeFBVmycdeDS+PLNWGm6ECm1lKZ+8zqYb035PsTBKCNBXZdVsUC
+         8znw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM53293tMw/1hGs8clsZVRkAgB/QKNpkE6G7KLL76LeB3gen8b0JU2
-	+h7NjQZzocIL+CFT/80IjsU=
-X-Google-Smtp-Source: ABdhPJzNOhG+UxqNNkDbXx3n8lH2MkFcKqJPerWMGhJQ0ZhmV8YIqKs3MT2szrIk3xcTnuGw7SuJrg==
-X-Received: by 2002:a17:90a:f286:: with SMTP id fs6mr4053870pjb.221.1598048252917;
-        Fri, 21 Aug 2020 15:17:32 -0700 (PDT)
+X-Gm-Message-State: AOAM531YDU375SXHGhJ4e3KDHWwFF6DwVJDs90wmo7lN8k9r1UuslcUc
+	ZwmCoZ1oWCXGJfx2CiTOLIc=
+X-Google-Smtp-Source: ABdhPJyldniVHqfi9oTmibX3gXWZfwN9ln4860FdiskYTuKnGFSpxFTxbjlIqIKMys6u3CNDqdSlRQ==
+X-Received: by 2002:a5b:b91:: with SMTP id l17mr6568579ybq.276.1598048780441;
+        Fri, 21 Aug 2020 15:26:20 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:bf04:: with SMTP id c4ls1347785pjs.3.gmail; Fri, 21
- Aug 2020 15:17:32 -0700 (PDT)
-X-Received: by 2002:a17:90a:eb17:: with SMTP id j23mr3950480pjz.151.1598048252481;
-        Fri, 21 Aug 2020 15:17:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598048252; cv=none;
+Received: by 2002:a25:40c:: with SMTP id 12ls1387055ybe.7.gmail; Fri, 21 Aug
+ 2020 15:26:20 -0700 (PDT)
+X-Received: by 2002:a5b:70d:: with SMTP id g13mr6604814ybq.160.1598048780078;
+        Fri, 21 Aug 2020 15:26:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598048780; cv=none;
         d=google.com; s=arc-20160816;
-        b=zEQqJBuuM5oLT7DDHwgQBvirf6UxJqZ1Fkbibj003XEfO7dRljyrtvTarOEbQaBgOZ
-         mAIXNx1ZWK0z7difz0BQMlEMXBDcgBkAHaB5JgBxXekezeFflNrZmHUaRpiUkBmgFXKC
-         ex7xbYvAYjCHLaYl5DP6pQ2en+NRExIwpkzbRbb17MXEDIO8ABavFjlLPt8LsEnupVBv
-         g5oTIxh5OPpYQzePMrnPQ1G0ytcT6TnHhafkYYPRUoahekdpgjfWK1LCChORQzRjyqXA
-         PqEEzAP72d0E2Zq2oRR5O9WS0ndaxwIeW+aWCGdh4Ki93Tx7Eb+7XXrc4UnJWv8UfTT0
-         oB4Q==
+        b=eZbIz3LYT5qsqz5kA2tgUj1Kc5BnX45wOrkSGg3vvappJn/mw7txer4KuiYcJnvmvU
+         R9X2WC5epWagT4VR4JvXEw4qJBYULGooaCuxr1l7x6JC/AF9bit9b0Dc89STJh/qlD7h
+         qJq9AsmmwwW/tc7EKpM5JZ0wwuuNJugByq3Gp8WvQT6+jNnXEfIEsDikksUP4UCzv7eM
+         bJvYSgFKDgFI/yGAkayOPWawlow4jJEE2/cSFtRSryXxhUcz8pr71YX+ehBEvbAH1mH4
+         DlTBgdfW5br/KvPOybEUv/aUAY+yVc+0VqSkr5ngE8GKBjqd9k0bAfz6228bRANdgdZZ
+         o2EA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=9+t59dyr/Lx/4Z4pn5Xg6NWW34RApV3/LbQYL5Og5B4=;
-        b=kMkEsDivMjNJLrEfqUH4Bixwt3rQYdOy2gA8mg1YoNa8Une60AemXTZTLptlpc6Az+
-         VDq+XYYuLOKB2TcIRmNLqG1j3FmCLyklXLq1/yceLkfNnFA4FIS1Zru2QBbi5H+EIJbf
-         jtm40SMBR8jT67LZYvCTiHxt3N91InzWKCwlk72VDq9CHB2nNBiwrWTBTOstwDWJ9hh4
-         5jbkhWDgUlTP//0Evw50F1LwbWDbNwnRf3waA7Ic/H615zugGyHidG/B944bUby33QGs
-         juIS8I7nJlFqUNE4rAlr5LYpFsld2/JsBMXzK3Bi+kF2FYwMaOG1vlSjdOlm485bSw+p
-         QkcQ==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=HrOAERB4tSMoXoJY/dYcv8QwQPeglxKI3SzuuvU5xXQ=;
+        b=xFm/kyVMx+A2ZlGGedtLCCQILi8XiKlWDTgnLEkzyXPlaj9D+w3wmlk+sAWJuSO9zv
+         ivEVqGk0hQcYsfecMTxEYtPFY3sw+oUuVsp7ryCfbvmdw4dXHFlqOymzmoN4BsTPejqA
+         sWMgq/LsyOs40kyTfy/eAI99qTfAHiCbK2C3AK+d+hagIXsqdrZ7nzaiKHty9Sfb1nBx
+         kXrJtL+wcT8mvyzMMNfB1FsJl1gLXRgoa+A6BGllIHbNdwQPCp5rezm0OVOGnmeeyMl7
+         BANna7RdLkpYZ20CL5GHOdUSD/xkf0sXlR4JTXkCX+8E0bfHq0lNCc6oJHaU4DUmNWeO
+         fI2A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=sPOAK9D7;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=huthoZKn;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::f43 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qk1-x744.google.com (mail-qk1-x744.google.com. [2607:f8b0:4864:20::744])
-        by gmr-mx.google.com with ESMTPS id s2si192212pgh.4.2020.08.21.15.17.32
+Received: from mail-qv1-xf43.google.com (mail-qv1-xf43.google.com. [2607:f8b0:4864:20::f43])
+        by gmr-mx.google.com with ESMTPS id p67si117839ybg.2.2020.08.21.15.26.20
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Aug 2020 15:17:32 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::744 as permitted sender) client-ip=2607:f8b0:4864:20::744;
-Received: by mail-qk1-x744.google.com with SMTP id u3so2732328qkd.9
-        for <clang-built-linux@googlegroups.com>; Fri, 21 Aug 2020 15:17:32 -0700 (PDT)
-X-Received: by 2002:a05:620a:2298:: with SMTP id o24mr4642396qkh.73.1598048251512;
-        Fri, 21 Aug 2020 15:17:31 -0700 (PDT)
-Received: from ubuntu-n2-xlarge-x86 ([2604:1380:45d1:2600::1])
-        by smtp.gmail.com with ESMTPSA id g23sm1858979qke.59.2020.08.21.15.17.30
+        Fri, 21 Aug 2020 15:26:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::f43 as permitted sender) client-ip=2607:f8b0:4864:20::f43;
+Received: by mail-qv1-xf43.google.com with SMTP id cs12so1342694qvb.2
+        for <clang-built-linux@googlegroups.com>; Fri, 21 Aug 2020 15:26:20 -0700 (PDT)
+X-Received: by 2002:ad4:4ea7:: with SMTP id ed7mr4536770qvb.8.1598048779620;
+        Fri, 21 Aug 2020 15:26:19 -0700 (PDT)
+Received: from localhost.localdomain ([2604:1380:45d1:2600::1])
+        by smtp.gmail.com with ESMTPSA id t32sm3649927qtb.3.2020.08.21.15.26.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2020 15:17:30 -0700 (PDT)
-Date: Fri, 21 Aug 2020 15:17:29 -0700
+        Fri, 21 Aug 2020 15:26:18 -0700 (PDT)
 From: Nathan Chancellor <natechancellor@gmail.com>
-To: Tero Kristo <t-kristo@ti.com>
-Cc: herbert@gondor.apana.org.au, davem@davemloft.net,
-	linux-crypto@vger.kernel.org, j-keerthy@ti.com,
-	linux-arm-kernel@lists.infradead.org,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCHv6 2/7] crypto: sa2ul: Add crypto driver
-Message-ID: <20200821221729.GA204847@ubuntu-n2-xlarge-x86>
-References: <20200713083427.30117-1-t-kristo@ti.com>
- <20200713083427.30117-3-t-kristo@ti.com>
+To: Vladimir Oltean <olteanv@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Vivien Didelot <vivien.didelot@gmail.com>,
+	Florian Fainelli <f.fainelli@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Nathan Chancellor <natechancellor@gmail.com>
+Subject: [PATCH] net: dsa: sja1105: Do not use address of compatible member in sja1105_check_device_id
+Date: Fri, 21 Aug 2020 15:25:16 -0700
+Message-Id: <20200821222515.414167-1-natechancellor@gmail.com>
+X-Mailer: git-send-email 2.28.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200713083427.30117-3-t-kristo@ti.com>
+X-Patchwork-Bot: notify
 X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=sPOAK9D7;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=huthoZKn;       spf=pass
  (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+ 2607:f8b0:4864:20::f43 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,246 +150,45 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jul 13, 2020 at 11:34:22AM +0300, Tero Kristo wrote:
-> From: Keerthy <j-keerthy@ti.com>
-> 
-> Adds a basic crypto driver and currently supports AES/3DES
-> in cbc mode for both encryption and decryption.
-> 
-> Signed-off-by: Keerthy <j-keerthy@ti.com>
-> [t-kristo@ti.com: major re-work to fix various bugs in the driver and to
->  cleanup the code]
-> Signed-off-by: Tero Kristo <t-kristo@ti.com>
-> ---
->  drivers/crypto/Kconfig  |   14 +
->  drivers/crypto/Makefile |    1 +
->  drivers/crypto/sa2ul.c  | 1388 +++++++++++++++++++++++++++++++++++++++
->  drivers/crypto/sa2ul.h  |  380 +++++++++++
->  4 files changed, 1783 insertions(+)
->  create mode 100644 drivers/crypto/sa2ul.c
->  create mode 100644 drivers/crypto/sa2ul.h
+Clang warns:
 
-<snip>
-
-> diff --git a/drivers/crypto/sa2ul.c b/drivers/crypto/sa2ul.c
-> new file mode 100644
-> index 000000000000..860c7435fefa
-> --- /dev/null
-> +++ b/drivers/crypto/sa2ul.c
-> @@ -0,0 +1,1388 @@
-
-<snip>
-
-> +static int sa_run(struct sa_req *req)
-> +{
-> +	struct sa_rx_data *rxd;
-> +	gfp_t gfp_flags;
-> +	u32 cmdl[SA_MAX_CMDL_WORDS];
-> +	struct sa_crypto_data *pdata = dev_get_drvdata(sa_k3_dev);
-> +	struct device *ddev;
-> +	struct dma_chan *dma_rx;
-> +	int sg_nents, src_nents, dst_nents;
-> +	int mapped_src_nents, mapped_dst_nents;
-> +	struct scatterlist *src, *dst;
-> +	size_t pl, ml, split_size;
-> +	struct sa_ctx_info *sa_ctx = req->enc ? &req->ctx->enc : &req->ctx->dec;
-> +	int ret;
-> +	struct dma_async_tx_descriptor *tx_out;
-> +	u32 *mdptr;
-> +	bool diff_dst;
-> +	enum dma_data_direction dir_src;
-> +
-> +	gfp_flags = req->base->flags & CRYPTO_TFM_REQ_MAY_SLEEP ?
-> +		GFP_KERNEL : GFP_ATOMIC;
-> +
-> +	rxd = kzalloc(sizeof(*rxd), gfp_flags);
-> +	if (!rxd)
-> +		return -ENOMEM;
-> +
-> +	if (req->src != req->dst) {
-> +		diff_dst = true;
-> +		dir_src = DMA_TO_DEVICE;
-> +	} else {
-> +		diff_dst = false;
-> +		dir_src = DMA_BIDIRECTIONAL;
-> +	}
-> +
-> +	/*
-> +	 * SA2UL has an interesting feature where the receive DMA channel
-> +	 * is selected based on the data passed to the engine. Within the
-> +	 * transition range, there is also a space where it is impossible
-> +	 * to determine where the data will end up, and this should be
-> +	 * avoided. This will be handled by the SW fallback mechanism by
-> +	 * the individual algorithm implementations.
-> +	 */
-> +	if (req->size >= 256)
-> +		dma_rx = pdata->dma_rx2;
-> +	else
-> +		dma_rx = pdata->dma_rx1;
-> +
-> +	ddev = dma_rx->device->dev;
-> +
-> +	memcpy(cmdl, sa_ctx->cmdl, sa_ctx->cmdl_size);
-> +
-> +	sa_update_cmdl(req, cmdl, &sa_ctx->cmdl_upd_info);
-> +
-> +	if (req->type != CRYPTO_ALG_TYPE_AHASH) {
-> +		if (req->enc)
-> +			req->type |=
-> +				(SA_REQ_SUBTYPE_ENC << SA_REQ_SUBTYPE_SHIFT);
-> +		else
-> +			req->type |=
-> +				(SA_REQ_SUBTYPE_DEC << SA_REQ_SUBTYPE_SHIFT);
-> +	}
-> +
-> +	cmdl[sa_ctx->cmdl_size / sizeof(u32)] = req->type;
-> +
-> +	/*
-> +	 * Map the packets, first we check if the data fits into a single
-> +	 * sg entry and use that if possible. If it does not fit, we check
-> +	 * if we need to do sg_split to align the scatterlist data on the
-> +	 * actual data size being processed by the crypto engine.
-> +	 */
-> +	src = req->src;
-> +	sg_nents = sg_nents_for_len(src, req->size);
-> +
-> +	split_size = req->size;
-> +
-> +	if (sg_nents == 1 && split_size <= req->src->length) {
-> +		src = &rxd->rx_sg;
-> +		sg_init_table(src, 1);
-> +		sg_set_page(src, sg_page(req->src), split_size,
-> +			    req->src->offset);
-> +		src_nents = 1;
-> +		dma_map_sg(ddev, src, sg_nents, dir_src);
-> +	} else {
-> +		mapped_src_nents = dma_map_sg(ddev, req->src, sg_nents,
-> +					      dir_src);
-> +		ret = sg_split(req->src, mapped_src_nents, 0, 1, &split_size,
-> +			       &src, &src_nents, gfp_flags);
-> +		if (ret) {
-> +			src_nents = sg_nents;
-> +			src = req->src;
-> +		} else {
-> +			rxd->split_src_sg = src;
-> +		}
-> +	}
-> +
-> +	if (!diff_dst) {
-> +		dst_nents = src_nents;
-> +		dst = src;
-> +	} else {
-> +		dst_nents = sg_nents_for_len(req->dst, req->size);
-> +
-> +		if (dst_nents == 1 && split_size <= req->dst->length) {
-> +			dst = &rxd->tx_sg;
-> +			sg_init_table(dst, 1);
-> +			sg_set_page(dst, sg_page(req->dst), split_size,
-> +				    req->dst->offset);
-> +			dst_nents = 1;
-> +			dma_map_sg(ddev, dst, dst_nents, DMA_FROM_DEVICE);
-> +		} else {
-> +			mapped_dst_nents = dma_map_sg(ddev, req->dst, dst_nents,
-> +						      DMA_FROM_DEVICE);
-> +			ret = sg_split(req->dst, mapped_dst_nents, 0, 1,
-> +				       &split_size, &dst, &dst_nents,
-> +				       gfp_flags);
-> +			if (ret) {
-> +				dst_nents = dst_nents;
-
-This causes a clang warning:
-
-drivers/crypto/sa2ul.c:1152:15: warning: explicitly assigning value of
-variable of type 'int' to itself [-Wself-assign]
-                                dst_nents = dst_nents;
-                                ~~~~~~~~~ ^ ~~~~~~~~~
+drivers/net/dsa/sja1105/sja1105_main.c:3418:38: warning: address of
+array 'match->compatible' will always evaluate to 'true'
+[-Wpointer-bool-conversion]
+        for (match = sja1105_dt_ids; match->compatible; match++) {
+        ~~~                          ~~~~~~~^~~~~~~~~~
 1 warning generated.
 
-Was the right side supposed to be something else? Otherwise, this line
-can be removed, right?
+We should check the value of the first character in compatible to see if
+it is empty or not. This matches how the rest of the tree iterates over
+IDs.
 
-> +				dst = req->dst;
-> +			} else {
-> +				rxd->split_dst_sg = dst;
-> +			}
-> +		}
-> +	}
-> +
-> +	if (unlikely(src_nents != sg_nents)) {
-> +		dev_warn_ratelimited(sa_k3_dev, "failed to map tx pkt\n");
-> +		ret = -EIO;
-> +		goto err_cleanup;
-> +	}
-> +
-> +	rxd->tx_in = dmaengine_prep_slave_sg(dma_rx, dst, dst_nents,
-> +					     DMA_DEV_TO_MEM,
-> +					     DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
-> +	if (!rxd->tx_in) {
-> +		dev_err(pdata->dev, "IN prep_slave_sg() failed\n");
-> +		ret = -EINVAL;
-> +		goto err_cleanup;
-> +	}
-> +
-> +	rxd->req = (void *)req->base;
-> +	rxd->enc = req->enc;
-> +	rxd->ddev = ddev;
-> +	rxd->src = src;
-> +	rxd->dst = dst;
-> +	rxd->iv_idx = req->ctx->iv_idx;
-> +	rxd->enc_iv_size = sa_ctx->cmdl_upd_info.enc_iv.size;
-> +	rxd->tx_in->callback = req->callback;
-> +	rxd->tx_in->callback_param = rxd;
-> +
-> +	tx_out = dmaengine_prep_slave_sg(pdata->dma_tx, src,
-> +					 src_nents, DMA_MEM_TO_DEV,
-> +					 DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
-> +
-> +	if (!tx_out) {
-> +		dev_err(pdata->dev, "OUT prep_slave_sg() failed\n");
-> +		ret = -EINVAL;
-> +		goto err_cleanup;
-> +	}
-> +
-> +	/*
-> +	 * Prepare metadata for DMA engine. This essentially describes the
-> +	 * crypto algorithm to be used, data sizes, different keys etc.
-> +	 */
-> +	mdptr = (u32 *)dmaengine_desc_get_metadata_ptr(tx_out, &pl, &ml);
-> +
-> +	sa_prepare_tx_desc(mdptr, (sa_ctx->cmdl_size + (SA_PSDATA_CTX_WORDS *
-> +				   sizeof(u32))), cmdl, sizeof(sa_ctx->epib),
-> +			   sa_ctx->epib);
-> +
-> +	ml = sa_ctx->cmdl_size + (SA_PSDATA_CTX_WORDS * sizeof(u32));
-> +	dmaengine_desc_set_metadata_len(tx_out, req->mdata_size);
-> +
-> +	dmaengine_submit(tx_out);
-> +	dmaengine_submit(rxd->tx_in);
-> +
-> +	dma_async_issue_pending(dma_rx);
-> +	dma_async_issue_pending(pdata->dma_tx);
-> +
-> +	return -EINPROGRESS;
-> +
-> +err_cleanup:
-> +	dma_unmap_sg(ddev, req->src, sg_nents, DMA_TO_DEVICE);
-> +	kfree(rxd->split_src_sg);
-> +
-> +	if (req->src != req->dst) {
-> +		dst_nents = sg_nents_for_len(req->dst, req->size);
-> +		dma_unmap_sg(ddev, req->dst, dst_nents, DMA_FROM_DEVICE);
-> +		kfree(rxd->split_dst_sg);
-> +	}
-> +
-> +	kfree(rxd);
-> +
-> +	return ret;
-> +}
+Fixes: 0b0e299720bb ("net: dsa: sja1105: use detected device id instead of DT one on mismatch")
+Link: https://github.com/ClangBuiltLinux/linux/issues/1139
+Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+---
+ drivers/net/dsa/sja1105/sja1105_main.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Cheers,
-Nathan
+diff --git a/drivers/net/dsa/sja1105/sja1105_main.c b/drivers/net/dsa/sja1105/sja1105_main.c
+index c3f6f124e5f0..5a28dfb36ec3 100644
+--- a/drivers/net/dsa/sja1105/sja1105_main.c
++++ b/drivers/net/dsa/sja1105/sja1105_main.c
+@@ -3415,7 +3415,7 @@ static int sja1105_check_device_id(struct sja1105_private *priv)
+ 
+ 	sja1105_unpack(prod_id, &part_no, 19, 4, SJA1105_SIZE_DEVICE_ID);
+ 
+-	for (match = sja1105_dt_ids; match->compatible; match++) {
++	for (match = sja1105_dt_ids; match->compatible[0]; match++) {
+ 		const struct sja1105_info *info = match->data;
+ 
+ 		/* Is what's been probed in our match table at all? */
+
+base-commit: 4af7b32f84aa4cd60e39b355bc8a1eab6cd8d8a4
+-- 
+2.28.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200821221729.GA204847%40ubuntu-n2-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200821222515.414167-1-natechancellor%40gmail.com.
