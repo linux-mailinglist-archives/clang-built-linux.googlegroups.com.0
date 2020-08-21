@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBN567T4QKGQEDAT2SVY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBAPL7T4QKGQEFHTG2KQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3a.google.com (mail-oo1-xc3a.google.com [IPv6:2607:f8b0:4864:20::c3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 69A2024C976
-	for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 03:11:22 +0200 (CEST)
-Received: by mail-oo1-xc3a.google.com with SMTP id v21sf121504ooq.12
-        for <lists+clang-built-linux@lfdr.de>; Thu, 20 Aug 2020 18:11:22 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1597972281; cv=pass;
+Received: from mail-io1-xd3c.google.com (mail-io1-xd3c.google.com [IPv6:2607:f8b0:4864:20::d3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1F4F924CAFA
+	for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 04:46:27 +0200 (CEST)
+Received: by mail-io1-xd3c.google.com with SMTP id 18sf233967ioo.14
+        for <lists+clang-built-linux@lfdr.de>; Thu, 20 Aug 2020 19:46:27 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1597977985; cv=pass;
         d=google.com; s=arc-20160816;
-        b=NtgZf7SzKXqLxM8L+gUsKeoTQ5blN9GZCeDAs9QR+8SQC1Ye53gTyxM4z31wzkhmAd
-         VL5RGXDMWsX03X6yMLsbaI1diU3rhOKZePEdX/olid9So+MvthyNhRrQC2R/QbyoqK+g
-         ZMSb0CUxItGJLUxNyh1mWjIRoK6x5JFzrZs6UoaLVdLboMjM/JtrQV7oo5jGKUX475k0
-         BQJ33+S2tKgF9k4yDa+zrITXvpQbXj7lqoJLsxzdWTmEQtsedufqAEtSE1ImiJLFit8m
-         LGgvQINfXKm7Y09joEJKjK3zKtg92HBttkfisqkyZEhykOlms2Zxje4tB+dFQZmk7f/h
-         8iJw==
+        b=WXTbEVZB3rB5KW8laOXPN9YbQwCuYvjrxiObvP87/pP4OLObyWQSeYJ9Xti+C6AkVz
+         HhV4WNu2d5xQx6FJ+XuS1J3o0/7wN/3mf7q+htAbKx+mv1wSLvR0jscr2+rPFO6s85cA
+         VsnYgNecnrxRr8eHZtMRm9jCCLxNdIxpnRMhj32cX8sd0F+Js40RkVedmfryh+6ixNNp
+         ZvaU5ftbu/gP6w/bN5nFLqYdSQ35kRIxkV7Hm8p6qnMVeMqe8GK0/DmUlkJ1b1ooD9zq
+         54DoZ517UoBZviILihcyHrOre8zNOcTwA62S580DBzvg29NVuZAP7otMdyk0rP6bMQ2N
+         QcWg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=7aPv0EIz1djROPeYUtsIroMR88KOKl7T0gCpgZ7lk3w=;
-        b=H9x5Xv2uPFZiukjufvqwzqF83kH+xZy0+UY7yMnDgqzAAl2GidOgc+ge8syqSR+Fk3
-         j1124LMno4jFD5X/orwo+nUGJOkZ4eYbL+nyvHqjhur+QszyzKXgykL73ySWjYhPqyqF
-         Blp/XzAd/MYtLcDPwfmwcZx2n9tio3+dSmRcvK44nfxIWD/lIdbGK8FU22tVvBW3qyOi
-         kvoE/bVEjNO462oZj+MrL724syLxIXON4SnxeOVqRqDgRq9Asek/oO6rHsp5imUrCDQG
-         bDOVHcya3PGTw/kw2vdTeXnIqbcjfpkbeY85XEbeaVdgJl4bFm1jPXt1VR896Z4MsdVj
-         gXWA==
+        bh=422xLP46X58k3SRNlbddR3eolK+geDGYgG3y3MsnNuI=;
+        b=UZm3H7ZA9dTbj2MGMY36T5uK1rh62gIrAZznrro2B/StydA0YHxyDSCezvkGF+lq7T
+         LA79YW0JKo5gEVziA7ibBeDYiI2+yabdHsh+eoWNz0NnTENg5n9qHxl3SLJh5tdZqnoD
+         6P3IueDV6J6nve04HugSKE897CAOc89kPthX8fLHvFnQiNaFUxH98vW2ITB2E9DrH1so
+         dphJPsQKl6nCBILCjUjpaArObjWaf7OJEH3Ur5R0Z5lcnXH9Vy1f9MsGgX71THOzMKJO
+         IyuCFAMVpgUGEwB28VrHkGLQ6RypJ1N+8v3mBvdq0QG5fvMKVB3ZoQ1g01pQ5wVCkbix
+         JGRg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=7aPv0EIz1djROPeYUtsIroMR88KOKl7T0gCpgZ7lk3w=;
-        b=eEtpr0DRA0aNWSiuhTxMSuEDgoN5zK8BCDK99ckWunh8MR6YyLMQpbtwnUbV2ntky7
-         /FVlMpWpAEFz6I3IY2uGW4sdAQriStDrvXYXgniob4hRMJYsRIg+1EkhGMxJ2qA1UriB
-         1EbLzfRirrH2cJRzTGD4KXjoVEMVCUkiHZv6BlG6Z5brvZ2dfLs4lM7fAZCoOoJX0hG6
-         PTafG9kw+Hmx3PoO9YlkB6RmudLqCUCqKuBfHqoJIZt03lXnWoo4LVLpyUm5tt/ChN2j
-         vGPZzyzJGQs839O7sQDbhj2OBz8+17zxKSA9q/2uqXsLoBKXi+baUnjeJxrf1M2nOSiL
-         TWAA==
+        bh=422xLP46X58k3SRNlbddR3eolK+geDGYgG3y3MsnNuI=;
+        b=YoVxCqFRHEXC2OJeFN+jP2ojNvwaKNmORe9sLoWYuWAdaOZNmlsZZDKXLGcEOKqGIc
+         TULBul3vRVH2OUL1Z+wNnbZphu06mpnxIVogBv7t01DXgjksHCfPXUWj2sm2XIrdwci2
+         HUVUmfbqTNHR6IJYUvar9P6HmSNjp++uufgOiLAnUl5ZVdbQE7a6ixlMsN8NDJcWpF7N
+         fmeLM5H+m8ptra+HY/iQZBv84dU7Z+pBL4sPoRvQU16oatSD7g4WhOPWatsgvzwl0z/E
+         pOZRHauBkL+RRCYaLvAapnLm6QSZj9ypteNOcceCRRHZGcWO8Hn8GuUtKWesd0VX96xw
+         F/2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,89 +49,85 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=7aPv0EIz1djROPeYUtsIroMR88KOKl7T0gCpgZ7lk3w=;
-        b=GfNXHITG5fM4OZlFFFrSYzyiR4IPtQVFMoHu56yHHQ1HuQh5d6FeZa8eh/Uv1vo4pW
-         rml39LCM7bj8QYxQB8TnmTIGiGfnzdS+2p37urgaroemh6mbt5dRop5JKHqhL5KYDhSx
-         wpkiD0mgV9CyrihvGo4LG3X/qj0mEgtIfU+F+gKhfo95SdMUmaxwaPRrM/ceEBXw0RRM
-         wskEYU3fq3TvbCmwIZTYzzeaUjaTXvxQBduSTkoWJjPwkl/sv6bpUGskBPoBS9DY+iKh
-         qkaOUyIQAg/+Oo7fLF1L5sVXD+0vvtfqIihnnddkW/32qqnFeUmHxP7GZ1BUuUwk2TBk
-         z3Sw==
+        bh=422xLP46X58k3SRNlbddR3eolK+geDGYgG3y3MsnNuI=;
+        b=tATV2RQ9D2QBMF6rfRsfNMJ7QJf2QYwyUIwfp+PCxkUSIt2roqMN0mBJ2fvcs/4QLi
+         xx5OINtiXb7gGyWurhvHYRptaOPY4pcKJZoikxvtJZsPgn3j6Tw5NPYj/v7/PvywYP/Q
+         BEw5Sfp+A+E9CUi9u0bjBaUlTTxW0vc/qWVN5goTuLT2qsFDtKeOzG+TmEE7Hb1u+xBv
+         H5OA3Ezdpwhmopy7U4IsJwbEpzmIsWF4NNj1FUkuVK5thoPRinNNBmShfXuto0VFiHUZ
+         f5JsMKxvWEpBYvck5TzxHWuTsCoz1fgXJFVNqRz/Or703tEnOY1GswhVPqjFJDlrE7k7
+         Tmzg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531hLVr2BVJzp9/XloH1eMp0UOPArQKdc872i5F655PqMk3CacYS
-	mEfukAI/cNP8qBGGVW5+ujk=
-X-Google-Smtp-Source: ABdhPJx30cnsj5R3J8vwGw9kVr/Kzt3DP1UVmMSIhzBxf/bgTMH3aT/ORIVaf4z/Ah/FNZNmSvHf2w==
-X-Received: by 2002:a05:6830:1e30:: with SMTP id t16mr328265otr.175.1597972279361;
-        Thu, 20 Aug 2020 18:11:19 -0700 (PDT)
+X-Gm-Message-State: AOAM532TY1hlc2d9ymmNwKJP6mCzIRaVyHmkj399htDgQr94OdY+6LF0
+	RSXcTVhqVY1rqwQrLFQlfIk=
+X-Google-Smtp-Source: ABdhPJyRsORW2+HXGSjWOUgdLMfAVk+NPddEaswrkU2aM42juC4IV7YRWpeyV657iPdzeu7UFCg8tg==
+X-Received: by 2002:a92:6a0c:: with SMTP id f12mr781191ilc.213.1597977985544;
+        Thu, 20 Aug 2020 19:46:25 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a54:4404:: with SMTP id k4ls66139oiw.8.gmail; Thu, 20 Aug
- 2020 18:11:19 -0700 (PDT)
-X-Received: by 2002:aca:d4d5:: with SMTP id l204mr447828oig.70.1597972278866;
-        Thu, 20 Aug 2020 18:11:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1597972278; cv=none;
+Received: by 2002:a92:5210:: with SMTP id g16ls124432ilb.9.gmail; Thu, 20 Aug
+ 2020 19:46:25 -0700 (PDT)
+X-Received: by 2002:a92:c84f:: with SMTP id b15mr895010ilq.100.1597977984999;
+        Thu, 20 Aug 2020 19:46:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1597977984; cv=none;
         d=google.com; s=arc-20160816;
-        b=TROR/Olegvmf6pAXc6JIQ+o5t8vhqJ+lcCYAn+sZ8KnK2pPioQa5/8+TRK4uHNRFzv
-         9d7Fhnwyw+MoOdnS1GFjLswloASzOmjSQzJAU8OGoyn2wkw1Y/84WYwYJRuqISEglI7j
-         KL3YvGrwB8ohNuugQ5RHRuA6jhhzPSURYSnNqkk4ExfAtxtuwEePdoh2WdXt82bkae7t
-         9n18FufW+phN5UcIgd5gzm56VHv6UEmXrNp3CY6IF5PLQhN4jXQzSEySRx9D0zuJ5/Jq
-         IM98UNs4zQdnSVg71b3hNXhCPK1Y96JSohAFdejhATJF81A53O7Sjnd/DH/JrqoBuoj3
-         SRPQ==
+        b=lFTywY25yLNRJB36xVwONi8QUWBsLvA9ba4ky5kTyiVtI52Ck8P/SARocuaft3AK2T
+         UjnGv3v7TGrJJknRagLVTFbD47y8XAthpgPhMhQ0+AIoSWy7mBFQA3ijTa7WpLaQ0eq7
+         GpejhT4pi1QcZ96th8C3zKKW/US+2J9soNVTLknYAArbzC76eCCJmo2ArDVdhsWqKZ4F
+         4JYUbn6VRsCNIl5P1A+D4Wbz/0SdUJXimNOloG2M43dbTGAKBEz5Ujum9cmf8UyNlniN
+         s39vEp9nJEmqvqq6HV+b9HL71xFrYguWRRNBEfkm1hUpc0f0GODJEedBPahweFyNmtNM
+         m4MQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=z2VkEVi4M/2e53nlzsmeUJrNg1CT9DffQ02nNudQOE0=;
-        b=VKxQKEeBBS5i6dwOQhzjmprlgw7YWX5ip+VDnHVXPhp9ah8Dqx1D1xxy1kjoCg2z74
-         TH1Pfize4nmhM++w8b9Hhwb2tsNTgXIhZyUDC4/rE2aMnGusQhy4nZ7nUoXxlXx1JixV
-         +upkKdCcUg0GkvnEOY3qGgNMxp2oabomJeZ/Vrr8hi9L0hftNo9r0j8VxeWFlsHTCHkE
-         BM8fVcBmELzRgwWnMyCayXeWIQDugmrF5xYOMdInFxiMC2sGf3bZv6LX4di3z5GSEWBk
-         3krcN29opy1QovbmLiN0iw4+mOsSmY41hbbU2OxS2Agozu9fUO6JSKuUBkh8I9opReDO
-         cspw==
+        bh=577NNMqQcbcKXO/3EavVVVcOfxqxxSPyRXWKzm+eBIM=;
+        b=PsKBbhHI13AXc5wFrL/FQ6aTOVKVOkDJa5INT85RU3gyaK/yFl7xH6B0E/qQJgfOfA
+         YN/zLN8h9zfLrmXbJ6eI0t6E2Xa9aZVo5bxDV1sYAnW9Rn5QnQUsvJ8bW3y213i4X2+w
+         B0Y4FhXjrBO3M3DApW9TfLxPzdY5iPNJ2OdLTS21MH6YOll6oV4GLSasj6ynRBEIS70i
+         qhzULSRIfgmOzRg+/ZgNVSp5VS66nKJpFqyTpgsIynmPJVd5ZEO+KwP6HrmK89+Q+yc8
+         uXbrivIcJgc7z6BO5OEoBZ8KWT8IwngmmoIQtJtQd5ajWoK6hSS25e4isM3D/0ggYQD9
+         KWfw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
-        by gmr-mx.google.com with ESMTPS id d11si23809oti.2.2020.08.20.18.11.18
+Received: from mga17.intel.com (mga17.intel.com. [192.55.52.151])
+        by gmr-mx.google.com with ESMTPS id s189si34661ios.3.2020.08.20.19.46.24
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 20 Aug 2020 18:11:18 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
-IronPort-SDR: ZOEtC4MB/RxdJXipp7R1JDsBUnF/SIxCJXQ09cf50UMHfI8cgA+GJklvt03e88R3GDmHrLtwWG
- X6NKrlVR9A8w==
-X-IronPort-AV: E=McAfee;i="6000,8403,9719"; a="156489012"
+        Thu, 20 Aug 2020 19:46:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) client-ip=192.55.52.151;
+IronPort-SDR: bnZz3oP0GjiLjdMeNx2tbXHSzMLJrppKZdwdmwculaUvSHqJzQovWU4jM8LeK04vW7XJKpY+Gw
+ VmeGZG1gawow==
+X-IronPort-AV: E=McAfee;i="6000,8403,9719"; a="135508236"
 X-IronPort-AV: E=Sophos;i="5.76,335,1592895600"; 
-   d="gz'50?scan'50,208,50";a="156489012"
+   d="gz'50?scan'50,208,50";a="135508236"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga002.fm.intel.com ([10.253.24.26])
-  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2020 18:11:11 -0700
-IronPort-SDR: O9wkViWWkein+PBzc07jNco7mp6UdHw+9TrfpiTRZR8Ycg/XT1mZtDcudIxgUYILy5/RFobps6
- uf40wfIxdhWg==
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2020 19:46:23 -0700
+IronPort-SDR: g63dtZvbRoblJK+huDQiBct6skxZZvmQWNzvJrc76X3lm7mY7Eu0ME2Lc4mL6rLcYr/8l7VAhO
+ g/bD7xyMiDbw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.76,335,1592895600"; 
-   d="gz'50?scan'50,208,50";a="329882142"
+   d="gz'50?scan'50,208,50";a="401346247"
 Received: from lkp-server01.sh.intel.com (HELO 91ed66e1ca04) ([10.239.97.150])
-  by fmsmga002.fm.intel.com with ESMTP; 20 Aug 2020 18:11:08 -0700
+  by fmsmga001.fm.intel.com with ESMTP; 20 Aug 2020 19:46:21 -0700
 Received: from kbuild by 91ed66e1ca04 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1k8vaF-0000Ng-OH; Fri, 21 Aug 2020 01:11:07 +0000
-Date: Fri, 21 Aug 2020 09:11:04 +0800
+	id 1k8x4O-0000Qa-Si; Fri, 21 Aug 2020 02:46:20 +0000
+Date: Fri, 21 Aug 2020 10:45:59 +0800
 From: kernel test robot <lkp@intel.com>
-To: Qu Wenruo <wqu@suse.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	David Sterba <dsterba@suse.com>,
-	Nikolay Borisov <nborisov@suse.com>,
-	Josef Bacik <josef@toxicpanda.com>
-Subject: [kdave:for-next 59/70] fs/btrfs/extent-tree.c:3158:8: warning:
- format specifies type 'unsigned long' but the argument has type 'unsigned
- int'
-Message-ID: <202008210900.7K3KQJLA%lkp@intel.com>
+To: Mike Rapoport <rppt@linux.ibm.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
+Subject: [rppt:memfd-secret/v4 4/6] <stdin>:1526:2: warning: syscall
+ memfd_secret not implemented
+Message-ID: <202008211055.O8bQBXWd%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="y0ulUmNC+osPPQO6"
+Content-Type: multipart/mixed; boundary="bg08WKrSYDhXBjb5"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -147,13 +143,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---y0ulUmNC+osPPQO6
+--bg08WKrSYDhXBjb5
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/kdave/linux.git for-next
-head:   7d05f2ecdd40cd928efc3feb0bfdc965aa5c89a9
-commit: c950c6b7b34112061fc6acd30dc906f095a95a3d [59/70] btrfs: extent-tree: kill BUG_ON() in __btrfs_free_extent() and do better comment
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/rppt/linux.git memfd-secret/v4
+head:   e8724fa7ea4d361c355f966e96f2f445131e8fbc
+commit: 65267e6651e350b609c5c49d9636b40f031986b9 [4/6] arch, mm: wire up memfd_secret system call were relevant
 config: powerpc64-randconfig-r003-20200820 (attached as .config)
 compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 4deda57106f7c9b982a49cb907c33e3966c8de7f)
 reproduce (this is a W=1 build):
@@ -161,7 +157,7 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install powerpc64 cross compiling tool for clang build
         # apt-get install binutils-powerpc64-linux-gnu
-        git checkout c950c6b7b34112061fc6acd30dc906f095a95a3d
+        git checkout 65267e6651e350b609c5c49d9636b40f031986b9
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64 
 
@@ -170,381 +166,24 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
->> fs/btrfs/extent-tree.c:3158:8: warning: format specifies type 'unsigned long' but the argument has type 'unsigned int' [-Wformat]
-                                      sizeof(*ei) + sizeof(*bi));
-                                      ^~~~~~~~~~~~~~~~~~~~~~~~~
-   fs/btrfs/ctree.h:3104:41: note: expanded from macro 'btrfs_crit'
-           btrfs_printk(fs_info, KERN_CRIT fmt, ##args)
-                                           ~~~    ^~~~
+>> <stdin>:1526:2: warning: syscall memfd_secret not implemented [-W#warnings]
+   #warning syscall memfd_secret not implemented
+    ^
    1 warning generated.
-
-# https://git.kernel.org/pub/scm/linux/kernel/git/kdave/linux.git/commit/?id=c950c6b7b34112061fc6acd30dc906f095a95a3d
-git remote add kdave https://git.kernel.org/pub/scm/linux/kernel/git/kdave/linux.git
-git fetch --no-tags kdave for-next
-git checkout c950c6b7b34112061fc6acd30dc906f095a95a3d
-vim +3158 fs/btrfs/extent-tree.c
-
-  2932	
-  2933	/*
-  2934	 * Real work happens here to drop one or more refs of @node.
-  2935	 *
-  2936	 * The work is mostly done in two parts:
-  2937	 * 1. Locate the extent refs.
-  2938	 *    It's either inlined in EXTENT/METADATA_ITEM or in keyed SHARED_* item.
-  2939	 *    Locate it then reduces the refs number or remove the ref line completely.
-  2940	 *
-  2941	 * 2. Update the refs count in EXTENT/METADATA_ITEM
-  2942	 *
-  2943	 * Due to the above two operations and possible optimizations, the function
-  2944	 * is a little hard to read, but with the following examples, the result
-  2945	 * of this function should be pretty easy to get.
-  2946	 *
-  2947	 * Example:
-  2948	 * *** Inlined backref case ***
-  2949	 * In extent tree we have:
-  2950	 * 	item 0 key (13631488 EXTENT_ITEM 1048576) itemoff 16201 itemsize 82
-  2951	 *		refs 2 gen 6 flags DATA
-  2952	 *		extent data backref root FS_TREE objectid 258 offset 0 count 1
-  2953	 *		extent data backref root FS_TREE objectid 257 offset 0 count 1
-  2954	 *
-  2955	 * This function get called with
-  2956	 *  node->bytenr = 13631488, node->num_bytes = 1048576
-  2957	 *  root_objectid = FS_TREE, owner_objectid = 257, owner_offset = 0,
-  2958	 *  refs_to_drop = 1
-  2959	 * Then we should get some like:
-  2960	 * 	item 0 key (13631488 EXTENT_ITEM 1048576) itemoff 16201 itemsize 82
-  2961	 *		refs 1 gen 6 flags DATA
-  2962	 *		extent data backref root FS_TREE objectid 258 offset 0 count 1
-  2963	 *
-  2964	 * *** Keyed backref case ***
-  2965	 * In extent tree we have:
-  2966	 *	item 0 key (13631488 EXTENT_ITEM 1048576) itemoff 3971 itemsize 24
-  2967	 *		refs 754 gen 6 flags DATA
-  2968	 *	[...]
-  2969	 *	item 2 key (13631488 EXTENT_DATA_REF <HASH>) itemoff 3915 itemsize 28
-  2970	 *		extent data backref root FS_TREE objectid 866 offset 0 count 1
-  2971	 * This function get called with
-  2972	 *  node->bytenr = 13631488, node->num_bytes = 1048576
-  2973	 *  root_objectid = FS_TREE, owner_objectid = 866, owner_offset = 0,
-  2974	 *  refs_to_drop = 1
-  2975	 * Then we should get some like:
-  2976	 *	item 0 key (13631488 EXTENT_ITEM 1048576) itemoff 3971 itemsize 24
-  2977	 *		refs 753 gen 6 flags DATA
-  2978	 * And that (13631488 EXTENT_DATA_REF <HASH>) get removed.
-  2979	 */
-  2980	static int __btrfs_free_extent(struct btrfs_trans_handle *trans,
-  2981				       struct btrfs_delayed_ref_node *node, u64 parent,
-  2982				       u64 root_objectid, u64 owner_objectid,
-  2983				       u64 owner_offset, int refs_to_drop,
-  2984				       struct btrfs_delayed_extent_op *extent_op)
-  2985	{
-  2986		struct btrfs_fs_info *info = trans->fs_info;
-  2987		struct btrfs_key key;
-  2988		struct btrfs_path *path;
-  2989		struct btrfs_root *extent_root = info->extent_root;
-  2990		struct extent_buffer *leaf;
-  2991		struct btrfs_extent_item *ei;
-  2992		struct btrfs_extent_inline_ref *iref;
-  2993		int ret;
-  2994		int is_data;
-  2995		int extent_slot = 0;
-  2996		int found_extent = 0;
-  2997		int num_to_del = 1;
-  2998		u32 item_size;
-  2999		u64 refs;
-  3000		u64 bytenr = node->bytenr;
-  3001		u64 num_bytes = node->num_bytes;
-  3002		int last_ref = 0;
-  3003		bool skinny_metadata = btrfs_fs_incompat(info, SKINNY_METADATA);
-  3004	
-  3005		path = btrfs_alloc_path();
-  3006		if (!path)
-  3007			return -ENOMEM;
-  3008	
-  3009		path->leave_spinning = 1;
-  3010	
-  3011		is_data = owner_objectid >= BTRFS_FIRST_FREE_OBJECTID;
-  3012	
-  3013		if (unlikely(!is_data && refs_to_drop != 1)) {
-  3014			btrfs_crit(info,
-  3015	"invalid refs_to_drop, dropping more than 1 refs for tree block %llu refs_to_drop %u",
-  3016				   node->bytenr, refs_to_drop);
-  3017			ret = -EINVAL;
-  3018			btrfs_abort_transaction(trans, ret);
-  3019			goto out;
-  3020		}
-  3021	
-  3022		if (is_data)
-  3023			skinny_metadata = false;
-  3024	
-  3025		ret = lookup_extent_backref(trans, path, &iref, bytenr, num_bytes,
-  3026					    parent, root_objectid, owner_objectid,
-  3027					    owner_offset);
-  3028		if (ret == 0) {
-  3029			/*
-  3030			 * Either the inline backref or the SHARED_DATA_REF/
-  3031			 * SHARED_BLOCK_REF is found
-  3032			 *
-  3033			 * Here is a quick path to locate EXTENT/METADATA_ITEM.
-  3034			 * It's possible the EXTENT/METADATA_ITEM is near current slot.
-  3035			 */
-  3036			extent_slot = path->slots[0];
-  3037			while (extent_slot >= 0) {
-  3038				btrfs_item_key_to_cpu(path->nodes[0], &key,
-  3039						      extent_slot);
-  3040				if (key.objectid != bytenr)
-  3041					break;
-  3042				if (key.type == BTRFS_EXTENT_ITEM_KEY &&
-  3043				    key.offset == num_bytes) {
-  3044					found_extent = 1;
-  3045					break;
-  3046				}
-  3047				if (key.type == BTRFS_METADATA_ITEM_KEY &&
-  3048				    key.offset == owner_objectid) {
-  3049					found_extent = 1;
-  3050					break;
-  3051				}
-  3052	
-  3053				/* Quick path didn't find the EXTEMT/METADATA_ITEM */
-  3054				if (path->slots[0] - extent_slot > 5)
-  3055					break;
-  3056				extent_slot--;
-  3057			}
-  3058	
-  3059			if (!found_extent) {
-  3060				if (unlikely(iref)) {
-  3061					btrfs_crit(info,
-  3062	"invalid iref, no EXTENT/METADATA_ITEM found but has inline extent ref");
-  3063					btrfs_abort_transaction(trans, -EUCLEAN);
-  3064					goto err_dump;
-  3065				}
-  3066				/* Must be SHARED_* item, remove the backref first */
-  3067				ret = remove_extent_backref(trans, path, NULL,
-  3068							    refs_to_drop,
-  3069							    is_data, &last_ref);
-  3070				if (ret) {
-  3071					btrfs_abort_transaction(trans, ret);
-  3072					goto out;
-  3073				}
-  3074				btrfs_release_path(path);
-  3075				path->leave_spinning = 1;
-  3076	
-  3077	
-  3078				/* Slow path to locate EXTENT/METADATA_ITEM */
-  3079				key.objectid = bytenr;
-  3080				key.type = BTRFS_EXTENT_ITEM_KEY;
-  3081				key.offset = num_bytes;
-  3082	
-  3083				if (!is_data && skinny_metadata) {
-  3084					key.type = BTRFS_METADATA_ITEM_KEY;
-  3085					key.offset = owner_objectid;
-  3086				}
-  3087	
-  3088				ret = btrfs_search_slot(trans, extent_root,
-  3089							&key, path, -1, 1);
-  3090				if (ret > 0 && skinny_metadata && path->slots[0]) {
-  3091					/*
-  3092					 * Couldn't find our skinny metadata item,
-  3093					 * see if we have ye olde extent item.
-  3094					 */
-  3095					path->slots[0]--;
-  3096					btrfs_item_key_to_cpu(path->nodes[0], &key,
-  3097							      path->slots[0]);
-  3098					if (key.objectid == bytenr &&
-  3099					    key.type == BTRFS_EXTENT_ITEM_KEY &&
-  3100					    key.offset == num_bytes)
-  3101						ret = 0;
-  3102				}
-  3103	
-  3104				if (ret > 0 && skinny_metadata) {
-  3105					skinny_metadata = false;
-  3106					key.objectid = bytenr;
-  3107					key.type = BTRFS_EXTENT_ITEM_KEY;
-  3108					key.offset = num_bytes;
-  3109					btrfs_release_path(path);
-  3110					ret = btrfs_search_slot(trans, extent_root,
-  3111								&key, path, -1, 1);
-  3112				}
-  3113	
-  3114				if (ret) {
-  3115					btrfs_err(info,
-  3116						  "umm, got %d back from search, was looking for %llu",
-  3117						  ret, bytenr);
-  3118					if (ret > 0)
-  3119						btrfs_print_leaf(path->nodes[0]);
-  3120				}
-  3121				if (ret < 0) {
-  3122					btrfs_abort_transaction(trans, ret);
-  3123					goto out;
-  3124				}
-  3125				extent_slot = path->slots[0];
-  3126			}
-  3127		} else if (WARN_ON(ret == -ENOENT)) {
-  3128			btrfs_print_leaf(path->nodes[0]);
-  3129			btrfs_err(info,
-  3130				"unable to find ref byte nr %llu parent %llu root %llu  owner %llu offset %llu",
-  3131				bytenr, parent, root_objectid, owner_objectid,
-  3132				owner_offset);
-  3133			btrfs_abort_transaction(trans, ret);
-  3134			goto out;
-  3135		} else {
-  3136			btrfs_abort_transaction(trans, ret);
-  3137			goto out;
-  3138		}
-  3139	
-  3140		leaf = path->nodes[0];
-  3141		item_size = btrfs_item_size_nr(leaf, extent_slot);
-  3142		if (unlikely(item_size < sizeof(*ei))) {
-  3143			ret = -EINVAL;
-  3144			btrfs_print_v0_err(info);
-  3145			btrfs_abort_transaction(trans, ret);
-  3146			goto out;
-  3147		}
-  3148		ei = btrfs_item_ptr(leaf, extent_slot,
-  3149				    struct btrfs_extent_item);
-  3150		if (owner_objectid < BTRFS_FIRST_FREE_OBJECTID &&
-  3151		    key.type == BTRFS_EXTENT_ITEM_KEY) {
-  3152			struct btrfs_tree_block_info *bi;
-  3153			if (unlikely(item_size < sizeof(*ei) + sizeof(*bi))) {
-  3154				btrfs_crit(info,
-  3155	"invalid extent item size for key (%llu, %u, %llu) owner %llu, has %u expect >= %lu",
-  3156					   key.objectid, key.type, key.offset,
-  3157					   owner_objectid, item_size,
-> 3158					   sizeof(*ei) + sizeof(*bi));
-  3159				btrfs_abort_transaction(trans, -EUCLEAN);
-  3160				goto err_dump;
-  3161			}
-  3162			bi = (struct btrfs_tree_block_info *)(ei + 1);
-  3163			WARN_ON(owner_objectid != btrfs_tree_block_level(leaf, bi));
-  3164		}
-  3165	
-  3166		refs = btrfs_extent_refs(leaf, ei);
-  3167		if (refs < refs_to_drop) {
-  3168			btrfs_crit(info,
-  3169			"trying to drop %d refs but we only have %Lu for bytenr %Lu",
-  3170				  refs_to_drop, refs, bytenr);
-  3171			btrfs_abort_transaction(trans, -EUCLEAN);
-  3172			goto err_dump;
-  3173		}
-  3174		refs -= refs_to_drop;
-  3175	
-  3176		if (refs > 0) {
-  3177			if (extent_op)
-  3178				__run_delayed_extent_op(extent_op, leaf, ei);
-  3179			/*
-  3180			 * In the case of inline back ref, reference count will
-  3181			 * be updated by remove_extent_backref
-  3182			 */
-  3183			if (iref) {
-  3184				if (unlikely(!found_extent)) {
-  3185					btrfs_crit(info,
-  3186	"invalid iref, got inlined extent ref but no EXTENT/METADATA_ITEM found");
-  3187					btrfs_abort_transaction(trans, -EUCLEAN);
-  3188					goto err_dump;
-  3189				}
-  3190			} else {
-  3191				btrfs_set_extent_refs(leaf, ei, refs);
-  3192				btrfs_mark_buffer_dirty(leaf);
-  3193			}
-  3194			if (found_extent) {
-  3195				ret = remove_extent_backref(trans, path, iref,
-  3196							    refs_to_drop, is_data,
-  3197							    &last_ref);
-  3198				if (ret) {
-  3199					btrfs_abort_transaction(trans, ret);
-  3200					goto out;
-  3201				}
-  3202			}
-  3203		} else {
-  3204			/* In this branch refs == 1 */
-  3205			if (found_extent) {
-  3206				if (is_data && refs_to_drop !=
-  3207				    extent_data_ref_count(path, iref)) {
-  3208					btrfs_crit(info,
-  3209			"invalid refs_to_drop, current refs %u refs_to_drop %u",
-  3210						   extent_data_ref_count(path, iref),
-  3211						   refs_to_drop);
-  3212					btrfs_abort_transaction(trans, -EUCLEAN);
-  3213					goto err_dump;
-  3214				}
-  3215				if (iref) {
-  3216					if (path->slots[0] != extent_slot) {
-  3217						btrfs_crit(info,
-  3218	"invalid iref, extent item key (%llu %u %llu) doesn't has wanted iref",
-  3219							   key.objectid, key.type,
-  3220							   key.offset);
-  3221						btrfs_abort_transaction(trans, -EUCLEAN);
-  3222						goto err_dump;
-  3223					}
-  3224				} else {
-  3225					/*
-  3226					 * No inline ref, we must at SHARED_* item,
-  3227					 * And it's single ref, it must be:
-  3228					 * |	extent_slot	  ||extent_slot + 1|
-  3229					 * [ EXTENT/METADATA_ITEM ][ SHARED_* ITEM ]
-  3230					 */
-  3231					if (path->slots[0] != extent_slot + 1) {
-  3232						btrfs_crit(info,
-  3233		"invalid SHARED_* item, previous item is not EXTENT/METADATA_ITEM");
-  3234						btrfs_abort_transaction(trans, -EUCLEAN);
-  3235						goto err_dump;
-  3236					}
-  3237					path->slots[0] = extent_slot;
-  3238					num_to_del = 2;
-  3239				}
-  3240			}
-  3241	
-  3242			last_ref = 1;
-  3243			ret = btrfs_del_items(trans, extent_root, path, path->slots[0],
-  3244					      num_to_del);
-  3245			if (ret) {
-  3246				btrfs_abort_transaction(trans, ret);
-  3247				goto out;
-  3248			}
-  3249			btrfs_release_path(path);
-  3250	
-  3251			if (is_data) {
-  3252				ret = btrfs_del_csums(trans, info->csum_root, bytenr,
-  3253						      num_bytes);
-  3254				if (ret) {
-  3255					btrfs_abort_transaction(trans, ret);
-  3256					goto out;
-  3257				}
-  3258			}
-  3259	
-  3260			ret = add_to_free_space_tree(trans, bytenr, num_bytes);
-  3261			if (ret) {
-  3262				btrfs_abort_transaction(trans, ret);
-  3263				goto out;
-  3264			}
-  3265	
-  3266			ret = btrfs_update_block_group(trans, bytenr, num_bytes, 0);
-  3267			if (ret) {
-  3268				btrfs_abort_transaction(trans, ret);
-  3269				goto out;
-  3270			}
-  3271		}
-  3272		btrfs_release_path(path);
-  3273	
-  3274	out:
-  3275		btrfs_free_path(path);
-  3276		return ret;
-  3277	err_dump:
-  3278		/*
-  3279		 * Leaf dump can take up a lot of dmesg buffer since default nodesize
-  3280		 * is already 16K.
-  3281		 * So we only do full leaf dump for debug build.
-  3282		 */
-  3283		if (IS_ENABLED(CONFIG_BTRFS_DEBUG)) {
-  3284			btrfs_crit(info, "path->slots[0]=%d extent_slot=%d",
-  3285				   path->slots[0], extent_slot);
-  3286			btrfs_print_leaf(path->nodes[0]);
-  3287		}
-  3288	
-  3289		btrfs_free_path(path);
-  3290		return -EUCLEAN;
-  3291	}
-  3292	
+--
+>> <stdin>:1526:2: warning: syscall memfd_secret not implemented [-W#warnings]
+   #warning syscall memfd_secret not implemented
+    ^
+   1 warning generated.
+--
+   WARNING: unmet direct dependencies detected for HOTPLUG_CPU
+   Depends on SMP && (PPC_PSERIES || PPC_PMAC || PPC_POWERNV || FSL_SOC_BOOKE
+   Selected by
+   - PM_SLEEP_SMP && SMP && (ARCH_SUSPEND_POSSIBLE || ARCH_HIBERNATION_POSSIBLE && PM_SLEEP
+>> <stdin>:1526:2: warning: syscall memfd_secret not implemented
+   #warning syscall memfd_secret not implemented
+   ^
+   1 warning generated.
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -553,14 +192,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202008210900.7K3KQJLA%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202008211055.O8bQBXWd%25lkp%40intel.com.
 
---y0ulUmNC+osPPQO6
+--bg08WKrSYDhXBjb5
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICEISP18AAy5jb25maWcAlDzbdts4ku/9FTrpl9lztjuSbCvO7PEDSIIUWgTBAKB8eeFx
+H4sICIUuP18AAy5jb25maWcAlDzbdts4ku/9FTrpl9lztjuSbCvO7PEDSIIUWgTBAKB8eeFx
 bCXjbcfOynIm+futAm8ACCqZeeiJqgoFoFCoG4r+/bffZ+T18Pzl9vBwd/v4+GP2efe0298e
 dvezTw+Pu/+ZJWJWCD2jCdN/AnH+8PT6/e3X53/v9l/vZmd/vv9z/sf+bjHb7PZPu8dZ/Pz0
 6eHzKzB4eH767fffYlGkLKvjuN5SqZgoak2v9MWbu8fbp8+zb7v9C9DNFss/53/OZ//4/HD4
@@ -1289,4 +928,4 @@ Iw6f7nbjGB28oVZ32cHUxpK8MLTIrHS6st1PlTXkpt2YfnenHKuSXfiRdHFdcWu9PSIgeDUe
 YWxHUjOdCbuoM/RoW+ZCFfuiq86JnxBMtgsn1dtYQBaLYtW6wHqXFyDYZ1WzsfQkvKSk0Vj3
 cFPNuGkr1ieFvozYFAgSOlNscsxVALn4VvwXCqvyoNBkAgA=
 
---y0ulUmNC+osPPQO6--
+--bg08WKrSYDhXBjb5--
