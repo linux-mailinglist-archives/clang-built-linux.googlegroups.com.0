@@ -1,128 +1,148 @@
-Return-Path: <clang-built-linux+bncBDY3NC743AGBBFVPQH5AKGQERCJHRTA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCIO53XE7YHBBVFPQH5AKGQE5AWQ7NY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93b.google.com (mail-ua1-x93b.google.com [IPv6:2607:f8b0:4864:20::93b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 201CF24E3DC
-	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 01:24:07 +0200 (CEST)
-Received: by mail-ua1-x93b.google.com with SMTP id g4sf392171uag.4
-        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 16:24:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598052246; cv=pass;
+Received: from mail-ua1-x93d.google.com (mail-ua1-x93d.google.com [IPv6:2607:f8b0:4864:20::93d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 906C324E3DE
+	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 01:25:09 +0200 (CEST)
+Received: by mail-ua1-x93d.google.com with SMTP id h13sf390882uab.19
+        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 16:25:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598052308; cv=pass;
         d=google.com; s=arc-20160816;
-        b=wY1Pqy2Rs3HJZxjjWhxg9jfPRxWTpol8WZ0ONuCq+gg0zaVqpU22Een9ZmIBmgJoU9
-         4XswuOUhpDdUDms0sHJJnSU9bq+KjKIni/td2R/rvmfwLs+rtRW2kmzpKjPZVJzzB77t
-         KHUOIkZT+LTdC0ZsWi1IRRgRVJpMRm2manHnPlqJbmodZYckrg5EeGzMwe5kH0GTD49I
-         7H8qQCCor8zTX/8Pocaunyx7wnjdOdguMXUzJW9P1YDORElFN2S3nfugt1kc3rK6n6dP
-         G71evK9OhgRtQi5smgeBiUj7r5R+I0raDf4BH4tHKG7EkcjMj0pvh5gDHx20hStC2GPO
-         1xbA==
+        b=IBWXwWEV2lfIljLoTsWHXLPsVdjPrYHth65WaCMLr525hh5enwfawA58viMWAUuHob
+         ZER7WyT9T03mIUFTooMCK99Fz3jY15c7qxwGKNsM6efC54N4DDIxMiDea81EUXa9UcXJ
+         nj/w4Fi1yYtoSsgh3YpPl0zxcIxOJEX1W9sV87DCIsZioAHGFkSrnlcSd2AyGyw+/q3l
+         7D9xAV6l+HAVCNBVOuwZEyVTASL6ilYT6Wcc1fSWSPsbwqMv2Yk53MYZsHqCXpkUHV+b
+         M0n4E8Xk9lT5V13Ealekl0mzeBvh9dR1HpTG0Vm8H16c1yctgbE1vyLx5bSdV2TOG4p5
+         dcmA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:sender
          :dkim-signature;
-        bh=3Zz/5/VVQEzPSL7y8iOGnZKh/FJ8HLoWDIZkOgaezUk=;
-        b=WnmFkUxzKDv/jT1XOAhvXvsnWcLwpotQE7rwBHPkin7ySU0+Qw6+aAfNY9WKPKJuzY
-         apIKtthlwj1AY2si0hhDFZ3NUYS3SBjDzkqR8WJCRhk06rkM/Ko+W1SdfnqCdP9ixj6P
-         uN0ORr0L0C49lkFwUkspMZbnDxKCypeApy8FDeqkblIBtBfabqEc7oo2Af4hzACPljdm
-         FAUS2YS/mIsDpXvUnMhIpneckfZGLsuW8NWS3hbPSTF8DhMRbcezPw6CsiliaW1J6X7P
-         TpUPhw228P7ET4phfYBp3MHNX0P0RaS4J5Egml1aQ8cCU5ZoDGv3Gbp81cQK/9d0Zb3G
-         uwTw==
+        bh=zhiGGQ80ucJLaV44xnO/gs6RU/FOFcI1J988dQm9b7M=;
+        b=DEUPxLgZTZq4LyAy+M3MCom3hLhOkvDE4nBiCULVQ3tCItIyFfCBBmvdvbFbXLYECV
+         DIjTUrK/d0zSipwWZIpAlSwHOEHi+VzxaJ0UKCWEuDCXdrJR7HDeKLPxQF24MDpdgjdB
+         2w3Zt7l4tJ2Mpyiqg+B+0nAUv0LBc0au4rQ3V7sML3GuJH+IEKSn2sTK5t5+o2FUBwKS
+         FZgSra5+mk/UCPYETS+x78YUbRmNDYEGOTGljySk4PhAP1j5jg+ue69eWBRCa3HXYqkr
+         lqmMGIdt1rBq5wW0aZyqzGCEYuoHBMpXWDMc7dX04o647E3m7kgxk8bHceB1VCNGpwg8
+         AvBQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.135 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=ntUqPrmj;
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f44 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
+        d=gmail.com; s=20161025;
+        h=sender:from:date:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=3Zz/5/VVQEzPSL7y8iOGnZKh/FJ8HLoWDIZkOgaezUk=;
-        b=SAt70rtKU4IS1iQ8njrs6AwT5H+ajcdJJp5Zsl2oFkM+e7YDm0SWqzuZJmvVU93kSU
-         8i+poCRYCxYtNChSIDhOCpyBdQwi1NEMh4BdWvWQMF0WWL4QoXzVkX2OLXoSOTZKWCyd
-         qtK8sM7ZfWuwFCw/JJpliOhMWr8K1vQrwMqbVG5Rmp0BtruAo5zUyle9bKSO+n6eLkVz
-         vbKPGbyq6t4iOeuq2diQucpIUYZIjTuXnxrHsRAPdoKE7NAKwArX3UT1JSXiuSqTXhfM
-         OC2dmCT1j+2qyy74XJRFsrIv3QuoXzeAtuxeJXWyLIuenZYLZQnkVvOZyWnJDRTZ874M
-         GclA==
+        bh=zhiGGQ80ucJLaV44xnO/gs6RU/FOFcI1J988dQm9b7M=;
+        b=jOSYmtxHPKgXeomTshPMbU/k6HWB2Q7+cwwb+3ZlV5078OavmgkdGS5WkrPVl/VG+Q
+         n7UzBJopzZEmcEcarvZdbihZR99nfqiYdU2am5Fy6PgAPFJsojcNK9QAgWXNZGHFUKGH
+         eRoxchIhmZH5Q3UnL3s0huk0ILbt8MxpO6JBO8N0IZXp4jVNX3iIj0f+fsw1wvhlBUSq
+         yf7NnbrjLsrRrPV46UGVraerwKKEA7+FsN6OOFttPE+e3AcyyQmy/lZ1XiPczs/Gemx/
+         wESxhgdCMBOrMCtFfLfycab/kBJRGhSwtl3e9TwrUTiI+WsjC7FymVm2o6XcA9JhlLYS
+         HsJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=3Zz/5/VVQEzPSL7y8iOGnZKh/FJ8HLoWDIZkOgaezUk=;
-        b=HokWstXbX/tZvEKFWH8zQepLki+gj/12khWBIfM0kfPpsRJ/lIuTe1/4/h+8TSHwUo
-         k89LEIEXSNd+ij0Zn9C80tATGHlg9tng+i+Ky9SyPZIImy5VjT1iRdaL6btXLXwk3l97
-         iA5d2HS7EhkX8lJE5xKzsqTo3QbWJItBp/2g94fA91MaNRUDwyxsql0JygVQqUOColzu
-         678VH1Z71dM/ULMPjov6+5CksZdhACrtfjURvWKLPzlbzmSPhsnFkfU1DWczBOfRFUT8
-         nVIoaGJI1cNTie+n6bPpp79OnIwdmgHJ2E/MTxjVqzZeRY60ZurEmT+5+pJ1MWi74hgZ
-         XT0Q==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531Q1oKmW2ZGFov08fvI9l9tu7esQE0zZyXKjEpE+OLNRlc6T7cf
-	p0xAHupaHqyLRoDnuG2Ft3E=
-X-Google-Smtp-Source: ABdhPJzXYmvg1Z0WrfiCOJPK8sZipgbrOjNY2PB91Kgeq4+7Xpgk9eWfs1NsMlsE95qxo/2koBTMQQ==
-X-Received: by 2002:a67:3242:: with SMTP id y63mr3444191vsy.72.1598052246136;
-        Fri, 21 Aug 2020 16:24:06 -0700 (PDT)
+        h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=zhiGGQ80ucJLaV44xnO/gs6RU/FOFcI1J988dQm9b7M=;
+        b=puRfDO5CPRRiBBp5Bqg3HH+FsIIMQYrSp7YABE2lt1N5Zin3qNJfbUAUJNnqqe8Ls8
+         uIHXKQKJH0uzIdND+RoI4xizA6Zmyi0XGUCNp7Gfnoluwa7iOAf9P6BjL85JeyIzuq8o
+         lJDZyC53/CXTDQgFeIiE9f2OW5LvK1w7P+HgYxEVj7yPfhgkHlNTxzHpwe4sSMpBHWhC
+         wFT662LWAxADHQ0iBOLM48DAafka7leEXyl06zFVIUpsQ86v6XuliA2IhOHlpFh/Sqnk
+         LfLSSbyvD8kTgxpgWP+6RqqUs76em7zEMcVI9ClnCmoOgxRNntsC2XF8HLXKtBZflV+L
+         eJUw==
+X-Gm-Message-State: AOAM5319LuJLz+gxSWaifeCeuLyIF2DZNjviPNAYRXsGIPnO11DZ5W7S
+	6wBjDLvmSOvt8QwD7cziwmg=
+X-Google-Smtp-Source: ABdhPJyORwb2imrcOc37uDexHYY12bbWamKns//JkjV8IsPlnFBs9kBClMF1bJnJCGAms+9dlWzKLw==
+X-Received: by 2002:a67:2ac2:: with SMTP id q185mr3427786vsq.33.1598052308662;
+        Fri, 21 Aug 2020 16:25:08 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:dd9a:: with SMTP id i26ls459030vsk.6.gmail; Fri, 21 Aug
- 2020 16:24:05 -0700 (PDT)
-X-Received: by 2002:a67:ecd4:: with SMTP id i20mr3366783vsp.68.1598052245765;
-        Fri, 21 Aug 2020 16:24:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598052245; cv=none;
+Received: by 2002:a67:c416:: with SMTP id c22ls459300vsk.4.gmail; Fri, 21 Aug
+ 2020 16:25:08 -0700 (PDT)
+X-Received: by 2002:a05:6102:c7:: with SMTP id u7mr3600434vsp.195.1598052308213;
+        Fri, 21 Aug 2020 16:25:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598052308; cv=none;
         d=google.com; s=arc-20160816;
-        b=OaON1bxdv0nPK0lRAqKbrZ0AsRld0bRAizlS+0UG7KAhYkYmTxZNdO+gtV4MruyLAZ
-         FxsQRIX8/+5irSL4JyR7GouHd6KXQz3zUDBCkYXwLlOqCoWTYLE/Ecd3PsI5aOuU377w
-         EvHpogX0vlx91jKC/VBMUNPxMbHwUeI+Q2Jdiy4Rho1FDdO68ZX2egaPc+2wYn8s7fAT
-         JVAuaLzLfdRP0XV+Hx5y71tMciRCuL2JVaXjEIk4vYWRYlIm1d/nSoG1x3kHWSxCV5fx
-         jXYvXH+E8bhAcZ7jBePGx4ivQieUnX6nLTiFwhhQvK/Zy1r1zaOZPCg32py2ziKI7w0G
-         1LjQ==
+        b=KjFRaDktl6p+VxBJW8dmqh8VKG3+PzYTBbQLBvpQl2+apv1FJtt1fuhUYszr1OviFt
+         Gpnc/huXRC57bipcmlf01kq8Dg2+9Dyf9KymUoHi6ADX/ojhBQrYbTYyDVWXHgzlbB6z
+         XeGmubMuVlbFbEgrigE0aEqGr/H50R983inSN8eCpbfK1mw8GzHzthtCRes3V5sVx8qP
+         9EyOIZSbScg++hZbDhK5J2jq/H7PBvV5Evxn6g4RmMkXJ0icFNlTeLJkqHm/M+sJZ5bE
+         nA2ez8mC3zpj6GMltHL8ZJMnVi9zuUH1/nzxRroA6XC8II+dv51xDZG9yjkawyfEI6xl
+         MA2w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id;
-        bh=3m01MwxgEkvFzCE4H3G3tbcwbaUpgC2P9Yb5zkOVuVU=;
-        b=cMuSCjmU2HX9YJG6cUFHlb1jsIPzqFsqjL8d1IRqB1S/S9km7QhCgIB5TEp8mudjVE
-         chemsHi1voyuFT2iLIoR2rUrvwiLhGc4i7D/vD87HJneprfy07NwZ00rZqpP+rMcI8Lc
-         mfdONicM4UCJTPvIaOvDnvRO38DPb9ZD0oOFYxX82+yZT4BU3oHQJ89V5VihbLGwuduX
-         MuL1isZa61oCv+9euhg6K0S+fl1yTZVhqkA0G989Utl3rfY6ejgVTk9Z3F+PMPDjo5lD
-         XUy1LSYDPCdmn9s0yu5Zor/zbtlI9fux4LY6BveFjB66PkrjE3mcDBnLCHlIbddeWQlF
-         8oRA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:sender:dkim-signature;
+        bh=tPcAOUQXeRo09D74FlY+tpPy6QiUk0I9B9RENqrqcW0=;
+        b=JAxkpHjlxcuBuvH0ALo9NPVwiVkjIYcMXldIZAmbydY/cm0k40bsLF4nb/UNX6D6FM
+         89tHNcXiccdiKNb83Js11cja6TnzjlZGASpkyYZvx5b0OHpGyveSdemF7b49ZVIqnuJs
+         hxmk5luA41LggMDhFZLZNGyRvbPyvU7Hq3FI3ytBa/Cv4MoFTY/1sXUqjsC7Fh+wAu5X
+         EYKB25dYB1aNboBBRtajtx1UAACcotfoK8VlaINwte0nULbcAlUg/umHKH2ww8vh52NE
+         0CqqxddCSKSA7nettdqxFZyXcOqeTa+3xgbUz8RvGgUSJp52Q3e1eMBk496KQ7uuwg+a
+         4vCw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.135 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
-Received: from smtprelay.hostedemail.com (smtprelay0135.hostedemail.com. [216.40.44.135])
-        by gmr-mx.google.com with ESMTPS id u18si182674vsq.0.2020.08.21.16.24.05
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=ntUqPrmj;
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f44 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+Received: from mail-qv1-xf44.google.com (mail-qv1-xf44.google.com. [2607:f8b0:4864:20::f44])
+        by gmr-mx.google.com with ESMTPS id j18si210031vki.3.2020.08.21.16.25.08
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Aug 2020 16:25:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f44 as permitted sender) client-ip=2607:f8b0:4864:20::f44;
+Received: by mail-qv1-xf44.google.com with SMTP id o2so1380721qvk.6
+        for <clang-built-linux@googlegroups.com>; Fri, 21 Aug 2020 16:25:08 -0700 (PDT)
+X-Received: by 2002:a0c:ec01:: with SMTP id y1mr4495531qvo.167.1598052307897;
+        Fri, 21 Aug 2020 16:25:07 -0700 (PDT)
+Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
+        by smtp.gmail.com with ESMTPSA id h55sm3767475qte.16.2020.08.21.16.25.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2020 16:24:05 -0700 (PDT)
-Received-SPF: neutral (google.com: 216.40.44.135 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.135;
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
-	by smtprelay07.hostedemail.com (Postfix) with ESMTP id 0766F181D341E;
-	Fri, 21 Aug 2020 23:24:05 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 2,0,0,,d41d8cd98f00b204,joe@perches.com,,RULES_HIT:41:355:379:599:973:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1535:1544:1593:1594:1711:1730:1747:1777:1792:1801:2194:2198:2199:2200:2393:2559:2562:2828:3138:3139:3140:3141:3142:3354:3622:3865:3866:3867:4250:4321:4605:5007:9149:9592:10004:10848:11026:11232:11473:11657:11658:11914:12043:12048:12291:12297:12438:12555:12683:12740:12760:12895:13161:13229:13439:14110:14659:14721:21080:21451:21627:30054:30091,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:1,LUA_SUMMARY:none
-X-HE-Tag: game49_02002042703d
-X-Filterd-Recvd-Size: 5177
-Received: from XPS-9350.home (unknown [47.151.133.149])
-	(Authenticated sender: joe@perches.com)
-	by omf06.hostedemail.com (Postfix) with ESMTPA;
-	Fri, 21 Aug 2020 23:24:03 +0000 (UTC)
-Message-ID: <32801506f274e046e329da069839ff75443b2b78.camel@perches.com>
-Subject: Re: [PATCH] vdpa/mlx5: Avoid warnings about shifts on 32-bit
- platforms
-From: Joe Perches <joe@perches.com>
-To: Randy Dunlap <rdunlap@infradead.org>, Nathan Chancellor
- <natechancellor@gmail.com>, "Michael S. Tsirkin" <mst@redhat.com>, Jason
- Wang <jasowang@redhat.com>, Eli Cohen <eli@mellanox.com>
-Cc: virtualization@lists.linux-foundation.org, linux-kernel@vger.kernel.org,
-  clang-built-linux@googlegroups.com
-Date: Fri, 21 Aug 2020 16:24:02 -0700
-In-Reply-To: <1975c0a0-c19a-c91e-dc10-2918061cc4e7@infradead.org>
-References: <20200821225018.940798-1-natechancellor@gmail.com>
-	 <1975c0a0-c19a-c91e-dc10-2918061cc4e7@infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.36.4-0ubuntu1
+        Fri, 21 Aug 2020 16:25:07 -0700 (PDT)
+Sender: Arvind Sankar <niveditas98@gmail.com>
+From: Arvind Sankar <nivedita@alum.mit.edu>
+Date: Fri, 21 Aug 2020 19:25:05 -0400
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Arvind Sankar <nivedita@alum.mit.edu>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+	Borislav Petkov <bp@alien8.de>,
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	Zhenzhong Duan <zhenzhong.duan@oracle.com>,
+	Kees Cook <keescook@chromium.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juergen Gross <jgross@suse.com>, Andy Lutomirski <luto@kernel.org>,
+	Andrew Cooper <andrew.cooper3@citrix.com>,
+	LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Will Deacon <will@kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [PATCH] x86: work around clang IAS bug referencing __force_order
+Message-ID: <20200821232505.GA66405@rani.riverdale.lan>
+References: <878serh1b9.fsf@nanos.tec.linutronix.de>
+ <CAKwvOdnOh3H3ga2qpTktywvcgfXW5QJaB7r4XMhigmDzLhDNeA@mail.gmail.com>
+ <87h7t6tpye.fsf@nanos.tec.linutronix.de>
+ <20200813173701.GC4295@paulmck-ThinkPad-P72>
+ <20200813180933.GA532283@rani.riverdale.lan>
+ <875z9dioll.fsf@nanos.tec.linutronix.de>
+ <20200820130641.GA536306@rani.riverdale.lan>
+ <87zh6ohm03.fsf@nanos.tec.linutronix.de>
+ <20200821230435.GA56974@rani.riverdale.lan>
+ <CAKwvOdkoB+fT9tt7vgg1R6J-NEr77EWP5X8nFat_L-HvEzWGzA@mail.gmail.com>
 MIME-Version: 1.0
-X-Original-Sender: joe@perches.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 216.40.44.135 is neither permitted nor denied by best guess
- record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <CAKwvOdkoB+fT9tt7vgg1R6J-NEr77EWP5X8nFat_L-HvEzWGzA@mail.gmail.com>
+X-Original-Sender: nivedita@alum.mit.edu
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=ntUqPrmj;       spf=pass
+ (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f44
+ as permitted sender) smtp.mailfrom=niveditas98@gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,93 +155,72 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, 2020-08-21 at 16:13 -0700, Randy Dunlap wrote:
-> On 8/21/20 3:50 PM, Nathan Chancellor wrote:
-> > Clang warns several times when building for 32-bit ARM along the lines
-> > of:
+On Fri, Aug 21, 2020 at 04:16:56PM -0700, Nick Desaulniers wrote:
+> On Fri, Aug 21, 2020 at 4:04 PM Arvind Sankar <nivedita@alum.mit.edu> wrote:
+> >
+> > On Fri, Aug 21, 2020 at 02:37:48AM +0200, Thomas Gleixner wrote:
+> > > On Thu, Aug 20 2020 at 09:06, Arvind Sankar wrote:
+> > > > I don't think that's an issue, or at least, not one where force_order
+> > > > helps.
+> > > >
+> > > > If the source for foo() is not visible to the compiler, the only reason
+> > > > force_order prevents the reordering is because foo() might have
+> > > > references to it, but equally foo() might have volatile asm, so the
+> > > > reordering isn't possible anyway.
+> > > >
+> > > > If the source is visible, force_order won't prevent any reordering
+> > > > except across references to force_order, but the only references are
+> > > > from the volatile asm's which already prevent reordering.
+> > > >
+> > > > I think force_order can only help with buggy compilers, and for those it
+> > > > should really have been an input-output operand -- it wouldn't currently
+> > > > do anything to prevent cr writes from being reordered.
+> 
+> I agree 100%.  From the link to GCC docs, the code in question doesn't
+> even follow the pattern from the doc from informing the compiler of
+> any dependency, it just looks like !@#$.
+> 
+> > >
+> > > Fair enough. Care to provide a patch which has the collected wisdom of
+> > > this thread in the changelog?
+> > >
+> > > Thanks,
+> > >
+> > >         tglx
+> >
+> > The gcc bug I linked to earlier is only fixed in gcc-6 onwards. Is that
+> 
+> (based on https://gcc.gnu.org/bugzilla/show_bug.cgi?id=82602#c14)
 
-The defines are quite horrible to read.
-Maybe:
----
- drivers/vdpa/mlx5/net/mlx5_vnet.c | 61 +++++++++++++++++++++++++++-----
--------
- 1 file changed, 43 insertions(+), 18 deletions(-)
+I actually checked gcc's git repo too. The fix is not there in gcc-4.9
+and gcc-5.
 
-diff --git a/drivers/vdpa/mlx5/net/mlx5_vnet.c b/drivers/vdpa/mlx5/net/mlx5_vnet.c
-index 9df69d5efe8c..62b6eec713b2 100644
---- a/drivers/vdpa/mlx5/net/mlx5_vnet.c
-+++ b/drivers/vdpa/mlx5/net/mlx5_vnet.c
-@@ -15,24 +15,49 @@
- 
- #define to_mvdev(__vdev) container_of((__vdev), struct mlx5_vdpa_dev, vdev)
- 
--#define VALID_FEATURES_MASK                                                                        \
--	(BIT(VIRTIO_NET_F_CSUM) | BIT(VIRTIO_NET_F_GUEST_CSUM) |                                   \
--	 BIT(VIRTIO_NET_F_CTRL_GUEST_OFFLOADS) | BIT(VIRTIO_NET_F_MTU) | BIT(VIRTIO_NET_F_MAC) |   \
--	 BIT(VIRTIO_NET_F_GUEST_TSO4) | BIT(VIRTIO_NET_F_GUEST_TSO6) |                             \
--	 BIT(VIRTIO_NET_F_GUEST_ECN) | BIT(VIRTIO_NET_F_GUEST_UFO) | BIT(VIRTIO_NET_F_HOST_TSO4) | \
--	 BIT(VIRTIO_NET_F_HOST_TSO6) | BIT(VIRTIO_NET_F_HOST_ECN) | BIT(VIRTIO_NET_F_HOST_UFO) |   \
--	 BIT(VIRTIO_NET_F_MRG_RXBUF) | BIT(VIRTIO_NET_F_STATUS) | BIT(VIRTIO_NET_F_CTRL_VQ) |      \
--	 BIT(VIRTIO_NET_F_CTRL_RX) | BIT(VIRTIO_NET_F_CTRL_VLAN) |                                 \
--	 BIT(VIRTIO_NET_F_CTRL_RX_EXTRA) | BIT(VIRTIO_NET_F_GUEST_ANNOUNCE) |                      \
--	 BIT(VIRTIO_NET_F_MQ) | BIT(VIRTIO_NET_F_CTRL_MAC_ADDR) | BIT(VIRTIO_NET_F_HASH_REPORT) |  \
--	 BIT(VIRTIO_NET_F_RSS) | BIT(VIRTIO_NET_F_RSC_EXT) | BIT(VIRTIO_NET_F_STANDBY) |           \
--	 BIT(VIRTIO_NET_F_SPEED_DUPLEX) | BIT(VIRTIO_F_NOTIFY_ON_EMPTY) |                          \
--	 BIT(VIRTIO_F_ANY_LAYOUT) | BIT(VIRTIO_F_VERSION_1) | BIT(VIRTIO_F_ACCESS_PLATFORM) |      \
--	 BIT(VIRTIO_F_RING_PACKED) | BIT(VIRTIO_F_ORDER_PLATFORM) | BIT(VIRTIO_F_SR_IOV))
--
--#define VALID_STATUS_MASK                                                                          \
--	(VIRTIO_CONFIG_S_ACKNOWLEDGE | VIRTIO_CONFIG_S_DRIVER | VIRTIO_CONFIG_S_DRIVER_OK |        \
--	 VIRTIO_CONFIG_S_FEATURES_OK | VIRTIO_CONFIG_S_NEEDS_RESET | VIRTIO_CONFIG_S_FAILED)
-+#define VALID_FEATURES_MASK						\
-+	(BIT_ULL(VIRTIO_NET_F_CSUM) |					\
-+	 BIT_ULL(VIRTIO_NET_F_GUEST_CSUM) |				\
-+	 BIT_ULL(VIRTIO_NET_F_CTRL_GUEST_OFFLOADS) |			\
-+	 BIT_ULL(VIRTIO_NET_F_MTU) |					\
-+	 BIT_ULL(VIRTIO_NET_F_MAC) |					\
-+	 BIT_ULL(VIRTIO_NET_F_GUEST_TSO4) |				\
-+	 BIT_ULL(VIRTIO_NET_F_GUEST_TSO6) |				\
-+	 BIT_ULL(VIRTIO_NET_F_GUEST_ECN) |				\
-+	 BIT_ULL(VIRTIO_NET_F_GUEST_UFO) |				\
-+	 BIT_ULL(VIRTIO_NET_F_HOST_TSO4) |				\
-+	 BIT_ULL(VIRTIO_NET_F_HOST_TSO6) |				\
-+	 BIT_ULL(VIRTIO_NET_F_HOST_ECN) |				\
-+	 BIT_ULL(VIRTIO_NET_F_HOST_UFO) |				\
-+	 BIT_ULL(VIRTIO_NET_F_MRG_RXBUF) |				\
-+	 BIT_ULL(VIRTIO_NET_F_STATUS) |					\
-+	 BIT_ULL(VIRTIO_NET_F_CTRL_VQ) |				\
-+	 BIT_ULL(VIRTIO_NET_F_CTRL_RX) |				\
-+	 BIT_ULL(VIRTIO_NET_F_CTRL_VLAN) |				\
-+	 BIT_ULL(VIRTIO_NET_F_CTRL_RX_EXTRA) |				\
-+	 BIT_ULL(VIRTIO_NET_F_GUEST_ANNOUNCE) |				\
-+	 BIT_ULL(VIRTIO_NET_F_MQ) |					\
-+	 BIT_ULL(VIRTIO_NET_F_CTRL_MAC_ADDR) |				\
-+	 BIT_ULL(VIRTIO_NET_F_HASH_REPORT) |				\
-+	 BIT_ULL(VIRTIO_NET_F_RSS) |					\
-+	 BIT_ULL(VIRTIO_NET_F_RSC_EXT) |				\
-+	 BIT_ULL(VIRTIO_NET_F_STANDBY) |				\
-+	 BIT_ULL(VIRTIO_NET_F_SPEED_DUPLEX) |				\
-+	 BIT_ULL(VIRTIO_F_NOTIFY_ON_EMPTY) |				\
-+	 BIT_ULL(VIRTIO_F_ANY_LAYOUT) |					\
-+	 BIT_ULL(VIRTIO_F_VERSION_1) |					\
-+	 BIT_ULL(VIRTIO_F_ACCESS_PLATFORM) |				\
-+	 BIT_ULL(VIRTIO_F_RING_PACKED) |				\
-+	 BIT_ULL(VIRTIO_F_ORDER_PLATFORM) |				\
-+	 BIT_ULL(VIRTIO_F_SR_IOV))
-+
-+#define VALID_STATUS_MASK						\
-+	(VIRTIO_CONFIG_S_ACKNOWLEDGE |					\
-+	 VIRTIO_CONFIG_S_DRIVER |					\
-+	 VIRTIO_CONFIG_S_DRIVER_OK |					\
-+	 VIRTIO_CONFIG_S_FEATURES_OK |					\
-+	 VIRTIO_CONFIG_S_NEEDS_RESET |					\
-+	 VIRTIO_CONFIG_S_FAILED)
- 
- struct mlx5_vdpa_net_resources {
- 	u32 tisn;
+> 
+> > good enough to remove force_order? I can test gcc-4.9 and gcc-5 to check
+> > if it would currently have any impact.
+> 
+> I think checking the disassemblies with a pre-gcc-6 would be good
+> enough then; that bug isn't specific to this particular case.
+> 
+> > CBL guys, can you confirm that clang also will not reorder volatile asm?
+> 
+> Full disassemblies of vmlinux pre vs post __force_order removal are
+> the same.  That's pretty good actually; I was worried for a code base
+> of this size whether two compiles would produce the exact same
+> disassemblies; I know the version strings are timestamped, for
+> instance, but I didn't compare data, just .text.  I should triple
+> check i386, and some of the ko's that use modified functions.  I'd be
+> happy to help provide a tested by tag for numerous configurations with
+> Clang.
+> 
+> Attaching the diff I was testing, feel free to add a commit message.
+> --
+> Thanks,
+> ~Nick Desaulniers
 
+Thanks, will write it up over the weekend.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/32801506f274e046e329da069839ff75443b2b78.camel%40perches.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200821232505.GA66405%40rani.riverdale.lan.
