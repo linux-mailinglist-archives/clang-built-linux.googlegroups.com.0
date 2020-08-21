@@ -1,125 +1,135 @@
-Return-Path: <clang-built-linux+bncBDV2D5O34IDRBGNKQH5AKGQE5HFJ5DQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB5NLQH5AKGQEXSV6QGI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x237.google.com (mail-lj1-x237.google.com [IPv6:2a00:1450:4864:20::237])
-	by mail.lfdr.de (Postfix) with ESMTPS id 491E824E3CA
-	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 01:13:30 +0200 (CEST)
-Received: by mail-lj1-x237.google.com with SMTP id h5sf1182480ljj.10
-        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 16:13:30 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598051609; cv=pass;
+Received: from mail-il1-x138.google.com (mail-il1-x138.google.com [IPv6:2607:f8b0:4864:20::138])
+	by mail.lfdr.de (Postfix) with ESMTPS id D072824E3D1
+	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 01:17:10 +0200 (CEST)
+Received: by mail-il1-x138.google.com with SMTP id 2sf2459861ill.10
+        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 16:17:10 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598051830; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Iw2ZGsKtzhMFlwb4bdxIZpt9TeSdayC50fwZAq3hqJnWx1oF1TmaQn9+512Kd0yru+
-         5hNo03G9Fg6VFr4QzeE6jW6LT1dzrCRkmrk9hVs872w0Y0OncsHu4bQ967g2ZyWlMm7R
-         Rv9qStCEk2Ngu2f8XhpsLrpJ1dyEotRbq8VxUdOUjuFsI24e8Wj/MbghwwsU7hfFN5DO
-         ugSuqZ61E8xJ5susVlAr6pSiVg6oUIzlNR9Yb3wJ0Fvq5M1k3/hkcGs+bX0aK4ZifMyW
-         GTzxRdshiODLT/mZElCkQttfJ1c4BRFPnzb95ij299p62voOjv8L8spSErl0NseLNJ/c
-         TmfA==
+        b=ziVKWyzO26ukkiiA1XWu6lN3X9o2GSs8ypkB3ssqRIpR+mdI3eSDFj7B82UrXY9/lX
+         SqTqomEXE10PjQFvANTltl0ziCeAAxLKtDVZeztcsBe7lXIkKwwOl+uO7HbIhmht22c7
+         Qu12bJC5QMmv4+fUKA7maHsQ+hI4ey+xaxiChecUkpAfzvDHgmkZOZ6+9i27e8NQm3Th
+         UpDCTrZgxXFUwXsMSjbJvprqpRnR/dk/1R1GHY9Cl/MX91u9F0NYBlqGaNDpe+hIu477
+         w6TAEaNY8VquczLraIZ2LVHrGtwSq2jWakhaRkS1A2SXEtBG/SeXzW0LuTcnUtMn9KZs
+         GVnw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=xIvU8CNszG5JfOuW0H5LmLigy1VGky0Y9xfAswB4Udg=;
-        b=zTPIzVX9Fo5GGodgJojJJKv6WXsDdLCMii/STmZQvMXNNttT1/5XAkC//R2ipzPj0H
-         JO9RC/KKqjbCxbzeBDY1pqR0GrD+QiHM82fnD7C0AitF3lv2qQ09CEj2EDb451EXI1Zg
-         CaBnWW9tDgy+cfcq52dTF8lI7r4RMy/Fo4fi1dxFdJGDRf+sNfg9dvIMGOXXYSAzziyN
-         WDyKN4UNlaN3aOtqmZNJj7gZ7BDiI77r23dq0arjHUnKCaHloj2GMZoqr7k85aKIzwCu
-         OvKUO1uWqpUtmHMYZnvIufWvaFxUT/0MWlKqqevF16GfVJ/rpJa5mDGMT01Ukl9HlvVW
-         Z/Bw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=lcoVnNJo3gizLUmmDPNs4dcKqv6w97eZxJaLse7lrbk=;
+        b=fDvMy3QRTRNduNgsxhoF8HUjl6MLH8qagFSoYsqT5fgLnqmAbV6pyReT6qTz3a65te
+         reLQaApmhOmKnWBxMGC9LVITqpE5dmNTqrx2YRogEoBuivRSX0D68BHFwyW2k93TgXBh
+         OUArw9wPbwIav7raQn9tsSIdk4PvLPJvKZdOrsRG0raBzil6LSOFdGE74yuRKEgytPNE
+         UU0sbpTNqBjHpPWqImahgGgfxvbSAlNaYoxDByhswLznhB3zb4JOaHh6ilVYfhx5gPy/
+         uWZnIxkIfBuVHH7oZrGmWrh88bWG48MO7PKFuUjmTvN8ONf/qYHnlUDS0xml+qQtHUzJ
+         Mx5w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=SFkFEtDP;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=a0uDTwrK;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=xIvU8CNszG5JfOuW0H5LmLigy1VGky0Y9xfAswB4Udg=;
-        b=nPNSM20NIs20Qtsrzq2DHCJf3SMEkp4zp3MstTF4AyASFSsGSO6Id+pdd87O3r7yjM
-         +afaVG05Y2s4Md6gDGUnnZshmlzHpj21f+dxZylQOgnFqnX/sta02an9BsNkFUMUL6Bo
-         EMXII8mtJyjni34b2MBPvp9hO0Mmc1osoa0ssf2YKruFA98duxrPVIK/3Wzjasw281tm
-         oZ6Wc0Pj+eWmGQfs3j61ydbWdv/+t/JOCasT8S4si/1Wh6dp5DcZY4XirABPVSrTUoLQ
-         lETz/bKFEgY2qIizqedDn39tdIO/tuFirX9+E7PEsW6pzqCTi33ocvyXYWot5spOsXxl
-         IzwA==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=lcoVnNJo3gizLUmmDPNs4dcKqv6w97eZxJaLse7lrbk=;
+        b=cDfJiahhH615Qg0EIZeGdSYH9KB/AmD61uf+RjFFKrjE/6tPs1G0o34fktXWWKklZP
+         mUbTQEDsp5dzTTag3bKdZocC1qn67wrfAhK8JbQyngCnsfYUS7idqEHjGI39xbaRirwt
+         TP2W4tgd183Kl5y8VbHqh+VqU33HEzTBE/IwJVoDsxDbxeHk1OuiKMluJEplcrDDOqej
+         wGwUdcBF69yPWPef4DaUOzLqZZ/KxKs2Mv6ML5kBX9AcRU0RAsrMYRDgWxrZ4iKwSG/S
+         XVZyrPmEd8Cme3roZdrI7yaQ2M6oUBA7nJJwMYUNoM6EammN+lfoIvmfTPhzpPLhMUbG
+         yjbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=xIvU8CNszG5JfOuW0H5LmLigy1VGky0Y9xfAswB4Udg=;
-        b=C6h4uj24cJg78/2Qqjr/PggkYfl0Fx8RpVmW5LD5DsH2gha68bcAJs9FfjfJCfjk9J
-         LGCEMaR2/0CauMp4QrpR4FQV4Xa/Fa2pIZoV/8Ef0bAlLFbeKkvFuv5IPuIs01hdydVo
-         6zTOwWV9IrnohOqAXgxmFhiYfoOAVS9Cwrlvm4jg7Fr95PM6hfOokODzzQ+fdRvsrps8
-         X5uGumlVMOjq8PpGgcYP6O/KDShjDqQgrp5rk1SsvjeeJBdSAq92I4h5yKhQ/b7ouehx
-         Y+REFtNkmLgvBDpmhUXjOxlLpw10Om+aqLpI28KiwUGUwlywcSHqhNrJKpPgk554xafA
-         spbQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532j21tP6N3SGMU7gvDZGw325PYz5+8wPyX2P73fnJIlJQPoR/J8
-	rc/r9rtYCSl1MsbNip5AWxk=
-X-Google-Smtp-Source: ABdhPJyHTTHPmBx5TgKej+wbu2+l2glkmnJFKVfo6dTgdqxiXueE/gJtNOqFcp2NaQZUY9hawrjLcg==
-X-Received: by 2002:a2e:b6cd:: with SMTP id m13mr2578259ljo.91.1598051609706;
-        Fri, 21 Aug 2020 16:13:29 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=lcoVnNJo3gizLUmmDPNs4dcKqv6w97eZxJaLse7lrbk=;
+        b=HZznbs1H9mM5Kp2Vpn23GOs5r4SyU9GyUArwhhngDOC4+ak1/yK/2z5DPrKtnvtoEq
+         6qdNGNlxBnZPHkwrLj4LIFbCJ58M+xObTYXPRIVSY8CnCGu89592x0WKmyEUpDr/5atK
+         Nt2eDGluCjJXi3f07WLMxVL1fzmB7rfYK8zoFEYXYT/NzExupFGwNzCvK1XF2XO3EmaZ
+         2c/PoYMHYXj27Zuy9C6QiqFiRILU6L7X2Luz0GdgGZZHpCuOayJzxVV5IlJepi4EUYQl
+         BM5OzmuRTQiT7559Z91dnQ5mDhencTvMtcN+ZznY6U2v0zK/MMWgsrNhoulB9KSN0hY0
+         cR7A==
+X-Gm-Message-State: AOAM530mBFWVljIyosNMXzb8+icsnm8FX9z2VgJqbV8gr0tmogFlkAvw
+	/k3RDN0WZu3JS/uRQPZcJmw=
+X-Google-Smtp-Source: ABdhPJwf6yp47dImGtqGVJ9vJsLJNQEAGArcC2u54nTJvYjX23XI7pysk5ktUo6yu4TM2BKOOmcXEw==
+X-Received: by 2002:a5d:9a86:: with SMTP id c6mr4213878iom.27.1598051829810;
+        Fri, 21 Aug 2020 16:17:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:6c18:: with SMTP id h24ls699730ljc.6.gmail; Fri, 21 Aug
- 2020 16:13:29 -0700 (PDT)
-X-Received: by 2002:a2e:3202:: with SMTP id y2mr2675801ljy.30.1598051608955;
-        Fri, 21 Aug 2020 16:13:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598051608; cv=none;
+Received: by 2002:a92:a305:: with SMTP id a5ls31225ili.5.gmail; Fri, 21 Aug
+ 2020 16:17:09 -0700 (PDT)
+X-Received: by 2002:a05:6e02:f4e:: with SMTP id y14mr4457971ilj.255.1598051829286;
+        Fri, 21 Aug 2020 16:17:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598051829; cv=none;
         d=google.com; s=arc-20160816;
-        b=oAPDElPtgwiv3EGEQ6Xv4Bp5XA154q5TQMDlevzG5+1m2pMmuWLfUSubOVF9jDKBII
-         awDrZuW1H0KP0oukOEJ/J9LqahfmpWUQWOfPFFuEt3s3LlJj8FSq1Oe5kyQUOwVxMgc3
-         ttkkQr55uVPMu//CIKZaHkuc4IuI68D2+GHVwl4ZTwzAfDo2sW7xN58HZCbNiW8eJjMn
-         YtVNLYCuufjm0V5EouH25GSKEtIil/SFybZIdt+33kSRb3WJ+4D8mn/IPnZKD9/vuva0
-         pGaVvUb2zKxek26JJYS4nrIlmu4QmER98yf0sLNhy6plynO4VejutCfVXezJggYuG1LA
-         /rsg==
+        b=gjN6wBLThbFbvB630mw5/1Rxn879YCHvFpH3MLfp6pALrt9JYvAfgGimkohCBSv32/
+         L2W0/Ier3d0pLe/xtVVUG7ssSDIA/84gSDzxwAH5a56Jz5bN2mO8/M+94Mbmqb1f5Wkg
+         960Q2wazjmwqMNqUImsMQdxExB4bzM/9JPFe5j2CF8baeRnuQomducCexrtLY0aYyxPp
+         GnM9LnZL+be1kPxd/Z3IQ0xa8M9iDigURQmN8LAwFccgpbtkQAYdTDVyFneenpSapeyI
+         jlsC5XltkA+GCvSIlYnqnqvzFDKd+As4Yz/tWEIsXbYVYcnIjvr4FOGgfAXVHSnBfCKk
+         qU4Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=m7RfewVLa8YXRGQn+dkSgkj1/tUR4KO62lCzO2eGme0=;
-        b=GfmkOcHZNHe4GICj4bTlTEKawhdb8SGGZHrLrhgcwKfGwFzbQSFQcktw90GJ2wize4
-         f75+WEn7AMrBrT+HTPzWMghUA1wJaPshFCKWCo77GW1VqXhvPWz41vXGWc4gFIqR0imB
-         ei6WTEJxyEMW/EjfvxUa37dLzbbniEWh0x2XP9BorbIaqYA9gnr+tefeQwcefj6jsJqi
-         73Im9cLqKNleOH/D1jmguyISPwjtPY2wAXTOx3wEhA7OwseH6IL7d7hjkyV2+TSqLtlP
-         H+kwI3OHI3upTj3wCyK7jLLKdlKCrgL3GQEMNFh9ZCFNA7TktjP4vB7iPd6YS6fnLofA
-         axbQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=8fcxk4S/SS9+6U/sU5xiUTNNUcgHge8dj9UT33Hlegs=;
+        b=dvcCn/04IrqEJpj+i3B4w1mGZudpJcVlY4PCJtvMGY0gS2qvU+g9LwXZaPam3Idpam
+         gkWYGZM7sIo2Bjh2t7lU22GFPadMBRBZWNDE7jN0D7rk7Pt6sAS2bG43SEVmlwg+ZWmh
+         +s8RqgxFZKriRg2YtBkYLsm+8vMx+HGu5mCwoqkQIvdajKiIdKWDucxqmGK7M9VcoNGO
+         ThyiQYynC3qNFUk1PRnZfDKRDZ1eAlqv+N5mcW4WXWI8x59bUY/ZAceSAWI0QcQHXlCi
+         EMWLMK1dKmV7Dh/Aig/jEIFwGinDldCFM+nM+v+3je1FT4AuwnUJggbXtI5XBkJNS3HC
+         OhOw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=SFkFEtDP;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
-Received: from casper.infradead.org (casper.infradead.org. [2001:8b0:10b:1236::1])
-        by gmr-mx.google.com with ESMTPS id i85si137438lfi.0.2020.08.21.16.13.28
+       dkim=pass header.i=@google.com header.s=20161025 header.b=a0uDTwrK;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pj1-x1044.google.com (mail-pj1-x1044.google.com. [2607:f8b0:4864:20::1044])
+        by gmr-mx.google.com with ESMTPS id j127si152201iof.4.2020.08.21.16.17.09
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2020 16:13:28 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) client-ip=2001:8b0:10b:1236::1;
-Received: from [2601:1c0:6280:3f0::19c2]
-	by casper.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k9GDr-0001Qs-1n; Fri, 21 Aug 2020 23:13:23 +0000
-Subject: Re: [PATCH] vdpa/mlx5: Avoid warnings about shifts on 32-bit
- platforms
-To: Nathan Chancellor <natechancellor@gmail.com>,
- "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowang@redhat.com>,
- Eli Cohen <eli@mellanox.com>
-Cc: virtualization@lists.linux-foundation.org, linux-kernel@vger.kernel.org,
- clang-built-linux@googlegroups.com
-References: <20200821225018.940798-1-natechancellor@gmail.com>
-From: Randy Dunlap <rdunlap@infradead.org>
-Message-ID: <1975c0a0-c19a-c91e-dc10-2918061cc4e7@infradead.org>
-Date: Fri, 21 Aug 2020 16:13:19 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.11.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Aug 2020 16:17:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) client-ip=2607:f8b0:4864:20::1044;
+Received: by mail-pj1-x1044.google.com with SMTP id n3so1337038pjq.1
+        for <clang-built-linux@googlegroups.com>; Fri, 21 Aug 2020 16:17:09 -0700 (PDT)
+X-Received: by 2002:a17:90a:a10c:: with SMTP id s12mr4283278pjp.32.1598051828324;
+ Fri, 21 Aug 2020 16:17:08 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20200821225018.940798-1-natechancellor@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Original-Sender: rdunlap@infradead.org
+References: <20200527135329.1172644-1-arnd@arndb.de> <878serh1b9.fsf@nanos.tec.linutronix.de>
+ <CAKwvOdnOh3H3ga2qpTktywvcgfXW5QJaB7r4XMhigmDzLhDNeA@mail.gmail.com>
+ <87h7t6tpye.fsf@nanos.tec.linutronix.de> <20200813173701.GC4295@paulmck-ThinkPad-P72>
+ <20200813180933.GA532283@rani.riverdale.lan> <875z9dioll.fsf@nanos.tec.linutronix.de>
+ <20200820130641.GA536306@rani.riverdale.lan> <87zh6ohm03.fsf@nanos.tec.linutronix.de>
+ <20200821230435.GA56974@rani.riverdale.lan>
+In-Reply-To: <20200821230435.GA56974@rani.riverdale.lan>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Fri, 21 Aug 2020 16:16:56 -0700
+Message-ID: <CAKwvOdkoB+fT9tt7vgg1R6J-NEr77EWP5X8nFat_L-HvEzWGzA@mail.gmail.com>
+Subject: Re: [PATCH] x86: work around clang IAS bug referencing __force_order
+To: Arvind Sankar <nivedita@alum.mit.edu>
+Cc: Thomas Gleixner <tglx@linutronix.de>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, 
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
+	Zhenzhong Duan <zhenzhong.duan@oracle.com>, Kees Cook <keescook@chromium.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Juergen Gross <jgross@suse.com>, 
+	Andy Lutomirski <luto@kernel.org>, Andrew Cooper <andrew.cooper3@citrix.com>, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Will Deacon <will@kernel.org>, 
+	Linus Torvalds <torvalds@linux-foundation.org>
+Content-Type: multipart/mixed; boundary="0000000000008fd34e05ad6b6f20"
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=casper.20170209 header.b=SFkFEtDP;
-       spf=pass (google.com: best guess record for domain of
- rdunlap@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+ header.i=@google.com header.s=20161025 header.b=a0uDTwrK;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1044
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,146 +142,138 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 8/21/20 3:50 PM, Nathan Chancellor wrote:
-> Clang warns several times when building for 32-bit ARM along the lines
-> of:
-> 
-> drivers/vdpa/mlx5/net/mlx5_vnet.c:1462:31: warning: shift count >= width
-> of type [-Wshift-count-overflow]
->                 ndev->mvdev.mlx_features |= BIT(VIRTIO_F_VERSION_1);
->                                             ^~~~~~~~~~~~~~~~~~~~~~~
-> 
-> This is related to the BIT macro, which uses an unsigned long literal,
-> which is 32-bit on ARM so having a shift equal to or larger than 32 will
-> cause this warning, such as the above, where VIRTIO_F_VERSION_1 is 32.
-> To avoid this, use BIT_ULL, which will be an unsigned long long. This
-> matches the size of the features field throughout this driver, which is
-> u64 so there should be no functional change.
-> 
-> Fixes: 1a86b377aa21 ("vdpa/mlx5: Add VDPA driver for supported mlx5 devices")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1140
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+--0000000000008fd34e05ad6b6f20
+Content-Type: text/plain; charset="UTF-8"
 
-Reported-by: Randy Dunlap <rdunlap@infradead.org>
-on 2020-AUG-10 for i386:
-https://lore.kernel.org/linux-next/5a7a0e6d-842a-78f6-aeac-c5b4c27b7186@infradead.org/
-:(
+On Fri, Aug 21, 2020 at 4:04 PM Arvind Sankar <nivedita@alum.mit.edu> wrote:
+>
+> On Fri, Aug 21, 2020 at 02:37:48AM +0200, Thomas Gleixner wrote:
+> > On Thu, Aug 20 2020 at 09:06, Arvind Sankar wrote:
+> > > I don't think that's an issue, or at least, not one where force_order
+> > > helps.
+> > >
+> > > If the source for foo() is not visible to the compiler, the only reason
+> > > force_order prevents the reordering is because foo() might have
+> > > references to it, but equally foo() might have volatile asm, so the
+> > > reordering isn't possible anyway.
+> > >
+> > > If the source is visible, force_order won't prevent any reordering
+> > > except across references to force_order, but the only references are
+> > > from the volatile asm's which already prevent reordering.
+> > >
+> > > I think force_order can only help with buggy compilers, and for those it
+> > > should really have been an input-output operand -- it wouldn't currently
+> > > do anything to prevent cr writes from being reordered.
 
-Acked-by: Randy Dunlap <rdunlap@infradead.org> # build-tested
+I agree 100%.  From the link to GCC docs, the code in question doesn't
+even follow the pattern from the doc from informing the compiler of
+any dependency, it just looks like !@#$.
 
-Thanks.
+> >
+> > Fair enough. Care to provide a patch which has the collected wisdom of
+> > this thread in the changelog?
+> >
+> > Thanks,
+> >
+> >         tglx
+>
+> The gcc bug I linked to earlier is only fixed in gcc-6 onwards. Is that
 
-> ---
->  drivers/vdpa/mlx5/net/mlx5_vnet.c | 50 +++++++++++++++----------------
->  1 file changed, 25 insertions(+), 25 deletions(-)
-> 
-> diff --git a/drivers/vdpa/mlx5/net/mlx5_vnet.c b/drivers/vdpa/mlx5/net/mlx5_vnet.c
-> index 9df69d5efe8c..70676a6d1691 100644
-> --- a/drivers/vdpa/mlx5/net/mlx5_vnet.c
-> +++ b/drivers/vdpa/mlx5/net/mlx5_vnet.c
-> @@ -16,19 +16,19 @@
->  #define to_mvdev(__vdev) container_of((__vdev), struct mlx5_vdpa_dev, vdev)
->  
->  #define VALID_FEATURES_MASK                                                                        \
-> -	(BIT(VIRTIO_NET_F_CSUM) | BIT(VIRTIO_NET_F_GUEST_CSUM) |                                   \
-> -	 BIT(VIRTIO_NET_F_CTRL_GUEST_OFFLOADS) | BIT(VIRTIO_NET_F_MTU) | BIT(VIRTIO_NET_F_MAC) |   \
-> -	 BIT(VIRTIO_NET_F_GUEST_TSO4) | BIT(VIRTIO_NET_F_GUEST_TSO6) |                             \
-> -	 BIT(VIRTIO_NET_F_GUEST_ECN) | BIT(VIRTIO_NET_F_GUEST_UFO) | BIT(VIRTIO_NET_F_HOST_TSO4) | \
-> -	 BIT(VIRTIO_NET_F_HOST_TSO6) | BIT(VIRTIO_NET_F_HOST_ECN) | BIT(VIRTIO_NET_F_HOST_UFO) |   \
-> -	 BIT(VIRTIO_NET_F_MRG_RXBUF) | BIT(VIRTIO_NET_F_STATUS) | BIT(VIRTIO_NET_F_CTRL_VQ) |      \
-> -	 BIT(VIRTIO_NET_F_CTRL_RX) | BIT(VIRTIO_NET_F_CTRL_VLAN) |                                 \
-> -	 BIT(VIRTIO_NET_F_CTRL_RX_EXTRA) | BIT(VIRTIO_NET_F_GUEST_ANNOUNCE) |                      \
-> -	 BIT(VIRTIO_NET_F_MQ) | BIT(VIRTIO_NET_F_CTRL_MAC_ADDR) | BIT(VIRTIO_NET_F_HASH_REPORT) |  \
-> -	 BIT(VIRTIO_NET_F_RSS) | BIT(VIRTIO_NET_F_RSC_EXT) | BIT(VIRTIO_NET_F_STANDBY) |           \
-> -	 BIT(VIRTIO_NET_F_SPEED_DUPLEX) | BIT(VIRTIO_F_NOTIFY_ON_EMPTY) |                          \
-> -	 BIT(VIRTIO_F_ANY_LAYOUT) | BIT(VIRTIO_F_VERSION_1) | BIT(VIRTIO_F_ACCESS_PLATFORM) |      \
-> -	 BIT(VIRTIO_F_RING_PACKED) | BIT(VIRTIO_F_ORDER_PLATFORM) | BIT(VIRTIO_F_SR_IOV))
-> +	(BIT_ULL(VIRTIO_NET_F_CSUM) | BIT_ULL(VIRTIO_NET_F_GUEST_CSUM) |                                   \
-> +	 BIT_ULL(VIRTIO_NET_F_CTRL_GUEST_OFFLOADS) | BIT_ULL(VIRTIO_NET_F_MTU) | BIT_ULL(VIRTIO_NET_F_MAC) |   \
-> +	 BIT_ULL(VIRTIO_NET_F_GUEST_TSO4) | BIT_ULL(VIRTIO_NET_F_GUEST_TSO6) |                             \
-> +	 BIT_ULL(VIRTIO_NET_F_GUEST_ECN) | BIT_ULL(VIRTIO_NET_F_GUEST_UFO) | BIT_ULL(VIRTIO_NET_F_HOST_TSO4) | \
-> +	 BIT_ULL(VIRTIO_NET_F_HOST_TSO6) | BIT_ULL(VIRTIO_NET_F_HOST_ECN) | BIT_ULL(VIRTIO_NET_F_HOST_UFO) |   \
-> +	 BIT_ULL(VIRTIO_NET_F_MRG_RXBUF) | BIT_ULL(VIRTIO_NET_F_STATUS) | BIT_ULL(VIRTIO_NET_F_CTRL_VQ) |      \
-> +	 BIT_ULL(VIRTIO_NET_F_CTRL_RX) | BIT_ULL(VIRTIO_NET_F_CTRL_VLAN) |                                 \
-> +	 BIT_ULL(VIRTIO_NET_F_CTRL_RX_EXTRA) | BIT_ULL(VIRTIO_NET_F_GUEST_ANNOUNCE) |                      \
-> +	 BIT_ULL(VIRTIO_NET_F_MQ) | BIT_ULL(VIRTIO_NET_F_CTRL_MAC_ADDR) | BIT_ULL(VIRTIO_NET_F_HASH_REPORT) |  \
-> +	 BIT_ULL(VIRTIO_NET_F_RSS) | BIT_ULL(VIRTIO_NET_F_RSC_EXT) | BIT_ULL(VIRTIO_NET_F_STANDBY) |           \
-> +	 BIT_ULL(VIRTIO_NET_F_SPEED_DUPLEX) | BIT_ULL(VIRTIO_F_NOTIFY_ON_EMPTY) |                          \
-> +	 BIT_ULL(VIRTIO_F_ANY_LAYOUT) | BIT_ULL(VIRTIO_F_VERSION_1) | BIT_ULL(VIRTIO_F_ACCESS_PLATFORM) |      \
-> +	 BIT_ULL(VIRTIO_F_RING_PACKED) | BIT_ULL(VIRTIO_F_ORDER_PLATFORM) | BIT_ULL(VIRTIO_F_SR_IOV))
->  
->  #define VALID_STATUS_MASK                                                                          \
->  	(VIRTIO_CONFIG_S_ACKNOWLEDGE | VIRTIO_CONFIG_S_DRIVER | VIRTIO_CONFIG_S_DRIVER_OK |        \
-> @@ -149,7 +149,7 @@ static bool mlx5_vdpa_debug;
->  
->  #define MLX5_LOG_VIO_FLAG(_feature)                                                                \
->  	do {                                                                                       \
-> -		if (features & BIT(_feature))                                                      \
-> +		if (features & BIT_ULL(_feature))                                                  \
->  			mlx5_vdpa_info(mvdev, "%s\n", #_feature);                                  \
->  	} while (0)
->  
-> @@ -750,10 +750,10 @@ static bool vq_is_tx(u16 idx)
->  
->  static u16 get_features_12_3(u64 features)
->  {
-> -	return (!!(features & BIT(VIRTIO_NET_F_HOST_TSO4)) << 9) |
-> -	       (!!(features & BIT(VIRTIO_NET_F_HOST_TSO6)) << 8) |
-> -	       (!!(features & BIT(VIRTIO_NET_F_CSUM)) << 7) |
-> -	       (!!(features & BIT(VIRTIO_NET_F_GUEST_CSUM)) << 6);
-> +	return (!!(features & BIT_ULL(VIRTIO_NET_F_HOST_TSO4)) << 9) |
-> +	       (!!(features & BIT_ULL(VIRTIO_NET_F_HOST_TSO6)) << 8) |
-> +	       (!!(features & BIT_ULL(VIRTIO_NET_F_CSUM)) << 7) |
-> +	       (!!(features & BIT_ULL(VIRTIO_NET_F_GUEST_CSUM)) << 6);
->  }
->  
->  static int create_virtqueue(struct mlx5_vdpa_net *ndev, struct mlx5_vdpa_virtqueue *mvq)
-> @@ -1439,13 +1439,13 @@ static u64 mlx_to_vritio_features(u16 dev_features)
->  	u64 result = 0;
->  
->  	if (dev_features & MLX5_VIRTIO_NET_F_GUEST_CSUM)
-> -		result |= BIT(VIRTIO_NET_F_GUEST_CSUM);
-> +		result |= BIT_ULL(VIRTIO_NET_F_GUEST_CSUM);
->  	if (dev_features & MLX5_VIRTIO_NET_F_CSUM)
-> -		result |= BIT(VIRTIO_NET_F_CSUM);
-> +		result |= BIT_ULL(VIRTIO_NET_F_CSUM);
->  	if (dev_features & MLX5_VIRTIO_NET_F_HOST_TSO6)
-> -		result |= BIT(VIRTIO_NET_F_HOST_TSO6);
-> +		result |= BIT_ULL(VIRTIO_NET_F_HOST_TSO6);
->  	if (dev_features & MLX5_VIRTIO_NET_F_HOST_TSO4)
-> -		result |= BIT(VIRTIO_NET_F_HOST_TSO4);
-> +		result |= BIT_ULL(VIRTIO_NET_F_HOST_TSO4);
->  
->  	return result;
->  }
-> @@ -1459,15 +1459,15 @@ static u64 mlx5_vdpa_get_features(struct vdpa_device *vdev)
->  	dev_features = MLX5_CAP_DEV_VDPA_EMULATION(mvdev->mdev, device_features_bits_mask);
->  	ndev->mvdev.mlx_features = mlx_to_vritio_features(dev_features);
->  	if (MLX5_CAP_DEV_VDPA_EMULATION(mvdev->mdev, virtio_version_1_0))
-> -		ndev->mvdev.mlx_features |= BIT(VIRTIO_F_VERSION_1);
-> -	ndev->mvdev.mlx_features |= BIT(VIRTIO_F_ACCESS_PLATFORM);
-> +		ndev->mvdev.mlx_features |= BIT_ULL(VIRTIO_F_VERSION_1);
-> +	ndev->mvdev.mlx_features |= BIT_ULL(VIRTIO_F_ACCESS_PLATFORM);
->  	print_features(mvdev, ndev->mvdev.mlx_features, false);
->  	return ndev->mvdev.mlx_features;
->  }
->  
->  static int verify_min_features(struct mlx5_vdpa_dev *mvdev, u64 features)
->  {
-> -	if (!(features & BIT(VIRTIO_F_ACCESS_PLATFORM)))
-> +	if (!(features & BIT_ULL(VIRTIO_F_ACCESS_PLATFORM)))
->  		return -EOPNOTSUPP;
->  
->  	return 0;
-> 
-> base-commit: 8a7c3213db068135e816a6a517157de6443290d6
-> 
+(based on https://gcc.gnu.org/bugzilla/show_bug.cgi?id=82602#c14)
 
+> good enough to remove force_order? I can test gcc-4.9 and gcc-5 to check
+> if it would currently have any impact.
 
--- 
-~Randy
+I think checking the disassemblies with a pre-gcc-6 would be good
+enough then; that bug isn't specific to this particular case.
+
+> CBL guys, can you confirm that clang also will not reorder volatile asm?
+
+Full disassemblies of vmlinux pre vs post __force_order removal are
+the same.  That's pretty good actually; I was worried for a code base
+of this size whether two compiles would produce the exact same
+disassemblies; I know the version strings are timestamped, for
+instance, but I didn't compare data, just .text.  I should triple
+check i386, and some of the ko's that use modified functions.  I'd be
+happy to help provide a tested by tag for numerous configurations with
+Clang.
+
+Attaching the diff I was testing, feel free to add a commit message.
+--
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1975c0a0-c19a-c91e-dc10-2918061cc4e7%40infradead.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkoB%2BfT9tt7vgg1R6J-NEr77EWP5X8nFat_L-HvEzWGzA%40mail.gmail.com.
+
+--0000000000008fd34e05ad6b6f20
+Content-Type: application/octet-stream; name="force_order.patch"
+Content-Disposition: attachment; filename="force_order.patch"
+Content-Transfer-Encoding: base64
+Content-ID: <f_ke4uosxj0>
+X-Attachment-Id: f_ke4uosxj0
+
+ZGlmZiAtLWdpdCBhL2FyY2gveDg2L2Jvb3QvY29tcHJlc3NlZC9wZ3RhYmxlXzY0LmMgYi9hcmNo
+L3g4Ni9ib290L2NvbXByZXNzZWQvcGd0YWJsZV82NC5jCmluZGV4IGM4ODYyNjk2YTQ3Yi4uN2Qw
+Mzk0ZjRlYmY5IDEwMDY0NAotLS0gYS9hcmNoL3g4Ni9ib290L2NvbXByZXNzZWQvcGd0YWJsZV82
+NC5jCisrKyBiL2FyY2gveDg2L2Jvb3QvY29tcHJlc3NlZC9wZ3RhYmxlXzY0LmMKQEAgLTUsMTUg
+KzUsNiBAQAogI2luY2x1ZGUgInBndGFibGUuaCIKICNpbmNsdWRlICIuLi9zdHJpbmcuaCIKIAot
+LyoKLSAqIF9fZm9yY2Vfb3JkZXIgaXMgdXNlZCBieSBzcGVjaWFsX2luc25zLmggYXNtIGNvZGUg
+dG8gZm9yY2UgaW5zdHJ1Y3Rpb24KLSAqIHNlcmlhbGl6YXRpb24uCi0gKgotICogSXQgaXMgbm90
+IHJlZmVyZW5jZWQgZnJvbSB0aGUgY29kZSwgYnV0IEdDQyA8IDUgd2l0aCAtZlBJRSB3b3VsZCBm
+YWlsCi0gKiBkdWUgdG8gYW4gdW5kZWZpbmVkIHN5bWJvbC4gRGVmaW5lIGl0IHRvIG1ha2UgdGhl
+c2UgYW5jaWVudCBHQ0NzIHdvcmsuCi0gKi8KLXVuc2lnbmVkIGxvbmcgX19mb3JjZV9vcmRlcjsK
+LQogI2RlZmluZSBCSU9TX1NUQVJUX01JTgkJMHgyMDAwMFUJLyogMTI4SywgbGVzcyB0aGFuIHRo
+aXMgaXMgaW5zYW5lICovCiAjZGVmaW5lIEJJT1NfU1RBUlRfTUFYCQkweDlmMDAwVQkvKiA2NDBL
+LCBhYnNvbHV0ZSBtYXhpbXVtICovCiAKZGlmZiAtLWdpdCBhL2FyY2gveDg2L2luY2x1ZGUvYXNt
+L3NwZWNpYWxfaW5zbnMuaCBiL2FyY2gveDg2L2luY2x1ZGUvYXNtL3NwZWNpYWxfaW5zbnMuaApp
+bmRleCA1OWEzZTEzMjA0YzMuLmQyZTBkNTNiMGY2OSAxMDA2NDQKLS0tIGEvYXJjaC94ODYvaW5j
+bHVkZS9hc20vc3BlY2lhbF9pbnNucy5oCisrKyBiL2FyY2gveDg2L2luY2x1ZGUvYXNtL3NwZWNp
+YWxfaW5zbnMuaApAQCAtMTAsNDYgKzEwLDM3IEBACiAjaW5jbHVkZSA8bGludXgvaXJxZmxhZ3Mu
+aD4KICNpbmNsdWRlIDxsaW51eC9qdW1wX2xhYmVsLmg+CiAKLS8qCi0gKiBWb2xhdGlsZSBpc24n
+dCBlbm91Z2ggdG8gcHJldmVudCB0aGUgY29tcGlsZXIgZnJvbSByZW9yZGVyaW5nIHRoZQotICog
+cmVhZC93cml0ZSBmdW5jdGlvbnMgZm9yIHRoZSBjb250cm9sIHJlZ2lzdGVycyBhbmQgbWVzc2lu
+ZyBldmVyeXRoaW5nIHVwLgotICogQSBtZW1vcnkgY2xvYmJlciB3b3VsZCBzb2x2ZSB0aGUgcHJv
+YmxlbSwgYnV0IHdvdWxkIHByZXZlbnQgcmVvcmRlcmluZyBvZgotICogYWxsIGxvYWRzIHN0b3Jl
+cyBhcm91bmQgaXQsIHdoaWNoIGNhbiBodXJ0IHBlcmZvcm1hbmNlLiBTb2x1dGlvbiBpcyB0bwot
+ICogdXNlIGEgdmFyaWFibGUgYW5kIG1pbWljIHJlYWRzIGFuZCB3cml0ZXMgdG8gaXQgdG8gZW5m
+b3JjZSBzZXJpYWxpemF0aW9uCi0gKi8KLWV4dGVybiB1bnNpZ25lZCBsb25nIF9fZm9yY2Vfb3Jk
+ZXI7Ci0KIHZvaWQgbmF0aXZlX3dyaXRlX2NyMCh1bnNpZ25lZCBsb25nIHZhbCk7CiAKIHN0YXRp
+YyBpbmxpbmUgdW5zaWduZWQgbG9uZyBuYXRpdmVfcmVhZF9jcjAodm9pZCkKIHsKIAl1bnNpZ25l
+ZCBsb25nIHZhbDsKLQlhc20gdm9sYXRpbGUoIm1vdiAlJWNyMCwlMFxuXHQiIDogIj1yIiAodmFs
+KSwgIj1tIiAoX19mb3JjZV9vcmRlcikpOworCWFzbSB2b2xhdGlsZSgibW92ICUlY3IwLCUwXG5c
+dCIgOiAiPXIiICh2YWwpKTsKIAlyZXR1cm4gdmFsOwogfQogCiBzdGF0aWMgX19hbHdheXNfaW5s
+aW5lIHVuc2lnbmVkIGxvbmcgbmF0aXZlX3JlYWRfY3IyKHZvaWQpCiB7CiAJdW5zaWduZWQgbG9u
+ZyB2YWw7Ci0JYXNtIHZvbGF0aWxlKCJtb3YgJSVjcjIsJTBcblx0IiA6ICI9ciIgKHZhbCksICI9
+bSIgKF9fZm9yY2Vfb3JkZXIpKTsKKwlhc20gdm9sYXRpbGUoIm1vdiAlJWNyMiwlMFxuXHQiIDog
+Ij1yIiAodmFsKSk7CiAJcmV0dXJuIHZhbDsKIH0KIAogc3RhdGljIF9fYWx3YXlzX2lubGluZSB2
+b2lkIG5hdGl2ZV93cml0ZV9jcjIodW5zaWduZWQgbG9uZyB2YWwpCiB7Ci0JYXNtIHZvbGF0aWxl
+KCJtb3YgJTAsJSVjcjIiOiA6ICJyIiAodmFsKSwgIm0iIChfX2ZvcmNlX29yZGVyKSk7CisJYXNt
+IHZvbGF0aWxlKCJtb3YgJTAsJSVjcjIiOiA6ICJyIiAodmFsKSk7CiB9CiAKIHN0YXRpYyBpbmxp
+bmUgdW5zaWduZWQgbG9uZyBfX25hdGl2ZV9yZWFkX2NyMyh2b2lkKQogewogCXVuc2lnbmVkIGxv
+bmcgdmFsOwotCWFzbSB2b2xhdGlsZSgibW92ICUlY3IzLCUwXG5cdCIgOiAiPXIiICh2YWwpLCAi
+PW0iIChfX2ZvcmNlX29yZGVyKSk7CisJYXNtIHZvbGF0aWxlKCJtb3YgJSVjcjMsJTBcblx0IiA6
+ICI9ciIgKHZhbCkpOwogCXJldHVybiB2YWw7CiB9CiAKIHN0YXRpYyBpbmxpbmUgdm9pZCBuYXRp
+dmVfd3JpdGVfY3IzKHVuc2lnbmVkIGxvbmcgdmFsKQogewotCWFzbSB2b2xhdGlsZSgibW92ICUw
+LCUlY3IzIjogOiAiciIgKHZhbCksICJtIiAoX19mb3JjZV9vcmRlcikpOworCWFzbSB2b2xhdGls
+ZSgibW92ICUwLCUlY3IzIjogOiAiciIgKHZhbCkpOwogfQogCiBzdGF0aWMgaW5saW5lIHVuc2ln
+bmVkIGxvbmcgbmF0aXZlX3JlYWRfY3I0KHZvaWQpCkBAIC02NCwxMCArNTUsMTAgQEAgc3RhdGlj
+IGlubGluZSB1bnNpZ25lZCBsb25nIG5hdGl2ZV9yZWFkX2NyNCh2b2lkKQogCWFzbSB2b2xhdGls
+ZSgiMTogbW92ICUlY3I0LCAlMFxuIgogCQkgICAgICIyOlxuIgogCQkgICAgIF9BU01fRVhUQUJM
+RSgxYiwgMmIpCi0JCSAgICAgOiAiPXIiICh2YWwpLCAiPW0iIChfX2ZvcmNlX29yZGVyKSA6ICIw
+IiAoMCkpOworCQkgICAgIDogIj1yIiAodmFsKSA6ICIwIiAoMCkpOwogI2Vsc2UKIAkvKiBDUjQg
+YWx3YXlzIGV4aXN0cyBvbiB4ODZfNjQuICovCi0JYXNtIHZvbGF0aWxlKCJtb3YgJSVjcjQsJTBc
+blx0IiA6ICI9ciIgKHZhbCksICI9bSIgKF9fZm9yY2Vfb3JkZXIpKTsKKwlhc20gdm9sYXRpbGUo
+Im1vdiAlJWNyNCwlMFxuXHQiIDogIj1yIiAodmFsKSk7CiAjZW5kaWYKIAlyZXR1cm4gdmFsOwog
+fQpkaWZmIC0tZ2l0IGEvYXJjaC94ODYva2VybmVsL2NwdS9jb21tb24uYyBiL2FyY2gveDg2L2tl
+cm5lbC9jcHUvY29tbW9uLmMKaW5kZXggYzVkNmYxN2Q5YjlkLi5kYzYyYWVhOGM5ZTEgMTAwNjQ0
+Ci0tLSBhL2FyY2gveDg2L2tlcm5lbC9jcHUvY29tbW9uLmMKKysrIGIvYXJjaC94ODYva2VybmVs
+L2NwdS9jb21tb24uYwpAQCAtMzU5LDcgKzM1OSw3IEBAIHZvaWQgbmF0aXZlX3dyaXRlX2NyMCh1
+bnNpZ25lZCBsb25nIHZhbCkKIAl1bnNpZ25lZCBsb25nIGJpdHNfbWlzc2luZyA9IDA7CiAKIHNl
+dF9yZWdpc3RlcjoKLQlhc20gdm9sYXRpbGUoIm1vdiAlMCwlJWNyMCI6ICIrciIgKHZhbCksICIr
+bSIgKF9fZm9yY2Vfb3JkZXIpKTsKKwlhc20gdm9sYXRpbGUoIm1vdiAlMCwlJWNyMCI6ICIrciIg
+KHZhbCkpOwogCiAJaWYgKHN0YXRpY19icmFuY2hfbGlrZWx5KCZjcl9waW5uaW5nKSkgewogCQlp
+ZiAodW5saWtlbHkoKHZhbCAmIFg4Nl9DUjBfV1ApICE9IFg4Nl9DUjBfV1ApKSB7Cg==
+--0000000000008fd34e05ad6b6f20--
