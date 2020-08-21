@@ -1,33 +1,33 @@
 Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBUFUQD5AKGQEYD3YC2Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63b.google.com (mail-pl1-x63b.google.com [IPv6:2607:f8b0:4864:20::63b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 29DB224E047
+Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1118624E046
 	for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 21:02:42 +0200 (CEST)
-Received: by mail-pl1-x63b.google.com with SMTP id f17sf1621774plj.16
-        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 12:02:42 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598036561; cv=pass;
+Received: by mail-pg1-x53b.google.com with SMTP id 130sf1502879pga.11
+        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 12:02:41 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598036560; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sCsUuckZbBRj8TgmTcXLADXTVsINwiUuoTuqoUb8czA5ibo58Ha+cfX5yDXD+U7t/d
-         M1W5iJJJdcYo8AcpM/oe/wu4y74/Q9ei0y5EznWqn4BUhyyi2mc4Gpd9qUKIhXRDmcax
-         pvCB5P9yZIEd9Z3BZ7y+DYbWoxf5Hey8JzJO8IkkUHXfAO3/5poYrO0xP3YbQ1OTF9G7
-         UkdvUpRC82fu31zTpbhhc26ib6UF8WVbLLsD16s/NIK+4vciB4+YmzRF9Bsm8YYDfYrD
-         Yd5Vjwz5sXIxHkx5uBCqJ0+Bo3DlPDp1r3p3ZJeB2ivIxmyqn2DSzw0q25Smvto+1BLW
-         kZcQ==
+        b=wS4NpG/ieTIvSrOphrL+jbZi1hL9Ik9gDW+M891gok+Q8e7V2D0faVfHSSjjSTKMF1
+         L3DdFWORGqAyB1VSZQARbNy6iaj7kU9yHnY5wtjOG9OhvFpbE6PRL3YpENPXNnPuElvE
+         g4NInlUpoYE3gEBLzgoHknSZfMbdJfsCY+ktr2MkA61ccuJDMA07jkgpSjphKwrZBvSe
+         5tMrRcsJf5tnNuQ1Vp0eGp3PW3ytvIzxavBSChwaYbU+HEVvGCNADq5GWZYnCRakfcjw
+         WZ6GAdCjXbiHwb4thisUmwe9W0p5qbohxaTbQCMNNsrxPJTJjRGZxSfwR8uI7mp8VRFU
+         NxiQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-filter:sender
          :dkim-signature;
-        bh=RfYEPNdTWtfBxoGipurKV6Vzy5ahbYi/pbP/iFk3YXQ=;
-        b=O/mXuLSCfS7+1PS+BWXDWGGNfSAYZGdouVaB5UjL5OFTzb9Z/clYM/kNlEvyqrZ7OY
-         ufa3uOQbmhSEvVsZzB+tETeFuWl2O55Z9qJSEp88mHvDvSZBAzJpjpZ4ZQ79y8EG/lgE
-         D2w/O/pZ5+LqQ2/UAPKNr0yUUcqB2T/kHtITJHfXnLGZOG8hReGOrhYJFMKe7ioGXrIj
-         kAVn2+uwXvb+SvlYpNcaTeIPJ57tctW1N27DkWllVgmteaid9u8UXm/CVQppahwZoY50
-         fpllpMn+kO/EFFrrrEx+J8QQhHlRPiK0POfl5NnP/l9aUk38JHPCRzVjCHJzyLy7ITET
-         LwKA==
+        bh=gakCoZ8eflcnov+XZJyQIl4n2RwSThYy0dzsNEefkMM=;
+        b=As3F3olsYGd8djVw1nefyIn8kTyeKcqH6iQ08zkM5frak/gevYqmaN+2b/Py1OjysM
+         CNiOIbYsrUKY5/fSwH5YnkcLI9EyGFhXxW1FbCYQXQbvl75nkfdWSVdKq06ZIGBUFUxe
+         X9/wu0QLol6ac4ZcMRLGGFSjHb309rpRevsQ6Dr06r3V0Wyr8gtfeyT7lV37nG7/SVM+
+         hA6lI61cI+cNd1/kW+L5yBc8HkUOBfEW46/4hzeX8lHDPeWJfuVLEcpt8kNLj1pinvXG
+         bOEMZ516m2bb+hLpL5o63/mBMalcIxwDEVmCJ1BO8M64fKkOR0m4qvmj9RuPUPxgLNaS
+         XcIg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=TtMxdpaZ;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b="llJj/4JU";
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=RfYEPNdTWtfBxoGipurKV6Vzy5ahbYi/pbP/iFk3YXQ=;
-        b=WKsKKr4ngTCrzwXfVEhdpNmmBYIVfMRs2fK7XcViEzEDk6zsH8ZL05Oe1SvsRMlim7
-         RS3BdAeS9L5rwo0/llKXrr7x2w7XnwRZszYNT29oKqd6S5qoA4CH67iBPsY9qQwoUM0U
-         yisrNHTYZUPuZUGyf4dl31CvGCo3PaFJNLdx0WPhippP/TaDwufABCg9/t4Fkw+JWZXD
-         6BSXdXMQgPZlzixzyQel8Bd2CpMqdexVVUUkgAkODKHMSA7AHnNBUX8uavfV90Fcm7DB
-         /Cmk9/GoZzym+yL54DudoQMASRWQCfBIEBLnfygbjQhykLyPl5f6ZDMhKGOjAgsVDGzi
-         FZ5w==
+        bh=gakCoZ8eflcnov+XZJyQIl4n2RwSThYy0dzsNEefkMM=;
+        b=IHkY2JIFefEnQd2VMiE5zJOK2qbgvTUwj/voroufqFnRE+8txurFGbv86N4VpPpE+I
+         MOoNtf3y+maLCuL3xdHuQJ3LZxsXAKwsViiQe8bCgl8Vt0Ifs++WLrRXVoDGPOz9N/o9
+         j3F/kqYjKepS0/B9FwpCL1Kq7G9S6FL8MhEf+ISEdULOzQFwsQe951EmKtUCHyX3UWiG
+         SuFaM7OS6xlLwADYb9Iue6VLOQmDbH8hEHgYSbMXHGcNBFD9UsJJcW9TuCzwIEkvNPKv
+         Y0ja5uCicC6o7qwLJIlokyuF4OBP5fciLLwGJgTIxqeQtJUbLI9DGTqdZVwSbJRsvQXZ
+         68iQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
@@ -50,56 +50,56 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=RfYEPNdTWtfBxoGipurKV6Vzy5ahbYi/pbP/iFk3YXQ=;
-        b=iGle9F3xdMC79mCRiwhqSApmI03kc5CaVPmBnKP8gFbmGmhbkcnDblq4tGR6idUpX+
-         YTVzZMl3PHf4W/JY6nMD/uep+dKMaKPe1LjkvHc2k+iVnwi943CYUoqIHgdD4zTU9l+R
-         D7MtVqb4dcOIupxCqDVbwg9REdXzMEKbAwh+5waqr8KYi6Pkc6iFJEH4jgNu5VKT8Sn8
-         kJszMEEdV7smadSst7xhPYtQQjc87mMLGxrC2mXcDHdoBdJFS5VM30TfZ3x66jFP19Gi
-         ouxm4tpolqOj9bQYGQCIKN0cu90Le1ru/MG29lUoYibZema6YOqjmzU+XzY2gAXQwFtm
-         OpTg==
+        bh=gakCoZ8eflcnov+XZJyQIl4n2RwSThYy0dzsNEefkMM=;
+        b=kO4ZikCOtSHU9OI35E3CXbvO0DVMxh7pW73Y2WIB58t+H1ZK4x2Z37VYMK2IV858nn
+         CFcEQbSyGJYsXt1M+hjJEx33EuagHcGHv4oP1Ew0vrer6wLsouQztPDkZuhE0TLQFf/m
+         fYwkD5UIzuUKQob5ZE1Ii/I+XxyLcgE/X0ABLXA6EnyG4wqgSxjlDNOcuFrlboNUNxnY
+         rfzUNV6NisyLEu15ERnvsc1qbJecfHF96pAc/H88raNENjAlpZdlFkHjntPcIGGxQ6bU
+         x3YetGrx4088dtZI1zXaa5ooqjgYrujidFtkmZuLp5a7oHkT3B91JkSUyv+N4fPKUKh4
+         w2aA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532CPW4ZIOXUaYkIYiWYyH/nBnco//kYMsrODvyJXvOsyUyoZVgx
-	fjKRKwwKG8q429dvbcMupa8=
-X-Google-Smtp-Source: ABdhPJzUTX+YKEPo68AOp29ICuhKCyDiaWGv23biqFrZzR49EjQsX7W8dh3QnfTolGHeRZy0Y5RGHg==
-X-Received: by 2002:a63:24c2:: with SMTP id k185mr3164280pgk.415.1598036560820;
+X-Gm-Message-State: AOAM531MU8F30h7Sd6aEWE9c6a/ytS2r1m6cQFZ3LDcNKeE2yXkEGyi1
+	G6hBXvF72Sgq3Em+ntR7aeU=
+X-Google-Smtp-Source: ABdhPJwOCQ0opgTVnur3wnazh6yrTdKEV8wU3eOwKom0f8WyzVf3URpCwNeePzjjWoYq/rDJDaLhZQ==
+X-Received: by 2002:a17:90a:d504:: with SMTP id t4mr3611913pju.58.1598036560717;
         Fri, 21 Aug 2020 12:02:40 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:c244:: with SMTP id l4ls789134pgg.9.gmail; Fri, 21 Aug
- 2020 12:02:40 -0700 (PDT)
-X-Received: by 2002:aa7:9a09:: with SMTP id w9mr3611745pfj.206.1598036560154;
+Received: by 2002:a17:902:142:: with SMTP id 60ls1449324plb.9.gmail; Fri, 21
+ Aug 2020 12:02:40 -0700 (PDT)
+X-Received: by 2002:a17:902:bd45:: with SMTP id b5mr3485393plx.22.1598036560159;
         Fri, 21 Aug 2020 12:02:40 -0700 (PDT)
 ARC-Seal: i=1; a=rsa-sha256; t=1598036560; cv=none;
         d=google.com; s=arc-20160816;
-        b=yHc3Vcx7oe9DjnB0LudqeumWodN4eDApT14ox9rmoYTzbFjRPf89e/imoYGg32sHCN
-         oPVvW3+mjZT29+JABc9GZBoaGu6FoaAxZVOu8Ys5VBvkQTU3D15Df1OsBLBKYC/O138d
-         /xZ/mBxB34khhdwttAFFS+gHkoFiKpeN5vyjNBMvp04xGszNL4T4s8UkBkvDF8XZbgeg
-         VRCg07L8pEavUsXV5DFZH+PSSaVpmEt5pacA3qGc57eR4ih6WEhMTYV5IoLiD1C3vBJE
-         zVvq8uCj7uGjhPclpBxsUSTZ+sLmz2h2/UxR6NIwOBKmGr39NihvgEJeEMN148lDuoQ6
-         u7Kw==
+        b=iGsEX2mW1djBigLlgLOuE46mR2Pcnl278jPe2KglJgf1Mmbs9Z+2C8HUD2J/g+C56J
+         ey/Ki5RWtC87xILc3He9YbqzTRj7BnNPUFUuvzlmwwah/mZ++fgLs4EnxFt0VJdI0vu+
+         cyPhechldaSQMzM9YbaD9rFnvqmAFYahOVFATXVe7i7kKAld0IFXJEOFdbsHlbGg3AoY
+         LXJF70uA4FE3BfWED+kvifvbPnZdaOChadj2LaaMyVQrRNDAONvi9ivqQcEtaBUNOiQI
+         1XBUprj9Hr/SCxBi3sMsh5hDtWB16JW4HGDjedtoJV/gKpc+DKwSH3EIO4KLCQbfB2mu
+         1M5g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature:dkim-filter;
-        bh=i+N9rQs5GJ5sYzQoaZQMubS5P0XusebE3s9Zow0JwbM=;
-        b=M6AAikHwCYAHmrGPhomCv+KpFoXUE/uece0s73frOTMDI6t3pIZHiMFIq88vAOaSuL
-         cWaQ9M/QUzSqwDji40/R8xQ1fXik8z6/IxuJvLwVqBalybUGhLwh9BzVMw6UdayytjLG
-         uuKiqCM8ChWUFTxo/wp9kX3WpBY7CZU2sUEisskPDDBciAjFcgBGynIQL2tD5feW6n8M
-         oVw+Ory/GTz5e3ZYAhkh++c5FcmeBBNckQ4GxvsTu4WQFawXkQJg04R2za6eOc7EBzWk
-         KpRq9eJgg9RF+VloW9OeN5jm4dSTNme2suBgZLnBDdJOtGhTQNuTDtGRe7F9JBDh48dO
-         5DCw==
+        bh=mg0M4bAejUOuEVILMgIjbEef+kFqOFGf8lqJ8WZirB8=;
+        b=ELS7tWqaSHOYxtYhYUowqAZoSNC72Y3guSFIY+S8BPUEGUROZjfCbLHWYtpn3bgBba
+         k++0MXD4xiPqRiIpBdoPOCilK48Ofdy/ReiTC/jmAk/q1aViT0xhgtwgSHTByKQzdoq8
+         crN2jGoHWcMejueTKXWp0+JZxdVYktgNu+hJyTRc4/COPFkq34Q5s8NuVpoWGV5la1Pc
+         OyvSIM4WwWsf4gtXRjrHmQGwMdcPmPpQZAQQJl2yl5kWtUVuE/kMUOPLAD0qH/D6ggFx
+         y6QnVUYwfGYZ0QXdEgF9ubrv574Tj6wzvvn+fEmn9UegXrD9gP6/8SbAkx3EiDz23T5V
+         XmiQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=TtMxdpaZ;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b="llJj/4JU";
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from conuserg-09.nifty.com (conuserg-09.nifty.com. [210.131.2.76])
-        by gmr-mx.google.com with ESMTPS id g11si116024plp.3.2020.08.21.12.02.39
+        by gmr-mx.google.com with ESMTPS id t13si164988plr.0.2020.08.21.12.02.39
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
         Fri, 21 Aug 2020 12:02:40 -0700 (PDT)
 Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) client-ip=210.131.2.76;
 Received: from oscar.flets-west.jp (softbank126090211135.bbtec.net [126.90.211.135]) (authenticated)
-	by conuserg-09.nifty.com with ESMTP id 07LJ23eV027595;
-	Sat, 22 Aug 2020 04:02:06 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-09.nifty.com 07LJ23eV027595
+	by conuserg-09.nifty.com with ESMTP id 07LJ23eW027595;
+	Sat, 22 Aug 2020 04:02:07 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-09.nifty.com 07LJ23eW027595
 X-Nifty-SrcIP: [126.90.211.135]
 From: Masahiro Yamada <masahiroy@kernel.org>
 To: linux-kbuild@vger.kernel.org
@@ -107,18 +107,18 @@ Cc: Nathan Huckleberry <nhuck@google.com>,
         Nick Desaulniers <ndesaulniers@google.com>,
         Tom Roeder <tmroeder@google.com>, clang-built-linux@googlegroups.com,
         Masahiro Yamada <masahiroy@kernel.org>, linux-kernel@vger.kernel.org
-Subject: [PATCH v2 3/9] gen_compile_commands: do not support .cmd files under tools/ directory
-Date: Sat, 22 Aug 2020 04:01:53 +0900
-Message-Id: <20200821190159.1033740-4-masahiroy@kernel.org>
+Subject: [PATCH v2 4/9] gen_compile_commands: reword the help message of -d option
+Date: Sat, 22 Aug 2020 04:01:54 +0900
+Message-Id: <20200821190159.1033740-5-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20200821190159.1033740-1-masahiroy@kernel.org>
 References: <20200821190159.1033740-1-masahiroy@kernel.org>
 MIME-Version: 1.0
 X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=TtMxdpaZ;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+ header.i=@nifty.com header.s=dec2015msa header.b="llJj/4JU";
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org
+ does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
@@ -133,22 +133,21 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The tools/ directory uses a different build system, and the format of
-.cmd files is different because the tools builds run in a different
-work directory.
+I think the help message of the -d option is somewhat misleading.
 
-Supporting two formats compilicates the script.
+  Path to the kernel source directory to search (defaults to the working directory)
 
-The only loss by this change is objtool.
+The part "kernel source directory" is the source of the confusion.
+Some people misunderstand as if this script did not support separate
+output directories.
 
-Also, rename the confusing variable 'relative_path' because it is
-not necessarily a relative path. When the output directory is not
-the direct child of the source tree (e.g. O=foo/bar), it is an
-absolute path. Rename it to 'file_path'.
+Actually, this script also works for out-of-tree builds. You can
+use the -d option to point to the object output directory, not to
+the source directory. It should match to the O= option used in the
+previous kernel build, and then appears in the "directory" field of
+compile_commands.json.
 
-os.path.join(root_directory, file_path) works whether the file_path
-is relative or not. If file_path is already absolute, it returns it
-as-is.
+Reword the help message.
 
 Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 ---
@@ -156,81 +155,33 @@ Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 Changes in v2:
   - New patch
 
- scripts/gen_compile_commands.py | 31 +++++++++++--------------------
- 1 file changed, 11 insertions(+), 20 deletions(-)
+ scripts/gen_compile_commands.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/scripts/gen_compile_commands.py b/scripts/gen_compile_commands.py
-index 535248cf2d7e..1b9899892d99 100755
+index 1b9899892d99..5f6318da01a2 100755
 --- a/scripts/gen_compile_commands.py
 +++ b/scripts/gen_compile_commands.py
-@@ -59,23 +59,21 @@ def parse_arguments():
-     return args.log_level, directory, output
- 
- 
--def process_line(root_directory, file_directory, command_prefix, relative_path):
-+def process_line(root_directory, command_prefix, file_path):
-     """Extracts information from a .cmd line and creates an entry from it.
- 
-     Args:
-         root_directory: The directory that was searched for .cmd files. Usually
-             used directly in the "directory" entry in compile_commands.json.
--        file_directory: The path to the directory the .cmd file was found in.
-         command_prefix: The extracted command line, up to the last element.
--        relative_path: The .c file from the end of the extracted command.
--            Usually relative to root_directory, but sometimes relative to
--            file_directory and sometimes neither.
-+        file_path: The .c file from the end of the extracted command.
-+            Usually relative to root_directory, but sometimes absolute.
+@@ -31,13 +31,13 @@ def parse_arguments():
  
      Returns:
-         An entry to append to compile_commands.
- 
-     Raises:
--        ValueError: Could not find the extracted file based on relative_path and
-+        ValueError: Could not find the extracted file based on file_path and
-             root_directory or file_directory.
+         log_level: A logging level to filter log output.
+-        directory: The directory to search for .cmd files.
++        directory: The work directory where the objects were built
+         output: Where to write the compile-commands JSON file.
      """
-     # The .cmd files are intended to be included directly by Make, so they
-@@ -84,20 +82,13 @@ def process_line(root_directory, file_directory, command_prefix, relative_path):
-     # by Make, so this code replaces the escaped version with '#'.
-     prefix = command_prefix.replace('\#', '#').replace('$(pound)', '#')
+     usage = 'Creates a compile_commands.json database from kernel .cmd files'
+     parser = argparse.ArgumentParser(description=usage)
  
--    cur_dir = root_directory
--    expected_path = os.path.join(cur_dir, relative_path)
--    if not os.path.exists(expected_path):
--        # Try using file_directory instead. Some of the tools have a different
--        # style of .cmd file than the kernel.
--        cur_dir = file_directory
--        expected_path = os.path.join(cur_dir, relative_path)
--        if not os.path.exists(expected_path):
--            raise ValueError('File %s not in %s or %s' %
--                             (relative_path, root_directory, file_directory))
-+    abs_path = os.path.abspath(os.path.join(root_directory, file_path))
-+    if not os.path.exists(abs_path):
-+        raise ValueError('File %s not found' % abs_path)
-     return {
--        'directory': cur_dir,
--        'file': relative_path,
--        'command': prefix + relative_path,
-+        'directory': root_directory,
-+        'file': abs_path,
-+        'command': prefix + file_path,
-     }
+-    directory_help = ('Path to the kernel source directory to search '
++    directory_help = ('specify the output directory used for the kernel build '
+                       '(defaults to the working directory)')
+     parser.add_argument('-d', '--directory', type=str, help=directory_help)
  
- 
-@@ -122,7 +113,7 @@ def main():
-                 result = line_matcher.match(f.readline())
-                 if result:
-                     try:
--                        entry = process_line(directory, dirpath,
-+                        entry = process_line(directory,
-                                              result.group(1), result.group(2))
-                         compile_commands.append(entry)
-                     except ValueError as err:
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200821190159.1033740-4-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200821190159.1033740-5-masahiroy%40kernel.org.
