@@ -1,139 +1,118 @@
-Return-Path: <clang-built-linux+bncBD26TVH6RINBBTMB774QKGQENCKWKJA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTY5EWUQMEBBNEC774QKGQEWDDQQWY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3f.google.com (mail-vk1-xa3f.google.com [IPv6:2607:f8b0:4864:20::a3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 16B9B24D52F
-	for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 14:40:47 +0200 (CEST)
-Received: by mail-vk1-xa3f.google.com with SMTP id i15sf548071vke.23
-        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 05:40:47 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598013645; cv=pass;
+Received: from mail-ot1-x33c.google.com (mail-ot1-x33c.google.com [IPv6:2607:f8b0:4864:20::33c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4A0E524D539
+	for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 14:42:30 +0200 (CEST)
+Received: by mail-ot1-x33c.google.com with SMTP id y5sf858260ota.0
+        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 05:42:30 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598013749; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZneFjSqxt9JgO7XsbhanXtN30WowWeRX84b2Uu2PJ67Xte+hWxK8LpH+ErY6e/ET9U
-         ZAazwgacMWJx0eFsp1QW2k+Cjz9BBwPVJZ2f9PGAsNcvb3/esA8iXR89/Os1AXa9v63q
-         CSyN01zj2Sii14zplA7C+GsmRfQRSNmZps+6NR9OBp7YArPXwuaoEimH6o+NnfOGUBID
-         xEsM66XJaOvvH7O/fG6wxavDdz+Odpo0uJXaaQhE+A4ekh7QqF4M1cHcLncGsEl4MbcT
-         oBpO/1S9sPsLV4JojSJQyAqBDOvbWZHGLs87XYu4Mc4SF90facuB87/lYN+izSFTeJLM
-         2PIA==
+        b=ll2hoynkKijOoHju04LR1WLj+SjFtS/sske5R1boOHF/1sgLmEQ+RNhVjMt5sA8C64
+         8CH2gFDP3icrvyo2CC/IsyQZDw54T5FqZO5R57qMliYqvt5VF6zORbu3KM4+OtYuK3FB
+         tSdI6Tyo9SfdwFSgObME+GnJ9YvpRtEjfL6fd+WupJ2zYccgv5HIVxuEChrzlWtT0Gol
+         QVDrio6q749Lah8CwNBfaJnq6maV8hKFOQNrkhRvfB2hLdR8LULtoUpN/3VvDYp2RpYd
+         1X0iVt2RUflquOKQ2I4hJy+Srezemv+cnSgDzPuX8gDIZx4NLQ3qrM8EkKowmufLZ4jO
+         z/cQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=iN/DMjlLLYXj0DNyHoL8I8CZUaHXYPlaYo0REqsoP8k=;
-        b=MHd/JYGovbJiPDs/1GLvWEsIwCZQvcVeJyGYKYI1FuuiTtiiVedBRWXvZ+efbv2YEW
-         JMVx+qlHwfd/CSSdh6vJssstwPaxMKAaXQmCDNJYxFBkjETWGV9akTbipqZV1qCRM5F2
-         G0YNAjxLF+QLjiAqy/Hv1aykgC7eogsK6b3ut0hJaLSqIq9KhiOL0Q/0G5tja1Bga5ph
-         FVEJPHYnhMHiug/I4GK8yY792IpV366xxGIyNOCIMtYhiAt1gfX7nFgkj9hYJckKTBDd
-         WZWyc+17qDGJ+faIqFu3mLYoL08hzOUEs5Wzv3szWgqqQPSmnpdgOHDTJXQwe0BigsRt
-         EgGQ==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=yOCnXqHe0BSJJLbReRyXa5wll7JhNiGDO2DpKHXx71o=;
+        b=JpBVpLUZ0t2l04cHTzlcHQCkvY0DBsmLpa4Shb/f++HolrUPFqr6bmML9D5Xyo7xoO
+         lAKuxZK6PX7EtD7xQvebzvVyWVvlnFHASoRHQIwoLd4ohQbjwBK17h5rajCbGNF5yP5d
+         KcUFvs7CYtuS18HfJZDXJdd1bM1HUZBnC99XqnxtBstbDYGrG63I5WZxirj5cFrbqy+P
+         ZkH54KGowzh+JjC7OUPqurY/f0eC6xJGWnbgvmCdFcVEhTqF6/Nc1/LqA5HZeRmUszVF
+         zZEoQ4XqeD8+5eRyQISuuzj+ZfwLs565nQY+q8QSvJUhF5JT02gWpUm36c+mhBk202vj
+         KSOQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       spf=pass (google.com: domain of herbert@gondor.apana.org.au designates 216.24.177.18 as permitted sender) smtp.mailfrom=herbert@gondor.apana.org.au
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:subject:to:cc:references:from
-         :message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=iN/DMjlLLYXj0DNyHoL8I8CZUaHXYPlaYo0REqsoP8k=;
-        b=lKIQPMIiqkMBRni04JnMD32gPQfMO97YiqQyt08KJ4Zd778ONTQe9VCaDk+WHmE9wh
-         pjJJAjLVRQHGSFtw2PkFxgfLWeUZpqqFh9M4ErPNHSC34Wz54pUZyKujSyBTM1F0babQ
-         wI4J4QSqVtjZOZcBPAjEuq+9t4GGLPhOuBHWnsfKJ40neLjj48tKMKPBFTF56DM1MF2M
-         UfIgGh+xlVqdyG6BWw5UyF7o3NBAjAR5LRiQTRAPnvxGCRaZH6raIxX+kbLfC5n7sWit
-         03RlequLMY+N8yxEAomqofOVDHCBWJDj7KMv/9X0WNrVA/VXMq9UPOAvXmwbVnaQipB1
-         ffMg==
+        bh=yOCnXqHe0BSJJLbReRyXa5wll7JhNiGDO2DpKHXx71o=;
+        b=ZLQjkk+IL6Sa05Tk2opZzru4tJMZZZ5EKgtE2BB/QSyegk31SWyRd34YL93yziy0zb
+         /e5oxvmduqYHQ1oGOHJLEOCFXc4MWnfDi8hHQnaN5EwbgUPgHexE7Bxi5LdVUQJnDSK0
+         vyHTFEP48H3Mq171dgBLXVAYLT+dO6sXuWQta6DLXiWGZAfxbTGe5lLEF2ZGhPPj7deK
+         ld6DEx2gDwP1nxSoixc84vKJv/F0143IdX1UH+qd1bPj68HHOn+4PPb0dAIqFmh9pdSY
+         eo8DM9qkKP9JMVhJH04UWQS3IIjH1EsTTBjILa2raHGOAGLCMN48NItFeUvUUONBft8d
+         0JrQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:subject:to:cc
-         :references:from:message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=iN/DMjlLLYXj0DNyHoL8I8CZUaHXYPlaYo0REqsoP8k=;
-        b=p8uZqxwxTL1Xzp6MJqqAWD4lsdCTH2LL3BJtFuWCCFqA6xz8rsp42pb+X88UpOeNmn
-         hazS0GFmeEv/mUvDSaVrg54SFuKgfUjdU4Dx64VRXSNDmFsMNbnPDgDzXlIyiwX4Cthz
-         itVMbibIYrK1afxhr0g4MtuwU0773k4Rt3G2DCh7gjYHTFOLQqIsDvmryNh1oVrioHYs
-         12piDCT2MqCEEvOkfKxoypMOciBXxIGYgRHmhy1Zlmr3wDaNrWhxJhN3cd8on4vt+F36
-         HlB/x2UcfaVeM87vrLU3apm1vP+vaj9ABWLAI+v2wAK9hSzG+zVD026eNxqpQbql1iAJ
-         Z90A==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=yOCnXqHe0BSJJLbReRyXa5wll7JhNiGDO2DpKHXx71o=;
+        b=rtx1ks/8sfoSK1Nnl0orGeIIrhXFK+ud4ehHtgu2NnBYh1uUm7ieU8sDOARKGtNn5a
+         BiUSCEUVXo9m6b3tO4B7G+FMiYrbihH2cfMiCbZbdqGBu3UypLG/kV+o1YMq11phrNKK
+         iQadNJO2DhCtEByFAp7VzdtdkAZ/y5d2ow/ejPMAplhaPJWqkPyJIq6wXYIBEA2rkODI
+         8w9R4lj9Pd6GEjE31GqGrkIvFxzCFNZxaRgiTXVPUNB5DYB9n8KPI/r3Xq2GzhCueyrK
+         wtb+m4cuvN2yvfOGEzhM5vE/v2cFhdTeMKpzpcEO6iyIx20kQv44mrvUf0ps+YgMQlju
+         CsOg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530MLr+6pU0PrL/IJDRtb7eBu46D1SRogQ4xoMZrKwlr1OUbIFpU
-	RwuGeY5+a3KaZM6L1ZJ2cvQ=
-X-Google-Smtp-Source: ABdhPJyeLxOltgmWVyD5BAplEv2LDpGZ4twRd6vqkSg8TrqNJLhmqIppjoruyLb0Rl1Y+xb2575F5w==
-X-Received: by 2002:a67:e45:: with SMTP id 66mr1555073vso.191.1598013645752;
-        Fri, 21 Aug 2020 05:40:45 -0700 (PDT)
+X-Gm-Message-State: AOAM532HgP8FCPLdsMgfFf6OHIFLNUFZ78OQb9YkGlPGpG0WP4X0BIAf
+	nFhAn0oNVcEnTKqfZeNdoQE=
+X-Google-Smtp-Source: ABdhPJyW9V5vE9VlBQiZJhwRRnW5wLPKHa39oW1nLc6HJbl20KccOZah0mDsv+5gXFNUDXKGj6WjPw==
+X-Received: by 2002:a9d:7458:: with SMTP id p24mr1686081otk.372.1598013749081;
+        Fri, 21 Aug 2020 05:42:29 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:2bd7:: with SMTP id s23ls111054uar.8.gmail; Fri, 21 Aug
- 2020 05:40:45 -0700 (PDT)
-X-Received: by 2002:ab0:1d18:: with SMTP id j24mr1306586uak.30.1598013645420;
-        Fri, 21 Aug 2020 05:40:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598013645; cv=none;
+Received: by 2002:aca:4745:: with SMTP id u66ls357550oia.11.gmail; Fri, 21 Aug
+ 2020 05:42:28 -0700 (PDT)
+X-Received: by 2002:aca:ab45:: with SMTP id u66mr1518931oie.127.1598013748438;
+        Fri, 21 Aug 2020 05:42:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598013748; cv=none;
         d=google.com; s=arc-20160816;
-        b=WNExkqBE7xgT75LUJBsHaus9r36cisR7Liy2mTf+N+KaQe/MXmEQ7vyPdYvlY1mc7r
-         j6mMekRpcyeWBqXABPcm/LKhtjUdJfPoNoN4AtIR5O1r1KF3AHEaOZVBdlrfunmlir38
-         8QMH43BUC2R3aJX/rmQshbIrzWHHuAf01/aL4UFvUewrbbevtiZ2s0k6PJxWzP3ejTck
-         P0sO4D3p95ogNbM5LjwYuptn/iS5B3vNM9J0UmkqIkTpiV65BTcXuVtoj9t7PWUxm7XQ
-         BtRB2fGCncS+KooB570OmpD2jh8FpyxhxMBYHMBja/om/oR4lVXJdKOsthbTApbPL68V
-         xtsw==
+        b=O+T/PyD5Joa9kUDWfZs+GfYPiOlypNCbL4w4lLL6E6PqUvBVJLH/Q1/Ls0b/Cc59jW
+         2YAttrqH/oDyclRinKP1gOdRTP650LEqY25QFdNNR2w9eCHHB1ExmKgli6MSYmIIG68t
+         9u4uKz5hRl7J4pErsD57T3MfehNUumbz2rQ9L2xp0+T2rgtTNcBK07uLu9RfLcKjiUEd
+         8mi+73b7xLhrBu6EGBzrkP09Vi2dOV6JH5oF9oqHNq5ixdzfLA+Vd+GPyHEF3DZ2oikS
+         aVqTq58wTLPl99U295eBqY+bbL6CwcrKKk4YHkuaq6bZZ3/dP3MxiaCLEmo49MOJEfgy
+         uKeg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-language:content-transfer-encoding:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :ironport-sdr:ironport-sdr;
-        bh=EHw3KBsE1FJssZ1N+llxRHcPucCBuQSjX+AkkH4M8CM=;
-        b=Y6TkyanHRMeEM2B2petVbvkX+svSOOd9Xmke5vHxjK+yHkSniqWCa0LjTfh4gIf9lJ
-         bRsFEh9Rhs3R08IFDipDg2aezJCMQM5x3HEmhu4EXoEGoWUQ23j57lhqOmb7AqUBuYyZ
-         Il6jF2/IM1aTUMjs3H+JM4LtrOYKIOEYZ9rIKNV/495n6sqRv2D5qaEeGQZVM6Kc8zla
-         Rt9CJk5I3NKieNlNIXqe//GauQq6ywn3NFTGAkjg9wHHgOoMhbuqAmWO+zE2G6Ttykzb
-         fcjXQ4xvsbe7AbsMBr19fd9B+vST969NRAKDGtXouLYd0BhJs1vXRIEKlNf7cO8fgDnX
-         +x5g==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=DWz2bjYpSfOWxu6yL+dXt5GBtDtsGX7dapWhZraxUX4=;
+        b=HD2/bnmbJ1PRwGUAdY7RM1munuFi4whVdgILFM8SSsUgVFXK6338CU0vsvaVEqcnHm
+         afztJMMKIjrN6h3bKuAHRynzDAjUfNwUP+0xYmQkavdUhu1gKyMK9Xgg8R/kpBWNLztN
+         hwokiNR/OTdDvFiAhZD2x3jHJrbE34lmSIb9pQ+X8LyBpZdd7yC5EfoN7Pd3+bkeGKP7
+         70O0hcacab50jwjF9dj6+t7zfatBu0J5uYueQqFbym5/LeFW24iZDviJ/5Jd1EsvWXpI
+         xxNuCVmZvDlSGK1btg+qgG7CRFOGDpjzuQRMYVo1S7dVlcKAufayUtcNBOiEgJKttP0z
+         1AZQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
-        by gmr-mx.google.com with ESMTPS id k201si109530vka.4.2020.08.21.05.40.45
+       spf=pass (google.com: domain of herbert@gondor.apana.org.au designates 216.24.177.18 as permitted sender) smtp.mailfrom=herbert@gondor.apana.org.au
+Received: from fornost.hmeau.com ([216.24.177.18])
+        by gmr-mx.google.com with ESMTPS id c199si78874oob.1.2020.08.21.05.42.27
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 21 Aug 2020 05:40:45 -0700 (PDT)
-Received-SPF: pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
-IronPort-SDR: NCyUYjf9WKj9gANZmewsNe3bHC4Vi0sG+xTJYpZPY56ld7Z79htKv4PFg0NmrNj2O9ZwztscZl
- hkbYN6ibMfjQ==
-X-IronPort-AV: E=McAfee;i="6000,8403,9719"; a="135057459"
-X-IronPort-AV: E=Sophos;i="5.76,335,1592895600"; 
-   d="scan'208";a="135057459"
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from orsmga005.jf.intel.com ([10.7.209.41])
-  by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Aug 2020 05:40:43 -0700
-IronPort-SDR: 89BhRZy2hl71tKo8EQ4fAGGM53LVeqLyhBIWLaPLUFiVND70oyGXYTZy76UEiSKCfKEOINN7Fq
- C8qTCAxM67xw==
-X-IronPort-AV: E=Sophos;i="5.76,335,1592895600"; 
-   d="scan'208";a="473035371"
-Received: from yumao-mobl1.ccr.corp.intel.com (HELO [10.255.28.213]) ([10.255.28.213])
-  by orsmga005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Aug 2020 05:40:40 -0700
-Subject: Re: [kbuild-all] Re: [peterz-queue:locking/wip 9/10]
- include/linux/spinlock_api_smp.h:126:2: error: implicit declaration of
- function 'arch_irqs_disabled'
-To: peterz@infradead.org, kernel test robot <lkp@intel.com>
-Cc: Nicholas Piggin <npiggin@gmail.com>, kbuild-all@lists.01.org,
- clang-built-linux@googlegroups.com
-References: <202008210640.LJqyOjgf%lkp@intel.com>
- <20200821084546.GI1362448@hirez.programming.kicks-ass.net>
-From: "Chen, Rong A" <rong.a.chen@intel.com>
-Message-ID: <c76485a8-9c3f-36d8-99ed-b00222ef5aea@intel.com>
-Date: Fri, 21 Aug 2020 20:40:37 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.11.0
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Aug 2020 05:42:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of herbert@gondor.apana.org.au designates 216.24.177.18 as permitted sender) client-ip=216.24.177.18;
+Received: from gwarestrin.arnor.me.apana.org.au ([192.168.0.7])
+	by fornost.hmeau.com with smtp (Exim 4.92 #5 (Debian))
+	id 1k96N0-0000bo-Ow; Fri, 21 Aug 2020 22:42:11 +1000
+Received: by gwarestrin.arnor.me.apana.org.au (sSMTP sendmail emulation); Fri, 21 Aug 2020 22:42:10 +1000
+Date: Fri, 21 Aug 2020 22:42:10 +1000
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: kernel test robot <lkp@intel.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+	linux-crypto@vger.kernel.org
+Subject: [PATCH] crypto: stm32 - Add missing header inclusions
+Message-ID: <20200821124210.GA31649@gondor.apana.org.au>
+References: <202008212033.z5PbDJuy%lkp@intel.com>
 MIME-Version: 1.0
-In-Reply-To: <20200821084546.GI1362448@hirez.programming.kicks-ass.net>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: rong.a.chen@intel.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <202008212033.z5PbDJuy%lkp@intel.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: herbert@gondor.apana.org.au
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of rong.a.chen@intel.com designates 192.55.52.136 as
- permitted sender) smtp.mailfrom=rong.a.chen@intel.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=intel.com
+ (google.com: domain of herbert@gondor.apana.org.au designates 216.24.177.18
+ as permitted sender) smtp.mailfrom=herbert@gondor.apana.org.au
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,25 +125,68 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Fri, Aug 21, 2020 at 08:22:37PM +0800, kernel test robot wrote:
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git master
+> head:   3d29e98d1d7550fc959a7ad4258bd804b533b493
+> commit: 0c3dc787a62aef3ca7aedf3797ec42fff9b0a913 [2/35] crypto: algapi - Remove skbuff.h inclusion
+> config: arm-randconfig-r016-20200820 (attached as .config)
+> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project b587ca93be114d07ec3bf654add97d7872325281)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install arm cross compiling tool for clang build
+>         # apt-get install binutils-arm-linux-gnueabi
+>         git checkout 0c3dc787a62aef3ca7aedf3797ec42fff9b0a913
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm 
+> 
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
 
+Thanks for the report.  This patch should fix it:
 
-On 8/21/2020 4:45 PM, peterz@infradead.org wrote:
-> On Fri, Aug 21, 2020 at 06:28:45AM +0800, kernel test robot wrote:
->> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.git locking/wip
->> head:   5087f2b9cf24ee0e6e1eb118b473fee280922a99
-> 0day guys, why did you send me a: "BUILD SUCCESS" mail _after_ sending
-> this build error?
->
-> That's just wrong.
+---8<---
+The stm32 driver was missing a number of includes that we being
+pulled in by unrelated header files.  As the indirect inclusion
+went away, it now fails to build.
 
-Hi Peter,
+This patch adds the missing inclusions.
 
-Thanks for reminding us, we'll fix it asap.
+Reported-by: kernel test robot <lkp@intel.com>
+Fixes: 0c3dc787a62a ("crypto: algapi - Remove skbuff.h inclusion")
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
 
-Best Regards,
-Rong Chen
+diff --git a/drivers/crypto/stm32/stm32-crc32.c b/drivers/crypto/stm32/stm32-crc32.c
+index 3ba41148c2a4..5fb706b68309 100644
+--- a/drivers/crypto/stm32/stm32-crc32.c
++++ b/drivers/crypto/stm32/stm32-crc32.c
+@@ -7,6 +7,8 @@
+ #include <linux/bitrev.h>
+ #include <linux/clk.h>
+ #include <linux/crc32poly.h>
++#include <linux/io.h>
++#include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/mod_devicetable.h>
+ #include <linux/platform_device.h>
+diff --git a/drivers/crypto/stm32/stm32-hash.c b/drivers/crypto/stm32/stm32-hash.c
+index 03c5e6683805..092eaabda238 100644
+--- a/drivers/crypto/stm32/stm32-hash.c
++++ b/drivers/crypto/stm32/stm32-hash.c
+@@ -9,6 +9,7 @@
+ #include <linux/clk.h>
+ #include <linux/crypto.h>
+ #include <linux/delay.h>
++#include <linux/dma-mapping.h>
+ #include <linux/dmaengine.h>
+ #include <linux/interrupt.h>
+ #include <linux/io.h>
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/c76485a8-9c3f-36d8-99ed-b00222ef5aea%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200821124210.GA31649%40gondor.apana.org.au.
