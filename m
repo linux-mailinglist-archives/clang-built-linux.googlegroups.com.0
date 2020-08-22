@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBO6VQH5AKGQEYCUVQDY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBAW4QH5AKGQE3LRP3RY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33f.google.com (mail-ot1-x33f.google.com [IPv6:2607:f8b0:4864:20::33f])
-	by mail.lfdr.de (Postfix) with ESMTPS id E88B224E442
-	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 02:45:48 +0200 (CEST)
-Received: by mail-ot1-x33f.google.com with SMTP id r18sf1585148otq.6
-        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 17:45:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598057148; cv=pass;
+Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1400124E451
+	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 02:59:48 +0200 (CEST)
+Received: by mail-pl1-x63c.google.com with SMTP id g1sf2078056plo.3
+        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 17:59:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598057986; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Pc0cYwgaDEG/iluoPZpJ1ucVILYqOb89xmI4w9K+IvmUW+ltppqcEqCj19c5yJKKeS
-         L+oKbFXkDL029DbO5JNNBDbyH9YzV/bqRdhDnE1lJ7mTEQJn8d+zLGnvm7ELL8Z/jOxn
-         IwUCpi66hna3z2zxHog/ERRtmRIvrpUMl6bz2wtMtqy3mmIlcpr+pqFafZI2mQHDGriy
-         JHGz8/bgJdgPOvW6094gUlXEnoBVwEOCFZrXhXRRETs3JBKWRQlm9eZ1UIwMO2VjE/BC
-         RGQO7AOdujIB1yXDumFUMPpQW/w1OjyXh1xCQNybaRdwVo/mzT5ShVbmlN7CY22PdyDa
-         6q4w==
+        b=C+BeiQ4aV7xUzLMq+5YVVcyC1ffAUnd+AMeopMDfnFQ48lOlJfW2fXJ+nM5ZpzGN5X
+         6oTi8Ysc0HrgHBGpzzaQR1+qcjKioMG7jbNYI4eMXbOCvPlSyFy+sRnU+mCyZN74qiUJ
+         p9gzRPx0lnUV/s/M8Td3fzlE6D5Uzj0pWTHq6v8rsa3t5zqmCgRZnhJXa6oOD6c0ei5n
+         2eHrTAGhTZgN8chz+sUUrf5lV35cAqv/hToefVbRnASRsnsQMSS9jIXYuIIxUe1WRPJK
+         YP/knTIX9iyUeuXnpEtottIokei9IsSXW1RpYHoH02Tvx8zhcJVI6WmUHYbhWTE+n07t
+         oa5g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=lS6I2KGMIUchC5TPABVvtw5A1cicGM06hqbOAjTVsy0=;
-        b=tM8ZdOtHv74M+AkKk1xFsdM00eXE8ZhM6F7F8niYeKX3Cenz4LxvJTjoh96ZIsZ5Wh
-         jinvtbdDhZkkr/w4ELi5hBkc4qK24VuoSMJ9HbuznsCXiuDRo+RuEgltkS5JQQBIhMYJ
-         HkJkUuU5l9ZYJvU2lu2r71ovBtKCyta2VX915F5dw9d/ySVL53oXRyvwBrGU8LruKQGz
-         vtmKvqhI+M2W9r0wNi0BPHcYCzZew8AqXE1QfUiceyBOXHoS5opFS7qXAljYWxgFe90z
-         8EmS14mpxq4ftfpoXLFkD2M7ylWkL0CshpKMm73CH9orA3PMcMuD3Z4zdihIx7UR+eLw
-         wyjQ==
+        bh=6PUdgb+OSF5n6hdUn3TmApr6R78KSGuIKgQvKSyrWCg=;
+        b=ve3MOPyqPJK8eWk4edKNEQdHCaBZhl6FNeW6AMFIADsLDlo9xa9isXd9cIOVdfH+vd
+         5oSYWlecy8iU5WWPWpMVHUuNNxJ2Zo50iDSfW5REgsmh0kbEnSlX8Wu3FZVt2NBUoz1K
+         ykNqTFeP45/0YlctKu6y5Crx3Ve2S4qaafwJQFS7/G7SA0inhOkPUVrD6w3CsbW6vHLa
+         SnucFdJnNZwv58ozy/exuKBcsILP71+e+iiHdUR88O6us5Nwkwagbssp12D3ErLR1HC7
+         AdH6TIHV16gJR1rlOxm6hgQYcz7wz0d+wtv2bw3NLvUqdwIVsaW/7KfL7QgzMltseKV5
+         i64Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=DAF4Uzk+;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=O0MPFknx;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52a as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=lS6I2KGMIUchC5TPABVvtw5A1cicGM06hqbOAjTVsy0=;
-        b=ZGDXsxT/ae9f9wxRk8dFdJWxSAQo8QQwXKGkY8+c3Pg+uth8SZu3PD8vz/Lams8OXp
-         i2DmyMHDtdK7O3QZ+eG/mootU9gQ55c/F6lqrbTSXS63GlUE3NEB69TOy1RY5lXrIwp9
-         FeyyXv7t4eMLovnouoOdNzXOo7AFaGChyyoHNwBMNgRCvFsYunPNEdMo9Hwjh+Ikqa64
-         M6MtNGcupnGqw3PqJGvg+zxeX8WpTN5oVpXefUnjBu0UuBwoXctNXgPQf4QxzBPOQ9s5
-         eJDl5PqUej00XWWMko2I1aUNyw7a2YxaHoy0/vhYe2mTolILoDp7Tf16uhzLcQdZErGZ
-         Cg2g==
+        bh=6PUdgb+OSF5n6hdUn3TmApr6R78KSGuIKgQvKSyrWCg=;
+        b=hB8jk7eXMfTanVaqQUzZFzTPvmd//1fQotaTbWHJjVawbovJD9JK4tgWfb7lnnQVKL
+         EF+mJOnS/KVqcmNSScqKs1bUQhtcQvjExDHlhWWTEOFA6xMvLfV3JFlzhPWM1fecWkzg
+         qcq1185qSmdzpoj2vrjr3b41NhgXe4LC7j05Vf6sNOqFa54oPrKALVrnClA5xfoZFOrG
+         Vqglinxlr0JfJpNb3Ts+eKHicfoE9KTQO6mUoPW4wlNCwuCTIoRY4IGdFdeV4du+Ah8C
+         bNgGSuII1lPUAUCQLc8mw5KZ5NXhfLTH/xifZdENogkTp67Lq/WKVTtLWqBNqIkeWVnB
+         btIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,73 +49,72 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=lS6I2KGMIUchC5TPABVvtw5A1cicGM06hqbOAjTVsy0=;
-        b=bRSnFHaW1Lb14dWnp60HcH/T1v+Jdgvs13FZmuybVlab7c1lgJMp89joTNQUKBlmfE
-         DWQ2YCECXvkMntd/I+0/njL0mrpA445o3Q86kCMTpO4geLG8unDLnJ9X9FDJg5Z2AM4r
-         FZghL9MxjtFb6aGWmsLuDEIbQdmww5PbF9/a8taIvlgcCpD10ZI2DIAsubDQKQQenM7N
-         QvYU9s89qzEVh0tdkepN276wlAcOj2WgASn6kQj/r68G9enFU2cOeEs5qotfvwzHXbUJ
-         z53jfvfqJ0Y98XnbuWwKt7MWYLL417+N6ixzRY+Pw3qn9ggyd5DBve0MA/hInc7SXzmU
-         U9lg==
-X-Gm-Message-State: AOAM533JMPnAt5J56xkp1KBgGeq/jmAgqHi+FTlaBsp/SPvWGyxHk8S/
-	NvvZY4NGLl0K8RuYLTHtCps=
-X-Google-Smtp-Source: ABdhPJwEJbJnp6SOs1b44H8p39BgTYHu23usB3kXK0aUjDweaOOZbLIa7EU5X4RTxAlYvgvdSKAXiQ==
-X-Received: by 2002:aca:d595:: with SMTP id m143mr3269805oig.11.1598057147880;
-        Fri, 21 Aug 2020 17:45:47 -0700 (PDT)
+        bh=6PUdgb+OSF5n6hdUn3TmApr6R78KSGuIKgQvKSyrWCg=;
+        b=t97XjIsc1xmstj2yB20U/P8Dzh911W/DB7OroOgmIxQJuqA3kEnrvUTOROwbR7IOy6
+         Ll0aTw02ITPiZJQPPpJG9+9WUztgU5hGB/szLIkT54Q/RhabR2oa1fvMThX9eH0XDb+X
+         3VS/3JpKVZCSE8qxcROiaWm3PO+YdSZchfVT0ad7ZzZu99TGkXS3Ow1u4cvqMlOAJko5
+         YYmNQn99MYJJpHksplI3Kiz/mG4r3w63AlADOLay9EA3kPVfHHdu1YrRwojL3xhXh8H8
+         9UePkGhqQuTGLQQAOR1fhVImlOQtm3EG+BIjw7sSTa3WaVa4n3NhzTbCmiGF/X5Uhp4T
+         yQDw==
+X-Gm-Message-State: AOAM5332JUwd3dyD7sIv2jWLxolsTHYf9cBu0u7MRBHtKsFSpIm7ZPBa
+	XyGaS+iDIV4FVO7uYY7q8EI=
+X-Google-Smtp-Source: ABdhPJy1PyTy5J8Linerz6+8Z0GR+/p8yyB8nPbdOgqrOH2Nkg7Fojw6IX5EosneatxFi0TdweIumQ==
+X-Received: by 2002:aa7:838d:: with SMTP id u13mr4522107pfm.158.1598057986647;
+        Fri, 21 Aug 2020 17:59:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:1d90:: with SMTP id y16ls872023oti.10.gmail; Fri,
- 21 Aug 2020 17:45:47 -0700 (PDT)
-X-Received: by 2002:a9d:2aea:: with SMTP id e97mr3804406otb.123.1598057147581;
-        Fri, 21 Aug 2020 17:45:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598057147; cv=none;
+Received: by 2002:a63:525b:: with SMTP id s27ls1144747pgl.11.gmail; Fri, 21
+ Aug 2020 17:59:46 -0700 (PDT)
+X-Received: by 2002:a63:5810:: with SMTP id m16mr4064463pgb.193.1598057986181;
+        Fri, 21 Aug 2020 17:59:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598057986; cv=none;
         d=google.com; s=arc-20160816;
-        b=x74Y6ctCMdD6yShRemw27PjpeTPJyIbICMuSIL7TIgbMAbQCnRHlVYk9VxG+uZXw7K
-         N9QnkVwAgnur3z8ZWCaw+wz4L9fqUZuLRwbTcOIDR1dzJKCsjq0y0V8Ao/eYIK2ooBWQ
-         C/8UaVgIHr5kjBfrmNkcxOBXyUg6Z27SWFR5Fh5a+uL4kY0qdNJDHJ0JeSsCDSpxhBHS
-         MISlRdELNykwx0gSV+URsvX8ZIqsoJ4HoXkyGgz/OK/1NeqQoQwQFEklOhcnNREALzC0
-         c0dWDz+0N4Gcm9PSkIvDCUcapd5OZthyEX0GkZii44ooeDgGKZ1TaTssanqLmhaK7Y6b
-         G6Lg==
+        b=Dqfl4LJ9enYXTRRoLKSXykSDzXWb0ERXRG1qntB/RZjDIlgLGGBvlF2j4+Ptsf8v5N
+         eHdwr9Q/oNIMy4SSgjkx6EDHCAQ3WZ+ln+VDyJ6CByZukHpSYHcZHYJ9k+wIVVE0w1ZQ
+         OjszI2rKbi3+0Ym9Y8zI+mgr0qmb2jtEkYq27IPg4fgt8E7ZCnca0cWLjKjC3lB+Hu8S
+         zG+2L4Z9ymEqRNzbKeWanUeIMHjq4WlRmiJJzelB7BNA3oeohXetanvnovbN9sXB/xiT
+         PmnTrPicHwbTnv2b2MzGgI1xBgekUXlAtd6A2cKiXHrrr8D/31xAlGwVUYItwsmBFTVM
+         kzfQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=NY5DJt5lm6krkgKqak2a2sk/F2E40cokLY/vvCYJjVU=;
-        b=JBOwUyOD3FyU8QX3RG6QIR++itS3HLCwGHuIqbyGNo8nmUzcPZJQ5I8A6X175CEPcp
-         IOeqs1HiF3yj5HWtP667SLU7f2Sajy8W/GdFHkD3jPUN3QTwiEhtTpS+L1rlr6jdXfCI
-         6iTDNo/cKFyHJ73XEN6EnkMxMZDQDNvt2J9FkcdigS9cuauPDSAe7ZlYDhMeuTuwDwwu
-         OWt06jhcGylyw+1fxPMjjfsx/ugZbPqoM5AOot6mKpSKtLkiKoI25Okk0zllYjsN3t2q
-         rDpVfKsBJ9J9N//UsCTpU/6sPVOhhLy+Bzco4xJlHqZu5HY/yFo0ZhmDzgZHcbmWziSD
-         q45w==
+        bh=wMClZMLlnIVxwC0OX/YJqw846WceChHdY8h9nnyWNwk=;
+        b=yrowPDg0SuFxAjjiwf1cGLnmYD0a+tICayAmTujq7mRM8XWZU8m64n2fGfArm8ij14
+         +Jb/fjyd0ieIPKwSti/6h5smd5tbEFYV7yEJvaejThqNGBqnmGriK2eIN2eJwMsunhvJ
+         C4zN7Zmd3JmKIRjM9879Xz0wZPz4fRVMdD42aj0MOH+3N3488PwItqVXbxRLn9cONvMd
+         0k4TrkWG1H8H4OwEiOnPkx9pH4UYNPAOWdPx7yd2abstlHkhtzMc29+b6hhnYMO+JgXw
+         YKjZH/JtIQcxer7yvXxVEItjQRW40EnJblFiL1OsyBrLe1AaGlWWdIz5Ub8oc8Xee/jb
+         5VXg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=DAF4Uzk+;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=O0MPFknx;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52a as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x542.google.com (mail-pg1-x542.google.com. [2607:f8b0:4864:20::542])
-        by gmr-mx.google.com with ESMTPS id u18si206111oif.1.2020.08.21.17.45.47
+Received: from mail-pg1-x52a.google.com (mail-pg1-x52a.google.com. [2607:f8b0:4864:20::52a])
+        by gmr-mx.google.com with ESMTPS id s14si191403pgj.1.2020.08.21.17.59.46
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Aug 2020 17:45:47 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542 as permitted sender) client-ip=2607:f8b0:4864:20::542;
-Received: by mail-pg1-x542.google.com with SMTP id s15so1762522pgc.8
-        for <clang-built-linux@googlegroups.com>; Fri, 21 Aug 2020 17:45:47 -0700 (PDT)
-X-Received: by 2002:a63:7d8:: with SMTP id 207mr4156920pgh.263.1598057146355;
- Fri, 21 Aug 2020 17:45:46 -0700 (PDT)
+        Fri, 21 Aug 2020 17:59:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52a as permitted sender) client-ip=2607:f8b0:4864:20::52a;
+Received: by mail-pg1-x52a.google.com with SMTP id p37so1787204pgl.3
+        for <clang-built-linux@googlegroups.com>; Fri, 21 Aug 2020 17:59:46 -0700 (PDT)
+X-Received: by 2002:a63:7d8:: with SMTP id 207mr4183460pgh.263.1598057985426;
+ Fri, 21 Aug 2020 17:59:45 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200821190159.1033740-1-masahiroy@kernel.org> <20200821190159.1033740-9-masahiroy@kernel.org>
-In-Reply-To: <20200821190159.1033740-9-masahiroy@kernel.org>
+References: <20200821190159.1033740-1-masahiroy@kernel.org> <20200821190159.1033740-8-masahiroy@kernel.org>
+In-Reply-To: <20200821190159.1033740-8-masahiroy@kernel.org>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 21 Aug 2020 17:45:35 -0700
-Message-ID: <CAKwvOdkm81Cn66LFKiM2bcSbFP29vPWxOGu9RsaLvMFZ=D5b4g@mail.gmail.com>
-Subject: Re: [PATCH v2 8/9] kbuild: wire up the build rule of
- compile_commands.json to Makefile
+Date: Fri, 21 Aug 2020 17:59:33 -0700
+Message-ID: <CAKwvOdmR=VeR0=LUgXCwnpK9LH90_itzv627wBEK4hCroBEW9Q@mail.gmail.com>
+Subject: Re: [PATCH v2 7/9] gen_compile_commands: support *.o, *.a,
+ modules.order in positional argument
 To: Masahiro Yamada <masahiroy@kernel.org>
 Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, Nathan Huckleberry <nhuck@google.com>, 
 	Tom Roeder <tmroeder@google.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Michal Marek <michal.lkml@markovi.net>, 
-	LKML <linux-kernel@vger.kernel.org>
+	clang-built-linux <clang-built-linux@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=DAF4Uzk+;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542
+ header.i=@google.com header.s=20161025 header.b=O0MPFknx;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52a
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -134,166 +133,207 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 On Fri, Aug 21, 2020 at 12:02 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
 >
-> Currently, you need to manually run scripts/gen_compile_commands.py
-> to create compile_commands.json. It parses all the .*.cmd files found
-> under the specified directory.
+> This script currently searches the specified directory for .cmd files.
+> One drawback is it may contain stale .cmd files after you rebuild the
+> kernel several times without 'make clean'.
 >
-> If you rebuild the kernel over again without 'make clean',
-> .*.cmd files from older builds will create stale entries in
-> compile_commands.json.
+> This commit supports *.o, *.a, and modules.order as positional
+> parameters. If such files are given, they are parsed to collect
+> associated .cmd files. I added a generator helper for each of them.
 >
-> This commit wires up the compile_commands.json rule to Makefile, and
-> makes it parse only the .*.cmd files involved in the current build.
->
-> Pass $(KBUILD_VMLINUX_OBJS), $(KBUILD_VMLINUX_LIBS), and modules.order
-> to the script. The objects or archives linked to vmlinux are listed in
-> $(KBUILD_VMLINUX_OBJS) or $(KBUILD_VMLINUX_LIBS). All the modules are
-> listed in modules.order.
->
-> You can create compile_commands.json from Make:
->
->   $ make -j$(nproc) CC=clang compile_commands.json
->
-> You can also build vmlinux, modules, and compile_commands.json all
-> together in a single command:
->
->   $ make -j$(nproc) CC=clang all compile_commands.json
->
-> It works for M= builds as well. In this case, compile_commands.json
-> is created in the top directory of the external module.
->
-> This is convenient, but it has a drawback; the coverage of the
-> compile_commands.json is reduced because only the objects linked to
-> vmlinux or modules are handled. For example, the following C files are
-> not included in the compile_commands.json:
->
->  - Decompressor source files (arch/*/boot/)
->  - VDSO source files
->  - C files used to generate intermediates (e.g. kernel/bounds.c)
->  - Standalone host programs
->
-> I think it is fine for most developers because our main interest is
-> the kernel-space code.
->
-> If you want to cover all the compiled C files, please build the kernel
-> then run the script manually as before:
->
->   $ make clean    # if you want to delete stale .cmd files [optional]
->   $ make -j$(nproc) CC=clang
->   $ scripts/gen_compile_commands.json
->
-> Here is a note for out-of-tree builds. 'make compile_commands.json'
-> works with O= option, but please notice compile_commands.json is
-> created in the object tree instead of the source tree.
->
-> Some people may want to have compile_commands.json in the source tree
-> because Clang Tools searches for it through all parent paths of the
-> first input source file.
->
-> However, you cannot do this for O= builds. Kbuild should never generate
-> any build artifact in the source tree when O= is given because the
-> source tree might be read-only. Any write attempt to the source tree
-> is monitored and the violation may be reported. See the commit log of
-> 8ef14c2c41d9.
->
-> So, the only possible way is to create compile_commands.json in the
-> object tree, then specify '-p <build-path>' when you use clang-check,
-> clang-tidy, etc.
+> This feature is useful to get the list of active .cmd files from the
+> last build, and will be used by the next commit to wire up the
+> compile_commands.json rule to the Makefile.
 >
 > Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 > ---
 >
-> (no changes since v1)
+> Changes in v2:
+>   - Separate the file parser into generator functions
+>   - Use 'obj' instead of 'object' because 'object' is a built-in function
+>   - I think using 'file' is OK because it is not a built-in function in Python3
+>     (https://docs.python.org/3/library/functions.html)
+>     Anyway, the variable 'file' is no longer used in this version
+>   - Keep the previous work-flow to allow to search the given directory
 >
->  Makefile | 29 +++++++++++++++++++++++++----
->  1 file changed, 25 insertions(+), 4 deletions(-)
+>  scripts/gen_compile_commands.py | 100 ++++++++++++++++++++++++++++++--
+>  1 file changed, 96 insertions(+), 4 deletions(-)
 >
-> diff --git a/Makefile b/Makefile
-> index 9cac6fde3479..65ed336a6de1 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -635,7 +635,7 @@ endif
->  # in addition to whatever we do anyway.
->  # Just "make" or "make all" shall build modules as well
+> diff --git a/scripts/gen_compile_commands.py b/scripts/gen_compile_commands.py
+> index 6dec7e2c4098..65859e6044b5 100755
+> --- a/scripts/gen_compile_commands.py
+> +++ b/scripts/gen_compile_commands.py
+> @@ -12,6 +12,7 @@ import json
+>  import logging
+>  import os
+>  import re
+> +import subprocess
 >
-> -ifneq ($(filter all modules nsdeps,$(MAKECMDGOALS)),)
-> +ifneq ($(filter all modules nsdeps %compile_commands.json,$(MAKECMDGOALS)),)
->    KBUILD_MODULES := 1
->  endif
+>  _DEFAULT_OUTPUT = 'compile_commands.json'
+>  _DEFAULT_LOG_LEVEL = 'WARNING'
+> @@ -32,8 +33,9 @@ def parse_arguments():
+>      Returns:
+>          log_level: A logging level to filter log output.
+>          directory: The work directory where the objects were built
+> +        ar: Command used for parsing .a archives
+>          output: Where to write the compile-commands JSON file.
+> -        paths: The list of directories to handle to find .cmd files
+> +        paths: The list of files/directories to handle to find .cmd files
+>      """
+>      usage = 'Creates a compile_commands.json database from kernel .cmd files'
+>      parser = argparse.ArgumentParser(description=usage)
+> @@ -53,12 +55,21 @@ def parse_arguments():
+>      parser.add_argument('--log_level', choices=_VALID_LOG_LEVELS,
+>                          default=_DEFAULT_LOG_LEVEL, help=log_level_help)
 >
-> @@ -1464,7 +1464,8 @@ endif # CONFIG_MODULES
->
->  # Directories & files removed with 'make clean'
->  CLEAN_FILES += include/ksym vmlinux.symvers \
-> -              modules.builtin modules.builtin.modinfo modules.nsdeps
-> +              modules.builtin modules.builtin.modinfo modules.nsdeps \
-> +              compile_commands.json
->
->  # Directories & files removed with 'make mrproper'
->  MRPROPER_FILES += include/config include/generated          \
-> @@ -1698,9 +1699,12 @@ KBUILD_MODULES := 1
->
->  build-dirs := $(KBUILD_EXTMOD)
->  PHONY += modules
-> -modules: descend
-> +modules: $(MODORDER)
->         $(Q)$(MAKE) -f $(srctree)/scripts/Makefile.modpost
->
-> +$(MODORDER): descend
-> +       @:
+> +    ar_help = 'command used for parsing .a archives'
+> +    parser.add_argument('-a', '--ar', type=str, default='ar', help=ar_help)
 
-^ stuff like this I don't understand.  But I understand the premise of
-the patch, the change in behavior, and the tradeoffs, so:
-Acked-by: Nick Desaulniers <ndesaulniers@google.com>
+If there's a default, doesn't that mean it's no longer required? I
+think it should be required.  For a clang specific tool, we'd prefer
+the default to be llvm-ar anyways.
 
 > +
->  PHONY += modules_install
->  modules_install: _emodinst_ _emodinst_post
->
-> @@ -1714,8 +1718,12 @@ PHONY += _emodinst_post
->  _emodinst_post: _emodinst_
->         $(call cmd,depmod)
->
-> +compile_commands.json: $(extmod-prefix)compile_commands.json
-> +PHONY += compile_commands.json
+> +    paths_help = ('directories to search or files to parse '
+> +                  '(files should be *.o, *.a, or modules.order). '
+> +                  'If nothing is specified, the current directory is searched')
+> +    parser.add_argument('paths', type=str, nargs='*', help=paths_help)
 > +
->  clean-dirs := $(KBUILD_EXTMOD)
-> -clean: rm-files := $(KBUILD_EXTMOD)/Module.symvers $(KBUILD_EXTMOD)/modules.nsdeps
-> +clean: rm-files := $(KBUILD_EXTMOD)/Module.symvers $(KBUILD_EXTMOD)/modules.nsdeps \
-> +       $(KBUILD_EXTMOD)/compile_commands.json
+>      args = parser.parse_args()
 >
->  PHONY += help
->  help:
-> @@ -1828,6 +1836,19 @@ nsdeps: export KBUILD_NSDEPS=1
->  nsdeps: modules
->         $(Q)$(CONFIG_SHELL) $(srctree)/scripts/nsdeps
+>      return (args.log_level,
+>              os.path.abspath(args.directory),
+>              args.output,
+> -            [args.directory])
+> +            args.ar,
+> +            args.paths if len(args.paths) > 0 else [args.directory])
 >
-> +# Clang Tooling
-> +# ---------------------------------------------------------------------------
-> +
-> +quiet_cmd_gen_compile_commands = GEN     $@
-> +      cmd_gen_compile_commands = $(PYTHON3) $< -a $(AR) -o $@ $(filter-out $<, $(real-prereqs))
-> +
-> +$(extmod-prefix)compile_commands.json: scripts/gen_compile_commands.py \
-> +       $(if $(KBUILD_EXTMOD),,$(KBUILD_VMLINUX_OBJS) $(KBUILD_VMLINUX_LIBS)) \
-> +       $(if $(CONFIG_MODULES), $(MODORDER)) FORCE
-> +       $(call if_changed,gen_compile_commands)
-> +
-> +targets += $(extmod-prefix)compile_commands.json
-> +
->  # Scripts to check various things for consistency
->  # ---------------------------------------------------------------------------
 >
+>  def cmdfiles_in_dir(directory):
+> @@ -81,6 +92,73 @@ def cmdfiles_in_dir(directory):
+>                  yield os.path.join(dirpath, filename)
+>
+>
+> +def to_cmdfile(path):
+> +    """Return the path of .cmd file used for the given build artifact
+> +
+> +    Args:
+> +        Path: file path
+> +
+> +    Returns:
+> +        The path to .cmd file
+> +    """
+> +    dir, base = os.path.split(path)
+> +    return os.path.join(dir, '.' + base + '.cmd')
+> +
+> +
+> +def cmdfiles_for_o(obj):
+> +    """Generate the iterator of .cmd files associated with the object
+> +
+> +    Yield the .cmd file used to build the given object
+> +
+> +    Args:
+> +        obj: The object path
+> +
+> +    Yields:
+> +        The path to .cmd file
+> +    """
+> +    yield to_cmdfile(obj)
+> +
+> +
+> +def cmdfiles_for_a(archive, ar):
+> +    """Generate the iterator of .cmd files associated with the archive.
+> +
+> +    Parse the given archive, and yield every .cmd file used to build it.
+> +
+> +    Args:
+> +        archive: The archive to parse
+> +
+> +    Yields:
+> +        The path to every .cmd file found
+> +    """
+> +    for obj in subprocess.check_output([ar, '-t', archive]).decode().split():
+> +        yield to_cmdfile(obj)
+> +
+> +
+> +def cmdfiles_for_modorder(modorder):
+> +    """Generate the iterator of .cmd files associated with the modules.order.
+> +
+> +    Parse the given modules.order, and yield every .cmd file used to build the
+> +    contained modules.
+> +
+> +    Args:
+> +        modorder: The modules.order file to parse
+> +
+> +    Yields:
+> +        The path to every .cmd file found
+> +    """
+> +    with open(modorder) as f:
+> +        for line in f:
+> +            ko = line.rstrip()
+> +            base, ext = os.path.splitext(ko)
+
+below in main() you check the file extension with endswith().  Would
+it be good to be consistent between the two?
+
+> +            if ext != '.ko':
+> +                sys.exit('{}: module path must end with .ko'.format(ko))
+> +            mod = base + '.mod'
+> +           # The first line of *.mod lists the objects that compose the module.
+> +            with open(mod) as m:
+> +                for obj in m.readline().split():
+> +                    yield to_cmdfile(obj)
+> +
+> +
+>  def process_line(root_directory, command_prefix, file_path):
+>      """Extracts information from a .cmd line and creates an entry from it.
+>
+> @@ -116,7 +194,7 @@ def process_line(root_directory, command_prefix, file_path):
+>
+>  def main():
+>      """Walks through the directory and finds and parses .cmd files."""
+> -    log_level, directory, output, paths = parse_arguments()
+> +    log_level, directory, output, ar, paths = parse_arguments()
+>
+>      level = getattr(logging, log_level)
+>      logging.basicConfig(format='%(levelname)s: %(message)s', level=level)
+> @@ -126,7 +204,21 @@ def main():
+>      compile_commands = []
+>
+>      for path in paths:
+> -        cmdfiles = cmdfiles_in_dir(path)
+> +        # If 'path' is a directory, handle all .cmd files under it.
+> +        # Otherwise, handle .cmd files associated with the file.
+> +        # Most of built-in objects are linked via archives (built-in.a or lib.a)
+> +        # but some are linked to vmlinux directly.
+> +        # Modules are lis
+
+^ was this comment cut off?
+
+
+> +        if os.path.isdir(path):
+> +            cmdfiles = cmdfiles_in_dir(path)
+> +        elif path.endswith('.o'):
+> +            cmdfiles = cmdfiles_for_o(path)
+> +        elif path.endswith('.a'):
+> +            cmdfiles = cmdfiles_for_a(path, ar)
+> +        elif path.endswith('modules.order'):
+> +            cmdfiles = cmdfiles_for_modorder(path)
+> +        else:
+> +            sys.exit('{}: unknown file type'.format(path))
+>
+>          for cmdfile in cmdfiles:
+>              with open(cmdfile, 'rt') as f:
 > --
 > 2.25.1
 >
 
 
--- 
+--
 Thanks,
 ~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkm81Cn66LFKiM2bcSbFP29vPWxOGu9RsaLvMFZ%3DD5b4g%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmR%3DVeR0%3DLUgXCwnpK9LH90_itzv627wBEK4hCroBEW9Q%40mail.gmail.com.
