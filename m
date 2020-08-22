@@ -1,124 +1,133 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBNPCQH5AKGQEDBGC76I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBZHWQH5AKGQEZ45AP2I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1038.google.com (mail-pj1-x1038.google.com [IPv6:2607:f8b0:4864:20::1038])
-	by mail.lfdr.de (Postfix) with ESMTPS id F1D2424E468
-	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 03:13:26 +0200 (CEST)
-Received: by mail-pj1-x1038.google.com with SMTP id mw8sf1844967pjb.1
-        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 18:13:26 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598058805; cv=pass;
+Received: from mail-pg1-x53e.google.com (mail-pg1-x53e.google.com [IPv6:2607:f8b0:4864:20::53e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9F38924E496
+	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 03:56:53 +0200 (CEST)
+Received: by mail-pg1-x53e.google.com with SMTP id b136sf1947772pga.0
+        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 18:56:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598061412; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CZgTsMoY0dNTahQZO+MwcPXURUO3uJxgkWVukfTH1W4MmIjhgmYJe2UfrzbJKbuF/J
-         EgPcNtXhEGtZiYzX/nYUHurTHPXKBK2bp8K4RgZG3yb1JUmC7ccHQ2K6DglTyy7ttTei
-         8KcXm7JPOjLHxMjdMvzOpgveJlxhIybIa5UKpZiLlADKDEq7ef3pWGHdztLigrlczCWU
-         aE4bBV4PvF7X2dyqoWCaWz/5hLhDyRpwZ4ZPYlb8WD8X+phGRGa5znKO4iMVqdsDQLzo
-         EBtX+7Q3akqg0UmO7WYbcfYRpu7/setBUulpqML2rQ3mi4Q+Q/vyjJwg9wU9SJR3Qtzg
-         yASA==
+        b=uzTOKxK95GTg54meld2r0no8EFw24eTBLZxeELiifi9jdgiOY+O/UWrb6vJBuXoFGD
+         rn0wwiWAeZIn4V7McL22JXZ24jpXE2jBFk8EA/JOuc32b6e4f8lkjDqXMlsrBrsu5Yre
+         K+k6yAtL+lpi5jBkKht6FGCaNlzEkI1eSXNDifxouPFZRUJoktc321zmBYsfkK7ilD2U
+         GCwen0oZGha08MRu5b8Q2v4YTuP0jpV4lVNajvXYCKFh8mmutqBVkHFyM8zoz48RV1wm
+         gBdO+/8j0aK9UNQJbWhdnsy6BwyPwt8r2sYQbFYq1KZ3A6H4YsiN4F2f5EA+ry/zKLBc
+         HKrw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=r+idoC1hoLr+5XYf9c18DeJ+fC9jaQjCvxdw6kfBBcg=;
-        b=UDc2eaCAoXmwVNjZvE8ERT0rSzC29yGrrWDDjpKAG1y26t1hRzMpS1hWzA1LXhzV3H
-         T+FjJYQYCQXngT+dfvL/Gif3e/Gx2ZZTPOrAUHxzO3EPF3+1tlx/xIzGEl8u9XlZ0CTQ
-         rKMZcFPqgv2EEzFim4BfJ1axqoTNQkpwkejZMxrH3BtAkqP45izztAYw1mYzx4NeBggz
-         CzA0J6pSv+KWJ4jTglpmVUcjDtva9Zz5PAgVKJXhV+Gg6xmywsc/lOvN2Lb9oCmyCpsY
-         +H31iOm81HLV2bAS5/6u0A9RZMSYPAZCwGfinrJvpMXOGO1Dl/Q2MRd6uf+/AROV+Koi
-         fkXg==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-filter:sender
+         :dkim-signature;
+        bh=4QvUPFbd/wxY17FjCy2fApp90dAzaq7pp5Aez9+bK0A=;
+        b=EObXWGDlP26OoOjNM0OiGQ7DfbHZT88a5IZfCXLP0yMxmSI3x7kH+ewujcqFP2SSzv
+         Fnw3OZ4F8dd++xOfGe5uChzoMsUb0wEYl/hBFbwxPhI2ZPw0+a8+Pd8bXe+n6A5iqNTQ
+         6H1sPlNPpQbMK8Gu8yNY+IPAlpQEkZffdClb7x9cuXr/DgUYEZAUnNlJJvUkNk3IQuMt
+         0oVxTBg7wnqu4uraSa1ojQ1GBdlT+DZydXkUP3RZA5Y2wA0rT5kaTfJOWiodLMjLehmA
+         BZacS570mX1tzF02VURqZgfPVwtSh01nW0ievSUXaFHRSIb6jJRBepVzAL0YDCUJ5zZY
+         Ts9w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=I9SPSJpY;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=XraiQyZs;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=r+idoC1hoLr+5XYf9c18DeJ+fC9jaQjCvxdw6kfBBcg=;
-        b=G6wB2xyQzxpGxzBGvOHS8ITtz9LJTnoxIuLv25oi/z8DhvM/HAaLW8H841JJMSl1W1
-         qBZ9KgsWdGkGFEU6U4VY7mYsPXCPQShESW6XQQDoPsmg7Q+uTqnH42tlFtsfMmg1OoJ0
-         362TiQHnriVC94s++Ye9csZ0w+rvGLWQAQbKGrU2U4mm/r9SuIY6ihxafbew32eyDdgT
-         i3xOgT8lXgzfT2b7sha3wyhzzTZOuaPj6LbqXGp6ITr3NNZR+LpKOxL1dQxK8AsZaIZM
-         ZB6M/4GYny3FOca30jZ9r77sEdvTaCivO7/EHPdFBu9UA8pHC7DFyam2pkErL5jacgEl
-         9z3Q==
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=4QvUPFbd/wxY17FjCy2fApp90dAzaq7pp5Aez9+bK0A=;
+        b=ACMc8Gz0NrviFsSSxjm1VTsjTDt0zBEoAR3IeqBO8P3J3koKvqW+akLP+YMzSrKKn8
+         GleJ6qx4YNmnf2mdqaxv1FFFy5icaZaMcudl43mH/WssX5rR14PZF0RYKsMLKaCHcLhy
+         tC1Q6lsIlckSEk35YRxshZJttM9Fzu+vC7/NAkpi4o0MAsfaM/xVcNjxhLwdwt6vid5x
+         GxpYnxcIBGy2MkIqGcgxrLjS5CF2uYd7TymqHiFXXo2yDQatu7yI8XU1yAEwFc8eBimS
+         B8mGVzDXpCk9BmOFgArsFOyY57Cl/UB1Uam1mUO0xQqNjdfI8xf5Z58hniKskWJAj4Jm
+         H7sg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=r+idoC1hoLr+5XYf9c18DeJ+fC9jaQjCvxdw6kfBBcg=;
-        b=tkCiZxOmOgs+ViuvCie3FgY5uN0o51Ha+Qtq50gPE+SNkubBPnO8nkYr+dVzu5+DJ+
-         P9JpfcxmAtyBQQYFRSZdMEdOvyui3YyFWN+g2BB3jfvZCvhl48nYb4XIq5yCdwLWnBue
-         6gayy5UwvTr5dZ9LtHQJ9+4pRGCpt5FSIk1go/Y4WdoOBRaMhklWwwvb8hpl/00kvE1m
-         ig0jzyEIf56MmU8A3KQiv+ZRYXqthWiTzSgxEKCQQTox9yQAO58YWUQxegZ5FsDpjPVB
-         ePsnEq+I1TmrzNvE+8uY1Z5o+QqIwLkptJ9IDI05H4W9j1yXD2mW1kgGlw7SLvoHFNal
-         GNPA==
-X-Gm-Message-State: AOAM531M8bb0i3comOzbApvuqY4F+BeivPheItAZCrTnieLgWn4xTwL8
-	E9sbfd8/Q0tR4616P9rAyiI=
-X-Google-Smtp-Source: ABdhPJwyZsm13BnRHXTcFZwX9+BFt9JIKr3vdGPKVCpqgsoa0sBlUNoUKyXgnl08MA/SF5Wtg5buig==
-X-Received: by 2002:a17:90a:740e:: with SMTP id a14mr4350522pjg.165.1598058805685;
-        Fri, 21 Aug 2020 18:13:25 -0700 (PDT)
+        bh=4QvUPFbd/wxY17FjCy2fApp90dAzaq7pp5Aez9+bK0A=;
+        b=UmMdFQmmgtSd9EZu0tEJhgP2/iMOOYiKbJTHxZpXIdjLGyBPfGn/sOz6BTSC+NcKQ2
+         5omeOef6ic4wbNMA8Fa7B4FXkbP+Yge3M2GyAlsZNL5ydS64QGKBFH51Mg9PDGp51x7x
+         WCRCWur7SCAvzSv5c++dne+11UgY6BSOzT3ReHENtd8QMC5Z5bNf7Lh4I/KO8u3MUbNg
+         khEBdRB8lJ2OFylbRPkCxXS5qV6M59CRunVC9p3oZjEclHyTdO1x1jMYu/dFXE4FbPel
+         zqLCGXTi1+AdKQTe+r2W4L4l8+g5vc/7u1lQpYVff58FC5jfFdBdBn1Exp0O9yyZm3Pj
+         IZfg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM5335GgefBnV0EZtrpBVR2ujLB4dUWDA0X9atVWQFf2wLr6WUIcAH
+	6AGurd5kF7XXaSVyianRepE=
+X-Google-Smtp-Source: ABdhPJznQuS1C3g81q7OM1XA4MOHf/OgYp0nu1iz4sb3j+CndBFTdFNLs/zgnHCuID0E6T6gXCd+pQ==
+X-Received: by 2002:a17:902:6ac9:: with SMTP id i9mr4728541plt.128.1598061412186;
+        Fri, 21 Aug 2020 18:56:52 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:525b:: with SMTP id s27ls1153833pgl.11.gmail; Fri, 21
- Aug 2020 18:13:25 -0700 (PDT)
-X-Received: by 2002:a05:6a00:851:: with SMTP id q17mr4551363pfk.214.1598058805334;
-        Fri, 21 Aug 2020 18:13:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598058805; cv=none;
+Received: by 2002:a05:6a00:2126:: with SMTP id n6ls478041pfj.5.gmail; Fri, 21
+ Aug 2020 18:56:51 -0700 (PDT)
+X-Received: by 2002:a63:8249:: with SMTP id w70mr4118420pgd.293.1598061411750;
+        Fri, 21 Aug 2020 18:56:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598061411; cv=none;
         d=google.com; s=arc-20160816;
-        b=ait3qG14uh/GG58cTkpIedJRg2mFCFCwrWOSMvnv+UUH0YLmP3uLy1g5eQhiVDDYu5
-         OXsA3T8cOQ34PVcU2Uvagvo/gYzGTvxDDFw7o9TMSx9fWzHi57h09KJ++Lq9JR6X+C70
-         4NFXRzcSD7cOTpiSPG08WiL8CT+TDECl5Pd+JuIFb7C/lzpbuAgi0chjH6HGNFODhSA7
-         4CftKIekqj26q7w7ssHXcsrAtJmAOQcFebstwTPVt1UI0E3VDF3W8k6ShY802PfqgxkR
-         SFJhbnuHIj6KL/H/nHFfZ+nMlFB4p0gQ4WVdD9bGyjtOgGM12q1Q+1foIxGYsVg2JDXl
-         7QlA==
+        b=Z3xVH3XSzLMUjR32jhey59BXP1zmhdwqUhD7ovMBsGFlHXcoDt2c3IE/epFfSBHjpe
+         e4fYhIh1v+Jfn1BNV14GUf+lPX91ZbKEQo8jYEyKySGqCxIu5D0wD9+4BUex3DHSJheA
+         /ovjr/76DBE/HJxGwspTXxkQ5mdmvkSFcmAXg0p08Z2UQTQUrl53z9mE+cWgUOfxwf1W
+         HPZtJuwiZXBbOKT+dqmqiacIZrOBxJhTLYGNdRgeTFkh6WK5YxL1+Q13Hs8pnmIwkuF1
+         vNAkfRnl6rkkiWdIrqb0BP0bw4k5ZQNtL4oU9J0Mw5Owm+6QQf5X1WSpx1qS7G0IQYqe
+         E/xg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=MkX4C2RcNFAfKMgWs215Q5BrFctUrgWbt3iTbnMo7KE=;
-        b=CI2D9kap3/uiyNrjxT52fXhMwphi2G51JiM+PLcG+R/ZN8m/Ne1d8AwMlr1qyzLEbu
-         N8TFfRJzua7DIivdLxtrZS22+U2TKyxiKfa81pdlBE7YA55FKY5H3jqgMvMW3FiGpck+
-         4crSJLwNCCdu3Z3DkGw2Kis01PqyNygCaHhBDGGhBYfyC5msXM9CVfSrVvr3adh/GLMR
-         fScjebrqZKJYV3mVXhi/KnuIrpHkeOdIw3js9kKqs8X+oSIIq3KE/HmJzI9chv2oLPFb
-         v34bfFecDgGdU3jrA6NNKBWWJz5nEWQR1LPde9f2zhggSPqyDq0goGwA1+Q+qq5R9SrU
-         4aqA==
+         :mime-version:dkim-signature:dkim-filter;
+        bh=q3L66YZXyG50TUDwrxJ74OdS8uQta7H1te/B0BYs9zU=;
+        b=XdkAvW/pz9SpagbVdWlLHeuxQoNYBAo1YqGVSVToGMMdS4WCH44jbABou7BVzDElox
+         jt0hb3iD6bapBY62OstsXXnADJT4H0m+FLMY+tor5tr0sZO3B2nyWQAxZPcrXQEwW59W
+         APo1msH+/R/4qBnSWP/hZFFIhwwUunAesK9Kymfaifg8F2QONRH0HyDbWyzH+z2ePIqC
+         dLCgSDVxQ5XJqP0DWJ4JktHKQIz5PSaVQjhxFsjiYfEAXQa+kAcFUQVgsRI2yKsUEovu
+         t65mQgR1dF3dFaOLt2Cs+Ovzd3PGF8MbcuH89pXlhchH2orPALAW8LUuUCoQENyKWOxZ
+         dUjg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=I9SPSJpY;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x52e.google.com (mail-pg1-x52e.google.com. [2607:f8b0:4864:20::52e])
-        by gmr-mx.google.com with ESMTPS id s2si211709pgh.4.2020.08.21.18.13.25
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=XraiQyZs;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conssluserg-02.nifty.com (conssluserg-02.nifty.com. [210.131.2.81])
+        by gmr-mx.google.com with ESMTPS id na12si87603pjb.3.2020.08.21.18.56.51
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Aug 2020 18:13:25 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52e as permitted sender) client-ip=2607:f8b0:4864:20::52e;
-Received: by mail-pg1-x52e.google.com with SMTP id o5so1798546pgb.2
-        for <clang-built-linux@googlegroups.com>; Fri, 21 Aug 2020 18:13:25 -0700 (PDT)
-X-Received: by 2002:a63:a119:: with SMTP id b25mr4036262pgf.10.1598058804641;
- Fri, 21 Aug 2020 18:13:24 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 21 Aug 2020 18:56:51 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) client-ip=210.131.2.81;
+Received: from mail-vk1-f175.google.com (mail-vk1-f175.google.com [209.85.221.175]) (authenticated)
+	by conssluserg-02.nifty.com with ESMTP id 07M1uRC6001630
+	for <clang-built-linux@googlegroups.com>; Sat, 22 Aug 2020 10:56:28 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-02.nifty.com 07M1uRC6001630
+X-Nifty-SrcIP: [209.85.221.175]
+Received: by mail-vk1-f175.google.com with SMTP id x142so834996vke.0
+        for <clang-built-linux@googlegroups.com>; Fri, 21 Aug 2020 18:56:28 -0700 (PDT)
+X-Received: by 2002:a1f:eac1:: with SMTP id i184mr3803919vkh.66.1598061386864;
+ Fri, 21 Aug 2020 18:56:26 -0700 (PDT)
 MIME-Version: 1.0
-References: <202008201500.aOkzA3ZM%lkp@intel.com>
-In-Reply-To: <202008201500.aOkzA3ZM%lkp@intel.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 21 Aug 2020 18:13:13 -0700
-Message-ID: <CAKwvOdmZSf2zKaqO3ivorYd9D+yALo5-6hctsSuaK6h2Ywwedw@mail.gmail.com>
-Subject: Re: arch/s390/include/asm/atomic_ops.h:56:45: error: invalid operand
- for inline asm constraint 'i'
-To: Ulrich Weigand <Ulrich.Weigand@de.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>
-Cc: kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>, 
-	Heiko Carstens <hca@linux.ibm.com>
+References: <20200821190159.1033740-1-masahiroy@kernel.org>
+ <20200821190159.1033740-5-masahiroy@kernel.org> <CAKwvOdnCZ7ao55Zdh3qkJQzudOwhkPFPOY802Emx3o7GMDdCwA@mail.gmail.com>
+In-Reply-To: <CAKwvOdnCZ7ao55Zdh3qkJQzudOwhkPFPOY802Emx3o7GMDdCwA@mail.gmail.com>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Sat, 22 Aug 2020 10:55:50 +0900
+X-Gmail-Original-Message-ID: <CAK7LNAR+ZdwCg7Dcg3BR5YysxzeraEHMAVsHuez5znwjoN+1pQ@mail.gmail.com>
+Message-ID: <CAK7LNAR+ZdwCg7Dcg3BR5YysxzeraEHMAVsHuez5znwjoN+1pQ@mail.gmail.com>
+Subject: Re: [PATCH v2 4/9] gen_compile_commands: reword the help message of
+ -d option
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+        Nathan Huckleberry <nhuck@google.com>,
+        Tom Roeder <tmroeder@google.com>,
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        LKML <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=I9SPSJpY;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52e
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@nifty.com header.s=dec2015msa header.b=XraiQyZs;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,87 +140,111 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Aug 20, 2020 at 12:35 AM kernel test robot <lkp@intel.com> wrote:
+On Sat, Aug 22, 2020 at 9:29 AM 'Nick Desaulniers' via Clang Built
+Linux <clang-built-linux@googlegroups.com> wrote:
 >
-> Hi Vasily,
+> On Fri, Aug 21, 2020 at 12:02 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
+> >
+> > I think the help message of the -d option is somewhat misleading.
+> >
+> >   Path to the kernel source directory to search (defaults to the working directory)
+> >
+> > The part "kernel source directory" is the source of the confusion.
+> > Some people misunderstand as if this script did not support separate
+> > output directories.
+> >
+> > Actually, this script also works for out-of-tree builds. You can
+> > use the -d option to point to the object output directory, not to
+> > the source directory. It should match to the O= option used in the
+> > previous kernel build, and then appears in the "directory" field of
+> > compile_commands.json.
+> >
+> > Reword the help message.
+> >
+> > Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> > ---
+> >
+> > Changes in v2:
+> >   - New patch
+> >
+> >  scripts/gen_compile_commands.py | 4 ++--
+> >  1 file changed, 2 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/scripts/gen_compile_commands.py b/scripts/gen_compile_commands.py
+> > index 1b9899892d99..5f6318da01a2 100755
+> > --- a/scripts/gen_compile_commands.py
+> > +++ b/scripts/gen_compile_commands.py
+> > @@ -31,13 +31,13 @@ def parse_arguments():
+> >
+> >      Returns:
+> >          log_level: A logging level to filter log output.
+> > -        directory: The directory to search for .cmd files.
+> > +        directory: The work directory where the objects were built
 >
-> FYI, the error/warning still remains.
->
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> head:   18445bf405cb331117bc98427b1ba6f12418ad17
-> commit: f0cbd3b83ed47803df941865f720934c69abb803 s390/atomic: circumvent gcc 10 build regression
-> date:   9 days ago
-> config: s390-randconfig-r003-20200818 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 4deda57106f7c9b982a49cb907c33e3966c8de7f)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install s390 cross compiling tool for clang build
->         # apt-get install binutils-s390x-linux-gnu
->         git checkout f0cbd3b83ed47803df941865f720934c69abb803
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=s390
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All errors (new ones prefixed by >>):
->
->    In file included from drivers/tty/tty_buffer.c:8:
->    In file included from include/linux/tty.h:5:
->    In file included from include/linux/fs.h:6:
->    In file included from include/linux/wait_bit.h:8:
->    In file included from include/linux/wait.h:7:
->    In file included from include/linux/list.h:9:
->    In file included from include/linux/kernel.h:12:
->    In file included from include/linux/bitops.h:29:
->    In file included from arch/s390/include/asm/bitops.h:39:
-> >> arch/s390/include/asm/atomic_ops.h:56:45: error: invalid operand for inline asm constraint 'i'
->    __ATOMIC_CONST_OPS(__atomic_add_const, int, "asi")
->                                                ^
+> Punctuation (add a period `.`).
 
-It might be interesting to dissect this one.  Likely will break the
-build otherwise.
+Will fix.
 
->    1 error generated.
->
-> # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f0cbd3b83ed47803df941865f720934c69abb803
-> git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-> git fetch --no-tags linus master
-> git checkout f0cbd3b83ed47803df941865f720934c69abb803
-> vim +/i +56 arch/s390/include/asm/atomic_ops.h
->
-> 126b30c3cb476c Martin Schwidefsky 2016-11-11  51
-> eb3b7b848fb3dd Martin Schwidefsky 2017-03-24  52  #define __ATOMIC_CONST_OPS(op_name, op_type, op_string)                       \
-> eb3b7b848fb3dd Martin Schwidefsky 2017-03-24  53        __ATOMIC_CONST_OP(op_name, op_type, op_string, "\n")            \
-> eb3b7b848fb3dd Martin Schwidefsky 2017-03-24  54        __ATOMIC_CONST_OP(op_name##_barrier, op_type, op_string, "bcr 14,0\n")
-> eb3b7b848fb3dd Martin Schwidefsky 2017-03-24  55
-> eb3b7b848fb3dd Martin Schwidefsky 2017-03-24 @56  __ATOMIC_CONST_OPS(__atomic_add_const, int, "asi")
-> eb3b7b848fb3dd Martin Schwidefsky 2017-03-24  57  __ATOMIC_CONST_OPS(__atomic64_add_const, long, "agsi")
-> eb3b7b848fb3dd Martin Schwidefsky 2017-03-24  58
->
-> :::::: The code at line 56 was first introduced by commit
-> :::::: eb3b7b848fb3dd00f7a57d633d4ae4d194aa7865 s390/rwlock: introduce rwlock wait queueing
->
-> :::::: TO: Martin Schwidefsky <schwidefsky@de.ibm.com>
-> :::::: CC: Martin Schwidefsky <schwidefsky@de.ibm.com>
->
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202008201500.aOkzA3ZM%25lkp%40intel.com.
 
+> >          output: Where to write the compile-commands JSON file.
+> >      """
+> >      usage = 'Creates a compile_commands.json database from kernel .cmd files'
+> >      parser = argparse.ArgumentParser(description=usage)
+> >
+> > -    directory_help = ('Path to the kernel source directory to search '
+> > +    directory_help = ('specify the output directory used for the kernel build '
+>
+> Capitalization (specify -> Specify)
+
+
+
+
+The help message of -h starts with a lower case.
+The others start with a capital letter.
+
+It would be better if "show this help message and exit"
+started with a capital letter. But, it comes from the
+library, so I do not know how to change it.
+
+I changed our code to make it consistent, but
+starting them with a capital letter is a preferred style,
+I can do as you suggest.
+
+
+Currently, the help looks like follows:
+
+---------------->8-----------------------
+masahiro@oscar:~/ref/linux$ ./scripts/gen_compile_commands.py  -h
+usage: gen_compile_commands.py [-h] [-d DIRECTORY] [-o OUTPUT]
+                               [--log_level LOG_LEVEL]
+
+Creates a compile_commands.json database from kernel .cmd files
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -d DIRECTORY, --directory DIRECTORY
+                        Path to the kernel source directory to search
+                        (defaults to the working directory)
+  -o OUTPUT, --output OUTPUT
+                        The location to write compile_commands.json
+                        (defaults to compile_commands.json in the search
+                        directory)
+  --log_level LOG_LEVEL
+                        The level of log messages to produce (one of
+                        DEBUG, INFO, WARNING, ERROR, CRITICAL; defaults to
+                        WARNING)
+---------------->8-----------------------
+
+
+
+Thanks.
 
 
 -- 
-Thanks,
-~Nick Desaulniers
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmZSf2zKaqO3ivorYd9D%2ByALo5-6hctsSuaK6h2Ywwedw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAR%2BZdwCg7Dcg3BR5YysxzeraEHMAVsHuez5znwjoN%2B1pQ%40mail.gmail.com.
