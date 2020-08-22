@@ -1,120 +1,122 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBOXEQT5AKGQE4XOY7LA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBOPEQT5AKGQEE22VTLQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3e.google.com (mail-io1-xd3e.google.com [IPv6:2607:f8b0:4864:20::d3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4CB1D24E803
-	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 16:57:00 +0200 (CEST)
-Received: by mail-io1-xd3e.google.com with SMTP id z68sf2778298iof.18
-        for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 07:57:00 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598108219; cv=pass;
+Received: from mail-pl1-x63e.google.com (mail-pl1-x63e.google.com [IPv6:2607:f8b0:4864:20::63e])
+	by mail.lfdr.de (Postfix) with ESMTPS id A005124E7FE
+	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 16:56:59 +0200 (CEST)
+Received: by mail-pl1-x63e.google.com with SMTP id bc7sf2876320plb.4
+        for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 07:56:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598108218; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sOgUA4anMSRrTGMdyyhrN7+y4AWcuj+cW+39due/PzNJyrkPutYEawJxJPcxNx+rVk
-         mNvo0r7N4xJrkZHW6Jc6ON/2UjUZV2w2W4UI9nXP5vljYJcOKg2SMauGzmoyMTAFJ1Yv
-         AKhWh/w1XLJ5OX2oAftcGv2pYPZbRKmWZEXrWMpbqT7XpXY4pJ7ARGk0wYSWp+AdC0vB
-         lvI/5+Q1jfUFmlHCQrV6Flj5rth8Xq0ksYDIrER802OCCppcx4p4nTzdiLuSzU6oiqPZ
-         ZjUeXn/pg7w6xKAsV06O2T7XXwopCstmrrA5qZ6N+yk28aV5PQC5m0XNpshDj6PK8/zu
-         U8yg==
+        b=et5yn8U7cyc20lNTR5F9jkjEAcUqXdZzypsN2Vt8ofhGv9Dh5FdSXcvSHfIHGeDVd3
+         uu3yQVANiyJeR8e7Jb2nuBioQ/DH264rlbMvieHnDk8fPQnwPo0VO2nzT7q+sIQdLIbW
+         vWgYSV8HLBW13UPZ3HH/AncRGIA9pZf3pr1qvZcpBiz2P6QOvFnMR1zdwqb3ml70UNsG
+         3fFDmlxb9aoovl1uFU4IBhJyp32YCJuMwK5CwV2+2LsLmXK9aJfRqYsqDUt4hukHP4d8
+         zq/ZgJ7gG3Wsw7LxvU1UvAICU36yowr4OwuEIhQZKeNoooLL/UyuOh/Hppclzib93BWe
+         A2yw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:dkim-filter:sender:dkim-signature;
-        bh=9vtim7vecHKsaLgJKRr1AQ1wfWVhTbFVr1rLISSOBuE=;
-        b=QHwgkqeBzTlz4q+AiF5mIfpVv4m8UkhA2Nt5NhWUX/0ly5O0x0kUbkSkCnzNA1YKn+
-         MAWPTBdaDdRiyloOm3DfEzT0b0s5iuk9uyCQMOi/WFHPNGPA26Lp7pw0XHlxfDAVba2O
-         rN87dLkXIgjKBCfDSp71+4L7g7Hjwt6Uoen/V52f+4xcPMEkpqycWBw0gBqlGlrXn1iv
-         vywnXRyDa/RhzpDUk+VSTMWmzpmymKkJgweYmrjFilWH4iVgcrAK9Zh7ZPfUpemIUWs9
-         Fz02alNtukP/KpmwKc2l5srNnbXwUWmGpWkXibIQpME91VgDumivENNq/Ulbsjr6foDm
-         28Qg==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-filter:sender
+         :dkim-signature;
+        bh=QifHZ91Sgsisw/iMEna9JjuAvzTMSX/R3gW1VzEpA/g=;
+        b=u/+0hCbDEXhvXGf92TUwP3sHuHts89ql7OIDaJ5Na1QE7nWt6yUb/vhcxVl33wbPgF
+         hcCNWYlMnuiEz6IvY9+S/bBaQAsugtN4c3l/iDLzS2CIYYodc6wJubYxpizQzMsNB96s
+         W5FRx6jZQe8HIUTrBRx6D5RgBDrZ195CxTVY4h1g3+IGNQimNsO5UEjcEwE8ubmAMGMn
+         jsSW2jsrs3qWyFFN4TMBU2hn6Kelu5xwZpChN1wUeX9m4GcG/10R/RPXkcyJnzDR0xW6
+         IPWvlLK0/M+hINs4z6wKoAe5F90drPXpK0SFU8q0QFHCE2nKHQMKEtrUvCgWHNOI9Z33
+         nnDQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=bEVRKmPY;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=kn4xDBCC;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=9vtim7vecHKsaLgJKRr1AQ1wfWVhTbFVr1rLISSOBuE=;
-        b=mpRcVvCKOua3wawY8pPN/1SC2SvQU08EUGjtqUqpMxBadzkFkNOYO+AXVPB/lHfRKW
-         bxdfnd+cjlfBo7lZXT1YC0r+zcvFv0ujTl/OSkpG6EN3hhM+dkX8sPJdmqdqv5kP/ndP
-         q9/2jaeYrsQdiRX20l64Fx+WdlZyBRxNqIBWvRfJlZjvwawqD0usbLnQy0N1S8ryvb0s
-         xRG5E50dv3AhYPJRC5879w0l0jirh6S7JmEiegVCCobi6TvApWXu4ME7qCSOx0rYlZKT
-         RA1xjUoz4bwHEGXcx7cZHBaTiAbJO9G/OD6ELI2bJA4VOQ8wfqnJ7N2FIAkRdqJM4Qnb
-         kOUw==
+        h=sender:dkim-filter:from:to:cc:subject:date:message-id:in-reply-to
+         :references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=QifHZ91Sgsisw/iMEna9JjuAvzTMSX/R3gW1VzEpA/g=;
+        b=ocD2ml+LUuJ+SGbnqffdxqyNGZj9VCx8+siSu2P7accLOCrO+I9fzXX9urLwfGGe/q
+         xTWiiLPfyxESoUXMQ1gM+7kelV+cSl753VrxuXtq6tBrWHbz6Ztz6MuE1jcCRHJfBnKi
+         cOc44QI610yNlrr0jBX7X7Kyo3b7LbijTni8+DY3dn7BAEyC4c2WZksvHYC7mo9H1zYR
+         k11g/Dn9qERTrg4lcCfiW6EQNaDOgytRzjRql+B3wWwJ5pIRqbz6aTLCUOezCg5tlndn
+         ZmpT+ksus4wr7tYX0u48YfeSjwyG/kUz7wsruyPouTVUKT98g799UsdOJM8gR6e2TFYk
+         3RAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
-         :message-id:mime-version:x-original-sender
+         :message-id:in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=9vtim7vecHKsaLgJKRr1AQ1wfWVhTbFVr1rLISSOBuE=;
-        b=Wsvd2LvjybnHicbSycKPgsgENh6GrdzlS+b29u7NLUAJgAaRJmbuI3gcyJMTDI3zsg
-         FT99xo9ROsZEBM/RXjOiEWPgjbyDXWrhxfcaxsqEAdimP0XWlN5YsibztYQn5cXOyeHq
-         5nqugWAkMtFoAUjjwJKpnF0cCT1dHPXOygppWUBvWo4auaGEEoXkNx6ptgHzNO1yA7Tt
-         nMMeoPb7XPpQvDubuauxF1ya8czskGo5yq97qkr/FhN5DsV5lG2z1LUQVzic0tsh+Opp
-         QB8LBS8nz8jdOUp0pxtUG0XKQUq/+xD3LdKKPQlc7vXdfq+VVJrzNxdy8cVCUdnXHPs5
-         f6jQ==
+        bh=QifHZ91Sgsisw/iMEna9JjuAvzTMSX/R3gW1VzEpA/g=;
+        b=l6Y0qHlBNUKsKgPL6euR2bBHybfQkmJ1b7VliqdbSR2goXlKc4jyBxZmji5j1JCdBz
+         sPcLz8cYgbJnBu31auw+lyTTQC0MmxRjSgZVicffryzcXqRnhcDlOY2rNJ8AV98DbWZ7
+         IrD580MCQ4WguIydOeqzZUhEyqg1xNRg/ikTp5HrMvmb/xJb8uiK7a7fSjZt3gf4Yo3B
+         RQFFIYLdMjuubAfHPKdgGH5EBpRrmwCdQ171XSrEY6++TvIxUCFEPdGLxgV5DgIZcje9
+         I86QASE2wkkR9LjtjuVkka3qD3nQkklcDemZc0EdPgIUgo36xa4PPvFjA1fAPhXCyv64
+         FgtA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532DIMtwMqaAdf+yvxre6cN/ooC4UrlMqcGozMEInWJwx8IcXwnS
-	uwGqAdKPHJNQDJvloF2Of9U=
-X-Google-Smtp-Source: ABdhPJx94mtFBvp7A3F0DzJMZVApvagGli9LKYDiflimdoYtVgcNOEpoY5+9VoLS/DXHqtY1AZkdaw==
-X-Received: by 2002:a6b:3b92:: with SMTP id i140mr1042856ioa.128.1598108218949;
-        Sat, 22 Aug 2020 07:56:58 -0700 (PDT)
+X-Gm-Message-State: AOAM531KxlktYEF8Z2d+FPS0WbRJLzYy1XwAqEU21XBaI8RgLz4tYdXr
+	qB9kuZruHeJ0Ak/Jkc81iYs=
+X-Google-Smtp-Source: ABdhPJxnFlB30lVgtlGUQ7iIesPSjPqcDIPnKjubeUzqz/kChm2cR24TGawknI85pMJ6AiWBU9/vNg==
+X-Received: by 2002:a17:902:c402:: with SMTP id k2mr6143656plk.308.1598108217982;
+        Sat, 22 Aug 2020 07:56:57 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:22cb:: with SMTP id j11ls643513jat.8.gmail; Sat, 22
- Aug 2020 07:56:58 -0700 (PDT)
-X-Received: by 2002:a05:6638:22d0:: with SMTP id j16mr6986905jat.97.1598108218511;
-        Sat, 22 Aug 2020 07:56:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598108218; cv=none;
+Received: by 2002:a62:4ec4:: with SMTP id c187ls1800283pfb.7.gmail; Sat, 22
+ Aug 2020 07:56:57 -0700 (PDT)
+X-Received: by 2002:a63:5810:: with SMTP id m16mr5642523pgb.193.1598108217454;
+        Sat, 22 Aug 2020 07:56:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598108217; cv=none;
         d=google.com; s=arc-20160816;
-        b=0/pCzPpkgr7jRrSoVUZzXCm8B9Y+3nWZAcpRczkhLGqXmvmfevcMwiYkbYSxl+7EWf
-         z6hu/e5+sP7QID/+cLKf8EXfcI9zh48V7RZMxdIk1rgWXdgE0dM038aJTpo7X8tKVXum
-         P8ydUPQPuFvl2Tco7Ne+kfBOo4CyhNw5X9vj8esMXn6IwDy2xfkRX0TrL7bomRji16gb
-         Xw+Tp+tG87y5ioJR5NFlxI8Af9wgC6aE70WHGGUPc/1+f8OUvkKFnCx7He8N702esgye
-         3wFx3Omwch25QdeYrf3uYXIfoNOn9XUNQiLI/MVSuP8Z/LwtKmh8IghnRTgcRcGTiJXQ
-         tvtw==
+        b=qdBDkeC1uR/BW1is+ZxBAv5rDe1q6ux9AsZ6h3AspqADcMX55CFCDy8KBuLT9QZL1v
+         IspFMtTjS78YIdoDA0hY+pVKHAmlafBGVw1Py8fS8sR/eKNpAbxLhggSZBju5KcUuppS
+         2a8yCIRfgd3cRPh1Zou8+D+gsQSUdDtHssbIRkzMOnrLqSkC0pWjpjjocu6HqsHasSnM
+         rddUERjlvzIZvr0Do4kpoyxqfPkoV7QRbpL+K4L1GqgZC0KXMr1WJTu6qH1/i0pATubR
+         DCGSvyC4gyIhq+sQjVl4Rs14Ww51s1CUvky15YU8pzqW2Ml077M9T1iXVYCvq4j/fM1D
+         482w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:dkim-filter;
-        bh=2LiED6o4qkC2vTm0VysN7vwIOPonem+/pgLkJUTzcIg=;
-        b=U4+BP0mpi4vRTbdasz7raCA620ZVRGpiPohxj+1KyNT9OzC3A+Oqp8k4Q9R2V4nMPt
-         ykaYqQmSg762mcKrmbQymcdDpNf9I+YnzY2ltJwa4t690AIYUcF0Qa89f+v3AQCWdmGO
-         fOxhT2fhGXYxwJWlWG0t+wY+TVsX++t7BoCwfqIdAXnr1WUylPDBfpL4UM+kZwLscTQj
-         DWJr7crTEYyV0VVonC7cluUgXgKah07jdK4uUjYDkPM97aaReaapCXyDIPUOe1CS+kZ3
-         PDuDT59i7OjOludmEGooSFw4sJiIHtINnwo0F5fkZLkThHxMheqNGWFjmp2ukNAQ7gOh
-         cwzA==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature:dkim-filter;
+        bh=95U6Fk7JxWZcBC6emSKUXU+RPpgimScrngM3/3sca3M=;
+        b=0fj9fyMhiT1JASBwTKVPAw2bf51T8Er2Yq0VbLnwTVHQhYD3B7mqxaW+g1j02mWirL
+         /ze7Afrqfiuk5hb+Cx06Ag4HpcQx853d98bGiovxJKm2Gkg77MS3KDgu7yuVXbiKlLDj
+         es0FuaPBA8dwxBJjrzjNNAqq+tL7JF6mxM3tY9VfxMRNKUlotXqFnV2uI217tt68GDC1
+         9wn3ZGy7a0T6+H3QJ4Q0HvI2imyKykvEaC9G32LHbFTG8HmEL6Vtnb74rdswgSdYr6qB
+         9ismZ2dz+7w4DqEgunMfthvLUwp4qsG8fSoMzA2hGPz4cSImDzETk8LIWzyOHnQPe38+
+         IN/A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=bEVRKmPY;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=kn4xDBCC;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from conuserg-09.nifty.com (conuserg-09.nifty.com. [210.131.2.76])
-        by gmr-mx.google.com with ESMTPS id o74si248541ili.4.2020.08.22.07.56.57
+        by gmr-mx.google.com with ESMTPS id jx18si266428pjb.1.2020.08.22.07.56.57
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 22 Aug 2020 07:56:58 -0700 (PDT)
+        Sat, 22 Aug 2020 07:56:57 -0700 (PDT)
 Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) client-ip=210.131.2.76;
 Received: from oscar.flets-west.jp (softbank126090211135.bbtec.net [126.90.211.135]) (authenticated)
-	by conuserg-09.nifty.com with ESMTP id 07MEuKVP025434;
-	Sat, 22 Aug 2020 23:56:20 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-09.nifty.com 07MEuKVP025434
+	by conuserg-09.nifty.com with ESMTP id 07MEuKVQ025434;
+	Sat, 22 Aug 2020 23:56:21 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-09.nifty.com 07MEuKVQ025434
 X-Nifty-SrcIP: [126.90.211.135]
 From: Masahiro Yamada <masahiroy@kernel.org>
 To: linux-kbuild@vger.kernel.org
 Cc: Nathan Huckleberry <nhuck@google.com>,
         Nick Desaulniers <ndesaulniers@google.com>,
         Tom Roeder <tmroeder@google.com>, clang-built-linux@googlegroups.com,
-        Masahiro Yamada <masahiroy@kernel.org>,
-        Michal Marek <michal.lkml@markovi.net>, linux-kernel@vger.kernel.org
-Subject: [PATCH v3 00/10] kbuild: clang-tidy
-Date: Sat, 22 Aug 2020 23:56:08 +0900
-Message-Id: <20200822145618.1222514-1-masahiroy@kernel.org>
+        Masahiro Yamada <masahiroy@kernel.org>, linux-kernel@vger.kernel.org
+Subject: [PATCH v3 01/10] gen_compile_commands: parse only the first line of .*.cmd files
+Date: Sat, 22 Aug 2020 23:56:09 +0900
+Message-Id: <20200822145618.1222514-2-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20200822145618.1222514-1-masahiroy@kernel.org>
+References: <20200822145618.1222514-1-masahiroy@kernel.org>
 MIME-Version: 1.0
 X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=bEVRKmPY;       spf=softfail
+ header.i=@nifty.com header.s=dec2015msa header.b=kn4xDBCC;       spf=softfail
  (google.com: domain of transitioning masahiroy@kernel.org does not designate
  210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
@@ -131,61 +133,49 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-I improved gen_compile_commands.py,
-then rebased Nathan's v7 [1] on top of them.
-To save time, I modified the Makefile part.
-No change for run-clang-tools.py
+After the allmodconfig build, this script takes about 5 sec on my
+machine. Most of the run-time is consumed for needless regex matching.
 
-"make clang-tidy" should work in-tree build,
-out-of-tree build (O=), and external module build (M=).
+We know the format of .*.cmd file; the first line is the build command.
+There is no need to parse the rest.
 
-V3:
-Fix minor mistakes pointed out by Nick
-Add a new patch (09/10) to remove the warning about
-too few .cmd files.
+With this optimization, now it runs 4 times faster.
 
-V2:
-Keep the previous work-flow.
-You can still manually run scripts/gen_compile_commands.json
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Tested-by: Nick Desaulniers <ndesaulniers@google.com>
+---
 
-'make compile_commands.json' or 'make clang-tidy' is handier
-for most cases. As Nick noted, there is 3 % loss of the coverage.
+(no changes since v2)
 
-If you need the full compilation database that covers all the
-compiled C files, please run the script manually.
+Changes in v2:
+  - Remove the unneeded variable 'line'
 
-[1] https://patchwork.kernel.org/patch/11687833/
+ scripts/gen_compile_commands.py | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
 
-
-Masahiro Yamada (9):
-  gen_compile_commands: parse only the first line of .*.cmd files
-  gen_compile_commands: use choices for --log_levels option
-  gen_compile_commands: do not support .cmd files under tools/ directory
-  gen_compile_commands: reword the help message of -d option
-  gen_compile_commands: make -o option independent of -d option
-  gen_compile_commands: move directory walk to a generator function
-  gen_compile_commands: support *.o, *.a, modules.order in positional
-    argument
-  kbuild: wire up the build rule of compile_commands.json to Makefile
-  gen_compile_commands: remove the warning about too few .cmd files
-
-Nathan Huckleberry (1):
-  Makefile: Add clang-tidy and static analyzer support to makefile
-
- MAINTAINERS                                 |   1 +
- Makefile                                    |  45 +++-
- scripts/clang-tools/gen_compile_commands.py | 236 ++++++++++++++++++++
- scripts/clang-tools/run-clang-tools.py      |  74 ++++++
- scripts/gen_compile_commands.py             | 151 -------------
- 5 files changed, 352 insertions(+), 155 deletions(-)
- create mode 100755 scripts/clang-tools/gen_compile_commands.py
- create mode 100755 scripts/clang-tools/run-clang-tools.py
- delete mode 100755 scripts/gen_compile_commands.py
-
+diff --git a/scripts/gen_compile_commands.py b/scripts/gen_compile_commands.py
+index c458696ef3a7..1bcf33a93cb9 100755
+--- a/scripts/gen_compile_commands.py
++++ b/scripts/gen_compile_commands.py
+@@ -125,11 +125,8 @@ def main():
+             filepath = os.path.join(dirpath, filename)
+ 
+             with open(filepath, 'rt') as f:
+-                for line in f:
+-                    result = line_matcher.match(line)
+-                    if not result:
+-                        continue
+-
++                result = line_matcher.match(f.readline())
++                if result:
+                     try:
+                         entry = process_line(directory, dirpath,
+                                              result.group(1), result.group(2))
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200822145618.1222514-1-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200822145618.1222514-2-masahiroy%40kernel.org.
