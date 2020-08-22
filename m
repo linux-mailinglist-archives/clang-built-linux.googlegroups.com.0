@@ -1,151 +1,137 @@
-Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBSGVQP5AKGQEYYRAI3Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4LX4523YGBB5HFQP5AKGQE7CJJB3Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3d.google.com (mail-oo1-xc3d.google.com [IPv6:2607:f8b0:4864:20::c3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id EF3D824E6C5
-	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 11:52:09 +0200 (CEST)
-Received: by mail-oo1-xc3d.google.com with SMTP id s64sf2312117ooa.22
-        for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 02:52:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598089929; cv=pass;
+Received: from mail-yb1-xb3f.google.com (mail-yb1-xb3f.google.com [IPv6:2607:f8b0:4864:20::b3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5133A24E6DC
+	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 12:27:01 +0200 (CEST)
+Received: by mail-yb1-xb3f.google.com with SMTP id e1sf4955935ybk.14
+        for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 03:27:01 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598092020; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QyVB4yTWp/EOsHB+ukYcoDvJzO8z7h9jcxLGa4M7bg05SeghxfT/QTXLM03vj4BN2P
-         b3b6iLlaResLRQ4/Vf5Fgp5k3UFbxyqDaXdmWHxU24QNZS5UHX9EkiKTG88Wa8taiPYV
-         Evc6lbqL7h50DD/y4IAHPnfxiEH35zv7tKpDhS/iEk1xWTraaDuWpy96QcC3XxArjPa3
-         nTybHH0fE5mfkQ6FwJmQrtkpEQQK3qcFb3kzZqx2gimXCjwUqutpZO7ukPdMlN6AVmjq
-         4IVx1D9kebkMq7PwR0P3cCilOdAHtTcVBQi2rKW1PfuaVDYQ4TUZl8BOwSXPM4qfwAN3
-         636g==
+        b=RFeL+CF/tymvZW8dOdPdOeDGT2ztB12E5uHmnj2Z18DRl2HaMRsgIYOiHQ6BwVO5+R
+         9MzzCmvF1i3zFKZhUhhSQbmWyXjBaIIfk1mvbfd+cRQSX/AOTyHhXImREfRx7ZOCcX2d
+         NnNQbG6LltFslWU6Lf1U/B70JSuzou7qvoH4hRAsuUPQ0XUvMRBOxsgmEhTyV+8BsRuZ
+         wIFDpgZh/T530xTak44fzclVjbC0c2jUTOgBnHLPL05av7SmwkhySGJHRdvHfZSCECBx
+         NFmcZ8ggeOZ1a7NEErLP8jQetIBHTF0zZ6OdMzsBuh8JvpggwsC20puZrig3WHl2jRqz
+         h6Jg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=0q/ssEbtd0yxUlTpu95GbwIYqgQ4jWiGNiMM3uK/CsQ=;
-        b=KabCumxNG33XMw2xB4W/OBlHx1ZiqVQrcIzJihNjvxMaNbhqpTer6ytiPM8RyT+qCC
-         H8sLNEzFCLEH83ViLLEgq/Jae0X8xqyeMe0t00qKiNsi4WwhkV+Oo1PaJ/NaJxgz+7SV
-         YU5dvJvPhVXyUwMzRX+JP9eMSpN3+9ui6dmyUI6nZuXU8fyd5020lbXJnwH2g1sdoSEm
-         C4f1C+zS/RU3qAWqh/P4ZohaJPE/bbwappp5y+LaX0NAef297XEkzq2m3yiC63KXUJJU
-         vLPaOonyZNMNnCbA2ze2PoWVOXiLXH84zw8WfLBf1KSk4iqSLNBL6tk9NKo0nWvLDcu1
-         APdQ==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=wRtpu0eNlOtkqFiqv7CQt07zrLcKaCcv5wnGtgItpBg=;
+        b=NgtkAjpekyePZrWPbk36HDOvqlnDE0jPm0cUHkqIIijear3CGO0pVGawmOz02Fl7ZV
+         hM6diRD/LaNvLb9EOZY4NydkS35XD/dHS26m4feNjy7woacscuE7nKCllFUBdvAwHCuz
+         HoUEwj583gJqgapdMEzMoWR5UfcCSUW+/09EfxF/38HrZ/WdJxUEYO1DwiTBTQzDThg3
+         l5bt9kJ6wiJW+PdWhxHKBFghCma9V9cWyUz6+KUo/dVkA1JtQ93oYqUDr7K2qZ7lrkh9
+         tXSUf9CjybYy/ObbYZYjEHg3rxppSAByHLZMP4EKcnErXlN0SH3vphb7g7MtUVeEYvns
+         rMdA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=tpmBeUH9;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::241 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) smtp.mailfrom=segher@kernel.crashing.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=0q/ssEbtd0yxUlTpu95GbwIYqgQ4jWiGNiMM3uK/CsQ=;
-        b=mctGDQx55m4nVENTgn4YEzyUDYLt2BB/koceY1h19dhIJcBD5P+Dx9DchrRekLynyg
-         +fLClack4jCa5dk6HO0q2I4HrqBAA4d2raRp9gQmeXh3MB/AnL3ftjxET4814GiYiZ6h
-         iDHvHU6X91qml8j5ruvDLh1ebod259CK2ddnQAu552FFB7uG0l50lr22jnWhxDyc6zzI
-         YK8osvuEc10EYXeHYxVU6tWnWgV1prUXH0oOgOml3iD0j4qO2Uw6ggq2iRdpabPdqtQ7
-         /+EPMHFGjSNV6U7pGfg5kS5JoGRTjLhwCnNOHUtZ+MoC6Q5KMHSYN3KnTSK1neRfTHxB
-         sLAg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=0q/ssEbtd0yxUlTpu95GbwIYqgQ4jWiGNiMM3uK/CsQ=;
-        b=pY+ywKMJzoL9fhjCR1Yd8W8i6AwcgEFp1WVSzL3xHA8rIUDzAsKtfaFOaMdnyZTneE
-         cThlsiRijxn0xDBBeLq309TCrECG4wmUWOcFy+WturlAzxI+bd2JVTBt2ZFriPu0xqYg
-         1M8FkJ0s8Q9hb2t9vJYgKM49yGlMDfYkIA3dEXq/zrvmQ9IjX94oTkVEe0VMdndXEjt5
-         XURhz+8GksPlXnJGo9ROWoN7wNLHF8F8mokZmb3//IsrCrWtWHbrgiWvG5oF8AgyOa1B
-         hBM67MINtBK1KbS6y9Kv6Bqk7XEcwT34rkJuAya3GYMtNi0jNDGjRZO87KWMz1SmFzhk
-         JpHQ==
+        bh=wRtpu0eNlOtkqFiqv7CQt07zrLcKaCcv5wnGtgItpBg=;
+        b=l1ZoJlpjSayusrX0j72TFyHvXUIr/VZNKImdHdtybbBHOX/Jws3G3MUNs+SL8+2r83
+         /8mOzi7p0XQskQTpdkAweSA6rvj5gbdPn3sC6A7YgFvFsLtBiHPjUvyKn5PCaU66NCyd
+         XKrzYlbWabnObCvl+XxHRAd7KASckE9QyhvX+GpKHp4TDj4TZBpYLreIjpMakokGZoDK
+         d3Nh/Twcrj1/FKIR2/9/12KwX1NfZu3cM6/CJbM5z2lU201LFd41dZPoRTT26lBKBqJw
+         l3BZwnIqL7r6GTRx2DNN74pty/rPBVDpyGHDRjC501UMGh3D+GJsZQXy6wFj5uF6qjY0
+         dfgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to
-         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=0q/ssEbtd0yxUlTpu95GbwIYqgQ4jWiGNiMM3uK/CsQ=;
-        b=NZ4QpZdvophPFfvsK/IwKVDXDe/XZBw4e0C1sfmR5ZuUArr16AKo62J8za3xnduyO2
-         c31unf0KZbDojZZpIS+RjKLex4Ihg4apR7ezs/wRx8DcsdOO+/QvojdxVifkgpzLoKSX
-         YowjW7DMMynbuPFzDXidhXByCoOFoZ3wSEzODI8G+lBV/o6BXE9HfOi75at0zX2qWZjk
-         /MgyzTEayAm0hop1+YytUQXvGBW7WJPMK1Q0Cq8/NDi6HLnArnliqZC9otCb55o4PRkV
-         io4ooY3MwLASRtbkxgDxbNHQt3z1+Q+wEyBWcCVnDEsX419SW5VSe0gjkK0vVMA4y6bV
-         VfOw==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=wRtpu0eNlOtkqFiqv7CQt07zrLcKaCcv5wnGtgItpBg=;
+        b=A79RwkXQ9SObNInqTvC+Z5tYq2i8qJJpvqR6r6fJji9obLUcBED7OUd/fgpVUhIc7m
+         eiMwiIZhk2suCQZXRna41gbVZ0G/vSXc3vVEJW6hrGE1XxFZK283bWEIUEKYPzUrtYcr
+         n61LRTwhFrJmaa3SIGyHLuL+/pn0J5k4tZVXd7ZzKbrwY603V2wf8nqmRtZmJ8zZ9m2R
+         SVEcG5XMvINUODa2begTp70exCjK0kSJ2L4Wu9XBayG/N3dFdXcftKuFxJSm+C+Q5eWN
+         i3OQn2S0HmvL5DaaIMcm07OuU2ho6N1nA3fbMBg72efmNeGr8y0uFFmsCOIRYK0Kiej6
+         Vldw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531yHvZO7hKDFSc/tNe7o+j29zyN1OaQvUUMHmQgm9gAcUa4guqt
-	1Kq1P5/EK7E3OiD2QaFPf+U=
-X-Google-Smtp-Source: ABdhPJxCu4Zuna1xajQdRmIP0ofPt1NkmR773ZrjxcuBxNW0Cj6uYhpFGFleOyAH1vi53iNMKMbcxQ==
-X-Received: by 2002:a9d:2609:: with SMTP id a9mr4554051otb.142.1598089928828;
-        Sat, 22 Aug 2020 02:52:08 -0700 (PDT)
+X-Gm-Message-State: AOAM530ZpMH3cenTtv+z3JkGaJpTEeBxFeufwqaB1nmIikTFS+Uq6zAF
+	UzAed50QJSwgHANTHfrRsLo=
+X-Google-Smtp-Source: ABdhPJwfb6A4vKd7KAGzhvALLm8BjKlSQo70e9wIL6CJrLfTnGfKI5DQdVM4kAnF+QhTDjoe1Njt7A==
+X-Received: by 2002:a25:34c9:: with SMTP id b192mr9999252yba.74.1598092020201;
+        Sat, 22 Aug 2020 03:27:00 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:1dc3:: with SMTP id a3ls1040434otj.8.gmail; Sat, 22
- Aug 2020 02:52:08 -0700 (PDT)
-X-Received: by 2002:a9d:21e4:: with SMTP id s91mr4915784otb.157.1598089928456;
-        Sat, 22 Aug 2020 02:52:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598089928; cv=none;
+Received: by 2002:a25:d451:: with SMTP id m78ls1845910ybf.1.gmail; Sat, 22 Aug
+ 2020 03:26:59 -0700 (PDT)
+X-Received: by 2002:a25:fc06:: with SMTP id v6mr9672939ybd.478.1598092019881;
+        Sat, 22 Aug 2020 03:26:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598092019; cv=none;
         d=google.com; s=arc-20160816;
-        b=yuG+Pu0BHcHVckhveUuNX3mSa8Z/QppNuVZj/jnS3KM0JN6f/kQYLkwRct3USoxZDW
-         k1H8iYIl9OTytPeWainn31HqfvA8r/G3XMzxqiAIYXJYreMbGoO7rq+3FqMcuhOlbahP
-         O39Iiqz94f7det63X2Fi41rxcfJVUL1QBa5+n5o7aDRwUusefNG6hrlB0rKw4wt2QQyg
-         sOtdXd5Aq5aLaD15TpL62sqxIt+YE1+zP7PcQ8lljX77FcwRTCq+xXUm8oGy53KeXbaj
-         q5nMtTaajA79raAMfMp+1O4YduDeZaHPbh9Rk+UcplaNCMNH/3CP21eqIZp8IqJg/XfM
-         05Dg==
+        b=I+UHJGJUizvpAn906yhVpI+uRniyllihYNTe9o07VJ3iWLQ5gl9edbRFRHt6qowGUa
+         IUnYtOAhgnv4aK3Ovv6TcFlNwoYpp6tXD5QnjV/mAK+Nj96k4jnWu6jkeXMt5SwgkWfy
+         IENsrt2WiiNuPio5yLJJhhMzUlCH0DgqgKNfH5+juycCYAGycoZ6gHtXYMEhQH/52blf
+         eiJMLd/gB/1rzm7t1ZVbfnR4z4a0TfycP124mzQ9T2RCw1wCn9g0p1Cp8BRTQ7eppOAJ
+         sORD2XtLrJC0m17bz9mB4zq5RComXKoXuWEr9x26ug3kPaFmIF3UiLp1dczGkpVsZ8iS
+         Adaw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=ZljvoDAY1lVA2RNn8qAajI471ARnBIi+QOuwiJFiRIc=;
-        b=N8qPjCRcHa/hL6qgfH/mSnYv1pfLx/cihY9EnMIK1xId7m/qTIAYIbXBPIFz0DsyP6
-         4QTiBSzSgEomk4JReeG4DbHUk1TvQNzwLx+v8Lgbgo/74mDA9GDUiuSGLtHM3hpy03Wc
-         xgKI0BU5+M45X6rT5s9FJGD5KrKl1NWNIaGSHrL+NxlAvHsTJJzWScgQLVPIkKh22qHQ
-         uO2MleKpCGiDsrotLS0IGFRTGU+vzmnFoBHPks4SAZ73ghRi+FZ5xeFQa4kaAyCZloIv
-         cUYT+PYjlmhg77LIfeSJdZYIPTR/dS0qIvRPgY7Qdl7JQyhumbVPmE/Mm8Iy7AZJZILb
-         V85A==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=0FTCB9OWGk1I+OHk3Bn1nlkof8QkvHU/hAJB0+ACyWQ=;
+        b=xgl+I0v+xxnEC7ddh8jXwqPCaClQQFyQS3EnxrhxU2x4cARpzH4f6qx5MJchgPe8he
+         wNJMxIBaFe3Xud9hl2bolBvhbIwsXDimkb7nTE/ro6tRavWD6f5w+vKVl44q1C//4875
+         pceCaN4muIV1KgiYc0yZ4Fedmr61zbo4+hTSHg8ynionoxXNJ6DNWNWJfRc/S5GvG8Za
+         RfQ+44d4HhdQADIn7mhzc8LwwHKPXCatdQ0Ong4za2AxTM9+UQ+PATr/Hph+8kTbg233
+         8FZU695jCO9NdfZY500xB6/eNUVDaD8wm2FbbPZf3OkSQCPklaZaUoHDlA9fUuXPqYcZ
+         OOnw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=tpmBeUH9;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::241 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-oi1-x241.google.com (mail-oi1-x241.google.com. [2607:f8b0:4864:20::241])
-        by gmr-mx.google.com with ESMTPS id p10si347606ota.3.2020.08.22.02.52.08
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 22 Aug 2020 02:52:08 -0700 (PDT)
-Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::241 as permitted sender) client-ip=2607:f8b0:4864:20::241;
-Received: by mail-oi1-x241.google.com with SMTP id e6so3725869oii.4
-        for <clang-built-linux@googlegroups.com>; Sat, 22 Aug 2020 02:52:08 -0700 (PDT)
-X-Received: by 2002:aca:4e92:: with SMTP id c140mr4007319oib.70.1598089928170;
- Sat, 22 Aug 2020 02:52:08 -0700 (PDT)
-MIME-Version: 1.0
-References: <87h7t6tpye.fsf@nanos.tec.linutronix.de> <20200813173701.GC4295@paulmck-ThinkPad-P72>
- <20200813180933.GA532283@rani.riverdale.lan> <875z9dioll.fsf@nanos.tec.linutronix.de>
- <20200820130641.GA536306@rani.riverdale.lan> <87zh6ohm03.fsf@nanos.tec.linutronix.de>
- <20200821230435.GA56974@rani.riverdale.lan> <CAKwvOdkoB+fT9tt7vgg1R6J-NEr77EWP5X8nFat_L-HvEzWGzA@mail.gmail.com>
- <87eenzqzmr.fsf@nanos.tec.linutronix.de> <20200822035552.GA104886@rani.riverdale.lan>
- <20200822084133.GL28786@gate.crashing.org> <CA+icZUVf9a8LC2Mf0cFymYQfALWs6bVfR1v1nRbxKaLAyU6NkQ@mail.gmail.com>
-In-Reply-To: <CA+icZUVf9a8LC2Mf0cFymYQfALWs6bVfR1v1nRbxKaLAyU6NkQ@mail.gmail.com>
-Reply-To: sedat.dilek@gmail.com
-From: Sedat Dilek <sedat.dilek@gmail.com>
-Date: Sat, 22 Aug 2020 11:51:56 +0200
-Message-ID: <CA+icZUWGHo3mkN4=ZYeU37p8KJhxTXS5QKcAvq_HaqTHmFkw2g@mail.gmail.com>
+       spf=pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) smtp.mailfrom=segher@kernel.crashing.org
+Received: from gate.crashing.org (gate.crashing.org. [63.228.1.57])
+        by gmr-mx.google.com with ESMTP id m193si292024ybf.1.2020.08.22.03.26.58
+        for <clang-built-linux@googlegroups.com>;
+        Sat, 22 Aug 2020 03:26:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) client-ip=63.228.1.57;
+Received: from gate.crashing.org (localhost.localdomain [127.0.0.1])
+	by gate.crashing.org (8.14.1/8.14.1) with ESMTP id 07MAQeoZ015812;
+	Sat, 22 Aug 2020 05:26:40 -0500
+Received: (from segher@localhost)
+	by gate.crashing.org (8.14.1/8.14.1/Submit) id 07MAQb3f015811;
+	Sat, 22 Aug 2020 05:26:37 -0500
+X-Authentication-Warning: gate.crashing.org: segher set sender to segher@kernel.crashing.org using -f
+Date: Sat, 22 Aug 2020 05:26:37 -0500
+From: Segher Boessenkool <segher@kernel.crashing.org>
+To: Sedat Dilek <sedat.dilek@gmail.com>
+Cc: Arvind Sankar <nivedita@alum.mit.edu>,
+        Thomas Gleixner <tglx@linutronix.de>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        "Paul E. McKenney" <paulmck@kernel.org>,
+        Ingo Molnar <mingo@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+        Borislav Petkov <bp@alien8.de>,
+        "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+        "H. Peter Anvin" <hpa@zytor.com>,
+        "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+        Zhenzhong Duan <zhenzhong.duan@oracle.com>,
+        Kees Cook <keescook@chromium.org>,
+        Peter Zijlstra <peterz@infradead.org>, Juergen Gross <jgross@suse.com>,
+        Andy Lutomirski <luto@kernel.org>,
+        Andrew Cooper <andrew.cooper3@citrix.com>,
+        LKML <linux-kernel@vger.kernel.org>,
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        Will Deacon <will@kernel.org>,
+        Linus Torvalds <torvalds@linux-foundation.org>,
+        Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
 Subject: Re: [PATCH] x86: work around clang IAS bug referencing __force_order
-To: Segher Boessenkool <segher@kernel.crashing.org>
-Cc: Arvind Sankar <nivedita@alum.mit.edu>, Thomas Gleixner <tglx@linutronix.de>, 
-	Nick Desaulniers <ndesaulniers@google.com>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, 
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
-	Zhenzhong Duan <zhenzhong.duan@oracle.com>, Kees Cook <keescook@chromium.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Juergen Gross <jgross@suse.com>, 
-	Andy Lutomirski <luto@kernel.org>, Andrew Cooper <andrew.cooper3@citrix.com>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Will Deacon <will@kernel.org>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, 
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Message-ID: <20200822102637.GM28786@gate.crashing.org>
+References: <875z9dioll.fsf@nanos.tec.linutronix.de> <20200820130641.GA536306@rani.riverdale.lan> <87zh6ohm03.fsf@nanos.tec.linutronix.de> <20200821230435.GA56974@rani.riverdale.lan> <CAKwvOdkoB+fT9tt7vgg1R6J-NEr77EWP5X8nFat_L-HvEzWGzA@mail.gmail.com> <87eenzqzmr.fsf@nanos.tec.linutronix.de> <20200822035552.GA104886@rani.riverdale.lan> <20200822084133.GL28786@gate.crashing.org> <CA+icZUVf9a8LC2Mf0cFymYQfALWs6bVfR1v1nRbxKaLAyU6NkQ@mail.gmail.com> <CA+icZUWGHo3mkN4=ZYeU37p8KJhxTXS5QKcAvq_HaqTHmFkw2g@mail.gmail.com>
+Mime-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: sedat.dilek@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=tpmBeUH9;       spf=pass
- (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::241
- as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Disposition: inline
+In-Reply-To: <CA+icZUWGHo3mkN4=ZYeU37p8KJhxTXS5QKcAvq_HaqTHmFkw2g@mail.gmail.com>
+User-Agent: Mutt/1.4.2.3i
+X-Original-Sender: segher@kernel.crashing.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as
+ permitted sender) smtp.mailfrom=segher@kernel.crashing.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -158,74 +144,61 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Aug 22, 2020 at 11:23 AM Sedat Dilek <sedat.dilek@gmail.com> wrote:
->
-> On Sat, Aug 22, 2020 at 10:42 AM Segher Boessenkool
-> <segher@kernel.crashing.org> wrote:
+On Sat, Aug 22, 2020 at 11:51:56AM +0200, Sedat Dilek wrote:
+> On Sat, Aug 22, 2020 at 11:23 AM Sedat Dilek <sedat.dilek@gmail.com> wrote:
 > >
-> > Hi Arvind,
-> >
-> > On Fri, Aug 21, 2020 at 11:55:52PM -0400, Arvind Sankar wrote:
-> > > Cc Segher.
+> > On Sat, Aug 22, 2020 at 10:42 AM Segher Boessenkool
+> > <segher@kernel.crashing.org> wrote:
 > > >
-> > > Segher, we were looking at gcc PR82602, where IRA could reorder volatile
-> > > asm's (reported on ARM). The fix was backported to gcc-6.
-> >
-> > I know ;-)
-> >
-> > > Do you know if
-> > > there is any reason the problem couldn't occur on x86 on older gcc
-> > > without the fix?
-> >
-> > No, I see no particular reason, at least GCC 5 seems vulnerable.  (The
-> > GCC 5 release branch was closed at the time this bug report was made,
-> > already).  There is no reason I see why it would work on x86 but fail
-> > elsewhere, either.
-> >
->
-> [1] says:
->
-> Current Minimal Requirements
-> ...
-> ====================== ===============  ========================================
->         Program        Minimal version       Command to check the version
-> ====================== ===============  ========================================
-> GNU C                  4.9              gcc --version
->
-> - Sedat -
->
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/changes.rst#n32
+> > > Hi Arvind,
+> > >
+> > > On Fri, Aug 21, 2020 at 11:55:52PM -0400, Arvind Sankar wrote:
+> > > > Cc Segher.
+> > > >
+> > > > Segher, we were looking at gcc PR82602, where IRA could reorder volatile
+> > > > asm's (reported on ARM). The fix was backported to gcc-6.
+> > >
+> > > I know ;-)
+> > >
+> > > > Do you know if
+> > > > there is any reason the problem couldn't occur on x86 on older gcc
+> > > > without the fix?
+> > >
+> > > No, I see no particular reason, at least GCC 5 seems vulnerable.  (The
+> > > GCC 5 release branch was closed at the time this bug report was made,
+> > > already).  There is no reason I see why it would work on x86 but fail
+> > > elsewhere, either.
 
-[ CC Miguel Ojeda (Compiler Attributes maintainer) ]
+> There exist gcc-4.8 and gcc-4.9 for Debian/jessie where EOL was June
+> 30, 2020 (see [1] and [2]).
+> 
+> In the latest available version "4.9.2-10+deb8u1" I see no PR82602 was
+> backported (see [3] and [4]).
 
-There exist gcc-4.8 and gcc-4.9 for Debian/jessie where EOL was June
-30, 2020 (see [1] and [2]).
+[ There is GCC 4.9.4, no one should use an older 4.9. ]
 
-In the latest available version "4.9.2-10+deb8u1" I see no PR82602 was
-backported (see [3] and [4]).
+I mentioned 5 for a reason: the whole function this patch is to did not
+exist before then!  That does not mean the bug existed or did not exist
+before GCC 5, but it does for example mean that a backport to 4.9 or
+older isn't trivial at all.
 
-I am asking myself who is using such ancient compilers?
-Recently, I threw away GCC-8 from my Debian system.
+> I am asking myself who is using such ancient compilers?
 
-If this is a real problem with GCC version <= 5, so can this be moved
-to a GCC specific include header-file?
-Thinking of include/linux/compiler-gcc.h or
-include/linux/compiler_types.h with a GCC-VERSION check?
+Some distros have a GCC 4.8 as system compiler.  We allow building GCC
+itself with a compiler that far back, for various reasons as well (and
+this is very sharp already, the last mainline GCC 4.8 release is from
+June 2015, not all that long ago at all).
 
-Thoughts?
+But, one reason this works is because people actually test it.  Does
+anyone actually test the kernel with old compilers?  It isn't hard to
+build a new compiler (because we make sure building a newer compiler
+works with older compilers, etc. :-) ), and as you say, most distros
+have newer compilers available nowadays.
 
-- Sedat -
 
-P.S.: Yesterday, I built with dropping __force_order entirely and LLVM
-toolchain v11.0.0-rc2 on Debian/unstable AMD64 on top of recent Linux
-v5.9-rc1+.
-
-[1] https://packages.debian.org/search?keywords=gcc-4
-[2] https://wiki.debian.org/LTS
-[3] https://sources.debian.org/src/gcc-4.9/
-[4] https://sources.debian.org/src/gcc-4.9/4.9.2-10+deb8u1/debian/patches/
+Segher
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUWGHo3mkN4%3DZYeU37p8KJhxTXS5QKcAvq_HaqTHmFkw2g%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200822102637.GM28786%40gate.crashing.org.
