@@ -1,124 +1,119 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBRGTQH5AKGQE3VKLYYA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDAMN6NI5EERBHWUQH5AKGQEEPK5M7Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103b.google.com (mail-pj1-x103b.google.com [IPv6:2607:f8b0:4864:20::103b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0205D24E439
-	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 02:41:41 +0200 (CEST)
-Received: by mail-pj1-x103b.google.com with SMTP id lx6sf1817824pjb.9
-        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 17:41:41 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598056900; cv=pass;
+Received: from mail-lj1-x23b.google.com (mail-lj1-x23b.google.com [IPv6:2a00:1450:4864:20::23b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1619524E43C
+	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 02:43:11 +0200 (CEST)
+Received: by mail-lj1-x23b.google.com with SMTP id r11sf1222949ljn.22
+        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Aug 2020 17:43:11 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598056990; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cX9mrngp5yASeoAbVfahr74ah7gVcjiDE4vYF/31ogn+hFjVtfA1jkQim2qi7PUM85
-         yutrfiND9F7icN2J6+Jrqun0ZPCv6/pcLl3wYgIpbgiiHwSAfcKFiFyxHSdkmD9JTFUh
-         aCSvj6pv2znv1EbstHl3FPqOq8naFNR2JD2QbHJWUkc5LvXIRSVUMopVJTeJXNlnApBc
-         R0iRHdRKnFq2BM5AohipDh5KW1jUpeKl280lbFneOkFab7AwBoQEjzToOTyDsOR8YWFs
-         7c8J1sj/fiaLrDqkbEjaP/0Sn9TiaxyVAX9jLwPn1BS6NPOWN+x7EXvuCJeVhwnq+HVF
-         KQ7g==
+        b=cCLxLWLZHrBCRufHEDWj3xFPdb6mnIQJ/kaqMTNgsaphVas1YW0N/EIcEKc7eOxGvn
+         LGJf17TTR5gJWvwuYu1iQo835mY3EfqotXd3ssq75SOy7DCqq2HrwZAiXA09zGAOJXsW
+         NhcvWRGITlxTdBbe4RoSnzllYEBqfJO9l/0M7lsIqhYG81npRfWZUL6KaGeEq3oSBkNj
+         tJd6P09wtN+jBcIGRWxqtvJaGkQe3zSxNkFdN0gx1+sAVch5UxEO4BqBzO0tj7XgcQym
+         SR6bsdqg+kJLg7f/m9jZzYnpGrrzMEyxgAGBwxbDX8o5+Ab/OEdIrU+kXQo0VK9712yb
+         C6Vg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=K0lYgEQC30lKWapEoP8dy3NEPUCMhJJ3Kn5oVAvk5Ns=;
-        b=Ao0CldiJGR2I8GbW9K9/Bqc724ZQI19j7kX46NgsBsZxKb0c0SuSeHFYwKFHh+aiI/
-         tdt+a+JrtwK6Ju5qWYMspDg8Th31ZIhq5NfhngcqBb7xyr1qcZP3EzSBzULSV21E9JyO
-         5WNQjaFnEn60yoIjxu8pg1EaY1RjvLF8iTa5XmYnnw5XrTeQ9+XinLTHQ+gJhFa5ir1s
-         ofIjVI4bdAQXhhS45li3a+wJpo1w4siumVnFgAD9T1NjuuKhEvdQBLPUoV9vaXTxWzBw
-         KOT1SiaO8Ayd3ij93pTNOdsQUeMc0t8U68U9XZvMmYOldGnBQ+BfsRzLbsgiY3wV+dl8
-         NGRg==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
+        bh=LP7ukoslhOFD9glfaAkeXYiNQ0a4TtJ2iENqFrwoE2s=;
+        b=AZDd/qaTANsIejC+VX+Qd2gxIcd7DQ3vj+KgJlOVg6cxrjCMajMSPZ7gxr0EE3otwF
+         MevFJlalrp+Ck27bcZsm96dvump10h8hkO9jm8KnTtHMLWRDPpfxQqQz5sHIiDWO7PR0
+         rAu73TvemeYYuiQD6OzeHnYd7ZHQ9o1fkDdheFHCkKdZjQWoeT9MZAYH1Or8QxrfRqsf
+         vDB1AbANFvNh8ykUudqDY1oidoyZhsYvcf1lRj9EqmwQz+Z/ezvd6c+oeE9GcOa038dE
+         itoEDx0dveaDUH2RS0ueyUK+iRlvOLUyzxT5LwepPDpGB6/ZwQdwzdyQ7u2MLph1PJAQ
+         S9Yg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=BPob3zYc;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@linutronix.de header.s=2020 header.b=fGNzcexa;
+       dkim=neutral (no key) header.i=@linutronix.de;
+       spf=pass (google.com: domain of tglx@linutronix.de designates 193.142.43.55 as permitted sender) smtp.mailfrom=tglx@linutronix.de;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=linutronix.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=K0lYgEQC30lKWapEoP8dy3NEPUCMhJJ3Kn5oVAvk5Ns=;
-        b=AyvyNHcQxik5um16ERnYr1JAmfgeT9/WhAcctanB1rlJHNoE8yVVS6ofXpp9CBbLdi
-         crovch8e/pN2thx09qijUs5vxLa8QQysLm7qD4akv4mIptqsG7DKw4Eyz7WexWBICofE
-         vKMqxQf9O1ca7/0KqF3NWUuFHWzlK0NyO/ROiYnJKygoboW+cyT15aQB4J0Wa4EJOizn
-         r5XJglNeR5o61tN5Q0pYPf8nBaZwLXMt4exeWUC+MeDh7ru9KEtrMZPyQMqSi0bbA6qW
-         tvOQjRBmoTwpApylZsgaTEvh4xPYPz2lDY+BzbH3Qfj00nSYKwTkufmAwU3ejThnp/+i
-         Qdfw==
+        bh=LP7ukoslhOFD9glfaAkeXYiNQ0a4TtJ2iENqFrwoE2s=;
+        b=kVXxSP6aaixUM2AAi9l97+ZXHTvfu9CMjiswAbn4YVrjdItvub1ZVqBPbqVzkkqmVY
+         Ajt26I0imWVtz4V228g5CdW3CzQGzDER/vuMOKd9nk3jqHwbSdGYit8lgkZQQvHzrP19
+         YN1wIhd8LdJ5OEDY/NhicKy7q8GvVTCmzzjerl+ydoXp31WSnHUCq/64QRzBmtcPZ/PD
+         uOTd5bIbEh4+0oJLWG/id1+JqSv/hON2UlBBGWyJ8PBvVUUrWwRuT9FvVnkaBL7D1ukE
+         5yo6DIYf4PyqHjHEneoLRPcSOmyGlEiPzuqKmEBhy5aiYyQMXAQyQ5ryyKKwOvAwVeI5
+         A6lw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
+         :date:message-id:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=K0lYgEQC30lKWapEoP8dy3NEPUCMhJJ3Kn5oVAvk5Ns=;
-        b=t4oI25t/KYtj7zco+71JFjDMBYAMyGqXyQyhFfdfT3wgSvm1pESeyDBdtoBgfopMOn
-         ad3AyhM/JFpjMEZkhRZ8oC+ocKPbD1+J2NSTxyT+3PPti9bFqyCnQO2DH56+wVgPZJA2
-         wv1L1RMOZET96JMcdKoUIBay2mzBQUlVtL1iRmme2q/QC2Z2e9U+bTMr/Ij57OhmnPLL
-         1TQ+OsRlpQtx8mQBX4aYzTbS1io2yjLqQbucWobuG+ceB6VUKCyPqgLWGu0FbEbN+lXG
-         SD2AGPKsvMm62Dmct4zGc6XBYf3oCaoefleehmbmLQWEbhwaQyxKckhKBajGv7NIS9Vg
-         SOcw==
-X-Gm-Message-State: AOAM530/0lVe+91UucWA4Ke0SBNZYN/vdELExkcoQ2MxxlojT1U0BmvA
-	4UzANi1Z7O4YDhGKFNQZ94M=
-X-Google-Smtp-Source: ABdhPJxJL0h1FccEmVz4Islak1TQPydv6tUQJIEQQ6vBRGOeKbU5GD3Ja20j3KIWTxmqJ7krTlyrwA==
-X-Received: by 2002:a17:90a:9e7:: with SMTP id 94mr4411426pjo.97.1598056900706;
-        Fri, 21 Aug 2020 17:41:40 -0700 (PDT)
+        bh=LP7ukoslhOFD9glfaAkeXYiNQ0a4TtJ2iENqFrwoE2s=;
+        b=AJsE9vJo+iV1cEGWhIGiqO9XVMESfICrfPjJDb/D1tKN+rQF+9Tqg78wAQ2czzayOZ
+         kvbcs3mGCkyMw7TwSRgWQkKzAWqUI2DdcUD0gUqRWPTsPWSima0UBNFsemVLdXH+4O7l
+         F/OCthm30xP0kyy2ZSm9om60b6tPcmOLAUdH+2qzBwYnnf36Xouq9QZrPeKauoOLumt1
+         6Grk4+U1cBwQgcPevEbPsFI7U+2g5mB5Mm20XPhQ7wL1f/doeTebyFvTorR4LQzBH9+/
+         Y81GC0xbRkNQN+awFGRpMaRLvqi9vZZX8BJwbPk9sTiC2ZofhhCU86vuJgKa51jML9Rk
+         UFwQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531ajV0t+tD4OzAeC6ov9t+IpNUjSFDkC3jYFooXu4sDN3+7QuZE
+	Hs6QDCSvJzXOuYPXdVa2U+s=
+X-Google-Smtp-Source: ABdhPJw+JdhGfh5lE6FfRNuuCa3GpHxCl7rkWIE8H7TXrjsqovC4cbKFNGXr97YMKq3Ek+opcOhl4A==
+X-Received: by 2002:ac2:4c2a:: with SMTP id u10mr2321104lfq.66.1598056990587;
+        Fri, 21 Aug 2020 17:43:10 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:ca88:: with SMTP id y8ls1443104pjt.1.gmail; Fri, 21
- Aug 2020 17:41:40 -0700 (PDT)
-X-Received: by 2002:a17:90a:4e89:: with SMTP id o9mr4727978pjh.178.1598056900327;
-        Fri, 21 Aug 2020 17:41:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598056900; cv=none;
+Received: by 2002:a2e:9a58:: with SMTP id k24ls722655ljj.4.gmail; Fri, 21 Aug
+ 2020 17:43:09 -0700 (PDT)
+X-Received: by 2002:a2e:a49c:: with SMTP id h28mr2690849lji.234.1598056989753;
+        Fri, 21 Aug 2020 17:43:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598056989; cv=none;
         d=google.com; s=arc-20160816;
-        b=E18M1MY4PAfOR7w6BQcXNNXUYAFwRPxWIGKh6XRdm26EOtyKvNrx7HXMrG5TBRNV0o
-         ss2K+fmjwJJ4XJwfbpEjQHaxeIyKba/LJoVJdnaWmGyVxrEV9dOKzIN691NrfmuY6uS4
-         7dFqYi81Rscrer6jo/3Y+gJcN2unWmKNiMCuxAHlIE+kIu4JboYDmy2IkHATjOK+qFMn
-         086HE51mr3CU8mZfGkAvATptf1FTl0t6b1Sk7oK/T454AuW6If7vUsXwEQY8h3PwHSER
-         bJlOyFjcae1tcdA1nvj1Uxy7kAAX7Dp7A2aVT6BtPDbj12XdGLzB9Jd9O6d4p1to4xv4
-         Z0FQ==
+        b=FLxKa+FDwZodm5Mqf14+saWEd5ntUhIdyd2TC7i186qjPkb8+WhvZlPzGn1crmEbK9
+         5PUAxObmmdWBgy4ZjHqhwthf9W1hK1R8YLzW/aMusqMQ2TQTctMalQq8O9ZL4rRF7FRB
+         mls/JZmGXf7Tc4gyoSavMeNkKbok/qfze5tbuOuFI5qaW/apN/drlrVfQ96VOHLOcR8+
+         uOhLF0LKn+hNN+ks2i9CmYdKiOshLUAxWlYojo1+F8Odl/Kn6V3MDOePV/UASF/+MZw+
+         RSh9dSNOKG/x6MpWoXK9os24UFKZvguP6+o70OHp+a8H3uUITjdgVqQLOp+sviJSsGrn
+         +V9w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=fpYkI6juAqMAAUVTQTHgpzHvlncEIWGwTCUc4UiA+NQ=;
-        b=xqi2WW9n1QDs6zJg8TZuJQEWirPq4Htxxn03p1N94kc0dFmY3s4HtBeJ6xIW7eVW9m
-         p7YyfxGFj+5/+9qbnQENigjKOgK8a5rmAb0V9QOCCwBOr5KcfekkPYnCukrFaKFUqn9L
-         Up7QbttjvaeJbLw0Ro/sm9Bmp94yn3fHXANVDzg08KcMWSFSTFh7H84I0Zhf+JQYbxjD
-         q5fxJzOq4HmmxPkM2b/MzC8dZXfZQ3ITFM8Dqai6dVMUZ/ruYj10vZDKeivIa6pIL2iy
-         JvNDCYJ8zk5NI4NpTeLn2ko8HSNXby9LBpYIUNpS7IdNHfx5i3ca408PH0r7z8eA6d33
-         DBuQ==
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :dkim-signature:dkim-signature:from;
+        bh=9j5b+CtfA3mIyxZyTYcFL91niFPfgh0kPXDP8Y6fJV0=;
+        b=YC9hLxt5RBgTM451JM4qy9MdaVNfTwTylGrLYmnGpB65K8VaSAFRzwnITUyVL4syTE
+         Qy/2CSOdfm+fWdEVMR4vU30xAJAGFjvVMbqF2UF7FpMF/79X38oeuTgTAn7S9FTFTiNq
+         SUVMmoqXWSMiyh4Yneuxjb2hwuj8hyYfh3albvSfKEtE5E4Kug5XzVa/S9LS4BotNFip
+         WHEnkI+/O0jP9Uvb/01OwsR70uzsFdFnTpMfAMTiarmMA8MokOmUwsSwMhOrHnzUfJ7I
+         0KjzDYEZi9hVbg4vIvVYuprwh5Rzo4KnbvYjQYUlRSmYU8fqYngJR9x9E8L8eBLgknJl
+         WoyA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=BPob3zYc;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x1043.google.com (mail-pj1-x1043.google.com. [2607:f8b0:4864:20::1043])
-        by gmr-mx.google.com with ESMTPS id s14si190133pgj.1.2020.08.21.17.41.40
+       dkim=pass header.i=@linutronix.de header.s=2020 header.b=fGNzcexa;
+       dkim=neutral (no key) header.i=@linutronix.de;
+       spf=pass (google.com: domain of tglx@linutronix.de designates 193.142.43.55 as permitted sender) smtp.mailfrom=tglx@linutronix.de;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=linutronix.de
+Received: from galois.linutronix.de (Galois.linutronix.de. [193.142.43.55])
+        by gmr-mx.google.com with ESMTPS id t3si92136ljg.1.2020.08.21.17.43.09
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Aug 2020 17:41:40 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) client-ip=2607:f8b0:4864:20::1043;
-Received: by mail-pj1-x1043.google.com with SMTP id kr4so1531996pjb.2
-        for <clang-built-linux@googlegroups.com>; Fri, 21 Aug 2020 17:41:40 -0700 (PDT)
-X-Received: by 2002:a17:902:cb91:: with SMTP id d17mr4204225ply.223.1598056899804;
- Fri, 21 Aug 2020 17:41:39 -0700 (PDT)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Aug 2020 17:43:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of tglx@linutronix.de designates 193.142.43.55 as permitted sender) client-ip=193.142.43.55;
+From: Thomas Gleixner <tglx@linutronix.de>
+To: Nick Desaulniers <ndesaulniers@google.com>, Arvind Sankar <nivedita@alum.mit.edu>
+Cc: "Paul E. McKenney" <paulmck@kernel.org>, Ingo Molnar <mingo@redhat.com>, Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, "maintainer\:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, Zhenzhong Duan <zhenzhong.duan@oracle.com>, Kees Cook <keescook@chromium.org>, Peter Zijlstra <peterz@infradead.org>, Juergen Gross <jgross@suse.com>, Andy Lutomirski <luto@kernel.org>, Andrew Cooper <andrew.cooper3@citrix.com>, LKML <linux-kernel@vger.kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>, Will Deacon <will@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [PATCH] x86: work around clang IAS bug referencing __force_order
+In-Reply-To: <CAKwvOdkoB+fT9tt7vgg1R6J-NEr77EWP5X8nFat_L-HvEzWGzA@mail.gmail.com>
+References: <20200527135329.1172644-1-arnd@arndb.de> <878serh1b9.fsf@nanos.tec.linutronix.de> <CAKwvOdnOh3H3ga2qpTktywvcgfXW5QJaB7r4XMhigmDzLhDNeA@mail.gmail.com> <87h7t6tpye.fsf@nanos.tec.linutronix.de> <20200813173701.GC4295@paulmck-ThinkPad-P72> <20200813180933.GA532283@rani.riverdale.lan> <875z9dioll.fsf@nanos.tec.linutronix.de> <20200820130641.GA536306@rani.riverdale.lan> <87zh6ohm03.fsf@nanos.tec.linutronix.de> <20200821230435.GA56974@rani.riverdale.lan> <CAKwvOdkoB+fT9tt7vgg1R6J-NEr77EWP5X8nFat_L-HvEzWGzA@mail.gmail.com>
+Date: Sat, 22 Aug 2020 02:43:08 +0200
+Message-ID: <87eenzqzmr.fsf@nanos.tec.linutronix.de>
 MIME-Version: 1.0
-References: <20200821190159.1033740-1-masahiroy@kernel.org> <20200821190159.1033740-7-masahiroy@kernel.org>
-In-Reply-To: <20200821190159.1033740-7-masahiroy@kernel.org>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 21 Aug 2020 17:41:28 -0700
-Message-ID: <CAKwvOdn9ZfvC4dzuVnxc_a52JFn_q1ewOWwZZD5b9=izeEayKQ@mail.gmail.com>
-Subject: Re: [PATCH v2 6/9] gen_compile_commands: move directory walk to a
- generator function
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, Nathan Huckleberry <nhuck@google.com>, 
-	Tom Roeder <tmroeder@google.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: tglx@linutronix.de
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=BPob3zYc;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@linutronix.de header.s=2020 header.b=fGNzcexa;       dkim=neutral
+ (no key) header.i=@linutronix.de;       spf=pass (google.com: domain of
+ tglx@linutronix.de designates 193.142.43.55 as permitted sender)
+ smtp.mailfrom=tglx@linutronix.de;       dmarc=pass (p=NONE sp=QUARANTINE
+ dis=NONE) header.from=linutronix.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,130 +126,31 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Aug 21, 2020 at 12:02 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
+On Fri, Aug 21 2020 at 16:16, Nick Desaulniers wrote:
+> On Fri, Aug 21, 2020 at 4:04 PM Arvind Sankar <nivedita@alum.mit.edu> wrote:
+>> On Fri, Aug 21, 2020 at 02:37:48AM +0200, Thomas Gleixner wrote:
+>> The gcc bug I linked to earlier is only fixed in gcc-6 onwards. Is that
 >
-> Currently, this script walks under the specified directory (default to
-> the current directory), then parses all .cmd files found.
+> (based on https://gcc.gnu.org/bugzilla/show_bug.cgi?id=82602#c14)
 >
-> Split it into a separate helper function because the next commit will
-> add more helpers to pick up .cmd files associated with given file(s).
->
-> There is no point to build and return a huge list at once. I used a
-> generator so it works in the for-loop with less memory.
->
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-> ---
->
-> Changes in v2:
->   - New patch
->
->  scripts/gen_compile_commands.py | 44 ++++++++++++++++++++++++---------
->  1 file changed, 32 insertions(+), 12 deletions(-)
->
-> diff --git a/scripts/gen_compile_commands.py b/scripts/gen_compile_commands.py
-> index 3ed958b64658..6dec7e2c4098 100755
-> --- a/scripts/gen_compile_commands.py
-> +++ b/scripts/gen_compile_commands.py
-> @@ -33,6 +33,7 @@ def parse_arguments():
->          log_level: A logging level to filter log output.
->          directory: The work directory where the objects were built
->          output: Where to write the compile-commands JSON file.
-> +        paths: The list of directories to handle to find .cmd files
+>> good enough to remove force_order? I can test gcc-4.9 and gcc-5 to check
+>> if it would currently have any impact.
 
-Punctuation: please add a period.
+And that test tells you what exactly? That your particular build of
+those compilers does not have the problem. A truly scientific approach.
 
->      """
->      usage = 'Creates a compile_commands.json database from kernel .cmd files'
->      parser = argparse.ArgumentParser(description=usage)
-> @@ -56,7 +57,28 @@ def parse_arguments():
->
->      return (args.log_level,
->              os.path.abspath(args.directory),
-> -            args.output)
-> +            args.output,
-> +            [args.directory])
-> +
-> +
-> +def cmdfiles_in_dir(directory):
-> +    """Generate the iterator of .cmd files found under the directory.
-> +
-> +    Walk under the given directory, and yield every .cmd file found.
-> +
-> +    Args:
-> +        directory: The directory to search for .cmd files.
-> +
-> +    Yields:
-> +        The path to a .cmd file.
-> +    """
-> +
-> +    filename_matcher = re.compile(_FILENAME_PATTERN)
-> +
-> +    for dirpath, _, filenames in os.walk(directory):
-> +        for filename in filenames:
-> +            if filename_matcher.match(filename):
-> +                yield os.path.join(dirpath, filename)
->
->
->  def process_line(root_directory, command_prefix, file_path):
-> @@ -94,31 +116,29 @@ def process_line(root_directory, command_prefix, file_path):
->
->  def main():
->      """Walks through the directory and finds and parses .cmd files."""
-> -    log_level, directory, output = parse_arguments()
-> +    log_level, directory, output, paths = parse_arguments()
->
->      level = getattr(logging, log_level)
->      logging.basicConfig(format='%(levelname)s: %(message)s', level=level)
->
-> -    filename_matcher = re.compile(_FILENAME_PATTERN)
->      line_matcher = re.compile(_LINE_PATTERN)
->
->      compile_commands = []
-> -    for dirpath, _, filenames in os.walk(directory):
-> -        for filename in filenames:
-> -            if not filename_matcher.match(filename):
-> -                continue
-> -            filepath = os.path.join(dirpath, filename)
->
-> -            with open(filepath, 'rt') as f:
-> +    for path in paths:
-> +        cmdfiles = cmdfiles_in_dir(path)
-> +
-> +        for cmdfile in cmdfiles:
+> I think checking the disassemblies with a pre-gcc-6 would be good
+> enough then; that bug isn't specific to this particular case.
 
-If `cmdfiles` is never referenced again, please make this:
+What? I clearly want a statement from the GCC people that this won't
+happen on pre gcc6 compilers and not just some 'works for me' statement
+based on a randomly picked compiler build.
 
-for cmdfile in cmdfiles_in_dir(path):
-
-With those 2 changes feel free to add my
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-
-> +            with open(cmdfile, 'rt') as f:
->                  result = line_matcher.match(f.readline())
->                  if result:
->                      try:
-> -                        entry = process_line(directory,
-> -                                             result.group(1), result.group(2))
-> +                        entry = process_line(directory, result.group(1),
-> +                                             result.group(2))
->                          compile_commands.append(entry)
->                      except ValueError as err:
->                          logging.info('Could not add line from %s: %s',
-> -                                     filepath, err)
-> +                                     cmdfile, err)
->
->      with open(output, 'wt') as f:
->          json.dump(compile_commands, f, indent=2, sort_keys=True)
-> --
-> 2.25.1
->
-
-
--- 
 Thanks,
-~Nick Desaulniers
+
+        tglx
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdn9ZfvC4dzuVnxc_a52JFn_q1ewOWwZZD5b9%3DizeEayKQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87eenzqzmr.fsf%40nanos.tec.linutronix.de.
