@@ -1,151 +1,135 @@
-Return-Path: <clang-built-linux+bncBCIO53XE7YHBBCEHQ75AKGQE5L4ELII@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBQEQRD5AKGQEHMVSQMA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3e.google.com (mail-qv1-xf3e.google.com [IPv6:2607:f8b0:4864:20::f3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 297DC24EAAD
-	for <lists+clang-built-linux@lfdr.de>; Sun, 23 Aug 2020 03:16:57 +0200 (CEST)
-Received: by mail-qv1-xf3e.google.com with SMTP id j8sf3871005qvu.3
-        for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 18:16:57 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598145416; cv=pass;
+Received: from mail-io1-xd3d.google.com (mail-io1-xd3d.google.com [IPv6:2607:f8b0:4864:20::d3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 27FF424EBBF
+	for <lists+clang-built-linux@lfdr.de>; Sun, 23 Aug 2020 08:10:10 +0200 (CEST)
+Received: by mail-io1-xd3d.google.com with SMTP id d2sf3939238iok.3
+        for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 23:10:10 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598163008; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kActMFLFZ7m9NV286H25HLUkla+CftD8MsmkTRuX9g50uLZayRf9pxbIS0VpRp4y50
-         5LdxysdCKLaPWn8pLN6Ho2aaAvyKyGjLj0efcYAa35hPxJi5lVXJaunb7LlxbNXaI9WA
-         RYZWLca0fvQ7n0w7X4w77A7sZ5uN0jOrTf0yneXEpzzvSCzRca8iEym3yiLf2lh6wxTL
-         tkGdIKFxt4AwN2UUAtpOC23xFCxRksJOdWAYup4kJ/nNxPISKYDGsuD4dz5BcI08RYuW
-         jExVU+Rum+q23EkvrDpPuT/uS+7DHC+Sh9HfnTbjdptAuyGF39PxYCON4YVqQSu/bcLJ
-         7SrQ==
+        b=yQeOQEWowUFQuzHtmZuxcr9J2OedSoaLjZGDM8NdMkM0nWmH6GwckDnTCdN7/R2WJU
+         w4V+X5k0jcLTW9y5Ld8tQHWPuP3DtQfSPiMMmDevPRvcgstpJ0TDGM2fIKUiyVW1aK0Y
+         LmPNDKM4aIg7zohcfK+gNrSrvz4u0uNXBjtM5ezJCOegK0qzvkiSBayifSOWLc2u+8LG
+         SiDSxbV6pCR+oMzyti6Ljx8RN3hSxtR7ALaAs1AqjJ3Elw+sgZ8UoaQBUuPk5k13IXuF
+         nWiHqED/bg2U086Y2mQn8SYutQXGK+M7fABtwJfv4Fex6rg+E69rfHt4giraF1s57GCO
+         NI6g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:sender
-         :dkim-signature;
-        bh=kKXkrOVdUXfIf6mDbkJ2pC8YvB4R9TD5QWwXXOjOG+8=;
-        b=nz46vtLRT10snKhRHVDh9hMeSD+A51atqvBefhbYf/Z4FEDmGppvEe0phtFRADxKIh
-         zEXf9PNgJ1KKUP1gSJjf/yZVQK5n/rXVCadgPDka+v6kIWpmn5M9L92LR+oaaudTXrkJ
-         CXCHWyMbbWJkcPI9FvxF/UbsHX7glpYXTSSU3WGMQgKFJ4Hj74AZkK7kAwEX6r5w46Gk
-         OvlKTIWznLji/Iy+XjvmwpS2bZ/UmqMcZ6KM5+P2bewNrtYEvNvbwD238HOs3fWoLJFS
-         6cwSsxUkGuHoH6cXqISdgV9f4FbcsOVkSdL17/TTlmJ7+G1T4t3DQBT72xzec8ZvKvFB
-         W5eA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=jxIw/CShi+jhGE8Y2jifeZPojnPiVFUGg1fBfGIt2Qg=;
+        b=BFtCGSwI0ZsmDWIDmVigRGXKdG6aV3/vmN++jPs3vAa/4BOlK1PM1VPhtitmavtf1w
+         EtYg7KijTZdPPSP1RQBPrjsu0tc+nKBS6ER8MlZiMXMpRbmaBCtotZ+W6tg5Fim94BFE
+         lLpNkJpLeaXQ3g8o9doimmAiNta0lsabO+XC7HpV4udq11JNZ7NlM6X5MNKCaJPDK8Ay
+         e/zN1fhvV4HuQLHF7ClaIX1tDC6mHww7Gjj6bGe4hnZ9tEJwPs2L4N+p5NaUpl6SePLN
+         oMtU+f06V9dv4A7NOLM/ss7xx+j0xdHAY3Eo9zwEfXf5QoUdnDdWa1dAoy3mNzhHXQ95
+         ZC6g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=ZsPMZ5su;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f41 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+       dkim=pass header.i=@nvidia.com header.s=n1 header.b=TZombwlk;
+       spf=pass (google.com: domain of elic@nvidia.com designates 216.228.121.143 as permitted sender) smtp.mailfrom=elic@nvidia.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nvidia.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=sender:from:date:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        d=googlegroups.com; s=20161025;
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=kKXkrOVdUXfIf6mDbkJ2pC8YvB4R9TD5QWwXXOjOG+8=;
-        b=nW46EbmKr1bKanxb6ABaPfhe2EoOenDmAlM+rRy/+xmphVN9BMADIE5WqswnGzgUc+
-         MfLHWGtMeWk1CrzCQqJr/hGaaeHOPSh8KrCGdRJJVwScG6ibc78w8WtVkCE0STaY6ODC
-         ueKzif9c79YxhEVj1nIk9gk6VUee1deLJF+9r22lUjSaJ8dP7cBjjFKOHmnFusCADEAE
-         pfufIEegqiVu1cJyfG0QBuPTIACJ8QDPNw0pz6+h7Jv8qkUgOsmuKz1QthKzrd3h5jZu
-         dFkkJ/nfrY07JvI1l+ztsRxXyxCtbFa5kxLwd//aH/s4vCE3/6zOuICG7NwgdW2wdVSk
-         2JBw==
+        bh=jxIw/CShi+jhGE8Y2jifeZPojnPiVFUGg1fBfGIt2Qg=;
+        b=NLHcwztNsN219Mp/ZUXkFT0EXCvSJpoOKe4ZoeD9J3jrNp3yBI96Xrxg851Dr/jGcE
+         5EtrPXde+fuueO59wHgGRgQCe4dPYyQUnBKD8vY5zCiRmCdua+tgmXSz2SdUMSuHXcui
+         Cq0z/yV4UqnAcvqwRnqEXxwVWlw7K+Bly+jHuElVdFS/TMPXsU0k/B1buAKKZ3ofaMRG
+         fdInBs44VoBP1HG7NftFAUskH2WY49vGCp21Cpeaqmy9Ljcu3XO+kk2X5AhDC4sAOdvd
+         x3DROwudwaxtL2B1vG0ATolEO6oj7YepsloU+2YxeV16WedQg+zg+AxbXmdxrL6wrteC
+         3NEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=kKXkrOVdUXfIf6mDbkJ2pC8YvB4R9TD5QWwXXOjOG+8=;
-        b=dQF8A03eNqaUUsys1/AEJV1vhKk5hy8lnejGEl5j0b/aalXtWwk8c8X/JwkON4yhIK
-         Teu1o/klOVeUxewURZkL7PQkExlRwEje0P4XaZLin/OXOvAyFs3FyXCfTTjisimanp5K
-         pFZmq9FiitLwZ0UKx2wn9lcDMZi7uigjtxjTqN5x4x3PoPlWchqOtat40jLfO5KYs8oi
-         65bKe9cu9mdvdwzMB9/siRLTxtYtG2SfVhyu5bKIhYfIOhzJfb5OMSvjjOFIN8Fom/Oi
-         RuSwEJ2Bvg6aZ0clH3G9jaubsREiPlNYPmDPw1tn2sjsnGAy900oOK1+bMFW2ENFqdaQ
-         XSAw==
-X-Gm-Message-State: AOAM531zTlOGvXhBbcqW1X0niCg9nAez62si8J5djRVHdrT9PQcXyrz1
-	bXPNXEyR941db8jG3sZxtsc=
-X-Google-Smtp-Source: ABdhPJzjb/lmGWde4jZUBXuJa8/PJ4azwHPMbOflzZbXSSpaG0e1YVizlu6GIFHC07BKJKaPa/bgew==
-X-Received: by 2002:a05:620a:22b9:: with SMTP id p25mr3327750qkh.260.1598145416137;
-        Sat, 22 Aug 2020 18:16:56 -0700 (PDT)
+        bh=jxIw/CShi+jhGE8Y2jifeZPojnPiVFUGg1fBfGIt2Qg=;
+        b=hzELQOJURW3iAiLWCyGiafYwoBczK846RaVzOzuM2hs/tYxIR7Fi3LDxcLy5sU42Lc
+         PwTrhfmebRkQ1Mv+qMWnum6N0NUTG9phTirZj/nHvFwBGzAcMbAWV3VMI5FTQlkr8tDR
+         JnlVryWU8zGfE7KTIoZCSVALlzGntOrkDedE0rN6jbqgjBEzfv7lxPLuNh0gMmmZKvy3
+         w3mWv3eTl1wravmALUXisxk/Z26Om9HFuV+ckVlXl428IAjKB5JSGZ0tH2u5ETfM/c90
+         aOHh8MtwAaR+jjSZ01mgUarD+LREJCA5DKzGTROS35ZZ7lxbFZ084R62SKnpg4nRkmG4
+         SvCg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530MWe5uJL6NMglpFQ0UUQibs7sTXN6nlsNQl6syTvlbCo5fBueN
+	CUasniBZ9ibxS3KocLwVYbA=
+X-Google-Smtp-Source: ABdhPJwt+LRuJzSotIpYaxOVwWRbI/Uze+9IZZ5L4AnqPhMDlSNOAIlPBTtB0ts2vmR5tyShZYFdRQ==
+X-Received: by 2002:a02:bb82:: with SMTP id g2mr207681jan.54.1598163008739;
+        Sat, 22 Aug 2020 23:10:08 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:34dd:: with SMTP id x29ls930713qtb.6.gmail; Sat, 22 Aug
- 2020 18:16:55 -0700 (PDT)
-X-Received: by 2002:aed:3ead:: with SMTP id n42mr9065721qtf.5.1598145415765;
-        Sat, 22 Aug 2020 18:16:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598145415; cv=none;
+Received: by 2002:a02:c513:: with SMTP id s19ls132991jam.5.gmail; Sat, 22 Aug
+ 2020 23:10:08 -0700 (PDT)
+X-Received: by 2002:a02:93ca:: with SMTP id z68mr190708jah.3.1598163008376;
+        Sat, 22 Aug 2020 23:10:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598163008; cv=none;
         d=google.com; s=arc-20160816;
-        b=E7YdJ2Ryb6w989ue4OQY81tWFvqfsA0y7yvOElyiE+Whqj/wVMsb3KLFP3p8eUcK/a
-         bRlGJPBtPRJEgUZy2D6KUNA44RX1FtaHm3/IwPwZlAE+Cp4H9GFRry3i6tZzVU9H77I/
-         oSXLegTI7Cj9nzu50eW7KOw8UzcU8LLdrTeHkv0TQLhOGnYTuD26y40JNhN0236TmKSf
-         T/10qOAVB/xLm41gcvFaBXLYTvkfq5RrweBVngkE0allT+kT//nBdihegodPEJ46IQgb
-         iyocieHSZuvBjb3zwD9sn/g4MSP2PYIdNtmggKnVCa6I9i7n8WC23cWY9hMFyVpcNHpB
-         yn2Q==
+        b=jARHzXm9tWzApWDuCDvZteybA81Tucq8AVxlFojBAu3JBFphV/OAcOFguBy04qMIju
+         Z8FD9OA+BdNVDqD+/TlQEt1JoWYcLoEgwB+rHR7UFR3/iHvy0UiLMbIh6hdEVDntBq3g
+         aPl9IHiE7ec14EbR354tVEfCaXjb8dV+B/7dMH7gx+TsQe41GOy7HaTAH469jXwmAS3S
+         dv/CSltKGW6OhNy2Eq+2/fgOwAT9x/eMlkJ9ziiISgaNH0Cfdl7S9O06U3Jc/ILtJdB5
+         ty2pJjlSIeJsR7VU12B7lw2zy6Uocf7kR2XpBL7wEQluQKcEnYxWbgavWVeGSQTBpLsd
+         dkjw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:sender:dkim-signature;
-        bh=KMZwOnPr/kgr8gJIALudEGJEnhBEYV4zfZwOjTzah9Q=;
-        b=I5RrKdhfchuF7Jkvlld+8JtVN25+4CKd0WwJg+j8AxJHbGxnkIB4FRfKa/XRLcWH57
-         A9fJ8j/n47FbVhvfMXuo7MR1il3aU+NTF7NCvcMyxlsQ7b2TI5ZgYUXJyTFM9jpfln2P
-         p2VMJvYIyxMcPZ+39LLu4qG6Aa8uwZAI0Vwt8q/t4tdb5BV/TnkukDzizTLD04hco9e1
-         1c38cxJo1IR4JfvpUfh7C95Fpx5K76DlLr1S75RgKbiA3P/htl1dyvWFiOBYIIEt1dMV
-         h9mDOENQj9e8+Stlthqy/ZXUlVPOUcuOyQMTWfsCR5LduBHu8mhsgZGy5FCtsLkeVV7l
-         E+3w==
+        h=dkim-signature:user-agent:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date;
+        bh=UQi/THUnpkMQGa3pyAFcoK62NCnVMUs9jsVEsWrDdzM=;
+        b=AuUejCPmekkNlzewFOg1K3th6BQG8tElLtJKiVPEKzVlNaAu7tr+vtzpJlkLMInj7F
+         yQkBNaHuseFowpQx+FVnSxGasjDdFvnoH/SlQmrx4lcyTGsliUtChIyLDWJ1JIUk43ZI
+         1PFB6NdI+DdmLiKcxnkV1V9PgBwFtrMc4vIu6nqirnRPR7XHykFI108oOHuljCOa5WKK
+         5ILmC7SuVLLVPO/7P9CG31xkPt1qya/ZTR4nfNc395lKcPi801V4EHEVuwt920TcDLmG
+         zQRUdPXQRfin/JIPUgD19oGcgpudgsS/8WWDkznIOS7Q7wVSgSD4saIjKOX6jJYU+epn
+         +Dag==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=ZsPMZ5su;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f41 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
-Received: from mail-qv1-xf41.google.com (mail-qv1-xf41.google.com. [2607:f8b0:4864:20::f41])
-        by gmr-mx.google.com with ESMTPS id f38si351922qte.4.2020.08.22.18.16.55
+       dkim=pass header.i=@nvidia.com header.s=n1 header.b=TZombwlk;
+       spf=pass (google.com: domain of elic@nvidia.com designates 216.228.121.143 as permitted sender) smtp.mailfrom=elic@nvidia.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nvidia.com
+Received: from hqnvemgate24.nvidia.com (hqnvemgate24.nvidia.com. [216.228.121.143])
+        by gmr-mx.google.com with ESMTPS id z7si275117ilm.3.2020.08.22.23.10.08
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 22 Aug 2020 18:16:55 -0700 (PDT)
-Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f41 as permitted sender) client-ip=2607:f8b0:4864:20::f41;
-Received: by mail-qv1-xf41.google.com with SMTP id dd12so2315889qvb.0
-        for <clang-built-linux@googlegroups.com>; Sat, 22 Aug 2020 18:16:55 -0700 (PDT)
-X-Received: by 2002:a0c:f507:: with SMTP id j7mr8530731qvm.82.1598145415396;
-        Sat, 22 Aug 2020 18:16:55 -0700 (PDT)
-Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
-        by smtp.gmail.com with ESMTPSA id z197sm5958411qkb.66.2020.08.22.18.16.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 22 Aug 2020 18:16:54 -0700 (PDT)
-Sender: Arvind Sankar <niveditas98@gmail.com>
-From: Arvind Sankar <nivedita@alum.mit.edu>
-Date: Sat, 22 Aug 2020 21:16:52 -0400
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Arvind Sankar <nivedita@alum.mit.edu>,
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	Sedat Dilek <sedat.dilek@gmail.com>,
-	Segher Boessenkool <segher@kernel.crashing.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
-	Borislav Petkov <bp@alien8.de>,
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Zhenzhong Duan <zhenzhong.duan@oracle.com>,
-	Kees Cook <keescook@chromium.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Juergen Gross <jgross@suse.com>, Andy Lutomirski <luto@kernel.org>,
-	Andrew Cooper <andrew.cooper3@citrix.com>,
-	LKML <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH] x86: work around clang IAS bug referencing __force_order
-Message-ID: <20200823011652.GA1910689@rani.riverdale.lan>
-References: <CAKwvOdkoB+fT9tt7vgg1R6J-NEr77EWP5X8nFat_L-HvEzWGzA@mail.gmail.com>
- <87eenzqzmr.fsf@nanos.tec.linutronix.de>
- <20200822035552.GA104886@rani.riverdale.lan>
- <20200822084133.GL28786@gate.crashing.org>
- <CA+icZUVf9a8LC2Mf0cFymYQfALWs6bVfR1v1nRbxKaLAyU6NkQ@mail.gmail.com>
- <CA+icZUWGHo3mkN4=ZYeU37p8KJhxTXS5QKcAvq_HaqTHmFkw2g@mail.gmail.com>
- <CANiq72=3iOh5Z_rboZf-_GUpBE2LUUv3yPKOVNN_XmaNswdNSw@mail.gmail.com>
- <CAHk-=whaVW4FQjdwaicLFE4kiqr18rk6V50CuU-ziUPyRFjHrg@mail.gmail.com>
- <20200822231055.GA1871205@rani.riverdale.lan>
- <CAHk-=whEb2xVU7uGOFwLxPgX-U2asMu1bJQA8QUEZPrL7zWwQQ@mail.gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 22 Aug 2020 23:10:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of elic@nvidia.com designates 216.228.121.143 as permitted sender) client-ip=216.228.121.143;
+Received: from hqpgpgate102.nvidia.com (Not Verified[216.228.121.13]) by hqnvemgate24.nvidia.com (using TLS: TLSv1.2, DES-CBC3-SHA)
+	id <B5f4207c90001>; Sat, 22 Aug 2020 23:08:09 -0700
+Received: from hqmail.nvidia.com ([172.20.161.6])
+  by hqpgpgate102.nvidia.com (PGP Universal service);
+  Sat, 22 Aug 2020 23:10:06 -0700
+X-PGP-Universal: processed;
+	by hqpgpgate102.nvidia.com on Sat, 22 Aug 2020 23:10:06 -0700
+Received: from mtl-vdi-166.wap.labs.mlnx (10.124.1.5) by HQMAIL107.nvidia.com
+ (172.20.187.13) with Microsoft SMTP Server (TLS) id 15.0.1473.3; Sun, 23 Aug
+ 2020 06:09:54 +0000
+Date: Sun, 23 Aug 2020 09:09:51 +0300
+From: Eli Cohen <elic@nvidia.com>
+To: Nathan Chancellor <natechancellor@gmail.com>
+CC: "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowang@redhat.com>,
+	Eli Cohen <eli@mellanox.com>, <virtualization@lists.linux-foundation.org>,
+	<linux-kernel@vger.kernel.org>, <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH] vdpa/mlx5: Avoid warnings about shifts on 32-bit
+ platforms
+Message-ID: <20200823060951.GA147797@mtl-vdi-166.wap.labs.mlnx>
+References: <20200821225018.940798-1-natechancellor@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CAHk-=whEb2xVU7uGOFwLxPgX-U2asMu1bJQA8QUEZPrL7zWwQQ@mail.gmail.com>
-X-Original-Sender: nivedita@alum.mit.edu
+In-Reply-To: <20200821225018.940798-1-natechancellor@gmail.com>
+User-Agent: Mutt/1.9.5 (bf161cf53efb) (2018-04-13)
+X-Originating-IP: [10.124.1.5]
+X-ClientProxiedBy: HQMAIL111.nvidia.com (172.20.187.18) To
+ HQMAIL107.nvidia.com (172.20.187.13)
+X-Original-Sender: elic@nvidia.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=ZsPMZ5su;       spf=pass
- (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f41
- as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+ header.i=@nvidia.com header.s=n1 header.b=TZombwlk;       spf=pass
+ (google.com: domain of elic@nvidia.com designates 216.228.121.143 as
+ permitted sender) smtp.mailfrom=elic@nvidia.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=nvidia.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -158,52 +142,137 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Aug 22, 2020 at 05:10:21PM -0700, Linus Torvalds wrote:
-> On Sat, Aug 22, 2020 at 4:11 PM Arvind Sankar <nivedita@alum.mit.edu> wrote:
-> >
-> > Actually, is a memory clobber required for correctness? Memory accesses
-> > probably shouldn't be reordered across a CRn write. Is asm volatile
-> > enough to stop that or do you need a memory clobber?
+On Fri, Aug 21, 2020 at 03:50:19PM -0700, Nathan Chancellor wrote:
+> Clang warns several times when building for 32-bit ARM along the lines
+> of:
 > 
-> You do need a memory clobber if you really care about ordering wrt
-> normal memory references.
+> drivers/vdpa/mlx5/net/mlx5_vnet.c:1462:31: warning: shift count >= width
+> of type [-Wshift-count-overflow]
+>                 ndev->mvdev.mlx_features |= BIT(VIRTIO_F_VERSION_1);
+>                                             ^~~~~~~~~~~~~~~~~~~~~~~
 > 
-> That said, I'm not convinced we do care here. Normal memory accesses
-> (as seen by the compiler) should be entirely immune to any changes we
-> do wrt CRx registers.
+> This is related to the BIT macro, which uses an unsigned long literal,
+> which is 32-bit on ARM so having a shift equal to or larger than 32 will
+> cause this warning, such as the above, where VIRTIO_F_VERSION_1 is 32.
+> To avoid this, use BIT_ULL, which will be an unsigned long long. This
+> matches the size of the features field throughout this driver, which is
+> u64 so there should be no functional change.
 > 
-> Because code that really fundamentally changes kernel mappings or
-> access rules is already written in low-level assembler (eg the entry
-> routines or bootup).
-> 
-> Anything that relies on the more subtle changes (ie user space
-> accesses etc) should already be ordered by other things - usually by
-> the fact that they are also "asm volatile".
-> 
-> But hey, maybe somebody can come up with an exception to that.
-> 
->                 Linus
+> Fixes: 1a86b377aa21 ("vdpa/mlx5: Add VDPA driver for supported mlx5 devices")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1140
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> ---
 
-I'm sure in practice it can't happen, as any memory accesses happening
-immediately around write_cr3() are probably mapped the same in both
-pagetables anyway, but eg cleanup_trampoline() in
-arch/x86/boot/compressed/pgtable_64.c:
+Acked-by: Eli Cohen <elic@nvidia.com>
 
-	memcpy(pgtable, trampoline_pgtable, PAGE_SIZE);
-	native_write_cr3((unsigned long)pgtable);
-
-There'll probably be trouble if the compiler were to reverse the order
-here.
-
-We could actually make write_crn() use memory clobber, and read_crn()
-use "m"(*(int *)0x1000) as an input operand. A bit hacky, but no global
-variable needed. And maybe read_crn() doesn't even have to be volatile.
-
-Also, if we look at the rdmsr/wrmsr pair, there's no force_order
-equivalent AFAICT. wrmsr has a memory clobber, but the asm volatile-ness
-is the only thing enforcing read/write ordering.
+>  drivers/vdpa/mlx5/net/mlx5_vnet.c | 50 +++++++++++++++----------------
+>  1 file changed, 25 insertions(+), 25 deletions(-)
+> 
+> diff --git a/drivers/vdpa/mlx5/net/mlx5_vnet.c b/drivers/vdpa/mlx5/net/mlx5_vnet.c
+> index 9df69d5efe8c..70676a6d1691 100644
+> --- a/drivers/vdpa/mlx5/net/mlx5_vnet.c
+> +++ b/drivers/vdpa/mlx5/net/mlx5_vnet.c
+> @@ -16,19 +16,19 @@
+>  #define to_mvdev(__vdev) container_of((__vdev), struct mlx5_vdpa_dev, vdev)
+>  
+>  #define VALID_FEATURES_MASK                                                                        \
+> -	(BIT(VIRTIO_NET_F_CSUM) | BIT(VIRTIO_NET_F_GUEST_CSUM) |                                   \
+> -	 BIT(VIRTIO_NET_F_CTRL_GUEST_OFFLOADS) | BIT(VIRTIO_NET_F_MTU) | BIT(VIRTIO_NET_F_MAC) |   \
+> -	 BIT(VIRTIO_NET_F_GUEST_TSO4) | BIT(VIRTIO_NET_F_GUEST_TSO6) |                             \
+> -	 BIT(VIRTIO_NET_F_GUEST_ECN) | BIT(VIRTIO_NET_F_GUEST_UFO) | BIT(VIRTIO_NET_F_HOST_TSO4) | \
+> -	 BIT(VIRTIO_NET_F_HOST_TSO6) | BIT(VIRTIO_NET_F_HOST_ECN) | BIT(VIRTIO_NET_F_HOST_UFO) |   \
+> -	 BIT(VIRTIO_NET_F_MRG_RXBUF) | BIT(VIRTIO_NET_F_STATUS) | BIT(VIRTIO_NET_F_CTRL_VQ) |      \
+> -	 BIT(VIRTIO_NET_F_CTRL_RX) | BIT(VIRTIO_NET_F_CTRL_VLAN) |                                 \
+> -	 BIT(VIRTIO_NET_F_CTRL_RX_EXTRA) | BIT(VIRTIO_NET_F_GUEST_ANNOUNCE) |                      \
+> -	 BIT(VIRTIO_NET_F_MQ) | BIT(VIRTIO_NET_F_CTRL_MAC_ADDR) | BIT(VIRTIO_NET_F_HASH_REPORT) |  \
+> -	 BIT(VIRTIO_NET_F_RSS) | BIT(VIRTIO_NET_F_RSC_EXT) | BIT(VIRTIO_NET_F_STANDBY) |           \
+> -	 BIT(VIRTIO_NET_F_SPEED_DUPLEX) | BIT(VIRTIO_F_NOTIFY_ON_EMPTY) |                          \
+> -	 BIT(VIRTIO_F_ANY_LAYOUT) | BIT(VIRTIO_F_VERSION_1) | BIT(VIRTIO_F_ACCESS_PLATFORM) |      \
+> -	 BIT(VIRTIO_F_RING_PACKED) | BIT(VIRTIO_F_ORDER_PLATFORM) | BIT(VIRTIO_F_SR_IOV))
+> +	(BIT_ULL(VIRTIO_NET_F_CSUM) | BIT_ULL(VIRTIO_NET_F_GUEST_CSUM) |                                   \
+> +	 BIT_ULL(VIRTIO_NET_F_CTRL_GUEST_OFFLOADS) | BIT_ULL(VIRTIO_NET_F_MTU) | BIT_ULL(VIRTIO_NET_F_MAC) |   \
+> +	 BIT_ULL(VIRTIO_NET_F_GUEST_TSO4) | BIT_ULL(VIRTIO_NET_F_GUEST_TSO6) |                             \
+> +	 BIT_ULL(VIRTIO_NET_F_GUEST_ECN) | BIT_ULL(VIRTIO_NET_F_GUEST_UFO) | BIT_ULL(VIRTIO_NET_F_HOST_TSO4) | \
+> +	 BIT_ULL(VIRTIO_NET_F_HOST_TSO6) | BIT_ULL(VIRTIO_NET_F_HOST_ECN) | BIT_ULL(VIRTIO_NET_F_HOST_UFO) |   \
+> +	 BIT_ULL(VIRTIO_NET_F_MRG_RXBUF) | BIT_ULL(VIRTIO_NET_F_STATUS) | BIT_ULL(VIRTIO_NET_F_CTRL_VQ) |      \
+> +	 BIT_ULL(VIRTIO_NET_F_CTRL_RX) | BIT_ULL(VIRTIO_NET_F_CTRL_VLAN) |                                 \
+> +	 BIT_ULL(VIRTIO_NET_F_CTRL_RX_EXTRA) | BIT_ULL(VIRTIO_NET_F_GUEST_ANNOUNCE) |                      \
+> +	 BIT_ULL(VIRTIO_NET_F_MQ) | BIT_ULL(VIRTIO_NET_F_CTRL_MAC_ADDR) | BIT_ULL(VIRTIO_NET_F_HASH_REPORT) |  \
+> +	 BIT_ULL(VIRTIO_NET_F_RSS) | BIT_ULL(VIRTIO_NET_F_RSC_EXT) | BIT_ULL(VIRTIO_NET_F_STANDBY) |           \
+> +	 BIT_ULL(VIRTIO_NET_F_SPEED_DUPLEX) | BIT_ULL(VIRTIO_F_NOTIFY_ON_EMPTY) |                          \
+> +	 BIT_ULL(VIRTIO_F_ANY_LAYOUT) | BIT_ULL(VIRTIO_F_VERSION_1) | BIT_ULL(VIRTIO_F_ACCESS_PLATFORM) |      \
+> +	 BIT_ULL(VIRTIO_F_RING_PACKED) | BIT_ULL(VIRTIO_F_ORDER_PLATFORM) | BIT_ULL(VIRTIO_F_SR_IOV))
+>  
+>  #define VALID_STATUS_MASK                                                                          \
+>  	(VIRTIO_CONFIG_S_ACKNOWLEDGE | VIRTIO_CONFIG_S_DRIVER | VIRTIO_CONFIG_S_DRIVER_OK |        \
+> @@ -149,7 +149,7 @@ static bool mlx5_vdpa_debug;
+>  
+>  #define MLX5_LOG_VIO_FLAG(_feature)                                                                \
+>  	do {                                                                                       \
+> -		if (features & BIT(_feature))                                                      \
+> +		if (features & BIT_ULL(_feature))                                                  \
+>  			mlx5_vdpa_info(mvdev, "%s\n", #_feature);                                  \
+>  	} while (0)
+>  
+> @@ -750,10 +750,10 @@ static bool vq_is_tx(u16 idx)
+>  
+>  static u16 get_features_12_3(u64 features)
+>  {
+> -	return (!!(features & BIT(VIRTIO_NET_F_HOST_TSO4)) << 9) |
+> -	       (!!(features & BIT(VIRTIO_NET_F_HOST_TSO6)) << 8) |
+> -	       (!!(features & BIT(VIRTIO_NET_F_CSUM)) << 7) |
+> -	       (!!(features & BIT(VIRTIO_NET_F_GUEST_CSUM)) << 6);
+> +	return (!!(features & BIT_ULL(VIRTIO_NET_F_HOST_TSO4)) << 9) |
+> +	       (!!(features & BIT_ULL(VIRTIO_NET_F_HOST_TSO6)) << 8) |
+> +	       (!!(features & BIT_ULL(VIRTIO_NET_F_CSUM)) << 7) |
+> +	       (!!(features & BIT_ULL(VIRTIO_NET_F_GUEST_CSUM)) << 6);
+>  }
+>  
+>  static int create_virtqueue(struct mlx5_vdpa_net *ndev, struct mlx5_vdpa_virtqueue *mvq)
+> @@ -1439,13 +1439,13 @@ static u64 mlx_to_vritio_features(u16 dev_features)
+>  	u64 result = 0;
+>  
+>  	if (dev_features & MLX5_VIRTIO_NET_F_GUEST_CSUM)
+> -		result |= BIT(VIRTIO_NET_F_GUEST_CSUM);
+> +		result |= BIT_ULL(VIRTIO_NET_F_GUEST_CSUM);
+>  	if (dev_features & MLX5_VIRTIO_NET_F_CSUM)
+> -		result |= BIT(VIRTIO_NET_F_CSUM);
+> +		result |= BIT_ULL(VIRTIO_NET_F_CSUM);
+>  	if (dev_features & MLX5_VIRTIO_NET_F_HOST_TSO6)
+> -		result |= BIT(VIRTIO_NET_F_HOST_TSO6);
+> +		result |= BIT_ULL(VIRTIO_NET_F_HOST_TSO6);
+>  	if (dev_features & MLX5_VIRTIO_NET_F_HOST_TSO4)
+> -		result |= BIT(VIRTIO_NET_F_HOST_TSO4);
+> +		result |= BIT_ULL(VIRTIO_NET_F_HOST_TSO4);
+>  
+>  	return result;
+>  }
+> @@ -1459,15 +1459,15 @@ static u64 mlx5_vdpa_get_features(struct vdpa_device *vdev)
+>  	dev_features = MLX5_CAP_DEV_VDPA_EMULATION(mvdev->mdev, device_features_bits_mask);
+>  	ndev->mvdev.mlx_features = mlx_to_vritio_features(dev_features);
+>  	if (MLX5_CAP_DEV_VDPA_EMULATION(mvdev->mdev, virtio_version_1_0))
+> -		ndev->mvdev.mlx_features |= BIT(VIRTIO_F_VERSION_1);
+> -	ndev->mvdev.mlx_features |= BIT(VIRTIO_F_ACCESS_PLATFORM);
+> +		ndev->mvdev.mlx_features |= BIT_ULL(VIRTIO_F_VERSION_1);
+> +	ndev->mvdev.mlx_features |= BIT_ULL(VIRTIO_F_ACCESS_PLATFORM);
+>  	print_features(mvdev, ndev->mvdev.mlx_features, false);
+>  	return ndev->mvdev.mlx_features;
+>  }
+>  
+>  static int verify_min_features(struct mlx5_vdpa_dev *mvdev, u64 features)
+>  {
+> -	if (!(features & BIT(VIRTIO_F_ACCESS_PLATFORM)))
+> +	if (!(features & BIT_ULL(VIRTIO_F_ACCESS_PLATFORM)))
+>  		return -EOPNOTSUPP;
+>  
+>  	return 0;
+> 
+> base-commit: 8a7c3213db068135e816a6a517157de6443290d6
+> -- 
+> 2.28.0
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200823011652.GA1910689%40rani.riverdale.lan.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200823060951.GA147797%40mtl-vdi-166.wap.labs.mlnx.
