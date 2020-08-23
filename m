@@ -1,143 +1,124 @@
-Return-Path: <clang-built-linux+bncBC3ZPIWN3EFBBBXLQ35AKGQEKXSFE7A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBC7WQ35AKGQE2ZSRD2Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33b.google.com (mail-wm1-x33b.google.com [IPv6:2a00:1450:4864:20::33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4D6B824EA8A
-	for <lists+clang-built-linux@lfdr.de>; Sun, 23 Aug 2020 02:17:11 +0200 (CEST)
-Received: by mail-wm1-x33b.google.com with SMTP id u144sf1197316wmu.3
-        for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 17:17:11 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598141831; cv=pass;
+Received: from mail-oi1-x238.google.com (mail-oi1-x238.google.com [IPv6:2607:f8b0:4864:20::238])
+	by mail.lfdr.de (Postfix) with ESMTPS id 19F9E24EA92
+	for <lists+clang-built-linux@lfdr.de>; Sun, 23 Aug 2020 02:40:45 +0200 (CEST)
+Received: by mail-oi1-x238.google.com with SMTP id p189sf2576531oib.23
+        for <lists+clang-built-linux@lfdr.de>; Sat, 22 Aug 2020 17:40:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598143243; cv=pass;
         d=google.com; s=arc-20160816;
-        b=r+iG092hM+GWC6bUq6FH3vLrjfrkka0wwzROdQbXr+f7H1UFUF4GDKs0GolztQGNaY
-         gxFklBnhjn6q3B8gxMlx+QL/omaa7xidpai04Gd40l3vuvf6l9c4UueFiOpT37V2jboR
-         pjCpDIxzd+aQEr1KrD5BU2OhlOKModpH5vA1YLOqaq8QUY+lq8W35yjWGhmsPmE6/oJf
-         JPR24YDdG3Zc4gCvpuYX1E3iN5bmp46pBCBdJZwru2O0WY0dwC7hUALXTlH3uIMqWzlo
-         ARiBPSYHKiGWpRu7oU1sYq66XSpTW+T0cnmLlRsVrMBeVL8OsPL1eK7loBpQU7iegnaX
-         v5aA==
+        b=Q+38EAI5fb59jMyNQFlnPocOVpYdVpcl0739xmx1nUvzE1+WXr+kPozX4Ll1r5lF5V
+         DiaTxuGiwfXSCzvxIWOiVGN0HVXGjtgNNUSwO2H+AVViQt/bdsEyBT2paxsCnnXfIRg7
+         S5U5DrC3OtuQDsswrDUMYsWNY2w5WXEjs8lSdLf206truZOJqtjh2qaeuCHH5ZnrrzYI
+         vokzaFUyHJ7PajtvVhRt9b79eEOi5pCa6DAuEQyCK22qBOSg8xd4jL60vPqqMeNCQY8k
+         HiaXKhPKNCwRDVU7nxgZyfXbEvvphTzM2IngrZPh+B0ylKkWm2/7XkP49dDpbIfKiMkZ
+         y/Sg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=PmtGz2dswHNqcXk+2XenfJ7xs9rwK7cde6Z31mS5btw=;
-        b=wjEabBbPFK7BOyBJkQDyRSb/NsYM88vjGT8/mR6sdUATRG3NEDkgprsh1GYrXpEMRM
-         sgv+K/uXVRk2m7iNIzJe6sp00/B+d1hPJkZDPOlkpbwRkAmiTiKnebM/OLrRNACMjYyi
-         QM86jhxFDTBJ6JA63yKDru/imvLshUypTxXWOLfUBrlE4LJIWGLezsMDBSOhDtc5/Ack
-         U2+fKn5GMkWpo6XSyYa7ZFcwghze8XbNGIXV8oMZE7VLlfUiK5DuzZ01rbl4PZBY1gCi
-         YXWBvy7+yVkWFf+q0XAz++Wdl7w67lmRh2kJzL4pPPlgKEMnPFFXFpmAHHiARTtIEeY/
-         gJtA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=TYTDQ0p4eAEe7pTmHje/ZBhgz5A8ZrqW/lliLRmGDVI=;
+        b=HuUIysJpGBuXRzsFjcCBiiToxoKdFV5YkqIEiiQVTh85IMA0BcK6iDANqyZF06b68U
+         6ckbd4VjpiRKViuQ5AfqoX15HTwDFnWl3+Z3NZ9Rc8HADLv3IJnGWw+9n0KdkzwZQsBm
+         EfBhQa/HA5Er+GZ0N7F7FL5xdJLLcqoPLvvHd4p3axXD0gvcpdZPwPNEUnZoHLl5jcOc
+         qwSDDlk3cw5RYuE/T2qxGp7/q+SiBhFxnFTldfVF1gW37LiBAojJ/cTx3Q3cSD7GUB7V
+         d5Y4JFFx0qqXyvrVnfJZDuBbc28PlyhkuQIRn7qGH9r/riP94bLXJR/mujFR1Gtu3Mqk
+         oeuQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linux-foundation.org header.s=google header.b=dTw30b2J;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::144 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=KFCVvOGj;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42d as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=PmtGz2dswHNqcXk+2XenfJ7xs9rwK7cde6Z31mS5btw=;
-        b=psm78mLsImeRYWi+TGqBNMyI9OAw0ynOfhIlMr5wz+AOj+wQdQz/Jdg9V6eBOUUK7/
-         T1/CIePWWsZmWeBq+sqOYfATutUdMU/vGnYv2GNgK1MwYhS26Ja+3xm4Od3PX1wPkqOj
-         eMgdR8DQH2NmYxe1KHajaPaMRMT5GUzLf5xJ4LVy4U/dVry/n1JZa+EEG9ko54v47ElG
-         Y3eme+EICD/f2SOt1Xfl2WGOdAd40DSNPUf9BaAX81WRIHGdaHBoQlAcM01hk9A6Eb3Z
-         PiQ0t+LfJsWBnF/s9TjZnOW2F8scjYBKOX31i8+DM260WR4ZX7tr7artIsdyZKFMFdqD
-         kSvA==
+        bh=TYTDQ0p4eAEe7pTmHje/ZBhgz5A8ZrqW/lliLRmGDVI=;
+        b=ToylxF4u+xpCGGInuE1je0QnM5EU8xp8bYo7+mn77YEXOGv4pc4URHFDn8pLUK3Rhn
+         kvii1K6akrXYo2vsmVCg5GdMKk2/65Tb7L/49l0jclAJiMA1n7Wdyl2wMiUEmeNrkrX8
+         Ldr3jXsYMrv+/ACER1WPW2HxLp9nyYXK9VGtyosGfUKR7RWpqXfGP9q02LgICd3cY28/
+         O3P3diLcgB8DHeYGkxXpkB3k9L4TJwIlb6FEGRyoN1rZDLC1Sirit1+jRXVnAedxWqei
+         mMvCx8OhpOUl4P1KKekUg1dc0HuuPwE5ZOEAg3/8yB0Vk6aGPNxtm6z/majX69lZLIhi
+         ES6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=PmtGz2dswHNqcXk+2XenfJ7xs9rwK7cde6Z31mS5btw=;
-        b=PJ65aLQAAXkbVcdanFEx99B9UD8N2XTCKoNGqBmP22XTDNXuFf4HSgpfjvuGiKOlRh
-         r6DANKgQR2peVNVpSs75BTNIHZ6IJe+FICB5wsY3LRCjdaDxbH7ppS+npLaJevM2RtoX
-         +aSahwD0zAHezd1Aaqu6KyEHUDmChOLpf6fQQHvkWm+EUe9Ddk5/v9f4d9h+DdYtU6Oe
-         V7LSH8CXUotNuALbPyUAzt5AxNaYwwQOg/VbMYvd6BqVwy4TctVFjPDaL0/so3fugPcc
-         K72+XYcZPbe8velgAJsvNgSg6P3YAF3QKDQsqCzKgsVMeLN0IdnYvgz05FN1p4aMz/0R
-         OHCg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530exKnT1VPIUMsu+HJePDgyrIZI5l+wVjoj6dfmoJACPQWjiueL
-	WYDg6ODcmcXDmabrWtYz9jc=
-X-Google-Smtp-Source: ABdhPJwvp74vi4+FDqhy7TTHWhQoiO9QDtqGnLMSw6IZ7IOldM06kXVBgVnv2ie+PUIKPgcXA4irSw==
-X-Received: by 2002:adf:fb87:: with SMTP id a7mr9379581wrr.390.1598141831031;
-        Sat, 22 Aug 2020 17:17:11 -0700 (PDT)
+        bh=TYTDQ0p4eAEe7pTmHje/ZBhgz5A8ZrqW/lliLRmGDVI=;
+        b=b0dJ4RmoXjgyjkbRQjfqoncKWw3nyxi07DW/lVt8a7VwDsNayOVw/iCfzTigaeMyIw
+         G8Ql5FM0dovRHrcye/AEPze7ALKiROigbY0W55pl88bQ1d+yrlcBuum4+EUaCg55SttY
+         0LM4g2isr6i9vZeIisV9QzUnewsdBJjEii4bCdNegA5xWk9hfytzmubgRml/BL6xVeFn
+         yUA709DzEASyJ6s1f6ookJoAqyy4hcWxnLO7C4sP2lKM91F8OdOOQ/K242FXfwz1KUJV
+         CcsZB5wkSV6ovfRY7HlecyK+L/rPCO/0ch9ypYjpqmFLUcrsmtfMYn02CPjw9BU2w02O
+         r5Rw==
+X-Gm-Message-State: AOAM533L4j94xZGAUeG7Y0FRYZZJ23ldb29rlJr6RGVVMe+oVt69gSYr
+	fJTpzIf7UyrW6fg3HqKfHJY=
+X-Google-Smtp-Source: ABdhPJyu96myQRE1zd0+4nlm5Kk9UKSvXhToiK+SXmOdFF9AQxBSLuQe4fn0WP1RE6K1Lk7Fnfw6bw==
+X-Received: by 2002:aca:1218:: with SMTP id 24mr166935ois.46.1598143243760;
+        Sat, 22 Aug 2020 17:40:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:6592:: with SMTP id q18ls672923wru.0.gmail; Sat, 22 Aug
- 2020 17:17:10 -0700 (PDT)
-X-Received: by 2002:adf:f8d0:: with SMTP id f16mr9326460wrq.66.1598141830225;
-        Sat, 22 Aug 2020 17:17:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598141830; cv=none;
+Received: by 2002:aca:c78d:: with SMTP id x135ls1254870oif.1.gmail; Sat, 22
+ Aug 2020 17:40:43 -0700 (PDT)
+X-Received: by 2002:a05:6808:998:: with SMTP id a24mr368520oic.92.1598143243376;
+        Sat, 22 Aug 2020 17:40:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598143243; cv=none;
         d=google.com; s=arc-20160816;
-        b=PBB8qTmLiaLEGhqYkZH8GEnjVmnQozHeAbWCiO8x/EX6tZcCC0qGbz8MPbPVfnGmdS
-         fA6qH5zy39nhNQT4BPR/JkEp6YSSF128WFW14AQECeneEsk24Z3EIov+YWObldlxvS3m
-         EezXTY+KI95Uia9/YaDqoyIvGrJwYYYh6il0sazunqeQw+z6/TpspQ114pAKg9pOSRbO
-         V5hlkgVrRJU61VTSdpnI5JkB/nlf/Rk7kP3lSUHgkz9c7qqt8KVnNqsBJcao7X52817J
-         CL4Qhu/HrdgzwYYw9+ZNO5pQVdic05b7b2cR5XTLpaJJFDnAXeUUAcWMoR6TP90snD2Z
-         xZqw==
+        b=a7cPtHnvunpyjACa0pHPL6I899rA9eACHbhVMJQBwZ7NvVA0Ik1uRtRr2HDSW0bGzi
+         8DmSARtccn2KAj2vxF2mMKdK99KcKrZdHmOCZ2HK5tfQt+R/qLQISDYU6gChUQIPY2tY
+         PuG7IJmmGXtwH45r20auBDY9nOdSND1BgXKTPIj2c+hxYI/ccJbEvqnuvqSfvmK2jh5o
+         UZo+n9riqAqP+FSN2Bp5lhmLgX1312ftp0JJArEVoVOUZ08S10M3LX4oJRg+7y4w7E15
+         ONrGP/AOmsAbQm93Vi6/3b5vO6lP1SN6c8aZ5aga1pFlq4wNHlqcJpMBaLCj9Y55RVhW
+         uY0A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=YIkVDHiTfHwp9VvpwPx0pR6/gdoUoxP4akmJs/bN2QQ=;
-        b=Xd7iIfwZNNeO/SRR8hqeGYFH43LP8F+6uN/l6sFUvToHoEHHLMDkvn8Tb52Fwb/Dd8
-         ohx10UUTuykIbHhNn6FKmOpCypNrQDVvSw2HNgnVW3CUgCDhDf1232mmNIwFW1VeZzC0
-         UbWt73k3FhIcYvtyzOK2J0f04aNePUQn3nzu2MJDQ/I5poLe9F3BPUxiB8KpDAHNKVHC
-         EH+b7SjdM3BttB2vfXR9yhbZFZXhX+EK4Xqjla74+LqvfP4uy0AvFFLHSuzzY2R9UKSC
-         RWOKeHFNgVH3w7t58i5EaT55bHFwNXgTruzyXQsBbauTNKPy4M1SBX21xKNLinLO6Enz
-         81hw==
+        bh=Eh5sQVyCmH30XYzTZRKBdCm/XGoXbbsyIhSzkPDA3nY=;
+        b=X8N6TdJ3tLQQlw+NuGPO25WGXPTiluD1ih34ml2UM+2MJHBruqY0/8rlOF8F/KrlPj
+         5X8IHSqXgIoUBIQXBlfbdgqLd9g0phHM//m2cYZI7qt/m7Rpev3MzPnGnqaw58bP5u8l
+         hx5cZv35N3zf4oZmbX2Vs/HBmSmBOizFm5PwnWrV7DlOeicg0ChJF7ac8nBhV40o2u37
+         fU060mII/eDnB4WBvgIujCPE0O14uy76RjxQlSrS79u4fLq3PEUZQKtVK9RM15bXwPfW
+         dqVAIe8rSQcFMAS/6+lOZA/2iiyigBP2M733qMTBVxtk2NxKCSnmjjRpgpmTz11o90gM
+         DlsQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linux-foundation.org header.s=google header.b=dTw30b2J;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::144 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
-Received: from mail-lf1-x144.google.com (mail-lf1-x144.google.com. [2a00:1450:4864:20::144])
-        by gmr-mx.google.com with ESMTPS id 64si168386wmb.1.2020.08.22.17.17.10
+       dkim=pass header.i=@google.com header.s=20161025 header.b=KFCVvOGj;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42d as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pf1-x42d.google.com (mail-pf1-x42d.google.com. [2607:f8b0:4864:20::42d])
+        by gmr-mx.google.com with ESMTPS id p10si462736ota.3.2020.08.22.17.40.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 22 Aug 2020 17:17:10 -0700 (PDT)
-Received-SPF: pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::144 as permitted sender) client-ip=2a00:1450:4864:20::144;
-Received: by mail-lf1-x144.google.com with SMTP id x64so1723276lff.0
-        for <clang-built-linux@googlegroups.com>; Sat, 22 Aug 2020 17:17:10 -0700 (PDT)
-X-Received: by 2002:a05:6512:482:: with SMTP id v2mr1145520lfq.182.1598141829410;
-        Sat, 22 Aug 2020 17:17:09 -0700 (PDT)
-Received: from mail-lj1-f177.google.com (mail-lj1-f177.google.com. [209.85.208.177])
-        by smtp.gmail.com with ESMTPSA id 14sm1246467lfr.17.2020.08.22.17.17.09
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 22 Aug 2020 17:17:09 -0700 (PDT)
-Received: by mail-lj1-f177.google.com with SMTP id v9so5769367ljk.6
-        for <clang-built-linux@googlegroups.com>; Sat, 22 Aug 2020 17:17:09 -0700 (PDT)
-X-Received: by 2002:a2e:7615:: with SMTP id r21mr4215256ljc.371.1598141437262;
- Sat, 22 Aug 2020 17:10:37 -0700 (PDT)
+        Sat, 22 Aug 2020 17:40:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42d as permitted sender) client-ip=2607:f8b0:4864:20::42d;
+Received: by mail-pf1-x42d.google.com with SMTP id k18so2943622pfp.7
+        for <clang-built-linux@googlegroups.com>; Sat, 22 Aug 2020 17:40:43 -0700 (PDT)
+X-Received: by 2002:a63:a119:: with SMTP id b25mr6481177pgf.10.1598143242377;
+ Sat, 22 Aug 2020 17:40:42 -0700 (PDT)
 MIME-Version: 1.0
-References: <87zh6ohm03.fsf@nanos.tec.linutronix.de> <20200821230435.GA56974@rani.riverdale.lan>
- <CAKwvOdkoB+fT9tt7vgg1R6J-NEr77EWP5X8nFat_L-HvEzWGzA@mail.gmail.com>
- <87eenzqzmr.fsf@nanos.tec.linutronix.de> <20200822035552.GA104886@rani.riverdale.lan>
- <20200822084133.GL28786@gate.crashing.org> <CA+icZUVf9a8LC2Mf0cFymYQfALWs6bVfR1v1nRbxKaLAyU6NkQ@mail.gmail.com>
- <CA+icZUWGHo3mkN4=ZYeU37p8KJhxTXS5QKcAvq_HaqTHmFkw2g@mail.gmail.com>
- <CANiq72=3iOh5Z_rboZf-_GUpBE2LUUv3yPKOVNN_XmaNswdNSw@mail.gmail.com>
- <CAHk-=whaVW4FQjdwaicLFE4kiqr18rk6V50CuU-ziUPyRFjHrg@mail.gmail.com> <20200822231055.GA1871205@rani.riverdale.lan>
-In-Reply-To: <20200822231055.GA1871205@rani.riverdale.lan>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Sat, 22 Aug 2020 17:10:21 -0700
-X-Gmail-Original-Message-ID: <CAHk-=whEb2xVU7uGOFwLxPgX-U2asMu1bJQA8QUEZPrL7zWwQQ@mail.gmail.com>
-Message-ID: <CAHk-=whEb2xVU7uGOFwLxPgX-U2asMu1bJQA8QUEZPrL7zWwQQ@mail.gmail.com>
-Subject: Re: [PATCH] x86: work around clang IAS bug referencing __force_order
-To: Arvind Sankar <nivedita@alum.mit.edu>
-Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, Sedat Dilek <sedat.dilek@gmail.com>, 
-	Segher Boessenkool <segher@kernel.crashing.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Nick Desaulniers <ndesaulniers@google.com>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, 
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
-	Zhenzhong Duan <zhenzhong.duan@oracle.com>, Kees Cook <keescook@chromium.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Juergen Gross <jgross@suse.com>, 
-	Andy Lutomirski <luto@kernel.org>, Andrew Cooper <andrew.cooper3@citrix.com>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Will Deacon <will@kernel.org>
+References: <20200822145618.1222514-1-masahiroy@kernel.org> <20200822145618.1222514-8-masahiroy@kernel.org>
+In-Reply-To: <20200822145618.1222514-8-masahiroy@kernel.org>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Sat, 22 Aug 2020 17:40:31 -0700
+Message-ID: <CAKwvOdkbc-NH5-fx7DVOj8=fgo6AmM5ufOSvkVYp3XXVxVdoCQ@mail.gmail.com>
+Subject: Re: [PATCH v3 07/10] gen_compile_commands: support *.o, *.a,
+ modules.order in positional argument
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, Nathan Huckleberry <nhuck@google.com>, 
+	Tom Roeder <tmroeder@google.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: torvalds@linux-foundation.org
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linux-foundation.org header.s=google header.b=dTw30b2J;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates
- 2a00:1450:4864:20::144 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
+ header.i=@google.com header.s=20161025 header.b=KFCVvOGj;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42d
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,32 +131,203 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Aug 22, 2020 at 4:11 PM Arvind Sankar <nivedita@alum.mit.edu> wrote:
+On Sat, Aug 22, 2020 at 7:56 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
 >
-> Actually, is a memory clobber required for correctness? Memory accesses
-> probably shouldn't be reordered across a CRn write. Is asm volatile
-> enough to stop that or do you need a memory clobber?
+> This script currently searches the specified directory for .cmd files.
+> One drawback is it may contain stale .cmd files after you rebuild the
+> kernel several times without 'make clean'.
+>
+> This commit supports *.o, *.a, and modules.order as positional
+> parameters. If such files are given, they are parsed to collect
+> associated .cmd files. I added a generator helper for each of them.
+>
+> This feature is useful to get the list of active .cmd files from the
+> last build, and will be used by the next commit to wire up the
+> compile_commands.json rule to the Makefile.
+>
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 
-You do need a memory clobber if you really care about ordering wrt
-normal memory references.
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
 
-That said, I'm not convinced we do care here. Normal memory accesses
-(as seen by the compiler) should be entirely immune to any changes we
-do wrt CRx registers.
+> ---
+>
+> Changes in v3:
+>   - Use 'llvm-ar' instead of 'ar' for the default of -a option
+>   - Fix the corrupted comment block
+>
+> Changes in v2:
+>   - Separate the file parser into generator functions
+>   - Use 'obj' instead of 'object' because 'object' is a built-in function
+>   - I think using 'file' is OK because it is not a built-in function in Python3
+>     (https://docs.python.org/3/library/functions.html)
+>     Anyway, the variable 'file' is no longer used in this version
+>   - Keep the previous work-flow to allow to search the given directory
+>
+>  scripts/gen_compile_commands.py | 100 ++++++++++++++++++++++++++++++--
+>  1 file changed, 96 insertions(+), 4 deletions(-)
+>
+> diff --git a/scripts/gen_compile_commands.py b/scripts/gen_compile_commands.py
+> index e45f17be8817..f370375b2f70 100755
+> --- a/scripts/gen_compile_commands.py
+> +++ b/scripts/gen_compile_commands.py
+> @@ -12,6 +12,7 @@ import json
+>  import logging
+>  import os
+>  import re
+> +import subprocess
+>
+>  _DEFAULT_OUTPUT = 'compile_commands.json'
+>  _DEFAULT_LOG_LEVEL = 'WARNING'
+> @@ -32,8 +33,9 @@ def parse_arguments():
+>      Returns:
+>          log_level: A logging level to filter log output.
+>          directory: The work directory where the objects were built.
+> +        ar: Command used for parsing .a archives.
+>          output: Where to write the compile-commands JSON file.
+> -        paths: The list of directories to handle to find .cmd files.
+> +        paths: The list of files/directories to handle to find .cmd files.
+>      """
+>      usage = 'Creates a compile_commands.json database from kernel .cmd files'
+>      parser = argparse.ArgumentParser(description=usage)
+> @@ -53,12 +55,21 @@ def parse_arguments():
+>      parser.add_argument('--log_level', choices=_VALID_LOG_LEVELS,
+>                          default=_DEFAULT_LOG_LEVEL, help=log_level_help)
+>
+> +    ar_help = 'command used for parsing .a archives'
+> +    parser.add_argument('-a', '--ar', type=str, default='llvm-ar', help=ar_help)
+> +
+> +    paths_help = ('directories to search or files to parse '
+> +                  '(files should be *.o, *.a, or modules.order). '
+> +                  'If nothing is specified, the current directory is searched')
+> +    parser.add_argument('paths', type=str, nargs='*', help=paths_help)
+> +
+>      args = parser.parse_args()
+>
+>      return (args.log_level,
+>              os.path.abspath(args.directory),
+>              args.output,
+> -            [args.directory])
+> +            args.ar,
+> +            args.paths if len(args.paths) > 0 else [args.directory])
+>
+>
+>  def cmdfiles_in_dir(directory):
+> @@ -81,6 +92,73 @@ def cmdfiles_in_dir(directory):
+>                  yield os.path.join(dirpath, filename)
+>
+>
+> +def to_cmdfile(path):
+> +    """Return the path of .cmd file used for the given build artifact
+> +
+> +    Args:
+> +        Path: file path
+> +
+> +    Returns:
+> +        The path to .cmd file
+> +    """
+> +    dir, base = os.path.split(path)
+> +    return os.path.join(dir, '.' + base + '.cmd')
+> +
+> +
+> +def cmdfiles_for_o(obj):
+> +    """Generate the iterator of .cmd files associated with the object
+> +
+> +    Yield the .cmd file used to build the given object
+> +
+> +    Args:
+> +        obj: The object path
+> +
+> +    Yields:
+> +        The path to .cmd file
+> +    """
+> +    yield to_cmdfile(obj)
+> +
+> +
+> +def cmdfiles_for_a(archive, ar):
+> +    """Generate the iterator of .cmd files associated with the archive.
+> +
+> +    Parse the given archive, and yield every .cmd file used to build it.
+> +
+> +    Args:
+> +        archive: The archive to parse
+> +
+> +    Yields:
+> +        The path to every .cmd file found
+> +    """
+> +    for obj in subprocess.check_output([ar, '-t', archive]).decode().split():
+> +        yield to_cmdfile(obj)
+> +
+> +
+> +def cmdfiles_for_modorder(modorder):
+> +    """Generate the iterator of .cmd files associated with the modules.order.
+> +
+> +    Parse the given modules.order, and yield every .cmd file used to build the
+> +    contained modules.
+> +
+> +    Args:
+> +        modorder: The modules.order file to parse
+> +
+> +    Yields:
+> +        The path to every .cmd file found
+> +    """
+> +    with open(modorder) as f:
+> +        for line in f:
+> +            ko = line.rstrip()
+> +            base, ext = os.path.splitext(ko)
+> +            if ext != '.ko':
+> +                sys.exit('{}: module path must end with .ko'.format(ko))
+> +            mod = base + '.mod'
+> +           # The first line of *.mod lists the objects that compose the module.
+> +            with open(mod) as m:
+> +                for obj in m.readline().split():
+> +                    yield to_cmdfile(obj)
+> +
+> +
+>  def process_line(root_directory, command_prefix, file_path):
+>      """Extracts information from a .cmd line and creates an entry from it.
+>
+> @@ -117,7 +195,7 @@ def process_line(root_directory, command_prefix, file_path):
+>
+>  def main():
+>      """Walks through the directory and finds and parses .cmd files."""
+> -    log_level, directory, output, paths = parse_arguments()
+> +    log_level, directory, output, ar, paths = parse_arguments()
+>
+>      level = getattr(logging, log_level)
+>      logging.basicConfig(format='%(levelname)s: %(message)s', level=level)
+> @@ -127,7 +205,21 @@ def main():
+>      compile_commands = []
+>
+>      for path in paths:
+> -        cmdfiles = cmdfiles_in_dir(path)
+> +        # If 'path' is a directory, handle all .cmd files under it.
+> +        # Otherwise, handle .cmd files associated with the file.
+> +        # Most of built-in objects are linked via archives (built-in.a or lib.a)
+> +        # but some objects are linked to vmlinux directly.
+> +        # Modules are listed in modules.order.
+> +        if os.path.isdir(path):
+> +            cmdfiles = cmdfiles_in_dir(path)
+> +        elif path.endswith('.o'):
+> +            cmdfiles = cmdfiles_for_o(path)
+> +        elif path.endswith('.a'):
+> +            cmdfiles = cmdfiles_for_a(path, ar)
+> +        elif path.endswith('modules.order'):
+> +            cmdfiles = cmdfiles_for_modorder(path)
+> +        else:
+> +            sys.exit('{}: unknown file type'.format(path))
+>
+>          for cmdfile in cmdfiles:
+>              with open(cmdfile, 'rt') as f:
+> --
+> 2.25.1
+>
 
-Because code that really fundamentally changes kernel mappings or
-access rules is already written in low-level assembler (eg the entry
-routines or bootup).
 
-Anything that relies on the more subtle changes (ie user space
-accesses etc) should already be ordered by other things - usually by
-the fact that they are also "asm volatile".
-
-But hey, maybe somebody can come up with an exception to that.
-
-                Linus
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHk-%3DwhEb2xVU7uGOFwLxPgX-U2asMu1bJQA8QUEZPrL7zWwQQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkbc-NH5-fx7DVOj8%3Dfgo6AmM5ufOSvkVYp3XXVxVdoCQ%40mail.gmail.com.
