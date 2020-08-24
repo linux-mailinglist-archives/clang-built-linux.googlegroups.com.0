@@ -1,139 +1,127 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBV6DRT5AKGQEKRLNRWI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRB7V7RX5AKGQEWQJWZZY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb40.google.com (mail-yb1-xb40.google.com [IPv6:2607:f8b0:4864:20::b40])
-	by mail.lfdr.de (Postfix) with ESMTPS id C0FA324F101
-	for <lists+clang-built-linux@lfdr.de>; Mon, 24 Aug 2020 04:11:36 +0200 (CEST)
-Received: by mail-yb1-xb40.google.com with SMTP id x6sf9212306ybp.10
-        for <lists+clang-built-linux@lfdr.de>; Sun, 23 Aug 2020 19:11:36 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598235095; cv=pass;
+Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
+	by mail.lfdr.de (Postfix) with ESMTPS id B274024F297
+	for <lists+clang-built-linux@lfdr.de>; Mon, 24 Aug 2020 08:36:48 +0200 (CEST)
+Received: by mail-pg1-x53b.google.com with SMTP id e3sf4808474pgs.3
+        for <lists+clang-built-linux@lfdr.de>; Sun, 23 Aug 2020 23:36:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598251007; cv=pass;
         d=google.com; s=arc-20160816;
-        b=MEcQDG7fUEaIwV1N94X35Au5xXe87M+Z/DA1C3qawnu0CV0/q1jBu4t+el0P8hmoLm
-         yU8jMV3sWqXf1uYAPmro9vWWgzqSItGiTHcOwtnU3wNP3jxUxr5PLu5nVNgKNfouuxVC
-         eVMAyacMb8Sxl+g8I/2sNnHJ4U2T9Ts49W0XkJwkJfVSBs6v+ir0pA/f16R5ri7mIs2j
-         krX+9uMh9QYKlZGwvQ7O8+G91c0WuUChw57X1784xgOkJzWSvPufjrlOo+S4608Ln/5R
-         8afYdKgjcmPI+n5u63nIe2i0UdsVaDKGISLqlSi7aPhKO4zBWsoC4YIN/F8LAWHIyCbG
-         V+Eg==
+        b=BWKGZExTKKrjqo3s5pK93X9sN7KZLkILi9eFFQNJrSq4SWSz0JmRJQhpp79w8a9h1S
+         AntJLutMeQ8mIADZUPz6DhY+Xc0hN8LJZ5tEKNz142fqmj3DE9ELqPxRzInlSWV0GQ1U
+         H064sEPXSpfR1o5w1/YpRipCOfd/bKXJu4dq2/ZPzUnBbinCfekZz+YwbVvgbIzQ1ClY
+         LXvv3whSiI+ngw0sldz630JVUdUvxLNlBcrwy/uLcebPi4QOZr8cUdDFsO+CuVBWuzAL
+         8tb1S5GMiMem5c0TNj617dV7vfNW2FdQERfF5bloB+mmGtDbbyCg9XlMfOlP2Wyg/IfB
+         RGzQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
-         :ironport-sdr:sender:dkim-signature;
-        bh=O1eCAjXks3E6r6e2KGW935SD/LHZ+AOj4latLSpqNnM=;
-        b=l4/543fEbi4VHAMEzKjLHAcelbR87Pmw2yc7XQEz7C/7pU6VHPsQqggOUByCSV7PAt
-         HJeO2Do3Y4l6pBCZWslQBUkgImgNh/e2OT/DnJHpeExZR9ulXdV2PBGx51I/zMXHS4qG
-         151doDrXm5tkVSNDAqFZtBbY4J/EAsTs5dhw1vwAM5YrJpRRHYoX4CcgJl0cp7RcJU84
-         junJL3ow6/+V7nEH+7lEdJ7mrRPZn/Xj9Fa2MIs9HYHxWJ5m/kJ+5BzYp1H/Fni2N3CH
-         aBJ5WIw7EwcnW0CpClsl0BXH7YQoKsiIFl9/cuaMfottyHDx5wB6zfuSRt9T7hglrf/w
-         9gQw==
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
+         :dkim-signature;
+        bh=movDOEVY71MhcBOuhsmOC3o7NxLITDu/TvGwy7MjWTs=;
+        b=cwDf6Vsd7Chi6nWJ+LCkF9RceYyidMvllz/NJ6CJbTYqwhD2yCLR70DvZlMbVqd09N
+         fq9ARTnvBgpYCgMVcATIHwkOwHuuIC34xUB0GauMRF0dYmNq+VMRJSCxO/Xv99ohRTzE
+         N+2MRZAtMf5xzxcyr6ypsfxh64REl8YM5UDOrix3Gtf2pFwCGa1wExLtgThpo3AnyYVf
+         RvQHqkwip5oaZbEp1IgBOLfzfqJfh/ufTGeZCFCQoFFgETY3wqa19nAmKvw0rJ+PErN2
+         O3aBhqiLZpKeux7xlfWbptmVDvFHaZAN0tBZDx7g3pKbStX9n+JpXVhUO3JGF1TJlv5/
+         KdPQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=P2U7BVJo;
+       spf=neutral (google.com: 2607:f8b0:4864:20::633 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=O1eCAjXks3E6r6e2KGW935SD/LHZ+AOj4latLSpqNnM=;
-        b=fuadDKPRfuM2DoONfQ8sRA1UoN1htM2HMLiIaTaMRcTWvugk58csUqbvZt8k2IyjEf
-         xrqMLjLNcd63ldTGdC8oSyAJQauITp8exjwdIOqK+LFhta7CBM0x3z533vqenOf4s+he
-         ZpI0AwS4lfJJxXPxKMVd610UV4aPrwZc8wPOiwtRUmqy+9WeabVRdm6dDm8Fv/QaqzA0
-         X8xKmV4CKKT9yA5h7CqLh1XrhyGRaxAgChh9wUGxZRAd+C9z8qbm5uU6qHU0greIRg2T
-         0JDf+1PmT67fygbE5rgRIv4kismv9NNgXyKwI704VAfpYDD37FeEa1bjrD+/FOlRlgWw
-         hw/w==
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=movDOEVY71MhcBOuhsmOC3o7NxLITDu/TvGwy7MjWTs=;
+        b=FIj8yhBhcL7sx23S0PZiPHcGgHQ7kwDKMiTHELEydwgVG/ya9U4RK42mSE48HHVq2Z
+         0H6yJHkwiTTDrGFXevBauKI+vRpfIJDhT71+0VQ4X9rFKViIpDoR4LDag5duGP1Oqtg2
+         DG1JQz1P64VtBo30kC3Og2EJL1qTcIpjK3ZzrAffK6UfM2aLFFxoVSvhAOv91B+2w/YK
+         m0KXp3EVgnz0aYTlOcYFjP5IeMmMA4jflx4Q39lYzF12TonSI8sbTYgO5wKiCNcz0ju9
+         iT0+DwN1B+uZMSwGl6r5oa8DItzSrcim6/9zH63mAl+EJ6jyipX1q/H8WWqhSzJWWfYG
+         vumw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:mime-version:content-disposition:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=O1eCAjXks3E6r6e2KGW935SD/LHZ+AOj4latLSpqNnM=;
-        b=VDaRocuKLeHaBNmvNnC6k6k3RDw2e4MgOfOfFqxnXSxmPm9CB+EfB8EL3ZAdewzDrZ
-         jKstgzpo8XTdxS8l3PNw9lxBD8aphy3HL1nhgtYSVy+goRl2StB9slr3t21/QVFN7ZfF
-         evyWGkmSTYeUrlXbmg8HJRSarrO6+5YRXkQzZtF3zzem0/CH3UpM23JqTt5pCpAiOH4r
-         1NQPnZpZnZuP3WgTcUTUwoJPqZAhXxa4Q8RZ+TeSQmP8rNhfRayERfdGaVouCFbXw4+y
-         /VVkdfLVuf8W3noWRMfuVwiJr0ZYer5bB79W/xHT/c3krYlVL2lrO92eYAauR7ORLkY0
-         9y3Q==
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=movDOEVY71MhcBOuhsmOC3o7NxLITDu/TvGwy7MjWTs=;
+        b=WgixVdhINYRZDsp2DJLBTKBMchMv4bvflgAZd94vJeFa/gcuEiqmBKgosguWzpryzV
+         VAopX+LSW6ZuXZY3SLis/aUpX3BLNv8vn+7GBtun3MHbtdjIl7p2QrZ6xtRBeiIuOsD7
+         nH3NHQ3VIE5ukjRcipTZgThJ3XL0SoF0L/YDmUe6o3T705BOn4gFQ+uRLfJTFR8iivzn
+         i9Soe7llvfcNzPKUwdvTel6AOxlAvqU4BrrWHZLccQt+utb78IXkL7Sjk83UqSFEBliu
+         IRQQs5D94ou6/4+SIkv3FxUz0dL9f1mBdDXFPALZp5CYfvKhwropDL/Hxk08oOJ/rzlc
+         05aA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5314lSDBN5r4tEQy8YjPm9mpKnKnUz0moLD8ZrsHvamJzTToBHj+
-	jb64VvOYWqEUjQt9DoL0z6k=
-X-Google-Smtp-Source: ABdhPJwLtdri7wEgmsqZ2Z+ISKuU5CAPb2nFa45Krt3wM7phuwn1aYIYyoGitAqNZJmoRw/DUcmpEg==
-X-Received: by 2002:a25:7782:: with SMTP id s124mr5200231ybc.282.1598235095586;
-        Sun, 23 Aug 2020 19:11:35 -0700 (PDT)
+X-Gm-Message-State: AOAM533umw7uZdVTrIIHg/6wuFg+hZUs1xl3nhEF+YhbLz4/OKQ2Ce6i
+	PoOPcxYGGS/FuQLuiL8/bbg=
+X-Google-Smtp-Source: ABdhPJzzW2MwUkpX42npkZ9n1qupe0PLUYQQTw/GpjzyAubo64ax4YUIndJW+94bIOTyigO/60TYpg==
+X-Received: by 2002:a63:e045:: with SMTP id n5mr2698656pgj.274.1598251007031;
+        Sun, 23 Aug 2020 23:36:47 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:840a:: with SMTP id u10ls3181740ybk.0.gmail; Sun, 23 Aug
- 2020 19:11:35 -0700 (PDT)
-X-Received: by 2002:a5b:3c8:: with SMTP id t8mr4692253ybp.429.1598235095046;
-        Sun, 23 Aug 2020 19:11:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598235095; cv=none;
+Received: by 2002:a17:90b:384f:: with SMTP id nl15ls2032650pjb.0.canary-gmail;
+ Sun, 23 Aug 2020 23:36:46 -0700 (PDT)
+X-Received: by 2002:a17:90a:6949:: with SMTP id j9mr3695745pjm.102.1598251006300;
+        Sun, 23 Aug 2020 23:36:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598251006; cv=none;
         d=google.com; s=arc-20160816;
-        b=U5qotGdVTqGkmfLtgHXXqMah9+fbJSy+sXMzTYaixxoX98nYffX/3+sO4NxV+Rzymf
-         aDyEYv7pyybfxp4bnBEBMCbX6WoSBBc4ICuxRzGzr/62UJRerZAGXh5iSOtvRawcteuN
-         RahGVClKIYm0WrkZM0EWOLNUAggJdbRXCtRXSQyWLLSdVo3KX5HNPVyU2JEL1guRU8Gv
-         osXFRiD7tiFVEPPUDByrnIYpq3I2IWKYVHZjnBXsAhMMvBViwkIL7l6Ysw/yj+vaB+SJ
-         d7vMjCJSACTgOxzmYEWzZ26byrRh6zbD47zvDX8dzQGmMKCHHPksDd/BOwky/W3oSNf0
-         latA==
+        b=JKVX6MgyKMXXy9tpmzJUaqvN60lK9CygIMSUd7jRkDxkCPdnt2NOEwntQfT3SCYUA/
+         NAHe/ZT/7Xy1hDY9jbaSn743OTDUmYmO3SYMqwOBK//yyrYmhlFGu/9QP4HLdbzg4aO4
+         STU7BkjWqbGlgjNX73tQ9CIsM1xgvXK8Ju4VZTFBWSfo9MRK1y4KSq4GrKBBtvEBl61W
+         Y9TUki2TuwjmZ9UFH1tOoMR0baMlf80+dM8jYhFf0Vk2lJyWCGn6vJBE5ayQCL7WBTo6
+         O0TaFJZYN5vxKuIic/h+ke0MltmutnqQoqCit7gzWpB9zMnHSFIFqk6SGdHWN/M59Tvj
+         ZfZg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:ironport-sdr:ironport-sdr;
-        bh=BOomQpybmzy9xSD8r6LDla4VZhJFAu4FH2xKiMAHrZI=;
-        b=xerUvBHjKGAdCGqostUCaJe0xVFXWO2Nml2e73E4vLYrdHk/C0hH6c46dKl8kiki1Y
-         5MMrzlMKhV/TJwm3U/Q1Ds4A2W3PFA3CgiM8HcBvvcwIJ8fGcyzpEjApi0i628jk/rsY
-         AaH9CAA+QESn/lea4xxUqwRZxHfaNkQaE8qYvf63I8w1uuwqEeHKoyoCUiBKPdBzm7JF
-         cDLE9MiHuElxwLfn5AAxK5wdyHS4AM/w1RVF/9Krj5qBo2jgKY/ciBFt7UFjYrUxqebb
-         0BKD4lkJvUBQhVm6EAA30gju72JTxPioqzwXA0am1i93uY36gFqa6Ih9SR0OkwsmNGKF
-         eCJQ==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=mGVPr+QlMAzI2NlOcjdgM8DfucJXNww+mQMRTgZkGQs=;
+        b=vrsc0eSR/f2lWjVwK1H0f03rnTZceXz4+5Ci2yNwRYNFxj38K3qpfZinZBNVd7aMlz
+         YFNzCmSbYVSBNrxdQMBSWvsCAxcvMju4bJthpd41fd/S6q1pSxGEFNW0hwlcOY/+cDhC
+         cDYWjXI4Ouq0bijoginfMV5pErBHs5o+RkNRyNKUq6rhUfpyw9nbqzEaAm3ZZnidOoNs
+         bL85IMORV716EE0XzRle9JQh1v1RpbbfDRLBoHvcav4YDe4un8O9XIh+4mkjBbhpVBUq
+         y7SjkfTMwAQLGP5e8wZjyMKRN+m6BpLmCZDk+wx7u3NAaKV4fLCrbgUS8fhdevHXpAkV
+         Nozg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
-        by gmr-mx.google.com with ESMTPS id i144si436858yba.4.2020.08.23.19.11.34
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=P2U7BVJo;
+       spf=neutral (google.com: 2607:f8b0:4864:20::633 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-pl1-x633.google.com (mail-pl1-x633.google.com. [2607:f8b0:4864:20::633])
+        by gmr-mx.google.com with ESMTPS id i18si406918pju.2.2020.08.23.23.36.46
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 23 Aug 2020 19:11:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
-IronPort-SDR: 0HKMEHtTA1C+a0czbYYjs8tEYE7hSb0IWlES51vWiu4yFzT47qF2r7z3ddEQAgoiZe2Cxa1S+3
- 3mJqWV3EKVgQ==
-X-IronPort-AV: E=McAfee;i="6000,8403,9722"; a="155811759"
-X-IronPort-AV: E=Sophos;i="5.76,347,1592895600"; 
-   d="gz'50?scan'50,208,50";a="155811759"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-X-Amp-File-Uploaded: False
-Received: from orsmga004.jf.intel.com ([10.7.209.38])
-  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Aug 2020 19:11:33 -0700
-IronPort-SDR: RK0hDpY1sPH8S8m/+nGzQ9KgjL5AK2swIveY6Jx80bpd6CLHhDgi3aY7tIrmvUc9lMqINmDOGS
- E2Ih724i5gbw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.76,347,1592895600"; 
-   d="gz'50?scan'50,208,50";a="443026677"
-Received: from lkp-server01.sh.intel.com (HELO 91ed66e1ca04) ([10.239.97.150])
-  by orsmga004.jf.intel.com with ESMTP; 23 Aug 2020 19:11:31 -0700
-Received: from kbuild by 91ed66e1ca04 with local (Exim 4.92)
-	(envelope-from <lkp@intel.com>)
-	id 1kA1xK-0002Kj-BI; Mon, 24 Aug 2020 02:11:30 +0000
-Date: Mon, 24 Aug 2020 10:10:49 +0800
-From: kernel test robot <lkp@intel.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	linux-media@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: [linux-next:master 1981/2764]
- drivers/staging/hikey9xx/hisi-spmi-controller.c:149:37: warning: format
- specifies type 'long' but the argument has type 'size_t' (aka 'unsigned
- int')
-Message-ID: <202008241047.03sNVO0L%lkp@intel.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 23 Aug 2020 23:36:46 -0700 (PDT)
+Received-SPF: neutral (google.com: 2607:f8b0:4864:20::633 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2607:f8b0:4864:20::633;
+Received: by mail-pl1-x633.google.com with SMTP id q3so2430124pls.11
+        for <clang-built-linux@googlegroups.com>; Sun, 23 Aug 2020 23:36:46 -0700 (PDT)
+X-Received: by 2002:a17:90b:3108:: with SMTP id gc8mr3702811pjb.159.1598251003291;
+        Sun, 23 Aug 2020 23:36:43 -0700 (PDT)
+Received: from kernelci-production.internal.cloudapp.net ([52.250.1.28])
+        by smtp.gmail.com with ESMTPSA id f18sm8433732pgv.84.2020.08.23.23.36.41
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 23 Aug 2020 23:36:42 -0700 (PDT)
+Message-ID: <5f435ffa.1c69fb81.13997.9846@mx.google.com>
+Date: Sun, 23 Aug 2020 23:36:42 -0700 (PDT)
+Content-Type: text/plain; charset="UTF-8"
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="opJtzjQTFsWo+cga"
-Content-Disposition: inline
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: lkp@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted
- sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=intel.com
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Tree: next
+X-Kernelci-Branch: master
+X-Kernelci-Report-Type: build
+X-Kernelci-Kernel: next-20200824
+Subject: next/master build: 227 builds: 7 failed, 220 passed, 21 errors,
+ 1989 warnings (next-20200824)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b=P2U7BVJo;       spf=neutral (google.com: 2607:f8b0:4864:20::633 is
+ neither permitted nor denied by best guess record for domain of
+ bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,683 +134,10030 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+next/master build: 227 builds: 7 failed, 220 passed, 21 errors, 1989 warnin=
+gs (next-20200824)
 
---opJtzjQTFsWo+cga
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20200824/
 
-Hi Mauro,
+Tree: next
+Branch: master
+Git Describe: next-20200824
+Git Commit: d8be0e12a522d53a45f85fb241ffd06108d40b03
+Git URL: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.gi=
+t
+Built: 7 unique architectures
 
-First bad commit (maybe != root cause):
+Build Failures Detected:
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-head:   494d311a82bb06a81fa7ef4277367701a792e6ef
-commit: 1747938a37d1dfa9faa397507f88627158b3d806 [1981/2764] staging: spmi: hisi-spmi-controller: add it to the building system
-config: powerpc-randconfig-r003-20200824 (attached as .config)
-compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project b587ca93be114d07ec3bf654add97d7872325281)
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # install powerpc cross compiling tool for clang build
-        # apt-get install binutils-powerpc-linux-gnu
-        git checkout 1747938a37d1dfa9faa397507f88627158b3d806
-        # save the attached .config to linux build tree
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc 
+arm64:
+    allmodconfig: (clang-9) FAIL
+    defconfig: (clang-9) FAIL
 
-If you fix the issue, kindly add following tag as appropriate
-Reported-by: kernel test robot <lkp@intel.com>
+arm:
+    allmodconfig: (clang-9) FAIL
+    multi_v7_defconfig: (clang-9) FAIL
+    allmodconfig: (gcc-8) FAIL
 
-All warnings (new ones prefixed by >>):
+mips:
+    cavium_octeon_defconfig: (gcc-8) FAIL
 
->> drivers/staging/hikey9xx/hisi-spmi-controller.c:149:37: warning: format specifies type 'long' but the argument has type 'size_t' (aka 'unsigned int') [-Wformat]
-                           SPMI_CONTROLLER_MAX_TRANS_BYTES, bc);
-                                                            ^~
-   include/linux/dev_printk.h:104:32: note: expanded from macro 'dev_err'
-           _dev_err(dev, dev_fmt(fmt), ##__VA_ARGS__)
-                                 ~~~     ^~~~~~~~~~~
->> drivers/staging/hikey9xx/hisi-spmi-controller.c:199:20: warning: format specifies type 'long' but the argument has type 'unsigned int' [-Wformat]
-                           opc, sid, addr, bc + 1);
-                                           ^~~~~~
-   include/linux/dev_printk.h:104:32: note: expanded from macro 'dev_err'
-           _dev_err(dev, dev_fmt(fmt), ##__VA_ARGS__)
-                                 ~~~     ^~~~~~~~~~~
-   drivers/staging/hikey9xx/hisi-spmi-controller.c:221:37: warning: format specifies type 'long' but the argument has type 'size_t' (aka 'unsigned int') [-Wformat]
-                           SPMI_CONTROLLER_MAX_TRANS_BYTES, bc);
-                                                            ^~
-   include/linux/dev_printk.h:104:32: note: expanded from macro 'dev_err'
-           _dev_err(dev, dev_fmt(fmt), ##__VA_ARGS__)
-                                 ~~~     ^~~~~~~~~~~
-   drivers/staging/hikey9xx/hisi-spmi-controller.c:271:20: warning: format specifies type 'long' but the argument has type 'size_t' (aka 'unsigned int') [-Wformat]
-                           opc, sid, addr, bc);
-                                           ^~
-   include/linux/dev_printk.h:104:32: note: expanded from macro 'dev_err'
-           _dev_err(dev, dev_fmt(fmt), ##__VA_ARGS__)
-                                 ~~~     ^~~~~~~~~~~
-   4 warnings generated.
+x86_64:
+    allmodconfig: (clang-9) FAIL
 
-# https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=1747938a37d1dfa9faa397507f88627158b3d806
-git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-git fetch --no-tags linux-next master
-git checkout 1747938a37d1dfa9faa397507f88627158b3d806
-vim +149 drivers/staging/hikey9xx/hisi-spmi-controller.c
+Errors and Warnings Detected:
 
-70f59c90c8199e Mayulong              2020-08-17  134  
-70f59c90c8199e Mayulong              2020-08-17  135  static int spmi_read_cmd(struct spmi_controller *ctrl,
-6af364501949d9 Mauro Carvalho Chehab 2020-08-17  136  			 u8 opc, u8 sid, u16 addr, u8 *__buf, size_t bc)
-70f59c90c8199e Mayulong              2020-08-17  137  {
-70f59c90c8199e Mayulong              2020-08-17  138  	struct spmi_controller_dev *spmi_controller = dev_get_drvdata(&ctrl->dev);
-70f59c90c8199e Mayulong              2020-08-17  139  	unsigned long flags;
-6af364501949d9 Mauro Carvalho Chehab 2020-08-17  140  	u8 *buf = __buf;
-70f59c90c8199e Mayulong              2020-08-17  141  	u32 cmd, data;
-70f59c90c8199e Mayulong              2020-08-17  142  	int rc;
-70f59c90c8199e Mayulong              2020-08-17  143  	u32 chnl_ofst = SPMI_CHANNEL_OFFSET * spmi_controller->channel;
-70f59c90c8199e Mayulong              2020-08-17  144  	u8 op_code, i;
-70f59c90c8199e Mayulong              2020-08-17  145  
-70f59c90c8199e Mayulong              2020-08-17  146  	if (bc > SPMI_CONTROLLER_MAX_TRANS_BYTES) {
-4d914a8c480c31 Mauro Carvalho Chehab 2020-08-17  147  		dev_err(&ctrl->dev,
-4d914a8c480c31 Mauro Carvalho Chehab 2020-08-17  148  			"spmi_controller supports 1..%d bytes per trans, but:%ld requested",
-4d914a8c480c31 Mauro Carvalho Chehab 2020-08-17 @149  			SPMI_CONTROLLER_MAX_TRANS_BYTES, bc);
-70f59c90c8199e Mayulong              2020-08-17  150  		return  -EINVAL;
-70f59c90c8199e Mayulong              2020-08-17  151  	}
-70f59c90c8199e Mayulong              2020-08-17  152  
-70f59c90c8199e Mayulong              2020-08-17  153  	/* Check the opcode */
-2ea3f6a03b155f Mauro Carvalho Chehab 2020-08-17  154  	if (opc == SPMI_CMD_READ) {
-70f59c90c8199e Mayulong              2020-08-17  155  		op_code = SPMI_CMD_REG_READ;
-2ea3f6a03b155f Mauro Carvalho Chehab 2020-08-17  156  	} else if (opc == SPMI_CMD_EXT_READ) {
-70f59c90c8199e Mayulong              2020-08-17  157  		op_code = SPMI_CMD_EXT_REG_READ;
-2ea3f6a03b155f Mauro Carvalho Chehab 2020-08-17  158  	} else if (opc == SPMI_CMD_EXT_READL) {
-70f59c90c8199e Mayulong              2020-08-17  159  		op_code = SPMI_CMD_EXT_REG_READ_L;
-2ea3f6a03b155f Mauro Carvalho Chehab 2020-08-17  160  	} else {
-4d914a8c480c31 Mauro Carvalho Chehab 2020-08-17  161  		dev_err(&ctrl->dev, "invalid read cmd 0x%x", opc);
-70f59c90c8199e Mayulong              2020-08-17  162  		return -EINVAL;
-70f59c90c8199e Mayulong              2020-08-17  163  	}
-70f59c90c8199e Mayulong              2020-08-17  164  
-2ea3f6a03b155f Mauro Carvalho Chehab 2020-08-17  165  	cmd = SPMI_APB_SPMI_CMD_EN |
-2ea3f6a03b155f Mauro Carvalho Chehab 2020-08-17  166  	     (op_code << SPMI_APB_SPMI_CMD_TYPE_OFFSET) |
-2ea3f6a03b155f Mauro Carvalho Chehab 2020-08-17  167  	     ((bc - 1) << SPMI_APB_SPMI_CMD_LENGTH_OFFSET) |
-70f59c90c8199e Mayulong              2020-08-17  168  	     ((sid & 0xf) << SPMI_APB_SPMI_CMD_SLAVEID_OFFSET) |  /* slvid */
-70f59c90c8199e Mayulong              2020-08-17  169  	     ((addr & 0xffff)  << SPMI_APB_SPMI_CMD_ADDR_OFFSET); /* slave_addr */
-70f59c90c8199e Mayulong              2020-08-17  170  
-2ea3f6a03b155f Mauro Carvalho Chehab 2020-08-17  171  	spin_lock_irqsave(&spmi_controller->lock, flags);
-70f59c90c8199e Mayulong              2020-08-17  172  
-2ea3f6a03b155f Mauro Carvalho Chehab 2020-08-17  173  	writel(cmd, spmi_controller->base + chnl_ofst + SPMI_APB_SPMI_CMD_BASE_ADDR);
-70f59c90c8199e Mayulong              2020-08-17  174  
-4d914a8c480c31 Mauro Carvalho Chehab 2020-08-17  175  	rc = spmi_controller_wait_for_done(&ctrl->dev, spmi_controller,
-8788a30c12c788 Mauro Carvalho Chehab 2020-08-17  176  					   spmi_controller->base, sid, addr);
-70f59c90c8199e Mayulong              2020-08-17  177  	if (rc)
-70f59c90c8199e Mayulong              2020-08-17  178  		goto done;
-70f59c90c8199e Mayulong              2020-08-17  179  
-70f59c90c8199e Mayulong              2020-08-17  180  	i = 0;
-70f59c90c8199e Mayulong              2020-08-17  181  	do {
-2ea3f6a03b155f Mauro Carvalho Chehab 2020-08-17  182  		data = readl(spmi_controller->base + chnl_ofst + SPMI_SLAVE_OFFSET * sid + SPMI_APB_SPMI_RDATA0_BASE_ADDR + i * SPMI_PER_DATAREG_BYTE);
-8788a30c12c788 Mauro Carvalho Chehab 2020-08-17  183  		data = be32_to_cpu((__be32)data);
-2ea3f6a03b155f Mauro Carvalho Chehab 2020-08-17  184  		if ((bc - i * SPMI_PER_DATAREG_BYTE) >> 2) {
-70f59c90c8199e Mayulong              2020-08-17  185  			memcpy(buf, &data, sizeof(data));
-70f59c90c8199e Mayulong              2020-08-17  186  			buf += sizeof(data);
-70f59c90c8199e Mayulong              2020-08-17  187  		} else {
-2ea3f6a03b155f Mauro Carvalho Chehab 2020-08-17  188  			memcpy(buf, &data, bc % SPMI_PER_DATAREG_BYTE);
-70f59c90c8199e Mayulong              2020-08-17  189  			buf += (bc % SPMI_PER_DATAREG_BYTE);
-70f59c90c8199e Mayulong              2020-08-17  190  		}
-70f59c90c8199e Mayulong              2020-08-17  191  		i++;
-70f59c90c8199e Mayulong              2020-08-17  192  	} while (bc > i * SPMI_PER_DATAREG_BYTE);
-70f59c90c8199e Mayulong              2020-08-17  193  
-70f59c90c8199e Mayulong              2020-08-17  194  done:
-70f59c90c8199e Mayulong              2020-08-17  195  	spin_unlock_irqrestore(&spmi_controller->lock, flags);
-70f59c90c8199e Mayulong              2020-08-17  196  	if (rc)
-4d914a8c480c31 Mauro Carvalho Chehab 2020-08-17  197  		dev_err(&ctrl->dev,
-4d914a8c480c31 Mauro Carvalho Chehab 2020-08-17  198  			"spmi read wait timeout op:0x%x sid:%d addr:0x%x bc:%ld\n",
-70f59c90c8199e Mayulong              2020-08-17 @199  			opc, sid, addr, bc + 1);
-6af364501949d9 Mauro Carvalho Chehab 2020-08-17  200  	else
-4d914a8c480c31 Mauro Carvalho Chehab 2020-08-17  201  		dev_dbg(&ctrl->dev, "%s: id:%d addr:0x%x, read value: %*ph\n",
-6af364501949d9 Mauro Carvalho Chehab 2020-08-17  202  			__func__, sid, addr, (int)bc, __buf);
-6af364501949d9 Mauro Carvalho Chehab 2020-08-17  203  
-70f59c90c8199e Mayulong              2020-08-17  204  	return rc;
-2ea3f6a03b155f Mauro Carvalho Chehab 2020-08-17  205  }
-70f59c90c8199e Mayulong              2020-08-17  206  
+arc:
+    haps_hs_smp_defconfig+kselftest (gcc-8): 1 warning
 
-:::::: The code at line 149 was first introduced by commit
-:::::: 4d914a8c480c31280505304611030612fa5c2645 staging: spmi: hisi-spmi-controller: fix the dev_foo() logic
+arm64:
+    allmodconfig (clang-9): 1 error, 10 warnings
+    allmodconfig (gcc-8): 8 warnings
+    defconfig (gcc-8): 8 warnings
+    defconfig (clang-9): 1 error
+    defconfig (clang-10): 1847 warnings
+    defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (gcc-8): 8 warnings
+    defconfig+CONFIG_RANDOMIZE_BASE=3Dy (gcc-8): 8 warnings
+    defconfig+kselftest (gcc-8): 8 warnings
 
-:::::: TO: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-:::::: CC: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+arm:
+    allmodconfig (gcc-8): 6 errors, 8 warnings
+    allmodconfig (clang-9): 10 errors, 19 warnings
+    aspeed_g4_defconfig (gcc-8): 1 warning
+    bcm2835_defconfig (gcc-8): 1 warning
+    mmp2_defconfig (gcc-8): 3 warnings
+    multi_v7_defconfig (gcc-8): 3 warnings
+    multi_v7_defconfig (clang-9): 1 error
+    multi_v7_defconfig (clang-10): 3 warnings
+    multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (gcc-8): 3 warnings
+    multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (gcc-8): 3 warnin=
+gs
+    multi_v7_defconfig+CONFIG_SMP=3Dn (gcc-8): 3 warnings
+    multi_v7_defconfig+kselftest (gcc-8): 4 warnings
+    omap1_defconfig (gcc-8): 3 warnings
+    pxa168_defconfig (gcc-8): 3 warnings
+    pxa910_defconfig (gcc-8): 3 warnings
+
+i386:
+    i386_defconfig+kselftest (gcc-8): 1 warning
+
+mips:
+    32r2el_defconfig+kselftest (gcc-8): 1 warning
+    cavium_octeon_defconfig (gcc-8): 1 error
+    gcw0_defconfig (gcc-8): 2 warnings
+    malta_qemu_32r6_defconfig (gcc-8): 1 warning
+    nlm_xlr_defconfig (gcc-8): 1 warning
+    qi_lb60_defconfig (gcc-8): 2 warnings
+    rm200_defconfig (gcc-8): 1 warning
+    rs90_defconfig (gcc-8): 2 warnings
+
+riscv:
+    rv32_defconfig (gcc-8): 6 warnings
+
+x86_64:
+    allmodconfig (clang-9): 1 error, 13 warnings
+    tinyconfig (gcc-8): 1 warning
+
+Errors summary:
+
+    1    ERROR: modpost: "__compiletime_assert_612" [drivers/gpu/drm/vc4/vc=
+4.ko] undefined!
+    1    ERROR: modpost: "__compiletime_assert_611" [drivers/gpu/drm/vc4/vc=
+4.ko] undefined!
+    1    ERROR: modpost: "__compiletime_assert_534" [drivers/gpu/drm/vc4/vc=
+4.ko] undefined!
+    1    ERROR: modpost: "__compiletime_assert_1482" [drivers/gpu/drm/vc4/v=
+c4.ko] undefined!
+    1    /scratch/linux/drivers/crypto/stm32/stm32-crc32.c:196:17: error: i=
+mplicit declaration of function 'readl_relaxed' [-Werror,-Wimplicit-functio=
+n-declaration]
+    1    /scratch/linux/drivers/crypto/stm32/stm32-crc32.c:192:4: error: im=
+plicit declaration of function 'writeb_relaxed' [-Werror,-Wimplicit-functio=
+n-declaration]
+    1    /scratch/linux/drivers/crypto/stm32/stm32-crc32.c:176:4: error: im=
+plicit declaration of function =E2=80=98writeb_relaxed=E2=80=99; did you me=
+an =E2=80=98xchg_relaxed=E2=80=99? [-Werror=3Dimplicit-function-declaration=
+]
+    1    /scratch/linux/drivers/crypto/stm32/stm32-crc32.c:176:4: error: im=
+plicit declaration of function 'writeb_relaxed' [-Werror,-Wimplicit-functio=
+n-declaration]
+    1    /scratch/linux/drivers/crypto/stm32/stm32-crc32.c:166:2: error: im=
+plicit declaration of function 'writel_relaxed' [-Werror,-Wimplicit-functio=
+n-declaration]
+    1    /scratch/linux/drivers/crypto/stm32/stm32-crc32.c:134:17: error: i=
+mplicit declaration of function =E2=80=98readl_relaxed=E2=80=99; did you me=
+an =E2=80=98xchg_relaxed=E2=80=99? [-Werror=3Dimplicit-function-declaration=
+]
+    1    /scratch/linux/drivers/crypto/stm32/stm32-crc32.c:134:17: error: i=
+mplicit declaration of function 'readl_relaxed' [-Werror,-Wimplicit-functio=
+n-declaration]
+    1    /scratch/linux/drivers/crypto/stm32/stm32-crc32.c:128:2: error: im=
+plicit declaration of function =E2=80=98writel_relaxed=E2=80=99; did you me=
+an =E2=80=98xchg_relaxed=E2=80=99? [-Werror=3Dimplicit-function-declaration=
+]
+    1    /scratch/linux/drivers/crypto/stm32/stm32-crc32.c:128:2: error: im=
+plicit declaration of function 'writel_relaxed' [-Werror,-Wimplicit-functio=
+n-declaration]
+    1    /scratch/linux/arch/mips/cavium-octeon/dma-octeon.c:205:7: error: =
+=E2=80=98mem=E2=80=99 undeclared (first use in this function); did you mean=
+ =E2=80=98sem=E2=80=99?
+    1    /scratch/linux/arch/arm/crypto/curve25519-glue.c:88:41: error: imp=
+licit declaration of function 'sg_nents_for_len' [-Werror,-Wimplicit-functi=
+on-declaration]
+    1    /scratch/linux/arch/arm/crypto/curve25519-glue.c:88:11: error: imp=
+licit declaration of function =E2=80=98sg_copy_from_buffer=E2=80=99; did yo=
+u mean =E2=80=98kstrtos8_from_user=E2=80=99? [-Werror=3Dimplicit-function-d=
+eclaration]
+    1    /scratch/linux/arch/arm/crypto/curve25519-glue.c:88:11: error: imp=
+licit declaration of function 'sg_copy_from_buffer' [-Werror,-Wimplicit-fun=
+ction-declaration]
+    1    /scratch/linux/arch/arm/crypto/curve25519-glue.c:74:9: error: impl=
+icit declaration of function =E2=80=98sg_nents_for_len=E2=80=99 [-Werror=3D=
+implicit-function-declaration]
+    1    /scratch/linux/arch/arm/crypto/curve25519-glue.c:74:9: error: impl=
+icit declaration of function 'sg_nents_for_len' [-Werror,-Wimplicit-functio=
+n-declaration]
+    1    /scratch/linux/arch/arm/crypto/curve25519-glue.c:73:12: error: imp=
+licit declaration of function =E2=80=98sg_copy_to_buffer=E2=80=99; did you =
+mean =E2=80=98hex_dump_to_buffer=E2=80=99? [-Werror=3Dimplicit-function-dec=
+laration]
+    1    /scratch/linux/arch/arm/crypto/curve25519-glue.c:73:12: error: imp=
+licit declaration of function 'sg_copy_to_buffer' [-Werror,-Wimplicit-funct=
+ion-declaration]
+
+Warnings summary:
+
+    85   aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    18   /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.=
+dtsi:7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-range=
+s" property but its #size-cells (1) differs from / (2)
+    18   /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.=
+dtsi:7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-range=
+s" property but its #address-cells (1) differs from / (2)
+    14   1 warning generated.
+    10   aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/nouveau/nouveau.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    9    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Fa=
+iled prerequisite 'spi_bus_bridge'
+    9    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (=
+spi_bus_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for =
+SPI bus
+    9    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (=
+spi_bus_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells f=
+or SPI bus
+    6    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nouveau.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    6    /scratch/linux/include/linux/kern_levels.h:5:18: warning: format =
+=E2=80=98%lu=E2=80=99 expects argument of type =E2=80=98long unsigned int=
+=E2=80=99, but argument 8 has type =E2=80=98unsigned int=E2=80=99 [-Wformat=
+=3D]
+    6    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: War=
+ning (dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but =
+its #size-cells (1) differs from / (2)
+    6    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: War=
+ning (dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (1) differs from / (2)
+    4    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/lib/raid6/raid6_pq.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ipa/ipa.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: security/keys/sysctl.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: net/sunrpc/sysctl.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: net/sunrpc/auth_gss/trace.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: net/ipv4/udp_tunnel_stub.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: mm/init-mm.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: mm/highmem.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: lib/zlib_inflate/inflate_syms.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: lib/zlib_deflate/deflate_syms.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: lib/xz/xz_dec_syms.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: lib/nmi_backtrace.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: lib/irq_regs.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: lib/fonts/font_8x8.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: lib/fonts/font_8x16.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: lib/ctype.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: lib/clz_tab.o: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: lib/bitrev.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: ipc/syscall.o: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: init/version.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: init/init_task.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: fs/nfs/nfstrace.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: fs/nfs/nfs4trace.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: fs/iomap/trace.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: fs/ext2/symlink.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/video/logo/logo_linux_clut2=
+24.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/usb/host/xhci-trace.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/udc/trace.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/tty/vt/defkeymap.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/tty/vt/consolemap_deftbl.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/thermal/qcom/tsens-v2.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77995-sysc.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77980-sysc.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77970-sysc.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77965-sysc.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a774e1-sysc.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a774b1-sysc.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a774a1-sysc.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/platform/chrome/cros_ec_tra=
+ce.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/pinctrl/samsung/pinctrl-exy=
+nos-arm64.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/xmc.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/fujitsu.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/everspin.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/esmt.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/eon.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/catalyst.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/memory/tegra/tegra210.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/memory/tegra/tegra124.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/iommu/iommu-traces.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/dma/ti/k3-psil-j721e.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/dma/ti/k3-psil-j7200.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/dma/ti/k3-psil-am654.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/clk/uniphier/clk-uniphier-s=
+ys.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/clk/uniphier/clk-uniphier-p=
+eri.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/clk/uniphier/clk-uniphier-m=
+io.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/base/firmware_loader/fallba=
+ck_table.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/utresdecode.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/utglobal.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/utdebug.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsserial.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsmemory.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsirq.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsio.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsinfo.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsdumpinfo.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/psopcode.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/nsdump.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/hwsleep.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/hwgpe.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/hwacpi.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/exdump.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evxfgpe.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evxfevnt.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evsci.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpeutil.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpeinit.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpeblk.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpe.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evglock.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evevent.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: crypto/rsapubkey.asn1.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: crypto/rsaprivkey.asn1.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: crypto/hash_info.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: crypto/asymmetric_keys/x509_akid.as=
+n1.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: crypto/asymmetric_keys/x509.asn1.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    aarch64-linux-gnu-ld: warning: crypto/asymmetric_keys/pkcs7.asn1.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    3    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/wireless/cfg80211.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    3    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/msm/msm.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    3    aarch64-linux-gnu-ld: warning: lib/raid6/raid6_pq.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    3    aarch64-linux-gnu-ld: warning: drivers/net/ipa/ipa.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    3    /scratch/linux/drivers/usb/phy/phy-jz4770.c:179:9: warning: variab=
+le 'reg' is uninitialized when used here [-Wuninitialized]
+    3    /scratch/linux/drivers/usb/phy/phy-jz4770.c:161:9: note: initializ=
+e the variable 'reg' to silence this warning
+    3    /scratch/linux/drivers/net/dsa/sja1105/sja1105_main.c:3418:38: war=
+ning: address of array 'match->compatible' will always evaluate to 'true' [=
+-Wpointer-bool-conversion]
+    3    /scratch/linux/drivers/iio/iio_core_trigger.h:42:13: warning: =E2=
+=80=98iio_device_unregister_trigger_consumer=E2=80=99 defined but not used =
+[-Wunused-function]
+    3    /scratch/linux/drivers/iio/iio_core_trigger.h:33:12: warning: =E2=
+=80=98iio_device_register_trigger_consumer=E2=80=99 defined but not used [-=
+Wunused-function]
+    3    /scratch/linux/drivers/block/rnbd/rnbd-srv.c:150:6: warning: varia=
+ble 'err' is used uninitialized whenever 'if' condition is true [-Wsometime=
+s-uninitialized]
+    3    /scratch/linux/drivers/block/rnbd/rnbd-srv.c:126:9: note: initiali=
+ze the variable 'err' to silence this warning
+    2    cc1: some warnings being treated as errors
+    2    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/hda/snd-hda-core.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    2    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/mac80211/mac80211.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    2    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/wireless/ath/ath10k/ath10k_sno=
+c.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    2    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/tuners/tuner-types.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    2    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/vc4/vc4.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    2    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/tegra/tegra-drm.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    2    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/lima/lima.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    2    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/drm.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    2    aarch64-linux-gnu-nm: warning: .tmp_vmlinux.kallsyms2: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    2    aarch64-linux-gnu-ld: warning: net/wireless/cfg80211.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    2    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [=
+-Wcpp]
+    2    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [=
+-Wcpp]
+    2    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemente=
+d [-Wcpp]
+    2    /scratch/linux/kernel/rcu/tasks.h:593:13: warning: =E2=80=98show_r=
+cu_tasks_classic_gp_kthread=E2=80=99 defined but not used [-Wunused-functio=
+n]
+    2    /scratch/linux/drivers/net/ethernet/intel/ice/ice_flow.h:197:33: w=
+arning: cast from pointer to integer of different size [-Wpointer-to-int-ca=
+st]
+    2    /scratch/linux/drivers/crypto/sa2ul.c:1152:15: warning: explicitly=
+ assigning value of variable of type 'int' to itself [-Wself-assign]
+    1    {standard input}:141: Warning: macro instruction expanded into mul=
+tiple instructions
+    1    warning: sound/soc/meson/snd-soc-meson-axg-frddr.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    warning: sound/soc/codecs/snd-soc-es7134.mod.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    1    warning: net/sched/act_gact.mod.o: unsupported GNU_PROPERTY_TYPE (=
+  LD [M]  net/sched/cls_basic.ko
+    1    warning: drivers/watchdog/meson_wdt.mod.o: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    1    warning: drivers/soc/qcom/rmtfs_mem.mod.o: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    1    warning: drivers/remoteproc/qcom_pil_info.mod.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    warning: drivers/pwm/pwm-sun4i.mod.o: unsupported GNU_PROPERTY_TYP=
+E (5) type: 0xc0000000
+    1    warning: drivers/net/usb/net1080.mod.o: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    1    warning: drivers/net/usb/lan78xx.mod.o: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    1    warning: drivers/media/rc/keymaps/rc-videomate-m1f.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    warning: drivers/media/rc/keymaps/rc-terratec-cinergy-xs.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    warning: drivers/media/rc/keymaps/rc-snapstream-firefly.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    warning: drivers/media/rc/keymaps/rc-powercolor-real-angel.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    warning: drivers/media/rc/keymaps/rc-npgtech.mod.o: unsupported GN=
+U_PROPERTY_TYPE (5  LD [M]  drivers/media/rc/keymaps/rc-pinnacle-color.ko
+    1    warning: drivers/media/rc/keymaps/rc-msi-tvanywhere.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    warning: drivers/media/rc/keymaps/rc-beelink-gs1.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    warning: drivers/md/dm-mod.mod.o: unsupported GNU_PROPERTY_TYPE (5=
+) type: 0xc0000000
+    1    warning: drivers/gpu/drm/sun4i/sun6i_drc.mod.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    1    warning: drivers/gpu/drm/panel/panel-lvds.mod.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    warning: drivers/gpu/drm/nouveau/nouveau.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    1    warning: drivers/gpu/drm/nouveau/nouveau.mod.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xaarch64-linux-gnu-ld: c0000000
+    1    warning: crypto/sm3_generic.mod.o: unsupported GNU_PROPERTY_TYPE (=
+5) type: 0xc0000000
+    1    arch/x86/kernel/signal.o: warning: objtool: x32_setup_rt_frame()+0=
+x1f2: call to memset() with UACCESS enabled
+    1    arch/x86/kernel/signal.o: warning: objtool: __setup_rt_frame()+0x1=
+cb: call to memset() with UACCESS enabled
+    1    arch/x86/ia32/ia32_signal.o: warning: objtool: ia32_setup_rt_frame=
+()+0x1fa: call to memset() with UACCESS enabled
+    1    aarch64-linux-gnu-strip: warning: drivers/firmware/efi/libstub/lib=
+-ctype.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/sunxi/sun4i-spdif.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/sh/rcar/snd-soc-rcar.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/rockchip/snd-soc-rockchip-spdif.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/rockchip/snd-soc-rockchip-rt5645=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/rockchip/snd-soc-rockchip-pcm.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/rockchip/snd-soc-rockchip-i2s.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/rockchip/snd-soc-rk3399-gru-soun=
+d.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-t9015.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-gx-sound-car=
+d.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-g12a-tohdmit=
+x.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-g12a-toacode=
+c.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-codec-glue.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-card-utils.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-toddr.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-tdmout.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-tdmin.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-tdm-inte=
+rface.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-tdm-form=
+atter.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-spdifout=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-spdifin.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-sound-ca=
+rd.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-pdm.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-frddr.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-fifo.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-aiu.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/generic/snd-soc-simple-card.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/generic/snd-soc-simple-card-util=
+s.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/generic/snd-soc-audio-graph-card=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/fsl/snd-soc-fsl-sai.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-wsa881x.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-wm8904.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-wcd934x.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-tas571x.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-spdif-tx.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-spdif-rx.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-simple-amplifier.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-rt5645.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-rt5514.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-rt5514-spi.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-rl6231.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-pcm3168a.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-pcm3168a-i2c.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-max98357a.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-hdmi-codec.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-es7241.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-es7134.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-dmic.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-da7219.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-ak4613.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/soc/bcm/snd-soc-bcm2835-i2s.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/pci/hda/snd-hda-tegra.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/pci/hda/snd-hda-codec.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/sound/pci/hda/snd-hda-codec-hdmi.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/sched/sch_taprio.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/sched/sch_mqprio.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/sched/sch_ingress.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/sched/sch_etf.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/sched/sch_cbs.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/sched/cls_flower.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/sched/cls_basic.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/sched/act_mirred.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/sched/act_gate.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/sched/act_gact.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/rfkill/rfkill.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/qrtr/qrtr.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/qrtr/qrtr-tun.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/qrtr/qrtr-smd.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/qrtr/ns.ko: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/netfilter/xt_tcpudp.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/netfilter/xt_nat.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/netfilter/xt_conntrack.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/netfilter/xt_addrtype.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/netfilter/xt_MASQUERADE.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/netfilter/xt_LOG.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/netfilter/xt_CHECKSUM.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/netfilter/x_tables.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/netfilter/nf_nat.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/netfilter/nf_log_common.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/netfilter/nf_conntrack.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/llc/llc.ko: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv6/sit.ko: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv6/netfilter/nf_reject_ipv6.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv6/netfilter/nf_log_ipv6.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv6/netfilter/nf_defrag_ipv6.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv6/netfilter/ip6table_nat.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv6/netfilter/ip6table_mangle.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv6/netfilter/ip6table_filter.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv6/netfilter/ip6t_REJECT.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv6/netfilter/ip6_tables.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv6/ipv6.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv4/tunnel4.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv4/netfilter/nf_reject_ipv4.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv4/netfilter/nf_log_ipv4.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv4/netfilter/nf_defrag_ipv4.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv4/netfilter/iptable_nat.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv4/netfilter/iptable_mangle.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv4/netfilter/iptable_filter.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv4/netfilter/ipt_REJECT.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv4/netfilter/ip_tables.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/ipv4/ip_tunnel.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/dsa/tag_ocelot.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/dsa/dsa_core.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/can/can.ko: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/can/can-raw.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/can/can-gw.ko: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/can/can-bcm.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/bridge/bridge.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/bluetooth/hidp/hidp.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/bluetooth/bluetooth.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/8021q/8021q.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/802/stp.ko: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/802/psnap.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/802/p8022.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/802/mrp.ko: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/net/802/garp.ko: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/lib/zstd/zstd_compress.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/lib/libcrc32c.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/lib/crypto/libdes.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/lib/crypto/libchacha.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/lib/crypto/libarc4.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/lib/crc-ccitt.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/fs/overlayfs/overlay.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/fs/nfs/flexfilelayout/nfs_layout_flexfiles=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/fs/nfs/blocklayout/blocklayoutdriver.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/fs/fuse/fuse.ko: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/fs/fuse/cuse.ko: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/fs/btrfs/btrfs.ko: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/watchdog/sunxi_wdt.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/watchdog/qcom-wdt.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/watchdog/meson_wdt.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/watchdog/meson_gxbb_wdt.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/watchdog/imx_sc_wdt.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/video/backlight/pwm_bl.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/video/backlight/lp855x_bl.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/typec/typec.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/typec/tcpm/tcpm.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/typec/tcpm/fusb302.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/typec/hd3ss3220.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/renesas_usbhs/renesas_usbhs.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/gadget/udc/tegra-xudc.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/gadget/udc/renesas_usb3.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/gadget/libcomposite.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_serial.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_rndis.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_obex.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_ncm.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_mass_sto=
+rage.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_fs.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_eem.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_ecm_subs=
+et.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_ecm.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_acm.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/u_serial.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/u_ether.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/thermal/tegra/tegra-bpmp-thermal.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/thermal/rockchip_thermal.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/thermal/qoriq_thermal.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/thermal/qcom/qcom-spmi-temp-alarm.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/thermal/imx_sc_thermal.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/thermal/imx8mm_thermal.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/thermal/broadcom/brcmstb_thermal.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/thermal/broadcom/bcm2835_thermal.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/thermal/broadcom/bcm2711_thermal.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/spi/spidev.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/spi/spi-sh-msiof.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/spi/spi-qcom-qspi.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/spi/spi-meson-spifc.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/spi/spi-meson-spicc.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/spi/spi-imx.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/spi/spi-geni-qcom.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/spi/spi-bitbang.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/spi/spi-bcm2835aux.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/spi/spi-bcm2835.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/soundwire/soundwire-qcom.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/soundwire/soundwire-bus.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/soc/qcom/socinfo.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/soc/qcom/rmtfs_mem.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/soc/qcom/qmi_helpers.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/soc/qcom/pdr_interface.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/soc/qcom/mdt_loader.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/soc/qcom/apr.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/soc/amlogic/meson-canvas.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/slimbus/slimbus.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/slimbus/slim-qcom-ngd-ctrl.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/slimbus/slim-qcom-ctrl.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/scsi/ufs/ufs_qcom.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/scsi/raid_class.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/scsi/mpt3sas/mpt3sas.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/rtc/rtc-snvs.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/rtc/rtc-rx8581.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/rtc/rtc-rv8803.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/rtc/rtc-rk808.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/rtc/rtc-pm8xxx.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/rtc/rtc-pcf85363.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/rtc/rtc-pcf2127.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/rtc/rtc-meson-vrtc.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/rtc/rtc-imx-sc.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/rtc/rtc-ds1307.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/rpmsg/qcom_glink_smem.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/reset/reset-qcom-pdc.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/reset/reset-meson-audio-arb.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/remoteproc/qcom_sysmon.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/remoteproc/qcom_q6v5_pas.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/remoteproc/qcom_q6v5_mss.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/remoteproc/qcom_q6v5.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/remoteproc/qcom_pil_info.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/remoteproc/qcom_common.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/regulator/vctrl-regulator.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/pwm/pwm-tegra.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/pwm/pwm-sun4i.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/pwm/pwm-rcar.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/pwm/pwm-meson.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/pwm/pwm-cros-ec.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/pwm/pwm-bcm2835.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/power/supply/sbs-battery.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/platform/chrome/cros_ec_typec.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/platform/chrome/cros_ec_chardev.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/phy/tegra/phy-tegra194-p2u.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/phy/rockchip/phy-rockchip-pcie.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/phy/rockchip/phy-rockchip-inno-hdm=
+i.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/phy/renesas/phy-rcar-gen3-usb3.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/phy/qualcomm/phy-qcom-qusb2.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/phy/qualcomm/phy-qcom-qmp.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/phy/allwinner/phy-sun6i-mipi-dphy.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/perf/thunderx2_pmu.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/perf/fsl_imx8_ddr_perf.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/perf/arm_smmuv3_pmu.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/pci/endpoint/functions/pci-epf-tes=
+t.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/pci/controller/pcie-rockchip-host.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/pci/controller/pcie-brcmstb.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/pci/controller/dwc/pcie-tegra194.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/nvmem/nvmem_meson_efuse.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/nvme/host/nvme.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/nvme/host/nvme-core.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/wireless/ti/wlcore/wlcore_sdio=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/wireless/ti/wlcore/wlcore.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/wireless/ti/wl18xx/wl18xx.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/wireless/marvell/mwifiex/mwifi=
+ex_pcie.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/wireless/marvell/mwifiex/mwifi=
+ex.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/wireless/broadcom/brcm80211/br=
+cmutil/brcmutil.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/wireless/broadcom/brcm80211/br=
+cmfmac/brcmfmac.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/wireless/ath/ath10k/ath10k_pci=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/wireless/ath/ath10k/ath10k_cor=
+e.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/wireless/ath/ath.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/veth.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/usb/zaurus.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/usb/usbnet.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/usb/sr9800.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/usb/smsc95xx.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/usb/smsc75xx.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/usb/rtl8150.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/usb/r8152.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/usb/plusb.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/usb/pegasus.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/usb/net1080.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/usb/mcs7830.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/usb/lan78xx.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/usb/dm9601.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/usb/cdc_subset.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/usb/cdc_ncm.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/usb/cdc_ether.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/usb/ax88179_178a.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/usb/asix.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/tap.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/phy/realtek.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/phy/microchip.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/phy/meson-gxl.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/phy/mdio-xpcs.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/phy/mdio-mux-meson-g12a.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/phy/mdio-bcm-unimac.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/phy/marvell10g.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/phy/marvell.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/phy/broadcom.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/phy/bcm7xxx.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/phy/bcm-phy-lib.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/mdio.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/macvtap.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/macvlan.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/stmmac=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/stmmac=
+-platform.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-=
+sunxi.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-=
+sun8i.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-=
+rk.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-=
+qcom-ethqos.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-=
+meson8b.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-=
+meson.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-=
+ipq806x.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-=
+imx.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-=
+generic.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-=
+altr-socfpga.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/qualcomm/rmnet/rmnet.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/qualcomm/emac/qcom-em=
+ac.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/mscc/mscc_ocelot_swit=
+ch_lib.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/mellanox/mlx5/core/ml=
+x5_core.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/mellanox/mlx4/mlx4_en=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/mellanox/mlx4/mlx4_co=
+re.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/broadcom/genet/genet.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/broadcom/bnx2x/bnx2x.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/ethernet/atheros/atl1c/atl1c.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/dsa/ocelot/mscc_felix.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/can/rcar/rcar_canfd.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/can/rcar/rcar_can.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/can/flexcan.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/net/can/can-dev.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/misc/uacce/uacce.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/misc/pci_endpoint_test.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/misc/eeprom/at25.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/misc/eeprom/at24.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/mfd/wcd934x.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/mfd/exynos-lpass.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/v4l2-core/videodev.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/v4l2-core/v4l2-mem2mem.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/v4l2-core/v4l2-fwnode.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/v4l2-core/v4l2-dv-timings.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/usb/uvc/uvcvideo.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/usb/gspca/gspca_main.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/tuners/xc5000.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/tuners/xc4000.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/tuners/tuner-xc2028.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/tuners/tuner-simple.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/tuners/tda9887.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/tuners/tda8290.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/tuners/tda827x.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/tuners/tda18271.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/tuners/mt20xx.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/tuners/mc44s803.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/sunxi-cir.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/rc-core.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/meson-ir.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-zx-irdec.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-xbox-dvd.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-x96max.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-winfast.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-winfast-usbii-=
+deluxe.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-wetek-play2.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-wetek-hub.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-videostrong-ki=
+i-pro.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-videomate-tv-p=
+vr.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-videomate-s350=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-videomate-m1f.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-vega-s9x.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-twinhan1027.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-twinhan-dtv-ca=
+b-ci.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-tt-1500.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-trekstor.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-total-media-in=
+-hand.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-total-media-in=
+-hand-02.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-tivo.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-tevii-nec.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-terratec-slim.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-terratec-slim-=
+2.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-terratec-ciner=
+gy-xs.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-terratec-ciner=
+gy-s2-hd.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-terratec-ciner=
+gy-c-pci.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-technisat-usb2=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-technisat-ts35=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-tbs-nec.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-tanix-tx5max.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-tanix-tx3mini.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-tango.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-su3000.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-streamzap.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-snapstream-fir=
+efly.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-reddo.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-real-audio-220=
+-32-keys.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-rc6-mce.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-pv951.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-purpletv.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-proteus-2309.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-powercolor-rea=
+l-angel.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-pixelview.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-pixelview-new.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-pixelview-mk12=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-pixelview-002t=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-pinnacle-pctv-=
+hd.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-pinnacle-grey.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-pinnacle-color=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-pctv-sedna.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-odroid.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-npgtech.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-norwood.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-nec-terratec-c=
+inergy-xs.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-nebula.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-msi-tvanywhere=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-msi-tvanywhere=
+-plus.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-msi-digivox-ii=
+i.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-msi-digivox-ii=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-medion-x10.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-medion-x10-or2=
+x.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-medion-x10-dig=
+itainer.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-manli.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-lme2510.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-leadtek-y04g00=
+51.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-kworld-plus-tv=
+-analog.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-kworld-pc150u.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-kworld-315u.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-khadas.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-kaiomy.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-it913x-v2.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-it913x-v1.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-iodata-bctv7e.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-imon-rsc.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-imon-pad.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-imon-mce.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-hisi-tv-demo.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-hisi-poplar.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-hauppauge.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-gotview7135.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-genius-tvgo-a1=
+1mce.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-geekbox.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-gadmei-rm008z.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-fusionhdtv-mce=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-flyvideo.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-flydvb.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-eztv.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-evga-indtube.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-encore-enltv2.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-encore-enltv.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-encore-enltv-f=
+m53.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-em-terratec.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-dvico-portable=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-dvico-mce.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-dvbsky.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-dtt200u.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-dntv-live-dvbt=
+-pro.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-dntv-live-dvb-=
+t.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-dm1105-nec.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-digittrade.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-digitalnow-tin=
+ytwin.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-dib0700-rc5.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-dib0700-nec.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-delock-61959.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-d680-dmb.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-cinergy.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-cinergy-1400.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-cec.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-budget-ci-old.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-behold.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-behold-columbu=
+s.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-beelink-gs1.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-azurewave-ad-t=
+u700.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-avertv-303.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-avermedia.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-avermedia-rm-k=
+s.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-avermedia-m733=
+a-rm-k6.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-avermedia-m135=
+a.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-avermedia-dvbt=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-avermedia-card=
+bus.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-avermedia-a16d=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-ati-x10.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-ati-tv-wonder-=
+hd-600.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-asus-ps3-100.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-asus-pc39.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-astrometa-t2hy=
+brid.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-apac-viewcomp.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-anysee.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-alink-dtu-m.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-adstech-dvb-t-=
+pci.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/platform/vsp1/vsp1.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/platform/sunxi/sun6i-csi/sun=
+6i-csi.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/platform/s5p-mfc/s5p-mfc.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/platform/s5p-jpeg/s5p-jpeg.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/platform/rcar_fdp1.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/platform/rcar_drif.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/platform/rcar-vin/rcar-vin.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/platform/rcar-vin/rcar-csi2.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/platform/rcar-fcp.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/platform/qcom/camss/qcom-cam=
+ss.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/platform/exynos-gsc/exynos-g=
+sc.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/mc/mc.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/i2c/ov5645.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/i2c/ir-kbd-i2c.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/i2c/imx219.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/dvb-core/dvb-core.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/common/videobuf2/videobuf2-v=
+malloc.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/common/videobuf2/videobuf2-v=
+4l2.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/common/videobuf2/videobuf2-m=
+emops.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/common/videobuf2/videobuf2-d=
+ma-sg.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/common/videobuf2/videobuf2-d=
+ma-contig.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/common/videobuf2/videobuf2-c=
+ommon.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/media/cec/core/cec.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/md/md-mod.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/md/dm-zero.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/md/dm-region-hash.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/md/dm-mod.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/md/dm-mirror.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/md/dm-log.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/mailbox/bcm-flexrm-mailbox.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/input/touchscreen/atmel_mxt_ts.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/input/misc/pm8xxx-vibrator.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/input/keyboard/snvs_pwrkey.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/input/keyboard/imx_sc_key.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/input/keyboard/adc-keys.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/iio/pressure/mpl3115.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/iio/pressure/cros_ec_baro.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/iio/light/isl29018.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/iio/light/cros_ec_light_prox.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/iio/common/cros_ec_sensors/cros_ec=
+_sensors_core.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/iio/common/cros_ec_sensors/cros_ec=
+_sensors.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/iio/buffer/kfifo_buf.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/iio/buffer/industrialio-triggered-=
+buffer.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/iio/adc/rockchip_saradc.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/iio/adc/qcom-vadc-common.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/iio/adc/qcom-spmi-adc5.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/iio/adc/max9611.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/i2c/busses/i2c-qcom-geni.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/i2c/busses/i2c-qcom-cci.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/i2c/busses/i2c-gpio.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/i2c/busses/i2c-bcm2835.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/hwmon/raspberrypi-hwmon.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/hwmon/pwm-fan.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/hwmon/lm90.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/hwmon/ina3221.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/hwmon/ina2xx.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/hid/i2c-hid/i2c-hid.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/host1x/host1x.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/ttm/ttm.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun8i_tcon_top.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun8i-mixer.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun8i-drm-hdmi.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun6i_drc.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun4i_tv.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun4i-tcon.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun4i-frontend.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun4i-drm.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun4i-drm-hdmi.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun4i-backend.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/scheduler/gpu-sched.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/rockchip/rockchipdrm.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/rcar-du/rcar_lvds.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/rcar-du/rcar_dw_hdmi.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/rcar-du/rcar_cmm.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/rcar-du/rcar-du-drm.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/pl111/pl111_drm.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/panfrost/panfrost.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/panel/panel-truly-nt35597.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/panel/panel-simple.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/panel/panel-lvds.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/meson/meson_dw_hdmi.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/meson/meson-drm.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/i2c/tda998x.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/i2c/sil164.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/i2c/ch7006.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/hisilicon/kirin/kirin-drm.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/hisilicon/hibmc/hibmc-drm.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/exynos/exynosdrm.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/etnaviv/etnaviv.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/drm_vram_helper.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/drm_ttm_helper.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/drm_kms_helper.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/ti-sn65dsi86.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/thc63lvd1024.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/synopsys/dw-mipi-ds=
+i.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/synopsys/dw-hdmi.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/synopsys/dw-hdmi-i2=
+s-audio.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/synopsys/dw-hdmi-ce=
+c.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/synopsys/dw-hdmi-ah=
+b-audio.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/simple-bridge.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/sii902x.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/display-connector.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/analogix/analogix_d=
+p.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/adv7511/adv7511.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpu/drm/arm/mali-dp.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpio/gpio-wcd934x.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpio/gpio-bd9571mwv.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/gpio/gpio-altera.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/fpga/stratix10-soc.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/fpga/of-fpga-region.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/fpga/fpga-region.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/fpga/fpga-bridge.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/fpga/altera-freeze-bridge.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/firmware/stratix10-rsu.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/extcon/extcon-ptn5150.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/dma/sun6i-dma.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/dma/sh/usb-dmac.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/dma/bcm-sba-raid.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/crypto/qcom-rng.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/crypto/hisilicon/zip/hisi_zip.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/crypto/hisilicon/sec2/hisi_sec2.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/crypto/hisilicon/hpre/hisi_hpre.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/crypto/hisilicon/hisi_qm.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/crypto/ccree/ccree.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/crypto/caam/error.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/crypto/caam/dpaa2_caam.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/crypto/caam/caamhash_desc.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/crypto/caam/caamalg_desc.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/crypto/caam/caam_jr.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/crypto/caam/caam.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/crypto/bcm/bcm_crypto_spu.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/crypto/amlogic/amlogic-gxl-crypto.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/crypto/allwinner/sun8i-ce/sun8i-ce=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/cpufreq/sun50i-cpufreq-nvmem.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/cpufreq/raspberrypi-cpufreq.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/cpufreq/imx-cpufreq-dt.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/cpufreq/cpufreq_powersave.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/cpufreq/cpufreq_conservative.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/cpufreq/cppc_cpufreq.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/clk/qcom/camcc-sdm845.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/clk/meson/sclk-div.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/clk/meson/clk-phase.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/clk/meson/axg-audio.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/clk/bcm/clk-raspberrypi.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/char/ipmi/ipmi_si.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/char/ipmi/ipmi_msghandler.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/char/ipmi/ipmi_devintf.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/char/hw_random/xgene-rng.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/char/hw_random/rng-core.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/char/hw_random/optee-rng.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/char/hw_random/omap-rng.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/char/hw_random/mtk-rng.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/char/hw_random/meson-rng.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/char/hw_random/iproc-rng200.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/char/hw_random/hisi-trng-v2.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/char/hw_random/hisi-rng.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/char/hw_random/exynos-trng.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/char/hw_random/cavium-rng.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/char/hw_random/cavium-rng-vf.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/char/hw_random/bcm2835-rng.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/bluetooth/hci_uart.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/bluetooth/btusb.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/bluetooth/btrtl.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/bluetooth/btqca.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/bluetooth/btintel.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/bluetooth/btbcm.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/block/nbd.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/base/regmap/regmap-slimbus.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/drivers/base/regmap/regmap-sdw.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/xxhash_generic.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/xts.ko: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/xor.ko: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/sm4_generic.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/sm3_generic.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/sha512_generic.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/sha3_generic.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/md5.ko: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/ghash-generic.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/gcm.ko: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/ecdh_generic.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/ecc.ko: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/ecb.ko: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/dh_generic.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/des_generic.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/ctr.ko: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/crypto_engine.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/cmac.ko: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/ccm.ko: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/cbc.ko: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/blake2b_generic.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/authencesn.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/authenc.ko: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/algif_rng.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/crypto/af_alg.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/arch/arm64/lib/xor-neon.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/arch/arm64/crypto/sm3-ce.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/arch/arm64/crypto/sha512-ce.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/arch/arm64/crypto/sha512-arm64.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/arch/arm64/crypto/sha3-ce.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/arch/arm64/crypto/crct10dif-ce.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/arch/arm64/crypto/chacha-neon.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/arch/arm64/crypto/aes-neon-bs.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/module=
+s/5.9.0-rc2-next-20200824/kernel/arch/arm64/crypto/aes-neon-blk.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-objdump: warning: drivers/firmware/efi/libstub/l=
+ib-ctype.stub.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-objcopy: warning: vmlinux: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-objcopy: warning: drivers/firmware/efi/libstub/l=
+ib-ctype.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-nm: warning: vmlinux: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-nm: warning: .tmp_vmlinux.kallsyms1: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/sunxi/sun4i-spdif.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/sh/rcar/snd-soc-rcar.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/rockchip/snd-soc-rockchip=
+-spdif.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/rockchip/snd-soc-rockchip=
+-rt5645.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/rockchip/snd-soc-rockchip=
+-pcm.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/rockchip/snd-soc-rk3399-g=
+ru-sound.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-t9015=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-g12a-=
+tohdmitx.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-g12a-=
+toacodec.mod.o: unsupported GNU_PROPERTY_TYPE (5aarch64-linux-gnu-ld: ) typ=
+e: 0xc0000000warning: sound/soc/meson/snd-soc-meson-card-utils.mod.o
+    1    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-codec=
+-glue.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-t=
+oddr.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-t=
+dmout.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-t=
+dmin.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-t=
+dm-interface.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000  LD =
+[M]  sound/soc/meson/snd-soc-meson-axg-toddr.ko
+    1    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-t=
+dm-formatter.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-s=
+pdifout.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-s=
+pdifin.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-s=
+ound-card.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-p=
+dm.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-f=
+ifo.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-aiu.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/generic/snd-soc-simple-ca=
+rd.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/generic/snd-soc-simple-ca=
+rd-utils.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/generic/snd-soc-audio-gra=
+ph-card.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/fsl/snd-soc-fsl-sai.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-wsa881x.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-wm8904.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-wcd934x.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-tas571x.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-spdif-tx.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-spdif-rx.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-simple-amp=
+lifier.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-rt5645.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-rt5514.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-rt5514-spi=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-rl6231.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-pcm3168a.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-pcm3168a-i=
+2c.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-max98357a.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-hdmi-codec=
+.mod.oaarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-es7241.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-dmic.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-da7219.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/soc/bcm/snd-soc-bcm2835-i2s.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/pci/hda/snd-hda-tegra.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/pci/hda/snd-hda-codec.mod.o: =
+unsupported GNU_PROPERTY_TYPE (  LD [M]  sound/soc/codecs/snd-soc-dmic.ko
+    1    aarch64-linux-gnu-ld: warning: sound/pci/hda/snd-hda-codec-hdmi.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/hda/trace.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: sound/hda/snd-hda-core.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000  LD [M]  sound/soc/bcm/snd-soc-bc=
+m2835-i2s.ko
+    1    aarch64-linux-gnu-ld: warning: sound/hda/snd-hda-core.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/wireless/trace.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/wireless/shipped-certs.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/wireless/cfg80211.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/sched/sch_taprio.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/sched/sch_mqprio.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/sched/sch_ingress.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/sched/sch_etf.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/sched/sch_cbs.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/sched/cls_flower.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/sched/cls_basic.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/sched/act_mirred.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/sched/act_gate.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/rfkill/rfkill.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/qrtr/qrtr.mod.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/qrtr/qrtr-tun.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000  LD [M]  net/sched/act_gate.ko
+    1    aarch64-linux-gnu-ld: warning: net/qrtr/qrtr-smd.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/qrtr/ns.mod.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/netfilter/xt_tcpudp.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/netfilter/xt_nat.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/netfilter/xt_conntrack.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/netfilter/xt_addrtype.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/netfilter/xt_MASQUERADE.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/netfilter/xt_LOG.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/netfilter/xt_CHECKSUM.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/netfilter/x_tables.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/netfilter/nf_log_common.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/netfilter/nf_conntrack.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/mac80211/trace.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/mac80211/mac80211.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/llc/llc.mod.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv6/sit.mod.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv6/netfilter/nf_reject_ipv6.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv6/netfilter/nf_log_ipv6.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv6/netfilter/nf_defrag_ipv6.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv6/netfilter/ip6table_nat.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv6/netfilter/ip6table_mangle.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv6/netfilter/ip6table_filter.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv6/netfilter/ip6t_REJECT.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv6/netfilter/ip6_tables.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv6/ipv6.mod.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv4/tunnel4.mod.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv4/netfilter/nf_reject_ipv4.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv4/netfilter/nf_log_ipv4.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv4/netfilter/nf_defrag_ipv4.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv4/netfilter/iptable_nat.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv4/netfilter/iptable_mangle.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv4/netfilter/iptable_filter.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv4/netfilter/ipt_REJECT.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv4/netfilter/ip_tables.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/ipv4/ip_tunnel.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/dsa/tag_ocelot.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/dsa/dsa_core.mod.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/can/can.mod.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/can/can-raw.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/can/can-gw.mod.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/can/can-bcm.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/bridge/bridge.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/bluetooth/hidp/hidp.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/bluetooth/bluetooth.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/8021q/8021q.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/802/stp.mod.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/802/psnap.mod.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/802/p8022.mod.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/802/mrp.mod.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: net/802/garp.mod.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: lib/zstd/zstd_compress.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: lib/raid6/tables.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: lib/raid6/raid6_pq.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: lib/raid6/int32.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: lib/raid6/int16.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: lib/libcrc32c.mod.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: lib/crc-ccitt.mod.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xaarch64-linux-gnu-ld: warning: lib/crypto/libde=
+s.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: fs/overlayfs/overlay.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: fs/nfs/flexfilelayout/nfs_layout_fl=
+exfiles.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: fs/nfs/blocklayout/blocklayoutdrive=
+r.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: fs/fuse/fuse.mod.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: fs/fuse/cuse.mod.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: fs/btrfs/btrfs.mod.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/watchdog/sunxi_wdt.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/watchdog/qcom-wdt.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/watchdog/meson_gxbb_wdt.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/watchdog/imx_sc_wdt.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/video/backlight/pwm_bl.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/video/backlight/lp855x_bl.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/typec/typec.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/typec/tcpm/tcpm.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/typec/tcpm/fusb302.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/typec/hd3ss3220.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/renesas_usbhs/renesas_u=
+sbhs.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/udc/tegra-xudc.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/udc/renesas_usb3=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/libcomposite.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_s=
+erial.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_r=
+ndis.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_o=
+bex.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_n=
+cm.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_m=
+ass_storage.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_f=
+s.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_e=
+em.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_e=
+cm_subset.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_e=
+cm.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_a=
+cm.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/u_seria=
+l.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/u_ether=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/thermal/tegra/tegra-bpmp-th=
+ermal.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/thermal/rockchip_thermal.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/thermal/qoriq_thermal.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/thermal/qcom/qcom-spmi-temp=
+-alarm.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/thermal/imx_sc_thermal.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/thermal/imx8mm_thermal.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/thermal/broadcom/brcmstb_th=
+ermal.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/thermal/broadcom/bcm2835_th=
+ermal.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/thermal/broadcom/bcm2711_th=
+ermal.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/spi/spidev.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/spi/spi-sh-msiof.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/spi/spi-qcom-qspi.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/spi/spi-meson-spifc.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/spi/spi-meson-spicc.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/spi/spi-imx.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/spi/spi-geni-qcom.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/spi/spi-bitbang.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/spi/spi-bcm2835aux.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/spi/spi-bcm2835.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/soundwire/soundwire-qcom.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/soundwire/soundwire-bus.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/soc/qcom/qmi_helpers.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/soc/qcom/pdr_interface.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/soc/qcom/mdt_loader.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/soc/qcom/apr.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/soc/amlogic/meson-canvas.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/slimbus/slimbus.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/slimbus/slim-qcom-ngd-ctrl.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/slimbus/slim-qcom-ctrl.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/scsi/ufs/ufs_qcom.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/scsi/raid_class.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/scsi/mpt3sas/mpt3sas.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/rtc/rtc-snvs.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/rtc/rtc-rx8581.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/rtc/rtc-rv8803.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (  LD [M]  drivers/scsi/ufs/ufs_qcom.ko
+    1    aarch64-linux-gnu-ld: warning: drivers/rtc/rtc-rk808.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/rtc/rtc-pm8xxx.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/rtc/rtc-pcf85363.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/rtc/rtc-pcf2127.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/rtc/rtc-meson-vrtc.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/rtc/rtc-ds1307.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/reset/reset-qcom-pdc.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/reset/reset-meson-audio-arb=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/remoteproc/qcom_sysmon.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/remoteproc/qcom_q6v5_pas.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/remoteproc/qcom_q6v5_mss.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/remoteproc/qcom_q6v5.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/remoteproc/qcom_common.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/regulator/vctrl-regulator.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/pwm/pwm-tegra.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/pwm/pwm-rcar.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/pwm/pwm-meson.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/pwm/pwm-bcm2835.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/power/supply/sbs-battery.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/platform/chrome/cros_ec_typ=
+ec.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/platform/chrome/cros_ec_cha=
+rdev.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/phy/tegra/phy-tegra194-p2u.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/phy/rockchip/phy-rockchip-p=
+cie.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/phy/rockchip/phy-rockchip-i=
+nno-hdmi.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/phy/renesas/phy-rcar-gen3-u=
+sb3.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/phy/qualcomm/phy-qcom-qusb2=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/phy/qualcomm/phy-qcom-qmp.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/phy/allwinner/phy-sun6i-mip=
+i-dphy.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/perf/thunderx2_pmu.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/perf/fsl_imx8_ddr_perf.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/perf/arm_smmuv3_pmu.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/pci/endpoint/functions/pci-=
+epf-test.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/pci/controller/pcie-rockchi=
+p-host.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/pci/controller/pcie-brcmstb=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/nvmem/nvmem_meson_efuse.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/nvme/host/nvme.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/nvme/host/nvme-core.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/wireless/ti/wlcore/wlco=
+re_sdio.mod.oaarch64-linux-gnu-ld: : unsupported GNU_PROPERTY_TYPE (warning=
+: 5drivers/pci/controller/dwc/pcie-tegra194.mod.o) type: 0x: unsupported GN=
+U_PROPERTY_TYPE (c00000005) type: 0x
+    1    aarch64-linux-gnu-ld: warning: drivers/net/wireless/ti/wlcore/wlco=
+re.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/wireless/ti/wl18xx/wl18=
+xx.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/wireless/marvell/mwifie=
+x/mwifiex_pcie.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/wireless/marvell/mwifie=
+x/mwifiex.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/wireless/broadcom/brcm8=
+0211/brcmutil/brcmutil.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc00=
+00000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/wireless/broadcom/brcm8=
+0211/brcmfmac/brcmfmac.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc00=
+00000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/wireless/ath/ath10k/qmi=
+_wlfw_v01.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/wireless/ath/ath10k/ath=
+10k_snoc.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/wireless/ath/ath10k/ath=
+10k_snoc.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/wireless/ath/ath10k/ath=
+10k_pci.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/wireless/ath/ath10k/ath=
+10k_core.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/wireless/ath/ath.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/veth.mod.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/usb/zaurus.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/usb/usbnet.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/usb/sr9800.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/usb/smsc95xx.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/usb/smsc75xx.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/usb/rtl8150.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/usb/r8152.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/usb/plusb.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/usb/pegasus.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/usb/mcs7830.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000aarch64-linux-gnu-ld:
+    1    aarch64-linux-gnu-ld: warning: drivers/net/usb/dm9601.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/usb/cdc_subset.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/usb/cdc_ncm.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/usb/cdc_ether.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/usb/ax88179_178a.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/usb/asix.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/tap.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/phy/realtek.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/phy/microchip.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/phy/meson-gxl.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/phy/mdio-xpcs.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/phy/mdio-mux-meson-g12a=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/phy/mdio-bcm-unimac.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/phy/marvell10g.mod.o  L=
+D [M]  drivers/net/phy/mdio-mux-meson-g12a.ko
+    1    aarch64-linux-gnu-ld: warning: drivers/net/phy/marvell.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/phy/broadcom.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/phy/bcm7xxx.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/phy/bcm-phy-lib.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/mdio.mod.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/macvlan.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (aarch64-linux-gnu-ld: warning: drivers/net/macvtap.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ipa/ipa_qmi_msg.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ipa/ipa_data-sdm845.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ipa/ipa_data-sc7180.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ipa/ipa.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac=
+/stmmac.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac=
+/stmmac-platform.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac=
+/dwmac-sunxi.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac=
+/dwmac-sun8i.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac=
+/dwmac-rk.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac=
+/dwmac-qcom-ethqos.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc000000=
+0
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac=
+/dwmac-meson8b.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac=
+/dwmac-meson.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac=
+/dwmac-ipq806x.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac=
+/dwmac-generic.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac=
+/dwmac-altr-socfpga.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc00000=
+00
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/qualcomm/rmnet=
+/rmnet.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/qualcomm/emac/=
+qcom-emac.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/mscc/mscc_ocel=
+ot_switch_lib.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/mellanox/mlx5/=
+core/mlx5_core.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/mellanox/mlx4/=
+mlx4_en.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/mellanox/mlx4/=
+mlx4_core.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/broadcom/genet=
+/genet.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/broadcom/bnx2x=
+/bnx2x.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/atheros/atl1c/=
+atl1c.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/dsa/ocelot/mscc_felix.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/can/rcar/rcar_canfd.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/can/rcar/rcar_can.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/can/flexcan.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/net/can/can-dev.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/misc/uacce/uacce.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/misc/eeprom/at24.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/mfd/wcd934x.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/mfd/exynos-lpass.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/v4l2-core/videodev.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/v4l2-core/v4l2-mem2me=
+m.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/v4l2-core/v4l2-fwnode=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/v4l2-core/v4l2-dv-tim=
+ings.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/usb/uvc/uvcvideo.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/usb/gspca/gspca_main.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/tuners/xc5000.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/tuners/xc4000.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/tuners/tuner-xc2028.m=
+od.o: unsupported GNU_PROPERTY_TYPE (  LD [M]  drivers/media/usb/uvc/uvcvid=
+eo.ko
+    1    aarch64-linux-gnu-ld: warning: drivers/media/tuners/tuner-types.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/tuners/tuner-types.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/tuners/tuner-simple.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/tuners/tda9887.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/tuners/tda8290.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/tuners/tda827x.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/tuners/tda18271.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/tuners/mt20xx.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/tuners/mc44s803.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/sunxi-cir.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/rc-core.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/meson-ir.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-zx-irde=
+c.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-winfast=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-winfast=
+-usbii-deluxe.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-wetek-p=
+lay2.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-wetek-h=
+ub.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-videost=
+rong-kii-pro.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-videoma=
+te-tv-pvr.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-videoma=
+te-s350.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-vega-s9=
+x.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-twinhan=
+1027.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-twinhan=
+-dtv-cab-ci.mod.o  LD [M]  drivers/media/rc/keymaps/rc-videomate-s350.ko
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-tt-1500=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-treksto=
+r.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-total-m=
+edia-in-hand-02.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-tivo.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-tevii-n=
+ec.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-terrate=
+c-slim.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-terrate=
+c-slim-2.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-terrate=
+c-cinergy-s2-hd.mod.o: unsupported GNU_PROPERTY_TYPE (5  LD [M]  drivers/me=
+dia/rc/keymaps/rc-terratec-slim.ko
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-terrate=
+c-cinergy-c-pci.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-technis=
+at-usb2.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-technis=
+at-ts35.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-tbs-nec=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-tanix-t=
+x5max.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-tanix-t=
+x3mini.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-tango.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-su3000.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-streamz=
+ap.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-reddo.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-real-au=
+dio-220-32-keys.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-rc6-mce=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-pv951.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-purplet=
+v.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-proteus=
+-2309.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-pixelvi=
+ew.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-pixelvi=
+ew-new.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-pixelvi=
+ew-mk12.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-pixelvi=
+ew-002t.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-pinnacl=
+e-pctv-hd.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-pinnacl=
+e-grey.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-pinnacl=
+e-color.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-pctv-se=
+dna.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-odroid.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-norwood=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-nebula.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-msi-tva=
+nywhere-plus.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-msi-dig=
+ivox-ii.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-medion-=
+x10.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-medion-=
+x10-or2x.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-medion-=
+x10-digitainer.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-manli.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-lme2510=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-leadtek=
+-y04g0051.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-kworld-=
+plus-tv-analog.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-kworld-=
+pc150u.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-kworld-=
+315u.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-khadas.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-kaiomy.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-it913x-=
+v2.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-it913x-=
+v1.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000  LD [M]  drive=
+rs/media/rc/keymaps/rc-kworld-pc150u.ko
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-iodata-=
+bctv7e.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-imon-rs=
+c.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-imon-pa=
+d.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-imon-mc=
+e.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-hisi-po=
+plar.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-hauppau=
+ge.mod.o: unsupported GNU_PROPERTY_TYPE (aarch64-linux-gnu-ld: warning: dri=
+vers/media/rc/keymaps/rc-hisi-tv-demo.mod.o: unsupported GNU_PROPERTY_TYPE =
+(5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-gotview=
+7135.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-genius-=
+tvgo-a11mce.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-geekbox=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-gadmei-=
+rm008z.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-fusionh=
+dtv-mce.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-flyvide=
+o.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-flydvb.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-eztv.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-evga-in=
+dtube.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-encore-=
+enltv2.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-encore-=
+enltv.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-encore-=
+enltv-fm53.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-em-terr=
+atec.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-dvico-p=
+ortable.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-dvico-m=
+ce.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-dvbsky.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-dtt200u=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-dntv-li=
+ve-dvbt-pro.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-dntv-li=
+ve-dvb-t.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-dm1105-=
+nec.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-digittr=
+ade.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-digital=
+now-tinytwin.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-dib0700=
+-rc5.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-dib0700=
+-nec.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-delock-=
+61959.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-d680-dm=
+b.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-cinergy=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-cinergy=
+-1400.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-cec.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-budget-=
+ci-old.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-behold-=
+columbus.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-azurewa=
+ve-ad-tu700.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-avertv-=
+303.mod.o: unsupported GNU_PROPERTY_TYPE (5  LD [M]  drivers/media/rc/keyma=
+ps/rc-behold.ko
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-avermed=
+ia.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-avermed=
+ia-rm-ks.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-avermed=
+ia-m733a-rm-k6.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-avermed=
+ia-m135a.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-avermed=
+ia-dvbt.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-avermed=
+ia-cardbus.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-avermed=
+ia-a16d.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000  LD [M]  =
+drivers/media/rc/keymaps/rc-avermedia-m135a.ko
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-ati-x10=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-ati-tv-=
+wonder-hd-600.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-asus-ps=
+3-100.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-asus-pc=
+39.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-astrome=
+ta-t2hybrid.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-apac-vi=
+ewcomp.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-anysee.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-alink-d=
+tu-m.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-adstech=
+-dvb-t-pci.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/platform/vsp1/vsp1.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/platform/sunxi/sun6i-=
+csi/sun6i-csi.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/platform/s5p-mfc/s5p-=
+mfc.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/platform/s5p-jpeg/s5p=
+-jpeg.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/platform/rcar_fdp1.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/platform/rcar_drif.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/platform/rcar-vin/rca=
+r-vin.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/platform/rcar-vin/rca=
+r-csi2.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/platform/rcar-fcp.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/platform/qcom/camss/q=
+com-camss.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xaarch64-linux-gn=
+u-ld: warning: drivers/media/dvb-core/dvb-core.mod.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/platform/exynos-gsc/e=
+xynos-gsc.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/mc/mc.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/i2c/ov5645.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/i2c/ir-kbd-i2c.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/i2c/imx219.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/common/videobuf2/vide=
+obuf2-vmalloc.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/common/videobuf2/vide=
+obuf2-v4l2.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/common/videobuf2/vide=
+obuf2-memops.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/common/videobuf2/vide=
+obuf2-dma-sg.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/common/videobuf2/vide=
+obuf2-dma-contig.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/common/videobuf2/vide=
+obuf2-common.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/media/cec/core/cec.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/md/dm-region-hash.mod.o: un=
+supported GNU_PROPERTY_TYPE (5  LD [M]  drivers/media/cec/core/cec.ko
+    1    aarch64-linux-gnu-ld: warning: drivers/md/dm-log.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xaarch64-linux-gnu-ld: c0000000warning:
+    1    aarch64-linux-gnu-ld: warning: drivers/mailbox/bcm-flexrm-mailbox.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/input/touchscreen/atmel_mxt=
+_ts.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/input/misc/pm8xxx-vibrator.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/input/keyboard/snvs_pwrkey.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/input/keyboard/imx_sc_key.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/input/keyboard/adc-keys.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/iio/pressure/mpl3115.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/iio/pressure/cros_ec_baro.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/iio/light/isl29018.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/iio/light/cros_ec_light_pro=
+x.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/iio/common/cros_ec_sensors/=
+cros_ec_sensors_core.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000=
+000
+    1    aarch64-linux-gnu-ld: warning: drivers/iio/common/cros_ec_sensors/=
+cros_ec_sensors.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/iio/buffer/kfifo_buf.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000  LD [M]  drivers/iio/co=
+mmon/cros_ec_sensors/cros_ec_sensors.ko
+    1    aarch64-linux-gnu-ld: warning: drivers/iio/buffer/industrialio-tri=
+ggered-buffer.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/iio/adc/rockchip_saradc.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/iio/adc/qcom-vadc-common.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/iio/adc/qcom-spmi-adc5.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/iio/adc/max9611.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/i2c/busses/i2c-qcom-geni.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/i2c/busses/i2c-qcom-cci.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/i2c/busses/i2c-gpio.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/hwmon/raspberrypi-hwmon.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/hwmon/lm90.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/hwmon/ina3221.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/hwmon/ina2xx.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/hid/i2c-hid/i2c-hid.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/host1x/host1x.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/vc4/vc4_trace_point=
+s.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/vc4/vc4.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/vc4/vc4.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/ttm/ttm.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/tegra/trace.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/tegra/tegra-drm.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/tegra/tegra-drm.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun8i_tcon_to=
+p.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun8i-mixer.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun8i-drm-hdm=
+i.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun6i_mipi_ds=
+i.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun4i_tv.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun4i-tcon.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun4i-fronten=
+d.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun4i-drm.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0x  LD [M]  drivers/gpu/drm/sun=
+4i/sun4i-frontend.ko
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun4i-drm-hdm=
+i.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun4i-backend=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/scheduler/gpu-sched=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/rockchip/rockchipdr=
+m.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/rcar-du/rcar_lvds.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/rcar-du/rcar_dw_hdm=
+i.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/rcar-du/rcar_cmm.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/rcar-du/rcar-du-drm=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/pl111/pl111_drm.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/panfrost/panfrost.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/panel/panel-truly-n=
+t35597.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/panel/panel-simple.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nvkm/subdev=
+/pci/agp.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nvkm/subdev=
+/bios/shadowof.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nvkm/engine=
+/gr/ctxgp107.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nvkm/engine=
+/gr/ctxgp104.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nvkm/engine=
+/gr/ctxgk208.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nvkm/engine=
+/gr/ctxgk110b.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nvkm/engine=
+/gr/ctxgf119.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nvkm/engine=
+/gr/ctxgf110.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nvkm/engine=
+/gr/ctxgf104.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nouveau.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xaarch64-linux-gnu-ld: warning: dr=
+ivers/gpu/drm/msm/msm.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/msm/msm_gpu_tracepo=
+ints.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/msm/msm_atomic_trac=
+epoints.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/msm/msm.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/meson/meson_dw_hdmi=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/meson/meson-drm.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/lima/lima_trace.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/i2c/tda998x.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/i2c/sil164.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5aarch64-linux-gnu-ld: warning: drivers/gpu/d=
+rm/lima/lima.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/i2c/ch7006.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/hisilicon/kirin/kir=
+in-drm.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/hisilicon/kirin/dw_=
+drm_dsi.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/hisilicon/hibmc/hib=
+mc-drm.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/exynos/exynosdrm.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/etnaviv/etnaviv.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/drm_vram_helper.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/drm_ttm_helper.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/drm_trace_points.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/drm_kms_helper.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/drm.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/drm.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/ti-sn65dsi86=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/synopsys/dw-=
+mipi-dsi.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000aarch64-l=
+inux-gnu-ld: warning: drivers/gpu/drm/bridge/thc63lvd1024.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/synopsys/dw-=
+hdmi.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/synopsys/dw-=
+hdmi-i2s-audio.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/synopsys/dw-=
+hdmi-cec.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/synopsys/dw-=
+hdmi-ahb-audio.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/simple-bridg=
+e.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/sii902x.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/display-conn=
+ector.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/analogix/ana=
+logix_dp.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/adv7511/adv7=
+511.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/arm/mali-dp.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpio/gpio-wcd934x.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpio/gpio-bd9571mwv.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/gpio/gpio-altera.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/fpga/stratix10-soc.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/fpga/of-fpga-region.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/fpga/fpga-region.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/fpga/fpga-bridge.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/fpga/altera-freeze-bridge.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/firmware/stratix10-rsu.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/extcon/extcon-ptn5150.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/dma/sun6i-dma.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/dma/sh/usb-dmac.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/dma/bcm-sba-raid.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/crypto/qcom-rng.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/crypto/hisilicon/zip/hisi_z=
+ip.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/crypto/hisilicon/sec2/hisi_=
+sec2.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/crypto/hisilicon/hpre/hisi_=
+hpre.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/crypto/hisilicon/hisi_qm.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/crypto/ccree/ccree.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/crypto/caam/error.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/crypto/caam/dpaa2_caam.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/crypto/caam/caamhash_desc.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/crypto/caam/caamalg_desc.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/crypto/caam/caam_jr.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/crypto/amlogic/amlogic-gxl-=
+crypto.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/crypto/allwinner/sun8i-ce/s=
+un8i-ce.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/cpufreq/sun50i-cpufreq-nvme=
+m.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/cpufreq/raspberrypi-cpufreq=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/cpufreq/imx-cpufreq-dt.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/cpufreq/cpufreq_powersave.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/cpufreq/cpufreq_conservativ=
+e.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/cpufreq/cppc_cpufreq.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/clk/meson/sclk-div.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (aarch64-linux-gnu-ld: warning: drivers/clk/qc=
+om/camcc-sdm845.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/clk/meson/clk-phase.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/clk/bcm/clk-raspberrypi.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5aarch64-linux-gnu-ld: warning: drivers/=
+clk/meson/axg-audio.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc00000=
+00
+    1    aarch64-linux-gnu-ld: warning: drivers/char/ipmi/ipmi_devintf.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/xgene-rng.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/rng-core.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/optee-rng.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/mtk-rng.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000aarch64-linux-gnu-ld: =
+warning: drivers/char/hw_random/omap-rng.mod.o: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/meson-rng.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/iproc-rng200=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/hisi-trng-v2=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xaarch64-linux-gnu-ld: war=
+ning: drivers/char/hw_random/hisi-rng.mod.o: unsupported GNU_PROPERTY_TYPE =
+(5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/exynos-trng.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/cavium-rng-v=
+f.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/bcm2835-rng.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/bluetooth/hci_uart.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/bluetooth/btusb.mod.oaarch6=
+4-linux-gnu-ld: warning: drivers/char/hw_random/cavium-rng.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/bluetooth/btrtl.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/bluetooth/btqca.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/bluetooth/btintel.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/bluetooth/btbcm.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/block/nbd.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/base/regmap/regmap-slimbus.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: drivers/base/regmap/regmap-sdw.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/xxhash_generic.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/xts.mod.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/xor.mod.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/sm4_generic.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/sha512_generic.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/sha3_generic.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/md5.mod.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/ghash-generic.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/gcm.mod.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/ecdh_generic.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/ecc.mod.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/dh_generic.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5aarch64-linux-gnu-ld: warning: crypto/ecb.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/des_generic.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/ctr.mod.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/crypto_engine.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/cmac.mod.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/ccm.mod.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/cbc.mod.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/blake2b_generic.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0x  LD [M]  crypto/ccm.ko
+    1    aarch64-linux-gnu-ld: warning: crypto/authencesn.mod.o  LD [M]  cr=
+ypto/blake2b_generic.ko
+    1    aarch64-linux-gnu-ld: warning: crypto/authenc.mod.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/algif_rng.mod.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: crypto/af_alg.mod.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: arch/arm64/lib/xor-neon.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: arch/arm64/crypto/sm3-ce.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: arch/arm64/crypto/sha512-ce.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: arch/arm64/crypto/sha512-arm64.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: arch/arm64/crypto/sha3-ce.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: arch/arm64/crypto/crct10dif-ce.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: arch/arm64/crypto/chacha-neon.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: arch/arm64/crypto/aes-neon-bs.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: arch/arm64/crypto/aes-neon-blk.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: aarch64-linux-gnu-ld: warning: lib/=
+crypto/libarc4.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: aarch64-linux-gnu-ld: warning: driv=
+ers/rpmsg/qcom_glink_smem.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0x=
+c0000000
+    1    aarch64-linux-gnu-ld: warning: aarch64-linux-gnu-ld: warning: driv=
+ers/md/md-mod.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: aarch64-linux-gnu-ld: warning: driv=
+ers/gpu/drm/msm/msm.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc00000=
+00
+    1    aarch64-linux-gnu-ld: warning: aarch64-linux-gnu-ld: warning: driv=
+ers/char/ipmi/ipmi_si.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc000=
+0000
+    1    aarch64-linux-gnu-ld: warning: aarch64-linux-gnu-ld: drivers/soc/q=
+com/socinfo.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning: ./drivers/firmware/efi/libstub/lib-=
+ctype.stub.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: warning:   LD [M]  drivers/net/ethernet/stmi=
+cro/stmmac/dwmac-meson.ko
+    1    aarch64-linux-gnu-ld: warning:   LD [M]  drivers/media/rc/keymaps/=
+rc-twinhan-dtv-cab-ci.ko
+    1    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: warning: soun=
+d/soc/rockchip/snd-soc-rockchip-i2s.mod.osound/soc/meson/snd-soc-meson-gx-s=
+ound-card.mod.o: unsupported GNU_PROPERTY_TYPE (: unsupported GNU_PROPERTY_=
+TYPE (55) type: 0x) type: 0xc0000000c0000000
+    1    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: warning: net/=
+mac80211/mac80211.mod.onet/netfilter/nf_nat.mod.o: unsupported GNU_PROPERTY=
+_TYPE (: unsupported GNU_PROPERTY_TYPE (5) type: 0x5c0000000) type: 0x
+    1    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: warning: driv=
+ers/misc/pci_endpoint_test.mod.odrivers/misc/eeprom/at25.mod.o: unsupported=
+ GNU_PROPERTY_TYPE (5: unsupported GNU_PROPERTY_TYPE () type: 0x5c0000000) =
+type: 0x
+    1    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: warning: driv=
+ers/media/rc/keymaps/rc-x96max.mod.o: unsupported GNU_PROPERTY_TYPE (driver=
+s/media/rc/keymaps/rc-xbox-dvd.mod.o5: unsupported GNU_PROPERTY_TYPE () typ=
+e: 0x5c0000000) type: 0x
+    1    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: warning: driv=
+ers/hwmon/pwm-fan.mod.odrivers/i2c/busses/i2c-bcm2835.mod.o: unsupported GN=
+U_PROPERTY_TYPE (: unsupported GNU_PROPERTY_TYPE (5) type: 0x5) type: 0xc00=
+00000c0000000
+    1    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: warning: driv=
+ers/crypto/bcm/bcm_crypto_spu.mod.odrivers/crypto/caam/caam.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (: unsupported GNU_PROPERTY_TYPE (55) type: 0x) type:=
+ 0xc0000000c0000000
+    1    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: sound/soc/cod=
+ecs/snd-soc-ak4613.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc000000=
+0
+    1    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: drivers/pwm/p=
+wm-cros-ec.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: drivers/media=
+/rc/keymaps/rc-nec-terratec-cinergy-xs.mod.o: unsupported GNU_PROPERTY_TYPE=
+ (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: drivers/media=
+/rc/keymaps/rc-msi-digivox-iii.mod.o: unsupported GNU_PROPERTY_TYPE (5) typ=
+e: 0xc0000000
+    1    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: drivers/media=
+/rc/keymaps/rc-behold.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc000=
+0000
+    1    aarch64-linux-gnu-ar: warning: lib/nmi_backtrace.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ar: warning: lib/irq_regs.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ar: warning: lib/ctype.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ar: warning: lib/clz_tab.o: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-ar: warning: drivers/firmware/efi/libstub/lib-ct=
+ype.stub.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    2 warnings generated.
+    1    /tmp/test-arm-496d4e.s:18788: Warning: using r15 results in unpred=
+ictable behaviour
+    1    /tmp/test-arm-496d4e.s:18713: Warning: using r15 results in unpred=
+ictable behaviour
+    1    /tmp/ccQZcX7q.s:18192: Warning: using r15 results in unpredictable=
+ behaviour
+    1    /tmp/ccQZcX7q.s:18120: Warning: using r15 results in unpredictable=
+ behaviour
+    1    /scratch/linux/security/integrity/ima/ima_crypto.c:592:12: warning=
+: stack frame size of 1152 bytes in function 'ima_calc_field_array_hash_tfm=
+' [-Wframe-larger-than=3D]
+    1    /scratch/linux/drivers/scsi/bfa/bfa_fcs_lport.c:1900:1: warning: s=
+tack frame size of 1824 bytes in function 'bfa_fcs_lport_fdmi_build_rhba_py=
+ld' [-Wframe-larger-than=3D]
+    1    /scratch/linux/drivers/net/ethernet/intel/ice/ice_flow.h:198:32: w=
+arning: cast to pointer from integer of different size [-Wint-to-pointer-ca=
+st]
+    1    /scratch/linux/drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_=
+calcs.c:77:13: warning: stack frame size of 5648 bytes in function 'calcula=
+te_bandwidth' [-Wframe-larger-than=3D]
+    1    /scratch/linux/drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_=
+calcs.c:3014:6: warning: stack frame size of 1376 bytes in function 'bw_cal=
+cs' [-Wframe-larger-than=3D]
+    1    /scratch/linux/drivers/gpio/gpio-omap.c:1531:12: warning: =E2=80=
+=98omap_gpio_resume=E2=80=99 defined but not used [-Wunused-function]
+    1    /scratch/linux/drivers/gpio/gpio-omap.c:1519:12: warning: =E2=80=
+=98omap_gpio_suspend=E2=80=99 defined but not used [-Wunused-function]
+    1    /scratch/linux/drivers/firmware/tegra/bpmp-debugfs.c:321:16: warni=
+ng: stack frame size of 1232 bytes in function 'bpmp_debug_store' [-Wframe-=
+larger-than=3D]
+    1    /scratch/linux/drivers/block/paride/bpck.c:32: warning: "PC" redef=
+ined
+    1    /scratch/linux/arch/arm/mach-omap1/board-ams-delta.c:462:12: warni=
+ng: =E2=80=98ams_delta_camera_power=E2=80=99 defined but not used [-Wunused=
+-function]
+    1    .config:1174:warning: override: UNWINDER_GUESS changes choice stat=
+e
+    1    ) type: 0xc0000000aarch64-linux-gnu-ld: warning: drivers/gpu/drm/l=
+ima/lima.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+
+Section mismatches summary:
+
+    1    WARNING: modpost: vmlinux.o(.text.unlikely+0x2a8c): Section mismat=
+ch in reference from the function pmax_setup_memory_region() to the functio=
+n .init.text:add_memory_region()
+    1    WARNING: modpost: vmlinux.o(.text.unlikely+0x2840): Section mismat=
+ch in reference from the function pmax_setup_memory_region() to the functio=
+n .init.text:add_memory_region()
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warnin=
+g, 0 section mismatches
+
+Warnings:
+    /scratch/linux/include/linux/kern_levels.h:5:18: warning: format =E2=80=
+=98%lu=E2=80=99 expects argument of type =E2=80=98long unsigned int=E2=80=
+=99, but argument 8 has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 FAIL, 6 errors, 8 warnings, 0 section m=
+ismatches
+
+Errors:
+    /scratch/linux/arch/arm/crypto/curve25519-glue.c:73:12: error: implicit=
+ declaration of function =E2=80=98sg_copy_to_buffer=E2=80=99; did you mean =
+=E2=80=98hex_dump_to_buffer=E2=80=99? [-Werror=3Dimplicit-function-declarat=
+ion]
+    /scratch/linux/arch/arm/crypto/curve25519-glue.c:74:9: error: implicit =
+declaration of function =E2=80=98sg_nents_for_len=E2=80=99 [-Werror=3Dimpli=
+cit-function-declaration]
+    /scratch/linux/arch/arm/crypto/curve25519-glue.c:88:11: error: implicit=
+ declaration of function =E2=80=98sg_copy_from_buffer=E2=80=99; did you mea=
+n =E2=80=98kstrtos8_from_user=E2=80=99? [-Werror=3Dimplicit-function-declar=
+ation]
+    /scratch/linux/drivers/crypto/stm32/stm32-crc32.c:128:2: error: implici=
+t declaration of function =E2=80=98writel_relaxed=E2=80=99; did you mean =
+=E2=80=98xchg_relaxed=E2=80=99? [-Werror=3Dimplicit-function-declaration]
+    /scratch/linux/drivers/crypto/stm32/stm32-crc32.c:134:17: error: implic=
+it declaration of function =E2=80=98readl_relaxed=E2=80=99; did you mean =
+=E2=80=98xchg_relaxed=E2=80=99? [-Werror=3Dimplicit-function-declaration]
+    /scratch/linux/drivers/crypto/stm32/stm32-crc32.c:176:4: error: implici=
+t declaration of function =E2=80=98writeb_relaxed=E2=80=99; did you mean =
+=E2=80=98xchg_relaxed=E2=80=99? [-Werror=3Dimplicit-function-declaration]
+
+Warnings:
+    cc1: some warnings being treated as errors
+    /tmp/ccQZcX7q.s:18120: Warning: using r15 results in unpredictable beha=
+viour
+    /tmp/ccQZcX7q.s:18192: Warning: using r15 results in unpredictable beha=
+viour
+    /scratch/linux/include/linux/kern_levels.h:5:18: warning: format =E2=80=
+=98%lu=E2=80=99 expects argument of type =E2=80=98long unsigned int=E2=80=
+=99, but argument 8 has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+    /scratch/linux/drivers/net/ethernet/intel/ice/ice_flow.h:197:33: warnin=
+g: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    /scratch/linux/drivers/net/ethernet/intel/ice/ice_flow.h:197:33: warnin=
+g: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    /scratch/linux/drivers/net/ethernet/intel/ice/ice_flow.h:198:32: warnin=
+g: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    cc1: some warnings being treated as errors
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, clang-9) =E2=80=94 FAIL, 10 errors, 19 warnings, 0 secti=
+on mismatches
+
+Errors:
+    /scratch/linux/arch/arm/crypto/curve25519-glue.c:73:12: error: implicit=
+ declaration of function 'sg_copy_to_buffer' [-Werror,-Wimplicit-function-d=
+eclaration]
+    /scratch/linux/arch/arm/crypto/curve25519-glue.c:74:9: error: implicit =
+declaration of function 'sg_nents_for_len' [-Werror,-Wimplicit-function-dec=
+laration]
+    /scratch/linux/arch/arm/crypto/curve25519-glue.c:88:11: error: implicit=
+ declaration of function 'sg_copy_from_buffer' [-Werror,-Wimplicit-function=
+-declaration]
+    /scratch/linux/arch/arm/crypto/curve25519-glue.c:88:41: error: implicit=
+ declaration of function 'sg_nents_for_len' [-Werror,-Wimplicit-function-de=
+claration]
+    /scratch/linux/drivers/crypto/stm32/stm32-crc32.c:128:2: error: implici=
+t declaration of function 'writel_relaxed' [-Werror,-Wimplicit-function-dec=
+laration]
+    /scratch/linux/drivers/crypto/stm32/stm32-crc32.c:134:17: error: implic=
+it declaration of function 'readl_relaxed' [-Werror,-Wimplicit-function-dec=
+laration]
+    /scratch/linux/drivers/crypto/stm32/stm32-crc32.c:166:2: error: implici=
+t declaration of function 'writel_relaxed' [-Werror,-Wimplicit-function-dec=
+laration]
+    /scratch/linux/drivers/crypto/stm32/stm32-crc32.c:176:4: error: implici=
+t declaration of function 'writeb_relaxed' [-Werror,-Wimplicit-function-dec=
+laration]
+    /scratch/linux/drivers/crypto/stm32/stm32-crc32.c:192:4: error: implici=
+t declaration of function 'writeb_relaxed' [-Werror,-Wimplicit-function-dec=
+laration]
+    /scratch/linux/drivers/crypto/stm32/stm32-crc32.c:196:17: error: implic=
+it declaration of function 'readl_relaxed' [-Werror,-Wimplicit-function-dec=
+laration]
+
+Warnings:
+    /scratch/linux/security/integrity/ima/ima_crypto.c:592:12: warning: sta=
+ck frame size of 1152 bytes in function 'ima_calc_field_array_hash_tfm' [-W=
+frame-larger-than=3D]
+    1 warning generated.
+    /scratch/linux/drivers/firmware/tegra/bpmp-debugfs.c:321:16: warning: s=
+tack frame size of 1232 bytes in function 'bpmp_debug_store' [-Wframe-large=
+r-than=3D]
+    1 warning generated.
+    /tmp/test-arm-496d4e.s:18713: Warning: using r15 results in unpredictab=
+le behaviour
+    /tmp/test-arm-496d4e.s:18788: Warning: using r15 results in unpredictab=
+le behaviour
+    /scratch/linux/drivers/block/rnbd/rnbd-srv.c:150:6: warning: variable '=
+err' is used uninitialized whenever 'if' condition is true [-Wsometimes-uni=
+nitialized]
+    /scratch/linux/drivers/block/rnbd/rnbd-srv.c:126:9: note: initialize th=
+e variable 'err' to silence this warning
+    1 warning generated.
+    /scratch/linux/drivers/usb/phy/phy-jz4770.c:179:9: warning: variable 'r=
+eg' is uninitialized when used here [-Wuninitialized]
+    /scratch/linux/drivers/usb/phy/phy-jz4770.c:161:9: note: initialize the=
+ variable 'reg' to silence this warning
+    1 warning generated.
+    /scratch/linux/drivers/net/dsa/sja1105/sja1105_main.c:3418:38: warning:=
+ address of array 'match->compatible' will always evaluate to 'true' [-Wpoi=
+nter-bool-conversion]
+    1 warning generated.
+    /scratch/linux/drivers/scsi/bfa/bfa_fcs_lport.c:1900:1: warning: stack =
+frame size of 1824 bytes in function 'bfa_fcs_lport_fdmi_build_rhba_pyld' [=
+-Wframe-larger-than=3D]
+    1 warning generated.
+    /scratch/linux/drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs=
+.c:3014:6: warning: stack frame size of 1376 bytes in function 'bw_calcs' [=
+-Wframe-larger-than=3D]
+    /scratch/linux/drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs=
+.c:77:13: warning: stack frame size of 5648 bytes in function 'calculate_ba=
+ndwidth' [-Wframe-larger-than=3D]
+    2 warnings generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-9) =E2=80=94 FAIL, 1 error, 10 warnings, 0 secti=
+on mismatches
+
+Errors:
+    ERROR: modpost: "__compiletime_assert_612" [drivers/gpu/drm/vc4/vc4.ko]=
+ undefined!
+
+Warnings:
+    /scratch/linux/drivers/block/rnbd/rnbd-srv.c:150:6: warning: variable '=
+err' is used uninitialized whenever 'if' condition is true [-Wsometimes-uni=
+nitialized]
+    /scratch/linux/drivers/block/rnbd/rnbd-srv.c:126:9: note: initialize th=
+e variable 'err' to silence this warning
+    1 warning generated.
+    /scratch/linux/drivers/usb/phy/phy-jz4770.c:179:9: warning: variable 'r=
+eg' is uninitialized when used here [-Wuninitialized]
+    /scratch/linux/drivers/usb/phy/phy-jz4770.c:161:9: note: initialize the=
+ variable 'reg' to silence this warning
+    1 warning generated.
+    /scratch/linux/drivers/net/dsa/sja1105/sja1105_main.c:3418:38: warning:=
+ address of array 'match->compatible' will always evaluate to 'true' [-Wpoi=
+nter-bool-conversion]
+    1 warning generated.
+    /scratch/linux/drivers/crypto/sa2ul.c:1152:15: warning: explicitly assi=
+gning value of variable of type 'int' to itself [-Wself-assign]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 8 warnings, 0 section=
+ mismatches
+
+Warnings:
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+size-cells (1) differs from / (2)
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, clang-9) =E2=80=94 FAIL, 1 error, 13 warnings, 0 sect=
+ion mismatches
+
+Errors:
+    ERROR: modpost: "__compiletime_assert_1482" [drivers/gpu/drm/vc4/vc4.ko=
+] undefined!
+
+Warnings:
+    arch/x86/ia32/ia32_signal.o: warning: objtool: ia32_setup_rt_frame()+0x=
+1fa: call to memset() with UACCESS enabled
+    arch/x86/kernel/signal.o: warning: objtool: x32_setup_rt_frame()+0x1f2:=
+ call to memset() with UACCESS enabled
+    arch/x86/kernel/signal.o: warning: objtool: __setup_rt_frame()+0x1cb: c=
+all to memset() with UACCESS enabled
+    /scratch/linux/drivers/block/rnbd/rnbd-srv.c:150:6: warning: variable '=
+err' is used uninitialized whenever 'if' condition is true [-Wsometimes-uni=
+nitialized]
+    /scratch/linux/drivers/block/rnbd/rnbd-srv.c:126:9: note: initialize th=
+e variable 'err' to silence this warning
+    1 warning generated.
+    /scratch/linux/drivers/net/dsa/sja1105/sja1105_main.c:3418:38: warning:=
+ address of array 'match->compatible' will always evaluate to 'true' [-Wpoi=
+nter-bool-conversion]
+    1 warning generated.
+    /scratch/linux/drivers/usb/phy/phy-jz4770.c:179:9: warning: variable 'r=
+eg' is uninitialized when used here [-Wuninitialized]
+    /scratch/linux/drivers/usb/phy/phy-jz4770.c:161:9: note: initialize the=
+ variable 'reg' to silence this warning
+    1 warning generated.
+    /scratch/linux/drivers/crypto/sa2ul.c:1152:15: warning: explicitly assi=
+gning value of variable of type 'int' to itself [-Wself-assign]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, clang-9) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, clang-9) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    /scratch/linux/kernel/rcu/tasks.h:593:13: warning: =E2=80=98show_rcu_ta=
+sks_classic_gp_kthread=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    /scratch/linux/kernel/rcu/tasks.h:593:13: warning: =E2=80=98show_rcu_ta=
+sks_classic_gp_kthread=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, =
+0 section mismatches
+
+Errors:
+    /scratch/linux/arch/mips/cavium-octeon/dma-octeon.c:205:7: error: =E2=
+=80=98mem=E2=80=99 undeclared (first use in this function); did you mean =
+=E2=80=98sem=E2=80=99?
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+cu1000-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+cu1830-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+Section mismatches:
+    WARNING: modpost: vmlinux.o(.text.unlikely+0x2a8c): Section mismatch in=
+ reference from the function pmax_setup_memory_region() to the function .in=
+it.text:add_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+Section mismatches:
+    WARNING: modpost: vmlinux.o(.text.unlikely+0x2840): Section mismatch in=
+ reference from the function pmax_setup_memory_region() to the function .in=
+it.text:add_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 8 warnings, 0 section mi=
+smatches
+
+Warnings:
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+size-cells (1) differs from / (2)
+
+---------------------------------------------------------------------------=
+-----
+defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-9) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section m=
+ismatches
+
+Errors:
+    ERROR: modpost: "__compiletime_assert_611" [drivers/gpu/drm/vc4/vc4.ko]=
+ undefined!
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 1847 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    aarch64-linux-gnu-ar: warning: lib/clz_tab.o: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ar: warning: lib/ctype.o: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    aarch64-linux-gnu-ar: warning: lib/irq_regs.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ar: warning: lib/nmi_backtrace.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: drivers/firmware/efi/libstub/lib-ctyp=
+e.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objdump: warning: drivers/firmware/efi/libstub/lib-ct=
+ype.stub.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: drivers/firmware/efi/libstub/lib-ct=
+ype.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ar: warning: drivers/firmware/efi/libstub/lib-ctype.s=
+tub.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: init/version.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: init/init_task.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: mm/highmem.o: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: mm/init-mm.o: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/iomap/trace.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/ext2/symlink.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/nfs/nfstrace.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/nfs/nfs4trace.o: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: ipc/syscall.o: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: security/keys/sysctl.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/rsapubkey.asn1.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/rsaprivkey.asn1.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/asymmetric_keys/x509.asn1.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/asymmetric_keys/x509_akid.asn1.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/asymmetric_keys/pkcs7.asn1.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/hash_info.o: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/bitrev.o: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/zlib_inflate/inflate_syms.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/zlib_deflate/deflate_syms.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/xz/xz_dec_syms.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/fonts/font_8x8.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/fonts/font_8x16.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/clz_tab.o: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/ctype.o: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/irq_regs.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/nmi_backtrace.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/pinctrl/samsung/pinctrl-exynos-a=
+rm64.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/video/logo/logo_linux_clut224.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evevent.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpe.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpeblk.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpeinit.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpeutil.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evglock.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evsci.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evxfevnt.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evxfgpe.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/exdump.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/hwacpi.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/hwgpe.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/hwsleep.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/nsdump.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/psopcode.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsdumpinfo.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsinfo.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsio.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsirq.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsmemory.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsserial.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/utdebug.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/utglobal.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/utresdecode.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/clk/uniphier/clk-uniphier-sys.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/clk/uniphier/clk-uniphier-mio.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/clk/uniphier/clk-uniphier-peri.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/dma/ti/k3-psil-am654.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/dma/ti/k3-psil-j721e.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/dma/ti/k3-psil-j7200.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a774a1-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a774b1-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a774e1-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77965-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77970-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77980-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77995-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/tty/vt/consolemap_deftbl.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/tty/vt/defkeymap.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/iommu/iommu-traces.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/base/firmware_loader/fallback_ta=
+ble.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/catalyst.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/eon.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/esmt.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/everspin.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/fujitsu.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/xmc.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/host/xhci-trace.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/udc/trace.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/thermal/qcom/tsens-v2.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/platform/chrome/cros_ec_trace.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/memory/tegra/tegra124.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/memory/tegra/tegra210.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv4/udp_tunnel_stub.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/sunrpc/sysctl.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/sunrpc/auth_gss/trace.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: ./drivers/firmware/efi/libstub/lib-ctype=
+.stub.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: init/version.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: init/init_task.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: mm/highmem.o: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: mm/init-mm.o: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/iomap/trace.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/ext2/symlink.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/nfs/nfstrace.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/nfs/nfs4trace.o: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: ipc/syscall.o: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: security/keys/sysctl.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/rsapubkey.asn1.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/rsaprivkey.asn1.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/asymmetric_keys/x509.asn1.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/asymmetric_keys/x509_akid.asn1.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/asymmetric_keys/pkcs7.asn1.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/hash_info.o: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/bitrev.o: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/zlib_inflate/inflate_syms.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/zlib_deflate/deflate_syms.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/xz/xz_dec_syms.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/fonts/font_8x8.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/fonts/font_8x16.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/clz_tab.o: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/ctype.o: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/irq_regs.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/nmi_backtrace.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/pinctrl/samsung/pinctrl-exynos-a=
+rm64.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/video/logo/logo_linux_clut224.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evevent.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpe.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpeblk.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpeinit.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpeutil.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evglock.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evsci.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evxfevnt.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evxfgpe.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/exdump.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/hwacpi.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/hwgpe.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/hwsleep.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/nsdump.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/psopcode.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsdumpinfo.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsinfo.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsio.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsirq.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsmemory.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsserial.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/utdebug.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/utglobal.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/utresdecode.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/clk/uniphier/clk-uniphier-sys.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/clk/uniphier/clk-uniphier-mio.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/clk/uniphier/clk-uniphier-peri.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/dma/ti/k3-psil-am654.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/dma/ti/k3-psil-j721e.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/dma/ti/k3-psil-j7200.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a774a1-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a774b1-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a774e1-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77965-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77970-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77980-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77995-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/tty/vt/consolemap_deftbl.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/tty/vt/defkeymap.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/iommu/iommu-traces.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/base/firmware_loader/fallback_ta=
+ble.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/catalyst.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/eon.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/esmt.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/everspin.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/fujitsu.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/xmc.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/host/xhci-trace.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/udc/trace.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/thermal/qcom/tsens-v2.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/platform/chrome/cros_ec_trace.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/memory/tegra/tegra124.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/memory/tegra/tegra210.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv4/udp_tunnel_stub.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/sunrpc/sysctl.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/sunrpc/auth_gss/trace.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-nm: warning: .tmp_vmlinux.kallsyms1: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: init/version.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: init/init_task.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: mm/highmem.o: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: mm/init-mm.o: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/iomap/trace.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/ext2/symlink.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/nfs/nfstrace.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/nfs/nfs4trace.o: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: ipc/syscall.o: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: security/keys/sysctl.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/rsapubkey.asn1.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/rsaprivkey.asn1.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/asymmetric_keys/x509.asn1.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/asymmetric_keys/x509_akid.asn1.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/asymmetric_keys/pkcs7.asn1.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/hash_info.o: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/bitrev.o: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/zlib_inflate/inflate_syms.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/zlib_deflate/deflate_syms.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/xz/xz_dec_syms.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/fonts/font_8x8.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/fonts/font_8x16.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/clz_tab.o: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/ctype.o: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/irq_regs.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/nmi_backtrace.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/pinctrl/samsung/pinctrl-exynos-a=
+rm64.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/video/logo/logo_linux_clut224.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evevent.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpe.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpeblk.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpeinit.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpeutil.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evglock.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evsci.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evxfevnt.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evxfgpe.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/exdump.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/hwacpi.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/hwgpe.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/hwsleep.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/nsdump.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/psopcode.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsdumpinfo.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsinfo.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsio.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsirq.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsmemory.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsserial.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/utdebug.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/utglobal.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/utresdecode.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/clk/uniphier/clk-uniphier-sys.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/clk/uniphier/clk-uniphier-mio.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/clk/uniphier/clk-uniphier-peri.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/dma/ti/k3-psil-am654.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/dma/ti/k3-psil-j721e.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/dma/ti/k3-psil-j7200.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a774a1-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a774b1-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a774e1-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77965-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77970-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77980-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77995-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/tty/vt/consolemap_deftbl.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/tty/vt/defkeymap.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/iommu/iommu-traces.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/base/firmware_loader/fallback_ta=
+ble.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/catalyst.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/eon.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/esmt.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/everspin.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/fujitsu.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/xmc.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/host/xhci-trace.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/udc/trace.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/thermal/qcom/tsens-v2.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/platform/chrome/cros_ec_trace.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/memory/tegra/tegra124.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/memory/tegra/tegra210.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv4/udp_tunnel_stub.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/sunrpc/sysctl.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/sunrpc/auth_gss/trace.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-nm: warning: .tmp_vmlinux.kallsyms2: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: init/version.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: init/init_task.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: mm/highmem.o: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: mm/init-mm.o: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/iomap/trace.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/ext2/symlink.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/nfs/nfstrace.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/nfs/nfs4trace.o: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: ipc/syscall.o: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: security/keys/sysctl.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/rsapubkey.asn1.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/rsaprivkey.asn1.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/asymmetric_keys/x509.asn1.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/asymmetric_keys/x509_akid.asn1.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/asymmetric_keys/pkcs7.asn1.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/hash_info.o: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/bitrev.o: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/zlib_inflate/inflate_syms.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/zlib_deflate/deflate_syms.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/xz/xz_dec_syms.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/fonts/font_8x8.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/fonts/font_8x16.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/clz_tab.o: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/ctype.o: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/irq_regs.o: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/nmi_backtrace.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/pinctrl/samsung/pinctrl-exynos-a=
+rm64.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/video/logo/logo_linux_clut224.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evevent.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpe.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpeblk.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpeinit.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evgpeutil.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evglock.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evsci.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evxfevnt.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/evxfgpe.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/exdump.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/hwacpi.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/hwgpe.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/hwsleep.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/nsdump.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/psopcode.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsdumpinfo.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsinfo.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsio.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsirq.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsmemory.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/rsserial.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/utdebug.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/utglobal.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/acpi/acpica/utresdecode.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/clk/uniphier/clk-uniphier-sys.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/clk/uniphier/clk-uniphier-mio.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/clk/uniphier/clk-uniphier-peri.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/dma/ti/k3-psil-am654.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/dma/ti/k3-psil-j721e.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/dma/ti/k3-psil-j7200.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a774a1-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a774b1-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a774e1-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77965-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77970-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77980-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/renesas/r8a77995-sysc.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/tty/vt/consolemap_deftbl.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/tty/vt/defkeymap.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/iommu/iommu-traces.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/base/firmware_loader/fallback_ta=
+ble.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/catalyst.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/eon.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/esmt.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/everspin.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/fujitsu.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mtd/spi-nor/xmc.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/host/xhci-trace.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/udc/trace.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/thermal/qcom/tsens-v2.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/platform/chrome/cros_ec_trace.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/memory/tegra/tegra124.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/memory/tegra/tegra210.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv4/udp_tunnel_stub.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/sunrpc/sysctl.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/sunrpc/auth_gss/trace.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-nm: warning: vmlinux: unsupported GNU_PROPERTY_TYPE (=
+5) type: 0xc0000000
+    aarch64-linux-gnu-nm: warning: .tmp_vmlinux.kallsyms2: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-objcopy: warning: vmlinux: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/raid6/tables.o: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/raid6/int16.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/raid6/int32.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/hda/trace.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/wireless/trace.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/wireless/shipped-certs.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/vc4/vc4_trace_points.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/wireless/ath/ath10k/qmi_wlfw=
+_v01.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ipa/ipa_qmi_msg.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ipa/ipa_data-sdm845.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ipa/ipa_data-sc7180.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/mac80211/trace.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/tegra/trace.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/lima/lima_trace.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/msm/msm_atomic_tracepoin=
+ts.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/msm/msm_gpu_tracepoints.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/drm_trace_points.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nvkm/subdev/bios=
+/shadowof.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nvkm/subdev/pci/=
+agp.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nvkm/engine/gr/c=
+txgf104.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nvkm/engine/gr/c=
+txgf110.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nvkm/engine/gr/c=
+txgf119.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nvkm/engine/gr/c=
+txgk110b.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nvkm/engine/gr/c=
+txgk208.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nvkm/engine/gr/c=
+txgp104.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nvkm/engine/gr/c=
+txgp107.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: arch/arm64/crypto/aes-neon-blk.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: arch/arm64/crypto/aes-neon-bs.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: arch/arm64/crypto/crct10dif-ce.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: arch/arm64/crypto/chacha-neon.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: arch/arm64/crypto/sha3-ce.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: arch/arm64/crypto/sha512-arm64.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: arch/arm64/crypto/sm3-ce.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: arch/arm64/lib/xor-neon.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: arch/arm64/crypto/sha512-ce.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/af_alg.mod.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/authenc.mod.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/algif_rng.mod.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/authencesn.mod.o  LD [M]  crypto/=
+blake2b_generic.ko
+    aarch64-linux-gnu-ld: warning: crypto/blake2b_generic.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0x  LD [M]  crypto/ccm.ko
+    aarch64-linux-gnu-ld: warning: crypto/ccm.mod.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/cbc.mod.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/cmac.mod.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/crypto_engine.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/ctr.mod.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/des_generic.mod.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/dh_generic.mod.o: unsupported GNU=
+_PROPERTY_TYPE (5aarch64-linux-gnu-ld: warning: crypto/ecb.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/ecdh_generic.mod.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/ecc.mod.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/gcm.mod.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/md5.mod.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/ghash-generic.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/sha3_generic.mod.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/sha512_generic.mod.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    warning: crypto/sm3_generic.mod.o: unsupported GNU_PROPERTY_TYPE (5) ty=
+pe: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/sm4_generic.mod.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/xor.mod.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/xts.mod.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/base/regmap/regmap-sdw.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: crypto/xxhash_generic.mod.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/bluetooth/btbcm.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/block/nbd.mod.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/base/regmap/regmap-slimbus.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/bluetooth/btqca.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/bluetooth/btintel.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/bluetooth/btrtl.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/bluetooth/hci_uart.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/cavium-rng-vf.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/bcm2835-rng.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/bluetooth/btusb.mod.oaarch64-lin=
+ux-gnu-ld: warning: drivers/char/hw_random/cavium-rng.mod.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/exynos-trng.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/hisi-trng-v2.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xaarch64-linux-gnu-ld: warning:=
+ drivers/char/hw_random/hisi-rng.mod.o: unsupported GNU_PROPERTY_TYPE (5) t=
+ype: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/iproc-rng200.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/meson-rng.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/mtk-rng.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000aarch64-linux-gnu-ld: warni=
+ng: drivers/char/hw_random/omap-rng.mod.o: unsupported GNU_PROPERTY_TYPE (5=
+) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/optee-rng.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/rng-core.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/char/hw_random/xgene-rng.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: aarch64-linux-gnu-ld: warning: drivers/c=
+har/ipmi/ipmi_si.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/char/ipmi/ipmi_devintf.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/clk/bcm/clk-raspberrypi.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5aarch64-linux-gnu-ld: warning: drivers/clk/m=
+eson/axg-audio.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/clk/meson/clk-phase.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/clk/meson/sclk-div.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (aarch64-linux-gnu-ld: warning: drivers/clk/qcom/ca=
+mcc-sdm845.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/cpufreq/cppc_cpufreq.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/cpufreq/cpufreq_conservative.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/cpufreq/cpufreq_powersave.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/cpufreq/imx-cpufreq-dt.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/cpufreq/sun50i-cpufreq-nvmem.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/cpufreq/raspberrypi-cpufreq.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/crypto/allwinner/sun8i-ce/sun8i-=
+ce.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/crypto/amlogic/amlogic-gxl-crypt=
+o.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: warning: drivers/c=
+rypto/bcm/bcm_crypto_spu.mod.odrivers/crypto/caam/caam.mod.o: unsupported G=
+NU_PROPERTY_TYPE (: unsupported GNU_PROPERTY_TYPE (55) type: 0x) type: 0xc0=
+000000c0000000
+    aarch64-linux-gnu-ld: warning: drivers/crypto/caam/caamalg_desc.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/crypto/caam/caam_jr.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/crypto/caam/caamhash_desc.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/crypto/caam/error.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/crypto/caam/dpaa2_caam.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/crypto/hisilicon/hisi_qm.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/crypto/ccree/ccree.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/crypto/hisilicon/hpre/hisi_hpre.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/crypto/hisilicon/sec2/hisi_sec2.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/crypto/hisilicon/zip/hisi_zip.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/crypto/qcom-rng.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/dma/bcm-sba-raid.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/dma/sh/usb-dmac.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/dma/sun6i-dma.mod.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/extcon/extcon-ptn5150.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/firmware/stratix10-rsu.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/fpga/altera-freeze-bridge.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/fpga/of-fpga-region.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/fpga/fpga-region.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/fpga/fpga-bridge.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/fpga/stratix10-soc.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpio/gpio-altera.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpio/gpio-bd9571mwv.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpio/gpio-wcd934x.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/arm/mali-dp.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/analogix/analogix=
+_dp.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/sii902x.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/adv7511/adv7511.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/synopsys/dw-hdmi-=
+ahb-audio.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/display-connector=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/simple-bridge.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/synopsys/dw-hdmi-=
+cec.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/synopsys/dw-hdmi.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/synopsys/dw-hdmi-=
+i2s-audio.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/synopsys/dw-mipi-=
+dsi.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000aarch64-linux-=
+gnu-ld: warning: drivers/gpu/drm/bridge/thc63lvd1024.mod.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/bridge/ti-sn65dsi86.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/drm.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/drm.mod.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/drm_vram_helper.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/drm_kms_helper.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/etnaviv/etnaviv.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/exynos/exynosdrm.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/drm_ttm_helper.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/hisilicon/hibmc/hibmc-dr=
+m.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/hisilicon/kirin/dw_drm_d=
+si.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/hisilicon/kirin/kirin-dr=
+m.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/i2c/ch7006.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/i2c/sil164.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5aarch64-linux-gnu-ld: warning: drivers/gpu/drm/li=
+ma/lima.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    ) type: 0xc0000000aarch64-linux-gnu-ld: warning: drivers/gpu/drm/lima/l=
+ima.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/meson/meson-drm.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/i2c/tda998x.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/meson/meson_dw_hdmi.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nouveau.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nouveau.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nouveau.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nouveau.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nouveau.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nouveau.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    warning: drivers/gpu/drm/nouveau/nouveau.o: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/nouveau/nouveau.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xaarch64-linux-gnu-ld: warning: drivers=
+/gpu/drm/msm/msm.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/msm/msm.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: aarch64-linux-gnu-ld: warning: drivers/g=
+pu/drm/msm/msm.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    warning: drivers/gpu/drm/nouveau/nouveau.mod.o: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xaarch64-linux-gnu-ld: c0000000
+    warning: drivers/gpu/drm/panel/panel-lvds.mod.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/panel/panel-truly-nt3559=
+7.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/panel/panel-simple.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/panfrost/panfrost.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/pl111/pl111_drm.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/rcar-du/rcar-du-drm.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/rcar-du/rcar_cmm.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/rcar-du/rcar_dw_hdmi.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/rcar-du/rcar_lvds.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/scheduler/gpu-sched.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/rockchip/rockchipdrm.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun4i-backend.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun4i-drm.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0x  LD [M]  drivers/gpu/drm/sun4i/su=
+n4i-frontend.ko
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun4i-drm-hdmi.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun4i-frontend.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun4i-tcon.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun4i_tv.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    warning: drivers/gpu/drm/sun4i/sun6i_drc.mod.o: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun6i_mipi_dsi.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun8i-drm-hdmi.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun8i_tcon_top.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/tegra/tegra-drm.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/tegra/tegra-drm.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/ttm/ttm.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/sun4i/sun8i-mixer.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/vc4/vc4.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/drm/vc4/vc4.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/gpu/host1x/host1x.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/hid/i2c-hid/i2c-hid.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/hwmon/ina2xx.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/hwmon/ina3221.mod.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: warning: drivers/h=
+wmon/pwm-fan.mod.odrivers/i2c/busses/i2c-bcm2835.mod.o: unsupported GNU_PRO=
+PERTY_TYPE (: unsupported GNU_PROPERTY_TYPE (5) type: 0x5) type: 0xc0000000=
+c0000000
+    aarch64-linux-gnu-ld: warning: drivers/hwmon/lm90.mod.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/i2c/busses/i2c-gpio.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/i2c/busses/i2c-qcom-cci.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/hwmon/raspberrypi-hwmon.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/i2c/busses/i2c-qcom-geni.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/iio/adc/max9611.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/iio/adc/qcom-vadc-common.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/iio/adc/qcom-spmi-adc5.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/iio/adc/rockchip_saradc.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/iio/buffer/kfifo_buf.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000  LD [M]  drivers/iio/common/=
+cros_ec_sensors/cros_ec_sensors.ko
+    aarch64-linux-gnu-ld: warning: drivers/iio/common/cros_ec_sensors/cros_=
+ec_sensors.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/iio/common/cros_ec_sensors/cros_=
+ec_sensors_core.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/iio/buffer/industrialio-triggere=
+d-buffer.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/iio/light/isl29018.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/iio/light/cros_ec_light_prox.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/iio/pressure/mpl3115.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/input/keyboard/adc-keys.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/iio/pressure/cros_ec_baro.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/input/keyboard/imx_sc_key.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/input/misc/pm8xxx-vibrator.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/input/keyboard/snvs_pwrkey.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/input/touchscreen/atmel_mxt_ts.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mailbox/bcm-flexrm-mailbox.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/md/dm-log.mod.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xaarch64-linux-gnu-ld: c0000000warning:
+    aarch64-linux-gnu-ld: warning: drivers/md/dm-region-hash.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5  LD [M]  drivers/media/cec/core/cec.ko
+    warning: drivers/md/dm-mod.mod.o: unsupported GNU_PROPERTY_TYPE (5) typ=
+e: 0xc0000000
+    aarch64-linux-gnu-ld: warning: aarch64-linux-gnu-ld: warning: drivers/m=
+d/md-mod.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/common/videobuf2/videobuf2=
+-common.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/common/videobuf2/videobuf2=
+-dma-contig.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/common/videobuf2/videobuf2=
+-dma-sg.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/common/videobuf2/videobuf2=
+-vmalloc.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/common/videobuf2/videobuf2=
+-memops.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/common/videobuf2/videobuf2=
+-v4l2.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/cec/core/cec.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/i2c/ir-kbd-i2c.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/i2c/imx219.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/mc/mc.mod.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/i2c/ov5645.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/platform/qcom/camss/qcom-c=
+amss.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xaarch64-linux-gnu-ld:=
+ warning: drivers/media/dvb-core/dvb-core.mod.o: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/platform/exynos-gsc/exynos=
+-gsc.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/platform/rcar-vin/rcar-vin=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/platform/rcar_drif.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/platform/rcar-fcp.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/platform/rcar_fdp1.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/platform/s5p-jpeg/s5p-jpeg=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/platform/s5p-mfc/s5p-mfc.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/platform/sunxi/sun6i-csi/s=
+un6i-csi.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/platform/vsp1/vsp1.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-adstech-dvb-=
+t-pci.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-alink-dtu-m.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/platform/rcar-vin/rcar-csi=
+2.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-apac-viewcom=
+p.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-anysee.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-astrometa-t2=
+hybrid.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-asus-pc39.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-ati-tv-wonde=
+r-hd-600.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-asus-ps3-100=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-ati-x10.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-avermedia-a1=
+6d.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000  LD [M]  drive=
+rs/media/rc/keymaps/rc-avermedia-m135a.ko
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-avermedia-dv=
+bt.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-avermedia-ca=
+rdbus.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-avermedia-m7=
+33a-rm-k6.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-avermedia-m1=
+35a.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-avermedia-rm=
+-ks.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-avermedia.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-avertv-303.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5  LD [M]  drivers/media/rc/keymaps/rc=
+-behold.ko
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-azurewave-ad=
+-tu700.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: drivers/media/rc/k=
+eymaps/rc-behold.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    warning: drivers/media/rc/keymaps/rc-beelink-gs1.mod.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-budget-ci-ol=
+d.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-cec.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-behold-colum=
+bus.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-cinergy-1400=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-cinergy.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-d680-dmb.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-delock-61959=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-dib0700-rc5.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-dib0700-nec.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-digitalnow-t=
+inytwin.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-dntv-live-dv=
+bt-pro.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-dntv-live-dv=
+b-t.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-dm1105-nec.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-digittrade.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-dtt200u.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-dvbsky.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-dvico-mce.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-dvico-portab=
+le.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-em-terratec.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-encore-enltv=
+-fm53.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-encore-enltv=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-encore-enltv=
+2.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-evga-indtube=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-eztv.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-flydvb.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-flyvideo.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-gadmei-rm008=
+z.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-fusionhdtv-m=
+ce.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-geekbox.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-genius-tvgo-=
+a11mce.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-gotview7135.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-hisi-poplar.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-hauppauge.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (aarch64-linux-gnu-ld: warning: drivers/=
+media/rc/keymaps/rc-hisi-tv-demo.mod.o: unsupported GNU_PROPERTY_TYPE (5) t=
+ype: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-imon-pad.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-imon-rsc.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-imon-mce.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-it913x-v2.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-kaiomy.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-it913x-v1.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000  LD [M]  drivers/me=
+dia/rc/keymaps/rc-kworld-pc150u.ko
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-iodata-bctv7=
+e.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-kworld-315u.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-khadas.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-kworld-pc150=
+u.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-kworld-plus-=
+tv-analog.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-leadtek-y04g=
+0051.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-lme2510.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-manli.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-medion-x10-d=
+igitainer.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-medion-x10-o=
+r2x.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-medion-x10.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-msi-digivox-=
+ii.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-msi-tvanywhe=
+re-plus.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: drivers/media/rc/k=
+eymaps/rc-msi-digivox-iii.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0x=
+c0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-nebula.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-norwood.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: drivers/media/rc/k=
+eymaps/rc-nec-terratec-cinergy-xs.mod.o: unsupported GNU_PROPERTY_TYPE (5) =
+type: 0xc0000000
+    warning: drivers/media/rc/keymaps/rc-npgtech.mod.o: unsupported GNU_PRO=
+PERTY_TYPE (5  LD [M]  drivers/media/rc/keymaps/rc-pinnacle-color.ko
+    warning: drivers/media/rc/keymaps/rc-msi-tvanywhere.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-odroid.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-pctv-sedna.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-pinnacle-col=
+or.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-pinnacle-gre=
+y.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-pinnacle-pct=
+v-hd.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-pixelview-00=
+2t.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-pixelview-mk=
+12.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-pixelview-ne=
+w.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-pixelview.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    warning: drivers/media/rc/keymaps/rc-powercolor-real-angel.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-purpletv.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-pv951.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-proteus-2309=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-rc6-mce.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-real-audio-2=
+20-32-keys.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-reddo.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    warning: drivers/media/rc/keymaps/rc-snapstream-firefly.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-streamzap.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-su3000.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-tango.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-tanix-tx3min=
+i.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-tanix-tx5max=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-tbs-nec.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-technisat-ts=
+35.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-technisat-us=
+b2.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-terratec-cin=
+ergy-c-pci.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-terratec-cin=
+ergy-s2-hd.mod.o: unsupported GNU_PROPERTY_TYPE (5  LD [M]  drivers/media/r=
+c/keymaps/rc-terratec-slim.ko
+    warning: drivers/media/rc/keymaps/rc-terratec-cinergy-xs.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-terratec-sli=
+m-2.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-tevii-nec.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-terratec-sli=
+m.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-tivo.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-total-media-=
+in-hand-02.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning:   LD [M]  drivers/media/rc/keymaps/rc-tw=
+inhan-dtv-cab-ci.ko
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-trekstor.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-tt-1500.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-twinhan-dtv-=
+cab-ci.mod.o  LD [M]  drivers/media/rc/keymaps/rc-videomate-s350.ko
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-twinhan1027.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-vega-s9x.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    warning: drivers/media/rc/keymaps/rc-videomate-m1f.mod.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-videomate-s3=
+50.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-videomate-tv=
+-pvr.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-wetek-hub.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-videostrong-=
+kii-pro.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-wetek-play2.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-winfast-usbi=
+i-deluxe.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-winfast.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: warning: drivers/m=
+edia/rc/keymaps/rc-x96max.mod.o: unsupported GNU_PROPERTY_TYPE (drivers/med=
+ia/rc/keymaps/rc-xbox-dvd.mod.o5: unsupported GNU_PROPERTY_TYPE () type: 0x=
+5c0000000) type: 0x
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/keymaps/rc-zx-irdec.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/meson-ir.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/rc-core.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/rc/sunxi-cir.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/tuners/mc44s803.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/tuners/mt20xx.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/tuners/tda18271.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/tuners/tda8290.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/tuners/tda827x.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/tuners/tda9887.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/tuners/tuner-simple.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/tuners/tuner-types.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/tuners/tuner-types.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/tuners/tuner-xc2028.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (  LD [M]  drivers/media/usb/uvc/uvcvideo.ko
+    aarch64-linux-gnu-ld: warning: drivers/media/tuners/xc4000.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/tuners/xc5000.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/usb/gspca/gspca_main.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/v4l2-core/v4l2-dv-timings.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/usb/uvc/uvcvideo.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/v4l2-core/v4l2-mem2mem.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/v4l2-core/v4l2-fwnode.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/media/v4l2-core/videodev.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mfd/exynos-lpass.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/mfd/wcd934x.mod.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/misc/eeprom/at24.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: warning: drivers/m=
+isc/pci_endpoint_test.mod.odrivers/misc/eeprom/at25.mod.o: unsupported GNU_=
+PROPERTY_TYPE (5: unsupported GNU_PROPERTY_TYPE () type: 0x5c0000000) type:=
+ 0x
+    aarch64-linux-gnu-ld: warning: drivers/misc/uacce/uacce.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/can/can-dev.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/can/rcar/rcar_canfd.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/can/flexcan.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/atheros/atl1c/atl1c=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/dsa/ocelot/mscc_felix.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/can/rcar/rcar_can.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/broadcom/bnx2x/bnx2=
+x.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/broadcom/genet/gene=
+t.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/mellanox/mlx4/mlx4_=
+core.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/mellanox/mlx4/mlx4_=
+en.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/mscc/mscc_ocelot_sw=
+itch_lib.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/qualcomm/emac/qcom-=
+emac.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/mellanox/mlx5/core/=
+mlx5_core.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/qualcomm/rmnet/rmne=
+t.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac/dwma=
+c-generic.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning:   LD [M]  drivers/net/ethernet/stmicro/s=
+tmmac/dwmac-meson.ko
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac/dwma=
+c-meson.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac/dwma=
+c-meson8b.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac/dwma=
+c-ipq806x.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac/dwma=
+c-altr-socfpga.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac/dwma=
+c-qcom-ethqos.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac/dwma=
+c-rk.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac/dwma=
+c-sun8i.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac/dwma=
+c-sunxi.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac/stmm=
+ac-platform.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ethernet/stmicro/stmmac/stmm=
+ac.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ipa/ipa.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ipa/ipa.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ipa/ipa.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/ipa/ipa.mod.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/macvlan.mod.o: unsupported G=
+NU_PROPERTY_TYPE (aarch64-linux-gnu-ld: warning: drivers/net/macvtap.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/phy/bcm-phy-lib.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/mdio.mod.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/phy/broadcom.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/phy/bcm7xxx.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/phy/marvell.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/phy/marvell10g.mod.o  LD [M]=
+  drivers/net/phy/mdio-mux-meson-g12a.ko
+    aarch64-linux-gnu-ld: warning: drivers/net/phy/mdio-mux-meson-g12a.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/phy/mdio-bcm-unimac.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/phy/mdio-xpcs.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/phy/meson-gxl.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/phy/microchip.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/phy/realtek.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/tap.mod.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/usb/ax88179_178a.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/usb/asix.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/usb/cdc_ncm.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/usb/cdc_subset.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/usb/cdc_ether.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/usb/dm9601.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/usb/mcs7830.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000aarch64-linux-gnu-ld:
+    warning: drivers/net/usb/lan78xx.mod.o: unsupported GNU_PROPERTY_TYPE (=
+5) type: 0xc0000000
+    warning: drivers/net/usb/net1080.mod.o: unsupported GNU_PROPERTY_TYPE (=
+5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/usb/pegasus.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/usb/plusb.mod.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/usb/r8152.mod.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/usb/smsc75xx.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/usb/smsc95xx.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/usb/rtl8150.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/usb/sr9800.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/usb/usbnet.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/usb/zaurus.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/wireless/ath/ath10k/ath10k_c=
+ore.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/wireless/ath/ath.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/wireless/ath/ath10k/ath10k_p=
+ci.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/wireless/broadcom/brcm80211/=
+brcmfmac/brcmfmac.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/veth.mod.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/wireless/ath/ath10k/ath10k_s=
+noc.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/wireless/ath/ath10k/ath10k_s=
+noc.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/wireless/marvell/mwifiex/mwi=
+fiex.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/wireless/broadcom/brcm80211/=
+brcmutil/brcmutil.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/wireless/marvell/mwifiex/mwi=
+fiex_pcie.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/wireless/ti/wl18xx/wl18xx.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/wireless/ti/wlcore/wlcore.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/nvmem/nvmem_meson_efuse.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/nvme/host/nvme-core.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/nvme/host/nvme.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/net/wireless/ti/wlcore/wlcore_sd=
+io.mod.oaarch64-linux-gnu-ld: : unsupported GNU_PROPERTY_TYPE (warning: 5dr=
+ivers/pci/controller/dwc/pcie-tegra194.mod.o) type: 0x: unsupported GNU_PRO=
+PERTY_TYPE (c00000005) type: 0x
+    aarch64-linux-gnu-ld: warning: drivers/pci/controller/pcie-rockchip-hos=
+t.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/pci/controller/pcie-brcmstb.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/pci/endpoint/functions/pci-epf-t=
+est.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/perf/fsl_imx8_ddr_perf.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/perf/arm_smmuv3_pmu.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/perf/thunderx2_pmu.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/phy/allwinner/phy-sun6i-mipi-dph=
+y.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/phy/qualcomm/phy-qcom-qusb2.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/phy/renesas/phy-rcar-gen3-usb3.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/phy/qualcomm/phy-qcom-qmp.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/phy/tegra/phy-tegra194-p2u.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/platform/chrome/cros_ec_typec.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/phy/rockchip/phy-rockchip-inno-h=
+dmi.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/platform/chrome/cros_ec_chardev.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/pwm/pwm-bcm2835.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/phy/rockchip/phy-rockchip-pcie.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/power/supply/sbs-battery.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/pwm/pwm-rcar.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/pwm/pwm-meson.mod.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: drivers/pwm/pwm-cr=
+os-ec.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    warning: drivers/pwm/pwm-sun4i.mod.o: unsupported GNU_PROPERTY_TYPE (5)=
+ type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/pwm/pwm-tegra.mod.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/regulator/vctrl-regulator.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/remoteproc/qcom_common.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    warning: drivers/remoteproc/qcom_pil_info.mod.o: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/remoteproc/qcom_q6v5.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/remoteproc/qcom_q6v5_mss.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/remoteproc/qcom_q6v5_pas.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/remoteproc/qcom_sysmon.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/reset/reset-meson-audio-arb.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/reset/reset-qcom-pdc.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/rtc/rtc-ds1307.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: aarch64-linux-gnu-ld: warning: drivers/r=
+pmsg/qcom_glink_smem.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000=
+000
+    aarch64-linux-gnu-ld: warning: drivers/rtc/rtc-meson-vrtc.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/rtc/rtc-pcf2127.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/rtc/rtc-pcf85363.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/rtc/rtc-rk808.mod.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/rtc/rtc-pm8xxx.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/rtc/rtc-rx8581.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/rtc/rtc-rv8803.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (  LD [M]  drivers/scsi/ufs/ufs_qcom.ko
+    aarch64-linux-gnu-ld: warning: drivers/rtc/rtc-snvs.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/scsi/mpt3sas/mpt3sas.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/scsi/raid_class.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/scsi/ufs/ufs_qcom.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/slimbus/slim-qcom-ctrl.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/slimbus/slim-qcom-ngd-ctrl.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/amlogic/meson-canvas.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/qcom/apr.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/qcom/mdt_loader.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/slimbus/slimbus.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/qcom/pdr_interface.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soc/qcom/qmi_helpers.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: aarch64-linux-gnu-ld: drivers/soc/qcom/s=
+ocinfo.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    warning: drivers/soc/qcom/rmtfs_mem.mod.o: unsupported GNU_PROPERTY_TYP=
+E (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soundwire/soundwire-bus.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/soundwire/soundwire-qcom.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/spi/spi-bcm2835aux.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/spi/spi-bcm2835.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/spi/spi-bitbang.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/spi/spi-geni-qcom.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/spi/spi-imx.mod.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/spi/spi-meson-spicc.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/spi/spi-meson-spifc.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/spi/spi-qcom-qspi.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/spi/spi-sh-msiof.mod.o: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/spi/spidev.mod.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/thermal/broadcom/bcm2711_thermal=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/thermal/broadcom/bcm2835_thermal=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/thermal/broadcom/brcmstb_thermal=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/thermal/imx8mm_thermal.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/thermal/imx_sc_thermal.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/thermal/qoriq_thermal.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/thermal/qcom/qcom-spmi-temp-alar=
+m.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/thermal/rockchip_thermal.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/thermal/tegra/tegra-bpmp-thermal=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/u_ether.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/u_serial.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_acm.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_ecm.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_ecm_su=
+bset.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_eem.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_fs.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_mass_s=
+torage.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_obex.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_ncm.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_rndis.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/function/usb_f_serial=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/libcomposite.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/udc/tegra-xudc.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/gadget/udc/renesas_usb3.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/renesas_usbhs/renesas_usbhs.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/typec/tcpm/fusb302.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/typec/tcpm/tcpm.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/typec/hd3ss3220.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/video/backlight/lp855x_bl.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/usb/typec/typec.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/video/backlight/pwm_bl.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/watchdog/imx_sc_wdt.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/watchdog/meson_gxbb_wdt.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    warning: drivers/watchdog/meson_wdt.mod.o: unsupported GNU_PROPERTY_TYP=
+E (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/watchdog/qcom-wdt.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: drivers/watchdog/sunxi_wdt.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/btrfs/btrfs.mod.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/fuse/fuse.mod.o: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/fuse/cuse.mod.o: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/nfs/blocklayout/blocklayoutdriver.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/nfs/flexfilelayout/nfs_layout_flexfil=
+es.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: fs/overlayfs/overlay.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: aarch64-linux-gnu-ld: warning: lib/crypt=
+o/libarc4.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/crc-ccitt.mod.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xaarch64-linux-gnu-ld: warning: lib/crypto/libdes.mod=
+.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/libcrc32c.mod.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/raid6/raid6_pq.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/raid6/raid6_pq.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/raid6/raid6_pq.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/raid6/raid6_pq.mod.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: lib/zstd/zstd_compress.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/802/garp.mod.o: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/802/p8022.mod.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/802/psnap.mod.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/802/mrp.mod.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/802/stp.mod.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/8021q/8021q.mod.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/bridge/bridge.mod.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/bluetooth/bluetooth.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/bluetooth/hidp/hidp.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/can/can-bcm.mod.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/can/can-gw.mod.o: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/can/can.mod.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/dsa/dsa_core.mod.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv4/ip_tunnel.mod.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/dsa/tag_ocelot.mod.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/can/can-raw.mod.o: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv4/netfilter/ip_tables.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv4/netfilter/iptable_filter.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv4/netfilter/iptable_mangle.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv4/netfilter/nf_defrag_ipv4.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv4/netfilter/nf_log_ipv4.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv4/netfilter/iptable_nat.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv4/tunnel4.mod.o: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv4/netfilter/ipt_REJECT.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv4/netfilter/nf_reject_ipv4.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv6/netfilter/ip6_tables.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv6/ipv6.mod.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv6/netfilter/ip6t_REJECT.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv6/netfilter/ip6table_filter.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv6/netfilter/ip6table_mangle.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv6/netfilter/ip6table_nat.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv6/netfilter/nf_defrag_ipv6.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv6/netfilter/nf_log_ipv6.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv6/sit.mod.o: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/llc/llc.mod.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/mac80211/mac80211.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/netfilter/nf_log_common.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/ipv6/netfilter/nf_reject_ipv6.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: warning: net/mac80=
+211/mac80211.mod.onet/netfilter/nf_nat.mod.o: unsupported GNU_PROPERTY_TYPE=
+ (: unsupported GNU_PROPERTY_TYPE (5) type: 0x5c0000000) type: 0x
+    aarch64-linux-gnu-ld: warning: net/netfilter/xt_LOG.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/netfilter/xt_CHECKSUM.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/netfilter/xt_MASQUERADE.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/netfilter/x_tables.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/netfilter/nf_conntrack.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/netfilter/xt_conntrack.mod.o: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/netfilter/xt_nat.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/netfilter/xt_addrtype.mod.o: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/netfilter/xt_tcpudp.mod.o: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/qrtr/qrtr-smd.mod.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/qrtr/ns.mod.o: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/qrtr/qrtr-tun.mod.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000  LD [M]  net/sched/act_gate.ko
+    aarch64-linux-gnu-ld: warning: net/qrtr/qrtr.mod.o: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/rfkill/rfkill.mod.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    warning: net/sched/act_gact.mod.o: unsupported GNU_PROPERTY_TYPE (  LD =
+[M]  net/sched/cls_basic.ko
+    aarch64-linux-gnu-ld: warning: net/sched/act_gate.mod.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/sched/act_mirred.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/sched/cls_basic.mod.o: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/sched/cls_flower.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/sched/sch_cbs.mod.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/sched/sch_ingress.mod.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/sched/sch_etf.mod.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/sched/sch_mqprio.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/sched/sch_taprio.mod.o: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/wireless/cfg80211.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: net/wireless/cfg80211.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/hda/snd-hda-core.o: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000  LD [M]  sound/soc/bcm/snd-soc-bcm2835=
+-i2s.ko
+    aarch64-linux-gnu-ld: warning: net/wireless/cfg80211.mod.o: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/hda/snd-hda-core.mod.o: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/pci/hda/snd-hda-codec-hdmi.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/pci/hda/snd-hda-codec.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (  LD [M]  sound/soc/codecs/snd-soc-dmic.ko
+    aarch64-linux-gnu-ld: warning: sound/pci/hda/snd-hda-tegra.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-da7219.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-dmic.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: sound/soc/codecs/s=
+nd-soc-ak4613.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    warning: sound/soc/codecs/snd-soc-es7134.mod.o: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/bcm/snd-soc-bcm2835-i2s.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-max98357a.mod.o=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-hdmi-codec.mod.=
+oaarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-es7241.mod.o: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-pcm3168a.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-pcm3168a-i2c.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-rl6231.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-rt5514-spi.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-rt5514.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-simple-amplifie=
+r.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-rt5645.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-spdif-rx.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-spdif-tx.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-wcd934x.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-tas571x.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-wsa881x.mod.o: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/generic/snd-soc-audio-graph-ca=
+rd.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/fsl/snd-soc-fsl-sai.mod.o: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/codecs/snd-soc-wm8904.mod.o: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/generic/snd-soc-simple-card-ut=
+ils.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/generic/snd-soc-simple-card.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-aiu.mod.o:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-fifo.m=
+od.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    warning: sound/soc/meson/snd-soc-meson-axg-frddr.mod.o: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-pdm.mo=
+d.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-sound-=
+card.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-spdifi=
+n.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-spdifo=
+ut.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-tdmin.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-tdmout=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-tdm-in=
+terface.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000  LD [M]  =
+sound/soc/meson/snd-soc-meson-axg-toddr.ko
+    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-tdm-fo=
+rmatter.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-axg-toddr.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-g12a-toaco=
+dec.mod.o: unsupported GNU_PROPERTY_TYPE (5aarch64-linux-gnu-ld: ) type: 0x=
+c0000000warning: sound/soc/meson/snd-soc-meson-card-utils.mod.o
+    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-codec-glue=
+.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-g12a-tohdm=
+itx.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/meson/snd-soc-meson-t9015.mod.=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/rockchip/snd-soc-rk3399-gru-so=
+und.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/rockchip/snd-soc-rockchip-pcm.=
+mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: aarch64-linux-gnu-ld: warning: warning: sound/soc=
+/rockchip/snd-soc-rockchip-i2s.mod.osound/soc/meson/snd-soc-meson-gx-sound-=
+card.mod.o: unsupported GNU_PROPERTY_TYPE (: unsupported GNU_PROPERTY_TYPE =
+(55) type: 0x) type: 0xc0000000c0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/rockchip/snd-soc-rockchip-spdi=
+f.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/rockchip/snd-soc-rockchip-rt56=
+45.mod.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/sh/rcar/snd-soc-rcar.mod.o: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-ld: warning: sound/soc/sunxi/sun4i-spdif.mod.o: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+size-cells (1) differs from / (2)
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/arch/arm64/crypto/aes-neon-blk.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/arch/arm64/crypto/aes-neon-bs.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/arch/arm64/crypto/chacha-neon.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/arch/arm64/crypto/crct10dif-ce.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/arch/arm64/crypto/sha3-ce.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/arch/arm64/crypto/sha512-arm64.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/arch/arm64/crypto/sha512-ce.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/arch/arm64/crypto/sm3-ce.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/arch/arm64/lib/xor-neon.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/af_alg.ko: unsupported GNU_PROPERTY_TYPE=
+ (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/algif_rng.ko: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/authenc.ko: unsupported GNU_PROPERTY_TYP=
+E (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/authencesn.ko: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/blake2b_generic.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/cbc.ko: unsupported GNU_PROPERTY_TYPE (5=
+) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/ccm.ko: unsupported GNU_PROPERTY_TYPE (5=
+) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/cmac.ko: unsupported GNU_PROPERTY_TYPE (=
+5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/crypto_engine.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/ctr.ko: unsupported GNU_PROPERTY_TYPE (5=
+) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/des_generic.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/dh_generic.ko: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/ecb.ko: unsupported GNU_PROPERTY_TYPE (5=
+) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/ecc.ko: unsupported GNU_PROPERTY_TYPE (5=
+) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/ecdh_generic.ko: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/gcm.ko: unsupported GNU_PROPERTY_TYPE (5=
+) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/ghash-generic.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/md5.ko: unsupported GNU_PROPERTY_TYPE (5=
+) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/sha3_generic.ko: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/sha512_generic.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/sm3_generic.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/sm4_generic.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/xor.ko: unsupported GNU_PROPERTY_TYPE (5=
+) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/xts.ko: unsupported GNU_PROPERTY_TYPE (5=
+) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/crypto/xxhash_generic.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/base/regmap/regmap-sdw.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/base/regmap/regmap-slimbus.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/block/nbd.ko: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/bluetooth/btbcm.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/bluetooth/btintel.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/bluetooth/btqca.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/bluetooth/btrtl.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/bluetooth/btusb.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/bluetooth/hci_uart.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/char/hw_random/bcm2835-rng.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/char/hw_random/cavium-rng-vf.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/char/hw_random/cavium-rng.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/char/hw_random/exynos-trng.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/char/hw_random/hisi-rng.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/char/hw_random/hisi-trng-v2.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/char/hw_random/iproc-rng200.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/char/hw_random/meson-rng.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/char/hw_random/mtk-rng.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/char/hw_random/omap-rng.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/char/hw_random/optee-rng.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/char/hw_random/rng-core.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/char/hw_random/xgene-rng.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/char/ipmi/ipmi_devintf.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/char/ipmi/ipmi_msghandler.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/char/ipmi/ipmi_si.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/clk/bcm/clk-raspberrypi.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/clk/meson/axg-audio.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/clk/meson/clk-phase.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/clk/meson/sclk-div.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/clk/qcom/camcc-sdm845.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/cpufreq/cppc_cpufreq.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/cpufreq/cpufreq_conservative.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/cpufreq/cpufreq_powersave.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/cpufreq/imx-cpufreq-dt.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/cpufreq/raspberrypi-cpufreq.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/cpufreq/sun50i-cpufreq-nvmem.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/crypto/allwinner/sun8i-ce/sun8i-ce.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/crypto/amlogic/amlogic-gxl-crypto.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/crypto/bcm/bcm_crypto_spu.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/crypto/caam/caam.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/crypto/caam/caam_jr.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/crypto/caam/caamalg_desc.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/crypto/caam/caamhash_desc.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/crypto/caam/dpaa2_caam.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/crypto/caam/error.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/crypto/ccree/ccree.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/crypto/hisilicon/hisi_qm.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/crypto/hisilicon/hpre/hisi_hpre.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/crypto/hisilicon/sec2/hisi_sec2.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/crypto/hisilicon/zip/hisi_zip.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/crypto/qcom-rng.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/dma/bcm-sba-raid.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/dma/sh/usb-dmac.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/dma/sun6i-dma.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/extcon/extcon-ptn5150.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/firmware/stratix10-rsu.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/fpga/altera-freeze-bridge.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/fpga/fpga-bridge.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/fpga/fpga-region.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/fpga/of-fpga-region.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/fpga/stratix10-soc.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpio/gpio-altera.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpio/gpio-bd9571mwv.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpio/gpio-wcd934x.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/arm/mali-dp.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/adv7511/adv7511.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/analogix/analogix_dp.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/display-connector.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/sii902x.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/simple-bridge.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/synopsys/dw-hdmi-ahb-aud=
+io.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/synopsys/dw-hdmi-cec.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/synopsys/dw-hdmi-i2s-aud=
+io.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/synopsys/dw-hdmi.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/thc63lvd1024.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/bridge/ti-sn65dsi86.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/drm.ko: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/drm.ko: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/drm_kms_helper.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/drm_ttm_helper.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/drm_vram_helper.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/etnaviv/etnaviv.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/exynos/exynosdrm.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/hisilicon/hibmc/hibmc-drm.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/hisilicon/kirin/kirin-drm.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/i2c/ch7006.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/i2c/sil164.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/i2c/tda998x.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/lima/lima.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/lima/lima.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/meson/meson-drm.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/meson/meson_dw_hdmi.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/msm/msm.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/msm/msm.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/msm/msm.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/nouveau/nouveau.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/nouveau/nouveau.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/nouveau/nouveau.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/nouveau/nouveau.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/nouveau/nouveau.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/nouveau/nouveau.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/nouveau/nouveau.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/nouveau/nouveau.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/nouveau/nouveau.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/nouveau/nouveau.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/panel/panel-lvds.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/panel/panel-simple.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/panel/panel-truly-nt35597.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/panfrost/panfrost.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/pl111/pl111_drm.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/rcar-du/rcar-du-drm.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/rcar-du/rcar_cmm.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/rcar-du/rcar_dw_hdmi.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/rcar-du/rcar_lvds.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/rockchip/rockchipdrm.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/scheduler/gpu-sched.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun4i-backend.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun4i-drm-hdmi.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun4i-drm.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun4i-frontend.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun4i-tcon.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun4i_tv.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun6i_drc.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun8i-drm-hdmi.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun8i-mixer.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/sun4i/sun8i_tcon_top.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/tegra/tegra-drm.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/tegra/tegra-drm.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/ttm/ttm.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/vc4/vc4.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/drm/vc4/vc4.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/gpu/host1x/host1x.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/hid/i2c-hid/i2c-hid.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/hwmon/ina2xx.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/hwmon/ina3221.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/hwmon/lm90.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/hwmon/pwm-fan.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/hwmon/raspberrypi-hwmon.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/i2c/busses/i2c-bcm2835.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/i2c/busses/i2c-gpio.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/i2c/busses/i2c-qcom-cci.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/i2c/busses/i2c-qcom-geni.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/iio/adc/max9611.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/iio/adc/qcom-spmi-adc5.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/iio/adc/qcom-vadc-common.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/iio/adc/rockchip_saradc.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/iio/buffer/industrialio-triggered-buffe=
+r.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/iio/buffer/kfifo_buf.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/iio/common/cros_ec_sensors/cros_ec_sens=
+ors.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/iio/common/cros_ec_sensors/cros_ec_sens=
+ors_core.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/iio/light/cros_ec_light_prox.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/iio/light/isl29018.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/iio/pressure/cros_ec_baro.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/iio/pressure/mpl3115.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/input/keyboard/adc-keys.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/input/keyboard/imx_sc_key.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/input/keyboard/snvs_pwrkey.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/input/misc/pm8xxx-vibrator.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/input/touchscreen/atmel_mxt_ts.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/mailbox/bcm-flexrm-mailbox.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/md/dm-log.ko: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/md/dm-mirror.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/md/dm-mod.ko: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/md/dm-region-hash.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/md/dm-zero.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/md/md-mod.ko: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/cec/core/cec.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/common/videobuf2/videobuf2-common=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/common/videobuf2/videobuf2-dma-co=
+ntig.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/common/videobuf2/videobuf2-dma-sg=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/common/videobuf2/videobuf2-memops=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/common/videobuf2/videobuf2-v4l2.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/common/videobuf2/videobuf2-vmallo=
+c.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/dvb-core/dvb-core.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/i2c/imx219.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/i2c/ir-kbd-i2c.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/i2c/ov5645.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/mc/mc.ko: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/platform/exynos-gsc/exynos-gsc.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/platform/qcom/camss/qcom-camss.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/platform/rcar-fcp.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/platform/rcar-vin/rcar-csi2.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/platform/rcar-vin/rcar-vin.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/platform/rcar_drif.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/platform/rcar_fdp1.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/platform/s5p-jpeg/s5p-jpeg.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/platform/s5p-mfc/s5p-mfc.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/platform/sunxi/sun6i-csi/sun6i-cs=
+i.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/platform/vsp1/vsp1.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-adstech-dvb-t-pci.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-alink-dtu-m.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-anysee.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-apac-viewcomp.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-astrometa-t2hybrid.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-asus-pc39.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-asus-ps3-100.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-ati-tv-wonder-hd-60=
+0.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-ati-x10.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-avermedia-a16d.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-avermedia-cardbus.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-avermedia-dvbt.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-avermedia-m135a.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-avermedia-m733a-rm-=
+k6.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-avermedia-rm-ks.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-avermedia.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-avertv-303.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-azurewave-ad-tu700.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-beelink-gs1.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-behold-columbus.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-behold.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-budget-ci-old.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-cec.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-cinergy-1400.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-cinergy.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-d680-dmb.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-delock-61959.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-dib0700-nec.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-dib0700-rc5.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-digitalnow-tinytwin=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-digittrade.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-dm1105-nec.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-dntv-live-dvb-t.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-dntv-live-dvbt-pro.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-dtt200u.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-dvbsky.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-dvico-mce.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-dvico-portable.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-em-terratec.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-encore-enltv-fm53.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-encore-enltv.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-encore-enltv2.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-evga-indtube.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-eztv.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-flydvb.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-flyvideo.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-fusionhdtv-mce.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-gadmei-rm008z.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-geekbox.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-genius-tvgo-a11mce.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-gotview7135.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-hauppauge.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-hisi-poplar.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-hisi-tv-demo.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-imon-mce.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-imon-pad.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-imon-rsc.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-iodata-bctv7e.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-it913x-v1.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-it913x-v2.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-kaiomy.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-khadas.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-kworld-315u.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-kworld-pc150u.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-kworld-plus-tv-anal=
+og.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-leadtek-y04g0051.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-lme2510.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-manli.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-medion-x10-digitain=
+er.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-medion-x10-or2x.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-medion-x10.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-msi-digivox-ii.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-msi-digivox-iii.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-msi-tvanywhere-plus=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-msi-tvanywhere.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-nebula.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-nec-terratec-cinerg=
+y-xs.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-norwood.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-npgtech.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-odroid.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-pctv-sedna.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-pinnacle-color.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-pinnacle-grey.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-pinnacle-pctv-hd.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-pixelview-002t.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-pixelview-mk12.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-pixelview-new.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-pixelview.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-powercolor-real-ang=
+el.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-proteus-2309.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-purpletv.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-pv951.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-rc6-mce.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-real-audio-220-32-k=
+eys.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-reddo.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-snapstream-firefly.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-streamzap.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-su3000.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-tango.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-tanix-tx3mini.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-tanix-tx5max.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-tbs-nec.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-technisat-ts35.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-technisat-usb2.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-terratec-cinergy-c-=
+pci.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-terratec-cinergy-s2=
+-hd.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-terratec-cinergy-xs=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-terratec-slim-2.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-terratec-slim.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-tevii-nec.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-tivo.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-total-media-in-hand=
+-02.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-total-media-in-hand=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-trekstor.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-tt-1500.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-twinhan-dtv-cab-ci.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-twinhan1027.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-vega-s9x.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-videomate-m1f.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-videomate-s350.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-videomate-tv-pvr.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-videostrong-kii-pro=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-wetek-hub.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-wetek-play2.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-winfast-usbii-delux=
+e.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-winfast.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-x96max.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-xbox-dvd.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/keymaps/rc-zx-irdec.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/meson-ir.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/rc-core.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/rc/sunxi-cir.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/tuners/mc44s803.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/tuners/mt20xx.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/tuners/tda18271.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/tuners/tda827x.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/tuners/tda8290.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/tuners/tda9887.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/tuners/tuner-simple.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/tuners/tuner-types.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/tuners/tuner-types.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/tuners/tuner-xc2028.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/tuners/xc4000.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/tuners/xc5000.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/usb/gspca/gspca_main.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/usb/uvc/uvcvideo.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/v4l2-core/v4l2-dv-timings.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/v4l2-core/v4l2-fwnode.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/v4l2-core/v4l2-mem2mem.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/media/v4l2-core/videodev.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/mfd/exynos-lpass.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/mfd/wcd934x.ko: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/misc/eeprom/at24.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/misc/eeprom/at25.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/misc/pci_endpoint_test.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/misc/uacce/uacce.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/can/can-dev.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/can/flexcan.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/can/rcar/rcar_can.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/can/rcar/rcar_canfd.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/dsa/ocelot/mscc_felix.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/atheros/atl1c/atl1c.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/broadcom/bnx2x/bnx2x.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/broadcom/genet/genet.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/mellanox/mlx4/mlx4_core.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/mellanox/mlx4/mlx4_en.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/mellanox/mlx5/core/mlx5_co=
+re.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/mscc/mscc_ocelot_switch_li=
+b.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/qualcomm/emac/qcom-emac.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/qualcomm/rmnet/rmnet.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-altr-=
+socfpga.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-gener=
+ic.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.k=
+o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-ipq80=
+6x.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-meson=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-meson=
+8b.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-=
+ethqos.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-sunxi=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/stmmac-plat=
+form.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ethernet/stmicro/stmmac/stmmac.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ipa/ipa.ko: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ipa/ipa.ko: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ipa/ipa.ko: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/ipa/ipa.ko: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/macvlan.ko: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/macvtap.ko: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/mdio.ko: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/phy/bcm-phy-lib.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/phy/bcm7xxx.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/phy/broadcom.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/phy/marvell.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/phy/marvell10g.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/phy/mdio-bcm-unimac.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/phy/mdio-mux-meson-g12a.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/phy/mdio-xpcs.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/phy/meson-gxl.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/phy/microchip.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/phy/realtek.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/tap.ko: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/usb/asix.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/usb/ax88179_178a.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/usb/cdc_ether.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/usb/cdc_ncm.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/usb/cdc_subset.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/usb/dm9601.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/usb/lan78xx.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/usb/mcs7830.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/usb/net1080.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/usb/pegasus.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/usb/plusb.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/usb/r8152.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/usb/rtl8150.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/usb/smsc75xx.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/usb/smsc95xx.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/usb/sr9800.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/usb/usbnet.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/usb/zaurus.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/veth.ko: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/wireless/ath/ath.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/wireless/ath/ath10k/ath10k_core.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/wireless/ath/ath10k/ath10k_pci.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/wireless/ath/ath10k/ath10k_snoc.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/wireless/ath/ath10k/ath10k_snoc.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/wireless/broadcom/brcm80211/brcmfma=
+c/brcmfmac.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/wireless/broadcom/brcm80211/brcmuti=
+l/brcmutil.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/wireless/marvell/mwifiex/mwifiex.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/wireless/marvell/mwifiex/mwifiex_pc=
+ie.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/wireless/ti/wl18xx/wl18xx.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/wireless/ti/wlcore/wlcore.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/net/wireless/ti/wlcore/wlcore_sdio.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/nvme/host/nvme-core.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/nvme/host/nvme.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/nvmem/nvmem_meson_efuse.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/pci/controller/dwc/pcie-tegra194.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/pci/controller/pcie-brcmstb.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/pci/controller/pcie-rockchip-host.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/pci/endpoint/functions/pci-epf-test.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/perf/arm_smmuv3_pmu.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/perf/fsl_imx8_ddr_perf.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/perf/thunderx2_pmu.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/phy/allwinner/phy-sun6i-mipi-dphy.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/phy/qualcomm/phy-qcom-qmp.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/phy/qualcomm/phy-qcom-qusb2.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/phy/renesas/phy-rcar-gen3-usb3.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/phy/rockchip/phy-rockchip-inno-hdmi.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/phy/rockchip/phy-rockchip-pcie.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/phy/tegra/phy-tegra194-p2u.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/platform/chrome/cros_ec_chardev.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/platform/chrome/cros_ec_typec.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/power/supply/sbs-battery.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/pwm/pwm-bcm2835.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/pwm/pwm-cros-ec.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/pwm/pwm-meson.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/pwm/pwm-rcar.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/pwm/pwm-sun4i.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/pwm/pwm-tegra.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/regulator/vctrl-regulator.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/remoteproc/qcom_common.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/remoteproc/qcom_pil_info.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/remoteproc/qcom_q6v5.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/remoteproc/qcom_q6v5_mss.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/remoteproc/qcom_q6v5_pas.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/remoteproc/qcom_sysmon.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/reset/reset-meson-audio-arb.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/reset/reset-qcom-pdc.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/rpmsg/qcom_glink_smem.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/rtc/rtc-ds1307.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/rtc/rtc-imx-sc.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/rtc/rtc-meson-vrtc.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/rtc/rtc-pcf2127.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/rtc/rtc-pcf85363.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/rtc/rtc-pm8xxx.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/rtc/rtc-rk808.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/rtc/rtc-rv8803.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/rtc/rtc-rx8581.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/rtc/rtc-snvs.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/scsi/mpt3sas/mpt3sas.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/scsi/raid_class.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/scsi/ufs/ufs_qcom.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/slimbus/slim-qcom-ctrl.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/slimbus/slim-qcom-ngd-ctrl.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/slimbus/slimbus.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/soc/amlogic/meson-canvas.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/soc/qcom/apr.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/soc/qcom/mdt_loader.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/soc/qcom/pdr_interface.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/soc/qcom/qmi_helpers.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/soc/qcom/rmtfs_mem.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/soc/qcom/socinfo.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/soundwire/soundwire-bus.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/soundwire/soundwire-qcom.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/spi/spi-bcm2835.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/spi/spi-bcm2835aux.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/spi/spi-bitbang.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/spi/spi-geni-qcom.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/spi/spi-imx.ko: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/spi/spi-meson-spicc.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/spi/spi-meson-spifc.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/spi/spi-qcom-qspi.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/spi/spi-sh-msiof.ko: unsupported GNU_PR=
+OPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/spi/spidev.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/thermal/broadcom/bcm2711_thermal.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/thermal/broadcom/bcm2835_thermal.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/thermal/broadcom/brcmstb_thermal.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/thermal/imx8mm_thermal.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/thermal/imx_sc_thermal.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/thermal/qcom/qcom-spmi-temp-alarm.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/thermal/qoriq_thermal.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/thermal/rockchip_thermal.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/thermal/tegra/tegra-bpmp-thermal.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/u_ether.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/u_serial.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_acm.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_ecm.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_ecm_subset.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_eem.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_fs.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_mass_storage.=
+ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_ncm.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_obex.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_rndis.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/gadget/function/usb_f_serial.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/gadget/libcomposite.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/gadget/udc/renesas_usb3.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/gadget/udc/tegra-xudc.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/renesas_usbhs/renesas_usbhs.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/typec/hd3ss3220.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/typec/tcpm/fusb302.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/typec/tcpm/tcpm.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/usb/typec/typec.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/video/backlight/lp855x_bl.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/video/backlight/pwm_bl.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/watchdog/imx_sc_wdt.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/watchdog/meson_gxbb_wdt.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/watchdog/meson_wdt.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/watchdog/qcom-wdt.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/drivers/watchdog/sunxi_wdt.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/fs/btrfs/btrfs.ko: unsupported GNU_PROPERTY_TYP=
+E (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/fs/fuse/cuse.ko: unsupported GNU_PROPERTY_TYPE =
+(5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/fs/fuse/fuse.ko: unsupported GNU_PROPERTY_TYPE =
+(5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/fs/nfs/blocklayout/blocklayoutdriver.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/fs/nfs/flexfilelayout/nfs_layout_flexfiles.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/fs/overlayfs/overlay.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/lib/crc-ccitt.ko: unsupported GNU_PROPERTY_TYPE=
+ (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/lib/crypto/libarc4.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/lib/crypto/libchacha.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/lib/crypto/libdes.ko: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/lib/libcrc32c.ko: unsupported GNU_PROPERTY_TYPE=
+ (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/lib/raid6/raid6_pq.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/lib/raid6/raid6_pq.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/lib/raid6/raid6_pq.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/lib/raid6/raid6_pq.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/lib/zstd/zstd_compress.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/802/garp.ko: unsupported GNU_PROPERTY_TYPE =
+(5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/802/mrp.ko: unsupported GNU_PROPERTY_TYPE (=
+5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/802/p8022.ko: unsupported GNU_PROPERTY_TYPE=
+ (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/802/psnap.ko: unsupported GNU_PROPERTY_TYPE=
+ (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/802/stp.ko: unsupported GNU_PROPERTY_TYPE (=
+5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/8021q/8021q.ko: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/bluetooth/bluetooth.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/bluetooth/hidp/hidp.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/bridge/bridge.ko: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/can/can-bcm.ko: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/can/can-gw.ko: unsupported GNU_PROPERTY_TYP=
+E (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/can/can-raw.ko: unsupported GNU_PROPERTY_TY=
+PE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/can/can.ko: unsupported GNU_PROPERTY_TYPE (=
+5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/dsa/dsa_core.ko: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/dsa/tag_ocelot.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv4/ip_tunnel.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv4/netfilter/ip_tables.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv4/netfilter/ipt_REJECT.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv4/netfilter/iptable_filter.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv4/netfilter/iptable_mangle.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv4/netfilter/iptable_nat.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv4/netfilter/nf_defrag_ipv4.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv4/netfilter/nf_log_ipv4.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv4/netfilter/nf_reject_ipv4.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv4/tunnel4.ko: unsupported GNU_PROPERTY_T=
+YPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv6/ipv6.ko: unsupported GNU_PROPERTY_TYPE=
+ (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv6/netfilter/ip6_tables.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv6/netfilter/ip6t_REJECT.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv6/netfilter/ip6table_filter.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv6/netfilter/ip6table_mangle.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv6/netfilter/ip6table_nat.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv6/netfilter/nf_defrag_ipv6.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv6/netfilter/nf_log_ipv6.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv6/netfilter/nf_reject_ipv6.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/ipv6/sit.ko: unsupported GNU_PROPERTY_TYPE =
+(5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/llc/llc.ko: unsupported GNU_PROPERTY_TYPE (=
+5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/mac80211/mac80211.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/mac80211/mac80211.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/netfilter/nf_conntrack.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/netfilter/nf_log_common.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/netfilter/nf_nat.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/netfilter/x_tables.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/netfilter/xt_CHECKSUM.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/netfilter/xt_LOG.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/netfilter/xt_MASQUERADE.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/netfilter/xt_addrtype.ko: unsupported GNU_P=
+ROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/netfilter/xt_conntrack.ko: unsupported GNU_=
+PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/netfilter/xt_nat.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/netfilter/xt_tcpudp.ko: unsupported GNU_PRO=
+PERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/qrtr/ns.ko: unsupported GNU_PROPERTY_TYPE (=
+5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/qrtr/qrtr-smd.ko: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/qrtr/qrtr-tun.ko: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/qrtr/qrtr.ko: unsupported GNU_PROPERTY_TYPE=
+ (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/rfkill/rfkill.ko: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/sched/act_gact.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/sched/act_gate.ko: unsupported GNU_PROPERTY=
+_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/sched/act_mirred.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/sched/cls_basic.ko: unsupported GNU_PROPERT=
+Y_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/sched/cls_flower.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/sched/sch_cbs.ko: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/sched/sch_etf.ko: unsupported GNU_PROPERTY_=
+TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/sched/sch_ingress.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/sched/sch_mqprio.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/sched/sch_taprio.ko: unsupported GNU_PROPER=
+TY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/wireless/cfg80211.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/wireless/cfg80211.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/net/wireless/cfg80211.ko: unsupported GNU_PROPE=
+RTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/hda/snd-hda-core.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/hda/snd-hda-core.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/pci/hda/snd-hda-codec-hdmi.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/pci/hda/snd-hda-codec.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/pci/hda/snd-hda-tegra.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/bcm/snd-soc-bcm2835-i2s.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-ak4613.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-da7219.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-dmic.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-es7134.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-es7241.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-hdmi-codec.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-max98357a.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-pcm3168a-i2c.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-pcm3168a.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-rl6231.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-rt5514-spi.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-rt5514.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-rt5645.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-simple-amplifier.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-spdif-rx.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-spdif-tx.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-tas571x.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-wcd934x.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-wm8904.ko: unsupported=
+ GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/codecs/snd-soc-wsa881x.ko: unsupporte=
+d GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/fsl/snd-soc-fsl-sai.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/generic/snd-soc-audio-graph-card.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/generic/snd-soc-simple-card-utils.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/generic/snd-soc-simple-card.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-aiu.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-fifo.ko: unsu=
+pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-frddr.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-pdm.ko: unsup=
+ported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-sound-card.ko=
+: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-spdifin.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-spdifout.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-tdm-formatter=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-tdm-interface=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-tdmin.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-tdmout.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-axg-toddr.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-card-utils.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-codec-glue.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-g12a-toacodec.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-g12a-tohdmitx.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-gx-sound-card.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/meson/snd-soc-meson-t9015.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/rockchip/snd-soc-rk3399-gru-sound.ko:=
+ unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/rockchip/snd-soc-rockchip-i2s.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/rockchip/snd-soc-rockchip-pcm.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/rockchip/snd-soc-rockchip-rt5645.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/rockchip/snd-soc-rockchip-spdif.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/sh/rcar/snd-soc-rcar.ko: unsupported =
+GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /root/build/_modules_/lib/modules/5.9=
+.0-rc2-next-20200824/kernel/sound/soc/sunxi/sun4i-spdif.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 8 warnings, 0 section mismatches
+
+Warnings:
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+size-cells (1) differs from / (2)
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 8 warnings, 0 section mismatches
+
+Warnings:
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+size-cells (1) differs from / (2)
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 8 warnings, 0 =
+section mismatches
+
+Warnings:
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:127.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+size-cells (1) differs from / (2)
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+ebsa110_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+efm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    /scratch/linux/drivers/iio/iio_core_trigger.h:42:13: warning: =E2=80=98=
+iio_device_unregister_trigger_consumer=E2=80=99 defined but not used [-Wunu=
+sed-function]
+    /scratch/linux/drivers/iio/iio_core_trigger.h:33:12: warning: =E2=80=98=
+iio_device_register_trigger_consumer=E2=80=99 defined but not used [-Wunuse=
+d-function]
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig+kselftest (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 wa=
+rning, 0 section mismatches
+
+Warnings:
+    /scratch/linux/include/linux/kern_levels.h:5:18: warning: format =E2=80=
+=98%lu=E2=80=99 expects argument of type =E2=80=98long unsigned int=E2=80=
+=99, but argument 8 has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning,=
+ 0 section mismatches
+
+Warnings:
+    /scratch/linux/include/linux/kern_levels.h:5:18: warning: format =E2=80=
+=98%lu=E2=80=99 expects argument of type =E2=80=98long unsigned int=E2=80=
+=99, but argument 8 has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip27_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_guest_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warning=
+s, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning=
+, 0 section mismatches
+
+Warnings:
+    {standard input}:141: Warning: macro instruction expanded into multiple=
+ instructions
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
+0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 section=
+ mismatches
+
+Warnings:
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells for SP=
+I bus
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for SPI b=
+us
+    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Failed =
+prerequisite 'spi_bus_bridge'
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells for SP=
+I bus
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for SPI b=
+us
+    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Failed =
+prerequisite 'spi_bus_bridge'
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, clang-9) =E2=80=94 FAIL, 1 error, 0 warnings, 0 se=
+ction mismatches
+
+Errors:
+    ERROR: modpost: "__compiletime_assert_534" [drivers/gpu/drm/vc4/vc4.ko]=
+ undefined!
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 3 warnings, 0 =
+section mismatches
+
+Warnings:
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells for SP=
+I bus
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for SPI b=
+us
+    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Failed =
+prerequisite 'spi_bus_bridge'
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 3 warnings, 0 section mismatches
+
+Warnings:
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells for SP=
+I bus
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for SPI b=
+us
+    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Failed =
+prerequisite 'spi_bus_bridge'
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 PASS, 0 errors, 3 warnings, 0 section mismatches
+
+Warnings:
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells for SP=
+I bus
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for SPI b=
+us
+    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Failed =
+prerequisite 'spi_bus_bridge'
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 =
+warnings, 0 section mismatches
+
+Warnings:
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells for SP=
+I bus
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for SPI b=
+us
+    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Failed =
+prerequisite 'spi_bus_bridge'
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warni=
+ngs, 0 section mismatches
+
+Warnings:
+    /scratch/linux/include/linux/kern_levels.h:5:18: warning: format =E2=80=
+=98%lu=E2=80=99 expects argument of type =E2=80=98long unsigned int=E2=80=
+=99, but argument 8 has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells for SP=
+I bus
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for SPI b=
+us
+    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Failed =
+prerequisite 'spi_bus_bridge'
+
+---------------------------------------------------------------------------=
+-----
+mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    /scratch/linux/include/linux/kern_levels.h:5:18: warning: format =E2=80=
+=98%lu=E2=80=99 expects argument of type =E2=80=98long unsigned int=E2=80=
+=99, but argument 8 has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+nommu_k210_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nommu_virt_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    /scratch/linux/arch/arm/mach-omap1/board-ams-delta.c:462:12: warning: =
+=E2=80=98ams_delta_camera_power=E2=80=99 defined but not used [-Wunused-fun=
+ction]
+    /scratch/linux/drivers/gpio/gpio-omap.c:1531:12: warning: =E2=80=98omap=
+_gpio_resume=E2=80=99 defined but not used [-Wunused-function]
+    /scratch/linux/drivers/gpio/gpio-omap.c:1519:12: warning: =E2=80=98omap=
+_gpio_suspend=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+pnx8335_stb225_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+prima2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells for SP=
+I bus
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for SPI b=
+us
+    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Failed =
+prerequisite 'spi_bus_bridge'
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells for SP=
+I bus
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for SPI b=
+us
+    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Failed =
+prerequisite 'spi_bus_bridge'
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    /scratch/linux/drivers/iio/iio_core_trigger.h:42:13: warning: =E2=80=98=
+iio_device_unregister_trigger_consumer=E2=80=99 defined but not used [-Wunu=
+sed-function]
+    /scratch/linux/drivers/iio/iio_core_trigger.h:33:12: warning: =E2=80=98=
+iio_device_register_trigger_consumer=E2=80=99 defined but not used [-Wunuse=
+d-function]
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    /scratch/linux/drivers/block/paride/bpck.c:32: warning: "PC" redefined
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+rs90_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    /scratch/linux/drivers/iio/iio_core_trigger.h:42:13: warning: =E2=80=98=
+iio_device_unregister_trigger_consumer=E2=80=99 defined but not used [-Wunu=
+sed-function]
+    /scratch/linux/drivers/iio/iio_core_trigger.h:33:12: warning: =E2=80=98=
+iio_device_register_trigger_consumer=E2=80=99 defined but not used [-Wunuse=
+d-function]
+
+---------------------------------------------------------------------------=
+-----
+rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
+0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+tango4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    .config:1174:warning: override: UNWINDER_GUESS changes choice state
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+u300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, clang-9) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+zx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
 
 ---
-0-DAY CI Kernel Test Service, Intel Corporation
-https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+For more info write to <info@kernelci.org>
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202008241047.03sNVO0L%25lkp%40intel.com.
-
---opJtzjQTFsWo+cga
-Content-Type: application/gzip
-Content-Disposition: attachment; filename=".config.gz"
-Content-Transfer-Encoding: base64
-
-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
-
---opJtzjQTFsWo+cga--
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/5f435ffa.1c69fb81.13997.9846%40mx.google.com.
