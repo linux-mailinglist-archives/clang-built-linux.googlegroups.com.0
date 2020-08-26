@@ -1,137 +1,163 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBX4NTL5AKGQE25AN7IA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDX5FLHOXQPRBQMOTL5AKGQEMX33GQA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x639.google.com (mail-pl1-x639.google.com [IPv6:2607:f8b0:4864:20::639])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9C26125342F
-	for <lists+clang-built-linux@lfdr.de>; Wed, 26 Aug 2020 17:59:29 +0200 (CEST)
-Received: by mail-pl1-x639.google.com with SMTP id c2sf1438991plo.11
-        for <lists+clang-built-linux@lfdr.de>; Wed, 26 Aug 2020 08:59:29 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598457568; cv=pass;
+Received: from mail-qk1-x73a.google.com (mail-qk1-x73a.google.com [IPv6:2607:f8b0:4864:20::73a])
+	by mail.lfdr.de (Postfix) with ESMTPS id C7DB825343C
+	for <lists+clang-built-linux@lfdr.de>; Wed, 26 Aug 2020 18:01:06 +0200 (CEST)
+Received: by mail-qk1-x73a.google.com with SMTP id n128sf2057286qke.2
+        for <lists+clang-built-linux@lfdr.de>; Wed, 26 Aug 2020 09:01:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598457665; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YLtNegyHbcnlWHLOS212b0V3o5O5Ac3lZCITLo1rqXAdAvyXMl2dhndi9rTmjcvk/Z
-         Gs3eJ3IjN4IXR/Di5MlS2RedUJDtuDmnjyt2Mz5dTI75a2gwbaYcv7NAQ/mTt42gNVZw
-         wr4yJ2PW46OP8NFT22SfEUwB3VxTiXjYz9jM9oNQW4dpwTLaUHjeBah+aRt2kbt9d9rw
-         T+s++IgvDmERj1cEM0Tln15n6uJZGTjUrCFHt1/cPJFlhzhU1zypB8o8AhAUhJklYyta
-         JhJhgPxQ7TC56crCU8eXnsIuF8di/Ormk0C/xP9j5V1kcgAP1tSS5P8BRgiMadmhDF9A
-         NiIA==
+        b=c4aNc4L+74TBbFG4hdjOwU3rU3vbnpbAChIJ7D9Y+QzNGMl3Q3ye7vJvPFnD9xUZHX
+         +iTGR1w0o9X/zvXbx1ydrPx5DqP7GHGlrwmhDy+cofVmYPOv+l89bktarK7ztaevfYkZ
+         e7EIFXwsqbOK4dxjMG/zTrCEJIV9R3m0OLIHezY0Q3zrk5gbqz6Edrj0yJepGQa15HVC
+         LN5FA9ZD8g4NJ/DtCf49BfUcpicT47IebzT/EY1EfwTkXBcfvkkJdUYkQiWV+KTkVLAy
+         s0vXF1sv9hdcc9nXjuJbVV/VcUIh7HvZ/YmBdza3TgHVE8mFWwfOKdr7HUpJuRCtzFwv
+         6Tzg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
+         :list-id:mailing-list:precedence:message-id:content-disposition
+         :references:date:from:cc:to:subject:in-reply-to:mime-version:sender
          :dkim-signature;
-        bh=QDBCnIhyj1N0DrWsO4tB0rVermKNiGVie9h0s6FJ+G8=;
-        b=zMnmyXFwITuN3tK1wOzPAHcqPLw9UeRarGrYq3YcUxvlk9mI8UuKw7n8fALm0Zua6n
-         bTo9VC0ZeYyE/CG2QryVsiYWrH3a/X3ew99tKj9Yf47vqTiktSAlqnf7hGgW/4hpZf/x
-         RuUqPNfVacw2rlnBjO6JLnZnnWpifRLUCRip5UmxkkNRU2vJNaXmF4hPbDpT1RG9/dMl
-         cBxC58ommmJLg8zO5nNw8Cjj5cu+n6yyl5jHSB4I+yPJqcja6V6yNdXG32vExDNWmRbH
-         Gepyl0vJKBznn/Z30xIfuBWBwM/iPmgTTKGhjpcRaVNZcaJ16vuwjxIvUZP3+j6YuC25
-         TnXg==
+        bh=jY37qVs+jibq2ddRu8WNz4RwTs9Zm2c8iuzS8xqBML8=;
+        b=tka7vzzji1DB3qDLoNxXZktq+B4dtj35H/hEpeY+l1QNYApq5BqtvWxCRsie5nmUK2
+         7xfet3oIzSfWMnSu5E6F/KZxfUBHD4BC0WZ27XNHSPHQ7L1+iBKjeKcRc93J61sIlGao
+         E6Ks42lYtNsBIgiSEYsp2K21tPzCzEKNm7T/JqPfNm+45iitBACwZ+nEqd5t+miVgAqz
+         GDOFUWq88RjA6nx6pVtk9HWwesrdGORZfWw3dlpr5zTc1LnLAmT1tP3LJfcIMuQ0ZauN
+         om7D6PPe6wZIsXCST54qR/fRFAr7EUF/GQu3CHADOP5FOrlCWaBGMmsnevxAtICyxoMk
+         AKzA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=XhOXMPog;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.83 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@ibm.com header.s=pp1 header.b=C2srGkeC;
+       spf=pass (google.com: domain of ulrich.weigand@de.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=Ulrich.Weigand@de.ibm.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=sender:mime-version:in-reply-to:subject:to:cc:from:date:references
+         :content-disposition:message-id:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=QDBCnIhyj1N0DrWsO4tB0rVermKNiGVie9h0s6FJ+G8=;
-        b=LUVeGvmU+XswaxE9bxhIf4CVfDfLYg/v8H2RZr31/BAWE2/Rp7c8IoQQwKoHIXeRCY
-         P+bkEs/M1rDj9ML0n/xL7FSxH0yaS9yc5auAMQC3NO6PDvZyc7GUO3XOfys9kEu9ke9+
-         BlvVzbVGowvUksnbB6/kPH0ryf6Bt+JRlOdM4ZHDH7qNF67cJY3tL2pBwpckLoaSJMOW
-         8TxpFvOUItZ3QjSgnaaaD9/eypBVrNW6cLolOLerQjbKzaF4LNtXbwQm6kZcVblsYtAX
-         iN5RvUzMIiQ684XH9fXjhQqLSMhbNQDEy3ip6Isyn1gkrrPWs63e5mBQ1DQe5KcShRw4
-         Juiw==
+        bh=jY37qVs+jibq2ddRu8WNz4RwTs9Zm2c8iuzS8xqBML8=;
+        b=VCYLoIYuXgaq8at0Jc/CDeI6xfT9z0ROwQZzeDNtHq996GkooMuyOB6vS6Js5Vp4n0
+         I/oaU+tYsQjTZyrRpMq5Yml+iHVwsyozWYogAgyiGFhbcuPgyZpNJkF6yDH3tXlvvV0L
+         i1KdL3vHmqL6wDdxOC5YR/uoZVmNfVwQZVOFStCTzR1UKmLtoCJ0vWE9mWyZIJEctyMy
+         BzlHE3aT5lyWA2+R+BgEibERYrsk7M3LSeMXE45YZ3RD9wxaIyrMpvE+cQQ0e9yrX3eo
+         hcatHxXsMORIBuT33ZywulDPc520Z9cdqiPmae3AT0EqeLXWxCe1dJHW7f8zoxBWOati
+         ZSew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=QDBCnIhyj1N0DrWsO4tB0rVermKNiGVie9h0s6FJ+G8=;
-        b=l7PD3MqUN9iu0JgxTzZGVjFhDUkz7n88L9MTTgskYM0PiYk4dfhErwvDsoevAjH6U/
-         ES/oPw06uJgUvkFOU0hp3a6C5jQWxcnzLd0MVrmXYuY0brkAq+4xiUbpjbBNPBwzGXkR
-         /WL0ZhYUyA8s4DZpdZ9YKVDW197WtScCUWiL3mKkKGIFdxvwEApXav/l/IZSrB1zHA/G
-         EHu+4+Gy9Z8+1tGLlLDgKF/LM0KBXzGnQRkEAuoyss7BXf6QNnbSWq97eWtx8Z2LUbBR
-         PGNBIEUy5Mk2/UVUqjEBlwaSetA/AeKDt4eXKM76OTov5TrhPGm6bHkY5FHqCTHrI0en
-         5pkw==
+        h=sender:x-gm-message-state:mime-version:in-reply-to:subject:to:cc
+         :from:date:references:content-disposition:message-id
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=jY37qVs+jibq2ddRu8WNz4RwTs9Zm2c8iuzS8xqBML8=;
+        b=TCWl23lQBiSFRJNkP8tIFgqSOrYIyvIZM2MYg//BYAxQOi/rv3MbAl9NuM+hxe+2wl
+         REANTGlp12k55K5LtB2xtuRx8CgPLuIpTt1VaD68alcq9w4O2SNvab+XzhixaZc2muRU
+         YiOgdSPdzluhT8AX1nI+h5oQzGmmCbJjXlKNuG+hwzILQ4/vOPgrS02teUWDRrf0TShI
+         Xau7UxG2CVEsl/XoRHiMT6BFbFEuACmDNScN7at3jaHEHmGPzRILhKyiecQoZmgaOYbd
+         CA+QhXLDOw8v/TGpNOBRGT7b9Wy9HJzUgr2oPAfzWfQjlvHhJHRjoUsRIewOESzR3yAA
+         x7Pw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530iOOUwCGRVANhE8MVFPZCRR6n+MfBAy0ZqNlMhW629Fz5Mzqxw
-	NwQCJubCGuWsfkyVeTieGB8=
-X-Google-Smtp-Source: ABdhPJy08poRjI4CCtqVRPejJU+G+NlUfMDeM+n3O3C65bMyzGbQfS924NwABnroYpGnhV6EHuhUwg==
-X-Received: by 2002:a17:90b:183:: with SMTP id t3mr1303358pjs.21.1598457568191;
-        Wed, 26 Aug 2020 08:59:28 -0700 (PDT)
+X-Gm-Message-State: AOAM532sJKAcjyPbdqEY3qOq+iwSKzvXrXyA8b5aN7vXb0kzxubaYi0E
+	VTV9p9iKyDdh9hGoTr47+jU=
+X-Google-Smtp-Source: ABdhPJzAFvr8tOHQctiU+15cUiFD2exo5dXkqXWnIHu5RZ7TbV/INFaSQN4R8mBiGl6NzMabXhoq7w==
+X-Received: by 2002:ad4:462f:: with SMTP id x15mr14600614qvv.180.1598457665734;
+        Wed, 26 Aug 2020 09:01:05 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:c244:: with SMTP id l4ls841406pgg.9.gmail; Wed, 26 Aug
- 2020 08:59:27 -0700 (PDT)
-X-Received: by 2002:a63:5825:: with SMTP id m37mr11363240pgb.257.1598457567505;
-        Wed, 26 Aug 2020 08:59:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598457567; cv=none;
+Received: by 2002:ae9:c20d:: with SMTP id j13ls1268254qkg.2.gmail; Wed, 26 Aug
+ 2020 09:01:05 -0700 (PDT)
+X-Received: by 2002:a05:620a:1243:: with SMTP id a3mr14417051qkl.423.1598457665248;
+        Wed, 26 Aug 2020 09:01:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598457665; cv=none;
         d=google.com; s=arc-20160816;
-        b=KoeI61oQtnqqjHD5YwhkxblVVgBoLSqVpabJ4HkquH5YINLqmojCXaH8gh+DQyJ6E7
-         i9yLODBgMtgre7HeHGsMhZ6+Mz2XPgD418/86HoH40Si+BpEVpaV7RFPFQaEiqiK/+uU
-         hLgZBGTCtzxVOggwusMK02EV8TfbFvTD/uN/CCvOT+FVtamk4C1QUfCyn8/Pt38PhMyA
-         I4Prg0kvDNjN8ry7oDiS1MkP7fO8Q47BzSACk7Hs9WbysysFnkWZWHSUsGaIL7MJYMss
-         XaeLEFuDkinBup3k0xuOhci1EhHlBsjQj2Sw4ED/hOLk4VweTPvGob0L84FAlDc2NhcC
-         2p6Q==
+        b=Y9gxgPmOiP1vgDIH94/JjVm35VBYkWirNtuOfRFCOJHXttAQqwrIir71lK5Od0fhsr
+         4xxD+2qYNBQHpuj79mfgI6sdfN+ckzbty5HPAfMKPviy73eFTpfTzAPkaqJeVt5/VFi/
+         Do3ub3M+y0kCR6bhcmYet2HGqayKgxPvVw4upi1aHOtFkmUd4Y/0Vcr3+3zCezcJsbPK
+         BaFyvDHFSa7oDESWJAP3W/UjT0W4AZSNpmWYDsYonp6a6DykDS5LtWT5VmEh8AphWepa
+         6ij4jKrt3tUYlhK5X1mlpum2F9w5Y2BUs/x8pMaiNiJBarxN9LQC7VSZyqIS1L3Z7zZM
+         tX3A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=yX3IqN+NoRTIwsiiX/OmbbqTaUyvEzkdWXewDnXfoUg=;
-        b=0Lp69HEolwIjz8VhUYh3XEpwCc4hdVTs7DXkXwjIRwoG06mJ8ujuH5PoHRhZmc1myh
-         HPiZh1kmJuDvp3cuexjnUxdtmgjkg94GeJguyF7VvBZ8zKj7TAtsxNiMs3h2giOgcVdh
-         t96ZNhBKm71H7GKTUhcPFFCOKIOO/70vdCshD0EhLNTDlgHIEmmBp0a3RNyQeAvmYKe9
-         9NMjQcRPlwJpt3pOE+6VYR4hDXjsDCLXksx7uQ4muTmDDk1IZ7iDyu00ITmhY3hSBquP
-         tOCLcTrynpc+3534u7GJnuwuPm5RkTTdwbBIGsA4/gk78XKHMj57F2+GmtPAX1n19nW5
-         LE/Q==
+        h=message-id:content-disposition:references:date:from:cc:to:subject
+         :in-reply-to:mime-version:dkim-signature;
+        bh=8UzJgdIPL5sPN2NWPyDFBTbsohypOXfMzvT8FOj+gWk=;
+        b=eoPTKVUlwPkhvbGhTE/pZ8yc15GOpUXBjGGzHihnALZXENodKyMDwExw/9XPGyOdwl
+         Yhf6MD5P+4tSa1Pu0Nlb83Op3HoZqc+ER0IUBP6T1X+uge22i3f7AEnfN95X+45osKM5
+         VzWWscv4hJVi9QhGkFcwCh9vcM5/TKF2c/oRTEI04QIZc7Xs7dG/Ad+z1fJ8H87g6/sZ
+         /axcMRd/BCCqNuN9FkmPQBj8MZMevpmbt65X/nbcOoGAAeR7luxbLPpxtcebcZShzwtW
+         wp5hMUEJr/+jK3D0y7kUKomfxVG19YEHzke3VpK3Ps88JBOtn0+MZtCbGR/utk5NfEc6
+         eg6Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=XhOXMPog;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.83 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-04.nifty.com (conssluserg-04.nifty.com. [210.131.2.83])
-        by gmr-mx.google.com with ESMTPS id u204si67964pfc.1.2020.08.26.08.59.27
+       dkim=pass header.i=@ibm.com header.s=pp1 header.b=C2srGkeC;
+       spf=pass (google.com: domain of ulrich.weigand@de.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=Ulrich.Weigand@de.ibm.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com. [148.163.158.5])
+        by gmr-mx.google.com with ESMTPS id i9si162347qkg.0.2020.08.26.09.01.05
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 26 Aug 2020 08:59:27 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.83 as permitted sender) client-ip=210.131.2.83;
-Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49]) (authenticated)
-	by conssluserg-04.nifty.com with ESMTP id 07QFxDCn018975
-	for <clang-built-linux@googlegroups.com>; Thu, 27 Aug 2020 00:59:14 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-04.nifty.com 07QFxDCn018975
-X-Nifty-SrcIP: [209.85.216.49]
-Received: by mail-pj1-f49.google.com with SMTP id ds1so1092138pjb.1
-        for <clang-built-linux@googlegroups.com>; Wed, 26 Aug 2020 08:59:14 -0700 (PDT)
-X-Received: by 2002:a17:902:d90e:: with SMTP id c14mr12454368plz.76.1598457553172;
- Wed, 26 Aug 2020 08:59:13 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 26 Aug 2020 09:01:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ulrich.weigand@de.ibm.com designates 148.163.158.5 as permitted sender) client-ip=148.163.158.5;
+Received: from pps.filterd (m0127361.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id 07QFXfj3007751
+	for <clang-built-linux@googlegroups.com>; Wed, 26 Aug 2020 12:01:04 -0400
+Received: from smtp.notes.na.collabserv.com (smtp.notes.na.collabserv.com [192.155.248.82])
+	by mx0a-001b2d01.pphosted.com with ESMTP id 335sg02fv5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+	for <clang-built-linux@googlegroups.com>; Wed, 26 Aug 2020 12:01:04 -0400
+Received: from localhost
+	by smtp.notes.na.collabserv.com with smtp.notes.na.collabserv.com ESMTP
+	for <clang-built-linux@googlegroups.com> from <Ulrich.Weigand@de.ibm.com>;
+	Wed, 26 Aug 2020 16:01:03 -0000
+Received: from us1a3-smtp04.a3.dal06.isc4sb.com (10.106.154.237)
+	by smtp.notes.na.collabserv.com (10.106.227.105) with smtp.notes.na.collabserv.com ESMTP;
+	Wed, 26 Aug 2020 16:01:02 -0000
+Received: from us1a3-mail201.a3.dal06.isc4sb.com ([10.146.77.216])
+          by us1a3-smtp04.a3.dal06.isc4sb.com
+          with ESMTP id 2020082616010106-606475 ;
+          Wed, 26 Aug 2020 16:01:01 +0000
 MIME-Version: 1.0
-References: <20200825135838.2938771-1-ndesaulniers@google.com>
-In-Reply-To: <20200825135838.2938771-1-ndesaulniers@google.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Thu, 27 Aug 2020 00:58:35 +0900
-X-Gmail-Original-Message-ID: <CAK7LNAQvQBhjYgSkvm-dVyNz2Jd2C2qAtfyRk-rngEDfjkc38g@mail.gmail.com>
-Message-ID: <CAK7LNAQvQBhjYgSkvm-dVyNz2Jd2C2qAtfyRk-rngEDfjkc38g@mail.gmail.com>
-Subject: Re: [PATCH v3] lib/string.c: implement stpcpy
+In-Reply-To: <CAKwvOdmZSf2zKaqO3ivorYd9D+yALo5-6hctsSuaK6h2Ywwedw@mail.gmail.com>
+Subject: Re: arch/s390/include/asm/atomic_ops.h:56:45: error: invalid operand for
+ inline asm constraint 'i'
 To: Nick Desaulniers <ndesaulniers@google.com>
 Cc: clang-built-linux <clang-built-linux@googlegroups.com>,
-        stable <stable@vger.kernel.org>, Andy Lavr <andy.lavr@gmail.com>,
-        Arvind Sankar <nivedita@alum.mit.edu>, Joe Perches <joe@perches.com>,
-        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-        Sami Tolvanen <samitolvanen@google.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Kees Cook <keescook@chromium.org>,
-        Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-        Alexandru Ardelean <alexandru.ardelean@analog.com>,
-        Yury Norov <yury.norov@gmail.com>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
+        Vasily Gorbik
+ <gor@linux.ibm.com>,
+        Heiko Carstens
+ <hca@linux.ibm.com>, kbuild-all@lists.01.org,
+        LKML
+ <linux-kernel@vger.kernel.org>
+From: "Ulrich Weigand" <Ulrich.Weigand@de.ibm.com>
+Date: Wed, 26 Aug 2020 18:00:44 +0200
+References: <202008201500.aOkzA3ZM%lkp@intel.com>
+ <CAKwvOdmZSf2zKaqO3ivorYd9D+yALo5-6hctsSuaK6h2Ywwedw@mail.gmail.com>
+X-KeepSent: B8976F11:85FB0DED-C12585D0:0057C857;
+ type=4; name=$KeepSent
+X-Mailer: IBM Notes Release 9.0.1FP7 Octobe4, 2013
+X-LLNOutbound: False
+X-Disclaimed: 47439
+X-TNEFEvaluated: 1
+Content-type: multipart/alternative; 
+	Boundary="0__=4EBB0F43DFC44EC78f9e8a93df938690918c4EBB0F43DFC44EC7"
+Content-Disposition: inline
+x-cbid: 20082616-9463-0000-0000-000003F764F2
+X-IBM-SpamModules-Scores: BY=0; FL=0; FP=0; FZ=0; HX=0; KW=0; PH=0;
+ SC=0.417846; ST=0; TS=0; UL=0; ISC=; MB=0.000406
+X-IBM-SpamModules-Versions: BY=3.00013721; HX=3.00000242; KW=3.00000007;
+ PH=3.00000004; SC=3.00000295; SDB=6.01425695; UDB=6.00765249; IPR=6.01208423;
+ MB=3.00033714; MTD=3.00000008; XFM=3.00000015; UTC=2020-08-26 16:01:03
+X-IBM-AV-DETECTION: SAVI=unsuspicious REMOTE=unsuspicious XFE=unused
+X-IBM-AV-VERSION: SAVI=2020-08-26 15:34:12 - 6.00011767
+x-cbparentid: 20082616-9464-0000-0000-00005E7C67E5
+Message-Id: <OFB8976F11.85FB0DED-ONC12585D0.0057C857-C12585D0.0057F54C@notes.na.collabserv.com>
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.235,18.0.687
+ definitions=2020-08-26_09:2020-08-26,2020-08-26 signatures=0
+X-Proofpoint-Spam-Reason: orgsafe
+X-Original-Sender: ulrich.weigand@de.ibm.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=XhOXMPog;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.83 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@ibm.com header.s=pp1 header.b=C2srGkeC;       spf=pass (google.com:
+ domain of ulrich.weigand@de.ibm.com designates 148.163.158.5 as permitted
+ sender) smtp.mailfrom=Ulrich.Weigand@de.ibm.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=ibm.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -144,162 +170,143 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Aug 25, 2020 at 10:58 PM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> LLVM implemented a recent "libcall optimization" that lowers calls to
-> `sprintf(dest, "%s", str)` where the return value is used to
-> `stpcpy(dest, str) - dest`. This generally avoids the machinery involved
-> in parsing format strings.  `stpcpy` is just like `strcpy` except it
-> returns the pointer to the new tail of `dest`.  This optimization was
-> introduced into clang-12.
->
-> Implement this so that we don't observe linkage failures due to missing
-> symbol definitions for `stpcpy`.
->
-> Similar to last year's fire drill with:
-> commit 5f074f3e192f ("lib/string.c: implement a basic bcmp")
->
-> The kernel is somewhere between a "freestanding" environment (no full libc)
-> and "hosted" environment (many symbols from libc exist with the same
-> type, function signature, and semantics).
->
-> As H. Peter Anvin notes, there's not really a great way to inform the
-> compiler that you're targeting a freestanding environment but would like
-> to opt-in to some libcall optimizations (see pr/47280 below), rather than
-> opt-out.
->
-> Arvind notes, -fno-builtin-* behaves slightly differently between GCC
-> and Clang, and Clang is missing many __builtin_* definitions, which I
-> consider a bug in Clang and am working on fixing.
->
-> Masahiro summarizes the subtle distinction between compilers justly:
->   To prevent transformation from foo() into bar(), there are two ways in
->   Clang to do that; -fno-builtin-foo, and -fno-builtin-bar.  There is
->   only one in GCC; -fno-buitin-foo.
->
-> (Any difference in that behavior in Clang is likely a bug from a missing
-> __builtin_* definition.)
->
-> Masahiro also notes:
->   We want to disable optimization from foo() to bar(),
->   but we may still benefit from the optimization from
->   foo() into something else. If GCC implements the same transform, we
->   would run into a problem because it is not -fno-builtin-bar, but
->   -fno-builtin-foo that disables that optimization.
->
->   In this regard, -fno-builtin-foo would be more future-proof than
->   -fno-built-bar, but -fno-builtin-foo is still potentially overkill. We
->   may want to prevent calls from foo() being optimized into calls to
->   bar(), but we still may want other optimization on calls to foo().
->
-> It seems that compilers today don't quite provide the fine grain control
-> over which libcall optimizations pseudo-freestanding environments would
-> prefer.
->
-> Finally, Kees notes that this interface is unsafe, so we should not
-> encourage its use.  As such, I've removed the declaration from any
-> header, but it still needs to be exported to avoid linkage errors in
-> modules.
->
-> Cc: stable@vger.kernel.org
-> Link: https://bugs.llvm.org/show_bug.cgi?id=47162
-> Link: https://bugs.llvm.org/show_bug.cgi?id=47280
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1126
-> Link: https://man7.org/linux/man-pages/man3/stpcpy.3.html
-> Link: https://pubs.opengroup.org/onlinepubs/9699919799/functions/stpcpy.html
-> Link: https://reviews.llvm.org/D85963
-> Suggested-by: Andy Lavr <andy.lavr@gmail.com>
-> Suggested-by: Arvind Sankar <nivedita@alum.mit.edu>
-> Suggested-by: Joe Perches <joe@perches.com>
-> Suggested-by: Masahiro Yamada <masahiroy@kernel.org>
-> Suggested-by: Rasmus Villemoes <linux@rasmusvillemoes.dk>
-> Reported-by: Sami Tolvanen <samitolvanen@google.com>
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> ---
-> Changes V3:
-> * Drop Sami's Tested by tag; newer patch.
-> * Add EXPORT_SYMBOL as per Andy.
-> * Rewrite commit message, rewrote part of what Masahiro said to be
->   generic in terms of foo() and bar().
-> * Prefer %NUL-terminated to NULL terminated. NUL is the ASCII character
->   '\0', as per Arvind and Rasmus.
->
-> Changes V2:
-> * Added Sami's Tested by; though the patch changed implementation, the
->   missing symbol at link time was the problem Sami was observing.
-> * Fix __restrict -> __restrict__ typo as per Joe.
-> * Drop note about restrict from commit message as per Arvind.
-> * Fix NULL -> NUL as per Arvind; NUL is ASCII '\0'. TIL
-> * Fix off by one error as per Arvind; I had another off by one error in
->   my test program that was masking this.
->
->  lib/string.c | 24 ++++++++++++++++++++++++
->  1 file changed, 24 insertions(+)
->
-> diff --git a/lib/string.c b/lib/string.c
-> index 6012c385fb31..6bd0cf0fb009 100644
-> --- a/lib/string.c
-> +++ b/lib/string.c
-> @@ -272,6 +272,30 @@ ssize_t strscpy_pad(char *dest, const char *src, size_t count)
->  }
->  EXPORT_SYMBOL(strscpy_pad);
->
-> +/**
-> + * stpcpy - copy a string from src to dest returning a pointer to the new end
-> + *          of dest, including src's %NUL-terminator. May overrun dest.
-> + * @dest: pointer to end of string being copied into. Must be large enough
-> + *        to receive copy.
-> + * @src: pointer to the beginning of string being copied from. Must not overlap
-> + *       dest.
-> + *
-> + * stpcpy differs from strcpy in a key way: the return value is the new
-> + * %NUL-terminated character. (for strcpy, the return value is a pointer to
-> + * src.
+
+--0__=4EBB0F43DFC44EC78f9e8a93df938690918c4EBB0F43DFC44EC7
+Content-type: text/plain; charset="UTF-8"
 
 
-return a pointer to src?
+Nick Desaulniers <ndesaulniers@google.com> wrote on 22.08.2020 03:13:13:
 
-
-"man 3 strcpy" says:
-
-The strcpy() and strncpy() functions return
-a pointer to the destination string *dest*.
-
-
-
-
-
-
-
-
->  This interface is considered unsafe as it doesn't perform bounds
-> + * checking of the inputs. As such it's not recommended for usage. Instead,
-> + * its definition is provided in case the compiler lowers other libcalls to
-> + * stpcpy.
-> + */
-> +char *stpcpy(char *__restrict__ dest, const char *__restrict__ src);
-> +char *stpcpy(char *__restrict__ dest, const char *__restrict__ src)
-> +{
-> +       while ((*dest++ = *src++) != '\0')
-> +               /* nothing */;
-> +       return --dest;
-> +}
-> +EXPORT_SYMBOL(stpcpy);
-> +
->  #ifndef __HAVE_ARCH_STRCAT
->  /**
->   * strcat - Append one %NUL-terminated string to another
-> --
-> 2.28.0.297.g1956fa8f8d-goog
+> >    In file included from drivers/tty/tty_buffer.c:8:
+> >    In file included from include/linux/tty.h:5:
+> >    In file included from include/linux/fs.h:6:
+> >    In file included from include/linux/wait_bit.h:8:
+> >    In file included from include/linux/wait.h:7:
+> >    In file included from include/linux/list.h:9:
+> >    In file included from include/linux/kernel.h:12:
+> >    In file included from include/linux/bitops.h:29:
+> >    In file included from arch/s390/include/asm/bitops.h:39:
+> > >> arch/s390/include/asm/atomic_ops.h:56:45: error: invalid
+> operand for inline asm constraint 'i'
+> >    __ATOMIC_CONST_OPS(__atomic_add_const, int, "asi")
+> >                                                ^
 >
+> It might be interesting to dissect this one.  Likely will break the
+> build otherwise.
+
+Do you have a standalone test case?  This seems to work fine for me
+with current clang:
+
+define __always_inline                 inline
+__attribute__((__always_inline__))
+
+#define __ATOMIC_CONST_OP(op_name, op_type, op_string, op_barrier)      \
+static __always_inline void op_name(op_type val, op_type *ptr)          \
+{                                                                       \
+        asm volatile(                                                   \
+                op_string "     %[ptr],%[val]\n"                        \
+                op_barrier                                              \
+                : [ptr] "+Q" (*ptr) : [val] "i" (val) : "cc", "memory");\
+}
+
+#define __ATOMIC_CONST_OPS(op_name, op_type, op_string)                 \
+        __ATOMIC_CONST_OP(op_name, op_type, op_string, "\n")            \
+        __ATOMIC_CONST_OP(op_name##_barrier, op_type, op_string, "bcr 14,0
+\n")
+
+__ATOMIC_CONST_OPS(__atomic_add_const, int, "asi")
+__ATOMIC_CONST_OPS(__atomic64_add_const, long, "agsi")
+
+void test (int *x)
+{
+  __atomic_add_const(123, x);
+}
 
 
---
-Best Regards
-Masahiro Yamada
+Bye,
+Ulrich
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAQvQBhjYgSkvm-dVyNz2Jd2C2qAtfyRk-rngEDfjkc38g%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/OFB8976F11.85FB0DED-ONC12585D0.0057C857-C12585D0.0057F54C%40notes.na.collabserv.com.
+
+--0__=4EBB0F43DFC44EC78f9e8a93df938690918c4EBB0F43DFC44EC7
+Content-Transfer-Encoding: quoted-printable
+Content-type: text/html; charset="UTF-8"
+Content-Disposition: inline
+
+<html><body><p><tt><font size=3D"2">Nick Desaulniers &lt;ndesaulniers@googl=
+e.com&gt; wrote on 22.08.2020 03:13:13:<br><br>&gt; &gt; &nbsp; &nbsp;In fi=
+le included from drivers/tty/tty_buffer.c:8:<br>&gt; &gt; &nbsp; &nbsp;In f=
+ile included from include/linux/tty.h:5:<br>&gt; &gt; &nbsp; &nbsp;In file =
+included from include/linux/fs.h:6:<br>&gt; &gt; &nbsp; &nbsp;In file inclu=
+ded from include/linux/wait_bit.h:8:<br>&gt; &gt; &nbsp; &nbsp;In file incl=
+uded from include/linux/wait.h:7:<br>&gt; &gt; &nbsp; &nbsp;In file include=
+d from include/linux/list.h:9:<br>&gt; &gt; &nbsp; &nbsp;In file included f=
+rom include/linux/kernel.h:12:<br>&gt; &gt; &nbsp; &nbsp;In file included f=
+rom include/linux/bitops.h:29:<br>&gt; &gt; &nbsp; &nbsp;In file included f=
+rom arch/s390/include/asm/bitops.h:39:<br>&gt; &gt; &gt;&gt; arch/s390/incl=
+ude/asm/atomic_ops.h:56:45: error: invalid <br>&gt; operand for inline asm =
+constraint 'i'<br>&gt; &gt; &nbsp; &nbsp;__ATOMIC_CONST_OPS(__atomic_add_co=
+nst, int, &quot;asi&quot;)<br>&gt; &gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;^<br>&gt; <br>&gt;=
+ It might be interesting to dissect this one. &nbsp;Likely will break the<b=
+r>&gt; build otherwise.<br></font></tt><br><tt><font size=3D"2">Do you have=
+ a standalone test case? &nbsp;This seems to work fine for me</font></tt><b=
+r><tt><font size=3D"2">with current clang:</font></tt><br><br><tt><font siz=
+e=3D"2">define __always_inline &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &n=
+bsp; &nbsp; inline __attribute__((__always_inline__))</font></tt><br><br><t=
+t><font size=3D"2">#define __ATOMIC_CONST_OP(op_name, op_type, op_string, o=
+p_barrier) &nbsp; &nbsp; &nbsp;\</font></tt><br><tt><font size=3D"2">static=
+ __always_inline void op_name(op_type val, op_type *ptr) &nbsp; &nbsp; &nbs=
+p; &nbsp; &nbsp;\</font></tt><br><tt><font size=3D"2">{ &nbsp; &nbsp; &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nb=
+sp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=
+ \</font></tt><br><tt><font size=3D"2">&nbsp; &nbsp; &nbsp; &nbsp; asm vola=
+tile( &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbs=
+p; &nbsp; &nbsp; &nbsp; &nbsp; \</font></tt><br><tt><font size=3D"2">&nbsp;=
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; op_string &quot; &nbsp; &=
+nbsp; %[ptr],%[val]\n&quot; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\</font></tt><br><tt><font size=3D"2">&=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; op_barrier &nbsp; &n=
+bsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
+;\</font></tt><br><tt><font size=3D"2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; : [ptr] &quot;+Q&quot; (*ptr) : [val] &quot;i&quot; (va=
+l) : &quot;cc&quot;, &quot;memory&quot;);\</font></tt><br><tt><font size=3D=
+"2">}</font></tt><br><br><tt><font size=3D"2">#define __ATOMIC_CONST_OPS(op=
+_name, op_type, op_string) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=
+ &nbsp; \</font></tt><br><tt><font size=3D"2">&nbsp; &nbsp; &nbsp; &nbsp; _=
+_ATOMIC_CONST_OP(op_name, op_type, op_string, &quot;\n&quot;) &nbsp; &nbsp;=
+ &nbsp; &nbsp; &nbsp; &nbsp;\</font></tt><br><tt><font size=3D"2">&nbsp; &n=
+bsp; &nbsp; &nbsp; __ATOMIC_CONST_OP(op_name##_barrier, op_type, op_string,=
+ &quot;bcr 14,0\n&quot;)</font></tt><br><br><tt><font size=3D"2">__ATOMIC_C=
+ONST_OPS(__atomic_add_const, int, &quot;asi&quot;)</font></tt><br><tt><font=
+ size=3D"2">__ATOMIC_CONST_OPS(__atomic64_add_const, long, &quot;agsi&quot;=
+)</font></tt><br><br><tt><font size=3D"2">void test (int *x)</font></tt><br=
+><tt><font size=3D"2">{</font></tt><br><tt><font size=3D"2">&nbsp; __atomic=
+_add_const(123, x);</font></tt><br><tt><font size=3D"2">}</font></tt><br><b=
+r><br><tt><font size=3D"2">Bye,</font></tt><br><tt><font size=3D"2">Ulrich<=
+/font></tt><br><BR>
+</body></html>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/OFB8976F11.85FB0DED-ONC12585D0.0057C857-C12585=
+D0.0057F54C%40notes.na.collabserv.com?utm_medium=3Demail&utm_source=3Dfoote=
+r">https://groups.google.com/d/msgid/clang-built-linux/OFB8976F11.85FB0DED-=
+ONC12585D0.0057C857-C12585D0.0057F54C%40notes.na.collabserv.com</a>.<br />
+
+--0__=4EBB0F43DFC44EC78f9e8a93df938690918c4EBB0F43DFC44EC7--
+
