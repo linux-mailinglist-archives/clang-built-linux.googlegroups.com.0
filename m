@@ -1,138 +1,145 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBJHVT75AKGQEWRQ6SGY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBPXVT75AKGQEDUAS6MY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103d.google.com (mail-pj1-x103d.google.com [IPv6:2607:f8b0:4864:20::103d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1F102254CFC
-	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 20:25:42 +0200 (CEST)
-Received: by mail-pj1-x103d.google.com with SMTP id g7sf4779506pja.1
-        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 11:25:42 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598552740; cv=pass;
+Received: from mail-qv1-xf3b.google.com (mail-qv1-xf3b.google.com [IPv6:2607:f8b0:4864:20::f3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0C460254D02
+	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 20:26:08 +0200 (CEST)
+Received: by mail-qv1-xf3b.google.com with SMTP id d19sf5234036qvm.23
+        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 11:26:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598552767; cv=pass;
         d=google.com; s=arc-20160816;
-        b=VZmGnkcLhaXHWqKaKKRfD9X+qMWqtVRSnDGbPOPsLwR9GDLXaTf0NLaCOfKzWwrPel
-         LytA3Y8deT690zjkZt/bZTcOykrWKi99RpgWlZLt962FgZ9c5TTXG9ASYf16Nw1tc37g
-         hPNI9orQOFmX2uionOJoOJ/Cg5UlMQ24tpNeprdO+Mw3kbTQg+tFOA3Rv0RFcd0ROFnC
-         rnWhXeUbA5/swILOc5XNgcUPksSHazcVayQHw78mBxKB1w44TS/amHJ+dujuSaRBQWos
-         45oG8hERTb43kOe0mPIrrjtjGXak6smE+O0t1LywgI65BbFpDMclpt4jHw4K9Rt+ZFX9
-         NwXg==
+        b=pcBr2kVw1GW8krlSY7lMyqW0WGT5hlTyFD03r8SNjB81zpLpx7mULxtQjWy3MbpGTD
+         m3Jaqv1Cc+Q+SbF6FkB25p/cXibPBbXMv//Jmk+bTFZZKKxqplFILHQaOMdDdB5NjqSV
+         Dr4CxdHNBIRm+54FBmJ2f5kQEooVqPPcdKYyoAaSwVRE/1+AdX0VPnHPJbOUw8ZlHAud
+         8wAutMXHHtbpfB9ARqjcMGAHvQPp2dgt+CrmXJGJLdU1yWS4b2TC40TzFe1/K/3TWt/F
+         ydZ48r+UDsLxGI0ivxoV0OlzMmrJRyYRh80FagcruNCIsBF5At3objPWqo8infXwl4c0
+         Yv8g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=GGrpDFVbyldsXia0RQ2yWJkG3b98zDqmvtbT7oXHEL4=;
-        b=ms9UqZkZHiLXVTkhi04ZOu+zCcA3rrHQ7aDfCXp4sE0xexWeZcsINg3LIWJhQwr/HM
-         ffNEUtDqM33BqrXTMGQxZ8U3U066VPsaL76T3KKGD76pIUFNhxLLwm5GIuKcR8bNzmAY
-         Y/fy+Jb/gSLK+vAbGtcQr1B3WrtPTFtjwvqUv2WTEFdQgpZxXSuVVhzkA2rWOx0/ZcHR
-         SPmrH4cQxdX1uPwS1bCR+FfJnxRMFpzdFHnVmlUjyZOhRxNzITY0KGjGt0iPQueWfmPl
-         kkLCbjefquTbb6/7eKUo4YwGYjcLrostA89MXVnk9Wf4j7YcYoC8hNaLhST/jWB3R2Bm
-         VLgg==
+        bh=2ezsAMbPn4qqyYG4ewDbEfYHEjYbuRMqkal9238kxVs=;
+        b=hEC2KZ562UVv5KuE6oqY8brdJEsxWRNwMkO++bVgsWmzfA6OPyo+78XAOvBK1yzyrG
+         8EpndKX6tOKvjENmDnefk6xouKWvyzXLPFgU1PAM7+pu2uYstEbwvWSvrVDruioSs9Oe
+         aKUFo/ztPqz/6DjDy3soAQFkRmAkTJJgxGRoAbuRobUMdMaDib9ODiafOirnfHTIehcJ
+         nePUL9R08zaZuHNSFlBtVIa4y7oQJTeAVDEbhKs4TovYrVbTW68vnNHmn6tW4dLJiYWc
+         fRSDrHSr6qDKRbUcJIWzWpvIOMXKdbtcKZnAZdr1cq3hOAnOcCfVslVHIKqq9lxnbzw+
+         xspQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=xTkHOyq3;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@chromium.org header.s=google header.b=FXdPBAw9;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1043 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=GGrpDFVbyldsXia0RQ2yWJkG3b98zDqmvtbT7oXHEL4=;
-        b=DnLmiNb1WDHcmA16XQpjognSnaVEaF4VmG5QqfmDoJAdrS6gCCKTXZul8dLHNkpjaB
-         uRuEkaZ15uxhRD90NNpf7uF2XJnesW/luk3lnEtfHRRiOihudG909iGEsQcwx1gwMJb/
-         q/WC1r/UrLesUEVTRXxQgpcgVeYydVgCjkYcu4tdVgEwnd/6TNfWD8ZnDSuXZ0AGiL4j
-         LQ2XICO2mMZe3lp8gu8LgC+30hxUSNZ3J33DVaEh66om/KpreeSgIwqFyH+5MeIxGpRq
-         P1Qh+SN8VZ8x6iU3NT0DJZuiSVOFquyJ33ulP7FQ+oxxtZMKsoG8DfPj0SS/P30suDCZ
-         Yz0g==
+        bh=2ezsAMbPn4qqyYG4ewDbEfYHEjYbuRMqkal9238kxVs=;
+        b=PWGa8AyFuVS7tiM3Ah02qrxQb36m+m0yxYGXe3TpNFVoDXZLiCVG3CV9BDpIHAsTBD
+         7emyC6Vyjs7MAapLcHhR4Qcs77EWbmqzCwtWg6hvFZj39XPQaF+eHu8fQA6yL31rKJDg
+         WEzQIhm6XXhLK/wTCDJlDpWCTdb7TqSPhOI22Ne6l8vWdosBcXk+ixFDgyXz5WWMSagu
+         Y9AwmDFHNeWCqphrogUox7PBlywnH/ksZ6Pdg716HtkRnfVQAXSCHt3VbOBD9j4jN9SD
+         dqalUppX3sFcSH4Pf8ZlnSrLs0UNKi1shw8TaDvdRHQ9UMroCO5+AuIZBz1jo5DPPVho
+         LnzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=GGrpDFVbyldsXia0RQ2yWJkG3b98zDqmvtbT7oXHEL4=;
-        b=KDBt+cKuZRMAUzlhKa1wt7X2CVTliiJlfq5VNApzp1S3ULfVUUyIKhOo12+7q3WLhP
-         IBQVBrPSu8MuJ+wXHIgGXAJDKfYXRjYaE0DiEq6GStjpNtK+6XtMpmK7E6juk+jWy3r1
-         lZ8WlgvJBry0clWQH3UKOblv+T7DoBiWu7XWtU+t0Z46V3eZGM9E9tms72+my+94dtwX
-         s3v6Uo49WwaqVhAgy1ksumxXIReoWdL0JJa/iKvvqLYGle6/ScCqrJ10Qh2RokIcuaby
-         +C+rN0bGvtFrE3cCkq5d6fb8giZEdnPE4prlDie8JCSQD9rAFjY0LX32SMjhRH9rUbAz
-         locw==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=2ezsAMbPn4qqyYG4ewDbEfYHEjYbuRMqkal9238kxVs=;
+        b=KbG5/6hhi1zyitI+OIAf09jSpLWSYsYR/iJRpX6wcAs2o8tbwpElpm+XMOblSbjmQq
+         aoKbpqEoi3r63KG1MklUWBQ453I+QfL+pUsX5+WJ6/nsJoouLUWx+9l+aiExcfpAHBSV
+         5obx9jr9Evrf7gEJMZsmLt2Eel3s81raTSNjBLZIZXbIke3e+t6/6w63DkM27dneRcV3
+         WuQK5y7UBGaStjcHIqgo2ETgtEzACY/8tmAlYZ115LEUqtou/L1tLZLmM6TiufT14Lkp
+         u2NzFBRGl8EAiy0J3oDOcxuDrKcMLBSKB7lBTxwoL/2iFXBzCy4/+ILtyLuf6DlU8yyf
+         CjZw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530xHxa67VNXZFJcnteTudjGIDwxrDMCO6ssmkizqTCOK7Wicb/8
-	h5qydCa3mQji9mG3YpPw9K0=
-X-Google-Smtp-Source: ABdhPJz59/FpKqXfwNA7fMTQWdx7A1M5eKko4JyzyNJE9HluOtbexMTxCNq3M1Y+VplOugca8XmvQg==
-X-Received: by 2002:a65:6a55:: with SMTP id o21mr15948025pgu.64.1598552740642;
-        Thu, 27 Aug 2020 11:25:40 -0700 (PDT)
+X-Gm-Message-State: AOAM531UxIgG7WY6CwF4vIxNSjzYs4qo/TjyDZVK2VpORi/L8Gd/vgcZ
+	9W2CWyun3IZ+L2sp25pvnH0=
+X-Google-Smtp-Source: ABdhPJxrkXbo0FtaK1xqepJbuqynISsFqbg9qGbbgIky3Au4UW6deK08W1CadeHWOJguCHFOiE1AhQ==
+X-Received: by 2002:a37:6543:: with SMTP id z64mr1487200qkb.278.1598552767118;
+        Thu, 27 Aug 2020 11:26:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:720b:: with SMTP id ba11ls1623003plb.0.gmail; Thu,
- 27 Aug 2020 11:25:40 -0700 (PDT)
-X-Received: by 2002:a17:902:708b:: with SMTP id z11mr3044796plk.326.1598552740184;
-        Thu, 27 Aug 2020 11:25:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598552740; cv=none;
+Received: by 2002:ae9:edcb:: with SMTP id c194ls603731qkg.7.gmail; Thu, 27 Aug
+ 2020 11:26:06 -0700 (PDT)
+X-Received: by 2002:a05:620a:46:: with SMTP id t6mr18193544qkt.15.1598552766602;
+        Thu, 27 Aug 2020 11:26:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598552766; cv=none;
         d=google.com; s=arc-20160816;
-        b=y/LIU7930S1cyIL65/jgW2NNtiN4GQm2Pm5daRzHYZN2qVhyPJ9PLL9an/2a8giOxq
-         +pwfcP1zYVFJsk52ckY/hasV8J9U6qj8/Kl/LlIb+9zc4DBxDTUHqd1ao9zUqItLX8RG
-         Kegeu20fwM6a28uDwuEJSN3H/OYqLh/UTacZHXeTkE6S9D2QnhAPhnoBdUd7nAHKN9mR
-         Jd2XR6Un9R9+XDu/12TmMDFyUgskj0YDhKj8PNLt55DSlJe6udSIEpen4YB02nnk3siP
-         tiU5LYIVtnjlXHLQpF2WWo6K3JwLeSfQUHWNwsyFU8kMLbSuVvbcOdMPvQ6tWjuxQFmo
-         ey+Q==
+        b=p/cQpB1cT+C10VcHALhx2Du5dqnhmvvv2P7pJ1XqFf3/oN1GrMVz1IRenqINbky6Kr
+         1dvkadHvdDAYlRsVkqYwkwtZtpCnAe5bR/wY7snCTy1AccQl8rwoqGioYp1lmUhO2wTY
+         h6wLg5Qhk7KqFIi0uF9boGNR67J7fnuSXFtOxUwcxneBH2Qb19+gnkPzIlDmQdZ7Y7hY
+         tiaU5+TaXwBb01hu//x5fFiA/GZfUzIfGSLbbKAazhriTjyy/1UhC2uRXP22jVkJhAmQ
+         mr3FdTc/A6yBjGaxy31VGjSDFGvFgXZLvw3c8xxbX1Z4s+0XswxSzhmMpRSAu/HrVSas
+         CzdQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=L2QfmaAwnwA4hoiO89ZgINUlMqkWy7n6tRHAxYPu1fM=;
-        b=MEHSEeMJAzhoCKLEnmKD90LwQ/B+Y2GuZArosy43qQCwyljA/OV1f5HWPcclQndeVm
-         xMEh9dAFJYnbIrM4GmVJS1LyU0yQj5QdgzB9IzM9VlM7s+CuakuG+NrbDC4Ja7vkUbix
-         2ReyKlm6tg5WuQlYewCDXPU0mhiAqRGIiHp3iIChimGaSOmR7FlHUucC8oWDh7ti49bG
-         Gi1MfZmfYjyeU1DI9uG8z3xuXaupz3sdX0bFifKooTo8EZj2vRWZZw66hdkOs3GuDAXQ
-         tOslgoOu9vUPS/WA0sbQGARsem2cQ9KWLfShGjSKr7djzPbkWCMAZvb3HzHDyYMlfmnV
-         WdQw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=6BMddBDrBrgDUNUGomrW0m42cqLSjUvpHNc8p74VZyA=;
+        b=teIPg8Hzkjlx+RLhj6OtPYMF5xyn0YmTAFpBSgabV1z3cWanXILBrvvaaYus2vYomv
+         KFpD/M8rpqVVN0YynrKjtbetN6Iu9vW8+3abGK2RMd2Z+Z31GS/sR8rbsw3tJVH7oMoM
+         rWCEg/ib2fnFKTaDhFeVslbTWLCsjgF+RxYRp6HW81Wof076uQx2/ssY6ziApPWbKUJl
+         /UMGIZ6GhoPNpcCJD258M4tYXFFE1UdvVco5F2KmepToPAR3hhOrpYZ7zGpsPkgZBxzk
+         vuIOxAsqYhqIvmzTpnlKI1yzW+TO8HmkB0S6j6Pzintr1A1pUzRGqLQUe4UpyNJaQU5M
+         zSFA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=xTkHOyq3;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-03.nifty.com (conssluserg-03.nifty.com. [210.131.2.82])
-        by gmr-mx.google.com with ESMTPS id bg1si169223plb.5.2020.08.27.11.25.39
+       dkim=pass header.i=@chromium.org header.s=google header.b=FXdPBAw9;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1043 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-pj1-x1043.google.com (mail-pj1-x1043.google.com. [2607:f8b0:4864:20::1043])
+        by gmr-mx.google.com with ESMTPS id f38si153319qte.4.2020.08.27.11.26.06
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 27 Aug 2020 11:25:40 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) client-ip=210.131.2.82;
-Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178]) (authenticated)
-	by conssluserg-03.nifty.com with ESMTP id 07RIPR8U003719
-	for <clang-built-linux@googlegroups.com>; Fri, 28 Aug 2020 03:25:27 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-03.nifty.com 07RIPR8U003719
-X-Nifty-SrcIP: [209.85.210.178]
-Received: by mail-pf1-f178.google.com with SMTP id k15so4140201pfc.12
-        for <clang-built-linux@googlegroups.com>; Thu, 27 Aug 2020 11:25:27 -0700 (PDT)
-X-Received: by 2002:a63:e018:: with SMTP id e24mr15142537pgh.175.1598552726619;
- Thu, 27 Aug 2020 11:25:26 -0700 (PDT)
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 27 Aug 2020 11:26:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1043 as permitted sender) client-ip=2607:f8b0:4864:20::1043;
+Received: by mail-pj1-x1043.google.com with SMTP id g6so3033258pjl.0
+        for <clang-built-linux@googlegroups.com>; Thu, 27 Aug 2020 11:26:06 -0700 (PDT)
+X-Received: by 2002:a17:90a:fb4e:: with SMTP id iq14mr103434pjb.133.1598552766044;
+        Thu, 27 Aug 2020 11:26:06 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+        by smtp.gmail.com with ESMTPSA id a25sm3370253pfk.151.2020.08.27.11.26.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Aug 2020 11:26:05 -0700 (PDT)
+Date: Thu, 27 Aug 2020 11:26:04 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Joe Perches <joe@perches.com>
+Cc: Masahiro Yamada <masahiroy@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	stable <stable@vger.kernel.org>, Andy Lavr <andy.lavr@gmail.com>,
+	Arvind Sankar <nivedita@alum.mit.edu>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Alexandru Ardelean <alexandru.ardelean@analog.com>,
+	Yury Norov <yury.norov@gmail.com>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3] lib/string.c: implement stpcpy
+Message-ID: <202008271124.37242A14@keescook>
+References: <20200825135838.2938771-1-ndesaulniers@google.com>
+ <CAK7LNAQXo5-5W6hvNMEVPBPf3tRWaf-pQdSR-0OHyi4RCGhjsQ@mail.gmail.com>
+ <d56bf7b93f7a28c4a90e4e16fd412e6934704346.camel@perches.com>
+ <CAKwvOd=YrVtPsB7HYPO0N=K7QJm9KstayqqeYQERSaGtGy2Bjg@mail.gmail.com>
+ <CAK7LNAQKwOo=Oas+7Du9+neSm=Ev6pxdPV7ges7eEEpW+jh8Ug@mail.gmail.com>
+ <202008261627.7B2B02A@keescook>
+ <77428f28620d4e5ecad1556396f2b0f8f0daef41.camel@perches.com>
+ <202008261932.FF4E5C0@keescook>
+ <e84ea9d311fe082af8a1afe2aba48303ffbb1bf1.camel@perches.com>
 MIME-Version: 1.0
-References: <20200826191555.3350406-1-ndesaulniers@google.com>
-In-Reply-To: <20200826191555.3350406-1-ndesaulniers@google.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Fri, 28 Aug 2020 03:24:49 +0900
-X-Gmail-Original-Message-ID: <CAK7LNATqUV48aNW2NGN7gz_oMo_3kZ+mbbiq2nGsfnQR=oEHAg@mail.gmail.com>
-Message-ID: <CAK7LNATqUV48aNW2NGN7gz_oMo_3kZ+mbbiq2nGsfnQR=oEHAg@mail.gmail.com>
-Subject: Re: [PATCH v2] Documentation: add minimum clang/llvm version
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Kees Cook <keescook@chromium.org>,
-        Nathan Chancellor <natechancellor@gmail.com>,
-        "Gustavo A . R . Silva" <gustavoars@kernel.org>,
-        Michal Marek <michal.lkml@markovi.net>,
-        Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>,
-        "Theodore Ts'o" <tytso@mit.edu>, Borislav Petkov <bp@suse.de>,
-        "Alexander A. Klimov" <grandmaster@al2klimov.de>,
-        Will Deacon <will@kernel.org>,
-        clang-built-linux <clang-built-linux@googlegroups.com>,
-        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
+Content-Disposition: inline
+In-Reply-To: <e84ea9d311fe082af8a1afe2aba48303ffbb1bf1.camel@perches.com>
+X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=xTkHOyq3;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@chromium.org header.s=google header.b=FXdPBAw9;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1043
+ as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,78 +152,84 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Aug 27, 2020 at 4:16 AM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> Based on a vote at the LLVM BoF at Plumbers 2020, we decided to start
-> small, supporting just one formal upstream release of LLVM for now.
->
-> We can probably widen the support window of supported versions over
-> time.  Also, note that LLVM's release process is different than GCC's.
-> GCC tends to have 1 major release per year while releasing minor updates
-> to the past 3 major versions.  LLVM tends to support one major release
-> and one minor release every six months.
->
-> Reviewed-by: Kees Cook <keescook@chromium.org>
-> Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-> Tested-by: Gustavo A. R. Silva <gustavoars@kernel.org>
-> Tested-by: Nathan Chancellor <natechancellor@gmail.com>
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> ---
-> Changes V1 -> V2:
-> * fix typo, as per Will.
-> * add link to getting LLVM, as per Nathan.
-> * collect tags.
->
->  Documentation/kbuild/llvm.rst     |  4 ++++
->  Documentation/process/changes.rst | 15 +++++++++++++++
->  2 files changed, 19 insertions(+)
->
-> diff --git a/Documentation/kbuild/llvm.rst b/Documentation/kbuild/llvm.rst
-> index 2aac50b97921..3f10a9c47551 100644
-> --- a/Documentation/kbuild/llvm.rst
-> +++ b/Documentation/kbuild/llvm.rst
-> @@ -1,3 +1,5 @@
-> +.. _kbuild_llvm:
-> +
->  ==============================
->  Building Linux with Clang/LLVM
->  ==============================
-> @@ -73,6 +75,8 @@ Getting Help
->  - `Wiki <https://github.com/ClangBuiltLinux/linux/wiki>`_
->  - `Beginner Bugs <https://github.com/ClangBuiltLinux/linux/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22>`_
->
-> +.. _getting_llvm:
-> +
->  Getting LLVM
->  -------------
->
-> diff --git a/Documentation/process/changes.rst b/Documentation/process/changes.rst
-> index ee741763a3fc..dac17711dc11 100644
-> --- a/Documentation/process/changes.rst
-> +++ b/Documentation/process/changes.rst
-> @@ -30,6 +30,7 @@ you probably needn't concern yourself with pcmciautils.
->          Program        Minimal version       Command to check the version
->  ====================== ===============  ========================================
->  GNU C                  4.9              gcc --version
-> +Clang/LLVM (optional)  10.0.1           clang --version
+On Wed, Aug 26, 2020 at 07:42:17PM -0700, Joe Perches wrote:
+> On Wed, 2020-08-26 at 19:33 -0700, Kees Cook wrote:
+> > On Wed, Aug 26, 2020 at 04:57:41PM -0700, Joe Perches wrote:
+> > > On Wed, 2020-08-26 at 16:38 -0700, Kees Cook wrote:
+> > > > On Thu, Aug 27, 2020 at 07:59:45AM +0900, Masahiro Yamada wrote:
+> > > []
+> > > > > OK, then stpcpy(), strcpy() and sprintf()
+> > > > > have the same level of unsafety.
+> > > > 
+> > > > Yes. And even snprintf() is dangerous because its return value is how
+> > > > much it WOULD have written, which when (commonly) used as an offset for
+> > > > further pointer writes, causes OOB writes too. :(
+> > > > https://github.com/KSPP/linux/issues/105
+> > > > 
+> > > > > strcpy() is used everywhere.
+> > > > 
+> > > > Yes. It's very frustrating, but it's not an excuse to continue
+> > > > using it nor introducing more bad APIs.
+> > > > 
+> > > > $ git grep '\bstrcpy\b' | wc -l
+> > > > 2212
+> > > > $ git grep '\bstrncpy\b' | wc -l
+> > > > 751
+> > > > $ git grep '\bstrlcpy\b' | wc -l
+> > > > 1712
+> > > > 
+> > > > $ git grep '\bstrscpy\b' | wc -l
+> > > > 1066
+> > > > 
+> > > > https://www.kernel.org/doc/html/latest/process/deprecated.html#strcpy
+> > > > https://github.com/KSPP/linux/issues/88
+> > > > 
+> > > > https://www.kernel.org/doc/html/latest/process/deprecated.html#strncpy-on-nul-terminated-strings
+> > > > https://github.com/KSPP/linux/issues/89
+> > > > 
+> > > > https://www.kernel.org/doc/html/latest/process/deprecated.html#strlcpy
+> > > > https://github.com/KSPP/linux/issues/90
+> > > > 
+> > > > We have no way right now to block the addition of deprecated API usage,
+> > > > which makes ever catching up on this replacement very challenging.
+> > > 
+> > > These could be added to checkpatch's deprecated_api test.
+> > > ---
+> > >  scripts/checkpatch.pl | 3 +++
+> > >  1 file changed, 3 insertions(+)
+> > > 
+> > > diff --git a/scripts/checkpatch.pl b/scripts/checkpatch.pl
+> > > index 149518d2a6a7..f9ccb2a63a95 100755
+> > > --- a/scripts/checkpatch.pl
+> > > +++ b/scripts/checkpatch.pl
+> > > @@ -605,6 +605,9 @@ foreach my $entry (@mode_permission_funcs) {
+> > >  $mode_perms_search = "(?:${mode_perms_search})";
+> > >  
+> > >  our %deprecated_apis = (
+> > > +	"strcpy"				=> "strscpy",
+> > > +	"strncpy"				=> "strscpy",
+> > > +	"strlcpy"				=> "strscpy",
+> > >  	"synchronize_rcu_bh"			=> "synchronize_rcu",
+> > >  	"synchronize_rcu_bh_expedited"		=> "synchronize_rcu_expedited",
+> > >  	"call_rcu_bh"				=> "call_rcu",
+> > > 
+> > > 
+> > 
+> > Good idea, yeah. We, unfortunately, need to leave strncpy() off this
+> > list for now because it's not *strictly* deprecated (see the notes in
+> > bug report[1]), but the others can be.
+> 
+> OK, but it is in Documentation/process/deprecated.rst
+> 
+> strncpy() on NUL-terminated strings
 
+"... on NUL-terminated strings". It's "valid" to use it on known-size
+(either external or by definition) NUL-padded buffers (e.g. NLA_STRING).
 
-Just playing a nitpick:
-Supporting Clang makes GCC optional, so now
-"GNU C (optional)"
-
-:-)
-
-
-Reviewed-by: Masahiro Yamada <masahiroy@kernel.org>
-
-
---
-Best Regards
-Masahiro Yamada
+-- 
+Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNATqUV48aNW2NGN7gz_oMo_3kZ%2Bmbbiq2nGsfnQR%3DoEHAg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202008271124.37242A14%40keescook.
