@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBC6JD5V23ENBBC4FUD5AKGQERQDXATY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC6JD5V23ENBBDUFUD5AKGQECY7UGJY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83d.google.com (mail-qt1-x83d.google.com [IPv6:2607:f8b0:4864:20::83d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8EEC0254D78
-	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 20:59:24 +0200 (CEST)
-Received: by mail-qt1-x83d.google.com with SMTP id w1sf5568622qto.4
-        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 11:59:24 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598554763; cv=pass;
+Received: from mail-pj1-x103b.google.com (mail-pj1-x103b.google.com [IPv6:2607:f8b0:4864:20::103b])
+	by mail.lfdr.de (Postfix) with ESMTPS id B0960254D7E
+	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 20:59:27 +0200 (CEST)
+Received: by mail-pj1-x103b.google.com with SMTP id o9sf4840083pjg.7
+        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 11:59:27 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598554766; cv=pass;
         d=google.com; s=arc-20160816;
-        b=FlvqcXAo5qQckA7o/cl8PYcHfsKKQXmMNF550TMFkfv5Y1cFsnelXwtlDw6aL3FKfl
-         +ksu9C0mrmGccBhrDV/3tEw519LP2MgdWTJrDufdlQsYczlNt4eEAa3alDXa9+m0KsgI
-         9oNwDv7xbelMKOaqe4VTgm6XaNkiV3eNa2BetA9SoL8fS1Zc89orWayiJPweHFudtQEn
-         I6HFiBtgCs2bej+16B8CKh1KMRwI1E8c3VvqVl2pMDkyK5JdpV8jPm8GPHR2QNhRQ2Az
-         KCd68bu/my162YiPlHDiQqyITMZsp8oY0QMV/O+f13s9jKklIM50XEXs+UK4ks1jtplH
-         LK2g==
+        b=0zo+oDHqBjoFdoHTyPPIVTN9SGKLFHcOi0HhFLYnjapZ1w7myZi0mKQJ/W3zFD2He0
+         hnKZGoGueJiL8bh/C8M/Y3DvS0kpDbRtFqDbFijFIZSsh5CjrwlEbpyj2psxbbxHJtyo
+         psN1fXBBwuEIfOGhV6tKZgy74KonLp4GcJzNWJfhXzFIifD17o8uMFmEoU/r/1Kpn5A1
+         cs/R8B0ZsHtKd6tSyTXjv8v0+GZOUO+GG7oUSp/ewObjb/8UdDCNrxYlUmgHwLQyY6NM
+         Y4lDuTtE7oWeybUzcS2BEsm/duSnBu+JK0wDe4B8N/965e6yWLjXIBojSod1WKaDW452
+         +fhA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:references:in-reply-to:message-id
          :date:subject:cc:to:from:mime-version:sender:dkim-signature;
-        bh=f8siHZ5EudT5xDUuMe68QGW2xUN5WbWl9qWMEdp0Emo=;
-        b=omAm8G+mBm76gp1MA+fwmGXzl642KqrS5MbFdiiJbpfTxATv5GTFEvIC9NB2gWatrK
-         zEkC79rJSwQxpCYVb1xIUks7If2XJjKs6MA2aZ8TnqAoBux/0ZBAFlA1VpfVliAhIKev
-         4AKd2CQT2XXeFRExT1QgeL1fOVLhxhXSNlV8DNL0e1yrys5Gopy0Mhv4uqdy4R11oabs
-         MAJCFC5Vj0Kb62eZkd+4DHEHV+z0r0FdqZzHnLDd9KE/HqjuFiNgLk+NJrCWvmBq7gjv
-         p+As8AT8J1vN6z5aTXBh/VvfuUbUFrHQy5376PFPzLk3NM3pvN0RONb2A6QdLm2MLPtA
-         BPHQ==
+        bh=4OCwYClYyoiPgPpOOBTDpIEdhsa6P0xZ8ykEVE/Q89w=;
+        b=jIUq+YNrZMbS7EudCBlvDpVzXztl9Bu5BvSBommXyCumr2uo3aQ6sqXzoz2MXgZmME
+         OPw3Ae8J84QwF6gGf/47wek2ZUjbpyCYyffF1pVV5e6qB8qUga7vHdOT5/gSfw0iwZjV
+         f5z5eeZoi0qs7zWteMGMD4sdRWMocdnjzADnz+uqpHwFudMC5oCJKXwjdJ1JXEpqCy/l
+         +LOfVfK/yy9SX0w+7hV3cDzXVci3rgE9pELhd/6Cq8IRbnsmHMsBdXzKEm//vd+5g8sX
+         vHC9XGGKfRdNMlcKfBOi+1ZjW7l5cBk+BHkMBkBIP4s0BSGg91PD4n5ez7DtVAi41oUD
+         sIlQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="Kxo8B7z/";
+       dkim=pass header.i=@kernel.org header.s=default header.b=L1+KnT1P;
        spf=pass (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=krzk@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :references:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=f8siHZ5EudT5xDUuMe68QGW2xUN5WbWl9qWMEdp0Emo=;
-        b=esJzklH3tZzhQycj/wBdkNdK5xJpk46JAM7EvGDtBWhahzjfBjfBHpcnIXzp/+c24v
-         1FK9krSnZLlcfKSSEaR5qtverPuQ0DZoL9WheqPU+fNDkXbrjWdJHUd1cAIY6GBoMQDc
-         e6QHAsxpaJK7bjReiLqP+vdzA75YcR7nBMMxlbUyrWngqKn25dkeaACqLHbIicHFCTPE
-         DUVJxKKfhbGD5QX8ZCJNxsS+w7H2xw+jjecJBtO0E++wLctB0uP7HT58doaQGj7MCusA
-         4O7cRM0jUAfcFIhtGBQeuUMOjP6m/wA5PYu+D5B110gxoDfxDgw+n9Ttx+bu8EWN6Fkd
-         EP/g==
+        bh=4OCwYClYyoiPgPpOOBTDpIEdhsa6P0xZ8ykEVE/Q89w=;
+        b=sKAx6rID8Npz65Ak8Dj6lpRcOYFrHX2YjmN45lVDlOIqAXAJ+t0sA7lU5/ainAUHPN
+         OOCVal1AlpCVRqrry2AX0209EDprztZF9qPBSQ9NM2nk8sO72kZKxzmFtb95iBmMmiph
+         5ZS/tYrFLOLGuJbmsVv8pe5i7Ov1yI+UrjaZfb1wNenpylUA8p4Bee1Z3tyDpdHCCnBZ
+         Lhy+IHlWYVuviX5KnLUsYTpXd/x2C9bAde5bp/l1OPfowYP7LAecu/tDMTbVa4lWBY6D
+         ZHnbtHeSKdN1eTCCCmXxmmfVNYbL5xSCEf1zp8NVamx7l1lYkd64dv9sV9uhumnjuMxK
+         OlYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
@@ -49,58 +49,58 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=f8siHZ5EudT5xDUuMe68QGW2xUN5WbWl9qWMEdp0Emo=;
-        b=F6Vm2z9jLrMrgbJuzqW4/5grdLGQKesxD5mK2qnidEcQokXB4tJEcpDOkBjEHlXbbS
-         AlnUaZeGtkSMKN0lNPGqgYwScJuGxWQXXoJQul4+ZOp0qAN6BvYzSjZxvNNEqNF2m4Vn
-         IdVgo8mcifUDDDeBV+OaPSLbXDRHuH5xawidZK7FatlEaJ/l4moV02ei3cLMJBO9iDNw
-         biW6aibLAO2lvnS9IAGiSotw2Ug9LrfnVnbjCFWNMR4CiJ8LMkj82pn/TFLr43XEO1T+
-         gw82dILTdD5irWp4sGyeVpHt9HSfpSbJ3+getKA3rfvKqytIj312F/Iv6jyGbfWU+aeW
-         rEwA==
+        bh=4OCwYClYyoiPgPpOOBTDpIEdhsa6P0xZ8ykEVE/Q89w=;
+        b=CPoBhFE/zXUENgqANrq8qtLcFf92ifbrxLnXGqJTMXGJeFwBtjJJMzuqRW63rR8BjH
+         xqc8SJcg28BLa+axsYeeXYpK2CWqnm4qhKCMcfA0a1LBXNKRxJstMh1Yc4UReeUKipGJ
+         6DkvAWDrtCs1Qqr9kiGjLtZPT41KILpInsRFdATGE/V9EyXVl7PzvrTawA1yEjkkbz3b
+         MqO22IZnNIxISHSO8t5s1mUq9j3xQEmPByguqVWFWPgWDgXqyeDeMQRuM1iIQKrwKaP4
+         UlH2KASRW+ZhN7lDisJoAJQ/zabjOYy6twHSqkcm1s04M9++u7z6g0ybQGXD4d1pQLUZ
+         MHdg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5312V4zW06BPr9sT7xvh8S0UMefMFz0XhZ4HwkjdevaT9DX+fPIi
-	Cuur9dpyIaaeLSXKll0HDbA=
-X-Google-Smtp-Source: ABdhPJxgZKMb88pI7CoiByRmCh+Fx6M7lCT7B3LoIUePD85xHSRfK4D5+7ZosfmIQV1ym7MuX+aGHw==
-X-Received: by 2002:a05:620a:2f5:: with SMTP id a21mr8474337qko.191.1598554763647;
-        Thu, 27 Aug 2020 11:59:23 -0700 (PDT)
+X-Gm-Message-State: AOAM531GFezTijswFTtj61Y/OAMyjxoxFKXShaMeF5NUAZENsCNkNHO4
+	iJD9pyItSIJswGSdpIWCR7w=
+X-Google-Smtp-Source: ABdhPJwDPpPT90SeyEd2TYBs5AhMkzNdNUjnTtme7xcGhbhIr4XvzeT4r5FblN17D8gdYGTYy73HJQ==
+X-Received: by 2002:a17:902:8307:: with SMTP id bd7mr17589593plb.159.1598554766310;
+        Thu, 27 Aug 2020 11:59:26 -0700 (PDT)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:8ce:: with SMTP id y14ls1270767qth.7.gmail; Thu, 27 Aug
- 2020 11:59:23 -0700 (PDT)
-X-Received: by 2002:aed:36c7:: with SMTP id f65mr20811976qtb.39.1598554763314;
-        Thu, 27 Aug 2020 11:59:23 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598554763; cv=none;
+Received: by 2002:a62:15d0:: with SMTP id 199ls1257965pfv.1.gmail; Thu, 27 Aug
+ 2020 11:59:26 -0700 (PDT)
+X-Received: by 2002:a65:6119:: with SMTP id z25mr16320823pgu.52.1598554765924;
+        Thu, 27 Aug 2020 11:59:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598554765; cv=none;
         d=google.com; s=arc-20160816;
-        b=WY3CgujFYlUznvCQpMMkoZt5gMjnxJrJhO2BLYU3CkowQNLo2Jq7ty21xKNEKwhWcO
-         PKXv6NIxQ5ymtSLzVMN52OzgU61VC+SaXAwdBT0dJwWVPHjsFr2Lzr23zlPxsuy0E7Rz
-         UrbS+XGlxXTP2ls4NTiVn9VYGnWYhqzF22/9g+LZJimzqukjL5tg+90TQpIERq3aolnv
-         Z1jeMeW0df/Xrtu4suerqA8LhIE5d1l6J1lZsWBMApZK9dsgIP4b3Czfrn6gl7tFotB4
-         S0ATcnUInPCGaY7FHEPBRZGXEgu12v7U0r2Itww/kkx9SSbvTH59Gwa7oMJwVXh6RvCv
-         hS3w==
+        b=Td3lV2FRY4q4nwlEbaqToFwux/1/iSjJlKwp+naV7XzDoAsYyPC37X6az2gKLwkLXm
+         2VjQ/1BF6GN+CIs3X4iTiccOW36p7zkXSY8o4hupAtu3+oIYq9WA44dwYaF8dt4dfBHR
+         /zL2YFq2WuQ9WWIvNe9cnbIVruUsWAVJCCsO1VczCtIhUbJ5pt+ll5hYUcArNmXW7yMx
+         KuRyg0Lc3k6RfJA/OVv3+EiUnyW/CwRqqP7DK+Qszu1Ib5GgKmW6gouavwy3QwJeAXun
+         8L2tVrTrScL1eWT2i9YhMIJCEmFZMmGPYMwdf9JWHLJmD0bblcJBrx8CKUdMNv8zccig
+         qMHQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :dkim-signature;
-        bh=OXxtCrW/CtSrUcqzJTP4tOsASdisPiYTPq73RSW6JdA=;
-        b=v6E3z0rtgfBPybP/VGTo0wVsfxbBMpTcVqZSvQRUdou0jO6NC+YDQ1ZiRDv2MxLmDm
-         2flxyVZnJp5af3L00QkXjPDzZi8AVfYORgt/tPbWu0b8GX1a4gr56NgEYb3UVrMWWquI
-         Afcx/0mov3QjnVUZEOFJHM+luwr4LXr12USLM+TNDY1P7L4n6+Ow1cy5V+owJ+MdAfbj
-         L6Y2mDDDU+FiDymYzdbRYqPa6TnU0SWL2blevf6mHADLdqXF0A4YOFfiB9JXzd0JTjk7
-         rakgz7RNqa7v/6Ty+VisN1sqp5kc4lv8cTgwvEHRQky3rdyO5/05GoZuNQkwwnmYLPwA
-         FeZQ==
+        bh=/cReBpWsyrWwmkvAiRiU+xQMj5YH5tAqtonQ2iFtqJQ=;
+        b=zCZir+WvnyHocfBcioqFm45CxUMpPNq8xfXGu23nn+2seMEO4mISc80x3i8QxLHMOm
+         qE6iWGvYRSPs3mbjoS83aPR9KwVL6EJ/bvNWvwbxvQEmbIzmedDpGYXT/64JvXmoOHYQ
+         do0t40797IOXExlptJyUubGCUPp/Oje51nSRcLVwwiMM+/fmIpO7s3MTE58pUARhQFGl
+         4YuWCIr/Sn21kBe6ImwedmaMIORYvr9auHRRqkAvqs6+eERvJPBHcd6FSrKnL+JqPrSP
+         W6j5mxsXcE/1FxUuPCP7EueJGMlMCAs+EblCu6OjuKGxnBlG8hrCragSMA8B9VMvOo2d
+         kDXQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="Kxo8B7z/";
+       dkim=pass header.i=@kernel.org header.s=default header.b=L1+KnT1P;
        spf=pass (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=krzk@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id d1si163428qtw.2.2020.08.27.11.59.23
+        by gmr-mx.google.com with ESMTPS id kx12si394793pjb.0.2020.08.27.11.59.25
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 27 Aug 2020 11:59:23 -0700 (PDT)
+        Thu, 27 Aug 2020 11:59:25 -0700 (PDT)
 Received-SPF: pass (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from localhost.localdomain (unknown [194.230.155.216])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 7487D2087E;
-	Thu, 27 Aug 2020 18:59:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id C2A1922BEA;
+	Thu, 27 Aug 2020 18:59:22 +0000 (UTC)
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <bgolaszewski@baylibre.com>,
@@ -116,15 +116,15 @@ To: Linus Walleij <linus.walleij@linaro.org>,
 	platform-driver-x86@vger.kernel.org,
 	clang-built-linux@googlegroups.com
 Cc: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [PATCH v3 12/27] Input: ektf2127 - Simplify with dev_err_probe()
-Date: Thu, 27 Aug 2020 20:58:14 +0200
-Message-Id: <20200827185829.30096-13-krzk@kernel.org>
+Subject: [PATCH v3 13/27] Input: elants_i2c - Simplify with dev_err_probe()
+Date: Thu, 27 Aug 2020 20:58:15 +0200
+Message-Id: <20200827185829.30096-14-krzk@kernel.org>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20200827185829.30096-1-krzk@kernel.org>
 References: <20200827185829.30096-1-krzk@kernel.org>
 X-Original-Sender: krzk@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b="Kxo8B7z/";       spf=pass
+ header.i=@kernel.org header.s=default header.b=L1+KnT1P;       spf=pass
  (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=krzk@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -148,32 +148,48 @@ Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
 Reviewed-by: Hans de Goede <hdegoede@redhat.com>
 Reviewed-by: Andy Shevchenko <andy.shevchenko@gmail.com>
 ---
- drivers/input/touchscreen/ektf2127.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+ drivers/input/touchscreen/elants_i2c.c | 22 ++++++----------------
+ 1 file changed, 6 insertions(+), 16 deletions(-)
 
-diff --git a/drivers/input/touchscreen/ektf2127.c b/drivers/input/touchscreen/ektf2127.c
-index eadd389cf81f..cd41483cfae5 100644
---- a/drivers/input/touchscreen/ektf2127.c
-+++ b/drivers/input/touchscreen/ektf2127.c
-@@ -237,12 +237,8 @@ static int ektf2127_probe(struct i2c_client *client,
+diff --git a/drivers/input/touchscreen/elants_i2c.c b/drivers/input/touchscreen/elants_i2c.c
+index b0bd5bb079be..ad299eb333f1 100644
+--- a/drivers/input/touchscreen/elants_i2c.c
++++ b/drivers/input/touchscreen/elants_i2c.c
+@@ -1245,24 +1245,14 @@ static int elants_i2c_probe(struct i2c_client *client,
+ 	i2c_set_clientdata(client, ts);
  
- 	/* This requests the gpio *and* turns on the touchscreen controller */
- 	ts->power_gpios = devm_gpiod_get(dev, "power", GPIOD_OUT_HIGH);
--	if (IS_ERR(ts->power_gpios)) {
--		error = PTR_ERR(ts->power_gpios);
+ 	ts->vcc33 = devm_regulator_get(&client->dev, "vcc33");
+-	if (IS_ERR(ts->vcc33)) {
+-		error = PTR_ERR(ts->vcc33);
 -		if (error != -EPROBE_DEFER)
--			dev_err(dev, "Error getting power gpio: %d\n", error);
+-			dev_err(&client->dev,
+-				"Failed to get 'vcc33' regulator: %d\n",
+-				error);
 -		return error;
 -	}
-+	if (IS_ERR(ts->power_gpios))
-+		return dev_err_probe(dev, PTR_ERR(ts->power_gpios), "Error getting power gpio\n");
++	if (IS_ERR(ts->vcc33))
++		return dev_err_probe(&client->dev, PTR_ERR(ts->vcc33),
++				     "Failed to get 'vcc33' regulator\n");
  
- 	input = devm_input_allocate_device(dev);
- 	if (!input)
+ 	ts->vccio = devm_regulator_get(&client->dev, "vccio");
+-	if (IS_ERR(ts->vccio)) {
+-		error = PTR_ERR(ts->vccio);
+-		if (error != -EPROBE_DEFER)
+-			dev_err(&client->dev,
+-				"Failed to get 'vccio' regulator: %d\n",
+-				error);
+-		return error;
+-	}
++	if (IS_ERR(ts->vccio))
++		return dev_err_probe(&client->dev, PTR_ERR(ts->vccio),
++				     "Failed to get 'vccio' regulator\n");
+ 
+ 	ts->reset_gpio = devm_gpiod_get(&client->dev, "reset", GPIOD_OUT_LOW);
+ 	if (IS_ERR(ts->reset_gpio)) {
 -- 
 2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200827185829.30096-13-krzk%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200827185829.30096-14-krzk%40kernel.org.
