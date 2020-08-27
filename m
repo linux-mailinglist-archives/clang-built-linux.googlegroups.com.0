@@ -1,104 +1,106 @@
-Return-Path: <clang-built-linux+bncBC6JD5V23ENBBY4EUD5AKGQEEGEPCLY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC6JD5V23ENBBZUEUD5AKGQE5QIMXCA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3c.google.com (mail-yb1-xb3c.google.com [IPv6:2607:f8b0:4864:20::b3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id A3AFD254D55
-	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 20:58:44 +0200 (CEST)
-Received: by mail-yb1-xb3c.google.com with SMTP id o8sf8598549ybg.16
-        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 11:58:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598554723; cv=pass;
+Received: from mail-qt1-x837.google.com (mail-qt1-x837.google.com [IPv6:2607:f8b0:4864:20::837])
+	by mail.lfdr.de (Postfix) with ESMTPS id 14C67254D57
+	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 20:58:48 +0200 (CEST)
+Received: by mail-qt1-x837.google.com with SMTP id l90sf1045018qte.14
+        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 11:58:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598554727; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aOKrtjJRj51RUBWMKZN1X8rPHLr/rZaF3TyFU4/0Tc4R3UnVR4YsuNyPGiJi7o0bVI
-         COXXRREwPfbsmlowZ+JEotjPkIbeeoVMFzU5X973nXAM3KQ7fsDE36Z5y/zi8GLXY/vw
-         fCYiuxB/aGDDq8B1fAq0WLHjUY3fljzFSI+rwbpQtEOHbVwjawIKv+oO3ZTPpmM13kZ7
-         4GaJ9UDyv9i8CFF1bZhvyYjfAikkeVLLoic+LTa+4h5vNjTlqDoutMgWkMjIJ77TGfgA
-         OaYO28xkuY/bPbIos/WOnyj4vwMKn+JD5wIvrQiTvJLLw94y0FJf6LmcwsX+mSQAQPx2
-         s5ow==
+        b=qKtEfxst9l7QmiWHsyxbywypjKsiYqIRVgDcTf98skfqGU+cw1RMNlfxHfbC+RAU8J
+         LcQVByRtWzOrYansbdvzMDgxCpaEVG3gnkohpyIEpwht1ySl9IKBSfQqWWLpysfZgFBd
+         cHOGj+dY0ch8eUbfHJCpAMP5hJi3oNKZOuvY4VyHTNVEGS3nL4IM5SLHZDBVJRwlW81d
+         25dBXcSO5l/NhTu/B+6LOqm68KrjcJ1nK02hJe5XXhlBeGnX7iqoJwv2kpeTRvJ85PoE
+         gfrxDMTI3IQ7d9WiXAWueBklDInJCWFdSiG9wWfj7TMz18/K3IKgqqCj+h3B2m1oLhue
+         zrew==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
-         :mime-version:sender:dkim-signature;
-        bh=+nRndRH14QGmk8OErmfTKzKwwKDLthETlTzRcFBDG0s=;
-        b=Qo83uwYS1X9oUaT3NRLY7DqH0V5gkhysISdgFW6P5gt8NEoCQZc+DubyN4FcMDrxdP
-         cudxHZgXbx0/8obe4LCnqpFbm8lbXhEiQ/snM6okmWQ+1domfJdMqgqlJ21XQhNOrZFO
-         eJGkac539KHoF2+rsWxzDEaHfHHEMwf8e/C/tY9TESqNEG64d51rlQXPWdlF0oywGVne
-         m11mJEv99kmPWOs/pNwC20akIS/jPekBIIuatzqLsPwLfXBYT+QSqI+uNERRNSCxB5yF
-         dlr/FXPzkJqplmYGuSPkNdKqlriczOUtxt2rYI1UmmI+nDPwnZHkjywAk7qLK31X2JTR
-         Lpuw==
+         :list-id:mailing-list:precedence:references:in-reply-to:message-id
+         :date:subject:cc:to:from:mime-version:sender:dkim-signature;
+        bh=ThC0nzNJ0XYKAHH1FWUdbmcwuvKcj+SuF7/23Vlqbco=;
+        b=e/GA0zgFqgUvSgx3Y5otnxDeiTVzgrml7CKkzBQ62V9ZmhJbD1X2JIKEm0F9fETR8R
+         NHEVBJCjCacCTBUUXndyNU42PzKwtWOBYc5j6YGpal8Le22b+dBbpx7NICq1D1YfMQMe
+         ZeLJfttfz3SuvaPHROsAudAWFVUF2hei+6tAxRmCCAnw1oBNkxezi0qjeQebitlJIFWh
+         8qIM1JP285MWc4dG6ndZAeWcgkxL0ZN1/ZMuJglOUJbUs3G91n4K9K0yACaarZrg7H6i
+         pSLMOHKUzg/Re6zuWst1L8mGR2w1HUwEFz274snxrBE4My/UEy2gQbKnmu8cv2AlEOos
+         pixA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=HW69Dhah;
+       dkim=pass header.i=@kernel.org header.s=default header.b=q7NQXndY;
        spf=pass (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=krzk@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:to:cc:subject:date:message-id
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:from:to:cc:subject:date:message-id:in-reply-to
+         :references:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=+nRndRH14QGmk8OErmfTKzKwwKDLthETlTzRcFBDG0s=;
-        b=chj5FJbfioaTLAJ4tAjVcnZHtp5rnoGyL+ufrDqLfktpBQ9MJwp1V4Yyy60otrxHpB
-         O5wVySIy1ZNOL9eTRc3pwfKOxTt4WWtQivvK38Ac4VqTPbzIvf7Wxo2FN//nIlLiHqru
-         BYlvQAcwSWbOVeKbDJSW0b6CrSJkgNchbE6yQhspx840TJEBj/BDCNp65LF3GQmkphkQ
-         SiTcmk/JEDNwsYIGFLvjk5+BeCFsYvFCiHVOLjeaTDr/1I64U1NKdHG/a/4fWUSuj1pE
-         1uXnSXutwcGy+zKJCR5Ea0fsGHxAqFyS/x+guaHM3CTW2UqfOaHt06aiSNcnV408iE2n
-         io8g==
+        bh=ThC0nzNJ0XYKAHH1FWUdbmcwuvKcj+SuF7/23Vlqbco=;
+        b=ElxlSBK+0fhXt3xiHHLdHp37zAg9iu5RkgoFNc0fIGsanWgEvK/IrWXBC6YLz9LmCy
+         LZoi1hAeqyT7VjpXUNykWxw7H3zn3CKSgsCuEeR0S4gfsbDX+r07DeEWyiPZuvi5RPR6
+         mekNcJRRAsG38zHX2EkFKIk+vqTHeXlkqlW2HM946X/actE6aCW5mlYDhoI4sXpNStIM
+         Vvbg9V4u/rYyaR6MQ+pg4A5bghp9i9tnBhHNVQSyPsciBgrZtHRnJsi699qYIF/rhQfV
+         SzDhkanvQY+RkWIHmHAr2mX17C7qft7tcMe+me1G/tgfJs7ezimP6XY0jyF2VOe7usu6
+         HK0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
-         :message-id:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=+nRndRH14QGmk8OErmfTKzKwwKDLthETlTzRcFBDG0s=;
-        b=geKHK4d4q2OhoOQB+9QnT6XChTHgQa329CaLokVdw2z6x0ykj0xrhxQqgZRk4rJ5RI
-         hrjAfSERFISGif8Q//4IEDjyRdi62ZhbOjPilqt4XJl/8/c9z9ynCWU9ky/5oO3HtZXg
-         YxIsonk8zIjaLjGx840dlUUUvb4tdLynlZRvzZYqV4zqjUNfjnvjjj9SUzi9tHPzF73b
-         XIuze1XpeYIa1Y2vfwjs8ALKNSJTb8NrGpwiOIp1bXZEQO4sFRN8rJZKPs5c23Q1YsSH
-         2tgo6PnTq7iPr7IEbqPnH75DP2EJnom9HY6sI2iDp/9Uw/XAjFQ3YLmMx/RFP+TfUg7b
-         J4wA==
+         :message-id:in-reply-to:references:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ThC0nzNJ0XYKAHH1FWUdbmcwuvKcj+SuF7/23Vlqbco=;
+        b=eAtbqIpkMIhOflZICpQ7xlcLYWiyAzwgEaE3Jdd/FnhSHy+12w4mGyheOdDrHLRxV+
+         YJVumqBlZFlyU+or+5NjpW0wLGfvxzGWcE2bmV2e0kSZIyr1tm+gIyr1phVuz4XghGOk
+         7OqQBouGLyhftN+gFxYJC+Po5d48oQAfERA/fcqzpqkOVlOxquhU+ylSucYi9N8FkUWK
+         ZiaSBAD5jVqKdGPSDi3wG0O/zcsEm31/V/wTannTFL54UWnTTwjw0hqT3ZDsddFlZAik
+         /vAcu0hwaLNc7+UIHlQcRrqg/FLqC7x6iGMv8aBWbntb39HMOgdUBKec8SymW01PmNwQ
+         3P6Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532zM2XMq/BQBlkVwdBAT53BRBBG5f92vRM7PuPGUZuNz3xH/uvv
-	bXUfzrjjNp751b6jNw7rMDQ=
-X-Google-Smtp-Source: ABdhPJzjPjUebSGiLvSMLNs0L9lCPzbK/ZfDt4Gitn4LHu4p/XG+fFLuGaEothHKJXQX5Ca/3SuejQ==
-X-Received: by 2002:a25:dac2:: with SMTP id n185mr31040417ybf.396.1598554723511;
-        Thu, 27 Aug 2020 11:58:43 -0700 (PDT)
+X-Gm-Message-State: AOAM533YaGZTcvGyrXjbNxVihTQKvShb1so7c/xY97uETQ34gSmY8oLT
+	JIq2ZdWsVksV5Xu3No076zM=
+X-Google-Smtp-Source: ABdhPJy5/aHZI3CY6oEp+r2USPJS8OHlqwbFPeweGC10W4CgTELv/S+rNDy8mVim20Vjv4O0Us8Myg==
+X-Received: by 2002:a05:620a:2f0:: with SMTP id a16mr2197379qko.143.1598554726895;
+        Thu, 27 Aug 2020 11:58:46 -0700 (PDT)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:5755:: with SMTP id l82ls1451291ybb.5.gmail; Thu, 27 Aug
- 2020 11:58:43 -0700 (PDT)
-X-Received: by 2002:a25:bcce:: with SMTP id l14mr32861662ybm.467.1598554723159;
-        Thu, 27 Aug 2020 11:58:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598554723; cv=none;
+Received: by 2002:a05:6214:18cb:: with SMTP id cy11ls105249qvb.7.gmail; Thu,
+ 27 Aug 2020 11:58:46 -0700 (PDT)
+X-Received: by 2002:a05:6214:1454:: with SMTP id b20mr20405877qvy.35.1598554726539;
+        Thu, 27 Aug 2020 11:58:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598554726; cv=none;
         d=google.com; s=arc-20160816;
-        b=YOZvCZlU/9XHYDk365h5M3s4YSS6nmFlFZdX4Ho0RppYYT7CX67o5/EjzxJIZYkQ4r
-         pLUr4tUkJ0rGSbXT37L0k+iM3Hhyh+cXCI0UeQvKX6es/9C/ajGztXFOR+dOeqZkdtx/
-         4nSiatzl4wEui3pvtCYn9YuKofRtAWi+dewd3IlLE6cTx0sjO/6sErLv2FIi9c9l+ikM
-         mD115vEMtFC6oOfJfPWwV9etCSZSXw/PTtTafcoAIb6wBCVE2oX1sIFmUzDsWvES9MFk
-         /OStJPfMvNPfPbpOsAyS3DNp0q4WHK8PlwJPCpQRNtOld6+pQDJxUl96Kjl3XW+nQ1FW
-         ubJw==
+        b=gbbuLWsXLou37OtYlMFiAkW0GqXzg4720+4qdK5SaeQvGRgS/wqbUdZqxY89wdu/Cu
+         ktaKwIv256ntPGEITnWoOdFigMxFRrjRFUszH1cmywPgwD8FcHGMhwVzEMmvRZ59RQSv
+         ntv6fuizTOqg7oi+nnLAk6XkUuz4hdqiRImAWuRDt0LPQ536h93emxWgfxgWfvmE2WKr
+         anrNKR2QBvyUe7Sfx5X7TUlbqYFaoIEus1Rw7ZoA4jDN3dsps1RBGz+5LmhPOqsFZmFe
+         Wrl8T71EaQ9AVXK+vodEPOhA7lDTlk2I9S4UIZejQ0m0NNHlafOkyzldQQQdwvqne/ir
+         kf3Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:subject:cc:to:from:dkim-signature;
-        bh=klwYxNWOjsfMCGIHz7gILgAAc5dmJh8z2t1PwEFM8hU=;
-        b=nLZb9B8J+u/nt06RcLK7qe8sM4RCxN75xECVbwvivsI81bPc6CRPlgC4FHW7i8Dbo+
-         5qjEVT3ISdGtW0fup+na7jaQrZESdeZmL7liYo1JnZoflv0SWg74rBUc7MJzMSlAWVci
-         RsMuM3njmgwATR7UDjWQZtWfbzQJsdg6Ksh70kv8hxmmH7nCrTdbLqKH/p6FduSHVjTq
-         64NKzjuuS9nZibNpl4XtriSSm0YdKjc9zBPtfFpboiERlKnsPFMZqfRY5oDVQuKC8Hdp
-         mSZVa98DapnGutEl9UAizJXMa+hX/1eCAVMtRQOd+MYAd84fv5pCxZATPvobbMiCIq17
-         H6+A==
+        h=references:in-reply-to:message-id:date:subject:cc:to:from
+         :dkim-signature;
+        bh=tllm8+pi39ylvNN1zdCwAOnk/7oFsVBESWMwBr1SLjo=;
+        b=lRcBjzQFRzIWoAT7eIMueSTMRBA3eUB6Uyw/gNVb1m5ASUPBm021HPkfZajYwUp4Vr
+         84yywkGHkOb9YZgaKVeEk2Nudbacus9J9VeOvTCHQ6hic1E5YZ+dPuBg1x2YE4RGZkaP
+         9YSjZEIGzgPM1Am3qZ6ks45TTgo2gu/VLA3qQhjor6CxXBdsafRchPaiHHA/O697hqao
+         xfnx7PmavdG2ETemmqaTOmsoDI5dynvtFLQy7hic3j48mICAZrlg4He3MUXj1TG6t9cx
+         1fxOAxcBwonndQJlJqriTd9c94IR6x/QAf8uqwY+snE9mkHouOc65MhRMcCrUtLsYHya
+         E7Ug==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=HW69Dhah;
+       dkim=pass header.i=@kernel.org header.s=default header.b=q7NQXndY;
        spf=pass (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=krzk@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id o14si145500ybm.5.2020.08.27.11.58.42
+        by gmr-mx.google.com with ESMTPS id m13si129567qtn.0.2020.08.27.11.58.46
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 27 Aug 2020 11:58:43 -0700 (PDT)
+        Thu, 27 Aug 2020 11:58:46 -0700 (PDT)
 Received-SPF: pass (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from localhost.localdomain (unknown [194.230.155.216])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 0AD122087E;
-	Thu, 27 Aug 2020 18:58:38 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 98B1F22BEB;
+	Thu, 27 Aug 2020 18:58:42 +0000 (UTC)
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <bgolaszewski@baylibre.com>,
@@ -114,13 +116,15 @@ To: Linus Walleij <linus.walleij@linaro.org>,
 	platform-driver-x86@vger.kernel.org,
 	clang-built-linux@googlegroups.com
 Cc: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [PATCH v3 01/27] Input: Simplify with dev_err_probe()
-Date: Thu, 27 Aug 2020 20:58:02 +0200
-Message-Id: <20200827185829.30096-1-krzk@kernel.org>
+Subject: [PATCH v3 01/27] Input: gpio_keys_polled - Simplify with dev_err_probe()
+Date: Thu, 27 Aug 2020 20:58:03 +0200
+Message-Id: <20200827185829.30096-2-krzk@kernel.org>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20200827185829.30096-1-krzk@kernel.org>
+References: <20200827185829.30096-1-krzk@kernel.org>
 X-Original-Sender: krzk@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=HW69Dhah;       spf=pass
+ header.i=@kernel.org header.s=default header.b=q7NQXndY;       spf=pass
  (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=krzk@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -137,80 +141,40 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi,
+Common pattern of handling deferred probe can be simplified with
+dev_err_probe().  Less code and also it prints the error value.
 
-Changes since v2:
-1. Add review tags,
-2. Fixes after review (see individual patches).
-3. Two new patches - 26 and 27.
+Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
+Reviewed-by: Hans de Goede <hdegoede@redhat.com>
+Reviewed-by: Andy Shevchenko <andy.shevchenko@gmail.com>
+---
+ drivers/input/keyboard/gpio_keys_polled.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
 
-
-Best regards,
-Krzysztof
-
-
-
-Krzysztof Kozlowski (27):
-  Input: gpio_keys_polled - Simplify with dev_err_probe()
-  Input: gpio-vibra - Simplify with dev_err_probe()
-  Input: pwm-beeper - Simplify with dev_err_probe()
-  Input: pwm-vibra - Simplify with dev_err_probe()
-  Input: rotary_encoder - Simplify with dev_err_probe()
-  Input: elan_i2c - Simplify with dev_err_probe()
-  Input: bu21013_ts - Simplify with dev_err_probe()
-  Input: bu21029_ts - Simplify with dev_err_probe()
-  Input: chipone_icn8318 - Simplify with dev_err_probe()
-  Input: cy8ctma140 - Simplify with dev_err_probe()
-  Input: edf-ft5x06 - Simplify with dev_err_probe()
-  Input: ektf2127 - Simplify with dev_err_probe()
-  Input: elants_i2c - Simplify with dev_err_probe()
-  Input: goodix - Simplify with dev_err_probe()
-  Input: melfas_mip4 - Simplify with dev_err_probe()
-  Input: pixcir_i2c_ts - Simplify with dev_err_probe()
-  Input: raydium_i2c_ts - Simplify with dev_err_probe()
-  Input: resistive-adc-touch - Simplify with dev_err_probe()
-  Input: silead - Simplify with dev_err_probe()
-  Input: sis_i2c - Simplify with dev_err_probe()
-  Input: surface3_spi - Simplify with dev_err_probe()
-  Input: sx8643 - Simplify with dev_err_probe()
-  Input: bcm-keypad - Simplify with dev_err_probe()
-  gpio: Add devm_fwnode_gpiod_get_optional() helpers
-  Input: gpio_keys - Simplify with dev_err_probe()
-  Input: bu21013_ts - Use local 'client->dev' variable in probe()
-  Input: bu21029_ts - Use local 'client->dev' variable in probe()
-
- drivers/gpio/gpiolib-devres.c                 | 71 ++++++++++++++++++
- drivers/input/keyboard/bcm-keypad.c           | 14 ++--
- drivers/input/keyboard/gpio_keys.c            | 25 +++----
- drivers/input/keyboard/gpio_keys_polled.c     |  8 +--
- drivers/input/misc/gpio-vibra.c               | 20 ++----
- drivers/input/misc/pwm-beeper.c               | 19 ++---
- drivers/input/misc/pwm-vibra.c                | 20 ++----
- drivers/input/misc/rotary_encoder.c           |  8 +--
- drivers/input/mouse/elan_i2c_core.c           |  9 +--
- drivers/input/touchscreen/bu21013_ts.c        | 72 ++++++++-----------
- drivers/input/touchscreen/bu21029_ts.c        | 53 ++++++--------
- drivers/input/touchscreen/chipone_icn8318.c   |  8 +--
- drivers/input/touchscreen/cy8ctma140.c        |  8 +--
- drivers/input/touchscreen/edt-ft5x06.c        | 10 +--
- drivers/input/touchscreen/ektf2127.c          |  8 +--
- drivers/input/touchscreen/elants_i2c.c        | 22 ++----
- drivers/input/touchscreen/goodix.c            | 40 +++--------
- drivers/input/touchscreen/melfas_mip4.c       |  9 +--
- drivers/input/touchscreen/pixcir_i2c_ts.c     | 38 ++++------
- drivers/input/touchscreen/raydium_i2c_ts.c    | 30 +++-----
- .../input/touchscreen/resistive-adc-touch.c   |  8 +--
- drivers/input/touchscreen/silead.c            |  8 +--
- drivers/input/touchscreen/sis_i2c.c           | 20 ++----
- drivers/input/touchscreen/surface3_spi.c      | 13 +---
- drivers/input/touchscreen/sx8654.c            | 10 +--
- include/linux/gpio/consumer.h                 | 30 ++++++++
- 26 files changed, 253 insertions(+), 328 deletions(-)
-
+diff --git a/drivers/input/keyboard/gpio_keys_polled.c b/drivers/input/keyboard/gpio_keys_polled.c
+index c3937d2fc744..ba00ecfbd343 100644
+--- a/drivers/input/keyboard/gpio_keys_polled.c
++++ b/drivers/input/keyboard/gpio_keys_polled.c
+@@ -299,13 +299,9 @@ static int gpio_keys_polled_probe(struct platform_device *pdev)
+ 							     NULL, GPIOD_IN,
+ 							     button->desc);
+ 			if (IS_ERR(bdata->gpiod)) {
+-				error = PTR_ERR(bdata->gpiod);
+-				if (error != -EPROBE_DEFER)
+-					dev_err(dev,
+-						"failed to get gpio: %d\n",
+-						error);
+ 				fwnode_handle_put(child);
+-				return error;
++				return dev_err_probe(dev, PTR_ERR(bdata->gpiod),
++						     "failed to get gpio\n");
+ 			}
+ 		} else if (gpio_is_valid(button->gpio)) {
+ 			/*
 -- 
 2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200827185829.30096-1-krzk%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200827185829.30096-2-krzk%40kernel.org.
