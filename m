@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCT4VV5O2QKBB3UZUD5AKGQE7DG5OHI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCT4VV5O2QKBBN42UD5AKGQEECXFGLQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23e.google.com (mail-oi1-x23e.google.com [IPv6:2607:f8b0:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id A0CD8254EF1
-	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 21:43:43 +0200 (CEST)
-Received: by mail-oi1-x23e.google.com with SMTP id u26sf3237782oic.12
-        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 12:43:43 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598557422; cv=pass;
+Received: from mail-pj1-x103b.google.com (mail-pj1-x103b.google.com [IPv6:2607:f8b0:4864:20::103b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 993B4254EFB
+	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 21:44:56 +0200 (CEST)
+Received: by mail-pj1-x103b.google.com with SMTP id f21sf4950908pjq.2
+        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 12:44:56 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598557495; cv=pass;
         d=google.com; s=arc-20160816;
-        b=w3bLkHHJ0DDVNNFob8CLZzTHMKIce3DJYPEVfyr6QTdvHsLpOGVMTR1L6xqz4qpidF
-         4divL3vxA8nXunzgBD2yFpte3SMd9LDh2sVzm91WLsvQrbMh+wdgRVdWLE2h0dLzOvuY
-         9jiWfXwoJp3wnQPYsEc4LBJRB0r+Vsx1NJolIDrjZ8ko7KRUFgvtAR8zv6tgX5qfwejC
-         uGXamniboqxIn9i/pitYiEZ5RrO0/yt6rqLuzCx5EXM9putDZLmo1QwEQTtTqevN2oTS
-         B+c8vMi3KiZeNQYNGUDZNhuDJ535hP4QBxs3gnDNrFgx+eW/s6KqCJMUY4M0q5byygYi
-         LaRg==
+        b=a2UbRK63GcjtpSMqidrgckeAGtuNXz2T6aIUij94kgMcWjHaEuqXXCjPGw5XB6Kwjy
+         VnsqxdToOkRMv0Tbn0/AEny/4lFw3SD8umsZmxCn/Qf8PDBJSpuscu55AvUxZPIwtpDE
+         WDY/Efi4m2r3+Nq6sp880+DcTm7YI7Nv8chiSVB8QGUfGTb0NYkYoYgoYPDD1i/cE7um
+         jchmLU1rzQzSS+FrEeSHkE+mIUs64rg+JK+0MhJRwtObejYtICdY5DtMn4WrSx4SgIHr
+         6qyOfpzA2JPlYfhtHa1fJ/2H1+sT/xHuVNW1rAFmpauOE0+V5Zu32dVgMaaiebojA9/b
+         t8cg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=XPahiiyJtkERGpkuyTpL628+uYIk6SZ53Arj48btP4I=;
-        b=IE8tQ4DHy/K5r4HL1mIGzH6FYUnVhdjfxwDmcNh8nVIUU7Zxv5cEqvo2NVJ2fjjlz9
-         Ut6FfBBytBxpokeKfA2TrjA6hU4nMM1vTU5wNKQJZaYbWV2tXgZzZ7v8ZVPeXyX4RGQJ
-         PBmd90Ln2RvqSCAGLJkFlz5QT/8U3P0YVvJhqQMhum1fDqLcTDonIsHx04tfY55jyrCP
-         0D2MH8Gz9Kam9bUqjMBCbEzlLSJhBnEaJUDY/OS7t/znyRyZV5JDBZXDpTQaGRpTUsIg
-         iWbZ3FQ2KjjKU2imWPjmwm9XystSo/sTv1MlJRn+F5b43FdN3XmKKNcrNxn46Pj7VgZ3
-         NYlw==
+        bh=GpF+N9L0VftG5IGdFfICggTXdN8S/LGKt3Lv4iobrRc=;
+        b=x7KKwY0X34mcFNSgfjIu2aj0StaLluSVasWvC3IQFhVAtIDdXBHB8C417aGaVQRNKr
+         800u7aqBI2KCI0skqmpUXEjDfFYXGUaNGe7m0iekkGx1hHxkb6HaBJ9L+6/vHxe6uu9k
+         qNphuQKa4hJQ9OIZUeOvrRqheJmcts2j3dB35iBqzLCcqwDblO5K7ihSUm6PA/qg5Tyi
+         gqQ1OvAXIp8kK7sNFGbparwBrvHXJ2rXAwZAZZaIS2pDWX4HwmSu3aUm2mqS7PkxA4IT
+         2uhtA6XCtqvvWoJXRjuzKA52H9U2Vocw5BNe2AZmmsqTAipAsxLV3I3RdZwtceA+46Ll
+         8Nzw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Fjahp8++;
-       spf=pass (google.com: domain of andy.shevchenko@gmail.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="k+f/FlyE";
+       spf=pass (google.com: domain of andy.shevchenko@gmail.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=XPahiiyJtkERGpkuyTpL628+uYIk6SZ53Arj48btP4I=;
-        b=Gh2G/Zv7btpzLOx0ytTIqv5dkU8D/JzkZg6qzVvQJKDpo7JimS930GRvLDLBY4eJaZ
-         v9+3QMb2mU8N6gC3GK748Jnx3THRMLw9ylfEcDMSi9bao8mbpfYW8BCgOQrS+Kb/YbuZ
-         19QzxqhbV34n5GriocawFnZQb/98iNsonhEj/pENqiOoKDptW9lFFRgyGNa9iD3Ct//E
-         xgaJB+9NMxlU5Law2AuiEArjaqNpGbL722WtR4Hv7292cMi/qxLDhrsTZjX/xu4NnR8U
-         kpvexkYACHu42behgnby9Uz/nsSsND3nfd/HJ2kaUQxKkvYdyaO0eqVBpx8v40643c1M
-         GoEw==
+        bh=GpF+N9L0VftG5IGdFfICggTXdN8S/LGKt3Lv4iobrRc=;
+        b=fINaQZs6e/5op21E7a3g78btgF1my3jQEtH6M+JPkZMdwwkubopS3SA9d+nLVm6gzk
+         d7SY/+kdQObHKJhJ6riYGVzNCibh4wZNtzPIpf1nK9I2TaDG2DvTbUpCjFIzQtro8Uvh
+         BGOW02hG1YY3jLpdNjoEygHgzl0jJ4JFS2jFATGS2u8NfMIwY84jULvgPAZ7BSYgyF4/
+         X4FiQVIfVEFg5pyTTrmLfBND1kk0Wsc65vE9bxpFhFPFW57mHZLTYpO0R8m4mXhtZMtz
+         e8ofT+laH7OnKWfzP1bOXWLQR1AKW6cVNgYnj6ZOtz8OhtUh/3i8E29a0uP68/mVjDrr
+         IzyQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
          :cc:x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=XPahiiyJtkERGpkuyTpL628+uYIk6SZ53Arj48btP4I=;
-        b=hR0wH3r3ai+6jTfX+7DDZVhYBewjDrggsQvppkS2Jpj8933LxGoAO1NwGJSkABhgdm
-         ge93Z33H7GkeuTxSVyyH8LbWoNkEJ+srAtCS8yTworjmvI+ZK9nvqEqQ73kynSCcg0cV
-         mpa8Cud5r4DCfxrrSY4TJM9eBPlA7Nq2XeA9R+vByK5MdLOSM13Gd+aYUZTD4Hb1DkFO
-         YiCRwVDvWEPY399Mh1qVYMg48GmCKwr7aEMm4/EhtK9OzmBUtEGos8r/s+26t5p1kuPT
-         m1syY9l3mO3G4fENaZMTT4w/Fkwb8zklAX/IF8v8f1lxWFDFevGTyAYy9ZdHtIkTrQ2G
-         eR9w==
+        bh=GpF+N9L0VftG5IGdFfICggTXdN8S/LGKt3Lv4iobrRc=;
+        b=sFqDa8aYVcqO5clUs1bGPuBEH+gqNRT7KJS5cNZOpIBKcY5UQu8bjKQumpBH4FScI6
+         cZJr+ZkK0EEBJJ95pDgYCvSMjbAkmo+JyB3dvZ5wgMV4PSypAhO0eRHjvthySzeHM+aX
+         zI3rtigB/OxJ2/stwbEiPhdRitjYWS/9bDrrGigdET50i4SyEa0p1eC3LK1QNyrd6hgA
+         yYpRc5DI4mC6wCnCyC9I4vEUgEMs6/pkTADt/iYImxINS90V7Pz2vbGdfbgRoU2frONb
+         REQxQH8d+6Q3XcwtKbbJfEEhcJHkpzG0/T+GVFFODdRon3glwkBh6DeyKhpuFC147Tsz
+         9wrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -63,63 +63,63 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=XPahiiyJtkERGpkuyTpL628+uYIk6SZ53Arj48btP4I=;
-        b=LWtv6d71ghkwradGxfrvS0pkJk6ANJ7zIYxZoj31lVN2IzALvS3qy4sUNAjeN5qUBO
-         99ZeZrl+SYQCihpNAJgVjYYma1c59UJJaddAMRO/SqY8FLsQhzBxnsEndFsXoG4RoOtN
-         y9HDVwxPl53792hm2B7xjXvGpr/uujwYQVg/++Ol33AofDYJm+EG2ZCMzksizXg/EGYv
-         uUeDY8TcL8YsU0w/tO4Upiv766jYNUzla6nOkk6L9781ajFcf4LHqHjFMBZCpJ9xl6h8
-         wmop/zkCqzsuGUYCgBcl084oYhPtPfWS+peG37e/kQkFyrDQoeU1EPBMsT/FqcbDJ0OY
-         g5JQ==
+        bh=GpF+N9L0VftG5IGdFfICggTXdN8S/LGKt3Lv4iobrRc=;
+        b=LSDXuLa/zoLWJhZW1EBkMxMUQ7a0Rac4GcNT+PTOHw5S8iNJyI9HAcZ5Ny3ly3v7eE
+         0sTOU3nLneFPemXD8oFKEXT0eQ5MUdeCLHS1Ha0hNA6+TTHDkiQUVejSkk0qXNwp9KLZ
+         5NkqQwmdApdUtXvPw/Xuu95j3YC5349whUS4fEDmVPf8CYh3I775EvqrrhqMDLRPeWg9
+         14Fgjlv/qurmruwbB4zKyTpjOXd8PFPq+UV3hhkp//sB2WrK6I3c78AavVVcXjSdGjL4
+         75PuBHfSsHRH2qtFwFqrEq4XbRKYXgqdLPyh+LkhPKiTghCccIiH/++EKd+M70Gst+qV
+         IqBA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531Q6uAyxTxTu4CkrQhji7G/WycEAwFktmVwDtubY7jKSs6gG0xo
-	kMp3YBJdefNIDG/cgBG3jnQ=
-X-Google-Smtp-Source: ABdhPJyMzfV3df4/lJQxKpz0nforJz1/zHvksHwzrQF14Cx52w3fcqDkD1sZcC/NAKfs8AJHfwmcRA==
-X-Received: by 2002:a05:6808:10a:: with SMTP id b10mr313484oie.17.1598557422422;
-        Thu, 27 Aug 2020 12:43:42 -0700 (PDT)
+X-Gm-Message-State: AOAM533RTeHIBCGZ20Mxd3hqjfQRtDS7ufsF2gGb+VG3gmqC13QxiFT1
+	2QfJHJp5GTif6qElG/QttN4=
+X-Google-Smtp-Source: ABdhPJzQvxEYbWbD0myzvJFJRow24xxyUcC5upa9kc9fHM73g42L7O80nbF9vPiYBPDAVBmciLbsyg==
+X-Received: by 2002:a63:f546:: with SMTP id e6mr1713135pgk.7.1598557495326;
+        Thu, 27 Aug 2020 12:44:55 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:4816:: with SMTP id v22ls876642oia.6.gmail; Thu, 27 Aug
- 2020 12:43:42 -0700 (PDT)
-X-Received: by 2002:aca:fd96:: with SMTP id b144mr296117oii.163.1598557422085;
-        Thu, 27 Aug 2020 12:43:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598557422; cv=none;
+Received: by 2002:a63:c244:: with SMTP id l4ls1157147pgg.9.gmail; Thu, 27 Aug
+ 2020 12:44:54 -0700 (PDT)
+X-Received: by 2002:aa7:8b0c:: with SMTP id f12mr17749590pfd.58.1598557494798;
+        Thu, 27 Aug 2020 12:44:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598557494; cv=none;
         d=google.com; s=arc-20160816;
-        b=kVM01OV/gYkMP11NU4teJ+/mgbDYS4e5CnzPjaBL/JAhziiBGv378apua10cpRNZef
-         5S2fgwG7ZzdQ/SgFyaQZFGJSLFeLVz8+V7PRIKOIbOjxKNh7D3v6GSRBbNqWScpRj66w
-         8T3Yb+wnFb7EuLej/liPwRfyxsFxQdk76l2/F+xuqMFhV+gW8ZYu8OwUOtLdSXtJbpvU
-         8SC5K1u/4OrwMiMzCwDn/0oUyK5brIpPBihceZmk6kE7695Ge6vSylOPpufIC90Dc05f
-         OzaLfRc/SCPBSjUhtjQED8+y/EecgrveoFj8V6KigEGJkjasp18M8u7q93CDLfpv9nfF
-         vBtw==
+        b=tsjbVnMhE9oEQXTaxO7NtoizlE7nLP0nB6OhFNM3P/CUKmxnTH0+qz0r+C4Fb0e2QY
+         4FMS6tAwiSoMdViSltHM/9C1xrlL6SZ8P7+ezgJjMvcDPZLFStQDsRBdzRLeSJnKLLlm
+         SGWOFBS4XKMIr7wy9XHShhwu1yjWRZ50gQbu9RAT2UcwHxoc2EMQX2oraHAKJqBtNZUj
+         LbIvsNgpUJrmgGlcl9foa3omh7L4C1RcX3LrFu1hTYgW/HLE1xFvRtDJwuDDkM+nX4/h
+         fh3/HsMNNrr5w4gaUG2GKjjMfvcITvE81U0sIrNHUzIF5EQrOTleaIa1rkqIFqzHgopV
+         GfhQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=+ukOJMscVMuC/waiDIGxLQ8Pst4V6VyjiGsP3dACBfk=;
-        b=jNqLxkhD9C9/I/67yq5YVZCHDXhK5YpYJe0GTfsT/QzdeyPPIeqA6AkXrAC/q1D1+4
-         fDPBBtoOiHyb0kO4xrGDORuYbTVOXyZ1PE4pjKc1UJG096mxov0VtEbuDAP/IDbiMRIW
-         G1bTViQVKKZNXFy0waDzyZu7xc8GB+tLl5iVPr0xsS+8yU0vrAn7WN3gyrAldYmJfKFZ
-         17yxic3DiX7IHPqn7oL+k63DOTNlgraKUea/1Jx9zeu/5YB0iNaq18afEOlgrCu/IiaY
-         t/vnc0WcBbWY8CD7UJf0ijvrRiwnFxczpLVYC2Tot+kIPrWSHXL6FWn/nANCNhUiL6WQ
-         CiwQ==
+        bh=sNHVdsTXYC3wpdLaoIN+ttZuD9TkzPFpNA7QYNjRfwg=;
+        b=In86EFojatnDk1wseiA3DKEcSWgmi6e2T62PPlIEJFiFrZQ45Np/zQyRlNyGmKVVkJ
+         eY9FLHdeZD7PpyoDFFAQKGQDINmqbPGYuij9OckpXryW5OYfmgzynT0MG8D8TSYMBziF
+         oEVgMml0q+0xO7gaZORubmP23SCNUuQebPzjUBXvQgFk9dP0XQCq2SkzWCbUoDXAKAzK
+         +MhtUdGRDcP1dBIS7OWxE9GUDc0r7Gmv2kKTN14ed9zrFuA4eKhhJKOHdD5aOeDa9TUg
+         wrOVaKb5+0enZGhw5C9Zkp3Sjjgay1809b/j32RB4Yn27OS16Z/vkumrU9QyCX8cf1l6
+         VCBQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Fjahp8++;
-       spf=pass (google.com: domain of andy.shevchenko@gmail.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="k+f/FlyE";
+       spf=pass (google.com: domain of andy.shevchenko@gmail.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-pj1-x1042.google.com (mail-pj1-x1042.google.com. [2607:f8b0:4864:20::1042])
-        by gmr-mx.google.com with ESMTPS id l3si238254otk.5.2020.08.27.12.43.42
+Received: from mail-pg1-x543.google.com (mail-pg1-x543.google.com. [2607:f8b0:4864:20::543])
+        by gmr-mx.google.com with ESMTPS id b11si179022pgg.0.2020.08.27.12.44.54
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 27 Aug 2020 12:43:42 -0700 (PDT)
-Received-SPF: pass (google.com: domain of andy.shevchenko@gmail.com designates 2607:f8b0:4864:20::1042 as permitted sender) client-ip=2607:f8b0:4864:20::1042;
-Received: by mail-pj1-x1042.google.com with SMTP id nv17so3181174pjb.3
-        for <clang-built-linux@googlegroups.com>; Thu, 27 Aug 2020 12:43:42 -0700 (PDT)
-X-Received: by 2002:a17:90a:2c06:: with SMTP id m6mr383495pjd.129.1598557421274;
- Thu, 27 Aug 2020 12:43:41 -0700 (PDT)
+        Thu, 27 Aug 2020 12:44:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of andy.shevchenko@gmail.com designates 2607:f8b0:4864:20::543 as permitted sender) client-ip=2607:f8b0:4864:20::543;
+Received: by mail-pg1-x543.google.com with SMTP id w186so4095747pgb.8
+        for <clang-built-linux@googlegroups.com>; Thu, 27 Aug 2020 12:44:54 -0700 (PDT)
+X-Received: by 2002:a17:902:b194:: with SMTP id s20mr17766208plr.321.1598557494459;
+ Thu, 27 Aug 2020 12:44:54 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200827185829.30096-1-krzk@kernel.org> <20200827185829.30096-27-krzk@kernel.org>
-In-Reply-To: <20200827185829.30096-27-krzk@kernel.org>
+References: <20200827185829.30096-1-krzk@kernel.org> <20200827185829.30096-28-krzk@kernel.org>
+In-Reply-To: <20200827185829.30096-28-krzk@kernel.org>
 From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Thu, 27 Aug 2020 22:43:24 +0300
-Message-ID: <CAHp75VfyoVN2DdwGpi9_58_v9c+ksHjYmvmeGbz64OAyhjEhsg@mail.gmail.com>
-Subject: Re: [PATCH v3 26/27] Input: bu21013_ts - Use local 'client->dev'
+Date: Thu, 27 Aug 2020 22:44:38 +0300
+Message-ID: <CAHp75Ve5YgDNvtqFC8-zPgPQminR+57iWjGveaK-Ddxhj7FuWA@mail.gmail.com>
+Subject: Re: [PATCH v3 27/27] Input: bu21029_ts - Use local 'client->dev'
  variable in probe()
 To: Krzysztof Kozlowski <krzk@kernel.org>
 Cc: Linus Walleij <linus.walleij@linaro.org>, 
@@ -133,9 +133,9 @@ Cc: Linus Walleij <linus.walleij@linaro.org>,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: andy.shevchenko@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=Fjahp8++;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b="k+f/FlyE";       spf=pass
  (google.com: domain of andy.shevchenko@gmail.com designates
- 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
+ 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -154,13 +154,11 @@ On Thu, Aug 27, 2020 at 10:00 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
 > 'dev' is shorter and simpler than '&client->dev' and in few cases it
 > allows to skip line wrapping. Probe function uses '&client->dev' a lot,
 > so this improves readability slightly.
+>
 
 Reviewed-by: Andy Shevchenko <andy.shevchenko@gmail.com>
 
-> Andy Shevchenko <andy.shevchenko@gmail.com>
-
-Suggested-by: (I suppose)
-
+> Suggested-by: Andy Shevchenko <andy.shevchenko@gmail.com>
 > Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
 >
 > ---
@@ -168,168 +166,91 @@ Suggested-by: (I suppose)
 > Changes since v2:
 > 1. New patch
 > ---
->  drivers/input/touchscreen/bu21013_ts.c | 61 ++++++++++++--------------
->  1 file changed, 28 insertions(+), 33 deletions(-)
+>  drivers/input/touchscreen/bu21029_ts.c | 37 +++++++++++---------------
+>  1 file changed, 16 insertions(+), 21 deletions(-)
 >
-> diff --git a/drivers/input/touchscreen/bu21013_ts.c b/drivers/input/touchscreen/bu21013_ts.c
-> index 86bd38243d6c..f09204091ba5 100644
-> --- a/drivers/input/touchscreen/bu21013_ts.c
-> +++ b/drivers/input/touchscreen/bu21013_ts.c
-> @@ -411,31 +411,32 @@ static int bu21013_probe(struct i2c_client *client,
->         struct input_dev *in_dev;
->         struct input_absinfo *info;
->         u32 max_x = 0, max_y = 0;
+> diff --git a/drivers/input/touchscreen/bu21029_ts.c b/drivers/input/touchscreen/bu21029_ts.c
+> index 96c178b606dc..78e256254764 100644
+> --- a/drivers/input/touchscreen/bu21029_ts.c
+> +++ b/drivers/input/touchscreen/bu21029_ts.c
+> @@ -334,6 +334,7 @@ static void bu21029_stop_chip(struct input_dev *dev)
+>  static int bu21029_probe(struct i2c_client *client,
+>                          const struct i2c_device_id *id)
+>  {
 > +       struct device *dev = &client->dev;
+>         struct bu21029_ts_data *bu21029;
+>         struct input_dev *in_dev;
 >         int error;
->
->         if (!i2c_check_functionality(client->adapter,
->                                      I2C_FUNC_SMBUS_BYTE_DATA)) {
-> -               dev_err(&client->dev, "i2c smbus byte data not supported\n");
-> +               dev_err(dev, "i2c smbus byte data not supported\n");
+> @@ -342,37 +343,33 @@ static int bu21029_probe(struct i2c_client *client,
+>                                      I2C_FUNC_SMBUS_WRITE_BYTE |
+>                                      I2C_FUNC_SMBUS_WRITE_BYTE_DATA |
+>                                      I2C_FUNC_SMBUS_READ_I2C_BLOCK)) {
+> -               dev_err(&client->dev,
+> -                       "i2c functionality support is not sufficient\n");
+> +               dev_err(dev, "i2c functionality support is not sufficient\n");
 >                 return -EIO;
 >         }
 >
->         if (!client->irq) {
-> -               dev_err(&client->dev, "No IRQ set up\n");
-> +               dev_err(dev, "No IRQ set up\n");
->                 return -EINVAL;
->         }
->
-> -       ts = devm_kzalloc(&client->dev, sizeof(*ts), GFP_KERNEL);
-> +       ts = devm_kzalloc(dev, sizeof(*ts), GFP_KERNEL);
->         if (!ts)
+> -       bu21029 = devm_kzalloc(&client->dev, sizeof(*bu21029), GFP_KERNEL);
+> +       bu21029 = devm_kzalloc(dev, sizeof(*bu21029), GFP_KERNEL);
+>         if (!bu21029)
 >                 return -ENOMEM;
 >
->         ts->client = client;
+> -       error = device_property_read_u32(&client->dev, "rohm,x-plate-ohms",
+> -                                        &bu21029->x_plate_ohms);
+> +       error = device_property_read_u32(dev, "rohm,x-plate-ohms", &bu21029->x_plate_ohms);
+>         if (error) {
+> -               dev_err(&client->dev,
+> -                       "invalid 'x-plate-ohms' supplied: %d\n", error);
+> +               dev_err(dev, "invalid 'x-plate-ohms' supplied: %d\n", error);
+>                 return error;
+>         }
 >
-> -       ts->x_flip = device_property_read_bool(&client->dev, "rohm,flip-x");
-> -       ts->y_flip = device_property_read_bool(&client->dev, "rohm,flip-y");
-> +       ts->x_flip = device_property_read_bool(dev, "rohm,flip-x");
-> +       ts->y_flip = device_property_read_bool(dev, "rohm,flip-y");
+> -       bu21029->vdd = devm_regulator_get(&client->dev, "vdd");
+> +       bu21029->vdd = devm_regulator_get(dev, "vdd");
+>         if (IS_ERR(bu21029->vdd))
+> -               return dev_err_probe(&client->dev, PTR_ERR(bu21029->vdd),
+> +               return dev_err_probe(dev, PTR_ERR(bu21029->vdd),
+>                                      "failed to acquire 'vdd' supply\n");
+>
+> -       bu21029->reset_gpios = devm_gpiod_get_optional(&client->dev,
+> -                                                      "reset", GPIOD_OUT_HIGH);
+> +       bu21029->reset_gpios = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
+>         if (IS_ERR(bu21029->reset_gpios))
+> -               return dev_err_probe(&client->dev, PTR_ERR(bu21029->reset_gpios),
+> +               return dev_err_probe(dev, PTR_ERR(bu21029->reset_gpios),
+>                                      "failed to acquire 'reset' gpio\n");
 >
 > -       in_dev = devm_input_allocate_device(&client->dev);
 > +       in_dev = devm_input_allocate_device(dev);
 >         if (!in_dev) {
-> -               dev_err(&client->dev, "device memory alloc failed\n");
-> +               dev_err(dev, "device memory alloc failed\n");
+> -               dev_err(&client->dev, "unable to allocate input device\n");
+> +               dev_err(dev, "unable to allocate input device\n");
 >                 return -ENOMEM;
 >         }
->         ts->in_dev = in_dev;
-> @@ -445,8 +446,8 @@ static int bu21013_probe(struct i2c_client *client,
->         in_dev->name = DRIVER_TP;
->         in_dev->id.bustype = BUS_I2C;
 >
-> -       device_property_read_u32(&client->dev, "rohm,touch-max-x", &max_x);
-> -       device_property_read_u32(&client->dev, "rohm,touch-max-y", &max_y);
-> +       device_property_read_u32(dev, "rohm,touch-max-x", &max_x);
-> +       device_property_read_u32(dev, "rohm,touch-max-y", &max_y);
+> @@ -394,19 +391,17 @@ static int bu21029_probe(struct i2c_client *client,
+>         input_set_drvdata(in_dev, bu21029);
 >
->         input_set_abs_params(in_dev, ABS_MT_POSITION_X, 0, max_x, 0, 0);
->         input_set_abs_params(in_dev, ABS_MT_POSITION_Y, 0, max_y, 0, 0);
-> @@ -455,14 +456,14 @@ static int bu21013_probe(struct i2c_client *client,
->
->         /* Adjust for the legacy "flip" properties, if present */
->         if (!ts->props.invert_x &&
-> -           device_property_read_bool(&client->dev, "rohm,flip-x")) {
-> +           device_property_read_bool(dev, "rohm,flip-x")) {
->                 info = &in_dev->absinfo[ABS_MT_POSITION_X];
->                 info->maximum -= info->minimum;
->                 info->minimum = 0;
->         }
->
->         if (!ts->props.invert_y &&
-> -           device_property_read_bool(&client->dev, "rohm,flip-y")) {
-> +           device_property_read_bool(dev, "rohm,flip-y")) {
->                 info = &in_dev->absinfo[ABS_MT_POSITION_Y];
->                 info->maximum -= info->minimum;
->                 info->minimum = 0;
-> @@ -472,50 +473,46 @@ static int bu21013_probe(struct i2c_client *client,
->                                     INPUT_MT_DIRECT | INPUT_MT_TRACK |
->                                         INPUT_MT_DROP_UNUSED);
->         if (error) {
-> -               dev_err(&client->dev, "failed to initialize MT slots");
-> +               dev_err(dev, "failed to initialize MT slots");
->                 return error;
->         }
->
-> -       ts->regulator = devm_regulator_get(&client->dev, "avdd");
-> +       ts->regulator = devm_regulator_get(dev, "avdd");
->         if (IS_ERR(ts->regulator)) {
-> -               dev_err(&client->dev, "regulator_get failed\n");
-> +               dev_err(dev, "regulator_get failed\n");
->                 return PTR_ERR(ts->regulator);
->         }
->
->         error = regulator_enable(ts->regulator);
->         if (error) {
-> -               dev_err(&client->dev, "regulator enable failed\n");
-> +               dev_err(dev, "regulator enable failed\n");
->                 return error;
->         }
->
-> -       error = devm_add_action_or_reset(&client->dev, bu21013_power_off, ts);
-> +       error = devm_add_action_or_reset(dev, bu21013_power_off, ts);
->         if (error) {
-> -               dev_err(&client->dev, "failed to install power off handler\n");
-> +               dev_err(dev, "failed to install power off handler\n");
->                 return error;
->         }
->
->         /* Named "CS" on the chip, DT binding is "reset" */
-> -       ts->cs_gpiod = devm_gpiod_get(&client->dev, "reset", GPIOD_OUT_HIGH);
-> +       ts->cs_gpiod = devm_gpiod_get(dev, "reset", GPIOD_OUT_HIGH);
->         if (IS_ERR(ts->cs_gpiod))
-> -               return dev_err_probe(&client->dev, PTR_ERR(ts->cs_gpiod),
-> -                                    "failed to get CS GPIO\n");
-> +               return dev_err_probe(dev, PTR_ERR(ts->cs_gpiod), "failed to get CS GPIO\n");
->
->         gpiod_set_consumer_name(ts->cs_gpiod, "BU21013 CS");
->
-> -       error = devm_add_action_or_reset(&client->dev,
-> -                                        bu21013_disable_chip, ts);
-> +       error = devm_add_action_or_reset(dev, bu21013_disable_chip, ts);
+>         irq_set_status_flags(client->irq, IRQ_NOAUTOEN);
+> -       error = devm_request_threaded_irq(&client->dev, client->irq,
+> -                                         NULL, bu21029_touch_soft_irq,
+> -                                         IRQF_ONESHOT, DRIVER_NAME, bu21029);
+> +       error = devm_request_threaded_irq(dev, client->irq, NULL,
+> +                                         bu21029_touch_soft_irq, IRQF_ONESHOT,
+> +                                         DRIVER_NAME, bu21029);
 >         if (error) {
 > -               dev_err(&client->dev,
-> -                       "failed to install chip disable handler\n");
-> +               dev_err(dev, "failed to install chip disable handler\n");
->                 return error;
->         }
->
->         /* Named "INT" on the chip, DT binding is "touch" */
-> -       ts->int_gpiod = devm_gpiod_get_optional(&client->dev,
-> -                                               "touch", GPIOD_IN);
-> +       ts->int_gpiod = devm_gpiod_get_optional(dev, "touch", GPIOD_IN);
->         error = PTR_ERR_OR_ZERO(ts->int_gpiod);
->         if (error)
-> -               return dev_err_probe(&client->dev, error, "failed to get INT GPIO\n");
-> +               return dev_err_probe(dev, error, "failed to get INT GPIO\n");
->
->         if (ts->int_gpiod)
->                 gpiod_set_consumer_name(ts->int_gpiod, "BU21013 INT");
-> @@ -523,22 +520,20 @@ static int bu21013_probe(struct i2c_client *client,
->         /* configure the touch panel controller */
->         error = bu21013_init_chip(ts);
->         if (error) {
-> -               dev_err(&client->dev, "error in bu21013 config\n");
-> +               dev_err(dev, "error in bu21013 config\n");
->                 return error;
->         }
->
-> -       error = devm_request_threaded_irq(&client->dev, client->irq,
-> -                                         NULL, bu21013_gpio_irq,
-> +       error = devm_request_threaded_irq(dev, client->irq, NULL, bu21013_gpio_irq,
->                                           IRQF_ONESHOT, DRIVER_TP, ts);
->         if (error) {
-> -               dev_err(&client->dev, "request irq %d failed\n",
-> -                       client->irq);
-> +               dev_err(dev, "request irq %d failed\n", client->irq);
+> -                       "unable to request touch irq: %d\n", error);
+> +               dev_err(dev, "unable to request touch irq: %d\n", error);
 >                 return error;
 >         }
 >
 >         error = input_register_device(in_dev);
 >         if (error) {
-> -               dev_err(&client->dev, "failed to register input device\n");
-> +               dev_err(dev, "failed to register input device\n");
+> -               dev_err(&client->dev,
+> -                       "unable to register input device: %d\n", error);
+> +               dev_err(dev, "unable to register input device: %d\n", error);
 >                 return error;
 >         }
 >
@@ -345,4 +266,4 @@ Andy Shevchenko
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHp75VfyoVN2DdwGpi9_58_v9c%2BksHjYmvmeGbz64OAyhjEhsg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHp75Ve5YgDNvtqFC8-zPgPQminR%2B57iWjGveaK-Ddxhj7FuWA%40mail.gmail.com.
