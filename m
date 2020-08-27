@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBC6JD5V23ENBBM4FUD5AKGQE5IWM5UA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC6JD5V23ENBBNUFUD5AKGQEPUBF4WY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
-	by mail.lfdr.de (Postfix) with ESMTPS id C2467254DA6
-	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 21:00:04 +0200 (CEST)
-Received: by mail-pg1-x53c.google.com with SMTP id 36sf5032597pgz.18
-        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 12:00:04 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598554803; cv=pass;
+Received: from mail-pg1-x53a.google.com (mail-pg1-x53a.google.com [IPv6:2607:f8b0:4864:20::53a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0BDC0254DAB
+	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 21:00:08 +0200 (CEST)
+Received: by mail-pg1-x53a.google.com with SMTP id l6sf3902634pgm.15
+        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 12:00:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598554806; cv=pass;
         d=google.com; s=arc-20160816;
-        b=u6zqM+S+LOWaJyWl7SZae+gw6tIvdd7CIN5f+z7xzEvuTW3uBYMuKETw7mgSgHJxLM
-         ZtIPpLrHUkx/0t5zswCcrT9cRhX/v8rSwVV+r5hywnNeUVipegFGbOLR4yTqP14Zizs5
-         VLqYuY0FqMzeyeYd1b0tFamBb7amGeLi2F5yXHOXNWMqQVedKFFunn1NfLGEDOXFPHr2
-         yw2wQZiAQo1HCbYz8ISRnq2O9hNS3dc9tspeOWUQmso4rjsz1zJiaYiS/7rtWuY02f3O
-         FI3lbAJhYUkjl1Z+IlxD5rF0K/Usuuk2H/PZwKdV7oO1vsqMau5e/i+N+aJXpWeOgeh4
-         lJeg==
+        b=ieI+HeiCKw4B+V4cJDmIHIIX/7L4j3ocMKZFMAhO4wA91+TkZ3EyPWBbcHvTntkKcG
+         dztjGowvCucLKHrWqoc7kKWeKjTlEAvOeS3y7GCv7a8Fka/UhQA9jOYIKCAAQKVZYniF
+         ACIhdsMLZpV5NoOB4HMmjZRkslDzOvr/cyxrXMkV5PsuC/jQgihbWiI60uqipU7ALs8+
+         5kf4kHCv8e5eBDcgxVgD+6m/bQewRl7USZFh3mk8EvB0aQ1WR/oDBnlzmx9slzgYjrlf
+         8zD2Q2KhMRgYPPnZDOCtVCUljTQufGk+o/91Xwl4ZJUBQzsPfb9dsCgHqmMRds3ZTdeK
+         SNUg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:references:in-reply-to:message-id
          :date:subject:cc:to:from:mime-version:sender:dkim-signature;
-        bh=BHEGAepL1chp4Jneu2H39kdedjM0wyzXBb34e/E/tOA=;
-        b=BgkNVADNluOn2oXVIHTeOMwm9KY0bH1HLR7rz94960u/m4Adfnt4QLt4BR6nJ7vVDL
-         BITzHUwLM6OXKWt7TFQ4gr27TiG7NkJqWj3DOInsJMDl59xkUeHoE63AdVFq2M1b3RPW
-         fmZNQzrfHmbbvhG3KbTmnx8yjusYnn+w8cJxARyqbYFA1LzULm4lkOuItv/UKf/mXBCQ
-         KByYAx6P6XTf2KbXWwaEfsd6FAd11dsNmuJ6gj6oDE6j9ZiDrdcQjVZnS+wAkO+qkd/S
-         jAT5ScYzhMvGewuc00AO6Yf76mzdS0WJDKCTTQ4CUGIRKrzf5/D0omlhmePCCUvS9rTx
-         A4uQ==
+        bh=p5dxQDfI+1tjcodSqpZKspaOMBfrU1ycROQHIAh2b84=;
+        b=iNuK1ek282ASyK3DOqtqfpQo1HteeWiXEGrJ7Gm70lhAdJB/JZBsW9A715ORFzoEQx
+         tKGcgAoVIYPsAN6u67gURzCpZBVpd+P7JlP50InTPJrTh87OAoQVYrsEVzyM/fQUnSSX
+         csBxSQQtIlkCM0gQu56WZTaSTPWg5UuAqSHe7Ogtp3T3ZUMSK5ix+uRZV0GdIBcFF6p5
+         7u5TZuXX4M7cIc/Gbr9O16cwQV3K9G5Uqh73I27BGL6ZlTZrpkXCCU1G8vBPOcC9u7lK
+         VsiOxXtsZruoE8MyLT0Ji31ZpMYTd4JNF4sMbNTC7/wyO9+jxyTbGHyFNFo0SyF3YDKI
+         iOPw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=uU1UvUH1;
+       dkim=pass header.i=@kernel.org header.s=default header.b=zkF6n24l;
        spf=pass (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=krzk@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :references:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=BHEGAepL1chp4Jneu2H39kdedjM0wyzXBb34e/E/tOA=;
-        b=FtupvauyO+R00D8qqr8gXjcEYzyiJzsIz/2gRH/BFw3U+gqzqVgQ5Bde/d4pkH2Vpw
-         yT63UlLSWfpUi4sFoDbDVhDYmoVSZU/tliDuvFOrFu9xkKuKY9vM9b0/+TkZkvG36r5N
-         /gPTAE9ACUdOM6EiktbwzRGnBgCOwEe8JC/zI3M90yrZl/KpNsiSiwsk4YO/wCl8EegW
-         ty3s0tQJyh/DnYxoXoTYL6e7esTqs/gw65uzlLBnFkrCe0hKGB0HzEUudxKwBuMXBdmP
-         PJwYPzXZVij9gcNbhO4g9QRnvLArnfchDvWPyjGT0V4iT4Igy4YJER9LUWCXi3ThVp5n
-         X9ng==
+        bh=p5dxQDfI+1tjcodSqpZKspaOMBfrU1ycROQHIAh2b84=;
+        b=qOfpDlLsWWXov33NYziB9JIjG/1F75Gnu3K506OkhDO33cTXm+D/wcw0FabzffgHmK
+         v3JLDEXgD+/tFyjHgMx9JsNGAHNy+g5KR5r4mljWixMvVFkY/dprNhxcxtlDRVK2XrMs
+         NfWjumcJCRtIvG9HF1Kg2O1UhpNBuGsWa0l4fLs/u0bjXZeFZGr5r6lyIZljFrsdFirf
+         isKuDwrnK9YZZp/WFimT6KvhTUPVf7BwYGdbSL2NtnAsSEymTsa3hzyzOQqTL6vkQHlL
+         lVQK31Jd1ChRTqrE+0Cjw0WIkUNvc9BANPWsra/zZZSPzUDM3Y6rUiDsjAn7A85MDLG0
+         wYhQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
@@ -49,58 +49,58 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=BHEGAepL1chp4Jneu2H39kdedjM0wyzXBb34e/E/tOA=;
-        b=MZw4SMo6tSTMITlFa0nTtHMVyDtbfLle7+uPHKnCQ2TtA4xAYUOQ1P/OEqBeFmlnss
-         OJ+5hjNNcw3/mqURWWSSvnoXmpRxSx/JJhNlvToJsyqhda8qkMF+FfcMod9Tx9ClUyep
-         23G57zlqaeEu7B1XjQZnkoa7En0HGZvci07WbQf2Iov0fJUMNbQzffvoDhPdsKPSC9a+
-         NdjaNm3kADT8U8khPiXmnSVL+G3vUVZgl9miZNB+pvnDy3sIM0PLgHSrN2i+wbZkZko4
-         IqfhLaPip4yPDQtr4c+0F4W39DmKaWWWPJ03y7TfNvANBbETAkYXmVD8Ojsr9m0ZAyYJ
-         YA/Q==
+        bh=p5dxQDfI+1tjcodSqpZKspaOMBfrU1ycROQHIAh2b84=;
+        b=FnkqzrW9kERE53v7zw+ZAmIn3T8zwg1bQMveUjsU3RSVSK2hxt7RIaO7Kx5RkVX00q
+         jiPnPsH3bgz4IOQp6CV3FDrdsn83iSVbLcWTnk0RdTQNIQNT38vlryKcN8l74c+ZAY73
+         YKHQIykgyZ+rfbT3vwl0t04NwiYYJZwvRFENJuVrhyQ7Nu0SIx1xFzbrQnm2sKhg6XzQ
+         ZeqaVpGqdQj0E0bjur6q53NelWPIltLNCxWUXoohRbRPTMgdtJHU7aLwLxLxiqkrOIa7
+         8tx9UMKpUqZZu+6nwpLeL1QL2SpSomOCAn2NjYU+UVHlHfZRicMRme5VDSaH6PJ4A3P0
+         J+/Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531MsWmoh2NrUjFVCE1JmVO3uLTZx9tnFcYGX8JwzJEGf/HY5IG1
-	D7a0jfGwlPqOFyRXrSpT778=
-X-Google-Smtp-Source: ABdhPJx1tlITg50QYy8pmUSK/sxlSbHQyeFa055vVz3/9u9I5fSZWgiRgf1F3Z2WF8jrts9FTi3XHA==
-X-Received: by 2002:a65:6545:: with SMTP id a5mr16016178pgw.43.1598554803442;
-        Thu, 27 Aug 2020 12:00:03 -0700 (PDT)
+X-Gm-Message-State: AOAM530Z5Sx/tvVuRPpLV1EWHQ+EgOOSzbXU7QQqvugS1LQwdO7PAfF9
+	CVkZuSojEXg82yl+BaPs8wU=
+X-Google-Smtp-Source: ABdhPJz8xkAAQ/q15q8ucfIkcY/6g26YpkStq1WJomy//4b+D7xYBuTw2TtP0PPWXlo2pb/hy6I+wA==
+X-Received: by 2002:aa7:92d7:: with SMTP id k23mr17353184pfa.295.1598554806738;
+        Thu, 27 Aug 2020 12:00:06 -0700 (PDT)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:442:: with SMTP id 60ls1649847ple.4.gmail; Thu, 27
- Aug 2020 12:00:03 -0700 (PDT)
-X-Received: by 2002:a17:90a:f691:: with SMTP id cl17mr274034pjb.8.1598554802953;
-        Thu, 27 Aug 2020 12:00:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598554802; cv=none;
+Received: by 2002:a17:90b:3502:: with SMTP id ls2ls1340851pjb.1.canary-gmail;
+ Thu, 27 Aug 2020 12:00:06 -0700 (PDT)
+X-Received: by 2002:a17:902:b110:: with SMTP id q16mr16697554plr.276.1598554806247;
+        Thu, 27 Aug 2020 12:00:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598554806; cv=none;
         d=google.com; s=arc-20160816;
-        b=joSaL9Ugwe+gXketoVSB6MYMhdJGT/ZbANeL985LZJDjW09ONogw5qiXehZWLq+4eS
-         5ylqriOpDAvOETR9XTQtqY6n4AYjLHwS04v1XQoAv/0bCt6yaPMRcoUl5VlsPxDciO2n
-         5gHv94wbAEU89HELn07TC0KIufA2/Qa0jPl/Oq76zx378p+LBxZuFSl/ji5s++hLtX7S
-         4YGjtcVkuYzpelYRv6aIyWnwMUjUyZSsuOj5H5vQPaDYqA7ISNs081VS+UeSY8KktcM2
-         1F97dWFh0Fnyac6OEwLud4ktwB3KSE/1R1R+WwcFOkKl3Roe9abCzTx/tBBUZGs9U80d
-         MlQA==
+        b=MhKBSdXoEqgbAKkZZ6zc8rDx/7RLBUkvOHOnD7yG1sLOPf552cGMR10hLo74pSKTkq
+         cdobM0fAnVBBFr8zW9/cyWmwOJsi9XrvFG/Moa9UNz9iuEhzfkZkK/5DSQniHdODoc5p
+         hjDs3w9tjxwLp6OfwQUqfrMC+071iQf3wnOQUmtCw8TK8hkC1j1J53pAIOAWQ2uLapyT
+         t4D73Re5hOpgDN8J6cLUTuZEQ0gbN9mMQZW69pgYfPXyHaEhq7g5mnm/gSSOtn+67oBT
+         t2vPzdrLEcT/b+CyvM9Cbn2k9cCOs77arSf+Dv853fMB12jU5me4fFd/ChVtbmYlGiQo
+         FZcQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :dkim-signature;
-        bh=yzxK3J0SAx0H0mrlQpVdh8C7sJWVF2Hox8MHNujOdCo=;
-        b=NpkKHJHFJe4cIbgcrro/n/lxAZny+z73XHqwPxngnPDs5GUe3DEeFojdtdD/r6mlXH
-         aDGUO1VjQOzS/RkDSp63n735ojfiDXu3X1mbrYOOM0Jt8bmQ5BYwppu5vvzBQlU+o/Ay
-         I/m5WW2mNvPen7H8JOfWaqpvBpyYqWpTQ/f7UcnhZxtt+Ouzz64EbaD+i0zJbZ9wMt6Z
-         rfD9mFUkMHcLobq1WtPgUWRtyFBVHZnOit6AmXElbDAbfQBlwa7sxNoSmYmBt2x2XQaF
-         PxHZV2gMhzOOatL73a5Sb03IMB7TGtyhX4nVhsXTtLax1LF0dSG3ki74TQYLCvfGOrLw
-         X2gg==
+        bh=os1IfjdxlABNWPLPhnZ6+0Q6QOQ9kkbjdTQnbzHd1wU=;
+        b=RoukBccOJ3r9uQw0Fl2bTtScaFxJ7WcrjDBXIutYj5BNkhdCjWAAHanAQR8T9Eh243
+         y/uYiaZ0VRrYTEkCq10O0bh4NfGAFUEXzkZX4MT2jVHtAYsXHo6/P5JqTNVa1kewcvc2
+         17PF1B5iOnAniY6TQkrC2VLRIMnqj9lR40EHM+BtnnR7q5lofipYSbXoC2xQD2CsvDK0
+         mki5zeizVK+dWUWLloTNzmhgOaJ7P6vG2T2xVPqF+gikw9FaHG4iU4hjLedv/WU66h5s
+         DZ4JJ31nj1WcCJw6qFu2xkpK0YGZZPNCZgXQOhJWY27035/diLP4XO4a0v0ezkG8Obws
+         ZnSg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=uU1UvUH1;
+       dkim=pass header.i=@kernel.org header.s=default header.b=zkF6n24l;
        spf=pass (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=krzk@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id l2si257850pfd.0.2020.08.27.12.00.02
+        by gmr-mx.google.com with ESMTPS id u204si209861pfc.1.2020.08.27.12.00.06
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 27 Aug 2020 12:00:02 -0700 (PDT)
+        Thu, 27 Aug 2020 12:00:06 -0700 (PDT)
 Received-SPF: pass (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from localhost.localdomain (unknown [194.230.155.216])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id C79802087E;
-	Thu, 27 Aug 2020 18:59:59 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 2B4F922CBE;
+	Thu, 27 Aug 2020 19:00:02 +0000 (UTC)
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <bgolaszewski@baylibre.com>,
@@ -116,15 +116,15 @@ To: Linus Walleij <linus.walleij@linaro.org>,
 	platform-driver-x86@vger.kernel.org,
 	clang-built-linux@googlegroups.com
 Cc: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [PATCH v3 24/27] gpio: Add devm_fwnode_gpiod_get_optional() helpers
-Date: Thu, 27 Aug 2020 20:58:26 +0200
-Message-Id: <20200827185829.30096-25-krzk@kernel.org>
+Subject: [PATCH v3 25/27] Input: gpio_keys - Simplify with dev_err_probe()
+Date: Thu, 27 Aug 2020 20:58:27 +0200
+Message-Id: <20200827185829.30096-26-krzk@kernel.org>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20200827185829.30096-1-krzk@kernel.org>
 References: <20200827185829.30096-1-krzk@kernel.org>
 X-Original-Sender: krzk@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=uU1UvUH1;       spf=pass
+ header.i=@kernel.org header.s=default header.b=zkF6n24l;       spf=pass
  (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=krzk@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -141,179 +141,74 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Add devm_fwnode_gpiod_get_optional() and
-devm_fwnode_gpiod_get_index_optional() helpers, similar to regular
-devm_gpiod optional versions.  Drivers getting GPIOs from a firmware
-node might use it to remove some boilerplate code.
+Common pattern of handling deferred probe can be simplified with
+dev_err_probe() and devm_fwnode_gpiod_get_optional().   Less code and
+the error value gets printed.
 
 Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
+Reviewed-by: Hans de Goede <hdegoede@redhat.com>
 Reviewed-by: Andy Shevchenko <andy.shevchenko@gmail.com>
 
 ---
 
 Changes since v2:
-1. Return NULL
+1. Preserve comment,
+2. Include <device.h> to fix warning on clang (reported by kbuild),
+3. Fix use of uninitialized "error" variable.
 
 Changes since v1:
-1. New patch
+1. Use devm_fwnode_gpiod_get_optional
 ---
- drivers/gpio/gpiolib-devres.c | 71 +++++++++++++++++++++++++++++++++++
- include/linux/gpio/consumer.h | 30 +++++++++++++++
- 2 files changed, 101 insertions(+)
+ drivers/input/keyboard/gpio_keys.c | 25 ++++++++-----------------
+ 1 file changed, 8 insertions(+), 17 deletions(-)
 
-diff --git a/drivers/gpio/gpiolib-devres.c b/drivers/gpio/gpiolib-devres.c
-index 7dbce4c4ebdf..f8476f6a65cc 100644
---- a/drivers/gpio/gpiolib-devres.c
-+++ b/drivers/gpio/gpiolib-devres.c
-@@ -184,6 +184,37 @@ struct gpio_desc *devm_gpiod_get_from_of_node(struct device *dev,
- }
- EXPORT_SYMBOL_GPL(devm_gpiod_get_from_of_node);
+diff --git a/drivers/input/keyboard/gpio_keys.c b/drivers/input/keyboard/gpio_keys.c
+index f2d4e4daa818..160d94b1c2c0 100644
+--- a/drivers/input/keyboard/gpio_keys.c
++++ b/drivers/input/keyboard/gpio_keys.c
+@@ -18,6 +18,7 @@
+ #include <linux/sysctl.h>
+ #include <linux/proc_fs.h>
+ #include <linux/delay.h>
++#include <linux/device.h>
+ #include <linux/platform_device.h>
+ #include <linux/input.h>
+ #include <linux/gpio_keys.h>
+@@ -494,23 +495,13 @@ static int gpio_keys_setup_key(struct platform_device *pdev,
+ 	spin_lock_init(&bdata->lock);
  
-+/**
-+ * devm_fwnode_gpiod_get_optional - Resource-managed fwnode_gpiod_get_index()
-+ *                                  for optional GPIO
-+ * @dev:	GPIO consumer
-+ * @fwnode:	firmware node containing GPIO reference
-+ * @con_id:	function within the GPIO consumer
-+ * @flags:	GPIO initialization flags
-+ * @label:	label to attach to the requested GPIO
-+ *
-+ * GPIO descriptors returned from this function are automatically disposed on
-+ * driver detach.
-+ *
-+ * This is equivalent to devm_fwnode_gpiod_get_index(), except that when no
-+ * GPIO with the specified index was assigned to the requested function it will
-+ * return NULL.  This is convenient for drivers that need to handle optional
-+ * GPIOs.
-+ *
-+ * On successful request the GPIO pin is configured in accordance with
-+ * provided @flags.
-+ */
-+struct gpio_desc *devm_fwnode_gpiod_get_optional(struct device *dev,
-+						 struct fwnode_handle *fwnode,
-+						 const char *con_id,
-+						 enum gpiod_flags flags,
-+						 const char *label)
-+{
-+	return devm_fwnode_gpiod_get_index_optional(dev, fwnode, con_id, 0,
-+						    flags, label);
-+}
-+EXPORT_SYMBOL_GPL(devm_fwnode_gpiod_get_optional);
-+
- /**
-  * devm_fwnode_gpiod_get_index - get a GPIO descriptor from a given node
-  * @dev:	GPIO consumer
-@@ -226,6 +257,46 @@ struct gpio_desc *devm_fwnode_gpiod_get_index(struct device *dev,
- }
- EXPORT_SYMBOL_GPL(devm_fwnode_gpiod_get_index);
- 
-+/**
-+ * devm_fwnode_gpiod_get_index_optional - Resource-managed fwnode_gpiod_get_index()
-+ *                                        for optional GPIO
-+ * @dev:	GPIO consumer
-+ * @fwnode:	firmware node containing GPIO reference
-+ * @con_id:	function within the GPIO consumer
-+ * @index:	index of the GPIO to obtain in the consumer
-+ * @flags:	GPIO initialization flags
-+ * @label:	label to attach to the requested GPIO
-+ *
-+ * GPIO descriptors returned from this function are automatically disposed on
-+ * driver detach.
-+ *
-+ * This is equivalent to devm_fwnode_gpiod_get_index(), except that when no
-+ * GPIO with the specified index was assigned to the requested function it will
-+ * return NULL.  This is convenient for drivers that need to handle optional
-+ * GPIOs.
-+ *
-+ * On successful request the GPIO pin is configured in accordance with
-+ * provided @flags.
-+ */
-+struct gpio_desc *devm_fwnode_gpiod_get_index_optional(struct device *dev,
-+						       struct fwnode_handle *fwnode,
-+						       const char *con_id, int index,
-+						       enum gpiod_flags flags,
-+						       const char *label)
-+{
-+	struct gpio_desc *desc;
-+
-+	desc = devm_fwnode_gpiod_get_index(dev, fwnode, con_id, index, flags,
-+					   label);
-+	if (IS_ERR(desc)) {
-+		if (PTR_ERR(desc) == -ENOENT)
-+			return NULL;
-+	}
-+
-+	return desc;
-+}
-+EXPORT_SYMBOL_GPL(devm_fwnode_gpiod_get_index_optional);
-+
- /**
-  * devm_gpiod_get_index_optional - Resource-managed gpiod_get_index_optional()
-  * @dev: GPIO consumer
-diff --git a/include/linux/gpio/consumer.h b/include/linux/gpio/consumer.h
-index 901aab89d025..7854d80b1e9a 100644
---- a/include/linux/gpio/consumer.h
-+++ b/include/linux/gpio/consumer.h
-@@ -183,11 +183,21 @@ struct gpio_desc *fwnode_gpiod_get_index(struct fwnode_handle *fwnode,
- 					 const char *con_id, int index,
- 					 enum gpiod_flags flags,
- 					 const char *label);
-+struct gpio_desc *devm_fwnode_gpiod_get_optional(struct device *dev,
-+						 struct fwnode_handle *fwnode,
-+						 const char *con_id,
-+						 enum gpiod_flags flags,
-+						 const char *label);
- struct gpio_desc *devm_fwnode_gpiod_get_index(struct device *dev,
- 					      struct fwnode_handle *child,
- 					      const char *con_id, int index,
- 					      enum gpiod_flags flags,
- 					      const char *label);
-+struct gpio_desc *devm_fwnode_gpiod_get_index_optional(struct device *dev,
-+						       struct fwnode_handle *fwnode,
-+						       const char *con_id, int index,
-+						       enum gpiod_flags flags,
-+						       const char *label);
- 
- #else /* CONFIG_GPIOLIB */
- 
-@@ -562,6 +572,16 @@ struct gpio_desc *fwnode_gpiod_get_index(struct fwnode_handle *fwnode,
- 	return ERR_PTR(-ENOSYS);
- }
- 
-+static inline
-+struct gpio_desc *devm_fwnode_gpiod_get_optional(struct device *dev,
-+						 struct fwnode_handle *fwnode,
-+						 const char *con_id,
-+						 enum gpiod_flags flags,
-+						 const char *label)
-+{
-+	return NULL;
-+}
-+
- static inline
- struct gpio_desc *devm_fwnode_gpiod_get_index(struct device *dev,
- 					      struct fwnode_handle *fwnode,
-@@ -572,6 +592,16 @@ struct gpio_desc *devm_fwnode_gpiod_get_index(struct device *dev,
- 	return ERR_PTR(-ENOSYS);
- }
- 
-+static inline
-+struct gpio_desc *devm_fwnode_gpiod_get_index_optional(struct device *dev,
-+						       struct fwnode_handle *fwnode,
-+						       const char *con_id, int index,
-+						       enum gpiod_flags flags,
-+						       const char *label)
-+{
-+	return NULL;
-+}
-+
- #endif /* CONFIG_GPIOLIB */
- 
- static inline
+ 	if (child) {
+-		bdata->gpiod = devm_fwnode_gpiod_get(dev, child,
+-						     NULL, GPIOD_IN, desc);
+-		if (IS_ERR(bdata->gpiod)) {
+-			error = PTR_ERR(bdata->gpiod);
+-			if (error == -ENOENT) {
+-				/*
+-				 * GPIO is optional, we may be dealing with
+-				 * purely interrupt-driven setup.
+-				 */
+-				bdata->gpiod = NULL;
+-			} else {
+-				if (error != -EPROBE_DEFER)
+-					dev_err(dev, "failed to get gpio: %d\n",
+-						error);
+-				return error;
+-			}
+-		}
++		/*
++		 * GPIO is optional, we may be dealing with purely
++		 * interrupt-driven setup.
++		 */
++		bdata->gpiod = devm_fwnode_gpiod_get_optional(dev, child, NULL, GPIOD_IN, desc);
++		if (IS_ERR(bdata->gpiod))
++			return dev_err_probe(dev, PTR_ERR(bdata->gpiod), "failed to get gpio\n");
+ 	} else if (gpio_is_valid(button->gpio)) {
+ 		/*
+ 		 * Legacy GPIO number, so request the GPIO here and
 -- 
 2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200827185829.30096-25-krzk%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200827185829.30096-26-krzk%40kernel.org.
