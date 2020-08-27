@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBC6JD5V23ENBBGEFUD5AKGQEMCJIWLQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC6JD5V23ENBBG4FUD5AKGQEXDFPHDI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53d.google.com (mail-pg1-x53d.google.com [IPv6:2607:f8b0:4864:20::53d])
-	by mail.lfdr.de (Postfix) with ESMTPS id B8F9F254D85
-	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 20:59:38 +0200 (CEST)
-Received: by mail-pg1-x53d.google.com with SMTP id x13sf5026124pgf.17
-        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 11:59:38 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598554777; cv=pass;
+Received: from mail-yb1-xb38.google.com (mail-yb1-xb38.google.com [IPv6:2607:f8b0:4864:20::b38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0EDC8254D87
+	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 20:59:41 +0200 (CEST)
+Received: by mail-yb1-xb38.google.com with SMTP id a14sf8562939ybm.13
+        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 11:59:41 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598554780; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GhZgaCyBdDxXtEH4U7bf4wfJVe6K+ZJ02mUNYYz4cwNreFHLok8oEAHWLm9bIVCm5Z
-         2LvPtE9cIw3mgj5RmI3QreQYT1aTdjRNJDHIcSLHuME55W04Ed9D9fiEXwvCWzEGqQi/
-         kkaPLcNt1PjD+rkJokRdLSp5TokgTVo/27QBIw7T9JpCSOklZI5AC+/Qw8SS51mGu4W2
-         R9wkU8yE3ZOTE18lCRI/fLjHNwm1pfEGs6RW48CHyrnawhoCEj/VF6k3CAjC1UzPSaWz
-         2vDNoo/PglSKQSaFGq23eW7IteUpLkHGB106+Oue/+HwI4CiAn/gjcP0zTk9GfsN/7dq
-         6YvQ==
+        b=PnZ0iZMfjHH5IiYyK0trOfNr6TL/oboY8bWBShvJ2CBDobXcLFEUuAbYVLvOahkjJm
+         JN1433u8Ml9HwBi4X2RfNfbT934czNtRCXjNOn8QNNK2ArDHNHZSrWNJ7oqYQsQIz5+w
+         umolUIo7BNvZctkW3nAVDUvO6y6BkO8ZMQa7sYnLXZuNt48GeGYKlJA1ydt55YXhHrii
+         EFrEQ0SWnR6cmFWGorplyQ8z8ES/63029cShLhooig3cgydvsQtpz7631a2E1hAWpQEt
+         sVsZrxmBs09sI+TO8eePiyUnMOQhnn5m8cveXt7BkJia8tuRGcFywFMXkrqJyIe5AqXo
+         7QKA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:references:in-reply-to:message-id
          :date:subject:cc:to:from:mime-version:sender:dkim-signature;
-        bh=s7GdkPRX8zkibbh4ESYR1Ho3Nk0qeRUCR2YUPG6hMSs=;
-        b=o1W+tJEltO8fBQtPquAi6N5RY2BXc6GjkOnnvR1GKoo1G6KJuS3HXQ6PmNbYiHz9Rh
-         6Ev7OKLjeY9a5tz3yLVhkI1KdGIyVlzRYOn73f639WRRAK9aWqv4vXlJps3ggaQyZTHE
-         Gf8waLATR90n1i6JaiQm7iuM5hWTAqHCFIQl9XcNxk6VeEM77cn+o9UzkgQrJNC31ztw
-         E7tlV+0bNwZqknAtA8VRmlTzb/h84Z18TW4FnjivEYqW3B5fsty3ZOJhv0G2a0h5VAtv
-         FoeEucfKDFhHFQzTzFY3HWqrNCVRqIH0dDP/pWp9/0M1N7CkUO9E4KsOKxZjD7L9K7yp
-         EwzA==
+        bh=U8Pe/D7BYsdGb/n3ex/eOsSL7aQer+a0dEkq4YXG528=;
+        b=h7bmh18Vjq4vL4pCqPi1G+5az/vu4mfJVs75wiGGJBZR2j4UFpaQzn0LZoFuyu2eZJ
+         BQ0onSNAVb7MpEy0y6UnaZm1ZeBTya07w3dgBLpFNlN75C3zOjymZi8uB7cZQZktDj06
+         zigCqUXdv9co9XrGjTYMYbwZuuWKdadPSZT9HfnCpA6uanByczsJ+IXF5zl/6fl048Zd
+         +jcN9N8t5g9mFoh/wTrb1QNvfx1gTIgY9+nXJH4xwcMouSRS0l16ED2M9MTKwihWbOpT
+         OHttCqLa6cB1cKPWQXbNoRAxL1WrKVBNbRjqgyESEjnGTfGRR8gQt9SG8u1GuZKq7lUa
+         0Txg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="qp/WwPiH";
+       dkim=pass header.i=@kernel.org header.s=default header.b=tmzbWQbT;
        spf=pass (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=krzk@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :references:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=s7GdkPRX8zkibbh4ESYR1Ho3Nk0qeRUCR2YUPG6hMSs=;
-        b=FGAr/gtZDP9t2otgVwVDcaVN96k3eZLvG1eT8px3LUCwpmW0ZvaVQGXzARIZayDN8o
-         ycbMxulR9Rl5hGb3S71IFYZRiPn8VQK/PYghAT/KFXbsmx1ncVPhQ9TDTbFxR2fqwvWW
-         0O3U0vss+9ZJZ1rkNofi7z3yNcQTW0pi05bQNaiGDtI3gLM4xjzOLCDETw9Mtz66hQHD
-         mAxH2Lx6Piccj8BnuPGSMzgXj1LhLrfUSxOUxoSaaS3JRjFw67kcV4P1Ub9WZf9kJfJE
-         ojrqKkklo5WWBNHlurmZHK0sVwyCzPu1UKA2lr8MGvUZ0Q7/OTZutccgGKa++zOMoMlv
-         SGng==
+        bh=U8Pe/D7BYsdGb/n3ex/eOsSL7aQer+a0dEkq4YXG528=;
+        b=Cg/6UVfL4GE2A2zUg+zupkAaOKAfUrtYCYKqErEV6/1+xwfzAi+EFyY8uRFa3YLTeK
+         C9/L9Zl9pvWsJxG6GRnPPuEmLS5r0iMhiz25CeL4mfvqOzt44QYoFVrnCGoWBBYuf1Di
+         MBDYdA5G4X/bVGest4bZeUM0zgR/zLiuBmaj/6N8azo7/eUFf1+lUiIVzIUKrfgA53op
+         JW2ZIdwRcZwCOLG6YqqqVfDL+Qb1kN1wIAnHe0vlArZXplqhYaj+7SUPO1FRK3asTIMm
+         cZjV1nDeN3FtC6SXzWFyg++WtZfPhgcvlWfxwSxdCX9jZZft/DEtmUMx317xIxIFXQrr
+         Qoqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
@@ -49,58 +49,58 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=s7GdkPRX8zkibbh4ESYR1Ho3Nk0qeRUCR2YUPG6hMSs=;
-        b=nj9HTEV032Hv4bGOmz5Pd0aBPIjpuFN+9zgQx6b/n/5ytaqzBMqWSLrIa2U9JxYDQO
-         KwvLT64/7BX11kukvOi/RWQ0RUxGCb41OizPiLZCCF5c0eo5OMMlfoZAlaqxqUHHY6lg
-         UrO+6AYThfvUj1Cvnlhqfzjhix1mzO3Ny1iuzW8t2GrQeVY90XRSqlFgTUW88q456FE/
-         ZqkmcAsNkFSWiy0PXdPu4PY451wiBYS/cijXyFw3rWh16XKJLKLWQwBHTKnQ16HMdBRr
-         3UQLrMOjHJhn6xOXY20Hn2L1Hlh+SyXgJ7KoAomT8dLoq3oUDBmK6DqmfW7Q/Tb9VEDD
-         ikdA==
+        bh=U8Pe/D7BYsdGb/n3ex/eOsSL7aQer+a0dEkq4YXG528=;
+        b=F4fXEaNzig6Ux9R6sUCDeFOTAE9TfwtK1PPco9xFWJeEfLDF+wAQw1IzgXDzKaygtE
+         5Qol2kB4K24wlwBK4KOoEUfwVD0YO4S9mgedX0Fm2LoPx5jSdYh/CQ8xuF644cY+FuA7
+         wuqkDjSgTipI8oH0KkSN+CyhEeJgpLGuHj+gTK/e9iUSGayOFem3F/z7tiNnLyZuJxra
+         HcaH51oht9Sz89kbPhxDlXfnOFKtMTk/sZyze0g4UvbLk+kmlQEqjMzoadoHCuwY0R1m
+         SIoxDghqwZ1N34uHuy2zdoZeJ+xPxwfjF2+XP4y9SmvpWFF2fYXgpzgHPL9wKR90bunZ
+         5hlg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533/kmo3FjarwnomgixkV6qZgL2Wpi6e8txApQ0wC6jfokl5TO10
-	hZndLTl2CPobI8qRoOL8qa0=
-X-Google-Smtp-Source: ABdhPJyW18R6KplXTUtTovzPvfa1AdA7YnNJG+9tH91eMFMXrIIAIi7FC73BXuG5QCPebPrMPXT8eQ==
-X-Received: by 2002:a17:90a:9503:: with SMTP id t3mr216847pjo.171.1598554776365;
-        Thu, 27 Aug 2020 11:59:36 -0700 (PDT)
+X-Gm-Message-State: AOAM530GZ+87sSS54ppBrrsdNCZ5x2tZw8QPp/fQIghWbZ4DKVo7YbBB
+	qi2FBAMCULpArN62F9JnW1k=
+X-Google-Smtp-Source: ABdhPJzGQJnG5qSvxTti7XZ1shR8tRctuV2wnr61bnqmY3u5tM37HYZVqZgqJHtsaWlwJObwPCx4jg==
+X-Received: by 2002:a25:d98f:: with SMTP id q137mr27698053ybg.480.1598554780107;
+        Thu, 27 Aug 2020 11:59:40 -0700 (PDT)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:ee0c:: with SMTP id z12ls1646027plb.6.gmail; Thu, 27
- Aug 2020 11:59:36 -0700 (PDT)
-X-Received: by 2002:a17:902:9a45:: with SMTP id x5mr17005857plv.243.1598554775914;
-        Thu, 27 Aug 2020 11:59:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598554775; cv=none;
+Received: by 2002:a25:cace:: with SMTP id a197ls1438134ybg.11.gmail; Thu, 27
+ Aug 2020 11:59:39 -0700 (PDT)
+X-Received: by 2002:a25:d74e:: with SMTP id o75mr8144603ybg.50.1598554779792;
+        Thu, 27 Aug 2020 11:59:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598554779; cv=none;
         d=google.com; s=arc-20160816;
-        b=u9mz+1hyWMQb4apajSGzpDito7VogbUB7jBw8O39PrVAhVgUJHZXdgH1DaqbBnjXGg
-         NhiIChlagqD27HAhlIZHvD35QlEltq2lL+0tV8ZoD23sXwptfOH3LMZ+2ED9e8OvVGPY
-         4rKsUwSP11rYkXfIuWroFJY/Ed26C9Jq4oO/TRkl1+Bq0bk2ZpqTlULt9oCkXMB89rLY
-         iPD7RoztkpPDovQPlOxINg2PU+qaiO6vUkKrNYdTPb7EcLf9gSZDOp6Ll84A5hXi65CR
-         PYGSz1ijcaAPlj+mvqlw5inHFiEykAMxajTN7maDENqyEWqSoHbt+v6Rx3vPmLlBgJQF
-         sI+Q==
+        b=E8AenTxXcji+hvBUpuWgi6Lfl7CqBDtT89+sgRJi/msB4LGf4tJLuDAl/sU4kiIRGD
+         sy4pPo3JolSbBYdERvaBb7nWmvXiJcDSnkqR8W1WpQO430UbMPv1Md9FzTQO6qJz1niJ
+         To1bdli8N9a5YmsuNCcYU5pcCsBmKwJKPbS63vGf50EteIAae5y+LnivPWGFvRq8f110
+         r79ZyP6c3zEga8yy/IE32Xmtrolsyw4FuRbEooL5KNPEekBdOevKpI9vH9/roDkcL9aX
+         PL6Ffo9i3dN/zudCcwvtoz3B7XMIRzDM31xO4iaT6c7dES7Rk3v9vD/ZT/oudxObKwE1
+         j06A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :dkim-signature;
-        bh=Wm+6prYwTnqQYkSv99uHf7WtdtfjqHxmJ7RpUQ4k/mc=;
-        b=oC7W0m9WN9Tw0ow9H22csEdogP+CH6mIjWIr5z8vMGc+trsDKpiyAV/paa4sOo/2+t
-         O0MBl0VEHVvNc/Z19BFhBqe1cTqRRzbFJA2eerzp6XM9yzcLFH8px/GIFoVEK+G4I4UZ
-         rH9gZgNb0ChONmK1ab5lUKdaodd7OllAQx0BcG4pFvd+ISZBSBst6zLZu94yoq7Zx94S
-         VairhDe8rxl6eRpoXJejhe26FdKGS76UOgDC0gKZ2clB/+BiRmBJC1W6ZGt1tJOeWdMx
-         klvxMR8sTCDaspWmrZnTHGwzWEwlrRhEnKRkWCv6qOiPDq/3OTF6ZfX/fLIDK7eev4R7
-         5KvA==
+        bh=Rr+Jmhpo0sAAd0ui4tCEe2Ig7AqRrHkq+lWAYH61I9M=;
+        b=dYhH4wQKLopW2dOPOPew+h99zNrKn/NrGHi7mK2dhibkzt66SMvG0/BgC6YkCQvJNa
+         9HSV9pAN0UDS5Vh80MhIru6Z5jIuiNwfDrA+s+MxTSbvIPKT1CHzngkc7S+a2GVCBSq2
+         vkPGXSGW0xxIcgWGHaLq2izTNm9dN1cVlD9rVVvHTWKcbLyEyDHctizAu9zNTOveZyDO
+         jeMtb7dfCloKvzqcI6ufc4FqeATCrsHC7d5gnz6FZAow9cUx3/Fa+Vlur+IKVciUrqfS
+         myC8Y6q70yHgdkhhBbuLcCHqzFzO5qPtIVAx2p+cQ0uVxwxAYsAbo6HwBbV1C5dA3hMP
+         reNg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="qp/WwPiH";
+       dkim=pass header.i=@kernel.org header.s=default header.b=tmzbWQbT;
        spf=pass (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=krzk@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id j4si265812pjd.0.2020.08.27.11.59.35
+        by gmr-mx.google.com with ESMTPS id m193si232394ybf.1.2020.08.27.11.59.39
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 27 Aug 2020 11:59:35 -0700 (PDT)
+        Thu, 27 Aug 2020 11:59:39 -0700 (PDT)
 Received-SPF: pass (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from localhost.localdomain (unknown [194.230.155.216])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id AA3AD22CAF;
-	Thu, 27 Aug 2020 18:59:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 0E09B22BEA;
+	Thu, 27 Aug 2020 18:59:35 +0000 (UTC)
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <bgolaszewski@baylibre.com>,
@@ -116,15 +116,15 @@ To: Linus Walleij <linus.walleij@linaro.org>,
 	platform-driver-x86@vger.kernel.org,
 	clang-built-linux@googlegroups.com
 Cc: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [PATCH v3 16/27] Input: pixcir_i2c_ts - Simplify with dev_err_probe()
-Date: Thu, 27 Aug 2020 20:58:18 +0200
-Message-Id: <20200827185829.30096-17-krzk@kernel.org>
+Subject: [PATCH v3 17/27] Input: raydium_i2c_ts - Simplify with dev_err_probe()
+Date: Thu, 27 Aug 2020 20:58:19 +0200
+Message-Id: <20200827185829.30096-18-krzk@kernel.org>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20200827185829.30096-1-krzk@kernel.org>
 References: <20200827185829.30096-1-krzk@kernel.org>
 X-Original-Sender: krzk@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b="qp/WwPiH";       spf=pass
+ header.i=@kernel.org header.s=default header.b=tmzbWQbT;       spf=pass
  (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=krzk@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -148,71 +148,59 @@ Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
 Reviewed-by: Hans de Goede <hdegoede@redhat.com>
 Reviewed-by: Andy Shevchenko <andy.shevchenko@gmail.com>
 ---
- drivers/input/touchscreen/pixcir_i2c_ts.c | 38 +++++++----------------
- 1 file changed, 12 insertions(+), 26 deletions(-)
+ drivers/input/touchscreen/raydium_i2c_ts.c | 30 +++++++---------------
+ 1 file changed, 9 insertions(+), 21 deletions(-)
 
-diff --git a/drivers/input/touchscreen/pixcir_i2c_ts.c b/drivers/input/touchscreen/pixcir_i2c_ts.c
-index 9aa098577350..fb37567e2d7e 100644
---- a/drivers/input/touchscreen/pixcir_i2c_ts.c
-+++ b/drivers/input/touchscreen/pixcir_i2c_ts.c
-@@ -515,41 +515,27 @@ static int pixcir_i2c_ts_probe(struct i2c_client *client,
- 	input_set_drvdata(input, tsdata);
+diff --git a/drivers/input/touchscreen/raydium_i2c_ts.c b/drivers/input/touchscreen/raydium_i2c_ts.c
+index fe245439adee..4017775f6466 100644
+--- a/drivers/input/touchscreen/raydium_i2c_ts.c
++++ b/drivers/input/touchscreen/raydium_i2c_ts.c
+@@ -1015,32 +1015,20 @@ static int raydium_i2c_probe(struct i2c_client *client,
+ 	i2c_set_clientdata(client, ts);
  
- 	tsdata->gpio_attb = devm_gpiod_get(dev, "attb", GPIOD_IN);
--	if (IS_ERR(tsdata->gpio_attb)) {
--		error = PTR_ERR(tsdata->gpio_attb);
+ 	ts->avdd = devm_regulator_get(&client->dev, "avdd");
+-	if (IS_ERR(ts->avdd)) {
+-		error = PTR_ERR(ts->avdd);
 -		if (error != -EPROBE_DEFER)
--			dev_err(dev, "Failed to request ATTB gpio: %d\n",
--				error);
+-			dev_err(&client->dev,
+-				"Failed to get 'avdd' regulator: %d\n", error);
 -		return error;
 -	}
-+	if (IS_ERR(tsdata->gpio_attb))
-+		return dev_err_probe(dev, PTR_ERR(tsdata->gpio_attb),
-+				     "Failed to request ATTB gpio\n");
++	if (IS_ERR(ts->avdd))
++		return dev_err_probe(&client->dev, PTR_ERR(ts->avdd),
++				     "Failed to get 'avdd' regulator\n");
  
- 	tsdata->gpio_reset = devm_gpiod_get_optional(dev, "reset",
- 						     GPIOD_OUT_LOW);
--	if (IS_ERR(tsdata->gpio_reset)) {
--		error = PTR_ERR(tsdata->gpio_reset);
+ 	ts->vccio = devm_regulator_get(&client->dev, "vccio");
+-	if (IS_ERR(ts->vccio)) {
+-		error = PTR_ERR(ts->vccio);
 -		if (error != -EPROBE_DEFER)
--			dev_err(dev, "Failed to request RESET gpio: %d\n",
--				error);
+-			dev_err(&client->dev,
+-				"Failed to get 'vccio' regulator: %d\n", error);
 -		return error;
 -	}
-+	if (IS_ERR(tsdata->gpio_reset))
-+		return dev_err_probe(dev, PTR_ERR(tsdata->gpio_reset),
-+				     "Failed to request RESET gpio\n");
++	if (IS_ERR(ts->vccio))
++		return dev_err_probe(&client->dev, PTR_ERR(ts->vccio),
++				     "Failed to get 'vccio' regulator\n");
  
- 	tsdata->gpio_wake = devm_gpiod_get_optional(dev, "wake",
- 						    GPIOD_OUT_HIGH);
--	if (IS_ERR(tsdata->gpio_wake)) {
--		error = PTR_ERR(tsdata->gpio_wake);
+ 	ts->reset_gpio = devm_gpiod_get_optional(&client->dev, "reset",
+ 						 GPIOD_OUT_LOW);
+-	if (IS_ERR(ts->reset_gpio)) {
+-		error = PTR_ERR(ts->reset_gpio);
 -		if (error != -EPROBE_DEFER)
--			dev_err(dev, "Failed to get wake gpio: %d\n", error);
+-			dev_err(&client->dev,
+-				"failed to get reset gpio: %d\n", error);
 -		return error;
 -	}
-+	if (IS_ERR(tsdata->gpio_wake))
-+		return dev_err_probe(dev, PTR_ERR(tsdata->gpio_wake),
-+				     "Failed to get wake gpio\n");
++	if (IS_ERR(ts->reset_gpio))
++		return dev_err_probe(&client->dev, PTR_ERR(ts->reset_gpio),
++				     "Failed to get reset gpio\n");
  
- 	tsdata->gpio_enable = devm_gpiod_get_optional(dev, "enable",
- 						      GPIOD_OUT_HIGH);
--	if (IS_ERR(tsdata->gpio_enable)) {
--		error = PTR_ERR(tsdata->gpio_enable);
--		if (error != -EPROBE_DEFER)
--			dev_err(dev, "Failed to get enable gpio: %d\n", error);
--		return error;
--	}
-+	if (IS_ERR(tsdata->gpio_enable))
-+		return dev_err_probe(dev, PTR_ERR(tsdata->gpio_enable),
-+				     "Failed to get enable gpio\n");
- 
- 	if (tsdata->gpio_enable)
- 		msleep(100);
+ 	error = raydium_i2c_power_on(ts);
+ 	if (error)
 -- 
 2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200827185829.30096-17-krzk%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200827185829.30096-18-krzk%40kernel.org.
