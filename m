@@ -1,139 +1,141 @@
-Return-Path: <clang-built-linux+bncBDY3NC743AGBBZEWUD5AKGQENP2Z52A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCT4VV5O2QKBB5UXUD5AKGQE5UOPTHY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83c.google.com (mail-qt1-x83c.google.com [IPv6:2607:f8b0:4864:20::83c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8E550254EC1
-	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 21:37:09 +0200 (CEST)
-Received: by mail-qt1-x83c.google.com with SMTP id r9sf5632918qtp.7
-        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 12:37:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598557028; cv=pass;
+Received: from mail-pf1-x43a.google.com (mail-pf1-x43a.google.com [IPv6:2607:f8b0:4864:20::43a])
+	by mail.lfdr.de (Postfix) with ESMTPS id D3F37254ED2
+	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 21:39:35 +0200 (CEST)
+Received: by mail-pf1-x43a.google.com with SMTP id b189sf5228820pfa.16
+        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 12:39:35 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598557174; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hIKKpqB3EsoBIvt4p15JHRJHuUUPNaxXyxs42sh12StLtAsHAF+QTYbyMQqwTd7/ua
-         YlAv884JHTp4ddMzR3531bONOB08Hl1fd4KZvy5JkqfupeJohrAKUwzUBJ6Jwjwzjs3l
-         XMxOeAm1uJNsJUt7jVvsEke9TOr1PvdFP9hobUVJgnTJXjU1dk9z2LQ8HL4+AgOA3JJF
-         n4RIhcN+OlzEBcbPRsvIFS6F9EyKVIhDHXGpq+Q/GKbvBXGi6GvLgJ61/eOGAe6wy+ht
-         qnrBCDCyhGDpeksOlxN/SR+vXktqsTiTotDMbP+pxCt9l65ixDJ+70sqcgT5czG7mG2Q
-         X1+g==
+        b=TUfjH7ysg8PYJfYhEIWpZiChIgShs5dRY+1UxyiH3rlNAeQe7nxxcynH+OkUcjvLPX
+         4J9enyZDBP1HYYwulT8HtRazxz9OGXcekJMIRY+gDY4RYDze1OL8vz9w8Ohpun0xwU0R
+         R2LHwDgrruvw5+CVBOo2hw1mTlWIEKVg5KY1skw9gT02EuBjfLoE8mlXPjDPsTZfRBQw
+         6yoawKAeM7aa4LiW4nu98LfgElTSuPnd/SKaRY8jP437JnZnH4exLAu0NXgufD356gEn
+         WOzDc7wO1pB+7rY+kJnGTZ5TxwG78DM1kAOg1gaJNLwaVcGuRfmy/I3bqLySAsXE05uf
+         7ryg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=+WIMS0zj5/urPUardtDfNpthAjshpcghWG1DXzv/dPM=;
-        b=ICIg+5pSUVqShXNtbyyj+Cl2QEzhCG8I6dSpF46KbsseeDUHTOAc9Ukj7kcVKawVth
-         SG0rGQLdcOnsvGx0y16Tnt4K5k35eQo5t1OnS8gqLoMHt7cE+v0vvCYWh5s1BjU4zJJp
-         Np+Z/bZX8D9GjbVnwGzpHi8gB0YFFz0ek5Syu3HngBUNsG5bETpgY3EJDUEwIZMqkOIv
-         ESyFxkB+1V6LKXshVGckd+4IUxMZVI3KNjYWTlSx90s3Am7PmZQ670jQ1iwjxG6S0PmG
-         FcYjdBfUSOre8ANzDt4XVqULxXjj6OpSzzw+G+9fZB9s26b/VDXrcBjvscOscylA0n2u
-         xHxw==
+        bh=xytOeqd4pe4bvUucvoHk4KNrejdWGkmn4poIbriJY/0=;
+        b=dZ7WXgfAGTcBbWFvdBdGLzngvFbAf/sI2UgBeJGyDrd1d5yqNmRYcFe2OsQBgDO56c
+         6aRKi7WVzL+fpM93vB57L70bextFCWKknBfJzVbUjYJc9QbhhJZeh9AiF0887EDdSlMq
+         aN0khuHy2XJPXYftScfXagKgIDHhucFbkBBjWjTeZFaRoo30M5nou1rcTkXFbGgBbW8U
+         RSwiy30awDv4pdUv+iPYvQwo3PAPIX3kdipx5G8UGxeJ/n+hFXXwnQ6oQDvMnBE2ODbq
+         Mb8rEnmi6FImkhJmioLn7aAT6hyfwCpAZx5RRlM+abiIOr3nwKUnUllQu319z22hDf3u
+         bqMg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.51 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=LbdSMOEN;
+       spf=pass (google.com: domain of andy.shevchenko@gmail.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=+WIMS0zj5/urPUardtDfNpthAjshpcghWG1DXzv/dPM=;
-        b=rrpURdyNth5s87wEzgc+Lxs2Mji1YNuE6/X5qWTeTfG0IsdpGrsDte3Wnb528ktah+
-         ZFPXFHVVCE2OFQNWpNidkL539/ZqrQ5VHjOm0Fv/CdAhZs02udUGNY0LwZ61fCi8i2Uq
-         K4ImlrgC8hwAt7u/XBSEO4gUUWY24diJ3++WCPT63lg1zARMgPvT/NFLKoluEIwo4Jvj
-         bOxs7piL0lG1ToE9KP0dJ33InrjAD1BNjz+f4OLvSROHVfWcxfXBzIE+7xH6fKf2x7yM
-         y4JvNueH2vX/lkEQhYxH3pWfqijkRlEnwbRZcDuNnI0kPlmMRDxVvr5OeUeUiYpHzkvs
-         BlSg==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=xytOeqd4pe4bvUucvoHk4KNrejdWGkmn4poIbriJY/0=;
+        b=IBgrImF3Km7TH0Gmuc0ZeC7PeGE5bRfBYKCWNUOTA4E3uG6vknaXwtqvLNunCm2VVL
+         EuIutXlB1krFKJ2/ZMfBt68HQtbQK4+jNAhcVHfRLE9UA7AaxBY9104S4WIRKWC6tPrO
+         ZWRoA9K60YUr1SOtlHMdguIgGpFoKmWmcwjXCDXX3SLQuAQWtC06ny53G8jQ3u79tS2l
+         SxnyL0KKfLuVG4iJlmwKyabECrnM78C3x8pcy/07W03aguGBYXjnBAgTgILyQ9NCpgc6
+         x7NtQYytvWITpgXqfVAqYtiaCzhix7zCfTmm/xjdW/k+wSHNPG2XobxmWdaQsj1D7Zs1
+         X8Vw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=xytOeqd4pe4bvUucvoHk4KNrejdWGkmn4poIbriJY/0=;
+        b=YwpuGEkm+xfGHvXAA+uZaV5O1lI2WnmuD1Y6TXo+XDeCcqKPcHslYMqX5W0D3eD4Xm
+         TLdON+se3ScbdxFw2T/EtBVFIfZVJvVCACrFiPZ6/PnZMyKwrj5DlXz7Q5AjMjG/wjbV
+         uqM+4hcqqWXdCqSVi1CkJ+cefKNLumJKl2hO8Tg3bpzPzKBKfvymWX5ESrEZFyeC7y/F
+         o6kcaoTOq8Yf2loQRT1bY0LjrCE/2BMoLke1sLJS2BuD8UBcM2Nx8WKcBa7Hokx+YuuU
+         5KslVfCQ86qU0JlzzKGU4iPzH0tx3Mt9LM8IfUkkqIzNGEtw1Puvc2W4g1wDW8WvoPeA
+         kZEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=+WIMS0zj5/urPUardtDfNpthAjshpcghWG1DXzv/dPM=;
-        b=XXok9iyOMCz35noVSyr0ZIEC8Bvwl+boumTFlWtbn5W1nUtz+87nrpqNIwCcWg4GFu
-         Uqr5LPK6LQBIgZgBXJhD/8FAWeu3TXfApYzRNBMzNep+ljfDgkHr5JGatiIVqSKn3AeE
-         ZQ/AUSYZ0O90wrN+ZifXbZDHlpjfEckQNoAqv53yZQuFbKLV5cIkM9DRfoK2Wk9wbRHE
-         f3PU4sSthZ/lMUG08gWkqXOvSvcq1wU7EbyXYXrX1wX8f1r0e+dHd9/tZWzShKFIX53b
-         oOatG1YTtH2D8Jr38sqGjwJEHVbd9gkIOh9hQdEEFOd1TtrMSwm2mu38qRWB7KgcDJhB
-         zbpQ==
+        bh=xytOeqd4pe4bvUucvoHk4KNrejdWGkmn4poIbriJY/0=;
+        b=WjPfYcfXR8sNdieVwqYNXPDwp4T2sBziVBgZIA4IM37KPzB3VHTi/f8MShyGNQ8VVz
+         CLGPUkhPubJ+h50pY68vezHqtdv4VlpAOCHunGRvKuj8jYRMqSLU87pOErWHTiM5JZ+g
+         p1L0UXu7tatEZ+uAwGQCnpymJod7pR5DNDt3c1cuDybJLiTKAjVRxNpzj99ko/+CiMXw
+         L9/LeVykLRuDKCIcrLEzvQD30jkAWSRERT/1jt7L2RRluy9FYQDrNaDM8nqteUEyWPeT
+         xFr+9cJV/rbmSOyrnX/4ClwPJ5ff1yhk5Fmh8W24q4MgtDE35MmtRp6gI6u0AAn1R1hh
+         M1Aw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5330S2HD6Ihbi82kROxqYl9n006wWRyT3dm32XpQaITJF6/mAR2U
-	USyqvUGqqgWsjkkvR9oFeX0=
-X-Google-Smtp-Source: ABdhPJyMom8vdSLvkDu5nTE9qtw8QFjPxN2s+Niak1ZNn577bIdbeCvPjeY7UdH9x3Rv2bF29k7x2A==
-X-Received: by 2002:ac8:4458:: with SMTP id m24mr8410890qtn.392.1598557028672;
-        Thu, 27 Aug 2020 12:37:08 -0700 (PDT)
+X-Gm-Message-State: AOAM530tuw17jBJgJ9APDq36E9fa4MWxADvmWSzDrwzTLdcrDDpVXlvS
+	lAR48IF1gYJ/hgwhK1ZBtyI=
+X-Google-Smtp-Source: ABdhPJxF/iZ7cm+vzOFVnMGIKszknkhpzYLEENxArqmMVCk/q1MrYuxNB5gVx31pksfAM5atMUspxQ==
+X-Received: by 2002:a17:902:b28a:: with SMTP id u10mr2714537plr.30.1598557174594;
+        Thu, 27 Aug 2020 12:39:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:b987:: with SMTP id j129ls28949qkf.5.gmail; Thu, 27 Aug
- 2020 12:37:08 -0700 (PDT)
-X-Received: by 2002:a05:620a:6c3:: with SMTP id 3mr19844268qky.426.1598557028290;
-        Thu, 27 Aug 2020 12:37:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598557028; cv=none;
+Received: by 2002:a63:d04b:: with SMTP id s11ls1162626pgi.1.gmail; Thu, 27 Aug
+ 2020 12:39:34 -0700 (PDT)
+X-Received: by 2002:a63:1d4c:: with SMTP id d12mr15650624pgm.365.1598557174107;
+        Thu, 27 Aug 2020 12:39:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598557174; cv=none;
         d=google.com; s=arc-20160816;
-        b=a/G6VTpp/wRY+j2U/T8REZtKNXqg17YfvAf5IzhLkqAzo8zTwS+czBvgEBwKrnTgd0
-         IrhqQNDveoUXIITfb1CpxB9+rTw4akBWalYBiUOpopEZMHHLPWboOaC0zSdCOWlYOcQN
-         zX6c9MeyCtSTCabsqBoN30oEDjXTEbfsfG5MXwVwcwVxk+Xj4yc22cQd9HN2v7xC9MHn
-         Ptrv17erLCpTk99+TbDDdPUYiZvvgE7lmJ7wVMhjR/1AWlZ2UXskYO+EoY70X79Cald0
-         p5GqJ7A1Cmrid5bjxHg/gJ8xtZCHiohotsoMIko9pZTTNo2QHN48lO3N3GWTYP61LPYf
-         mmPQ==
+        b=bDxfgOb3tCPrTM0PQMqjqEnqURLqBmZmv7Uw2CqJFqe7xRxMzU+FtjBPARsElrf6ig
+         7tLI1CD3lEZMYYKw4s0pPHCv0n19VtOknyIH2OI/cyWC9l9HQ3cvaVtalSgTpXQvgeKI
+         nXQevcJNeEv/4RJw+pBiYimrKlnF1PkPTvLbWJ+hmKttfOv2YiytdQEyoecuyfpzmm4Y
+         AhEOEryYAMD2S3h/RT1JgWtVPWXqo+uCf0wzFf5oE3O0UdAujU4nb3xftJbkQnc91dW8
+         dcQAmmmk3No3/XS2fL6YMpImclhApMJIu1lj8RNaJuXQ42QEUrHKyPXHq0hQsx0ITnVi
+         Qifg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id;
-        bh=qRPBXyMs0BaIxwj6Cc6exc9O2J7poGocAUv/K0VEF1c=;
-        b=StKIGGrx5M7RyXlhzJYLTXcicnmnVBGVydsZYGH4PdQ8wI2/XhJkI6fYja9qJifuD3
-         kn6lMv2t8He3NkFCA07bsXAm83Pe0eigumHZuFnJjLMv7ROlw5Rhj7EbzLy06VNZIEtr
-         opUv++aygBpwOH4lnSoJlNQXlIl40+jtoAfm94RaO5KffqdAsYBdyJ7uBH1IwA2I9iWE
-         /bkQDQVUZn+evpZTt/b33wLoZw0UMfpfmkg1RgCR8B2epOozDPgtNPHQVnGHJE1Vl2u7
-         2AyLrVA3IEd8jgYNO7e3h0qMsdQXZe/wrtQKMUxkXSjRnhkDdVounBQIspvqW8IsvWXH
-         YfhQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=NNNdt/4IjrgeOPMBhjOnJXYG1tUOBVWjd9cyVGLK4Nk=;
+        b=DYOmW6xSs3G31xzGG8hOIRWHV05jHLLsPvpugHmMNKii05/qNS4zgVTc5YkNEMs7uy
+         WileQENXPKrfx3j4UgbgHi+7C9QZimyy5W9h4ehU8qb53sR5dpupItxzbKvyaFxUh+gz
+         zm2sp1U+mM4wpMQLRm7f2IuT1p0aFicaVAj0sqpI9f8VTmCQ0KUjWnGzztramHsDwzs9
+         mf+abkFQqXmuI38ULReXpTa/Z2oMiVqKLlP0N7b9OxN2lk7hOgaT+kEw3n3br+GKVlOl
+         CcRUyLYjIlDJi0r28sr/N4EJ6S/Vmzb6BLeTu6syz6bx0cIKv4sXzkRbCmMVPHstQhm4
+         mFDQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.51 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
-Received: from smtprelay.hostedemail.com (smtprelay0051.hostedemail.com. [216.40.44.51])
-        by gmr-mx.google.com with ESMTPS id z19si147770qkz.2.2020.08.27.12.37.08
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=LbdSMOEN;
+       spf=pass (google.com: domain of andy.shevchenko@gmail.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-pf1-x441.google.com (mail-pf1-x441.google.com. [2607:f8b0:4864:20::441])
+        by gmr-mx.google.com with ESMTPS id q23si196321pls.2.2020.08.27.12.39.34
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Aug 2020 12:37:08 -0700 (PDT)
-Received-SPF: neutral (google.com: 216.40.44.51 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.51;
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
-	by smtprelay04.hostedemail.com (Postfix) with ESMTP id 548AB180A68C2;
-	Thu, 27 Aug 2020 19:37:07 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 50,0,0,,d41d8cd98f00b204,joe@perches.com,,RULES_HIT:41:355:379:599:800:967:968:973:982:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1539:1568:1593:1594:1711:1714:1730:1747:1777:1792:2393:2525:2561:2564:2682:2685:2828:2859:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3622:3865:3866:3867:3868:3870:3871:3872:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4321:5007:6742:8985:9025:10004:10400:10848:11232:11658:11854:11914:12043:12297:12438:12555:12740:12760:12895:13069:13311:13357:13439:14181:14659:14721:21080:21433:21627:21749:21811:30054:30060:30091,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:1,LUA_SUMMARY:none
-X-HE-Tag: hill72_3d03ab42706f
-X-Filterd-Recvd-Size: 2409
-Received: from XPS-9350.home (unknown [47.151.133.149])
-	(Authenticated sender: joe@perches.com)
-	by omf01.hostedemail.com (Postfix) with ESMTPA;
-	Thu, 27 Aug 2020 19:37:04 +0000 (UTC)
-Message-ID: <98787c53f0577952be3f0ec0f7e58d618a165c33.camel@perches.com>
-Subject: Re: [PATCH v3] lib/string.c: implement stpcpy
-From: Joe Perches <joe@perches.com>
-To: Kees Cook <keescook@chromium.org>, Andy Shevchenko
-	 <andy.shevchenko@gmail.com>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, Nick Desaulniers
- <ndesaulniers@google.com>, clang-built-linux
- <clang-built-linux@googlegroups.com>, stable <stable@vger.kernel.org>, Andy
- Lavr <andy.lavr@gmail.com>, Arvind Sankar <nivedita@alum.mit.edu>, Rasmus
- Villemoes <linux@rasmusvillemoes.dk>, Sami Tolvanen
- <samitolvanen@google.com>, Andrew Morton <akpm@linux-foundation.org>, Andy
- Shevchenko <andriy.shevchenko@linux.intel.com>,  Alexandru Ardelean
- <alexandru.ardelean@analog.com>, Yury Norov <yury.norov@gmail.com>, Linux
- Kernel Mailing List <linux-kernel@vger.kernel.org>
-Date: Thu, 27 Aug 2020 12:37:03 -0700
-In-Reply-To: <202008271126.2C397BF6D@keescook>
-References: <20200825135838.2938771-1-ndesaulniers@google.com>
-	 <CAK7LNAQXo5-5W6hvNMEVPBPf3tRWaf-pQdSR-0OHyi4RCGhjsQ@mail.gmail.com>
-	 <d56bf7b93f7a28c4a90e4e16fd412e6934704346.camel@perches.com>
-	 <CAKwvOd=YrVtPsB7HYPO0N=K7QJm9KstayqqeYQERSaGtGy2Bjg@mail.gmail.com>
-	 <CAK7LNAQKwOo=Oas+7Du9+neSm=Ev6pxdPV7ges7eEEpW+jh8Ug@mail.gmail.com>
-	 <202008261627.7B2B02A@keescook>
-	 <CAHp75VfniSw3AFTyyDk2OoAChGx7S6wF7sZKpJXNHmk97BoRXA@mail.gmail.com>
-	 <202008271126.2C397BF6D@keescook>
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.36.4-0ubuntu1
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 27 Aug 2020 12:39:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of andy.shevchenko@gmail.com designates 2607:f8b0:4864:20::441 as permitted sender) client-ip=2607:f8b0:4864:20::441;
+Received: by mail-pf1-x441.google.com with SMTP id g207so242821pfb.1
+        for <clang-built-linux@googlegroups.com>; Thu, 27 Aug 2020 12:39:34 -0700 (PDT)
+X-Received: by 2002:a63:c543:: with SMTP id g3mr8366423pgd.203.1598557173833;
+ Thu, 27 Aug 2020 12:39:33 -0700 (PDT)
 MIME-Version: 1.0
-X-Original-Sender: joe@perches.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 216.40.44.51 is neither permitted nor denied by best guess
- record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+References: <20200827185829.30096-1-krzk@kernel.org> <20200827185829.30096-5-krzk@kernel.org>
+In-Reply-To: <20200827185829.30096-5-krzk@kernel.org>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Thu, 27 Aug 2020 22:39:17 +0300
+Message-ID: <CAHp75VfAn8oCqgXOWhsixZSs4FTkDACP3+3CgDdmQkPKQJg1aw@mail.gmail.com>
+Subject: Re: [PATCH v3 04/27] Input: pwm-vibra - Simplify with dev_err_probe()
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>, 
+	Bartosz Golaszewski <bgolaszewski@baylibre.com>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Hans de Goede <hdegoede@redhat.com>, Bastien Nocera <hadess@hadess.net>, Sangwon Jee <jeesw@melfas.com>, 
+	Eugen Hristev <eugen.hristev@microchip.com>, 
+	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-input <linux-input@vger.kernel.org>, 
+	Platform Driver <platform-driver-x86@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: andy.shevchenko@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=LbdSMOEN;       spf=pass
+ (google.com: domain of andy.shevchenko@gmail.com designates
+ 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,25 +148,67 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, 2020-08-27 at 11:30 -0700, Kees Cook wrote:
+On Thu, Aug 27, 2020 at 9:58 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>
+> Common pattern of handling deferred probe can be simplified with
+> dev_err_probe().  Less code and also it prints the error value.
 
-> Most of the uses of strcpy() in the kernel are just copying between two
-> known-at-compile-time NUL-terminated character arrays. We had wanted to
-> introduce stracpy() for this, but Linus objected to yet more string
-> functions.
+Reviewed-by: Andy Shevchenko <andy.shevchenko@gmail.com>
 
-https://lore.kernel.org/kernel-hardening/24bb53c57767c1c2a8f266c305a670f7@sk2.org/T/
+> Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
+> Reviewed-by: Hans de Goede <hdegoede@redhat.com>
+>
+> ---
+>
+> Changes since v1:
+> 1. Remove unneeded PTR_ERR_OR_ZERO, as pointed by Andy.
+> ---
+>  drivers/input/misc/pwm-vibra.c | 20 ++++++--------------
+>  1 file changed, 6 insertions(+), 14 deletions(-)
+>
+> diff --git a/drivers/input/misc/pwm-vibra.c b/drivers/input/misc/pwm-vibra.c
+> index 81e777a04b88..45c4f6a02177 100644
+> --- a/drivers/input/misc/pwm-vibra.c
+> +++ b/drivers/input/misc/pwm-vibra.c
+> @@ -134,22 +134,14 @@ static int pwm_vibrator_probe(struct platform_device *pdev)
+>                 return -ENOMEM;
+>
+>         vibrator->vcc = devm_regulator_get(&pdev->dev, "vcc");
+> -       err = PTR_ERR_OR_ZERO(vibrator->vcc);
+> -       if (err) {
+> -               if (err != -EPROBE_DEFER)
+> -                       dev_err(&pdev->dev, "Failed to request regulator: %d",
+> -                               err);
+> -               return err;
+> -       }
+> +       if (IS_ERR(vibrator->vcc))
+> +               return dev_err_probe(&pdev->dev, PTR_ERR(vibrator->vcc),
+> +                                    "Failed to request regulator\n");
+>
+>         vibrator->pwm = devm_pwm_get(&pdev->dev, "enable");
+> -       err = PTR_ERR_OR_ZERO(vibrator->pwm);
+> -       if (err) {
+> -               if (err != -EPROBE_DEFER)
+> -                       dev_err(&pdev->dev, "Failed to request main pwm: %d",
+> -                               err);
+> -               return err;
+> -       }
+> +       if (IS_ERR(vibrator->pwm))
+> +               return dev_err_probe(&pdev->dev, PTR_ERR(vibrator->pwm),
+> +                                    "Failed to request main pwm\n");
+>
+>         INIT_WORK(&vibrator->play_work, pwm_vibrator_play_work);
+>
+> --
+> 2.17.1
+>
 
-I still think stracpy is a good idea.
 
-Maybe when the strcpy/strlcpy uses are removed
-it'll be more acceptable.
-
-And here's a cocci script to convert most of them.
-https://lore.kernel.org/kernel-hardening/b9bb5550b264d4b29b2b20f7ff8b1b40d20def6a.camel@perches.com/
-
+-- 
+With Best Regards,
+Andy Shevchenko
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/98787c53f0577952be3f0ec0f7e58d618a165c33.camel%40perches.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHp75VfAn8oCqgXOWhsixZSs4FTkDACP3%2B3CgDdmQkPKQJg1aw%40mail.gmail.com.
