@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBC6JD5V23ENBBG4FUD5AKGQEXDFPHDI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC6JD5V23ENBBH4FUD5AKGQE45RR5EQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb38.google.com (mail-yb1-xb38.google.com [IPv6:2607:f8b0:4864:20::b38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0EDC8254D87
-	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 20:59:41 +0200 (CEST)
-Received: by mail-yb1-xb38.google.com with SMTP id a14sf8562939ybm.13
-        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 11:59:41 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598554780; cv=pass;
+Received: from mail-ua1-x93f.google.com (mail-ua1-x93f.google.com [IPv6:2607:f8b0:4864:20::93f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8B1FD254D8F
+	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 20:59:44 +0200 (CEST)
+Received: by mail-ua1-x93f.google.com with SMTP id d89sf1268287uad.6
+        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Aug 2020 11:59:44 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598554783; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PnZ0iZMfjHH5IiYyK0trOfNr6TL/oboY8bWBShvJ2CBDobXcLFEUuAbYVLvOahkjJm
-         JN1433u8Ml9HwBi4X2RfNfbT934czNtRCXjNOn8QNNK2ArDHNHZSrWNJ7oqYQsQIz5+w
-         umolUIo7BNvZctkW3nAVDUvO6y6BkO8ZMQa7sYnLXZuNt48GeGYKlJA1ydt55YXhHrii
-         EFrEQ0SWnR6cmFWGorplyQ8z8ES/63029cShLhooig3cgydvsQtpz7631a2E1hAWpQEt
-         sVsZrxmBs09sI+TO8eePiyUnMOQhnn5m8cveXt7BkJia8tuRGcFywFMXkrqJyIe5AqXo
-         7QKA==
+        b=X7vnlnK4vrDns/gjiSmQysrqBjHsB+VHL1wd9ZQFuLVufF3lNysNQPYBCSNkJx6Flu
+         4qgidx+kEUYOSWP1aehVZxlJu8bN6F6ZYKhVLgZqtX/1CXky6XixlEcfuxERjitOdZRR
+         pNMY0ypZx32EbZ6CADHYsbLnhhVyvDiJu5aVKNsJ6AiCeMF5ZGYRXNjGQ1qoGHnj2n+k
+         TdJVu1xjZL6nZTYrQsb4qVmf3WG8Y7a/qXYBf6TLUR8bjLUQPDcmaLFwrk2ohgETnLYI
+         rVj2FT38AY4qCjteg2mcgiM2fz0IhmK2tRC5lvZ2tVDZ63a2mF/T3+4xmQPfUid7TGEy
+         GQFQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:references:in-reply-to:message-id
          :date:subject:cc:to:from:mime-version:sender:dkim-signature;
-        bh=U8Pe/D7BYsdGb/n3ex/eOsSL7aQer+a0dEkq4YXG528=;
-        b=h7bmh18Vjq4vL4pCqPi1G+5az/vu4mfJVs75wiGGJBZR2j4UFpaQzn0LZoFuyu2eZJ
-         BQ0onSNAVb7MpEy0y6UnaZm1ZeBTya07w3dgBLpFNlN75C3zOjymZi8uB7cZQZktDj06
-         zigCqUXdv9co9XrGjTYMYbwZuuWKdadPSZT9HfnCpA6uanByczsJ+IXF5zl/6fl048Zd
-         +jcN9N8t5g9mFoh/wTrb1QNvfx1gTIgY9+nXJH4xwcMouSRS0l16ED2M9MTKwihWbOpT
-         OHttCqLa6cB1cKPWQXbNoRAxL1WrKVBNbRjqgyESEjnGTfGRR8gQt9SG8u1GuZKq7lUa
-         0Txg==
+        bh=diFlvDHPvEePIJv49bAsfswWsB2xO0xEjBGBH9sneuE=;
+        b=uPsDLpqxhdbKiZuG0aK6yFHk3MQ1T/3ZghqJYrJBdGlrnYecprW2Z/96p9wgS4Drlf
+         YxpinRamD6LeLVrX2Q5T1RdRnE0dagf7Cyb7i5Zy8vWxL99l375My3ZOy6ofOMzjN06w
+         8AZkDfhu5nmsGBsgbb50o8Qt1kjJV7I86Ub2tKNNlLzzsZy3MpXnYmIPAst2x2mFmCRc
+         j4cUrD5388Mwal8VvYQdyljx8Wm3+FSOYm96V4094P80A9t7Fjed26s9L2uC5JTeSFan
+         prH0P672IWOhGVm3oeOmAPRVn6OfaU+3GMCecRdcdHfJ3Ern/BPerFtKyv+S6VrV4+s4
+         88uA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=tmzbWQbT;
+       dkim=pass header.i=@kernel.org header.s=default header.b=D+xiDIZj;
        spf=pass (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=krzk@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :references:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=U8Pe/D7BYsdGb/n3ex/eOsSL7aQer+a0dEkq4YXG528=;
-        b=Cg/6UVfL4GE2A2zUg+zupkAaOKAfUrtYCYKqErEV6/1+xwfzAi+EFyY8uRFa3YLTeK
-         C9/L9Zl9pvWsJxG6GRnPPuEmLS5r0iMhiz25CeL4mfvqOzt44QYoFVrnCGoWBBYuf1Di
-         MBDYdA5G4X/bVGest4bZeUM0zgR/zLiuBmaj/6N8azo7/eUFf1+lUiIVzIUKrfgA53op
-         JW2ZIdwRcZwCOLG6YqqqVfDL+Qb1kN1wIAnHe0vlArZXplqhYaj+7SUPO1FRK3asTIMm
-         cZjV1nDeN3FtC6SXzWFyg++WtZfPhgcvlWfxwSxdCX9jZZft/DEtmUMx317xIxIFXQrr
-         Qoqw==
+        bh=diFlvDHPvEePIJv49bAsfswWsB2xO0xEjBGBH9sneuE=;
+        b=EY+LZdfX7FAiKPAL0Zda6pE3bj2mKx4He47RQy58R/8VwPFHAR6ZQ9exA4PnxswZFc
+         TUDaOt69h3kZ6teo/Db3dS/SZ0MKvanG0M3VBmJF6rCnJk2eJb3dcvak6nagVE4Bv22X
+         6jEMCSbrn5wommxjj3AT+zg6Bgg1XMKVrkhxqh8pyxWsj/PYxCiagKk5YuCm+/qz/yAK
+         W3536AEk76hdKBCJsQhO9dcP/xLcU2UgEyWSqlRzz3Lc8O03KA7XcfaS9KGGpT1nwwQp
+         JgPvfcJGYDEUc5TZIqqBlWgwq5E1MsjpLuZk50KZBab0NC+HCIJoDNFPxbOZ58Yhw9d/
+         xnLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
@@ -49,58 +49,58 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=U8Pe/D7BYsdGb/n3ex/eOsSL7aQer+a0dEkq4YXG528=;
-        b=F4fXEaNzig6Ux9R6sUCDeFOTAE9TfwtK1PPco9xFWJeEfLDF+wAQw1IzgXDzKaygtE
-         5Qol2kB4K24wlwBK4KOoEUfwVD0YO4S9mgedX0Fm2LoPx5jSdYh/CQ8xuF644cY+FuA7
-         wuqkDjSgTipI8oH0KkSN+CyhEeJgpLGuHj+gTK/e9iUSGayOFem3F/z7tiNnLyZuJxra
-         HcaH51oht9Sz89kbPhxDlXfnOFKtMTk/sZyze0g4UvbLk+kmlQEqjMzoadoHCuwY0R1m
-         SIoxDghqwZ1N34uHuy2zdoZeJ+xPxwfjF2+XP4y9SmvpWFF2fYXgpzgHPL9wKR90bunZ
-         5hlg==
+        bh=diFlvDHPvEePIJv49bAsfswWsB2xO0xEjBGBH9sneuE=;
+        b=JG9xlpaI7jRl59NRKP3bAekW41F4wGWWN34fSMuFav+ELXvEiuLANjhbJBsfS8DRZP
+         FPwaE996Pt8ybVo/y4DKXXDgjoi1nP5iAM11tltEQ5Qlg8N7gUq6ZTprkiWtNw0Ppapg
+         h9//BdEaBhfjn33u225RQyvT6QqArBpz9Ar/sGl6zpz4GrdjYz5656s5fdP5CnbHYY42
+         kvr+q0eFdJOjL7/EnGdWkPIogD0DriCbh+m19PD8ByEu08ME3xbnCjzhyL8vAe+XFVDb
+         rRGBBcivsopSuJ9i8C1UnECM+O8DAcSgYsE1ZTEAV4dPNCAkdPPWLoHca+C20WAsGNbY
+         H0AA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530GZ+87sSS54ppBrrsdNCZ5x2tZw8QPp/fQIghWbZ4DKVo7YbBB
-	qi2FBAMCULpArN62F9JnW1k=
-X-Google-Smtp-Source: ABdhPJzGQJnG5qSvxTti7XZ1shR8tRctuV2wnr61bnqmY3u5tM37HYZVqZgqJHtsaWlwJObwPCx4jg==
-X-Received: by 2002:a25:d98f:: with SMTP id q137mr27698053ybg.480.1598554780107;
-        Thu, 27 Aug 2020 11:59:40 -0700 (PDT)
+X-Gm-Message-State: AOAM530htvqHZDRnTORmwBtnQWPVjs2UmD+FA4ieqQykn6cKlKxw9Gc7
+	El7FJMp/uYMgm2t87neHV6g=
+X-Google-Smtp-Source: ABdhPJxkcLfeO4xRmLLwCEXQKEFluLI2qZjK6xNhP165nrC/DfbfQP9rECB8pAtIfQzivmFxPatpCg==
+X-Received: by 2002:ab0:1305:: with SMTP id g5mr12600937uae.93.1598554783611;
+        Thu, 27 Aug 2020 11:59:43 -0700 (PDT)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:cace:: with SMTP id a197ls1438134ybg.11.gmail; Thu, 27
- Aug 2020 11:59:39 -0700 (PDT)
-X-Received: by 2002:a25:d74e:: with SMTP id o75mr8144603ybg.50.1598554779792;
-        Thu, 27 Aug 2020 11:59:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598554779; cv=none;
+Received: by 2002:a67:c797:: with SMTP id t23ls419858vsk.8.gmail; Thu, 27 Aug
+ 2020 11:59:43 -0700 (PDT)
+X-Received: by 2002:a67:7c81:: with SMTP id x123mr13352338vsc.155.1598554783271;
+        Thu, 27 Aug 2020 11:59:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598554783; cv=none;
         d=google.com; s=arc-20160816;
-        b=E8AenTxXcji+hvBUpuWgi6Lfl7CqBDtT89+sgRJi/msB4LGf4tJLuDAl/sU4kiIRGD
-         sy4pPo3JolSbBYdERvaBb7nWmvXiJcDSnkqR8W1WpQO430UbMPv1Md9FzTQO6qJz1niJ
-         To1bdli8N9a5YmsuNCcYU5pcCsBmKwJKPbS63vGf50EteIAae5y+LnivPWGFvRq8f110
-         r79ZyP6c3zEga8yy/IE32Xmtrolsyw4FuRbEooL5KNPEekBdOevKpI9vH9/roDkcL9aX
-         PL6Ffo9i3dN/zudCcwvtoz3B7XMIRzDM31xO4iaT6c7dES7Rk3v9vD/ZT/oudxObKwE1
-         j06A==
+        b=rgMVWX/Kx0aiViDM+sI5wJCOIO6gRi9snPI7lcSHuJdmO7mQ0jg9BTUrRG5dbiSRJ8
+         cLmhrO+cnUFlLsTOAOJz+eM/sKkymruuosIo8fuKc7/uRANnLfk41GGGiWW0cFzf1MBi
+         jM/gqgqxBRL6SWqTJO5v7Py9u/qROuCPnc4Y+jWJ6G4tJEWx+TmICWYD7KyyKfJ57c0h
+         Q+YcK1cQqPsPCG0uILh2xTrjbCPi63nbMZlRimVI3DVDBIwNMcHJELmMBSXAtZfxJOey
+         YEO/Sc9Vj3R2xRn3jfe/mLGdVvfEJ0Hc+tUPPLjSOD3DlzWpCzajMSoZtv7wcbWdNWr8
+         nezg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :dkim-signature;
-        bh=Rr+Jmhpo0sAAd0ui4tCEe2Ig7AqRrHkq+lWAYH61I9M=;
-        b=dYhH4wQKLopW2dOPOPew+h99zNrKn/NrGHi7mK2dhibkzt66SMvG0/BgC6YkCQvJNa
-         9HSV9pAN0UDS5Vh80MhIru6Z5jIuiNwfDrA+s+MxTSbvIPKT1CHzngkc7S+a2GVCBSq2
-         vkPGXSGW0xxIcgWGHaLq2izTNm9dN1cVlD9rVVvHTWKcbLyEyDHctizAu9zNTOveZyDO
-         jeMtb7dfCloKvzqcI6ufc4FqeATCrsHC7d5gnz6FZAow9cUx3/Fa+Vlur+IKVciUrqfS
-         myC8Y6q70yHgdkhhBbuLcCHqzFzO5qPtIVAx2p+cQ0uVxwxAYsAbo6HwBbV1C5dA3hMP
-         reNg==
+        bh=J9VPVNxKDlhIvhbDu2n0UaDoaMcLx/xrf67soHIOfvE=;
+        b=yKJJ6YNJFzCK3a7JyC/JrIcUolbOU8GmuhRBWdB3IHx/PpfpKC0W7uBLvOkE5ashJq
+         OaFL635YDHLMw4oiNafYF8M24XoFXUnyDP1J8GJN+Lr+a1UvP3cRTTiJbd/tJvRR4OI5
+         HtJhrD2+SWqqVLKazPz6rEGHPKvTsPP8U0nK94RUhfj9rrO+k3/fSfZzgGyVdT+DoYuj
+         wruRdLIJYUPJUGkmu5f/f+Dwsj+BO1GVHAfXPYhEwCqcvtgzdv+gSCTrPwodO1Wg33ug
+         m2NeTEklca+Rr6W4eyWlbPAoUt/Br8iblRIpHBOM0u66k8ezifProtrZORX6t6bT3sx2
+         KQmg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=tmzbWQbT;
+       dkim=pass header.i=@kernel.org header.s=default header.b=D+xiDIZj;
        spf=pass (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=krzk@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id m193si232394ybf.1.2020.08.27.11.59.39
+        by gmr-mx.google.com with ESMTPS id c11si176326vsk.0.2020.08.27.11.59.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 27 Aug 2020 11:59:39 -0700 (PDT)
+        Thu, 27 Aug 2020 11:59:43 -0700 (PDT)
 Received-SPF: pass (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from localhost.localdomain (unknown [194.230.155.216])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 0E09B22BEA;
-	Thu, 27 Aug 2020 18:59:35 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 65D8022BEB;
+	Thu, 27 Aug 2020 18:59:39 +0000 (UTC)
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <bgolaszewski@baylibre.com>,
@@ -116,15 +116,15 @@ To: Linus Walleij <linus.walleij@linaro.org>,
 	platform-driver-x86@vger.kernel.org,
 	clang-built-linux@googlegroups.com
 Cc: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [PATCH v3 17/27] Input: raydium_i2c_ts - Simplify with dev_err_probe()
-Date: Thu, 27 Aug 2020 20:58:19 +0200
-Message-Id: <20200827185829.30096-18-krzk@kernel.org>
+Subject: [PATCH v3 18/27] Input: resistive-adc-touch - Simplify with dev_err_probe()
+Date: Thu, 27 Aug 2020 20:58:20 +0200
+Message-Id: <20200827185829.30096-19-krzk@kernel.org>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20200827185829.30096-1-krzk@kernel.org>
 References: <20200827185829.30096-1-krzk@kernel.org>
 X-Original-Sender: krzk@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=tmzbWQbT;       spf=pass
+ header.i=@kernel.org header.s=default header.b=D+xiDIZj;       spf=pass
  (google.com: domain of krzk@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=krzk@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -148,59 +148,32 @@ Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
 Reviewed-by: Hans de Goede <hdegoede@redhat.com>
 Reviewed-by: Andy Shevchenko <andy.shevchenko@gmail.com>
 ---
- drivers/input/touchscreen/raydium_i2c_ts.c | 30 +++++++---------------
- 1 file changed, 9 insertions(+), 21 deletions(-)
+ drivers/input/touchscreen/resistive-adc-touch.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/input/touchscreen/raydium_i2c_ts.c b/drivers/input/touchscreen/raydium_i2c_ts.c
-index fe245439adee..4017775f6466 100644
---- a/drivers/input/touchscreen/raydium_i2c_ts.c
-+++ b/drivers/input/touchscreen/raydium_i2c_ts.c
-@@ -1015,32 +1015,20 @@ static int raydium_i2c_probe(struct i2c_client *client,
- 	i2c_set_clientdata(client, ts);
+diff --git a/drivers/input/touchscreen/resistive-adc-touch.c b/drivers/input/touchscreen/resistive-adc-touch.c
+index cfc8bb4553f7..46b5a6caef84 100644
+--- a/drivers/input/touchscreen/resistive-adc-touch.c
++++ b/drivers/input/touchscreen/resistive-adc-touch.c
+@@ -108,12 +108,8 @@ static int grts_probe(struct platform_device *pdev)
  
- 	ts->avdd = devm_regulator_get(&client->dev, "avdd");
--	if (IS_ERR(ts->avdd)) {
--		error = PTR_ERR(ts->avdd);
+ 	/* get the channels from IIO device */
+ 	st->iio_chans = devm_iio_channel_get_all(dev);
+-	if (IS_ERR(st->iio_chans)) {
+-		error = PTR_ERR(st->iio_chans);
 -		if (error != -EPROBE_DEFER)
--			dev_err(&client->dev,
--				"Failed to get 'avdd' regulator: %d\n", error);
+-			dev_err(dev, "can't get iio channels.\n");
 -		return error;
 -	}
-+	if (IS_ERR(ts->avdd))
-+		return dev_err_probe(&client->dev, PTR_ERR(ts->avdd),
-+				     "Failed to get 'avdd' regulator\n");
++	if (IS_ERR(st->iio_chans))
++		return dev_err_probe(dev, PTR_ERR(st->iio_chans), "can't get iio channels\n");
  
- 	ts->vccio = devm_regulator_get(&client->dev, "vccio");
--	if (IS_ERR(ts->vccio)) {
--		error = PTR_ERR(ts->vccio);
--		if (error != -EPROBE_DEFER)
--			dev_err(&client->dev,
--				"Failed to get 'vccio' regulator: %d\n", error);
--		return error;
--	}
-+	if (IS_ERR(ts->vccio))
-+		return dev_err_probe(&client->dev, PTR_ERR(ts->vccio),
-+				     "Failed to get 'vccio' regulator\n");
- 
- 	ts->reset_gpio = devm_gpiod_get_optional(&client->dev, "reset",
- 						 GPIOD_OUT_LOW);
--	if (IS_ERR(ts->reset_gpio)) {
--		error = PTR_ERR(ts->reset_gpio);
--		if (error != -EPROBE_DEFER)
--			dev_err(&client->dev,
--				"failed to get reset gpio: %d\n", error);
--		return error;
--	}
-+	if (IS_ERR(ts->reset_gpio))
-+		return dev_err_probe(&client->dev, PTR_ERR(ts->reset_gpio),
-+				     "Failed to get reset gpio\n");
- 
- 	error = raydium_i2c_power_on(ts);
- 	if (error)
+ 	chan = &st->iio_chans[0];
+ 	st->pressure = false;
 -- 
 2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200827185829.30096-18-krzk%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200827185829.30096-19-krzk%40kernel.org.
