@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDE6RCFOWIARBNNKUT5AKGQESFNR7BI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDE6RCFOWIARB3VKUT5AKGQEAL2JXPA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13f.google.com (mail-lf1-x13f.google.com [IPv6:2a00:1450:4864:20::13f])
-	by mail.lfdr.de (Postfix) with ESMTPS id A6F8B255C7C
-	for <lists+clang-built-linux@lfdr.de>; Fri, 28 Aug 2020 16:31:18 +0200 (CEST)
-Received: by mail-lf1-x13f.google.com with SMTP id i6sf537945lfd.13
-        for <lists+clang-built-linux@lfdr.de>; Fri, 28 Aug 2020 07:31:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598625078; cv=pass;
+Received: from mail-wm1-x337.google.com (mail-wm1-x337.google.com [IPv6:2a00:1450:4864:20::337])
+	by mail.lfdr.de (Postfix) with ESMTPS id 64855255C87
+	for <lists+clang-built-linux@lfdr.de>; Fri, 28 Aug 2020 16:32:15 +0200 (CEST)
+Received: by mail-wm1-x337.google.com with SMTP id g79sf503521wmg.0
+        for <lists+clang-built-linux@lfdr.de>; Fri, 28 Aug 2020 07:32:15 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598625135; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RkXSlbmAyFdN+OFY24q7z013dsArQDM78XENLEm8dtRSZ+iHOIUVXL0H1KxFLYxQuV
-         xPidY7Ax1oGGjHJe/PJTG3kIgZyaM1neMsxQh6+Q1TfOHlEzuqaTa4FDn0DWKhFTquSk
-         p4pjI1EIcm+U2x2QoWeMRG2Vl3yXwhRs+b6vRgxxcky3CetRF5Qy7mdO1KH3MNAiyAXH
-         isCXyW2Q/zWjM+wxG1HxTiz8Hu/UdiA1CLKrTP2Tw/w8iKs5z7CkPvCVH9jLeOdRza0x
-         WllGuOxkuV+OIDRaEgZQGxgLt1WPlBVIFCcIwzN9nreLYgx5Qxj76LataLgPPldngFqN
-         2I3Q==
+        b=H3BHn4E0NKQHVv8/T1Fbu4BEoBkIKf4ZfwHsTVruK9naIfnaaFQML6Jv4hR/MdiC7T
+         pjWAQgDdVAUzaw05PqjhoUWZ92SOA08mUGWhU1aeWtKNv+yDFuKYJvAaWuihJSy4Pjm7
+         wCHh9LWSIQ4DbTislCay0Ho48OxeRsUV6BFeOUv1c/AwDegz6zanr1jJTej28+l8bvl9
+         /eGxfLFEYpfCY/fMmK5IBWtA6yHN0v77yTKLvbYRNF7XEe3bgv7imi5688Cj2Cy0s4wy
+         pW2aDRgzZaF2/jgyZXQ4qANVplIz6mOL1oBIj8LPsn3pbE0DVwNMU02mGbkc38lTUs4J
+         9bFg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=UyUxmcQYgNezF0ZDkt6JVtOUmT9q/aZ2QgOLtEtjaWM=;
-        b=nerXL7EPrQUJmv8kY6IU3dRC3NalNOmb6aeK/1Pr/JPcVHJJcoLZy26CpgFF9bQvg1
-         oSvaB6dKAgMn1h3qLXdilaNL6xxRygSHqIGoYy0eXkRZvV4YEvOLR63q6ftAi94Qq0XT
-         ieQK7C8EdxjxqlgYV0j7qQ2euQ56+1Kafv23XUH4B/++CaB/cDxEakRkzwgpvBZ+h8Rn
-         C1peUuPvNRA0VtXJL9I4m79AT/IGS9v0hu3d6vP0cBqLQDMVUibAbo3It98w+BSJMFUV
-         TjacalLDoUpczkvjhhH40tRsVhB9jSEMTDFEMuB9QyHinNcIUMOIicOTxOArGuClYAk4
-         znOw==
+        bh=ww5TJBYr+VjNMWV3XD1424/CFgNrTD04mz99aDfw1e0=;
+        b=JDOgLY0cVePHPA/+L/o7pThKDuxEdV770O9Bef07T0ekbob1pgOrVXl3JWc+MPnqIs
+         i/3mjzeR//68P8XsrBCCrUpZ7jo+gv/ZT28jAExMsmxQBNqp/zS0/UCSGPsrN942L+e6
+         Gwt/aUNFpS89KYgBkB0bcdOX97GwXzQzHVdAcOMfQiqrsZVTegQPgdEIO3oRohaPIlYK
+         Z0es0uYhbhj2NPp0wBksTpaY3R0Q9QrlSkXRaeK/cwpmrrksWK+rrLSkd2nsg/kCAo2J
+         vQZtGfkhyTtOrKZg/qdRfX236yJFWueW/o1QmCNSD/xtgggUKXiMJL27iHQHnuIJ3dAJ
+         xzqg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=mwrWOh5F;
-       spf=pass (google.com: domain of linus.walleij@linaro.org designates 2a00:1450:4864:20::244 as permitted sender) smtp.mailfrom=linus.walleij@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b=IXeEjsjD;
+       spf=pass (google.com: domain of linus.walleij@linaro.org designates 2a00:1450:4864:20::241 as permitted sender) smtp.mailfrom=linus.walleij@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UyUxmcQYgNezF0ZDkt6JVtOUmT9q/aZ2QgOLtEtjaWM=;
-        b=BWN/itFONlfj21YrR8gI/rnLSEJLQSXcLyvC2SSvXvYlGLCRvOP6/K3GPkQryORXxN
-         EtaYyt3KeZObiMWOhniMO0pRqXFtweSl8v6vs7G6Dy2bgQjsCknEtdSZfCNc8GH5TynM
-         JZyo3UuLgZxHKUrF8llQ+Wx/orjemvsIeH6TsBcyMR1ITBUaoVuqHwE2lI1KhEPzVs8y
-         DXsFuCcEioSKl3pxrI1B0qU6DvuJFlhZvBYG55iEh/lAnCa9eLuOI8z6wssQ5ozAa1VX
-         2Ex+73lTkBDopcQZFlkM9i0eaX893g2U1ljQ3VCZGjiwjpuOo+/kZ0KPeVXNVkJHnfI4
-         IQcg==
+        bh=ww5TJBYr+VjNMWV3XD1424/CFgNrTD04mz99aDfw1e0=;
+        b=DYiC/bOlDtY2VdeWedKHOpKkZQcyfHo+NO7YIckoBzBD2oPLEYbszEZcbOs4j9WDoU
+         ATvUA9KYopQCurEb+ePYJzJhllYTzxi5VuP4N76kWEDiGu1UEDQDVfWwOOIuFQjeeK9w
+         qf5j33vVeV4E243ZalAnIsUyY2LBj+Vhu8CZTxXfqrw8jpokTBqVxAD31tLqgJUDxZml
+         gj4TzVaqCtzg4Q7uO848ExVFFmNvDddCZEbtk0DcsA1CeTdv5QulTUJ+xa68LnzFOFyA
+         df3hK7PtUfgp7tWYgyOGzlNpkrZaj3Ysl0tt2Iz1ut+XK+tbZ6f3I/2iHGl68ZWoprnB
+         hDtQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -49,63 +49,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UyUxmcQYgNezF0ZDkt6JVtOUmT9q/aZ2QgOLtEtjaWM=;
-        b=eTIsPz4Yh0vDKOEQQYiq6wMChaUlwOHtlSJUJ3NCcRWLBs/wFWRkMC7CSJrOm8GDIx
-         vIh5LIsDmywhhEgzhCwd9BFdFNauvoRXJVbCsrKlDtkFD+SPjYUOWTuus1477OTGChjo
-         RTuYlZH0uNHBj89d3agnrW8zrtunH16Tb/BFrLiXKTm/wqk77yWEe0zbzHhWvhgm/9bL
-         P5or1ju9UVrOCBtuD3B8uKZsmFQfnMQkl5bixcmi6AO8pHFkZhmgWPR6BBJQ7Tr3Vz1J
-         x09uiq9pSLfN6mElcJzK0tXLF2CGZnms+wOmUDeM07Y0+7XZGue0lHNqUp1KFZlBQPhw
-         klvw==
+        bh=ww5TJBYr+VjNMWV3XD1424/CFgNrTD04mz99aDfw1e0=;
+        b=ag32Z4rf+zw1YHE1OFNzYNTgZVq8nz3oMuLsl9wZypUqiOWk5fVDOJR1oT9R0gTHhm
+         7yQHA5njTMbXyJz62RmqjtuZ3gxfb0hikJCwCgj3/COkwqgeQHLhWk/d36FM1ahCqZ6h
+         A7/U7sb5d92NVKEIzyIzSC5ZMydUefC4sjceU9MPTb8Qz7yDT3S/X/dPuYth/R0A4tUL
+         UuFKFBI76Fx5nhEsQ9YRTALdiBcyafUhHkHXkcPq2tzFv0rc+M/reRTLRCziq4JWplrX
+         /gZYYDNBHbKz1toJx9B85h1lbIIDMj2gMdZ419f5fvMC06K0NNyoZeMfVH47JGj2MeFt
+         W58A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532kfmlVE7t2FLnk07USUn+U4aa0M2GSjZ18Nq2O5K8fI5NVcqX6
-	7eOdZOVAF00yBoSRqn1vj2g=
-X-Google-Smtp-Source: ABdhPJw3aGRF8osEZ4tJdTJXQe3JXF2tUpK9rW4JNwCNLaVjPn0fKB7pag5FLHOYOb4Ji2HOxSTzoQ==
-X-Received: by 2002:a2e:8782:: with SMTP id n2mr990566lji.384.1598625078149;
-        Fri, 28 Aug 2020 07:31:18 -0700 (PDT)
+X-Gm-Message-State: AOAM532eGkoziwlRqg5V42265cKkvURmZU1bLRbcAyGM3RE3H2XZeWBc
+	MIp44WXoozYwGK45aNs46HI=
+X-Google-Smtp-Source: ABdhPJzs5/lBRdk5CW6D1oWpLROHDZdwmPjgHVh5lKGiOVyceLoh06q2mr/6oQq3ZhJUKWRccQzJ4Q==
+X-Received: by 2002:a05:600c:4150:: with SMTP id h16mr1935174wmm.127.1598625135124;
+        Fri, 28 Aug 2020 07:32:15 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:651c:294:: with SMTP id b20ls252906ljo.9.gmail; Fri, 28
- Aug 2020 07:31:17 -0700 (PDT)
-X-Received: by 2002:a2e:a314:: with SMTP id l20mr1089754lje.213.1598625077328;
-        Fri, 28 Aug 2020 07:31:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598625077; cv=none;
+Received: by 2002:a05:6000:8:: with SMTP id h8ls985454wrx.3.gmail; Fri, 28 Aug
+ 2020 07:32:14 -0700 (PDT)
+X-Received: by 2002:adf:db8b:: with SMTP id u11mr1870945wri.143.1598625134488;
+        Fri, 28 Aug 2020 07:32:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598625134; cv=none;
         d=google.com; s=arc-20160816;
-        b=xRFz1YGPorV4Id2EdLwv0boH158Wbd1DE2Qo+JEx633vdCGDGWTpca9CPz9g8Uhr5n
-         V/ObTUcxMNY88H9dL/1xUOQzdle13wZod6lsi/vKeSRjt3Db/4cjWjx/T5GfkGpmuOte
-         AEOC4B43/pa+0MN+xU7RBnbHSt7L245CM1XTdiRAxrHQ6MFdEbXIE4zKd5pSPTUIObAh
-         t43O9KMko2wNrPGUBDV+J9DWfqQz9SxxosYR6WxvK24JFC/RoVvkzxMY5CU6deDgYTnd
-         PCjAIZHsetDUqTfeJ50OVqNjmo0BiF5i5o0v6yIP47wHN5ARxhRX16OpgEmVgBJNJZ5i
-         LygA==
+        b=gpMVgB6lj1pzat3tMxjpD6KKQsWBfhyTam5bDwvHHsWA0Zi5qryCtWEtV1BtXTEGY+
+         nTHUx+Rv8sOm/TBuMBtLyBRXz2KTGca13akzf0l5tUMnpYHtf2N2WsLXK14xWyrDhorA
+         Y48hh57HdsIrByhIT0itWNkoZXOxQ4YHDyYLYL1/xIbc/X8ho6PjObOYITsNpL3WD8ue
+         XDpdyRFTsK9o07heNzM6NviSaPd0olP70mNuRU5mL9tsVKjCprUSHLwkjXNm5GfDM3Oa
+         gvw/Oa6BO74Q/IXwsZmjmBszPJuW13hR6a/xAlVvsGf1U/z4dacLSggaJd3e9J0urlG/
+         L0Pw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=uulk0f5tN77Sy8VPiV8bfXz3aXrvD+qaFtC9g5b1o5k=;
-        b=afx0VjXumHVRpmiQ2UiGaKWXvTau0YCNy3qff70qZv2iv3YELioVyd3rd0Um1Sy5fe
-         IGn+ivwU6QNdPDrDF+wwYY4S1dCtceuE3A+JyBHrxhfzTD1c88RU/uKrKcG83gQX8cl9
-         wlT3v4H34CHO2EH0OwU+EDNAbDQqxvT8wO3Kkikg+p0dsM6g9xaDzKzKd67XlzrNF8ht
-         hRiuVaLBMUkt/83racLNwju6wkwNFE6e45yieGB2blWLNDmnsD5SBHNufO6gp7yHYNXN
-         JTXsMCScuaOcIXlWAAi8WQvwD0vEhsNB7hBkznzemToOuWO0jpBtUtmDwbtjn2GEkd8T
-         Q6rA==
+        bh=wVomXPK0U4YnUe61pOa0mrtN3m3F0A/CetmINqj4FvQ=;
+        b=A+Sq3QvFasVT4LWypLb6OOajyUjPVTvL+myPINdHMvDfC+H8jdmgkYjGFPU0pSkkjf
+         n1yISC4ZlejiUhjbTcbiJ/gSG+Z1MNzIx3pIK1N+A3y4xJK0YCTHgosM4vFQgiRedt1g
+         3KsHcI5J7AWFEZPLQFkjbbq0mkLn4h1Bbb2vZkMYWsAw6rQEheoUbY7DhvpoAG4Nh0Hg
+         6XzoNRW62kAXxV+A0qur2Y7G6FoGVrslY/u1zai3k6KjLpsDROic62DFPqJN5/RoCfEf
+         aCNVbwJggWISNucU1+g+6ldeO/FRcpBlNU8bAPbn/j3/zPMmwnxICeWJ64K8uzF0lohs
+         CzNA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=mwrWOh5F;
-       spf=pass (google.com: domain of linus.walleij@linaro.org designates 2a00:1450:4864:20::244 as permitted sender) smtp.mailfrom=linus.walleij@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b=IXeEjsjD;
+       spf=pass (google.com: domain of linus.walleij@linaro.org designates 2a00:1450:4864:20::241 as permitted sender) smtp.mailfrom=linus.walleij@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-lj1-x244.google.com (mail-lj1-x244.google.com. [2a00:1450:4864:20::244])
-        by gmr-mx.google.com with ESMTPS id f3si57066lfk.5.2020.08.28.07.31.17
+Received: from mail-lj1-x241.google.com (mail-lj1-x241.google.com. [2a00:1450:4864:20::241])
+        by gmr-mx.google.com with ESMTPS id 92si33441wre.0.2020.08.28.07.32.14
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 28 Aug 2020 07:31:17 -0700 (PDT)
-Received-SPF: pass (google.com: domain of linus.walleij@linaro.org designates 2a00:1450:4864:20::244 as permitted sender) client-ip=2a00:1450:4864:20::244;
-Received: by mail-lj1-x244.google.com with SMTP id i10so1566277ljn.2
-        for <clang-built-linux@googlegroups.com>; Fri, 28 Aug 2020 07:31:17 -0700 (PDT)
-X-Received: by 2002:a2e:9dd0:: with SMTP id x16mr989729ljj.144.1598625076956;
- Fri, 28 Aug 2020 07:31:16 -0700 (PDT)
+        Fri, 28 Aug 2020 07:32:14 -0700 (PDT)
+Received-SPF: pass (google.com: domain of linus.walleij@linaro.org designates 2a00:1450:4864:20::241 as permitted sender) client-ip=2a00:1450:4864:20::241;
+Received: by mail-lj1-x241.google.com with SMTP id m22so1551773ljj.5
+        for <clang-built-linux@googlegroups.com>; Fri, 28 Aug 2020 07:32:14 -0700 (PDT)
+X-Received: by 2002:a2e:4e09:: with SMTP id c9mr1062954ljb.283.1598625133997;
+ Fri, 28 Aug 2020 07:32:13 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200827185829.30096-1-krzk@kernel.org> <20200827185829.30096-25-krzk@kernel.org>
-In-Reply-To: <20200827185829.30096-25-krzk@kernel.org>
+References: <20200827185829.30096-1-krzk@kernel.org> <20200827185829.30096-27-krzk@kernel.org>
+In-Reply-To: <20200827185829.30096-27-krzk@kernel.org>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 28 Aug 2020 16:31:06 +0200
-Message-ID: <CACRpkdZNS6TTpUDEiezORKXu-h0Sdz_dPcCxmR+UbT_Rc+oMpw@mail.gmail.com>
-Subject: Re: [PATCH v3 24/27] gpio: Add devm_fwnode_gpiod_get_optional() helpers
+Date: Fri, 28 Aug 2020 16:32:03 +0200
+Message-ID: <CACRpkdZQZ+ANpMmwFUbTxQ9=EZEXZkr7Z3DLbica=Q09bmntBQ@mail.gmail.com>
+Subject: Re: [PATCH v3 26/27] Input: bu21013_ts - Use local 'client->dev'
+ variable in probe()
 To: Krzysztof Kozlowski <krzk@kernel.org>
 Cc: Bartosz Golaszewski <bgolaszewski@baylibre.com>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
 	Hans de Goede <hdegoede@redhat.com>, Bastien Nocera <hadess@hadess.net>, Sangwon Jee <jeesw@melfas.com>, 
@@ -116,9 +117,9 @@ Cc: Bartosz Golaszewski <bgolaszewski@baylibre.com>, Dmitry Torokhov <dmitry.tor
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: linus.walleij@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=mwrWOh5F;       spf=pass
+ header.i=@linaro.org header.s=google header.b=IXeEjsjD;       spf=pass
  (google.com: domain of linus.walleij@linaro.org designates
- 2a00:1450:4864:20::244 as permitted sender) smtp.mailfrom=linus.walleij@linaro.org;
+ 2a00:1450:4864:20::241 as permitted sender) smtp.mailfrom=linus.walleij@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -134,15 +135,12 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 On Thu, Aug 27, 2020 at 9:00 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
 
-> Add devm_fwnode_gpiod_get_optional() and
-> devm_fwnode_gpiod_get_index_optional() helpers, similar to regular
-> devm_gpiod optional versions.  Drivers getting GPIOs from a firmware
-> node might use it to remove some boilerplate code.
+> 'dev' is shorter and simpler than '&client->dev' and in few cases it
+> allows to skip line wrapping. Probe function uses '&client->dev' a lot,
+> so this improves readability slightly.
 >
+> Andy Shevchenko <andy.shevchenko@gmail.com>
 > Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
-> Reviewed-by: Andy Shevchenko <andy.shevchenko@gmail.com>
-
-OK then, I suppose this gets merged with the rest?
 
 Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
@@ -152,4 +150,4 @@ Linus Walleij
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CACRpkdZNS6TTpUDEiezORKXu-h0Sdz_dPcCxmR%2BUbT_Rc%2BoMpw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CACRpkdZQZ%2BANpMmwFUbTxQ9%3DEZEXZkr7Z3DLbica%3DQ09bmntBQ%40mail.gmail.com.
