@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBTESU35AKGQELQ62YVI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBVOXU35AKGQEP3POFHA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73b.google.com (mail-qk1-x73b.google.com [IPv6:2607:f8b0:4864:20::73b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0E211256336
-	for <lists+clang-built-linux@lfdr.de>; Sat, 29 Aug 2020 00:46:38 +0200 (CEST)
-Received: by mail-qk1-x73b.google.com with SMTP id v16sf430005qka.18
-        for <lists+clang-built-linux@lfdr.de>; Fri, 28 Aug 2020 15:46:37 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598654797; cv=pass;
+Received: from mail-pl1-x63b.google.com (mail-pl1-x63b.google.com [IPv6:2607:f8b0:4864:20::63b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2014D2563EF
+	for <lists+clang-built-linux@lfdr.de>; Sat, 29 Aug 2020 03:14:00 +0200 (CEST)
+Received: by mail-pl1-x63b.google.com with SMTP id b14sf637820pls.12
+        for <lists+clang-built-linux@lfdr.de>; Fri, 28 Aug 2020 18:14:00 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598663638; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZydXAEggLYQNOv9fpNLvRiAi2aG4hTyurz+KLrAIniSgC5ztQErGmQ5/LGO/p4mjPi
-         5QrBzYj2Z3wmP9lKE7IeH/rDSGBNba4LxzNQ2BQBLwekdXQT72a3dC2UfUAxRdHSm+R6
-         Ag19iW2ccMj9c7fzQwJdcP37nWAo95EDes/nl0nyZXte4qMoVlAyz5vERCWu3ByVEool
-         9I7cRFWLSVHq7ITSJx+/uzw8cIqj46fbVhgW76oDNshYp4uT5+Jze4163kfR4VlIpl14
-         OAOP/d+hTCBg8q9nt7vgZ7jfrarbxjlKWlscbi0JrES3tc3F83PpRo2iA9aoFlepa5JL
-         hZfw==
+        b=dZNiwwaZosFXXB9D6I/sHh9U+ljAsrcl8RA1QSOZyjjPZ/imaKFNajwvY8zBSair4x
+         5o+m/5LeIDS5VsWILL8sEVFtd/cEAOBuF3V5xB3uraQUYic4e6TUYxVvDDk9keWXiZhs
+         2ilXbvuzom+Z9lGhsEPE+bkim1Q/gcFmBY2Hv2HOhZmtH3mrUm5KO+vQ0rGwwdFvl2HY
+         DxLxEFZLToRuE1GSR2VxZ3D7LqdcuQ+IjPFwTgetmROGGIYlG618ldA7aCiZw/22VOYh
+         Gk1W7V3FnAPUwE/YK2cQiogbkhrfudEAjx3FMgsDT/fSQg7fh1/FE57EQKvDKTTuN0sU
+         Z6Hw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=Vku/jOFMGtx1WPlB4da4mr9cuDTHf06aZlUWOIvKjhA=;
-        b=t7bbFN/InE4HZq5+yx6hVlMrWtOGxhIijEXxaCR9lDMdfLQP3UDVrwkGgxguL9mspT
-         /r81qDv5JnUWM2mAeH2AUwztuFiSBqGSBonki3QzZ7tB8Xxc0sFqiOwRDodPWTjjuSfr
-         gYi0QwIF2tnT/qkfswTxOovz01gM5sYtQd3OqD12Idsnnz4ZV5Zvo61FaYWT3uZ/ZEH8
-         pUWNSHHiQvyDPWkB3/1VsOr0sBL6leXYQ4Vr90fV25Sw1sh6PXQJr4esQLFuP5cH+AH3
-         2gCHB6lZIBC/rqns86pTYcjey1/RXbqRMZwHQana5TRcKYXyfLI96zduNL9ZiVX4deNB
-         e9Ug==
+        bh=AZIUNYqeoDQ/8UvdCZDJNsQ/Jwe3vJ8GPlAT8a+3nys=;
+        b=W22WncIeLanA88wt5MDaG4rHOj3VVpMxpXt1FfPuPTCdFtXmiXltLXwsYK1Typp+95
+         VTP0Nlar6kspXK5WYB+Sj8EH2QvyPXRlz0av8ShAGNSY2qKPKe4lm1Wcn45J11fjEedE
+         r13Y+x1fMZHWF4mhqeGu3ukHIHa2C52A/g6nX3bz+LNsnACkVHmI5SDu3I/zAKM9omwL
+         0GAyxC+E/UVQLSvJsiRQSfrrVttHYiu+HVt2BWiqeANprx1TXP92ECcfFIc7Z9uXS2iu
+         0hZcBKPZWhgJuWazT24586azkKDjlrtF5LwayldGLRX3SvEKqHHDgu5ThaZYWUco5Dal
+         UcSA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Vku/jOFMGtx1WPlB4da4mr9cuDTHf06aZlUWOIvKjhA=;
-        b=jLB0oYsK3vcXitG0Cnz6bRoyU3oaBAu4GjKyTLDgdfZEOHCvz16J/2GkRW7As5Z9p5
-         u+WYoLkPC+5zz09eH2VgJuUel8m1drlDdIOzvDM4geFE1khNbwrbkKBeqrcmXhDyLYzV
-         vkqddDHAxvBvr3efKQskNkQqWoTV1uL+GmcqOLXylmuLi9pyDmMHX/MBhdulBXgQ2A1/
-         8X0ag27vxSgjzF4mphroYIz2EeOmhKJIiguwxgVI3TaG8kzLJh525p12Xk3ZWzf7/959
-         kiSW2VidRduCFCOVcfwxV6MRmaGDovxKcuwd47FwTpRBlMt4d+h8Liqv+c1Mis6PGa+o
-         jphA==
+        bh=AZIUNYqeoDQ/8UvdCZDJNsQ/Jwe3vJ8GPlAT8a+3nys=;
+        b=s/82ODBWpTCl5htFv5zVXkLGhX7WWP8R5Gycm58+vy9PcVm45XTOLqSGtB4/EapSHE
+         5NjFYZfy8M+YCy1LrGa8IhvDdqlLb+19YivD05Amq5YXn8s+oPO5TXZr/SKs17yGvgFE
+         y/yWDkfnC8VpooVdHHKhBZe7PmU2tdY8ndIJSECl3q489PZcNWuyDbvKvGcpVsWQI0sg
+         X/NsNLkjSE04WhlzDWD9jNOWOG3TMjnrU4lm+lczEHc9VntAJyibZXcp/iLH5AWE6aXq
+         KoVIYcZvnZnyXW1HJ+Llu6dJF+gqCauELaDIm5ciDiazifXEDk9CdQLrqmPiWqUk3eo4
+         Vg3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,87 +49,85 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=Vku/jOFMGtx1WPlB4da4mr9cuDTHf06aZlUWOIvKjhA=;
-        b=JI+r52EA56f7vyZYqHuXpiIAZdCdO1vBDYspKDKZNuMod09M4xX6LLeR0kbNGgVcKZ
-         pkG5dF+CQ3NhuEpHY5jx8KjAVxD6yWUKvEaAKegM0SHYDTE5BSVqRdgr/mAw03u9CuAX
-         BY1lXT0PFfgRn5uC8fNZxVl5yT+oZUzyNwbq6CgphKkzi8FRsBIU+vDdgIR0Mxfm5DMH
-         rAnFQcckv8T+n6ewaT3M/YzWIGFx+eCrUD52yg0YsgUz8nf7rAtxuw1+PntBk7Lu1hSJ
-         35773DMFJSEmzDOWYbv/mFa6zZM62Xp5dGpHI/cRzCmA295J/blSAfpNopGQRKQxODB2
-         Zp3g==
+        bh=AZIUNYqeoDQ/8UvdCZDJNsQ/Jwe3vJ8GPlAT8a+3nys=;
+        b=E5E0YY+ofwGNhky8WuyttXySzGvO9KaMpofvkeCLyZRrpCtEUrDh1q5n7y882ph2VZ
+         yjU7H4ayyGtBax634nVLyVrLcIUg6MRb0BbcSKyV+co1u3fKyaIGgTQY4PRCdV2reMuw
+         Wcfvi5SijhZk7oF67VWF//Nxyz+P8tSBpVGVA9yPBkS094xfdnabtI1TkjMceZy6iObJ
+         7sVEOgFydHpIm5ZOO5+wINp1ztDB/TR2FJ+83EyIM2TCRHq/cIpwQcbN+TF2fXe+NQNT
+         VBMKSi6fPgVqbDWmAp/22lLRRrmaaN4WqbM3bII8uq2zpgEC8ByyNRC2+tGERieKvwDw
+         Pntg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5333uwhy3Lvu143d0UN+xx5sVCjxnVt4t6gRRblfzrYqD0kCRRUu
-	3VLrsh+yXjqqKypHk5FeGCc=
-X-Google-Smtp-Source: ABdhPJwMVrStH2OMzDcS6x2lSFmNL0zMubOBSI3Xz3NZWbepu/N+0ThJADfK4cpJIAEebWfsG1bfcA==
-X-Received: by 2002:a37:71c6:: with SMTP id m189mr1330064qkc.327.1598654796849;
-        Fri, 28 Aug 2020 15:46:36 -0700 (PDT)
+X-Gm-Message-State: AOAM530GsyoyhrKcZRBAngOWxm/0yzD7w0VGf9CJz6e8R87MOasf2BbZ
+	TPnnw4K8N58BSs4WAFCAdkk=
+X-Google-Smtp-Source: ABdhPJz01yqRNwlsIbsp0S1yxXT4cZr9l93z+GlXOMrOfFIqyOmCBaMsVkHRWHHGgDjZTdBGfHNIzw==
+X-Received: by 2002:a17:90a:bc48:: with SMTP id t8mr1394664pjv.224.1598663638081;
+        Fri, 28 Aug 2020 18:13:58 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ae9:c20d:: with SMTP id j13ls289752qkg.2.gmail; Fri, 28 Aug
- 2020 15:46:36 -0700 (PDT)
-X-Received: by 2002:a05:620a:55d:: with SMTP id o29mr1370499qko.12.1598654796336;
-        Fri, 28 Aug 2020 15:46:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598654796; cv=none;
+Received: by 2002:aa7:9296:: with SMTP id j22ls279204pfa.5.gmail; Fri, 28 Aug
+ 2020 18:13:57 -0700 (PDT)
+X-Received: by 2002:a63:e741:: with SMTP id j1mr1026355pgk.422.1598663637456;
+        Fri, 28 Aug 2020 18:13:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598663637; cv=none;
         d=google.com; s=arc-20160816;
-        b=aw1eGjBndY6LaOg6ylF/4/IKhegjVbe7jPJxZWfD2Y/2SAsfv3HgCOXXKYSzFnIcMb
-         tydFoi9cwSBoEgjuXhd9LElgCANKoRxZsuCdCZyaQDF5R8xeh/KcoKUgnwrzYt0nwifN
-         PkSei5dmfxdy4nea2X6+FKu4aFrChMudSXOX71KUItseB2WKIVWr2a3lq7bqMI3vxCzc
-         bm2TA+KQkMnP/ny+BDgBXha+iQx6W7PoFR85upGnHY8uIxhw0hu5pPhHmpjFIeyBNTt9
-         JZhji1ibe8IATpIPtjc0WNBPf853W3LRbRQGKL5wWdMDS1iXI/l7h94FN9GyJMXJbE5C
-         Ha0A==
+        b=HOY2CdE0nPlBF/XAra1uVTnngRnC383bszYrRfsM3qeSQXpHCZq6wtAd3CvJXT0y5X
+         qRhXOiYw9D9TRck0uVd0jzAu3MH7kFscm+5V9MUTg9fSAFsSkNSvYjchSluiJO2ZDZnk
+         iar01fANFllZw1MeRMb092KebgeUOxCpiWATuS5MVYVjh88VL2Pzw4Dp/2fHpqgVoy++
+         Tdqs3rIO7BiDthocRRamr6Cuhqx8PomwpSEPUql6uq495XCgaSPzi0aaED6cMkeV/AXh
+         /wUsnuMXuFwDlHKcfjXIVyoQY8OQIMNXgFbAtU9pv0if0JN6hWLQrOd37cZ1SZUudbak
+         /XJA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=wptE1RVI72cjYS+s1LJ8Itq1PXaYrxpB701UqgzkT6c=;
-        b=U9qMZMu7wvNTzsbr9lCZtAgTbtw5FFugaJqGfAVnzHsGkDCi98wYHJP6Xj/4pn+MEF
-         BjZr+Ptv38F1fzXrNE8omLZTGEvLbMsGjvpw8POhsoGy/5xZ19i+RBHmKbQ2m3gPAAFV
-         uraIGBfLpObXGdYgBTWp8CqNiDgTff4lnb4q/Sotsahqln25JsMeS7mCx8wqveaaOIu5
-         1mmcj6UbTVDQfTRnU/IjVWAfp4afKwZtEw8Dlqk4E6OLXx9tVpc2xHW5man5tzUqyKnh
-         uET8vRYwX6LLhXSFZg87qPm7MRaqhO8N0Ez+dmok3tvG90l0P32ud0+El+WW0UpyWj+A
-         fKsQ==
+        bh=SFHrA71Km1nyh9cV8HsN/yqXSZSPVOSSDILPEbRYFvQ=;
+        b=H+rJIkZlaRDE37SjqmTji4IaX3LBsqDBI6bzEfUsXm61Q2VCH/2cullmtwDpyiHTec
+         sFF1MCcneyT/q90rzmx+pik54Qmdi05EtCy24EpFqoEkPhmNV1KuV67lCyZig3Cpj6Hy
+         YI8DUAF7QBnCsU9JKgK4ymzrokOLkutoGmx4PbHEdE89vlLW+X+mF43ZH7eUwFiBpvzD
+         LAHTbO3uglfvSF2/uJQiolrX82GYEnnHSXGM8+NxA7VVvkQR9YEnkCiCIidqK+01VBI2
+         AXX1gw6eKbz6y8E6qZZsZEwch8bTV7ltlPtQwcsl19POKlq21SrN2ffRyBsGXZHpDm+1
+         OyaQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
-        by gmr-mx.google.com with ESMTPS id b21si35599qtq.1.2020.08.28.15.46.34
+Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
+        by gmr-mx.google.com with ESMTPS id bj6si64374plb.4.2020.08.28.18.13.57
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 28 Aug 2020 15:46:35 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
-IronPort-SDR: 89zi54kMKOsBRljwnmyGlmoW1cqZ3/GL9XTwL8Vje6y+pRFdE/VJjeIvKivewRKKyNLVkfO6Yi
- 0zx3L2Wjx8Nw==
-X-IronPort-AV: E=McAfee;i="6000,8403,9727"; a="144503450"
+        Fri, 28 Aug 2020 18:13:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
+IronPort-SDR: +EKBEJYLEqKe5Rhf6JT0I+IehM20GmseLfa1je+V6ACovJh10wMuTAyOXdaxhoodJas5NhbrVm
+ 7GSXuwWwgD3g==
+X-IronPort-AV: E=McAfee;i="6000,8403,9727"; a="156030436"
 X-IronPort-AV: E=Sophos;i="5.76,365,1592895600"; 
-   d="gz'50?scan'50,208,50";a="144503450"
+   d="gz'50?scan'50,208,50";a="156030436"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga002.fm.intel.com ([10.253.24.26])
-  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Aug 2020 15:46:32 -0700
-IronPort-SDR: NskBHbY9DxgcmELzLhbgwhQYhSD2A8kvOtgsvOcWE+59GbOS37KqbLfDEfOeZTwWU6ugF9iEHm
- 0S/0VV/qH6sQ==
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Aug 2020 18:13:56 -0700
+IronPort-SDR: dknv0IALNRM9Il3yL5BsNj7CabENSGIeDfhZF3pazYpps6X6EsDWuUPRENC7eFvp1Pxzg780Tz
+ jElKvuFJ/mVg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.76,365,1592895600"; 
-   d="gz'50?scan'50,208,50";a="332694306"
+   d="gz'50?scan'50,208,50";a="475916396"
 Received: from lkp-server02.sh.intel.com (HELO 301dc1beeb51) ([10.239.97.151])
-  by fmsmga002.fm.intel.com with ESMTP; 28 Aug 2020 15:46:30 -0700
+  by orsmga005.jf.intel.com with ESMTP; 28 Aug 2020 18:13:54 -0700
 Received: from kbuild by 301dc1beeb51 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1kBn8f-0000Ep-JD; Fri, 28 Aug 2020 22:46:29 +0000
-Date: Sat, 29 Aug 2020 06:45:51 +0800
+	id 1kBpRJ-0000I1-Fi; Sat, 29 Aug 2020 01:13:53 +0000
+Date: Sat, 29 Aug 2020 09:13:25 +0800
 From: kernel test robot <lkp@intel.com>
-To: "Joel Fernandes (Google)" <joel@joelfernandes.org>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	Vineeth Pillai <viremana@linux.microsoft.com>
-Subject: [digitalocean-linux-coresched:coresched/v7-v5.9-rc 30/39]
- arch/powerpc/kernel/time.c:529:20: error: redefinition of 'irq_work_pending'
- as different kind of symbol
-Message-ID: <202008290641.0R2SYcET%lkp@intel.com>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
+Subject: [vkoul-soundwire:topic/reg_cleanup 16/24]
+ drivers/soundwire/bus.c:627:20: warning: shift count >= width of type
+Message-ID: <202008290921.dihQHdto%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="HcAYCG3uE/tztfnV"
+Content-Type: multipart/mixed; boundary="2fHTh5uZTiUOsy+g"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -145,493 +143,575 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---HcAYCG3uE/tztfnV
+--2fHTh5uZTiUOsy+g
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
-tree:   https://github.com/digitalocean/linux-coresched coresched/v7-v5.9-rc
-head:   1dba1ec6f0846402eb80755b5f7b44efb6237e6d
-commit: c283856632af132e32b87a7ba0fc8b71f01c8508 [30/39] irq_work: Add support to detect if work is pending
-config: powerpc64-randconfig-r002-20200828 (attached as .config)
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/soundwire.git topic/reg_cleanup
+head:   922a92d83c55e6368783b518c84c6f54e84e9f38
+commit: ce703e8b9fba156573170bae234a561c7e736a8e [16/24] soundwire: define and use addr bit masks
+config: powerpc64-randconfig-r031-20200828 (attached as .config)
 compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c10e63677f5d20f18010f8f68c631ddc97546f7d)
 reproduce (this is a W=1 build):
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
         # install powerpc64 cross compiling tool for clang build
         # apt-get install binutils-powerpc64-linux-gnu
-        git checkout c283856632af132e32b87a7ba0fc8b71f01c8508
+        git checkout ce703e8b9fba156573170bae234a561c7e736a8e
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64 
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
-All errors (new ones prefixed by >>):
+All warnings (new ones prefixed by >>):
 
-   __do_insb
-   ^
-   arch/powerpc/include/asm/io.h:541:56: note: expanded from macro '__do_insb'
-   #define __do_insb(p, b, n)      readsb((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
-                                          ~~~~~~~~~~~~~~~~~~~~~^
-   In file included from arch/powerpc/kernel/time.c:38:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:10:
-   In file included from arch/powerpc/include/asm/hardirq.h:6:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
-   In file included from arch/powerpc/include/asm/io.h:604:
-   arch/powerpc/include/asm/io-defs.h:45:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-   DEF_PCI_AC_NORET(insw, (unsigned long p, void *b, unsigned long c),
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
-                   __do_##name al;                                 \
-                   ^~~~~~~~~~~~~~
-   <scratch space>:177:1: note: expanded from here
-   __do_insw
-   ^
-   arch/powerpc/include/asm/io.h:542:56: note: expanded from macro '__do_insw'
-   #define __do_insw(p, b, n)      readsw((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
-                                          ~~~~~~~~~~~~~~~~~~~~~^
-   In file included from arch/powerpc/kernel/time.c:38:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:10:
-   In file included from arch/powerpc/include/asm/hardirq.h:6:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
-   In file included from arch/powerpc/include/asm/io.h:604:
-   arch/powerpc/include/asm/io-defs.h:47:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-   DEF_PCI_AC_NORET(insl, (unsigned long p, void *b, unsigned long c),
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
-                   __do_##name al;                                 \
-                   ^~~~~~~~~~~~~~
-   <scratch space>:179:1: note: expanded from here
-   __do_insl
-   ^
-   arch/powerpc/include/asm/io.h:543:56: note: expanded from macro '__do_insl'
-   #define __do_insl(p, b, n)      readsl((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
-                                          ~~~~~~~~~~~~~~~~~~~~~^
-   In file included from arch/powerpc/kernel/time.c:38:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:10:
-   In file included from arch/powerpc/include/asm/hardirq.h:6:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
-   In file included from arch/powerpc/include/asm/io.h:604:
-   arch/powerpc/include/asm/io-defs.h:49:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-   DEF_PCI_AC_NORET(outsb, (unsigned long p, const void *b, unsigned long c),
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
-                   __do_##name al;                                 \
-                   ^~~~~~~~~~~~~~
-   <scratch space>:181:1: note: expanded from here
-   __do_outsb
-   ^
-   arch/powerpc/include/asm/io.h:544:58: note: expanded from macro '__do_outsb'
-   #define __do_outsb(p, b, n)     writesb((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
-                                           ~~~~~~~~~~~~~~~~~~~~~^
-   In file included from arch/powerpc/kernel/time.c:38:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:10:
-   In file included from arch/powerpc/include/asm/hardirq.h:6:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
-   In file included from arch/powerpc/include/asm/io.h:604:
-   arch/powerpc/include/asm/io-defs.h:51:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-   DEF_PCI_AC_NORET(outsw, (unsigned long p, const void *b, unsigned long c),
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
-                   __do_##name al;                                 \
-                   ^~~~~~~~~~~~~~
-   <scratch space>:183:1: note: expanded from here
-   __do_outsw
-   ^
-   arch/powerpc/include/asm/io.h:545:58: note: expanded from macro '__do_outsw'
-   #define __do_outsw(p, b, n)     writesw((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
-                                           ~~~~~~~~~~~~~~~~~~~~~^
-   In file included from arch/powerpc/kernel/time.c:38:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:10:
-   In file included from arch/powerpc/include/asm/hardirq.h:6:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
-   In file included from arch/powerpc/include/asm/io.h:604:
-   arch/powerpc/include/asm/io-defs.h:53:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-   DEF_PCI_AC_NORET(outsl, (unsigned long p, const void *b, unsigned long c),
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
-                   __do_##name al;                                 \
-                   ^~~~~~~~~~~~~~
-   <scratch space>:185:1: note: expanded from here
-   __do_outsl
-   ^
-   arch/powerpc/include/asm/io.h:546:58: note: expanded from macro '__do_outsl'
-   #define __do_outsl(p, b, n)     writesl((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
-                                           ~~~~~~~~~~~~~~~~~~~~~^
->> arch/powerpc/kernel/time.c:529:20: error: redefinition of 'irq_work_pending' as different kind of symbol
-   DEFINE_PER_CPU(u8, irq_work_pending);
-                      ^
-   include/linux/irq_work.h:45:6: note: previous definition is here
-   bool irq_work_pending(struct irq_work *work);
-        ^
->> arch/powerpc/kernel/time.c:551:2: error: non-object type 'typeof (*(&(irq_work_pending)))' (aka '_Bool (struct irq_work *)') is not assignable
-           set_irq_work_pending_flag();
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/powerpc/kernel/time.c:531:37: note: expanded from macro 'set_irq_work_pending_flag'
-   #define set_irq_work_pending_flag()     __this_cpu_write(irq_work_pending, 1)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:452:2: note: expanded from macro '__this_cpu_write'
-           raw_cpu_write(pcp, val);                                        \
-           ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:421:34: note: expanded from macro 'raw_cpu_write'
-   #define raw_cpu_write(pcp, val)         __pcpu_size_call(raw_cpu_write_, pcp, val)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   <scratch space>:29:1: note: expanded from here
-   raw_cpu_write_1
-   ^
-   include/asm-generic/percpu.h:208:67: note: expanded from macro 'raw_cpu_write_1'
-   #define raw_cpu_write_1(pcp, val)       raw_cpu_generic_to_op(pcp, val, =)
-                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
-   include/asm-generic/percpu.h:72:23: note: expanded from macro 'raw_cpu_generic_to_op'
-           *raw_cpu_ptr(&(pcp)) op val;                                    \
-           ~~~~~~~~~~~~~~~~~~~~ ^
->> arch/powerpc/kernel/time.c:551:2: error: non-object type 'typeof (*(&(irq_work_pending)))' (aka '_Bool (struct irq_work *)') is not assignable
-           set_irq_work_pending_flag();
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/powerpc/kernel/time.c:531:37: note: expanded from macro 'set_irq_work_pending_flag'
-   #define set_irq_work_pending_flag()     __this_cpu_write(irq_work_pending, 1)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:452:2: note: expanded from macro '__this_cpu_write'
-           raw_cpu_write(pcp, val);                                        \
-           ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:421:34: note: expanded from macro 'raw_cpu_write'
-   #define raw_cpu_write(pcp, val)         __pcpu_size_call(raw_cpu_write_, pcp, val)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   <scratch space>:30:1: note: expanded from here
-   raw_cpu_write_2
-   ^
-   include/asm-generic/percpu.h:211:67: note: expanded from macro 'raw_cpu_write_2'
-   #define raw_cpu_write_2(pcp, val)       raw_cpu_generic_to_op(pcp, val, =)
-                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
-   include/asm-generic/percpu.h:72:23: note: expanded from macro 'raw_cpu_generic_to_op'
-           *raw_cpu_ptr(&(pcp)) op val;                                    \
-           ~~~~~~~~~~~~~~~~~~~~ ^
->> arch/powerpc/kernel/time.c:551:2: error: non-object type 'typeof (*(&(irq_work_pending)))' (aka '_Bool (struct irq_work *)') is not assignable
-           set_irq_work_pending_flag();
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/powerpc/kernel/time.c:531:37: note: expanded from macro 'set_irq_work_pending_flag'
-   #define set_irq_work_pending_flag()     __this_cpu_write(irq_work_pending, 1)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:452:2: note: expanded from macro '__this_cpu_write'
-           raw_cpu_write(pcp, val);                                        \
-           ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:421:34: note: expanded from macro 'raw_cpu_write'
-   #define raw_cpu_write(pcp, val)         __pcpu_size_call(raw_cpu_write_, pcp, val)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   <scratch space>:31:1: note: expanded from here
-   raw_cpu_write_4
-   ^
-   include/asm-generic/percpu.h:214:67: note: expanded from macro 'raw_cpu_write_4'
-   #define raw_cpu_write_4(pcp, val)       raw_cpu_generic_to_op(pcp, val, =)
-                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
-   include/asm-generic/percpu.h:72:23: note: expanded from macro 'raw_cpu_generic_to_op'
-           *raw_cpu_ptr(&(pcp)) op val;                                    \
-           ~~~~~~~~~~~~~~~~~~~~ ^
->> arch/powerpc/kernel/time.c:551:2: error: non-object type 'typeof (*(&(irq_work_pending)))' (aka '_Bool (struct irq_work *)') is not assignable
-           set_irq_work_pending_flag();
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/powerpc/kernel/time.c:531:37: note: expanded from macro 'set_irq_work_pending_flag'
-   #define set_irq_work_pending_flag()     __this_cpu_write(irq_work_pending, 1)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:452:2: note: expanded from macro '__this_cpu_write'
-           raw_cpu_write(pcp, val);                                        \
-           ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:421:34: note: expanded from macro 'raw_cpu_write'
-   #define raw_cpu_write(pcp, val)         __pcpu_size_call(raw_cpu_write_, pcp, val)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   <scratch space>:32:1: note: expanded from here
-   raw_cpu_write_8
-   ^
-   include/asm-generic/percpu.h:217:67: note: expanded from macro 'raw_cpu_write_8'
-   #define raw_cpu_write_8(pcp, val)       raw_cpu_generic_to_op(pcp, val, =)
-                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
-   include/asm-generic/percpu.h:72:23: note: expanded from macro 'raw_cpu_generic_to_op'
-           *raw_cpu_ptr(&(pcp)) op val;                                    \
-           ~~~~~~~~~~~~~~~~~~~~ ^
->> arch/powerpc/kernel/time.c:612:6: error: non-object type 'typeof (irq_work_pending)' (aka '_Bool (struct irq_work *)') is not assignable
-           if (test_irq_work_pending()) {
-               ^~~~~~~~~~~~~~~~~~~~~~~
-   arch/powerpc/kernel/time.c:532:34: note: expanded from macro 'test_irq_work_pending'
-   #define test_irq_work_pending()         __this_cpu_read(irq_work_pending)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:446:2: note: expanded from macro '__this_cpu_read'
-           raw_cpu_read(pcp);                                              \
-           ^~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:420:28: note: expanded from macro 'raw_cpu_read'
-   #define raw_cpu_read(pcp)               __pcpu_size_call_return(raw_cpu_read_, pcp)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:321:21: note: expanded from macro '__pcpu_size_call_return'
-           case 1: pscr_ret__ = stem##1(variable); break;                  \
-                   ~~~~~~~~~~ ^
->> arch/powerpc/kernel/time.c:612:6: error: non-object type 'typeof (irq_work_pending)' (aka '_Bool (struct irq_work *)') is not assignable
-           if (test_irq_work_pending()) {
-               ^~~~~~~~~~~~~~~~~~~~~~~
-   arch/powerpc/kernel/time.c:532:34: note: expanded from macro 'test_irq_work_pending'
-   #define test_irq_work_pending()         __this_cpu_read(irq_work_pending)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:446:2: note: expanded from macro '__this_cpu_read'
-           raw_cpu_read(pcp);                                              \
-           ^~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:420:28: note: expanded from macro 'raw_cpu_read'
-   #define raw_cpu_read(pcp)               __pcpu_size_call_return(raw_cpu_read_, pcp)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:322:21: note: expanded from macro '__pcpu_size_call_return'
-           case 2: pscr_ret__ = stem##2(variable); break;                  \
-                   ~~~~~~~~~~ ^
->> arch/powerpc/kernel/time.c:612:6: error: non-object type 'typeof (irq_work_pending)' (aka '_Bool (struct irq_work *)') is not assignable
-           if (test_irq_work_pending()) {
-               ^~~~~~~~~~~~~~~~~~~~~~~
-   arch/powerpc/kernel/time.c:532:34: note: expanded from macro 'test_irq_work_pending'
-   #define test_irq_work_pending()         __this_cpu_read(irq_work_pending)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:446:2: note: expanded from macro '__this_cpu_read'
-           raw_cpu_read(pcp);                                              \
-           ^~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:420:28: note: expanded from macro 'raw_cpu_read'
-   #define raw_cpu_read(pcp)               __pcpu_size_call_return(raw_cpu_read_, pcp)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:323:21: note: expanded from macro '__pcpu_size_call_return'
-           case 4: pscr_ret__ = stem##4(variable); break;                  \
-                   ~~~~~~~~~~ ^
->> arch/powerpc/kernel/time.c:612:6: error: non-object type 'typeof (irq_work_pending)' (aka '_Bool (struct irq_work *)') is not assignable
-           if (test_irq_work_pending()) {
-               ^~~~~~~~~~~~~~~~~~~~~~~
-   arch/powerpc/kernel/time.c:532:34: note: expanded from macro 'test_irq_work_pending'
-   #define test_irq_work_pending()         __this_cpu_read(irq_work_pending)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:446:2: note: expanded from macro '__this_cpu_read'
-           raw_cpu_read(pcp);                                              \
-           ^~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:420:28: note: expanded from macro 'raw_cpu_read'
-   #define raw_cpu_read(pcp)               __pcpu_size_call_return(raw_cpu_read_, pcp)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:324:21: note: expanded from macro '__pcpu_size_call_return'
-           case 8: pscr_ret__ = stem##8(variable); break;                  \
-                   ~~~~~~~~~~ ^
-   arch/powerpc/kernel/time.c:613:3: error: non-object type 'typeof (*(&(irq_work_pending)))' (aka '_Bool (struct irq_work *)') is not assignable
-                   clear_irq_work_pending();
-                   ^~~~~~~~~~~~~~~~~~~~~~~~
-   arch/powerpc/kernel/time.c:533:34: note: expanded from macro 'clear_irq_work_pending'
-   #define clear_irq_work_pending()        __this_cpu_write(irq_work_pending, 0)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:452:2: note: expanded from macro '__this_cpu_write'
-           raw_cpu_write(pcp, val);                                        \
-           ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:421:34: note: expanded from macro 'raw_cpu_write'
-   #define raw_cpu_write(pcp, val)         __pcpu_size_call(raw_cpu_write_, pcp, val)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   <scratch space>:41:1: note: expanded from here
-   raw_cpu_write_1
-   ^
-   include/asm-generic/percpu.h:208:67: note: expanded from macro 'raw_cpu_write_1'
-   #define raw_cpu_write_1(pcp, val)       raw_cpu_generic_to_op(pcp, val, =)
-                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
-   include/asm-generic/percpu.h:72:23: note: expanded from macro 'raw_cpu_generic_to_op'
-           *raw_cpu_ptr(&(pcp)) op val;                                    \
-           ~~~~~~~~~~~~~~~~~~~~ ^
-   arch/powerpc/kernel/time.c:613:3: error: non-object type 'typeof (*(&(irq_work_pending)))' (aka '_Bool (struct irq_work *)') is not assignable
-                   clear_irq_work_pending();
-                   ^~~~~~~~~~~~~~~~~~~~~~~~
-   arch/powerpc/kernel/time.c:533:34: note: expanded from macro 'clear_irq_work_pending'
-   #define clear_irq_work_pending()        __this_cpu_write(irq_work_pending, 0)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:452:2: note: expanded from macro '__this_cpu_write'
-           raw_cpu_write(pcp, val);                                        \
-           ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:421:34: note: expanded from macro 'raw_cpu_write'
-   #define raw_cpu_write(pcp, val)         __pcpu_size_call(raw_cpu_write_, pcp, val)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   <scratch space>:42:1: note: expanded from here
-   raw_cpu_write_2
-   ^
-   include/asm-generic/percpu.h:211:67: note: expanded from macro 'raw_cpu_write_2'
-   #define raw_cpu_write_2(pcp, val)       raw_cpu_generic_to_op(pcp, val, =)
-                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
-   include/asm-generic/percpu.h:72:23: note: expanded from macro 'raw_cpu_generic_to_op'
-           *raw_cpu_ptr(&(pcp)) op val;                                    \
-           ~~~~~~~~~~~~~~~~~~~~ ^
-   arch/powerpc/kernel/time.c:613:3: error: non-object type 'typeof (*(&(irq_work_pending)))' (aka '_Bool (struct irq_work *)') is not assignable
-                   clear_irq_work_pending();
-                   ^~~~~~~~~~~~~~~~~~~~~~~~
-   arch/powerpc/kernel/time.c:533:34: note: expanded from macro 'clear_irq_work_pending'
-   #define clear_irq_work_pending()        __this_cpu_write(irq_work_pending, 0)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:452:2: note: expanded from macro '__this_cpu_write'
-           raw_cpu_write(pcp, val);                                        \
-           ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:421:34: note: expanded from macro 'raw_cpu_write'
-   #define raw_cpu_write(pcp, val)         __pcpu_size_call(raw_cpu_write_, pcp, val)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   <scratch space>:43:1: note: expanded from here
-   raw_cpu_write_4
-   ^
-   include/asm-generic/percpu.h:214:67: note: expanded from macro 'raw_cpu_write_4'
-   #define raw_cpu_write_4(pcp, val)       raw_cpu_generic_to_op(pcp, val, =)
-                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
-   include/asm-generic/percpu.h:72:23: note: expanded from macro 'raw_cpu_generic_to_op'
-           *raw_cpu_ptr(&(pcp)) op val;                                    \
-           ~~~~~~~~~~~~~~~~~~~~ ^
-   arch/powerpc/kernel/time.c:613:3: error: non-object type 'typeof (*(&(irq_work_pending)))' (aka '_Bool (struct irq_work *)') is not assignable
-                   clear_irq_work_pending();
-                   ^~~~~~~~~~~~~~~~~~~~~~~~
-   arch/powerpc/kernel/time.c:533:34: note: expanded from macro 'clear_irq_work_pending'
-   #define clear_irq_work_pending()        __this_cpu_write(irq_work_pending, 0)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:452:2: note: expanded from macro '__this_cpu_write'
-           raw_cpu_write(pcp, val);                                        \
-           ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/percpu-defs.h:421:34: note: expanded from macro 'raw_cpu_write'
-   #define raw_cpu_write(pcp, val)         __pcpu_size_call(raw_cpu_write_, pcp, val)
-                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   <scratch space>:44:1: note: expanded from here
-   raw_cpu_write_8
-   ^
-   include/asm-generic/percpu.h:217:67: note: expanded from macro 'raw_cpu_write_8'
-   #define raw_cpu_write_8(pcp, val)       raw_cpu_generic_to_op(pcp, val, =)
-                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
-   include/asm-generic/percpu.h:72:23: note: expanded from macro 'raw_cpu_generic_to_op'
+>> drivers/soundwire/bus.c:627:20: warning: shift count >= width of type [-Wshift-count-overflow]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 4 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count is negative [-Wshift-count-negative]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 4 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count >= width of type [-Wshift-count-overflow]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 4 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count is negative [-Wshift-count-negative]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 4 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count >= width of type [-Wshift-count-overflow]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 4 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count is negative [-Wshift-count-negative]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 4 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count >= width of type [-Wshift-count-overflow]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 5 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count is negative [-Wshift-count-negative]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 5 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count >= width of type [-Wshift-count-overflow]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 4 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count is negative [-Wshift-count-negative]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 4 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count >= width of type [-Wshift-count-overflow]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 6 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count is negative [-Wshift-count-negative]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 6 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count >= width of type [-Wshift-count-overflow]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 7 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count is negative [-Wshift-count-negative]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 7 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count >= width of type [-Wshift-count-overflow]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 6 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count is negative [-Wshift-count-negative]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 6 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count >= width of type [-Wshift-count-overflow]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 7 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count is negative [-Wshift-count-negative]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 7 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count >= width of type [-Wshift-count-overflow]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   include/linux/bits.h:35:22: note: expanded from macro '__GENMASK'
+           (((~UL(0)) - (UL(1) << (l)) + 1) & \
+                               ^
+   include/linux/bitfield.h:109:30: note: expanded from macro 'FIELD_GET'
+                   (typeof(_mask))(((_reg) & (_mask)) >> __bf_shf(_mask)); \
+                                              ^~~~~
+>> drivers/soundwire/bus.c:627:20: warning: shift count is negative [-Wshift-count-negative]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   include/linux/bits.h:36:11: note: expanded from macro '__GENMASK'
+            (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+                    ^
+   include/linux/bitfield.h:109:30: note: expanded from macro 'FIELD_GET'
+                   (typeof(_mask))(((_reg) & (_mask)) >> __bf_shf(_mask)); \
+                                              ^~~~~
+   drivers/soundwire/bus.c:627:20: warning: shift count >= width of type [-Wshift-count-overflow]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   include/linux/bits.h:35:22: note: expanded from macro '__GENMASK'
+           (((~UL(0)) - (UL(1) << (l)) + 1) & \
+                               ^
+   include/linux/bitfield.h:109:50: note: expanded from macro 'FIELD_GET'
+                   (typeof(_mask))(((_reg) & (_mask)) >> __bf_shf(_mask)); \
+                                                         ~~~~~~~~~^~~~~~
+   include/linux/bitfield.h:42:38: note: expanded from macro '__bf_shf'
+   #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+                                        ^
+   drivers/soundwire/bus.c:627:20: warning: shift count is negative [-Wshift-count-negative]
+           id->sdw_version = SDW_VERSION(addr);
+                             ^~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:467:36: note: expanded from macro 'SDW_VERSION'
+   #define SDW_VERSION(adr)        FIELD_GET(SDW_VERSION_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:460:26: note: expanded from macro 'SDW_VERSION_MASK'
+   #define SDW_VERSION_MASK        GENMASK(47, 44)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   include/linux/bits.h:36:11: note: expanded from macro '__GENMASK'
+            (~UL(0) >> (BITS_PER_LONG - 1 - (h))))
+                    ^
+   include/linux/bitfield.h:109:50: note: expanded from macro 'FIELD_GET'
+                   (typeof(_mask))(((_reg) & (_mask)) >> __bf_shf(_mask)); \
+                                                         ~~~~~~~~~^~~~~~
+   include/linux/bitfield.h:42:38: note: expanded from macro '__bf_shf'
+   #define __bf_shf(x) (__builtin_ffsll(x) - 1)
+                                        ^
+   drivers/soundwire/bus.c:628:18: warning: shift count >= width of type [-Wshift-count-overflow]
+           id->unique_id = SDW_UNIQUE_ID(addr);
+                           ^~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:468:38: note: expanded from macro 'SDW_UNIQUE_ID'
+   #define SDW_UNIQUE_ID(adr)      FIELD_GET(SDW_UNIQUE_ID_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:461:28: note: expanded from macro 'SDW_UNIQUE_ID_MASK'
+   #define SDW_UNIQUE_ID_MASK      GENMASK(43, 40)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 4 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+                   if (!(condition))                                       \
+                         ^~~~~~~~~
+   drivers/soundwire/bus.c:628:18: warning: shift count is negative [-Wshift-count-negative]
+           id->unique_id = SDW_UNIQUE_ID(addr);
+                           ^~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:468:38: note: expanded from macro 'SDW_UNIQUE_ID'
+   #define SDW_UNIQUE_ID(adr)      FIELD_GET(SDW_UNIQUE_ID_MASK, addr)
+                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/soundwire/sdw.h:461:28: note: expanded from macro 'SDW_UNIQUE_ID_MASK'
+   #define SDW_UNIQUE_ID_MASK      GENMASK(43, 40)
+                                   ^
+   include/linux/bits.h:38:31: note: expanded from macro 'GENMASK'
+           (GENMASK_INPUT_CHECK(h, l) + __GENMASK(h, l))
+                                        ^
+   note: (skipping 4 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+           __compiletime_assert(condition, msg, prefix, suffix)
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# https://github.com/digitalocean/linux-coresched/commit/c283856632af132e32b87a7ba0fc8b71f01c8508
-git remote add digitalocean-linux-coresched https://github.com/digitalocean/linux-coresched
-git fetch --no-tags digitalocean-linux-coresched coresched/v7-v5.9-rc
-git checkout c283856632af132e32b87a7ba0fc8b71f01c8508
-vim +/irq_work_pending +529 arch/powerpc/kernel/time.c
+# https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/soundwire.git/commit/?id=ce703e8b9fba156573170bae234a561c7e736a8e
+git remote add vkoul-soundwire https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/soundwire.git
+git fetch --no-tags vkoul-soundwire topic/reg_cleanup
+git checkout ce703e8b9fba156573170bae234a561c7e736a8e
+vim +627 drivers/soundwire/bus.c
 
-0fe1ac48bef018b arch/powerpc/kernel/time.c Paul Mackerras         2010-04-13  528  
-e360adbe29241a0 arch/powerpc/kernel/time.c Peter Zijlstra         2010-10-14 @529  DEFINE_PER_CPU(u8, irq_work_pending);
-0fe1ac48bef018b arch/powerpc/kernel/time.c Paul Mackerras         2010-04-13  530  
-69111bac42f5cea arch/powerpc/kernel/time.c Christoph Lameter      2014-10-21  531  #define set_irq_work_pending_flag()	__this_cpu_write(irq_work_pending, 1)
-69111bac42f5cea arch/powerpc/kernel/time.c Christoph Lameter      2014-10-21  532  #define test_irq_work_pending()		__this_cpu_read(irq_work_pending)
-69111bac42f5cea arch/powerpc/kernel/time.c Christoph Lameter      2014-10-21  533  #define clear_irq_work_pending()	__this_cpu_write(irq_work_pending, 0)
-105988c015943e7 arch/powerpc/kernel/time.c Paul Mackerras         2009-06-17  534  
-abc3fce76adbdfa arch/powerpc/kernel/time.c Nicholas Piggin        2020-04-02  535  #endif /* 32 vs 64 bit */
-abc3fce76adbdfa arch/powerpc/kernel/time.c Nicholas Piggin        2020-04-02  536  
-4f8b50bbbe63ae4 arch/powerpc/kernel/time.c Peter Zijlstra         2011-06-27  537  void arch_irq_work_raise(void)
-0fe1ac48bef018b arch/powerpc/kernel/time.c Paul Mackerras         2010-04-13  538  {
-abc3fce76adbdfa arch/powerpc/kernel/time.c Nicholas Piggin        2020-04-02  539  	/*
-abc3fce76adbdfa arch/powerpc/kernel/time.c Nicholas Piggin        2020-04-02  540  	 * 64-bit code that uses irq soft-mask can just cause an immediate
-abc3fce76adbdfa arch/powerpc/kernel/time.c Nicholas Piggin        2020-04-02  541  	 * interrupt here that gets soft masked, if this is called under
-abc3fce76adbdfa arch/powerpc/kernel/time.c Nicholas Piggin        2020-04-02  542  	 * local_irq_disable(). It might be possible to prevent that happening
-abc3fce76adbdfa arch/powerpc/kernel/time.c Nicholas Piggin        2020-04-02  543  	 * by noticing interrupts are disabled and setting decrementer pending
-abc3fce76adbdfa arch/powerpc/kernel/time.c Nicholas Piggin        2020-04-02  544  	 * to be replayed when irqs are enabled. The problem there is that
-abc3fce76adbdfa arch/powerpc/kernel/time.c Nicholas Piggin        2020-04-02  545  	 * tracing can call irq_work_raise, including in code that does low
-abc3fce76adbdfa arch/powerpc/kernel/time.c Nicholas Piggin        2020-04-02  546  	 * level manipulations of irq soft-mask state (e.g., trace_hardirqs_on)
-abc3fce76adbdfa arch/powerpc/kernel/time.c Nicholas Piggin        2020-04-02  547  	 * which could get tangled up if we're messing with the same state
-abc3fce76adbdfa arch/powerpc/kernel/time.c Nicholas Piggin        2020-04-02  548  	 * here.
-abc3fce76adbdfa arch/powerpc/kernel/time.c Nicholas Piggin        2020-04-02  549  	 */
-0fe1ac48bef018b arch/powerpc/kernel/time.c Paul Mackerras         2010-04-13  550  	preempt_disable();
-e360adbe29241a0 arch/powerpc/kernel/time.c Peter Zijlstra         2010-10-14 @551  	set_irq_work_pending_flag();
-0fe1ac48bef018b arch/powerpc/kernel/time.c Paul Mackerras         2010-04-13  552  	set_dec(1);
-0fe1ac48bef018b arch/powerpc/kernel/time.c Paul Mackerras         2010-04-13  553  	preempt_enable();
-0fe1ac48bef018b arch/powerpc/kernel/time.c Paul Mackerras         2010-04-13  554  }
-0fe1ac48bef018b arch/powerpc/kernel/time.c Paul Mackerras         2010-04-13  555  
-e360adbe29241a0 arch/powerpc/kernel/time.c Peter Zijlstra         2010-10-14  556  #else  /* CONFIG_IRQ_WORK */
-105988c015943e7 arch/powerpc/kernel/time.c Paul Mackerras         2009-06-17  557  
-e360adbe29241a0 arch/powerpc/kernel/time.c Peter Zijlstra         2010-10-14  558  #define test_irq_work_pending()	0
-e360adbe29241a0 arch/powerpc/kernel/time.c Peter Zijlstra         2010-10-14  559  #define clear_irq_work_pending()
-105988c015943e7 arch/powerpc/kernel/time.c Paul Mackerras         2009-06-17  560  
-e360adbe29241a0 arch/powerpc/kernel/time.c Peter Zijlstra         2010-10-14  561  #endif /* CONFIG_IRQ_WORK */
-105988c015943e7 arch/powerpc/kernel/time.c Paul Mackerras         2009-06-17  562  
-^1da177e4c3f415 arch/ppc64/kernel/time.c   Linus Torvalds         2005-04-16  563  /*
-^1da177e4c3f415 arch/ppc64/kernel/time.c   Linus Torvalds         2005-04-16  564   * timer_interrupt - gets called when the decrementer overflows,
-^1da177e4c3f415 arch/ppc64/kernel/time.c   Linus Torvalds         2005-04-16  565   * with interrupts disabled.
-^1da177e4c3f415 arch/ppc64/kernel/time.c   Linus Torvalds         2005-04-16  566   */
-c7aeffc4d38f057 arch/ppc64/kernel/time.c   Kumar Gala             2005-09-19  567  void timer_interrupt(struct pt_regs *regs)
-^1da177e4c3f415 arch/ppc64/kernel/time.c   Linus Torvalds         2005-04-16  568  {
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  569  	struct clock_event_device *evt = this_cpu_ptr(&decrementers);
-69111bac42f5cea arch/powerpc/kernel/time.c Christoph Lameter      2014-10-21  570  	u64 *next_tb = this_cpu_ptr(&decrementers_next_tb);
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  571  	struct pt_regs *old_regs;
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  572  	u64 now;
-d831d0b83f20588 arch/powerpc/kernel/time.c Tony Breeds            2007-09-21  573  
-963e5d3b76d657f arch/powerpc/kernel/time.c Benjamin Herrenschmidt 2011-03-29  574  	/* Some implementations of hotplug will get timer interrupts while
-689dfa894c57842 arch/powerpc/kernel/time.c Tiejun Chen            2013-01-15  575  	 * offline, just ignore these and we also need to set
-689dfa894c57842 arch/powerpc/kernel/time.c Tiejun Chen            2013-01-15  576  	 * decrementers_next_tb as MAX to make sure __check_irq_replay
-689dfa894c57842 arch/powerpc/kernel/time.c Tiejun Chen            2013-01-15  577  	 * don't replay timer interrupt when return, otherwise we'll trap
-689dfa894c57842 arch/powerpc/kernel/time.c Tiejun Chen            2013-01-15  578  	 * here infinitely :(
-963e5d3b76d657f arch/powerpc/kernel/time.c Benjamin Herrenschmidt 2011-03-29  579  	 */
-a7cba02deceda96 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  580  	if (unlikely(!cpu_online(smp_processor_id()))) {
-689dfa894c57842 arch/powerpc/kernel/time.c Tiejun Chen            2013-01-15  581  		*next_tb = ~(u64)0;
-a7cba02deceda96 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  582  		set_dec(decrementer_max);
-963e5d3b76d657f arch/powerpc/kernel/time.c Benjamin Herrenschmidt 2011-03-29  583  		return;
-689dfa894c57842 arch/powerpc/kernel/time.c Tiejun Chen            2013-01-15  584  	}
-963e5d3b76d657f arch/powerpc/kernel/time.c Benjamin Herrenschmidt 2011-03-29  585  
-a7cba02deceda96 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  586  	/* Ensure a positive value is written to the decrementer, or else
-a7cba02deceda96 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  587  	 * some CPUs will continue to take decrementer exceptions. When the
-a7cba02deceda96 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  588  	 * PPC_WATCHDOG (decrementer based) is configured, keep this at most
-a7cba02deceda96 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  589  	 * 31 bits, which is about 4 seconds on most systems, which gives
-a7cba02deceda96 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  590  	 * the watchdog a chance of catching timer interrupt hard lockups.
-a7cba02deceda96 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  591  	 */
-a7cba02deceda96 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  592  	if (IS_ENABLED(CONFIG_PPC_WATCHDOG))
-a7cba02deceda96 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  593  		set_dec(0x7fffffff);
-a7cba02deceda96 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  594  	else
-a7cba02deceda96 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  595  		set_dec(decrementer_max);
-a7cba02deceda96 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  596  
-7230c5644188cd9 arch/powerpc/kernel/time.c Benjamin Herrenschmidt 2012-03-06  597  	/* Conditionally hard-enable interrupts now that the DEC has been
-7230c5644188cd9 arch/powerpc/kernel/time.c Benjamin Herrenschmidt 2012-03-06  598  	 * bumped to its maximum value
-7230c5644188cd9 arch/powerpc/kernel/time.c Benjamin Herrenschmidt 2012-03-06  599  	 */
-7230c5644188cd9 arch/powerpc/kernel/time.c Benjamin Herrenschmidt 2012-03-06  600  	may_hard_irq_enable();
-7230c5644188cd9 arch/powerpc/kernel/time.c Benjamin Herrenschmidt 2012-03-06  601  
-89713ed10815401 arch/powerpc/kernel/time.c Anton Blanchard        2010-01-31  602  
-6e0fdf9af216887 arch/powerpc/kernel/time.c Paul Bolle             2014-05-20  603  #if defined(CONFIG_PPC32) && defined(CONFIG_PPC_PMAC)
-f2783c15007468c arch/powerpc/kernel/time.c Paul Mackerras         2005-10-20  604  	if (atomic_read(&ppc_n_lost_interrupts) != 0)
-f2783c15007468c arch/powerpc/kernel/time.c Paul Mackerras         2005-10-20  605  		do_IRQ(regs);
-f2783c15007468c arch/powerpc/kernel/time.c Paul Mackerras         2005-10-20  606  #endif
-^1da177e4c3f415 arch/ppc64/kernel/time.c   Linus Torvalds         2005-04-16  607  
-7d12e780e003f93 arch/powerpc/kernel/time.c David Howells          2006-10-05  608  	old_regs = set_irq_regs(regs);
-^1da177e4c3f415 arch/ppc64/kernel/time.c   Linus Torvalds         2005-04-16  609  	irq_enter();
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  610  	trace_timer_interrupt_entry(regs);
-^1da177e4c3f415 arch/ppc64/kernel/time.c   Linus Torvalds         2005-04-16  611  
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05 @612  	if (test_irq_work_pending()) {
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  613  		clear_irq_work_pending();
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  614  		irq_work_run();
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  615  	}
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  616  
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  617  	now = get_tb_or_rtc();
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  618  	if (now >= *next_tb) {
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  619  		*next_tb = ~(u64)0;
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  620  		if (evt->event_handler)
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  621  			evt->event_handler(evt);
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  622  		__this_cpu_inc(irq_stat.timer_irqs_event);
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  623  	} else {
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  624  		now = *next_tb - now;
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  625  		if (now <= decrementer_max)
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  626  			set_dec(now);
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  627  		/* We may have raced with new irq work */
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  628  		if (test_irq_work_pending())
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  629  			set_dec(1);
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  630  		__this_cpu_inc(irq_stat.timer_irqs_others);
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  631  	}
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  632  
-3f984620f9a4fe0 arch/powerpc/kernel/time.c Nicholas Piggin        2018-05-05  633  	trace_timer_interrupt_exit(regs);
-^1da177e4c3f415 arch/ppc64/kernel/time.c   Linus Torvalds         2005-04-16  634  	irq_exit();
-7d12e780e003f93 arch/powerpc/kernel/time.c David Howells          2006-10-05  635  	set_irq_regs(old_regs);
-^1da177e4c3f415 arch/ppc64/kernel/time.c   Linus Torvalds         2005-04-16  636  }
-9445aa1a3062a75 arch/powerpc/kernel/time.c Al Viro                2016-01-13  637  EXPORT_SYMBOL(timer_interrupt);
-^1da177e4c3f415 arch/ppc64/kernel/time.c   Linus Torvalds         2005-04-16  638  
+d52d7a1be02cc6 Sanyog Kale          2017-12-14  621  
+7c3cd189b86d2f Vinod Koul           2017-12-14  622  void sdw_extract_slave_id(struct sdw_bus *bus,
+7c3cd189b86d2f Vinod Koul           2017-12-14  623  			  u64 addr, struct sdw_slave_id *id)
+7c3cd189b86d2f Vinod Koul           2017-12-14  624  {
+17ed5bef49f42e Pierre-Louis Bossart 2019-05-01  625  	dev_dbg(bus->dev, "SDW Slave Addr: %llx\n", addr);
+7c3cd189b86d2f Vinod Koul           2017-12-14  626  
+2c6cff682d6681 Pierre-Louis Bossart 2020-02-25 @627  	id->sdw_version = SDW_VERSION(addr);
+2c6cff682d6681 Pierre-Louis Bossart 2020-02-25  628  	id->unique_id = SDW_UNIQUE_ID(addr);
+2c6cff682d6681 Pierre-Louis Bossart 2020-02-25  629  	id->mfg_id = SDW_MFG_ID(addr);
+2c6cff682d6681 Pierre-Louis Bossart 2020-02-25  630  	id->part_id = SDW_PART_ID(addr);
+2c6cff682d6681 Pierre-Louis Bossart 2020-02-25  631  	id->class_id = SDW_CLASS_ID(addr);
+7c3cd189b86d2f Vinod Koul           2017-12-14  632  
+7c3cd189b86d2f Vinod Koul           2017-12-14  633  	dev_dbg(bus->dev,
+17ed5bef49f42e Pierre-Louis Bossart 2019-05-01  634  		"SDW Slave class_id %x, part_id %x, mfg_id %x, unique_id %x, version %x\n",
+7c3cd189b86d2f Vinod Koul           2017-12-14  635  				id->class_id, id->part_id, id->mfg_id,
+7c3cd189b86d2f Vinod Koul           2017-12-14  636  				id->unique_id, id->sdw_version);
+7c3cd189b86d2f Vinod Koul           2017-12-14  637  }
+d52d7a1be02cc6 Sanyog Kale          2017-12-14  638  
 
-:::::: The code at line 529 was first introduced by commit
-:::::: e360adbe29241a0194e10e20595360dd7b98a2b3 irq_work: Add generic hardirq context callbacks
+:::::: The code at line 627 was first introduced by commit
+:::::: 2c6cff682d6681fb1cdb03b3cdbbecd3fb0e4c89 soundwire: add helper macros for devID fields
 
-:::::: TO: Peter Zijlstra <a.p.zijlstra@chello.nl>
-:::::: CC: Ingo Molnar <mingo@elte.hu>
+:::::: TO: Pierre-Louis Bossart <pierre-louis.bossart@linux.intel.com>
+:::::: CC: Vinod Koul <vkoul@kernel.org>
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -640,542 +720,575 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202008290641.0R2SYcET%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202008290921.dihQHdto%25lkp%40intel.com.
 
---HcAYCG3uE/tztfnV
+--2fHTh5uZTiUOsy+g
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-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
+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
+M0u91/0/A9uGHCXTAQA=
 
---HcAYCG3uE/tztfnV--
+--2fHTh5uZTiUOsy+g--
