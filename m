@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBJ7CWT5AKGQEG2ITMGA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBHPFWT5AKGQEWG6CJ6Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103a.google.com (mail-pj1-x103a.google.com [IPv6:2607:f8b0:4864:20::103a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 335E5257F7C
-	for <lists+clang-built-linux@lfdr.de>; Mon, 31 Aug 2020 19:19:37 +0200 (CEST)
-Received: by mail-pj1-x103a.google.com with SMTP id mu14sf115322pjb.7
-        for <lists+clang-built-linux@lfdr.de>; Mon, 31 Aug 2020 10:19:37 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598894376; cv=pass;
+Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5C2B1257F90
+	for <lists+clang-built-linux@lfdr.de>; Mon, 31 Aug 2020 19:25:51 +0200 (CEST)
+Received: by mail-pl1-x638.google.com with SMTP id o6sf3766027pll.9
+        for <lists+clang-built-linux@lfdr.de>; Mon, 31 Aug 2020 10:25:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598894750; cv=pass;
         d=google.com; s=arc-20160816;
-        b=MKBNUvSEx2J3KmAa8nCvjnG7iW4P6/ByKm6G6yi1SRHTnM4yzwD+wBrblhpe6jQ6Mc
-         6EUsY3HdJ2oldI+3h0BKEBnRmldPAqF4AYmTb8ccsA5r0DELKmRS3yyuzv0gsIwul3+z
-         hmypzWSuolfv99n0sKNicdr4i47tfMFfokjUp92r51rm9yPETnoLbIGp3WcphTjJ3fSD
-         /XW+MehuekNGfZCHwaDD7tSplaEUlsJjVLiPqCdlTq3+VKGLgNQzLqINFsn7dM1v2qyc
-         32NbtGypSKBnvs6o9veyXGSEvhzRm1KLjJjKTssgMiFHNrOWdC4sWIkQeqJlndHuXnHV
-         oiuA==
+        b=oK/lunxwvTZybU9Mhq6iZUqHFjcLdMiBKKoz4/zwgLa5weCXkJHh5kdBReAWuxXwE+
+         2V4+2un8QH4sTd7bx7K8YETo4Imm9xbSIpyVlesV/QUY9DhTjNrYRbIYao2mRxbzaZGY
+         J9o4WBkWa+cg75gqaL4FJtEDoZ2W4SayBuWtJ8TuSfWZCjC+HKXYCVFnSoK1YGc7XsAU
+         i1O4j458W0Zu/xDUtqhFbWITPPLiAZyqDpHwcG8wrrbu8byfQ23PzClQO9YJw36l+Bzq
+         5PYnN1E5WJS2pdz/w3SsdYmJFoUAgylvy2GmIXZ5NL90O0LcJhDWNKZ+T+xFl0VQHlXY
+         goKQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=dpGKAqtw82WgDRROQbAb9uqV1NwFYkGdF9+GTCG178k=;
-        b=qSmXD1akLkw3WHeYN44dvcIBDIcxrZwZ3/WPXkbeM1btvVX2QSbdicqIevoCcng2Ov
-         SaweFcThDY3IUj9F/MnnLBeYlyalXhgWZCZyfzHY8ydq7L/cpWPIKsz5exCPBomDNYCe
-         xP8MsHZXYbdtddZ+Id8PmsksPlUxjso9QtaiKo9KCmEEf7dSOGYakB3u9+X2hlpRoeaS
-         jMn1U1+CzJA379jxrSgdY10+gNzQjAH4qfo3jFzV2U7/TUjDEfPYed3NaHpDvigwhRfx
-         SZj1BQpKNu/zB2k+trS0hTbifoDfGfrpmdXinHHAdP1BSf2r+C3gn0xDwYi/psI0EG7z
-         8nzQ==
+        bh=e4aXzrzakvBh1pyJ+FVnJKqK7vRszH1EfF03SXJkNdU=;
+        b=p8gZIzN2baEoxDl7q4Td8iXho2S/N3Kp5GPZeBBvuXRhD4nlLdlqmRsnTooHVPGXA9
+         hwP3cfNfq8Q9U9sg5aHTjd43QRE2IP2LcYvFa3OnwYRNO/0kFytFXR9vI2IL9UaumIC8
+         elYoTmNrE3Rm89iz0Oj9Jb+SIPItyJEh/1Md2JPMdK6hJI2/JcbZ+yy1tjMQYB3srBmG
+         V6BHrBcrBqiKFwuO+8XPcgEkCqjPIHwLSvG8udTcYeDUhS1UJEm18j2uKldl+z50YTPr
+         QxLAW0CPnMTyhN/K3TYP9tDgc4GkCtN/2i9+hY41cVuQ/MP30uhXfPNgA+1ryYa7fTXF
+         TSPQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=v9feUoCj;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=QLtNRPX7;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::102b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=dpGKAqtw82WgDRROQbAb9uqV1NwFYkGdF9+GTCG178k=;
-        b=OnyOjf8At076zn94855hpvhwaNoceZT7fYUnKBfdKvI14/XuiEb/MoLvwrxQbQZQ3I
-         m7XSsq/qzIoIwDd+XSRf2DrjWIEM6ryd5dIDMHaCdp4eXLC9Uq0a7YPfhX4Tqn4hfVEI
-         RIKzGpDaZf5NYpG2QKi4w7/Go1fWqOwhgUZ2OvFUe/X8oXx4Mg/0MhKerOLHAgn/Rohn
-         nOdb7McN0WdfMNydMi5PqTx2sEjoHoK4Qik996+39zBmZ1vLv1uOSFrn/xslQgoast6a
-         09Wi0AEttZhx19GjbWjPYXWOnu0CkR95nTls8lrUxMWSszUEZnlYQ1lSWAGIs6KaoZzA
-         QIqw==
+        bh=e4aXzrzakvBh1pyJ+FVnJKqK7vRszH1EfF03SXJkNdU=;
+        b=DnFceeI5dFUkJX/eVzQ0tA5p9bpM3n1tvZ4+iRQh+hDcWTzloY7e4SCCt5IfQUj4gR
+         WK8s66xU8NZKZLFoSOz6WIF5s6gnFDfJpn74TPE+W2zqzc9sLM2MmsWhFkHtCVK9wrVX
+         UV5nXbSFw6FgIwzirRHGCJ+OP+IABhBedf1o7Ua4mx+G7klFqklC0fbfxcR96n+vnHuR
+         cHRk7Dxnl1Wu0qEIiAq8YFrdT8zT8TC4Jfw1YxRxYlT3aNiNtFm6sxy9a4ho2zHcVftO
+         SvBYqOyJ9YVL+cTUifLOvLt6Qv0sPgsWRe0Sf0JfaDVFOqACP4Kdkgy+8Cc9ZeUctrAJ
+         5fvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,72 +49,76 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=dpGKAqtw82WgDRROQbAb9uqV1NwFYkGdF9+GTCG178k=;
-        b=OjrlraBC/tz9KK5RPYmUi1komP9pc7fEfLXQTrQgtsWqtstEIRt92x3AN5vZYlUYIL
-         NzElduQPSNP5AAQTOEj3yj+9zrM+WJCD5uROnzPZcYwVcKwuSPlkDHHORo71zaTKFgi+
-         ohZqDE6yXXWCl8/vbr41mJOtxtrXAu4jA4g+Q/oE+wg/fR/tGMpf8HFpS4j4JqgqHjZ5
-         MTtE5Xe8dtxEb1eMDUnvyp/8dXlYKsS5sVei6dSZsKZzGojmNAtR+HdelHJpKh2vcLdA
-         3gPcG+4h22FI72PFxysgcpR9qP5wL1j7MZXfyQdykEi13QbBBKE6lb22+AW1aIx3H0r1
-         dMNA==
-X-Gm-Message-State: AOAM5306JxNbdJN3BgobV+RvyyLchN5adpbQ06F2S2FlGcOC0VkLUPnJ
-	g3B70dwGORKHIQf5+1nPga8=
-X-Google-Smtp-Source: ABdhPJzGZje9NehRIGUQOWjyR7OqJIlOJJvkqoegKrbUdHyGCu/RBEzuxE+ngW7ESoXX+/gigyuuDA==
-X-Received: by 2002:a65:5c0d:: with SMTP id u13mr2057692pgr.333.1598894375893;
-        Mon, 31 Aug 2020 10:19:35 -0700 (PDT)
+        bh=e4aXzrzakvBh1pyJ+FVnJKqK7vRszH1EfF03SXJkNdU=;
+        b=A9dMhCTT+sArTBW0pANDyhuZMzJq0ynvp9W3pBZjEW5is8IWusOkbITRDceBmyKUXR
+         2o+XkamCiuOP+gbNHzJSZfwo0Lip8mdQ1Z7GJ7iNoK1X/xQptjlmxugMayy30CXwvzLR
+         aTrbD97ch6O17hrzXdT2GB1cXfxBYpvjMmvb02saF1WzoedmGkqaSwD3PNJS8uQcNAm6
+         1fW0qD8p/EoW3yPiBN47aDnU+OGp72Ful6ZW0VsxeTaAjfw4e/za1KI0G4HZBW+KneYS
+         OYldKAG1Z6ZEYQlsH2RQm88uwFucuq4iXxuoxUOZCr6qkRsZWXD+WN9W11S4AhRsyqxv
+         9xPQ==
+X-Gm-Message-State: AOAM532oBE6Il1LxVJ/ySJPFrta1Em+7Wzcfc44w7Q4zcoOp/ynDTFri
+	S/zzabMxwdOnuHin6n/srf8=
+X-Google-Smtp-Source: ABdhPJz3QT2YE2YuyQJmYToPztKqvk57G9DJM5jt/kGIl/tvGH0okevwgoUETmofydgGY1c/OfMeVQ==
+X-Received: by 2002:a17:90b:390d:: with SMTP id ob13mr388147pjb.122.1598894750023;
+        Mon, 31 Aug 2020 10:25:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:ec17:: with SMTP id l23ls100554pjy.1.gmail; Mon, 31
- Aug 2020 10:19:35 -0700 (PDT)
-X-Received: by 2002:a17:90a:1910:: with SMTP id 16mr360669pjg.76.1598894375424;
-        Mon, 31 Aug 2020 10:19:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598894375; cv=none;
+Received: by 2002:a17:90b:3355:: with SMTP id lm21ls102557pjb.3.canary-gmail;
+ Mon, 31 Aug 2020 10:25:49 -0700 (PDT)
+X-Received: by 2002:a17:90a:ba04:: with SMTP id s4mr369231pjr.3.1598894749563;
+        Mon, 31 Aug 2020 10:25:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598894749; cv=none;
         d=google.com; s=arc-20160816;
-        b=EbZXf8YW4i+uOmWNgCIO73GIkXyEVJLMDEJb2BnPH4U9epT/LosXmW89Mm3eO+sE4F
-         ROZzaFJJ46Hjf5eGnqPu/c/zgK0USzI/XbrCgSMg2T+ncjp04Z1lL4Z70ze4PQMvBmR0
-         V3bZ2/98Lo/muaEtD/RxpZc1O2HKMe1AkVc36NNBJuQ4cxz8NvPk+raoi5WOE2dJXRDA
-         hdrCM8nuJXSQHNj0/LKg8RTAvdTgI0K2d8nhMcD57M9ftFaMgp04J3UT/pv1PyBtXQPH
-         dYAcgEodwqy3n6h+ZCluQ+PN+zY31s5ACZ4aZbbm5ETDXvudPPB7rqDQvUz7AP36As2s
-         hWfg==
+        b=blaeFN+wPW2HilAkdDiRQBzZ4vWp14yG3sauqU0SvqM0es20WpFziz4nsb+bgcf/Go
+         ISDE7ovSfkn4B7RegWZDyzFz2oHOE8iwZ7+GcuFT/qfHjuC2w8xAOmVMj0sPI6PP+zFB
+         l17uxQiIu1jcQN6LuIkMqd7Wc+BvzTnpVbgpuVA/3SZpE1kVOdC49ltK2KsX6h7xFvqr
+         gYsxAotGVLrMBq9yzyJEvEbVyd6HMVd7mu3t7sPTl7z0erZUOqHwuKwUDau+lNsrkRQl
+         YR+HDtU0YUGUgogieG/Di6Sgq43oc9z4dFDktnOu9xwWHsZrfsqbgsgR0RiQJUpV+nRZ
+         7zCQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=9MpipiwXTNzZHkf9cIRXt5D63hj3ZsJzvV/rogss4Ck=;
-        b=FZGetQBdEV/8P42/rzZMsAOyayo3Okd54taN9zUOSrM3eWeImnETbn/RFQ4BUZnDLy
-         r5tAGUKrB3+sZpczca8jJ4OhQnMCX+i28Pk2gFA8YScaMIBkXkWcJoIZKf8SqzOZBoTU
-         pwkO3hnPq9bWyTjC/4jZz1VpJhIEdYLk6BF48K5vVLlXHPMkvbzHVcN42RiJYxhHbJ1Q
-         qQIvXWDbJ78MZoi0p17d35VDKZgTK5tfDqj/VwV4f2YwMo0DpXuqPjiraTVOovyluPMi
-         1h41RPewu4k+NDHBi6q7LaDfWuuliDqJwgB46KONq3SzyNYwKMHmbYKK6W8LtBCsgFS/
-         cxFg==
+        bh=+/jujZZnqPIUGwUwX42SLwwyiG665Dp91A8h2o6sN8U=;
+        b=ClBFa5EuYOGancESHBKvDB5BUCG4x0+yOov7Wn+gZaMW1yfl/i2BtDGoOj+jY4jNp6
+         QJsRhwVSLMbHspX6Zx1Jum8DhNo7Q8jwpqinUN4eGDXA05XU49+DwvwQY3LjqCJTizQ4
+         sIjO8HuxpXgLi3TJFpgIj+qAZTIhY2MyIMXP84Qq1gneT/twKKfP61P3/N0j5wFSlra1
+         qV41t7JoOy141AIIUIKpHcLn/iLdC8QsgI5jKvMrjnPr8wBQ6DreYHRtfqD81qjH7pvu
+         BlZfer7guS0/vd6ehD00qbq0BbRCJuRJwe8uM9MXvvQYKHKfBK2FjY9EpJHE2qNKP8yw
+         Lrmg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=v9feUoCj;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=QLtNRPX7;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::102b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x644.google.com (mail-pl1-x644.google.com. [2607:f8b0:4864:20::644])
-        by gmr-mx.google.com with ESMTPS id s2si452709pgh.4.2020.08.31.10.19.35
+Received: from mail-pj1-x102b.google.com (mail-pj1-x102b.google.com. [2607:f8b0:4864:20::102b])
+        by gmr-mx.google.com with ESMTPS id c11si13011pjn.0.2020.08.31.10.25.49
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 31 Aug 2020 10:19:35 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644 as permitted sender) client-ip=2607:f8b0:4864:20::644;
-Received: by mail-pl1-x644.google.com with SMTP id z15so3362606plo.7
-        for <clang-built-linux@googlegroups.com>; Mon, 31 Aug 2020 10:19:35 -0700 (PDT)
-X-Received: by 2002:a17:902:9f8a:: with SMTP id g10mr1800684plq.158.1598894374692;
- Mon, 31 Aug 2020 10:19:34 -0700 (PDT)
+        Mon, 31 Aug 2020 10:25:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::102b as permitted sender) client-ip=2607:f8b0:4864:20::102b;
+Received: by mail-pj1-x102b.google.com with SMTP id ls14so150609pjb.3
+        for <clang-built-linux@googlegroups.com>; Mon, 31 Aug 2020 10:25:49 -0700 (PDT)
+X-Received: by 2002:a17:90a:fc98:: with SMTP id ci24mr352757pjb.101.1598894748730;
+ Mon, 31 Aug 2020 10:25:48 -0700 (PDT)
 MIME-Version: 1.0
-References: <202008292210.L44zhfiq%lkp@intel.com>
-In-Reply-To: <202008292210.L44zhfiq%lkp@intel.com>
+References: <202008270229.SO2NVhto%lkp@intel.com> <CAKwvOdnAOE+NCOg3r732UbaQaW474h-zBdKhBZoYRw=yyM1GZA@mail.gmail.com>
+ <871rjn36wz.fsf@mpe.ellerman.id.au>
+In-Reply-To: <871rjn36wz.fsf@mpe.ellerman.id.au>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 31 Aug 2020 10:19:23 -0700
-Message-ID: <CAKwvOdm0fZLf5BoF9RDdsRWKDpzomJzE=dy5QgpJnstTLHBGxg@mail.gmail.com>
-Subject: Re: ld.lld: error: include/linux/trace_events.h:613:(.text+0x748):
- relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile
- with -mno-relax
-To: clang-built-linux <clang-built-linux@googlegroups.com>
-Cc: kbuild-all@lists.01.org, kernel test robot <lkp@intel.com>, 
-	Fangrui Song <maskray@google.com>
+Date: Mon, 31 Aug 2020 10:25:37 -0700
+Message-ID: <CAKwvOdmPhgBJQqMFdxf2-+R7ZVHOSw+Bae3_oigJX-W82i2WOg@mail.gmail.com>
+Subject: Re: [linux-next:master 3345/3539] ld.lld: warning:
+ drivers/built-in.a(nvme/host/hwmon.o):(.data..compoundliteral) is being
+ placed in '.data..compoundliteral'
+To: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Kees Cook <keescook@chromium.org>, kbuild-all@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, 
+	Linux Memory Management List <linux-mm@kvack.org>, kernel test robot <lkp@intel.com>, 
+	Sami Tolvanen <samitolvanen@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=v9feUoCj;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644
+ header.i=@google.com header.s=20161025 header.b=QLtNRPX7;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::102b
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -131,66 +135,346 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-https://github.com/ClangBuiltLinux/linux/issues/1020 sounds like we
-should add `-mno-relax` to KBUILD_LDFLAGS when using LLD for now.
+On Sun, Aug 30, 2020 at 7:07 PM Michael Ellerman <mpe@ellerman.id.au> wrote:
+>
+> Nick Desaulniers <ndesaulniers@google.com> writes:
+> > On Wed, Aug 26, 2020 at 11:21 AM kernel test robot <lkp@intel.com> wrote:
+> >>
+> >> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> >> head:   f37be72473a007d5d66c52f6cdf43fc8c0961f95
+> >> commit: 5934637641c863cc2c1765a0d01c5b6f53ecc4fc [3345/3539] lib/string.c: implement stpcpy
+> >> config: powerpc64-randconfig-r001-20200826 (attached as .config)
+> >> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 7cfcecece0e0430937cf529ce74d3a071a4dedc6)
+> >> reproduce (this is a W=1 build):
+> >>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> >>         chmod +x ~/bin/make.cross
+> >>         # install powerpc64 cross compiling tool for clang build
+> >>         # apt-get install binutils-powerpc64-linux-gnu
+> >>         git checkout 5934637641c863cc2c1765a0d01c5b6f53ecc4fc
+> >>         # save the attached .config to linux build tree
+> >>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64
+> >>
+> >> If you fix the issue, kindly add following tag as appropriate
+> >> Reported-by: kernel test robot <lkp@intel.com>
+> >>
+> >> All warnings (new ones prefixed by >>):
+> >>
+> >>    ld.lld: warning: kernel/built-in.a(trace/trace_syscalls.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >
+> > We probably need to add `.data..compoundliteral*` to the ppc linker scripts?
+>
+> Sure looks like it.
+>
+> Any idea what it is? Can we just fold them into .data ?
 
-On Sat, Aug 29, 2020 at 7:29 AM kernel test robot <lkp@intel.com> wrote:
+Compound literals in C are syntactic sugar; they're anonymous
+instances of structs declared inline of an initialization.  They get
+emitted as just static struct instances; but clang will emit them in
+their own sections, which for the kernel is annoying.  We've been
+munging them together via linker script as you suggest, though we did
+have an Android OEM claim that was causing issues in their driver
+(which I haven't had enough time to investigate). I don't have an
+answer to "why does clang emit these in their own section?"  I wonder
+if I can simply rip that out...or if there's a good reason I'm not
+aware of.  TODO
+
 >
-> CC: linux-kernel@vger.kernel.org
-> TO: Feng Tang <feng.tang@intel.com>
-> CC: Andrew Morton <akpm@linux-foundation.org>
-> CC: Linux Memory Management List <linux-mm@kvack.org>
+> cheers
 >
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> head:   4d41ead6ead97c3730bbd186a601a64828668f01
-> commit: 09c60546f04f732d194a171b3a4ccc9ae1e704ba ./Makefile: add debug option to enable function aligned on 32 bytes
-> date:   2 weeks ago
-> config: riscv-randconfig-r014-20200829 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c10e63677f5d20f18010f8f68c631ddc97546f7d)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install riscv cross compiling tool for clang build
->         # apt-get install binutils-riscv64-linux-gnu
->         git checkout 09c60546f04f732d194a171b3a4ccc9ae1e704ba
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=riscv
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All errors (new ones prefixed by >>):
->
->    ld.lld: error: arch/riscv/kernel/head.S:52:(.head.text+0x8): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: init/main.c:664:(.text+0x0): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: include/linux/trace_events.h:611:(.text+0x25C): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: include/linux/trace_events.h:612:(.text+0x46C): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: include/linux/trace_events.h:613:(.text+0x6BC): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: include/linux/trace_events.h:613:(.text+0x6FC): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
-> >> ld.lld: error: include/linux/trace_events.h:613:(.text+0x748): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: include/linux/trace_events.h:613:(.text+0x788): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: include/linux/trace_events.h:614:(.text+0x7D0): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: include/linux/trace_events.h:614:(.text+0x810): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: include/trace/events/initcall.h:10:(.text+0xFD4): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: include/trace/events/initcall.h:10:(.text+0x103C): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: include/trace/events/initcall.h:10:(.text+0x1150): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: include/trace/events/initcall.h:10:(.text+0x1254): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: include/trace/events/initcall.h:10:(.text+0x1394): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: include/trace/events/initcall.h:10:(.text+0x13FC): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: include/trace/events/initcall.h:10:(.text+0x1450): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: include/trace/events/initcall.h:10:(.text+0x1538): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: include/trace/events/initcall.h:10:(.text+0x15FC): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: init/main.c:664:(.init.text+0x0): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->    ld.lld: error: too many errors emitted, stopping now (use -error-limit=0 to see all errors)
->
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202008292210.L44zhfiq%25lkp%40intel.com.
+> >> >> ld.lld: warning: drivers/built-in.a(nvme/host/hwmon.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >> >> ld.lld: warning: drivers/built-in.a(nvme/host/hwmon.o):(.data..compoundliteral.13) is being placed in '.data..compoundliteral.13'
+> >>    ld.lld: warning: drivers/built-in.a(nvme/host/hwmon.o):(.data..compoundliteral.14) is being placed in '.data..compoundliteral.14'
+> >>    ld.lld: warning: drivers/built-in.a(nvme/host/hwmon.o):(.data..compoundliteral.15) is being placed in '.data..compoundliteral.15'
+> >>    ld.lld: warning: drivers/built-in.a(media/tuners/tuner-types.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(media/tuners/tuner-types.o):(.data..compoundliteral.79) is being placed in '.data..compoundliteral.79'
+> >>    ld.lld: warning: drivers/built-in.a(power/supply/power_supply_hwmon.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(power/supply/power_supply_hwmon.o):(.data..compoundliteral.3) is being placed in '.data..compoundliteral.3'
+> >>    ld.lld: warning: drivers/built-in.a(power/supply/power_supply_hwmon.o):(.data..compoundliteral.4) is being placed in '.data..compoundliteral.4'
+> >>    ld.lld: warning: drivers/built-in.a(power/supply/power_supply_hwmon.o):(.data..compoundliteral.5) is being placed in '.data..compoundliteral.5'
+> >>    ld.lld: warning: drivers/built-in.a(power/supply/power_supply_hwmon.o):(.data..compoundliteral.6) is being placed in '.data..compoundliteral.6'
+> >>    ld.lld: warning: drivers/built-in.a(power/supply/power_supply_hwmon.o):(.data..compoundliteral.7) is being placed in '.data..compoundliteral.7'
+> >> >> ld.lld: warning: drivers/built-in.a(hwmon/w83773g.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >> >> ld.lld: warning: drivers/built-in.a(hwmon/w83773g.o):(.data..compoundliteral.6) is being placed in '.data..compoundliteral.6'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/w83773g.o):(.data..compoundliteral.7) is being placed in '.data..compoundliteral.7'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/w83773g.o):(.data..compoundliteral.8) is being placed in '.data..compoundliteral.8'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adm1177.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adm1177.o):(.data..compoundliteral.9) is being placed in '.data..compoundliteral.9'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adm1177.o):(.data..compoundliteral.10) is being placed in '.data..compoundliteral.10'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adm1177.o):(.data..compoundliteral.11) is being placed in '.data..compoundliteral.11'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adt7411.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adt7411.o):(.data..compoundliteral.4) is being placed in '.data..compoundliteral.4'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adt7411.o):(.data..compoundliteral.5) is being placed in '.data..compoundliteral.5'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adt7411.o):(.data..compoundliteral.6) is being placed in '.data..compoundliteral.6'
+> >> >> ld.lld: warning: drivers/built-in.a(hwmon/axi-fan-control.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >> >> ld.lld: warning: drivers/built-in.a(hwmon/axi-fan-control.o):(.data..compoundliteral.12) is being placed in '.data..compoundliteral.12'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/axi-fan-control.o):(.data..compoundliteral.13) is being placed in '.data..compoundliteral.13'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/axi-fan-control.o):(.data..compoundliteral.14) is being placed in '.data..compoundliteral.14'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/axi-fan-control.o):(.data..compoundliteral.15) is being placed in '.data..compoundliteral.15'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/axi-fan-control.o):(.data..compoundliteral.16) is being placed in '.data..compoundliteral.16'
+> >> >> ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >> >> ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.16) is being placed in '.data..compoundliteral.16'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.17) is being placed in '.data..compoundliteral.17'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.18) is being placed in '.data..compoundliteral.18'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.19) is being placed in '.data..compoundliteral.19'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.20) is being placed in '.data..compoundliteral.20'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.21) is being placed in '.data..compoundliteral.21'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.22) is being placed in '.data..compoundliteral.22'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.7) is being placed in '.data..compoundliteral.7'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.8) is being placed in '.data..compoundliteral.8'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.9) is being placed in '.data..compoundliteral.9'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.10) is being placed in '.data..compoundliteral.10'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.11) is being placed in '.data..compoundliteral.11'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.12) is being placed in '.data..compoundliteral.12'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.13) is being placed in '.data..compoundliteral.13'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.14) is being placed in '.data..compoundliteral.14'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.15) is being placed in '.data..compoundliteral.15'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.16) is being placed in '.data..compoundliteral.16'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.17) is being placed in '.data..compoundliteral.17'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.18) is being placed in '.data..compoundliteral.18'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.19) is being placed in '.data..compoundliteral.19'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.20) is being placed in '.data..compoundliteral.20'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.21) is being placed in '.data..compoundliteral.21'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.22) is being placed in '.data..compoundliteral.22'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.23) is being placed in '.data..compoundliteral.23'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.24) is being placed in '.data..compoundliteral.24'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.25) is being placed in '.data..compoundliteral.25'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.26) is being placed in '.data..compoundliteral.26'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.27) is being placed in '.data..compoundliteral.27'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.28) is being placed in '.data..compoundliteral.28'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.29) is being placed in '.data..compoundliteral.29'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.30) is being placed in '.data..compoundliteral.30'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.31) is being placed in '.data..compoundliteral.31'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.32) is being placed in '.data..compoundliteral.32'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.33) is being placed in '.data..compoundliteral.33'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.34) is being placed in '.data..compoundliteral.34'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm95245.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm95245.o):(.data..compoundliteral.5) is being placed in '.data..compoundliteral.5'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm95245.o):(.data..compoundliteral.6) is being placed in '.data..compoundliteral.6'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm95245.o):(.data..compoundliteral.7) is being placed in '.data..compoundliteral.7'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.24) is being placed in '.data..compoundliteral.24'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.25) is being placed in '.data..compoundliteral.25'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.26) is being placed in '.data..compoundliteral.26'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.27) is being placed in '.data..compoundliteral.27'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.28) is being placed in '.data..compoundliteral.28'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.29) is being placed in '.data..compoundliteral.29'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.30) is being placed in '.data..compoundliteral.30'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/max6650.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/max6650.o):(.data..compoundliteral.15) is being placed in '.data..compoundliteral.15'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/max6650.o):(.data..compoundliteral.16) is being placed in '.data..compoundliteral.16'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/max6650.o):(.data..compoundliteral.17) is being placed in '.data..compoundliteral.17'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral.3) is being placed in '.data..compoundliteral.3'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral.4) is being placed in '.data..compoundliteral.4'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral.5) is being placed in '.data..compoundliteral.5'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral.6) is being placed in '.data..compoundliteral.6'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral.7) is being placed in '.data..compoundliteral.7'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral.8) is being placed in '.data..compoundliteral.8'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrconf_core.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: <internal>:(.symtab) is being placed in '.symtab'
+> >>    ld.lld: warning: <internal>:(.shstrtab) is being placed in '.shstrtab'
+> >>    ld.lld: warning: <internal>:(.strtab) is being placed in '.strtab'
+> >>    ld.lld: warning: kernel/built-in.a(trace/trace_syscalls.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >> >> ld.lld: warning: drivers/built-in.a(nvme/host/hwmon.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >> >> ld.lld: warning: drivers/built-in.a(nvme/host/hwmon.o):(.data..compoundliteral.13) is being placed in '.data..compoundliteral.13'
+> >>    ld.lld: warning: drivers/built-in.a(nvme/host/hwmon.o):(.data..compoundliteral.14) is being placed in '.data..compoundliteral.14'
+> >>    ld.lld: warning: drivers/built-in.a(nvme/host/hwmon.o):(.data..compoundliteral.15) is being placed in '.data..compoundliteral.15'
+> >>    ld.lld: warning: drivers/built-in.a(media/tuners/tuner-types.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(media/tuners/tuner-types.o):(.data..compoundliteral.79) is being placed in '.data..compoundliteral.79'
+> >>    ld.lld: warning: drivers/built-in.a(power/supply/power_supply_hwmon.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(power/supply/power_supply_hwmon.o):(.data..compoundliteral.3) is being placed in '.data..compoundliteral.3'
+> >>    ld.lld: warning: drivers/built-in.a(power/supply/power_supply_hwmon.o):(.data..compoundliteral.4) is being placed in '.data..compoundliteral.4'
+> >>    ld.lld: warning: drivers/built-in.a(power/supply/power_supply_hwmon.o):(.data..compoundliteral.5) is being placed in '.data..compoundliteral.5'
+> >>    ld.lld: warning: drivers/built-in.a(power/supply/power_supply_hwmon.o):(.data..compoundliteral.6) is being placed in '.data..compoundliteral.6'
+> >>    ld.lld: warning: drivers/built-in.a(power/supply/power_supply_hwmon.o):(.data..compoundliteral.7) is being placed in '.data..compoundliteral.7'
+> >> >> ld.lld: warning: drivers/built-in.a(hwmon/w83773g.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >> >> ld.lld: warning: drivers/built-in.a(hwmon/w83773g.o):(.data..compoundliteral.6) is being placed in '.data..compoundliteral.6'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/w83773g.o):(.data..compoundliteral.7) is being placed in '.data..compoundliteral.7'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/w83773g.o):(.data..compoundliteral.8) is being placed in '.data..compoundliteral.8'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adm1177.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adm1177.o):(.data..compoundliteral.9) is being placed in '.data..compoundliteral.9'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adm1177.o):(.data..compoundliteral.10) is being placed in '.data..compoundliteral.10'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adm1177.o):(.data..compoundliteral.11) is being placed in '.data..compoundliteral.11'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adt7411.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adt7411.o):(.data..compoundliteral.4) is being placed in '.data..compoundliteral.4'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adt7411.o):(.data..compoundliteral.5) is being placed in '.data..compoundliteral.5'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adt7411.o):(.data..compoundliteral.6) is being placed in '.data..compoundliteral.6'
+> >> >> ld.lld: warning: drivers/built-in.a(hwmon/axi-fan-control.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >> >> ld.lld: warning: drivers/built-in.a(hwmon/axi-fan-control.o):(.data..compoundliteral.12) is being placed in '.data..compoundliteral.12'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/axi-fan-control.o):(.data..compoundliteral.13) is being placed in '.data..compoundliteral.13'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/axi-fan-control.o):(.data..compoundliteral.14) is being placed in '.data..compoundliteral.14'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/axi-fan-control.o):(.data..compoundliteral.15) is being placed in '.data..compoundliteral.15'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/axi-fan-control.o):(.data..compoundliteral.16) is being placed in '.data..compoundliteral.16'
+> >> >> ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >> >> ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.16) is being placed in '.data..compoundliteral.16'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.17) is being placed in '.data..compoundliteral.17'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.18) is being placed in '.data..compoundliteral.18'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.19) is being placed in '.data..compoundliteral.19'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.20) is being placed in '.data..compoundliteral.20'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.21) is being placed in '.data..compoundliteral.21'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.22) is being placed in '.data..compoundliteral.22'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.7) is being placed in '.data..compoundliteral.7'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.8) is being placed in '.data..compoundliteral.8'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.9) is being placed in '.data..compoundliteral.9'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.10) is being placed in '.data..compoundliteral.10'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.11) is being placed in '.data..compoundliteral.11'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.12) is being placed in '.data..compoundliteral.12'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.13) is being placed in '.data..compoundliteral.13'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.14) is being placed in '.data..compoundliteral.14'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.15) is being placed in '.data..compoundliteral.15'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.16) is being placed in '.data..compoundliteral.16'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.17) is being placed in '.data..compoundliteral.17'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.18) is being placed in '.data..compoundliteral.18'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.19) is being placed in '.data..compoundliteral.19'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.20) is being placed in '.data..compoundliteral.20'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.21) is being placed in '.data..compoundliteral.21'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.22) is being placed in '.data..compoundliteral.22'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.23) is being placed in '.data..compoundliteral.23'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.24) is being placed in '.data..compoundliteral.24'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.25) is being placed in '.data..compoundliteral.25'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.26) is being placed in '.data..compoundliteral.26'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.27) is being placed in '.data..compoundliteral.27'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.28) is being placed in '.data..compoundliteral.28'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.29) is being placed in '.data..compoundliteral.29'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.30) is being placed in '.data..compoundliteral.30'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.31) is being placed in '.data..compoundliteral.31'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.32) is being placed in '.data..compoundliteral.32'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.33) is being placed in '.data..compoundliteral.33'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.34) is being placed in '.data..compoundliteral.34'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm95245.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm95245.o):(.data..compoundliteral.5) is being placed in '.data..compoundliteral.5'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm95245.o):(.data..compoundliteral.6) is being placed in '.data..compoundliteral.6'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm95245.o):(.data..compoundliteral.7) is being placed in '.data..compoundliteral.7'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.24) is being placed in '.data..compoundliteral.24'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.25) is being placed in '.data..compoundliteral.25'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.26) is being placed in '.data..compoundliteral.26'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.27) is being placed in '.data..compoundliteral.27'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.28) is being placed in '.data..compoundliteral.28'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.29) is being placed in '.data..compoundliteral.29'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.30) is being placed in '.data..compoundliteral.30'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/max6650.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/max6650.o):(.data..compoundliteral.15) is being placed in '.data..compoundliteral.15'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/max6650.o):(.data..compoundliteral.16) is being placed in '.data..compoundliteral.16'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/max6650.o):(.data..compoundliteral.17) is being placed in '.data..compoundliteral.17'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral.3) is being placed in '.data..compoundliteral.3'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral.4) is being placed in '.data..compoundliteral.4'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral.5) is being placed in '.data..compoundliteral.5'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral.6) is being placed in '.data..compoundliteral.6'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral.7) is being placed in '.data..compoundliteral.7'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral.8) is being placed in '.data..compoundliteral.8'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrconf_core.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: <internal>:(.symtab) is being placed in '.symtab'
+> >>    ld.lld: warning: <internal>:(.shstrtab) is being placed in '.shstrtab'
+> >>    ld.lld: warning: <internal>:(.strtab) is being placed in '.strtab'
+> >>    ld.lld: warning: kernel/built-in.a(trace/trace_syscalls.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >> >> ld.lld: warning: drivers/built-in.a(nvme/host/hwmon.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >> >> ld.lld: warning: drivers/built-in.a(nvme/host/hwmon.o):(.data..compoundliteral.13) is being placed in '.data..compoundliteral.13'
+> >>    ld.lld: warning: drivers/built-in.a(nvme/host/hwmon.o):(.data..compoundliteral.14) is being placed in '.data..compoundliteral.14'
+> >>    ld.lld: warning: drivers/built-in.a(nvme/host/hwmon.o):(.data..compoundliteral.15) is being placed in '.data..compoundliteral.15'
+> >>    ld.lld: warning: drivers/built-in.a(media/tuners/tuner-types.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(media/tuners/tuner-types.o):(.data..compoundliteral.79) is being placed in '.data..compoundliteral.79'
+> >>    ld.lld: warning: drivers/built-in.a(power/supply/power_supply_hwmon.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(power/supply/power_supply_hwmon.o):(.data..compoundliteral.3) is being placed in '.data..compoundliteral.3'
+> >>    ld.lld: warning: drivers/built-in.a(power/supply/power_supply_hwmon.o):(.data..compoundliteral.4) is being placed in '.data..compoundliteral.4'
+> >>    ld.lld: warning: drivers/built-in.a(power/supply/power_supply_hwmon.o):(.data..compoundliteral.5) is being placed in '.data..compoundliteral.5'
+> >>    ld.lld: warning: drivers/built-in.a(power/supply/power_supply_hwmon.o):(.data..compoundliteral.6) is being placed in '.data..compoundliteral.6'
+> >>    ld.lld: warning: drivers/built-in.a(power/supply/power_supply_hwmon.o):(.data..compoundliteral.7) is being placed in '.data..compoundliteral.7'
+> >> >> ld.lld: warning: drivers/built-in.a(hwmon/w83773g.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >> >> ld.lld: warning: drivers/built-in.a(hwmon/w83773g.o):(.data..compoundliteral.6) is being placed in '.data..compoundliteral.6'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/w83773g.o):(.data..compoundliteral.7) is being placed in '.data..compoundliteral.7'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/w83773g.o):(.data..compoundliteral.8) is being placed in '.data..compoundliteral.8'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adm1177.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adm1177.o):(.data..compoundliteral.9) is being placed in '.data..compoundliteral.9'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adm1177.o):(.data..compoundliteral.10) is being placed in '.data..compoundliteral.10'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adm1177.o):(.data..compoundliteral.11) is being placed in '.data..compoundliteral.11'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adt7411.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adt7411.o):(.data..compoundliteral.4) is being placed in '.data..compoundliteral.4'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adt7411.o):(.data..compoundliteral.5) is being placed in '.data..compoundliteral.5'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/adt7411.o):(.data..compoundliteral.6) is being placed in '.data..compoundliteral.6'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/axi-fan-control.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/axi-fan-control.o):(.data..compoundliteral.12) is being placed in '.data..compoundliteral.12'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/axi-fan-control.o):(.data..compoundliteral.13) is being placed in '.data..compoundliteral.13'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/axi-fan-control.o):(.data..compoundliteral.14) is being placed in '.data..compoundliteral.14'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/axi-fan-control.o):(.data..compoundliteral.15) is being placed in '.data..compoundliteral.15'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/axi-fan-control.o):(.data..compoundliteral.16) is being placed in '.data..compoundliteral.16'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.16) is being placed in '.data..compoundliteral.16'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.17) is being placed in '.data..compoundliteral.17'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.18) is being placed in '.data..compoundliteral.18'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.19) is being placed in '.data..compoundliteral.19'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.20) is being placed in '.data..compoundliteral.20'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.21) is being placed in '.data..compoundliteral.21'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lochnagar-hwmon.o):(.data..compoundliteral.22) is being placed in '.data..compoundliteral.22'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.7) is being placed in '.data..compoundliteral.7'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.8) is being placed in '.data..compoundliteral.8'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.9) is being placed in '.data..compoundliteral.9'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.10) is being placed in '.data..compoundliteral.10'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.11) is being placed in '.data..compoundliteral.11'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.12) is being placed in '.data..compoundliteral.12'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.13) is being placed in '.data..compoundliteral.13'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.14) is being placed in '.data..compoundliteral.14'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.15) is being placed in '.data..compoundliteral.15'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.16) is being placed in '.data..compoundliteral.16'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.17) is being placed in '.data..compoundliteral.17'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.18) is being placed in '.data..compoundliteral.18'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.19) is being placed in '.data..compoundliteral.19'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.20) is being placed in '.data..compoundliteral.20'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.21) is being placed in '.data..compoundliteral.21'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.22) is being placed in '.data..compoundliteral.22'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.23) is being placed in '.data..compoundliteral.23'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.24) is being placed in '.data..compoundliteral.24'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.25) is being placed in '.data..compoundliteral.25'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.26) is being placed in '.data..compoundliteral.26'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.27) is being placed in '.data..compoundliteral.27'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.28) is being placed in '.data..compoundliteral.28'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.29) is being placed in '.data..compoundliteral.29'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.30) is being placed in '.data..compoundliteral.30'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.31) is being placed in '.data..compoundliteral.31'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.32) is being placed in '.data..compoundliteral.32'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.33) is being placed in '.data..compoundliteral.33'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm75.o):(.data..compoundliteral.34) is being placed in '.data..compoundliteral.34'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm95245.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm95245.o):(.data..compoundliteral.5) is being placed in '.data..compoundliteral.5'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm95245.o):(.data..compoundliteral.6) is being placed in '.data..compoundliteral.6'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/lm95245.o):(.data..compoundliteral.7) is being placed in '.data..compoundliteral.7'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.24) is being placed in '.data..compoundliteral.24'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.25) is being placed in '.data..compoundliteral.25'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.26) is being placed in '.data..compoundliteral.26'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.27) is being placed in '.data..compoundliteral.27'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.28) is being placed in '.data..compoundliteral.28'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.29) is being placed in '.data..compoundliteral.29'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/ltc2947-core.o):(.data..compoundliteral.30) is being placed in '.data..compoundliteral.30'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/max6650.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/max6650.o):(.data..compoundliteral.15) is being placed in '.data..compoundliteral.15'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/max6650.o):(.data..compoundliteral.16) is being placed in '.data..compoundliteral.16'
+> >>    ld.lld: warning: drivers/built-in.a(hwmon/max6650.o):(.data..compoundliteral.17) is being placed in '.data..compoundliteral.17'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral.3) is being placed in '.data..compoundliteral.3'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral.4) is being placed in '.data..compoundliteral.4'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral.5) is being placed in '.data..compoundliteral.5'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral.6) is being placed in '.data..compoundliteral.6'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral.7) is being placed in '.data..compoundliteral.7'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrlabel.o):(.data..compoundliteral.8) is being placed in '.data..compoundliteral.8'
+> >>    ld.lld: warning: net/built-in.a(ipv6/addrconf_core.o):(.data..compoundliteral) is being placed in '.data..compoundliteral'
+> >>    ld.lld: warning: <internal>:(.symtab) is being placed in '.symtab'
+> >>    ld.lld: warning: <internal>:(.shstrtab) is being placed in '.shstrtab'
+> >>    ld.lld: warning: <internal>:(.strtab) is being placed in '.strtab'
+> >>
+> >> ---
+> >> 0-DAY CI Kernel Test Service, Intel Corporation
+> >> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+> >
+> >
+> >
+> > --
+> > Thanks,
+> > ~Nick Desaulniers
 
 
 
@@ -201,4 +485,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdm0fZLf5BoF9RDdsRWKDpzomJzE%3Ddy5QgpJnstTLHBGxg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmPhgBJQqMFdxf2-%2BR7ZVHOSw%2BBae3_oigJX-W82i2WOg%40mail.gmail.com.
