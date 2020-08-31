@@ -1,122 +1,119 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBTPAWT5AKGQEE34FC3Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB7HAWT5AKGQE3JS2KHI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53f.google.com (mail-pg1-x53f.google.com [IPv6:2607:f8b0:4864:20::53f])
-	by mail.lfdr.de (Postfix) with ESMTPS id B6FFB257F62
-	for <lists+clang-built-linux@lfdr.de>; Mon, 31 Aug 2020 19:15:58 +0200 (CEST)
-Received: by mail-pg1-x53f.google.com with SMTP id e4sf1033885pgv.7
-        for <lists+clang-built-linux@lfdr.de>; Mon, 31 Aug 2020 10:15:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598894157; cv=pass;
+Received: from mail-oi1-x239.google.com (mail-oi1-x239.google.com [IPv6:2607:f8b0:4864:20::239])
+	by mail.lfdr.de (Postfix) with ESMTPS id 66DC7257F65
+	for <lists+clang-built-linux@lfdr.de>; Mon, 31 Aug 2020 19:16:45 +0200 (CEST)
+Received: by mail-oi1-x239.google.com with SMTP id u190sf915177oif.13
+        for <lists+clang-built-linux@lfdr.de>; Mon, 31 Aug 2020 10:16:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598894204; cv=pass;
         d=google.com; s=arc-20160816;
-        b=x7wuwMerZO616ydyGujhibap7mWyplzV16aOnm9mGKcXpgxElHKIVpNrCSZYE4BspN
-         Ru3N5olnnG16+K7yFND9AiB1yHEcPlfpNqepbtASrfHaIcc3D8eQlw8sJTB2jX/pPU4r
-         eGXTykCtxgKWau2GHnQSj1MalzX3UGLGA1LUCzzMVVn+wcB9vn87ABpZxjfO7o288mkH
-         fLd/VW1tPzQ6VGW834q7CTdpdd+/dl6EqH/HUTxmh1DWK2B4Jvf5v/Hh6GHxZ3YnYRwH
-         /GnweUJGOodWdySdrX85Ff3gROcWPqskqep7Xo59zX7miYTC4B+lx3Fsat04zfbS+TxM
-         G4QA==
+        b=zROi22i8ns6c5VOQKVi5/WTVtfCM4E4i9eQIFLaCE5vcQ3TPZ9u0hdWYnisUJP/zdt
+         CAwmymWin2IlqlHZ0Z0z9NWhz4Vpr88Hiqq7HqH61TRYD3kXhiVHaDmayDlIgTUjzLsU
+         bekEQwWNOa6UQI6XlU9xd29J6Bsrh/xICFhS29DYA7mNcSWjreKlZndWzQ+0W/Yeqvnq
+         Z6U+gOGsfw9VweYGYQfLoHBIhvTiO0p0KCDvR6UiKBt7SSCTd5E0CDT/3N9ipsywvqe/
+         dWR0hlll4ckt5YJO7E+GtUn7bvaeS8O3wOfw4lvJNrE/74N6n+EZIkcnNYBRdYa/nL5d
+         NzCw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=JKDB7hCHbr+PCi3YHRuu2fASmaxMKRsGFDKCs3R26qc=;
-        b=RAisyCfEZhhW3oJGUmT+IQp+lexCgdV2mj1LaRBVqJZ8G7ZX9lSU54mdzvLARMj9j/
-         3SxOmumJAjCCIxNE+qt5n8BYzaNkMn6aPrcRZRKn+2jUNUjfxA2M+UegIIpQo01ijF+p
-         JHWXcxdG0XMJJdiByA+6aLc2ktknj6h5ngIfI7DuxMXhnKF1+//1LhACg0B/3W23cUpV
-         PXVydzCepEJBlVmVMaN1lb6LcVSGpzy697v+CHG8oki/KAthSqEdR+DniI9vOlA37nqD
-         YWkMUzvZ+/UCEhvfxxYPuWAzycf/BhtYYwTmIXZbhPB1ckk1ImpzyZNicZ7QcSDUSl4R
-         Yrnw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=IHC13uwYd29UVaIjBsCoZXxeqjMzwyi4Clp+5HQPSk4=;
+        b=hDrVUucazgvoJNHcvhh7rnKq20bqpGTw/b0slMw4E77jY54S2aaNa99nepvO87ddmt
+         ZaD57Akuyk7g4EtV50rnzNb6db8IQP3jz9UBNjERQe3+9WCKFOO3lxl0TJErm2oaDaMr
+         0G8PRtMJ65jwS4n9/EuiUJOmLIjIBhOZ2N6dHQ+9a+j+wyEjDGZ3o/FZhCLKmpeEV4G4
+         eM7vkBa+yCjkkrqC2RFoLyrXyhnRXkOPcG5C/KjDU0RKTO2pYg6Md6oh5qj/UbiIvV4n
+         ZovTXAcKAh1vfKhe1zYS4PDZOBCHk21kKKk8QPmbCwnaqAcp61yRmus29C5CXcVr6uNi
+         oZPQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Fjz5WGEy;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::433 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=uicsTTZK;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::534 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=JKDB7hCHbr+PCi3YHRuu2fASmaxMKRsGFDKCs3R26qc=;
-        b=dF1q30zacoNapFN4VQBEKNfqxBmhh/nHuXFV9we3ZvYfrSS0IA8EolnJjxG0OqNDvW
-         rAEW5yrb10GWrMNc92W+zaBnhmzdHFgRYRSByLRv5Rs5NGPH11oivUNm9JNhjTvXfGdB
-         OG9hR0XHYEV3AoxVaNaHNjwLdVoxC+9GSVh5coHT1RES0hhndO8zUvrtzi8efcCXiQrn
-         Nx3ls4QrFUSzzsq1wyaBmoFw8k7H26dfCCBn9kDbcoMcA1PWt+z6oDopGsqp1M97HI4S
-         cJtq9q//B8eUzC9gWxczwD0e03IuJP6NPlN+20LxgwhPozglPLuvqrNkhe5/6HyTlBSj
-         1uvg==
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=IHC13uwYd29UVaIjBsCoZXxeqjMzwyi4Clp+5HQPSk4=;
+        b=aiWyPskLTxA2/KM+gzF94RhVqfHqm+HFu8sRI60BpciJF6EddeX1VsZGAsokMec2OQ
+         AUQOJ2+fDcGPNgDAmK+3uIkzHYvPD6Id+InNY2yQhmrTfOl9mNxdsI+eR4LMi2Tx4Qkx
+         Swf1wGg2Wnv/2vLEOPA3vwNWow/OkD+dbW83iqCdgY0RDDFOh7ll41cQUiD7fwSwJN0+
+         Ohdruc46fqBsmZBQnJUpByMIskzqubDXgZ36mIH/1gal2M5hi+okcKP9DmGorXOGnglC
+         Clf1ZWw/2Vf6hcS70TbZSHU740Fkyw9hEezjxp7+ejYNt6FZxnVBqD6fHaLusO4tkcl9
+         rc6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=JKDB7hCHbr+PCi3YHRuu2fASmaxMKRsGFDKCs3R26qc=;
-        b=KCqah8WFp9pHY/SCmbDLiJrYH8AvRlIx3yKVziXShiFyN06jcbxI97Mf4abXU+u8UO
-         F9KjEF6CYHbabx57bcfqXKNCk+wtpmSIn6/W5n7YTp7gn7xnvf8LX9tZQNj/bgrYQ9WS
-         Ex24DGE/XHcbNMKtZRAXYlsy2DxOH4OsXbRS3YG8eGKQ/Cax9q4p3PphnSuKOpHs3KFb
-         0wvloB7VIE/8KTdKdmYuurmPMtnwJOQDGjRdG+5JIUvddNsYTnw8B7zXFB5up98icego
-         miL8jD1Zy4B/IuBGM4AqFoAkNtyyputPN9Vwfc15eoJKZy+xH+rlEgw0H0AwG5qpu/7f
-         vUIg==
-X-Gm-Message-State: AOAM533cgUfUs6MlAqH+fBx89GB6o90xk+GVAFkoIHjFEqCCPn1GxRCo
-	aKpXPjFYbRvV1CS7cdeWYfs=
-X-Google-Smtp-Source: ABdhPJxKbCVtdVfWZrQdSBjdyhwQy8KxDfDD8+6kYI0YYUND/ildddIKZSknNdRf9L0qwTxVWs7ykQ==
-X-Received: by 2002:a17:902:8304:: with SMTP id bd4mr1833450plb.250.1598894157377;
-        Mon, 31 Aug 2020 10:15:57 -0700 (PDT)
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=IHC13uwYd29UVaIjBsCoZXxeqjMzwyi4Clp+5HQPSk4=;
+        b=HCycS8uKVBjmKAt5Vvqemu/qVNqZ2rERf91JDjvsJwB69Cm0BVaMPUFcFhpyPXzK1J
+         +dqOAkruV3IqOKIcynMcux3CWR/ps2zVw4XrCJTC8Mm1bmlkTS/EnYNTVKLNygqk9emF
+         T8S6FIdfcs2hS5kDMRZBEBFtksxNSzNnRBJW4OKZ6kIgeawqfsTntI1vTGp8C0EQW97W
+         YbICCQATkHzqUpi0MFOF4tZJCg1PX099g6LFkt36dXNrPWqzor6cM/bZzvxO2N0gOFBy
+         rJsn1ua0lUIjHBEx8TCp3DGOumsoYKLoqLB/rmZ43mUZDOT8tMts+56gVQAMtBM598K3
+         mqpQ==
+X-Gm-Message-State: AOAM530n6Y+b1P9H6nY09aSFyAk2LSrsDND1FxtnQYnXOzSOdyhPA+Pv
+	vssRJKDwmtEexwUGtKp9dQE=
+X-Google-Smtp-Source: ABdhPJzh+hnK7MqWxVO6ICN9RjGufkyDuZMLzhvx97Jrt+qtEECHY05lP6YQwCqrRw6qt9UPEkvU/g==
+X-Received: by 2002:aca:4dd3:: with SMTP id a202mr213241oib.157.1598894204338;
+        Mon, 31 Aug 2020 10:16:44 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:720b:: with SMTP id ba11ls3801304plb.0.gmail; Mon,
- 31 Aug 2020 10:15:57 -0700 (PDT)
-X-Received: by 2002:a17:90a:9c3:: with SMTP id 61mr312627pjo.191.1598894156956;
-        Mon, 31 Aug 2020 10:15:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598894156; cv=none;
+Received: by 2002:aca:4816:: with SMTP id v22ls415333oia.6.gmail; Mon, 31 Aug
+ 2020 10:16:44 -0700 (PDT)
+X-Received: by 2002:aca:ea54:: with SMTP id i81mr221733oih.133.1598894204006;
+        Mon, 31 Aug 2020 10:16:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598894204; cv=none;
         d=google.com; s=arc-20160816;
-        b=qDjq19isWocbVCOr5kLUgl9iOLJX9FhIUVKh5ok3+mbJ8vFxbW2wwav+Ppi6pNNA64
-         LQPCVU9gCp1tWHNAoR0qfJAhRrKbPyTlalwRurTjE2D0YPbwhe4KcJdI+sqHYxKQE5sv
-         xf4ZiuNdaABpOGvMDFu47M7im6E02j3FEWTVpYv+4E98TvlzmWgs5GscI8hfr96GY3Gl
-         /hgibRUrAy9mcZsbnUKXYPm1hzjlNfaJu8pQc6zEN1zRHPCUnQK/hcg+cFuw5OB0Gna+
-         sVXA2I1JQWnoEn9i3IsBVLO0ZHqbK6LNVAIPPSEDoBPT2sYJ0gLEE5vKqOFjxU5Gouk9
-         w0tg==
+        b=Clb08U3/FHjBMATBZgxT+EXMa3xAtK05if7B+OAP1UenPsk5WWKKlhfQ7EDu6I0pNa
+         mJDnPf2+ofizqYpkne+b+9CuaMmHP30yjgX9oXdY4og8XNYsWPk7Hs+xkuqMZfldcCy7
+         RLJ7Xe5QRkWz/z+vlRpfzhwn77RKqS/i2vvT3Nv03UBN0NKoXJA2Pm3dWoyKqt+PcFd3
+         T8Sd2RqSw4UL21aYFFi83lvX64WBRgYcmSWJBjt1fsdT1wkvYLDeiuDE+kFNhSONt98N
+         3evcSb9PCt68GytwjXYNNIEhZXZJUPS0WYI6dkVePiJ9b1vsj70toTbnLrgKHxkFwoc7
+         biLw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Vstj28ux2VfNjpxx86ms6Up/fPbUN+Y3LjPWR+VNAz0=;
-        b=IH6bQpI+wrKFrvLNwk1mHtSwE4/7XsCUTusPmSMSd9bVgOYC8B8YeS8OwtIBbBU5gJ
-         xzZGuxh9rtdwWRqZ6eCnom77t/PqHqW4fEtsM1SZ+2ntBfe5bfnnq8TIKM+NDjbYZee1
-         dyMj3KfdDTzFXyoKo8Twei7ZnrlxW1rwqQltwp+KhfjOAV/jL2ufiSQKkTtVGQIozxFd
-         29sm7kHYfbm3FYKyo/GNZttkOlQ1iqfoUifNDf8GNFHEcmzZJ73iJzQk3Y4zJZnfSMY9
-         gtBAkS/EuR1RuEAdOi+5mRb17+7WkYlYHe1A3AvrMB94Y3RDY57Vd8RpMj56Fr+XUS7I
-         W3xA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=SMlbIXByZ9qyq1hqi6QozJ1mUhZbRHii5ATHR8B5v9U=;
+        b=zU0p8Aif6Q7D5k7N1d65jNcpHDS9A5cRRjMEenLG1uygUmprRqFqIapwXYTX4SmK7I
+         x6O6cgsU20+Czq1mZvMdQ2Tn7GhqLc/S1XRyjUEOOdQKkhmkLlDPC/hLjcK42losrpjk
+         YRZpbT1KFgeG6Mgky/Z3g0voH+p2MXjqzWpdH+fRWPgAMxaJ8ChnOcLa1W7azM8NqeZX
+         ym2JCkrKbEj6Uueu/XXrbgTBDW1Ao8nwCISiiql47CAY4NaW50164ZGWzwunHLc4cT7J
+         tGv4bIK++NFc78NGsPAS9K7+ozIYqzWTSHovTp9GlEXGPpCJtQtwZs6HKGMqzgvHEBsl
+         nmiA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Fjz5WGEy;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::433 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=uicsTTZK;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::534 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x433.google.com (mail-pf1-x433.google.com. [2607:f8b0:4864:20::433])
-        by gmr-mx.google.com with ESMTPS id p1si316470pgf.1.2020.08.31.10.15.56
+Received: from mail-pg1-x534.google.com (mail-pg1-x534.google.com. [2607:f8b0:4864:20::534])
+        by gmr-mx.google.com with ESMTPS id d1si472120oom.0.2020.08.31.10.16.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 31 Aug 2020 10:15:56 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::433 as permitted sender) client-ip=2607:f8b0:4864:20::433;
-Received: by mail-pf1-x433.google.com with SMTP id o20so918863pfp.11
-        for <clang-built-linux@googlegroups.com>; Mon, 31 Aug 2020 10:15:56 -0700 (PDT)
-X-Received: by 2002:a62:77d5:: with SMTP id s204mr2104519pfc.183.1598894156322;
- Mon, 31 Aug 2020 10:15:56 -0700 (PDT)
+        Mon, 31 Aug 2020 10:16:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::534 as permitted sender) client-ip=2607:f8b0:4864:20::534;
+Received: by mail-pg1-x534.google.com with SMTP id d19so945951pgl.10
+        for <clang-built-linux@googlegroups.com>; Mon, 31 Aug 2020 10:16:43 -0700 (PDT)
+X-Received: by 2002:a63:cd57:: with SMTP id a23mr1969909pgj.10.1598894203068;
+ Mon, 31 Aug 2020 10:16:43 -0700 (PDT)
 MIME-Version: 1.0
-References: <202008300915.rtwPs0f1%lkp@intel.com>
-In-Reply-To: <202008300915.rtwPs0f1%lkp@intel.com>
+References: <202008300852.g7xJG2Lq%lkp@intel.com>
+In-Reply-To: <202008300852.g7xJG2Lq%lkp@intel.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 31 Aug 2020 10:15:45 -0700
-Message-ID: <CAKwvOdkw1i2YWOCSWoadtaP7VRAbFJNwKP4wjzdzcCVLLo9pCA@mail.gmail.com>
-Subject: Re: [mptcp:export 1/1] ld.lld: error: failed to open net/sctp/sctp.o:
- Cannot allocate memory
-To: Fangrui Song <maskray@google.com>, Philip Li <philip.li@intel.com>
+Date: Mon, 31 Aug 2020 10:16:32 -0700
+Message-ID: <CAKwvOdkk5Q1yCuBaT5+y4sjMf_TJiFMXhKNr2G-k_3=-duGusg@mail.gmail.com>
+Subject: Re: [linux-next:master 2248/3958] ld.lld: error: undefined symbol: i2c_get_adapter
+To: jorge@foundries.io
 Cc: kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, kernel test robot <lkp@intel.com>
+	clang-built-linux <clang-built-linux@googlegroups.com>, kernel test robot <lkp@intel.com>, 
+	jens.wiklander@linaro.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=Fjz5WGEy;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::433
+ header.i=@google.com header.s=20161025 header.b=uicsTTZK;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::534
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -133,112 +130,62 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Fangrui and Philip,
-I've been seeing more and more reports of LLD exhausting memory
-lately.  How much memory are the builders allocated? Does LLD
-potentially have a memory leak?  Do we need to limit the parallelism?
++ Jorge, Jens
 
-Setting LD=3D"/usr/bin/time -v ld.lld" for `make` should help measure
-high water mark for RSS.
-
-On Sat, Aug 29, 2020 at 6:39 PM kernel test robot <lkp@intel.com> wrote:
+On Sat, Aug 29, 2020 at 5:46 PM kernel test robot <lkp@intel.com> wrote:
 >
-> CC: mptcp@lists.01.org
-> TO: Matthieu Baerts <matthieu.baerts@tessares.net>
+> TO: "Jorge Ramirez-Ortiz" <jorge@foundries.io>
+> CC: Jens Wiklander <jens.wiklander@linaro.org>
 >
-> tree:   https://github.com/multipath-tcp/mptcp_net-next.git export
-> head:   650188ca7860a4f3eece3052d8e35c373b3f5030
-> commit: 650188ca7860a4f3eece3052d8e35c373b3f5030 [1/1] DO-NOT-MERGE: mptc=
-p: enabled by default
-> config: x86_64-randconfig-a014-20200830 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c10e=
-63677f5d20f18010f8f68c631ddc97546f7d)
-> reproduce (this is a W=3D1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbi=
-n/make.cross -O ~/bin/make.cross
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> head:   b36c969764ab12faebb74711c942fa3e6eaf1e96
+> commit: c05210ab975771e161427eb47696b869d820bdaf [2248/3958] drivers: optee: allow op-tee to access devices on the i2c bus
+> config: arm-randconfig-r002-20200830 (attached as .config)
+> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c10e63677f5d20f18010f8f68c631ddc97546f7d)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
 >         chmod +x ~/bin/make.cross
->         # install x86_64 cross compiling tool for clang build
->         # apt-get install binutils-x86-64-linux-gnu
->         git checkout 650188ca7860a4f3eece3052d8e35c373b3f5030
+>         # install arm cross compiling tool for clang build
+>         # apt-get install binutils-arm-linux-gnueabi
+>         git checkout c05210ab975771e161427eb47696b869d820bdaf
 >         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cross AR=
-CH=3Dx86_64
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm
 >
 > If you fix the issue, kindly add following tag as appropriate
 > Reported-by: kernel test robot <lkp@intel.com>
 >
 > All errors (new ones prefixed by >>):
 >
->    terminate called after throwing an instance of 'std::system_error'
->      what():  Resource temporarily unavailable
->    PLEASE submit a bug report to https://bugs.llvm.org/ and include the c=
-rash backtrace.
-> >> ld.lld: error: failed to open net/sctp/sctp.o: Cannot allocate memory
->     #0 0x0000564b3646b03c llvm::sys::PrintStackTrace(llvm::raw_ostream&, =
-int) (/opt/cross/clang-c10e63677f/bin/lld+0x89803c)
->     #1 0x0000564b36468f34 llvm::sys::RunSignalHandlers() (/opt/cross/clan=
-g-c10e63677f/bin/lld+0x895f34)
->     #2 0x0000564b36469068 SignalHandler(int) (/opt/cross/clang-c10e63677f=
-/bin/lld+0x896068)
->     #3 0x00007f40a8808730 __restore_rt (/lib/x86_64-linux-gnu/libpthread.=
-so.0+0x12730)
->     #4 0x00007f40a833a7bb raise (/lib/x86_64-linux-gnu/libc.so.6+0x377bb)
->     #5 0x00007f40a8325535 abort (/lib/x86_64-linux-gnu/libc.so.6+0x22535)
->     #6 0x00007f40a86ef983 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6+0x8c9=
-83)
->     #7 0x00007f40a86f58c6 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6+0x928=
-c6)
->     #8 0x00007f40a86f5901 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6+0x929=
-01)
->     #9 0x00007f40a86f5b34 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6+0x92b=
-34)
->    #10 0x00007f40a86f1a55 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6+0x8ea=
-55)
->    #11 0x00007f40a871edc9 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6+0xbbd=
-c9)
->    #12 0x0000564b39092b81 std::thread::_State_impl<std::thread::_Invoker<=
-std::tuple<llvm::parallel::detail::(anonymous namespace)::ThreadPoolExecuto=
-r::ThreadPoolExecutor(llvm::ThreadPoolStrategy)::'lambda'()> > >::_M_run() =
-(/opt/cross/clang-c10e63677f/bin/lld+0x34bfb81)
->    #13 0x00007f40a871eb2f (/usr/lib/x86_64-linux-gnu/libstdc++.so.6+0xbbb=
-2f)
->    #14 0x00007f40a87fdfa3 start_thread (/lib/x86_64-linux-gnu/libpthread.=
-so.0+0x7fa3)
->    #15 0x00007f40a83fc4cf clone (/lib/x86_64-linux-gnu/libc.so.6+0xf94cf)
->    /bin/bash: line 1: 36478 Aborted                 ld.lld -m elf_x86_64 =
--r -o net/sctp/sctp.o net/sctp/sm_statetable.o net/sctp/sm_statefuns.o net/=
-sctp/sm_sideeffect.o net/sctp/protocol.o net/sctp/endpointola.o net/sctp/as=
-sociola.o net/sctp/transport.o net/sctp/chunk.o net/sctp/sm_make_chunk.o ne=
-t/sctp/ulpevent.o net/sctp/inqueue.o net/sctp/outqueue.o net/sctp/ulpqueue.=
-o net/sctp/tsnmap.o net/sctp/bind_addr.o net/sctp/socket.o net/sctp/primiti=
-ve.o net/sctp/output.o net/sctp/input.o net/sctp/debug.o net/sctp/stream.o =
-net/sctp/auth.o net/sctp/offload.o net/sctp/stream_sched.o net/sctp/stream_=
-sched_prio.o net/sctp/stream_sched_rr.o net/sctp/stream_interleave.o net/sc=
-tp/proc.o net/sctp/sysctl.o net/sctp/ipv6.o
+> >> ld.lld: error: undefined symbol: i2c_get_adapter
+>    >>> referenced by rpc.c:88 (drivers/tee/optee/rpc.c:88)
+>    >>> tee/optee/rpc.o:(optee_handle_rpc) in archive drivers/built-in.a
+> --
+> >> ld.lld: error: undefined symbol: i2c_transfer_buffer_flags
+>    >>> referenced by rpc.c:105 (drivers/tee/optee/rpc.c:105)
+>    >>> tee/optee/rpc.o:(optee_handle_rpc) in archive drivers/built-in.a
+> --
+> >> ld.lld: error: undefined symbol: i2c_put_adapter
+>    >>> referenced by rpc.c:115 (drivers/tee/optee/rpc.c:115)
+>    >>> tee/optee/rpc.o:(optee_handle_rpc) in archive drivers/built-in.a
+>    >>> referenced by rpc.c:129 (drivers/tee/optee/rpc.c:129)
+>    >>> tee/optee/rpc.o:(optee_handle_rpc) in archive drivers/built-in.a
 >
 > ---
 > 0-DAY CI Kernel Test Service, Intel Corporation
 > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 >
 > --
-> You received this message because you are subscribed to the Google Groups=
- "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an=
- email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgi=
-d/clang-built-linux/202008300915.rtwPs0f1%25lkp%40intel.com.
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202008300852.g7xJG2Lq%25lkp%40intel.com.
 
 
 
---=20
+-- 
 Thanks,
 ~Nick Desaulniers
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAKwvOdkw1i2YWOCSWoadtaP7VRAbFJNwKP4wjzdzcCVLLo9pCA%40mai=
-l.gmail.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkk5Q1yCuBaT5%2By4sjMf_TJiFMXhKNr2G-k_3%3D-duGusg%40mail.gmail.com.
