@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB6WQXH5AKGQEXJB6XJI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB2XEXH5AKGQEDTMBP3A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb40.google.com (mail-yb1-xb40.google.com [IPv6:2607:f8b0:4864:20::b40])
-	by mail.lfdr.de (Postfix) with ESMTPS id E0B62259394
-	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Sep 2020 17:27:55 +0200 (CEST)
-Received: by mail-yb1-xb40.google.com with SMTP id p138sf1527145yba.12
-        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Sep 2020 08:27:55 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1598974074; cv=pass;
+Received: from mail-oo1-xc3b.google.com (mail-oo1-xc3b.google.com [IPv6:2607:f8b0:4864:20::c3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 91F4F2596FB
+	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Sep 2020 18:10:19 +0200 (CEST)
+Received: by mail-oo1-xc3b.google.com with SMTP id h14sf134600oos.16
+        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Sep 2020 09:10:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598976618; cv=pass;
         d=google.com; s=arc-20160816;
-        b=jukBzSyeFd/5semVLnEkt08zb//Gzpyxx/6FCPrf8qs5RHgOt89WxcJvHpEGN8Vo1v
-         O0d5LzoCohx3AN9iudlvsJPS4yNLstqA5CkNTT8Y1aDBfBrlJB2VckLP/8kmu8Yhxy9J
-         EoTBgMYaNxG+t4Ahc4OvcT695HYZMRqAaKRvMDj8h9U31nR/9g92V3/zJ+TQnza8I7Ac
-         0nOhUIkvRDr55U2CGnHEkMZzuIf4orbFyH3Pd+lbzEu8pZxebMh/QXfMEhIs698dIoL1
-         /kLAESYaoHl/j0nLyzNPP1WIOA81mjucgvvGly9Dw2kBoZqEwDwPSCb9C/nWPAywqXJL
-         rUYQ==
+        b=p1iJRgc9U4yGhsXNDp4FRD6cWGE5hY1OCdg4i/otWnLBkcoIfGzvfsACaGrTf6Ic10
+         5qwb8y0DR9ju75NV1j3fAWYfXgdjO7Kfd0s3RxZYN+L2SrqClvQI4HnUSJcMNX6yh540
+         3bbNjp+yKiEM2GL9ykm3dV5F8qlCT7GDbgWYPLKqEJD78fDCKmUucOv+H0laGEbMCLwg
+         cyLJXaQB03f7PuOUcUtLom2LN2oR7kAEHNq/32GcDEwb0aRnj66Pcfff4gPsIAo4gSvT
+         2zah/NP36y2tvaQk9k5PdBfxgn679E6zX0L6pQyEwYn9IWqIxD7JYN6RraMzsUy6PifB
+         p+WA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=DTUXA9sYKKMOyW7APw4Im7a5n3mlANxQ7cG1Ac8fUc0=;
-        b=NJj/bl5Vb3s63x0zu8kbo0xIHitNGZZSfDc1jGGLuznsl24LjJFkgxCOMdmmNAEIOf
-         bkpAqw9KkuZabnX6n+/FsTgCxjaR9h5lJt+zL0o9444E4wqQmwD9b4yT7JJOVqeGZCet
-         MGO61xCs4WlyvlKe1wNeFEPC1172ZLOQDBgxCFiU26xYLAQxQLlOePs9aLjrmM7FJFGS
-         R82J4X8Yq/uzQpTmLnUuRVv2bs/6uYxpWHPzmZReXUpXJEZxKHPu+PH+9iuA7AtzTFF1
-         Si7n6baoFZKzgpp9o8+72HdMU7r5BTk7Z1Oe/zofktMvxVaauG/yhqhPcDlctifiHI/G
-         0gKw==
+        bh=U7Mz/ymLID9wdQgJmWn2AUxFUcl4KhdgCG0hfx6HW0c=;
+        b=mzVm3KyZ/jFBIPelJ7pdi2hFrbpFyRQfuw2gGuXZaIlpEPUq243n77w36vAR+TBgEr
+         nllh0fUHqFmr+ItXmYCqYv9pU1nYYqMd/DPJPGug4t1jks8aJUnX1lHji/o5EzWZ2Uhd
+         M/SYkmn2RBv7Vczp/lECcSFF+udqr4p317+k5YY0l3TcSz8Q2ppPW+PEHk3nyCicDFVD
+         JFFjW+l9n050eQFT5zUzD2Xu5pUyaUdT/HF70sIoc9813cO664GzHN602Qvhvbj5CCmo
+         m580B7NYq0+UZpKQYfazfiKj2J8mjTnlMcMOwoLKRGFRVIuHGdsH+vbVD/2BMcpfBlUF
+         y05A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=DTUXA9sYKKMOyW7APw4Im7a5n3mlANxQ7cG1Ac8fUc0=;
-        b=a63A9Ch/rSDXj+SxgVIhbk2V3WNzJblW4VKN38AiiBbcGxfVYN9KfBBDWzKxUMNR4d
-         NfNSBq4iQWEiV3jJIZ7hromjQmTcARrAVxveG2+ejAuIDpyNYg9XSO9aruZ3s+e6c2GE
-         0/nARSCzxdLtCOqF4tMmAFntGlQWL19kwmpYdILhLkAbm62atfooOmP/fZRCcee/3doV
-         DoJwY3OqULeKRZf73V0T/DgJxJ4f9LZxx0eBf6ZpFxHcHdtnWYmku4eJtzFFD87tcLT4
-         wM8ybgVUybq6FgWYL5SJ1MSCu/5iZYRio99D9DU2lC0Sbd0Yb40gxroaWMQ6JXtCpe5J
-         WLQQ==
+        bh=U7Mz/ymLID9wdQgJmWn2AUxFUcl4KhdgCG0hfx6HW0c=;
+        b=cAqajW7WhYTXHho80fl/gQ/4KlgiRduCiQWB23zuXV55ZbpLgYNNcCIcIQRxdXGjOH
+         wxaT48YHAL3yLY39QHfLDvgxFv/r2l/yqZzaRcbXnW3oUboi4E+PPvgWhRUffxZ5zIML
+         DQ4AF8DOxSTmX4zG4DjdAVvgmaF1ScUpg/i5drLckDD3MktytDnNgFliJAJIJtYZdsW1
+         z8k5ZhoY1uGogUVZ+DatTOox3nwMKIlaAyDq6StqRx6VYYiOSxyHxDQ6IufRVmmWjvUZ
+         XVAn6ZyGcuOTcORR/1WZ1cyxc9NUzAierGq2edWmBijNYm3nqKU9gVmGmXxCTB6m62AJ
+         mRlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,87 +49,87 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=DTUXA9sYKKMOyW7APw4Im7a5n3mlANxQ7cG1Ac8fUc0=;
-        b=DgJhcnmp5VtoM4gGVKeZMeJbTRmU1VFCa7MhfjLyyDIBwaZPgNAhlFRm8u39/MgKCm
-         +ZRPas1WPvMn67bCnohJRgpFGiedJOBvv1XKl8vcPelaoVqvskraUgQsH2aiBwYb8lEB
-         GvGw6iaAQiufZD2Q6u9IWh0uzbghtvq9QMfiR3sM8g03UVZX+Hv+8cwHMucKtxZHzeHm
-         ui5o7gXOmpq8G4cdTZhwO11kzVfDvTPLMacfPolPuF2iaQbynFlT4mTx+vWvxtDNnkdC
-         2GuXgruJLZz49D7Gg//XHnEYgKslrHRvKTXdzddRDSXkJI7D8gzDWpcckbBH2WJlse+Q
-         4bgg==
+        bh=U7Mz/ymLID9wdQgJmWn2AUxFUcl4KhdgCG0hfx6HW0c=;
+        b=t94fGL2gVQrHDBlGBoXK54+LHs1WUVIv1mt0CcQMEvleopR4ZMPrec6QISeg7CY5Hs
+         RnvZ9HPbvtFGFORyrqrmNDoU+ECFzaK2sOb5/EUmIvKTHNgFk+jR1yPHY64ZkfkTySxH
+         +cZnGpU0cZn3pUeALGV3TBdTpMcAEeB0R9g9mYfDoz97vbwmEbnHNC1zrVJBl1uzMNd5
+         GMLw50TQxnMOwb79bNMsYOjWIov01qn83h39Nt9dZAeyIBam5uynooJY3+WNOQmn34G+
+         gl/hvlWt/wg9iIRSOpSFXMyQR7ITHnravr1QcFHABEyvAMoMrkT8IFfEIamXq39p5vuC
+         2/6A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530oIha0I8uYHZEL+yCE9GhfJ7jrKa4rI8F6L0FcF8JU3zzS9JWe
-	x56484JIuJY803HKKzq/eXU=
-X-Google-Smtp-Source: ABdhPJwNxIYYkCEBO6/NYj8LAHWrykaAxD1mHSiDwB4ZlBoTcfVPhfvmvZmXQrHhHEMKsGPcd8NK0A==
-X-Received: by 2002:a25:238d:: with SMTP id j135mr3605772ybj.206.1598974074732;
-        Tue, 01 Sep 2020 08:27:54 -0700 (PDT)
+X-Gm-Message-State: AOAM531uZW6kGFcTj2pR66sybDwi1YpMf0ZZP2/bSI+x9Qz7dnCl5y88
+	wCBCjxnSzJjKG+01RA+F49k=
+X-Google-Smtp-Source: ABdhPJzNArgAOzYzkTU+ZtaIBwusJM2QZjPgBx15j2EPDGW56j4bQnHdFpf0+cvT436sjYKpboXvYQ==
+X-Received: by 2002:a9d:2ac5:: with SMTP id e63mr2015473otb.94.1598976618288;
+        Tue, 01 Sep 2020 09:10:18 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:840a:: with SMTP id u10ls913962ybk.0.gmail; Tue, 01 Sep
- 2020 08:27:54 -0700 (PDT)
-X-Received: by 2002:a25:40c1:: with SMTP id n184mr3701382yba.193.1598974074254;
-        Tue, 01 Sep 2020 08:27:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1598974074; cv=none;
+Received: by 2002:a9d:bc3:: with SMTP id 61ls455253oth.0.gmail; Tue, 01 Sep
+ 2020 09:10:17 -0700 (PDT)
+X-Received: by 2002:a05:6830:1184:: with SMTP id u4mr2023769otq.61.1598976617703;
+        Tue, 01 Sep 2020 09:10:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1598976617; cv=none;
         d=google.com; s=arc-20160816;
-        b=C58lp1QllHLkyiwKJJMobFNFQz/oJ1ZEupRl/tVr0VUzIM0VvXoEXsokjpGg+TkDP5
-         zhN2jAWP2EXMp43vHyN2PvBWENbWkXROQVe9kZEMQhbduIhHFAN4PYkKXnnV5RSU857w
-         pTjC2JrdB2J6TfC3JFXxIkH2hpBSgICSY2ameuJ5EU7uHyyiAYsq8ve0PNqqQ8ydS8si
-         U4GWxb84QgrQ+hmVKwzGXRZZLDgbkjZAexwKobGKj/QbjKzAP3DquTnKn6l361lSN/dm
-         /ril9AlqkkG0maWKyVY/b6xsajkGeYtm0ovE/Dpt3N0xkccAFLPlzyNpc3sD28DaQu0z
-         hMQw==
+        b=Ur69V70PPL+8EsmnvjHL5Bk17TAOiGo44tGAgRPziQDxFXRJXU8RdgZUMcJKFKcKAt
+         /YQH8nQyP9c+sPfihAxlBnlE6X54QH99wn3NHcFvO6GaJy1HvViBZejuluapmUkb2z2q
+         PttRKgh97V6mtWcuILQI/6q8zv13q177pT6mLi/IHHJPG0cA1Fa7lB9amBcTw5bDbGbm
+         TQHjArDgOQzb4g5I/gicPBQ4/75/7TvzNR6ph+d8VtFyncwKBZOuRr4grk8DkTdzqceu
+         1vwAENJ17yq7JXGuqQmAf90juOekszQxjATRSe3HSeM1oPQMPtB+CovwV/JulfOxkAv/
+         Ya2w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=03qumpAxCkVWARzkfA9oLc18gHWxfM9KIHqmtqca2So=;
-        b=uqCiu2X223RdIov/CI1rnj4LbSOH6daUOS001omW2P3d+GLY7Q8+rfzlCwNRgx4okn
-         oSjD18PC1FXuxW5S1jitHbvS1FpP4zTvoAfXMOSwHVcxzmeDNh164airEfJuKcwPcFdj
-         OAR6RLg8yx1DDg8hXu4+PpFG0SdMxcAxbs7Su6xBd8+3HCQkaShMgiRyVou9ree26Rg/
-         oF8t5NazmzyzhcCoFuUbw0m8uJ3YeY5d/z6xTpCFmtFsy3QCmmN9OwhhrGhFtmGw60hg
-         t/jwO9rrbk2P0tJNt+8fMPju3jCwMh/cyii6O+HrFUBWkNB2N45SFxvkqx25OT1ghbf6
-         4muQ==
+        bh=4KRxUiPCJfXDvwQNnmRC2GC+sHJyXCCrUoHF962hAyI=;
+        b=G5/zzErqmSb9sCAjC2yddGU5dIhUwlkXZ0Tb5nOMIeAPdxCc+FaTCoxq+G3UkWWsOL
+         7jRBXZMRAgY/6fNwUBDoOPDYQV6NSJI8Gse2MXV5bSRori4kSTyvyD/FMaHJl50J7OaO
+         aZmNcR1VnwL8/T8pHyBTDB76Mxc3smlvIX72R+IY8wMsDE9fCoZz8JSc7XWqmeUI/1A1
+         kM7QppiaNoiCAJ9XGn5sZyWpcNEJAcg6ah8qABR7arVhFuAU8RyaSrKFKVlMNYiivQ/d
+         b+7HykzVIRfIHfAFsHtAgOIgn4XRvPWI2G7sOvJZfn4MVUdJiqT46BYY6JiqostEkOZN
+         taNQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
-        by gmr-mx.google.com with ESMTPS id m193si119280ybf.1.2020.09.01.08.27.53
+Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
+        by gmr-mx.google.com with ESMTPS id d11si144488oti.2.2020.09.01.09.10.17
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 01 Sep 2020 08:27:53 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
-IronPort-SDR: DM+GEuziPPoaX4mX/3UO8E25Wye++LcL+j/BSIaG2msqSeirFeTyFLrGV9rp0NyphC8a10l+r0
- 5Q+uRwEDUaTA==
-X-IronPort-AV: E=McAfee;i="6000,8403,9730"; a="144927716"
+        Tue, 01 Sep 2020 09:10:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
+IronPort-SDR: wnNjs8usZmCc3IXmpvB2OWUVOE94KXwwIq9FOTuF9OnRl0JCjq5n4uLgtRSL38cZqhVTRSvVWA
+ koiazscr5Lsw==
+X-IronPort-AV: E=McAfee;i="6000,8403,9731"; a="242012538"
 X-IronPort-AV: E=Sophos;i="5.76,379,1592895600"; 
-   d="gz'50?scan'50,208,50";a="144927716"
+   d="gz'50?scan'50,208,50";a="242012538"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga004.jf.intel.com ([10.7.209.38])
-  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2020 08:27:51 -0700
-IronPort-SDR: Wp1QvccBfEQq4B/UziQVa2bASuxwUfRyn+e37HgDrZnbrnrTvh0NTGLu4K6/dIJCTZNAGc2kiG
- uL7tTDj3QeLA==
+Received: from orsmga007.jf.intel.com ([10.7.209.58])
+  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2020 09:10:14 -0700
+IronPort-SDR: pqKNHhNdFIKNZCj59Xa0sClKPQ6Lnj/w7Rs7Nku0C9i756sH09gwJPpHlKyWawdcbBLLcVaSVm
+ TS8DFj9NQE4Q==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.76,379,1592895600"; 
-   d="gz'50?scan'50,208,50";a="446173464"
+   d="gz'50?scan'50,208,50";a="341078474"
 Received: from lkp-server02.sh.intel.com (HELO f796b30506bf) ([10.239.97.151])
-  by orsmga004.jf.intel.com with ESMTP; 01 Sep 2020 08:27:49 -0700
+  by orsmga007.jf.intel.com with ESMTP; 01 Sep 2020 09:10:12 -0700
 Received: from kbuild by f796b30506bf with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1kD8CK-00000J-ME; Tue, 01 Sep 2020 15:27:48 +0000
-Date: Tue, 1 Sep 2020 23:27:08 +0800
+	id 1kD8rL-000015-G7; Tue, 01 Sep 2020 16:10:11 +0000
+Date: Wed, 2 Sep 2020 00:09:08 +0800
 From: kernel test robot <lkp@intel.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>
+To: Lee Jones <lee.jones@linaro.org>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	linux-media@vger.kernel.org, 0day robot <lkp@intel.com>
-Subject: [linux-review:UPDATE-20200828-163247/Mauro-Carvalho-Chehab/Revert-wlcore-Adding-suppoprt-for-IGTK-key-in-wlcore-driver/20200826-135603
- 1/1] drivers/net/wireless/ti/wlcore/main.c:1095:6: warning: no previous
- prototype for function 'wl1271_check_aes_cmac_cypher'
-Message-ID: <202009012304.9Qr5lW97%lkp@intel.com>
+	Kalle Valo <kvalo@codeaurora.org>, linux-wireless@vger.kernel.org
+Subject: [wireless-drivers-next:master 129/131]
+ drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phytbl_lcn.c:108:18:
+ warning: unused variable 'dot11lcn_gain_tbl_rev1'
+Message-ID: <202009020057.jxONANsS%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="cWoXeonUoKmBZSoM"
+Content-Type: multipart/mixed; boundary="YiEDa0DAkWCtVeE4"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -145,13 +145,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---cWoXeonUoKmBZSoM
+--YiEDa0DAkWCtVeE4
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
-tree:   https://github.com/0day-ci/linux/commits/UPDATE-20200828-163247/Mauro-Carvalho-Chehab/Revert-wlcore-Adding-suppoprt-for-IGTK-key-in-wlcore-driver/20200826-135603
-head:   9a1c3d292f30a65943bd5b02dd91e7f23b9b1665
-commit: 9a1c3d292f30a65943bd5b02dd91e7f23b9b1665 [1/1] Revert "wlcore: Adding suppoprt for IGTK key in wlcore driver"
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/kvalo/wireless-drivers-next.git master
+head:   2c92790b12033797474b9ba1b2e56a95360f66cd
+commit: ebcfc66f56a43601eec4a8abab6e82aaeb09dcbf [129/131] brcmsmac: phytbl_lcn: Remove unused array 'dot11lcnphytbl_rx_gain_info_rev1'
 config: arm64-randconfig-r012-20200901 (attached as .config)
 compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c10e63677f5d20f18010f8f68c631ddc97546f7d)
 reproduce (this is a W=1 build):
@@ -159,7 +159,7 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install arm64 cross compiling tool for clang build
         # apt-get install binutils-aarch64-linux-gnu
-        git checkout 9a1c3d292f30a65943bd5b02dd91e7f23b9b1665
+        git checkout ebcfc66f56a43601eec4a8abab6e82aaeb09dcbf
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64 
 
@@ -168,61 +168,123 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
->> drivers/net/wireless/ti/wlcore/main.c:1095:6: warning: no previous prototype for function 'wl1271_check_aes_cmac_cypher' [-Wmissing-prototypes]
-   bool wl1271_check_aes_cmac_cypher(struct wl1271 *wl)
-        ^
-   drivers/net/wireless/ti/wlcore/main.c:1095:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
-   bool wl1271_check_aes_cmac_cypher(struct wl1271 *wl)
-   ^
-   static 
+>> drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phytbl_lcn.c:108:18: warning: unused variable 'dot11lcn_gain_tbl_rev1' [-Wunused-const-variable]
+   static const u32 dot11lcn_gain_tbl_rev1[] = {
+                    ^
    1 warning generated.
 
-# https://github.com/0day-ci/linux/commit/9a1c3d292f30a65943bd5b02dd91e7f23b9b1665
-git remote add linux-review https://github.com/0day-ci/linux
-git fetch --no-tags linux-review UPDATE-20200828-163247/Mauro-Carvalho-Chehab/Revert-wlcore-Adding-suppoprt-for-IGTK-key-in-wlcore-driver/20200826-135603
-git checkout 9a1c3d292f30a65943bd5b02dd91e7f23b9b1665
-vim +/wl1271_check_aes_cmac_cypher +1095 drivers/net/wireless/ti/wlcore/main.c
+# https://git.kernel.org/pub/scm/linux/kernel/git/kvalo/wireless-drivers-next.git/commit/?id=ebcfc66f56a43601eec4a8abab6e82aaeb09dcbf
+git remote add wireless-drivers-next https://git.kernel.org/pub/scm/linux/kernel/git/kvalo/wireless-drivers-next.git
+git fetch --no-tags wireless-drivers-next master
+git checkout ebcfc66f56a43601eec4a8abab6e82aaeb09dcbf
+vim +/dot11lcn_gain_tbl_rev1 +108 drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phytbl_lcn.c
 
-  1094	
-> 1095	bool wl1271_check_aes_cmac_cypher(struct wl1271 *wl)
-  1096	{
-  1097		int ver[5] = { };
-  1098		int ret;
-  1099		const char *p = wl->chip.fw_ver_str;
-  1100	
-  1101	
-  1102		/* The string starts with "Rev ". Ignore it */
-  1103		while (*p && !isdigit(*p))
-  1104			p++;
-  1105	
-  1106		ret = sscanf(p, "%d.%d.%d.%d.%d",
-  1107			     &ver[0], &ver[1], &ver[2], &ver[3], &ver[4]);
-  1108	
-  1109		if (ret != ARRAY_SIZE(ver)) {
-  1110			wl1271_info("Parsed version: %d.%d.%d.%d.%d\n",
-  1111				    ver[0], ver[1], ver[2], ver[3], ver[4]);
-  1112			wl1271_error("Couldn't parse firmware version string: %d\n", ret);
-  1113			return false;
-  1114		}
-  1115	
-  1116		/*
-  1117		 * Only versions equal (and probably above) 8.9.0.0.81
-  1118		 * supports such feature.
-  1119		 */
-  1120		if (ver[0] < 8)
-  1121			return false;
-  1122		if (ver[1] < 9)
-  1123			return false;
-  1124		if (ver[2] > 0)
-  1125			return true;
-  1126		if (ver[3] > 0)
-  1127			return true;
-  1128		if (ver[4] >= 81)
-  1129			return true;
-  1130	
-  1131		return false;
-  1132	}
-  1133	
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  107  
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05 @108  static const u32 dot11lcn_gain_tbl_rev1[] = {
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  109  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  110  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  111  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  112  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  113  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  114  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  115  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  116  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  117  	0x00000008,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  118  	0x00000004,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  119  	0x00000008,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  120  	0x00000001,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  121  	0x00000005,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  122  	0x00000009,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  123  	0x0000000D,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  124  	0x00000011,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  125  	0x00000051,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  126  	0x00000091,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  127  	0x00000011,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  128  	0x00000051,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  129  	0x00000091,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  130  	0x000000d1,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  131  	0x00000053,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  132  	0x00000093,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  133  	0x000000d3,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  134  	0x000000d7,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  135  	0x00000117,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  136  	0x00000517,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  137  	0x00000917,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  138  	0x00000957,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  139  	0x00000d57,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  140  	0x00001157,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  141  	0x00001197,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  142  	0x00005197,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  143  	0x00009197,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  144  	0x0000d197,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  145  	0x00011197,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  146  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  147  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  148  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  149  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  150  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  151  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  152  	0x00000008,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  153  	0x00000004,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  154  	0x00000008,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  155  	0x00000001,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  156  	0x00000005,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  157  	0x00000009,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  158  	0x0000000D,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  159  	0x00000011,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  160  	0x00000051,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  161  	0x00000091,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  162  	0x00000011,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  163  	0x00000051,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  164  	0x00000091,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  165  	0x000000d1,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  166  	0x00000053,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  167  	0x00000093,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  168  	0x000000d3,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  169  	0x000000d7,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  170  	0x00000117,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  171  	0x00000517,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  172  	0x00000917,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  173  	0x00000957,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  174  	0x00000d57,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  175  	0x00001157,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  176  	0x00005157,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  177  	0x00009157,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  178  	0x0000d157,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  179  	0x00011157,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  180  	0x00015157,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  181  	0x00019157,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  182  	0x0001d157,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  183  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  184  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  185  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  186  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  187  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  188  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  189  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  190  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  191  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  192  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  193  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  194  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  195  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  196  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  197  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  198  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  199  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  200  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  201  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  202  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  203  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  204  	0x00000000,
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  205  };
+5b435de0d78686 drivers/net/wireless/brcm80211/brcmsmac/phy/phytbl_lcn.c Arend van Spriel 2011-10-05  206  
+
+:::::: The code at line 108 was first introduced by commit
+:::::: 5b435de0d786869c95d1962121af0d7df2542009 net: wireless: add brcm80211 drivers
+
+:::::: TO: Arend van Spriel <arend@broadcom.com>
+:::::: CC: John W. Linville <linville@tuxdriver.com>
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -231,14 +293,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202009012304.9Qr5lW97%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202009020057.jxONANsS%25lkp%40intel.com.
 
---cWoXeonUoKmBZSoM
+--YiEDa0DAkWCtVeE4
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICM1TTl8AAy5jb25maWcAnDxdd+O2ju/9FT7Tl7sPbf0VT2b35IGSKJu1JGpEynbyouMm
+H4sICPZrTl8AAy5jb25maWcAnDxdd+O2ju/9FT7Tl7sPbf0VT2b35IGSKJu1JGpEynbyouMm
 zjR7M8lcJ5l27q9fgPoiKdLO3Tk9nTEBkiAIgAAI6ueffh6Rt9fnr/vXh9v94+OP0ZfD0+G4
 fz3cje4fHg//M4r4KONyRCMmfwXk5OHp7e/f9sevi/no4tdPv45/Od5ORuvD8enwOAqfn+4f
 vrxB94fnp59+/inkWcyWVRhWG1oIxrNK0p28+nD7uH/6Mvp+OL4A3mgy/XX863j0jy8Pr//9
@@ -1057,4 +1119,4 @@ cYoG7YECXZw3tCziTS2xWUrbuqqFvJ5Y5dB7T4Xk4jdFXA2uBgfNjP0AaF4dNZ3KVyHRSnGF
 T7JwbNInR1ZijG3ruoqXtsiaAgRj6mJXC8uEx/I6EX/G1etReiVHPbrVacCLBJiwyeUvTRkj
 x6kpJEoAuKi2YfIwD/xt1Wv8/wFZc1cfNNQCAA==
 
---cWoXeonUoKmBZSoM--
+--YiEDa0DAkWCtVeE4--
