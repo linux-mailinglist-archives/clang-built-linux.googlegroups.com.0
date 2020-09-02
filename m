@@ -1,140 +1,146 @@
-Return-Path: <clang-built-linux+bncBCIO53XE7YHBBXHWX35AKGQEOKCICOI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBI73X35AKGQEQ7F2YPI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x940.google.com (mail-ua1-x940.google.com [IPv6:2607:f8b0:4864:20::940])
-	by mail.lfdr.de (Postfix) with ESMTPS id E28C925AF11
-	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Sep 2020 17:33:49 +0200 (CEST)
-Received: by mail-ua1-x940.google.com with SMTP id 107sf1171995uah.23
-        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Sep 2020 08:33:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1599060829; cv=pass;
+Received: from mail-wm1-x33e.google.com (mail-wm1-x33e.google.com [IPv6:2a00:1450:4864:20::33e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8A83225AFAB
+	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Sep 2020 17:43:31 +0200 (CEST)
+Received: by mail-wm1-x33e.google.com with SMTP id b73sf1869927wmb.0
+        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Sep 2020 08:43:31 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599061411; cv=pass;
         d=google.com; s=arc-20160816;
-        b=F629XFJVZflC0boInet4UNqxyaxE72eKzZz7o/YhhwGPppqVtPZY8eNcd3lO4zcYMz
-         0Zmh5W0e25Q1BxwF4rSiBtttC257P6120qnV45L87KEftxMN9fphst1JJa5NBFFIYkwa
-         s37gp5NxziXKlC2+HoxbhTb1cd8auQVMI1hxHif+yu21RVTfHzGz5MIcKYYE0nvogWtT
-         WhT8Fj2PA4l4avjomKHuKL0XudvI4F6RdSfet4gvZQRRhmxNKJXT7MAq9yOJOOk/MO2y
-         0WfB3ZNPpPJnce7ZwEnLpGx2f5sCOTq4+ubgXBOfcl/3t8bZJrBSeOizt9bGPw3u5K+4
-         6FqA==
+        b=w5o+qmcM3J9S/1l87nTsB1sq12ITucnkqj3joWYv8P2dpqVckhg+SUrPGU12xArdIY
+         T5gvar0NVNcPv0bDR+UrYSuAe3qpLJRiXMOAVDDhm5SjHhsUMPtcDM3Mp9KtuI7OIiSs
+         vOy++C5vJh4qGsZVxYHjs1j5Um6vDxzDSrtwST16xP9sO7LclfcQPwftqMbME6Iy4k42
+         Cj1q1MZdq3H4MrvLPXwRGYU1R8w3K5QxI5fsn68umptua5ZRwY0Sg9zIXdscx6OOxCG/
+         qkQmRZW1rAUKPz2Xf4SV13vCb/2c6TzO4rD9OWMLinB3hRLAd5CpanG0G3SsbT+mgHW3
+         gBNQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=MS7Udd61VtfOsK1Xunnhp9vn3f1PPxjSoeF05h2AN2o=;
-        b=BM4idibghuRvEHs9VA5DLEu418Gu8ViJdUNPvag2JIpCvFMLS6+x58urZ0lD8QOmBf
-         yhoUnAdGNbAcpV1ptq2t8S85i+c54pw28lG5EHHIfeLrubcuIN0aiFKNvuP7sM1FjT1Y
-         +cFEMqTZbOiWLmRGC/Z4N2C3gKjNPhZk44BhU/9l7w1pNK1CAYDNaeqjHcJkP7lLqX9I
-         KBNR88t3tLK7q5fZuGk5QBOk6JmG2DjT8uNNuPfS+YGL2tyWfu/l39uNIcrnyCdLb7lR
-         dq010Ux8Wfj4ZwUkbt80cU+jgLjIntUb/RD5H3EZDPwLwgtW881a16hh4sWnCNlnJ4lF
-         rohA==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :content-language:in-reply-to:mime-version:user-agent:date
+         :message-id:from:references:cc:to:subject:sender:dkim-signature;
+        bh=HglgrchplNEKv67vOc0HJy5FiWwUgK6Y7QfeuvlQwMo=;
+        b=A86I0ff5lUcuyKFBCRl6LjcmG5NiN/Xun5bjD7S281+Ke3ExaNRbBniucHvn4jD/EM
+         ebOjIExXP3gQkUFs4LdSeMYQekvAiu2X8nmXMGhS0b1yJRLXgxm+/QqfUtS24pnRQznO
+         XEs4/8HhCLAQPAUtg4PMjglnfS/Iv5kqrHBT/uP9ouAN44CNeSltR76kX36yZOTxedq7
+         mmyQKpocRK3EtHFP9zGzGUj68+m/f+mr7cfKS871NPwOId7mKLi7mmoBpC/YOL38g/6n
+         8mpvla3lu+eTsdU6amCbJAbEf23uwXGmmzo6/0UPpQsRzX/tYGoyZinRTk5bMCtH12Hj
+         SqwA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 209.85.160.193 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+       spf=pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.236.30 as permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=MS7Udd61VtfOsK1Xunnhp9vn3f1PPxjSoeF05h2AN2o=;
-        b=QLLQyPgrWaR/wcw2BNU8tok6JuEYIggHpHaALVPIW0u83lD0dJSci6l67EkxyaUKP1
-         QRetTR2E8vxYk2HvZpQ68zZ8aTcWci+qe4648MZD5/gv80K6pG3eN3x9pC5U5Lp/N+bD
-         bsP5rf8bxv3XXfV/6n5Y4PtEDlQCXU9bmbMDwS8Y8yDXFGwF5P8rqNRc5q7uxePRqani
-         VeRgusXzfZfk0ZFeNyu3JQOSkpeSLHLoXbnt+crODyqcgTuGpVtBWJ1D0RSKOolL+lY6
-         h38SOJ6AKv3u3q/hmbVyvwvh0eNp2xlyqTeWMPyPBVQZfUP7oaKkCk7cwwj3JMuUW89O
-         xcXA==
+        bh=HglgrchplNEKv67vOc0HJy5FiWwUgK6Y7QfeuvlQwMo=;
+        b=SX+XZDOX5IgrDoCJY4EbQ2jp2QhGM3+M9wRXvHNUm4frG/fAXssYyWFlZ4zpl8Q0JK
+         JHJUXU1RzQqpjGFagEi/72028Oy0amIqiymWk3n4HGDzjtaNYtQEPnFd6Gv/+FAJJJiU
+         t0C2RhPLL/UJyY/aUcN0Yk3STGaNjFDRkIQ/XZ/XjfWE7mzSdEsQvtYITAmXHvPYxtDd
+         zGstB7b4TUI22+8xXPRq7wkTZW62d75dv8BnabiZCLiQq2bN/wK0tHoi7iuhpmdguwEF
+         yetizFGsJy/oIiUZ/Rp8yOfrFic7bIlDkcj6LiqE7kEof7n1IHsY7p6AnIw7qbfXwbQ2
+         pcJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=MS7Udd61VtfOsK1Xunnhp9vn3f1PPxjSoeF05h2AN2o=;
-        b=nap0jIadfNIyB980jI+dtXANch7CIkLebic0BcyK0PpjIBtEz1J8tbPcyeTnLNI6lb
-         cxNcd4Wf0j4aOBauH+XhDxgvEyZieJBjok+WYRB/pSKtEYOeIURyvnMA9D+iu4rzXFWR
-         O77OoIdUkoR2tIXWqvVMwlgfXZHqgjWzsc89oOrvDSJm44bClUNcFJRK1mDbGpQ+Sx5A
-         amckF4Z5rVlzzfFcrYt1JX5t4jPa91aQclf/lEg5AFXzeTOcvQWPjC1IL857A949VuR5
-         yea84vSt2hJU6k0kQizKf290oxlvTAV2a5UaXuSbtj5BF5cmmfs2f1Vt7zJ2k4iPAIPU
-         n8mg==
+        bh=HglgrchplNEKv67vOc0HJy5FiWwUgK6Y7QfeuvlQwMo=;
+        b=l4h0GIIMc1oebYGxsNjVG19eAcWXbKhOkewe5kpCwY+JgOWkL88ZlvP68Gqhy22Z81
+         4faHTh7XKs5fdytyj/l+Fh6S8HyMqTzAfPTULh09swv5k8mpAtGpj33LP/DNn+Lnxm3S
+         iizpDVdHRC8bBZHM5MLuP9YWYkwgPDWJDcSqmBwUzKlc/qKmAASMdkoq5EHT0n2g+93Q
+         OX51B0voBMgnJkWEBJBX7kZmGLfAe5PmGKxfwY+G4n4ot+F4Cq6v/Ar9cNVTC1rCLvHQ
+         h3yoEF8tJ7aMILpZvJ/gv+NpjsDeRcXGLZ4Z5nmctKs+m4dvJy6f6o7XHZUes0jd2agd
+         ryfw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531kgeJWBEXFP6vRVkIYmAYx0T17ag0ZnpERWJVfn3gqwHHJBnEy
-	IPTHPFkY6kTxJSmwqI7LuRQ=
-X-Google-Smtp-Source: ABdhPJzBlhl4o0kFAturxcn5wl5S5Lj6ZOCWTGtqSeH1VK0KmrsGqRMme6/Dcm2OQpgBXe2cv7sldg==
-X-Received: by 2002:a67:fbcc:: with SMTP id o12mr5873811vsr.213.1599060828800;
-        Wed, 02 Sep 2020 08:33:48 -0700 (PDT)
+X-Gm-Message-State: AOAM530N6POqLFlxVWDo5fN4y5HcBkqFrEc6JiXbqAStslbldUiAhgWI
+	0VkZGoY3X9445Js5mM8dsMs=
+X-Google-Smtp-Source: ABdhPJw30JfCNRS5qma9zlzxVCUQ5gNxXWlYI06QkXQ/C8/fo2ObepgoCNAh57YoFOuhH2HzryOWLg==
+X-Received: by 2002:adf:c789:: with SMTP id l9mr8300028wrg.41.1599061411287;
+        Wed, 02 Sep 2020 08:43:31 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:3602:: with SMTP id d2ls156147vka.0.gmail; Wed, 02 Sep
- 2020 08:33:48 -0700 (PDT)
-X-Received: by 2002:a1f:1f0d:: with SMTP id f13mr3232347vkf.1.1599060828405;
-        Wed, 02 Sep 2020 08:33:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1599060828; cv=none;
+Received: by 2002:a1c:c2c1:: with SMTP id s184ls1343534wmf.2.canary-gmail;
+ Wed, 02 Sep 2020 08:43:30 -0700 (PDT)
+X-Received: by 2002:a7b:cb47:: with SMTP id v7mr1337329wmj.129.1599061410803;
+        Wed, 02 Sep 2020 08:43:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599061410; cv=none;
         d=google.com; s=arc-20160816;
-        b=CY+DLppxpBGy02bQXKuqq9BUU3+fM3+pe4OvbKtl/srGfxlEi1SUv5cgzpCl8XEh4Z
-         b42Ru9/UcuHgaHhPj8TaYjgB4Uu4dWNdBn+sl6SxWOzFbshIwKrI33qhPE6s12HBI3Co
-         5wVs0En+/Q1oradxhsv+eljBErqjk6s191cIGNEVBI928e8PB/is1qsUxog75e0TDe0w
-         5qGGEXWtzB5HgRJrkS2FA3eeoF+IetjAjy+yd5v96as8DIueFeaPbsb2betmkiAzk62q
-         hVt9vAtf6aPn/LzywDHIo+/ErNry3rf3dbQ7o3RPtEJoSiYlKJ/wx5KZHHUWIMPGRs/f
-         oIHw==
+        b=ZO6C/T6q1sIFlj56AYHnh0h0VShfHkH7OhYZfeVWEbgf01U7I1D8b6FPw9fN0pdV0z
+         eoXTzO5C7lan3f+GDnRJCyXoV6S90zRT834UonNVhwqHnSUIAyE7oGKnThv6sKpDUVVI
+         CFYr88YbsS6tCPmOLkc9IJaNLf2jWVJaix92WxvAd4eF0FBOqGR7eWl8VZXn1kUuGKJu
+         B3oX+jxP6pDMoGAJPYsy62cyS6DcSZUPDzzle57CcUCnh02BKPsfGOqdEGGWJ6pxjOnC
+         ffNqrH2mbhQI3Rw/YPSozhvzlSGcOvBBvZU1kPy2ux/rUKnyfV/8EHAFs1UeJt7CvVx5
+         Doag==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from;
-        bh=bZV9KGWZ5viva61/b9hVQgmVhPVV/tpGu2oJRA3hrXM=;
-        b=qacZmvL+WQmteUBAzIL8IVKJzBoXTXGcMXFwVzh7vN2k4ANWmxCkjBDd28o5UNW+IG
-         dPxQyc8rjORfp6+qMIVsM4sMnAy/tWWmgySgwnQy0nK+qJTpuxMmA48afqGfx9NMmBCK
-         ckJZklcejYC3b/YfoAFnbO+9tXvrc+u7fXhjk9DU2JqWP6rCtnH75vUNLsYcPZg3+j4O
-         NDK+4FxfqGVspxyDvDoaEJcDEQHcyVEsEQwfUF3/MszITptS+h7rowHs5lgEzX4fpzg6
-         XWKdDu+2fAeKeI0ApAbQ4VlWeIr0CTCFNjhkvAh9p/OvzGLGIyhEnh1Kx125YfQbf4hi
-         uRqw==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=X44KaKoZ6yYWt+Ff/z6estOxiSzfVsQDY6XtUZN4g44=;
+        b=iAbStbToPZyEI7l1sijK2yEaGDvCoJquRC+XJ2rzPXPUoQ6nDtXRZZ6vpPccUxmvME
+         tqjGIfyXQ/k9DtP9mF1ySPaNfIAmqxmxDODcG7vTh3+wlwx0cPc5qaUuTP/Jbl40NNzH
+         afhAeLTKkV3VUd7NN4qb6Ca8Q5MybPjbgIhPxFxAted49fs4hjhdFsbUMaNOfH7KwXiS
+         B0fzqzCpYD7jt+GxWh0nc874wWtO+HbCMyYC9G1f8wBU9mvcY9nfoA8Y5xx0ZBT97GAd
+         5ezixgGSReosAVnqZJTJtGAvxnOg45refKOyZq71U7Ucjhx8rZ8us3AikbIqdh2ohxay
+         k/xA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 209.85.160.193 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
-Received: from mail-qt1-f193.google.com (mail-qt1-f193.google.com. [209.85.160.193])
-        by gmr-mx.google.com with ESMTPS id q10si1844uas.1.2020.09.02.08.33.48
+       spf=pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.236.30 as permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
+Received: from pegase1.c-s.fr (pegase1.c-s.fr. [93.17.236.30])
+        by gmr-mx.google.com with ESMTPS id y64si113644wmc.0.2020.09.02.08.43.30
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 02 Sep 2020 08:33:48 -0700 (PDT)
-Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 209.85.160.193 as permitted sender) client-ip=209.85.160.193;
-Received: by mail-qt1-f193.google.com with SMTP id t20so3864334qtr.8
-        for <clang-built-linux@googlegroups.com>; Wed, 02 Sep 2020 08:33:48 -0700 (PDT)
-X-Received: by 2002:ac8:7a6b:: with SMTP id w11mr6806456qtt.316.1599060827762;
-        Wed, 02 Sep 2020 08:33:47 -0700 (PDT)
-Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
-        by smtp.gmail.com with ESMTPSA id v42sm5195260qth.35.2020.09.02.08.33.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2020 08:33:47 -0700 (PDT)
-From: Arvind Sankar <nivedita@alum.mit.edu>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	Sedat Dilek <sedat.dilek@gmail.com>,
-	Segher Boessenkool <segher@kernel.crashing.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Borislav Petkov <bp@alien8.de>,
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Kees Cook <keescook@chromium.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Juergen Gross <jgross@suse.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Andrew Cooper <andrew.cooper3@citrix.com>,
-	LKML <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Will Deacon <will@kernel.org>,
-	nadav.amit@gmail.com,
-	Nathan Chancellor <natechancellor@gmail.com>
-Subject: [PATCH v2] x86/asm: Replace __force_order with memory clobber
-Date: Wed,  2 Sep 2020 11:33:46 -0400
-Message-Id: <20200902153346.3296117-1-nivedita@alum.mit.edu>
-X-Mailer: git-send-email 2.26.2
-In-Reply-To: <20200823212550.3377591-1-nivedita@alum.mit.edu>
-References: <20200823212550.3377591-1-nivedita@alum.mit.edu>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 02 Sep 2020 08:43:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.236.30 as permitted sender) client-ip=93.17.236.30;
+Received: from localhost (mailhub1-int [192.168.12.234])
+	by localhost (Postfix) with ESMTP id 4BhSrw4krPz9txTB;
+	Wed,  2 Sep 2020 17:43:28 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at c-s.fr
+Received: from pegase1.c-s.fr ([192.168.12.234])
+	by localhost (pegase1.c-s.fr [192.168.12.234]) (amavisd-new, port 10024)
+	with ESMTP id nFwfpdFhuBJU; Wed,  2 Sep 2020 17:43:28 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase1.c-s.fr (Postfix) with ESMTP id 4BhSrw21Q6z9txS3;
+	Wed,  2 Sep 2020 17:43:28 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id BEA7E8B7EF;
+	Wed,  2 Sep 2020 17:43:29 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id tsIuuS3JiTII; Wed,  2 Sep 2020 17:43:29 +0200 (CEST)
+Received: from [192.168.4.90] (unknown [192.168.4.90])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 3A79A8B7EA;
+	Wed,  2 Sep 2020 17:43:28 +0200 (CEST)
+Subject: Re: [PATCH 2/2] powerpc/vdso32: link vdso64 with linker
+To: Segher Boessenkool <segher@kernel.crashing.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@c-s.fr>,
+ Joe Lawrence <joe.lawrence@redhat.com>, Kees Cook <keescook@chromium.org>,
+ Fangrui Song <maskray@google.com>, linux-kernel@vger.kernel.org,
+ clang-built-linux@googlegroups.com, Paul Mackerras <paulus@samba.org>,
+ linuxppc-dev@lists.ozlabs.org
+References: <20200901222523.1941988-1-ndesaulniers@google.com>
+ <20200901222523.1941988-3-ndesaulniers@google.com>
+ <b2066ccd-2b81-6032-08e3-41105b400f75@csgroup.eu>
+ <20200902141431.GV28786@gate.crashing.org>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Message-ID: <0c895acf-b6d7-baaf-d613-236f8be8e1fe@csgroup.eu>
+Date: Wed, 2 Sep 2020 17:43:03 +0200
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.0
 MIME-Version: 1.0
-X-Original-Sender: nivedita@alum.mit.edu
+In-Reply-To: <20200902141431.GV28786@gate.crashing.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: fr
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: christophe.leroy@csgroup.eu
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of niveditas98@gmail.com designates 209.85.160.193 as
- permitted sender) smtp.mailfrom=niveditas98@gmail.com
-Content-Type: text/plain; charset="UTF-8"
+ (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.236.30 as
+ permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,170 +153,45 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The CRn accessor functions use __force_order as a dummy operand to
-prevent the compiler from reordering the inline asm.
+Hi,
 
-The fact that the asm is volatile should be enough to prevent this
-already, however older versions of GCC had a bug that could sometimes
-result in reordering. This was fixed in 8.1, 7.3 and 6.5. Versions prior
-to these, including 5.x and 4.9.x, may reorder volatile asm.
+Le 02/09/2020 =C3=A0 16:14, Segher Boessenkool a =C3=A9crit=C2=A0:
+> Hi!
+>=20
+> On Wed, Sep 02, 2020 at 06:46:45AM +0000, Christophe Leroy wrote:
+>> ld crashes:
+>>
+>>    LD      arch/powerpc/kernel/vdso32/vdso32.so.dbg
+>> /bin/sh: line 1: 23780 Segmentation fault      (core dumped)
+>> ppc-linux-ld -EB -m elf32ppc -shared -soname linux-vdso32.so.1
+>> --eh-frame-hdr --orphan-handling=3Dwarn -T
+>> arch/powerpc/kernel/vdso32/vdso32.lds
+>> arch/powerpc/kernel/vdso32/sigtramp.o
+>> arch/powerpc/kernel/vdso32/gettimeofday.o
+>> arch/powerpc/kernel/vdso32/datapage.o
+>> arch/powerpc/kernel/vdso32/cacheflush.o
+>> arch/powerpc/kernel/vdso32/note.o arch/powerpc/kernel/vdso32/getcpu.o -o
+>> arch/powerpc/kernel/vdso32/vdso32.so.dbg
+>> make[4]: *** [arch/powerpc/kernel/vdso32/vdso32.so.dbg] Error 139
+>>
+>>
+>> [root@localhost linux-powerpc]# ppc-linux-ld --version
+>> GNU ld (GNU Binutils) 2.26.20160125
+>=20
+> [ Don't build as root :-P ]
+>=20
+> Try with a newer ld?  If it still happens with current versions, please
+> open a bug report?  https://sourceware.org/bugzilla
 
-There are some issues with __force_order as implemented:
-- It is used only as an input operand for the write functions, and hence
-  doesn't do anything additional to prevent reordering writes.
-- It allows memory accesses to be cached/reordered across write
-  functions, but CRn writes affect the semantics of memory accesses, so
-  this could be dangerous.
-- __force_order is not actually defined in the kernel proper, but the
-  LLVM toolchain can in some cases require a definition: LLVM (as well
-  as GCC 4.9) requires it for PIE code, which is why the compressed
-  kernel has a definition, but also the clang integrated assembler may
-  consider the address of __force_order to be significant, resulting in
-  a reference that requires a definition.
+Yes it works with 2.30 and 2.34
+But minimum for building kernel is supposed to be 2.23
 
-Fix this by:
-- Using a memory clobber for the write functions to additionally prevent
-  caching/reordering memory accesses across CRn writes.
-- Using a dummy input operand with an arbitrary constant address for the
-  read functions, instead of a global variable. This will prevent reads
-  from being reordered across writes, while allowing memory loads to be
-  cached/reordered across CRn reads, which should be safe.
+Christophe
 
-Tested-by: Nathan Chancellor <natechancellor@gmail.com>
-Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
-Signed-off-by: Arvind Sankar <nivedita@alum.mit.edu>
-Link: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=82602
-Link: https://lore.kernel.org/lkml/20200527135329.1172644-1-arnd@arndb.de/
----
-Changes from v1:
-- Add lore link to email thread and mention state of 5.x/4.9.x in commit log
-
- arch/x86/boot/compressed/pgtable_64.c |  9 ---------
- arch/x86/include/asm/special_insns.h  | 27 ++++++++++++++-------------
- arch/x86/kernel/cpu/common.c          |  4 ++--
- 3 files changed, 16 insertions(+), 24 deletions(-)
-
-diff --git a/arch/x86/boot/compressed/pgtable_64.c b/arch/x86/boot/compressed/pgtable_64.c
-index c8862696a47b..7d0394f4ebf9 100644
---- a/arch/x86/boot/compressed/pgtable_64.c
-+++ b/arch/x86/boot/compressed/pgtable_64.c
-@@ -5,15 +5,6 @@
- #include "pgtable.h"
- #include "../string.h"
- 
--/*
-- * __force_order is used by special_insns.h asm code to force instruction
-- * serialization.
-- *
-- * It is not referenced from the code, but GCC < 5 with -fPIE would fail
-- * due to an undefined symbol. Define it to make these ancient GCCs work.
-- */
--unsigned long __force_order;
--
- #define BIOS_START_MIN		0x20000U	/* 128K, less than this is insane */
- #define BIOS_START_MAX		0x9f000U	/* 640K, absolute maximum */
- 
-diff --git a/arch/x86/include/asm/special_insns.h b/arch/x86/include/asm/special_insns.h
-index 59a3e13204c3..8f7791217ef4 100644
---- a/arch/x86/include/asm/special_insns.h
-+++ b/arch/x86/include/asm/special_insns.h
-@@ -11,45 +11,46 @@
- #include <linux/jump_label.h>
- 
- /*
-- * Volatile isn't enough to prevent the compiler from reordering the
-- * read/write functions for the control registers and messing everything up.
-- * A memory clobber would solve the problem, but would prevent reordering of
-- * all loads stores around it, which can hurt performance. Solution is to
-- * use a variable and mimic reads and writes to it to enforce serialization
-+ * The compiler should not reorder volatile asm, however older versions of GCC
-+ * had a bug (which was fixed in 8.1, 7.3 and 6.5) where they could sometimes
-+ * reorder volatile asm. The write functions are not a problem since they have
-+ * memory clobbers preventing reordering. To prevent reads from being reordered
-+ * with respect to writes, use a dummy memory operand.
-  */
--extern unsigned long __force_order;
-+
-+#define __FORCE_ORDER "m"(*(unsigned int *)0x1000UL)
- 
- void native_write_cr0(unsigned long val);
- 
- static inline unsigned long native_read_cr0(void)
- {
- 	unsigned long val;
--	asm volatile("mov %%cr0,%0\n\t" : "=r" (val), "=m" (__force_order));
-+	asm volatile("mov %%cr0,%0\n\t" : "=r" (val) : __FORCE_ORDER);
- 	return val;
- }
- 
- static __always_inline unsigned long native_read_cr2(void)
- {
- 	unsigned long val;
--	asm volatile("mov %%cr2,%0\n\t" : "=r" (val), "=m" (__force_order));
-+	asm volatile("mov %%cr2,%0\n\t" : "=r" (val) : __FORCE_ORDER);
- 	return val;
- }
- 
- static __always_inline void native_write_cr2(unsigned long val)
- {
--	asm volatile("mov %0,%%cr2": : "r" (val), "m" (__force_order));
-+	asm volatile("mov %0,%%cr2": : "r" (val) : "memory");
- }
- 
- static inline unsigned long __native_read_cr3(void)
- {
- 	unsigned long val;
--	asm volatile("mov %%cr3,%0\n\t" : "=r" (val), "=m" (__force_order));
-+	asm volatile("mov %%cr3,%0\n\t" : "=r" (val) : __FORCE_ORDER);
- 	return val;
- }
- 
- static inline void native_write_cr3(unsigned long val)
- {
--	asm volatile("mov %0,%%cr3": : "r" (val), "m" (__force_order));
-+	asm volatile("mov %0,%%cr3": : "r" (val) : "memory");
- }
- 
- static inline unsigned long native_read_cr4(void)
-@@ -64,10 +65,10 @@ static inline unsigned long native_read_cr4(void)
- 	asm volatile("1: mov %%cr4, %0\n"
- 		     "2:\n"
- 		     _ASM_EXTABLE(1b, 2b)
--		     : "=r" (val), "=m" (__force_order) : "0" (0));
-+		     : "=r" (val) : "0" (0), __FORCE_ORDER);
- #else
- 	/* CR4 always exists on x86_64. */
--	asm volatile("mov %%cr4,%0\n\t" : "=r" (val), "=m" (__force_order));
-+	asm volatile("mov %%cr4,%0\n\t" : "=r" (val) : __FORCE_ORDER);
- #endif
- 	return val;
- }
-diff --git a/arch/x86/kernel/cpu/common.c b/arch/x86/kernel/cpu/common.c
-index c5d6f17d9b9d..178499f90366 100644
---- a/arch/x86/kernel/cpu/common.c
-+++ b/arch/x86/kernel/cpu/common.c
-@@ -359,7 +359,7 @@ void native_write_cr0(unsigned long val)
- 	unsigned long bits_missing = 0;
- 
- set_register:
--	asm volatile("mov %0,%%cr0": "+r" (val), "+m" (__force_order));
-+	asm volatile("mov %0,%%cr0": "+r" (val) : : "memory");
- 
- 	if (static_branch_likely(&cr_pinning)) {
- 		if (unlikely((val & X86_CR0_WP) != X86_CR0_WP)) {
-@@ -378,7 +378,7 @@ void native_write_cr4(unsigned long val)
- 	unsigned long bits_changed = 0;
- 
- set_register:
--	asm volatile("mov %0,%%cr4": "+r" (val), "+m" (cr4_pinned_bits));
-+	asm volatile("mov %0,%%cr4": "+r" (val) : : "memory");
- 
- 	if (static_branch_likely(&cr_pinning)) {
- 		if (unlikely((val & cr4_pinned_mask) != cr4_pinned_bits)) {
--- 
-2.26.2
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200902153346.3296117-1-nivedita%40alum.mit.edu.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/0c895acf-b6d7-baaf-d613-236f8be8e1fe%40csgroup.eu.
