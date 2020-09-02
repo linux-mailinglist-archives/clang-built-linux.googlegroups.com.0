@@ -1,125 +1,125 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBUN6YD5AKGQE5Z2FC7I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBRWHYD5AKGQES6A7SVQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1037.google.com (mail-pj1-x1037.google.com [IPv6:2607:f8b0:4864:20::1037])
-	by mail.lfdr.de (Postfix) with ESMTPS id 121CF25B67D
-	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Sep 2020 00:40:19 +0200 (CEST)
-Received: by mail-pj1-x1037.google.com with SMTP id r15sf447740pjo.9
-        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Sep 2020 15:40:19 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1599086417; cv=pass;
+Received: from mail-oi1-x238.google.com (mail-oi1-x238.google.com [IPv6:2607:f8b0:4864:20::238])
+	by mail.lfdr.de (Postfix) with ESMTPS id 41D2525B6D4
+	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Sep 2020 00:59:20 +0200 (CEST)
+Received: by mail-oi1-x238.google.com with SMTP id u190sf368309oif.13
+        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Sep 2020 15:59:20 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599087559; cv=pass;
         d=google.com; s=arc-20160816;
-        b=SuoLWcOio/IVkn5DI+qtZzHSH7cVYpr6PYvbh8diq3+P/klEMqhoRF3pVGwSJBn6Ym
-         D8AQpioRGDiUPJHUz4tylI9yOYjoCffoUdxG1GQ23KMhYGQ0K3F7thaWjfLW2k+oprF0
-         c9Iz8CNzqE3JnrzCBofvuPB0zdxOp8Tkzsab/GNYTG8Usa8DdbUHUWys1HNVQcg2dkfW
-         wWgWHgEt2PC3oxSr4rwML6ZA9b5f1vSzGXFl6YmiqNqcTiuvkUUR7tsvjqfXz0qvIefV
-         2nEv2KA1txPGoeePnasVEhjuzVoLlS05M9/+WTP0lRihz9cHR5jd2f0TG59nezEhCSx2
-         nymA==
+        b=HkuIj/6MliQtSMAVP9IMHEenGE6k4iz3oLirbL1CicEM44tFPlKkGE8hBZZlWxCauP
+         zBxU7O+XSFGQPycrNrQYkTaF0lJJm3KGqozJThNfV1Qd8sKqg/dAhLCnOByNG3Vov+hb
+         s4kimedrMzAvc/tp2tkyofXFm73n9SxYR+AnUOh+4w4gFDPoW+wGFsVpkx5ewXaeS/R8
+         DAa0d6BSCqJRKPb9c1HiLNHyuxIL290+3YL2cBDvNWGLsp1pXigdgo0YRWftDtH0Ibff
+         mayGyPfbWbgIds6G4TEgRMVoYA2LsBara7EQ0KR2kuMpstCGj1mrxoWoO9gN9b5mZfTb
+         Zd8w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=j0kH8YQkubzBzeeBeK193aRdhr2l8123iwh16+Die8Q=;
-        b=LhNPxK/sa9o6VGX8ovr1AH/YdSfj62ewIk/fWlE/xVq6IMJAdhkAJvN2FzeVav9Bo3
-         GOFs+6gYlRlN4uznW669ZGZFajCsj5+tmeuZ9GRJtrmD1iJg41lZ/DWXhXdAIJaw8SkR
-         9Trmbj/S8THUy7cBNbuks6RzQp1EoM8Ldq6KX2QPLr3ycpVETeQnGrQH/tPr+WekLBZa
-         yTsKZ38NcJcQjGRS4etGtgY/pUhezZl9R6nP+MDY7w+Ks5zBVCh+mzMP4ctKvt2YBrfh
-         ej+Tw1oxUmDtwztoPYkKvJRfrwqAu/GhEOUiKX2jt+xY5CL0WyXaEh1fJIfB84dqyvTb
-         CCpg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :mime-version:message-id:date:sender:dkim-signature;
+        bh=UmEOLpTAOhJ19UAOQ29ISjk2IG5GM8WZEjTxjmafWQk=;
+        b=KQ+6tyvJAhyaEVjJreA9fc4QE/o3sWUKBIDSbkhFRAdZ1+/4onHZkcfHcTlTusSbR4
+         AwxS853TluriXaUVABhznRx60AUc3PoytWegaN45TCBHrnuFdi24n1QB92riQwzcdE+a
+         xKPD3c5s/m3Fg1z5LQZv4qzf5ZqFp0FTiCwu4yKOMEGdX5RRvjbEPLUlBnTmBPf+CzZm
+         zh0C4+25DWF81qTMigK7eL0J1Y79UEvZv2rkjPQ/xvlHdM1viru2EeRUEvo8tJZCbeTR
+         U9sbS7I704JtXiUw+nUp4YE4LfY0gx6VOOM40hf7qr25QiHQSTduqqPUN9GRAfzfNXaB
+         d8rA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=rXWlyxq+;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=B3bpWMEq;
+       spf=pass (google.com: domain of 3xsnqxwwkae43tu8qa13yu78w44w1u.s42@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3xSNQXwwKAE43tu8qA13yu78w44w1u.s42@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:date:message-id:mime-version:subject:from:to:cc
+         :x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=j0kH8YQkubzBzeeBeK193aRdhr2l8123iwh16+Die8Q=;
-        b=Gwdj75PBLr88+qkXKzyOr4u0nu5XdZ9zn658DRPpqL8wGEPYkXnytZE1m3Kxgw/g+n
-         4I0pbtid7e5egCktOIa4zKRtaWT4YSDncvB1IP61JxQ7wvSIbwwbfeRIUpooKhJP3jX2
-         ujLd7I1GC9tEUy2ITaUNljTWkbmEClZ8COMKGi49u3V5N6ZSgOB6sqfcRSgHYGs7f/o7
-         VcbR4/oDw61gClqts4yQPA9ihLPBYomMiNqmogFi+sTIDeAhcwG94dT52rul7/j55mXy
-         XeovI5DYMZxzZZ4gW0XndyneG5EulCEZTl02j41CuSLGonU9X+O8xMCciOzHiAVl+lsc
-         OH8g==
+        bh=UmEOLpTAOhJ19UAOQ29ISjk2IG5GM8WZEjTxjmafWQk=;
+        b=Dqhezsg1wOq1u0JaEWgV7eMG3nSiGDZSDcmXkH32HRlXFlp2qoNhpqSNI3QhiY8Wh6
+         iT7OnwanN3r6hmp8nc44pNf444jsHOB8ahk1kUIND6bpyOBTzu5RyZxqtFtNPHhLZopp
+         3M+k3aYBGji9w4rmd8thseRvvrU5Dx0oPmNNjKxaEfxIz7Acvva0ZTYHKBE8QCCX5Qs4
+         y+4Go6KA5HygGuJQiye3WDczxSF1pDt5V2dizLppeX9HQbujbBCylov73T8LDGZ1mlaf
+         AnyuC9qJT/I677MIkqEC+7yWVND+eHaTmGZZx5J2xufrNdWVAcpi9iWB8Ths5a+5kcPw
+         M+IQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=j0kH8YQkubzBzeeBeK193aRdhr2l8123iwh16+Die8Q=;
-        b=ZwauB8p5dRseFj7bTiau2X4uKaDcE3AWsAy3Jd9HnbqBPX5X8L6S4JuH2kevaTpaWH
-         OW81rQm9DiV6b98RuddTsDcPhyPRqqvZAHurS66PMrHU7zZs1svr3a+cmENaNaeSIzlH
-         dIOR5oyP5toSce0PoWBOafFCu/nj93j2EGzFDZDGhfDWkAY9GzMNunMAek/QLDq9yMv+
-         3Wx7kBcvYAL9nZM6c6edhnpAZXkUt8A4nFskspvF4IRXYgWh7DzsSUCOdwykKzfbyrai
-         93Y5AhC9g/JH53i4DOtR9cb3945CBEFuI4HSjLMGgdTbZILIlT4POcXmdoUEnKbVluya
-         yHAQ==
-X-Gm-Message-State: AOAM532adut9dbUViL/ISZIOl/55ELlXUpBSZlxia0wFaBGxReqn0TKH
-	VXwlBUAooO05CmPJLD3ffA0=
-X-Google-Smtp-Source: ABdhPJyTggWPzNBfEYb1ptzH9qj1lsyx+8FO6tO/KQM9p3jZdrrlDsy9sua6NdeIbuX30yRPboWJwg==
-X-Received: by 2002:a17:90a:448e:: with SMTP id t14mr3959328pjg.59.1599086417469;
-        Wed, 02 Sep 2020 15:40:17 -0700 (PDT)
+        h=x-gm-message-state:sender:date:message-id:mime-version:subject:from
+         :to:cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=UmEOLpTAOhJ19UAOQ29ISjk2IG5GM8WZEjTxjmafWQk=;
+        b=eQshcGJRbk7QRz5RE3woqHvZMjUTqAShojsoi12OtT1w8DkwwMulVRdhVidaer1eoV
+         4HmFx2mZByAAhJAMQUgkb6nFDZTd8FTA7L756n6ToEBZSLfbcN6bX37GYnGGFGIf3ELI
+         vq3gpOn2H2nYVioIywYprI11t7oyk4IiOe74aiK2uYWFEWY3uXS+P1oDp2AUlNRdf3Ph
+         /4q1jtg4SuP/bo49gGvPw+eER+XlHKi7YX8nCofC6W7vPTKv+3MfoqoX37iiXVPV9FNI
+         TgtyhexpbDWtW7NO57FMdtrX9XQ2eUY6nXKJDLif15yJ/RNEhPiFFfcQ1AgEDvjPpsvN
+         SBjw==
+X-Gm-Message-State: AOAM530qULiUlqCKZ8nRsJAlKYYE7BbV+TnNm7vEpZzN1aqrIedG7nzE
+	SQU6e9a7w3utBaQPpZZxjUY=
+X-Google-Smtp-Source: ABdhPJzRtLGeMjQPrj+lORtmWmuqBgqPQq9mXPKuMg1p/jYp96RceiK4Qv0PQ4gltp8955eQqndFBA==
+X-Received: by 2002:aca:60d4:: with SMTP id u203mr251895oib.115.1599087558884;
+        Wed, 02 Sep 2020 15:59:18 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:7e90:: with SMTP id z138ls1495181pfc.8.gmail; Wed, 02
- Sep 2020 15:40:15 -0700 (PDT)
-X-Received: by 2002:a63:1644:: with SMTP id 4mr138717pgw.232.1599086415244;
-        Wed, 02 Sep 2020 15:40:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1599086415; cv=none;
+Received: by 2002:aca:b154:: with SMTP id a81ls826353oif.8.gmail; Wed, 02 Sep
+ 2020 15:59:18 -0700 (PDT)
+X-Received: by 2002:aca:cd55:: with SMTP id d82mr252281oig.163.1599087558537;
+        Wed, 02 Sep 2020 15:59:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599087558; cv=none;
         d=google.com; s=arc-20160816;
-        b=YuUVCl1VIVwUjWo5ldSGRjXbkz0yn72gOoBMomRuEuQbod2xswUe1OtOpJ04O5Gnv5
-         hVqV2TA6CiDjPrT5RwaKPyGsZ46048c279NzERCacxgAhegz/g99pymMh85iOQUarOYK
-         zz314d3KCD1Q30Y0a+gvZ4APKYmSZlM4HVamUKmRIz1tXTjwSAAeV1zcWD9O2jYVEx/c
-         Yb68JigrQsgZEWEWylf4jpbZTFIgghaA88GIVh3EyRhMqHPT7TzXeoJ5ScIQJTUlqY2E
-         SMWL3x4peCzkEiP3KW6VF1tL2b8tbFeEd9HAru9JWSeOkix+K/0hOUYp2o/yFmKdYU2v
-         xnfA==
+        b=NPNkq1r5KVHy3VMw9crFdKHgEwUGHSBTL3Xv+Ajja+p9jRhXUOko6Z8MDBisdTxlD9
+         9/HxUOSQr1a+wLwUXwfiL8J4bqsnI04pwx56kDTSUGiwrKp2DWWZqasbmxuaAJq1jniX
+         kPlVFWg19Ddo1ZNYvpSNjEP3FlAx5CsgQ501WGTHY/VH3+oYX76N086G/qhylorxjO+Z
+         02qqaCOQlHrDQ2syvLKpedoFiapWHxxwCGSPlNiIjHvziqm4dKlF3vrClt33Ts9qqK0F
+         8/BUwe8YrDMj+b140hOQGsbOIEVU4ekgi4HbE1HcyADy4gWe2YY+zaVN65wOzr7Qf0pj
+         OsYg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Et/xc2YROl4qNYcn8Qs+aCkZEYKnAaIEsZ0/FKsLWP4=;
-        b=YnfPwP/DyylblD8tGRGdY8tJPMEYNkemqgDBbAvVhgoI11o/3AScs0WHRsORfP9q58
-         o7NocMZMBdC30HETQj0VXqbfT+6ln7lBr/vQqnxgTcnDWzkLHyDzDqYWfOF1hihlGNR3
-         lSH5NAN2VGo5/O7AbvVTQ7bCMwuGXrdUJ+bASB8+gjee6cR1bRrGy5zQssAvy414Mfwq
-         Knf95T0zWzKmsLIZ8pD3H+FwIZ52yagGsVvBAsit5izl0goJu3iQqPHsgswcjofwDt3k
-         Kt5W1MwXmm56sA0K8SCy6xHHyrz6kouK7uVy3KErHwnjY2GsbEp9a30I7Tt0k8RIZXi5
-         +FTw==
+        h=cc:to:from:subject:mime-version:message-id:date:sender
+         :dkim-signature;
+        bh=4LNAUj+9lqh7okdpB7PIcXz5pRABwVJmB1BY1jfRsMQ=;
+        b=P0BMkmPqwZ/tHiDyoAqPVN5VMudrGP9PTyonesTr/gJ7iE/cCP2TBEWHXgefWVFGBs
+         16AJItV2dHCMUoqZCpbAEL+lGIuF4ZPqtzKQextr2+bXQ1bG2HP27piiMsCZJnBUtzKG
+         /FzOh2F4UTn4TxcQ0E5u/nTWvP8F75fCTRcPybhRlwz9d8rxcVGBhNi5PqLIsUZO0+Po
+         hjx2vkiS0BaRKAecHOHzrRB6BqvspCXhJGdqm8QEMonQ3rUMtaIxPGBcIMykOfcOIT1U
+         yiqO3IHvxiPtbnBYCub4U9+40Bd92/M2isNV6UuCQAsM+Q72a03FgEagatgmV/75YYjE
+         1lqA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=rXWlyxq+;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=B3bpWMEq;
+       spf=pass (google.com: domain of 3xsnqxwwkae43tu8qa13yu78w44w1u.s42@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3xSNQXwwKAE43tu8qA13yu78w44w1u.s42@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x1043.google.com (mail-pj1-x1043.google.com. [2607:f8b0:4864:20::1043])
-        by gmr-mx.google.com with ESMTPS id lb11si209175pjb.3.2020.09.02.15.40.15
+Received: from mail-qt1-x849.google.com (mail-qt1-x849.google.com. [2607:f8b0:4864:20::849])
+        by gmr-mx.google.com with ESMTPS id 22si53461oiy.5.2020.09.02.15.59.18
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 02 Sep 2020 15:40:15 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) client-ip=2607:f8b0:4864:20::1043;
-Received: by mail-pj1-x1043.google.com with SMTP id gf14so478998pjb.5
-        for <clang-built-linux@googlegroups.com>; Wed, 02 Sep 2020 15:40:15 -0700 (PDT)
-X-Received: by 2002:a17:90a:e517:: with SMTP id t23mr3922497pjy.25.1599086414557;
- Wed, 02 Sep 2020 15:40:14 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200820220955.3325555-1-ndesaulniers@google.com> <CAK7LNAQO9sKw=7RLPSnsChddrwNCc_si-XgSDQcGHTSxeq4_Pg@mail.gmail.com>
-In-Reply-To: <CAK7LNAQO9sKw=7RLPSnsChddrwNCc_si-XgSDQcGHTSxeq4_Pg@mail.gmail.com>
+        Wed, 02 Sep 2020 15:59:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3xsnqxwwkae43tu8qa13yu78w44w1u.s42@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) client-ip=2607:f8b0:4864:20::849;
+Received: by mail-qt1-x849.google.com with SMTP id j35so876313qtk.14
+        for <clang-built-linux@googlegroups.com>; Wed, 02 Sep 2020 15:59:18 -0700 (PDT)
+Sender: "ndesaulniers via sendgmr" <ndesaulniers@ndesaulniers1.mtv.corp.google.com>
+X-Received: from ndesaulniers1.mtv.corp.google.com ([2620:15c:211:202:f693:9fff:fef4:4d25])
+ (user=ndesaulniers job=sendgmr) by 2002:ad4:55ce:: with SMTP id
+ bt14mr741179qvb.2.1599087557977; Wed, 02 Sep 2020 15:59:17 -0700 (PDT)
+Date: Wed,  2 Sep 2020 15:59:04 -0700
+Message-Id: <20200902225911.209899-1-ndesaulniers@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.28.0.402.g5ffc5be6b7-goog
+Subject: [PATCH v3 0/7] set clang minimum version to 10.0.1
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 2 Sep 2020 15:40:03 -0700
-Message-ID: <CAKwvOdnbdhkB=OG0Gec5jt5H4b4jRGPvKfgJ-JbZY+gym-u3_g@mail.gmail.com>
-Subject: Re: [PATCH] Makefile: add -fuse-ld=lld to KBUILD_HOSTLDFLAGS when LLVM=1
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: stable <stable@vger.kernel.org>, Matthias Maennich <maennich@google.com>, 
-	Michal Marek <michal.lkml@markovi.net>, 
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Stephen Hines <srhines@google.com>, 
-	Dan Albert <danalbert@google.com>, Fangrui Song <maskray@google.com>, 
-	Elliott Hughes <enh@google.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Kees Cook <keescook@chromium.org>, Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Sedat Dilek <sedat.dilek@gmail.com>, 
+	Marco Elver <elver@google.com>, Andrey Konovalov <andreyknvl@google.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, clang-built-linux@googlegroups.com, 
+	Daniel Borkmann <daniel@iogearbox.net>, Alexei Starovoitov <ast@kernel.org>, Will Deacon <will@kernel.org>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, linux-kernel@vger.kernel.org, 
+	Nick Desaulniers <ndesaulniers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=rXWlyxq+;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+ header.i=@google.com header.s=20161025 header.b=B3bpWMEq;       spf=pass
+ (google.com: domain of 3xsnqxwwkae43tu8qa13yu78w44w1u.s42@flex--ndesaulniers.bounces.google.com
+ designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3xSNQXwwKAE43tu8qA13yu78w44w1u.s42@flex--ndesaulniers.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
 Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
@@ -134,117 +134,46 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Aug 21, 2020 at 10:14 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
->
-> On Fri, Aug 21, 2020 at 7:10 AM 'Nick Desaulniers' via Clang Built
-> Linux <clang-built-linux@googlegroups.com> wrote:
-> >
-> > While moving Android kernels over to use LLVM=1, we observe the failure
-> > when building in a hermetic docker image:
-> >   HOSTCC  scripts/basic/fixdep
-> > clang: error: unable to execute command: Executable "ld" doesn't exist!
-> >
-> > The is because the build of the host utility fixdep builds the fixdep
-> > executable in one step by invoking the compiler as the driver, rather
-> > than individual compile then link steps.
-> >
-> > Clang when configured from source defaults to use the system's linker,
-> > and not LLVM's own LLD, unless the CMake config
-> > -DCLANG_DEFAULT_LINKER='lld' is set when configuring a build of clang
-> > itself.
-> >
-> > Don't rely on the compiler's implicit default linker; be explicit.
->
->
-> I do not understand this patch.
->
-> The host compiler should be able to link executables
-> without any additional settings.
+Adds a compile time #error to compiler-clang.h setting the effective
+minimum supported version to clang 10.0.1. A separate patch has already
+been picked up into the Documentation/ tree also confirming the version.
 
-Correct; there is no issue linking working executables. The issue is
-which linker is used by default or implied when -fuse-ld=* is not
-explicitly set.
+Next are a series of reverts. One for 32b arm is a partial revert.
 
->
-> So, can you link a hello world program
-> in your docker?
->
-> masahiro@zoe:~$ cat test.c
-> #include <stdio.h>
-> int main(void)
-> {
->         printf("helloworld\n");
->         return 0;
-> }
-> masahiro@zoe:~$ clang test.c
+Then Marco suggested fixes to KASAN docs.
 
-It will fail, because:
-1. clang will implicitly default to ld.bfd on linux hosts and ld on
-OSX hosts (idk about windows).
-2. ld.bfd is not installed, and we *dont'* want to install it.
-Instead, we *want* to use ld.lld in a hermetic environment.
+Finally, improve the warning for GCC too as per Kees.
 
-> If this fails, your environment is broken.
+Patches after 001 are new for v2.
 
-Disagree.  The environment has unique constraints (cross compiling for
-Android from OSX host, caring about builds being hermetic, etc.).
+v3 just collects tags and fixes typos in a few commit messages.
 
-> Just do  -DCLANG_DEFAULT_LINKER='lld'
-> if you know GNU ld is missing in your docker environment.
+Marco Elver (1):
+  kasan: Remove mentions of unsupported Clang versions
 
-I understand your point. However, I have two reasons I still think
-this patch should be upstream rather than downstream:
+Nick Desaulniers (6):
+  compiler-clang: add build check for clang 10.0.1
+  Revert "kbuild: disable clang's default use of -fmerge-all-constants"
+  Revert "arm64: bti: Require clang >= 10.0.1 for in-kernel BTI support"
+  Revert "arm64: vdso: Fix compilation with clang older than 8"
+  Partially revert "ARM: 8905/1: Emit __gnu_mcount_nc when using Clang
+    10.0.0 or newer"
+  compiler-gcc: improve version error
 
-1. The build of clang that is distributed with Android, "AOSP LLVM"
-[0], does not and cannot yet set `-DCLANG_DEFAULT_LINKER='lld'`.  See
-the discussion in the comments of [1] where I'm trying to do that.
-The reason is that AOSP LLVM is used to build Android userspace,
-kernel, and is part of the NDK for developers to target Android from
-Windows, OSX, and Linux.  If AOSP is used to build a "host binary" on
-OSX, LLD will not work there for that quite yet.  OSX has its own
-linker that is not LLD, and LLD support for mach-o binaries is a work
-in progress.  NDK has their own timeline that's blocking that change.
+ Documentation/dev-tools/kasan.rst | 4 ++--
+ Makefile                          | 9 ---------
+ arch/arm/Kconfig                  | 2 +-
+ arch/arm64/Kconfig                | 2 --
+ arch/arm64/kernel/vdso/Makefile   | 7 -------
+ include/linux/compiler-clang.h    | 8 ++++++++
+ include/linux/compiler-gcc.h      | 2 +-
+ lib/Kconfig.kasan                 | 9 ++++-----
+ 8 files changed, 16 insertions(+), 27 deletions(-)
 
-You might think "that's Android problem" and that we should just carry
-the patch downstream/out of tree since it is somewhat self-inflicted
-but a very important second point why I think this should be upstream:
-
-2. clang itself (upstream of AOSP LLVM) doesn't yet default to
--fuse-ld=lld (likely for similar reasons related to OSX).  That means
-distributions of clang-10 from your distro package manager such as
-Debian's apt won't be hermetic.  That means if you build clang from
-source, and don't configure it with -DCLANG_DEFAULT_LINKER='lld', then
-your kernel builds with LLVM=1 will not be hermetic.  That means we
-have to document this somewhere for other people to know or find this.
-That means I have to run around and tell all of the different Kernel
-CI folks about this compiler configuration in order to test
-hermetically.
-
-...
-
-Or, encouraged by the zen of Python, we can just be explicit about
-what linker we want when using LLVM=1, which already signals that that
-is what we want to do.
-
-I think there are similar issues with other distros changing default
-flags of GCC (like -fstack-protector) [2].  The kernel is already
-explicit, so that differences in distro's changes to compiler defaults
-don't matter for kernel builds (except where people accidentally wipe
-out KBUILD_CFLAGS).  I'd argue my change is in the same bucket.
-Please reconsider this patch.
-
-(I should also probably add something like this for `make LD=ld.lld`
-and `make LD=ld.bfd`, regardless of compiler, since everyone supports
-`-fuse-ld=`)
-
-[0] https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/
-[1] https://android-review.googlesource.com/c/toolchain/llvm_android/+/1007826
-[2] https://fedoraproject.org/wiki/Changes/HardenedCompiler#Detailed_Description
 -- 
-Thanks,
-~Nick Desaulniers
+2.28.0.402.g5ffc5be6b7-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnbdhkB%3DOG0Gec5jt5H4b4jRGPvKfgJ-JbZY%2Bgym-u3_g%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200902225911.209899-1-ndesaulniers%40google.com.
