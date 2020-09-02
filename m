@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBD4LX4523YGBBCM6X75AKGQEVFTUT7I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4LX4523YGBB75GX75AKGQETRZQUAA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93a.google.com (mail-ua1-x93a.google.com [IPv6:2607:f8b0:4864:20::93a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7CA9A25B23A
-	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Sep 2020 18:57:46 +0200 (CEST)
-Received: by mail-ua1-x93a.google.com with SMTP id 107sf1251596uah.23
-        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Sep 2020 09:57:46 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1599065865; cv=pass;
+Received: from mail-qt1-x839.google.com (mail-qt1-x839.google.com [IPv6:2607:f8b0:4864:20::839])
+	by mail.lfdr.de (Postfix) with ESMTPS id B7CF225B2CD
+	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Sep 2020 19:16:48 +0200 (CEST)
+Received: by mail-qt1-x839.google.com with SMTP id q19sf281375qtp.0
+        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Sep 2020 10:16:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599067008; cv=pass;
         d=google.com; s=arc-20160816;
-        b=gDLxCG4ozB74PTUF8eLwFrYM+Ibec37rdPn+eAFgpxAO9L5MWeDyTWXGYNY5HxkEPl
-         XPoGJ3KnQhmt6H8LFtJP8/QQURgIxHJv0OF0WUav56N3dZWswUmthddNvGSU98lwXcPa
-         3mIzExhimPQyYVOMEusr6vgbOpRid/TQ+waoOli2WPKxiq0uLnbSnzSiQ15/BB2w23wG
-         /2z/flGELGkQ5aHZ7PLbxYjrDYhBtsq/vnBnpk+9Jgzg1s4GvQoo9y9ppJ+fxNEOec4H
-         SMsJ6WkggnagehRpoUCK5jYxItaxa+hGIPHpBE0GLvSsqMoa2p7mp8nQ2Y/5VNyMKPgz
-         lrpw==
+        b=FwliMVYHNl1vcq9+Hrxz8DEgG2U6YdDb/KzdtPVbMPQMBLRkfmjOMvY0hQBKtH5/s+
+         KF1Pt4GqBPe5RQc3+M49ITF309SaukB34qt17fvVuzltJVxwGxNGx2g06W9sb/f3NbLd
+         PJKHvxWJ1/BYmv7PlGu4dhDiO9bpwNw5xow1J2zDEcupBTLWoL2FIfijICta7f6Hnubu
+         S29YohBsz0rBwcWa/cwC137OUZOioW7HSQizMj/s3GWXqKxbBFFY+AQ+SCyeS91xUCOj
+         sCP5Fr8i6/R/KnoHMs2Vh7VBv1ygUutYw863d6ffiaACcA48DSqzKGWUlq67lHeuAN0J
+         NeHw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature;
-        bh=Z2ssgossnmxzEd6jpVEIAAB0AwNHPTnvz9imOWVEV9U=;
-        b=gHQO5pPfyIsr+rkX0PL1+kjbW2nW1vLzql1NMo/72OFX+pp2xXGBezh+jl5/guQ1tk
-         SA8tmptToeZM6GAnRGWXe8QnYy2w4skQX2UNWVHWFe8hUxI1Ls9fwxCU1MhjQJ7WVe+U
-         v7P5JvIYuzcQDWJGMI9+oiX9S2SX53ot9rpsTXMZW1dUOSPlDAaiJguvL+/WioGjXSKn
-         zeGGXXZz7VhAeSoXguoYByDyiZ/PiJJ1UC1ZSIkYXHEqhRQkncDBhxQPMcBU4QHop5kD
-         9LbwTd/+LRrnNU/FGfn239YwqpFIiVVCZvNFGlc02++FpsbM/9xABSA759DMBpai19Et
-         H0Bg==
+        bh=2snDaQi/yRt//lynw26MECC+5DTEEweJq37096lAMGU=;
+        b=noRAOiJt6WOFyJdMJ6BghsBb0inQM2f6svyMfnDct62nGflnI455ySseYqCwUowBNl
+         YubVBE2HfVEJwDNeSWjDJsHofHRav29mC9x3o4Pqw33kq0sk/ObiDPKPT+I4rGMkAQCW
+         fWJmmhqkmXQAB40j+gdW7OBbSnqq/AyogmeGXO/4jQjD4dAkr5O3DjC/J4WaVi9XzQQ+
+         oQIEeb/cGrMkFwjiZQtAZRZniFjAP7fEDTFwlQKltbKciSXwxNv0sCYCwWZMZ+pvaKm9
+         7Jbrwbz72LwV7pLWC5xiF7MtB879RHZPzTa7cS8RT1oQPPeyBDEYspfg0RXvd14581fx
+         PPQA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) smtp.mailfrom=segher@kernel.crashing.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -34,13 +34,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Z2ssgossnmxzEd6jpVEIAAB0AwNHPTnvz9imOWVEV9U=;
-        b=lKGoacgOpDIi0YpkWoMIIaXjGHYRh9hNnf2TzdXto2UMV0yCWzH94f72aZ6mzH+aIK
-         GgZJTGjXLd6b+4QAcAWWt9+9mk1RIjW8CPdX7u13rAZTqy1HLExjnwwrIYZolWCXOEOC
-         X3+VKf5XfIrDm36p5kSbDk2S5J2TYzo/+n8OSi+5KgCZ7+hVHR2sCyiUTr/UQJvZV0zh
-         LtcbCbDvprvDREWkze2y9qIbIETABdlDbwj7YAns82wZofRACmT48VDVGHW7InUiVyvI
-         1ze63s1I5N7BfUcEOTNOK3bTXK7uhkzk4iniHhOXKfNxHZWV02XYfm/Lwdd0TT2rtafP
-         +JBg==
+        bh=2snDaQi/yRt//lynw26MECC+5DTEEweJq37096lAMGU=;
+        b=NLBSI2p3O+iYDRp2DICzQnvCGN5LansBCpxskn0flzn8DNxi0WK7Yvjt3EuyMVbYIi
+         0oUj6NJfkE2/ILTN8kJoEplpiwf3qtyKecPvN1mSxPOvwFJ80jhlfBu5g2OtKHSD454G
+         IBSYkHTCT+hH0qGMu+pZc4LrHkQX0YnTVkM6dAcvIQuq9W861d5WIA3xR8JACsSAUOEN
+         MEiBRzyzqvtb4+LgBxPpw9YiXIeNd4InQH8X8q8yYUY/zNBl1N6aO8JsHVxEhMno/5LR
+         lNJL1wDQVZbmJvk3cGypWdR8SWO4HpH90dnrQFmQK+v1g79VbtCYCfWsqLmYSV+Tq1WN
+         SRQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -48,74 +48,85 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=Z2ssgossnmxzEd6jpVEIAAB0AwNHPTnvz9imOWVEV9U=;
-        b=SOnAde+GgFq9xP+S5a5aA6fgg3y+ckVIbOLtm+5dlzze0IYVQY9uBSmEkpiw9jCaNB
-         hfhbtIegRecly4QIeLgyPwKbod/oC7unGjq2lFogCRhoMhVZlnpCEGc7PPeoYUFNq9NY
-         w6UTYwcu4kV0Dh9lHgOuTWqvPneoL2qpPjPid7cqcsDvH2MbP23JZMmP4GfDCVFd9R5W
-         eYcSZs+AJ5WieomOgpzzwHEmf5kzyFj/dvzPEaFKwXlNTNRxUGOC93Ga/IlXdLOeo3vN
-         7vKAeR4dPtez+eeCqf112o7zOALd0UHonrJ1QKMQGfZ0PH1U1ZCP4smO3w/WMxThIYPj
-         TQHw==
+        bh=2snDaQi/yRt//lynw26MECC+5DTEEweJq37096lAMGU=;
+        b=pc79MvCcyLnOiJfcvBkJJEGnhrBsAgPgk0BJFRvkpEp1d4CxnP2SNsw04/RjGffxE6
+         YV4zwUKOPLk/f4tq39KhrkENBZV7DpFlxzZ+Qs6TFjvJ9vR5UZGLYbbgqLoNovNeHpzM
+         1PC8nITbI67DD/mLw/jBfrBB+isgEwC2tSD9UbxYKvqVr/WL2W2Z8ZH5+zZzhifLM0a8
+         ZM+imFL/HiRxhIWB+KyM5ewXmujqZTjRp0SabObllPUm2w+pmfjcMSKVmDNmigSimSU7
+         x9GX76PJl37ZPCxZUTsMmmy2Tj2sOZnF3yCHnjQZKDwsj2/dW59QPiVLY+x/LzS+zbYW
+         xX8g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533PGWSOQMKrZjDxG5oAmtowawg5rQ3TCwDFiAT5zTcnwtu+9lZU
-	3Jc4cAHc3m5U3MbQGnhUJqw=
-X-Google-Smtp-Source: ABdhPJwJFA7B4HffzHcMDZpH2arSIhyqIRb6G3IsuaIJDZClLFfn7dwKZBz+NQAM6cor2NlU2/LrDQ==
-X-Received: by 2002:a05:6102:3d7:: with SMTP id n23mr2446940vsq.57.1599065865532;
-        Wed, 02 Sep 2020 09:57:45 -0700 (PDT)
+X-Gm-Message-State: AOAM532svY4uVYU3ow8R+7WBNVfkWbSPiUiolNHvTStiHjfC603L9MS8
+	QrBF82fG1y+v8+G0I633Q54=
+X-Google-Smtp-Source: ABdhPJzeKTv5i2wL6+qKrHT82TywZn9UF/E6EIPuPcSYn8Ans/hx6IQLrLx+XNvflr17TIBgu2tp7Q==
+X-Received: by 2002:a37:a414:: with SMTP id n20mr8053228qke.332.1599067007815;
+        Wed, 02 Sep 2020 10:16:47 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:3211:: with SMTP id y17ls174508vky.2.gmail; Wed, 02 Sep
- 2020 09:57:45 -0700 (PDT)
-X-Received: by 2002:a1f:1b4a:: with SMTP id b71mr6543362vkb.42.1599065865187;
-        Wed, 02 Sep 2020 09:57:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1599065865; cv=none;
+Received: by 2002:aed:24ba:: with SMTP id t55ls1126506qtc.8.gmail; Wed, 02 Sep
+ 2020 10:16:47 -0700 (PDT)
+X-Received: by 2002:ac8:3714:: with SMTP id o20mr7939001qtb.0.1599067007487;
+        Wed, 02 Sep 2020 10:16:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599067007; cv=none;
         d=google.com; s=arc-20160816;
-        b=p47kuhm5bnv0v1ksDSGd7AOUKRZDZPAcFqvnI0SHcdYML/VbkP7OBna4/VOg8qCmeN
-         VjTqQ0kUDSJKieq42plHcVE2PmOTvabUWr+8AmlscBhFME1J6Tettk9J0T3fgyiKes+D
-         6if+2TjV7uEDi4LfbJJls/A0d0oH34NIas/p+QFc98X9VgwtufwxVe1f84WjmMevJ3rS
-         GAUeJbt+G/bJUxZ2cOwWojNnMYDPepGCSxTmNMuvvotFGVYwcIBsR+71ywTiNx+N3VLj
-         ZS88jwXua2Qxc9D8XCAznOaE5KSsaGGHeZZb8/7vwuTI0dsY3D3zTqlTalJii2fvnaW5
-         nN3w==
+        b=j5Cv27Xs9hi9VDIe5lv2uRoekadpfOfINmnYYR5AIrYNswOojZZAXOraVoewHSWcit
+         Hg3GUU/tpN+gtptrCiqxQBLxLzhdrFdYzI3wA38ZYXFABtKZfD1hDsusrYAgqB3tIZyY
+         X+yHhY3KhgqWLm/KnFXXwBv2mtgLWEV8ytMyGmh29uH26srty3l+I6n5NcpAGihBe8+M
+         FptHBbUpoks2zc6pgyQvGnXLRhzkjGs99B/Oztv2RVpXGKyQZbDy10M6qg+qcrbTPG4B
+         n2nkdPn8PHwNvQIMdv34EdDV0jrhH/1d+HKHr3X+gdPK2GNSt0GOfagEm4ZslZuaJW++
+         OLUA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date;
-        bh=QvMfcrWbkSbWvH6Dldpz/mdXe7CieyLRbbBn7yA+eSU=;
-        b=FLMU/4zw8E2pFmiwt6pwyHxczsH/4Qikv0jIh3HYvG/44cg5sfzWRdIZQqpie1tql5
-         fcExqlKTX0tCOC1+E5z/HCGv9YBXzj9hvcKrMPpvmHX1qruQ+qnnC/9aiqVpW+QQifkM
-         40uR9tLZFvREL+m1ErepJeqZikf4d9Qu8EgbSc31p9v3br2cHMDL9yjZud5Ba7jU98S/
-         EZ4TT5pY3aChL8OntNVR+NmFmhVZ5HvYNGF+1XpBJo2K5zV4y1+ZjJscfMrRp2pU+Ys2
-         PKEfmItMjFnCFJntZ9ysJ09H7h8GEWNn2Wz1A/cMTgKiDRYpKCEbzXIwJitqfrhrHifH
-         PMxg==
+        bh=ejQ7//gwy4OkJCMMLUHFFaWNycF6qfVy+K6zD1peZOY=;
+        b=oAG8veu/py6mMzkuqIt0fiFjBIRtno1lL1DWkaslWZjt+cKB/MaHwnbcgRQfg093QN
+         qJkGdF28TYijD1GNEAXlciuld9pZ8yAIp35C8I4HI5jMEHpvUjEARhI7Jbsd0jtR3d9E
+         LBxA2QnVDGLizYk6/pZCE8eO94hShXHdioo53LkFwqJLgZLbzNf+TWwvcNkH5NILfBRz
+         VLbGm9Iv/2YMB5INjxOBuZyMV9APUsu/KCZdaaHSjChHRrBr3EharBP/cidMfxdH9d2G
+         eNzbP/GVISnoDm0l1zwNJGVreULlpoLCzWGbdSrOdkF2NKK18Id8i1AJVBnH6gVjjOM+
+         KLIQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) smtp.mailfrom=segher@kernel.crashing.org
 Received: from gate.crashing.org (gate.crashing.org. [63.228.1.57])
-        by gmr-mx.google.com with ESMTP id 134si19578vkx.0.2020.09.02.09.57.44
+        by gmr-mx.google.com with ESMTP id j6si4103qko.1.2020.09.02.10.16.47
         for <clang-built-linux@googlegroups.com>;
-        Wed, 02 Sep 2020 09:57:44 -0700 (PDT)
+        Wed, 02 Sep 2020 10:16:47 -0700 (PDT)
 Received-SPF: pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) client-ip=63.228.1.57;
 Received: from gate.crashing.org (localhost.localdomain [127.0.0.1])
-	by gate.crashing.org (8.14.1/8.14.1) with ESMTP id 082GvO7I007572;
-	Wed, 2 Sep 2020 11:57:24 -0500
+	by gate.crashing.org (8.14.1/8.14.1) with ESMTP id 082HGQgb008950;
+	Wed, 2 Sep 2020 12:16:26 -0500
 Received: (from segher@localhost)
-	by gate.crashing.org (8.14.1/8.14.1/Submit) id 082GvMJB007567;
-	Wed, 2 Sep 2020 11:57:22 -0500
+	by gate.crashing.org (8.14.1/8.14.1/Submit) id 082HGOr8008949;
+	Wed, 2 Sep 2020 12:16:24 -0500
 X-Authentication-Warning: gate.crashing.org: segher set sender to segher@kernel.crashing.org using -f
-Date: Wed, 2 Sep 2020 11:57:22 -0500
+Date: Wed, 2 Sep 2020 12:16:24 -0500
 From: Segher Boessenkool <segher@kernel.crashing.org>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Christophe Leroy <christophe.leroy@c-s.fr>,
-        Joe Lawrence <joe.lawrence@redhat.com>,
-        Kees Cook <keescook@chromium.org>, Fangrui Song <maskray@google.com>,
-        linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
-        Paul Mackerras <paulus@samba.org>, linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH 2/2] powerpc/vdso32: link vdso64 with linker
-Message-ID: <20200902165722.GW28786@gate.crashing.org>
-References: <20200901222523.1941988-1-ndesaulniers@google.com> <20200901222523.1941988-3-ndesaulniers@google.com> <b2066ccd-2b81-6032-08e3-41105b400f75@csgroup.eu> <20200902141431.GV28786@gate.crashing.org> <0c895acf-b6d7-baaf-d613-236f8be8e1fe@csgroup.eu>
+To: Arvind Sankar <nivedita@alum.mit.edu>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+        Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+        Sedat Dilek <sedat.dilek@gmail.com>,
+        Thomas Gleixner <tglx@linutronix.de>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        "Paul E. McKenney" <paulmck@kernel.org>,
+        Ingo Molnar <mingo@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+        Borislav Petkov <bp@alien8.de>,
+        "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+        "H. Peter Anvin" <hpa@zytor.com>,
+        "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+        Kees Cook <keescook@chromium.org>,
+        Peter Zijlstra <peterz@infradead.org>, Juergen Gross <jgross@suse.com>,
+        Andy Lutomirski <luto@kernel.org>,
+        Andrew Cooper <andrew.cooper3@citrix.com>,
+        LKML <linux-kernel@vger.kernel.org>,
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        Will Deacon <will@kernel.org>, nadav.amit@gmail.com,
+        Nathan Chancellor <natechancellor@gmail.com>
+Subject: Re: [PATCH v2] x86/asm: Replace __force_order with memory clobber
+Message-ID: <20200902171624.GX28786@gate.crashing.org>
+References: <20200823212550.3377591-1-nivedita@alum.mit.edu> <20200902153346.3296117-1-nivedita@alum.mit.edu>
 Mime-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <0c895acf-b6d7-baaf-d613-236f8be8e1fe@csgroup.eu>
+In-Reply-To: <20200902153346.3296117-1-nivedita@alum.mit.edu>
 User-Agent: Mutt/1.4.2.3i
 X-Original-Sender: segher@kernel.crashing.org
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
@@ -133,19 +144,24 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Sep 02, 2020 at 05:43:03PM +0200, Christophe Leroy wrote:
-> >Try with a newer ld?  If it still happens with current versions, please
-> >open a bug report?  https://sourceware.org/bugzilla
+On Wed, Sep 02, 2020 at 11:33:46AM -0400, Arvind Sankar wrote:
+> The CRn accessor functions use __force_order as a dummy operand to
+> prevent the compiler from reordering the inline asm.
 > 
-> Yes it works with 2.30 and 2.34
+> The fact that the asm is volatile should be enough to prevent this
+> already, however older versions of GCC had a bug that could sometimes
+> result in reordering. This was fixed in 8.1, 7.3 and 6.5. Versions prior
+> to these, including 5.x and 4.9.x, may reorder volatile asm.
 
-Ah okay, I missed this part.
+Reordering them amongst themselves.  Yes, that is bad.  Reordering them
+with "random" code is Just Fine.
 
-> But minimum for building kernel is supposed to be 2.23
+Volatile asm should be executed on the real machine exactly as often as
+on the C abstract machine, and in the same order.  That is all.
 
-Sure.  Tthat could be upgraded to 2.24 -- you should use a binutils at
-least as new as your GCC, and that requires 4.9 now -- but that
-probably doesn't help you here).
+> + * The compiler should not reorder volatile asm,
+
+So, this comment needs work.  And perhaps the rest of the patch as well?
 
 
 Segher
@@ -153,4 +169,4 @@ Segher
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200902165722.GW28786%40gate.crashing.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200902171624.GX28786%40gate.crashing.org.
