@@ -1,130 +1,152 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBF7GX75AKGQE5LVK3WI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27HSOJ44LBBZH7X75AKGQERT4C23A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3d.google.com (mail-yb1-xb3d.google.com [IPv6:2607:f8b0:4864:20::b3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5F05F25B470
-	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Sep 2020 21:31:36 +0200 (CEST)
-Received: by mail-yb1-xb3d.google.com with SMTP id b127sf202734ybh.21
-        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Sep 2020 12:31:36 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1599075095; cv=pass;
+Received: from mail-wr1-x43b.google.com (mail-wr1-x43b.google.com [IPv6:2a00:1450:4864:20::43b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 98E3D25B543
+	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Sep 2020 22:26:13 +0200 (CEST)
+Received: by mail-wr1-x43b.google.com with SMTP id s8sf138833wrb.15
+        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Sep 2020 13:26:13 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599078373; cv=pass;
         d=google.com; s=arc-20160816;
-        b=wKQ+pEbMRsOPeGTgrK25b859W0o7Pf7+j9ZtbafiebbAepTfyo3Afe7OrlHNzG/58O
-         z+ERYcNqzpZu33CTdLrw1CNwhMdqLbZ+DHOHLJzTwnnaDr7a1FdMTEVUolptRJZ4+X9b
-         OXZ+kMY/oUe7f7syTt8cq2fBj0KEf8mbse5eOcTPxbDZJS10uHv7dWhdszh7CWwV3MWi
-         h4D+Pfbga2o+CHiL1n2hAfB7cJANY2PR809M6JZU7ebHrvqSIGqVDqba6dFqFBbFMUxv
-         si336mYiTe7VHefsJtmRieGaLY0wJI0So9lKJcc04ruFMhWGpLLRYmHe3gtbz630qCbW
-         I9+w==
+        b=PvBmLEOuShMPB0JN1o/WA7bhidZAs3lZOQ08PFRofbpHWmeb1K8i9Ln4/x4gGb7m0S
+         xl84kJMeW541ypQ8AkSoNewXlk0X6xFg5SN6iEw69cxc5dBnZ+sPUbTgMWIgbUBC9FZ6
+         pQHEqeTATOq0hPAgiHDecs1kosy50yDrQQJxTmYfxhd4M5duKC4zDH8CMVLLeFOMA1zo
+         SfwpqM+Ot4BpwkvJj3X4JlL8oyRbrC7CYySw+kZzurDy9kW9k3U3Nbagj0y3mcvWh7vQ
+         hjxLe0/g6bUkg6tkZqlivLTc2uRC5oFiylrToFGGbVzUMpMRwJmR03GU9wJ50mwRJuHZ
+         djsQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=h8CcUJSMuymqJ7LkfFmfvOcdzvq7Z93vrJK8qC16TYo=;
-        b=ZiU7kZnsdlU0+61tGj7olzh8DAbU/VBPVNugkoypgXDwPVufdXm7j3alXfKXzqwRkp
-         5ATFanU54jikyAvglCJqFf9I9Xv8iyvQWwTvSL26IZgjT2D4DNGlrgeXH1C3LUcMIUl9
-         5MBqb3tlD3JLK7iJ1bP6a4LbnMbUfKy8Iax/4atwRshD8yE1+pGQvqHfrNbGV9D4Aefr
-         WmiwHS119H3YEix2cWh1zlubmTStt7y5FFJTlWxOy+3K/5cfSeas1kEgmIVcfFDmDNnJ
-         VBakpz9b3HKMjK1IhuW9uTKSVgc4xfBXIfJ92e6KKLXK/9H+yEmerpOwmKdVGdzeubtK
-         p6Wg==
+         :list-id:mailing-list:precedence:content-language:mime-version
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:sender:dkim-signature;
+        bh=CVXoFCcPNqxlGl5KOECO+qCKY95q0YnCRPrKJjDfsDE=;
+        b=WFkOLiGi4D9NxCWXYnVT89+dQCnuS3YGoNIk/9Za5jsoEHt+2l/NYhyOT9eswUTVlO
+         5k0jC88zrvOqm3aeXR/tLoYwSial0vWLJhTtTUbaZTPWwRHT3mUbRf3jDs/pt5YzbZZR
+         iEPEGpY1xs/sx/Eh6f023aaxszH9lYnXY3+4Gti5bsDJfxi2TosUcTnJdlqZBq+ojb2A
+         f+7rvv2G9BBIlJg2UIfTPDsUCKV66BhRlY/pvbAAOSDdi1EX6fX/zUnDdxN/xEaWIkII
+         iqu0uCY8/BKGdaICPT23cftzSsVTALwH51pXVb6e4N6aSuwkGCE+VstAQz7XFcZUCXaQ
+         6lOw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=cGZyuJKw;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=h8CcUJSMuymqJ7LkfFmfvOcdzvq7Z93vrJK8qC16TYo=;
-        b=f6iijqmtrC9XrNl+VJ+mg5cQGYjIMShSjzy09Wlqe07sn82q5+nXjZBdHtnIvYLOqL
-         CZ4LVixi14pY2h5Kv02EY3OADc0Qiw7kuvEFxG6LKWWhYPCclTDbJ/P2+X62KhSUeCFd
-         WulunnI6lDswJxGnK2dH2QBIXFZ7ctfljM3GHVaB8qTWxE8LdgpCNWhYR9qbhhLOToAl
-         3f4k1MCTtfqSCCXUSMoB+mUbFumG1N2+G7JqZfxR0QiUvZjhP2Xiyco2vqT+mHAN/k1Y
-         ZigykcriTrIYdEpJ6SYR5w0Tol0bA9lAiDQuhOt91LAzoBu22uWDSOPv37Sxdm4gDFr6
-         tEFA==
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:mime-version
+         :content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=CVXoFCcPNqxlGl5KOECO+qCKY95q0YnCRPrKJjDfsDE=;
+        b=WJh8b1tiVm405+8eLnd0OdCIHpTNd0Hs37BQRj1dc2Vf/xLPMA+xzYCPOiYE2bbxRg
+         JJWiPTKS6/pz9rvHMKUDw0CxWRV6f/m1+Ij/Xq7Ca3Th0LY4BbftENwOSzobzLPa6gY2
+         jrMxNvse+Dm8T/tDsPUyQgVuC8QFkGpGV91oMNskYoLBJ/FocVJLS/FKKq1UZSs2yJS9
+         AWl8MD5meJ9EDZGRpm0c6ckvYeewmsao6aMf5xjRG8xq8tgYBtxgVGtPTgRFtRoarqNZ
+         8rCV8vK7Uf/5cAgQ4y5Fwe45jVukGbg6fqNEVx0LJqQvC2eLrgx9KmXrtwVAdGrYbiRi
+         dgCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :mime-version:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=h8CcUJSMuymqJ7LkfFmfvOcdzvq7Z93vrJK8qC16TYo=;
-        b=Tz+2WhW0q6UpCpfQHxQ+GlEzhQFE12RJDDx+sFAUhihR/5NORUGKDtQA21g/P3ykJf
-         0MAz2s2V0H3IVJOu7OMjmi6yddAmykhL7WW9aD0khDiPcl5u3aVGcK9hAbKb74TylbHy
-         X+ptQ7JjkCrv9t2NeX6JnnKJC04mF6SSrfWsz/b7BUZC29d7DgbIHKyv0gt3+s4zYRcf
-         IL6dFInVlq7bArvfc43ZcaK3RxcKh00eqtXCQVBIcSyQdnkg2J0Rc2e4EQaZ1M6+uQXl
-         lkZTqXRVMW+MT6QzkihCp6I/OG9sOfnaG5zLqpRnRRahreZqP+WFDtVN9LxDFnulrhoF
-         RVnA==
-X-Gm-Message-State: AOAM5328iHXIY08jPTCrzcjEM0pC6K5RMYpziHChAiCwJYNi2ovRwW1B
-	RBIr1l9zI0H9RqdDIGjLPgc=
-X-Google-Smtp-Source: ABdhPJzSq/FGmQEug8H6leSzlat4hXJG+ppatv4266hrD2nHITK1Xj+793Udbulg1DZafg8Z+grwaw==
-X-Received: by 2002:a25:6b0e:: with SMTP id g14mr5677585ybc.429.1599075095413;
-        Wed, 02 Sep 2020 12:31:35 -0700 (PDT)
+        bh=CVXoFCcPNqxlGl5KOECO+qCKY95q0YnCRPrKJjDfsDE=;
+        b=ab+k+WZsSije9V3S62EmUn+2NpjXEWAX1UlDxJpKblxHiQAVo7I1rxeQpAOI/zSCfs
+         AC6naxo7C957AK/q0NX6Af9uj8JglrYOHKI6jPxU704IKQUYwo6cRuIspmg/ErZUYpk/
+         73YuoDy7gxBsgSfGtx/Cznap9NrnK2Le06PsQOwkH1Oj2eHHmDxkNzu59zXGcs7JLFIB
+         fcPxIDP5taSzmVF3eePU4f/bVUoYglzus/XSFshzo9yZeZtyPNP3FyLC2li6HwFqdWeV
+         uI3y+EXErPKXiuZ9cgBpQ4SMovU3E0C4cPJh71M6Y7mCWMhLuJqne7jijDftYS8y15Fp
+         8dwA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM533P8WisbRZQNvitxFCopixeHrM9n+ZiBJSTms90QnaGeALcFjVn
+	WiKPk16UW12OxN8SE52ayCs=
+X-Google-Smtp-Source: ABdhPJz2nolYCqxYBhRsQL43IK1eCHZZJnPvOdmlLvJZEYcRUuF+UCmEle5sKdnkIoTOhYDc8b32Fg==
+X-Received: by 2002:adf:f812:: with SMTP id s18mr9112109wrp.96.1599078373244;
+        Wed, 02 Sep 2020 13:26:13 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:6cc1:: with SMTP id h184ls1707520ybc.4.gmail; Wed, 02
- Sep 2020 12:31:35 -0700 (PDT)
-X-Received: by 2002:a25:d4ce:: with SMTP id m197mr847452ybf.224.1599075094994;
-        Wed, 02 Sep 2020 12:31:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1599075094; cv=none;
+Received: by 2002:a05:6000:8:: with SMTP id h8ls4045179wrx.3.gmail; Wed, 02
+ Sep 2020 13:26:12 -0700 (PDT)
+X-Received: by 2002:a5d:620e:: with SMTP id y14mr7679718wru.371.1599078372503;
+        Wed, 02 Sep 2020 13:26:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599078372; cv=none;
         d=google.com; s=arc-20160816;
-        b=UGLSaSKrwUs2X/o3ik980FDdkrVmf1PGWNHs948XQFq/X9R6jEo6gJ/RLh55ga51HY
-         d7n4Jilgr4kI7ROGXueLM6PuG7akNDJKHlbj+ZPq8T6OFDdwZlNA3MU/ONywhrmYjJvz
-         UQf3GSHRUgttvpoEpoWyl41zx/6sLGCuzmSYHTGGT+c24b7k+2ePdOiHYpr7tBBfkem2
-         q23ts6rhMbw4Ygh5H4gO9n7yYe7Xa25y/jXOxOdnp+zV4TmvphqOnRo99p67SFTN4yna
-         gLF8z5PZvhep8gMIUxxvLEDx3mDOpOMIsLAbb9gPFHRSQmmSsl4avKxssygVr5qUx3Wb
-         4ygw==
+        b=sQ1O/kLiaSmgnxO20Jkvu2FearHRqGFDn9TtQ+iCTz0okd2VUbD1Is0AzLH4J2jzrv
+         eOQL6gaHs9s5b1Wy1mTqmxQDMF2qXSVejFNhZVwMPcbsBX08MUv4eJt7sH6P1M2LT2CC
+         k8vU+42WJnyWUdYgm6oYGRp/asGQ7CLw0LkN23IUQCAo1gzdPEZofDv7OgaX12klo7ES
+         i3AutX+gfTSmI6+mErz+oQAmYiO96GE90hJlzMSCijLvzk4Dn5BU6m0MoJWRu+tbgVlL
+         a1vEOV8RVwz52w4x40ipDk1JsvhnqeL5qeui5lQAgcv1wDxfQ5rhHCuD6iTZ1CECdTuO
+         DKtg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=V0RSowWgc0zmIKQqddkNLoXVk+XQgr53xASSZMsTdH8=;
-        b=r5HNCnFz957gbUdb3HGH+gjIKmRQ6q+Wgc7r0bNi4dEXs8/9Kbbd35GqiYvvhDa/wk
-         EllbJgMUrebFe/a9imtzuBVt8dDYK5I6htrkEn4Iz6BFdthq2jSB/0+6gJT6mIkRbBNG
-         uuyISx87KykpvE8xp3u1KBcGb2URvVQ73ifUStz8TXk7XZZZWMM8Wmm4A7ahtKlxRLt6
-         cL65kJE0uHr9C6vdtzs+GKoxQfgj0GLmw6EqNh3RTa1cxvNz5d1uEVmObTc3booT+ILS
-         Tu/sexuOXhQMCUULRTo2P7qaTDs5qPtbhvBHfZ7L1pA9PKLfrRah8JJto4uFUAMM2M6Z
-         jrSg==
+        h=content-language:content-transfer-encoding:mime-version
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from;
+        bh=2Yl6IiR3vq7LuRm9zBy0IHqMWJkwIZysLAj1Aq04Yo0=;
+        b=jNOjVMR+W5nNdnAnRBzPVOgJN+yqEFZVJQ3jdHx606ySZm5G8AEWRP0mwWMBRM+eNp
+         VlgdejwDRXkZwDl+dHLLJrspaY3Dw0690CxcaEHMsnD/QrQPgBkhWWo+fgeZCx7qje7e
+         GfvCQ2kKoyMxV1PuHsj3g/mzSPdGQvPEhSUEgJ/o+Lwxm3VtWVmfWIn+7nb1sahKn62r
+         iyLgq/X7jsps5mGWUQAcMZ8y9zNfaFcqEJoIQOa+k1/2IQb4K58CGGlBeRkJomwpiv6x
+         ZydrxHJamcQdmuNHC2AISu/fbtH9VWYpTMs2rzQaFnXhvg0WqYBncTB/YhnV+tCdGRMv
+         4XJw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=cGZyuJKw;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x543.google.com (mail-pg1-x543.google.com. [2607:f8b0:4864:20::543])
-        by gmr-mx.google.com with ESMTPS id m193si70823ybf.1.2020.09.02.12.31.34
+       spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
+Received: from eu-smtp-delivery-151.mimecast.com (eu-smtp-delivery-151.mimecast.com. [185.58.86.151])
+        by gmr-mx.google.com with ESMTPS id m3si22600wme.0.2020.09.02.13.26.12
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 02 Sep 2020 12:31:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) client-ip=2607:f8b0:4864:20::543;
-Received: by mail-pg1-x543.google.com with SMTP id u13so192221pgh.1
-        for <clang-built-linux@googlegroups.com>; Wed, 02 Sep 2020 12:31:34 -0700 (PDT)
-X-Received: by 2002:a63:31d2:: with SMTP id x201mr3168804pgx.263.1599075093922;
- Wed, 02 Sep 2020 12:31:33 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 02 Sep 2020 13:26:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as permitted sender) client-ip=185.58.86.151;
+Received: from AcuMS.aculab.com (156.67.243.126 [156.67.243.126]) (Using
+ TLS) by relay.mimecast.com with ESMTP id
+ uk-mta-109-Mq2UCxw6M5Wqe5eU7V1Y6A-1; Wed, 02 Sep 2020 21:26:07 +0100
+X-MC-Unique: Mq2UCxw6M5Wqe5eU7V1Y6A-1
+Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) by
+ AcuMS.aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) with Microsoft SMTP
+ Server (TLS) id 15.0.1347.2; Wed, 2 Sep 2020 21:26:06 +0100
+Received: from AcuMS.Aculab.com ([fe80::43c:695e:880f:8750]) by
+ AcuMS.aculab.com ([fe80::43c:695e:880f:8750%12]) with mapi id 15.00.1347.000;
+ Wed, 2 Sep 2020 21:26:06 +0100
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Arvind Sankar' <nivedita@alum.mit.edu>
+CC: Linus Torvalds <torvalds@linux-foundation.org>, Miguel Ojeda
+	<miguel.ojeda.sandonis@gmail.com>, Sedat Dilek <sedat.dilek@gmail.com>,
+	Segher Boessenkool <segher@kernel.crashing.org>, Thomas Gleixner
+	<tglx@linutronix.de>, Nick Desaulniers <ndesaulniers@google.com>, "Paul E.
+ McKenney" <paulmck@kernel.org>, Ingo Molnar <mingo@redhat.com>, Arnd Bergmann
+	<arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, "maintainer:X86 ARCHITECTURE
+ (32-BIT AND 64-BIT)" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, Kees Cook
+	<keescook@chromium.org>, Peter Zijlstra <peterz@infradead.org>, Juergen Gross
+	<jgross@suse.com>, Andy Lutomirski <luto@kernel.org>, Andrew Cooper
+	<andrew.cooper3@citrix.com>, LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>, Will Deacon
+	<will@kernel.org>, "nadav.amit@gmail.com" <nadav.amit@gmail.com>, "Nathan
+ Chancellor" <natechancellor@gmail.com>
+Subject: RE: [PATCH v2] x86/asm: Replace __force_order with memory clobber
+Thread-Topic: [PATCH v2] x86/asm: Replace __force_order with memory clobber
+Thread-Index: AQHWgUNLrcDzK8wpBE22M0o9dUjAEKlVyhNQ
+Date: Wed, 2 Sep 2020 20:26:06 +0000
+Message-ID: <41d1eec58dd54d878710cbb6121feecf@AcuMS.aculab.com>
+References: <20200823212550.3377591-1-nivedita@alum.mit.edu>
+ <20200902153346.3296117-1-nivedita@alum.mit.edu>
+ <20200902160828.GA3297881@rani.riverdale.lan>
+In-Reply-To: <20200902160828.GA3297881@rani.riverdale.lan>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-References: <202008270909.Z8PiAoi5%lkp@intel.com> <649d9ca6-807e-dff8-a266-564938b8ab2b@csgroup.eu>
- <CAKwvOdn_iBYsFEgTkoMOnAbJPyvzbi-OQVu6TJ_pJzXrg4w7pw@mail.gmail.com>
- <OFD4907D71.6D0B268E-ONC12585D1.00576811-C12585D1.00581868@notes.na.collabserv.com>
- <20200828005707.GE15695@bubble.grove.modra.org> <CAKwvOdkyGQztQ9YgDOw2+DpcnoNXwbsOstNhDOLc6HP_Kopv-Q@mail.gmail.com>
- <202008311909.D3519C3@keescook> <20200901033421.np2qcjwa23vkookk@google.com>
-In-Reply-To: <20200901033421.np2qcjwa23vkookk@google.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 2 Sep 2020 12:31:22 -0700
-Message-ID: <CAKwvOdmMf73MMap3RBVHFTnNV_U0Ti89+4NPQK87Fsyza=vHTA@mail.gmail.com>
-Subject: Re: [linuxppc:next-test 70/80] /usr/bin/powerpc64-linux-gnu-ld:
- warning: discarding dynamic section .rela.opd
-To: Fangrui Song <maskray@google.com>, Masahiro Yamada <masahiroy@kernel.org>
-Cc: Kees Cook <keescook@chromium.org>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, kbuild-all@lists.01.org, 
-	kernel test robot <lkp@intel.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nick Desaulniers <nick.desaulniers@gmail.com>, Alan Modra <amodra@gmail.com>
+X-Mimecast-Spam-Score: 0.001
+X-Mimecast-Originator: aculab.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=cGZyuJKw;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+Content-Language: en-US
+X-Original-Sender: david.laight@aculab.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as
+ permitted sender) smtp.mailfrom=david.laight@aculab.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=aculab.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,103 +159,47 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Aug 31, 2020 at 8:34 PM Fangrui Song <maskray@google.com> wrote:
->
-> On 2020-08-31, Kees Cook wrote:
-> >On Thu, Aug 27, 2020 at 08:29:56PM -0700, Nick Desaulniers wrote:
-> >> On Thu, Aug 27, 2020 at 5:57 PM Alan Modra <amodra@gmail.com> wrote:
-> >> >
-> >> > On Thu, Aug 27, 2020 at 06:02:14PM +0200, Ulrich Weigand wrote:
-> >> > > Nick Desaulniers <ndesaulniers@google.com> wrote on 27.08.2020 14:52:36:
-> >> > >
-> >> > > > > > All warnings (new ones prefixed by >>):
-> >> > > > > >
-> >> > > > > >>> /usr/bin/powerpc64-linux-gnu-ld: warning: discarding dynamic
-> >> > > > section .rela.opd
-> >> > > > > >
-> >> > > > >
-> >> > > > > We have /DISCARD/ *(.rela*) in the VDSO linker scripts.
-> >>
-> >> Indeed, I see that in arch/powerpc/kernel/vdso64/vdso64.lds.S.  Kees,
-> >> Fangrui, does `.rela*` not match `.rela.opd`? That doesn't sound
+From: Arvind Sankar
+> Sent: 02 September 2020 17:08
+> 
+> On Wed, Sep 02, 2020 at 11:33:46AM -0400, Arvind Sankar wrote:
+> > Fix this by:
+> > - Using a memory clobber for the write functions to additionally prevent
+> >   caching/reordering memory accesses across CRn writes.
+> > - Using a dummy input operand with an arbitrary constant address for the
+> >   read functions, instead of a global variable. This will prevent reads
+> >   from being reordered across writes, while allowing memory loads to be
+> >   cached/reordered across CRn reads, which should be safe.
 > >
-> >It does not. For linker scripts, "*" does not match "." (which is why
-> >".." is sometimes used to keep a subsection out of a "whatever.*" match.
-> >X_X
->
-> In linker scripts, "*" matches "."
->
-> Is the relocation section from --emit-relocs? --emit-relocs emitted sections
-> are not matched by output section descriptions.
->
-> >> right.  Unless it's not the vdso link that's producing the warning?  I
-> >> guess the warning is from GNU BFD, not LLD.  Maybe the warning is
-> >> coming from linking a different object file that doesn't use the same
-> >> linker script, or perhaps the `-T` argument is being dropped?
-> >>
-> >> > > > >
-> >> > > > > What is going on here with clang ?
-> >>
-> >> This warning is from the linker flag --orphan-handling=warn.  It's
-> >> been very handy for us to find bugs for other architectures and Kees
-> >> has been working on a large series to use it in arm, arm64, and x86.
-> >>
-> >> So the general question is, should we keep the section or discard it,
-> >> or should it not be produced in the first place?
-> >>
-> >> > > >
-> >> > > > Looks like .rela.opd was maybe synthesized.  cc Dr. Weigand, whos name
-> >> > > > shows up on llvm/test/MC/PowerPC/ppc64-relocs-01.s, which is the only
-> >> > > > hit I get in the codebase of `opd` (at least for tests, still looking
-> >> > > > to see if ".opd" gets appended somewhere.
-> >> > >
-> >> > > Well, this is the old ELFv1 ABI for big-endian PowerPC, which uses
-> >> > > function descriptors, which reside in the .opd section.  These are
-> >> > > emitted by LLVM in the PPCLinuxAsmPrinter::emitFunctionEntryLabel
+> 
+> Any thoughts on whether FORCE_ORDER is worth it just for CRn? MSRs don't
+> use it, Nadav pointed out that PKRU doesn't use it (PKRU doesn't have a
+> memory clobber on write either). I would guess that most of the volatile
+> asm has not been written with the assumption that the compiler might
+> decide to reorder it, so protecting just CRn access doesn't mitigate the
+> impact of this bug.
 
-Then this sounds like just another case where big endian support in
-LLD is generally broken and should be disabled or unselectable in
-Kconfig.
+I'm guessing that __force_order memory reference was added because
+the compiler managed to reorder a particular pair of accesses.
 
-> >>
-> >> Ah, "official procedure descriptors" -> opd.  Christophe, do we expect
-> >> the vdso to be ELFv1 ABI?  This code in LLVM has two other cases:
-> >> 1. ppc32
-> >> 2. ELFv2
-> >> If it should not be ELFv1, then something may be amiss in kbuild when
-> >> building for Clang; maybe Clang has a different command line option
-> >> for v2 and there's a cc-option check that's silently failing.  Maybe
-> >> clang has a different implicit default than gcc (which should be fixed
-> >> in clang if so).
->
-> LLD does not have ppc64 ELF v1 support. It had incomplete support which was removed
-> https://reviews.llvm.org/D46316
-> I know very little about ELF v1, but I can tell that R_PPC64_REL24 has different semantics with ELF v1,
-> which will assuredly be broken by LLD.
->
-> >If it's not produced by bfd, then nothing should be depending on it
-> >currently, yes?
-> >
-> >> > .opd can only be resolved at link time when creating fixed position
-> >> > executables.  .opd does need dynamic relocs in PIEs or shared
-> >> > libraries.
-> >> >
-> >> > Kernel VDSO is rather special though, and I'm not up to speed with
-> >> > whatever hackery the kernel folk use to create it and/or relocate it
-> >> > when the kernel is relocated.  Quite possibly the warning should just
-> >> > be ignored.
-> >>
-> >> I'm not sure if the kernel does relocations upon vdso load.
-> >
-> >I won't try to guess about PPC. :) In general, though, the vdso doesn't
-> >get a relocation "pass" in that the code page is shared by all
-> >processes. So I'd expect rela.opd to be empty or unused. Is it empty in
-> >the final image?
--- 
-Thanks,
-~Nick Desaulniers
+However writing to some of the CR (and maybe MSR) has side effects
+on other memory accesses - so should really have a full "memory" clobber.
+
+OTOH none of the CR or MSR access are common, and I suspect a lot
+are slow to execute (even if not actually serialising).
+So a 'belt and braces' "memory" clobber that definitely stops the
+compiler re-ordering instructions across the access avoids
+any possible unwanted effects.
+
+After all, any such code is really 'assembler written in C'.
+
+	David
+
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmMf73MMap3RBVHFTnNV_U0Ti89%2B4NPQK87Fsyza%3DvHTA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/41d1eec58dd54d878710cbb6121feecf%40AcuMS.aculab.com.
