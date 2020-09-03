@@ -1,125 +1,144 @@
-Return-Path: <clang-built-linux+bncBC2OPIG4UICBB7VSYH5AKGQEFT4LF4A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDRZHGH43YJRBC4BYL5AKGQECDDYA4Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3d.google.com (mail-qv1-xf3d.google.com [IPv6:2607:f8b0:4864:20::f3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7F11525B8DE
-	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Sep 2020 04:48:32 +0200 (CEST)
-Received: by mail-qv1-xf3d.google.com with SMTP id dj20sf1000888qvb.23
-        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Sep 2020 19:48:32 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1599101311; cv=pass;
+Received: from mail-lj1-x238.google.com (mail-lj1-x238.google.com [IPv6:2a00:1450:4864:20::238])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0A34A25BA1F
+	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Sep 2020 07:35:08 +0200 (CEST)
+Received: by mail-lj1-x238.google.com with SMTP id t12sf696823ljh.19
+        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Sep 2020 22:35:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599111307; cv=pass;
         d=google.com; s=arc-20160816;
-        b=a4i0RPbAj811JBcoghx5qU3RBgAsfPOTYkt0jvssvdxM8nBeBqM7erQAW7yMAGqJ/e
-         C/8fsJVRQY+LmPAa6ctdmKXdJHSEOHoZAkh3Hs0y2ThmfBJ8p7qfSvT2L3lePaU8saVG
-         UiesEr3GjKMZbkmNxKmS7iProY01cxVDFXUWZ336LayxFstzncO+t6RfN+ms/9BGnvb0
-         PG3wNKWNX2zKKYxwALq/aVTXUW4n12SUSTSL0IsxioXgE7dBFPl9ysgQdb+WgUQc3qqA
-         tbCGHqbVUCX1VkeiLwlPSfpO0n4kR9AiTWVlN0lAwARFW9LNNIUGIOb+a0yZ9YwoM5mp
-         QE4A==
+        b=PhXD+4Jfx2Gs9H+f+tYG/HeaGQDYr4ey8m8K96nFQE7yposOMNoaqVGdAZ8bzlxkk9
+         x2v2jGmmeZFdAwOx7cLgGwMKJZVZNxc8u7zkZ1sFkVnC58a9vv1q53qxz29+aggAu/9y
+         mPKin6rE/AJ/cnVbuNxkK4FLw1M4Lbaps/fn7R8OOi72HlufFwMVEy+CSYSumQsyHTH0
+         9XH1gN0T/d5aXiL+2MSUd7MxjELlQiAdYuh1tRPie8PV86KhIu7CRE5QMtD38H5Jg/UZ
+         Vsse5Ja2V2FKmeE4nsaVsJFwV3EzfnTJ0Ei8JR7f5vEPlTAliqt1SO2iDTuQ0oxnRAzN
+         hiCg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=Dn3gWs6/8tRdNRBrjYbXVBeWO66siH5hfslD3XEepJI=;
-        b=Vfp5i51MIggyVgzWeNQK3BNWKgTzxEVHwU354o8px1Dp/e6UVpk+f8Tn0XdZWauQHO
-         LacSnsWQnU6MOR1GpCg9SRAMXpDdyavOx5sQiyCWNTKdQM309JXH6YNCJPBEATW7fCrk
-         SzQcXUvYSJaaPZcJAWqFmWPggXrqNpkqoweOR9vnPoWaPZ39PJpVJr+iET0iKrr0OV3V
-         JjRJLwesVuYlFO6FvQAR47bsLlokPlYRRCi/lxXzBmpJMWGirTdwvSKPX5iD924DPg/J
-         z09g8M2yx8KhmMeJDpvPFr5N81VKiQ6g5mQGLqqeCg3ytwh6cihompZ4E7d+PWJ86kGU
-         Q/8Q==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=dP78pU8s/A7OVFI0Sf5HW30+Zdmerbb+pCJrbL5v0N8=;
+        b=Oy+j0Fu3foIQzosm30XYPQOu/qogfjVWxN9a3qj/DX19DIhTObVaWgqTKT69uXjOeP
+         ET45a3kxdlI438a6Hl4IzSzJ9kBzGGrOcPYqWaI5WCMjRUfeNDcT1Zy5mfnEi67W0a4Z
+         HIM3w+eahNgpirZk5Ruw2eT94hd44uG0SdooJgHPSiIe6uv5+bqoCpEo9VRt5cLFPXt7
+         5d62dj6MksnNWvTkpI8suU8/xpuEXc5HpM8I3JOoZx5dpd68dpq+nLSLMWbk5RCPaLL/
+         flF6bGjnpyNGwwKyoM3sIpSBqNES4nbPqd5Y9kvMbjSD5nHnVK2dtaM8Cxq2nTTcJy61
+         Tk8Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of hdanton@sina.com designates 202.108.3.164 as permitted sender) smtp.mailfrom=hdanton@sina.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=nVRTaNTr;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::243 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Dn3gWs6/8tRdNRBrjYbXVBeWO66siH5hfslD3XEepJI=;
-        b=c7xVWAprRp8T/Cg4Xky4nG8IaX1dj2ROcpAKfmCGGaI2m1BkOL2lzLZn4NjlkXh46o
-         O2c9s2Y/2sXFIxr6gt9gTEBmrgQV9FyCswTa1dHiexD8J0EKyttdf7nl/IcPOG6jSDfj
-         5Piz2bs8bZvyQIG28ivEhx2NFDTnW3fPtzPkmhQ5YbRCEOzqKMjQLeMD/K8dTLzKrxvp
-         U5aHCXO6GBqmuSqKNPub7J5TqA0JkyXKxvJDGaLW7SBN2WvCHHPjZ5Dxik+YvVjN9a7v
-         jCB8XlP/pRDT8Di7vfWD/L4ovKnKmftHU7fbSvakt+6z2V6etww52sjso15DQ6+TAY/z
-         NZRA==
+        bh=dP78pU8s/A7OVFI0Sf5HW30+Zdmerbb+pCJrbL5v0N8=;
+        b=Kmq59uhTnZlXBOoO6ty4QR70vUcfsmxPvaaK6IVtawkv1MF8MWYoS2EJEhhIjpo+xX
+         tlJ3W4xRD8JNxLOFffHfLfh8CkcLX3WxjoY+E4qE79ttmSuvRfvn8/7EMnaTKcDgeAif
+         4RTzTQ9esmCtLZ/ThtFb4v2hwfcRLSGlPoxcGkHygy9MF+QaAiXoEIzpIJU16SV0t+GC
+         bOSWACLHmgEpcds0NrGT7ct28ftoUBMSAhJAjUNVE8VpekrInCsH+KEt1UshbxPUO537
+         D9ePYLxUwATMAZT3F2QUm6345awHbiSFcIuV9WjywGkYSDmBJjfj6BVPH0dCBCd0kXZM
+         ndjg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=dP78pU8s/A7OVFI0Sf5HW30+Zdmerbb+pCJrbL5v0N8=;
+        b=hBwRgSoHooEFhSp3NsM5o0yFJO+GqqW3OWHQE1rxFVca7ImGPe61KjIpAfnjUX6Lho
+         RSsgA9Rd83afVLLb0YzVlDlxRq1DIalL413iT5xICXtPSlby62BkMireqZ4SSPue6KUp
+         cmip/TsCzZR1gZBCfSIiLx2x46g2WIJiEZzPlurzT6uSIJ9H+is6HGDZJH9dowo+fo+k
+         1Wi0+YvMe3d3uhE7cnRM4ncKQ62h8c5x2fI9ksC4cbrfzp1NW2VzbKMhwpPDk54PdQwA
+         IrukMlk+MmqwEWP+MIi8iEA56ydszxFJH9FogVoTmqlujjKNY3aGdOhk+H1AWYmUUoaP
+         zzrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Dn3gWs6/8tRdNRBrjYbXVBeWO66siH5hfslD3XEepJI=;
-        b=gQbgAYA7izoP+S/0HHMSIWd8TsROdZNF+n2Z2PH0TLsIlI2ZwWMlukPM7aE1cJm0+E
-         vs9khGJSWvvXBGjVcQ/UuWIMxBXZZVRGAPGdRT9igrFkXZPj7ytC3WwlkHPwxBGFZ+Iv
-         19hz1f7zqCeUKApX5SjUR0Xyf0jZaysr46Ns/aDnDKGETIb/NH/CzMKAZgJV+crHKag3
-         Vo9OkIUwyAz5Rer/1Pzmss2CIPRXAzNFgPTNi19wtitM3k+NT1VwPM8goN1NkCDeIm0+
-         N4DSxQmagFhlv4AcZa4IXhB+heeMp0a6KD5OKswibJ2Kq1wdi5IXV+x8bZvteFu8BgXv
-         6U7A==
+        bh=dP78pU8s/A7OVFI0Sf5HW30+Zdmerbb+pCJrbL5v0N8=;
+        b=gKs+ylhvXRBp5pmO+Zzyh3vfjor2NmldMZhoXSsrGcvDfZoHmhuQX6Q/EKj+d8aYOd
+         S3zN8fYEH6W1zf7vCSTg+kS8S4wX8rIbvJkezXBj1hyqfSrPBBQWg+ocPakz6mRMoNNU
+         HSw7isablVs9LQXk5q0H9Mz1qpVbN6x6nKkY9xT4Dc4H/tOvAqLPSZb7y77cFWKV9JvA
+         IEiKet9QOfXpgfRF6lXQUwEeO6PaghakKLW+VsRaEeeEG4yLC0X6oXV7Ej73mPvT5kpB
+         /mrOjd41sGA3f87B083uA0+NIveTiYQP6TUZjV6dqARXvoIsQ+Lk4oxhIpxVToXx1v1b
+         W85Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530F53+3ippEl5TgFRs26LrooYhNboWsq1anOsoE/U1dFkMN+rRb
-	fXDpsCPWRzEp5VpfPm8o7h8=
-X-Google-Smtp-Source: ABdhPJyANgEcraS5SC0GVPeUiLOD5/h0Ez/s22+23bT1ar6AgCodCh1VbD5+afyqlVc1xxyVSZwclw==
-X-Received: by 2002:a05:620a:5f4:: with SMTP id z20mr1176807qkg.260.1599101311295;
-        Wed, 02 Sep 2020 19:48:31 -0700 (PDT)
+X-Gm-Message-State: AOAM533mCDstzs/GdEi5LSrYIW3M393sDkLzX+mcLKnR0rg8twcmR9vx
+	tBEUItZqys3ueAa2z2G5cG8=
+X-Google-Smtp-Source: ABdhPJwysxzLGpplTQUqpk5ZvF7QYHmilF7h3513UHrB7yYdFtqK6TzvgCWug9zEaHUuG5gpK7SJBw==
+X-Received: by 2002:a2e:808f:: with SMTP id i15mr276082ljg.151.1599111307365;
+        Wed, 02 Sep 2020 22:35:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:f50b:: with SMTP id l11ls2249131qkk.6.gmail; Wed, 02 Sep
- 2020 19:48:30 -0700 (PDT)
-X-Received: by 2002:a37:9f86:: with SMTP id i128mr1109969qke.475.1599101310645;
-        Wed, 02 Sep 2020 19:48:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1599101310; cv=none;
+Received: by 2002:a2e:9a58:: with SMTP id k24ls905960ljj.4.gmail; Wed, 02 Sep
+ 2020 22:35:06 -0700 (PDT)
+X-Received: by 2002:a2e:854b:: with SMTP id u11mr254175ljj.55.1599111306487;
+        Wed, 02 Sep 2020 22:35:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599111306; cv=none;
         d=google.com; s=arc-20160816;
-        b=F6bJMecY1d9cIrOT50kY3tCc0QzDPfb71ZLSM0AlNdy7lIKq5+Uor94ir4z6Fnquso
-         Tih4O/IbScULsNLL9u+ub936XPP4wYyoHik1jYPdVvAGeHo+wrLENBJwC30NKxv7PQKZ
-         MiZyOwW+ipf2xYfMGWSGETTvEHmfMahPnq8WrgZlyeYZaj0b/DXTxJLDLDWUVKtqrv7+
-         MLjiM2gPXSfoErk8mtcU52j9uep4KGd1KlyGtCu9r0YpjwJurdm+WUh7WanP6qIMISIe
-         AnyKtVfUTl073wB096WM9TzPKWN5gGeaIyiYuew+KXEUsJIMugRm+rMMM8foPdAYtDXw
-         UokQ==
+        b=PdrQc7MMVM4U18FaYHT9O2A0r2Ty4bniph+Qnsn8C5qFivQUPARMpdQM5awd8vCdvi
+         6MbHgsYk/yE0X8Tt1RPEd4e3iyc4m5Mb+/P85B0N0A4Wo4S+H0D3gfXUBHhCA2eX2NCu
+         x5/WfbWXZsNbkx5YgnDGWAfdX+p4OIyfSeFVyS115i0I4AB4XvY1yKh7ZLQ8gIsNKDeG
+         lHnut8VVYJs48GIO2mro8uGkyWXrDbyqyRddrYsxV9IS5eKkU98vFvIofipleTw4tJ+J
+         J9VXjtnNjCNKMIZtE9mIUkFlBgBD0slO8bfLnM1o6GimGq0dWNbRuT7qm7udn5SgBoIg
+         Xjaw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from;
-        bh=V/pVLMQxVuGseCQOt1vcQ47YUEJKym7thqAda0C6A5c=;
-        b=XKAJ+PLyEXhLsQuhdnpSRcfJZ+UzjgQ7pgSBkpFywjXRHqKwg18c+JtSnkrggMSuDC
-         jzFVvtIyhdx7+elRTEaj6zSOLcyRmXODUtL5rMswyqN6meBIZhE0ECMnLUz/rrJnVLmq
-         e++j57HjyNX54CtcLBY9YVJybQrawIgkYNBRbgB8FfLWlhjS2gG02/PsjjWWuYbajr1e
-         wVI88asvWC2JT7V2nHvBnsOvliTKBUMqAJk5mOOrJToxRZxg6npO60zOPhf+4aLkEEvH
-         ye2yIPvlL8Zx3ObksaUvOhjhRQfzq0XNqHWOBJjeQk4YTaYomPJyw4VQzeTov5PEFTr0
-         UttQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=KvfRDr9m7GFxF53fVORc45Jz6EFpqNAlUtbFuBE05q0=;
+        b=IoDm2AAvh/2DgocAEGUtKEoElcPPUA8HaPEErO3IZ4KUuDmDdxNRClAgkoKPe0bAVh
+         vcZSCIAAdUrCbqRNvMzDgzxacviK6DNJRSCkPoYOhyl5FdqtT1tco/d4MCUSiP1w7svP
+         OpoEztmcyCDosLYn5g8GHvAIc0iJFucuokZT/zMVupXfaPRx0VPHgLha2BRvCSKyEGrN
+         Cw/pifCSclC4k78xA1uOFu0W1Gf04BEdX1MZy5kAoEf6f+4ODKp7gZrKG8ikRPD3OB92
+         sbVNH5lDWseH/HH80PPfaXqTQI7pcOTzeJqS/jdPjZbzj/TTBk1K9m8Yq+JparkRn2uA
+         HdJA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of hdanton@sina.com designates 202.108.3.164 as permitted sender) smtp.mailfrom=hdanton@sina.com
-Received: from mail3-164.sinamail.sina.com.cn (mail3-164.sinamail.sina.com.cn. [202.108.3.164])
-        by gmr-mx.google.com with SMTP id q5si89180qkc.2.2020.09.02.19.48.29
-        for <clang-built-linux@googlegroups.com>;
-        Wed, 02 Sep 2020 19:48:30 -0700 (PDT)
-Received-SPF: pass (google.com: domain of hdanton@sina.com designates 202.108.3.164 as permitted sender) client-ip=202.108.3.164;
-Received: from unknown (HELO localhost.localdomain)([123.115.164.148])
-	by sina.com with ESMTP
-	id 5F50596B00017011; Thu, 3 Sep 2020 10:48:18 +0800 (CST)
-X-Sender: hdanton@sina.com
-X-Auth-ID: hdanton@sina.com
-X-SMAIL-MID: 54947415074172
-From: Hillf Danton <hdanton@sina.com>
-To: trix@redhat.com
-Cc: vkoul@kernel.org,
-	yung-chuan.liao@linux.intel.com,
-	pierre-louis.bossart@linux.intel.com,
-	sanyog.r.kale@intel.com,
-	natechancellor@gmail.com,
-	ndesaulniers@google.com,
-	shreyas.nc@intel.com,
-	alsa-devel@alsa-project.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	hdanton@sina.com
-Subject: Re: [PATCH v2] soundwire: fix double free of dangling pointer
-Date: Thu,  3 Sep 2020 10:48:01 +0800
-Message-Id: <20200903024801.9032-1-hdanton@sina.com>
-In-Reply-To: <20200902202650.14189-1-trix@redhat.com>
-References: <20200902202650.14189-1-trix@redhat.com>
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=nVRTaNTr;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::243 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-lj1-x243.google.com (mail-lj1-x243.google.com. [2a00:1450:4864:20::243])
+        by gmr-mx.google.com with ESMTPS id z6si59222ljz.8.2020.09.02.22.35.06
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 02 Sep 2020 22:35:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::243 as permitted sender) client-ip=2a00:1450:4864:20::243;
+Received: by mail-lj1-x243.google.com with SMTP id t7so1344293ljo.13
+        for <clang-built-linux@googlegroups.com>; Wed, 02 Sep 2020 22:35:06 -0700 (PDT)
+X-Received: by 2002:a2e:9b59:: with SMTP id o25mr299127ljj.264.1599111306283;
+ Wed, 02 Sep 2020 22:35:06 -0700 (PDT)
 MIME-Version: 1.0
-X-Original-Sender: hdanton@sina.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of hdanton@sina.com designates 202.108.3.164 as permitted
- sender) smtp.mailfrom=hdanton@sina.com
+References: <20200823212550.3377591-1-nivedita@alum.mit.edu> <20200902232152.3709896-1-nivedita@alum.mit.edu>
+In-Reply-To: <20200902232152.3709896-1-nivedita@alum.mit.edu>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Thu, 3 Sep 2020 07:34:55 +0200
+Message-ID: <CANiq72=u33tiyp38WnxyyKOy4b5XSsw3JY6-ECWZvduHb4zqdQ@mail.gmail.com>
+Subject: Re: [PATCH v3] x86/asm: Replace __force_order with memory clobber
+To: Arvind Sankar <nivedita@alum.mit.edu>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, Sedat Dilek <sedat.dilek@gmail.com>, 
+	Segher Boessenkool <segher@kernel.crashing.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Nick Desaulniers <ndesaulniers@google.com>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, 
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, Kees Cook <keescook@chromium.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Juergen Gross <jgross@suse.com>, 
+	Andy Lutomirski <luto@kernel.org>, Andrew Cooper <andrew.cooper3@citrix.com>, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Will Deacon <will@kernel.org>, 
+	nadav.amit@gmail.com, Nathan Chancellor <natechancellor@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: miguel.ojeda.sandonis@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=nVRTaNTr;       spf=pass
+ (google.com: domain of miguel.ojeda.sandonis@gmail.com designates
+ 2a00:1450:4864:20::243 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,94 +151,19 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Thu, Sep 3, 2020 at 1:21 AM Arvind Sankar <nivedita@alum.mit.edu> wrote:
+>
+> Changes from v2:
+> - Clarify commit log and source comment some more
 
-Wed,  2 Sep 2020 13:26:50 -0700
-> From: Tom Rix <trix@redhat.com>
-> 
-> clang static analysis flags this problem
-> 
-> stream.c:844:9: warning: Use of memory after
->   it is freed
->         kfree(bus->defer_msg.msg->buf);
->               ^~~~~~~~~~~~~~~~~~~~~~~
-> 
-> This happens in an error handler cleaning up memory
-> allocated for elements in a list.
-> 
-> 	list_for_each_entry(m_rt, &stream->master_list, stream_node) {
-> 		bus = m_rt->bus;
-> 
-> 		kfree(bus->defer_msg.msg->buf);
-> 		kfree(bus->defer_msg.msg);
-> 	}
-> 
-> And is triggered when the call to sdw_bank_switch() fails.
-> There are a two problems.
-> 
-> First, when sdw_bank_switch() fails, though it frees memory it
-> does not clear bus's reference 'defer_msg.msg' to that memory.
-> 
-> The second problem is the freeing msg->buf. In some cases
-> msg will be NULL so this will dereference a null pointer.
-> Need to check before freeing.
-> 
-> Fixes: 99b8a5d608a6 ("soundwire: Add bank switch routine")
-> Signed-off-by: Tom Rix <trix@redhat.com>
-> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-> Reviewed-by: Pierre-Louis Bossart <pierre-louis.bossart@linux.intel.com>
-> ---
-> v2 : change title, was 'soundwire: fix error handling'
-> ---
-> drivers/soundwire/stream.c | 8 +++++---
->  1 file changed, 5 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/soundwire/stream.c b/drivers/soundwire/stream.c
-> index 37290a799023..6e36deb505b1 100644
-> --- a/drivers/soundwire/stream.c
-> +++ b/drivers/soundwire/stream.c
-> @@ -717,6 +717,7 @@ static int sdw_bank_switch(struct sdw_bus *bus, int m_rt_count)
->  	kfree(wbuf);
->  error_1:
->  	kfree(wr_msg);
-> +	bus->defer_msg.msg = NULL;
->  	return ret;
->  }
->  
-> @@ -840,9 +841,10 @@ static int do_bank_switch(struct sdw_stream_runtime *stream)
->  error:
->  	list_for_each_entry(m_rt, &stream->master_list, stream_node) {
->  		bus = m_rt->bus;
-> -
-> -		kfree(bus->defer_msg.msg->buf);
-> -		kfree(bus->defer_msg.msg);
-> +		if (bus->defer_msg.msg) {
-> +			kfree(bus->defer_msg.msg->buf);
-> +			kfree(bus->defer_msg.msg);
-> +		}
->  	}
->  
->  msg_unlock:
-> -- 
-> 2.18.1
+Much better now, thanks!
 
-Looks like it needs also to release the current buf before putting the new
-one into place.
+Reviewed-by: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
 
---- a/drivers/soundwire/stream.c
-+++ b/drivers/soundwire/stream.c
-@@ -665,6 +665,10 @@ static int sdw_bank_switch(struct sdw_bu
- 	if (!wr_msg)
- 		return -ENOMEM;
- 
-+	if (bus->defer_msg.msg) {
-+		kfree(bus->defer_msg.msg->buf);
-+		kfree(bus->defer_msg.msg);
-+	}
- 	bus->defer_msg.msg = wr_msg;
- 
- 	wbuf = kzalloc(sizeof(*wbuf), GFP_KERNEL);
+Cheers,
+Miguel
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200903024801.9032-1-hdanton%40sina.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANiq72%3Du33tiyp38WnxyyKOy4b5XSsw3JY6-ECWZvduHb4zqdQ%40mail.gmail.com.
