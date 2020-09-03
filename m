@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBA5FYX5AKGQEPYSXJYA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRBBNFYX5AKGQEBA5MY4A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13f.google.com (mail-il1-x13f.google.com [IPv6:2607:f8b0:4864:20::13f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2D51B25CA41
-	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Sep 2020 22:31:01 +0200 (CEST)
-Received: by mail-il1-x13f.google.com with SMTP id m80sf3190002ilb.12
-        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Sep 2020 13:31:01 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1599165060; cv=pass;
+Received: from mail-oi1-x23a.google.com (mail-oi1-x23a.google.com [IPv6:2607:f8b0:4864:20::23a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7723025CA42
+	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Sep 2020 22:31:03 +0200 (CEST)
+Received: by mail-oi1-x23a.google.com with SMTP id a17sf1351303oia.11
+        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Sep 2020 13:31:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599165062; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fSgMLOGvoM98PFdqV4ITNk1DwpRyFlpI8Z83XqwuG5e3/rgIY41Jubd7aXnADJfCKD
-         ZuUDwUJXFOO6olY/l/2wv1ktNUUl9NAjdTt4rrj4YU+30AgizurBgrRaBUpYp/S9DYST
-         UVWsBLfqe/FC4AR9LwP2hl5fgEF1BssvzQES+STXs1Pl7T7O+X/Dmeozmnh0OV4OPxJ6
-         64KO5DPqlVSYNFsC1ERQ/0X71fCQndHhHyFNV5a39Ibws5dfyS8m9bPHAla8E45ZF0Rb
-         QRwhSAmbUEnTVuA9JAYaoCTBdZVoQHlyCToZ5V5oOb+da4WD5122tpXJ6RlIGjqGvBfI
-         +wcw==
+        b=e8VKcQeVy7ZuZT9B0qIOjQ35imvq6iPKF7WuggLcCpx/wq2mgcN0yZvQBT5i3BjWtU
+         kO2zKlz+jLtJ20omExtUyh5KtmgKXnyqvnnZAtERLWvwzyQEp3dqe5z+iQT/J26HKh4J
+         A6TRv92pBe6I4fHEGjeRAUG+YQy+kmEsYuZg/OfEbbmEruOAe6LOwK2nklWzu8PGNVeq
+         rZjwFuCzsfvDH51Kdb/iN12hJpai/DyXFuvPgC0jI8r/9xbNsbpfdfFQ+/aE6uhNj8R6
+         v0IzuBK2slQyCLvSoxSahOwkhaWdjQMzeljd1KCUQsbc64mij0GmhyNzwMTB3PSs6dC6
+         cr/g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:sender
          :dkim-signature;
-        bh=WB0JE39CV5Hi+GwvL17SX3cSb7oKffzGjuXSzogapzg=;
-        b=gaqjmF/+niLqx1WqWilUfLTMw32+oa5Mri8u08hRzbvKZ84jZI5DtV5VgiWlTfDCAN
-         xMXUnAJxJqhyk745fu5j0Rb9OkuxSa9wvLxYfPUngJd0RsTY9BFicpABkWhWHSPVhBna
-         SZi38GOrhznCWzJPUaS+gIblQ6Bcdo6IuPir9MUYsU6PNOWx/d0bsldTkrpJXPOyUnUS
-         Mwh/HvjrO4ed1Jza2cEf8F2uAPFBNMw8brPcEY3BfDeZSwCN53TqPUgL2X6GVNebevoc
-         DnZrfT86GrMY01glQrvKv8tBLt+4s+sU/9wdVaLDim/9pHbsCQ3J0b/BQ74fflxpoprI
-         2iyQ==
+        bh=9qlgMmHhgmaxaupUVAMFXGR99QT7obsEqXtmWDZBLSY=;
+        b=fpvxQseIqm5iu9Uxl7XMg9GPtUqANFxPNFbgFAFV0PEgTcJFDlaAqUEoCmYoswWehc
+         2fuEKUWHTcB/a+jvrRULykFIAGXH0DRjveCubrX/rocfZSjppiERdi0u0eJxUa4cXvOt
+         8wNVI0sewKKANycW955VtnPoJeIPB/nQsn1oWO0uzUGMNDkFr4nm0uhI13OwM3J6NztC
+         qa2pE8x3Apxd60HCimyM+pQAKhpCr5t0ofyvGIPq4BYNC7p/QMz5t5k0z2j34CnkWVgu
+         rxeOHbV94fcVPH1plPIXTFHzQ2A1F5Wg0SbQtvPULEhY8F7gx6MBxWoTWOZGLLqAjhTV
+         YobQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=r6if3o8k;
-       spf=pass (google.com: domain of 3gljrxwwkag0dlxtezwglypyrzzrwp.nzx@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::54a as permitted sender) smtp.mailfrom=3glJRXwwKAG0dLXTeZWgLYPYRZZRWP.NZX@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="BNgE/Ex9";
+       spf=pass (google.com: domain of 3hfjrxwwkag8fnzvgbyinaratbbtyr.pbz@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3hFJRXwwKAG8fNZVgbYiNaRaTbbTYR.PbZ@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :from:to:cc:x-original-sender:x-original-authentication-results
          :reply-to:precedence:mailing-list:list-id:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=WB0JE39CV5Hi+GwvL17SX3cSb7oKffzGjuXSzogapzg=;
-        b=cm7eKm6k2dBcFPpC77qYksI83dywNii04icG2LsEK3dODSL35N9Zcd9RcCMdgue9fl
-         RIvtv3rjFZA+BfzI3B7snCcpkJx7/NyqoDLWwfZXTeS5aTI1rXBubHD7Y1u5cGqcrqYX
-         Fgfg5Eumff7aPUuoJQCNn9yWS9Mmsdg8qTQacgShYyPYS0u8ZXKWaZ0TQU7ESu5oaT+a
-         aDmDFj9SVUTSB5Ruv23R3DE5RPD7ATrfLL5Jcrf3AuDJj7rPTVK5QK48kjFgEmzjdi4n
-         IskQsJVWYWkHUTaTZL8Z8YzJlCAgFotwhNVJewE2IZq6i7HIvnlDohkYQbF9H+hNYRHR
-         uLeQ==
+        bh=9qlgMmHhgmaxaupUVAMFXGR99QT7obsEqXtmWDZBLSY=;
+        b=HeigGJoRDAAO9znPIS2Es3BpnEX49U/Pgr+sNgjfkgiAdFQmgpj7EovYxZPwrZiq6S
+         Mgf5cd94RcGNMVlNXF680qDBN/0nJIR5orVNFRJeLttkPQ2Q8NIj5BvxZq0IVASVDyR7
+         Kw16EYPU+SExT6mte4VsvU5s7fPTmi4uVRPOC52FsDCxhVlKOvDbXXDmpGujv9CKGTQd
+         WKqBbDh6i4RBuv4vfRBhrWJTsiyCx2Je3DdJmjoXw+yJSeyDDPpLGQmfeSFG8rOctKmJ
+         YMXSpgJGDDNvxxCGH6kdtk3E+cqltn5CGGKHsFos6IUQwE90EgepS7dT9tncdsFXfDgc
+         IpXQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:sender:date:in-reply-to:message-id:mime-version
@@ -50,65 +50,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=WB0JE39CV5Hi+GwvL17SX3cSb7oKffzGjuXSzogapzg=;
-        b=HLax6HYczE6lcCDgCUjG0fvxbmnRA/hwQ3KAi9ECup0dnkAAH/nkFzzDU4IyNvSHwm
-         NzqVcUjSJ2l/6zRWclG0rLL8i4bvbOnJaO69Fc6AxSZbvCG7KZz9aOZBh4ITw1jcsw6J
-         Kmdc66BL7dJmad7X9eTnERu4PX3pY0zidy+VZh7e6er6MfQup57HxAzI2cmCR8DxBCTW
-         yk7K6Apr33bAcimB3ywFfF8cax46EVHs/JgJfYmUZPUcGmV0lRknvliizzBJKiwZmV8n
-         KUaTEsXnO6u8Z7A+VxmRnK6ap+VvehYAOa0ewXttUdrpfzWqNCeXTLYoNSGBPrt9Tkn9
-         6zXw==
-X-Gm-Message-State: AOAM530eS2QQoGTHFZs2Ihidimx27vc2W5dHr5bmIwCXXGCTFYTQBvKh
-	b3PsBPSChNS7xvA3Fu/yCQw=
-X-Google-Smtp-Source: ABdhPJw4TG+CJ9FWGHJXqa30pDdVA2qLVUwTGbP34Nd6PjIH5dU2fJguGMQYioN1XMMkExETFmeZ7Q==
-X-Received: by 2002:a02:cdc5:: with SMTP id m5mr4939971jap.15.1599165059926;
-        Thu, 03 Sep 2020 13:30:59 -0700 (PDT)
+        bh=9qlgMmHhgmaxaupUVAMFXGR99QT7obsEqXtmWDZBLSY=;
+        b=qlnvcpkl11nq4fIzIIKU5fpnNG9PNawU+4ckjbSZ/7teH5OOYu3foLOHEl/rkn4Nwm
+         lH/fYjFn26ZUvecMs4D7WDYgUivfvw1chsPyYgjldWruuzlZw0k9g44pYq/VqDlWKVll
+         GpSoq0QWsrPNNI77JYAbwAlEXCg0r3yFF+dhuI1VKawn3cZ7jOjLUKm0001TZrBJU7O0
+         MqfCzVfXtx+CkjXiOX2O9qwmmQK0EoSo5DpOWYVoBM2sl15Y7X8MBcSESFhSf2NuoE8n
+         w0eMUqkL6mP6XJWV9oaVdkdC4Urh0FrMpCP0M4xTmrZZMcNc6X0CM7D6UE4WxQ2MZO6k
+         8UZQ==
+X-Gm-Message-State: AOAM530sitcKMQjMH+/EYZrmIN0cfetbNfyjWIQB6/XsNFYamwCYkWRy
+	GKn7lHMZbuEQFzkmn87r2MA=
+X-Google-Smtp-Source: ABdhPJwjcwTcc7VBceDTXYjmX6tkx99l0FED91KfiIeXKnZaldfRA29sGLquUr3/NK93eTRG27jKUQ==
+X-Received: by 2002:a05:6830:1d96:: with SMTP id y22mr2950168oti.243.1599165061910;
+        Thu, 03 Sep 2020 13:31:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:8897:: with SMTP id d23ls1229604ioo.10.gmail; Thu, 03
- Sep 2020 13:30:59 -0700 (PDT)
-X-Received: by 2002:a5d:8d95:: with SMTP id b21mr4647586ioj.68.1599165059512;
-        Thu, 03 Sep 2020 13:30:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1599165059; cv=none;
+Received: by 2002:aca:4816:: with SMTP id v22ls1539284oia.6.gmail; Thu, 03 Sep
+ 2020 13:31:01 -0700 (PDT)
+X-Received: by 2002:aca:ab10:: with SMTP id u16mr3236045oie.127.1599165061553;
+        Thu, 03 Sep 2020 13:31:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599165061; cv=none;
         d=google.com; s=arc-20160816;
-        b=0V5Rml5roXh+cY/tIO30OrZuWWBhMjL8wAPC/gW38o/qaNTONljB0kxYvz45zbx2jp
-         CdpzmF55oFq7izXeQK+7q57n1zZc3tZwWniUhiIQrwGrRVFVf0KsBYmcu/eQZoiKjJ8o
-         e5oxXiQow+jLZLAnaFly3BQORpiQY/Zpx5mBiZyr8AgQX0wyj5dSqr2MQ5mN7AuLF1pd
-         xCPZ9V8CuZW6ZCdU7WKCrv6uGWUMYmNdELYKZfzq5g2z8Y2CFjnEgEujSUBNfaiHmrKI
-         Fdgy3eRtPhWPhSe2q4WrKO3SdgbC3c8jUklQV68krWBPAqwBS/3vtm7qBD44UvChzhfZ
-         QALQ==
+        b=ITJmqIwNVfL9k5xoDgZOD70sS8zOZRpPpe0joH0X4WKeHWfg2GsTduQ/bpX8s9QshI
+         6QjNuqgfZVII6t85JVFNVpWwC0djhb33n4/exOkMSI3Ad2PAooqxTEGz3QfZ7ZXkBdCW
+         4pjaxz3ld1zys5Gjmhuz2t8McYolwjwU4KQNyBGlhe/W512MiSICz3Z5YwRKa2UVdaeY
+         Au4PQj8JACfXE/q/7Dj/RB2pOX73YJfUk8shKOlOIoufwkWvZHfiRJ5TQajbZz9vCPnE
+         T3vWxj9rohTi/RJ0y1hEEw1aoTqGtV/a+7GT1QzcxSMzWACPgFMzxF+P4h6bal8yOa4Z
+         XnvA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:sender:dkim-signature;
-        bh=Wz9KEqPe6jynvYZUGVwJeRVVfJ6wC2gosaUL7BUwAA8=;
-        b=MDKskcbkIl4m6XaABozalwHinj9YtCNymCiwDJjZCBMe3M0t0I6xE3qCUUCySEluGq
-         YbUHkpqiZHvbNa9P+M4UcTE3wskEC2nK/GwAIJaR9JqWHO5Zy5YSUEbPkKT51tFVWeTD
-         K0EYjNLtRURyPMw06pY/gKNLvhwADXdMRwfvvQOg2hpCY9okIJMY7LdGUOFhVcJhWYQQ
-         4ysWIvadHvbVQosI3FA/mTENK54J7GdAI1QpNg3NWzi7ufRu/w898LZBiv1k7dG3bsKk
-         ryahkGsdpSiPrzoN2JbeoNyA4/opNey5YqoyjKF2IU5T7/2791dbkpnZEybeehXa/Rw4
-         5kzg==
+        bh=Zc5fOwGj6FL/BwQcVTQqN8jM5Y1jCC9q7imUTY2UKoE=;
+        b=XDOHcNxxpGjyx4G1bggIDlM73TyGgcQOdt/7GzhX5T3Hzx6ZD1iiJmlv8vq5GyZxxU
+         bVYMpnaIjjd80iVBSmoHtTgOMUpsoDsW+68kyFeUk3gleBlF5mGtuN/r8JDbiZM1yu/v
+         6WePlml3w87fcllK79lmqyIJASo5+VBoxIchFcDo0Xtp3odChbbiwqxCgvX4rLcJ0JnG
+         zuQM3aHRaT6lRHxA9ytx3B8RpP7HDzJPH2wxdOooROBcrpGD4R5uVDN+XLGJ9dylNgi4
+         pPPzUTppnYPZw0XPiDZ35AOg8k/KWk1XPYX2GO8rX8+iBoXZI5kQQW0f2mPeQjzxv/Mn
+         ZGFg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=r6if3o8k;
-       spf=pass (google.com: domain of 3gljrxwwkag0dlxtezwglypyrzzrwp.nzx@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::54a as permitted sender) smtp.mailfrom=3glJRXwwKAG0dLXTeZWgLYPYRZZRWP.NZX@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="BNgE/Ex9";
+       spf=pass (google.com: domain of 3hfjrxwwkag8fnzvgbyinaratbbtyr.pbz@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3hFJRXwwKAG8fNZVgbYiNaRaTbbTYR.PbZ@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x54a.google.com (mail-pg1-x54a.google.com. [2607:f8b0:4864:20::54a])
-        by gmr-mx.google.com with ESMTPS id n1si229971iom.0.2020.09.03.13.30.59
+Received: from mail-yb1-xb49.google.com (mail-yb1-xb49.google.com. [2607:f8b0:4864:20::b49])
+        by gmr-mx.google.com with ESMTPS id u27si218201otg.5.2020.09.03.13.31.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 03 Sep 2020 13:30:59 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3gljrxwwkag0dlxtezwglypyrzzrwp.nzx@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::54a as permitted sender) client-ip=2607:f8b0:4864:20::54a;
-Received: by mail-pg1-x54a.google.com with SMTP id l6so2487105pgm.15
-        for <clang-built-linux@googlegroups.com>; Thu, 03 Sep 2020 13:30:59 -0700 (PDT)
+        Thu, 03 Sep 2020 13:31:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3hfjrxwwkag8fnzvgbyinaratbbtyr.pbz@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) client-ip=2607:f8b0:4864:20::b49;
+Received: by mail-yb1-xb49.google.com with SMTP id a84so3979218ybb.9
+        for <clang-built-linux@googlegroups.com>; Thu, 03 Sep 2020 13:31:01 -0700 (PDT)
 Sender: "samitolvanen via sendgmr" <samitolvanen@samitolvanen1.mtv.corp.google.com>
 X-Received: from samitolvanen1.mtv.corp.google.com ([2620:15c:201:2:f693:9fff:fef4:1b6d])
- (user=samitolvanen job=sendgmr) by 2002:a62:14c5:0:b029:13c:1611:658a with
- SMTP id 188-20020a6214c50000b029013c1611658amr3803962pfu.7.1599165058704;
- Thu, 03 Sep 2020 13:30:58 -0700 (PDT)
-Date: Thu,  3 Sep 2020 13:30:27 -0700
+ (user=samitolvanen job=sendgmr) by 2002:a5b:30b:: with SMTP id
+ j11mr5537716ybp.483.1599165060985; Thu, 03 Sep 2020 13:31:00 -0700 (PDT)
+Date: Thu,  3 Sep 2020 13:30:28 -0700
 In-Reply-To: <20200903203053.3411268-1-samitolvanen@google.com>
-Message-Id: <20200903203053.3411268-3-samitolvanen@google.com>
+Message-Id: <20200903203053.3411268-4-samitolvanen@google.com>
 Mime-Version: 1.0
 References: <20200624203200.78870-1-samitolvanen@google.com> <20200903203053.3411268-1-samitolvanen@google.com>
 X-Mailer: git-send-email 2.28.0.526.ge36021eeef-goog
-Subject: [PATCH v2 02/28] x86/asm: Replace __force_order with memory clobber
+Subject: [PATCH v2 03/28] lib/string.c: implement stpcpy
 From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Masahiro Yamada <masahiroy@kernel.org>, Will Deacon <will@kernel.org>
 Cc: Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>, 
@@ -118,13 +117,13 @@ Cc: Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>,
 	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-pci@vger.kernel.org, x86@kernel.org, 
-	Arvind Sankar <nivedita@alum.mit.edu>
+	Sami Tolvanen <samitolvanen@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=r6if3o8k;       spf=pass
- (google.com: domain of 3gljrxwwkag0dlxtezwglypyrzzrwp.nzx@flex--samitolvanen.bounces.google.com
- designates 2607:f8b0:4864:20::54a as permitted sender) smtp.mailfrom=3glJRXwwKAG0dLXTeZWgLYPYRZZRWP.NZX@flex--samitolvanen.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b="BNgE/Ex9";       spf=pass
+ (google.com: domain of 3hfjrxwwkag8fnzvgbyinaratbbtyr.pbz@flex--samitolvanen.bounces.google.com
+ designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3hFJRXwwKAG8fNZVgbYiNaRaTbbTYR.PbZ@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Sami Tolvanen <samitolvanen@google.com>
 Reply-To: Sami Tolvanen <samitolvanen@google.com>
@@ -140,172 +139,120 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Arvind Sankar <nivedita@alum.mit.edu>
+From: Nick Desaulniers <ndesaulniers@google.com>
 
-The CRn accessor functions use __force_order as a dummy operand to
-prevent the compiler from reordering CRn reads/writes with respect to
-each other.
+LLVM implemented a recent "libcall optimization" that lowers calls to
+`sprintf(dest, "%s", str)` where the return value is used to
+`stpcpy(dest, str) - dest`. This generally avoids the machinery involved
+in parsing format strings.  `stpcpy` is just like `strcpy` except it
+returns the pointer to the new tail of `dest`.  This optimization was
+introduced into clang-12.
 
-The fact that the asm is volatile should be enough to prevent this:
-volatile asm statements should be executed in program order. However GCC
-4.9.x and 5.x have a bug that might result in reordering. This was fixed
-in 8.1, 7.3 and 6.5. Versions prior to these, including 5.x and 4.9.x,
-may reorder volatile asm statements with respect to each other.
+Implement this so that we don't observe linkage failures due to missing
+symbol definitions for `stpcpy`.
 
-There are some issues with __force_order as implemented:
-- It is used only as an input operand for the write functions, and hence
-  doesn't do anything additional to prevent reordering writes.
-- It allows memory accesses to be cached/reordered across write
-  functions, but CRn writes affect the semantics of memory accesses, so
-  this could be dangerous.
-- __force_order is not actually defined in the kernel proper, but the
-  LLVM toolchain can in some cases require a definition: LLVM (as well
-  as GCC 4.9) requires it for PIE code, which is why the compressed
-  kernel has a definition, but also the clang integrated assembler may
-  consider the address of __force_order to be significant, resulting in
-  a reference that requires a definition.
+Similar to last year's fire drill with:
+commit 5f074f3e192f ("lib/string.c: implement a basic bcmp")
 
-Fix this by:
-- Using a memory clobber for the write functions to additionally prevent
-  caching/reordering memory accesses across CRn writes.
-- Using a dummy input operand with an arbitrary constant address for the
-  read functions, instead of a global variable. This will prevent reads
-  from being reordered across writes, while allowing memory loads to be
-  cached/reordered across CRn reads, which should be safe.
+The kernel is somewhere between a "freestanding" environment (no full libc)
+and "hosted" environment (many symbols from libc exist with the same
+type, function signature, and semantics).
 
-Signed-off-by: Arvind Sankar <nivedita@alum.mit.edu>
-Tested-by: Nathan Chancellor <natechancellor@gmail.com>
-Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
-Link: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=82602
-Link: https://lore.kernel.org/lkml/20200527135329.1172644-1-arnd@arndb.de/
+As H. Peter Anvin notes, there's not really a great way to inform the
+compiler that you're targeting a freestanding environment but would like
+to opt-in to some libcall optimizations (see pr/47280 below), rather than
+opt-out.
+
+Arvind notes, -fno-builtin-* behaves slightly differently between GCC
+and Clang, and Clang is missing many __builtin_* definitions, which I
+consider a bug in Clang and am working on fixing.
+
+Masahiro summarizes the subtle distinction between compilers justly:
+  To prevent transformation from foo() into bar(), there are two ways in
+  Clang to do that; -fno-builtin-foo, and -fno-builtin-bar.  There is
+  only one in GCC; -fno-buitin-foo.
+
+(Any difference in that behavior in Clang is likely a bug from a missing
+__builtin_* definition.)
+
+Masahiro also notes:
+  We want to disable optimization from foo() to bar(),
+  but we may still benefit from the optimization from
+  foo() into something else. If GCC implements the same transform, we
+  would run into a problem because it is not -fno-builtin-bar, but
+  -fno-builtin-foo that disables that optimization.
+
+  In this regard, -fno-builtin-foo would be more future-proof than
+  -fno-built-bar, but -fno-builtin-foo is still potentially overkill. We
+  may want to prevent calls from foo() being optimized into calls to
+  bar(), but we still may want other optimization on calls to foo().
+
+It seems that compilers today don't quite provide the fine grain control
+over which libcall optimizations pseudo-freestanding environments would
+prefer.
+
+Finally, Kees notes that this interface is unsafe, so we should not
+encourage its use.  As such, I've removed the declaration from any
+header, but it still needs to be exported to avoid linkage errors in
+modules.
+
+Reported-by: Sami Tolvanen <samitolvanen@google.com>
+Suggested-by: Andy Lavr <andy.lavr@gmail.com>
+Suggested-by: Arvind Sankar <nivedita@alum.mit.edu>
+Suggested-by: Joe Perches <joe@perches.com>
+Suggested-by: Masahiro Yamada <masahiroy@kernel.org>
+Suggested-by: Rasmus Villemoes <linux@rasmusvillemoes.dk>
+Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+Cc: stable@vger.kernel.org
+Link: https://bugs.llvm.org/show_bug.cgi?id=47162
+Link: https://bugs.llvm.org/show_bug.cgi?id=47280
+Link: https://github.com/ClangBuiltLinux/linux/issues/1126
+Link: https://man7.org/linux/man-pages/man3/stpcpy.3.html
+Link: https://pubs.opengroup.org/onlinepubs/9699919799/functions/stpcpy.html
+Link: https://reviews.llvm.org/D85963
 ---
- arch/x86/boot/compressed/pgtable_64.c |  9 ---------
- arch/x86/include/asm/special_insns.h  | 28 ++++++++++++++-------------
- arch/x86/kernel/cpu/common.c          |  4 ++--
- 3 files changed, 17 insertions(+), 24 deletions(-)
+ lib/string.c | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-diff --git a/arch/x86/boot/compressed/pgtable_64.c b/arch/x86/boot/compressed/pgtable_64.c
-index c8862696a47b..7d0394f4ebf9 100644
---- a/arch/x86/boot/compressed/pgtable_64.c
-+++ b/arch/x86/boot/compressed/pgtable_64.c
-@@ -5,15 +5,6 @@
- #include "pgtable.h"
- #include "../string.h"
+diff --git a/lib/string.c b/lib/string.c
+index 6012c385fb31..6bd0cf0fb009 100644
+--- a/lib/string.c
++++ b/lib/string.c
+@@ -272,6 +272,30 @@ ssize_t strscpy_pad(char *dest, const char *src, size_t count)
+ }
+ EXPORT_SYMBOL(strscpy_pad);
  
--/*
-- * __force_order is used by special_insns.h asm code to force instruction
-- * serialization.
-- *
-- * It is not referenced from the code, but GCC < 5 with -fPIE would fail
-- * due to an undefined symbol. Define it to make these ancient GCCs work.
-- */
--unsigned long __force_order;
--
- #define BIOS_START_MIN		0x20000U	/* 128K, less than this is insane */
- #define BIOS_START_MAX		0x9f000U	/* 640K, absolute maximum */
- 
-diff --git a/arch/x86/include/asm/special_insns.h b/arch/x86/include/asm/special_insns.h
-index 59a3e13204c3..d6e3bb9363d2 100644
---- a/arch/x86/include/asm/special_insns.h
-+++ b/arch/x86/include/asm/special_insns.h
-@@ -11,45 +11,47 @@
- #include <linux/jump_label.h>
- 
- /*
-- * Volatile isn't enough to prevent the compiler from reordering the
-- * read/write functions for the control registers and messing everything up.
-- * A memory clobber would solve the problem, but would prevent reordering of
-- * all loads stores around it, which can hurt performance. Solution is to
-- * use a variable and mimic reads and writes to it to enforce serialization
-+ * The compiler should not reorder volatile asm statements with respect to each
-+ * other: they should execute in program order. However GCC 4.9.x and 5.x have
-+ * a bug (which was fixed in 8.1, 7.3 and 6.5) where they might reorder
-+ * volatile asm. The write functions are not affected since they have memory
-+ * clobbers preventing reordering. To prevent reads from being reordered with
-+ * respect to writes, use a dummy memory operand.
-  */
--extern unsigned long __force_order;
++/**
++ * stpcpy - copy a string from src to dest returning a pointer to the new end
++ *          of dest, including src's %NUL-terminator. May overrun dest.
++ * @dest: pointer to end of string being copied into. Must be large enough
++ *        to receive copy.
++ * @src: pointer to the beginning of string being copied from. Must not overlap
++ *       dest.
++ *
++ * stpcpy differs from strcpy in a key way: the return value is the new
++ * %NUL-terminated character. (for strcpy, the return value is a pointer to
++ * src. This interface is considered unsafe as it doesn't perform bounds
++ * checking of the inputs. As such it's not recommended for usage. Instead,
++ * its definition is provided in case the compiler lowers other libcalls to
++ * stpcpy.
++ */
++char *stpcpy(char *__restrict__ dest, const char *__restrict__ src);
++char *stpcpy(char *__restrict__ dest, const char *__restrict__ src)
++{
++	while ((*dest++ = *src++) != '\0')
++		/* nothing */;
++	return --dest;
++}
++EXPORT_SYMBOL(stpcpy);
 +
-+#define __FORCE_ORDER "m"(*(unsigned int *)0x1000UL)
- 
- void native_write_cr0(unsigned long val);
- 
- static inline unsigned long native_read_cr0(void)
- {
- 	unsigned long val;
--	asm volatile("mov %%cr0,%0\n\t" : "=r" (val), "=m" (__force_order));
-+	asm volatile("mov %%cr0,%0\n\t" : "=r" (val) : __FORCE_ORDER);
- 	return val;
- }
- 
- static __always_inline unsigned long native_read_cr2(void)
- {
- 	unsigned long val;
--	asm volatile("mov %%cr2,%0\n\t" : "=r" (val), "=m" (__force_order));
-+	asm volatile("mov %%cr2,%0\n\t" : "=r" (val) : __FORCE_ORDER);
- 	return val;
- }
- 
- static __always_inline void native_write_cr2(unsigned long val)
- {
--	asm volatile("mov %0,%%cr2": : "r" (val), "m" (__force_order));
-+	asm volatile("mov %0,%%cr2": : "r" (val) : "memory");
- }
- 
- static inline unsigned long __native_read_cr3(void)
- {
- 	unsigned long val;
--	asm volatile("mov %%cr3,%0\n\t" : "=r" (val), "=m" (__force_order));
-+	asm volatile("mov %%cr3,%0\n\t" : "=r" (val) : __FORCE_ORDER);
- 	return val;
- }
- 
- static inline void native_write_cr3(unsigned long val)
- {
--	asm volatile("mov %0,%%cr3": : "r" (val), "m" (__force_order));
-+	asm volatile("mov %0,%%cr3": : "r" (val) : "memory");
- }
- 
- static inline unsigned long native_read_cr4(void)
-@@ -64,10 +66,10 @@ static inline unsigned long native_read_cr4(void)
- 	asm volatile("1: mov %%cr4, %0\n"
- 		     "2:\n"
- 		     _ASM_EXTABLE(1b, 2b)
--		     : "=r" (val), "=m" (__force_order) : "0" (0));
-+		     : "=r" (val) : "0" (0), __FORCE_ORDER);
- #else
- 	/* CR4 always exists on x86_64. */
--	asm volatile("mov %%cr4,%0\n\t" : "=r" (val), "=m" (__force_order));
-+	asm volatile("mov %%cr4,%0\n\t" : "=r" (val) : __FORCE_ORDER);
- #endif
- 	return val;
- }
-diff --git a/arch/x86/kernel/cpu/common.c b/arch/x86/kernel/cpu/common.c
-index c5d6f17d9b9d..178499f90366 100644
---- a/arch/x86/kernel/cpu/common.c
-+++ b/arch/x86/kernel/cpu/common.c
-@@ -359,7 +359,7 @@ void native_write_cr0(unsigned long val)
- 	unsigned long bits_missing = 0;
- 
- set_register:
--	asm volatile("mov %0,%%cr0": "+r" (val), "+m" (__force_order));
-+	asm volatile("mov %0,%%cr0": "+r" (val) : : "memory");
- 
- 	if (static_branch_likely(&cr_pinning)) {
- 		if (unlikely((val & X86_CR0_WP) != X86_CR0_WP)) {
-@@ -378,7 +378,7 @@ void native_write_cr4(unsigned long val)
- 	unsigned long bits_changed = 0;
- 
- set_register:
--	asm volatile("mov %0,%%cr4": "+r" (val), "+m" (cr4_pinned_bits));
-+	asm volatile("mov %0,%%cr4": "+r" (val) : : "memory");
- 
- 	if (static_branch_likely(&cr_pinning)) {
- 		if (unlikely((val & cr4_pinned_mask) != cr4_pinned_bits)) {
+ #ifndef __HAVE_ARCH_STRCAT
+ /**
+  * strcat - Append one %NUL-terminated string to another
 -- 
 2.28.0.402.g5ffc5be6b7-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200903203053.3411268-3-samitolvanen%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200903203053.3411268-4-samitolvanen%40google.com.
