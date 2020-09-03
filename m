@@ -1,149 +1,134 @@
-Return-Path: <clang-built-linux+bncBCQ5RHFIMMIIND6B7ICRUBGG6XPCQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRB2UVYH5AKGQENN3JNJY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3b.google.com (mail-yb1-xb3b.google.com [IPv6:2607:f8b0:4864:20::b3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 46A8225B84D
-	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Sep 2020 03:31:51 +0200 (CEST)
-Received: by mail-yb1-xb3b.google.com with SMTP id l67sf1252064ybb.7
-        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Sep 2020 18:31:51 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1599096710; cv=pass;
+Received: from mail-ot1-x33a.google.com (mail-ot1-x33a.google.com [IPv6:2607:f8b0:4864:20::33a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 527F425B863
+	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Sep 2020 03:46:20 +0200 (CEST)
+Received: by mail-ot1-x33a.google.com with SMTP id l28sf595872oti.18
+        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Sep 2020 18:46:20 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599097579; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sq875UQiy7KaFtrzeSB+YzKwNdhAcIcwDEZr5XRAIsBl6KPXwm9MR9A3P/a76Krzna
-         pzpQdkBfWK7l6L3Jy1uYOhK8AOUgjJxd5B/Il6GTewoLNQyHf9qr/Ty/HhLJ7k8eN41g
-         6o4UG0dw/5USmuedYwzI13LksDz42iGDjyfixyyWzc4E/82wwn5pIm3cBkngfk2JB1Mj
-         a7OA/TXejauHdWt8YOXJqHsSSzGVijnC6e/aoV7vWN2notPKUUbgzeE1GJmHMD+GmBVX
-         abIYtguAUs+5ogxlSf7kq6PmIvbmW4x8RosZUbPoBm9ONv6X0yigOx0Ea1lr60JYTwaI
-         bT+Q==
+        b=RXIttEajrcjKnji48LC+qMW2DccY5LwFe/Mh6Tzt86QFryldhg1BnmMFjl3lMiZ1tA
+         a5sCueZKMUca4NA96uzfwxrAo0xM920qNgMCnIUuAXiS9IvLB6JYXoiWogeyD+89iUob
+         YE42JS4LEr0pY5YhZ9jXk/SIFdq+ay8wyGfngfCHMntkySgR2o1r5euCoNS1qHusHowd
+         4Gbz5sBNYGWu+5sax5+2U+FD4fCWFVekHz8xkpx0bQxvKGEpEDg1zFvUdBo+5q9FIH7P
+         Rc+l8PASwRu/abAFLtK0N4FiOyy3lZJx23y/bwELIJma6/44Dwn1HBwM0xV7E2kw1a/k
+         EbUw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature:dkim-signature;
-        bh=+gcsW+HkwqsDwI/Aw1OlZyLjjJF5Ib5LsbYNu7FVQlU=;
-        b=1BHiywn2jf8CrFBt9jpQWTyMaYJEasnvwpASxItcQsFuFERi+Civ+Sd6JTv91kTYaF
-         bc59k+cAefqWQQDggdtOg0oaKr/5JV4gjb2B7qUGQTsXw7BURLf7D3cQxC2vmOJBPtdW
-         mwli2O17VggIsshYh7EtpyJafhpzfzF19sXFDinj4gM9aBWnsFXG3bAzwuS+/nnLSpC6
-         t0mW0vbcLP8w9Q50qE7kHQJhA5pADD35E1pm0mmSXTevfBDK8GFUgxldcfsSy/IiS4nQ
-         4sMVgHexlkyiMnwnA8rGMrAWfTPAdQkcZ8SluSR3gvdj8g6yoBMAkQuyQj34tU9rckQt
-         1Meg==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-filter:sender
+         :dkim-signature;
+        bh=961VlYNwI0R7FBKZ3QT4Mh+dNR/FzSjatwhItO/UaXA=;
+        b=V3yvv47sqpgAPzf9HN8J9GU/5bN5ECh43ZTsnfCJ2bHHCQOnNMQgDhA1GH6cAQZGHF
+         udnWZlQcfqt9gSyKLUJ1G9waBdcQ+3Z2+zJU9nh7hjhYW8ngc1Emh42/VNTmtbUKZALQ
+         BJEY6Jvsjmx6fGbQ/bo1/NcfA1fqN1janm7dyR6IGnYfIEN0DPbDs+Rf+dvZfYDLplLB
+         94lYbxQEUN3zI3GUK8cFGIiAwhtm93CRK/4CzHmNJrz+S4fu0253F6gU6vHVPhU8Ml8/
+         aPjIwj+pZ6h5dGfz/OXl3u6xV5miFKU2tMfYeWFigdp7aL4Cz4PQFOc2/rbrQjIc4OEw
+         Ptdw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=c0yR4ztO;
-       spf=pass (google.com: domain of lihaiwei.kernel@gmail.com designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=lihaiwei.kernel@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=1Dit0Ta5;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=+gcsW+HkwqsDwI/Aw1OlZyLjjJF5Ib5LsbYNu7FVQlU=;
-        b=DYyzFWMxegdDpE4EVQQA09eEMY0gHpC7PmznEzfGXGBs9Wr+I6S8CCsj/ORPcbX37b
-         R8kpbXNS5d1rJQcF0FhlV9JwLsSFNB/eXG+OeCn+8LhIqmluxw7D/9tvd/oATjXXLaH0
-         YOMF+VVGRxBKaDBWR1h9JTKuzUJ33lOjkJKqp0owtAoUQ+oYZ8O6mRrTm3RMNMt2EWta
-         qLeU+PTl2CjGdfzF/Jl1FAVjUX39gWY/DJ6CadlbC+DyS0FjhJesO8XbtU6bWUk+UEvp
-         0FWCHZfORblVF3A+rEDH57dU3PY5wnSoJeKb/6hCskREqMhUuUUwLMZWP9ekhxsnKY1X
-         bgbw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=+gcsW+HkwqsDwI/Aw1OlZyLjjJF5Ib5LsbYNu7FVQlU=;
-        b=bYHcaS8JjC2+Yu6Ox4jItMNfRuoxD1PGrGBVHBOucFfWPNntGtWQzJF052eer8lvXr
-         9RQ8DdIXZ+r8hoBQAnyWWB6VCErAk/Mo0LDIsUsDXetVLGZT8FGLuPfiiBZdjDpBFzPh
-         JPulpoTktgHAJMp51nvIkm9liDeLogOdTEi3EhsYbFc/qX6N2aT0xNo8iUBNKiH4sbyI
-         zz+DPqXkB8GCvQM6zTUbHOxzb7wKwdBReTMCPOxc6EtL378NQKBhbuytaQzpO39+DPqM
-         aTq2ejKwjBGGTdwmMXqkhPvZRBm/QpM6WLc7uCB9NfI8FBwbQyRNM1LMGYDT6t885C+B
-         b2fA==
+        bh=961VlYNwI0R7FBKZ3QT4Mh+dNR/FzSjatwhItO/UaXA=;
+        b=tTBL/eZb0O/H+s8nLPmS9cQUbxtDXMIG4Scj72oN036p2HuMBncEtaMyZ4pGn5YDNx
+         NMA0+oW7yseluY3QfqSQYtjSOFIL/S1EU9o55YW0dQMosrIcJ/O4XsSsC4gUGXo0ewi8
+         4u99prpQJHhWqnQtCoSB6cYmf4qA22RWJS5WBwXlwOy21dmNY20LSxjlNgKMgavNiwLS
+         U4O3Kp6hAH9It3qcdc8QXnlD0RM771uvZFU/ilSDgI3H7b4dwXfAUmKz+0OinSU5U7/h
+         KY/wdjgCbXmijl4pDkeKgrprBXbU5r4zskmVtSwsXFzBtBlX+jU0D1K5Rl5CR7u90pou
+         guSg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=+gcsW+HkwqsDwI/Aw1OlZyLjjJF5Ib5LsbYNu7FVQlU=;
-        b=VJJlgUuJWIMXM2oDo3Qpukb0nI9IvVisYc+UZq1gsFH9SizppH+AQ859l9zsZXA8tb
-         oG/tm2O4nQitU2jZ1sxKyOZqv4Xqhl6VWPss8TPttK1ZilkxGhqmF+NZribW07BjyyXt
-         VO7qfdkLWlFbE7ADH529RPGQyamPKlAAY1lxcYq43hZsyHrZAFEc8qu2ZH7aYf6O66FD
-         uJa1xaUR05ujUZ8/Oaafv57KabsPRpYiGrnsBc155Y54nQUDuveZivoxpOW6BaMwRCci
-         5ES3POyCtSR6DOsKOOb1YHCdNPLsidy3K4avksZlatKHbkf9v3jwAI1xPJm/9B/30TmP
-         BreA==
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=961VlYNwI0R7FBKZ3QT4Mh+dNR/FzSjatwhItO/UaXA=;
+        b=lVked9sesegUUPxo1/dklhkQH9YmoOe4g1r4cD8/0AVtb2INGLnfyD4UwDE5etFbBi
+         LCVmdfaSjX8vXQVjWgTG4D3/4zpv+BkFf/G5/hCQTCR2mOlpz/yR2UxdrwHICSSb8kSe
+         oNKpATH8dNXXG3lBuQ/k/afGRDFXd6TkptvI7q/wE7NqK9/MvJHKhuBB2av0Iyvon/Q2
+         vFV3KMwVL/8XphNEFZEv2rmJRbMMmYil9VE3zAfgHQkF9dUHmLHfAVQZu2ug5bkvSiq7
+         Bpd2YjVVWmU5ea6SY2NIdhidZg/FIlSZgR6aWRCBGWK6N7+6PQv0Re63PoPivaxzNAQI
+         iWug==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532XbnVS/i67vRRSt8PaXzowDk5OLb3o8GVQPe3nLDVoP5SJNvvO
-	Otm23gDnblsIROEBVL6z9mY=
-X-Google-Smtp-Source: ABdhPJxUgalRsZ/ndxVnx63OBGLJOB18NB1W9J6QOERxFbcYRG2F8xxNTkfPXLs7R1R1q06bljp6MA==
-X-Received: by 2002:a25:ba4f:: with SMTP id z15mr754551ybj.171.1599096710281;
-        Wed, 02 Sep 2020 18:31:50 -0700 (PDT)
+X-Gm-Message-State: AOAM5322UvVokcNULJa0D1VlGOpavQ1TtyIyPSyK2t2S9JZh4s3aUkz9
+	1aL7YPSPcqW+CF8IVxpSQZc=
+X-Google-Smtp-Source: ABdhPJyEP2HM6aiYK9CVtFRgNEqMbF5vmfHMErnz64dT4gvIAJwT24r5Poi0lpG/yJxRQ1HGxj8xDQ==
+X-Received: by 2002:aca:d885:: with SMTP id p127mr662819oig.1.1599097578920;
+        Wed, 02 Sep 2020 18:46:18 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:6cc1:: with SMTP id h184ls2084925ybc.4.gmail; Wed, 02
- Sep 2020 18:31:49 -0700 (PDT)
-X-Received: by 2002:a25:5887:: with SMTP id m129mr809958ybb.11.1599096709870;
-        Wed, 02 Sep 2020 18:31:49 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1599096709; cv=none;
+Received: by 2002:a9d:bc3:: with SMTP id 61ls1055058oth.0.gmail; Wed, 02 Sep
+ 2020 18:46:18 -0700 (PDT)
+X-Received: by 2002:a9d:7283:: with SMTP id t3mr857072otj.303.1599097578513;
+        Wed, 02 Sep 2020 18:46:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599097578; cv=none;
         d=google.com; s=arc-20160816;
-        b=iGYm2cDQjvMR/+qz3Mkez6aLArNFE+/lPaDj4X6bd13+iiX2s6N+tXMKNnvnJf1yDU
-         froUSrxnQ981QBesNkBRrztDVxoLoBRHZHzoi+tDRwJGs76YVeSALBBgU++6I22iIOiZ
-         90OJYEx1CrHfFF9twQB4gr5ioeXaMs9/VTn6EjHcnNJpaLzy9+HAlPi76eoj3vt/W2g8
-         4N4OuOFoXA18AsdoroTeNG/4nAb/awHPA3Ts6xhr/OW+Rl7P9vePeY0+apHxx2e/AjT2
-         zRv/EwI/fIV3EVZPQPl0fw6VHQEB081NjZH7SFISyYcSmR7cDQie0aqqHtPF4KvX+Tlm
-         JNaA==
+        b=cEZJydP2QKMx72EuSolOR+/XQjO+QB/I+2fLG6Gt1K/UCBADTl2m++4uoSuBWZi3nr
+         JPTRbBdPAVhD3KQh+a2nnse7QVPsXF9Yb3FvEC8sNaiKQ54mFadB2lkRFsNslI5BSt1m
+         EIg20sEqqGjdqmTWbSbp2kBUMOPj9GHJB8NEspH269UECGo275pNk7R4b0InvUD6xcEf
+         hdq59B24iEmAqcTSWJCseDKMC5w5KFOpf+FXfzn5ps/NyShMyqd0oaIdd04JAWPr/VcK
+         6GlbAX7Mbx61ZBHL/dtjEiMestVjXt8TFFVY1xCtEmNdnm1kv98dvkFcc0YDdk4P+OAe
+         Ej1Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=1UF8ZswLm2YxPJUQw7iNkdBHKwOAXGZ5uov9qTxwmRc=;
-        b=LgRdgXj3jen1S4i+cgDzWBAk9Yeo0k6zkHqcTl6nvKpcUfRP+lPN4sZMDfMEsG6Q6U
-         uB+mihoH2DxRS9U4z0xEfWfZYkyu3viIVMx/aaGl2abw8Pcg0teoGlzF3ILY9ssMcNyF
-         ZnPutcVBu/6RnZUQSBIvXJh2M6D4mvk7HqbYp9qU8wzzZHKHKics3mOrTQrXGua3yNkF
-         lpgyQmIjgo9v4MJd04Z7ZhY0eEU93SGEJ7tY7ZpSskyQ/zDiZn1w50ko1MKGFU4M8XOQ
-         dJYoInjSNz5QcobgbD7j5ScDv9QF9BL6OxJdbxcjgKC1TbHrQk8w1SocA6vgp3DSr0pA
-         zYYw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:dkim-filter;
+        bh=1/mxdzsfMle0lQOkE8hY9bEbmZGVcwgm8MgV0/tr0lo=;
+        b=KlzfLvTikTdLZp8oMjNftyIXoWtRVUMiT9D71Osl3mt3mobZgyHXUZqav9EzMFw716
+         Qzuk0JGs9a7tWV06BeCHdrtrOY8AlTAX8tBENwfQRr3saFWhBcZAIfaqJdlxq2GkeGlX
+         jx6ZPjIRKB5BzBg09050m+8RlZtxA3Ctb/Is5Cc6vgC3pjeOJfdPPOUVuAh+oWa/s0mv
+         b1oKNKlU9nAYWQ0JGOo2/LEDoLJRHGH4bKZEzYb9hI6n6N0RRRz3rMpVArarQ2etedEp
+         W4ziFz7qyseKq+rfVc4mwURhCNPuJ1SHvZ63LGIgWjQ8s3HofR2h6ZB5a8Rrf9j+/VJh
+         H6Fg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=c0yR4ztO;
-       spf=pass (google.com: domain of lihaiwei.kernel@gmail.com designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=lihaiwei.kernel@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-pg1-x542.google.com (mail-pg1-x542.google.com. [2607:f8b0:4864:20::542])
-        by gmr-mx.google.com with ESMTPS id 7si107932ybc.0.2020.09.02.18.31.49
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=1Dit0Ta5;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conssluserg-01.nifty.com (conssluserg-01.nifty.com. [210.131.2.80])
+        by gmr-mx.google.com with ESMTPS id 22si71998oiy.5.2020.09.02.18.46.17
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 02 Sep 2020 18:31:49 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lihaiwei.kernel@gmail.com designates 2607:f8b0:4864:20::542 as permitted sender) client-ip=2607:f8b0:4864:20::542;
-Received: by mail-pg1-x542.google.com with SMTP id 31so727632pgy.13
-        for <clang-built-linux@googlegroups.com>; Wed, 02 Sep 2020 18:31:49 -0700 (PDT)
-X-Received: by 2002:a62:3814:: with SMTP id f20mr1227163pfa.23.1599096709093;
-        Wed, 02 Sep 2020 18:31:49 -0700 (PDT)
-Received: from [127.0.0.1] ([103.7.29.9])
-        by smtp.gmail.com with ESMTPSA id y29sm834242pfq.207.2020.09.02.18.31.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 02 Sep 2020 18:31:48 -0700 (PDT)
-Subject: Re: [PATCH] KVM: Check the allocation of pv cpu mask
-To: kernel test robot <lkp@intel.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "x86@kernel.org"
- <x86@kernel.org>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
- "hpa@zytor.com" <hpa@zytor.com>, "bp@alien8.de" <bp@alien8.de>,
- "mingo@redhat.com" <mingo@redhat.com>, tglx@linutronix.de, joro@8bytes.org,
- jmattson@google.com, "wanpengli@tencent.com" <wanpengli@tencent.com>
-References: <d59f05df-e6d3-3d31-a036-cc25a2b2f33f@gmail.com>
- <202009020129.H90h8RdM%lkp@intel.com>
-From: Haiwei Li <lihaiwei.kernel@gmail.com>
-Message-ID: <cca7f343-6b0f-2717-a24b-a66b307f8888@gmail.com>
-Date: Thu, 3 Sep 2020 09:31:38 +0800
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:68.0)
- Gecko/20100101 Thunderbird/68.12.0
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 02 Sep 2020 18:46:18 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) client-ip=210.131.2.80;
+Received: from mail-pg1-f174.google.com (mail-pg1-f174.google.com [209.85.215.174]) (authenticated)
+	by conssluserg-01.nifty.com with ESMTP id 0831k03b007980
+	for <clang-built-linux@googlegroups.com>; Thu, 3 Sep 2020 10:46:00 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-01.nifty.com 0831k03b007980
+X-Nifty-SrcIP: [209.85.215.174]
+Received: by mail-pg1-f174.google.com with SMTP id e33so792095pgm.0
+        for <clang-built-linux@googlegroups.com>; Wed, 02 Sep 2020 18:46:00 -0700 (PDT)
+X-Received: by 2002:a63:e018:: with SMTP id e24mr693958pgh.175.1599097559845;
+ Wed, 02 Sep 2020 18:45:59 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <202009020129.H90h8RdM%lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: lihaiwei.kernel@gmail.com
+References: <20200820220955.3325555-1-ndesaulniers@google.com>
+ <CAK7LNAQO9sKw=7RLPSnsChddrwNCc_si-XgSDQcGHTSxeq4_Pg@mail.gmail.com> <CAKwvOdnbdhkB=OG0Gec5jt5H4b4jRGPvKfgJ-JbZY+gym-u3_g@mail.gmail.com>
+In-Reply-To: <CAKwvOdnbdhkB=OG0Gec5jt5H4b4jRGPvKfgJ-JbZY+gym-u3_g@mail.gmail.com>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Thu, 3 Sep 2020 10:45:23 +0900
+X-Gmail-Original-Message-ID: <CAK7LNAT9KN4dBgyuXqoiFbP_Sa335DahudshJTjcK354=QpBLQ@mail.gmail.com>
+Message-ID: <CAK7LNAT9KN4dBgyuXqoiFbP_Sa335DahudshJTjcK354=QpBLQ@mail.gmail.com>
+Subject: Re: [PATCH] Makefile: add -fuse-ld=lld to KBUILD_HOSTLDFLAGS when LLVM=1
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: stable <stable@vger.kernel.org>, Matthias Maennich <maennich@google.com>,
+        Michal Marek <michal.lkml@markovi.net>,
+        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        Stephen Hines <srhines@google.com>, Dan Albert <danalbert@google.com>,
+        Fangrui Song <maskray@google.com>, Elliott Hughes <enh@google.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=c0yR4ztO;       spf=pass
- (google.com: domain of lihaiwei.kernel@gmail.com designates
- 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=lihaiwei.kernel@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@nifty.com header.s=dec2015msa header.b=1Dit0Ta5;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -156,78 +141,168 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Thu, Sep 3, 2020 at 7:40 AM Nick Desaulniers <ndesaulniers@google.com> wrote:
+>
+> On Fri, Aug 21, 2020 at 10:14 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
+> >
+> > On Fri, Aug 21, 2020 at 7:10 AM 'Nick Desaulniers' via Clang Built
+> > Linux <clang-built-linux@googlegroups.com> wrote:
+> > >
+> > > While moving Android kernels over to use LLVM=1, we observe the failure
+> > > when building in a hermetic docker image:
+> > >   HOSTCC  scripts/basic/fixdep
+> > > clang: error: unable to execute command: Executable "ld" doesn't exist!
+> > >
+> > > The is because the build of the host utility fixdep builds the fixdep
+> > > executable in one step by invoking the compiler as the driver, rather
+> > > than individual compile then link steps.
+> > >
+> > > Clang when configured from source defaults to use the system's linker,
+> > > and not LLVM's own LLD, unless the CMake config
+> > > -DCLANG_DEFAULT_LINKER='lld' is set when configuring a build of clang
+> > > itself.
+> > >
+> > > Don't rely on the compiler's implicit default linker; be explicit.
+> >
+> >
+> > I do not understand this patch.
+> >
+> > The host compiler should be able to link executables
+> > without any additional settings.
+>
+> Correct; there is no issue linking working executables. The issue is
+> which linker is used by default or implied when -fuse-ld=* is not
+> explicitly set.
+>
+> >
+> > So, can you link a hello world program
+> > in your docker?
+> >
+> > masahiro@zoe:~$ cat test.c
+> > #include <stdio.h>
+> > int main(void)
+> > {
+> >         printf("helloworld\n");
+> >         return 0;
+> > }
+> > masahiro@zoe:~$ clang test.c
+>
+> It will fail, because:
+> 1. clang will implicitly default to ld.bfd on linux hosts and ld on
+> OSX hosts (idk about windows).
+> 2. ld.bfd is not installed, and we *dont'* want to install it.
+> Instead, we *want* to use ld.lld in a hermetic environment.
+>
+> > If this fails, your environment is broken.
+>
+> Disagree.  The environment has unique constraints (cross compiling for
+> Android from OSX host, caring about builds being hermetic, etc.).
+>
+> > Just do  -DCLANG_DEFAULT_LINKER='lld'
+> > if you know GNU ld is missing in your docker environment.
+>
+> I understand your point. However, I have two reasons I still think
+> this patch should be upstream rather than downstream:
+>
+> 1. The build of clang that is distributed with Android, "AOSP LLVM"
+> [0], does not and cannot yet set `-DCLANG_DEFAULT_LINKER='lld'`.  See
+> the discussion in the comments of [1] where I'm trying to do that.
+> The reason is that AOSP LLVM is used to build Android userspace,
+> kernel, and is part of the NDK for developers to target Android from
+> Windows, OSX, and Linux.  If AOSP is used to build a "host binary" on
+> OSX, LLD will not work there for that quite yet.  OSX has its own
+> linker that is not LLD, and LLD support for mach-o binaries is a work
+> in progress.  NDK has their own timeline that's blocking that change.
+>
+> You might think "that's Android problem" and that we should just carry
+> the patch downstream/out of tree since it is somewhat self-inflicted
+> but a very important second point why I think this should be upstream:
+>
+> 2. clang itself (upstream of AOSP LLVM) doesn't yet default to
+> -fuse-ld=lld (likely for similar reasons related to OSX).  That means
+> distributions of clang-10 from your distro package manager such as
+> Debian's apt won't be hermetic.  That means if you build clang from
+> source, and don't configure it with -DCLANG_DEFAULT_LINKER='lld', then
+> your kernel builds with LLVM=1 will not be hermetic.
 
 
-On 20/9/2 01:35, kernel test robot wrote:
-> Hi Haiwei,
-> 
-> Thank you for the patch! Yet something to improve:
-> 
-> [auto build test ERROR on kvm/linux-next]
-> [also build test ERROR on linus/master v5.9-rc3 next-20200828]
-> [cannot apply to linux/master vhost/linux-next]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch]
-> 
-> url:    https://github.com/0day-ci/linux/commits/Haiwei-Li/KVM-Check-the-allocation-of-pv-cpu-mask/20200901-195412
-> base:   https://git.kernel.org/pub/scm/virt/kvm/kvm.git linux-next
-> config: x86_64-randconfig-a011-20200901 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c10e63677f5d20f18010f8f68c631ddc97546f7d)
-> reproduce (this is a W=1 build):
->          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->          chmod +x ~/bin/make.cross
->          # install x86_64 cross compiling tool for clang build
->          # apt-get install binutils-x86-64-linux-gnu
->          # save the attached .config to linux build tree
->          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All errors (new ones prefixed by >>):
-> 
->>> arch/x86/kernel/kvm.c:801:35: error: use of undeclared identifier 'kvm_send_ipi_mask_allbutself'
->             apic->send_IPI_mask_allbutself = kvm_send_ipi_mask_allbutself;
->                                              ^
->     1 error generated.
+I am still not convinced with this.
 
-THX, i will fix and resend.
+If you care which linker is internally used,
+you can/should set -DCLANG_DEFAULT_LINKER='lld',
+and that is what 'configure' exists for.
 
-> 
-> # https://github.com/0day-ci/linux/commit/13dd13ab0aefbb5c31bd8681831e6a11ac381509
-> git remote add linux-review https://github.com/0day-ci/linux
-> git fetch --no-tags linux-review Haiwei-Li/KVM-Check-the-allocation-of-pv-cpu-mask/20200901-195412
-> git checkout 13dd13ab0aefbb5c31bd8681831e6a11ac381509
-> vim +/kvm_send_ipi_mask_allbutself +801 arch/x86/kernel/kvm.c
-> 
->     791	
->     792		if (alloc)
->     793			for_each_possible_cpu(cpu) {
->     794				if (!zalloc_cpumask_var_node(
->     795					per_cpu_ptr(&__pv_cpu_mask, cpu),
->     796					GFP_KERNEL, cpu_to_node(cpu))) {
->     797					goto zalloc_cpumask_fail;
->     798				}
->     799			}
->     800	
->   > 801		apic->send_IPI_mask_allbutself = kvm_send_ipi_mask_allbutself;
->     802		pv_ops.mmu.flush_tlb_others = kvm_flush_tlb_others;
->     803		return 0;
->     804	
->     805	zalloc_cpumask_fail:
->     806		kvm_free_pv_cpu_mask();
->     807		return -ENOMEM;
->     808	}
->     809	arch_initcall(kvm_alloc_cpumask);
->     810	
-> 
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> 
+
+
+> That means we
+> have to document this somewhere for other people to know or find this.
+> That means I have to run around and tell all of the different Kernel
+> CI folks about this compiler configuration in order to test
+> hermetically.
+
+
+Is it so important?
+This is just host programs we are talking about.
+
+If you really want to ensure lld is used everywhere,
+you need to ask any other projects to add -fuse-ld=lld
+in their build systems, but it is not realistic.
+
+So, I tend to stick to the default
+for host programs.
+
+
+Your environment is _unique_, at least.
+
+Kbuild provides a way to add extra flags to HOSTCC.
+
+What do you think about doing this?
+
+$ make LLVM=1 HOSTCFLAGS=-fuse-ld=lld
+
+
+This is documented in Documentation/kbuild/kbuild.rst
+
+HOSTCFLAGS
+----------
+Additional flags to be passed to $(HOSTCC) when building host programs.
+
+
+
+
+
+
+>
+> ...
+>
+> Or, encouraged by the zen of Python, we can just be explicit about
+> what linker we want when using LLVM=1, which already signals that that
+> is what we want to do.
+>
+> I think there are similar issues with other distros changing default
+> flags of GCC (like -fstack-protector) [2].  The kernel is already
+> explicit, so that differences in distro's changes to compiler defaults
+> don't matter for kernel builds (except where people accidentally wipe
+> out KBUILD_CFLAGS).  I'd argue my change is in the same bucket.
+> Please reconsider this patch.
+>
+> (I should also probably add something like this for `make LD=ld.lld`
+> and `make LD=ld.bfd`, regardless of compiler, since everyone supports
+> `-fuse-ld=`)
+> [0] https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/
+> [1] https://android-review.googlesource.com/c/toolchain/llvm_android/+/1007826
+> [2] https://fedoraproject.org/wiki/Changes/HardenedCompiler#Detailed_Description
+> --
+> Thanks,
+> ~Nick Desaulniers
+
+
+
+-- 
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/cca7f343-6b0f-2717-a24b-a66b307f8888%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAT9KN4dBgyuXqoiFbP_Sa335DahudshJTjcK354%3DQpBLQ%40mail.gmail.com.
