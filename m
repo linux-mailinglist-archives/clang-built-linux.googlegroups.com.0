@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBJHRZL5AKGQEENOKBQY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBSEEZP5AKGQESGGIGDA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa37.google.com (mail-vk1-xa37.google.com [IPv6:2607:f8b0:4864:20::a37])
-	by mail.lfdr.de (Postfix) with ESMTPS id D88A725E383
-	for <lists+clang-built-linux@lfdr.de>; Fri,  4 Sep 2020 23:59:01 +0200 (CEST)
-Received: by mail-vk1-xa37.google.com with SMTP id a4sf1889475vkl.3
-        for <lists+clang-built-linux@lfdr.de>; Fri, 04 Sep 2020 14:59:01 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1599256740; cv=pass;
+Received: from mail-il1-x13e.google.com (mail-il1-x13e.google.com [IPv6:2607:f8b0:4864:20::13e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 90A4B25E3C8
+	for <lists+clang-built-linux@lfdr.de>; Sat,  5 Sep 2020 00:40:09 +0200 (CEST)
+Received: by mail-il1-x13e.google.com with SMTP id f67sf5842158ilf.9
+        for <lists+clang-built-linux@lfdr.de>; Fri, 04 Sep 2020 15:40:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599259208; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PLq1gA47ouBEds4rWIIBEWHznWE8aZ/YmxVMYAigYqDvZqeO+jC+4x0ebTxqe2JSvx
-         dI+iXwodLd9DCUuFiuaiiyF7JK1AQwvNxFVJ4d7ybwYnPjEMaNo3qBr/B1Nc5xlw7Hyl
-         C7JFEleNU81tX+X8y++8o7wl/aS2MhYVkNk0J+XR+x9NJcTixq0F1lJkn3dPls/fnSsm
-         Os6ijV15zpSr5prbMNkHO4nEaSLWJEKZSsA0y1fpqJnwSbqHuah/N7h4prmavSny6WUl
-         REJ4AkBFZQDk+rH9PwIzcivCnuUkQnxWbZxBKGg2VcjW9lAB9Kb0AD4dbrasEqOlzT+9
-         QsVg==
+        b=TzqH3pbWabwP7TBitfqfLxXn9Yz/v8ot9RF4WSgZuRdidTgTN0R4J2h1jEU+cI+Sfb
+         Jp5u7C9B/KyU+2KDdOVCa0RfubZ1d2OspKp3yIAeb3zS3ES5Lm33FCIzzdDBgpuqWPwa
+         UVV7BPwnrnmkLWkemCDRHX6dufIQjZsLnQsR3oL/vQQNMRSNQWe4/xCoEcWIivWMv2n/
+         lvFsgl0shodw8hYyvaPI5HzilG8GyTmNI9J+HJEY2MDvxEP9sogZVgy+g2DbsF0b5srF
+         GZtM1+B06BKo4I6X/iLY2Op6zx9WzgrjT/QKrVHLyvAtE6S/dbbLyfVnJt9Mv3PfbNIz
+         wuGA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=iEg1u5p5ZsYLkhp71bKb/AV1+aTb5HSf8fZDLxGQF9A=;
-        b=0ui2XcBCxBxN4XDUhXqH8p5f1nIaxEnHU2E+TsqoFXThCOC5BtfGDbG1LGNLwl+rT7
-         S/+Nm3BbM5+YbqKWE8FKWohcAXdHuEDCrky0ogvwbm/qscpkNgjiAN0emzAtlf2o8g1l
-         J3zF1HkSDPJFjNO4Jl8mLFtP9bduh95jW4zbu8tmGU/M6qpDfADZHWi8MMc3MD7bUMeo
-         CsnA0Jhk4WvCxHm72JJ0CsZih1t+9ijP3XRNpNeYgbf9gJvuyYmEVodPswgsSOPdz+t9
-         gtDcNkZ5e2kaTSil0k9Yb38JE5FYXn9TBDw0YlFHCUYGjTw9hum23pbNcVJBIPA+0NX8
-         KQmg==
+        bh=BR3enUIwBJ2lPORcIBEJz8cMiUklEXUq7MLOS1vVmrg=;
+        b=Gs16uijc2XJUwCsNCzsYhSGEjcGCFgvAIba5Yb2tkE5bqFDayWCAH3IMcpZQKugwDZ
+         rH+esuDqUgLV+jvBXVyQacNV9uHzZiNfhLT3EuSbGWYkF42XDrGkL+ARp3UpRMuCzOq0
+         b21mSGNkMPE4FP7wj03Mncx+EnQ69DQBZy6v32jiJgO6LZSRWPmk9LdxgBmBOjSjOoGj
+         7bKsdGlkYzVjozBC9LeqzZ2uc/bxDSoAhjO1IP0/yL8fFSbBMhghSFS/63KD5Jran0cv
+         nRkRVDIDjojScvIioCfo9vk1RfhTE+wa03B10nEUXuE1uogOf6tgl/ieoi4DqPCLscnG
+         E4MQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=iEg1u5p5ZsYLkhp71bKb/AV1+aTb5HSf8fZDLxGQF9A=;
-        b=cPWDxJJ2NF/Vn3fBV1S/a7w1T7Gq3ZWwzJMXjEAl9rK1zIuQ11KOA7qoP46MeQXt1X
-         RJfawAQZklCnz3eSM0ADasRxXYJhGJuHjGmVQ0v0PTcQOW9agqMH8CuklK77nj6HQ006
-         79cBNFmCSX7sYepCJ7qyYv/j6u2c0lnO6fYs2oXa69egvxTfS+gURnq7AETW0K2iVNOG
-         iR+mKXCiEPgH9fxjb1kGAdNMehLKj6XXJ4S7nllutwGyfnYCrU0mZpRPQKhY46xCJQ6z
-         TyPKXcM06Ik0CYn8mtAh7XsqXp+EEJGRWNJYnkhXwoWGGPOfmiP8QDY7Xo8k+3KZiH6W
-         x+DA==
+        bh=BR3enUIwBJ2lPORcIBEJz8cMiUklEXUq7MLOS1vVmrg=;
+        b=CduyWSosOAO2S8GnHF6jr4Ip/zgsMsTvY/Kdbpd+UFqm8IKJu5nWbGMSIGqSP5BD6b
+         2lXgLl8rzLP1swnzx4Al3rvBFqAgpp1+qKruonoat7rqVP1Wo0UTJLlrZ+JtHAv6H/XN
+         WTITjNL7sr6pqsVT3bzivg4/Or8bj5QwWMFn6edU8RjlWL66RrBg8AU3J/4CZcYbx0kr
+         TieLtnzlf/mNc3H1GkJ25SN6EMBlw8xtMs45cXELxkCccqJnxMN1aZAtzzD2kUz0MLZH
+         XGt9R6UDTe4IjXPZlyznhBai0v0XXYKiVgharyVEGBbciHkgcxIvJJZochYcvLuvdMsh
+         WUtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,87 +49,87 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=iEg1u5p5ZsYLkhp71bKb/AV1+aTb5HSf8fZDLxGQF9A=;
-        b=bgCHo39QAI2itw757kKuXvXErHprY7KPzINuIPGfwdJjrYMVn4Z/eaXE8P9xbnPS0I
-         lW4G3bRbglEdqo7jCfvGiICeM66HeHanDCn80QVrx+1Hb0mHgWUTyZLaRdS5UwReo/j+
-         ZntvwpaYqj0918curPtu8zNzjR6DjwvG7CJLQ4U6Ep7L3J6GjBYOjoOxG1dszhK2GuIl
-         GlxtwvU3NNZl1f2nly1hitKyE7Z7tOet3f2vAlfzFpfV8aSX/LRq/qv8aBF6bbdK87y1
-         S+9FQw0wAyVCrEcY9GGUbyk6xvfzIX75pzaaa9/4xTldmm8wBO+CWvEbMkWerzup1TxJ
-         YERg==
+        bh=BR3enUIwBJ2lPORcIBEJz8cMiUklEXUq7MLOS1vVmrg=;
+        b=t7BguPjPbpeqzoBduHxDWLgfE/4cDDaGsICJjxZNDhmx0x0k9IdaSPIZlI/H9fp3yl
+         AHPMtmBpLUhASRdSxEFR09Vo7G7Ow5KUtZjmpL/yA90g62ofqu7aaIVv6H+KWz+eR496
+         s7PECP7lDwLniViHDB2V+iEhTk68JNbsrHq9dq8ZlIdUC8Lz9TNYBMz+1ga3iRDEwy77
+         znjMdqeMvH6PmvwY3swM1o7UXd0jqk0ZlBQe0LNtbg01M7mP4JtWFIeZ2VIvxRTDq7NP
+         3tJaMP1WhOpkSluVF8AAJJBZR3xRpgGDb67BACOMlAzpseITLkvU+Gbf0K7Rd8stnpFH
+         hxFw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533q6KE2xNDuipNjMfXjzsL/mhdtCFbO26bdWN4JXxfiM7nqBLFK
-	IFuH8cixnGT9iKfTpaFvSEI=
-X-Google-Smtp-Source: ABdhPJz/+x+XlEjKgingVZFrbTj6TcFr/u6ZvYUjZSz1eGm8af7f570q60zUFMozKSyEhwFMwKQ9BA==
-X-Received: by 2002:a67:6954:: with SMTP id e81mr6700561vsc.0.1599256740621;
-        Fri, 04 Sep 2020 14:59:00 -0700 (PDT)
+X-Gm-Message-State: AOAM53314c0X1FzhcFy8IXAcyxH7TudUIlbKzFlirwEymVJpovR6toLT
+	Hol4Xwd+QH4JNBr+8JslLlc=
+X-Google-Smtp-Source: ABdhPJzRikO7qF2TLlwAg49TIIDtREys5fobJqqPBC5m3/kUkrmCTDZgNcHdD33tseHFodoC5yIm8g==
+X-Received: by 2002:a92:d40d:: with SMTP id q13mr10262485ilm.45.1599259208508;
+        Fri, 04 Sep 2020 15:40:08 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:ce11:: with SMTP id s17ls1439689vsl.11.gmail; Fri, 04
- Sep 2020 14:59:00 -0700 (PDT)
-X-Received: by 2002:a67:ff97:: with SMTP id v23mr6975402vsq.11.1599256740015;
-        Fri, 04 Sep 2020 14:59:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1599256740; cv=none;
+Received: by 2002:a5e:c648:: with SMTP id s8ls1818501ioo.5.gmail; Fri, 04 Sep
+ 2020 15:40:08 -0700 (PDT)
+X-Received: by 2002:a5e:c309:: with SMTP id a9mr9637555iok.105.1599259208102;
+        Fri, 04 Sep 2020 15:40:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599259208; cv=none;
         d=google.com; s=arc-20160816;
-        b=Tcnr452B4+mxrH/yW6kTWz2gwITjHpjQ6wHVKPZpPJKPHgv0EM3foUFLb6KIhtc3CQ
-         ZdtYK/m/hyfwDUhtaVfVMJhdERWLxlcT9oIoj0TgAy4DkhxM3J+xQsqCgFfh1U1/B69f
-         rVCxNXSz2kc7WI/l7+6JupgW4onbKMGG3dkGfGkc6kA/FgRT8Z7omm7y5acYo7PXqtw2
-         sIFfFpWhEfja4kIOia6tSDGpIdzFzmXfFVH8ak1EnVbq7YB0wqq10AXZqDf+4rMu1uXx
-         qVHzMGInyhU0srqv7yyfV4B3URLwj1eb3MwfoLZi6LqaXIweAWyFnXg3zsE6AE3bpI+m
-         vOpQ==
+        b=RPFzIX/UQVE3HGHc9IiENZevF0P2K51TxgQh+jlquhyxln+Q5CINZX9B7fwCn9uaZt
+         2qFmp/IbD6NdbHzDJQNnX6ik2GTFtf9wp6QTpAsWStn9hfXqkAtvZt/D9h/lp3q+o7Mg
+         EsdZ3yvrnPCoS+Rq73GNDMF6a6T1I07vk3kue4+CWNYKUgdGbCqRGcR9ZhHEVJvUPXd6
+         SjWPsEFa7BxXhnA9auBnIQPHQ6eGLPE6md8gz9VfMiypgd+GBZe+8knjbVVZgtMf+We0
+         3NiH7REAm5vbvHI205t++c8SOLBD/3Y022lKLAaD/JazPvNYGSLGhjhZBqgTL1BN2sIs
+         tSTw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=QRXTGugFWrP8Jx1pp8kf0hDAuX9gzHiGXB6232j6dCA=;
-        b=WKRGJ0MV8ndJLVZKlcrplzR5AXKuyLVzFOvfAD3SO1w4qotTOvhOq5iD+tQ24CW1se
-         BdyDjggYBajQ6xeaDJ/vL00bmYph3UTmIiQjKZI01ZKO0vSWKyFGI510gA997+Vy/3uj
-         AwAtDuNaeip2DYOs4DcMEIBPV55goKmRUyrA1rl+lfEhFqz/fPT8JtrcVD0azxCXwUxm
-         zFHM7X12nvRkJ1mE+V3RZC17gBlrlkaHwzKk5oVdAmt0B/in3Cr5m0IV1urc2g/44n3B
-         nQGZ6+sK7lhu8gw5ClfHv6h+DpBbVqW/0v7qK7i5O84jnsa2B9CRRcqZ5x1r5bto3Yd8
-         Rhnw==
+        bh=Px44O+sqcIRp1TR1OurrHQ3wVlTVcEY2vbGnUaYdH2Q=;
+        b=Zy2SXOifyXiDKR782O6q36GYWFGdMI4B2the2/xRic+Wl+OXtAgpny+J3mGhsIIIPQ
+         eMynzXbzQlWGgsBxbkvZXVT21ayg1BmuHFsvgoOhjdxI4kcpFStPZTpBDJy2+BFb9C8a
+         y3UI2l0Moi/2VKIYTYRG2krQN7hzQ8PEOo9UPzuVhuo5eYZ0B2+vj893ri9BgkOWcS6i
+         fF2TUIC1ilLX3gZKC7iitVAwFkBzSsH536IWHtt29fqaMSGbk+48UxO3PZuK7t2GxTEH
+         E99YTLVy6jmXB2sIAVwD5xFo7yXptA5fUlOj4RFuKQ8g5LFctEiKOgt9scUvocEKXCec
+         Gaqg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
-        by gmr-mx.google.com with ESMTPS id f20si288882vkp.1.2020.09.04.14.58.59
+Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
+        by gmr-mx.google.com with ESMTPS id m2si593758ill.5.2020.09.04.15.40.07
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 04 Sep 2020 14:58:59 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
-IronPort-SDR: YFZOtfNW5+1yQLY5Pf6KtSF/BWouZdP1cKmfs2kJsqqAjfPEuMZdGiRl+7qOI1dGfRxUe9zyG8
- qVXRm4CM4XDA==
-X-IronPort-AV: E=McAfee;i="6000,8403,9734"; a="157085940"
+        Fri, 04 Sep 2020 15:40:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
+IronPort-SDR: neQhlqlVtd/7YE6IzkcxeOMMtdFp4kqdvihrcGFH5j9LljEXKsXDz0BLqP7BXyCWVHCuY6j4//
+ 6CWV3qAtHfUg==
+X-IronPort-AV: E=McAfee;i="6000,8403,9734"; a="155226831"
 X-IronPort-AV: E=Sophos;i="5.76,391,1592895600"; 
-   d="gz'50?scan'50,208,50";a="157085940"
+   d="gz'50?scan'50,208,50";a="155226831"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2020 14:58:57 -0700
-IronPort-SDR: 6rv0+rqkSjl+6uPy9IKPPzkWVKBx+wp6n4QGQTIWNBcV4aYBEmAK6j7QNrYaQW9ngKEIBMSqlZ
- MsoVJhEmTYdg==
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2020 15:40:05 -0700
+IronPort-SDR: Dx6u3E64VJ5e1ieBvxyOSJlfzrImRqPd0eif60CGNfttOTdotB5zsmIiWwBVPSklFT0NKlrheH
+ dbTR3uAyz33A==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.76,391,1592895600"; 
-   d="gz'50?scan'50,208,50";a="302762689"
+   d="gz'50?scan'50,208,50";a="298577771"
 Received: from lkp-server02.sh.intel.com (HELO c089623da072) ([10.239.97.151])
-  by orsmga006.jf.intel.com with ESMTP; 04 Sep 2020 14:58:55 -0700
+  by orsmga003.jf.intel.com with ESMTP; 04 Sep 2020 15:40:02 -0700
 Received: from kbuild by c089623da072 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1kEJjS-00009M-HE; Fri, 04 Sep 2020 21:58:54 +0000
-Date: Sat, 5 Sep 2020 05:58:13 +0800
+	id 1kEKNF-00009k-HK; Fri, 04 Sep 2020 22:40:01 +0000
+Date: Sat, 5 Sep 2020 06:39:45 +0800
 From: kernel test robot <lkp@intel.com>
 To: Julien Thierry <jthierry@redhat.com>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
 	Josh Poimboeuf <jpoimboe@redhat.com>,
 	Miroslav Benes <mbenes@suse.cz>
-Subject: [jpoimboe:objtool/core.WIP.julien 5/14] ./sync-check.sh: 54:
- ./sync-check.sh: Syntax error: redirection unexpected
-Message-ID: <202009050512.VSnsZ4vs%lkp@intel.com>
+Subject: [jpoimboe:objtool/core.WIP.julien 6/14] ./sync-check.sh: 9: [: x86:
+ unexpected operator
+Message-ID: <202009050643.G6mNayGW%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="W/nzBZO5zC0uMSeA"
+Content-Type: multipart/mixed; boundary="cNdxnHkX5QqsyA0e"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -145,13 +145,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---W/nzBZO5zC0uMSeA
+--cNdxnHkX5QqsyA0e
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/jpoimboe/linux.git objtool/core.WIP.julien
 head:   bc5b275638c5e74126aeb8ae394f2b784a8346bf
-commit: bbfd86269d713a8f26fd4c90b6b7b90a5967e1fb [5/14] objtool: Group headers to check in a single list
+commit: 4500cba855c897468b8abf19009206b4c20d966d [6/14] objtool: Make sync-check consider the target architecture
 config: x86_64-randconfig-a006-20200904 (attached as .config)
 compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 1284dc34abd11ce4275ad21c0470ad8c679b59b7)
 reproduce (this is a W=1 build):
@@ -159,7 +159,7 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install x86_64 cross compiling tool for clang build
         # apt-get install binutils-x86-64-linux-gnu
-        git checkout bbfd86269d713a8f26fd4c90b6b7b90a5967e1fb
+        git checkout 4500cba855c897468b8abf19009206b4c20d966d
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
 
@@ -168,7 +168,8 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> ./sync-check.sh: 54: ./sync-check.sh: Syntax error: redirection unexpected
+>> ./sync-check.sh: 9: [: x86: unexpected operator
+   ./sync-check.sh: 61: ./sync-check.sh: Syntax error: redirection unexpected
    make[3]: *** [Makefile:67: tools/objtool/objtool-in.o] Error 2
    make[3]: *** Waiting for unfinished jobs....
    make[2]: *** [Makefile:68: objtool] Error 2
@@ -184,14 +185,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202009050512.VSnsZ4vs%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202009050643.G6mNayGW%25lkp%40intel.com.
 
---W/nzBZO5zC0uMSeA
+--cNdxnHkX5QqsyA0e
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICIa1Ul8AAy5jb25maWcAjFxLe9s2s973V+hJN/0WTWXHcdNzHi9AEpQQkQQDkLp4w0ex
+H4sICNbAUl8AAy5jb25maWcAjFxLe9s2s973V+hJN/0WTWXHcdNzHi9AEpQQkQQDkLp4w0ex
 ldSnvuST7bb592cG4AUAh2q9SCTM4D6YeWcw0I8//Dhjry9PD/uXu5v9/f332dfD4+G4fznc
 zr7c3R/+d5bIWSGrGU9E9RaYs7vH179/+fvDZXN5MXv/9re385+PN+9mq8Px8XA/i58ev9x9
 fYX6d0+PP/z4QyyLVCyaOG7WXGkhi6bi2+rqzc39/vHr7M/D8Rn4Zmfnb+dv57Ofvt69/M8v
@@ -812,4 +813,4 @@ XjTLIew+voW8F47ktru72HRfMmxcIP7R1ZWJwxHYcB6d8cdQrxMLMmN54pzEHWyFkeLloMW1
 QjdyyjfHLmtRdZfUwzwRI9Lp85tTmJFWUYSOHdxIYqPgmIALavCVxId9sciOUQ0vXS+QVa75
 /gV3yMdt/AoCAA==
 
---W/nzBZO5zC0uMSeA--
+--cNdxnHkX5QqsyA0e--
