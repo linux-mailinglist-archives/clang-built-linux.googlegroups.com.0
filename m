@@ -1,139 +1,131 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRB6WY2D5AKGQEIFAT3QA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDV2D5O34IDRB2NA2H5AKGQEVQUBUCY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x140.google.com (mail-il1-x140.google.com [IPv6:2607:f8b0:4864:20::140])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3848E25EBD6
-	for <lists+clang-built-linux@lfdr.de>; Sun,  6 Sep 2020 02:25:32 +0200 (CEST)
-Received: by mail-il1-x140.google.com with SMTP id m1sf7508064iln.19
-        for <lists+clang-built-linux@lfdr.de>; Sat, 05 Sep 2020 17:25:32 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1599351931; cv=pass;
+Received: from mail-lj1-x23e.google.com (mail-lj1-x23e.google.com [IPv6:2a00:1450:4864:20::23e])
+	by mail.lfdr.de (Postfix) with ESMTPS id F2C3325EC39
+	for <lists+clang-built-linux@lfdr.de>; Sun,  6 Sep 2020 04:58:49 +0200 (CEST)
+Received: by mail-lj1-x23e.google.com with SMTP id f22sf3070055ljh.0
+        for <lists+clang-built-linux@lfdr.de>; Sat, 05 Sep 2020 19:58:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599361129; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sm6Pr4CDP39nhd9GUDjRS6DCQQ2ywoq5GicIO9F+TZKL6w7jVxrH1jKbaEToxpggpp
-         1sTWeqCZAInVmSPEMjf4zh7deDQj9dMB+uOhxDuRmeEPO4uJsZ+S8MxM6xAsITIJkbDb
-         yiC7JGXIjIfNfJE+H0WymPXPPtykxQN+WilVUccOuClT/17y4+dXAqyVrfL2Zn/S9gsr
-         ltFwgpy8L49qDV9nGAIH1d7FlOMeUtN5tzXkMx/7BEklmZfBdRB3JVpjjMwUJS7BzWAY
-         ewPd+MyXYJFJaQPWBE+U1ID3V7glS3+5HBVj605wkG8T/sVqr8L29pci1J5RD4AOMEfb
-         7/rA==
+        b=BcPW5cI240XzDLxM45+A4mfOeXmOPB9By6d+iQ64drZwVQPwXwn7rZfK/S2MZlLEbS
+         CW72t5AtWeELBD0fuGkH6b6eBUidaTqS0TIdc77+uUrMz2IIPGUzBFYSujmrmv3PlJFK
+         rJe19IWukUTY9OqemQg1YIqP0LzWUyv0C9y05v+kqjBYwOB9gNfCPtEg84ApAZDWLQIn
+         jOkp9g6cRY9G5vde/JeX2RKjycZBm1iAK9fXPAOzOoi1Q4SMeys61zkRJboL507jqk2H
+         Hjk2hJfE7RDCFhIBj6AjVnUjcrk8LrpSQ353jNVxuu2TOtDzvHeJwlZbXGjio2Q8NA0H
+         lGZQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=RH/ix0qktAAY/Tsz+hSorfpPfCw53yIHu0jsmNOP1Hc=;
-        b=Ls3bE0H1OW+SSMD4U21nQOzCzQ/mEBouYVu75PK5CLFKISwZ6XVHkO7Tf7VQCP3kIP
-         T76TvGyc9dWmgxzcOFyo/Hd01oiOC3189WAeebl94eCcwPHE0N65HTsYNrRiUGOD8Iai
-         ePQQ0hWF/hI3D621BQB56hnV83KUtTPSnzalDrqntBeqxfp6SlMpIzWXpeMjkZQjC3Qq
-         /okjQQFwmJGlAwCeePNBfLsPC2SK7uoG8Jsk50UgQX2PGyQafQNWzKQwk26pc/TvIDFV
-         ouAQ66yAT3YeROjnUlhj/SJjfwcMwTmqKHykmnPyeoDD1jLcyP1MxrDpBOMo+SVe8CDo
-         prRA==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:references:cc:to:from
+         :subject:sender:dkim-signature;
+        bh=xvoVOb5Rhg1L6zEaj4AuaWysYskxgGhTVIu++eeVxmc=;
+        b=wCfaoKddC23mwnPvbFNSiQt4DeKp1b7YAwYQdev8glAx4fGLx75pzjz7qeehcfnq1a
+         KhbDyDTw4Hwi0j+ozgaLVzMVHOWJNEEPSc3zMexPEbvvDXLm/0D12lwtJOgg1tFqrG59
+         je6dB4KYFaahZSvYP+4vt4p8XHc0jNTJ5tIjMlv4X9N8y00O481GAA31vigmgvG9SwKF
+         ZNan6JBXm7iBQrNbpboglu/hahXZCQm5RMiLvyMCqNjoJqEfUWxS1i8YbG22o4Bdfkoz
+         gD9B8qEyr2bzSxhyQGUM8N7hGh9cu6J05gV7sFojCBNrtLUCaDkTHPIsvr3AzLPxBFIX
+         hq2Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=PkKiD5JB;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.91 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=QJnTvO+p;
+       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=sender:subject:from:to:cc:references:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=RH/ix0qktAAY/Tsz+hSorfpPfCw53yIHu0jsmNOP1Hc=;
-        b=rWEP1Lr4oKnM27xIB4H/Qvj5TqTT4DXwwZ0yVZtPDHgwlu0A3R9jBakc65OES4wl5E
-         FgGcBMTaT8bVSi/gMSQTDiut8nhasSFZ1yuTiTbHgg/EtM6itgzyXfQQyk2NiOPjhsdZ
-         ReWOph+8+gYfc3OYthqOJKniCehNfZ7VdGZ+VYemvAAyfYBRB44LJVqtQW8NRmf4M6zQ
-         meyv22cUrymlaq4qQXi9w7r1wqdiXWcxCo3uAbAavE7Hzk7TemqgRTdaBsVcqiZZ2/9H
-         eRZ0exBu1Z1fz/+giBSFnZIzOEDhVh90zlRBs7yP8+pkLkg2rZs2sLFGHZk8hPGu5CAZ
-         I7zA==
+        bh=xvoVOb5Rhg1L6zEaj4AuaWysYskxgGhTVIu++eeVxmc=;
+        b=jTZEJlnjw4buo6huYPlxLMSA9BZwEzP3g7eigWjiWNDHwJfft4dCqxak1UxylQOoaj
+         PngKp3pax0rw1h2b5+oZjKAOv/p9TFUOh6dtTL4J/3SSpdfjkFFpmHzT1QmTMdjfddbH
+         9DSAcWMBDRfLVrQmGi7d4hsmV1tRG21olOlXtiGmziEuafTO1nEzvs+9EkF8dYT552y1
+         1y/raYeliqxSKgDMEORFW126SVxvSJDtKe+PrvTNfynUKaovRSNx+vQYUIqmAatUsRMv
+         PjZvHedi1lzLLdI8hQBqrKWy0SrlHb1BG4hGJIGZittNGy4hbMyNIe5CxqWT6xUI/U/E
+         YgFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=RH/ix0qktAAY/Tsz+hSorfpPfCw53yIHu0jsmNOP1Hc=;
-        b=az6/IedWjvWJM4RnEpO/qsbZlaNPUKXqrQNwJYOH7xr8TwqZfxwuNAo0s6ASS1J1q0
-         mv9184im6CksJYcSc0lFKaXmxfTKAoY7e/fO6LQtFI3lLZjFjQyi3cxodXx41yJHxFhK
-         JG2Ap1xPMd4WU4bgK/nb3s7hzTVOsTEYZ3e2udshHGVeiBx+aeabGfR2fiP5gV/oLsE/
-         OPUCpMWZBy0wS4TL7QjZk+3jk37J0S5cHPgi4NSrw415D9awpygNCTp/wPNLrTN8i3Vy
-         r2Yz8zSMOqF/ZSvlsq8TmenfSJCRIeDLfGCatLdu4UPBeYfaYj1vil14fzGAxUlB+vsz
-         8UUw==
+        h=sender:x-gm-message-state:subject:from:to:cc:references:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=xvoVOb5Rhg1L6zEaj4AuaWysYskxgGhTVIu++eeVxmc=;
+        b=hjvxiojgz2XogYm3dh5rSvUzJGthEmKpyxztOdcexZsBiK0LL74wL++0cDuNnilf1e
+         D29Fwk1HofKnksWz8o+CvXTPYOl2b3Zzx0f9dFZ5a7mEozrQIZe5qi3s+TPsMZNqHRO6
+         y9ua/aRVK3BV8zptnfmfQmVXmSkcS90m4opBLy1Ij+IE0nN3dVR9isyldz9D+tKCIraD
+         HRnzlr68DJ8JfzbXlpox3cNyzkGHAtxwiogqts5XIMWLyLA3hibb5h++df57KulPgFSo
+         o8UMxtEnvXQtMMowH5Oe0JF02R+GWE4AifThmai0aqQ1lZrsDGVH7RaEyrz9f5FDVtn4
+         Pkuw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530Hd5hCuFiSbwxy24RAIn4pQx0Urw1tMPP/QX50VX+OzhU2VCTK
-	Qdk/rkmXIh9bLIiWLBxGwE4=
-X-Google-Smtp-Source: ABdhPJw8yBBLN3NaxrhEg8G9TN9vibbM/dC+9UFQHGkTQYhDwSEv0MDb+JtyoZwq7JXZmtwyngQAXw==
-X-Received: by 2002:a05:6e02:690:: with SMTP id o16mr13237128ils.220.1599351930937;
-        Sat, 05 Sep 2020 17:25:30 -0700 (PDT)
+X-Gm-Message-State: AOAM5326JKkENlY/PsT8ZaUsRmK/dtLoiJtqmfIuDxrLUzJ+TOo8E3cj
+	xXsxhAgXapOKuP3flfnbimo=
+X-Google-Smtp-Source: ABdhPJxL2iD4fkfO/JY6vC+82P9E9s4aEtMGs7+jNM23PGQP15Brft/hDQOrTnr/w87+s3SvciAxsQ==
+X-Received: by 2002:a05:6512:2102:: with SMTP id q2mr7292187lfr.14.1599361129466;
+        Sat, 05 Sep 2020 19:58:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:a305:: with SMTP id a5ls3233016ili.5.gmail; Sat, 05 Sep
- 2020 17:25:30 -0700 (PDT)
-X-Received: by 2002:a05:6e02:c30:: with SMTP id q16mr3045419ilg.175.1599351930499;
-        Sat, 05 Sep 2020 17:25:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1599351930; cv=none;
+Received: by 2002:a2e:9a58:: with SMTP id k24ls2575752ljj.4.gmail; Sat, 05 Sep
+ 2020 19:58:48 -0700 (PDT)
+X-Received: by 2002:a2e:780d:: with SMTP id t13mr7699741ljc.324.1599361128620;
+        Sat, 05 Sep 2020 19:58:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599361128; cv=none;
         d=google.com; s=arc-20160816;
-        b=GkwQBGgL5EzRvRABgzAYn5qRRl4ens9n+YfBdMswSGvC5rd0UDYR6RR9Mr0ABMIMcY
-         SrNALlrNY8b2frbRCYWPUXnmowfjZN2CVrYAxUSjkfClWgnMMSwzOVa3CaS/PEeN+dUj
-         Nq3Y6H/4nvfCLcDSr+jZAG1QLdhbuyDidKKv0dgWRlbe0Qo5ZJ0DxVMZAo0EqxWsuTMK
-         r186dDwotU1gcPsSXGdmhAA7P/ct4zMCCk7s0k6R68y8HM12UPh3bIGRwhkdeJ3YejLT
-         XWMqz09LKh//wU6RhaEzvdOFAbD2rHpsfuMQUKeMFAgk64I8VmkkktnkfJOuDcp6tbEl
-         jzYw==
+        b=g533PTkHrjTtyOW5jpC6ShWjCu81MMhCh+cu28aDfunYTmFvmQegUXRFvME5WbRu1E
+         Eu6PYZWW8hNNASaV5qCg1TeP08iNFzzHqcGS8jgIiTFJu7qWIOpSQpX58AG0/qHwRy5u
+         fwZ3+9gTZAyvypgmItWnzICT3fizwYAlxRCixrt2nYz9gNLYFR01uebS+qUdHqdAbfra
+         dznRwBQHE35Vmya04JWzTN6Z3Ut7NSxm5/pzqm/34aH+s8TKguWPvcrCPsnvpOfbVI+R
+         CIsPZfm7I0rC2OwLai0bu+FstxEL15aFz/71iOv1M2AJCKAEQAcz4ISSvwuv8vtMUR/1
+         Zj4w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=smhRM/0gS2ife7hbqoAb+BEFwkqlNArzwskfuvsPnHQ=;
-        b=VbuMhZM3X6MtPGBUCvrXmcSpY8x/P9iw/ez4qFYIQ5yujyBTK0cm7RIgLFHak+iYVO
-         Pf+fhkyFV2WNI6amlrafOvU2Mph2Ikshy41tRrdzp1Z4gKgbmGhnc4M6q5+ad3mGa5d6
-         uTk+YeNNFuBLgeezPZKHqAA5zRgnsMGfga1qtBEju0wexPqICILD6OEZ2moS6IBjEc2A
-         FrJG6yNNq/nzl3ANGgPqQ6kCH6AaLX2Rawe/nRBJC78B5YzmUssU30wyv+NbLUZ5cMhQ
-         6EfpGZU32cw8EPuaKM4mPjefrs0/RcESbo46xpsJ7kF78rmk+v13PjbKCC7j7DTdoIHh
-         1XOQ==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:references:cc:to:from:subject
+         :dkim-signature;
+        bh=nvspY8A/SyBbV9rZVSMalKu2GUedGBXvVml+zAQO9Ug=;
+        b=zbnYa7bAJxtbFgyyxteZFmg0OUUSEpqP/E5PfPYT82CQzC7gWNpsNMBJeQ8YgK5D03
+         4BvrKLcra7CRMMWGbRO7iXt9Q4/UcNaJxzBBfeFLn9oudJqeX2DtLMwp1S+yNNgen0wR
+         ceqnt7VGo8XXcpf/M3bsr1TA8hvTz+SQDbdfkZYcdK2U/+AqYVV1knnxV2G/nVfFiZlo
+         UqsTtwKYzdEifnN5j0IpJFO3H1MdUR+5/lekm/Tf9aOSNqThc5y1UDeEwyssCq/tzDOf
+         aq6OjnvFar3glAWGL/GqYBXBjXluJ9oi30rdNpNaWX7kL9aVF1ifRNUHJdZU0fbrjrrl
+         ghbA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=PkKiD5JB;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.91 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-06.nifty.com (conssluserg-06.nifty.com. [210.131.2.91])
-        by gmr-mx.google.com with ESMTPS id a26si763721ill.4.2020.09.05.17.25.29
+       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=QJnTvO+p;
+       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+Received: from casper.infradead.org (casper.infradead.org. [2001:8b0:10b:1236::1])
+        by gmr-mx.google.com with ESMTPS id y17si60285lfg.2.2020.09.05.19.58.48
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 05 Sep 2020 17:25:30 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.91 as permitted sender) client-ip=210.131.2.91;
-Received: from mail-pl1-f172.google.com (mail-pl1-f172.google.com [209.85.214.172]) (authenticated)
-	by conssluserg-06.nifty.com with ESMTP id 0860PFf8012814
-	for <clang-built-linux@googlegroups.com>; Sun, 6 Sep 2020 09:25:16 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-06.nifty.com 0860PFf8012814
-X-Nifty-SrcIP: [209.85.214.172]
-Received: by mail-pl1-f172.google.com with SMTP id x18so2819447pll.6
-        for <clang-built-linux@googlegroups.com>; Sat, 05 Sep 2020 17:25:15 -0700 (PDT)
-X-Received: by 2002:a17:90b:360a:: with SMTP id ml10mr13696135pjb.198.1599351914954;
- Sat, 05 Sep 2020 17:25:14 -0700 (PDT)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 05 Sep 2020 19:58:48 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) client-ip=2001:8b0:10b:1236::1;
+Received: from [2601:1c0:6280:3f0::19c2]
+	by casper.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1kEktA-0004su-8r; Sun, 06 Sep 2020 02:58:44 +0000
+Subject: Re: [linux-next:master 2890/4758] ld.lld: error: undefined symbol:
+ phys_to_target_node
+From: Randy Dunlap <rdunlap@infradead.org>
+To: Joao Martins <joao.m.martins@oracle.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Vishal Verma <vishal.l.verma@intel.com>
+Cc: kernel test robot <lkp@intel.com>, Dan Williams
+ <dan.j.williams@intel.com>, kbuild-all@lists.01.org,
+ clang-built-linux@googlegroups.com,
+ Linux Memory Management List <linux-mm@kvack.org>,
+ Matt Fleming <matt@codeblueprint.co.uk>
+References: <202009031338.VZC7AOSw%lkp@intel.com>
+ <aaae71a7-4846-f5cc-5acf-cf05fdb1f2dc@oracle.com>
+ <e56ad91f-4418-fa3b-1381-f3b3234fcc04@infradead.org>
+ <56f1cfa0-35e3-e88a-826b-3ebe2780b973@infradead.org>
+Message-ID: <fc34c6c9-5d77-3062-b977-26cb34eb577a@infradead.org>
+Date: Sat, 5 Sep 2020 19:58:40 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.11.0
 MIME-Version: 1.0
-References: <20200624203200.78870-1-samitolvanen@google.com> <20200903203053.3411268-1-samitolvanen@google.com>
-In-Reply-To: <20200903203053.3411268-1-samitolvanen@google.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Sun, 6 Sep 2020 09:24:38 +0900
-X-Gmail-Original-Message-ID: <CAK7LNASDUkyJMDD0a5K_HT=1q5NEc6dcN4=FUb330yK0BCKcTw@mail.gmail.com>
-Message-ID: <CAK7LNASDUkyJMDD0a5K_HT=1q5NEc6dcN4=FUb330yK0BCKcTw@mail.gmail.com>
-Subject: Re: [PATCH v2 00/28] Add support for Clang LTO
-To: Sami Tolvanen <samitolvanen@google.com>
-Cc: Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
-        Steven Rostedt <rostedt@goodmis.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        "Paul E. McKenney" <paulmck@kernel.org>,
-        Kees Cook <keescook@chromium.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        clang-built-linux <clang-built-linux@googlegroups.com>,
-        Kernel Hardening <kernel-hardening@lists.openwall.com>,
-        linux-arch <linux-arch@vger.kernel.org>,
-        linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-        linux-pci@vger.kernel.org, X86 ML <x86@kernel.org>
-Content-Type: multipart/mixed; boundary="000000000000c3236d05ae9a2200"
-X-Original-Sender: masahiroy@kernel.org
+In-Reply-To: <56f1cfa0-35e3-e88a-826b-3ebe2780b973@infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Language: en-US
+X-Original-Sender: rdunlap@infradead.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=PkKiD5JB;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.91 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@infradead.org header.s=casper.20170209 header.b=QJnTvO+p;
+       spf=pass (google.com: best guess record for domain of
+ rdunlap@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,179 +138,116 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---000000000000c3236d05ae9a2200
-Content-Type: text/plain; charset="UTF-8"
+On 9/5/20 2:58 PM, Randy Dunlap wrote:
+> On 9/5/20 2:24 PM, Randy Dunlap wrote:
+>> On 9/3/20 5:31 AM, Joao Martins wrote:
+>>> On 9/3/20 6:49 AM, kernel test robot wrote:
+>>>> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+>>>> head:   4442749a203151a319a5bb8d0b983b84253a6931
+>>>> commit: bd295a352cfa24e5110a53f978edb48b7c21ff8f [2890/4758] ACPI: HMAT: attach a device for each soft-reserved range
+>>>> config: x86_64-randconfig-a002-20200902 (attached as .config)
+>>>> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 224d8153b53b16cf535ea1a55afdfe1ec5b1374f)
+>>>> reproduce (this is a W=1 build):
+>>>>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>>>>         chmod +x ~/bin/make.cross
+>>>>         # install x86_64 cross compiling tool for clang build
+>>>>         # apt-get install binutils-x86-64-linux-gnu
+>>>>         git checkout bd295a352cfa24e5110a53f978edb48b7c21ff8f
+>>>>         # save the attached .config to linux build tree
+>>>>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
+>>>>
+>>>> If you fix the issue, kindly add following tag as appropriate
+>>>> Reported-by: kernel test robot <lkp@intel.com>
+>>>>
+>>>> All errors (new ones prefixed by >>):
+>>>>
+>>>>>> ld.lld: error: undefined symbol: phys_to_target_node
+>>>>    >>> referenced by device.c:84 (drivers/dax/hmem/device.c:84)
+>>>>    >>>               dax/hmem/device.o:(hmem_register_one) in archive drivers/built-in.a
+>>>>
+>>> This would require the proposed fix below the scissors mark.
+>>>
+>>> I had reported this failure before, but it needed an adjustment so I'm re-sending it.
+>>>
+>>> --------------------------->8----------------------------
+>>>
+>>> From 622c1297b7d76a319b07a29192fe9bfe5c2b6b7c Mon Sep 17 00:00:00 2001
+>>> From: Joao Martins <joao.m.martins@oracle.com>
+>>> Date: Tue, 1 Sep 2020 08:06:35 -0400
+>>> Subject: [PATCH] device-dax: Require NUMA_KEEP_MEMINFO for
+>>>  phys_to_target_node()
+>>>
+>>> phys_to_target_node() and memory_add_physaddr_to_nid() are only defined
+>>> with both CONFIG_NUMA=y and CONFIG_MEMORY_HOTPLUG=y.  Oherwise we see:
+>>>
+>>> drivers/dax/hmem/device.o: in function `hmem_register_one':
+>>> drivers/dax/hmem/device.c:85: undefined reference to `phys_to_target_node'
+>>>
+>>> lkp also reports such build failures:
+>>>
+>>> ld.lld: error: undefined symbol: phys_to_target_node
+>>>
+>>> X86 is a special case in which both can be defined without depending on
+>>> MEMORY_HOTPLUG=y. The other case is powerpc (for
+>>> memory_add_physaddr_to_nid) but like ARM64 dependencies, the
+>>> arch-specific override requires CONFIG_NUMA and CONFIG_MEMORY_HOTPLUG.
+>>>
+>>> In all cases this ends up depending on CONFIG_NUMA_KEEP_MEMINFO to
+>>> signal the presence of phys_to_target_node() which is what
+>>> CONFIG_DEV_DAX_HMEM_DEVICES should depend on. Additionally, the X86
+>>> arch-override is not selected unless X86_PMEM_LEGACY=y. So on
+>>> CONFIG_DEV_DAX_HMEM we select CONFIG_NUMA_KEEP_INFO ourselves if both
+>>> NUMA and X86 are set.
+>>>
+>>> Reported-by: kernel test robot <lkp@intel.com>
+>>> Signed-off-by: Joao Martins <joao.m.martins@oracle.com>
+>>> ---
+>>>  drivers/dax/Kconfig | 2 ++
+>>>  1 file changed, 2 insertions(+)
+>>>
+>>> diff --git a/drivers/dax/Kconfig b/drivers/dax/Kconfig
+>>> index a66dff78f298..567428e10b7b 100644
+>>> --- a/drivers/dax/Kconfig
+>>> +++ b/drivers/dax/Kconfig
+>>> @@ -35,6 +35,7 @@ config DEV_DAX_PMEM
+>>>  config DEV_DAX_HMEM
+>>>         tristate "HMEM DAX: direct access to 'specific purpose' memory"
+>>>         depends on EFI_SOFT_RESERVE
+>>> +       select NUMA_KEEP_MEMINFO if (NUMA && X86)
+>>>         default DEV_DAX
+>>>         help
+>>>           EFI 2.8 platforms, and others, may advertise 'specific purpose'
+>>> @@ -49,6 +50,7 @@ config DEV_DAX_HMEM
+>>>           Say M if unsure.
+>>>
+>>>  config DEV_DAX_HMEM_DEVICES
+>>> +       depends on NUMA_KEEP_MEMINFO # for phys_to_target_node()
+>>>         depends on DEV_DAX_HMEM && DAX=y
+>>>         def_bool y
+>>>
+>>
+>> Hi,
+>>
+>> There is also this patch from Matt Fleming from last year that I have
+>> successfully tested (built) on ppc64 and arch/sh/, where build errors were reported.
+>>
+>> https://lore.kernel.org/lkml/20191223164220.GA14394@codeblueprint.co.uk/
+>>
+>> but Matt doesn't seem to be replying to any emails about this patch...
+>>
+> 
+> OK, Matt's patch doesn't fix this x86_64 dax + hmem build error, so
+> apparently Joao's patch is needed.
+> 
 
-On Fri, Sep 4, 2020 at 5:30 AM Sami Tolvanen <samitolvanen@google.com> wrote:
->
-> This patch series adds support for building x86_64 and arm64 kernels
-> with Clang's Link Time Optimization (LTO).
->
-> In addition to performance, the primary motivation for LTO is
-> to allow Clang's Control-Flow Integrity (CFI) to be used in the
-> kernel. Google has shipped millions of Pixel devices running three
-> major kernel versions with LTO+CFI since 2018.
->
-> Most of the patches are build system changes for handling LLVM
-> bitcode, which Clang produces with LTO instead of ELF object files,
-> postponing ELF processing until a later stage, and ensuring initcall
-> ordering.
->
-> Note that patches 1-4 are not directly related to LTO, but are
-> needed to compile LTO kernels with ToT Clang, so I'm including them
-> in the series for your convenience:
->
->  - Patches 1-3 are required for building the kernel with ToT Clang,
->    and IAS, and patch 4 is needed to build allmodconfig with LTO.
->
->  - Patches 3-4 are already in linux-next, but not yet in 5.9-rc.
->
+OTOH, Joao's patch doesn't fix the ppc64 and arch/sh/ build errors.
 
+I'd prefer to see one patch to fix all of these build errors...
 
-I still do not understand how this patch set works.
-(only me?)
-
-Please let me ask fundamental questions.
-
-
-
-I applied this series on top of Linus' tree,
-and compiled for ARCH=arm64.
-
-I compared the kernel size with/without LTO.
-
-
-
-[1] No LTO  (arm64 defconfig, CONFIG_LTO_NONE)
-
-$ llvm-size   vmlinux
-   text    data     bss     dec     hex filename
-15848692 10099449 493060 26441201 19375f1 vmlinux
-
-
-
-[2] Clang LTO  (arm64 defconfig + CONFIG_LTO_CLANG)
-
-$ llvm-size   vmlinux
-   text    data     bss     dec     hex filename
-15906864 10197445 490804 26595113 195cf29 vmlinux
-
-
-I compared the size of raw binary, arch/arm64/boot/Image.
-Its size increased too.
-
-
-
-So, in my experiment, enabling CONFIG_LTO_CLANG
-increases the kernel size.
-Is this correct?
-
-
-One more thing, could you teach me
-how Clang LTO optimizes the code against
-relocatable objects?
-
-
-
-When I learned Clang LTO first, I read this document:
-https://llvm.org/docs/LinkTimeOptimization.html
-
-It is easy to confirm the final executable
-does not contain foo2, foo3...
-
-
-
-In contrast to userspace programs,
-kernel modules are basically relocatable objects.
-
-Does Clang drop unused symbols from relocatable objects?
-If so, how?
-
-I implemented an example module (see the attachment),
-and checked the symbols.
-Nothing was dropped.
-
-The situation is the same for build-in
-because LTO is run against vmlinux.o, which is
-relocatable as well.
-
-
---
-Best Regards
-
-Masahiro Yamada
+-- 
+~Randy
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNASDUkyJMDD0a5K_HT%3D1q5NEc6dcN4%3DFUb330yK0BCKcTw%40mail.gmail.com.
-
---000000000000c3236d05ae9a2200
-Content-Type: application/x-patch; name="0001-lto-test-module.patch"
-Content-Disposition: attachment; filename="0001-lto-test-module.patch"
-Content-Transfer-Encoding: base64
-Content-ID: <f_keqbde3n0>
-X-Attachment-Id: f_keqbde3n0
-
-RnJvbSBjMWRjNjQ2ZjczYmQ5NDhlZGJmMGM0YTdmMWJhYTkzZWNmOGMyMDhlIE1vbiBTZXAgMTcg
-MDA6MDA6MDAgMjAwMQpGcm9tOiBNYXNhaGlybyBZYW1hZGEgPG1hc2FoaXJveUBrZXJuZWwub3Jn
-PgpEYXRlOiBTdW4sIDYgU2VwIDIwMjAgMDg6MTE6MzIgKzA5MDAKU3ViamVjdDogW1BBVENIXSBs
-dG86IHRlc3QgbW9kdWxlCgpIZXJlIGlzIGEgZ3JlYXQgZXhhbXBsZSBmb3IgTFRPOgogIGh0dHBz
-Oi8vbGx2bS5vcmcvZG9jcy9MaW5rVGltZU9wdGltaXphdGlvbi5odG1sCgpMVE8gcmVtb3ZlcyBm
-b28yKCkgYW5kIGZvbzMoKSBmcm9tIHRoZSBmaW5hbCBleGVjdXRhYmxlIGZpbGUsICJtYWluIi4K
-KGFuZCBmb280KCkgaXMgYWxzbyBkcm9wcGVkIGlmIHlvdSBwYXNzIC1mbHRvIHRvIG1haW4uYykK
-ClRoaXMgcGF0Y2ggaW50ZWdyYXRlcyB0aGUgZXhhbXBsZSBjb2RlIGludG8gYSBrZXJuZWwgbW9k
-dWxlLgoKICBhLmMgICAgICAtPiAgIGtlcm5lbC9sdG8tdGVzdC1hLmMKICBtYWluLmMgICAtPiAg
-IGtlcm5lbC9sdG8tdGVzdC1tYWluLmMKCk9mIGNvdXJzZSwgSSByZXBsYWNlZCBwcmludGYoKSB3
-aXRoIHByaW50aygpLgoKSSBhcHBsaWVkIHRoaXMgdGVzdCBwYXRjaCBvbiB0b3Agb2YgU2FtaSdz
-IHYyOgogIGh0dHBzOi8vcGF0Y2h3b3JrLmtlcm5lbC5vcmcvcHJvamVjdC9saW51eC1rYnVpbGQv
-bGlzdC8/c2VyaWVzPTM0MzE1MwoKSSBjb21waWxlZCBhcm02NCBkZWZjb25maWcgKyBDT05GSUdf
-TFRPX0NMQU5HLgoKVGhpcyBpcyB0aGUgcmVzdWx0OgoKJCBhYXJjaDY0LWxpbnV4LWdudS1ubSBr
-ZXJuZWwvbHRvLXRlc3Qua28KMDAwMDAwMDAwMDAwMDAxMCBUIGZvbzEKMDAwMDAwMDAwMDAwMDAw
-MCBUIGZvbzIKMDAwMDAwMDAwMDAwMDA0YyBUIGZvbzQKMDAwMDAwMDAwMDAwMDAwMCBCIGkubGx2
-bS43NzEwNjQ1NjQyMDg1NjAyODkxCjAwMDAwMDAwMDAwMDAwMDAgciBfX2tzdHJ0YWJfbHRvX3Rl
-c3RfbWFpbgowMDAwMDAwMDAwMDAwMDBlIHIgX19rc3RydGFibnNfbHRvX3Rlc3RfbWFpbgowMDAw
-MDAwMDAwMDAwMDAwIHIgX19rc3ltdGFiX2x0b190ZXN0X21haW4KMDAwMDAwMDAwMDAwMDA2OCBU
-IGx0b190ZXN0X21haW4KMDAwMDAwMDAwMDAwMDAwMCByIF9ub3RlXzcKICAgICAgICAgICAgICAg
-ICBVIHByaW50awowMDAwMDAwMDAwMDAwMDAwIFIgLnN0ci5sbHZtLjg4NzY1MDMzMjQ4NDUxMjM4
-MAowMDAwMDAwMDAwMDAwMDAwIEQgX190aGlzX21vZHVsZQowMDAwMDAwMDAwMDAwMDYzIHIgX19V
-TklRVUVfSURfZGVwZW5kczI1NAowMDAwMDAwMDAwMDAwMDVhIHIgX19VTklRVUVfSURfaW50cmVl
-MjUzCjAwMDAwMDAwMDAwMDAwNGMgciBfX1VOSVFVRV9JRF9uYW1lMjUyCjAwMDAwMDAwMDAwMDAw
-MDAgciBfX1VOSVFVRV9JRF92ZXJtYWdpYzI1MQoKTW9kdWxlcyBhcmUgcmVsb2NhdGFibGUgb2Jq
-ZWN0cywgbm90IGV4ZWN1dGFibGVzLgpIb3cgY2FuIGNsYW5nIExUTyBrbm93IHVucmVhY2hhYmxl
-IHN5bWJvbHMgYXJlIHJlYWxseQp1bnJlYWNoYWJsZT8KCkFjY29yZGluZyB0byB0aGUgcmVzdWx0
-IGFib3ZlLCBmb28yIGlzIHJlbWFpbmluZy4KClRoZSBiZWhhdmlvciBpcyB0aGUgc2FtZSBmb3Ig
-b2JqLXkgYmVjYXVzZSBMVE8gaXMgcnVuIGFnYWluc3QKdm1saW51eC5vLCB3aGljaCBpcyBhIHJl
-bG9jYXRhYmxlIEVMRi4KClNpZ25lZC1vZmYtYnk6IE1hc2FoaXJvIFlhbWFkYSA8bWFzYWhpcm95
-QGtlcm5lbC5vcmc+Ci0tLQoga2VybmVsL01ha2VmaWxlICAgICAgICB8ICAzICsrKwoga2VybmVs
-L2x0by10ZXN0LWEuYyAgICB8IDIyICsrKysrKysrKysrKysrKysrKysrKysKIGtlcm5lbC9sdG8t
-dGVzdC1hLmggICAgfCAgMyArKysKIGtlcm5lbC9sdG8tdGVzdC1tYWluLmMgfCAxMiArKysrKysr
-KysrKysKIDQgZmlsZXMgY2hhbmdlZCwgNDAgaW5zZXJ0aW9ucygrKQogY3JlYXRlIG1vZGUgMTAw
-NjQ0IGtlcm5lbC9sdG8tdGVzdC1hLmMKIGNyZWF0ZSBtb2RlIDEwMDY0NCBrZXJuZWwvbHRvLXRl
-c3QtYS5oCiBjcmVhdGUgbW9kZSAxMDA2NDQga2VybmVsL2x0by10ZXN0LW1haW4uYwoKZGlmZiAt
-LWdpdCBhL2tlcm5lbC9NYWtlZmlsZSBiL2tlcm5lbC9NYWtlZmlsZQppbmRleCA5YTIwMDE2ZDQ5
-MDAuLjIxMTEyNTFjMjA5MyAxMDA2NDQKLS0tIGEva2VybmVsL01ha2VmaWxlCisrKyBiL2tlcm5l
-bC9NYWtlZmlsZQpAQCAtMTQ3LDMgKzE0Nyw2IEBAICQob2JqKS9raGVhZGVyc19kYXRhLnRhci54
-ejogRk9SQ0UKIAkkKGNhbGwgY21kLGdlbmlraCkKIAogY2xlYW4tZmlsZXMgOj0ga2hlYWRlcnNf
-ZGF0YS50YXIueHoga2hlYWRlcnMubWQ1CisKK29iai1tICs9IGx0by10ZXN0Lm8KK2x0by10ZXN0
-LW9ianMgOj0gbHRvLXRlc3QtYS5vIGx0by10ZXN0LW1haW4ubwpkaWZmIC0tZ2l0IGEva2VybmVs
-L2x0by10ZXN0LWEuYyBiL2tlcm5lbC9sdG8tdGVzdC1hLmMKbmV3IGZpbGUgbW9kZSAxMDA2NDQK
-aW5kZXggMDAwMDAwMDAwMDAwLi4xNWNkYzMyMGVjMWUKLS0tIC9kZXYvbnVsbAorKysgYi9rZXJu
-ZWwvbHRvLXRlc3QtYS5jCkBAIC0wLDAgKzEsMjIgQEAKKyNpbmNsdWRlICJsdG8tdGVzdC1hLmgi
-CisKK3N0YXRpYyBzaWduZWQgaW50IGkgPSAwOworCit2b2lkIGZvbzIodm9pZCkgeworICBpID0g
-LTE7Cit9CisKK3N0YXRpYyBpbnQgZm9vMyh2b2lkKSB7CisgIGZvbzQoKTsKKyAgcmV0dXJuIDEw
-OworfQorCitpbnQgZm9vMSh2b2lkKSB7CisgIGludCBkYXRhID0gMDsKKworICBpZiAoaSA8IDAp
-CisgICAgZGF0YSA9IGZvbzMoKTsKKworICBkYXRhID0gZGF0YSArIDQyOworICByZXR1cm4gZGF0
-YTsKK30KZGlmZiAtLWdpdCBhL2tlcm5lbC9sdG8tdGVzdC1hLmggYi9rZXJuZWwvbHRvLXRlc3Qt
-YS5oCm5ldyBmaWxlIG1vZGUgMTAwNjQ0CmluZGV4IDAwMDAwMDAwMDAwMC4uZmNhNGQxM2E1MmUw
-Ci0tLSAvZGV2L251bGwKKysrIGIva2VybmVsL2x0by10ZXN0LWEuaApAQCAtMCwwICsxLDMgQEAK
-K2V4dGVybiBpbnQgZm9vMSh2b2lkKTsKK2V4dGVybiB2b2lkIGZvbzIodm9pZCk7CitleHRlcm4g
-dm9pZCBmb280KHZvaWQpOwpkaWZmIC0tZ2l0IGEva2VybmVsL2x0by10ZXN0LW1haW4uYyBiL2tl
-cm5lbC9sdG8tdGVzdC1tYWluLmMKbmV3IGZpbGUgbW9kZSAxMDA2NDQKaW5kZXggMDAwMDAwMDAw
-MDAwLi42ZThjYWEyYzc2NjcKLS0tIC9kZXYvbnVsbAorKysgYi9rZXJuZWwvbHRvLXRlc3QtbWFp
-bi5jCkBAIC0wLDAgKzEsMTIgQEAKKyNpbmNsdWRlIDxsaW51eC9tb2R1bGUuaD4KKyNpbmNsdWRl
-IDxsaW51eC9leHBvcnQuaD4KKyNpbmNsdWRlICJsdG8tdGVzdC1hLmgiCisKK3ZvaWQgZm9vNCh2
-b2lkKSB7CisgIHByaW50aygiSGlcbiIpOworfQorCitpbnQgbHRvX3Rlc3RfbWFpbih2b2lkKSB7
-CisgIHJldHVybiBmb28xKCk7Cit9CitFWFBPUlRfU1lNQk9MKGx0b190ZXN0X21haW4pOwotLSAK
-Mi4yNS4xCgo=
---000000000000c3236d05ae9a2200--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/fc34c6c9-5d77-3062-b977-26cb34eb577a%40infradead.org.
