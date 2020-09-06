@@ -1,131 +1,146 @@
-Return-Path: <clang-built-linux+bncBDV2D5O34IDRB2NA2H5AKGQEVQUBUCY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD7LZ45K3ECBBKM52L5AKGQE3E6G3PY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23e.google.com (mail-lj1-x23e.google.com [IPv6:2a00:1450:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id F2C3325EC39
-	for <lists+clang-built-linux@lfdr.de>; Sun,  6 Sep 2020 04:58:49 +0200 (CEST)
-Received: by mail-lj1-x23e.google.com with SMTP id f22sf3070055ljh.0
-        for <lists+clang-built-linux@lfdr.de>; Sat, 05 Sep 2020 19:58:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1599361129; cv=pass;
+Received: from mail-ej1-x63e.google.com (mail-ej1-x63e.google.com [IPv6:2a00:1450:4864:20::63e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 996D625ED26
+	for <lists+clang-built-linux@lfdr.de>; Sun,  6 Sep 2020 09:24:25 +0200 (CEST)
+Received: by mail-ej1-x63e.google.com with SMTP id b23sf4342218ejv.2
+        for <lists+clang-built-linux@lfdr.de>; Sun, 06 Sep 2020 00:24:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599377065; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BcPW5cI240XzDLxM45+A4mfOeXmOPB9By6d+iQ64drZwVQPwXwn7rZfK/S2MZlLEbS
-         CW72t5AtWeELBD0fuGkH6b6eBUidaTqS0TIdc77+uUrMz2IIPGUzBFYSujmrmv3PlJFK
-         rJe19IWukUTY9OqemQg1YIqP0LzWUyv0C9y05v+kqjBYwOB9gNfCPtEg84ApAZDWLQIn
-         jOkp9g6cRY9G5vde/JeX2RKjycZBm1iAK9fXPAOzOoi1Q4SMeys61zkRJboL507jqk2H
-         Hjk2hJfE7RDCFhIBj6AjVnUjcrk8LrpSQ353jNVxuu2TOtDzvHeJwlZbXGjio2Q8NA0H
-         lGZQ==
+        b=QOohHY2OXhhNOdfO4tYDe0WupRLN1f/R9qFuOc+pveMOHeXrV9mgIqFB/gz38eSXAU
+         6Aa/bUPG+q5Ka9ATckpNhoLlGpRBtw69xN1QAn4TlalOh6M+BcL8toKXkrzIwFL+kFsX
+         z9BCp+UJha7MyDr4S19i6XOHR61gfdwKmwlWecnOkvSJUCUJrbQ842wGJle/cR0KDvpU
+         JSqxshi6jEhuf5PYz4VerCSZNXUcO3wPkvd8rj4qAhF6icUM7NFYD0F71hsWigQVIS5L
+         RC17IKSAWnT4VxHT9Z9ZnAjnY0u8+FIOXIc7KSzn+MpR3dZJhenIvZgrkaYrUMXgvBkQ
+         xGYA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:references:cc:to:from
-         :subject:sender:dkim-signature;
-        bh=xvoVOb5Rhg1L6zEaj4AuaWysYskxgGhTVIu++eeVxmc=;
-        b=wCfaoKddC23mwnPvbFNSiQt4DeKp1b7YAwYQdev8glAx4fGLx75pzjz7qeehcfnq1a
-         KhbDyDTw4Hwi0j+ozgaLVzMVHOWJNEEPSc3zMexPEbvvDXLm/0D12lwtJOgg1tFqrG59
-         je6dB4KYFaahZSvYP+4vt4p8XHc0jNTJ5tIjMlv4X9N8y00O481GAA31vigmgvG9SwKF
-         ZNan6JBXm7iBQrNbpboglu/hahXZCQm5RMiLvyMCqNjoJqEfUWxS1i8YbG22o4Bdfkoz
-         gD9B8qEyr2bzSxhyQGUM8N7hGh9cu6J05gV7sFojCBNrtLUCaDkTHPIsvr3AzLPxBFIX
-         hq2Q==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=2cKrRt/FcICIhNfL00/1uKvWNJSHcDQBNCHN4tWldBY=;
+        b=o7tjGlzk/dsSy/ehpncy6VL6Sftj4SMaaVV0UnuEziYE0vEeqAGBVNlTFDjJwJBrOs
+         8h4rrUNsAlllecdlECt2NcACCBImUSiG3ZunGW/5qNhtF5dQYE5bW0kecg15kYSp8rIv
+         +ADkq/Bro2J7K6k9TdOC4uJbgFBBfruWI7dgyg3Ek1m5yeUS1ORdnvmiTF/a+FXcZfW5
+         OfdJrL1HH9pKAw3fRyy8uqc33rOTdy8P0PYMZIxZpbtClUXB8B5npH8mrjPVWI8eOjXM
+         ML7cAiiN2xxs3MPP2tzSUjPYVYj+t0TnXLM91W3tYbQI7AS+rgVnW0ND8kdzLmJEc+JI
+         QE+A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=QJnTvO+p;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=BB6hDfiw;
+       spf=pass (google.com: domain of mingo.kernel.org@gmail.com designates 2a00:1450:4864:20::643 as permitted sender) smtp.mailfrom=mingo.kernel.org@gmail.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=sender:subject:from:to:cc:references:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
+        d=gmail.com; s=20161025;
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=xvoVOb5Rhg1L6zEaj4AuaWysYskxgGhTVIu++eeVxmc=;
-        b=jTZEJlnjw4buo6huYPlxLMSA9BZwEzP3g7eigWjiWNDHwJfft4dCqxak1UxylQOoaj
-         PngKp3pax0rw1h2b5+oZjKAOv/p9TFUOh6dtTL4J/3SSpdfjkFFpmHzT1QmTMdjfddbH
-         9DSAcWMBDRfLVrQmGi7d4hsmV1tRG21olOlXtiGmziEuafTO1nEzvs+9EkF8dYT552y1
-         1y/raYeliqxSKgDMEORFW126SVxvSJDtKe+PrvTNfynUKaovRSNx+vQYUIqmAatUsRMv
-         PjZvHedi1lzLLdI8hQBqrKWy0SrlHb1BG4hGJIGZittNGy4hbMyNIe5CxqWT6xUI/U/E
-         YgFQ==
+        bh=2cKrRt/FcICIhNfL00/1uKvWNJSHcDQBNCHN4tWldBY=;
+        b=Q75xr/JqL8LWpBol3Bcs70SePYHqDRdbSLfqOTN/8XXVL4mUqcy/SOx7eEv8FtpAHf
+         wKtlzDqWejGOnK+J49b5EUrNJsdsOfCI2p31OS5jStHa/3p2XV+k/h0JlpnOU9ruZIC1
+         zeQlejzwAx4MPMo8+H7U8bgg8STKWl8ZeYGjj7IzZXV3Bwj9kfgwWKYbue4TcqiHKLCt
+         y7Zpi6+Nln02f0P6NrY/av1s9dPWNGRRGos5OqYPWkM9qfpnTnPPwu6ui4LlUh0HyFva
+         GYJmYAd76zzwQE/0J0fSztG2jrZJU7r85PqtYnLyloQFb6sNVcBL4wPTP6OmN7rf1rGa
+         cA/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:from:to:cc:references:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
+        h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=xvoVOb5Rhg1L6zEaj4AuaWysYskxgGhTVIu++eeVxmc=;
-        b=hjvxiojgz2XogYm3dh5rSvUzJGthEmKpyxztOdcexZsBiK0LL74wL++0cDuNnilf1e
-         D29Fwk1HofKnksWz8o+CvXTPYOl2b3Zzx0f9dFZ5a7mEozrQIZe5qi3s+TPsMZNqHRO6
-         y9ua/aRVK3BV8zptnfmfQmVXmSkcS90m4opBLy1Ij+IE0nN3dVR9isyldz9D+tKCIraD
-         HRnzlr68DJ8JfzbXlpox3cNyzkGHAtxwiogqts5XIMWLyLA3hibb5h++df57KulPgFSo
-         o8UMxtEnvXQtMMowH5Oe0JF02R+GWE4AifThmai0aqQ1lZrsDGVH7RaEyrz9f5FDVtn4
-         Pkuw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5326JKkENlY/PsT8ZaUsRmK/dtLoiJtqmfIuDxrLUzJ+TOo8E3cj
-	xXsxhAgXapOKuP3flfnbimo=
-X-Google-Smtp-Source: ABdhPJxL2iD4fkfO/JY6vC+82P9E9s4aEtMGs7+jNM23PGQP15Brft/hDQOrTnr/w87+s3SvciAxsQ==
-X-Received: by 2002:a05:6512:2102:: with SMTP id q2mr7292187lfr.14.1599361129466;
-        Sat, 05 Sep 2020 19:58:49 -0700 (PDT)
+        bh=2cKrRt/FcICIhNfL00/1uKvWNJSHcDQBNCHN4tWldBY=;
+        b=SWbUuanAGcTMuDDqWfdHukwBnhhJn+ncGdR5fvhTqi2L/3zm5qgq8FPqpHy9VTb9VP
+         VTg/BBN/ySP0mFCzMelS1bCQkvnEWutZ2radElUZsQZ9LfiCNp3SYdXOsCNZZ7oGQsg8
+         Ajbt/dGI7Ln7MdFsDjgK73F+Y4kJ7rbLEeRI8SU8sxBDkj6ko7frDoK5EEvc11NLcpX/
+         z+jO6plu3B+vpLE8D0YKs+kM6HT0tdHZVptoIsZMQpL3l76Ys7tNwvfAAko4xc8dECHz
+         CFxdWHW3np9s0BQhBjNQ7+XbiMzOzqcOlLL43dezWskuS2hIfVP80py4UUmNXrjjxvxZ
+         17NQ==
+X-Gm-Message-State: AOAM5300HlmipIa+AL8nUIEkryG+3ZALYxYc6U/UO6u/mbrjot40Hn+7
+	yjErYKr9R8S5esO7hWCt8gw=
+X-Google-Smtp-Source: ABdhPJw1StoRu5WHoDtX0DeQSs27wV/eMMA142uIaqfUetYQRDT8ZeSsiFbqcZl+rAXD9n278z9gbQ==
+X-Received: by 2002:a05:6402:1584:: with SMTP id c4mr16689927edv.192.1599377065319;
+        Sun, 06 Sep 2020 00:24:25 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:9a58:: with SMTP id k24ls2575752ljj.4.gmail; Sat, 05 Sep
- 2020 19:58:48 -0700 (PDT)
-X-Received: by 2002:a2e:780d:: with SMTP id t13mr7699741ljc.324.1599361128620;
-        Sat, 05 Sep 2020 19:58:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1599361128; cv=none;
+Received: by 2002:a50:bc05:: with SMTP id j5ls3036140edh.0.gmail; Sun, 06 Sep
+ 2020 00:24:24 -0700 (PDT)
+X-Received: by 2002:a50:a44a:: with SMTP id v10mr14972473edb.133.1599377064448;
+        Sun, 06 Sep 2020 00:24:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599377064; cv=none;
         d=google.com; s=arc-20160816;
-        b=g533PTkHrjTtyOW5jpC6ShWjCu81MMhCh+cu28aDfunYTmFvmQegUXRFvME5WbRu1E
-         Eu6PYZWW8hNNASaV5qCg1TeP08iNFzzHqcGS8jgIiTFJu7qWIOpSQpX58AG0/qHwRy5u
-         fwZ3+9gTZAyvypgmItWnzICT3fizwYAlxRCixrt2nYz9gNLYFR01uebS+qUdHqdAbfra
-         dznRwBQHE35Vmya04JWzTN6Z3Ut7NSxm5/pzqm/34aH+s8TKguWPvcrCPsnvpOfbVI+R
-         CIsPZfm7I0rC2OwLai0bu+FstxEL15aFz/71iOv1M2AJCKAEQAcz4ISSvwuv8vtMUR/1
-         Zj4w==
+        b=vucVAPOcn5OaanZJieJ21V5z7VdAQtrK3Nbm31K93VHVIfYJTERO635/sJTpZkdmW6
+         bTgecaK+txVKG9qxOVWk6QcHpw6B8X1jYnOFL87PcPfTXHoiSjdQuyqkgBYUPboCcEG/
+         F674GeaqNLXtv+UhqSrowBcmB/DQbJR6f8BwTY/uh38Icav/9FKfqTyZnReNpJfuhFQO
+         b+KcCWcHjTbj9maPJ4x8fgfp5ZDEed51wG8FRth8VYm6aKRsHLDg2qBIegzTz/dcatmy
+         McQ6fyRoP4V/kPqVm9jZm/LDHoRqdTFRqF8zg9U5T82vpX5ZqZBa8QLFsLbou0Dcfr47
+         j5dA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:references:cc:to:from:subject
-         :dkim-signature;
-        bh=nvspY8A/SyBbV9rZVSMalKu2GUedGBXvVml+zAQO9Ug=;
-        b=zbnYa7bAJxtbFgyyxteZFmg0OUUSEpqP/E5PfPYT82CQzC7gWNpsNMBJeQ8YgK5D03
-         4BvrKLcra7CRMMWGbRO7iXt9Q4/UcNaJxzBBfeFLn9oudJqeX2DtLMwp1S+yNNgen0wR
-         ceqnt7VGo8XXcpf/M3bsr1TA8hvTz+SQDbdfkZYcdK2U/+AqYVV1knnxV2G/nVfFiZlo
-         UqsTtwKYzdEifnN5j0IpJFO3H1MdUR+5/lekm/Tf9aOSNqThc5y1UDeEwyssCq/tzDOf
-         aq6OjnvFar3glAWGL/GqYBXBjXluJ9oi30rdNpNaWX7kL9aVF1ifRNUHJdZU0fbrjrrl
-         ghbA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:dkim-signature;
+        bh=tXMiLtKX1CVIBd5uJ7b5aMxZLokTxvClgRBNmQrzapA=;
+        b=IHF7PYEI43ytYJ2JtR5QrWlGRwk65Ul2udl75ircYusIfFFAC+yBEp4lNRYFIkfyNk
+         /6/rhARVrLxitt+rd0XGfyyQofkVKTN3UXXBy+9s03i6yk1ACUJWGLlXcOnw5T03M5tU
+         5EcWE4r8Y4pqc4lNdg5QbGEkyrqDV0Ucc1B+MGdD1kidpgLx4fGYgqT0Ysp//yECExUX
+         hnB7zJuYSRxMWVWSA3G7STadyeaCkJeDKn3McU74v7ELA/czezXm5MEc6j4gw3FxxyCe
+         ch1qetmZ0Yq2ur3jD5URFV1zmNg8M6VYb16AFjRfIxWJecC1/IAbVpVAPU2TvZw1mqgg
+         Icdg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=QJnTvO+p;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
-Received: from casper.infradead.org (casper.infradead.org. [2001:8b0:10b:1236::1])
-        by gmr-mx.google.com with ESMTPS id y17si60285lfg.2.2020.09.05.19.58.48
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=BB6hDfiw;
+       spf=pass (google.com: domain of mingo.kernel.org@gmail.com designates 2a00:1450:4864:20::643 as permitted sender) smtp.mailfrom=mingo.kernel.org@gmail.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail-ej1-x643.google.com (mail-ej1-x643.google.com. [2a00:1450:4864:20::643])
+        by gmr-mx.google.com with ESMTPS id k6si339747eds.3.2020.09.06.00.24.24
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 06 Sep 2020 00:24:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mingo.kernel.org@gmail.com designates 2a00:1450:4864:20::643 as permitted sender) client-ip=2a00:1450:4864:20::643;
+Received: by mail-ej1-x643.google.com with SMTP id i26so13770975ejb.12
+        for <clang-built-linux@googlegroups.com>; Sun, 06 Sep 2020 00:24:24 -0700 (PDT)
+X-Received: by 2002:a17:906:a0c2:: with SMTP id bh2mr16076951ejb.493.1599377064196;
+        Sun, 06 Sep 2020 00:24:24 -0700 (PDT)
+Received: from gmail.com (54033286.catv.pool.telekom.hu. [84.3.50.134])
+        by smtp.gmail.com with ESMTPSA id a5sm2709217edl.6.2020.09.06.00.24.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 05 Sep 2020 19:58:48 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) client-ip=2001:8b0:10b:1236::1;
-Received: from [2601:1c0:6280:3f0::19c2]
-	by casper.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kEktA-0004su-8r; Sun, 06 Sep 2020 02:58:44 +0000
-Subject: Re: [linux-next:master 2890/4758] ld.lld: error: undefined symbol:
- phys_to_target_node
-From: Randy Dunlap <rdunlap@infradead.org>
-To: Joao Martins <joao.m.martins@oracle.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Vishal Verma <vishal.l.verma@intel.com>
-Cc: kernel test robot <lkp@intel.com>, Dan Williams
- <dan.j.williams@intel.com>, kbuild-all@lists.01.org,
- clang-built-linux@googlegroups.com,
- Linux Memory Management List <linux-mm@kvack.org>,
- Matt Fleming <matt@codeblueprint.co.uk>
-References: <202009031338.VZC7AOSw%lkp@intel.com>
- <aaae71a7-4846-f5cc-5acf-cf05fdb1f2dc@oracle.com>
- <e56ad91f-4418-fa3b-1381-f3b3234fcc04@infradead.org>
- <56f1cfa0-35e3-e88a-826b-3ebe2780b973@infradead.org>
-Message-ID: <fc34c6c9-5d77-3062-b977-26cb34eb577a@infradead.org>
-Date: Sat, 5 Sep 2020 19:58:40 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.11.0
+        Sun, 06 Sep 2020 00:24:22 -0700 (PDT)
+Sender: Ingo Molnar <mingo.kernel.org@gmail.com>
+Date: Sun, 6 Sep 2020 09:24:19 +0200
+From: Ingo Molnar <mingo@kernel.org>
+To: Kees Cook <keescook@chromium.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	Borislav Petkov <bp@suse.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Peter Collingbourne <pcc@google.com>,
+	James Morse <james.morse@arm.com>, Ingo Molnar <mingo@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Arvind Sankar <nivedita@alum.mit.edu>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	linux-arch <linux-arch@vger.kernel.org>,
+	linux-efi <linux-efi@vger.kernel.org>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v7 0/5] Warn on orphan section placement
+Message-ID: <20200906072419.GA886844@gmail.com>
+References: <20200902025347.2504702-1-keescook@chromium.org>
+ <CAKwvOd=r8X1UeBRgYMcjUoQX_nbOEbXCQYGX6n7kMnJhGXis=Q@mail.gmail.com>
+ <20200904055825.GA2779622@gmail.com>
+ <202009041117.5EAC7C242@keescook>
 MIME-Version: 1.0
-In-Reply-To: <56f1cfa0-35e3-e88a-826b-3ebe2780b973@infradead.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Original-Sender: rdunlap@infradead.org
+Content-Disposition: inline
+In-Reply-To: <202009041117.5EAC7C242@keescook>
+X-Original-Sender: mingo@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=casper.20170209 header.b=QJnTvO+p;
-       spf=pass (google.com: best guess record for domain of
- rdunlap@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+ header.i=@gmail.com header.s=20161025 header.b=BB6hDfiw;       spf=pass
+ (google.com: domain of mingo.kernel.org@gmail.com designates
+ 2a00:1450:4864:20::643 as permitted sender) smtp.mailfrom=mingo.kernel.org@gmail.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,116 +153,57 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 9/5/20 2:58 PM, Randy Dunlap wrote:
-> On 9/5/20 2:24 PM, Randy Dunlap wrote:
->> On 9/3/20 5:31 AM, Joao Martins wrote:
->>> On 9/3/20 6:49 AM, kernel test robot wrote:
->>>> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
->>>> head:   4442749a203151a319a5bb8d0b983b84253a6931
->>>> commit: bd295a352cfa24e5110a53f978edb48b7c21ff8f [2890/4758] ACPI: HMAT: attach a device for each soft-reserved range
->>>> config: x86_64-randconfig-a002-20200902 (attached as .config)
->>>> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 224d8153b53b16cf535ea1a55afdfe1ec5b1374f)
->>>> reproduce (this is a W=1 build):
->>>>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->>>>         chmod +x ~/bin/make.cross
->>>>         # install x86_64 cross compiling tool for clang build
->>>>         # apt-get install binutils-x86-64-linux-gnu
->>>>         git checkout bd295a352cfa24e5110a53f978edb48b7c21ff8f
->>>>         # save the attached .config to linux build tree
->>>>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
->>>>
->>>> If you fix the issue, kindly add following tag as appropriate
->>>> Reported-by: kernel test robot <lkp@intel.com>
->>>>
->>>> All errors (new ones prefixed by >>):
->>>>
->>>>>> ld.lld: error: undefined symbol: phys_to_target_node
->>>>    >>> referenced by device.c:84 (drivers/dax/hmem/device.c:84)
->>>>    >>>               dax/hmem/device.o:(hmem_register_one) in archive drivers/built-in.a
->>>>
->>> This would require the proposed fix below the scissors mark.
->>>
->>> I had reported this failure before, but it needed an adjustment so I'm re-sending it.
->>>
->>> --------------------------->8----------------------------
->>>
->>> From 622c1297b7d76a319b07a29192fe9bfe5c2b6b7c Mon Sep 17 00:00:00 2001
->>> From: Joao Martins <joao.m.martins@oracle.com>
->>> Date: Tue, 1 Sep 2020 08:06:35 -0400
->>> Subject: [PATCH] device-dax: Require NUMA_KEEP_MEMINFO for
->>>  phys_to_target_node()
->>>
->>> phys_to_target_node() and memory_add_physaddr_to_nid() are only defined
->>> with both CONFIG_NUMA=y and CONFIG_MEMORY_HOTPLUG=y.  Oherwise we see:
->>>
->>> drivers/dax/hmem/device.o: in function `hmem_register_one':
->>> drivers/dax/hmem/device.c:85: undefined reference to `phys_to_target_node'
->>>
->>> lkp also reports such build failures:
->>>
->>> ld.lld: error: undefined symbol: phys_to_target_node
->>>
->>> X86 is a special case in which both can be defined without depending on
->>> MEMORY_HOTPLUG=y. The other case is powerpc (for
->>> memory_add_physaddr_to_nid) but like ARM64 dependencies, the
->>> arch-specific override requires CONFIG_NUMA and CONFIG_MEMORY_HOTPLUG.
->>>
->>> In all cases this ends up depending on CONFIG_NUMA_KEEP_MEMINFO to
->>> signal the presence of phys_to_target_node() which is what
->>> CONFIG_DEV_DAX_HMEM_DEVICES should depend on. Additionally, the X86
->>> arch-override is not selected unless X86_PMEM_LEGACY=y. So on
->>> CONFIG_DEV_DAX_HMEM we select CONFIG_NUMA_KEEP_INFO ourselves if both
->>> NUMA and X86 are set.
->>>
->>> Reported-by: kernel test robot <lkp@intel.com>
->>> Signed-off-by: Joao Martins <joao.m.martins@oracle.com>
->>> ---
->>>  drivers/dax/Kconfig | 2 ++
->>>  1 file changed, 2 insertions(+)
->>>
->>> diff --git a/drivers/dax/Kconfig b/drivers/dax/Kconfig
->>> index a66dff78f298..567428e10b7b 100644
->>> --- a/drivers/dax/Kconfig
->>> +++ b/drivers/dax/Kconfig
->>> @@ -35,6 +35,7 @@ config DEV_DAX_PMEM
->>>  config DEV_DAX_HMEM
->>>         tristate "HMEM DAX: direct access to 'specific purpose' memory"
->>>         depends on EFI_SOFT_RESERVE
->>> +       select NUMA_KEEP_MEMINFO if (NUMA && X86)
->>>         default DEV_DAX
->>>         help
->>>           EFI 2.8 platforms, and others, may advertise 'specific purpose'
->>> @@ -49,6 +50,7 @@ config DEV_DAX_HMEM
->>>           Say M if unsure.
->>>
->>>  config DEV_DAX_HMEM_DEVICES
->>> +       depends on NUMA_KEEP_MEMINFO # for phys_to_target_node()
->>>         depends on DEV_DAX_HMEM && DAX=y
->>>         def_bool y
->>>
->>
->> Hi,
->>
->> There is also this patch from Matt Fleming from last year that I have
->> successfully tested (built) on ppc64 and arch/sh/, where build errors were reported.
->>
->> https://lore.kernel.org/lkml/20191223164220.GA14394@codeblueprint.co.uk/
->>
->> but Matt doesn't seem to be replying to any emails about this patch...
->>
+
+* Kees Cook <keescook@chromium.org> wrote:
+
+> On Fri, Sep 04, 2020 at 07:58:25AM +0200, Ingo Molnar wrote:
+> > 
+> > * Nick Desaulniers <ndesaulniers@google.com> wrote:
+> > 
+> > > On Tue, Sep 1, 2020 at 7:53 PM Kees Cook <keescook@chromium.org> wrote:
+> > > >
+> > > > Hi Ingo,
+> > > >
+> > > > The ever-shortening series. ;) Here is "v7", which is just the remaining
+> > > > Makefile changes to enable orphan section warnings, now updated to
+> > > > include ld-option calls.
+> > > >
+> > > > Thanks for getting this all into -tip!
+> > > 
+> > > For the series,
+> > > Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+> > > 
+> > > As the recent ppc vdso boogaloo exposed, what about the vdsos?
+> > > * arch/x86/entry/vdso/Makefile
+> > > * arch/arm/vdso/Makefile
+> > > * arch/arm64/kernel/vdso/Makefile
+> > > * arch/arm64/kernel/vdso32/Makefile
+> > 
+> > Kees, will these patches DTRT for the vDSO builds? I will be unable to test 
+> > these patches on that old system until tomorrow the earliest.
 > 
-> OK, Matt's patch doesn't fix this x86_64 dax + hmem build error, so
-> apparently Joao's patch is needed.
+> I would like to see VDSO done next, but it's entirely separate from
+> this series. This series only touches the core kernel build (i.e. via the
+> interactions with scripts/link-vmlinux.sh) or the boot stubs. So there
+> is no impact on VDSO linking.
+
+Great!
+
+I also double checked that things still build fine with ancient LD.
+
+> > I'm keeping these latest changes in WIP.core/build for now.
 > 
+> They should be safe to land in -next, which is important so we can shake
+> out any other sneaky sections that all our existing testing hasn't
+> found. :)
 
-OTOH, Joao's patch doesn't fix the ppc64 and arch/sh/ build errors.
+OK, cool - I've graduated them over into tip:core/build. :-)
 
-I'd prefer to see one patch to fix all of these build errors...
+Thanks,
 
--- 
-~Randy
+	Ingo
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/fc34c6c9-5d77-3062-b977-26cb34eb577a%40infradead.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200906072419.GA886844%40gmail.com.
