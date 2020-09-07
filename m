@@ -1,135 +1,139 @@
-Return-Path: <clang-built-linux+bncBCQYFH77QIORB366275AKGQEUFSMTKY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDZMNZPOQUERB5PE275AKGQEWZDE62I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103d.google.com (mail-pj1-x103d.google.com [IPv6:2607:f8b0:4864:20::103d])
-	by mail.lfdr.de (Postfix) with ESMTPS id BC40A25F52F
-	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Sep 2020 10:29:37 +0200 (CEST)
-Received: by mail-pj1-x103d.google.com with SMTP id y5sf6651145pjw.0
-        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Sep 2020 01:29:37 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1599467376; cv=pass;
+Received: from mail-yb1-xb37.google.com (mail-yb1-xb37.google.com [IPv6:2607:f8b0:4864:20::b37])
+	by mail.lfdr.de (Postfix) with ESMTPS id DB88D25F587
+	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Sep 2020 10:42:30 +0200 (CEST)
+Received: by mail-yb1-xb37.google.com with SMTP id w38sf10672368ybi.20
+        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Sep 2020 01:42:30 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599468149; cv=pass;
         d=google.com; s=arc-20160816;
-        b=dSdlKGrnFOj4TkmMGJL3IoF9QBKD0jtuRzqJBMdIShvA9E4QSBNW/fz41inOQiNGiY
-         Bar9S68s+cIaHPE0segNraOg9o4+84RcnVoTfjeYSiCAnB/SXbzSG5kEhkd1vYxaYvRn
-         b3SBz3/6SAVcM5IACICvrkZQi4oe1/M3SDI8ArqFPlZfl/JJYQnyYmAiTyUjt5jPnsX6
-         Zk0PRU2BOPbcTZJ6VQKvME5J76s0/LrcpU7VHhsgGWmYkWHVLU3gp8QCCSICpeTAC3MD
-         BWrgWw3ln1LofA4brc0UtXCknWeufttEqcDzQpL+nwooNtQKbIthmySZRkQ+8ViYAfFG
-         8Adw==
+        b=YnGH5+mp+xt2HIlowIGON5MThlu5lZDwCPEalWrN/tNtcRi8M3XVRzUs7uZyglTEEj
+         ihMAJentMsBhDFF7abQ6QSpWY/4jFqFMBmgdf6B5SoRXPhC3SA8sBib7wPnQ2Fzho1L6
+         LRZWL+8IjOEk9D+EBpr34g++YDPAbHxCIF8lOP3MBD/TvKOwdPstEZYeTC7HnhvMJLVI
+         tXmvVMiaFFyWblena3njP2Kba5CSplTPHhPv1cSl8/aWAIzlwNGttp+KIZIZ3YVNtfgm
+         cVlw10To98aLdfAm3q7c4gHBguoIz6p6s1Plc2/tN1P1nDArSfY4tlycEFvl8fcqBKbr
+         A3jA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:feedback-id:date:message-id
-         :user-agent:cc:to:references:in-reply-to:from:subject:mime-version
-         :dmarc-filter:sender:dkim-signature;
-        bh=8jzul7W2fP4NVUI0BmsLybeWOiw3kXaOnStAYv4Q4Sk=;
-        b=JU5KKRma0twfVANvB5TFsa7p8225gHF3TgrMsDgWLvGj7I/WwX9MseOQ/ltizK8O8w
-         1KMrXnFPJDZayunhqQe56sU6r2aR1VsYw7reaVY0EcCVd6gqw0qby6z0gebfQ2gx1k5m
-         Xd7lXbrNPVFZWb7ElIwYFs/xkJCi5sV66kMGaqFrzdSI6wrIt1oCC/JJA8oJg8RgxKHI
-         Cm+d8ibw8aY3xyWopjRatSgStuXN8J/HiDK3h6U+dFYjFVBZl6lWDTWqV0i/b3ZdCC0Q
-         0Rb5UCpf3RWciyaFyoBdyPpj4BR9X2PXu4sOCZa38jTFvjxiw0yLv1HNQIj/hQczMc1w
-         mvLA==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=iORizgRyBhBnAR7YGm7qx5hmS69FhbHYXqTunT0LMDc=;
+        b=SgEvVgnnTCOxyBv7jCxUG7QUSOkmkH/6JV7zyG2IBIHETgvKNBkU58YVkI7lm5EGc+
+         VQOBkPf3dYBKSGAqHTtXuvbTne5D5hBJnJSr5+y/iryOfqB8KwdJXfx+MBpDNlnhPSzg
+         aBvDjhu5Zc7P+ElrjhZuO5sG8iRnOt4B4PRtiAeBnxcLUfWSsp/2aQ6wK03R7iHWBeNA
+         R4dJM9DtI/v4W0TaMyumuC3yETST88YW2g0l+3UVSp43ubsw5N8uQdtCMvCotWksuNBh
+         vYVTcNI5yfapsVYE0gzVmlJJA+qMPGR0qmh3HACpSvMX0qRmvy6Mp+6qGDl1m2SRNnef
+         bA8g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@codeaurora.org header.s=zsmsymrwgfyinv5wlfyidntwsjeeldzt header.b=FCgXJFqU;
-       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=dAgYnauR;
-       spf=pass (google.com: domain of 0101017467af48bc-b4b17b98-b622-4e3b-b4af-a8d88152bfd8-000000@us-west-2.amazonses.com designates 54.240.27.55 as permitted sender) smtp.mailfrom=0101017467af48bc-b4b17b98-b622-4e3b-b4af-a8d88152bfd8-000000@us-west-2.amazonses.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=Ctqy4W9W;
+       spf=pass (google.com: domain of jthierry@redhat.com designates 207.211.31.120 as permitted sender) smtp.mailfrom=jthierry@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dmarc-filter:mime-version:subject:from:in-reply-to
-         :references:to:cc:user-agent:message-id:date:feedback-id
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=8jzul7W2fP4NVUI0BmsLybeWOiw3kXaOnStAYv4Q4Sk=;
-        b=JGzq9hE/CwXt8RkEdgZC7eMe8dpByR6SpMFirQY8pM1RLPx+fuszmKpBmumY0z2fSD
-         UwPdpFwyM81E4urJiPTE+Lg+2B02PwoowVgES3JnzD+pWwSxt+7Yid2cxj9M21n0yf6k
-         AyHAlHMRjhlJFrvpahbKPZqSEKILlSm89QNE3eVmR+y3HnPoMt/M1/0IG94+m859wuI7
-         Zn96Wrl2WicsoldY0bJx8VCRpkmH0i178H5TGsUkR9uZxf4gIvVT/a5RSxdgBq3FhBpg
-         ryIWVt5q/G4ZyPy8yO4gFjWEw9VK6Suxf6OdrhWpr9lYmmq7QF/bY1vVlBNp95aLk7Df
-         VYHA==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=iORizgRyBhBnAR7YGm7qx5hmS69FhbHYXqTunT0LMDc=;
+        b=Z5n2HeElufvKra3+2ALgii5YdBxSc5oM6VtsiUeI09b9eEi46UczTCEZ5+5BGuUcto
+         /BVoNogl7RPKafg5D+Ideo1n9OJjWpWgyWY+53js51hx71ik+l1nWi750aA7pGVWHD49
+         QWCD2Pwqx5i6IhkCCieDBONdEk1OzK943ZmoTuWeCeL61j2cgZZJ8qrdYNJnSHYVWCQR
+         HJSHbv+KkLkqY2Y/g55/ttzpc1LsGdK0V75Jjo/rSypDIcF1Hvr1q4eXk3Ucs9CASA6X
+         Yjg0j+Ic+bm2JzykSyyIvTrqWX23/Bv2p/mgnkE1QqJFSc0COMRVPjoLgtLspVMEvMAW
+         a5vg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dmarc-filter:mime-version:subject:from
-         :in-reply-to:references:to:cc:user-agent:message-id:date:feedback-id
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=8jzul7W2fP4NVUI0BmsLybeWOiw3kXaOnStAYv4Q4Sk=;
-        b=mu84bQWRvZKc2zRP/8PMF2Jtq63tbHNjOjCM6wveH7UB7MBP0pQ0O8qzQ4dvmIp41I
-         saro2uAmOGw9sJ1dgaW1to+980gMuWHVNUNmXr9BfJgvhCK3OSsT/zjTcqLi9MDxa6Ux
-         djugHf7l4jAeX806duUQjGyh7u3mnmGPNQUC4EsRHOaWNB07Sif5KlCSUhJeNsvAhVPl
-         od3i5JY/04nk3sp/kcOBCwKbOgBoXnL2mAqcXk1SyRoXcYhpRa09VNtxy0N3eaPq/MCh
-         r4UKku6guZd/UfL8Y4iWK0V9KIDesCqTbSk553EAmmxfA879sF4nElN+5XwXTiN8wDsV
-         cBog==
+        bh=iORizgRyBhBnAR7YGm7qx5hmS69FhbHYXqTunT0LMDc=;
+        b=AJTFnwoV7qhzczlhjzWvoyTUhfR/Uq+D04s7ysoimELl73vyXa1jJPut0A/loFPXU5
+         XjW4rTABza7kSArk0HHqiBzZ4pgoqvRHbYf8ngUpALTctW2PgVYu784U2g9Z/HX6Uhh6
+         APHiCmznPPkoAPiM6caP8S6HUQ4RsJjCyUD8dPJd5MLKmq4iUX1q7k2uRxJ4mZ4ToQPS
+         k+c8eMxWBClDGl7MTY9eKBtygVXhv6jU8drRyj/k29dfbzfz2NyYCCDqaxhAXKlwI8us
+         L9QPeVKX+SHBfNzXX7YY1qCFQGRJ6E0SDBAJ2/2i5woN9zV2FZ6ABbUPlV7OFBQKZUxc
+         2G+Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532e/tnZaxJk+j6s8XPR7Pum0bX5khp+64VsvQuiZhyiEmJ+0Yau
-	IOdMcUBY1MGH86Hs9ZphuM0=
-X-Google-Smtp-Source: ABdhPJxFhnCjy+46tb6qNT6OBl/kH/IdTWCQpwnrsImWsB+OitpW+3Ek/3ez+Ekcn80fOAkri0jLtg==
-X-Received: by 2002:a17:90a:ca82:: with SMTP id y2mr19276226pjt.233.1599467376008;
-        Mon, 07 Sep 2020 01:29:36 -0700 (PDT)
+X-Gm-Message-State: AOAM530FnUQB8aDob1SuRHxjRts0WGa4SfQ0Gj4IFbToCWZ5VvsiRpTk
+	tDY/e/5d3nJUpV90MJ46Jho=
+X-Google-Smtp-Source: ABdhPJzJ08LgXjTGI78G+v0Xl6s+TNh8QAuDu1XJja8NYu//ETsFf3VCAhYyEFPHSNfYcGpjBVRAZQ==
+X-Received: by 2002:a25:7007:: with SMTP id l7mr26291269ybc.85.1599468149759;
+        Mon, 07 Sep 2020 01:42:29 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:ead1:: with SMTP id p17ls653414pld.2.gmail; Mon, 07
- Sep 2020 01:29:35 -0700 (PDT)
-X-Received: by 2002:a17:902:ba8f:: with SMTP id k15mr18762120pls.79.1599467375429;
-        Mon, 07 Sep 2020 01:29:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1599467375; cv=none;
+Received: by 2002:a25:8b04:: with SMTP id i4ls582427ybl.9.gmail; Mon, 07 Sep
+ 2020 01:42:29 -0700 (PDT)
+X-Received: by 2002:a25:2006:: with SMTP id g6mr29110434ybg.143.1599468149394;
+        Mon, 07 Sep 2020 01:42:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599468149; cv=none;
         d=google.com; s=arc-20160816;
-        b=DYj0XMYroLbqZApMthEieJFiqHIxv5rR2e/rpxMvMURRa01bt8AKUd6xZOLsd4TGzn
-         Opx0keWLXF2VrwhV5/3OVh7yoYglf84KQh97+PK1EDwGgEwG6yfmAyDT+XcFIm0GYurm
-         eJ5IDwLoCHVtIv1opAVvbi9M6HP/3dQJ1rJu5wblDF+MDbmErJuKt2te5S44eXM7cJ+j
-         A6k5gurtId00IRDWpp7oiWj34Bs48v0m5j6dJI9Jo812ZXPvC3IReZr8jDkeGhE1C6GN
-         D94gWY/7veOh76S3ULY/KZf64Z5urNlpQDBMNuyiF2fQ72JVh+uYJin19CR+D838xw0p
-         L9vQ==
+        b=LxN3n87ZxfJIwHvHJJDo6D90q00yRSb/NrbJ7h0SmFxP/KbgJm8AmWi1dm4Eh/YzF7
+         RqKj7gXioMiz1kW6xnXjqMNyyZHDlg/vgEYmnKsmi1x6maIGBQDSsJ6kuuM1v7+bWGQi
+         v/4XSl8FFO5/x3kNY5xRHP/pgHKHsyVwNmq0jN3hI3F9sQDPSIN2uwQw3C1Gh/Nigrdj
+         z/aLubHHpZGsbQJVS0wA8LYtFPU0WYd4In0XiVWfe7XQyLfCQWfwFEACseraLvSI61fp
+         T24PMb6B58aJXh1cFOn5KSCLGB5P3penD7YOjothBKERNVw+mrkNSBxHLwCZwws/icQJ
+         cw8A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=feedback-id:date:message-id:user-agent:cc:to:references:in-reply-to
-         :from:subject:content-transfer-encoding:mime-version:dmarc-filter
-         :dkim-signature:dkim-signature;
-        bh=SaEeqg/Fupb9vGu3wtZARuQU2c48oPmlAvKxe6Z0YWg=;
-        b=ivq35Ffm3yzngsqBldB5tWRem7PPc6jw+RUx1xVDXeIFDMcWUzBSAaA2htVN2KV5+H
-         9xIHQI7zot+213Aud668jkApBvwI/90O3EjCjorK22I9PSfXGt7s+Xvg2Ry8VcnYndsp
-         a63Y+NA2Zcu/OauU0lQ34P6X7qRXe4qmrLeLSl3dzaoNC5f8NAgnpk7Lc/riX5egqWpP
-         W13eRbGqBFyFnXLMrOcosgBUdsEBNGrFfGlHb7XY62lDJXPsjptD31C/0w3pwmvpaqKp
-         eYcH42IbBfbUiu4zAb/IDhyResXqFnzDVEJ8QZR92O93QNpKEU5PPRxhQlAo0w8dpe+o
-         ow/w==
+        h=content-language:content-transfer-encoding:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=VJ3OFYCoUbQfHOlgxAnpGI6Ou2klPUnQKoKOz4ukdpI=;
+        b=N5BsyG9rJOp2TbOj7hHJHPfwu4CU9VT3VAX0BGdljr+D6aVsXX3spjXi/ti5RDlJ6O
+         S4d2PMw1d+RQzJnlxhhluw7ATEeS5tJ9b+E/zeEfNQXKDyLRqLofV/q/H0wTbzkKsIyQ
+         reFBQKm8LdcWifSehny+VXUGwSvkYIDJUdJgmQA2aQn8iTqmXnIYi3YoAyWJFx6CIJUE
+         wVbmngEMZwS+Twz4i4kuIIK6lJGiIndqc6SVy2Auf8r0pIWb0PslYl8HO0k+JF96GYHl
+         FeAybPR5wCNvaK52ykK2G7o6PF9si+XA3DVduoVdRCcpdD4hOKbiM+E9K8YMq1I8nt4t
+         yldQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@codeaurora.org header.s=zsmsymrwgfyinv5wlfyidntwsjeeldzt header.b=FCgXJFqU;
-       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=dAgYnauR;
-       spf=pass (google.com: domain of 0101017467af48bc-b4b17b98-b622-4e3b-b4af-a8d88152bfd8-000000@us-west-2.amazonses.com designates 54.240.27.55 as permitted sender) smtp.mailfrom=0101017467af48bc-b4b17b98-b622-4e3b-b4af-a8d88152bfd8-000000@us-west-2.amazonses.com
-Received: from a27-55.smtp-out.us-west-2.amazonses.com (a27-55.smtp-out.us-west-2.amazonses.com. [54.240.27.55])
-        by gmr-mx.google.com with ESMTPS id v62si709992pgv.0.2020.09.07.01.29.35
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=Ctqy4W9W;
+       spf=pass (google.com: domain of jthierry@redhat.com designates 207.211.31.120 as permitted sender) smtp.mailfrom=jthierry@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [207.211.31.120])
+        by gmr-mx.google.com with ESMTPS id m193si1059104ybf.1.2020.09.07.01.42.29
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
-        Mon, 07 Sep 2020 01:29:35 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 0101017467af48bc-b4b17b98-b622-4e3b-b4af-a8d88152bfd8-000000@us-west-2.amazonses.com designates 54.240.27.55 as permitted sender) client-ip=54.240.27.55;
-X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
-	aws-us-west-2-caf-mail-1.web.codeaurora.org
-X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=2.0 tests=ALL_TRUSTED,BAYES_00,
-	MISSING_DATE,MISSING_MID,SPF_FAIL autolearn=no autolearn_force=no
-	version=3.4.0
-DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org AA80DC4345B
-Content-Type: text/plain; charset="UTF-8"
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 07 Sep 2020 01:42:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jthierry@redhat.com designates 207.211.31.120 as permitted sender) client-ip=207.211.31.120;
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-187-va9aS7uFNK2QeJ6gDMF4-w-1; Mon, 07 Sep 2020 04:42:16 -0400
+X-MC-Unique: va9aS7uFNK2QeJ6gDMF4-w-1
+Received: by mail-wr1-f70.google.com with SMTP id f18so5451022wrv.19
+        for <clang-built-linux@googlegroups.com>; Mon, 07 Sep 2020 01:42:16 -0700 (PDT)
+X-Received: by 2002:a05:600c:245:: with SMTP id 5mr20006902wmj.33.1599468135179;
+        Mon, 07 Sep 2020 01:42:15 -0700 (PDT)
+X-Received: by 2002:a05:600c:245:: with SMTP id 5mr20006880wmj.33.1599468134945;
+        Mon, 07 Sep 2020 01:42:14 -0700 (PDT)
+Received: from ?IPv6:2a01:cb14:499:3d00:cd47:f651:9d80:157a? ([2a01:cb14:499:3d00:cd47:f651:9d80:157a])
+        by smtp.gmail.com with ESMTPSA id s11sm27722217wrt.43.2020.09.07.01.42.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 07 Sep 2020 01:42:14 -0700 (PDT)
+Subject: Re: [jpoimboe:objtool/core.WIP.julien 5/14] ./sync-check.sh: 54:
+ ./sync-check.sh: Syntax error: redirection unexpected
+To: kernel test robot <lkp@intel.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+ Josh Poimboeuf <jpoimboe@redhat.com>, Miroslav Benes <mbenes@suse.cz>
+References: <202009050512.VSnsZ4vs%lkp@intel.com>
+From: Julien Thierry <jthierry@redhat.com>
+Message-ID: <89e8b630-b4c7-cb6d-94ad-d954a83c0c0e@redhat.com>
+Date: Mon, 7 Sep 2020 09:42:13 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.5.0
 MIME-Version: 1.0
-Subject: Re: [PATCH] mwifiex: Remove unnecessary braces from
- HostCmd_SET_SEQ_NO_BSS_INFO
-From: Kalle Valo <kvalo@codeaurora.org>
-In-Reply-To: <20200901070834.1015754-1-natechancellor@gmail.com>
-References: <20200901070834.1015754-1-natechancellor@gmail.com>
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Amitkumar Karwar <amitkarwar@gmail.com>,
- Ganapathi Bhat <ganapathi.bhat@nxp.com>, Xinming Hu <huxinming820@gmail.com>,
- linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
- Nathan Chancellor <natechancellor@gmail.com>, Andy Lavr <andy.lavr@gmail.com>
-User-Agent: pwcli/0.1.0-git (https://github.com/kvalo/pwcli/) Python/3.5.2
-Message-ID: <0101017467af48bc-b4b17b98-b622-4e3b-b4af-a8d88152bfd8-000000@us-west-2.amazonses.com>
-Date: Mon, 7 Sep 2020 08:29:34 +0000
-X-SES-Outgoing: 2020.09.07-54.240.27.55
-Feedback-ID: 1.us-west-2.CZuq2qbDmUIuT3qdvXlRHZZCpfZqZ4GtG9v3VKgRyF0=:AmazonSES
-X-Original-Sender: kvalo@codeaurora.org
+In-Reply-To: <202009050512.VSnsZ4vs%lkp@intel.com>
+X-Mimecast-Spam-Score: 0.002
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: jthierry@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@codeaurora.org header.s=zsmsymrwgfyinv5wlfyidntwsjeeldzt
- header.b=FCgXJFqU;       dkim=pass header.i=@amazonses.com
- header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=dAgYnauR;       spf=pass
- (google.com: domain of 0101017467af48bc-b4b17b98-b622-4e3b-b4af-a8d88152bfd8-000000@us-west-2.amazonses.com
- designates 54.240.27.55 as permitted sender) smtp.mailfrom=0101017467af48bc-b4b17b98-b622-4e3b-b4af-a8d88152bfd8-000000@us-west-2.amazonses.com
+ header.i=@redhat.com header.s=mimecast20190719 header.b=Ctqy4W9W;
+       spf=pass (google.com: domain of jthierry@redhat.com designates
+ 207.211.31.120 as permitted sender) smtp.mailfrom=jthierry@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,42 +146,54 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Nathan Chancellor <natechancellor@gmail.com> wrote:
 
-> A new warning in clang points out when macro expansion might result in a
-> GNU C statement expression. There is an instance of this in the mwifiex
-> driver:
-> 
-> drivers/net/wireless/marvell/mwifiex/cmdevt.c:217:34: warning: '}' and
-> ')' tokens terminating statement expression appear in different macro
-> expansion contexts [-Wcompound-token-split-by-macro]
->         host_cmd->seq_num = cpu_to_le16(HostCmd_SET_SEQ_NO_BSS_INFO
->                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-> drivers/net/wireless/marvell/mwifiex/fw.h:519:46: note: expanded from
-> macro 'HostCmd_SET_SEQ_NO_BSS_INFO'
->         (((type) & 0x000f) << 12);                  }
->                                                     ^
-> 
-> This does not appear to be a real issue. Removing the braces and
-> replacing them with parentheses will fix the warning and not change the
-> meaning of the code.
-> 
-> Fixes: 5e6e3a92b9a4 ("wireless: mwifiex: initial commit for Marvell mwifiex driver")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1146
-> Reported-by: Andy Lavr <andy.lavr@gmail.com>
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
 
-Patch applied to wireless-drivers-next.git, thanks.
+On 9/4/20 10:58 PM, kernel test robot wrote:
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/jpoimboe/linux.git objtool/core.WIP.julien
+> head:   bc5b275638c5e74126aeb8ae394f2b784a8346bf
+> commit: bbfd86269d713a8f26fd4c90b6b7b90a5967e1fb [5/14] objtool: Group headers to check in a single list
+> config: x86_64-randconfig-a006-20200904 (attached as .config)
+> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 1284dc34abd11ce4275ad21c0470ad8c679b59b7)
+> reproduce (this is a W=1 build):
+>          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>          chmod +x ~/bin/make.cross
+>          # install x86_64 cross compiling tool for clang build
+>          # apt-get install binutils-x86-64-linux-gnu
+>          git checkout bbfd86269d713a8f26fd4c90b6b7b90a5967e1fb
+>          # save the attached .config to linux build tree
+>          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
+> 
 
-6a953dc4dbd1 mwifiex: Remove unnecessary braces from HostCmd_SET_SEQ_NO_BSS_INFO
+I've tried reproducing this localy on fedora 30. I don't observe the 
+error, on the same branch.
+
+Any suggestions on what the issue might be?
+
+Thanks,
+
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+> 
+> All errors (new ones prefixed by >>):
+> 
+>>> ./sync-check.sh: 54: ./sync-check.sh: Syntax error: redirection unexpected
+>     make[3]: *** [Makefile:67: tools/objtool/objtool-in.o] Error 2
+>     make[3]: *** Waiting for unfinished jobs....
+>     make[2]: *** [Makefile:68: objtool] Error 2
+>     make[1]: *** [Makefile:1890: tools/objtool] Error 2
+>     make[1]: Target 'prepare' not remade because of errors.
+>     make: *** [Makefile:185: __sub-make] Error 2
+>     make: Target 'prepare' not remade because of errors.
+> 
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+> 
 
 -- 
-https://patchwork.kernel.org/patch/11747495/
-
-https://wireless.wiki.kernel.org/en/developers/documentation/submittingpatches
+Julien Thierry
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/0101017467af48bc-b4b17b98-b622-4e3b-b4af-a8d88152bfd8-000000%40us-west-2.amazonses.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/89e8b630-b4c7-cb6d-94ad-d954a83c0c0e%40redhat.com.
