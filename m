@@ -1,125 +1,135 @@
-Return-Path: <clang-built-linux+bncBC4MX6WW7QIBB6GE275AKGQEL4FQGQA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQYFH77QIORB366275AKGQEUFSMTKY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23c.google.com (mail-lj1-x23c.google.com [IPv6:2a00:1450:4864:20::23c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6DE2C25F411
-	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Sep 2020 09:34:17 +0200 (CEST)
-Received: by mail-lj1-x23c.google.com with SMTP id 6sf1595433lju.22
-        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Sep 2020 00:34:17 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1599464057; cv=pass;
+Received: from mail-pj1-x103d.google.com (mail-pj1-x103d.google.com [IPv6:2607:f8b0:4864:20::103d])
+	by mail.lfdr.de (Postfix) with ESMTPS id BC40A25F52F
+	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Sep 2020 10:29:37 +0200 (CEST)
+Received: by mail-pj1-x103d.google.com with SMTP id y5sf6651145pjw.0
+        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Sep 2020 01:29:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599467376; cv=pass;
         d=google.com; s=arc-20160816;
-        b=c2CJIeMeNptm1qhLlQKDWk7X05aeGdGVPzmjPlvNofAjISISLT+rm8p7tLbLRXzxQl
-         R8Egdr02NaPQ6pn7S4Kbpryy6pBVx0fCFSH58Pr1swA05Kq3YignYGs4HVw7clwCv3Lw
-         Rx8Dgp+KNyA0+uyyL1jMEkvy0pi5sMsY3a31eLv49UcXxNS+5+Ef4sqMz/0Mz7XOZX2v
-         Eody+bR8hUJ2rMbKBKzrOMbvhhQtJgvR5Q1rA4O9sKMxtWy7pKyTwqOZm0WM6XoihsDX
-         BcmFeEFaFahKzjUq7m4CnVBMgMcQpydd/IurkQ+uVsWNRIi95Iue5b9qhkZXeC5YZdd+
-         hzpA==
+        b=dSdlKGrnFOj4TkmMGJL3IoF9QBKD0jtuRzqJBMdIShvA9E4QSBNW/fz41inOQiNGiY
+         Bar9S68s+cIaHPE0segNraOg9o4+84RcnVoTfjeYSiCAnB/SXbzSG5kEhkd1vYxaYvRn
+         b3SBz3/6SAVcM5IACICvrkZQi4oe1/M3SDI8ArqFPlZfl/JJYQnyYmAiTyUjt5jPnsX6
+         Zk0PRU2BOPbcTZJ6VQKvME5J76s0/LrcpU7VHhsgGWmYkWHVLU3gp8QCCSICpeTAC3MD
+         BWrgWw3ln1LofA4brc0UtXCknWeufttEqcDzQpL+nwooNtQKbIthmySZRkQ+8ViYAfFG
+         8Adw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=s3sPQ4pRJrA9qZwIBSQVqQ8wsvC04vDQ+f00YfzntrM=;
-        b=zqPuuLuBqAxd+NeU0IY+uqCvUHBxzPJcDbJm0X/tJViaMFxg+az+eFhDpQGaJc3w9W
-         JnNWutfdD6aYOHq2JTePY/x/nilO9stkYxAxQQ9EMPy0fsTUDpZYCyoQ+iWuIwr334rF
-         o4v57S1kLreCD8kLlS3cr7JLRn8W18BOzhlN97ugctOBP6XAFetJJvexMir32W/UJuOr
-         PZrIJZ7dYlBMTvbs4Pevy82lE/r3iOxJ9aXpxsfic67T1+q6+n+++mL1DcokpLNPKGpk
-         rxue9LLPX3QJh4HFiJAqoW95dMoKmRYjxGzhD0a9KRlp8Zv0UyVl0tUuu7t5/tobJlch
-         Z4Kw==
+         :list-id:mailing-list:precedence:feedback-id:date:message-id
+         :user-agent:cc:to:references:in-reply-to:from:subject:mime-version
+         :dmarc-filter:sender:dkim-signature;
+        bh=8jzul7W2fP4NVUI0BmsLybeWOiw3kXaOnStAYv4Q4Sk=;
+        b=JU5KKRma0twfVANvB5TFsa7p8225gHF3TgrMsDgWLvGj7I/WwX9MseOQ/ltizK8O8w
+         1KMrXnFPJDZayunhqQe56sU6r2aR1VsYw7reaVY0EcCVd6gqw0qby6z0gebfQ2gx1k5m
+         Xd7lXbrNPVFZWb7ElIwYFs/xkJCi5sV66kMGaqFrzdSI6wrIt1oCC/JJA8oJg8RgxKHI
+         Cm+d8ibw8aY3xyWopjRatSgStuXN8J/HiDK3h6U+dFYjFVBZl6lWDTWqV0i/b3ZdCC0Q
+         0Rb5UCpf3RWciyaFyoBdyPpj4BR9X2PXu4sOCZa38jTFvjxiw0yLv1HNQIj/hQczMc1w
+         mvLA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of miquel.raynal@bootlin.com designates 217.70.178.231 as permitted sender) smtp.mailfrom=miquel.raynal@bootlin.com
+       dkim=pass header.i=@codeaurora.org header.s=zsmsymrwgfyinv5wlfyidntwsjeeldzt header.b=FCgXJFqU;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=dAgYnauR;
+       spf=pass (google.com: domain of 0101017467af48bc-b4b17b98-b622-4e3b-b4af-a8d88152bfd8-000000@us-west-2.amazonses.com designates 54.240.27.55 as permitted sender) smtp.mailfrom=0101017467af48bc-b4b17b98-b622-4e3b-b4af-a8d88152bfd8-000000@us-west-2.amazonses.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:dmarc-filter:mime-version:subject:from:in-reply-to
+         :references:to:cc:user-agent:message-id:date:feedback-id
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=s3sPQ4pRJrA9qZwIBSQVqQ8wsvC04vDQ+f00YfzntrM=;
-        b=gsIMgSZA+m85sckgqAneo7oNeP7d/GgSNRV2v+0UZDAX/1oHAiY/rvqz1e71577euf
-         LTjSpLevQzBLF/KRrlBLXjG/5ZZXxbZE+uToKHOQO6visoIpDKJ4g9IcStQrudJaZEUl
-         TdU5hlisDc7AdOmnRpUakIhjBxdpSONKnGPSKgvmcEM+86TYmKVOpjaa4p4IC/Mg1ljY
-         K36MBktzQr/lsrq+bMLcQeAc+C7umPYppS+NQpkMnrVrU00Z+3DNoVrvNdnPyyybDkc8
-         ibSIoqOvlVISd7dptlv6vDvxy2RqDQ/XViiAYd3rlTt4lsS/eom1xtwW5JmXPalV98CX
-         /q7A==
+        bh=8jzul7W2fP4NVUI0BmsLybeWOiw3kXaOnStAYv4Q4Sk=;
+        b=JGzq9hE/CwXt8RkEdgZC7eMe8dpByR6SpMFirQY8pM1RLPx+fuszmKpBmumY0z2fSD
+         UwPdpFwyM81E4urJiPTE+Lg+2B02PwoowVgES3JnzD+pWwSxt+7Yid2cxj9M21n0yf6k
+         AyHAlHMRjhlJFrvpahbKPZqSEKILlSm89QNE3eVmR+y3HnPoMt/M1/0IG94+m859wuI7
+         Zn96Wrl2WicsoldY0bJx8VCRpkmH0i178H5TGsUkR9uZxf4gIvVT/a5RSxdgBq3FhBpg
+         ryIWVt5q/G4ZyPy8yO4gFjWEw9VK6Suxf6OdrhWpr9lYmmq7QF/bY1vVlBNp95aLk7Df
+         VYHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=s3sPQ4pRJrA9qZwIBSQVqQ8wsvC04vDQ+f00YfzntrM=;
-        b=WMYVSyeojSYUmg400LU+2gHTrZh491jZfN8J3NXs4PFUcC48VYN4Gpe/3gDAs+xkCS
-         SxlnhLhMrlWhDHnA7Z1vN8kc6CDHR210/s/E62e0EXxNbxychOA7UU9E8VXjsy/gv+1M
-         OdvRnT1oNU4QPVfRPiGB2q/z5CV31xTIWQv9VBzBgqDru0cJlXCNHQqKMvA2ubJjYFfS
-         AuCBk7NexKDo6Ez8Pq8c9k9CvkXmMFTDytm60pDOiw0scVqkFZpMGxGckX72MjvNEu2i
-         cjEh+hTa7ElpRkq1YC8/EpHmoeQmKSUljpNSKZ/gkNqZo4C2UNnlmXS1H9q1jNdunLlK
-         paRQ==
+        h=sender:x-gm-message-state:dmarc-filter:mime-version:subject:from
+         :in-reply-to:references:to:cc:user-agent:message-id:date:feedback-id
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=8jzul7W2fP4NVUI0BmsLybeWOiw3kXaOnStAYv4Q4Sk=;
+        b=mu84bQWRvZKc2zRP/8PMF2Jtq63tbHNjOjCM6wveH7UB7MBP0pQ0O8qzQ4dvmIp41I
+         saro2uAmOGw9sJ1dgaW1to+980gMuWHVNUNmXr9BfJgvhCK3OSsT/zjTcqLi9MDxa6Ux
+         djugHf7l4jAeX806duUQjGyh7u3mnmGPNQUC4EsRHOaWNB07Sif5KlCSUhJeNsvAhVPl
+         od3i5JY/04nk3sp/kcOBCwKbOgBoXnL2mAqcXk1SyRoXcYhpRa09VNtxy0N3eaPq/MCh
+         r4UKku6guZd/UfL8Y4iWK0V9KIDesCqTbSk553EAmmxfA879sF4nElN+5XwXTiN8wDsV
+         cBog==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532T8oKkRROxItaSBHzATHPhfyYebi9S77Ns2CPt4X/x5pwJUBLi
-	0rVSGBSnvGNWC76mQfdVExQ=
-X-Google-Smtp-Source: ABdhPJzW+cGVi+gFgBeadkFtShpI//2nLPYU4ZXa+1ck/mU6Mg9jIgaiKtqPOimgZ9hyrKG5yv1Flg==
-X-Received: by 2002:ac2:5b4d:: with SMTP id i13mr9646739lfp.12.1599464056854;
-        Mon, 07 Sep 2020 00:34:16 -0700 (PDT)
+X-Gm-Message-State: AOAM532e/tnZaxJk+j6s8XPR7Pum0bX5khp+64VsvQuiZhyiEmJ+0Yau
+	IOdMcUBY1MGH86Hs9ZphuM0=
+X-Google-Smtp-Source: ABdhPJxFhnCjy+46tb6qNT6OBl/kH/IdTWCQpwnrsImWsB+OitpW+3Ek/3ez+Ekcn80fOAkri0jLtg==
+X-Received: by 2002:a17:90a:ca82:: with SMTP id y2mr19276226pjt.233.1599467376008;
+        Mon, 07 Sep 2020 01:29:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:b1c5:: with SMTP id e5ls3003251lja.0.gmail; Mon, 07 Sep
- 2020 00:34:15 -0700 (PDT)
-X-Received: by 2002:a2e:5c5:: with SMTP id 188mr71824ljf.375.1599464055784;
-        Mon, 07 Sep 2020 00:34:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1599464055; cv=none;
+Received: by 2002:a17:902:ead1:: with SMTP id p17ls653414pld.2.gmail; Mon, 07
+ Sep 2020 01:29:35 -0700 (PDT)
+X-Received: by 2002:a17:902:ba8f:: with SMTP id k15mr18762120pls.79.1599467375429;
+        Mon, 07 Sep 2020 01:29:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599467375; cv=none;
         d=google.com; s=arc-20160816;
-        b=A3Hes4Rk3X0RYbEvi1fdDLTFa0CwZzILHp2n39ZSNv/IN006UjcmluUVL/pgxc7Vfh
-         e0D8y1ADIkPKK6FK0acvADUVLC2rvw0iRYq+vgNavUkWEFN3d6XxR9sJRjuQ5SYZJSkS
-         86Ppxu+sbXt8oYZTdknlGZPwd5yFaQptF3bQtWhRPJvwhdvqmY0Hm4lycNWOme+RwkcH
-         jSbU6NbXIXZY/xmDzyP7jUDM0hx2Q86AL00WteJ7WaWIVxFYLqqFHnU4QRVGz2X/BIYH
-         lh2CSe/5YtDsznMc8zzrOKVKbofZPigmqM6VDYrQS+REdA9JVP1mJVydkHF1w5o0Mwwr
-         sbmQ==
+        b=DYj0XMYroLbqZApMthEieJFiqHIxv5rR2e/rpxMvMURRa01bt8AKUd6xZOLsd4TGzn
+         Opx0keWLXF2VrwhV5/3OVh7yoYglf84KQh97+PK1EDwGgEwG6yfmAyDT+XcFIm0GYurm
+         eJ5IDwLoCHVtIv1opAVvbi9M6HP/3dQJ1rJu5wblDF+MDbmErJuKt2te5S44eXM7cJ+j
+         A6k5gurtId00IRDWpp7oiWj34Bs48v0m5j6dJI9Jo812ZXPvC3IReZr8jDkeGhE1C6GN
+         D94gWY/7veOh76S3ULY/KZf64Z5urNlpQDBMNuyiF2fQ72JVh+uYJin19CR+D838xw0p
+         L9vQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from;
-        bh=rPIcfuSbnlVQh/qjiDdiU7BFofch5hy86LmXDYMW84c=;
-        b=t89KJm+9lUtMR+BQ+HzADDOvN7DO+B7d8gA6xTn0cRP0JW6Up4DWx6nBzi1KsQcCYX
-         wD/9zysf4VO+qa369xRV9wcDHq6ErH2xVAKltiNb0WUKPKjODJuA9XLhkQfJ8DJ4tXdP
-         oIoajSnLk4Qv7fmGs//5utrsOtK8YzBRZAtZ6ei5/Gm65uRvdHe7DHt12lq+X/v45Y+f
-         SXbYFnriSEr2UbsHBUhCvOGgV5oWHxOF4Qsr/Hl8QCgUQXdrEym5FPp81SlM6WR5JOK+
-         UPf+Qiho2YJoWO8hD6hgV70IU0/JcLimGS1rvWTywhHZN6yTeHvvogKf058NT4jh57r0
-         uD0Q==
+        h=feedback-id:date:message-id:user-agent:cc:to:references:in-reply-to
+         :from:subject:content-transfer-encoding:mime-version:dmarc-filter
+         :dkim-signature:dkim-signature;
+        bh=SaEeqg/Fupb9vGu3wtZARuQU2c48oPmlAvKxe6Z0YWg=;
+        b=ivq35Ffm3yzngsqBldB5tWRem7PPc6jw+RUx1xVDXeIFDMcWUzBSAaA2htVN2KV5+H
+         9xIHQI7zot+213Aud668jkApBvwI/90O3EjCjorK22I9PSfXGt7s+Xvg2Ry8VcnYndsp
+         a63Y+NA2Zcu/OauU0lQ34P6X7qRXe4qmrLeLSl3dzaoNC5f8NAgnpk7Lc/riX5egqWpP
+         W13eRbGqBFyFnXLMrOcosgBUdsEBNGrFfGlHb7XY62lDJXPsjptD31C/0w3pwmvpaqKp
+         eYcH42IbBfbUiu4zAb/IDhyResXqFnzDVEJ8QZR92O93QNpKEU5PPRxhQlAo0w8dpe+o
+         ow/w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of miquel.raynal@bootlin.com designates 217.70.178.231 as permitted sender) smtp.mailfrom=miquel.raynal@bootlin.com
-Received: from relay11.mail.gandi.net (relay11.mail.gandi.net. [217.70.178.231])
-        by gmr-mx.google.com with ESMTPS id m11si76463ljp.6.2020.09.07.00.34.15
+       dkim=pass header.i=@codeaurora.org header.s=zsmsymrwgfyinv5wlfyidntwsjeeldzt header.b=FCgXJFqU;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=dAgYnauR;
+       spf=pass (google.com: domain of 0101017467af48bc-b4b17b98-b622-4e3b-b4af-a8d88152bfd8-000000@us-west-2.amazonses.com designates 54.240.27.55 as permitted sender) smtp.mailfrom=0101017467af48bc-b4b17b98-b622-4e3b-b4af-a8d88152bfd8-000000@us-west-2.amazonses.com
+Received: from a27-55.smtp-out.us-west-2.amazonses.com (a27-55.smtp-out.us-west-2.amazonses.com. [54.240.27.55])
+        by gmr-mx.google.com with ESMTPS id v62si709992pgv.0.2020.09.07.01.29.35
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Mon, 07 Sep 2020 00:34:15 -0700 (PDT)
-Received-SPF: pass (google.com: domain of miquel.raynal@bootlin.com designates 217.70.178.231 as permitted sender) client-ip=217.70.178.231;
-Received: from localhost.localdomain (unknown [91.224.148.103])
-	(Authenticated sender: miquel.raynal@bootlin.com)
-	by relay11.mail.gandi.net (Postfix) with ESMTPSA id 8B79F100003;
-	Mon,  7 Sep 2020 07:34:13 +0000 (UTC)
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Arnd Bergmann <arnd@arndb.de>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Vincenzo Aliberti <vincenzo.aliberti@gmail.com>,
-	Brian Norris <computersforpeace@gmail.com>
-Cc: Richard Fontana <rfontana@redhat.com>,
-	linux-mtd@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] mtd: lpddr: fix excessive stack usage with clang
-Date: Mon,  7 Sep 2020 09:34:12 +0200
-Message-Id: <20200907073412.27402-1-miquel.raynal@bootlin.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200505140136.263461-1-arnd@arndb.de>
-References: 
-MIME-Version: 1.0
-X-linux-mtd-patch-notification: thanks
-X-linux-mtd-patch-commit: 3e1b6469f8324bee5927b063e2aca30d3e56b907
-X-Original-Sender: miquel.raynal@bootlin.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of miquel.raynal@bootlin.com designates 217.70.178.231 as
- permitted sender) smtp.mailfrom=miquel.raynal@bootlin.com
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Mon, 07 Sep 2020 01:29:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 0101017467af48bc-b4b17b98-b622-4e3b-b4af-a8d88152bfd8-000000@us-west-2.amazonses.com designates 54.240.27.55 as permitted sender) client-ip=54.240.27.55;
+X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
+	aws-us-west-2-caf-mail-1.web.codeaurora.org
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.0 required=2.0 tests=ALL_TRUSTED,BAYES_00,
+	MISSING_DATE,MISSING_MID,SPF_FAIL autolearn=no autolearn_force=no
+	version=3.4.0
+DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org AA80DC4345B
 Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Subject: Re: [PATCH] mwifiex: Remove unnecessary braces from
+ HostCmd_SET_SEQ_NO_BSS_INFO
+From: Kalle Valo <kvalo@codeaurora.org>
+In-Reply-To: <20200901070834.1015754-1-natechancellor@gmail.com>
+References: <20200901070834.1015754-1-natechancellor@gmail.com>
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Amitkumar Karwar <amitkarwar@gmail.com>,
+ Ganapathi Bhat <ganapathi.bhat@nxp.com>, Xinming Hu <huxinming820@gmail.com>,
+ linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
+ Nathan Chancellor <natechancellor@gmail.com>, Andy Lavr <andy.lavr@gmail.com>
+User-Agent: pwcli/0.1.0-git (https://github.com/kvalo/pwcli/) Python/3.5.2
+Message-ID: <0101017467af48bc-b4b17b98-b622-4e3b-b4af-a8d88152bfd8-000000@us-west-2.amazonses.com>
+Date: Mon, 7 Sep 2020 08:29:34 +0000
+X-SES-Outgoing: 2020.09.07-54.240.27.55
+Feedback-ID: 1.us-west-2.CZuq2qbDmUIuT3qdvXlRHZZCpfZqZ4GtG9v3VKgRyF0=:AmazonSES
+X-Original-Sender: kvalo@codeaurora.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@codeaurora.org header.s=zsmsymrwgfyinv5wlfyidntwsjeeldzt
+ header.b=FCgXJFqU;       dkim=pass header.i=@amazonses.com
+ header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=dAgYnauR;       spf=pass
+ (google.com: domain of 0101017467af48bc-b4b17b98-b622-4e3b-b4af-a8d88152bfd8-000000@us-west-2.amazonses.com
+ designates 54.240.27.55 as permitted sender) smtp.mailfrom=0101017467af48bc-b4b17b98-b622-4e3b-b4af-a8d88152bfd8-000000@us-west-2.amazonses.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,30 +142,42 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, 2020-05-05 at 14:01:16 UTC, Arnd Bergmann wrote:
-> Building lpddr2_nvm with clang can result in a giant stack usage
-> in one function:
-> 
-> drivers/mtd/lpddr/lpddr2_nvm.c:399:12: error: stack frame size of 1144 bytes in function 'lpddr2_nvm_probe' [-Werror,-Wframe-larger-than=]
-> 
-> The problem is that clang decides to build a copy of the mtd_info
-> structure on the stack and then do a memcpy() into the actual version. It
-> shouldn't really do it that way, but it's not strictly a bug either.
-> 
-> As a workaround, use a static const version of the structure to assign
-> most of the members upfront and then only set the few members that
-> require runtime knowledge at probe time.
-> 
-> Fixes: 96ba9dd65788 ("mtd: lpddr: add driver for LPDDR2-NVM PCM memories")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-> Acked-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Nathan Chancellor <natechancellor@gmail.com> wrote:
 
-Applied to https://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git mtd/next, thanks.
+> A new warning in clang points out when macro expansion might result in a
+> GNU C statement expression. There is an instance of this in the mwifiex
+> driver:
+> 
+> drivers/net/wireless/marvell/mwifiex/cmdevt.c:217:34: warning: '}' and
+> ')' tokens terminating statement expression appear in different macro
+> expansion contexts [-Wcompound-token-split-by-macro]
+>         host_cmd->seq_num = cpu_to_le16(HostCmd_SET_SEQ_NO_BSS_INFO
+>                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+> drivers/net/wireless/marvell/mwifiex/fw.h:519:46: note: expanded from
+> macro 'HostCmd_SET_SEQ_NO_BSS_INFO'
+>         (((type) & 0x000f) << 12);                  }
+>                                                     ^
+> 
+> This does not appear to be a real issue. Removing the braces and
+> replacing them with parentheses will fix the warning and not change the
+> meaning of the code.
+> 
+> Fixes: 5e6e3a92b9a4 ("wireless: mwifiex: initial commit for Marvell mwifiex driver")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1146
+> Reported-by: Andy Lavr <andy.lavr@gmail.com>
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
 
-Miquel
+Patch applied to wireless-drivers-next.git, thanks.
+
+6a953dc4dbd1 mwifiex: Remove unnecessary braces from HostCmd_SET_SEQ_NO_BSS_INFO
+
+-- 
+https://patchwork.kernel.org/patch/11747495/
+
+https://wireless.wiki.kernel.org/en/developers/documentation/submittingpatches
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200907073412.27402-1-miquel.raynal%40bootlin.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/0101017467af48bc-b4b17b98-b622-4e3b-b4af-a8d88152bfd8-000000%40us-west-2.amazonses.com.
