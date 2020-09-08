@@ -1,122 +1,124 @@
 Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBA4G4D5AKGQEHWPK46A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x738.google.com (mail-qk1-x738.google.com [IPv6:2607:f8b0:4864:20::738])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3BA04262283
-	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Sep 2020 00:17:41 +0200 (CEST)
-Received: by mail-qk1-x738.google.com with SMTP id s141sf261114qka.13
-        for <lists+clang-built-linux@lfdr.de>; Tue, 08 Sep 2020 15:17:41 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1599603460; cv=pass;
+Received: from mail-il1-x139.google.com (mail-il1-x139.google.com [IPv6:2607:f8b0:4864:20::139])
+	by mail.lfdr.de (Postfix) with ESMTPS id BB6D9262282
+	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Sep 2020 00:17:40 +0200 (CEST)
+Received: by mail-il1-x139.google.com with SMTP id v16sf523706ilh.15
+        for <lists+clang-built-linux@lfdr.de>; Tue, 08 Sep 2020 15:17:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599603459; cv=pass;
         d=google.com; s=arc-20160816;
-        b=AiRSwDFh36XSxN/g4QkbS3YI270GWlkSNQCk4Nvq0Bc5ME/gCGEqjOuxHQBfvnKxEU
-         ADNaHi2bnYgh8R7oClDQpc0HzVbI0BRVLx5gJCQIB8HiN8m46qdpRwPW3Ve2lLjO8IOd
-         +2gwSCIe7a1UZNv+4yz8lc3L0JG0kQe9B7fMKWmQl1lLiNms8kr+OY8BSA9CnishjAH8
-         rLPt2sU9s7hFcnY2BienkFHyUDOLiHcw5wRfRvr7KET6uH5aXHeutAAyGSTluDn5Fxct
-         MLbQuR71kfWv+kakBlxFQjEEo5aQkh3VdjWxT3Cf9M3scxtEnbnxvjtJFnUM+d7cRnQd
-         qaQQ==
+        b=QQcUyXbwtlJOkfJxPbyKOBpnynwnuRPkg4i+C6453P+srVcNDFgPnXxsOl7a/5DIAQ
+         orZFXmm6ZsRCVjOvd7PdNQCaScKfSa6tvkMU9msPp0ZderB4wrusxEkkvVR8dS1O+N9T
+         d/fUu+BYti3YjpVX1QjzYwhV8p6ee9dzO2w4G4PbrUCFx6y4jESwMmd5zPa77KD3C95D
+         HlLmjfsLkFlSXl7VhQK/GSccAhX6KrZ3RVENo2DrkUd4LwqREJ7mK3dPxFsiQZELClV7
+         iBgF1Xzzo6a5EGO4gF2jLzCi9+UHNlJsDcAxKa/GfaOKwSgsZwxLoIQdVAEyUVWLINFM
+         0RSw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:dkim-filter:sender:dkim-signature;
-        bh=2hI7Qg2xFLeSDAsEh+cf38S7QsNkrkFOX+FEl7sNrlE=;
-        b=TbTDp+WYGSjKeary1x8omlLeBk2H2f8YoZJU+/pw8kD9hQeg6gdsp+p2qJLUWRhiBS
-         8Af03iqdX7r4MSdHEvnqyN07fQvV3gw6l+Y7hevBGu3il23gM70JqvxuCiJSFzq1JcfO
-         L+auWp3v86VXVCtIuGhYHn4Y+vtPJItjwjPpyG1T8PXBeOrUnCNQwrFtjKQVv4JmInOC
-         4zl0vSeQ3IerNb2096cliUgSEV/PNJlFS6H/5oBXuxMv3Ug/jiMnR78Y0n/5A1G8gZh9
-         jDzoU/afDqjT8pD6R64oSuBDHmEw2QbbKbYwnn17dlydwtQb8dzkFG9PWAxzVqtEzUDe
-         PIYg==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-filter:sender
+         :dkim-signature;
+        bh=70yIv7SoO4K7jBZ/b0kk8zWFWRpbOufrgNIr4dMJQN4=;
+        b=Mh3obYVu2/8W44bZVEikRhWM7D6AsE1Evldb2WTNPjP1OpDxxi8ZTPlcZ7JLYVFH6W
+         KgaaYzn/JCvXBZ4UmJ92Bk5KN/+MLVciP3SuvT1Rx3Cuc2OwwXzIpGTt6JG1JoUlaymv
+         ia4ZSlzea0opJjbNNOn4Ie7idzz+2Rc8TRO+VD67aAQrmG1ikTuj3areeRboaTtDBzNO
+         lxAjdNxbnMq1LSna5new3A9rXisetZYlKt0NnQ6M+n11aK5D+GzQkk/KZKtC97AStAzl
+         mpA4LzsT1hRe+ix7gqbiisgOHEHqq0Pz9wQTUcidN2DbvuLB+/5UnpU8jCtvKK48XHdX
+         NjkQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b="LQZcLC/N";
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=D7ghS5Pk;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=2hI7Qg2xFLeSDAsEh+cf38S7QsNkrkFOX+FEl7sNrlE=;
-        b=BX3pvNCSKdJMxsefzJOW1UtYy4cANVbhBUFnlQRbQCT1P7Yj1+8TjaJU7h3p0YvALJ
-         l7ac1AFaLD5qqjkMlhzmDBNoqkBdp5UBxsLo3vxlv71iyOprNEjtE42JNyEog90HKhA5
-         Vjp432pa60bU7GG4vMGfS7XT8iGQVSPbH1ay5syvpLgiWLz9+YMIokMa6oZF20MuPYT1
-         vL4ZCkeDok5gbQF/O82GmJjtQZlnWkcho52kfG2N79rl1YPjgZc/EKGHAGhlR17AJczF
-         f41ULUh5I8e2cbMGDWvn+LEwlU85TaaPnKe8x92/4Pz5jKAveG47fhywK5osc/86Nkhn
-         6atg==
+        h=sender:dkim-filter:from:to:cc:subject:date:message-id:in-reply-to
+         :references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=70yIv7SoO4K7jBZ/b0kk8zWFWRpbOufrgNIr4dMJQN4=;
+        b=UvC6KwdzV7eUHDh4Xz7BiEreh28htoJw0BvLFSHvc8jN3+waU3uJBrJLM9cYRG3rHF
+         9+21fBfOzmops1TgfzNvxEYhdhja+C4ISKF6BPE00ASuggzeP+UdRgYyAJSTZQAJqRaZ
+         zWw1fFs1noTYTDem1EGaenN9aJP4MgryTvUc1bb4DtZ4zD2jMWeX6k7kquKEuJC9AQob
+         +wvo6Lv7jJlxnGKjoWKdUiOZznsqrDLGf9M4uJQwWnUnXO3g2HZhd+aMMtegM1Q4ZScB
+         fj32Cr7cNHMfokYTEYgWY2o95lr/lqjJ0e6wDC1yekjy5O1tX++RDAyvhKCuUJQMeLEm
+         i1kQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
-         :message-id:mime-version:x-original-sender
+         :message-id:in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=2hI7Qg2xFLeSDAsEh+cf38S7QsNkrkFOX+FEl7sNrlE=;
-        b=aIHVqxBj4BHDwpRC8b4m+4pSrbvGy376xtMy9zUO1EHq3QRFMOzOlVhy+pro8PIDte
-         Lk6L8egXM0uX3dqdQx/TaGfAqp8vSRBsFQRMw+KshcPGxk1wpaCKTz4QLa6hdaXKQ3N+
-         8Hp2l8B08QWL6Gc2+PdbL5jruJGcgqGnHZEKFD1JHg6BdVZ4WXSISqzwwc83AgY4UmUL
-         xXnVP49OTd1DhAmH4i99SjByHOfO4AzbGnjg9s85v58dnb2SpTsx1XbAwC2TsrFDvq8q
-         F4YQKT92Nz76Y9FlhK+FJOhv4O2TLJy3n/fu9R8k5la2yTl6jw4lifKlbowrXnvpIAT+
-         T2TQ==
+        bh=70yIv7SoO4K7jBZ/b0kk8zWFWRpbOufrgNIr4dMJQN4=;
+        b=CeldoKD8mO4VsfVbEXNpLL2JlVphl5CcJUWTLfFU53IluRjN1kCAaSI1M+c2rSrt9p
+         wXmUfmipoPtkd0Q0w3KR+049zX1fAXUkl5cQECBSsd9le37/bIeOf44fmZmYzynob67B
+         5GEj2v8dtl0fWNfq2u2165r6jUF+f8mSIPv2sORjLTuI+/ZNxB+UDcEJ9ZPbx8WczZPB
+         cvGYezgR/ncCmnbdzpR9fZpLeV4AfD3IGkoDFMR0GRPZBQ7pH1vhbGgQa4ByGMr1PEoy
+         1EBAeDlUH6CjUO7zmSMNF48U65w0Vzxva7xahe2TvtQhuyaJ0n0NuixgYcH5JHrpBcrm
+         s1wQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530D2WGaO+Gk5kBai3kcvc1wbVyWXkog1dsy7KILTQ7gA5c+yKqk
-	1Q7/OqqqBlVBAbVdNS+EddE=
-X-Google-Smtp-Source: ABdhPJxKndQwjdYMDKlIZkHK3B8UvtoBsGw9edcOfyac5cd41w/ie1C4AVFp9DnoaTzhoTmJ9HEE5A==
-X-Received: by 2002:aed:2c06:: with SMTP id f6mr598500qtd.362.1599603460058;
-        Tue, 08 Sep 2020 15:17:40 -0700 (PDT)
-X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:5dc6:: with SMTP id r189ls382416qkb.4.gmail; Tue, 08 Sep
- 2020 15:17:39 -0700 (PDT)
-X-Received: by 2002:a37:b783:: with SMTP id h125mr723116qkf.302.1599603459627;
+X-Gm-Message-State: AOAM531e0Njlx8Mx4tpOhS70atex6cIavFWqENMa6fIjBOhG5+NBMFPm
+	4yAt/MqXELaLrOp921byzDI=
+X-Google-Smtp-Source: ABdhPJxo3xK5Hg8yzAAU5hulqi+v37+ae0TRz77kCvq2ky4NQwc8k4jdzSeNUaFRpbRwyfKkn/yr6g==
+X-Received: by 2002:a5d:8b4c:: with SMTP id c12mr951279iot.167.1599603459268;
         Tue, 08 Sep 2020 15:17:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1599603459; cv=none;
+X-BeenThere: clang-built-linux@googlegroups.com
+Received: by 2002:a02:c9ca:: with SMTP id c10ls56450jap.11.gmail; Tue, 08 Sep
+ 2020 15:17:38 -0700 (PDT)
+X-Received: by 2002:a02:a1d3:: with SMTP id o19mr1205266jah.90.1599603458924;
+        Tue, 08 Sep 2020 15:17:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599603458; cv=none;
         d=google.com; s=arc-20160816;
-        b=ejKuiDG8PBexduFMnVb/o7okzDgPhAvRdXdnOyiECWvAkOolmDiYG5xhO3/cIRMw3+
-         YXyjufVqGZykFhVeUR+XXcTkjMDZtdV9paJtgPDTr7YmGvH6Q8uQUCXBrmShJ+MoNRBr
-         KdP83SiUMEFfAcxmArfsNNx+DWGqkTLfaENU3NvHjduTTsBLHBVxbjAZpO0eF61B3SIy
-         obYFCMl1ZLpSfJ83wE2DwNEuWd6GvEwQGKyfaCM7CZM/eeyjAUQ3R2Gwm3np+IyKqiwO
-         VKGNKuZ+DB710sUpa52Md1shpfz7aCwi1OzS7XlvW7tRX+vz7+wJlIE8ivxCSgaLCet1
-         6W7g==
+        b=tIHmJzYWpY5ckqlcoY1cbPt22Qq41trLmtCDvFlCQdSXX8KR3/4ocQZAW/2MmKhE6k
+         EIACchAThDX/VM7Mlqqgr2TNVW8EHlaqsZlnvSTNga0+jFpr7q/lfEzoAlXVyukAdoK5
+         CXzIfCsMXS0C5xJz2Dx0GCdHI05cdYnxvv6dL6UPMXpVadmqpsqkKJwkXcC6d/l5lyGn
+         nl4ALeMM4i6TXX3g4XKD9Eb144++XTOLMPk98zzzv0isDus02FcWj5cQ6Y3TsWVENG2L
+         S4fWLVevyl2E2IiIM4hN+5+lIAHrxInq8tNqNfCAOcJGYS33uRE0ylw4929XAKTtao9E
+         ysBQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:dkim-filter;
-        bh=WB8vckX/90tGacfzSunXHhuYCkqvIfPGjxJ91cYrgWg=;
-        b=GfNrAP/gAlYuJ6cgN0g2FVNi6wTkN7cGIeuhpahfnGVy3KwNOk0GQGdPWNIeGRnVEc
-         7RlAw28DlDwwVvOoR67lRYq/ktNMlWzbnwPHoveuFZB4thTmg3/V8OME97hpoJY8F3hh
-         Oplt56VWDv9qhYqilzMyhPd3IcUWyQX7/Vg1jIJagZU0fQdXYTDNi1j+kadeJN/bJzqc
-         pTRJrbQz0yCSOHeacHXqZwaRsaAYvTI5zYAh22ReHhmvoygnZnZtcFFqk2ZH/XdH13r/
-         kpgqistBcPEwTMOEXE7KnMNyeSVPeQI9MUuWX39ScFI7PWr3Qscxnt6NgECkfNqU+A5k
-         40zg==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature:dkim-filter;
+        bh=ofEPr9hBQLToa0tnpSFXT71R901tENs3+t3picjYQYs=;
+        b=boZjWAkU3e7jmm/0CIe9XeBMuYewHeVa5n1wjvvsnnqanfaDAwLxduG4dUW8OP477l
+         UQ4rZm2XT8bKTa5uPzELcTwQjZVfj0BnQ2WcVQfXDsBfM66NJOKbZBpRFSXXus4378pL
+         Ck5ID+aundR3ZkF5fGgGxT6U5Ago+ElBRMwnnaG1w4OzNLtV/mJCJeoewVTrCot13xlM
+         OUzWxdffqT21ywIsV1b2zKxOAAX2wC+EnIivQr37YN6jq22Hll2J12Bq13sak4S3N2dG
+         SgzStgnE3J/CFGHGUw18WY82U3yChQprkqRnF6teL4YoBIgw11GEOn9Z2BW97yjgLcrU
+         18AA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b="LQZcLC/N";
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=D7ghS5Pk;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from conuserg-09.nifty.com (conuserg-09.nifty.com. [210.131.2.76])
-        by gmr-mx.google.com with ESMTPS id n26si44106qkg.5.2020.09.08.15.17.39
+        by gmr-mx.google.com with ESMTPS id c10si48353iow.3.2020.09.08.15.17.38
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 08 Sep 2020 15:17:39 -0700 (PDT)
+        Tue, 08 Sep 2020 15:17:38 -0700 (PDT)
 Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) client-ip=210.131.2.76;
 Received: from oscar.flets-west.jp (softbank126090211135.bbtec.net [126.90.211.135]) (authenticated)
-	by conuserg-09.nifty.com with ESMTP id 088MGrFj012572;
-	Wed, 9 Sep 2020 07:16:53 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-09.nifty.com 088MGrFj012572
+	by conuserg-09.nifty.com with ESMTP id 088MGrFk012572;
+	Wed, 9 Sep 2020 07:16:54 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-09.nifty.com 088MGrFk012572
 X-Nifty-SrcIP: [126.90.211.135]
 From: Masahiro Yamada <masahiroy@kernel.org>
 To: linux-kbuild@vger.kernel.org
 Cc: Masahiro Yamada <masahiroy@kernel.org>,
-        Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
         Nathan Chancellor <natechancellor@gmail.com>,
         Nick Desaulniers <ndesaulniers@google.com>,
         clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] kconfig: qconf: use delete[] instead of delete to free array (again)
-Date: Wed,  9 Sep 2020 07:16:37 +0900
-Message-Id: <20200908221638.2782778-1-masahiroy@kernel.org>
+Subject: [PATCH 2/2] kconfig: fix incomplete type 'struct gstr' warning
+Date: Wed,  9 Sep 2020 07:16:38 +0900
+Message-Id: <20200908221638.2782778-2-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20200908221638.2782778-1-masahiroy@kernel.org>
+References: <20200908221638.2782778-1-masahiroy@kernel.org>
 MIME-Version: 1.0
 X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b="LQZcLC/N";
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org
- does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+ header.i=@nifty.com header.s=dec2015msa header.b=D7ghS5Pk;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
@@ -131,47 +133,124 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Commit c9b09a9249e6 ("kconfig: qconf: use delete[] instead of delete
-to free array") fixed two lines, but there is one more.
-(cppcheck does not report it for some reason...)
-
-This was detected by Clang.
-
 "make HOSTCXX=clang++ xconfig" reports the following:
 
-scripts/kconfig/qconf.cc:1279:2: warning: 'delete' applied to a pointer that was allocated with 'new[]'; did you mean 'delete[]'? [-Wmismatched-new-delete]
-        delete data;
-        ^
-              []
-scripts/kconfig/qconf.cc:1239:15: note: allocated with 'new[]' here
-        char *data = new char[count + 1];
-                     ^
+  HOSTCXX scripts/kconfig/qconf.o
+In file included from scripts/kconfig/qconf.cc:23:
+In file included from scripts/kconfig/lkc.h:15:
+scripts/kconfig/lkc_proto.h:26:13: warning: 'get_relations_str' has C-linkage specified, but returns incomplete type 'struct gstr' which could be incompatible with C [-Wreturn-type-c-linkage]
+struct gstr get_relations_str(struct symbol **sym_arr, struct list_head *head);
+            ^
 
-Fixes: c4f7398bee9c ("kconfig: qconf: make debug links work again")
-Fixes: c9b09a9249e6 ("kconfig: qconf: use delete[] instead of delete to free array")
+Currently, get_relations_str() is declared before the struct gstr
+definition.
+
+Move all declarations of menu.c functions below.
+
+BTW, some are declared in lkc.h and some in lkc_proto.h, but the
+difference is unclear. I guess some refactoring is needed.
+
 Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 ---
 
- scripts/kconfig/qconf.cc | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ scripts/kconfig/lkc.h       | 47 +++++++++++++++++++++++--------------
+ scripts/kconfig/lkc_proto.h | 14 -----------
+ 2 files changed, 30 insertions(+), 31 deletions(-)
 
-diff --git a/scripts/kconfig/qconf.cc b/scripts/kconfig/qconf.cc
-index 8638785328a7..c7216b9110fc 100644
---- a/scripts/kconfig/qconf.cc
-+++ b/scripts/kconfig/qconf.cc
-@@ -1276,7 +1276,7 @@ void ConfigInfoView::clicked(const QUrl &url)
- 	}
- 
- 	free(result);
--	delete data;
-+	delete[] data;
+diff --git a/scripts/kconfig/lkc.h b/scripts/kconfig/lkc.h
+index d4ca8297364f..8454649b17bd 100644
+--- a/scripts/kconfig/lkc.h
++++ b/scripts/kconfig/lkc.h
+@@ -66,23 +66,6 @@ static inline void xfwrite(const void *str, size_t len, size_t count, FILE *out)
+ 		fprintf(stderr, "Error in writing or end of file.\n");
  }
  
- void ConfigInfoView::contextMenuEvent(QContextMenuEvent *event)
+-/* menu.c */
+-void _menu_init(void);
+-void menu_warn(struct menu *menu, const char *fmt, ...);
+-struct menu *menu_add_menu(void);
+-void menu_end_menu(void);
+-void menu_add_entry(struct symbol *sym);
+-void menu_add_dep(struct expr *dep);
+-void menu_add_visibility(struct expr *dep);
+-struct property *menu_add_prompt(enum prop_type type, char *prompt, struct expr *dep);
+-void menu_add_expr(enum prop_type type, struct expr *expr, struct expr *dep);
+-void menu_add_symbol(enum prop_type type, struct symbol *sym, struct expr *dep);
+-void menu_add_option_modules(void);
+-void menu_add_option_defconfig_list(void);
+-void menu_add_option_allnoconfig_y(void);
+-void menu_finalize(struct menu *parent);
+-void menu_set_type(int type);
+-
+ /* util.c */
+ struct file *file_lookup(const char *name);
+ void *xmalloc(size_t size);
+@@ -109,6 +92,36 @@ void str_append(struct gstr *gs, const char *s);
+ void str_printf(struct gstr *gs, const char *fmt, ...);
+ const char *str_get(struct gstr *gs);
+ 
++/* menu.c */
++void _menu_init(void);
++void menu_warn(struct menu *menu, const char *fmt, ...);
++struct menu *menu_add_menu(void);
++void menu_end_menu(void);
++void menu_add_entry(struct symbol *sym);
++void menu_add_dep(struct expr *dep);
++void menu_add_visibility(struct expr *dep);
++struct property *menu_add_prompt(enum prop_type type, char *prompt, struct expr *dep);
++void menu_add_expr(enum prop_type type, struct expr *expr, struct expr *dep);
++void menu_add_symbol(enum prop_type type, struct symbol *sym, struct expr *dep);
++void menu_add_option_modules(void);
++void menu_add_option_defconfig_list(void);
++void menu_add_option_allnoconfig_y(void);
++void menu_finalize(struct menu *parent);
++void menu_set_type(int type);
++
++extern struct menu rootmenu;
++
++bool menu_is_empty(struct menu *menu);
++bool menu_is_visible(struct menu *menu);
++bool menu_has_prompt(struct menu *menu);
++const char *menu_get_prompt(struct menu *menu);
++struct menu *menu_get_root_menu(struct menu *menu);
++struct menu *menu_get_parent_menu(struct menu *menu);
++bool menu_has_help(struct menu *menu);
++const char *menu_get_help(struct menu *menu);
++struct gstr get_relations_str(struct symbol **sym_arr, struct list_head *head);
++void menu_get_ext_help(struct menu *menu, struct gstr *help);
++
+ /* symbol.c */
+ void sym_clear_all_valid(void);
+ struct symbol *sym_choice_default(struct symbol *sym);
+diff --git a/scripts/kconfig/lkc_proto.h b/scripts/kconfig/lkc_proto.h
+index f9ab98238aef..9e81be33c40f 100644
+--- a/scripts/kconfig/lkc_proto.h
++++ b/scripts/kconfig/lkc_proto.h
+@@ -12,20 +12,6 @@ bool conf_get_changed(void);
+ void conf_set_changed_callback(void (*fn)(void));
+ void conf_set_message_callback(void (*fn)(const char *s));
+ 
+-/* menu.c */
+-extern struct menu rootmenu;
+-
+-bool menu_is_empty(struct menu *menu);
+-bool menu_is_visible(struct menu *menu);
+-bool menu_has_prompt(struct menu *menu);
+-const char * menu_get_prompt(struct menu *menu);
+-struct menu * menu_get_root_menu(struct menu *menu);
+-struct menu * menu_get_parent_menu(struct menu *menu);
+-bool menu_has_help(struct menu *menu);
+-const char * menu_get_help(struct menu *menu);
+-struct gstr get_relations_str(struct symbol **sym_arr, struct list_head *head);
+-void menu_get_ext_help(struct menu *menu, struct gstr *help);
+-
+ /* symbol.c */
+ extern struct symbol * symbol_hash[SYMBOL_HASHSIZE];
+ 
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200908221638.2782778-1-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200908221638.2782778-2-masahiroy%40kernel.org.
