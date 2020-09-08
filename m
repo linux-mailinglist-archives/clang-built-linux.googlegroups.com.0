@@ -1,164 +1,124 @@
-Return-Path: <clang-built-linux+bncBCNIZP7NQQIRBZEB4D5AKGQEXEMR3WA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBA4G4D5AKGQEHWPK46A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1ACC0262267
-	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Sep 2020 00:08:38 +0200 (CEST)
-Received: by mail-pf1-x43f.google.com with SMTP id q5sf443006pfl.16
-        for <lists+clang-built-linux@lfdr.de>; Tue, 08 Sep 2020 15:08:38 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1599602917; cv=pass;
+Received: from mail-qk1-x738.google.com (mail-qk1-x738.google.com [IPv6:2607:f8b0:4864:20::738])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3BA04262283
+	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Sep 2020 00:17:41 +0200 (CEST)
+Received: by mail-qk1-x738.google.com with SMTP id s141sf261114qka.13
+        for <lists+clang-built-linux@lfdr.de>; Tue, 08 Sep 2020 15:17:41 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599603460; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PZ4UrlDZJ307ywyEiE3DEQx11lURH89E8ri/kwG2bGGgtYwad+gLGvQDXf6m1CasEa
-         vwLipxCMUYu6ceNeL4t4ALNBu589yACdjlQasIYuojQifht5PyU+cQKK31s76qFbtLfy
-         ftPteWpve1evSc6C9t2e2Z/1yNVmsXHZEvijdUaitsaqhERZJ2gMsK8kpuoRfsRBUUKz
-         bR7R1OUQ+M9bTxfeoqke0DT5SyHJyAtU0Nialu5QPM83KVTZLbAW5utP1Iw6qjY4WZlx
-         gz2x838RrM/GLNKLxWr+u4h0gHn4oxorh3vnhTOF2tbAp45nUkyPVy5bE1ao81dbDAXO
-         SkSg==
+        b=AiRSwDFh36XSxN/g4QkbS3YI270GWlkSNQCk4Nvq0Bc5ME/gCGEqjOuxHQBfvnKxEU
+         ADNaHi2bnYgh8R7oClDQpc0HzVbI0BRVLx5gJCQIB8HiN8m46qdpRwPW3Ve2lLjO8IOd
+         +2gwSCIe7a1UZNv+4yz8lc3L0JG0kQe9B7fMKWmQl1lLiNms8kr+OY8BSA9CnishjAH8
+         rLPt2sU9s7hFcnY2BienkFHyUDOLiHcw5wRfRvr7KET6uH5aXHeutAAyGSTluDn5Fxct
+         MLbQuR71kfWv+kakBlxFQjEEo5aQkh3VdjWxT3Cf9M3scxtEnbnxvjtJFnUM+d7cRnQd
+         qaQQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:dlp-version
-         :dlp-reaction:dlp-product:content-language:accept-language
-         :in-reply-to:references:message-id:date:thread-index:thread-topic
-         :subject:cc:to:from:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=94QS/tTKRm8ZHmEgaftw8Odw6Fjx8LYeWnoKAjbBBpU=;
-        b=GwnXvX1VCLW9RJNmoVKsJmIrP9VVYY9WQiTSXrQ+HUMT30A/wT/M5ENBmija8MTxno
-         38XwzE9SDdIqqWuE/l2eEelUukYx7z5IwDgM6I9UjU5NXKNtRdDpdVb6Mg1JKf5c4gyZ
-         I+T7mCN5xNBGCPktjp9pj9aBhhpbM4yf8BVjA4EhjtVgAyGLR3ItBYKkctnFNqwfNqYS
-         z+FnmLMpVLUFh59i5x33FElTQ7zfwY36mzEpgPidavz3KA+3Ho/YAcQphHpJ0xPZdY4B
-         8I76f9lJ9L89Zx642jOt4SFbfas5uccGDGXPmaEqknwD1rvFi2cf0GwdmOD2q6b8YiSg
-         VEag==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:dkim-filter:sender:dkim-signature;
+        bh=2hI7Qg2xFLeSDAsEh+cf38S7QsNkrkFOX+FEl7sNrlE=;
+        b=TbTDp+WYGSjKeary1x8omlLeBk2H2f8YoZJU+/pw8kD9hQeg6gdsp+p2qJLUWRhiBS
+         8Af03iqdX7r4MSdHEvnqyN07fQvV3gw6l+Y7hevBGu3il23gM70JqvxuCiJSFzq1JcfO
+         L+auWp3v86VXVCtIuGhYHn4Y+vtPJItjwjPpyG1T8PXBeOrUnCNQwrFtjKQVv4JmInOC
+         4zl0vSeQ3IerNb2096cliUgSEV/PNJlFS6H/5oBXuxMv3Ug/jiMnR78Y0n/5A1G8gZh9
+         jDzoU/afDqjT8pD6R64oSuBDHmEw2QbbKbYwnn17dlydwtQb8dzkFG9PWAxzVqtEzUDe
+         PIYg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of tony.luck@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=tony.luck@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b="LQZcLC/N";
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :content-language:dlp-product:dlp-reaction:dlp-version:mime-version
+        h=sender:dkim-filter:from:to:cc:subject:date:message-id:mime-version
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=94QS/tTKRm8ZHmEgaftw8Odw6Fjx8LYeWnoKAjbBBpU=;
-        b=e/DONf3CLuGzBf31aJ8KKE1G/mZht5DPMQyK2RXGthoYzg9iPI4NVr+sfYGg3EJQ0M
-         9IBVU38yS96FQFiJINEzDz0bv866rPjAOq7ZrljoMiJwPE2841UL//B06kmHViwTZabs
-         iP8RiaFyNE/q1yO1cJCM6cjU+EhvRRy7UiS/Ex9+5LpKHebCdSHAJwuitO61uNflexpj
-         Us4mbGvg1JjQC0yMA5FDrmMj0aZBl9TuxEFv3PQnlruCohdYOe9yq8vWxTfrD++580gO
-         cYyEgdxPL1bpEmSvRBMA9JgJtKw6sQE28x4pA/wtJrwRcspa0yUQd7mWPl491/SF9tyQ
-         Lfnw==
+        bh=2hI7Qg2xFLeSDAsEh+cf38S7QsNkrkFOX+FEl7sNrlE=;
+        b=BX3pvNCSKdJMxsefzJOW1UtYy4cANVbhBUFnlQRbQCT1P7Yj1+8TjaJU7h3p0YvALJ
+         l7ac1AFaLD5qqjkMlhzmDBNoqkBdp5UBxsLo3vxlv71iyOprNEjtE42JNyEog90HKhA5
+         Vjp432pa60bU7GG4vMGfS7XT8iGQVSPbH1ay5syvpLgiWLz9+YMIokMa6oZF20MuPYT1
+         vL4ZCkeDok5gbQF/O82GmJjtQZlnWkcho52kfG2N79rl1YPjgZc/EKGHAGhlR17AJczF
+         f41ULUh5I8e2cbMGDWvn+LEwlU85TaaPnKe8x92/4Pz5jKAveG47fhywK5osc/86Nkhn
+         6atg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:from:to:cc
-         :subject:thread-topic:thread-index:date:message-id:references
-         :in-reply-to:accept-language:content-language:dlp-product
-         :dlp-reaction:dlp-version:mime-version:x-original-sender
+        h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
+         :message-id:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=94QS/tTKRm8ZHmEgaftw8Odw6Fjx8LYeWnoKAjbBBpU=;
-        b=SQLdAa5Y3+w6c8SxL/wCKB3H1R2AMd9DfAEWgNrK22hqrwtEUGHbS3jxwKdqgGVxJA
-         t8meN4U9ujb/BuhQ2F9j8RsRM8W8clTVVV6gVpumxkLT6KamzZeYDesi8wBlIsmXWV0D
-         7e7Qxtq5enKYsZt4D5EMy8XzGH7+65KGNi4DPEVlegvJOMDHqGg8ez/UOKOWUacWTsev
-         bk3vuyCYRycRTrYlhSA9iiUwsbZ11+wypYCS8eavRqEr+9tM+xMdGoi+2C8Tdf+BYyAO
-         po4yTTZvuO/Le4ONOqd92fBiQ4j+ft3uFXnOdv9d+JIEmvWSlDlCo8rGjgdhYNCeJSPo
-         vZxg==
+        bh=2hI7Qg2xFLeSDAsEh+cf38S7QsNkrkFOX+FEl7sNrlE=;
+        b=aIHVqxBj4BHDwpRC8b4m+4pSrbvGy376xtMy9zUO1EHq3QRFMOzOlVhy+pro8PIDte
+         Lk6L8egXM0uX3dqdQx/TaGfAqp8vSRBsFQRMw+KshcPGxk1wpaCKTz4QLa6hdaXKQ3N+
+         8Hp2l8B08QWL6Gc2+PdbL5jruJGcgqGnHZEKFD1JHg6BdVZ4WXSISqzwwc83AgY4UmUL
+         xXnVP49OTd1DhAmH4i99SjByHOfO4AzbGnjg9s85v58dnb2SpTsx1XbAwC2TsrFDvq8q
+         F4YQKT92Nz76Y9FlhK+FJOhv4O2TLJy3n/fu9R8k5la2yTl6jw4lifKlbowrXnvpIAT+
+         T2TQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5313t4sCHzCxoE8SYRZVRuwtQ13kAhbZmKUHmGrxVT00C1Nli2uS
-	PGiZ83ZOoQfwqLfEdvzd7y4=
-X-Google-Smtp-Source: ABdhPJxK4QhudozFnaq1px0VKtdzysIY4EAtuUJLH6sWcOy1/lHbPdElEMC6outM9dtl3y41YR5mHA==
-X-Received: by 2002:a17:902:8a86:b029:d0:cce6:6507 with SMTP id p6-20020a1709028a86b02900d0cce66507mr1175704plo.10.1599602916804;
-        Tue, 08 Sep 2020 15:08:36 -0700 (PDT)
+X-Gm-Message-State: AOAM530D2WGaO+Gk5kBai3kcvc1wbVyWXkog1dsy7KILTQ7gA5c+yKqk
+	1Q7/OqqqBlVBAbVdNS+EddE=
+X-Google-Smtp-Source: ABdhPJxKndQwjdYMDKlIZkHK3B8UvtoBsGw9edcOfyac5cd41w/ie1C4AVFp9DnoaTzhoTmJ9HEE5A==
+X-Received: by 2002:aed:2c06:: with SMTP id f6mr598500qtd.362.1599603460058;
+        Tue, 08 Sep 2020 15:17:40 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:ee0c:: with SMTP id z12ls343342plb.6.gmail; Tue, 08
- Sep 2020 15:08:36 -0700 (PDT)
-X-Received: by 2002:a17:902:82c1:: with SMTP id u1mr746828plz.38.1599602916145;
-        Tue, 08 Sep 2020 15:08:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1599602916; cv=none;
+Received: by 2002:a37:5dc6:: with SMTP id r189ls382416qkb.4.gmail; Tue, 08 Sep
+ 2020 15:17:39 -0700 (PDT)
+X-Received: by 2002:a37:b783:: with SMTP id h125mr723116qkf.302.1599603459627;
+        Tue, 08 Sep 2020 15:17:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599603459; cv=none;
         d=google.com; s=arc-20160816;
-        b=QkOc6wXE86snskD8ef/X45hEvwxARs7MFrJpMqsDCNth0kUioV7PsLWVqVlDXQx5ar
-         4WsNMQVcKigj/BHYDHokqeUt3pIPFAStTGDL7Gs7ZeH7g4UN0fNvSNlbi7rA3VIwean5
-         gYTb5eQd3LvyUN7VcizISunEK6QhPqxtvVimMr3fkGAKhlb3ojFp4bI5qHVjzd4fxn4w
-         v1mG/iKhygK4EP2T/iWt6kXQD76rb3yqmc2mqSJY+IudfaS0cvtg6rU/SfkfiCBYm2Us
-         mKz6ewXRmfxsq6K/FBvUq/2v3fQc+d93R51dXZm+jdgzarqNf/ZgNJbnoGeQvnZIsWjb
-         ppDQ==
+        b=ejKuiDG8PBexduFMnVb/o7okzDgPhAvRdXdnOyiECWvAkOolmDiYG5xhO3/cIRMw3+
+         YXyjufVqGZykFhVeUR+XXcTkjMDZtdV9paJtgPDTr7YmGvH6Q8uQUCXBrmShJ+MoNRBr
+         KdP83SiUMEFfAcxmArfsNNx+DWGqkTLfaENU3NvHjduTTsBLHBVxbjAZpO0eF61B3SIy
+         obYFCMl1ZLpSfJ83wE2DwNEuWd6GvEwQGKyfaCM7CZM/eeyjAUQ3R2Gwm3np+IyKqiwO
+         VKGNKuZ+DB710sUpa52Md1shpfz7aCwi1OzS7XlvW7tRX+vz7+wJlIE8ivxCSgaLCet1
+         6W7g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:dlp-version:dlp-reaction
-         :dlp-product:content-language:accept-language:in-reply-to:references
-         :message-id:date:thread-index:thread-topic:subject:cc:to:from
-         :ironport-sdr:ironport-sdr;
-        bh=vzVX6cm7FRAuAT4SS0a0gVxWccN+Eqz39ANV3xL35eQ=;
-        b=ImeZ15pDrskCzCD1ljDj0NRAtJ5jO4zFmOSgXYEulpGni0oTkLtsLaoDWvkDpMP+H5
-         Qt0tM2PCZTyEV8LTwsCnvIMfW8Rcfrf4VrlHMDey6kc7NRWXXczxQzYHBFqsT733X64S
-         ZTDmlsTuS2rxbXSjn0jYgYM59XQCDteRdW6n0hNfCgsQYLNpwH6//E+wiOFhNCSrgjVv
-         kuUj1iTr2QfZfSbiXIIlzeklEdGbS1aNNl9cbnKYLW3QH0w2DL08FAjuwyE6vUXwgSiR
-         Aecmp8wPLnME6d3RRr7igV0hCNC/U1uJd4JGR7nPBwZqgs19YVId0S4SB3YWYOyz5UD/
-         Ywmg==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:dkim-filter;
+        bh=WB8vckX/90tGacfzSunXHhuYCkqvIfPGjxJ91cYrgWg=;
+        b=GfNrAP/gAlYuJ6cgN0g2FVNi6wTkN7cGIeuhpahfnGVy3KwNOk0GQGdPWNIeGRnVEc
+         7RlAw28DlDwwVvOoR67lRYq/ktNMlWzbnwPHoveuFZB4thTmg3/V8OME97hpoJY8F3hh
+         Oplt56VWDv9qhYqilzMyhPd3IcUWyQX7/Vg1jIJagZU0fQdXYTDNi1j+kadeJN/bJzqc
+         pTRJrbQz0yCSOHeacHXqZwaRsaAYvTI5zYAh22ReHhmvoygnZnZtcFFqk2ZH/XdH13r/
+         kpgqistBcPEwTMOEXE7KnMNyeSVPeQI9MUuWX39ScFI7PWr3Qscxnt6NgECkfNqU+A5k
+         40zg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of tony.luck@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=tony.luck@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
-        by gmr-mx.google.com with ESMTPS id bj6si45839plb.4.2020.09.08.15.08.36
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b="LQZcLC/N";
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conuserg-09.nifty.com (conuserg-09.nifty.com. [210.131.2.76])
+        by gmr-mx.google.com with ESMTPS id n26si44106qkg.5.2020.09.08.15.17.39
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 08 Sep 2020 15:08:36 -0700 (PDT)
-Received-SPF: pass (google.com: domain of tony.luck@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
-IronPort-SDR: rtKgzJaEaem3Mxte9x1rIaISpHzEmRLMFRTaInJTEYOdt2bby4Be/vxPCSybD0zsk8l2w2i0WC
- 5IlGowyPBHCg==
-X-IronPort-AV: E=McAfee;i="6000,8403,9738"; a="145947590"
-X-IronPort-AV: E=Sophos;i="5.76,407,1592895600"; 
-   d="scan'208";a="145947590"
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from orsmga002.jf.intel.com ([10.7.209.21])
-  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Sep 2020 15:08:35 -0700
-IronPort-SDR: iD9INV+cK10hvjNf5wcoCWfECqjkvPJqs+NlqjOxlQIBOkqvk9Fz6c3A70SJlr4O8fPg3Hqkn0
- ARgq+EuH9Tew==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.76,407,1592895600"; 
-   d="scan'208";a="317340286"
-Received: from fmsmsx602.amr.corp.intel.com ([10.18.126.82])
-  by orsmga002.jf.intel.com with ESMTP; 08 Sep 2020 15:08:34 -0700
-Received: from shsmsx605.ccr.corp.intel.com (10.109.6.215) by
- fmsmsx602.amr.corp.intel.com (10.18.126.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1713.5; Tue, 8 Sep 2020 15:08:32 -0700
-Received: from fmsmsx610.amr.corp.intel.com (10.18.126.90) by
- SHSMSX605.ccr.corp.intel.com (10.109.6.215) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1713.5; Wed, 9 Sep 2020 06:08:30 +0800
-Received: from fmsmsx610.amr.corp.intel.com ([10.18.126.90]) by
- fmsmsx610.amr.corp.intel.com ([10.18.126.90]) with mapi id 15.01.1713.004;
- Tue, 8 Sep 2020 15:08:28 -0700
-From: "Luck, Tony" <tony.luck@intel.com>
-To: "trix@redhat.com" <trix@redhat.com>, "Zhuo, Qiuxu" <qiuxu.zhuo@intel.com>,
-	"bp@alien8.de" <bp@alien8.de>, "mchehab@kernel.org" <mchehab@kernel.org>,
-	"james.morse@arm.com" <james.morse@arm.com>, "rric@kernel.org"
-	<rric@kernel.org>, "natechancellor@gmail.com" <natechancellor@gmail.com>,
-	"ndesaulniers@google.com" <ndesaulniers@google.com>
-CC: "linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
-Subject: RE: [PATCH] EDAC: sb_edac: simplify switch statement
-Thread-Topic: [PATCH] EDAC: sb_edac: simplify switch statement
-Thread-Index: AQHWhSwd2aPyoNmgw0mlzN1Re9AsfalfTkog
-Date: Tue, 8 Sep 2020 22:08:28 +0000
-Message-ID: <7525690b6aaa4e539989b9c2e5703a56@intel.com>
-References: <20200907153225.7294-1-trix@redhat.com>
-In-Reply-To: <20200907153225.7294-1-trix@redhat.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-dlp-product: dlpe-windows
-dlp-reaction: no-action
-dlp-version: 11.5.1.3
-x-originating-ip: [10.1.200.100]
-Content-Type: text/plain; charset="UTF-8"
+        Tue, 08 Sep 2020 15:17:39 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) client-ip=210.131.2.76;
+Received: from oscar.flets-west.jp (softbank126090211135.bbtec.net [126.90.211.135]) (authenticated)
+	by conuserg-09.nifty.com with ESMTP id 088MGrFj012572;
+	Wed, 9 Sep 2020 07:16:53 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-09.nifty.com 088MGrFj012572
+X-Nifty-SrcIP: [126.90.211.135]
+From: Masahiro Yamada <masahiroy@kernel.org>
+To: linux-kbuild@vger.kernel.org
+Cc: Masahiro Yamada <masahiroy@kernel.org>,
+        Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+        Nathan Chancellor <natechancellor@gmail.com>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
+Subject: [PATCH 1/2] kconfig: qconf: use delete[] instead of delete to free array (again)
+Date: Wed,  9 Sep 2020 07:16:37 +0900
+Message-Id: <20200908221638.2782778-1-masahiroy@kernel.org>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-Original-Sender: tony.luck@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of tony.luck@intel.com designates 134.134.136.126 as
- permitted sender) smtp.mailfrom=tony.luck@intel.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=intel.com
+X-Original-Sender: masahiroy@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@nifty.com header.s=dec2015msa header.b="LQZcLC/N";
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org
+ does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -171,18 +131,47 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-> However by initializing the type to DEV_UNKNOWN the 3 case can be
-> removed from the switch, saving a comparison and jump.
->
-> Signed-off-by: Tom Rix <trix@redhat.com>
+Commit c9b09a9249e6 ("kconfig: qconf: use delete[] instead of delete
+to free array") fixed two lines, but there is one more.
+(cppcheck does not report it for some reason...)
 
-Applied. Thanks.
+This was detected by Clang.
 
--Tony
+"make HOSTCXX=clang++ xconfig" reports the following:
 
-[Boris: Pushed to edac-misc and edac-for-next branches in RAS tree]
+scripts/kconfig/qconf.cc:1279:2: warning: 'delete' applied to a pointer that was allocated with 'new[]'; did you mean 'delete[]'? [-Wmismatched-new-delete]
+        delete data;
+        ^
+              []
+scripts/kconfig/qconf.cc:1239:15: note: allocated with 'new[]' here
+        char *data = new char[count + 1];
+                     ^
+
+Fixes: c4f7398bee9c ("kconfig: qconf: make debug links work again")
+Fixes: c9b09a9249e6 ("kconfig: qconf: use delete[] instead of delete to free array")
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+---
+
+ scripts/kconfig/qconf.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts/kconfig/qconf.cc b/scripts/kconfig/qconf.cc
+index 8638785328a7..c7216b9110fc 100644
+--- a/scripts/kconfig/qconf.cc
++++ b/scripts/kconfig/qconf.cc
+@@ -1276,7 +1276,7 @@ void ConfigInfoView::clicked(const QUrl &url)
+ 	}
+ 
+ 	free(result);
+-	delete data;
++	delete[] data;
+ }
+ 
+ void ConfigInfoView::contextMenuEvent(QContextMenuEvent *event)
+-- 
+2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/7525690b6aaa4e539989b9c2e5703a56%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200908221638.2782778-1-masahiroy%40kernel.org.
