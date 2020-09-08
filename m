@@ -1,141 +1,164 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBPXM375AKGQE4ZZIEGA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCNIZP7NQQIRBZEB4D5AKGQEXEMR3WA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43b.google.com (mail-pf1-x43b.google.com [IPv6:2607:f8b0:4864:20::43b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5182B2621E1
-	for <lists+clang-built-linux@lfdr.de>; Tue,  8 Sep 2020 23:23:12 +0200 (CEST)
-Received: by mail-pf1-x43b.google.com with SMTP id s12sf379566pfu.11
-        for <lists+clang-built-linux@lfdr.de>; Tue, 08 Sep 2020 14:23:12 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1599600191; cv=pass;
+Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1ACC0262267
+	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Sep 2020 00:08:38 +0200 (CEST)
+Received: by mail-pf1-x43f.google.com with SMTP id q5sf443006pfl.16
+        for <lists+clang-built-linux@lfdr.de>; Tue, 08 Sep 2020 15:08:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599602917; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nW2YTjEys2I4xDNmwPCidnR/S5e+fP9asx6lNANGu5QHsEBhyCgSQh9D6026ysOx4t
-         VKB+80qsPaITDzGMB4Jup6TMf5LkBVRFxek8im7aTMjDhk76lWrhP+Leq6zx8hbIUjWW
-         abbcKuoz/CXx8Wke3yrQrH8F9JF8xvZxM4BoBfdg2XXfcjdbvPaGZxz+SZ9QhAzzNchm
-         WXDAQHpcDdO9xVCCKxGGathItWrriBd+Xx7MdkVIwFZ5TSPUm80Ne/ZG/UAWbEg9S8iZ
-         zd8XASvgAzeLU9JOdaIbWMvDmPXDOjTBHYdg0JJpTa8RLa9PPXcNH+IcSwH99TZxM5xP
-         tSFA==
+        b=PZ4UrlDZJ307ywyEiE3DEQx11lURH89E8ri/kwG2bGGgtYwad+gLGvQDXf6m1CasEa
+         vwLipxCMUYu6ceNeL4t4ALNBu589yACdjlQasIYuojQifht5PyU+cQKK31s76qFbtLfy
+         ftPteWpve1evSc6C9t2e2Z/1yNVmsXHZEvijdUaitsaqhERZJ2gMsK8kpuoRfsRBUUKz
+         bR7R1OUQ+M9bTxfeoqke0DT5SyHJyAtU0Nialu5QPM83KVTZLbAW5utP1Iw6qjY4WZlx
+         gz2x838RrM/GLNKLxWr+u4h0gHn4oxorh3vnhTOF2tbAp45nUkyPVy5bE1ao81dbDAXO
+         SkSg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:dkim-signature;
-        bh=qhXJWTz7YSwUN/67ecqT9bdlhCEPwXnMqxv3LCugvgc=;
-        b=xiWT5RTWz4sHHfS61wsLumCyoiLdb+M3mESvllxGyMY7CQrVog8w08pbHWUa4AYavv
-         PJJnFxGr1A8MwbkClWtEvwvoukW9QbqZFFJijVL2GqC1HNlJMJqMHUjrkghuyldsxMXv
-         uGSGel7Fc5jTeIK4lckr/0KIhOpOHDOR1fYaRrt44uBJjkqK/qUoHiq9dAa9vxFqcAr0
-         tg1H7ZxKZSf1mr0k40R8mD6o7shg4BVieI5Y65H6rFjKcfKp/TbolCLCOkkfRgutepw2
-         3rx4Kus0q7q1+G7faIM8dyZyPIAwMdr23Bwy08raULfFWXZ9ld9SQ82d+hfxT2OlYWZw
-         W+Ag==
+         :list-id:mailing-list:precedence:mime-version:dlp-version
+         :dlp-reaction:dlp-product:content-language:accept-language
+         :in-reply-to:references:message-id:date:thread-index:thread-topic
+         :subject:cc:to:from:ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=94QS/tTKRm8ZHmEgaftw8Odw6Fjx8LYeWnoKAjbBBpU=;
+        b=GwnXvX1VCLW9RJNmoVKsJmIrP9VVYY9WQiTSXrQ+HUMT30A/wT/M5ENBmija8MTxno
+         38XwzE9SDdIqqWuE/l2eEelUukYx7z5IwDgM6I9UjU5NXKNtRdDpdVb6Mg1JKf5c4gyZ
+         I+T7mCN5xNBGCPktjp9pj9aBhhpbM4yf8BVjA4EhjtVgAyGLR3ItBYKkctnFNqwfNqYS
+         z+FnmLMpVLUFh59i5x33FElTQ7zfwY36mzEpgPidavz3KA+3Ho/YAcQphHpJ0xPZdY4B
+         8I76f9lJ9L89Zx642jOt4SFbfas5uccGDGXPmaEqknwD1rvFi2cf0GwdmOD2q6b8YiSg
+         VEag==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=W3Pr3Jck;
-       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       spf=pass (google.com: domain of tony.luck@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=tony.luck@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=qhXJWTz7YSwUN/67ecqT9bdlhCEPwXnMqxv3LCugvgc=;
-        b=d/j6o5yqezrOgOVjBRzsVqzP5hReQAallcJ+DbEZHpyOndQBM3N27P3MxH8u38HW+/
-         ZSCfQ76OAgO8eD/CtypfXNjxdxdMpswS9c7bl8f8DoY2u0nucclSdmzCDkGlJgyemZgD
-         hjW4UyGO3N07MOBO96n1Fnq1F1ifSRlIKnS2OCuENPCG18ywE9fMcTS7P+5NZDuo92J3
-         9Omd//eMnj56UHXyrlOlA69Zm1LAaqxEY8fDS/22YZ2r83Indiimn49VN8JcKjLRCZCj
-         Qp/7RvWG/My8te9ZdiSUH7woW0L/6w0a8cqvyBW78PNPq9X3bKAK0P+JKpw+eih3Tlwo
-         NZ2Q==
+        h=sender:ironport-sdr:ironport-sdr:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :content-language:dlp-product:dlp-reaction:dlp-version:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=94QS/tTKRm8ZHmEgaftw8Odw6Fjx8LYeWnoKAjbBBpU=;
+        b=e/DONf3CLuGzBf31aJ8KKE1G/mZht5DPMQyK2RXGthoYzg9iPI4NVr+sfYGg3EJQ0M
+         9IBVU38yS96FQFiJINEzDz0bv866rPjAOq7ZrljoMiJwPE2841UL//B06kmHViwTZabs
+         iP8RiaFyNE/q1yO1cJCM6cjU+EhvRRy7UiS/Ex9+5LpKHebCdSHAJwuitO61uNflexpj
+         Us4mbGvg1JjQC0yMA5FDrmMj0aZBl9TuxEFv3PQnlruCohdYOe9yq8vWxTfrD++580gO
+         cYyEgdxPL1bpEmSvRBMA9JgJtKw6sQE28x4pA/wtJrwRcspa0yUQd7mWPl491/SF9tyQ
+         Lfnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:from:to:cc
+         :subject:thread-topic:thread-index:date:message-id:references
+         :in-reply-to:accept-language:content-language:dlp-product
+         :dlp-reaction:dlp-version:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=qhXJWTz7YSwUN/67ecqT9bdlhCEPwXnMqxv3LCugvgc=;
-        b=tGduE9bnsWYUKsC7D3zAp+QFpZR8Wco8J0E/UBxvrDX78m7noFRBLhY/+6QQYkYxOG
-         +W9nEqlfY1qKFYO1Av9JFeBvg4grrDB1+fLobWwDqxY2Kb2Kkyv/81s9Z5UFGB5/xqSK
-         O/yWe4vJQSuXuJblybfy37krM0KwmVRSGB2kruZgx0ERq/PHCcPRxOJZghRzCI6W9UtE
-         bCHIlwoQLuCsQr73z1TKL533cd4EjtXCZmhW655O1R4L9pQS/iW9BjMeffFG84RgrqL1
-         EAG2dZkGvxwSWYn4BFU+H7BhgBNIXGC2PVGMqvCpd37NZkuu9qBZ3tKLwr7aR/B6/Prg
-         fJFA==
-X-Gm-Message-State: AOAM530hszot2PW4omADZ9hrd56AEV6cxfp2Oc1n03dEI/MxwSwvcS5u
-	MTB/oCXieIvISpvgYsOX/9o=
-X-Google-Smtp-Source: ABdhPJx298O7KJjEAPXvLYa2AKirAI/LJUzA2BPjIUfd59mMqzKBCXI2yqQWqrMogCqz//PFda2i9g==
-X-Received: by 2002:a17:90a:d596:: with SMTP id v22mr702141pju.146.1599600191045;
-        Tue, 08 Sep 2020 14:23:11 -0700 (PDT)
+        bh=94QS/tTKRm8ZHmEgaftw8Odw6Fjx8LYeWnoKAjbBBpU=;
+        b=SQLdAa5Y3+w6c8SxL/wCKB3H1R2AMd9DfAEWgNrK22hqrwtEUGHbS3jxwKdqgGVxJA
+         t8meN4U9ujb/BuhQ2F9j8RsRM8W8clTVVV6gVpumxkLT6KamzZeYDesi8wBlIsmXWV0D
+         7e7Qxtq5enKYsZt4D5EMy8XzGH7+65KGNi4DPEVlegvJOMDHqGg8ez/UOKOWUacWTsev
+         bk3vuyCYRycRTrYlhSA9iiUwsbZ11+wypYCS8eavRqEr+9tM+xMdGoi+2C8Tdf+BYyAO
+         po4yTTZvuO/Le4ONOqd92fBiQ4j+ft3uFXnOdv9d+JIEmvWSlDlCo8rGjgdhYNCeJSPo
+         vZxg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM5313t4sCHzCxoE8SYRZVRuwtQ13kAhbZmKUHmGrxVT00C1Nli2uS
+	PGiZ83ZOoQfwqLfEdvzd7y4=
+X-Google-Smtp-Source: ABdhPJxK4QhudozFnaq1px0VKtdzysIY4EAtuUJLH6sWcOy1/lHbPdElEMC6outM9dtl3y41YR5mHA==
+X-Received: by 2002:a17:902:8a86:b029:d0:cce6:6507 with SMTP id p6-20020a1709028a86b02900d0cce66507mr1175704plo.10.1599602916804;
+        Tue, 08 Sep 2020 15:08:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:4812:: with SMTP id kn18ls246403pjb.0.gmail; Tue, 08
- Sep 2020 14:23:10 -0700 (PDT)
-X-Received: by 2002:a17:902:ff12:: with SMTP id f18mr553631plj.118.1599600190427;
-        Tue, 08 Sep 2020 14:23:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1599600190; cv=none;
+Received: by 2002:a17:902:ee0c:: with SMTP id z12ls343342plb.6.gmail; Tue, 08
+ Sep 2020 15:08:36 -0700 (PDT)
+X-Received: by 2002:a17:902:82c1:: with SMTP id u1mr746828plz.38.1599602916145;
+        Tue, 08 Sep 2020 15:08:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599602916; cv=none;
         d=google.com; s=arc-20160816;
-        b=WPgdtKa2p+hcWj1ra6Y38gcOTP4zDuPNVih98pVLkaa9r35HhqvGyvz/gCTsGGM23q
-         Wde8Z8jMPV571zaNTzVqok6QKUIfm+YjBA/tJjZQ90zDtOIegna+kEi6zvJ4z9RiTBSU
-         /BciPZnw28UzG9J122ZkPGsl5qPqb0vwtToBFXL+gCzyHPwcF2Gy70a/ARAUH7SQcKck
-         4aB0MOa2cyY1wLF9911iUJN8+dF4rA77crzr7xmLxEycZla5cRUxywLaI3LsMQLflM/w
-         QdfWB0LvOLoWiSe6x7vSsi1cE7dn2SsE8Nnz2ZfWdxW8mjxozJ0RN4KXYvSTpS0fsetE
-         lf6w==
+        b=QkOc6wXE86snskD8ef/X45hEvwxARs7MFrJpMqsDCNth0kUioV7PsLWVqVlDXQx5ar
+         4WsNMQVcKigj/BHYDHokqeUt3pIPFAStTGDL7Gs7ZeH7g4UN0fNvSNlbi7rA3VIwean5
+         gYTb5eQd3LvyUN7VcizISunEK6QhPqxtvVimMr3fkGAKhlb3ojFp4bI5qHVjzd4fxn4w
+         v1mG/iKhygK4EP2T/iWt6kXQD76rb3yqmc2mqSJY+IudfaS0cvtg6rU/SfkfiCBYm2Us
+         mKz6ewXRmfxsq6K/FBvUq/2v3fQc+d93R51dXZm+jdgzarqNf/ZgNJbnoGeQvnZIsWjb
+         ppDQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=ih6QbdC2BlMXbYNA/XrG1Rz+rSEU4l2iSukj1ZYcfcE=;
-        b=MTSw0sBU404dvwxUeHzGr5rYsvLUg8M18KbcDQEcsMIEtycIID9LxQOwjHiMCrx/0T
-         e05FuxAd/YjqLUA6uQBBW1NuScbcEiKcCOA+6LXTwLPgCtjhiKz5NfJLvWR89b3p+ye6
-         k94NebefwOlPLW/iqYojPImQY8EOxguFdgVC33OMJlSEWo2gguIZe94qzN1Ug/K4ZgPn
-         RsEQQDEkdGiG+A4iBtF0vVGzCDqrvqUQbdshuAY2Gcz2e0Zl5bIKL4QHklSND0/8gXYX
-         RN3tGJxg5/0XjaN0EdJu6U9djb/nAXL3SgRERGzf8Rme2aZWTj9bSIfIRJq5G//aIxVB
-         ZJrA==
+        h=mime-version:content-transfer-encoding:dlp-version:dlp-reaction
+         :dlp-product:content-language:accept-language:in-reply-to:references
+         :message-id:date:thread-index:thread-topic:subject:cc:to:from
+         :ironport-sdr:ironport-sdr;
+        bh=vzVX6cm7FRAuAT4SS0a0gVxWccN+Eqz39ANV3xL35eQ=;
+        b=ImeZ15pDrskCzCD1ljDj0NRAtJ5jO4zFmOSgXYEulpGni0oTkLtsLaoDWvkDpMP+H5
+         Qt0tM2PCZTyEV8LTwsCnvIMfW8Rcfrf4VrlHMDey6kc7NRWXXczxQzYHBFqsT733X64S
+         ZTDmlsTuS2rxbXSjn0jYgYM59XQCDteRdW6n0hNfCgsQYLNpwH6//E+wiOFhNCSrgjVv
+         kuUj1iTr2QfZfSbiXIIlzeklEdGbS1aNNl9cbnKYLW3QH0w2DL08FAjuwyE6vUXwgSiR
+         Aecmp8wPLnME6d3RRr7igV0hCNC/U1uJd4JGR7nPBwZqgs19YVId0S4SB3YWYOyz5UD/
+         Ywmg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=W3Pr3Jck;
-       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x441.google.com (mail-pf1-x441.google.com. [2607:f8b0:4864:20::441])
-        by gmr-mx.google.com with ESMTPS id w136si55343pff.3.2020.09.08.14.23.10
+       spf=pass (google.com: domain of tony.luck@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=tony.luck@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
+        by gmr-mx.google.com with ESMTPS id bj6si45839plb.4.2020.09.08.15.08.36
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 08 Sep 2020 14:23:10 -0700 (PDT)
-Received-SPF: pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::441 as permitted sender) client-ip=2607:f8b0:4864:20::441;
-Received: by mail-pf1-x441.google.com with SMTP id o68so361487pfg.2
-        for <clang-built-linux@googlegroups.com>; Tue, 08 Sep 2020 14:23:10 -0700 (PDT)
-X-Received: by 2002:a05:6a00:1356:b029:13e:d13d:a084 with SMTP id k22-20020a056a001356b029013ed13da084mr947839pfu.27.1599600189879;
-        Tue, 08 Sep 2020 14:23:09 -0700 (PDT)
-Received: from google.com ([2620:15c:201:2:f693:9fff:fef4:1b6d])
-        by smtp.gmail.com with ESMTPSA id gk14sm161668pjb.41.2020.09.08.14.23.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Sep 2020 14:23:09 -0700 (PDT)
-Date: Tue, 8 Sep 2020 14:23:02 -0700
-From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Kees Cook <keescook@chromium.org>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	clang-built-linux@googlegroups.com,
-	kernel-hardening@lists.openwall.com, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	x86@kernel.org
-Subject: Re: [PATCH v2 22/28] arm64: export CC_USING_PATCHABLE_FUNCTION_ENTRY
-Message-ID: <20200908212302.GD1060586@google.com>
-References: <20200624203200.78870-1-samitolvanen@google.com>
- <20200903203053.3411268-1-samitolvanen@google.com>
- <20200903203053.3411268-23-samitolvanen@google.com>
- <202009031544.D66F02D407@keescook>
-MIME-Version: 1.0
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 08 Sep 2020 15:08:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of tony.luck@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
+IronPort-SDR: rtKgzJaEaem3Mxte9x1rIaISpHzEmRLMFRTaInJTEYOdt2bby4Be/vxPCSybD0zsk8l2w2i0WC
+ 5IlGowyPBHCg==
+X-IronPort-AV: E=McAfee;i="6000,8403,9738"; a="145947590"
+X-IronPort-AV: E=Sophos;i="5.76,407,1592895600"; 
+   d="scan'208";a="145947590"
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga002.jf.intel.com ([10.7.209.21])
+  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Sep 2020 15:08:35 -0700
+IronPort-SDR: iD9INV+cK10hvjNf5wcoCWfECqjkvPJqs+NlqjOxlQIBOkqvk9Fz6c3A70SJlr4O8fPg3Hqkn0
+ ARgq+EuH9Tew==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.76,407,1592895600"; 
+   d="scan'208";a="317340286"
+Received: from fmsmsx602.amr.corp.intel.com ([10.18.126.82])
+  by orsmga002.jf.intel.com with ESMTP; 08 Sep 2020 15:08:34 -0700
+Received: from shsmsx605.ccr.corp.intel.com (10.109.6.215) by
+ fmsmsx602.amr.corp.intel.com (10.18.126.82) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1713.5; Tue, 8 Sep 2020 15:08:32 -0700
+Received: from fmsmsx610.amr.corp.intel.com (10.18.126.90) by
+ SHSMSX605.ccr.corp.intel.com (10.109.6.215) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1713.5; Wed, 9 Sep 2020 06:08:30 +0800
+Received: from fmsmsx610.amr.corp.intel.com ([10.18.126.90]) by
+ fmsmsx610.amr.corp.intel.com ([10.18.126.90]) with mapi id 15.01.1713.004;
+ Tue, 8 Sep 2020 15:08:28 -0700
+From: "Luck, Tony" <tony.luck@intel.com>
+To: "trix@redhat.com" <trix@redhat.com>, "Zhuo, Qiuxu" <qiuxu.zhuo@intel.com>,
+	"bp@alien8.de" <bp@alien8.de>, "mchehab@kernel.org" <mchehab@kernel.org>,
+	"james.morse@arm.com" <james.morse@arm.com>, "rric@kernel.org"
+	<rric@kernel.org>, "natechancellor@gmail.com" <natechancellor@gmail.com>,
+	"ndesaulniers@google.com" <ndesaulniers@google.com>
+CC: "linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
+Subject: RE: [PATCH] EDAC: sb_edac: simplify switch statement
+Thread-Topic: [PATCH] EDAC: sb_edac: simplify switch statement
+Thread-Index: AQHWhSwd2aPyoNmgw0mlzN1Re9AsfalfTkog
+Date: Tue, 8 Sep 2020 22:08:28 +0000
+Message-ID: <7525690b6aaa4e539989b9c2e5703a56@intel.com>
+References: <20200907153225.7294-1-trix@redhat.com>
+In-Reply-To: <20200907153225.7294-1-trix@redhat.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+dlp-product: dlpe-windows
+dlp-reaction: no-action
+dlp-version: 11.5.1.3
+x-originating-ip: [10.1.200.100]
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202009031544.D66F02D407@keescook>
-X-Original-Sender: samitolvanen@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=W3Pr3Jck;       spf=pass
- (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::441
- as permitted sender) smtp.mailfrom=samitolvanen@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Sami Tolvanen <samitolvanen@google.com>
-Reply-To: Sami Tolvanen <samitolvanen@google.com>
+MIME-Version: 1.0
+X-Original-Sender: tony.luck@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of tony.luck@intel.com designates 134.134.136.126 as
+ permitted sender) smtp.mailfrom=tony.luck@intel.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,22 +171,18 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Sep 03, 2020 at 03:44:18PM -0700, Kees Cook wrote:
-> On Thu, Sep 03, 2020 at 01:30:47PM -0700, Sami Tolvanen wrote:
-> > Since arm64 does not use -pg in CC_FLAGS_FTRACE with
-> > DYNAMIC_FTRACE_WITH_REGS, skip running recordmcount by
-> > exporting CC_USING_PATCHABLE_FUNCTION_ENTRY.
-> > 
-> > Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-> 
-> How stand-alone is this? Does it depend on the earlier mcount fixes?
+> However by initializing the type to DEV_UNKNOWN the 3 case can be
+> removed from the switch, saving a comparison and jump.
+>
+> Signed-off-by: Tom Rix <trix@redhat.com>
 
-It does, because exporting CC_USING_PATCHABLE_FUNCTION_ENTRY doesn't
-change anything without the earlier mcount changes.
+Applied. Thanks.
 
-Sami
+-Tony
+
+[Boris: Pushed to edac-misc and edac-for-next branches in RAS tree]
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200908212302.GD1060586%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/7525690b6aaa4e539989b9c2e5703a56%40intel.com.
