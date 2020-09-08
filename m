@@ -1,126 +1,144 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBA4G4D5AKGQEHWPK46A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDZKLXNI4ACBBWMJ4D5AKGQETDPAHJQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x139.google.com (mail-il1-x139.google.com [IPv6:2607:f8b0:4864:20::139])
-	by mail.lfdr.de (Postfix) with ESMTPS id BB6D9262282
-	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Sep 2020 00:17:40 +0200 (CEST)
-Received: by mail-il1-x139.google.com with SMTP id v16sf523706ilh.15
-        for <lists+clang-built-linux@lfdr.de>; Tue, 08 Sep 2020 15:17:40 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1599603459; cv=pass;
+Received: from mail-lj1-x23a.google.com (mail-lj1-x23a.google.com [IPv6:2a00:1450:4864:20::23a])
+	by mail.lfdr.de (Postfix) with ESMTPS id E423226229C
+	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Sep 2020 00:25:29 +0200 (CEST)
+Received: by mail-lj1-x23a.google.com with SMTP id n24sf205412ljc.9
+        for <lists+clang-built-linux@lfdr.de>; Tue, 08 Sep 2020 15:25:29 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599603929; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QQcUyXbwtlJOkfJxPbyKOBpnynwnuRPkg4i+C6453P+srVcNDFgPnXxsOl7a/5DIAQ
-         orZFXmm6ZsRCVjOvd7PdNQCaScKfSa6tvkMU9msPp0ZderB4wrusxEkkvVR8dS1O+N9T
-         d/fUu+BYti3YjpVX1QjzYwhV8p6ee9dzO2w4G4PbrUCFx6y4jESwMmd5zPa77KD3C95D
-         HlLmjfsLkFlSXl7VhQK/GSccAhX6KrZ3RVENo2DrkUd4LwqREJ7mK3dPxFsiQZELClV7
-         iBgF1Xzzo6a5EGO4gF2jLzCi9+UHNlJsDcAxKa/GfaOKwSgsZwxLoIQdVAEyUVWLINFM
-         0RSw==
+        b=Kj/+TuBF1qgR8+rm4Iktu8MR4gEoLY9X/6Ju/9SE9K13RzYhw0cExiSZ6rsUb8wlhz
+         MDfFnpXxdoZSplEVWNM8F8eRKKSzowKtYmDiA5wbOsgP9hx2G+/QSUSfyDPfKIMXAhm3
+         uwnNP1Y1u+MFXmxPV7QWO+M0afb8vW5shHBLfFiLsveAwXCAgyAe6IF7CjXo95SzEqoJ
+         o0H+xkMzh+q5O6VkObTTnrHnWRkhY9f34+wGIUMg4k+b95i054lKTVCo7e8aoWDmSAAj
+         s2Beyz5VgAjMrtgsB0XlPxTCf2cunC53cgEd4LmJR9hOA5aAPZXQBWoIrfeKAjFq5Jgc
+         y1eA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-filter:sender
-         :dkim-signature;
-        bh=70yIv7SoO4K7jBZ/b0kk8zWFWRpbOufrgNIr4dMJQN4=;
-        b=Mh3obYVu2/8W44bZVEikRhWM7D6AsE1Evldb2WTNPjP1OpDxxi8ZTPlcZ7JLYVFH6W
-         KgaaYzn/JCvXBZ4UmJ92Bk5KN/+MLVciP3SuvT1Rx3Cuc2OwwXzIpGTt6JG1JoUlaymv
-         ia4ZSlzea0opJjbNNOn4Ie7idzz+2Rc8TRO+VD67aAQrmG1ikTuj3areeRboaTtDBzNO
-         lxAjdNxbnMq1LSna5new3A9rXisetZYlKt0NnQ6M+n11aK5D+GzQkk/KZKtC97AStAzl
-         mpA4LzsT1hRe+ix7gqbiisgOHEHqq0Pz9wQTUcidN2DbvuLB+/5UnpU8jCtvKK48XHdX
-         NjkQ==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=KCjIjvWRJxvGDSzASu1w2ykdJgM1gEJursZQOZzeKyo=;
+        b=HH2v7VtN3JMlaiqM4t/lXW+LAIljFSxKGwq4axnpbdWth/mc4bQ1YaW/KnQxtEza00
+         qLH51inYwQ+zOmjoD+PCUnyfKggRqUfs8jjqyKvt0GQK6WE9/UHHPmD1tHwKno6IspCY
+         VPA3PGVn/mgPqaWbrHLhh9a76OSDKWMbPs3Gc8Cvh98p9Dq5LR+/5OV4Mi0KFDqeI74v
+         DB9jNw0I3DL6nmV0z9SZCCITRRzV4X2G6tFU7Eg3Jp32f8h0rOHqipKdCCBO+yYMNX92
+         szsTyC5cDCMWc22gtH+SURxtRAtEwJg8xaW4Uw5T9TCsJhP6oEFjytIBZTSr+C2CiVUb
+         EptQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=D7ghS5Pk;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: best guess record for domain of pavel@ucw.cz designates 46.255.230.98 as permitted sender) smtp.mailfrom=pavel@ucw.cz
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:from:to:cc:subject:date:message-id:in-reply-to
-         :references:mime-version:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=70yIv7SoO4K7jBZ/b0kk8zWFWRpbOufrgNIr4dMJQN4=;
-        b=UvC6KwdzV7eUHDh4Xz7BiEreh28htoJw0BvLFSHvc8jN3+waU3uJBrJLM9cYRG3rHF
-         9+21fBfOzmops1TgfzNvxEYhdhja+C4ISKF6BPE00ASuggzeP+UdRgYyAJSTZQAJqRaZ
-         zWw1fFs1noTYTDem1EGaenN9aJP4MgryTvUc1bb4DtZ4zD2jMWeX6k7kquKEuJC9AQob
-         +wvo6Lv7jJlxnGKjoWKdUiOZznsqrDLGf9M4uJQwWnUnXO3g2HZhd+aMMtegM1Q4ZScB
-         fj32Cr7cNHMfokYTEYgWY2o95lr/lqjJ0e6wDC1yekjy5O1tX++RDAyvhKCuUJQMeLEm
-         i1kQ==
+        bh=KCjIjvWRJxvGDSzASu1w2ykdJgM1gEJursZQOZzeKyo=;
+        b=k9Dbi3LEiPdCJP8zb/mYbcFDDIHW/EREUkjN0lDvr6jCXoD4XTZ1arHu11saUHHiYk
+         6pKxkz217MIFgq1YgZaWSsgw5b185s98RwYJGaLOCk7lVWRLEBfnZHD+kUudEhr/5xLr
+         K/Q9ivWIuU6xzflTxk93jiQo5uW3i4IQm6e3UyDdDKSOTfwpnhb1yH+jHgNDNXsk6wWX
+         689drtXZIY3cMHOvuf5541yPN8IRCNcheuzo1eE/QvRwlTDYV4UrQR1Zc0luUSHHVnIT
+         92cyLefUJSt3H6kVJPUg22Xan/1iQpFvi/6GJkmZVB1Mek72bH95tRVvqj7c2xJr2qGK
+         N+zA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
-         :message-id:in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=70yIv7SoO4K7jBZ/b0kk8zWFWRpbOufrgNIr4dMJQN4=;
-        b=CeldoKD8mO4VsfVbEXNpLL2JlVphl5CcJUWTLfFU53IluRjN1kCAaSI1M+c2rSrt9p
-         wXmUfmipoPtkd0Q0w3KR+049zX1fAXUkl5cQECBSsd9le37/bIeOf44fmZmYzynob67B
-         5GEj2v8dtl0fWNfq2u2165r6jUF+f8mSIPv2sORjLTuI+/ZNxB+UDcEJ9ZPbx8WczZPB
-         cvGYezgR/ncCmnbdzpR9fZpLeV4AfD3IGkoDFMR0GRPZBQ7pH1vhbGgQa4ByGMr1PEoy
-         1EBAeDlUH6CjUO7zmSMNF48U65w0Vzxva7xahe2TvtQhuyaJ0n0NuixgYcH5JHrpBcrm
-         s1wQ==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=KCjIjvWRJxvGDSzASu1w2ykdJgM1gEJursZQOZzeKyo=;
+        b=RlQFs6lZTVg2rXsnTEkAGTTkLFz3+M43k5tChxu74+8bnG1XW8CZMTojqjd7AgAFhB
+         Ol8JhyJq3ciy4jSedyd70Yu9g8HK1JKdli5S5zvnhNDJdIHGectnWjyBj2G7x88y7oPI
+         LRCdQmR5UDp5xH9cTFfIrGdZYYOIwipVGa9VulcHvJgkgRnXV9ExK61ZlWBiBZTkcBP2
+         yVtKCFfMAbgxW/GSgwYFQEAtIhWHfhFaOaaWkixVJqp3OrvlZ+Biy/AI+s0qK9Aeh5I5
+         nzp08KKiMFMu1XllQMCQEoUii0HcwO6dfkIStiF/LC+219iCQVwMwF5zCawcmw8Cv7O3
+         4c8g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531e0Njlx8Mx4tpOhS70atex6cIavFWqENMa6fIjBOhG5+NBMFPm
-	4yAt/MqXELaLrOp921byzDI=
-X-Google-Smtp-Source: ABdhPJxo3xK5Hg8yzAAU5hulqi+v37+ae0TRz77kCvq2ky4NQwc8k4jdzSeNUaFRpbRwyfKkn/yr6g==
-X-Received: by 2002:a5d:8b4c:: with SMTP id c12mr951279iot.167.1599603459268;
-        Tue, 08 Sep 2020 15:17:39 -0700 (PDT)
+X-Gm-Message-State: AOAM5312N7+wlek1GehVZXJdEzbbOUg2DGJqRkTjHCDwhOxuRnmBdXFn
+	RL+L3h/kUNebC2RMllmyZEU=
+X-Google-Smtp-Source: ABdhPJxQDjzjHyhhLv0gwR1hN6gTH5kCqSr3+RQQwdeTIyQ+JetPTslXbn89RBqHQA/oX4Noz8w+NQ==
+X-Received: by 2002:a2e:91c5:: with SMTP id u5mr339025ljg.278.1599603929408;
+        Tue, 08 Sep 2020 15:25:29 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a02:c9ca:: with SMTP id c10ls56450jap.11.gmail; Tue, 08 Sep
- 2020 15:17:38 -0700 (PDT)
-X-Received: by 2002:a02:a1d3:: with SMTP id o19mr1205266jah.90.1599603458924;
-        Tue, 08 Sep 2020 15:17:38 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1599603458; cv=none;
+Received: by 2002:ac2:5c44:: with SMTP id s4ls90575lfp.3.gmail; Tue, 08 Sep
+ 2020 15:25:28 -0700 (PDT)
+X-Received: by 2002:a19:5e5d:: with SMTP id z29mr521836lfi.32.1599603928249;
+        Tue, 08 Sep 2020 15:25:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599603928; cv=none;
         d=google.com; s=arc-20160816;
-        b=tIHmJzYWpY5ckqlcoY1cbPt22Qq41trLmtCDvFlCQdSXX8KR3/4ocQZAW/2MmKhE6k
-         EIACchAThDX/VM7Mlqqgr2TNVW8EHlaqsZlnvSTNga0+jFpr7q/lfEzoAlXVyukAdoK5
-         CXzIfCsMXS0C5xJz2Dx0GCdHI05cdYnxvv6dL6UPMXpVadmqpsqkKJwkXcC6d/l5lyGn
-         nl4ALeMM4i6TXX3g4XKD9Eb144++XTOLMPk98zzzv0isDus02FcWj5cQ6Y3TsWVENG2L
-         S4fWLVevyl2E2IiIM4hN+5+lIAHrxInq8tNqNfCAOcJGYS33uRE0ylw4929XAKTtao9E
-         ysBQ==
+        b=w92ROckd9Gnpf06eyAL7OuYoCgRsNIcbt5lD3yQ7XdUUmR6GL+qsHJvmVFwOLjXY2F
+         esPeK0F9ha5xnxMIOztoXmtrCxOhdIpa6eV8UySgigdHTwrSQXuPo5HlJtNigKz8R3Ud
+         bvkJJR3Onvw+GTZO5m8IHZdBzC1HJI1qb1oxsY5L+92QP0FuRnoWBCKFcQUk7trJMyUF
+         nbI0U74jYaNIEc4K5XJugL1/4upl/5uZSkARkHjjV+Tlh+p4Nuv6IV33TYSeqeihgDFO
+         2AfXN+0/d/S9/oQq54BWCKDiBSINGG9qRkM30aoFSOQEl4JrSt/TqVwdxeN+x/jVnd6y
+         DkRQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:dkim-filter;
-        bh=ofEPr9hBQLToa0tnpSFXT71R901tENs3+t3picjYQYs=;
-        b=boZjWAkU3e7jmm/0CIe9XeBMuYewHeVa5n1wjvvsnnqanfaDAwLxduG4dUW8OP477l
-         UQ4rZm2XT8bKTa5uPzELcTwQjZVfj0BnQ2WcVQfXDsBfM66NJOKbZBpRFSXXus4378pL
-         Ck5ID+aundR3ZkF5fGgGxT6U5Ago+ElBRMwnnaG1w4OzNLtV/mJCJeoewVTrCot13xlM
-         OUzWxdffqT21ywIsV1b2zKxOAAX2wC+EnIivQr37YN6jq22Hll2J12Bq13sak4S3N2dG
-         SgzStgnE3J/CFGHGUw18WY82U3yChQprkqRnF6teL4YoBIgw11GEOn9Z2BW97yjgLcrU
-         18AA==
+        h=user-agent:in-reply-to:content-transfer-encoding
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date;
+        bh=Q7C+QE9jqF0sIr/3Y5lDHE0rrVOftZzdB0z7ye+dRz4=;
+        b=q1MyBSS78uyE5IeO254wI2RrZoPUfVEQfbmteSja1gpUfQ8fDkjKfZoOdiAwP5YI9Z
+         U4cXhNazdUTSGhgYfNr02bl3qDo0gcKJY7DnKCmgDPa3cbqIp0t+CLqXdI2+6gLkH1No
+         0aw8uylwoBKvYF+PhguMYxiViH6KLhevZHSp3RIfIJLLxumWVXvudTzlTzsCO3rFRdWj
+         Ovrc6Z2Xepd9VAn3X2cKqDRwesrsu5l54hbxUZFfcxCJ95B6+MzeosxpMzLjKmtIuxl2
+         oGO3xRFgZqUV3mfUhd+FszvUgD9wP6FrndXmuadkr5NP7QnwThie0MdazTmUik+ZROjm
+         uCzg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=D7ghS5Pk;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conuserg-09.nifty.com (conuserg-09.nifty.com. [210.131.2.76])
-        by gmr-mx.google.com with ESMTPS id c10si48353iow.3.2020.09.08.15.17.38
+       spf=pass (google.com: best guess record for domain of pavel@ucw.cz designates 46.255.230.98 as permitted sender) smtp.mailfrom=pavel@ucw.cz
+Received: from jabberwock.ucw.cz (jabberwock.ucw.cz. [46.255.230.98])
+        by gmr-mx.google.com with ESMTPS id r6si30204lji.4.2020.09.08.15.25.28
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 08 Sep 2020 15:17:38 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) client-ip=210.131.2.76;
-Received: from oscar.flets-west.jp (softbank126090211135.bbtec.net [126.90.211.135]) (authenticated)
-	by conuserg-09.nifty.com with ESMTP id 088MGrFk012572;
-	Wed, 9 Sep 2020 07:16:54 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-09.nifty.com 088MGrFk012572
-X-Nifty-SrcIP: [126.90.211.135]
-From: Masahiro Yamada <masahiroy@kernel.org>
-To: linux-kbuild@vger.kernel.org
-Cc: Masahiro Yamada <masahiroy@kernel.org>,
-        Nathan Chancellor <natechancellor@gmail.com>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] kconfig: fix incomplete type 'struct gstr' warning
-Date: Wed,  9 Sep 2020 07:16:38 +0900
-Message-Id: <20200908221638.2782778-2-masahiroy@kernel.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20200908221638.2782778-1-masahiroy@kernel.org>
-References: <20200908221638.2782778-1-masahiroy@kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Sep 2020 15:25:28 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of pavel@ucw.cz designates 46.255.230.98 as permitted sender) client-ip=46.255.230.98;
+Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
+	id D96C01C0B87; Wed,  9 Sep 2020 00:25:25 +0200 (CEST)
+Date: Wed, 9 Sep 2020 00:25:24 +0200
+From: Pavel Machek <pavel@ucw.cz>
+To: Sedat Dilek <sedat.dilek@gmail.com>
+Cc: Segher Boessenkool <segher@kernel.crashing.org>,
+	Arvind Sankar <nivedita@alum.mit.edu>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+	Borislav Petkov <bp@alien8.de>,
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	Zhenzhong Duan <zhenzhong.duan@oracle.com>,
+	Kees Cook <keescook@chromium.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juergen Gross <jgross@suse.com>, Andy Lutomirski <luto@kernel.org>,
+	Andrew Cooper <andrew.cooper3@citrix.com>,
+	LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Will Deacon <will@kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Subject: Re: [PATCH] x86: work around clang IAS bug referencing __force_order
+Message-ID: <20200908222524.GE1005@bug>
+References: <875z9dioll.fsf@nanos.tec.linutronix.de>
+ <20200820130641.GA536306@rani.riverdale.lan>
+ <87zh6ohm03.fsf@nanos.tec.linutronix.de>
+ <20200821230435.GA56974@rani.riverdale.lan>
+ <CAKwvOdkoB+fT9tt7vgg1R6J-NEr77EWP5X8nFat_L-HvEzWGzA@mail.gmail.com>
+ <87eenzqzmr.fsf@nanos.tec.linutronix.de>
+ <20200822035552.GA104886@rani.riverdale.lan>
+ <20200822084133.GL28786@gate.crashing.org>
+ <CA+icZUVf9a8LC2Mf0cFymYQfALWs6bVfR1v1nRbxKaLAyU6NkQ@mail.gmail.com>
+ <CA+icZUWGHo3mkN4=ZYeU37p8KJhxTXS5QKcAvq_HaqTHmFkw2g@mail.gmail.com>
 MIME-Version: 1.0
-X-Original-Sender: masahiroy@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=D7ghS5Pk;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <CA+icZUWGHo3mkN4=ZYeU37p8KJhxTXS5QKcAvq_HaqTHmFkw2g@mail.gmail.com>
+User-Agent: Mutt/1.5.23 (2014-03-12)
+X-Original-Sender: pavel@ucw.cz
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: best guess record for domain of pavel@ucw.cz designates
+ 46.255.230.98 as permitted sender) smtp.mailfrom=pavel@ucw.cz
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,124 +151,67 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-"make HOSTCXX=clang++ xconfig" reports the following:
+On Sat 2020-08-22 11:51:56, Sedat Dilek wrote:
+> On Sat, Aug 22, 2020 at 11:23 AM Sedat Dilek <sedat.dilek@gmail.com> wrote:
+> >
+> > On Sat, Aug 22, 2020 at 10:42 AM Segher Boessenkool
+> > <segher@kernel.crashing.org> wrote:
+> > >
+> > > Hi Arvind,
+> > >
+> > > On Fri, Aug 21, 2020 at 11:55:52PM -0400, Arvind Sankar wrote:
+> > > > Cc Segher.
+> > > >
+> > > > Segher, we were looking at gcc PR82602, where IRA could reorder volatile
+> > > > asm's (reported on ARM). The fix was backported to gcc-6.
+> > >
+> > > I know ;-)
+> > >
+> > > > Do you know if
+> > > > there is any reason the problem couldn't occur on x86 on older gcc
+> > > > without the fix?
+> > >
+> > > No, I see no particular reason, at least GCC 5 seems vulnerable.  (The
+> > > GCC 5 release branch was closed at the time this bug report was made,
+> > > already).  There is no reason I see why it would work on x86 but fail
+> > > elsewhere, either.
+> > >
+> >
+> > [1] says:
+> >
+> > Current Minimal Requirements
+> > ...
+> > ====================== ===============  ========================================
+> >         Program        Minimal version       Command to check the version
+> > ====================== ===============  ========================================
+> > GNU C                  4.9              gcc --version
+> >
+> > - Sedat -
+> >
+> > [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/changes.rst#n32
+> 
+> [ CC Miguel Ojeda (Compiler Attributes maintainer) ]
+> 
+> There exist gcc-4.8 and gcc-4.9 for Debian/jessie where EOL was June
+> 30, 2020 (see [1] and [2]).
+> 
+> In the latest available version "4.9.2-10+deb8u1" I see no PR82602 was
+> backported (see [3] and [4]).
+> 
+> I am asking myself who is using such ancient compilers?
+> Recently, I threw away GCC-8 from my Debian system.
 
-  HOSTCXX scripts/kconfig/qconf.o
-In file included from scripts/kconfig/qconf.cc:23:
-In file included from scripts/kconfig/lkc.h:15:
-scripts/kconfig/lkc_proto.h:26:13: warning: 'get_relations_str' has C-linkage specified, but returns incomplete type 'struct gstr' which could be incompatible with C [-Wreturn-type-c-linkage]
-struct gstr get_relations_str(struct symbol **sym_arr, struct list_head *head);
-            ^
+I do have 4.9.2 on some systems. They work well, and are likely to compile
+significantly faster than newer ones.
 
-Currently, get_relations_str() is declared before the struct gstr
-definition.
+Please don't break them.
 
-Move all declarations of menu.c functions below.
-
-BTW, some are declared in lkc.h and some in lkc_proto.h, but the
-difference is unclear. I guess some refactoring is needed.
-
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
----
-
- scripts/kconfig/lkc.h       | 47 +++++++++++++++++++++++--------------
- scripts/kconfig/lkc_proto.h | 14 -----------
- 2 files changed, 30 insertions(+), 31 deletions(-)
-
-diff --git a/scripts/kconfig/lkc.h b/scripts/kconfig/lkc.h
-index d4ca8297364f..8454649b17bd 100644
---- a/scripts/kconfig/lkc.h
-+++ b/scripts/kconfig/lkc.h
-@@ -66,23 +66,6 @@ static inline void xfwrite(const void *str, size_t len, size_t count, FILE *out)
- 		fprintf(stderr, "Error in writing or end of file.\n");
- }
- 
--/* menu.c */
--void _menu_init(void);
--void menu_warn(struct menu *menu, const char *fmt, ...);
--struct menu *menu_add_menu(void);
--void menu_end_menu(void);
--void menu_add_entry(struct symbol *sym);
--void menu_add_dep(struct expr *dep);
--void menu_add_visibility(struct expr *dep);
--struct property *menu_add_prompt(enum prop_type type, char *prompt, struct expr *dep);
--void menu_add_expr(enum prop_type type, struct expr *expr, struct expr *dep);
--void menu_add_symbol(enum prop_type type, struct symbol *sym, struct expr *dep);
--void menu_add_option_modules(void);
--void menu_add_option_defconfig_list(void);
--void menu_add_option_allnoconfig_y(void);
--void menu_finalize(struct menu *parent);
--void menu_set_type(int type);
--
- /* util.c */
- struct file *file_lookup(const char *name);
- void *xmalloc(size_t size);
-@@ -109,6 +92,36 @@ void str_append(struct gstr *gs, const char *s);
- void str_printf(struct gstr *gs, const char *fmt, ...);
- const char *str_get(struct gstr *gs);
- 
-+/* menu.c */
-+void _menu_init(void);
-+void menu_warn(struct menu *menu, const char *fmt, ...);
-+struct menu *menu_add_menu(void);
-+void menu_end_menu(void);
-+void menu_add_entry(struct symbol *sym);
-+void menu_add_dep(struct expr *dep);
-+void menu_add_visibility(struct expr *dep);
-+struct property *menu_add_prompt(enum prop_type type, char *prompt, struct expr *dep);
-+void menu_add_expr(enum prop_type type, struct expr *expr, struct expr *dep);
-+void menu_add_symbol(enum prop_type type, struct symbol *sym, struct expr *dep);
-+void menu_add_option_modules(void);
-+void menu_add_option_defconfig_list(void);
-+void menu_add_option_allnoconfig_y(void);
-+void menu_finalize(struct menu *parent);
-+void menu_set_type(int type);
-+
-+extern struct menu rootmenu;
-+
-+bool menu_is_empty(struct menu *menu);
-+bool menu_is_visible(struct menu *menu);
-+bool menu_has_prompt(struct menu *menu);
-+const char *menu_get_prompt(struct menu *menu);
-+struct menu *menu_get_root_menu(struct menu *menu);
-+struct menu *menu_get_parent_menu(struct menu *menu);
-+bool menu_has_help(struct menu *menu);
-+const char *menu_get_help(struct menu *menu);
-+struct gstr get_relations_str(struct symbol **sym_arr, struct list_head *head);
-+void menu_get_ext_help(struct menu *menu, struct gstr *help);
-+
- /* symbol.c */
- void sym_clear_all_valid(void);
- struct symbol *sym_choice_default(struct symbol *sym);
-diff --git a/scripts/kconfig/lkc_proto.h b/scripts/kconfig/lkc_proto.h
-index f9ab98238aef..9e81be33c40f 100644
---- a/scripts/kconfig/lkc_proto.h
-+++ b/scripts/kconfig/lkc_proto.h
-@@ -12,20 +12,6 @@ bool conf_get_changed(void);
- void conf_set_changed_callback(void (*fn)(void));
- void conf_set_message_callback(void (*fn)(const char *s));
- 
--/* menu.c */
--extern struct menu rootmenu;
--
--bool menu_is_empty(struct menu *menu);
--bool menu_is_visible(struct menu *menu);
--bool menu_has_prompt(struct menu *menu);
--const char * menu_get_prompt(struct menu *menu);
--struct menu * menu_get_root_menu(struct menu *menu);
--struct menu * menu_get_parent_menu(struct menu *menu);
--bool menu_has_help(struct menu *menu);
--const char * menu_get_help(struct menu *menu);
--struct gstr get_relations_str(struct symbol **sym_arr, struct list_head *head);
--void menu_get_ext_help(struct menu *menu, struct gstr *help);
--
- /* symbol.c */
- extern struct symbol * symbol_hash[SYMBOL_HASHSIZE];
- 
+									Pavel
 -- 
-2.25.1
+(english) http://www.livejournal.com/~pavelmachek
+(cesky, pictures) http://atrey.karlin.mff.cuni.cz/~pavel/picture/horses/blog.html
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200908221638.2782778-2-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200908222524.GE1005%40bug.
