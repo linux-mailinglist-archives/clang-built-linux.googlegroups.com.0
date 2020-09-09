@@ -1,127 +1,128 @@
-Return-Path: <clang-built-linux+bncBCU2XPGNMEIK5RHD7ICRUBGCDSIRC@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCW73DN2RYFBB6OM4P5AKGQEVKSA43Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x439.google.com (mail-pf1-x439.google.com [IPv6:2607:f8b0:4864:20::439])
-	by mail.lfdr.de (Postfix) with ESMTPS id E7203262F85
-	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Sep 2020 16:09:52 +0200 (CEST)
-Received: by mail-pf1-x439.google.com with SMTP id 82sf2182891pfz.20
-        for <lists+clang-built-linux@lfdr.de>; Wed, 09 Sep 2020 07:09:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1599660591; cv=pass;
+Received: from mail-wm1-x33a.google.com (mail-wm1-x33a.google.com [IPv6:2a00:1450:4864:20::33a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9C407262FC2
+	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Sep 2020 16:28:09 +0200 (CEST)
+Received: by mail-wm1-x33a.google.com with SMTP id x81sf838578wmg.8
+        for <lists+clang-built-linux@lfdr.de>; Wed, 09 Sep 2020 07:28:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599661689; cv=pass;
         d=google.com; s=arc-20160816;
-        b=P1ghC8bn7yqX9bZsAe0wg2AFSLELLoYE+RgVixBnqli6w/SKgWwJbQjvSGLd9BVmy0
-         fYxITb+hxQXD6fP+COr2Ojl+h/njffO9nZ7VyMW07vNCrOylerkhZhkdHIIYxAlx2cEa
-         Agu5Ra7KSxvhenfzybp/TX6bHRJ0KqU+5tV6COSorJeEwUwJborpBeQX9gYa6TAm2v2a
-         0eaKIbN7/gYsxaAs/piXlN0duFBNEyQEswH07xS1CTUJpeM8zYQnp8P2Cquc2+uhwTH+
-         F5ktd59ksaE2YRrXaygQY2MDj0yIJPaGWCH+EjmxmTB8fTJg6LR+J1cbuoJYyqfVrH3U
-         +wwg==
+        b=Mig8KY2CvkAi+LCLW8KCR5jsliO3+3GTwYd8oxf0qROYGkDqgj0CgtWOeodEaWzuqF
+         A71aXFEjzlrW/pyVad1c1MYygKitP6pUdPH36/KXaFUXiZ/iBYCUlk1K9nPFxTPfN6oy
+         uLshufINChEPPVtTp3EJbLK3FUrbV+G1rHhZi9baFo2QimMPlO23YmgXSrdvTL5PtldR
+         ZCkNrWRaGgp9gr+NHPXlGNPx5N3mcZVTKfUnr0RGd3vxXKRmHzdbepC3A/6zSWw/tmiw
+         7eTZ5XUxj0kKQa2a6MSczcWUdsTLR4CySjoLVgwaNxirGlar9MNb9PVjgfXvLXXtBy9e
+         GkhQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:organization:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=cs2rwlQLIsVj4Y8z0xgS9tYO+KVGPD6cimKvtGsOFfw=;
-        b=xTPBBIkYEp3jwWKEFF5sx8h0+BFPjO11KkNUVhCeoWkn0USZpy2PxB7S+XfeWuA/X7
-         aaZq4ll7l0AlWBZkrSZB9prrFd03IsPvI0pD2a4BGqP90jlyIyRoZs6RK33ewGpIeIVw
-         0ojuhytDW2jKU5v0P2T7GYZ1upOP+TJ71DwqY1ofP5OWz02FH936dPXJSeJ2qNzJrxWs
-         UPjYB9uyo5Fm0GUKDf5PRNsJG+Upxw/plHcmTYrHAjl1WR0EU5UH0O9OjNhrqsuClV11
-         v4z/w3xFmG6753PQkqm/QothKS1MLR9fedfAtapV6OuErWJ4fUdLKRJo2uc/XIw8SPHb
-         Kg3w==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=t682T+znFt2My42aHliTV2Tb2lengaLHrMpU1YA+EIU=;
+        b=SP1NLmxZ4XQWdUTYiYkadnGTn+2Mo4XrqoBRYdRUNalVRDTSg50o6Rb0Kz0oT+4jlN
+         LXsyKfcgPYCYLFPg6t6tbWswvRDPISp7bC3kmaYY5/VcCjPLSICxBhLYFNj4JwAueqYl
+         6mQyTMmqKP36JtlW+xvgdZjn68zVSnG8OyFDxU4iqKVanbk+zGgd0u2HTnJvO92HxBbm
+         ev8M6C96VH/MkVebbXjbL4k3LHNIe8qPSf8nlfAzGTS30sRgsT4dZ8qo1vfgiCK30K0W
+         Zc74JBGupbWeE4/rwf8NkiiHKRJWLodzDg+uT9aB7xfP4irorsZH3Iaxw/YvsAihxNR0
+         goQQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of boris@codesynthesis.com designates 142.44.161.217 as permitted sender) smtp.mailfrom=boris@codesynthesis.com
+       dkim=pass header.i=@xs4all.nl header.s=s1 header.b=GhZMVx7p;
+       spf=pass (google.com: domain of hverkuil@xs4all.nl designates 194.109.24.30 as permitted sender) smtp.mailfrom=hverkuil@xs4all.nl
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:organization:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=cs2rwlQLIsVj4Y8z0xgS9tYO+KVGPD6cimKvtGsOFfw=;
-        b=D2pL173gzwCu5v/ZgaaLTQClosSeC0/v34ymYH/grO7BTVKsLKVYSlpfr1fpuGMF4+
-         Kfl8986zF266m9cjUop74++lJmsLAvHnJQTaJ07pwmyXvCoc3sA2bocrAck3s7CYFgpM
-         JGZzfRXJo0V0VoK6cDKFqV7r4MLS4zEc0KVFovR+/2v1wKWrsliKm/ctB44J3/2O4kM6
-         JgOlXJiAwacsGllUEBYkkv314xFHrxBbeq8SNN/cPwkRwzjMC7XCh7pMmNeS/4nzV7bX
-         qjKNvMS0yFDKTZPGZKIqtN+QE+1bwOjFN/hHQA0y6d0HxKOZLeYWDJpjZvjK96mCTAkC
-         2Q6w==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=t682T+znFt2My42aHliTV2Tb2lengaLHrMpU1YA+EIU=;
+        b=QhITW3YwAdJxSBm5YbBVXdawi6WDyJ4uSFv3o7XwS182OUntCqU0Ot4lKuoDMztbhB
+         j3umSdFh7JvoxS1lVmgvVtE8JiJumQQ+9Apuv5IM6uSS4yzXKJg8fnwx52OrBgm+NSUZ
+         KNc5rLpm6Wh2xqgJvjqf68v4/c9ZE9AKhXzat7XWcca024h85e0nooeb7zyZVznsjePo
+         qC/lH7zVJ+vJd9mVaXsq72ug74HqbS9QAe/IcgioxU6+3rTB+HYXFbf2bfiM/n51CyLK
+         UAVXxigxeIjgtdekkCc80hX7VyRf9RfsORy0zDBIuCywjaNWKy1Z5y2dwB9sNEMrzNLR
+         E42w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :organization:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=cs2rwlQLIsVj4Y8z0xgS9tYO+KVGPD6cimKvtGsOFfw=;
-        b=o/qsJwjxChM2t1UVW6uM6h3kUP/hHfp0zgKfEZKeETy38Z2xcqFPcKl/TmAOmbh8/O
-         AQoMczbQQt3heKLLKLceIpvBd5PFi7jlaFk8z+HLB7Y8c3vM5utyvWxKeP5PWCiGfezs
-         HMV5t4K6MeHI75BhzOeqn6M93bX1mV0nftVKIQyN5YXpG7ecHfbpBsiLf0S63IE9MKOu
-         m1AUUM3NWcqZw8pafGq0pIKVp7Haf0g3MQCyKOEB3Qr2s5Bw3V0Oap8yG34Iz0tKKFD+
-         rzVD6IX1yBUFkSr2/QHtgYXCaVMoqcy/hLm7IrCWlSFucRdYlFc0sNYCxEprGteP82WL
-         l3fA==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=t682T+znFt2My42aHliTV2Tb2lengaLHrMpU1YA+EIU=;
+        b=SubFH05y782m/jFw/w0bBl8hovy1TXhk6QewGWOFHmSsi/qdA7Obipqto+B0KFaUtq
+         WEFzwrVmN6xGAikaa4qxK212s56GD4eQ06iFc2nxrUHakLi9Rf94HYn2YsbCvb9P6/um
+         fIHqk3n4iKTijSnMqdObeJrCxX/8QivDtUWu8pqqz0LWfaNmVNcG0q0EP55UvJKwnEEW
+         pT6ZPfPbouX+EvpxxloYQ+8MLXCAvg4UUYdOdOxMIfYqedBprOxaRGD8lpy0K6rPGW01
+         hcucaf/1841gjT8kFRFUh6T24MFPBDhWgsDDFSe/7PNd7imve5B7nLHteVtkj/RHmbIL
+         Mvdg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531RHz7THwv+06VuV8PQ/gOxch9qVA6+vtPYVJsDKAShKMeimQMW
-	MoN6j11Cr7xlUhwg8HCKG1Y=
-X-Google-Smtp-Source: ABdhPJzVxX64Wtef+VnaP0xx96t8r0G1kVgcfDoictq46qpMsj19RJkkT1s9e6PGUalUdNS5V4ijWw==
-X-Received: by 2002:a17:902:a50b:: with SMTP id s11mr988702plq.136.1599660591110;
-        Wed, 09 Sep 2020 07:09:51 -0700 (PDT)
+X-Gm-Message-State: AOAM530sYQPtFLD2nvSpWESTMRE1Ih06B77Epto8ddrRRMiQjTPGMhiI
+	YTkrlG66IGpOjpIPaYxO5Zo=
+X-Google-Smtp-Source: ABdhPJzIVsgSSq6Ts6BMKbcyAY/n04Ibu/PvEbOQ+fFYhbi4YM6WU7ZBcl5shp/QX8Qn5NZ7VvguOg==
+X-Received: by 2002:a1c:40a:: with SMTP id 10mr3960277wme.61.1599661689352;
+        Wed, 09 Sep 2020 07:28:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:fe98:: with SMTP id x24ls1062453plm.6.gmail; Wed, 09
- Sep 2020 07:09:50 -0700 (PDT)
-X-Received: by 2002:a17:902:544:: with SMTP id 62mr990355plf.162.1599660590535;
-        Wed, 09 Sep 2020 07:09:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1599660590; cv=none;
+Received: by 2002:a05:600c:230d:: with SMTP id 13ls1354585wmo.0.canary-gmail;
+ Wed, 09 Sep 2020 07:28:08 -0700 (PDT)
+X-Received: by 2002:a1c:5a87:: with SMTP id o129mr3951633wmb.145.1599661688362;
+        Wed, 09 Sep 2020 07:28:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599661688; cv=none;
         d=google.com; s=arc-20160816;
-        b=cC8OLT7G0uERtjQb9T3+UWn89rlUUCBOXqHYnekQt13iWoFgRommI6K1cxe7hwahjm
-         8CE1fVXWxl9lUlZ9ViX7S37kBGVfYGd/Gcf5JfYU2zTVHk2QJFLXLkZB7LgxvhbE80kW
-         3LKXZI/e9PgT4d72YaQ24kSZWpY7erXaVFoyqMqq/Owt5flh5rVbpLHDr2LMC2WOfCz3
-         3Bh+oQwgwj97u2S4wGjRDbK4eEhowa4mkcG0zNfUd4JL7AGFGLSPxvsT1KH5n1gil53H
-         C0VRxldaVrJXuZ3hjpvKbRbuZvHuGGD8YrYEfuJdCKCDXYImpdcB8fH+c937HH66GaSh
-         htrw==
+        b=c3CwIg0cQBtFWmk5+pMP1U0J65XM+s8h/Yg06IzFjI2E4dvhiCUFPs7JG1jjTeUwV/
+         RlMrflLruZo2NGxy8WUkHGHbIWKTkwePokddGA+Vjg3KhszDWHmqff6Yr2eGGBdDVzyT
+         o+rC3MV26AuHEgs20DRkPaVCSZW8pCKE65vN6d+IfJlnRgG3A3rgKMHqhFVR15v1Gq/M
+         f9Wts4p2mrwYIqT+ajH0ObIGMEKxfP6CGiLfpUz8n1/EF/r2am0z8+jZr60A8YTj7sdX
+         A1klNl7cO97zvcLg3+fDs+4GOEH/11ZgORhlNlUOTvxktY8iZaCqfFFQCdc6LYrQNcz5
+         TeJQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:organization:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date;
-        bh=RrFxDaqHBVYXWbZIZKuQ96RM4zYk7c9CELkVoWIVF8Q=;
-        b=luclQOEW2ufHexhwfmuxfMOSd0RvnUrW/fNQilfXp/f6aRPOu9oI4aMaf4GdEo1QhP
-         B7c8QZ8huW7trdo0clfOWdQM3vUDkk3F2hPF6P9nEbSV5bqN50A503C3jfqAPR0IUsb6
-         SzZoJpsgdzQN/oOgiiVfUNVN0KvNpn/9hSK75RoL4g9iB63/HOwU5qfFWtRfuLYWIyr0
-         UMcE5Uq8leRnz5boQbe6F/czNim0NHj+4Zwlt+VnZJJPup1+G25hg34CjCPxzmwBIVOG
-         8Mc2sWXLrQau553E76mO7p+Yxm7MvKue41s3DBDXxCAep+LwCcWUGAf1Tocx7oHBOwFp
-         gMUw==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=+xRI7RCVjWPFLjTuzSdpKFeCB3MzDQJw+96p0B8ybuQ=;
+        b=zAT6fmKEyF6sNcv83qlh5HGvoOFwY5wUY3Mds8rkwTGj2pz0z3E1+yT0STJPtWt0RJ
+         SBVDXTrjN1PYzzr+Qnooj1SQN/6E4UiYwFMXFWCc2oDqXHqBm8G2Gf2osDq+PcMyePww
+         Mc4Daf6bDnkCdu9uYmLeKELdFXf+DAqVgR4EWfe9ERcTDf3MjSlMbfarnD0fsZJzcGc/
+         AQfVizaq0YJhBf1Gecm+5RaOHlRvMpVtf8rpJwDkyAAy0etBmULThgd9jVU98+FjECGj
+         rT7emEgqSEUI72ttyxFzs7dR2xM6TmYoVhKj0kX6tYh95gqCynYMYKThAbIBLnFf8It5
+         Jaqw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of boris@codesynthesis.com designates 142.44.161.217 as permitted sender) smtp.mailfrom=boris@codesynthesis.com
-Received: from codesynthesis.com (codesynthesis.com. [142.44.161.217])
-        by gmr-mx.google.com with ESMTPS id bj6si168482plb.4.2020.09.09.07.09.49
+       dkim=pass header.i=@xs4all.nl header.s=s1 header.b=GhZMVx7p;
+       spf=pass (google.com: domain of hverkuil@xs4all.nl designates 194.109.24.30 as permitted sender) smtp.mailfrom=hverkuil@xs4all.nl
+Received: from lb3-smtp-cloud9.xs4all.net (lb3-smtp-cloud9.xs4all.net. [194.109.24.30])
+        by gmr-mx.google.com with ESMTPS id v5si98461wrs.0.2020.09.09.07.28.08
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Wed, 09 Sep 2020 07:09:50 -0700 (PDT)
-Received-SPF: pass (google.com: domain of boris@codesynthesis.com designates 142.44.161.217 as permitted sender) client-ip=142.44.161.217;
-Received: from brak.codesynthesis.com (unknown [105.226.107.199])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by codesynthesis.com (Postfix) with ESMTPSA id 851435F138;
-	Wed,  9 Sep 2020 14:09:48 +0000 (UTC)
-Received: by brak.codesynthesis.com (Postfix, from userid 1000)
-	id 9751F1A800C4; Wed,  9 Sep 2020 16:09:43 +0200 (SAST)
-Date: Wed, 9 Sep 2020 16:09:43 +0200
-From: Boris Kolpackov <boris@codesynthesis.com>
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: linux-kbuild@vger.kernel.org,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] kconfig: fix incomplete type 'struct gstr' warning
-Message-ID: <boris.20200909155725@codesynthesis.com>
-References: <20200908221638.2782778-1-masahiroy@kernel.org>
- <20200908221638.2782778-2-masahiroy@kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Sep 2020 07:28:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of hverkuil@xs4all.nl designates 194.109.24.30 as permitted sender) client-ip=194.109.24.30;
+Received: from cust-b5b5937f ([IPv6:fc0c:c16d:66b8:757f:c639:739b:9d66:799d])
+	by smtp-cloud9.xs4all.net with ESMTPA
+	id G14wkjX7EXgwIG14xkZkWe; Wed, 09 Sep 2020 16:28:08 +0200
+Subject: Re: [PATCH] media: em28xx: fix function pointer check
+To: trix@redhat.com, mchehab@kernel.org, natechancellor@gmail.com,
+ ndesaulniers@google.com, brad@nextdimension.cc, mkrufky@linuxtv.org
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ clang-built-linux@googlegroups.com
+References: <20200903145038.20076-1-trix@redhat.com>
+From: Hans Verkuil <hverkuil@xs4all.nl>
+Message-ID: <65584276-f49c-15c9-5f20-a4e5f5fe5085@xs4all.nl>
+Date: Wed, 9 Sep 2020 16:28:06 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.10.0
 MIME-Version: 1.0
+In-Reply-To: <20200903145038.20076-1-trix@redhat.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200908221638.2782778-2-masahiroy@kernel.org>
-Organization: Code Synthesis
-User-Agent: Mutt/1.5.24 (2015-08-30)
-X-Original-Sender: boris@codesynthesis.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of boris@codesynthesis.com designates 142.44.161.217 as
- permitted sender) smtp.mailfrom=boris@codesynthesis.com
+Content-Language: en-US
+X-CMAE-Envelope: MS4wfK0x4z69G0pcN0tTyBl9g89oLI40CCA1Pcs6+GL8aCFjhEJWXG1+Fp/IEtwiTOlOPLh63xcX/ctPdCy/4klHm+VaxJzPhy+afVtZY62B2TEirP2HL1qf
+ YV/AfjMvr86y2vsJj//XYI3hm8N57Og9gM30h6lUlp9j+94aX/BSkc5DzA9hJF/3Qzqy9zCQ2ovoCZoX2oN/ynVm+bMoVvJ9mXoVw+dS/ECWlUZyTyT6ZQNG
+ qmBqg4DFcYXVSz1HLXcvyXQ66fz50w5zNVJHdbMzE7xTrxHlFUNBdDwvLckTvbRQD6RRu+iMx2jKZXBYlM0LMusm6z0Wdly4uY25757jT6wJ2Uvj2JkKoVtL
+ 7EDr/cykZK+ssUldtBs17BGk7XZd/V8fH3hbcuEj6MNvlB5nu1LS5L1STLA37L14Yy8bl24HxIWRRTG39hvNz52p1+OOU5c88TW/YguYpjq2c954K2MQYryY
+ c2dSOckvGMqKK5W1okBJ3RE/UfoNy3pDnj3oJW/UcNb5ekMesMT7V+U1gJF+dEagNWHtMPX+ioSIEW7ERdqOYadyQ5DTAHQpFRXKVA==
+X-Original-Sender: hverkuil@xs4all.nl
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@xs4all.nl header.s=s1 header.b=GhZMVx7p;       spf=pass
+ (google.com: domain of hverkuil@xs4all.nl designates 194.109.24.30 as
+ permitted sender) smtp.mailfrom=hverkuil@xs4all.nl
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,28 +135,87 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Masahiro Yamada <masahiroy@kernel.org> writes:
+On 03/09/2020 16:50, trix@redhat.com wrote:
+> From: Tom Rix <trix@redhat.com>
+> 
+> clang static analyzer reports this problem
+> 
+> em28xx-core.c:1162:4: warning: Called function pointer
+>   is null (null dereference)
+>         ops->suspend(dev->dev_next);
+>         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+> 
+> This is the problem block
+> 
+> 	if (ops->suspend)
+> 		ops->suspend(dev);
+> 	if (dev->dev_next)
+> 		ops->suspend(dev->dev_next);
+> 
+> The check for ops->suspend only covers one statement.
+> So fix the check consistent with other similar in
+> the file.
+> 
+> Change a similar check in em28xx_resume_extension()
+> to use consistent logic as its siblings.
+> 
+> Fixes: be7fd3c3a8c5 ("media: em28xx: Hauppauge DualHD second tuner functionality")
+> Signed-off-by: Tom Rix <trix@redhat.com>
+> ---
+>  drivers/media/usb/em28xx/em28xx-core.c | 17 +++++++++--------
+>  1 file changed, 9 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/media/usb/em28xx/em28xx-core.c b/drivers/media/usb/em28xx/em28xx-core.c
+> index e6088b5d1b80..d60f4c2a661d 100644
+> --- a/drivers/media/usb/em28xx/em28xx-core.c
+> +++ b/drivers/media/usb/em28xx/em28xx-core.c
+> @@ -1156,10 +1156,11 @@ int em28xx_suspend_extension(struct em28xx *dev)
+>  	dev_info(&dev->intf->dev, "Suspending extensions\n");
+>  	mutex_lock(&em28xx_devlist_mutex);
+>  	list_for_each_entry(ops, &em28xx_extension_devlist, next) {
+> -		if (ops->suspend)
+> +		if (ops->suspend) {
+>  			ops->suspend(dev);
+> -		if (dev->dev_next)
+> -			ops->suspend(dev->dev_next);
+> +			if (dev->dev_next)
+> +				ops->suspend(dev->dev_next);
+> +		}
+>  	}
+>  	mutex_unlock(&em28xx_devlist_mutex);
+>  	return 0;
+> @@ -1172,11 +1173,11 @@ int em28xx_resume_extension(struct em28xx *dev)
+>  	dev_info(&dev->intf->dev, "Resuming extensions\n");
+>  	mutex_lock(&em28xx_devlist_mutex);
+>  	list_for_each_entry(ops, &em28xx_extension_devlist, next) {
+> -		if (!ops->resume)
+> -			continue;
 
-> Currently, get_relations_str() is declared before the struct gstr
-> definition.
+Actually, this code is fine: if !ops->resume, then just continue.
 
-Yes, I also ran into this while building the kconfig code with MSVC.
-I just moved the struct gstr definition before lkc_proto.h #include
-but your fix works just as well.
+So there is no need to change this resume code.
 
-Acked-by: Boris Kolpackov <boris@codesynthesis.com>
+And in fact, I think it would be best if the same approach was used in
+em28xx_suspend_extension.
 
+Regards,
 
-> BTW, some are declared in lkc.h and some in lkc_proto.h, but the
-> difference is unclear. I guess some refactoring is needed.
+	Hans
 
-Yes, please. My (potentially incorrect) understanding is that lkc_proto.h
-was for functions that are not (or should not be) used by clients but
-should nevertheless have prototypes due to -Wmissing-prototypes. I,
-however, believe this no longer holds and so would vote to merge
-lkc_proto.h into lkc.h.
+> -		ops->resume(dev);
+> -		if (dev->dev_next)
+> -			ops->resume(dev->dev_next);
+> +		if (ops->resume) {
+> +			ops->resume(dev);
+> +			if (dev->dev_next)
+> +				ops->resume(dev->dev_next);
+> +		}
+>  	}
+>  	mutex_unlock(&em28xx_devlist_mutex);
+>  	return 0;
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/boris.20200909155725%40codesynthesis.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/65584276-f49c-15c9-5f20-a4e5f5fe5085%40xs4all.nl.
