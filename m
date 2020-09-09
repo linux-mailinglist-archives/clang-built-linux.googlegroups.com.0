@@ -1,142 +1,124 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRB25P4D5AKGQEDWPCEGY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCMIVD5UVABRBLWP4D5AKGQEV3SORYY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf39.google.com (mail-qv1-xf39.google.com [IPv6:2607:f8b0:4864:20::f39])
-	by mail.lfdr.de (Postfix) with ESMTPS id A31142623B6
-	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Sep 2020 01:46:52 +0200 (CEST)
-Received: by mail-qv1-xf39.google.com with SMTP id l1sf375317qvr.0
-        for <lists+clang-built-linux@lfdr.de>; Tue, 08 Sep 2020 16:46:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1599608811; cv=pass;
+Received: from mail-io1-xd39.google.com (mail-io1-xd39.google.com [IPv6:2607:f8b0:4864:20::d39])
+	by mail.lfdr.de (Postfix) with ESMTPS id E0B8226243B
+	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Sep 2020 02:54:07 +0200 (CEST)
+Received: by mail-io1-xd39.google.com with SMTP id k133sf907524iof.16
+        for <lists+clang-built-linux@lfdr.de>; Tue, 08 Sep 2020 17:54:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599612847; cv=pass;
         d=google.com; s=arc-20160816;
-        b=FbMNobNsYy2MCuPPRLfsAurdpmMkTH5xH2TtbPy/zx3Mp5MxZoWjusFLnvtRwy8bYU
-         q3Rj0pXQqn3gyRHvb0u1ENGontIVBVir3Fx57Qd91ftjDv5rgRHL3pjXgLZYgDKQ04gL
-         JijEo9ZgkeQAYp0eiJhx2sMhY446N+9MlYHseE18+xAqYgUoc4BztRNTxx6nHiHgt9se
-         X+Yxcx5dE4XJTswCmddOG9mvtBq9uhAeRiWEJixGJ7I/zxnbAOScuhYPASjyNDIKOPXB
-         Q81O1mHuGMbgTowKhPRP+B1UhLXYUxrWNoel2GWTlH/dBrG/HbnqnLI+Sql2yQLeNlnW
-         THZg==
+        b=uM5mBshvyxqDl5ka1JflhR/ojv60kLR/YbFa55+t/FrAoL+Mr0RU3f9mFjOIUZbsQO
+         I6iHj79xnDE2h/cHJzyK5ZKiFepf57VshwQy6CGJTv1iiQRMvAaKKZQuME8g17rO1aaG
+         disdg6Sa4sj/9iKJSLQL/+iAvkxklcjjkoh2LkW4xxRgnD8jnGAYaCdqME/SHjS1h7m4
+         v+xDU11wBd3j2pA9bx+rzcYY7OcxysHRlxtdEAzUustN0D6L1qiHgdmPn+JEhD8Y2VIb
+         qIakJBHtRqMteKHa4ldwabTLZvFqCc29S0xI5M0T9pntqoUNn4+llTIGdzWKgCw9xUL9
+         NSGw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:dkim-signature;
-        bh=NWqOcddrpdiBbIaBmHLXVrJTMpq8DcWgzbA4uE6uM7Q=;
-        b=mVues1BUu1ogDpgFVWsKGQjU/hAcDU/l7cJFtRbG1Dm625UcVU8MFIGIPldOGwi9y9
-         lRuLgV0PW5J2SvNQjYFt6q0CeM0J8rt7XdAFRUbslXioCfkIUnriCLJyDsy5qnY8Q0QQ
-         Km08pg8M+s3kguVDKn9ME7aQkjWquiptKABxzoFUOPYmYNHVGToptf/KFoETXyqLj+ix
-         sZBSQFR7sarYzHsy+91SuvwN7+f9rOFdID8jVIJu2efzJFciMPZ5yBoLObD/r9ZYQIIS
-         QcccZm8G8knUSor37LSHQiWjpcF31EJYVMzGUtX5X8vuGkzq1xg3IhhuEO+ltMTdcd2I
-         SQgA==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=4dh2Vd0TA9x8534k3WBPuks1krpx8LqUfJqL8L1+2So=;
+        b=CXR8KC9mHD8ODloHxeSBdY/RGgRI2HgxLNr7bfVQAT/u/nNHBqG2R2bQpsOKLK1MII
+         w5AUWFH7Ug2UImUbPirF7jgytTSYMqYKnVEZ5XJ9IFmxYlwxmOonzwgMmAIi+6NrnHxr
+         2FMjSng1MfreQTucE4gKH5/VoMLz/I1QYtqLC8O7aebQ2b0DzpaIcB1ByI+8rR0isy4B
+         xGZecIJsNweoIKPgNR67pRia7woduGmni/+eM71jsM8MSJJQlgpqYE4to7p7qmkJuMUC
+         A/11tvr0oXon0IKEJN6U/mmqvwI65lrdpW438Bf5uN1MoeSOvxskUpwXz8FetCQ6z1rT
+         wSmg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=o7AAPg2t;
-       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       spf=pass (google.com: domain of guohanjun@huawei.com designates 45.249.212.190 as permitted sender) smtp.mailfrom=guohanjun@huawei.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=NWqOcddrpdiBbIaBmHLXVrJTMpq8DcWgzbA4uE6uM7Q=;
-        b=a3k1kBZvYOXCXcN1fRkEx+XSaCLCvB5iJ7gd4eND4nxrL5GykvccD788fBHKEic0T8
-         2kTHbBZE3wFz8gHmNr8zgKjmJdlPEhrN2MybcVzQlDnT+KnbtniSYiJ4vOVlgNyIlq3Q
-         YHcgxbB+lQq1Q/RD+kz+2mO7gGXy8M5IqZ5k9xJQKnb3V9nf9qtG/9VLenlohBd8Qkmz
-         YZOmUDe0XCstKE1g1KgN9Q0IyARnQYwLQqCYHwAA++vw9F86qTCLos0BlDaPsVUVtFi1
-         lS9qIdPx7AA7K7SZgOF4LqOQMqYNRbspMYuOQcIWfgat4NxPwptaiLLNnlj3hz5fZjuO
-         L2MQ==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=4dh2Vd0TA9x8534k3WBPuks1krpx8LqUfJqL8L1+2So=;
+        b=Mx1stDLcyuhMyRnBRKXxTQtHx+1bNmu2KeEwxKyLGnepYcSsV7NiJ6Edh6rf8zEmh1
+         8fxRLWvJwC+0X31tN+Wz4793z1SadCDuTfpwhjKim+dAGUq/9/6vIqpkI9vaJjGFg+md
+         cpRnQ6FBvqNrFoKhEaGxp3cyeo5IsYWdK6xse79RTLTE7nJYIpuERHn4fYm25b4J8XoS
+         XX+bPFyZdHdDYm301Sg8w/nGwOIGak6fbI2RY+YSnA80/W+ClZ2G2aYethqiTu4zUWnm
+         dA+Kc0vEqoB1IOD/TuKGoLDBzQktrZ4y7yrsqX5uu8I0LWTtlReNHHGRARq0ha7dcCcP
+         CqUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=NWqOcddrpdiBbIaBmHLXVrJTMpq8DcWgzbA4uE6uM7Q=;
-        b=SJCQHmD0yRMH093HhZPqnuY8mA0o5alFaYJGQnmsel4JL7WSuSEmYu6tNkYiAmtCH+
-         VCE+PJBKVrz1ODD4D1Hw99ulJ0VNE67F/GjIoUb4jh9VYEWWv0iithhOzXaRCjgjdjb/
-         /WxprpJNhZdJ4NB4p0I7ebZimQWb+CtjwY6Udw4rtEZoh9nybrt1hQ5Omfbr6FhHQo5K
-         RggA49hYuPFWpyoALk5t+6aUXZlLutlCyCnsiAVIkWQQXqDlIylSmGdcZ2OmlLv/iVRa
-         nenK5NRlLS+W5jYnqhPMc7nw8j3eS9wvxDLvO5PP4Nn7HAo1fyLJNDP209IG2leLzY95
-         8v8g==
-X-Gm-Message-State: AOAM5303n2Qi7WBBvJYwZIHNAcz8Eel1RrFF+u6X7m9kbh7j6RaCTe2K
-	uVJOgauUEszqeLPBeWjuHOw=
-X-Google-Smtp-Source: ABdhPJzgfzotEToFa2QpspjDnwmZ/9Ru3c+zVPTEKJG/DZUx0dmLbEi7NaHVakKuD4S1ygXVcub/cg==
-X-Received: by 2002:ad4:5101:: with SMTP id g1mr1697535qvp.104.1599608811572;
-        Tue, 08 Sep 2020 16:46:51 -0700 (PDT)
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=4dh2Vd0TA9x8534k3WBPuks1krpx8LqUfJqL8L1+2So=;
+        b=gBfrj3P5pQNu/tLwXu8DqqRcfhms0KWnZJmGEwylbOIG0VKP49feqZMkE8DYI+NOfZ
+         97zvpGeV6KlAk9JtHLAxvGebAalFzx8uMaDFktBiVxdxYcRXn4+iD64S98Y4SF9f7OZq
+         y4KdRt2qHAM/cex5u4wxrr87Rl1BXQ9ATeYBMyv7HTP6agl++6fFzTOtH8B/J380/gWz
+         Dc74ZWx68j3jEBfZ24bmDuh0CDtRDpg1FNtlRZ/K98iuZA/8uFfdky3PEWTnsSUG5F2c
+         KvsBNSZRTzaEB66gy1UViqUQTTd51nvL4l9wkkqeuExsFfJ+CLzk9tUt8+rJH8vv597M
+         ZwQA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM5331UhS9sWFljAavefHwF/dqEtetEmvQ9mwO5Y/yZVAoz7GdIr8U
+	zFHuhW1jUmMKw2IYWECxRaM=
+X-Google-Smtp-Source: ABdhPJxWjCaszJ/kSVQfnRFWx60ixZyWc30Fu9e2tfOddVtvaAsLSoJC9bG5xcBuBSwExxa1UP4i6A==
+X-Received: by 2002:a92:db43:: with SMTP id w3mr1358432ilq.184.1599612846904;
+        Tue, 08 Sep 2020 17:54:06 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:585:: with SMTP id 127ls454775qkf.8.gmail; Tue, 08 Sep
- 2020 16:46:51 -0700 (PDT)
-X-Received: by 2002:a37:be02:: with SMTP id o2mr1001423qkf.482.1599608811113;
-        Tue, 08 Sep 2020 16:46:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1599608811; cv=none;
+Received: by 2002:a92:290a:: with SMTP id l10ls288362ilg.6.gmail; Tue, 08 Sep
+ 2020 17:54:06 -0700 (PDT)
+X-Received: by 2002:a92:b748:: with SMTP id c8mr1462939ilm.30.1599612846489;
+        Tue, 08 Sep 2020 17:54:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599612846; cv=none;
         d=google.com; s=arc-20160816;
-        b=FuSL3NK7NoLGyjUItxd0LjRUqvUjop72JgnhjkGR97SeUy4KkeA08DstrxjVBYYE6J
-         B1+JQIe93mqiEgoys6+2v41dUjJscJRsUuY4/gRayCvCXTKLNhDkgcb/JF68kLyQpl+1
-         QKQa3Fmf1eZAmVVT1FggvxCr5vSaX+JiXz9ICm+Z35SyqZcTrc31aXhb532gyjwTagM3
-         c+pKQ7ruLvTkn7bM+rcO0ECw/6dwmhxfHeg8qw5QIrhJPRZGEH8MJpxMNiQqCH5tO+i1
-         Xc0iauNr170OVm/lhh2ULNtKAsInOkhWtLWHgOXFEEWr3dj9wl063KDMEJYVjjXMTHxH
-         k8zg==
+        b=CohL3kMj3GBOfy/UmB3ITVcitZ0CMhXgB6TDLkpSlmxujJwqn+gWgwjcMDB5qbsSXx
+         7HTvk3wwqqp3a1Y6U3+tkwesLJHhD4fRUklH2sYDwZhT3hx0SJxGERPZAh3EtkV/sv0u
+         EX4nmnhWfnyaRG5WMezjlgePXlCjIMDjkoXQrjAEzIOHL7wXLA73h1WLSliBlPdrX5ja
+         REoEsBW6JKlu/84HBYi7F/noEx7KBTj9KDZGeLYLb2iAuVuI6/tzueJhMEHrI5rid5Yi
+         qtkAjapTLD0Wppb83mljF++A1+PvaF3TBvjOKdSAXZeMXin/buqaVdsREWwzwtiKopL5
+         k/7A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=z8KgGGQx1h7YczMCEetfx/jb92oxBiLV/4DApZXEdSc=;
-        b=enXx7ehoVhCFnobMSurq8IF2bWKQMT/lAycHYcBX6oUABpZcPoH1/3yXEqr+h8pMCB
-         uTgKPYBofidy/pfIeFjSLenhJohjTHyH/v09vxYBi0053UeDP35slGcNXd65Mlst/TcM
-         svDx4ULov71LL1WPXWDi4QDA1eaf0jkE0l9eVV7RmrMvyFCWS8EQAXqrEhLHNXJQUMel
-         RQ//Y3tGI3xXFcs6iASqEhaRdq3NX3hZtZ6MIFjo2WPKBGoC7s9XsmZxJ1+seLXhgfue
-         +pC0P2y6HSvmSUvMPZeZBNtvdxxoggwa7rOKaKoLNQOLojmietRfgPpG5wktxa5Kmw7S
-         /EEw==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=tSmfEb8fikVWoQGWY3kELdCm9BLEcxu62RvruQi9FUk=;
+        b=hgMH9tCn7p9D8atYcqpeb5WmNRsYMWf5My/QPGsVGvtR4bmEEX2aCvoInh9OVArsX5
+         Kpx6EvH6c/FO0/R1Jsu0lgPs8NpFKpFFHP9wsgCPpbU7no7ptl7K5P0PZoVwQHSE3Ujg
+         +g2idKU7dAtHcr60Sx0vQy1PouFv4an8b+yUnLoHzoIBOgCIblWGrHoI2UlZFbCmaG27
+         6m/fxny/7Di++9iocy+QqhL1wB51fnvPNAOW59qs4QvQK3LfxuXTjQ0pQtttr6tKMQKS
+         YmQ5lASByNDwRm/jy9uhdCAkKaEEVQoLbF3l3W9xiraZnjzEsZr/0AuKV7SVKZ0S+sqG
+         /vZQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=o7AAPg2t;
-       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x443.google.com (mail-pf1-x443.google.com. [2607:f8b0:4864:20::443])
-        by gmr-mx.google.com with ESMTPS id n26si54084qkg.5.2020.09.08.16.46.51
+       spf=pass (google.com: domain of guohanjun@huawei.com designates 45.249.212.190 as permitted sender) smtp.mailfrom=guohanjun@huawei.com
+Received: from huawei.com (szxga04-in.huawei.com. [45.249.212.190])
+        by gmr-mx.google.com with ESMTPS id d16si147746ill.1.2020.09.08.17.54.06
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 08 Sep 2020 16:46:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::443 as permitted sender) client-ip=2607:f8b0:4864:20::443;
-Received: by mail-pf1-x443.google.com with SMTP id k15so483370pfc.12
-        for <clang-built-linux@googlegroups.com>; Tue, 08 Sep 2020 16:46:51 -0700 (PDT)
-X-Received: by 2002:a63:4664:: with SMTP id v36mr859465pgk.194.1599608809917;
-        Tue, 08 Sep 2020 16:46:49 -0700 (PDT)
-Received: from google.com ([2620:15c:201:2:f693:9fff:fef4:1b6d])
-        by smtp.gmail.com with ESMTPSA id n67sm332121pgn.14.2020.09.08.16.46.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Sep 2020 16:46:49 -0700 (PDT)
-Date: Tue, 8 Sep 2020 16:46:43 -0700
-From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Kees Cook <keescook@chromium.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Kernel Hardening <kernel-hardening@lists.openwall.com>,
-	linux-arch <linux-arch@vger.kernel.org>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	linux-pci@vger.kernel.org, X86 ML <x86@kernel.org>
-Subject: Re: [PATCH v2 00/28] Add support for Clang LTO
-Message-ID: <20200908234643.GF1060586@google.com>
-References: <20200624203200.78870-1-samitolvanen@google.com>
- <20200903203053.3411268-1-samitolvanen@google.com>
- <CAK7LNASDUkyJMDD0a5K_HT=1q5NEc6dcN4=FUb330yK0BCKcTw@mail.gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 08 Sep 2020 17:54:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of guohanjun@huawei.com designates 45.249.212.190 as permitted sender) client-ip=45.249.212.190;
+Received: from DGGEMS401-HUB.china.huawei.com (unknown [172.30.72.60])
+	by Forcepoint Email with ESMTP id 812B345815EFE1327BCC;
+	Wed,  9 Sep 2020 08:54:02 +0800 (CST)
+Received: from [127.0.0.1] (10.174.179.33) by DGGEMS401-HUB.china.huawei.com
+ (10.3.19.201) with Microsoft SMTP Server id 14.3.487.0; Wed, 9 Sep 2020
+ 08:54:01 +0800
+Subject: Re: [PATCH 5/5] ACPI / APD: Head file including cleanups
+To: kernel test robot <lkp@intel.com>, "Rafael J. Wysocki" <rjw@rjwysocki.net>
+CC: <kbuild-all@lists.01.org>, <clang-built-linux@googlegroups.com>,
+	<linux-acpi@vger.kernel.org>, Ken Xue <Ken.Xue@amd.com>
+References: <1599468981-17301-6-git-send-email-guohanjun@huawei.com>
+ <202009072027.mQVQ8Jey%lkp@intel.com>
+From: Hanjun Guo <guohanjun@huawei.com>
+Message-ID: <68c45cf3-6d61-3a82-3c24-77ab86283049@huawei.com>
+Date: Wed, 9 Sep 2020 08:54:00 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAK7LNASDUkyJMDD0a5K_HT=1q5NEc6dcN4=FUb330yK0BCKcTw@mail.gmail.com>
-X-Original-Sender: samitolvanen@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=o7AAPg2t;       spf=pass
- (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::443
- as permitted sender) smtp.mailfrom=samitolvanen@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Sami Tolvanen <samitolvanen@google.com>
-Reply-To: Sami Tolvanen <samitolvanen@google.com>
+In-Reply-To: <202009072027.mQVQ8Jey%lkp@intel.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-GB
+X-Originating-IP: [10.174.179.33]
+X-CFilter-Loop: Reflected
+X-Original-Sender: guohanjun@huawei.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of guohanjun@huawei.com designates 45.249.212.190 as
+ permitted sender) smtp.mailfrom=guohanjun@huawei.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -149,104 +131,50 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, Sep 06, 2020 at 09:24:38AM +0900, Masahiro Yamada wrote:
-> On Fri, Sep 4, 2020 at 5:30 AM Sami Tolvanen <samitolvanen@google.com> wrote:
-> >
-> > This patch series adds support for building x86_64 and arm64 kernels
-> > with Clang's Link Time Optimization (LTO).
-> >
-> > In addition to performance, the primary motivation for LTO is
-> > to allow Clang's Control-Flow Integrity (CFI) to be used in the
-> > kernel. Google has shipped millions of Pixel devices running three
-> > major kernel versions with LTO+CFI since 2018.
-> >
-> > Most of the patches are build system changes for handling LLVM
-> > bitcode, which Clang produces with LTO instead of ELF object files,
-> > postponing ELF processing until a later stage, and ensuring initcall
-> > ordering.
-> >
-> > Note that patches 1-4 are not directly related to LTO, but are
-> > needed to compile LTO kernels with ToT Clang, so I'm including them
-> > in the series for your convenience:
-> >
-> >  - Patches 1-3 are required for building the kernel with ToT Clang,
-> >    and IAS, and patch 4 is needed to build allmodconfig with LTO.
-> >
-> >  - Patches 3-4 are already in linux-next, but not yet in 5.9-rc.
-> >
+On 2020/9/7 21:07, kernel test robot wrote:
+> Hi Hanjun,
 > 
+> I love your patch! Perhaps something to improve:
 > 
-> I still do not understand how this patch set works.
-> (only me?)
+> [auto build test WARNING on pm/linux-next]
+> [also build test WARNING on v5.9-rc4 next-20200903]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch]
 > 
-> Please let me ask fundamental questions.
+> url:    https://github.com/0day-ci/linux/commits/Hanjun-Guo/Cleanups-for-ACPI-APD-driver/20200907-170548
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git linux-next
+> config: x86_64-randconfig-r021-20200907 (attached as .config)
+> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project ab68517e6b7e51b84c4b0e813a30258ec1ce5da5)
+> reproduce (this is a W=1 build):
+>          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>          chmod +x ~/bin/make.cross
+>          # install x86_64 cross compiling tool for clang build
+>          # apt-get install binutils-x86-64-linux-gnu
+>          # save the attached .config to linux build tree
+>          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
 > 
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
 > 
+> All warnings (new ones prefixed by >>):
 > 
-> I applied this series on top of Linus' tree,
-> and compiled for ARCH=arm64.
-> 
-> I compared the kernel size with/without LTO.
-> 
-> 
-> 
-> [1] No LTO  (arm64 defconfig, CONFIG_LTO_NONE)
-> 
-> $ llvm-size   vmlinux
->    text    data     bss     dec     hex filename
-> 15848692 10099449 493060 26441201 19375f1 vmlinux
-> 
-> 
-> 
-> [2] Clang LTO  (arm64 defconfig + CONFIG_LTO_CLANG)
-> 
-> $ llvm-size   vmlinux
->    text    data     bss     dec     hex filename
-> 15906864 10197445 490804 26595113 195cf29 vmlinux
-> 
-> 
-> I compared the size of raw binary, arch/arm64/boot/Image.
-> Its size increased too.
-> 
-> 
-> 
-> So, in my experiment, enabling CONFIG_LTO_CLANG
-> increases the kernel size.
-> Is this correct?
+>>> drivers/acpi/acpi_apd.c:250:13: warning: no previous prototype for function 'acpi_apd_init' [-Wmissing-prototypes]
+>     void __init acpi_apd_init(void)
+>                 ^
+>     drivers/acpi/acpi_apd.c:250:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>     void __init acpi_apd_init(void)
+>     ^
+>     static
+>     1 warning generated.
 
-Yes. LTO does produce larger binaries, mostly due to function
-inlining between translation units, I believe. The compiler people
-can probably give you a more detailed answer here. Without -mllvm
--import-instr-limit, the binaries would be even larger.
+I think this was fixed in v2.
 
-> One more thing, could you teach me
-> how Clang LTO optimizes the code against
-> relocatable objects?
-> 
-> 
-> 
-> When I learned Clang LTO first, I read this document:
-> https://llvm.org/docs/LinkTimeOptimization.html
-> 
-> It is easy to confirm the final executable
-> does not contain foo2, foo3...
-> 
-> 
-> 
-> In contrast to userspace programs,
-> kernel modules are basically relocatable objects.
-> 
-> Does Clang drop unused symbols from relocatable objects?
-> If so, how?
+Thanks for the report!
 
-I don't think the compiler can legally drop global symbols from
-relocatable objects, but it can rename and possibly even drop static
-functions. This is why we need global wrappers for initcalls, for
-example, to have stable symbol names.
-
-Sami
+Hanjun
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200908234643.GF1060586%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/68c45cf3-6d61-3a82-3c24-77ab86283049%40huawei.com.
