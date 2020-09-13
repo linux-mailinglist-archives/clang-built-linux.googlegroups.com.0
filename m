@@ -1,136 +1,136 @@
-Return-Path: <clang-built-linux+bncBC27X66SWQMBBVU47H5AKGQER45XAJI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDXO746SYYBRBPVB7H5AKGQE6WRO5CY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf40.google.com (mail-qv1-xf40.google.com [IPv6:2607:f8b0:4864:20::f40])
-	by mail.lfdr.de (Postfix) with ESMTPS id E1912268053
-	for <lists+clang-built-linux@lfdr.de>; Sun, 13 Sep 2020 18:52:39 +0200 (CEST)
-Received: by mail-qv1-xf40.google.com with SMTP id f21sf8300168qve.9
-        for <lists+clang-built-linux@lfdr.de>; Sun, 13 Sep 2020 09:52:39 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600015959; cv=pass;
+Received: from mail-ot1-x33c.google.com (mail-ot1-x33c.google.com [IPv6:2607:f8b0:4864:20::33c])
+	by mail.lfdr.de (Postfix) with ESMTPS id F30DA268069
+	for <lists+clang-built-linux@lfdr.de>; Sun, 13 Sep 2020 19:02:55 +0200 (CEST)
+Received: by mail-ot1-x33c.google.com with SMTP id j12sf3792073otn.19
+        for <lists+clang-built-linux@lfdr.de>; Sun, 13 Sep 2020 10:02:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600016574; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GBZCklQnczfjhnXo2OmEyAPkxisjj+y68NrBufxjpRqBoajD/G0R9VZlqDrVd8bwE4
-         rB/4n7SnUM/JDtb/KpiEvTc1I1Vtdo8pp9eGMm5m9EEl4nEWniFgnqUFofha5wCfbL3Y
-         t2sA8VUQRdU2Iu7SKD9fdVnSgcVAGBm9Hv+qA/+gn2seZY68XMqX88CepF3QDkFOfCxH
-         WCGKEz4cvwg6ZUBKH2AamhB6jHT1x9UjFITs2a9HkoIYq3EV6KUmtAoh1kY28ubVOKYT
-         GNiiAgZDbwBawdheqqACZOdlfTMxU5SLwTy6tjPI5RUS2mskNSk9QPVe5kN2lj1sgpWb
-         Uaqw==
+        b=pD7MS9IaqcJgZ9O3yqtW/vlOzLdsTDKMn5UXeGZv8sczU3VA9b7Fe7pBJElOT/TAmT
+         SPKH5LGycTCvATW15mH+qtGzfjLVDfHEFRaBk6/qvtAlEYwgjmIctX7UtCuOGDbobcTU
+         zz2jziXfRO6JR53mt8DhDxys8/JVVsPBjIrS4fOuK77E4PZTli5U0GwLbGt6bsv3eNBz
+         i3zUMHfKMQsC081KZW+CFxKJkES/6Xnb2Mu7HJqwPAyrf7jGz0ntnM/eaQSw5rOUuETr
+         CGkeD9gAZ0QrfYq+YjBmTdSnlS+myoXf0vI2gRZZm2ChHF/tHNhHnWhEOjAcWh1XC5si
+         PmBw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
-         :mime-version:sender:dkim-signature;
-        bh=JBsxP+IQWA4PRvJIEFDlRFjd9l3i9aesbsj3H86hOnk=;
-        b=mZsqvpBbSZADUQ7PCHIDxfQVgr0D9Ib+VkuYVME4z23xrw2iRC3w9hTgQMFh6/YO+I
-         IhGxTjkS+bBgk3l+xy1QdacqxFcgzE97CsUnKkjn4NRUQtPCictAilDWWQLlQApt+V7F
-         DEmkXpWznSZ1tSnVJdMepJCRZ6Wl2eDJM8AlOnYU8vbRyxlQ6I5vvodT7rwRMXJXpcGa
-         iXes6SX8GYW5G8TJrVzN2uiVpnn4VvCfG3wd8NWHEdXzzCi39E6YYJtFIcOs1ozQGKsh
-         wfTzJ3UXsA9z5VarxTvkVIaL/+442SNgj6ww6SzV5cBd8ck2fhaM8m4A3ygKtEh3W+d0
-         1VLg==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :date:cc:to:from:subject:message-id:sender:dkim-signature;
+        bh=B9Y9VDF+l1jAL1X86vHt4ynwYcaIA7wQ8TSjCDHRKcU=;
+        b=ZfrIyPgZYShhmEEPnfYeyviFOFK7qpFG/h1+Bxwbs4xBDCnbxGSOu92aaQodyMy2ws
+         XuST7oKzzgYxFIQEILFfAwXYwPgpVf8igomBwTD95Phuk6Z4hBTFgnjIVOW2lY1eU8ur
+         uKuPQXn9capVmZPt7SYLgPzPVxWO7khTJV3SDr7yNZ1luvCzzglZlPOnYEzuAS9L4Q9N
+         igmFs1RuzPhl3bApfauYdyN/jBgn3OQ9w2cAlpETyFgEnbZv521PWg9CB3rW5JpZAkuW
+         lOWAkJMaB7MZ39cuw62gskPZRjKAAWo6xBlDUqRny2yXL0zyK9Hm7h87dKgU9jxFK1eM
+         k8oA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=aTEMDv5N;
-       spf=pass (google.com: domain of trix@redhat.com designates 205.139.110.61 as permitted sender) smtp.mailfrom=trix@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@hansenpartnership.com header.s=20151216 header.b="dO2tH/ay";
+       dkim=pass header.i=@hansenpartnership.com header.s=20151216 header.b=cwnhhDvy;
+       spf=pass (google.com: domain of james.bottomley@hansenpartnership.com designates 66.63.167.143 as permitted sender) smtp.mailfrom=James.Bottomley@hansenpartnership.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=hansenpartnership.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:to:cc:subject:date:message-id
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=JBsxP+IQWA4PRvJIEFDlRFjd9l3i9aesbsj3H86hOnk=;
-        b=ECLMEKQRgudw8PfTc867Dioj2m2qkEh+oVvnZEQVSrb7Gk/ZzAqMzVOglhTmeHtigT
-         ObFksY/XtmojxBOUub6ZZv5N0Bll9ajrzVFXgshN8hJ/NHPhQSCjgbiTix0urxRu1BTq
-         Jnjq+s0YosOYp2KTZV/WcshjzTMyMHP9irYsUF4L0JHKOF6LvzdzTyFDJwxFRMGXPtjd
-         kTOj5LwrxTJCHzmJnlpYYGylAreZrcqL7tdycJDj614v8Mzhng5ojDB0U2SfTafehvvE
-         VFdqcgKZdBzeljWwHjbDvF7qrcjyeBS3go7P1bw7D6PDemvfnwyswjuyUsc4RCiAvUBD
-         F6zQ==
+        bh=B9Y9VDF+l1jAL1X86vHt4ynwYcaIA7wQ8TSjCDHRKcU=;
+        b=maUPq8iykEcOR/g97qkqxK74ZAwqA9Ikw8H5ArRwUBYOVJXz9ZMsqQYQdSJIOrZPs3
+         mIwhLYNk/6yfxoytBxr1uFpD8j0TzBLzzh108E2p+ZFlcVHLq380nV06mGtWbNgu+HE6
+         Nvymt2zoWtLFBgQjiGR8eJwruk7v7bSKPG6uOhtzjFrFxjXWrLtMo4sw+XKE+sxpDZa2
+         tX7wbaP3qX8WRa7bJlkzRK5yDGiY48IfZX0EELXdcaLCGxrb8UTsNWAUHJHcT1M8i1si
+         4uwK9Jqf1L/TmHTGzZk7/Y9G4/Hu6t7ZTu9K9zicE2tRJu8oBLjHjQLuxrSQhEMduPeh
+         t64Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
-         :message-id:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=JBsxP+IQWA4PRvJIEFDlRFjd9l3i9aesbsj3H86hOnk=;
-        b=ZhWQmU1k5Gc1nZH9aZkC2/qk3NdUMH/LzmeJ/CVJpeytFP+tSzBURUMmigSJA7HLwP
-         4XM5eQfR0wieVBghezWpRVEsUh5w4/fTJyRj6hYpJ97YBs5WQwgbvfbRm/R8mCsHtuZY
-         cHQKfUgspBsLo4DvUStB3MC1VF16uSlqednMDyCdA+xbpMpbq7BXiyu/dmAG5uTFlKCg
-         x5Y/pZ0SK+q9l96tTlcpjEivF068L+pfpXH1bWHROt+q8fh/JGG5EhQ/i23At/Ig1yRU
-         UhP5c5SAuvVYJ0eK6/WkE3ke06qR0ilHme7rdxWPB1nYQl58L/MO40wZXkh1hay6WScT
-         PxSw==
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=B9Y9VDF+l1jAL1X86vHt4ynwYcaIA7wQ8TSjCDHRKcU=;
+        b=uVZeRja3RRWjWFJBuDGwzzSziyrUBcXrzkwHDJusBl3JQ7K7AY509Zv218htk+Yn2G
+         63bwqQdJ9zAs4E2DkXvP5zJt/Z2pMXaObv7/mU8kQW8ERmN/sbndFz5L3dRwr5sr66py
+         UQKUiaB1OTG08ViE05CbRS4BXFpWQAVr+Br7TIJfv+KJbWQdWxjiamNRvjJQSl1DlCgp
+         KqWFn69ipMagb4baRiaZOaPpS5iPqNDaaemZ6NlcHDH7ZDgPRwqGRVXb+gfY+FFR09ip
+         dzMfxLpjMW90IqkwzHE3eS6Epn0dnerQuqENJzcuC3EAPSMABZn4MztglTrxilQBeuM3
+         Jmaw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5309n5CLJGi/CeFDgBm4av9jp9xlKITW34HyZIlc6MVwyPPDaGAv
-	vj2G6lWoC8u5oYCbNkL3TNY=
-X-Google-Smtp-Source: ABdhPJz7vSJrlWtn6q28LD3eh+g/hoGdGV0+Me7PrFGNBPjuTA0I0rAP+Qxg5Ho24YkSEEsOOCCkAA==
-X-Received: by 2002:a37:a78e:: with SMTP id q136mr9547961qke.42.1600015958723;
-        Sun, 13 Sep 2020 09:52:38 -0700 (PDT)
-MIME-Version: 1.0
+X-Gm-Message-State: AOAM530SIMmSf3dkKbaFiJTejAvGiNyWw6ufChdmqtg7koLd3G29QXef
+	MDm27FpuOHZ254aEP+J+4E8=
+X-Google-Smtp-Source: ABdhPJzbubOb91GmZa8QQQuDEA+FfCNwg2Z1DgsocmmmsxBNcmE4xehA0WqHRJJ+Hb5ckPXYY7FoiQ==
+X-Received: by 2002:aca:843:: with SMTP id 64mr6546115oii.135.1600016574803;
+        Sun, 13 Sep 2020 10:02:54 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:620a:228d:: with SMTP id o13ls3670467qkh.9.gmail; Sun,
- 13 Sep 2020 09:52:38 -0700 (PDT)
-X-Received: by 2002:a37:62d6:: with SMTP id w205mr10048327qkb.229.1600015958248;
-        Sun, 13 Sep 2020 09:52:38 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600015958; cv=none;
+Received: by 2002:a05:6830:210a:: with SMTP id i10ls1517351otc.4.gmail; Sun,
+ 13 Sep 2020 10:02:54 -0700 (PDT)
+X-Received: by 2002:a9d:7084:: with SMTP id l4mr7207616otj.161.1600016574444;
+        Sun, 13 Sep 2020 10:02:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600016574; cv=none;
         d=google.com; s=arc-20160816;
-        b=hMnUqr9XAG0Fml2pF+5SjT3+gwLBolaYT2agySBCLqmuzwS/ITyV8sYHr7bFc03JAU
-         u6ZuvRqeRaafDZni6t8cxkgBa3Ar/S7c4i5UWHT1YnxnWrD+YkP85EKNmsahx312QsGq
-         nTXIjHH8/e2AzJEMhFZtCODAvDcGvZI8OLY+cVqoUMfP63a+iKgmGSXUNcsixoz4Cbt+
-         Ij43cBd81xTd5E4JJjhM5OyaHF0+XI6Fp5sR/KCTmvGsuaA3TDescFtfm2+ktH6zxg/W
-         oSdB2dqOYR14e7prWy2r1GE+zGzeGkD0b+BIxr+eA2RPZiACyBpjPFYzZ1VRw0RVF98/
-         yZnA==
+        b=aUMFzuncf7vQxeI4OK/Wu61V6pjoC1nRB0KIdguPrtcid3txxcjaXSUfAOG8rgRYO5
+         9qCGM8iRzL1k1bjpK5jz8SDHp8m7wPLsZtDlMgU3RzDNdNGIcKEDUFtMjgZNVRO/hMDr
+         Sytav3cbKvBbcTiMS+W/hAGoIQifQ+h+oKsjOTlMJLec88OLYaNylAc4lfQY5eqnOfs1
+         EXzoo+ZmsBPemGxXOemLMRQa1oXYcMR8WeyfQEmagLHy9cWL3P+0gZE7XDnHU0qjfcj/
+         6xar7hl6RTzoU3nOrWqMb22qg4WH2ZwETAjkU17hkQOkmJRvVzFiCK5/pRMjWTARhadn
+         34LA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:subject:cc:to:from:dkim-signature;
-        bh=OnOecvlCsmh6JKu+PCBfRD+F9XU63TdFztNbTAcxKzQ=;
-        b=o21kozvlS4HY9ute0Ki4xWJI7A3Lwc56xxS5Kiyz3Yl23axugoSwxlR/kAH0G4+rIE
-         9o/jkezjpZEzVWdgaob74Lwl3vHbf9agb9pbOJzh2YE3GlIKMPNJJC+cqEeCvmTRmQrJ
-         HmygcLmt32lmOLpTkg82BPKiNucHf24pssZB/ZMv6cxuM0YXGNyAd3zRXG2fb65xSHtc
-         bSKax5JDQQKEvh7/79P96fgJZKrU0NmW11Z/eSMv3l1yxteNBIms+0Qgqlt3m8iS1bqK
-         2y/fUqAykNYSxh+QW8eokIgv380B3VRi78+gDEwnZrsVjTIqCDn/4g7AW/hdh5LZDFjT
-         SiNA==
+        h=content-transfer-encoding:mime-version:references:in-reply-to:date
+         :cc:to:from:subject:message-id:dkim-signature:dkim-signature;
+        bh=I68WOSIiQRQaK8wsvWmyLtteLUz5lwvMFgZBpWAd3Ls=;
+        b=NT2eXtP8To3vjICNq0Z2NZ0rtjJHH21Cho4vKM6HFdimBHb/p75EhnTiloRwOwLecD
+         O0wd5gddh09BguSvAZ1z5JbETZwZbxDN0TXBQ12xO+h+IHiCuH/8B8Skx997LwOF/08O
+         TESXnX1cJcmtUsxjmnv1c2wm2ZiwO3/OhsiafkE6lSh8b9AmEWPh7q3uSbI3QWOqh4Ly
+         IZxQGi7Rr0owVESncUZJUAao4OWuhe76AUfkMa0ucXtTd26Pzsi+4juCafY5XjZaLalV
+         JKDdb/mK90gei7FmtnxQyHW9bD0Fi4txG1KMOIN5BN2mKNCmHl0QqPLjGIC0SiNqIist
+         YXFw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=aTEMDv5N;
-       spf=pass (google.com: domain of trix@redhat.com designates 205.139.110.61 as permitted sender) smtp.mailfrom=trix@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-1.mimecast.com. [205.139.110.61])
-        by gmr-mx.google.com with ESMTPS id h4si54784qkn.3.2020.09.13.09.52.38
+       dkim=pass header.i=@hansenpartnership.com header.s=20151216 header.b="dO2tH/ay";
+       dkim=pass header.i=@hansenpartnership.com header.s=20151216 header.b=cwnhhDvy;
+       spf=pass (google.com: domain of james.bottomley@hansenpartnership.com designates 66.63.167.143 as permitted sender) smtp.mailfrom=James.Bottomley@hansenpartnership.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=hansenpartnership.com
+Received: from bedivere.hansenpartnership.com (bedivere.hansenpartnership.com. [66.63.167.143])
+        by gmr-mx.google.com with ESMTPS id k7si557482oif.3.2020.09.13.10.02.54
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 13 Sep 2020 09:52:38 -0700 (PDT)
-Received-SPF: pass (google.com: domain of trix@redhat.com designates 205.139.110.61 as permitted sender) client-ip=205.139.110.61;
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
- [209.85.219.72]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-288-t-Gv5jz1OKysZd2c1Amhyw-1; Sun, 13 Sep 2020 12:52:36 -0400
-X-MC-Unique: t-Gv5jz1OKysZd2c1Amhyw-1
-Received: by mail-qv1-f72.google.com with SMTP id bo17so8319934qvb.2
-        for <clang-built-linux@googlegroups.com>; Sun, 13 Sep 2020 09:52:36 -0700 (PDT)
-X-Received: by 2002:ac8:100c:: with SMTP id z12mr9721949qti.81.1600015955836;
-        Sun, 13 Sep 2020 09:52:35 -0700 (PDT)
-X-Received: by 2002:ac8:100c:: with SMTP id z12mr9721935qti.81.1600015955583;
-        Sun, 13 Sep 2020 09:52:35 -0700 (PDT)
-Received: from trix.remote.csb (075-142-250-213.res.spectrum.com. [75.142.250.213])
-        by smtp.gmail.com with ESMTPSA id g19sm11332392qka.84.2020.09.13.09.52.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Sep 2020 09:52:35 -0700 (PDT)
-From: trix@redhat.com
-To: perex@perex.cz,
-	tiwai@suse.com,
-	natechancellor@gmail.com,
-	ndesaulniers@google.com,
-	eblennerhassett@audioscience.com
-Cc: alsa-devel@alsa-project.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Tom Rix <trix@redhat.com>
-Subject: [PATCH] ALSA: asihpi: fix iounmap in error handler
-Date: Sun, 13 Sep 2020 09:52:30 -0700
-Message-Id: <20200913165230.17166-1-trix@redhat.com>
-X-Mailer: git-send-email 2.18.1
-X-Mimecast-Spam-Score: 0.001
-X-Mimecast-Originator: redhat.com
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Sun, 13 Sep 2020 10:02:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of james.bottomley@hansenpartnership.com designates 66.63.167.143 as permitted sender) client-ip=66.63.167.143;
+Received: from localhost (localhost [127.0.0.1])
+	by bedivere.hansenpartnership.com (Postfix) with ESMTP id EC7478EE1A9;
+	Sun, 13 Sep 2020 10:02:52 -0700 (PDT)
+Received: from bedivere.hansenpartnership.com ([127.0.0.1])
+	by localhost (bedivere.hansenpartnership.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id XRQm0a_uTo_g; Sun, 13 Sep 2020 10:02:52 -0700 (PDT)
+Received: from [153.66.254.174] (c-73-35-198-56.hsd1.wa.comcast.net [73.35.198.56])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by bedivere.hansenpartnership.com (Postfix) with ESMTPSA id 2C15E8EE0F5;
+	Sun, 13 Sep 2020 10:02:52 -0700 (PDT)
+Message-ID: <1600016571.7833.9.camel@HansenPartnership.com>
+Subject: Re: [PATCH v11 4/5] security: keys: trusted: use ASN.1 TPM2 key
+ format for the blobs
+From: James Bottomley <James.Bottomley@HansenPartnership.com>
+To: kernel test robot <lkp@intel.com>, linux-integrity@vger.kernel.org
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, Mimi Zohar
+ <zohar@linux.ibm.com>, Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>, 
+ David Woodhouse <dwmw2@infradead.org>, keyrings@vger.kernel.org, David
+ Howells <dhowells@redhat.com>
+Date: Sun, 13 Sep 2020 10:02:51 -0700
+In-Reply-To: <202009131413.8dt8QEc8%lkp@intel.com>
+References: <20200912172643.9063-5-James.Bottomley@HansenPartnership.com>
+	 <202009131413.8dt8QEc8%lkp@intel.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: trix@redhat.com
+X-Mailer: Evolution 3.26.6
+Mime-Version: 1.0
+X-Original-Sender: James.Bottomley@hansenpartnership.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=aTEMDv5N;
-       spf=pass (google.com: domain of trix@redhat.com designates
- 205.139.110.61 as permitted sender) smtp.mailfrom=trix@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@hansenpartnership.com header.s=20151216 header.b="dO2tH/ay";
+       dkim=pass header.i=@hansenpartnership.com header.s=20151216
+ header.b=cwnhhDvy;       spf=pass (google.com: domain of james.bottomley@hansenpartnership.com
+ designates 66.63.167.143 as permitted sender) smtp.mailfrom=James.Bottomley@hansenpartnership.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=hansenpartnership.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,56 +143,68 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Tom Rix <trix@redhat.com>
+On Sun, 2020-09-13 at 14:26 +0800, kernel test robot wrote:
+> Hi James,
+> 
+> I love your patch! Yet something to improve:
+> 
+> [auto build test ERROR on integrity/next-integrity]
+> [also build test ERROR on linus/master v5.9-rc4 next-20200911]
+> [cannot apply to security/next-testing dhowells-fs/fscache-next]
+> [If your patch is applied to the wrong git tree, kindly drop us a
+> note.
+> And when submitting patch, we suggest to use '--base' as documented
+> in
+> https://git-scm.com/docs/git-format-patch]
+> 
+> url:    https://github.com/0day-ci/linux/commits/James-Bottomley/TPM-
+> 2-0-trusted-key-rework/20200913-013201
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/zohar/linux-i
+> ntegrity.git next-integrity
+> config: arm-randconfig-r013-20200913 (attached as .config)
+> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project
+> 3170d54842655d6d936aae32b7d0bc92fce7f22e)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master
+> /sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install arm cross compiling tool for clang build
+>         # apt-get install binutils-arm-linux-gnueabi
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross
+> ARCH=arm 
+> 
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+> 
+> All errors (new ones prefixed by >>):
+> 
+> > > security/keys/trusted-keys/trusted_tpm2.c:19:10: fatal error:
+> > > 'tpm2key.asn1.h' file not found
+> 
+>    #include "tpm2key.asn1.h"
+>             ^~~~~~~~~~~~~~~~
+>    1 error generated.
 
-clang static analysis flags this problem
-hpioctl.c:513:7: warning: Branch condition evaluates to
-  a garbage value
-                if (pci.ap_mem_base[idx]) {
-                    ^~~~~~~~~~~~~~~~~~~~
+Do you have the actual build log for this?  On x86 the build process
+builds any precursors first, which is the tpm2key.asn1.o, which
+generates that header file, so we see:
 
-If there is a failure in the middle of the memory space loop,
-only some of the memory spaces need to be cleaned up.
+  ASN.1   security/keys/trusted-keys/tpm2key.asn1.[ch]
+  CC [M]  security/keys/trusted-keys/trusted_tpm2.o
+  CC [M]  security/keys/trusted-keys/tpm2-policy.o
+  CC [M]  security/keys/trusted-keys/tpm2key.asn1.o
+  LD [M]  security/keys/trusted-keys/trusted.o
 
-At the error handler, idx holds the number of successful
-memory spaces mapped.  So rework the handler loop to use the
-old idx.
+Is ARM doing a lazier version of that?  In which case the fix might be
+to move trusted_tpm2.o to after tpm2key.asn1.o in the Makefile, this
+line:
 
-There is a second problem, the memory space loop conditionally
-iomaps()/sets the mem_base so it is necessay to initize pci.
+trusted-y += trusted_tpm2.o tpm2key.asn1.o
 
-Fixes: 719f82d3987a ("ALSA: Add support of AudioScience ASI boards")
-Signed-off-by: Tom Rix <trix@redhat.com>
----
- sound/pci/asihpi/hpioctl.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/sound/pci/asihpi/hpioctl.c b/sound/pci/asihpi/hpioctl.c
-index 6cc2b6964bb5..bb31b7fe867d 100644
---- a/sound/pci/asihpi/hpioctl.c
-+++ b/sound/pci/asihpi/hpioctl.c
-@@ -352,7 +352,7 @@ int asihpi_adapter_probe(struct pci_dev *pci_dev,
- 	struct hpi_message hm;
- 	struct hpi_response hr;
- 	struct hpi_adapter adapter;
--	struct hpi_pci pci;
-+	struct hpi_pci pci = { 0 };
- 
- 	memset(&adapter, 0, sizeof(adapter));
- 
-@@ -509,7 +509,7 @@ int asihpi_adapter_probe(struct pci_dev *pci_dev,
- 	return 0;
- 
- err:
--	for (idx = 0; idx < HPI_MAX_ADAPTER_MEM_SPACES; idx++) {
-+	while (--idx >= 0) {
- 		if (pci.ap_mem_base[idx]) {
- 			iounmap(pci.ap_mem_base[idx]);
- 			pci.ap_mem_base[idx] = NULL;
--- 
-2.18.1
+James
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200913165230.17166-1-trix%40redhat.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1600016571.7833.9.camel%40HansenPartnership.com.
