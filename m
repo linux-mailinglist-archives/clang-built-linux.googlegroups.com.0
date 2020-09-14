@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBD6K324WS4FBBMWQ735AKGQEIGKBMVI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD6K324WS4FBBNGQ735AKGQE7EYZWIA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23b.google.com (mail-lj1-x23b.google.com [IPv6:2a00:1450:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 633FC269334
-	for <lists+clang-built-linux@lfdr.de>; Mon, 14 Sep 2020 19:28:19 +0200 (CEST)
-Received: by mail-lj1-x23b.google.com with SMTP id n24sf23257ljc.9
-        for <lists+clang-built-linux@lfdr.de>; Mon, 14 Sep 2020 10:28:19 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600104499; cv=pass;
+Received: from mail-wm1-x33d.google.com (mail-wm1-x33d.google.com [IPv6:2a00:1450:4864:20::33d])
+	by mail.lfdr.de (Postfix) with ESMTPS id D861F269337
+	for <lists+clang-built-linux@lfdr.de>; Mon, 14 Sep 2020 19:28:20 +0200 (CEST)
+Received: by mail-wm1-x33d.google.com with SMTP id x6sf221286wmi.1
+        for <lists+clang-built-linux@lfdr.de>; Mon, 14 Sep 2020 10:28:20 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600104500; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZDPKmQOIGQ6KUjxU1LcsoL3prBD7qqhEjJGGrNvFrOLvFCgFd0HwqbA9bobKfscrr8
-         OX6+7Rhvg7nrhw1DXI9voaXVvQ8a3+H7mTlyZyabv+PNJZ3G8CDiNzRPRSvVmBBvV6nH
-         hCEbASVNZVBXOLIgpj/jG0N0O6BoaDj4ekCrBMemsflns38is3PJgs4+bqrovXC8VitZ
-         3SdoIGz9nx3VB5Ess5fVguA13I/OOByQdyWb5fMWEMAu18vrYudUnb982CnsMMbo51cl
-         oGgMPXRkdkUr0OtO9mNWxy0rs1mR8kQa9FKGmqG3NEbWjiQl6rw8r5zNVajkxCUxJPrB
-         JQnw==
+        b=ojRdcgRuklIDNfM7QWBezPTRiyDYcNsBR1AU/5d4gX6pqZa1xMVCO0bc4kfuDhn/Z8
+         59nwacrLvYpMKJ1hHRsHqoGKxe3Q972NxKs66GNBulwXLCHUFKFfsPTKpBEjSsvxgd6c
+         QBCKeUQ5b67UAGUPtzeREANdGXpG1RYq2bcWBLBxMZfZ1J1o9Z+uoe1X3qwwWij1OZPo
+         bfGarYj2F8AgaqGvPZd41V4kzCayV906VRz15vBKuC+8Io9+2EdNaDGc9EPMgZ3Iw1S5
+         ikNQSBQ4BL/D+hnur4uf/xjNa7zOC2wxJHE5LKlvsDuaxt8e71RCgnGyksk77XYQduDu
+         nDCA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature;
-        bh=RUfLbUdOxzKOQrsaVmk9YO3XXsMG7bBIJO5o9edld8M=;
-        b=jjrKemWfe4QlL1c0x4t5Ly4enq5Nfbs9mx7OvahYvaUbXF0PZKrQUPaIHd/BWJLmXC
-         88zGmCVhTBhpXp/xytNtlhaqpmD//lYYrNlEGZF4SJpHDdOmc0Epg069CWweOIJoy4K4
-         6IuIqiVKfjc9KO6UQ1J74TRtGxgNJ1TeAoeNPsZHGEU4YlV8EJkZlY/JZB9e7pxgA0bs
-         7d9McUQ4X+BYICbXh0RQUWln0dQFqT1B3O9BjuUaWZJnmFjyv72h8ollp8EG+SrOT3Wa
-         lNzqSNRMN5pekhza8Sg4Eed40bS+h/hw2vpibGrVaJoAObyZcg3yPerakge4fzqgkw+u
-         9PCg==
+        bh=/gWlTEArvCCpUTssgO8NtR9S6uOtqBiDhsepDU+2Q6c=;
+        b=io3rQ3eAHmQGjJIPuIOY7aAeBb9HPtd8sQVJt60FR3p81Xcu4B8p3/26cZ5CJKynSq
+         oiuhxfcLj3eX8o4perKikTO7ktfcIWCxxz9aq9fd/4cugcSnHPbPrvInUuFrvcnvfwWF
+         rkHgcOaySJ5wUQHPgXBPTp4O3W5R12jff8K1ZKfB7MHFf3b2cbjh9rMpyMI+8bqCGOYy
+         QVGcVPoZDb+RQHubZERm54Nc4g4Ru7kdZVD/0HYHNLnriil45UdP+yT+dtQUTcl6+un8
+         852Wfdztt6J61VZ1njVVR/uIgF2mnmclSUE4Ie+KlxRR9VWz4JfNbk+3UGditYC4/Sex
+         46bw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="LDOJW73/";
-       spf=pass (google.com: domain of georgepope@google.com designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=georgepope@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=EYgWAcl9;
+       spf=pass (google.com: domain of georgepope@google.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=georgepope@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :reply-to:precedence:mailing-list:list-id:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=RUfLbUdOxzKOQrsaVmk9YO3XXsMG7bBIJO5o9edld8M=;
-        b=j827TxoZ1dL6nwXMX5Ly2Xl04Vr0yFmlQwp09+HraEv8QMMk9XJlLmnlp/ETtfwXkM
-         fR2V0AA5RIxH+v3/Hi0njb2rSePL2HAdzV6Je1M4hI2TnT/IeuPtm01Xhw7mktmSYAFI
-         S2Q3XP4hgqzmixR4dOfSMvcmCjqtEAoC3qeBiPKm3eB5ARYgZnn+wr7dSpX4abd15Jr0
-         WHqFTGRTr6HFPwnYbpVcfuXZ/UqScB3/GfCHZUbMgIDmXPaa01N22L8qA9idyths+rP8
-         WhDLIBK9SQ0/RmGNgoBaalUerCI2N6MxRkqeoJAabjWnH0jLvfcEfAMxaFVTaS6wUiwv
-         Z/8w==
+        bh=/gWlTEArvCCpUTssgO8NtR9S6uOtqBiDhsepDU+2Q6c=;
+        b=CGkKMhQB1IIeiJg0RkpPqKBxDXMZTC3Th/uXr4eC2sABmWYBzEKpiYF7ju18lrs3iB
+         lr8WJ1SHE/CuTFMrNbRnm1kYb93upO+jN9iwWhKp0RKUDqsRQPk7F/24rB7UmhZj4IYr
+         1Oiwtku+oWA+LJhyyDOkbUhdnIWvWpYqJ5FlouZGWDcrn8diJJkd0NyW7QGEO9rhn1po
+         Nej8lxhJCxdr9aDvrtlGBwawhoHOpuWgLx6S5isYwi9MMmviJozRJqxQGvk6PI1dZL3F
+         6Ah0swjkpE/TYUCRHsfVwUqtxnBk0pCdwnA0RikWTyDZmW2Nim7EjRnZLs5Dgr2R0E2I
+         TNCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
@@ -49,59 +49,59 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=RUfLbUdOxzKOQrsaVmk9YO3XXsMG7bBIJO5o9edld8M=;
-        b=oDYLxM6LcH38YHQYyfTcZPeChznJQ0T3Kemj8/PM8Gkn09z1NSzWUcvBJpTxB35SuA
-         4Ozt9JmXH8isfAl+pmSh5XDW7wPsrf9qoFfQBRjo6iRnNv2J+our4L7PcMPhW9lfDnJY
-         3SH8tbniRdQ8/wqwq2MgZlgeUzUiTbATty4T5GsIeX6haViLk+alhNDtF9ZUgQp6eeTQ
-         aJWsc8X917JOJkKubtzEi4PD+gQoIDOaiPix2TJZBnOQnhotZxCTISGMuBSfxBv1c2I5
-         QT3roF5VRkQdhlF8Im2mWlWHxAEm3sHVcF6LXWKPtZP4Jt/8gKe9UphVIYkVG/FqdVD4
-         cDyQ==
-X-Gm-Message-State: AOAM532t37zzu8besqnIE534yCoXWdEmeCAo9QChA2GLqVsPynWIT2eG
-	hxFo7JXyDalFAjknKj8N6n4=
-X-Google-Smtp-Source: ABdhPJxBg0kt0WiQYxGWS12XHz++6V9Uiw/AdEMSEDkKJqGve3YTzsIpGW6Qf+dg24/vG+xCOHk++A==
-X-Received: by 2002:a19:ac49:: with SMTP id r9mr4838770lfc.481.1600104498958;
-        Mon, 14 Sep 2020 10:28:18 -0700 (PDT)
+        bh=/gWlTEArvCCpUTssgO8NtR9S6uOtqBiDhsepDU+2Q6c=;
+        b=OZG9fOLUzRc8UdQ2qSGnjLcnu5FuiPrdqA+A79GOiR2sMhwgxzgNMguOvlB76ty7O+
+         qu8lQLaoYvc0lwMGs/fjyGr1iFaXoQJ5CRl25q/uUxuIzSl1znv6qOArpqQyyN/AbPTa
+         p2BaSRB6t98LW7tjJw2snK7GzyC5WenDOGAnq6nHc0gnqh7q9xFVNAqRC0NIXmkZCiPp
+         9TxK4C35E30enjkJ/1U7sQeLnchL5ALdj8S1RsgiaK71hXwovhamh9TcaGNAtRbaiKiB
+         LASM4Ri6ibz1uuOj6oWZydH3+63I85eGV2x79qJPOGeA6IVRTWDFocIEsO5aQMQu0PRB
+         hwbg==
+X-Gm-Message-State: AOAM530isxmVDQHkPsrSjD6ioyI08QEUpvxxVR+yY66y1r2ZiGajaCth
+	JV9G8VOqEsCIB02rKpTVMrk=
+X-Google-Smtp-Source: ABdhPJwFpGrniTKJqZpCbzLr4E1gvnNfuI3f7IhEZoh4kkzzIf0uz7PFCnUWlYBR3FdsU1q5dt3t2w==
+X-Received: by 2002:adf:f207:: with SMTP id p7mr18187321wro.152.1600104500615;
+        Mon, 14 Sep 2020 10:28:20 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:9a93:: with SMTP id p19ls1524792lji.7.gmail; Mon, 14 Sep
- 2020 10:28:17 -0700 (PDT)
-X-Received: by 2002:a2e:970a:: with SMTP id r10mr5815665lji.453.1600104497892;
-        Mon, 14 Sep 2020 10:28:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600104497; cv=none;
+Received: by 2002:adf:dd0a:: with SMTP id a10ls28214wrm.2.gmail; Mon, 14 Sep
+ 2020 10:28:19 -0700 (PDT)
+X-Received: by 2002:adf:9c93:: with SMTP id d19mr17331669wre.275.1600104499833;
+        Mon, 14 Sep 2020 10:28:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600104499; cv=none;
         d=google.com; s=arc-20160816;
-        b=a4v1xC8bnAjK19LDIJQbiBbQpz2dKWzRx//MCOPNQ0tDj1ZD12G47mhhKFQ8OrR6fh
-         bNes6YBCfNThkPKZpTqo1R7wNELQs3y32QX3TIra2QrZb30CdiBUD4zuu1tt6/DzC3R5
-         oOIjP4TMyZwhXlwqhu95Rdc1nwV703Bh6O4xw4JOaukB6p6m0Tms7Rao8cyP2vHybn/g
-         pub1P9czfonEgfPJaChrO9/Tpx2L1t9v1L2e6z9DSJ8gmifigtoCXXWmxQpiG4JvgEkd
-         aV25pfcKQstcvYn/oFmfhQVHyrn0kxPLGZFzgwWSsylaWwFt8fQLu9gKhmo493sofIV4
-         X2IA==
+        b=r6hRqBNra+/bcHan/4S8FwPpGTvOYh/aWRnMAu8kBryZUDj9L8Pkku6OVn5E6LXyHV
+         7CgHdZCBRK9NdaePaAmprkozjv2ExLHALbN6gZd5B4O3pKFIINLfnIW5QuLoZ8gaP3/b
+         71X71HNKCOktMFRPczsusWJQCh69VchmtBNBi3v7sJO0HuNtYBLVYRkQhvrAGd2yqL+W
+         r2zsu3t6guNxHRMN4cu59bCNGr7M+oi3Cwm9H3itM0L65Elj14jo2HJoklDEPpd6lDRG
+         cs3IICj6GUvwFD/QW5X4OU5XH0AT/FF0eIwHiB7h/sz4rRG2J44J1XmbU75R9MKVqdi3
+         fFrw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=/EjNih3r7ygkjYASNBWp7YtEX1KLL1OovUvtOR4yQ8E=;
-        b=hlC1xPd/rGVynl8NsCbxS2l8PE7BcUJ7OWb2pgFDbo4RXYPCOHhuNSZxZ0v02a6/Np
-         EFri3JDSQ/h+5J68gS1IrwJZeGiSltsXxQUrMDDXBKuab2Y+QlsKxXBHn680cNpq/Cn3
-         vrMkvUPY5S5RUZ7v7XfHYB4fk9FRg+ubymrQvHZ/aPOVthbH+4qhOIw7v45fe/nNQozd
-         zOVKGAJN6EexFVgxkLSLeBo4V6O1IZxjADY0MC6PPRuSrg1GgfB3VVGBKh/I/1MzLv8L
-         ovcQ90PGDtzVEaibQMY4mhXl/nfqP6lD8j2LE7zoPCXKbrQauWBbneRszWp55Vwwetfh
-         oobQ==
+        bh=KftJRcollRLFMVov7TaPj7WtBHwyxRPUsiHY/UZT1fw=;
+        b=xPCUZytGVndBmdeNyFp1OkdjpyJ8C2COwSs98mMHXujv+Sg+sQiQtyriK5u9xiPIiW
+         Lki6b5JQcEJ+CZDVZtrXhqmzmaWO0ceNZ/rrVa/I8Ls41yT9RDxXZxjIPa6hZ93O/2zr
+         m8GAPZFJwePNiQ0mBTzWgedI+VFO46OsAGpwi9aBhxHBE1S7DTvPBQq1MihkGOtSpd8M
+         IXcvXKb6bYwpANZlFCGOajz4to2A1t5Xaz3vGjEYvuPY9JNAYdQD8PLQmfWU4rjnBx/8
+         +R7Q9HPbIV98af2CFsuH2zcSLfvRlFDh+gWgG2LKIUp1UOnODU9ckB25/iybrcg1KJ0t
+         jhLA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="LDOJW73/";
-       spf=pass (google.com: domain of georgepope@google.com designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=georgepope@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=EYgWAcl9;
+       spf=pass (google.com: domain of georgepope@google.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=georgepope@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-wm1-x343.google.com (mail-wm1-x343.google.com. [2a00:1450:4864:20::343])
-        by gmr-mx.google.com with ESMTPS id k10si380345ljj.0.2020.09.14.10.28.17
+Received: from mail-wr1-x443.google.com (mail-wr1-x443.google.com. [2a00:1450:4864:20::443])
+        by gmr-mx.google.com with ESMTPS id f134si665098wme.4.2020.09.14.10.28.19
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Sep 2020 10:28:17 -0700 (PDT)
-Received-SPF: pass (google.com: domain of georgepope@google.com designates 2a00:1450:4864:20::343 as permitted sender) client-ip=2a00:1450:4864:20::343;
-Received: by mail-wm1-x343.google.com with SMTP id q9so814792wmj.2
-        for <clang-built-linux@googlegroups.com>; Mon, 14 Sep 2020 10:28:17 -0700 (PDT)
-X-Received: by 2002:a1c:a551:: with SMTP id o78mr486952wme.4.1600104497464;
-        Mon, 14 Sep 2020 10:28:17 -0700 (PDT)
+        Mon, 14 Sep 2020 10:28:19 -0700 (PDT)
+Received-SPF: pass (google.com: domain of georgepope@google.com designates 2a00:1450:4864:20::443 as permitted sender) client-ip=2a00:1450:4864:20::443;
+Received: by mail-wr1-x443.google.com with SMTP id j2so499265wrx.7
+        for <clang-built-linux@googlegroups.com>; Mon, 14 Sep 2020 10:28:19 -0700 (PDT)
+X-Received: by 2002:adf:f10a:: with SMTP id r10mr16416565wro.86.1600104499411;
+        Mon, 14 Sep 2020 10:28:19 -0700 (PDT)
 Received: from localhost (49.222.77.34.bc.googleusercontent.com. [34.77.222.49])
-        by smtp.gmail.com with ESMTPSA id a17sm22898300wra.24.2020.09.14.10.28.16
+        by smtp.gmail.com with ESMTPSA id l19sm19870946wmi.8.2020.09.14.10.28.18
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Sep 2020 10:28:16 -0700 (PDT)
+        Mon, 14 Sep 2020 10:28:18 -0700 (PDT)
 From: "'George-Aurelian Popescu' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: maz@kernel.org,
 	catalin.marinas@arm.com,
@@ -129,17 +129,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	tglx@linutronix.de,
 	arnd@arndb.de,
 	George Popescu <georgepope@google.com>
-Subject: [PATCH 08/14] KVM: arm64: Enable UBsan check for unreachable code inside hyp/nVHE code
-Date: Mon, 14 Sep 2020 17:27:44 +0000
-Message-Id: <20200914172750.852684-9-georgepope@google.com>
+Subject: [PATCH 09/14] KVM: arm64: Enable shift out of bounds undefined behaviour check for hyp/nVHE
+Date: Mon, 14 Sep 2020 17:27:45 +0000
+Message-Id: <20200914172750.852684-10-georgepope@google.com>
 X-Mailer: git-send-email 2.28.0.618.gf4bc123cb7-goog
 In-Reply-To: <20200914172750.852684-1-georgepope@google.com>
 References: <20200914172750.852684-1-georgepope@google.com>
 MIME-Version: 1.0
 X-Original-Sender: georgepope@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="LDOJW73/";       spf=pass
- (google.com: domain of georgepope@google.com designates 2a00:1450:4864:20::343
+ header.i=@google.com header.s=20161025 header.b=EYgWAcl9;       spf=pass
+ (google.com: domain of georgepope@google.com designates 2a00:1450:4864:20::443
  as permitted sender) smtp.mailfrom=georgepope@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: George-Aurelian Popescu <georgepope@google.com>
@@ -159,71 +159,79 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: George Popescu <georgepope@google.com>
 
-The data from __ubsan_handle_builtin_unreachable is passed to the buffer
-and printed inside the kernel by its symmetric handler.
+__ubsan_handle_shift_out_of_bounds data is passed to the buffer inside
+hyp/nVHE. This data is passed to the original handler from kernel.
+
+The values of the operands of the shift expression are stored as the lhs
+and rhs pointers, so there is no need to dereference them.
 
 Signed-off-by: George Popescu <georgepope@google.com>
 ---
  arch/arm64/include/asm/kvm_ubsan.h |  5 ++++-
- arch/arm64/kvm/hyp/nvhe/ubsan.c    | 12 +++++++++++-
- arch/arm64/kvm/kvm_ubsan_buffer.c  |  3 +++
- 3 files changed, 18 insertions(+), 2 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/ubsan.c    | 14 +++++++++++++-
+ arch/arm64/kvm/kvm_ubsan_buffer.c  |  4 ++++
+ 3 files changed, 21 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm64/include/asm/kvm_ubsan.h b/arch/arm64/include/asm/kvm_ubsan.h
-index 575881e0bd5f..7fd0d0dfbd82 100644
+index 7fd0d0dfbd82..3130a80cd8b2 100644
 --- a/arch/arm64/include/asm/kvm_ubsan.h
 +++ b/arch/arm64/include/asm/kvm_ubsan.h
-@@ -20,10 +20,12 @@ struct ubsan_values {
- struct kvm_ubsan_info {
+@@ -21,11 +21,13 @@ struct kvm_ubsan_info {
  	enum {
  		UBSAN_NONE,
--		UBSAN_OUT_OF_BOUNDS
-+		UBSAN_OUT_OF_BOUNDS,
-+		UBSAN_UNREACHABLE_DATA
+ 		UBSAN_OUT_OF_BOUNDS,
+-		UBSAN_UNREACHABLE_DATA
++		UBSAN_UNREACHABLE_DATA,
++		UBSAN_SHIFT_OUT_OF_BOUNDS
  	} type;
  	union {
  		struct out_of_bounds_data out_of_bounds_data;
-+		struct unreachable_data unreachable_data;
+ 		struct unreachable_data unreachable_data;
++		struct shift_out_of_bounds_data shift_out_of_bounds_data;
  	};
  	union {
  		struct ubsan_values u_val;
-@@ -32,3 +34,4 @@ struct kvm_ubsan_info {
- #endif
+@@ -35,3 +37,4 @@ struct kvm_ubsan_info {
  
  void __ubsan_handle_out_of_bounds(void *_data, void *index);
-+void __ubsan_handle_builtin_unreachable(void *_data);
+ void __ubsan_handle_builtin_unreachable(void *_data);
++void __ubsan_handle_shift_out_of_bounds(void *_data, void *lhs, void *rhs);
 diff --git a/arch/arm64/kvm/hyp/nvhe/ubsan.c b/arch/arm64/kvm/hyp/nvhe/ubsan.c
-index b2d3404f6215..9497e7f7f397 100644
+index 9497e7f7f397..40b82143e57f 100644
 --- a/arch/arm64/kvm/hyp/nvhe/ubsan.c
 +++ b/arch/arm64/kvm/hyp/nvhe/ubsan.c
-@@ -58,6 +58,16 @@ void __ubsan_handle_out_of_bounds(void *_data, void *index)
+@@ -56,7 +56,19 @@ void __ubsan_handle_out_of_bounds(void *_data, void *index)
+ 	}
+ }
  
- void __ubsan_handle_shift_out_of_bounds(void *_data, void *lhs, void *rhs) {}
- 
--void __ubsan_handle_builtin_unreachable(void *_data) {}
-+void __ubsan_handle_builtin_unreachable(void *_data)
+-void __ubsan_handle_shift_out_of_bounds(void *_data, void *lhs, void *rhs) {}
++void __ubsan_handle_shift_out_of_bounds(void *_data, void *lhs, void *rhs)
 +{
 +	struct kvm_ubsan_info *slot;
-+	struct unreachable_data *data = _data;
++	struct shift_out_of_bounds_data *data = _data;
 +
 +	slot = kvm_ubsan_buffer_next_slot();
 +	if (slot) {
-+		slot->type = UBSAN_UNREACHABLE_DATA;
-+		slot->unreachable_data = *data;
++		slot->type = UBSAN_SHIFT_OUT_OF_BOUNDS;
++		slot->shift_out_of_bounds_data = *data;
++		slot->u_val.lval = lhs;
++		slot->u_val.rval = rhs;
 +	}
 +}
  
- void __ubsan_handle_load_invalid_value(void *_data, void *val) {}
+ void __ubsan_handle_builtin_unreachable(void *_data)
+ {
 diff --git a/arch/arm64/kvm/kvm_ubsan_buffer.c b/arch/arm64/kvm/kvm_ubsan_buffer.c
-index ce796bdd027e..f66cc5f7878e 100644
+index f66cc5f7878e..b4a282bec91d 100644
 --- a/arch/arm64/kvm/kvm_ubsan_buffer.c
 +++ b/arch/arm64/kvm/kvm_ubsan_buffer.c
-@@ -25,6 +25,9 @@ void __kvm_check_ubsan_data(struct kvm_ubsan_info *slot)
- 		__ubsan_handle_out_of_bounds(&slot->out_of_bounds_data,
- 				slot->u_val.lval);
+@@ -28,6 +28,10 @@ void __kvm_check_ubsan_data(struct kvm_ubsan_info *slot)
+ 	case UBSAN_UNREACHABLE_DATA:
+ 		__ubsan_handle_builtin_unreachable(&slot->unreachable_data);
  		break;
-+	case UBSAN_UNREACHABLE_DATA:
-+		__ubsan_handle_builtin_unreachable(&slot->unreachable_data);
++	case UBSAN_SHIFT_OUT_OF_BOUNDS:
++		__ubsan_handle_shift_out_of_bounds(&slot->shift_out_of_bounds_data,
++				slot->u_val.lval, slot->u_val.rval);
 +		break;
  	}
  }
@@ -234,4 +242,4 @@ index ce796bdd027e..f66cc5f7878e 100644
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200914172750.852684-9-georgepope%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200914172750.852684-10-georgepope%40google.com.
