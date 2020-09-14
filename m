@@ -1,133 +1,132 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBAF4775AKGQEWX2KJ2I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEPT3NHSUCBBCWR775AKGQESFRMEYY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103f.google.com (mail-pj1-x103f.google.com [IPv6:2607:f8b0:4864:20::103f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 93BE9269792
-	for <lists+clang-built-linux@lfdr.de>; Mon, 14 Sep 2020 23:17:53 +0200 (CEST)
-Received: by mail-pj1-x103f.google.com with SMTP id e4sf845192pjd.4
-        for <lists+clang-built-linux@lfdr.de>; Mon, 14 Sep 2020 14:17:53 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600118272; cv=pass;
+Received: from mail-il1-x13c.google.com (mail-il1-x13c.google.com [IPv6:2607:f8b0:4864:20::13c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1B93C269882
+	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Sep 2020 00:02:52 +0200 (CEST)
+Received: by mail-il1-x13c.google.com with SMTP id t11sf1078366ilj.10
+        for <lists+clang-built-linux@lfdr.de>; Mon, 14 Sep 2020 15:02:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600120971; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aLubZ56J+lsYF2Phg+Poqimj8qEwFEbxFY7F1VydVyTq085a2NfIbvFRHNAvoVnFvR
-         0BmZXWNjp/uQDunRpXOWV7E2Y0NJKl+KWOYsFNrc9GEyO5v6dvBS2WVL1a0932+AgVBG
-         B0xjyF9qGa7XB0bejk6ApQNrVldUOAuWf0TczMFLh8dysHPqBagpBofHoRFhRNvgOAKE
-         6pdpwyt8I8a4ewzeod2kRWFZUMImKbWmxOqYf2dXptl6JngGTPS0o1aumXualrF6RU09
-         YZfhl87cBxMyHQDM/bNgmKuF80kQpl1T7IRbHR27DOKQnjpiJqcLdxntD14iNTxz4JOh
-         6urw==
+        b=NedGlYnWudHbV8Qo2ZKj8YN+fSTUBf9Oh8zP1y38lZoyCARUO0ttAcl6hMYlnaDn34
+         TVvp54pRGWYRjvOm8evs1fyZV911I05l04dadzI9GJFu8D4v+cp/RAcl4by/AqZgXRMN
+         4/dAS9630v2aJpt9OKmQz8pbleBnqJJLjr8gMxrA8uIMC7zycD6tl6bEdI3shq352JXb
+         yvscw8siNqVzrtGoxIbENrW7H/COaoYfACmQ+spv9wzcwZ3ZVeB+c+NV076emJUNDaIE
+         2ZsT2gPw96ybTz3eE4u/IG3k7KMouMCCRxBmeUIpIhCu3931f2RDSvjnavjfW3TRjZ2t
+         FTdw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=HGdpxFkxoEqZrDWBdKDVsq5jAg2RokkSkXuGedB4rVc=;
-        b=NRnt7/sy69AagUVc71HHLUeXXTQ7VkpIGkGah/0b4ZRGvqKrz+qtTc5jmh2W9n87ak
-         8a7HKYYqH0c1uMGG7DH/Wyu6Fpl32DWwlaf/oZ9V0zww6TgCTxqbh+N6pWogKDJAN6LM
-         wKIEypYK5/5C2jWJndz/JV2rzHi8dn6olmCQ/HOzrkB0rX60ui1IT4B3GipPoe8CKxe3
-         cW3Fs2ekY1tPP/FPLU4J6z5P6r+jIoVdgt+uZ1QfpGEWvNvDBOB4weo4RCR5cj4ykFWk
-         c8jugQH60TevDwOKOlX2d2JE07r0e4Bv7AUc95eeCKHn5LCLnZ0Vplf8Yzz65ovVUB4j
-         FSdQ==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=Rx6zdYqyrm4DldWGziI5UiNU2PEwIbMI0nBjh8/1ypc=;
+        b=zPvW4ahd1hxEcrNkdi5SpPZUAn0yIByte8ptEcwh7mCiDvdhZny9A/S74sD+WpXl32
+         scdZhK/4b2B9+Z7pJzaIeq/vB9ZAhHHRq9aLB8M+QxVFTbItpwe9f7x2vNEr5aqZb5tp
+         cBBnDPzuESEuDBb9Fxfsg0NMfl0jzWnaVPUpUEoLvNLr5oR708qEitsKr5Zo7//dlHwu
+         59zsj0ks7/YckkQwvLBTwpZxmat45X7lUDB/9wVKmHzgK+D0ZrQdMUKhEobdDy8VCDvg
+         /dyw149ymApCcaogADWXfXX0ErXX/bVJmWhF4TyC04qal2WN7ZYQIzFAz5ws/PC+HhIp
+         CzTg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=gnDqleJF;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=default header.b=F3PGCqgl;
+       spf=pass (google.com: domain of luto@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=luto@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=HGdpxFkxoEqZrDWBdKDVsq5jAg2RokkSkXuGedB4rVc=;
-        b=hl0SX5xpFegY8Ek/63Ej0uo1PkzdbOiC8Se16/f69QUl4QC7agctGu9Zk96OlxYrOX
-         j8TtY4sacrGDb+ypkuuFib8I0LEvoFwPR2idP1u/fQTs44r46c8eukO7KX0+DKnkOPHm
-         JYeioIjA+V5+p9oMftwimjOr18urwrnQe1HAcKWKE+uZQoXFoXghOjvP+DHGX5Be80ye
-         QAbjWOYTFiHYVOEmXDNRiDilzA/j6G4mKBI2tK9J/RxFeMitW72DefTfj2rkjAoGYcdl
-         h9P+wr9c7iHO2vwYdQKwJMivqxLplTnjLCOSGXIyyaRcMQcv6BFtf2cc7H3+uM1AzoW1
-         dw8w==
+        bh=Rx6zdYqyrm4DldWGziI5UiNU2PEwIbMI0nBjh8/1ypc=;
+        b=VGcVXos9LZai2mfsMnwX+URmu15bTWD5YostzsPblrTklcumxA8YhxYUVY54AOc0I3
+         WLh1wP9SjOlFx2/iUHiPx/s95xtCCJqtGVwH6kpdM8GtGJ/DzJkArXidCAzTe7Ulvhab
+         nZSzmZP9wEj4Ot+HcS+nbWh9BKpwO+WRqje5x+hqUPjDvPp/MR+BxubscW+LGVFbeviQ
+         /mJ6Hj6RW2sXiklIdb/qpXHzOqYNJds8DwZedB6aYkEvnuPZwUONvsqn5YJxU2/zRUn/
+         k/r0T/FNOwVn5IWTxuRe93CsBfIFmbfculWW3HiSS1gDwtKpDscC5FHtusLsud3OazAo
+         CwOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=HGdpxFkxoEqZrDWBdKDVsq5jAg2RokkSkXuGedB4rVc=;
-        b=kvXbTiHLiDIIQvKj0W7iLkELhmnZgSnuwegwUIYOlMBIvigus4pjI5Dy53h0APiY0+
-         a7kdENMhTojz0Z7RY77wi1PKeeWmrMjZQtSV6CwcKsI6AWLAV2DFK9I5Q6YG8o2uu6ut
-         J93sTcCZhTiwcyag32E/Jnz7FkA2AdCfTX0muutA5h9VmBGd7JF89xUC9F5gvQYKu+wO
-         nCEaIwG0XOu/1u4a9gmaJciub9HNfPiyTej1cxkymCfSaGfo7l2Ms20GdmuxthXXdgUp
-         H+rt+I6bsrRxdgeIA7O7aavhz4OeMbDChGfy6uN4fSf52PeoFV2kxoGx80wN6zZa9ZUA
-         +YRw==
-X-Gm-Message-State: AOAM530EP2mFxa9XdgP+ZGfJ96v6xlCJDZ+f9pp3KMD1+fMmqYv9w+Td
-	cABQp62YaxXFN/cdHhIbxZI=
-X-Google-Smtp-Source: ABdhPJzm0mcfsDBdIwhAL8jFK7cUYenBZyFJO13pN5EkoPg8LsumEO0oyobj5HtcPmZvC8jqjP3Xyg==
-X-Received: by 2002:a17:90a:6a0d:: with SMTP id t13mr1243846pjj.208.1600118272294;
-        Mon, 14 Sep 2020 14:17:52 -0700 (PDT)
+        bh=Rx6zdYqyrm4DldWGziI5UiNU2PEwIbMI0nBjh8/1ypc=;
+        b=RK8Etx07tcPuN2Knr+1aBmWSXw8Tv6SGhmdoXX8zwNV1U4duzNXPveXdGUk+kvKiek
+         85s/ZGLVfFBkQeOp83VYAWHswihPPhcFwOefvT7sxIYI3KffbAY1GH2j6iZ3xyTDw0ow
+         MRJEMyAUIpf9AdGulacwEbwqzELCDlipska6hA0Ys6TP++2qCY2QeeHc/7+XRfd8JPAI
+         fccy5rhqi/izuflGp6Wcz4bXXsLmN8Kfx9W9C7RPY7QJh+Vf7pEHGi5ljou7IqLbeH3x
+         trNCnIUiSDSFf2K0pRewGHhG9rvchbeHqNQfhyGRYFInQqBq/U+kh6T48NyWJC9UlysG
+         L3JQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM533k9sJqL2ArT47JYGmY7N205XTrCelw1yNCLvt8yc3U6I4RxJRl
+	vGTIPTgZ3Bk/fVZr6wLuz8U=
+X-Google-Smtp-Source: ABdhPJzVWHFhazdUeCDFkSJx75eL2p2uU9Mhd6GYzM5o0w0Alx+zi9TFEMiJ5T11aSQh3vtw0NM8OA==
+X-Received: by 2002:a92:d104:: with SMTP id a4mr14148157ilb.173.1600120971111;
+        Mon, 14 Sep 2020 15:02:51 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:96cd:: with SMTP id h13ls4191690pfq.0.gmail; Mon, 14 Sep
- 2020 14:17:51 -0700 (PDT)
-X-Received: by 2002:a63:6647:: with SMTP id a68mr12552098pgc.450.1600118271779;
-        Mon, 14 Sep 2020 14:17:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600118271; cv=none;
+Received: by 2002:a02:6f56:: with SMTP id b22ls1512436jae.9.gmail; Mon, 14 Sep
+ 2020 15:02:50 -0700 (PDT)
+X-Received: by 2002:a05:6638:2109:: with SMTP id n9mr14878768jaj.134.1600120970672;
+        Mon, 14 Sep 2020 15:02:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600120970; cv=none;
         d=google.com; s=arc-20160816;
-        b=j5w4x73Z8y2PPGK4ueS8ucThMc/o3Ow7jjHWZJWnd2juFWR/eDltvON1eU1/0cvyFt
-         HWSjmQauZeIhe2PMgIQZi+/v7Rc9pJNGCJ0/+nR55OiTryUT+PZohxcwG1+qUbtYTcQJ
-         sqQ2ashfHPnjZD1mSUrulNMLExhSkLXhviWWyFIPbLIyUId8Q+I7xBuBtLW32mH6JBjh
-         dtd24cXEm1Cd9nW9p9Zohrhlv4BhNgDwBPJlzbwcU5tHIgaWoFS0u0DAG2SCgj+meYfY
-         sXsTsKa6iCv6orh0QrF5VuwPebiz7n762WQcBQFP9uLPgcdf0tCF/ZENEJ7sWa+f3F6q
-         PA7g==
+        b=e0vAXYvgSHaPyh821J3uO8rfmnR2iKn6T2aXFRls/23FQK7bPgc1QRR23z1TWpOdls
+         cXE5ox5kQjXIdZLhDmXIfxvY22L5kBYoxaQT0In52Zhcz3YQJQPKvDTv68jOcbIh0Muo
+         aZ8wfEJQTSb2CFLgUvy0g+hZ/J1RBrGFN1Q9LYwdkaDaY1K17YGL2QK5hBFIOz/1Wo+G
+         qmATbLob3+o4DHzl0msFNrAzkIxW18wVE1bKI4TaHJSPGuin5WoUWaW9bkEAY3xnnz3V
+         XShVdQP3XwbBD4GrRqkYYSscbfaFniWQpeNIH2P8xlbdYYo+Qj/UYW7tsGwXk3q/UJlP
+         lr2g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=C7sgFtQoGvHj7+x9+CzUrIZAY69PKOdgVMUAIaHzDvk=;
-        b=mz51KpqOcw2UexdeABotedFmCHkPVLc7DenBVzwHsEtla2DDd+usQGxYEjeD9/xZg/
-         wLzmcFEzwoGlHy3N7hGYIsNvdE3pdvsj6iIfRsibcshvFFxzpslxf9CsvPGBoW62GdIi
-         15FJTBB/GMQXUG7jqXwrlk3EOi3GRG31Bu126qWkTLnK8Ckf6+VScNsPPs4hVS3gHmUj
-         Uc2IX87yi5dGNBPZEw7dz4i2Ej1IBqY9tWFxpXR4zqPRzpAPhIhHevTCLoYLQ+9Pr3a5
-         +QtLkU32jhQOBxsrIXXdke+bf37Wii6XrnRKkcnyPMzC3R4M21AFnG+AFTI2QTIdnppK
-         8Sdg==
+        bh=D30D4BMPa8TFwZOvgugu/aJhg79jT2XO5Iq9yucSfiA=;
+        b=jPs7bIpDbV+Do3u/j/v9qJXDOr7LTGU+3z5qnivYvWNKIHAdazMSnpvcxi9G10nLiB
+         Y0Ubxfhz3V9KHHPBuTMMA6p6WjX/quJl0F2AbJk3KUVUfz5OTXJRrDmZLSMRLd+Sv1+D
+         xDf+EAOxoVSIFRZILPotvMNFtoP3By14H0tYs1AbDR1lA6XKeqjM4NESMWuxfDKBep58
+         l+gaKzy73PVnyivbJQPeYtguVuh9V7LrvfQRjurh4TiM4y82nd15sf+T3qynHFyEeWNJ
+         boQGf9jiNKjNtXJTWrzMkt8vxJgFvrg9X9exWL9TUDL/wUPcl7+QGnh/4HBXB1GIMZaB
+         2FKg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=gnDqleJF;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x444.google.com (mail-pf1-x444.google.com. [2607:f8b0:4864:20::444])
-        by gmr-mx.google.com with ESMTPS id b9si589823pge.4.2020.09.14.14.17.51
+       dkim=pass header.i=@kernel.org header.s=default header.b=F3PGCqgl;
+       spf=pass (google.com: domain of luto@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=luto@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id a13si794063ios.2.2020.09.14.15.02.50
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Sep 2020 14:17:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) client-ip=2607:f8b0:4864:20::444;
-Received: by mail-pf1-x444.google.com with SMTP id l126so632387pfd.5
-        for <clang-built-linux@googlegroups.com>; Mon, 14 Sep 2020 14:17:51 -0700 (PDT)
-X-Received: by 2002:a63:7882:: with SMTP id t124mr2686911pgc.381.1600118271305;
- Mon, 14 Sep 2020 14:17:51 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 14 Sep 2020 15:02:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of luto@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id A3B862193E
+	for <clang-built-linux@googlegroups.com>; Mon, 14 Sep 2020 22:02:49 +0000 (UTC)
+Received: by mail-wm1-f45.google.com with SMTP id y15so1519464wmi.0
+        for <clang-built-linux@googlegroups.com>; Mon, 14 Sep 2020 15:02:49 -0700 (PDT)
+X-Received: by 2002:a05:600c:4104:: with SMTP id j4mr1361681wmi.36.1600120968132;
+ Mon, 14 Sep 2020 15:02:48 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200914172750.852684-1-georgepope@google.com> <20200914172750.852684-7-georgepope@google.com>
-In-Reply-To: <20200914172750.852684-7-georgepope@google.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 14 Sep 2020 14:17:39 -0700
-Message-ID: <CAKwvOdmMAc5zhLQMr-6WvrJJ4vbzwMpav36Y6V_DBBVjf4i72g@mail.gmail.com>
-Subject: Re: [PATCH 06/14] Fix CFLAGS for UBSAN_BOUNDS on Clang
-To: George-Aurelian Popescu <georgepope@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Michal Marek <michal.lkml@markovi.net>, Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	kvmarm@lists.cs.columbia.edu, LKML <linux-kernel@vger.kernel.org>, 
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, James Morse <james.morse@arm.com>, 
-	Julien Thierry <julien.thierry.kdev@gmail.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Nathan Chancellor <natechancellor@gmail.com>, David Brazdil <dbrazdil@google.com>, 
-	Mark Brown <broonie@kernel.org>, Fangrui Song <maskray@google.com>, ascull@google.com, 
-	Kees Cook <keescook@chromium.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Dmitry Vyukov <dvyukov@google.com>, Marco Elver <elver@google.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Arnd Bergmann <arnd@arndb.de>, 
-	kernel-dynamic-tools <kernel-dynamic-tools@google.com>
+References: <20200903011054.2282115-1-morbo@google.com> <20200903073435.GU1362448@hirez.programming.kicks-ass.net>
+ <CAGG=3QX4wKcoPWw+5=tOqz3Y7g8ELGZuav3kdWjXRQae=ue9Mg@mail.gmail.com>
+ <CALCETrW7B3HkF5iY=qgt0KeN1fXZLVaPZcELYGRm9bOgbirbww@mail.gmail.com> <CAKwvOdkKqkP1qT0002xQnDrByXr_ygvqCmnzZ50vJLDsg6XWXg@mail.gmail.com>
+In-Reply-To: <CAKwvOdkKqkP1qT0002xQnDrByXr_ygvqCmnzZ50vJLDsg6XWXg@mail.gmail.com>
+From: Andy Lutomirski <luto@kernel.org>
+Date: Mon, 14 Sep 2020 15:02:36 -0700
+X-Gmail-Original-Message-ID: <CALCETrXUaeNUbkQSeMPpPKWDBCEpqX1gLgkv2G9zLeeYMjK8VQ@mail.gmail.com>
+Message-ID: <CALCETrXUaeNUbkQSeMPpPKWDBCEpqX1gLgkv2G9zLeeYMjK8VQ@mail.gmail.com>
+Subject: Re: [PATCH] x86: use clang builtins to read and write eflags
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Andy Lutomirski <luto@kernel.org>, Bill Wendling <morbo@google.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, Greg Thelen <gthelen@google.com>, 
+	John Sperbeck <jsperbeck@google.com>, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: luto@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=gnDqleJF;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@kernel.org header.s=default header.b=F3PGCqgl;       spf=pass
+ (google.com: domain of luto@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=luto@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,63 +139,130 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-+ kernel-dynamic-tools to help review.
+On Mon, Sep 14, 2020 at 2:05 PM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
+>
+> (Bill, please use `./scripts/get_maintainer.pl <patchfile>` to get the
+> appropriate list of folks and mailing lists to CC)
+>
+> On Thu, Sep 3, 2020 at 8:06 AM Andy Lutomirski <luto@kernel.org> wrote:
+> >
+> > So with my selftests hat on, the inline asm utterly sucks.  Trying to
+> > use pushfq / popfq violates the redzone and requires a gross hack to
+> > work around.  It also messes up the DWARF annotations.  The kernel
+> > gets a free pass on both of these because we don't use a redzone and
+> > we don't use DWARF.
+>
+> Sorry, I don't fully understand:
+> 1. What's the redzone?
 
-On Mon, Sep 14, 2020 at 10:28 AM George-Aurelian Popescu
-<georgepope@google.com> wrote:
->
-> From: George Popescu <georgepope@google.com>
->
-> When the kernel is compiled with Clang, UBSAN_BOUNDS inserts a brk after
-> the handler call, preventing it from printing any information processed
-> inside the buffer.
-> For Clang -fsanitize=bounds expands to -fsanitize=array-bounds and
-> -fsanitize=local-bounds, and the latter adds a brk after the handler
-> call
->
-> Signed-off-by: George Popescu <georgepope@google.com>
-> ---
->  scripts/Makefile.ubsan | 9 ++++++++-
->  1 file changed, 8 insertions(+), 1 deletion(-)
->
-> diff --git a/scripts/Makefile.ubsan b/scripts/Makefile.ubsan
-> index 27348029b2b8..3d15ac346c97 100644
-> --- a/scripts/Makefile.ubsan
-> +++ b/scripts/Makefile.ubsan
-> @@ -4,7 +4,14 @@ ifdef CONFIG_UBSAN_ALIGNMENT
->  endif
->
->  ifdef CONFIG_UBSAN_BOUNDS
-> -      CFLAGS_UBSAN += $(call cc-option, -fsanitize=bounds)
-> +      # For Clang -fsanitize=bounds translates to -fsanitize=array-bounds and
-> +      # -fsanitize=local-bounds; the latter adds a brk right after the
-> +      # handler is called.
-> +      ifdef CONFIG_CC_IS_CLANG
-> +            CFLAGS_UBSAN += $(call cc-option, -fsanitize=array-bounds)
+Userspace ABI.  x86_64 userspace is allowed to use 128 bytes below RSP.
 
-You can remove the cc-option check above; Clang has supported this
-option for many releases.  (One less compiler invocation at build
-time, FWIW).
+> 2. How does pushfq/popfq violate it?
 
-You cannot remove the below cc-option; GCC only implemented that
-sanitizer in the 5.0+ releases; the kernel still support GCC 4.9.
+It clobbers a stack slot owned by the compiler.
 
-> +      else
-> +            CFLAGS_UBSAN += $(call cc-option, -fsanitize=bounds)
-> +      endif
->  endif
+> 3. What is the "gross hack"/"workaround?" (So that we might consider
+> removing it if these builtins help).
+
+Look in tools/testing/selftests/x86/helpers.h.  I have a patch to
+switch to the builtins.
+
+> 4. The kernel does use DWARF, based on configs, right?
+
+Indeed, but user code in the kernel tree (e.g. selftests) does.
+
+> #ifdef CONFIG_X86_64
+> #define __read_eflags __builtin_ia32_readeflags_u64
+> #define __write_eflags __builtin_i32_writeeflags_u64
+> #else
+> #define __read_eflags __builtin_ia32_readeflags_u32
+> #define __write_eflags __builtin_i32_writeeflags_u32
+> #endif
+
+Looks reasonable to me.
+
 >
->  ifdef CONFIG_UBSAN_MISC
-> --
-> 2.28.0.618.gf4bc123cb7-goog
+> Which would be concise.  For smap_save() we can use clac() and stac()
+> which might be nicer than `asm goto` (kudos for using `asm goto`, but
+> plz no more).  :^P Also, we can probably cleanup the note about GCC <
+> 4.9 now. :)
+
+I find it a bit implausible that popfq is faster than a branch, so the
+smap_restore() code seems suboptimal.  For smap_save(), I'm not sure
+what's ideal, but the current code seems fine other than the bogus
+constraint.
+
+> > > Clang chooses the most general constraint when multiple constraints
+> > > are specified. So it will use the stack when retrieving the flags.
+> >
+> > I haven't looked at clang's generated code to see if it's sensible
+> > from an optimization perspective, but surely the kernel code right now
+> > is genuinely wrong.  GCC is free to omit the frame pointer and
+> > generate a stack-relative access for the pop, in which case it will
+> > malfunction.
 >
+> Sorry, this is another case I don't precisely follow, would you mind
+> explaining it further to me please?
 
+The compiler is permitted (and expected!) to instantiate an m
+constraint as something like offset(%rsp).  For example, this:
 
--- 
-Thanks,
-~Nick Desaulniers
+unsigned long bogus_read_flags(void)
+{
+        unsigned long ret;
+        asm volatile ("pushfq\n\tpopq %0" : "=m" (ret));
+        return ret;
+}
+
+compiles to:
+
+        pushfq
+        popq -8(%rsp)
+        movq    -8(%rsp), %rax
+        ret
+
+which is straight-up wrong.  Changing it to "=rm" gives:
+
+        pushfq
+        popq %rax
+        ret
+
+which is correct, but this only works because gcc politely chose the r
+option instead of the m option.  clang chooses poorly and gives:
+
+read_flags:
+        pushfq
+        popq    -8(%rsp)
+        movq    -8(%rsp), %rax
+        retq
+
+which is wrong.  I filed a clang bug:
+
+https://bugs.llvm.org/show_bug.cgi?id=47530
+
+but the kernel is buggy here -- clang is within its rights to generate
+the bogus sequence above.  Bill's email was IMO rather obfuscated, and
+I assume this is what he meant.
+
+Of course, clang unhelpfully generates poor code for the builtin, too:
+
+nice_read_eflags:
+        pushq   %rbp
+        movq    %rsp, %rbp
+        pushfq
+        popq    %rax
+        popq    %rbp
+        retq
+
+I filed a bug for that, too:
+
+https://bugs.llvm.org/show_bug.cgi?id=47531
+
+So we at least need to fix the bogus "=rm", and we should seriously
+consider using the builtin.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmMAc5zhLQMr-6WvrJJ4vbzwMpav36Y6V_DBBVjf4i72g%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CALCETrXUaeNUbkQSeMPpPKWDBCEpqX1gLgkv2G9zLeeYMjK8VQ%40mail.gmail.com.
