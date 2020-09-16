@@ -1,133 +1,136 @@
-Return-Path: <clang-built-linux+bncBC7OBJGL2MHBBAVYQ75QKGQE6BPDICQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDM2X4EI2MPBBIGSQ75QKGQE6FZCZ7Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa38.google.com (mail-vk1-xa38.google.com [IPv6:2607:f8b0:4864:20::a38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 188A626C0AB
-	for <lists+clang-built-linux@lfdr.de>; Wed, 16 Sep 2020 11:33:55 +0200 (CEST)
-Received: by mail-vk1-xa38.google.com with SMTP id e2sf1363304vkn.11
-        for <lists+clang-built-linux@lfdr.de>; Wed, 16 Sep 2020 02:33:55 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600248834; cv=pass;
+Received: from mail-oi1-x239.google.com (mail-oi1-x239.google.com [IPv6:2607:f8b0:4864:20::239])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2025C26C1A7
+	for <lists+clang-built-linux@lfdr.de>; Wed, 16 Sep 2020 12:29:54 +0200 (CEST)
+Received: by mail-oi1-x239.google.com with SMTP id x124sf2725920oif.19
+        for <lists+clang-built-linux@lfdr.de>; Wed, 16 Sep 2020 03:29:54 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600252193; cv=pass;
         d=google.com; s=arc-20160816;
-        b=E7FEdI+WHIaipgOdOJA3ojzV0/+hBvOSL6arKRwUtXJDwn7oz8TON7a+R1qNn4mHDw
-         nCAGvSFODd35qN+wZ+LTcIpNvcSTtlQwATSYEZfGjsncVblFjZeL72Xyh4E3JZ3iGRPs
-         DRPF0cty70zyCBctllIQsYt7f1pIShZkvFmw02CvRM1rxxsu0QbTxE9H9qbXkoNjb4vd
-         Jdt9FFM6KklsQ7EBnf4XYT84mQR3mrZvNekKombiDvFqpw57vbJa3xsVt50mMef/ig6k
-         2/2acKg999O5oCqwDbk04c3RirIiMX5z+Yjl0E8zFykXfmGYeRE4uQK5iGHYdGQLwcK3
-         G8tQ==
+        b=AEBv77lupaeysl6mmmHc6rChFHY0bR4hXdpdtrZG4fwdqcbW1Fc9zq+gkUeHN40Cbj
+         eD9Rv+VxiIMWLPHoPreYKHpzRIPdWZBlalnY8lIu18twmYwsjHKiMJkyALCUzXUskSIh
+         u7TO9Y4TzvWUYGYkVs2gFEQxA956Zu0z7PolCv/Na+uk52KNXrHoP76EGGoS7Mhn1p1A
+         OIhO1N7REm7Ge5yWPgqrvTw9xHB3nXnXsy1ufJE7xgs5iQVpWXZVyULE4jwYiC7aR3eC
+         xMFS70AwVDbh1PgImVktIOP69DIeBxld3ZrS3iWUHSimqCpGiFCbhrwF9ia7/pwn5qr9
+         08UA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=QZc7LbrcOgwdQatZO2LejmEBfzr/+fDxD2uH6QbARHQ=;
-        b=IPhRbEmQuas6GcISr3GGgAOjDQndBWDHtzGFkrdH7FUiwKoIwT4NkpwO0bkeybR6RK
-         lbVaaiBR5se8AMvH/EEKeiNI51ADYYf+AJp+ZbxtDA/zSqoIqSQcmGwZyoboYMEaHGKL
-         JSN8aVmPlIseiZZiCcYKRC5NyzE9TAZX6dOr6+HMr6XobFy1SWsYxRs3uR0cwv7QW5kN
-         0B0WLCfKYni+zIFDpNaSmMq/+sJrmbFdqicoREBk5TYz4ga0E0pwdNrxoot+5XqJejH8
-         n8aQgoDMBi+nsB+f0fSeS1bDzReg3z1U6dn5yQxIMfFPfjI9H2o59stZOD64TpokIGcT
-         a7Ww==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=pmpXDJVElFba0O9SXzKoDNFmVeBUPSLROrxoDnRLMlg=;
+        b=fYi0eyf9cwOAHUEZVWCoeqr84CG7Y6ovMmUTVWogEa1TYyf+sz0lZ0kwYFY1Amx7YK
+         eamqvfHOrHjm/QFPYuI729njZ0plK32Yx0NjlSKrhbKFcVTHHGMya6Tv+BNhSZfKdOSZ
+         l7uAybBFJBgPW/yTOVdigfsM4UZwTn2SCFtrkKMU+FRqk8YzadlvS792tFobLrrOPxgz
+         9VmprHdZ6s2lHFWAEUDqeGvSIZB0u7WtOOhRdqx47hcZLQbxykPW8J37HQRjTaUOhGk3
+         vZLEZLv89NuRYBJInQV77gAb1w6w2iSEmGN+9Y+q7alp9qZiy5GZwYJ/POCdJuPlsjN2
+         Egyg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=b9Tdi+x3;
-       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::333 as permitted sender) smtp.mailfrom=elver@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=kk8G97Ye;
+       spf=pass (google.com: domain of vaibhavgupta40@gmail.com designates 2607:f8b0:4864:20::a34 as permitted sender) smtp.mailfrom=vaibhavgupta40@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QZc7LbrcOgwdQatZO2LejmEBfzr/+fDxD2uH6QbARHQ=;
-        b=ULFOQP5DTmlFnyu7i0nkaY2HbAM7gkrxwhUOPoPlCHef8etqfdkeHozXIYmZtZ4RhX
-         qVqFNoKyHtc5AZWAHubXrHI15+1HsQlcCMIFumbQLNUSsd43MpI8yyOrCa2Pc7e8cRWv
-         k94hXcMi4K2gyh13OJwHu3Kvrn9bZ9UVAptwURR0hYqMR+kIAaUFpXUmtpg1aBFTpceo
-         LL15MBdf576oxjRIGMJh2eyYuHMk7qQch96BQhi5yWwp6E5cf/bxQSSfrbA76wtMABaJ
-         SNmoIoD49O4++NZ79ErmQ6x6PrY4p7jKdOHw9lRsMEqd3bzPFumGqoJ12z3orvhnQBhc
-         6Vqg==
+        bh=pmpXDJVElFba0O9SXzKoDNFmVeBUPSLROrxoDnRLMlg=;
+        b=HZGCxweFIHRddG+BDTwdBWOqaPa8ErRu1yyLs45gqWPb8ji0lf3puM2tN9ETAAjpd8
+         3UMcz+BfQ2CayjKBKE2BLaLq9rXhcGsEZvQjDqLH47ZlzoUwvc9EepceAvG3E+5RCzQE
+         f1N0ZpF3PHXxnDyWZ/lCcbR4uliHVtKpU2C4oP1uLLQLjuVR+d4s/Z1Vv1oqqfnLHBid
+         MmY5YjDf87z+VBdpg/bjO13I7gisOpkBmkeJgWt82MNg2yFqEjG54EwssZE7HGjQ0HR6
+         sNUtNZSwGX5FMcdP6n0kC76PyFufFhBxUYGZn5i5E8TUm9Jm5IYSpwy65Xwb56C1MxaW
+         dAOw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=pmpXDJVElFba0O9SXzKoDNFmVeBUPSLROrxoDnRLMlg=;
+        b=mIBiYGlKf1TyXkLf/Gvh5DgveOq5Dbo4KCRZ7VSOmRkjfuo7vTcBfohpqMeqjBIM2l
+         tnzqKiJpbjLeF8r3HhXzHmxWL+8oQTiggvPPhWG0nKWQHbk1JRfbmxtKan8g443mxZvS
+         XJX00Xz0PotatXQH8XQc53fewwCWgG37kFW1VszqkXvBzOZ3JMt4q0UT8DspbzXehJMn
+         grZH+nA6+imPocoNiD+QSIMd7aRucw8EbjPVbsSHvPUxcQ5LzGUa+7lD5g11aMQWMTIO
+         lJQqix4fsgQr62oxqeENOsRDobWEuEMRngxMTchYBwDA7khpKgqODQvjDk3WhywpQmZT
+         3WqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QZc7LbrcOgwdQatZO2LejmEBfzr/+fDxD2uH6QbARHQ=;
-        b=o6+hpsP7PYHE0gOE96yHr0h86dXpw4lY9X4DAQkOSC/Y0CgN8sevzlM5K9fsCbCO0t
-         x5TxziZcGB8LIF2HUJ3KiNubeqbnVZ2ge/uRww9b0rZpR+fHo5H8iYqx7BagsJDQUE8+
-         +j9kJDUZZqv5FpZsd2pjAZEOBDbZNopKdYSVy0+W8DaN9IcP1VXg4bXvQjpB/Cx5mBSd
-         kcgaGwohqoiGDZyrJyvxtv+5iGxin4ovGMTng94F+Q1O9uh7582eChhObuI80D6bZPak
-         zQ5ERFCOjB+RxvxYRIYSYEQaQd3P8Hjj659U08VbIwbSwPOj+PP7wThKmsLB6JpUo41Z
-         rc3A==
-X-Gm-Message-State: AOAM530x3CfcwtsZ8NyuGmqp4RFQzQVmF6tzowA5KmLWTypJ5Rixzcf2
-	d9G/mzMux9zgy5sGYwPWbWY=
-X-Google-Smtp-Source: ABdhPJzseEuJLTT8T8u9IVdQhC/sHwP6PES+PflvTiriTyiQ1qXfNx6aqaoimrokov/H+Ptss2QB0A==
-X-Received: by 2002:ab0:6803:: with SMTP id z3mr11398355uar.46.1600248834150;
-        Wed, 16 Sep 2020 02:33:54 -0700 (PDT)
+        bh=pmpXDJVElFba0O9SXzKoDNFmVeBUPSLROrxoDnRLMlg=;
+        b=PeYys1QdI53l5oTickUxhkMWs8/VDIpNkmSBhCBzFBZoi/U6wIVzSko5e/0ItJzAWg
+         tDKH+OXxY77kc0iu2YUKbteifwqXaYbTWbK6dxcB/OfhTDQPa9AChU/2bs+24dlZSCpW
+         nMczSNJgCRmm5mRUGmcbkk5k1Psw6Ms9HA7jOgdZxYGBz6gLk4e6V9QIBhRS7g5CRawP
+         FvPiuGvwYGkm8iIpCI1b2oo8NCAQEdOoEXPEZEykhvFjwKQzT3/AQnrgROzWyWjMUltY
+         qw7IZOAQQiukS5CAtuZBvIh/t+ho0G64AqDcCM3BoQM3tG4HMDpYTsI6zIHKV2Zo8tIM
+         6wWw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM5304/NKweQ47nqf8DSirEIyn0nWP72YqVE+BiKRqQK8AkVyVsBSU
+	3/PWezhaLxXeXI+B60Gwniw=
+X-Google-Smtp-Source: ABdhPJxZN6A8mUTKHn0VUk/yQNwnpZ1tDfGpcarWzVxp8Dpmd78qZOxFP6ZYXWCM7gJM+3yqvV+8Qw==
+X-Received: by 2002:a9d:6213:: with SMTP id g19mr16874008otj.34.1600252192902;
+        Wed, 16 Sep 2020 03:29:52 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:bb07:: with SMTP id m7ls176026vsn.4.gmail; Wed, 16 Sep
- 2020 02:33:53 -0700 (PDT)
-X-Received: by 2002:a67:ed84:: with SMTP id d4mr13735718vsp.27.1600248833619;
-        Wed, 16 Sep 2020 02:33:53 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600248833; cv=none;
+Received: by 2002:aca:72ca:: with SMTP id p193ls381329oic.3.gmail; Wed, 16 Sep
+ 2020 03:29:52 -0700 (PDT)
+X-Received: by 2002:aca:f412:: with SMTP id s18mr2719697oih.100.1600252192551;
+        Wed, 16 Sep 2020 03:29:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600252192; cv=none;
         d=google.com; s=arc-20160816;
-        b=MmRB+WmJ3itjPrJgV5hYFL+9GmXH2aIb8dzzgjxdF6Kema/0TjKDFVixXs2z5F0DbG
-         W34juVeiOjgN5eMRTFCLpCda45eH164NiKca5/Kv7g6U/cUulO3W8YS2wOV5C0M1+yKX
-         paa2TTCvDz+d93mcBLq78ubgVMX2CpJJF3d1qG5b6dddze4rxk6P20TJxTpQBA1w2Nig
-         kC/dxsJDZlIM7BNjt2TAGpWCPOSK+R3Vyf04MZ5CEk7Z0gWQ6zwMTScBQdnkPjHaNRaw
-         GEnP8gObb/E7cjD0CwlOU+RQ3VLkrNMzg2sg1yKTMh4dMrky3R3G+wJhACHQsJDwcP9+
-         oI+Q==
+        b=D95h5zzNAqpvakPXJd9fftNOO6MpabShL3q+Ccj9NGT5XqdhUuLBPxVrpUDqjiN5Ef
+         TTFP7w9UJdnsFBnWNNPtKYzPpoXVyoGu9U/AGecxcpK8HgwuoxEkww4lapex/9xuswZJ
+         NWF+t5HBbZGiyamaHOc1Et+AiogtLnIyGJ6CPAo2shgOdrQ+I4UUKB58beFqOXl2uh8F
+         OEJnvvv5syS9W7kCA2zQzwTbZ8bSpuXS0iixWL5MDNrrFaa5ygfIRFui6Hg5Af6zUF5V
+         DxtpeTXdcJV2PwMnQ8LDju2geEW83WioaqLf3K+bqXLz9f+T9R+iO4MjZg10CpmhbLIF
+         ul1Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=+69jB+wV3csf3KfbgPgpUDFiF1twt7Lc/K19h4NVXE8=;
-        b=dWOCW+1efzKb65FBzC5LmIhcLHsfkeFYLtfqVMqusmEL5y0kt8yujQa34m/QpuKcRI
-         gXEDsM0zk6mYoocOsitsF84u01f84T48BTaUdbzeeth57vtnOCtaAm5Gg6JXJzbqCxjD
-         mKtRjzBbEpfOEz7Kgw0G2nhZ14ZSnuxqHZYUTIsV49fyRGLjS923WhJqBOevhl35eEMj
-         dbzkp0T9ifnJ7QwSjgeuso4Eg8D8qmK7caQM45B2JzW2o0JRwyPPD/LXzMzPYK4eTxfd
-         GjCnN3ANg1KC708AlZ7BAmYilJVJPL1sCZa9NC0RARTM/uGdaxJpRvZoAHIgx2CDXGkY
-         fjeg==
+        bh=0xLJzciO9LHxTqDQ/S9mpKAHARCEIEmOOkAcnCNJBCU=;
+        b=D1Q33SEwfJlBOkZUhQR9ulntA8jIx9hcJQxHfJuy5rl0esPuak8AHCHJSO0IUJVRsK
+         8n36UfqpwdGav8QI+fe7Ub2PpwA4kHhCo9ywkahpfWVQ8rQPpuBjKiutItfjslLaAQe1
+         z3KrxFbYrv8rfaORuH3WSlqu/FcqM9LvKLilXtN983mvKbH9xgAvP/5VAycJc76EKWz/
+         ybU73wcgqpyHPvnbUrV5LA1stt185Q/yF5YTrwGJ3w0pnaPGqkOpCG5g3IRgFeUCqSRS
+         pcI6ZIRPqxWvJd3y7wOpiLQ8UG4eIPziBnajr5i31zNFm/2bXW3xW5gWfiRmyebiAAzY
+         y3Uw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=b9Tdi+x3;
-       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::333 as permitted sender) smtp.mailfrom=elver@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-ot1-x333.google.com (mail-ot1-x333.google.com. [2607:f8b0:4864:20::333])
-        by gmr-mx.google.com with ESMTPS id m5si1051008vkh.4.2020.09.16.02.33.53
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=kk8G97Ye;
+       spf=pass (google.com: domain of vaibhavgupta40@gmail.com designates 2607:f8b0:4864:20::a34 as permitted sender) smtp.mailfrom=vaibhavgupta40@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-vk1-xa34.google.com (mail-vk1-xa34.google.com. [2607:f8b0:4864:20::a34])
+        by gmr-mx.google.com with ESMTPS id 66si1286873oii.4.2020.09.16.03.29.52
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 16 Sep 2020 02:33:53 -0700 (PDT)
-Received-SPF: pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::333 as permitted sender) client-ip=2607:f8b0:4864:20::333;
-Received: by mail-ot1-x333.google.com with SMTP id h17so6094219otr.1
-        for <clang-built-linux@googlegroups.com>; Wed, 16 Sep 2020 02:33:53 -0700 (PDT)
-X-Received: by 2002:a9d:758b:: with SMTP id s11mr14889445otk.251.1600248832924;
- Wed, 16 Sep 2020 02:33:52 -0700 (PDT)
+        Wed, 16 Sep 2020 03:29:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of vaibhavgupta40@gmail.com designates 2607:f8b0:4864:20::a34 as permitted sender) client-ip=2607:f8b0:4864:20::a34;
+Received: by mail-vk1-xa34.google.com with SMTP id c25so1612261vkm.1
+        for <clang-built-linux@googlegroups.com>; Wed, 16 Sep 2020 03:29:52 -0700 (PDT)
+X-Received: by 2002:a1f:1f0d:: with SMTP id f13mr12924481vkf.1.1600252192020;
+ Wed, 16 Sep 2020 03:29:52 -0700 (PDT)
 MIME-Version: 1.0
-References: <5f60c4e0.Ru0MTgSE9A7mqhpG%lkp@intel.com> <20200915135519.GJ14436@zn.tnic>
- <20200915141816.GC28738@shao2-debian> <20200915160554.GN14436@zn.tnic>
- <20200915170248.gcv54pvyckteyhk3@treble> <20200915172152.GR14436@zn.tnic>
- <CAKwvOdkh=bZE6uY8zk_QePq5B3fY1ue9VjEguJ_cQi4CtZ4xgw@mail.gmail.com>
- <CANpmjNPWOus2WnMLSAXnzaXC5U5RDM3TTeV8vFDtvuZvrkoWtA@mail.gmail.com>
- <20200916083032.GL2674@hirez.programming.kicks-ass.net> <CANpmjNOBUp0kRTODJMuSLteE=-woFZ2nUzk1=H8wqcusvi+T_g@mail.gmail.com>
- <20200916090620.GN2674@hirez.programming.kicks-ass.net>
-In-Reply-To: <20200916090620.GN2674@hirez.programming.kicks-ass.net>
-From: "'Marco Elver' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 16 Sep 2020 11:33:41 +0200
-Message-ID: <CANpmjNPnnkfkRetEHWNwafP43qjbKypsWxLrBVidrzjrTOCFaQ@mail.gmail.com>
-Subject: Re: [tip:x86/seves] BUILD SUCCESS WITH WARNING e6eb15c9ba3165698488ae5c34920eea20eaa38e
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Josh Poimboeuf <jpoimboe@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Rong Chen <rong.a.chen@intel.com>, 
-	kernel test robot <lkp@intel.com>, "Li, Philip" <philip.li@intel.com>, x86-ml <x86@kernel.org>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Kees Cook <keescook@chromium.org>, 
-	Masahiro Yamada <masahiroy@kernel.org>, kasan-dev <kasan-dev@googlegroups.com>
+References: <202009161533.K75fi7fK%lkp@intel.com>
+In-Reply-To: <202009161533.K75fi7fK%lkp@intel.com>
+From: Vaibhav Gupta <vaibhavgupta40@gmail.com>
+Date: Wed, 16 Sep 2020 15:57:27 +0530
+Message-ID: <CAP+cEOMs-vjxr4Oir6ZA6k3Ai6zdr4bBySaCLoPgB2Yctk5fGw@mail.gmail.com>
+Subject: Re: [linux-next:master 5574/7920] drivers/video/fbdev/aty/atyfb_base.c:2002:7:
+ error: implicit declaration of function 'aty_ld_lcd'
+To: kernel test robot <lkp@intel.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, 
+	Bartlomiej Zolnierkiewicz <b.zolnierkie@samsung.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: elver@google.com
+X-Original-Sender: vaibhavgupta40@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=b9Tdi+x3;       spf=pass
- (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::333 as
- permitted sender) smtp.mailfrom=elver@google.com;       dmarc=pass (p=REJECT
- sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Marco Elver <elver@google.com>
-Reply-To: Marco Elver <elver@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=kk8G97Ye;       spf=pass
+ (google.com: domain of vaibhavgupta40@gmail.com designates
+ 2607:f8b0:4864:20::a34 as permitted sender) smtp.mailfrom=vaibhavgupta40@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,71 +143,122 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, 16 Sep 2020 at 11:06, <peterz@infradead.org> wrote:
-> On Wed, Sep 16, 2020 at 10:46:41AM +0200, Marco Elver wrote:
-> > On Wed, 16 Sep 2020 at 10:30, <peterz@infradead.org> wrote:
-> > > On Tue, Sep 15, 2020 at 08:09:16PM +0200, Marco Elver wrote:
-> > > > On Tue, 15 Sep 2020 at 19:40, Nick Desaulniers <ndesaulniers@google.com> wrote:
-> > > > > On Tue, Sep 15, 2020 at 10:21 AM Borislav Petkov <bp@alien8.de> wrote:
-> > >
-> > > > > > init/calibrate.o: warning: objtool: asan.module_ctor()+0xc: call without frame pointer save/setup
-> > > > > > init/calibrate.o: warning: objtool: asan.module_dtor()+0xc: call without frame pointer save/setup
-> > > > > > init/version.o: warning: objtool: asan.module_ctor()+0xc: call without frame pointer save/setup
-> > > > > > init/version.o: warning: objtool: asan.module_dtor()+0xc: call without frame pointer save/setup
-> > > > > > certs/system_keyring.o: warning: objtool: asan.module_ctor()+0xc: call without frame pointer save/setup
-> > > > > > certs/system_keyring.o: warning: objtool: asan.module_dtor()+0xc: call without frame pointer save/setup
-> > > >
-> > > > This one also appears with Clang 11. This is new I think because we
-> > > > started emitting ASAN ctors for globals redzone initialization.
-> > > >
-> > > > I think we really do not care about precise stack frames in these
-> > > > compiler-generated functions. So, would it be reasonable to make
-> > > > objtool ignore all *san.module_ctor and *san.module_dtor functions (we
-> > > > have them for ASAN, TSAN, MSAN)?
-> > >
-> > > The thing is, if objtool cannot follow, it cannot generate ORC data and
-> > > our unwinder cannot unwind through the instrumentation, and that is a
-> > > fail.
-> > >
-> > > Or am I missing something here?
-> >
-> > They aren't about the actual instrumentation. The warnings are about
-> > module_ctor/module_dtor functions which are compiler-generated, and
-> > these are only called on initialization/destruction (dtors only for
-> > modules I guess).
-> >
-> > E.g. for KASAN it's the calls to __asan_register_globals that are
-> > called from asan.module_ctor. For KCSAN the tsan.module_ctor is
-> > effectively a noop (because __tsan_init() is a noop), so it really
-> > doesn't matter much.
-> >
-> > Is my assumption correct that the only effect would be if something
-> > called by them fails, we just don't see the full stack trace? I think
-> > we can live with that, there are only few central places that deal
-> > with ctors/dtors (do_ctors(), ...?).
+On Wed, Sep 16, 2020 at 1:11 PM kernel test robot <lkp@intel.com> wrote:
 >
-> Not only fails, lockdep for example likes to store stack traces of
-> various callsites etc.. Also perf (NMI) likes to think it can unwind at
-> all times.
-
-That's fair, and I would also prefer a proper fix. :-)
-
-> > The "real" fix would be to teach the compilers about "frame pointer
-> > save/setup" for generated functions, but I don't think that's
-> > realistic.
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> head:   6b02addb1d1748d21dd1261e46029b264be4e5a0
+> commit: 348b2956d5e6d9876b567226184de598d00c9bd1 [5574/7920] fbdev: aty: use generic power management
+> config: powerpc-randconfig-r011-20200916 (attached as .config)
+> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 9e3842d60351f986d77dfe0a94f76e4fd895f188)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install powerpc cross compiling tool for clang build
+>         # apt-get install binutils-powerpc-linux-gnu
+>         git checkout 348b2956d5e6d9876b567226184de598d00c9bd1
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc
 >
-> How is that unrealistic? If you build with framepointers enabled, the
-> compiler is supposed to know about this stuff.
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+>
+> All errors (new ones prefixed by >>):
+>
+> >> drivers/video/fbdev/aty/atyfb_base.c:2002:7: error: implicit declaration of function 'aty_ld_lcd' [-Werror,-Wimplicit-function-declaration]
+>            pm = aty_ld_lcd(POWER_MANAGEMENT, par);
+>                 ^
+> >> drivers/video/fbdev/aty/atyfb_base.c:2004:2: error: implicit declaration of function 'aty_st_lcd' [-Werror,-Wimplicit-function-declaration]
+>            aty_st_lcd(POWER_MANAGEMENT, pm, par);
+>            ^
+>    drivers/video/fbdev/aty/atyfb_base.c:2004:2: note: did you mean 'aty_ld_lcd'?
+>    drivers/video/fbdev/aty/atyfb_base.c:2002:7: note: 'aty_ld_lcd' declared here
+>            pm = aty_ld_lcd(POWER_MANAGEMENT, par);
+>                 ^
+>    2 errors generated.
+>
+> # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=348b2956d5e6d9876b567226184de598d00c9bd1
+> git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+> git fetch --no-tags linux-next master
+> git checkout 348b2956d5e6d9876b567226184de598d00c9bd1
+> vim +/aty_ld_lcd +2002 drivers/video/fbdev/aty/atyfb_base.c
+>
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  1993
+> efc08a75d3a2d4 drivers/video/aty/atyfb_base.c Ville Syrjala          2006-12-08  1994  #ifdef CONFIG_PPC_PMAC
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  1995  /* Power management routines. Those are used for PowerBook sleep.
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  1996   */
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  1997  static int aty_power_mgmt(int sleep, struct atyfb_par *par)
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  1998  {
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  1999   u32 pm;
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2000   int timeout;
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2001
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16 @2002   pm = aty_ld_lcd(POWER_MANAGEMENT, par);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2003   pm = (pm & ~PWR_MGT_MODE_MASK) | PWR_MGT_MODE_REG;
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16 @2004   aty_st_lcd(POWER_MANAGEMENT, pm, par);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2005   pm = aty_ld_lcd(POWER_MANAGEMENT, par);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2006
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2007   timeout = 2000;
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2008   if (sleep) {
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2009           /* Sleep */
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2010           pm &= ~PWR_MGT_ON;
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2011           aty_st_lcd(POWER_MANAGEMENT, pm, par);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2012           pm = aty_ld_lcd(POWER_MANAGEMENT, par);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2013           udelay(10);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2014           pm &= ~(PWR_BLON | AUTO_PWR_UP);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2015           pm |= SUSPEND_NOW;
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2016           aty_st_lcd(POWER_MANAGEMENT, pm, par);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2017           pm = aty_ld_lcd(POWER_MANAGEMENT, par);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2018           udelay(10);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2019           pm |= PWR_MGT_ON;
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2020           aty_st_lcd(POWER_MANAGEMENT, pm, par);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2021           do {
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2022                   pm = aty_ld_lcd(POWER_MANAGEMENT, par);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2023                   mdelay(1);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2024                   if ((--timeout) == 0)
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2025                           break;
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2026           } while ((pm & PWR_MGT_STATUS_MASK) != PWR_MGT_STATUS_SUSPEND);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2027   } else {
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2028           /* Wakeup */
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2029           pm &= ~PWR_MGT_ON;
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2030           aty_st_lcd(POWER_MANAGEMENT, pm, par);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2031           pm = aty_ld_lcd(POWER_MANAGEMENT, par);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2032           udelay(10);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2033           pm &= ~SUSPEND_NOW;
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2034           pm |= (PWR_BLON | AUTO_PWR_UP);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2035           aty_st_lcd(POWER_MANAGEMENT, pm, par);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2036           pm = aty_ld_lcd(POWER_MANAGEMENT, par);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2037           udelay(10);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2038           pm |= PWR_MGT_ON;
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2039           aty_st_lcd(POWER_MANAGEMENT, pm, par);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2040           do {
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2041                   pm = aty_ld_lcd(POWER_MANAGEMENT, par);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2042                   mdelay(1);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2043                   if ((--timeout) == 0)
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2044                           break;
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2045           } while ((pm & PWR_MGT_STATUS_MASK) != 0);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2046   }
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2047   mdelay(500);
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2048
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2049   return timeout ? 0 : -EIO;
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2050  }
+> b7468168631e03 drivers/video/aty/atyfb_base.c Benjamin Herrenschmidt 2009-02-05  2051  #endif /* CONFIG_PPC_PMAC */
+> ^1da177e4c3f41 drivers/video/aty/atyfb_base.c Linus Torvalds         2005-04-16  2052
+>
+> :::::: The code at line 2002 was first introduced by commit
+> :::::: 1da177e4c3f41524e886b7f1b8a0c1fc7321cac2 Linux-2.6.12-rc2
+>
+> :::::: TO: Linus Torvalds <torvalds@ppc970.osdl.org>
+> :::::: CC: Linus Torvalds <torvalds@ppc970.osdl.org>
+>
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
-If it's a bug in current compilers, it'll be hard to get the fix into
-those. My suspicion is there's a bug somewhere. We can try to make new
-compiler versions do the right thing. Or maybe we're just missing some
-flags, which would be nice. I'll investigate some more.
+Sending the fix.
 
-Thanks,
--- Marco
+Thanks
+Vaibhav Gupta
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANpmjNPnnkfkRetEHWNwafP43qjbKypsWxLrBVidrzjrTOCFaQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAP%2BcEOMs-vjxr4Oir6ZA6k3Ai6zdr4bBySaCLoPgB2Yctk5fGw%40mail.gmail.com.
