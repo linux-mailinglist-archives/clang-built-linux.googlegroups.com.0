@@ -1,126 +1,151 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBZWPR35QKGQEOO6SLBA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBZW2R35QKGQETQ6HCDA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3d.google.com (mail-oo1-xc3d.google.com [IPv6:2607:f8b0:4864:20::c3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4008226E35A
-	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Sep 2020 20:16:08 +0200 (CEST)
-Received: by mail-oo1-xc3d.google.com with SMTP id n6sf1455626oos.12
-        for <lists+clang-built-linux@lfdr.de>; Thu, 17 Sep 2020 11:16:08 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600366567; cv=pass;
+Received: from mail-pl1-x63b.google.com (mail-pl1-x63b.google.com [IPv6:2607:f8b0:4864:20::63b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9F33F26E3FA
+	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Sep 2020 20:39:35 +0200 (CEST)
+Received: by mail-pl1-x63b.google.com with SMTP id x11sf1854635pll.0
+        for <lists+clang-built-linux@lfdr.de>; Thu, 17 Sep 2020 11:39:35 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600367974; cv=pass;
         d=google.com; s=arc-20160816;
-        b=vMsacUIf+PqRlAKnOve1ftPRwudRCOvdk6XtCwU2XGWe3a8DgPB2Pt+q3nxYSau8za
-         fpBKNxL6uei5IszMyoIPxsfoGULoEGyL3SAGemtgBjzB4360G6zQDNqCJ6dch8jWl/b5
-         RPhcBB70p/naZm5uGLixiSDziK7kqImQDNexz8XZerIqYIoDBNrDfTkwME7+QTlBKxCa
-         bgnNFmfvbUwFOMQVTvqgolNibjkzZduR0C21YYWT1KchG0/V7GuQZ4lJ6oWMnL5mWvZJ
-         Qy2c+eIcJumtAhpvQHju958UwucDB0tYFCk55t+0R1TDrSijA3Ha5osvtmgwCOvJRnIi
-         4vZA==
+        b=bpLchzi5J+WWCFuixFU7dQS8MVqEYSRU46rK6BZPaIL/qm2z6KjjCvr+8vaYLTjKKM
+         z9lnh+WSxNTxQmTgvAunDHgF4ZGZ5fC2sqDQlHYnlwS3CxwVlMFqAtQE+zmAoVb2hhVm
+         9/ltIoI3WgSkN0PeWIKNAxX4Gcm6R+RAibQK5p0IU2HuHTVUv2jfGeRtuvmmy+TYHtmb
+         EZ5CPkShp+rOsY5ON+dLaHaV9YYFNg09MckTW3fL4CjwkYu9wwjwYfv1yUibMw69uETU
+         YZ3nOYal8T7AqCBif6sJlqvFRSpS1mEMBbWUYIlRm1C2cYKUsC3jTdsndfEnumCSqQQG
+         2Pjw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=DqoZrPJHzvSfv4hP+JTqbqbRE6SuCdKQyxUvtkvEPs4=;
-        b=br7iMIxnF+tocrZh/zT+L7EqlWLStBFBZttp8E6FXr84J7icYJVERPuuVKaU3uNWlx
-         p8pmZ1z9lFMcgCEiEhyA0T6xUyNrkFwj0JVB3WzUFfm6hE1AN1hjSjBHdJrzc7cRIS4L
-         AWXLpy0SRLKbVM1tuoW6c6F9ggvDX4bJZTCWljU9GM6682fsQsCTV+DsDDJsLM4SIGMk
-         8EwwUfwJZUOcmmL+iEHXlXKiQu7R8h5UfYljCImEfKQi8xvpWkRkRjaKKgjcu+7J0nAw
-         4J2cYXu2NxajoT/bUT9hfOPL4VkzJKOQ74yWWQRFEG3+5BIkZfZHADTRUcM1poExctVH
-         ux4g==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=38gP66OO1F1plFo/OLJlbpmcRB8qwx287PcZCUWdfsQ=;
+        b=IR7B7xOcWxmcvy9LTN4EMmTNPpx4IHxeEZ4eOx2Kc2bCvXaUOTSOnG/3sWfJ/eNfZX
+         EwAmO7CMJRViiCMvE2Q7sUPwd+iH+PiQ9klTloQuKBovG6+/gXPkwVmLloYuopZpmWxS
+         kr80Y/Bj27Ti3TYzumTdgazebOlf/yMF5/fAgU1vzFGxzpuip41QDn2Oq36c8CbX02py
+         vIct2tVBD5yGrxcKhFpeZCoyrqiTYowCbgGtDMxyIXxqtjHuRNA0OCEEkCORJHr+tG0j
+         rYexOAJKruVesT+pn/tPzqwQ6/IBZJyOSiliNg84vHedzeCuLiqwGc1fRE+W5lG22lW+
+         fovw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=vxxCO7Jr;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=JGBdEJK9;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=DqoZrPJHzvSfv4hP+JTqbqbRE6SuCdKQyxUvtkvEPs4=;
-        b=CUAnuZ4kcHPkP7xPmfQ7geGCjgP/xa+6DK9juaoZQrs+vyTni0IoDkb3PfD1BfiWkI
-         AJ+H61KOcYSTL7WccVfUWcFMl+lj/yp+YLNPRNEoiLZv+GUcaYcX68zjd4jXein9+RYl
-         l8N7AQd5jp82wfzze7XvL3YRrQ3B5Io7cFWvIRsQPX3UZKr9V8E6eRTmYAnSP1XFsQK9
-         6QZVJJpWJoitEdNl7EhI6weCxlJDCgQYrtdrkKXBC8f/+1FpiNJQM8sKkKTBcmT1c7A8
-         Mp+advETr27fVXfp2pQr2w1cjQrM9qd2s3rIgLbGm90Bs2KyPN/ElreN3PCkRXwiDcev
-         Da8A==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=38gP66OO1F1plFo/OLJlbpmcRB8qwx287PcZCUWdfsQ=;
+        b=qL4BeIHGdZuOT26cDC2Xw5xORV+vnPtxLFc/cIacpHgLCH3By02u5Nf4D9s8k7ycc0
+         ikQkADicqCkbwWcDJw4zR1nRGw5d+ek6O+4Zc2T0FdzY6nq5hIPaHVo00fGjZIHP7i1f
+         jIEy8f7xWO2iG/4qz8sUvv8M1Z5iEyk96tbE0KeIEnKVtYOsJ36OGThFJKFefpNPUkEY
+         D4I5yvZGzJGgPWKmFKIHa7Hb8igfCJHs087WfDfQLZLvwML+vcTvd0Q/D/cXIkDA5i1X
+         tn0NdjDBdg1c6rKUG6d2ONwpjaTJDEnZgm30z1JHwK/TKlLmCmrJkwSwJ7NIZmXLhqNy
+         Tj1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=DqoZrPJHzvSfv4hP+JTqbqbRE6SuCdKQyxUvtkvEPs4=;
-        b=i0REt71WmPDF0LKHE4Lelqgx3ThCt/BxJ4mTD50DiNss2fNNfaaYzoJYvyUlWQJREh
-         bjKAD0cEzq346iet/R9eLosQH7bYD9/kYGd1yvw9sILtlFLJ7VvN1MNMFbRixsfhEsKn
-         BhBEV3qsOGC6Rae4L6z0vC3eMuzj1CXJNnIwDaM18X1DDerHq1F4SBUEi9dnj393AsLz
-         vik26LIAO3MlYX9aR6LYQVFzvQG2bgvadgMtgU8OQB2juTwz34Ix6oZRtospwq4/C3TS
-         C6HpKUZChXggAVy4m1xDXbmtwJpiHFX/R0ZyYcHkepltQHDC6ZuM024kcMEtXTvLwp0m
-         Ro4A==
-X-Gm-Message-State: AOAM531zRDuI7PFptroY1mCivit2951k0Oo6knP4sbDQRqzBGLQZ6zBc
-	llfd/88pHdn6DgJUBo2y1e0=
-X-Google-Smtp-Source: ABdhPJx3cuiBJuReK5zcU/KMRE6tHPakQ+nXcT27rM0mIoapTg4lRXSIcUDdpo1HVRK8BLWfoGX/xQ==
-X-Received: by 2002:aca:1108:: with SMTP id 8mr6825028oir.74.1600366566984;
-        Thu, 17 Sep 2020 11:16:06 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=38gP66OO1F1plFo/OLJlbpmcRB8qwx287PcZCUWdfsQ=;
+        b=fhgwFelrEr9sFQWbO8bzaJIDVbeh3jExgnq61iU6fZuDoxW52i//hEKA18hLbrt+P9
+         fgtJQtWcO1cD78+S43dA10H/KVy2bBLzOJmZn+d433FTgYn5NNcee4LTEVDBCot7Ttsz
+         dNJb/LUwV7nWQ3yAez2eX7nZ4m++sDfPdKyI3l03c0aczrkDeXZfelN2cSsp4iqIjGHg
+         2JBRnUT5T9xepGPTZOrS7gTyhKoG9yjO5/62mMy6o7setX2uCL2MBw0c0cU5UFsLg1kf
+         mcLhVKJou/LUXS/yROr8wYXQvptFGbzrjs9EnfEcElRU2EWq/Qq7xWvxk2ER798cP4EK
+         TbZw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531kM2oV6VTF6BTUALE5iAT6g2DNUmZI4LNUJWeM5pmSHe5RnK1m
+	XZjCoy5942cRyZk2PHQyFRY=
+X-Google-Smtp-Source: ABdhPJySf7kvKeQWxd61UhKehg44X04vTvckHo0/kkrABpBjcbXmyqaAnos9z7kvQnTFiER0glakjA==
+X-Received: by 2002:a05:6a00:792:b029:13c:1611:652d with SMTP id g18-20020a056a000792b029013c1611652dmr28198070pfu.13.1600367974328;
+        Thu, 17 Sep 2020 11:39:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:b88b:: with SMTP id i133ls671116oif.10.gmail; Thu, 17
- Sep 2020 11:16:06 -0700 (PDT)
-X-Received: by 2002:a54:438f:: with SMTP id u15mr7220768oiv.162.1600366566605;
-        Thu, 17 Sep 2020 11:16:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600366566; cv=none;
+Received: by 2002:a17:902:6b4c:: with SMTP id g12ls1446432plt.7.gmail; Thu, 17
+ Sep 2020 11:39:33 -0700 (PDT)
+X-Received: by 2002:a17:90a:6a0d:: with SMTP id t13mr10449480pjj.208.1600367973800;
+        Thu, 17 Sep 2020 11:39:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600367973; cv=none;
         d=google.com; s=arc-20160816;
-        b=H6wW9QrAWopitcc3OEb+Sjy//Du6DmwLALIJS77pHhY/xqSoC00/v1olcSO5PdZNkW
-         GxcuxticJC/ZJxRaikXnLSAn8u/vvayZUjh/SD9rteQqtPhyfDXXVai2PSVDU0XCZRji
-         teqUAaB/yZ8Pv3Lp1A7l18ZrKxWKb1jEvAGSymPRX6X+krY9oh6Ivtl2F7EBWiBa47mA
-         w0LDGTpicBDfbpiU2v7/3zddKNls+sGZzG9K2lRYXXdS+oUVt79T2ikkRzlsOG2OBwbR
-         wY9nCc7GgWHx8Xn2tR19WS3NtLE/7rjNEvwNSnoMlnEM9x8zHHAHouxFUKbQeSdxySlN
-         DwCQ==
+        b=U4r+R8nYS6m9gabfyeqnc1HdGNByeuuplxgMdjeXfj3W5zvJ3j9+1pxFwI3G4HdbwM
+         eHSJJ+vSiSvD5LGoxLoRXueWT9X4ioNufld8VlUb6tmXR2sMVm+PBOr/tnkvGQF89hZ5
+         2TsS5gE4IYCpA49YbO5EyPD6ZLe4vlREc2VbhZky8qLamU6FbTKxBRGq+AVlqQbYWXKi
+         fn3K8WWq3lakQfV1dNzuRJrQ/z62EvZ0PqH5sO8jSuzrHpZSZclnePgRZmWBs4ey41d0
+         Hgn6ihzamU1dgSrG3krbFtLp+pW9JogCkjCefI2+0PB28JcVriYHzwnTyHsgR7xuURt6
+         ULLA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=pJlz1lyl7aTxHeTmVzs1SzNTrj8gWqaynH0CCR1cE3c=;
-        b=jVJzLIE0McEl3rmpKLFAT0bYpqlikF7/STqyK5mlzHhVXD9BfKsFpOaoW0zzB8vbyF
-         em1aN4s/ZsUmB8vFYNEvPI65KzIh+iZJUsu6M5RCpjxmfbYJmQt5gwzIn/EmZrmGAK9K
-         yqTE5vsTFjz7tMK/olf0AnfthtWq7Nb7NM17rb1kwOJ7804/tKARejUAti+jciRArupd
-         YW6OzBDp/zOqdqTRd6YXRGckdsr19dHAhoBQONf3fEa0+//YzwoUVmUMMaRxCITby8CW
-         NuGxj+bkfHdKCO+zHceSjwP4vEWimQP2/Pw8fWrbxALnxXVLmpWpajmLmc8po66j9eKz
-         Qp1g==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=s8/ARKLQp0M0HyDLCLKuWSzwoxVAsS/APQ6NuiD3MNU=;
+        b=FHhYJRbooqoFLfY1aXQ8UoPu0RuMR7ZMN43lHD0HSsCD08xwi5G+clUj7z3luytu/M
+         BZ3WyD8svYPN8X4C9QbGYTNcUSgWIpmZBRKha+5IWlsbagGJ4rSik2iThWjdKLCqIeCF
+         jdCxykbZFO5BpBTxd/BSmBvWBOhHjoMKTxjoIfKpgFP09e6gIeJ7U5xC7Co9c2mA6WvN
+         VrK/50Tx6Qlb1JEC5iluTHIBlv0Rmo38vrOILHcn0k43ggHeZ+3eIBr+rwXNoOU/l4JK
+         EXsby6ALXbFV5c9twT3EIgOYedougQePoOrNQLyiKh5Z1+agnUu0FKga+IGFXmOgEioy
+         lJ+A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=vxxCO7Jr;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x642.google.com (mail-pl1-x642.google.com. [2607:f8b0:4864:20::642])
-        by gmr-mx.google.com with ESMTPS id u27si60828otg.5.2020.09.17.11.16.06
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=JGBdEJK9;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
+        by gmr-mx.google.com with ESMTPS id v62si57743pgv.0.2020.09.17.11.39.33
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 17 Sep 2020 11:16:06 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642 as permitted sender) client-ip=2607:f8b0:4864:20::642;
-Received: by mail-pl1-x642.google.com with SMTP id k13so1570327plk.3
-        for <clang-built-linux@googlegroups.com>; Thu, 17 Sep 2020 11:16:06 -0700 (PDT)
-X-Received: by 2002:a17:90a:e517:: with SMTP id t23mr9138243pjy.25.1600366565663;
- Thu, 17 Sep 2020 11:16:05 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 17 Sep 2020 11:39:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-329-I6O1PZQ6O7yXfGqmLvj70w-1; Thu, 17 Sep 2020 14:39:29 -0400
+X-MC-Unique: I6O1PZQ6O7yXfGqmLvj70w-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1CC6D10A7AE1;
+	Thu, 17 Sep 2020 18:39:27 +0000 (UTC)
+Received: from treble (ovpn-112-136.rdu2.redhat.com [10.10.112.136])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E159819D6C;
+	Thu, 17 Sep 2020 18:39:24 +0000 (UTC)
+Date: Thu, 17 Sep 2020 13:39:23 -0500
+From: Josh Poimboeuf <jpoimboe@redhat.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Marco Elver <elver@google.com>, Peter Zijlstra <peterz@infradead.org>,
+	Borislav Petkov <bp@alien8.de>, Rong Chen <rong.a.chen@intel.com>,
+	kernel test robot <lkp@intel.com>,
+	"Li, Philip" <philip.li@intel.com>, x86-ml <x86@kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Kees Cook <keescook@chromium.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	kasan-dev <kasan-dev@googlegroups.com>,
+	Daniel Kiss <daniel.kiss@arm.com>, momchil.velikov@arm.com
+Subject: Re: [tip:x86/seves] BUILD SUCCESS WITH WARNING
+ e6eb15c9ba3165698488ae5c34920eea20eaa38e
+Message-ID: <20200917183923.b5b2btxt26u73fgx@treble>
+References: <20200915135519.GJ14436@zn.tnic>
+ <20200915141816.GC28738@shao2-debian>
+ <20200915160554.GN14436@zn.tnic>
+ <20200915170248.gcv54pvyckteyhk3@treble>
+ <20200915172152.GR14436@zn.tnic>
+ <CAKwvOdkh=bZE6uY8zk_QePq5B3fY1ue9VjEguJ_cQi4CtZ4xgw@mail.gmail.com>
+ <CANpmjNPWOus2WnMLSAXnzaXC5U5RDM3TTeV8vFDtvuZvrkoWtA@mail.gmail.com>
+ <20200916083032.GL2674@hirez.programming.kicks-ass.net>
+ <CANpmjNOBUp0kRTODJMuSLteE=-woFZ2nUzk1=H8wqcusvi+T_g@mail.gmail.com>
+ <CAKwvOd=T3w1eqwBkpa8_dJjbOLMTTDshfevT3EuQD4aNn4e_ZQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <20200917084905.1647262-1-ilie.halip@gmail.com>
-In-Reply-To: <20200917084905.1647262-1-ilie.halip@gmail.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 17 Sep 2020 11:15:54 -0700
-Message-ID: <CAKwvOdkBPrdekTsMnhvN2OH-vk1eLU+ZC-1MJ5jgA2FDq7Ja3A@mail.gmail.com>
-Subject: Re: [PATCH] objtool: ignore unreachable trap after call to noreturn functions
-To: Ilie Halip <ilie.halip@gmail.com>
-Cc: LKML <linux-kernel@vger.kernel.org>, Rong Chen <rong.a.chen@intel.com>, 
-	Marco Elver <elver@google.com>, Philip Li <philip.li@intel.com>, Borislav Petkov <bp@alien8.de>, 
-	kasan-dev <kasan-dev@googlegroups.com>, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Josh Poimboeuf <jpoimboe@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Nathan Chancellor <natechancellor@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <CAKwvOd=T3w1eqwBkpa8_dJjbOLMTTDshfevT3EuQD4aNn4e_ZQ@mail.gmail.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Original-Sender: jpoimboe@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=vxxCO7Jr;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@redhat.com header.s=mimecast20190719 header.b=JGBdEJK9;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates
+ 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,101 +158,45 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Sep 17, 2020 at 1:49 AM Ilie Halip <ilie.halip@gmail.com> wrote:
->
-> With CONFIG_UBSAN_TRAP enabled, the compiler may insert a trap instruction
-> after a call to a noreturn function. In this case, objtool warns that the
-> ud2 instruction is unreachable.
->
-> objtool silences similar warnings (trap after dead end instructions), so
-> expand that check to include dead end functions.
+On Wed, Sep 16, 2020 at 11:22:02AM -0700, Nick Desaulniers wrote:
+> I looked into this a bit, and IIRC, the issue was that compiler
+> generated functions aren't very good about keeping track of whether
+> they should or should not emit framepointer setup/teardown
+> prolog/epilogs.  In LLVM's IR, -fno-omit-frame-pointer gets attached
+> to every function as a function level attribute.
+> https://godbolt.org/z/fcn9c6 ("frame-pointer"="all").
+> 
+> There were some recent LLVM patches for BTI (arm64) that made some BTI
+> related command line flags module level attributes, which I thought
+> was interesting; I was wondering last night if -fno-omit-frame-pointer
+> and maybe even the level of stack protector should be?  I guess LTO
+> would complicate things; not sure it would be good to merge modules
+> with different attributes; I'm not sure how that's handled today in
+> LLVM.
+> 
+> Basically, when the compiler is synthesizing a new function
+> definition, it should check whether a frame pointer should be emitted
+> or not.  We could do that today by maybe scanning all other function
+> definitions for the presence of "frame-pointer"="all" fn attr,
+> breaking early if we find one, and emitting the frame pointer setup in
+> that case.  Though I guess it's "frame-pointer"="none" otherwise, so
+> maybe checking any other fn def would be fine; I don't see any C fn
+> attr's that allow you to keep frame pointers or not.  What's tricky is
+> that the front end flag was resolved much earlier than where this code
+> gets generated, so it would need to look for traces that the flag ever
+> existed, which sounds brittle on paper to me.
 
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-Tested-by: Nick Desaulniers <ndesaulniers@google.com>
-Reported-by: kbuild test robot <lkp@intel.com>
+For code generated by the kernel at runtime, our current (x86) policy is
+"always use frame pointers for non-leaf functions".
 
-Thanks for the patch, Ilie!  With this, a
-defconfig+CONFIG_UBSAN+CONFIG_UBSAN_TRAP goes from 82 unreachable
-instruction warnings from objtool to 0.
-
-$ make LLVM=1 -j71 defconfig
-$ make LLVM=1 -j71 menuconfig
-<enable UBSAN and UBSAN_TRAP>
-$ make LLVM=1 -j71 2> log.txt
-$ grep warning: log.txt | cut -d ' ' -f 2- | sort | uniq -c | wc -l
-82
-$ b4 am https://lore.kernel.org/lkml/20200917084905.1647262-1-ilie.halip@gmail.com/
--o - | git am
-$ make LLVM=1 -j71 clean
-$ make LLVM=1 -j71 2> log.txt
-$ grep warning: log.txt | cut -d ' ' -f 2- | sort | uniq -c | wc -l
-0
-
->
-> Cc: Nick Desaulniers <ndesaulniers@google.com>
-> Cc: Rong Chen <rong.a.chen@intel.com>
-> Cc: Marco Elver <elver@google.com>
-> Cc: Philip Li <philip.li@intel.com>
-> Cc: Borislav Petkov <bp@alien8.de>
-> Cc: kasan-dev@googlegroups.com
-> Cc: x86@kernel.org
-> Cc: clang-built-linux@googlegroups.com
-> BugLink: https://github.com/ClangBuiltLinux/linux/issues/1148
-> Link: https://lore.kernel.org/lkml/CAKwvOdmptEpi8fiOyWUo=AiZJiX+Z+VHJOM2buLPrWsMTwLnyw@mail.gmail.com
-> Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
-> Signed-off-by: Ilie Halip <ilie.halip@gmail.com>
-> ---
->  tools/objtool/check.c | 10 +++++++---
->  1 file changed, 7 insertions(+), 3 deletions(-)
->
-> diff --git a/tools/objtool/check.c b/tools/objtool/check.c
-> index e034a8f24f46..eddf8bf16b05 100644
-> --- a/tools/objtool/check.c
-> +++ b/tools/objtool/check.c
-> @@ -2612,9 +2612,10 @@ static bool is_ubsan_insn(struct instruction *insn)
->                         "__ubsan_handle_builtin_unreachable"));
->  }
->
-> -static bool ignore_unreachable_insn(struct instruction *insn)
-> +static bool ignore_unreachable_insn(struct objtool_file *file, struct instruction *insn)
->  {
->         int i;
-> +       struct instruction *prev_insn;
->
->         if (insn->ignore || insn->type == INSN_NOP)
->                 return true;
-> @@ -2639,8 +2640,11 @@ static bool ignore_unreachable_insn(struct instruction *insn)
->          * __builtin_unreachable().  The BUG() macro has an unreachable() after
->          * the UD2, which causes GCC's undefined trap logic to emit another UD2
->          * (or occasionally a JMP to UD2).
-> +        * CONFIG_UBSAN_TRAP may also insert a UD2 after calling a __noreturn
-> +        * function.
->          */
-> -       if (list_prev_entry(insn, list)->dead_end &&
-> +       prev_insn = list_prev_entry(insn, list);
-> +       if ((prev_insn->dead_end || dead_end_function(file, prev_insn->call_dest)) &&
->             (insn->type == INSN_BUG ||
->              (insn->type == INSN_JUMP_UNCONDITIONAL &&
->               insn->jump_dest && insn->jump_dest->type == INSN_BUG)))
-> @@ -2767,7 +2771,7 @@ static int validate_reachable_instructions(struct objtool_file *file)
->                 return 0;
->
->         for_each_insn(file, insn) {
-> -               if (insn->visited || ignore_unreachable_insn(insn))
-> +               if (insn->visited || ignore_unreachable_insn(file, insn))
->                         continue;
->
->                 WARN_FUNC("unreachable instruction", insn->sec, insn->offset);
-> --
-> 2.25.1
->
-
+A lot of this compiler talk is over my head, but if *non-leaf* generated
+functions are rare enough then it might be worth considering to just
+always use frame pointers for them.
 
 -- 
-Thanks,
-~Nick Desaulniers
+Josh
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkBPrdekTsMnhvN2OH-vk1eLU%2BZC-1MJ5jgA2FDq7Ja3A%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200917183923.b5b2btxt26u73fgx%40treble.
