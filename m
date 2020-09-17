@@ -1,171 +1,150 @@
-Return-Path: <clang-built-linux+bncBDX5FLHOXQPRBA6QRX5QKGQECJXNRVY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27HSOJ44LBB4PDRX5QKGQET25OHYI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73b.google.com (mail-qk1-x73b.google.com [IPv6:2607:f8b0:4864:20::73b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 834DC26DD00
-	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Sep 2020 15:43:32 +0200 (CEST)
-Received: by mail-qk1-x73b.google.com with SMTP id q131sf1485855qke.22
-        for <lists+clang-built-linux@lfdr.de>; Thu, 17 Sep 2020 06:43:32 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600350211; cv=pass;
+Received: from mail-wr1-x43a.google.com (mail-wr1-x43a.google.com [IPv6:2a00:1450:4864:20::43a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0462926DE2D
+	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Sep 2020 16:25:54 +0200 (CEST)
+Received: by mail-wr1-x43a.google.com with SMTP id r16sf944685wrm.18
+        for <lists+clang-built-linux@lfdr.de>; Thu, 17 Sep 2020 07:25:54 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600352753; cv=pass;
         d=google.com; s=arc-20160816;
-        b=slwdrTXgF6wrr6pd/i5EgDyCEk2uBt3GpiVl84hdsEbe4kxI16EAbDOab+3s1eK5N9
-         UavIROHE4FyebYrU4pVadV1fnHaMDTVq6aPn9Fa1eKPy1fOXwSPmRk/jo094CvHdXcYc
-         ejJ+TptpzY7iDeQV+F7ozjaRZDehP1Kkd7EmHAHF7bzNB+1u0+jri+UWEoyleV00Q/co
-         Qi9OiReCS7m/5WNic7NgHj4aEuL1CUiNTGoBzymb2Rs2S+h0L+/ebTfnOgVY6+pRRgT1
-         y/rX5bi3H/n+cNQKHDksF3B5JF+D/7gv+m+H6eldOfpBUhcQKdbybieJU4n7M8MISguh
-         gHbw==
+        b=vvX6aIg2GSJ6hScVrO3/uhY2nj2elqCAIqhBWxpggQ35QGvGWliVlAtHUxOrDbJX/s
+         kS2kLfunD0LUH/mByWFVvPZcS9TwEjjjKpBXdwOD8e7uxVCDFUNBppn3iqaFSZ87ylYL
+         D4lEeQmdZbpHYUnbJFtuuo9lZZrCxi50VTCE1w8KuTJPAxSSZkdF/P8BqE/Z71DuDadn
+         7+vomACb0GJgSfASKX9kPb7tzZy3E6JIHOdWayWRQ47fAz+HvMhVmGd8gJ4Dr9lsxkui
+         7GRh0k/EoPqCufaZWUfALedft3Y34dgKfAawyFg6ukz/ystqHI9l3JQCclzWs9MYuGQH
+         C3NA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id
-         :content-disposition:references:date:from:cc:to:subject:in-reply-to
-         :sender:dkim-signature;
-        bh=fMSQ2zM4PwEj1h8U9PMDUaDa54x2F2rglqqi15Fe5x0=;
-        b=0Yyh3YzhtqKZ2YZ6spceQqTNk40b7CxDBeJmFHX7nPHmUP6RCZRJyXnBIk9Y0EcGXP
-         Y/5SAooPK+4j3j/mcVuRm6UbVrCZcLDorVecHZHHFc/sngtXo2Uz2BSlbcJ5jvob69Es
-         EE1qeQHhtPH0AMQXkC3w75qhDl7B8ODvPQZUaPByI0eH21LGnCXMV/XXGzbS6iWSCqSu
-         JgxEeIFnK9LY8nnzK4Y4mERMN3HT8u5B9tsLjCJpL5wQ3PIJpb0jcepHu5onLiw+rNk9
-         FzbwjMpAGknsNSVeSxk7rNxySKVEZntDwv0Bt5Nb8eb+GMqIneoDfvms/ct1b0Rbn4vo
-         J+kA==
+         :list-id:mailing-list:precedence:content-language:mime-version
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:sender:dkim-signature;
+        bh=nB9t5Z9HpF4u4HfbCzTI7NEbbV5aygl1YnYxgEu6jiM=;
+        b=qFDcE/DaHdThrfS06ZV8uZyC+U0mtEVH0uGb2qoc+EqSkjo6QKg1OWiYTf8j6ElAIt
+         NcZFHbKGMgKex2XCzXO979SNOaN5fhXbk+1TSd9zdiMannz1Bi/9+9SoWrh6vG8YMaoy
+         PIFsh7omVCpaC8Mw4oZwxo75hdlfqRp3VXocQf6lAY0mvfDrj6nZkKIH3ORlsgzSz7/H
+         WzPd8Ot/w5F8Cl70/pk526eJXBTTCP1Hyf/tC7nRfhp+WDZvF6T9IrJ6NRP4GqOzzYLk
+         7UoVBgz0yAag5TjHesOrsNS95AT9O3vmuCBPHM2qrx632oI0ZGLL2LTXPQn72W4ktEGw
+         7ODg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=nd59CFT1;
-       spf=pass (google.com: domain of ulrich.weigand@de.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=Ulrich.Weigand@de.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+       spf=pass (google.com: domain of david.laight@aculab.com designates 207.82.80.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:in-reply-to:subject:to:cc:from:date:references
-         :content-disposition:message-id:mime-version:x-original-sender
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:mime-version
+         :content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=fMSQ2zM4PwEj1h8U9PMDUaDa54x2F2rglqqi15Fe5x0=;
-        b=miyv7kcfAYnxA3uj9jQAjC9FsFRmQNN97OkXT3jpITNL4eu1fQ09WS+zeyRvMzPj5q
-         jX86UA2JHAdTAFQ1LxHoiPiAdLCMGQVoktYmaelVTVgB3155dRVABfNvGdszS+ypBpf7
-         uLKPhqC/0rIjDQ+6Dzul7PeCQcRBoqkBNbnG1KxWcQgr9F1YNi274A3izhbLo6eRrFHx
-         1/3au0q0cnul8pKwq77UIUvUCgnTcHcYTDXSTz6IAkMUt5wlb+ecs4+4ItLD39OOA8Lb
-         XBoqSib+3flGsNtS3wRwNoU2naHOIz8xCwMNs0rhKZKA7SZ9xMBvE1teVeOsfZOGYUtz
-         06Vg==
+        bh=nB9t5Z9HpF4u4HfbCzTI7NEbbV5aygl1YnYxgEu6jiM=;
+        b=C4magCdsp8sasctLLbojqBsbbwnBnGfeVIAdM1ogw16nZc97c9PI6keokCnD4ZLB+N
+         E1dHYg7ElCFcWc7QTIiiOMfJBqRr3qXVMI8lqG2X5AhkU//q4kuqiRSbTL/IG6WYniVz
+         A8alLb0vlrMRthU1W8TuSIoYimdkxgLVlsm0oFmmSODLtZ7qD/T5bLisBmv1NCJFWWj7
+         F/gD62fOrzd+oz6TtI4vPM2udGsDSmXU8T6SV/K6PyY2EZ8pfAaVVO5+/3tO1ykp8BSq
+         FOQFW2rECy2J9uzx9CNJsoldG9ESHHtAXrNuLnYC4UFJ8bQSikOD/CsCK5j07F/4lKbz
+         oF2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:in-reply-to:subject:to:cc:from:date
-         :references:content-disposition:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=fMSQ2zM4PwEj1h8U9PMDUaDa54x2F2rglqqi15Fe5x0=;
-        b=AujQEcThYYzt8Yeh/bVymfv6B6GKHHW1Fz4FplKNqsuwdjpoe2bgIGYOwtAEIiDY4y
-         3uss3OQ4GQkyTfJipCXT3m3+AyB1l2DsycscsIoSYk9BqJcGzQhbRzdRk71tV+vHjGvg
-         /SJYLTR2S+leilRiLlD5vg+mVukjF6SRbBPOWgnjTjFnfVy8EinXfaY4oerT1osSmNoT
-         wCssP+XsWoMrh9t1DusbY8PTMRU/44WPwsZyNZuiRSnLPUptDfxHBqVe9Tu9AynqYo8A
-         Fr87y4MRpukbi03ZR4SeII2vkaNQIw58OsfQut5K1EDYEAMIZL4u74l9OaKZK5exun0S
-         juFg==
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :mime-version:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=nB9t5Z9HpF4u4HfbCzTI7NEbbV5aygl1YnYxgEu6jiM=;
+        b=rRYPZCzJC4aifgjdPJB/axwPrvsUZkHpz8B/DAtrpLulx6K3v3qmT6det91rrQOUWS
+         wNcH1k2sqztwj04FKiEOGQvScqLSeQT7KANdq3Q8xjBCzHQuZlTUUc4ecw/SQmN0c6p6
+         vkMF9FaptbLM5XQV0vKiJTSJN2sr5vQ/ezSnB5PGeEmCFulEKwofZUTU0UBqEvEV+4YY
+         PaRkmiqWGD6iYbn+vBmPZTKcnkw1MdsCqRpMafgagVMTxq/JxoIYaLfOTPOPFFwluzy/
+         m0pZXn6TpJoWdAGbwvKhvi7q0m2BmQpQldoZMqxraA2O3WqV0SU89yO9hDw9MYrFNI+P
+         Rmcw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530eyxDW9AC/N6aNJYTpUTHOeyGunnIZARcAgXN0XNYlojVqajLz
-	tfdK1j7m5664V6FZ0kcDOaU=
-X-Google-Smtp-Source: ABdhPJzRHHvvXMHvE/QduqLAYvqqXwv2wnas3lKaBdQyDRaPi63GeLW0C4JJKooRRDiG2fzOmo5ltg==
-X-Received: by 2002:ac8:39a7:: with SMTP id v36mr29335843qte.140.1600350211195;
-        Thu, 17 Sep 2020 06:43:31 -0700 (PDT)
+X-Gm-Message-State: AOAM5323eB3pZCPptNTYoDNIB/rp1ZxzmVjlLrEiWVyc0XCr+SwWtUSY
+	6cFE2zUvvZtK6x1CCu9NbsQ=
+X-Google-Smtp-Source: ABdhPJzZYKZcZXy88y0CuLYVWl6JpAIxqAQtYnSXGm0XCOiXMk611eRGUOTj3XgSKVjW20xF4Gp4CA==
+X-Received: by 2002:a7b:c847:: with SMTP id c7mr10517182wml.149.1600352753757;
+        Thu, 17 Sep 2020 07:25:53 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:728e:: with SMTP id v14ls909203qto.4.gmail; Thu, 17 Sep
- 2020 06:43:30 -0700 (PDT)
-X-Received: by 2002:ac8:3e09:: with SMTP id z9mr28708104qtf.227.1600350210683;
-        Thu, 17 Sep 2020 06:43:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600350210; cv=none;
+Received: by 2002:a5d:428e:: with SMTP id k14ls2892091wrq.0.gmail; Thu, 17 Sep
+ 2020 07:25:52 -0700 (PDT)
+X-Received: by 2002:adf:f6c8:: with SMTP id y8mr34850817wrp.217.1600352752800;
+        Thu, 17 Sep 2020 07:25:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600352752; cv=none;
         d=google.com; s=arc-20160816;
-        b=CUVUYekbHmo8VrLiV9Vvj+0E/NkiZwjIpoYJ1sUtmhNK8QFWfYPQ+NNrJLfpEJbqt7
-         QSF5QqLarFPekY5vzNcu2GwFcWmPD0dkA2xUZZve3JtvwDr20Vqe3JLY/ZznQGbRCYgg
-         7s9+RvkKGGlNX3uBYDHJhp9jRuzRgtEcBq0j0PN7BJGQ1FZHRb1uDiUh3WkfjSloEUUu
-         gMYrF88fgbRTthwAKXLacUPeHBW65UxYLjDCjgXRIUd3V/3f6DkQJtj0hipkq8HS1qLO
-         4EU9ePk5PCrMmS80ABjNJyBaL4jdqoEdhKnhhPufF5ZrEF7Pnvvac4sY74s1dZPu0XFB
-         gZoQ==
+        b=MF702Jk9BFKnXzCVMH+gghvJlv3T6H5sSSTI3w7nMUMtgzKL/LhfdRhw9X4pVlWYbr
+         wh/aPSjvXaWDtQIOMJasdtUEicfAxfLL84etphzKHjC/+9Rs6YFP5xkCpVM8XHGhvNu2
+         lv03Hv9xP7xKJrJEKy0ZUQJ+gD9IfDMwkvq3xOUMMiSbMdjKioizSJQy5EPwNmEtrcv7
+         F3zbsYL9ludLXd5l/0gMFHWymZbw4tLU64NmdGnFLdobY4CCk5D9xzZsb2n/dAYkXbSn
+         M+MAf3bIzEQvhTVdhDu+tOgjPYPwUHGupOBirn2IoY22yA0fFFAbgBpQQjZOY7wLppDJ
+         NyJg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:message-id:content-disposition:references:date:from:cc
-         :to:subject:in-reply-to:dkim-signature;
-        bh=g0lGh8y48xlcJg58axc7uA7HpdeTV8Am20uQdlJGZ0s=;
-        b=CB0NjhFudtPxR1oKIVeaa7/G0Gu0DYZ5DhD7/yjvCSy2C6vH+4GmJ31We8/kjuvR23
-         Ya9io8Bqu8TOnIbLUbfYlw3mmEUZw08/jEXpJe1SoqKH89DZkCQ7A4Q7rd2qD4mqHRki
-         feKNTyI5PgS7LPR0PDXKWFT8tHcla7Ev1er7RX1cR2FMhpNbenL5khOS4eGwDlxw+lx3
-         xt8fW/F9K9mrZb67rNZ3jE9J/iX87WmRyqLjP15zNfdCuVNDHA9Z8feOE7sg1Q0VV8mt
-         EzlBWq5T1E+E1NiAaiZHT4guRTaobjVLmOroTqXyljyIHChQyhE93cOeyXEGLPBomOmi
-         iM1g==
+        h=content-language:content-transfer-encoding:mime-version
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from;
+        bh=W0DfSU39o7yko0ihwNmJwKF/LOJjug/BSjXq8gqb/To=;
+        b=mxpCXnXa6kTKX+iPd3zg3qj4n/zmKi/b/z6Hewe8ecn7mQbwKf/dbqPfRP7X5AvyFh
+         yhc9QnFh3lC3mcHa5lo5o95RnstVqw9/5Pri/wE1lfP2Mav5mzXhlf5r80FNjlHb6gVZ
+         ptyBn1+7VO0SrQQMlCzCj2qbKNKlUdpuKmTFHTvikPEz6O2c0Kmc7nvdiHfSTap4zo8X
+         AYSIU+OMZTQiCKWcN0JsxQDGhfStBUTeisqkTRSqXUC34esPz1KOnNF0YlUwrMGamtad
+         3TnVp0e9eZMKCfr3sBx0msmCnRaGv0qx4vcencJ2KC0h9ARkbQrIQIm0o90MQAIZKPe+
+         e0VQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=nd59CFT1;
-       spf=pass (google.com: domain of ulrich.weigand@de.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=Ulrich.Weigand@de.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
-Received: from mx0a-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com. [148.163.158.5])
-        by gmr-mx.google.com with ESMTPS id a27si1228900qtw.4.2020.09.17.06.43.30
+       spf=pass (google.com: domain of david.laight@aculab.com designates 207.82.80.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
+Received: from eu-smtp-delivery-151.mimecast.com (eu-smtp-delivery-151.mimecast.com. [207.82.80.151])
+        by gmr-mx.google.com with ESMTPS id x1si2921wmk.2.2020.09.17.07.25.52
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 17 Sep 2020 06:43:30 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ulrich.weigand@de.ibm.com designates 148.163.158.5 as permitted sender) client-ip=148.163.158.5;
-Received: from pps.filterd (m0098416.ppops.net [127.0.0.1])
-	by mx0b-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id 08HDgr4I189644
-	for <clang-built-linux@googlegroups.com>; Thu, 17 Sep 2020 09:43:30 -0400
-Received: from smtp.notes.na.collabserv.com (smtp.notes.na.collabserv.com [192.155.248.93])
-	by mx0b-001b2d01.pphosted.com with ESMTP id 33m7qeanyu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
-	for <clang-built-linux@googlegroups.com>; Thu, 17 Sep 2020 09:43:26 -0400
-Received: from localhost
-	by smtp.notes.na.collabserv.com with smtp.notes.na.collabserv.com ESMTP
-	for <clang-built-linux@googlegroups.com> from <Ulrich.Weigand@de.ibm.com>;
-	Thu, 17 Sep 2020 13:43:03 -0000
-Received: from us1a3-smtp03.a3.dal06.isc4sb.com (10.106.154.98)
-	by smtp.notes.na.collabserv.com (10.106.227.39) with smtp.notes.na.collabserv.com ESMTP;
-	Thu, 17 Sep 2020 13:43:00 -0000
-Received: from us1a3-mail201.a3.dal06.isc4sb.com ([10.146.77.216])
-          by us1a3-smtp03.a3.dal06.isc4sb.com
-          with ESMTP id 2020091713425980-477565 ;
-          Thu, 17 Sep 2020 13:42:59 +0000
-In-Reply-To: <CAKwvOdkZrqjju7AY+otVAfLcKg1icu5q7bix71DssHhC-oCNPg@mail.gmail.com>
-Subject: Re: buildroot on s390x
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-        clang-built-linux
- <clang-built-linux@googlegroups.com>,
-        egorenar@linux.ibm.com, Vasily Gorbik
- <gor@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>, Joel Stanley
- <joel@jms.id.au>,
-        Guenter Roeck <linux@roeck-us.net>,
-        Stefan Schulze
- Frielinghaus <Stefan.Schulze.Frielinghaus@ibm.com>
-From: "Ulrich Weigand" <Ulrich.Weigand@de.ibm.com>
-Date: Thu, 17 Sep 2020 15:42:44 +0200
-References: <OFC0683E5D.D5BC712E-ONC12585C7.00430794-C12585C7.00432E67@LocalDomain>
- <OF75D816C6.F1CD6CB2-ONC12585C3.0047C644-C12585C3.00484578@notes.na.collabserv.com>
- <CAKwvOdmmUFVRG53w68B2YaS22MMO1k+2yyaxO7QGqJnqEDKxug@mail.gmail.com>
- <CAKwvOdn+kdrXp3qn0sbpYzBG+wO0RRhS6UsM3JUMK8My08-uFg@mail.gmail.com>
- <OFF00E0E50.C2C52D87-ON002585C7.0043DE22-002585C7.0043EBBA@LocalDomain>
- <OFED0BC1CD.FBAECBF3-ON002585C7.0043F877-002585C7.0044C3BD@notes.na.collabserv.com>
- <CAKwvOdkZrqjju7AY+otVAfLcKg1icu5q7bix71DssHhC-oCNPg@mail.gmail.com>
-X-KeepSent: C88B4942:6DF719A3-C12585E6:004B298C;
- type=4; name=$KeepSent
-X-Mailer: IBM Notes Release 9.0.1FP7 Octobe4, 2013
-X-LLNOutbound: False
-X-Disclaimed: 1399
-X-TNEFEvaluated: 1
-Content-type: multipart/alternative; 
-	Boundary="0__=4EBB0F75DFD8AF1C8f9e8a93df938690918c4EBB0F75DFD8AF1C"
-Content-Disposition: inline
-x-cbid: 20091713-8889-0000-0000-000003A45E64
-X-IBM-SpamModules-Scores: BY=0; FL=0; FP=0; FZ=0; HX=0; KW=0; PH=0; SC=0.4332;
- ST=0; TS=0; UL=0; ISC=; MB=0.000000
-X-IBM-SpamModules-Versions: BY=3.00013850; HX=3.00000242; KW=3.00000007;
- PH=3.00000004; SC=3.00000295; SDB=6.01436170; UDB=6.00771444; IPR=6.01218840;
- MB=3.00034104; MTD=3.00000008; XFM=3.00000015; UTC=2020-09-17 13:43:01
-X-IBM-AV-DETECTION: SAVI=unsuspicious REMOTE=unsuspicious XFE=unused
-X-IBM-AV-VERSION: SAVI=2020-09-17 13:13:15 - 6.00011850
-x-cbparentid: 20091713-8890-0000-0000-0000AD507C71
-Message-Id: <OFC88B4942.6DF719A3-ONC12585E6.004B298C-C12585E6.004B52F2@notes.na.collabserv.com>
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 17 Sep 2020 07:25:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of david.laight@aculab.com designates 207.82.80.151 as permitted sender) client-ip=207.82.80.151;
+Received: from AcuMS.aculab.com (156.67.243.126 [156.67.243.126]) (Using
+ TLS) by relay.mimecast.com with ESMTP id
+ uk-mta-40-beVEqENZN0OOH-IcwERNoA-1; Thu, 17 Sep 2020 15:25:50 +0100
+X-MC-Unique: beVEqENZN0OOH-IcwERNoA-1
+Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) by
+ AcuMS.aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) with Microsoft SMTP
+ Server (TLS) id 15.0.1347.2; Thu, 17 Sep 2020 15:25:50 +0100
+Received: from AcuMS.Aculab.com ([fe80::43c:695e:880f:8750]) by
+ AcuMS.aculab.com ([fe80::43c:695e:880f:8750%12]) with mapi id 15.00.1347.000;
+ Thu, 17 Sep 2020 15:25:50 +0100
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Borislav Petkov' <bp@alien8.de>
+CC: Andrew Cooper <andrew.cooper3@citrix.com>, Andy Lutomirski
+	<luto@amacapital.net>, Nick Desaulniers <ndesaulniers@google.com>, "Andy
+ Lutomirski" <luto@kernel.org>, Bill Wendling <morbo@google.com>,
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, LKML
+	<linux-kernel@vger.kernel.org>, Greg Thelen <gthelen@google.com>, "John
+ Sperbeck" <jsperbeck@google.com>, # 3.4.x <stable@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: RE: [PATCH] x86/smap: Fix the smap_save() asm
+Thread-Topic: [PATCH] x86/smap: Fix the smap_save() asm
+Thread-Index: AQHWjLhpVSRzzG6WxEmLrZSeXkmcHKlsmR1QgAAQIoCAADeY8A==
+Date: Thu, 17 Sep 2020 14:25:50 +0000
+Message-ID: <823af5fadd464c48ade635498d07ba4e@AcuMS.aculab.com>
+References: <CAKwvOdnjHbyamsW71FJ=Cd36YfVppp55ftcE_eSDO_z+KE9zeQ@mail.gmail.com>
+ <441AA771-A859-4145-9425-E9D041580FE4@amacapital.net>
+ <7233f4cf-5b1d-0fca-0880-f1cf2e6e765b@citrix.com>
+ <20200916082621.GB2643@zn.tnic>
+ <be498e49-b467-e04c-d833-372f7d83cb1f@citrix.com>
+ <20200917060432.GA31960@zn.tnic>
+ <ec617df229514fbaa9897683ac88dfda@AcuMS.aculab.com>
+ <20200917115733.GH31960@zn.tnic>
+In-Reply-To: <20200917115733.GH31960@zn.tnic>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.235,18.0.687
- definitions=2020-09-17_09:2020-09-16,2020-09-17 signatures=0
-X-Proofpoint-Spam-Reason: orgsafe
-X-Original-Sender: ulrich.weigand@de.ibm.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ibm.com header.s=pp1 header.b=nd59CFT1;       spf=pass (google.com:
- domain of ulrich.weigand@de.ibm.com designates 148.163.158.5 as permitted
- sender) smtp.mailfrom=Ulrich.Weigand@de.ibm.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=ibm.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Language: en-US
+X-Original-Sender: david.laight@aculab.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of david.laight@aculab.com designates 207.82.80.151 as
+ permitted sender) smtp.mailfrom=david.laight@aculab.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=aculab.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -178,61 +157,59 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+From: Borislav Petkov
+> Sent: 17 September 2020 12:58
+ 
+> On Thu, Sep 17, 2020 at 10:05:37AM +0000, David Laight wrote:
+> > The 'red-zone' allows leaf function to use stack memory for locals
+> > that is below (ie the wrong side of) the stack pointer.
+> 
+> After looking at
+> 
+> "Figure 3.3: Stack Frame with Base Pointer"
+> 
+> in the x86-64 ABI doc, you're probably right:
+> 
+> 0(%rbp)
+> -8(%rbp)
+> ...
+> 0(%rsp)
+> .. red zone
+> -128(%rsp)
+> 
+> i.e., rsp-relative addresses with negative offsets are in the red zone.
+> So it looks like the compiler actually knows very well what's going on
+> here and allocates room on the stack for that 0x8(%rsp) slot.
 
---0__=4EBB0F75DFD8AF1C8f9e8a93df938690918c4EBB0F75DFD8AF1C
-Content-type: text/plain; charset="UTF-8"
+With a red-zone you could have:
+get_flags:
+	pushf
+	pop -8(sp)
+	mov eax, -8(sp)
+	ret
 
+I actually wonder if there is any code that really benefits from
+the red-zone.
 
-Nick Desaulniers <ndesaulniers@google.com> wrote on 16.09.2020 22:38:13:
+If you need to save anything on stack then it will dominate the
+sub/add to sp to allocate space on any modern cpu.
 
-> Joel notes that there's been patches submitted for BuildRoot for s/390
-support!
->
-https://github.com/ClangBuiltLinux/continuous-integration/issues/232#issuecomment-693255238
-> Please pass along my sincere gratitude!
+It may help with stack traceback - but there is an 'interesting'
+way to do that without any annotations or frame pointers.
+If you aren't worried too much about performance then you
+can disassemble forwards monitoring changes to %bp and %sp
+until you hit a return (retrying from branch targets).
+It doesn't need to understand many instructions even to pass
+through kernel interrupt entry.
+(SYSV had such code back in the early 1990s.)
 
-Ah, good that this worked out now!  Let us know if there are any further
-issues.
+	David
 
-Bye,
-Ulrich
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/OFC88B4942.6DF719A3-ONC12585E6.004B298C-C12585E6.004B52F2%40notes.na.collabserv.com.
-
---0__=4EBB0F75DFD8AF1C8f9e8a93df938690918c4EBB0F75DFD8AF1C
-Content-Transfer-Encoding: quoted-printable
-Content-type: text/html; charset="UTF-8"
-Content-Disposition: inline
-
-<html><body><p><tt><font size=3D"2">Nick Desaulniers &lt;ndesaulniers@googl=
-e.com&gt; wrote on 16.09.2020 22:38:13:<br><br>&gt; Joel notes that there's=
- been patches submitted for BuildRoot for s/390 support!</font></tt><br><tt=
-><font size=3D"2">&gt; </font></tt><a href=3D"https://github.com/ClangBuilt=
-Linux/continuous-integration/issues/232#issuecomment-693255238"><tt><font s=
-ize=3D"2">https://github.com/ClangBuiltLinux/continuous-integration/issues/=
-232#issuecomment-693255238</font></tt></a><br><tt><font size=3D"2">&gt; Ple=
-ase pass along my sincere gratitude!<br></font></tt><br><tt><font size=3D"2=
-">Ah, good that this worked out now! &nbsp;Let us know if there are any fur=
-ther issues.</font></tt><br><br><tt><font size=3D"2">Bye,<br>Ulrich</font><=
-/tt><BR>
-</body></html>
-
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/OFC88B4942.6DF719A3-ONC12585E6.004B298C-C12585=
-E6.004B52F2%40notes.na.collabserv.com?utm_medium=3Demail&utm_source=3Dfoote=
-r">https://groups.google.com/d/msgid/clang-built-linux/OFC88B4942.6DF719A3-=
-ONC12585E6.004B298C-C12585E6.004B52F2%40notes.na.collabserv.com</a>.<br />
-
---0__=4EBB0F75DFD8AF1C8f9e8a93df938690918c4EBB0F75DFD8AF1C--
-
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/823af5fadd464c48ade635498d07ba4e%40AcuMS.aculab.com.
