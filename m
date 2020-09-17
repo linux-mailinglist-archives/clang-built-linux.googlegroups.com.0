@@ -1,128 +1,134 @@
-Return-Path: <clang-built-linux+bncBD63HSEZTUIBBVH2RP5QKGQEGEGNJAA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBXMART5QKGQEI47DYQY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103e.google.com (mail-pj1-x103e.google.com [IPv6:2607:f8b0:4864:20::103e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4C9A726D36A
-	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Sep 2020 08:08:22 +0200 (CEST)
-Received: by mail-pj1-x103e.google.com with SMTP id ic18sf496902pjb.3
-        for <lists+clang-built-linux@lfdr.de>; Wed, 16 Sep 2020 23:08:22 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600322901; cv=pass;
+Received: from mail-oo1-xc39.google.com (mail-oo1-xc39.google.com [IPv6:2607:f8b0:4864:20::c39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 545FB26D38C
+	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Sep 2020 08:21:18 +0200 (CEST)
+Received: by mail-oo1-xc39.google.com with SMTP id e2sf665526ooq.23
+        for <lists+clang-built-linux@lfdr.de>; Wed, 16 Sep 2020 23:21:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600323677; cv=pass;
         d=google.com; s=arc-20160816;
-        b=IFIbcBPpKk6boGH8KX8zmMCSXfU7SvWo8Wj/yTY8dd467hP1Z72bZPhF2nJ/Ppr24s
-         RyGqX3n0D3dCsFYagwMBGjTFnOBtEiLIpRMTYz+n31ehYmDD1PBvkUs4Z90bmKV6crWJ
-         cwvN4T1nI/+mCQliW1CsqsBh9D1vi2dcClHwkBvoOA88sX9gYXkUoxhpcz42dE7pPEnZ
-         dmo0Tad8KeLxxQxSq9BugbRvRY7i1Sj9JliUtv2biZ+oceMDrXqMeLgujzXrvns/gMEk
-         3UrJQrlZGQNej9WWzSPfpNKX0A5ZXqcLpbtUy4t74JqarNYypIfcnIgEScfIl/VyPfz/
-         ZY8Q==
+        b=K6suhUIyIUtfdtoim7HgPbzWk5GhTguAHPIkVJ2Oqe/bxJn07QIb5tNC2bpRo7I0Oz
+         bRsADFQV7B1l9R8IT2iGYCyQ74kuXa88LF9jKcxT1OwMkdmG9nyv/AzZ17Pqh4GE++OW
+         niHFXC9pMNWbPmKt2wuq71oxz/BWvOEtEu346N5vKGSv2aqwUlab71OD5zf9x/j0Q28Z
+         KsMgUt/lXOQgJ3kBlbG3IrAAlabihLmTlNZR3qJukr7fFaUxL9qFqcehWg9iK5zogZpG
+         bfl+ohvi+Ygi9OPPB6OKwb1bKDdr0jWafhQ/PkWxROEeurdx1mjHiyekVV1ehHOHW3jP
+         cL7Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=IoJ6L9uk1gsLT2iqB997Pi5oCzfD2oR2AGEyIeH0Vmg=;
-        b=VEDUluRrUNK9VfN4er04U981eTghNGU3+UwDAkuhu0nPzIaiv63D9uR80bkiDN7tht
-         ceeoYP7nN/zaNsZ83AWrDLkTE2cxURT7aY6J4/GpPkz7FrckihgBVp+DwdDNoTR49lRd
-         jjOCxlPYELrCNHHzDS5cGNO7sjPWDqq0KMmqr3ooYrvpPlILSFxUvx1VI9Gc/MMUDKah
-         lrD9VPIef6G4dG5hj56MgqyuHgsv3Y4Qqz0uNCeRgO0FYhIkhoxIuD33Zb7fWthO2yDA
-         TmwlGYEad0aeNipMGbrU/JEoKJ8loc/b48Mo+xX5sBhNIuVUUGhkrbG2Ndb/iYP8f82I
-         6lPw==
+         :list-id:mailing-list:precedence:mime-version:content-language
+         :accept-language:message-id:date:thread-index:thread-topic:subject
+         :cc:to:from:sender:dkim-signature;
+        bh=sicuikSx9iH7pMfFFhIkJWS8bO3pwmBK+PxHYdt79nQ=;
+        b=nLdxNczfOLCddv1VDnldpScaQOO7W731G8BLgUt7twwIUauUzrNN/2bYTUSuopm34m
+         n/LukTMUlA9s7sTwKyJHJyIEw/bjqHeowel3+jGU4PUNbT+nZEgUP9C7qKj7HRRzetax
+         E5X0KYB+HsXz5cWiKtTEJGn3RU3bcTvveVgY8C7CWPq24Ad6oqNMLNgKj9DhvsH6Lyju
+         Ms5vFuXDT39y1pbVl+2zhOJ1mVdhu+JwB98Owv54QAGYFiYKSCy7qeKbY0P0HVHZUXTb
+         lS9VTAp61VtFtkM/OuavNhM5xR7t3OeAZ89GlAb6/fC1TDc3zmmzPa2JobfvCmgXQYVW
+         GV+Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=Wr7Imjh2;
-       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of linmiaohe@huawei.com designates 45.249.212.188 as permitted sender) smtp.mailfrom=linmiaohe@huawei.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=IoJ6L9uk1gsLT2iqB997Pi5oCzfD2oR2AGEyIeH0Vmg=;
-        b=mElF9lSacN2HBilW95y16Lcv3Rmsu4NkhtHp9gyj6LEEaid9+3Nj3UzqmKRkaeVkWM
-         +CRiOAC7Xusepaz/Lw/VUdoe8hdIj5X268JoyN64Tz833mozbLk8HJco3Mi/EzkpX77F
-         JD+nu1d/8GUj1mprWRy7susbhHeQ0ttR34SrAqbn8dknz3MrUxFLE853S4eZ8pu8l0VP
-         dHFFctwGwjchgjyBItEBr+sBU5M0ICvBrYBUF82y8xyoZjhGdWct2WWNux++b4HQBIFS
-         FKXOjbb2k2oQPqBaS8M/qsZv+XkgA2s08zae/8bq+94+Y8MI3hMu13qmNq0adz/otQwu
-         TQSg==
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :accept-language:content-language:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=sicuikSx9iH7pMfFFhIkJWS8bO3pwmBK+PxHYdt79nQ=;
+        b=X5JN3SZUB+vX2GxUHHhLt6qdb18dxw26sPlNbxXmXOD/VBUp9he71Sst3m7GvCzMnv
+         YdpArjJBLrC2e9VzJf6RxSRmRhxjQJODfwmvsuHQpI7T66eN+KxqZme0P3ni+UB0KonM
+         R5MtYlxVSk9sQDdcb5eZdNTf2/jE7Ut6aBQNqYaq/Cg+rFnUpR1kzPZaOy1p/axce0Lk
+         KcPYN2j/kSNvNbXwMWQcnciy0Fa1000O8K/hliEABwqR2cO7bPHnuDELVTyHjNshhghw
+         hRUuW1VDcnMsSMcKorGLPceTh2P7O9qPJkkUPctji2eEM1itXmfN4pF8euWBiXRunNLJ
+         rTaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=IoJ6L9uk1gsLT2iqB997Pi5oCzfD2oR2AGEyIeH0Vmg=;
-        b=XMDJHzDGOwg6iIFq8sjgy74QujNSRFEB/euIljsIjVoVOpWnoaoA++AwVJx5yUTKNa
-         gSTCD7po94WTto38od+xy3rIu5xSu0AstEHWEp8GXCkf5Z5s04v5U9t3T/SyPfSIAUEC
-         T4G4Qtd0y/uEAm62ib0bzxvtxeVfstcpPKUIjtyBZHJv+C/o2KoHjgyfjKwMvwo18C0X
-         D8qe6J4BRUNKF18wKZSSIoGbq9gGekablvTGC3/B2MMJzqY4a3sZGRMHbFEXYULlwmo/
-         S1kPsALLaBusbEdLJUKHGSiiiPbXh4qhjHQlJkCjdzPzm847CC/0nebS97j0wBP5FgI2
-         UPgQ==
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:accept-language:content-language
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=sicuikSx9iH7pMfFFhIkJWS8bO3pwmBK+PxHYdt79nQ=;
+        b=VDU+9q3kQ08162MF0c4u73eNsiYxIX5/xbH26VI1LZNY33ixz04m0yTYB5dr0/4R73
+         SBLcG+yCQIFGTjmfht42I4Kh9+/kPvwspTRHnRZDrc8W5gYTrGjhiB38y21h2PFR1dSP
+         6ySgygakgVybDcG0CpVHo5OAmoYsY8i8txS1x0n3Q1P6YWiXud5WEnfw2OZ7b0rCKlos
+         qBrvY+xHezspRis4QSeUbULOMjc/YGTA2wqtQGgNw4PQJfPSDzOZFFSRUKiTJF8AnUoL
+         AgA8uBUCq7zU91RaqJ//p6tBedSnEASClStDy7bVgHd8cL5mg3kjYBbAN38FKUNY9IFo
+         A70g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533uBVuNKUc+SQOeK2D0GPn6fJvaMF5IoQF/v6xfWcZrH5sR/l4Z
-	pfwAOpHTybj4f3ec/GduD8Q=
-X-Google-Smtp-Source: ABdhPJx0/KyULf6nQ0Jer0cXuDmwJCqHqM24Nbmwy8KhLLfj+nKSqm2NsrMNtR3eJk4/P/ixMb9p/A==
-X-Received: by 2002:a17:90a:1548:: with SMTP id y8mr7022578pja.113.1600322900950;
-        Wed, 16 Sep 2020 23:08:20 -0700 (PDT)
+X-Gm-Message-State: AOAM5308Yzr6GlV3PWnjruvxvveAHln79fB/gtFrjosWDH3IzyS1YA1k
+	JJLj87EU3GBe/W2Unq05Eco=
+X-Google-Smtp-Source: ABdhPJyjyf7UKmyyzCDq3vA01/GzADXaM5VDqPqxH2fLcz2WHaaY4ni91yExUroXgsvAgdXdn483Tw==
+X-Received: by 2002:a9d:3787:: with SMTP id x7mr5178134otb.165.1600323677309;
+        Wed, 16 Sep 2020 23:21:17 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:8d89:: with SMTP id v9ls593665plo.4.gmail; Wed, 16
- Sep 2020 23:08:20 -0700 (PDT)
-X-Received: by 2002:a17:90a:e391:: with SMTP id b17mr7128268pjz.127.1600322900401;
-        Wed, 16 Sep 2020 23:08:20 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600322900; cv=none;
+Received: by 2002:a9d:3e51:: with SMTP id h17ls213870otg.5.gmail; Wed, 16 Sep
+ 2020 23:21:17 -0700 (PDT)
+X-Received: by 2002:a9d:3aa:: with SMTP id f39mr4668466otf.29.1600323677001;
+        Wed, 16 Sep 2020 23:21:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600323676; cv=none;
         d=google.com; s=arc-20160816;
-        b=rqptHHnZI5sxRckDcLj5cZynF1ViOlxx5zmskfhzstWX6pHlO5qq30TA5r9HtTURQO
-         bcRgLRwB9sEtiY24xe1ss9YN330qqLwfrziIjQpc85a/V47J6TXiAk4VzNj13MbzrmjC
-         YUIqLuGuKpkpGM/Iva/5yQnKBGaQsLNXQveSWvo6VFQm6hXUuhojR40Nm0gl/H1XtQ3T
-         BXPVd72kjxarlIdh9w12bt4LUoBiNs2bCpakXjyWjcqlxxH1m7T1H+nJIQwSWLACt0Gr
-         oV2ZodYFuXjtMMJM2sC46024JAghvacqL13RFcHPIhdlbe3XWwN2Jy2IZTtUrLmvSNHX
-         ErFA==
+        b=Gok9SSfzXFKcYYPUAu4qkqigQFvhy8Z5mOii/eZh8H6moRFPY4xWgETuqWsi8ryROs
+         TAj1t0+m5O7/svTUoKd0SsAFIIetLN6ab2rzw8p4uKhurTC+DoZez2gBPG0T0h9ALS4k
+         1weFb7lwJVki8hjyTWnwZnyUsPEeVyMz/ePyXY1Yegi667grDJIfOMpV+RGHZq15IqT8
+         4n647Qa+gN299vAioy9IlHTRVqEHgSLCllbzvS2JQlgM8EW2qgFfNQKMNPpXWEhO38Da
+         bXoVLNy25XOVU2CxPNHeL4pheJMTDlvtYPCojw7qN3/iEIinyetUn+zudbgWOD1lPFw+
+         SITA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=cHgoL5u3UCHC+juKGwOhc8Vi//NX21VTTlB5y12Xo2M=;
-        b=OUOZ/RgoawY7NONFmS87CsG4CFDSDNwOLvynrmUt4iS2NqQy4nIc73xIidjEyRWRGJ
-         Mw694OprnJaZAlMzQPcYnLJHcttjR8cg3eueowGTY54gnxkPyDx2Qy/wW6KgDRFg9U+o
-         40xE/xsj0p2FCf94RXZcykDiuWhYFRCDhFeAezsy23Ha9QvsoW4erkkk2xoKgl/8pQjh
-         BoMufC1mktviOCa9jvUvm0PDzeCTNKuQ8QiKcgc4l5b9MrajYgCD1nEvU57EZN9gm6Cu
-         SC7R4b19tcoinzi1ycw//cwyOjs6OzL9Yx8AZBklk/UGJAmOM2sHBeg5abm/oCVlAH3x
-         ZI0g==
+        h=mime-version:content-transfer-encoding:content-language
+         :accept-language:message-id:date:thread-index:thread-topic:subject
+         :cc:to:from;
+        bh=PBWmUUFEtWgmSJ2KaOdzCHkXjWOSk3yD4Wwcx+m3dto=;
+        b=gsrqIGyIATmB48OfqS4k6+8YV6bsWVieAffxYDSHHxYo3RJI+28lSrcV7eTClF3O6a
+         h8btgTBn5qHfhL+v0SsvioO6VX1qXYwkN7EyO1r6N4jygk7PRvUgkyhuUJmga95cAgtX
+         6hrjA4UQp7bK6lPMywz+rIQkJlgC03tKoz0WhFk0oIrd0p3bIkSVzUDGOXc33NNWPLBk
+         NM9hpJeluoOVSEYx6RmULioul9ItjgpkjOaMWy5MJoSc+d5Esn9nOgGuJ+1wANRhnbxJ
+         d56CHv3WLpyVxMBkYbx+y7ON8y/+2G368oezo9ywGVcGEAdMAvXRxv94X8eWmJvSBIv1
+         4ZNw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=Wr7Imjh2;
-       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id g11si1214783plp.3.2020.09.16.23.08.20
+       spf=pass (google.com: domain of linmiaohe@huawei.com designates 45.249.212.188 as permitted sender) smtp.mailfrom=linmiaohe@huawei.com
+Received: from huawei.com (szxga02-in.huawei.com. [45.249.212.188])
+        by gmr-mx.google.com with ESMTPS id k7si1300719oif.3.2020.09.16.23.21.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 16 Sep 2020 23:08:20 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from mail-ot1-f50.google.com (mail-ot1-f50.google.com [209.85.210.50])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id F118A21D41
-	for <clang-built-linux@googlegroups.com>; Thu, 17 Sep 2020 06:08:19 +0000 (UTC)
-Received: by mail-ot1-f50.google.com with SMTP id q21so850269ota.8
-        for <clang-built-linux@googlegroups.com>; Wed, 16 Sep 2020 23:08:19 -0700 (PDT)
-X-Received: by 2002:a9d:6193:: with SMTP id g19mr18250382otk.108.1600322899254;
- Wed, 16 Sep 2020 23:08:19 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200916061418.9197-1-ardb@kernel.org> <CAKwvOdmqFoVxQz9Z_9sM_m3qykVbavnUnkCvy_G2S2aPEofTog@mail.gmail.com>
-In-Reply-To: <CAKwvOdmqFoVxQz9Z_9sM_m3qykVbavnUnkCvy_G2S2aPEofTog@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 17 Sep 2020 09:08:08 +0300
-X-Gmail-Original-Message-ID: <CAMj1kXE-WJoT0GhCzGGqF4uzVNCqdd1O0SZ9xbHP25eQMCUsqw@mail.gmail.com>
-Message-ID: <CAMj1kXE-WJoT0GhCzGGqF4uzVNCqdd1O0SZ9xbHP25eQMCUsqw@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] crypto: arm/sha-neon - avoid ADRL instructions
+        Wed, 16 Sep 2020 23:21:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of linmiaohe@huawei.com designates 45.249.212.188 as permitted sender) client-ip=45.249.212.188;
+Received: from dggeme752-chm.china.huawei.com (unknown [172.30.72.54])
+	by Forcepoint Email with ESMTP id 5402E246117BD6188804;
+	Thu, 17 Sep 2020 14:21:14 +0800 (CST)
+Received: from dggeme753-chm.china.huawei.com (10.3.19.99) by
+ dggeme752-chm.china.huawei.com (10.3.19.98) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id
+ 15.1.1913.5; Thu, 17 Sep 2020 14:21:14 +0800
+Received: from dggeme753-chm.china.huawei.com ([10.7.64.70]) by
+ dggeme753-chm.china.huawei.com ([10.7.64.70]) with mapi id 15.01.1913.007;
+ Thu, 17 Sep 2020 14:21:13 +0800
+From: linmiaohe <linmiaohe@huawei.com>
 To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: "open list:HARDWARE RANDOM NUMBER GENERATOR CORE" <linux-crypto@vger.kernel.org>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	Stefan Agner <stefan@agner.ch>, Peter Smith <Peter.Smith@arm.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Jian Cai <jiancai@google.com>
+CC: "Gustavo A . R . Silva" <gustavo@embeddedor.com>, Joe Perches
+	<joe@perches.com>, Nathan Chancellor <natechancellor@gmail.com>,
+	"linux-nfs@vger.kernel.org" <linux-nfs@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
+	Trond Myklebust <trond.myklebust@hammerspace.com>, Anna Schumaker
+	<anna.schumaker@netapp.com>
+Subject: Re: [PATCH v2] nfs: remove incorrect fallthrough label
+Thread-Topic: [PATCH v2] nfs: remove incorrect fallthrough label
+Thread-Index: AdaMuodnVDGlupKbQBWadlZPzzQK5g==
+Date: Thu, 17 Sep 2020 06:21:13 +0000
+Message-ID: <5de6c6d3ced340ac80702c527bb38d12@huawei.com>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.174.176.109]
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ardb@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=Wr7Imjh2;       spf=pass
- (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+MIME-Version: 1.0
+X-CFilter-Loop: Reflected
+X-Original-Sender: linmiaohe@huawei.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of linmiaohe@huawei.com designates 45.249.212.188 as
+ permitted sender) smtp.mailfrom=linmiaohe@huawei.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,86 +141,30 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, 17 Sep 2020 at 03:53, Nick Desaulniers <ndesaulniers@google.com> wrote:
+Nick Desaulniers <ndesaulniers@google.com> wrote:
+> There is no case after the default from which to fallthrough to. Clang will error in this case (unhelpfully without context, see link below) and GCC will with -Wswitch-unreachable.
 >
-> On Tue, Sep 15, 2020 at 11:14 PM Ard Biesheuvel <ardb@kernel.org> wrote:
-> >
-> > Remove some occurrences of ADRL in the SHA NEON code adopted from the
-> > OpenSSL project.
-> >
-> > I will leave it to the Clang folks to decide whether this needs to be
-> > backported and how far, but a Cc stable seems reasonable here.
-> >
-> > Cc: Nick Desaulniers <ndesaulniers@google.com>
-> > Cc: Stefan Agner <stefan@agner.ch>
-> > Cc: Peter Smith <Peter.Smith@arm.com>
+>The previous commit should have just replaced the comment with a break statement.
 >
-> Tested-by: Nick Desaulniers <ndesaulniers@google.com>
+>If we consider implicit fallthrough to be a design mistake of C, then all case statements should be terminated with one of the following
+>statements:
+>* break
+>* continue
+>* return
+>* __attribute__(__fallthrough__)
+>* goto (plz no)
+>* (call of function with __attribute__(__noreturn__))
 >
+>Fixes: 2a1390c95a69 ("nfs: Convert to use the preferred fallthrough macro")
+>Link: https://bugs.llvm.org/show_bug.cgi?id=47539
+>Suggested-by: Joe Perches <joe@perches.com>
+>Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+>---
 
-Thanks!
+Reviewed-by: Miaohe Lin <linmiaohe@huawei.com>
 
-> Thanks Ard:
-> compile+boot tested each combination of:
->
-> [gcc, clang]x[defconfig, defconfig+CONFIG_THUMB2_KERNEL=y].
->
-> Now, if I additionally apply:
-> 1. this series
-> 2. the adr_l series:
-> https://lore.kernel.org/linux-arm-kernel/20200914095706.3985-1-ardb@kernel.org/
-> 3. unrelated fix for -next #1:
-> https://lore.kernel.org/lkml/20200916200255.1382086-1-ndesaulniers@google.com/
-> 4. unrelated fix for -next #2:
-> https://lore.kernel.org/linux-mm/20200917001934.2793370-1-ndesaulniers@google.com/
-> 5. small fixup to 01/12 from #2:
-> https://lore.kernel.org/linux-arm-kernel/CAMj1kXFmF_24d-7W8AWTJR-PCcja7bUdHhYKptGQmsV4vNp=sA@mail.gmail.com/
-> 6. vfp fixup for thumb+gcc:
-> https://lore.kernel.org/linux-arm-kernel/CAMj1kXHEpPc0MSoMrCxEkyb44AkLM2NJJGtOXLpr6kxBHS0vfA@mail.gmail.com/
-> 7. disable CONFIG_IWMMXT https://github.com/ClangBuiltLinux/linux/issues/975
->
-> Then build with Clang's integrated assembler:
-> $ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make LLVM=1 LLVM_IAS=1 -j71
->
-> I see a bunch of warnings
-> (https://github.com/ClangBuiltLinux/linux/issues/858) which we will
-> fix, but I am able to build and boot.  (CONFIG_THUMB2_KERNEL=y has
-> many more issues, so I didn't pursue that further).
->
-> Either way, these two adrl patches go a long way towards getting Clang
-> to assemble an ARCH=arm kernel; thank you for all of the work that
-> went into them.
->
-
-My pleasure :-)
-
-> One thing I noticed was that if I grep for `adrl` with all of the
-> above applied within arch/arm, I do still see two more instances:
->
-> crypto/sha256-armv4.pl
-> 609:    adrl    $Ktbl,K256
->
-> crypto/sha256-core.S_shipped
-> 2679:   adrl    r3,K256
->
-> Maybe those can be fixed up in patch 01/02 of this series for a v2?  I
-> guess in this cover letter, you did specify *some occurrences of
-> ADRL*.  It looks like those are guarded by
-> 605 # ifdef __thumb2__
-> ...
-> 608 # else
-> 609   adrl  $Ktbl,K256
->
-> So are these always built as thumb2?
->
-
-No need. The code in question is never assembled when built as part of
-the kernel, only when building OpenSSL for user space. It appears
-upstream has removed this already, but they have also been playing
-weird games with the license blocks, so I'd prefer fixing the code
-here rather than pulling the latest version.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXE-WJoT0GhCzGGqF4uzVNCqdd1O0SZ9xbHP25eQMCUsqw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/5de6c6d3ced340ac80702c527bb38d12%40huawei.com.
