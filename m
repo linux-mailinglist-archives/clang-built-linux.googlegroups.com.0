@@ -1,151 +1,142 @@
-Return-Path: <clang-built-linux+bncBC27HSOJ44LBB5PJRT5QKGQEMZOC6GY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDV37XP3XYDRBR4FRX5QKGQECEQMJGY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x337.google.com (mail-wm1-x337.google.com [IPv6:2a00:1450:4864:20::337])
-	by mail.lfdr.de (Postfix) with ESMTPS id B5BC626D859
-	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Sep 2020 12:05:41 +0200 (CEST)
-Received: by mail-wm1-x337.google.com with SMTP id t8sf372128wmj.6
-        for <lists+clang-built-linux@lfdr.de>; Thu, 17 Sep 2020 03:05:41 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600337141; cv=pass;
+Received: from mail-pj1-x103d.google.com (mail-pj1-x103d.google.com [IPv6:2607:f8b0:4864:20::103d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9171C26D9CC
+	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Sep 2020 13:04:40 +0200 (CEST)
+Received: by mail-pj1-x103d.google.com with SMTP id p11sf915093pjv.2
+        for <lists+clang-built-linux@lfdr.de>; Thu, 17 Sep 2020 04:04:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600340679; cv=pass;
         d=google.com; s=arc-20160816;
-        b=xEmAWhQQmUZqO/D8mp9n3sA1i8ent0vZ0cmt8/M0qchuswAUmfgW476eva6PK3bwJx
-         T8ymzIjiQ5AGvCLFXtquw6S64jHh5HpMZFliTSKg3Az9y0VW/1iZzDjcaTB0kP+YIQhh
-         vYchpiw5MkrlKxq5QS7h2TNL1LzgXsHBdy4/qsUhheJKgg2xUBZJ/JB/HGVpFIk1M1OY
-         3EBwuiQDY3GyqLclpesGuBlcJr8CGVAStr5SzWE0i6l0KX1YvZXdZUGsNmKhWta+z4Ti
-         WGZ9F8J7Zy8Yumrm8V0Caa3DC1UuU4ZLM1Ztqu0VoH9s77tDibxIM/nDSaxwYBC+PCUd
-         J5Jw==
+        b=rW9Vt9ZiVLndJcPIFPYcRhVjKIYQns62cjIOTFrX/y+nSTFsThmKZBElE5zetYVcvv
+         PDa4AZBw0MucC5aFbcr0pOVY2uXv69/3SJK38ZupUQ+5+Egq9u0TulnmeAc2LCTYp+jU
+         nbFxj4HuSW3IwD9vwu2sWimT2Nx2N4XydmeGkWYDDRqNLR3dVVhpxbqazJjJooUQILJW
+         etIwT5jb/tz4fXT7ePF2qT9+FPkyqsPMZ8PMRlhcw1qbPY1BP+l8IRnYq+DsIkHxOzZ6
+         YsMhaqwNRuqpSHFgQF0qA80bARARkqnpNOIfYqY0aaLGm5gUq2hvE0neS8wE8/Ff7iF9
+         0diw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language
-         :content-transfer-encoding:mime-version:accept-language:in-reply-to
-         :references:message-id:date:thread-index:thread-topic:subject:cc:to
-         :from:sender:dkim-signature;
-        bh=848LBLHykvYlR86/JyE4c8wktO1ek0/CTd2b/2m7kew=;
-        b=WQtmPX4XG20rZv0OnUrM0QjA9q9AZ7f4CbZfCTAtSyvT1NjfXAvICymGkMECpi/gd4
-         yPHL44LR+gJ/KuGmSM5vrqlUUji1jnBsM5HXk6UhiIkRTlNX+fxWboWKzmJJesYUUo/L
-         PI7P5WgBL3Hv6pe+E9fllzUJoH48e8iUbzqEin5WmzbnE858mEovMe12u2wy2VGzvv9P
-         a2cxG9dLhi3oAZFpC8OafdgH3cQnufleIkrPVBEugSCX/iEh6hsB1FohRXLaqWpYSnjj
-         H8bYhaxeUdez4O/WnAovQvv6NQeAvSAdc1ba05/JnYQWnC6v10srYa2DwpuDcTtZD0RF
-         p5Vg==
+         :list-id:mailing-list:precedence:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=gU7t6niIdqtzgcXCrDENEHk58sBs6JqqQtiVaHHW4zg=;
+        b=oDWrBudfaAigFGKDtweyGolBTA9TZZXDUZNW1YQz1AEfCGt9h6LFdProOCeTXzDuE2
+         5ofQdzMmfd60ls7MfWAUEYtr+FH/7bHM/6jRXehlv4zozgsTi5q3YjGhBMygT26NWPU1
+         qOLoJjS38BWG+YFPR6fzCOdc2I+Yj6+w7HabFCP80uzBhcoRz3VADDAe631E+YXeyKrO
+         A7J3EcT7dgAYdtApPJWGZY6ezaM1pF37H+TrZ+fzlgcJJv5PsrlyU6KyZuEbxiRVv40w
+         ryEvHob2gWNdYDQnChQWWEBl/FiPwL8pxlTbo1ZXETjSEemOwvi8eCGm4rfbxR0DJbmq
+         vGYg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of david.laight@aculab.com designates 207.82.80.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
+       spf=pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=mark.rutland@arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:mime-version
-         :content-transfer-encoding:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=848LBLHykvYlR86/JyE4c8wktO1ek0/CTd2b/2m7kew=;
-        b=Mh6Mb3m9zePXdGmcmaZOOgAHSBPTzS+SLz5zErKV535ThJby9bVDmcFGgz0/WeGX7z
-         1PLgA91ra1x+R6AHbMh39ozktWKGMAuZglWvmjIUHcbtI2Yncu1z1l0nB4muLMvWeKVh
-         ZdkpLK0DjIbfhjUSp9r7n7rLeB2GXfBv+ivaWHd0ZCyIVCY8vaxoEqHRji081ANvwIVW
-         q1Mrw1kbZdxw9CPhhtvy5tHFmHNPZG3W+1A5U/V/3k8LL0sE9s2TTpgyV/TeqXJmvCXH
-         nCQKIGt7omazHCNYSJdfhSwbWb03Scr7Yfy+J3RyING3TouoqxZSuEtKZZKr48XAIQ2h
-         MjQg==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=gU7t6niIdqtzgcXCrDENEHk58sBs6JqqQtiVaHHW4zg=;
+        b=gBgfQVVHbOSSbjQXK5R6GjfkWpuBvy9DTnexNZj37FFg4rZSJ8+rbnEc7+MznSdlgb
+         BUoAKgn4tAvsGzujOSR27XwKgsYAMd7bf0Nz6Dxoc8Jy3etW6O6pQ8aWHFJoVfZn91R1
+         UP07PG7+MJs1yVlho+bYktvEDgao3bIxqtjyea9HxNA2N/VazYMEkzK65OVUZzfIPPh7
+         ZKObRfdUwpezFa+FT401zm5/dxv+KDCnk3L6qNAHxdAx70vvVpfPudPev81r1Gbih7nF
+         j4F/cnPlTA7/WKsS0bwkSTmBQbOUCKeAplGtZXcAG/KIXIXhnIqsIdn9q/Cyq3qQx3QD
+         uWng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :mime-version:content-transfer-encoding:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=848LBLHykvYlR86/JyE4c8wktO1ek0/CTd2b/2m7kew=;
-        b=ILmb0BUK+mL+DzgUHNfXu8grwji871b+40vJJYeZndDRCdGfXXWrSFowcUp5hv/MF0
-         DRMtYY4nnv5dTjm1p9/FCytRk1QTnYaQg1g8F5ZqxOFqx6W+sNRzYZTV33kJi31mlQC6
-         NJhmZ89N6mAgK8NbvmDbvbWBsAe1V2V31Z2MyqbTN4W8Er31uFsdEqApiJ6xTIEsrlS7
-         ghmgZvv1CvjL4TDfgrNycaYR5KJk51ZP17lo7+ZXy6Pp4CX4BZomQhSudqcTr9OiE70g
-         4LvzJOxUeJ5CF5fJihouVVtwf1U7N1Y6i0bxx3Ef8C3vAhU0lJEm5TP+ycDgLV1r61jC
-         7F+Q==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=gU7t6niIdqtzgcXCrDENEHk58sBs6JqqQtiVaHHW4zg=;
+        b=kD0HnhMK8FUVfd4yvpnM3uwr//PhqbPZ5MEMhQ/w0HrJg0r/JtFlOsQl4oQpkWk7LG
+         x8Xr/oCThU3CGzAi34iCXDR5KqaHjW/xKdSvOnj5Q7aTNSDNdUhV1MiI8pxI65GJRQZe
+         jaOpYJxf8MWm7QyAoLCVYshcXhteiSy76WZNDTeiicesmnjFrHvVNODlLyDi7W2G2jCX
+         R8+BsY7gnzvME/SkgeKQWqemLhP0NagbTM1BgF3Ne899KMtFiT6gyGODk7hJ8SaqGOVg
+         hjjCH7oIgM6Gy9LjpbTuvX9emZTWONeINhjOxEhZsS4ImuGs+xJCXiRklQ9abG0B3wzY
+         ErRw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530rqM+ljHhSIKBCs+Z+88ODyIOQg8i0Dg/jE4tB9wc5BRNPbcNp
-	RKqKE+6b1TVkR3MfxwdUSMY=
-X-Google-Smtp-Source: ABdhPJwxZmkEvgVKIFthcDH9nnhWqO2eNb0mNOj+MhUrufC7W/i/aBPNNP5q5lWiSGdZVDHs/YYRRQ==
-X-Received: by 2002:a05:600c:410e:: with SMTP id j14mr9672752wmi.13.1600337141490;
-        Thu, 17 Sep 2020 03:05:41 -0700 (PDT)
+X-Gm-Message-State: AOAM5308DcmigCDZWZCVZZzYjtVOPF++Xj+kskmtMCuIZWxgSZMwhaWC
+	An//Mv2SwCRGQrhma4K8wu8=
+X-Google-Smtp-Source: ABdhPJzy5CxlaCXYdEJk5GLzdbIysI+ZFdcjyht8yA/dbQ5KOb+2k+1sQ8qxfVlbPDkBSkXy+6BafQ==
+X-Received: by 2002:a63:3246:: with SMTP id y67mr4902372pgy.410.1600340679286;
+        Thu, 17 Sep 2020 04:04:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:e3c3:: with SMTP id k3ls229755wrm.1.gmail; Thu, 17 Sep
- 2020 03:05:40 -0700 (PDT)
-X-Received: by 2002:adf:9125:: with SMTP id j34mr34428169wrj.157.1600337140657;
-        Thu, 17 Sep 2020 03:05:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600337140; cv=none;
+Received: by 2002:a65:4901:: with SMTP id p1ls734282pgs.5.gmail; Thu, 17 Sep
+ 2020 04:04:38 -0700 (PDT)
+X-Received: by 2002:a62:b417:0:b029:142:2501:35dc with SMTP id h23-20020a62b4170000b0290142250135dcmr10318622pfn.60.1600340678608;
+        Thu, 17 Sep 2020 04:04:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600340678; cv=none;
         d=google.com; s=arc-20160816;
-        b=Xj1qZFqJIgXdypuV3/YntX0Nmt6nJYIglzbbyUjPrnu6/Dm1aMwcdQFZ51JWiWCrfY
-         4Obc+kk066qkoOzvs4GTCm0tJ84pxo0YQSDcixmgH6pMXsqVgc1wAuESg/6nsCQilNfe
-         TNFhhhY0G2pJ2kDhRLeFNBVizR1l7Rj7zj+dsmY3CXA6htEvclZT5gCRsPCnKFQpvhgk
-         PNU8ERschNBVIIc04/YCpNJT5fPAoTllzU5wfN6MEoTm98tVborRkapTxACIPFcE3AYg
-         SJ920uBJZ1Fh6O6nezw4LKkHOyu+ltaWRUXhV/u2tcGXSz5hJUZ8Z7esotQXh2Bn9E1i
-         G8oA==
+        b=LUsreLNErEKXppmIOtHZZ5604br05WpM/+eDiT7dVOTU+RYMEcG6CN89as6kAV6ux3
+         KFTe4dKY3SxE37g1d1ar4oddw0pTPllbLo92qRDHL1fWBfwMR5dYAYolsQ/qLwLicAkv
+         4xdcbdIrZZQNvUI5FXd1mZJPSG2sJSOZOezr/SVJ6xRFxSGl1O/xg2Jl+HI/KATHX8IE
+         xiXpnR+Qsp4ILVMehH9k5nqQYCQ1gvfG+dnPg4ITjxZ5d7s8m+wQ60MdQ0I/1YXEMmwj
+         0St3GBRLIic6wYBciEvt2KTN0UStSLeWRi/1fzl5V+9j+V9tcyXshvi67CES0FzKtawI
+         8kKQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-language:content-transfer-encoding:mime-version
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from;
-        bh=osv/cZ+waba2pjRf4GEkcj7ZNeT/fBQw3EzBH1N1Lfc=;
-        b=A3d3mlGB9JLGELxvBLJEuVmzdH80qEgrXahYdd8MmNnUlIeDT767rbsn6qM8aArM7C
-         7SAc/8/cxz72xip/+gF3Bokj/Nw9cSZjWwCZwIK3Qhdf8yU5oSxb3+XwIO+DsawXdXqD
-         atbZYulrsBf7Y80nnEVsH9jX9UauO/fJnTvGeeUgOKqTDN1YARhWpR4dWqolXMWc+DOx
-         PIBcl3AynxE87PwO6od91sTqF7w8NLKpUJeyIXIfxVx3XI0+s3zAUDvJYUe/k12ejU9A
-         UbytGp8BD18WSxYLWivXAtlfRxngTbJ52szOc/3ylY9yYZ0lZ7gy6TlUjbj12DMldkMt
-         LLWA==
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date;
+        bh=2URSs4FQcpfXRLo4XEp8qEHWv0ZrE4RGN8BcoRnIgn8=;
+        b=fLrfJLtmZSG+JbWc6fYGTH9eZV55QC/dyRok6qf3BTbRWnitYSYL94vz4FBOR17aym
+         VXTbYsyNrFeL2DDYBvbl7P0P0nPcr/qL+FD/KMBR/KhYq3RsvweUy2DNMQRmaxzyExft
+         2pKveYyOOVEpxScZzLv6A5x2aT5ev9QCloz9nZiJf6cKmrUId4NRwOETYuc6yIfbgRFs
+         YSRgMo0EpDDJDzepH5aIhed++ZxM3nqKuFQYBZ4g1smrMKV8AS14AKB8URPEi2/ym4CM
+         +iRTcULuqbDm2gxl5Y2gPbihRSG460GMKEdKmxEVXXYlyGNLratrwz2Q45ICNEZCOJwi
+         Somw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of david.laight@aculab.com designates 207.82.80.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
-Received: from eu-smtp-delivery-151.mimecast.com (eu-smtp-delivery-151.mimecast.com. [207.82.80.151])
-        by gmr-mx.google.com with ESMTPS id d19si150420wmd.0.2020.09.17.03.05.40
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 17 Sep 2020 03:05:40 -0700 (PDT)
-Received-SPF: pass (google.com: domain of david.laight@aculab.com designates 207.82.80.151 as permitted sender) client-ip=207.82.80.151;
-Received: from AcuMS.aculab.com (156.67.243.126 [156.67.243.126]) (Using
- TLS) by relay.mimecast.com with ESMTP id
- uk-mta-284-NTAvdqu8PY-EPI7JCtygNg-1; Thu, 17 Sep 2020 11:05:38 +0100
-X-MC-Unique: NTAvdqu8PY-EPI7JCtygNg-1
-Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) by
- AcuMS.aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) with Microsoft SMTP
- Server (TLS) id 15.0.1347.2; Thu, 17 Sep 2020 11:05:37 +0100
-Received: from AcuMS.Aculab.com ([fe80::43c:695e:880f:8750]) by
- AcuMS.aculab.com ([fe80::43c:695e:880f:8750%12]) with mapi id 15.00.1347.000;
- Thu, 17 Sep 2020 11:05:37 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Borislav Petkov' <bp@alien8.de>, Andrew Cooper
-	<andrew.cooper3@citrix.com>
-CC: Andy Lutomirski <luto@amacapital.net>, Nick Desaulniers
-	<ndesaulniers@google.com>, Andy Lutomirski <luto@kernel.org>, Bill Wendling
-	<morbo@google.com>, "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)"
-	<x86@kernel.org>, LKML <linux-kernel@vger.kernel.org>, Greg Thelen
-	<gthelen@google.com>, John Sperbeck <jsperbeck@google.com>, # 3.4.x
-	<stable@vger.kernel.org>, clang-built-linux
-	<clang-built-linux@googlegroups.com>
-Subject: RE: [PATCH] x86/smap: Fix the smap_save() asm
-Thread-Topic: [PATCH] x86/smap: Fix the smap_save() asm
-Thread-Index: AQHWjLhpVSRzzG6WxEmLrZSeXkmcHKlsmR1Q
-Date: Thu, 17 Sep 2020 10:05:37 +0000
-Message-ID: <ec617df229514fbaa9897683ac88dfda@AcuMS.aculab.com>
-References: <CAKwvOdnjHbyamsW71FJ=Cd36YfVppp55ftcE_eSDO_z+KE9zeQ@mail.gmail.com>
- <441AA771-A859-4145-9425-E9D041580FE4@amacapital.net>
- <7233f4cf-5b1d-0fca-0880-f1cf2e6e765b@citrix.com>
- <20200916082621.GB2643@zn.tnic>
- <be498e49-b467-e04c-d833-372f7d83cb1f@citrix.com>
- <20200917060432.GA31960@zn.tnic>
-In-Reply-To: <20200917060432.GA31960@zn.tnic>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+       spf=pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=mark.rutland@arm.com
+Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
+        by gmr-mx.google.com with ESMTP id h1si1189057pfh.5.2020.09.17.04.04.38;
+        Thu, 17 Sep 2020 04:04:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AB5BE30E;
+	Thu, 17 Sep 2020 04:04:37 -0700 (PDT)
+Received: from C02TD0UTHF1T.local (unknown [10.57.19.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F33673F68F;
+	Thu, 17 Sep 2020 04:04:33 -0700 (PDT)
+Date: Thu, 17 Sep 2020 12:04:27 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Daniel Kiss <Daniel.Kiss@arm.com>
+Cc: Marco Elver <elver@google.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Josh Poimboeuf <jpoimboe@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, Rong Chen <rong.a.chen@intel.com>,
+	kernel test robot <lkp@intel.com>,
+	"Li, Philip" <philip.li@intel.com>, x86-ml <x86@kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Kees Cook <keescook@chromium.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	kasan-dev <kasan-dev@googlegroups.com>,
+	Momchil Velikov <Momchil.Velikov@arm.com>
+Subject: Re: [tip:x86/seves] BUILD SUCCESS WITH WARNING
+ e6eb15c9ba3165698488ae5c34920eea20eaa38e
+Message-ID: <20200917110427.GA98505@C02TD0UTHF1T.local>
+References: <20200915160554.GN14436@zn.tnic>
+ <20200915170248.gcv54pvyckteyhk3@treble>
+ <20200915172152.GR14436@zn.tnic>
+ <CAKwvOdkh=bZE6uY8zk_QePq5B3fY1ue9VjEguJ_cQi4CtZ4xgw@mail.gmail.com>
+ <CANpmjNPWOus2WnMLSAXnzaXC5U5RDM3TTeV8vFDtvuZvrkoWtA@mail.gmail.com>
+ <20200916083032.GL2674@hirez.programming.kicks-ass.net>
+ <CANpmjNOBUp0kRTODJMuSLteE=-woFZ2nUzk1=H8wqcusvi+T_g@mail.gmail.com>
+ <CAKwvOd=T3w1eqwBkpa8_dJjbOLMTTDshfevT3EuQD4aNn4e_ZQ@mail.gmail.com>
+ <CANpmjNPGZnwJVN6ZuBiRUocGPp8c3rnx1v7iGfYna9t8c3ty0w@mail.gmail.com>
+ <333D40A0-4550-4309-9693-1ABA4AC75399@arm.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0.002
-X-Mimecast-Originator: aculab.com
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Content-Language: en-US
-X-Original-Sender: david.laight@aculab.com
+In-Reply-To: <333D40A0-4550-4309-9693-1ABA4AC75399@arm.com>
+X-Original-Sender: mark.rutland@arm.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of david.laight@aculab.com designates 207.82.80.151 as
- permitted sender) smtp.mailfrom=david.laight@aculab.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=aculab.com
+ (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as
+ permitted sender) smtp.mailfrom=mark.rutland@arm.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -158,61 +149,55 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Borislav Petkov
-> Sent: 17 September 2020 07:05
-...
-> > This is very definitely one to be filed in obscure x86 corner cases.
-> >
-> > The code snippet above is actually wrong for the kernel, as it uses one
-> > slot of the red-zone.=C2=A0 Recompiling with -mno-red-zone makes someth=
-ing
-> > which looks safe stack-wise, give or take this behaviour.
+On Wed, Sep 16, 2020 at 10:30:42PM +0100, Daniel Kiss wrote:
 >=20
-> Right, we recently disabled red zone in the early decompression stage,
-> for SEV-ES:
+>     Thanks for the summary -- yeah, that was my suspicion, that some
+>     attribute was being lost somewhere. And I think if we generalize this=
+,
+>     and don't just try to attach "frame-pointer" attr to the function, we
+>     probably also solve the BTI issue that Mark still pointed out with
+>     these module_ctor/dtors.
 >=20
-> https://git.kernel.org/tip/6ba0efa46047936afa81460489cfd24bc95dd863
+>     I was trying to see if there was a generic way to attach all the
+>     common attributes to the function generated here:
+>     https://github.com/llvm/llvm-project/blob/master/llvm/lib/Transforms/=
+Utils/
+>     ModuleUtils.cpp#L122
+>     -- but we probably can't attach all attributes, and need to remove a
+>     bunch of them again like the sanitizers (or alternatively just select
+>     the ones we need). But, I'm still digging for the function that
+>     attaches all the common attributes=E2=80=A6
 >=20
-> I probably should go audit that for similar funnies:
 >=20
-> $ objdump -d arch/x86/boot/compressed/vmlinux | grep -E "pop.*\(%[er]?sp"
-> $
+> We had the problem with not just the sanitisers.  Same problem pops with
+> functions=20
+> that created elsewhere in clang (e.g _clang_call_terminate ) or llvm.
 >=20
-> Nope, nothing. Because building your snippet with:
+> In case of BTI the flag even controllable by function attributes which ma=
+kes it
+> more trickier so
+> the module flags found the only reliable way to pass this information dow=
+n.=20
+> Scanning existing functions is fragile for data only compilation units fo=
+r
+> example.
 >=20
-> $ gcc -Wall -O2 -mno-red-zone -o flags{,.c}
->=20
-> still does use that one slot:
->=20
-> 0000000000001050 <main>:
->     1050:       48 83 ec 18             sub    $0x18,%rsp
->     1054:       48 8d 3d a9 0f 00 00    lea    0xfa9(%rip),%rdi        # =
-2004 <_IO_stdin_used+0x4>
->     105b:       31 c0                   xor    %eax,%eax
->     105d:       9c                      pushfq
->     105e:       8f 44 24 08             popq   0x8(%rsp)
->     1062:       48 8b 74 24 08          mov    0x8(%rsp),%rsi
->=20
-> Wonder if that flag -mno-red-zone even does anything...
+> Our solution, not generic enough but might help.
+> https://reviews.llvm.org/D85649=20
 
-That isn't using the 'red-zone'.
-All the referenced memory is above the stack pointer.
+Thanks for the pointer -- I've subscribed to that now.
 
-The 'red-zone' allows leaf function to use stack memory for locals
-that is below (ie the wrong side of) the stack pointer.
+Just to check my understanding, is the issue that generated functions
+don't implicitly get function attributes like
+"branch-target-enforcement", and so the BTI insertion pass skips those?
 
-This can't be used in-kernel because hardware interrupts write
-just below the stack pointer.
+I'm guessing that it's unlikely this'll be fixed for an LLVM 11 release?
+On the kernel side I guess we'll have to guard affected features as
+being incompatible with BTI until there's a viable fix on the compiler
+side. :/
 
-It is ok in userspace providedthe call-backs for signal handlers
-decrement the stack pointer over any red-zone.
-
-	David
-
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1=
-PT, UK
-Registration No: 1397386 (Wales)
+Thanks,
+Mark.
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -220,4 +205,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/ec617df229514fbaa9897683ac88dfda%40AcuMS.aculab.com.
+clang-built-linux/20200917110427.GA98505%40C02TD0UTHF1T.local.
