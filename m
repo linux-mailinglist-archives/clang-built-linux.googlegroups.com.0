@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBN5KST5QKGQEIWMVXRY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRBOVKST5QKGQEANGQX7Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73c.google.com (mail-qk1-x73c.google.com [IPv6:2607:f8b0:4864:20::73c])
-	by mail.lfdr.de (Postfix) with ESMTPS id E25CA27061E
-	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 22:14:48 +0200 (CEST)
-Received: by mail-qk1-x73c.google.com with SMTP id y17sf5620179qky.0
-        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 13:14:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600460088; cv=pass;
+Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
+	by mail.lfdr.de (Postfix) with ESMTPS id A8B84270620
+	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 22:14:51 +0200 (CEST)
+Received: by mail-oi1-x23b.google.com with SMTP id l138sf3058032oib.17
+        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 13:14:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600460090; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BulWwnY7AIXhKaOlpkNDHXEAbgSYQmvkqod56jxQayPhBdZWc+2mtCIMdX6OS7Tl/6
-         rwtcwYI7Ga0KW+tmX5+VISHfBvytK472M4fsVEXJzXNcBda0jRhqf7ywinJnz9P2lZkk
-         woDKFh3LD38xOje8aJSlz2T3PNV9iNHzebdS37MwzaZiN2GpdGlyqYjOShbqqN83JCTg
-         LU8B/rHEE+qsYD9yVYSGyDqKdcZ1nDAHp+KqarvnM/pe8qZTyxnPrnyZcaN2AbePj4/a
-         LhsGSBYiUMwKhZiWTf9zRosukSWLqzFFfyJMviO1P/Z6WpumOgeto58xZ4+0UxUrWq9G
-         t6qA==
+        b=KQWNXRHI50XffOxsS9qvmQaymPCjQC686zj9B9JgBQRdLfNN09W1e0X3UfYYklHP9i
+         FFP+kGjEEo4xBllTDvKXYF+2i5F31ACkjKDC3x4SRn4m0kB1d4wvhJgrsmHiWJ0RfvlJ
+         rztrtgs5tJ7+NIEvcwDJOK2+ZU35jvdunrn0/pIqBTXs+neXGMfPwROHi1VrHufpDY7L
+         uEcukMuQorrp/sKqK1/QBDPwpUI1vmt8f0f2JpcKJi7POY7k0hsSxqJf0N4hQrpAv2TI
+         SgZ2wlMXl8LxIcJmRj8rv0rMwBiuxIHNRjTy+dp8PmXK0OajwVjHbwN8ql9Jyz2GGYX6
+         ORug==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:sender
          :dkim-signature;
-        bh=q2XrberO6Wu2ZSQgVxnjDKHKMPqQyPddEm8cqz9NjJ4=;
-        b=dz95IMSh/ybS66pIAs6aZQCfc5GWwo5+84Re1w5haMiavNpOHqWJ5Uqz2+oNMDod6Q
-         Q3eiM38CkF0T2MS8QLeP8kY3O58MDrkBSpP/YzTAA13VIOid/q02BTbpk3ZivgcQD7eo
-         j6IQhkSmb8G4QNsD1XmpjkS6kxNXt/l7QpeNT3eAxqdAaVeJZI+eScXlNuKflMz9B1ma
-         iC9kHzrEzs6sW7tlLDhU/hsxXHwjEtbk9JeynkCAygz4wlXdcWC1k0HXh5z3O+W/Kg1f
-         yuh/C5bj/VYE+WtiZSXrXP9kheV+vSuaiq+0rvtm5/kfI6ECyeYtLSrXgANsKlDSNYu1
-         eaFg==
+        bh=EvFsXoRh9zeE+ZoFppAquqCAx1Gc8iy6ud1bt5vqKvE=;
+        b=ewQr4rpyBinjunyG67iKufMppIdDLb61uDTLFn71Y/sguOVC2kJ5XC+u7+JZjG0Age
+         sX1P3NnFxmrdez6P42MRA03cY90a4KjDs3X6oC+6UGaCr9zlqXh02Hp8lAML5xj/AjiW
+         jcej3nJj1lXOAYqK9r0SPHUswhyB7vGd/wkNE2yZRqi65IRa+d6FsB/oqs6aWgoeuwMk
+         ypj2QTIyZ1RAMqQBPuGBlKNtIGPWpL5QmoAQU6/S7e/DahRoh3Iw+HLonLY1K3znKBN/
+         AXRdalRz2+lItv/jOeuCwG5D23S4lZHxJCe0lRGxqporB7+BFUOSt4mxZIzo5mf0G0U5
+         M5XA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=LkhMujvC;
-       spf=pass (google.com: domain of 3nxvlxwwkapyqykgrmjtylclemmejc.amk@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::749 as permitted sender) smtp.mailfrom=3NxVlXwwKAPYqYkgrmjtYlclemmejc.amk@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=any3V5lS;
+       spf=pass (google.com: domain of 3orvlxwwkapgxfrnytq0fsjslttlqj.htr@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::44a as permitted sender) smtp.mailfrom=3ORVlXwwKAPgxfrnytq0fsjslttlqj.htr@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :from:to:cc:x-original-sender:x-original-authentication-results
          :reply-to:precedence:mailing-list:list-id:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=q2XrberO6Wu2ZSQgVxnjDKHKMPqQyPddEm8cqz9NjJ4=;
-        b=lJTNqfD0h4Pl8KgP0rHNGutY8XTQchbEle1XQ1GK/elnSsmFIZgYbDkxAyDOZ9PEU2
-         tIsoOnhsMxL2zQLL4SjW3JsqfjoM1Twd0LdPM7Pj4m7N6kab4UK6guWcS1saUqldPUfM
-         lleKAIYl7foHXL4DQHPidmVvJtD9lo4E9bsB7HpLZZ7lzcl55LH1dyZP/zrhpARmCnlb
-         puNMo/KcY/Nk081x3X20wHijH/aIX0uvXuu4LrYUyQFRxb0CUFKLNgL9GwMj0mWlpgQn
-         tGNFqdtxTqU4vAhjqKHs51aP1izUaohRJ26U6MUzdc+V4xCNSFF6HzbrRrh/UOD10Ohs
-         HkMg==
+        bh=EvFsXoRh9zeE+ZoFppAquqCAx1Gc8iy6ud1bt5vqKvE=;
+        b=DtyET1tv42c1aMG3bP6bNf+yQYOKJyi6o/hUh2enu5RNkmj/ClEm0wjrWqK3v6/D/0
+         cN1QhLJLlDQ/M6+5wIaPjXTRDZOWfLArFsjmi1z5S7bnvzznx0iD9LYdY2JkHBk7HiLF
+         jQNY5gxBLAfAOlXefQrDi2MB8dYt6WMMw2dlzN9Rd5Uvx+alaLyJzrdaT6AWEqIYVe8g
+         eR6vpYg/MLqcpYBFjh/yllCV3c4L8Jq3tgRfOOyaB6x8zJmXx3UYrACc2mYxJgSuNOC9
+         X2Ks9vwAYhWBnUSB7k6Al4bLH0Qb18jxXWakie5pA3/UkpnbuE78YVjmamzPYGfwp6m5
+         r+vg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:sender:date:in-reply-to:message-id:mime-version
@@ -50,64 +50,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=q2XrberO6Wu2ZSQgVxnjDKHKMPqQyPddEm8cqz9NjJ4=;
-        b=ocq5PV2Jc3WhF8nkQZ+vrzTVhGMtj2mXdBImVNm2ny9L/AVTZf1/olyGF3Lryr6nez
-         KR5CmtnkACvuE5+onSp1XtTRuBbnYO4SeVT/jnDT5MnrRo2bA/NyWe7wFG3QETadMkXd
-         RY+IUqcTx+2QQ6++QFMq24FhBlX99JVr54CrwImm9BBOkdYjg7dvN3Dh7PUjAllSexa4
-         p3EJX2ZjaFPOWrcaiybDFbgXTpL7Nm4jMsXOZCLnuBzQelPjrlkiOl9Tc/m6ZZxbydmc
-         pkZCn3ruIa01owODMxR72hF3BAkQPwpCLqKkG5Fm/ULEx9ODM1aa9xmKdMjuOJlVWVTt
-         mDUQ==
-X-Gm-Message-State: AOAM533PWdDrP9laigJksf7gH5eKNJ++MBRumVOCUWB8/jTdLA83igIA
-	FLk96sp6DyjKIlKskJuFZLM=
-X-Google-Smtp-Source: ABdhPJy6fN0eXFQsF9wgJfvRBize0AG6+IAj7TjeqScTu/XqoiT1S+gIrHfkXbreQCvV8zyzL8e9Xg==
-X-Received: by 2002:ac8:44da:: with SMTP id b26mr21796814qto.147.1600460087928;
-        Fri, 18 Sep 2020 13:14:47 -0700 (PDT)
+        bh=EvFsXoRh9zeE+ZoFppAquqCAx1Gc8iy6ud1bt5vqKvE=;
+        b=CGYNprh+ur7AYyLQ5O8dsVhZnu/DVFgZ6kQC814ItgYzPGc4ahMu6CL3q0ebNn7Jt6
+         asvuTkegMzr9gcxSxnb0p+Rx5lRatm/PqGQii3CP/7NprMs9zG9vP4Vpq+U3Z5Nwok9k
+         QGqMA2WDGmyfzFsuMDc5sR3Fj1N4ar5007SWMFKH1MRetgOZHKchqdI/JytLmmYzuAn7
+         HDVmDdu60bw3OkS/G+8Zd7Wr/uGRxI8RCPyDJyr9bzlOTktV38FKJr6y30PAdGtNpQwE
+         Sc0nzFb6RwuwZ4UwfkQFVszQwmfNWSxiePJNKc/r1GbTMFoP4M1Po/h/opl7gu/XQdMC
+         HjuQ==
+X-Gm-Message-State: AOAM533IzqlgEYeOg09whd8uu9c5CZ/p30CHEydk9OkQPQWd8W4MS+hi
+	dc2pkjBU/CsadrPGAlLUCgQ=
+X-Google-Smtp-Source: ABdhPJwELsEOlpNMOzkw7EF7x+4WOUxIbbuP/aKoziKsdQWPWfsNQqbpU5sQfLK0THCBT58PjiT2eA==
+X-Received: by 2002:aca:f0d:: with SMTP id 13mr10169608oip.124.1600460090613;
+        Fri, 18 Sep 2020 13:14:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6214:136e:: with SMTP id c14ls1659333qvw.10.gmail; Fri,
- 18 Sep 2020 13:14:47 -0700 (PDT)
-X-Received: by 2002:a0c:a612:: with SMTP id s18mr19088681qva.37.1600460087461;
-        Fri, 18 Sep 2020 13:14:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600460087; cv=none;
+Received: by 2002:aca:d888:: with SMTP id p130ls1566924oig.11.gmail; Fri, 18
+ Sep 2020 13:14:50 -0700 (PDT)
+X-Received: by 2002:aca:4fd5:: with SMTP id d204mr10943296oib.58.1600460090231;
+        Fri, 18 Sep 2020 13:14:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600460090; cv=none;
         d=google.com; s=arc-20160816;
-        b=zNPeV/dTiY2jXjPrBYm1czQOq9Bkz+IHT2SbKWbWMUIiwkwbXSjG+eBOH+xb0VxspY
-         UgGJnF0xe7n0laxeooZbVP48sCgRlkgFvBLsrzr8H/q/d2akKHDU/qQqzxHknWHAHccn
-         AHQUV+pc3f5AIxeNQ1BQsBbghSN7OU/rm+kWitUyXuZLkdYnnPWg4Y2JOlAAVplIXrb3
-         1iyTvWj7UtX75gXa5YBdvvM+OYBj3DeDhFZjwUXnxPm1Alwk0RFN1sdRbE0cg7MuQYCW
-         kJkXgxvQeTRLe3kCFMEw0oh+BFFqvDa4kypunXqk+4QWsiVyosSB3RzAULCTEZQqRTrK
-         L4Hw==
+        b=YaiI5iK49/ZtinWBJy8qucPNpFwO0IxE9gQ6fkLteGqc8fjDKwcL9gltQZ0bdBQbDG
+         4qKi7gG2xOixNcfwNF216jEDqC6UvqDu0BwjVEcw2GA7NEWlqwXX4s1OETuhAURF1h7l
+         knOYyTJ3eaTuC1hMaeNQgbQpNjHvj5Vk3059lhokycnj/AW4pupcvgtcAH0MbVJPKgRB
+         cYoPkyOUNkrBuhe4Bsb88FVvouPvK8v/uoSptmJJal2o2+vnRn+b0BVqDptfvvzkIjcb
+         R5535vV0KBrJOnSPjSj68XwCl/KDmFaF02+/rG0fWE5bquuXWpuReiiBEZR4rFHkHmJr
+         ivbA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:sender:dkim-signature;
-        bh=46CPzhkDZEHeVpITNsapIjJxI0GjMO0SMNC0C8zkP90=;
-        b=mOrAi/XOOce9UPjjacTVZ4BPiGTxgwweTrXMTholC0Alx65Oakix+SXimesKRyYQc1
-         t4IJCrvobCXQjkTIFadb5VHMttLEwX1cRhPS8W8a4DyY1VaaQ0JCNQU2qmWJebNCYfTO
-         8CnqbxhLSNEVz4vGRoUM/yb7gjN09+OeEZBVLL8tX6hPnYqznbVbb5tU9nKhLxL04hbn
-         E60nE9GEXDUm9nHPi//mhFRV4mReUniDraciFaYjdwRoeSBajvKRpYC+RreTjHnhnDCV
-         OwdmPV8Ugz11PMI3xYizkBU1j/4uU42WrlD9viQV9hk/O9Gh/ca3hNOn3nfPSfdDDyhk
-         N4LA==
+        bh=OUE+m0OGAklb8Nux4jCl1L3mjhO5wTbpcVUk0tOPDMA=;
+        b=b4KCP3FxSyHwNJWganYmXxxd7wzKbImzO4aMZ/SXp4FbRwFa/izsL0fw25fANyVMwo
+         t0wTRHl1A51wV+shHD19NPEb/Ss2F/lqQddmwDey4z7h7lgJd73Ourxzy2TPz0phNJfS
+         dbup115em6YPhnD69sCo2DimsGUQRCXaFPIDZIsCnSYVKMrSc4cPF8o5UseR7sgkRXG0
+         +f68qbu1c2TBOLykJ6oJ5MXCfvSWffCr7OQCSkOEvHoGrPqdO90tgcNNlFcU0dtb3BRb
+         4SrxECvVX3Is0RKDTEV6ZIJMQFpTlF2ayqR0wRl1dDlnQ731oqZP2sh5PC1IPfFx2dyz
+         6ylw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=LkhMujvC;
-       spf=pass (google.com: domain of 3nxvlxwwkapyqykgrmjtylclemmejc.amk@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::749 as permitted sender) smtp.mailfrom=3NxVlXwwKAPYqYkgrmjtYlclemmejc.amk@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=any3V5lS;
+       spf=pass (google.com: domain of 3orvlxwwkapgxfrnytq0fsjslttlqj.htr@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::44a as permitted sender) smtp.mailfrom=3ORVlXwwKAPgxfrnytq0fsjslttlqj.htr@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-qk1-x749.google.com (mail-qk1-x749.google.com. [2607:f8b0:4864:20::749])
-        by gmr-mx.google.com with ESMTPS id a27si258803qtw.4.2020.09.18.13.14.47
+Received: from mail-pf1-x44a.google.com (mail-pf1-x44a.google.com. [2607:f8b0:4864:20::44a])
+        by gmr-mx.google.com with ESMTPS id l19si385174oih.2.2020.09.18.13.14.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 18 Sep 2020 13:14:47 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3nxvlxwwkapyqykgrmjtylclemmejc.amk@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::749 as permitted sender) client-ip=2607:f8b0:4864:20::749;
-Received: by mail-qk1-x749.google.com with SMTP id m203so5543407qke.16
-        for <clang-built-linux@googlegroups.com>; Fri, 18 Sep 2020 13:14:47 -0700 (PDT)
+        Fri, 18 Sep 2020 13:14:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3orvlxwwkapgxfrnytq0fsjslttlqj.htr@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::44a as permitted sender) client-ip=2607:f8b0:4864:20::44a;
+Received: by mail-pf1-x44a.google.com with SMTP id a19so3770073pff.12
+        for <clang-built-linux@googlegroups.com>; Fri, 18 Sep 2020 13:14:50 -0700 (PDT)
 Sender: "samitolvanen via sendgmr" <samitolvanen@samitolvanen1.mtv.corp.google.com>
 X-Received: from samitolvanen1.mtv.corp.google.com ([2620:15c:201:2:f693:9fff:fef4:1b6d])
- (user=samitolvanen job=sendgmr) by 2002:a0c:d443:: with SMTP id
- r3mr35786354qvh.17.1600460087054; Fri, 18 Sep 2020 13:14:47 -0700 (PDT)
-Date: Fri, 18 Sep 2020 13:14:10 -0700
+ (user=samitolvanen job=sendgmr) by 2002:a17:90b:4ac4:: with SMTP id
+ mh4mr14973735pjb.224.1600460089349; Fri, 18 Sep 2020 13:14:49 -0700 (PDT)
+Date: Fri, 18 Sep 2020 13:14:11 -0700
 In-Reply-To: <20200918201436.2932360-1-samitolvanen@google.com>
-Message-Id: <20200918201436.2932360-5-samitolvanen@google.com>
+Message-Id: <20200918201436.2932360-6-samitolvanen@google.com>
 Mime-Version: 1.0
 References: <20200918201436.2932360-1-samitolvanen@google.com>
 X-Mailer: git-send-email 2.28.0.681.g6f77f65b4e-goog
-Subject: [PATCH v3 04/30] x86/asm: Replace __force_order with memory clobber
+Subject: [PATCH v3 05/30] kbuild: preprocess module linker script
 From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Masahiro Yamada <masahiroy@kernel.org>, Will Deacon <will@kernel.org>
 Cc: Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>, 
@@ -116,14 +116,13 @@ Cc: Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>,
 	clang-built-linux@googlegroups.com, kernel-hardening@lists.openwall.com, 
 	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pci@vger.kernel.org, x86@kernel.org, 
-	Arvind Sankar <nivedita@alum.mit.edu>
+	linux-pci@vger.kernel.org, x86@kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=LkhMujvC;       spf=pass
- (google.com: domain of 3nxvlxwwkapyqykgrmjtylclemmejc.amk@flex--samitolvanen.bounces.google.com
- designates 2607:f8b0:4864:20::749 as permitted sender) smtp.mailfrom=3NxVlXwwKAPYqYkgrmjtYlclemmejc.amk@flex--samitolvanen.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=any3V5lS;       spf=pass
+ (google.com: domain of 3orvlxwwkapgxfrnytq0fsjslttlqj.htr@flex--samitolvanen.bounces.google.com
+ designates 2607:f8b0:4864:20::44a as permitted sender) smtp.mailfrom=3ORVlXwwKAPgxfrnytq0fsjslttlqj.htr@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Sami Tolvanen <samitolvanen@google.com>
 Reply-To: Sami Tolvanen <samitolvanen@google.com>
@@ -139,174 +138,364 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Arvind Sankar <nivedita@alum.mit.edu>
+From: Masahiro Yamada <masahiroy@kernel.org>
 
-The CRn accessor functions use __force_order as a dummy operand to
-prevent the compiler from reordering CRn reads/writes with respect to
-each other.
+There was a request to preprocess the module linker script like we
+do for the vmlinux one. (https://lkml.org/lkml/2020/8/21/512)
 
-The fact that the asm is volatile should be enough to prevent this:
-volatile asm statements should be executed in program order. However GCC
-4.9.x and 5.x have a bug that might result in reordering. This was fixed
-in 8.1, 7.3 and 6.5. Versions prior to these, including 5.x and 4.9.x,
-may reorder volatile asm statements with respect to each other.
+The difference between vmlinux.lds and module.lds is that the latter
+is needed for external module builds, thus must be cleaned up by
+'make mrproper' instead of 'make clean'. Also, it must be created
+by 'make modules_prepare'.
 
-There are some issues with __force_order as implemented:
-- It is used only as an input operand for the write functions, and hence
-  doesn't do anything additional to prevent reordering writes.
-- It allows memory accesses to be cached/reordered across write
-  functions, but CRn writes affect the semantics of memory accesses, so
-  this could be dangerous.
-- __force_order is not actually defined in the kernel proper, but the
-  LLVM toolchain can in some cases require a definition: LLVM (as well
-  as GCC 4.9) requires it for PIE code, which is why the compressed
-  kernel has a definition, but also the clang integrated assembler may
-  consider the address of __force_order to be significant, resulting in
-  a reference that requires a definition.
+You cannot put it in arch/$(SRCARCH)/kernel/, which is cleaned up by
+'make clean'. I moved arch/$(SRCARCH)/kernel/module.lds to
+arch/$(SRCARCH)/include/asm/module.lds.h, which is included from
+scripts/module.lds.S.
 
-Fix this by:
-- Using a memory clobber for the write functions to additionally prevent
-  caching/reordering memory accesses across CRn writes.
-- Using a dummy input operand with an arbitrary constant address for the
-  read functions, instead of a global variable. This will prevent reads
-  from being reordered across writes, while allowing memory loads to be
-  cached/reordered across CRn reads, which should be safe.
+scripts/module.lds is fine because 'make clean' keeps all the
+build artifacts under scripts/.
 
-Signed-off-by: Arvind Sankar <nivedita@alum.mit.edu>
-Tested-by: Nathan Chancellor <natechancellor@gmail.com>
-Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
-Reviewed-by: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Reviewed-by: Kees Cook <keescook@chromium.org>
-Link: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=82602
-Link: https://lore.kernel.org/lkml/20200527135329.1172644-1-arnd@arndb.de/
+You can add arch-specific sections in <asm/module.lds.h>.
+
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+Tested-by: Jessica Yu <jeyu@kernel.org>
+Acked-by: Will Deacon <will@kernel.org>
+Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
 ---
- arch/x86/boot/compressed/pgtable_64.c |  9 ---------
- arch/x86/include/asm/special_insns.h  | 28 ++++++++++++++-------------
- arch/x86/kernel/cpu/common.c          |  4 ++--
- 3 files changed, 17 insertions(+), 24 deletions(-)
+ Makefile                                               | 10 ++++++----
+ arch/arm/Makefile                                      |  4 ----
+ .../{kernel/module.lds => include/asm/module.lds.h}    |  2 ++
+ arch/arm64/Makefile                                    |  4 ----
+ .../{kernel/module.lds => include/asm/module.lds.h}    |  2 ++
+ arch/ia64/Makefile                                     |  1 -
+ arch/ia64/{module.lds => include/asm/module.lds.h}     |  0
+ arch/m68k/Makefile                                     |  1 -
+ .../{kernel/module.lds => include/asm/module.lds.h}    |  0
+ arch/powerpc/Makefile                                  |  1 -
+ .../{kernel/module.lds => include/asm/module.lds.h}    |  0
+ arch/riscv/Makefile                                    |  3 ---
+ .../{kernel/module.lds => include/asm/module.lds.h}    |  3 ++-
+ arch/um/include/asm/Kbuild                             |  1 +
+ include/asm-generic/Kbuild                             |  1 +
+ include/asm-generic/module.lds.h                       | 10 ++++++++++
+ scripts/.gitignore                                     |  1 +
+ scripts/Makefile                                       |  3 +++
+ scripts/Makefile.modfinal                              |  5 ++---
+ scripts/{module-common.lds => module.lds.S}            |  3 +++
+ scripts/package/builddeb                               |  2 +-
+ 21 files changed, 34 insertions(+), 23 deletions(-)
+ rename arch/arm/{kernel/module.lds => include/asm/module.lds.h} (72%)
+ rename arch/arm64/{kernel/module.lds => include/asm/module.lds.h} (76%)
+ rename arch/ia64/{module.lds => include/asm/module.lds.h} (100%)
+ rename arch/m68k/{kernel/module.lds => include/asm/module.lds.h} (100%)
+ rename arch/powerpc/{kernel/module.lds => include/asm/module.lds.h} (100%)
+ rename arch/riscv/{kernel/module.lds => include/asm/module.lds.h} (84%)
+ create mode 100644 include/asm-generic/module.lds.h
+ rename scripts/{module-common.lds => module.lds.S} (93%)
 
-diff --git a/arch/x86/boot/compressed/pgtable_64.c b/arch/x86/boot/compressed/pgtable_64.c
-index c8862696a47b..7d0394f4ebf9 100644
---- a/arch/x86/boot/compressed/pgtable_64.c
-+++ b/arch/x86/boot/compressed/pgtable_64.c
-@@ -5,15 +5,6 @@
- #include "pgtable.h"
- #include "../string.h"
+diff --git a/Makefile b/Makefile
+index 19d012810fbb..24fd733c142e 100644
+--- a/Makefile
++++ b/Makefile
+@@ -505,7 +505,6 @@ KBUILD_CFLAGS_KERNEL :=
+ KBUILD_AFLAGS_MODULE  := -DMODULE
+ KBUILD_CFLAGS_MODULE  := -DMODULE
+ KBUILD_LDFLAGS_MODULE :=
+-export KBUILD_LDS_MODULE := $(srctree)/scripts/module-common.lds
+ KBUILD_LDFLAGS :=
+ CLANG_FLAGS :=
  
--/*
-- * __force_order is used by special_insns.h asm code to force instruction
-- * serialization.
-- *
-- * It is not referenced from the code, but GCC < 5 with -fPIE would fail
-- * due to an undefined symbol. Define it to make these ancient GCCs work.
-- */
--unsigned long __force_order;
--
- #define BIOS_START_MIN		0x20000U	/* 128K, less than this is insane */
- #define BIOS_START_MAX		0x9f000U	/* 640K, absolute maximum */
+@@ -1384,7 +1383,7 @@ endif
+ # using awk while concatenating to the final file.
  
-diff --git a/arch/x86/include/asm/special_insns.h b/arch/x86/include/asm/special_insns.h
-index 59a3e13204c3..d6e3bb9363d2 100644
---- a/arch/x86/include/asm/special_insns.h
-+++ b/arch/x86/include/asm/special_insns.h
-@@ -11,45 +11,47 @@
- #include <linux/jump_label.h>
+ PHONY += modules
+-modules: $(if $(KBUILD_BUILTIN),vmlinux) modules_check
++modules: $(if $(KBUILD_BUILTIN),vmlinux) modules_check modules_prepare
+ 	$(Q)$(MAKE) -f $(srctree)/scripts/Makefile.modpost
  
- /*
-- * Volatile isn't enough to prevent the compiler from reordering the
-- * read/write functions for the control registers and messing everything up.
-- * A memory clobber would solve the problem, but would prevent reordering of
-- * all loads stores around it, which can hurt performance. Solution is to
-- * use a variable and mimic reads and writes to it to enforce serialization
-+ * The compiler should not reorder volatile asm statements with respect to each
-+ * other: they should execute in program order. However GCC 4.9.x and 5.x have
-+ * a bug (which was fixed in 8.1, 7.3 and 6.5) where they might reorder
-+ * volatile asm. The write functions are not affected since they have memory
-+ * clobbers preventing reordering. To prevent reads from being reordered with
-+ * respect to writes, use a dummy memory operand.
-  */
--extern unsigned long __force_order;
+ PHONY += modules_check
+@@ -1401,6 +1400,7 @@ targets += modules.order
+ # Target to prepare building external modules
+ PHONY += modules_prepare
+ modules_prepare: prepare
++	$(Q)$(MAKE) $(build)=scripts scripts/module.lds
+ 
+ # Target to install modules
+ PHONY += modules_install
+@@ -1722,7 +1722,9 @@ help:
+ 	@echo  '  clean           - remove generated files in module directory only'
+ 	@echo  ''
+ 
+-PHONY += prepare
++# no-op for external module builds
++PHONY += prepare modules_prepare
 +
-+#define __FORCE_ORDER "m"(*(unsigned int *)0x1000UL)
+ endif # KBUILD_EXTMOD
  
- void native_write_cr0(unsigned long val);
+ # Single targets
+@@ -1755,7 +1757,7 @@ MODORDER := .modules.tmp
+ endif
  
- static inline unsigned long native_read_cr0(void)
- {
- 	unsigned long val;
--	asm volatile("mov %%cr0,%0\n\t" : "=r" (val), "=m" (__force_order));
-+	asm volatile("mov %%cr0,%0\n\t" : "=r" (val) : __FORCE_ORDER);
- 	return val;
+ PHONY += single_modpost
+-single_modpost: $(single-no-ko)
++single_modpost: $(single-no-ko) modules_prepare
+ 	$(Q){ $(foreach m, $(single-ko), echo $(extmod-prefix)$m;) } > $(MODORDER)
+ 	$(Q)$(MAKE) -f $(srctree)/scripts/Makefile.modpost
+ 
+diff --git a/arch/arm/Makefile b/arch/arm/Makefile
+index 4e877354515f..a0cb15de9677 100644
+--- a/arch/arm/Makefile
++++ b/arch/arm/Makefile
+@@ -16,10 +16,6 @@ LDFLAGS_vmlinux	+= --be8
+ KBUILD_LDFLAGS_MODULE	+= --be8
+ endif
+ 
+-ifeq ($(CONFIG_ARM_MODULE_PLTS),y)
+-KBUILD_LDS_MODULE	+= $(srctree)/arch/arm/kernel/module.lds
+-endif
+-
+ GZFLAGS		:=-9
+ #KBUILD_CFLAGS	+=-pipe
+ 
+diff --git a/arch/arm/kernel/module.lds b/arch/arm/include/asm/module.lds.h
+similarity index 72%
+rename from arch/arm/kernel/module.lds
+rename to arch/arm/include/asm/module.lds.h
+index 79cb6af565e5..0e7cb4e314b4 100644
+--- a/arch/arm/kernel/module.lds
++++ b/arch/arm/include/asm/module.lds.h
+@@ -1,5 +1,7 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
++#ifdef CONFIG_ARM_MODULE_PLTS
+ SECTIONS {
+ 	.plt : { BYTE(0) }
+ 	.init.plt : { BYTE(0) }
  }
++#endif
+diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+index 130569f90c54..4e8bb73359c8 100644
+--- a/arch/arm64/Makefile
++++ b/arch/arm64/Makefile
+@@ -120,10 +120,6 @@ endif
  
- static __always_inline unsigned long native_read_cr2(void)
- {
- 	unsigned long val;
--	asm volatile("mov %%cr2,%0\n\t" : "=r" (val), "=m" (__force_order));
-+	asm volatile("mov %%cr2,%0\n\t" : "=r" (val) : __FORCE_ORDER);
- 	return val;
+ CHECKFLAGS	+= -D__aarch64__
+ 
+-ifeq ($(CONFIG_ARM64_MODULE_PLTS),y)
+-KBUILD_LDS_MODULE	+= $(srctree)/arch/arm64/kernel/module.lds
+-endif
+-
+ ifeq ($(CONFIG_DYNAMIC_FTRACE_WITH_REGS),y)
+   KBUILD_CPPFLAGS += -DCC_USING_PATCHABLE_FUNCTION_ENTRY
+   CC_FLAGS_FTRACE := -fpatchable-function-entry=2
+diff --git a/arch/arm64/kernel/module.lds b/arch/arm64/include/asm/module.lds.h
+similarity index 76%
+rename from arch/arm64/kernel/module.lds
+rename to arch/arm64/include/asm/module.lds.h
+index 22e36a21c113..691f15af788e 100644
+--- a/arch/arm64/kernel/module.lds
++++ b/arch/arm64/include/asm/module.lds.h
+@@ -1,5 +1,7 @@
++#ifdef CONFIG_ARM64_MODULE_PLTS
+ SECTIONS {
+ 	.plt (NOLOAD) : { BYTE(0) }
+ 	.init.plt (NOLOAD) : { BYTE(0) }
+ 	.text.ftrace_trampoline (NOLOAD) : { BYTE(0) }
  }
++#endif
+diff --git a/arch/ia64/Makefile b/arch/ia64/Makefile
+index 2876a7df1b0a..703b1c4f6d12 100644
+--- a/arch/ia64/Makefile
++++ b/arch/ia64/Makefile
+@@ -20,7 +20,6 @@ CHECKFLAGS	+= -D__ia64=1 -D__ia64__=1 -D_LP64 -D__LP64__
  
- static __always_inline void native_write_cr2(unsigned long val)
- {
--	asm volatile("mov %0,%%cr2": : "r" (val), "m" (__force_order));
-+	asm volatile("mov %0,%%cr2": : "r" (val) : "memory");
+ OBJCOPYFLAGS	:= --strip-all
+ LDFLAGS_vmlinux	:= -static
+-KBUILD_LDS_MODULE += $(srctree)/arch/ia64/module.lds
+ KBUILD_AFLAGS_KERNEL := -mconstant-gp
+ EXTRA		:=
+ 
+diff --git a/arch/ia64/module.lds b/arch/ia64/include/asm/module.lds.h
+similarity index 100%
+rename from arch/ia64/module.lds
+rename to arch/ia64/include/asm/module.lds.h
+diff --git a/arch/m68k/Makefile b/arch/m68k/Makefile
+index 4438ffb4bbe1..ea14f2046fb4 100644
+--- a/arch/m68k/Makefile
++++ b/arch/m68k/Makefile
+@@ -75,7 +75,6 @@ KBUILD_CPPFLAGS += -D__uClinux__
+ endif
+ 
+ KBUILD_LDFLAGS := -m m68kelf
+-KBUILD_LDS_MODULE += $(srctree)/arch/m68k/kernel/module.lds
+ 
+ ifdef CONFIG_SUN3
+ LDFLAGS_vmlinux = -N
+diff --git a/arch/m68k/kernel/module.lds b/arch/m68k/include/asm/module.lds.h
+similarity index 100%
+rename from arch/m68k/kernel/module.lds
+rename to arch/m68k/include/asm/module.lds.h
+diff --git a/arch/powerpc/Makefile b/arch/powerpc/Makefile
+index 3e8da9cf2eb9..8935658fcd06 100644
+--- a/arch/powerpc/Makefile
++++ b/arch/powerpc/Makefile
+@@ -65,7 +65,6 @@ UTS_MACHINE := $(subst $(space),,$(machine-y))
+ ifdef CONFIG_PPC32
+ KBUILD_LDFLAGS_MODULE += arch/powerpc/lib/crtsavres.o
+ else
+-KBUILD_LDS_MODULE += $(srctree)/arch/powerpc/kernel/module.lds
+ ifeq ($(call ld-ifversion, -ge, 225000000, y),y)
+ # Have the linker provide sfpr if possible.
+ # There is a corresponding test in arch/powerpc/lib/Makefile
+diff --git a/arch/powerpc/kernel/module.lds b/arch/powerpc/include/asm/module.lds.h
+similarity index 100%
+rename from arch/powerpc/kernel/module.lds
+rename to arch/powerpc/include/asm/module.lds.h
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index fb6e37db836d..8edaa8bd86d6 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -53,9 +53,6 @@ endif
+ ifeq ($(CONFIG_CMODEL_MEDANY),y)
+ 	KBUILD_CFLAGS += -mcmodel=medany
+ endif
+-ifeq ($(CONFIG_MODULE_SECTIONS),y)
+-	KBUILD_LDS_MODULE += $(srctree)/arch/riscv/kernel/module.lds
+-endif
+ ifeq ($(CONFIG_PERF_EVENTS),y)
+         KBUILD_CFLAGS += -fno-omit-frame-pointer
+ endif
+diff --git a/arch/riscv/kernel/module.lds b/arch/riscv/include/asm/module.lds.h
+similarity index 84%
+rename from arch/riscv/kernel/module.lds
+rename to arch/riscv/include/asm/module.lds.h
+index 295ecfb341a2..4254ff2ff049 100644
+--- a/arch/riscv/kernel/module.lds
++++ b/arch/riscv/include/asm/module.lds.h
+@@ -1,8 +1,9 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ /* Copyright (C) 2017 Andes Technology Corporation */
+-
++#ifdef CONFIG_MODULE_SECTIONS
+ SECTIONS {
+ 	.plt (NOLOAD) : { BYTE(0) }
+ 	.got (NOLOAD) : { BYTE(0) }
+ 	.got.plt (NOLOAD) : { BYTE(0) }
  }
++#endif
+diff --git a/arch/um/include/asm/Kbuild b/arch/um/include/asm/Kbuild
+index 8d435f8a6dec..1c63b260ecc4 100644
+--- a/arch/um/include/asm/Kbuild
++++ b/arch/um/include/asm/Kbuild
+@@ -16,6 +16,7 @@ generic-y += kdebug.h
+ generic-y += mcs_spinlock.h
+ generic-y += mm-arch-hooks.h
+ generic-y += mmiowb.h
++generic-y += module.lds.h
+ generic-y += param.h
+ generic-y += pci.h
+ generic-y += percpu.h
+diff --git a/include/asm-generic/Kbuild b/include/asm-generic/Kbuild
+index 74b0612601dd..7cd4e627e00e 100644
+--- a/include/asm-generic/Kbuild
++++ b/include/asm-generic/Kbuild
+@@ -40,6 +40,7 @@ mandatory-y += mmiowb.h
+ mandatory-y += mmu.h
+ mandatory-y += mmu_context.h
+ mandatory-y += module.h
++mandatory-y += module.lds.h
+ mandatory-y += msi.h
+ mandatory-y += pci.h
+ mandatory-y += percpu.h
+diff --git a/include/asm-generic/module.lds.h b/include/asm-generic/module.lds.h
+new file mode 100644
+index 000000000000..f210d5c1b78b
+--- /dev/null
++++ b/include/asm-generic/module.lds.h
+@@ -0,0 +1,10 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef __ASM_GENERIC_MODULE_LDS_H
++#define __ASM_GENERIC_MODULE_LDS_H
++
++/*
++ * <asm/module.lds.h> can specify arch-specific sections for linking modules.
++ * Empty for the asm-generic header.
++ */
++
++#endif /* __ASM_GENERIC_MODULE_LDS_H */
+diff --git a/scripts/.gitignore b/scripts/.gitignore
+index 0d1c8e217cd7..a6c11316c969 100644
+--- a/scripts/.gitignore
++++ b/scripts/.gitignore
+@@ -8,3 +8,4 @@ asn1_compiler
+ extract-cert
+ sign-file
+ insert-sys-cert
++/module.lds
+diff --git a/scripts/Makefile b/scripts/Makefile
+index bc018e4b733e..b5418ec587fb 100644
+--- a/scripts/Makefile
++++ b/scripts/Makefile
+@@ -29,6 +29,9 @@ endif
+ # The following programs are only built on demand
+ hostprogs += unifdef
  
- static inline unsigned long __native_read_cr3(void)
- {
- 	unsigned long val;
--	asm volatile("mov %%cr3,%0\n\t" : "=r" (val), "=m" (__force_order));
-+	asm volatile("mov %%cr3,%0\n\t" : "=r" (val) : __FORCE_ORDER);
- 	return val;
++# The module linker script is preprocessed on demand
++targets += module.lds
++
+ subdir-$(CONFIG_GCC_PLUGINS) += gcc-plugins
+ subdir-$(CONFIG_MODVERSIONS) += genksyms
+ subdir-$(CONFIG_SECURITY_SELINUX) += selinux
+diff --git a/scripts/Makefile.modfinal b/scripts/Makefile.modfinal
+index 411c1e600e7d..ae01baf96f4e 100644
+--- a/scripts/Makefile.modfinal
++++ b/scripts/Makefile.modfinal
+@@ -33,11 +33,10 @@ quiet_cmd_ld_ko_o = LD [M]  $@
+       cmd_ld_ko_o =                                                     \
+ 	$(LD) -r $(KBUILD_LDFLAGS)					\
+ 		$(KBUILD_LDFLAGS_MODULE) $(LDFLAGS_MODULE)		\
+-		$(addprefix -T , $(KBUILD_LDS_MODULE))			\
+-		-o $@ $(filter %.o, $^);				\
++		-T scripts/module.lds -o $@ $(filter %.o, $^);		\
+ 	$(if $(ARCH_POSTLINK), $(MAKE) -f $(ARCH_POSTLINK) $@, true)
+ 
+-$(modules): %.ko: %.o %.mod.o $(KBUILD_LDS_MODULE) FORCE
++$(modules): %.ko: %.o %.mod.o scripts/module.lds FORCE
+ 	+$(call if_changed,ld_ko_o)
+ 
+ targets += $(modules) $(modules:.ko=.mod.o)
+diff --git a/scripts/module-common.lds b/scripts/module.lds.S
+similarity index 93%
+rename from scripts/module-common.lds
+rename to scripts/module.lds.S
+index d61b9e8678e8..69b9b71a6a47 100644
+--- a/scripts/module-common.lds
++++ b/scripts/module.lds.S
+@@ -24,3 +24,6 @@ SECTIONS {
+ 
+ 	__jump_table		0 : ALIGN(8) { KEEP(*(__jump_table)) }
  }
++
++/* bring in arch-specific sections */
++#include <asm/module.lds.h>
+diff --git a/scripts/package/builddeb b/scripts/package/builddeb
+index 6df3c9f8b2da..44f212e37935 100755
+--- a/scripts/package/builddeb
++++ b/scripts/package/builddeb
+@@ -55,7 +55,7 @@ deploy_kernel_headers () {
+ 		cd $srctree
+ 		find . arch/$SRCARCH -maxdepth 1 -name Makefile\*
+ 		find include scripts -type f -o -type l
+-		find arch/$SRCARCH -name module.lds -o -name Kbuild.platforms -o -name Platform
++		find arch/$SRCARCH -name Kbuild.platforms -o -name Platform
+ 		find $(find arch/$SRCARCH -name include -o -name scripts -type d) -type f
+ 	) > debian/hdrsrcfiles
  
- static inline void native_write_cr3(unsigned long val)
- {
--	asm volatile("mov %0,%%cr3": : "r" (val), "m" (__force_order));
-+	asm volatile("mov %0,%%cr3": : "r" (val) : "memory");
- }
- 
- static inline unsigned long native_read_cr4(void)
-@@ -64,10 +66,10 @@ static inline unsigned long native_read_cr4(void)
- 	asm volatile("1: mov %%cr4, %0\n"
- 		     "2:\n"
- 		     _ASM_EXTABLE(1b, 2b)
--		     : "=r" (val), "=m" (__force_order) : "0" (0));
-+		     : "=r" (val) : "0" (0), __FORCE_ORDER);
- #else
- 	/* CR4 always exists on x86_64. */
--	asm volatile("mov %%cr4,%0\n\t" : "=r" (val), "=m" (__force_order));
-+	asm volatile("mov %%cr4,%0\n\t" : "=r" (val) : __FORCE_ORDER);
- #endif
- 	return val;
- }
-diff --git a/arch/x86/kernel/cpu/common.c b/arch/x86/kernel/cpu/common.c
-index c5d6f17d9b9d..178499f90366 100644
---- a/arch/x86/kernel/cpu/common.c
-+++ b/arch/x86/kernel/cpu/common.c
-@@ -359,7 +359,7 @@ void native_write_cr0(unsigned long val)
- 	unsigned long bits_missing = 0;
- 
- set_register:
--	asm volatile("mov %0,%%cr0": "+r" (val), "+m" (__force_order));
-+	asm volatile("mov %0,%%cr0": "+r" (val) : : "memory");
- 
- 	if (static_branch_likely(&cr_pinning)) {
- 		if (unlikely((val & X86_CR0_WP) != X86_CR0_WP)) {
-@@ -378,7 +378,7 @@ void native_write_cr4(unsigned long val)
- 	unsigned long bits_changed = 0;
- 
- set_register:
--	asm volatile("mov %0,%%cr4": "+r" (val), "+m" (cr4_pinned_bits));
-+	asm volatile("mov %0,%%cr4": "+r" (val) : : "memory");
- 
- 	if (static_branch_likely(&cr_pinning)) {
- 		if (unlikely((val & cr4_pinned_mask) != cr4_pinned_bits)) {
 -- 
 2.28.0.681.g6f77f65b4e-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200918201436.2932360-5-samitolvanen%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200918201436.2932360-6-samitolvanen%40google.com.
