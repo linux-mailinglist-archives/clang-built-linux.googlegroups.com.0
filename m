@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBINMSD5QKGQEBWYXBGQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBTFMSD5QKGQEKUFWHYQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3e.google.com (mail-qv1-xf3e.google.com [IPv6:2607:f8b0:4864:20::f3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id DF67626EB52
-	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 04:06:26 +0200 (CEST)
-Received: by mail-qv1-xf3e.google.com with SMTP id h9sf2869222qvr.3
-        for <lists+clang-built-linux@lfdr.de>; Thu, 17 Sep 2020 19:06:26 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600394786; cv=pass;
+Received: from mail-ua1-x937.google.com (mail-ua1-x937.google.com [IPv6:2607:f8b0:4864:20::937])
+	by mail.lfdr.de (Postfix) with ESMTPS id B18E126EBAC
+	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 04:07:09 +0200 (CEST)
+Received: by mail-ua1-x937.google.com with SMTP id w16sf570645uau.21
+        for <lists+clang-built-linux@lfdr.de>; Thu, 17 Sep 2020 19:07:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600394828; cv=pass;
         d=google.com; s=arc-20160816;
-        b=TH/kiOqVMshyUw6e2MXsXdxK9K1XC5/2IvqDyQywDMsiOufe2EqN4/zunnv5bsAX/0
-         8hz40cG7kcDIg4M32Xg2XJJBtSK0Ep4EkN3BWztnQ2aHf0GTZOJTVpqEvPpSteiTEqKj
-         eFukxFYWABIShNTMW/3AfJDQ4vAdUJV0BoI4W7n1xQ/mMs1oVgJXGZqayyd7HKzS+iKP
-         lDtsmeDK0J4rt2tXejyFDoP16JCBWzxSzW8SikCq1zEVoIObeZphpOOb4sqh9e1IbyLd
-         +fnnF/4jlkFjpMJ8fYs7kC95N0XqqKzku379shFAHtdrf5I56IgiOM4XfzPb7BSUeEpF
-         OFFA==
+        b=OV4FeR7OGPBC1bijQSqkn1fttV8Bca3MYD+tWU17oIO1ZlrqcpGcmDDMghM23lM6l4
+         NG5H6E5Bq4g2YCPKnUrgzCJfWhou7eArSdsqtY4z5Ybbb8zkJlF25R+vSrYWOJEBM/iN
+         /QFcrA1dcPhshgLwO5Q3GxQ7uxoPKwCx8X/o/o+zeTTYTPUscEdIdJ8DQC92zyXOoXsP
+         yD96wPPTWThVMWnpG9NvECPxEF5G1QSKQIAuw8lw7wkNRpViH0C4EsNExZ41lCStnV1m
+         rwkIt379pM/GU8jJpmo3V1U4MQ+rrrKqNqXO0HJLg1RmKkLmEZd+nEke4XGXWT4ar91N
+         3rrA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=WYvgif8mI98Bj6Ll0JKJrLV6xfnuRSUOv13XSaWlGRI=;
-        b=B/XUEP9Qr/8jo8ddzZn5Bl88NhFUhpnFzcrXbDVDCeH5ZxAqBzruR8xq4BFmlvJAUh
-         Cj44weCy7/AUP0avJl/xLaTTm/O6RysnKErgbykr4LwHa1QgjTIgKzXoatc72eW7gtS0
-         xDvMvHcMl2bQ9B2KNfn7+cwCi8+ybjHJFS2Ve9KRyUCijpvO54bJuklftonsTx3s/bpf
-         EHY9UqGpmwgxKmqis5NAvHtiALzeYz6QPOjkcGeZGMq7RVvSwis5Qs+HXNG6xFXBknKl
-         S2s7AZ6YNdyB2P/q1zlaBKCUlsLUwoojCM4DGboD3RybK9G2Z2c863RPeADawWRiEG6B
-         UHFg==
+        bh=pMOn8yQS2tUDJ06ygEfVC6OLyrZ4lJxD/MZmlkJOSpY=;
+        b=mddCaaUmdWg4ZhsLwrTlGWHwMYpGoYjuHXfhHk4pFUgHKLv0HO6tJ5sNrY6qEtIiT2
+         d/HqGZHJqPh4sIBcolzVXdR0tOHZPRTqjiVHVICSEf0ta3hpklUlSm1cg5Z2wFlXGqbw
+         lNkkeiUG23BDK5sOABoGUxTubixB9hqq2rbDaYH0SG7t60MxIKX7p3qAtpUIjoZBPJrB
+         aPksYQp6vQbom45SEb0WCWnfUIbG+bmG42xM8caUywEpU+GGr9iM3vELq42AuA3G7uI0
+         CtqcSST3nFqV1RFjWJ87MTnjLyrxkk+YACZBBaM3SHkStGdMWnDpIL/1hjR9l+Ka7S3Z
+         V4/A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=dm7dCAby;
+       dkim=pass header.i=@kernel.org header.s=default header.b=lbVdn7DA;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=WYvgif8mI98Bj6Ll0JKJrLV6xfnuRSUOv13XSaWlGRI=;
-        b=YNDSyYriu4aSLixmCkMDbfCJmdIQs0fgUevlSUDai9dvaeGLgEvPuXFb3LhpK/i/x/
-         zKj8+v/nM7BlwG5xjnNiKXNOjuCcDVd+7TURX0hn1rvcJoFmGMnNFCPEr8bYIOKGl47z
-         uxkGHHOOo7OG6csFXDyWXReZoTdddiRJ/HBxh7VrNOaqDGCSrF/HQ54WTsVMxAWBXm0C
-         1d7MYpdzFHq8COAGfHKhdkQv6xwqN2KYZxx7J989I+Xnw/FMxE247zXDY1mDNkDG9k/a
-         fTF9vDOAwhWdHuh0c8kk71XZnvAc7kTe8FZBcHdfChPwbkjyXoh9Hp0XZpYd72x2W0o5
-         rEPA==
+        bh=pMOn8yQS2tUDJ06ygEfVC6OLyrZ4lJxD/MZmlkJOSpY=;
+        b=hjxj8w0vREedzmn2Bbm6qheCTtKH/WPsyM07jwj89E6wrUprhJ9pKbrTMBLg5fo3G1
+         fWlKo1Su8zgDP+KskHdQ30GjslGiKyvr/Mpwk02q4nlPRWU6rtow6VeCarRAJ2GvSVXH
+         +N8nX8iDR2AQrU915gCuL16AQrhWgG2/mdJhzq6SqKfHmE2rgFid9SS/staiGGPWd1Cr
+         bO8JccdFSDh2bq3wlyP0GPx/alZ/L+EPZcAGhTn+k2H9/weSN1B/EuECcgnq022qxGvT
+         5FZrjIeO2VeEi6ST4TN9uYjgnHaLgEtQI5xn4tLdOsRaW4/KP5E5+17JFGWBXu0ag3U+
+         7rHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,73 +49,76 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=WYvgif8mI98Bj6Ll0JKJrLV6xfnuRSUOv13XSaWlGRI=;
-        b=E4LgJ1gtQcwrjaiisGcGEHQhDvyP66gk4YNW8I4y7uK4KB/FJehDhZjUKjJUq2WQLO
-         BCyZogC7kD5IlAGqRlttf2xUSVqhT+ljME1kcqbHqyzlIczFM9t/vBa/apZvFFah4O0m
-         6Qdf0nZwm/95EoWLd7uQz1OL1jspO7LNbGNwV7cuTM67RkzNHSGduxC5hBzq9RghJ/Vj
-         sMVB4FDzF0eMaHLHdvhNTjXtDTWzrscVrDTxuBRZfGXDeKZBzy+a8tCKt9622CPy/KC3
-         uq40X3Onu0OepvdFBec5hYqhJyIjTRfTJgUspfC5Iy6r1J+uClbIEL/mG7RVdtgVr0Ej
-         OaIw==
+        bh=pMOn8yQS2tUDJ06ygEfVC6OLyrZ4lJxD/MZmlkJOSpY=;
+        b=Caw1aLXjukT7YuoiRcHYf+Hs0oda64QQRtT7zptd3hxeRD8EQz8DJjwLmCOTjSmW02
+         pT94CkZXFFjvSUsg8o5q4WyRRDxW3HOTCFGzKQEDmZH9oM1RTu7wLmdABJUrxqM/zkXI
+         YxAia0NhcMqNiSvzFm0+mpxJo72O49kOamcjPV9Vw8ooKIsEWjKATAD88n8fs866oEOY
+         PNFMYVMiaV9QQcLFbyJVQpDzudOPLxcN4uPHEuMQ7YjMY1zmI7zPIUWVR6Vwvg4fbhAg
+         nW5pXFFUgjl+RMqrfvXEy6dCSgyWAwdab9jSnN0hvG6G2BbhcuDub59wik66j9fUXNT+
+         cTlQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531x7xKBPX9t5lYvo8uzV8TTbZA1o5YtemNjDg3KgWb6ei6L+wZc
-	UWsjF9+ThVJY1F2hvbFZp0M=
-X-Google-Smtp-Source: ABdhPJwnGr5e+foBi0GPECa/1HxhT0R3wy5MRp9bg9VWpFUwCammX/LLMtSJk/OXqdlzkBQyC/UlUw==
-X-Received: by 2002:ac8:3f23:: with SMTP id c32mr30708042qtk.102.1600394785828;
-        Thu, 17 Sep 2020 19:06:25 -0700 (PDT)
+X-Gm-Message-State: AOAM533xWyeLZHW28343w3BGFDzic6TmlPT1XcFcc4VthRY30eCLgfeI
+	PT7nVWopsMkeYQv9XCt1a2I=
+X-Google-Smtp-Source: ABdhPJx9iSTfoUI/+aoIx70ndOXEgJKYAp2QPuYVL3hGIJbXWjn2DjpO2wCvs2tsgvaIhlEcjvw8IA==
+X-Received: by 2002:ab0:a85:: with SMTP id d5mr17620494uak.45.1600394828635;
+        Thu, 17 Sep 2020 19:07:08 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ad4:42b3:: with SMTP id e19ls1025780qvr.11.gmail; Thu, 17
- Sep 2020 19:06:25 -0700 (PDT)
-X-Received: by 2002:a0c:f48e:: with SMTP id i14mr31548138qvm.5.1600394785385;
-        Thu, 17 Sep 2020 19:06:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600394785; cv=none;
+Received: by 2002:a05:6102:2e6:: with SMTP id j6ls511139vsj.1.gmail; Thu, 17
+ Sep 2020 19:07:08 -0700 (PDT)
+X-Received: by 2002:a67:544:: with SMTP id 65mr10526300vsf.33.1600394828155;
+        Thu, 17 Sep 2020 19:07:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600394828; cv=none;
         d=google.com; s=arc-20160816;
-        b=E4dDzuvRNVGZPE/IHcXZbXHZMglemQVO6rn6Jliypc1WCShrU56N+SLBjM0oPPi1nV
-         ZFeDZ/mHTd0msih2yS7+eNhF18bSeezEagcs5+Yd+st3bbkb89RykiXxez/1yDZpcS8g
-         gjmmIXCpBsMg7kKOiH21Zxpdlgo5iTVTykjsjug67Ul/9iD0LJsPN+3Td0M6lidxNIm1
-         /3ERZsZjiljYB9J06ajp10duv/uVfcMVnxbrlKkJP6sqvRi7jOMt82msUOG1vfxyOTKK
-         cwZYEt36O0w1DqdtVBgcCiKOi2F1DAzHY7uopV7myZvWjJH2kmnR4VxkOVpjEqoJr1ko
-         WA5A==
+        b=X3Moq8dByU9HFxBUf6ZqI31K4LIYkda0tDbI0xa9Pneqd0M8L9TBZrdulBShGGy0s6
+         36TjezvOnIEAkvf3I8NIa6WpYS0nrYJWxv66kOHKqTYaK3PGakdJrz5AjeatTqQ2M7MS
+         ABRCgVx4FmvjWrik4rxmMpzXI9vr5FHGIQngshtahmYyRv5KKASVOT6F+lbKduKgEB3h
+         I1Uwu/lOVWpa5pJn/O8udIiIoo+dnP2aIRbK8+QzrkPSJFWMUMusrNrFTqgQrYRu0ksu
+         8CGqT8o2cegU16TNN17btriqQ5r7BQbmaRuIvQHOkxaCn26PxRulZh+0mCVHtJIgT/7b
+         sYQQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=JMeihtiiq6ixqNRZM47zc13v3tJ71X2MM+6a2sFnv2c=;
-        b=UhDcZPvkGr2W7DWAR+WrGr5VWyTWK0kzP7IbHiBuFAIBdtCHdcnUdBrrr7KzThEdcf
-         heTI5eAbcCdQujax5jZ6HjqEJzpXI8MBOq2FiU78IolXKQpQl4rjCwNAx0mPXyGvlfTu
-         og1i0fo+D+NN43/66nkNE1AsXYQordqyj0QicxeMoid5eym7mYaUTfRCjvkyqDx4KXpO
-         lMAWumzSpK7Qa3XwMNIL8aqXcvMwafz0ZeuXOeniZ7bgBCeI2Xp9ovdIRFJbAHYiWa5x
-         i7+cGlwlCOQ4vV1MbrKjRu8lq+v9NXtv/4pazDFviC9Kfnweyt4P8Gw7sObDXREHPEBE
-         kmOQ==
+        bh=zl6sIfwQmbPzwXVFp0FbEx9z6vI1yws+qUnZkWPESyw=;
+        b=xyOFTbzw0TmvL7zCNGMhsDNDTk4njWMwDmeRGjWVrk/4ghgrsBpUpAZUSI3FLie8ft
+         GjF8EBJdeO6Bf8SMDJ9GMEL8wM/+XHXysUtp8Kp2PucWJfS8vKzWF2/1rf+k9PeG9Vjw
+         FWXh2Uw3EmeVm56PpZM5yu59yV2i+hdD1ywTQUASDD5O6FlcA/HWvbprHd0KeAHJDg/i
+         i0fPnGhnYw1DNTqAjSjVaNyBD3gbmPBwkNy9q6lzhG9mRcM2AdDSKG7xR243qUglxjjK
+         C1JCmMMubPXhLAsYZlUNET04mIOLFo8ZbXpFFaCA8LX/ftwo2faUYs3RFSt4IxaqZq0n
+         o8GQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=dm7dCAby;
+       dkim=pass header.i=@kernel.org header.s=default header.b=lbVdn7DA;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id y6si67062qtd.1.2020.09.17.19.06.25
+        by gmr-mx.google.com with ESMTPS id h9si93746vsh.2.2020.09.17.19.07.08
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 17 Sep 2020 19:06:25 -0700 (PDT)
+        Thu, 17 Sep 2020 19:07:08 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 3ECFC23977;
-	Fri, 18 Sep 2020 02:06:23 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 9EB6F2388E;
+	Fri, 18 Sep 2020 02:07:05 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Ian Rogers <irogers@google.com>,
-	Jiri Olsa <jolsa@redhat.com>,
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Andi Kleen <ak@linux.intel.com>,
+	clang-built-linux@googlegroups.com,
+	Jiri Olsa <jolsa@kernel.org>,
+	Leo Yan <leo.yan@linaro.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Namhyung Kim <namhyung@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Stephane Eranian <eranian@google.com>,
-	clang-built-linux@googlegroups.com,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
 	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH AUTOSEL 5.4 256/330] perf mem2node: Avoid double free related to realloc
-Date: Thu, 17 Sep 2020 21:59:56 -0400
-Message-Id: <20200918020110.2063155-256-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.4 291/330] perf parse-events: Fix incorrect conversion of 'if () free()' to 'zfree()'
+Date: Thu, 17 Sep 2020 22:00:31 -0400
+Message-Id: <20200918020110.2063155-291-sashal@kernel.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20200918020110.2063155-1-sashal@kernel.org>
 References: <20200918020110.2063155-1-sashal@kernel.org>
@@ -124,7 +127,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=dm7dCAby;       spf=pass
+ header.i=@kernel.org header.s=default header.b=lbVdn7DA;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -141,87 +144,59 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Ian Rogers <irogers@google.com>
+From: Arnaldo Carvalho de Melo <acme@redhat.com>
 
-[ Upstream commit 266150c94c69429cf6d18e130237224a047f5061 ]
+[ Upstream commit 7fcdccd4237724931d9773d1e3039bfe053a6f52 ]
 
-Realloc of size zero is a free not an error, avoid this causing a double
-free. Caught by clang's address sanitizer:
+When applying a patch by Ian I incorrectly converted to zfree() an
+expression that involved testing some other struct member, not the one
+being freed, which lead to bugs reproduceable by:
 
-==2634==ERROR: AddressSanitizer: attempting double-free on 0x6020000015f0 in thread T0:
-    #0 0x5649659297fd in free llvm/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:123:3
-    #1 0x5649659e9251 in __zfree tools/lib/zalloc.c:13:2
-    #2 0x564965c0f92c in mem2node__exit tools/perf/util/mem2node.c:114:2
-    #3 0x564965a08b4c in perf_c2c__report tools/perf/builtin-c2c.c:2867:2
-    #4 0x564965a0616a in cmd_c2c tools/perf/builtin-c2c.c:2989:10
-    #5 0x564965944348 in run_builtin tools/perf/perf.c:312:11
-    #6 0x564965943235 in handle_internal_command tools/perf/perf.c:364:8
-    #7 0x5649659440c4 in run_argv tools/perf/perf.c:408:2
-    #8 0x564965942e41 in main tools/perf/perf.c:538:3
+  $ perf stat -e i/bs,tsc,L2/o sleep 1
+  WARNING: multiple event parsing errors
+  Segmentation fault (core dumped)
+  $
 
-0x6020000015f0 is located 0 bytes inside of 1-byte region [0x6020000015f0,0x6020000015f1)
-freed by thread T0 here:
-    #0 0x564965929da3 in realloc third_party/llvm/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:164:3
-    #1 0x564965c0f55e in mem2node__init tools/perf/util/mem2node.c:97:16
-    #2 0x564965a08956 in perf_c2c__report tools/perf/builtin-c2c.c:2803:8
-    #3 0x564965a0616a in cmd_c2c tools/perf/builtin-c2c.c:2989:10
-    #4 0x564965944348 in run_builtin tools/perf/perf.c:312:11
-    #5 0x564965943235 in handle_internal_command tools/perf/perf.c:364:8
-    #6 0x5649659440c4 in run_argv tools/perf/perf.c:408:2
-    #7 0x564965942e41 in main tools/perf/perf.c:538:3
+Fix it by restoring the test for pos->free_str before freeing
+pos->val.str, but continue using zfree(&pos->val.str) to set that member
+to NULL after freeing it.
 
-previously allocated by thread T0 here:
-    #0 0x564965929c42 in calloc third_party/llvm/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:154:3
-    #1 0x5649659e9220 in zalloc tools/lib/zalloc.c:8:9
-    #2 0x564965c0f32d in mem2node__init tools/perf/util/mem2node.c:61:12
-    #3 0x564965a08956 in perf_c2c__report tools/perf/builtin-c2c.c:2803:8
-    #4 0x564965a0616a in cmd_c2c tools/perf/builtin-c2c.c:2989:10
-    #5 0x564965944348 in run_builtin tools/perf/perf.c:312:11
-    #6 0x564965943235 in handle_internal_command tools/perf/perf.c:364:8
-    #7 0x5649659440c4 in run_argv tools/perf/perf.c:408:2
-    #8 0x564965942e41 in main tools/perf/perf.c:538:3
-
-v2: add a WARN_ON_ONCE when the free condition arises.
-
-Signed-off-by: Ian Rogers <irogers@google.com>
-Acked-by: Jiri Olsa <jolsa@redhat.com>
+Reported-by: Ian Rogers <irogers@google.com>
+Fixes: e8dfb81838b1 ("perf parse-events: Fix memory leaks found on parse_events")
+Cc: Adrian Hunter <adrian.hunter@intel.com>
 Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: Andi Kleen <ak@linux.intel.com>
+Cc: clang-built-linux@googlegroups.com
+Cc: Jiri Olsa <jolsa@kernel.org>
+Cc: Leo Yan <leo.yan@linaro.org>
 Cc: Mark Rutland <mark.rutland@arm.com>
 Cc: Namhyung Kim <namhyung@kernel.org>
 Cc: Peter Zijlstra <peterz@infradead.org>
 Cc: Stephane Eranian <eranian@google.com>
-Cc: clang-built-linux@googlegroups.com
-Link: http://lore.kernel.org/lkml/20200320182347.87675-1-irogers@google.com
 Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- tools/perf/util/mem2node.c | 3 ++-
+ tools/perf/util/parse-events.c | 3 ++-
  1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/tools/perf/util/mem2node.c b/tools/perf/util/mem2node.c
-index 797d86a1ab095..c84f5841c7abd 100644
---- a/tools/perf/util/mem2node.c
-+++ b/tools/perf/util/mem2node.c
-@@ -1,5 +1,6 @@
- #include <errno.h>
- #include <inttypes.h>
-+#include <asm/bug.h>
- #include <linux/bitmap.h>
- #include <linux/kernel.h>
- #include <linux/zalloc.h>
-@@ -95,7 +96,7 @@ int mem2node__init(struct mem2node *map, struct perf_env *env)
+diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
+index 5fadad158db59..f16748cfcb262 100644
+--- a/tools/perf/util/parse-events.c
++++ b/tools/perf/util/parse-events.c
+@@ -1370,7 +1370,8 @@ int parse_events_add_pmu(struct parse_events_state *parse_state,
  
- 	/* Cut unused entries, due to merging. */
- 	tmp_entries = realloc(entries, sizeof(*entries) * j);
--	if (tmp_entries)
-+	if (tmp_entries || WARN_ON_ONCE(j == 0))
- 		entries = tmp_entries;
- 
- 	for (i = 0; i < j; i++) {
+ 		list_for_each_entry_safe(pos, tmp, &config_terms, list) {
+ 			list_del_init(&pos->list);
+-			zfree(&pos->val.str);
++			if (pos->free_str)
++				zfree(&pos->val.str);
+ 			free(pos);
+ 		}
+ 		return -EINVAL;
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200918020110.2063155-256-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200918020110.2063155-291-sashal%40kernel.org.
