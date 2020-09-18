@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBVNKST5QKGQEQ25DE2Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRBWFKST5QKGQE5BL6ILQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
-	by mail.lfdr.de (Postfix) with ESMTPS id F182E270644
-	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 22:15:18 +0200 (CEST)
-Received: by mail-pg1-x537.google.com with SMTP id r3sf2442917pgm.22
-        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 13:15:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600460117; cv=pass;
+Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
+	by mail.lfdr.de (Postfix) with ESMTPS id AC6D8270645
+	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 22:15:21 +0200 (CEST)
+Received: by mail-pl1-x638.google.com with SMTP id 93sf4002535plc.13
+        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 13:15:21 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600460120; cv=pass;
         d=google.com; s=arc-20160816;
-        b=UJaKXnF390sokbGq9xjMLivW3ymzy933cIs6jRY9/QGf485gCkEF+tdCWhPVSRnE9e
-         BlbfjbY2HkN5jE5n9jwm6Ato4yGSL5RoAKwoejNzfyxFXPs9O9lShwAPT5vYkFSMdykQ
-         Y1sLVeDTbnjN7lX6yx4QIRIVmFBEMooU4V/xcUcWzCUykTypdq49fFomppsRMsDYdmPU
-         vzVZOo3/uTprYgbVCv2ULjJwzT6/E+9Krqda49FluTi4rJA5mIWS1A4IWxF7En4k4Zfu
-         QMcNq8SeIm99Xby1hgo5lgoBReVSWGHczECocWx0R3g1I+slrehXypASQI5tY0prjHb7
-         IuEg==
+        b=d9c+gb16HoAVk7EnhjW20eQ5qMg4si0tulBcFHj1uaq8/s9VngLmGWolqWEyzUnu+R
+         kKaJTeHq3np4qXITTh2/lBUUSKNzDCfGkGf9U8WG8yvG6vugPyc+4ERA/yYiUs8A12kn
+         bWuiBYzyCryPt02Jro6X06bFUAoyTNNuFCrGSjUfysFaztePXVIqw/OFtdHL2sXxQ3Jd
+         lP06RmKdZHYtk6pHhL5VLIkw7OdMC+6Id65U+28oiie4z/wAxRZ1LgZR0sC3l/YliYe+
+         vTugE1nuLa/LZ9eiN8ySHqhRHmqsIAM/9bzWf6HpZag4OKq0vYNN0fq0GEjGtyQNukd/
+         JKMg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:sender
          :dkim-signature;
-        bh=sNg3abC/vehF/5HXKHd8TDo19uIclBb4zPgLMN/Z5Wc=;
-        b=tk0JrU6vbWeWEoHphwdmvn5G0U4PfshWxFYkTw5vrzk5pMQgyU6nFnhStXOI18Oaav
-         JFAOvw1WGg2y4k7l8mrWa0xeBT/Qm92Nasyfp6EM1Vh0HjmxdDwjkJJ68NLHltKC/AW8
-         M+64oqv2b4pCN83qV8zGj89rTMCtBvzzr9F2W5LD1MoVbptiM5WUf+wgltW5Ir8wjkpO
-         A2tFvDbkp2/NJm6nZ7rKraoClPIAVdqLYkEDq2ccSaON+RtUOyFV2RwgdaUF2iGiyXwc
-         8aZIcmZQJyJXRe500FtJJcJhdRmdoPTWwvzf9Xbri17JI2JqDrhFEOHYzrb8PcRnTVfM
-         D7Tg==
+        bh=04VZAkV61dEgiZMMRZnjK6DWS/y63CnunYqID2ZzBBQ=;
+        b=lRfvfDqaGtinYQGg+8RQR7drZajM23gGxKyD+vxq23dqAdn4yRPcvG97ry5KmXn5ar
+         YEqhvwijkGu8tY1nHwLrbRFSRT9xVIndP4lx8gQilrXWa+eP1wH1pPQac4QtYZNVvXlu
+         UyZMc6df7n41GWRU+/mMnLYPwuKEVqCOjyi4B8IxdAd99BJwbyZV+DG7pcK+hE1c1hLC
+         oVZ+r9LI1JGLZl+JegjcsuLCU3Ku3GCOm61kV/6T814pFKyywlDPskLbf1cyQDwW0aPn
+         O614zFT7tN+9Sm4GULvW8DpnGjlBOO0Hd8fmq4rJEi22ua5jwzybwxVJaRyTM1CyraPK
+         txmg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=mPsAHQEX;
-       spf=pass (google.com: domain of 3vbvlxwwkabudv73e96gv8z819916z.x97@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::74a as permitted sender) smtp.mailfrom=3VBVlXwwKABUDv73E96Gv8z819916z.x97@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="bypA/Z7p";
+       spf=pass (google.com: domain of 3vhvlxwwkabcfx95gb8ixa1a3bb381.zb9@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3VhVlXwwKABcFx95GB8IxA1A3BB381.zB9@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :from:to:cc:x-original-sender:x-original-authentication-results
          :reply-to:precedence:mailing-list:list-id:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=sNg3abC/vehF/5HXKHd8TDo19uIclBb4zPgLMN/Z5Wc=;
-        b=aqo+1paMk3c0LV2u70EemNoHYZdUw9U0+HXaLKqCGZSdU29NhNm3bkwIIyyOq8jR25
-         iWODoTRrbXBXzRs76tX8vFwVmUwuX8idr70EKRxojN+UIDmESsZO78QkIAwbUvy9iT8q
-         QU4D7qs6bd3jyz5iV5WEyyHPOsbCJ9XXjNnEOJzLpz+SHGjU/t8vphdXxeX877Iv/x6V
-         Dy5vlrkeoYIHKbSWC4ISa/AT0iRcAPZTo4zY1u6VGXIECi8UI1Okd+GOiQY7mcFWcTLx
-         WAUN34AwyFqQahVny8URoI2pHFryAHQXM9IxEa4N1O7Yhyiv5ZZSUcy7sqnTVAlokkrx
-         ecBQ==
+        bh=04VZAkV61dEgiZMMRZnjK6DWS/y63CnunYqID2ZzBBQ=;
+        b=tCx3f2J3A6UIgnw1pD2of99ctmhZQE9oTykSZnQw9ec7cK0LRvW9DfBFMpPaBGRyOg
+         iLAl3bDZL89IhkIG46xuCQg+M3e/J7LeJYqgKAH2IoNRxzrh7RAcqaG0hSs4FPpJVMXU
+         s+JvcbS9GcaBfH5djqTCM3/ndLQ0Rt5uHPn927Y9Bl/D4L3NbwMZ7UjUR9qjuq1ncM2U
+         rNn+3LZmD4wb3MAoP/BIO+BFrGnC2qxfqEZYVa/Qc3EiRgM8RBpIQn5qSFhy4Z31sXxk
+         0OxCY5Zj+uOPswyV/0wxgJaFcHKjVbx4BnLOIWD3orSFGic8jtubUKOTKfB0/EEM4/GB
+         9JoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:sender:date:in-reply-to:message-id:mime-version
@@ -50,64 +50,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=sNg3abC/vehF/5HXKHd8TDo19uIclBb4zPgLMN/Z5Wc=;
-        b=SxeGtcBslvruLGeFHJi+7Z/rzn6/bOVN8Y+029IbMIP5FVNc6UI7lACTAvGvUjHJDz
-         e31GfbIg3Djvnx74V62MqkAuSibTIPRnhd3nDZOLXN+wAgMzjSnM3Ot0eshR7QgT2njj
-         4IagXxj3MiZwvJktbTxIO0+zWYBQbSnvp0JXIed5ExPck0PSiKaIbbc2wjBS7GGqZlpJ
-         bj65II3s7ds5Flxh/uYy04B2dBeHtupQWnQrqCiJMhTqXzCrG3Ql9wC8y5jooqpsMC5i
-         xvEwHUX53fjnyYhFCMyKQvTmTdwP+0i3d6bvdiEhR2oW78gI8G9tzxvRu3co9m+wQDmB
-         1VQA==
-X-Gm-Message-State: AOAM530BNYedsO3RIfxONQlpPR/2kOLEH+o5llguaKzElBcZeR8V+/KS
-	52n5e4QMa/1p0qk8Vgee0ps=
-X-Google-Smtp-Source: ABdhPJwPsFBREphV2nq2+dcXYGW3YTFycnW+9nD8mBQrFl8PKxmpq2ZL9AgKYj6/DzoJAUoI9tu+ug==
-X-Received: by 2002:a17:902:b70e:b029:d1:e5e7:be58 with SMTP id d14-20020a170902b70eb02900d1e5e7be58mr16826033pls.50.1600460117685;
-        Fri, 18 Sep 2020 13:15:17 -0700 (PDT)
+        bh=04VZAkV61dEgiZMMRZnjK6DWS/y63CnunYqID2ZzBBQ=;
+        b=GA6ipGjz59Jy8zF0a5TL04GzSwUhuSKSektWu9ubBeFY6S3VJpJbhTldZTEo2iahYw
+         7XarTy7pBt+M0+GJUn8yQg+pVyjjaKk6MpZdEqHB/Pe1J+exMVb4UpPqvfhOrf4YAnsL
+         7jWyZ3G3O/rc2CSUI7SzLVOHzdJUzwepxrJ6dRQ39APt6lpRowp6sqiyevTlHglnUTaC
+         2pP471l9y/THG2cDv4Lt7q0F5apnbHgSYULXFUn+we2gw4kWRLjhIgB8OpUyd6pXOZj9
+         MTn2i/V/v5kUGqG37q91OtLK6UxAqkQy/ojZHe/FcDqPifQbrCu2Dd+8TDNoapiaIeQa
+         LKcw==
+X-Gm-Message-State: AOAM5315OWToZpOtGKplGA3H/KVu/o/TbOBGOtdranyIQlHiaDk6OshT
+	MpIw2LgBT6mEaovBR+bdcws=
+X-Google-Smtp-Source: ABdhPJyr5qfkhq5rnz/H3HudksvMVjvIrxkZ84gERl+j1nv082yZ6PM0p9EQZT657PkQkbmbbNs+jA==
+X-Received: by 2002:a17:90a:744f:: with SMTP id o15mr15324200pjk.216.1600460120430;
+        Fri, 18 Sep 2020 13:15:20 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:79c6:: with SMTP id u189ls2379986pgc.9.gmail; Fri, 18
- Sep 2020 13:15:17 -0700 (PDT)
-X-Received: by 2002:a05:6a00:1702:b029:142:2501:34d7 with SMTP id h2-20020a056a001702b0290142250134d7mr17752561pfc.48.1600460116990;
-        Fri, 18 Sep 2020 13:15:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600460116; cv=none;
+Received: by 2002:a17:90a:c7d3:: with SMTP id gf19ls2970585pjb.0.canary-gmail;
+ Fri, 18 Sep 2020 13:15:19 -0700 (PDT)
+X-Received: by 2002:a17:90a:e98d:: with SMTP id v13mr14195960pjy.79.1600460119758;
+        Fri, 18 Sep 2020 13:15:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600460119; cv=none;
         d=google.com; s=arc-20160816;
-        b=l6cL9xUJy4oMRZ/o+22fmaa1klpzFcxzF3e45kJAWcUD1GhXShtWSYy2WP8FKAbF5t
-         qswFtvHTjGx+g+ReQWoFLeG5jHCWi/o3csXc/Vf66FlIgu+rEvySrPjaDWFC8Ju00v8j
-         uhzNMcDMHwTGR1wRvaEganCrTux+8r6XYO2u/7ko3/p7dWDpzkkYTdMnC0iAq9u838gt
-         9dP9avkYLPCKKr8Q4f8dH4WR1d7ZViKpWNCTYaYZ0OvvS5lB0283/FocAk+WhiTL5vAI
-         5hWXIliuxRWiE+62CBMmkw6kZxMKF/CmDrU9EdCJN65ev3a5jKMkXqSq778Kd5WwDKMx
-         yKpA==
+        b=SowSXsNs2JSx7Wh3RcogO5MkvSFr+za/FyYmGekV9rabukPmd6xph9X4ivXykXAVhc
+         sXih8Oay6AZ4vELIwoqPGnza/NrkInJ/jklrUdGyqFE0lt/mZ0yKYGB66ciGX1sck5iL
+         cvoRbLxDkl1tLC8q7cpnLU9Oo2ElFPWwc/0gf3UyVB/zXCPMJAWwajfZTr2ltQDjLL8Z
+         5bkUidgdC92j0sKIcDxqCVTZCbouvngKBb19C0hbyaYGUfSzX43ckylZpCnh45I11qX+
+         coZ3WXLlapfqjyAcUcyUDj6WUsdeYSkba+HBUad/Lxzi4akJJwiEP8ZOSCI9pBPZswEj
+         iXfw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:sender:dkim-signature;
-        bh=H5U0Hz5E6z5ldjvQ4xJDZFkCK4qV/McKETGlhtu7sL8=;
-        b=Rw4OHw1/P/brg6EYBU5f5RUGCsrnFTvxMMgPSGH2yIE+gCPGCVEhxct7A5L5qSD76f
-         lphlpGHMwOpHNpTT/o992OBs2ZBmyJmrRCe52dH8YyDDsgIdSmh/TEirycypMmDpa7WW
-         u2MylSEUWPVSSRUJb85DHagFibcZfsSxFB07ILCaLXpHklMNWoeH1jMlin2IPs0rKmHn
-         fnGejBR8VEEj39d3NChUF76goOzLf95vshAup4oopYZF++d2eijDrgJyOTBixNXJ/fW8
-         blTzJNLbijQUUp/Y3s+mQVW+WxZ6yst3eXpkjRK1xJQFm1c/8WflL0jk2QdcSMaJ08+Y
-         SUiw==
+        bh=elKx10PKhtUKECecvjo4xZARYYlgkNIYKswvgswhwZE=;
+        b=RTVkJeNW2ID9VFRQatJ9DzACkhtrGL52qyRHb3GxX+7axE6D7e7lLQE+Ljy0xZzpIn
+         BmIoP9M/KFQ3tYW9VO54NmMDbfjC8WCQeGilICIAhAtXyXVsC1YsJMGZ+cvHDfsgRfx+
+         mkMLKUww8VX5yOX/3oJxaZuIG9SyBZgSTs9KbwSRZdDTCMmn2j79n0j1gQiTJKTLcsIk
+         U4InMj2Uyj6V80qTcVX1MaGvtwtV6p8KkH/MTDKFkw52PlHElbkYydqrSTcyu+Wa2tf7
+         v2+VGe/euUlA+rHMNM4BmbNShpe/XOCaCRowQQbmPli7u3qHDZKYfCYUrNobtNGzOA6C
+         VRvA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=mPsAHQEX;
-       spf=pass (google.com: domain of 3vbvlxwwkabudv73e96gv8z819916z.x97@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::74a as permitted sender) smtp.mailfrom=3VBVlXwwKABUDv73E96Gv8z819916z.x97@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="bypA/Z7p";
+       spf=pass (google.com: domain of 3vhvlxwwkabcfx95gb8ixa1a3bb381.zb9@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3VhVlXwwKABcFx95GB8IxA1A3BB381.zB9@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-qk1-x74a.google.com (mail-qk1-x74a.google.com. [2607:f8b0:4864:20::74a])
-        by gmr-mx.google.com with ESMTPS id y1si271388pjv.0.2020.09.18.13.15.16
+Received: from mail-yb1-xb4a.google.com (mail-yb1-xb4a.google.com. [2607:f8b0:4864:20::b4a])
+        by gmr-mx.google.com with ESMTPS id s3si889108pjk.3.2020.09.18.13.15.19
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 18 Sep 2020 13:15:16 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3vbvlxwwkabudv73e96gv8z819916z.x97@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::74a as permitted sender) client-ip=2607:f8b0:4864:20::74a;
-Received: by mail-qk1-x74a.google.com with SMTP id w64so5582682qkc.14
-        for <clang-built-linux@googlegroups.com>; Fri, 18 Sep 2020 13:15:16 -0700 (PDT)
+        Fri, 18 Sep 2020 13:15:19 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3vhvlxwwkabcfx95gb8ixa1a3bb381.zb9@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) client-ip=2607:f8b0:4864:20::b4a;
+Received: by mail-yb1-xb4a.google.com with SMTP id g189so6601885ybg.9
+        for <clang-built-linux@googlegroups.com>; Fri, 18 Sep 2020 13:15:19 -0700 (PDT)
 Sender: "samitolvanen via sendgmr" <samitolvanen@samitolvanen1.mtv.corp.google.com>
 X-Received: from samitolvanen1.mtv.corp.google.com ([2620:15c:201:2:f693:9fff:fef4:1b6d])
- (user=samitolvanen job=sendgmr) by 2002:ad4:47cc:: with SMTP id
- p12mr34218336qvw.25.1600460116095; Fri, 18 Sep 2020 13:15:16 -0700 (PDT)
-Date: Fri, 18 Sep 2020 13:14:22 -0700
+ (user=samitolvanen job=sendgmr) by 2002:a5b:d09:: with SMTP id
+ y9mr20482912ybp.258.1600460118877; Fri, 18 Sep 2020 13:15:18 -0700 (PDT)
+Date: Fri, 18 Sep 2020 13:14:23 -0700
 In-Reply-To: <20200918201436.2932360-1-samitolvanen@google.com>
-Message-Id: <20200918201436.2932360-17-samitolvanen@google.com>
+Message-Id: <20200918201436.2932360-18-samitolvanen@google.com>
 Mime-Version: 1.0
 References: <20200918201436.2932360-1-samitolvanen@google.com>
 X-Mailer: git-send-email 2.28.0.681.g6f77f65b4e-goog
-Subject: [PATCH v3 16/30] kbuild: lto: remove duplicate dependencies from .mod files
+Subject: [PATCH v3 17/30] init: lto: ensure initcall ordering
 From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Masahiro Yamada <masahiroy@kernel.org>, Will Deacon <will@kernel.org>
 Cc: Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>, 
@@ -121,9 +121,9 @@ Cc: Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=mPsAHQEX;       spf=pass
- (google.com: domain of 3vbvlxwwkabudv73e96gv8z819916z.x97@flex--samitolvanen.bounces.google.com
- designates 2607:f8b0:4864:20::74a as permitted sender) smtp.mailfrom=3VBVlXwwKABUDv73E96Gv8z819916z.x97@flex--samitolvanen.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b="bypA/Z7p";       spf=pass
+ (google.com: domain of 3vhvlxwwkabcfx95gb8ixa1a3bb381.zb9@flex--samitolvanen.bounces.google.com
+ designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3VhVlXwwKABcFx95GB8IxA1A3BB381.zB9@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Sami Tolvanen <samitolvanen@google.com>
 Reply-To: Sami Tolvanen <samitolvanen@google.com>
@@ -139,40 +139,446 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-With LTO, llvm-nm prints out symbols for each archive member
-separately, which results in a lot of duplicate dependencies in the
-.mod file when CONFIG_TRIM_UNUSED_SYMS is enabled. When a module
-consists of several compilation units, the output can exceed the
-default xargs command size limit and split the dependency list to
-multiple lines, which results in used symbols getting trimmed.
+With LTO, the compiler doesn't necessarily obey the link order for
+initcalls, and initcall variables need globally unique names to avoid
+collisions at link time.
 
-This change removes duplicate dependencies, which will reduce the
-probability of this happening and makes .mod files smaller and
-easier to read.
+This change exports __KBUILD_MODNAME and adds the initcall_id() macro,
+which uses it together with __COUNTER__ and __LINE__ to help ensure
+these variables have unique names, and moves each variable to its own
+section when LTO is enabled, so the correct order can be specified using
+a linker script.
+
+The generate_initcall_ordering.pl script uses nm to find initcalls from
+the object files passed to the linker, and generates a linker script
+that specifies the same order for initcalls that we would have without
+LTO. With LTO enabled, the script is called in link-vmlinux.sh through
+jobserver-exec to limit the number of jobs spawned.
 
 Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-Reviewed-by: Kees Cook <keescook@chromium.org>
 ---
- scripts/Makefile.build | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ include/linux/init.h               |  52 +++++-
+ scripts/Makefile.lib               |   6 +-
+ scripts/generate_initcall_order.pl | 270 +++++++++++++++++++++++++++++
+ scripts/link-vmlinux.sh            |  15 ++
+ 4 files changed, 334 insertions(+), 9 deletions(-)
+ create mode 100755 scripts/generate_initcall_order.pl
 
-diff --git a/scripts/Makefile.build b/scripts/Makefile.build
-index 541dbe791743..b417c697536e 100644
---- a/scripts/Makefile.build
-+++ b/scripts/Makefile.build
-@@ -266,7 +266,7 @@ endef
+diff --git a/include/linux/init.h b/include/linux/init.h
+index 212fc9e2f691..af638cd6dd52 100644
+--- a/include/linux/init.h
++++ b/include/linux/init.h
+@@ -184,19 +184,57 @@ extern bool initcall_debug;
+  * as KEEP() in the linker script.
+  */
  
- # List module undefined symbols (or empty line if not enabled)
- ifdef CONFIG_TRIM_UNUSED_KSYMS
--cmd_undef_syms = $(NM) $< | sed -n 's/^  *U //p' | xargs echo
-+cmd_undef_syms = $(NM) $< | sed -n 's/^  *U //p' | sort -u | xargs echo
- else
- cmd_undef_syms = echo
- endif
++/* Format: <modname>__<counter>_<line>_<fn> */
++#define __initcall_id(fn)					\
++	__PASTE(__KBUILD_MODNAME,				\
++	__PASTE(__,						\
++	__PASTE(__COUNTER__,					\
++	__PASTE(_,						\
++	__PASTE(__LINE__,					\
++	__PASTE(_, fn))))))
++
++/* Format: __<prefix>__<iid><id> */
++#define __initcall_name(prefix, __iid, id)			\
++	__PASTE(__,						\
++	__PASTE(prefix,						\
++	__PASTE(__,						\
++	__PASTE(__iid, id))))
++
++#ifdef CONFIG_LTO_CLANG
++/*
++ * With LTO, the compiler doesn't necessarily obey link order for
++ * initcalls. In order to preserve the correct order, we add each
++ * variable into its own section and generate a linker script (in
++ * scripts/link-vmlinux.sh) to specify the order of the sections.
++ */
++#define __initcall_section(__sec, __iid)			\
++	#__sec ".init.." #__iid
++#else
++#define __initcall_section(__sec, __iid)			\
++	#__sec ".init"
++#endif
++
+ #ifdef CONFIG_HAVE_ARCH_PREL32_RELOCATIONS
+-#define ___define_initcall(fn, id, __sec)			\
++#define ____define_initcall(fn, __name, __sec)			\
+ 	__ADDRESSABLE(fn)					\
+-	asm(".section	\"" #__sec ".init\", \"a\"	\n"	\
+-	"__initcall_" #fn #id ":			\n"	\
++	asm(".section	\"" __sec "\", \"a\"		\n"	\
++	    __stringify(__name) ":			\n"	\
+ 	    ".long	" #fn " - .			\n"	\
+ 	    ".previous					\n");
+ #else
+-#define ___define_initcall(fn, id, __sec) \
+-	static initcall_t __initcall_##fn##id __used \
+-		__attribute__((__section__(#__sec ".init"))) = fn;
++#define ____define_initcall(fn, __name, __sec)			\
++	static initcall_t __name __used 			\
++		__attribute__((__section__(__sec))) = fn;
+ #endif
+ 
++#define __unique_initcall(fn, id, __sec, __iid)			\
++	____define_initcall(fn,					\
++		__initcall_name(initcall, __iid, id),		\
++		__initcall_section(__sec, __iid))
++
++#define ___define_initcall(fn, id, __sec)			\
++	__unique_initcall(fn, id, __sec, __initcall_id(fn))
++
+ #define __define_initcall(fn, id) ___define_initcall(fn, id, .initcall##id)
+ 
+ /*
+@@ -236,7 +274,7 @@ extern bool initcall_debug;
+ #define __exitcall(fn)						\
+ 	static exitcall_t __exitcall_##fn __exit_call = fn
+ 
+-#define console_initcall(fn)	___define_initcall(fn,, .con_initcall)
++#define console_initcall(fn)	___define_initcall(fn, con, .con_initcall)
+ 
+ struct obs_kernel_param {
+ 	const char *str;
+diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
+index 745d88172bc7..f7daa59ff14f 100644
+--- a/scripts/Makefile.lib
++++ b/scripts/Makefile.lib
+@@ -117,9 +117,11 @@ target-stem = $(basename $(patsubst $(obj)/%,%,$@))
+ # These flags are needed for modversions and compiling, so we define them here
+ # $(modname_flags) defines KBUILD_MODNAME as the name of the module it will
+ # end up in (or would, if it gets compiled in)
+-name-fix = $(call stringify,$(subst $(comma),_,$(subst -,_,$1)))
++name-fix-token = $(subst $(comma),_,$(subst -,_,$1))
++name-fix = $(call stringify,$(call name-fix-token,$1))
+ basename_flags = -DKBUILD_BASENAME=$(call name-fix,$(basetarget))
+-modname_flags  = -DKBUILD_MODNAME=$(call name-fix,$(modname))
++modname_flags  = -DKBUILD_MODNAME=$(call name-fix,$(modname)) \
++		 -D__KBUILD_MODNAME=kmod_$(call name-fix-token,$(modname))
+ modfile_flags  = -DKBUILD_MODFILE=$(call stringify,$(modfile))
+ 
+ _c_flags       = $(filter-out $(CFLAGS_REMOVE_$(target-stem).o), \
+diff --git a/scripts/generate_initcall_order.pl b/scripts/generate_initcall_order.pl
+new file mode 100755
+index 000000000000..1a88d3f1b913
+--- /dev/null
++++ b/scripts/generate_initcall_order.pl
+@@ -0,0 +1,270 @@
++#!/usr/bin/env perl
++# SPDX-License-Identifier: GPL-2.0
++#
++# Generates a linker script that specifies the correct initcall order.
++#
++# Copyright (C) 2019 Google LLC
++
++use strict;
++use warnings;
++use IO::Handle;
++use IO::Select;
++use POSIX ":sys_wait_h";
++
++my $nm = $ENV{'NM'} || die "$0: ERROR: NM not set?";
++my $objtree = $ENV{'objtree'} || '.';
++
++## currently active child processes
++my $jobs = {};		# child process pid -> file handle
++## results from child processes
++my $results = {};	# object index -> [ { level, secname }, ... ]
++
++## reads _NPROCESSORS_ONLN to determine the maximum number of processes to
++## start
++sub get_online_processors {
++	open(my $fh, "getconf _NPROCESSORS_ONLN 2>/dev/null |")
++		or die "$0: ERROR: failed to execute getconf: $!";
++	my $procs = <$fh>;
++	close($fh);
++
++	if (!($procs =~ /^\d+$/)) {
++		return 1;
++	}
++
++	return int($procs);
++}
++
++## writes results to the parent process
++## format: <file index> <initcall level> <base initcall section name>
++sub write_results {
++	my ($index, $initcalls) = @_;
++
++	# sort by the counter value to ensure the order of initcalls within
++	# each object file is correct
++	foreach my $counter (sort { $a <=> $b } keys(%{$initcalls})) {
++		my $level = $initcalls->{$counter}->{'level'};
++
++		# section name for the initcall function
++		my $secname = $initcalls->{$counter}->{'module'} . '__' .
++			      $counter . '_' .
++			      $initcalls->{$counter}->{'line'} . '_' .
++			      $initcalls->{$counter}->{'function'};
++
++		print "$index $level $secname\n";
++	}
++}
++
++## reads a result line from a child process and adds it to the $results array
++sub read_results{
++	my ($fh) = @_;
++
++	# each child prints out a full line w/ autoflush and exits after the
++	# last line, so even if buffered I/O blocks here, it shouldn't block
++	# very long
++	my $data = <$fh>;
++
++	if (!defined($data)) {
++		return 0;
++	}
++
++	chomp($data);
++
++	my ($index, $level, $secname) = $data =~
++		/^(\d+)\ ([^\ ]+)\ (.*)$/;
++
++	if (!defined($index) ||
++		!defined($level) ||
++		!defined($secname)) {
++		die "$0: ERROR: child process returned invalid data: $data\n";
++	}
++
++	$index = int($index);
++
++	if (!exists($results->{$index})) {
++		$results->{$index} = [];
++	}
++
++	push (@{$results->{$index}}, {
++		'level'   => $level,
++		'secname' => $secname
++	});
++
++	return 1;
++}
++
++## finds initcalls from an object file or all object files in an archive, and
++## writes results back to the parent process
++sub find_initcalls {
++	my ($index, $file) = @_;
++
++	die "$0: ERROR: file $file doesn't exist?" if (! -f $file);
++
++	open(my $fh, "\"$nm\" --defined-only \"$file\" 2>/dev/null |")
++		or die "$0: ERROR: failed to execute \"$nm\": $!";
++
++	my $initcalls = {};
++
++	while (<$fh>) {
++		chomp;
++
++		# check for the start of a new object file (if processing an
++		# archive)
++		my ($path)= $_ =~ /^(.+)\:$/;
++
++		if (defined($path)) {
++			write_results($index, $initcalls);
++			$initcalls = {};
++			next;
++		}
++
++		# look for an initcall
++		my ($module, $counter, $line, $symbol) = $_ =~
++			/[a-z]\s+__initcall__(\S*)__(\d+)_(\d+)_(.*)$/;
++
++		if (!defined($module)) {
++			$module = ''
++		}
++
++		if (!defined($counter) ||
++			!defined($line) ||
++			!defined($symbol)) {
++			next;
++		}
++
++		# parse initcall level
++		my ($function, $level) = $symbol =~
++			/^(.*)((early|rootfs|con|[0-9])s?)$/;
++
++		die "$0: ERROR: invalid initcall name $symbol in $file($path)"
++			if (!defined($function) || !defined($level));
++
++		$initcalls->{$counter} = {
++			'module'   => $module,
++			'line'     => $line,
++			'function' => $function,
++			'level'    => $level,
++		};
++	}
++
++	close($fh);
++	write_results($index, $initcalls);
++}
++
++## waits for any child process to complete, reads the results, and adds them to
++## the $results array for later processing
++sub wait_for_results {
++	my ($select) = @_;
++
++	my $pid = 0;
++	do {
++		# unblock children that may have a full write buffer
++		foreach my $fh ($select->can_read(0)) {
++			read_results($fh);
++		}
++
++		# check for children that have exited, read the remaining data
++		# from them, and clean up
++		$pid = waitpid(-1, WNOHANG);
++		if ($pid > 0) {
++			if (!exists($jobs->{$pid})) {
++				next;
++			}
++
++			my $fh = $jobs->{$pid};
++			$select->remove($fh);
++
++			while (read_results($fh)) {
++				# until eof
++			}
++
++			close($fh);
++			delete($jobs->{$pid});
++		}
++	} while ($pid > 0);
++}
++
++## forks a child to process each file passed in the command line and collects
++## the results
++sub process_files {
++	my $index = 0;
++	my $njobs = $ENV{'PARALLELISM'} || get_online_processors();
++	my $select = IO::Select->new();
++
++	while (my $file = shift(@ARGV)) {
++		# fork a child process and read it's stdout
++		my $pid = open(my $fh, '-|');
++
++		if (!defined($pid)) {
++			die "$0: ERROR: failed to fork: $!";
++		} elsif ($pid) {
++			# save the child process pid and the file handle
++			$select->add($fh);
++			$jobs->{$pid} = $fh;
++		} else {
++			# in the child process
++			STDOUT->autoflush(1);
++			find_initcalls($index, "$objtree/$file");
++			exit;
++		}
++
++		$index++;
++
++		# limit the number of children to $njobs
++		if (scalar(keys(%{$jobs})) >= $njobs) {
++			wait_for_results($select);
++		}
++	}
++
++	# wait for the remaining children to complete
++	while (scalar(keys(%{$jobs})) > 0) {
++		wait_for_results($select);
++	}
++}
++
++sub generate_initcall_lds() {
++	process_files();
++
++	my $sections = {};	# level -> [ secname, ...]
++
++	# sort results to retain link order and split to sections per
++	# initcall level
++	foreach my $index (sort { $a <=> $b } keys(%{$results})) {
++		foreach my $result (@{$results->{$index}}) {
++			my $level = $result->{'level'};
++
++			if (!exists($sections->{$level})) {
++				$sections->{$level} = [];
++			}
++
++			push(@{$sections->{$level}}, $result->{'secname'});
++		}
++	}
++
++	die "$0: ERROR: no initcalls?" if (!keys(%{$sections}));
++
++	# print out a linker script that defines the order of initcalls for
++	# each level
++	print "SECTIONS {\n";
++
++	foreach my $level (sort(keys(%{$sections}))) {
++		my $section;
++
++		if ($level eq 'con') {
++			$section = '.con_initcall.init';
++		} else {
++			$section = ".initcall${level}.init";
++		}
++
++		print "\t${section} : {\n";
++
++		foreach my $secname (@{$sections->{$level}}) {
++			print "\t\t*(${section}..${secname}) ;\n";
++		}
++
++		print "\t}\n";
++	}
++
++	print "}\n";
++}
++
++generate_initcall_lds();
+diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
+index a352a5ad9ef7..688182293527 100755
+--- a/scripts/link-vmlinux.sh
++++ b/scripts/link-vmlinux.sh
+@@ -43,6 +43,17 @@ info()
+ 	fi
+ }
+ 
++# Generate a linker script to ensure correct ordering of initcalls.
++gen_initcalls()
++{
++	info GEN .tmp_initcalls.lds
++
++	${PYTHON} ${srctree}/scripts/jobserver-exec		\
++	${PERL} ${srctree}/scripts/generate_initcall_order.pl	\
++		${KBUILD_VMLINUX_OBJS} ${KBUILD_VMLINUX_LIBS}	\
++		> .tmp_initcalls.lds
++}
++
+ # If CONFIG_LTO_CLANG is selected, collect generated symbol versions into
+ # .tmp_symversions.lds
+ gen_symversions()
+@@ -74,6 +85,9 @@ modpost_link()
+ 		--end-group"
+ 
+ 	if [ -n "${CONFIG_LTO_CLANG}" ]; then
++		gen_initcalls
++		lds="-T .tmp_initcalls.lds"
++
+ 		if [ -n "${CONFIG_MODVERSIONS}" ]; then
+ 			gen_symversions
+ 			lds="${lds} -T .tmp_symversions.lds"
+@@ -285,6 +299,7 @@ cleanup()
+ {
+ 	rm -f .btf.*
+ 	rm -f .tmp_System.map
++	rm -f .tmp_initcalls.lds
+ 	rm -f .tmp_symversions.lds
+ 	rm -f .tmp_vmlinux*
+ 	rm -f System.map
 -- 
 2.28.0.681.g6f77f65b4e-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200918201436.2932360-17-samitolvanen%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200918201436.2932360-18-samitolvanen%40google.com.
