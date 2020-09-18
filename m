@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBQVKST5QKGQEBCSWQHI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRBRVKST5QKGQETQWDWRI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1037.google.com (mail-pj1-x1037.google.com [IPv6:2607:f8b0:4864:20::1037])
-	by mail.lfdr.de (Postfix) with ESMTPS id 52A07270627
-	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 22:15:00 +0200 (CEST)
-Received: by mail-pj1-x1037.google.com with SMTP id j6sf67461pjy.8
-        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 13:15:00 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600460099; cv=pass;
+Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 55C3627062F
+	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 22:15:04 +0200 (CEST)
+Received: by mail-pf1-x43d.google.com with SMTP id i16sf4408551pfk.1
+        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 13:15:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600460103; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fF+97wwGvMYGGUhlJE44uJX1G0d/nP4lc+KRg5d4oQcPZ7VQ7UFtJExzihyFksZDxD
-         DJ+icfqvQcr9xZur4igJuDsvX05pY+jWZjZgNKgrXPxdTh4aU9QuH6B6ffXrM4ZBHSEM
-         uADotPvE2T01KyvPourRTA/vw96yO7tbbvQOWdXHW+VPU1VgNqnjbKfZdXdaRVl0woCY
-         qz+S/Zgib7lj4Uw1MUAEuUCflxqRfhSqnFC9/q0/a57TOrAOWYCr/KjeIE7m6A5qORm5
-         9psrxmbgFcfopkk9a6HEPdcOXimeFwQPjSz1i6saDQ4SW4WPmE4JSUulz7xpd2T+1ZBx
-         Cgrg==
+        b=fNVv+QhbLSz+Xv7QwzAWPzgBsgUEjeocBEwLzRAltqP8Ry+OM5kq/8YO8Q/w3b+kKb
+         0xZCRx9JyAX1K3Qsl5GQWPpi99tHuEoGB64/K/jCS4RRhG/uGJjgvobUmabvYuIgqUxZ
+         Hy/us8NB3oZ5mDuee4VEiroaJX/RI758PRuFCdJh9tM4H5hsHIOM0xTi00mzOzZvNMTn
+         HBjWMLjEeYaLuzNJYzETosm3TCjzsdSE0KvXeJqlesTMq+E/EZMc2Udrotq4+yQVLXJb
+         yEgTNQk2v40Xo8BiuyADzYmirDi9s7Gn5Xrlt//clTbPUcPxNeYSSOopbpQcPaLSmxBc
+         HH4g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:sender
          :dkim-signature;
-        bh=IOyNx/sIlW22LP9yHVYkiYcdDLLiYdAgv4C04IjR7PE=;
-        b=AMYqT5Pqf5MIi0SVwVjlP0w30wMrTtiNx5BQde2MnS30nCO2aMeyyMY40DLmIXYwOb
-         M8OVtnQAIf+vghLvY3TDQA0/ZF9d2byU9i1ab70DdX4G1i2+ejC2x8j/BjWK56cADhsJ
-         HGj4yzZmcMj0jmaEW/+zIK7gFvErEFxPZI7uyRZ3fi7mYXLiJngo55pz+nNYLz/ug3dn
-         b1oBP8Bb7wvV+oi89216ktcBgI5meI/OR7+l6ZSW6tAOo0Ly2TvPL6JJfJM8RBzSNLS+
-         L7+4e6oztiSIsHIDFqqDZ0qNua9hr81jUzKs4JGfLLyyic1yuYGANfyiv3gcCWuMgTjO
-         PQyg==
+        bh=j1UdC5aBN4U9/pwQrW66kBttcU1WVmoA6ZYZrAMqQ9w=;
+        b=nEX1ZGItDXqSgS6XEY6xD4Ysics0UVdqCdyrMOjpE/jkuOyvU1m6MDo+09Pd+UM5hD
+         fHKqv8XLMNTRs6r/E2UdJmTKHGRLKsqfO+h5E7BCvgy+FDOdHm6Q9/QBnkCheIQ7GYRu
+         9gE6KkBs189ZDRKFE0oWH35aKRS5DTeIx5iay7debblQ0zjYhIIDDbMIHJaI10buOUSV
+         0UTjwx/jy3JGSG9QJ3k0PjBt9zHED4g6kSDJfywfRkMGcMh2WaQkJafwFRdk8HTFEH42
+         6QBUfrbXs9ZnXjyKrS+XwCQkR+cg/ELCKzuoQbJEs8abLCGbJwMPyd5FYmUVZGKQr7Qu
+         uaPw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=BHDVtSDH;
-       spf=pass (google.com: domain of 3qrvlxwwkaaiucokvqnxcpgpiqqing.eqo@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3QRVlXwwKAAIucokvqnxcpgpiqqing.eqo@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=jYUGHI1s;
+       spf=pass (google.com: domain of 3qxvlxwwkaaqweqmxspzerirksskpi.gsq@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3QxVlXwwKAAQweqmxspzerirksskpi.gsq@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :from:to:cc:x-original-sender:x-original-authentication-results
          :reply-to:precedence:mailing-list:list-id:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=IOyNx/sIlW22LP9yHVYkiYcdDLLiYdAgv4C04IjR7PE=;
-        b=VUjSwYQyWuUyRmYP2OSiJqACKLJ3D7YngLfZmLt/kOOsM/DRwjiYOSqJprP7Gauveg
-         AJpbIYFCeDGxmDQ1y+zBB5GkVWNGtHNdOclbpw9unizL/NJpSiFYijvPxGU2VIbSpmWp
-         sMeyS0XBvBylGPUhCLKNqgMsYf23N0Rv8Q45bFA3SExByHx/7uT9b2huObXeg3Pj4M5e
-         JLfFMNjczlcshr+6POoiUpC1JQC51yFyJVTKKb+Mq1Tep+un0ZDAnWuJ/8fI44fL3O5x
-         9t0HtY2omPG4h11bziblrdRI9/DhaCgCnOLqubd2ojWqTLfW+URIrPKwx5EpagR3y3lv
-         94gA==
+        bh=j1UdC5aBN4U9/pwQrW66kBttcU1WVmoA6ZYZrAMqQ9w=;
+        b=GvaUzXoiWvy8hxeOorpjy4UmCrW5lK/vh2IDSX/cZpvzv5ZA0xanKzQ8WdAWQpTSJX
+         nfhDg15qmknhg6WPrD8J6goa65oTxfg3DmL9iSdqvzv3Dp3rmDgtFF3fAwVCwXH7+2DY
+         q1s+ELLP+d5s1/9iwBDnx8Vvg/96vf4/KGn7LHjOxEusi4MfNpRQ8a4T03AGg2xRWpNE
+         g0+Vi6XmMpwtzkYstEtNR2BFQp4DP13kvawv3mfCvkfFO0FndwpmDSgiTEu9w76e8OBk
+         PPQ8SFCv7Qd8ne6zYt6SXLkHrLO8qJlP1vKkS9GHRqx1AyFcclxIH1UXHw+kz5lujFOr
+         RpOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:sender:date:in-reply-to:message-id:mime-version
@@ -50,64 +50,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=IOyNx/sIlW22LP9yHVYkiYcdDLLiYdAgv4C04IjR7PE=;
-        b=cSajuMxekQFdKUdWwOlcdBSlTpG44B5nInlQJ4gZgARXl0XxlVE6Rooxl8jcvwlYyn
-         qRPSQR0e/vpeW/1Jn2h1+8OK4fHeDVdKeQw+L8RE6lb+OLpQRndBEMwTJFvFBSvKr/t6
-         4aZGIDdHdjX2zaOryRXojWYX9KfeR2Fx6WrkJVKyJapwoN9BII0q6rNunlC/ERCr420Y
-         qpWIwGR6LMqbDx+i1yBnFq+YiCu0mAi7T49+7zBmxyPKkiFPH52xpb+2OAMejeYDq1mu
-         XxN0jDjllry2c4o+LgPYEVGKZli6B8xVfULkegj8ABi2I8OFyhmitkIzcB8+b+NW0vgj
-         8cuA==
-X-Gm-Message-State: AOAM533Bj6XizGqIjctu5dM19qeMGUxK9fQnMUJPOI7E1ayWBhlTcuA6
-	pwUAk6M4HDuwLwcQ1WEwAXc=
-X-Google-Smtp-Source: ABdhPJx0krb/Qc3dvTxM4rWB+7kdAgE+GRQbYspk4jrwxx+yPOCRE8iuCsfFCe3F4ninG/BRVGT51g==
-X-Received: by 2002:a63:4a43:: with SMTP id j3mr29026058pgl.42.1600460098846;
-        Fri, 18 Sep 2020 13:14:58 -0700 (PDT)
+        bh=j1UdC5aBN4U9/pwQrW66kBttcU1WVmoA6ZYZrAMqQ9w=;
+        b=kCZ+Fm9XnsWmkiEoYzPOmO1/6fQtl3y1bIuPRjcF5XKW0ErWRUZ9cJvtzmAH5ofF97
+         TSIWPZpisHNAfc2dhkenf0Cp/qvTphZy8phR1zIVUf1FVmWpxES7tbGDnnQtkZ37dPir
+         D8sYdWS2kjxqbXaGC+xyjVZwUIpV2KJV6QQ1yqn9qo8r5U5OpWpvU4cn457gnF8xKt65
+         m8QGuLDXDCprs+csdo04mmS6WFQnyXF3ISBkPLjk76vFOzLYDnRQyEH0EkIp71PCDnum
+         g/LE/QakANFIw+50jcDEsyiNBJtbrVQeyJyV+peQQsRgx5paSQNfUyBVIN3kJ2xh9ZBr
+         Gf0w==
+X-Gm-Message-State: AOAM533TAT7/fYJKph/RpYreUlLIhcp/gI1VZceUmXcD6G9YTUI4AgK6
+	n4IgyUZ079P6BGqsl4QlRuk=
+X-Google-Smtp-Source: ABdhPJxgP4oa+Nw3hlLyW1VQd6OfGy0nsnAjoPVzAz3Hp9TnWcHY5cQYO8HgDu5rMq3vXsUNtr9zWg==
+X-Received: by 2002:a05:6a00:1585:b029:142:2501:35ed with SMTP id u5-20020a056a001585b0290142250135edmr17861110pfk.77.1600460103048;
+        Fri, 18 Sep 2020 13:15:03 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:7d09:: with SMTP id y9ls2385576pgc.3.gmail; Fri, 18 Sep
- 2020 13:14:58 -0700 (PDT)
-X-Received: by 2002:a63:43c6:: with SMTP id q189mr112098pga.63.1600460098156;
-        Fri, 18 Sep 2020 13:14:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600460098; cv=none;
+Received: by 2002:a62:45:: with SMTP id 66ls2553701pfa.1.gmail; Fri, 18 Sep
+ 2020 13:15:02 -0700 (PDT)
+X-Received: by 2002:a63:5d57:: with SMTP id o23mr12517240pgm.263.1600460102423;
+        Fri, 18 Sep 2020 13:15:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600460102; cv=none;
         d=google.com; s=arc-20160816;
-        b=smmrAU7vrYriDeceGwmgkAYfdP+CtK62lh4NdQXymv621aJk4XLu3fhEJWNEV3vzM8
-         fUu6c978itdakSdX/A0P/YoVuu9SK5Jb6KAcldmAITz7eSdrErrx6Mlwc1bR35vGfAjI
-         obRrC6zBIdXvKf+ESD8H7AWH1j7BT17BEX1FP215OkLqfnuLzvU861utn/CNd2J9BHgL
-         AWZtlddrEUbAXbH/zifAn0ER64AHs6B8L99sXNhe00k+zVJq0F1XVLpdn8t2Q4nk65+8
-         WGUVTXP5/YmdW2g27+amwRNmkf14DrgJBrdvbn6ZWz7kui8fEkxDU6wvwVi/5ny3uDa/
-         m6Gg==
+        b=drbYyKHBRPTfoPPrjqN1t21Dxyj0Z/fkIb48cg1IuIvmGZ+I2sGOLVC/tvQuE/yAFF
+         WTFjxiiDcTxz/uf5vCJo10lqeCcakWK1hfpQQ4siPRwD3AazpCjKhvPi6bXs1pbNfb43
+         By3Gv5TU61tCOu7G2qd2NpKz+HoTQwYtUQlq0DicBn8ZXSFIS1g3GliaaPxkEWL5dyMl
+         eUZj5HD4QyHOaeyauTcV0GP+893FMe4+nvxLtRGDtfO1kW+32ktg7bWDKjoI72pu/e7E
+         LcdEc4e31AAguuDvHBWdeGyWvqDnwa96f4Oaxd0xEaPT/1zPzvWWNjXifb+J2Abhf/ZG
+         KWpA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:sender:dkim-signature;
-        bh=0FkP4B0/Lnp0DM8m5kyaL0nHymB5hvp+911UgypF4fg=;
-        b=QznbjAkIYpwkMAAxzvWSifd791Sgf9ntUA9kanpmmR+404Xcglt9+P/gQZcTZ962sM
-         uQV4FiULuwgDHTzJUGxaoGafNjJiNM05C8cLfVdrvm19A5mxFZozU0a90JsIv3mxSK9C
-         NebT8Z8TznAmNaQJDN7aHeLTVSd7WJk6QcnnkENg9MrbCf/f8fvp+uLV9NT8+6yfv1yi
-         Wd/Z/5mXAfIxJZUFxemB+N/Ky0y6sO+0EeL91/Z6HaFtRxfKYhwZ1vdBn+m5bug8zJtU
-         QRtKgw5IDlBNfmT5psQrp6sSmEzJxAbT/jujivGGW/19tHuhjbkP5+etWd2OIS3icTWW
-         UJ2Q==
+        bh=I0YLtwhWjc07CuFqeB5q66ZrbEvcoZ20B6+f9QGQIyM=;
+        b=yC8w68uQSmG7L3ueeStLNinaYsaAPDg6/QlcpTZ1BTrmN1GdrBl+R3CKWOxFbcH6F3
+         /1tcdk1nK1nd1Pujz0tY+C966Q2Ky5wU4IE8s7JsK22WJYoW+CzOe7MG+1wiuCKi420N
+         bieV4mRWzXVa/pQhCshGnEodeNMy+4tCyHlxpmvudCX5/QJ1Anevs6qp/3QgrTawL9Zb
+         Lbn9vozX3S9KWnF1JYKRnsxja+MMDmTSsVXDM8Qox2M6xUXHGMfBtecx9EqXVxQ73YWe
+         wakCaq+/ROQhP9u5UCJo8fonrRUV6cCW7kYPnlZP+J48ZW8OYO1WBj7VGX14pbRth34B
+         KYoQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=BHDVtSDH;
-       spf=pass (google.com: domain of 3qrvlxwwkaaiucokvqnxcpgpiqqing.eqo@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3QRVlXwwKAAIucokvqnxcpgpiqqing.eqo@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=jYUGHI1s;
+       spf=pass (google.com: domain of 3qxvlxwwkaaqweqmxspzerirksskpi.gsq@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3QxVlXwwKAAQweqmxspzerirksskpi.gsq@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-yb1-xb4a.google.com (mail-yb1-xb4a.google.com. [2607:f8b0:4864:20::b4a])
-        by gmr-mx.google.com with ESMTPS id w136si373519pff.3.2020.09.18.13.14.58
+Received: from mail-qt1-x849.google.com (mail-qt1-x849.google.com. [2607:f8b0:4864:20::849])
+        by gmr-mx.google.com with ESMTPS id mj1si347727pjb.3.2020.09.18.13.15.02
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 18 Sep 2020 13:14:58 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3qrvlxwwkaaiucokvqnxcpgpiqqing.eqo@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) client-ip=2607:f8b0:4864:20::b4a;
-Received: by mail-yb1-xb4a.google.com with SMTP id l67so6662479ybb.7
-        for <clang-built-linux@googlegroups.com>; Fri, 18 Sep 2020 13:14:58 -0700 (PDT)
+        Fri, 18 Sep 2020 13:15:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3qxvlxwwkaaqweqmxspzerirksskpi.gsq@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) client-ip=2607:f8b0:4864:20::849;
+Received: by mail-qt1-x849.google.com with SMTP id c5so6082092qtd.12
+        for <clang-built-linux@googlegroups.com>; Fri, 18 Sep 2020 13:15:02 -0700 (PDT)
 Sender: "samitolvanen via sendgmr" <samitolvanen@samitolvanen1.mtv.corp.google.com>
 X-Received: from samitolvanen1.mtv.corp.google.com ([2620:15c:201:2:f693:9fff:fef4:1b6d])
- (user=samitolvanen job=sendgmr) by 2002:a25:cf15:: with SMTP id
- f21mr5192645ybg.408.1600460097335; Fri, 18 Sep 2020 13:14:57 -0700 (PDT)
-Date: Fri, 18 Sep 2020 13:14:14 -0700
+ (user=samitolvanen job=sendgmr) by 2002:ad4:5a0e:: with SMTP id
+ ei14mr20723233qvb.15.1600460099899; Fri, 18 Sep 2020 13:14:59 -0700 (PDT)
+Date: Fri, 18 Sep 2020 13:14:15 -0700
 In-Reply-To: <20200918201436.2932360-1-samitolvanen@google.com>
-Message-Id: <20200918201436.2932360-9-samitolvanen@google.com>
+Message-Id: <20200918201436.2932360-10-samitolvanen@google.com>
 Mime-Version: 1.0
 References: <20200918201436.2932360-1-samitolvanen@google.com>
 X-Mailer: git-send-email 2.28.0.681.g6f77f65b4e-goog
-Subject: [PATCH v3 08/30] kbuild: add support for objtool mcount
+Subject: [PATCH v3 09/30] x86, build: use objtool mcount
 From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Masahiro Yamada <masahiroy@kernel.org>, Will Deacon <will@kernel.org>
 Cc: Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>, 
@@ -121,9 +121,9 @@ Cc: Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=BHDVtSDH;       spf=pass
- (google.com: domain of 3qrvlxwwkaaiucokvqnxcpgpiqqing.eqo@flex--samitolvanen.bounces.google.com
- designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3QRVlXwwKAAIucokvqnxcpgpiqqing.eqo@flex--samitolvanen.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=jYUGHI1s;       spf=pass
+ (google.com: domain of 3qxvlxwwkaaqweqmxspzerirksskpi.gsq@flex--samitolvanen.bounces.google.com
+ designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3QxVlXwwKAAQweqmxspzerirksskpi.gsq@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Sami Tolvanen <samitolvanen@google.com>
 Reply-To: Sami Tolvanen <samitolvanen@google.com>
@@ -139,135 +139,32 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-This change adds build support for using objtool to generate
-__mcount_loc sections.
+Select HAVE_OBJTOOL_MCOUNT if STACK_VALIDATION is selected to use
+objtool to generate __mcount_loc sections for dynamic ftrace with
+Clang and gcc <5 (later versions of gcc use -mrecord-mcount).
 
 Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
 Reviewed-by: Kees Cook <keescook@chromium.org>
 ---
- Makefile               | 38 ++++++++++++++++++++++++++++++--------
- kernel/trace/Kconfig   |  5 +++++
- scripts/Makefile.build |  9 +++++----
- 3 files changed, 40 insertions(+), 12 deletions(-)
+ arch/x86/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Makefile b/Makefile
-index 24fd733c142e..d2fb3cd0f506 100644
---- a/Makefile
-+++ b/Makefile
-@@ -858,17 +858,34 @@ ifdef CONFIG_HAVE_FENTRY
-   ifeq ($(call cc-option-yn, -mfentry),y)
-     CC_FLAGS_FTRACE	+= -mfentry
-     CC_FLAGS_USING	+= -DCC_USING_FENTRY
-+    export CC_USING_FENTRY := 1
-   endif
- endif
- export CC_FLAGS_FTRACE
--KBUILD_CFLAGS	+= $(CC_FLAGS_FTRACE) $(CC_FLAGS_USING)
--KBUILD_AFLAGS	+= $(CC_FLAGS_USING)
- ifdef CONFIG_DYNAMIC_FTRACE
--	ifdef CONFIG_HAVE_C_RECORDMCOUNT
--		BUILD_C_RECORDMCOUNT := y
--		export BUILD_C_RECORDMCOUNT
--	endif
-+  ifndef CC_USING_RECORD_MCOUNT
-+  ifndef CC_USING_PATCHABLE_FUNCTION_ENTRY
-+    # use objtool or recordmcount to generate mcount tables
-+    ifdef CONFIG_HAVE_OBJTOOL_MCOUNT
-+      ifdef CC_USING_FENTRY
-+        USE_OBJTOOL_MCOUNT := y
-+        CC_FLAGS_USING += -DCC_USING_NOP_MCOUNT
-+        export USE_OBJTOOL_MCOUNT
-+      endif
-+    endif
-+    ifndef USE_OBJTOOL_MCOUNT
-+      USE_RECORDMCOUNT := y
-+      export USE_RECORDMCOUNT
-+      ifdef CONFIG_HAVE_C_RECORDMCOUNT
-+        BUILD_C_RECORDMCOUNT := y
-+        export BUILD_C_RECORDMCOUNT
-+      endif
-+    endif
-+  endif
-+  endif
- endif
-+KBUILD_CFLAGS	+= $(CC_FLAGS_FTRACE) $(CC_FLAGS_USING)
-+KBUILD_AFLAGS	+= $(CC_FLAGS_USING)
- endif
- 
- # We trigger additional mismatches with less inlining
-@@ -1213,11 +1230,16 @@ uapi-asm-generic:
- PHONY += prepare-objtool prepare-resolve_btfids
- prepare-objtool: $(objtool_target)
- ifeq ($(SKIP_STACK_VALIDATION),1)
-+objtool-lib-prompt := "please install libelf-dev, libelf-devel or elfutils-libelf-devel"
-+ifdef USE_OBJTOOL_MCOUNT
-+	@echo "error: Cannot generate __mcount_loc for CONFIG_DYNAMIC_FTRACE=y, $(objtool-lib-prompt)" >&2
-+	@false
-+endif
- ifdef CONFIG_UNWINDER_ORC
--	@echo "error: Cannot generate ORC metadata for CONFIG_UNWINDER_ORC=y, please install libelf-dev, libelf-devel or elfutils-libelf-devel" >&2
-+	@echo "error: Cannot generate ORC metadata for CONFIG_UNWINDER_ORC=y, $(objtool-lib-prompt)" >&2
- 	@false
- else
--	@echo "warning: Cannot use CONFIG_STACK_VALIDATION=y, please install libelf-dev, libelf-devel or elfutils-libelf-devel" >&2
-+	@echo "warning: Cannot use CONFIG_STACK_VALIDATION=y, $(objtool-lib-prompt)" >&2
- endif
- endif
- 
-diff --git a/kernel/trace/Kconfig b/kernel/trace/Kconfig
-index a4020c0b4508..b510af5b216c 100644
---- a/kernel/trace/Kconfig
-+++ b/kernel/trace/Kconfig
-@@ -56,6 +56,11 @@ config HAVE_C_RECORDMCOUNT
- 	help
- 	  C version of recordmcount available?
- 
-+config HAVE_OBJTOOL_MCOUNT
-+	bool
-+	help
-+	  Arch supports objtool --mcount
-+
- config TRACER_MAX_TRACE
- 	bool
- 
-diff --git a/scripts/Makefile.build b/scripts/Makefile.build
-index a467b9323442..6ecf30c70ced 100644
---- a/scripts/Makefile.build
-+++ b/scripts/Makefile.build
-@@ -178,8 +178,7 @@ cmd_modversions_c =								\
- 	fi
- endif
- 
--ifdef CONFIG_FTRACE_MCOUNT_RECORD
--ifndef CC_USING_RECORD_MCOUNT
-+ifdef USE_RECORDMCOUNT
- # compiler will not generate __mcount_loc use recordmcount or recordmcount.pl
- ifdef BUILD_C_RECORDMCOUNT
- ifeq ("$(origin RECORDMCOUNT_WARN)", "command line")
-@@ -206,8 +205,7 @@ recordmcount_source := $(srctree)/scripts/recordmcount.pl
- endif # BUILD_C_RECORDMCOUNT
- cmd_record_mcount = $(if $(findstring $(strip $(CC_FLAGS_FTRACE)),$(_c_flags)),	\
- 	$(sub_cmd_record_mcount))
--endif # CC_USING_RECORD_MCOUNT
--endif # CONFIG_FTRACE_MCOUNT_RECORD
-+endif # USE_RECORDMCOUNT
- 
- ifdef CONFIG_STACK_VALIDATION
- ifneq ($(SKIP_STACK_VALIDATION),1)
-@@ -230,6 +228,9 @@ endif
- ifdef CONFIG_X86_SMAP
-   objtool_args += --uaccess
- endif
-+ifdef USE_OBJTOOL_MCOUNT
-+  objtool_args += --mcount
-+endif
- 
- # 'OBJECT_FILES_NON_STANDARD := y': skip objtool checking for a directory
- # 'OBJECT_FILES_NON_STANDARD_foo.o := 'y': skip objtool checking for a file
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 7101ac64bb20..6de2e5c0bdba 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -163,6 +163,7 @@ config X86
+ 	select HAVE_CMPXCHG_LOCAL
+ 	select HAVE_CONTEXT_TRACKING		if X86_64
+ 	select HAVE_C_RECORDMCOUNT
++	select HAVE_OBJTOOL_MCOUNT		if STACK_VALIDATION
+ 	select HAVE_DEBUG_KMEMLEAK
+ 	select HAVE_DMA_CONTIGUOUS
+ 	select HAVE_DYNAMIC_FTRACE
 -- 
 2.28.0.681.g6f77f65b4e-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200918201436.2932360-9-samitolvanen%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200918201436.2932360-10-samitolvanen%40google.com.
