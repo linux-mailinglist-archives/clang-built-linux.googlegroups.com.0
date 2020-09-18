@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBJMRST5QKGQE3OKPPIY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB64ZST5QKGQEXTJXG2Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
-	by mail.lfdr.de (Postfix) with ESMTPS id CE9B12704E9
-	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 21:21:10 +0200 (CEST)
-Received: by mail-pl1-x63c.google.com with SMTP id f12sf3930480plj.10
-        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 12:21:10 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600456869; cv=pass;
+Received: from mail-ot1-x33b.google.com (mail-ot1-x33b.google.com [IPv6:2607:f8b0:4864:20::33b])
+	by mail.lfdr.de (Postfix) with ESMTPS id C7C822705AA
+	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 21:39:40 +0200 (CEST)
+Received: by mail-ot1-x33b.google.com with SMTP id j12sf1988617otn.19
+        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 12:39:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600457979; cv=pass;
         d=google.com; s=arc-20160816;
-        b=f8RpJgnEUtJGcaOHl3NGTsLxqP2gzsH9Nn400alcaEHyFnkrolgwx+NBZjFY/esxov
-         2ZGONXrQlEmZqhrfAJQr7UGehsxdDiCZDZ4nKR9z5GfyHL7Io5A/5Fkzur4VrbwrhGZc
-         /rp3gy29Xi+fnuGg3YQO51m62wv+vYU+QMjPzTCKO++5nqCoWZHIBHWbDAYjVD4NUFaj
-         fURkl6O7J4HOCkU+8fjzCXTsRuA51E5NnxPCMd2Kqwq1fMtOfOVi98WLuODYufce0O+J
-         qj8J5205nONc2MKMfuf8uUSFV0+O9QAqWjXwVllWdizFhzFhHulzS0JGa8C9MDxmqiZD
-         pDHw==
+        b=gqUngPoHfHF+eJRGzV5X2fqqfC781mHShXbp6DsmBRqRbaIWMZzdcKTYmQ5N1Nbf9S
+         OQ3TWh520iRw5RL/R4Fo4Lt9xXS4gczord1dGgPkaaiiJYT7z780CyIyux5rxZ+EciGP
+         IaO0BRi/71KwgcquwMlAqu5eCtxUphQWuZ4CbOnviSjSHhuGUwmFXQLEmvanw+eA/SFG
+         VPffh9INF5d3jKOFFc3t3dWv/Adj61kTXhEGhSRz4uhoEPhl1r58/Q1OBuA3KPtKGdlt
+         pM5YsaaP4IPgOdF69uraXGI5S3Kp3Kn9MuJiy+pM9iQ8po44148lR2zmKyyyCZDyvjyp
+         PKnw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=q0rklxvJWLzPv/tcP7cPLjoQ25PMRQY26hmFCiSpm5U=;
-        b=WqFWlJCF+lB4qgtYpPckb09bfMMqETidBy2jueicC9GNvBbluUpMc+t98PCzmVg6f1
-         uiq+b/sVaMHZkZ3kaeV/uVIo6jmxbWdyFYiWYkSz0Lwx+katDT34BSmfKPoESAn0OAfx
-         C35LRYUlxfenSB07k2rMakiwDZ+qNzun6lgHEZluvt5LLyHDLWJip/G7k7/DA5RWnm1m
-         RvW3GQ/+wrRXsOhixY6FK/Sax3T6Y3QDM/qzRWS6jbYemUTarLX+f8VgW5KplUZTVY6D
-         HxShfoQ9hyqDekP72FMOOUYq5QY1XRCtnIVXol7cIVt1Z+c2HQDqUvErP0vpTrm94MrN
-         VegA==
+        bh=5swmIfefpE28+CzveU+W9IVqUtpaUMI/jhMu2QyFvu4=;
+        b=s78NasQZxGPZtq/5RT61/kL1YoZvkGAg6mBgigyzS84fY3Jh+7x5lV4V/p0m174mgr
+         A0UAXdvkfQsHqivqEnGPQrr+2gCUr7D3m7fOS3zv1kmWnX7bJgXkmCeQPZdCpa0L96Yt
+         Dz32bVY8dEjV+fImkaS3fAva+EW+CuK/MkWqDEEjpmXHPXSx8HG4xEJ/qHPYdLu9doJM
+         xoVmTsF1Ro8kmkonYT7Zrkw9MCLz3kbUjfA/c6KeeoZGFZEWqlrk2B7ELfkamoviLUoR
+         v6WAmfrmI4mrnlmDrwYrrjBjBphJT35ufzaCc/b+8bJ0bsDFHFTdSXye4JSsmevM/l2h
+         /rEg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=BrFbbBt6;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=MMijeS5i;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=q0rklxvJWLzPv/tcP7cPLjoQ25PMRQY26hmFCiSpm5U=;
-        b=QapW5ONumh0qqieDZfS7gtsSP3XTjeVzOU7bB1jUwj6sS1WkPpxZMLRVYIeVUvnOiu
-         PhTf+/zj5e653DdvSNYkaR/z8R5XnalXIU95n9RKztz4ArmsiR1Y7FfKRYq0PNsh6/kc
-         BNCoh+NSwQP4Ni0gTUlggKJbaRn2YdMk5PqPDDzCg+WSUBj1izMDEuokmOxkwi64IhfH
-         VoeIDnO5GJ8whRK6I1u+8X3e/D6BAWzX12iP4XL6OJT1fcPP1I/kZkFIMV4r+N781MVV
-         mWQqwds7Xeg04cVS3r0DIqIUzCToFelOIi+0qYDKHKubHwcGvLQs9eVqMlqMRni0Z0Mu
-         cj/A==
+        bh=5swmIfefpE28+CzveU+W9IVqUtpaUMI/jhMu2QyFvu4=;
+        b=Y9D4BXLPIp9WoUixt+Fcr/uTH0cskmsf+/KRE0y96t2FhCh79KaQJCQ02NhLbGzSTn
+         LklUCHLzF6QgpdInHsV8mZLXv/D9AbxWQoelaOyFbJHdkup7Au0QeYavbhI8eEiOA9l2
+         zTcfM/szqjF9NfOP3f5UvLsI1ASZRbsTV5iyyGUC08mKjbWMurFucBenWghJnN9GjTYe
+         UpLyKTCMnZg4tS2hHy22GPnJkupjp4oWetkEkerxKr3oD1SXIF+4Lm6ySWviV4iV3nNb
+         9f7BLi8gGOtIaiZjJ099zCLlM9ljcEGHTPDKYU0h6gJ0YUd2EAkjs2Ek8/SwNka4UpZF
+         4LqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,75 +49,77 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=q0rklxvJWLzPv/tcP7cPLjoQ25PMRQY26hmFCiSpm5U=;
-        b=gio7ZM5lxWSZ6ew/6qKRZCwC8Xh7dqkOYB2NMjHKpIfPQklOBPqMaTa+VL0/oRj0T5
-         lHA8dBt0rRLejoSlYa2UJUFJwMR2OjcCsNHprEmPinbJfR7+djSujKNcLvqmAE0D2GU2
-         nWX8D+ohlIhjUabt3qwB8PxnUJZnpa4A930s6cNbqfUlSYG8UDYulzQTzxpDmVqU0ktu
-         M2csl22UJQd2iReDjImuUobg9e/KDZaZ/xEGBbLvWhsGPHbC7Fr5/gRCSZXjk71HYj+y
-         rSaVbP+E6AAVAI3uUwLGIvZ0LF/Tx9OQZL9BG3tZ3qsHZcoL6UqxSzXmr0vwm7ZS3Hhc
-         VHxA==
-X-Gm-Message-State: AOAM532bW9WHocdkSjHDapEtNCafZ4XH4jx5FuA4+Y3IZMNcgyvU1eFE
-	3UTG5HnTEoewK2WERFZ6rLQ=
-X-Google-Smtp-Source: ABdhPJxLkk1WyttxDYF3B72b9MEm6yAQDjf1XyZSERwAuHROq/MryEPD6zeFE5ylZCXejE5Zd76V0g==
-X-Received: by 2002:a17:90a:be05:: with SMTP id a5mr14429415pjs.120.1600456869539;
-        Fri, 18 Sep 2020 12:21:09 -0700 (PDT)
+        bh=5swmIfefpE28+CzveU+W9IVqUtpaUMI/jhMu2QyFvu4=;
+        b=cZWhv3GEL9LI8+fmeiet4DRoS9glmN9p4jGkRnOMIqUsxtS7YKhc8aIyjhoA/c2fEI
+         2Sqg6QKi0bcVjvG7Yq3uHyaVkWMntJoa4GGd6MqcS8Kac8ODVk3PHMNpkJuy67eHgtaG
+         9Plj0CukZRaqMggYGzZeOHggcRj9nr5L49LucyIIllyCBBN6GKrU+iM/4vYjudqZ2NVP
+         lAQk7fb4/0AEa6s39LmIJXNi9bUJrfKiJsqJ2Eo9moPeKaWLBPBze7uYMIXLqX3Cd0nT
+         ArfwkOX1rtITVMczsojzX/rLC7doMZbGhbkAe0uW/lp1dnrhou/ftNUgABrm0FYjxxIr
+         84mA==
+X-Gm-Message-State: AOAM532fhnfj3CB6tk7lcaD/sJdJZpYauxu169Yqym1iWB9KVs8uReii
+	UKVHCW9c8Agzz0lwDOlRsss=
+X-Google-Smtp-Source: ABdhPJxaK2wkMSFFaWXWTct7WZgPb1O/xwV6hnLZGmjRLtBtH0BKCm54E7DLl9AAJk/MQLXJn4vbJg==
+X-Received: by 2002:a4a:da4e:: with SMTP id f14mr25257513oou.40.1600457979314;
+        Fri, 18 Sep 2020 12:39:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6a00:174a:: with SMTP id j10ls2502176pfc.7.gmail; Fri,
- 18 Sep 2020 12:21:09 -0700 (PDT)
-X-Received: by 2002:a63:f213:: with SMTP id v19mr12045751pgh.5.1600456868921;
-        Fri, 18 Sep 2020 12:21:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600456868; cv=none;
+Received: by 2002:a9d:614b:: with SMTP id c11ls1516128otk.2.gmail; Fri, 18 Sep
+ 2020 12:39:38 -0700 (PDT)
+X-Received: by 2002:a05:6830:45b:: with SMTP id d27mr25473128otc.152.1600457978759;
+        Fri, 18 Sep 2020 12:39:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600457978; cv=none;
         d=google.com; s=arc-20160816;
-        b=CDHZPZr+xGeq2gKs/Mgnx8hRfSlyVuje+JAVmzV50ph5G/A0I5/g983ADXDWfCMB1B
-         AF62/jHXEXvd1B3l9A5SzhxXMQ+d5cAEJIbgnFxamlTTwQRL4xQj1rFXY7Kd6wC4gcCk
-         sjtkcAMvDFKC9gQ5pzx2HiAi60QEWRssQTmnwj5idMiyHZ0VltUy9ic8LmAzGTOT9nZZ
-         5nE9CgZ5N2e01z99r2AZSHHyTO7mCPg9XIHRqidl5EMxZAsVd6oUQ3PH1+RR/exFgLoS
-         TrVw6YeL94yJqZrUr50KMZfbsocXSVGxA3oW/JQYBZmHRYKm45BSELAWhsIJd58vuFwt
-         60Ug==
+        b=EHTwpR8SQaQXexA+0vqY0YtPl+OLPbk76LPqx++fwqi4Ylq22tFVsU/0orSTXLMklI
+         8din770XmZ7YMM0MdoaLY6nCpRSKoVZ5GDWztEyFWlICjImc/AgJCW6r2+fCWhTHdLZm
+         cZ3yetfqeq+c0yzvs7U4+w3EaYXgzBnjwDBNeogdhVJ3jGzD2qBoEjYIgu/K6hzjRM3R
+         vKQw8lHn6o6E6a3bYy9+EDxnPTyF8J1fZ7zAbkWRA6nFUjcpvQGAhaGV9PFyCRehpot4
+         oPBkC4wLyDj/It8wYh/zeBB89Kiv5jlvEBBpNWjSlMmmmk1ZIdDhboypSyrK78gF/V+h
+         oCsg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=C8jg3wEb1NvgDFOhn2Df3VYWw1IxYrBP36RODw9akKg=;
-        b=w8d53Y7PakX/Kl6iztztSE3X9L++zXKoguq4ty7SJNMczK2Y77RuxeF9d1lZHxH1qP
-         YUJI8lkTXdPbtYfyPASSLKzb6c0gm2SULUNsjB3zQui8lzp59JVqrKj45AkpEy2QBPTc
-         G0qzTk+qz2v9zA9iWQQrrLraMMsAj12lPkshPvfTX5+MbIe4XUSjFi//4NfWmpOy2tpN
-         yg4IrPBkjyVPXqEKfgCoONzEIm5abD2p65AA3+EtcFT6xkKG70CnynrpTW2hzfMr3dnl
-         QM4262lKiEDghA1n9ht/0boiUoGX1pPfjYwZV01REz+DZ8stuDYSlGaJrw4Qd88G0oxC
-         eNLQ==
+        bh=ugDHAjreJcjr2sWmhzBxhqb0r9L38OJhgw/SK5/hXcA=;
+        b=cD5kEBi0pfFkrwVidW9khTez6WKrvRFBj7MuN+DeF9Vr7Ms7lyBhMFXZAixNaN0m41
+         CqSkfzHVKak5iVtjz1dYxn1RuiF32vRelEPjv2uDSL86LvqfKZI5uN9UWDRDj0cDGwnj
+         Xxi0nwNp6T7kqdg7lZHtzFdRPvrVOUpUvSJxYA31HcPAzYlZ+ytkSmRR+1sSKAQeRAbI
+         X5Cyc6u0iCvxddZEj+QlRD5dl2Y85+igJvEZOqhM9WYzwQ9+Jssa5nZyNLyFgajjcpSE
+         JfyicXvQH2WeGEUr0xGdrUViCG5RJcodJso/etM6JS077X+gbEuvwRZMv7vpnUHX2cYt
+         d57A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=BrFbbBt6;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=MMijeS5i;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x62e.google.com (mail-pl1-x62e.google.com. [2607:f8b0:4864:20::62e])
-        by gmr-mx.google.com with ESMTPS id n8si363501pfd.4.2020.09.18.12.21.08
+Received: from mail-pj1-x1044.google.com (mail-pj1-x1044.google.com. [2607:f8b0:4864:20::1044])
+        by gmr-mx.google.com with ESMTPS id k7si356605oif.3.2020.09.18.12.39.38
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 18 Sep 2020 12:21:08 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62e as permitted sender) client-ip=2607:f8b0:4864:20::62e;
-Received: by mail-pl1-x62e.google.com with SMTP id e4so3478230pln.10
-        for <clang-built-linux@googlegroups.com>; Fri, 18 Sep 2020 12:21:08 -0700 (PDT)
-X-Received: by 2002:a17:902:ed11:b029:d1:f385:f4e7 with SMTP id
- b17-20020a170902ed11b02900d1f385f4e7mr11647590pld.56.1600456868387; Fri, 18
- Sep 2020 12:21:08 -0700 (PDT)
+        Fri, 18 Sep 2020 12:39:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) client-ip=2607:f8b0:4864:20::1044;
+Received: by mail-pj1-x1044.google.com with SMTP id md22so4659135pjb.0
+        for <clang-built-linux@googlegroups.com>; Fri, 18 Sep 2020 12:39:38 -0700 (PDT)
+X-Received: by 2002:a17:90b:f18:: with SMTP id br24mr1807074pjb.32.1600457977854;
+ Fri, 18 Sep 2020 12:39:37 -0700 (PDT)
 MIME-Version: 1.0
-References: <CAKwvOdm4AQhobdkKT08bjPGb15N58QN79XWxEaQt-P5Dk4+avQ@mail.gmail.com>
- <20200916213730.GE29330@paulmck-ThinkPad-P72> <20200917205844.GA1978@paulmck-ThinkPad-P72>
-In-Reply-To: <20200917205844.GA1978@paulmck-ThinkPad-P72>
+References: <20200916071950.1493-3-gilad@benyossef.com> <202009162154.fxQ0Z6wT%lkp@intel.com>
+ <CAOtvUMdv9QNVdaU7N6wJVq27Asyrckuu9bf15fO=+oZUh5iKOg@mail.gmail.com>
+In-Reply-To: <CAOtvUMdv9QNVdaU7N6wJVq27Asyrckuu9bf15fO=+oZUh5iKOg@mail.gmail.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 18 Sep 2020 12:20:57 -0700
-Message-ID: <CAKwvOdnojrynmPHrK0MM0Xq1e8Ywk_3_=oehnJWZcFN8=HwsJg@mail.gmail.com>
-Subject: Re: GPF from __srcu_read_lock() via drm_minor_acquire()
-To: "Paul E. McKenney" <paulmck@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Josh Triplett <josh@joshtriplett.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, jiangshanlai@gmail.com, 
-	"Joel Fernandes (Google)" <joel@joelfernandes.org>, rcu@vger.kernel.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+Date: Fri, 18 Sep 2020 12:39:26 -0700
+Message-ID: <CAKwvOdmW+n_g4C_pXnF+8wh2q0gZZyXAfaYR9cVNm3p1QeJ-xA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] crypto: ccree - add custom cache params from DT file
+To: Gilad Ben-Yossef <gilad@benyossef.com>
+Cc: kernel test robot <lkp@intel.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	"David S. Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, kbuild-all@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Network Development <netdev@vger.kernel.org>, Ofir Drang <ofir.drang@arm.com>, 
+	Linux Crypto Mailing List <linux-crypto@vger.kernel.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	Linux kernel mailing list <linux-kernel@vger.kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
+	Alex Elder <elder@linaro.org>, Jakub Kicinski <kuba@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=BrFbbBt6;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62e
+ header.i=@google.com header.s=20161025 header.b=MMijeS5i;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1044
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -134,42 +136,84 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Sep 17, 2020 at 1:58 PM Paul E. McKenney <paulmck@kernel.org> wrote:
+On Thu, Sep 17, 2020 at 12:20 AM Gilad Ben-Yossef <gilad@benyossef.com> wrote:
 >
-> On Wed, Sep 16, 2020 at 02:37:30PM -0700, Paul E. McKenney wrote:
-> > So here are a few questions that I would ask:
+> hmm...
 >
-> Oh, and this one:
->
-> 0.      Did someone call srcu_read_lock() before init_srcu_struct()
->         had been called on this srcu_struct structure?
->
->                                                         Thanx, Paul
->
-> > 1.    Did the init_srcu_struct() for this srcu_struct report an error?
-> >       (Though with current mainline, that memory-allocation failure
-> >       would more likely have page-faulted in init_srcu_struct().)
+> On Wed, Sep 16, 2020 at 4:48 PM kernel test robot <lkp@intel.com> wrote:
 > >
-> > 2.    Has the srcu_struct in question already been passed to
-> >       cleanup_srcu_struct()?
+> > url:    https://github.com/0day-ci/linux/commits/Gilad-Ben-Yossef/add-optional-cache-params-from-DT/20200916-152151
+> > base:   https://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git master
+> > config: arm64-randconfig-r015-20200916 (attached as .config)
+> > compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 9e3842d60351f986d77dfe0a94f76e4fd895f188)
+> > reproduce (this is a W=1 build):
+> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> >         chmod +x ~/bin/make.cross
+> >         # install arm64 cross compiling tool for clang build
+> >         # apt-get install binutils-aarch64-linux-gnu
+> >         # save the attached .config to linux build tree
+> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64
 > >
-> > 3.    Has the value of %fs been clobbered?  Though that seems
-> >       unlikely given that it also happens on aarch64.  Plus, the
-> >       smoking gun seems to me to be the zero value of %eax.
+> > If you fix the issue, kindly add following tag as appropriate
+> > Reported-by: kernel test robot <lkp@intel.com>
 > >
-> > 4.    If the above three questions fail to provide enlightenment,
-> >       I suggest recording the ->sda value and adding debug checks
-> >       to anything that can unmap memory...  And recording the value
-> >       of ->sda somewhere to check to see if it is being changed (it
-> >       should remain constant from init_srcu_struct()'s return through
-> >       the corresponding call to cleanup_srcu_struct()).
+> > All warnings (new ones prefixed by >>):
 > >
-> > Please let me know how it goes!
+> > >> drivers/crypto/ccree/cc_driver.c:120:18: warning: result of comparison of constant 18446744073709551615 with expression of type 'u32' (aka 'unsigned int') is always false [-Wtautological-constant-out-of-range-compare]
+> >            cache_params |= FIELD_PREP(mask, val);
+> >                            ^~~~~~~~~~~~~~~~~~~~~
+> >    include/linux/bitfield.h:94:3: note: expanded from macro 'FIELD_PREP'
+> >                    __BF_FIELD_CHECK(_mask, 0ULL, _val, "FIELD_PREP: ");    \
+> >                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> >    include/linux/bitfield.h:52:28: note: expanded from macro '__BF_FIELD_CHECK'
+> >                    BUILD_BUG_ON_MSG((_mask) > (typeof(_reg))~0ull,         \
+> >                    ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> >    include/linux/build_bug.h:39:58: note: expanded from macro 'BUILD_BUG_ON_MSG'
+> >    #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
+> >                                        ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+> >    include/linux/compiler_types.h:319:22: note: expanded from macro 'compiletime_assert'
+> >            _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+> >            ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> >    include/linux/compiler_types.h:307:23: note: expanded from macro '_compiletime_assert'
+> >            __compiletime_assert(condition, msg, prefix, suffix)
+> >            ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> >    include/linux/compiler_types.h:299:9: note: expanded from macro '__compiletime_assert'
+> >                    if (!(condition))                                       \
+> >                          ^~~~~~~~~
+>
+> I am unable to understand this warning. It looks like it is
+> complaining about a FIELD_GET sanity check that is always false, which
+> makes sense since we're using a constant.
+>
+> Anyone can enlighten me if I've missed something?
 
-Thanks for the tips Paul. I've copied your suggestions into the bug
-report with additional suggestions for the reporters to collect more
-info, particularly in the arm64 case.  I will update this thread once
-we've resolved the report.
+Looked at some of this code recently.  I think it may have an issue
+for masks where sizeof(mask) < sizeof(unsigned long long).
+
+In your code, via 0day bot:
+
+   107          u32 cache_params, ace_const, val, mask;
+...
+> 120          cache_params |= FIELD_PREP(mask, val);
+
+then in include/linux/bitfield.h, we have:
+
+ 92 #define FIELD_PREP(_mask, _val)           \
+ 93   ({                \
+ 94     __BF_FIELD_CHECK(_mask, 0ULL, _val, "FIELD_PREP: ");  \
+
+ 44 #define __BF_FIELD_CHECK(_mask, _reg, _val, _pfx)     \
+...
+ 52     BUILD_BUG_ON_MSG((_mask) > (typeof(_reg))~0ull,   \
+ 53          _pfx "type of reg too small for mask"); \
+
+so the 0ULL in FIELD_PREP is important.  In __BF_FIELD_CHECK, the
+typeof(_reg) is unsigned long long (because 0ULL was passed).  So we
+have a comparison between a u32 and a u64; indeed any u32 can never be
+greater than a u64 that we know has the value of ULLONG_MAX.
+
+I did send a series splitting these up, I wonder if they'd help here:
+https://lore.kernel.org/lkml/20200708230402.1644819-3-ndesaulniers@google.com/
 -- 
 Thanks,
 ~Nick Desaulniers
@@ -177,4 +221,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnojrynmPHrK0MM0Xq1e8Ywk_3_%3DoehnJWZcFN8%3DHwsJg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmW%2Bn_g4C_pXnF%2B8wh2q0gZZyXAfaYR9cVNm3p1QeJ-xA%40mail.gmail.com.
