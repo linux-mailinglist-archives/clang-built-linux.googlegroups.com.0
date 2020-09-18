@@ -1,135 +1,127 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBMPDSH5QKGQE5LA2RLI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRBNMPSL5QKGQE27MQUWA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3c.google.com (mail-io1-xd3c.google.com [IPv6:2607:f8b0:4864:20::d3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 954C826F871
-	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 10:37:06 +0200 (CEST)
-Received: by mail-io1-xd3c.google.com with SMTP id b73sf4018548iof.10
-        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 01:37:06 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600418225; cv=pass;
+Received: from mail-io1-xd3b.google.com (mail-io1-xd3b.google.com [IPv6:2607:f8b0:4864:20::d3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id E09BE26F9F8
+	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 12:11:02 +0200 (CEST)
+Received: by mail-io1-xd3b.google.com with SMTP id q6sf4118286iod.21
+        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 03:11:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600423862; cv=pass;
         d=google.com; s=arc-20160816;
-        b=X/wRPy9HT00vYD/vcIspQAiNwGUxWYMsOMnKulZiB2x/vFcSTj1Mgcj78dIL1GWZ6N
-         KHrS7c1LeXtm0SCR/wjJdX63LafsSe2xEGzGIzLM0GHWbpjoNhq11uK1DfI7EVKD6Nvb
-         O8fSEd7GdLEGamT6pmG0ZcGaEqrQZ0Y+4N+tBIM3zYL4/QjZ9EQ7uKuCTLkGqLArrkF5
-         iJ78n+TFeGgJrzXWYCYVZPRG8hxu+6Zwnw34ZSa8vGwt67tZP2QXqp9HhSEuiYd40VH7
-         b8BG7O7Wph3fQ3EFdYZrDoLwKwvdgEJ13rciN49zylSdFl8JFMgbRe1SHAC1d92Zvo+p
-         dnug==
+        b=DKHpNyO4Xa1LnDfHVhWK4rpwFv+b/K4foVprDDZKguGPPdvS5wnXx4KBIwYge1qlT7
+         WvSB+FK+63fnlFOUm2OtAzoW+IqBZRemsW1etJIfAzwaAZ7sCvEv1dg0Tnm4CikZn6uZ
+         YGmfElrQQCMt1Oqhex5Hajf1ZXGyZWKbOeGcyJKAg0hBD2De2ecR/6BKNohsDODQgFjD
+         VjF4EHXQYs8Vh1RQWPkFHHVBRIjo1oN6TiaWIMWMRX3STx8m8ZVDwzepSzC5mtTVmFJZ
+         +86FkKXI2QSePIlGzDuoKtSG3ZAeGiAQI3e/KfLigD+kj2DXH13KTwjaXtX70xziW88N
+         NB4w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
-         :ironport-sdr:sender:dkim-signature;
-        bh=MdfkwzR7aJ8ijbsd7gbg7oj0ls99XzNkPX/C4Z0SjxQ=;
-        b=a5HvrFFpZhN48086ZEPqfnxXQinS5456rwYszWJraFrPDZQDvqLrB87mYqy2ilzFq4
-         lsHnJvOSX4FvyFL13+XlNR92U6NU3V6kQZdv/+PpZ901fm/hXN9812zKnV8dhQcDvck2
-         n5mHH23FW+YDvuH5a9wRZZ3nPo854a0pgA3oR5bxnYJh0h0lMHgPLplpBx2jIPX9oDqp
-         e9l7vJie58qr4aMXXbrercwXED8cGktpKx81jeor5HS52bCOZvS7wJGtwlfHu+2hkL9R
-         TDt6KY+R3aZpYDLvuGQ5BCf+cl9i4aU4u5r1NjeJAQoP7XaomNBYgdoR448RTqNvf+1I
-         39bg==
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
+         :dkim-signature;
+        bh=X34ILSS7AX+ShkxpaJEBHOiKFAn+619L2tzdj9ledQE=;
+        b=Uk5auAFG3hz3UtnxE4/szfSdt2knWlyJ9iNBCvr0hFnZzvV8owL59c79CToHp9B4j+
+         RY+zR1nNDJ9ICs4Jenw5UlaLJ+2wx4XMP1VbpZEOAdNChe9oFm46Fx9Udo0uDBA5Utaq
+         O2al/TgKoRXw5nL8sB3mrv36gqp4rBK7OcChhNGXAu5sh0WWZX67FldY7kTwLf+0Z16L
+         yesXNErIqoXK3gLyZnylGB8VUVVogt30mY91qQtBbT4hZoNqop1q+dOFZGZD7P+x51sS
+         fvtzAYXG7gtrVlbqBn2cxdvKon9wqwVJo4ox8XlYZF0hqIKqstz8ymUKniIWjZoWKboG
+         cxTA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b="AzeEc/ZM";
+       spf=neutral (google.com: 2607:f8b0:4864:20::62a is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=MdfkwzR7aJ8ijbsd7gbg7oj0ls99XzNkPX/C4Z0SjxQ=;
-        b=ZV/buA5OOYqpZu4aV7LnWG+ATyw7SOnQvS4FzjoOU9nDx2ppAw6ySUjKjRJst0h2K8
-         pmZDwdmv7bTn9u4l/Ci38nyae1Ey2rgunsI/Z8wyGBcGIs2PCqwi4fOGO/071t9Tluan
-         WEAH1td+q8VOINZxAQ5/ZokZumZpPpmhDstT/z/UpZ6/RDFbSRzsgkL9PrPIoHAbzBlb
-         DFaQM22PWlNmwwRz7v3H4aUIxlLNrpOwWw6Z6jfFIFuPtly2y+16D81m0RFPCfABIa/k
-         tSOIVrmL5k5q8KTDy5Nzs2CYV7KSS8tQHr54C/C0Uqvppo2fjrP6csbceinejGoWYrkk
-         FSwg==
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=X34ILSS7AX+ShkxpaJEBHOiKFAn+619L2tzdj9ledQE=;
+        b=kBzM9VBcQKcavaH7n+gS7LS6LoT4PVtUr2uzgMtrnxAhwmwQf/rXNVjIwvVti6QqLv
+         /eJL4dDp1+dM03zImnwi240uUfHmZaQ1DDTctHqnfCT+QQZp66gg2r0QTDJ17i/I6yw7
+         hYSNOwrryaUk+amFC+BNnk9Y6MMkN95gOnxR3lEUDMsEWL1Z2h5BTmZwgHnRyqdAQa9P
+         T7K+97BaI+ChJznMLvaJi3BffVrIs6bUF+aXO0gK2FwfCRib4oiAW8Boucmecw2kyM7W
+         cSDaw0OLsDidnEa5/g5naE7LK19C8X3FWHEpdzxQYPoH66l4n3zn5kliVhqHNJdLh4Cq
+         6BuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:mime-version:content-disposition:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=MdfkwzR7aJ8ijbsd7gbg7oj0ls99XzNkPX/C4Z0SjxQ=;
-        b=ah87ADdYSvjnEL8WyGynQ2HDcSGxcUJW4dOpeDydDylamuTYFRtIROgoEPM/LIYdRv
-         wxcQzOwCkaQWcpqgz4GjyXaSd+dtEMNkzJwPaRT0nLpfnoWsXSdlIwqZEmWYST8Qw6li
-         mgcX2i7OzZ2dLz/vJhfGfCP7aRyxVBGbLl3UF0O1NXOOlVWrqAOefQQZI3/xPgN+Zx06
-         ylGMWDvtQxuk71iYYzZKPNgFTtUpSOV9s7SZ0TpfnwF/XgMaPrPMI4JKOVxnX39GnVl3
-         P1qOEn5bR3SE/LBAcFbhGlENhWkJzlrDAq8F5eUUEQu4LggkwJ+qms/pfAfPwf6tjPhX
-         +/Vw==
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=X34ILSS7AX+ShkxpaJEBHOiKFAn+619L2tzdj9ledQE=;
+        b=IBGHhXzUWDueolx+U0u9binfY3IbYmxReiGER/lgbtkGwcEtdgXRmV2dBQu27O7FPN
+         q5Bg2Daq0ssL4iklxi+gNHPMKhF9muE3QAQcptIUMYjn/THdRMfrZc17A8M88asjBL1j
+         CipNrdJCZVpWz7A7rQtLCZGs3k5CSOYaWT3x1UIiW1pwh0wc7cg4Zt2r/Psl4uBaVXfh
+         LIalYkgJBKqrBTrFzMLWa0zrzGm3AV4xZLwBuAYuSUnzKpGRInBJL3U6jJoqcjiRL6Ho
+         QQ79sWODFsyDZIiylOFpl/3wwpYPFZqtljFpfYeJHEfT1P3xd6KUsNsQEdon7BcZoISJ
+         gosw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530F4X81Hg/cjNeVfRuTEMoZEUza2fMrcJmesirwIGHRtyjl+X2z
-	xoUliKrmlIlUwGWoCGtfWrU=
-X-Google-Smtp-Source: ABdhPJwDql3ECqQD9DgKDiDmtBtR1CTob6qvw6YAC4qx5a9ibVkBnrM2fi8e0B7UYTgFuSGANS0XvA==
-X-Received: by 2002:a92:1303:: with SMTP id 3mr17699351ilt.117.1600418225474;
-        Fri, 18 Sep 2020 01:37:05 -0700 (PDT)
+X-Gm-Message-State: AOAM532lAC0P82u6ggpCzQ7WRcD7KeazZ+bfKioNrscOAdk3I56jeshR
+	bU+R80oL1WPv6kWCAcKiD28=
+X-Google-Smtp-Source: ABdhPJyOLjevk4gKru0dwE/92/WHk9trZEl2AquCBDpCQ35+nxlelDezrLNY/2etxKrZy7QWYcPm5g==
+X-Received: by 2002:a05:6602:22d3:: with SMTP id e19mr26173394ioe.197.1600423861529;
+        Fri, 18 Sep 2020 03:11:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6e02:543:: with SMTP id i3ls1374745ils.4.gmail; Fri, 18
- Sep 2020 01:37:05 -0700 (PDT)
-X-Received: by 2002:a92:194b:: with SMTP id e11mr29711470ilm.133.1600418224926;
-        Fri, 18 Sep 2020 01:37:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600418224; cv=none;
+Received: by 2002:a05:6638:1655:: with SMTP id a21ls650723jat.2.gmail; Fri, 18
+ Sep 2020 03:11:01 -0700 (PDT)
+X-Received: by 2002:a02:c72c:: with SMTP id h12mr30447628jao.86.1600423860834;
+        Fri, 18 Sep 2020 03:11:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600423860; cv=none;
         d=google.com; s=arc-20160816;
-        b=GNWMLIKMlhkfe29P85iYKv4H0jEzi1A+Olmvb6hHPtwo0yD7orYUdqzSJVjSxIERa6
-         V5IotXudOsLWpf9zw1t8Kuti1M6pI5bzcqyBS6/D+lOzWiBjhz4MBgTqi25Lf9RFTcf0
-         fI7zu7sbBt2PmW0w1SN8oYOK1RejrnB/FMVp9WCp6N+ife5sJ1ep1IZN9K7YGYqeFmtl
-         xKrSGAVAYDoQy9zB6etLhzeAVHt4rTTzuSqccLlj/s92LQeJKxx/i6lLJT4D0UTKWGJR
-         ttpKpkzM2+NLGNNpGU8ube07ddYJZh4r2Bsl1MYhqM/xsfTPtk3t0PPb4yGpyQGQo3RO
-         6f/A==
+        b=G0Ri+cmDX1M123a9jexcv+IKTHb2Q00mTNsfqh+BO828miWEcV2RMMRCPbvi60Zj2f
+         NYp/MhCY/+fsXCoG7VeNGt3RHs+utOXt9884490QUPsWqfSWHyzgcQ+RYreP+1Gn+F2v
+         rAw2oV9Apb5ok8Zi3QaOnuKYpiE/A6gwJLCTgtLkWtO9PnPu2OK/QUShtL19XrgwxyTS
+         EQSziaavfRoLiwo63gLcbRu7MJyey++igvj+/9N/bQy0oJSitDXvDp/XliqyEa8mrErV
+         xiB0Xa21sgbWebTcL8d+pt4uOeYrycem58p9i7NefOD8sNb69HTLElHzp1omfvZu1gEN
+         zrig==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:ironport-sdr:ironport-sdr;
-        bh=qTcCvuDTra1DKjhHwa8rVOmehnvAhFPlBt+GlHqAkhE=;
-        b=HY/azVsruYnhFvqiR2Hzg02Zg08fBtyOxcPycR5IWI3xeermKqXKhlS10wF1B8J917
-         /Po0GZHvDvthRLRjrAlmZirU7sab/gFthEq4Ql2dnWq2s6aEASNT6vbOiIqTfVg9X7aE
-         jwUAm4z3S0SlXkiIj3GdpIAl2uj6mFGV842akiZWisOTBtRAmgKEjXT42Y+1qUSK2wtj
-         ka6YaY9jT2Tq6j5/J8EywBOxIGBx3bmzySMEfoHF7sBtAcF/HXWFInte25lD5Pl3hZ5C
-         GwLGoRdhnqMmHOXgCx18SJBnLS/AImUmvk+ZMPZEbSiO5hJDTCbMcztgzDyLhcPF7/VG
-         mKew==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=MiYgYupjfEvIsz2zJphzhCXHe2pcyjtrNZsxx7pME38=;
+        b=tHQ8oAc9ZJwQ2oroZTwEX7kTQlIoLjMp/9wTIac7+QKxkUbUsV1r9xqSNRCekh5uHK
+         8yu5oCSlUu9QD28dRLc8ksF3Zh/V66Fni1yS9zsaKbVDdsq6hF3S7AYPxGWvnFkQPo/e
+         enuPAQSVvsU1ZA2YE6XecLloArf2v/y3+L+BcwRwqx4ZUvoqzZcszWGOFG/P3bFJmTO2
+         DzwNuT9EVV8O7jruObgHOfHH2Cz+lRRxP4Q/ICQHUs3EJ1CP+d7s1+ZZC02p1+2Y/OFq
+         bv7bS8BJCTPKvoR+dx7Cog6wmjoIxcyIo6HfOBEE7YyIOe2SiNcVC5bkTRN7WcH6A+8R
+         NizQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
-        by gmr-mx.google.com with ESMTPS id s185si156541ilc.0.2020.09.18.01.37.04
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b="AzeEc/ZM";
+       spf=neutral (google.com: 2607:f8b0:4864:20::62a is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-pl1-x62a.google.com (mail-pl1-x62a.google.com. [2607:f8b0:4864:20::62a])
+        by gmr-mx.google.com with ESMTPS id y1si196440ilj.2.2020.09.18.03.11.00
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 18 Sep 2020 01:37:04 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
-IronPort-SDR: +WMl5/qTpGT4ClFPo691T/3W7Hm7/vS18B/+wWCzZhJbpdJ+BzrVkl5KF3gkGlDq1mtar71gdi
- 9YYuyM/bIIKg==
-X-IronPort-AV: E=McAfee;i="6000,8403,9747"; a="244724431"
-X-IronPort-AV: E=Sophos;i="5.77,274,1596524400"; 
-   d="gz'50?scan'50,208,50";a="244724431"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-X-Amp-File-Uploaded: False
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Sep 2020 01:37:02 -0700
-IronPort-SDR: b/AhWsfj+V/2LnhV9gh6kFkLbRt/xjW3ej2qmNL9pRWYHpavYI+vq/XVQCYhXCYUiJPi2wAI+J
- /c2MeBHZRP/Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.77,274,1596524400"; 
-   d="gz'50?scan'50,208,50";a="344670881"
-Received: from lkp-server01.sh.intel.com (HELO a05db971c861) ([10.239.97.150])
-  by FMSMGA003.fm.intel.com with ESMTP; 18 Sep 2020 01:36:59 -0700
-Received: from kbuild by a05db971c861 with local (Exim 4.92)
-	(envelope-from <lkp@intel.com>)
-	id 1kJBt5-0000Tl-CD; Fri, 18 Sep 2020 08:36:59 +0000
-Date: Fri, 18 Sep 2020 16:35:57 +0800
-From: kernel test robot <lkp@intel.com>
-To: Christoph Hellwig <hch@lst.de>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: [hch-misc:alloc_vm_area 4/7] ld.lld: error: undefined symbol:
- vmap_pfn
-Message-ID: <202009181653.38KMsKyM%lkp@intel.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 18 Sep 2020 03:11:00 -0700 (PDT)
+Received-SPF: neutral (google.com: 2607:f8b0:4864:20::62a is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2607:f8b0:4864:20::62a;
+Received: by mail-pl1-x62a.google.com with SMTP id j7so2732195plk.11
+        for <clang-built-linux@googlegroups.com>; Fri, 18 Sep 2020 03:11:00 -0700 (PDT)
+X-Received: by 2002:a17:902:8a93:b029:d1:e5e7:be7a with SMTP id p19-20020a1709028a93b02900d1e5e7be7amr14373524plo.84.1600423857263;
+        Fri, 18 Sep 2020 03:10:57 -0700 (PDT)
+Received: from kernelci-production.internal.cloudapp.net ([52.250.1.28])
+        by smtp.gmail.com with ESMTPSA id z8sm2746573pgr.70.2020.09.18.03.10.55
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Sep 2020 03:10:55 -0700 (PDT)
+Message-ID: <5f6487af.1c69fb81.49e0e.6389@mx.google.com>
+Date: Fri, 18 Sep 2020 03:10:55 -0700 (PDT)
+Content-Type: text/plain; charset="UTF-8"
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="ibTvN161/egqYuK8"
-Content-Disposition: inline
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: lkp@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted
- sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=intel.com
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Report-Type: build
+X-Kernelci-Tree: next
+X-Kernelci-Branch: master
+X-Kernelci-Kernel: next-20200918
+Subject: next/master build: 228 builds: 17 failed, 211 passed, 1465 errors,
+ 635 warnings (next-20200918)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b="AzeEc/ZM";       spf=neutral (google.com: 2607:f8b0:4864:20::62a is
+ neither permitted nor denied by best guess record for domain of
+ bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,763 +134,6872 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+next/master build: 228 builds: 17 failed, 211 passed, 1465 errors, 635 warn=
+ings (next-20200918)
 
---ibTvN161/egqYuK8
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20200918/
 
-tree:   git://git.infradead.org/users/hch/misc.git alloc_vm_area
-head:   d574728eedb41cee38600f7f2199852e9018a50a
-commit: 22728ce0908b9495312398ae96bf901e6b31f664 [4/7] drm/i915: use vmap in i915_gem_object_map
-config: x86_64-randconfig-a003-20200917 (attached as .config)
-compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 0ff28fa6a75617d61b1aeea77463d6a1684c3c89)
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # install x86_64 cross compiling tool for clang build
-        # apt-get install binutils-x86-64-linux-gnu
-        git checkout 22728ce0908b9495312398ae96bf901e6b31f664
-        # save the attached .config to linux build tree
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
+Tree: next
+Branch: master
+Git Describe: next-20200918
+Git Commit: b652d2a5f2a4e93d803cc33eb57fdc41ee528500
+Git URL: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.gi=
+t
+Built: 7 unique architectures
 
-If you fix the issue, kindly add following tag as appropriate
-Reported-by: kernel test robot <lkp@intel.com>
+Build Failures Detected:
 
-All errors (new ones prefixed by >>):
+arm64:
+    defconfig: (clang-10) FAIL
+    allmodconfig: (clang-9) FAIL
+    allnoconfig: (clang-9) FAIL
+    defconfig: (clang-9) FAIL
+    defconfig+CONFIG_ARM64_64K_PAGES=3Dy: (clang-9) FAIL
 
->> ld.lld: error: undefined symbol: vmap_pfn
-   >>> referenced by i915_gem_pages.c:304 (drivers/gpu/drm/i915/gem/i915_gem_pages.c:304)
-   >>> gpu/drm/i915/gem/i915_gem_pages.o:(i915_gem_object_pin_map) in archive drivers/built-in.a
+arm:
+    multi_v7_defconfig: (clang-10) FAIL
+    allmodconfig: (clang-9) FAIL
+    allnoconfig: (clang-9) FAIL
+    aspeed_g5_defconfig: (clang-9) FAIL
+    multi_v5_defconfig: (clang-9) FAIL
+    multi_v7_defconfig: (clang-9) FAIL
+    milbeaut_m10v_defconfig: (gcc-8) FAIL
+
+riscv:
+    nommu_virt_defconfig: (gcc-8) FAIL
+
+x86_64:
+    x86_64_defconfig: (clang-10) FAIL
+    allmodconfig: (clang-9) FAIL
+    allnoconfig: (clang-9) FAIL
+    x86_64_defconfig: (clang-9) FAIL
+
+Errors and Warnings Detected:
+
+arc:
+    allnoconfig (gcc-8): 1 warning
+    axs103_defconfig (gcc-8): 2 warnings
+    axs103_smp_defconfig (gcc-8): 2 warnings
+    haps_hs_defconfig (gcc-8): 2 warnings
+    haps_hs_smp_defconfig (gcc-8): 2 warnings
+    haps_hs_smp_defconfig+kselftest (gcc-8): 167 errors, 26 warnings
+    hsdk_defconfig (gcc-8): 2 warnings
+    nsimosci_hs_defconfig (gcc-8): 2 warnings
+    nsimosci_hs_smp_defconfig (gcc-8): 2 warnings
+    tinyconfig (gcc-8): 1 warning
+    vdk_hs38_defconfig (gcc-8): 1 warning
+    vdk_hs38_smp_defconfig (gcc-8): 1 warning
+
+arm64:
+    allmodconfig (clang-9): 2 errors
+    allmodconfig (gcc-8): 10 warnings
+    allnoconfig (clang-9): 2 errors
+    allnoconfig (gcc-8): 2 warnings
+    defconfig (clang-9): 1 error
+    defconfig (gcc-8): 8 warnings
+    defconfig (clang-10): 1 error, 3 warnings
+    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (clang-9): 1 error
+    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (gcc-8): 8 warnings
+    defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (gcc-8): 8 warnings
+    defconfig+CONFIG_RANDOMIZE_BASE=3Dy (gcc-8): 8 warnings
+    defconfig+kselftest (gcc-8): 302 errors, 11 warnings
+    tinyconfig (gcc-8): 2 warnings
+
+arm:
+    allmodconfig (clang-9): 2 errors
+    allmodconfig (gcc-8): 14 warnings
+    allnoconfig (clang-9): 2 errors
+    allnoconfig (gcc-8): 1 warning
+    am200epdkit_defconfig (gcc-8): 2 warnings
+    aspeed_g4_defconfig (gcc-8): 1 warning
+    aspeed_g5_defconfig (clang-9): 2 errors
+    aspeed_g5_defconfig (gcc-8): 1 warning
+    assabet_defconfig (gcc-8): 2 warnings
+    at91_dt_defconfig (gcc-8): 2 warnings
+    axm55xx_defconfig (gcc-8): 2 warnings
+    badge4_defconfig (gcc-8): 2 warnings
+    bcm2835_defconfig (gcc-8): 2 warnings
+    cerfcube_defconfig (gcc-8): 2 warnings
+    clps711x_defconfig (gcc-8): 1 warning
+    cm_x300_defconfig (gcc-8): 2 warnings
+    cns3420vb_defconfig (gcc-8): 2 warnings
+    colibri_pxa270_defconfig (gcc-8): 2 warnings
+    colibri_pxa300_defconfig (gcc-8): 2 warnings
+    collie_defconfig (gcc-8): 1 warning
+    corgi_defconfig (gcc-8): 2 warnings
+    davinci_all_defconfig (gcc-8): 2 warnings
+    dove_defconfig (gcc-8): 2 warnings
+    ebsa110_defconfig (gcc-8): 2 warnings
+    efm32_defconfig (gcc-8): 1 warning
+    ep93xx_defconfig (gcc-8): 2 warnings
+    eseries_pxa_defconfig (gcc-8): 2 warnings
+    exynos_defconfig (gcc-8): 2 warnings
+    ezx_defconfig (gcc-8): 2 warnings
+    footbridge_defconfig (gcc-8): 2 warnings
+    gemini_defconfig (gcc-8): 1 warning
+    h3600_defconfig (gcc-8): 2 warnings
+    h5000_defconfig (gcc-8): 2 warnings
+    hackkit_defconfig (gcc-8): 2 warnings
+    hisi_defconfig (gcc-8): 1 warning
+    imote2_defconfig (gcc-8): 2 warnings
+    imx_v4_v5_defconfig (gcc-8): 2 warnings
+    imx_v6_v7_defconfig (gcc-8): 3 warnings
+    integrator_defconfig (gcc-8): 2 warnings
+    iop32x_defconfig (gcc-8): 2 warnings
+    ixp4xx_defconfig (gcc-8): 2 warnings
+    jornada720_defconfig (gcc-8): 2 warnings
+    keystone_defconfig (gcc-8): 2 warnings
+    lart_defconfig (gcc-8): 2 warnings
+    lpc18xx_defconfig (gcc-8): 1 warning
+    lpc32xx_defconfig (gcc-8): 2 warnings
+    lpd270_defconfig (gcc-8): 2 warnings
+    lubbock_defconfig (gcc-8): 2 warnings
+    magician_defconfig (gcc-8): 2 warnings
+    mainstone_defconfig (gcc-8): 2 warnings
+    milbeaut_m10v_defconfig (gcc-8): 1 warning
+    mini2440_defconfig (gcc-8): 2 warnings
+    mmp2_defconfig (gcc-8): 5 warnings
+    moxart_defconfig (gcc-8): 1 warning
+    mps2_defconfig (gcc-8): 1 warning
+    multi_v4t_defconfig (gcc-8): 1 warning
+    multi_v5_defconfig (clang-9): 2 errors
+    multi_v5_defconfig (gcc-8): 2 warnings
+    multi_v7_defconfig (clang-9): 2 errors
+    multi_v7_defconfig (clang-10): 1 error, 6 warnings
+    multi_v7_defconfig (gcc-8): 6 warnings
+    multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (gcc-8): 6 warnings
+    multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (gcc-8): 6 warnin=
+gs
+    multi_v7_defconfig+CONFIG_SMP=3Dn (gcc-8): 6 warnings
+    multi_v7_defconfig+kselftest (gcc-8): 280 errors, 10 warnings
+    mv78xx0_defconfig (gcc-8): 2 warnings
+    mvebu_v5_defconfig (gcc-8): 2 warnings
+    mvebu_v7_defconfig (gcc-8): 2 warnings
+    mxs_defconfig (gcc-8): 2 warnings
+    neponset_defconfig (gcc-8): 2 warnings
+    netwinder_defconfig (gcc-8): 1 warning
+    nhk8815_defconfig (gcc-8): 2 warnings
+    omap1_defconfig (gcc-8): 3 warnings
+    omap2plus_defconfig (gcc-8): 2 warnings
+    orion5x_defconfig (gcc-8): 2 warnings
+    oxnas_v6_defconfig (gcc-8): 2 warnings
+    palmz72_defconfig (gcc-8): 2 warnings
+    pcm027_defconfig (gcc-8): 2 warnings
+    pleb_defconfig (gcc-8): 2 warnings
+    prima2_defconfig (gcc-8): 2 warnings
+    pxa168_defconfig (gcc-8): 5 warnings
+    pxa255-idp_defconfig (gcc-8): 2 warnings
+    pxa3xx_defconfig (gcc-8): 2 warnings
+    pxa910_defconfig (gcc-8): 5 warnings
+    pxa_defconfig (gcc-8): 2 warnings
+    qcom_defconfig (gcc-8): 3 warnings
+    realview_defconfig (gcc-8): 2 warnings
+    rpc_defconfig (gcc-8): 2 warnings
+    s3c2410_defconfig (gcc-8): 2 warnings
+    s3c6400_defconfig (gcc-8): 2 warnings
+    s5pv210_defconfig (gcc-8): 2 warnings
+    sama5_defconfig (gcc-8): 2 warnings
+    shannon_defconfig (gcc-8): 2 warnings
+    shmobile_defconfig (gcc-8): 1 warning
+    simpad_defconfig (gcc-8): 2 warnings
+    socfpga_defconfig (gcc-8): 2 warnings
+    spear13xx_defconfig (gcc-8): 2 warnings
+    spear3xx_defconfig (gcc-8): 2 warnings
+    spear6xx_defconfig (gcc-8): 2 warnings
+    spitz_defconfig (gcc-8): 2 warnings
+    stm32_defconfig (gcc-8): 1 warning
+    sunxi_defconfig (gcc-8): 2 warnings
+    tango4_defconfig (gcc-8): 2 warnings
+    tct_hammer_defconfig (gcc-8): 2 warnings
+    tegra_defconfig (gcc-8): 2 warnings
+    tinyconfig (gcc-8): 1 warning
+    trizeps4_defconfig (gcc-8): 2 warnings
+    u300_defconfig (gcc-8): 2 warnings
+    u8500_defconfig (gcc-8): 2 warnings
+    versatile_defconfig (gcc-8): 2 warnings
+    vexpress_defconfig (gcc-8): 2 warnings
+    vf610m4_defconfig (gcc-8): 1 warning
+    viper_defconfig (gcc-8): 2 warnings
+    vt8500_v6_v7_defconfig (gcc-8): 1 warning
+    xcep_defconfig (gcc-8): 2 warnings
+    zeus_defconfig (gcc-8): 2 warnings
+    zx_defconfig (gcc-8): 1 warning
+
+i386:
+    i386_defconfig+kselftest (gcc-8): 59 errors, 30 warnings
+
+mips:
+    32r2el_defconfig (gcc-8): 3 warnings
+    32r2el_defconfig+kselftest (gcc-8): 280 errors, 23 warnings
+    allnoconfig (gcc-8): 1 warning
+    ar7_defconfig (gcc-8): 2 warnings
+    ath25_defconfig (gcc-8): 2 warnings
+    ath79_defconfig (gcc-8): 2 warnings
+    bcm47xx_defconfig (gcc-8): 2 warnings
+    bcm63xx_defconfig (gcc-8): 1 warning
+    bigsur_defconfig (gcc-8): 6 warnings
+    bmips_be_defconfig (gcc-8): 1 warning
+    bmips_stb_defconfig (gcc-8): 1 warning
+    capcella_defconfig (gcc-8): 2 warnings
+    cavium_octeon_defconfig (gcc-8): 6 warnings
+    ci20_defconfig (gcc-8): 2 warnings
+    cobalt_defconfig (gcc-8): 2 warnings
+    cu1000-neo_defconfig (gcc-8): 1 warning
+    cu1830-neo_defconfig (gcc-8): 1 warning
+    db1xxx_defconfig (gcc-8): 1 warning
+    decstation_64_defconfig (gcc-8): 6 warnings
+    decstation_defconfig (gcc-8): 2 warnings
+    decstation_r4k_defconfig (gcc-8): 2 warnings
+    e55_defconfig (gcc-8): 2 warnings
+    fuloong2e_defconfig (gcc-8): 6 warnings
+    gcw0_defconfig (gcc-8): 2 warnings
+    gpr_defconfig (gcc-8): 2 warnings
+    ip22_defconfig (gcc-8): 2 warnings
+    ip27_defconfig (gcc-8): 6 warnings
+    ip28_defconfig (gcc-8): 6 warnings
+    ip32_defconfig (gcc-8): 6 warnings
+    jazz_defconfig (gcc-8): 2 warnings
+    jmr3927_defconfig (gcc-8): 1 warning
+    lemote2f_defconfig (gcc-8): 6 warnings
+    loongson1b_defconfig (gcc-8): 2 warnings
+    loongson1c_defconfig (gcc-8): 2 warnings
+    loongson3_defconfig (gcc-8): 6 warnings
+    malta_defconfig (gcc-8): 2 warnings
+    malta_kvm_defconfig (gcc-8): 2 warnings
+    malta_kvm_guest_defconfig (gcc-8): 2 warnings
+    malta_qemu_32r6_defconfig (gcc-8): 3 warnings
+    maltaaprp_defconfig (gcc-8): 2 warnings
+    maltasmvp_defconfig (gcc-8): 2 warnings
+    maltasmvp_eva_defconfig (gcc-8): 2 warnings
+    maltaup_defconfig (gcc-8): 2 warnings
+    maltaup_xpa_defconfig (gcc-8): 2 warnings
+    mpc30x_defconfig (gcc-8): 2 warnings
+    mtx1_defconfig (gcc-8): 2 warnings
+    nlm_xlp_defconfig (gcc-8): 6 warnings
+    nlm_xlr_defconfig (gcc-8): 3 warnings
+    omega2p_defconfig (gcc-8): 1 warning
+    pic32mzda_defconfig (gcc-8): 2 warnings
+    pistachio_defconfig (gcc-8): 2 warnings
+    qi_lb60_defconfig (gcc-8): 2 warnings
+    rb532_defconfig (gcc-8): 2 warnings
+    rbtx49xx_defconfig (gcc-8): 2 warnings
+    rm200_defconfig (gcc-8): 3 warnings
+    rs90_defconfig (gcc-8): 1 warning
+    rt305x_defconfig (gcc-8): 2 warnings
+    sb1250_swarm_defconfig (gcc-8): 4 warnings
+    tb0219_defconfig (gcc-8): 2 warnings
+    tb0226_defconfig (gcc-8): 2 warnings
+    tb0287_defconfig (gcc-8): 2 warnings
+    tinyconfig (gcc-8): 1 warning
+    vocore2_defconfig (gcc-8): 1 warning
+    workpad_defconfig (gcc-8): 2 warnings
+    xway_defconfig (gcc-8): 2 warnings
+
+riscv:
+    defconfig+kselftest (gcc-8): 280 errors, 11 warnings
+    nommu_virt_defconfig (gcc-8): 2 errors, 1 warning
+    rv32_defconfig (gcc-8): 6 warnings
+
+x86_64:
+    allmodconfig (gcc-8): 2 warnings
+    allmodconfig (clang-9): 1 error
+    allnoconfig (clang-9): 2 errors
+    tinyconfig (gcc-8): 1 warning
+    x86_64_defconfig (clang-10): 1 error
+    x86_64_defconfig (clang-9): 2 errors
+    x86_64_defconfig+kselftest (gcc-8): 71 errors, 39 warnings
+
+Errors summary:
+
+    582  /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such =
+file or directory
+    375  /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: =
+fatal error: asm/types.h: No such file or directory
+    120  /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h:=
+ No such file or directory
+    17   /scratch/linux/include/linux/compiler-clang.h:11:3: error: Sorry, =
+your version of Clang is too old - please use 10.0.1 or newer.
+    16   /usr/include/stdlib.h:25:10: fatal error: bits/libc-header-start.h=
+: No such file or directory
+    15   arc-elf32-gcc: error: unrecognized command line option =E2=80=98-p=
+thread=E2=80=99
+    14   /bin/sh: 3: llc: not found
+    14   /bin/sh: 1: llc: not found
+    14   /bin/sh: 1: clang: not found
+    11   test_execve.c:4:10: fatal error: cap-ng.h: No such file or directo=
+ry
+    9    get_size.c:29:10: fatal error: sys/sysinfo.h: No such file or dire=
+ctory
+    9    execveat.c:11:10: fatal error: sys/sendfile.h: No such file or dir=
+ectory
+    8    seccomp_bpf.c:9:10: fatal error: sys/types.h: No such file or dire=
+ctory
+    8    posix_timers.c:10:10: fatal error: sys/time.h: No such file or dir=
+ectory
+    8    kselftest_harness.h:56:10: fatal error: asm/types.h: No such file =
+or directory
+    8    collect2: error: ld returned 1 exit status
+    8    /usr/include/syscall.h:1:10: fatal error: sys/syscall.h: No such f=
+ile or directory
+    8    /usr/include/poll.h:1:10: fatal error: sys/poll.h: No such file or=
+ directory
+    8    /usr/include/linux/ioctl.h:5:10: fatal error: asm/ioctl.h: No such=
+ file or directory
+    6    ionmap_test.c:14:10: fatal error: drm/drm.h: No such file or direc=
+tory
+    4    test_verifier.c:25:10: fatal error: sys/capability.h: No such file=
+ or directory
+    4    hmm-tests.c:24:10: fatal error: hugetlbfs.h: No such file or direc=
+tory
+    4    binderfs_test.c:22:10: fatal error: linux/android/binderfs.h: No s=
+uch file or directory
+    4    ../kselftest_harness.h:56:10: fatal error: asm/types.h: No such fi=
+le or directory
+    4    ../../../include/uapi/linux/fcntl.h:5:10: fatal error: asm/fcntl.h=
+: No such file or directory
+    3    validate_cap.c:2:10: fatal error: cap-ng.h: No such file or direct=
+ory
+    3    ipcsocket.c:6:10: fatal error: sys/socket.h: No such file or direc=
+tory
+    3    ionutils.c:7:10: fatal error: sys/ioctl.h: No such file or directo=
+ry
+    3    ion.h:18:10: fatal error: linux/ioctl.h: No such file or directory
+    3    error: fallthrough annotation does not directly precede switch lab=
+el
+    2    udmabuf.c:13:10: fatal error: linux/udmabuf.h: No such file or dir=
+ectory
+    2    tls.c:1284:27: error: =E2=80=98TLS_CIPHER_AES_GCM_256=E2=80=99 und=
+eclared (first use in this function); did you mean =E2=80=98TLS_CIPHER_AES_=
+GCM_128=E2=80=99?
+    2    tls.c:1273:39: error: storage size of =E2=80=98tls12=E2=80=99 isn=
+=E2=80=99t known
+    2    tls.c:1230:27: error: =E2=80=98TLS_CIPHER_AES_GCM_256=E2=80=99 und=
+eclared (first use in this function); did you mean =E2=80=98TLS_CIPHER_AES_=
+GCM_128=E2=80=99?
+    2    tls.c:1221:39: error: storage size of =E2=80=98tls12=E2=80=99 isn=
+=E2=80=99t known
+    2    tls.c:116:17: error: =E2=80=98TLS_1_3_VERSION=E2=80=99 undeclared =
+here (not in a function); did you mean =E2=80=98TLS_1_2_VERSION=E2=80=99?
+    2    signals.S:4:10: fatal error: asm/unistd.h: No such file or directo=
+ry
+    2    rseq.c:25:10: fatal error: syscall.h: No such file or directory
+    2    reuseport_bpf_numa.c:24:10: fatal error: numa.h: No such file or d=
+irectory
+    2    regression_enomem.c:5:10: fatal error: linux/types.h: No such file=
+ or directory
+    2    proc-fsconfig-hidepid.c:20:10: fatal error: linux/mount.h: No such=
+ file or directory
+    2    pm_nl_ctl.c:19:10: fatal error: linux/mptcp.h: No such file or dir=
+ectory
+    2    pidfd_wait.c:44:4: error: =E2=80=98struct clone_args=E2=80=99 has =
+no member named =E2=80=98exit_signal=E2=80=99
+    2    pidfd_wait.c:43:4: error: =E2=80=98struct clone_args=E2=80=99 has =
+no member named =E2=80=98flags=E2=80=99
+    2    pidfd_wait.c:42:4: error: =E2=80=98struct clone_args=E2=80=99 has =
+no member named =E2=80=98pidfd=E2=80=99
+    2    pidfd_wait.c:41:4: error: =E2=80=98struct clone_args=E2=80=99 has =
+no member named =E2=80=98parent_tid=E2=80=99
+    2    pidfd_wait.c:40:9: error: variable =E2=80=98args=E2=80=99 has init=
+ializer but incomplete type
+    2    pidfd_wait.c:40:20: error: storage size of =E2=80=98args=E2=80=99 =
+isn=E2=80=99t known
+    2    pidfd_wait.c:26:43: error: invalid application of =E2=80=98sizeof=
+=E2=80=99 to incomplete type =E2=80=98struct clone_args=E2=80=99
+    2    pidfd_wait.c:129:4: error: =E2=80=98struct clone_args=E2=80=99 has=
+ no member named =E2=80=98exit_signal=E2=80=99
+    2    pidfd_wait.c:128:4: error: =E2=80=98struct clone_args=E2=80=99 has=
+ no member named =E2=80=98flags=E2=80=99
+    2    pidfd_wait.c:127:4: error: =E2=80=98struct clone_args=E2=80=99 has=
+ no member named =E2=80=98pidfd=E2=80=99
+    2    pidfd_wait.c:126:4: error: =E2=80=98struct clone_args=E2=80=99 has=
+ no member named =E2=80=98parent_tid=E2=80=99
+    2    pidfd_wait.c:125:9: error: variable =E2=80=98args=E2=80=99 has ini=
+tializer but incomplete type
+    2    pidfd_wait.c:125:20: error: storage size of =E2=80=98args=E2=80=99=
+ isn=E2=80=99t known
+    2    pidfd_setns_test.c:84:34: error: invalid application of =E2=80=98s=
+izeof=E2=80=99 to incomplete type =E2=80=98struct clone_args=E2=80=99
+    2    pidfd_setns_test.c:81:4: error: =E2=80=98struct clone_args=E2=80=
+=99 has no member named =E2=80=98pidfd=E2=80=99
+    2    pidfd_setns_test.c:80:4: error: =E2=80=98struct clone_args=E2=80=
+=99 has no member named =E2=80=98exit_signal=E2=80=99
+    2    pidfd_setns_test.c:79:4: error: =E2=80=98struct clone_args=E2=80=
+=99 has no member named =E2=80=98flags=E2=80=99
+    2    pidfd_setns_test.c:78:9: error: variable =E2=80=98args=E2=80=99 ha=
+s initializer but incomplete type
+    2    pidfd_setns_test.c:78:20: error: storage size of =E2=80=98args=E2=
+=80=99 isn=E2=80=99t known
+    2    pidfd/pidfd.h:14:10: fatal error: syscall.h: No such file or direc=
+tory
+    2    nf-queue.c:13:10: fatal error: libmnl/libmnl.h: No such file or di=
+rectory
+    2    lib/kvm_util.c:302:22: error: =E2=80=98KVM_CLEAR_DIRTY_LOG=E2=80=
+=99 undeclared (first use in this function); did you mean =E2=80=98KVM_GET_=
+DIRTY_LOG=E2=80=99?
+    2    lib/kvm_util.c:299:39: error: =E2=80=98struct kvm_clear_dirty_log=
+=E2=80=99 has no member named =E2=80=98num_pages=E2=80=99
+    2    lib/kvm_util.c:298:32: error: =E2=80=98struct kvm_clear_dirty_log=
+=E2=80=99 has no member named =E2=80=98first_page=E2=80=99
+    2    lib/kvm_util.c:297:9: error: variable =E2=80=98args=E2=80=99 has i=
+nitializer but incomplete type
+    2    lib/kvm_util.c:297:60: error: =E2=80=98struct kvm_clear_dirty_log=
+=E2=80=99 has no member named =E2=80=98slot=E2=80=99
+    2    lib/kvm_util.c:297:39: error: =E2=80=98struct kvm_clear_dirty_log=
+=E2=80=99 has no member named =E2=80=98dirty_bitmap=E2=80=99
+    2    lib/kvm_util.c:297:29: error: storage size of =E2=80=98args=E2=80=
+=99 isn=E2=80=99t known
+    2    lib/assert.c:12:10: fatal error: execinfo.h: No such file or direc=
+tory
+    2    include/x86_64/processor.h:14:10: fatal error: asm/msr-index.h: No=
+ such file or directory
+    2    helpers.c:12:10: fatal error: syscall.h: No such file or directory
+    2    fuse_mnt.c:17:10: fatal error: fuse.h: No such file or directory
+    2    compaction_test.c:12:10: fatal error: sys/mman.h: No such file or =
+directory
+    2    close_range_test.c:55:10: error: expected expression before =E2=80=
+=98return=E2=80=99
+    2    close_range_test.c:47:11: error: expected expression before =E2=80=
+=98return=E2=80=99
+    2    close_range_test.c:200:11: error: expected expression before =E2=
+=80=98return=E2=80=99
+    2    close_range_test.c:111:11: error: expected expression before =E2=
+=80=98return=E2=80=99
+    2    clone3/clone3_selftests.h:55:9: error: variable =E2=80=98args=E2=
+=80=99 has initializer but incomplete type
+    2    clone3/clone3_selftests.h:55:20: error: storage size of =E2=80=98a=
+rgs=E2=80=99 isn=E2=80=99t known
+    2    /scratch/linux/include/linux/compiler-clang.h/scratch/linux/includ=
+e/linux/compiler-clang.h::1111::33::  errorerror: : Sorry, your version of =
+Clang is too old - please use 10.0.1 or newer.Sorry, your version of Clang =
+is too old - please use 10.0.1 or newer.
+    1    unprivileged-remount-test.c:8:10: fatal error: sys/mount.h: No suc=
+h file or directory
+    1    udmabuf.c:7:10: fatal error: linux/fcntl.h: No such file or direct=
+ory
+    1    test_fpu.c:12:10: fatal error: fenv.h: No such file or directory
+    1    step_after_suspend_test.c:16:10: fatal error: sys/ptrace.h: No suc=
+h file or directory
+    1    splice_read.c:49:15: error: =E2=80=98SPLICE_F_MOVE=E2=80=99 undecl=
+ared (first use in this function)
+    1    setdate.c:10:10: fatal error: linux/rtc.h: No such file or directo=
+ry
+    1    seccomp_bpf.c:24:10: fatal error: linux/filter.h: No such file or =
+directory
+    1    seccomp_bpf.c:16:20: error: missing binary operator before token "=
+("
+    1    seccomp_benchmark.c:11:10: fatal error: linux/filter.h: No such fi=
+le or directory
+    1    sas.c:14:10: fatal error: sys/mman.h: No such file or directory
+    1    rtctest.c:10:10: fatal error: linux/rtc.h: No such file or directo=
+ry
+    1    reuseport_bpf_cpu.c:17:10: fatal error: arpa/inet.h: No such file =
+or directory
+    1    reuseport_bpf.c:11:10: fatal error: error.h: No such file or direc=
+tory
+    1    resolve_test.c:12:10: fatal error: sys/mount.h: No such file or di=
+rectory
+    1    proc.h:10:10: fatal error: sys/syscall.h: No such file or director=
+y
+    1    posix_timers.c:217:25: error: =E2=80=98CLOCK_PROCESS_CPUTIME_ID=E2=
+=80=99 undeclared (first use in this function); did you mean =E2=80=98CLOCK=
+_REALTIME=E2=80=99?
+    1    posix_timers.c:205:25: error: =E2=80=98CLOCK_THREAD_CPUTIME_ID=E2=
+=80=99 undeclared (first use in this function); did you mean =E2=80=98CLOCK=
+_REALTIME=E2=80=99?
+    1    posix_timers.c:150:22: error: =E2=80=98CLOCK_PROCESS_CPUTIME_ID=E2=
+=80=99 undeclared (first use in this function); did you mean =E2=80=98CLOCK=
+_REALTIME=E2=80=99?
+    1    posix_timers.c:148:15: error: =E2=80=98CLOCK_THREAD_CPUTIME_ID=E2=
+=80=99 undeclared (first use in this function); did you mean =E2=80=98CLOCK=
+_REALTIME=E2=80=99?
+    1    pm_nl_ctl.c:4:10: fatal error: error.h: No such file or directory
+    1    pidns.c:12:10: fatal error: sys/ioctl.h: No such file or directory
+    1    owner.c:12:10: fatal error: sys/ioctl.h: No such file or directory
+    1    openat2_test.c:12:10: fatal error: sys/mount.h: No such file or di=
+rectory
+    1    open-unlink.c:7:10: fatal error: sys/ioctl.h: No such file or dire=
+ctory
+    1    nosymfollow-test.c:12:10: fatal error: sys/mount.h: No such file o=
+r directory
+    1    nf-queue.c:11:10: fatal error: arpa/inet.h: No such file or direct=
+ory
+    1    nanosleep.c:27:10: fatal error: sys/timex.h: No such file or direc=
+tory
+    1    msgque.c:7:10: fatal error: sys/msg.h: No such file or directory
+    1    mq_perf_tests.c:38:10: fatal error: mqueue.h: No such file or dire=
+ctory
+    1    mq_open_tests.c:33:10: fatal error: mqueue.h: No such file or dire=
+ctory
+    1    mptcp_connect.c:17:10: fatal error: sys/poll.h: No such file or di=
+rectory
+    1    mincore_selftest.c:14:10: fatal error: sys/mman.h: No such file or=
+ directory
+    1    membarrier_test_single_thread.c:3:10: fatal error: linux/membarrie=
+r.h: No such file or directory
+    1    membarrier_test_multi_thread.c:3:10: fatal error: linux/membarrier=
+.h: No such file or directory
+    1    load_address.c:5:10: fatal error: link.h: No such file or director=
+y
+    1    kcmp_test.c:12:10: fatal error: linux/unistd.h: No such file or di=
+rectory
+    1    fw_namespace.c:14:10: fatal error: sys/mount.h: No such file or di=
+rectory
+    1    epoll_wakeup_test.c:4:10: fatal error: poll.h: No such file or dir=
+ectory
+    1    dnotify_test.c:28:42: error: =E2=80=98DN_MULTISHOT=E2=80=99 undecl=
+ared (first use in this function)
+    1    dnotify_test.c:28:32: error: =E2=80=98DN_CREATE=E2=80=99 undeclare=
+d (first use in this function); did you mean =E2=80=98O_CREAT=E2=80=99?
+    1    dnotify_test.c:28:22: error: =E2=80=98DN_MODIFY=E2=80=99 undeclare=
+d (first use in this function)
+    1    dnotify_test.c:28:12: error: =E2=80=98F_NOTIFY=E2=80=99 undeclared=
+ (first use in this function); did you mean =E2=80=98O_NOCTTY=E2=80=99?
+    1    dnotify_test.c:27:12: error: =E2=80=98F_SETSIG=E2=80=99 undeclared=
+ (first use in this function); did you mean =E2=80=98FD_SETSIZE=E2=80=99?
+    1    dnotify_test.c:24:12: error: =E2=80=98SIGRTMIN=E2=80=99 undeclared=
+ (first use in this function); did you mean =E2=80=98SIGTTIN=E2=80=99?
+    1    dnotify_test.c:23:17: error: =E2=80=98SA_SIGINFO=E2=80=99 undeclar=
+ed (first use in this function); did you mean =E2=80=98S_IFIFO=E2=80=99?
+    1    dnotify_test.c:21:5: error: =E2=80=98struct sigaction=E2=80=99 has=
+ no member named =E2=80=98sa_sigaction=E2=80=99
+    1    dnotify_test.c:13:17: error: =E2=80=98siginfo_t=E2=80=99 {aka =E2=
+=80=98struct <anonymous>=E2=80=99} has no member named =E2=80=98si_fd=E2=80=
+=99; did you mean =E2=80=98si_code=E2=80=99?
+    1    devpts_pts.c:11:10: fatal error: asm/ioctls.h: No such file or dir=
+ectory
+    1    close_range_test.c:6:10: fatal error: linux/kernel.h: No such file=
+ or directory
+    1    clone3_clear_sighand.c:11:10: fatal error: linux/sched.h: No such =
+file or directory
+    1    clone3.c:8:10: fatal error: linux/types.h: No such file or directo=
+ry
+    1    bug-link-o-tmpfile.c:23:10: fatal error: sys/mount.h: No such file=
+ or directory
+    1    11:3: error: Sorry, your version of Clang is too old - please use =
+10.0.1 or newer.
+    1    /usr/arc-elf32/sys-include/sys/dirent.h:10:2: error: #error "<dire=
+nt.h> not supported"
+    1    /usr/arc-elf32/sys-include/dirent.h:76:15: error: unknown type nam=
+e =E2=80=98DIR=E2=80=99
+    1    /usr/arc-elf32/sys-include/dirent.h:73:15: error: unknown type nam=
+e =E2=80=98DIR=E2=80=99
+    1    /usr/arc-elf32/sys-include/dirent.h:72:15: error: unknown type nam=
+e =E2=80=98DIR=E2=80=99
+    1    /usr/arc-elf32/sys-include/dirent.h:61:17: error: unknown type nam=
+e =E2=80=98DIR=E2=80=99
+    1    /usr/arc-elf32/sys-include/dirent.h:58:16: error: unknown type nam=
+e =E2=80=98DIR=E2=80=99
+    1    /usr/arc-elf32/sys-include/dirent.h:56:11: error: unknown type nam=
+e =E2=80=98DIR=E2=80=99
+    1    /usr/arc-elf32/sys-include/dirent.h:54:1: error: unknown type name=
+ =E2=80=98DIR=E2=80=99
+    1    /usr/arc-elf32/sys-include/dirent.h:53:1: error: unknown type name=
+ =E2=80=98DIR=E2=80=99
+    1    /usr/arc-elf32/sys-include/dirent.h:51:17: error: unknown type nam=
+e =E2=80=98DIR=E2=80=99
+    1    /usr/arc-elf32/sys-include/dirent.h:48:12: error: unknown type nam=
+e =E2=80=98DIR=E2=80=99
+    1    /scratch/linux/mm/secretmem.c:50:33: error: =E2=80=98PMD_PAGE_ORDE=
+R=E2=80=99 undeclared (first use in this function); did you mean =E2=80=98M=
+AX_ORDER=E2=80=99?
+    1    /scratch/linux/mm/secretmem.c:146:6: error: implicit declaration o=
+f function =E2=80=98mlock_future_check=E2=80=99; did you mean =E2=80=98lock=
+s_free_lock=E2=80=99? [-Werror=3Dimplicit-function-declaration]
+    1    /scratch/linux/include/linux/compiler-clang.h/scratch/linux/includ=
+e/linux/compiler-clang.h:11::113::3 : errorerror: : Sorry, your version of =
+Clang is too old - please use 10.0.1 or newer.Sorry, your version of Clang =
+is too old - please use 10.0.1 or newer.
+    1    ../../include/uapi/linux/types.h:5:10: fatal error: asm-generic/in=
+t-ll64.h: No such file or directory
+
+Warnings summary:
+
+    384  <stdin>:1532:2: warning: #warning syscall memfd_secret not impleme=
+nted [-Wcpp]
+    24   cc1: warning: -fsanitize=3Daddress not supported for this target
+    18   /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.=
+dtsi:7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-range=
+s" property but its #size-cells (1) differs from / (2)
+    18   /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.=
+dtsi:7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-range=
+s" property but its #address-cells (1) differs from / (2)
+    9    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Fa=
+iled prerequisite 'spi_bus_bridge'
+    9    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (=
+spi_bus_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for =
+SPI bus
+    9    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (=
+spi_bus_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells f=
+or SPI bus
+    8    pidfd_wait.c:22:25: warning: excess elements in struct initializer
+    8    cc1: warning: -fsanitize=3Daddress and -fsanitize=3Dkernel-address=
+ are not supported for this target
+    8    /scratch/linux/drivers/gpu/drm/msm/dsi/pll/dsi_pll_7nm.c:882:19: w=
+arning: conversion from =E2=80=98long long unsigned int=E2=80=99 to =E2=80=
+=98long unsigned int=E2=80=99 changes value from =E2=80=985000000000=E2=80=
+=99 to =E2=80=98705032704=E2=80=99 [-Woverflow]
+    7    rsync -a /root/build/kselftest/lkdtm/PANIC.sh /root/build/kselftes=
+t/lkdtm/BUG.sh /root/build/kselftest/lkdtm/WARNING.sh /root/build/kselftest=
+/lkdtm/WARNING_MESSAGE.sh /root/build/kselftest/lkdtm/EXCEPTION.sh /root/bu=
+ild/kselftest/lkdtm/LOOP.sh /root/build/kselftest/lkdtm/EXHAUST_STACK.sh /r=
+oot/build/kselftest/lkdtm/CORRUPT_STACK.sh /root/build/kselftest/lkdtm/CORR=
+UPT_STACK_STRONG.sh /root/build/kselftest/lkdtm/CORRUPT_LIST_ADD.sh /root/b=
+uild/kselftest/lkdtm/CORRUPT_LIST_DEL.sh /root/build/kselftest/lkdtm/STACK_=
+GUARD_PAGE_LEADING.sh /root/build/kselftest/lkdtm/STACK_GUARD_PAGE_TRAILING=
+.sh /root/build/kselftest/lkdtm/UNSET_SMEP.sh /root/build/kselftest/lkdtm/D=
+OUBLE_FAULT.sh /root/build/kselftest/lkdtm/CORRUPT_PAC.sh /root/build/kself=
+test/lkdtm/UNALIGNED_LOAD_STORE_WRITE.sh /root/build/kselftest/lkdtm/OVERWR=
+ITE_ALLOCATION.sh /root/build/kselftest/lkdtm/WRITE_AFTER_FREE.sh /root/bui=
+ld/kselftest/lkdtm/READ_AFTER_FREE.sh /root/build/kselftest/lkdtm/WRITE_BUD=
+DY_AFTER_FREE.sh /root/build/kselftest/lkdtm/READ_BUDDY_AFTER_FREE.sh /root=
+/build/kselftest/lkdtm/SLAB_FREE_DOUBLE.sh /root/build/kselftest/lkdtm/SLAB=
+_FREE_CROSS.sh /root/build/kselftest/lkdtm/SLAB_FREE_PAGE.sh /root/build/ks=
+elftest/lkdtm/SOFTLOCKUP.sh /root/build/kselftest/lkdtm/HARDLOCKUP.sh /root=
+/build/kselftest/lkdtm/SPINLOCKUP.sh /root/build/kselftest/lkdtm/HUNG_TASK.=
+sh /root/build/kselftest/lkdtm/EXEC_DATA.sh /root/build/kselftest/lkdtm/EXE=
+C_STACK.sh /root/build/kselftest/lkdtm/EXEC_KMALLOC.sh /root/build/kselftes=
+t/lkdtm/EXEC_VMALLOC.sh /root/build/kselftest/lkdtm/EXEC_RODATA.sh /root/bu=
+ild/kselftest/lkdtm/EXEC_USERSPACE.sh /root/build/kselftest/lkdtm/EXEC_NULL=
+.sh /root/build/kselftest/lkdtm/ACCESS_USERSPACE.sh /root/build/kselftest/l=
+kdtm/ACCESS_NULL.sh /root/build/kselftest/lkdtm/WRITE_RO.sh /root/build/kse=
+lftest/lkdtm/WRITE_RO_AFTER_INIT.sh /root/build/kselftest/lkdtm/WRITE_KERN.=
+sh /root/build/kselftest/lkdtm/REFCOUNT_INC_OVERFLOW.sh /root/build/kselfte=
+st/lkdtm/REFCOUNT_ADD_OVERFLOW.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_=
+NOT_ZERO_OVERFLOW.sh /root/build/kselftest/lkdtm/REFCOUNT_ADD_NOT_ZERO_OVER=
+FLOW.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_ZERO.sh /root/build/kselft=
+est/lkdtm/REFCOUNT_DEC_NEGATIVE.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC=
+_AND_TEST_NEGATIVE.sh /root/build/kselftest/lkdtm/REFCOUNT_SUB_AND_TEST_NEG=
+ATIVE.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_ZERO.sh /root/build/kself=
+test/lkdtm/REFCOUNT_ADD_ZERO.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_SA=
+TURATED.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_SATURATED.sh /root/buil=
+d/kselftest/lkdtm/REFCOUNT_ADD_SATURATED.sh /root/build/kselftest/lkdtm/REF=
+COUNT_INC_NOT_ZERO_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT_ADD_NO=
+T_ZERO_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_AND_TEST_SATUR=
+ATED.sh /root/build/kselftest/lkdtm/REFCOUNT_SUB_AND_TEST_SATURATED.sh /roo=
+t/build/kselftest/lkdtm/REFCOUNT_TIMING.sh /root/build/kselftest/lkdtm/ATOM=
+IC_TIMING.sh /root/build/kselftest/lkdtm/USERCOPY_HEAP_SIZE_TO.sh /root/bui=
+ld/kselftest/lkdtm/USERCOPY_HEAP_SIZE_FROM.sh /root/build/kselftest/lkdtm/U=
+SERCOPY_HEAP_WHITELIST_TO.sh /root/build/kselftest/lkdtm/USERCOPY_HEAP_WHIT=
+ELIST_FROM.sh /root/build/kselftest/lkdtm/USERCOPY_STACK_FRAME_TO.sh /root/=
+build/kselftest/lkdtm/USERCOPY_STACK_FRAME_FROM.sh /root/build/kselftest/lk=
+dtm/USERCOPY_STACK_BEYOND.sh /root/build/kselftest/lkdtm/USERCOPY_KERNEL.sh=
+ /root/build/kselftest/lkdtm/STACKLEAK_ERASING.sh /root/build/kselftest/lkd=
+tm/CFI_FORWARD_PROTO.sh /root/build/_kselftest_/lkdtm/
+    7    install -m 0744 run.sh /root/build/kselftest/lkdtm/WARNING_MESSAGE=
+.sh
+    7    install -m 0744 run.sh /root/build/kselftest/lkdtm/WARNING.sh
+    6    pidfd.h:30:21: warning: excess elements in struct initializer
+    6    /scratch/linux/include/linux/kern_levels.h:5:18: warning: format =
+=E2=80=98%lu=E2=80=99 expects argument of type =E2=80=98long unsigned int=
+=E2=80=99, but argument 8 has type =E2=80=98unsigned int=E2=80=99 [-Wformat=
+=3D]
+    6    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:185.3-14: War=
+ning (dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but =
+its #size-cells (1) differs from / (2)
+    6    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:185.3-14: War=
+ning (dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but =
+its #address-cells (1) differs from / (2)
+    3    WARNING: modpost: missing MODULE_LICENSE() in sound/soc/sof/imx/im=
+x-common.o
+    3    1 warning generated.
+    3    /scratch/linux/drivers/dma/sf-pdma/sf-pdma.c:287:23: warning: unus=
+ed variable =E2=80=98desc=E2=80=99 [-Wunused-variable]
+    2    tls.c:1273:39: warning: unused variable =E2=80=98tls12=E2=80=99 [-=
+Wunused-variable]
+    2    tls.c:1221:39: warning: unused variable =E2=80=98tls12=E2=80=99 [-=
+Wunused-variable]
+    2    proc-uptime-002.c:18: warning: "_GNU_SOURCE" redefined
+    2    proc-self-syscall.c:16: warning: "_GNU_SOURCE" redefined
+    2    proc-loadavg-001.c:17: warning: "_GNU_SOURCE" redefined
+    2    pidfd_wait.c:44:18: warning: excess elements in struct initializer
+    2    pidfd_wait.c:24:32: warning: =E2=80=98struct clone_args=E2=80=99 d=
+eclared inside parameter list will not be visible outside of this definitio=
+n or declaration
+    2    pidfd_wait.c:129:18: warning: excess elements in struct initialize=
+r
+    2    pidfd_setns_test.c:80:18: warning: excess elements in struct initi=
+alizer
+    2    memfd_test.c:90:6: warning: implicit declaration of function =E2=
+=80=98fcntl=E2=80=99; did you mean =E2=80=98fcvt=E2=80=99? [-Wimplicit-func=
+tion-declaration]
+    2    memfd_test.c:64:7: warning: implicit declaration of function =E2=
+=80=98open=E2=80=99; did you mean =E2=80=98popen=E2=80=99? [-Wimplicit-func=
+tion-declaration]
+    2    memfd_test.c:397:6: warning: implicit declaration of function =E2=
+=80=98fallocate=E2=80=99; did you mean =E2=80=98alloca=E2=80=99? [-Wimplici=
+t-function-declaration]
+    2    lib/kvm_util.c:299:51: warning: excess elements in struct initiali=
+zer
+    2    lib/kvm_util.c:298:45: warning: excess elements in struct initiali=
+zer
+    2    lib/kvm_util.c:297:67: warning: excess elements in struct initiali=
+zer
+    2    lib/kvm_util.c:297:54: warning: excess elements in struct initiali=
+zer
+    2    lib/kvm_util.c:297:29: warning: unused variable =E2=80=98args=E2=
+=80=99 [-Wunused-variable]
+    2    fuse_test.c:67:6: warning: implicit declaration of function =E2=80=
+=98fcntl=E2=80=99; did you mean =E2=80=98fcvt=E2=80=99? [-Wimplicit-functio=
+n-declaration]
+    2    fuse_test.c:261:7: warning: implicit declaration of function =E2=
+=80=98open=E2=80=99; did you mean =E2=80=98popen=E2=80=99? [-Wimplicit-func=
+tion-declaration]
+    2    close_range_test.c:47:5: warning: implicit declaration of function=
+ =E2=80=98XFAIL=E2=80=99 [-Wimplicit-function-declaration]
+    2    clone3/clone3_selftests.h:45:32: warning: =E2=80=98struct clone_ar=
+gs=E2=80=99 declared inside parameter list will not be visible outside of t=
+his definition or declaration
+    2    clone3/clone3_selftests.h:16:25: warning: excess elements in struc=
+t initializer
+    2    aarch64-linux-gnu-ld: warning: orphan section `.igot.plt' from `ar=
+ch/arm64/kernel/head.o' being placed in section `.igot.plt'
+    2    Warning: Kernel ABI header at 'tools/include/uapi/linux/netlink.h'=
+ differs from latest version at 'include/uapi/linux/netlink.h'
+    2    Warning: Kernel ABI header at 'tools/include/uapi/linux/if_link.h'=
+ differs from latest version at 'include/uapi/linux/if_link.h'
+    2    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [=
+-Wcpp]
+    2    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [=
+-Wcpp]
+    2    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemente=
+d [-Wcpp]
+    2    /scratch/linux/drivers/net/ethernet/intel/ice/ice_flow.h:197:33: w=
+arning: cast from pointer to integer of different size [-Wpointer-to-int-ca=
+st]
+    2    /scratch/linux/drivers/base/regmap/regmap.c:713:6: warning: variab=
+le 'ret' is used uninitialized whenever 'if' condition is true [-Wsometimes=
+-uninitialized]
+    2    /scratch/linux/drivers/base/regmap/regmap.c:711:9: note: initializ=
+e the variable 'ret' to silence this warning
+    2    /scratch/linux/arch/arm64/kernel/smp.c:967:13: warning: =E2=80=98i=
+pi_teardown=E2=80=99 defined but not used [-Wunused-function]
+    1    {standard input}:39: Warning: macro instruction expanded into mult=
+iple instructions
+    1    sync_stress_parallelism.c:93:2: warning: implicit declaration of f=
+unction =E2=80=98pthread_create=E2=80=99; did you mean =E2=80=98pthread_atf=
+ork=E2=80=99? [-Wimplicit-function-declaration]
+    1    sync_stress_parallelism.c:100:2: warning: implicit declaration of =
+function =E2=80=98pthread_join=E2=80=99; did you mean =E2=80=98pthread_atfo=
+rk=E2=80=99? [-Wimplicit-function-declaration]
+    1    sync_stress_consumer.c:95:3: warning: implicit declaration of func=
+tion =E2=80=98pthread_mutex_unlock=E2=80=99; did you mean =E2=80=98pthread_=
+atfork=E2=80=99? [-Wimplicit-function-declaration]
+    1    sync_stress_consumer.c:93:3: warning: implicit declaration of func=
+tion =E2=80=98pthread_mutex_lock=E2=80=99; did you mean =E2=80=98pthread_at=
+fork=E2=80=99? [-Wimplicit-function-declaration]
+    1    sync_stress_consumer.c:182:3: warning: implicit declaration of fun=
+ction =E2=80=98pthread_join=E2=80=99; did you mean =E2=80=98pthread_atfork=
+=E2=80=99? [-Wimplicit-function-declaration]
+    1    sync_stress_consumer.c:174:3: warning: implicit declaration of fun=
+ction =E2=80=98pthread_create=E2=80=99; did you mean =E2=80=98pthread_atfor=
+k=E2=80=99? [-Wimplicit-function-declaration]
+    1    sync_stress_consumer.c:171:2: warning: implicit declaration of fun=
+ction =E2=80=98pthread_mutex_init=E2=80=99; did you mean =E2=80=98pthread_a=
+tfork=E2=80=99? [-Wimplicit-function-declaration]
+    1    splice_read.c:48:12: warning: implicit declaration of function =E2=
+=80=98splice=E2=80=99; did you mean =E2=80=98pipe=E2=80=99? [-Wimplicit-fun=
+ction-declaration]
+    1    posix_timers.c:40:9: warning: implicit declaration of function =E2=
+=80=98brk=E2=80=99; did you mean =E2=80=98sbrk=E2=80=99? [-Wimplicit-functi=
+on-declaration]
+    1    posix_timers.c:169:8: warning: implicit declaration of function =
+=E2=80=98timer_settime=E2=80=99; did you mean =E2=80=98timerisset=E2=80=99?=
+ [-Wimplicit-function-declaration]
+    1    posix_timers.c:156:8: warning: implicit declaration of function =
+=E2=80=98timer_create=E2=80=99; did you mean =E2=80=98timerclear=E2=80=99? =
+[-Wimplicit-function-declaration]
+    1    default_file_splice_read.c:7:9: warning: implicit declaration of f=
+unction =E2=80=98splice=E2=80=99; did you mean =E2=80=98select=E2=80=99? [-=
+Wimplicit-function-declaration]
+    1    cc1: some warnings being treated as errors
+    1    <stdin>:1532:2: warning: syscall memfd_secret not implemented [-W#=
+warnings]
+    1    /tmp/ccxLtHJh.s:18192: Warning: using r15 results in unpredictable=
+ behaviour
+    1    /tmp/ccxLtHJh.s:18120: Warning: using r15 results in unpredictable=
+ behaviour
+    1    /scratch/linux/drivers/net/ethernet/intel/ice/ice_flow.h:198:32: w=
+arning: cast to pointer from integer of different size [-Wint-to-pointer-ca=
+st]
+    1    /scratch/linux/drivers/block/paride/bpck.c:32: warning: "PC" redef=
+ined
+    1    /scratch/linux/arch/arm/mach-omap1/board-ams-delta.c:462:12: warni=
+ng: =E2=80=98ams_delta_camera_power=E2=80=99 defined but not used [-Wunused=
+-function]
+    1    .config:1178:warning: override: UNWINDER_GUESS changes choice stat=
+e
+    1    #warning syscall memfd_secret not implemented
+
+Section mismatches summary:
+
+    1    WARNING: modpost: vmlinux.o(.text.unlikely+0x2b4c): Section mismat=
+ch in reference from the function pmax_setup_memory_region() to the functio=
+n .init.text:add_memory_region()
+    1    WARNING: modpost: vmlinux.o(.text.unlikely+0x28fc): Section mismat=
+ch in reference from the function pmax_setup_memory_region() to the functio=
+n .init.text:add_memory_region()
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 PASS, 280 errors, 23 war=
+nings, 0 section mismatches
+
+Errors:
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    test_execve.c:4:10: fatal error: cap-ng.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    execveat.c:11:10: fatal error: sys/sendfile.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    ../kselftest_harness.h:56:10: fatal error: asm/types.h: No such file or=
+ directory
+    /usr/include/poll.h:1:10: fatal error: sys/poll.h: No such file or dire=
+ctory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdlib.h:25:10: fatal error: bits/libc-header-start.h: No =
+such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/linux/ioctl.h:5:10: fatal error: asm/ioctl.h: No such file=
+ or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdlib.h:25:10: fatal error: bits/libc-header-start.h: No =
+such file or directory
+    /usr/include/syscall.h:1:10: fatal error: sys/syscall.h: No such file o=
+r directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    kselftest_harness.h:56:10: fatal error: asm/types.h: No such file or di=
+rectory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    seccomp_bpf.c:9:10: fatal error: sys/types.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    get_size.c:29:10: fatal error: sys/sysinfo.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /bin/sh: 1: llc: not found
+    /bin/sh: 1: clang: not found
+    /bin/sh: 3: llc: not found
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    posix_timers.c:10:10: fatal error: sys/time.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    test_execve.c:4:10: fatal error: cap-ng.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    execveat.c:11:10: fatal error: sys/sendfile.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/poll.h:1:10: fatal error: sys/poll.h: No such file or dire=
+ctory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdlib.h:25:10: fatal error: bits/libc-header-start.h: No =
+such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/linux/ioctl.h:5:10: fatal error: asm/ioctl.h: No such file=
+ or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdlib.h:25:10: fatal error: bits/libc-header-start.h: No =
+such file or directory
+    /usr/include/syscall.h:1:10: fatal error: sys/syscall.h: No such file o=
+r directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    kselftest_harness.h:56:10: fatal error: asm/types.h: No such file or di=
+rectory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    seccomp_bpf.c:9:10: fatal error: sys/types.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    get_size.c:29:10: fatal error: sys/sysinfo.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /bin/sh: 1: llc: not found
+    /bin/sh: 1: clang: not found
+    /bin/sh: 3: llc: not found
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    posix_timers.c:10:10: fatal error: sys/time.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    /scratch/linux/include/linux/kern_levels.h:5:18: warning: format =E2=80=
+=98%lu=E2=80=99 expects argument of type =E2=80=98long unsigned int=E2=80=
+=99, but argument 8 has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    install -m 0744 run.sh /root/build/kselftest/lkdtm/WARNING.sh
+    install -m 0744 run.sh /root/build/kselftest/lkdtm/WARNING_MESSAGE.sh
+    cc1: warning: -fsanitize=3Daddress and -fsanitize=3Dkernel-address are =
+not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    cc1: warning: -fsanitize=3Daddress and -fsanitize=3Dkernel-address are =
+not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    cc1: warning: -fsanitize=3Daddress and -fsanitize=3Dkernel-address are =
+not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    cc1: warning: -fsanitize=3Daddress and -fsanitize=3Dkernel-address are =
+not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    rsync -a /root/build/kselftest/lkdtm/PANIC.sh /root/build/kselftest/lkd=
+tm/BUG.sh /root/build/kselftest/lkdtm/WARNING.sh /root/build/kselftest/lkdt=
+m/WARNING_MESSAGE.sh /root/build/kselftest/lkdtm/EXCEPTION.sh /root/build/k=
+selftest/lkdtm/LOOP.sh /root/build/kselftest/lkdtm/EXHAUST_STACK.sh /root/b=
+uild/kselftest/lkdtm/CORRUPT_STACK.sh /root/build/kselftest/lkdtm/CORRUPT_S=
+TACK_STRONG.sh /root/build/kselftest/lkdtm/CORRUPT_LIST_ADD.sh /root/build/=
+kselftest/lkdtm/CORRUPT_LIST_DEL.sh /root/build/kselftest/lkdtm/STACK_GUARD=
+_PAGE_LEADING.sh /root/build/kselftest/lkdtm/STACK_GUARD_PAGE_TRAILING.sh /=
+root/build/kselftest/lkdtm/UNSET_SMEP.sh /root/build/kselftest/lkdtm/DOUBLE=
+_FAULT.sh /root/build/kselftest/lkdtm/CORRUPT_PAC.sh /root/build/kselftest/=
+lkdtm/UNALIGNED_LOAD_STORE_WRITE.sh /root/build/kselftest/lkdtm/OVERWRITE_A=
+LLOCATION.sh /root/build/kselftest/lkdtm/WRITE_AFTER_FREE.sh /root/build/ks=
+elftest/lkdtm/READ_AFTER_FREE.sh /root/build/kselftest/lkdtm/WRITE_BUDDY_AF=
+TER_FREE.sh /root/build/kselftest/lkdtm/READ_BUDDY_AFTER_FREE.sh /root/buil=
+d/kselftest/lkdtm/SLAB_FREE_DOUBLE.sh /root/build/kselftest/lkdtm/SLAB_FREE=
+_CROSS.sh /root/build/kselftest/lkdtm/SLAB_FREE_PAGE.sh /root/build/kselfte=
+st/lkdtm/SOFTLOCKUP.sh /root/build/kselftest/lkdtm/HARDLOCKUP.sh /root/buil=
+d/kselftest/lkdtm/SPINLOCKUP.sh /root/build/kselftest/lkdtm/HUNG_TASK.sh /r=
+oot/build/kselftest/lkdtm/EXEC_DATA.sh /root/build/kselftest/lkdtm/EXEC_STA=
+CK.sh /root/build/kselftest/lkdtm/EXEC_KMALLOC.sh /root/build/kselftest/lkd=
+tm/EXEC_VMALLOC.sh /root/build/kselftest/lkdtm/EXEC_RODATA.sh /root/build/k=
+selftest/lkdtm/EXEC_USERSPACE.sh /root/build/kselftest/lkdtm/EXEC_NULL.sh /=
+root/build/kselftest/lkdtm/ACCESS_USERSPACE.sh /root/build/kselftest/lkdtm/=
+ACCESS_NULL.sh /root/build/kselftest/lkdtm/WRITE_RO.sh /root/build/kselftes=
+t/lkdtm/WRITE_RO_AFTER_INIT.sh /root/build/kselftest/lkdtm/WRITE_KERN.sh /r=
+oot/build/kselftest/lkdtm/REFCOUNT_INC_OVERFLOW.sh /root/build/kselftest/lk=
+dtm/REFCOUNT_ADD_OVERFLOW.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_NOT_Z=
+ERO_OVERFLOW.sh /root/build/kselftest/lkdtm/REFCOUNT_ADD_NOT_ZERO_OVERFLOW.=
+sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_ZERO.sh /root/build/kselftest/l=
+kdtm/REFCOUNT_DEC_NEGATIVE.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_AND_=
+TEST_NEGATIVE.sh /root/build/kselftest/lkdtm/REFCOUNT_SUB_AND_TEST_NEGATIVE=
+.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_ZERO.sh /root/build/kselftest/=
+lkdtm/REFCOUNT_ADD_ZERO.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_SATURAT=
+ED.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_SATURATED.sh /root/build/kse=
+lftest/lkdtm/REFCOUNT_ADD_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT=
+_INC_NOT_ZERO_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT_ADD_NOT_ZER=
+O_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_AND_TEST_SATURATED.=
+sh /root/build/kselftest/lkdtm/REFCOUNT_SUB_AND_TEST_SATURATED.sh /root/bui=
+ld/kselftest/lkdtm/REFCOUNT_TIMING.sh /root/build/kselftest/lkdtm/ATOMIC_TI=
+MING.sh /root/build/kselftest/lkdtm/USERCOPY_HEAP_SIZE_TO.sh /root/build/ks=
+elftest/lkdtm/USERCOPY_HEAP_SIZE_FROM.sh /root/build/kselftest/lkdtm/USERCO=
+PY_HEAP_WHITELIST_TO.sh /root/build/kselftest/lkdtm/USERCOPY_HEAP_WHITELIST=
+_FROM.sh /root/build/kselftest/lkdtm/USERCOPY_STACK_FRAME_TO.sh /root/build=
+/kselftest/lkdtm/USERCOPY_STACK_FRAME_FROM.sh /root/build/kselftest/lkdtm/U=
+SERCOPY_STACK_BEYOND.sh /root/build/kselftest/lkdtm/USERCOPY_KERNEL.sh /roo=
+t/build/kselftest/lkdtm/STACKLEAK_ERASING.sh /root/build/kselftest/lkdtm/CF=
+I_FORWARD_PROTO.sh /root/build/_kselftest_/lkdtm/
+    cc1: warning: -fsanitize=3Daddress and -fsanitize=3Dkernel-address are =
+not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    cc1: warning: -fsanitize=3Daddress and -fsanitize=3Dkernel-address are =
+not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    cc1: warning: -fsanitize=3Daddress and -fsanitize=3Dkernel-address are =
+not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    cc1: warning: -fsanitize=3Daddress and -fsanitize=3Dkernel-address are =
+not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, clang-9) =E2=80=94 FAIL, 2 errors, 0 warnings, 0 section=
+ mismatches
+
+Errors:
+    /scratch/linux/include/linux/compiler-clang.h:11:3: error: Sorry, your =
+version of Clang is too old - please use 10.0.1 or newer.
+    /scratch/linux/include/linux/compiler-clang.h:11:3: error: Sorry, your =
+version of Clang is too old - please use 10.0.1 or newer.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 14 warnings, 0 section =
+mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    /tmp/ccxLtHJh.s:18120: Warning: using r15 results in unpredictable beha=
+viour
+    /tmp/ccxLtHJh.s:18192: Warning: using r15 results in unpredictable beha=
+viour
+    /scratch/linux/drivers/dma/sf-pdma/sf-pdma.c:287:23: warning: unused va=
+riable =E2=80=98desc=E2=80=99 [-Wunused-variable]
+    /scratch/linux/include/linux/kern_levels.h:5:18: warning: format =E2=80=
+=98%lu=E2=80=99 expects argument of type =E2=80=98long unsigned int=E2=80=
+=99, but argument 8 has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+    /scratch/linux/drivers/gpu/drm/msm/dsi/pll/dsi_pll_7nm.c:882:19: warnin=
+g: conversion from =E2=80=98long long unsigned int=E2=80=99 to =E2=80=98lon=
+g unsigned int=E2=80=99 changes value from =E2=80=985000000000=E2=80=99 to =
+=E2=80=98705032704=E2=80=99 [-Woverflow]
+    /scratch/linux/drivers/net/ethernet/intel/ice/ice_flow.h:197:33: warnin=
+g: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    /scratch/linux/drivers/net/ethernet/intel/ice/ice_flow.h:197:33: warnin=
+g: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    /scratch/linux/drivers/net/ethernet/intel/ice/ice_flow.h:198:32: warnin=
+g: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    WARNING: modpost: missing MODULE_LICENSE() in sound/soc/sof/imx/imx-com=
+mon.o
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells for SP=
+I bus
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for SPI b=
+us
+    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Failed =
+prerequisite 'spi_bus_bridge'
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    /scratch/linux/drivers/dma/sf-pdma/sf-pdma.c:287:23: warning: unused va=
+riable =E2=80=98desc=E2=80=99 [-Wunused-variable]
+    WARNING: modpost: missing MODULE_LICENSE() in sound/soc/sof/imx/imx-com=
+mon.o
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, clang-9) =E2=80=94 FAIL, 1 error, 0 warnings, 0 secti=
+on mismatches
+
+Errors:
+    /scratch/linux/include/linux/compiler-clang.h/scratch/linux/include/lin=
+ux/compiler-clang.h::1111::33::  errorerror: : Sorry, your version of Clang=
+ is too old - please use 10.0.1 or newer.Sorry, your version of Clang is to=
+o old - please use 10.0.1 or newer.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-9) =E2=80=94 FAIL, 2 errors, 0 warnings, 0 secti=
+on mismatches
+
+Errors:
+    /scratch/linux/include/linux/compiler-clang.h:11:3: error: Sorry, your =
+version of Clang is too old - please use 10.0.1 or newer.
+    /scratch/linux/include/linux/compiler-clang.h:11:3: error: Sorry, your =
+version of Clang is too old - please use 10.0.1 or newer.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 10 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    /scratch/linux/drivers/dma/sf-pdma/sf-pdma.c:287:23: warning: unused va=
+riable =E2=80=98desc=E2=80=99 [-Wunused-variable]
+    WARNING: modpost: missing MODULE_LICENSE() in sound/soc/sof/imx/imx-com=
+mon.o
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:185.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:185.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+size-cells (1) differs from / (2)
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
+smatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, clang-9) =E2=80=94 FAIL, 2 errors, 0 warnings, 0 section =
+mismatches
+
+Errors:
+    /scratch/linux/include/linux/compiler-clang.h:11:3: error: Sorry, your =
+version of Clang is too old - please use 10.0.1 or newer.
+    /scratch/linux/include/linux/compiler-clang.h:11:3: error: Sorry, your =
+version of Clang is too old - please use 10.0.1 or newer.
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, clang-9) =E2=80=94 FAIL, 2 errors, 0 warnings, 0 secti=
+on mismatches
+
+Errors:
+    /scratch/linux/include/linux/compiler-clang.h:11:3: error: Sorry, your =
+version of Clang is too old - please use 10.0.1 or newer.
+    /scratch/linux/include/linux/compiler-clang.h:11:3: error: Sorry, your =
+version of Clang is too old - please use 10.0.1 or newer.
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, clang-9) =E2=80=94 FAIL, 2 errors, 0 warnings, 0 sectio=
+n mismatches
+
+Errors:
+    /scratch/linux/include/linux/compiler-clang.h:11:3: error: Sorry, your =
+version of Clang is too old - please use 10.0.1 or newer.
+    /scratch/linux/include/linux/compiler-clang.h:11:3: error: Sorry, your =
+version of Clang is too old - please use 10.0.1 or newer.
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section =
+mismatches
+
+Warnings:
+    /scratch/linux/arch/arm64/kernel/smp.c:967:13: warning: =E2=80=98ipi_te=
+ardown=E2=80=99 defined but not used [-Wunused-function]
+    aarch64-linux-gnu-ld: warning: orphan section `.igot.plt' from `arch/ar=
+m64/kernel/head.o' being placed in section `.igot.plt'
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, clang-9) =E2=80=94 FAIL, 2 errors, 0 warnings, 0 =
+section mismatches
+
+Errors:
+    /scratch/linux/include/linux/compiler-clang.h:11:3: error: Sorry, your =
+version of Clang is too old - please use 10.0.1 or newer.
+    11:3: error: Sorry, your version of Clang is too old - please use 10.0.=
+1 or newer.
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings,=
+ 0 section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings,=
+ 0 section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings,=
+ 0 section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+cu1000-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+cu1830-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings,=
+ 0 section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+Section mismatches:
+    WARNING: modpost: vmlinux.o(.text.unlikely+0x2b4c): Section mismatch in=
+ reference from the function pmax_setup_memory_region() to the function .in=
+it.text:add_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings=
+, 0 section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+Section mismatches:
+    WARNING: modpost: vmlinux.o(.text.unlikely+0x28fc): Section mismatch in=
+ reference from the function pmax_setup_memory_region() to the function .in=
+it.text:add_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-9) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section m=
+ismatches
+
+Errors:
+    /scratch/linux/include/linux/compiler-clang.h/scratch/linux/include/lin=
+ux/compiler-clang.h::1111::33::  errorerror: : Sorry, your version of Clang=
+ is too old - please use 10.0.1 or newer.Sorry, your version of Clang is to=
+o old - please use 10.0.1 or newer.
+
+---------------------------------------------------------------------------=
+-----
+defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 8 warnings, 0 section mi=
+smatches
+
+Warnings:
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:185.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:185.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+size-cells (1) differs from / (2)
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-10) =E2=80=94 FAIL, 1 error, 3 warnings, 0 section =
+mismatches
+
+Errors:
+    error: fallthrough annotation does not directly precede switch label
+
+Warnings:
+    /scratch/linux/drivers/base/regmap/regmap.c:713:6: warning: variable 'r=
+et' is used uninitialized whenever 'if' condition is true [-Wsometimes-unin=
+itialized]
+    /scratch/linux/drivers/base/regmap/regmap.c:711:9: note: initialize the=
+ variable 'ret' to silence this warning
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, clang-9) =E2=80=94 FAIL, 1 err=
+or, 0 warnings, 0 section mismatches
+
+Errors:
+    /scratch/linux/include/linux/compiler-clang.h/scratch/linux/include/lin=
+ux/compiler-clang.h:11::113::3 : errorerror: : Sorry, your version of Clang=
+ is too old - please use 10.0.1 or newer.Sorry, your version of Clang is to=
+o old - please use 10.0.1 or newer.
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 error=
+s, 8 warnings, 0 section mismatches
+
+Warnings:
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:185.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:185.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+size-cells (1) differs from / (2)
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 8 warnings, 0 section mismatches
+
+Warnings:
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:185.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:185.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+size-cells (1) differs from / (2)
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 8 warnings, 0 section mismatches
+
+Warnings:
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:185.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:185.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+size-cells (1) differs from / (2)
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 302 errors, 11 warnings,=
+ 0 section mismatches
+
+Errors:
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    signals.S:4:10: fatal error: asm/unistd.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    test_execve.c:4:10: fatal error: cap-ng.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    execveat.c:11:10: fatal error: sys/sendfile.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    ../kselftest_harness.h:56:10: fatal error: asm/types.h: No such file or=
+ directory
+    /usr/include/poll.h:1:10: fatal error: sys/poll.h: No such file or dire=
+ctory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdlib.h:25:10: fatal error: bits/libc-header-start.h: No =
+such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/linux/ioctl.h:5:10: fatal error: asm/ioctl.h: No such file=
+ or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdlib.h:25:10: fatal error: bits/libc-header-start.h: No =
+such file or directory
+    /usr/include/syscall.h:1:10: fatal error: sys/syscall.h: No such file o=
+r directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    kselftest_harness.h:56:10: fatal error: asm/types.h: No such file or di=
+rectory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    seccomp_bpf.c:9:10: fatal error: sys/types.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    get_size.c:29:10: fatal error: sys/sysinfo.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /bin/sh: 1: llc: not found
+    /bin/sh: 1: clang: not found
+    /bin/sh: 3: llc: not found
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    posix_timers.c:10:10: fatal error: sys/time.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    signals.S:4:10: fatal error: asm/unistd.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    test_execve.c:4:10: fatal error: cap-ng.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    execveat.c:11:10: fatal error: sys/sendfile.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/poll.h:1:10: fatal error: sys/poll.h: No such file or dire=
+ctory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdlib.h:25:10: fatal error: bits/libc-header-start.h: No =
+such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/linux/ioctl.h:5:10: fatal error: asm/ioctl.h: No such file=
+ or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdlib.h:25:10: fatal error: bits/libc-header-start.h: No =
+such file or directory
+    /usr/include/syscall.h:1:10: fatal error: sys/syscall.h: No such file o=
+r directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    kselftest_harness.h:56:10: fatal error: asm/types.h: No such file or di=
+rectory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    seccomp_bpf.c:9:10: fatal error: sys/types.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    get_size.c:29:10: fatal error: sys/sysinfo.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /bin/sh: 1: llc: not found
+    /bin/sh: 1: clang: not found
+    /bin/sh: 3: llc: not found
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    posix_timers.c:10:10: fatal error: sys/time.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+
+Warnings:
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi:=
+7.3-14: Warning (dma_ranges_format): /usb:dma-ranges: empty "dma-ranges" pr=
+operty but its #size-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:185.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+address-cells (1) differs from / (2)
+    /scratch/linux/arch/arm64/boot/dts/qcom/ipq6018.dtsi:185.3-14: Warning =
+(dma_ranges_format): /soc:dma-ranges: empty "dma-ranges" property but its #=
+size-cells (1) differs from / (2)
+    install -m 0744 run.sh /root/build/kselftest/lkdtm/WARNING.sh
+    install -m 0744 run.sh /root/build/kselftest/lkdtm/WARNING_MESSAGE.sh
+    rsync -a /root/build/kselftest/lkdtm/PANIC.sh /root/build/kselftest/lkd=
+tm/BUG.sh /root/build/kselftest/lkdtm/WARNING.sh /root/build/kselftest/lkdt=
+m/WARNING_MESSAGE.sh /root/build/kselftest/lkdtm/EXCEPTION.sh /root/build/k=
+selftest/lkdtm/LOOP.sh /root/build/kselftest/lkdtm/EXHAUST_STACK.sh /root/b=
+uild/kselftest/lkdtm/CORRUPT_STACK.sh /root/build/kselftest/lkdtm/CORRUPT_S=
+TACK_STRONG.sh /root/build/kselftest/lkdtm/CORRUPT_LIST_ADD.sh /root/build/=
+kselftest/lkdtm/CORRUPT_LIST_DEL.sh /root/build/kselftest/lkdtm/STACK_GUARD=
+_PAGE_LEADING.sh /root/build/kselftest/lkdtm/STACK_GUARD_PAGE_TRAILING.sh /=
+root/build/kselftest/lkdtm/UNSET_SMEP.sh /root/build/kselftest/lkdtm/DOUBLE=
+_FAULT.sh /root/build/kselftest/lkdtm/CORRUPT_PAC.sh /root/build/kselftest/=
+lkdtm/UNALIGNED_LOAD_STORE_WRITE.sh /root/build/kselftest/lkdtm/OVERWRITE_A=
+LLOCATION.sh /root/build/kselftest/lkdtm/WRITE_AFTER_FREE.sh /root/build/ks=
+elftest/lkdtm/READ_AFTER_FREE.sh /root/build/kselftest/lkdtm/WRITE_BUDDY_AF=
+TER_FREE.sh /root/build/kselftest/lkdtm/READ_BUDDY_AFTER_FREE.sh /root/buil=
+d/kselftest/lkdtm/SLAB_FREE_DOUBLE.sh /root/build/kselftest/lkdtm/SLAB_FREE=
+_CROSS.sh /root/build/kselftest/lkdtm/SLAB_FREE_PAGE.sh /root/build/kselfte=
+st/lkdtm/SOFTLOCKUP.sh /root/build/kselftest/lkdtm/HARDLOCKUP.sh /root/buil=
+d/kselftest/lkdtm/SPINLOCKUP.sh /root/build/kselftest/lkdtm/HUNG_TASK.sh /r=
+oot/build/kselftest/lkdtm/EXEC_DATA.sh /root/build/kselftest/lkdtm/EXEC_STA=
+CK.sh /root/build/kselftest/lkdtm/EXEC_KMALLOC.sh /root/build/kselftest/lkd=
+tm/EXEC_VMALLOC.sh /root/build/kselftest/lkdtm/EXEC_RODATA.sh /root/build/k=
+selftest/lkdtm/EXEC_USERSPACE.sh /root/build/kselftest/lkdtm/EXEC_NULL.sh /=
+root/build/kselftest/lkdtm/ACCESS_USERSPACE.sh /root/build/kselftest/lkdtm/=
+ACCESS_NULL.sh /root/build/kselftest/lkdtm/WRITE_RO.sh /root/build/kselftes=
+t/lkdtm/WRITE_RO_AFTER_INIT.sh /root/build/kselftest/lkdtm/WRITE_KERN.sh /r=
+oot/build/kselftest/lkdtm/REFCOUNT_INC_OVERFLOW.sh /root/build/kselftest/lk=
+dtm/REFCOUNT_ADD_OVERFLOW.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_NOT_Z=
+ERO_OVERFLOW.sh /root/build/kselftest/lkdtm/REFCOUNT_ADD_NOT_ZERO_OVERFLOW.=
+sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_ZERO.sh /root/build/kselftest/l=
+kdtm/REFCOUNT_DEC_NEGATIVE.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_AND_=
+TEST_NEGATIVE.sh /root/build/kselftest/lkdtm/REFCOUNT_SUB_AND_TEST_NEGATIVE=
+.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_ZERO.sh /root/build/kselftest/=
+lkdtm/REFCOUNT_ADD_ZERO.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_SATURAT=
+ED.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_SATURATED.sh /root/build/kse=
+lftest/lkdtm/REFCOUNT_ADD_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT=
+_INC_NOT_ZERO_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT_ADD_NOT_ZER=
+O_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_AND_TEST_SATURATED.=
+sh /root/build/kselftest/lkdtm/REFCOUNT_SUB_AND_TEST_SATURATED.sh /root/bui=
+ld/kselftest/lkdtm/REFCOUNT_TIMING.sh /root/build/kselftest/lkdtm/ATOMIC_TI=
+MING.sh /root/build/kselftest/lkdtm/USERCOPY_HEAP_SIZE_TO.sh /root/build/ks=
+elftest/lkdtm/USERCOPY_HEAP_SIZE_FROM.sh /root/build/kselftest/lkdtm/USERCO=
+PY_HEAP_WHITELIST_TO.sh /root/build/kselftest/lkdtm/USERCOPY_HEAP_WHITELIST=
+_FROM.sh /root/build/kselftest/lkdtm/USERCOPY_STACK_FRAME_TO.sh /root/build=
+/kselftest/lkdtm/USERCOPY_STACK_FRAME_FROM.sh /root/build/kselftest/lkdtm/U=
+SERCOPY_STACK_BEYOND.sh /root/build/kselftest/lkdtm/USERCOPY_KERNEL.sh /roo=
+t/build/kselftest/lkdtm/STACKLEAK_ERASING.sh /root/build/kselftest/lkdtm/CF=
+I_FORWARD_PROTO.sh /root/build/_kselftest_/lkdtm/
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 280 errors, 11 warnings,=
+ 0 section mismatches
+
+Errors:
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    test_execve.c:4:10: fatal error: cap-ng.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    execveat.c:11:10: fatal error: sys/sendfile.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    ../kselftest_harness.h:56:10: fatal error: asm/types.h: No such file or=
+ directory
+    /usr/include/poll.h:1:10: fatal error: sys/poll.h: No such file or dire=
+ctory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdlib.h:25:10: fatal error: bits/libc-header-start.h: No =
+such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/linux/ioctl.h:5:10: fatal error: asm/ioctl.h: No such file=
+ or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdlib.h:25:10: fatal error: bits/libc-header-start.h: No =
+such file or directory
+    /usr/include/syscall.h:1:10: fatal error: sys/syscall.h: No such file o=
+r directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    kselftest_harness.h:56:10: fatal error: asm/types.h: No such file or di=
+rectory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    seccomp_bpf.c:9:10: fatal error: sys/types.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    get_size.c:29:10: fatal error: sys/sysinfo.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /bin/sh: 1: llc: not found
+    /bin/sh: 1: clang: not found
+    /bin/sh: 3: llc: not found
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    posix_timers.c:10:10: fatal error: sys/time.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    test_execve.c:4:10: fatal error: cap-ng.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    execveat.c:11:10: fatal error: sys/sendfile.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/poll.h:1:10: fatal error: sys/poll.h: No such file or dire=
+ctory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdlib.h:25:10: fatal error: bits/libc-header-start.h: No =
+such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/linux/ioctl.h:5:10: fatal error: asm/ioctl.h: No such file=
+ or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdlib.h:25:10: fatal error: bits/libc-header-start.h: No =
+such file or directory
+    /usr/include/syscall.h:1:10: fatal error: sys/syscall.h: No such file o=
+r directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    kselftest_harness.h:56:10: fatal error: asm/types.h: No such file or di=
+rectory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    seccomp_bpf.c:9:10: fatal error: sys/types.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    get_size.c:29:10: fatal error: sys/sysinfo.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /bin/sh: 1: llc: not found
+    /bin/sh: 1: clang: not found
+    /bin/sh: 3: llc: not found
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    posix_timers.c:10:10: fatal error: sys/time.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+
+Warnings:
+    install -m 0744 run.sh /root/build/kselftest/lkdtm/WARNING.sh
+    install -m 0744 run.sh /root/build/kselftest/lkdtm/WARNING_MESSAGE.sh
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    rsync -a /root/build/kselftest/lkdtm/PANIC.sh /root/build/kselftest/lkd=
+tm/BUG.sh /root/build/kselftest/lkdtm/WARNING.sh /root/build/kselftest/lkdt=
+m/WARNING_MESSAGE.sh /root/build/kselftest/lkdtm/EXCEPTION.sh /root/build/k=
+selftest/lkdtm/LOOP.sh /root/build/kselftest/lkdtm/EXHAUST_STACK.sh /root/b=
+uild/kselftest/lkdtm/CORRUPT_STACK.sh /root/build/kselftest/lkdtm/CORRUPT_S=
+TACK_STRONG.sh /root/build/kselftest/lkdtm/CORRUPT_LIST_ADD.sh /root/build/=
+kselftest/lkdtm/CORRUPT_LIST_DEL.sh /root/build/kselftest/lkdtm/STACK_GUARD=
+_PAGE_LEADING.sh /root/build/kselftest/lkdtm/STACK_GUARD_PAGE_TRAILING.sh /=
+root/build/kselftest/lkdtm/UNSET_SMEP.sh /root/build/kselftest/lkdtm/DOUBLE=
+_FAULT.sh /root/build/kselftest/lkdtm/CORRUPT_PAC.sh /root/build/kselftest/=
+lkdtm/UNALIGNED_LOAD_STORE_WRITE.sh /root/build/kselftest/lkdtm/OVERWRITE_A=
+LLOCATION.sh /root/build/kselftest/lkdtm/WRITE_AFTER_FREE.sh /root/build/ks=
+elftest/lkdtm/READ_AFTER_FREE.sh /root/build/kselftest/lkdtm/WRITE_BUDDY_AF=
+TER_FREE.sh /root/build/kselftest/lkdtm/READ_BUDDY_AFTER_FREE.sh /root/buil=
+d/kselftest/lkdtm/SLAB_FREE_DOUBLE.sh /root/build/kselftest/lkdtm/SLAB_FREE=
+_CROSS.sh /root/build/kselftest/lkdtm/SLAB_FREE_PAGE.sh /root/build/kselfte=
+st/lkdtm/SOFTLOCKUP.sh /root/build/kselftest/lkdtm/HARDLOCKUP.sh /root/buil=
+d/kselftest/lkdtm/SPINLOCKUP.sh /root/build/kselftest/lkdtm/HUNG_TASK.sh /r=
+oot/build/kselftest/lkdtm/EXEC_DATA.sh /root/build/kselftest/lkdtm/EXEC_STA=
+CK.sh /root/build/kselftest/lkdtm/EXEC_KMALLOC.sh /root/build/kselftest/lkd=
+tm/EXEC_VMALLOC.sh /root/build/kselftest/lkdtm/EXEC_RODATA.sh /root/build/k=
+selftest/lkdtm/EXEC_USERSPACE.sh /root/build/kselftest/lkdtm/EXEC_NULL.sh /=
+root/build/kselftest/lkdtm/ACCESS_USERSPACE.sh /root/build/kselftest/lkdtm/=
+ACCESS_NULL.sh /root/build/kselftest/lkdtm/WRITE_RO.sh /root/build/kselftes=
+t/lkdtm/WRITE_RO_AFTER_INIT.sh /root/build/kselftest/lkdtm/WRITE_KERN.sh /r=
+oot/build/kselftest/lkdtm/REFCOUNT_INC_OVERFLOW.sh /root/build/kselftest/lk=
+dtm/REFCOUNT_ADD_OVERFLOW.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_NOT_Z=
+ERO_OVERFLOW.sh /root/build/kselftest/lkdtm/REFCOUNT_ADD_NOT_ZERO_OVERFLOW.=
+sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_ZERO.sh /root/build/kselftest/l=
+kdtm/REFCOUNT_DEC_NEGATIVE.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_AND_=
+TEST_NEGATIVE.sh /root/build/kselftest/lkdtm/REFCOUNT_SUB_AND_TEST_NEGATIVE=
+.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_ZERO.sh /root/build/kselftest/=
+lkdtm/REFCOUNT_ADD_ZERO.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_SATURAT=
+ED.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_SATURATED.sh /root/build/kse=
+lftest/lkdtm/REFCOUNT_ADD_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT=
+_INC_NOT_ZERO_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT_ADD_NOT_ZER=
+O_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_AND_TEST_SATURATED.=
+sh /root/build/kselftest/lkdtm/REFCOUNT_SUB_AND_TEST_SATURATED.sh /root/bui=
+ld/kselftest/lkdtm/REFCOUNT_TIMING.sh /root/build/kselftest/lkdtm/ATOMIC_TI=
+MING.sh /root/build/kselftest/lkdtm/USERCOPY_HEAP_SIZE_TO.sh /root/build/ks=
+elftest/lkdtm/USERCOPY_HEAP_SIZE_FROM.sh /root/build/kselftest/lkdtm/USERCO=
+PY_HEAP_WHITELIST_TO.sh /root/build/kselftest/lkdtm/USERCOPY_HEAP_WHITELIST=
+_FROM.sh /root/build/kselftest/lkdtm/USERCOPY_STACK_FRAME_TO.sh /root/build=
+/kselftest/lkdtm/USERCOPY_STACK_FRAME_FROM.sh /root/build/kselftest/lkdtm/U=
+SERCOPY_STACK_BEYOND.sh /root/build/kselftest/lkdtm/USERCOPY_KERNEL.sh /roo=
+t/build/kselftest/lkdtm/STACKLEAK_ERASING.sh /root/build/kselftest/lkdtm/CF=
+I_FORWARD_PROTO.sh /root/build/_kselftest_/lkdtm/
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ebsa110_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+efm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section =
+mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig+kselftest (arc, gcc-8) =E2=80=94 PASS, 167 errors, 26=
+ warnings, 0 section mismatches
+
+Errors:
+    ion.h:18:10: fatal error: linux/ioctl.h: No such file or directory
+    ipcsocket.c:6:10: fatal error: sys/socket.h: No such file or directory
+    ionutils.c:7:10: fatal error: sys/ioctl.h: No such file or directory
+    step_after_suspend_test.c:16:10: fatal error: sys/ptrace.h: No such fil=
+e or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    test_execve.c:4:10: fatal error: cap-ng.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    arc-elf32-gcc: error: unrecognized command line option =E2=80=98-pthrea=
+d=E2=80=99
+    clone3.c:8:10: fatal error: linux/types.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    close_range_test.c:6:10: fatal error: linux/kernel.h: No such file or d=
+irectory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    udmabuf.c:7:10: fatal error: linux/fcntl.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    open-unlink.c:7:10: fatal error: sys/ioctl.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    execveat.c:11:10: fatal error: sys/sendfile.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    devpts_pts.c:11:10: fatal error: asm/ioctls.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    arc-elf32-gcc: error: unrecognized command line option =E2=80=98-pthrea=
+d=E2=80=99
+    epoll_wakeup_test.c:4:10: fatal error: poll.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    fw_namespace.c:14:10: fatal error: sys/mount.h: No such file or directo=
+ry
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    test_fpu.c:12:10: fatal error: fenv.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    arc-elf32-gcc: error: unrecognized command line option =E2=80=98-pthrea=
+d=E2=80=99
+    msgque.c:7:10: fatal error: sys/msg.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    ../../include/uapi/linux/types.h:5:10: fatal error: asm-generic/int-ll6=
+4.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    kcmp_test.c:12:10: fatal error: linux/unistd.h: No such file or directo=
+ry
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    lib/assert.c:12:10: fatal error: execinfo.h: No such file or directory
+    membarrier_test_single_thread.c:3:10: fatal error: linux/membarrier.h: =
+No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    ../../../include/uapi/linux/fcntl.h:5:10: fatal error: asm/fcntl.h: No =
+such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    ../../../include/uapi/linux/fcntl.h:5:10: fatal error: asm/fcntl.h: No =
+such file or directory
+    mincore_selftest.c:14:10: fatal error: sys/mman.h: No such file or dire=
+ctory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    unprivileged-remount-test.c:8:10: fatal error: sys/mount.h: No such fil=
+e or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    mq_open_tests.c:33:10: fatal error: mqueue.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    reuseport_bpf.c:11:10: fatal error: error.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    mptcp_connect.c:17:10: fatal error: sys/poll.h: No such file or directo=
+ry
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    nf-queue.c:11:10: fatal error: arpa/inet.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    owner.c:12:10: fatal error: sys/ioctl.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    arc-elf32-gcc: error: unrecognized command line option =E2=80=98-pthrea=
+d=E2=80=99
+    regression_enomem.c:5:10: fatal error: linux/types.h: No such file or d=
+irectory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    pidfd/pidfd.h:14:10: fatal error: syscall.h: No such file or directory
+    /usr/arc-elf32/sys-include/sys/dirent.h:10:2: error: #error "<dirent.h>=
+ not supported"
+    /usr/arc-elf32/sys-include/dirent.h:48:12: error: unknown type name =E2=
+=80=98DIR=E2=80=99
+    /usr/arc-elf32/sys-include/dirent.h:51:17: error: unknown type name =E2=
+=80=98DIR=E2=80=99
+    /usr/arc-elf32/sys-include/dirent.h:53:1: error: unknown type name =E2=
+=80=98DIR=E2=80=99
+    /usr/arc-elf32/sys-include/dirent.h:54:1: error: unknown type name =E2=
+=80=98DIR=E2=80=99
+    /usr/arc-elf32/sys-include/dirent.h:56:11: error: unknown type name =E2=
+=80=98DIR=E2=80=99
+    /usr/arc-elf32/sys-include/dirent.h:58:16: error: unknown type name =E2=
+=80=98DIR=E2=80=99
+    /usr/arc-elf32/sys-include/dirent.h:61:17: error: unknown type name =E2=
+=80=98DIR=E2=80=99
+    /usr/arc-elf32/sys-include/dirent.h:72:15: error: unknown type name =E2=
+=80=98DIR=E2=80=99
+    /usr/arc-elf32/sys-include/dirent.h:73:15: error: unknown type name =E2=
+=80=98DIR=E2=80=99
+    /usr/arc-elf32/sys-include/dirent.h:76:15: error: unknown type name =E2=
+=80=98DIR=E2=80=99
+    proc.h:10:10: fatal error: sys/syscall.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    arc-elf32-gcc: error: unrecognized command line option =E2=80=98-pthrea=
+d=E2=80=99
+    openat2_test.c:12:10: fatal error: sys/mount.h: No such file or directo=
+ry
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    helpers.c:12:10: fatal error: syscall.h: No such file or directory
+    rseq.c:25:10: fatal error: syscall.h: No such file or directory
+    rtctest.c:10:10: fatal error: linux/rtc.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    seccomp_bpf.c:16:20: error: missing binary operator before token "("
+    seccomp_bpf.c:24:10: fatal error: linux/filter.h: No such file or direc=
+tory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    sas.c:14:10: fatal error: sys/mman.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    get_size.c:29:10: fatal error: sys/sysinfo.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    arc-elf32-gcc: error: unrecognized command line option =E2=80=98-pthrea=
+d=E2=80=99
+    /bin/sh: 1: llc: not found
+    /bin/sh: 1: clang: not found
+    /bin/sh: 3: llc: not found
+    arc-elf32-gcc: error: unrecognized command line option =E2=80=98-pthrea=
+d=E2=80=99
+    posix_timers.c:148:15: error: =E2=80=98CLOCK_THREAD_CPUTIME_ID=E2=80=99=
+ undeclared (first use in this function); did you mean =E2=80=98CLOCK_REALT=
+IME=E2=80=99?
+    posix_timers.c:150:22: error: =E2=80=98CLOCK_PROCESS_CPUTIME_ID=E2=80=
+=99 undeclared (first use in this function); did you mean =E2=80=98CLOCK_RE=
+ALTIME=E2=80=99?
+    posix_timers.c:205:25: error: =E2=80=98CLOCK_THREAD_CPUTIME_ID=E2=80=99=
+ undeclared (first use in this function); did you mean =E2=80=98CLOCK_REALT=
+IME=E2=80=99?
+    posix_timers.c:217:25: error: =E2=80=98CLOCK_PROCESS_CPUTIME_ID=E2=80=
+=99 undeclared (first use in this function); did you mean =E2=80=98CLOCK_RE=
+ALTIME=E2=80=99?
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    bug-link-o-tmpfile.c:23:10: fatal error: sys/mount.h: No such file or d=
+irectory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    compaction_test.c:12:10: fatal error: sys/mman.h: No such file or direc=
+tory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    ion.h:18:10: fatal error: linux/ioctl.h: No such file or directory
+    ipcsocket.c:6:10: fatal error: sys/socket.h: No such file or directory
+    ionutils.c:7:10: fatal error: sys/ioctl.h: No such file or directory
+    ion.h:18:10: fatal error: linux/ioctl.h: No such file or directory
+    ipcsocket.c:6:10: fatal error: sys/socket.h: No such file or directory
+    ionutils.c:7:10: fatal error: sys/ioctl.h: No such file or directory
+    validate_cap.c:2:10: fatal error: cap-ng.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    arc-elf32-gcc: error: unrecognized command line option =E2=80=98-pthrea=
+d=E2=80=99
+    clone3_clear_sighand.c:11:10: fatal error: linux/sched.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    load_address.c:5:10: fatal error: link.h: No such file or directory
+    dnotify_test.c:13:17: error: =E2=80=98siginfo_t=E2=80=99 {aka =E2=80=98=
+struct <anonymous>=E2=80=99} has no member named =E2=80=98si_fd=E2=80=99; d=
+id you mean =E2=80=98si_code=E2=80=99?
+    dnotify_test.c:21:5: error: =E2=80=98struct sigaction=E2=80=99 has no m=
+ember named =E2=80=98sa_sigaction=E2=80=99
+    dnotify_test.c:23:17: error: =E2=80=98SA_SIGINFO=E2=80=99 undeclared (f=
+irst use in this function); did you mean =E2=80=98S_IFIFO=E2=80=99?
+    dnotify_test.c:24:12: error: =E2=80=98SIGRTMIN=E2=80=99 undeclared (fir=
+st use in this function); did you mean =E2=80=98SIGTTIN=E2=80=99?
+    dnotify_test.c:27:12: error: =E2=80=98F_SETSIG=E2=80=99 undeclared (fir=
+st use in this function); did you mean =E2=80=98FD_SETSIZE=E2=80=99?
+    dnotify_test.c:28:12: error: =E2=80=98F_NOTIFY=E2=80=99 undeclared (fir=
+st use in this function); did you mean =E2=80=98O_NOCTTY=E2=80=99?
+    dnotify_test.c:28:22: error: =E2=80=98DN_MODIFY=E2=80=99 undeclared (fi=
+rst use in this function)
+    dnotify_test.c:28:32: error: =E2=80=98DN_CREATE=E2=80=99 undeclared (fi=
+rst use in this function); did you mean =E2=80=98O_CREAT=E2=80=99?
+    dnotify_test.c:28:42: error: =E2=80=98DN_MULTISHOT=E2=80=99 undeclared =
+(first use in this function)
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    arc-elf32-gcc: error: unrecognized command line option =E2=80=98-pthrea=
+d=E2=80=99
+    arc-elf32-gcc: error: unrecognized command line option =E2=80=98-pthrea=
+d=E2=80=99
+    arc-elf32-gcc: error: unrecognized command line option =E2=80=98-pthrea=
+d=E2=80=99
+    lib/assert.c:12:10: fatal error: execinfo.h: No such file or directory
+    membarrier_test_multi_thread.c:3:10: fatal error: linux/membarrier.h: N=
+o such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    ../../../include/uapi/linux/fcntl.h:5:10: fatal error: asm/fcntl.h: No =
+such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    ../../../include/uapi/linux/fcntl.h:5:10: fatal error: asm/fcntl.h: No =
+such file or directory
+    nosymfollow-test.c:12:10: fatal error: sys/mount.h: No such file or dir=
+ectory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    mq_perf_tests.c:38:10: fatal error: mqueue.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    reuseport_bpf_cpu.c:17:10: fatal error: arpa/inet.h: No such file or di=
+rectory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    pm_nl_ctl.c:4:10: fatal error: error.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    pidns.c:12:10: fatal error: sys/ioctl.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    arc-elf32-gcc: error: unrecognized command line option =E2=80=98-pthrea=
+d=E2=80=99
+    regression_enomem.c:5:10: fatal error: linux/types.h: No such file or d=
+irectory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    pidfd/pidfd.h:14:10: fatal error: syscall.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    arc-elf32-gcc: error: unrecognized command line option =E2=80=98-pthrea=
+d=E2=80=99
+    resolve_test.c:12:10: fatal error: sys/mount.h: No such file or directo=
+ry
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    helpers.c:12:10: fatal error: syscall.h: No such file or directory
+    rseq.c:25:10: fatal error: syscall.h: No such file or directory
+    setdate.c:10:10: fatal error: linux/rtc.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    seccomp_benchmark.c:11:10: fatal error: linux/filter.h: No such file or=
+ directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    splice_read.c:49:15: error: =E2=80=98SPLICE_F_MOVE=E2=80=99 undeclared =
+(first use in this function)
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    arc-elf32-gcc: error: unrecognized command line option =E2=80=98-pthrea=
+d=E2=80=99
+    /bin/sh: 1: llc: not found
+    /bin/sh: 1: clang: not found
+    /bin/sh: 3: llc: not found
+    arc-elf32-gcc: error: unrecognized command line option =E2=80=98-pthrea=
+d=E2=80=99
+    nanosleep.c:27:10: fatal error: sys/timex.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    compaction_test.c:12:10: fatal error: sys/mman.h: No such file or direc=
+tory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    /scratch/linux/include/linux/kern_levels.h:5:18: warning: format =E2=80=
+=98%lu=E2=80=99 expects argument of type =E2=80=98long unsigned int=E2=80=
+=99, but argument 8 has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+    install -m 0744 run.sh /root/build/kselftest/lkdtm/WARNING.sh
+    install -m 0744 run.sh /root/build/kselftest/lkdtm/WARNING_MESSAGE.sh
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    default_file_splice_read.c:7:9: warning: implicit declaration of functi=
+on =E2=80=98splice=E2=80=99; did you mean =E2=80=98select=E2=80=99? [-Wimpl=
+icit-function-declaration]
+    sync_stress_parallelism.c:93:2: warning: implicit declaration of functi=
+on =E2=80=98pthread_create=E2=80=99; did you mean =E2=80=98pthread_atfork=
+=E2=80=99? [-Wimplicit-function-declaration]
+    sync_stress_parallelism.c:100:2: warning: implicit declaration of funct=
+ion =E2=80=98pthread_join=E2=80=99; did you mean =E2=80=98pthread_atfork=E2=
+=80=99? [-Wimplicit-function-declaration]
+    sync_stress_consumer.c:93:3: warning: implicit declaration of function =
+=E2=80=98pthread_mutex_lock=E2=80=99; did you mean =E2=80=98pthread_atfork=
+=E2=80=99? [-Wimplicit-function-declaration]
+    sync_stress_consumer.c:95:3: warning: implicit declaration of function =
+=E2=80=98pthread_mutex_unlock=E2=80=99; did you mean =E2=80=98pthread_atfor=
+k=E2=80=99? [-Wimplicit-function-declaration]
+    sync_stress_consumer.c:171:2: warning: implicit declaration of function=
+ =E2=80=98pthread_mutex_init=E2=80=99; did you mean =E2=80=98pthread_atfork=
+=E2=80=99? [-Wimplicit-function-declaration]
+    sync_stress_consumer.c:174:3: warning: implicit declaration of function=
+ =E2=80=98pthread_create=E2=80=99; did you mean =E2=80=98pthread_atfork=E2=
+=80=99? [-Wimplicit-function-declaration]
+    sync_stress_consumer.c:182:3: warning: implicit declaration of function=
+ =E2=80=98pthread_join=E2=80=99; did you mean =E2=80=98pthread_atfork=E2=80=
+=99? [-Wimplicit-function-declaration]
+    posix_timers.c:40:9: warning: implicit declaration of function =E2=80=
+=98brk=E2=80=99; did you mean =E2=80=98sbrk=E2=80=99? [-Wimplicit-function-=
+declaration]
+    posix_timers.c:156:8: warning: implicit declaration of function =E2=80=
+=98timer_create=E2=80=99; did you mean =E2=80=98timerclear=E2=80=99? [-Wimp=
+licit-function-declaration]
+    posix_timers.c:169:8: warning: implicit declaration of function =E2=80=
+=98timer_settime=E2=80=99; did you mean =E2=80=98timerisset=E2=80=99? [-Wim=
+plicit-function-declaration]
+    rsync -a /root/build/kselftest/lkdtm/PANIC.sh /root/build/kselftest/lkd=
+tm/BUG.sh /root/build/kselftest/lkdtm/WARNING.sh /root/build/kselftest/lkdt=
+m/WARNING_MESSAGE.sh /root/build/kselftest/lkdtm/EXCEPTION.sh /root/build/k=
+selftest/lkdtm/LOOP.sh /root/build/kselftest/lkdtm/EXHAUST_STACK.sh /root/b=
+uild/kselftest/lkdtm/CORRUPT_STACK.sh /root/build/kselftest/lkdtm/CORRUPT_S=
+TACK_STRONG.sh /root/build/kselftest/lkdtm/CORRUPT_LIST_ADD.sh /root/build/=
+kselftest/lkdtm/CORRUPT_LIST_DEL.sh /root/build/kselftest/lkdtm/STACK_GUARD=
+_PAGE_LEADING.sh /root/build/kselftest/lkdtm/STACK_GUARD_PAGE_TRAILING.sh /=
+root/build/kselftest/lkdtm/UNSET_SMEP.sh /root/build/kselftest/lkdtm/DOUBLE=
+_FAULT.sh /root/build/kselftest/lkdtm/CORRUPT_PAC.sh /root/build/kselftest/=
+lkdtm/UNALIGNED_LOAD_STORE_WRITE.sh /root/build/kselftest/lkdtm/OVERWRITE_A=
+LLOCATION.sh /root/build/kselftest/lkdtm/WRITE_AFTER_FREE.sh /root/build/ks=
+elftest/lkdtm/READ_AFTER_FREE.sh /root/build/kselftest/lkdtm/WRITE_BUDDY_AF=
+TER_FREE.sh /root/build/kselftest/lkdtm/READ_BUDDY_AFTER_FREE.sh /root/buil=
+d/kselftest/lkdtm/SLAB_FREE_DOUBLE.sh /root/build/kselftest/lkdtm/SLAB_FREE=
+_CROSS.sh /root/build/kselftest/lkdtm/SLAB_FREE_PAGE.sh /root/build/kselfte=
+st/lkdtm/SOFTLOCKUP.sh /root/build/kselftest/lkdtm/HARDLOCKUP.sh /root/buil=
+d/kselftest/lkdtm/SPINLOCKUP.sh /root/build/kselftest/lkdtm/HUNG_TASK.sh /r=
+oot/build/kselftest/lkdtm/EXEC_DATA.sh /root/build/kselftest/lkdtm/EXEC_STA=
+CK.sh /root/build/kselftest/lkdtm/EXEC_KMALLOC.sh /root/build/kselftest/lkd=
+tm/EXEC_VMALLOC.sh /root/build/kselftest/lkdtm/EXEC_RODATA.sh /root/build/k=
+selftest/lkdtm/EXEC_USERSPACE.sh /root/build/kselftest/lkdtm/EXEC_NULL.sh /=
+root/build/kselftest/lkdtm/ACCESS_USERSPACE.sh /root/build/kselftest/lkdtm/=
+ACCESS_NULL.sh /root/build/kselftest/lkdtm/WRITE_RO.sh /root/build/kselftes=
+t/lkdtm/WRITE_RO_AFTER_INIT.sh /root/build/kselftest/lkdtm/WRITE_KERN.sh /r=
+oot/build/kselftest/lkdtm/REFCOUNT_INC_OVERFLOW.sh /root/build/kselftest/lk=
+dtm/REFCOUNT_ADD_OVERFLOW.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_NOT_Z=
+ERO_OVERFLOW.sh /root/build/kselftest/lkdtm/REFCOUNT_ADD_NOT_ZERO_OVERFLOW.=
+sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_ZERO.sh /root/build/kselftest/l=
+kdtm/REFCOUNT_DEC_NEGATIVE.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_AND_=
+TEST_NEGATIVE.sh /root/build/kselftest/lkdtm/REFCOUNT_SUB_AND_TEST_NEGATIVE=
+.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_ZERO.sh /root/build/kselftest/=
+lkdtm/REFCOUNT_ADD_ZERO.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_SATURAT=
+ED.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_SATURATED.sh /root/build/kse=
+lftest/lkdtm/REFCOUNT_ADD_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT=
+_INC_NOT_ZERO_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT_ADD_NOT_ZER=
+O_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_AND_TEST_SATURATED.=
+sh /root/build/kselftest/lkdtm/REFCOUNT_SUB_AND_TEST_SATURATED.sh /root/bui=
+ld/kselftest/lkdtm/REFCOUNT_TIMING.sh /root/build/kselftest/lkdtm/ATOMIC_TI=
+MING.sh /root/build/kselftest/lkdtm/USERCOPY_HEAP_SIZE_TO.sh /root/build/ks=
+elftest/lkdtm/USERCOPY_HEAP_SIZE_FROM.sh /root/build/kselftest/lkdtm/USERCO=
+PY_HEAP_WHITELIST_TO.sh /root/build/kselftest/lkdtm/USERCOPY_HEAP_WHITELIST=
+_FROM.sh /root/build/kselftest/lkdtm/USERCOPY_STACK_FRAME_TO.sh /root/build=
+/kselftest/lkdtm/USERCOPY_STACK_FRAME_FROM.sh /root/build/kselftest/lkdtm/U=
+SERCOPY_STACK_BEYOND.sh /root/build/kselftest/lkdtm/USERCOPY_KERNEL.sh /roo=
+t/build/kselftest/lkdtm/STACKLEAK_ERASING.sh /root/build/kselftest/lkdtm/CF=
+I_FORWARD_PROTO.sh /root/build/_kselftest_/lkdtm/
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    cc1: warning: -fsanitize=3Daddress not supported for this target
+    splice_read.c:48:12: warning: implicit declaration of function =E2=80=
+=98splice=E2=80=99; did you mean =E2=80=98pipe=E2=80=99? [-Wimplicit-functi=
+on-declaration]
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 59 errors, 30 warnin=
+gs, 0 section mismatches
+
+Errors:
+    ionmap_test.c:14:10: fatal error: drm/drm.h: No such file or directory
+    test_verifier.c:25:10: fatal error: sys/capability.h: No such file or d=
+irectory
+    test_execve.c:4:10: fatal error: cap-ng.h: No such file or directory
+    collect2: error: ld returned 1 exit status
+    close_range_test.c:47:11: error: expected expression before =E2=80=98re=
+turn=E2=80=99
+    close_range_test.c:55:10: error: expected expression before =E2=80=98re=
+turn=E2=80=99
+    close_range_test.c:111:11: error: expected expression before =E2=80=98r=
+eturn=E2=80=99
+    close_range_test.c:200:11: error: expected expression before =E2=80=98r=
+eturn=E2=80=99
+    udmabuf.c:13:10: fatal error: linux/udmabuf.h: No such file or director=
+y
+    binderfs_test.c:22:10: fatal error: linux/android/binderfs.h: No such f=
+ile or directory
+    include/x86_64/processor.h:14:10: fatal error: asm/msr-index.h: No such=
+ file or directory
+    fuse_mnt.c:17:10: fatal error: fuse.h: No such file or directory
+    collect2: error: ld returned 1 exit status
+    reuseport_bpf_numa.c:24:10: fatal error: numa.h: No such file or direct=
+ory
+    pm_nl_ctl.c:19:10: fatal error: linux/mptcp.h: No such file or director=
+y
+    nf-queue.c:13:10: fatal error: libmnl/libmnl.h: No such file or directo=
+ry
+    pidfd_wait.c:26:43: error: invalid application of =E2=80=98sizeof=E2=80=
+=99 to incomplete type =E2=80=98struct clone_args=E2=80=99
+    pidfd_wait.c:40:9: error: variable =E2=80=98args=E2=80=99 has initializ=
+er but incomplete type
+    pidfd_wait.c:41:4: error: =E2=80=98struct clone_args=E2=80=99 has no me=
+mber named =E2=80=98parent_tid=E2=80=99
+    pidfd_wait.c:42:4: error: =E2=80=98struct clone_args=E2=80=99 has no me=
+mber named =E2=80=98pidfd=E2=80=99
+    pidfd_wait.c:43:4: error: =E2=80=98struct clone_args=E2=80=99 has no me=
+mber named =E2=80=98flags=E2=80=99
+    pidfd_wait.c:44:4: error: =E2=80=98struct clone_args=E2=80=99 has no me=
+mber named =E2=80=98exit_signal=E2=80=99
+    pidfd_wait.c:40:20: error: storage size of =E2=80=98args=E2=80=99 isn=
+=E2=80=99t known
+    pidfd_wait.c:125:9: error: variable =E2=80=98args=E2=80=99 has initiali=
+zer but incomplete type
+    pidfd_wait.c:126:4: error: =E2=80=98struct clone_args=E2=80=99 has no m=
+ember named =E2=80=98parent_tid=E2=80=99
+    pidfd_wait.c:127:4: error: =E2=80=98struct clone_args=E2=80=99 has no m=
+ember named =E2=80=98pidfd=E2=80=99
+    pidfd_wait.c:128:4: error: =E2=80=98struct clone_args=E2=80=99 has no m=
+ember named =E2=80=98flags=E2=80=99
+    pidfd_wait.c:129:4: error: =E2=80=98struct clone_args=E2=80=99 has no m=
+ember named =E2=80=98exit_signal=E2=80=99
+    pidfd_wait.c:125:20: error: storage size of =E2=80=98args=E2=80=99 isn=
+=E2=80=99t known
+    proc-fsconfig-hidepid.c:20:10: fatal error: linux/mount.h: No such file=
+ or directory
+    /bin/sh: 1: llc: not found
+    /bin/sh: 1: clang: not found
+    /bin/sh: 3: llc: not found
+    hmm-tests.c:24:10: fatal error: hugetlbfs.h: No such file or directory
+    ionmap_test.c:14:10: fatal error: drm/drm.h: No such file or directory
+    ionmap_test.c:14:10: fatal error: drm/drm.h: No such file or directory
+    test_verifier.c:25:10: fatal error: sys/capability.h: No such file or d=
+irectory
+    validate_cap.c:2:10: fatal error: cap-ng.h: No such file or directory
+    collect2: error: ld returned 1 exit status
+    binderfs_test.c:22:10: fatal error: linux/android/binderfs.h: No such f=
+ile or directory
+    include/x86_64/processor.h:14:10: fatal error: asm/msr-index.h: No such=
+ file or directory
+    collect2: error: ld returned 1 exit status
+    tls.c:116:17: error: =E2=80=98TLS_1_3_VERSION=E2=80=99 undeclared here =
+(not in a function); did you mean =E2=80=98TLS_1_2_VERSION=E2=80=99?
+    tls.c:1221:39: error: storage size of =E2=80=98tls12=E2=80=99 isn=E2=80=
+=99t known
+    tls.c:1230:27: error: =E2=80=98TLS_CIPHER_AES_GCM_256=E2=80=99 undeclar=
+ed (first use in this function); did you mean =E2=80=98TLS_CIPHER_AES_GCM_1=
+28=E2=80=99?
+    tls.c:1273:39: error: storage size of =E2=80=98tls12=E2=80=99 isn=E2=80=
+=99t known
+    tls.c:1284:27: error: =E2=80=98TLS_CIPHER_AES_GCM_256=E2=80=99 undeclar=
+ed (first use in this function); did you mean =E2=80=98TLS_CIPHER_AES_GCM_1=
+28=E2=80=99?
+    clone3/clone3_selftests.h:55:9: error: variable =E2=80=98args=E2=80=99 =
+has initializer but incomplete type
+    clone3/clone3_selftests.h:55:20: error: storage size of =E2=80=98args=
+=E2=80=99 isn=E2=80=99t known
+    pidfd_setns_test.c:78:9: error: variable =E2=80=98args=E2=80=99 has ini=
+tializer but incomplete type
+    pidfd_setns_test.c:79:4: error: =E2=80=98struct clone_args=E2=80=99 has=
+ no member named =E2=80=98flags=E2=80=99
+    pidfd_setns_test.c:80:4: error: =E2=80=98struct clone_args=E2=80=99 has=
+ no member named =E2=80=98exit_signal=E2=80=99
+    pidfd_setns_test.c:81:4: error: =E2=80=98struct clone_args=E2=80=99 has=
+ no member named =E2=80=98pidfd=E2=80=99
+    pidfd_setns_test.c:78:20: error: storage size of =E2=80=98args=E2=80=99=
+ isn=E2=80=99t known
+    pidfd_setns_test.c:84:34: error: invalid application of =E2=80=98sizeof=
+=E2=80=99 to incomplete type =E2=80=98struct clone_args=E2=80=99
+    /bin/sh: 1: llc: not found
+    /bin/sh: 1: clang: not found
+    /bin/sh: 3: llc: not found
+    hmm-tests.c:24:10: fatal error: hugetlbfs.h: No such file or directory
+
+Warnings:
+    /scratch/linux/include/linux/kern_levels.h:5:18: warning: format =E2=80=
+=98%lu=E2=80=99 expects argument of type =E2=80=98long unsigned int=E2=80=
+=99, but argument 8 has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+    Warning: Kernel ABI header at 'tools/include/uapi/linux/netlink.h' diff=
+ers from latest version at 'include/uapi/linux/netlink.h'
+    Warning: Kernel ABI header at 'tools/include/uapi/linux/if_link.h' diff=
+ers from latest version at 'include/uapi/linux/if_link.h'
+    close_range_test.c:47:5: warning: implicit declaration of function =E2=
+=80=98XFAIL=E2=80=99 [-Wimplicit-function-declaration]
+    install -m 0744 run.sh /root/build/kselftest/lkdtm/WARNING.sh
+    install -m 0744 run.sh /root/build/kselftest/lkdtm/WARNING_MESSAGE.sh
+    memfd_test.c:64:7: warning: implicit declaration of function =E2=80=98o=
+pen=E2=80=99; did you mean =E2=80=98popen=E2=80=99? [-Wimplicit-function-de=
+claration]
+    memfd_test.c:90:6: warning: implicit declaration of function =E2=80=98f=
+cntl=E2=80=99; did you mean =E2=80=98fcvt=E2=80=99? [-Wimplicit-function-de=
+claration]
+    memfd_test.c:397:6: warning: implicit declaration of function =E2=80=98=
+fallocate=E2=80=99; did you mean =E2=80=98alloca=E2=80=99? [-Wimplicit-func=
+tion-declaration]
+    fuse_test.c:67:6: warning: implicit declaration of function =E2=80=98fc=
+ntl=E2=80=99; did you mean =E2=80=98fcvt=E2=80=99? [-Wimplicit-function-dec=
+laration]
+    fuse_test.c:261:7: warning: implicit declaration of function =E2=80=98o=
+pen=E2=80=99; did you mean =E2=80=98popen=E2=80=99? [-Wimplicit-function-de=
+claration]
+    pidfd_wait.c:24:32: warning: =E2=80=98struct clone_args=E2=80=99 declar=
+ed inside parameter list will not be visible outside of this definition or =
+declaration
+    pidfd_wait.c:22:25: warning: excess elements in struct initializer
+    pidfd_wait.c:22:25: warning: excess elements in struct initializer
+    pidfd.h:30:21: warning: excess elements in struct initializer
+    pidfd_wait.c:44:18: warning: excess elements in struct initializer
+    pidfd_wait.c:22:25: warning: excess elements in struct initializer
+    pidfd_wait.c:22:25: warning: excess elements in struct initializer
+    pidfd.h:30:21: warning: excess elements in struct initializer
+    pidfd_wait.c:129:18: warning: excess elements in struct initializer
+    proc-loadavg-001.c:17: warning: "_GNU_SOURCE" redefined
+    proc-self-syscall.c:16: warning: "_GNU_SOURCE" redefined
+    proc-uptime-002.c:18: warning: "_GNU_SOURCE" redefined
+    rsync -a /root/build/kselftest/lkdtm/PANIC.sh /root/build/kselftest/lkd=
+tm/BUG.sh /root/build/kselftest/lkdtm/WARNING.sh /root/build/kselftest/lkdt=
+m/WARNING_MESSAGE.sh /root/build/kselftest/lkdtm/EXCEPTION.sh /root/build/k=
+selftest/lkdtm/LOOP.sh /root/build/kselftest/lkdtm/EXHAUST_STACK.sh /root/b=
+uild/kselftest/lkdtm/CORRUPT_STACK.sh /root/build/kselftest/lkdtm/CORRUPT_S=
+TACK_STRONG.sh /root/build/kselftest/lkdtm/CORRUPT_LIST_ADD.sh /root/build/=
+kselftest/lkdtm/CORRUPT_LIST_DEL.sh /root/build/kselftest/lkdtm/STACK_GUARD=
+_PAGE_LEADING.sh /root/build/kselftest/lkdtm/STACK_GUARD_PAGE_TRAILING.sh /=
+root/build/kselftest/lkdtm/UNSET_SMEP.sh /root/build/kselftest/lkdtm/DOUBLE=
+_FAULT.sh /root/build/kselftest/lkdtm/CORRUPT_PAC.sh /root/build/kselftest/=
+lkdtm/UNALIGNED_LOAD_STORE_WRITE.sh /root/build/kselftest/lkdtm/OVERWRITE_A=
+LLOCATION.sh /root/build/kselftest/lkdtm/WRITE_AFTER_FREE.sh /root/build/ks=
+elftest/lkdtm/READ_AFTER_FREE.sh /root/build/kselftest/lkdtm/WRITE_BUDDY_AF=
+TER_FREE.sh /root/build/kselftest/lkdtm/READ_BUDDY_AFTER_FREE.sh /root/buil=
+d/kselftest/lkdtm/SLAB_FREE_DOUBLE.sh /root/build/kselftest/lkdtm/SLAB_FREE=
+_CROSS.sh /root/build/kselftest/lkdtm/SLAB_FREE_PAGE.sh /root/build/kselfte=
+st/lkdtm/SOFTLOCKUP.sh /root/build/kselftest/lkdtm/HARDLOCKUP.sh /root/buil=
+d/kselftest/lkdtm/SPINLOCKUP.sh /root/build/kselftest/lkdtm/HUNG_TASK.sh /r=
+oot/build/kselftest/lkdtm/EXEC_DATA.sh /root/build/kselftest/lkdtm/EXEC_STA=
+CK.sh /root/build/kselftest/lkdtm/EXEC_KMALLOC.sh /root/build/kselftest/lkd=
+tm/EXEC_VMALLOC.sh /root/build/kselftest/lkdtm/EXEC_RODATA.sh /root/build/k=
+selftest/lkdtm/EXEC_USERSPACE.sh /root/build/kselftest/lkdtm/EXEC_NULL.sh /=
+root/build/kselftest/lkdtm/ACCESS_USERSPACE.sh /root/build/kselftest/lkdtm/=
+ACCESS_NULL.sh /root/build/kselftest/lkdtm/WRITE_RO.sh /root/build/kselftes=
+t/lkdtm/WRITE_RO_AFTER_INIT.sh /root/build/kselftest/lkdtm/WRITE_KERN.sh /r=
+oot/build/kselftest/lkdtm/REFCOUNT_INC_OVERFLOW.sh /root/build/kselftest/lk=
+dtm/REFCOUNT_ADD_OVERFLOW.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_NOT_Z=
+ERO_OVERFLOW.sh /root/build/kselftest/lkdtm/REFCOUNT_ADD_NOT_ZERO_OVERFLOW.=
+sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_ZERO.sh /root/build/kselftest/l=
+kdtm/REFCOUNT_DEC_NEGATIVE.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_AND_=
+TEST_NEGATIVE.sh /root/build/kselftest/lkdtm/REFCOUNT_SUB_AND_TEST_NEGATIVE=
+.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_ZERO.sh /root/build/kselftest/=
+lkdtm/REFCOUNT_ADD_ZERO.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_SATURAT=
+ED.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_SATURATED.sh /root/build/kse=
+lftest/lkdtm/REFCOUNT_ADD_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT=
+_INC_NOT_ZERO_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT_ADD_NOT_ZER=
+O_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_AND_TEST_SATURATED.=
+sh /root/build/kselftest/lkdtm/REFCOUNT_SUB_AND_TEST_SATURATED.sh /root/bui=
+ld/kselftest/lkdtm/REFCOUNT_TIMING.sh /root/build/kselftest/lkdtm/ATOMIC_TI=
+MING.sh /root/build/kselftest/lkdtm/USERCOPY_HEAP_SIZE_TO.sh /root/build/ks=
+elftest/lkdtm/USERCOPY_HEAP_SIZE_FROM.sh /root/build/kselftest/lkdtm/USERCO=
+PY_HEAP_WHITELIST_TO.sh /root/build/kselftest/lkdtm/USERCOPY_HEAP_WHITELIST=
+_FROM.sh /root/build/kselftest/lkdtm/USERCOPY_STACK_FRAME_TO.sh /root/build=
+/kselftest/lkdtm/USERCOPY_STACK_FRAME_FROM.sh /root/build/kselftest/lkdtm/U=
+SERCOPY_STACK_BEYOND.sh /root/build/kselftest/lkdtm/USERCOPY_KERNEL.sh /roo=
+t/build/kselftest/lkdtm/STACKLEAK_ERASING.sh /root/build/kselftest/lkdtm/CF=
+I_FORWARD_PROTO.sh /root/build/_kselftest_/lkdtm/
+    tls.c:1221:39: warning: unused variable =E2=80=98tls12=E2=80=99 [-Wunus=
+ed-variable]
+    tls.c:1273:39: warning: unused variable =E2=80=98tls12=E2=80=99 [-Wunus=
+ed-variable]
+    clone3/clone3_selftests.h:45:32: warning: =E2=80=98struct clone_args=E2=
+=80=99 declared inside parameter list will not be visible outside of this d=
+efinition or declaration
+    pidfd.h:30:21: warning: excess elements in struct initializer
+    pidfd_setns_test.c:80:18: warning: excess elements in struct initialize=
+r
+    clone3/clone3_selftests.h:16:25: warning: excess elements in struct ini=
+tializer
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    /scratch/linux/drivers/gpu/drm/msm/dsi/pll/dsi_pll_7nm.c:882:19: warnin=
+g: conversion from =E2=80=98long long unsigned int=E2=80=99 to =E2=80=98lon=
+g unsigned int=E2=80=99 changes value from =E2=80=985000000000=E2=80=99 to =
+=E2=80=98705032704=E2=80=99 [-Woverflow]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ip27_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_guest_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warning=
+s, 0 section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warning=
+s, 0 section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    {standard input}:39: Warning: macro instruction expanded into multiple =
+instructions
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings,=
+ 0 section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
+ section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 FAIL, 0 errors, 1 warning, 0=
+ section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells for SP=
+I bus
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for SPI b=
+us
+    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Failed =
+prerequisite 'spi_bus_bridge'
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, clang-9) =E2=80=94 FAIL, 2 errors, 0 warnings, 0 s=
+ection mismatches
+
+Errors:
+    /scratch/linux/include/linux/compiler-clang.h:11:3: error: Sorry, your =
+version of Clang is too old - please use 10.0.1 or newer.
+    /scratch/linux/include/linux/compiler-clang.h:11:3: error: Sorry, your =
+version of Clang is too old - please use 10.0.1 or newer.
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, clang-9) =E2=80=94 FAIL, 2 errors, 0 warnings, 0 s=
+ection mismatches
+
+Errors:
+    /scratch/linux/include/linux/compiler-clang.h:11:3: error: Sorry, your =
+version of Clang is too old - please use 10.0.1 or newer.
+    /scratch/linux/include/linux/compiler-clang.h:11:3: error: Sorry, your =
+version of Clang is too old - please use 10.0.1 or newer.
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, clang-10) =E2=80=94 FAIL, 1 error, 6 warnings, 0 s=
+ection mismatches
+
+Errors:
+    error: fallthrough annotation does not directly precede switch label
+
+Warnings:
+    <stdin>:1532:2: warning: syscall memfd_secret not implemented [-W#warni=
+ngs]
+    #warning syscall memfd_secret not implemented
+    1 warning generated.
+    /scratch/linux/drivers/base/regmap/regmap.c:713:6: warning: variable 'r=
+et' is used uninitialized whenever 'if' condition is true [-Wsometimes-unin=
+itialized]
+    /scratch/linux/drivers/base/regmap/regmap.c:711:9: note: initialize the=
+ variable 'ret' to silence this warning
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    /scratch/linux/drivers/gpu/drm/msm/dsi/pll/dsi_pll_7nm.c:882:19: warnin=
+g: conversion from =E2=80=98long long unsigned int=E2=80=99 to =E2=80=98lon=
+g unsigned int=E2=80=99 changes value from =E2=80=985000000000=E2=80=99 to =
+=E2=80=98705032704=E2=80=99 [-Woverflow]
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells for SP=
+I bus
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for SPI b=
+us
+    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Failed =
+prerequisite 'spi_bus_bridge'
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 6 warnings, 0 section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    /scratch/linux/drivers/gpu/drm/msm/dsi/pll/dsi_pll_7nm.c:882:19: warnin=
+g: conversion from =E2=80=98long long unsigned int=E2=80=99 to =E2=80=98lon=
+g unsigned int=E2=80=99 changes value from =E2=80=985000000000=E2=80=99 to =
+=E2=80=98705032704=E2=80=99 [-Woverflow]
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells for SP=
+I bus
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for SPI b=
+us
+    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Failed =
+prerequisite 'spi_bus_bridge'
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 PASS, 0 errors, 6 warnings, 0 section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    /scratch/linux/drivers/gpu/drm/msm/dsi/pll/dsi_pll_7nm.c:882:19: warnin=
+g: conversion from =E2=80=98long long unsigned int=E2=80=99 to =E2=80=98lon=
+g unsigned int=E2=80=99 changes value from =E2=80=985000000000=E2=80=99 to =
+=E2=80=98705032704=E2=80=99 [-Woverflow]
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells for SP=
+I bus
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for SPI b=
+us
+    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Failed =
+prerequisite 'spi_bus_bridge'
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 =
+warnings, 0 section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    /scratch/linux/drivers/gpu/drm/msm/dsi/pll/dsi_pll_7nm.c:882:19: warnin=
+g: conversion from =E2=80=98long long unsigned int=E2=80=99 to =E2=80=98lon=
+g unsigned int=E2=80=99 changes value from =E2=80=985000000000=E2=80=99 to =
+=E2=80=98705032704=E2=80=99 [-Woverflow]
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells for SP=
+I bus
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for SPI b=
+us
+    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Failed =
+prerequisite 'spi_bus_bridge'
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 280 errors, 10 wa=
+rnings, 0 section mismatches
+
+Errors:
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    test_execve.c:4:10: fatal error: cap-ng.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    execveat.c:11:10: fatal error: sys/sendfile.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    ../kselftest_harness.h:56:10: fatal error: asm/types.h: No such file or=
+ directory
+    /usr/include/poll.h:1:10: fatal error: sys/poll.h: No such file or dire=
+ctory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdlib.h:25:10: fatal error: bits/libc-header-start.h: No =
+such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/linux/ioctl.h:5:10: fatal error: asm/ioctl.h: No such file=
+ or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdlib.h:25:10: fatal error: bits/libc-header-start.h: No =
+such file or directory
+    /usr/include/syscall.h:1:10: fatal error: sys/syscall.h: No such file o=
+r directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    kselftest_harness.h:56:10: fatal error: asm/types.h: No such file or di=
+rectory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    seccomp_bpf.c:9:10: fatal error: sys/types.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    get_size.c:29:10: fatal error: sys/sysinfo.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /bin/sh: 1: llc: not found
+    /bin/sh: 1: clang: not found
+    /bin/sh: 3: llc: not found
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    posix_timers.c:10:10: fatal error: sys/time.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    test_execve.c:4:10: fatal error: cap-ng.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    execveat.c:11:10: fatal error: sys/sendfile.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/poll.h:1:10: fatal error: sys/poll.h: No such file or dire=
+ctory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdlib.h:25:10: fatal error: bits/libc-header-start.h: No =
+such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/linux/ioctl.h:5:10: fatal error: asm/ioctl.h: No such file=
+ or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdlib.h:25:10: fatal error: bits/libc-header-start.h: No =
+such file or directory
+    /usr/include/syscall.h:1:10: fatal error: sys/syscall.h: No such file o=
+r directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    kselftest_harness.h:56:10: fatal error: asm/types.h: No such file or di=
+rectory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    seccomp_bpf.c:9:10: fatal error: sys/types.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    get_size.c:29:10: fatal error: sys/sysinfo.h: No such file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /bin/sh: 1: llc: not found
+    /bin/sh: 1: clang: not found
+    /bin/sh: 3: llc: not found
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    posix_timers.c:10:10: fatal error: sys/time.h: No such file or director=
+y
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+    /usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No s=
+uch file or directory
+    /scratch/linux/tools/testing/selftests/kselftest_harness.h:56:10: fatal=
+ error: asm/types.h: No such file or directory
+    /usr/include/features.h:424:12: fatal error: sys/cdefs.h: No such file =
+or directory
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    /scratch/linux/include/linux/kern_levels.h:5:18: warning: format =E2=80=
+=98%lu=E2=80=99 expects argument of type =E2=80=98long unsigned int=E2=80=
+=99, but argument 8 has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+    /scratch/linux/drivers/gpu/drm/msm/dsi/pll/dsi_pll_7nm.c:882:19: warnin=
+g: conversion from =E2=80=98long long unsigned int=E2=80=99 to =E2=80=98lon=
+g unsigned int=E2=80=99 changes value from =E2=80=985000000000=E2=80=99 to =
+=E2=80=98705032704=E2=80=99 [-Woverflow]
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells for SP=
+I bus
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for SPI b=
+us
+    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Failed =
+prerequisite 'spi_bus_bridge'
+    install -m 0744 run.sh /root/build/kselftest/lkdtm/WARNING.sh
+    install -m 0744 run.sh /root/build/kselftest/lkdtm/WARNING_MESSAGE.sh
+    rsync -a /root/build/kselftest/lkdtm/PANIC.sh /root/build/kselftest/lkd=
+tm/BUG.sh /root/build/kselftest/lkdtm/WARNING.sh /root/build/kselftest/lkdt=
+m/WARNING_MESSAGE.sh /root/build/kselftest/lkdtm/EXCEPTION.sh /root/build/k=
+selftest/lkdtm/LOOP.sh /root/build/kselftest/lkdtm/EXHAUST_STACK.sh /root/b=
+uild/kselftest/lkdtm/CORRUPT_STACK.sh /root/build/kselftest/lkdtm/CORRUPT_S=
+TACK_STRONG.sh /root/build/kselftest/lkdtm/CORRUPT_LIST_ADD.sh /root/build/=
+kselftest/lkdtm/CORRUPT_LIST_DEL.sh /root/build/kselftest/lkdtm/STACK_GUARD=
+_PAGE_LEADING.sh /root/build/kselftest/lkdtm/STACK_GUARD_PAGE_TRAILING.sh /=
+root/build/kselftest/lkdtm/UNSET_SMEP.sh /root/build/kselftest/lkdtm/DOUBLE=
+_FAULT.sh /root/build/kselftest/lkdtm/CORRUPT_PAC.sh /root/build/kselftest/=
+lkdtm/UNALIGNED_LOAD_STORE_WRITE.sh /root/build/kselftest/lkdtm/OVERWRITE_A=
+LLOCATION.sh /root/build/kselftest/lkdtm/WRITE_AFTER_FREE.sh /root/build/ks=
+elftest/lkdtm/READ_AFTER_FREE.sh /root/build/kselftest/lkdtm/WRITE_BUDDY_AF=
+TER_FREE.sh /root/build/kselftest/lkdtm/READ_BUDDY_AFTER_FREE.sh /root/buil=
+d/kselftest/lkdtm/SLAB_FREE_DOUBLE.sh /root/build/kselftest/lkdtm/SLAB_FREE=
+_CROSS.sh /root/build/kselftest/lkdtm/SLAB_FREE_PAGE.sh /root/build/kselfte=
+st/lkdtm/SOFTLOCKUP.sh /root/build/kselftest/lkdtm/HARDLOCKUP.sh /root/buil=
+d/kselftest/lkdtm/SPINLOCKUP.sh /root/build/kselftest/lkdtm/HUNG_TASK.sh /r=
+oot/build/kselftest/lkdtm/EXEC_DATA.sh /root/build/kselftest/lkdtm/EXEC_STA=
+CK.sh /root/build/kselftest/lkdtm/EXEC_KMALLOC.sh /root/build/kselftest/lkd=
+tm/EXEC_VMALLOC.sh /root/build/kselftest/lkdtm/EXEC_RODATA.sh /root/build/k=
+selftest/lkdtm/EXEC_USERSPACE.sh /root/build/kselftest/lkdtm/EXEC_NULL.sh /=
+root/build/kselftest/lkdtm/ACCESS_USERSPACE.sh /root/build/kselftest/lkdtm/=
+ACCESS_NULL.sh /root/build/kselftest/lkdtm/WRITE_RO.sh /root/build/kselftes=
+t/lkdtm/WRITE_RO_AFTER_INIT.sh /root/build/kselftest/lkdtm/WRITE_KERN.sh /r=
+oot/build/kselftest/lkdtm/REFCOUNT_INC_OVERFLOW.sh /root/build/kselftest/lk=
+dtm/REFCOUNT_ADD_OVERFLOW.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_NOT_Z=
+ERO_OVERFLOW.sh /root/build/kselftest/lkdtm/REFCOUNT_ADD_NOT_ZERO_OVERFLOW.=
+sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_ZERO.sh /root/build/kselftest/l=
+kdtm/REFCOUNT_DEC_NEGATIVE.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_AND_=
+TEST_NEGATIVE.sh /root/build/kselftest/lkdtm/REFCOUNT_SUB_AND_TEST_NEGATIVE=
+.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_ZERO.sh /root/build/kselftest/=
+lkdtm/REFCOUNT_ADD_ZERO.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_SATURAT=
+ED.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_SATURATED.sh /root/build/kse=
+lftest/lkdtm/REFCOUNT_ADD_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT=
+_INC_NOT_ZERO_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT_ADD_NOT_ZER=
+O_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_AND_TEST_SATURATED.=
+sh /root/build/kselftest/lkdtm/REFCOUNT_SUB_AND_TEST_SATURATED.sh /root/bui=
+ld/kselftest/lkdtm/REFCOUNT_TIMING.sh /root/build/kselftest/lkdtm/ATOMIC_TI=
+MING.sh /root/build/kselftest/lkdtm/USERCOPY_HEAP_SIZE_TO.sh /root/build/ks=
+elftest/lkdtm/USERCOPY_HEAP_SIZE_FROM.sh /root/build/kselftest/lkdtm/USERCO=
+PY_HEAP_WHITELIST_TO.sh /root/build/kselftest/lkdtm/USERCOPY_HEAP_WHITELIST=
+_FROM.sh /root/build/kselftest/lkdtm/USERCOPY_STACK_FRAME_TO.sh /root/build=
+/kselftest/lkdtm/USERCOPY_STACK_FRAME_FROM.sh /root/build/kselftest/lkdtm/U=
+SERCOPY_STACK_BEYOND.sh /root/build/kselftest/lkdtm/USERCOPY_KERNEL.sh /roo=
+t/build/kselftest/lkdtm/STACKLEAK_ERASING.sh /root/build/kselftest/lkdtm/CF=
+I_FORWARD_PROTO.sh /root/build/_kselftest_/lkdtm/
+
+---------------------------------------------------------------------------=
+-----
+mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section =
+mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    /scratch/linux/include/linux/kern_levels.h:5:18: warning: format =E2=80=
+=98%lu=E2=80=99 expects argument of type =E2=80=98long unsigned int=E2=80=
+=99, but argument 8 has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+nommu_k210_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nommu_virt_defconfig (riscv, gcc-8) =E2=80=94 FAIL, 2 errors, 1 warning, 0 =
+section mismatches
+
+Errors:
+    /scratch/linux/mm/secretmem.c:50:33: error: =E2=80=98PMD_PAGE_ORDER=E2=
+=80=99 undeclared (first use in this function); did you mean =E2=80=98MAX_O=
+RDER=E2=80=99?
+    /scratch/linux/mm/secretmem.c:146:6: error: implicit declaration of fun=
+ction =E2=80=98mlock_future_check=E2=80=99; did you mean =E2=80=98locks_fre=
+e_lock=E2=80=99? [-Werror=3Dimplicit-function-declaration]
+
+Warnings:
+    cc1: some warnings being treated as errors
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings=
+, 0 section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    /scratch/linux/arch/arm/mach-omap1/board-ams-delta.c:462:12: warning: =
+=E2=80=98ams_delta_camera_power=E2=80=99 defined but not used [-Wunused-fun=
+ction]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+prima2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells for SP=
+I bus
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for SPI b=
+us
+    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Failed =
+prerequisite 'spi_bus_bridge'
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #address-cells for SP=
+I bus
+    /scratch/linux/arch/arm/boot/dts/mmp2.dtsi:472.23-480.6: Warning (spi_b=
+us_bridge): /soc/apb@d4000000/spi@d4037000: incorrect #size-cells for SPI b=
+us
+    arch/arm/boot/dts/mmp2-olpc-xo-1-75.dtb: Warning (spi_bus_reg): Failed =
+prerequisite 'spi_bus_bridge'
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section =
+mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    /scratch/linux/drivers/gpu/drm/msm/dsi/pll/dsi_pll_7nm.c:882:19: warnin=
+g: conversion from =E2=80=98long long unsigned int=E2=80=99 to =E2=80=98lon=
+g unsigned int=E2=80=99 changes value from =E2=80=985000000000=E2=80=99 to =
+=E2=80=98705032704=E2=80=99 [-Woverflow]
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    /scratch/linux/drivers/block/paride/bpck.c:32: warning: "PC" redefined
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section =
+mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+rs90_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, =
+0 section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+tango4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mism=
+atches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section m=
+ismatches
+
+Warnings:
+    /scratch/linux/arch/arm64/kernel/smp.c:967:13: warning: =E2=80=98ipi_te=
+ardown=E2=80=99 defined but not used [-Wunused-function]
+    aarch64-linux-gnu-ld: warning: orphan section `.igot.plt' from `arch/ar=
+m64/kernel/head.o' being placed in section `.igot.plt'
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mism=
+atches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    .config:1178:warning: override: UNWINDER_GUESS changes choice state
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+u300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, clang-10) =E2=80=94 FAIL, 1 error, 0 warnings, 0 =
+section mismatches
+
+Errors:
+    error: fallthrough annotation does not directly precede switch label
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, clang-9) =E2=80=94 FAIL, 2 errors, 0 warnings, 0 =
+section mismatches
+
+Errors:
+    /scratch/linux/include/linux/compiler-clang.h:11:3: error: Sorry, your =
+version of Clang is too old - please use 10.0.1 or newer.
+    /scratch/linux/include/linux/compiler-clang.h:11:3: error: Sorry, your =
+version of Clang is too old - please use 10.0.1 or newer.
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 71 errors, 39 wa=
+rnings, 0 section mismatches
+
+Errors:
+    ionmap_test.c:14:10: fatal error: drm/drm.h: No such file or directory
+    test_verifier.c:25:10: fatal error: sys/capability.h: No such file or d=
+irectory
+    test_execve.c:4:10: fatal error: cap-ng.h: No such file or directory
+    collect2: error: ld returned 1 exit status
+    close_range_test.c:47:11: error: expected expression before =E2=80=98re=
+turn=E2=80=99
+    close_range_test.c:55:10: error: expected expression before =E2=80=98re=
+turn=E2=80=99
+    close_range_test.c:111:11: error: expected expression before =E2=80=98r=
+eturn=E2=80=99
+    close_range_test.c:200:11: error: expected expression before =E2=80=98r=
+eturn=E2=80=99
+    udmabuf.c:13:10: fatal error: linux/udmabuf.h: No such file or director=
+y
+    binderfs_test.c:22:10: fatal error: linux/android/binderfs.h: No such f=
+ile or directory
+    lib/kvm_util.c:297:9: error: variable =E2=80=98args=E2=80=99 has initia=
+lizer but incomplete type
+    lib/kvm_util.c:297:39: error: =E2=80=98struct kvm_clear_dirty_log=E2=80=
+=99 has no member named =E2=80=98dirty_bitmap=E2=80=99
+    lib/kvm_util.c:297:60: error: =E2=80=98struct kvm_clear_dirty_log=E2=80=
+=99 has no member named =E2=80=98slot=E2=80=99
+    lib/kvm_util.c:298:32: error: =E2=80=98struct kvm_clear_dirty_log=E2=80=
+=99 has no member named =E2=80=98first_page=E2=80=99
+    lib/kvm_util.c:299:39: error: =E2=80=98struct kvm_clear_dirty_log=E2=80=
+=99 has no member named =E2=80=98num_pages=E2=80=99
+    lib/kvm_util.c:297:29: error: storage size of =E2=80=98args=E2=80=99 is=
+n=E2=80=99t known
+    lib/kvm_util.c:302:22: error: =E2=80=98KVM_CLEAR_DIRTY_LOG=E2=80=99 und=
+eclared (first use in this function); did you mean =E2=80=98KVM_GET_DIRTY_L=
+OG=E2=80=99?
+    fuse_mnt.c:17:10: fatal error: fuse.h: No such file or directory
+    collect2: error: ld returned 1 exit status
+    reuseport_bpf_numa.c:24:10: fatal error: numa.h: No such file or direct=
+ory
+    pm_nl_ctl.c:19:10: fatal error: linux/mptcp.h: No such file or director=
+y
+    nf-queue.c:13:10: fatal error: libmnl/libmnl.h: No such file or directo=
+ry
+    pidfd_wait.c:26:43: error: invalid application of =E2=80=98sizeof=E2=80=
+=99 to incomplete type =E2=80=98struct clone_args=E2=80=99
+    pidfd_wait.c:40:9: error: variable =E2=80=98args=E2=80=99 has initializ=
+er but incomplete type
+    pidfd_wait.c:41:4: error: =E2=80=98struct clone_args=E2=80=99 has no me=
+mber named =E2=80=98parent_tid=E2=80=99
+    pidfd_wait.c:42:4: error: =E2=80=98struct clone_args=E2=80=99 has no me=
+mber named =E2=80=98pidfd=E2=80=99
+    pidfd_wait.c:43:4: error: =E2=80=98struct clone_args=E2=80=99 has no me=
+mber named =E2=80=98flags=E2=80=99
+    pidfd_wait.c:44:4: error: =E2=80=98struct clone_args=E2=80=99 has no me=
+mber named =E2=80=98exit_signal=E2=80=99
+    pidfd_wait.c:40:20: error: storage size of =E2=80=98args=E2=80=99 isn=
+=E2=80=99t known
+    pidfd_wait.c:125:9: error: variable =E2=80=98args=E2=80=99 has initiali=
+zer but incomplete type
+    pidfd_wait.c:126:4: error: =E2=80=98struct clone_args=E2=80=99 has no m=
+ember named =E2=80=98parent_tid=E2=80=99
+    pidfd_wait.c:127:4: error: =E2=80=98struct clone_args=E2=80=99 has no m=
+ember named =E2=80=98pidfd=E2=80=99
+    pidfd_wait.c:128:4: error: =E2=80=98struct clone_args=E2=80=99 has no m=
+ember named =E2=80=98flags=E2=80=99
+    pidfd_wait.c:129:4: error: =E2=80=98struct clone_args=E2=80=99 has no m=
+ember named =E2=80=98exit_signal=E2=80=99
+    pidfd_wait.c:125:20: error: storage size of =E2=80=98args=E2=80=99 isn=
+=E2=80=99t known
+    proc-fsconfig-hidepid.c:20:10: fatal error: linux/mount.h: No such file=
+ or directory
+    /bin/sh: 1: llc: not found
+    /bin/sh: 1: clang: not found
+    /bin/sh: 3: llc: not found
+    hmm-tests.c:24:10: fatal error: hugetlbfs.h: No such file or directory
+    ionmap_test.c:14:10: fatal error: drm/drm.h: No such file or directory
+    ionmap_test.c:14:10: fatal error: drm/drm.h: No such file or directory
+    test_verifier.c:25:10: fatal error: sys/capability.h: No such file or d=
+irectory
+    validate_cap.c:2:10: fatal error: cap-ng.h: No such file or directory
+    collect2: error: ld returned 1 exit status
+    binderfs_test.c:22:10: fatal error: linux/android/binderfs.h: No such f=
+ile or directory
+    lib/kvm_util.c:297:9: error: variable =E2=80=98args=E2=80=99 has initia=
+lizer but incomplete type
+    lib/kvm_util.c:297:39: error: =E2=80=98struct kvm_clear_dirty_log=E2=80=
+=99 has no member named =E2=80=98dirty_bitmap=E2=80=99
+    lib/kvm_util.c:297:60: error: =E2=80=98struct kvm_clear_dirty_log=E2=80=
+=99 has no member named =E2=80=98slot=E2=80=99
+    lib/kvm_util.c:298:32: error: =E2=80=98struct kvm_clear_dirty_log=E2=80=
+=99 has no member named =E2=80=98first_page=E2=80=99
+    lib/kvm_util.c:299:39: error: =E2=80=98struct kvm_clear_dirty_log=E2=80=
+=99 has no member named =E2=80=98num_pages=E2=80=99
+    lib/kvm_util.c:297:29: error: storage size of =E2=80=98args=E2=80=99 is=
+n=E2=80=99t known
+    lib/kvm_util.c:302:22: error: =E2=80=98KVM_CLEAR_DIRTY_LOG=E2=80=99 und=
+eclared (first use in this function); did you mean =E2=80=98KVM_GET_DIRTY_L=
+OG=E2=80=99?
+    collect2: error: ld returned 1 exit status
+    tls.c:116:17: error: =E2=80=98TLS_1_3_VERSION=E2=80=99 undeclared here =
+(not in a function); did you mean =E2=80=98TLS_1_2_VERSION=E2=80=99?
+    tls.c:1221:39: error: storage size of =E2=80=98tls12=E2=80=99 isn=E2=80=
+=99t known
+    tls.c:1230:27: error: =E2=80=98TLS_CIPHER_AES_GCM_256=E2=80=99 undeclar=
+ed (first use in this function); did you mean =E2=80=98TLS_CIPHER_AES_GCM_1=
+28=E2=80=99?
+    tls.c:1273:39: error: storage size of =E2=80=98tls12=E2=80=99 isn=E2=80=
+=99t known
+    tls.c:1284:27: error: =E2=80=98TLS_CIPHER_AES_GCM_256=E2=80=99 undeclar=
+ed (first use in this function); did you mean =E2=80=98TLS_CIPHER_AES_GCM_1=
+28=E2=80=99?
+    clone3/clone3_selftests.h:55:9: error: variable =E2=80=98args=E2=80=99 =
+has initializer but incomplete type
+    clone3/clone3_selftests.h:55:20: error: storage size of =E2=80=98args=
+=E2=80=99 isn=E2=80=99t known
+    pidfd_setns_test.c:78:9: error: variable =E2=80=98args=E2=80=99 has ini=
+tializer but incomplete type
+    pidfd_setns_test.c:79:4: error: =E2=80=98struct clone_args=E2=80=99 has=
+ no member named =E2=80=98flags=E2=80=99
+    pidfd_setns_test.c:80:4: error: =E2=80=98struct clone_args=E2=80=99 has=
+ no member named =E2=80=98exit_signal=E2=80=99
+    pidfd_setns_test.c:81:4: error: =E2=80=98struct clone_args=E2=80=99 has=
+ no member named =E2=80=98pidfd=E2=80=99
+    pidfd_setns_test.c:78:20: error: storage size of =E2=80=98args=E2=80=99=
+ isn=E2=80=99t known
+    pidfd_setns_test.c:84:34: error: invalid application of =E2=80=98sizeof=
+=E2=80=99 to incomplete type =E2=80=98struct clone_args=E2=80=99
+    /bin/sh: 1: llc: not found
+    /bin/sh: 1: clang: not found
+    /bin/sh: 3: llc: not found
+    hmm-tests.c:24:10: fatal error: hugetlbfs.h: No such file or directory
+
+Warnings:
+    Warning: Kernel ABI header at 'tools/include/uapi/linux/netlink.h' diff=
+ers from latest version at 'include/uapi/linux/netlink.h'
+    Warning: Kernel ABI header at 'tools/include/uapi/linux/if_link.h' diff=
+ers from latest version at 'include/uapi/linux/if_link.h'
+    close_range_test.c:47:5: warning: implicit declaration of function =E2=
+=80=98XFAIL=E2=80=99 [-Wimplicit-function-declaration]
+    lib/kvm_util.c:297:54: warning: excess elements in struct initializer
+    lib/kvm_util.c:297:67: warning: excess elements in struct initializer
+    lib/kvm_util.c:298:45: warning: excess elements in struct initializer
+    lib/kvm_util.c:299:51: warning: excess elements in struct initializer
+    lib/kvm_util.c:297:29: warning: unused variable =E2=80=98args=E2=80=99 =
+[-Wunused-variable]
+    install -m 0744 run.sh /root/build/kselftest/lkdtm/WARNING.sh
+    install -m 0744 run.sh /root/build/kselftest/lkdtm/WARNING_MESSAGE.sh
+    memfd_test.c:64:7: warning: implicit declaration of function =E2=80=98o=
+pen=E2=80=99; did you mean =E2=80=98popen=E2=80=99? [-Wimplicit-function-de=
+claration]
+    memfd_test.c:90:6: warning: implicit declaration of function =E2=80=98f=
+cntl=E2=80=99; did you mean =E2=80=98fcvt=E2=80=99? [-Wimplicit-function-de=
+claration]
+    memfd_test.c:397:6: warning: implicit declaration of function =E2=80=98=
+fallocate=E2=80=99; did you mean =E2=80=98alloca=E2=80=99? [-Wimplicit-func=
+tion-declaration]
+    fuse_test.c:67:6: warning: implicit declaration of function =E2=80=98fc=
+ntl=E2=80=99; did you mean =E2=80=98fcvt=E2=80=99? [-Wimplicit-function-dec=
+laration]
+    fuse_test.c:261:7: warning: implicit declaration of function =E2=80=98o=
+pen=E2=80=99; did you mean =E2=80=98popen=E2=80=99? [-Wimplicit-function-de=
+claration]
+    pidfd_wait.c:24:32: warning: =E2=80=98struct clone_args=E2=80=99 declar=
+ed inside parameter list will not be visible outside of this definition or =
+declaration
+    pidfd_wait.c:22:25: warning: excess elements in struct initializer
+    pidfd_wait.c:22:25: warning: excess elements in struct initializer
+    pidfd.h:30:21: warning: excess elements in struct initializer
+    pidfd_wait.c:44:18: warning: excess elements in struct initializer
+    pidfd_wait.c:22:25: warning: excess elements in struct initializer
+    pidfd_wait.c:22:25: warning: excess elements in struct initializer
+    pidfd.h:30:21: warning: excess elements in struct initializer
+    pidfd_wait.c:129:18: warning: excess elements in struct initializer
+    proc-loadavg-001.c:17: warning: "_GNU_SOURCE" redefined
+    proc-self-syscall.c:16: warning: "_GNU_SOURCE" redefined
+    proc-uptime-002.c:18: warning: "_GNU_SOURCE" redefined
+    lib/kvm_util.c:297:54: warning: excess elements in struct initializer
+    lib/kvm_util.c:297:67: warning: excess elements in struct initializer
+    lib/kvm_util.c:298:45: warning: excess elements in struct initializer
+    lib/kvm_util.c:299:51: warning: excess elements in struct initializer
+    lib/kvm_util.c:297:29: warning: unused variable =E2=80=98args=E2=80=99 =
+[-Wunused-variable]
+    rsync -a /root/build/kselftest/lkdtm/PANIC.sh /root/build/kselftest/lkd=
+tm/BUG.sh /root/build/kselftest/lkdtm/WARNING.sh /root/build/kselftest/lkdt=
+m/WARNING_MESSAGE.sh /root/build/kselftest/lkdtm/EXCEPTION.sh /root/build/k=
+selftest/lkdtm/LOOP.sh /root/build/kselftest/lkdtm/EXHAUST_STACK.sh /root/b=
+uild/kselftest/lkdtm/CORRUPT_STACK.sh /root/build/kselftest/lkdtm/CORRUPT_S=
+TACK_STRONG.sh /root/build/kselftest/lkdtm/CORRUPT_LIST_ADD.sh /root/build/=
+kselftest/lkdtm/CORRUPT_LIST_DEL.sh /root/build/kselftest/lkdtm/STACK_GUARD=
+_PAGE_LEADING.sh /root/build/kselftest/lkdtm/STACK_GUARD_PAGE_TRAILING.sh /=
+root/build/kselftest/lkdtm/UNSET_SMEP.sh /root/build/kselftest/lkdtm/DOUBLE=
+_FAULT.sh /root/build/kselftest/lkdtm/CORRUPT_PAC.sh /root/build/kselftest/=
+lkdtm/UNALIGNED_LOAD_STORE_WRITE.sh /root/build/kselftest/lkdtm/OVERWRITE_A=
+LLOCATION.sh /root/build/kselftest/lkdtm/WRITE_AFTER_FREE.sh /root/build/ks=
+elftest/lkdtm/READ_AFTER_FREE.sh /root/build/kselftest/lkdtm/WRITE_BUDDY_AF=
+TER_FREE.sh /root/build/kselftest/lkdtm/READ_BUDDY_AFTER_FREE.sh /root/buil=
+d/kselftest/lkdtm/SLAB_FREE_DOUBLE.sh /root/build/kselftest/lkdtm/SLAB_FREE=
+_CROSS.sh /root/build/kselftest/lkdtm/SLAB_FREE_PAGE.sh /root/build/kselfte=
+st/lkdtm/SOFTLOCKUP.sh /root/build/kselftest/lkdtm/HARDLOCKUP.sh /root/buil=
+d/kselftest/lkdtm/SPINLOCKUP.sh /root/build/kselftest/lkdtm/HUNG_TASK.sh /r=
+oot/build/kselftest/lkdtm/EXEC_DATA.sh /root/build/kselftest/lkdtm/EXEC_STA=
+CK.sh /root/build/kselftest/lkdtm/EXEC_KMALLOC.sh /root/build/kselftest/lkd=
+tm/EXEC_VMALLOC.sh /root/build/kselftest/lkdtm/EXEC_RODATA.sh /root/build/k=
+selftest/lkdtm/EXEC_USERSPACE.sh /root/build/kselftest/lkdtm/EXEC_NULL.sh /=
+root/build/kselftest/lkdtm/ACCESS_USERSPACE.sh /root/build/kselftest/lkdtm/=
+ACCESS_NULL.sh /root/build/kselftest/lkdtm/WRITE_RO.sh /root/build/kselftes=
+t/lkdtm/WRITE_RO_AFTER_INIT.sh /root/build/kselftest/lkdtm/WRITE_KERN.sh /r=
+oot/build/kselftest/lkdtm/REFCOUNT_INC_OVERFLOW.sh /root/build/kselftest/lk=
+dtm/REFCOUNT_ADD_OVERFLOW.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_NOT_Z=
+ERO_OVERFLOW.sh /root/build/kselftest/lkdtm/REFCOUNT_ADD_NOT_ZERO_OVERFLOW.=
+sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_ZERO.sh /root/build/kselftest/l=
+kdtm/REFCOUNT_DEC_NEGATIVE.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_AND_=
+TEST_NEGATIVE.sh /root/build/kselftest/lkdtm/REFCOUNT_SUB_AND_TEST_NEGATIVE=
+.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_ZERO.sh /root/build/kselftest/=
+lkdtm/REFCOUNT_ADD_ZERO.sh /root/build/kselftest/lkdtm/REFCOUNT_INC_SATURAT=
+ED.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_SATURATED.sh /root/build/kse=
+lftest/lkdtm/REFCOUNT_ADD_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT=
+_INC_NOT_ZERO_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT_ADD_NOT_ZER=
+O_SATURATED.sh /root/build/kselftest/lkdtm/REFCOUNT_DEC_AND_TEST_SATURATED.=
+sh /root/build/kselftest/lkdtm/REFCOUNT_SUB_AND_TEST_SATURATED.sh /root/bui=
+ld/kselftest/lkdtm/REFCOUNT_TIMING.sh /root/build/kselftest/lkdtm/ATOMIC_TI=
+MING.sh /root/build/kselftest/lkdtm/USERCOPY_HEAP_SIZE_TO.sh /root/build/ks=
+elftest/lkdtm/USERCOPY_HEAP_SIZE_FROM.sh /root/build/kselftest/lkdtm/USERCO=
+PY_HEAP_WHITELIST_TO.sh /root/build/kselftest/lkdtm/USERCOPY_HEAP_WHITELIST=
+_FROM.sh /root/build/kselftest/lkdtm/USERCOPY_STACK_FRAME_TO.sh /root/build=
+/kselftest/lkdtm/USERCOPY_STACK_FRAME_FROM.sh /root/build/kselftest/lkdtm/U=
+SERCOPY_STACK_BEYOND.sh /root/build/kselftest/lkdtm/USERCOPY_KERNEL.sh /roo=
+t/build/kselftest/lkdtm/STACKLEAK_ERASING.sh /root/build/kselftest/lkdtm/CF=
+I_FORWARD_PROTO.sh /root/build/_kselftest_/lkdtm/
+    tls.c:1221:39: warning: unused variable =E2=80=98tls12=E2=80=99 [-Wunus=
+ed-variable]
+    tls.c:1273:39: warning: unused variable =E2=80=98tls12=E2=80=99 [-Wunus=
+ed-variable]
+    clone3/clone3_selftests.h:45:32: warning: =E2=80=98struct clone_args=E2=
+=80=99 declared inside parameter list will not be visible outside of this d=
+efinition or declaration
+    pidfd.h:30:21: warning: excess elements in struct initializer
+    pidfd_setns_test.c:80:18: warning: excess elements in struct initialize=
+r
+    clone3/clone3_selftests.h:16:25: warning: excess elements in struct ini=
+tializer
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+zx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
+smatches
+
+Warnings:
+    <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp]
 
 ---
-0-DAY CI Kernel Test Service, Intel Corporation
-https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+For more info write to <info@kernelci.org>
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202009181653.38KMsKyM%25lkp%40intel.com.
-
---ibTvN161/egqYuK8
-Content-Type: application/gzip
-Content-Disposition: attachment; filename=".config.gz"
-Content-Transfer-Encoding: base64
-
-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
-Zbe+e/NQc4jq6Ugq2W8Q7z62RVsCAA==
-
---ibTvN161/egqYuK8--
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/5f6487af.1c69fb81.49e0e.6389%40mx.google.com.
