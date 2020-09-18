@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBD63HSEZTUIBB35RST5QKGQEDUHYMYY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD63HSEZTUIBBQNYST5QKGQEVCDPKDQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe3d.google.com (mail-vs1-xe3d.google.com [IPv6:2607:f8b0:4864:20::e3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id C2503270717
-	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 22:30:40 +0200 (CEST)
-Received: by mail-vs1-xe3d.google.com with SMTP id v131sf2039358vsv.9
-        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 13:30:40 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600461040; cv=pass;
+Received: from mail-qt1-x839.google.com (mail-qt1-x839.google.com [IPv6:2607:f8b0:4864:20::839])
+	by mail.lfdr.de (Postfix) with ESMTPS id EB6FE270743
+	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 22:44:50 +0200 (CEST)
+Received: by mail-qt1-x839.google.com with SMTP id y53sf6203821qth.2
+        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Sep 2020 13:44:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600461890; cv=pass;
         d=google.com; s=arc-20160816;
-        b=vx8ncUXaIGyrIpKbwXrj7AVE2OMZHpaEHdi2UuQ6CHh7cckW6hk1D27xnjjwwZnGyw
-         m/isFE7Ui9gmtMP2CHo4gZfEkniq7maA3yvvhW76SDLo89xDx/LiRxGAAbvoLyQrtEqP
-         9fMMPdnXs/W5KRovtymfnBHP8fyS2cae48HfejOMmrzFM9Qc6MILu6yKPUNYd0p7RkDi
-         at3nuGH7K7dic+re8kBm4RdicwNNPwEI7AbpfZSCC0/+Th91sKRBTMgMkKLZzhrlnQIw
-         x+h2VSDmhLIlCY5GWCZQXnApbYXDYIZw1o6SuVybnLFWA4A1GX9jEYDFxtjdAn4jMNwQ
-         mhrw==
+        b=f+Jn/nM1cdyuT2uvscU2+TbwwiS1Q3J/NEcf1tbO4QLZB2R6iKmK+ZXEOND9sEIQ01
+         yAbBQYWivOzWefryIawCPl+S40uWSxES4E4St0e9gkzInm/DkAi1wmZvuRlnPit1ZbJH
+         6xdq1QqH7b4PrUZzS/iUdusbo/yFEicZD9srk/gYcvg5Maa96TJTp4XkpBVbSKVGba7t
+         y8ECBfo6QhjaktvjPq8iVSthMqT8WppexZQa1g9pYQSE4mmoF0ZEDOg9Jggwt+Hj/8kw
+         9jVW7gL66AjaTMTB1LofqaKfF0+RDnnfnTupXQO0MWkSeSfKizvWCHZqGiHKGW66qt/Y
+         qvCA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=YDWWLimCvJUwYsxUqVDbNxXokH4TyOrfHhUgTtUJ8bc=;
-        b=ELb03vfBFQp/qn74yL7Mgt/mTGj++iaM8rz/VYdSj3uODYbWdjBPyM6+aOFfwLUlbD
-         nQ6BI4CSVTEi0yOd0tFrBkT1iipwgEbDbzqVkwjgnP2BcxPJJUNXUDx3SEgMGqQd4F+l
-         fPKaOjkb9rqOSqiEiHtRjUr9VXgz2q4kFtIGB7IQDic67ak7FUra6LLpAplWknZuHEyt
-         kUSuaTNd7G2MuzPy/4Vd6DuIMUoDKljhcMDRCbxWSu2KlmChHXMhXM1VZp0O/XluFPo+
-         Q1rLvllpskT72wuXI434ai4Y3JazoVp/7mNPtDSaKwSzBSIUxBgtscwb+Wn4HkLgww7h
-         7H0Q==
+        bh=R/WlOiLcIX+QC1eFg7bKOeHN4gJwrC8yZ7oKWotF2Tc=;
+        b=hQGs/cQ/id1JoSzFsAwVzCve4wmk/qXwWNZ+YdnKZBy+HUnumBuWQnqmCajCcxs4X+
+         8RXckRHNhabazu3tfKB7eULB2+G28atOI1mE9OFAp37hFfCK/OGQwdPU7KbPiEQy6Ga7
+         ypCNJBO/O9tY9tIvjLHv7lhdGVLik72CDGkrXYxHgEwj8Z3lFB9D5Pa0Zn8kI5xbQze/
+         EqTQMte3NsmmMPHzegONCziheP+a+2eyUSz8cJqxIVU0Yh5VAknqcgRbwzO0wnUiScIf
+         Ri2xItgNU/fwlizlmor1bL6f/hllmd606sJkA6QMNIKJEyP6GWLXIc+FBnOiIJujjiaM
+         qD/A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=1IP8r9cT;
+       dkim=pass header.i=@kernel.org header.s=default header.b="aeT/pHTJ";
        spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=YDWWLimCvJUwYsxUqVDbNxXokH4TyOrfHhUgTtUJ8bc=;
-        b=QLa6laBkf6k6t2AeL/Ded+cMVV/PIBMCuDykhvUm5oNhD1iPF9ZtnAC1FOa2Cgxy2y
-         j/ycPUoeKJjEQAGLhgI2eGS6cUhcCD9iNcFB/SFRaKmHEXqWDVVr0cTm114pnxUe+bgc
-         pei6ZD9dtD7Ofok9jzwFtTDL/4Q7AYXH/Zh2CuETar7RZztFEhsBXOa2l/LehCpj8fur
-         Y2FSUfcY1WdH/5UxMOHSsIoE0YmM2zcKV3cGfRHa90X65HJz7G+sRCK8lPXpwZKtjAXp
-         jPVQGyfZv4Wm2eAzArz5slEm4ZczL0bXhJbuJRXXJyLDOvBahLUS9XrHvO2/q2Istnao
-         leUA==
+        bh=R/WlOiLcIX+QC1eFg7bKOeHN4gJwrC8yZ7oKWotF2Tc=;
+        b=dR+D+S4+JYkDFUUPCOYt0cNAjSBGRMsWwIQQ3ZJ0HWhOB4XZkB5cky+6ukPe8LcdzW
+         knDpcmV169FSfYczC1YFt7L2cEqbPTOeKDT4/uyNndw3WVSp91JctZ4w8TMz4aFWnN3r
+         sRlvGMY+Wj3FLQ1/FVQ3wljD6kJZXROhVSA74oPMYfjeJlpCp2wNRdcCHc8BLIjc90E/
+         9fcgRW/KHoeqiCczwq2oKZgqISu7Dn8NX7u41GbFiQiSWhwt77dNG3C68rU84dxOKVFe
+         Xo+fxKG7hPACmEu0oWScaPYdnmb1AiHdk1iNEChoHHR5qdmGq+s6qRc/5tz3+ld8zojr
+         iHjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -49,78 +49,88 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=YDWWLimCvJUwYsxUqVDbNxXokH4TyOrfHhUgTtUJ8bc=;
-        b=ZqcWwFV5gVYnyDbYOQbE7n4ohW8flQ+/S4pM07dIdFOAw+N8h92Su6SW/kLqyAZazG
-         dvIW4cHa+O37XVogpWD2k8LNUAkTmontxAMJf/Fx1QiQ2VoojIKsFoO0Wh5yUdPpyaMr
-         upTMcQQdYcFJYg7SmA34uOGdXmNvEqLzYAT9Fkv3SHowrbCF9XYqc0chT3Unx2m6ARgG
-         0RpiT3Ars3AtDNnZh76Eryzw3AFh/M4NsZEwgV/33am5qM+b+1HvKjVk5LyKY6WcBPig
-         Cj8RLg/YtavVY0pHv2CIk3y6pR2mSDboEWDCq5koaMEV5dG1U38wiMfbqzkLA9razdEM
-         qJ/Q==
+        bh=R/WlOiLcIX+QC1eFg7bKOeHN4gJwrC8yZ7oKWotF2Tc=;
+        b=YHoHUjQxsDK9OxSaDz6I3M6QqtcGSs5TNHyOdNsI01q49JOJ8Telj2ZdXrKTK2BUVh
+         4xgh8K16bVhpyQnSDExGlPHOeraf/plUsYdOjAYsbSsqWu2vNqbT38rDenNer1Bn7Q6k
+         drurSU5ldD1VeVty1HMQ8RneKjFKlhcpkYif5RnVNpEGfcCKWx2JzcOs2OMHs7YPSy2u
+         vKEsVbR3hiPtTSGC8KubbgZ+g27D8sdXKqWzlP/g2HVhrATfRXl7nXxMpNRQv5ZL3Tv5
+         hp9y/4JtHKAOJeDHvn2kPEVrszD7yQm98pFDP86xNFkkRMhzf5Gr5tBct+8FdM1K3oxP
+         XtPA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533V48/f+CfN3pLa7W/2XnArnfV6hxo7O65gRopYA/B3BfKqK49u
-	zhH/fAU7eSKswD87sTI2Sug=
-X-Google-Smtp-Source: ABdhPJzHSwlHt+X1pCJyQg86y2BMgjtmFUOP5K/2P2QUXTnfxiqA/97W4DYVVbRnYVSmRqRnJfh+dw==
-X-Received: by 2002:a1f:f4c9:: with SMTP id s192mr13040842vkh.16.1600461039888;
-        Fri, 18 Sep 2020 13:30:39 -0700 (PDT)
+X-Gm-Message-State: AOAM530ziznt0qWkZDpXRgLVXvQR/BaKRsZhF2QVDwnfYWh8zCML2tmh
+	yPA9IHI6IfZvImX9ACjKHXQ=
+X-Google-Smtp-Source: ABdhPJyPrhYIS2a658G3KbIuIsEDxU1HE5AEVgwepKnXUUB0fgYmBCYITkzVcFju2WotB75wuuRHCQ==
+X-Received: by 2002:ae9:e914:: with SMTP id x20mr34019517qkf.163.1600461890055;
+        Fri, 18 Sep 2020 13:44:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:c505:: with SMTP id v5ls376408vkf.7.gmail; Fri, 18 Sep
- 2020 13:30:39 -0700 (PDT)
-X-Received: by 2002:a1f:e905:: with SMTP id g5mr12782825vkh.17.1600461039440;
-        Fri, 18 Sep 2020 13:30:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600461039; cv=none;
+Received: by 2002:ad4:42b3:: with SMTP id e19ls1683469qvr.11.gmail; Fri, 18
+ Sep 2020 13:44:49 -0700 (PDT)
+X-Received: by 2002:ad4:4b34:: with SMTP id s20mr19246836qvw.51.1600461889619;
+        Fri, 18 Sep 2020 13:44:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600461889; cv=none;
         d=google.com; s=arc-20160816;
-        b=guiGavVrR9PzQ8dt4w4BW5LVNrsGp/WwaHxkkuR/5dKzdsa1KclxKhTvRxdIv5aa0x
-         e4mPgHjtCYZ1Owuu77cuBCXH0snsphH1lMikByTa2whOM7kfkpVGhJAX4pFkz4oJYpPX
-         Bc1bTBcKjHoERtMzjBYhehFDRv4lJtxTUQsLzHA+lljkiMHz7QeCZN0j8bHCzmLAiXHS
-         H8gHGd5ICiaWiCag5b1B7ZgtD4ovWCPt/Sxo7nU7PC56g5S3MyuKYc7zkL03o1ZvnzqN
-         ue8hFl5+U3WlmhRYHZtYVRt4KAhnXsdPUkoYNpmeMa+Lzi5wDJb5/LieHFjlMwb1jRSs
-         ztyg==
+        b=NkK57wvUI2GvayxGqmptU5/R3lmtEXdZfCdQ+xc03P4fDgcqbv0BrIaFwGINSvTtG/
+         A5X7qYaje8IOrecSxyGM0eYDFqVJorzdCu7A5VSRylwsd/ItfgJpaztY9hOyEtlrQx68
+         2RLOLNbDF006ci3L5A0j34XJGLgpzoZpQEDlDHAhw7o0YPBEq/iOn7PQQyYvdslc1huy
+         WyBbH3Im2FQXMDH3nZTYvkfa/eYJ+eLQTBVYTqP98/bcPDZtYtpDh5UaFKsRIsEF2aaU
+         tOGkVdl5QOQ5gzn2gsJHROfy32YJj25b74YSRuKl2zdeygRM141HF5x9X99K/TiAPdnl
+         R9aw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=d2MmVvsz9cFmb282g9eq067oReQQikq0PR0EsAD+uJE=;
-        b=YcnmplhP1bT714xuwyvJvCYWbOIWtLMt67LbPoJn0jJvqD6Nfm6SW4g/U2FmnBETSl
-         uirTAv9ZH1h4gUCgcHwl2uCLNCysSJ4hkzaThyPbok9wGNmE/Ruq+7fU9kOnXlo6fmyi
-         z/A4eJsYY2qXRFFyBuw8Db9ZpjbuP2jrXfmDNWvoWTvXITAn3y3kQBiudjhxK7cbqcCQ
-         cfTN8iNPOoH7JXORY1mN6n4MWAA6iOrSLX5RWfPeZd2jsxMvdrQAKhawZUuaCuBN+oyz
-         PNJHO4TtCXiATuA58tlgI9o6w79SOS8PHLvmhrAcHvI4Zfo666xzdQTOVGMdsDd0gv+t
-         cgGg==
+        bh=rTMNdWW+k/SpwP2X8kp9ZNYrYAZnPcF5uTnGGqIGyIc=;
+        b=MYmWlcyCv6SUsw03MS+6K2PnObkKKgNHHTpCQVmFaP9zmUzAFe5Htd4x9Wf5nToIrd
+         UMDjroMBvBtRsls6DfHngGTdlYpvil4XpWJhvlgj5WCIXpvsnjHTh4lFHkfNpTst0efM
+         swJ06ZlBbGW16FlP538s1XpBzPzKQu9Rep0oe9B0TvF9WyuILQBC3QcCIxLJiy1BsIVR
+         WEhwgpkupxROUGvOJySZgdUFzQGmx6H0Eh4Wy0U6ficuYinSDkBUzwf/e/QAPjiIJ4Y6
+         rNfT7ZSKOEGMGNEUyX0dGzLE1AuPdBemEjX2qcqkFuoLmXoL/mj+hxOGhU0vGYneXc/d
+         EkjQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=1IP8r9cT;
+       dkim=pass header.i=@kernel.org header.s=default header.b="aeT/pHTJ";
        spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id u25si304762vkl.5.2020.09.18.13.30.39
+        by gmr-mx.google.com with ESMTPS id q5si186751qkc.2.2020.09.18.13.44.49
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 18 Sep 2020 13:30:39 -0700 (PDT)
+        Fri, 18 Sep 2020 13:44:49 -0700 (PDT)
 Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from mail-oo1-f41.google.com (mail-oo1-f41.google.com [209.85.161.41])
+Received: from mail-oi1-f172.google.com (mail-oi1-f172.google.com [209.85.167.172])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id E35A023119
-	for <clang-built-linux@googlegroups.com>; Fri, 18 Sep 2020 20:30:37 +0000 (UTC)
-Received: by mail-oo1-f41.google.com with SMTP id b12so1737913oop.13
-        for <clang-built-linux@googlegroups.com>; Fri, 18 Sep 2020 13:30:37 -0700 (PDT)
-X-Received: by 2002:a4a:b443:: with SMTP id h3mr25381514ooo.45.1600461037066;
- Fri, 18 Sep 2020 13:30:37 -0700 (PDT)
+	by mail.kernel.org (Postfix) with ESMTPSA id 31C862311B
+	for <clang-built-linux@googlegroups.com>; Fri, 18 Sep 2020 20:44:48 +0000 (UTC)
+Received: by mail-oi1-f172.google.com with SMTP id 185so8556521oie.11
+        for <clang-built-linux@googlegroups.com>; Fri, 18 Sep 2020 13:44:48 -0700 (PDT)
+X-Received: by 2002:a05:6808:8e5:: with SMTP id d5mr10746303oic.33.1600461887317;
+ Fri, 18 Sep 2020 13:44:47 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200916061418.9197-1-ardb@kernel.org> <CAKwvOdmqFoVxQz9Z_9sM_m3qykVbavnUnkCvy_G2S2aPEofTog@mail.gmail.com>
- <CAMj1kXE-WJoT0GhCzGGqF4uzVNCqdd1O0SZ9xbHP25eQMCUsqw@mail.gmail.com> <CAKwvOd=G3CCwDdMsrbZvvUpNtxFL=FReovS4ProcRhZBQ73RiQ@mail.gmail.com>
-In-Reply-To: <CAKwvOd=G3CCwDdMsrbZvvUpNtxFL=FReovS4ProcRhZBQ73RiQ@mail.gmail.com>
+References: <20200914095706.3985-1-ardb@kernel.org> <CAKwvOdmSXm7cV3hB_Yp=DD0RwwDHtPzzDBU8Xj5kBREn3xqYdA@mail.gmail.com>
+ <CAMj1kXGuFFUyT48EYvzFmjCP4QZi_Sk_GpBrBCaHjP7HKLhjBA@mail.gmail.com>
+ <CAKwvOdmkNgi_+kfauTSLwtpVChipW851_KGJG+gBbhwRxJJORA@mail.gmail.com>
+ <CAMj1kXHTkP7-8xscGZGXN_0Sq=BCSnt3zWqkcm8xdO11xmditA@mail.gmail.com>
+ <CAKwvOd=G2Rr3StUJ=oWu1L4b5y615m+uYNW-Y5sis13uqBvrYQ@mail.gmail.com>
+ <CAMj1kXHEpPc0MSoMrCxEkyb44AkLM2NJJGtOXLpr6kxBHS0vfA@mail.gmail.com>
+ <CAKwvOd=Sq3XOquw4ACEi+cYCQp0-LW-JXoecFt+yy+jtmtuhiQ@mail.gmail.com>
+ <CAMj1kXG9WBZb9WYCCng7CkJ+v8X=xHVhih274iuXMd5ua2nKPg@mail.gmail.com> <CAKwvOd=8QUQK6hCQaAGjX6o_jz_vgFewW6v+SPHZ7ZKi9LYcYw@mail.gmail.com>
+In-Reply-To: <CAKwvOd=8QUQK6hCQaAGjX6o_jz_vgFewW6v+SPHZ7ZKi9LYcYw@mail.gmail.com>
 From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 18 Sep 2020 22:30:21 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXFVn=8-1KPOTm5FxG9FoVWPMcnfzR6xVB96Fk58GjrQDA@mail.gmail.com>
-Message-ID: <CAMj1kXFVn=8-1KPOTm5FxG9FoVWPMcnfzR6xVB96Fk58GjrQDA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] crypto: arm/sha-neon - avoid ADRL instructions
+Date: Fri, 18 Sep 2020 22:44:32 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXEM=bW6DdPDDeFOWi47O6JOu_czui9Y2BJfjiVdQ1CvOw@mail.gmail.com>
+Message-ID: <CAMj1kXEM=bW6DdPDDeFOWi47O6JOu_czui9Y2BJfjiVdQ1CvOw@mail.gmail.com>
+Subject: Re: [PATCH 00/12] ARM: use adr_l/ldr_l macros for PC-relative references
 To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: "open list:HARDWARE RANDOM NUMBER GENERATOR CORE" <linux-crypto@vger.kernel.org>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	Stefan Agner <stefan@agner.ch>, Peter Smith <Peter.Smith@arm.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Jian Cai <jiancai@google.com>
+Cc: linux-efi <linux-efi@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, Russell King <linux@armlinux.org.uk>, 
+	Linus Walleij <linus.walleij@linaro.org>, Nicolas Pitre <nico@fluxnic.net>, 
+	Stefan Agner <stefan@agner.ch>, Peter Smith <Peter.Smith@arm.com>, Marc Zyngier <maz@kernel.org>, 
+	Will Deacon <will@kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Jian Cai <jiancai@google.com>, Nathan Chancellor <natechancellor@gmail.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ardb@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=1IP8r9cT;       spf=pass
+ header.i=@kernel.org header.s=default header.b="aeT/pHTJ";       spf=pass
  (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -136,53 +146,78 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, 18 Sep 2020 at 22:08, Nick Desaulniers <ndesaulniers@google.com> wrote:
+On Fri, 18 Sep 2020 at 22:03, Nick Desaulniers <ndesaulniers@google.com> wrote:
 >
-> On Wed, Sep 16, 2020 at 11:08 PM Ard Biesheuvel <ardb@kernel.org> wrote:
+> On Wed, Sep 16, 2020 at 11:01 PM Ard Biesheuvel <ardb@kernel.org> wrote:
 > >
-> > On Thu, 17 Sep 2020 at 03:53, Nick Desaulniers <ndesaulniers@google.com> wrote:
-> > >
-> > > One thing I noticed was that if I grep for `adrl` with all of the
-> > > above applied within arch/arm, I do still see two more instances:
-> > >
-> > > crypto/sha256-armv4.pl
-> > > 609:    adrl    $Ktbl,K256
-> > >
-> > > crypto/sha256-core.S_shipped
-> > > 2679:   adrl    r3,K256
-> > >
-> > > Maybe those can be fixed up in patch 01/02 of this series for a v2?  I
-> > > guess in this cover letter, you did specify *some occurrences of
-> > > ADRL*.  It looks like those are guarded by
-> > > 605 # ifdef __thumb2__
-> > > ...
-> > > 608 # else
-> > > 609   adrl  $Ktbl,K256
-> > >
-> > > So are these always built as thumb2?
+> > On Thu, 17 Sep 2020 at 00:25, Nick Desaulniers <ndesaulniers@google.com> wrote:
+> > > Also, it looks like the GCC build of milbeaut_m10v_defconfig fails to
+> > > boot for me in QEMU; so maybe not just a Clang bug (or maybe, more
+> > > than one bug).  (or maybe one of my command line params to QEMU is
+> > > wrong).
 > > >
 > >
-> > No need. The code in question is never assembled when built as part of
-> > the kernel, only when building OpenSSL for user space. It appears
-> > upstream has removed this already, but they have also been playing
-> > weird games with the license blocks, so I'd prefer fixing the code
-> > here rather than pulling the latest version.
+> > I understand that this is actually an existing issue in -next, but in
+> > general, why would you expect to be able to boot
+> > milbeaut_m10v_defconfig on anything other than a Milbeaut MV10
+> > machine?
 >
-> Oh, like mixing and matching licenses throughout the source itself?
-> Or changing the source license?
+> We've been booting other configs in QEMU for a few years now, so I
+> don't see why yet another config would hurt.  Maybe there's some
+> hardware dependency, but I guess we'd find that out trying to boot it
+> in QEMU.  If it boots in QEMU, I guess not booting on metal wasn't so
+> bad?  Maybe this is considered an antipattern, but you can see how if
+> we've been getting away with it for years then that would lead to such
+> expectations.
 >
-> (I've always wondered if software licenses apply to an entire
-> repository, or were per source file?  Could you mix and match licenses
-> throughout your project?  Not sure why you'd do that; maybe to make
-> some parts reusable for some other project.  But if you could, could
-> you do different sections of a file under different licenses? Again,
-> probably a worthless hypothetical; you could just split up your source
-> files better).
+> > (whatever it is) Or does QEMU emulate a milbeaut machine?
+>
+> $ qemu-system-arm -machine help
+>
+> doesn't print anything that looks like it, on initial glance.  Looks
+> like a socionext part:
+> https://www.socionext.com/en/pr/sn_pr20170105_01e.pdf
+>
+> > If
+> > not, better to stick with configs that are intended to boot on the
+> > QEMU machine emulation that you are using.
+>
+> I can see in our CI that we've been building+boot testing
+> multi_v5_defconfig, aspeed_g5_defconfig, and multi_v7_defconfig for a
+> while now without specifying any machine.  Is there a preferred
+> machine we should be using for those?  (It looks like qemu supports
+> ast2500-evb and ast2600-evb; is ARM1176 and ARMv6 core? Is that what
+> aspeed_g5 uses? Why is virt versioned? Ahhhh!!!!)
 >
 
-https://github.com/openssl/openssl/blob/master/crypto/sha/asm/sha256-armv4.pl
+Milbeaut's serial output is on a "socionext,milbeaut-usio-uart" UART,
+and its defconfig does not include drivers for the PL011 or 8250/16550
+UARTs that you typically find on other boards. So how on earth would
+you expect to get any output at all if QEMU does not emulate this
+exact machine?
+
+In general, if you use QEMU/mach-virt, the only defconfigs you should
+reasonably be testing are the ones that contain CONFIG_ARCH_VIRT=y.
+
+
+> > Also, while I see the point of regression testing of -next, using it
+> > as a base to test arbitrary series and then report failures against it
+> > produces a lot of noise. -next is *not* a good base for development,
+> > because you get everybody else's half baked crap as well.
+>
+> Ack.
+>
+> > When you
+> > test my stuff, please use a known good base so we're not off on a
+> > goose chase every time.
+>
+> Goose Chase?! gOoSe ChAsE?! *gestures broadly at...everything*
+> Monsieur, here at the zoo, chasing the geese is not out of our
+> purview.  It's preferable to cleaning up after the elephants.
+
+:-)
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXFVn%3D8-1KPOTm5FxG9FoVWPMcnfzR6xVB96Fk58GjrQDA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXEM%3DbW6DdPDDeFOWi47O6JOu_czui9Y2BJfjiVdQ1CvOw%40mail.gmail.com.
