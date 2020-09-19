@@ -1,30 +1,30 @@
-Return-Path: <clang-built-linux+bncBDJNHL5JSEOBBANMTH5QKGQEIJ633MY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDJNHL5JSEOBBBFMTH5QKGQEZQUHKNI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43a.google.com (mail-wr1-x43a.google.com [IPv6:2a00:1450:4864:20::43a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 05CF6271017
-	for <lists+clang-built-linux@lfdr.de>; Sat, 19 Sep 2020 21:03:30 +0200 (CEST)
-Received: by mail-wr1-x43a.google.com with SMTP id j7sf3756604wro.14
-        for <lists+clang-built-linux@lfdr.de>; Sat, 19 Sep 2020 12:03:30 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600542209; cv=pass;
+Received: from mail-lf1-x137.google.com (mail-lf1-x137.google.com [IPv6:2a00:1450:4864:20::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id 88A3C271018
+	for <lists+clang-built-linux@lfdr.de>; Sat, 19 Sep 2020 21:03:34 +0200 (CEST)
+Received: by mail-lf1-x137.google.com with SMTP id x15sf1674669lfn.10
+        for <lists+clang-built-linux@lfdr.de>; Sat, 19 Sep 2020 12:03:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600542214; cv=pass;
         d=google.com; s=arc-20160816;
-        b=U3eoNsWnhpL+L7cr9AzeCS1Xo7KwiZ/rERdaOAtncRG7wPCsO/ANuU8d4r/AISnlZb
-         rWbLJc6ajNggajxMGF8hvxtajqtLZfcZTC1vuogNFGr0na0KG67p9UUBZyEi7meqeMPC
-         JkyFjSUREbC8j0eb3OE0/pCYbHeqomzmfmZ/RL3FUOaKQWSHqow6/16vAqsokuRJEJt7
-         rGyTqCNKGo9XrAvKqv85RrgPXjo9RCsLbhtj0UKgcHM9DKL8FkQgyOzDmFQa/KCXD82c
-         szeI18AcFIGC0pBwK82GJydU2Lfe6f3mTMwGzWeZ3PpG6zTkL/xQI5aw/gA+ic6c23zp
-         cZ8Q==
+        b=LL3kbIHAqzUGHGhio3T47+XZzv2oQCxWv4Cy4omQq7/5aeN3bge2qwLyG6HjmCNrBw
+         w7+7d8k/Z1NEFSKeJTPp/NCGMPkHFN0eFHre4ArKKCK9jpDvEoWOJkXXSTdH+0+5oHZx
+         h9WLaJXTKz7HO1jEnSnuTGO8F8dryTws0UgBe9cijKN6Kvqz3Djef4s65MZfuvszxDzR
+         kqYvAYb4mbYTB35Ggm1wcRVTR6g0+RpXQNNs/W0xJw+VKOhmldfueUx8Ny7POgQJR6wJ
+         I3YuBaGJ/rNqGRb68bE6Q8MmhezeRGZMnWKTcX7VrwicU+rp24UFOTjU7b7OaLj+ZGuD
+         QvnA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=J7oo81dEacje1EXF78JjLYMEA6KuxQXMjvYniRGvjqQ=;
-        b=ag0NKhDoC0EVkEi/EVqgW6/bvqC6dmpOBw88OXMxT+gMQnJJhgKYAXcrlDYXuprZOY
-         N/L/M8bGVpiRnCoDsdhjmlESoFgBbkU6ws8T3NLWGGWQPTaRjZR9o74jFYQys3HU7r+s
-         1gxlI/o9yUJ7B1FGBLfNh7mv8APSrFnfUzhXoPrGBP78T/ndpDYkzNEiKNNn7EZHyJtX
-         NeqBBzFt4ZdozVPFw1blXSfo9IQvaygIWLk0eEiebeh7gVdUOdQlNhRmbPxvWMwZ8W3d
-         WS1t6S/9r8qa4KQRQiX+DggwtkhsiEqmHFWp6m70OerEM6qfKyVEeW50NF+IUvKyVnjV
-         NDmg==
+        bh=nQ1BaEU7NXJv63yDKJQJktafEP5hwcD86CiTarkjqE8=;
+        b=XYkRroVbc57hhxz4SwXfxPBbjm3wsyFKqTaiUm0E8X/+kS+h9eGYYmKKgqowfjFVao
+         33+ji2e5zItQmSOs4ly+lRu1UTJeMexIGHbkZa08jTBApdyVCRF69wDkYCIRt7RZdOq/
+         7Gzthva+L+P7nAjWuuwtGEB1S/NhBSDyk3My+Dmr1DI4vMgsRzBLe/foM8XM9q97H/Ch
+         96vYZCd4/WdCd/Cy2n34V6znaU2Taf1lnH+tGCJqYtTxyhMRdmUMvwOz/0kf6BAUM7fS
+         dLGH1PfFvIlihkEgj5CA7TuI4tJfyUYn6zoDTO4MkIhz03dUgn/xEcjkTz02asTmJ3yY
+         WPPw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of andrew@lunn.ch designates 185.16.172.187 as permitted sender) smtp.mailfrom=andrew@lunn.ch
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -33,13 +33,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=J7oo81dEacje1EXF78JjLYMEA6KuxQXMjvYniRGvjqQ=;
-        b=NXOHvD6eMoFhRkw7fIBgFrY1Z7IOUDqQkjsM+rljEqWBUfyK8ywKnkHa5X6Zk7SjH2
-         LDemkLW2jewpQyOQB9ZGKVmkCMkxF4MjPgqujYX9mrX6wf6e4IPK3Lq5MvPNW2hzU/s4
-         sTHnoUYew1xZl3vceDijEv/9IjAW19oAct8/0ObeztD2paMN2kxWqeF1USUFtDBScVaL
-         5kDkX7eUqkFKiRLJw/DLKhwmqcNiyqoaBu+3YUh7/6yfsdl0P8Umi/R9uttlTF2SIhSf
-         wrSloRbw6k0rqcO5S348cibtNEMOfim7XjYmaRDNY1pt4vBO9F0OWJXAPpj13n8z9tLf
-         WjsA==
+        bh=nQ1BaEU7NXJv63yDKJQJktafEP5hwcD86CiTarkjqE8=;
+        b=WMCOFfi5N6JAW6nBKHFYXtBqKqLokbE6xLSOCEw7KL93bQ7EsOlHdqEPrENaK9pUfH
+         QfO8uioEU1ubZvPCKd9Wuiy5EN1ZvIlP7oft8xEYy/4HpYnp1E1UXN+qYum3GqN4mVDT
+         S2Tl38qV8s4M66oS44Wk0xai3BHKep6nb6cEi3FpKAVox2r4jYGvcwzIyn4G/FtTMjJt
+         INfFGbo68fdW32yxUhD65Ohu7i8jgyT1lDJPTnu3tlTjsSqtmbzh56wjD888OD//kcPI
+         1L4h/PIbpr93rVtV3JDuwcQil4sGByOhMnpsXb5uzT9TnIsKN9AaVimv02AcIpN65Rfb
+         hgqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -47,53 +47,53 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=J7oo81dEacje1EXF78JjLYMEA6KuxQXMjvYniRGvjqQ=;
-        b=hrqGoXwwYeLS54Pbb92C8VBR7UkO/MvAcgyb+9v6C7cHh6tpabusnJGxqKgv1NoWxy
-         o/igw/A+M7fsmwr9Q4MOSPherUhDkKdeVjDLVc5N9RurE+wzarCu6Nem2QWGpXLt8dvW
-         TrEoEiP0T0MQBqOIlQ7oGNfDfwonWfM+H44eLIY/yC4Bbqs4umnX/Iw8xoKV8axWkEm9
-         U99dPUIwgj28U7iffubc+bziBMQczUgDJcxSKUnp11Mc6hz2zEnysdO8I2lfxjMAh+4/
-         +TfB/IYjvhfHcQN1Ou+NWXRKj3RZYc/X5af9MKt82vW9kdtR2Ftw029pH2BbO9Oe19bl
-         58ug==
+        bh=nQ1BaEU7NXJv63yDKJQJktafEP5hwcD86CiTarkjqE8=;
+        b=XX1p/Z7ir0sJjIpgNwlWxrltgLcnozG1DGaa8Dnc2YG7eJeqLHPu/qy3V0Ia8AHUYL
+         F66wLzyQQ6fz2PBSQ9gPuJs9q+7e3phHNDTxsFmzHG6K8LqkdWrE7QHgMWYPefXFK6Px
+         S/YNREYKso/si6CeKAxDiFa1OT8nZQLLvH1f7B+IjgwnPMKvMYynrlDl9KoQHVW7syCP
+         pN2yoHoTzL8cubjz7+/qsgFodutMJaOgk4ltmeAPGPDNkcf/Wuq1ch8uwkX5INMzjThb
+         PX+XBQ1ZM6hAsNXxpvgydKhqVdIQigRjvatM99/55AsCDQwfy8viC9DGpeC2TeqHAWz8
+         +qNA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530uxXdP7g8QqN4PrIFQcj0tW+5LmcF+9Twm21de2dwjBlucUugF
-	Nj3LBaQvyGCTfyZd1OQrpMA=
-X-Google-Smtp-Source: ABdhPJxEC6ZUBBCfuY+YJoVLfMBTko6YAJGLj6vpXLuCSc61iSp2VCMfb9lCXip1I1y0sR4azFkNIQ==
-X-Received: by 2002:adf:e84a:: with SMTP id d10mr47077357wrn.66.1600542209718;
-        Sat, 19 Sep 2020 12:03:29 -0700 (PDT)
+X-Gm-Message-State: AOAM532PtK9kB8j0P/bgFRzzSSPL4ZtNQRlpjMYK4ldnwis5HFyqJL/8
+	ZojOiHpha6TxagSxiwSOiVg=
+X-Google-Smtp-Source: ABdhPJw+bY2i9nCUIjkYo/fPO2v3xJjOKtTDhMaLaSKvc3+2cfhxbDDJb3xDGQwKBwygkkvvB3PWtA==
+X-Received: by 2002:a2e:3312:: with SMTP id d18mr12925632ljc.328.1600542214108;
+        Sat, 19 Sep 2020 12:03:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:e3c3:: with SMTP id k3ls3772385wrm.1.gmail; Sat, 19 Sep
- 2020 12:03:28 -0700 (PDT)
-X-Received: by 2002:adf:fc92:: with SMTP id g18mr47298848wrr.201.1600542208695;
-        Sat, 19 Sep 2020 12:03:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600542208; cv=none;
+Received: by 2002:a2e:9151:: with SMTP id q17ls1205363ljg.8.gmail; Sat, 19 Sep
+ 2020 12:03:31 -0700 (PDT)
+X-Received: by 2002:a2e:e1a:: with SMTP id 26mr12295091ljo.377.1600542211624;
+        Sat, 19 Sep 2020 12:03:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600542211; cv=none;
         d=google.com; s=arc-20160816;
-        b=ZUPkKF1q7Hd+Doth4PTanQm+wxbSU+iufUeI2IUbYextGE5p5PCeZeloWMj0VL1CEn
-         Jw1ErbHUkb7Sq8C8yU0GQwVF28gIVYhN07fjDTDIv6cKkWkgMSRbSFy2eLmY+CENQAKc
-         bMzOQdy2k8PYuml2BoFTR20YB8vxis9IxVkKkayYjBpJv1kfSaCkQyLeuoflkz1Vdqo/
-         kOpSCQALsVg3+GQZ41oI9f6+dnw3H2FxnEe9ymVIW2uGBjg04gLofldFGWJPG/6fBLwd
-         fa5cn5kdb9+jVI4N00RLc5wdwDuR34tW2/NuVYn8NYUPRDaHm5MZBjSf9iylbw20uCYf
-         cKZw==
+        b=O8FeuAQD9zbF8GaqzBAt1JbzMxQTYPQCjlqZbL2O5PSICCi30jvha+qPKIk0Akwwqr
+         7UfAtpW8eTSWA37B4sCpeAcf9tRoO7bCYS/pFPcruQwlRWaOx+di/611jZXhRERHoUMj
+         euL14vWKEa3+DP/xPGxW284astFSAhgDn31dLYuLD1poDQIwy8Yz/N5pXc4/+zfWmvRs
+         5FRDn8dvb7zHe8OGfGL64YjEuXIKjjN5VT+464c+FlZgKkgAMdXQQgaexET9n1OvqWcA
+         fYwC0UC+qawNuIr2kfUKsV/bZYaueij7y51GYEI8Gb75N2MhfpmiCVXX+oIQ3tnj8O+T
+         wtUA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from;
-        bh=X/2ZuiicD871cJqrnjByktRdf/YQvLjQYXxC+PZx3jI=;
-        b=bvPdzPcIbjo6LuVlLzF7A+3XWdx8J6XHze3Ug4nkG7P9LfY5GwocRljaritVJj6T3T
-         jIdhQFB9B+gZO4uiPvEdLjRP9ugOcvfvkL0G3aEmjfp7rz3SrMuMSUiPYYV+0q5lmEZa
-         tgpFIQp2adnOPufTQLjjVeH+KXmX6wDqw0fPQK6CHDSoATVZ8dhfL48YBqOSLJ5l2l6w
-         K6ha35u0p22YZqgjXjv1aD5eBAN8ruq4TnGBd8hoHGIYxZP63ha14b4AQ62AF9vDeXyv
-         8trSj9IwV7yYSxs0/s3mbBkDeSKYBpnQH2pVYumPK7qjkgKOIZQgN9M7lhmcjeAtIC1F
-         Y90g==
+        bh=6510f9VCZeOC75jb3+DnIRMsKvg/ls5ErsD8DzCYuXQ=;
+        b=avVSygPBQQrGbV4rbGCduekMUPmd7Q/KLb33l3OfXe0wU6kIf8ai28m22JhOgjnozD
+         FPCHS5vcD+OLPZ5FmtirQgoI7Ls4kNv3t46ZkhVdC9d0dSug4F51KanP0F3fl/9ST99B
+         Ar2CuaoEBnrZ9Xn6BJHyStFL4aPC53Cs4IM8DmyRWIMM23Fo4v+wHbtO23Tg0/m7JUol
+         Bm6URwrJ2rCYlU+q0qIpj7iztOI2r1uhJ2wYT8Bh+ZnOLNEzIiUr1nlGxkI13dy97HAT
+         W6OHRc7sJyp8yuOtRRMm7j6CJj+i9E3Axf48TFtPYf22e7cR0CmNx63OGqwGpc9rduQ1
+         Brww==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of andrew@lunn.ch designates 185.16.172.187 as permitted sender) smtp.mailfrom=andrew@lunn.ch
 Received: from vps0.lunn.ch (vps0.lunn.ch. [185.16.172.187])
-        by gmr-mx.google.com with ESMTPS id n1si143013wmn.1.2020.09.19.12.03.28
+        by gmr-mx.google.com with ESMTPS id z6si186477lfe.8.2020.09.19.12.03.30
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 19 Sep 2020 12:03:28 -0700 (PDT)
+        Sat, 19 Sep 2020 12:03:30 -0700 (PDT)
 Received-SPF: pass (google.com: domain of andrew@lunn.ch designates 185.16.172.187 as permitted sender) client-ip=185.16.172.187;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94)
 	(envelope-from <andrew@lunn.ch>)
-	id 1kJi8j-00FPah-Md; Sat, 19 Sep 2020 21:03:17 +0200
+	id 1kJi8j-00FPak-Ny; Sat, 19 Sep 2020 21:03:17 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: netdev <netdev@vger.kernel.org>
 Cc: David Miller <davem@davemloft.net>,
@@ -103,9 +103,9 @@ Cc: David Miller <davem@davemloft.net>,
 	linux-kbuild@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH RFC/RFT 1/2] scripts: Makefile.extrawarn: Add W=1 warnings to a symbol
-Date: Sat, 19 Sep 2020 21:02:57 +0200
-Message-Id: <20200919190258.3673246-2-andrew@lunn.ch>
+Subject: [PATCH RFC/RFT 2/2] net: phylib: Enable W=1 by default
+Date: Sat, 19 Sep 2020 21:02:58 +0200
+Message-Id: <20200919190258.3673246-3-andrew@lunn.ch>
 X-Mailer: git-send-email 2.27.0
 In-Reply-To: <20200919190258.3673246-1-andrew@lunn.ch>
 References: <20200919190258.3673246-1-andrew@lunn.ch>
@@ -127,65 +127,61 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-There is a desire that subtrees can enable W=1 by default. To make
-this possible, put the extra compiler flags into an exported variable,
-so other Makefiles can make use of them.
+Add to the subdirectory ccflags variable the additional compiler
+warnings which W=1 adds at the top level when enabled.
 
 Signed-off-by: Andrew Lunn <andrew@lunn.ch>
 ---
- scripts/Makefile.extrawarn | 33 ++++++++++++++++++---------------
- 1 file changed, 18 insertions(+), 15 deletions(-)
+ drivers/net/mdio/Makefile | 3 +++
+ drivers/net/pcs/Makefile  | 3 +++
+ drivers/net/phy/Makefile  | 3 +++
+ 3 files changed, 9 insertions(+)
 
-diff --git a/scripts/Makefile.extrawarn b/scripts/Makefile.extrawarn
-index 95e4cdb94fe9..bf0de3502849 100644
---- a/scripts/Makefile.extrawarn
-+++ b/scripts/Makefile.extrawarn
-@@ -20,23 +20,26 @@ export KBUILD_EXTRA_WARN
- #
- # W=1 - warnings which may be relevant and do not occur too often
- #
--ifneq ($(findstring 1, $(KBUILD_EXTRA_WARN)),)
--
--KBUILD_CFLAGS += -Wextra -Wunused -Wno-unused-parameter
--KBUILD_CFLAGS += -Wmissing-declarations
--KBUILD_CFLAGS += -Wmissing-format-attribute
--KBUILD_CFLAGS += -Wmissing-prototypes
--KBUILD_CFLAGS += -Wold-style-definition
--KBUILD_CFLAGS += -Wmissing-include-dirs
--KBUILD_CFLAGS += $(call cc-option, -Wunused-but-set-variable)
--KBUILD_CFLAGS += $(call cc-option, -Wunused-const-variable)
--KBUILD_CFLAGS += $(call cc-option, -Wpacked-not-aligned)
--KBUILD_CFLAGS += $(call cc-option, -Wstringop-truncation)
-+KBUILD_CFLAGS_WARN1 += -Wextra -Wunused -Wno-unused-parameter
-+KBUILD_CFLAGS_WARN1 += -Wmissing-declarations
-+KBUILD_CFLAGS_WARN1 += -Wmissing-format-attribute
-+KBUILD_CFLAGS_WARN1 += -Wmissing-prototypes
-+KBUILD_CFLAGS_WARN1 += -Wold-style-definition
-+KBUILD_CFLAGS_WARN1 += -Wmissing-include-dirs
-+KBUILD_CFLAGS_WARN1 += $(call cc-option, -Wunused-but-set-variable)
-+KBUILD_CFLAGS_WARN1 += $(call cc-option, -Wunused-const-variable)
-+KBUILD_CFLAGS_WARN1 += $(call cc-option, -Wpacked-not-aligned)
-+KBUILD_CFLAGS_WARN1 += $(call cc-option, -Wstringop-truncation)
- # The following turn off the warnings enabled by -Wextra
--KBUILD_CFLAGS += -Wno-missing-field-initializers
--KBUILD_CFLAGS += -Wno-sign-compare
--KBUILD_CFLAGS += -Wno-type-limits
-+KBUILD_CFLAGS_WARN1 += -Wno-missing-field-initializers
-+KBUILD_CFLAGS_WARN1 += -Wno-sign-compare
-+KBUILD_CFLAGS_WARN1 += -Wno-type-limits
-+
-+export KBUILD_CFLAGS_WARN1
-+
-+ifneq ($(findstring 1, $(KBUILD_EXTRA_WARN)),)
+diff --git a/drivers/net/mdio/Makefile b/drivers/net/mdio/Makefile
+index 14d1beb633c9..14600552eb8b 100644
+--- a/drivers/net/mdio/Makefile
++++ b/drivers/net/mdio/Makefile
+@@ -1,6 +1,9 @@
+ # SPDX-License-Identifier: GPL-2.0
+ # Makefile for Linux MDIO bus drivers
  
-+KBUILD_CFLAGS += $(KBUILD_CFLAGS_WARN1)
- KBUILD_CPPFLAGS += -DKBUILD_EXTRA_WARN1
++# Enable W=1 by default
++subdir-ccflags-y := $(KBUILD_CFLAGS_WARN1)
++
+ obj-$(CONFIG_MDIO_ASPEED)		+= mdio-aspeed.o
+ obj-$(CONFIG_MDIO_BCM_IPROC)		+= mdio-bcm-iproc.o
+ obj-$(CONFIG_MDIO_BCM_UNIMAC)		+= mdio-bcm-unimac.o
+diff --git a/drivers/net/pcs/Makefile b/drivers/net/pcs/Makefile
+index c23146755972..385b5765e390 100644
+--- a/drivers/net/pcs/Makefile
++++ b/drivers/net/pcs/Makefile
+@@ -1,5 +1,8 @@
+ # SPDX-License-Identifier: GPL-2.0
+ # Makefile for Linux PCS drivers
  
- else
++# Enable W=1 by default
++subdir-ccflags-y := $(KBUILD_CFLAGS_WARN1)
++
+ obj-$(CONFIG_PCS_XPCS)		+= pcs-xpcs.o
+ obj-$(CONFIG_PCS_LYNX)		+= pcs-lynx.o
+diff --git a/drivers/net/phy/Makefile b/drivers/net/phy/Makefile
+index a13e402074cf..c49d40dfb6ec 100644
+--- a/drivers/net/phy/Makefile
++++ b/drivers/net/phy/Makefile
+@@ -1,6 +1,9 @@
+ # SPDX-License-Identifier: GPL-2.0
+ # Makefile for Linux PHY drivers
+ 
++# Enable W=1 by default
++subdir-ccflags-y := $(KBUILD_CFLAGS_WARN1)
++
+ libphy-y			:= phy.o phy-c45.o phy-core.o phy_device.o \
+ 				   linkmode.o
+ mdio-bus-y			+= mdio_bus.o mdio_device.o
 -- 
 2.28.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200919190258.3673246-2-andrew%40lunn.ch.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200919190258.3673246-3-andrew%40lunn.ch.
