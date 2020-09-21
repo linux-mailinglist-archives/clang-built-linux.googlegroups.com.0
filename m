@@ -1,122 +1,124 @@
-Return-Path: <clang-built-linux+bncBD5LDHXSYUMRBKPQUH5QKGQEQIS2LJY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCMIZB7QWENRB7MDUL5QKGQEMYATABI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23b.google.com (mail-lj1-x23b.google.com [IPv6:2a00:1450:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 06340271F50
-	for <lists+clang-built-linux@lfdr.de>; Mon, 21 Sep 2020 11:53:46 +0200 (CEST)
-Received: by mail-lj1-x23b.google.com with SMTP id p3sf3980193ljc.7
-        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Sep 2020 02:53:46 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600682025; cv=pass;
+Received: from mail-il1-x13e.google.com (mail-il1-x13e.google.com [IPv6:2607:f8b0:4864:20::13e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8EDDC272140
+	for <lists+clang-built-linux@lfdr.de>; Mon, 21 Sep 2020 12:35:42 +0200 (CEST)
+Received: by mail-il1-x13e.google.com with SMTP id q11sf10635434ilt.3
+        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Sep 2020 03:35:42 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600684541; cv=pass;
         d=google.com; s=arc-20160816;
-        b=uRUNbnbPb+PabQtzpx1Hpy6c+K04DWyF83nmNUTlPxH7crMiBtbSm94qnnwm/aA9oz
-         R1j0Z0n20ydOPyNPjU6DxJ16Sotyqo8YndvCG/SjLoO5nW6LnKfNiA1uPe6HigwTWV8a
-         cg3gweoaCdERpoc9lC83zP/0EIKN3iSB4GklRKFPhLOeFf1NEkBv73z90t2TFlDSsbwd
-         M59s7cM5yBhQxRKmRJ1QvkS75GGj2j1+RO8sDE+mGrxrqSAFbqUJtjV4IwNNIqpKvVqi
-         otUlJanxCQVeZRDkHnHU3fhL/doH83Jx1J22Ry0QSc713VlcZiByAhiLe7zJQdrBRwcO
-         20og==
+        b=l+vcBkS4GQETmvZD8Hv7jvza/+5FxIcilm5fgt6ydDYQjqYdGLR46+3yxw62/Ni6jw
+         5DLLd0/Zznf1qy8ST7hxBAPhoKEnnX6XBda75pRkW3BhAdWcGYFAO42khQHO4GP4G7Yi
+         md+cs7+NmhMb6zf1WQmK8foa92ALuY5k+ElNoYUZuDelQAWhyL7dIZuHsvUNIo0fwty0
+         R2Jh0oAU5br8UhURcfE2WEnrj319VKCpvCy7hwAHud2s+jX3S40Ft1KOtV2JxSYSp7ex
+         OaIaIl1/k/h+LmMZYGAzdr2ksVS7EU/WUttomQSiAeom409NyD5dNS8XzKAIpaQRh5o4
+         3nLQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=9XN5oK6as/OECYc4L8wEvO2BGtJ23k+MAVbuSBrZAac=;
-        b=jf/EtYZtwLBMNIMwR3Tikbpt1NmdAeBbqqDj4eKumLjhmkSjQbBaYLiRxm18QFy9Z6
-         8PukASzUaVLpPMMfCj8qpIfw/uc9C9m+jQ0xqghiuSMBTjMWJAXtbzv36Fo17kgns8ha
-         Z7vlvRvUVXiVulmyaHtoViJ7fWWGeuYhMVF1XNloxn/JKQMYhw/c1cxtGHmZ0BXwnT0O
-         OnfwZqyOqePDkU40hSPXuHRYPt09XY6OaKWPZ43QpWeCM6O5xs1Hn/spPMDG+wQbONpC
-         FYR6KP58/didq6M2HcMtSAyEZDEXE4MkL/1oR4XnJXIz5KQ6VJZnsVD5D/xb52awBVc1
-         RmfQ==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=nfJXC1OXx6o2vixoP+r+7K7Gw+3siaFcjiSAXf56IH4=;
+        b=0NKG2BFmFRHHXErE4FxFi9CYL+hYpHyeuNGnPBjsLWtn+2USqOtLX53BivsUdrbP9A
+         SSYk0IDwirHoSd9bwTEibHii6ZYKAFO1MgRrQlh37qDjp8HcNyVUIRb6q1z79k44Fkdo
+         Q9LzxRxW4cAtStzdVc8PkXYd7aPuzg76l7s60De03keKM0dBvBvQPQcxcaDH3rCAFX6N
+         oKF3KzaYRvYEcwdcD5gxx/Fuz35X0+S5lkg/JMH2QpCsXAT32DMzS2qKrbHavdhVyx/I
+         CnqsqKPmRMwjZbXaDzdfPlX4ZDxPC3y5vuvMSgPMoFyUmfW9fhQ95dr/SyEr5MUW8zpm
+         eQWw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of jack@suse.cz designates 195.135.220.15 as permitted sender) smtp.mailfrom=jack@suse.cz
+       dkim=pass header.i=@google.com header.s=20161025 header.b=h87IXZy2;
+       spf=pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=dvyukov@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=9XN5oK6as/OECYc4L8wEvO2BGtJ23k+MAVbuSBrZAac=;
-        b=emov92g7Gv7laS3vHld71BojZj3N0t5eR3x6Zmlw+qQxrMlTm02/ss7bsOVi5aDZ18
-         EUn4p2caI9LQkxseVjTPZ8YCTlM2daA8d9HCrkoe/V/7UCEWCXrP1w3MUzksoCOX178E
-         ax0Cq8mcN0/E9Gcawqirslzl4EmYLnEWjmC0X9uCshiHgv/o+yjT/9S94yTee11SLO80
-         VL5q20tlmaq6Y7kqk6r6Hs2sW35PP2olfRNjTAP4+FUtmU29fi76zWuakgiU+AZplBXr
-         A+0OX82FjMrh28noy+6G6s0/siKyyMEDxp9dUJcLz2EDuN68ALMtfePRN6T4PAEGDv3z
-         Q9nA==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=nfJXC1OXx6o2vixoP+r+7K7Gw+3siaFcjiSAXf56IH4=;
+        b=jyIGR+b7UtrGtR5QCmfHqjFksD7bkc9Kgk9xgipAYdBPh8G+1z58XSMU4YBv2Q9YXE
+         CeQl4M9pxM/kEMlicc4saxE7bF2z0BPeVNC75N/fSHBuIpsV2bMRaVZyX+UzS5iOxSj8
+         ntNLIS6CvF9g6DYRmxuCse5+28Y7EeCi/ENhpQQqM+h9KolJ+fvED/jMt0KlHHYXRMS0
+         Xf5fetM/js3gEnRr8716rHY2jPLXblHzBkn0Mc9EAVz0eU2t2elDOGJZjT1e0CvnwcVe
+         lpLsklqDR26QWH2naZtjnpGySKA6EOdqKox48gzIwK3CcFdtPsnpYHk22SUml0R6W3gW
+         yMlg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=9XN5oK6as/OECYc4L8wEvO2BGtJ23k+MAVbuSBrZAac=;
-        b=CJPtbHmEQORknB8/6ZT0cCZqA8O7GHbpzL9zKFzYKAk/UxddI9zlanux6BHIvx6kLM
-         Z2Zgvu6CD6tHNtNgy9A+lX+KiA7ghBIBdVkHtsX0NESKYQqfgCnBgyvrMnO7C1qmWA65
-         cjTIblsDX9XMkLZA6iB0yXElGsA7y2umD79lFarK+o4sTe9eOiRs4D2dfSytw5fSSj1C
-         Vw22T/2WiGue7xOWV1Ua8u0UeSw+mV6qFCjaolJxwWEMikAMpa0ACbp+TiPmwLOznsIt
-         YS/BLwhzeNXYwVQ8Py2hBS87rez8+rCU1CXmFdCytZVJv8EaNmtvazgvwc54ZTU/mvID
-         gWMg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533LWKyyMDtqGk1dDWZLloTBexhkXtZQd02fUtCoMj673RO2N2FO
-	bRe9azep1EbSwvR17NGD3Fc=
-X-Google-Smtp-Source: ABdhPJyqpxELLdOiEB5KSpVskzrfUP4SRl3N3xPn7wgqS2DHHvJ8rMWynDrdNauWRH0jYj7YNuecMA==
-X-Received: by 2002:a2e:a41b:: with SMTP id p27mr16692237ljn.75.1600682025551;
-        Mon, 21 Sep 2020 02:53:45 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=nfJXC1OXx6o2vixoP+r+7K7Gw+3siaFcjiSAXf56IH4=;
+        b=LjIqYGwZi8u51sGj1K9nPrC/raZ1V0uSRhAA2X+XctxCHyydG5j2RFo1LiI8vStbeF
+         GzS1Ojl/9alEcumyxSwKM2vv0708AVZzKhvwLbPYeGJvmKDpIUMoc1O4QTf6VpFWaXc8
+         JybtG0Zx3hEAH9kZkoQuOMzbfTg4azflw+1zKsM8IK47I/N16qqZjL+7TDaYDo3fC9JR
+         UkFLUu11acDjZPaKt063L9SxNh0VjqkQVQsQwCbVPTECd774tDjC3Q5MmGGgqV2RmR7J
+         zGrKke/q56HsXhmTjUbbMMdg9GqIMzwe1DgM5N6ESzRI7vsg90n9tUAnHyz1iTu0U+E9
+         OCsA==
+X-Gm-Message-State: AOAM530AYGwlByBMqEdVKYR2ZhhoNbm5Mn8Yq7fEHhJCwRPhjwAWgCnb
+	KWJWOnD0mEMrE0+NpU0+jSM=
+X-Google-Smtp-Source: ABdhPJw7fLHqKnVSQspFMHeOXHz9Xd6Qls0YDGv5X3U4XTe5JnYLOmH9sJe0pTXFGfdq4BEZNgObLQ==
+X-Received: by 2002:a5d:96ce:: with SMTP id r14mr35312045iol.146.1600684541493;
+        Mon, 21 Sep 2020 03:35:41 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:86c8:: with SMTP id n8ls1575607ljj.1.gmail; Mon, 21 Sep
- 2020 02:53:44 -0700 (PDT)
-X-Received: by 2002:a2e:2e13:: with SMTP id u19mr15051083lju.11.1600682024241;
-        Mon, 21 Sep 2020 02:53:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600682024; cv=none;
+Received: by 2002:a92:c805:: with SMTP id v5ls1898599iln.1.gmail; Mon, 21 Sep
+ 2020 03:35:41 -0700 (PDT)
+X-Received: by 2002:a92:dc03:: with SMTP id t3mr31464232iln.245.1600684541004;
+        Mon, 21 Sep 2020 03:35:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600684541; cv=none;
         d=google.com; s=arc-20160816;
-        b=XmXM80lpWAj9u+JrWtB1keNZ7FFCCWw741LX5rw8y+eTAbGGKend9VVUQB3dX7DvJy
-         zEzwl1nbJChURKS7K36EfbJRQpzLyDjFx7DpQ2jmrC4Ayl8KoPa3Sc1FARJz0Y6ZbbL8
-         mYOPKrVKWyiWAFGW56MR02rjFAmS0A/4sACV6otrVzbZb7jnDlH8daq6MtuQnfYed3he
-         ldFQtT2Smbhy95gURP8Fi2Dhjl9KcbdYAmx3sfO27rGREy3jRZF+v4Z07rSJvo+OH9AU
-         QqaA1saRczko8H9WzU30HUjAKTmZF8UWgPi41sUFbdrCY1DMw22pHcN35J5Uc/MGv2bs
-         8s9A==
+        b=Fzmy0tkum1tX0RfoFSfTHvxdhYEYE3NepTfEh6Q8eomIIruNDxLQuAc3ePwEyaGuao
+         6sCXQK6SibWXmJWsCQ1Eh5AuFd/M1rxaU3GXkVEEgjImpAu4c2dZ5i97LmwSJYqRu4vV
+         5TWbS5UgbJbvpfbOXp4KPuwAnfit5XMJjwK7SCaclvOJ/jFXHaQbqsv5DSaLnyvbzp8D
+         kWiSi05jbe/K5AFmR9TdIFLS5A+M5DKOFrmhkoHeug52XdLUieEKbuGByWQxR2gMjmVx
+         g5VCqwSl82R/25enpy417RNI5XLkgQNVQRNEvNqYJqKJtNPRXSOPKyvHJe6IVFCM2aCl
+         Qfbg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date;
-        bh=QH0gCF0LHvXvDVb/+MSy0s2p5G/Ga5X1ZIAyNY41j2E=;
-        b=OjwUYaFgoFRnmNNCHK0Jwk6UBaEERrsMoQaVZMFMlpK71jk/k1e178kwLgr8EMP/6c
-         9Z4e6bmC1RZPuHwWe6yiUOHoH/WqAbuAAFpyvIWYlOfoqd3c7q+34eaiEdxMfGINMS44
-         0eJCWuHdLYYH+1JUE7cs7tEuG2TcFI8hFi96QuJ5kfjwkca05WldhrpcgcDD4RJJGUFH
-         7jfxgjnI6Mbe6Ddrp18E6gPm/8pB9u+BwsJPXeFromnNd5jb/mboNPth2U8n0gq5MR2/
-         6G42kqpFZ3etQ4Vt/oQTpHoMeXgVoB0dnpEOjlSiAUzQEXr3HCPFFFlFOy7hvG7fCvwb
-         3mFg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=PLztuyb5KZBoqqMXOyncGGUkQM8zZk81TCoj2WHVkLI=;
+        b=JUuNH07lPIK+M+pzWEsJ0KLnvjEvmgV52m6U5v70CFbbtICt9EL/+4MSMpir2v5Z8s
+         /BFw2pMrqwDjMb5eOZlb0Vm/nG1j4xSWQ03TPPfOXQNUBot02ARoLPTmYd8Jvlg4YHSm
+         FYYgMzL3AsWnOxlrs2XdwS0M3YkgyOXOeMuqDbHaQ4S/3kzOZzZaST2mZ0uXjiK4d0qd
+         IE/Qe4Ba0/wmiKXUEKlp+vV9N17oLnU+MSrFm9d52zXNX1YwxWmKw8Dn11WSQeAc9qdo
+         Z29D1jrCO4Br4v4eH0heZx+B04wYsLdUO3voSjuaYJFNQIm6d36pY5+J7M8q3iZUeI9a
+         e5Lw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of jack@suse.cz designates 195.135.220.15 as permitted sender) smtp.mailfrom=jack@suse.cz
-Received: from mx2.suse.de (mx2.suse.de. [195.135.220.15])
-        by gmr-mx.google.com with ESMTPS id d1si272267lfa.11.2020.09.21.02.53.44
+       dkim=pass header.i=@google.com header.s=20161025 header.b=h87IXZy2;
+       spf=pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=dvyukov@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-qk1-x743.google.com (mail-qk1-x743.google.com. [2607:f8b0:4864:20::743])
+        by gmr-mx.google.com with ESMTPS id s185si744031ilc.0.2020.09.21.03.35.40
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 21 Sep 2020 02:53:44 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jack@suse.cz designates 195.135.220.15 as permitted sender) client-ip=195.135.220.15;
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.221.27])
-	by mx2.suse.de (Postfix) with ESMTP id 53D91AD83;
-	Mon, 21 Sep 2020 09:54:19 +0000 (UTC)
-Received: by quack2.suse.cz (Postfix, from userid 1000)
-	id 076491E12E1; Mon, 21 Sep 2020 11:53:43 +0200 (CEST)
-Date: Mon, 21 Sep 2020 11:53:43 +0200
-From: Jan Kara <jack@suse.cz>
-To: kernel test robot <lkp@intel.com>
-Cc: Jan Kara <jack@suse.cz>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com, linux-nvdimm@lists.01.org,
-	Dan Williams <dan.j.williams@intel.com>
-Subject: Re: [linux-nvdimm:libnvdimm-fixes 2/3] drivers/dax/super.c:325:6:
- error: redefinition of 'dax_supported'
-Message-ID: <20200921095342.GD5862@quack2.suse.cz>
-References: <202009210706.QnE7d195%lkp@intel.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 21 Sep 2020 03:35:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::743 as permitted sender) client-ip=2607:f8b0:4864:20::743;
+Received: by mail-qk1-x743.google.com with SMTP id 16so14401103qkf.4
+        for <clang-built-linux@googlegroups.com>; Mon, 21 Sep 2020 03:35:40 -0700 (PDT)
+X-Received: by 2002:a37:a785:: with SMTP id q127mr43112403qke.256.1600684540203;
+ Mon, 21 Sep 2020 03:35:40 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="XF85m9dhOBO43t/C"
-Content-Disposition: inline
-In-Reply-To: <202009210706.QnE7d195%lkp@intel.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: jack@suse.cz
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of jack@suse.cz designates 195.135.220.15 as permitted
- sender) smtp.mailfrom=jack@suse.cz
+References: <000000000000643b2605afd064d7@google.com>
+In-Reply-To: <000000000000643b2605afd064d7@google.com>
+From: "'Dmitry Vyukov' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 21 Sep 2020 12:35:29 +0200
+Message-ID: <CACT4Y+aVj9QkKdPHFVAJNvHu+RKX5SxYTV1p=TTND+upJ818aw@mail.gmail.com>
+Subject: Re: BUG: unable to handle kernel NULL pointer dereference in map_vdso
+To: syzbot <syzbot+9d25c706da4558b9f11a@syzkaller.appspotmail.com>
+Cc: Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>, LKML <linux-kernel@vger.kernel.org>, 
+	Andy Lutomirski <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	syzkaller-bugs <syzkaller-bugs@googlegroups.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	"the arch/x86 maintainers" <x86@kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: dvyukov@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=h87IXZy2;       spf=pass
+ (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::743
+ as permitted sender) smtp.mailfrom=dvyukov@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Dmitry Vyukov <dvyukov@google.com>
+Reply-To: Dmitry Vyukov <dvyukov@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,132 +131,83 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Mon, Sep 21, 2020 at 12:34 PM syzbot
+<syzbot+9d25c706da4558b9f11a@syzkaller.appspotmail.com> wrote:
+>
+> Hello,
+>
+> syzbot found the following issue on:
+>
+> HEAD commit:    92ab97ad Merge tag 'sh-for-5.9-part2' of git://git.libc.or..
+> git tree:       upstream
+> console output: https://syzkaller.appspot.com/x/log.txt?x=162d70d3900000
+> kernel config:  https://syzkaller.appspot.com/x/.config?x=cd992d74d6c7e62
+> dashboard link: https://syzkaller.appspot.com/bug?extid=9d25c706da4558b9f11a
+> compiler:       clang version 10.0.0 (https://github.com/llvm/llvm-project/ c2443155a0fb245c8f17f2c1c72b6ea391e86e81)
+>
+> Unfortunately, I don't have any reproducer for this issue yet.
+>
+> IMPORTANT: if you fix the issue, please add the following tag to the commit:
+> Reported-by: syzbot+9d25c706da4558b9f11a@syzkaller.appspotmail.com
+>
+> BUG: kernel NULL pointer dereference, address: 0000000000000000
+> #PF: supervisor write access in kernel mode
+> #PF: error_code(0x0002) - not-present page
+> PGD 0 P4D 0
+> Oops: 0002 [#1] PREEMPT SMP KASAN
+> CPU: 0 PID: 5029 Comm: systemd-rfkill Not tainted 5.9.0-rc5-syzkaller #0
+> Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 01/01/2011
+> RIP: 0010:map_vdso+0x1ea/0x270 arch/x86/entry/vdso/vma.c:308
+> Code: 24 31 c9 e8 88 7c a7 00 eb 7a 4c 8b 74 24 28 43 80 3c 3e 00 48 8b 5c 24 08 74 08 4c 89 ef e8 4d 00 00 00 00 20 05 00 00 49 03 <6d> 00 48 89 e8 48 c1 e8 03 42 80 3c 38 00 74 08 48 89 ef e8 ae 64
+> RSP: 0018:ffffc90016bafb98 EFLAGS: 00010282
+> RAX: 00000000ab3c6738 RBX: ffff888056ebc538 RCX: ffff888093622440
+> RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+> RBP: ffff888056ebc480 R08: ffffffff81912471 R09: fffffbfff131e57c
+> R10: fffffbfff131e57c R11: 0000000000000000 R12: 00007fffda9dc000
+> R13: ffff888093622868 R14: 1ffff110126c450d R15: dffffc0000000000
+> FS:  0000000000000000(0000) GS:ffff8880ae800000(0000) knlGS:0000000000000000
+> CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+> CR2: 0000000000000000 CR3: 000000008fac6000 CR4: 00000000001526f0
+> DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+> DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+> Call Trace:
+>  load_elf_binary+0x2e90/0x48a0 fs/binfmt_elf.c:1221
+>  search_binary_handler fs/exec.c:1819 [inline]
+>  exec_binprm fs/exec.c:1860 [inline]
+>  bprm_execve+0x919/0x1500 fs/exec.c:1931
+>  do_execveat_common+0x487/0x5f0 fs/exec.c:2026
+>  do_execve fs/exec.c:2094 [inline]
+>  __do_sys_execve fs/exec.c:2170 [inline]
+>  __se_sys_execve fs/exec.c:2165 [inline]
+>  __x64_sys_execve+0x8e/0xa0 fs/exec.c:2165
+>  do_syscall_64+0x31/0x70 arch/x86/entry/common.c:46
+>  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+> RIP: 0033:0x7f8127340647
+> Code: Bad RIP value.
+> RSP: 002b:00007ffc7b57dbf8 EFLAGS: 00000246 ORIG_RAX: 000000000000003b
+> RAX: ffffffffffffffda RBX: 000055a0c9286d40 RCX: 00007f8127340647
+> RDX: 000055a0c9307440 RSI: 000055a0c91cd210 RDI: 000055a0c924e9a0
+> RBP: 00007ffc7b57dd60 R08: 000000000000fe00 R09: 0000000000000030
+> R10: 000055a0c9239740 R11: 0000000000000246 R12: 000055a0c91e1228
+> R13: 0000000000000000 R14: 000055a0c91cd210 R15: 00007ffc7b57de40
+> Modules linked in:
+> CR2: 0000000000000000
+>
+>
+> ---
+> This report is generated by a bot. It may contain errors.
+> See https://goo.gl/tpsmEJ for more information about syzbot.
+> syzbot engineers can be reached at syzkaller@googlegroups.com.
+>
+> syzbot will keep track of this issue. See:
+> https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
 
---XF85m9dhOBO43t/C
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
+Another clang-only crash that may be related to these ones:
 
-On Mon 21-09-20 07:12:11, kernel test robot wrote:
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/nvdimm/nvdimm.git libnvdimm-fixes
-> head:   d4c5da5049ac27c6ef8f6f98548c3a1ade352d25
-> commit: e2ec5128254518cae320d5dc631b71b94160f663 [2/3] dm: Call proper helper to determine dax support
-> config: x86_64-randconfig-a011-20200920 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project f4e554180962aa6bc93678898b6933ea712bde50)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install x86_64 cross compiling tool for clang build
->         # apt-get install binutils-x86-64-linux-gnu
->         git checkout e2ec5128254518cae320d5dc631b71b94160f663
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All errors (new ones prefixed by >>):
-> 
-> >> drivers/dax/super.c:325:6: error: redefinition of 'dax_supported'
->    bool dax_supported(struct dax_device *dax_dev, struct block_device *bdev,
->         ^
->    include/linux/dax.h:162:20: note: previous definition is here
->    static inline bool dax_supported(struct dax_device *dax_dev,
->                       ^
->    drivers/dax/super.c:451:6: warning: no previous prototype for function 'run_dax' [-Wmissing-prototypes]
->    void run_dax(struct dax_device *dax_dev)
->         ^
->    drivers/dax/super.c:451:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
->    void run_dax(struct dax_device *dax_dev)
->    ^
->    static 
->    1 warning and 1 error generated.
-
-Attached patch should fix the build error.
-
-								Honza
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+https://syzkaller.appspot.com/bug?extid=ce179bc99e64377c24bc
+https://syzkaller.appspot.com/bug?extid=1dccfcb049726389379c
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200921095342.GD5862%40quack2.suse.cz.
-
---XF85m9dhOBO43t/C
-Content-Type: text/x-patch; charset=us-ascii
-Content-Disposition: attachment; filename="0001-dax-Fix-compilation-for-CONFIG_DAX-CONFIG_FS_DAX.patch"
-
-From c48c9d1ee41ca17561dfd7ec5247b5afc527d40e Mon Sep 17 00:00:00 2001
-From: Jan Kara <jack@suse.cz>
-Date: Mon, 21 Sep 2020 11:33:23 +0200
-Subject: [PATCH] dax: Fix compilation for CONFIG_DAX && !CONFIG_FS_DAX
-
-dax_supported() is defined whenever CONFIG_DAX is enabled. So dummy
-implementation should be defined only in !CONFIG_DAX case, not in
-!CONFIG_FS_DAX case.
-
-Fixes: e2ec51282545 ("dm: Call proper helper to determine dax support")
-Cc: <stable@vger.kernel.org>
-Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
-Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
-Reported-by: kernel test robot <lkp@intel.com>
-Signed-off-by: Jan Kara <jack@suse.cz>
----
- include/linux/dax.h | 17 ++++++++---------
- 1 file changed, 8 insertions(+), 9 deletions(-)
-
-diff --git a/include/linux/dax.h b/include/linux/dax.h
-index 497031392e0a..43b39ab9de1a 100644
---- a/include/linux/dax.h
-+++ b/include/linux/dax.h
-@@ -58,6 +58,8 @@ static inline void set_dax_synchronous(struct dax_device *dax_dev)
- {
- 	__set_dax_synchronous(dax_dev);
- }
-+bool dax_supported(struct dax_device *dax_dev, struct block_device *bdev,
-+		int blocksize, sector_t start, sector_t len);
- /*
-  * Check if given mapping is supported by the file / underlying device.
-  */
-@@ -104,6 +106,12 @@ static inline bool dax_synchronous(struct dax_device *dax_dev)
- static inline void set_dax_synchronous(struct dax_device *dax_dev)
- {
- }
-+static inline bool dax_supported(struct dax_device *dax_dev,
-+		struct block_device *bdev, int blocksize, sector_t start,
-+		sector_t len)
-+{
-+	return false;
-+}
- static inline bool daxdev_mapping_supported(struct vm_area_struct *vma,
- 				struct dax_device *dax_dev)
- {
-@@ -130,8 +138,6 @@ static inline bool generic_fsdax_supported(struct dax_device *dax_dev,
- 	return __generic_fsdax_supported(dax_dev, bdev, blocksize, start,
- 			sectors);
- }
--bool dax_supported(struct dax_device *dax_dev, struct block_device *bdev,
--		int blocksize, sector_t start, sector_t len);
- 
- static inline void fs_put_dax(struct dax_device *dax_dev)
- {
-@@ -159,13 +165,6 @@ static inline bool generic_fsdax_supported(struct dax_device *dax_dev,
- 	return false;
- }
- 
--static inline bool dax_supported(struct dax_device *dax_dev,
--		struct block_device *bdev, int blocksize, sector_t start,
--		sector_t len)
--{
--	return false;
--}
--
- static inline void fs_put_dax(struct dax_device *dax_dev)
- {
- }
--- 
-2.16.4
-
-
---XF85m9dhOBO43t/C--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CACT4Y%2BaVj9QkKdPHFVAJNvHu%2BRKX5SxYTV1p%3DTTND%2BupJ818aw%40mail.gmail.com.
