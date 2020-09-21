@@ -1,132 +1,119 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBD4ZUP5QKGQEZIY6W4A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDJKZSEQ3YKRBAVUUP5QKGQEVHBJ44Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93b.google.com (mail-ua1-x93b.google.com [IPv6:2607:f8b0:4864:20::93b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8F9E0272AC4
-	for <lists+clang-built-linux@lfdr.de>; Mon, 21 Sep 2020 17:53:52 +0200 (CEST)
-Received: by mail-ua1-x93b.google.com with SMTP id t10sf2164556uap.4
-        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Sep 2020 08:53:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600703631; cv=pass;
+Received: from mail-lj1-f184.google.com (mail-lj1-f184.google.com [209.85.208.184])
+	by mail.lfdr.de (Postfix) with ESMTPS id 27518272EA0
+	for <lists+clang-built-linux@lfdr.de>; Mon, 21 Sep 2020 18:51:15 +0200 (CEST)
+Received: by mail-lj1-f184.google.com with SMTP id d23sf4305148ljg.21
+        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Sep 2020 09:51:15 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600707074; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nBCZMF/1h4/ceVxeEA9+Mw85ElEMsUK//uLIwR8iyciivSPZRr8ASdx1zVafhltcP0
-         3228uWR/uGADtug1JNszfgL8ayMAsT87cAPyh2/U7ssUuoV/VW0nUZzcMxXLvFw0oOJr
-         8TcyI1gQJ7RuHpREo4wFd+2swWQrZu0m6GQob22r98/txljm3gWaP/THxLL+A4dnywTQ
-         6cEOgzFgMOi8QVscvDZG1MWLZSsxa3lKrkiZZODOJnq3DCNEnjmnJSh7sL5rKnU19xCa
-         LdA3rSZoi7G1OwtxuMQ76c97hyx+9sG2c3nO1np4jYxFakR5QCt4F7nGcj9cEtIAlTbM
-         kQcA==
+        b=dRdcvUUEv9MgTw8YpyLuUg8m6EnBo0c7yJ1smXSyu24a9j76gfP6PeKdHXnmepDBt8
+         wJmgKXi1bNDl/H/DFEHuNlnbSevEBH0vZuKRkH6z1hmhNLXm3quE9MpTFirflz0qvxob
+         8qtLp5G3V70hzVBjKdKPG6dJpJD5oZTmGXELAucaL58By0onwha/vtR+pWMj0N7BQoSb
+         WhqQi9YOIqT3M45GBZNfqcj1v4oRbumHN0710D/lnC6UukNiEobqhBbgCAsf2uytldDA
+         IzCzX/dvDWEBYSQDn6RHT5VYlA1STzL+zTMWPPUpD7i9UZKEpbwaomwnZMDSDzuYBqbN
+         K7SQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=P2TFYfa8ztsXslULYj+hqHIRh5mRqx4IoK0zztsygX4=;
-        b=L0aICXZffn2fn/fwWHjJ7BWIwzLNvkjKK/01tYZDhhTRBseimOWVBGhu/b8zMfT9eA
-         7AE9m5BcS2RWUnqhwrCZhAVPOjPx/uPJq6V7Xzs1ujyrQcEtOhHT8BfnzWnuRzHnq5YI
-         HCTnDmtsjiXoswt0054OBTvcnlN7TPtz7K9hJw+tN4EWY2/dd0i1ZrHCz3/iIfRO02hM
-         4OkZFocrpyVId9nO8/d8KR4SQ8Wt3/byNIlJsPkRBfE4qMh0WZf1+1XLFhZCQ1NKNarh
-         pxS+m8faQ3Dtfmb1owT5Us8NtdcReZ2ZBHvmawcDjaPbWRh1hUq8JCicBeZd2fIoTY8f
-         G+pQ==
+         :list-id:mailing-list:precedence:robot-unsubscribe:robot-id
+         :message-id:mime-version:references:in-reply-to:cc:subject:to
+         :reply-to:sender:from:date;
+        bh=gVbYW/IN3AuRHMsy7YpNcdEEEWbCZaBaUY7WCNE4LTQ=;
+        b=RVqvvVeQU25F+lEBaINu/4Zd6Nla7ZxUKZVfStpSxBkrOn1kQD4Lpa7Cg4SW3uiCuB
+         ENPJdNGThD1kuNkT7r2KTyY967bFjt0jbdoLfmMn8s617stV5enV9z1+wZyfHafzFPdS
+         QLqevBxNZkS03bIjEK5WdWXuya+p2CsFl84Wi+zpL2udTm5ytOOYaqKx8AOfU9ec/6FD
+         j/DRKpJDYskc2fxFTpb6uPfNqWMFmT0ktTW4fO5b9aj5fbxKB3eP38OcDi99EATG8eTY
+         ZwY52iqSyD1JXs/DBWKgYgqSs6wm5G8T8knYmxcyghr363u+/BZJRhs9cUlSlhcx+HHn
+         s6Og==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=wS3DJbGh;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=P2TFYfa8ztsXslULYj+hqHIRh5mRqx4IoK0zztsygX4=;
-        b=QqI2C8b0wKCRggCNYm9FjhRRvjpgLt51YTtN5w78jwF8UopW10rAzLj8ENRncP6WR1
-         09I9WVx+qV0CyHfWVTN1Jq09WrvmMgcDqLIDW/VYSD9McbFOLuyqb5XjGQMgawMsM0DJ
-         SK9eAdVEiQ+Eg2D7JIfMspriz90UX8QQ5ddyTtsFQozeCYK7yq4qhrt9q3ETfoaF+w11
-         Me7CsknhiR/u4YsFjlUbDZo8ZEaWbVq18HubGieHTDX291u/I7YtHv9DtY5rbmGV5A/p
-         5QBW5hZaUz/2b8jyVi03/jz8ySvhJgYCD4PjNJYOdAZ8WAQVoqvSTEC9d6l8cI8Wflek
-         x29Q==
+       dkim=pass header.i=@linutronix.de header.s=2020 header.b=lA42DkUt;
+       dkim=neutral (no key) header.i=@linutronix.de header.b=rPGj3exW;
+       spf=pass (google.com: domain of tip-bot2@linutronix.de designates 193.142.43.55 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=linutronix.de
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:date:from:sender:reply-to:to:subject:cc
+         :in-reply-to:references:mime-version:message-id:robot-id
+         :robot-unsubscribe:precedence:x-original-sender
+         :x-original-authentication-results:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=P2TFYfa8ztsXslULYj+hqHIRh5mRqx4IoK0zztsygX4=;
-        b=bTdNnyTm0+9EuNKyU+yxstLGzKlE+vRb8zYwFHA53UNpq8NBeu5XEdybaaxyGJmmGM
-         3kHTGBGX46Gm800MeamZttHlzHhosOu5zO3aGy/w4e0bPFB8Od74Ub3y1R4uxOYS+uT1
-         pQ8+9Cs0yO2kEG15VEp0lJEbGTvkPVVMfW7nsjcXr3lhqL5CU11zTy0JjZ/uUEjRtubd
-         64W/9pbfx81Wy8ZebuGw6IdSXV+AP7SyY/efYt/3pvrXntGoZ4z2WclbUwU4M+PTgPvu
-         hLowDwkPrWHpoKcDe0ZkX0R9/KFK2Sr1/5Zl1eyKqNe491S9zI7zqlNBDbzu1qLafWsv
-         tjsw==
-X-Gm-Message-State: AOAM532zE6MRNHvEBjs+JIgx4XaLlnEREHluLP5YVjnIlJnLTVlfWpNw
-	TK74oKynr4pLMPc7Ckzrcig=
-X-Google-Smtp-Source: ABdhPJwzVsyDqW4U67NII5jiBg4l7Gn3PIDUZWmZKWsYaj86aRfnvzFnoMZvHlk4bQAG9Bfn1F7d3A==
-X-Received: by 2002:a67:8710:: with SMTP id j16mr604832vsd.31.1600703631591;
-        Mon, 21 Sep 2020 08:53:51 -0700 (PDT)
+        bh=gVbYW/IN3AuRHMsy7YpNcdEEEWbCZaBaUY7WCNE4LTQ=;
+        b=KG5QPlwnQsEZyApX+0as0i7umfqG6gUeLEaLPNWiYc/Xd/EkPWIHoSrbtDwIu+iXz9
+         KuOn3lr/MeLVZtenJxLespSVlmOhoKR44ZvqzdDiQjX0CV0c88bmIoG7eeyhR9DUVLej
+         uhK9iZH1DbwFhUuEzK6nREuCRSyqCj6bQCcz0Hee8ETql/jP9YPkhGpmG88yHlvh2zqu
+         vddXCW7uPA0O7n4PIM0U57KhDcQWRXwNYFpJfMc8IJVlfNKyFE61aC/G4HWVWeBllABo
+         38nmgnM7FVwFmA6Cx5EbAVp1IT3YKkB6e4fpd+Nly4EtBN6SSDLVdMgA41d1bfb4XhbK
+         8CPQ==
+X-Gm-Message-State: AOAM531nxd7As6zPCwy+Zc1/PBIemsQmvBGMyzIQzDxNkJ86+RdKrzl/
+	WcWQlqBGC8T9JqdBRe/mgdE=
+X-Google-Smtp-Source: ABdhPJxNNkAuNgwY5YyFEQ3KyvCWgYuhq1NYpSbt+ATCTvs7ivo/qLLoGwsr+aLlOMB5ySKf80Uo1Q==
+X-Received: by 2002:ac2:418c:: with SMTP id z12mr279073lfh.231.1600707074615;
+        Mon, 21 Sep 2020 09:51:14 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:db19:: with SMTP id z25ls1548325vsj.0.gmail; Mon, 21 Sep
- 2020 08:53:51 -0700 (PDT)
-X-Received: by 2002:a67:1d86:: with SMTP id d128mr601485vsd.58.1600703630964;
-        Mon, 21 Sep 2020 08:53:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600703630; cv=none;
+Received: by 2002:a19:c7c8:: with SMTP id x191ls575789lff.0.gmail; Mon, 21 Sep
+ 2020 09:51:13 -0700 (PDT)
+X-Received: by 2002:ac2:54b4:: with SMTP id w20mr285597lfk.13.1600707073536;
+        Mon, 21 Sep 2020 09:51:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600707073; cv=none;
         d=google.com; s=arc-20160816;
-        b=R6uq68B1HJribYRjs38dMcV/meyxzm12gVa+7s3XrO349zVxuwGp+D3u3U6PkDrKIM
-         25I+1rQzR6nRoy59KHiiMThMVkkxIy7KRCwbpvNx4yyB7ViuvRHAt++FlsDsNifxXWFf
-         EnCBcAoVEmUgEevth54aHyZeYSiui5WpQfXbUQL8hYXd7amBPOY1mYQNu6p4ZwgoBMxC
-         2HWMWDajBSFB6eCqp4DYs1BUrsMvxNxCXsecgPtQxU6sXhsBRM4gEZCPTqUJ/35bB5nz
-         It1J4s46G0LM1sbavgrPDdwsH2huSBB3bzl3WAU/7hn1lBm5OS2yzbUITiYIMn2IlVgo
-         VL5Q==
+        b=dEecvWG4HLjFjoaw26yOPfFap8jcFZEi/O71mKwFiWg09EQXl3eC+ttRGr40FOE/ow
+         N7duF0TS/zokNOIC+ehQsLikQD4IyFir641h45rmvsBO/ETn1V9AAIgGNTvBXyQr9PQw
+         GSSjWnx2f9MMx3GdmlPLpv8YaKVejDWKHRy3sMJRxWaxnPtuYgGQ8Dy/Vjtw+/iB4gq8
+         fih+QvgKo3xcifmYcxk+zABFsy8mdPVyqTpMmWbK/e3qtBj2O5vMus0f+tMpUiqVdPfW
+         5Do3A1GkmYFVYbC0FV+fLElmp8CgZ+mCn56LQvL9ghlynQzdlfPNG9/Tx0Z/iorAbyro
+         K9Ew==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Fn5z5p0KWkT8F7kdqXLtUSD00/eNhULjEnaQyt7HO3c=;
-        b=zPlKvE1GG6kHbfmzsAP2qYe8NdVilgFJOOagpkffxZIq9Yn1q2Xla7wevVBG+or9gG
-         iKHzrKk7zO3CKqQDR4s7/JiII9Oeaz7bI5MPEWibHaRbpSPKj3D8NLkgw+EIDYfO2aNW
-         B0chPAxUn4oBJH1/Ui+Tg3dGKaeUw+C10O3Cxc10yh6aV32yyqZBMy92Jd1Skrf+mFhu
-         osWNcO4jTtvCFAfXxZP83+OlLV5oz5SoYE3H0TAXeIqD3KZegrzpw+Z4Sh7mHTsDwCFm
-         dinmg+VLbMbPjDZ3LDsWp9XFqZe5yFhAYwE6qK5z5mn5Hgc1f8aAI3KGN9d75w0x9N7I
-         LqYA==
+        h=content-transfer-encoding:precedence:robot-unsubscribe:robot-id
+         :message-id:mime-version:references:in-reply-to:cc:subject:to
+         :reply-to:sender:from:dkim-signature:dkim-signature:date;
+        bh=gVfzDlgm3AjlhLPfD/PKu06jc0A49KijvnhM+NCvAtE=;
+        b=lGEatiCrj9rRGlQ59o1aw17B2GguYuWCn55xORYpD2AlJqCqyS6u0v6FlWjDlODIlD
+         sZuO/+T02pNsthTZh6TR0JH0cFBQmVY/Lw4hwArqOv6a3z37XBwLiwPr2fbr5cKdmgUO
+         xOs8ZWW6zZdyule4R0Y867q4pfWXS9rwJc/E5NcuYpnAhZ1qsu+Y0Y8V3BpceEyOA8YF
+         KSKKhWwi6KN/MYG/DftIe0emUY8KHZ5mIQT21ou2MBLYx8qZo0RTntXlWH6LIE3sHjrS
+         OX6PsVreE7anCGI45dqL+mWLlvxZTLh6Z3Cw4na60K2sYURNt5hs2ZuJsvutwFY5cTh8
+         LSLg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=wS3DJbGh;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x1043.google.com (mail-pj1-x1043.google.com. [2607:f8b0:4864:20::1043])
-        by gmr-mx.google.com with ESMTPS id p129si704443vkg.3.2020.09.21.08.53.50
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 21 Sep 2020 08:53:50 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043 as permitted sender) client-ip=2607:f8b0:4864:20::1043;
-Received: by mail-pj1-x1043.google.com with SMTP id a9so15512pjg.1
-        for <clang-built-linux@googlegroups.com>; Mon, 21 Sep 2020 08:53:50 -0700 (PDT)
-X-Received: by 2002:a17:90b:889:: with SMTP id bj9mr28426pjb.101.1600703630255;
- Mon, 21 Sep 2020 08:53:50 -0700 (PDT)
+       dkim=pass header.i=@linutronix.de header.s=2020 header.b=lA42DkUt;
+       dkim=neutral (no key) header.i=@linutronix.de header.b=rPGj3exW;
+       spf=pass (google.com: domain of tip-bot2@linutronix.de designates 193.142.43.55 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=linutronix.de
+Received: from galois.linutronix.de (Galois.linutronix.de. [193.142.43.55])
+        by gmr-mx.google.com with ESMTPS id 11si277595lfl.4.2020.09.21.09.51.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Sep 2020 09:51:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of tip-bot2@linutronix.de designates 193.142.43.55 as permitted sender) client-ip=193.142.43.55;
+Date: Mon, 21 Sep 2020 16:51:11 -0000
+From: "tip-bot2 for Ilie Halip" <tip-bot2@linutronix.de>
+Sender: tip-bot2@linutronix.de
+Reply-to: linux-kernel@vger.kernel.org
+To: linux-tip-commits@vger.kernel.org
+Subject: [tip: objtool/core] objtool: Ignore unreachable trap after call to
+ noreturn functions
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+ Rong Chen <rong.a.chen@intel.com>, Marco Elver <elver@google.com>,
+ Philip Li <philip.li@intel.com>, Borislav Petkov <bp@alien8.de>,
+ kasan-dev@googlegroups.com, x86@kernel.org,
+ clang-built-linux@googlegroups.com, kbuild test robot <lkp@intel.com>,
+ Ilie Halip <ilie.halip@gmail.com>, Sedat Dilek <sedat.dilek@gmail.com>,
+ Josh Poimboeuf <jpoimboe@redhat.com>, LKML <linux-kernel@vger.kernel.org>
+In-Reply-To: <CAKwvOdmptEpi8fiOyWUo=AiZJiX+Z+VHJOM2buLPrWsMTwLnyw@mail.gmail.com>
+References: <CAKwvOdmptEpi8fiOyWUo=AiZJiX+Z+VHJOM2buLPrWsMTwLnyw@mail.gmail.com>
 MIME-Version: 1.0
-References: <20200918201436.2932360-1-samitolvanen@google.com> <20200918201436.2932360-4-samitolvanen@google.com>
-In-Reply-To: <20200918201436.2932360-4-samitolvanen@google.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 21 Sep 2020 08:53:39 -0700
-Message-ID: <CAKwvOdk7pR5dK0ynxPOWHVYVWLMF1CUn6c=_GvpF-80YHNhQEQ@mail.gmail.com>
-Subject: Re: [PATCH v3 03/30] x86/boot/compressed: Disable relocation relaxation
-To: Sami Tolvanen <samitolvanen@google.com>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, Will Deacon <will@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Kees Cook <keescook@chromium.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Kernel Hardening <kernel-hardening@lists.openwall.com>, 
-	linux-arch <linux-arch@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	linux-pci@vger.kernel.org, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, Arvind Sankar <nivedita@alum.mit.edu>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=wS3DJbGh;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1043
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+Message-ID: <160070707105.15536.14094674309505985856.tip-bot2@tip-bot2>
+Robot-ID: <tip-bot2.linutronix.de>
+Robot-Unsubscribe: Contact <mailto:tglx@linutronix.de> to get blacklisted from these emails
 Precedence: list
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: tip-bot2@linutronix.de
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@linutronix.de header.s=2020 header.b=lA42DkUt;       dkim=neutral
+ (no key) header.i=@linutronix.de header.b=rPGj3exW;       spf=pass
+ (google.com: domain of tip-bot2@linutronix.de designates 193.142.43.55 as
+ permitted sender) smtp.mailfrom=tip-bot2@linutronix.de;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=linutronix.de
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
 X-Spam-Checked-In-Group: clang-built-linux@googlegroups.com
@@ -138,95 +125,89 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-It looks like this just hit mainline over the weekend. FWIW. EOM.
+The following commit has been merged into the objtool/core branch of tip:
 
-On Fri, Sep 18, 2020 at 1:14 PM Sami Tolvanen <samitolvanen@google.com> wrote:
->
-> From: Arvind Sankar <nivedita@alum.mit.edu>
->
-> The x86-64 psABI [0] specifies special relocation types
-> (R_X86_64_[REX_]GOTPCRELX) for indirection through the Global Offset
-> Table, semantically equivalent to R_X86_64_GOTPCREL, which the linker
-> can take advantage of for optimization (relaxation) at link time. This
-> is supported by LLD and binutils versions 2.26 onwards.
->
-> The compressed kernel is position-independent code, however, when using
-> LLD or binutils versions before 2.27, it must be linked without the -pie
-> option. In this case, the linker may optimize certain instructions into
-> a non-position-independent form, by converting foo@GOTPCREL(%rip) to $foo.
->
-> This potential issue has been present with LLD and binutils-2.26 for a
-> long time, but it has never manifested itself before now:
-> - LLD and binutils-2.26 only relax
->         movq    foo@GOTPCREL(%rip), %reg
->   to
->         leaq    foo(%rip), %reg
->   which is still position-independent, rather than
->         mov     $foo, %reg
->   which is permitted by the psABI when -pie is not enabled.
-> - gcc happens to only generate GOTPCREL relocations on mov instructions.
-> - clang does generate GOTPCREL relocations on non-mov instructions, but
->   when building the compressed kernel, it uses its integrated assembler
->   (due to the redefinition of KBUILD_CFLAGS dropping -no-integrated-as),
->   which has so far defaulted to not generating the GOTPCRELX
->   relocations.
->
-> Nick Desaulniers reports [1,2]:
->   A recent change [3] to a default value of configuration variable
->   (ENABLE_X86_RELAX_RELOCATIONS OFF -> ON) in LLVM now causes Clang's
->   integrated assembler to emit R_X86_64_GOTPCRELX/R_X86_64_REX_GOTPCRELX
->   relocations. LLD will relax instructions with these relocations based
->   on whether the image is being linked as position independent or not.
->   When not, then LLD will relax these instructions to use absolute
->   addressing mode (R_RELAX_GOT_PC_NOPIC). This causes kernels built with
->   Clang and linked with LLD to fail to boot.
->
-> Patch series [4] is a solution to allow the compressed kernel to be
-> linked with -pie unconditionally, but even if merged is unlikely to be
-> backported. As a simple solution that can be applied to stable as well,
-> prevent the assembler from generating the relaxed relocation types using
-> the -mrelax-relocations=no option. For ease of backporting, do this
-> unconditionally.
->
-> [0] https://gitlab.com/x86-psABIs/x86-64-ABI/-/blob/master/x86-64-ABI/linker-optimization.tex#L65
-> [1] https://lore.kernel.org/lkml/20200807194100.3570838-1-ndesaulniers@google.com/
-> [2] https://github.com/ClangBuiltLinux/linux/issues/1121
-> [3] https://reviews.llvm.org/rGc41a18cf61790fc898dcda1055c3efbf442c14c0
-> [4] https://lore.kernel.org/lkml/20200731202738.2577854-1-nivedita@alum.mit.edu/
->
-> Reported-by: Nick Desaulniers <ndesaulniers@google.com>
-> Signed-off-by: Arvind Sankar <nivedita@alum.mit.edu>
-> Tested-by: Nick Desaulniers <ndesaulniers@google.com>
-> Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
-> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-> Cc: stable@vger.kernel.org
-> ---
->  arch/x86/boot/compressed/Makefile | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
-> index 3962f592633d..ff7894f39e0e 100644
-> --- a/arch/x86/boot/compressed/Makefile
-> +++ b/arch/x86/boot/compressed/Makefile
-> @@ -43,6 +43,8 @@ KBUILD_CFLAGS += -Wno-pointer-sign
->  KBUILD_CFLAGS += $(call cc-option,-fmacro-prefix-map=$(srctree)/=)
->  KBUILD_CFLAGS += -fno-asynchronous-unwind-tables
->  KBUILD_CFLAGS += -D__DISABLE_EXPORTS
-> +# Disable relocation relaxation in case the link is not PIE.
-> +KBUILD_CFLAGS += $(call as-option,-Wa$(comma)-mrelax-relocations=no)
->
->  KBUILD_AFLAGS  := $(KBUILD_CFLAGS) -D__ASSEMBLY__
->  GCOV_PROFILE := n
-> --
-> 2.28.0.681.g6f77f65b4e-goog
->
+Commit-ID:     14db1f0a93331d0958e90da522c429ff0890d2d6
+Gitweb:        https://git.kernel.org/tip/14db1f0a93331d0958e90da522c429ff0890d2d6
+Author:        Ilie Halip <ilie.halip@gmail.com>
+AuthorDate:    Sat, 19 Sep 2020 09:41:18 +03:00
+Committer:     Josh Poimboeuf <jpoimboe@redhat.com>
+CommitterDate: Mon, 21 Sep 2020 10:20:10 -05:00
 
+objtool: Ignore unreachable trap after call to noreturn functions
 
--- 
-Thanks,
-~Nick Desaulniers
+With CONFIG_UBSAN_TRAP enabled, the compiler may insert a trap
+instruction after a call to a noreturn function. In this case, objtool
+warns that the UD2 instruction is unreachable.
+
+This is a behavior seen with Clang, from the oldest version capable of
+building the mainline x64_64 kernel (9.0), to the latest experimental
+version (12.0).
+
+Objtool silences similar warnings (trap after dead end instructions), so
+so expand that check to include dead end functions.
+
+Cc: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Rong Chen <rong.a.chen@intel.com>
+Cc: Marco Elver <elver@google.com>
+Cc: Philip Li <philip.li@intel.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: kasan-dev@googlegroups.com
+Cc: x86@kernel.org
+Cc: clang-built-linux@googlegroups.com
+BugLink: https://github.com/ClangBuiltLinux/linux/issues/1148
+Link: https://lore.kernel.org/lkml/CAKwvOdmptEpi8fiOyWUo=AiZJiX+Z+VHJOM2buLPrWsMTwLnyw@mail.gmail.com
+Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Tested-by: Nick Desaulniers <ndesaulniers@google.com>
+Reported-by: kbuild test robot <lkp@intel.com>
+Signed-off-by: Ilie Halip <ilie.halip@gmail.com>
+Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
+Signed-off-by: Josh Poimboeuf <jpoimboe@redhat.com>
+---
+ tools/objtool/check.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/tools/objtool/check.c b/tools/objtool/check.c
+index a4796e3..2df9f76 100644
+--- a/tools/objtool/check.c
++++ b/tools/objtool/check.c
+@@ -2638,9 +2638,10 @@ static bool is_ubsan_insn(struct instruction *insn)
+ 			"__ubsan_handle_builtin_unreachable"));
+ }
+ 
+-static bool ignore_unreachable_insn(struct instruction *insn)
++static bool ignore_unreachable_insn(struct objtool_file *file, struct instruction *insn)
+ {
+ 	int i;
++	struct instruction *prev_insn;
+ 
+ 	if (insn->ignore || insn->type == INSN_NOP)
+ 		return true;
+@@ -2668,8 +2669,11 @@ static bool ignore_unreachable_insn(struct instruction *insn)
+ 	 * __builtin_unreachable().  The BUG() macro has an unreachable() after
+ 	 * the UD2, which causes GCC's undefined trap logic to emit another UD2
+ 	 * (or occasionally a JMP to UD2).
++	 *
++	 * It may also insert a UD2 after calling a __noreturn function.
+ 	 */
+-	if (list_prev_entry(insn, list)->dead_end &&
++	prev_insn = list_prev_entry(insn, list);
++	if ((prev_insn->dead_end || dead_end_function(file, prev_insn->call_dest)) &&
+ 	    (insn->type == INSN_BUG ||
+ 	     (insn->type == INSN_JUMP_UNCONDITIONAL &&
+ 	      insn->jump_dest && insn->jump_dest->type == INSN_BUG)))
+@@ -2796,7 +2800,7 @@ static int validate_reachable_instructions(struct objtool_file *file)
+ 		return 0;
+ 
+ 	for_each_insn(file, insn) {
+-		if (insn->visited || ignore_unreachable_insn(insn))
++		if (insn->visited || ignore_unreachable_insn(file, insn))
+ 			continue;
+ 
+ 		WARN_FUNC("unreachable instruction", insn->sec, insn->offset);
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdk7pR5dK0ynxPOWHVYVWLMF1CUn6c%3D_GvpF-80YHNhQEQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/160070707105.15536.14094674309505985856.tip-bot2%40tip-bot2.
