@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCMIZB7QWENRBOFGVT5QKGQEKMQOBKA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCMIZB7QWENRB3FIVT5QKGQE4OCRRUQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x838.google.com (mail-qt1-x838.google.com [IPv6:2607:f8b0:4864:20::838])
-	by mail.lfdr.de (Postfix) with ESMTPS id A9FD5275440
-	for <lists+clang-built-linux@lfdr.de>; Wed, 23 Sep 2020 11:19:55 +0200 (CEST)
-Received: by mail-qt1-x838.google.com with SMTP id u6sf18658408qte.8
-        for <lists+clang-built-linux@lfdr.de>; Wed, 23 Sep 2020 02:19:55 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600852794; cv=pass;
+Received: from mail-qk1-x73e.google.com (mail-qk1-x73e.google.com [IPv6:2607:f8b0:4864:20::73e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3DEF8275474
+	for <lists+clang-built-linux@lfdr.de>; Wed, 23 Sep 2020 11:25:02 +0200 (CEST)
+Received: by mail-qk1-x73e.google.com with SMTP id c19sf16128399qkk.20
+        for <lists+clang-built-linux@lfdr.de>; Wed, 23 Sep 2020 02:25:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600853101; cv=pass;
         d=google.com; s=arc-20160816;
-        b=MF0LeXeuOneoF83pQZbymaF4l/gveJuLczCnK/1qd8fNmdJgOdReHCi9e+tybyDRIa
-         +c8xfM3wnViVM8yA0KsumdbMC3sb997fv3jri5zY/MwLRmEnfwlEIC54i9XvN0NnO2Fg
-         3Vcn8UqnRVsTXxSvt0Us7F77qbFyJVl7AoiZEw5DkfSL+0A3QEZjeBEdW+eTsLvTFG5i
-         QYMhYIwzR5vVvOj4iTH7xLRLRVjDjfLxDukQcUDASUQPuVO6HZlv1Kq0laoBb2zBv0wS
-         nGABN1EJufQOcMvResvyXDATFP9xOFFe9xbJbqKRfrCmYsm+poTrHuK1HgRSehRiLhD8
-         aQ3Q==
+        b=Q/hKFR3d0VTy16lyIXPX0nvNhHd/K5Z/zOgCrZcAc1Moy+Ysyv3RaHjxvez1HrZYFP
+         WJQZxYxnm8FiOMN5xlCV5X2/Jo4DhDX3vc2GTnF9EDcIn5hyOIzDXlwvQGzyP162shUS
+         ayORVnfpz/gBNhN2Mj7SFrvnyMrJ3WKMpViLpbxYEsxlEhHDlCtU9mmsWlp/aQKKMnC8
+         237jW5ePONRX4RMBPvaTfy6L3wDMNbg3Z+sxAL11Nq9KFLSIcExNfxsALdgxJGAbgFRi
+         uZEaSYm4QkVESim6z8OMXWtwsfBryJSyvLYz0sZy2EWZXx4672SYvpuVi8rOcjw38buq
+         w4Bw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=voqM5/NKR3hYmQwSLApqf5VWw7syjRDNkGkqeyLUH2U=;
-        b=V/rAVmDhFvztMt51sK5MZy5DXUMuBhZcyAs7L/4QO5bYWodHrT+9OB7mQEJyqzXmVK
-         y5ykD2NFGfjQ/PRpaKF2FbjLPH1l8TdcDexQSF7zfQpgP/oplvpA8Gb3kEnf55bgxjdN
-         sU1FyxKfoM4pj5bLNwz1PrauU5oFi+MvA2l3NGL4+qw+xX2lZ2vJh6iKl2DRTGBRn+04
-         Syw1IC2kcujhbwjLUEjeMKm2kwl9U0ke4i9IwNbiOJiof+6rd2cLzdj6u2+8TKH3E2ar
-         pOVrwBKpAJ7YeaKXUJqxKkwMR/9WBbMLiTqGD5+E+zmNeziCxK3R12386r0eSVsN48u8
-         I53Q==
+        bh=8zLyQ35LfSfDieYifXb6ST3LsyfxCOvAH6XpWQd48y8=;
+        b=lc0tAyi9a0p2gLWJIWy/4mHmIS/0Wm6hC3Ery7BHqaXTA5TNLqdBX2T9RQtnp5V77R
+         zheFQxEnS8zN6qh77ZkUHAdgtddpYanzpI5IsjcRreq2u0RQB2rYupAS2fYCetqhTWM/
+         bLw8ua4dEFUt6rU8tTMh41wxdy9jByoYbpU3st4NWS71ZBJl9NHMizYTRatUMShY9SgY
+         8D8dDnDNDhUCJmyhYqBJ2ByoOEzZyzE5Q3FW4G9eMiM4vMEEEW0Nkx/BB539NY3YzHTZ
+         EvDQagzM9yHcGExsaAGUvsXZNA+CzYy1aU2kyi6qufYHgNSx3SFhnMuFLp1pO5Z0LgBe
+         AXig==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=I5h4NcId;
-       spf=pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=dvyukov@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=FSw7j7LM;
+       spf=pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=dvyukov@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=voqM5/NKR3hYmQwSLApqf5VWw7syjRDNkGkqeyLUH2U=;
-        b=F1xsnPqgaQkq7tOj9LycLa3t22r+U47Qi5C2UNbczl/umu5mmnu9blTgtKzrH/lE+w
-         B1zz85YGqDXvbnF/USMJoQbQx/V8n15C2vuZRE4+ITONYO27MODEGBiFoQgIOu7Pnha+
-         h5wYx2LQQAtdeM9r7YHIwQycnVATnhiLlGxgTzWcL8bhkYwuZZIPh9Hhcgf+UFQsFDuR
-         lwcpsBWDjoR2xMOy7MFSIG5Fgz0aPLZESdfZ6SX0AD2B5fkMPpOk7l65w7254A54Gvhi
-         LLk8xFGAIEvJWBPlQaf582dmhe1kV/o8qm+V7SIzgisiKAKXKljf+x8oRcCrWObLhwtV
-         cW5Q==
+        bh=8zLyQ35LfSfDieYifXb6ST3LsyfxCOvAH6XpWQd48y8=;
+        b=VRwrQhXIfjWfSKpSBoTkADzp2w4JYdVSRlX9BFEqv8sUNCm38/uwxxcyGL/iEjzPR3
+         IHkoDNoVfFzd2Z+KGa9bTohLYzpLdggur7ilncO4iUDYQpPhcw5AlDVBfkwnZdn0LFr+
+         5Rb6dHccXvXfZc+LtNy0nlI2MUtkDWPGlE7mXCfA4PAbyvFdQ4Bwqp38tKA+yW+Hoxx3
+         RqJxSFCAw8CNIpkDM3EAihmqE/+yRUfpAiTxyGtsN8vrYVkJ0xsZaUnV6eFJyEdgM5Zn
+         15eoOFfoWOHl0BQi9kAad4oYa/+WGhLec38zaRN0MwqAnreuWMENSqVemTIb7ri16WoL
+         4Erg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,72 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=voqM5/NKR3hYmQwSLApqf5VWw7syjRDNkGkqeyLUH2U=;
-        b=D/cReuXOI/AyRrn/cZlRjzvQ4fjKGquGMAQW1mcFqwvk15JpdicRLyPxN+n8vrxwq3
-         VzXKsyqvfZcVNEw/FQX/cVD+89Bnbc9UHRSXIGwwSBrmc3Hw7ZKRfhmIy49DTMVtQjFL
-         3KGTnTs1EiPLp3Hss/rO8mGGr0pCT9VNf1oe5FOeIf7tG6Z/ctz89ZDqAH8cmO7ny5ck
-         NHoqso3gl+vg+HFWLmelq4pGX+7T3GbhCh9t1zl+qKm+3+NQvWnfTUcZ21GTdkyQT2iw
-         138lXtuxyftz+se2FWdODHPUblPnXEUtn23i5+GhoQejuc0oWFNwDkijxL6LyBPQ4di8
-         bY2Q==
-X-Gm-Message-State: AOAM5335MeivpDR6Mqp7l1ZrR91nHWbMz1WYEJCnnPegqRLVkGl9QJSG
-	MQYrH644oAdO6PZfGZJ+zGs=
-X-Google-Smtp-Source: ABdhPJziyHOVbPVZ/OjAf6c9FkZ2OjpiF8b2aogYz5f5uwnFoa8X1Es5ZzqWEZZ5PxEo4OE7f+sLdA==
-X-Received: by 2002:a05:620a:13e8:: with SMTP id h8mr8856274qkl.322.1600852792280;
-        Wed, 23 Sep 2020 02:19:52 -0700 (PDT)
+        bh=8zLyQ35LfSfDieYifXb6ST3LsyfxCOvAH6XpWQd48y8=;
+        b=nBzDNF4xCD8y/BZayTYqvO43/CtgleoPEVSQsQujBIfBzYL0eZV6oI79VkpIMrCjS2
+         W4g111ya+I3iFeOxz05HyHjVoK/b7wqmn7bRCu8W/asb4yE0Y8yAVlM5O16eFpxsJJ/z
+         of0h3gdR0LWlovjcjkks1/BP9HX6hUmsaPIVX0gxzU3Di3bYZYmq4OQlW3hfFu/c1rQq
+         Z2RfoxyaQDCUixumhX4xHT/x7xmF0zXvhCLxXA39RSCu4wumzxXqVnAj1rIRF9ZRfvYi
+         4xwf3BDbDB0q9FIbinqyg0kA1oakUm2cEFA9XR//4+i5NydanMLy6AFLCJMABy7YtVMw
+         SJEQ==
+X-Gm-Message-State: AOAM533I2em0fhYj7Oc0qVQQGcdHVbhczv6cLlv6uQxier1/4HVCVJ7i
+	x8Hn5Zok5NGb7ijGc7u5Jrg=
+X-Google-Smtp-Source: ABdhPJzVtq4+jXxiljH1zgHoQmDNCW5WVbLtoA0DjDX5Gs/8AlAKuVA66WyPf25b8ZvMXero0HFLRg==
+X-Received: by 2002:ad4:47cc:: with SMTP id p12mr10189127qvw.22.1600853100735;
+        Wed, 23 Sep 2020 02:25:00 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:3405:: with SMTP id u5ls7627552qtb.1.gmail; Wed, 23 Sep
- 2020 02:19:51 -0700 (PDT)
-X-Received: by 2002:aed:2a17:: with SMTP id c23mr9399548qtd.338.1600852791813;
-        Wed, 23 Sep 2020 02:19:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600852791; cv=none;
+Received: by 2002:a05:620a:7f1:: with SMTP id k17ls812326qkk.10.gmail; Wed, 23
+ Sep 2020 02:25:00 -0700 (PDT)
+X-Received: by 2002:a37:4d1:: with SMTP id 200mr4263906qke.357.1600853100246;
+        Wed, 23 Sep 2020 02:25:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600853100; cv=none;
         d=google.com; s=arc-20160816;
-        b=b4IySV0JBO5GHunxt4VP3vTIjBOpkEKSurfmGwCCpIQ1DQSphAGkjRpVtC+xCBxqtN
-         RGALRSNj08iv+agG0dL1/F13baXeG4NGnOJ2/M7B6pb78LVEz85S4VL+IbiTmFQeqCcg
-         y2ZjiRJ6EuQuXMPs/u6gYUvZ6QI2xMzLN4vh06TxVDjYToO1GBhqJxQMnErIr9OC82hq
-         7vPmMxfKCxUrPFa+WxV/hefJ4Xkdpupk8NimB1ueCRc8PUAkVR/ADibjJDAWvTGpHLcS
-         C+6L8EEukliNIHa1UHEg1nbnxz4kxLf9s9oie0/mIOkh5wYroMRpyiHxczHd9wkM36sV
-         XGrA==
+        b=A1ew82U/sVzu0necM5vI7o3zfT6u2u4tkzZzPXC6clY9Hv/XGDJ5jaTVHbjYrW9JUf
+         k5SD3ehC1xCfkdU7LsEOuGeYkHIzpyvqlB2vs7P3uptk/ZuXJyXxMxgbVmJ+8caenxLC
+         9GQYeIRhnWty1zTFPtliGgXgn9zNYRsMKReZihCfl8cmZKygB1C/a2HhIhMZi1KMGv1X
+         1fgbQLLm/6V5iERi8ML0hxmCB5xaH2FzV5ETBdKB41yPoLT95Zc+ogiRZS+KLjQW4GES
+         exQ9KYeCdNT66chlCRVW3Ql2uCKi4h75mvM/1s2MqkxyQW9cyFLg9PwkGnevNM2A2+Qd
+         3Hpg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=fwLKEMZq2g3KXgWN/NS+95Zv72nRgO61juiwlvI19SE=;
-        b=tQnZcpgAM2Gb7wEH5o4ljDaHm5YqyNrBFv5FxoQXV5898sQI6Zm73lK0YpLa2s5AA7
-         Xm6bOHDqRVna66aU7KQImdjgBqd4ZaVmxuC+xpJD9V5TbYLPf4k4d6wnS3tVdYuvyol4
-         l0xpYIK/y6G4JGwRMULbCaqb1JvAn2d/ndlQwTp+XIwHgKGsxwiSIqF+mGtxiiZgqE2W
-         1hyl3j7jzGlslFjfdjGHQ/9yHf3EqKm5rOWnoPHLt9HGzkB0klqPt4F4eQ7+qIHLKvZA
-         qtntEtXbyaqt5PRFKzs5pvM5jaEjZkBFEZb11r/1KFl46v10Syqz/rPO0Tn9PlNdh7na
-         nB6g==
+        bh=elg0wH+6sMQCekNWlDCJHXKeUDnzoRr2E8YDp7Z6TBY=;
+        b=PiJFjxxJGTmuvd0nqHUicv3/n3zOkWQoJcTjmnn4vKWfqs4rt2orHzOfrAZ2BLR8bA
+         YUQaUK5J2ZBTRW0TDnogQxLyhd5QhdpY48QTsmxZgZffhOckx89f0OFPGgAikFidVwMv
+         Bt3QC+e0OoxK0T2D9qAn2PK6vTyJBrgMPVDHMo7X6laccZ6BEPluG0BqsqT/BiR4wyRe
+         n6BQBipX9lQ6AJYTqulCit4dmUCOdbnmQ12SzsFl+PztEM1ZGl2rnyuDLIHAR8/qCoby
+         +a78ERUAMdnLcBvguA0ELaoqa1VCd5sBY3NvjNfFpFQwrq9ulQ/t+DJJTVstCFP9UVBk
+         iHZw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=I5h4NcId;
-       spf=pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=dvyukov@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=FSw7j7LM;
+       spf=pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=dvyukov@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-qk1-x743.google.com (mail-qk1-x743.google.com. [2607:f8b0:4864:20::743])
-        by gmr-mx.google.com with ESMTPS id a27si990713qtw.4.2020.09.23.02.19.51
+Received: from mail-qk1-x744.google.com (mail-qk1-x744.google.com. [2607:f8b0:4864:20::744])
+        by gmr-mx.google.com with ESMTPS id e1si781596qka.0.2020.09.23.02.25.00
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 23 Sep 2020 02:19:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::743 as permitted sender) client-ip=2607:f8b0:4864:20::743;
-Received: by mail-qk1-x743.google.com with SMTP id t138so22134438qka.0
-        for <clang-built-linux@googlegroups.com>; Wed, 23 Sep 2020 02:19:51 -0700 (PDT)
-X-Received: by 2002:a37:9b82:: with SMTP id d124mr9180680qke.8.1600852791197;
- Wed, 23 Sep 2020 02:19:51 -0700 (PDT)
+        Wed, 23 Sep 2020 02:25:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::744 as permitted sender) client-ip=2607:f8b0:4864:20::744;
+Received: by mail-qk1-x744.google.com with SMTP id 16so22119750qkf.4
+        for <clang-built-linux@googlegroups.com>; Wed, 23 Sep 2020 02:25:00 -0700 (PDT)
+X-Received: by 2002:a37:54a:: with SMTP id 71mr8199361qkf.407.1600853099325;
+ Wed, 23 Sep 2020 02:24:59 -0700 (PDT)
 MIME-Version: 1.0
-References: <00000000000096760d05aff79022@google.com>
-In-Reply-To: <00000000000096760d05aff79022@google.com>
+References: <00000000000052569205afa67426@google.com> <20200919110831.GD7462@zn.tnic>
+ <CACT4Y+ZhofJhNjfav22YNVpxtH4_+3Qaut6rOiqv4MLNU5mcEg@mail.gmail.com>
+ <CACT4Y+b9ZCKJkOmwbEC6sZxEQ-9g2g=-v4+X0aWv7AsrZo7utA@mail.gmail.com>
+ <CAKwvOdmKcn=FNzwtBZ8z0evLz4BXgWtsoz9+QTC6GLqtNp1bXg@mail.gmail.com>
+ <20200921221336.GN5901@zn.tnic> <CAKwvOd=E11KriNqeVv2-Tvq5sQy=4vyBzDEH22D5h5LgBeFsVw@mail.gmail.com>
+ <20200923090336.GD28545@zn.tnic>
+In-Reply-To: <20200923090336.GD28545@zn.tnic>
 From: "'Dmitry Vyukov' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 23 Sep 2020 11:19:40 +0200
-Message-ID: <CACT4Y+YGFtPCi3a-ByZGs1kCFfJOYv_AbkxOG=K_D4xh0r4okA@mail.gmail.com>
-Subject: Re: invalid opcode in map_vdso
-To: syzbot <syzbot+9cf5373b0e15476f39a2@syzkaller.appspotmail.com>
-Cc: Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>, LKML <linux-kernel@vger.kernel.org>, 
-	Andy Lutomirski <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+Date: Wed, 23 Sep 2020 11:24:48 +0200
+Message-ID: <CACT4Y+Y4-vqdv01ebyzhUoggUCUyvbhjut7Wvj=r4dBfyxLeng@mail.gmail.com>
+Subject: Re: general protection fault in perf_misc_flags
+To: Borislav Petkov <bp@alien8.de>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, Josh Poimboeuf <jpoimboe@redhat.com>, 
+	syzbot <syzbot+ce179bc99e64377c24bc@syzkaller.appspotmail.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	"H. Peter Anvin" <hpa@zytor.com>, Jiri Olsa <jolsa@redhat.com>, LKML <linux-kernel@vger.kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Ingo Molnar <mingo@redhat.com>, 
+	Namhyung Kim <namhyung@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
 	syzkaller-bugs <syzkaller-bugs@googlegroups.com>, Thomas Gleixner <tglx@linutronix.de>, 
 	"the arch/x86 maintainers" <x86@kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: dvyukov@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=I5h4NcId;       spf=pass
- (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::743
+ header.i=@google.com header.s=20161025 header.b=FSw7j7LM;       spf=pass
+ (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::744
  as permitted sender) smtp.mailfrom=dvyukov@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Dmitry Vyukov <dvyukov@google.com>
@@ -131,69 +140,99 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Sep 23, 2020 at 11:18 AM syzbot
-<syzbot+9cf5373b0e15476f39a2@syzkaller.appspotmail.com> wrote:
+On Wed, Sep 23, 2020 at 11:03 AM Borislav Petkov <bp@alien8.de> wrote:
 >
-> Hello,
+> On Tue, Sep 22, 2020 at 11:56:04AM -0700, Nick Desaulniers wrote:
+> > So I think there's an issue with "deterministically reproducible."
+> > The syzcaller report has:
+> > > > Unfortunately, I don't have any reproducer for this issue yet.
 >
-> syzbot found the following issue on:
+> Yeah, Dmitry gave two other links of similar reports, the first one
+> works for me:
 >
-> HEAD commit:    92ab97ad Merge tag 'sh-for-5.9-part2' of git://git.libc.or..
-> git tree:       upstream
-> console output: https://syzkaller.appspot.com/x/log.txt?x=1553eff1900000
-> kernel config:  https://syzkaller.appspot.com/x/.config?x=cd992d74d6c7e62
-> dashboard link: https://syzkaller.appspot.com/bug?extid=9cf5373b0e15476f39a2
-> compiler:       clang version 10.0.0 (https://github.com/llvm/llvm-project/ c2443155a0fb245c8f17f2c1c72b6ea391e86e81)
+> https://syzkaller.appspot.com/bug?extid=1dccfcb049726389379c
 >
-> Unfortunately, I don't have any reproducer for this issue yet.
+> and that one doesn't have a reproducer either. The bytes look familiar
+> though:
 >
-> IMPORTANT: if you fix the issue, please add the following tag to the commit:
-> Reported-by: syzbot+9cf5373b0e15476f39a2@syzkaller.appspotmail.com
+> Code: c1 e8 03 42 80 3c 20 00 74 05 e8 79 7a a7 00 49 8b 47 10 48 89 05 f6 d8 ef 09 49 8d 7f 08 48 89 f8 48 c1 e8 03 42 80 3c 00 00 <00> 00 e8 57 7a a7 00 49 8b 47 08 48 89 05 dc d8 ef 09 49 8d 7f 18
+> All code
+> ========
+>    0:   c1 e8 03                shr    $0x3,%eax
+>    3:   42 80 3c 20 00          cmpb   $0x0,(%rax,%r12,1)
+>    8:   74 05                   je     0xf
+>    a:   e8 79 7a a7 00          callq  0xa77a88
+>    f:   49 8b 47 10             mov    0x10(%r15),%rax
+>   13:   48 89 05 f6 d8 ef 09    mov    %rax,0x9efd8f6(%rip)        # 0x9efd910
+>   1a:   49 8d 7f 08             lea    0x8(%r15),%rdi
+>   1e:   48 89 f8                mov    %rdi,%rax
+>   21:   48 c1 e8 03             shr    $0x3,%rax
+>   25:   42 80 3c 00 00          cmpb   $0x0,(%rax,%r8,1)
+>   2a:*  00 00                   add    %al,(%rax)               <-- trapping instruction
+>   2c:   e8 57 7a a7 00          callq  0xa77a88
+>   31:   49 8b 47 08             mov    0x8(%r15),%rax
+>   35:   48 89 05 dc d8 ef 09    mov    %rax,0x9efd8dc(%rip)        # 0x9efd918
+>   3c:   49 8d 7f 18             lea    0x18(%r15),%rdi
 >
-> invalid opcode: 0000 [#1] PREEMPT SMP KASAN
-> CPU: 0 PID: 16405 Comm: modprobe Not tainted 5.9.0-rc5-syzkaller #0
-> Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 01/01/2011
-> RIP: 0010:map_vdso+0x1e3/0x270 arch/x86/entry/vdso/vma.c:308
-> Code: 16 48 89 ef 48 8b 34 24 31 c9 e8 88 7c a7 00 eb 7a 4c 8b 74 24 28 43 80 3c 3e 00 48 8b 5c 24 08 74 08 4c 89 ef e8 4d 77 70 70 <07> 20 05 00 00 49 03 6d 00 48 89 e8 48 c1 e8 03 42 80 3c 38 00 74
-> RSP: 0018:ffffc90006167b98 EFLAGS: 00010246
-> RAX: ffff8880a7db8420 RBX: ffff88809d5fd7f8 RCX: ffff8880a811a040
-> RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
-> RBP: ffff88809d5fd740 R08: ffffffff81912471 R09: fffffbfff131e57c
-> R10: fffffbfff131e57c R11: 0000000000000000 R12: 00007ffea1107000
-> R13: ffff8880a811a468 R14: 1ffff1101502348d R15: dffffc0000000000
-> FS:  0000000000000000(0000) GS:ffff8880ae800000(0000) knlGS:0000000000000000
-> CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-> CR2: 00007f33d09f8fc0 CR3: 0000000097210000 CR4: 00000000001506f0
-> DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
-> DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
-> Call Trace:
->  load_elf_binary+0x2e90/0x48a0 fs/binfmt_elf.c:1221
->  search_binary_handler fs/exec.c:1819 [inline]
->  exec_binprm fs/exec.c:1860 [inline]
->  bprm_execve+0x919/0x1500 fs/exec.c:1931
->  kernel_execve+0x871/0x970 fs/exec.c:2080
->  call_usermodehelper_exec_async+0x204/0x330 kernel/umh.c:101
->  ret_from_fork+0x1f/0x30 arch/x86/entry/entry_64.S:294
-> Modules linked in:
-> ---[ end trace 8d12c4aa58699b40 ]---
-> RIP: 0010:map_vdso+0x1e3/0x270 arch/x86/entry/vdso/vma.c:308
-> Code: 16 48 89 ef 48 8b 34 24 31 c9 e8 88 7c a7 00 eb 7a 4c 8b 74 24 28 43 80 3c 3e 00 48 8b 5c 24 08 74 08 4c 89 ef e8 4d 77 70 70 <07> 20 05 00 00 49 03 6d 00 48 89 e8 48 c1 e8 03 42 80 3c 38 00 74
-> RSP: 0018:ffffc90006167b98 EFLAGS: 00010246
-> RAX: ffff8880a7db8420 RBX: ffff88809d5fd7f8 RCX: ffff8880a811a040
-> RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
-> RBP: ffff88809d5fd740 R08: ffffffff81912471 R09: fffffbfff131e57c
-> R10: fffffbfff131e57c R11: 0000000000000000 R12: 00007ffea1107000
-> R13: ffff8880a811a468 R14: 1ffff1101502348d R15: dffffc0000000000
-> FS:  0000000000000000(0000) GS:ffff8880ae800000(0000) knlGS:0000000000000000
-> CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-> CR2: 00007f33d09f8fc0 CR3: 0000000097210000 CR4: 00000000001506f0
-> DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
-> DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+> 4 zero bytes again. And that .config has kasan stuff enabled too so
+> could the failure be related to having kasan stuff enabled and it
+> messing up offsets?
+>
+> That is, provided this is the mechanism how it would happen. We still
+> don't know what and when wrote those zeroes in there. Not having a
+> reproducer is nasty but looking at those reports above and if I'm
+> reading this correctly, rIP points to
+>
+> RIP: 0010:update_pvclock_gtod arch/x86/kvm/x86.c:1743 [inline]
+>
+> each time and the URL says they're 9 crashes total. And each have
+> happened at that rIP. So all we'd need is set a watchpoint when that
+> address is being written and dump stuff.
+>
+> Dmitry, can the syzkaller do debugging stuff like that?
 
-+clang-built-linux
-Looks like another one with kernel code overwrite in clang build.
+syzbot does not have direct support for such things.
+It uses CONFIG_DEBUG_AID_FOR_SYZBOT=y:
+https://github.com/google/syzkaller/blob/master/docs/syzbot.md#no-custom-patches
+But that's generally useful for linux-next only and the clang build is
+on the upstream tree...
+
+Options I see:
+1. Add stricter debug checks for code that overwrites code. Then maybe
+we can catch it red handed.
+2. Setup clang instance on linux-next
+3. Run syzkaller locally with custom patches.
+
+
+> > Following my hypothesis about having a bad address calculation; the
+> > tricky part is I'd need to look through the relocations and try to see
+> > if any could resolve to the address that was accidentally modified.  I
+> > suspect objtool could be leveraged for that;
+>
+> If you can find this at compile time...
+>
+> > maybe it could check whether each `struct jump_entry`'s `target`
+> > member referred to either a NOP or a CMP, and error otherwise? (Do we
+> > have other non-NOP or CMP targets? IDK)
+>
+> Follow jump_label_transform() - it does verify what it is going to
+> patch. And while I'm looking at this, I realize that the jump labels
+> patch 5 bytes but the above zeroes are 4 bytes. In the other opcode
+> bytes I decoded it is 4 bytes too. So this might not be caused by the
+> jump labels patching...
+>
+> > This hypothesis might also be incorrect, and thus would be chasing a
+> > red herring...not really sure how else to pursue debugging this.
+>
+> Yeah, this one is tricky to debug.
+>
+> --
+> Regards/Gruss,
+>     Boris.
+>
+> https://people.kernel.org/tglx/notes-about-netiquette
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CACT4Y%2BYGFtPCi3a-ByZGs1kCFfJOYv_AbkxOG%3DK_D4xh0r4okA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CACT4Y%2BY4-vqdv01ebyzhUoggUCUyvbhjut7Wvj%3Dr4dBfyxLeng%40mail.gmail.com.
