@@ -1,141 +1,124 @@
-Return-Path: <clang-built-linux+bncBCP4ZTXNRIFBB4E6VT5QKGQEQ3UCA5Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCMIZB7QWENRBOFGVT5QKGQEKMQOBKA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
-	by mail.lfdr.de (Postfix) with ESMTPS id 042A42753ED
-	for <lists+clang-built-linux@lfdr.de>; Wed, 23 Sep 2020 11:03:45 +0200 (CEST)
-Received: by mail-wr1-x440.google.com with SMTP id y3sf8557020wrl.21
-        for <lists+clang-built-linux@lfdr.de>; Wed, 23 Sep 2020 02:03:45 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600851824; cv=pass;
+Received: from mail-qt1-x838.google.com (mail-qt1-x838.google.com [IPv6:2607:f8b0:4864:20::838])
+	by mail.lfdr.de (Postfix) with ESMTPS id A9FD5275440
+	for <lists+clang-built-linux@lfdr.de>; Wed, 23 Sep 2020 11:19:55 +0200 (CEST)
+Received: by mail-qt1-x838.google.com with SMTP id u6sf18658408qte.8
+        for <lists+clang-built-linux@lfdr.de>; Wed, 23 Sep 2020 02:19:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600852794; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EfUq8zIVXdhOE/p0oQix3ld2ehst9qoNSofJa9giV2PSQKzmaVUlhK+i8OZP4PP3HA
-         GGTnG2jX/7Y5GwyeLNM2/IfHxsYpfm8FLmahN/XaMQySQUFINDFCuCKuGsdYvtoqd4X2
-         EfV/iT4Y3uS7J6ZQYHCaQ3pnul5jLg2iMrIsOsBPm4eD602SzQ9zHRpGm00CF4kCeNyd
-         HqlJYoWlgOEbjSEKGXROeieAnMPPCjoWuw4MYavdxzCQ0cvpMRGTuLi4KI0K2XKR48GG
-         WMSyUSGVEHWnLPivtw//toKQPVrWWCxCMh02RfihhKY0MfVITR7R1PmgSJ/C7ETYPpt5
-         cWqg==
+        b=MF0LeXeuOneoF83pQZbymaF4l/gveJuLczCnK/1qd8fNmdJgOdReHCi9e+tybyDRIa
+         +c8xfM3wnViVM8yA0KsumdbMC3sb997fv3jri5zY/MwLRmEnfwlEIC54i9XvN0NnO2Fg
+         3Vcn8UqnRVsTXxSvt0Us7F77qbFyJVl7AoiZEw5DkfSL+0A3QEZjeBEdW+eTsLvTFG5i
+         QYMhYIwzR5vVvOj4iTH7xLRLRVjDjfLxDukQcUDASUQPuVO6HZlv1Kq0laoBb2zBv0wS
+         nGABN1EJufQOcMvResvyXDATFP9xOFFe9xbJbqKRfrCmYsm+poTrHuK1HgRSehRiLhD8
+         aQ3Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=vGNac2f4gclCjiwDEB2KP75uFTYxnrXbts77+aPUDIg=;
-        b=Gk9A88Rpsk1U3N7OEUM7jyDLptbp5lH+ftjROunPxIG39zbCZFM2RgKTK+h9oba5J6
-         /0Wm5tLAfPvmG2aXUvWnq2XjOJveatbglQyWoR44SVhXkOTIzwnSdDxrbcl8gt2JsThK
-         +jtbHGG2QqN76YuMHST3GzT/TBPTkZu5f5LajPH/W9X5DIoIy+5qTGLsyUKjoD7XAjGD
-         /+InHknxatVzw92opPXc4/+GVblhY2zlO58iPAji9X/gVP0BRFJftB1xJw23X9Jjirjs
-         OBekwVTRP6lRb7ucb6xUs1sKudBQ1YAid8/sAJLHtS43+QaLTApoYRXq6dvV1Bmd7i0Q
-         UTfg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=voqM5/NKR3hYmQwSLApqf5VWw7syjRDNkGkqeyLUH2U=;
+        b=V/rAVmDhFvztMt51sK5MZy5DXUMuBhZcyAs7L/4QO5bYWodHrT+9OB7mQEJyqzXmVK
+         y5ykD2NFGfjQ/PRpaKF2FbjLPH1l8TdcDexQSF7zfQpgP/oplvpA8Gb3kEnf55bgxjdN
+         sU1FyxKfoM4pj5bLNwz1PrauU5oFi+MvA2l3NGL4+qw+xX2lZ2vJh6iKl2DRTGBRn+04
+         Syw1IC2kcujhbwjLUEjeMKm2kwl9U0ke4i9IwNbiOJiof+6rd2cLzdj6u2+8TKH3E2ar
+         pOVrwBKpAJ7YeaKXUJqxKkwMR/9WBbMLiTqGD5+E+zmNeziCxK3R12386r0eSVsN48u8
+         I53Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@alien8.de header.s=dkim header.b=qx2Y+7fs;
-       spf=pass (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as permitted sender) smtp.mailfrom=bp@alien8.de;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alien8.de
+       dkim=pass header.i=@google.com header.s=20161025 header.b=I5h4NcId;
+       spf=pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=dvyukov@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=vGNac2f4gclCjiwDEB2KP75uFTYxnrXbts77+aPUDIg=;
-        b=sEmdcZirnXCui+ksZASx6w+5P7opA4fq5cgq5uAtHm8lQrlnIc/vb2ApUd1h6G0kif
-         LiXeVJOcnqboi74OInmu3yU79W+uUR8JD8E15Ir0g9V+mRBhLW8/nZr5yfBFQImdHTGA
-         ZYv2IRiOYaxBKhqiIWVGXc9bz8G86sGrQ8LbQ+fBPJG6Vu1LkWyqlAFnTMYgmmQ8vQYo
-         GLjOHJADnpxTh7UdqnmZwc4Tx5moThQ4AQwRcDyA2jgpzYkfVmkI84AxsQM+0ILB64xp
-         UitUFuHpuG2WjUZIgY57yy9E0jm7fo5IJBKIqsXOufOs2NPdZNQMUk3HLY/usoEhmoPB
-         4qTg==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=voqM5/NKR3hYmQwSLApqf5VWw7syjRDNkGkqeyLUH2U=;
+        b=F1xsnPqgaQkq7tOj9LycLa3t22r+U47Qi5C2UNbczl/umu5mmnu9blTgtKzrH/lE+w
+         B1zz85YGqDXvbnF/USMJoQbQx/V8n15C2vuZRE4+ITONYO27MODEGBiFoQgIOu7Pnha+
+         h5wYx2LQQAtdeM9r7YHIwQycnVATnhiLlGxgTzWcL8bhkYwuZZIPh9Hhcgf+UFQsFDuR
+         lwcpsBWDjoR2xMOy7MFSIG5Fgz0aPLZESdfZ6SX0AD2B5fkMPpOk7l65w7254A54Gvhi
+         LLk8xFGAIEvJWBPlQaf582dmhe1kV/o8qm+V7SIzgisiKAKXKljf+x8oRcCrWObLhwtV
+         cW5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=vGNac2f4gclCjiwDEB2KP75uFTYxnrXbts77+aPUDIg=;
-        b=mTEvIAYCXWZgVQa+qDzypgjI9qOw8MWm3CEx/ZASCyPT4tS3cHgboMntNGfczOJEDD
-         ostZdWKzcSt8ATvh5J+aRP68Q5Sfr4xjUsFOY4wlwLs/w5P8KE2fZ8hB/mbaC5De57+g
-         EpiWYNE2twJxQZObWQilZU0SVjXZ2VjJhPBpPa1mbajGgfYTR8UGBhkaLK3yk/ArXI7O
-         MtHiFNoLqUVHvEqj/NmtLF3+OJKHuSWxTJ6pKdjzH3Z987eQ3E3jzQ9CBz5MPh3j1GZZ
-         k7JFOX+TvBu2fMvnH0BoIFq6gRMJKElZk1ebuaQIDi5Sgl7M1BpT21cbRt7cRf0CVq/v
-         6OEQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5306fd262vK5wcsdrgf7XgSSQ1leD+9+saMuPO7jf7azA3iNjopS
-	gSXKKVUcm3/RajP7UVwXHZ0=
-X-Google-Smtp-Source: ABdhPJzasazW8ARURu2gqaEftD6zo7+Eq6G5sroLhzUWCNyikHOBN+MHFuisvNCNEMiEw7SnC4phRg==
-X-Received: by 2002:a1c:f20b:: with SMTP id s11mr5521449wmc.144.1600851824642;
-        Wed, 23 Sep 2020 02:03:44 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=voqM5/NKR3hYmQwSLApqf5VWw7syjRDNkGkqeyLUH2U=;
+        b=D/cReuXOI/AyRrn/cZlRjzvQ4fjKGquGMAQW1mcFqwvk15JpdicRLyPxN+n8vrxwq3
+         VzXKsyqvfZcVNEw/FQX/cVD+89Bnbc9UHRSXIGwwSBrmc3Hw7ZKRfhmIy49DTMVtQjFL
+         3KGTnTs1EiPLp3Hss/rO8mGGr0pCT9VNf1oe5FOeIf7tG6Z/ctz89ZDqAH8cmO7ny5ck
+         NHoqso3gl+vg+HFWLmelq4pGX+7T3GbhCh9t1zl+qKm+3+NQvWnfTUcZ21GTdkyQT2iw
+         138lXtuxyftz+se2FWdODHPUblPnXEUtn23i5+GhoQejuc0oWFNwDkijxL6LyBPQ4di8
+         bY2Q==
+X-Gm-Message-State: AOAM5335MeivpDR6Mqp7l1ZrR91nHWbMz1WYEJCnnPegqRLVkGl9QJSG
+	MQYrH644oAdO6PZfGZJ+zGs=
+X-Google-Smtp-Source: ABdhPJziyHOVbPVZ/OjAf6c9FkZ2OjpiF8b2aogYz5f5uwnFoa8X1Es5ZzqWEZZ5PxEo4OE7f+sLdA==
+X-Received: by 2002:a05:620a:13e8:: with SMTP id h8mr8856274qkl.322.1600852792280;
+        Wed, 23 Sep 2020 02:19:52 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6000:8:: with SMTP id h8ls547538wrx.3.gmail; Wed, 23 Sep
- 2020 02:03:43 -0700 (PDT)
-X-Received: by 2002:a5d:5261:: with SMTP id l1mr9785680wrc.193.1600851823784;
-        Wed, 23 Sep 2020 02:03:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600851823; cv=none;
+Received: by 2002:ac8:3405:: with SMTP id u5ls7627552qtb.1.gmail; Wed, 23 Sep
+ 2020 02:19:51 -0700 (PDT)
+X-Received: by 2002:aed:2a17:: with SMTP id c23mr9399548qtd.338.1600852791813;
+        Wed, 23 Sep 2020 02:19:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600852791; cv=none;
         d=google.com; s=arc-20160816;
-        b=w42fC245dicRCOb8LlDGl6QnMfd4OO5GSJWNOeyyiVTuNjN8jxTw96FRPUdiedcPL+
-         pLRD+bia1E0VvadLncKXCnokP5pNt+KRrmxCJkAfkvbAT+Cpu0xBuPhzm01OYiic984U
-         ZHur0tNmiNWQBhlgS3HvkWiJ9f3SVuesbqxHH/4qde1P7Ugb7Z8ocWg+hQGrUjk1sKxJ
-         QRsgT7kSOyHF2UDSNA14ECCeH+5jfOvsc1FvHVVmdTEF614mn12P2p4SBWp6kXkzOnle
-         sZCO+x9LrfQKxOelN2XLYBmO1veWMnxLMzp5e9C7l6UyVQYGeZyBwMBW3YGbz30XW3sP
-         GhCA==
+        b=b4IySV0JBO5GHunxt4VP3vTIjBOpkEKSurfmGwCCpIQ1DQSphAGkjRpVtC+xCBxqtN
+         RGALRSNj08iv+agG0dL1/F13baXeG4NGnOJ2/M7B6pb78LVEz85S4VL+IbiTmFQeqCcg
+         y2ZjiRJ6EuQuXMPs/u6gYUvZ6QI2xMzLN4vh06TxVDjYToO1GBhqJxQMnErIr9OC82hq
+         7vPmMxfKCxUrPFa+WxV/hefJ4Xkdpupk8NimB1ueCRc8PUAkVR/ADibjJDAWvTGpHLcS
+         C+6L8EEukliNIHa1UHEg1nbnxz4kxLf9s9oie0/mIOkh5wYroMRpyiHxczHd9wkM36sV
+         XGrA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=5y0yEgZ5tV+QcahBXtAX02EmqN9T8yvCetF3399N5r0=;
-        b=YZMYsUK1KAJEPQHw6PU4pp2x2io9CZB7vNT8qzdlSS17Klunhzbzse38VTg0LoykiI
-         GdT5wp82kQP2UOhvbVR/4aXK+ZNQDkl+QOalNGTECwzFPPdBGX0SUEqNWU+tQNeoUL5e
-         uHzuM9Uc1kk0WkhBNd83vfVs7Hqlyohir1J2YVrojf88mKwKwCiYPqdWxRnMv3ZMDc5C
-         fWqiONDZ2meB36GE4jTd9ycHGBCGTpo4Pqv7R213EnxHewy76BiO3vP5P3W1RYxiVIB9
-         Rff8zYQ4GcTR3ZFb2WE3gFiL7Aul5OWSnaqL0Sf2cZK6PLH6gIkPkempdV1aASSEM8iF
-         625g==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=fwLKEMZq2g3KXgWN/NS+95Zv72nRgO61juiwlvI19SE=;
+        b=tQnZcpgAM2Gb7wEH5o4ljDaHm5YqyNrBFv5FxoQXV5898sQI6Zm73lK0YpLa2s5AA7
+         Xm6bOHDqRVna66aU7KQImdjgBqd4ZaVmxuC+xpJD9V5TbYLPf4k4d6wnS3tVdYuvyol4
+         l0xpYIK/y6G4JGwRMULbCaqb1JvAn2d/ndlQwTp+XIwHgKGsxwiSIqF+mGtxiiZgqE2W
+         1hyl3j7jzGlslFjfdjGHQ/9yHf3EqKm5rOWnoPHLt9HGzkB0klqPt4F4eQ7+qIHLKvZA
+         qtntEtXbyaqt5PRFKzs5pvM5jaEjZkBFEZb11r/1KFl46v10Syqz/rPO0Tn9PlNdh7na
+         nB6g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@alien8.de header.s=dkim header.b=qx2Y+7fs;
-       spf=pass (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as permitted sender) smtp.mailfrom=bp@alien8.de;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alien8.de
-Received: from mail.skyhub.de (mail.skyhub.de. [2a01:4f8:190:11c2::b:1457])
-        by gmr-mx.google.com with ESMTPS id h11si421397wrr.3.2020.09.23.02.03.43
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 23 Sep 2020 02:03:43 -0700 (PDT)
-Received-SPF: pass (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as permitted sender) client-ip=2a01:4f8:190:11c2::b:1457;
-Received: from zn.tnic (p200300ec2f0d1300e5068c8a3292d31d.dip0.t-ipconnect.de [IPv6:2003:ec:2f0d:1300:e506:8c8a:3292:d31d])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.skyhub.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 0A7B11EC0286;
-	Wed, 23 Sep 2020 11:03:43 +0200 (CEST)
-Date: Wed, 23 Sep 2020 11:03:36 +0200
-From: Borislav Petkov <bp@alien8.de>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Josh Poimboeuf <jpoimboe@redhat.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	syzbot <syzbot+ce179bc99e64377c24bc@syzkaller.appspotmail.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Jiri Olsa <jolsa@redhat.com>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Ingo Molnar <mingo@redhat.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	syzkaller-bugs <syzkaller-bugs@googlegroups.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	the arch/x86 maintainers <x86@kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Subject: Re: general protection fault in perf_misc_flags
-Message-ID: <20200923090336.GD28545@zn.tnic>
-References: <00000000000052569205afa67426@google.com>
- <20200919110831.GD7462@zn.tnic>
- <CACT4Y+ZhofJhNjfav22YNVpxtH4_+3Qaut6rOiqv4MLNU5mcEg@mail.gmail.com>
- <CACT4Y+b9ZCKJkOmwbEC6sZxEQ-9g2g=-v4+X0aWv7AsrZo7utA@mail.gmail.com>
- <CAKwvOdmKcn=FNzwtBZ8z0evLz4BXgWtsoz9+QTC6GLqtNp1bXg@mail.gmail.com>
- <20200921221336.GN5901@zn.tnic>
- <CAKwvOd=E11KriNqeVv2-Tvq5sQy=4vyBzDEH22D5h5LgBeFsVw@mail.gmail.com>
+       dkim=pass header.i=@google.com header.s=20161025 header.b=I5h4NcId;
+       spf=pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=dvyukov@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-qk1-x743.google.com (mail-qk1-x743.google.com. [2607:f8b0:4864:20::743])
+        by gmr-mx.google.com with ESMTPS id a27si990713qtw.4.2020.09.23.02.19.51
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Sep 2020 02:19:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::743 as permitted sender) client-ip=2607:f8b0:4864:20::743;
+Received: by mail-qk1-x743.google.com with SMTP id t138so22134438qka.0
+        for <clang-built-linux@googlegroups.com>; Wed, 23 Sep 2020 02:19:51 -0700 (PDT)
+X-Received: by 2002:a37:9b82:: with SMTP id d124mr9180680qke.8.1600852791197;
+ Wed, 23 Sep 2020 02:19:51 -0700 (PDT)
 MIME-Version: 1.0
+References: <00000000000096760d05aff79022@google.com>
+In-Reply-To: <00000000000096760d05aff79022@google.com>
+From: "'Dmitry Vyukov' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 23 Sep 2020 11:19:40 +0200
+Message-ID: <CACT4Y+YGFtPCi3a-ByZGs1kCFfJOYv_AbkxOG=K_D4xh0r4okA@mail.gmail.com>
+Subject: Re: invalid opcode in map_vdso
+To: syzbot <syzbot+9cf5373b0e15476f39a2@syzkaller.appspotmail.com>
+Cc: Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>, LKML <linux-kernel@vger.kernel.org>, 
+	Andy Lutomirski <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	syzkaller-bugs <syzkaller-bugs@googlegroups.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	"the arch/x86 maintainers" <x86@kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAKwvOd=E11KriNqeVv2-Tvq5sQy=4vyBzDEH22D5h5LgBeFsVw@mail.gmail.com>
-X-Original-Sender: bp@alien8.de
+X-Original-Sender: dvyukov@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@alien8.de header.s=dkim header.b=qx2Y+7fs;       spf=pass
- (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as
- permitted sender) smtp.mailfrom=bp@alien8.de;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=alien8.de
+ header.i=@google.com header.s=20161025 header.b=I5h4NcId;       spf=pass
+ (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::743
+ as permitted sender) smtp.mailfrom=dvyukov@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Dmitry Vyukov <dvyukov@google.com>
+Reply-To: Dmitry Vyukov <dvyukov@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,84 +131,69 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Sep 22, 2020 at 11:56:04AM -0700, Nick Desaulniers wrote:
-> So I think there's an issue with "deterministically reproducible."
-> The syzcaller report has:
-> > > Unfortunately, I don't have any reproducer for this issue yet.
+On Wed, Sep 23, 2020 at 11:18 AM syzbot
+<syzbot+9cf5373b0e15476f39a2@syzkaller.appspotmail.com> wrote:
+>
+> Hello,
+>
+> syzbot found the following issue on:
+>
+> HEAD commit:    92ab97ad Merge tag 'sh-for-5.9-part2' of git://git.libc.or..
+> git tree:       upstream
+> console output: https://syzkaller.appspot.com/x/log.txt?x=1553eff1900000
+> kernel config:  https://syzkaller.appspot.com/x/.config?x=cd992d74d6c7e62
+> dashboard link: https://syzkaller.appspot.com/bug?extid=9cf5373b0e15476f39a2
+> compiler:       clang version 10.0.0 (https://github.com/llvm/llvm-project/ c2443155a0fb245c8f17f2c1c72b6ea391e86e81)
+>
+> Unfortunately, I don't have any reproducer for this issue yet.
+>
+> IMPORTANT: if you fix the issue, please add the following tag to the commit:
+> Reported-by: syzbot+9cf5373b0e15476f39a2@syzkaller.appspotmail.com
+>
+> invalid opcode: 0000 [#1] PREEMPT SMP KASAN
+> CPU: 0 PID: 16405 Comm: modprobe Not tainted 5.9.0-rc5-syzkaller #0
+> Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 01/01/2011
+> RIP: 0010:map_vdso+0x1e3/0x270 arch/x86/entry/vdso/vma.c:308
+> Code: 16 48 89 ef 48 8b 34 24 31 c9 e8 88 7c a7 00 eb 7a 4c 8b 74 24 28 43 80 3c 3e 00 48 8b 5c 24 08 74 08 4c 89 ef e8 4d 77 70 70 <07> 20 05 00 00 49 03 6d 00 48 89 e8 48 c1 e8 03 42 80 3c 38 00 74
+> RSP: 0018:ffffc90006167b98 EFLAGS: 00010246
+> RAX: ffff8880a7db8420 RBX: ffff88809d5fd7f8 RCX: ffff8880a811a040
+> RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+> RBP: ffff88809d5fd740 R08: ffffffff81912471 R09: fffffbfff131e57c
+> R10: fffffbfff131e57c R11: 0000000000000000 R12: 00007ffea1107000
+> R13: ffff8880a811a468 R14: 1ffff1101502348d R15: dffffc0000000000
+> FS:  0000000000000000(0000) GS:ffff8880ae800000(0000) knlGS:0000000000000000
+> CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+> CR2: 00007f33d09f8fc0 CR3: 0000000097210000 CR4: 00000000001506f0
+> DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+> DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+> Call Trace:
+>  load_elf_binary+0x2e90/0x48a0 fs/binfmt_elf.c:1221
+>  search_binary_handler fs/exec.c:1819 [inline]
+>  exec_binprm fs/exec.c:1860 [inline]
+>  bprm_execve+0x919/0x1500 fs/exec.c:1931
+>  kernel_execve+0x871/0x970 fs/exec.c:2080
+>  call_usermodehelper_exec_async+0x204/0x330 kernel/umh.c:101
+>  ret_from_fork+0x1f/0x30 arch/x86/entry/entry_64.S:294
+> Modules linked in:
+> ---[ end trace 8d12c4aa58699b40 ]---
+> RIP: 0010:map_vdso+0x1e3/0x270 arch/x86/entry/vdso/vma.c:308
+> Code: 16 48 89 ef 48 8b 34 24 31 c9 e8 88 7c a7 00 eb 7a 4c 8b 74 24 28 43 80 3c 3e 00 48 8b 5c 24 08 74 08 4c 89 ef e8 4d 77 70 70 <07> 20 05 00 00 49 03 6d 00 48 89 e8 48 c1 e8 03 42 80 3c 38 00 74
+> RSP: 0018:ffffc90006167b98 EFLAGS: 00010246
+> RAX: ffff8880a7db8420 RBX: ffff88809d5fd7f8 RCX: ffff8880a811a040
+> RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+> RBP: ffff88809d5fd740 R08: ffffffff81912471 R09: fffffbfff131e57c
+> R10: fffffbfff131e57c R11: 0000000000000000 R12: 00007ffea1107000
+> R13: ffff8880a811a468 R14: 1ffff1101502348d R15: dffffc0000000000
+> FS:  0000000000000000(0000) GS:ffff8880ae800000(0000) knlGS:0000000000000000
+> CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+> CR2: 00007f33d09f8fc0 CR3: 0000000097210000 CR4: 00000000001506f0
+> DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+> DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
 
-Yeah, Dmitry gave two other links of similar reports, the first one
-works for me:
-
-https://syzkaller.appspot.com/bug?extid=1dccfcb049726389379c
-
-and that one doesn't have a reproducer either. The bytes look familiar
-though:
-
-Code: c1 e8 03 42 80 3c 20 00 74 05 e8 79 7a a7 00 49 8b 47 10 48 89 05 f6 d8 ef 09 49 8d 7f 08 48 89 f8 48 c1 e8 03 42 80 3c 00 00 <00> 00 e8 57 7a a7 00 49 8b 47 08 48 89 05 dc d8 ef 09 49 8d 7f 18
-All code
-========
-   0:   c1 e8 03                shr    $0x3,%eax
-   3:   42 80 3c 20 00          cmpb   $0x0,(%rax,%r12,1)
-   8:   74 05                   je     0xf
-   a:   e8 79 7a a7 00          callq  0xa77a88
-   f:   49 8b 47 10             mov    0x10(%r15),%rax
-  13:   48 89 05 f6 d8 ef 09    mov    %rax,0x9efd8f6(%rip)        # 0x9efd910
-  1a:   49 8d 7f 08             lea    0x8(%r15),%rdi
-  1e:   48 89 f8                mov    %rdi,%rax
-  21:   48 c1 e8 03             shr    $0x3,%rax
-  25:   42 80 3c 00 00          cmpb   $0x0,(%rax,%r8,1)
-  2a:*  00 00                   add    %al,(%rax)               <-- trapping instruction
-  2c:   e8 57 7a a7 00          callq  0xa77a88
-  31:   49 8b 47 08             mov    0x8(%r15),%rax
-  35:   48 89 05 dc d8 ef 09    mov    %rax,0x9efd8dc(%rip)        # 0x9efd918
-  3c:   49 8d 7f 18             lea    0x18(%r15),%rdi
-
-4 zero bytes again. And that .config has kasan stuff enabled too so
-could the failure be related to having kasan stuff enabled and it
-messing up offsets?
-
-That is, provided this is the mechanism how it would happen. We still
-don't know what and when wrote those zeroes in there. Not having a
-reproducer is nasty but looking at those reports above and if I'm
-reading this correctly, rIP points to
-
-RIP: 0010:update_pvclock_gtod arch/x86/kvm/x86.c:1743 [inline]
-
-each time and the URL says they're 9 crashes total. And each have
-happened at that rIP. So all we'd need is set a watchpoint when that
-address is being written and dump stuff.
-
-Dmitry, can the syzkaller do debugging stuff like that?
-
-> Following my hypothesis about having a bad address calculation; the
-> tricky part is I'd need to look through the relocations and try to see
-> if any could resolve to the address that was accidentally modified.  I
-> suspect objtool could be leveraged for that;
-
-If you can find this at compile time...
-
-> maybe it could check whether each `struct jump_entry`'s `target`
-> member referred to either a NOP or a CMP, and error otherwise? (Do we
-> have other non-NOP or CMP targets? IDK)
-
-Follow jump_label_transform() - it does verify what it is going to
-patch. And while I'm looking at this, I realize that the jump labels
-patch 5 bytes but the above zeroes are 4 bytes. In the other opcode
-bytes I decoded it is 4 bytes too. So this might not be caused by the
-jump labels patching...
-
-> This hypothesis might also be incorrect, and thus would be chasing a
-> red herring...not really sure how else to pursue debugging this.
-
-Yeah, this one is tricky to debug.
-
--- 
-Regards/Gruss,
-    Boris.
-
-https://people.kernel.org/tglx/notes-about-netiquette
++clang-built-linux
+Looks like another one with kernel code overwrite in clang build.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200923090336.GD28545%40zn.tnic.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CACT4Y%2BYGFtPCi3a-ByZGs1kCFfJOYv_AbkxOG%3DK_D4xh0r4okA%40mail.gmail.com.
