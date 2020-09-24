@@ -1,143 +1,128 @@
-Return-Path: <clang-built-linux+bncBC4IFTUFXEFBBVHRWL5QKGQE7LBIVLQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBGNKWP5QKGQEQ6TZLMY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3549927750E
-	for <lists+clang-built-linux@lfdr.de>; Thu, 24 Sep 2020 17:18:45 +0200 (CEST)
-Received: by mail-yb1-xb3a.google.com with SMTP id f199sf3172383yba.12
-        for <lists+clang-built-linux@lfdr.de>; Thu, 24 Sep 2020 08:18:45 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600960724; cv=pass;
+Received: from mail-yb1-xb3e.google.com (mail-yb1-xb3e.google.com [IPv6:2607:f8b0:4864:20::b3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 86531277795
+	for <lists+clang-built-linux@lfdr.de>; Thu, 24 Sep 2020 19:19:22 +0200 (CEST)
+Received: by mail-yb1-xb3e.google.com with SMTP id 139sf3482214ybe.15
+        for <lists+clang-built-linux@lfdr.de>; Thu, 24 Sep 2020 10:19:22 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600967961; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cDzvKwkAv5RPhy/AfKUXeFmKp0KOacMJ2wLH1BIJdVEmXVZpZucYC3JOrZStF+25YQ
-         ScuPeLwmhLFYKk56QWSTVlBarEcZ3DDku6TOvs7nsDIIFjlL8tqqVg+3bhq5gnUA+2rV
-         tPKx3rUQR3PYTWuFkBCDcY4rhgpVaiqwzouS5cdCevW01xWNN2if5tiCeYSnksYAaLzu
-         2+khfFrd/XkPupIwxUQWPQrj54FC3qd5f3qMN/ePdvIzFqxQ5jMTxJApmpCVEO4uxOvZ
-         9N6P3XSO1U02R6CQvrErZECvnci2qQ7ggicGcV9FEx3R0exDqH2zw8qs2KSgx/kb0eBe
-         au6g==
+        b=Szs7YlTkd3J5zXGj89nlDJ4AzmUll5oWBHXSI7T0vEKuFvNYN8ZdJZJy2Hggt6i++8
+         KgOT5vhhdJDStLIVy/A45czkTVdUm7fkye30MJylSmEKj3h0trnHLgEUHDb4VnyolhcD
+         ArPgcoBG4rFwsxk54aaRdPll4Jk7T266j4daxKsAeqSqZJmyaLd+5AuWbvBoBlNy1XBW
+         sJWEbCZMtgdtFg250gOwafmW2GK9Kk3OcIEsj49H/QsZPwwqShnVvKtblnlqDbPZU0jB
+         f7tMkg7mJABiHVoDsfLqfZxvKk6pnuBp9s0QEUMhTR3fXASfnZAZiRqJXTD4hbsnx/+t
+         NAaA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:references:in-reply-to:message-id
-         :date:subject:cc:to:from:mime-version:sender:dkim-signature;
-        bh=aBGkXKdJW3kJuKPDQTzADAM3QpCs7cNk1FbA2N+V8Vw=;
-        b=0aA9jD0HcBxVNz6IwbzVz4Ibh57sS5csFzNwwv37q6DPFnUW4jWTyFj2ag2NOS3sE1
-         1XoXN4/xXeAKGpPxm7jQyxOIpjkjawAEg/xzvG2ZFTDww3T83gCIMob0y8H1WQHa0gxl
-         +mN2a9IpecwQh6Cs7L42X4FLt0CXFgTUQNCgkLl3BEqtUutAlowtTxoJgXg1rirZ+DoZ
-         tykbOKiqSXSfxYQyX4MCVRzkBiqclaDPTon03Q4gmetI6TujihKdsLHexFdES/1SobNM
-         4WZK47kJmY5xKp/aB0xmwL8r4bImrdknLMWr6Eo3S/dDBxmETVr4f9a3g0bRvHbrNKjk
-         P+ag==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=vmnfUrPTpaLViEnSHgsHSrtt4RrUsmnmHLqWVW+waes=;
+        b=PouGJviQMeGheBTAy17KzP/yPSRqDiTMxfIYw64t/uJBf4e4jWPLPgb17rmIefRJos
+         nuzPpTI3TpS1z3SaW/6isdhuRYkCt20nnd/gJ/y43a/tZy6Xm0PfeYWBQdPpY3AfohvD
+         d20Rb4NfJq8SQ6NZ+UKfnOFj0p7L/89gICc1CEEN9iXxMlBde2fb5w7B/MP+fWDLIfgq
+         yLkCq0rEc6+MUx98rZAcYdKYFavL/x6vtfV+3hxVyGeDnLvNXEE+wmjt7gfP/2Ac/Yge
+         VwiW3B3DJCltOw1FNlLSiQbWNoZnSnMR7Y5DPU9d/GXAXOJ6gszJFpyOlWQDvVaGUKi7
+         aMaA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=eDprx9t4;
-       spf=pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=leo.yan@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=jI1AzPsO;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:to:cc:subject:date:message-id:in-reply-to
-         :references:x-original-sender:x-original-authentication-results
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=aBGkXKdJW3kJuKPDQTzADAM3QpCs7cNk1FbA2N+V8Vw=;
-        b=L9opqN3EtmjnOJcNlFQkukYaBiQkP4pIidCvvPyKm14N8jB0xlxvFGS8NFj2goa0bz
-         DxXp3CFRMwFIR7qaalAivos4LGWDibvnUuYIyIagMEWwJs4Xh9vWZiCGrCYiMmzm2zwL
-         vuGfyFOWWkHO0hPCT0jJ8CsoxvKqVNtuC0AxLrKvhE+unFkRYAKJ/o3NHwBUhoQdM/xP
-         bk3Me3W1M1VA22ykRSH5EeSF58fretG5VRsDEklypDE5lJYh8VHK6I/+AHAPrr1+mW9Y
-         yo85CP3SMCxTlBcBn9LLJWpIE078QUT99SpOvhlORs+tjz5gYADg0nCatI3QTZFxHKeW
-         d97g==
+        bh=vmnfUrPTpaLViEnSHgsHSrtt4RrUsmnmHLqWVW+waes=;
+        b=Rv3neqTedoVQdEM4PBPOMPiRsj1LqM3a1SVOWqY/UnFAVToM/akgZhaNZVsqagRwwP
+         4gn8gA/zkDxCyVxytRF1R1C1MRqpf2VoI3osKt5q7n3BxdxVt+75FjGxyLr+nE+BB/Op
+         1BuqQt7eVdeYet3Hiyga1Sr1PMNA3jvRPnNDBtwGeEBoO8hzGrV3tFDeY0A6LtLwWQ1t
+         cA9xa65yE/NYzWuBfHlcJWnd666yNu/TvXchgLQcJxCAtmIN/YXj30nnBule95Sm95Mm
+         2jM/5Dnr9nVoFGr04GfO5TjsCL1jH1LXmmBMJCOvtfHjMdQUCAd3embcsvmnHMNMfS4h
+         SwFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
-         :message-id:in-reply-to:references:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=aBGkXKdJW3kJuKPDQTzADAM3QpCs7cNk1FbA2N+V8Vw=;
-        b=lp6Li7+WBjW4PzqiL+c9xnPfpUHi6oarc5+tMcSPRUBLIrIqzG0H71JjhhUJTTRnkA
-         Qp6c9HhZNgFUuXHqKqkfaVsGcuhGok3pPsvcOfpCxGItfmNnRCTTiVMod3m12n2xQTH6
-         MOaznoFAsiI3oUky+83BB/kkAeFpf6B80j6qSYJkPgiuC7Z49wAHAPlrcosmur4covVM
-         ukP+aazqtwD/aySrQS8ct3S2Ssl+jmkDEQuwv2uM3EXcHEU/K4tSDTM6CIL+4/FEdGhu
-         +r9gIcUVdZ1BcZEM6fL5UhYSf7MheJa+fp1kA2hP4KLTGrZVqNRIXjRZF2qN0gkZ+/7l
-         afAA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5303G1BoCKHmUb4yrjDfapyph79zZ9tBkO2vueZhF1lbGGB4BEZT
-	HinvLSxrkGO2yRzXQY4EeZw=
-X-Google-Smtp-Source: ABdhPJzEm751+B9Tf8UvnKBhD0cqfhUrL7mK/ktUu7v8Upja6ypeIHU6GmkBom1P/FOo/wDqpFj8Lg==
-X-Received: by 2002:a25:500c:: with SMTP id e12mr47462ybb.125.1600960724156;
-        Thu, 24 Sep 2020 08:18:44 -0700 (PDT)
-MIME-Version: 1.0
+        bh=vmnfUrPTpaLViEnSHgsHSrtt4RrUsmnmHLqWVW+waes=;
+        b=lHp186cLd1wK/v2Yi/NGTxch+KBGtMGeNroIAPafZrvyLhQGuo3Qzo+76hFZMKttPV
+         28ZdACnmpW+yEe34+i7wNkPKM5poHRjiZSBdfmP1ppOmyxlgfo2OgJ1e7Shb0GkF9v0r
+         dp8L4EhoXVGXS52Jpp8avWqtRNb8MEIYqqLai3yv6om7lXcC9CjDRqFgYlZwsDwy0c87
+         +S1kR6eWWT8i7/5QRoVm318GSG47YDEtkhw7eghc6EjfSxEgg19h9hsWuiF5rxygzdQT
+         hGCEmlp/jUUOHx5P5i2NU+M2c7b93/JqbgV5Nm+4HVU7VNqwy/DVcsALfUHJovAg9KyM
+         noyA==
+X-Gm-Message-State: AOAM530kB9IYqu+2tFndaBK/j7oEhCMrqN8VnxIHNZM38VhQ4elHGZ29
+	rBG8fFwyG6BNZ01mliLAy+4=
+X-Google-Smtp-Source: ABdhPJz+oKk4LAaovTdak+82fS7Z8fdovJaSz5Q4nrdizWPT4xxhfcCKeQcp6nUIlas2ZEd94tYgzA==
+X-Received: by 2002:a25:c305:: with SMTP id t5mr912416ybf.378.1600967961406;
+        Thu, 24 Sep 2020 10:19:21 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:24d4:: with SMTP id k203ls1721602ybk.3.gmail; Thu, 24
- Sep 2020 08:18:43 -0700 (PDT)
-X-Received: by 2002:a25:c00e:: with SMTP id c14mr116442ybf.262.1600960723672;
-        Thu, 24 Sep 2020 08:18:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600960723; cv=none;
+Received: by 2002:a25:8285:: with SMTP id r5ls1868538ybk.7.gmail; Thu, 24 Sep
+ 2020 10:19:20 -0700 (PDT)
+X-Received: by 2002:a25:2a55:: with SMTP id q82mr941272ybq.160.1600967960928;
+        Thu, 24 Sep 2020 10:19:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600967960; cv=none;
         d=google.com; s=arc-20160816;
-        b=yOq40i+Su3quriG2/kC4zTnmzFgR19fxFv/VQF7gjPnKY77n2dxYnLPvKPFcgDlnjF
-         MJw/HoD02voh6J/a0d9mCzm0wz+pjNUJitVUzm5T46zFrAUqd58xOIZPPU0iJdbcsxEj
-         YBDACBY5FQhN+q43oMiiwFW4hMbbikGK7Q/ROLJXTJht4AINEtM2vrVWULUGoLwPQ6Hx
-         UFCgdlf/yYGJmebEZ8RlSbI8sYfNZ63y0N6L7LpJsHhhj2jS3WWPACfnDR+D38Nna2pn
-         yDfrYIeN15dysdxrXFxRznuA5nvB7emmZJsTwXk5scVbU91AuTi1uPnms5iCt/0wS4Mk
-         Lv2Q==
+        b=WEo1BLdjS4HlC/WW4oU/rlPr8WtTDEbhQoDlGvcI4tNXhDTSquph6prIC9CqA+IefG
+         uTk/FPsO+X0WUB6i2TxxHKXsWCe8GXkpS6LLVU+4kVW8Tmsh7aOiJhRNIE98cWFNTgBQ
+         8lLPx3yABGK2woWXdKM3tdD8x0GYNrOSmszwnJTpLoMkjpPEMxa98Sp3RVQvndUVPkaj
+         k2QApm/fQRk/vi41xJRaXwyuhRwvuEqxW16lU1e7rwEhUTZM0Y49MG66sJBUBf4/JW+B
+         DXrvo6xwOsqaoB3w8wqupDFyOcGNHhSExwoke8Jl0scKiZRXHJZaIaAGotycskNoE/Vu
+         h92w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from
-         :dkim-signature;
-        bh=subQd7H0xCv+i94BqfvfOBk2O4HVh7NJGTRdMFF+r4M=;
-        b=cMKTMu8UKqkeb0QdUHjzkRzgUc0ok4+YXIeJg1BTQiSorHKvfxqmHg9etw7hpk/N7B
-         xRQ46Aw+4YGVLsDNR1Pw4a5NJ9cPF8tWCvV8d82uzcXrK4QCCN6F6fTaKvF6qzxQLy4g
-         /l4bwvFo8DZA8ervfgn1Vvv1P/erDBaP81lNfJAubiwZrtdephOINRugND+PJl1lXKh6
-         +mmZtz3j/rVHf3Y6Vya/oEmnVFeGw0RQioZkc9+n2vyOgJdcAoHE/ID1nZEYDDfVhgw4
-         UzR4tk/MEOV7WANH/lf+CaqhqRas0MSLcl8DTUd2h7YSaTfudFZmmQb428r3PuIa+pcL
-         LDCg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=dA2zxHfO7uy8Ufgykgnn+hx3XJoAizz/URpCj3/0/1w=;
+        b=Ic/bYQWKg0OI52Rxj/xvGdRUc5IGB9/m/1O4/5YBkf3GuSztlDADcgUhqVIwDW1YvZ
+         YmlOdeNTV1CcOAq+aivEqglWF7l+t2MwRxx2KgbMeFlr2x/tJRcquJFC7qoBZRyxD4mg
+         FJlg+/ULlt0IjrsFTopufTWxR3ccuIhiEnoSrdlWPELpRuhP4Htzl01E7EEzZLb9ZAc3
+         HrJ97+4Y4fMsprH8z3DFMMxGTd5YyjHrMXwGfZI8EnsODzmJRmvAx4YRmuZm9LiVctxa
+         qjWpQ4mQ4axvGYUc8opJf7SmU5HZ9k4RAN/qfD6kXvwUi31rkuIH5pPjSVF0FLhDqZY0
+         b1wA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=eDprx9t4;
-       spf=pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=leo.yan@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-pl1-x644.google.com (mail-pl1-x644.google.com. [2607:f8b0:4864:20::644])
-        by gmr-mx.google.com with ESMTPS id y189si226067yby.5.2020.09.24.08.18.43
+       dkim=pass header.i=@google.com header.s=20161025 header.b=jI1AzPsO;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pf1-x442.google.com (mail-pf1-x442.google.com. [2607:f8b0:4864:20::442])
+        by gmr-mx.google.com with ESMTPS id t12si5403ybp.2.2020.09.24.10.19.20
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 24 Sep 2020 08:18:43 -0700 (PDT)
-Received-SPF: pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::644 as permitted sender) client-ip=2607:f8b0:4864:20::644;
-Received: by mail-pl1-x644.google.com with SMTP id s19so1852902plp.3
-        for <clang-built-linux@googlegroups.com>; Thu, 24 Sep 2020 08:18:43 -0700 (PDT)
-X-Received: by 2002:a17:902:7248:b029:d2:2a05:6eed with SMTP id c8-20020a1709027248b02900d22a056eedmr5072810pll.80.1600960723217;
-        Thu, 24 Sep 2020 08:18:43 -0700 (PDT)
-Received: from localhost ([2600:3c01::f03c:91ff:fe8a:bb03])
-        by smtp.gmail.com with ESMTPSA id y5sm3638073pge.62.2020.09.24.08.18.42
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Thu, 24 Sep 2020 08:18:42 -0700 (PDT)
-From: Leo Yan <leo.yan@linaro.org>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Will Deacon <will@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@redhat.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Ian Rogers <irogers@google.com>,
-	Nick Gasson <nick.gasson@arm.com>,
-	John Garry <john.garry@huawei.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Stephane Eranian <eranian@google.com>,
-	Remi Bernon <rbernon@codeweavers.com>,
-	Andi Kleen <ak@linux.intel.com>,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Cc: Leo Yan <leo.yan@linaro.org>
-Subject: [PATCH v5 2/2] perf tests tsc: Add checking helper is_supported()
-Date: Thu, 24 Sep 2020 23:18:15 +0800
-Message-Id: <20200924151815.22930-3-leo.yan@linaro.org>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20200924151815.22930-1-leo.yan@linaro.org>
-References: <20200924151815.22930-1-leo.yan@linaro.org>
-X-Original-Sender: leo.yan@linaro.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=eDprx9t4;       spf=pass
- (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::644
- as permitted sender) smtp.mailfrom=leo.yan@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+        Thu, 24 Sep 2020 10:19:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) client-ip=2607:f8b0:4864:20::442;
+Received: by mail-pf1-x442.google.com with SMTP id w7so2315823pfi.4
+        for <clang-built-linux@googlegroups.com>; Thu, 24 Sep 2020 10:19:20 -0700 (PDT)
+X-Received: by 2002:a62:5586:0:b029:13e:d13d:a108 with SMTP id
+ j128-20020a6255860000b029013ed13da108mr137887pfb.36.1600967959929; Thu, 24
+ Sep 2020 10:19:19 -0700 (PDT)
+MIME-Version: 1.0
+References: <ce28bb9bc25cb3f1197f75950a0cfe14947f9002.camel@perches.com> <20200917214545.199463-1-ndesaulniers@google.com>
+In-Reply-To: <20200917214545.199463-1-ndesaulniers@google.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Thu, 24 Sep 2020 10:19:08 -0700
+Message-ID: <CAKwvOdnziDJbRAP77K+V885SCuORfV4SmHDnSLUxhUGSSLMq_Q@mail.gmail.com>
+Subject: Re: [PATCH v3] nfs: remove incorrect fallthrough label
+To: Trond Myklebust <trond.myklebust@hammerspace.com>, 
+	Anna Schumaker <anna.schumaker@netapp.com>
+Cc: "Gustavo A . R . Silva" <gustavo@embeddedor.com>, Joe Perches <joe@perches.com>, 
+	"Gustavo A . R . Silva" <gustavoars@kernel.org>, Miaohe Lin <linmiaohe@huawei.com>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Hongxiang Lou <louhongxiang@huawei.com>, 
+	linux-nfs@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Mark Brown <broonie@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=jI1AzPsO;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,65 +135,74 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-So far tsc is enabled on x86_64, i386 and Arm64 architectures, add
-checking helper to skip this testing for other architectures.
+Hello maintainers,
+Would you mind please picking up this patch?  KernelCI has been
+erroring for over a week without it.
 
-Signed-off-by: Leo Yan <leo.yan@linaro.org>
----
- tools/perf/tests/builtin-test.c     |  1 +
- tools/perf/tests/perf-time-to-tsc.c | 13 +++++++++++++
- tools/perf/tests/tests.h            |  1 +
- 3 files changed, 15 insertions(+)
+On Thu, Sep 17, 2020 at 2:45 PM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
+>
+> There is no case after the default from which to fallthrough to. Clang
+> will error in this case (unhelpfully without context, see link below)
+> and GCC will with -Wswitch-unreachable.
+>
+> The previous commit should have just replaced the comment with a break
+> statement.
+>
+> If we consider implicit fallthrough to be a design mistake of C, then
+> all case statements should be terminated with one of the following
+> statements:
+> * break
+> * continue
+> * return
+> * fallthrough
+> * goto
+> * (call of function with __attribute__(__noreturn__))
+>
+> Fixes: 2a1390c95a69 ("nfs: Convert to use the preferred fallthrough macro")
+> Link: https://bugs.llvm.org/show_bug.cgi?id=47539
+> Acked-by: Gustavo A. R. Silva <gustavoars@kernel.org>
+> Reviewed-by: Gustavo A. R. Silva <gustavoars@kernel.org>
+> Reviewed-by: Miaohe Lin <linmiaohe@huawei.com>
+> Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+> Suggested-by: Joe Perches <joe@perches.com>
+> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+> ---
+> Changes v3:
+> * update the commit message as per Joe.
+> * collect tags.
+>
+> Changes v2:
+> * add break rather than no terminating statement as per Joe.
+> * add Joe's suggested by tag.
+> * add blurb about acceptable terminal statements.
+>
+>  fs/nfs/super.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/fs/nfs/super.c b/fs/nfs/super.c
+> index d20326ee0475..eb2401079b04 100644
+> --- a/fs/nfs/super.c
+> +++ b/fs/nfs/super.c
+> @@ -889,7 +889,7 @@ static struct nfs_server *nfs_try_mount_request(struct fs_context *fc)
+>                 default:
+>                         if (rpcauth_get_gssinfo(flavor, &info) != 0)
+>                                 continue;
+> -                       fallthrough;
+> +                       break;
+>                 }
+>                 dfprintk(MOUNT, "NFS: attempting to use auth flavor %u\n", flavor);
+>                 ctx->selected_flavor = flavor;
+> --
+> 2.28.0.681.g6f77f65b4e-goog
+>
 
-diff --git a/tools/perf/tests/builtin-test.c b/tools/perf/tests/builtin-test.c
-index 0abb5ce88962..60682e945f9b 100644
---- a/tools/perf/tests/builtin-test.c
-+++ b/tools/perf/tests/builtin-test.c
-@@ -348,6 +348,7 @@ static struct test generic_tests[] = {
- 	{
- 		.desc = "Convert perf time to TSC",
- 		.func = test__perf_time_to_tsc,
-+		.is_supported = test__tsc_is_supported,
- 	},
- 	{
- 		.func = NULL,
-diff --git a/tools/perf/tests/perf-time-to-tsc.c b/tools/perf/tests/perf-time-to-tsc.c
-index aee97c16c0d9..a9560e0f6360 100644
---- a/tools/perf/tests/perf-time-to-tsc.c
-+++ b/tools/perf/tests/perf-time-to-tsc.c
-@@ -169,3 +169,16 @@ int test__perf_time_to_tsc(struct test *test __maybe_unused, int subtest __maybe
- 	evlist__delete(evlist);
- 	return err;
- }
-+
-+bool test__tsc_is_supported(void)
-+{
-+	/*
-+	 * Except x86_64/i386 and Arm64, other archs don't support TSC in perf.
-+	 * Just enable the test for x86_64/i386 and Arm64 archs.
-+	 */
-+#if defined(__x86_64__) || defined(__i386__) || defined(__aarch64__)
-+	return true;
-+#else
-+	return false;
-+#endif
-+}
-diff --git a/tools/perf/tests/tests.h b/tools/perf/tests/tests.h
-index 60a1c317b8db..9f1eedb21eee 100644
---- a/tools/perf/tests/tests.h
-+++ b/tools/perf/tests/tests.h
-@@ -128,6 +128,7 @@ int test__perf_time_to_tsc(struct test *test, int subtest);
- bool test__bp_signal_is_supported(void);
- bool test__bp_account_is_supported(void);
- bool test__wp_is_supported(void);
-+bool test__tsc_is_supported(void);
- 
- #if defined(__arm__) || defined(__aarch64__)
- #ifdef HAVE_DWARF_UNWIND_SUPPORT
+
 -- 
-2.17.1
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200924151815.22930-3-leo.yan%40linaro.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnziDJbRAP77K%2BV885SCuORfV4SmHDnSLUxhUGSSLMq_Q%40mail.gmail.com.
