@@ -1,131 +1,128 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBYGAV75QKGQER52RDWY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4LX4523YGBBFOOV75QKGQEC3VAR6I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3b.google.com (mail-io1-xd3b.google.com [IPv6:2607:f8b0:4864:20::d3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id DEF532764C9
-	for <lists+clang-built-linux@lfdr.de>; Thu, 24 Sep 2020 01:55:13 +0200 (CEST)
-Received: by mail-io1-xd3b.google.com with SMTP id w3sf1232489iou.9
-        for <lists+clang-built-linux@lfdr.de>; Wed, 23 Sep 2020 16:55:13 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1600905312; cv=pass;
+Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id AA60D276502
+	for <lists+clang-built-linux@lfdr.de>; Thu, 24 Sep 2020 02:23:51 +0200 (CEST)
+Received: by mail-pf1-x43d.google.com with SMTP id s204sf679176pfs.18
+        for <lists+clang-built-linux@lfdr.de>; Wed, 23 Sep 2020 17:23:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1600907030; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Dpz/x9CJ/bk8mb+7dnuOXwajzIDR0dsuiqIOwBNvbG90HMm0yEpzpqQoSuT5PjBiTZ
-         EMD0yYR753d0l556ZzUZYAFQwbG14uaMHnTR06sf9wKqq3lzL4GW7UhlUX+Zxp4pYm/l
-         Am7DLU4SGMN6Sy058y180rKyDKkeWTtXF6l/+ZFvsEdNQ60R401H4lqiWzTB1a8mVZYg
-         iUHVCF7WC3Z6vzWOFI8qGo4SIPvXrrKHfodQ0TZE2iakVb0oQGkPH0wH+tJHnx7OxJD+
-         CV1cU3MHChgtGQ8NGbTumZWJbEXvsvu+LFsWHbdWftn2qiOo0zNsgBKAMNz8KjUV/x3r
-         j3WQ==
+        b=wOCR29LrTbY1GL26kDz0iZLgm0tijptgYIxLk6MsUk1jLP8wZkO/SMXifqpqxixHMO
+         /1L61y43LN9yXjtNCbrgiwk3bhW0LIOHmOt/AraMyz9+3Pf/ah1gQik6bBvnCLvXZ17y
+         wFukCt2zps+vMlrpang1h80l2BhvLwO0CxB9UeyRAsIoGddbCJmxdTdsHAKBieRercNv
+         TMLwLdKZ8abN4tt5xFlTvhCdWtZ/eTwDGuD6uZ1cKkaSiITV3xoXayVI4fEnnkeTahEi
+         BjsRckrtHZG52SuUvrkDT5vqRSCOJJ5srnPaIVabCLGWy5tpowh77lLPNdvJ7Fw3aNue
+         dvZQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=ZDl3Pji+XHZ8kf4XCLgNzo3XyL6EnnNd3rXCt9Mkq6s=;
-        b=jTnxfIB4GLD1jicJkp/MrWGtflnY/uTFPdbv8tQW52nnlKukjtvkaeuEN3rW+zyPPV
-         avhXaVg2rucL1LqZHHGMg8THpZWOEs4I5es6H1dtzX8u2Y2gwTnfQC1MTch3bEYT+XDN
-         64lfuXPujfSltBuEDQQ3lfb96RV142LCaPRFzv06oqJ+L1KGO5Hj3OlPZyqvpI1V+cwp
-         XzRj6hHmIDo9MLcWTULctAl2xZpnFxtpYO5H0QTwSXW3c6dvr4qBvrQoSQ9Z26dk1F40
-         F1IrbmqNowwYn25RLJdokMfGT9OJbx1FyeoAK8kIjUlY7BGY/CkeVXpyWKBdufIgrIRK
-         CqEA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=Rv0457fqsKf8BA8iRw37hAR2uwluaJY0wu7cwwHnDWo=;
+        b=eTVy5Spl4JDdKOr3a6DAsqmRPNeB2mBmK7XY6JnYSwd1TmEqfZgw1Nm9dV+I7FyDoT
+         +MfynUIWYpoNNkucAiQlMETgFnOBGUjTScA3p5PD2ZZ248NjPGwQwPtALAtTS6Vlr2Wu
+         pjK2dEswJqDeJMakVyPLGIC5fyj9SG+RB2m5r76gXqBEFIfZSbKy3MqvrDhKiprfinpK
+         bicETZ31eeSSg4g5ycSsYk8nZImvo2Vzl00dZ4YrTj5Joc8fjTrm+QrAJ3mnFv48D/uC
+         chBSMhbUjXhXclR8PxZeBTILtmBeLJQTVRIItoBdS9W2eIRiqALoBBX11WK2dGaKjbOa
+         PgXQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=J4lwwmAb;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       spf=pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) smtp.mailfrom=segher@kernel.crashing.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :user-agent:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ZDl3Pji+XHZ8kf4XCLgNzo3XyL6EnnNd3rXCt9Mkq6s=;
-        b=DzuqaAo4I6VVW2KcueDTfO7dTe60yoyOkUDLEOVe4nd7f9Q2oxH98ZKKcDRNWYjLpI
-         qOb3qHZ1FJhwM9JKkvhmEa8MsvKeNDjExjdR2FFvWxJJ2B6i6xImm+jYC+fj463JQie3
-         WHb4p0xRZPM5DRei2xZ7dpheKUKY7jtHlbedLKdgQK7li/40+yN0vPP8nlzJzMnwgIA3
-         X1arAIjAx9+j/qayxQeXCHMmnj0AvBCD31QujDNLRBRF6v+jcmqhgGkNMTp2hE49V/43
-         ygOJbWYZf/kxiiurrHqR+W35a/K3JzhzUC5hBGJnbUs6fFbaPdD4B1qUeUz4DYswedIS
-         3P/g==
+        bh=Rv0457fqsKf8BA8iRw37hAR2uwluaJY0wu7cwwHnDWo=;
+        b=bR7QB7xvYQr+cSOigOT9M7pllqEbGNhgKnV1fuUNIop3tBFNs2KnnxAB3u1OQWWjfj
+         EGUqnXhur3RVmrMBNV4dLqGJG7rT6ZKP4wWNDHhhQm7frLeVAKAhCy6yyHB//x+ZM/Gy
+         vj6qDLML0klmqdqcIzUZgyG4y4hnYamvAmvv5ZGDYiV4uEJO1JiIGTbHfBiY5nR16DIS
+         qkEWRlk3C6USJ3z5/W/0FNjyYUxiiyAZkpDbPokUai+IwxODKVlRFPkJL308fIp3KPRz
+         Bk7G3pOt47Zoic78UQHgrpJkpR2+l0+6K0frihTbKiXqvic5SmL64k0jedDJGh90rHNE
+         VeRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ZDl3Pji+XHZ8kf4XCLgNzo3XyL6EnnNd3rXCt9Mkq6s=;
-        b=UEFEc3qYXly4sSg2PptVf7bJK6FrfcyNPIq7yZxGB5pp/vEmTfcMcNr5xBImC1E3C3
-         bqrEIrh+7OJTfhgkJKtIS4i/Vf6pMt4Z5yzJBhrOQis7JmC/ZCtrZiseeP+6jd4W/Xnz
-         s/K454LJiR2Vxj1JOSj33lszrDC547QYbemEhXa3SMVX13KBCB/etOVRcsq8QxlD9cCS
-         ZpXuY926sYvmzVzLqAtsT/Q9sQrshoc/swnJVt/P+iQYorq5U2cdE16K9tk3/1Ym0Rha
-         fxM+20AO31YIX2GdhmetrX1qfhrEOOOPRXBInlZBPnCHUSQzgVUlWTGZzU4THLdUDZnl
-         KfRQ==
-X-Gm-Message-State: AOAM531sRW+CEVgyhMQA0oQh7fs5Ho539bq6QQoaQt8/IMFdZ7vMXKY4
-	3Hd6VTeppdKER+p4wD4UtRo=
-X-Google-Smtp-Source: ABdhPJxJcs2AsTdZaubiHPwkMpe1FA4cDMxKxg6Ug4ZPjkpaTiaoXpTosU4GxGx6LE34g/lIJpecVg==
-X-Received: by 2002:a5d:8b46:: with SMTP id c6mr1423642iot.69.1600905312579;
-        Wed, 23 Sep 2020 16:55:12 -0700 (PDT)
+        bh=Rv0457fqsKf8BA8iRw37hAR2uwluaJY0wu7cwwHnDWo=;
+        b=FdDne5w13W8uRTmRZAs1sG8smw8MtRgexchhtwZy5q/K11hVLRve7c2nSDR/jxVcID
+         LpTkGwvUlwFQy6akwdxfNEp2pBHFeYR696c6lc9koyBTlzxahh9Qzd29Hg4bw/SVw9ig
+         94vWsJHjnsjYb3ZfbYMR2/KLmh70vHDFI6vNhSjyvyhpA+2Z/x7qEF6EV/E4f38oTX38
+         FXa6WheRrSwyigADZ+KxVtcMMNMzDMGtr2QHjjzRKva5pfS8JOsBCP6BzHeEh2p5zf4E
+         J+znhxxnt84n5Q1HfpVeWZPRAkl0Y3ca7LmWE3pV9cH27p6iehfO5g87d5GseLz8lsrV
+         hhYA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM5314By1qOXKmcdIOH3IjbxcPZFVpE/J4jVdZHeP1OYUHghw4jQjh
+	wj3jdL6tbeuvaMgUm37CG14=
+X-Google-Smtp-Source: ABdhPJwovIjUIJR0JhQW5rJzIzu/whCIYuaH2JS9UgermSyR3lfmsQfuJgQF0H7tG3kynvSfBN/Z6w==
+X-Received: by 2002:a17:902:b685:b029:d2:1e62:4cbe with SMTP id c5-20020a170902b685b02900d21e624cbemr2129668pls.58.1600907030135;
+        Wed, 23 Sep 2020 17:23:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5e:a901:: with SMTP id c1ls209282iod.1.gmail; Wed, 23 Sep
- 2020 16:55:12 -0700 (PDT)
-X-Received: by 2002:a5e:8510:: with SMTP id i16mr1545970ioj.194.1600905312129;
-        Wed, 23 Sep 2020 16:55:12 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1600905312; cv=none;
+Received: by 2002:a17:902:562:: with SMTP id 89ls523606plf.4.gmail; Wed, 23
+ Sep 2020 17:23:49 -0700 (PDT)
+X-Received: by 2002:a17:90a:f415:: with SMTP id ch21mr1723223pjb.18.1600907029456;
+        Wed, 23 Sep 2020 17:23:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600907029; cv=none;
         d=google.com; s=arc-20160816;
-        b=t9MBPZtBSTDyaxRx3oKracT5Bxd/oEtYB2WH8cpU+UYIfkukauz++XhkGgZFRQHADJ
-         5IwkJVHUr3T7W7CqbxKZ8wBo/XSIujOdjwBojYDV1m3JrDd3KWMkCvRDD66vi7jEnEYu
-         IjXrlPBecVMSdwfH9YV46Xq7fNqjLgUX6j7juRjY7SH4VqRXerEGCFvSObu2iWOhTOQ0
-         PwqK/t5S3hHHRCplaiBERuNW1ojDTPbsrx/CFmlxMVwOK+6dFITExGkAs5ar38bLatYk
-         Ddkh61pvvCMwsBQmV1xkrWQJ/r8ADDqzxVQ6Zarr+PzfBSeQfXeuUmMV43Q/vazhqR0c
-         IhCA==
+        b=vqcbTgyNjIQRCjIu1/d7w4Pc5tD7WndRxAU30BKsSr8u8HRS5hemS+OyfLYPswpVSI
+         QJKmnwQxs2WUXPWAYmPNTA+LJSrN+rCW/345BVE+uWHnn0OcV7qAycXmnSpW81CoC/RP
+         ojg6GXwJlhFx8plSActC1tHQNLEhcnC6N4ylaERRnMx30IIsL8OOtCUEMsRQE6mSvMsU
+         BMdHXxeF+xqPnzfmGWptJOy9aY9aAmAGfKrFU/pWjL6dVBHdY7v4eliHkRhHYsOm9QsJ
+         Ev8x9DlO9ZjOhjIgtcw9UmyyZzhOvguHxH9cvgnX8OaIpGjtpeeLzVoaVX566GWkJkD5
+         ez+Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=4bm0saIXpXLlCN/wnzF6CGxKVmlqo22J3VlEQBsnfd0=;
-        b=iQFpVUfCxHZK0JWRJ6FbR0Z/0Q5xSTM1LqGpvqIDQfudlIxu9Sl+Snf+6iZrLDMIOI
-         akyPbPeZNeMf336ekR0hnzFGPVUL9MQagrw0OShULlExEsrpkt1JzRUsRMFuTuMzvuqm
-         UvtTxhN6kfgfpnUn6E08Xuf2DK8kV9mWUTh+/0r3Gh5MRL1FmgnhftWSCQoPHjeUQ3Pe
-         4d1Lkj1XilWVXwKZNVc3LEk8+BOza7dTnyEEpaE0NTST3klZ3BzEHsqJ+ljU3FUTrZSE
-         Gk8A/JTGzLbOO0WKe2IPC7kQlvqyuA1M6vyT/xHOYDcyx+lIn63BHR7pzgmqSz4OHSBK
-         Jw5A==
+        h=user-agent:in-reply-to:content-transfer-encoding
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date;
+        bh=k+FzTKeubuvw28ADD85VpC+FcE/mAkXHgcewOZS4LLg=;
+        b=iLecskmN8tlukGTc6DmPNqeW74+oVcUel1e/xLMyb+y9mro3ZswG/VuH9JhJsYXsYO
+         BSL+OJwkAXob/K7zLNOyof+Wgqodu3rNSeGscpxMyHqIofs8Z8ZtvenDRWV+lIDzNkIi
+         pmNEsBKXHtaWcE0rqXSzCKOHjuN1n4VDAveHdIDK0vh2Vo5ShbNb3CoDt90Y7D1XLmob
+         Oon+TvTYSqdHODv5Vo3tBbFbSfKg9Rx8wEM6Hw34gAwNtjSsi/fHk95TH3zTOUOTZxOZ
+         PZEKBmVSucN5hDlyBwZICnS97dsyyS3DJgPAImRQrD1IRf9eikFrukKUlvxOKp3RbUCV
+         tI0Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=J4lwwmAb;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x441.google.com (mail-pf1-x441.google.com. [2607:f8b0:4864:20::441])
-        by gmr-mx.google.com with ESMTPS id m2si126568ill.5.2020.09.23.16.55.12
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 23 Sep 2020 16:55:12 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) client-ip=2607:f8b0:4864:20::441;
-Received: by mail-pf1-x441.google.com with SMTP id k13so704444pfg.1
-        for <clang-built-linux@googlegroups.com>; Wed, 23 Sep 2020 16:55:12 -0700 (PDT)
-X-Received: by 2002:aa7:99c2:0:b029:142:440b:fa28 with SMTP id
- v2-20020aa799c20000b0290142440bfa28mr2168653pfi.30.1600905311123; Wed, 23 Sep
- 2020 16:55:11 -0700 (PDT)
-MIME-Version: 1.0
-References: <202009180302.cc60Lfbg%lkp@intel.com> <79256845-c7d4-94df-adee-9cd833fbca03@csgroup.eu>
- <20200922163519.GL28786@gate.crashing.org> <CAKwvOdmhW_T-J98tQRoMCAgY6uPnW=bujtpDw5KauMnHDE4n=A@mail.gmail.com>
- <20200922215325.GM28786@gate.crashing.org> <CAFP8O3LaxHqpeUu-iifJMC=YkYmNXSUyxCbRnSdsMRD-pKwMGQ@mail.gmail.com>
- <20200922232956.GO28786@gate.crashing.org> <CAFP8O3+XC59aJGG4RcSAW_pysftpobXQ=sbjqgeNDoF=TBP7sw@mail.gmail.com>
- <CAKwvOdkBH7=hjNQiXUGx8D2oyyrVZdDSo0QwS3MO+nU=FCaaQQ@mail.gmail.com>
-In-Reply-To: <CAKwvOdkBH7=hjNQiXUGx8D2oyyrVZdDSo0QwS3MO+nU=FCaaQQ@mail.gmail.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 23 Sep 2020 16:54:59 -0700
-Message-ID: <CAKwvOdn4LPTTr9KQcRH=zOy-8nswaT0=JGjAy=xiy3XhfjnvfA@mail.gmail.com>
-Subject: Re: [linux-next:master 7032/8629] arch/powerpc/kernel/vdso32/gettimeofday.S:40:
- Error: syntax error; found `@', expected `,'
-To: =?UTF-8?B?RsSBbmctcnXDrCBTw7JuZw==?= <maskray@google.com>
-Cc: Segher Boessenkool <segher@kernel.crashing.org>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, kernel test robot <lkp@intel.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>
+       spf=pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) smtp.mailfrom=segher@kernel.crashing.org
+Received: from gate.crashing.org (gate.crashing.org. [63.228.1.57])
+        by gmr-mx.google.com with ESMTP id c4si121789plz.2.2020.09.23.17.23.48
+        for <clang-built-linux@googlegroups.com>;
+        Wed, 23 Sep 2020 17:23:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) client-ip=63.228.1.57;
+Received: from gate.crashing.org (localhost.localdomain [127.0.0.1])
+	by gate.crashing.org (8.14.1/8.14.1) with ESMTP id 08O0KWux022396;
+	Wed, 23 Sep 2020 19:20:33 -0500
+Received: (from segher@localhost)
+	by gate.crashing.org (8.14.1/8.14.1/Submit) id 08O0KWV3022395;
+	Wed, 23 Sep 2020 19:20:32 -0500
+X-Authentication-Warning: gate.crashing.org: segher set sender to segher@kernel.crashing.org using -f
+Date: Wed, 23 Sep 2020 19:20:31 -0500
+From: Segher Boessenkool <segher@kernel.crashing.org>
+To: =?utf-8?B?RsSBbmctcnXDrCBTw7JuZw==?= <maskray@google.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        kernel test robot <lkp@intel.com>,
+        Michael Ellerman <mpe@ellerman.id.au>, kbuild-all@lists.01.org,
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>
+Subject: Re: [linux-next:master 7032/8629] arch/powerpc/kernel/vdso32/gettimeofday.S:40: Error: syntax error; found `@', expected `,'
+Message-ID: <20200924002031.GY28786@gate.crashing.org>
+References: <202009180302.cc60Lfbg%lkp@intel.com> <79256845-c7d4-94df-adee-9cd833fbca03@csgroup.eu> <20200922163519.GL28786@gate.crashing.org> <CAKwvOdmhW_T-J98tQRoMCAgY6uPnW=bujtpDw5KauMnHDE4n=A@mail.gmail.com> <20200922215325.GM28786@gate.crashing.org> <CAFP8O3LaxHqpeUu-iifJMC=YkYmNXSUyxCbRnSdsMRD-pKwMGQ@mail.gmail.com> <20200922232956.GO28786@gate.crashing.org> <CAFP8O3+XC59aJGG4RcSAW_pysftpobXQ=sbjqgeNDoF=TBP7sw@mail.gmail.com>
+Mime-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=J4lwwmAb;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <CAFP8O3+XC59aJGG4RcSAW_pysftpobXQ=sbjqgeNDoF=TBP7sw@mail.gmail.com>
+User-Agent: Mutt/1.4.2.3i
+X-Original-Sender: segher@kernel.crashing.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as
+ permitted sender) smtp.mailfrom=segher@kernel.crashing.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,120 +135,42 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Sep 23, 2020 at 1:43 PM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> I just fetched the config and can reproduce via:
-> $ ARCH=powerpc CROSS_COMPILE=powerpc64le-linux-gnu- make CC=clang -j71
-> arch/powerpc/kernel/vdso32/gettimeofday.o
->
-> Adding `V=1` to the above, I see:
->
-> clang -Wp,-MMD,arch/powerpc/kernel/vdso32/.gettimeofday.o.d  -nostdinc
-> -isystem /android0/llvm-project/llvm/build/lib/clang/12.0.0/include
-> -I./arch/powerpc/include -I./arch/powerpc/include/generated
-> -I./include -I./arch/powerpc/include/uapi
-> -I./arch/powerpc/include/generated/uapi -I./include/uapi
-> -I./include/generated/uapi -include ./include/linux/kconfig.h
-> -D__KERNEL__ -I ./arch/powerpc -DHAVE_AS_ATHIGH=1 -Qunused-arguments
-> -D__ASSEMBLY__ -fno-PIE --target=powerpc64le-linux-gnu
-> --prefix=/usr/bin/powerpc64le-linux-gnu- --gcc-toolchain=/usr
-> -no-integrated-as -Werror=unknown-warning-option -m64 -Wl,-a64
-> -Wa,-maltivec -Wa,-mpower4 -Wa,-many -mlittle-endian -Wa,-gdwarf-2
-> -D__VDSO32__ -s     -m32 -c -o
-> arch/powerpc/kernel/vdso32/gettimeofday.o
-> arch/powerpc/kernel/vdso32/gettimeofday.S
->
-> (so I was wrong about -no-integrated-as)
->
-> I wonder if we need to be setting --target=powerpc-linux-gnu instead?
-> Maybe the -m32 isn't being forwarded to the assembler?  Or is there an
-> assembler directive we can use to tell the assembler that this should
-> be assembled in 32b mode? (looks like no:
-> https://sourceware.org/binutils/docs/as/PowerPC_002dPseudo.html#PowerPC_002dPseudo)
->
-> ```
-> foo:
->   bl bar@local
->
-> bar:
-> ```
-> assembles with powerpc-linux-gnu-as but fails with the error message
-> we observe for powerpc64le-linux-gnu-as. (I'm pretty sure we had
-> similar issues with the compat vdso on arm64).
->
-> ah, `-a32` will put the assembler in 32b mode.  I'm guessing gcc maybe
-> adds this implicitly for `-m32`?
->
-> ```
-> diff --git a/arch/powerpc/kernel/vdso32/Makefile
-> b/arch/powerpc/kernel/vdso32/Makefile
-> index 73eada6bc8cd..c29d948f45e3 100644
-> --- a/arch/powerpc/kernel/vdso32/Makefile
-> +++ b/arch/powerpc/kernel/vdso32/Makefile
-> @@ -26,7 +26,7 @@ UBSAN_SANITIZE := n
->
->  ccflags-y := -shared -fno-common -fno-builtin -nostdlib \
->         -Wl,-soname=linux-vdso32.so.1 -Wl,--hash-style=both
-> -asflags-y := -D__VDSO32__ -s
-> +asflags-y := -D__VDSO32__ -s -Wa,-a32
->
->  obj-y += vdso32_wrapper.o
->  targets += vdso32.lds
-> ```
-> gets us a little further, but then I observe additional failures:
-> ```
->   VDSO32A arch/powerpc/kernel/vdso32/gettimeofday.o
-> arch/powerpc/kernel/vdso32/gettimeofday.S: Assembler messages:
-> arch/powerpc/kernel/vdso32/gettimeofday.S:39: Error: operand out of
-> range (0x00000000000f4240 is not between 0xffffffffffff8000 and
-> 0x000000000000ffff)
-> arch/powerpc/kernel/vdso32/gettimeofday.S:39: Error: syntax error;
-> found `@', expected `,'
-> arch/powerpc/kernel/vdso32/gettimeofday.S:39: Error: junk at end of
-> line: `@high'
-> arch/powerpc/kernel/vdso32/gettimeofday.S:83: Error: operand out of
-> range (0x000000003b9aca00 is not between 0xffffffffffff8000 and
-> 0x000000000000ffff)
-> arch/powerpc/kernel/vdso32/gettimeofday.S:83: Error: syntax error;
-> found `@', expected `,'
-> arch/powerpc/kernel/vdso32/gettimeofday.S:83: Error: junk at end of
-> line: `@high'
-> arch/powerpc/kernel/vdso32/gettimeofday.S:203: Error: operand out of
-> range (0x00000000003d0900 is not between 0xffffffffffff8000 and
-> 0x000000000000ffff)
-> arch/powerpc/kernel/vdso32/gettimeofday.S:203: Error: syntax error;
-> found `@', expected `,'
-> arch/powerpc/kernel/vdso32/gettimeofday.S:203: Error: junk at end of
-> line: `@high'
-> clang-12: error: assembler command failed with exit code 1 (use -v to
-> see invocation)
-> make[3]: *** [arch/powerpc/kernel/vdso32/Makefile:49:
-> arch/powerpc/kernel/vdso32/gettimeofday.o] Error 1
-> ```
-> That's preprocessed in, but looks like support for @high is missing
-> from clang as well.
+On Wed, Sep 23, 2020 at 12:26:27PM -0700, F=C4=81ng-ru=C3=AC S=C3=B2ng wrot=
+e:
+> On Tue, Sep 22, 2020 at 4:32 PM Segher Boessenkool
+> > On Tue, Sep 22, 2020 at 03:51:12PM -0700, F=C4=81ng-ru=C3=AC S=C3=B2ng =
+wrote:
+> > > On Tue, Sep 22, 2020 at 2:55 PM Segher Boessenkool
+> > > <segher@kernel.crashing.org> wrote:
+> > > > This is the 32-bit @local relocation; its history predates binutils=
+ CVS
+> > > > (so older than 1999).  It is the same as @local24pc (which is docum=
+ented
+> > > > in even the oldest ABI documents).  It *uses* the GOT (or PLT).
+> > > >
+> > > > If you do have @local24pc, just add an alias @local for it?
+> > >
+> > > R_PPC_LOCAL24PC is a legacy thing.
+> >
+> > I have no idea what you call "legacy".  It is very much an active
+> > feature.
+>=20
+> R_PPC_LOCAL24PC and R_PPC_PLTREL24 are not inherited by ppc64. That is
+> a pretty good sign that they are "legacy" :)
 
-Hmmm...so the @high is coming from arch/powerpc/include/asm/ppc_asm.h:320
+powerpc64 (and powerpc64le) are completely separate ABIs!  *Nothing* is
+inherited.
 
-314 #if defined(__powerpc64__) && defined(HAVE_AS_ATHIGH)
-315 #define __AS_ATHIGH high
-316 #else
-317 #define __AS_ATHIGH h
-318 #endif
-319
-320 .macro __LOAD_REG_IMMEDIATE_32 r, x
-321   .if (\x) >= 0x8000 || (\x) < -0x8000
-322     lis \r, (\x)@__AS_ATHIGH
+(Not replying to the rest; if you do not want to implement correct
+32-bit support, that is fine with me.)
 
-So we're #defining __powerpc64__ because of the
---target=powerpc64le-linux-gnu, but then trying to assemble this in
-32b mode since it's a compat vdso?
--- 
-Thanks,
-~Nick Desaulniers
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdn4LPTTr9KQcRH%3DzOy-8nswaT0%3DJGjAy%3Dxiy3XhfjnvfA%40mail.gmail.com.
+Segher
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20200924002031.GY28786%40gate.crashing.org.
