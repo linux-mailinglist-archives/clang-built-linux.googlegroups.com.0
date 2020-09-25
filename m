@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBCFTXD5QKGQEJA5TUKQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBJOPXD5QKGQENPSZXNY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc39.google.com (mail-oo1-xc39.google.com [IPv6:2607:f8b0:4864:20::c39])
-	by mail.lfdr.de (Postfix) with ESMTPS id B5FAA278E51
-	for <lists+clang-built-linux@lfdr.de>; Fri, 25 Sep 2020 18:23:37 +0200 (CEST)
-Received: by mail-oo1-xc39.google.com with SMTP id z75sf1474263ooa.21
-        for <lists+clang-built-linux@lfdr.de>; Fri, 25 Sep 2020 09:23:37 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601051016; cv=pass;
+Received: from mail-il1-x13d.google.com (mail-il1-x13d.google.com [IPv6:2607:f8b0:4864:20::13d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0B13B278F8C
+	for <lists+clang-built-linux@lfdr.de>; Fri, 25 Sep 2020 19:23:51 +0200 (CEST)
+Received: by mail-il1-x13d.google.com with SMTP id u20sf2582314ilk.17
+        for <lists+clang-built-linux@lfdr.de>; Fri, 25 Sep 2020 10:23:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601054630; cv=pass;
         d=google.com; s=arc-20160816;
-        b=dteHzusEocB69QWbn6YIdgUt+lhAHeZ/YdcvJZOMBAJqbcy/i2jxaqVjGJ68zVv4ne
-         2NdSdQYqT2oH9iOzeHLUy6hTahw+ry5kgkD8kDK5v0gdTKHnj59uZHY/SIhhtqcoiSwj
-         twG1ZSPMMWm0nfjunPEZZdBrlqPuErfHRRNnmCzZl0UY+/n7V+W2OW3cN4F6zAdzyI4s
-         eRJ4Br/N+bmoYCfO4WvFjHTzUJ8cz4h6W2H/Vuoc1wPV/iF/jwr8i64PitXfrNAJJWrO
-         lOh0u5DD/coUSI5Odv0INdrsiCFxL8W7Dn1mf1WWJUQ7TIo8IUMBYXrvSENvmBdDS/Tu
-         PtKQ==
+        b=GILz8s7nbATqJgeBIyulBZuOUS05VBaugBnomAerduNYYPg75hUbQmTxszpU1rZkz4
+         280DzjaEP6+ZJTcFHtIRXGsxt4cwUzdOrFqI89HXRUQty4Yq54x3cvz8SZvgxUjgzos3
+         8/VPDVmr37DgNg99OebMDg41ZuH3SAp4pFPuHKnZ+Uofq01BN9YP5L3ct0XSVNSrYnE5
+         31t7L1dEKoxZTWrHKZhC3+bmAqftaDr2j+ABqrFBHRAq8oaPYu5uKf490NGqUaHrX79w
+         fp/Nui3GC8cMRLQC1q8jjzEQvIokU9jUaSHIxQzWZQfaDCiJr3CUshXTc4P8G+g8vVHL
+         Sx/Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=1CTAM+Bzfq5rAGu/jEvvM8brKh7UbNkgvaErr5mCvV8=;
-        b=vaKhPnPlKY3zF5TCCWPejmnXkYpeo/0kGNjnlJMKoFMTa1ZGajHWeiAPpWFm4rH22i
-         VvNbUw5ne/oA2UUjU2NoA+AaIazUTq2atpQ0p5709Wi92+It3sNWkGTkV8gUhxZXci7n
-         kC5hAbmDp+IqcNjge1HgwbElxu28P+FdF+pxsJ1z4GlQ0Cqf9RdjDT3nLZP+9OULd+Eb
-         RSdzjI+V5BUCA4BHEan+fy1kZrZHRNkpKQCuEnOh375GPuo287cigu8/qx4u3BL4tJ8M
-         E98yTJWkZWxa8vI888A9063KRmJFV1SnvCm7V6eh9JhZCuoqfY4uxiw12xUvaw1NC0PA
-         bIWg==
+        bh=SQWRh1l2hrySC63PokDo5dZ4DbY1UlUIzUV2M7Z6geM=;
+        b=M3B8E9RPOyZ6scsnDDy8gYSwR5pY3FJFqykB/Lee9M4lViZy/3iLPxVG1QNWmNjoqB
+         UvdWo8+N39Wsq4F/b/+rhL15+0xOYFDzl9uIoy4nTnsDIIHZXU2JbWBb+tTpY5uh+p24
+         o51154YaoD1F1PIPA10KI0yl4U8PnQek2LU2lyQXMNoZhZi0mFApwCYJ/Ymz4U7V/7BS
+         b1p9JM9HJJ+HIrjFfP+Q40iOkrV6MvX2Om60gCSeDxBNSLTKUiq9Tn47AhU7H8oYRgRV
+         1MUtOs/2O8SgEnD+a16mxzhuJc9RzkYJgbHoeb0tzD/kfYlxqsRxQjq1033gs/rCHor5
+         fSOQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=1CTAM+Bzfq5rAGu/jEvvM8brKh7UbNkgvaErr5mCvV8=;
-        b=UwrJa6gh1kzNGv8SEFddws+OyVw/jwBASNjbj2mizJdzdCElrF15gdxisKCVymRdI5
-         h/J9ibygLyLUn1Pb2+0/3nFM79kPZEiwWQzJMuBICFtkzDyBJXMKsApxS0yuX0e2GX3g
-         OHLAIpnTKE1aD1CFxAssJCVleKooyT4nc3u54Ml2PjpjL39WL5sTIdyP6s0HxCt/x8Ya
-         ac4S8TFshzdec9zQpOWNYy9kzjJRbOz1MzIrmwZ6WDX/jV/JXGjHxSh2d5P2mNKGKmHj
-         6MKrfRsvSZv6/3feb6yuPtIqcFGl0z2c/LMqTrwIUnN20Q9CC0UcpfLVIGnQUlVOqLx4
-         66vA==
+        bh=SQWRh1l2hrySC63PokDo5dZ4DbY1UlUIzUV2M7Z6geM=;
+        b=BFepjOwMxnYhs9A1Yb5pDDSEEA/eXLe+K3RvsuH5Rj+rfElyk1E+b6VpviAHdbBaIG
+         UEQmf8kWrGPH02oO92ewkCe6iAz96kfvLQsBrOhrQShPhZfRep0dt3jzQf3e/YRUwS7N
+         qA3LtgYtoRuGj8MAn3+ayYCUP1I0OBpqh6suc8MOsJXXP5KFpWXxO8OmT9qkh0JPylig
+         thM6gWLPjgYnvb0oDSJHNlCQNWr5tRRBMI1+zI361XiiPlOJQ1lJJIARDlCcI8F+0rsV
+         j7MGl2yOGY+DKjn1LAivXo2fdAWFEt2mmRLU1SmuufKvhUkxcSZ7GpCNTVVypR5KLFWr
+         gqlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,87 +49,87 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=1CTAM+Bzfq5rAGu/jEvvM8brKh7UbNkgvaErr5mCvV8=;
-        b=kDRhwcDUdu6keGncubxEN1xGAXIyKIiPSKxIRy4ca6lIqpmHdqD+W2E1vieV5ysFQX
-         L/CEvQkINH0eMvXnue2A9gLxoxLlTpFTpAw8d3hY6Asswlo6OlGe0pK5cNsBTkBY0PQ1
-         jlRwelYlBXaUtWL7OoMec4If7xhnTodesB51Qg+bJKrRJLHJEK2S1qZ4tQkfCbJeX/zT
-         p1/XiULnB6Prs0aLHycMaF08GM9/VNRJc8bgvcRlzALNdjHZq2X1plF7AXKGFNG/iyUH
-         I545n/hX/lS3VWQB0rUc79R62c3isA+kHzlgvqVP73mBRRAQnXMDy0QAl5XDltr3PdGM
-         QZNg==
+        bh=SQWRh1l2hrySC63PokDo5dZ4DbY1UlUIzUV2M7Z6geM=;
+        b=rZxuBdyvxhnVXmcmApCVDVim/SsNHuurCeuFtu5vjWfdn2dkPM1S3jI/VFzTznzXP5
+         RfP75Wr1ox4lvgzuMlx1GfdxQ1vt9vjqizAAmIFfGyQVQSk4h+jZEYABaNdhBGUWuOLG
+         SGNQcLjNLuNOgPojxiughoXCHWR2yDrLLhnBlxTpY5wYynZfsc5NVZWDi0fDavHjKaCd
+         B9di8QsxE5h/REn1+noR9XeWpUy95cyTr/UpF2+Zg3aLl4OCv6vx9tc47rB8b1MZ3qYc
+         ZMVhhEHF6rMwMC5Cxn+WrtaMyTMquG8UNm8Xmw7QrunBpCXyK/IQTwJsnc5Me6gHvC5B
+         hyxQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532vcw61dcwFtQiCAQ86ylThQlgs0MdEmQpdViXmnyDUaKhByQ1f
-	1GUIuqV03bK+7uDwKXz3y24=
-X-Google-Smtp-Source: ABdhPJxH2CEBDBqQKxXN2NzpAsO/NbY0yinN9wCmli0/xAjkBAerU4D6C2ztFPim4feBvbbJ/f9a4g==
-X-Received: by 2002:a9d:5a0b:: with SMTP id v11mr819542oth.347.1601051016432;
-        Fri, 25 Sep 2020 09:23:36 -0700 (PDT)
+X-Gm-Message-State: AOAM5311HPi/sx+JIv4AOWYSJ8s1hb30ki30Dk1ax6l0ce2NFRomrcYY
+	eunXyVBexOCCGEfPQTUJijw=
+X-Google-Smtp-Source: ABdhPJxJzEED/qA2JioIdyKjVo5/JjTUoL7jcVz31RCB8s6a0rb2KF6k2olXidPjL6bAjq3ENumn3A==
+X-Received: by 2002:a92:1b04:: with SMTP id b4mr1132209ilb.48.1601054629736;
+        Fri, 25 Sep 2020 10:23:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:1b72:: with SMTP id d18ls874344ote.6.gmail; Fri, 25
- Sep 2020 09:23:36 -0700 (PDT)
-X-Received: by 2002:a05:6830:a:: with SMTP id c10mr851260otp.195.1601051015927;
-        Fri, 25 Sep 2020 09:23:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601051015; cv=none;
+Received: by 2002:a92:5b47:: with SMTP id p68ls894566ilb.5.gmail; Fri, 25 Sep
+ 2020 10:23:49 -0700 (PDT)
+X-Received: by 2002:a92:bb94:: with SMTP id x20mr1099666ilk.86.1601054629232;
+        Fri, 25 Sep 2020 10:23:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601054629; cv=none;
         d=google.com; s=arc-20160816;
-        b=KiHpOjnGrfIFlSxyRBjRi4aKf4Aq4R5wIXl9c4dYtyahEd/DLWlpQ5912LHTaHE+jG
-         0W7qXwen6ldYLGPBs1DZf4ch9au0fGSIWKTbQeShiVNtWzkuXPFM5HfXsxqmXjEjS8gN
-         bnlPIUN1mhpOXbhyq5v8FesdHRbuMsf4i2qlvgv/K9Z04tcWYsCpj9TcfK1HiBL9DObg
-         iBtb72A9zfac3JTI5wyJzkfDVuZd3mQenZl2vK75NdkG2ZCavbACwCwt0h91XsNvKA2W
-         +gMB9aEH376xP0ywep68kA9nNTJhw260z7iuHrQpv5L+odxVTqUaF24M+7fQsECQy4pQ
-         YdJw==
+        b=o8MO9RIJ6XP80C3p6NIOkiD5Iyp4Q6l5Khb4NM8t6qC4/cXC2yrruQ9L1fZDQjlpJ1
+         SmuFuyN/Hm95bqtAaP1qTVCZsPgOYCCmW93TAg1m7p291wL4e4mO8JuhVg0QqA38gQpd
+         wKx8btKP98hcJyr6hR6refue6JMgAZen1YooQUy76ceMWMAY0eRkp3nk+Hmxhr/2U4c5
+         aOqTyC8psV2NWbuyfD9rskYxIOHvLcAnpE+FhlyzV+4o9gEqdmRMGQgjKPDHswFngt/z
+         Pv8/DjQa/5ff7btnIsH6E7+T9g/eeT/PqxdPO3FUWvTadfyWaZGQREmqlPBY5bMxqMTo
+         MJ+w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=7MIJrlS06hBudjcbK3eWiQF0PzjytroGHKmAtg6ozE0=;
-        b=A0uVVrXFDEAkhblQHk4yTtFM4XXkZvErgBF6ulMSTN1cV7GTaSFf3TByeWTEj3O3u4
-         MaSPJp+fXzhIEZ01qTEF7A88Z9CywJJZdeLYYNpo9YxulQ/c1fs/Trs8/458UqRzQYSE
-         MTwW9qoUlXwh6WsC1fnAMV1Pl8aqOWZat3tlNg7Fmv9r45TTxWbDtg7Qp6GLTBeUe7Lj
-         3Yi+4J1umCqGGnHQzu1GI6jtTvdEsK0OiWPJvABCA/nIQj2apns4ewFoI1f3lleNKu36
-         CvR5uJbU6cJX25y0LB8dXNo3HDuuNETGsjWNqIoJrg3hOpvYL1WyHkYCbsc+J0UpyAQK
-         d5LA==
+        bh=/RUbIjaoF2EAUZVTvvDUbE3KYhP1At1ytvTUcplQHPE=;
+        b=sf15+CNMFBGqfIjTv34z65wQ78qPae2wnOEDWOxaJHeD8u/IV2mJrM27sZAPn9bV8R
+         iyCXlmvokueUcwPUrEtCVQTdlJtppMr2L8Uif6fj7v/XrUVF+eSwjiJ2SuLmik2Avi6B
+         PF4P3aTRMtZOpR+Q3DD1hiiqTESD3hKFIWrXYOG5JI5dTkdQYi7h9hKdP5gw9SDWc9Fv
+         jDMBoSVvveG2kWwGiQvwyhPiTPXYAmG5xNRabpxkRb4dineJHrca/tOug+PAzVhqzAhi
+         KneWW3nBh4nyzpg+Mv5asdma32/U0ieRWqLX/au6xVpnh9zG1JsUlzo4gYha2dEJFj+L
+         Kr9Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
-        by gmr-mx.google.com with ESMTPS id q10si242475oov.2.2020.09.25.09.23.35
+Received: from mga07.intel.com (mga07.intel.com. [134.134.136.100])
+        by gmr-mx.google.com with ESMTPS id k18si210097ion.4.2020.09.25.10.23.49
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 25 Sep 2020 09:23:35 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
-IronPort-SDR: eEskC+ctX11LjpUgvCkWG27NIV+kGfU42ZCu0zb7U+DCx89VUl8Wsl3FTvXtWi5ux3Wil/Rx5l
- zwsOrZvmxFGQ==
-X-IronPort-AV: E=McAfee;i="6000,8403,9755"; a="149345203"
+        Fri, 25 Sep 2020 10:23:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) client-ip=134.134.136.100;
+IronPort-SDR: e6zA6nKhjaJWFgXy0NGwu/RHPbz+UFJwDlHMbwPiyX/Gpir3/32boyNl5/aEUvzJkAqygw+TyB
+ yb2dsjdtlGRg==
+X-IronPort-AV: E=McAfee;i="6000,8403,9755"; a="225753070"
 X-IronPort-AV: E=Sophos;i="5.77,302,1596524400"; 
-   d="gz'50?scan'50,208,50";a="149345203"
+   d="gz'50?scan'50,208,50";a="225753070"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga006.fm.intel.com ([10.253.24.20])
-  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Sep 2020 09:23:33 -0700
-IronPort-SDR: 7lkZr/eVZ7Vz26ZYHCVbMV5lIHYvuJxUEmWX+q1+J6WKImWy/nyA3iG/eq2G6Fg1BoC62V3rlb
- ks1gYTusjidA==
+Received: from fmsmga003.fm.intel.com ([10.253.24.29])
+  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Sep 2020 10:23:44 -0700
+IronPort-SDR: FHqoHB0DasRq5R5rH9Bjl7Wy7aUQK6R0XKZPqIXKovHhWrZmy5QD5sJBK//DGwhh7D0Dp9Iqcc
+ G6eMBmX+cVdw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.77,302,1596524400"; 
-   d="gz'50?scan'50,208,50";a="512220795"
+   d="gz'50?scan'50,208,50";a="348466702"
 Received: from lkp-server01.sh.intel.com (HELO 2dda29302fe3) ([10.239.97.150])
-  by fmsmga006.fm.intel.com with ESMTP; 25 Sep 2020 09:23:31 -0700
+  by FMSMGA003.fm.intel.com with ESMTP; 25 Sep 2020 10:23:41 -0700
 Received: from kbuild by 2dda29302fe3 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1kLqVO-0000BL-W2; Fri, 25 Sep 2020 16:23:31 +0000
-Date: Sat, 26 Sep 2020 00:23:18 +0800
+	id 1kLrRc-0000CS-Rx; Fri, 25 Sep 2020 17:23:40 +0000
+Date: Sat, 26 Sep 2020 01:22:51 +0800
 From: kernel test robot <lkp@intel.com>
 To: Will Deacon <will@kernel.org>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [arm64:for-next/ghostbusters 14/19]
- arch/arm64/kernel/proton-pack.c:329:2: error: implicit declaration of
- function 'task_stack_page'
-Message-ID: <202009260013.Ul7AD29w%lkp@intel.com>
+Subject: [arm64:for-next/ghostbusters 15/19]
+ arch/arm64/kernel/proton-pack.c:558:13: warning: no previous prototype for
+ function 'spectre_v4_patch_fw_mitigation_enable'
+Message-ID: <202009260146.skzajJ8d%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="NzB8fVQJ5HfG6fxh"
+Content-Type: multipart/mixed; boundary="1yeeQ81UyVL57Vl7"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -145,13 +145,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---NzB8fVQJ5HfG6fxh
+--1yeeQ81UyVL57Vl7
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/ghostbusters
 head:   9a313c5d65a5f10ddf605022e9220e52946326f0
-commit: a44acf477220ad763fbb0ccb1c5235aa7d150bb6 [14/19] arm64: Move SSBD prctl() handler alongside other spectre mitigation code
+commit: 9dedd646da95640f41d6d8d523011ec44b26c4d7 [15/19] arm64: Rewrite Spectre-v4 mitigation code
 config: arm64-randconfig-r023-20200920 (attached as .config)
 compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 6a6b06f5262bb96523eceef4a42fe8e60ae2a630)
 reproduce (this is a W=1 build):
@@ -159,17 +159,17 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install arm64 cross compiling tool for clang build
         # apt-get install binutils-aarch64-linux-gnu
-        # https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/commit/?id=a44acf477220ad763fbb0ccb1c5235aa7d150bb6
+        # https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/commit/?id=9dedd646da95640f41d6d8d523011ec44b26c4d7
         git remote add arm64 https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
         git fetch --no-tags arm64 for-next/ghostbusters
-        git checkout a44acf477220ad763fbb0ccb1c5235aa7d150bb6
+        git checkout 9dedd646da95640f41d6d8d523011ec44b26c4d7
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64 
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
-All errors (new ones prefixed by >>):
+All warnings (new ones prefixed by >>):
 
    arch/arm64/kernel/proton-pack.c:288:2: error: implicit declaration of function 'install_bp_hardening_cb' [-Werror,-Wimplicit-function-declaration]
            install_bp_hardening_cb(cb);
@@ -177,17 +177,28 @@ All errors (new ones prefixed by >>):
    arch/arm64/kernel/proton-pack.c:304:2: error: implicit declaration of function 'install_bp_hardening_cb' [-Werror,-Wimplicit-function-declaration]
            install_bp_hardening_cb(qcom_link_stack_sanitisation);
            ^
-   arch/arm64/kernel/proton-pack.c:326:12: error: implicit declaration of function 'is_compat_thread' [-Werror,-Wimplicit-function-declaration]
-           u64 val = is_compat_thread(task_thread_info(task)) ?
-                     ^
->> arch/arm64/kernel/proton-pack.c:329:2: error: implicit declaration of function 'task_stack_page' [-Werror,-Wimplicit-function-declaration]
-           task_pt_regs(task)->pstate |= val;
-           ^
-   arch/arm64/include/asm/processor.h:268:36: note: expanded from macro 'task_pt_regs'
+>> arch/arm64/kernel/proton-pack.c:558:13: warning: no previous prototype for function 'spectre_v4_patch_fw_mitigation_enable' [-Wmissing-prototypes]
+   void __init spectre_v4_patch_fw_mitigation_enable(struct alt_instr *alt,
+               ^
+   arch/arm64/kernel/proton-pack.c:558:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   void __init spectre_v4_patch_fw_mitigation_enable(struct alt_instr *alt,
+   ^
+   static 
+>> arch/arm64/kernel/proton-pack.c:578:13: warning: no previous prototype for function 'spectre_v4_patch_fw_mitigation_conduit' [-Wmissing-prototypes]
+   void __init spectre_v4_patch_fw_mitigation_conduit(struct alt_instr *alt,
+               ^
+   arch/arm64/kernel/proton-pack.c:578:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   void __init spectre_v4_patch_fw_mitigation_conduit(struct alt_instr *alt,
+   ^
+   static 
+   arch/arm64/kernel/proton-pack.c:646:25: error: implicit declaration of function 'task_stack_page' [-Werror,-Wimplicit-function-declaration]
+           struct pt_regs *regs = task_pt_regs(tsk);
+                                  ^
+   arch/arm64/include/asm/processor.h:253:36: note: expanded from macro 'task_pt_regs'
            ((struct pt_regs *)(THREAD_SIZE + task_stack_page(p)) - 1)
                                              ^
-   arch/arm64/kernel/proton-pack.c:329:2: note: did you mean 'task_spread_page'?
-   arch/arm64/include/asm/processor.h:268:36: note: expanded from macro 'task_pt_regs'
+   arch/arm64/kernel/proton-pack.c:646:25: note: did you mean 'task_spread_page'?
+   arch/arm64/include/asm/processor.h:253:36: note: expanded from macro 'task_pt_regs'
            ((struct pt_regs *)(THREAD_SIZE + task_stack_page(p)) - 1)
                                              ^
    include/linux/sched.h:1585:1: note: 'task_spread_page' declared here
@@ -199,29 +210,57 @@ All errors (new ones prefixed by >>):
    <scratch space>:51:1: note: expanded from here
    task_spread_page
    ^
-   arch/arm64/kernel/proton-pack.c:334:12: error: implicit declaration of function 'is_compat_thread' [-Werror,-Wimplicit-function-declaration]
-           u64 val = is_compat_thread(task_thread_info(task)) ?
-                     ^
-   arch/arm64/kernel/proton-pack.c:337:2: error: implicit declaration of function 'task_stack_page' [-Werror,-Wimplicit-function-declaration]
-           task_pt_regs(task)->pstate &= ~val;
-           ^
-   arch/arm64/include/asm/processor.h:268:36: note: expanded from macro 'task_pt_regs'
-           ((struct pt_regs *)(THREAD_SIZE + task_stack_page(p)) - 1)
-                                             ^
-   6 errors generated.
+   2 warnings and 3 errors generated.
 
-vim +/task_stack_page +329 arch/arm64/kernel/proton-pack.c
+vim +/spectre_v4_patch_fw_mitigation_enable +558 arch/arm64/kernel/proton-pack.c
 
-   322	
-   323	/* Spectre v4 prctl */
-   324	static void ssbd_ssbs_enable(struct task_struct *task)
-   325	{
-   326		u64 val = is_compat_thread(task_thread_info(task)) ?
-   327			  PSR_AA32_SSBS_BIT : PSR_SSBS_BIT;
-   328	
- > 329		task_pt_regs(task)->pstate |= val;
-   330	}
-   331	
+   553	
+   554	/*
+   555	 * Patch a branch over the Spectre-v4 mitigation code with a NOP so that
+   556	 * we fallthrough and check whether firmware needs to be called on this CPU.
+   557	 */
+ > 558	void __init spectre_v4_patch_fw_mitigation_enable(struct alt_instr *alt,
+   559							  __le32 *origptr,
+   560							  __le32 *updptr, int nr_inst)
+   561	{
+   562		BUG_ON(nr_inst != 1); /* Branch -> NOP */
+   563	
+   564		if (spectre_v4_mitigations_off())
+   565			return;
+   566	
+   567		if (cpus_have_final_cap(ARM64_SSBS))
+   568			return;
+   569	
+   570		if (spectre_v4_mitigations_dynamic())
+   571			*updptr = cpu_to_le32(aarch64_insn_gen_nop());
+   572	}
+   573	
+   574	/*
+   575	 * Patch a NOP in the Spectre-v4 mitigation code with an SMC/HVC instruction
+   576	 * to call into firmware to adjust the mitigation state.
+   577	 */
+ > 578	void __init spectre_v4_patch_fw_mitigation_conduit(struct alt_instr *alt,
+   579							   __le32 *origptr,
+   580							   __le32 *updptr, int nr_inst)
+   581	{
+   582		u32 insn;
+   583	
+   584		BUG_ON(nr_inst != 1); /* NOP -> HVC/SMC */
+   585	
+   586		switch (arm_smccc_1_1_get_conduit()) {
+   587		case SMCCC_CONDUIT_HVC:
+   588			insn = aarch64_insn_get_hvc_value();
+   589			break;
+   590		case SMCCC_CONDUIT_SMC:
+   591			insn = aarch64_insn_get_smc_value();
+   592			break;
+   593		default:
+   594			return;
+   595		}
+   596	
+   597		*updptr = cpu_to_le32(insn);
+   598	}
+   599	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -230,14 +269,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202009260013.Ul7AD29w%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202009260146.skzajJ8d%25lkp%40intel.com.
 
---NzB8fVQJ5HfG6fxh
+--1yeeQ81UyVL57Vl7
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICDQTbl8AAy5jb25maWcAnDzLdtu4kvv+Cp305s6i03pZdmaOFxAJSmiRBAOAkuwNj+Io
+H4sICK0fbl8AAy5jb25maWcAnDzLdtu4kvv+Cp305s6i03pZdmaOFxAJSmiRBAOAkuwNj+Io
 ac/1o69spzt/P1UAHwAIKjmTRY6FKgCFQqFQL/DXX34dkbfX58fD6/3d4eHh++jr8el4Orwe
 P4++3D8c/2cU81HO1YjGTL0H5PT+6e2f3w+nx8V8dPH+w/vxb6e72WhzPD0dH0bR89OX+69v
 0P3++emXX3+JeJ6wVRVF1ZYKyXheKbpX1+/uHg5PX0ffjqcXwBtNpu/H78ejf329f/3v33+H
@@ -1108,4 +1147,4 @@ wiAwSrDy6C5Am4dNof/rGu/KgSLyFKqoMSm7JY/FO5YXXbUTkRtus8koyR4n9BPAZTQTzSD3
 XBZg+c4G3CnBFyijx87MVHCx7x4Iyg5DXsn+vDl3BweIlaxS0Fm4S8GpCTRvFTo4FvClf/Mw
 IwAsHJeb8ITn/0FWlNF1ebHpog2rKpRCipE1KfEAZyf+D7o51KL88wIA
 
---NzB8fVQJ5HfG6fxh--
+--1yeeQ81UyVL57Vl7--
