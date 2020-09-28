@@ -1,129 +1,147 @@
-Return-Path: <clang-built-linux+bncBC7OBJGL2MHBBW47Y35QKGQEONWVKOY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDFLHYPKYQGBB4NAY35QKGQEOHB5MUI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd39.google.com (mail-io1-xd39.google.com [IPv6:2607:f8b0:4864:20::d39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 93C1327A87F
-	for <lists+clang-built-linux@lfdr.de>; Mon, 28 Sep 2020 09:25:16 +0200 (CEST)
-Received: by mail-io1-xd39.google.com with SMTP id b16sf101187iod.17
-        for <lists+clang-built-linux@lfdr.de>; Mon, 28 Sep 2020 00:25:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601277915; cv=pass;
+Received: from mail-oo1-xc3d.google.com (mail-oo1-xc3d.google.com [IPv6:2607:f8b0:4864:20::c3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id CF03727A88E
+	for <lists+clang-built-linux@lfdr.de>; Mon, 28 Sep 2020 09:27:46 +0200 (CEST)
+Received: by mail-oo1-xc3d.google.com with SMTP id k18sf5139849oou.1
+        for <lists+clang-built-linux@lfdr.de>; Mon, 28 Sep 2020 00:27:46 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601278065; cv=pass;
         d=google.com; s=arc-20160816;
-        b=y+m7RY+Nh+bVrd/wPtVnc95l+jdsHAFqvXjS7onPTQYhzPL7GPOpDYsfX3/CfvaBsF
-         iu6Uqk/q2/qqj9cegC6mipuVtMZTH70kdyUsvvTcbnLSe16KO33DIszcorl4aeA1WLJz
-         yGjJ/y4LV2SITz6SsnAWpjb8A7xm7U/UU1XYDupu4CEW1Q414iShgL1CdT6GyHcBPMNl
-         PAGBsV1laAeaCABQAaeRj4yRI9Y9+3Hz7uH44nXiK0VXA6UXRYb1g6R9qOterUQazpII
-         sZ1R5xXd1i+DFHkGwQHor9y+dqzmC0KU39TryzeMYj68539efUu0R8YmUn35h833Czs9
-         IcNQ==
+        b=Kt5H0BzIT5DLFBl+iBa6it9DwqqaexhorrtcJL7zfWNQo0Igefy9YlWW18GDRpzJL5
+         EETgBKK21Zna/YqKs9cGgeF/rRpwTEUPOH9VMQ07defKOIH3KFSG//Vmpt2ZIysY8Snv
+         O4DSPvT5/JoQK0JmJU79KXjBCV20aedipfCSp7p8Ad5sxUXUgpGIixG8CcHOqeibLKbD
+         v8Ibci1nhfkE+p/voRdL/LtLo8zDoFwE/lKScIxvOZ0Qi9hE6sOAXbDq5jgr5ISPhtWX
+         VnERCtUin/sCzicc1WYZRjw8jYQlnFlb652hUb3bzYvZRdsN11BUgDxD16lgDBTGOh3R
+         Pn5Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=a72j6J5FWgS1NLLlMgtRppkGcLGkWnuyg0aBtKu6HT8=;
-        b=u+ODC+FP4cTHzZBpeUV91wO5cEqi3AV6TIuk60Q4/H7JkqzI0Gjo4LbP9IISG8p+3u
-         HE/68x1Z8nDcd5WxItseD3RZU+msaFFIS+4cGGPN0IBfhz4kPMqJF4O2xbrAEGdjiuEK
-         9ypwEPLW/OdgzWUz3SKbiwHziGJY2vPpHnsKmP+Gi4+c/UplFwVmLWXtJs+bJRkr9Xuz
-         0pPC24WVdKn6t5GhvyknW+dWcAyBjFQyIKhcgtEZFEacFGG+jV8Y2euL0HSxn3SzLG18
-         Za7N5yEgLSokaWXaY8z2DxPR9dUbliO2y6OkkipUUn2JamfnSjG9wRtk6tXxSz9PUqiY
-         2XnA==
+         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
+         :content-language:in-reply-to:mime-version:user-agent:date
+         :message-id:from:references:cc:to:subject:dkim-signature;
+        bh=mTyM54nF1OyHjcC8mjqISvqaPuDjgTHgzc/UCFQW33o=;
+        b=DbZlDR3Xi4U89cdlFzl2SikOzjbk725gChsKx/PsOLnwuyUPn7t6em7sNJ1nfYf9rB
+         i09AAD/d6onznoWvZ4D1tk5H4pt+fBJvieQZzn0XySNqK0H2Gr9YjoFQb5FRWc/peUul
+         s/26sUeD8CnsqOkzhtoP65xvBwgxcZ6NYVG535sM8yh1S8e9Swok9c2p9y8LjroQB8jB
+         wiquxV32Bql0GH1hLnCVoQmt/dIOv6K7MwPxlJ90UfXp+99p2Lza7DrgA6lF8Bm1Hu9+
+         IG28J1EafjQcmjp4BRCm/iU9+vlkSxP59XJeDp3pdp2xZF4j9SVV6SnqI9SAy7gMU9Nz
+         jOxw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=c9tNr+0S;
-       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=elver@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@ti.com header.s=ti-com-17Q1 header.b=e1qAVQdp;
+       spf=pass (google.com: domain of peter.ujfalusi@ti.com designates 198.47.19.142 as permitted sender) smtp.mailfrom=peter.ujfalusi@ti.com;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=ti.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=a72j6J5FWgS1NLLlMgtRppkGcLGkWnuyg0aBtKu6HT8=;
-        b=qQcha1fRZ7co/IFgu9kzoe53EJT7rowQ3YW8w1J4YRcPaHW5J+HAmuYPyqv1neR1Px
-         /3iACd4WepuYEdc5ww2RHzEYJHkoqYkyssno9CIxdp/KYCChjWcr/UN68qgU2bUgKxpV
-         U6rGN/WHQQPHlT24wUYSTr1PrI+e7Ft/0oOTK/1UvaTNq124A9Me5DoxiEvCrD5FCvzb
-         T7ZnsbtNrh/mbwlLWkxEkBY7ufA6q/2qbLPZgjcdwO5jgvXEQK9MHLP0tDfyBbsL9Byr
-         kjS/ff8eiDVEfKacjKZweVC8i0yOdD2EIfuYx9xstHjFGtPUDb8XDIEpIEdOKio26M16
-         GulA==
+        bh=mTyM54nF1OyHjcC8mjqISvqaPuDjgTHgzc/UCFQW33o=;
+        b=P0kQC3JxU64ya9obeE79Q4Euja2mnVYbMpJ237KdR3Ar/OHt00qAAd8cZHcuKWsZsB
+         ISCf7obDtXrsMp5T2baoHfU2FKS2pWQk+mT9Tp7ADpZFOmW4Ui9S6LLhM01Z+75gIO2s
+         bhbim7dLR5aWQqg8lcFqEWSVXVVe8j0mRl1ySJjvZwNoVBXOl3DBpUEwmqDzO9uRIGjm
+         cUHzGWurv24T8CW2FfiLhsPY6MG1p+0VP80lc/HAp4OL8zVG+KzpMgRcsYfzEwNIRg0I
+         m8yTaemuDn3bTpt2X3atJ4peGrts1H/30O+V6N1OZcgeDtXt9uB8fUeDQlTTBFcXmOvr
+         nJlg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+         :user-agent:mime-version:in-reply-to:content-language
+         :content-transfer-encoding:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=a72j6J5FWgS1NLLlMgtRppkGcLGkWnuyg0aBtKu6HT8=;
-        b=gDI+E4UvU+KH5ZZv0FaCs3CZedB4ZSyEbFFIsgD2hL1qUOv6hLpwRVf632U3/+2ml4
-         +gOqMwd1zUTbfbDoZ0OHAm0EhYsXRe68SYMw+e0iHIfgEHNWAoesVz4iXq7R5g0O1AuU
-         n3X1Js/JAmXQCCbfTJkeCElH8xuLg2NfbmtzfSiQ0qSlH6mLtD8+ubzh+a7XA2CCETLr
-         AfidlnGMnzxc0DY2NUzQUs23pJWKfn8NGnZ1Q/BANQxAHdADamXq7sKykIf+kjQR9o69
-         u/q8IF6ppkPqGEyvU1FaK9milsAFoEAvO3LGBYWZbgGW9wwyICPC2YZhE0KijncQj5YY
-         duCA==
-X-Gm-Message-State: AOAM533+bK45EKu2jaZ9nBaiuFb2SFu7WwNKz/DwBj77+m7quXhxvFXQ
-	TJsScHKBttr1iEioPC8uSwc=
-X-Google-Smtp-Source: ABdhPJyIy3SV72GH0QQ1+YRCjlDpP+f3YOiKSH4W0J/yhD/24GD4F9kPrmocz7DsadmMaYx7B0FIKA==
-X-Received: by 2002:a92:9ac7:: with SMTP id c68mr93080ill.126.1601277915270;
-        Mon, 28 Sep 2020 00:25:15 -0700 (PDT)
+        bh=mTyM54nF1OyHjcC8mjqISvqaPuDjgTHgzc/UCFQW33o=;
+        b=iO0CeDR1MEuHeMfkJ4TCdbuGhn6HLgKZO/gLqkmGGE0Qlf5ZrYoyj8KSP7i5tkDrFx
+         vYmtxsWPEmvykt5fZqjy9jMeXaySNbvXx6WcwWv87Q+4gXYTsBX2/mTRHZ7tmW064Cvw
+         5xcVtcoQJoO2LecJP3GGc/w/KmYC3D+GaqXTi88fRL8KNuGW3voFrPhBobNuFHQ1Sb/O
+         DISJZLX53JL3NUUv39PQekCdB97ZcbRY3WGya2mI+DMxHp0ts9HiOlULuWlkytUcm5QL
+         TXE3rxS4ZaGPmgFCvzQ62I6QA2pvQSlzEYelx/jxsThhc0SqUWKTFMYL5I0qBSHPHVP5
+         o1GQ==
+X-Gm-Message-State: AOAM533iOa7K/xRhcjghmGuQ3hUZ+GBbWlCHJ8E1dohVz3F6aCyZr6qG
+	nX9p/GTAbCjEwEZDgggXq0Y=
+X-Google-Smtp-Source: ABdhPJxIWdvMnmSIWSN0NskuG7pXrSQF13m+cpj4XU1s2MgFSiHK3Wbn7pina+3u3qUEwSyAmEAN2w==
+X-Received: by 2002:a9d:4d0:: with SMTP id 74mr104533otm.119.1601278065434;
+        Mon, 28 Sep 2020 00:27:45 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6e02:5a5:: with SMTP id k5ls37516ils.2.gmail; Mon, 28
- Sep 2020 00:25:15 -0700 (PDT)
-X-Received: by 2002:a92:1589:: with SMTP id 9mr88043ilv.292.1601277914943;
-        Mon, 28 Sep 2020 00:25:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601277914; cv=none;
+Received: by 2002:a05:6830:4d2:: with SMTP id s18ls37149otd.0.gmail; Mon, 28
+ Sep 2020 00:27:45 -0700 (PDT)
+X-Received: by 2002:a9d:241:: with SMTP id 59mr104860otb.151.1601278065074;
+        Mon, 28 Sep 2020 00:27:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601278065; cv=none;
         d=google.com; s=arc-20160816;
-        b=PjWtkrH2osaW98a0kA6TVTHJEBIfIuM39DWlpHaTGmVAPH3hj/IhcyZMSlevyWTkK+
-         tkKDWVTE+H4IvHYF6rfe+QbV6QEEp0d8Zw2SpYxXtk87aoy7o2SfORy1xJ+bFHJQNQ3g
-         v5WwYBduFjkF3DUuXrKyPkpCGMgxdUMOtYKUJHqiy0VU1yCDTuhkihs8hobqovyco5Yn
-         5dGjjs9akRSPzVaFv/FKhQEbM6KSH9Ryuj2YxQxrCgh9oQWBzHbOaGc0bbXVjxIo0TYl
-         R1rHSoeY1h4mvOco3Ba1xBpKc3PnwGx/I/DrxAHDF7MmZ8Ag5Ecb8En7HOraNEt/0utR
-         Oi8w==
+        b=unJYJ0lc4Rv8kOFhkOnm3DTOHdCeng3wf0zMSqDFsE0sf7sfijCsbpBJei/n/sZFKs
+         K7tOvL7Mgx1sgdwtiSpKjolvuzo10WpPwFdHfP2SlAtQIH/ZyAhtpMtBqxlBUp3Mjia1
+         t+OK4Bygx7RhvoevbRC6ksjWd/w80B+zNRf691xkXkDqTWzL5z4PUf5299r1ce+qZEOk
+         cUcFXxHDINn3ejiy/UI0KxsdMnBGCsBWHznW+AeHvAJXUArtSZ92OcMyuQ1F+y1gpTpe
+         PEepMEA7BcqrqOEqk07hmWuzL3nPCkQGZSStE0Oia7WOGPejvW/PDBc0TrhbOCAzBDHY
+         dEDQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=jml2neKeP5LvDDGsfQfoMJWoSSFjKlccfEpIy6JbJzg=;
-        b=FF2eGkOLul+qX5wINHAx+e3xl4YDz/qC7I84bTjt55UJK0cwoTqrKZHcKPE9Ijt8pp
-         0S9OqfaWmS4ZnzBk94A/5iVBpv5qsuigad59p0aGnnMTAR/k4D/pJ8zvBrU26ENZlp6J
-         XwiCS0Qza4YKqOnVivAlEDYlVwVHkwJm1hkQ4kNnnYbwJ9RojcHuvb3UQhD6rCDjALsI
-         Lq7N9LGoA+UUOA35w0WxjV1VEqIrLDOUY4QyuqAhWE+A0IW9T/FgSKCLecTn8/OvM3hT
-         IvJeLVuY4siKFBUbypO4tp27i3KlkoUBVG9X98mI24gPIz5DAZ/L/hknr93fHP4GfL4j
-         RTCA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=t2xZIzE5nCl075Nnf08l0R3sMqtDPH99mtG1NhcRZU8=;
+        b=ickkguRbV9EP648H9UoGFN9OE7Xq3JzWr4OMxypz6fs7A9xA3eIEWJE85abFIkJjTu
+         9Apza6yOmZEExNh6lyOziR8dZYNVxFywfnicTdwo83ABMYsvAkrOn2+2bQtDvxQWPsGd
+         Mrr3FLlwpqU7ZzZb8txOm09dX/rDQIMAI3yP6s9PXYrzWCwiiyeWLCVJSo8cUdhj5ZyU
+         hm9iwaiSIysw3zq/suJpuAfNj9TA69MecNGl+7Pbgs5zDv7Md4wORKJDsFQsqbGySXow
+         YpWJhyEhKmUhN1xNgeVd0l3uM8d3aydMx1ntQGFTYaVEIk/56XqhxFE7CXYYTewh5MdP
+         mpgQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=c9tNr+0S;
-       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=elver@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-ot1-x344.google.com (mail-ot1-x344.google.com. [2607:f8b0:4864:20::344])
-        by gmr-mx.google.com with ESMTPS id c10si201050iow.3.2020.09.28.00.25.14
+       dkim=pass header.i=@ti.com header.s=ti-com-17Q1 header.b=e1qAVQdp;
+       spf=pass (google.com: domain of peter.ujfalusi@ti.com designates 198.47.19.142 as permitted sender) smtp.mailfrom=peter.ujfalusi@ti.com;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=ti.com
+Received: from fllv0016.ext.ti.com (fllv0016.ext.ti.com. [198.47.19.142])
+        by gmr-mx.google.com with ESMTPS id k7si16861oif.3.2020.09.28.00.27.45
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Sep 2020 00:25:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::344 as permitted sender) client-ip=2607:f8b0:4864:20::344;
-Received: by mail-ot1-x344.google.com with SMTP id y5so8761648otg.5
-        for <clang-built-linux@googlegroups.com>; Mon, 28 Sep 2020 00:25:14 -0700 (PDT)
-X-Received: by 2002:a9d:66a:: with SMTP id 97mr94939otn.233.1601277914299;
- Mon, 28 Sep 2020 00:25:14 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 28 Sep 2020 00:27:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of peter.ujfalusi@ti.com designates 198.47.19.142 as permitted sender) client-ip=198.47.19.142;
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id 08S7RiZ9025024;
+	Mon, 28 Sep 2020 02:27:44 -0500
+Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 08S7Rimn098755
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 28 Sep 2020 02:27:44 -0500
+Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1979.3; Mon, 28
+ Sep 2020 02:27:44 -0500
+Received: from fllv0039.itg.ti.com (10.64.41.19) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1979.3 via
+ Frontend Transport; Mon, 28 Sep 2020 02:27:44 -0500
+Received: from [192.168.2.6] (ileax41-snat.itg.ti.com [10.172.224.153])
+	by fllv0039.itg.ti.com (8.15.2/8.15.2) with ESMTP id 08S7RgSg036259;
+	Mon, 28 Sep 2020 02:27:43 -0500
+Subject: Re: sound/soc/ti/j721e-evm.c:528:34: warning: unused variable
+ 'j721e_audio_of_match'
+To: kernel test robot <lkp@intel.com>
+CC: <kbuild-all@lists.01.org>, <clang-built-linux@googlegroups.com>,
+        <linux-kernel@vger.kernel.org>, Mark Brown <broonie@kernel.org>
+References: <202009271553.4OjMpGkX%lkp@intel.com>
+From: "'Peter Ujfalusi' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+X-Pep-Version: 2.0
+Message-ID: <76cae106-b643-57a9-e82e-48e46ebf1b70@ti.com>
+Date: Mon, 28 Sep 2020 10:27:57 +0300
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.0
 MIME-Version: 1.0
-References: <00000000000052569205afa67426@google.com> <20200927145737.GA4746@zn.tnic>
- <CACT4Y+Zxt3-Dj6r53mEkwv24PazPzTxQ7usV1O+RB0bk2FzO8g@mail.gmail.com>
-In-Reply-To: <CACT4Y+Zxt3-Dj6r53mEkwv24PazPzTxQ7usV1O+RB0bk2FzO8g@mail.gmail.com>
-From: "'Marco Elver' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 28 Sep 2020 09:25:03 +0200
-Message-ID: <CANpmjNN9o_OUbZozzcQMHD8ynBBVeFFgp-4wK4J_U1JH=OGVsg@mail.gmail.com>
-Subject: Re: general protection fault in perf_misc_flags
-To: Dmitry Vyukov <dvyukov@google.com>
-Cc: Borislav Petkov <bp@alien8.de>, Alexander Potapenko <glider@google.com>, 
-	syzbot <syzbot+ce179bc99e64377c24bc@syzkaller.appspotmail.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	"H. Peter Anvin" <hpa@zytor.com>, Jiri Olsa <jolsa@redhat.com>, LKML <linux-kernel@vger.kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ingo Molnar <mingo@redhat.com>, 
-	Namhyung Kim <namhyung@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	syzkaller-bugs <syzkaller-bugs@googlegroups.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	"the arch/x86 maintainers" <x86@kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>
+In-Reply-To: <202009271553.4OjMpGkX%lkp@intel.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: elver@google.com
+Content-Language: en-US
+Content-Transfer-Encoding: quoted-printable
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
+X-Original-Sender: peter.ujfalusi@ti.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=c9tNr+0S;       spf=pass
- (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::344 as
- permitted sender) smtp.mailfrom=elver@google.com;       dmarc=pass (p=REJECT
- sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Marco Elver <elver@google.com>
-Reply-To: Marco Elver <elver@google.com>
+ header.i=@ti.com header.s=ti-com-17Q1 header.b=e1qAVQdp;       spf=pass
+ (google.com: domain of peter.ujfalusi@ti.com designates 198.47.19.142 as
+ permitted sender) smtp.mailfrom=peter.ujfalusi@ti.com;       dmarc=pass
+ (p=QUARANTINE sp=NONE dis=NONE) header.from=ti.com
+X-Original-From: Peter Ujfalusi <peter.ujfalusi@ti.com>
+Reply-To: Peter Ujfalusi <peter.ujfalusi@ti.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,77 +154,80 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, 28 Sep 2020 at 07:18, Dmitry Vyukov <dvyukov@google.com> wrote:
->
-> On Sun, Sep 27, 2020 at 4:57 PM Borislav Petkov <bp@alien8.de> wrote:
-> >
-> > On Sat, Sep 19, 2020 at 01:32:14AM -0700, syzbot wrote:
-> > > Hello,
-> > >
-> > > syzbot found the following issue on:
-> > >
-> > > HEAD commit:    92ab97ad Merge tag 'sh-for-5.9-part2' of git://git.libc.or..
-> > > git tree:       upstream
-> > > console output: https://syzkaller.appspot.com/x/log.txt?x=1069669b900000
-> > > kernel config:  https://syzkaller.appspot.com/x/.config?x=cd992d74d6c7e62
-> > > dashboard link: https://syzkaller.appspot.com/bug?extid=ce179bc99e64377c24bc
-> > > compiler:       clang version 10.0.0 (https://github.com/llvm/llvm-project/ c2443155a0fb245c8f17f2c1c72b6ea391e86e81)
-> >
-> > All below is AFAICT:
-> >
-> > This compiler you're using is not some official release but some random
-> > commit before the v10 release:
-> >
-> > $ git show c2443155a0fb245c8f17f2c1c72b6ea391e86e81
-> > Author: Hans Wennborg <hans@chromium.org>
-> > Date:   Sat Nov 30 14:20:11 2019 +0100
-> >
-> >     Revert 651f07908a1 "[AArch64] Don't combine callee-save and local stack adjustment when optimizing for size"
-> > ...
-> >
-> > $ git describe c2443155a0fb245c8f17f2c1c72b6ea391e86e81
-> > llvmorg-10-init-10900-gc2443155a0fb
-> >
-> > The v10 release is:
-> >
-> > $ git show llvmorg-10.0.0
-> > tag llvmorg-10.0.0
-> > Tagger: Hans Wennborg <hans@chromium.org>
-> > Date:   Tue Mar 24 12:58:58 2020 +0100
-> >
-> > Tag 10.0.0
-> >
-> > and v10 has reached v10.0.1 in the meantime:
-> >
-> > $ git log --oneline c2443155a0fb245c8f17f2c1c72b6ea391e86e81~1..llvmorg-10.0.1 | wc -l
-> > 7051
-> >
-> > so can you please update your compiler and see if you can still
-> > reproduce with 10.0.1 so that we don't waste time chasing a bug which
-> > has been likely already fixed in one of those >7K commits.
->
-> +Alex, Marco,
->
-> There is suspicion that these may be caused by use of unreleased clang.
-> Do we use the same clang as we use for the KMSAN instance? But this is
-> not KMSAN machine, so I am not sure who/when/why updated it last to
-> this revision.
-> I even see we have some clang 11 version:
-> https://github.com/google/syzkaller/blob/master/docs/syzbot.md#crash-does-not-reproduce
 
-Yeah, we should replace that one as well as it wasn't yet a release-candidate.
 
-> Is it possible to switch to some released version for both KMSAN and KASAN now?
+On 27/09/2020 10.27, kernel test robot wrote:
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.gi=
+t master
+> head:   a1bffa48745afbb54cb4f873bba783b2ae8be042
+> commit: 6748d05590594837e42dfa975879fb275099f0b2 ASoC: ti: Add custom mac=
+hine driver for j721e EVM (CPB and IVI)
+> date:   3 months ago
+> config: x86_64-randconfig-r033-20200927 (attached as .config)
+> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project a83e=
+b048cb9a75da7a07a9d5318bbdbf54885c87)
+> reproduce (this is a W=3D1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbi=
+n/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install x86_64 cross compiling tool for clang build
+>         # apt-get install binutils-x86-64-linux-gnu
+>         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.=
+git/commit/?id=3D6748d05590594837e42dfa975879fb275099f0b2
+>         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/=
+git/torvalds/linux.git
+>         git fetch --no-tags linus master
+>         git checkout 6748d05590594837e42dfa975879fb275099f0b2
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cross AR=
+CH=3Dx86_64=20
+>=20
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+>=20
+> All warnings (new ones prefixed by >>):
+>=20
+>>> sound/soc/ti/j721e-evm.c:528:34: warning: unused variable 'j721e_audio_=
+of_match' [-Wunused-const-variable]
+>    static const struct of_device_id j721e_audio_of_match[] =3D {
+>                                     ^
+>    1 warning generated.
 
-We should probably just switch to Clang 11-rc3 or so. Then we can use
-the same compiler for KMSAN and KCSAN at least.
+Right, in the attached .config:
+# CONFIG_OF is not set
 
-I can package up a newer Clang.
+There must be a clean way to handle this without extensive ifedfery...
 
-Thanks,
--- Marco
+> vim +/j721e_audio_of_match +528 sound/soc/ti/j721e-evm.c
+>=20
+>    527=09
+>  > 528	static const struct of_device_id j721e_audio_of_match[] =3D {
+>    529		{
+>    530			.compatible =3D "ti,j721e-cpb-audio",
+>    531			.data =3D &j721e_cpb_data,
+>    532		}, {
+>    533			.compatible =3D "ti,j721e-cpb-ivi-audio",
+>    534			.data =3D &j721e_cpb_ivi_data,
+>    535		},
+>    536		{ },
+>    537	};
+>    538	MODULE_DEVICE_TABLE(of, j721e_audio_of_match);
+>    539=09
+>=20
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+>=20
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANpmjNN9o_OUbZozzcQMHD8ynBBVeFFgp-4wK4J_U1JH%3DOGVsg%40mail.gmail.com.
+- P=C3=A9ter
+
+Texas Instruments Finland Oy, Porkkalankatu 22, 00180 Helsinki.
+Y-tunnus/Business ID: 0615521-4. Kotipaikka/Domicile: Helsinki
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/76cae106-b643-57a9-e82e-48e46ebf1b70%40ti.com.
