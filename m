@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC7OBJGL2MHBBR4VY35QKGQEB2ZAE2A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC7OBJGL2MHBBW47Y35QKGQEONWVKOY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x538.google.com (mail-pg1-x538.google.com [IPv6:2607:f8b0:4864:20::538])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9BB1C27A80B
-	for <lists+clang-built-linux@lfdr.de>; Mon, 28 Sep 2020 09:03:37 +0200 (CEST)
-Received: by mail-pg1-x538.google.com with SMTP id t128sf3008467pgb.23
-        for <lists+clang-built-linux@lfdr.de>; Mon, 28 Sep 2020 00:03:37 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601276616; cv=pass;
+Received: from mail-io1-xd39.google.com (mail-io1-xd39.google.com [IPv6:2607:f8b0:4864:20::d39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 93C1327A87F
+	for <lists+clang-built-linux@lfdr.de>; Mon, 28 Sep 2020 09:25:16 +0200 (CEST)
+Received: by mail-io1-xd39.google.com with SMTP id b16sf101187iod.17
+        for <lists+clang-built-linux@lfdr.de>; Mon, 28 Sep 2020 00:25:16 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601277915; cv=pass;
         d=google.com; s=arc-20160816;
-        b=trCewtOVMUlIltZhL1DWEFIJjWqZfdMpEEF3ozHnhNE1q9jO4qqlN2Fk2g5VXgUaK0
-         TkNMzSqj3vJxsTf7m3HruQkeMUYpRX++ADEmekk4l/e/BYFcnFMYIBVBPF3HOUZ1LkXs
-         yLgjPOwzyxXMHUelsvTpYgMf06/ZKTlE0+ZNvdLOb6NWCtH0Loec0I8NvIJ8M1BpZdCA
-         aU6Vj4yVWNrY3N/cp2NLWXshMZvA0SmGQwboblhcXI4SQaz6cgGe0j3KKRQ7kB4xyvX0
-         7TC/dGutFOcL1ju+eqZ6Rfrxsj23Fw2iWJf8lhL7tq7KZdKwYtjfWLCjbNbfMCvanSq7
-         wFvg==
+        b=y+m7RY+Nh+bVrd/wPtVnc95l+jdsHAFqvXjS7onPTQYhzPL7GPOpDYsfX3/CfvaBsF
+         iu6Uqk/q2/qqj9cegC6mipuVtMZTH70kdyUsvvTcbnLSe16KO33DIszcorl4aeA1WLJz
+         yGjJ/y4LV2SITz6SsnAWpjb8A7xm7U/UU1XYDupu4CEW1Q414iShgL1CdT6GyHcBPMNl
+         PAGBsV1laAeaCABQAaeRj4yRI9Y9+3Hz7uH44nXiK0VXA6UXRYb1g6R9qOterUQazpII
+         sZ1R5xXd1i+DFHkGwQHor9y+dqzmC0KU39TryzeMYj68539efUu0R8YmUn35h833Czs9
+         IcNQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=RYTxb8JXVN7teGBYFObeTJdSbOQXRC4MIp5YA2rdR0I=;
-        b=P6ibpbyI6xHPCu/jXkBa/aJb93sb5X2ct82LZmXW3O22eBVlLNkwO+Yk0fSOxAFZON
-         CA9VGOCgpwDy9SkGojBydYh9okn8dNZNOyuiq1VZSq4NOb6xbGCRVuO1+Avpd3JjIU5W
-         WMyEiGaiortuTSoIvbb+Ya25+8kY9+F+/ldVEZMcDoMEQ71HTBqaURIEHca+YcrX3s4h
-         rLLaggOy7m5pG0/Yilk4ZJAr/zYucGqdCUMl6V5L4if5P5IPepwDfk7psOZJ+bDoVjJP
-         fkDXp+dyXHo30epuM1lla2Zlv4w8w3Lq0cdymIX8eVsiqI+2PwQhON9ucroUuV2DGQ31
-         9cmA==
+        bh=a72j6J5FWgS1NLLlMgtRppkGcLGkWnuyg0aBtKu6HT8=;
+        b=u+ODC+FP4cTHzZBpeUV91wO5cEqi3AV6TIuk60Q4/H7JkqzI0Gjo4LbP9IISG8p+3u
+         HE/68x1Z8nDcd5WxItseD3RZU+msaFFIS+4cGGPN0IBfhz4kPMqJF4O2xbrAEGdjiuEK
+         9ypwEPLW/OdgzWUz3SKbiwHziGJY2vPpHnsKmP+Gi4+c/UplFwVmLWXtJs+bJRkr9Xuz
+         0pPC24WVdKn6t5GhvyknW+dWcAyBjFQyIKhcgtEZFEacFGG+jV8Y2euL0HSxn3SzLG18
+         Za7N5yEgLSokaWXaY8z2DxPR9dUbliO2y6OkkipUUn2JamfnSjG9wRtk6tXxSz9PUqiY
+         2XnA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=jfeK2OwT;
-       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::244 as permitted sender) smtp.mailfrom=elver@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=c9tNr+0S;
+       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=elver@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=RYTxb8JXVN7teGBYFObeTJdSbOQXRC4MIp5YA2rdR0I=;
-        b=VEDs0o0DrynmJFdXCSsMT922HLGNBHMpC/9wxyiNJfsq3qZh+XuH+nGldlgZhKZ8oP
-         d5pPu5ld4imBDpt4NvAnEQRJKY3RTlElmWCwikesYdSuuUr02IMozhU6wcJJ53UKAORU
-         /7hUHF75BFj0e++jQpDynvSfDSN68+24O40S1J95r1uCFSTsF2xtiehu+G4NM8cYwmqh
-         gdy2RjBh5Xkt6Fpqg4htBWEk/wnljMefFeWrSUtEP3UakFpjuDfQgcfKuXsqXcm3PHMp
-         zbJgxcmtVKNH0yfRvCbbm8QLBN7HaQyG4no5lhzGScMMMj5KPVuORzZETuLCcdLUEl+R
-         LFNg==
+        bh=a72j6J5FWgS1NLLlMgtRppkGcLGkWnuyg0aBtKu6HT8=;
+        b=qQcha1fRZ7co/IFgu9kzoe53EJT7rowQ3YW8w1J4YRcPaHW5J+HAmuYPyqv1neR1Px
+         /3iACd4WepuYEdc5ww2RHzEYJHkoqYkyssno9CIxdp/KYCChjWcr/UN68qgU2bUgKxpV
+         U6rGN/WHQQPHlT24wUYSTr1PrI+e7Ft/0oOTK/1UvaTNq124A9Me5DoxiEvCrD5FCvzb
+         T7ZnsbtNrh/mbwlLWkxEkBY7ufA6q/2qbLPZgjcdwO5jgvXEQK9MHLP0tDfyBbsL9Byr
+         kjS/ff8eiDVEfKacjKZweVC8i0yOdD2EIfuYx9xstHjFGtPUDb8XDIEpIEdOKio26M16
+         GulA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,73 +49,77 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=RYTxb8JXVN7teGBYFObeTJdSbOQXRC4MIp5YA2rdR0I=;
-        b=Wixgb0xC6kR41Dm4h8j1FPdpuebfxt5yNzF7Qww9nMqaKWi48xkjIGkyNK5TNxM/a0
-         DI4lQ1L5yxXWPlAYIFR5rYqxiy6inZ0f3rvjsg1slcmwjbOlbEM/t+uCDCJdCWQjUQKA
-         QzRL0TtIvxwf2Ddeo/tymVhOVg4FTgEjkQM8DpH41P0azu+vSQ3Kejq6+6adlbs9D3vB
-         4iPbzlh6lYc30aWFOrfDh8Tq/GMoXdjfQ1ngvbvtJo/LdXVWpH4C5kyq6Kp9IftbH0Yv
-         dx8hQBvg4a43DzAU69CAB8+iGHRmGLOpqfe1K9BpPSo/ujDCNkV65HB+Ma6KBqtauAe/
-         43rw==
-X-Gm-Message-State: AOAM530E03XFCDhw6XzMOauBmJFcJ4LF2BvJu2xvtohxJaD1ezBHIKli
-	VOZwBzTyW9DVrpEA8M1SoEI=
-X-Google-Smtp-Source: ABdhPJw/nvESJxwOVZy1Wd1QJ4gD+lmG9rSUwBAhZtHeKSleRJT0fd26TdMq7WcMsZ2L+dsvE18Dpw==
-X-Received: by 2002:a17:90a:ea0a:: with SMTP id w10mr82480pjy.165.1601276615901;
-        Mon, 28 Sep 2020 00:03:35 -0700 (PDT)
+        bh=a72j6J5FWgS1NLLlMgtRppkGcLGkWnuyg0aBtKu6HT8=;
+        b=gDI+E4UvU+KH5ZZv0FaCs3CZedB4ZSyEbFFIsgD2hL1qUOv6hLpwRVf632U3/+2ml4
+         +gOqMwd1zUTbfbDoZ0OHAm0EhYsXRe68SYMw+e0iHIfgEHNWAoesVz4iXq7R5g0O1AuU
+         n3X1Js/JAmXQCCbfTJkeCElH8xuLg2NfbmtzfSiQ0qSlH6mLtD8+ubzh+a7XA2CCETLr
+         AfidlnGMnzxc0DY2NUzQUs23pJWKfn8NGnZ1Q/BANQxAHdADamXq7sKykIf+kjQR9o69
+         u/q8IF6ppkPqGEyvU1FaK9milsAFoEAvO3LGBYWZbgGW9wwyICPC2YZhE0KijncQj5YY
+         duCA==
+X-Gm-Message-State: AOAM533+bK45EKu2jaZ9nBaiuFb2SFu7WwNKz/DwBj77+m7quXhxvFXQ
+	TJsScHKBttr1iEioPC8uSwc=
+X-Google-Smtp-Source: ABdhPJyIy3SV72GH0QQ1+YRCjlDpP+f3YOiKSH4W0J/yhD/24GD4F9kPrmocz7DsadmMaYx7B0FIKA==
+X-Received: by 2002:a92:9ac7:: with SMTP id c68mr93080ill.126.1601277915270;
+        Mon, 28 Sep 2020 00:25:15 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:a412:: with SMTP id p18ls2763921plq.11.gmail; Mon,
- 28 Sep 2020 00:03:35 -0700 (PDT)
-X-Received: by 2002:a17:90a:b702:: with SMTP id l2mr127046pjr.82.1601276615178;
-        Mon, 28 Sep 2020 00:03:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601276615; cv=none;
+Received: by 2002:a05:6e02:5a5:: with SMTP id k5ls37516ils.2.gmail; Mon, 28
+ Sep 2020 00:25:15 -0700 (PDT)
+X-Received: by 2002:a92:1589:: with SMTP id 9mr88043ilv.292.1601277914943;
+        Mon, 28 Sep 2020 00:25:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601277914; cv=none;
         d=google.com; s=arc-20160816;
-        b=j9N15UaL2qOhfBUneGky5jlMZMhpGm25yEm1iB1FIrGYOrlEOKgrbOKrdFkNWndVh3
-         C4A7Yhlpcu8RClE93WitGHinzYCk1168pF8X+rKd1FOBbSOysWS6uf8WzwX7HHBclBoV
-         0zfqfZb9elK28TtWfqI2ptuIIZkoDnqFxnjvg+jWV8YpIrqLGZ4GQ0WnhXZlkfk1WPsc
-         o+dc3Q4GbjMYgFPKvz/yoGKufZZke3x+2Eg7909WLJ6mnyaccg0qF4yQqyMkjPF+ZNQo
-         VQMsFQRaNdxjdAuurCLAFRH387n8ECtfxuaCsOdMZSPjeh5qM+N6o0d3g7Eerf+HfNWs
-         W15g==
+        b=PjWtkrH2osaW98a0kA6TVTHJEBIfIuM39DWlpHaTGmVAPH3hj/IhcyZMSlevyWTkK+
+         tkKDWVTE+H4IvHYF6rfe+QbV6QEEp0d8Zw2SpYxXtk87aoy7o2SfORy1xJ+bFHJQNQ3g
+         v5WwYBduFjkF3DUuXrKyPkpCGMgxdUMOtYKUJHqiy0VU1yCDTuhkihs8hobqovyco5Yn
+         5dGjjs9akRSPzVaFv/FKhQEbM6KSH9Ryuj2YxQxrCgh9oQWBzHbOaGc0bbXVjxIo0TYl
+         R1rHSoeY1h4mvOco3Ba1xBpKc3PnwGx/I/DrxAHDF7MmZ8Ag5Ecb8En7HOraNEt/0utR
+         Oi8w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=C/Qpr32EfMGBDFnNDrDqSVauN6ep9cWaocm5eivByKA=;
-        b=0kytrVAKuDzHh1Cu10A5Au2jYNCCNsVcX/GFpL1kshO9XagT8nzdIO+96LK8vLMGE7
-         vTpQuyVryEP7OuiPJzmnkTh8YfQh7RFdOPZA+sTtmylPoORevUjy9Bvb4uMWCuJOuk44
-         HBEn1YiHY78joaTQ9vvdVAxN3adtEbXAcrQkh9+FOa16p/w1/qL3CTu/bpLo24dB7sD2
-         CBQZLtSMs0H0/STzQbPYLSCCb4Rae/9IaYdHp1dYemc97H8fjfj+aR8RFcvWFEUAPfE8
-         9FRJfy0pDmm3IGiFSSeJ4hyszhdT/1NqxurrWsSdI2rsjFpU1/IFRas/DXTdFXesUxGo
-         riyw==
+        bh=jml2neKeP5LvDDGsfQfoMJWoSSFjKlccfEpIy6JbJzg=;
+        b=FF2eGkOLul+qX5wINHAx+e3xl4YDz/qC7I84bTjt55UJK0cwoTqrKZHcKPE9Ijt8pp
+         0S9OqfaWmS4ZnzBk94A/5iVBpv5qsuigad59p0aGnnMTAR/k4D/pJ8zvBrU26ENZlp6J
+         XwiCS0Qza4YKqOnVivAlEDYlVwVHkwJm1hkQ4kNnnYbwJ9RojcHuvb3UQhD6rCDjALsI
+         Lq7N9LGoA+UUOA35w0WxjV1VEqIrLDOUY4QyuqAhWE+A0IW9T/FgSKCLecTn8/OvM3hT
+         IvJeLVuY4siKFBUbypO4tp27i3KlkoUBVG9X98mI24gPIz5DAZ/L/hknr93fHP4GfL4j
+         RTCA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=jfeK2OwT;
-       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::244 as permitted sender) smtp.mailfrom=elver@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=c9tNr+0S;
+       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=elver@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-oi1-x244.google.com (mail-oi1-x244.google.com. [2607:f8b0:4864:20::244])
-        by gmr-mx.google.com with ESMTPS id iq17si263292pjb.3.2020.09.28.00.03.35
+Received: from mail-ot1-x344.google.com (mail-ot1-x344.google.com. [2607:f8b0:4864:20::344])
+        by gmr-mx.google.com with ESMTPS id c10si201050iow.3.2020.09.28.00.25.14
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Sep 2020 00:03:35 -0700 (PDT)
-Received-SPF: pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::244 as permitted sender) client-ip=2607:f8b0:4864:20::244;
-Received: by mail-oi1-x244.google.com with SMTP id m7so275535oie.0
-        for <clang-built-linux@googlegroups.com>; Mon, 28 Sep 2020 00:03:35 -0700 (PDT)
-X-Received: by 2002:aca:5158:: with SMTP id f85mr122075oib.121.1601276614185;
- Mon, 28 Sep 2020 00:03:34 -0700 (PDT)
+        Mon, 28 Sep 2020 00:25:14 -0700 (PDT)
+Received-SPF: pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::344 as permitted sender) client-ip=2607:f8b0:4864:20::344;
+Received: by mail-ot1-x344.google.com with SMTP id y5so8761648otg.5
+        for <clang-built-linux@googlegroups.com>; Mon, 28 Sep 2020 00:25:14 -0700 (PDT)
+X-Received: by 2002:a9d:66a:: with SMTP id 97mr94939otn.233.1601277914299;
+ Mon, 28 Sep 2020 00:25:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <202009280455.Qidf5AqU%lkp@intel.com>
-In-Reply-To: <202009280455.Qidf5AqU%lkp@intel.com>
+References: <00000000000052569205afa67426@google.com> <20200927145737.GA4746@zn.tnic>
+ <CACT4Y+Zxt3-Dj6r53mEkwv24PazPzTxQ7usV1O+RB0bk2FzO8g@mail.gmail.com>
+In-Reply-To: <CACT4Y+Zxt3-Dj6r53mEkwv24PazPzTxQ7usV1O+RB0bk2FzO8g@mail.gmail.com>
 From: "'Marco Elver' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 28 Sep 2020 09:03:22 +0200
-Message-ID: <CANpmjNNcRCipPdd0C0z-dxb1nfz35bkgAY6eJwGF8sYq=2wOqQ@mail.gmail.com>
-Subject: Re: [linux-next:master 11080/11173] drivers/media/common/saa7146/saa7146_hlp.c:648:5:
- warning: stack frame size of 1072 bytes in function 'saa7146_enable_overlay'
-To: kernel test robot <lkp@intel.com>
-Cc: George Popescu <georgepope@android.com>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, David Brazdil <dbrazdil@google.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, 
-	Linux Memory Management List <linux-mm@kvack.org>
+Date: Mon, 28 Sep 2020 09:25:03 +0200
+Message-ID: <CANpmjNN9o_OUbZozzcQMHD8ynBBVeFFgp-4wK4J_U1JH=OGVsg@mail.gmail.com>
+Subject: Re: general protection fault in perf_misc_flags
+To: Dmitry Vyukov <dvyukov@google.com>
+Cc: Borislav Petkov <bp@alien8.de>, Alexander Potapenko <glider@google.com>, 
+	syzbot <syzbot+ce179bc99e64377c24bc@syzkaller.appspotmail.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	"H. Peter Anvin" <hpa@zytor.com>, Jiri Olsa <jolsa@redhat.com>, LKML <linux-kernel@vger.kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Ingo Molnar <mingo@redhat.com>, 
+	Namhyung Kim <namhyung@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	syzkaller-bugs <syzkaller-bugs@googlegroups.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	"the arch/x86 maintainers" <x86@kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: elver@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=jfeK2OwT;       spf=pass
- (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::244 as
+ header.i=@google.com header.s=20161025 header.b=c9tNr+0S;       spf=pass
+ (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::344 as
  permitted sender) smtp.mailfrom=elver@google.com;       dmarc=pass (p=REJECT
  sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Marco Elver <elver@google.com>
@@ -132,71 +136,77 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, 27 Sep 2020 at 22:14, kernel test robot <lkp@intel.com> wrote:
+On Mon, 28 Sep 2020 at 07:18, Dmitry Vyukov <dvyukov@google.com> wrote:
 >
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> head:   20dc779fdefc40bf7dd9736cea01704f29228fae
-> commit: 2ce416ba162877d5cf267ac35548ea45eba84150 [11080/11173] ubsan: introduce CONFIG_UBSAN_LOCAL_BOUNDS for Clang
-> config: powerpc-randconfig-r004-20200927 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 6d374cf78c8a80a0bbfc7ce9bc80b3f183f44c80)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install powerpc cross compiling tool for clang build
->         # apt-get install binutils-powerpc-linux-gnu
->         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=2ce416ba162877d5cf267ac35548ea45eba84150
->         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
->         git fetch --no-tags linux-next master
->         git checkout 2ce416ba162877d5cf267ac35548ea45eba84150
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc
+> On Sun, Sep 27, 2020 at 4:57 PM Borislav Petkov <bp@alien8.de> wrote:
+> >
+> > On Sat, Sep 19, 2020 at 01:32:14AM -0700, syzbot wrote:
+> > > Hello,
+> > >
+> > > syzbot found the following issue on:
+> > >
+> > > HEAD commit:    92ab97ad Merge tag 'sh-for-5.9-part2' of git://git.libc.or..
+> > > git tree:       upstream
+> > > console output: https://syzkaller.appspot.com/x/log.txt?x=1069669b900000
+> > > kernel config:  https://syzkaller.appspot.com/x/.config?x=cd992d74d6c7e62
+> > > dashboard link: https://syzkaller.appspot.com/bug?extid=ce179bc99e64377c24bc
+> > > compiler:       clang version 10.0.0 (https://github.com/llvm/llvm-project/ c2443155a0fb245c8f17f2c1c72b6ea391e86e81)
+> >
+> > All below is AFAICT:
+> >
+> > This compiler you're using is not some official release but some random
+> > commit before the v10 release:
+> >
+> > $ git show c2443155a0fb245c8f17f2c1c72b6ea391e86e81
+> > Author: Hans Wennborg <hans@chromium.org>
+> > Date:   Sat Nov 30 14:20:11 2019 +0100
+> >
+> >     Revert 651f07908a1 "[AArch64] Don't combine callee-save and local stack adjustment when optimizing for size"
+> > ...
+> >
+> > $ git describe c2443155a0fb245c8f17f2c1c72b6ea391e86e81
+> > llvmorg-10-init-10900-gc2443155a0fb
+> >
+> > The v10 release is:
+> >
+> > $ git show llvmorg-10.0.0
+> > tag llvmorg-10.0.0
+> > Tagger: Hans Wennborg <hans@chromium.org>
+> > Date:   Tue Mar 24 12:58:58 2020 +0100
+> >
+> > Tag 10.0.0
+> >
+> > and v10 has reached v10.0.1 in the meantime:
+> >
+> > $ git log --oneline c2443155a0fb245c8f17f2c1c72b6ea391e86e81~1..llvmorg-10.0.1 | wc -l
+> > 7051
+> >
+> > so can you please update your compiler and see if you can still
+> > reproduce with 10.0.1 so that we don't waste time chasing a bug which
+> > has been likely already fixed in one of those >7K commits.
 >
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
+> +Alex, Marco,
 >
-> All warnings (new ones prefixed by >>):
->
-> >> drivers/media/common/saa7146/saa7146_hlp.c:648:5: warning: stack frame size of 1072 bytes in function 'saa7146_enable_overlay' [-Wframe-larger-than=]
->    int saa7146_enable_overlay(struct saa7146_fh *fh)
->        ^
->    1 warning generated.
+> There is suspicion that these may be caused by use of unreleased clang.
+> Do we use the same clang as we use for the KMSAN instance? But this is
+> not KMSAN machine, so I am not sure who/when/why updated it last to
+> this revision.
+> I even see we have some clang 11 version:
+> https://github.com/google/syzkaller/blob/master/docs/syzbot.md#crash-does-not-reproduce
 
-This warning must have existed before, because the UBSAN patch didn't
-add any features, it just guarded them with extra Kconfig options.
+Yeah, we should replace that one as well as it wasn't yet a release-candidate.
 
-Also, this is with Clang 12, which is very much in development and
-quite unstable.
+> Is it possible to switch to some released version for both KMSAN and KASAN now?
 
-> vim +/saa7146_enable_overlay +648 drivers/media/common/saa7146/saa7146_hlp.c
->
-> ^1da177e4c3f41 drivers/media/common/saa7146_hlp.c Linus Torvalds 2005-04-16  647
-> ^1da177e4c3f41 drivers/media/common/saa7146_hlp.c Linus Torvalds 2005-04-16 @648  int saa7146_enable_overlay(struct saa7146_fh *fh)
-> ^1da177e4c3f41 drivers/media/common/saa7146_hlp.c Linus Torvalds 2005-04-16  649  {
-> ^1da177e4c3f41 drivers/media/common/saa7146_hlp.c Linus Torvalds 2005-04-16  650        struct saa7146_dev *dev = fh->dev;
-> ^1da177e4c3f41 drivers/media/common/saa7146_hlp.c Linus Torvalds 2005-04-16  651        struct saa7146_vv *vv = dev->vv_data;
-> ^1da177e4c3f41 drivers/media/common/saa7146_hlp.c Linus Torvalds 2005-04-16  652
-> 5da545ad08a3c6 drivers/media/common/saa7146_hlp.c Hans Verkuil   2012-05-01  653        saa7146_set_window(dev, vv->ov.win.w.width, vv->ov.win.w.height, vv->ov.win.field);
-> 5da545ad08a3c6 drivers/media/common/saa7146_hlp.c Hans Verkuil   2012-05-01  654        saa7146_set_position(dev, vv->ov.win.w.left, vv->ov.win.w.top, vv->ov.win.w.height, vv->ov.win.field, vv->ov_fmt->pixelformat);
-> ^1da177e4c3f41 drivers/media/common/saa7146_hlp.c Linus Torvalds 2005-04-16  655        saa7146_set_output_format(dev, vv->ov_fmt->trans);
-> ^1da177e4c3f41 drivers/media/common/saa7146_hlp.c Linus Torvalds 2005-04-16  656        saa7146_set_clipping_rect(fh);
-> ^1da177e4c3f41 drivers/media/common/saa7146_hlp.c Linus Torvalds 2005-04-16  657
-> ^1da177e4c3f41 drivers/media/common/saa7146_hlp.c Linus Torvalds 2005-04-16  658        /* enable video dma1 */
-> ^1da177e4c3f41 drivers/media/common/saa7146_hlp.c Linus Torvalds 2005-04-16  659        saa7146_write(dev, MC1, (MASK_06 | MASK_22));
-> ^1da177e4c3f41 drivers/media/common/saa7146_hlp.c Linus Torvalds 2005-04-16  660        return 0;
-> ^1da177e4c3f41 drivers/media/common/saa7146_hlp.c Linus Torvalds 2005-04-16  661  }
-> ^1da177e4c3f41 drivers/media/common/saa7146_hlp.c Linus Torvalds 2005-04-16  662
->
-> :::::: The code at line 648 was first introduced by commit
-> :::::: 1da177e4c3f41524e886b7f1b8a0c1fc7321cac2 Linux-2.6.12-rc2
->
-> :::::: TO: Linus Torvalds <torvalds@ppc970.osdl.org>
-> :::::: CC: Linus Torvalds <torvalds@ppc970.osdl.org>
->
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+We should probably just switch to Clang 11-rc3 or so. Then we can use
+the same compiler for KMSAN and KCSAN at least.
+
+I can package up a newer Clang.
+
+Thanks,
+-- Marco
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANpmjNNcRCipPdd0C0z-dxb1nfz35bkgAY6eJwGF8sYq%3D2wOqQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANpmjNN9o_OUbZozzcQMHD8ynBBVeFFgp-4wK4J_U1JH%3DOGVsg%40mail.gmail.com.
