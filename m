@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB64ZZH5QKGQESN2UYSY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBXFCZH5QKGQEOPB46AY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3f.google.com (mail-io1-xd3f.google.com [IPv6:2607:f8b0:4864:20::d3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 49B0827B6B1
-	for <lists+clang-built-linux@lfdr.de>; Mon, 28 Sep 2020 22:52:14 +0200 (CEST)
-Received: by mail-io1-xd3f.google.com with SMTP id h21sf1485317iof.12
-        for <lists+clang-built-linux@lfdr.de>; Mon, 28 Sep 2020 13:52:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601326333; cv=pass;
+Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8AFDB27B6D8
+	for <lists+clang-built-linux@lfdr.de>; Mon, 28 Sep 2020 23:10:53 +0200 (CEST)
+Received: by mail-pf1-x438.google.com with SMTP id q5sf1845151pfl.16
+        for <lists+clang-built-linux@lfdr.de>; Mon, 28 Sep 2020 14:10:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601327452; cv=pass;
         d=google.com; s=arc-20160816;
-        b=a3oyvvTynKTYk22pVzgVKw3cdpBc9xKYhqshK33txuRJm1tY5r57E2tqaaATn0j6Qs
-         vnB/8FZSPaU+qv8fhQt8MwICGZEbqb6Kjftp8PLOC+3zvBqlr5PBqyZvo+8ZeZZ4Xixm
-         kK3ea9VyhG1RWZ25PdMQsrGF3+N9gWcLSA8uO0sozbBVP0vryklnQuthXG8CjdMejxIE
-         Y3q3GD0DQII670u3R2nIlvg9/DRIXhgRIoBJs+ybY/dSgQ0e/ygn4SNuRgk6jkJ7TYNV
-         sSUN7jUIjn1+YIeHmQfizzP39T6dPJOEcvSt+A3M0vElmq92tuvVeExtXDGDsq5cIKLf
-         VIgw==
+        b=JxBJEUZmwtCkPB71LtrrQv5W+TxGpJg8mzOxPS43PX+nXKduFXxYJmBWiCGtn0sPiv
+         QQaZNf0McpZ3uU4aAbipNNDJ0HwxwBdGJMuAPBlitpvyi1sB3Qbvf4ufdIQioPFkeYCs
+         g75FOAfROcUilO4WRwEmINDE8yEukGCOO4fzNgRzN/1cgv9QdE0gYkklTGCFZdaR0uTK
+         4B01+UjQAZXvnFQlIuDaDQsw3IxSGu8uWn/mpPEnE4tog3kNdDdfbe6q/vfW+CwPXGaU
+         Zr6xHBWSQQuarr3FohG5usLEU+F1l0SYAmWBGL4z/YY3H7F6ZNsPeyKa7fyBhELgLO4T
+         N6Yg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=Db0yrr40i/hVzlUB565Vy571BAmP/hjLbQ4R98tVOYs=;
-        b=sQxmkSdzkCxUAE+zIZyc4E9f6hGMvoqlX8FltFEhuW9kkAns1GRVvgbUz6D2uzyYbj
-         y1vgLaSaHoaB7hkjEwhVydUtTjYktD+tySqH5U1OlfVW1XqmVyckpFXwC2tt3Pwh5bSI
-         gKTL2EE5BEC82m9alas2ZxZjtjuTsxzm1h646Ld6cU3jSq4rqQhQTNMQm90vQHA/aKpu
-         80xbbPSOaH9LNqjZw1yRvvPILNZNWlqwxyvPgmdFwYVwmXYm7Kj8NFg0EyMM119CR0na
-         GGjLxdV5K3lNoCi/gdj22OUFbcwjw3rSOG7Yj8YWADPOau/zyhXkYG7u53Iw9v9/TMgv
-         FrVA==
+        bh=njMJHaCOZKw3o46Ip2Kj3l450joVSVSAfTvNkoBUhhQ=;
+        b=qXbuM4vdDrEhE5Y5ln6O3/ttiOPkbopP2BsUNmCcVIy1T9Zq8vvuPVFDNbrGqwHVpT
+         Id53pHJ90Zzb2aLRRpBEIYpCsLrDUfGRk+ix7gQHlQJoBmRldqYedtG4NZtPEuue8eHR
+         bA/ETLMjuQl5GdeeXdzR9qDJMHQRlBPAWPu1N5CSmw9lehcYBL2josYs/IyDo760SIfu
+         r5UweUXXaVHwCYr60bnHffCJVLBXwxOJAQS8F8bUz8weEs6XpTssYdy8iga4K3/fjewK
+         QTF+QVsOgiJLRDuPQcrgXVXfMXn/1vQrCzyVfXfthBzsER+1nqbsXfkzYyAnpQnQm2zV
+         o59w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=qhphk1yO;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=uaGC6jxR;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::430 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Db0yrr40i/hVzlUB565Vy571BAmP/hjLbQ4R98tVOYs=;
-        b=ju3ohlxVULMdoPfpmNoVMKthXWmcaWiWqa64hVfPnU+ueIDXPJh7Bp7d3FUwhfPx1X
-         EAgHm9mDy9KFgR/Edb2F7qZncrpMBP3DpzSkBeFo/0CGx+c+5BwAiaPrUEqpMRfoB/8r
-         JZ+M365JNpN5T2N/SZdM/qZffFskYvFUTOfFwGLBzrgpPAGkror494wEdp9p7WtPRMzw
-         Beqi5ofEfdGb2m6QXjxloIfWjqwV+cHMvvsyvPOh1H//o+3khfzj8OzftxXQj77GQpfK
-         GPglJiSQb0jkJ2vBxIJLweS+9Ipahn11GWNL87w8R8ZUJ1SkynGM/C1RgYZcYp/7GYs5
-         N3oQ==
+        bh=njMJHaCOZKw3o46Ip2Kj3l450joVSVSAfTvNkoBUhhQ=;
+        b=OTJZDl1pSZaTZsxoyh578U4/GNntjoaSFmZOUqlQP2dmMMrmeQ8AOUpfisdQFfnhNy
+         n9M1138fvaCROq69qcXWRH+vrXcjeq2bKNsYRRLIHpYxvkbtt8YcAK7gvtxaZMxucI1k
+         tbpoEmcb5WenW3KF6Hcg4WOU7zDghGEMnj3/vuqvFS2GDmnPLCAOytA5EVu0OkzxBf0G
+         /DWbMoi32MaNHUnz74edSodZw17FTUVwMaMQMr2JcAxKf2Ur13aD5ycbhRxvu/r1N4RF
+         1h5vw8yV7Pe8jnBkzQr5u64E2/0hB4N3d7SVV3TdCYEaUtBQnH3SmPqUMec3YUZBnMY3
+         dxCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,80 +49,71 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Db0yrr40i/hVzlUB565Vy571BAmP/hjLbQ4R98tVOYs=;
-        b=AmNUfzRim7x31zLNKtoX1X8UI6/1WAmPYgqEmBvfghzHIFj2v2JSKVoP43nIl4wern
-         ZvdlO1eSIKl4sjcw4VEziiBXXt87hFp6rEA3i8haEePw6/wCxZs+hTCyU9TFPj2Er3Ed
-         4yvX+3+yIWi7KgODCplWnMwSpxycXRUFCHyebaEzVtvB4m8PBxnXwuycmudk66iAAu5O
-         yROFw7TVCkCeQvIA08wJlzJ4OjGTRGxMMw+YkNP5tXL7c4yzfQpNIyqOdvOjxiQ6q3F7
-         Bp9MHZ8qnGbukVbsjjkzwwQ0iIc5NQyhNPzfM1artzjpc5ZEHuY+5ZNlSrrs7BnQAL92
-         636w==
-X-Gm-Message-State: AOAM531OBbKqIlfmv4sjVDbx8uyIoKiZOpAbTeENBm2eMgXLZa5o9bNl
-	GUrq8uqivYYx2nSpCxvP2KY=
-X-Google-Smtp-Source: ABdhPJz64G7+qWE9aHJB/wZBCae1iEy8OR1pHnDUn50VBPy7IGdT/OwU5Ui4he3XRMYpOd7ggw7dSg==
-X-Received: by 2002:a92:a04a:: with SMTP id b10mr169717ilm.279.1601326331773;
-        Mon, 28 Sep 2020 13:52:11 -0700 (PDT)
+        bh=njMJHaCOZKw3o46Ip2Kj3l450joVSVSAfTvNkoBUhhQ=;
+        b=rD4pWKtZBgtWOIJvfyGQtXGL7+Scls3ukUgnWSuZJhOAZbq6NFNBZtiBwPSh08ISO+
+         RcKpT2pWygUDOOHq6i2qypT3lT5OwGPZOd5GjIQadpl/se2pOT2jzkPzveAKC43ZX3+9
+         qD0C6qOv4Mu4EzuHofYNAF1iBTZAJZPTIPa4dOEWrbr1vstDlD4axVZsH7Vz11g3BET8
+         p++Qn1OnF5tS6kusc849ThQ63td2A6iJ0ClqM1D8r9xJTjBsoimXM4c+qcpQ6Qje3qqX
+         2pcM5tD7mWwWRCFjgKjDs2Zi/TigwnQtJdI+nX4XTJl8STbW6ht2/C0Ruks0+qeezZcZ
+         ycfQ==
+X-Gm-Message-State: AOAM531Gj2dIdppjlX1Gp6QWpLHVtsDEw8zwodaKQrl7xZYU8zCBSiXP
+	PpP/tAMzLfZCDQVEtJLiHoI=
+X-Google-Smtp-Source: ABdhPJx7A8opojyIGpIv+UR8k8ZkINvEezP7YR4UGoWZRcvm1CuPQOt5JX9T6P17uPv05WDb2pk4eg==
+X-Received: by 2002:a17:90a:bf8c:: with SMTP id d12mr967085pjs.157.1601327452239;
+        Mon, 28 Sep 2020 14:10:52 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:c805:: with SMTP id v5ls675600iln.1.gmail; Mon, 28 Sep
- 2020 13:52:11 -0700 (PDT)
-X-Received: by 2002:a92:d312:: with SMTP id x18mr186532ila.263.1601326331389;
-        Mon, 28 Sep 2020 13:52:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601326331; cv=none;
+Received: by 2002:a17:902:123:: with SMTP id 32ls1771349plb.1.gmail; Mon, 28
+ Sep 2020 14:10:51 -0700 (PDT)
+X-Received: by 2002:a17:902:ff0b:b029:d2:cc1:615f with SMTP id f11-20020a170902ff0bb02900d20cc1615fmr1147262plj.27.1601327451504;
+        Mon, 28 Sep 2020 14:10:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601327451; cv=none;
         d=google.com; s=arc-20160816;
-        b=WD8yc2IZ+LXrhn4YKtAjWycFyAusYUXS5tNJjcxiKS672ZpEH6JYl4gN2Sdn6vJC2n
-         7gzKWjFAcqSsOprfjHxHFxpOQrRroNlUqMCF8Ly0TATf/1P7soFxDrOg5TWltJ/umWvf
-         uZrHc8ykVqe6g0IGvxPzhsqpmbLPrf7HfeW4JZEASOnp/udNG32dQarOFO+coer3EANz
-         AjEBpG+/3e+dDzs7XjSRK8uY60okSmPUU0Z+9wntvKpcsK9ZJXHjpYhT8yJ2UDCmx73A
-         jIVpVtnjm3yJ1YtfCiYIE526d3xQj6wvy8Xx7u7btm1Btpgylm//LKvE9pqfiDXH8UMg
-         +M6g==
+        b=0ZYw3eLP6mko7pmMnlE2FDVkkAXhJW++h1Dw0T7FjzVYg0VD0KsLvaUxK2pTXo7LBw
+         0KMWPPfl9xEo/MFw9pCc60XIvUYJ+v76kGInG46IUcyVs3aEoDYVwkqFkhKw/nY7g6TK
+         ntaDLRL+G9i8QYeniIuOtDgzGjxdYApMRSSoqDMYNpyodRuGCTcehhgxl5tVCQH3Lozl
+         15Djy7996pkwo0Vrj0lJFA9Wc7w5YlCsL/2VTHFcdE9xUfezII36T3jNVI7cdidcpN3z
+         9NCrWHm+r3qdAcC/w8p+iGr7HMgWCQ+MDiKIUwpk7GF3oTrfu73zCIchtZYKa4IJ4e77
+         mQzA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=E18yvgxr+dgDZ8P7S30cmV0usuEJVg+uMENH9hDolXk=;
-        b=KzPVmNPB/cT924/QehqffY+IvAwL+KHaFZ1fS6/vviFZRwBCwvdLCBYrZgKV5yOAxL
-         KmdPj06IgBhGIrfae2DuCQbaJ6nvx/9WaXrmUOpM6vhhU3GJSEw60mCiYQdcnqh+DjWe
-         QLFARcquQzTSxJKzC/SncegGVDK7StpOGsap1WAtmdAieRIHFBf5MM+j6ZgMzO3JMFc1
-         pe5puLS8frF0Sfz+lo9QxaqMSksusdqJyaREXKQrwxIDmBgsrksUMgmk19pJMVpakpO/
-         VzovNngCPcJbbgz2e1j8RWmgCujnGvdxXx3Tz1UnFGZaccg8HlRi8gYqtcO1+YsdjP0b
-         J2Wg==
+        bh=ZiftkLxpXwj1qlF3N1uj7X6DGOCVpWF+qm2PkXK9Iic=;
+        b=ccDzzo/0KvernT0S0ORne2P0I2KsuARMSDiGvW3KYP7BWaCwfwQ6g5JggFglD4zaq1
+         bewY16qjDFJtJPAdcOYa45+TLM6pNdRVkHd/25wrp7jXPd94pucZP9Hb0wNwCbsCNALN
+         OVMEsuaVO+7DXc7bSES9rjnr6WiYY4ZP+i96xIOzwAF/lHQmIMrWl+y2YmCwcWRoj9WS
+         R1RPHuh0CvCc7I8hrSCkPmVJNFHn1qD6J2gqaNgVbPcHD0hJFTFe6n7Ik3OtIbgXIAhr
+         hazaQfrDMT7CAioUE3Sw1ccOBjAoK4VzPZonSsqd7HTM3ryRp7kV5odt/44kOp3CR9Dy
+         mlfA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=qhphk1yO;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=uaGC6jxR;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::430 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x541.google.com (mail-pg1-x541.google.com. [2607:f8b0:4864:20::541])
-        by gmr-mx.google.com with ESMTPS id a5si213157ilr.3.2020.09.28.13.52.11
+Received: from mail-pf1-x430.google.com (mail-pf1-x430.google.com. [2607:f8b0:4864:20::430])
+        by gmr-mx.google.com with ESMTPS id i4si583036pjj.2.2020.09.28.14.10.51
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Sep 2020 13:52:11 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) client-ip=2607:f8b0:4864:20::541;
-Received: by mail-pg1-x541.google.com with SMTP id o25so1981616pgm.0
-        for <clang-built-linux@googlegroups.com>; Mon, 28 Sep 2020 13:52:11 -0700 (PDT)
-X-Received: by 2002:a63:28c9:: with SMTP id o192mr617964pgo.381.1601326330804;
- Mon, 28 Sep 2020 13:52:10 -0700 (PDT)
+        Mon, 28 Sep 2020 14:10:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::430 as permitted sender) client-ip=2607:f8b0:4864:20::430;
+Received: by mail-pf1-x430.google.com with SMTP id b124so2289407pfg.13
+        for <clang-built-linux@googlegroups.com>; Mon, 28 Sep 2020 14:10:51 -0700 (PDT)
+X-Received: by 2002:a63:28c9:: with SMTP id o192mr667822pgo.381.1601327450752;
+ Mon, 28 Sep 2020 14:10:50 -0700 (PDT)
 MIME-Version: 1.0
-References: <00000000000052569205afa67426@google.com> <20200927145737.GA4746@zn.tnic>
- <CACT4Y+Zxt3-Dj6r53mEkwv24PazPzTxQ7usV1O+RB0bk2FzO8g@mail.gmail.com>
- <CACT4Y+ZZH76qg810RzGp6FDLTxJWVqZgkrXSxqgq7AjpPYG9XQ@mail.gmail.com>
- <20200928083819.GD1685@zn.tnic> <CACT4Y+bPFASnmFRKpQ=KY1z+RnTbGmkPU3aikzdXZpKkV03D9A@mail.gmail.com>
- <20200928085401.GE1685@zn.tnic> <CACT4Y+Z4Y6SJJ6iYBhVRiknrWBAD6gGhQXiXLhxPniDNBFJGsA@mail.gmail.com>
-In-Reply-To: <CACT4Y+Z4Y6SJJ6iYBhVRiknrWBAD6gGhQXiXLhxPniDNBFJGsA@mail.gmail.com>
+References: <202009262204.3foBZGl2%lkp@intel.com>
+In-Reply-To: <202009262204.3foBZGl2%lkp@intel.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 28 Sep 2020 13:51:58 -0700
-Message-ID: <CAKwvOdmTm2rVdc2JTSVVadKP3DONRcPXSE-s3tFPqHgCSieH7Q@mail.gmail.com>
-Subject: Re: general protection fault in perf_misc_flags
-To: Dmitry Vyukov <dvyukov@google.com>
-Cc: Borislav Petkov <bp@alien8.de>, Alexander Potapenko <glider@google.com>, Marco Elver <elver@google.com>, 
-	syzbot <syzbot+ce179bc99e64377c24bc@syzkaller.appspotmail.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	"H. Peter Anvin" <hpa@zytor.com>, Jiri Olsa <jolsa@redhat.com>, LKML <linux-kernel@vger.kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ingo Molnar <mingo@redhat.com>, 
-	Namhyung Kim <namhyung@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	syzkaller-bugs <syzkaller-bugs@googlegroups.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	"the arch/x86 maintainers" <x86@kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>
+Date: Mon, 28 Sep 2020 14:10:39 -0700
+Message-ID: <CAKwvOdnc9dGor-3FT3DG0U7im7TzR-6u8aHctH+NybA+4i8b9A@mail.gmail.com>
+Subject: Re: [linux-next:master 11142/11173] ld.lld: warning:
+ arch/arm/built-in.a(kernel/elf.o):(".discard.ksym") is being placed in '".discard.ksym"'
+To: Kees Cook <keescook@chromium.org>
+Cc: Stephen Rothwell <sfr@canb.auug.org.au>, kbuild-all@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, kernel test robot <lkp@intel.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=qhphk1yO;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541
+ header.i=@google.com header.s=20161025 header.b=uaGC6jxR;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::430
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -139,56 +130,304 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Sep 28, 2020 at 3:34 AM 'Dmitry Vyukov' via Clang Built Linux
-<clang-built-linux@googlegroups.com> wrote:
+On Sat, Sep 26, 2020 at 7:07 AM kernel test robot <lkp@intel.com> wrote:
 >
-> On Mon, Sep 28, 2020 at 10:54 AM Borislav Petkov <bp@alien8.de> wrote:
-> >
-> > On Mon, Sep 28, 2020 at 10:40:19AM +0200, Dmitry Vyukov wrote:
-> > > I meant the kernel self-corrupts itself, that just wasn't detected by
-> > > KASAN, page protections, etc.
-> >
-> > Well, Nick already asked this but we're marking all kernel text RO early
-> > during boot. So it either is happening before that or something else
-> > altogether is going on.
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> head:   20dc779fdefc40bf7dd9736cea01704f29228fae
+> commit: ebf18610b8fcacb3bb5c147e4256d05711c55bf2 [11142/11173] Merge branch 'akpm-current/current' into master
+> config: arm-randconfig-r022-20200925 (attached as .config)
 
-On Sun, Sep 27, 2020 at 11:06 PM 'Dmitry Vyukov' via Clang Built Linux
-<clang-built-linux@googlegroups.com> wrote:
->
-> Interestingly there is a new crash, which looks similar:
->
-> general protection fault in map_vdso
-> https://syzkaller.appspot.com/bug?extid=c2ae01c2b1b385384a06
->
-> The code is also with 4 0's:
-> Code: 00 00 00 48 b8 00 00 00 00 00 fc ff df 41 57 49 89 ff 41 56 41
-> 55 41 54 55 65 48 8b 2c 25 c0 fe 01 00 48 8d bd 28 04 00 00 53 <48> 00
-> 00 00 00 fa 48 83 ec 10 48 c1 ea 03 80 3c 02 00 0f 85 51 02
->
-> But it happened with gcc.
->
-> Also I found this older one:
-> general protection fault in map_vdso_randomized
-> https://syzkaller.appspot.com/bug?id=8366fd024559946137b9db23b26fd2235d43b383
->
-> which also has code smashed and happened with gcc:
-> Code: 00 fc ff df 48 89 f9 48 c1 e9 03 80 3c 01 00 0f 85 eb 00 00 00
-> 65 48 8b 1c 25 c0 fe 01 00 48 8d bb 28 04 00 00 41 2b 54 24 20 <00> 00
-> 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+^ randconfig
 
-If this is related to vdso's, they seem mapped as `r-xp` (not `w):
-$ sudo cat /proc/1/maps | grep vdso
-7ffc667f5000-7ffc667f7000 r-xp 00000000 00:00 0                          [vdso]
+> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project a83eb048cb9a75da7a07a9d5318bbdbf54885c87)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install arm cross compiling tool for clang build
+>         # apt-get install binutils-arm-linux-gnueabi
+>         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=ebf18610b8fcacb3bb5c147e4256d05711c55bf2
+>         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+>         git fetch --no-tags linux-next master
+>         git checkout ebf18610b8fcacb3bb5c147e4256d05711c55bf2
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm
+>
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+>
+> All warnings (new ones prefixed by >>):
+>
+>    ld.lld: warning: lld uses blx instruction, no object with architecture supporting feature detected
+>    ld.lld: warning: lld uses blx instruction, no object with architecture supporting feature detected
+>    ld.lld: warning: init/built-in.a(main.o):(".discard.ksym") is being placed in '".discard.ksym"'
 
-map_vdso() in arch/x86/entry/vdso/vma.c doesn't map the VMA as
-writable, but it uses VM_MAYWRITE with a comment about GDB setting
-breakpoints.
+Hi Kees, did your orphan section placement series explicitly add .discard.ksym?
 
-So it sounds like the page protections on the vdso can be changed at
-runtime (via mprotect).  Maybe syzkaller is tickling that first?
+>    ld.lld: warning: init/built-in.a(version.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: init/built-in.a(do_mounts.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: init/built-in.a(init_task.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: arch/arm/built-in.a(kernel/elf.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: arch/arm/built-in.a(kernel/opcodes.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: arch/arm/built-in.a(kernel/process.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: arch/arm/built-in.a(kernel/reboot.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: arch/arm/built-in.a(kernel/setup.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: arch/arm/built-in.a(kernel/stacktrace.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: arch/arm/built-in.a(kernel/traps.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: arch/arm/built-in.a(kernel/armksyms.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: arch/arm/built-in.a(kernel/unwind.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: arch/arm/built-in.a(kernel/io.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: arch/arm/built-in.a(kernel/paravirt.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: arch/arm/built-in.a(mm/iomap.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: arch/arm/built-in.a(mm/dma-mapping-nommu.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: arch/arm/built-in.a(mm/nommu.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: arch/arm/built-in.a(mm/proc-syms.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: arch/arm/built-in.a(crypto/sha1_glue.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: arch/arm/mach-ep93xx/built-in.a(core.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: arch/arm/mach-ep93xx/built-in.a(clock.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(fork.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(panic.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(cpu.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(exit.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(softirq.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(resource.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(sysctl.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(capability.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(ptrace.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(user.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(signal.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(sys.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(umh.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(workqueue.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(pid.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(params.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(kthread.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(notifier.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(ksysfs.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(cred.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(reboot.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(async.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(smpboot.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(regset.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(kmod.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(groups.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(sched/core.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(sched/loadavg.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(sched/clock.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(sched/cputime.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(sched/idle.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(sched/fair.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(sched/wait.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(sched/wait_bit.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(sched/swait.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(sched/completion.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(locking/mutex.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(locking/semaphore.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(locking/rwsem.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(locking/percpu-rwsem.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(locking/mutex-debug.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(locking/lockdep.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(locking/spinlock.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(locking/rtmutex.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(locking/spinlock_debug.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(power/qos.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(power/main.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(power/suspend.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(printk/printk.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(irq/irqdesc.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(irq/handle.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(irq/manage.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(irq/resend.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(irq/chip.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(irq/dummychip.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(irq/devres.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(irq/generic-chip.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(irq/autoprobe.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(irq/irqdomain.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(irq/irq_sim.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(irq/pm.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(rcu/update.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(rcu/srcutiny.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(rcu/tiny.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(dma/mapping.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: kernel/built-in.a(dma/direct.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(freezer.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(profile.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(stacktrace.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(time/time.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(time/timer.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(time/hrtimer.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(time/timekeeping.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(time/clocksource.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(time/jiffies.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(time/timeconv.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(time/timecounter.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(time/alarmtimer.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(time/posix-clock.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(time/clockevents.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(time/tick-common.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(up.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(module.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(kallsyms.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(cgroup/cgroup.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(cgroup/namespace.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(cgroup/cgroup-v1.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(gcov/clang.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(kcov.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(tracepoint.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(trace/trace_clock.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(trace/ring_buffer.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(trace/trace.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(trace/trace_output.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(trace/trace_seq.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(trace/trace_printk.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(trace/trace_preemptirq.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(trace/blktrace.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(trace/trace_events.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(trace/trace_event_perf.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(trace/trace_events_filter.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(trace/trace_events_trigger.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(trace/power-traces.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(trace/rpm-traces.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(irq_work.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(cpu_pm.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(bpf/core.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(events/core.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(events/ring_buffer.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(torture.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(iomem.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: kernel/built-in.a(watch_queue.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(filemap.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(mempool.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(oom_kill.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(fadvise.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(maccess.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(page-writeback.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(readahead.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(swap.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(truncate.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(vmscan.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(shmem.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(util.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(vmstat.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(backing-dev.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(mm_init.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(percpu.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(slab_common.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(list_lru.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(debug.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(gup.o):(".discard.ksym") is being placed in '".discard.ksym"'
+> >> ld.lld: warning: mm/built-in.a(nommu.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(page_alloc.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(memblock.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(dmapool.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(sparse.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(page_poison.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(slab.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(frame_vector.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: mm/built-in.a(usercopy.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(open.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(read_write.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(file_table.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(super.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(char_dev.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(stat.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(exec.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(pipe.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(namei.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(fcntl.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(ioctl.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(readdir.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(select.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(dcache.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(inode.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(attr.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(bad_inode.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(file.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(filesystems.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(namespace.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(seq_file.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(xattr.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(libfs.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(fs-writeback.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(splice.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(sync.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(d_path.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(stack.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(fs_struct.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(statfs.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(nsfs.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(fs_types.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(fs_context.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(fs_parser.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(buffer.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(block_dev.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(direct-io.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(mpage.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(notify/fsnotify.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(notify/notification.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(notify/group.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(notify/mark.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(anon_inodes.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(aio.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(io_uring.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(crypto/crypto.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(crypto/fname.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(crypto/hooks.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(crypto/keyring.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(crypto/keysetup.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(crypto/policy.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(crypto/bio.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(locks.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(mbcache.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(posix_acl.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(nfs_common/grace.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(coredump.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(iomap/buffered-io.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(iomap/direct-io.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(iomap/fiemap.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(iomap/seek.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(quota/dquot.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(quota/quota_tree.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(quota/kqid.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(proc/generic.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(proc/proc_sysctl.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(proc/proc_net.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(kernfs/dir.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(kernfs/file.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(sysfs/file.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(sysfs/dir.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(sysfs/symlink.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(sysfs/group.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(dcookies.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(jbd2/transaction.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(jbd2/journal.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(nfs/client.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(nfs/dir.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(nfs/file.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(nfs/inode.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(nfs/super.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(nfs/direct.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(nfs/pagelist.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(nfs/read.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(nfs/write.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(nfs/namespace.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(nfs/nfstrace.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(nfs/fs_context.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(nfs/nfs3client.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(exportfs/expfs.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(lockd/clntlock.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>    ld.lld: warning: fs/built-in.a(lockd/clntproc.o):(".discard.ksym") is being placed in '".discard.ksym"'
+>
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202009262204.3foBZGl2%25lkp%40intel.com.
 
-map_vdso_randomized() does call map_vdso().  Maybe if we mprotect the
-vdso to be writable, it may be easier to spot the write.
+
 
 -- 
 Thanks,
@@ -197,4 +436,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmTm2rVdc2JTSVVadKP3DONRcPXSE-s3tFPqHgCSieH7Q%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnc9dGor-3FT3DG0U7im7TzR-6u8aHctH%2BNybA%2B4i8b9A%40mail.gmail.com.
