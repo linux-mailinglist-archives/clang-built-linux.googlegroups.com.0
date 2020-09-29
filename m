@@ -1,135 +1,149 @@
-Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBQHEZP5QKGQEZKZ5AFA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDS5JPEL3IIRB27GZP5QKGQE7UZGXBA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
 Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
-	by mail.lfdr.de (Postfix) with ESMTPS id 28AF427BFAA
-	for <lists+clang-built-linux@lfdr.de>; Tue, 29 Sep 2020 10:37:21 +0200 (CEST)
-Received: by mail-wr1-x440.google.com with SMTP id v5sf1469134wrr.0
-        for <lists+clang-built-linux@lfdr.de>; Tue, 29 Sep 2020 01:37:21 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601368641; cv=pass;
+	by mail.lfdr.de (Postfix) with ESMTPS id CC85427BFCC
+	for <lists+clang-built-linux@lfdr.de>; Tue, 29 Sep 2020 10:42:19 +0200 (CEST)
+Received: by mail-wr1-x440.google.com with SMTP id i10sf1451783wrq.5
+        for <lists+clang-built-linux@lfdr.de>; Tue, 29 Sep 2020 01:42:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601368939; cv=pass;
         d=google.com; s=arc-20160816;
-        b=j8k8D9pIvCiwcxGp32OpeNMHQMf5up+CXjLI/clZ2Xn5lX4BIb3inVzqb9MInQ2IRx
-         YiJuzRtY/P9/6JOikN+TT11jduAM/it1csRZvD8EHV0RWW5wVRQBZULffUAhzfsJZT0Q
-         rxR8WxQ7dyCsEFyOBx44FQkpytrWktWPBqXQbNy2Iz5lLGl+jlqPqMN2jUBUApIontAM
-         NRSwaFKXURHZ0RbgO+iwT16a1+lKgxVVBqWpuDOA1LALxSdSSsKjla9AxWvEfnT49I7V
-         ofTpuhctXvfx7cur4aEG5qVY8qXJYNIP1DG6Iy5NhIT8nyeZCyGFX7RrD4t679Qkf6rx
-         ZU6w==
+        b=aOMFl/Pnou2fGpgvrOLLK7pG1iR3QBrVQdmEMSbrnL8OiJJPyZ9qWwrtDO/MgAxlB7
+         HHJJMEhDDs+OW4LEngmRnP15fgJh3hwQg4PTTYLtC7bIawMdYSKQ0Df2BebwC29x91hv
+         cQ0vbsS9Ui1SISBLAaDiTstkIlroDYvQdziR+HKOCKcCei+g00pKpMbSPJ+Lp/m76/SY
+         e9Db0UEE6PanRp3iqTBObTx+1FWs1lNO+IjD0eAcBi/2J2DoIYlFFzGeppDOtwQy5vhl
+         PvZ/lkAMeTQSYmnKu7svMuvYT3Y3UWgu36gPOInN0HNcYouVy4MEyNZVMEeMAO8DpH+C
+         cObg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=2+5QsCTUpQb1OxZhiU/TRv+selRvM5XSpQtqIlB8LTc=;
-        b=FgONDUhm6FEOMW/9WFuLFGupgh+d9gF27Mqld6bckV6SRBoyegMqMAioxiziiKBmA/
-         nxuR5zWE8+mydiTOeCCjOuvt67oVfBswnpHyke3Jhhg85Rns7wBO7692R1TWB7sBJRqr
-         w58MEoj5Glf9qyR+TOYFwoT0aKWWaDKVLtWMeNIIiczrJv2O2OBYH9JHe1kPCK3tsw5b
-         sYhZMxpELIXhO0EvVYEppfrxE6+tBEQ3ztbAIG2e8D6EZwaacLMWt+ZRqzfW5BgTf4MQ
-         JhXjv3upKO6knNgLZ9Z+vbCpxRD2OfOik4iU9C0f1rhxndbCQ6cPMj5eza1Egvl00GYD
-         mMgw==
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :message-id:in-reply-to:subject:cc:to:date:from:sender
+         :dkim-signature:dkim-signature;
+        bh=lUW7kDFcAZutk4YeNSVT4PCdZ71s6odw8iKqVL0aE2k=;
+        b=sZtAZfS9ELDi58WCQ12FnCgDGYJ7mlXh+VPVBOTtoj9MxAi4zrUD5O525l9avyJjpI
+         IWZFXcWNEIAmgPXl9uVK8wCd6zYQN6xFPSGz0jODRFap9y227askWa1oAjNnaqwafp/+
+         P0NMHf1BE5qoxJcbURObH5iIVrxPW7JN8icl3b+FTo02QbFQyZOaow/2FIv5QORCqEMl
+         B4yE7b3Lly4XXITkomgvBoS+/f06Y41kLs9bkNrVIwT8Vtl61OSortvX76TrJQ/MQ5+e
+         fwUCICoKt+60jbifSB+bXKyyK63dslbh0zVJUChRU8SqpNeYDrftN0K6LAPqDiQpQ6P1
+         ohcQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=wWOWiQjk;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=C9E4mLgN;
+       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::644 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:from:date:to:cc:subject:in-reply-to:message-id:references
+         :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=2+5QsCTUpQb1OxZhiU/TRv+selRvM5XSpQtqIlB8LTc=;
-        b=MPf738Y5YEpQu4ZnkbzQtog8fk99+nPLNq586yLUEI0qWVsCVcXyDF5lUpLMLjRKgG
-         SIG+7z+G/cXRiUSSAqmAmwYdeAlnA1YkjQxtdU1Xd78ngIZcGqT4q226iF9CLMXQphuX
-         wdVtfvujixY0cwxZMF1SpQBqvLtIVRm3HPi3bPAF3qHbcvzB+123Ji3IpgImWvkS2H/k
-         G6kD1ZBFrXYuScwsJXXqmSaDLqbhvKPQ/mudryEV02/ZYyYg5udVa7y69riqlI83G3tE
-         eGFRjM0X2n3iRiKudqwvZ0CCyj3Pk39fJIgRUt/rr5sra9crcbbQsnwUdX86uZt2aDSd
-         XnSg==
+        bh=lUW7kDFcAZutk4YeNSVT4PCdZ71s6odw8iKqVL0aE2k=;
+        b=jK0VUXQkbCVcFL8eHAdJgZbMJjpFqs1QkaM2H4toC335nVbb/lxO5yvRr3DNAtU7l0
+         GeHV1QFshB9/gROx7AiMrlpX5f8pMDipyodybU0jfOhtRG8RSzC1WDSpyGdNKRb39zke
+         ArgJsl7rCSWHZG4CCh263dydyNJHOnEDdWrgJfD/cq/cnOAeOjBdJYK1jMyMBjxaPQj3
+         Smwvi9QzXf58hfJxrCDuccX6iqvNSbikRg/ubyNtWdGlvdhX1Aq5AQFRYWqxx99D8UnD
+         Uv6HoybWgnEYkWYqqwjn1iBaFz0gABHYFVYkCM0KPSE0umQWH0N1CDl87wQfOPGVqjzH
+         D8Cw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=from:date:to:cc:subject:in-reply-to:message-id:references
+         :user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=lUW7kDFcAZutk4YeNSVT4PCdZ71s6odw8iKqVL0aE2k=;
+        b=GG6qR+3z4N+eESxjP2jtA6ZGk47ZBRSnDYOor88TGrhD1988j9+vYypRExYbQIgXQ3
+         xOe23SY5n/87Z8rj47DnrZLcD6nA6uZoFAS83MhMiM8CW5TB3YCSlikh77CmvBnV8Ym6
+         FTsG15m55BiyFYP2GOZ+BoBsUFNBZfavJfENtgyutfN+AWxkbPKOTYZta4Cia2onl0gc
+         0Mb0B/LJGzIpOKLUhlGB54BiMzDuFoOVhiOsn9PkFTDJkYnW1S3U9qUV9yMqOCV/gtFp
+         14yF/MzPryhVVLuMZhvieZnBQtxCIHbCORs1B3Ug0joup+dA8yewzbg+/Qvc8Vo/T4Sc
+         bsnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=2+5QsCTUpQb1OxZhiU/TRv+selRvM5XSpQtqIlB8LTc=;
-        b=B8BoSzZkBGAkoN17CkqYYmmwxqaaDlt8N8p71I2nYorJZFPtKbTAtOV2QR1+Wz4BFL
-         Gl0Tf8HzsRu3I72cZYsiMG07gAneMfUlU/qYB9dNlYB4JZvQX/pbiVtqX+Aj+fG9wCW1
-         fmVfAr3ZwwlC77svBrW8U9z9HXikek12LZeqGu7e91Oje7yOrKHRRSPRpWKZ1Zonyj5y
-         zTySftD6e1xcsBf7luNM9cYOkVPjHU+Qn4Vd+S5ZvVWkoc3IxdgL9QXMPSB6hfPsTBZV
-         eyiIASPTM4tNveja7XvDBFNzhtVlvpzV0la+qTxwwT+O+RY6u9SK6TUqISGYIX6rkvsl
-         yeMA==
+        h=sender:x-gm-message-state:from:date:to:cc:subject:in-reply-to
+         :message-id:references:user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=lUW7kDFcAZutk4YeNSVT4PCdZ71s6odw8iKqVL0aE2k=;
+        b=LloSyLA0MBfNk/xNBy2sZGmIJyGfovXR6giAi+pZagWEIGAnGWyaG8gZbB069HkVNZ
+         u43PJDyzOBQV7LLMpFSspnKgfp3wFexSguYIUrMLJCU8ObYSZq7AkEdi5a3tg80GY0Xl
+         UA8EjdFCDYrXIq46tO403zeViOjwcUQMf+N0lSzWmXtREANAYXfVIurf6j6OKGe8zw0i
+         t/3ZMu/0duuf8Gc3nHGAYsWk7UKcdnxuW+AduKNG7HhpCY8jLjhPQrZGO2hRi0KHMpPS
+         TqYFVP4OiRvdtQDCMRUenQSozzJ59lL+HlVqnwVehR1h+GNWua3IOVIG3obZa1cadZhV
+         cTXQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5324ta09M8+9zDQBFX3egni1Z4wPwlFHdFRyt7FyUwAKJoI0Dt1W
-	scux1nMlsQR01cB1fPObKlc=
-X-Google-Smtp-Source: ABdhPJzAIhpcLm6dTHV/ya78JJFZAtWqhXFEhg4E3OZ6ZaNAFlxx8m/vZCQKCGbjjGwHmjv6aDXsnQ==
-X-Received: by 2002:adf:91a4:: with SMTP id 33mr3143938wri.170.1601368640791;
-        Tue, 29 Sep 2020 01:37:20 -0700 (PDT)
+X-Gm-Message-State: AOAM532swH2wRkVl8OLwJsgv4WlfRqLAJap7s+M8q6TsduRrT3O1OS+d
+	g6fSC1EPpZ6Wt+33S6UHjsc=
+X-Google-Smtp-Source: ABdhPJzWO+nV3HkNw/Sh8GY7vM2cwK/CTElWROu1DmdOKajCYGLfFPewhnB+LbBgE2z/5ZJ5EgKg4g==
+X-Received: by 2002:adf:a3db:: with SMTP id m27mr3091966wrb.277.1601368939621;
+        Tue, 29 Sep 2020 01:42:19 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:e3c3:: with SMTP id k3ls346880wrm.1.gmail; Tue, 29 Sep
- 2020 01:37:19 -0700 (PDT)
-X-Received: by 2002:adf:9e41:: with SMTP id v1mr3217337wre.60.1601368639821;
-        Tue, 29 Sep 2020 01:37:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601368639; cv=none;
+Received: by 2002:a05:6000:8:: with SMTP id h8ls368067wrx.3.gmail; Tue, 29 Sep
+ 2020 01:42:18 -0700 (PDT)
+X-Received: by 2002:adf:ec4d:: with SMTP id w13mr3056267wrn.334.1601368938560;
+        Tue, 29 Sep 2020 01:42:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601368938; cv=none;
         d=google.com; s=arc-20160816;
-        b=zytJphjRBB7OFkHyLjPDgfJ6l9SwZOCGD1uVveIteneZ7wBIvv/F1SR3fHvxfxWYzY
-         agoiNS7tmGdqk4aTyFhcaf/ZtG4XxBJ6b+UpClD3AaA5WNuj5ZsyIs4NC5BCMcTXcCvH
-         eREBlcLULPugO6PGedV6MxljGLDnmXeEFDkeSuz+0hViF+dp2Ao/8EiD9ivS75CTJOa5
-         j56KvuHAYptaO5E8dtkD2O9dFFmHcgWC6RghZLX3SCUquV8Jpw/LH04xHjLyo7CCj6zV
-         34aryka7lbAFCzX25VRf5x1SBb70QSsoccKJjvHeZ7b/KixZJ7fqZydF9ARsaZ5YuTQn
-         ApZA==
+        b=AqZldvbuy2k9e8EDYAa0AMk/5hZVlI+R8AyHV577uOW/mezFPSHWlB3zUuFZ0pMuV8
+         HjLl3SBKV+smjPoOqL4k8cCw5DDHdC9+Rbut0COK2POcunL7kmzYcGOfTJfjsYn2yItg
+         Kc5jeuNA/nXYJf5QpVEh+rK3Z0hcYDrHGFwxX9M/LqO3b+1W7pGw52ZSfKC4ugkA7E5x
+         pDd8TKJWKyAlj0Kc7m9y3dzVLla1v9hLpcXai8oCWAMcsYSMhjXNnI0twN1XO1MVkAgJ
+         VlCp7xy2iEgT5SBlTeUzx2jZ6y8XFoTeN+rXc9y5izF966SGCVIKqi3VAnbLs3g4KbAt
+         pWig==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=v5vnDoRc4ZKtko7VMYgaivypIuJCC2NRDarrflWRAvg=;
-        b=SaBaIwfqMDCRZnOYY6sBrYYuHhZVt7A8AgbiPUO2U8ppILZxP6W2xHAIPSHPQou2y3
-         OQuQFmDUYEHVVYe8sZKwlRjPid5igP2G5wym71BjcolESWjqeXh0L2WbZ6qfoZ80Ndmb
-         ZDo2qqPG1NK8IzR69kwlw5HF4kTPmBb+EJE8XVYLLoj6+4gXM59AmqsfEAnrr8/4x0Wf
-         Aqz0kwvTZvMay4XrpyfBx/bKbC8cgPUf7vEHgAC3RZqhwgRmYiu19bqAAHdt/yCYs1SB
-         G043mcvIPcZqbcO/vvZaiRcC/4at8q/fxuJwNkEa1ZiYHUsEafnYYmA6wE9aZcbXVhWZ
-         eecA==
+        h=mime-version:user-agent:references:message-id:in-reply-to:subject
+         :cc:to:date:from:dkim-signature;
+        bh=lMOqo3ypO/SZ3oHUy6euRnuasGkm67DC6ZbiwUFwB8M=;
+        b=U+zJ+k0fTA7AjjCMexnyCFOlRmYcXYOU8JPA5PloekUY2hXIjbawT2V9jb8+JsNZlQ
+         worBr4nHfOgxn/0aLFJtTC8JaA3eobchdCMSExnlXenOYtvLcRF94CVdAW+0gPLE/efj
+         LbOvFbgQMiuSZ6nwQOGqOaDUiL6MrY1p9Px7vkbSiaC8Q80QQpgwIWPVxwka5rXzDmub
+         5a0XWHvb58JOfYi1GFbgNMwPAzoqPiCAy7XcN9ihQsqa/ScNVbpG6e6rcXHMDzwH9rFR
+         RqfJywEIv/BiwU85S/q9pfj29+Pk093r9/Pzu1pkX4senNbaj8GN27BegAKpUYwRgZKR
+         R0mA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=wWOWiQjk;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
-Received: from casper.infradead.org (casper.infradead.org. [2001:8b0:10b:1236::1])
-        by gmr-mx.google.com with ESMTPS id z62si96564wmb.0.2020.09.29.01.37.19
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=C9E4mLgN;
+       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::644 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-ej1-x644.google.com (mail-ej1-x644.google.com. [2a00:1450:4864:20::644])
+        by gmr-mx.google.com with ESMTPS id w10si119358wma.1.2020.09.29.01.42.18
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Sep 2020 01:42:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::644 as permitted sender) client-ip=2a00:1450:4864:20::644;
+Received: by mail-ej1-x644.google.com with SMTP id r7so13786845ejs.11
+        for <clang-built-linux@googlegroups.com>; Tue, 29 Sep 2020 01:42:18 -0700 (PDT)
+X-Received: by 2002:a17:906:f755:: with SMTP id jp21mr326002ejb.97.1601368938287;
+        Tue, 29 Sep 2020 01:42:18 -0700 (PDT)
+Received: from felia ([2001:16b8:2d89:9100:6c4a:28e4:c658:86f9])
+        by smtp.gmail.com with ESMTPSA id u9sm4528036eje.119.2020.09.29.01.42.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2020 01:37:19 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) client-ip=2001:8b0:10b:1236::1;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kNB8J-00031e-Pr; Tue, 29 Sep 2020 08:37:12 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 60639303F45;
-	Tue, 29 Sep 2020 10:37:09 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 42614211CC1CA; Tue, 29 Sep 2020 10:37:09 +0200 (CEST)
-Date: Tue, 29 Sep 2020 10:37:09 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Lukas Bulwahn <lukas.bulwahn@gmail.com>
-Cc: Balbir Singh <sblbir@amazon.com>, Thomas Gleixner <tglx@linutronix.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andy Lutomirski <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
-	kernel-janitors@vger.kernel.org, linux-safety@lists.elisa.tech
-Subject: Re: [PATCH -next for tip:x86/pti] x86/tlb: drop unneeded local vars
- in enable_l1d_flush_for_task()
-Message-ID: <20200929083709.GC2651@hirez.programming.kicks-ass.net>
-References: <20200928124457.27289-1-lukas.bulwahn@gmail.com>
- <20200929071211.GJ2628@hirez.programming.kicks-ass.net>
+        Tue, 29 Sep 2020 01:42:17 -0700 (PDT)
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Tue, 29 Sep 2020 10:42:15 +0200 (CEST)
+X-X-Sender: lukas@felia
+To: Dave Hansen <dave.hansen@intel.com>
+cc: Lukas Bulwahn <lukas.bulwahn@gmail.com>, 
+    Dave Hansen <dave.hansen@linux.intel.com>, 
+    Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+    Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+    Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+    "H. Peter Anvin" <hpa@zytor.com>, 
+    Nathan Chancellor <natechancellor@gmail.com>, 
+    Nick Desaulniers <ndesaulniers@google.com>, linux-kernel@vger.kernel.org, 
+    clang-built-linux@googlegroups.com, kernel-janitors@vger.kernel.org, 
+    linux-safety@lists.elisa.tech
+Subject: Re: [PATCH] x86/mm: drop superfluous initialization
+In-Reply-To: <1d376c1f-2f14-5c29-671e-ca59853fa4a4@intel.com>
+Message-ID: <alpine.DEB.2.21.2009291034160.17656@felia>
+References: <20200928100004.25674-1-lukas.bulwahn@gmail.com> <1d376c1f-2f14-5c29-671e-ca59853fa4a4@intel.com>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200929071211.GJ2628@hirez.programming.kicks-ass.net>
-X-Original-Sender: peterz@infradead.org
+X-Original-Sender: lukas.bulwahn@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=casper.20170209 header.b=wWOWiQjk;
-       spf=pass (google.com: best guess record for domain of
- peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
+ header.i=@gmail.com header.s=20161025 header.b=C9E4mLgN;       spf=pass
+ (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::644
+ as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,93 +156,59 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Sep 29, 2020 at 09:12:11AM +0200, Peter Zijlstra wrote:
-> On Mon, Sep 28, 2020 at 02:44:57PM +0200, Lukas Bulwahn wrote:
-> > diff --git a/arch/x86/mm/tlb.c b/arch/x86/mm/tlb.c
-> > index 6b0f4c88b07c..90515c04d90a 100644
-> > --- a/arch/x86/mm/tlb.c
-> > +++ b/arch/x86/mm/tlb.c
-> > @@ -316,7 +316,7 @@ EXPORT_SYMBOL_GPL(leave_mm);
-> >  
-> >  int enable_l1d_flush_for_task(struct task_struct *tsk)
-> >  {
-> > -	int cpu, ret = 0, i;
-> > +	int i;
-> >  
-> >  	/*
-> >  	 * Do not enable L1D_FLUSH_OUT if
-> > @@ -329,7 +329,7 @@ int enable_l1d_flush_for_task(struct task_struct *tsk)
-> >  			!static_cpu_has(X86_FEATURE_FLUSH_L1D))
-> >  		return -EINVAL;
-> >  
-> > -	cpu = get_cpu();
-> > +	get_cpu();
-> >  
-> >  	for_each_cpu(i, &tsk->cpus_mask) {
-> >  		if (cpu_data(i).smt_active == true) {
-> > @@ -340,7 +340,7 @@ int enable_l1d_flush_for_task(struct task_struct *tsk)
-> >  
-> >  	set_ti_thread_flag(&tsk->thread_info, TIF_SPEC_L1D_FLUSH);
-> >  	put_cpu();
-> > -	return ret;
-> > +	return 0;
-> >  }
-> 
-> If you don't use the return value of get_cpu(), then change it over to
-> preempt_{dis,en}able(), but this got me looking at the function, wtf is
-> that garbage supposed to do in the first place
-> 
-> What do we need to disable preemption for?
-> 
-> Please explain the desired semantics against sched_setaffinity().
 
-Here, I fixed it..
 
----
- arch/x86/mm/tlb.c | 24 +++---------------------
- 1 file changed, 3 insertions(+), 21 deletions(-)
+On Mon, 28 Sep 2020, Dave Hansen wrote:
 
-diff --git a/arch/x86/mm/tlb.c b/arch/x86/mm/tlb.c
-index 6b0f4c88b07c..f02a2f1909da 100644
---- a/arch/x86/mm/tlb.c
-+++ b/arch/x86/mm/tlb.c
-@@ -316,31 +316,13 @@ EXPORT_SYMBOL_GPL(leave_mm);
- 
- int enable_l1d_flush_for_task(struct task_struct *tsk)
- {
--	int cpu, ret = 0, i;
--
--	/*
--	 * Do not enable L1D_FLUSH_OUT if
--	 * b. The CPU is not affected by the L1TF bug
--	 * c. The CPU does not have L1D FLUSH feature support
--	 * c. The task's affinity is on cores with SMT on.
--	 */
--
- 	if (!boot_cpu_has_bug(X86_BUG_L1TF) ||
--			!static_cpu_has(X86_FEATURE_FLUSH_L1D))
-+	    !boot_cpu_has(X86_FEATURE_FLUSH_L1D) ||
-+	    sched_smt_active());
- 		return -EINVAL;
- 
--	cpu = get_cpu();
--
--	for_each_cpu(i, &tsk->cpus_mask) {
--		if (cpu_data(i).smt_active == true) {
--			put_cpu();
--			return -EINVAL;
--		}
--	}
--
- 	set_ti_thread_flag(&tsk->thread_info, TIF_SPEC_L1D_FLUSH);
--	put_cpu();
--	return ret;
-+	return 0;
- }
- 
- int disable_l1d_flush_for_task(struct task_struct *tsk)
+> On 9/28/20 3:00 AM, Lukas Bulwahn wrote:
+> > diff --git a/arch/x86/mm/init.c b/arch/x86/mm/init.c
+> > index c7a47603537f..5632f02146ca 100644
+> > --- a/arch/x86/mm/init.c
+> > +++ b/arch/x86/mm/init.c
+> > @@ -609,7 +609,7 @@ static void __init memory_map_top_down(unsigned long map_start,
+> >  	step_size = PMD_SIZE;
+> >  	max_pfn_mapped = 0; /* will get exact value next */
+> >  	min_pfn_mapped = real_end >> PAGE_SHIFT;
+> > -	last_start = start = real_end;
+> > +	last_start = real_end;
+> 
+> Thanks for finding this.
+> 
+> This becomes even more obviously correct if we just move the 'start'
+> declaration into the while() loop.  If we do that, it puts the three
+> assignment locations right next to the definition, and its trivial to
+> spot that the initialization was not missed:
+> 
+>         while (last_start > map_start) {
+> 		unsigned long start;
+> 
+>                 if (last_start > step_size) {
+>                         start = round_down(last_start - 1, step_size);
+>                         if (start < map_start)
+>                                 start = map_start;
+>                 } else
+>                         start = map_start;
+> 		...
+>
+
+Agree, this point is simply a question of style:
+
+Shall local variables be defined as "local" as possible or simply 
+consistently at the beginning of each function?
+
+If there are no strong opinions of style, I would just keep this patch 
+as-is.
+
+> Either way, your patch looks correct to me:
+> 
+> Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
+> 
+
+Thanks for the Ack.
+
+Lukas
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200929083709.GC2651%40hirez.programming.kicks-ass.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/alpine.DEB.2.21.2009291034160.17656%40felia.
