@@ -1,141 +1,127 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBR62ZH5QKGQEEZD5GSA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABB6U7ZL5QKGQEPMF5GZY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc40.google.com (mail-oo1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0292D27B781
-	for <lists+clang-built-linux@lfdr.de>; Tue, 29 Sep 2020 01:10:01 +0200 (CEST)
-Received: by mail-oo1-xc40.google.com with SMTP id t23sf1081901ooc.13
-        for <lists+clang-built-linux@lfdr.de>; Mon, 28 Sep 2020 16:10:00 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601334600; cv=pass;
+Received: from mail-pj1-x103a.google.com (mail-pj1-x103a.google.com [IPv6:2607:f8b0:4864:20::103a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 016CB27BA55
+	for <lists+clang-built-linux@lfdr.de>; Tue, 29 Sep 2020 03:38:04 +0200 (CEST)
+Received: by mail-pj1-x103a.google.com with SMTP id fs5sf2218958pjb.7
+        for <lists+clang-built-linux@lfdr.de>; Mon, 28 Sep 2020 18:38:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601343482; cv=pass;
         d=google.com; s=arc-20160816;
-        b=I4dsTpzLGAkujTuKd81KgdiQ7v4lbsnJJgPXHSaruIlJLnUW1E/j8rKcasWqCLu60l
-         net5cHjG9Xf34V/5rCHBhMzEiHyLSJj4JD9Y+KDVZS+d0MsZg+oV/GphskaKxIZls2MJ
-         2CrAf4VDRwYbVreEYmKMjuY/cRrSrZoqKzkh1uBg+okMY6hfV4zimG+z0kX/kSmDS8GA
-         plrNG0G0Vg+EMc/twHpVQnRUyg59GplHp7Z6W2wyuuIzsIBUZqEcc6FshUxhH7Sc2EUe
-         13MxcLbQDiOVuZ1vyg97nHR6HewYdgva0jn/hQhL3KhReeM5mfeOaRZaN4LKG4mC/6cG
-         ANNA==
+        b=db+LaCn2mLqpvUD5BY/c3mLYQL8KMWfZkGGnHkdLRrL3RrJXJTJx669iFu4f7psLi+
+         JhbKhDL9K01oYLxTXNM8pPLdDOJgah5Aa3wPUagLPeu5w0EtyBl7Cv5XxxlU/Xbn55k0
+         hjNiVZHHzpzp8B9UW7sQKw/Nf8oHJkhn27zN+ItDDRJWRFxnGCfA3hsUd4wgUo6/6yCd
+         vceJ1m+NhmpgLtCed3pHpXvKwBN1nKK8Y2Dy76R5Vuyj2+sfbgj175CrVkYHMBl/niDl
+         9oCNIQbXXqHronAMv0tIWa34wSBuIkjApSjHx+soTGuE6jkNn9PPapbPPDMAav8EL8Gc
+         kkcA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature:dkim-signature;
-        bh=ubGdYOfFDNfZeBIBut+deVvc7CEQCp5JnqDvohMsD5M=;
-        b=T3gHI9U0OolOQFfRsPiZVmjdDjxtNcC/2sMMRQdfpPNzcCt3sNpaoxTF8JzYxPcp91
-         MfF6NOrspxrn5Cwskrskb5tfyLKQ2M08YgMc3pkRR2eCWExl2A/9j7u2q1VmpmtY7isY
-         Y2/jEbmGRdYKjAZMq09r2s0SasQNR2LSEfVbbzALq4FCKMiQ8Z2RHAdiwUzZPZGt5kMj
-         nEVPpGkcX4Xcv7y0EyEhJRhnuMccQYdRJZwVBC3tlOLxZ677bIiSUMQ/w8WHfTNlLqcB
-         8UTeifwDeGS4yMIYH3fbDg9Jdcr1HAfklmotwQNlx2O5GKuzrCqxaviSdBG6O/8QeGmm
-         0L1A==
+         :list-id:mailing-list:precedence:in-reply-to:mime-version:user-agent
+         :date:message-id:from:references:cc:to:subject:sender:dkim-signature;
+        bh=qxHiD3WdG/aUWjEwGaLxWMxK+2w9Ze0fxXmrlnNfEuA=;
+        b=JeV2XCGl4CBB6dHbV+7erefmVyWBtgJVjGGK/CUWhcHVBSK8TSuhb1gmQ4Sj/VDn9L
+         8CvGM9Ljd87iAWbsDqBMyLeQqXXdh7a16YpLP5BVJVC5HyVCiCE9PGUp0YfgkdwbS6SK
+         f39VlWdu/2Z65wioszrTSxFqiKK7NPc3AwKjraclpeC43TtPDDBpDTyPmYsVuBmjA8xK
+         vl4ZxJ0H1JSMdA2NHy4A71XLl6mDF7GdHWGrQ6G3IvfBFJXgWuSAXzAH6lmYHjPQVqH8
+         etGRGKYvoPvIyu1xHsn8BF5xVEULMAPwzNPT6cKpbqIPodq89loRkys0EL5Cv9A6o2Uk
+         nFAg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=G+4Y7xPK;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of yukuai3@huawei.com designates 45.249.212.35 as permitted sender) smtp.mailfrom=yukuai3@huawei.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=ubGdYOfFDNfZeBIBut+deVvc7CEQCp5JnqDvohMsD5M=;
-        b=OGLdfv0ns2y2d28youj8k/GyhxirVP1RbCay9dwZayEYMPXzMoMr+WFOGk9Xk5VRHf
-         QjuEqievO75bV5rn7OqaiDtnOlsewJzZr4OPjC1IduyBI/dOnhcNOt/+jvPV1X69x1fU
-         95yLHrs4qCJ449nhmAl4kNxsSlMGW0tnESQRI97DSDflZRU8ZtXfbRB7Ptv/3nFurCay
-         2tHhKMqfvLisKZHtzqz1b6A/4LgMnagQ2+6xXOEgLYEH/SovgoZizmvKmYs7oyX+ehxq
-         MQsafOQ64lTA0clFbmPrk312t2knMCVovB3cIcpFVkgA/ckAQaVY6pcHyD4RT02QwrSI
-         H3lg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ubGdYOfFDNfZeBIBut+deVvc7CEQCp5JnqDvohMsD5M=;
-        b=KWoYVoeNSuWVlAii+P689eME7opegWz8j/R4Zr2ApwvvdLNkmDqts+FLpT1wE98JRZ
-         fBcK7P7r6pJOXZz1DvEeQnzOdc38wySy2CV5QWArgd7TtTDoqCpxuvSqGHpgz+iB/9Ri
-         rM1bFi+nsb5dZVVZ0L9ik931x8IEZVVpMqWMJe3ukiGFa9zKPcj9RJwFk1/RF1UNO0+k
-         MblpmkkqnqRlyCkguMmLZ72HSzb1R3UDMabRUZ7M2dO78vQilwAXgDJ5kwr9dQJT3Nov
-         CkvD/HyBqp6qlmnUyKI3/RXxmrxN0vjCRNJIXlKyaBfyzNVIGmHhAS0SM5IHVFm/iQeJ
-         sWtQ==
+        bh=qxHiD3WdG/aUWjEwGaLxWMxK+2w9Ze0fxXmrlnNfEuA=;
+        b=c9JZHG0plZW2FLPXLcEYgzAz9B6+fq0MXMUbSRKVqHp4EKhXQmfNaZbIVfDvu829qI
+         KCXfF/0jDWeGIz8gc68DPvndO1OKDxAqx/Uw7Q/uo1fotm59akFCRe41TNEhnCwefEvA
+         tKxmHUyPK6by/+huTLh1AY6xZojNCSFie2U744hbRXHZYZ1YRbJBqzg4JiS0+YJymejk
+         xWwt0Dsen3TAZzJJhFKA8kE2pFOBxByrHZSVWOoy2+24VinvVpcDxAHk8xKfOHLScE9H
+         P7ylg1CGIPS8m+Ryc/07mD8a8tFHja06YjG1wNBt5KJsLWey3xm5Mjv3WxiI/UqVacfs
+         IvvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ubGdYOfFDNfZeBIBut+deVvc7CEQCp5JnqDvohMsD5M=;
-        b=IafY6bc7l1/ZxLsirFS2wqrWnC5mF3WL34digQ2x3MhqLmG4Ozk9IsqHnBpuFBfyB6
-         ZHMw8FfEgCcZUB/CupNTsQt2bKFNCbRlODk7jIMJE4VNYPBxRAb/ys2g7rFvM7FqDWbX
-         Ov1N1t+Iped/W6A05SXQbZpN55bHh/yiU5aKM519VVNLV3fk+1NPzSFX4A8toeAYEah6
-         jVSX9qW0cOOXph/dsAPjkRRqub6f/mKLnfxm4ppzR9RDLA9sPg1SC9IIxniXQ+bmvh0d
-         PnPQ6HUxjFnumSB48CHTbMoNeNfjDE6tVYhJwKgkw9K2i5uVkydi3FT6KO8HSigivbDf
-         lREQ==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=qxHiD3WdG/aUWjEwGaLxWMxK+2w9Ze0fxXmrlnNfEuA=;
+        b=eqA2ZaSCd3FNFu8z0vG4VlNkTtzcRelRdRLc5P4t8lY9dC0i7n1CvrDyCV7URZ1Ova
+         DmFgSylXlNTBCib66bLeg226vBg69olTfrpljm78/iaIGvkkgFzjeHnlS+W39itpufMo
+         DVQDoQVcLsljpvJF7qSDYo0GYCkVe3j6cDyFPvN3ZeiSlcwhYhSopO8gt3sK5/4xuI6i
+         PtYp83pop6zEiH8+bwoz/pn5jqvcg2a9vZhSykgUrJvBRvFYuPxSraWTho+X7SG3rWTf
+         L22uBxYAGUFFdDw7ZNqUWOfWORYhHxfKKd2jknCXtEdndWdpWWn3ZFVJl2HMfUyvITet
+         gROg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531IM1ZFQ5mw65PZoGyDq/W4Oc5QwYQxbxSnZzHQcEGd6Z92WlrV
-	2ZePZrPh5A5wLaY7P5/deGk=
-X-Google-Smtp-Source: ABdhPJzbmRz26dpDCeNywWH65+NU3VrcWE/45NvuDAbtJQyJ7ods/D+2wFguyv+N05mdS2CL3aFWLw==
-X-Received: by 2002:a4a:b30d:: with SMTP id m13mr2456232ooo.50.1601334599941;
-        Mon, 28 Sep 2020 16:09:59 -0700 (PDT)
+X-Gm-Message-State: AOAM532aWGkydkYwCAN2eGFvLz+wHwvdh8jn8NW9YYbd+XVr0ekJebcj
+	UAtVnni7x907HDpparD53/c=
+X-Google-Smtp-Source: ABdhPJyH6vdk9d8hWmvjVmcijiTMwdqZQN9PCp3LokmLAXBjQsWRW36ASj4kQaJZCzQS6+d3WQKy1Q==
+X-Received: by 2002:a17:902:7608:b029:d0:cbe1:e70e with SMTP id k8-20020a1709027608b02900d0cbe1e70emr2174759pll.28.1601343482421;
+        Mon, 28 Sep 2020 18:38:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:72ca:: with SMTP id p193ls599619oic.3.gmail; Mon, 28 Sep
- 2020 16:09:59 -0700 (PDT)
-X-Received: by 2002:aca:3158:: with SMTP id x85mr805692oix.112.1601334599628;
-        Mon, 28 Sep 2020 16:09:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601334599; cv=none;
+Received: by 2002:a17:90b:4812:: with SMTP id kn18ls609680pjb.0.gmail; Mon, 28
+ Sep 2020 18:38:02 -0700 (PDT)
+X-Received: by 2002:a17:90a:178e:: with SMTP id q14mr1756271pja.154.1601343481910;
+        Mon, 28 Sep 2020 18:38:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601343481; cv=none;
         d=google.com; s=arc-20160816;
-        b=XsGziZzzwzikkWWB53QpUwdi0VA8vnqegwLp7VDT8tdP4pk5CXQaWAMrNsCT7/e5LF
-         BFwxlJBvNoN7Hiea465WX3w+8mKo2O56wkKzqSnDJfQPZJITaoLw5c487EuiYnbf+AA3
-         lh9jB9l9V69uth6URxOUHN6Ix5J+0H/zZuawXjrDsNAkV+4TZSeKiGLWs8XlBR/rpYw0
-         6rpj3MB48klgeeV2NVTpdOfwNb87mmDzviG3xCXHE8M8wHWUlgWT2ijwHEtSlV34GDl6
-         WaUK/ykXLPul+lKZaLQlR5u+61yHaJ+mlZE8L1THArecPmJaOmVP1RWlDJiE9t5RtBy7
-         iOGg==
+        b=veLYsjaPrDTx4HgNGJ+hLabph+SrT/RVUNDCgxtm5IRMdTmAEAn029qMaTnCv9MyJ/
+         k//BK/cLVBiy9ps2v3CeC7G2nMe+6WaCGFvTfDQviru9ERxyba2f+EQ0Naw4NBHl4msB
+         0Hhferm15UcnU3kQVAwY47NPbIY0DlIr+fdpysn+A6wNK5R7SbtlNonhZwG2vQXoEsX0
+         /cZc9pkpbc3UK9NJ4XhTMmqu7/HXczL5H6WgQZdSOtrBOjC5zn7h+3CixryTY6lEy/9+
+         QkbA3URWCquY3YGJB2RUjaP4eRZdIPAEduDCzGBhUjQUhkn8lcwcWb9NdBB55wsMZBtY
+         DoHA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=zHbi8BQw4tLw7R6QaxvOI8q15BGzFHU+jorKQdIZSUY=;
-        b=nUsOGhbohVVSgdiwedFllqzaOAtJJiIM7cubhEzMNksCljOuH1EPHY8BnEMPgzoSdF
-         a9yInghNYSYqkWNfhatq3a3EKVLPlP4F3N0ubFtIGu8CcbZk9CpBO4n2dTWGb1uTzyvk
-         Jv32WLkDDPRduBni4wsg0CXF+Ll1X3WziVuwoZ0DAXTCTJZKoWxLTSf3BeJWI+gW+/YA
-         2YzJfF1njUdtOheNY2qk2l+NAQBhSStuDizK+a8L5q/cN+EphbqEfPiEX473WjHWd0SG
-         8Vs7rxtGA4navs2VOcFp1yP5waoXmjAewOp/Y/d064sqf6lN6i68CJX97mIbqXAzbg0w
-         5/Vw==
+        h=content-transfer-encoding:in-reply-to:mime-version:user-agent:date
+         :message-id:from:references:cc:to:subject;
+        bh=n3ykf4RZJuSHTmn3aSesZCpYzIh5ElL7u6zHBZU8PQI=;
+        b=tYx+4FpPDsSCQ0bHtKEGyZYCxgSIWdgf7eWo7uYtpqMVSSWkNWe2iddevxIRbD3iEB
+         N60ZC+FowxD+VGHhIdP4NnV9lKCIUL0rUlKC88afQ2+yjPGij/NqyjFW43hi4cJy0t3M
+         kdpuclffOYVeLdtkW2LTaNBF0wg4ZWVQzmf8PfOWHkb44Gn5Dd7k4CSVKyZHvW4HkJO6
+         WF56DP+CKhwU6ZhvcYjjqlrfwEe4YpSRBl0cqIMGza37CSxo0lAniQI7Wy0Wcx7+CKki
+         F7TtdClT7t4K5LHjGEmInMTVxxxoyabEKzhXAm0SKCGelBodjIUia8e659kSx+eDzWvx
+         zc3Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=G+4Y7xPK;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qk1-x744.google.com (mail-qk1-x744.google.com. [2607:f8b0:4864:20::744])
-        by gmr-mx.google.com with ESMTPS id m3si285525otk.4.2020.09.28.16.09.59
+       spf=pass (google.com: domain of yukuai3@huawei.com designates 45.249.212.35 as permitted sender) smtp.mailfrom=yukuai3@huawei.com
+Received: from huawei.com (szxga07-in.huawei.com. [45.249.212.35])
+        by gmr-mx.google.com with ESMTPS id lx5si49569pjb.2.2020.09.28.18.38.01
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Sep 2020 16:09:59 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::744 as permitted sender) client-ip=2607:f8b0:4864:20::744;
-Received: by mail-qk1-x744.google.com with SMTP id q5so2706911qkc.2
-        for <clang-built-linux@googlegroups.com>; Mon, 28 Sep 2020 16:09:59 -0700 (PDT)
-X-Received: by 2002:a37:ef05:: with SMTP id j5mr1792884qkk.456.1601334599120;
-        Mon, 28 Sep 2020 16:09:59 -0700 (PDT)
-Received: from localhost.localdomain ([2604:1380:45d1:2600::1])
-        by smtp.gmail.com with ESMTPSA id y22sm2848538qka.18.2020.09.28.16.09.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Sep 2020 16:09:58 -0700 (PDT)
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Ingo Molnar <mingo@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Josh Poimboeuf <jpoimboe@redhat.com>,
-	"Steven Rostedt (VMware)" <rostedt@goodmis.org>
-Cc: linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Nathan Chancellor <natechancellor@gmail.com>
-Subject: [PATCH] static_call: Fix return type of static_call_init
-Date: Mon, 28 Sep 2020 16:09:39 -0700
-Message-Id: <20200928230939.5574-1-natechancellor@gmail.com>
-X-Mailer: git-send-email 2.28.0
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 28 Sep 2020 18:38:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of yukuai3@huawei.com designates 45.249.212.35 as permitted sender) client-ip=45.249.212.35;
+Received: from DGGEMS412-HUB.china.huawei.com (unknown [172.30.72.60])
+	by Forcepoint Email with ESMTP id 12EF7EE1E3DDF35918F3;
+	Tue, 29 Sep 2020 09:37:58 +0800 (CST)
+Received: from [10.174.179.62] (10.174.179.62) by
+ DGGEMS412-HUB.china.huawei.com (10.3.19.212) with Microsoft SMTP Server id
+ 14.3.487.0; Tue, 29 Sep 2020 09:37:48 +0800
+Subject: Re: [PATCH] iommu/qcom: add missing put_device() call in
+ qcom_iommu_of_xlate()
+To: Will Deacon <will@kernel.org>, kernel test robot <lkp@intel.com>
+CC: <robdclark@gmail.com>, <joro@8bytes.org>, <kbuild-all@lists.01.org>,
+	<clang-built-linux@googlegroups.com>, <iommu@lists.linux-foundation.org>,
+	<linux-arm-msm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <yi.zhang@huawei.com>
+References: <20200918011357.909335-1-yukuai3@huawei.com>
+ <202009220340.bJfsaeQn%lkp@intel.com>
+ <20200921204556.GB3811@willie-the-truck>
+ <20200928230835.GA12939@willie-the-truck>
+From: "yukuai (C)" <yukuai3@huawei.com>
+Message-ID: <3a2d2c51-dd4f-8384-805a-c91413ce4373@huawei.com>
+Date: Tue, 29 Sep 2020 09:37:47 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.8.0
 MIME-Version: 1.0
-X-Patchwork-Bot: notify
-X-Original-Sender: natechancellor@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=G+4Y7xPK;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Content-Type: text/plain; charset="UTF-8"
+In-Reply-To: <20200928230835.GA12939@willie-the-truck>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+X-Originating-IP: [10.174.179.62]
+X-CFilter-Loop: Reflected
+X-Original-Sender: yukuai3@huawei.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of yukuai3@huawei.com designates 45.249.212.35 as
+ permitted sender) smtp.mailfrom=yukuai3@huawei.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,84 +134,54 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Functions that are passed to early_initcall should be of type
-initcall_t, which expects a return type of int. This is not currently an
-error but a patch in the Clang LTO series could change that in the
-future.
 
-Fixes: 9183c3f9ed71 ("static_call: Add inline static call infrastructure")
-Link: https://lore.kernel.org/lkml/20200904044559.GA507165@ubuntu-n2-xlarge-x86/
-Link: https://lore.kernel.org/lkml/20200903203053.3411268-17-samitolvanen@google.com/
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
----
- include/linux/static_call.h | 6 +++---
- kernel/static_call.c        | 5 +++--
- 2 files changed, 6 insertions(+), 5 deletions(-)
+On 2020/09/29 7:08, Will Deacon wrote:
+> On Mon, Sep 21, 2020 at 09:45:57PM +0100, Will Deacon wrote:
+>> On Tue, Sep 22, 2020 at 03:13:53AM +0800, kernel test robot wrote:
+>>> Thank you for the patch! Perhaps something to improve:
+>>>
+>>> [auto build test WARNING on iommu/next]
+>>> [also build test WARNING on linus/master v5.9-rc6 next-20200921]
+>>> [cannot apply to robclark/msm-next]
+>>> [If your patch is applied to the wrong git tree, kindly drop us a note.
+>>> And when submitting patch, we suggest to use '--base' as documented in
+>>> https://git-scm.com/docs/git-format-patch]
+>>>
+>>> url:    https://github.com/0day-ci/linux/commits/Yu-Kuai/iommu-qcom-add-missing-put_device-call-in-qcom_iommu_of_xlate/20200918-091341
+>>> base:   https://git.kernel.org/pub/scm/linux/kernel/git/joro/iommu.git next
+>>> config: arm64-randconfig-r023-20200920 (attached as .config)
+>>> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 4e8c028158b56d9c2142a62464e8e0686bde3584)
+>>> reproduce (this is a W=1 build):
+>>>          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>>>          chmod +x ~/bin/make.cross
+>>>          # install arm64 cross compiling tool for clang build
+>>>          # apt-get install binutils-aarch64-linux-gnu
+>>>          # save the attached .config to linux build tree
+>>>          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64
+>>>
+>>> If you fix the issue, kindly add following tag as appropriate
+>>> Reported-by: kernel test robot <lkp@intel.com>
+>>>
+>>> All warnings (new ones prefixed by >>):
+>>>
+>>>>> drivers/iommu/arm/arm-smmu/qcom_iommu.c:601:4: warning: misleading indentation; statement is not part of the previous 'if' [-Wmisleading-indentation]
+>>>                             return -EINVAL;
+>>>                             ^
+>>>     drivers/iommu/arm/arm-smmu/qcom_iommu.c:599:3: note: previous statement is here
+>>>                     if (WARN_ON(qcom_iommu != dev_iommu_priv_get(dev)))
+>>
+>> Oh, this looks like a nasty bug. Seems we're missing some braces.
+> 
+> Yu Kuai: please could you send a v2 of this?
+> 
 
-diff --git a/include/linux/static_call.h b/include/linux/static_call.h
-index bfa2ba39be57..695da4c9b338 100644
---- a/include/linux/static_call.h
-+++ b/include/linux/static_call.h
-@@ -136,7 +136,7 @@ extern void arch_static_call_transform(void *site, void *tramp, void *func, bool
- 
- #ifdef CONFIG_HAVE_STATIC_CALL_INLINE
- 
--extern void __init static_call_init(void);
-+extern int __init static_call_init(void);
- 
- struct static_call_mod {
- 	struct static_call_mod *next;
-@@ -187,7 +187,7 @@ extern int static_call_text_reserved(void *start, void *end);
- 
- #elif defined(CONFIG_HAVE_STATIC_CALL)
- 
--static inline void static_call_init(void) { }
-+static inline int static_call_init(void) { return 0; }
- 
- struct static_call_key {
- 	void *func;
-@@ -234,7 +234,7 @@ static inline int static_call_text_reserved(void *start, void *end)
- 
- #else /* Generic implementation */
- 
--static inline void static_call_init(void) { }
-+static inline int static_call_init(void) { return 0; }
- 
- struct static_call_key {
- 	void *func;
-diff --git a/kernel/static_call.c b/kernel/static_call.c
-index f8362b3f8fd5..84565c2a41b8 100644
---- a/kernel/static_call.c
-+++ b/kernel/static_call.c
-@@ -410,12 +410,12 @@ int static_call_text_reserved(void *start, void *end)
- 	return __static_call_mod_text_reserved(start, end);
- }
- 
--void __init static_call_init(void)
-+int __init static_call_init(void)
- {
- 	int ret;
- 
- 	if (static_call_initialized)
--		return;
-+		return 0;
- 
- 	cpus_read_lock();
- 	static_call_lock();
-@@ -434,6 +434,7 @@ void __init static_call_init(void)
- #ifdef CONFIG_MODULES
- 	register_module_notifier(&static_call_module_nb);
- #endif
-+	return 0;
- }
- early_initcall(static_call_init);
- 
+Hi, Will
 
-base-commit: de394e7568ce2cdb4643ed230169f484f25f9442
--- 
-2.28.0
+Thanks for your notice, will send a V2 soon.
+
+Yu Kuai
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200928230939.5574-1-natechancellor%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/3a2d2c51-dd4f-8384-805a-c91413ce4373%40huawei.com.
