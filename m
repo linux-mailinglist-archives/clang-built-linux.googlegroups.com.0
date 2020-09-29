@@ -1,135 +1,129 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBCV3ZT5QKGQECNNKMJI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCMIZB7QWENRB2PMZT5QKGQEODR72GA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe3f.google.com (mail-vs1-xe3f.google.com [IPv6:2607:f8b0:4864:20::e3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id C680127C60A
-	for <lists+clang-built-linux@lfdr.de>; Tue, 29 Sep 2020 13:42:03 +0200 (CEST)
-Received: by mail-vs1-xe3f.google.com with SMTP id k190sf1257662vsk.17
-        for <lists+clang-built-linux@lfdr.de>; Tue, 29 Sep 2020 04:42:03 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601379723; cv=pass;
+Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4179B27CF1A
+	for <lists+clang-built-linux@lfdr.de>; Tue, 29 Sep 2020 15:28:12 +0200 (CEST)
+Received: by mail-pf1-x43d.google.com with SMTP id 82sf3680230pfz.20
+        for <lists+clang-built-linux@lfdr.de>; Tue, 29 Sep 2020 06:28:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601386091; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ytWTdw3NitTqWWaNHLMh7tnlPjJVLlEeE1/e90Wyly1AyuevcQ6WOq3+wrI0GCPjEk
-         VZ2Br/zRtmnXDuruSVGfIPkgX0hFdjRpjbfmYOYzIJOkWppGe28xHT4+Ia6pHBIVhDwi
-         ilDMAn1xUTe4/O8eRmnZ+8arul7DoNQ7i4/TRomWiAyBeVDbcgOBiih1MRTwnzNmsMnP
-         IUBm6o1Z+ZZZtDIfG7+QkVceSMOUytm1LHblbZpAqtE7Eg9hZfT3psev2dbWV89f7GfM
-         oeaMz8yMOWICUf6Ed0dsFBUCYWj0WnOrpReQpy1VEZ9Zc0GXHwjeFx8eYxLwszOHxCKf
-         z8ww==
+        b=1C2uqW+1hKXDMnR4pgFu66vI7t/Ob37T7WP8vyKcOg20iftjd7mxZQVNnHOY1pUbc0
+         guNi7E7oO3t/JGUM6vReYQPGK/fBPgJEzTxKdy/Eh4FRJQsmSoqnkl205TIR3h3lIguO
+         iMYP5EtsZ1QhJ4dRE+Z2NlHEdFals9Hdg3P11NjxxxuJFFp4htdvCqvhxRN0ILQ75JH8
+         EB2cQKD89JIVV9ZeFIJ8uPR9GUhxGVSeFlHxLbdyBrMJyCbBPRhOErsTNg5jb23TIzEA
+         SD5VBEQcEFMq5QPEz2yeo0YXU5DPc5CRZe9yWhoxk+ROD4NEYqHlYYc/zAS0EcUAXeon
+         36WA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:message-id:date:subject:cc:to:from:sender
-         :dkim-signature;
-        bh=z/nIaPRvB5tKX/ZdV979RrA0vMas5/J6XqKUXZmQeHg=;
-        b=PeICliyeFr3u1fgVki0YSMIful2f57O1cIyU7tYaSK8phsReSd3O5Gro9glZ6ps0qS
-         wiGnj8DOnL6EYQ01WZrBvLyd6rlRZIokaMlgWntrod7kmp5AjFy2QvaDBUxYtQmDHoj9
-         42JT3uD10MvTLYc2Jbq6wffrxHOSmIGv2CjUij94bE6xBmvEFgG9Tq5rz1fz0Uudy+Fz
-         SvYjJ3MOZ8PZd1NNS4NAPIMnOZIr4Of0dOuH1Swdd2fUNxSvaiapov8TG0FzbhSoOaw+
-         rho/06yAZw5sSbHXCFg9Yg8LBVZI/yYj21zl2xwzWvimE2uZ3fc6Tx/vQjSvPk1r1shn
-         kxxg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=BBvSd84pF1BP8G9XgtwwW3IKarxTaoPUlwP4KiqRYxw=;
+        b=zXDWKp25U+T0KyGtokTTxR5DNVN1D/545/CMiBaG1Uy3qZzIe/e9VIHU6v0OJHMKnd
+         Kn7/OjLULakTFsXGPKquHnc1gBndBtvSkNGshfz/A/PIL6iwbQFLnll5B7KlAgKcCh+s
+         w35lDeD98jj8G64cphqU1ASEy58rgr5IXz96LErP8xUshMOreiuKvrNCgeH54ostedtp
+         NA+vRqA6YfT/OHfdwGY5fWit0uuxE0F1TdPKRvWfxDYY2KgXjWhNnTyOKDUZ/Cm2tKwd
+         WfayXxUsNm9K5uNyVpOTOf77avqDVXodPwFLb/EeD0btonOiyJeCmEGoKQgKWEcOjsEt
+         fCsA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=sXwP7BR4;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=pChmh01B;
+       spf=pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=dvyukov@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=z/nIaPRvB5tKX/ZdV979RrA0vMas5/J6XqKUXZmQeHg=;
-        b=sz08ZCsF1S/ueuvjAqg8i5U4LFsm4+R7T94nRagPFa4rAqT0LQz61kjfWm8ypiAgf5
-         RmRIGuS14qk05Q2liRnQsMgCW/cALm6HFXemrr/PnflwV/XECWGcn36DySYWWw+TbTaC
-         uML196pWfldBQ8mS2lhf0vlLh9+KBhLuiedH9Taab+8Aj1qtWky1ja75F9pQyd5OxHk+
-         Hm++WT8E45FnSU9w59WcVN9DGtmUPliZXTBHKf+rBzjwxeM/MAEY21QBAjoJeQ5bc5WB
-         eRC/dvI9V5jvysYf8UKE3PfTCTpc76Fx1eITDtJWoKAihe2/MWE5UJzgja4oGtIqQfxl
-         e+Sw==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=BBvSd84pF1BP8G9XgtwwW3IKarxTaoPUlwP4KiqRYxw=;
+        b=UMpvmfX2oAWzqdXb19IG3dKB3F1fy7y7cIPhoC65DCTVWpjq23cvNejo5fDavFEqNL
+         5jh0BZGju0QAHYNJ+T2xpOCowXVOB+NUl5dopmaFxUKXTpoVYOznOrQiKhv4H3qPN+cz
+         gLBvl6J9w2ipoSoNI5Jqj+SmCrj9nMQfI67aqerST/C1w9N5Okrso+IUMqkTOhzW4fiB
+         UCFlJXAcUeuJawgk6GmR5UpiIGIKM3pAP35B4ayqB9bMFgZ9GhLThjADYtWq6SeubYEy
+         rPo8I0Yz91OHulGO4hshhWh2ZRIO+UoE0wGmIFa40Lqxzy392Vv3rWgEZ6LIThzFilH5
+         yaCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=z/nIaPRvB5tKX/ZdV979RrA0vMas5/J6XqKUXZmQeHg=;
-        b=HmugiKmv4DEDDUn3Wq9WS5NpEhyO+hpIciFGRQuLb3WcPgiDxKvOmCg2pIN9jgfsnE
-         fPIC5XqwNWn1siVcOVmmXZPjLNkhCVJReDS5OFm5Ef8idIYN0ZO7AjKgZhAV4IhMFIIY
-         0bWbc3ldNpHAmQd3SwrhhS2hE8M5Mg54P2xf5Zh6tIQTuoUEfAwOod2iuL2547wksbqA
-         y6RMOraJ/mu6tyULGZq25yUpaYkMvBia0zW5A6o4E/9qXGaCnx4uoSDZjY3p+n9InrYc
-         5eL7w2XJ+F0/Mdo7QvbsqlZPLaj4uuWznSmCwPNIRSExnuad5lpzhlmRIyOxriUXqmkt
-         4MfA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5303Er/8jZ4yJ+sX87MRhk7okZVcol4hTvq53V8OoPXqyJdGGh0Y
-	vESJkLd36S31tWKvFdqeTOo=
-X-Google-Smtp-Source: ABdhPJwEOmI7YuRQLQhNUXRbEPif6sIPW0ghZ9w3BiSYI7nSYgxFHUgUWrKKHltJp2kC4ItTrCgiSw==
-X-Received: by 2002:ab0:234b:: with SMTP id h11mr3377460uao.80.1601379722840;
-        Tue, 29 Sep 2020 04:42:02 -0700 (PDT)
+        bh=BBvSd84pF1BP8G9XgtwwW3IKarxTaoPUlwP4KiqRYxw=;
+        b=sOKwHn2mHJN2ypSQJryPc6s2OBKKeIutW6/BU1ewjK6uOo9NxIdPVY0wUkRZGvqXUd
+         cHbg72Xe/YHOFfakGiu1erhkn+hmAsRWW1pbj+QMREJAAZUPDhq62Zpu2KEnqn8d1h9i
+         QmjwBpYSM6/E3vnKya1rJtohH00UV8Jovyn8Da8r9aqgCLSQnS6IqBlliQiKBWwjQmts
+         fEaB8DE0Dltn0vOgaPRDlqt0kpLErzdeXGBn5CDAoSM7CJGo5FR1YYLolQxv6fZ/dGoK
+         zT1gi6ZksnHocQNJXDcIxH/K0WmyKrNWGSzv6WIxVXPG47WqaY4TCHSGE7b81ZRKJMvn
+         s67A==
+X-Gm-Message-State: AOAM532Kk55CtkYVO5mo1Hv1xl1kxM5WTq2JVmjGg8ue45AYR+Y/ngsW
+	5b9ScSRWXG90UBD5e4nD3hc=
+X-Google-Smtp-Source: ABdhPJyCM8ZTAgxpDlW8/dnDy7ZpGnEIbGoyUshSWPFbKW3eeMzj7ni+mGE+AAL8OKqsQZVkZbPN+Q==
+X-Received: by 2002:a63:d604:: with SMTP id q4mr3403242pgg.238.1601386089697;
+        Tue, 29 Sep 2020 06:28:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6102:3d1:: with SMTP id n17ls624310vsq.2.gmail; Tue, 29
- Sep 2020 04:42:02 -0700 (PDT)
-X-Received: by 2002:a67:e2c2:: with SMTP id i2mr2469182vsm.27.1601379722058;
-        Tue, 29 Sep 2020 04:42:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601379722; cv=none;
+Received: by 2002:a17:902:123:: with SMTP id 32ls3064226plb.1.gmail; Tue, 29
+ Sep 2020 06:28:09 -0700 (PDT)
+X-Received: by 2002:a17:90a:f695:: with SMTP id cl21mr2165458pjb.117.1601386089093;
+        Tue, 29 Sep 2020 06:28:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601386089; cv=none;
         d=google.com; s=arc-20160816;
-        b=SrBGj1w5VERmAXJ0Ba96iFJ8zlplftvZ7lkrfHtLBNuLjNE0aEzfFbWQangyLfwt1/
-         /xCOWje+DcsFLBf3rmb8P2LSJeIEyBQXW/hX8DVu6fBSwRUEXi+5vmgb/09qnTVxrYuT
-         cHdNVfA5/yabffWwuP6GL9lgg/iVoUpY59MPv1gHJIMAHdkehOlfW6CgVI/Rc80x9xgP
-         4innC8QRH9lTmeJkyKIiv/bql4VjlLR9bVWDX1smrZr8BUdlGffb05BZaVRNPor2IWqF
-         vyki+nI/G//qc00oPdljz4lkSHgdJd8B75RZZXmYKmX1iul/vRXHi7uqXp6hT33tz9I3
-         4L5Q==
+        b=DcE5oYbHdl7pqNzMpf8YQt7ee5OnqesWy7fyJ0xVXefNaMy5tUebapamoTOwrpbQl3
+         GaOj8G9hd/eg2U5Y2muynmRyNA089s563HH4ryxFti1XZTSaIGvqJukyHhkSre7dIOdr
+         bs1y9cX1zTYgKREgunywJcnIf4VyHdCICZT+3PhZsYwZVQmsGnLBy+3LlMH5oedAxhBZ
+         QTc6HcBJgzUQIYSWOGeAANG4umTcu5CLcLhbgphUXyf9j6iEn0vSQVCO4ibYIGXF9lyU
+         /3NIi5Z0Te0EoF1maZHfNzrJsGGzKQGoc2oXOReDPwzxpI54H4ZJqJdkAD8Gbl3YQsxW
+         rRLw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature;
-        bh=JMeihtiiq6ixqNRZM47zc13v3tJ71X2MM+6a2sFnv2c=;
-        b=BnV/NoXcLTMglLN7bu1fqV8KQM8PHKUYJl9VZAUtrqn6Usl2sWO2ip56BhieNlgife
-         IMz5kWG721IlUwPdIjqYQaAo11/znOX8VjUlRMhVY58E4Pi5qnIf2FasrTjpGEafoBr4
-         5J9X1PehDJOL/JlBxY63exztOMdE7wZLFTEL5XexMxraRhS5+JMhg9/ELNLouI/rg30/
-         jYpTmw/YLc/t8svk7by2wi869JHRA5NDwxjMaIlue3Oj1KLq2Lqbkk+zha4s8+ykGXnU
-         lz1GsjgHLMLkydGkMJ1bLByF/4by2eSJ00FichJN7YN6jtNRTkaKLKC5OeEa52Rloy6W
-         xtIw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=H4Xu8v2b9D8UwDOHwcV+mRXvAw3A7ucBPwQFn9EiYDM=;
+        b=awLBVvmNNK2WX9lkZNuV8+S3xQeE+RCXQnI6Js6Hinsk2fF4blTNdGdlf+2tdr5+2W
+         z2R5mVLXNSln6S9miE8B9Fo4X3isghEZ8AVmyTXL6Rz2aU6xiqkyApOpaB8J61NgLo7D
+         wxSRy3VEtAkXka67LYwZsLBj1dnaH427Vmta82TcmngB33C/Qw1hO4/jTu2qNUIAZfXL
+         K4VtDcq6DLsReYmZ3rrvBJjTKOEG/ya0ACyyex9XYRCxFp8vsNt5cgoQZVooxaVxBI1T
+         Z7xuLZdbQeA4hG2RQcG73AiJSKTs4rDKMI7LNyMk5WCa7IItc9kWCLk8Cj7WJ1D50Vo3
+         0zVw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=sXwP7BR4;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id h9si205406vsh.2.2020.09.29.04.42.01
+       dkim=pass header.i=@google.com header.s=20161025 header.b=pChmh01B;
+       spf=pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=dvyukov@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-qk1-x741.google.com (mail-qk1-x741.google.com. [2607:f8b0:4864:20::741])
+        by gmr-mx.google.com with ESMTPS id o98si531125pjo.1.2020.09.29.06.28.09
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 29 Sep 2020 04:42:02 -0700 (PDT)
-Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from localhost (83-86-74-64.cable.dynamic.v4.ziggo.nl [83.86.74.64])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 76D8C2074A;
-	Tue, 29 Sep 2020 11:42:00 +0000 (UTC)
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: linux-kernel@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	stable@vger.kernel.org,
-	Ian Rogers <irogers@google.com>,
-	Jiri Olsa <jolsa@redhat.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Stephane Eranian <eranian@google.com>,
-	clang-built-linux@googlegroups.com,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.4 249/388] perf mem2node: Avoid double free related to realloc
-Date: Tue, 29 Sep 2020 12:59:40 +0200
-Message-Id: <20200929110022.534635698@linuxfoundation.org>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20200929110010.467764689@linuxfoundation.org>
-References: <20200929110010.467764689@linuxfoundation.org>
-User-Agent: quilt/0.66
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Sep 2020 06:28:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::741 as permitted sender) client-ip=2607:f8b0:4864:20::741;
+Received: by mail-qk1-x741.google.com with SMTP id c62so4263266qke.1
+        for <clang-built-linux@googlegroups.com>; Tue, 29 Sep 2020 06:28:09 -0700 (PDT)
+X-Received: by 2002:a37:5684:: with SMTP id k126mr4127853qkb.43.1601386088243;
+ Tue, 29 Sep 2020 06:28:08 -0700 (PDT)
 MIME-Version: 1.0
+References: <00000000000052569205afa67426@google.com> <20200927145737.GA4746@zn.tnic>
+ <CACT4Y+Zxt3-Dj6r53mEkwv24PazPzTxQ7usV1O+RB0bk2FzO8g@mail.gmail.com> <CAKwvOdkdAi2PwiiS=sp0LV_3=8aVsqEJ87w8WyWbvJ==Eu_4Ag@mail.gmail.com>
+In-Reply-To: <CAKwvOdkdAi2PwiiS=sp0LV_3=8aVsqEJ87w8WyWbvJ==Eu_4Ag@mail.gmail.com>
+From: "'Dmitry Vyukov' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Tue, 29 Sep 2020 15:27:56 +0200
+Message-ID: <CACT4Y+YpSKWELQb3tcnMs_mTQB5Koh_ZYFz2pCYvP4_cTvqCZQ@mail.gmail.com>
+Subject: Re: general protection fault in perf_misc_flags
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Borislav Petkov <bp@alien8.de>, Alexander Potapenko <glider@google.com>, Marco Elver <elver@google.com>, 
+	syzbot <syzbot+ce179bc99e64377c24bc@syzkaller.appspotmail.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	"H. Peter Anvin" <hpa@zytor.com>, Jiri Olsa <jolsa@redhat.com>, LKML <linux-kernel@vger.kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Ingo Molnar <mingo@redhat.com>, 
+	Namhyung Kim <namhyung@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	syzkaller-bugs <syzkaller-bugs@googlegroups.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	"the arch/x86 maintainers" <x86@kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: gregkh@linuxfoundation.org
+X-Original-Sender: dvyukov@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=sXwP7BR4;       spf=pass
- (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+ header.i=@google.com header.s=20161025 header.b=pChmh01B;       spf=pass
+ (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::741
+ as permitted sender) smtp.mailfrom=dvyukov@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Dmitry Vyukov <dvyukov@google.com>
+Reply-To: Dmitry Vyukov <dvyukov@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,89 +136,98 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Ian Rogers <irogers@google.com>
+On Mon, Sep 28, 2020 at 10:33 PM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
+>
+> On Sun, Sep 27, 2020 at 10:18 PM 'Dmitry Vyukov' via Clang Built Linux
+> <clang-built-linux@googlegroups.com> wrote:
+> >
+> > On Sun, Sep 27, 2020 at 4:57 PM Borislav Petkov <bp@alien8.de> wrote:
+> > >
+> > > On Sat, Sep 19, 2020 at 01:32:14AM -0700, syzbot wrote:
+> > > > Hello,
+> > > >
+> > > > syzbot found the following issue on:
+> > > >
+> > > > HEAD commit:    92ab97ad Merge tag 'sh-for-5.9-part2' of git://git.libc.or..
+> > > > git tree:       upstream
+> > > > console output: https://syzkaller.appspot.com/x/log.txt?x=1069669b900000
+> > > > kernel config:  https://syzkaller.appspot.com/x/.config?x=cd992d74d6c7e62
+> > > > dashboard link: https://syzkaller.appspot.com/bug?extid=ce179bc99e64377c24bc
+> > > > compiler:       clang version 10.0.0 (https://github.com/llvm/llvm-project/ c2443155a0fb245c8f17f2c1c72b6ea391e86e81)
+> > >
+> > > All below is AFAICT:
+> > >
+> > > This compiler you're using is not some official release but some random
+> > > commit before the v10 release:
+> > >
+> > > $ git show c2443155a0fb245c8f17f2c1c72b6ea391e86e81
+> > > Author: Hans Wennborg <hans@chromium.org>
+> > > Date:   Sat Nov 30 14:20:11 2019 +0100
+> > >
+> > >     Revert 651f07908a1 "[AArch64] Don't combine callee-save and local stack adjustment when optimizing for size"
+> > > ...
+> > >
+> > > $ git describe c2443155a0fb245c8f17f2c1c72b6ea391e86e81
+> > > llvmorg-10-init-10900-gc2443155a0fb
+> > >
+> > > The v10 release is:
+> > >
+> > > $ git show llvmorg-10.0.0
+> > > tag llvmorg-10.0.0
+> > > Tagger: Hans Wennborg <hans@chromium.org>
+> > > Date:   Tue Mar 24 12:58:58 2020 +0100
+> > >
+> > > Tag 10.0.0
+> > >
+> > > and v10 has reached v10.0.1 in the meantime:
+> > >
+> > > $ git log --oneline c2443155a0fb245c8f17f2c1c72b6ea391e86e81~1..llvmorg-10.0.1 | wc -l
+> > > 7051
+> > >
+> > > so can you please update your compiler and see if you can still
+> > > reproduce with 10.0.1 so that we don't waste time chasing a bug which
+> > > has been likely already fixed in one of those >7K commits.
+>
+> Oh, shoot, sorry I didn't catch that. Good find.  My next question was
+> going to be if this is reproducible with a newer compiler release or
+> not (later emails make this sound like it's no longer considered clang
+> specific).
+>
+> Generally we want coverage of unreleased compiler versions to ensure
+> we don't ship a broken release.  Once the release exists, it's of
+> questionable value to continue to test a pre-release version of that
+> branch.
+>
+> This isn't the first time where we've had syzcaller reports that were
+> testing old releases of clang.  Maybe we can establish a process for
+> upgrading the toolchain under test based on some time based cadence,
+> or coinciding with the upstream LLVM release events?
 
-[ Upstream commit 266150c94c69429cf6d18e130237224a047f5061 ]
-
-Realloc of size zero is a free not an error, avoid this causing a double
-free. Caught by clang's address sanitizer:
-
-==2634==ERROR: AddressSanitizer: attempting double-free on 0x6020000015f0 in thread T0:
-    #0 0x5649659297fd in free llvm/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:123:3
-    #1 0x5649659e9251 in __zfree tools/lib/zalloc.c:13:2
-    #2 0x564965c0f92c in mem2node__exit tools/perf/util/mem2node.c:114:2
-    #3 0x564965a08b4c in perf_c2c__report tools/perf/builtin-c2c.c:2867:2
-    #4 0x564965a0616a in cmd_c2c tools/perf/builtin-c2c.c:2989:10
-    #5 0x564965944348 in run_builtin tools/perf/perf.c:312:11
-    #6 0x564965943235 in handle_internal_command tools/perf/perf.c:364:8
-    #7 0x5649659440c4 in run_argv tools/perf/perf.c:408:2
-    #8 0x564965942e41 in main tools/perf/perf.c:538:3
-
-0x6020000015f0 is located 0 bytes inside of 1-byte region [0x6020000015f0,0x6020000015f1)
-freed by thread T0 here:
-    #0 0x564965929da3 in realloc third_party/llvm/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:164:3
-    #1 0x564965c0f55e in mem2node__init tools/perf/util/mem2node.c:97:16
-    #2 0x564965a08956 in perf_c2c__report tools/perf/builtin-c2c.c:2803:8
-    #3 0x564965a0616a in cmd_c2c tools/perf/builtin-c2c.c:2989:10
-    #4 0x564965944348 in run_builtin tools/perf/perf.c:312:11
-    #5 0x564965943235 in handle_internal_command tools/perf/perf.c:364:8
-    #6 0x5649659440c4 in run_argv tools/perf/perf.c:408:2
-    #7 0x564965942e41 in main tools/perf/perf.c:538:3
-
-previously allocated by thread T0 here:
-    #0 0x564965929c42 in calloc third_party/llvm/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:154:3
-    #1 0x5649659e9220 in zalloc tools/lib/zalloc.c:8:9
-    #2 0x564965c0f32d in mem2node__init tools/perf/util/mem2node.c:61:12
-    #3 0x564965a08956 in perf_c2c__report tools/perf/builtin-c2c.c:2803:8
-    #4 0x564965a0616a in cmd_c2c tools/perf/builtin-c2c.c:2989:10
-    #5 0x564965944348 in run_builtin tools/perf/perf.c:312:11
-    #6 0x564965943235 in handle_internal_command tools/perf/perf.c:364:8
-    #7 0x5649659440c4 in run_argv tools/perf/perf.c:408:2
-    #8 0x564965942e41 in main tools/perf/perf.c:538:3
-
-v2: add a WARN_ON_ONCE when the free condition arises.
-
-Signed-off-by: Ian Rogers <irogers@google.com>
-Acked-by: Jiri Olsa <jolsa@redhat.com>
-Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Namhyung Kim <namhyung@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Stephane Eranian <eranian@google.com>
-Cc: clang-built-linux@googlegroups.com
-Link: http://lore.kernel.org/lkml/20200320182347.87675-1-irogers@google.com
-Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- tools/perf/util/mem2node.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/tools/perf/util/mem2node.c b/tools/perf/util/mem2node.c
-index 797d86a1ab095..c84f5841c7abd 100644
---- a/tools/perf/util/mem2node.c
-+++ b/tools/perf/util/mem2node.c
-@@ -1,5 +1,6 @@
- #include <errno.h>
- #include <inttypes.h>
-+#include <asm/bug.h>
- #include <linux/bitmap.h>
- #include <linux/kernel.h>
- #include <linux/zalloc.h>
-@@ -95,7 +96,7 @@ int mem2node__init(struct mem2node *map, struct perf_env *env)
- 
- 	/* Cut unused entries, due to merging. */
- 	tmp_entries = realloc(entries, sizeof(*entries) * j);
--	if (tmp_entries)
-+	if (tmp_entries || WARN_ON_ONCE(j == 0))
- 		entries = tmp_entries;
- 
- 	for (i = 0; i < j; i++) {
--- 
-2.25.1
+The current hypothesis is that this bug is not related to clang (there
+are similar crashes with gcc as well).
+We use unreleased versions of clang as we frequently need recent
+fixes/features. And then later nobody usually has time to update, if
+things work.
+Based on offline discussion with Marco, we probably need to update
+KMSAN and KASAN to 11 release when it's released.
 
 
+> > +Alex, Marco,
+> >
+> > There is suspicion that these may be caused by use of unreleased clang.
+> > Do we use the same clang as we use for the KMSAN instance? But this is
+> > not KMSAN machine, so I am not sure who/when/why updated it last to
+> > this revision.
+> > I even see we have some clang 11 version:
+> > https://github.com/google/syzkaller/blob/master/docs/syzbot.md#crash-does-not-reproduce
+> >
+> > Is it possible to switch to some released version for both KMSAN and KASAN now?
+> --
+> Thanks,
+> ~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200929110022.534635698%40linuxfoundation.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CACT4Y%2BYpSKWELQb3tcnMs_mTQB5Koh_ZYFz2pCYvP4_cTvqCZQ%40mail.gmail.com.
