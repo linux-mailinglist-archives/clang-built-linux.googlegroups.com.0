@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBQOWZ35QKGQEKKGOB6I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRBQ6WZ35QKGQETWYMD7Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73c.google.com (mail-qk1-x73c.google.com [IPv6:2607:f8b0:4864:20::73c])
-	by mail.lfdr.de (Postfix) with ESMTPS id AC72227DA6B
-	for <lists+clang-built-linux@lfdr.de>; Tue, 29 Sep 2020 23:46:42 +0200 (CEST)
-Received: by mail-qk1-x73c.google.com with SMTP id m203sf3655545qke.16
-        for <lists+clang-built-linux@lfdr.de>; Tue, 29 Sep 2020 14:46:42 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601416001; cv=pass;
+Received: from mail-qt1-x840.google.com (mail-qt1-x840.google.com [IPv6:2607:f8b0:4864:20::840])
+	by mail.lfdr.de (Postfix) with ESMTPS id B079427DA6C
+	for <lists+clang-built-linux@lfdr.de>; Tue, 29 Sep 2020 23:46:44 +0200 (CEST)
+Received: by mail-qt1-x840.google.com with SMTP id b39sf4098436qta.0
+        for <lists+clang-built-linux@lfdr.de>; Tue, 29 Sep 2020 14:46:44 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601416003; cv=pass;
         d=google.com; s=arc-20160816;
-        b=MaigCYfQDud3yu7ngFl3hVvLew5oYzM5pHxOnRRIBHuaIpiSTIuIwErC6wCIeUMIUd
-         IHKsFd93wnykoCJrlsn3jEBvESjh37rXNO/XqZ1BWAWGdvM9E/vea0GvT4iLWneQdp7m
-         cN9YN4lIBI1BFhHSWmNVFugIkYtg6p2yk225LJBn4sAdbu7HJLW6J6KMTtdBZMhzOBK2
-         MjPyhRh8KaWMv2yRQ/WHNt2c9IOn3dpmG0HtUeaP0o+HubDYY2oReqz3xuZgisW0QDz6
-         3hzmUNJnIdVTTf9y1MCPDttVKLT5uVcIYSgmpWY7sO2CNaCILZ53L7veYBMLFHJpcizL
-         ZFPw==
+        b=w+/vJtz77Kkd11OPWvU6bfRcuKuluITq0twwbnsEIvKpacduLv5FW7+QW7WDYe4rXb
+         uEhSEzZwegQ6FqUiU9+pWxFjWorHxE/6isVOmNkCXYw+573YEzE0naJ6Ea/0/ueLE47o
+         9U3Y7pLkLGOaDFlgvigQSZVEpjRCLcn62NhN4lsYqypb72QqUqQiMeIxXrP2069hhV2J
+         RHzspmZ83UsTySGRmSuqDbjCkpxt4irfCmFTkU62sNWng16K1Ud1d3/c78QiLlGSMIEh
+         bZSFzPMJoWE8apMcSYURrK5BUGTHQqeR07BcfV+7YsiY8Fa7bB9ZBs/Rsu3bSdv6N4eh
+         vWTw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:sender
          :dkim-signature;
-        bh=iGT1nle+Den5xx9oL4h91u2dHcbPEt1xpMqAjgULoG0=;
-        b=tsNHAuvjfIPOo30ZpUFOKqUhZlpGCM0Q0+SgIeq8WMnVyT/1HZDvJSZMhiV20sNjLn
-         NqjWtpaPGcHqR3icMOh4J92WLOTVwtWAMjkzeI7q9LHuPjo1jQHlMyqvP/ueDabr1fys
-         ktDQ+BBBHd0cPe45GJkH7bbmiOE2G8AWQvpsylp1EDDUZGRjN6OuJwmPaUoB7za85c6P
-         egSIHtXfqlz01B3dZ5GUP/sng1zVvNb+hPjFfsAkQVpVua0A8lKN60i90LojBzdpXlk7
-         tJ3231hhufvItEOI6YMAW3rOZnMaiBpMpac3hMkPV3/scc+BFZdenH7S+rpRGZNUcbfP
-         IJkg==
+        bh=NCzM+mnfcn+rcN10VAvbK33vivHnGziWtKWDQ1sG9qg=;
+        b=lM8C5fodtJWqRPb8ivM2JJ3Mxt1Dix4wJaAlEQAI0qpOwBNW4kyByzXN0q6hCbjNgK
+         Hdh4HUGiMq1Y5Qs/5XTJSosZc0SK+1ZvCm141bnLPi8FprAoe+J4efCm/dwPaQ0GT2T0
+         yDyVlWaTRVuzNzGqXruWLcsMJq2XHPKSE+rVO+tdSw7Wp33/tp3M6KV14xbbQz2djk6Q
+         D3PY7+uADa668B33RvJGFaYSy+Xj3ZCIESX1V/4cutF2gKNi4YVbLVbf52EQifBfKAl9
+         aTV4hUF9E5BLtr4aeluOCW4KNsY1WFXJp6t7xs2+r1ZHNOR7UgKhQI1L/26QFzyWvgml
+         rJCA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=VoPplgtC;
-       spf=pass (google.com: domain of 3qktzxwwkagcxfrnytqafsjslttlqj.htr@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::f49 as permitted sender) smtp.mailfrom=3QKtzXwwKAGcXFRNYTQaFSJSLTTLQJ.HTR@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=IBbDoPst;
+       spf=pass (google.com: domain of 3qqtzxwwkagkzhtpavschulunvvnsl.jvt@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::749 as permitted sender) smtp.mailfrom=3QqtzXwwKAGkZHTPaVScHULUNVVNSL.JVT@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :from:to:cc:x-original-sender:x-original-authentication-results
          :reply-to:precedence:mailing-list:list-id:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=iGT1nle+Den5xx9oL4h91u2dHcbPEt1xpMqAjgULoG0=;
-        b=KpEi6a6NONXIZiEoRiSIto1QmiPDN3iN6jOYrkZj5jne1i2Z6LpKI9g8j0eWKY97Ot
-         HPvfz06qzC/98BqKtMbF9a4mD61VLBE7WKMj26P/yXqOO/zLRAh/CoUXtYcUrwSE8gIa
-         DTjMwyL+OxTeZoDL3w+t0zuVlAIu9yrJh/ZiY5woj6wHQxoxiwqj2vkFbWZUSuCfx3WE
-         a/v9ZNrMp+WwLBGZp2PlxjCF/ILLiD8S+2wZj27xKAu3MbmVIUIAaM3Dp/FjQqF4703q
-         PVTBHj8oloOu84L8J11oDKR+XzC6wve/PSsOt2i4LiDYFl7HNOQOsY/RWA8sBG9nG4hR
-         aYaA==
+        bh=NCzM+mnfcn+rcN10VAvbK33vivHnGziWtKWDQ1sG9qg=;
+        b=X5RA2cL4390PW1Hy13eOhb51qxd4LLytGoI6fUb6r7lmh6Qo6clFlOw6vXPMK0G/Li
+         8QvbcaG7lya+8KlQXnjplAjF43Y9ibWb5GzM7LFOVY9WypNV59fSeZrJ5b/9CuvNEeyC
+         4dV3Cnc0kCOpufs+mkPNljKHpVPkeBtygkqm3Jrnu7sGMZCET6944qtu02iSBQYNS3Vh
+         BudMhH1o2EctcLl1rEcZQyMuwMaGc5RsZhlntUmbrhJ5tI+WL3z3K/GFQ6xmHWEzODuW
+         xE2gfp3WBiUz50yObw56gqgj6ZtpNIwMqIzI28tXZxkHhcqvBRaEuScBxo+vgkZ+msFs
+         pPmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:sender:date:in-reply-to:message-id:mime-version
@@ -50,64 +50,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=iGT1nle+Den5xx9oL4h91u2dHcbPEt1xpMqAjgULoG0=;
-        b=YJTfW9/GsWYPBm60KmAe/hNYyBjbVIksbdJx493J3LUEHlMENN81wzb8hOchkpYDZT
-         OIP/4bfIIqUxjbTlgRhD5L+kNoRnzv7dwjhqLrquOUqkTbDVmEBCCnrgASmWPC0u/nVv
-         UjKHyc0eQzpizb2WPkibmd/XWIrnqKqSGxMKf7ZtHojFhUfHLHqyk1rPCatVec//fXbM
-         38eB51n3FI19GQdtOU6jOcg33quZs3ofPh0OXY1H6vOjcho+SrpaKNKtaZF8DjqzqBq8
-         jCFsCIsVNpPPw9ADIqi8+wLpBltFNltaGt3zjhit5iLqrw5e2eZ2JoNk/FVh3eCLHbvj
-         UDmg==
-X-Gm-Message-State: AOAM5327gxeJQW6vFjUno+GymlhH5OsLFA8ULw3n2vOnsESCLg5Xad9x
-	VqpqBZR8LZl1he/w1w7D6eI=
-X-Google-Smtp-Source: ABdhPJze/9IBthqCOSsJeFKLUPve5pKGxv1ERN1uh1fIi7Hc/AUKjDD8px6Dci/dOZjhODQrvZqj4Q==
-X-Received: by 2002:ad4:42a5:: with SMTP id e5mr6346710qvr.58.1601416001753;
-        Tue, 29 Sep 2020 14:46:41 -0700 (PDT)
+        bh=NCzM+mnfcn+rcN10VAvbK33vivHnGziWtKWDQ1sG9qg=;
+        b=MKXtWNf9uRU2jWOehHKpt43yK5UEFNvz0IPn0DErzA88BqXtP2MMbG0qmH50Qbqtjo
+         /12XSyNBKziC7KJdkDdZa1emxSK84ye48y2OkVZpk75QAEF29MzU2GV8Rie55r3iXl4A
+         PvaTRne6iqhEH85wzIW0SH/gMhlg2uPdG2Y2vY9lkAS0+D2bHbRUbxekFyd1mb2mK1mh
+         xmnerVK4A+qs5/rtB+S9zxcrfJ+XSDnHb4SkHALHzkNzxFA0xNsotPQnY1leaBoDmzNP
+         1I0P/uV9s2mfr02sSJccVGgueTEjUqHO9MHMi61/gT3NtEU1psrHa3a4kC5mh3P0GHNP
+         T3fA==
+X-Gm-Message-State: AOAM532nDGOUB0jeuFKCBxSgXiJjj+t9ctm7Wx07eaproZ1AQq88v91p
+	erxigUTd7F+i1KWN/7EYZd4=
+X-Google-Smtp-Source: ABdhPJyOTA1yVu8x1U1vCEcZ1qUf0gx+it1+e9dpdM5OUdCh1vIwjiAdoZh/CXDwrdUUZNwoGfoxMA==
+X-Received: by 2002:ac8:1a08:: with SMTP id v8mr5625737qtj.353.1601416003669;
+        Tue, 29 Sep 2020 14:46:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6214:4d4:: with SMTP id ck20ls1446793qvb.7.gmail; Tue,
- 29 Sep 2020 14:46:41 -0700 (PDT)
-X-Received: by 2002:a0c:b343:: with SMTP id a3mr6346179qvf.41.1601416001244;
-        Tue, 29 Sep 2020 14:46:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601416001; cv=none;
+Received: by 2002:a05:620a:1112:: with SMTP id o18ls5402165qkk.2.gmail; Tue,
+ 29 Sep 2020 14:46:43 -0700 (PDT)
+X-Received: by 2002:a37:d95:: with SMTP id 143mr6884214qkn.224.1601416003123;
+        Tue, 29 Sep 2020 14:46:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601416003; cv=none;
         d=google.com; s=arc-20160816;
-        b=uX4R8Di1qCcRBwDMNLPfYiNxmsQVWEEDLyC0MjcU0gfB/0Cxeejc0zaH60BN7/D9gK
-         bLsjSNjzQLcxJ7KzUZk9sSwffz6eRHdaUuC+AVkMc9xrU+pVNgGWyAxYHd3hyC5reBE2
-         gCeuDbw/RtfEXDYuIYM7/aiFb3hk6+tr4DvnMhRPbYp2KnnautJ3/n+e/wCQQUzwms2y
-         cFEZMK73Oi/C/jMyH8fkgqER3q6lKbIu/FCQXxCXZcCc4JOs6vVEXLe9CYZ1bEYNanmA
-         niKf6ocQ5PMZw3O54D9XdmFhXV09Bl6eLYsLUje3xmxfshAqtebOEDcR5oxPw+2bi/90
-         3z4w==
+        b=RppJFwYPQULvfsmj0rUBNgvg6ww50+En06nvqlYGIEuLezJLl9C1w33U1KOafH1Gya
+         3yQR3k7t8hoToTP9BzkBiT/11i6rE5/n1aSzXIG47HqMYWLyLbMY/abAfxm8HqufI9AX
+         JSntH1aHL5JVluK/zrKQDf3w+Xs3pNrfcdz0OMiHjxK/YwG2d+7c+r/2xFBO/fZxItJj
+         9+JaGLc+Ack2xGy5BrhenVdqsdKb3vHDgGoBRwGlj7JWYJWkATHqXdkB9/LTQAbsW/Jd
+         yExFngV0VE3RoowCbHzEj3dg7x0HjoqKHSZ3lTyxRJxmteptyO3WXtS9jkBj+ESwR695
+         7u+Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:sender:dkim-signature;
-        bh=f9tPOSX60pD/GFSFuHzH48biha6xq7SwYXZZiJq/qTc=;
-        b=tTOIayrWUTa++pGXSw8cA461H0QeX9c/GfEUq/VEia0BUkfFHxCxOTf/2qwLQzfQzl
-         CNy9WvcVGCrX4M/OrCzIDFcwYCr0wbMBvuCvsDJmxpEdfiEFRC93UuTgXj7AWG5kwrJ3
-         3Sm4keKBOcTLe7YFmLRFA2NUHmJWoavIjlsWZJ8lGPbJWkpyjJytgeEEJiXWH35JVrfk
-         7qPJ6i9GPmmCKgbuCrVSYqNcP466DEereNRxeS+C7uUKJ8QrHpy/K7cz4MRRxnMSTNlr
-         E+h2AVq2RH9wtyTZ6TXuE31y0dhE6jbogG0r+9W7QEt5gzwHYUk0bY++GhJZ4HY5P19r
-         VR8g==
+        bh=l2+v7INMYKuznv8xFN02uATUaYPeLt4QVP2a2KYnEdY=;
+        b=mtzNIJJzBao9lcKrOgtu7sP+uZ+2rDN412nzbP7UF8T8qa/3SwjIn7DJHe3WWshTXH
+         QLNCfd9xEiC+9vEqfOeEcxol0Xew2LGqe2gWjRhdqYN3RkfcbKKmyWs9bfGrCr+75hB+
+         FzTaISrxJyJQJSYjnlwPruiyXzoAbA8xtQPP+YB4ELr/ZAeR7JlSHqx8ZpoSwMRmxm6/
+         6adwPR3+2TUXpod9n31ivsGG8qKM9KEj3hC3WhaSY8OKK3yLlSBlYdycMWAHHoq/B5vk
+         H0LmeACjQ3ubIngQLPkdoN4tiBweH6h/RP5tdA43DbFX3NwV2Dbd3PdU4xyPIuFmXiUK
+         0b4w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=VoPplgtC;
-       spf=pass (google.com: domain of 3qktzxwwkagcxfrnytqafsjslttlqj.htr@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::f49 as permitted sender) smtp.mailfrom=3QKtzXwwKAGcXFRNYTQaFSJSLTTLQJ.HTR@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=IBbDoPst;
+       spf=pass (google.com: domain of 3qqtzxwwkagkzhtpavschulunvvnsl.jvt@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::749 as permitted sender) smtp.mailfrom=3QqtzXwwKAGkZHTPaVScHULUNVVNSL.JVT@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-qv1-xf49.google.com (mail-qv1-xf49.google.com. [2607:f8b0:4864:20::f49])
-        by gmr-mx.google.com with ESMTPS id a2si334118qkl.4.2020.09.29.14.46.41
+Received: from mail-qk1-x749.google.com (mail-qk1-x749.google.com. [2607:f8b0:4864:20::749])
+        by gmr-mx.google.com with ESMTPS id q5si336810qkc.2.2020.09.29.14.46.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 29 Sep 2020 14:46:41 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3qktzxwwkagcxfrnytqafsjslttlqj.htr@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::f49 as permitted sender) client-ip=2607:f8b0:4864:20::f49;
-Received: by mail-qv1-xf49.google.com with SMTP id t4so3333804qvr.21
-        for <clang-built-linux@googlegroups.com>; Tue, 29 Sep 2020 14:46:41 -0700 (PDT)
+        Tue, 29 Sep 2020 14:46:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3qqtzxwwkagkzhtpavschulunvvnsl.jvt@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::749 as permitted sender) client-ip=2607:f8b0:4864:20::749;
+Received: by mail-qk1-x749.google.com with SMTP id 16so3665884qky.8
+        for <clang-built-linux@googlegroups.com>; Tue, 29 Sep 2020 14:46:43 -0700 (PDT)
 Sender: "samitolvanen via sendgmr" <samitolvanen@samitolvanen1.mtv.corp.google.com>
 X-Received: from samitolvanen1.mtv.corp.google.com ([2620:15c:201:2:f693:9fff:fef4:1b6d])
- (user=samitolvanen job=sendgmr) by 2002:a0c:f48e:: with SMTP id
- i14mr6568031qvm.9.1601416000842; Tue, 29 Sep 2020 14:46:40 -0700 (PDT)
-Date: Tue, 29 Sep 2020 14:46:06 -0700
+ (user=samitolvanen job=sendgmr) by 2002:a05:6214:1767:: with SMTP id
+ et7mr6378060qvb.43.1601416002753; Tue, 29 Sep 2020 14:46:42 -0700 (PDT)
+Date: Tue, 29 Sep 2020 14:46:07 -0700
 In-Reply-To: <20200929214631.3516445-1-samitolvanen@google.com>
-Message-Id: <20200929214631.3516445-5-samitolvanen@google.com>
+Message-Id: <20200929214631.3516445-6-samitolvanen@google.com>
 Mime-Version: 1.0
 References: <20200929214631.3516445-1-samitolvanen@google.com>
 X-Mailer: git-send-email 2.28.0.709.gb0816b6eb0-goog
-Subject: [PATCH v4 04/29] objtool: Add a pass for generating __mcount_loc
+Subject: [PATCH v4 05/29] objtool: Don't autodetect vmlinux.o
 From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Masahiro Yamada <masahiroy@kernel.org>, Will Deacon <will@kernel.org>, 
 	Steven Rostedt <rostedt@goodmis.org>
@@ -121,9 +121,9 @@ Cc: Peter Zijlstra <peterz@infradead.org>, Greg Kroah-Hartman <gregkh@linuxfound
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=VoPplgtC;       spf=pass
- (google.com: domain of 3qktzxwwkagcxfrnytqafsjslttlqj.htr@flex--samitolvanen.bounces.google.com
- designates 2607:f8b0:4864:20::f49 as permitted sender) smtp.mailfrom=3QKtzXwwKAGcXFRNYTQaFSJSLTTLQJ.HTR@flex--samitolvanen.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=IBbDoPst;       spf=pass
+ (google.com: domain of 3qqtzxwwkagkzhtpavschulunvvnsl.jvt@flex--samitolvanen.bounces.google.com
+ designates 2607:f8b0:4864:20::749 as permitted sender) smtp.mailfrom=3QqtzXwwKAGkZHTPaVScHULUNVVNSL.JVT@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Sami Tolvanen <samitolvanen@google.com>
 Reply-To: Sami Tolvanen <samitolvanen@google.com>
@@ -139,204 +139,59 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Peter Zijlstra <peterz@infradead.org>
+With LTO, we run objtool on vmlinux.o, but don't want noinstr
+validation. This change requires --vmlinux to be passed to objtool
+explicitly.
 
-Add the --mcount option for generating __mcount_loc sections
-needed for dynamic ftrace. Using this pass requires the kernel to
-be compiled with -mfentry and CC_USING_NOP_MCOUNT to be defined
-in Makefile.
-
-Link: https://lore.kernel.org/lkml/20200625200235.GQ4781@hirez.programming.kicks-ass.net/
-Signed-off-by: Peter Zijlstra <peterz@infradead.org>
-[Sami: rebased to mainline, dropped config changes, fixed to actually use
-       --mcount, and wrote a commit message.]
+Suggested-by: Peter Zijlstra <peterz@infradead.org>
 Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
 Reviewed-by: Kees Cook <keescook@chromium.org>
 ---
- tools/objtool/builtin-check.c |  3 +-
- tools/objtool/builtin.h       |  2 +-
- tools/objtool/check.c         | 83 +++++++++++++++++++++++++++++++++++
- tools/objtool/check.h         |  1 +
- tools/objtool/objtool.h       |  1 +
- 5 files changed, 88 insertions(+), 2 deletions(-)
+ scripts/link-vmlinux.sh       |  2 +-
+ tools/objtool/builtin-check.c | 10 +---------
+ 2 files changed, 2 insertions(+), 10 deletions(-)
 
+diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
+index e6e2d9e5ff48..372c3719f94c 100755
+--- a/scripts/link-vmlinux.sh
++++ b/scripts/link-vmlinux.sh
+@@ -64,7 +64,7 @@ objtool_link()
+ 	local objtoolopt;
+ 
+ 	if [ -n "${CONFIG_VMLINUX_VALIDATION}" ]; then
+-		objtoolopt="check"
++		objtoolopt="check --vmlinux"
+ 		if [ -z "${CONFIG_FRAME_POINTER}" ]; then
+ 			objtoolopt="${objtoolopt} --no-fp"
+ 		fi
 diff --git a/tools/objtool/builtin-check.c b/tools/objtool/builtin-check.c
-index 7a44174967b5..71595cf4946d 100644
+index 71595cf4946d..eaa06eb18690 100644
 --- a/tools/objtool/builtin-check.c
 +++ b/tools/objtool/builtin-check.c
-@@ -18,7 +18,7 @@
- #include "builtin.h"
- #include "objtool.h"
+@@ -41,18 +41,10 @@ const struct option check_options[] = {
  
--bool no_fp, no_unreachable, retpoline, module, backtrace, uaccess, stats, validate_dup, vmlinux;
-+bool no_fp, no_unreachable, retpoline, module, backtrace, uaccess, stats, validate_dup, vmlinux, mcount;
+ int cmd_check(int argc, const char **argv)
+ {
+-	const char *objname, *s;
+-
+ 	argc = parse_options(argc, argv, check_options, check_usage, 0);
  
- static const char * const check_usage[] = {
- 	"objtool check [<options>] file.o",
-@@ -35,6 +35,7 @@ const struct option check_options[] = {
- 	OPT_BOOLEAN('s', "stats", &stats, "print statistics"),
- 	OPT_BOOLEAN('d', "duplicate", &validate_dup, "duplicate validation for vmlinux.o"),
- 	OPT_BOOLEAN('l', "vmlinux", &vmlinux, "vmlinux.o validation"),
-+	OPT_BOOLEAN('M', "mcount", &mcount, "generate __mcount_loc"),
- 	OPT_END(),
- };
+ 	if (argc != 1)
+ 		usage_with_options(check_usage, check_options);
  
-diff --git a/tools/objtool/builtin.h b/tools/objtool/builtin.h
-index 85c979caa367..94565a72b701 100644
---- a/tools/objtool/builtin.h
-+++ b/tools/objtool/builtin.h
-@@ -8,7 +8,7 @@
- #include <subcmd/parse-options.h>
- 
- extern const struct option check_options[];
--extern bool no_fp, no_unreachable, retpoline, module, backtrace, uaccess, stats, validate_dup, vmlinux;
-+extern bool no_fp, no_unreachable, retpoline, module, backtrace, uaccess, stats, validate_dup, vmlinux, mcount;
- 
- extern int cmd_check(int argc, const char **argv);
- extern int cmd_orc(int argc, const char **argv);
-diff --git a/tools/objtool/check.c b/tools/objtool/check.c
-index 90a66891441a..ff0cd4d27d40 100644
---- a/tools/objtool/check.c
-+++ b/tools/objtool/check.c
-@@ -433,6 +433,65 @@ static int add_dead_ends(struct objtool_file *file)
- 	return 0;
+-	objname = argv[0];
+-
+-	s = strstr(objname, "vmlinux.o");
+-	if (s && !s[9])
+-		vmlinux = true;
+-
+-	return check(objname, false);
++	return check(argv[0], false);
  }
- 
-+static int create_mcount_loc_sections(struct objtool_file *file)
-+{
-+	struct section *sec, *reloc_sec;
-+	struct reloc *reloc;
-+	unsigned long *loc;
-+	struct instruction *insn;
-+	int idx;
-+
-+	sec = find_section_by_name(file->elf, "__mcount_loc");
-+	if (sec) {
-+		INIT_LIST_HEAD(&file->mcount_loc_list);
-+		WARN("file already has __mcount_loc section, skipping");
-+		return 0;
-+	}
-+
-+	if (list_empty(&file->mcount_loc_list))
-+		return 0;
-+
-+	idx = 0;
-+	list_for_each_entry(insn, &file->mcount_loc_list, mcount_loc_node)
-+		idx++;
-+
-+	sec = elf_create_section(file->elf, "__mcount_loc", sizeof(unsigned long), idx);
-+	if (!sec)
-+		return -1;
-+
-+	reloc_sec = elf_create_reloc_section(file->elf, sec, SHT_RELA);
-+	if (!reloc_sec)
-+		return -1;
-+
-+	idx = 0;
-+	list_for_each_entry(insn, &file->mcount_loc_list, mcount_loc_node) {
-+
-+		loc = (unsigned long *)sec->data->d_buf + idx;
-+		memset(loc, 0, sizeof(unsigned long));
-+
-+		reloc = malloc(sizeof(*reloc));
-+		if (!reloc) {
-+			perror("malloc");
-+			return -1;
-+		}
-+		memset(reloc, 0, sizeof(*reloc));
-+
-+		reloc->sym = insn->sec->sym;
-+		reloc->addend = insn->offset;
-+		reloc->type = R_X86_64_64;
-+		reloc->offset = idx * sizeof(unsigned long);
-+		reloc->sec = reloc_sec;
-+		elf_add_reloc(file->elf, reloc);
-+
-+		idx++;
-+	}
-+
-+	if (elf_rebuild_reloc_section(file->elf, reloc_sec))
-+		return -1;
-+
-+	return 0;
-+}
-+
- /*
-  * Warnings shouldn't be reported for ignored functions.
-  */
-@@ -784,6 +843,22 @@ static int add_call_destinations(struct objtool_file *file)
- 			insn->type = INSN_NOP;
- 		}
- 
-+		if (mcount && !strcmp(insn->call_dest->name, "__fentry__")) {
-+			if (reloc) {
-+				reloc->type = R_NONE;
-+				elf_write_reloc(file->elf, reloc);
-+			}
-+
-+			elf_write_insn(file->elf, insn->sec,
-+				       insn->offset, insn->len,
-+				       arch_nop_insn(insn->len));
-+
-+			insn->type = INSN_NOP;
-+
-+			list_add_tail(&insn->mcount_loc_node,
-+				      &file->mcount_loc_list);
-+		}
-+
- 		/*
- 		 * Whatever stack impact regular CALLs have, should be undone
- 		 * by the RETURN of the called function.
-@@ -2791,6 +2866,7 @@ int check(const char *_objname, bool orc)
- 
- 	INIT_LIST_HEAD(&file.insn_list);
- 	hash_init(file.insn_hash);
-+	INIT_LIST_HEAD(&file.mcount_loc_list);
- 	file.c_file = !vmlinux && find_section_by_name(file.elf, ".comment");
- 	file.ignore_unreachables = no_unreachable;
- 	file.hints = false;
-@@ -2838,6 +2914,13 @@ int check(const char *_objname, bool orc)
- 		warnings += ret;
- 	}
- 
-+	if (mcount) {
-+		ret = create_mcount_loc_sections(&file);
-+		if (ret < 0)
-+			goto out;
-+		warnings += ret;
-+	}
-+
- 	if (orc) {
- 		ret = create_orc(&file);
- 		if (ret < 0)
-diff --git a/tools/objtool/check.h b/tools/objtool/check.h
-index 061aa96e15d3..b62afd3d970b 100644
---- a/tools/objtool/check.h
-+++ b/tools/objtool/check.h
-@@ -22,6 +22,7 @@ struct insn_state {
- struct instruction {
- 	struct list_head list;
- 	struct hlist_node hash;
-+	struct list_head mcount_loc_node;
- 	struct section *sec;
- 	unsigned long offset;
- 	unsigned int len;
-diff --git a/tools/objtool/objtool.h b/tools/objtool/objtool.h
-index 528028a66816..427806079540 100644
---- a/tools/objtool/objtool.h
-+++ b/tools/objtool/objtool.h
-@@ -16,6 +16,7 @@ struct objtool_file {
- 	struct elf *elf;
- 	struct list_head insn_list;
- 	DECLARE_HASHTABLE(insn_hash, 20);
-+	struct list_head mcount_loc_list;
- 	bool ignore_unreachables, c_file, hints, rodata;
- };
- 
 -- 
 2.28.0.709.gb0816b6eb0-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200929214631.3516445-5-samitolvanen%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200929214631.3516445-6-samitolvanen%40google.com.
