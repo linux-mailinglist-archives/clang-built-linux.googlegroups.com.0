@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBFNZZT5QKGQEOOPOMLI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBCV3ZT5QKGQECNNKMJI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43a.google.com (mail-pf1-x43a.google.com [IPv6:2607:f8b0:4864:20::43a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1C10227C57E
-	for <lists+clang-built-linux@lfdr.de>; Tue, 29 Sep 2020 13:37:59 +0200 (CEST)
-Received: by mail-pf1-x43a.google.com with SMTP id e12sf3427970pfm.0
-        for <lists+clang-built-linux@lfdr.de>; Tue, 29 Sep 2020 04:37:59 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601379478; cv=pass;
+Received: from mail-vs1-xe3f.google.com (mail-vs1-xe3f.google.com [IPv6:2607:f8b0:4864:20::e3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id C680127C60A
+	for <lists+clang-built-linux@lfdr.de>; Tue, 29 Sep 2020 13:42:03 +0200 (CEST)
+Received: by mail-vs1-xe3f.google.com with SMTP id k190sf1257662vsk.17
+        for <lists+clang-built-linux@lfdr.de>; Tue, 29 Sep 2020 04:42:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601379723; cv=pass;
         d=google.com; s=arc-20160816;
-        b=U9nzBbwIFJOd+QG5JT/m3G9r7l3lsg+el/n4yRmfnDC7EN3SXDtf6EHSy0wygM1m25
-         CvUmohSfvyuuIneMDLvKhbY6u8LIDcdEI4Pr9jZmnmWTsdZs3LQ9DkJna+6fiRsy2+4d
-         6cRO6ZHTxridzT0c3i8D08Pdf+VlsNZmvqkaUXC0mVIjGGWhnPHUHzEHoiZAAnC8qYOF
-         enLKspLy+s0QcNLiEM5SvMxA5iqdlkKjTQTZyDKW2z0+H42dxchGuR90GwXFbZ3DYTIm
-         NzfIg8vjM7JoF+BhJXsHdJa5JHEn6n/hkle5KwlGYv5cN10HE21R06AnurqnUR/Is8MV
-         UBcQ==
+        b=ytWTdw3NitTqWWaNHLMh7tnlPjJVLlEeE1/e90Wyly1AyuevcQ6WOq3+wrI0GCPjEk
+         VZ2Br/zRtmnXDuruSVGfIPkgX0hFdjRpjbfmYOYzIJOkWppGe28xHT4+Ia6pHBIVhDwi
+         ilDMAn1xUTe4/O8eRmnZ+8arul7DoNQ7i4/TRomWiAyBeVDbcgOBiih1MRTwnzNmsMnP
+         IUBm6o1Z+ZZZtDIfG7+QkVceSMOUytm1LHblbZpAqtE7Eg9hZfT3psev2dbWV89f7GfM
+         oeaMz8yMOWICUf6Ed0dsFBUCYWj0WnOrpReQpy1VEZ9Zc0GXHwjeFx8eYxLwszOHxCKf
+         z8ww==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:user-agent:references
          :in-reply-to:message-id:date:subject:cc:to:from:sender
          :dkim-signature;
-        bh=dMm8iJIwRPYnFoS2+jxdQJPp5h1s5ow3IVJTuJW4Wd0=;
-        b=HdAdH6cVX7AI51XX6Hnd45+86RFPaQL5i+3xdDTxlHvbW+PVbrXTlaBwMP1T5WQ1sO
-         BBO3CcBXpN7R2lQKqiaA6TvqwEqZp7DOu9bjQD0zZ39qfflgg0NKf1i4z8O9tZCJFf6q
-         I6CUkfy1WDRN9sf8d2abiRFA0E/mfs+fj3TOA8ajCQnzFfjxLUKPEfc8PApzB++P+wIV
-         MvjP9cronxhuAzON5PKmckN3pgiULuocRWXMs2qOXSCjGP0RgcfCZ6HLRDo5Lk699buv
-         7i8PEez/+EnT0U8Sug6iLZ0NhMUUKgm5OShIiIVsYCjfCJWYhAvj2iL5h16n80S3QcXq
-         8Jew==
+        bh=z/nIaPRvB5tKX/ZdV979RrA0vMas5/J6XqKUXZmQeHg=;
+        b=PeICliyeFr3u1fgVki0YSMIful2f57O1cIyU7tYaSK8phsReSd3O5Gro9glZ6ps0qS
+         wiGnj8DOnL6EYQ01WZrBvLyd6rlRZIokaMlgWntrod7kmp5AjFy2QvaDBUxYtQmDHoj9
+         42JT3uD10MvTLYc2Jbq6wffrxHOSmIGv2CjUij94bE6xBmvEFgG9Tq5rz1fz0Uudy+Fz
+         SvYjJ3MOZ8PZd1NNS4NAPIMnOZIr4Of0dOuH1Swdd2fUNxSvaiapov8TG0FzbhSoOaw+
+         rho/06yAZw5sSbHXCFg9Yg8LBVZI/yYj21zl2xwzWvimE2uZ3fc6Tx/vQjSvPk1r1shn
+         kxxg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=DFOvyphL;
+       dkim=pass header.i=@kernel.org header.s=default header.b=sXwP7BR4;
        spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=dMm8iJIwRPYnFoS2+jxdQJPp5h1s5ow3IVJTuJW4Wd0=;
-        b=KF4fPlbiQV+4YPGimkuI16MjNSe++MOQRP+oiboeSgqECYPIPmQGb8fHBMNxR9n837
-         KzJuXzWg6Ayp2tI2lrNWAcc3Eh6O5+a0j4rjy5NuFH4LewR4CwV3Or3zQa1eccZ6IoBE
-         l+K7qgVy/sDf5ARy7JUNNtY4lbWMKO4fV6qZZmsx92+wgEb0K+2YpVYG/ibVNKCbj1rg
-         teq0KJZX43o2Mfw7Nq6Y7r0wVEV3kZF2NEMxktiwU5mpwrL3sw6Kg2+yoXCnxMQDRPWU
-         nVAyLGeFovfq2AF4CaIo5Q9IlPhhktNdiGoFhnxV9+20V1jMBim8FQcNY0ADZUYMqk/c
-         fY+g==
+        bh=z/nIaPRvB5tKX/ZdV979RrA0vMas5/J6XqKUXZmQeHg=;
+        b=sz08ZCsF1S/ueuvjAqg8i5U4LFsm4+R7T94nRagPFa4rAqT0LQz61kjfWm8ypiAgf5
+         RmRIGuS14qk05Q2liRnQsMgCW/cALm6HFXemrr/PnflwV/XECWGcn36DySYWWw+TbTaC
+         uML196pWfldBQ8mS2lhf0vlLh9+KBhLuiedH9Taab+8Aj1qtWky1ja75F9pQyd5OxHk+
+         Hm++WT8E45FnSU9w59WcVN9DGtmUPliZXTBHKf+rBzjwxeM/MAEY21QBAjoJeQ5bc5WB
+         eRC/dvI9V5jvysYf8UKE3PfTCTpc76Fx1eITDtJWoKAihe2/MWE5UJzgja4oGtIqQfxl
+         e+Sw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -50,67 +50,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=dMm8iJIwRPYnFoS2+jxdQJPp5h1s5ow3IVJTuJW4Wd0=;
-        b=Ou0H3EpmJAfmhzpRNGrrYc6MJ0B1dIshrEd0yYcz5+5mHQiBrWHkpPL0uwJPKXlcrm
-         PhwYm2JHkdFC7rkbCztZwUiGSYJeAQQqf6L5j74OPPR8yfw/18ibf4jkenQvQs6FHcaO
-         Myw6kLXn5GYHQRNq7CJ4mGNRdNFjghnVmGhh4iL2aTjCoJW9co/IKShfGXv/WYc6uXEp
-         7s4CJr6s/NdlvGFx2INHPufBdjW2GGswDWj+h0KfOoO3O0zIHY5v9z5yJYQmtJ3wceXu
-         R+cPoayp2crS96HicnjK4Nnm+V/dD3LQ+ooj6SFN7i2iN3lnsEJeKiXMy5gaJCopdL5/
-         s4/A==
+        bh=z/nIaPRvB5tKX/ZdV979RrA0vMas5/J6XqKUXZmQeHg=;
+        b=HmugiKmv4DEDDUn3Wq9WS5NpEhyO+hpIciFGRQuLb3WcPgiDxKvOmCg2pIN9jgfsnE
+         fPIC5XqwNWn1siVcOVmmXZPjLNkhCVJReDS5OFm5Ef8idIYN0ZO7AjKgZhAV4IhMFIIY
+         0bWbc3ldNpHAmQd3SwrhhS2hE8M5Mg54P2xf5Zh6tIQTuoUEfAwOod2iuL2547wksbqA
+         y6RMOraJ/mu6tyULGZq25yUpaYkMvBia0zW5A6o4E/9qXGaCnx4uoSDZjY3p+n9InrYc
+         5eL7w2XJ+F0/Mdo7QvbsqlZPLaj4uuWznSmCwPNIRSExnuad5lpzhlmRIyOxriUXqmkt
+         4MfA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531BQBluuedBqPJHsY4r+2jhkASoNN4XYbYfWPDqaglwFVbc5Eg1
-	J2lUOoliujkTZKGJj2c77Nk=
-X-Google-Smtp-Source: ABdhPJyt3Yr1cgQkXZbks3cCBgxhczUFtlFsmtj4TxlG7dJpRKJMT6Br3hHfxiPA6r50W+z8Vo7wIg==
-X-Received: by 2002:a62:3541:0:b029:13f:ebd9:ad5c with SMTP id c62-20020a6235410000b029013febd9ad5cmr3910086pfa.30.1601379477813;
-        Tue, 29 Sep 2020 04:37:57 -0700 (PDT)
+X-Gm-Message-State: AOAM5303Er/8jZ4yJ+sX87MRhk7okZVcol4hTvq53V8OoPXqyJdGGh0Y
+	vESJkLd36S31tWKvFdqeTOo=
+X-Google-Smtp-Source: ABdhPJwEOmI7YuRQLQhNUXRbEPif6sIPW0ghZ9w3BiSYI7nSYgxFHUgUWrKKHltJp2kC4ItTrCgiSw==
+X-Received: by 2002:ab0:234b:: with SMTP id h11mr3377460uao.80.1601379722840;
+        Tue, 29 Sep 2020 04:42:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:7c92:: with SMTP id y18ls2937939pll.0.gmail; Tue, 29
- Sep 2020 04:37:57 -0700 (PDT)
-X-Received: by 2002:a17:902:8bc4:b029:d2:8cec:1fae with SMTP id r4-20020a1709028bc4b02900d28cec1faemr4314768plo.23.1601379477241;
-        Tue, 29 Sep 2020 04:37:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601379477; cv=none;
+Received: by 2002:a05:6102:3d1:: with SMTP id n17ls624310vsq.2.gmail; Tue, 29
+ Sep 2020 04:42:02 -0700 (PDT)
+X-Received: by 2002:a67:e2c2:: with SMTP id i2mr2469182vsm.27.1601379722058;
+        Tue, 29 Sep 2020 04:42:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601379722; cv=none;
         d=google.com; s=arc-20160816;
-        b=SXxwD0x8P0N5uXPIaZyxsEt6TwMBaWHrgpPl55yzjBLngTN7Ih92FwUV/3QyyraFo8
-         sZ8i1n204m7wDQa9Fd3j7bJEwMDmXVmX8bT6A2Y1Zw+r8RSVfbr8QO2fWV7Pyd7sacIN
-         VOVAPeRj73g1P+IWKN2J9rzFhyi4XOm//2uxAz/OkyVV0LyINrHyn4CwFxd3kcnJWI8f
-         8ZIOW6nwO71DpGrRLED2GYuD3yMxA8lNT6uibzM/+/5W9c4YPgD9JnlehsVXKJEDWZHk
-         N3yqPs8e4rjFzaoLpc2JusehBEbEFas520Ms/UvbRvrKAs22qeFD9QnTk41cD0LlOzqx
-         esCw==
+        b=SrBGj1w5VERmAXJ0Ba96iFJ8zlplftvZ7lkrfHtLBNuLjNE0aEzfFbWQangyLfwt1/
+         /xCOWje+DcsFLBf3rmb8P2LSJeIEyBQXW/hX8DVu6fBSwRUEXi+5vmgb/09qnTVxrYuT
+         cHdNVfA5/yabffWwuP6GL9lgg/iVoUpY59MPv1gHJIMAHdkehOlfW6CgVI/Rc80x9xgP
+         4innC8QRH9lTmeJkyKIiv/bql4VjlLR9bVWDX1smrZr8BUdlGffb05BZaVRNPor2IWqF
+         vyki+nI/G//qc00oPdljz4lkSHgdJd8B75RZZXmYKmX1iul/vRXHi7uqXp6hT33tz9I3
+         4L5Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:user-agent:references
          :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature;
-        bh=VvnpnKNjs5JvVWsutn8xVtcCW7WEFRGDu1K2d140W8I=;
-        b=ugAW2rf0W4eE/vVKHlPkHrQ3pAeaJw+R0peMJgIrWJzKxM7VXfttfyegGoCmgU4KGb
-         2lLubfM+cIQz6+pJ2fq67wB0AFXrtI6FPkBJnWXSf9vZ496OG5rebXBcdvlCHSaars3x
-         Gov0YZd92VBZuXQ8LF0/sVV04kXtuqtHDeUXWhphj6YuCT3hTpwDQrsa5Cm0aimUCwLV
-         do1T/EG8V+4RC5WEEGfujWA5UfyEzb9EetpLhDqJEdHOf67xUywaWRe/Gmpui9U18Pu4
-         dl0yy4kg05bx7tdfoLue8h1hIcxQmztr71x2MEd05zyRZy4ac9sppvY42DwwRV9uLlz7
-         fBrA==
+        bh=JMeihtiiq6ixqNRZM47zc13v3tJ71X2MM+6a2sFnv2c=;
+        b=BnV/NoXcLTMglLN7bu1fqV8KQM8PHKUYJl9VZAUtrqn6Usl2sWO2ip56BhieNlgife
+         IMz5kWG721IlUwPdIjqYQaAo11/znOX8VjUlRMhVY58E4Pi5qnIf2FasrTjpGEafoBr4
+         5J9X1PehDJOL/JlBxY63exztOMdE7wZLFTEL5XexMxraRhS5+JMhg9/ELNLouI/rg30/
+         jYpTmw/YLc/t8svk7by2wi869JHRA5NDwxjMaIlue3Oj1KLq2Lqbkk+zha4s8+ykGXnU
+         lz1GsjgHLMLkydGkMJ1bLByF/4by2eSJ00FichJN7YN6jtNRTkaKLKC5OeEa52Rloy6W
+         xtIw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=DFOvyphL;
+       dkim=pass header.i=@kernel.org header.s=default header.b=sXwP7BR4;
        spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id bk9si495438pjb.1.2020.09.29.04.37.57
+        by gmr-mx.google.com with ESMTPS id h9si205406vsh.2.2020.09.29.04.42.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 29 Sep 2020 04:37:57 -0700 (PDT)
+        Tue, 29 Sep 2020 04:42:02 -0700 (PDT)
 Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from localhost (83-86-74-64.cable.dynamic.v4.ziggo.nl [83.86.74.64])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 7562F208B8;
-	Tue, 29 Sep 2020 11:37:56 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 76D8C2074A;
+	Tue, 29 Sep 2020 11:42:00 +0000 (UTC)
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: linux-kernel@vger.kernel.org
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	stable@vger.kernel.org,
 	Ian Rogers <irogers@google.com>,
 	Jiri Olsa <jolsa@redhat.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Andi Kleen <ak@linux.intel.com>,
-	Leo Yan <leo.yan@linaro.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Namhyung Kim <namhyung@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
@@ -118,9 +115,9 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	clang-built-linux@googlegroups.com,
 	Arnaldo Carvalho de Melo <acme@redhat.com>,
 	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.4 180/388] perf parse-events: Fix 3 use after frees found with clang ASAN
-Date: Tue, 29 Sep 2020 12:58:31 +0200
-Message-Id: <20200929110019.192000597@linuxfoundation.org>
+Subject: [PATCH 5.4 249/388] perf mem2node: Avoid double free related to realloc
+Date: Tue, 29 Sep 2020 12:59:40 +0200
+Message-Id: <20200929110022.534635698@linuxfoundation.org>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <20200929110010.467764689@linuxfoundation.org>
 References: <20200929110010.467764689@linuxfoundation.org>
@@ -129,7 +126,7 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: gregkh@linuxfoundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=DFOvyphL;       spf=pass
+ header.i=@kernel.org header.s=default header.b=sXwP7BR4;       spf=pass
  (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
@@ -147,64 +144,81 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Ian Rogers <irogers@google.com>
 
-[ Upstream commit d4953f7ef1a2e87ef732823af35361404d13fea8 ]
+[ Upstream commit 266150c94c69429cf6d18e130237224a047f5061 ]
 
-Reproducible with a clang asan build and then running perf test in
-particular 'Parse event definition strings'.
+Realloc of size zero is a free not an error, avoid this causing a double
+free. Caught by clang's address sanitizer:
+
+==2634==ERROR: AddressSanitizer: attempting double-free on 0x6020000015f0 in thread T0:
+    #0 0x5649659297fd in free llvm/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:123:3
+    #1 0x5649659e9251 in __zfree tools/lib/zalloc.c:13:2
+    #2 0x564965c0f92c in mem2node__exit tools/perf/util/mem2node.c:114:2
+    #3 0x564965a08b4c in perf_c2c__report tools/perf/builtin-c2c.c:2867:2
+    #4 0x564965a0616a in cmd_c2c tools/perf/builtin-c2c.c:2989:10
+    #5 0x564965944348 in run_builtin tools/perf/perf.c:312:11
+    #6 0x564965943235 in handle_internal_command tools/perf/perf.c:364:8
+    #7 0x5649659440c4 in run_argv tools/perf/perf.c:408:2
+    #8 0x564965942e41 in main tools/perf/perf.c:538:3
+
+0x6020000015f0 is located 0 bytes inside of 1-byte region [0x6020000015f0,0x6020000015f1)
+freed by thread T0 here:
+    #0 0x564965929da3 in realloc third_party/llvm/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:164:3
+    #1 0x564965c0f55e in mem2node__init tools/perf/util/mem2node.c:97:16
+    #2 0x564965a08956 in perf_c2c__report tools/perf/builtin-c2c.c:2803:8
+    #3 0x564965a0616a in cmd_c2c tools/perf/builtin-c2c.c:2989:10
+    #4 0x564965944348 in run_builtin tools/perf/perf.c:312:11
+    #5 0x564965943235 in handle_internal_command tools/perf/perf.c:364:8
+    #6 0x5649659440c4 in run_argv tools/perf/perf.c:408:2
+    #7 0x564965942e41 in main tools/perf/perf.c:538:3
+
+previously allocated by thread T0 here:
+    #0 0x564965929c42 in calloc third_party/llvm/llvm-project/compiler-rt/lib/asan/asan_malloc_linux.cpp:154:3
+    #1 0x5649659e9220 in zalloc tools/lib/zalloc.c:8:9
+    #2 0x564965c0f32d in mem2node__init tools/perf/util/mem2node.c:61:12
+    #3 0x564965a08956 in perf_c2c__report tools/perf/builtin-c2c.c:2803:8
+    #4 0x564965a0616a in cmd_c2c tools/perf/builtin-c2c.c:2989:10
+    #5 0x564965944348 in run_builtin tools/perf/perf.c:312:11
+    #6 0x564965943235 in handle_internal_command tools/perf/perf.c:364:8
+    #7 0x5649659440c4 in run_argv tools/perf/perf.c:408:2
+    #8 0x564965942e41 in main tools/perf/perf.c:538:3
+
+v2: add a WARN_ON_ONCE when the free condition arises.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 Acked-by: Jiri Olsa <jolsa@redhat.com>
-Cc: Adrian Hunter <adrian.hunter@intel.com>
 Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: Andi Kleen <ak@linux.intel.com>
-Cc: Leo Yan <leo.yan@linaro.org>
 Cc: Mark Rutland <mark.rutland@arm.com>
 Cc: Namhyung Kim <namhyung@kernel.org>
 Cc: Peter Zijlstra <peterz@infradead.org>
 Cc: Stephane Eranian <eranian@google.com>
 Cc: clang-built-linux@googlegroups.com
-Link: http://lore.kernel.org/lkml/20200314170356.62914-1-irogers@google.com
+Link: http://lore.kernel.org/lkml/20200320182347.87675-1-irogers@google.com
 Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- tools/perf/util/evsel.c        | 1 +
- tools/perf/util/parse-events.c | 4 ++--
- 2 files changed, 3 insertions(+), 2 deletions(-)
+ tools/perf/util/mem2node.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
-index a844715a352d8..dfc982baecab4 100644
---- a/tools/perf/util/evsel.c
-+++ b/tools/perf/util/evsel.c
-@@ -1254,6 +1254,7 @@ void perf_evsel__exit(struct evsel *evsel)
- 	perf_thread_map__put(evsel->core.threads);
- 	zfree(&evsel->group_name);
- 	zfree(&evsel->name);
-+	zfree(&evsel->pmu_name);
- 	perf_evsel__object.fini(evsel);
- }
+diff --git a/tools/perf/util/mem2node.c b/tools/perf/util/mem2node.c
+index 797d86a1ab095..c84f5841c7abd 100644
+--- a/tools/perf/util/mem2node.c
++++ b/tools/perf/util/mem2node.c
+@@ -1,5 +1,6 @@
+ #include <errno.h>
+ #include <inttypes.h>
++#include <asm/bug.h>
+ #include <linux/bitmap.h>
+ #include <linux/kernel.h>
+ #include <linux/zalloc.h>
+@@ -95,7 +96,7 @@ int mem2node__init(struct mem2node *map, struct perf_env *env)
  
-diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-index 759a99f723fc3..e232dfe07f8fb 100644
---- a/tools/perf/util/parse-events.c
-+++ b/tools/perf/util/parse-events.c
-@@ -1344,7 +1344,7 @@ int parse_events_add_pmu(struct parse_events_state *parse_state,
- 		evsel = __add_event(list, &parse_state->idx, &attr, NULL, pmu, NULL,
- 				    auto_merge_stats, NULL);
- 		if (evsel) {
--			evsel->pmu_name = name;
-+			evsel->pmu_name = name ? strdup(name) : NULL;
- 			evsel->use_uncore_alias = use_uncore_alias;
- 			return 0;
- 		} else {
-@@ -1385,7 +1385,7 @@ int parse_events_add_pmu(struct parse_events_state *parse_state,
- 		evsel->snapshot = info.snapshot;
- 		evsel->metric_expr = info.metric_expr;
- 		evsel->metric_name = info.metric_name;
--		evsel->pmu_name = name;
-+		evsel->pmu_name = name ? strdup(name) : NULL;
- 		evsel->use_uncore_alias = use_uncore_alias;
- 		evsel->percore = config_term_percore(&evsel->config_terms);
- 	}
+ 	/* Cut unused entries, due to merging. */
+ 	tmp_entries = realloc(entries, sizeof(*entries) * j);
+-	if (tmp_entries)
++	if (tmp_entries || WARN_ON_ONCE(j == 0))
+ 		entries = tmp_entries;
+ 
+ 	for (i = 0; i < j; i++) {
 -- 
 2.25.1
 
@@ -213,4 +227,4 @@ index 759a99f723fc3..e232dfe07f8fb 100644
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200929110019.192000597%40linuxfoundation.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200929110022.534635698%40linuxfoundation.org.
