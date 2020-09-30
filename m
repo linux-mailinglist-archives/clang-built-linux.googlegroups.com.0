@@ -1,134 +1,158 @@
-Return-Path: <clang-built-linux+bncBDY3NC743AGBB25A2T5QKGQEQ3AG3ZY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCGI7NV74QARBFFT2T5QKGQEIGSO4LI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe40.google.com (mail-vs1-xe40.google.com [IPv6:2607:f8b0:4864:20::e40])
-	by mail.lfdr.de (Postfix) with ESMTPS id F0E6027F5B4
-	for <lists+clang-built-linux@lfdr.de>; Thu,  1 Oct 2020 01:10:36 +0200 (CEST)
-Received: by mail-vs1-xe40.google.com with SMTP id n10sf618428vsr.4
-        for <lists+clang-built-linux@lfdr.de>; Wed, 30 Sep 2020 16:10:36 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601507436; cv=pass;
+Received: from mail-il1-x137.google.com (mail-il1-x137.google.com [IPv6:2607:f8b0:4864:20::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3B36527F649
+	for <lists+clang-built-linux@lfdr.de>; Thu,  1 Oct 2020 01:49:42 +0200 (CEST)
+Received: by mail-il1-x137.google.com with SMTP id e9sf2946381ils.7
+        for <lists+clang-built-linux@lfdr.de>; Wed, 30 Sep 2020 16:49:42 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601509781; cv=pass;
         d=google.com; s=arc-20160816;
-        b=j618otmmwpHfWBacz2bwzHrKMJFa0rWWCGvR9exRZ19parbqU+iFzQUSaYvwQaWjJH
-         1Zt0Mi+KsOSWRNgVqFtQuow1iiamOLZINPNSqoJaQUL+cLfQ+cPas+5x726VxxRTcR07
-         9emIie7qBPKMgYZ7ZB8Bq5QBvwNa5rRCtT0gQWTU8Xj2M4K18VUXtj9yqVBSuuP5Hhya
-         rTd7zi8w0tR+fa5F/KoxoNIsHJd0byDI4QUQqaeSTo2Z3eXgldS3ZelR1oWpOVV1v0nv
-         DgU/FvxuE84MqwcAHdnDR+XB+I2U8Xles4S3m6kxc74xhM6yu3cOmRzOYu6BlhBvC5Tw
-         qyrA==
+        b=txcPCqWVZTwOrahOPY+8PT9DkW8KQ4U4lateNDjwP+lDyoJaTaRnK8Or5CL9vaOLMU
+         ojI2UPfGuhh7+oWtXPe8zc0y4NlRyTbYJ1hVfVPeyw2n+g93tvX25Nh71pUZuqzSmtO6
+         y02HS8YIcebTh8Ye3alxg3VudQfEhYWR2MEXmb8OR0Djp35XlbpWP7Y3PWYyXP6+vuGI
+         9XZZ/agYeBJTAb7EK4kG54bcS/ipvkoZgCxeKnezTPulS26TkbBydrOfmv0/altpC91S
+         wykzfLTPKqhFIVj81nSiNBps24leF8+1GN3aZXf62QlV/w6SzOu4zZ0/kLYhXIv63Fc6
+         hVRw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:sender
-         :dkim-signature;
-        bh=CUwIbzSW2t+1CDqwn0PkP4hjP/+h/8h8IKhafOjhAmI=;
-        b=WSxv+mnLwVLsSudhVg+6ymzpNFfmpwekpmSMvaSmFFz8LrKX9CDVV6yoM/MZ58FFBj
-         wLCYLKzhIGflWUD8e2/6y6OTTNkbQSlrHCGI93f3JbZwzHGXkwNyfJLwB01JyjRsTUks
-         sG0Stn18ZJMDy5f+EW1qsJbQgsW5BLWP1iJ8BzLMhYZq5TBacNtX8AvPVY42SxdJ4jh9
-         ntvWBskY11TVQqdVSKCx4LzhPGVSmjDUvMTtuzKowQ8LMCfSqTCPYsvvC/cXzRZZpnh+
-         q0ScQq48MQWllVXjG71hEE2ulu3jK6Y10j03MXhDsyV+o8fNTE5j54l2pa+mMy/arbAp
-         d8HA==
+         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
+         :content-language:in-reply-to:mime-version:user-agent:date
+         :message-id:from:references:cc:to:subject:dkim-signature;
+        bh=TZ81bSxCQc6T9hPCNLRNJYCgV9K6i8tgLfitqyPDi8I=;
+        b=FMfRv8Pdi0M1ydK/jldLfvxe3RHBL+H7qVOhZmWwFTLGw9p3SK7EgFTLwz0GpW1Pjt
+         yUPPnksLyS4d6h5vb7SMb29789Z2njR14jupiWyVTsMCpZbBw7Fc93hduEoLMey86K+X
+         EorPCdQglcUVd1BKLos/12G/ry+se6tKaVMeJk8Upt2b7UxG2NLvuYbSCg+3+vWQPQGi
+         q8a3U/VGwGljRSK8x7lQc9gi1hWQHZM+HGzYYWTiq5xshjRUPWYXFXY1Oc163SyXMcm7
+         9wu7u8g7+47Tox7DIQOHZMImAvpGUlED+YyC/uObab/q/4GQMBZNLpb1CvmNJP2gntus
+         M4rQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.227 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+       dkim=pass header.i=@amazon.com header.s=amazon201209 header.b=R5Kvqf3A;
+       spf=pass (google.com: domain of prvs=53595e4c7=sblbir@amazon.com designates 52.95.49.90 as permitted sender) smtp.mailfrom="prvs=53595e4c7=sblbir@amazon.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=CUwIbzSW2t+1CDqwn0PkP4hjP/+h/8h8IKhafOjhAmI=;
-        b=MqF7Wa2/9UA2jIBz0Yg4JHPww9M41a3B4kGnOBacA/ZZ6SDut+QIafxpUrlKF3w+Ky
-         uMgIxW5k2TqXcHunULivwyS5H44OVjU5kuZHknxEUSNbghHI5M4PwsUIjc9QwRBfsOfl
-         AoNVOZkmaxRcvwYeLVJV3baczTDz9lblgkxzg+q92AFJMyoGnMirnJz0ljvtwJoo/dXB
-         sy+nEtjENyMdBXiQYYt/XKw8obBPoehQZGe8Nk4LCEXfAOHtwojZwxJPTd/MhRVeZsR4
-         WMAgjb3wrjYcoYCctVZU678XvJFN8/eM+8s7v0k4s2sg/OYuCLIe4E4XIR0y8zN33hR2
-         Y4Xw==
+        h=subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=TZ81bSxCQc6T9hPCNLRNJYCgV9K6i8tgLfitqyPDi8I=;
+        b=EYNOQRoC+XUJLWpu73Km+6QOLkxcAiBLYTMv/69tX4iW7n9p3lJmrK88jdopmKUvYm
+         TJ0BjqA+F9F7J2CFCPw0wWWHIUEZ9WBkJc1XL3tfdBXTzTn0CxbwtMObzTcnlfRkK0KB
+         tcGF7TDjXXpMp4djEQnayhHHXCiVWZKW/oeL5ysB7NZlbgo1sp/zSAUliZPbJoggpF7x
+         Mp2D3NZmeYp2iNXx623DR+89XUavxlRVyY5dLPjP/ZvT284GG8WZWx5nIj1wgzNwksfE
+         YWMLR9KpJG4SQGD6oN7aUHv6ht3nC0+F4gBrDpw0clK1+PZUtT0EdDMkQ4+0d/Q+axbi
+         k/zQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+         :user-agent:mime-version:in-reply-to:content-language
+         :content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CUwIbzSW2t+1CDqwn0PkP4hjP/+h/8h8IKhafOjhAmI=;
-        b=gofimNhYqU0nLFcNa85lLjNkVSygCHcqvXdxcOrlUL/BVzyd1d1jplvPB2eevDAo8j
-         x92CSeJRp7rwiPWH388bHbFQNpsZZBIW8eJah7BpO/uT5cH9JrjhDSyVQXYnoHtqymre
-         qoWFAwICVyL2i+ct3m+QT4AFpXst9aGYqZR1X+LdYZ0RODY0keOMhufC5+swmeALr16n
-         ItBLJfZo/PxhRWASwNjrl1/IjFiA/FVme+zIahE2U4SAzyHtAvFl/tqUu8J09twqNgND
-         jdqpcA9kN9NaWEFKY0Mdl//OpVo/EfVDwnHyfcgL9fhTKdh45oameFUjMY1mWzl6scxZ
-         JRIw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530oCsKs2ibiSuhJuEXoJpQ7TvY61JRy7Auzg8JlIsxYhWwDuRvR
-	L5RWSwZF64Ml5LYM0OCvj54=
-X-Google-Smtp-Source: ABdhPJyDYVhwVHSKz9xN91Z0DEpVVzw1kWHu8fUOw76uC582btWc5sJkUay22YvnzU/pXom77+Nq5w==
-X-Received: by 2002:ab0:768:: with SMTP id h95mr3281024uah.23.1601507435968;
-        Wed, 30 Sep 2020 16:10:35 -0700 (PDT)
+        bh=TZ81bSxCQc6T9hPCNLRNJYCgV9K6i8tgLfitqyPDi8I=;
+        b=oWjbRCljzkqF2QYPKis7+BVa8b77yqpVkOR8tzfUR/17sIWzawYGRY6V24L6gNyfC2
+         PV+kr3X77ENJVk1ipKjX2Wr1UeARteolfgz/7Cau9Hl7okCPyY6LyGMN2FGgfhT3X7SL
+         G++b0t0GTZ1fOSmauF3dvU7EJt7lALnD85qtvUm+wxmnBmaP615iP1HaJJbALzcGXrmY
+         JLrwHycyV1TwzacPd11JKQTxDo1/J8dTBTlC/b/2VoICFUov9CGxYrvdPpurm0eQHYkl
+         6hdm7Xv2KVUUv7PNUCaTBvaqcf8+41x0Ax4DrV+fxxt75qVTe9o2/kc1Tob3L9j65WxO
+         hdwQ==
+X-Gm-Message-State: AOAM531tWgpRuSEt0AxBcPYmc0Cm4ikfSM0c/KwgbWcWz46R7BOdC4Pe
+	TuEXNRONHa0cmdFD+Z0FddM=
+X-Google-Smtp-Source: ABdhPJy++oOfaEN+VReX44qHj4fmWd1gqI7cm4fXKdmgjZVNDTFOiskCseycocdAH12XtHdBe2lSLg==
+X-Received: by 2002:a5e:d60c:: with SMTP id w12mr3460310iom.204.1601509780783;
+        Wed, 30 Sep 2020 16:49:40 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:2643:: with SMTP id m64ls435201vsm.3.gmail; Wed, 30 Sep
- 2020 16:10:35 -0700 (PDT)
-X-Received: by 2002:a67:c887:: with SMTP id v7mr3364113vsk.49.1601507435394;
-        Wed, 30 Sep 2020 16:10:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601507435; cv=none;
+Received: by 2002:a92:c805:: with SMTP id v5ls1077720iln.1.gmail; Wed, 30 Sep
+ 2020 16:49:40 -0700 (PDT)
+X-Received: by 2002:a92:5882:: with SMTP id z2mr284660ilf.137.1601509780447;
+        Wed, 30 Sep 2020 16:49:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601509780; cv=none;
         d=google.com; s=arc-20160816;
-        b=v//aBa//bbbklXw9/CN1Sa/y48XK6tF6aIGTMfACawn63TXgScZK/oSCKDiLLtSonG
-         VMSrKLu4IqF7CH+XE4h+eEQw1YQuoG0QBxtNuK5IMRCth9taD77k762MugDOsT3psm1t
-         qsSay2CeDSRqSa5AbOhPgEKjfYjh/vfgqR4erfMJgrVNrJtsi89wf+eCH99e00opPtn2
-         +sxqyGh/03r/vCQ6D2VBGo374wQUqNzr+En5H7SzcL4IpXWalDG4F9Rp3v44l/891n/M
-         lRwT5DhQClLVjYcQzvCPafMYMtwIbM/nxi9rSFudUQP6lyvIXDw4loz2ersZBoIArkKC
-         Wa+w==
+        b=rf9DimGIEXuck1oDyvDhu8Ab32f3OEfMUdf5ta+SJ9Mw2M8iK0pMtKBxX+5t1ucudo
+         VdXdPiXFKrjmXGfJ7nVIRd5ZPX/umE1zMsiQI855X0HVxGvWY5xhl4H3xAaBN5W+PRfi
+         RhvLjmBBJ8v5RgUkCq1Z/ejAnRrgpoXpOy0nbk/VLK4yOPP77N9y/mQ+QrLCEwPSKPZk
+         KLhI44KwObut4ElFYvmldnFiTISN9YryQ3M4MmRBVIPFq7pBKt3iAFVpZXgYrP6qKQCn
+         rwdymRl7m5ZslXRUQSTr82OXL9TjpPd5OYORQoFdDb4UPooKO+/vjTfM8AsHp7FTXqgb
+         Di1w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
-         :subject:message-id;
-        bh=7sC1bG8KmxNdlq4xFiKDMacCxPeH0IkO228KVkgaX74=;
-        b=BSojrC6lvL3e8q93EGfUf3poINUGP0nVD+o5ZeWg346pShhz5DvbEwfa5KlReIMo4Q
-         tUrrbxZXzFY1WqUJSfaH/Tn0PrjYBMpRCoTKoKIDrZyxKrgQ9TcGrJrfu1qznJ1hrdmL
-         B5L7dII2NzQFenXqVdoT2X+zyjt4fuocT21CLUGvp7EtbWcuaJ4T0CLJo03cV6uUojEi
-         M4COnYb3hCQsw3NBFN7TSub/us57tLxDCpXKQ2nfDe9kDzhWnHkb4+kcvwxj8usjw6wn
-         vWUjUNL7tzpoSYfzgTdDJ+ZD+ZSd9Jqd+PpBchxtoHNqV9V+pptsjsZCBct6XW8b2PSV
-         BiSg==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=AJFpIp3jITAY2+9sf/YO0MqfUMeF7dTVt+ABEg4hfxs=;
+        b=FVlaeZzaTbJf8bS5MhMS4dLtP0AheQC4MoMgazjAn+nxbXSof7p9uTnFzEX5/kwTEa
+         U06VzgKmxkC7WjPsrvS7oYMBahJ71Pdz+UGFn/o22/NOwTJV9CSdCrm1BLSQeHlLZoZa
+         dqvIQJ7PqBxqgTi10SdHHPWnH9IDOqryE662/hRwhqGIc5gzyB/gnrhHu0i28iIdhKnn
+         i2T/4qjEPM6rDyrAWOhB+sWUdW4wk7drg+xzGt9BPQNiBcGNCf3AKXT4H5DDDbmCQxGd
+         2RKX3D4aSkQmFjBQHvOQpme7ldmm0f8ySc1a//SEKmOBh8+1/l20ZfEOiOvUZn7U1zJX
+         nJNg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.227 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
-Received: from smtprelay.hostedemail.com (smtprelay0227.hostedemail.com. [216.40.44.227])
-        by gmr-mx.google.com with ESMTPS id y65si194699vkf.1.2020.09.30.16.10.35
+       dkim=pass header.i=@amazon.com header.s=amazon201209 header.b=R5Kvqf3A;
+       spf=pass (google.com: domain of prvs=53595e4c7=sblbir@amazon.com designates 52.95.49.90 as permitted sender) smtp.mailfrom="prvs=53595e4c7=sblbir@amazon.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.com
+Received: from smtp-fw-6002.amazon.com (smtp-fw-6002.amazon.com. [52.95.49.90])
+        by gmr-mx.google.com with ESMTPS id m2si215143ill.5.2020.09.30.16.49.40
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Sep 2020 16:10:35 -0700 (PDT)
-Received-SPF: neutral (google.com: 216.40.44.227 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.227;
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
-	by smtprelay01.hostedemail.com (Postfix) with ESMTP id 8F5C1100E7B46;
-	Wed, 30 Sep 2020 23:10:34 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 2,0,0,,d41d8cd98f00b204,joe@perches.com,,RULES_HIT:1:41:355:379:871:988:989:1000:1260:1313:1314:1345:1359:1437:1516:1518:1533:1536:1575:1594:1711:1714:1730:1747:1764:1777:1792:2393:2559:2562:2895:3138:3139:3140:3141:3142:3865:3867:3870:3874:5007:6747:6748:7281:10004:10400:10848:11604:11658:11914:12196:12297:13019:13439:14659:21080:21433:21627:30054:30070,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:2,LUA_SUMMARY:none
-X-HE-Tag: bead66_560aee427196
-X-Filterd-Recvd-Size: 10014
-Received: from XPS-9350.home (unknown [47.151.133.149])
-	(Authenticated sender: joe@perches.com)
-	by omf08.hostedemail.com (Postfix) with ESMTPA;
-	Wed, 30 Sep 2020 23:10:32 +0000 (UTC)
-Message-ID: <75393e5ddc272dc7403de74d645e6c6e0f4e70eb.camel@perches.com>
-Subject: convert_section.pl attached
-From: Joe Perches <joe@perches.com>
-To: Nick Desaulniers <ndesaulniers@google.com>, Arvind Sankar
-	 <nivedita@alum.mit.edu>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Miguel Ojeda
- <miguel.ojeda.sandonis@gmail.com>, Luc Van Oostenryck
- <luc.vanoostenryck@gmail.com>, Nathan Chancellor
- <natechancellor@gmail.com>,  linux-sparse@vger.kernel.org, LKML
- <linux-kernel@vger.kernel.org>,  clang-built-linux
- <clang-built-linux@googlegroups.com>, Linus Torvalds
- <torvalds@linux-foundation.org>
-Date: Wed, 30 Sep 2020 16:10:31 -0700
-In-Reply-To: <0e582a7f5144a33f465978d97701f9b3dcc377f3.camel@perches.com>
-References: <20200929194318.548707-1-ndesaulniers@google.com>
-	 <20200929200801.GA2668747@rani.riverdale.lan>
-	 <CAKwvOdm=H3GDOPo-dbgsqH7UXzC1twz1h2Rdcidh8OXtFtCY4Q@mail.gmail.com>
-	 <ffe0224b2dc88e091d4d3bb32ee073ffc0585882.camel@perches.com>
-	 <0e582a7f5144a33f465978d97701f9b3dcc377f3.camel@perches.com>
-Content-Type: multipart/mixed; boundary="=-C0QQNuhA3ALce9aKym+T"
-User-Agent: Evolution 3.36.4-0ubuntu1
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 30 Sep 2020 16:49:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of prvs=53595e4c7=sblbir@amazon.com designates 52.95.49.90 as permitted sender) client-ip=52.95.49.90;
+X-IronPort-AV: E=Sophos;i="5.77,322,1596499200"; 
+   d="scan'208";a="57304423"
+Received: from iad12-co-svc-p1-lb1-vlan3.amazon.com (HELO email-inbound-relay-2a-90c42d1d.us-west-2.amazon.com) ([10.43.8.6])
+  by smtp-border-fw-out-6002.iad6.amazon.com with ESMTP; 30 Sep 2020 23:49:38 +0000
+Received: from EX13MTAUWB001.ant.amazon.com (pdx4-ws-svc-p6-lb7-vlan3.pdx.amazon.com [10.170.41.166])
+	by email-inbound-relay-2a-90c42d1d.us-west-2.amazon.com (Postfix) with ESMTPS id 9B3BEA1CF3;
+	Wed, 30 Sep 2020 23:49:36 +0000 (UTC)
+Received: from EX13D01UWB002.ant.amazon.com (10.43.161.136) by
+ EX13MTAUWB001.ant.amazon.com (10.43.161.249) with Microsoft SMTP Server (TLS)
+ id 15.0.1497.2; Wed, 30 Sep 2020 23:49:36 +0000
+Received: from f8ffc2228008.ant.amazon.com (10.43.162.35) by
+ EX13d01UWB002.ant.amazon.com (10.43.161.136) with Microsoft SMTP Server (TLS)
+ id 15.0.1497.2; Wed, 30 Sep 2020 23:49:33 +0000
+Subject: Re: [PATCH -next for tip:x86/pti] x86/tlb: drop unneeded local vars
+ in enable_l1d_flush_for_task()
+To: Thomas Gleixner <tglx@linutronix.de>, Peter Zijlstra
+	<peterz@infradead.org>
+CC: Lukas Bulwahn <lukas.bulwahn@gmail.com>, Dave Hansen
+	<dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>, Ingo Molnar
+	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, "x86@kernel.org"
+	<x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Nathan Chancellor
+	<natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
+	"kernel-janitors@vger.kernel.org" <kernel-janitors@vger.kernel.org>,
+	"linux-safety@lists.elisa.tech" <linux-safety@lists.elisa.tech>
+References: <20200928124457.27289-1-lukas.bulwahn@gmail.com>
+ <20200929071211.GJ2628@hirez.programming.kicks-ass.net>
+ <20200929083709.GC2651@hirez.programming.kicks-ass.net>
+ <87eemji887.fsf@nanos.tec.linutronix.de>
+ <20200930170316.GB2628@hirez.programming.kicks-ass.net>
+ <87blhni1pg.fsf@nanos.tec.linutronix.de>
+ <20200930183552.GG2628@hirez.programming.kicks-ass.net>
+ <87k0wbgd2s.fsf@nanos.tec.linutronix.de>
+From: "'Singh, Balbir' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Message-ID: <19f57cbe-ba33-17d5-440c-2765e670782f@amazon.com>
+Date: Thu, 1 Oct 2020 09:49:30 +1000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
+ Gecko/20100101 Thunderbird/78.1.1
 MIME-Version: 1.0
-X-Original-Sender: joe@perches.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 216.40.44.227 is neither permitted nor denied by best guess
- record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+In-Reply-To: <87k0wbgd2s.fsf@nanos.tec.linutronix.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Language: en-GB
+Content-Transfer-Encoding: quoted-printable
+X-Originating-IP: [10.43.162.35]
+X-ClientProxiedBy: EX13D37UWA004.ant.amazon.com (10.43.160.23) To
+ EX13d01UWB002.ant.amazon.com (10.43.161.136)
+X-Original-Sender: sblbir@amazon.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@amazon.com header.s=amazon201209 header.b=R5Kvqf3A;       spf=pass
+ (google.com: domain of prvs=53595e4c7=sblbir@amazon.com designates
+ 52.95.49.90 as permitted sender) smtp.mailfrom="prvs=53595e4c7=sblbir@amazon.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.com
+X-Original-From: "Singh, Balbir" <sblbir@amazon.com>
+Reply-To: "Singh, Balbir" <sblbir@amazon.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,130 +165,219 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On 1/10/20 7:38 am, Thomas Gleixner wrote:
 
---=-C0QQNuhA3ALce9aKym+T
-Content-Type: text/plain; charset="UTF-8"
+>=20
+>=20
+>=20
+> On Wed, Sep 30 2020 at 20:35, Peter Zijlstra wrote:
+>> On Wed, Sep 30, 2020 at 08:00:59PM +0200, Thomas Gleixner wrote:
+>>> On Wed, Sep 30 2020 at 19:03, Peter Zijlstra wrote:
+>>>> On Wed, Sep 30, 2020 at 05:40:08PM +0200, Thomas Gleixner wrote:
+>>>> Also, that preempt_disable() in there doesn't actually do anything.
+>>>> Worse, preempt_disable(); for_each_cpu(); is an anti-pattern. It mixes
+>>>> static_cpu_has() and boot_cpu_has() in the same bloody condition and h=
+as
+>>>> a pointless ret variable.
+>>
+>> Also, I forgot to add, it accesses ->cpus_mask without the proper
+>> locking, so it could be reading intermediate state from whatever cpumask
+>> operation that's in progress.
+>=20
+> Yes. I saw that after hitting send. :(
+>=20
+>>> I absolutely agree and I really missed it when looking at it before
+>>> merging. cpus_read_lock()/unlock() is the right thing to do if at all.
+>>>
+>>>> It's shoddy code, that only works if you align the planets right. We
+>>>> really shouldn't provide interfaces that are this bad.
+>>>>
+>>>> It's correct operation is only by accident.
+>>>
+>>> True :(
+>>>
+>>> I understand Balbirs problem and it makes some sense to provide a
+>>> solution. We can:
+>>>
+>>>     1) reject set_affinity() if the task has that flush muck enabled
+>>>        and user space tries to move it to a SMT enabled core
+>>>
+>>>     2) disable the muck if if detects that it is runs on a SMT enabled
+>>>        core suddenly (hotplug says hello)
+>>>
+>>>        This one is nasty because there is no feedback to user space
+>>>        about the wreckage.
+>>
+>> That's and, right, not or. because 1) deals with sched_setffinity()
+>> and 2) deals wit hotplug.
+>=20
+> It was meant as AND of course.
+>=20
+>> Now 1) requires an arch hook in sched_setaffinity(), something I'm not
+>> keen on providing, once we provide it, who knows what strange and
+>> wonderful things archs will dream up.
+>=20
+> I don't think so. We can have that magic in core:
+>=20
+> #ifdef CONFIG_HAS_PARANOID_L1D_FLUSH
+> static bool paranoid_l1d_valid(struct task_struct *tsk,
+>                                const struct cpumask *msk)
+> {
+>         if (!test_tsk_thread_flag(tsk, TIF_SPEC_L1D_FLUSH))
+>                 return true;
+>         /* Do magic stuff */
+>         return res;
+> }
+> #else
+> static bool paranoid_l1d_valid(struct task_struct *tsk,
+>                                const struct cpumask *msk)
+> {
+>         return true;
+> }
+> #endif
+>=20
+> It's a pretty well defined problem and having the magic in core code
+> prevents an arch hook which allows abuse of all sorts.
+>=20
+> And the same applies to enable_l1d_flush_for_task(). The only
+> architecture specific nonsense are the checks whether the CPU bug is
+> there and whether the hardware supports L1D flushing.
+>=20
+> So we can have:
+>=20
+> #ifdef CONFIG_HAS_PARANOID_L1D_FLUSH
+> int paranoid_l1d_enable(struct task_struct *tsk)
+> {
+>         /* Do the SMT validation under the proper locks */
+>         if (!res)
+>                 set_task_thread_flag(tsk, TIF_SPEC_L1D_FLUSH);
+>         return res;
+> }
+> #endif
+>=20
+>> And 2) also happens on hot-un-plug, when the task's affinity gets
+>> forced because it became empty. No user feedback there either, and
+>> information is lost.
+>=20
+> Of course. It's both that suddenly SMT gets enabled on a core which was
+> isolated and when the last isolated core in the tasks CPU mask goes
+> offline.
+>=20
+>> I suppose we can do 2) but send a signal. That would cover all cases and
+>> keep it in arch code. But yes, that's pretty terrible too.
+>=20
+> Bah. I just looked at the condition to flush:
+>=20
+>         if (sched_smt_active() && !this_cpu_read(cpu_info.smt_active) &&
+>                 (prev_mm & LAST_USER_MM_L1D_FLUSH))
+>                 l1d_flush_hw();
+>=20
+> That fails to flush when SMT is disabled globally. Balbir?
+>=20
+> Of course this should be:
+>=20
+>         if (!this_cpu_read(cpu_info.smt_active) && (prev_mm & LAST_USER_M=
+M_L1D_FLUSH))
+>                 l1d_flush_hw();
+>=20
+> Now we can make this:
+>=20
+>         if (unlikely(prev_mm & LAST_USER_MM_L1D_FLUSH)) {
+>                 if (!this_cpu_read(cpu_info.smt_active))
+>                         l1d_flush_hw();
+>                 else
+>                         task_work_add(...);
+>=20
+> And that task work clears the flag and sends a signal. We're not going
+> to send a signal from switch_mm() ....
+>=20
+> Thanks,
+>=20
 
-Here's a new version that does not update arch/powerpc/boot/ files
-to avoid the defective conversions that Nick found in powerpc.
 
+So this is the change I am playing with, I don't like the idea of killing t=
+he task, but it's better than silently not flushing, I guess system adminis=
+trators will learn with time not to correctly the affinity of tasks flushin=
+g
+L1D. For the affinity bits, not being able to change the affinity is better=
+, but not being able to provide feedback on as to why is a bit weird as wel=
+l, but I wonder if there are other cases where we might want to lock the af=
+finity of a task for it's lifetime.
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/75393e5ddc272dc7403de74d645e6c6e0f4e70eb.camel%40perches.com.
+diff --git a/arch/x86/mm/tlb.c b/arch/x86/mm/tlb.c
+index 6b0f4c88b07c..6b0d0a9cd447 100644
+--- a/arch/x86/mm/tlb.c
++++ b/arch/x86/mm/tlb.c
+@@ -320,26 +320,15 @@ int enable_l1d_flush_for_task(struct task_struct *tsk=
+)
+=20
+ 	/*
+ 	 * Do not enable L1D_FLUSH_OUT if
+-	 * b. The CPU is not affected by the L1TF bug
+-	 * c. The CPU does not have L1D FLUSH feature support
+-	 * c. The task's affinity is on cores with SMT on.
++	 * a. The CPU is not affected by the L1TF bug
++	 * b. The CPU does not have L1D FLUSH feature support
+ 	 */
+=20
+ 	if (!boot_cpu_has_bug(X86_BUG_L1TF) ||
+-			!static_cpu_has(X86_FEATURE_FLUSH_L1D))
++		!boot_cpu_has(X86_FEATURE_FLUSH_L1D))
+ 		return -EINVAL;
+=20
+-	cpu =3D get_cpu();
+-
+-	for_each_cpu(i, &tsk->cpus_mask) {
+-		if (cpu_data(i).smt_active =3D=3D true) {
+-			put_cpu();
+-			return -EINVAL;
+-		}
+-	}
+-
+ 	set_ti_thread_flag(&tsk->thread_info, TIF_SPEC_L1D_FLUSH);
+-	put_cpu();
+ 	return ret;
+ }
+=20
+@@ -349,6 +338,12 @@ int disable_l1d_flush_for_task(struct task_struct *tsk=
+)
+ 	return 0;
+ }
+=20
++static void l1d_flush_kill(struct callback_head *ch)
++{
++	clear_ti_thread_flag(&current->thread_info, TIF_SPEC_L1D_FLUSH);
++	force_signal(SIGBUS);
++}
++
+ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
+ 	       struct task_struct *tsk)
+ {
+@@ -443,12 +438,14 @@ static void cond_mitigation(struct task_struct *next)
+ 	}
+=20
+ 	/*
+-	 * Flush only if SMT is disabled as per the contract, which is checked
+-	 * when the feature is enabled.
++	 * Flush only if SMT is disabled, if flushing is enabled
++	 * and we are on an SMT enabled core, kill the task
+ 	 */
+-	if (sched_smt_active() && !this_cpu_read(cpu_info.smt_active) &&
+-		(prev_mm & LAST_USER_MM_L1D_FLUSH))
+-		l1d_flush_hw();
++	if (unlikely(prev_mm & LAST_USER_MM_L1D_FLUSH)) {
++		if (!this_cpu_read(cpu_info.smt_active))
++			l1d_flush_hw();
++		else
++			task_work_add(prev, l1d_flush_kill, true);
+=20
+ 	this_cpu_write(cpu_tlbstate.last_user_mm_spec, next_mm);
+ }
 
---=-C0QQNuhA3ALce9aKym+T
-Content-Type: application/x-perl; name="convert_section.pl"
-Content-Disposition: attachment; filename="convert_section.pl"
-Content-Transfer-Encoding: base64
-
-IyEvdXNyL2Jpbi9lbnYgcGVybAoKIyBjb252ZXJ0IGxpbnV4LWtlcm5lbCBfX3NlY3Rpb24gdXNl
-cyBmcm9tIHVucXVvdGVkIHN0cmluZyB0byBxdW90ZWQgc3RyaW5nCiMgY29udmVydCBfX2F0dHJp
-YnV0ZV9fKChzZWN0aW9uKCJmb28iKSkpIHRvIF9fc2VjdGlvbigiZm9vIikKIyBjb252ZXJ0IF9f
-YXR0cmlidXRlX18oKGZvbywgc2VjdGlvbj0oImJhciIpLCBiYXopKQojICAgICAgdG8gX19zZWN0
-aW9uKCJiYXIiKSBhdHRyaWJ1dGUoKGZvbywgYmF6KSkKIyBjb252ZXJ0IF9fYXR0cmlidXRlX18K
-CnVzZSBzdHJpY3Q7CgojIHBhdGNoIGNvbXBpbGVyX2F0dHJpYnV0ZXMuaCB0byByZW1vdmUgcXVv
-dGluZyBvZiBzZWN0aW9uIG5hbWUKCm15ICRyZXN1bHQgPSBgcGF0Y2ggLXAxIDw8IkVPRiIKIGlu
-Y2x1ZGUvbGludXgvY29tcGlsZXJfYXR0cmlidXRlcy5oIHwgMiArLQogMSBmaWxlIGNoYW5nZWQs
-IDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0aW9uKC0pCgpkaWZmIC0tZ2l0IGEvaW5jbHVkZS9saW51
-eC9jb21waWxlcl9hdHRyaWJ1dGVzLmggYi9pbmNsdWRlL2xpbnV4L2NvbXBpbGVyX2F0dHJpYnV0
-ZXMuaAppbmRleCBlYTdiNzU2YjFjOGYuLmIyYTNmNGY2NDFhNyAxMDA2NDQKLS0tIGEvaW5jbHVk
-ZS9saW51eC9jb21waWxlcl9hdHRyaWJ1dGVzLmgKKysrIGIvaW5jbHVkZS9saW51eC9jb21waWxl
-cl9hdHRyaWJ1dGVzLmgKQEAgLTI1NCw3ICsyNTQsNyBAQAogICogICBnY2M6IGh0dHBzOi8vZ2Nj
-LmdudS5vcmcvb25saW5lZG9jcy9nY2MvQ29tbW9uLVZhcmlhYmxlLUF0dHJpYnV0ZXMuaHRtbCNp
-bmRleC1zZWN0aW9uLXZhcmlhYmxlLWF0dHJpYnV0ZQogICogY2xhbmc6IGh0dHBzOi8vY2xhbmcu
-bGx2bS5vcmcvZG9jcy9BdHRyaWJ1dGVSZWZlcmVuY2UuaHRtbCNzZWN0aW9uLWRlY2xzcGVjLWFs
-bG9jYXRlCiAgKi8KLSNkZWZpbmUgX19zZWN0aW9uKFMpICAgICAgICAgICAgICAgICAgICBfX2F0
-dHJpYnV0ZV9fKChfX3NlY3Rpb25fXygjUykpKQorI2RlZmluZSBfX3NlY3Rpb24oc2VjdGlvbikg
-ICAgICAgICAgICAgIF9fYXR0cmlidXRlX18oKF9fc2VjdGlvbl9fKHNlY3Rpb24pKSkKIAogLyoK
-ICAqICAgZ2NjOiBodHRwczovL2djYy5nbnUub3JnL29ubGluZWRvY3MvZ2NjL0NvbW1vbi1GdW5j
-dGlvbi1BdHRyaWJ1dGVzLmh0bWwjaW5kZXgtdW51c2VkLWZ1bmN0aW9uLWF0dHJpYnV0ZQpFT0Zg
-OwoKIyBwYXRjaCBzY3JpcHRzL21vZC9tb2Rwb3N0LmMgdG8gYWRkIHF1b3Rpbmcgb2Ygc2VjdGlv
-biBuYW1lCgpteSAkcmVzdWx0ID0gYHBhdGNoIC1wMSA8PCJFT0YiCiBzY3JpcHRzL21vZC9tb2Rw
-b3N0LmMgfCA0ICsrLS0KIDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKyksIDIgZGVsZXRp
-b25zKC0pCgpkaWZmIC0tZ2l0IGEvc2NyaXB0cy9tb2QvbW9kcG9zdC5jIGIvc2NyaXB0cy9tb2Qv
-bW9kcG9zdC5jCmluZGV4IDY5MzQxYjM2ZjI3MS4uZjg4MmNlMGQ5MzI3IDEwMDY0NAotLS0gYS9z
-Y3JpcHRzL21vZC9tb2Rwb3N0LmMKKysrIGIvc2NyaXB0cy9tb2QvbW9kcG9zdC5jCkBAIC0yMjU0
-LDcgKzIyNTQsNyBAQCBzdGF0aWMgdm9pZCBhZGRfaGVhZGVyKHN0cnVjdCBidWZmZXIgKmIsIHN0
-cnVjdCBtb2R1bGUgKm1vZCkKIAlidWZfcHJpbnRmKGIsICJNT0RVTEVfSU5GTyhuYW1lLCBLQlVJ
-TERfTU9ETkFNRSk7XFxuIik7CiAJYnVmX3ByaW50ZihiLCAiXFxuIik7CiAJYnVmX3ByaW50Zihi
-LCAiX192aXNpYmxlIHN0cnVjdCBtb2R1bGUgX190aGlzX21vZHVsZVxcbiIpOwotCWJ1Zl9wcmlu
-dGYoYiwgIl9fc2VjdGlvbiguZ251LmxpbmtvbmNlLnRoaXNfbW9kdWxlKSA9IHtcXG4iKTsKKwli
-dWZfcHJpbnRmKGIsICJfX3NlY3Rpb24oXFwiLmdudS5saW5rb25jZS50aGlzX21vZHVsZVxcIikg
-PSB7XFxuIik7CiAJYnVmX3ByaW50ZihiLCAiXFx0Lm5hbWUgPSBLQlVJTERfTU9ETkFNRSxcXG4i
-KTsKIAlpZiAobW9kLT5oYXNfaW5pdCkKIAkJYnVmX3ByaW50ZihiLCAiXFx0LmluaXQgPSBpbml0
-X21vZHVsZSxcXG4iKTsKQEAgLTIzMDgsNyArMjMwOCw3IEBAIHN0YXRpYyBpbnQgYWRkX3ZlcnNp
-b25zKHN0cnVjdCBidWZmZXIgKmIsIHN0cnVjdCBtb2R1bGUgKm1vZCkKIAogCWJ1Zl9wcmludGYo
-YiwgIlxcbiIpOwogCWJ1Zl9wcmludGYoYiwgInN0YXRpYyBjb25zdCBzdHJ1Y3QgbW9kdmVyc2lv
-bl9pbmZvIF9fX192ZXJzaW9uc1tdXFxuIik7Ci0JYnVmX3ByaW50ZihiLCAiX191c2VkIF9fc2Vj
-dGlvbihfX3ZlcnNpb25zKSA9IHtcXG4iKTsKKwlidWZfcHJpbnRmKGIsICJfX3VzZWQgX19zZWN0
-aW9uKFxcIl9fdmVyc2lvbnNcXCIpID0ge1xcbiIpOwogCiAJZm9yIChzID0gbW9kLT51bnJlczsg
-czsgcyA9IHMtPm5leHQpIHsKIAkJaWYgKCFzLT5tb2R1bGUpCkVPRmA7CgojIEdldCB0aGUgbGlz
-dCBvZiBmaWxlcyB0byBtb2RpZnkgKGNvbnRhaW5zIF9fc2VjdGlvbiBvciBfX2F0dHJpYnV0ZV9f
-LipzZWN0aW9uCiMgKGlnbm9yZSBzY3JpcHRzLCB0b29scywgdWFwaSwgYXJjaC9wb3dlcnBjL2Jv
-b3QgYW5kIGNvbXBpbGVyX2F0dHJpYnV0ZXMuaCkKCm15ICRvdXRwdXQgPSBgZ2l0IGdyZXAgLS1u
-YW1lLW9ubHkgLVAgIig/OlxcYl9fc2VjdGlvblxcYlx8XFxiX19hdHRyaWJ1dGVfX1xcYi4qc2Vj
-dGlvbikiIHwgZ3JlcCAtdlAgJ14oPzppbmNsdWRlL2xpbnV4L2NvbXBpbGVyX2F0dHJpYnV0ZXNc
-XC5ofHNjcmlwdHMvfHRvb2xzL3wvdWFwaS98YXJjaC9wb3dlcnBjL2Jvb3QvKSdgOwpteSBAZmls
-ZXMgPSBzcGxpdCgiXG4iLCAkb3V0cHV0KTsKIyBBZGQgdGhlIG9ubHkgZmlsZSBpbiB0b29scyB0
-aGF0IG5lZWRzIGNvbnZlcnNpb24KcHVzaCAoQGZpbGVzLCAidG9vbHMvaW5jbHVkZS9saW51eC9v
-Ymp0b29sLmgiKTsKCiMgTW9kaWZ5IGVhY2ggcG9zc2libGUgZmlsZQpmb3JlYWNoIChAZmlsZXMp
-IHsKICAgIGNob21wOwogICAgbXkgJGZpbGUgPSAkXzsKCiAgICAjIHJlYWQgdGhlIG9yaWdpbmFs
-IGZpbGUKICAgIG9wZW4oRkgsICc8JywgJGZpbGUpIG9yIGRpZSAkITsKICAgIG15IEBsaW5lcyA9
-IDxGSD47CiAgICBjbG9zZSBGSDsKCiAgICAjIHdyaXRlIHRoZSBtb2RpZmllZCBmaWxlIGxpbmUg
-YnkgbGluZQogICAgb3BlbiAoRkgsICc+JywgJGZpbGUpIG9yIGRpZSAkITsKICAgIGZvcmVhY2gg
-bXkgJGxpbmUgKEBsaW5lcykgewoJY2hvbXAgJGxpbmU7CglteSAkbmV3bGluZSA9ICRsaW5lOwoK
-CSMgQ29udmVydCBfX3NlY3Rpb24oZm9vKSB0byBfX3NlY3Rpb24oImZvbyIpCgkjIGlmICJmb28i
-IHVzZXMgbXVsdGlwbGUgdG9rZW4gcGFzdGluZywKCSMgICBwcmUgYW5kIHBvc3QgdG9rZW5zIHJl
-bW92ZWQgYW5kIGEgc2luZ2xlICMgaXMgdXNlZCB0aGVuICIgIiBhZGRlZAoJIyAgIGUuZy46ICBm
-b28gIyMgYmFyICMjIGJheiBiZWNvbWVzICJmb28iICNiYXIgImJheiIKCWlmICgkbGluZSA9fiBt
-L1xiX19zZWN0aW9uXHMqXChccyooPyEiKShbXlwpXSspXCkvKSB7CgkgICAgbXkgJG9sZHNlY3Rp
-b24gPSAkMTsKCSAgICBteSAkbmV3c2VjdGlvbiA9ICQxOwoJICAgIGlmICgkb2xkc2VjdGlvbiA9
-fiAvKC4qKSMjKC4qKSMjKC4qKS8pIHsKCQkkbmV3c2VjdGlvbiA9ICciJyAuIHRyaW0oJDEpIC4g
-JyIgIycgLiB0cmltKCQyKSAuICcgIicgLiB0cmltKCQzKSAuICciJzsKCSAgICB9IGVsc2UgewoJ
-CSRuZXdzZWN0aW9uID0gJyInIC4gdHJpbSgkb2xkc2VjdGlvbikgLiAnIic7CgkgICAgfQoJICAg
-ICRuZXdsaW5lID1+IHMvX19zZWN0aW9uXHMqXChccypcUSRvbGRzZWN0aW9uXEVccypcKS9fX3Nl
-Y3Rpb24oJG5ld3NlY3Rpb24pLzsKCX0KCgkjIGNvbnZlcnQgX19hdHRyaWJ1dGVfXygoc2VjdGlv
-bigiZm9vIikpKSB0byBfX3NlY3Rpb24oImZvbyIpCgkkbmV3bGluZSA9fiBzL1xiX19hdHRyaWJ1
-dGVfX1xzKlwoXHMqXChccypfKnNlY3Rpb25fKlxzKlwoXHMqKCJbXiJdKyIpXHMqXClccypcKVxz
-KlwpL19fc2VjdGlvbigkMSkvOwoKCSMgY29udmVydCBfX2F0dHJpYnV0ZV9fKChmb28sIHNlY3Rp
-b249KCJiYXIiKSwgYmF6KSkKCSMgdG8gX19zZWN0aW9uKCJiYXIiKSBhdHRyaWJ1dGUoKGZvbywg
-YmF6KSkKCWlmICgkbmV3bGluZSA9fiAvKFxiX19hdHRyaWJ1dGVfX1xzKlwoXHMqXCgoW14sX10r
-KT8oXHMqLD9ccypfKnNlY3Rpb25fKlxzKlwoXHMqKCJbXiJdKyIpXHMqXClccyosP1xzKikoLiop
-XHMqXClccypcKSkvKSB7CgkgICAgbXkgJHNlY3Rpb24gPSAkMzsKCSAgICBteSAkY29tbWEgPSAi
-IjsKCSAgICAkY29tbWEgPSAiLCAiIGlmICgkc2VjdGlvbiA9fiAvXlxzKiwvICYmICRzZWN0aW9u
-ID1+IC8sXHMqJC8pOwoJICAgICRuZXdsaW5lID1+IHMvXFEkc2VjdGlvblxFLyRjb21tYS87Cgkg
-ICAgJHNlY3Rpb24gPX4gcy9eW14iXSovLzsKCSAgICAkc2VjdGlvbiA9fiBzL14oIlteIl0qIiku
-Ki8kMS87CgkgICAgJG5ld2xpbmUgPX4gcy9cYl9fYXR0cmlidXRlX18vX19zZWN0aW9uKCRzZWN0
-aW9uKSBfX2F0dHJpYnV0ZV9fLzsKCX0KCgkjIGlmIHRoZSBsaW5lIGVuZGVkIHdpdGggYSBsaW5l
-IGNvbnRpbnVhdGlvbiBcLCB0cnkgdG8gbW92ZSB0aGUKCSMgY29udGludWF0aW9uIHRvIHRoZSBz
-YW1lIGxvY2F0aW9uIGJ5IHJlbW92aW5nIG9yIGFkZGluZyB0YWJzCglpZiAoJGxpbmUgPX4gL1xc
-JC8pIHsKCSAgICBteSAkb2xlbiA9IGxlbmd0aChleHBhbmRfdGFicygkbGluZSkpOwoJICAgIG15
-ICRubGVuID0gbGVuZ3RoKGV4cGFuZF90YWJzKCRuZXdsaW5lKSk7CgkgICAgaWYgKCRuZXdsaW5l
-ID1+IC9cdFxcJC8pIHsKCQlpZiAoJG5sZW4gPiAkb2xlbikgewoJCSAgICAkbmV3bGluZSA9fiBz
-L1x0XFwkL1xcLzsKCQl9IGVsc2UgewoJCSAgICB3aGlsZSAoJG5sZW4gPCAkb2xlbikgewoJCQkk
-bmV3bGluZSA9fiBzL1xcJC9cdFxcLzsKCQkJJG5sZW4gPSBsZW5ndGgoZXhwYW5kX3RhYnMoJG5l
-d2xpbmUpKTsKCQkgICAgfQoJCX0KCSAgICB9Cgl9CglwcmludCBGSCAiJG5ld2xpbmVcbiI7CiAg
-ICB9CiAgICBjbG9zZSBGSDsKfQoKIyBBbmQgZ2l0IGNvbW1pdCB0aGUgY2hhbmdlcwokcmVzdWx0
-ID0gcXh7Z2l0IGNvbW1pdCAtYSAtLWF1dGhvcj0nSm9lIFBlcmNoZXMgPGpvZVxAcGVyY2hlcy5j
-b20+JyAtRi0gPDwiRU9GIgp0cmVld2lkZTogQ29udmVydCBtYWNybyBhbmQgdXNlcyBvZiBfX3Nl
-Y3Rpb24oZm9vKSB0byBfX3NlY3Rpb24oImZvbyIpCgpVc2UgYSBtb3JlIGdlbmVyaWMgZm9ybSBm
-b3IgX19zZWN0aW9uIHRoYXQgcmVxdWlyZXMgcXVvdGVzIHRvIGF2b2lkCmNvbXBsaWNhdGlvbnMg
-d2l0aCBjbGFuZyBhbmQgZ2NjIGRpZmZlcmVuY2VzLgoKUmVtb3ZlIHRoZSBxdW90ZSBvcGVyYXRv
-ciAjIGZyb20gY29tcGlsZXJfYXR0cmlidXRlcy5oIF9fc2VjdGlvbiBtYWNyby4KCkNvbnZlcnQg
-YWxsIHVucXVvdGVkIF9fc2VjdGlvbihmb28pIHVzZXMgdG8gcXVvdGVkIF9fc2VjdGlvbigiZm9v
-IikuCkFsc28gY29udmVydCBfX2F0dHJpYnV0ZV9fKChzZWN0aW9uKCJmb28iKSkpIHVzZXMgdG8g
-X19zZWN0aW9uKCJmb28iKQpldmVuIGlmIHRoZSBfX2F0dHJpYnV0ZV9fIGhhcyBtdWx0aXBsZSBs
-aXN0IGVudHJ5IGZvcm1zLgoKU2lnbmVkLW9mZi1ieTogSm9lIFBlcmNoZXMgPGpvZVxAcGVyY2hl
-cy5jb20+CkVPRgp9OwoKIyB1dGlsaXR5IHN1YnJvdXRpbmVzCnN1YiB0cmltIHsKICAgIG15ICgk
-c3RyaW5nKSA9IEBfOwogICAgJHN0cmluZyA9fiBzL15ccyt8XHMrJC8vZzsKICAgIHJldHVybiAk
-c3RyaW5nOwp9CgpzdWIgZXhwYW5kX3RhYnMgewogICAgbXkgKCRzdHIpID0gQF87CgogICAgbXkg
-JHJlcyA9ICcnOwogICAgbXkgJG4gPSAwOwogICAgZm9yIG15ICRjIChzcGxpdCgvLywgJHN0cikp
-IHsKCWlmICgkYyBlcSAiXHQiKSB7CgkgICAgJHJlcyAuPSAnICc7CgkgICAgJG4rKzsKCSAgICBm
-b3IgKDsgKCRuICUgOCkgIT0gMDsgJG4rKykgewoJCSRyZXMgLj0gJyAnOwoJICAgIH0KCSAgICBu
-ZXh0OwoJfQoJJHJlcyAuPSAkYzsKCSRuKys7CiAgICB9CgogICAgcmV0dXJuICRyZXM7Cn0K
-
-
---=-C0QQNuhA3ALce9aKym+T--
-
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/19f57cbe-ba33-17d5-440c-2765e670782f%40amazon.com.
