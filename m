@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBVEJ2T5QKGQESEX3IMY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBD4L2T5QKGQEHQ4CA5I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73d.google.com (mail-qk1-x73d.google.com [IPv6:2607:f8b0:4864:20::73d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3D42F27F4FD
-	for <lists+clang-built-linux@lfdr.de>; Thu,  1 Oct 2020 00:21:10 +0200 (CEST)
-Received: by mail-qk1-x73d.google.com with SMTP id o28sf1836214qkm.23
-        for <lists+clang-built-linux@lfdr.de>; Wed, 30 Sep 2020 15:21:10 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601504469; cv=pass;
+Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6354527F510
+	for <lists+clang-built-linux@lfdr.de>; Thu,  1 Oct 2020 00:24:17 +0200 (CEST)
+Received: by mail-pg1-x53c.google.com with SMTP id t11sf1748716pgu.22
+        for <lists+clang-built-linux@lfdr.de>; Wed, 30 Sep 2020 15:24:17 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601504656; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EfKKYygjdnM+3XW07e41V1I5qz0/hJW1E0uIdhkecDNXeSa+5j8w1iDCnH1yXFPL6K
-         IyrBdQ8PlsjN5BPFqNOq/thf869r+1aFg8AC2nFPS0qvLKCXBh4KJAJjiRuSg7Qnqxwp
-         OH/KDwDnVgqif5L4zsCTnqAyYS06H2+24PB0qV9RFQTgoTJLkWrDsumgtGJr4ybaiEsv
-         BdTr1kCd/MNIuDbxJ4sKHGzF8fmj8sTJ42aIIZAbyvxI5VoR3S0gqrf6Seq+hEEaMpiE
-         zOpmw5IyFW7gdMjy4bRz9gvIzGdCDcUVpjPk2mDQ+aCboX4oFPQldab9Fjc18qRFL6Ll
-         N9Sg==
+        b=DuRG/J4/2wxbmjCaD8AzD0RPhDv+3OrmTZy2wAAihV/+67ZDduDPrNQe3GnxYPXhRI
+         j6kPiVwT1eO+yolBvVySLT017FesE7sG5myXkldVs/J3HlBPm1vO0ZIZF0FPdnSKVoOt
+         aVyvQSREZOEqIgEuwA2Yeao4ATlBQUAqJPq4u/5Db5Eh0/vykwn4pzmD1kVedR876vJv
+         1umqKvAAMnL7p1g50xDZgDUTW2/4fAxDhZ+BSoIdBPbcBXO/9jBE1n+sbpnqQEdXR3CO
+         u2LVcgMAk10BiFPJYNrU4b6Jg3AdT5jdyrBFMXOQh4qag6b0mIuPnwLjAUwYI5ovcUeT
+         p6SQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=MWSnyjGFuL081kQqhgeVuVb4bHaZwhu3fidGcWEn5uQ=;
-        b=dPaL0QxQrMA6Cr6LuG18QN1obgDx63jl8wPGVDdmrH6pRktfhiGiYN1Zs1yPy7/J/K
-         zAeFcz88rhZbfyGOSgGznZs/BEVx5bsccDHjRH9Tn9mODJKXi333UuOw0Dk6h34BsQo8
-         +En5IIAP0zhnf+if1biz1XBxoJ0RsHGuiROlcgR+Wc+hlhl0v9clikO0zDe2xdt8mPvx
-         SJPw2PQIjbdPl3wAvFIuc2Zi/LXpGmgDs4uHUVS+S2xg1U/N+iQOYKOTdtqFA5HGNFxh
-         2D9onP9aVeq9CKOm4lwqhBE0rLJmTQRZnYA09l2pXq0t+VA1qm9G/8y/acsugPvJar+O
-         9lUQ==
+        bh=enldJtM9PMvin6jPtUr9rr1Y76m7Y6nRKirm12devLs=;
+        b=FikShTtuD/hpd7PyUfzDsxFqvKO4JzfUX/R59IT8ClvEVpO9FwRpXFehMKhcbsuhKH
+         amy3gPEj3LkZi+n0EKNVog6rFq6VjJ46OPmHdehqS4xQ2qz0WEr4HHUOxnLSdiP677gH
+         AXkD+GGcqnd2pPtOG/Hgu17K+05ian+BFHrdZ/ItNcIjYyclg6tKiz26RMuJ/WTrt74r
+         A7id+BkIo1K6m/d06TT9N9ZIVpXcMeFY5mejG8tJarxHof2B/IakR7k5tyYuW0Qr8fZh
+         QIUDWcI4qD3JvHH02PdanxOQpbQBTC/iIxMuzomOttOvXSPLTRxUXw2OulYE2Ukn6i3Y
+         TTZw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=O7yCy3sg;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=clj+atnC;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::429 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=MWSnyjGFuL081kQqhgeVuVb4bHaZwhu3fidGcWEn5uQ=;
-        b=cQFO/rNTDL9/qQcaT2fDsYCjOuv3lkZDJ7dT1a4qwPn4FJBGmFaRyIysnnCKNEIG9t
-         9EovYbO+ZJR+95YsgdamgWhwzeai02VAwAhK0dmyD9CiaL80f0oB+PyqP2iIgo38kmVF
-         6HSH6SBeHDC2dSPO++ZNgAsNmIXEeqL84lK2CAz7xGP17FFSSeuZOAt/2u69k1rpuvXA
-         9bYuhu9hWtDStHN9Nv+imj0Qrs867Rz+lGn0YVLKkwphwq0V+Gf5qT5D4dA4EuPoz1Oi
-         RxsR4c2oMuYjUDXw/Nd0H7OcTMuCYrkhVc/aT9GXxeadbLTZwvo7NNx3XJrl1iCJxlmU
-         myyA==
+        bh=enldJtM9PMvin6jPtUr9rr1Y76m7Y6nRKirm12devLs=;
+        b=Ee/k08qT/B0UE9aWKZcvjyLD5nN97CEivI9JFOeFhQi/OWQdwPLSS3jOQVPpNMqAkB
+         u/PIpmzPur0F52yL7DFna5/6bqcWSIj0Mta3fSfQJjVyaR4y5aZB0nGfj4fkq6LLkjtE
+         a99yN/f7nn6NgpH96CALHlV8VyqGtsTiU25DArwun6PWEbavIHQrkI/nSiKRUTHQOUZe
+         8DZFMCSPYkF2nhos3jESR5MwlSnbUhx9bkwLkKp0AFSfwnSkJXob5j4e8wxSt9MnsA2n
+         hk/ntFAW6U1JCBKbQWdOfFW1N9jZJ6512bZMX3IiDLhoqZ7rb7iu5P95PIZNaVMdDXSs
+         +6Kg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,81 +49,72 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=MWSnyjGFuL081kQqhgeVuVb4bHaZwhu3fidGcWEn5uQ=;
-        b=kQeNHPa64QlS6+pjG+q41SNYVcHwTDqIIWgkAywqyIE9GZjc+G30QSvQkavy41Ojhe
-         0r4FOLnenlEyYsZa9OliR7hpDU6wrvpFKq8esKpa65G3nll6e4D9Xv4r4ask4Lao2yJn
-         PFS1SRQf2o9PrTIBAPsS7hVCXc9tdIXWmPhhwAXc8zNhLJQUfUXQ5AhL2Z6HYEoj8dXK
-         AbK5O15iYlFXxPTziK0Wg5x1W5RdG+dkf9WNadcCGiARCLngN60H2vbA0X4bHe5ZyEqm
-         9OIX7afnAC7WgXSe1j4Vqvfohy5hwIEKDaqA1kOTF3ThOTWUQCexcl7P8abYvTTKrWWJ
-         zURA==
-X-Gm-Message-State: AOAM533QJeJrLcG3W/8XVPp2kij4SJV7vNoKjV5/Q53apgGeuuVu+FWU
-	19PtJt9Tvlz5WENCGH/t2Qo=
-X-Google-Smtp-Source: ABdhPJwKSJnVgIwnhlwK2hd0LwsDgYWBqNOOzISTdyD+fXDraT5mBn0/oTwAUUueFHwmSQABZ2/wXQ==
-X-Received: by 2002:a05:620a:11b1:: with SMTP id c17mr4786638qkk.94.1601504469003;
-        Wed, 30 Sep 2020 15:21:09 -0700 (PDT)
+        bh=enldJtM9PMvin6jPtUr9rr1Y76m7Y6nRKirm12devLs=;
+        b=JhmFWJJKLvkukP5e2U3jVjSIgdwn/ucOJSfeL1XxVduPIZtgh5S7Dn+tywgpuuHtGO
+         W5hv9BzcxVOFB+YJVs2mTJspg68+Bg1SKyyNzUdfQkEt3o/Xx1rnyyXW8jPBoO5MCU4Z
+         OKASJjjh12Pc5SM7GKUUeebJOAxdSODdwQ7yQ6frcJoWZ9b6bEYYlrVKA0scOzzm3XYk
+         wkspXGdVPdG4v1OBkWJMk2oY4/e/mauYBnaL+fQMHdfwPY2cLMN7YsoZPfKDLEcGWqwX
+         1e5aIwSZCFDevJecGRfgyZS4nKM+9O6lCkA4xz40hwNfH4MOhkXh1wYQFbYLnQDXRCov
+         sc7w==
+X-Gm-Message-State: AOAM532L0IwMgFYih9FPmUQf96xXUu9byTY/EY9+kc/wwyRoej3kWpLq
+	Q2amhCkDcaGmOHqL6U4vLFU=
+X-Google-Smtp-Source: ABdhPJwMr7wbZAPKz1m+pGT/CzrbjjC5jsJmf3M4wSljgr6Obg7AWB4TIO2e4/fE/Yry57nV55XhBw==
+X-Received: by 2002:a63:a546:: with SMTP id r6mr3693773pgu.160.1601504655874;
+        Wed, 30 Sep 2020 15:24:15 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aed:2e64:: with SMTP id j91ls1212915qtd.0.gmail; Wed, 30 Sep
- 2020 15:21:08 -0700 (PDT)
-X-Received: by 2002:ac8:67ce:: with SMTP id r14mr4591016qtp.239.1601504468502;
-        Wed, 30 Sep 2020 15:21:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601504468; cv=none;
+Received: by 2002:a62:3855:: with SMTP id f82ls1329680pfa.10.gmail; Wed, 30
+ Sep 2020 15:24:15 -0700 (PDT)
+X-Received: by 2002:a05:6a00:22d4:b029:150:bd5d:ce11 with SMTP id f20-20020a056a0022d4b0290150bd5dce11mr4242956pfj.38.1601504655122;
+        Wed, 30 Sep 2020 15:24:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601504655; cv=none;
         d=google.com; s=arc-20160816;
-        b=ODh0FyF/JPbOCgkF0CyzTLr/7dXrXpxIJ9FhczpZMrgdc6j3vqaim+1V3LU4/tuuix
-         Vox2k5d7ICmCdRFoZALFERXKungCFEnuLRAqsy1P8mYEyqH+aGusNa0iJedzoaul1tvJ
-         k/CHr/6zWux3fttT4njxIJ6I30HLefrbvqzliG3UG1blQ5PKPj5mgcBegiRYtTJHZF5X
-         /w+yR/2ebc1kNDERby1LW20BOA5UXxp25wkAO+oc69/gz86rjze/jN0++XI4ak46Tssz
-         Wtb3s2u/AOR35FPbZoYSdRlXwsvy40GMb/4yOMQ43NkprdIv8BWUmuIfWyh6iRo7wU+n
-         L0Ig==
+        b=uC+G+6b++dCWsaA7Xf5dUXvHj1e8BbUWmkmHq23wa58VYlHij7A37nBO1wnfzTnjRR
+         w26LLFSyFBzHJKV9NpNMnDsviKE0GggbzFnQjhat8R+0j/pth7NXkeoFTVvdQtlERtmo
+         pJCbSbtI/K4ecB1ciANvlmhSTWnrIkm4myuc8N3Evf5HpjCca3pM/DKcrETIs/i5hrlp
+         HyRTuueDWQQ1EVSoZkZsrS3Q9KR6X626fxsiL5goQP1HQmnq8Co+RaQFE8AEBwmr+BfZ
+         VucPlTZARS68xkRAB+unJ/NL4PDD6fnERhrpJVxGyuLi+6Oo15YEMJZBNDRN0nNS10WY
+         adDg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=ePM6QfsM36THSeKgqnpoCi7o8XR/cpqwQC0wJXmRkfY=;
-        b=wmnUa6FtEMk64tqaruB6DJlrhFB5Lb1CTOInH5YWBxApq+Xf8btru2lw8FDE5q/kD3
-         5xkHRmv0GdlfYoCW+zgDCYCkTFeAWeCor//2eb8l1p39/LHN99R84uh0tWPWiSaD9awO
-         mK/JAozlxorP8WH9agIr7qX+1d82qGzcvwMOG/M040GBgEZ9pUdg6nTdy7aq6URkBSAU
-         NteAlJ6A0fSGSAGnh0bSyz5MYUII2jfyNFueCq+QEzuGWiOID2gbBngWoAvM+r0/OSvq
-         WilnnjnSfNqwcrb64u0Fzqf5UXlG7U7ygmZjVYUQOKHUFW39uXxAp4R9aicEsxH+JX31
-         su+g==
+        bh=JYdEiH+2AP+bLDP8rJcRkSqBKY/idKxOE3Os+BZSQUs=;
+        b=AXArpGmcipnr7M2dt1/tzR1iId1i0vVvJ7XVzL2RfzpW0UJIWpUIMcKEQOQbJDKIHP
+         /JVf7RS4+a/JrMvqgUwKapYMtKlOl5bRzzLn8dyoBC/ItRskNrAY+rOO8StukIhx5Ydj
+         Z7ljMzOMDCi4ciQXuZWCUpMWxBEZPENVh+rN6vDv2VY2xO/+zoVNuSxY6fV83L43D2X2
+         WS9TSmssrfPXexYpxN/01UVG7dEkRk4qK/9gKR7s0gOJCDfBAoXEwPjA7HcoMLxz4hE5
+         xPTTdSIa9V1a6/Zv2bUFBbBuep0dG9x65F9eNJsp77x+x3xU64lft/XyaZiEgP9hqAd8
+         LrSQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=O7yCy3sg;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=clj+atnC;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::429 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x543.google.com (mail-pg1-x543.google.com. [2607:f8b0:4864:20::543])
-        by gmr-mx.google.com with ESMTPS id a2si192441qkl.4.2020.09.30.15.21.08
+Received: from mail-pf1-x429.google.com (mail-pf1-x429.google.com. [2607:f8b0:4864:20::429])
+        by gmr-mx.google.com with ESMTPS id bk9si198021pjb.1.2020.09.30.15.24.15
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Sep 2020 15:21:08 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) client-ip=2607:f8b0:4864:20::543;
-Received: by mail-pg1-x543.google.com with SMTP id o25so2163948pgm.0
-        for <clang-built-linux@googlegroups.com>; Wed, 30 Sep 2020 15:21:08 -0700 (PDT)
-X-Received: by 2002:a62:5586:0:b029:13e:d13d:a108 with SMTP id
- j128-20020a6255860000b029013ed13da108mr4232171pfb.36.1601504467381; Wed, 30
- Sep 2020 15:21:07 -0700 (PDT)
+        Wed, 30 Sep 2020 15:24:15 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::429 as permitted sender) client-ip=2607:f8b0:4864:20::429;
+Received: by mail-pf1-x429.google.com with SMTP id f18so2353528pfa.10
+        for <clang-built-linux@googlegroups.com>; Wed, 30 Sep 2020 15:24:15 -0700 (PDT)
+X-Received: by 2002:a63:1f03:: with SMTP id f3mr769946pgf.381.1601504654533;
+ Wed, 30 Sep 2020 15:24:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <CAKwvOd=s+N4+X94sTams_hKn8uV5Hc6QyCc7OHyOGC-JFesS8A@mail.gmail.com>
- <20200929192549.501516-1-ndesaulniers@google.com> <CA+icZUVgfnVQ1=zjUGhGKnJAs9g3Q06sWN3ffNdrfZMZLCEkbA@mail.gmail.com>
- <133589afbe999347454dfcc46ae782897bf9e3a2.camel@perches.com>
- <46f69161e60b802488ba8c8f3f8bbf922aa3b49b.camel@perches.com>
- <CAKwvOdkhyvTpY6pHT+CLSsBFuKRWsXucjbwN_tyJAsryZXvG1A@mail.gmail.com> <417ffa3fd3fba5d4a481db6a0b0c9b48cbbb17c4.camel@perches.com>
-In-Reply-To: <417ffa3fd3fba5d4a481db6a0b0c9b48cbbb17c4.camel@perches.com>
+References: <20200930153642.GA319225@elver.google.com> <CAKwvOd=0FV_VoSD8j4xP_k5esOtQ7KQHOq1cFFAkXYM0UQ2-ww@mail.gmail.com>
+ <CANpmjNOvDR-rCn=1Q7Sj-cOuXORTwZj0Ceg2cAH3XpH2EicBhg@mail.gmail.com>
+In-Reply-To: <CANpmjNOvDR-rCn=1Q7Sj-cOuXORTwZj0Ceg2cAH3XpH2EicBhg@mail.gmail.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 30 Sep 2020 15:20:55 -0700
-Message-ID: <CAKwvOd=P+j0RaQfHsXPfB0EL3oRgAu8Q0+spUOn_v-p2+3=3pw@mail.gmail.com>
-Subject: Re: [RFC PATCH next-20200930] treewide: Convert macro and uses of
- __section(foo) to __section("foo")
-To: Joe Perches <joe@perches.com>
-Cc: Sedat Dilek <sedat.dilek@gmail.com>, "Paul E . McKenney" <paulmck@kernel.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Lai Jiangshan <jiangshanlai@gmail.com>, Josh Triplett <josh@joshtriplett.org>, 
-	Kees Cook <keescook@chromium.org>, LKML <linux-kernel@vger.kernel.org>, 
-	rcu@vger.kernel.org, 
-	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, 
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>
+Date: Wed, 30 Sep 2020 15:24:02 -0700
+Message-ID: <CAKwvOdmN=F9JMiSAbCk2HbOwPfyy4u3ticusjZO43nAjhM_wQA@mail.gmail.com>
+Subject: Re: Clang 12 possible memory corruption
+To: Marco Elver <elver@google.com>
+Cc: clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Alexander Potapenko <glider@google.com>, 
+	James Y Knight <jyknight@google.com>, Bill Wendling <morbo@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=O7yCy3sg;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543
+ header.i=@google.com header.s=20161025 header.b=clj+atnC;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::429
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -140,76 +131,36 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Sep 30, 2020 at 3:06 PM Joe Perches <joe@perches.com> wrote:
+On Wed, Sep 30, 2020 at 3:08 PM Marco Elver <elver@google.com> wrote:
 >
-> On Wed, 2020-09-30 at 14:40 -0700, Nick Desaulniers wrote:
-> > On Wed, Sep 30, 2020 at 12:16 PM Joe Perches <joe@perches.com> wrote:
-> > > Use a more generic form for __section that requires quotes to avoid
-> > > complications with clang and gcc differences.
-> > >
-> > > Remove the quote operator # from compiler_attributes.h __section macro.
-> > >
-> > > Convert all unquoted __section(foo) uses to quoted __section("foo").
-> > > Also convert __attribute__((section("foo"))) uses to __section("foo")
-> > > even if the __attribute__ has multiple list entry forms.
-> > >
-> > > Signed-off-by: Joe Perches <joe@perches.com>
-> > > ---
-> > >
-> > > This is the current output from the script against next-20200930
-> > > attached in this link:
-> > >
-> > > https://lore.kernel.org/lkml/0e582a7f5144a33f465978d97701f9b3dcc377f3.camel@perches.com/
-> > >
-> > > It might be useful to run the script immediately before
-> > > the next -rc1.
+> On Wed, 30 Sep 2020 at 23:03, Nick Desaulniers <ndesaulniers@google.com> wrote:
 > >
-> > $ ARCH=powerpc CROSS_COMPILE=powerpc64le-linux-gnu- make CC=clang -j71
-> > powernv_defconfig
-> > $ ARCH=powerpc CROSS_COMPILE=powerpc64le-linux-gnu- make CC=clang -j71
-> > ...
-> > arch/powerpc/boot/main.c:193:44: error: expected ';' after top level declarator
-> > static char cmdline[BOOT_COMMAND_LINE_SIZE]
+> > On Wed, Sep 30, 2020 at 8:36 AM Marco Elver <elver@google.com> wrote:
+> > >
+> > > Hi folks,
+> > >
+> > > I would like to escalate
+> > > https://github.com/ClangBuiltLinux/linux/issues/1125 (if the problem is
+> >
+> > Thanks for filing a bug in our issue tracker! Bonus points.
+> >
+> > It sounds like you're running a bisection? Please let us know how it
+> > goes and we'll help get it resolved.
 >
-> The script does not convert files in
+> Looks like this is in Clang 11 RC as well. I commented on the Github
+> issue. Looks like:
 >
->         scripts/
->         tools/
->         uapi/
->         and include/linux/compiler_attributes.h
->
-> It otherwise assumes that any __attribute__((__section__
-> use should be converted to __section.
->
-> If this ppc file is the only file outside of the
-> listed exclusions, I can either exclude it directly
-> or add compiler.h to it.
->
-> You have a preference?
+> # first bad commit: [4b0aa5724feaa89a9538dcab97e018110b0e4bc3] Change
+> the INLINEASM_BR MachineInstr to be a non-terminating instruction.
 
-If compiler_types.h which includes compiler_attributes.h is being
-implicitly including by Kbuild add `-include` flags to most
-translation units in the kernel, it would be nice to be able to use it
-everywhere.  I consider open coded __attribute__'s a portability bug.
-So including the header in arch/powerpc/boot/*.c would be my
-preference.
+Great! /s
 
->
-> Perhaps these are also possible files that need exclusions:
->
-> ./arch/x86/boot/video.h:#define __videocard struct card_info __section(".videocards") __attribute__((used))
-> ./arch/x86/boot/compressed/pgtable_64.c:unsigned long *trampoline_32bit __section(".data");
-> ./arch/x86/boot/tty.c:static void __section(".inittext") serial_putchar(int ch)
-> ./arch/x86/boot/tty.c:static void __section(".inittext") bios_putchar(int ch)
-> ./arch/x86/boot/tty.c:void __section(".inittext") putchar(int ch)
-> ./arch/x86/boot/tty.c:void __section(".inittext") puts(const char *str)
-> ./arch/s390/boot/startup.c:static struct diag210 _diag210_tmp_dma __section(".dma.data");
-> ./arch/powerpc/boot/main.c:     __section("__builtin_cmdline");
-> ./arch/powerpc/boot/ps3.c:      __section("__builtin_cmdline");
->
->
+Thanks for doing the bisection.  That change was part of supporting
+`asm goto` with outputs, so not surprising.  p0 for us to root cause.
+Let's follow up on the issue tracker.  Next thing is to isolate which
+config tickles this, since I doubt it's observed in a defconfig.
 
-
+Are you able to quickly test if https://reviews.llvm.org/D88438 resolves it?
 -- 
 Thanks,
 ~Nick Desaulniers
@@ -217,4 +168,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DP%2Bj0RaQfHsXPfB0EL3oRgAu8Q0%2BspUOn_v-p2%2B3%3D3pw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmN%3DF9JMiSAbCk2HbOwPfyy4u3ticusjZO43nAjhM_wQA%40mail.gmail.com.
