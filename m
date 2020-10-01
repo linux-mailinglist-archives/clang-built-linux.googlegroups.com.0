@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCRKVNO2ZYFRBVPJ235QKGQE6NKAF3I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCRKVNO2ZYFRBIHM235QKGQEKDWTO4Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33a.google.com (mail-wm1-x33a.google.com [IPv6:2a00:1450:4864:20::33a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6DE8A27FDB7
-	for <lists+clang-built-linux@lfdr.de>; Thu,  1 Oct 2020 12:52:06 +0200 (CEST)
-Received: by mail-wm1-x33a.google.com with SMTP id l26sf774623wmg.7
-        for <lists+clang-built-linux@lfdr.de>; Thu, 01 Oct 2020 03:52:06 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601549526; cv=pass;
+Received: from mail-lf1-x13d.google.com (mail-lf1-x13d.google.com [IPv6:2a00:1450:4864:20::13d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 16C0327FDE1
+	for <lists+clang-built-linux@lfdr.de>; Thu,  1 Oct 2020 12:57:37 +0200 (CEST)
+Received: by mail-lf1-x13d.google.com with SMTP id j17sf1716526lfm.9
+        for <lists+clang-built-linux@lfdr.de>; Thu, 01 Oct 2020 03:57:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601549856; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CbtV2GIIdwnkR9z+mjGZdz8B+evWXOjdCJ+JEieGJ0fYdEpOXcVOoSaobbByI0eqLs
-         EZVC/f5M/HOjW5y4EV+o+TVCtqaVNyqavdjdy6iOBPNg1QZy1pl+T0AODcGx5mMkCJEP
-         AN/uGN0AtnMEJZnXFUavjFDInSLoQ/iOLCTyK8voa8wJFnhZUmOGshIYHft9X+KkhxuV
-         B2w44iLiMa+eRWQ6Bh8+YnomrAz1leCcVST+GAb7f2Pr0VPzPgmvwF74MwChhTQDGdVl
-         S3jx8+/4xpgzl4ucqhJFbJjy21xTypvUmjkXVnPBT9aBAF4ewME++ZsMeMSTsuiX4vb2
-         9/2g==
+        b=A5gn4i63sB4325aEaEniazfddoAsFtt5588i2MxWySRMlhqyR4k1MWov70GgfDn5f7
+         +E7/XnVXLHAvoY0i3kT9/FYVvshro+UXjZ81+YKxfiKF5ujV8snug6wVThBVfUrO1m6Q
+         k9S5SFZqncrJXa/0tOpF5zTh6luDg3jWMhr41eLcWXGz85WzsuFgsBS7wxJxR0UzUf9Z
+         YaH33DQSOrZ8ViCaKDHnLzgum7m6DS7J19r9gINYxmCMchneshZpOXom8VOn1BDD63vj
+         +9bjZcDhwsADjcemZvufId2e4IM5g9fCnhfcPLfWy1LOcnjhwcpkG21NocRnA6aRLvOe
+         xP3g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:dkim-signature;
-        bh=YUi0TBnedE6VDCMb4d9bfadDEQxzGBOChH9yfpyBgPY=;
-        b=BlVDO5F3HtWMyN6moPLjQixfdwyrsgvHLAbgkPIluFYIjUsexrQpcJpd40dhYMoB4y
-         3t8/Yo3TwxKkfbCNFR0HXb2NBnQVhMTnoZVvZ39AcRbKQu9PlsSF/iskYM66A+D//lgr
-         8HEKt2Z4H/BBD8R4rTIs/x48e7yVsOZWOuXlOn2zOmT6bGA/+5visA844VWzVsuMdKLL
-         +XOmxfmlx2hybE1/oa5x/tZtkt9ue8QShoU71tIa3p6W8+wHA9ksLA822SrpIfRPRJ/6
-         uii5Z5V7n22OeeegmriPl7S9vKbzZQlz9YyerOYTF1ZTzbNVhq1lcPpfKO5kplgMCHJy
-         7ENA==
+        bh=CWWpnEiUSFdbnhuoUwSZ0U9SIdq2WdPupUU6NNjqkww=;
+        b=yiHcDn6IW4M7zufhfjEjLBiMvm7bRhTTCqZ9SajOdnl+gYq73G5I189oPAvskHsmOO
+         hCiQ8S1jQMb6kOSKRUEdP+ZvwJ5pLlxdFH+JYHwUpUXiIDqWg6xODJ91Nm18tyDWmtjA
+         IwkKANQ5Hzq27VroR32qV0ol0Xk2UsGBGXdNtPXJtfrU3LPBO9Prba4eulC7zPXgxbex
+         2DOUGj5Ij+19JlXvtDELB5BK9x+j/B41zjOPevTuH6DnvJcR4XJcczLztDzxefony54R
+         9tgToIz6Dv7muC6PsOGHMsaOKIioljdH/8MTErdFfabQwEzETyqmzIe0JHS1wfkXjGF0
+         aBrg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="peG/ZBsE";
-       spf=pass (google.com: domain of ascull@google.com designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=ascull@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=N8ey+Ycu;
+       spf=pass (google.com: domain of ascull@google.com designates 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=ascull@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -37,13 +37,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:list-post:list-help:list-archive:list-subscribe
          :list-unsubscribe;
-        bh=YUi0TBnedE6VDCMb4d9bfadDEQxzGBOChH9yfpyBgPY=;
-        b=bTX9/1YG7UzlGyz5tTywAETKYyUgxuXM9eZUL0Q6JNzFKEPjsiVvczmhe9vPTGyoMF
-         Sar6ndIoqsO+T8Tju3b14y6Hub28su0BEWRwrOe4v9PfL7EHg1RYQ2y04wC4aCA87X/t
-         2hurh6E6rcorFN76c8bC1Cv34tZOp8B58vf+pLoa22wKj7T+4zBq69r3y1Uu9JNqBu8u
-         PfOXx5GLTb31gMw+BbOmII4bt8kZoFzzKk/mVpYAs/hX+1AV/Me+6/W28KZFvuAceZJv
-         GMYYhHnF9u9ztdpoaP3Kf7J4w1OZdnnMvEZjbqYGKq+a2r7Y0ctKxjZ1BAVbLRRuFIIo
-         hN+Q==
+        bh=CWWpnEiUSFdbnhuoUwSZ0U9SIdq2WdPupUU6NNjqkww=;
+        b=cCVtfruMCp8tNI55AMspxcFRvmYwWfubOxOTbhyMuR0oAGcOaWYXIMof1X7gejTQT/
+         WtftGm8waRYCN8PhkS666RhmeIINycM1EQVqZK9RaFN2Z33JVYYyWmrJjrU9n2Op6aWx
+         Qiz96TL1l/fpEYXasSt/Lwcc28XmzM57bMYPI20isLb5HS+J2KOC6M7ZLVQBfMO8QjZP
+         dXIL1P6RHXg59p0fNQa9JGogqC/fjGiXkKaDTRpnCiQwcxZBoZ1QJxU0NWxsUjaI3axr
+         MHb4wZIOw76dJDeygfhDdjy7scMeYLdHAzPowd3VKTRF6CpY4mBOIMrhIcnkPSseupr5
+         ABkA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:from:to:cc:subject:message-id:references
@@ -51,60 +51,60 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=YUi0TBnedE6VDCMb4d9bfadDEQxzGBOChH9yfpyBgPY=;
-        b=h/ak2B0FuLeTM8X0SVh6c4qvLIxJG+S0LcRuW/E6FWcl4lWUb/dcj6tsAQ76E5SNlP
-         TNCcRFVKmHrsZ2Hk9xY0gBHyMHq359cRmV+edqeuhMY4MsprFuul3TW1YdkUptlX+VnI
-         ungNXRczdSkI5PTafWV0+xQizpAKPCgnN7nshz9erkaJ17qOHmSRHaXF/2Mi9lXdW8+D
-         rrEOv0KhqhZp4YiR//T7O4LXh3bLfCq/2iNewlAPeEJqWO4f+pEzAN/8OY71/g6xGN0j
-         xyghGNVNAefKzp6pXmBdw0lmA6LwdbTJAVVJDtRb7KfFkD6nbLQCA4wjzkhJ218EtEfn
-         75sQ==
-X-Gm-Message-State: AOAM531UHNeRa76ghJ9f2ovT1lpwDQFvtDTgXep0UKJWbq55R+htmXK1
-	8K48otXl2bDwWbbKRqUfMfg=
-X-Google-Smtp-Source: ABdhPJyXvxYZwgRuROpXkExUayB7XQ0ekOFfTOJwPt514oFM9roIi1aO+XrHhHCpEhhp3I7FkqMfpg==
-X-Received: by 2002:a7b:c111:: with SMTP id w17mr8075870wmi.28.1601549526162;
-        Thu, 01 Oct 2020 03:52:06 -0700 (PDT)
+        bh=CWWpnEiUSFdbnhuoUwSZ0U9SIdq2WdPupUU6NNjqkww=;
+        b=AgIwdt62rX/wBdA6iyXMkBJ1a97jeZFf7sn3DYPIZfvlLL2Jx+1b60cw8yQ2PWREn9
+         LaEdlQbMiqaLyIgIzlsmipjw+lIL91BMIjrv7HmBl/klThvLncK0Y9mdVd3NEDwXNWKS
+         Y2te3qvPMe4z1DZ7dZBqFMZ11CuVmbqOVzUNy0zdK+2n6Cok+8QuXuxlL66Fb7WsilAr
+         4wZ/CBlFbNt6oLm8jArWzBox5K2DGTbCfFXS66yBXc5pIajTC4sFYthpRfyv9fCJD+zO
+         FeuoYeAjDOiido85rvzUnUCrQn50RHQq9f/hd+rXiJQnw+BJLSgt4MvlT2bqsh2suuPj
+         L99Q==
+X-Gm-Message-State: AOAM530PeRoBKmhNicPEeBQdwWsz90L4NASevfiit2cuct+6hbP8bqYt
+	yoMn8YPx18EiZR+KnBwxFzE=
+X-Google-Smtp-Source: ABdhPJxgdrboiv93w6ffiIHLjZID2nKPfsYQWInlRjml1VZBrHQuUTU76EdPRFp0wwDjbRaDvps07Q==
+X-Received: by 2002:a05:6512:525:: with SMTP id o5mr2721513lfc.435.1601549856622;
+        Thu, 01 Oct 2020 03:57:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6000:8:: with SMTP id h8ls354184wrx.3.gmail; Thu, 01 Oct
- 2020 03:52:05 -0700 (PDT)
-X-Received: by 2002:a05:6000:11c5:: with SMTP id i5mr8339292wrx.18.1601549525147;
-        Thu, 01 Oct 2020 03:52:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601549525; cv=none;
+Received: by 2002:ac2:544e:: with SMTP id d14ls791552lfn.2.gmail; Thu, 01 Oct
+ 2020 03:57:35 -0700 (PDT)
+X-Received: by 2002:a19:c608:: with SMTP id w8mr2248689lff.88.1601549855458;
+        Thu, 01 Oct 2020 03:57:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601549855; cv=none;
         d=google.com; s=arc-20160816;
-        b=oHi0tPCGW2V/bz+aLztLFOLRYcFIli2Q2bahunVuwng00/7IMV8pVXCdFedaTzpUQb
-         1JxtC3LOToxwPB/HLD72DlrDeB20cueAcO1G9py8N3cEAMmmqzjHpuES1sUnBCD1wZuw
-         P2UjP4CJPR3C6MngKskAPGl2lgZacrVKXAK+aIP0OoA0InGrshMKzyuEhTSumKbLsvpS
-         tYDqoJ0xVvS4gziXFmEODGODiGJekGcFhW92Ih/4Cy3lNTfIk4XSBavOmPFZYUckG4fu
-         +TXngwfNFT6yhgh3ZOUQE5xdaFq8ZhYNcVa+WD1mIFE/lhmKJI61BKz0R3KzxKm6kle5
-         ZruQ==
+        b=BJt3d7i32fi0nwQZNpe1YYlEI2IpF5gZXjSrgAvpyAHyCfvRA9I4w/b9BVqj+al0V9
+         YX8UgUBZG9GgpO8rjjLklMl/I0QCwruXUaPvIPiczE8EOYI5auXa6e5OyOH0EFSAnJp8
+         /N6dE/6WkDYzRHSaNRfCdzP3MqkxK36Zn+XmB/ottiCVYoaDS+czDH1xX6zLb8rcakTD
+         UO3LsPPavcbXY4mtbzD10iwB79Ktwg790WKOOr+iMwB3AcyxaEcQyfRwbBAzYuKMDwf4
+         2eGm8UmsC6ijAOIMi0wYvQQLj/L9wu5enkTkdKC+oak5gWEr7g/bW3xlwxNQqCe8K6Kw
+         fgWA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=k2N0J/M9yplh3qBJTgm1trDqAWsQTbieqBVpcxzeRPI=;
-        b=i8R3CBTg4ba6C6lgYPRJEFhxW04xbSZtWr6Uv2NHcZV/bB0YFxhfyioBnMtQDNlfuK
-         p6ZbA9MWU614Y9/uZPD3cweY3J5j8GJXSJNLq+Ge+TFv1rnGBz/YOHHaE8Q5mq2KZsGc
-         g7dozExQ1gvTYePvnqkjgL6p+o7I3LE9SALREcfEUv+EKwO9hsW4Mt4k2HpQBZvmkhc4
-         pmmEcLTvUIW53kmMz8/xdogmnwh+llUrYsHK0A4tJBFh8LeWc1R+G5tvWtXUO8rCJWpb
-         qPEvgxZSSYzfe3xHdBc0zrkmQMdYhfAaP4WGlGBB8kzeDrij7o/Z2XcgXde55zolXpBa
-         h2Eg==
+        bh=uIC7dj7oltWe68l04x0L6fWnaqmGQcvXiQBbnnS12XU=;
+        b=QppW73xGEuOJOpvCc2k++pQAgaH5RA033A+++R+BIoA7p9MT5PrC/qugLoG0OXcQVm
+         41ZuOS2ItK3db35+7n1bZEusylsZrRSPrJjLlRWPqHRRvO1zysRQ7cUCHcW1fHR8zXVz
+         iLrwlT+kBjG4eah7uMxpUDVA8B0YsxDJAUrBAklW93NOT4TiMaIxJAwrhzIp14xKiWZ3
+         95P1y6e/uu5uoRq2AikWQabbwk3gqVGk7/OkFSy9oXuGNbN0jNhjtbQ/Y9/wvW7bz1yr
+         ddOYGqDkBN8Z3cvP4EG02TEMzHUA9x7u/Squx3OTf/G6CdOcU9oDKwuvhXsiHhhm8rBf
+         zQAQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="peG/ZBsE";
-       spf=pass (google.com: domain of ascull@google.com designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=ascull@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=N8ey+Ycu;
+       spf=pass (google.com: domain of ascull@google.com designates 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=ascull@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-wr1-x441.google.com (mail-wr1-x441.google.com. [2a00:1450:4864:20::441])
-        by gmr-mx.google.com with ESMTPS id b1si123311wmj.1.2020.10.01.03.52.05
+Received: from mail-wm1-x341.google.com (mail-wm1-x341.google.com. [2a00:1450:4864:20::341])
+        by gmr-mx.google.com with ESMTPS id t80si110255lff.9.2020.10.01.03.57.35
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 01 Oct 2020 03:52:05 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ascull@google.com designates 2a00:1450:4864:20::441 as permitted sender) client-ip=2a00:1450:4864:20::441;
-Received: by mail-wr1-x441.google.com with SMTP id w5so5121241wrp.8
-        for <clang-built-linux@googlegroups.com>; Thu, 01 Oct 2020 03:52:05 -0700 (PDT)
-X-Received: by 2002:adf:f2d0:: with SMTP id d16mr7896961wrp.332.1601549524567;
-        Thu, 01 Oct 2020 03:52:04 -0700 (PDT)
+        Thu, 01 Oct 2020 03:57:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ascull@google.com designates 2a00:1450:4864:20::341 as permitted sender) client-ip=2a00:1450:4864:20::341;
+Received: by mail-wm1-x341.google.com with SMTP id k18so2531550wmj.5
+        for <clang-built-linux@googlegroups.com>; Thu, 01 Oct 2020 03:57:35 -0700 (PDT)
+X-Received: by 2002:a1c:f612:: with SMTP id w18mr7636314wmc.47.1601549854655;
+        Thu, 01 Oct 2020 03:57:34 -0700 (PDT)
 Received: from google.com ([2a00:79e0:d:109:4a0f:cfff:fe4a:6363])
-        by smtp.gmail.com with ESMTPSA id i33sm9151325wri.79.2020.10.01.03.52.03
+        by smtp.gmail.com with ESMTPSA id z13sm8267476wro.97.2020.10.01.03.57.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Oct 2020 03:52:03 -0700 (PDT)
-Date: Thu, 1 Oct 2020 11:51:59 +0100
+        Thu, 01 Oct 2020 03:57:33 -0700 (PDT)
+Date: Thu, 1 Oct 2020 11:57:29 +0100
 From: "'Andrew Scull' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: George-Aurelian Popescu <georgepope@google.com>
 Cc: maz@kernel.org, catalin.marinas@arm.com, will@kernel.org,
@@ -118,19 +118,19 @@ Cc: maz@kernel.org, catalin.marinas@arm.com, will@kernel.org,
 	keescook@chromium.org, akpm@linux-foundation.org,
 	dvyukov@google.com, elver@google.com, tglx@linutronix.de,
 	arnd@arndb.de
-Subject: Re: [PATCH 05/14] KVM: arm64: Define a buffer that can pass UBSan
- data from hyp/nVHE to kernel
-Message-ID: <20201001105159.GB541087@google.com>
+Subject: Re: [PATCH 07/14] KVM: arm64: Enable UBSAN_BOUNDS for the both the
+ kernel and hyp/nVHE
+Message-ID: <20201001105729.GA632887@google.com>
 References: <20200914172750.852684-1-georgepope@google.com>
- <20200914172750.852684-6-georgepope@google.com>
+ <20200914172750.852684-8-georgepope@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200914172750.852684-6-georgepope@google.com>
+In-Reply-To: <20200914172750.852684-8-georgepope@google.com>
 X-Original-Sender: ascull@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="peG/ZBsE";       spf=pass
- (google.com: domain of ascull@google.com designates 2a00:1450:4864:20::441 as
+ header.i=@google.com header.s=20161025 header.b=N8ey+Ycu;       spf=pass
+ (google.com: domain of ascull@google.com designates 2a00:1450:4864:20::341 as
  permitted sender) smtp.mailfrom=ascull@google.com;       dmarc=pass (p=REJECT
  sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Andrew Scull <ascull@google.com>
@@ -147,275 +147,121 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Sep 14, 2020 at 05:27:41PM +0000, George-Aurelian Popescu wrote:
+On Mon, Sep 14, 2020 at 05:27:43PM +0000, George-Aurelian Popescu wrote:
 > From: George Popescu <georgepope@google.com>
 > 
-> Store data, which is collected from UBSan handlers that lives inside hyp/nVHE,
-> into the kvm_ubsan_buffer.
-> This buffer is designed to store only UBSan data because it should not be
-> preoccupied by other mechanisms data structures and functionalities.
+> If an out of bounds happens inside the hyp/nVHE code, the
+> ubsan_out_of_bounds handler stores the logging data inside the
+> kvm_ubsan_buffer. The one responsible for printing is the kernel
+> ubsan_out_of_bounds handler. The process of decapsulating the data happens
+> in kvm_ubsan_buffer.c.
 > 
-> Map the buffer and the write iqndex before switching the control to
-> hyp/nVHE.
+> The struct kvm_ubsan_info contains three main components:
+> -enum type, which is used to identify which handler to call from the
+> kernel.
+> -struct ubsan_values, which stores the operands involved during the
+> undefined behaviours, which can be one, two or zero, depending on what
+> undefiend behaviour is reported. As an example for: out_of_bounds there
+> is only one operand (the index).
 > 
-> Map the kernel .data region to read the compile time generated UBSan struct's
-> data from hyp/nVHE.
+> Accessing a slot with no type should do nothing. Each slot is marked
+> with the UBSAN_NONE tag after it's first usage.
 > 
 > Signed-off-by: George Popescu <georgepope@google.com>
 > ---
->  arch/arm64/include/asm/kvm_asm.h   |  3 +++
->  arch/arm64/include/asm/kvm_host.h  |  6 +++++
->  arch/arm64/include/asm/kvm_ubsan.h | 17 +++++++++++++
->  arch/arm64/kvm/Makefile            |  4 ++++
->  arch/arm64/kvm/arm.c               | 38 +++++++++++++++++++++++++++++-
->  arch/arm64/kvm/hyp/hyp-entry.S     |  4 ++++
->  arch/arm64/kvm/hyp/nvhe/ubsan.c    | 24 ++++++++++++++++++-
->  arch/arm64/kvm/kvm_ubsan_buffer.c  | 32 +++++++++++++++++++++++++
->  8 files changed, 126 insertions(+), 2 deletions(-)
->  create mode 100644 arch/arm64/include/asm/kvm_ubsan.h
->  create mode 100644 arch/arm64/kvm/kvm_ubsan_buffer.c
+>  arch/arm64/include/asm/kvm_ubsan.h | 19 ++++++++++++++++++-
+>  arch/arm64/kvm/hyp/nvhe/ubsan.c    | 13 ++++++++++++-
+>  arch/arm64/kvm/kvm_ubsan_buffer.c  | 13 ++++++++++++-
+>  3 files changed, 42 insertions(+), 3 deletions(-)
 > 
-> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-> index 200bb8d0a720..9d4a77f08ffd 100644
-> --- a/arch/arm64/include/asm/kvm_asm.h
-> +++ b/arch/arm64/include/asm/kvm_asm.h
-> @@ -63,6 +63,9 @@
->  #define CHOOSE_VHE_SYM(sym)	sym
->  #define CHOOSE_NVHE_SYM(sym)	kvm_nvhe_sym(sym)
->  
-> +#define this_cpu_ptr_nvhe(sym)		this_cpu_ptr(&kvm_nvhe_sym(sym))
-> +#define per_cpu_ptr_nvhe(sym, cpu)	per_cpu_ptr(&kvm_nvhe_sym(sym), cpu)
-> +
->  #ifndef __KVM_NVHE_HYPERVISOR__
->  /*
->   * BIG FAT WARNINGS:
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index adc8957e9321..337fd2d0f976 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -494,8 +494,14 @@ u64 __kvm_call_hyp(void *hypfn, ...);
->  		__kvm_call_hyp(kvm_ksym_ref_nvhe(f), ##__VA_ARGS__);	\
->  	})
->  
-> +#ifdef CONFIG_UBSAN
-> +extern void __kvm_check_ubsan_buffer(void);
-> +#endif
-> +
->  #define __kvm_arm_check_debug_buffer()					\
->  {									\
-> +	if (IS_ENABLED(CONFIG_UBSAN))					\
-> +		__kvm_check_ubsan_buffer();				\
->  }
->  
->  /*
 > diff --git a/arch/arm64/include/asm/kvm_ubsan.h b/arch/arm64/include/asm/kvm_ubsan.h
-> new file mode 100644
-> index 000000000000..af607a796376
-> --- /dev/null
+> index af607a796376..575881e0bd5f 100644
+> --- a/arch/arm64/include/asm/kvm_ubsan.h
 > +++ b/arch/arm64/include/asm/kvm_ubsan.h
-> @@ -0,0 +1,17 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright 2020 Google LLC
-> + * Author: George Popescu <georgepope@google.com>
-> + */
-> +
-> +#ifdef CONFIG_UBSAN
-
-The header should have an inclusion guard as well.
-
-> +#include <ubsan.h>
-
-Is it possible to only include this from within kvm_ubsan_buffer.c
-similar to how lib/ubsan.c keeps it self contained? Then export
-function for things like mapping it up to hyp?
-
-> +
-> +
-> +#define UBSAN_MAX_TYPE 6
-> +#define KVM_UBSAN_BUFFER_SIZE 1000
-> +
-> +struct kvm_ubsan_info {
-> +	int type;
+> @@ -11,7 +11,24 @@
+>  #define UBSAN_MAX_TYPE 6
+>  #define KVM_UBSAN_BUFFER_SIZE 1000
+>  
+> +struct ubsan_values {
+> +	void *lval;
+> +	void *rval;
+> +	char op;
 > +};
-> +#endif
-> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-> index 99977c1972cc..92f06cb5b3df 100644
-> --- a/arch/arm64/kvm/Makefile
-> +++ b/arch/arm64/kvm/Makefile
-> @@ -24,4 +24,8 @@ kvm-y := $(KVM)/kvm_main.o $(KVM)/coalesced_mmio.o $(KVM)/eventfd.o \
->  	 vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
->  	 vgic/vgic-its.o vgic/vgic-debug.o
->  
-> +CFLAGS_kvm_ubsan_buffer.o += -I $(srctree)/lib/
-> +CFLAGS_arm.o += -I $(srctree)/lib
 > +
-> +kvm-$(CONFIG_UBSAN) += kvm_ubsan_buffer.o
->  kvm-$(CONFIG_KVM_ARM_PMU)  += pmu-emul.o
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index b588c3b5c2f0..eff57069e103 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -42,10 +42,17 @@
->  #include <kvm/arm_pmu.h>
->  #include <kvm/arm_psci.h>
->  
-> +#include <asm/kvm_debug_buffer.h>
-> +#include <asm/kvm_ubsan.h>
-> +
->  #ifdef REQUIRES_VIRT
->  __asm__(".arch_extension	virt");
+>  struct kvm_ubsan_info {
+> -	int type;
+> +	enum {
+> +		UBSAN_NONE,
+> +		UBSAN_OUT_OF_BOUNDS
+> +	} type;
+> +	union {
+> +		struct out_of_bounds_data out_of_bounds_data;
+> +	};
+> +	union {
+> +		struct ubsan_values u_val;
+> +	};
+>  };
 >  #endif
->  
-> +#ifdef CONFIG_UBSAN
-> +DECLARE_KVM_DEBUG_BUFFER(struct kvm_ubsan_info, kvm_ubsan_buff, KVM_UBSAN_BUFFER_SIZE);
-> +#endif
 > +
->  DEFINE_PER_CPU(kvm_host_data_t, kvm_host_data);
->  static DEFINE_PER_CPU(unsigned long, kvm_arm_hyp_stack_page);
->  
-> @@ -1519,7 +1526,15 @@ static int init_hyp_mode(void)
->  		kvm_err("Cannot map bss section\n");
->  		goto out_err;
->  	}
-> -
-> +#ifdef CONFIG_UBSAN
-> +	/* required by ubsan to access the handlers structures fields */
-> +	err = create_hyp_mappings(kvm_ksym_ref(_data),
-> +				  kvm_ksym_ref(__end_once), PAGE_HYP_RO);
-> +	if (err) {
-> +		kvm_err("Cannot map data section\n");
-> +		goto out_err;
-> +	}
-> +#endif
->  	err = kvm_map_vectors();
->  	if (err) {
->  		kvm_err("Cannot map vectors\n");
-> @@ -1552,6 +1567,27 @@ static int init_hyp_mode(void)
->  		}
->  	}
->  
-> +#ifdef CONFIG_UBSAN
-> +	for_each_possible_cpu(cpu) {
-> +		/* map the write index */
-> +		struct kvm_ubsan_info *buff;
-> +		unsigned long *wr_ind;
-> +
-> +		wr_ind = per_cpu_ptr_nvhe(kvm_ubsan_buff_wr_ind, cpu);
-> +		err = create_hyp_mappings(wr_ind, wr_ind + 1, PAGE_HYP);
-> +		if (err) {
-> +			kvm_err("Cannot map the busan buffer write index: %d\n", err);
-> +			goto out_err;
-> +		}
-> +		buff = per_cpu_ptr(kvm_nvhe_sym(kvm_ubsan_buff), cpu);
-> +		err = create_hyp_mappings(buff, buff + KVM_UBSAN_BUFFER_SIZE, PAGE_HYP);
-> +		if (err) {
-> +			kvm_err("Cannot map the ubsan buffer: %d\n", err);
-> +			goto out_err;
-> +		}
-> +	}
-> +#endif
-> +
->  	err = hyp_map_aux_data();
->  	if (err)
->  		kvm_err("Cannot map host auxiliary data: %d\n", err);
-> diff --git a/arch/arm64/kvm/hyp/hyp-entry.S b/arch/arm64/kvm/hyp/hyp-entry.S
-> index 8df0082b9ccf..bcdbab4d2e43 100644
-> --- a/arch/arm64/kvm/hyp/hyp-entry.S
-> +++ b/arch/arm64/kvm/hyp/hyp-entry.S
-> @@ -14,6 +14,7 @@
->  #include <asm/kvm_asm.h>
->  #include <asm/kvm_mmu.h>
->  #include <asm/mmu.h>
-> +#include <asm/kvm_debug_buffer.h>
->  
->  .macro save_caller_saved_regs_vect
->  	/* x0 and x1 were saved in the vector entry */
-> @@ -74,6 +75,9 @@ el1_sync:				// Guest trapped into EL2
->  	cmp	x0, #HVC_STUB_HCALL_NR
->  	b.hs	1f
->  
-> +#ifdef CONFIG_UBSAN
-> +	clear_kvm_debug_buffer kvm_ubsan_buff_wr_ind, x4, x5, x6
-> +#endif
->  	/*
->  	 * Compute the idmap address of __kvm_handle_stub_hvc and
->  	 * jump there. Since we use kimage_voffset, do not use the
+> +void __ubsan_handle_out_of_bounds(void *_data, void *index);
 > diff --git a/arch/arm64/kvm/hyp/nvhe/ubsan.c b/arch/arm64/kvm/hyp/nvhe/ubsan.c
-> index a5db6b61ceb2..a43c9646e1e8 100644
+> index a43c9646e1e8..b2d3404f6215 100644
 > --- a/arch/arm64/kvm/hyp/nvhe/ubsan.c
 > +++ b/arch/arm64/kvm/hyp/nvhe/ubsan.c
-> @@ -3,9 +3,31 @@
->   * Copyright 2020 Google LLC
->   * Author: George Popescu <georgepope@google.com>
->   */
-> +#include <linux/bitops.h>
->  #include <linux/ctype.h>
->  #include <linux/types.h>
-> -#include <ubsan.h>
-> +#include <linux/percpu-defs.h>
-> +#include <linux/kvm_host.h>
-> +#include <asm/kvm_arm.h>
-> +#include <asm/kvm_asm.h>
-> +#include <asm/kvm_ubsan.h>
-> +#include <asm/kvm_debug_buffer.h>
-> +#include <kvm/arm_pmu.h>
-> +
-> +DEFINE_KVM_DEBUG_BUFFER(struct kvm_ubsan_info, kvm_ubsan_buff, KVM_UBSAN_BUFFER_SIZE);
-> +
-> +static inline struct kvm_ubsan_info *kvm_ubsan_buffer_next_slot(void)
-> +{
-> +	struct kvm_ubsan_info *res;
-> +	struct kvm_ubsan_info *buff;
-> +	unsigned long *buff_ind;
-> +	unsigned long buff_size = KVM_UBSAN_BUFFER_SIZE;
-> +	unsigned int struct_size = sizeof(struct kvm_ubsan_info);
-> +
-> +	init_kvm_debug_buffer(kvm_ubsan_buff, struct kvm_ubsan_info, buff, buff_ind);
-> +	res = kvm_debug_buffer_next_slot(buff, buff_ind, struct_size, buff_size);
-> +	return res;
-> +}
+> @@ -43,7 +43,18 @@ void __ubsan_handle_type_mismatch(struct type_mismatch_data *data, void *ptr) {}
 >  
->  void __ubsan_handle_add_overflow(void *_data, void *lhs, void *rhs) {}
+>  void __ubsan_handle_type_mismatch_v1(void *_data, void *ptr) {}
 >  
-> diff --git a/arch/arm64/kvm/kvm_ubsan_buffer.c b/arch/arm64/kvm/kvm_ubsan_buffer.c
-> new file mode 100644
-> index 000000000000..28dcf19b5706
-> --- /dev/null
-> +++ b/arch/arm64/kvm/kvm_ubsan_buffer.c
-> @@ -0,0 +1,32 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright 2020 Google LLC
-> + * Author: George Popescu <georgepope@google.com>
-> + */
-> +
-> +#include <linux/ctype.h>
-> +#include <linux/types.h>
-> +#include <asm/kvm_debug_buffer.h>
-> +#include <asm/kvm_arm.h>
-> +#include <asm/kvm_asm.h>
-> +#include <kvm/arm_pmu.h>
-> +
-> +#include <ubsan.h>
-> +#include <asm/kvm_ubsan.h>
-> +
-> +DECLARE_KVM_DEBUG_BUFFER(struct kvm_ubsan_info, kvm_ubsan_buff, KVM_UBSAN_BUFFER_SIZE);
-> +
-> +
-> +void __kvm_check_ubsan_buffer(void)
+> -void __ubsan_handle_out_of_bounds(void *_data, void *index) {}
+> +void __ubsan_handle_out_of_bounds(void *_data, void *index)
 > +{
-> +	unsigned long *write_ind;
-> +	unsigned long it;
-> +	struct kvm_ubsan_info *slot;
+> +	struct kvm_ubsan_info *slot = NULL;
+> +	struct out_of_bounds_data *data = _data;
 > +
-> +	init_kvm_debug_buffer(kvm_ubsan_buff, struct kvm_ubsan_info, slot, write_ind);
-> +	for_each_kvm_debug_buffer_slot(slot, write_ind, it) {
-> +		/* check ubsan data */
-> +		slot->type = 0;
+> +	slot = kvm_ubsan_buffer_next_slot();
+> +	if (slot) {
+> +		slot->type = UBSAN_OUT_OF_BOUNDS;
+> +		slot->out_of_bounds_data = *data;
+> +		slot->u_val.lval = index;
 > +	}
 > +}
-> +
+>  
+>  void __ubsan_handle_shift_out_of_bounds(void *_data, void *lhs, void *rhs) {}
+>  
+> diff --git a/arch/arm64/kvm/kvm_ubsan_buffer.c b/arch/arm64/kvm/kvm_ubsan_buffer.c
+> index 28dcf19b5706..ce796bdd027e 100644
+> --- a/arch/arm64/kvm/kvm_ubsan_buffer.c
+> +++ b/arch/arm64/kvm/kvm_ubsan_buffer.c
+> @@ -16,6 +16,17 @@
+>  
+>  DECLARE_KVM_DEBUG_BUFFER(struct kvm_ubsan_info, kvm_ubsan_buff, KVM_UBSAN_BUFFER_SIZE);
+>  
+> +void __kvm_check_ubsan_data(struct kvm_ubsan_info *slot)
+> +{
+> +	switch (slot->type) {
+> +	case UBSAN_NONE:
+> +		break;
+> +	case UBSAN_OUT_OF_BOUNDS:
+> +		__ubsan_handle_out_of_bounds(&slot->out_of_bounds_data,
+> +				slot->u_val.lval);
+> +		break;
+> +	}
+> +}
+>  
+>  void __kvm_check_ubsan_buffer(void)
+>  {
+> @@ -25,7 +36,7 @@ void __kvm_check_ubsan_buffer(void)
+>  
+>  	init_kvm_debug_buffer(kvm_ubsan_buff, struct kvm_ubsan_info, slot, write_ind);
+>  	for_each_kvm_debug_buffer_slot(slot, write_ind, it) {
+> -		/* check ubsan data */
+> +		__kvm_check_ubsan_data(slot);
+>  		slot->type = 0;
+
+0's called UBSAN_NONE now
+
+>  	}
+>  }
 > -- 
 > 2.28.0.618.gf4bc123cb7-goog
 > 
@@ -423,4 +269,4 @@ function for things like mapping it up to hyp?
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201001105159.GB541087%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201001105729.GA632887%40google.com.
