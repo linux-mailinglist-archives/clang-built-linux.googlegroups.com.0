@@ -1,134 +1,139 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBI444P5QKGQEQ3ST4EA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27X66SWQMBB6VG4P5QKGQEKQLL3BY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb40.google.com (mail-yb1-xb40.google.com [IPv6:2607:f8b0:4864:20::b40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1764A282614
-	for <lists+clang-built-linux@lfdr.de>; Sat,  3 Oct 2020 21:16:53 +0200 (CEST)
-Received: by mail-yb1-xb40.google.com with SMTP id u64sf5502652ybb.8
-        for <lists+clang-built-linux@lfdr.de>; Sat, 03 Oct 2020 12:16:53 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601752612; cv=pass;
+Received: from mail-pj1-x103c.google.com (mail-pj1-x103c.google.com [IPv6:2607:f8b0:4864:20::103c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2D61B28265B
+	for <lists+clang-built-linux@lfdr.de>; Sat,  3 Oct 2020 21:39:40 +0200 (CEST)
+Received: by mail-pj1-x103c.google.com with SMTP id v10sf2222302pjy.2
+        for <lists+clang-built-linux@lfdr.de>; Sat, 03 Oct 2020 12:39:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601753978; cv=pass;
         d=google.com; s=arc-20160816;
-        b=taMDe3CZL20Zm1Fxi9QueJI0o8cf6bEAT4G46nFjrZrGj1Qxj4oIkf0+gaaNSkLjOa
-         FSneu9vcZX+gDQCwkNwVfbOqHNAJ116KYCJVQaK5Fpk4RePT+5E89jSO8X3op9u8LH/I
-         6Y5rKkmlartCBT+j2N5ip4HUPoDy0KrgfIjArvH6/+pk0A3b7+c71gOzmFNhRxF1N8Vz
-         wcVEbhvwPqENM4AW7g5fVyDz4i2ZWrW+zgAGKSbVkQ+SZSJXfv/Fu/YXtaRo5EC8OZLh
-         2DB+OPbc7gqAqbkLOtHOUhsSuoExu0MoQs/xBVEvpkW0yUxmFh46MyDgLq8rP10vbhaH
-         ucNA==
+        b=YlQgnzbRPJOlWdfg9xZ4rQ5ucQrOLnTFAh/R1aHCdnR17cjXHb5JRK/SL87ec3cVG+
+         JcQmP0mwrzk5fsUpwwZtrMIccgJComlLPfZqHvqaD10BqWEOCtbKCD5MVUYfvPzXccQ3
+         uvXW9elWauFwFh43SA/DDr/5cSEPjKKlCmf0Sa+5W8n/SeFb8zCXdiEdhaYuohHt2VCL
+         EgsN0ZVw6LeNkEK7NTwzgKW3KUE3f4/P3+75tlMNdS0q5Lo6isT9UapBSizB1Pt7fZFY
+         gtaSuwFYFb/DzQaU6FonAmdQUMpnS8Ul52HP30ZGhtQgo9xTMBLe5gefEKuisf3XgKTA
+         XjFQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
-         :ironport-sdr:sender:dkim-signature;
-        bh=UEfe0EB6tPsYVWbwryBJaFpys9QvTxz52xHoqHfHtUE=;
-        b=eVu1R4QgpJOrrh4aK+w/BRkAoJChYgc+mY5mL9uX2UaqFb+BBvtj6oHbsP+FIHO0ni
-         GZARd8M8HcDQlihyZCpOyz1De2yFPXAAR7ze8Kf9Fvh0mUK8PqPFhmjJZRSv3sHoQ5sR
-         O5LvFqTotzMLlMUb+4uAfthE3fPrrAiV7JXpN7OPcibVW7KE+p9wLbTYWena0Nt3k2Io
-         +fawHMLcYAcZT1s00cWRo3SSTVKapNQGHbnNhTQI6lUcOMJyY1Od/ZIVzbMk9SrELKgB
-         e0hZjX3LAaQFezSnoMFIsTfTkhHd6/416CjGPtLR/fkik9Bi6eo6pOx6qtxLGte911Ct
-         Lc1w==
+         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
+         :mime-version:sender:dkim-signature;
+        bh=SxgKjjJrblGgd0/RK94CE6UbQGZZ/vnWDghNRhKGvjo=;
+        b=VrKfYKYzjECxtN1SmClRY3Wj8JJ8HF7HX6XucrNUtiT4KwLuFTKe5zGo0dTBLmfyd9
+         kbOJe1GJgyA3qCgLb1zYrd1DA6eTolhf1cGswq7U+HGlGSp02HAa/zLYCp41jIl6Chxm
+         DOJbB78uxspZQw3Lb8QAjslmuNgcRTm+ZB0bXguYqf74gpykXJPU/aYIgrvz4S2loFKY
+         +nxwDLDhC3WJ6f+T58InzTOKTfDLiMx4eT/hHS+FhoBVI3MzsuclBmQfJ/iUAbWZw9wP
+         KICOU14y8jj3pvPODySnhH6kAIba8DzN40vcpKsULxmBO7zUqXfOvT6hvgzGl8rZlGsc
+         V3lA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=J0ONx5PG;
+       spf=pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=UEfe0EB6tPsYVWbwryBJaFpys9QvTxz52xHoqHfHtUE=;
-        b=L597+KufJb2goQJzw6yitPOCDi9RBQzzeP0tzZCP4HcmAWrx5BCHLQki6OoiLcagtm
-         0qS0FMBZuFad49jV/732yPG0DXpG+kDtCh9R0khlEphEuXWxd0E1BEqib1f6sNp37ltS
-         ayH9nWYpnxhZIbNLO1Ma/FeCWg0DUvS27xYY7lgHbporLoOMquITiw8U4cOGum7ZcRA7
-         izutG349lpo2889MJ7m02WItvsWUtKjeW6XP+8TAT+Cj1Y15Iwl05CdeTyDVClnV1Nbu
-         Hgf51O+DkdugNNxtOYgMHcS10HfEGLC9OUo354ZV9ll3WrdxOvsB/0CoD12z3a1QXEvE
-         9bcQ==
+        h=sender:mime-version:from:to:cc:subject:date:message-id
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=SxgKjjJrblGgd0/RK94CE6UbQGZZ/vnWDghNRhKGvjo=;
+        b=CBIudu8cCfR9M5XCN0exgolGDf+PJuUNfXo5klRJLSx2YEvg9OBu8rS8K5tYYF40py
+         t0YhZen/UajbODxZ53CYmAtu6N+2VwZwww1efj4sK9DH8KWCLqn5MhHoEBusqUL55KQM
+         nqZSKVnOVSzW/vm/K6J/sa701KnPfHjiZGh/GpHH+liMZzkYVDAtMuZdAf/Vt0pQnvSw
+         CDGbM402PXzFegFyVcrxIsO/FDULWxz0V5e6TSjbm5UwnZvCAfJ58UZgdA/qeA1ED3QP
+         LaM72lpFCevFnycS36sGfxfCyhZiyvJ0stjMtczMCphHN8RNj8F12KCQmeUgUAGXgb2r
+         /4MA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:mime-version:content-disposition:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=UEfe0EB6tPsYVWbwryBJaFpys9QvTxz52xHoqHfHtUE=;
-        b=jSG+BQq2jznskegqCZRa6fMUs2FHVLq+XrJhPJfLYYtpggQSkQzRVq83EJf26Z10EG
-         fpKbvlDIguM0fWLNeN24CumP9bHwMUQiu3NuEl5hbGbU5Hp45t78FoJ0/Kr7Nkn1GP0P
-         p2qrUvFeHdg6maj6wIu6fp2QfkIGBd53/Q7K3VYWG3jsK3P1IaHb3UkUBem9+q/V3nDL
-         pZ6+IDRsiTSqn42bNFgu+eyOzJGkpo6sY/ERABKQCnTxjbWFgqCl8KbNwl0PuN+y/nb5
-         D/Uk9w7eDj0oygbYW0goJA5FVA+2HSFR5Ic95uSnfkb9ZXU/EbmDkD4Yt+Y0eK2zfQdr
-         eptA==
+        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
+         :message-id:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=SxgKjjJrblGgd0/RK94CE6UbQGZZ/vnWDghNRhKGvjo=;
+        b=iHU5UwBm5xiI5ioR5MKkYVpDqWQpXM10PJl5A89ZuDKJPWWUU5CRXZY6/ipOrWIO1Y
+         EaJvhvAzYIe/B8vVGwDl/2+lwSSb+TsPc1qMBSnUihZJm6Bu+D/khD6KgOB9WT3KSWn0
+         kmSHhsFOMeNkiJYoLwgfpLN5fdpKaCWyJBfkDA7Nv/BZ4hydd8wEyZAc7f0wNkzxyzEn
+         42SXVEz9DlImqnjYMfu+AlO5mQ6GwKCmnF70J15uuji+WwRCcYf91pwZ7PRG8U5Ru3/J
+         uTzxF4eEIQLuHiT/W8yZh1TiMHR0/fzHxhP5BFBsdvHdVHJtPTtT3PExjfQdIzhbvFDy
+         fWaA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531AHmbZrvh0VITG288kpigXG/mDNbXkXwCNoIvEDK+Ipqk3NHFO
-	J5wVytmvLajVHRSrVEWc8P4=
-X-Google-Smtp-Source: ABdhPJyyBBd4mA/ukC3ArhiNfCg8NTm+bp1+EWHACBWip0uF0/3RgcDNNmalef4T7kivefseC5mwgg==
-X-Received: by 2002:a25:32c2:: with SMTP id y185mr10857370yby.101.1601752612125;
-        Sat, 03 Oct 2020 12:16:52 -0700 (PDT)
+X-Gm-Message-State: AOAM531N7KPBdTp5szfr5PVSwYpf8t6FQv05+eMMrmMLh0YkCCHKydgW
+	CO6IibxB5p+F8BlyCfrZAkw=
+X-Google-Smtp-Source: ABdhPJyEdFKQFirh2iqxZPvVZk3TyWK7oI29KQsyv06/PQ3sLxA0ha/dT2f6d2wsIW0vvDQ27XWPPA==
+X-Received: by 2002:a63:5fcb:: with SMTP id t194mr8122678pgb.364.1601753978586;
+        Sat, 03 Oct 2020 12:39:38 -0700 (PDT)
+MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:24d4:: with SMTP id k203ls2095495ybk.3.gmail; Sat, 03
- Oct 2020 12:16:51 -0700 (PDT)
-X-Received: by 2002:a25:be8d:: with SMTP id i13mr10933268ybk.71.1601752611568;
-        Sat, 03 Oct 2020 12:16:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601752611; cv=none;
+Received: by 2002:a17:90a:c7d3:: with SMTP id gf19ls3617358pjb.0.canary-gmail;
+ Sat, 03 Oct 2020 12:39:38 -0700 (PDT)
+X-Received: by 2002:a17:90a:ed8e:: with SMTP id k14mr8956426pjy.178.1601753978039;
+        Sat, 03 Oct 2020 12:39:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601753978; cv=none;
         d=google.com; s=arc-20160816;
-        b=Ayr52mfQKhV3A4YFTPdjPdm+Bk43Yc0TGSvi4Cn7XLYoIqSTs6+kzXRyV3t0nSabkX
-         5UsOR95iXl+q9OuY4zz6f6en/PomJAW7COjStJMDrCiWp50bpUnumCqyJmPTIO6uu99D
-         AQ2qQ6kqJt3eZRvE7LdN9awxW04/mxe2kgsupgOMe7Tuy4e5j+CPL8EYJK2m04wcjAAv
-         TQFUQ8mFrFptgxLM4OE4CTyv+LkAGZ64Bv59Jz3VO/XutnvOZD9okUVY3JHS93slWW3r
-         rxRA5XSnM0K4U4gPofjp9WdDQcJp8FvxWeyl93fNIwP9PR7iBQYf6xe+Kp4c9qmSXhPe
-         SFqA==
+        b=lzCjrEtI4M8MyoFMWPKZNcIsn9oPDXFeTfhDZVlWlvdSm4zgsHYdHvjHAGD5H3oxKq
+         dfF0T4cZLqyp3sKGl0dyOiLs8FJ9YCO+a7qRgpoqxLNVlR6yJXihIIa6sZ5ndzGcGqK/
+         lMdbcxFZShJW2qzpofL3S1iw7VymKG6meMooCdSXXRFt6xj30UWn8U7tkzYilpIQEAEZ
+         aydixT/xpCyOuVAk2bLr/neRo7qN8bN0Cv6bxT5N+J1gKyadEaMlHMfMdvmG9zC+yMG1
+         FeveslpEQfgFOhdGEwYxDcEhDiGeeeWgkfA0MGaDmAh2/8sgcouGSKKElidPkppp7Z8n
+         aFbg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:ironport-sdr:ironport-sdr;
-        bh=5oWpJMROqwbBs0BR+lusI7qNq0wX7+KxOyhJ4v52stw=;
-        b=QwKPKc9vNQNhzk7L2++AeFaAdt4wYLZYxwOLSwv+Zb8I+ni0UbtOHEx1KbUB+cwrQs
-         Acbm3mA6+91XKrv/gAkXUnkQqYr05y++8U5dbbt/58+WcUzmE3fH4RIofxBkGsqpb9Pr
-         7I5RNTyiS+98Wu4bhy8ud7zHrj/YJOC1frPNBiRhYd/xCt73XORGyjHqD+lFw70X8dx5
-         fxw2HV/7X45ghrhQHqasAOFrMRBcu6qq6Hm0YXmOYA0LOdChF5GSI0EkBpd+6ef4uIxK
-         W5Um/zD/WpzzLrgzaywzMJ1Lvvpw7xh38xyTjLk2teuI+y2DgR4yPvLw7r3itkNtqBfi
-         3dUA==
+        h=message-id:date:subject:cc:to:from:dkim-signature;
+        bh=1IoI0EkrFuvdFZWNYyFFEEON1f+8fthEHRT5ClyKvFc=;
+        b=OETXFjuzCbAxLD6aOUQB8Ds15EsC1irwLHq2UhJF8/6ikkJR2Cbi3EtajnIHeQKBqi
+         8J+/lUTXNcKMGdJWyaYkX9TcP0NQF3StQz1YkYdlW62u+biOyssFtAUK2DTdZjnwRUGH
+         WMCWgW/QDHYvxJaM7KRHhuRtojc5zKNUSTd8hQhXQ8m39bp0/CcVOJn9j74oe/lqdNtO
+         ksNBIUvvaPoWBATbi9shH9e/OQwn+RW/ZQi3PXXlil+5NLX4C/rgwfFoBNQMRH8F2moB
+         BKBzVmvFrE369LuAKlHiNWdzeFBqggWYbKzATd1MZtvNJ91BGKeZeEkGc2/rie3CbgwZ
+         BJRg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
-        by gmr-mx.google.com with ESMTPS id s69si314774ybc.4.2020.10.03.12.16.51
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=J0ONx5PG;
+       spf=pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
+        by gmr-mx.google.com with ESMTPS id f6si279321pgk.3.2020.10.03.12.39.37
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 03 Oct 2020 12:16:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
-IronPort-SDR: mzzNQmbsTQxXwaiz7Qs80UQOT/Sutfsq/hYJeX+QGUvRgYqmQhssV1oACZaJ8jLvctgvC+Izpa
- 1cSOSA67Ibjg==
-X-IronPort-AV: E=McAfee;i="6000,8403,9763"; a="160554211"
-X-IronPort-AV: E=Sophos;i="5.77,332,1596524400"; 
-   d="scan'208";a="160554211"
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga008.fm.intel.com ([10.253.24.58])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Oct 2020 12:16:50 -0700
-IronPort-SDR: 0BM00xjHVf1bgnf4b1RV5n1kUnIKByJvaPFuf6zAXzVALRpGxQzGFxok9Fg2JxytGZTm5QiBe/
- 7XvkmG7Km+5Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.77,332,1596524400"; 
-   d="scan'208";a="295677626"
-Received: from lkp-server02.sh.intel.com (HELO b5ae2f167493) ([10.239.97.151])
-  by fmsmga008.fm.intel.com with ESMTP; 03 Oct 2020 12:16:47 -0700
-Received: from kbuild by b5ae2f167493 with local (Exim 4.92)
-	(envelope-from <lkp@intel.com>)
-	id 1kOn1T-0000DQ-8l; Sat, 03 Oct 2020 19:16:47 +0000
-Date: Sun, 4 Oct 2020 03:16:25 +0800
-From: kernel test robot <lkp@intel.com>
-To: Frank Wunderlich <frank-w@public-files.de>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: [frank-w-bpi-r2-4.14:5.9-hdmisnd 40/58]
- drivers/misc/mediatek/connectivity/Kconfig:268: syntax error
-Message-ID: <202010040323.rDZMnVSy-lkp@intel.com>
-MIME-Version: 1.0
+        Sat, 03 Oct 2020 12:39:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
+ [209.85.219.72]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-351-nlwWSqzlMbSAV-5JCQzADg-1; Sat, 03 Oct 2020 15:39:35 -0400
+X-MC-Unique: nlwWSqzlMbSAV-5JCQzADg-1
+Received: by mail-qv1-f72.google.com with SMTP id p20so3170858qvl.4
+        for <clang-built-linux@googlegroups.com>; Sat, 03 Oct 2020 12:39:35 -0700 (PDT)
+X-Received: by 2002:a0c:a203:: with SMTP id f3mr2723795qva.33.1601753974803;
+        Sat, 03 Oct 2020 12:39:34 -0700 (PDT)
+X-Received: by 2002:a0c:a203:: with SMTP id f3mr2723789qva.33.1601753974628;
+        Sat, 03 Oct 2020 12:39:34 -0700 (PDT)
+Received: from trix.remote.csb (075-142-250-213.res.spectrum.com. [75.142.250.213])
+        by smtp.gmail.com with ESMTPSA id r187sm3730335qkc.63.2020.10.03.12.39.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 03 Oct 2020 12:39:34 -0700 (PDT)
+From: trix@redhat.com
+To: patrik.r.jakobsson@gmail.com,
+	airlied@linux.ie,
+	daniel@ffwll.ch,
+	natechancellor@gmail.com,
+	ndesaulniers@google.com,
+	alan@linux.intel.com,
+	airlied@redhat.com,
+	yakui.zhao@intel.com
+Cc: dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Tom Rix <trix@redhat.com>
+Subject: [PATCH] drm/gma500: fix double free of gma_connector
+Date: Sat,  3 Oct 2020 12:39:28 -0700
+Message-Id: <20201003193928.18869-1-trix@redhat.com>
+X-Mailer: git-send-email 2.18.1
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: lkp@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted
- sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=intel.com
+X-Original-Sender: trix@redhat.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@redhat.com header.s=mimecast20190719 header.b=J0ONx5PG;
+       spf=pass (google.com: domain of trix@redhat.com designates
+ 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,175 +146,42 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-tree:   https://github.com/frank-w/BPI-R2-4.14 5.9-hdmisnd
-head:   a811c6eb48da84b9897d5c477347f0132cc93077
-commit: 3efc6d733b0475c3623d52d23dbd2ebe0fcd5eb5 [40/58] mt6625l: include wifi-folder
-config: x86_64-randconfig-a001-20201003
-compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project bcd05599d0e53977a963799d6ee4f6e0bc21331b)
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # install x86_64 cross compiling tool for clang build
-        # apt-get install binutils-x86-64-linux-gnu
-        # https://github.com/frank-w/BPI-R2-4.14/commit/3efc6d733b0475c3623d52d23dbd2ebe0fcd5eb5
-        git remote add frank-w-bpi-r2-4.14 https://github.com/frank-w/BPI-R2-4.14
-        git fetch --no-tags frank-w-bpi-r2-4.14 5.9-hdmisnd
-        git checkout 3efc6d733b0475c3623d52d23dbd2ebe0fcd5eb5
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64  randconfig
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
+From: Tom Rix <trix@redhat.com>
 
-If you fix the issue, kindly add following tag as appropriate
-Reported-by: kernel test robot <lkp@intel.com>
+clang static analysis reports this problem:
 
-Note: the frank-w-bpi-r2-4.14/5.9-hdmisnd HEAD a811c6eb48da84b9897d5c477347f0132cc93077 builds fine.
-      It only hurts bisectibility.
+cdv_intel_dp.c:2101:2: warning: Attempt to free released memory
+        kfree(gma_connector);
+        ^~~~~~~~~~~~~~~~~~~~
 
-All errors (new ones prefixed by >>):
+In cdv_intel_dp_init() when the call to cdv_intel_edp_panel_vdd_off()
+fails, the handler calls cdv_intel_dp_destroy(connector) which does
+the first free of gma_connector. So adjust the goto label and skip
+the second free.
 
->> drivers/misc/mediatek/connectivity/Kconfig:268: syntax error
-   drivers/misc/mediatek/connectivity/Kconfig:267: unknown statement "---help---"
-   drivers/misc/mediatek/connectivity/Kconfig:268:warning: ignoring unsupported character '.'
-   drivers/misc/mediatek/connectivity/Kconfig:268: unknown statement "Say"
-   drivers/misc/mediatek/connectivity/Kconfig:275: syntax error
-   drivers/misc/mediatek/connectivity/Kconfig:274: unknown statement "---help---"
-   drivers/misc/mediatek/connectivity/Kconfig:275: unknown statement "MTK"
-   drivers/misc/mediatek/connectivity/Kconfig:276:warning: ignoring unsupported character '.'
-   drivers/misc/mediatek/connectivity/Kconfig:276: unknown statement "To"
-   drivers/misc/mediatek/connectivity/Kconfig:277:warning: ignoring unsupported character '.'
-   drivers/misc/mediatek/connectivity/Kconfig:277: unknown statement "Set"
-   drivers/misc/mediatek/connectivity/Kconfig:278:warning: ignoring unsupported character '.'
-   drivers/misc/mediatek/connectivity/Kconfig:278: unknown statement "Set"
-   make[2]: *** [scripts/kconfig/Makefile:71: oldconfig] Error 1
-   make[1]: *** [Makefile:606: oldconfig] Error 2
-   make: *** [Makefile:185: __sub-make] Error 2
-   make: Target 'oldconfig' not remade because of errors.
---
->> drivers/misc/mediatek/connectivity/Kconfig:268: syntax error
-   drivers/misc/mediatek/connectivity/Kconfig:267: unknown statement "---help---"
-   drivers/misc/mediatek/connectivity/Kconfig:268:warning: ignoring unsupported character '.'
-   drivers/misc/mediatek/connectivity/Kconfig:268: unknown statement "Say"
-   drivers/misc/mediatek/connectivity/Kconfig:275: syntax error
-   drivers/misc/mediatek/connectivity/Kconfig:274: unknown statement "---help---"
-   drivers/misc/mediatek/connectivity/Kconfig:275: unknown statement "MTK"
-   drivers/misc/mediatek/connectivity/Kconfig:276:warning: ignoring unsupported character '.'
-   drivers/misc/mediatek/connectivity/Kconfig:276: unknown statement "To"
-   drivers/misc/mediatek/connectivity/Kconfig:277:warning: ignoring unsupported character '.'
-   drivers/misc/mediatek/connectivity/Kconfig:277: unknown statement "Set"
-   drivers/misc/mediatek/connectivity/Kconfig:278:warning: ignoring unsupported character '.'
-   drivers/misc/mediatek/connectivity/Kconfig:278: unknown statement "Set"
-   make[2]: *** [scripts/kconfig/Makefile:71: olddefconfig] Error 1
-   make[1]: *** [Makefile:606: olddefconfig] Error 2
-   make: *** [Makefile:185: __sub-make] Error 2
-   make: Target 'olddefconfig' not remade because of errors.
-
-vim +268 drivers/misc/mediatek/connectivity/Kconfig
-
-2c660696dc60461 Frank Wunderlich 2020-08-17  176  
-2c660696dc60461 Frank Wunderlich 2020-08-17  177  config MTK_COMBO_COMM_UART
-2c660696dc60461 Frank Wunderlich 2020-08-17  178  	depends on MTK_COMBO_COMM
-2c660696dc60461 Frank Wunderlich 2020-08-17  179  	tristate "Common interface UART"
-2c660696dc60461 Frank Wunderlich 2020-08-17  180  	help
-2c660696dc60461 Frank Wunderlich 2020-08-17  181  	  Use UART for common part interface type
-2c660696dc60461 Frank Wunderlich 2020-08-17  182  
-2c660696dc60461 Frank Wunderlich 2020-08-17  183  config MTK_COMBO_COMM_SDIO
-2c660696dc60461 Frank Wunderlich 2020-08-17  184  	depends on MTK_COMBO_COMM
-2c660696dc60461 Frank Wunderlich 2020-08-17  185  	tristate "Common interface SDIO"
-2c660696dc60461 Frank Wunderlich 2020-08-17  186  	help
-2c660696dc60461 Frank Wunderlich 2020-08-17  187  	  Use SDIO for common part interface type
-2c660696dc60461 Frank Wunderlich 2020-08-17  188  
-2c660696dc60461 Frank Wunderlich 2020-08-17  189  config MTK_COMBO_COMM_NPWR
-2c660696dc60461 Frank Wunderlich 2020-08-17  190  	depends on MTK_COMBO_COMM
-2c660696dc60461 Frank Wunderlich 2020-08-17  191  	bool "Enable NPWR support"
-2c660696dc60461 Frank Wunderlich 2020-08-17  192  	default n
-2c660696dc60461 Frank Wunderlich 2020-08-17  193  	help
-2c660696dc60461 Frank Wunderlich 2020-08-17  194  	  Enable NPWR support of new power on swquence
-2c660696dc60461 Frank Wunderlich 2020-08-17  195  
-2c660696dc60461 Frank Wunderlich 2020-08-17  196  config MTK_COMBO_COMM_APO
-2c660696dc60461 Frank Wunderlich 2020-08-17  197  	depends on MTK_COMBO_COMM
-2c660696dc60461 Frank Wunderlich 2020-08-17  198  	bool "Enable always power on support"
-2c660696dc60461 Frank Wunderlich 2020-08-17  199  	#default y
-2c660696dc60461 Frank Wunderlich 2020-08-17  200  	help
-2c660696dc60461 Frank Wunderlich 2020-08-17  201  	  Enable chip will always power on
-2c660696dc60461 Frank Wunderlich 2020-08-17  202  
-2c660696dc60461 Frank Wunderlich 2020-08-17  203  config MTK_COMBO_BT
-2c660696dc60461 Frank Wunderlich 2020-08-17  204  	tristate "MediaTek Combo Chip BT driver"
-2c660696dc60461 Frank Wunderlich 2020-08-17  205  	depends on BT && MTK_COMBO
-2c660696dc60461 Frank Wunderlich 2020-08-17  206  	select MTK_BTIF
-2c660696dc60461 Frank Wunderlich 2020-08-17  207  	help
-2c660696dc60461 Frank Wunderlich 2020-08-17  208  	  MTK BT /dev/stpbt driver for Bluedroid
-2c660696dc60461 Frank Wunderlich 2020-08-17  209  
-2c660696dc60461 Frank Wunderlich 2020-08-17  210  config MTK_COMBO_BT_HCI
-2c660696dc60461 Frank Wunderlich 2020-08-17  211  	tristate "MediaTek Combo Chip BlueZ driver"
-2c660696dc60461 Frank Wunderlich 2020-08-17  212  	depends on BT && MTK_COMBO
-2c660696dc60461 Frank Wunderlich 2020-08-17  213  	select MTK_BTIF
-2c660696dc60461 Frank Wunderlich 2020-08-17  214  	help
-2c660696dc60461 Frank Wunderlich 2020-08-17  215  	  MTK BT driver for BlueZ
-2c660696dc60461 Frank Wunderlich 2020-08-17  216  
-2c660696dc60461 Frank Wunderlich 2020-08-17  217  config MTK_COMBO_WIFI
-2c660696dc60461 Frank Wunderlich 2020-08-17  218  	tristate "MediaTek combo chip Wi-Fi support"
-2c660696dc60461 Frank Wunderlich 2020-08-17  219  	depends on MTK_COMBO
-2c660696dc60461 Frank Wunderlich 2020-08-17  220  	select MTK_BTIF
-2c660696dc60461 Frank Wunderlich 2020-08-17  221  	select WIRELESS_EXT
-2c660696dc60461 Frank Wunderlich 2020-08-17  222  	select WEXT_PRIV
-2c660696dc60461 Frank Wunderlich 2020-08-17  223  
-2c660696dc60461 Frank Wunderlich 2020-08-17  224  config MTK_WAPI_SUPPORT
-2c660696dc60461 Frank Wunderlich 2020-08-17  225  	bool "MTK_WAPI_SUPPORT"
-2c660696dc60461 Frank Wunderlich 2020-08-17  226  	depends on MTK_COMBO_WIFI
-2c660696dc60461 Frank Wunderlich 2020-08-17  227  	#default y
-2c660696dc60461 Frank Wunderlich 2020-08-17  228  	help
-2c660696dc60461 Frank Wunderlich 2020-08-17  229  	  if it is set to TRUE: Support WAPI (WLAN Authentication and
-2c660696dc60461 Frank Wunderlich 2020-08-17  230  	  Privacy Infrastructure)
-2c660696dc60461 Frank Wunderlich 2020-08-17  231  
-2c660696dc60461 Frank Wunderlich 2020-08-17  232  config MTK_PASSPOINT_R1_SUPPORT
-2c660696dc60461 Frank Wunderlich 2020-08-17  233  	bool "MTK_PASSPOINT_R1_SUPPORT"
-2c660696dc60461 Frank Wunderlich 2020-08-17  234  	depends on MTK_COMBO_WIFI
-2c660696dc60461 Frank Wunderlich 2020-08-17  235  	help
-2c660696dc60461 Frank Wunderlich 2020-08-17  236  	  Support Passpoint R1 (Hotspot 2.0 R1)
-2c660696dc60461 Frank Wunderlich 2020-08-17  237  
-2c660696dc60461 Frank Wunderlich 2020-08-17  238  config MTK_PASSPOINT_R2_SUPPORT
-2c660696dc60461 Frank Wunderlich 2020-08-17  239  	bool "MTK_PASSPOINT_R2_SUPPORT"
-2c660696dc60461 Frank Wunderlich 2020-08-17  240  	depends on MTK_COMBO_WIFI
-2c660696dc60461 Frank Wunderlich 2020-08-17  241  	help
-2c660696dc60461 Frank Wunderlich 2020-08-17  242  	   Support Passpoint R2
-2c660696dc60461 Frank Wunderlich 2020-08-17  243  
-2c660696dc60461 Frank Wunderlich 2020-08-17  244  config MTK_WIFI_MCC_SUPPORT
-2c660696dc60461 Frank Wunderlich 2020-08-17  245  	bool "MTK_WIFI_MCC_SUPPORT"
-2c660696dc60461 Frank Wunderlich 2020-08-17  246  	depends on MTK_COMBO_WIFI
-2c660696dc60461 Frank Wunderlich 2020-08-17  247  	#default y
-2c660696dc60461 Frank Wunderlich 2020-08-17  248  	help
-2c660696dc60461 Frank Wunderlich 2020-08-17  249  	   if it is set to TRUE, wlan will support Multi-Channel Concurrency,
-2c660696dc60461 Frank Wunderlich 2020-08-17  250  	   otherwise, only support Single Channel Concurrency
-2c660696dc60461 Frank Wunderlich 2020-08-17  251  
-2c660696dc60461 Frank Wunderlich 2020-08-17  252  config MTK_DHCPV6C_WIFI
-2c660696dc60461 Frank Wunderlich 2020-08-17  253  	bool "MTK_DHCPV6C_WIFI"
-2c660696dc60461 Frank Wunderlich 2020-08-17  254  	help
-2c660696dc60461 Frank Wunderlich 2020-08-17  255  	  no: disable this feature
-2c660696dc60461 Frank Wunderlich 2020-08-17  256  
-2c660696dc60461 Frank Wunderlich 2020-08-17  257  config MTK_CONN_LTE_IDC_SUPPORT
-2c660696dc60461 Frank Wunderlich 2020-08-17  258  	bool "MediaTek CONN LTE IDC support"
-2c660696dc60461 Frank Wunderlich 2020-08-17  259  	select MTK_CONN_MD
-2c660696dc60461 Frank Wunderlich 2020-08-17  260  	#default y
-2c660696dc60461 Frank Wunderlich 2020-08-17  261  	help
-2c660696dc60461 Frank Wunderlich 2020-08-17  262  	  This option enables CONN LTE IDC support
-2c660696dc60461 Frank Wunderlich 2020-08-17  263  
-2c660696dc60461 Frank Wunderlich 2020-08-17  264  menuconfig GPS
-2c660696dc60461 Frank Wunderlich 2020-08-17  265          tristate "GPS drivers"
-2c660696dc60461 Frank Wunderlich 2020-08-17  266          #default y
-2c660696dc60461 Frank Wunderlich 2020-08-17  267          ---help---
-2c660696dc60461 Frank Wunderlich 2020-08-17 @268            Say Y here for supporting GPS.
-2c660696dc60461 Frank Wunderlich 2020-08-17  269  
-
-:::::: The code at line 268 was first introduced by commit
-:::::: 2c660696dc60461c871c1901dcf540c81837a421 mt6625l: add wifi-folder from 5.8
-
-:::::: TO: Frank Wunderlich <frank-w@public-files.de>
-:::::: CC: Frank Wunderlich <frank-w@public-files.de>
-
+Fixes: d112a8163f83 ("gma500/cdv: Add eDP support")
+Signed-off-by: Tom Rix <trix@redhat.com>
 ---
-0-DAY CI Kernel Test Service, Intel Corporation
-https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+ drivers/gpu/drm/gma500/cdv_intel_dp.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/gpu/drm/gma500/cdv_intel_dp.c b/drivers/gpu/drm/gma500/cdv_intel_dp.c
+index 720a767118c9..deb4fd13591d 100644
+--- a/drivers/gpu/drm/gma500/cdv_intel_dp.c
++++ b/drivers/gpu/drm/gma500/cdv_intel_dp.c
+@@ -2083,7 +2083,7 @@ cdv_intel_dp_init(struct drm_device *dev, struct psb_intel_mode_device *mode_dev
+ 			DRM_INFO("failed to retrieve link info, disabling eDP\n");
+ 			drm_encoder_cleanup(encoder);
+ 			cdv_intel_dp_destroy(connector);
+-			goto err_priv;
++			goto err_connector;
+ 		} else {
+         		DRM_DEBUG_KMS("DPCD: Rev=%x LN_Rate=%x LN_CNT=%x LN_DOWNSP=%x\n",
+ 				intel_dp->dpcd[0], intel_dp->dpcd[1], 
+-- 
+2.18.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202010040323.rDZMnVSy-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201003193928.18869-1-trix%40redhat.com.
