@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBA7S375QKGQETYXCM4A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBHUY4D5QKGQEGGV2EIA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x138.google.com (mail-il1-x138.google.com [IPv6:2607:f8b0:4864:20::138])
-	by mail.lfdr.de (Postfix) with ESMTPS id F162A282104
-	for <lists+clang-built-linux@lfdr.de>; Sat,  3 Oct 2020 06:07:32 +0200 (CEST)
-Received: by mail-il1-x138.google.com with SMTP id e73sf2707278ill.0
-        for <lists+clang-built-linux@lfdr.de>; Fri, 02 Oct 2020 21:07:32 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601698051; cv=pass;
+Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7A1CC282196
+	for <lists+clang-built-linux@lfdr.de>; Sat,  3 Oct 2020 07:29:04 +0200 (CEST)
+Received: by mail-pf1-x438.google.com with SMTP id q16sf2627982pfj.7
+        for <lists+clang-built-linux@lfdr.de>; Fri, 02 Oct 2020 22:29:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601702943; cv=pass;
         d=google.com; s=arc-20160816;
-        b=TGv2U3catL6Xa7+Q7xDUKBD9oE2xD36yVnuqOMBTX3rPh3FYpAhwsRF8DnZjCTa2Ym
-         0V03eU7Tu0yTEqFafX99JzCd+gVDHqmggGSv3UUO6oKOihcxQRTsaTPL3kYgOjK7rw/d
-         iKDU19iKXTy4UK+zQM974Xa0Pc7rS4YSyArlwnlEP+NxNr+f+/+MjjnL5dqNhg4UE4FB
-         fiMXN1POwrmf/HVYAa6jjXSuAYZUuPTRYpBVbgtW0voJfWYlZ4oAfWrYz4e9l4KG88s2
-         W45JGg2vPlRk51RZqoRuHITcPcVuMc8JF2bTKLvQenzp34Gtp8bS41o3RzDj33iBuwRG
-         3p7w==
+        b=MoIr1zBb1xu8NXkzjS/Ier91hZ7InFsbsinfj29mK/8s+mP37Lag9XGdaXEYW5gBF3
+         UqKiWoU0Sf9jWFQDyU8bnaZRXNihHmCvaKyC/iD5gSO0Rmm6YCYxVGDU6/JKyY5DxkdI
+         z9PE0a8JwyPPhHjSL/jqyD0+IL9SbQ92ZSFtx8iNotiNpu5mKaj8p7g4jJL7zVqGgV7S
+         Qiud8qipIcRCMX0widOnyWsFcfdUb+3+6NcJ9Dkddy8elfMMCycyoE6SYnE54qPTtW2Z
+         fo6wVgvs6GrzOXmi6yKyT1wNFT682Z2THsl7Eby/OpeZbbURv9Po+AKXEFpT1+rw64yp
+         yeFA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=CMs+lgBQfbaTQyOyzxEUf1AwY4wfaHeTlmghQpQN74s=;
-        b=0TcSkiVBxae4hGIVh9/2h0CKCCK08XDe5NFYBkYjn5HXzC2V1rXEcCMVmGGzGmRHnV
-         IxVNSEDMWgU1BCr97kR8kcbl4H9aw8mzI9uAV5CsIA/OI14+TZXJucjUtGu0wGCrVcAe
-         mirb0MZqWQAU9/bOgUy3WrpX+VLZ2hNojR6yu1TSVyfzRpB6qBDvrpsGfbWYpps5JRyF
-         lY/Uci4nRqyXeuBSEo4+8Xx0hX+rOZIrxTHhocLm8IkV74waBowlYcnj/2+vD4ORdKA4
-         FrE2Dm3kCnlIZEOCmrZbPt3Oz9US0fgv9N7EuiX21RRrU1VNfe80NDcEDtq6XkjnbEIp
-         Hclw==
+        bh=KPFzFDXuPStIGctzHvXTny0jQwAGhteXZ4FvOIDni9U=;
+        b=wsteJl4sAMxyc38W58f4ZokU78o+0hg6zYqxKftMhUwDnKYMRcODSs09HeHvSYpezo
+         FzuYSPXqnjmIkaLWqGbMqXHa4z1nmlBUTIpRlz8dcDd3eaB1EwTqbpr6A+ui5DCFHMr1
+         I6pqJxAmFmxF/OQsaIV9QQDK5EYqH7IGHtcBxyjvy/dtIXtuctbon32A0giBdnM7t7e/
+         5BKdkZxnp76fGBWRYBrFItss2rRvWXF2AEEcqtE/d/N7QXGlXoODW0mVSzEOKojQ0WKu
+         RaJFKaR6MdIPOOHqCEUovTipDMQe9VIPiFrKOB9APhwFKuL2fP6xY2LvOrxE7SCdU869
+         1ptA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CMs+lgBQfbaTQyOyzxEUf1AwY4wfaHeTlmghQpQN74s=;
-        b=rY6QaWsqRRCcY1RSa+KtSxCgFORNuG1F4WoXKD7Ou8abiXD/1lud9N1foRx4q2IGDo
-         yFCJn1vC0Y4RmTNzv5QLTsisz2KQ/tHzk/sEvJpOPalUQbXqGxnF51FXhsSF1MmMfk7Y
-         gVS+eCG3rVW23OOLOMU6pfLRNDfhP8ZVtPrptn7fTIMK9IETHPitt6XtDvc+Y8O1zs33
-         rXzbk+Tn86Wlt2izBNTidy9rst7x9FOizpOad+8vbqA+2iPGUY4MrQkGk79o+MeJa7vd
-         jES04wqYYjQnkw7VPS6ZpU638tohh/0QIZzPODXlHzc1cWkt27WOXS2DWKDnKaM824yH
-         ocQQ==
+        bh=KPFzFDXuPStIGctzHvXTny0jQwAGhteXZ4FvOIDni9U=;
+        b=bi1lu2cSC/SE/sNabc63az8qpgUKpgy7SXICgkr1//ZURkd5KktM4hAxccD4dxMi/O
+         YmZj6BohoNd1SEprYnjtc1zem3efxGiqOIAiVrUK4FPWgSKDLr0QmPOEQCfwB1vBPz65
+         zJxFbvIkSWiwWncNZT4MnuH69R+qyEjleZkc8G4yBhYtD6SWiD29bJdep6e2kXXSTGvE
+         aCFBhq8ou1zA21k92ECjddZJ1jpukE5+LuMtp2aXtjbYCSAP/zbfSqOPGfTSjL9wqplk
+         GN4KyVGRDs02bdB0eiLaqOCmA5jQH5FbO28wq5lO3ydYmzWGmhD+Je00y/ITq3CEVYZb
+         6fvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -51,72 +51,72 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CMs+lgBQfbaTQyOyzxEUf1AwY4wfaHeTlmghQpQN74s=;
-        b=GqPd5MvUVLu4v779/y/axk8MQwQnfqSFFH1jMWKgl02QxbmE5zCp5thuIUMXNqedqg
-         gVQqB1miheV7HlEkQZWNc9WOvthg2Y4hTukzN6eIIvD3ImbXFndyyQImYQ9cyEMFWbLQ
-         mgn+dV8Cg0oeP7lL6vXOh/JLd2FmZqy8cacgHU9In5WE2GtRf1ZycST8orZ3VRpT+Wna
-         6ShSuQhNAKtlz4dysMqiAImEkDmlGGI/mjn3oKO0M4h9BmKRdMy3l3xAwSVJWtrThW93
-         y/mSYjotI0o+eF77mX4fWhQc+mQJMXt5AFq5bz5Eh2JbDqj6el1DTxSoNwZA35LEcojV
-         KP9g==
+        bh=KPFzFDXuPStIGctzHvXTny0jQwAGhteXZ4FvOIDni9U=;
+        b=WCIkjQNqUXxd0iQdRefVF2QKsGT4JWWOWnX3BZbzpBUWJP7d3eQT3MVLUZDvCrBiCt
+         YDORTLc9JU42dPfQX8SDCPV6rcZ8l6tOM1ik5Ocs+tADgmY2XNRJQYtOJGiQkd1nQCJB
+         hDQhp3UR5fAtob78Q4uvV/f4Q/V5T7J9WCA95NRXzrE0weDMcDkTCGAQMeHRHytmXzQQ
+         f3wnVMiYqpzaoCFh5ySwKwwEiDe6cOUA+oelln9PZy2dI2dEzn8l0L5t8QY0QYv0q2Ww
+         2zGs0TaU6bT/6NWN5po3qK5TNhWWL6brZyYn/xrsor3hJbB5Or8BXpEIscRetxJl6h8Z
+         AQiw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533eVesh+3UZbmREsXtlggdCQoZtp2TBKs9epdYI0CrCpIyzvYp4
-	RieyhxQCuP7Nx3XnOEB29zA=
-X-Google-Smtp-Source: ABdhPJyT02+ZSn/LRa40WAr/0rUr26FqtQlGVtWZWZx1NAmplzXofUTqEsSZmlBBsh5VSLCtBJPrew==
-X-Received: by 2002:a92:7b0f:: with SMTP id w15mr4556912ilc.227.1601698051562;
-        Fri, 02 Oct 2020 21:07:31 -0700 (PDT)
+X-Gm-Message-State: AOAM532FxOH9sWX1OAj//Dw8TpoQ17MTIYLSRnX3Im8nR9gLUTFVtlT5
+	O0jSYffHbad4NQ8LpbxjHgk=
+X-Google-Smtp-Source: ABdhPJy9pM9bViaXd7z6nJWCsbepwLFNu+kx8L5VLd4C64RRahbrDKFprKG2p2+rPfZo1OnXb6378A==
+X-Received: by 2002:a62:dd02:0:b029:142:2501:398c with SMTP id w2-20020a62dd020000b02901422501398cmr5930671pff.81.1601702942792;
+        Fri, 02 Oct 2020 22:29:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:770f:: with SMTP id s15ls866228ilc.11.gmail; Fri, 02 Oct
- 2020 21:07:31 -0700 (PDT)
-X-Received: by 2002:a92:6a0a:: with SMTP id f10mr4239584ilc.186.1601698051079;
-        Fri, 02 Oct 2020 21:07:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601698051; cv=none;
+Received: by 2002:a17:90a:d704:: with SMTP id y4ls2657075pju.3.canary-gmail;
+ Fri, 02 Oct 2020 22:29:02 -0700 (PDT)
+X-Received: by 2002:a17:90b:3014:: with SMTP id hg20mr6337563pjb.128.1601702942141;
+        Fri, 02 Oct 2020 22:29:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601702942; cv=none;
         d=google.com; s=arc-20160816;
-        b=q4eLrOVwRnvg8N5ZrkJaSO3d+rZLz3vsvQPxRbqdqynXfL+VVkjtu4YxHdFLIEjfJj
-         pw9GwIhMCoF3ZByo+hQ8ScCjLWBztRS4om3saB/t9pUvHG7uOg09MJ0zX5aYnK6GZsmd
-         z0o+gFiWoeL3adSkza0lLjSkK3X/TlI59c/ewqoPWOOn8rORHC85vdJiQDZXarM/kEv7
-         mEwyT2PcS5/mylbe3bsXAhubfzvpifA4m06NYsW04fa/WcwDhnlh/L+38SksnVSC4wu8
-         pZXmhOHZxbpkBRH654roATsn03iAML6drUr0BpGkePrSPM8GmSKRwjM23UwR2QoX2G5l
-         PAFg==
+        b=JNn07dLlUyvzaK5D+QB9A2Pb2tpNCByTjTsLsu2x41TWHmpWVKPUK79Lw1Z0WoGPmo
+         gQ/bitUAJTQJIqQz2MfJWeCLxhbrDECKwcAkZrVI2YOaUhai/kQEOgSCanedY69j+Qpv
+         AnMGBH+K5a8EmDuU7qDHpdRzA/j26N3UHUEdVDZsCbWg0VqOTHkQCsWeiRcYPOPVftLV
+         cdseaeMa5FaZy7ZNk0tn5k2nV34BZU4FmKK5n/TQRCeq7/2ZtOiz6GwsuWB86slygiJq
+         sWiIF18Rx2rgkQE7frlOOiaGUb0pYMF5+FaHwtmq0EcApAhCIMhMiKrRk1sY5Zx+/jc9
+         zxSQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=YsHRkuAwkfj3RSFyNKF5iHXzmdo/5afY8exXZoiq8tI=;
-        b=y5lTinV8j5iotm9HgqkAezSV9OWdjAugfs9wIXhIBKYyfrkqgl/jTSdYh6nnjE8++4
-         BWYAQiYZ6VPgF+RuD1frpH7ffFU/wTTAyG5a/dXBQuolGwUtMLBvXtjMr/MRWPPTYg7d
-         acv+nza3nRgFrWl3vjS0AomfEDx59wL6uXUrMUmE4FRjuUNJneRbOm/gxAuAzOxoZl2n
-         0Vwy0rOSROKFubpxnL3u93pMFdIvOyJQ3TqA7WWIOD+QLnCkSloHcXZPvQQ7YdYl2Nkp
-         M//zvQxRel7glXLHAu09IwQPvozrjmBCTBo3WVV9jdHAoWml4cmEbQIjaHbMyaT6Bdh5
-         2Zew==
+        bh=GvbwEbs7SHJt84sWZtLLETE+iugX5aaCOfx8r7PYEAs=;
+        b=UYStByIzbHzc6bBq0ooPE3aA6vY5+g3xhDs8YvuF//Y98hivIqs3NjF6LFpv3h3Hj9
+         bfgIz9djCE9wbZg87hvgpnVXTr6qpTx60wHlYDipa0VM2LELIkhSPyPRm/0hS3UswWVp
+         pNH8UM17WXrprBDr9IhAeHEUkcnuPaSQplOxiPVg3mAj9nQLG7wMkoFgbUbB4dCH6tD9
+         Tq8/75SU6m6Bd39paaOMAFUGqb7Kd9yRfgbwbtQlfVuIOhJMZD5cvZACa72cpCH0GROG
+         +puNdLVTN2tX5OQhmD2GrOhvQ+0dcNidV4k90aBhbEfb942myBs4zqf4uTYfb/a6lZqI
+         CSig==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
-        by gmr-mx.google.com with ESMTPS id c10si131304iow.3.2020.10.02.21.07.30
+Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
+        by gmr-mx.google.com with ESMTPS id mj1si293877pjb.3.2020.10.02.22.29.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 02 Oct 2020 21:07:30 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
-IronPort-SDR: IQz7TA731i0390Iy0rqlWSzdIgA7VxIgjfcSOzOijQLanCvKkncaa7XvqDleRP98Valbrd5WYa
- ceWicJcyU+WQ==
-X-IronPort-AV: E=McAfee;i="6000,8403,9762"; a="224755544"
+        Fri, 02 Oct 2020 22:29:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
+IronPort-SDR: i6tbrWVltS/MKJdWdZwLzEyoFOUhPu9WJC81NxMwDqhs0kW4AgY1tov97DyiGyzxc4RhQ6OCTm
+ YLMhGJPtiRhg==
+X-IronPort-AV: E=McAfee;i="6000,8403,9762"; a="181269070"
 X-IronPort-AV: E=Sophos;i="5.77,330,1596524400"; 
-   d="gz'50?scan'50,208,50";a="224755544"
+   d="gz'50?scan'50,208,50";a="181269070"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga005.jf.intel.com ([10.7.209.41])
-  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2020 21:07:29 -0700
-IronPort-SDR: e7r2MAbgeajY7DwfP1FOQxfDy+ecap/TQ61l4f6zRXJQPA5SWfwk8YXw7o/QLpYfLRUV1Fo08y
- d2mw3tKNIwSA==
+Received: from fmsmga003.fm.intel.com ([10.253.24.29])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2020 22:29:00 -0700
+IronPort-SDR: NsLYgyqWWgKKD2mRlmtLg69a9OjAIybTm1Z444qskTWWwK14LVn+Od17o1ReK5TxOj747Ds79S
+ +TIp/LbUzTdg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.77,330,1596524400"; 
-   d="gz'50?scan'50,208,50";a="512143056"
+   d="gz'50?scan'50,208,50";a="351806212"
 Received: from lkp-server02.sh.intel.com (HELO 404f47266ee4) ([10.239.97.151])
-  by orsmga005.jf.intel.com with ESMTP; 02 Oct 2020 21:07:24 -0700
+  by FMSMGA003.fm.intel.com with ESMTP; 02 Oct 2020 22:28:57 -0700
 Received: from kbuild by 404f47266ee4 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1kOYpP-0000FM-L5; Sat, 03 Oct 2020 04:07:23 +0000
-Date: Sat, 3 Oct 2020 12:07:05 +0800
+	id 1kOa6K-0000GZ-C6; Sat, 03 Oct 2020 05:28:56 +0000
+Date: Sat, 3 Oct 2020 13:28:18 +0800
 From: kernel test robot <lkp@intel.com>
 To: Ricardo Neri <ricardo.neri-calderon@linux.intel.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, x86@kernel.org,
@@ -127,17 +127,18 @@ Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
 	Tony Luck <tony.luck@intel.com>, Len Brown <len.brown@intel.com>,
 	"Ravi V. Shankar" <ravi.v.shankar@intel.com>,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/4] x86/cpu: Describe hybrid CPUs in cpuinfo_x86
-Message-ID: <202010031210.n1wgHIyU-lkp@intel.com>
-References: <20201003011745.7768-3-ricardo.neri-calderon@linux.intel.com>
+Subject: Re: [PATCH 4/4] x86/cpu/topology: Implement the CPU type sysfs
+ interface
+Message-ID: <202010031335.mipFmh1T-lkp@intel.com>
+References: <20201003011745.7768-5-ricardo.neri-calderon@linux.intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="IJpNTDwzlM2Ie8A6"
+Content-Type: multipart/mixed; boundary="zhXaljGHf11kAtnf"
 Content-Disposition: inline
-In-Reply-To: <20201003011745.7768-3-ricardo.neri-calderon@linux.intel.com>
+In-Reply-To: <20201003011745.7768-5-ricardo.neri-calderon@linux.intel.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -153,7 +154,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---IJpNTDwzlM2Ie8A6
+--zhXaljGHf11kAtnf
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -176,10 +177,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install x86_64 cross compiling tool for clang build
         # apt-get install binutils-x86-64-linux-gnu
-        # https://github.com/0day-ci/linux/commit/ffe255e2342693ca1a8d96d052c903824595fde8
+        # https://github.com/0day-ci/linux/commit/6e37c052cde780c58a9dd815e667d89538e30579
         git remote add linux-review https://github.com/0day-ci/linux
         git fetch --no-tags linux-review Ricardo-Neri/drivers-core-Introduce-CPU-type-sysfs-interface/20201003-091754
-        git checkout ffe255e2342693ca1a8d96d052c903824595fde8
+        git checkout 6e37c052cde780c58a9dd815e667d89538e30579
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
 
@@ -188,112 +189,38 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
-           if (cpu_has(c, X86_FEATURE_HYBRID_CPU))
-                          ^
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
->> arch/x86/kernel/cpu/common.c:934:17: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+           return boot_cpu_has(X86_FEATURE_HYBRID_CPU);
+                               ^
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
+>> arch/x86/kernel/cpu/topology.c:169:22: error: use of undeclared identifier 'X86_FEATURE_HYBRID_CPU'
    fatal error: too many errors emitted, stopping now [-ferror-limit=]
    20 errors generated.
 
-vim +/X86_FEATURE_HYBRID_CPU +934 arch/x86/kernel/cpu/common.c
+vim +/X86_FEATURE_HYBRID_CPU +169 arch/x86/kernel/cpu/topology.c
 
-   896	
-   897	void get_cpu_cap(struct cpuinfo_x86 *c)
-   898	{
-   899		u32 eax, ebx, ecx, edx;
-   900	
-   901		/* Intel-defined flags: level 0x00000001 */
-   902		if (c->cpuid_level >= 0x00000001) {
-   903			cpuid(0x00000001, &eax, &ebx, &ecx, &edx);
-   904	
-   905			c->x86_capability[CPUID_1_ECX] = ecx;
-   906			c->x86_capability[CPUID_1_EDX] = edx;
-   907		}
-   908	
-   909		/* Thermal and Power Management Leaf: level 0x00000006 (eax) */
-   910		if (c->cpuid_level >= 0x00000006)
-   911			c->x86_capability[CPUID_6_EAX] = cpuid_eax(0x00000006);
-   912	
-   913		/* Additional Intel-defined flags: level 0x00000007 */
-   914		if (c->cpuid_level >= 0x00000007) {
-   915			cpuid_count(0x00000007, 0, &eax, &ebx, &ecx, &edx);
-   916			c->x86_capability[CPUID_7_0_EBX] = ebx;
-   917			c->x86_capability[CPUID_7_ECX] = ecx;
-   918			c->x86_capability[CPUID_7_EDX] = edx;
-   919	
-   920			/* Check valid sub-leaf index before accessing it */
-   921			if (eax >= 1) {
-   922				cpuid_count(0x00000007, 1, &eax, &ebx, &ecx, &edx);
-   923				c->x86_capability[CPUID_7_1_EAX] = eax;
-   924			}
-   925		}
-   926	
-   927		/* Extended state features: level 0x0000000d */
-   928		if (c->cpuid_level >= 0x0000000d) {
-   929			cpuid_count(0x0000000d, 1, &eax, &ebx, &ecx, &edx);
-   930	
-   931			c->x86_capability[CPUID_D_1_EAX] = eax;
-   932		}
-   933	
- > 934		if (cpu_has(c, X86_FEATURE_HYBRID_CPU))
-   935			c->x86_cpu_type = cpuid_eax(0x0000001a);
-   936	
-   937		/* AMD-defined flags: level 0x80000001 */
-   938		eax = cpuid_eax(0x80000000);
-   939		c->extended_cpuid_level = eax;
-   940	
-   941		if ((eax & 0xffff0000) == 0x80000000) {
-   942			if (eax >= 0x80000001) {
-   943				cpuid(0x80000001, &eax, &ebx, &ecx, &edx);
-   944	
-   945				c->x86_capability[CPUID_8000_0001_ECX] = ecx;
-   946				c->x86_capability[CPUID_8000_0001_EDX] = edx;
-   947			}
-   948		}
-   949	
-   950		if (c->extended_cpuid_level >= 0x80000007) {
-   951			cpuid(0x80000007, &eax, &ebx, &ecx, &edx);
-   952	
-   953			c->x86_capability[CPUID_8000_0007_EBX] = ebx;
-   954			c->x86_power = edx;
-   955		}
-   956	
-   957		if (c->extended_cpuid_level >= 0x80000008) {
-   958			cpuid(0x80000008, &eax, &ebx, &ecx, &edx);
-   959			c->x86_capability[CPUID_8000_0008_EBX] = ebx;
-   960		}
-   961	
-   962		if (c->extended_cpuid_level >= 0x8000000a)
-   963			c->x86_capability[CPUID_8000_000A_EDX] = cpuid_edx(0x8000000a);
-   964	
-   965		init_scattered_cpuid_features(c);
-   966		init_speculation_control(c);
-   967	
-   968		/*
-   969		 * Clear/Set all flags overridden by options, after probe.
-   970		 * This needs to happen each time we re-probe, which may happen
-   971		 * several times during CPU initialization.
-   972		 */
-   973		apply_forced_caps(c);
-   974	}
-   975	
+   166	
+   167	bool arch_has_cpu_type(void)
+   168	{
+ > 169		return boot_cpu_has(X86_FEATURE_HYBRID_CPU);
+   170	}
+   171	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -302,14 +229,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202010031210.n1wgHIyU-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202010031335.mipFmh1T-lkp%40intel.com.
 
---IJpNTDwzlM2Ie8A6
+--zhXaljGHf11kAtnf
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICMvxd18AAy5jb25maWcAjFxLe9u20t73V+hJNz2Lpr4kavKdxwuIBCVUJMEAoCR7w8ex
+H4sICBsGeF8AAy5jb25maWcAjFxLe9u20t73V+hJNz2Lpr4kavKdxwuIBCVUJMEAoCR7w8ex
 lRyf+pIj223z778ZgBcAHKrtoq0wgwuBwcw7F/jHH36csdeXp4frl7ub6/v777Ov+8f94fpl
 fzv7cne///cslbNSmhlPhXkLzPnd4+tfv/z1Yd7M383ev/349uTnw82vs/X+8Li/nyVPj1/u
 vr5C/7unxx9+/CGRZSaWTZI0G660kGVj+M5cvLm5v378Ovtjf3gGvtnp2duTtyezn77evfzf
@@ -954,4 +881,4 @@ ARh1wSW4JHDnL3ZvPTVP6mzqqwIcCC/lDYyE0TR2/k0dqjwq/HBMJbeAQ9mPIdHTxzHCWavs
 WMeZ8FiFqbdFIjNQ8ibWSWW/m/iWzvlrbkFKC0GelfZrGtbOCTYSZYGAzTgxBOriSe0MAE/a
 MqDx7qWmjQGufdk+eew5CRLU3fv/AOwfPnIxIAIA
 
---IJpNTDwzlM2Ie8A6--
+--zhXaljGHf11kAtnf--
