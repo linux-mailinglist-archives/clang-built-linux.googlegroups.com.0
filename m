@@ -1,124 +1,101 @@
-Return-Path: <clang-built-linux+bncBCGN3SFZVUBRB6OC5D5QKGQEN3BFH4Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDCIDJ4RTAOBBZ4P5H5QKGQE6EOOFNI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43d.google.com (mail-wr1-x43d.google.com [IPv6:2a00:1450:4864:20::43d])
-	by mail.lfdr.de (Postfix) with ESMTPS id F2B34282D3E
-	for <lists+clang-built-linux@lfdr.de>; Sun,  4 Oct 2020 21:24:41 +0200 (CEST)
-Received: by mail-wr1-x43d.google.com with SMTP id 47sf865029wrc.19
-        for <lists+clang-built-linux@lfdr.de>; Sun, 04 Oct 2020 12:24:41 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601839481; cv=pass;
-        d=google.com; s=arc-20160816;
-        b=o65pVEi53LY133tSn/N9jkEHx75254d3csZxeKEoLW2W7mfldTP+BHJQO6OAjbEglO
-         ziOyyODOelf/JCa5eQuVEheVIRGDf5PrpHByMAsqxzpimCjAnvBWq3HTBL5Ab+Xc4uJ5
-         6S4S6vOXsvxV2/RK49XGtNP92pcBRk/BI5nICtK2DLpdzujHETmoZfvQ/viQ1TXQJrTw
-         ZM7wRdFpoLzqcUyTM7xnqDjL/KjtCDLtJuuC4aDKr1Bl3kalC3JNNU7BqcB/qYq+st2H
-         Mgpwcjfbp8pICrqQvzy/lGGO4kpgbtWRqFymD6nB/XEBvI3UYd/nslhcgINSqUet4DW8
-         RyrA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=D/7cUieQhPO9gFSK7slHn9cRYep9tAx6cfVGM5g+iDs=;
-        b=ZKSrPxHsxYTVQlRsvW/b1syGpYtARTGDGJouaO5dPri18jsvamghrJD8m/npT5wSTq
-         yjQajRGzeZyCi2UGxs1scT9pp3jEBko9KXuyCxOlVzBpiiHW0RdONa1F0QMGhnWN/Pa4
-         oubbeZ+j1YCFnSOZs434biP8XY+TUY6q/9+VlZI8mcEM6m10q7jG7/cki9I6W0Us2cGi
-         mIpkqtM+BOmMDIC+mSerqOnrg9h73Vq4dJMOB+RXtcutVV+k15izdfYZjyD6UlJ5wtcv
-         RzowAcZtO9nnZsx5leiqNAuAVY9cXyoDMPPVDA97xVtNz9daNCtAnCwnjF3d3NzPutFt
-         4zsg==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of mgorman@techsingularity.net designates 46.22.139.12 as permitted sender) smtp.mailfrom=mgorman@techsingularity.net
+Received: from mail-lj1-x23f.google.com (mail-lj1-x23f.google.com [IPv6:2a00:1450:4864:20::23f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3B162282DF1
+	for <lists+clang-built-linux@lfdr.de>; Mon,  5 Oct 2020 00:08:40 +0200 (CEST)
+Received: by mail-lj1-x23f.google.com with SMTP id h18sf905163ljc.12
+        for <lists+clang-built-linux@lfdr.de>; Sun, 04 Oct 2020 15:08:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:date:message-id:to:cc:subject:from:in-reply-to:references
+         :mime-version:content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=D/7cUieQhPO9gFSK7slHn9cRYep9tAx6cfVGM5g+iDs=;
-        b=Vy0gO3sQpGW9MTKgDuALXTWq0CZ3LJPTx9aMvgg3GjwzM2RYYeH1PuaQzfo3Kp+Nd4
-         SjUoYhylgMx1YcNk68YSrRctJLXi+iBqERCpUwEGTufTaqgVyK3pNPEZc1Sj2TJNqmzn
-         pvfV2YAur8yFIoJAYySAqYrSPZqDUUOiBJBMx0l3V2Ak1s7wR0HYrDoWWABDEaBB8/X0
-         3X4Gp02AdiC+mfx2gPRJEP569G1S2sMIghwpJApN8glwN/jx0HKvN2gqTyEqNZqgs2il
-         7AFOlbynB8qR+EY8X2x+f9b+bSjPSkdqAws0jW9psOS/nCNy4r57stxc1bZdZ5kdcmI0
-         yzWw==
+        bh=7FHqV7V7LsEtt10Wj/r0Oy2VMragiCD3M6PF0WQcdlQ=;
+        b=cOzeBixDqmVym7TLevaHUVu0RiWbNlViU+sDbGyhiIdum5jK2b/DFGii1Wf72BF52F
+         edMYnXzBkGD1Xukhc8vgZmp4t1VHUS2ctiEsD0oWXP23q+RD7WSWumSQ/a62IWr+M1CZ
+         YjHXIMSLicFtsCOwzE/eDH8YZ/+Mn5qha9VqGP17Fk172mja6/m/A2CNxs5BJZOGdQCt
+         hsUmgTksINfK9ybEphrAac7Is0G434mh1ReYEHpGeJocHMyz413llZfZzdNouSR5ZlCd
+         jffNbnI2q9IYcNWxx0U56Dv9ZerWFg6vJNENATg9PZ4SGPRQs5TaruGtdBBCVnmAbUT9
+         rXyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
+        h=sender:x-gm-message-state:date:message-id:to:cc:subject:from
+         :in-reply-to:references:mime-version:content-transfer-encoding
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=D/7cUieQhPO9gFSK7slHn9cRYep9tAx6cfVGM5g+iDs=;
-        b=aMh3k/kNjFmcmwDL6ybW6rEcyyB5o/rceG4aMaNHDhZCo8lauLux9bXJFqFr3b/voo
-         3XMHW42YqPm/YKIPL+1XNhFvkWXsbrN+RWw8zuJrKRK50biRdb0i5e35aSl7h7KLVEIv
-         03L8pkHfeCm7ld68Gs59RPrm0r9X/NKjsWmR2XDvqO1F1MqQ68IDZCUUm5vsxeEE4M1q
-         lqRCPzptuSOXdM/0U3QykjhbJfa2wz+vWUEhNRx0OFATWrOFyG4Y3Vy5/gSwGfkvWw3e
-         WtFHBsFJ/PkWVselySMt8uCs3EGrAbPhC58aIekP/GEN38d0L5dqsjltnzGCVjkJuXUk
-         S6QA==
+        bh=7FHqV7V7LsEtt10Wj/r0Oy2VMragiCD3M6PF0WQcdlQ=;
+        b=WI+OrM32oA6UshGT5dLsqvPAcFGdMcvG2OZ5xQq9rtNU0mukT9hK4oRHK2e7VHdyCi
+         lVrlCtyBCuK/2deXc08b+w47BwrsSkBVTryWs2To4C+PO4vAt34vDzSiF99bl+Lgd3I4
+         4jiYE2xlCT+yfe2alLT2ZN9BeptKSQWFNG52dHeJiE0IWsoiaEdTYyNMg+r/mtE7FYO2
+         NSj3Y4ueuY1PJj5rIjjiL3t2d2L1Cy0aPg3UW1YQzkCPjgSMAQ4bo64ykP2C+o/cYhDx
+         zTiaDIFQk55x6hTLXEHcQhQUeIEKu3wqo11dGD/9tEk9itWykzdCh9RUmZLDaKjDTrJX
+         Rg9A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5319BRAptauXARHs6vCdDUO94XdT3guQTZUGtX7CyBkQ4d199SJ1
-	o1iyOXNVNJtJvGb/H36mJM4=
-X-Google-Smtp-Source: ABdhPJzQ5T3oykxWIH8vdNVzscxIvYDbu/DyLGbRsV3alAzGCvJMGF3J+qZgMZFsEgFjX+mQEX6+vQ==
-X-Received: by 2002:adf:bbd2:: with SMTP id z18mr4790857wrg.166.1601839481731;
-        Sun, 04 Oct 2020 12:24:41 -0700 (PDT)
+X-Gm-Message-State: AOAM5321Y9vV6S9z3gFkpJEaYvVkkbGKr0dnICJaRAaQPTxHXA0UeRel
+	VRcOK/w0ogrQ1Ldh8ib54hY=
+X-Google-Smtp-Source: ABdhPJyyrrjpYb2i7clHMB3PBUT9uTBog30dyLB3QL9438xxEHsrOJYPxiwhNP8sYCF/sKOyKlAfgA==
+X-Received: by 2002:a19:54:: with SMTP id 81mr5006051lfa.465.1601849319722;
+        Sun, 04 Oct 2020 15:08:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:9e53:: with SMTP id h80ls3562209wme.1.canary-gmail; Sun,
- 04 Oct 2020 12:24:40 -0700 (PDT)
-X-Received: by 2002:a7b:cb81:: with SMTP id m1mr13879429wmi.140.1601839480872;
-        Sun, 04 Oct 2020 12:24:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601839480; cv=none;
+Received: by 2002:a2e:86c8:: with SMTP id n8ls779933ljj.1.gmail; Sun, 04 Oct
+ 2020 15:08:38 -0700 (PDT)
+X-Received: by 2002:a2e:86c7:: with SMTP id n7mr3566054ljj.229.1601849318665;
+        Sun, 04 Oct 2020 15:08:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601849318; cv=none;
         d=google.com; s=arc-20160816;
-        b=YBmDBqN4uwWG5NnOnKA+phWXWnNKP7L6V7oh5RClByzBqxViizIOtl0DQ9Er0VKkfz
-         v9eoi1Pa5MU8Y+BBCFiSD8ZBhHTz9bHelCW5q0MAHjrNtwDYDKEv8cagj77yMoyW30l1
-         K+1Z6Qu13F0NKiR7i8vsCxtfIZTPlp5ZR1140VXSkJ5Lf/fKVOTxS/auvIoRjC8gzzyJ
-         UY5u1OlRBcCE/Ho5pyuSa5x2oiDKup+7Uf9ltLZvbP8u4rdBsgM0p/cJbt99FoIGZuVq
-         xNFycFTOiLEPgFYszr13oAvFPi4Bp+DrdE7J7aLb35JY0xy5nyIg4FMGQDCwqgyu1Tal
-         jQ/g==
+        b=b7WqlmiE+5ijHrTiluQy8WAPVbMLs8SvsLIdq5cFVZIgRVXylwU0HoKtoESYRA9pIj
+         Bm/TQyHwDohrpxNyZK1H38Zv132C0ko6yB79EbEfHUxQwr8WQPkNewgyVw0uKohCioc5
+         o5eZojByDgSbU+9nlgHmmYsvqzYu7W7kHnf73Hl7sf8o1poQ6qtdf+OiMWBD2b+6Kzn+
+         2ASfGtuRcBASEtvyB2Gf5Vs9p+U/ux2Ee9G9MGI42HWN7ApiHYXkzsE7Rs+yLaHLlbn1
+         aG7m5kf4biPLwx3Ji9urhxXH0DHSnYoar/e3rKouvkzGsvPrv6qKLnN6E922gfkfK81K
+         9VbA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date;
-        bh=WhajYnONGWebAtA98v1coIWY19GSL100F9YocfIo//Y=;
-        b=pgMi6HpYjNWRoWFSM5NTKuM1TVgzbzqVooR9gaTceI2FzvrukgkufcDiZZFxnEdAGr
-         SYi5G6IHrdvRIF/sDxV5Jep/0T8+S1vkWYQBxge1ao5bY8DUsRiumwX7/eBhzxsLDpYY
-         tGcGt9kX7w7cqwic8383RaOGE6+nV5+HdjKxKApguX0tTUwJg/6bCa1xu5kQOB7ZH3t3
-         z205Wa0LPK2hdAqM30xD3AhLHiVVDpamKzv3Mb/xE05ZMTmTz2ZC33oyes3D9CU/hV8W
-         nxec/bGdiH+cu4Txmjn4Yda3OqFkBk50NMeEjOlNOcvVsx0NiszBrYg4fUIMN7yglNPO
-         CBWQ==
+        h=content-transfer-encoding:mime-version:references:in-reply-to:from
+         :subject:cc:to:message-id:date;
+        bh=7FHqV7V7LsEtt10Wj/r0Oy2VMragiCD3M6PF0WQcdlQ=;
+        b=bl3l507mFj7HxwLIyvTe8gJ1m8TTEMrrfGSKgJGYwlcDQlIRl+lHFxfzK5MGrvrs4J
+         sTKlV+8T+t6mZCSOxa5xuZe6A9PZf5KO7UDpfV0eXFDwafXaMRPk5xhJAX6AEcULHx+g
+         uKiU/5NU67OqZk/lALmw9gbN7XfeqisK9YM1wq/eaEddTBOzX7/R6wWhA2H7Rwdrq0L2
+         94KhQ93KbZRHea4wMzFroI7JTdeuIKg08awH7s3BLnfke0KpRCpXjjIHJRJH2GWRL59l
+         pHkPaN3kYg0x96ImE5A8rS+4eJ5dyMl1h4cO5ZmR0koIO0ClrEkNgTc29oMepSqvNv6Y
+         ZIKw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of mgorman@techsingularity.net designates 46.22.139.12 as permitted sender) smtp.mailfrom=mgorman@techsingularity.net
-Received: from outbound-smtp07.blacknight.com (outbound-smtp07.blacknight.com. [46.22.139.12])
-        by gmr-mx.google.com with ESMTPS id 72si35799wme.1.2020.10.04.12.24.40
+       spf=neutral (google.com: 2620:137:e000::1:9 is neither permitted nor denied by best guess record for domain of davem@davemloft.net) smtp.mailfrom=davem@davemloft.net
+Received: from shards.monkeyblade.net (shards.monkeyblade.net. [2620:137:e000::1:9])
+        by gmr-mx.google.com with ESMTPS id y17si264852lfg.2.2020.10.04.15.08.37
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Sun, 04 Oct 2020 12:24:40 -0700 (PDT)
-Received-SPF: pass (google.com: domain of mgorman@techsingularity.net designates 46.22.139.12 as permitted sender) client-ip=46.22.139.12;
-Received: from mail.blacknight.com (pemlinmail03.blacknight.ie [81.17.254.16])
-	by outbound-smtp07.blacknight.com (Postfix) with ESMTPS id 882E11C4E44
-	for <clang-built-linux@googlegroups.com>; Sun,  4 Oct 2020 20:24:40 +0100 (IST)
-Received: (qmail 16067 invoked from network); 4 Oct 2020 19:24:40 -0000
-Received: from unknown (HELO techsingularity.net) (mgorman@techsingularity.net@[84.203.22.4])
-  by 81.17.254.9 with ESMTPSA (AES256-SHA encrypted, authenticated); 4 Oct 2020 19:24:40 -0000
-Date: Sun, 4 Oct 2020 20:24:37 +0100
-From: Mel Gorman <mgorman@techsingularity.net>
-To: Lukas Bulwahn <lukas.bulwahn@gmail.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
-	Vlastimil Babka <vbabka@suse.cz>, Michal Hocko <mhocko@suse.com>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
-	kernel-janitors@vger.kernel.org, linux-safety@lists.elisa.tech
-Subject: Re: [PATCH] mm/vmscan: drop unneeded assignment in kswapd()
-Message-ID: <20201004192437.GF3227@techsingularity.net>
-References: <20201004125827.17679-1-lukas.bulwahn@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20201004125827.17679-1-lukas.bulwahn@gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: mgorman@techsingularity.net
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of mgorman@techsingularity.net designates 46.22.139.12 as
- permitted sender) smtp.mailfrom=mgorman@techsingularity.net
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 04 Oct 2020 15:08:37 -0700 (PDT)
+Received-SPF: neutral (google.com: 2620:137:e000::1:9 is neither permitted nor denied by best guess record for domain of davem@davemloft.net) client-ip=2620:137:e000::1:9;
+Received: from localhost (unknown [IPv6:2601:601:9f00:477::3d5])
+	(using TLSv1 with cipher AES256-SHA (256/256 bits))
+	(Client did not present a certificate)
+	(Authenticated sender: davem-davemloft)
+	by shards.monkeyblade.net (Postfix) with ESMTPSA id B2A4D12782289;
+	Sun,  4 Oct 2020 14:51:44 -0700 (PDT)
+Date: Sun, 04 Oct 2020 15:08:31 -0700 (PDT)
+Message-Id: <20201004.150831.1030602377050100130.davem@davemloft.net>
+To: trix@redhat.com
+Cc: thomas.petazzoni@bootlin.com, kuba@kernel.org,
+ natechancellor@gmail.com, ndesaulniers@google.com,
+ ezequiel.garcia@free-electrons.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] net: mvneta: fix double free of txq->buf
+From: David Miller <davem@davemloft.net>
+In-Reply-To: <20201003185121.12370-1-trix@redhat.com>
+References: <20201003185121.12370-1-trix@redhat.com>
+X-Mailer: Mew version 6.8 on Emacs 27.1
+Mime-Version: 1.0
+Content-Type: Text/Plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+X-Greylist: Sender succeeded SMTP AUTH, not delayed by milter-greylist-4.5.12 (shards.monkeyblade.net [2620:137:e000::1:9]); Sun, 04 Oct 2020 14:51:45 -0700 (PDT)
+X-Original-Sender: davem@davemloft.net
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 2620:137:e000::1:9 is neither permitted nor denied by best guess
+ record for domain of davem@davemloft.net) smtp.mailfrom=davem@davemloft.net
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,40 +108,29 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, Oct 04, 2020 at 02:58:27PM +0200, Lukas Bulwahn wrote:
-> The refactoring to kswapd() in commit e716f2eb24de ("mm, vmscan: prevent
-> kswapd sleeping prematurely due to mismatched classzone_idx") turned an
-> assignment to reclaim_order into a dead store, as in all further paths,
-> reclaim_order will be assigned again before it is used.
-> 
-> make clang-analyzer on x86_64 tinyconfig caught my attention with:
-> 
->   mm/vmscan.c: warning: Although the value stored to 'reclaim_order' is
->   used in the enclosing expression, the value is never actually read from
->   'reclaim_order' [clang-analyzer-deadcode.DeadStores]
-> 
-> Compilers will detect this unneeded assignment and optimize this anyway.
-> So, the resulting binary is identical before and after this change.
-> 
-> Simplify the code and remove unneeded assignment to make clang-analyzer
-> happy.
-> 
-> No functional change. No change in binary code.
-> 
-> Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+From: trix@redhat.com
+Date: Sat,  3 Oct 2020 11:51:21 -0700
 
-I'm not really keen on this. With the patch, reclaim_order can be passed
-uninitialised to kswapd_try_to_sleep. While a sufficiently smart
-compiler might be able to optimise how reclaim_order is used, it's not
-guaranteed either. Similarly, a change in kswapd_try_to_sleep and its
-called functions could rely on reclaim_order being a valid value and
-then introduce a subtle bug.
+> From: Tom Rix <trix@redhat.com>
+> 
+> clang static analysis reports this problem:
+> 
+> drivers/net/ethernet/marvell/mvneta.c:3465:2: warning:
+>   Attempt to free released memory
+>         kfree(txq->buf);
+>         ^~~~~~~~~~~~~~~
+> 
+> When mvneta_txq_sw_init() fails to alloc txq->tso_hdrs,
+> it frees without poisoning txq->buf.  The error is caught
+> in the mvneta_setup_txqs() caller which handles the error
+> by cleaning up all of the txqs with a call to
+> mvneta_txq_sw_deinit which also frees txq->buf.
+> 
+> Since mvneta_txq_sw_deinit is a general cleaner, all of the
+> partial cleaning in mvneta_txq_sw_deinit()'s error handling
+> is not needed.
+> 
+> Fixes: 2adb719d74f6 ("net: mvneta: Implement software TSO")
+> Signed-off-by: Tom Rix <trix@redhat.com>
 
--- 
-Mel Gorman
-SUSE Labs
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201004192437.GF3227%40techsingularity.net.
+Applied and queued up for -stable, thank you.
