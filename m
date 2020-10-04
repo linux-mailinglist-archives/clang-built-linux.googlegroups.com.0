@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBC27X66SWQMBB34X475QKGQEPIY5SUQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27X66SWQMBBIFW475QKGQEOAESOSA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
-	by mail.lfdr.de (Postfix) with ESMTPS id B13D2282ADC
-	for <lists+clang-built-linux@lfdr.de>; Sun,  4 Oct 2020 15:19:44 +0200 (CEST)
-Received: by mail-yb1-xb39.google.com with SMTP id k3sf7163876ybk.16
-        for <lists+clang-built-linux@lfdr.de>; Sun, 04 Oct 2020 06:19:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601817583; cv=pass;
+Received: from mail-vs1-xe3e.google.com (mail-vs1-xe3e.google.com [IPv6:2607:f8b0:4864:20::e3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id BEB90282B36
+	for <lists+clang-built-linux@lfdr.de>; Sun,  4 Oct 2020 16:24:33 +0200 (CEST)
+Received: by mail-vs1-xe3e.google.com with SMTP id k18sf125828vsm.4
+        for <lists+clang-built-linux@lfdr.de>; Sun, 04 Oct 2020 07:24:33 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601821472; cv=pass;
         d=google.com; s=arc-20160816;
-        b=uVQhplhUWkLdmd77d4FO7honi/sBqbO2cy2SZbFNk34/ng8LoNVlCAWYp/3CR4AtMs
-         N9uEs0utIGOcgOref2CzWYD6YeFMO9ad7zIBRTps2vAvzsj9556BjbB7zpnPtd6taeIK
-         GfASokj8OrZdLk4HKEpr6iL7amed25bCu7hzVm1crSypeblMKue0GvZZzXu1l1ouXSix
-         XHP5kqgYMynutQFyj1VZzx+fjY4QoTUUexQbypiv9D78KA33MbVPVLE2Q1yEJ43rRGXf
-         TjKz/kcmbOVSoWA+lqZCfglkODxhrZNMH2c39I1wD4++iun/M41lxqaQ2wCwPPOmpXof
-         Ow8w==
+        b=C032BzpaWceqLpTcNulYrzpodAsVw+DRc1px7r6kerfgS12Jz5VQzMIM4DcSZ/k4MJ
+         3udiU8kf7uPo73UwgJiLBheV3knIffrCqN27eU72VPjs+2kB3KjOfzlyDxsQ/RX2kRgf
+         TyLXxci6trqANEVh8h5vhnjpjQsIcDUXIZKgHoKx1wX7CMnX+9FWaIcbQBXzG4TqevPh
+         9/4fEiOGBQFcnyhvis86cj1bhc3nj2wmh0AsIEVoiaZKH9aC8Q9EKbE/aQgTi4ipD52r
+         QG06A6j7U7i2vgmKR/5zBUT4/wsUJcAIO9UVsrUFBAV8b6xWJpzEjLJQs4dFh+0YGBNB
+         kbrA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
          :mime-version:sender:dkim-signature;
-        bh=wDefXM0XD00IoK4jrwW6gwT3FLhAs9lnFekkxieWegI=;
-        b=DAgiGsc0IeOr0xuajhEHJoDaH1sYVBOYZuaU0cXzcXnM3DgAuOyhCo0Xs7diDuplKf
-         eLLR51nqxzc4LnDNh9/k5EQjvrnhPfwjNRUmgQm9hEIj5XwBic8Ge7O2Gld9s7iQESam
-         BT2j/9IfqVaduDlVyskYpXW+MAeEaDeMmFnz3b1S2qCoacnipJUUlJgLGDbfopHsLUlo
-         GQS2ksKwPpp2GJy2KWmC6iOgZ+a34GlNgXhChvkdEXRkp+B228O7oscHqqUpRhseLctr
-         8nWU1B7atK3kKzX0L//ZUtY2p3ewug9Y2wlioUa8XzhSakBRa2v7zJh9G6P2uxKT6Isv
-         gPEA==
+        bh=fjbo4jUkepCtzbFo+Y7xcbzWSaj+uQm2WExPmNnslH4=;
+        b=JKix4OkaOkW1QEZL/E37TGgVaWvHP3y0Ld9TXAoFDgEFZWeForz8hBEIagVH0WD/ep
+         Qiy5TntexHUaPZ/+va8IDQLJWcquEEt2RVE/t1I5WXBGvfBH8vYjW8zpSMb2kCvVnMj/
+         MaLi1ksGmDnQ9xuTIkL88Xv6xSJcj+OIixSbzfeAugqnOkE0w3swpFN02eQaCBwZuR3w
+         vY+UmTUcZuWmnBIWU99YBXP1upij005nzdptw1qL7LH7cfnNBYYjp04wFJOeLU4FtsTQ
+         BkX/BM1leETQx3dv4gfYN62RC76bdo9pAdpXudR1ZmMe8eIHynNgB0IXN00VeU48qtxm
+         q9GQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=DxtVaFWd;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=IA6xWNby;
        spf=pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,108 +35,99 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=wDefXM0XD00IoK4jrwW6gwT3FLhAs9lnFekkxieWegI=;
-        b=Ss8fyed2rXipYZd80xC4cNGQWnrH/BvyktUbIEzRs8SH6QWyYO/yLFDDyRDC0nuIb1
-         rbf912YzgEuY7U8waW5bPLT50Tyva3BkzFjbM5EZqwMxMmRBOPMpYHnsKYECXDCWEhmg
-         /GTSVMgb0OS9p0TQi2Vn7Brp9gh/MVvCVKY4DhxlUDoPbouLl0gt/wA9vaIeVZr59SWS
-         ixuE7DDj/mhbhEseQLkoW5DtYkBjWeE4RxBs7XL+l9fDCWdI1xk6w9z9PLfA+OfIroiM
-         3l6CVw6cvgJcEORns1YANrAnIETCqTMlLcLyRrwr+T5mHoKEh/m6RyQTKoD6z40wPTMJ
-         naqw==
+        bh=fjbo4jUkepCtzbFo+Y7xcbzWSaj+uQm2WExPmNnslH4=;
+        b=lYJbxNe1LXThp86Uhnsq3Nc8QL7+x8xGwnAy3Ws8SBU40qWwGt/8bxvSPf1IM80Nlw
+         413dFQbQPOfStfreJkt6emBfk467aFCU8tUXt0VJGlHvvk0NfK94vHSqppLCo4GBR8tm
+         aUfEELA+QC0eu4mrgVDUxxcv014x3OxZYnrB68KeLz5BOT2FNJxZJmDVaNaP5/48r2wN
+         KjGd++Abb7THiV0BREwXdDO4s9oI+W4sOYAii+NVW9rL2vou3+XB4On68bWOUi694L42
+         mPquoRnKrgFSpbat+sQhmyS6eRFMlwx7qdsOv9w2xS75Jp23otlbDTgO0SLz+pwo9DnU
+         +idA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
          :message-id:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=wDefXM0XD00IoK4jrwW6gwT3FLhAs9lnFekkxieWegI=;
-        b=JzMRMnyAdS2tfIxyPGGHF3fYRKpESkIX5QF2BENEce2oUCr+r+TC6da8ujnGz4MeDY
-         rYMK9os1EgKJIdnf8927DyUJ74JfKN9/GYw/J5sOTLT37Iqpm8iOzCi2QDV9VwpV5uVI
-         eIY9Iln1Fu3z/8Bey0Iy7o6R1FSITDaPyyBWigBYXqB0d/06fLVa0WoFxN9sGLgChgW0
-         nrSBjiRdIwnhdBH8H/f7bNl7xJUtVgSrIoMkEJq9pq6DHUx3FgdI88vwbbs6yUJri5a0
-         qIU2UACCrR7gERZ1x+dfjsRoZSBCYmK+biRju8zpvPEzc5MhwRUU6+5mKh1vwkx/IaFM
-         EzRg==
+        bh=fjbo4jUkepCtzbFo+Y7xcbzWSaj+uQm2WExPmNnslH4=;
+        b=H4orRAwI8xguZ96Xkmh4IUCCiP6LC1vXFdss3/FRCb/wGmSlKdJ6YyTZ57HN2kYuXG
+         8Eu7bzo/qS0sl0nnYpsj42WcYSAHGOge1Hhcy5w1fK7/S12mmH0/hnmyseTaZwlt41cM
+         1Dby6E/vMVuLI6SiC/+ncUP9PuWlB9H4IKJhFEvixRhOmdO+uB5D43YubbhwmrU9FXJ2
+         +FnTN2+DpB/ZdRynmfGq2QZyl8iuK2kd07BFRqEUfa8Jdlles8K2Q5w6IRDJ+bylGYl4
+         Tx3Q8WtdvlRX5EmlFtiTaTckUPUmZ6tO/SZ0KxjO2bKe8OojotADXnlFPAI/+y5BenS7
+         cvVw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532uLHlr3d2DqCUzEhtZywk83NECUbKeKySp6XF/0rZUxDhx2386
-	Wwx/NOyxvzegBYf45dLgOTQ=
-X-Google-Smtp-Source: ABdhPJzFO+XQZyUDAgu5TlVFaRJIlcE2OocgPWX2dlZ4u5L6UcbCbmCrEMBHD6FnOZd5y9hsGo359g==
-X-Received: by 2002:a25:3dc2:: with SMTP id k185mr13444313yba.469.1601817583508;
-        Sun, 04 Oct 2020 06:19:43 -0700 (PDT)
+X-Gm-Message-State: AOAM530SiswAaJx/UHHod6pDsPtDukEAUX7XFXa6sNYqIYTZ/CQIG1oa
+	PLRULTK5WI9jsJJH2RaYDZ0=
+X-Google-Smtp-Source: ABdhPJy7pc+IK1aJLR0Fs+wPWMTdDd/V/gvmBDa+seIWQfW2rI+GOwIHiyJC3zuifXL5meYduFegbw==
+X-Received: by 2002:a67:f3cb:: with SMTP id j11mr942280vsn.60.1601821472646;
+        Sun, 04 Oct 2020 07:24:32 -0700 (PDT)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:77c3:: with SMTP id s186ls2708826ybc.0.gmail; Sun, 04
- Oct 2020 06:19:42 -0700 (PDT)
-X-Received: by 2002:a25:ce81:: with SMTP id x123mr14156667ybe.445.1601817582906;
-        Sun, 04 Oct 2020 06:19:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601817582; cv=none;
+Received: by 2002:ab0:16c9:: with SMTP id g9ls434003uaf.6.gmail; Sun, 04 Oct
+ 2020 07:24:32 -0700 (PDT)
+X-Received: by 2002:ab0:3418:: with SMTP id z24mr4768575uap.78.1601821472122;
+        Sun, 04 Oct 2020 07:24:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601821472; cv=none;
         d=google.com; s=arc-20160816;
-        b=bjkCD2UAp4rhdrx4cq4N+6zOJ3GJAx7h5VNDAPZToA9b9RR64DeTUt8qiUVaSgTic0
-         I8LB+MeoDihc4bwUNDk2AdjlcktmYst5bheNWybnX8AEFUZiFiOKgeu78DXt2fFbVx36
-         DZWRjBIaBZxrYSjrDqOwU6YPx/jEMKPHMw0KjQODnNE13a0uefS6e1rX8e7fHH0n7BHk
-         47tHKylRbh8mBF8EKznZDsQRhWn3Zxa2rG+fvjjhKHyScRTYsNwQ1LrxD40NReALY5s1
-         I713bBDufJlX6WPOoAe25cIVDMxzbTYp8MmJ2Gri8T5YhlZgCRgDZ5CXQUiabTV+kMKQ
-         KWVg==
+        b=wufvdPZZULpeJcM3bdkMo1rOsfM5W1iGckdy8RyZGYtNsPYrI/aMFtAaEJOxKKr77O
+         U+KS1m4TeQapM3FlQaeaZIVgTla/Oqx6UpORB5Yd3Lyy5r2ChQXrgVYYUGMVVoZjsaIq
+         bv9HY+dZbT43/8MzerV8vmRUyWuCjW5w8TWxVExAoiaVDB3SKoZxvtcx3nz86oGJSzCl
+         3aDE3zc4gjZyAK20aKHc9vcBywGt9Syl2pJDX8kpe+WaakyAXfSgj+4/yt4o7Zcc/TMp
+         rJpgFE1L0/fYVh3UmlxbOGzMHO99xDnyH4c6Nt8xfcegGJq+qX21eZ9iK+dLVus9Clij
+         VoOA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=message-id:date:subject:cc:to:from:dkim-signature;
-        bh=rgrRP/YTXU8zDHHZah13pYSFtC6P1oYXhuKtk3thRRw=;
-        b=J7yahenbrIKhVwrlI/33P1z3JrsjKef3snUAQPEKt3BUpI9QBtG+OdcrSazeCeCLaT
-         pG4uKvWzFgXQNMXzgYvlG+L1OLYdGbM700JCaFNqCEM8wXKRV1QHOFV/sAR9pfuH76hL
-         H0TwQ8hqEkIP2HJpe3PD2NStVqxt1lYuWO82Kz20HgOzx5Q0dmUrwLA7uwj1gDTY8jB0
-         hb9Utw52Ay7VELb9J+YBvRED1qBBHEDj5PUjIC3NxhziCKr8rFkLzUK/NiQFBadkCzsZ
-         PNtQTeM51V8nbvoEVdEaE/Wvltr0jp6j+zUjspBniuv+u09iZsNFZx3Gaso14S0xDroL
-         D0Fg==
+        bh=ImS+DzrKsQVbgZPvAgl58XuPNm8KTHvfc5J8ftfxKXw=;
+        b=SulhRxTZYwWa+qm/bklHrGsIyFvV6h5/mYGarOA1z5QjiwwW61ITCy5tFXk9EJll1e
+         jHRb/RW71AixF3v2TD9qT6LvW/M4KZpbQDpj9kkx6e5wfh1HyZDmrlxN04CRM8fTyB8+
+         tf5aS/RiX/+eycBLtPOcHsTWgDQ+SstJY2qz3wiMJTjLauUsoY9M74eyZP4djTUVJWrA
+         0FQKCS4obfapYTWCOcvVvF46Ko+CSPINFeHGGUfn2rAJHLqU0faQ5eOok0vRQqUodc4Q
+         0F+lhayKX0wNmFjtxW/0Hc82vnCxAAJbjf6bokIV/gsdOAP7jyooi10tBz409B0JNpKm
+         ob+A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=DxtVaFWd;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=IA6xWNby;
        spf=pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id l203si338498ybf.0.2020.10.04.06.19.42
+        by gmr-mx.google.com with ESMTPS id y65si374260vkf.1.2020.10.04.07.24.32
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 04 Oct 2020 06:19:42 -0700 (PDT)
+        Sun, 04 Oct 2020 07:24:32 -0700 (PDT)
 Received-SPF: pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
 Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
  [209.85.219.69]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-1-ZT8zm58JPh29L4t2T7hsEw-1; Sun, 04 Oct 2020 09:19:41 -0400
-X-MC-Unique: ZT8zm58JPh29L4t2T7hsEw-1
-Received: by mail-qv1-f69.google.com with SMTP id w32so4060573qvw.8
-        for <clang-built-linux@googlegroups.com>; Sun, 04 Oct 2020 06:19:41 -0700 (PDT)
-X-Received: by 2002:ac8:4410:: with SMTP id j16mr10412017qtn.305.1601817580596;
-        Sun, 04 Oct 2020 06:19:40 -0700 (PDT)
-X-Received: by 2002:ac8:4410:: with SMTP id j16mr10411990qtn.305.1601817580275;
-        Sun, 04 Oct 2020 06:19:40 -0700 (PDT)
+ us-mta-433-0iJKgh3nNYOi2Cab0SV71A-1; Sun, 04 Oct 2020 10:24:30 -0400
+X-MC-Unique: 0iJKgh3nNYOi2Cab0SV71A-1
+Received: by mail-qv1-f69.google.com with SMTP id di5so4137428qvb.13
+        for <clang-built-linux@googlegroups.com>; Sun, 04 Oct 2020 07:24:30 -0700 (PDT)
+X-Received: by 2002:a05:620a:10a7:: with SMTP id h7mr2850458qkk.40.1601821469669;
+        Sun, 04 Oct 2020 07:24:29 -0700 (PDT)
+X-Received: by 2002:a05:620a:10a7:: with SMTP id h7mr2850439qkk.40.1601821469386;
+        Sun, 04 Oct 2020 07:24:29 -0700 (PDT)
 Received: from trix.remote.csb (075-142-250-213.res.spectrum.com. [75.142.250.213])
-        by smtp.gmail.com with ESMTPSA id w4sm2657150qtb.0.2020.10.04.06.19.37
+        by smtp.gmail.com with ESMTPSA id g12sm5292344qke.90.2020.10.04.07.24.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Oct 2020 06:19:39 -0700 (PDT)
+        Sun, 04 Oct 2020 07:24:28 -0700 (PDT)
 From: trix@redhat.com
-To: amitkarwar@gmail.com,
-	ganapathi.bhat@nxp.com,
-	huxinming820@gmail.com,
-	kvalo@codeaurora.org,
-	davem@davemloft.net,
-	kuba@kernel.org,
+To: john.johansen@canonical.com,
+	jmorris@namei.org,
+	serge@hallyn.com,
 	natechancellor@gmail.com,
-	ndesaulniers@google.com,
-	linville@tuxdriver.com,
-	nishants@marvell.com,
-	rramesh@marvell.com,
-	bzhao@marvell.com,
-	frankh@marvell.com
-Cc: linux-wireless@vger.kernel.org,
-	netdev@vger.kernel.org,
+	ndesaulniers@google.com
+Cc: linux-security-module@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Tom Rix <trix@redhat.com>
-Subject: [PATCH] wireless: mwifiex: fix double free
-Date: Sun,  4 Oct 2020 06:19:31 -0700
-Message-Id: <20201004131931.29782-1-trix@redhat.com>
+Subject: [PATCH] apparmor: fix error check
+Date: Sun,  4 Oct 2020 07:24:22 -0700
+Message-Id: <20201004142422.5717-1-trix@redhat.com>
 X-Mailer: git-send-email 2.18.1
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: trix@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=DxtVaFWd;
+ header.i=@redhat.com header.s=mimecast20190719 header.b=IA6xWNby;
        spf=pass (google.com: domain of trix@redhat.com designates
  216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
@@ -154,44 +145,55 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Tom Rix <trix@redhat.com>
 
-clang static analysis reports this problem:
+clang static analysis reports this representative problem:
 
-sdio.c:2403:3: warning: Attempt to free released memory
-        kfree(card->mpa_rx.buf);
-        ^~~~~~~~~~~~~~~~~~~~~~~
+label.c:1463:16: warning: Assigned value is garbage or undefined
+        label->hname = name;
+                     ^ ~~~~
 
-When mwifiex_init_sdio() fails in its first call to
-mwifiex_alloc_sdio_mpa_buffer, it falls back to calling it
-again.  If the second alloc of mpa_tx.buf fails, the error
-handler will try to free the old, previously freed mpa_rx.buf.
-Reviewing the code, it looks like a second double free would
-happen with mwifiex_cleanup_sdio().
+In aa_update_label_name(), this the problem block of code
 
-So set both pointers to NULL when they are freed.
+	if (aa_label_acntsxprint(&name, ...) == -1)
+		return res;
 
-Fixes: 5e6e3a92b9a4 ("wireless: mwifiex: initial commit for Marvell mwifiex driver")
+On failure, aa_label_acntsxprint() has a more complicated return
+that just -1.  So check for a negative return.
+
+It was also noted that the aa_label_acntsxprint() main comment refers
+to a nonexistent parameter, so clean up the comment.
+
+Fixes: f1bd904175e8 ("apparmor: add the base fns() for domain labels")
 Signed-off-by: Tom Rix <trix@redhat.com>
 ---
- drivers/net/wireless/marvell/mwifiex/sdio.c | 2 ++
- 1 file changed, 2 insertions(+)
+ security/apparmor/label.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/wireless/marvell/mwifiex/sdio.c b/drivers/net/wireless/marvell/mwifiex/sdio.c
-index 69911c728eb1..bde9e4bbfffe 100644
---- a/drivers/net/wireless/marvell/mwifiex/sdio.c
-+++ b/drivers/net/wireless/marvell/mwifiex/sdio.c
-@@ -2403,6 +2403,8 @@ static int mwifiex_alloc_sdio_mpa_buffers(struct mwifiex_adapter *adapter,
- 		kfree(card->mpa_rx.buf);
- 		card->mpa_tx.buf_size = 0;
- 		card->mpa_rx.buf_size = 0;
-+		card->mpa_tx.buf = NULL;
-+		card->mpa_rx.buf = NULL;
- 	}
+diff --git a/security/apparmor/label.c b/security/apparmor/label.c
+index e68bcedca976..6222fdfebe4e 100644
+--- a/security/apparmor/label.c
++++ b/security/apparmor/label.c
+@@ -1454,7 +1454,7 @@ bool aa_update_label_name(struct aa_ns *ns, struct aa_label *label, gfp_t gfp)
+ 	if (label->hname || labels_ns(label) != ns)
+ 		return res;
  
- 	return ret;
+-	if (aa_label_acntsxprint(&name, ns, label, FLAGS_NONE, gfp) == -1)
++	if (aa_label_acntsxprint(&name, ns, label, FLAGS_NONE, gfp) < 0)
+ 		return res;
+ 
+ 	ls = labels_set(label);
+@@ -1704,7 +1704,7 @@ int aa_label_asxprint(char **strp, struct aa_ns *ns, struct aa_label *label,
+ 
+ /**
+  * aa_label_acntsxprint - allocate a __counted string buffer and print label
+- * @strp: buffer to write to. (MAY BE NULL if @size == 0)
++ * @strp: buffer to write to.
+  * @ns: namespace profile is being viewed from
+  * @label: label to view (NOT NULL)
+  * @flags: flags controlling what label info is printed
 -- 
 2.18.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201004131931.29782-1-trix%40redhat.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201004142422.5717-1-trix%40redhat.com.
