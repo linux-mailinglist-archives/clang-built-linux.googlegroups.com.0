@@ -1,138 +1,129 @@
-Return-Path: <clang-built-linux+bncBC27X66SWQMBBOHZ5X5QKGQELP2EFJI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDJNHL5JSEOBBREW535QKGQEJ6R2IPQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
-	by mail.lfdr.de (Postfix) with ESMTPS id A92F528405A
-	for <lists+clang-built-linux@lfdr.de>; Mon,  5 Oct 2020 22:06:18 +0200 (CEST)
-Received: by mail-pj1-x1039.google.com with SMTP id bo4sf412893pjb.4
-        for <lists+clang-built-linux@lfdr.de>; Mon, 05 Oct 2020 13:06:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601928377; cv=pass;
+Received: from mail-lf1-x140.google.com (mail-lf1-x140.google.com [IPv6:2a00:1450:4864:20::140])
+	by mail.lfdr.de (Postfix) with ESMTPS id 14CB52841E6
+	for <lists+clang-built-linux@lfdr.de>; Mon,  5 Oct 2020 23:08:21 +0200 (CEST)
+Received: by mail-lf1-x140.google.com with SMTP id g7sf3252799lfh.20
+        for <lists+clang-built-linux@lfdr.de>; Mon, 05 Oct 2020 14:08:21 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601932100; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ijhWa6TZaEgozYugcvCWwOgO6xx3ZYgl5pKGSKSvI0QGXznQwHAvjFLme6wAys1UEH
-         yhrCy4lMY58O8CkJ3DIHZwGUKYKevETxlvafVWao1srmzIEhKi93eOxzSERe5QaaQ9Jy
-         Twypwwx7zt9u/93Rrh1nN1cR0Rhr0Tvg5LxPifUfc4dSnhvrSRaD/fGSkPy8EevvBcpd
-         Ls77xaBjBWGWk0bbr4WyYdUTCWApvJhSHrPF43QpT1ER3e1I8aVD7WmJesXEmKHOeH7Z
-         FAW3qOOS5xQU4BIKfE+vUF0C0rF1Q+ggClM92Qgz3/hPeK1D/fdkQ6+6HtDAQn1S+YId
-         ktVQ==
+        b=jrgNYF9uAGdrFwk6dOTFR8O+0uITgcdl4k7KjvgiXVZxexGnouOysV2u9pwotcGuD2
+         voYcjM2ZhEQqOZ+IYw4J+uJzQddqG3PzMuAiTdiGI9egi14WnKAxHA3yVtxyqhEyYktB
+         Mfqv3pFJ3aWWsaabKbfywYKZH1p2mZJqzbc9iIZhm2Te8kjaJ+8fx3EQkq/X/kwxXImP
+         fROlzgPBfajm2DE8bhVTjQEL21V8oCpwk4tENHtIsDlz9OFiSA03q8+9Rv0v43N5mk5B
+         EX+2TGNN+bNN/aPtmcyHYE/s6RE2PRIWT2os7qwhX5vymuuFuCHgWKuRqoPT9qhkGOmO
+         JnVQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=GLeDraJGDHDUSjtdD33qmHAm/9lqYN2hyNx4Etp1pXA=;
-        b=HvksFPkRdEf110nKXkKRgeemqi7ZXq5Oyn9fakWYdq22UcKPzScOEU0DO63kavmXm7
-         JpoYFdSoA3L/K3JQhU9icoPT95Q4rujCthAvu/6ISeiGmfpJvHLfZEOaFDAdea+7vSda
-         TD5TT4JKBWRN3Xynay+ut9XnWFC70449SpUBsqpyk/rLcIkdQGPPRiiZ3FZBD8cOCk9K
-         dKRjJZTT5/W4gHwcQDzkh15+wvZoNpmo5xF/5MncqaURG5cSescJJgJOwOfl4PGcggF5
-         +QfcB6y47ZZaJy6P/afX1BxFy3eEfcEI2MnanTvwKNbCYNMxieUAr4QgMKqtpbiFPYKN
-         WgwA==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=pTDOOlelqDJSNIeDOQViWM4O0XdQHz82uyUkOx1lnzw=;
+        b=jz9l6rsoXfkRO9PX5gQBV6n24AjNX/nF8rjEaQbr1kOICrVuQPtqrBOA4J2W7NqVG6
+         VJU/hdmdpTSAJyMxOh2qMDrrls87SmD3slREBgsM89su5f5ah01Y+UueD7E0Tzkz/xGo
+         PNwvyzslDy8ozXngelETM/DqF4s/DCLu+FymiECrxJm1mFQfsD6EVzEY/0VIbRFi1a6C
+         bVRd1M7vHcnNAddVqRkghwkXpE5qzancg94vgaP3c5L2TqS25jiQME8ygFixMinuTXeB
+         doR2QyRsaNSB2GHNZNk58b6In0xC26HcEd5xMM1vQCxIkBUsPetzV2TdHba1nVx+qo1i
+         5UaA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=ioTzZPJ+;
-       spf=pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       spf=pass (google.com: domain of andrew@lunn.ch designates 185.16.172.187 as permitted sender) smtp.mailfrom=andrew@lunn.ch
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=GLeDraJGDHDUSjtdD33qmHAm/9lqYN2hyNx4Etp1pXA=;
-        b=bWhX7EzGHiCAMfaknJSdeBxOS9Q3qTkjrRNYhQ3PlaFoFRTJZ4MoXejWiCquubk8P+
-         jfn7EzVJdQHb4IcNtYFvtK+hhFHX2Jd06SdlQ5VtZIanNrHmasnMx1Ls4wCVot76ST6o
-         3oEzXOdWQWAniH0RpCw0rbp0LONwW58oPhMO2IAmssLTMFUEc1BQvLBgDW8iKAex8mdL
-         sX9vNodoKb/9VLqVvGZSSc2wCGdrR6W8/ITu7ufDlmq15msupuCyxgh98DM+rUYHZ5FC
-         plSfpBf2DzT4K4S4VQ9g3c0+uCTo2MVNn/Qo7Es9wYYLrWZoilKScPlpeJg4bMS069mV
-         70sA==
+        bh=pTDOOlelqDJSNIeDOQViWM4O0XdQHz82uyUkOx1lnzw=;
+        b=ZRPFXABNiCtPQv6RGocWPrgc12KTgkj9hkYbqz8XPvm8YhCnH/NWjpM0eGhPVBoQip
+         2R2OCj8tAC839uv8CSjE0T+qZPlLjOGu5FY1hje8D9cXnN9utFi/l38w+1OURFJj5JhR
+         oVy9eTFDwRroV6xt4V04l87+R0dC/ILHBPwEb+6f9AgHwti+oD1wHFCn78+0gT3fzq6I
+         WEGLVHFZfxm3PCs0odl5lAzq7pk44E4V/TG07rR0zdwgTGvZ4R3RIwYsNopRPSmKW/q1
+         A+5e2JCbOI5X0GR1T0zYqnxK/c0EaeK/ESDXA40MJ+DsdvjLghDO/mbdcG++VTkttCAb
+         fqoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=GLeDraJGDHDUSjtdD33qmHAm/9lqYN2hyNx4Etp1pXA=;
-        b=eyyuJdF3jEh+gxLVuy8xkLJG/0M8vwdjbNLmOjcIdUHYJ3HAuXrARKE7rl0eeIGrV+
-         iTroFSZHUdVT+fdQzXfkqu/pSp5Ui6V7MnSwEzTMEaVws7+QsAehR8yP4zr0JuQwSHdw
-         53tDZFk5jzHddhk0NOQr4645PbTYUluLR3H3SkHomEhZPYRQXibcfEncMmKohLFGGyPz
-         zPBKt+QTUGQt+aGsK4/phXU/mt5tcl0S4AfJP9gPSZoUnJ3xJwwG9/wl7WBefn54Qd+U
-         /XgERHkwqdvIRJQEtDse3NuXkcHfQAYXqtfmFLxO0omaDi6NjOkMUiRik140t/bvXFsO
-         0xXw==
+        bh=pTDOOlelqDJSNIeDOQViWM4O0XdQHz82uyUkOx1lnzw=;
+        b=MjLgFfo7iEWRBgwgWhur9hEg6JmlNHVXZjsllED5hqKcS8GkTRRSK6vQJDJBokIS0j
+         lJRHV8ZaWFS3wdjb8sMYjf2LlcoBUN/ej2gUEH12S5k+JkyKyl9qmqozUXRXsdgU8bwL
+         U8TC3g/Q/Oy+pJcInBdlNSnfHGT2KShe7Jou3pgJiZTOcWzgRe5zNYNq4HEZfQDme9tQ
+         RTbo437hld85EMhDGba8VGZT4d3QVdOO6NWOh/8y7ywnMXHeygtSlaIXQrwadkl5zxrA
+         uPbUNpVrrcgSr1uTiXNUZEe8wqljY1p8VZHPiofCHOUr2C35ZoDf/QM86pb+nIuPthnz
+         QANQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5323Cx1kSk8U/Li5DOhxMhSNoX7WVelO/9mbxUJ9wv7puwiwujEt
-	wNTUntsyb2Ndnmd6lvJ/uKk=
-X-Google-Smtp-Source: ABdhPJxaeV7gn+CSPZ1XxhommHrXSE+BxibK2ZdDr7KJdjAbjkQiYcz5k4ENo0N96IS02yGGjRc3xg==
-X-Received: by 2002:a17:90b:384c:: with SMTP id nl12mr1117301pjb.166.1601928377081;
-        Mon, 05 Oct 2020 13:06:17 -0700 (PDT)
+X-Gm-Message-State: AOAM533JBYa+H6PiXJjcz+sJ1zxc7kE7IVkF7Bog0Q8fu+euC4q5CezY
+	KDlZ+8jwO6wn85e90ynLu48=
+X-Google-Smtp-Source: ABdhPJxo8TBJHHc6inrfk2Es2sQ78t78hRa8JUAQ5Hphz6F5TkDC2Lg5/z0pUm31y1W+olVyZVZeww==
+X-Received: by 2002:a2e:7c14:: with SMTP id x20mr549084ljc.252.1601932100537;
+        Mon, 05 Oct 2020 14:08:20 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:f993:: with SMTP id cq19ls405897pjb.0.gmail; Mon, 05
- Oct 2020 13:06:16 -0700 (PDT)
-X-Received: by 2002:a17:902:59cd:b029:d3:c592:b28b with SMTP id d13-20020a17090259cdb02900d3c592b28bmr156318plj.3.1601928376531;
-        Mon, 05 Oct 2020 13:06:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601928376; cv=none;
+Received: by 2002:a19:84c1:: with SMTP id g184ls891629lfd.3.gmail; Mon, 05 Oct
+ 2020 14:08:19 -0700 (PDT)
+X-Received: by 2002:a19:f102:: with SMTP id p2mr419464lfh.280.1601932099349;
+        Mon, 05 Oct 2020 14:08:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601932099; cv=none;
         d=google.com; s=arc-20160816;
-        b=VoW/Soh8JKQuUKOy0oeCo3LZ9HKHslj3S3OeebBPZIH5j8+IjKgjUSx/qTUTWUrfQU
-         7dCEgii1N/F+4Je3or9Z1sAU8lQl7m104UiM35b3G6/GkXdIzh4NMX67aX/PPfNaeHCx
-         3SxY5kJ7fyTaSo5LtZwXWXy5GX/KaLZeJMj8d5+bym8vWIxqDe1gMSPRFZh8G9jY9u1I
-         GpEJmQ8IKby6EQBX6BpzzoE0HhaWN/bn2w4YDVv7yP4PLk31lEhUebhJ1TF2DBvHRGxg
-         zPnLWdvvcMd5ERC2NTlcf5kCoTcVX0G3Ii7J5CC2BH5Jydrtenc6K0sostXeNm2Tp7+M
-         /FLg==
+        b=ZXekIK5Cxlq8jEa+n3qe+BAM5BBb7tr5Z2zVp4Vu4EMp/8osaWf3faadkh0UiNzVG1
+         lKHi5MIkBs2FZROxuoRURzo0j+f5h+jT/b/XTrzhhdYXD6/yu6sb2GpE3kYzM3uV5GR5
+         5jezeTB4/QpDg+v52oyfBXKo849nUiOFW7V6MbrPtnYnu3iNemREk9NOQrjxyP9LQR30
+         g51NIjv5CnUzhQdJodkPhG9z5xhT4qPEf5qAmYDZWg4GPts0lHHKlJnHXcH+uxDYbQvi
+         M3JQKP39UlxobuVJRnZX+SOmlBhsgdZh3IMFydJorlitIDcgkmwmezimnISImBEF2pAR
+         wSLQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-language:content-transfer-encoding:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=wIcXEegcZJSPDOHcaJJqfXgfOt3bkFzixxxHYSMoD0o=;
-        b=MmMy74DeqltQepAUz60bT2KlVg+WFoFf5Dvg+W8ex/CHgZtuXjiIMQD3uC3ffwcWDk
-         xxsd2no++nabqMpkuiW2f/2bzNbrIgV24HqFtxlIHD93rNPt79m8INW33UUIc5JDT9Wl
-         4VT13YbFzfHpu6+tsEvuBLdetmGs5+G4HGEFU8wOWmuox7Q6wUQxBSdWE+1AIZ3v0F63
-         2xj/mA492ucZOryiDAA0Ur6NV/AvDU17lZa9V+Xzw4RcWtWTzkRHUH471wywaT2hgYUe
-         kpDc7+ZH9L/OxABQpgjRvqAdVmQQzya47LiZUznBPxTja/ixu6xMvWPwDu0j7KAPl66N
-         crqw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date;
+        bh=K56DZXoJfR+F6LGGnKx2Qpji7Wph3EjIYj+weWqvO40=;
+        b=i66PQwrvt/lL31YCF1nEtCNzlYF8nmZlggdxDksTfddvcZ9ExMXIsTCl6DSI5jU1t2
+         uSi1GvvdJnllOYdb9EoJFEK4L4vdkhpTxovJzblvSCvJJRVy7v2Mwp7fN1DHjh9noP1E
+         HfxMsjxtr4RRz+NIvuukXQRd8d4LCyRWPrMbI8BHgNmb1errqcg4/sJicswG0783sJC/
+         b3qDE67qEor6jV8FiOD+4Tq/qa/+57/aZfTIDEffLJL+8Pin3vn+XnNzR9NW1bmt7HYO
+         xXvFqM/v0btgvu2YSnDV5IsItSEDKr0NzN3ctM1Xbxc8FuAhy00U8sHKBFvvpDtfayjD
+         LQgg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=ioTzZPJ+;
-       spf=pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id oc11si90903pjb.1.2020.10.05.13.06.16
+       spf=pass (google.com: domain of andrew@lunn.ch designates 185.16.172.187 as permitted sender) smtp.mailfrom=andrew@lunn.ch
+Received: from vps0.lunn.ch (vps0.lunn.ch. [185.16.172.187])
+        by gmr-mx.google.com with ESMTPS id q11si30865lfo.8.2020.10.05.14.08.18
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 05 Oct 2020 13:06:16 -0700 (PDT)
-Received-SPF: pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
- [209.85.219.72]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-291-rwL9smCDPXqFqjw_dr9RTw-1; Mon, 05 Oct 2020 16:06:11 -0400
-X-MC-Unique: rwL9smCDPXqFqjw_dr9RTw-1
-Received: by mail-qv1-f72.google.com with SMTP id h12so1466333qvk.22
-        for <clang-built-linux@googlegroups.com>; Mon, 05 Oct 2020 13:06:11 -0700 (PDT)
-X-Received: by 2002:a0c:a085:: with SMTP id c5mr1400839qva.30.1601928371157;
-        Mon, 05 Oct 2020 13:06:11 -0700 (PDT)
-X-Received: by 2002:a0c:a085:: with SMTP id c5mr1400816qva.30.1601928370846;
-        Mon, 05 Oct 2020 13:06:10 -0700 (PDT)
-Received: from trix.remote.csb (075-142-250-213.res.spectrum.com. [75.142.250.213])
-        by smtp.gmail.com with ESMTPSA id 198sm829560qki.117.2020.10.05.13.06.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 05 Oct 2020 13:06:09 -0700 (PDT)
-Subject: Re: [PATCH] net: mvneta: fix double free of txq->buf
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: clang-built-linux <clang-built-linux@googlegroups.com>
-References: <20201003185121.12370-1-trix@redhat.com>
- <CAKwvOdmQwumUuPEHV5D_aMVAbGuy03HmapNDH4KPj+28pi2_iA@mail.gmail.com>
-From: Tom Rix <trix@redhat.com>
-Message-ID: <71ab2b4c-626b-db9e-cc1f-7c31dcab55fb@redhat.com>
-Date: Mon, 5 Oct 2020 13:06:08 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Oct 2020 14:08:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of andrew@lunn.ch designates 185.16.172.187 as permitted sender) client-ip=185.16.172.187;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94)
+	(envelope-from <andrew@lunn.ch>)
+	id 1kPXiK-000H6F-Se; Mon, 05 Oct 2020 23:08:08 +0200
+Date: Mon, 5 Oct 2020 23:08:08 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	netdev <netdev@vger.kernel.org>, David Miller <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Michal Marek <michal.lkml@markovi.net>,
+	Rohit Maheshwari <rohitm@chelsio.com>,
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH net-next v2 1/2] Makefile.extrawarn: Add symbol for W=1
+ warnings for today
+Message-ID: <20201005210808.GE56634@lunn.ch>
+References: <20201001011232.4050282-1-andrew@lunn.ch>
+ <20201001011232.4050282-2-andrew@lunn.ch>
+ <CAKwvOdnVC8F1=QT03W5Zh9pJdTxxNfRcqXeob5_b4CXycvG1+g@mail.gmail.com>
+ <20201002014411.GG4067422@lunn.ch>
+ <CAKwvOdmdfwWsRtJHtJ16B0RMyoxUi1587OKnyunQd5gfwmnGsA@mail.gmail.com>
+ <20201005194913.GC56634@lunn.ch>
+ <CAK8P3a1qS8kaXNqAtqMKpWGx05DHVHMYwKBD_j-Zs+DHbL5CNw@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <CAKwvOdmQwumUuPEHV5D_aMVAbGuy03HmapNDH4KPj+28pi2_iA@mail.gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Original-Sender: trix@redhat.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=ioTzZPJ+;
-       spf=pass (google.com: domain of trix@redhat.com designates
- 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Content-Disposition: inline
+In-Reply-To: <CAK8P3a1qS8kaXNqAtqMKpWGx05DHVHMYwKBD_j-Zs+DHbL5CNw@mail.gmail.com>
+X-Original-Sender: andrew@lunn.ch
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of andrew@lunn.ch designates 185.16.172.187 as permitted
+ sender) smtp.mailfrom=andrew@lunn.ch
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,89 +136,19 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+> It depends a lot on what portion of the kernel gets enabled for W=1.
+> 
+> As long as it's only drivers that are actively maintained, and they
+> make up a fairly small portion of all code, it should not be a problem
+> to find someone to fix useful warnings.
 
-On 10/5/20 10:42 AM, Nick Desaulniers wrote:
-> Hey Tom,
-> Thanks for sending all of these fixes and using clang's static
-> analyzer.  If you're interested, you should check out our
-> bi-weekly-meeting, linked from https://clangbuiltlinux.github.io/.
-> We're skipping it this week due to LLVM dev conf
-> https://llvm.org/devmtg/2020-09/ (stop by the Linux kernel BoF if you
-> happen to be attending), so we'll be meeting next on the 21st of
-> October.
+Well, drivers/net/ethernet is around 1.5M LOC. The tree as a whole is
+just short of 23M LOC. So i guess that is a small portion of all the
+code.
 
-Nick,
-
-I will at the next bi-weekly.
-
-Thanks for reaching out,
-
-Tom
-
->
-> On Sat, Oct 3, 2020 at 11:51 AM <trix@redhat.com> wrote:
->> From: Tom Rix <trix@redhat.com>
->>
->> clang static analysis reports this problem:
->>
->> drivers/net/ethernet/marvell/mvneta.c:3465:2: warning:
->>   Attempt to free released memory
->>         kfree(txq->buf);
->>         ^~~~~~~~~~~~~~~
->>
->> When mvneta_txq_sw_init() fails to alloc txq->tso_hdrs,
->> it frees without poisoning txq->buf.  The error is caught
->> in the mvneta_setup_txqs() caller which handles the error
->> by cleaning up all of the txqs with a call to
->> mvneta_txq_sw_deinit which also frees txq->buf.
->>
->> Since mvneta_txq_sw_deinit is a general cleaner, all of the
->> partial cleaning in mvneta_txq_sw_deinit()'s error handling
->> is not needed.
->>
->> Fixes: 2adb719d74f6 ("net: mvneta: Implement software TSO")
->> Signed-off-by: Tom Rix <trix@redhat.com>
->> ---
->>  drivers/net/ethernet/marvell/mvneta.c | 13 ++-----------
->>  1 file changed, 2 insertions(+), 11 deletions(-)
->>
->> diff --git a/drivers/net/ethernet/marvell/mvneta.c b/drivers/net/ethernet/marvell/mvneta.c
->> index d095718355d3..54b0bf574c05 100644
->> --- a/drivers/net/ethernet/marvell/mvneta.c
->> +++ b/drivers/net/ethernet/marvell/mvneta.c
->> @@ -3397,24 +3397,15 @@ static int mvneta_txq_sw_init(struct mvneta_port *pp,
->>         txq->last_desc = txq->size - 1;
->>
->>         txq->buf = kmalloc_array(txq->size, sizeof(*txq->buf), GFP_KERNEL);
->> -       if (!txq->buf) {
->> -               dma_free_coherent(pp->dev->dev.parent,
->> -                                 txq->size * MVNETA_DESC_ALIGNED_SIZE,
->> -                                 txq->descs, txq->descs_phys);
->> +       if (!txq->buf)
->>                 return -ENOMEM;
->> -       }
->>
->>         /* Allocate DMA buffers for TSO MAC/IP/TCP headers */
->>         txq->tso_hdrs = dma_alloc_coherent(pp->dev->dev.parent,
->>                                            txq->size * TSO_HEADER_SIZE,
->>                                            &txq->tso_hdrs_phys, GFP_KERNEL);
->> -       if (!txq->tso_hdrs) {
->> -               kfree(txq->buf);
->> -               dma_free_coherent(pp->dev->dev.parent,
->> -                                 txq->size * MVNETA_DESC_ALIGNED_SIZE,
->> -                                 txq->descs, txq->descs_phys);
->> +       if (!txq->tso_hdrs)
->>                 return -ENOMEM;
->> -       }
->>
->>         /* Setup XPS mapping */
->>         if (txq_number > 1)
->> --
->> 2.18.1
->>
->
+	Andrew
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/71ab2b4c-626b-db9e-cc1f-7c31dcab55fb%40redhat.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201005210808.GE56634%40lunn.ch.
