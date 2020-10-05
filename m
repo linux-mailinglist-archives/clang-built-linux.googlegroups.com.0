@@ -1,146 +1,128 @@
-Return-Path: <clang-built-linux+bncBDS5JPEL3IIRBMEI5P5QKGQE36SVQDQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBUMN5P5QKGQEJ4TEBII@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1103F28307E
-	for <lists+clang-built-linux@lfdr.de>; Mon,  5 Oct 2020 08:58:57 +0200 (CEST)
-Received: by mail-wr1-x440.google.com with SMTP id d9sf3613165wrv.16
-        for <lists+clang-built-linux@lfdr.de>; Sun, 04 Oct 2020 23:58:57 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601881136; cv=pass;
+Received: from mail-lf1-x13b.google.com (mail-lf1-x13b.google.com [IPv6:2a00:1450:4864:20::13b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8858228309A
+	for <lists+clang-built-linux@lfdr.de>; Mon,  5 Oct 2020 09:10:10 +0200 (CEST)
+Received: by mail-lf1-x13b.google.com with SMTP id r6sf2867068lfn.12
+        for <lists+clang-built-linux@lfdr.de>; Mon, 05 Oct 2020 00:10:10 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601881810; cv=pass;
         d=google.com; s=arc-20160816;
-        b=06LCyezj8B7JabpPr3o//6E8EpBUoSY08ZJAAwUg8PpVKbOI+SCYhMlgrpB1NpZ9mj
-         WS+HKClSyV83/sDUy2FKHI0COPCHrjgZgOmIYfnV6KWj33ebJc9gZKT+Iaawfuzqwft6
-         0lfZ5Cy1pySSun71aLl2bTcJW68bXNxQSCoFKU2Fk03hok35SF1LxNLORmjfgvJi82Fq
-         /r1ncF15d3M2bnfKmrLg2FVI6c4H9NMz24PbToquwSH96+kDWv4JML81PCCgCtEdsXkx
-         BWD4Wi23d1esdmmPEkOFbTew6M7+yAZGay+RS/v7DjGMWPhwYX4oxhfw5NLR4atYjLea
-         7Nbg==
+        b=k73a2kyMOfnzNZJDCW3AujFaDex0vPlHsiCJQGx3OrTVDZBSIvXHJmAQdZNlolBrfH
+         laV3s19htEApUFNYrezBfjM+BlkPrNZYCguVcZnPOzx9QHNA0ZHCFDYhiGyZr22DAWUH
+         hPciSbl73P7vR/jptZHx+2YHk71PG26LnziXWCG035qEIYeFY4Tjp45liZn8Qiw6NywR
+         WWG71mplfvj+dlajN/LzX2kPOGxkby5VVe/GTgjWuQDUcrpS3aEDNtf8vyCwyW4VPu/m
+         DwsPDpjyFXnHSbCUrZcElEqi3xa5gPFU/YVtGGljJ+7GHc9Kk1tYsBqhTsRwkmZTxx+5
+         TtSg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :message-id:in-reply-to:subject:cc:to:date:from:sender
-         :dkim-signature:dkim-signature;
-        bh=UPbot1QikHP3L+I6bLAXQ8N1ZBqQi7E37WfnO5btbMc=;
-        b=blurNgNLOvnPDpYv8QCs1EUeS3FTxDGfHBgmpl5JHPm0JnMCqHE+0LV2jzWhCigGJ9
-         jLDi/n2WqOvQzQPFwEe/D2pGwFcLVyKlWqFkgTPpvppknN+IbJV6TJhfZNOKFXKKG2AA
-         zBDTzinItd241C/eUjeWkUCJKEpcnLg6aruZHJj0bhi636L9HoMFiYpHDfNeZJTgzNEu
-         qI4mAyoAbkyienZWJq8KsR388J0jZp8CZo/pJo2vBWl/Lv5pTHFlzE29kA1qXcpyEjlM
-         IVUH5QD5IGV0d5wSlnhc6rlaWMyuCJqlHnXstC/ctUBWqgrwGWuMNIQPH95Y/OC1EjDX
-         fyGA==
+         :message-id:in-reply-to:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=ZeELM0tJXN7+skIaRazfZJ07BX64HjPYgLYCHaS9GyE=;
+        b=oEYsjQLWhUaCrswpmV9DCKsxBe65SulfqW4T2FE3yt4hVd1nAIwW5pySn4RX+7/nz6
+         HBtp8TepBJwSW4NGeNFAiWWfzXe6JVE9KcyAzXqZQJgum43J+Aj4gTbvjXBsw/S/vx9N
+         +IqK6rkKLLoCS4VVy8dvwNja0cJc0NVmA0ggap7s3Ko/sk1z53eSkMAlCrj3Ohagl+Qm
+         BM01TKhjnuUgLwjSbhoA+aliFjnjBSRBZ+r3KXdG2KRte4ph3Z/KYiNZz/Mu2b/mnhJP
+         yfBZusoBilW3BDduuV21C5HRL8prbE667j1LNN503n4503+TcP1TePSpyyeuiIRLsw6t
+         UUTQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=mJKhyuUp;
-       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::542 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of mbenes@suse.cz designates 195.135.220.15 as permitted sender) smtp.mailfrom=mbenes@suse.cz
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:cc:subject:in-reply-to:message-id:references
+        h=sender:date:from:to:cc:subject:in-reply-to:message-id:references
          :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=UPbot1QikHP3L+I6bLAXQ8N1ZBqQi7E37WfnO5btbMc=;
-        b=q2gOyIJQ+belxKqTCYLhA3w6N6viW56n+Qb8TSLNW3A2LilZuLThnKxpQsDg47Ccxe
-         rL6LtZu+Mtpmhqc8sWWfbO4D1GP2Ij6HJvjd1TxWU8egSzr6KBiDVwLziAxTj7AlBZPK
-         6KxvFuKeJMBKtEHh6E9i3uBwg+9tnmKUklEUugKkuAGsDFpn9GhGDl6JQLqdMwSEuADD
-         SQPMrzIn04NG8Jpif3nF4/PR87I3InwE92TIdx73QPT+Zpok2Qm7jZ0vc07abuv79xgl
-         xKDkaTdXKoHPPbA7H+GbIWkF56riKwUne4HVRtEyjHtEJnuDESHpdyfk7f6E4pUrXi8l
-         hIgw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:date:to:cc:subject:in-reply-to:message-id:references
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=UPbot1QikHP3L+I6bLAXQ8N1ZBqQi7E37WfnO5btbMc=;
-        b=lLwh+lYVyfKgVMgffN9Py/m8LSuzA8meRpbucnq13jsSrYGSxWX8qRjpFEY/aBklwz
-         r6hAIOYk/zICRfYsvFgFfwmj+hy21smSqI7pICQDzeQrnhaYIu8QXLK2a8oUqNT3Qmi+
-         LAD72ACD6YRRQGkLeRa/LWKC3CQahJ/Dt58wzCnVVzE/XceQx8RnqNgx0//BTjcXcJrv
-         ElbbWW5avmdmnASwRwR4CuIf9GztGtOv5mAy6Gos2k24c5sazfrDWSYJSKySpO/ODh1k
-         S4wTcRsMxlmgXUb+iwhcsfHBQfene7/yGRD7dnN+bCRju239HrdkXG7JkPzn7Fljx2ua
-         targ==
+        bh=ZeELM0tJXN7+skIaRazfZJ07BX64HjPYgLYCHaS9GyE=;
+        b=slwSugos5ATXgbGrIcoKxyOMq4PhlMTI+Vf9ymWfeVPG6jV71cxLAwhZ50dmvFbi6l
+         milSlx0yTVr/yDyVUGhOl8WrMZA0M8kTD3BhhOWqw+uHYeDCLl9X5bmKVNKLGuJELZny
+         5i7KE2MgNUcD9z7Js79hzISD/VAXCHwnx41izqOwdN5LTmN6WnXols4soBWOogbCgo2E
+         uuUvls90n1JfWVvQ9YxXeTf2vgLKWLSwxNFwvWx4VAt7CUEQ8AwJUItYqr6G8JGxQIuS
+         /tE+WpEsJI/pcRPVJ9vTfDVTVqQ90Ylid+VpK9XEfmfPDnvXjOGuwbrmyBzhmDBwuZBA
+         FlXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:cc:subject:in-reply-to
+        h=sender:x-gm-message-state:date:from:to:cc:subject:in-reply-to
          :message-id:references:user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UPbot1QikHP3L+I6bLAXQ8N1ZBqQi7E37WfnO5btbMc=;
-        b=IKKDjUXNWh4CG8NgXtpFJH9P3pZaeEM137dBpleDBUdBFczjensMtVjryvWS3E0ohL
-         8r6/DMiJQHGM4CTLIHtkvOFVf3aFwoj43gNsMVFnGa0xCgZzxSy3CHjBS2jO26VWNeIw
-         BSBBi/SiqTDs9ED0v4IBUsJOC0XvY+S1v4HZV8Lm2NNm5KAxPjSHzTiDNBvvUO72V81J
-         0YUJjVzTCb1rtAsF2dv62X6RFO8i6ERwadaPNS+VQ8ERrhecf0G9KgjNUwsE69H3oCmz
-         k0Zz8Wb9ePbJWxIaxhR3cJTrHkoNT2IlkaEFAmV2X/6gbEHvMekxE9pHFYKusl+tHcOW
-         vb8Q==
+        bh=ZeELM0tJXN7+skIaRazfZJ07BX64HjPYgLYCHaS9GyE=;
+        b=P0xDDf6WydBbxqZEjst02sSyaJRXW1gbI1uuZh7mvowQs4zYaDvkNNOwxNHoNT1bMB
+         haCcyyIftnC4i60GRFIZpp90E1RKlKDowVPfsczbLbkAqLbp9CxIHpRJ1NcAI+1pC20M
+         GR5Jx1qroInUskdeVhHCcQnRrBWtHWiOdV89GK6LdhYR6LHPVUgGWvFjqRTkTZlBwdMs
+         S3Xys0dMiWXc1pCMgL/x0g2GWtu3NYogxxIsnNzc+aIDCM+jnB9aGVoV3wHKQCZW7ysB
+         jvxpxgP3wztT5FDzoyfnhNP3otW3ysOBoPLILJjWiWmwxadRqwNDu8Cx3cfMsj+olU0V
+         Hi8A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531nwOZMSQggok7AYWtA8RaqSLgOGjBZYA9dBQlecrcNQ0TEJ0IK
-	eMGQTqXBCM7h13XTPxhdwes=
-X-Google-Smtp-Source: ABdhPJzDou2UFrPvjcaPBG/bd/P6YDe3RG6psDQK+gxjxvMNfYSlaNEBNfs4fJ7wCZ7ismPdQ39jfA==
-X-Received: by 2002:a1c:7302:: with SMTP id d2mr16028674wmb.133.1601881136780;
-        Sun, 04 Oct 2020 23:58:56 -0700 (PDT)
+X-Gm-Message-State: AOAM533k9nQULVXTfeoMqdhgo06gLCf2pGYgWTEwYc931hvvGm1+/IZO
+	ko7soQPTATMWVQ5ubSxPK2o=
+X-Google-Smtp-Source: ABdhPJx20bGw783E4g5qud3UcqAT8uA2aTb2Zdur0ywZZdd2b8dZ+jz1c0Mqm7yEpEsFWW7TS82rNA==
+X-Received: by 2002:ac2:443a:: with SMTP id w26mr3418408lfl.435.1601881810093;
+        Mon, 05 Oct 2020 00:10:10 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:9986:: with SMTP id b128ls4197515wme.3.canary-gmail;
- Sun, 04 Oct 2020 23:58:55 -0700 (PDT)
-X-Received: by 2002:a1c:1bd1:: with SMTP id b200mr15862338wmb.171.1601881135826;
-        Sun, 04 Oct 2020 23:58:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601881135; cv=none;
+Received: by 2002:ac2:544e:: with SMTP id d14ls1726197lfn.2.gmail; Mon, 05 Oct
+ 2020 00:10:09 -0700 (PDT)
+X-Received: by 2002:a19:b4c:: with SMTP id 73mr3165087lfl.469.1601881809232;
+        Mon, 05 Oct 2020 00:10:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601881809; cv=none;
         d=google.com; s=arc-20160816;
-        b=Z7DafXe4yHWT7E6I8NbTyffJ9hJeobpKCR/pY5r30jzRf51XTwumRGbKR33eYqm0qi
-         SPKblSt7p/L+moLqQrnf7PNV7r9O5oT/DHDthofLUlWyL7QdLkU48ypVPyby2YctMdmA
-         Jwt6obATLluBvR3roKGT/jOPAll3e5FjolP963DU7cB4FXLxrVrtrBvBe788IM9+ZzJL
-         Kmxx/RZ14uFTaHgZRpswt6eDFrxvxWJ3dXcUXmj15L8DSXroL/nj42+sF12cVsb7Mq+0
-         5jaIQFIw1ioNqCcFNhq6ZoqFOOmVN5fy1ZSQSp8PQcFfEeC4Sa/dlJn4wOeuNB2jghL8
-         XTLw==
+        b=zEhQ6hhLvMDNJuMNqy86sjzVmidIo35mCKLactNVqfhf+b9uakiMFqg4aUiyn3qOXk
+         zeW/R6DAYNCVtYWw7tmG9n9xZoNv4B1woNTMIOshp8v1B/lL2G8nZAplbT/30TK9wIhN
+         ZbSeJGcP5E2bzynWPh3XCPjzvSuUZrPLiCdvwg4RWwLJk4XOC6C4ResTB+uHBp2+vJ0W
+         SDRmkYPAR9HMl1JujvwYA/JkalKO2Nj7/4/OOfEncRf0jtqdnaFXZ/MNrcVLBedUOFuM
+         jOUyK0UBpH4NpW7KFUE/u58M0cHY9oWi8vAHFLUuDYoijMiPEJHUPuT/T1ir30dTkyLT
+         VCfA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=mime-version:user-agent:references:message-id:in-reply-to:subject
-         :cc:to:date:from:dkim-signature;
-        bh=gRVfMn1y3J1C+vGuMZF2LipjcOOXpjH1BPs85qkeY9I=;
-        b=aMZ2kIg3vkZlO4GpTodaHrpY2HvWEJYKvP7X/4Q2H1iwFHMtIAPCX1g/h1L6WMN6JS
-         nt/ZefX7ABGCjxh9/I894ISQuVYH01qfSRfIKt7mJ/4vDgFmB4hthLZMgnx4QhZNwTk1
-         XCAOgjPjomLxSfuwM1IxZFSYO8hfhK3hbailBY9xtUTFfnlveilnSyBQSu+H6cfDGgTv
-         7CXPbnVucxd8mWFYYSbvEEzLBxYLhRvRuoePvrXmf9AINj+aPdTTwLzjoommiTotgEn1
-         uYAnH4KzyHck/opJfuleh0TtrVTjcz98R7kaL+G+B8mYqzLKPDrsJG532zkrs7ZWyty0
-         v+nQ==
+         :cc:to:from:date;
+        bh=98pKlkB3HRXcwp17Hhsuxn23D2uK7g0e8tVZt5HQvxg=;
+        b=kwlI6/28IrkZzUitYS1wevnyPCxXOn+nt8KLYJvIE+rhbGqTyb0WVqvlMg0910iUmi
+         CzxC7T0VtB+IV7645wB1IbhdtoyQo6/VK772Ppx1VZJzUg638ynFm5lxeKylY+45bQcD
+         Lu4CSr7fsRQSX3SxwCTMbZNeVyrOd3m37wBPqF/lUi3LtS5o3cqW00AubmgU1ndLImlN
+         t3y0TGs+ARNrmd5X3mkbfbfBls8Hqve3Uc98w9+3Xt8GNYO+zlO2RjCD/i4ediADhWlI
+         PAAjhXKISx/Ue7uOHGSGZi723/vh0hX7AgjKXLWugiyy+N1FSq7dlL/L81apXlFPdxeK
+         wYUw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=mJKhyuUp;
-       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::542 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ed1-x542.google.com (mail-ed1-x542.google.com. [2a00:1450:4864:20::542])
-        by gmr-mx.google.com with ESMTPS id 63si20940wrc.0.2020.10.04.23.58.55
+       spf=pass (google.com: domain of mbenes@suse.cz designates 195.135.220.15 as permitted sender) smtp.mailfrom=mbenes@suse.cz
+Received: from mx2.suse.de (mx2.suse.de. [195.135.220.15])
+        by gmr-mx.google.com with ESMTPS id e1si338242ljg.6.2020.10.05.00.10.09
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 04 Oct 2020 23:58:55 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::542 as permitted sender) client-ip=2a00:1450:4864:20::542;
-Received: by mail-ed1-x542.google.com with SMTP id cq12so4315995edb.2
-        for <clang-built-linux@googlegroups.com>; Sun, 04 Oct 2020 23:58:55 -0700 (PDT)
-X-Received: by 2002:aa7:d690:: with SMTP id d16mr7880545edr.301.1601881135466;
-        Sun, 04 Oct 2020 23:58:55 -0700 (PDT)
-Received: from felia ([2001:16b8:2dcc:7300:fc41:427:81ae:8ef0])
-        by smtp.gmail.com with ESMTPSA id a13sm200597edx.53.2020.10.04.23.58.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Oct 2020 23:58:54 -0700 (PDT)
-From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
-Date: Mon, 5 Oct 2020 08:58:53 +0200 (CEST)
-X-X-Sender: lukas@felia
-To: Mel Gorman <mgorman@techsingularity.net>
-cc: Lukas Bulwahn <lukas.bulwahn@gmail.com>, 
-    Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org, 
-    Vlastimil Babka <vbabka@suse.cz>, Michal Hocko <mhocko@suse.com>, 
-    Nathan Chancellor <natechancellor@gmail.com>, 
-    Nick Desaulniers <ndesaulniers@google.com>, linux-kernel@vger.kernel.org, 
-    clang-built-linux@googlegroups.com, kernel-janitors@vger.kernel.org, 
-    linux-safety@lists.elisa.tech
-Subject: Re: [PATCH] mm/vmscan: drop unneeded assignment in kswapd()
-In-Reply-To: <20201004192437.GF3227@techsingularity.net>
-Message-ID: <alpine.DEB.2.21.2010050831010.6202@felia>
-References: <20201004125827.17679-1-lukas.bulwahn@gmail.com> <20201004192437.GF3227@techsingularity.net>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 05 Oct 2020 00:10:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mbenes@suse.cz designates 195.135.220.15 as permitted sender) client-ip=195.135.220.15;
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.221.27])
+	by mx2.suse.de (Postfix) with ESMTP id 600D5AA55;
+	Mon,  5 Oct 2020 07:10:08 +0000 (UTC)
+Date: Mon, 5 Oct 2020 09:10:07 +0200 (CEST)
+From: Miroslav Benes <mbenes@suse.cz>
+To: Josh Poimboeuf <jpoimboe@redhat.com>
+cc: Peter Zijlstra <peterz@infradead.org>, 
+    Sami Tolvanen <samitolvanen@google.com>, 
+    Masahiro Yamada <masahiroy@kernel.org>, Will Deacon <will@kernel.org>, 
+    Steven Rostedt <rostedt@goodmis.org>, 
+    Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+    "Paul E. McKenney" <paulmck@kernel.org>, Kees Cook <keescook@chromium.org>, 
+    Nick Desaulniers <ndesaulniers@google.com>, 
+    clang-built-linux@googlegroups.com, kernel-hardening@lists.openwall.com, 
+    linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+    linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
+    linux-pci@vger.kernel.org, x86@kernel.org, jthierry@redhat.com
+Subject: Re: [PATCH v4 04/29] objtool: Add a pass for generating
+ __mcount_loc
+In-Reply-To: <20201002141303.hyl72to37wudoi66@treble>
+Message-ID: <alpine.LSU.2.21.2010050909510.12678@pobox.suse.cz>
+References: <20200929214631.3516445-1-samitolvanen@google.com> <20200929214631.3516445-5-samitolvanen@google.com> <alpine.LSU.2.21.2010011504340.6689@pobox.suse.cz> <20201001133612.GQ2628@hirez.programming.kicks-ass.net>
+ <20201002141303.hyl72to37wudoi66@treble>
+User-Agent: Alpine 2.21 (LSU 202 2017-01-01)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: lukas.bulwahn@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=mJKhyuUp;       spf=pass
- (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::542
- as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+X-Original-Sender: mbenes@suse.cz
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of mbenes@suse.cz designates 195.135.220.15 as permitted
+ sender) smtp.mailfrom=mbenes@suse.cz
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,81 +135,30 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Fri, 2 Oct 2020, Josh Poimboeuf wrote:
 
-
-On Sun, 4 Oct 2020, Mel Gorman wrote:
-
-> On Sun, Oct 04, 2020 at 02:58:27PM +0200, Lukas Bulwahn wrote:
-> > The refactoring to kswapd() in commit e716f2eb24de ("mm, vmscan: prevent
-> > kswapd sleeping prematurely due to mismatched classzone_idx") turned an
-> > assignment to reclaim_order into a dead store, as in all further paths,
-> > reclaim_order will be assigned again before it is used.
+> On Thu, Oct 01, 2020 at 03:36:12PM +0200, Peter Zijlstra wrote:
+> > On Thu, Oct 01, 2020 at 03:17:07PM +0200, Miroslav Benes wrote:
 > > 
-> > make clang-analyzer on x86_64 tinyconfig caught my attention with:
+> > > I also wonder about making 'mcount' command separate from 'check'. Similar 
+> > > to what is 'orc' now. But that could be done later.
 > > 
-> >   mm/vmscan.c: warning: Although the value stored to 'reclaim_order' is
-> >   used in the enclosing expression, the value is never actually read from
-> >   'reclaim_order' [clang-analyzer-deadcode.DeadStores]
-> > 
-> > Compilers will detect this unneeded assignment and optimize this anyway.
-> > So, the resulting binary is identical before and after this change.
-> > 
-> > Simplify the code and remove unneeded assignment to make clang-analyzer
-> > happy.
-> > 
-> > No functional change. No change in binary code.
-> > 
-> > Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+> > I'm not convinced more commands make sense. That only begets us the
+> > problem of having to run multiple commands.
 > 
-> I'm not really keen on this. With the patch, reclaim_order can be passed
-> uninitialised to kswapd_try_to_sleep. While a sufficiently smart
-> compiler might be able to optimise how reclaim_order is used, it's not
-> guaranteed either. Similarly, a change in kswapd_try_to_sleep and its
-> called functions could rely on reclaim_order being a valid value and
-> then introduce a subtle bug.
->
+> Agreed, it gets hairy when we need to combine things.  I think "orc" as
+> a separate subcommand was a mistake.
+> 
+> We should change to something like
+> 
+>   objtool run [--check] [--orc] [--mcount]
+>   objtool dump [--orc] [--mcount]
 
-Just for my own understanding:
+Yes, that makes sense.
 
-How would you see reclaim_order being passed unitialised to 
-kswapd_try_to_sleep?
-
-From kswapd() entry, any path must reach the line
-
-  alloc_order = reclaim_order = READ_ONCE(pgdat->kswapd_order);
-
-before kswap_try_to_sleep(...).
-
-Then it reads back the order into alloc_order and reclaim_order
-and resets pgdat->kswapd to 0.
-I argue that the second store to reclaim_order is not used.
-
-Path kthread_should_stop() is true:
-Then, it either exits and does not use those temporary values, 
-reclaim_order and alloc_order, at all.
-
-Path try_to_freeze() is true:
-It goes back to the beginning of the loop and repeats reading alloc_order 
-and reclaim_order after the reset to 0, and then passes that to 
-kswapd_try_to_sleep(...). Previous reclaim_order is not used.
-
-So, the previous store to alloc_order and reclaim_order is lost.
-(Is that intentional?) 
-
-Path try_to_freeze() is false:
-We call trace_mm_vmscan_kswapd_wake with alloc_order but not with 
-reclaim_order. reclaim_order is set by the return of balance_pgdat(...);
-So, the previous reclaim_order is again not used.
-
-The diff in the patch might be a bit small, but we are looking at the 
-second assignment after kswapd_try_to_sleep(...), not the first assignment 
-that just looks the same.
-
-
-Lukas
-
+Miroslav
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/alpine.DEB.2.21.2010050831010.6202%40felia.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/alpine.LSU.2.21.2010050909510.12678%40pobox.suse.cz.
