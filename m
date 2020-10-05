@@ -1,141 +1,127 @@
-Return-Path: <clang-built-linux+bncBAABBKGV5X5QKGQEHY2GAMQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDJNHL5JSEOBBTHR5X5QKGQE6XYXRXY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3c.google.com (mail-yb1-xb3c.google.com [IPv6:2607:f8b0:4864:20::b3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 80363283EFE
-	for <lists+clang-built-linux@lfdr.de>; Mon,  5 Oct 2020 20:49:13 +0200 (CEST)
-Received: by mail-yb1-xb3c.google.com with SMTP id f199sf10479681yba.12
-        for <lists+clang-built-linux@lfdr.de>; Mon, 05 Oct 2020 11:49:13 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601923752; cv=pass;
+Received: from mail-ed1-x540.google.com (mail-ed1-x540.google.com [IPv6:2a00:1450:4864:20::540])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9F082283FDE
+	for <lists+clang-built-linux@lfdr.de>; Mon,  5 Oct 2020 21:49:32 +0200 (CEST)
+Received: by mail-ed1-x540.google.com with SMTP id p3sf4360602edu.20
+        for <lists+clang-built-linux@lfdr.de>; Mon, 05 Oct 2020 12:49:32 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601927372; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YLbVIRRfzZOY5pErhYhFoD5n9/iibHlwjwF6nBD9iCuSmMGvsQfQIQfR1VtelTrzFy
-         j4klc6bvVzu/prSL2bsn3sz+GV+i7ZInsShECYTHr7xQho4BdTp5UQi4JNL0jaA5txv1
-         qatTz5mCJVgmAmxtUd72Ma1SVUSQ4y8nHQ92ey71wmSyMokfK5/Y2WIYxGFGTiGlZW96
-         mCpUhTykHmek54vbUZprXvv3I++/EqYnMSax6ALJjIY08Pf8Trm9NJBRZXgrN9wtu1gb
-         oDs3flRHJYMUwPyMSbgvv5ODa0TtDlaCV9BHYddGoph3u7qLdYlN7u6KqxC5snpdTwv/
-         nMBw==
+        b=rtct5MyNNSCRwAxja+PIPDzpP/4L70yzxDkYobc7IHZIgT3E+lfrgL5bw0z9IvP/HS
+         N8sWTVHedKo0OmP9h+T+V6AK740dX6lYQRm79F58rWP1L6J3QhNL1WOg7Ig2Nxu8VNY0
+         73JlD5JwbkJw/htkflc37jI3K0vGVxCJ9Qmza4zOKJ0HA/JQjN8MlMQAll4R7b8GdbIz
+         Ms9qoXrieQXYTLCahsgYzaV6FT9Q1h2YIU/XsMt7IHtTpXv41hXj83UKyFdnxRmz8HUN
+         XdHHPoUqKPvRibDV13d0U8cKpebvxlHiu6QIyjlnQqB2QNMrFHZ5UhxAjCCL7Y1kznnP
+         0e1w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:reply-to:message-id
-         :subject:cc:to:from:date:sender:dkim-signature;
-        bh=sFqCAf/OhW/KXKVEKgvTwm784NJWdXIwPiV6gI3aE9c=;
-        b=abpf4W6XLrX3xVGhr6/R8SGn4joEdvFrf5pwqeE1Es3PxOatVwJ9TIYD/5zl+u4VBp
-         RAmI/3paUohzWL3EDxNIjIgj7ddew41SqblbfXDg5VgREpNiJikFnoHS2X/v+L754wbM
-         vArazbfLe06gdadCtNu4dp0Raxs47zTL/z/73mmePTlA0dPcfXeX4iPDNgmX0T11dhsV
-         olHxOS8Y6geZxKAuvCZkl3RtdAple6by1dSHFgJOqukEw3afJ9dXoZz/SNO5YJlRxQWk
-         io7WGyHzSdYRQTQiPVTK2rD/7SisMGqHCdk5U48fRqLJ7ry8NDC40MPArMYtrv+PxUKF
-         3tUA==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=1nOSxignVPuzUcXhyJ7Y+cbwTwb/LjDOSxrJrnm9JD4=;
+        b=go1goNsGDMg2sNdu8avrLt1X5Z1E3hQ8bsFVQYstThwGGbNBVuYjoEYk8xQnJch9LV
+         EZJE+GR+iBSXemXNffjCYj7VcP0Ax+iPlnwN8z0f2YzMDIMKz+IpiBrJgq3uqAxbYSGp
+         hEYU+QrtY4vOT17S3TqPvkVaYnc3vsFlZZAAnuiuPvCaQVUnCjbSOe5OcA0jZvLfZ90j
+         2pCA53Gm9uc4Ok9txBSqIP6CsxjUVMPqDbJuAcHRNjza5WF0jX2oPdpe3y4GDKA5r55C
+         5P3YeZoRGHegwf+2DD5U8kw3qVDSi1L/+1z1V7lvZBX/saskQuDA99JesdL6OO4AM1mE
+         RSUw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=f8P0BfJ2;
-       spf=pass (google.com: domain of srs0=q8+s=dm=paulmck-thinkpad-p72.home=paulmck@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=Q8+S=DM=paulmck-ThinkPad-P72.home=paulmck@kernel.org";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of andrew@lunn.ch designates 185.16.172.187 as permitted sender) smtp.mailfrom=andrew@lunn.ch
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:reply-to:references
-         :mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=sFqCAf/OhW/KXKVEKgvTwm784NJWdXIwPiV6gI3aE9c=;
-        b=oJ+5LGMnaac5/JUm+e38bMlXC8nROP1WAfZYCLnbfHPXbYlTQKCWFBYVLdLYaz7HJ3
-         S9zZkJhNWRuPi5GMowj3KKUxulDulZreIoKYd77ZwaEyWef2FVRPrwIQnutyQbMZlMN1
-         wpDL+hB9Eh0kYWe2PLUHfKxLm2BPfuDg0TkdEnku2+7N5vii2r6t2lkNZSyPAqf4nJA5
-         o//6NF4ufo5TD+NdiZxsjKpXIFCcyfofCS+umWxdKlCK93at1rd8qTGkgke8BZ9xRPrj
-         AQVKxRifQSMa+hReZIyqhZedMaBqCUBK692dJt1j7wR7+rFTJtpOli22S1KwrPC4J/I/
-         ZSiw==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=1nOSxignVPuzUcXhyJ7Y+cbwTwb/LjDOSxrJrnm9JD4=;
+        b=gz4YHJlrYGmhlJj9a7Fc8xOmrWhEyV6PkGi3TshVXvjjuyWkfGGUI2cNM+qDBdzJ7d
+         Xv1aRSMHKDNtNID4qhxlpUU6LDIdLGYcnQ2JgH4bUr6JU7Cwby4jy2ziLYf6X9Ls8lYh
+         rRW/ktB+PyGO1kBFKUK72faMiA8yx5+I9oPIT8iN1CeZsFKlOATgVCuVTukws2VzBEF8
+         uCgEHbdQ/pmKFiOAmw+2NHRGlDaB3fo9arqlHz5SQHhAg7k4jUiEZnmlEjNkeqjbS4Os
+         8HdBSeAqScLVtqsG1Va4LF/x+GGD9PTJPDunBj1+GmOFGg+pLM18c6FgM0wSEMER63VW
+         LfHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :reply-to:references:mime-version:content-disposition:in-reply-to
-         :user-agent:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=sFqCAf/OhW/KXKVEKgvTwm784NJWdXIwPiV6gI3aE9c=;
-        b=dOdE9wY7cpziiF/N6JDkep/EUsW8eKuw7D5we/fIuf8ia7aquc6NjSZNiXM5SjL9BU
-         dlJO08TB6MDLhIMEhykBK5iO0GYTN4g34aPjekq1VpOw+fWjlDiQ2bnSmzdlmfmxff/1
-         KtulrWUvQsQMXkisJaztH1fIpasflKM/7N0R7Z6asZzckHbA2igrUF+E+V3ZBrw8Bbj9
-         jMIGpfzuHQ+NM/BuDcw8o/xmOdYIYOfNMAHXlPrvuXaJWZ4LDUrc3jvL0Ok75hsyUS7d
-         4ASTd8e6cemigc9ah9x4lxstVymLv4dXFNAXcZIzK8xxt+nzdOdkzO/CzWaSAR3lu+vp
-         3jeA==
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=1nOSxignVPuzUcXhyJ7Y+cbwTwb/LjDOSxrJrnm9JD4=;
+        b=P3PurObuUgbhU3M9pmzRJ6esu9UkPkk6E/mCA13s0F0p+3GLzBJcV1dSaRG1G1k9sA
+         qyu0wg9LiNjKE2Qpp5Go+Tm+zjzKPJYmwrwOcQTghzIBt8awCNDOFrRCaY9IrtS32u5o
+         ak+ajI+i7wpVM8Bj7Yfp8UlSyT01TyfAPbl9Ng74xxR++4GbhMkT6xTwekS7v6td8Jf1
+         0NHHM0xwRWy1NXC7l5SO1wWIeIeC+2tFw2QdnlMK+ZMFVIqd1Gj+wo7VTJ6RZOoT2Tw5
+         JhhtHl9Wv+DQOWVxYpBzaha2I83K8C9UGQYbg2o6EGQnXORVg+kPvvCZsGzUAMSJIVhb
+         VJUA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532xJvN8gv6gYfraE1/OIOPIxvf1+3x4sGM2Lsg7dGYu8hHKRhua
-	4FZQlEBvDULLNwM/d8T8lro=
-X-Google-Smtp-Source: ABdhPJwc0fmZboNXBxYyIXqVUrkcXUf4i/WC32hh3tBhwauHf15MerZGVLf20T86WOeHo8VYTthybQ==
-X-Received: by 2002:a25:868c:: with SMTP id z12mr1787766ybk.195.1601923752280;
-        Mon, 05 Oct 2020 11:49:12 -0700 (PDT)
+X-Gm-Message-State: AOAM533zTZW3SIErsA2x18dg5WHdLVNm/1s4rENwnzrEbZPNPLd9eWKZ
+	7GHJabhupGRASLfmWo6qsZA=
+X-Google-Smtp-Source: ABdhPJw+V1kYiN+OPLFU/QwoWLlx/rPdJ7H19VcMmpenB9s232ewi24gM+z1Mhg2IYDVz8BBabxmJg==
+X-Received: by 2002:a17:906:c2d2:: with SMTP id ch18mr1469179ejb.79.1601927372399;
+        Mon, 05 Oct 2020 12:49:32 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:20c6:: with SMTP id g189ls90893ybg.1.gmail; Mon, 05 Oct
- 2020 11:49:11 -0700 (PDT)
-X-Received: by 2002:a25:df09:: with SMTP id w9mr2092276ybg.109.1601923751770;
-        Mon, 05 Oct 2020 11:49:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601923751; cv=none;
+Received: by 2002:a05:6402:1d3c:: with SMTP id dh28ls6544110edb.0.gmail; Mon,
+ 05 Oct 2020 12:49:31 -0700 (PDT)
+X-Received: by 2002:aa7:c2d9:: with SMTP id m25mr1431687edp.226.1601927371434;
+        Mon, 05 Oct 2020 12:49:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601927371; cv=none;
         d=google.com; s=arc-20160816;
-        b=JUMmyoo4G8sEKjatn40s0UjnhDA/PBChbgXvVzp+au3oF5NaTqCoEJbbYrTnqh+Gbc
-         vJ7UFQ8rfAjYI6Ihao6I9HFy1QfyeOuWh5aWXomGZVQz/lAAazvFeyrJGSVqZnHOf58I
-         rTko2o3nawKbR1oNDjoy38lFg5hAwzll3IQkNoPj1njgRQIm1TbD4GlCF1sYabbl7pf+
-         r5AhU1f+AjUAsdjb4rSWcaXByectFKfx6FePKFIgiNYNXDnwDgNa8SMN+g6L+26wwK9F
-         ObtxDQOnYalWQC2fXN1cc7a+dTWrj0RAb/Pg02lIImkQHG9eO4rgFmnMR70lLh3Ez5EP
-         1jhg==
+        b=R/+K4ahshbzICBvvhsL0sfP27cCkWqhnFir99jxspOxcnOwyCN3qvqEora083Kp3wx
+         FTjlx8kXr8icsGPm+KTsq0HQ/SuhkFG9AofNWD+jxKLQCEX7YHpInWTCQ3BKnVoWxN2k
+         VASE6nfSRHQ+gyd3pAH1Cs344DmeUt6BDMXy17UxHDs5LMHkTxMNdCU8kIEbzd2w5LVt
+         6MoHf5klsk3nqh6Q2h72CHitH0dnDdhf3++rnDlxgjyhhKZ/gZGOPfm2bHfxh05TTLSS
+         OHUQMjTvWZI2ZAGZIAHeHF89xYv+HvsAYy7YM6Uu/LDcIwJE8xXFvMOZPPNLb1F2qocr
+         fVog==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :reply-to:message-id:subject:cc:to:from:date:dkim-signature;
-        bh=xDvorivGvlQ3Q9lt6Q8vid9LRa4lbr0moDasZB6Q1gY=;
-        b=iEcV7vA9iKkH48eVLDenci1cjCmWHMZXYTWpsSw+P2JkD4SBMOHYb76s/LN7+f6HhW
-         nwF+J+y3yyq8ONsDqQRSukkD8yWJsuANW55wklD57qWj1NNBh+0wchYjer0m7QmvShp5
-         tGOIzGOcby4vNSddZBEJEKOTNoi4gO3ai5MfxTy8GDa4wqUufWnpsgbxs+285ETIC+H3
-         8uuN3NTWcFFXJm7xq9yNWuV39suFWJ031UgFFBql8/Y9OwNSAYlhJiuMYOGAdD8vA5Zf
-         l7RrbKJELUHmkzAtpGM+ItuPm/71CvNPACdfv2Gn20Aqz16D2dLHvKdWvUW6UhQZKMaB
-         Cg+w==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date;
+        bh=+kBm9o8pce34jrmGlbOUE+ja6JJlr7Md6Vk5hnuRIcs=;
+        b=gwCbF8uRoTyp+LSHh8JiSZArP7XShpVvL9PfS2TRTXe9mJxhAsHg3pA3kpWBgatw/M
+         jS0zwh8nDBJnwIYg1jXSwY84ppL/MZHrG9/U9pCtZVNCFugTRB2awfb6/Ed2vRzIv8qd
+         dEgWP38RF104l7JRJ1T/+D3pXWCs7oGjGsJ49SbdYjNqWONyBaJA3fX6xM3rhrIF6dJA
+         15pLXgNcIyf5lWzkcC0dYJlkQ/YhDNd2MeMTfVkjSIcaycD03ZV9v9LjFHmIvZhGpTnh
+         c9NlyNJsW7UPIL6mIDLyfZJp44PI4Oa4rKFqWse9KehKhBgzv4sU/riHAI3A+phQG9Wm
+         9KJQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=f8P0BfJ2;
-       spf=pass (google.com: domain of srs0=q8+s=dm=paulmck-thinkpad-p72.home=paulmck@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=Q8+S=DM=paulmck-ThinkPad-P72.home=paulmck@kernel.org";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id s7si69310ybk.3.2020.10.05.11.49.11
+       spf=pass (google.com: domain of andrew@lunn.ch designates 185.16.172.187 as permitted sender) smtp.mailfrom=andrew@lunn.ch
+Received: from vps0.lunn.ch (vps0.lunn.ch. [185.16.172.187])
+        by gmr-mx.google.com with ESMTPS id dk15si30315edb.2.2020.10.05.12.49.31
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 05 Oct 2020 11:49:11 -0700 (PDT)
-Received-SPF: pass (google.com: domain of srs0=q8+s=dm=paulmck-thinkpad-p72.home=paulmck@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from paulmck-ThinkPad-P72.home (50-39-104-11.bvtn.or.frontiernet.net [50.39.104.11])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id A6ED820853;
-	Mon,  5 Oct 2020 18:49:10 +0000 (UTC)
-Received: by paulmck-ThinkPad-P72.home (Postfix, from userid 1000)
-	id 558E6352301E; Mon,  5 Oct 2020 11:49:10 -0700 (PDT)
-Date: Mon, 5 Oct 2020 11:49:10 -0700
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Sedat Dilek <sedat.dilek@gmail.com>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Kees Cook <keescook@chromium.org>,
-	LKML <linux-kernel@vger.kernel.org>, rcu@vger.kernel.org,
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Subject: Re: [PATCH v2] srcu: avoid escaped section names
-Message-ID: <20201005184910.GC29330@paulmck-ThinkPad-P72>
-Reply-To: paulmck@kernel.org
-References: <CAKwvOd=s+N4+X94sTams_hKn8uV5Hc6QyCc7OHyOGC-JFesS8A@mail.gmail.com>
- <20200929192549.501516-1-ndesaulniers@google.com>
- <20200930204044.GZ29330@paulmck-ThinkPad-P72>
- <CAKwvOd=nabONrWyYFK7Y06TrKBOyHHfNUiiy69VJQ2NtCpbp5Q@mail.gmail.com>
- <20201002205130.GK29330@paulmck-ThinkPad-P72>
- <CAKwvOdkPMSwQneMLFNg3ihM5zHorFy+uGvzAL7y70+hu_1q24w@mail.gmail.com>
- <CA+icZUW_z5nJ1c69JS7Nm1QknF+CH+sPkhF4g2+L=d=H-vxVgw@mail.gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Oct 2020 12:49:31 -0700 (PDT)
+Received-SPF: pass (google.com: domain of andrew@lunn.ch designates 185.16.172.187 as permitted sender) client-ip=185.16.172.187;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94)
+	(envelope-from <andrew@lunn.ch>)
+	id 1kPWTx-000GYT-76; Mon, 05 Oct 2020 21:49:13 +0200
+Date: Mon, 5 Oct 2020 21:49:13 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: netdev <netdev@vger.kernel.org>, David Miller <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Michal Marek <michal.lkml@markovi.net>,
+	Rohit Maheshwari <rohitm@chelsio.com>,
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH net-next v2 1/2] Makefile.extrawarn: Add symbol for W=1
+ warnings for today
+Message-ID: <20201005194913.GC56634@lunn.ch>
+References: <20201001011232.4050282-1-andrew@lunn.ch>
+ <20201001011232.4050282-2-andrew@lunn.ch>
+ <CAKwvOdnVC8F1=QT03W5Zh9pJdTxxNfRcqXeob5_b4CXycvG1+g@mail.gmail.com>
+ <20201002014411.GG4067422@lunn.ch>
+ <CAKwvOdmdfwWsRtJHtJ16B0RMyoxUi1587OKnyunQd5gfwmnGsA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CA+icZUW_z5nJ1c69JS7Nm1QknF+CH+sPkhF4g2+L=d=H-vxVgw@mail.gmail.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Original-Sender: paulmck@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=f8P0BfJ2;       spf=pass
- (google.com: domain of srs0=q8+s=dm=paulmck-thinkpad-p72.home=paulmck@kernel.org
- designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=Q8+S=DM=paulmck-ThinkPad-P72.home=paulmck@kernel.org";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+In-Reply-To: <CAKwvOdmdfwWsRtJHtJ16B0RMyoxUi1587OKnyunQd5gfwmnGsA@mail.gmail.com>
+X-Original-Sender: andrew@lunn.ch
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of andrew@lunn.ch designates 185.16.172.187 as permitted
+ sender) smtp.mailfrom=andrew@lunn.ch
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,104 +134,33 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Oct 05, 2020 at 08:38:42PM +0200, Sedat Dilek wrote:
-> On Mon, Oct 5, 2020 at 8:29 PM 'Nick Desaulniers' via Clang Built
-> Linux <clang-built-linux@googlegroups.com> wrote:
-> >
-> > On Fri, Oct 2, 2020 at 1:51 PM Paul E. McKenney <paulmck@kernel.org> wrote:
-> > >
-> > > On Wed, Sep 30, 2020 at 01:55:48PM -0700, Nick Desaulniers wrote:
-> > > > On Wed, Sep 30, 2020 at 1:40 PM Paul E. McKenney <paulmck@kernel.org> wrote:
-> > > > >
-> > > > > On Tue, Sep 29, 2020 at 12:25:49PM -0700, Nick Desaulniers wrote:
-> > > > > > The stringification operator, `#`, in the preprocessor escapes strings.
-> > > > > > For example, `# "foo"` becomes `"\"foo\""`.  GCC and Clang differ in how
-> > > > > > they treat section names that contain \".
-> > > > > >
-> > > > > > The portable solution is to not use a string literal with the
-> > > > > > preprocessor stringification operator.
-> > > > > >
-> > > > > > Link: https://bugs.llvm.org/show_bug.cgi?id=42950
-> > > > > > Fixes: commit fe15b50cdeee ("srcu: Allocate per-CPU data for DEFINE_SRCU() in modules")
-> > > > > > Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> > > > >
-> > > > > I am guessing that this needs to go up with other patches.  If so:
-> > > > >
-> > > > > Acked-by: Paul E. McKenney <paulmck@kernel.org>
-> > > > >
-> > > > > If not, let me know and I will queue it.
-> > > >
-> > > > I could have bundled them up as a series.  I think you can pick it up,
-> > > > and I'll owe you a beer?
-> > >
-> > > It is queued, thank you!
-> > >
-> > > When does it need to hit mainline?  (Your default is the v5.11 merge
-> > > window, that is, the one following the upcoming merge window.)
-> >
-> > No rush, this patch wasn't blocking any known issue, just a cleanup
-> > while I was in the neighborhood.  100 years ago, I was an Eagle scout.
-> > Pretty sure there was a motto about "leaving things better than you
-> > found them."  Thanks for help resolving the merge conflict reported in
-> > -next related to it.
-> 
-> Wasn't there a problem with your "Fixes:" tag (Fixes: *drop word
-> "commit"* commit_hashid ("...")?
+> Sorry, to be more specific about my concern; I like the idea of
+> exporting the W=* flags, then selectively applying them via
+> subdir-ccflags-y.  I don't like the idea of supporting W=1 as defined
+> at a precise point in time via multiple date specific symbols.  If
+> someone adds something to W=1, then they should need to ensure subdirs
+> build warning-free, so I don't think you need to "snapshot" W=1 based
+> on what it looked like on 20200930.
 
-Indeed there was, and I have it noted to be fixed on my next rebase.
+Hi Nick
 
-Perhaps another reason not to rush to mainline though.  ;-)
+That then contradicts what Masahiro Yamada said to the first version i
+posted:
 
-							Thanx, Paul
+https://www.spinics.net/lists/netdev/msg685284.html
+> With this patch series applied, where should we add -Wfoo-bar?
+> Adding it to W=1 would emit warnings under drivers/net/ since W=1 is
+> now the default for the net subsystem.
 
-> - Sedat -
-> 
-> > >
-> > >
-> > >                                                         Thanx, Paul
-> > >
-> > > > > > ---
-> > > > > > Changes V1->V2:
-> > > > > > * drop unrelated Kconfig changes accidentally committed in v1.
-> > > > > >
-> > > > > >  include/linux/srcutree.h | 2 +-
-> > > > > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > > > > >
-> > > > > > diff --git a/include/linux/srcutree.h b/include/linux/srcutree.h
-> > > > > > index 9cfcc8a756ae..9de652f4e1bd 100644
-> > > > > > --- a/include/linux/srcutree.h
-> > > > > > +++ b/include/linux/srcutree.h
-> > > > > > @@ -124,7 +124,7 @@ struct srcu_struct {
-> > > > > >  # define __DEFINE_SRCU(name, is_static)                                      \
-> > > > > >       is_static struct srcu_struct name;                              \
-> > > > > >       struct srcu_struct * const __srcu_struct_##name                 \
-> > > > > > -             __section("___srcu_struct_ptrs") = &name
-> > > > > > +             __section(___srcu_struct_ptrs) = &name
-> > > > > >  #else
-> > > > > >  # define __DEFINE_SRCU(name, is_static)                                      \
-> > > > > >       static DEFINE_PER_CPU(struct srcu_data, name##_srcu_data);      \
-> > > > > > --
-> > > > > > 2.28.0.709.gb0816b6eb0-goog
-> > > > > >
-> > > >
-> > > >
-> > > >
-> > > > --
-> > > > Thanks,
-> > > > ~Nick Desaulniers
-> >
-> >
-> >
-> > --
-> > Thanks,
-> > ~Nick Desaulniers
-> >
-> > --
-> > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> > To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkPMSwQneMLFNg3ihM5zHorFy%2BuGvzAL7y70%2Bhu_1q24w%40mail.gmail.com.
+The idea with the date stamps was to allow new warnings to be added to
+W=1 without them immediately causing warnings on normal builds. You
+are saying that whoever adds a new warning to W=1 needs to cleanup the
+tree which is already W=1 clean? That might have the side effect that
+no more warnings are added to W=1 :-(
+
+   Andrew
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201005184910.GC29330%40paulmck-ThinkPad-P72.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201005194913.GC56634%40lunn.ch.
